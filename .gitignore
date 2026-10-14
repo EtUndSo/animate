@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local render outputs
+output_images/
+output_videos/
+out.mp4
+out.png
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Node (for the web UI build, later)
+node_modules/
+dist/
