@@ -95,15 +95,15 @@ const TEMPLATES = {
   "Sine (drawn)": {
     objects: [
       { type:"Axes", props:{ x_range:[-6,6], y_range:[-2,2], x_length:12, y_length:5 } },
-      { key:"g", type:"FunctionGraph", props:{ func:"sin(x)", x_range:[-6,6], color:"#59a0eb", stroke_width:4 } },
+      { key:"g", type:"FunctionGraph", props:{ func:"sin(x)", x_range:[-6,6] } },   // style = current catalog defaults
     ],
     animations: [{ type:"Create", targetKey:"g", run_time:2.0 }],
   },
   "Parabola + point": {
     objects: [
       { type:"Axes", props:{ x_range:[-3,3], y_range:[-1,5], x_length:10, y_length:6 } },
-      { type:"FunctionGraph", props:{ func:"x**2", x_range:[-3,3], color:"#59a0eb", stroke_width:4 } },
-      { key:"p", type:"Dot", props:{ center:[1,1,0], radius:0.1, color:"#e03a2f", stroke_width:4, show_center:false } },
+      { type:"FunctionGraph", props:{ func:"x**2", x_range:[-3,3] } },
+      { key:"p", type:"Dot", props:{ center:[1,1,0] } },
     ],
     animations: [{ type:"GrowFromCenter", targetKey:"p", run_time:1.0 }],
   },
@@ -119,15 +119,15 @@ const TEMPLATES = {
   "Unit circle": {
     objects: [
       { type:"Axes", props:{ x_range:[-2,2], y_range:[-2,2], x_length:7, y_length:7 } },
-      { type:"Circle", props:{ center:[0,0,0], radius:1.0, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.15, stroke_width:5, show_center:true } },
+      { type:"Circle", props:{ center:[0,0,0], radius:1.0, fill_opacity:0.15, show_center:true } },   // thin fill + centre dot are the point here
     ],
   },
-  "Surface z=f(x,y) (3D)": {
-    camera: { mode:"3d", theta:0.6, phi:1.0 },
+  "Function f(x) (2D)": {              // replaces the former 3D Surface template (a plain 2D graph)
     objects: [
-      { type:"Axes", props:{ x_range:[-3,3], y_range:[-3,3], z_range:[-1.5,1.5], x_length:8, y_length:8, z_length:5 } },
-      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 } },
+      { type:"Axes", props:{ x_range:[-6,6], y_range:[-1.3,1.3], x_length:12, y_length:5 } },
+      { key:"g", type:"FunctionGraph", props:{ func:"exp(-x^2/8)*cos(3*x)", x_range:[-6,6] } },
     ],
+    animations: [{ type:"Create", targetKey:"g", run_time:2.5 }],
   },
   "3D solids": {
     camera: { mode:"3d", theta:0.6, phi:1.0 },
@@ -158,6 +158,18 @@ const TEMPLATES = {
         children:[ { type:"DecimalNumber", props:{ position:[0,1.9,0], font_size:32, color:"#111111", decimals:3, prefix:"Intersection area = " }, result:{ key:"area" }, visible:true } ] },
     ],
   },
+};
+
+// Shown once when the editor opens with no saved scene, so the user starts from a concrete 3D example
+// rather than an empty canvas. A surface z = sin(x)+cos(y), viewed in 3D. Only the resolution is pinned
+// (a moderate 24×24 = snappy greeting, not the heavy 64² default); all other styling comes from catalog
+// defaults via ensureDefaults.
+const START_EXAMPLE = {
+  camera: { mode:"3d", theta:0.6, phi:1.0 },
+  objects: [
+    { type:"Axes", props:{ x_range:[-5,5], y_range:[-5,5], z_range:[-3,3], x_length:8, y_length:8, z_length:5 } },
+    { type:"Surface", props:{ func:"sin(x)+cos(y)", adaptive:false, res_max:24 } },
+  ],
 };
 
 // Computations = OPERATIONS over objects, shown as animated processes. Each references existing
@@ -230,6 +242,8 @@ let orbitFn = null;                   // fast 3D re-aim (set after Pyodide boot)
 let zoomFn = null;                    // fast zoom repaint (set after Pyodide boot)
 let beginLodFn = null, endLodFn = null;   // enter/leave reduced-detail during camera moves
 let unprojFn = null, bboxFn = null, projFn = null;   // pixel<->world + object's screen bbox (move-gizmo + box)
+let nudgeFn = null;                   // fast object translate during a drag (no rebuild)
+let bgFn = null;                      // fast background recolour (theme toggle / bg picker, no rebuild)
 
 // ---------- model -> python ----------
 function hexToRgb(h){ const n=parseInt(h.slice(1),16); return [((n>>16)&255)/255,((n>>8)&255)/255,(n&255)/255]; }
@@ -588,6 +602,23 @@ const selected = () => (model.selectedId===BG_ID ? null : findNode(model.selecte
 // same kind (e.g. two function graphs) are automatically distinct. Text/LaTeX keep their colour (black).
 const AUTO_COLORS = ["#1f77b4","#e8820c","#2ca02c","#d62728","#9467bd","#17becf","#8c564b","#e377c2"];
 let autoColorIdx = 0;
+// Every colour an object currently uses (recursively) — so a COPY can be given one nobody else has.
+function usedColors(list=model.objects, acc=new Set()){
+  for(const o of list){ if(o.props && typeof o.props.color==="string") acc.add(o.props.color.toLowerCase()); if(o.children) usedColors(o.children, acc); }
+  return acc;
+}
+function freshColor(){
+  const used = usedColors();
+  return AUTO_COLORS.find(c=>!used.has(c.toLowerCase())) || AUTO_COLORS[autoColorIdx++ % AUTO_COLORS.length];   // all taken -> cycle
+}
+// Give a copied spec a colour no other element has (mirrors addObject's auto-colour). Text/LaTeX keep black.
+function recolorFresh(spec){
+  if(spec.type!=="Text" && spec.type!=="MathTex" && spec.props && typeof spec.props.color==="string"){
+    const c = freshColor(); spec.props.color = c;
+    if("fill_color" in spec.props) spec.props.fill_color = c;      // keep fill in step with the outline
+  }
+  return spec;
+}
 function addObject(type, defaults){
   const id = "o"+(nextId++);
   const props = structuredClone(defaults);
@@ -636,7 +667,7 @@ function deleteComputation(id){
 function duplicateObject(id){
   const list = parentListOf(id); if(!list) return;
   const i = list.findIndex(o=>o.id===id);
-  const copy = cloneSpec(list[i]);                             // all properties + children come along
+  const copy = recolorFresh(cloneSpec(list[i]));               // all properties + children come along; fresh colour
   list.splice(i+1, 0, copy);                                  // insert right after the original
   model.selectedId = copy.id;
   renderSceneObjs(); renderProps(); renderPreview();
@@ -779,9 +810,9 @@ function buildPalette(){
 }
 // Templates sorted by subject -> topic (shown as <optgroup>s).
 const TEMPLATE_GROUPS = {
-  "Mathematik · Analysis": ["Empty axes","Sine (drawn)","Parabola + point","Riemann approximation","Convolution f∗g (animated)"],
+  "Mathematik · Analysis": ["Empty axes","Sine (drawn)","Function f(x) (2D)","Parabola + point","Riemann approximation","Convolution f∗g (animated)"],
   "Mathematik · Geometrie": ["Unit circle","Intersection of two circles"],
-  "Mathematik · 3D": ["Surface z=f(x,y) (3D)","3D solids"],
+  "Mathematik · 3D": ["3D solids"],
 };
 function buildTemplates(){
   const sel=$("templates"); sel.innerHTML="";
@@ -882,7 +913,7 @@ function renderNumberList(container, c){
     const row=document.createElement("div"); row.className="prop";
     const l=document.createElement("label"); l.textContent="#"+(i+1); row.appendChild(l);
     const inp=document.createElement("input"); inp.type="number"; inp.step="1"; inp.value=v;
-    inp.oninput=()=>{ c.numbers[i]=parseInt(inp.value||"0",10)||0; renderPreview(); }; commitOnEnter(inp);
+    inp.onchange=()=>{ c.numbers[i]=parseInt(inp.value||"0",10)||0; renderPreview(); }; commitOnEnter(inp);
     row.appendChild(inp);
     const del=document.createElement("button"); del.textContent="✕"; del.title="Remove"; del.style="border:none;background:none;color:#ef4444;cursor:pointer";
     del.onclick=()=>{ c.numbers.splice(i,1); renderComputations(); renderProps(); renderPreview(); };
@@ -976,7 +1007,9 @@ function reorderAnimation(from, to){
   renderSceneAnims(); renderPreview();
 }
 function commitOnEnter(i){ i.addEventListener("keydown",(e)=>{ if(e.key==="Enter"){ e.preventDefault(); i.blur(); } }); }  // Enter = accept value + leave field
-function numberInput(value, on){ const i=document.createElement("input"); i.type="number"; i.step="0.1"; i.value=value; i.oninput=()=>on(parseFloat(i.value)); commitOnEnter(i); return i; }
+// Values commit on CHANGE (Enter -> blur, or clicking outside the field), NOT on every keystroke — so
+// typing a number no longer re-renders (and stutters) on each digit. onchange fires exactly once, on commit.
+function numberInput(value, on){ const i=document.createElement("input"); i.type="number"; i.step="0.1"; i.value=value; i.onchange=()=>on(parseFloat(i.value)); commitOnEnter(i); return i; }
 function propRow(key, inputEl){ const w=document.createElement("div"); w.className="prop"; const l=document.createElement("label"); l.textContent=key; w.appendChild(l); w.appendChild(inputEl); return w; }
 function propInput(obj,key,val){
   if(Array.isArray(val)){
@@ -987,7 +1020,7 @@ function propInput(obj,key,val){
   if(typeof val==="boolean"){ const i=document.createElement("input"); i.type="checkbox"; i.checked=val; i.onchange=()=>{ obj.props[key]=i.checked; renderPreview(); }; return propRow(key,i); }
   if(typeof val==="number") return propRow(key, numberInput(val, (x)=>{ obj.props[key]=x; renderPreview(); }));
   if(typeof val==="string" && val.startsWith("#")){ const i=document.createElement("input"); i.type="color"; i.value=val; i.oninput=()=>{ obj.props[key]=i.value; renderPreview(); }; return propRow(key,i); }
-  const i=document.createElement("input"); i.type="text"; i.value=val; i.oninput=()=>{ obj.props[key]=i.value; renderPreview(); }; return propRow(key,i);
+  const i=document.createElement("input"); i.type="text"; i.value=val; i.onchange=()=>{ obj.props[key]=i.value; renderPreview(); }; commitOnEnter(i); return propRow(key,i);
 }
 function renderProps(){
   renderObjectProps();        // -> Properties > Object
@@ -1008,7 +1041,7 @@ function renderObjectProps(){
     ti.onchange=()=>{ model.background.transparent=ti.checked; renderPreview(); };
     const ci=document.createElement("input"); ci.type="color"; ci.value=model.background.color;
     // no renderProps() here -> the colour dialog stays open, the picker circle can be moved freely
-    ci.oninput=()=>{ model.background.color=ci.value; if(model.background.transparent){ model.background.transparent=false; ti.checked=false; } renderPreview(); };
+    ci.oninput=()=>{ model.background.color=ci.value; if(model.background.transparent){ model.background.transparent=false; ti.checked=false; } if(!repaintBg()) renderPreview(); saveLocal(); };   // instant recolour, no rebuild
     const si=document.createElement("input"); si.type="checkbox"; si.checked=!!model.background.shadows;
     si.onchange=()=>{ model.background.shadows=si.checked; renderPreview(); };
     const ax=document.createElement("input"); ax.type="checkbox"; ax.checked=model.background.axes_on_top!==false;
@@ -1131,7 +1164,7 @@ function refreshMoveGizmo(){ _moveGizmoCache=_moveHandles(); drawMoveGizmoFromCa
 function _startAxisMove(h,e,spx,spy){
   const o=selected(); const keys=movablePosKeys(o); if(!keys.length) return;
   const startVals={}; for(const k of keys) startVals[k]=(o.props[k]||[0,0,0]).slice();
-  moveDrag={ o, keys, axis:h.axis, u:h.u, worldPerPx:h.worldPerPx, startVals, isWorld:WORLD_TYPES.has(o.type), s0:[spx,spy] };
+  moveDrag={ o, keys, axis:h.axis, u:h.u, worldPerPx:h.worldPerPx, startVals, isWorld:WORLD_TYPES.has(o.type), s0:[spx,spy], along:0, _alongPrev:0 };
   $("view").setPointerCapture(e.pointerId); $("view").style.cursor="grabbing";
 }
 function _applyAxisMove(cpx,cpy){
@@ -1141,9 +1174,20 @@ function _applyAxisMove(cpx,cpy){
   const comp = md.isWorld ? along : along/(k==="x"?s.x:k==="y"?s.y:s.z);   // -> data units for on-axes objects
   const d=[0,0,0]; d[k==="x"?0:k==="y"?1:2]=comp;
   for(const key of md.keys){ const sv=md.startVals[key]; md.o.props[key]=[ sv[0]+d[0], sv[1]+d[1], (sv[2]!=null?sv[2]:0)+d[2] ]; }
+  md.along=along;                                     // world distance since press (for the fast nudge)
 }
+// Re-render during a drag: translate the ALREADY-BUILT object by the incremental world delta (no scene
+// rebuild — so dragging a heavy mesh like a Sphere stays smooth; the full, authoritative rebuild happens
+// once on release). Falls back to a full rebuild only if the fast path isn't wired yet.
 function _moveRerender(){ if(_moveRAF) return; _moveRAF=requestAnimationFrame(()=>{ _moveRAF=0;
-  try{ renderModel(JSON.stringify(toPythonModel())); }catch(e){} refreshMoveGizmo(); }); }
+  const md=moveDrag; if(!md){ return; }
+  if(nudgeFn){
+    const av=md.axis.v, da=(md.along||0)-(md._alongPrev||0);     // world delta along the axis since last frame
+    if(da!==0){ try{ nudgeFn(md.o.id, av[0]*da, av[1]*da, av[2]*da); }catch(e){} md._alongPrev=md.along; }
+  } else {
+    try{ renderModel(JSON.stringify(toPythonModel())); }catch(e){}
+  }
+  refreshMoveGizmo(); }); }
 // "Ergebnisse" section: checkboxes for the results this object type offers (see RESULT_CATALOG).
 // Checking one adds a configurable DecimalNumber child placed near the object; the interpreter
 // fills in the computed value after the "symbol = formula = " prefix.
@@ -1488,6 +1532,8 @@ async function boot(){
   unprojFn = pyodide.globals.get("unproj");
   bboxFn = pyodide.globals.get("obj_screen_bbox");
   projFn = pyodide.globals.get("proj");
+  nudgeFn = pyodide.globals.get("nudge_object");
+  bgFn = pyodide.globals.get("set_background");
   // Canvas interaction: in 3D, drag = orbit the camera (fast repaint); a click without dragging
   // selects (pick). In 2D, a click selects. The mouse wheel zooms in/out in both modes.
   const VC_LIMIT = Math.PI/2 - 0.03;        // vertical orbit limit (both above and below the plane)
@@ -1534,7 +1580,7 @@ async function boot(){
   };
   canvas.onpointerup = (e)=>{
     clearTimeout(_holdTimer);
-    if(moveDrag){ moveDrag=null; canvas.style.cursor=moveHover?"grab":"default"; if(moved){ saveLocal(); renderProps(); } return; }
+    if(moveDrag){ moveDrag=null; canvas.style.cursor=moveHover?"grab":"default"; if(moved){ renderProps(); renderPreview(); } return; }   // one authoritative rebuild reconciles the live nudges
     if(dragging){
       dragging=false;
       if(moved){ exitLowDetail(); return; }       // orbited -> back to full detail
@@ -1557,13 +1603,10 @@ async function boot(){
   };
   initViewCube(); initCamGizmo();
   setStatus("Ready ✓ — add an element on the left, or click in the view.");
-  let restored=false;                  // restore the autosaved scene, else start with an axes
+  let restored=false;                  // restore the autosaved scene, else show the start example
   try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}
-  if(!restored){
-    // dark mode: a fresh scene starts on a soft grey (not glaring pure white); light mode stays white
-    if(document.documentElement.getAttribute("data-theme")!=="light") model.background.color="#d4d7dc";
-    addObject("Axes", OBJ_DEFAULTS["Axes"]);        // (OBJ_DEFAULTS is proof against catalog group renames)
-  }
+  if(!restored) loadTemplate(START_EXAMPLE);        // greet with a 3D surface (not an empty editor)
+  syncThemeBg(); renderPreview();                   // canvas bg follows the theme: grey by night, white by day
 }
 
 $("reset-btn").onclick = () => resetPlay();
@@ -1591,7 +1634,7 @@ document.addEventListener("keydown", (e)=>{
   if(tag==="INPUT" || tag==="SELECT" || tag==="TEXTAREA") return;      // don't hijack typing
   const mod = e.ctrlKey || e.metaKey;
   if(mod && e.key==="c"){ const o=selected(); if(o){ clipboard=cloneSpec(o); setStatus("Kopiert: "+o.type); } }
-  else if(mod && e.key==="v"){ if(clipboard){ const copy=cloneSpec(clipboard); model.objects.push(copy); model.selectedId=copy.id; renderSceneObjs(); renderProps(); renderPreview(); } }
+  else if(mod && e.key==="v"){ if(clipboard){ const copy=recolorFresh(cloneSpec(clipboard)); model.objects.push(copy); model.selectedId=copy.id; renderSceneObjs(); renderProps(); renderPreview(); } }
 });
 
 // ---------- Export: Photo (image) + Animation (video), each with a format dropdown (▾) ----------
@@ -1686,7 +1729,29 @@ function _buildExportMenu(menuId, formats, supported, onPick){
   document.addEventListener("click", ()=> document.querySelectorAll(".export-menu.open").forEach(x=>x.classList.remove("open")));
 })();
 
-// Day/night theme switch (night is the default). The saved theme is applied before paint by a tiny
+// Canvas (editor window) background follows the theme: WHITE by day, a soft GREY by night. We only
+// auto-switch when the background is still at the OTHER theme's default — a custom colour the user picked
+// is left untouched (and a transparent background stays transparent).
+const THEME_BG = { light:"#ffffff", dark:"#d4d7dc" };
+function syncThemeBg(){
+  if(model.background.transparent) return false;
+  const dark = document.documentElement.getAttribute("data-theme")!=="light";
+  const want = dark ? THEME_BG.dark : THEME_BG.light;
+  const other = dark ? THEME_BG.light : THEME_BG.dark;
+  const cur = (model.background.color||"").toLowerCase();
+  if(!cur || cur===other.toLowerCase()){ model.background.color=want; return true; }   // still a default -> follow theme
+  return false;
+}
+// Repaint ONLY the backdrop colour (no scene rebuild) — instant theme/bg-colour switching. Falls back
+// to a full renderPreview if the fast path isn't wired yet.
+function repaintBg(){
+  if(!bgFn) return false;
+  const bg = model.background.transparent ? null : hexToRgb(model.background.color);
+  try{ bgFn(JSON.stringify(bg)); }catch(e){ return false; }
+  return true;
+}
+
+// Day/night theme switch (day is the default). The saved theme is applied before paint by a tiny
 // inline script in the <head>; here we wire the toggle button and keep its icon in sync.
 (function themeToggle(){
   const btn=$("theme-toggle"); if(!btn) return;
@@ -1695,6 +1760,9 @@ function _buildExportMenu(menuId, formats, supported, onPick){
     if(light) document.documentElement.removeAttribute("data-theme");
     else document.documentElement.setAttribute("data-theme","light");
     try{ localStorage.setItem("animate-theme", light?"dark":"light"); }catch(e){}
+    syncThemeBg();                                   // canvas bg: white by day, grey by night
+    if(!repaintBg()) renderPreview();                // INSTANT recolour (no rebuild); fallback = full render
+    saveLocal();
   };
 })();
 

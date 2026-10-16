@@ -9,25 +9,31 @@
 <!-- MathJax SVG output (fontCache:'none' inlines glyph <path>s) -> we vectorise them into VMobjects -->
 <script>window.MathJax={svg:{fontCache:'none'},tex:{packages:{'[+]':['color']}},startup:{typeset:false}};</script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
-<!-- apply the saved theme before first paint (NIGHT is the default) -> no flash -->
-<script>try{if(localStorage.getItem("animate-theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<!-- apply the saved theme before first paint (DAY is the default) -> no flash -->
+<script>try{if(localStorage.getItem("animate-theme")!=="dark")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <style>
-  /* NIGHT is the default (:root). Light theme via <html data-theme="light">. Palette follows dark-mode
+  /* DAY is the default (applied as data-theme="light" unless the user saved "dark"). The dark tokens
+     live on :root so the light overrides stay a small, explicit set. Palette follows dark-mode
      best practice: stepped, slightly blue-grey surfaces (not pure black), off-white text, one shared
      blue accent across both modes (Material/Radix/Tailwind-slate inspired). */
-  /* Shared EtUndSo brand palette (science/tech): deep navy surfaces + a cyan/teal accent. Same tokens
-     as the landing page so editor and site match. Night = default. */
+  /* Shared EtUndSo brand palette (science/tech): deep navy surfaces + a blue accent. Same tokens
+     as the landing page so editor and site match. Day = default. */
   /* --s1/--s2/--s3 = stepped ELEVATION surfaces: deeper nesting = lighter (in dark mode). */
-  /* brand: red #d11010, dark blue #322d58, lighter blue = the CTA/accent. Night = blue surfaces with
+  /* brand: red #E11D48, dark blue #322d58, lighter blue = the CTA/accent. Night = blue surfaces with
      WHITE text (high contrast); boxes have a background, selected lighter, subboxes slightly lighter. */
   :root{--bg:#171430;--panel:#322d58;--field:#4a4480;--sel:#554d90;--border:#4d477e;
         --s1:#322d58;--s2:#3d3768;--s3:#484178;
-        --ink:#ffffff;--muted:#d3d7ea;--hint:#a7adcb;--accent:#4f9cff;--accent2:#d11010;--accent3:#f59e42;--green:#3fb950;}
+        --ink:#ffffff;--muted:#d3d7ea;--hint:#a7adcb;--accent:#4f9cff;--accent2:#E11D48;--accent3:#f59e42;--green:#3fb950;}
   :root[data-theme="light"]{--bg:#f4f7fb;--panel:#ffffff;--field:#ffffff;--sel:#e4eefb;--border:#dde4ec;
         --s1:#ffffff;--s2:#f1f5fb;--s3:#e8f0f9;
-        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#d11010;--accent3:#e07b10;--green:#16a34a;}
+        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#E11D48;--accent3:#e07b10;--green:#16a34a;}
   *{box-sizing:border-box;}
   body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);}
+  /* Native form controls DON'T inherit colour — without this they render BLACK text (invisible on the
+     dark night surfaces). Force the theme ink on every control + dropdown option. Buttons that set their
+     own colour (the white header/accent buttons) override this via higher specificity and stay white. */
+  select,input,button,textarea{color:var(--ink);}
+  option{color:var(--ink);background:var(--panel);}
   header{padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;gap:16px;}
   header .brand{flex:none;}
   header .header-center{flex:1;display:flex;justify-content:center;gap:8px;}
@@ -200,5 +206,7 @@
 <!-- load with a per-load cache-buster so a new deploy is picked up immediately (no stale editor.js) -->
 <script type="module">import("./editor.js?v=" + Date.now());</script>
 <script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
+<!-- anonymous usage counter: one "editor opened" tick per load (fire-and-forget, no identifiers) -->
+<script>fetch("/api/count?event=editor&mode=hit").catch(function(){});</script>
 </body>
 </html>

@@ -147,6 +147,39 @@ def obj_screen_bbox(oid):
     return [float(min(xs)), float(min(ys)), float(max(xs)), float(max(ys))]
 
 
+def nudge_object(oid, dx, dy, dz):
+    """FAST object move: translate the ALREADY-BUILT object by a world-space delta and repaint — NO
+    scene rebuild. Dragging a heavy mesh (e.g. a Sphere's resolution×resolution quads) used to call
+    render_model() every pointer frame, which re-tessellated the whole scene each time and stuttered.
+    Translating control points is a cheap array add (see AnimObject.shift); this mirrors the orbit/zoom
+    fast path. The editor keeps the model props in sync and does ONE authoritative rebuild on drag end."""
+    sc = _active()
+    if sc is None:
+        return
+    obj = getattr(sc, "objects_by_id", {}).get(oid)
+    if obj is None:
+        return
+    obj.shift(np.array([float(dx), float(dy), float(dz)], dtype=float))
+    paint_scene(painter, sc.objectList, sc.camera, background=_last_bg, axes_on_top=_last_axtop)
+
+
+def set_background(bg_json):
+    """FAST background change: repaint the ALREADY-BUILT scene with a new backdrop colour — NO rebuild.
+    The theme toggle (and the background colour picker) only recolour the canvas; rebuilding the whole
+    scene via construct() just to change the backdrop was the lag. Mirrors the orbit/zoom/nudge fast path.
+    `bg_json` is a [r,g,b] list, or null for a transparent background."""
+    global _last_bg
+    sc = _active()
+    if sc is None:
+        return
+    try:
+        bg = json.loads(bg_json)
+    except Exception:
+        return
+    _last_bg = bg
+    paint_scene(painter, sc.objectList, sc.camera, background=bg, axes_on_top=_last_axtop)
+
+
 def prepare_play(json_str):
     """Build the scene + its animation timeline once; return the total duration (seconds).
     Afterwards the JS player calls play_frame(t) for each frame."""

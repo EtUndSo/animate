@@ -245,7 +245,8 @@ def _build_object(spec, objects, axes=None):
                 obj._cx_parts = (re_g, im_g)
             else:
                 obj = axes.plot(f, x_range=xr, y_range=yr)
-                obj._center_create = True                   # Create reveals a 2D graph from the centre out
+                # (no _center_create: a 1D graph is drawn LEFT -> RIGHT, the natural reading/sampling
+                #  order — partial_bezier traces from the first sampled point at x_min onward.)
     elif t == "Riemann" and axes is not None:               # midpoint Riemann rectangles on the axes
         kw = {k: style[k] for k in ("color", "fill_opacity") if k in style}
         obj = axes.riemann_rectangles(args["func"], int(args.get("count", 8)), **kw)

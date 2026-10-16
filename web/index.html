@@ -7,14 +7,13 @@
   <meta name="description" content="EtUndSo: verständliche Erklärungen, Erklärvideos und Tools zu Elektrotechnik-Modulen — und so. Mit dem Browser-Animations-Editor animate."/>
   <style>
     :root{
-      /* shared EtUndSo brand palette: red #d11010, dark blue #322d58, lighter blue (CTA) = accent */
+      /* shared EtUndSo brand palette: red #E11D48, dark blue #322d58, lighter blue (CTA) = accent */
       --bg:#f4f7fb; --panel:#ffffff; --ink:#0f2033; --muted:#5a6b7b; --border:#dde4ec;
-      --accent:#1d6fe0; --accent2:#d11010; --accent3:#e07b10; --green:#16a34a;
+      --accent:#1d6fe0; --accent2:#E11D48; --accent3:#e07b10; --green:#16a34a;
     }
-    @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-      --bg:#171430; --panel:#322d58; --ink:#ffffff; --muted:#d3d7ea; --border:#4d477e; --accent:#4f9cff; --accent2:#d11010; --accent3:#f59e42;
-    }}
-    :root[data-theme="dark"]{ --bg:#171430; --panel:#322d58; --ink:#ffffff; --muted:#d3d7ea; --border:#4d477e; --accent:#4f9cff; --accent2:#d11010; --accent3:#f59e42; }
+    /* DAY is the default; dark only when explicitly set via data-theme="dark" (no auto OS-dark, so the
+       landing page stays light by default, matching the editor). */
+    :root[data-theme="dark"]{ --bg:#171430; --panel:#322d58; --ink:#ffffff; --muted:#d3d7ea; --border:#4d477e; --accent:#4f9cff; --accent2:#E11D48; --accent3:#f59e42; }
     *{box-sizing:border-box;}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;}
     a{color:var(--accent);text-decoration:none;}
@@ -42,6 +41,11 @@
     .feature h2{margin:.1em 0 .4em;font-size:24px;}
     .feature p{color:var(--muted);margin:0 0 18px;}
     .soon{opacity:.6;}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:48px;}
+    .stat{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;}
+    .stat .num{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.02em;color:var(--accent);line-height:1.1;}
+    .stat .lbl{color:var(--muted);font-size:14px;margin-top:6px;}
+    .stat.site .num{color:var(--accent2);}
     footer{color:var(--muted);font-size:14px;padding:28px 24px;border-top:1px solid var(--border);text-align:center;}
   </style>
 </head>
@@ -96,9 +100,27 @@
         <p>Kurze, animierte Videos zu einzelnen Themen — gebaut mit animate. Kommt bald.</p>
       </div>
     </section>
+
+    <section class="stats" aria-label="Nutzungszahlen">
+      <div class="stat site"><div class="num" id="stat-site">–</div><div class="lbl">Seitenaufrufe</div></div>
+      <div class="stat"><div class="num" id="stat-editor">–</div><div class="lbl">Editor geöffnet</div></div>
+    </section>
   </main>
 
   <footer>EtUndSo.de · Erklärungen & Tools für Elektrotechnik — und so.</footer>
   <script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
+  <script>
+  // Anonymous usage counters: count THIS page view once on load, then refresh the displayed totals every
+  // minute (read-only, so refreshes don't inflate the count). Fails silently if the API isn't up yet.
+  (function(){
+    var fmt=function(n){ return (n==null?"–":Number(n).toLocaleString("de-DE")); };
+    var paint=function(d){ if(!d) return;
+      var s=document.getElementById("stat-site"), e=document.getElementById("stat-editor");
+      if(s) s.textContent=fmt(d.site); if(e) e.textContent=fmt(d.editor); };
+    var read=function(){ fetch("/api/count?mode=read").then(function(r){return r.json();}).then(paint).catch(function(){}); };
+    fetch("/api/count?event=site&mode=hit").then(function(r){return r.json();}).then(paint).catch(function(){});
+    setInterval(read, 60000);        // update every minute
+  })();
+  </script>
 </body>
 </html>

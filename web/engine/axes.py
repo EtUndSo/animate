@@ -346,7 +346,9 @@ class Axes(AnimObject):
             # (invisible, just covers seams). grid_color lets the mesh show; grid_width sets thickness.
             quad.color = tuple(grid_color) if grid_color is not None else fc
             quad.fill_opacity = fill_opacity; quad.stroke_width = float(grid_width)
-            quad._diag = (ax + bx) / 2 - x0a + (ay + by) / 2 - y0a   # centroid diagonal -> Create wavefront
+            quad._diag = float(np.hypot((ax + bx) / 2 - (x0a + x1a) / 2,     # radial distance of the face centroid
+                                        (ay + by) / 2 - (y0a + y1a) / 2))    # from the domain CENTRE -> Create reveals
+            #                                                                   the surface growing OUTWARD from the middle
             group.add(quad)
         group._surface_max_diag = span
         return group
