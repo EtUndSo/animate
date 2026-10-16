@@ -360,7 +360,7 @@ def _run_computation(scene, cspec, objects, types, axes):
             varc = p.get("var_color", (1.0, 0.50, 0.05))     # running variable i (orange)
             endc = p.get("end_color", (0.58, 0.40, 0.74))    # end result (total)
             flc = p.get("pulse_color", (0.40, 0.70, 1.0))    # '+' / Σ flash colour (light blue)
-            bdc = p.get("bound_color", (0.09, 0.75, 0.81))   # Σ/∏ limits (lower/upper bounds), teal
+            bdc = p.get("bound_color", (0.84, 0.15, 0.16))  # Σ/∏ limits (lower/upper bounds), red
             choreo = p.get("choreo")                         # step-by-step pieces (abstract->subst->value) from editor
             glyphs = p.get("glyphs")                         # or the whole ground-state as one MathTex
             if choreo:

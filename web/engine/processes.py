@@ -206,7 +206,7 @@ def _color_head_bounds(head, bound_color, var_color, color):
 
 def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_color=(0.17, 0.63, 0.17),
                      var_color=(1.0, 0.50, 0.05), end_color=(0.58, 0.40, 0.74),
-                     flash_color=(0.40, 0.70, 1.0), bound_color=(0.09, 0.75, 0.81),
+                     flash_color=(0.40, 0.70, 1.0), bound_color=(0.84, 0.15, 0.16),
                      animating=False, position=(-6.2, 2.4, 0.0), height=0.9):
     """Step-by-step Σ (number mode): the Σ expression appears, then for each term the ABSTRACT summand
     appears, its i is SUBSTITUTED (crossfade), then it is COMPUTED to a value (crossfade); a '+' fades

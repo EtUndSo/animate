@@ -168,11 +168,11 @@ const SHAPE_TYPES = ["Circle", "Rectangle", "Square", "Triangle", "Polygon"];
 const COMPUTATIONS = {
   "Eigenständig · Reihen (Σ ∏)": {   // no operands; over an index i, from i=start to i=end (number or symbolic 'n')
     "Summation  (Σ)": { type:"Summation", kind:"summation",
-      props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,2.4,0],
-              color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#17becf" } },
+      props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,0,0],
+              color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
     "Product  (∏)": { type:"BigProduct", kind:"product",
-      props:{ sum_mode:"number", term:"i", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,2.4,0],
-              color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#17becf" } },
+      props:{ sum_mode:"number", term:"i", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,0,0],
+              color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
   },
   "Eigenständig · Zahlen (Arithmetik)": {   // typed-in numbers; shown as squares or on a number line
     "Addition  (a + b)":       { type:"Addition",       kind:"numbers", numbers:[10,4], props:{ run_time:4, mode:"squares" } },
@@ -222,7 +222,7 @@ const ANIM_GROUPS = {
   "Bewegung":   ["Shift"],
 };
 const ANIM_TYPES = Object.values(ANIM_GROUPS).flat();     // flat list (used where grouping isn't needed)
-const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:true }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 } };
+const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 } };
 let nextId = 1, nextAnimId = 1, nextCompId = 1;
 let clipboard = null;                 // last copied object spec {type, props}, for paste/duplicate
 let orbitFn = null;                   // fast 3D re-aim (set after Pyodide boot)
@@ -276,7 +276,7 @@ function toPythonModel(){
   });
   injectTexGlyphs(objects);                   // MathTex: resolve `tex` -> glyph data (async, cached)
   return { objects, animations, computations, background: bg, shadows: !!model.background.shadows,
-           axes_on_top: model.background.axes_on_top !== false,
+           axes_on_top: model.background.axes_on_top === true,
            angle_unit: model.angleUnit, domain: model.domain, camera: model.camera };
 }
 
@@ -668,7 +668,7 @@ function loadTemplate(tpl){
     model.computations.push(c);
   }
   if(tpl.background) model.background = structuredClone(tpl.background);
-  model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:true }, model.background||{});
+  model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, model.background||{});
   migrateModel();                                   // backfill props the template spec omits (grid_color, …)
   if(tpl.playMode) model.playMode = tpl.playMode;
   model.camera = tpl.camera ? structuredClone(tpl.camera) : { mode:"2d", theta:0.6, phi:1.0 };
@@ -727,7 +727,7 @@ function applyScene(data){
   model.objects = m.objects || [];
   model.animations = m.animations || [];
   model.computations = m.computations || [];
-  model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:true }, m.background || {});
+  model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, m.background || {});
   model.playMode = m.playMode || "sequential";
   model.angleUnit = m.angleUnit || "rad";
   model.domain = m.domain || "real";
@@ -1659,6 +1659,18 @@ function _buildExportMenu(menuId, formats, supported, onPick){
   if(pc) pc.onclick=(e)=>{ e.stopPropagation(); toggle("dl-png-menu"); };
   if(vc) vc.onclick=(e)=>{ e.stopPropagation(); toggle("dl-video-menu"); };
   document.addEventListener("click", ()=> document.querySelectorAll(".export-menu.open").forEach(x=>x.classList.remove("open")));
+})();
+
+// Day/night theme switch (night is the default). The saved theme is applied before paint by a tiny
+// inline script in the <head>; here we wire the toggle button and keep its icon in sync.
+(function themeToggle(){
+  const btn=$("theme-toggle"); if(!btn) return;
+  btn.onclick=()=>{
+    const light=document.documentElement.getAttribute("data-theme")==="light";
+    if(light) document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme","light");
+    try{ localStorage.setItem("animate-theme", light?"dark":"light"); }catch(e){}
+  };
 })();
 
 boot().catch(e=>{ console.error(e); setStatus("Fehler: " + e.message); });

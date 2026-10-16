@@ -9,10 +9,20 @@
 <!-- MathJax SVG output (fontCache:'none' inlines glyph <path>s) -> we vectorise them into VMobjects -->
 <script>window.MathJax={svg:{fontCache:'none'},tex:{packages:{'[+]':['color']}},startup:{typeset:false}};</script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<!-- apply the saved theme before first paint (NIGHT is the default) -> no flash -->
+<script>try{if(localStorage.getItem("animate-theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <style>
-  :root{--bg:#f6f7f9;--panel:#fff;--border:#e5e7eb;--muted:#6b7280;--accent:#3b82f6;--green:#16a34a;}
+  /* NIGHT is the default (:root). Light theme via <html data-theme="light">. Palette follows dark-mode
+     best practice: stepped, slightly blue-grey surfaces (not pure black), off-white text, one shared
+     blue accent across both modes (Material/Radix/Tailwind-slate inspired). */
+  /* Shared EtUndSo brand palette (science/tech): deep navy surfaces + a cyan/teal accent. Same tokens
+     as the landing page so editor and site match. Night = default. */
+  :root{--bg:#0e1620;--panel:#15202e;--field:#1c2a3a;--sel:#243a52;--border:#273647;
+        --ink:#e6edf3;--muted:#93a4b5;--hint:#64748b;--accent:#4f9cff;--accent2:#22c3d6;--green:#3fb950;}
+  :root[data-theme="light"]{--bg:#f4f7fb;--panel:#ffffff;--field:#ffffff;--sel:#e4eefb;--border:#dde4ec;
+        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#0d94a8;--green:#16a34a;}
   *{box-sizing:border-box;}
-  body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:#111827;}
+  body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);}
   header{padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;gap:16px;}
   header .brand{flex:none;}
   header .header-center{flex:1;display:flex;justify-content:center;gap:8px;}
@@ -24,12 +34,12 @@
   header .header-center .export-split{position:relative;display:inline-flex;}
   header .header-center .export-split #dl-png,header .header-center .export-split #dl-video{border-radius:8px 0 0 8px;}
   header .header-center .export-caret{background:#d9760a;border-radius:0 8px 8px 0;padding:8px 9px;font-size:12px;}
-  .export-menu{position:absolute;top:calc(100% + 4px);left:0;min-width:150px;background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.16);display:none;z-index:60;overflow:hidden;}
+  .export-menu{position:absolute;top:calc(100% + 4px);left:0;min-width:150px;background:var(--field);border:1px solid var(--border);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.16);display:none;z-index:60;overflow:hidden;}
   .export-menu.open{display:block;}
-  .export-item{padding:9px 13px;cursor:pointer;color:#111827;font-weight:600;font-size:14px;}
-  .export-item:hover{background:rgba(0,0,0,.06);}
+  .export-item{padding:9px 13px;cursor:pointer;color:var(--ink);font-weight:600;font-size:14px;}
+  .export-item:hover{background:rgba(127,127,127,.2);}
   header .tabs{display:flex;gap:4px;flex:none;}
-  header .tabs button{border:1px solid var(--border);background:#fff;padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
+  header .tabs button{border:1px solid var(--border);background:var(--field);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
   header .tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
   main{display:flex;flex-direction:column;gap:16px;padding:16px;}
   .preview{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;}
@@ -44,51 +54,60 @@
   .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;}
   .card h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
   details.group>summary{cursor:pointer;font-weight:600;padding:6px 0;font-size:14px;}
-  .palette-item{display:inline-block;margin:3px;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-size:13px;}
+  .palette-item{display:inline-block;margin:3px;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--field);cursor:pointer;font-size:13px;}
   .palette-item:hover{border-color:var(--accent);color:var(--accent);}
   .obj-row{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-radius:8px;cursor:pointer;font-size:14px;}
-  .obj-row.sel{background:#eff6ff;}
+  .obj-row.sel{background:var(--sel);}
   .obj-row .label{display:flex;align-items:center;gap:4px;min-width:0;}
   .obj-row .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .obj-row .caret{border:none;background:none;cursor:pointer;color:var(--muted);font-size:11px;width:14px;flex:none;padding:0;text-align:center;}
   .obj-row button{border:none;background:none;color:#ef4444;cursor:pointer;font-size:14px;}
   .prop{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px;}
   .prop>label{width:76px;color:var(--muted);flex:none;}
-  .prop input,.prop select{flex:1 1 0;min-width:0;padding:4px 6px;border:1px solid var(--border);border-radius:6px;font:inherit;background:#fff;}
+  .prop input,.prop select{flex:1 1 0;min-width:0;padding:4px 6px;border:1px solid var(--border);border-radius:6px;font:inherit;background:var(--field);}
   .prop .vec{display:flex;gap:4px;flex:1;min-width:0;}
   .prop input[type=number]{-moz-appearance:textfield;}
   .prop input[type=number]::-webkit-inner-spin-button,.prop input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
   .card{overflow:hidden;}
-  .card select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff;cursor:pointer;}
+  .card select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--field);cursor:pointer;}
   .render button{width:100%;background:var(--green);color:#fff;border:none;padding:10px;border-radius:10px;font-weight:600;cursor:pointer;font:inherit;}
   .preview-mode{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13px;color:var(--muted);}
-  .preview-mode select{padding:5px 8px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff;cursor:pointer;}
+  .preview-mode select{padding:5px 8px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--field);cursor:pointer;}
   .preview-bar{display:flex;align-items:center;gap:12px;margin-top:8px;}
-  .preview-bar button{border:1px solid var(--border);background:#fff;padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
+  .preview-bar button{border:1px solid var(--border);background:var(--field);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
   .preview-bar button:hover{border-color:var(--accent);color:var(--accent);}
   #status{font-size:13px;color:var(--muted);}
   .preview-bar .angle{margin-left:auto;font-size:13px;color:var(--muted);}
-  .preview-bar select.angle{margin-left:6px;padding:4px 6px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff;cursor:pointer;}
+  .preview-bar select.angle{margin-left:6px;padding:4px 6px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--field);cursor:pointer;}
   .obj-row .ops{display:flex;gap:4px;align-items:center;}
   .obj-row .ops button{border:none;background:none;cursor:pointer;font-size:14px;color:var(--muted);padding:0;display:flex;align-items:center;}
   .obj-row .ops button.eye:hover{color:var(--accent);}
   .obj-row .ops button.del{color:#ef4444;}
-  .hint{color:#9ca3af;font-size:13px;}
+  .hint{color:var(--hint);font-size:13px;}
   /* three big grouped boxes, each a different colour */
   .workspace{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start;}
   .bigbox{border:1px solid;border-radius:14px;padding:14px;overflow:hidden;}
   .bigbox>h2{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;}
-  .box-add{background:#eff6ff;border-color:#bfdbfe;} .box-add>h2{color:#1d4ed8;}
-  .box-scene{background:#f0fdf4;border-color:#bbf7d0;} .box-scene>h2{color:#15803d;}
-  .box-props{background:#fff7ed;border-color:#fed7aa;} .box-props>h2{color:#c2410c;}
-  .sub{background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:10px;overflow:hidden;}
+  /* tinted via rgba so they read on BOTH light and dark themes (stronger so they aren't too dark at night) */
+  .box-add{background:rgba(91,155,255,.20);border-color:rgba(91,155,255,.55);} .box-add>h2{color:#5b9bff;}
+  .box-scene{background:rgba(53,196,106,.20);border-color:rgba(53,196,106,.55);} .box-scene>h2{color:#35c46a;}
+  .box-props{background:rgba(232,130,12,.20);border-color:rgba(232,130,12,.6);} .box-props>h2{color:#e8820c;}
+  .sub{background:var(--sel);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:10px;overflow:hidden;}
   .sub:last-child{margin-bottom:0;}
   .sub>h3{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
-  .sub>select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff;cursor:pointer;}
+  .sub>select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--field);cursor:pointer;}
   .add-areas{display:flex;flex-wrap:wrap;gap:10px;}
   .add-areas>.sub{flex:1 1 220px;margin-bottom:0;}
   .anim-row.dragging{opacity:.45;}
   .anim-row.drop-target{box-shadow:inset 0 2px 0 var(--accent);}
+  /* day/night SLIDE switch: a box slides left<->right; the exposed half is white (day) / black (night) */
+  .theme-switch{position:relative;flex:none;width:56px;height:28px;border-radius:14px;border:1px solid var(--border);
+                background:#000;cursor:pointer;padding:0;transition:background .18s;}
+  .theme-switch .knob{position:absolute;top:2px;left:2px;width:25px;height:22px;border-radius:11px;background:var(--accent);
+                      transform:translateX(26px);transition:transform .18s;}
+  :root[data-theme="light"] .theme-switch{background:#fff;}
+  :root[data-theme="light"] .theme-switch .knob{transform:translateX(0);}
+  .theme-switch:hover{border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -100,6 +119,7 @@
     <span class="export-split"><button id="dl-png">Photo</button><button id="dl-png-caret" class="export-caret" title="Format wählen">▾</button><div id="dl-png-menu" class="export-menu"></div></span>
     <span class="export-split"><button id="dl-video">Animation</button><button id="dl-video-caret" class="export-caret" title="Format wählen">▾</button><div id="dl-video-menu" class="export-menu"></div></span>
   </div>
+  <button id="theme-toggle" class="theme-switch" title="Tag-/Nachtmodus umschalten"><span class="knob"></span></button>
   <div class="tabs">
     <button class="active">Editor</button>
     <button title="coming in Batch 5" disabled>Code</button>

@@ -24,7 +24,7 @@ def render_model(json_str):
     except Exception as e:
         return "error: " + str(e)               # invalid -> leave the previous frame untouched
     bg = model.get("background", [1.0, 1.0, 1.0])       # None -> transparent
-    axtop = bool(model.get("axes_on_top", True))
+    axtop = bool(model.get("axes_on_top", False))
     paint_scene(painter, scene.objectList, scene.camera, background=bg, axes_on_top=axtop)
     _last_scene = scene
     _last_bg = bg
@@ -54,7 +54,7 @@ def begin_lod(json_str):
     _lod_scene = scene
     paint_scene(painter, scene.objectList, scene.camera,
                 background=model.get("background", [1.0, 1.0, 1.0]),
-                axes_on_top=bool(model.get("axes_on_top", True)))
+                axes_on_top=bool(model.get("axes_on_top", False)))
 
 
 def end_lod():
@@ -152,7 +152,7 @@ def prepare_play(json_str):
         _play = None
         return 0.0
     _play = {"scene": scene, "bg": model.get("background", [1.0, 1.0, 1.0]),
-             "axtop": bool(model.get("axes_on_top", True))}
+             "axtop": bool(model.get("axes_on_top", False))}
     return float(scene.duration)
 
 
