@@ -58,7 +58,10 @@ def paint_object(painter, obj, camera):
 def _collect(obj, is_axis, out):
     """Flatten the tree into drawable leaves for 3D, carrying an is_axis flag down the subtree so the
     axes (and everything attached to them) can be lifted ABOVE all other objects after depth sort."""
-    axis_here = is_axis or bool(getattr(obj, "_is_axis", False))
+    # The coordinate grid (_is_grid) is NOT lifted on top: it sits on the z=0 plane and must be OCCLUDED
+    # by 3D objects (a surface should cover the floor grid under it), so it is treated as non-axis here
+    # and depth-sorts with the scene - otherwise its coarse lines paint over the fine surface mesh.
+    axis_here = (is_axis or bool(getattr(obj, "_is_axis", False))) and not bool(getattr(obj, "_is_grid", False))
     if getattr(obj, "text", None) is not None or len(obj.points) >= 4:
         out.append((obj, axis_here))
     for sub in obj.subObjects:

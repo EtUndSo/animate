@@ -16,8 +16,11 @@
   header{padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;gap:16px;}
   header .brand{flex:none;}
   header .header-center{flex:1;display:flex;justify-content:center;gap:8px;}
-  header .header-center button,header .header-center #load-lbl{background:var(--green);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font:inherit;display:inline-block;}
-  header .header-center #save-btn,header .header-center #load-lbl{background:#fff;color:#111827;border:1px solid var(--border);}
+  header .header-center button,header .header-center #load-lbl{color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font:inherit;display:inline-block;}
+  header .header-center #save-btn{background:var(--green);}                 /* Save = green  */
+  header .header-center #load-lbl{background:#2f74d8;}                      /* Load = blue   */
+  header .header-center #dl-png,header .header-center #dl-video{background:#e8820c;}  /* Photo + Video = orange */
+  header .header-center button:hover,header .header-center #load-lbl:hover{filter:brightness(1.07);}
   header .tabs{display:flex;gap:4px;flex:none;}
   header .tabs button{border:1px solid var(--border);background:#fff;padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
   header .tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
@@ -25,6 +28,7 @@
   .preview{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;}
   .view-wrap{position:relative;width:min(100%,161vh);margin:0 auto;}
   #view{width:100%;aspect-ratio:16/9;border-radius:8px;display:block;border:1px solid #d0d5dd;background:repeating-conic-gradient(#eee 0% 25%,#fff 0% 50%) 50%/24px 24px;}
+  #editgizmo{position:absolute;left:0;top:0;width:100%;aspect-ratio:16/9;pointer-events:none;}
   #viewcube{position:absolute;top:10px;right:10px;width:104px;height:104px;cursor:pointer;touch-action:none;display:none;filter:drop-shadow(0 1px 3px rgba(0,0,0,.25));}
   #camgizmo{position:absolute;top:122px;right:10px;width:104px;height:133px;cursor:grab;touch-action:none;display:none;filter:drop-shadow(0 1px 3px rgba(0,0,0,.2));}
   #sum-overlay{position:absolute;top:18px;left:0;right:0;margin:0 auto;display:none;text-align:center;pointer-events:none;padding:0 18px;overflow:hidden;}
@@ -85,6 +89,7 @@
     <button id="save-btn">Save scene</button>
     <label id="load-lbl">Load scene<input id="load-input" type="file" accept=".json,application/json" hidden></label>
     <button id="dl-png">Photo (PNG)</button>
+    <button id="dl-video">Animation (Video)</button>
   </div>
   <div class="tabs">
     <button class="active">Editor</button>
@@ -96,6 +101,7 @@
   <div class="preview">
     <div class="view-wrap">
       <canvas id="view" width="1920" height="1080"></canvas>
+      <canvas id="editgizmo" width="1920" height="1080"></canvas>
       <canvas id="viewcube" width="156" height="156" title="Click a face to view the scene from that side"></canvas>
       <canvas id="camgizmo" width="156" height="200" title="Drag an axis to rotate the camera around it; drag the centre to orbit freely"></canvas>
       <div id="sum-overlay"></div>

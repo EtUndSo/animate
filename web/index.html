@@ -3,25 +3,97 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>animate — Hello Sine</title>
+  <title>EtUndSo — Erklärungen & Tools für Elektrotechnik</title>
+  <meta name="description" content="EtUndSo: verständliche Erklärungen, Erklärvideos und Tools zu Elektrotechnik-Modulen — und so. Mit dem Browser-Animations-Editor animate."/>
   <style>
-    :root { --border:#e5e7eb; --muted:#6b7280; }
-    body { font-family: system-ui, -apple-system, sans-serif; margin:0; background:#f6f7f9; color:#111827; }
-    header { padding:16px 24px; font-weight:600; border-bottom:1px solid var(--border); background:#fff; }
-    main { padding:24px; display:flex; flex-direction:column; align-items:center; gap:12px; }
-    #view { width:100%; max-width:960px; aspect-ratio:16/9; border:1px solid var(--border); border-radius:12px; background:#fff; }
-    #status { color:var(--muted); font-size:14px; }
+    :root{
+      --bg:#f6f7f9; --panel:#ffffff; --ink:#111827; --muted:#6b7280; --border:#e5e7eb;
+      --accent:#2f74d8; --accent2:#e8820c; --green:#2f9e44;
+    }
+    @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+      --bg:#0f1115; --panel:#171a21; --ink:#e8eaed; --muted:#9aa3af; --border:#242833; --accent:#5b9bff;
+    }}
+    :root[data-theme="dark"]{ --bg:#0f1115; --panel:#171a21; --ink:#e8eaed; --muted:#9aa3af; --border:#242833; --accent:#5b9bff; }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;}
+    a{color:var(--accent);text-decoration:none;}
+    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--border);background:var(--panel);}
+    .brand{font-weight:800;font-size:20px;letter-spacing:-0.02em;}
+    .brand span{color:var(--accent);}
+    nav a{margin-left:18px;color:var(--muted);font-weight:600;}
+    main{max-width:1000px;margin:0 auto;padding:16px 24px 64px;}
+    .hero{padding:56px 0 24px;}
+    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 14px;letter-spacing:-0.02em;}
+    .hero p{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:60ch;margin:0 0 26px;}
+    .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;background:var(--accent);color:#fff;}
+    .btn.alt{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
+    .row{display:flex;gap:12px;flex-wrap:wrap;}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px;}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px;}
+    .card h3{margin:.2em 0 .4em;font-size:18px;}
+    .card p{color:var(--muted);margin:0;font-size:15px;}
+    .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.04em;}
+    .feature{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:28px;margin-top:40px;
+             display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
+    .feature .txt{flex:1 1 320px;}
+    .feature h2{margin:.1em 0 .4em;font-size:24px;}
+    .feature p{color:var(--muted);margin:0 0 18px;}
+    .soon{opacity:.6;}
+    footer{color:var(--muted);font-size:14px;padding:28px 24px;border-top:1px solid var(--border);text-align:center;}
   </style>
 </head>
 <body>
-  <header>animate — Batch 1: Hello Sine (Pyodide + Canvas)</header>
+  <header class="site">
+    <div class="brand">Et<span>UndSo</span></div>
+    <nav>
+      <a href="#module">Module</a>
+      <a href="#videos">Videos</a>
+      <a href="editor.html">Editor</a>
+    </nav>
+  </header>
+
   <main>
-    <canvas id="view" width="1920" height="1080"></canvas>
-    <div id="status">Lade Python-Engine …</div>
+    <section class="hero">
+      <div class="tag">Elektrotechnik — und so</div>
+      <h1>Verständliche Erklärungen zu Elektrotechnik-Modulen.</h1>
+      <p>EtUndSo sammelt Erklärungen, Erklärvideos und Werkzeuge rund um die Elektrotechnik —
+         und nebenbei ein paar andere Fächer. Herzstück ist der Browser-Animations-Editor
+         <strong>animate</strong>, mit dem die Grafiken und Animationen entstehen.</p>
+      <div class="row">
+        <a class="btn" href="editor.html">animate öffnen →</a>
+        <a class="btn alt" href="#module">Module ansehen</a>
+      </div>
+    </section>
+
+    <section class="feature">
+      <div class="txt">
+        <div class="tag">Das wichtigste Tool</div>
+        <h2>animate — mathematische Animationen im Browser</h2>
+        <p>Eine browserbasierte Weiterentwicklung von Manim: Funktionen, 3D-Flächen, Summen/Produkte,
+           Faltungen u. v. m. — direkt im Browser bauen, abspielen und als Bild oder Video exportieren.
+           Keine Installation nötig.</p>
+        <a class="btn" href="editor.html">Zum Editor</a>
+      </div>
+    </section>
+
+    <section id="module" class="cards">
+      <div class="card"><div class="tag">ET</div><h3>Elektrotechnik-Module</h3>
+        <p>Grundlagen, Feldtheorie, Signale & Systeme, Bauelemente … Schritt für Schritt erklärt. (im Aufbau)</p></div>
+      <div class="card"><div class="tag">Mathe</div><h3>Mathematischer Unterbau</h3>
+        <p>Die Werkzeuge hinter der ET: Analysis, lineare Algebra, Funktionentheorie. (im Aufbau)</p></div>
+      <div class="card soon"><div class="tag">bald</div><h3>Andere Fächer</h3>
+        <p>Nebenbei auch Themen aus weiteren Fächern — Beiträge willkommen.</p></div>
+    </section>
+
+    <section id="videos" class="feature soon">
+      <div class="txt">
+        <div class="tag">bald</div>
+        <h2>Erklärvideos</h2>
+        <p>Kurze, animierte Videos zu einzelnen Themen — gebaut mit animate. Kommt bald.</p>
+      </div>
+    </section>
   </main>
 
-  <!-- Pyodide: Python in the browser (official CDN) -->
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
-  <script type="module" src="main.js"></script>
+  <footer>EtUndSo.de · Erklärungen & Tools für Elektrotechnik — und so.</footer>
 </body>
 </html>

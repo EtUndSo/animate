@@ -187,7 +187,7 @@ class Axes(AnimObject):
         return build_graph(segments, color)
 
     def plot_surface(self, func, resolution=18, color=(0.35, 0.60, 0.92), fill_opacity=1.0, shade=True,
-                     grid_color=None, grid_width=0.5, res_min=8, adaptive=True):
+                     grid_color=None, grid_width=0.5, res_min=6, adaptive=True):
         """Surface z = func(x, y) as a CURVATURE-ADAPTIVE quad mesh (GeoGebra-style): start from a coarse
         grid and recursively subdivide a cell where the surface BENDS. Flat regions stay coarse, curved
         regions get fine - fewer faces for the same look than a uniform grid. `res_min` = the MINIMUM
@@ -201,7 +201,9 @@ class Axes(AnimObject):
         base = 2                                                # coarse starting grid (per axis)
         min_depth = max(0, int(np.ceil(np.log2(max(1.0, minn / base)))))   # forced everywhere
         max_depth = min(8, max(min_depth, int(np.floor(np.log2(max(1.0, maxn / base))))))
-        tol = 0.02 * (zhi - zlo if zhi > zlo else 1.0)          # flatness tolerance in z units (smaller = finer)
+        tol = 0.008 * (zhi - zlo if zhi > zlo else 1.0)         # flatness tolerance in z units (smaller = finer;
+        #   0.008 makes curved regions - a Gaussian hill/slope - actually subdivide while truly flat parts stay
+        #   coarse; 0.02 was too loose so slopes looked as coarse as the flat background)
 
         def _z(x, y):
             try:

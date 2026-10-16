@@ -1,4 +1,5 @@
 import json
+import numpy as np
 from engine.scene_model import ModelScene
 from engine.renderer import paint_scene
 from canvas_painter import CanvasPainter
@@ -101,6 +102,41 @@ def pick(px, py):
         if lo[0] - m <= world[0] <= hi[0] + m and lo[1] - m <= world[1] <= hi[1] + m:
             return oid
     return ""
+
+
+def unproj(px, py):
+    """Screen pixel -> world coordinate (on the camera's focal plane). Lets the editor convert a drag in
+    pixels into a world-space move when dragging an object."""
+    if _last_scene is None:
+        return [0.0, 0.0, 0.0]
+    w = _last_scene.camera.unproject(px, py)
+    return [float(w[0]), float(w[1]), float(w[2])]
+
+
+def proj(x, y, z):
+    """World coordinate -> screen pixel [px, py] (for drawing the move-gizmo axis arrows)."""
+    sc = _active()
+    if sc is None:
+        return [0.0, 0.0]
+    px, py = sc.camera.project(np.array([x, y, z], dtype=float))
+    return [float(px), float(py)]
+
+
+def obj_screen_bbox(oid):
+    """Pixel bounding box [x0, y0, x1, y1] of object `oid` (project its world bbox corners). The editor
+    draws the selection/move box from this. None if the object is unknown."""
+    sc = _active()
+    if sc is None or oid not in getattr(sc, "objects_by_id", {}):
+        return None
+    obj = sc.objects_by_id[oid]
+    lo, hi = obj.get_bounding_box()
+    xs, ys = [], []
+    for x in (lo[0], hi[0]):
+        for y in (lo[1], hi[1]):
+            for z in (lo[2], hi[2]):
+                px, py = sc.camera.project(np.array([x, y, z], dtype=float))
+                xs.append(px); ys.append(py)
+    return [float(min(xs)), float(min(ys)), float(max(xs)), float(max(ys))]
 
 
 def prepare_play(json_str):

@@ -3,6 +3,8 @@
 A Convolution/Product/Sum/Difference graph is a result in its own right: the user may want to show only
 the result and hide the inputs. So hidden objects are still BUILT (available as operands) - just not
 drawn statically. See scene_model.construct()."""
+import sys
+sys.path.insert(0, ".")  # run from web/
 from engine.scene_model import ModelScene
 
 

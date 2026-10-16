@@ -60,7 +60,7 @@ const CATALOG = {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
     Axes:          { x_range:[-6,6], y_range:[-3,3], z_range:[-3,3], x_length:12, y_length:6, z_length:6, show_grid:true },
-    FunctionGraph: { func:"sin(x)", x_range:[-4,4], adaptive:true, res_max:64, res_min:12, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
+    FunctionGraph: { func:"sin(x)", x_range:[-4,4], adaptive:true, res_max:64, res_min:6, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
   },
   "Signals (ET3)": {   // presets: same FunctionGraph type, different standard signal (t = variable)
     "ε(t) step":      { _type:"FunctionGraph", func:"epsilon(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
@@ -71,7 +71,7 @@ const CATALOG = {
     "ramp(t)":        { _type:"FunctionGraph", func:"ramp(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
   },
   "3D (set view to 3D)": {   // Surface uses the axes; solids live in world coordinates
-    Surface:    { func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
+    Surface:    { func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:6, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
@@ -127,7 +127,7 @@ const TEMPLATES = {
     camera: { mode:"3d", theta:0.6, phi:1.0 },
     objects: [
       { type:"Axes", props:{ x_range:[-3,3], y_range:[-3,3], z_range:[-1.5,1.5], x_length:8, y_length:8, z_length:5 } },
-      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 } },
+      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:6, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 } },
     ],
   },
   "3D solids": {
@@ -205,6 +205,7 @@ let clipboard = null;                 // last copied object spec {type, props}, 
 let orbitFn = null;                   // fast 3D re-aim (set after Pyodide boot)
 let zoomFn = null;                    // fast zoom repaint (set after Pyodide boot)
 let beginLodFn = null, endLodFn = null;   // enter/leave reduced-detail during camera moves
+let unprojFn = null, bboxFn = null, projFn = null;   // pixel<->world + object's screen bbox (move-gizmo + box)
 
 // ---------- model -> python ----------
 function hexToRgb(h){ const n=parseInt(h.slice(1),16); return [((n>>16)&255)/255,((n>>8)&255)/255,(n&255)/255]; }
@@ -291,6 +292,7 @@ let _lowDetail=false;
 function enterLowDetail(){
   if(_lowDetail || playing || !beginLodFn) return;
   _lowDetail=true;
+  if(typeof clearMoveGizmo==="function") clearMoveGizmo();   // hide the move arrows while the camera moves
   try{ beginLodFn(lowDetailModelJson()); }catch(_){}   // build a reduced copy once; end_lod restores (no rebuild)
 }
 function exitLowDetail(){
@@ -298,6 +300,7 @@ function exitLowDetail(){
     _lowDetail=false;
     if(endLodFn){ try{ endLodFn(); }catch(_){} }    // restore the already-built full scene (no rebuild -> instant)
   }
+  if(typeof refreshMoveGizmo==="function") refreshMoveGizmo();   // reposition the move arrows for the new camera
   saveLocal();                                      // persist the new camera either way
 }
 
@@ -410,7 +413,7 @@ const GIZ_RINGS = [                                   // each ring = a great cir
   { k:"Y", axis:[0,1,0], pt:(t)=>[Math.sin(t), 0, Math.cos(t)], col:[104,174,100]},   // ZX plane
   { k:"Z", axis:[0,0,1], pt:(t)=>[Math.cos(t), Math.sin(t), 0], col:[82,140,232] },   // XY plane
 ];
-let gizHover=null, gizDrag=null, gizPrevAng=0, gizSX=0, gizSY=0, gizTh0=0, gizPh0=0;   // gizDrag: {ring}|{free}|null
+let gizHover=null, gizDrag=null, gizPrevAng=0;   // gizDrag: {ring} while turning a ring, else null
 
 function camGizmoVisible(){ return model.camera.mode==="3d"; }
 function _camVec(theta,phi){ const ce=Math.cos(phi); return [ce*Math.cos(theta), ce*Math.sin(theta), Math.sin(phi)]; }
@@ -426,14 +429,14 @@ function _rotAround(v, a, d){                          // Rodrigues: rotate vect
 }
 function _gizMouse(e){ const cv=$("camgizmo"), r=cv.getBoundingClientRect(); return [ (e.clientX-r.left)*cv.width/r.width, (e.clientY-r.top)*cv.height/r.height ]; }
 function _gizBall(){ const cv=$("camgizmo"), W=cv.width, H=cv.height;
-  return { W, H, cx:W/2, cy:H*0.43, r:W*0.40, R:_vcRot(model.camera.theta, model.camera.phi) }; }
+  return { W, H, cx:W/2, cy:H*0.39, r:W*0.40, R:_vcRot(model.camera.theta, model.camera.phi) }; }
 function _gizProject(b, v){                            // 3D point on the unit sphere -> [screenX, screenY, depth]
   return [ b.cx + (b.R.right[0]*v[0]+b.R.right[1]*v[1]+b.R.right[2]*v[2])*b.r,
            b.cy - (b.R.up[0]*v[0]+b.R.up[1]*v[1]+b.R.up[2]*v[2])*b.r,
            b.R.cam[0]*v[0]+b.R.cam[1]*v[1]+b.R.cam[2]*v[2] ];     // depth: >0 = front (toward viewer)
 }
 function _ringPoints(b, ring, n){ const out=[]; for(let i=0;i<=n;i++) out.push(_gizProject(b, ring.pt(i/n*2*Math.PI))); return out; }
-function _gizResetGeom(){ const cv=$("camgizmo"), W=cv.width, H=cv.height; return { x:W/2, y:H*0.92, r:W*0.10 }; }
+function _gizResetGeom(){ const cv=$("camgizmo"), W=cv.width, H=cv.height; return { x:W/2, y:H-W*0.20, r:W*0.10 }; }
 function _gizRingAt(mx,my){                            // nearest ring (preferring the front-facing side)
   const b=_gizBall(); let best=null, bd=b.W*0.085;
   for(const ring of GIZ_RINGS) for(const p of _ringPoints(b,ring,54)){
@@ -467,29 +470,28 @@ function drawCamGizmo(){
 }
 function _gizDrawReset(ctx, b, hl){                    // circular-arrow "reset rotation" button
   const col = hl ? "rgb(50,50,62)" : "rgba(95,95,108,.92)";
-  ctx.lineCap="round"; ctx.lineWidth=b.r*0.26; ctx.strokeStyle=col; ctx.fillStyle=col;
-  const a0=-Math.PI*0.42, a1=Math.PI*1.08;
+  ctx.lineCap="round"; ctx.lineWidth=b.r*0.24; ctx.strokeStyle=col; ctx.fillStyle=col;
+  const a0=-Math.PI*0.40, a1=Math.PI*1.12;             // ~270° arc, gap at the top-right for the arrowhead
   ctx.beginPath(); ctx.arc(b.x,b.y,b.r,a0,a1); ctx.stroke();
-  const hx=b.x+Math.cos(a0)*b.r, hy=b.y+Math.sin(a0)*b.r, t=a0-Math.PI/2, ah=b.r*0.6;    // arrowhead at a0 end
+  // symmetric arrowhead at the a0 end, pointing along the (clockwise) tangent
+  const hx=b.x+Math.cos(a0)*b.r, hy=b.y+Math.sin(a0)*b.r;
+  const dir=a0-Math.PI/2, ah=b.r*0.72, perp=dir+Math.PI/2, hw=ah*0.62;
+  const tip=[hx+Math.cos(dir)*ah*0.6, hy+Math.sin(dir)*ah*0.6];
+  const bx=hx-Math.cos(dir)*ah*0.4, by=hy-Math.sin(dir)*ah*0.4;   // base centre, behind the tip
   ctx.beginPath();
-  ctx.moveTo(hx+Math.cos(t)*ah, hy+Math.sin(t)*ah);
-  ctx.lineTo(hx+Math.cos(t+2.6)*ah*0.9, hy+Math.sin(t+2.6)*ah*0.9);
-  ctx.lineTo(hx+Math.cos(t-2.6)*ah*0.9, hy+Math.sin(t-2.6)*ah*0.9);
+  ctx.moveTo(tip[0], tip[1]);
+  ctx.lineTo(bx+Math.cos(perp)*hw, by+Math.sin(perp)*hw);
+  ctx.lineTo(bx-Math.cos(perp)*hw, by-Math.sin(perp)*hw);
   ctx.closePath(); ctx.fill();
 }
 function initCamGizmo(){
   const cv=$("camgizmo"); if(!cv) return;
   cv.onpointermove=(e)=>{
     const [mx,my]=_gizMouse(e);
-    if(gizDrag){
-      if(gizDrag.free){                                // drag the ball body -> orbit (azimuth/elevation)
-        model.camera.theta = gizTh0 - (e.clientX-gizSX)*0.01;
-        model.camera.phi   = Math.max(-GIZ_LIMIT, Math.min(GIZ_LIMIT, gizPh0 + (e.clientY-gizSY)*0.01));
-      } else {                                         // drag a ring -> rotate around that axis
-        const b=_gizBall(); let ang=Math.atan2(my-b.cy, mx-b.cx);
-        let d=ang-gizPrevAng; d=((d+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI; gizPrevAng=ang;
-        _setCamVec(_rotAround(_camVec(model.camera.theta, model.camera.phi), gizDrag.ring.axis, d));
-      }
+    if(gizDrag){                                       // drag a ring -> rotate around THAT axis only (precise)
+      const b=_gizBall(); let ang=Math.atan2(my-b.cy, mx-b.cx);
+      let d=ang-gizPrevAng; d=((d+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI; gizPrevAng=ang;
+      _setCamVec(_rotAround(_camVec(model.camera.theta, model.camera.phi), gizDrag.ring.axis, d));
       if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);
       drawViewCube(); drawCamGizmo();
       return;
@@ -503,11 +505,9 @@ function initCamGizmo(){
     const [mx,my]=_gizMouse(e);
     if(_gizInReset(mx,my)){ _gizReset(); return; }
     const b=_gizBall(), ring=_gizRingAt(mx,my);
-    if(!ring && Math.hypot(mx-b.cx,my-b.cy) > b.r*1.05) return;   // outside the ball -> ignore
+    if(!ring) return;                                  // gizmo = PRECISE axis rotation only; free orbit = mouse-drag in the canvas
     cv.setPointerCapture(e.pointerId); cv.style.cursor="grabbing";
-    gizSX=e.clientX; gizSY=e.clientY; gizTh0=model.camera.theta; gizPh0=model.camera.phi;
-    gizDrag = ring ? { ring } : { free:true };
-    if(ring) gizPrevAng=Math.atan2(my-b.cy, mx-b.cx);
+    gizDrag = { ring }; gizPrevAng=Math.atan2(my-b.cy, mx-b.cx);
     enterLowDetail();                                  // reduce detail while rotating
   };
   const end=()=>{ if(gizDrag){ gizDrag=null; exitLowDetail(); } cv.style.cursor=gizHover?"pointer":"default"; };
@@ -527,6 +527,7 @@ function _doRender(){
   setStatus(String(res).startsWith("error") ? "⚠ " + res + " (last frame kept)" : "Ready ✓");
   if(typeof drawViewCube==="function") drawViewCube();   // keep the nav-cube in sync with the camera
   if(typeof drawCamGizmo==="function") drawCamGizmo();   // and the rotation gizmo
+  if(typeof refreshMoveGizmo==="function") refreshMoveGizmo();   // and the selected object's move arrows
   if(typeof updateSumOverlay==="function") updateSumOverlay(null);   // Σ overlay: full (static) view
   saveLocal();                         // autosave so a scene survives closing the page
 }
@@ -569,7 +570,7 @@ function deleteObject(id){
   if(model.selectedId===id) model.selectedId = null;
   renderSceneObjs(); renderComputations(); renderProps(); renderPreview();
 }
-function selectObject(id){ model.selectedId = id; model.selectedComp = null; renderSceneObjs(); renderComputations(); renderProps(); }
+function selectObject(id){ model.selectedId = id; model.selectedComp = null; renderSceneObjs(); renderComputations(); renderProps(); if(typeof refreshMoveGizmo==="function") refreshMoveGizmo(); }
 
 // ---------- computations (operations over objects) ----------
 function addComputation(def){
@@ -947,6 +948,100 @@ function objAnchor(o){
   if(p.start && p.end) return [(p.start[0]+p.end[0])/2, (p.start[1]+p.end[1])/2, 0];
   return [0,0,0];
 }
+
+// ---------- Move-gizmo: axis arrows at a selected object's bounding box (D + I) ----------
+// Dragging an object's BODY would be ambiguous in 3D (no depth under the cursor -> chaos), so a selected,
+// movable object instead shows a dashed bounding box with three axis arrows (X red / Y green / Z blue) at
+// its lower-left corner. In 2D the z-arrow is edge-on, so only two show. Each arrow moves the object ONLY
+// along that world axis (like the rotation gizmo) and lights up on hover. Drawn on the #editgizmo overlay
+// (so hover highlight is cheap and the Python render underneath is untouched).
+const WORLD_TYPES = new Set(["Sphere","Box","Cube","Pyramid"]);   // centre is world units, not axes data
+const MOVE_AXES = [
+  { k:"x", v:[1,0,0], col:[226,96,84]  },
+  { k:"y", v:[0,1,0], col:[104,174,100]},
+  { k:"z", v:[0,0,1], col:[82,140,232] },
+];
+const MOVE_LEN = 72;                                 // arrow length in canvas pixels (1920×1080 buffer space)
+let moveHover = null, moveDrag = null, _moveGizmoCache = null, _moveRAF = 0;
+
+function movablePosKeys(o){
+  const p=(o&&o.props)||{};
+  if(Array.isArray(p.center)) return ["center"];
+  if(Array.isArray(p.position)) return ["position"];
+  if(Array.isArray(p.start) && Array.isArray(p.end)) return ["start","end"];
+  return [];                                          // FunctionGraph / Axes / Riemann / Surface: not point-positioned
+}
+function axesScale(){
+  const ax=(model.objects||[]).find(o=>o.type==="Axes"); if(!ax) return {x:1,y:1,z:1};
+  const p=ax.props||{}, xr=p.x_range||[-6,6], yr=p.y_range||[-3,3], zr=p.z_range||[-3,3];
+  const xl=p.x_length!=null?p.x_length:12, yl=p.y_length!=null?p.y_length:6, zl=p.z_length!=null?p.z_length:6;
+  const d=(r)=>((r[1]-r[0])||1);
+  return { x:xl/d(xr), y:yl/d(yr), z:zl/d(zr) };
+}
+function _moveHandles(){                              // screen geometry of the arrows for the SELECTED object, or null
+  const o=selected();
+  if(!o || !movablePosKeys(o).length || !bboxFn || !projFn || !unprojFn) return null;
+  let bb; try{ bb=bboxFn(o.id); }catch(e){ bb=null; } if(!bb) return null;
+  const ax=bb[0], ay=bb[3];                           // lower-left screen corner (min x, max y)
+  const aw=unprojFn(ax,ay);                           // its world point = the arrows' anchor
+  const handles=[];
+  for(const A of MOVE_AXES){
+    const tp=projFn(aw[0]+A.v[0], aw[1]+A.v[1], aw[2]+A.v[2]);   // project a +1 world-unit step along the axis
+    const dx=tp[0]-ax, dy=tp[1]-ay, len=Math.hypot(dx,dy);
+    if(len<5) continue;                               // edge-on (z-axis in 2D) -> omit, so 2D shows two arrows
+    const u=[dx/len, dy/len];
+    handles.push({ axis:A, a:[ax,ay], u, tip:[ax+u[0]*MOVE_LEN, ay+u[1]*MOVE_LEN], worldPerPx:1/len });
+  }
+  return { o, bb, handles };
+}
+function _distToSeg(px,py,x0,y0,x1,y1){
+  const dx=x1-x0, dy=y1-y0, L2=dx*dx+dy*dy;
+  let t=L2 ? ((px-x0)*dx+(py-y0)*dy)/L2 : 0; t=Math.max(0,Math.min(1,t));
+  return Math.hypot(px-(x0+dx*t), py-(y0+dy*t));
+}
+function _moveHandleAt(px,py){                        // uses the cache (no Pyodide calls) -> cheap on hover/press
+  if(!_moveGizmoCache) return null;
+  let best=null, bd=22;
+  for(const h of _moveGizmoCache.handles){ const d=_distToSeg(px,py,h.a[0],h.a[1],h.tip[0],h.tip[1]); if(d<bd){ bd=d; best=h; } }
+  return best;
+}
+function _drawArrow(ctx,a,t,col,hl){
+  const c=hl?col.map(x=>Math.min(255,x+55)):col;
+  ctx.strokeStyle=`rgb(${c[0]},${c[1]},${c[2]})`; ctx.fillStyle=ctx.strokeStyle;
+  ctx.lineCap="round"; ctx.lineWidth=hl?8:6;
+  ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(t[0],t[1]); ctx.stroke();
+  const ang=Math.atan2(t[1]-a[1],t[0]-a[0]), ah=hl?22:18;
+  ctx.beginPath(); ctx.moveTo(t[0],t[1]);
+  ctx.lineTo(t[0]-ah*Math.cos(ang-0.42), t[1]-ah*Math.sin(ang-0.42));
+  ctx.lineTo(t[0]-ah*Math.cos(ang+0.42), t[1]-ah*Math.sin(ang+0.42));
+  ctx.closePath(); ctx.fill();
+}
+function clearMoveGizmo(){ const cv=$("editgizmo"); if(cv){ cv.getContext("2d").clearRect(0,0,cv.width,cv.height); } }
+function drawMoveGizmoFromCache(){
+  const cv=$("editgizmo"); if(!cv) return; const ctx=cv.getContext("2d"); ctx.clearRect(0,0,cv.width,cv.height);
+  if(playing || !_moveGizmoCache) return;
+  const g=_moveGizmoCache, [x0,y0,x1,y1]=g.bb, pad=10;
+  ctx.strokeStyle="rgba(90,150,240,0.9)"; ctx.lineWidth=2.5; ctx.setLineDash([12,8]);
+  ctx.strokeRect(x0-pad,y0-pad,(x1-x0)+2*pad,(y1-y0)+2*pad); ctx.setLineDash([]);
+  for(const h of g.handles) _drawArrow(ctx,h.a,h.tip,h.axis.col, moveHover===h.axis.k);
+}
+function refreshMoveGizmo(){ _moveGizmoCache=_moveHandles(); drawMoveGizmoFromCache(); }   // recompute (Pyodide) + draw
+function _startAxisMove(h,e,spx,spy){
+  const o=selected(); const keys=movablePosKeys(o); if(!keys.length) return;
+  const startVals={}; for(const k of keys) startVals[k]=(o.props[k]||[0,0,0]).slice();
+  moveDrag={ o, keys, axis:h.axis, u:h.u, worldPerPx:h.worldPerPx, startVals, isWorld:WORLD_TYPES.has(o.type), s0:[spx,spy] };
+  $("view").setPointerCapture(e.pointerId); $("view").style.cursor="grabbing";
+}
+function _applyAxisMove(cpx,cpy){
+  const md=moveDrag; const dpx=cpx-md.s0[0], dpy=cpy-md.s0[1];
+  const along=(dpx*md.u[0]+dpy*md.u[1])*md.worldPerPx;    // world units along the dragged axis
+  const k=md.axis.k, s=axesScale();
+  const comp = md.isWorld ? along : along/(k==="x"?s.x:k==="y"?s.y:s.z);   // -> data units for on-axes objects
+  const d=[0,0,0]; d[k==="x"?0:k==="y"?1:2]=comp;
+  for(const key of md.keys){ const sv=md.startVals[key]; md.o.props[key]=[ sv[0]+d[0], sv[1]+d[1], (sv[2]!=null?sv[2]:0)+d[2] ]; }
+}
+function _moveRerender(){ if(_moveRAF) return; _moveRAF=requestAnimationFrame(()=>{ _moveRAF=0;
+  try{ renderModel(JSON.stringify(toPythonModel())); }catch(e){} refreshMoveGizmo(); }); }
 // "Ergebnisse" section: checkboxes for the results this object type offers (see RESULT_CATALOG).
 // Checking one adds a configurable DecimalNumber child placed near the object; the interpreter
 // fills in the computed value after the "symbol = formula = " prefix.
@@ -1273,6 +1368,9 @@ async function boot(){
   zoomFn = pyodide.globals.get("zoom_to");
   beginLodFn = pyodide.globals.get("begin_lod");
   endLodFn = pyodide.globals.get("end_lod");
+  unprojFn = pyodide.globals.get("unproj");
+  bboxFn = pyodide.globals.get("obj_screen_bbox");
+  projFn = pyodide.globals.get("proj");
   // Canvas interaction: in 3D, drag = orbit the camera (fast repaint); a click without dragging
   // selects (pick). In 2D, a click selects. The mouse wheel zooms in/out in both modes.
   const VC_LIMIT = Math.PI/2 - 0.03;        // vertical orbit limit (both above and below the plane)
@@ -1282,26 +1380,44 @@ async function boot(){
   const HOLD_MS=1;                            // ~instant: the only drag action is orbiting, so apply LOD at once
   canvas.onpointerdown = (e)=>{
     sx=e.clientX; sy=e.clientY; moved=false;
+    const [mpx,mpy]=pxy(e);
+    const h=_moveHandleAt(mpx,mpy);               // an axis arrow of the selected object? (2D and 3D)
+    if(h){ _startAxisMove(h,e,mpx,mpy); return; } // -> axis-constrained move; no orbit, no body-drag
     if(model.camera.mode==="3d"){
       dragging=true; th0=model.camera.theta; ph0=model.camera.phi; canvas.setPointerCapture(e.pointerId);
       clearTimeout(_holdTimer);               // predictive LOD: a held press (even before moving) = orbit intent
       _holdTimer=setTimeout(()=>{ if(dragging) enterLowDetail(); }, HOLD_MS);
+      return;
     }
+    if(pickFn){ const id=String(pickFn(mpx,mpy)); if(id) selectObject(id); }   // 2D: select on press -> gizmo appears
   };
   canvas.onpointermove = (e)=>{
-    if(!dragging) return;
-    const dx=e.clientX-sx, dy=e.clientY-sy;
-    if(Math.abs(dx)+Math.abs(dy)>3) moved=true;
-    if(moved){ clearTimeout(_holdTimer); enterLowDetail(); }   // moving -> low detail now (idempotent)
-    model.camera.theta = th0 - dx*0.01;
-    // phi = elevation above the ground plane: 0 = horizon (side view), +/-pi/2 = straight down/up.
-    // Direct-manipulation feel: dragging UP tilts the camera DOWN (grab-and-pull), hence + dy.
-    model.camera.phi = Math.max(-VC_LIMIT, Math.min(VC_LIMIT, ph0 + dy*0.01));
-    if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);      // re-aim only, no rebuild
-    drawViewCube(); drawCamGizmo();
+    if(moveDrag){                                 // dragging an axis arrow -> move the object along that axis
+      const [cpx,cpy]=pxy(e);
+      if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>2) moved=true;
+      _applyAxisMove(cpx,cpy); _moveRerender();
+      return;
+    }
+    if(dragging){
+      const dx=e.clientX-sx, dy=e.clientY-sy;
+      if(Math.abs(dx)+Math.abs(dy)>3) moved=true;
+      if(moved){ clearTimeout(_holdTimer); enterLowDetail(); }   // moving -> low detail now (idempotent)
+      model.camera.theta = th0 - dx*0.01;
+      // phi = elevation above the ground plane: 0 = horizon (side view), +/-pi/2 = straight down/up.
+      // Direct-manipulation feel: dragging UP tilts the camera DOWN (grab-and-pull), hence + dy.
+      model.camera.phi = Math.max(-VC_LIMIT, Math.min(VC_LIMIT, ph0 + dy*0.01));
+      if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);      // re-aim only, no rebuild
+      drawViewCube(); drawCamGizmo();
+      return;
+    }
+    if(!playing){                                 // hover: highlight an axis arrow under the cursor
+      const [hpx,hpy]=pxy(e); const h=_moveHandleAt(hpx,hpy); const k=h?h.axis.k:null;
+      if(k!==moveHover){ moveHover=k; canvas.style.cursor=k?"grab":"default"; drawMoveGizmoFromCache(); }
+    }
   };
   canvas.onpointerup = (e)=>{
     clearTimeout(_holdTimer);
+    if(moveDrag){ moveDrag=null; canvas.style.cursor=moveHover?"grab":"default"; if(moved){ saveLocal(); renderProps(); } return; }
     if(dragging){
       dragging=false;
       if(moved){ exitLowDetail(); return; }       // orbited -> back to full detail
@@ -1310,7 +1426,7 @@ async function boot(){
     if(!pickFn) return;                                                      // otherwise it was a click -> pick
     const [px,py]=pxy(e); const id=String(pickFn(px,py)); if(id) selectObject(id);
   };
-  canvas.onpointercancel = ()=>{ clearTimeout(_holdTimer); dragging=false; if(_lowDetail) exitLowDetail(); };
+  canvas.onpointercancel = ()=>{ clearTimeout(_holdTimer); dragging=false; moveDrag=null; if(_lowDetail) exitLowDetail(); };
   // Mouse-wheel zoom: scale camera.zoom about 1.0, low-detail + fast-repaint while scrolling, full on settle.
   let _zoomTimer=null;
   canvas.onwheel = (e)=>{
@@ -1360,5 +1476,45 @@ document.addEventListener("keydown", (e)=>{
 $("dl-png").onclick = () => {
   $("view").toBlob((blob)=>{ const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="scene.png"; a.click(); URL.revokeObjectURL(a.href); });
 };
+
+// Download the ANIMATION as a video: record the canvas (captureStream + MediaRecorder) while the play
+// loop drives it in real time from t=0 to the end, then save a .webm. The engine draws the Σ/graphs on
+// the canvas itself, so they are captured too (the KaTeX overlay is DOM-only but hidden during play).
+let _recording = false;
+function downloadVideo(){
+  if(playing || _recording){ setStatus("Busy — stop playback first."); return; }
+  if(!preparePlay || !_prepare()){ setStatus("Nothing to record — add an animation or an animated operation."); return; }
+  const canvas=$("view");
+  if(!canvas.captureStream || typeof MediaRecorder==="undefined"){ setStatus("⚠ Video recording isn't supported by this browser."); return; }
+  const mime=["video/webm;codecs=vp9","video/webm;codecs=vp8","video/webm"].find(m=>{ try{return MediaRecorder.isTypeSupported(m);}catch(e){return false;} }) || "";
+  const stream=canvas.captureStream(30);
+  let rec; try{ rec=new MediaRecorder(stream, mime?{mimeType:mime, videoBitsPerSecond:12000000}:{}); }
+  catch(e){ setStatus("⚠ Could not start the recorder: "+e.message); return; }
+  const chunks=[];
+  rec.ondataavailable=(e)=>{ if(e.data && e.data.size) chunks.push(e.data); };
+  rec.onstop=()=>{
+    const blob=new Blob(chunks, {type:mime||"video/webm"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="animation.webm"; a.click(); URL.revokeObjectURL(a.href);
+    _recording=false; playing=false; setStatus("Animation saved ✓ (animation.webm)"); renderPreview();
+  };
+  _recording=true; playing=true;                         // block edits / LOD / other play while capturing
+  playFrame(0); updateSumOverlay(0);
+  try{ rec.start(); }catch(e){ _recording=false; playing=false; setStatus("⚠ Recorder error: "+e.message); return; }
+  setStatus("● Recording animation …");
+  const startWall=performance.now();
+  const loop=(now)=>{
+    if(!_recording){ return; }                           // safety: aborted
+    const t=(now-startWall)/1000;
+    if(t>=playDuration){
+      playFrame(playDuration); updateSumOverlay(1);
+      setTimeout(()=>{ if(rec.state!=="inactive") rec.stop(); }, 150);   // let the last frame flush, then stop
+      return;
+    }
+    playFrame(t); updateSumOverlay(t/Math.max(1e-6,playDuration));
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+}
+$("dl-video").onclick = () => downloadVideo();
 
 boot().catch(e=>{ console.error(e); setStatus("Fehler: " + e.message); });
