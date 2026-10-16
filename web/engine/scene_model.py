@@ -118,6 +118,8 @@ _ANGLE_UNIT = "rad"
 # Number domain: "real" or "complex". In complex mode a FunctionGraph (e.g. e^(j·t)) is drawn as
 # its real AND imaginary parts. Set once per build.
 _DOMAIN = "real"
+_CAM_ZOOM = 1.0
+_CAM_MODE = "2d"
 # Surface shading ("shadows"): when False, surfaces are drawn FLAT (one colour, no Lambert light).
 _SHADOWS = True
 
@@ -256,6 +258,9 @@ def _build_object(spec, objects, axes=None):
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
         kwargs = dict(args)
+        if t == "Axes":                                     # zoom-aware tick refinement (2D) comes from the camera
+            kwargs["zoom"] = _CAM_ZOOM
+            kwargs["dynamic_ticks"] = (_CAM_MODE == "2d")
         accepted = _init_params(OBJECT_TYPES[t])
         for k in ("color", "fill_opacity", "stroke_width"):
             if k in style and k in accepted:
@@ -448,12 +453,14 @@ class ModelScene(Scene):
         #                             then animated operators take over their operands' display.
 
     def construct(self):
-        global _ANGLE_UNIT, _DOMAIN, _SHADOWS
+        global _ANGLE_UNIT, _DOMAIN, _SHADOWS, _CAM_ZOOM, _CAM_MODE
         _ANGLE_UNIT = self.model.get("angle_unit", "rad")   # set before any func is compiled
         _DOMAIN = self.model.get("domain", "real")
         _SHADOWS = bool(self.model.get("shadows", True))    # surface shading on/off
         cam = self.model.get("camera") or {}
         zoom = cam.get("zoom", 1.0)                         # orthographic zoom (>1 = magnified)
+        _CAM_ZOOM = float(zoom)                             # so the Axes can refine its ticks with zoom (2D)
+        _CAM_MODE = "3d" if cam.get("mode") == "3d" else "2d"
         if cam.get("mode") == "3d":                         # orbit camera (theta, phi in radians)
             self.camera = Camera(mode="3d", theta=cam.get("theta", 0.0), phi=cam.get("phi", 0.0), zoom=zoom)
         else:

@@ -47,8 +47,9 @@ const BUILD = Date.now();
 // Palette + each type's editable properties (input type inferred from the default value).
 // Fill shapes start with fill_color == color (outline), so after creation the two match; the
 // user can then split them. stroke_width = pen thickness. show_center = little centre dot.
+// Objects, sorted by SUBJECT (Fach) -> TOPIC (Themenbereich).
 const CATALOG = {
-  "Shapes": {
+  "Mathematik · Geometrie": {
     Circle:    { center:[0,0,0], radius:1.0, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.5, stroke_width:4, show_center:false },
     Dot:       { center:[0,0,0], radius:0.08, color:"#111111", stroke_width:4, show_center:false },
     Line:      { start:[-1,0,0], end:[1,0,0], color:"#111111", stroke_width:4, show_center:false },
@@ -56,13 +57,20 @@ const CATALOG = {
     Square:    { center:[0,0,0], side:1.0, color:"#111111", fill_color:"#111111", fill_opacity:0.5, stroke_width:4, show_center:false },
     Vector:    { end:[2,1,0], start:[0,0,0], color:"#111111", stroke_width:4 },   // 2D & 3D
   },
-  "Axes & Graphs": {
+  "Mathematik · Funktionen & Achsen": {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
-    Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
+    Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, x_color:"#000000", y_color:"#000000", z_color:"#000000", grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
     FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
   },
-  "Signals (ET3)": {   // presets: same FunctionGraph type, different standard signal (t = variable)
+  "Mathematik · 3D-Flächen & Körper": {   // Surface uses the axes; solids live in world coordinates
+    Surface:    { func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
+    Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
+    Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
+    Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
+    Pyramid:    { base:1.5, height:2.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
+  },
+  "Elektrotechnik · Signale": {   // presets: same FunctionGraph type, different standard signal (t = variable)
     "ε(t) step":      { _type:"FunctionGraph", func:"epsilon(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
     "rect(t)":        { _type:"FunctionGraph", func:"rect(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
     "tri(t)":         { _type:"FunctionGraph", func:"tri(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
@@ -70,18 +78,9 @@ const CATALOG = {
     "sinc(t)":        { _type:"FunctionGraph", func:"sinc(t)", x_range:[-6,6], color:"#59a0eb", stroke_width:4 },
     "ramp(t)":        { _type:"FunctionGraph", func:"ramp(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
   },
-  "3D (set view to 3D)": {   // Surface uses the axes; solids live in world coordinates
-    Surface:    { func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
-    Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
-    Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
-    Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
-    Pyramid:    { base:1.5, height:2.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
-  },
-  "Text": {
-    Text: { text:"Text", position:[0,0,0], font_size:40, color:"#111111" },
-  },
-  "LaTeX": {   // real LaTeX, typeset by MathJax -> vector glyphs (VMobjects) in the scene graph
-    MathTex: { tex:"\\frac{a}{b}", height:1.2, position:[0,0,0], color:"#111111" },
+  "Allgemein · Text & LaTeX": {
+    Text:   { text:"Text", position:[0,0,0], font_size:40, color:"#111111" },
+    MathTex:{ tex:"\\frac{a}{b}", height:1.2, position:[0,0,0], color:"#111111" },   // real LaTeX via MathJax -> VMobjects
   },
 };
 
@@ -164,29 +163,31 @@ const TEMPLATES = {
 // Computations = OPERATIONS over objects, shown as animated processes. Each references existing
 // objects as operands (type-checked). Categorised by subject -> topic.
 const SHAPE_TYPES = ["Circle", "Rectangle", "Square", "Triangle", "Polygon"];
+// Operations, sorted: first whether they need OTHER objects as operands (standalone first), then by the
+// kind of mathematical object they work on (numbers/series vs functions vs geometry).
 const COMPUTATIONS = {
-  "Math — Functions": {
-    "Convolution  (f ∗ g)": { type:"Convolution", inputs:[{role:"f",label:"Function f",accept:["FunctionGraph"]},{role:"g",label:"Function g",accept:["FunctionGraph"]}], props:{ run_time:6, tau_range:[-5,5], color:"#e03a2f", stroke_width:5 } },
-    "Product  (f · g)":     { type:"Product",     inputs:[{role:"f",label:"f",accept:["FunctionGraph"]},{role:"g",label:"g",accept:["FunctionGraph"]}], props:{ color:"#8b2fd6", stroke_width:4 } },
-    "Sum  (f + g)":         { type:"Sum",         inputs:[{role:"f",label:"f",accept:["FunctionGraph"]},{role:"g",label:"g",accept:["FunctionGraph"]}], props:{ color:"#8b2fd6", stroke_width:4 } },
-    "Difference  (f − g)":  { type:"Difference",  inputs:[{role:"f",label:"f",accept:["FunctionGraph"]},{role:"g",label:"g",accept:["FunctionGraph"]}], props:{ color:"#8b2fd6", stroke_width:4 } },
-  },
-  "Geometry": {
-    "Intersection  (A ∩ B)":{ type:"Intersection", inputs:[{role:"a",label:"Shape A",accept:SHAPE_TYPES},{role:"b",label:"Shape B",accept:SHAPE_TYPES}], props:{ color:"#8b2fd6", fill_color:"#8b2fd6", fill_opacity:0.55, stroke_width:3 }, result:[{key:"area",prefix:"Intersection area = "}] },
-  },
-  "Arithmetic — numbers (kids)": {   // operate on typed-in numbers; shown as squares or on a number line
-    "Addition  (a + b)":       { type:"Addition",       kind:"numbers", numbers:[10,4], props:{ run_time:4, mode:"squares" } },
-    "Subtraction  (a − b)":    { type:"Subtraction",    kind:"numbers", numbers:[10,4], props:{ run_time:4, mode:"squares" } },
-    "Multiplication  (a × b)": { type:"Multiplication", kind:"numbers", numbers:[3,4],  props:{ run_time:4, mode:"squares" } },
-    "Division  (a ÷ b)":       { type:"Division",       kind:"numbers", numbers:[12,3], props:{ run_time:4, mode:"squares" } },
-  },
-  "Series — Σ sum / ∏ product": {   // over an index i, from i=start to i=end (a number, or symbolic 'n')
+  "Eigenständig · Reihen (Σ ∏)": {   // no operands; over an index i, from i=start to i=end (number or symbolic 'n')
     "Summation  (Σ)": { type:"Summation", kind:"summation",
       props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,2.4,0],
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#17becf" } },
     "Product  (∏)": { type:"BigProduct", kind:"product",
       props:{ sum_mode:"number", term:"i", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,2.4,0],
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#17becf" } },
+  },
+  "Eigenständig · Zahlen (Arithmetik)": {   // typed-in numbers; shown as squares or on a number line
+    "Addition  (a + b)":       { type:"Addition",       kind:"numbers", numbers:[10,4], props:{ run_time:4, mode:"squares" } },
+    "Subtraction  (a − b)":    { type:"Subtraction",    kind:"numbers", numbers:[10,4], props:{ run_time:4, mode:"squares" } },
+    "Multiplication  (a × b)": { type:"Multiplication", kind:"numbers", numbers:[3,4],  props:{ run_time:4, mode:"squares" } },
+    "Division  (a ÷ b)":       { type:"Division",       kind:"numbers", numbers:[12,3], props:{ run_time:4, mode:"squares" } },
+  },
+  "Operanden · Funktionen": {   // need existing FunctionGraphs as operands
+    "Convolution  (f ∗ g)": { type:"Convolution", inputs:[{role:"f",label:"Function f",accept:["FunctionGraph"]},{role:"g",label:"Function g",accept:["FunctionGraph"]}], props:{ run_time:6, tau_range:[-5,5], color:"#e03a2f", stroke_width:5 } },
+    "Product  (f · g)":     { type:"Product",     inputs:[{role:"f",label:"f",accept:["FunctionGraph"]},{role:"g",label:"g",accept:["FunctionGraph"]}], props:{ color:"#8b2fd6", stroke_width:4 } },
+    "Sum  (f + g)":         { type:"Sum",         inputs:[{role:"f",label:"f",accept:["FunctionGraph"]},{role:"g",label:"g",accept:["FunctionGraph"]}], props:{ color:"#8b2fd6", stroke_width:4 } },
+    "Difference  (f − g)":  { type:"Difference",  inputs:[{role:"f",label:"f",accept:["FunctionGraph"]},{role:"g",label:"g",accept:["FunctionGraph"]}], props:{ color:"#8b2fd6", stroke_width:4 } },
+  },
+  "Operanden · Geometrie": {   // need existing shapes as operands
+    "Intersection  (A ∩ B)":{ type:"Intersection", inputs:[{role:"a",label:"Shape A",accept:SHAPE_TYPES},{role:"b",label:"Shape B",accept:SHAPE_TYPES}], props:{ color:"#8b2fd6", fill_color:"#8b2fd6", fill_opacity:0.55, stroke_width:3 }, result:[{key:"area",prefix:"Intersection area = "}] },
   },
 };
 const COMP_DEFS = {};
@@ -215,7 +216,12 @@ const setStatus = (m) => { $("status").textContent = m; };
 
 let renderModel = null, pickFn = null, preparePlay = null, playFrame = null;
 let playing = false, playStart = 0, playDuration = 0, rafId = null;
-const ANIM_TYPES = ["Create", "FadeIn", "GrowFromCenter", "Shift"];
+// Animations, grouped by KIND OF MOTION (appear/disappear vs. move).
+const ANIM_GROUPS = {
+  "Erscheinen": ["Create", "FadeIn", "GrowFromCenter"],
+  "Bewegung":   ["Shift"],
+};
+const ANIM_TYPES = Object.values(ANIM_GROUPS).flat();     // flat list (used where grouping isn't needed)
 const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:true }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 } };
 let nextId = 1, nextAnimId = 1, nextCompId = 1;
 let clipboard = null;                 // last copied object spec {type, props}, for paste/duplicate
@@ -245,7 +251,7 @@ function toPythonModel(){
   const bg = model.background.transparent ? null : hexToRgb(model.background.color);
   // Global play mode: "parallel" -> all animations share one step (run together);
   // "sequential" -> each its own step (run one after another, in list order).
-  const animations = model.animations.map((a,i)=>({
+  const animations = model.animations.filter(a=>a.visible!==false).map((a,i)=>({   // eye-hidden -> skipped
     type:a.type, target:a.target, run_time:a.run_time,
     step: model.playMode==="parallel" ? 0 : i,
     args: a.type==="Shift" ? { vector:a.vector } : {},
@@ -573,9 +579,19 @@ function cloneSpec(o){                                         // deep copy with
   return c;
 }
 const selected = () => (model.selectedId===BG_ID ? null : findNode(model.selectedId));
+// GeoGebra-style: each new coloured object cycles to the next palette colour, so two objects of the
+// same kind (e.g. two function graphs) are automatically distinct. Text/LaTeX keep their colour (black).
+const AUTO_COLORS = ["#1f77b4","#e8820c","#2ca02c","#d62728","#9467bd","#17becf","#8c564b","#e377c2"];
+let autoColorIdx = 0;
 function addObject(type, defaults){
   const id = "o"+(nextId++);
-  model.objects.push({ id, type, props: structuredClone(defaults) });
+  const props = structuredClone(defaults);
+  if(props.color && type!=="Text" && type!=="MathTex"){
+    const c = AUTO_COLORS[autoColorIdx++ % AUTO_COLORS.length];
+    props.color = c;
+    if("fill_color" in props) props.fill_color = c;       // keep fill in step with the outline
+  }
+  model.objects.push({ id, type, props });
   model.selectedId = id;
   renderSceneObjs(); renderProps(); renderPreview();
 }
@@ -752,10 +768,24 @@ function buildPalette(){
     el.appendChild(d);
   }
 }
+// Templates sorted by subject -> topic (shown as <optgroup>s).
+const TEMPLATE_GROUPS = {
+  "Mathematik · Analysis": ["Empty axes","Sine (drawn)","Parabola + point","Riemann approximation","Convolution f∗g (animated)"],
+  "Mathematik · Geometrie": ["Unit circle","Intersection of two circles"],
+  "Mathematik · 3D": ["Surface z=f(x,y) (3D)","3D solids"],
+};
 function buildTemplates(){
   const sel=$("templates"); sel.innerHTML="";
   const ph=document.createElement("option"); ph.value=""; ph.textContent="— choose template —"; sel.appendChild(ph);
-  for(const name of Object.keys(TEMPLATES)){ const o=document.createElement("option"); o.value=name; o.textContent=name; sel.appendChild(o); }
+  const seen=new Set();
+  const addOpt=(og,name)=>{ const o=document.createElement("option"); o.value=name; o.textContent=name; og.appendChild(o); seen.add(name); };
+  for(const [grp,names] of Object.entries(TEMPLATE_GROUPS)){
+    const og=document.createElement("optgroup"); og.label=grp;
+    for(const name of names) if(TEMPLATES[name]) addOpt(og,name);
+    if(og.children.length) sel.appendChild(og);
+  }
+  const rest=Object.keys(TEMPLATES).filter(n=>!seen.has(n));   // any uncategorised template
+  if(rest.length){ const og=document.createElement("optgroup"); og.label="Weitere"; for(const name of rest) addOpt(og,name); sel.appendChild(og); }
   sel.onchange=()=>{ const t=TEMPLATES[sel.value]; if(t) loadTemplate(t); sel.value=""; };
 }
 // Categorised "add computation" palette (subject -> topic). Click adds a skeleton (no operands yet).
@@ -895,37 +925,46 @@ function renderSceneObjs(){
   renderSceneAnims();
 }
 
-// Animations overview inside the Scene box, GROUPED BY TYPE: as soon as at least one object has an
-// animation of a given kind, that kind appears as a sub-box listing every object that uses it (many
-// objects can share the same animation kind). Click an entry to select that object; ✕ removes it.
+// Animations overview inside the Scene box: a FLAT, ordered list whose order IS the sequential play
+// order. Each row has an eye (hide = skip in playback) and a ✕, and can be DRAGGED up/down to reorder
+// (= reorder the sequential execution). Click a row to select its object.
 function renderSceneAnims(){
   const el=$("scene-anims"); if(!el) return; el.innerHTML="";
   const anims=model.animations||[];
-  if(anims.length===0){ el.innerHTML='<div class="hint">No animations yet — select an object and add one in its properties.</div>'; return; }
-  const byType={};
-  for(const a of anims){ (byType[a.type]||(byType[a.type]=[])).push(a); }
-  for(const type of Object.keys(byType)){
-    const box=document.createElement("div"); box.className="anim-group";
-    const head=document.createElement("div"); head.className="anim-group-head"; head.textContent=type+"  ("+byType[type].length+")";
-    box.appendChild(head);
-    for(const a of byType[type]){
-      const o=findNode(a.target);
-      const row=document.createElement("div"); row.className="obj-row"+(model.selectedId===a.target?" sel":"");
-      const left=document.createElement("span"); left.className="label";
-      const nm=document.createElement("span"); nm.className="nm";
-      nm.textContent = o ? `${o.type} · ${o.id}` : "(deleted)";
-      if(!o) nm.style.opacity="0.5";
-      left.appendChild(nm);
-      if(a.run_time!=null){ const t=document.createElement("span"); t.className="hint"; t.style.marginLeft="6px"; t.textContent=a.run_time+"s"; left.appendChild(t); }
-      row.onclick=()=>{ if(o) selectObject(a.target); };
-      const ops=document.createElement("div"); ops.className="ops";
-      const del=document.createElement("button"); del.className="del"; del.textContent="✕"; del.title="Remove animation";
-      del.onclick=(e)=>{ e.stopPropagation(); deleteAnimation(a.id); };
-      ops.appendChild(del);
-      row.appendChild(left); row.appendChild(ops); box.appendChild(row);
-    }
-    el.appendChild(box);
-  }
+  if(anims.length===0){ el.innerHTML='<div class="hint">Noch keine Animationen — Objekt wählen und in dessen Properties eine hinzufügen.</div>'; return; }
+  if(model.playMode!=="parallel"){ const h=document.createElement("div"); h.className="hint"; h.style.marginBottom="4px";
+    h.textContent="Reihenfolge = Abspielreihenfolge · ziehen zum Umsortieren"; el.appendChild(h); }
+  anims.forEach((a,idx)=>{
+    const o=findNode(a.target);
+    const row=document.createElement("div"); row.className="obj-row anim-row"+(model.selectedId===a.target?" sel":"");
+    row.draggable=true;
+    row.ondragstart=(e)=>{ e.dataTransfer.setData("text/plain", String(idx)); e.dataTransfer.effectAllowed="move"; row.classList.add("dragging"); };
+    row.ondragend=()=>row.classList.remove("dragging");
+    row.ondragover=(e)=>{ e.preventDefault(); row.classList.add("drop-target"); };
+    row.ondragleave=()=>row.classList.remove("drop-target");
+    row.ondrop=(e)=>{ e.preventDefault(); row.classList.remove("drop-target"); const from=parseInt(e.dataTransfer.getData("text/plain"),10); if(!isNaN(from)&&from!==idx) reorderAnimation(from, idx); };
+    const left=document.createElement("span"); left.className="label";
+    const grip=document.createElement("span"); grip.textContent="⠿"; grip.style.cssText="cursor:grab;color:var(--muted);margin-right:6px"; left.appendChild(grip);
+    const nm=document.createElement("span"); nm.className="nm"; nm.textContent = a.type + " · " + (o?`${o.type} · ${o.id}`:"(deleted)");
+    if(a.visible===false) nm.style.opacity="0.45";
+    left.appendChild(nm);
+    if(a.run_time!=null){ const t=document.createElement("span"); t.className="hint"; t.style.marginLeft="6px"; t.textContent=a.run_time+"s"; left.appendChild(t); }
+    row.onclick=()=>{ if(o) selectObject(a.target); };
+    const ops=document.createElement("div"); ops.className="ops";
+    const eye=document.createElement("button"); eye.className="eye"; eye.innerHTML=eyeIcon(a.visible!==false);
+    eye.title = a.visible!==false ? "Sichtbar (klicken zum Ausblenden)" : "Ausgeblendet (klicken zum Einblenden)";
+    eye.onclick=(e)=>{ e.stopPropagation(); a.visible=(a.visible===false); renderSceneAnims(); renderPreview(); };
+    const del=document.createElement("button"); del.className="del"; del.textContent="✕"; del.title="Animation entfernen";
+    del.onclick=(e)=>{ e.stopPropagation(); deleteAnimation(a.id); };
+    ops.appendChild(eye); ops.appendChild(del);
+    row.appendChild(left); row.appendChild(ops); el.appendChild(row);
+  });
+}
+function reorderAnimation(from, to){
+  const arr=model.animations; if(from<0||from>=arr.length||to<0||to>=arr.length) return;
+  const [item]=arr.splice(from,1);
+  arr.splice(to,0,item);                                  // drop onto a row = place at that position
+  renderSceneAnims(); renderPreview();
 }
 function commitOnEnter(i){ i.addEventListener("keydown",(e)=>{ if(e.key==="Enter"){ e.preventDefault(); i.blur(); } }); }  // Enter = accept value + leave field
 function numberInput(value, on){ const i=document.createElement("input"); i.type="number"; i.step="0.1"; i.value=value; i.oninput=()=>on(parseFloat(i.value)); commitOnEnter(i); return i; }
@@ -1149,7 +1188,10 @@ function renderAnimations(container, o){
     }
   }
   const adder=document.createElement("div"); adder.style="margin-top:6px";
-  for(const t of ANIM_TYPES){ const b=document.createElement("span"); b.className="palette-item"; b.textContent="+ "+t; b.onclick=()=>addAnimation(t); adder.appendChild(b); }
+  for(const [grp,types] of Object.entries(ANIM_GROUPS)){                // grouped by kind of motion
+    const h=document.createElement("div"); h.className="hint"; h.style="margin:4px 0 2px"; h.textContent=grp; adder.appendChild(h);
+    for(const t of types){ const b=document.createElement("span"); b.className="palette-item"; b.textContent="+ "+t; b.onclick=()=>addAnimation(t); adder.appendChild(b); }
+  }
   wrap.appendChild(adder); container.appendChild(wrap);
 }
 
@@ -1490,7 +1532,7 @@ async function boot(){
     const f = Math.exp(-e.deltaY * 0.0015);                 // smooth multiplicative zoom
     model.camera.zoom = Math.max(0.2, Math.min(8, (model.camera.zoom||1) * f));
     if(zoomFn) zoomFn(model.camera.zoom);                   // fast repaint (no rebuild)
-    clearTimeout(_zoomTimer); _zoomTimer=setTimeout(()=>{ exitLowDetail(); saveLocal(); }, 180);
+    clearTimeout(_zoomTimer); _zoomTimer=setTimeout(()=>{ exitLowDetail(); renderPreview(); saveLocal(); }, 180);  // rebuild -> axis ticks refine to the zoom
   };
   initViewCube(); initCamGizmo();
   setStatus("Ready ✓ — add an element on the left, or click in the view.");

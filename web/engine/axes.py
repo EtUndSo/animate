@@ -4,7 +4,7 @@ from .simpleShape import Line, Polygon
 from .text import Text
 from .bezier import line_points
 from .plotting import plot_graph, build_graph
-from .constants import RIGHT, UP, DOWN, LEFT, TOWARDS
+from .constants import RIGHT, UP, DOWN, LEFT, TOWARDS, FRAME_HEIGHT, PIXEL_WIDTH, PIXEL_HEIGHT
 
 
 def _fmt(value):
@@ -50,22 +50,38 @@ class Axes(AnimObject):
                  show_ticks=True, show_numbers=True, show_labels=True,
                  grid_x=False, grid_y=False, grid_z=False,
                  grid_color=(0.0, 0.0, 0.0), grid_width=1.0,
-                 x_color=(0.89, 0.38, 0.33), y_color=(0.41, 0.68, 0.39), z_color=(0.32, 0.55, 0.91),
+                 x_color=(0.0, 0.0, 0.0), y_color=(0.0, 0.0, 0.0), z_color=(0.0, 0.0, 0.0),
                  x_label="x", y_label="y", z_label="z",
-                 number_size=24, label_size=34):
+                 number_size=24, label_size=34, zoom=1.0, dynamic_ticks=False):
         super().__init__()
         self._is_axis = True                                 # renderer draws axes on TOP of everything
         self.x_min, self.x_max = x_range[0], x_range[1]
         self.y_min, self.y_max = y_range[0], y_range[1]
         self.z_min, self.z_max = z_range[0], z_range[1]
-        # Third entry = explicit step; otherwise pick a nice step that adapts to the range.
-        self.x_step = x_range[2] if len(x_range) > 2 and x_range[2] else _nice_step(self.x_min, self.x_max)
-        self.y_step = y_range[2] if len(y_range) > 2 and y_range[2] else _nice_step(self.y_min, self.y_max)
-        self.z_step = z_range[2] if len(z_range) > 2 and z_range[2] else _nice_step(self.z_min, self.z_max)
         self.x_length = x_length
         self.y_length = y_length
         self.z_length = z_length
         number_offset = tick_size + 0.22
+
+        # Tick step + the tick WINDOW per axis. Normally ticks span the whole range at a nice step.
+        # With dynamic_ticks (2D) and zoom>1 the step REFINES and the ticks are limited to the visible
+        # window (centred on the origin), so zooming in shows finer numbers (…, 1, 2, …) instead of the
+        # same coarse step - and the tick count stays bounded.
+        frame_w = FRAME_HEIGHT * PIXEL_WIDTH / PIXEL_HEIGHT
+        def _axis_ticks(lo, hi, length, frame_extent, explicit):
+            if explicit:
+                return explicit, lo, hi
+            span = hi - lo
+            if dynamic_ticks and zoom > 1.0001 and span > 0 and length > 0:
+                vis = min(span, max(span / 500.0, frame_extent * span / length / zoom))  # visible data span
+                step = _nice_step(0.0, vis)
+                half = min(span / 2.0, vis * 0.6)
+                c = min(max(0.0, lo), hi)                     # origin, clamped into range
+                return step, max(lo, c - half), min(hi, c + half)
+            return _nice_step(lo, hi), lo, hi
+        self.x_step, self._x_tlo, self._x_thi = _axis_ticks(self.x_min, self.x_max, x_length, frame_w, x_range[2] if len(x_range) > 2 and x_range[2] else None)
+        self.y_step, self._y_tlo, self._y_thi = _axis_ticks(self.y_min, self.y_max, y_length, FRAME_HEIGHT, y_range[2] if len(y_range) > 2 and y_range[2] else None)
+        self.z_step, self._z_tlo, self._z_thi = _axis_ticks(self.z_min, self.z_max, z_length, FRAME_HEIGHT, z_range[2] if len(z_range) > 2 and z_range[2] else None)
 
         # Background coordinate grid, TOGGLEABLE PER AXIS (grid_x / grid_y / grid_z, all off by default).
         # It rebuilds from the ticks on every (re)build, so it grows/shrinks with the range. Tagged
@@ -81,16 +97,16 @@ class Axes(AnimObject):
             return g
         if grid_x:                                          # lines at each x value (parallel to the y-axis)
             self.add(_grid_group([(self.coords_to_point(x, self.y_min), self.coords_to_point(x, self.y_max))
-                                  for x in self._ticks(self.x_min, self.x_max, self.x_step)]))
+                                  for x in self._ticks(self._x_tlo, self._x_thi, self.x_step)]))
         if grid_y:                                          # lines at each y value (parallel to the x-axis)
             self.add(_grid_group([(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y))
-                                  for y in self._ticks(self.y_min, self.y_max, self.y_step)]))
+                                  for y in self._ticks(self._y_tlo, self._y_thi, self.y_step)]))
         if grid_z:                                          # 3D only: z grid on the back wall (y = y_min)
             yw = self.y_min
             lines = [(self.coords_to_point(self.x_min, yw, z), self.coords_to_point(self.x_max, yw, z))
-                     for z in self._ticks(self.z_min, self.z_max, self.z_step)]            # per z (parallel x)
+                     for z in self._ticks(self._z_tlo, self._z_thi, self.z_step)]            # per z (parallel x)
             lines += [(self.coords_to_point(x, yw, self.z_min), self.coords_to_point(x, yw, self.z_max))
-                      for x in self._ticks(self.x_min, self.x_max, self.x_step)]           # per x (parallel z)
+                      for x in self._ticks(self._x_tlo, self._x_thi, self.x_step)]           # per x (parallel z)
             self.add(_grid_group(lines, only_3d=True))
 
         # Axis lines run through the data origin (clamped into the visible range). Each axis gets its
@@ -103,21 +119,21 @@ class Axes(AnimObject):
 
         # Tick marks (coloured to match their axis).
         if show_ticks:
-            for x in self._ticks(self.x_min, self.x_max, self.x_step):
+            for x in self._ticks(self._x_tlo, self._x_thi, self.x_step):
                 p = self.coords_to_point(x, y0)
                 t = Line(p - tick_size * UP, p + tick_size * UP); t.color = tuple(x_color); self.add(t)
-            for y in self._ticks(self.y_min, self.y_max, self.y_step):
+            for y in self._ticks(self._y_tlo, self._y_thi, self.y_step):
                 p = self.coords_to_point(x0, y)
                 t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(y_color); self.add(t)
 
         # Numbers at the ticks (as Text). Shown by default; hide them all with show_numbers=False.
         if show_numbers:
-            for x in self._ticks(self.x_min, self.x_max, self.x_step):
+            for x in self._ticks(self._x_tlo, self._x_thi, self.x_step):
                 if x == 0:
                     continue                                   # the origin gets a single "0" below
                 pos = self.coords_to_point(x, y0) + DOWN * number_offset
                 self.add(Text(_fmt(x), pos, font_size=number_size))
-            for y in self._ticks(self.y_min, self.y_max, self.y_step):
+            for y in self._ticks(self._y_tlo, self._y_thi, self.y_step):
                 if y == 0:
                     continue
                 pos = self.coords_to_point(x0, y) + LEFT * number_offset
@@ -143,11 +159,11 @@ class Axes(AnimObject):
         zln = Line(self.coords_to_point(x0, y0, self.z_min), self.coords_to_point(x0, y0, self.z_max))
         zln.color = tuple(z_color); zg.add(zln)
         if show_ticks:
-            for z in self._ticks(self.z_min, self.z_max, self.z_step):
+            for z in self._ticks(self._z_tlo, self._z_thi, self.z_step):
                 p = self.coords_to_point(x0, y0, z)
                 t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(z_color); zg.add(t)
         if show_numbers:
-            for z in self._ticks(self.z_min, self.z_max, self.z_step):
+            for z in self._ticks(self._z_tlo, self._z_thi, self.z_step):
                 if z == 0:
                     continue
                 zg.add(Text(_fmt(z), self.coords_to_point(x0, y0, z) + LEFT * number_offset, font_size=number_size))

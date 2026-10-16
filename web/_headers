@@ -1,0 +1,5 @@
+# Cloudflare Pages headers. Always revalidate our own files so a fresh deploy loads immediately
+# (no stale editor cached in the browser). Files are small and return 304 when unchanged, so this is
+# cheap. Pyodide/KaTeX/MathJax come from CDNs and are unaffected (they stay cached).
+/*
+  Cache-Control: no-cache

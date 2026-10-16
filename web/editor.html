@@ -87,8 +87,8 @@
   .sub>select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff;cursor:pointer;}
   .add-areas{display:flex;flex-wrap:wrap;gap:10px;}
   .add-areas>.sub{flex:1 1 220px;margin-bottom:0;}
-  .anim-group{border:1px solid var(--border);border-radius:8px;padding:6px 6px 2px;margin-bottom:8px;}
-  .anim-group-head{font-weight:700;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:2px 4px 6px;}
+  .anim-row.dragging{opacity:.45;}
+  .anim-row.drop-target{box-shadow:inset 0 2px 0 var(--accent);}
 </style>
 </head>
 <body>
@@ -168,6 +168,7 @@
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
-<script type="module" src="editor.js"></script>
+<!-- load with a per-load cache-buster so a new deploy is picked up immediately (no stale editor.js) -->
+<script type="module">import("./editor.js?v=" + Date.now());</script>
 </body>
 </html>
