@@ -17,9 +17,12 @@
      blue accent across both modes (Material/Radix/Tailwind-slate inspired). */
   /* Shared EtUndSo brand palette (science/tech): deep navy surfaces + a cyan/teal accent. Same tokens
      as the landing page so editor and site match. Night = default. */
+  /* --s1/--s2/--s3 = stepped ELEVATION surfaces: deeper nesting = lighter (in dark mode). */
   :root{--bg:#0e1620;--panel:#15202e;--field:#1c2a3a;--sel:#243a52;--border:#273647;
+        --s1:#1b2838;--s2:#26374d;--s3:#324863;
         --ink:#e6edf3;--muted:#93a4b5;--hint:#64748b;--accent:#4f9cff;--accent2:#22c3d6;--green:#3fb950;}
   :root[data-theme="light"]{--bg:#f4f7fb;--panel:#ffffff;--field:#ffffff;--sel:#e4eefb;--border:#dde4ec;
+        --s1:#ffffff;--s2:#f1f5fb;--s3:#e8f0f9;
         --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#0d94a8;--green:#16a34a;}
   *{box-sizing:border-box;}
   body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);}
@@ -88,11 +91,12 @@
   .workspace{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start;}
   .bigbox{border:1px solid;border-radius:14px;padding:14px;overflow:hidden;}
   .bigbox>h2{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;}
-  /* tinted via rgba so they read on BOTH light and dark themes (stronger so they aren't too dark at night) */
-  .box-add{background:rgba(91,155,255,.20);border-color:rgba(91,155,255,.55);} .box-add>h2{color:#5b9bff;}
-  .box-scene{background:rgba(53,196,106,.20);border-color:rgba(53,196,106,.55);} .box-scene>h2{color:#35c46a;}
-  .box-props{background:rgba(232,130,12,.20);border-color:rgba(232,130,12,.6);} .box-props>h2{color:#e8820c;}
-  .sub{background:var(--sel);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:10px;overflow:hidden;}
+  /* bigboxes = elevated surface (s1) with a coloured border + heading for identity (not a dark tint) */
+  .box-add{background:var(--s1);border-color:rgba(91,155,255,.55);} .box-add>h2{color:#5b9bff;}
+  .box-scene{background:var(--s1);border-color:rgba(53,196,106,.55);} .box-scene>h2{color:#35c46a;}
+  .box-props{background:var(--s1);border-color:rgba(232,130,12,.6);} .box-props>h2{color:#e8820c;}
+  .sub{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:10px;overflow:hidden;}
+  .sub .sub{background:var(--s3);}   /* deeper nesting -> lighter */
   .sub:last-child{margin-bottom:0;}
   .sub>h3{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
   .sub>select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--field);cursor:pointer;}
