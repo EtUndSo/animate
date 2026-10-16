@@ -59,8 +59,8 @@ const CATALOG = {
   "Axes & Graphs": {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
-    Axes:          { x_range:[-6,6], y_range:[-3,3], z_range:[-3,3], x_length:12, y_length:6, z_length:6, show_grid:true },
-    FunctionGraph: { func:"sin(x)", x_range:[-4,4], adaptive:true, res_max:64, res_min:6, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
+    Axes:          { x_range:[-6,6], y_range:[-3,3], z_range:[-3,3], x_length:12, y_length:6, z_length:6, show_grid:true, grid_color:"#d9dbe6", grid_width:1 },
+    FunctionGraph: { func:"sin(x)", x_range:[-4,4], y_range:[-6,6], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
   },
   "Signals (ET3)": {   // presets: same FunctionGraph type, different standard signal (t = variable)
     "ε(t) step":      { _type:"FunctionGraph", func:"epsilon(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
@@ -71,7 +71,7 @@ const CATALOG = {
     "ramp(t)":        { _type:"FunctionGraph", func:"ramp(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
   },
   "3D (set view to 3D)": {   // Surface uses the axes; solids live in world coordinates
-    Surface:    { func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:6, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
+    Surface:    { func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
@@ -127,7 +127,7 @@ const TEMPLATES = {
     camera: { mode:"3d", theta:0.6, phi:1.0 },
     objects: [
       { type:"Axes", props:{ x_range:[-3,3], y_range:[-3,3], z_range:[-1.5,1.5], x_length:8, y_length:8, z_length:5 } },
-      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:6, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 } },
+      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 } },
     ],
   },
   "3D solids": {
@@ -191,6 +191,21 @@ const COMPUTATIONS = {
 };
 const COMP_DEFS = {};
 for (const grp of Object.values(COMPUTATIONS)) for (const [name, def] of Object.entries(grp)) COMP_DEFS[def.type] = { ...def, name };
+
+// Default props per OBJECT type (from the catalog). Used to BACKFILL older/saved/template objects that
+// predate newer props (e.g. an Axes saved before show_grid/grid_color/grid_width existed) so the
+// properties panel always shows every current setting.
+const OBJ_DEFAULTS = {};
+for (const grp of Object.values(CATALOG)) for (const [name, def] of Object.entries(grp)) {
+  const type = def._type || name;
+  if (!(type in OBJ_DEFAULTS)) { const d = { ...def }; delete d._type; OBJ_DEFAULTS[type] = d; }
+}
+function ensureDefaults(o){
+  const d = OBJ_DEFAULTS[o.type];
+  if (d && o.props) for (const k in d) if (!(k in o.props)) o.props[k] = structuredClone(d[k]);
+  if (o.children) for (const c of o.children) ensureDefaults(c);
+}
+function migrateModel(){ for (const o of (model.objects || [])) ensureDefaults(o); }
 
 const BG_ID = "__bg__";
 const $ = (id) => document.getElementById(id);
@@ -635,6 +650,8 @@ function loadTemplate(tpl){
     model.computations.push(c);
   }
   if(tpl.background) model.background = structuredClone(tpl.background);
+  model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:true }, model.background||{});
+  migrateModel();                                   // backfill props the template spec omits (grid_color, …)
   if(tpl.playMode) model.playMode = tpl.playMode;
   model.camera = tpl.camera ? structuredClone(tpl.camera) : { mode:"2d", theta:0.6, phi:1.0 };
   const vm = $("view-mode"); if(vm) vm.value = model.camera.mode;      // sync the 2D/3D toggle
@@ -647,9 +664,9 @@ function addAnimation(type){
   const a = { id:"a"+(nextAnimId++), type, target:model.selectedId, run_time:1.0 };
   if(type==="Shift") a.vector=[2,0,0];
   model.animations.push(a);
-  renderProps(); renderPreview();
+  renderProps(); renderSceneAnims(); renderPreview();
 }
-function deleteAnimation(id){ model.animations = model.animations.filter(a=>a.id!==id); renderProps(); renderPreview(); }
+function deleteAnimation(id){ model.animations = model.animations.filter(a=>a.id!==id); renderProps(); renderSceneAnims(); renderPreview(); }
 
 // Transport: Play runs the animated scene once from the current position to the end (operators run
 // their process, operands are taken over). Pause freezes. Reset returns to the static EDIT view
@@ -692,11 +709,12 @@ function applyScene(data){
   model.objects = m.objects || [];
   model.animations = m.animations || [];
   model.computations = m.computations || [];
-  model.background = m.background || { color:"#ffffff", transparent:false };
+  model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:true }, m.background || {});
   model.playMode = m.playMode || "sequential";
   model.angleUnit = m.angleUnit || "rad";
   model.domain = m.domain || "real";
   model.camera = m.camera || { mode:"2d", theta:0.6, phi:1.0 };
+  migrateModel();                                   // backfill any props added since the scene was saved
   model.selectedId = model.objects.length ? model.objects[0].id : null;
   model.selectedComp = null;
   const cc = data && data.counters;
@@ -872,6 +890,40 @@ function renderSceneObjs(){
     if(kids && o.expanded!==false){ for(const c of o.children) renderNode(c, depth+1); }
   };
   for(const o of model.objects) renderNode(o, 0);
+  renderSceneAnims();
+}
+
+// Animations overview inside the Scene box, GROUPED BY TYPE: as soon as at least one object has an
+// animation of a given kind, that kind appears as a sub-box listing every object that uses it (many
+// objects can share the same animation kind). Click an entry to select that object; ✕ removes it.
+function renderSceneAnims(){
+  const el=$("scene-anims"); if(!el) return; el.innerHTML="";
+  const anims=model.animations||[];
+  if(anims.length===0){ el.innerHTML='<div class="hint">No animations yet — select an object and add one in its properties.</div>'; return; }
+  const byType={};
+  for(const a of anims){ (byType[a.type]||(byType[a.type]=[])).push(a); }
+  for(const type of Object.keys(byType)){
+    const box=document.createElement("div"); box.className="anim-group";
+    const head=document.createElement("div"); head.className="anim-group-head"; head.textContent=type+"  ("+byType[type].length+")";
+    box.appendChild(head);
+    for(const a of byType[type]){
+      const o=findNode(a.target);
+      const row=document.createElement("div"); row.className="obj-row"+(model.selectedId===a.target?" sel":"");
+      const left=document.createElement("span"); left.className="label";
+      const nm=document.createElement("span"); nm.className="nm";
+      nm.textContent = o ? `${o.type} · ${o.id}` : "(deleted)";
+      if(!o) nm.style.opacity="0.5";
+      left.appendChild(nm);
+      if(a.run_time!=null){ const t=document.createElement("span"); t.className="hint"; t.style.marginLeft="6px"; t.textContent=a.run_time+"s"; left.appendChild(t); }
+      row.onclick=()=>{ if(o) selectObject(a.target); };
+      const ops=document.createElement("div"); ops.className="ops";
+      const del=document.createElement("button"); del.className="del"; del.textContent="✕"; del.title="Remove animation";
+      del.onclick=(e)=>{ e.stopPropagation(); deleteAnimation(a.id); };
+      ops.appendChild(del);
+      row.appendChild(left); row.appendChild(ops); box.appendChild(row);
+    }
+    el.appendChild(box);
+  }
 }
 function commitOnEnter(i){ i.addEventListener("keydown",(e)=>{ if(e.key==="Enter"){ e.preventDefault(); i.blur(); } }); }  // Enter = accept value + leave field
 function numberInput(value, on){ const i=document.createElement("input"); i.type="number"; i.step="0.1"; i.value=value; i.oninput=()=>on(parseFloat(i.value)); commitOnEnter(i); return i; }
@@ -924,7 +976,7 @@ function renderObjectProps(){
   const put=(k)=>{ if(k in o.props && !skip.has(k)){ el.appendChild(propInput(o,k,o.props[k])); skip.add(k); } };
   if((o.type==="FunctionGraph"||o.type==="Surface") && ("adaptive" in o.props)){
     // Ordered layout: 1) the function equation, 2) domain, 3) resolution, 4) colours, 5) the rest.
-    put("func"); put("x_range");
+    put("func"); put("x_range"); put("y_range");
     skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");     // resolution block (rendered specially)
     const sel=document.createElement("select");
     for(const [val,txt] of [["adaptive","Adaptive (curvature)"],["static","Static (uniform)"]]){ const op=document.createElement("option"); op.value=val; op.textContent=txt; sel.appendChild(op); }

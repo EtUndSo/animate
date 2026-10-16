@@ -30,7 +30,7 @@ assert b3.n > a2.n, (a2.n, b3.n)
 print("2D hides z-axis, 3D shows it OK: 2D=%d, 3D=%d draw ops" % (a2.n, b3.n))
 
 # surface z=f(x,y): CURVATURE-ADAPTIVE quad mesh, Lambert-shaded (faces have varying colour)
-surf = ax.plot_surface(func2_from_expr("sin(x)*cos(y)"), resolution=16)
+surf = ax.plot_surface(func2_from_expr("sin(x)*cos(y)"), resolution=16, res_min=2)  # low floor -> adaptivity visible
 assert len(surf.subObjects) > 16, ("adaptive mesh should refine a wavy surface", len(surf.subObjects))
 cols = {tuple(round(c, 3) for c in q.fill_color) for q in surf.subObjects}
 assert len(cols) > 10, "surface not shaded (all faces same colour)"
@@ -38,7 +38,7 @@ assert len(cols) > 10, "surface not shaded (all faces same colour)"
 zmax = max(q.points[:, 2].max() for q in surf.subObjects)
 assert zmax > 0.3, zmax
 # ADAPTIVITY: a flat plane needs FAR fewer faces than a wavy surface at the same resolution
-flat = ax.plot_surface(func2_from_expr("0*x+0*y"), resolution=16)
+flat = ax.plot_surface(func2_from_expr("0*x+0*y"), resolution=16, res_min=2)
 assert len(flat.subObjects) < len(surf.subObjects), ("flat must be coarser", len(flat.subObjects), len(surf.subObjects))
 print("adaptive surface OK: wavy=%d faces vs flat=%d faces, %d shaded colours" % (len(surf.subObjects), len(flat.subObjects), len(cols)))
 

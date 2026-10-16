@@ -230,15 +230,16 @@ def _build_object(spec, objects, axes=None):
             obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **_surface_kw(args, style))
         else:
             f = args["func"]
+            xr, yr = args.get("x_range"), args.get("y_range")   # x = plotted domain, y = vertical clip
             if _DOMAIN == "complex":                        # draw real AND imaginary parts
                 obj = AnimObject()
-                re_g = axes.plot(lambda x: np.real(f(x)))
-                im_g = axes.plot(lambda x: np.imag(f(x)))
+                re_g = axes.plot(lambda x: np.real(f(x)), x_range=xr, y_range=yr)
+                im_g = axes.plot(lambda x: np.imag(f(x)), x_range=xr, y_range=yr)
                 im_g.color = (0.95, 0.55, 0.15)             # Im in orange (Re keeps the chosen colour)
                 obj.add(re_g, im_g)
                 obj._cx_parts = (re_g, im_g)
             else:
-                obj = axes.plot(f)
+                obj = axes.plot(f, x_range=xr, y_range=yr)
                 obj._center_create = True                   # Create reveals a 2D graph from the centre out
     elif t == "Riemann" and axes is not None:               # midpoint Riemann rectangles on the axes
         kw = {k: style[k] for k in ("color", "fill_opacity") if k in style}

@@ -80,6 +80,8 @@
   .sub>select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff;cursor:pointer;}
   .add-areas{display:flex;flex-wrap:wrap;gap:10px;}
   .add-areas>.sub{flex:1 1 220px;margin-bottom:0;}
+  .anim-group{border:1px solid var(--border);border-radius:8px;padding:6px 6px 2px;margin-bottom:8px;}
+  .anim-group-head{font-weight:700;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:2px 4px 6px;}
 </style>
 </head>
 <body>
@@ -88,8 +90,8 @@
   <div class="header-center">
     <button id="save-btn">Save scene</button>
     <label id="load-lbl">Load scene<input id="load-input" type="file" accept=".json,application/json" hidden></label>
-    <button id="dl-png">Photo (PNG)</button>
-    <button id="dl-video">Animation (Video)</button>
+    <span class="export-split"><button id="dl-png">Photo</button><button id="dl-png-caret" class="export-caret" title="Format wählen">▾</button><div id="dl-png-menu" class="export-menu"></div></span>
+    <span class="export-split"><button id="dl-video">Animation</button><button id="dl-video-caret" class="export-caret" title="Format wählen">▾</button><div id="dl-video-menu" class="export-menu"></div></span>
   </div>
   <div class="tabs">
     <button class="active">Editor</button>
@@ -148,6 +150,7 @@
     <section class="bigbox box-scene">
       <h2>Scene</h2>
       <div class="sub"><h3>Objects</h3><div id="scene-objs"></div></div>
+      <div class="sub"><h3>Animations</h3><div id="scene-anims"></div></div>
       <div class="sub"><h3>Operations</h3><div id="computations"></div></div>
     </section>
     <section class="bigbox box-props">

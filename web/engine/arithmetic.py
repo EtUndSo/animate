@@ -51,28 +51,67 @@ def _label(text, y, size):
 # ===========================================================================
 #  SQUARES
 # ===========================================================================
+def _value_label(text, center, size, color):
+    t = Text(text, np.asarray(center, dtype=float), font_size=int(np.clip(size * 80, 22, 44)))
+    t.color = color
+    return t
+
+
 def addition(scene, nums, run_time, animating):
     nums = [n for n in nums if n > 0] or [0]
-    size = _size_for(sum(nums))
+    total = sum(nums)
+    size = _size_for(total)
     gap = size * 1.3
-    groups, x = [], 0.0
+    base_y = -0.2                                          # blocks sit here and grow UP
+    val_y = base_y - size * 1.7                            # value numbers UNDER the blocks
+    expr_y = val_y - size * 2.2                            # expression text even further down
+
+    # per-summand blocks laid left-to-right, each in its own colour
+    groups, centers, colors, x = [], [], [], 0.0
     for gi, n in enumerate(nums):
+        col = _PALETTE[gi % len(_PALETTE)]
         c = _cols(n)
-        groups.append(_block(n, size, [x, 0, 0], _PALETTE[gi % len(_PALETTE)], c))
+        groups.append(_block(n, size, [x, 0, 0], col, c))
+        centers.append(x + c * size / 2.0)
+        colors.append(col)
         x += c * size + gap
-    shift0 = np.array([-(x - gap) / 2, -1.0, 0.0])
+    totw = x - gap
+    offx = -totw / 2.0
+    shift0 = np.array([offx, base_y, 0.0])
     for g in groups:
         for s in g:
             s.shift(shift0)
             scene.add(s)
-    scene.add(_label(" + ".join(map(str, nums)) + " = " + str(sum(nums)), 2.0, size))
+
+    # each summand's VALUE under its block, in the block's colour
+    sumlabels = []
+    for gi, n in enumerate(nums):
+        lab = _value_label(str(n), [centers[gi] + offx, val_y, 0.0], size, colors[gi])
+        sumlabels.append(lab)
+        scene.add(lab)
+
+    # the textual expression at the very bottom (blocks grow up -> never covered)
+    scene.add(_label(" + ".join(map(str, nums)) + " = " + str(total), expr_y, size))
+
     if not animating:
         return
-    seg = max(run_time / (len(groups) + 1), 0.3)
-    for gi in range(1, len(groups)):                       # close one gap at a time (one after another)
-        scene.play(*[Shift(s, np.array([-gap, 0, 0])) for gj in range(gi, len(groups)) for s in groups[gj]],
-                   run_time=seg)
-    scene.play(*[Recolor(s, _PALETTE[0]) for g in groups for s in g], run_time=seg)  # become one group
+
+    # target = ONE clean, even grid for the result (centred), instead of ragged pushed-together blocks
+    C = _cols(total)
+    gbl = np.array([-C * size / 2.0, base_y, 0.0])
+    targets = [gbl + (i % C + 0.5) * size * RIGHT + (i // C + 0.5) * size * UP for i in range(total)]
+    allsq = [s for g in groups for s in g]
+    result_col = _PALETTE[0]
+    totlabel = _value_label(str(total), [0.0, val_y, 0.0], size, result_col)
+    scene.add(totlabel)
+
+    seg = max(run_time / 2.0, 0.4)
+    # 1) reflow every square into the clean result grid
+    scene.play(*[Shift(allsq[i], targets[i] - allsq[i].get_center()) for i in range(total)], run_time=seg)
+    # 2) become one group (one colour); swap the summand numbers for the total (each in its colour)
+    scene.play(*([Recolor(s, result_col) for s in allsq]
+                 + [FadeOut(t) for t in sumlabels]
+                 + [FadeIn(totlabel)]), run_time=seg)
 
 
 def subtraction(scene, nums, run_time, animating):

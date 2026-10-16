@@ -48,6 +48,8 @@ class Axes(AnimObject):
     def __init__(self, x_range=(-5, 5), y_range=(-3, 3), z_range=(-3, 3),
                  x_length=12.0, y_length=6.0, z_length=6.0, tick_size=0.1,
                  show_ticks=True, show_numbers=True, show_labels=True, show_grid=True,
+                 grid_color=(0.85, 0.86, 0.90), grid_width=1.0,
+                 x_color=(0.89, 0.38, 0.33), y_color=(0.41, 0.68, 0.39), z_color=(0.32, 0.55, 0.91),
                  x_label="x", y_label="y", z_label="z",
                  number_size=24, label_size=34):
         super().__init__()
@@ -75,25 +77,27 @@ class Axes(AnimObject):
             for y in self._ticks(self.y_min, self.y_max, self.y_step):
                 grid.add(Line(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y)))
             for ln in grid.subObjects:
-                ln.color = (0.85, 0.86, 0.90)
-                ln.stroke_width = 1.0
+                ln.color = tuple(grid_color)
+                ln.stroke_width = float(grid_width)
             grid._is_grid = True
             self.add(grid)
 
-        # Axis lines run through the data origin (clamped into the visible range).
+        # Axis lines run through the data origin (clamped into the visible range). Each axis gets its
+        # classic colour (x=red, y=green, z=blue), so orientation is readable at a glance.
         x0 = min(max(0.0, self.x_min), self.x_max)
         y0 = min(max(0.0, self.y_min), self.y_max)
-        self.add(Line(self.coords_to_point(self.x_min, y0), self.coords_to_point(self.x_max, y0)))
-        self.add(Line(self.coords_to_point(x0, self.y_min), self.coords_to_point(x0, self.y_max)))
+        xax = Line(self.coords_to_point(self.x_min, y0), self.coords_to_point(self.x_max, y0)); xax.color = tuple(x_color)
+        yax = Line(self.coords_to_point(x0, self.y_min), self.coords_to_point(x0, self.y_max)); yax.color = tuple(y_color)
+        self.add(xax); self.add(yax)
 
-        # Tick marks.
+        # Tick marks (coloured to match their axis).
         if show_ticks:
             for x in self._ticks(self.x_min, self.x_max, self.x_step):
                 p = self.coords_to_point(x, y0)
-                self.add(Line(p - tick_size * UP, p + tick_size * UP))
+                t = Line(p - tick_size * UP, p + tick_size * UP); t.color = tuple(x_color); self.add(t)
             for y in self._ticks(self.y_min, self.y_max, self.y_step):
                 p = self.coords_to_point(x0, y)
-                self.add(Line(p - tick_size * RIGHT, p + tick_size * RIGHT))
+                t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(y_color); self.add(t)
 
         # Numbers at the ticks (as Text). Shown by default; hide them all with show_numbers=False.
         if show_numbers:
@@ -115,28 +119,30 @@ class Axes(AnimObject):
         # Axis labels (e.g. "x" and "y") at the ends of the axes.
         if show_labels:
             if x_label:
-                self.add(Text(x_label, self.coords_to_point(self.x_max, y0) + RIGHT * 0.35,
-                              font_size=label_size))
+                lx = Text(x_label, self.coords_to_point(self.x_max, y0) + RIGHT * 0.35, font_size=label_size)
+                lx.color = tuple(x_color); self.add(lx)
             if y_label:
-                self.add(Text(y_label, self.coords_to_point(x0, self.y_max) + UP * 0.35,
-                              font_size=label_size))
+                ly = Text(y_label, self.coords_to_point(x0, self.y_max) + UP * 0.35, font_size=label_size)
+                ly.color = tuple(y_color); self.add(ly)
 
         # z-axis: built the same way, but grouped and tagged _only_3d so it is HIDDEN in the 2D view
         # (looking at the x-y plane) and appears, fully labelled, as soon as you orbit into 3D.
         z0 = min(max(0.0, self.z_min), self.z_max)
         zg = AnimObject()
-        zg.add(Line(self.coords_to_point(x0, y0, self.z_min), self.coords_to_point(x0, y0, self.z_max)))
+        zln = Line(self.coords_to_point(x0, y0, self.z_min), self.coords_to_point(x0, y0, self.z_max))
+        zln.color = tuple(z_color); zg.add(zln)
         if show_ticks:
             for z in self._ticks(self.z_min, self.z_max, self.z_step):
                 p = self.coords_to_point(x0, y0, z)
-                zg.add(Line(p - tick_size * RIGHT, p + tick_size * RIGHT))
+                t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(z_color); zg.add(t)
         if show_numbers:
             for z in self._ticks(self.z_min, self.z_max, self.z_step):
                 if z == 0:
                     continue
                 zg.add(Text(_fmt(z), self.coords_to_point(x0, y0, z) + LEFT * number_offset, font_size=number_size))
         if show_labels and z_label:
-            zg.add(Text(z_label, self.coords_to_point(x0, y0, self.z_max) + TOWARDS * 0.35, font_size=label_size))
+            zlab = Text(z_label, self.coords_to_point(x0, y0, self.z_max) + TOWARDS * 0.35, font_size=label_size)
+            zlab.color = tuple(z_color); zg.add(zlab)
         zg._only_3d = True
         self.add(zg)
 
@@ -180,14 +186,28 @@ class Axes(AnimObject):
             self.place(sub)
         return obj
 
-    def plot(self, func, color=(0.35, 0.60, 0.92), **_):
+    def plot(self, func, color=(0.35, 0.60, 0.92), x_range=None, y_range=None, **_):
         """Graph of y = func(x) on this coordinate system, sampled with GeoGebra-style combined
-        sampling (plotting.plot_graph): adaptive, anti-aliased-looking, split at discontinuities."""
-        segments = plot_graph(func, self.x_min, self.x_max, self.coords_to_point, self.x_length)
+        sampling (plotting.plot_graph): adaptive, anti-aliased-looking, split at discontinuities.
+        `x_range` limits the plotted DOMAIN (clamped to the axes); `y_range` clips VERTICALLY - values
+        outside it are dropped (the curve splits there), which tames poles/steep parts."""
+        xlo, xhi = self.x_min, self.x_max
+        if x_range:
+            xlo = max(self.x_min, float(x_range[0]))
+            xhi = min(self.x_max, float(x_range[1]))
+            if xhi <= xlo:
+                xlo, xhi = self.x_min, self.x_max           # nonsensical range -> fall back to the full axis
+        f = func
+        if y_range:
+            ylo, yhi = float(y_range[0]), float(y_range[1])
+            def f(x, _g=func, _lo=ylo, _hi=yhi):
+                v = _g(x)
+                return v if (v == v and _lo <= v <= _hi) else float("nan")   # NaN -> plot_graph splits (clip)
+        segments = plot_graph(f, xlo, xhi, self.coords_to_point, self.x_length)
         return build_graph(segments, color)
 
     def plot_surface(self, func, resolution=18, color=(0.35, 0.60, 0.92), fill_opacity=1.0, shade=True,
-                     grid_color=None, grid_width=0.5, res_min=6, adaptive=True):
+                     grid_color=None, grid_width=0.5, res_min=15, adaptive=True):
         """Surface z = func(x, y) as a CURVATURE-ADAPTIVE quad mesh (GeoGebra-style): start from a coarse
         grid and recursively subdivide a cell where the surface BENDS. Flat regions stay coarse, curved
         regions get fine - fewer faces for the same look than a uniform grid. `res_min` = the MINIMUM
@@ -276,7 +296,17 @@ class Axes(AnimObject):
             if not all(_ok(z) for z in zs):                      # any vertex out of the box -> drop the face
                 continue
             P = [self.coords_to_point(x, y, z) for (x, y), z in zip(verts2d, zs)]
-            nrm = np.cross(P[1] - P[0], P[2] - P[0])             # normal from the first corner triangle
+            # Face normal via NEWELL'S method over the WHOLE polygon (robust for any vertex count and for
+            # the hanging-node vertices stitching inserts). The old cross(P1-P0, P2-P0) used just the first
+            # three perimeter points, which on a stitched edge are ~collinear -> garbage normal -> adjacent
+            # faces flipped between very dark and very bright instead of a smooth gradient.
+            Pa = np.asarray(P, dtype=float)
+            Pb = np.roll(Pa, -1, axis=0)
+            nrm = np.array([
+                float(np.sum((Pa[:, 1] - Pb[:, 1]) * (Pa[:, 2] + Pb[:, 2]))),
+                float(np.sum((Pa[:, 2] - Pb[:, 2]) * (Pa[:, 0] + Pb[:, 0]))),
+                float(np.sum((Pa[:, 0] - Pb[:, 0]) * (Pa[:, 1] + Pb[:, 1]))),
+            ])
             nn = np.linalg.norm(nrm)
             nrm = nrm / nn if nn > 1e-12 else np.array([0.0, 0.0, 1.0])
             if nrm[2] < 0:
