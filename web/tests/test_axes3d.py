@@ -42,13 +42,13 @@ flat = ax.plot_surface(func2_from_expr("0*x+0*y"), resolution=16, res_min=2)
 assert len(flat.subObjects) < len(surf.subObjects), ("flat must be coarser", len(flat.subObjects), len(surf.subObjects))
 print("adaptive surface OK: wavy=%d faces vs flat=%d faces, %d shaded colours" % (len(surf.subObjects), len(flat.subObjects), len(cols)))
 
-# via the model: Surface uses the scene's axes (2-variable function works)
+# via the model: a 2-variable FunctionGraph renders as a surface on the scene's axes (Surface type removed)
 model = {"camera": {"mode": "3d", "theta": 0.6, "phi": 1.0},
          "objects": [
              {"id": "ax", "type": "Axes", "args": {"x_range": [-3, 3], "y_range": [-3, 3], "z_range": [-1.5, 1.5], "x_length": 8, "y_length": 8, "z_length": 5}},
-             {"id": "s", "type": "Surface", "args": {"func": "sin(x)*cos(y)", "resolution": 12, "color": [0.3, 0.6, 0.9], "fill_opacity": 1.0}},
+             {"id": "s", "type": "FunctionGraph", "args": {"func": "sin(x)*cos(y)", "res_max": 12, "color": [0.3, 0.6, 0.9], "fill_opacity": 1.0}},
          ], "animations": [], "background": [1, 1, 1]}
 sc = ModelScene(model); sc.construct()
 assert len(sc.objects_by_id["s"].subObjects) > 16
-print("model Surface on axes OK (2-variable function renders)")
+print("model 2-var FunctionGraph on axes OK (renders as a surface)")
 print("\nUNIFIED AXES / SURFACE TESTS PASSED")

@@ -61,10 +61,11 @@ const CATALOG = {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
     Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, x_color:"#000000", y_color:"#000000", z_color:"#000000", grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
-    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
+    // A FunctionGraph is 1D (y=f(x)) for a term in x only, and a 3D SURFACE when the term also uses y
+    // (z=f(x,y)) — the surface-only props (fill_opacity, height_color, grid_*) are ignored for a 1D curve.
+    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.5 },
   },
-  "Mathematik · 3D-Flächen & Körper": {   // Surface uses the axes; solids live in world coordinates
-    Surface:    { func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.5 },
+  "Mathematik · 3D-Körper": {   // solids live in world coordinates (a 2-variable FunctionGraph is the surface)
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
@@ -161,13 +162,13 @@ const TEMPLATES = {
 };
 
 // Shown once when the editor opens with no saved scene, so the user starts from a concrete 3D example
-// rather than an empty canvas: the graph of z = sin(x)+cos(y) (a Surface — the only object that can plot
-// a function of BOTH x and y; a 1D FunctionGraph takes x only). Resolution 50, x/y ∈ [-10,10], z ∈ [-3,3].
+// rather than an empty canvas: the graph of z = sin(x)+cos(y). A FunctionGraph whose term uses BOTH x and
+// y automatically renders as a surface. Resolution 50, x/y ∈ [-10,10], z ∈ [-3,3].
 const START_EXAMPLE = {
   camera: { mode:"3d", theta:0.6, phi:1.0 },
   objects: [
     { type:"Axes", props:{ x_range:[-10,10], y_range:[-10,10], z_range:[-3,3], x_length:8, y_length:8, z_length:5 } },
-    { type:"Surface", props:{ func:"sin(x)+cos(y)", adaptive:false, res_max:50 } },
+    { type:"FunctionGraph", props:{ func:"sin(x)+cos(y)", adaptive:false, res_max:50 } },
   ],
 };
 
@@ -213,6 +214,8 @@ for (const grp of Object.values(CATALOG)) for (const [name, def] of Object.entri
   if (!(type in OBJ_DEFAULTS)) { const d = { ...def }; delete d._type; OBJ_DEFAULTS[type] = d; }
 }
 function ensureDefaults(o){
+  if (o.type === "Surface") o.type = "FunctionGraph";   // Surface removed: it's a 2-variable FunctionGraph (z=f(x,y));
+  //                                                       its props (func/adaptive/res/fill_opacity/height_color/grid_*) are all valid FunctionGraph props
   const d = OBJ_DEFAULTS[o.type];
   if (d && o.props) for (const k in d) if (!(k in o.props)) o.props[k] = structuredClone(d[k]);
   if (o.type === "Axes" && o.props) delete o.props.show_grid;         // obsolete: replaced by grid_x/grid_y/grid_z
@@ -310,7 +313,7 @@ function needsLOD(){
   const scan=(o)=>{
     const r=o&&o.props&&(o.props.res_max||o.props.resolution);
     if(typeof r==="number" && r>ORBIT_DETAIL_CAP &&
-       (o.type==="Surface" || o.type==="Sphere" || (o.type==="FunctionGraph" && _hasY(o.props.func)))) hit=true;
+       (o.type==="Sphere" || (o.type==="FunctionGraph" && _hasY(o.props.func)))) hit=true;   // 2-var graph = surface
     if(o&&o.children) o.children.forEach(scan);
   };
   model.objects.forEach(scan);
@@ -1123,7 +1126,7 @@ function renderObjectProps(){
   const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent=o.type; el.appendChild(h);
   const skip=new Set();
   const put=(k)=>{ if(k in o.props && !skip.has(k)){ el.appendChild(propInput(o,k,o.props[k])); skip.add(k); } };
-  if((o.type==="FunctionGraph"||o.type==="Surface") && ("adaptive" in o.props)){
+  if(o.type==="FunctionGraph" && ("adaptive" in o.props)){
     // Ordered layout: 1) the function equation, 2) domain, 3) resolution, 4) colours, 5) the rest.
     put("func"); put("x_range"); skip.add("y_range");     // y value range comes from the Axes, not per-function
     skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");     // resolution block (rendered specially)
@@ -1134,7 +1137,7 @@ function renderObjectProps(){
     el.appendChild(propRow("resolution mode", sel));
     if(o.props.adaptive!==false){ el.appendChild(propInput(o,"res_min", o.props.res_min)); el.appendChild(propInput(o,"res_max", o.props.res_max)); }
     else { el.appendChild(propInput(o,"res_max", o.props.res_max)); }
-    ["color","grid_color","grid_width","stroke_width","stroke_opacity","fill_opacity"].forEach(put);   // colours / line look
+    ["color","grid_color","grid_width","stroke_width","stroke_opacity","fill_opacity","height_color"].forEach(put);   // colours / line look (height_color: surface depth shading)
   }
   for(const [k,v] of Object.entries(o.props)){ if(skip.has(k)) continue; el.appendChild(propInput(o,k,v)); }
   renderResults(el, o);
@@ -1170,7 +1173,7 @@ function movablePosKeys(o){
   if(Array.isArray(p.center)) return ["center"];
   if(Array.isArray(p.position)) return ["position"];
   if(Array.isArray(p.start) && Array.isArray(p.end)) return ["start","end"];
-  return [];                                          // FunctionGraph / Axes / Riemann / Surface: not point-positioned
+  return [];                                          // FunctionGraph / Axes / Riemann: not point-positioned
 }
 function axesScale(){
   const ax=(model.objects||[]).find(o=>o.type==="Axes"); if(!ax) return {x:1,y:1,z:1};

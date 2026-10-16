@@ -33,10 +33,12 @@ class Stub:
 
 model = {
     "camera": {"mode": "3d", "theta": 0.6, "phi": 1.0},
+    "shadows": False,                                   # flat faces -> the surface face keeps the exact base colour
     "objects": [
-        {"id": "ax", "type": "ThreeDAxes", "args": {"length": 3}},
-        {"id": "s", "type": "Surface", "args": {"func": "sin(x)*cos(y)", "x_range": [-3, 3], "y_range": [-3, 3],
-                                                "resolution": 8, "color": [0.3, 0.6, 0.9], "fill_opacity": 0.7}},
+        {"id": "ax", "type": "Axes", "args": {"x_range": [-3, 3], "y_range": [-3, 3], "z_range": [-3, 3]}},
+        # a FunctionGraph whose term uses x AND y renders as a surface (Surface type removed)
+        {"id": "s", "type": "FunctionGraph", "args": {"func": "sin(x)*cos(y)", "adaptive": False,
+                                                "res_max": 8, "color": [0.3, 0.6, 0.9], "fill_opacity": 0.7}},
         {"id": "sp", "type": "Sphere", "args": {"radius": 1, "center": [2, 0, 0], "resolution": 6,
                                                 "color": [0.9, 0.2, 0.2], "fill_opacity": 0.5}},
         {"id": "bx", "type": "Box", "args": {"width": 1, "height": 1, "depth": 1, "center": [-2, 0, 0],

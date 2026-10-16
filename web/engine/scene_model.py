@@ -212,7 +212,7 @@ def _resolve_arg(key, value):
 _STYLE_ATTRS = ("color", "fill_color", "fill_opacity", "stroke_width", "stroke_opacity", "show_center")
 # Types that live in WORLD (3D) coordinates, NOT in the axes' data coordinates: they must not be
 # re-mapped by axes.place (which would distort a solid by the x/y data scaling).
-_WORLD_TYPES = {"Axes", "ThreeDAxes", "Surface", "Box", "Cube", "Sphere", "Pyramid", "Vector",
+_WORLD_TYPES = {"Axes", "ThreeDAxes", "Box", "Cube", "Sphere", "Pyramid", "Vector",
                 "MathTex", "SVGMobject"}
 
 
@@ -252,13 +252,6 @@ def _build_object(spec, objects, axes=None):
     elif t == "Riemann" and axes is not None:               # midpoint Riemann rectangles on the axes
         kw = {k: style[k] for k in ("color", "fill_opacity") if k in style}
         obj = axes.riemann_rectangles(args["func"], int(args.get("count", 8)), **kw)
-    elif t == "Surface":                                    # z = f(x, y), built on the axes (scaled + shaded)
-        raw = str(spec.get("args", {}).get("func", "0"))
-        kw = _surface_kw(args, style)
-        if axes is not None:
-            obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **kw)
-        else:                                               # standalone Surface: no grid-line options
-            obj = Surface(func2_from_expr(raw), **{k: v for k, v in kw.items() if not k.startswith("grid")})
     elif t == "Dot":                                        # a dot is a ROUND marker: map only its CENTRE to
         c = args.get("center", [0.0, 0.0, 0.0])              # the axes, keep a fixed world radius -> never
         r = float(args.get("radius", 0.08))                  # stretched into an ellipse on a non-uniform axes
