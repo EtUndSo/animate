@@ -18,20 +18,48 @@ def rotation_matrix(angle, axis):
     ])
 
 
-class AnimObject:
+class Mobject:
+    """Base animatable object - Manim's Mobject/VMobject (same design: geometry is a cubic Bézier
+    control-point array, children in `subObjects`, direct point transforms). `VMobject` and the legacy
+    `AnimObject` are aliases of this class so Manim-style code and older code both work."""
+
     def __init__(self):
         self.points = np.zeros((0, 3))           # cubic Bézier control points, shape (N,3), N = 3k+1
-        self.subObjects: list[AnimObject] = []   # child objects (a group is an animObject with children)
-        self.color = (0.0, 0.0, 0.0)
-        self.stroke_width = 4.0
+        self.subObjects: list["Mobject"] = []    # child objects (a group is a Mobject with children)
+        self.updaters = []                       # functions fn(self) re-run each frame (see run_updaters)
+        self.color = (0.0, 0.0, 0.0)             # outline / stroke colour
+        self.stroke_width = 4.0                  # pen thickness (pixels)
+        self.fill_color = None                   # fill colour; None -> same as the outline colour
         self.fill_opacity = 0.0
         self.stroke_opacity = 1.0                # outline opacity (used by FadeIn)
+        self.show_center = False                 # draw a small dot at the centre (positioning aid)
 
     # ---------- structure ----------
     def add(self, *objects):
         """Add child objects. A composite object (group, axes, ...) is an AnimObject
         whose geometry lives in its children."""
         self.subObjects.extend(objects)
+        return self
+
+    # ---------- updaters ----------
+    # An updater is a function fn(obj) re-run every frame, AFTER the timeline has set the frame's
+    # state. It lets an object recompute itself from the current scene (e.g. a graph that follows a
+    # ValueTracker, or a DecimalNumber that shows its value). This is the core of "object interaction":
+    # the drawn result is computed each frame from the maths, not stored statically.
+    def add_updater(self, fn):
+        self.updaters.append(fn)
+        return self
+
+    def clear_updaters(self):
+        self.updaters = []
+        return self
+
+    def run_updaters(self):
+        """Run own updaters, then children's (so a group updates before its parts rely on it)."""
+        for fn in self.updaters:
+            fn(self)
+        for sub in self.subObjects:
+            sub.run_updaters()
         return self
 
     # ---------- queries ----------
@@ -43,6 +71,13 @@ class AnimObject:
             if len(p):
                 parts.append(p)
         return np.vstack(parts) if parts else np.zeros((0, 3))
+
+    def get_bounding_box(self):
+        """(min_corner, max_corner) over all points of this object and its children."""
+        pts = self.all_points()
+        if len(pts) == 0:
+            return ORIGIN.copy(), ORIGIN.copy()
+        return pts.min(axis=0), pts.max(axis=0)
 
     def get_center(self):
         pts = self.all_points()
@@ -95,8 +130,16 @@ class AnimObject:
         self.points = other.points.copy()
         self.color = other.color
         self.stroke_width = other.stroke_width
+        self.fill_color = other.fill_color
         self.fill_opacity = other.fill_opacity
         self.stroke_opacity = other.stroke_opacity
+        self.show_center = other.show_center
         for mine, theirs in zip(self.subObjects, other.subObjects):
             mine.become(theirs)
         return self
+
+
+# Manim-compatible names. Our object IS a vectorized (Bézier) mobject, so VMobject is the precise
+# name; Mobject is the base name Manim users reach for; AnimObject stays for existing code.
+VMobject = Mobject
+AnimObject = Mobject

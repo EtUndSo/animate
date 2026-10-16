@@ -18,3 +18,10 @@ out.png
 # Node (for the web UI build, later)
 node_modules/
 dist/
+
+# never commit secrets / SSH keys
+*.pem
+id_*
+animate
+animate.pub
+*.key

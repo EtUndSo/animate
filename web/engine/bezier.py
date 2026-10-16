@@ -23,6 +23,27 @@ def line_points(anchors):
     return np.array(points)
 
 
+def smooth_points(anchors):
+    """Smooth cubic Bézier chain through the anchors (Catmull-Rom spline as Béziers): handles come
+    from each point's tangent m_i = (P_{i+1} - P_{i-1}) / 2, so it is C1-continuous (no corners).
+    Use for a RESOLVED function line; only safe when the anchors are dense enough (not undersampled),
+    so the caller must have confirmed the curve is resolvable before smoothing."""
+    anchors = np.asarray(anchors, dtype=float)
+    n = len(anchors)
+    if n < 3:
+        return line_points(anchors)
+    m = np.zeros_like(anchors)
+    m[1:-1] = (anchors[2:] - anchors[:-2]) / 2.0
+    m[0] = anchors[1] - anchors[0]
+    m[-1] = anchors[-1] - anchors[-2]
+    points = [anchors[0]]
+    for i in range(n - 1):
+        points.append(anchors[i] + m[i] / 3.0)
+        points.append(anchors[i + 1] - m[i + 1] / 3.0)
+        points.append(anchors[i + 1])
+    return np.array(points)
+
+
 def circle_points(center, radius, u, v, n_arcs=4):
     """Circle as n_arcs cubic Bézier arcs.
 
@@ -62,6 +83,39 @@ def split_cubic(p0, p1, p2, p3, t):
     e = b + (c - b) * t
     f = d + (e - d) * t                               # the point on the curve at t
     return (p0, a, d, f), (f, e, c, p3)
+
+
+def subdivide_cubic(p0, p1, p2, p3, m):
+    """Split ONE cubic segment into m cubic pieces of equal parameter length (de Casteljau).
+    Returns a cubic chain of 3*m + 1 control points. m=1 returns the segment unchanged."""
+    cur = [np.asarray(p, dtype=float) for p in (p0, p1, p2, p3)]
+    out = [cur[0]]
+    for i in range(m - 1):
+        t = 1.0 / (m - i)                         # split off 1/(m-i) of what remains
+        first, cur = split_cubic(cur[0], cur[1], cur[2], cur[3], t)
+        out += [first[1], first[2], first[3]]
+    out += [cur[1], cur[2], cur[3]]
+    return np.array(out)
+
+
+def resegment(points, K):
+    """Re-express a cubic Bézier chain with the SAME shape but exactly K segments (K >= its current
+    segment count), by subdividing segments as evenly as possible. Used to give two curves the same
+    number of control points so they can be interpolated point-for-point (Transform)."""
+    points = np.asarray(points, dtype=float)
+    k = (len(points) - 1) // 3
+    if k <= 0:                                    # a single point -> K zero-length segments at it
+        p = points[0] if len(points) else np.zeros(3)
+        return np.tile(p, (3 * K + 1, 1))
+    if K <= k:
+        return points.copy()
+    base, extra = divmod(K, k)
+    out = [points[0].reshape(1, 3)]
+    for s in range(k):
+        seg = points[3 * s:3 * s + 4]
+        m = base + (1 if s < extra else 0)        # this segment becomes m sub-segments
+        out.append(subdivide_cubic(seg[0], seg[1], seg[2], seg[3], m)[1:])
+    return np.vstack(out)
 
 
 def partial_bezier(points, a):

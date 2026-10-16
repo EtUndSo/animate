@@ -1,6 +1,7 @@
 import numpy as np
 from .AnimObject import AnimObject
 from .bezier import circle_points, line_points
+from .plotting import plot_graph
 from .constants import ORIGIN, RIGHT, UP
 
 # Every shape stores its geometry as a cubic Bézier point array (N = 3k+1), so the renderer
@@ -64,8 +65,14 @@ class Square(Rectangle):
 class FunctionGraph(AnimObject):
     # Standalone graph in WORLD coordinates (data = world). For a scaled/framed plot use
     # Axes.plot(func) instead, which maps data coordinates through the axes.
-    def __init__(self, func, x_range=(-4.0, 4.0), samples=200):
+    def __init__(self, func, x_range=(-4.0, 4.0), **_):
         super().__init__()
-        xs = np.linspace(x_range[0], x_range[1], samples)
-        anchors = [x * RIGHT + func(x) * UP for x in xs]   # (x, f(x)) as world points
-        self.points = line_points(anchors)                 # OPEN Bézier chain (no closing!)
+        x0, x1 = x_range[0], x_range[1]
+        # GeoGebra-style combined sampling (data = world here); split at discontinuities.
+        segments = plot_graph(func, x0, x1, lambda x, y: x * RIGHT + y * UP, x1 - x0)
+        if segments:
+            self.points = segments[0]
+            for seg in segments[1:]:                  # extra continuous pieces (after poles) as children
+                child = AnimObject()
+                child.points = seg
+                self.add(child)

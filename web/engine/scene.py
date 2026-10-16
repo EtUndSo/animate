@@ -1,76 +1,86 @@
-import os
 from .AnimObject import AnimObject
 from .camera import Camera
-from .constants import FPS, IMAGE_DIR, VIDEO_DIR
-# NOTE: renderScene (Cairo) and VideoWriter (ffmpeg) are imported LAZILY inside render()/
-# render_video(), so the engine core imports cleanly in the browser (Pyodide), where only
-# the Canvas backend is used and Cairo/ffmpeg are unavailable.
+
+# Web variant of Scene: instead of writing frames to ffmpeg, play()/wait() record a TIMELINE.
+# The browser player then seek()s to any time t and paints the result to the Canvas. This makes
+# playback real-time and scrubbable, without any encoder.
 
 
 class Scene:
     def __init__(self):
-        self.objectList: list[AnimObject] = []   # the objects to be drawn, in draw order
-        self._writer = None                      # active VideoWriter during render_video()
-        self.camera = Camera()                   # projection 3D->2D (swap for a 3D camera later)
+        self.objectList: list[AnimObject] = []   # drawn in order
+        self.timeline = []                       # list of {"anims": [...], "dur": seconds}
+        self.camera = Camera()
 
     def add(self, *objects):
-        self.objectList.extend(objects)          # accept one or several objects at once
-        return self                              # allows chaining: scene.add(a).add(b)
+        self.objectList.extend(objects)
+        return self
 
     def construct(self):
-        """Override in a subclass. Use self.add(...) for static objects, and
-        self.play(...) / self.wait(...) for animation (when rendering a video)."""
+        """Override in a subclass: self.add(...) for static objects, self.play()/self.wait() for timing."""
         pass
 
-    def _output_path(self, folder, extension, filename):
-        """Where to save. Default: <folder>/<SceneClassName>.<ext>. A bare filename is placed
-        in <folder>; a filename with a path (or absolute) is used as given."""
-        if filename is None:
-            filename = f"{type(self).__name__}.{extension}"
-        if not os.path.isabs(filename) and os.path.dirname(filename) == "":
-            os.makedirs(folder, exist_ok=True)
-            return os.path.join(folder, filename)
-        return filename
-
-    # ---------- static image ----------
-    def render(self, filename=None):
-        """Build the scene via construct() and save a single image to output_images/."""
-        from .renderScene import renderScene            # lazy: Cairo only needed locally
-        self.construct()
-        path = self._output_path(IMAGE_DIR, "png", filename)
-        return renderScene(self, path)
-
-    # ---------- animation / video ----------
-    def render_video(self, filename=None):
-        """Build the scene via construct() (which calls play()/wait()) and save an mp4 to output_videos/."""
-        from .video import VideoWriter                  # lazy: ffmpeg only needed locally
-        path = self._output_path(VIDEO_DIR, "mp4", filename)
-        self._writer = VideoWriter(path)
-        self.construct()
-        self._writer.close()
-        self._writer = None
-        return path
-
-    def play(self, *animations, run_time=1.0):
-        """Run the given animations together over run_time seconds, writing one frame each tick."""
+    def play(self, *animations, run_time=None):
+        """Play the given animations TOGETHER as ONE timeline segment (they run simultaneously).
+        Pass run_time to force a common duration; otherwise each animation keeps its own run_time
+        and the segment lasts as long as the slowest one. Separate play() calls run one after
+        another - that is how sequence vs. parallelism is expressed."""
         for anim in animations:
+            if run_time is not None:
+                anim.run_time = run_time
             if anim.target not in self.objectList:
-                self.objectList.append(anim.target)   # auto-add targets (e.g. FadeIn of a new object)
-            anim.begin()
-        if self._writer is None:                      # static image mode: jump straight to the end
-            for anim in animations:
-                anim.update(1.0)
-            return
-        total = max(1, round(run_time * FPS))
-        for frame in range(total + 1):
-            alpha = frame / total
-            for anim in animations:
-                anim.update(alpha)
-            self._writer.write_frame(self.objectList, self.camera)
+                self.objectList.append(anim.target)   # auto-add targets (e.g. Create of a new graph)
+            anim.begin()                              # snapshot start state (current = end of previous)
+        dur = max((anim.run_time for anim in animations), default=0.0)
+        self.timeline.append({"anims": list(animations), "dur": dur})
+        for anim in animations:
+            anim.update(1.0)                          # advance to end so the NEXT begin() is correct
 
     def wait(self, duration=1.0):
-        """Hold the current picture for 'duration' seconds (static frames)."""
-        if self._writer is None:                      # static image mode: nothing to hold
-            return
-        for _ in range(max(1, round(duration * FPS))):
-            self._writer.write_frame(self.objectList, self.camera)
+        self.timeline.append({"anims": [], "dur": duration})
+
+    # ---------- for the browser player ----------
+    def build_timeline(self):
+        """Run construct() to fill objectList + timeline. Call once before playback."""
+        self.objectList = []
+        self.timeline = []
+        self.construct()
+        return self
+
+    @property
+    def duration(self):
+        return sum(seg["dur"] for seg in self.timeline) or 1e-6
+
+    def seek(self, t):
+        """Set every object's state to the scene at global time t (seconds)."""
+        # segment time bounds
+        bounds, cursor = [], 0.0
+        for seg in self.timeline:
+            bounds.append((cursor, cursor + seg["dur"]))
+            cursor += seg["dur"]
+        # Pass 1: every FUTURE animation -> its START state (update(0)). We go latest-first so that,
+        # for an object touched by several segments, the EARLIEST future segment's reset wins. This
+        # restores objects whose only/earliest animation is still ahead (e.g. a FadeOut's target must
+        # be VISIBLE before it fades, a Shift's target at its pre-shift position).
+        for (t0, _t1), seg in reversed(list(zip(bounds, self.timeline))):
+            if t < t0:
+                for anim in seg["anims"]:
+                    anim.update(0.0)
+        # Pass 2: past + current segments in order (these override the resets with the real state).
+        for (t0, _t1), seg in zip(bounds, self.timeline):
+            if t < t0:
+                continue
+            for anim in seg["anims"]:
+                rt = anim.run_time if anim.run_time > 0 else seg["dur"]   # this anim's own duration
+                if rt <= 0 or t >= t0 + rt:
+                    anim.update(1.0)                                   # finished
+                else:
+                    anim.update((t - t0) / rt)                         # in progress, on its own clock
+        self.run_updaters()        # after the frame's state is set, let objects recompute from it
+        return self
+
+    def run_updaters(self):
+        """Run every object's updaters (and its children's) for the current frame."""
+        for obj in self.objectList:
+            obj.run_updaters()
+        return self

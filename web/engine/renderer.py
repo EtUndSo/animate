@@ -1,4 +1,7 @@
+import numpy as np
 from .camera import Camera
+from .bezier import circle_points
+from .constants import RIGHT, UP
 
 # Backend- AND dimension-agnostic rendering core. It walks the object tree, projects world
 # coordinates to pixels through a CAMERA, and calls a "painter" (drawing backend) for every
@@ -9,6 +12,8 @@ from .camera import Camera
 #     draw_text(text, px, py, font_size, color, opacity)
 
 _DEFAULT_CAMERA = Camera()
+_CENTER_COLOR = (0.90, 0.25, 0.20)       # the little "this is where it's measured from" dot
+_CENTER_RADIUS = 0.05                     # world units -> a small, fixed on-screen dot (2D camera)
 
 
 def world_to_pixel(point, camera=None):
@@ -16,23 +21,103 @@ def world_to_pixel(point, camera=None):
     return (camera or _DEFAULT_CAMERA).project(point)
 
 
-def paint_object(painter, obj, camera):
-    """Draw one object (and recursively its children) through the painter, projected by camera."""
+def _fill_of(obj):
+    return obj.fill_color if getattr(obj, "fill_color", None) is not None else obj.color
+
+
+def _paint_leaf(painter, obj, camera):
+    """Draw ONE object (its own geometry), without recursing into children (scalar projection)."""
     text = getattr(obj, "text", None)
     if text is not None:                                          # a Text object
         px, py = camera.project(obj.points[0])
         painter.draw_text(text, px, py, obj.font_size, obj.color, obj.stroke_opacity)
     elif len(obj.points) >= 4:                                    # a Bézier-based object
         pixel_points = [camera.project(p) for p in obj.points]
-        painter.draw_path(pixel_points, obj.color, obj.fill_opacity,
+        painter.draw_path(pixel_points, _fill_of(obj), obj.fill_opacity,
                           obj.color, obj.stroke_width, obj.stroke_opacity)
-    for sub in obj.subObjects:                                    # children on top
+    _paint_center(painter, obj, camera)
+
+
+def _paint_center(painter, obj, camera):
+    if getattr(obj, "show_center", False) and len(obj.points):    # optional centre marker
+        c = (obj.points.min(axis=0) + obj.points.max(axis=0)) / 2.0
+        marker = [camera.project(p) for p in circle_points(c, _CENTER_RADIUS, RIGHT, UP)]
+        painter.draw_path(marker, _CENTER_COLOR, 1.0, _CENTER_COLOR, 1.0, 1.0)
+
+
+def paint_object(painter, obj, camera):
+    """Draw one object and recursively its children (children on top). Used in 2D."""
+    if getattr(obj, "_only_3d", False) and getattr(camera, "mode", "2d") != "3d":
+        return                                                    # e.g. the z-axis: hidden in 2D view
+    _paint_leaf(painter, obj, camera)
+    for sub in obj.subObjects:
         paint_object(painter, sub, camera)
 
 
+def _collect(obj, is_axis, out):
+    """Flatten the tree into drawable leaves for 3D, carrying an is_axis flag down the subtree so the
+    axes (and everything attached to them) can be lifted ABOVE all other objects after depth sort."""
+    axis_here = is_axis or bool(getattr(obj, "_is_axis", False))
+    if getattr(obj, "text", None) is not None or len(obj.points) >= 4:
+        out.append((obj, axis_here))
+    for sub in obj.subObjects:
+        _collect(sub, axis_here, out)
+
+
+def _paint_3d(painter, objectList, camera):
+    """3D paint: project ALL path vertices in a SINGLE batched matmul (fast in Pyodide), depth-sort,
+    draw far-to-near (painter's algorithm), then draw the axes on top so they stay visible through
+    surfaces."""
+    leaves = []
+    for obj in objectList:
+        _collect(obj, False, leaves)
+
+    paths = [(o, a) for (o, a) in leaves if getattr(o, "text", None) is None and len(o.points) >= 4]
+    texts = [(o, a) for (o, a) in leaves if getattr(o, "text", None) is not None and len(o.points)]
+
+    record = []                                                   # (depth, is_axis, obj, pixels|None)
+    if paths:
+        counts = [len(o.points) for o, _ in paths]
+        allpts = np.concatenate([o.points for o, _ in paths], axis=0)
+        cam = camera.view_array(allpts)                           # ONE matmul for the whole scene
+        upp = camera._upp
+        px = camera.pixel_width / 2 + cam[:, 0] / upp
+        py = camera.pixel_height / 2 - cam[:, 1] / upp
+        proj = np.column_stack([px, py])
+        depth = cam[:, 2]
+        off = 0
+        for (o, a), c in zip(paths, counts):
+            sl = slice(off, off + c); off += c
+            record.append((float(depth[sl].mean()), a, o, proj[sl]))
+    for o, a in texts:
+        record.append((camera.depth(o.points[0]), a, o, None))
+
+    nonaxis = [r for r in record if not r[1]]
+    axis = [r for r in record if r[1]]
+    for group in (nonaxis, axis):                                 # axes drawn LAST -> always on top
+        group.sort(key=lambda r: r[0])                            # far (small depth) first
+        for _d, _a, o, pix in group:
+            if getattr(o, "text", None) is not None:
+                px0, py0 = camera.project(o.points[0])
+                painter.draw_text(o.text, px0, py0, o.font_size, o.color, o.stroke_opacity)
+            else:
+                painter.draw_path(pix.tolist(), _fill_of(o), o.fill_opacity,
+                                  o.color, o.stroke_width, o.stroke_opacity)
+                _paint_center(painter, o, camera)
+
+
 def paint_scene(painter, objectList, camera=None, background=(1.0, 1.0, 1.0)):
-    """Paint the background and then every object, projected through the camera."""
+    """Paint the background, then every object. In 3D, leaves are drawn far-to-near (painter's
+    algorithm) so nearer faces correctly cover farther ones. In BOTH modes the coordinate axes are
+    drawn last, so they stay visible in front of all other objects."""
     camera = camera or _DEFAULT_CAMERA
     painter.background(background)
-    for obj in objectList:
-        paint_object(painter, obj, camera)
+    if getattr(camera, "mode", "2d") == "3d":
+        _paint_3d(painter, objectList, camera)
+    else:
+        nonaxis = [o for o in objectList if not getattr(o, "_is_axis", False)]
+        axis = [o for o in objectList if getattr(o, "_is_axis", False)]
+        for obj in nonaxis:
+            paint_object(painter, obj, camera)
+        for obj in axis:
+            paint_object(painter, obj, camera)

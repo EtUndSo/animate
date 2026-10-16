@@ -14,3 +14,25 @@ class Text(AnimObject):
         self.font_size = font_size                                 # in pixels
         self.color = color
         self.points = np.array([np.asarray(position, dtype=float)])  # (1,3): the anchor
+
+
+class DecimalNumber(Text):
+    """A Text that displays a NUMBER and can be updated live. Drive it from a ValueTracker with
+    an updater, e.g.  num.add_updater(lambda d: d.set_value(k.get_value())) , so the shown value
+    tracks the animation frame by frame. This is how computed results appear on screen (3B1B-style)."""
+
+    def __init__(self, value=0.0, position=ORIGIN, font_size=40, color=(0.0, 0.0, 0.0),
+                 decimals=2, prefix="", suffix=""):
+        self.value = float(value)
+        self.decimals = decimals
+        self.prefix = prefix
+        self.suffix = suffix
+        super().__init__(self._fmt(value), position, font_size=font_size, color=color)
+
+    def _fmt(self, v):
+        return f"{self.prefix}{v:.{self.decimals}f}{self.suffix}"
+
+    def set_value(self, v):
+        self.value = float(v)
+        self.text = self._fmt(self.value)
+        return self

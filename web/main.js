@@ -1,12 +1,12 @@
-// Loads the Python engine (web/engine) into Pyodide and renders "Hello Sine" to the canvas.
-// The web variant uses the Canvas backend; the SAME engine core runs, just a different painter.
+// Loads the Python engine (web/engine) into Pyodide and PLAYS an animated scene on the canvas
+// in real time. The web variant uses the Canvas backend; the same engine core runs.
 
 const ENGINE_FILES = [
   "__init__.py", "constants.py", "camera.py", "renderer.py", "AnimObject.py",
-  "bezier.py", "simpleShape.py", "text.py", "axes.py", "animation.py",
-  "rate_functions.py", "scene.py", "scene_model.py",
+  "bezier.py", "plotting.py", "simpleShape.py", "text.py", "svg.py", "axes.py", "threed.py", "value_tracker.py",
+  "results.py", "calc.py", "geometry.py", "processes.py", "arithmetic.py", "animation.py", "rate_functions.py", "scene.py", "scene_model.py",
 ];
-const WEB_PY = ["canvas_painter.py", "hello.py"];
+const WEB_PY = ["canvas_painter.py", "app.py"];
 
 const setStatus = (msg) => { document.getElementById("status").textContent = msg; };
 
@@ -38,9 +38,21 @@ async function main() {
   pyodide.globals.set("js_w", canvas.width);
   pyodide.globals.set("js_h", canvas.height);
 
-  setStatus("Rendere …");
-  await pyodide.runPythonAsync(await fetchText("py/hello.py"));
-  setStatus("Fertig ✓  — gerendert aus derselben Python-Engine, nur über Canvas statt Cairo.");
+  setStatus("Baue Szene …");
+  await pyodide.runPythonAsync(await fetchText("py/app.py"));
+
+  const duration = pyodide.globals.get("DURATION");
+  const draw = pyodide.globals.get("draw");
+  setStatus(`Spielt (${duration.toFixed(1)} s, Endlosschleife) — Canvas statt Cairo.`);
+
+  // real-time player loop
+  const start = performance.now();
+  function frame(now) {
+    const t = ((now - start) / 1000) % duration;
+    draw(t);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
 }
 
 main().catch((e) => { console.error(e); setStatus("Fehler: " + e.message); });

@@ -18,8 +18,11 @@ class CanvasPainter:
         self.h = height
 
     def background(self, color):
-        self.ctx.fillStyle = _rgb(color)
-        self.ctx.fillRect(0, 0, self.w, self.h)
+        if color is None:                               # transparent
+            self.ctx.clearRect(0, 0, self.w, self.h)
+        else:
+            self.ctx.fillStyle = _rgb(color)
+            self.ctx.fillRect(0, 0, self.w, self.h)
 
     def draw_path(self, pts, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity):
         ctx = self.ctx
