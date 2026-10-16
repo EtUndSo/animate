@@ -14,7 +14,7 @@ from .AnimObject import AnimObject
 # MathJax's getCTM already maps glyphs to upright final coords, so MathTex needs NO extra y-flip
 # (1.0). Set to -1.0 only if formulas come out upside-down. (SVGMobject flips separately: raw SVG
 # is y-down.)
-_TEX_FLIP_Y = 1.0
+_TEX_FLIP_Y = -1.0
 
 _NUM = re.compile(r'[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?')
 _CMDS = set("MmLlHhVvCcSsQqTtZz")
@@ -188,18 +188,19 @@ class MathTex(AnimObject):
     morphed individually (TransformMatchingTex). y is flipped to our convention and the whole formula is
     scaled to `height` and centred. The editor fills in the glyph data via MathJax (see editor.js)."""
 
-    def __init__(self, glyphs, height=1.0, color=(0.0, 0.0, 0.0), fill_opacity=1.0, position=(0.0, 0.0, 0.0)):
+    def __init__(self, glyphs, height=1.0, color=(0.0, 0.0, 0.0), fill_opacity=1.0, position=(0.0, 0.0, 0.0),
+                 scale=None):
         super().__init__()
         for g in glyphs or []:
             grp = AnimObject()
             grp._tex = g.get("c", "")
             m = g.get("m")
-            gc = g.get("col") or color                     # per-glyph colour from MathJax (\color), else default
+            gc = g.get("col") or color                     # per-glyph colour (if provided), else the piece colour
             chains = []
             for chain in path_to_cubics(g.get("d", "")):
                 if m is not None:
-                    chain = _affine(chain, m)              # MathJax getCTM already maps to final (upright) coords
-                chain[:, 1] *= _TEX_FLIP_Y                 # ... so no extra flip (set -1 only if upside-down)
+                    chain = _affine(chain, m)              # MathJax getCTM -> viewport coords (y-down)
+                chain[:, 1] *= _TEX_FLIP_Y                 # -> our y-up
                 chains.append(chain)
             if chains:
                 leaf = AnimObject()
@@ -209,6 +210,11 @@ class MathTex(AnimObject):
                 leaf.fill_opacity = fill_opacity; leaf.stroke_width = 0.0
                 grp.add(leaf)
                 self.add(grp)
-        _fit_height(self, height)
+        # scale given -> uniform scale around the origin (CONSISTENT size across pieces: a '=' stays small,
+        # a Σ stays big). scale None -> normalise this single formula to `height` (standalone MathTex).
+        if scale is not None:
+            self.scale(float(scale), around=np.zeros(3))
+        else:
+            _fit_height(self, height)
         if position is not None:
             self.move_to(np.asarray(position, dtype=float))

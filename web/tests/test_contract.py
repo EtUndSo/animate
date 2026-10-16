@@ -15,7 +15,7 @@ from engine.scene import Scene
 from engine.scene_model import ModelScene
 from engine.simpleShape import Square, Circle
 from engine.svg import MathTex
-from engine.animation import (Shift, FadeIn, FadeOut, Create, GrowFromCenter, Recolor,
+from engine.animation import (Shift, FadeIn, FadeOut, Create, GrowFromCenter, Recolor, Pulse,
                               Transform, ReplacementTransform, TransformMatchingTex)
 
 
@@ -98,6 +98,20 @@ def _grow(s): a = Square(side=1); s.play(GrowFromCenter(a), run_time=1)
 cases.append(("GrowFromCenter", eng(_grow)))
 def _rec(s): a = Square(side=1); a.fill_opacity = 1.0; s.add(a); s.play(Recolor(a, (1, 0, 0)), run_time=1)
 cases.append(("Recolor", eng(_rec)))
+def _pulse(s): a = Square(side=1); s.add(a); s.play(Pulse(a), run_time=1)
+cases.append(("Pulse", eng(_pulse)))
+
+# Σ step-by-step choreography (number mode) with synthetic glyph data
+_G = lambda ch: [{"d": sq, "m": [1, 0, 0, 1, 0, 0], "c": ch}]
+_choreo = {"head": _G("S"), "cols": [
+    {"t": "op", "g": _G("=")},
+    {"t": "term", "abstract": _G("a"), "subst": _G("1"), "value": _G("1")},
+    {"t": "plus", "g": _G("+")},
+    {"t": "term", "abstract": _G("a"), "subst": _G("2"), "value": None},   # symbolic tail (no value)
+    {"t": "op", "g": _G("=")}, {"t": "total", "g": _G("3")}]}
+cases.append(("Summation choreo (op)", model_scene({"objects": [], "computations": [{"id": "k", "type": "Summation",
+    "props": {"sum_mode": "number", "run_time": 6, "size": 0.9, "choreo": _choreo}}],
+    "animations": [], "background": [1, 1, 1]})))
 
 if __name__ == "__main__":
     print("=== ENGINE CONTRACT PROBE ===")

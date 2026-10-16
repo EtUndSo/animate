@@ -59,8 +59,8 @@ const CATALOG = {
   "Axes & Graphs": {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
-    Axes:          { x_range:[-6,6], y_range:[-3,3], z_range:[-3,3], x_length:12, y_length:6, z_length:6 },
-    FunctionGraph: { func:"sin(x)", x_range:[-4,4], adaptive:true, res_max:64, res_min:12, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#2f6fb0", grid_width:0.5 },
+    Axes:          { x_range:[-6,6], y_range:[-3,3], z_range:[-3,3], x_length:12, y_length:6, z_length:6, show_grid:true },
+    FunctionGraph: { func:"sin(x)", x_range:[-4,4], adaptive:true, res_max:64, res_min:12, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
   },
   "Signals (ET3)": {   // presets: same FunctionGraph type, different standard signal (t = variable)
     "ε(t) step":      { _type:"FunctionGraph", func:"epsilon(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
@@ -71,7 +71,7 @@ const CATALOG = {
     "ramp(t)":        { _type:"FunctionGraph", func:"ramp(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
   },
   "3D (set view to 3D)": {   // Surface uses the axes; solids live in world coordinates
-    Surface:    { func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#2f6fb0", grid_width:0.5 },
+    Surface:    { func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
@@ -127,7 +127,7 @@ const TEMPLATES = {
     camera: { mode:"3d", theta:0.6, phi:1.0 },
     objects: [
       { type:"Axes", props:{ x_range:[-3,3], y_range:[-3,3], z_range:[-1.5,1.5], x_length:8, y_length:8, z_length:5 } },
-      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#2f6fb0", grid_width:0.5 } },
+      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 } },
     ],
   },
   "3D solids": {
@@ -180,10 +180,13 @@ const COMPUTATIONS = {
     "Multiplication  (a × b)": { type:"Multiplication", kind:"numbers", numbers:[3,4],  props:{ run_time:4, mode:"squares" } },
     "Division  (a ÷ b)":       { type:"Division",       kind:"numbers", numbers:[12,3], props:{ run_time:4, mode:"squares" } },
   },
-  "Series — sums (Σ)": {   // Σ over an index i, from i=start to i=end (a number, or symbolic 'n')
+  "Series — Σ sum / ∏ product": {   // over an index i, from i=start to i=end (a number, or symbolic 'n')
     "Summation  (Σ)": { type:"Summation", kind:"summation",
       props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,2.4,0],
-              color:"#111111", var_color:"#1f77b4", value_color:"#2ca02c", end_color:"#9467bd" } },
+              color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#17becf" } },
+    "Product  (∏)": { type:"BigProduct", kind:"product",
+      props:{ sum_mode:"number", term:"i", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,2.4,0],
+              color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#17becf" } },
   },
 };
 const COMP_DEFS = {};
@@ -201,6 +204,7 @@ let nextId = 1, nextAnimId = 1, nextCompId = 1;
 let clipboard = null;                 // last copied object spec {type, props}, for paste/duplicate
 let orbitFn = null;                   // fast 3D re-aim (set after Pyodide boot)
 let zoomFn = null;                    // fast zoom repaint (set after Pyodide boot)
+let beginLodFn = null, endLodFn = null;   // enter/leave reduced-detail during camera moves
 
 // ---------- model -> python ----------
 function hexToRgb(h){ const n=parseInt(h.slice(1),16); return [((n>>16)&255)/255,((n>>8)&255)/255,(n&255)/255]; }
@@ -234,11 +238,11 @@ function toPythonModel(){
     if(c.visible===false) spec.visible = false;
     if(def && def.kind==="numbers"){
       spec.numbers = c.numbers;
-    } else if(def && def.kind==="summation"){
-      // number mode: resolve the ground-state LaTeX -> MathJax glyph data for a real vector Σ
+    } else if(def && (def.kind==="summation" || def.kind==="product")){
+      // number mode: resolve the step-by-step choreography pieces (abstract -> substitute -> compute)
       if((c.props.sum_mode||"number")!=="function"){
-        const g = ensureGlyphs(_groundLatex(sumStages(c)));
-        spec.props = { ...spec.props, glyphs: g || [] };
+        const ch = buildChoreo(c);
+        if(ch) spec.props = { ...spec.props, choreo: ch };   // not ready -> omit; KaTeX overlay shows meanwhile
       }
     } else {
       spec.inputs = c.inputs;
@@ -285,14 +289,16 @@ function lowDetailModelJson(){ const m=toPythonModel(); _capResolution(m); retur
 // detail when the move ends.
 let _lowDetail=false;
 function enterLowDetail(){
-  if(_lowDetail || playing) return;
+  if(_lowDetail || playing || !beginLodFn) return;
   _lowDetail=true;
-  if(renderModel && needsLOD()){ try{ renderModel(lowDetailModelJson()); }catch(_){} }
+  try{ beginLodFn(lowDetailModelJson()); }catch(_){}   // build a reduced copy once; end_lod restores (no rebuild)
 }
 function exitLowDetail(){
-  if(!_lowDetail) return;
-  _lowDetail=false;
-  renderPreview();                                  // full-detail rebuild
+  if(_lowDetail){
+    _lowDetail=false;
+    if(endLodFn){ try{ endLodFn(); }catch(_){} }    // restore the already-built full scene (no rebuild -> instant)
+  }
+  saveLocal();                                      // persist the new camera either way
 }
 
 // ---------- ViewCube (CAD-style navigation gizmo, top-right) ----------
@@ -378,7 +384,7 @@ function _tweenCamera(tTheta, tPhi){
     const e=a<.5 ? 2*a*a : 1-Math.pow(-2*a+2,2)/2;                   // easeInOutQuad
     model.camera.theta=t0+dT*e; model.camera.phi=p0+dP*e;
     if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);
-    drawViewCube();
+    drawViewCube(); drawCamGizmo();
     if(a<1) requestAnimationFrame(step); else exitLowDetail();      // snap back to full detail at the end
   })(performance.now());
 }
@@ -392,6 +398,124 @@ function initViewCube(){
   drawViewCube();
 }
 
+// ---------- Camera rotation gizmo (an arcball, below the ViewCube) ----------
+// A rotation BALL like other 3D programs: a sphere wrapped in three great-circle rings (X red / Y green /
+// Z blue) that show the current orientation and turn WITH the camera. Grab a ring and drag to rotate the
+// camera around that axis; grab the ball itself to orbit freely. A circular-arrow button resets to the
+// default 3D view.
+const GIZ_LIMIT = Math.PI/2 - 0.03;                  // elevation clamp (matches the canvas orbit)
+const GIZ_DEF_THETA = 0.6, GIZ_DEF_PHI = 1.0;        // default 3D view (matches model.camera defaults)
+const GIZ_RINGS = [                                   // each ring = a great circle in the plane ⟂ its axis
+  { k:"X", axis:[1,0,0], pt:(t)=>[0, Math.cos(t), Math.sin(t)], col:[226,96,84]  },   // YZ plane
+  { k:"Y", axis:[0,1,0], pt:(t)=>[Math.sin(t), 0, Math.cos(t)], col:[104,174,100]},   // ZX plane
+  { k:"Z", axis:[0,0,1], pt:(t)=>[Math.cos(t), Math.sin(t), 0], col:[82,140,232] },   // XY plane
+];
+let gizHover=null, gizDrag=null, gizPrevAng=0, gizSX=0, gizSY=0, gizTh0=0, gizPh0=0;   // gizDrag: {ring}|{free}|null
+
+function camGizmoVisible(){ return model.camera.mode==="3d"; }
+function _camVec(theta,phi){ const ce=Math.cos(phi); return [ce*Math.cos(theta), ce*Math.sin(theta), Math.sin(phi)]; }
+function _setCamVec(v){                               // camera direction -> (theta, phi), elevation clamped
+  const n=Math.hypot(v[0],v[1],v[2])||1; const z=Math.max(-1,Math.min(1, v[2]/n));
+  model.camera.phi = Math.max(-GIZ_LIMIT, Math.min(GIZ_LIMIT, Math.asin(z)));
+  model.camera.theta = Math.atan2(v[1], v[0]);
+}
+function _rotAround(v, a, d){                          // Rodrigues: rotate vector v around unit axis a by d
+  const co=Math.cos(d), si=Math.sin(d), dot=a[0]*v[0]+a[1]*v[1]+a[2]*v[2];
+  const cx=a[1]*v[2]-a[2]*v[1], cy=a[2]*v[0]-a[0]*v[2], cz=a[0]*v[1]-a[1]*v[0];
+  return [ v[0]*co+cx*si+a[0]*dot*(1-co), v[1]*co+cy*si+a[1]*dot*(1-co), v[2]*co+cz*si+a[2]*dot*(1-co) ];
+}
+function _gizMouse(e){ const cv=$("camgizmo"), r=cv.getBoundingClientRect(); return [ (e.clientX-r.left)*cv.width/r.width, (e.clientY-r.top)*cv.height/r.height ]; }
+function _gizBall(){ const cv=$("camgizmo"), W=cv.width, H=cv.height;
+  return { W, H, cx:W/2, cy:H*0.43, r:W*0.40, R:_vcRot(model.camera.theta, model.camera.phi) }; }
+function _gizProject(b, v){                            // 3D point on the unit sphere -> [screenX, screenY, depth]
+  return [ b.cx + (b.R.right[0]*v[0]+b.R.right[1]*v[1]+b.R.right[2]*v[2])*b.r,
+           b.cy - (b.R.up[0]*v[0]+b.R.up[1]*v[1]+b.R.up[2]*v[2])*b.r,
+           b.R.cam[0]*v[0]+b.R.cam[1]*v[1]+b.R.cam[2]*v[2] ];     // depth: >0 = front (toward viewer)
+}
+function _ringPoints(b, ring, n){ const out=[]; for(let i=0;i<=n;i++) out.push(_gizProject(b, ring.pt(i/n*2*Math.PI))); return out; }
+function _gizResetGeom(){ const cv=$("camgizmo"), W=cv.width, H=cv.height; return { x:W/2, y:H*0.92, r:W*0.10 }; }
+function _gizRingAt(mx,my){                            // nearest ring (preferring the front-facing side)
+  const b=_gizBall(); let best=null, bd=b.W*0.085;
+  for(const ring of GIZ_RINGS) for(const p of _ringPoints(b,ring,54)){
+    if(p[2] < -0.12) continue;                         // ignore the far back of the ring
+    const dd=Math.hypot(p[0]-mx, p[1]-my); if(dd<bd){ bd=dd; best=ring; }
+  }
+  return best;
+}
+function _gizInReset(mx,my){ const g=_gizResetGeom(); return Math.hypot(mx-g.x, my-g.y) <= g.r*1.3; }
+function _gizReset(){ _tweenCamera(GIZ_DEF_THETA, GIZ_DEF_PHI); }   // fly back (also repaints cube + gizmo)
+function drawCamGizmo(){
+  const cv=$("camgizmo"); if(!cv) return;
+  if(!camGizmoVisible()){ cv.style.display="none"; return; }
+  cv.style.display="block";
+  const b=_gizBall(), ctx=cv.getContext("2d"), W=b.W, H=b.H;
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle="rgba(120,132,155,.12)"; ctx.beginPath(); ctx.arc(b.cx,b.cy,b.r,0,2*Math.PI); ctx.fill();   // sphere
+  ctx.lineWidth=W*0.008; ctx.strokeStyle="rgba(120,132,155,.40)"; ctx.stroke();
+  ctx.lineCap="round";
+  for(const ring of GIZ_RINGS){                        // each ring: segment-by-segment, back dim / front bright
+    const pts=_ringPoints(b, ring, 72), hl=(gizHover===ring.k), c=ring.col;
+    for(let i=1;i<pts.length;i++){ const a=pts[i-1], p=pts[i], front=((a[2]+p[2])*0.5)>0;
+      ctx.strokeStyle=`rgba(${c[0]},${c[1]},${c[2]},${front?(hl?1:0.9):(hl?0.4:0.22)})`;
+      ctx.lineWidth=(front?W*0.03:W*0.02)*(hl?1.35:1);
+      ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(p[0],p[1]); ctx.stroke(); }
+    const tip=_gizProject(b, ring.axis);               // little axis label at the +axis pole (front only)
+    if(tip[2]>0.2){ ctx.fillStyle=`rgb(${c[0]},${c[1]},${c[2]})`; ctx.font="bold "+Math.round(W*0.11)+"px sans-serif";
+      ctx.textAlign="center"; ctx.textBaseline="middle"; ctx.fillText(ring.k, tip[0], tip[1]); }
+  }
+  _gizDrawReset(ctx, _gizResetGeom(), gizHover==="reset");
+}
+function _gizDrawReset(ctx, b, hl){                    // circular-arrow "reset rotation" button
+  const col = hl ? "rgb(50,50,62)" : "rgba(95,95,108,.92)";
+  ctx.lineCap="round"; ctx.lineWidth=b.r*0.26; ctx.strokeStyle=col; ctx.fillStyle=col;
+  const a0=-Math.PI*0.42, a1=Math.PI*1.08;
+  ctx.beginPath(); ctx.arc(b.x,b.y,b.r,a0,a1); ctx.stroke();
+  const hx=b.x+Math.cos(a0)*b.r, hy=b.y+Math.sin(a0)*b.r, t=a0-Math.PI/2, ah=b.r*0.6;    // arrowhead at a0 end
+  ctx.beginPath();
+  ctx.moveTo(hx+Math.cos(t)*ah, hy+Math.sin(t)*ah);
+  ctx.lineTo(hx+Math.cos(t+2.6)*ah*0.9, hy+Math.sin(t+2.6)*ah*0.9);
+  ctx.lineTo(hx+Math.cos(t-2.6)*ah*0.9, hy+Math.sin(t-2.6)*ah*0.9);
+  ctx.closePath(); ctx.fill();
+}
+function initCamGizmo(){
+  const cv=$("camgizmo"); if(!cv) return;
+  cv.onpointermove=(e)=>{
+    const [mx,my]=_gizMouse(e);
+    if(gizDrag){
+      if(gizDrag.free){                                // drag the ball body -> orbit (azimuth/elevation)
+        model.camera.theta = gizTh0 - (e.clientX-gizSX)*0.01;
+        model.camera.phi   = Math.max(-GIZ_LIMIT, Math.min(GIZ_LIMIT, gizPh0 + (e.clientY-gizSY)*0.01));
+      } else {                                         // drag a ring -> rotate around that axis
+        const b=_gizBall(); let ang=Math.atan2(my-b.cy, mx-b.cx);
+        let d=ang-gizPrevAng; d=((d+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI; gizPrevAng=ang;
+        _setCamVec(_rotAround(_camVec(model.camera.theta, model.camera.phi), gizDrag.ring.axis, d));
+      }
+      if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);
+      drawViewCube(); drawCamGizmo();
+      return;
+    }
+    const ring=_gizRingAt(mx,my);
+    const k = ring ? ring.k : (_gizInReset(mx,my) ? "reset" : null);
+    if(k!==gizHover){ gizHover=k; cv.style.cursor=k?"pointer":"default"; drawCamGizmo(); }
+  };
+  cv.onpointerdown=(e)=>{
+    if(playing) return;
+    const [mx,my]=_gizMouse(e);
+    if(_gizInReset(mx,my)){ _gizReset(); return; }
+    const b=_gizBall(), ring=_gizRingAt(mx,my);
+    if(!ring && Math.hypot(mx-b.cx,my-b.cy) > b.r*1.05) return;   // outside the ball -> ignore
+    cv.setPointerCapture(e.pointerId); cv.style.cursor="grabbing";
+    gizSX=e.clientX; gizSY=e.clientY; gizTh0=model.camera.theta; gizPh0=model.camera.phi;
+    gizDrag = ring ? { ring } : { free:true };
+    if(ring) gizPrevAng=Math.atan2(my-b.cy, mx-b.cx);
+    enterLowDetail();                                  // reduce detail while rotating
+  };
+  const end=()=>{ if(gizDrag){ gizDrag=null; exitLowDetail(); } cv.style.cursor=gizHover?"pointer":"default"; };
+  cv.onpointerup=end; cv.onpointercancel=end;
+  cv.onpointerleave=()=>{ if(!gizDrag && gizHover){ gizHover=null; drawCamGizmo(); } };
+  drawCamGizmo();
+}
+
 // ---------- preview (debounced) ----------
 let _timer = null;
 function renderPreview(){ if(!renderModel) return; clearTimeout(_timer); _timer = setTimeout(_doRender, 70); }
@@ -402,6 +526,7 @@ function _doRender(){
   catch(e){ console.error(e); setStatus("Render error: " + e.message); return; }
   setStatus(String(res).startsWith("error") ? "⚠ " + res + " (last frame kept)" : "Ready ✓");
   if(typeof drawViewCube==="function") drawViewCube();   // keep the nav-cube in sync with the camera
+  if(typeof drawCamGizmo==="function") drawCamGizmo();   // and the rotation gizmo
   if(typeof updateSumOverlay==="function") updateSumOverlay(null);   // Σ overlay: full (static) view
   saveLocal();                         // autosave so a scene survives closing the page
 }
@@ -451,7 +576,7 @@ function addComputation(def){
   const c = { id:"k"+(nextCompId++), type:def.type, props:structuredClone(def.props||{}) };
   if(def.kind==="numbers"){
     c.numbers = (def.numbers||[2,2]).slice();           // number operands (typed in), not object refs
-  } else if(def.kind==="summation"){
+  } else if(def.kind==="summation" || def.kind==="product"){
     /* nothing extra: term / bounds live in props */
   } else {
     c.inputs = {};
@@ -628,7 +753,7 @@ function buildCompPalette(){
 function compConfigured(c){
   const def=COMP_DEFS[c.type];
   if(def.kind==="numbers") return (c.numbers||[]).length>=1;
-  if(def.kind==="summation") return true;                 // no object operands; always runnable
+  if(def.kind==="summation" || def.kind==="product") return true;   // no object operands; always runnable
   return def.inputs.every(inp=>{ const o=c.inputs[inp.role] && findNode(c.inputs[inp.role]); return o && inp.accept.includes(o.type); });
 }
 function renderComputations(){
@@ -664,13 +789,17 @@ function renderCompProps(container, c){
       container.appendChild(propRow("Representation", sel));
     }
     renderNumberList(container, c);
-  } else if(def.kind==="summation"){
-    const sel=document.createElement("select");
-    for(const [val,txt] of [["number","Number series  Σ aᵢ"],["function","Function partial sum (Fourier)"]]){ const o=document.createElement("option"); o.value=val; o.textContent=txt; sel.appendChild(o); }
-    sel.value=c.props.sum_mode||"number"; sel.onchange=()=>{ c.props.sum_mode=sel.value; renderPreview(); };
-    container.appendChild(propRow("Mode", sel));
+  } else if(def.kind==="summation" || def.kind==="product"){
+    if(def.kind==="summation"){                             // function (Fourier) mode is sum-only
+      const sel=document.createElement("select");
+      for(const [val,txt] of [["number","Number series  Σ aᵢ"],["function","Function partial sum (Fourier)"]]){ const o=document.createElement("option"); o.value=val; o.textContent=txt; sel.appendChild(o); }
+      sel.value=c.props.sum_mode||"number"; sel.onchange=()=>{ c.props.sum_mode=sel.value; renderPreview(); };
+      container.appendChild(propRow("Mode", sel));
+    }
     const hint=document.createElement("div"); hint.className="hint";
-    hint.textContent = "Index i; upper limit 'to' may be a number or 'n' (symbolic). Term uses i (function mode: i and x).";
+    hint.textContent = (def.kind==="product")
+      ? "Index i; upper limit 'to' may be a number or 'n'. ∏ multiplies the term over i (e.g. term i → factorial)."
+      : "Index i; upper limit 'to' may be a number or 'n' (symbolic). Term uses i (function mode: i and x).";
     container.appendChild(hint);
   } else {
     for(const inp of def.inputs){
@@ -790,21 +919,20 @@ function renderObjectProps(){
   const o=selected();
   if(!o){ el.innerHTML='<span class="hint">No object selected.</span>'; return; }
   const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent=o.type; el.appendChild(h);
-  // Surface-like objects: a MESH mode toggle. Adaptive -> two fields (min + max); static -> one value.
   const skip=new Set();
+  const put=(k)=>{ if(k in o.props && !skip.has(k)){ el.appendChild(propInput(o,k,o.props[k])); skip.add(k); } };
   if((o.type==="FunctionGraph"||o.type==="Surface") && ("adaptive" in o.props)){
-    skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");
+    // Ordered layout: 1) the function equation, 2) domain, 3) resolution, 4) colours, 5) the rest.
+    put("func"); put("x_range");
+    skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");     // resolution block (rendered specially)
     const sel=document.createElement("select");
     for(const [val,txt] of [["adaptive","Adaptive (curvature)"],["static","Static (uniform)"]]){ const op=document.createElement("option"); op.value=val; op.textContent=txt; sel.appendChild(op); }
     sel.value = o.props.adaptive===false ? "static" : "adaptive";
     sel.onchange=()=>{ o.props.adaptive = (sel.value==="adaptive"); renderProps(); renderPreview(); };
     el.appendChild(propRow("resolution mode", sel));
-    if(o.props.adaptive!==false){            // adaptive -> min + max
-      el.appendChild(propInput(o,"res_min", o.props.res_min));
-      el.appendChild(propInput(o,"res_max", o.props.res_max));
-    } else {                                 // static -> single uniform value
-      el.appendChild(propInput(o,"res_max", o.props.res_max));
-    }
+    if(o.props.adaptive!==false){ el.appendChild(propInput(o,"res_min", o.props.res_min)); el.appendChild(propInput(o,"res_max", o.props.res_max)); }
+    else { el.appendChild(propInput(o,"res_max", o.props.res_max)); }
+    ["color","grid_color","grid_width","stroke_width","stroke_opacity","fill_opacity"].forEach(put);   // colours / line look
   }
   for(const [k,v] of Object.entries(o.props)){ if(skip.has(k)) continue; el.appendChild(propInput(o,k,v)); }
   renderResults(el, o);
@@ -880,7 +1008,20 @@ function renderAnimations(container, o){
 // A canvas cannot match LaTeX typesetting, so the summation's typography is rendered by KaTeX as an
 // overlay above the canvas (the Python engine only reserves the play duration for number mode, and
 // draws the partial-sum curve for function mode).
-function _substI(src, rep){ return String(src).replace(/(?<![A-Za-z0-9_])i(?![A-Za-z0-9_])/g, rep); }
+// Substitute the running variable i with `rep`. i counts as the running variable when it is not part
+// of a longer name (sin, pi, min keep their i) EXCEPT right after '_' , so an index like a_i IS hit
+// (a_i -> a_1). The '_' is deliberately absent from the lookbehind set for exactly this reason.
+function _substI(src, rep){ return String(src).replace(/(?<![A-Za-z0-9])i(?![A-Za-z0-9_])/g, rep); }
+
+// Known function / constant names (everything else that is alphabetic is a FREE symbol, e.g. the a in
+// 1/a_i). A term with a free symbol can't yield a number - we then keep the substituted expression and
+// never print a (meaningless) numeric value or total.
+const _SUM_KNOWN=new Set(["i","pi","e","E","PI","sin","cos","tan","asin","acos","atan","atan2","exp",
+  "log","ln","sqrt","abs","sinh","cosh","tanh","floor","ceil","round","sign","max","min","pow"]);
+function _termHasFreeSymbol(term){
+  const ids=String(term||"").match(/[A-Za-z_][A-Za-z_0-9]*/g)||[];
+  return ids.some(id=> !_SUM_KNOWN.has(id));
+}
 
 function exprToLatex(src){                 // our expression syntax -> LaTeX ( / -> \frac, ^ -> ^{}, * -> \cdot )
   const s=String(src||""); let p=0;
@@ -908,13 +1049,48 @@ function evalExprJS(src){                   // our syntax -> f(i) numeric (for t
   let fn; try { fn=new Function("i","with(Math){return ("+js+");}"); } catch(e){ fn=()=>NaN; }
   return (i)=>{ try{ const v=fn(i); return (typeof v==="number"&&isFinite(v))?v:NaN; }catch(e){ return NaN; } };
 }
-function _fmtNum(v){ if(!isFinite(v)) return "?"; return String(+v.toPrecision(5)); }
+// Prefer an exact-looking FRACTION over a decimal (reads far better under a Σ: 1/4 shows where it came
+// from, 0.25 hides it). Recover p/q from the float via continued fractions, capped denominator; fall
+// back to a short decimal only for genuinely irrational values (sqrt, pi, ...).
+function _approxFrac(x, maxDen=10000, tol=1e-9){
+  if(!isFinite(x)) return null;
+  const sign=x<0?-1:1; x=Math.abs(x);
+  let h0=0,h1=1,k0=1,k1=0,b=x;
+  for(let it=0; it<40; it++){
+    const a=Math.floor(b), h2=a*h1+h0, k2=a*k1+k0;
+    if(k2>maxDen) break;
+    h0=h1; h1=h2; k0=k1; k1=k2;
+    if(k1>0 && Math.abs(h1/k1 - x) < tol) return [sign*h1, k1];
+    const fr=b-a; if(fr<1e-12) break; b=1/fr;
+  }
+  // only a GENUINE rational (matches to ~1e-9 within the denominator cap) prints as a fraction;
+  // irrationals (sqrt2, pi, ...) fall through to a decimal instead of an ugly near-fraction.
+  return (k1>0 && Math.abs(h1/k1 - x) < tol) ? [sign*h1, k1] : null;
+}
+function _fmtNum(v){
+  if(!isFinite(v)) return "?";
+  const f=_approxFrac(v);
+  if(f){ const [p,q]=f; if(q===1) return String(p); return (p<0?"-":"")+"\\frac{"+Math.abs(p)+"}{"+q+"}"; }
+  return String(+v.toPrecision(5));
+}
+function _decStr(v){ return isFinite(v) ? String(+v.toPrecision(6)) : "?"; }   // decimal form of the total
+function _isProperFrac(v){ const f=_approxFrac(v); return !!(f && f[1]!==1); }   // true -> show "fraction = decimal"
+
+// Series operator differences (everything else is shared): Σ joins with '+' and reduces by addition;
+// ∏ (BigProduct) joins with '·' and reduces by multiplication. The SAME step-by-step choreography and
+// the SAME engine code (summation_choreo) render both - only the head symbol and the join/reduce differ.
+function _seriesOps(c){
+  return (c && c.type==="BigProduct")
+    ? { opHead:"\\prod", join:"\\cdot", reduce:(a,b)=>a*b, init:1 }
+    : { opHead:"\\sum",  join:"+",      reduce:(a,b)=>a+b, init:0 };
+}
 
 function sumStages(c){
   const p=c.props||{}, a=parseInt(p.from)||0, endRaw=String(p.to==null?"n":p.to).trim();
   const endNum=/^-?\d+$/.test(endRaw)?parseInt(endRaw):null, symbolic=endNum===null;
-  const B=symbolic?(endRaw||"n"):String(endNum), k=Math.max(1,parseInt(p.show_terms)||3), term=p.term||"";
-  const head="\\sum_{i="+a+"}^{"+B+"} "+exprToLatex(term);     // no \color (MathJax-reliable); colours come later via per-piece stages
+  const B=symbolic?(endRaw||"n"):String(endNum), k=Math.min(5,Math.max(1,parseInt(p.show_terms)||3)), term=p.term||"";
+  const O=_seriesOps(c);
+  const head=O.opHead+"_{i="+a+"}^{"+B+"} "+exprToLatex(term);  // no \color (MathJax-reliable); colours come later via per-piece stages
   let entries=[];
   if(symbolic){ for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"sym",lab:B+"-1"}); entries.push({t:"sym",lab:B}); }
   else { const b=endNum; if(b-a+1<=k+2){ for(let i=a;i<=b;i++) entries.push({t:"num",i}); }
@@ -925,11 +1101,50 @@ function sumStages(c){
     if(e.t==="sym"){ resolved.push(exprToLatex(_substI(term,"("+e.lab+")"))); continue; }
     resolved.push(exprToLatex(_substI(term,String(e.i))));
   }
-  let ground=head + (resolved.length ? " = "+resolved.join(" + ") : "");
-  if(!symbolic){ let tot=0; for(let i=a;i<=endNum;i++){ const vv=ev(i); if(isFinite(vv)) tot+=vv; } ground += " = "+_fmtNum(tot); }
+  let ground=head + (resolved.length ? " = "+resolved.join(" "+O.join+" ") : "");
+  if(!symbolic && !_termHasFreeSymbol(term)){ let tot=O.init; for(let i=a;i<=endNum;i++){ const vv=ev(i); if(isFinite(vv)) tot=O.reduce(tot,vv); }
+    ground += " = "+_fmtNum(tot) + (_isProperFrac(tot) ? " = "+_decStr(tot) : ""); }   // fraction, then = decimal
   return { stages:[head, ground], head, ground, color:p.color||"#111111", mode:p.sum_mode||"number" };
 }
-function activeSum(){ return (model.computations||[]).find(c=>c.type==="Summation" && c.visible!==false) || null; }
+// Step-by-step choreography spec (LaTeX per piece): Σ head, then columns = terms (abstract summand ->
+// i substituted -> computed value) joined by '+', with ⋯ and a final '= total'.
+function sumChoreoSpec(c){
+  const p=c.props||{}, a=parseInt(p.from)||0, endRaw=String(p.to==null?"n":p.to).trim();
+  const endNum=/^-?\d+$/.test(endRaw)?parseInt(endRaw):null, symbolic=endNum===null;
+  const B=symbolic?(endRaw||"n"):String(endNum), k=Math.min(5,Math.max(1,parseInt(p.show_terms)||3)), term=p.term||"";
+  const O=_seriesOps(c), Lt=exprToLatex(term), head=O.opHead+"_{i="+a+"}^{"+B+"} "+Lt;
+  let entries=[];
+  if(symbolic){ for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"sym",lab:B+"-1"}); entries.push({t:"sym",lab:B}); }
+  else { const b=endNum; if(b-a+1<=k+2){ for(let i=a;i<=b;i++) entries.push({t:"num",i}); }
+    else { for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"num",i:b-1}); entries.push({t:"num",i:b}); } }
+  // A term with a free symbol (e.g. 1/a_i) can't be computed to a number: keep the substituted
+  // expression as the final form (value=null) and print no total - instead of a meaningless "?".
+  const symTerm=_termHasFreeSymbol(term);
+  const ev=evalExprJS(term), cols=[{t:"op",g:"="}]; let first=true;
+  for(const e of entries){
+    if(e.t==="ell"){ if(!first) cols.push({t:"plus",g:O.join}); cols.push({t:"ell",g:"\\cdots"}); continue; }
+    if(!first) cols.push({t:"plus",g:O.join}); first=false;
+    if(e.t==="sym"||symTerm) cols.push({t:"term", abstract:Lt, subst:exprToLatex(_substI(term, e.t==="sym"?"("+e.lab+")":String(e.i))), value:null});
+    else cols.push({t:"term", abstract:Lt, subst:exprToLatex(_substI(term,String(e.i))), value:_fmtNum(ev(e.i))});
+  }
+  if(!symbolic && !symTerm){ let tot=O.init; for(let i=a;i<=endNum;i++){const v=ev(i); if(isFinite(v)) tot=O.reduce(tot,v);}
+    cols.push({t:"op",g:"="}); cols.push({t:"total",g:_fmtNum(tot)});
+    if(_isProperFrac(tot)){ cols.push({t:"op",g:"="}); cols.push({t:"total",g:_decStr(tot)}); }   // fraction, then = decimal
+  }
+  return {head, cols};
+}
+function buildChoreo(c){                    // resolve every piece's glyphs; null until ALL are ready
+  const spec=sumChoreoSpec(c), need=[spec.head];
+  for(const col of spec.cols){ if(col.t==="term"){ need.push(col.abstract, col.subst); if(col.value!=null) need.push(col.value); } else need.push(col.g); }
+  let ready=true;
+  for(const lx of need){ if(ensureGlyphs(lx)===null) ready=false; }   // kicks off async for any missing
+  if(!ready) return null;
+  const g=(lx)=>_texCache[lx]||[];
+  return {head:g(spec.head), cols:spec.cols.map(col=> col.t==="term"
+    ? {t:"term", abstract:g(col.abstract), subst:g(col.subst), value: col.value!=null? g(col.value): null}
+    : {t:col.t, g:g(col.g)})};
+}
+function activeSum(){ return (model.computations||[]).find(c=>(c.type==="Summation"||c.type==="BigProduct") && c.visible!==false) || null; }
 function _cssColor(x){ return Array.isArray(x) ? "rgb("+x.map(v=>Math.round(v*255)).join(",")+")" : x; }
 function _groundLatex(st){ return st.mode==="function" ? st.head : st.stages[st.stages.length-1]; }
 
@@ -944,9 +1159,9 @@ function updateSumOverlay(frac){
   const st=sumStages(c);
   const isFn=(st.mode==="function");
   const latex=isFn ? st.head : _groundLatex(st);
-  // number mode: hide the fallback ONLY once the vector actually has glyphs (non-empty) -> the engine
-  // draws/animates it. If MathJax produced nothing, keep showing the KaTeX formula (never vanish).
-  if(!isFn){ const g=_texCache[latex]; if(g && g.length){ el.style.display="none"; el.innerHTML=""; el.dataset.key=""; return; } }
+  // number mode: hide the fallback once the choreography glyphs are ready -> the engine draws/animates
+  // the vector Σ. While MathJax is still resolving, show the KaTeX ground state as a placeholder.
+  if(!isFn && buildChoreo(c)){ el.style.display="none"; el.innerHTML=""; el.dataset.key=""; return; }
   const key=(isFn?"fn":"load")+"|"+latex;
   el.style.display="block"; el.style.color=_cssColor(st.color);
   if(el.dataset.key===key) return;
@@ -958,6 +1173,16 @@ function updateSumOverlay(frac){
 // ---------- LaTeX -> vector glyphs (MathJax SVG). Each glyph becomes {d, m:[a,b,c,d,e,f], c:char}
 // which the Python MathTex turns into Bézier VMobjects living in the scene graph (so they paint,
 // Transform, zoom, orbit like any object). This is Manim's Tex->SVG->VMobject, browser edition. ----------
+// MathJax tags each glyph with data-c = a HEX codepoint. Math-mode letters are Mathematical
+// Alphanumeric Symbols (italic i = U+1D456, italic h = U+210E, ...), NOT plain ASCII. NFKD folds them
+// back ("𝑖"->"i"), so the engine can tell which glyph is the running variable i (and TransformMatchingTex
+// matches 'i' across contexts). Non-letters (=, +, Σ, digits) are unaffected.
+function _glyphChar(dc){
+  if(!dc) return "";
+  const cp=parseInt(dc,16);
+  if(!isFinite(cp)) return String(dc);
+  try { return String.fromCodePoint(cp).normalize("NFKD"); } catch(e){ return ""; }
+}
 function _tex2glyphs(latex){            // one MathJax render -> glyph list (sync; must run in the DOM)
   const glyphs = [];
   let node;
@@ -967,18 +1192,30 @@ function _tex2glyphs(latex){            // one MathJax render -> glyph list (syn
   const holder = document.createElement("div");
   holder.style.cssText = "position:absolute;left:-99999px;top:0;visibility:hidden";
   holder.appendChild(svg); document.body.appendChild(holder);   // must be in the DOM for getCTM()
-  const mat = (el)=>{ const m=el.getCTM(); return m ? [m.a,m.b,m.c,m.d,m.e,m.f] : [1,0,0,1,0,0]; };
-  const col = (el)=>{ let f=""; try{ f=getComputedStyle(el).fill || el.getAttribute("fill") || ""; }catch(e){}
-    const m=/rgba?\(([^)]+)\)/.exec(f); if(m){ const p=m[1].split(",").map(parseFloat); return [p[0]/255,p[1]/255,p[2]/255]; } return null; };
+  const arr = (m)=> m ? [m.a,m.b,m.c,m.d,m.e,m.f] : [1,0,0,1,0,0];
+  const rectD = (el)=>{ const x=+el.getAttribute("x")||0,y=+el.getAttribute("y")||0,w=+el.getAttribute("width")||0,h=+el.getAttribute("height")||0;
+    return (w>0&&h>0) ? `M${x} ${y} h${w} v${h} h${-w} Z` : null; };
   try {
-    // ONE walk in DOCUMENT order so fraction bars / sqrt lines (<rect>) keep their place in the
-    // reveal order (previously all <rect> came after all <path>, so bars were drawn last).
-    svg.querySelectorAll("path, rect").forEach(el=>{
-      if(el.tagName.toLowerCase()==="rect"){
-        const x=+el.getAttribute("x")||0, y=+el.getAttribute("y")||0, w=+el.getAttribute("width")||0, h=+el.getAttribute("height")||0;
-        if(w>0 && h>0) glyphs.push({d:`M${x} ${y} h${w} v${h} h${-w} Z`, m:mat(el), c:"", col:col(el)});
-      } else {
-        const d=el.getAttribute("d"); if(d) glyphs.push({d, m:mat(el), c:el.getAttribute("data-c")||"", col:col(el)});
+    // Walk the RENDERED drawables in document order; resolve <use> (big operators like Σ are a <use> of
+    // a glyph in <defs>); SKIP <defs> (unplaced definitions). This gives every glyph its real position
+    // AND size (so Σ is not tiny), consistently - via each element's getCTM to the SVG viewport.
+    svg.querySelectorAll("path, rect, use").forEach(el=>{
+      if(el.closest("defs")) return;
+      const tag = el.tagName.toLowerCase();
+      if(tag === "use"){
+        const href = el.getAttribute("href") || el.getAttribute("xlink:href") || "";
+        const ref = href ? svg.querySelector(href) : null;
+        if(!ref) return;
+        let m = el.getCTM(); if(!m) return;
+        const ux = parseFloat(el.getAttribute("x")||"0")||0, uy = parseFloat(el.getAttribute("y")||"0")||0;
+        if(ux || uy) m = m.translate(ux, uy);            // <use> x/y shift the referenced content
+        const rt = ref.tagName.toLowerCase();
+        if(rt === "path"){ const d=ref.getAttribute("d"); if(d) glyphs.push({d, m:arr(m), c:_glyphChar(ref.getAttribute("data-c")||el.getAttribute("data-c")||"")}); }
+        else if(rt === "rect"){ const d=rectD(ref); if(d) glyphs.push({d, m:arr(m), c:""}); }
+      } else if(tag === "rect"){
+        const d=rectD(el); if(d) glyphs.push({d, m:arr(el.getCTM()), c:""});
+      } else {                                           // inline <path>
+        const d=el.getAttribute("d"); if(d) glyphs.push({d, m:arr(el.getCTM()), c:_glyphChar(el.getAttribute("data-c")||"")});
       }
     });
   } catch(e){}
@@ -1034,13 +1271,15 @@ async function boot(){
   playFrame = pyodide.globals.get("play_frame");
   orbitFn = pyodide.globals.get("orbit");
   zoomFn = pyodide.globals.get("zoom_to");
+  beginLodFn = pyodide.globals.get("begin_lod");
+  endLodFn = pyodide.globals.get("end_lod");
   // Canvas interaction: in 3D, drag = orbit the camera (fast repaint); a click without dragging
   // selects (pick). In 2D, a click selects. The mouse wheel zooms in/out in both modes.
   const VC_LIMIT = Math.PI/2 - 0.03;        // vertical orbit limit (both above and below the plane)
   let dragging=false, moved=false, sx=0, sy=0, th0=0, ph0=0;
   const pxy=(e)=>{ const r=canvas.getBoundingClientRect(); return [(e.clientX-r.left)/r.width*canvas.width, (e.clientY-r.top)/r.height*canvas.height]; };
   let _holdTimer=null;
-  const HOLD_MS=90;                           // held longer than this (no release) => the user is about to orbit
+  const HOLD_MS=1;                            // ~instant: the only drag action is orbiting, so apply LOD at once
   canvas.onpointerdown = (e)=>{
     sx=e.clientX; sy=e.clientY; moved=false;
     if(model.camera.mode==="3d"){
@@ -1059,7 +1298,7 @@ async function boot(){
     // Direct-manipulation feel: dragging UP tilts the camera DOWN (grab-and-pull), hence + dy.
     model.camera.phi = Math.max(-VC_LIMIT, Math.min(VC_LIMIT, ph0 + dy*0.01));
     if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);      // re-aim only, no rebuild
-    drawViewCube();
+    drawViewCube(); drawCamGizmo();
   };
   canvas.onpointerup = (e)=>{
     clearTimeout(_holdTimer);
@@ -1083,7 +1322,7 @@ async function boot(){
     if(zoomFn) zoomFn(model.camera.zoom);                   // fast repaint (no rebuild)
     clearTimeout(_zoomTimer); _zoomTimer=setTimeout(()=>{ exitLowDetail(); saveLocal(); }, 180);
   };
-  initViewCube();
+  initViewCube(); initCamGizmo();
   setStatus("Ready ✓ — add an element on the left, or click in the view.");
   let restored=false;                  // restore the autosaved scene, else start with an axes
   try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}

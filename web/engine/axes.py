@@ -47,7 +47,7 @@ class Axes(AnimObject):
 
     def __init__(self, x_range=(-5, 5), y_range=(-3, 3), z_range=(-3, 3),
                  x_length=12.0, y_length=6.0, z_length=6.0, tick_size=0.1,
-                 show_ticks=True, show_numbers=True, show_labels=True,
+                 show_ticks=True, show_numbers=True, show_labels=True, show_grid=True,
                  x_label="x", y_label="y", z_label="z",
                  number_size=24, label_size=34):
         super().__init__()
@@ -63,6 +63,22 @@ class Axes(AnimObject):
         self.y_length = y_length
         self.z_length = z_length
         number_offset = tick_size + 0.22
+
+        # Background coordinate grid: light lines at every tick, spanning the range. Shown by default;
+        # it is rebuilt from the ticks on every (re)build, so it grows/shrinks automatically with the
+        # range. Added FIRST (so the axis lines/ticks sit over it) and tagged so it follows the same
+        # axes_on_top setting as the rest of the axes.
+        if show_grid:
+            grid = AnimObject()
+            for x in self._ticks(self.x_min, self.x_max, self.x_step):
+                grid.add(Line(self.coords_to_point(x, self.y_min), self.coords_to_point(x, self.y_max)))
+            for y in self._ticks(self.y_min, self.y_max, self.y_step):
+                grid.add(Line(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y)))
+            for ln in grid.subObjects:
+                ln.color = (0.85, 0.86, 0.90)
+                ln.stroke_width = 1.0
+            grid._is_grid = True
+            self.add(grid)
 
         # Axis lines run through the data origin (clamped into the visible range).
         x0 = min(max(0.0, self.x_min), self.x_max)

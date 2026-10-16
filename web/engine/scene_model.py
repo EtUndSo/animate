@@ -330,7 +330,7 @@ def _run_computation(scene, cspec, objects, types, axes):
         if len(nums) >= 1:
             _arith.run(t, scene, nums, float(p.get("run_time", 4.0)), scene.animating, p.get("mode", "squares"))
         return
-    if t == "Summation":                                    # Σ over an index i (no object operands)
+    if t in ("Summation", "BigProduct"):                    # Σ sum / ∏ product over an index i (no object operands)
         p = cspec.get("props", {})
         i0 = int(p.get("from", 1))
         end_raw = str(p.get("to", "n")).strip()
@@ -347,13 +347,23 @@ def _run_computation(scene, cspec, objects, types, axes):
                                          end_label=end_label, run_time=rt, color=color, show_terms=st,
                                          animating=scene.animating, label_expr=expr)
         else:
-            glyphs = p.get("glyphs")                         # MathJax glyph data from the editor
-            if glyphs:                                       # real LaTeX vector Σ in the scene graph
-                pos = p.get("position", (0.0, 2.4, 0.0))
-                sz = float(p.get("size", 1.4))
+            pos = p.get("position", (0.0, 2.4, 0.0))
+            sz = float(p.get("size", 0.9))
+            vc = p.get("value_color", (0.17, 0.63, 0.17))
+            varc = p.get("var_color", (1.0, 0.50, 0.05))     # running variable i (orange)
+            endc = p.get("end_color", (0.58, 0.40, 0.74))    # end result (total)
+            flc = p.get("pulse_color", (0.40, 0.70, 1.0))    # '+' / Σ flash colour (light blue)
+            bdc = p.get("bound_color", (0.09, 0.75, 0.81))   # Σ/∏ limits (lower/upper bounds), teal
+            choreo = p.get("choreo")                         # step-by-step pieces (abstract->subst->value) from editor
+            glyphs = p.get("glyphs")                         # or the whole ground-state as one MathTex
+            if choreo:
+                _proc.summation_choreo(scene, choreo, run_time=rt, color=color, value_color=vc,
+                                       var_color=varc, end_color=endc, flash_color=flc, bound_color=bdc,
+                                       animating=scene.animating, position=pos, height=sz)
+            elif glyphs:                                     # fallback: real LaTeX vector Σ (ground state)
                 _proc.summation_tex(scene, glyphs, run_time=rt, color=color, animating=scene.animating,
-                                    position=pos, height=sz)
-            else:                                            # glyphs not ready -> reserve duration (KaTeX overlay shows)
+                                    position=pos, height=float(p.get("size", 1.4)))
+            else:                                            # not ready -> reserve duration (KaTeX overlay shows)
                 _proc.summation_number(scene, term_from_expr_i(expr), i0, i1, symbolic=symbolic,
                                        end_label=end_label, run_time=rt, color=color, show_terms=st,
                                        animating=scene.animating, label_expr=expr)
@@ -462,8 +472,6 @@ class ModelScene(Scene):
                 break
         built = []
         for spec in specs:
-            if not spec.get("visible", True):               # hidden top-level object -> skip entirely
-                continue
             oid = spec.get("id")
             if oid is not None and oid in objects:          # the axes we already built above
                 obj = objects[oid]
@@ -471,7 +479,11 @@ class ModelScene(Scene):
                 obj = _build_object(spec, objects, axes=axes)
                 if oid is not None:
                     objects[oid] = obj
-            built.append((oid, obj))
+            # Hidden objects are still BUILT (so operations can use them as operands - a Convolution/
+            # Product/… graph stays visible even when its input functions are hidden via the eye), they
+            # are just not DRAWN statically.
+            if spec.get("visible", True):
+                built.append((oid, obj))
         # While PLAYING, objects consumed by an animated operator are drawn by that operator, not
         # statically (e.g. the convolution's two graphs). In the edit view all objects are shown.
         types = {s.get("id"): s["type"] for s in specs if s.get("id")}

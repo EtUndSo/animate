@@ -159,6 +159,84 @@ class ChangeValue(Animation):
         self.target.set_value(self.start.value + (self.end_value - self.start.value) * a)
 
 
+class Pulse(Animation):
+    """Briefly scale the target up and back (1 -> factor -> 1 over the run time). Used e.g. to hint that
+    a '+' springs out of the Σ sign. Pure function of alpha (sin bump), so it scrubs cleanly."""
+
+    def __init__(self, target, factor=1.35, **kwargs):
+        super().__init__(target, **kwargs)
+        self.factor = factor
+
+    def begin(self):
+        super().begin()
+        self.center = self.start.get_center()
+
+    def interpolate(self, a):
+        self.target.become(self.start)
+        s = 1.0 + (self.factor - 1.0) * np.sin(np.pi * max(0.0, min(1.0, a)))
+        self.target.scale(s if s > 1e-6 else 1e-6, around=self.center)
+
+
+class PulseColor(Animation):
+    """Briefly scale the target up and back AND tint it toward `color` and back (sin bump) - e.g. the big
+    Σ grows and flashes light blue when a '+' springs out of it. Pure function of alpha (scrubs cleanly)."""
+
+    def __init__(self, target, factor=1.4, color=(0.40, 0.70, 1.0), **kwargs):
+        super().__init__(target, **kwargs)
+        self.factor = factor
+        self.color = np.asarray(color, dtype=float)
+
+    def begin(self):
+        super().begin()
+        self.center = self.start.get_center()
+
+    def interpolate(self, a):
+        self.target.become(self.start)
+        w = np.sin(np.pi * max(0.0, min(1.0, a)))
+        s = 1.0 + (self.factor - 1.0) * w
+        self.target.scale(s if s > 1e-6 else 1e-6, around=self.center)
+        stack = [self.target]
+        while stack:
+            o = stack.pop()
+            if len(o.points):
+                base = np.asarray(o.fill_color if o.fill_color is not None else o.color, dtype=float)
+                o.fill_color = tuple(base + (self.color - base) * w)
+            stack.extend(o.subObjects)
+
+
+class AppearPulseColor(Animation):
+    """Fade the target IN (ends fully visible) while giving it ONE scale-up + colour-flash bump - e.g. a
+    '+' that springs out of the sum, grows and flashes light blue, then settles to its normal size/colour.
+    Combines FadeIn + PulseColor in a single contract-safe animation (pure function of alpha)."""
+
+    appears = True
+
+    def __init__(self, target, factor=1.4, color=(0.40, 0.70, 1.0), **kwargs):
+        super().__init__(target, **kwargs)
+        self.factor = factor
+        self.color = np.asarray(color, dtype=float)
+
+    def begin(self):
+        super().begin()
+        self.center = self.start.get_center()
+        _set_opacity(self.target, self.start, 0.0)       # start invisible
+
+    def interpolate(self, a):
+        self.target.become(self.start)
+        ca = max(0.0, min(1.0, a))
+        _set_opacity(self.target, self.start, ca)        # fade in, ends fully visible
+        w = np.sin(np.pi * ca)
+        s = 1.0 + (self.factor - 1.0) * w
+        self.target.scale(s if s > 1e-6 else 1e-6, around=self.center)
+        stack = [self.target]
+        while stack:
+            o = stack.pop()
+            if len(o.points):
+                base = np.asarray(o.fill_color if o.fill_color is not None else o.color, dtype=float)
+                o.fill_color = tuple(base + (self.color - base) * w)
+            stack.extend(o.subObjects)
+
+
 class Recolor(Animation):
     """Fade the target's FILL colour from its current colour to `color`."""
 
