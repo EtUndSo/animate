@@ -345,6 +345,7 @@ function exitLowDetail(){
     if(endLodFn){ try{ endLodFn(); }catch(_){} }    // restore the already-built full scene (no rebuild -> instant)
   }
   if(typeof refreshMoveGizmo==="function") refreshMoveGizmo();   // reposition the move arrows for the new camera
+  invalidateFrameCache();                           // the camera changed -> pre-rendered frames are stale
   saveLocal();                                      // persist the new camera either way
 }
 
@@ -565,6 +566,7 @@ let _timer = null;
 function renderPreview(){ if(!renderModel) return; clearTimeout(_timer); _timer = setTimeout(_doRender, 70); }
 function _doRender(){
   if(playing) return;                 // the player loop owns the canvas while playing
+  invalidateFrameCache();             // any edit makes the pre-rendered animation stale -> drop it
   let res;
   try { res = renderModel(JSON.stringify(toPythonModel())); }
   catch(e){ console.error(e); setStatus("Render error: " + e.message); return; }
@@ -751,8 +753,10 @@ async function _snapshot(canvas, W, H){            // grab the current canvas as
 // Render frames 0..N into the cache, picking an fps/resolution that fits the memory budget. Returns true
 // on success, false if even the smallest setting is over budget (caller falls back to live playback).
 async function prerender(){
-  const canvas=$("view"); const r=canvas.getBoundingClientRect();
-  const baseW=Math.max(1,Math.round(r.width)), baseH=Math.max(1,Math.round(r.height));   // on-screen size (looks identical)
+  const canvas=$("view");
+  // Capture at the canvas BUFFER resolution so cached frames match the live render 1:1 — capturing at the
+  // smaller CSS size and upscaling on _blit was what made the pre-rendered animation look blurry/washed out.
+  const baseW=canvas.width, baseH=canvas.height;
   const nAt=(f)=> Math.floor(playDuration*f)+1;
   const fits=(f,w,h)=> nAt(f)*w*h*4 <= PRERENDER_BUDGET;
   let pick=null;
@@ -1682,6 +1686,9 @@ $("reset-btn").onclick = () => resetPlay();
 $("play-btn").onclick = () => startPlay();
 $("pause-btn").onclick = () => pausePlay();
 $("end-btn").onclick = () => endPlay();
+// Force a fresh pre-render: drop the frame cache + re-prepare the timeline, so the next Play rebuilds
+// every animation from the CURRENT model (no stale formulas/positions from an earlier build).
+$("recompute-btn").onclick = () => { invalidateFrameCache(); stopPlay(); renderPreview(); setStatus("Animationen neu berechnet — ▶ Play rendert frisch"); };
 $("save-btn").onclick = () => saveScene();
 $("load-input").onchange = (e) => { if(e.target.files[0]) loadSceneFile(e.target.files[0]); e.target.value=""; };
 

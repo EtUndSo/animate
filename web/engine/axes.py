@@ -306,8 +306,25 @@ class Axes(AnimObject):
             s = min(1.0, (-zc) / (-zlo if zlo < -1e-9 else 1.0))
             return basecol * (1.0 - _AMT * s)                        # darker below
 
-        def _ok(z):
-            return (z == z) and (zlo <= z <= zhi)
+        def _clip_z(poly, c, upper):
+            """Sutherland–Hodgman clip of a 3D polygon ([x,y,z] vertices) against the horizontal plane
+            z=c: keep z<=c (upper) or z>=c (lower); where an edge crosses, insert the LINEARLY INTERPOLATED
+            crossing point, so the surface is cut exactly on the z=c contour — a smooth, resolution-
+            independent edge instead of a staircase of dropped cells (the "Zacken" at the top of e.g. eˣ).
+            This is how GeoGebra/Mathematica clip a surface to the view box."""
+            inside = (lambda z: z <= c + 1e-9) if upper else (lambda z: z >= c - 1e-9)
+            out = []
+            n = len(poly)
+            for i in range(n):
+                A, B = poly[i], poly[(i + 1) % n]
+                Ain, Bin = inside(A[2]), inside(B[2])
+                if Ain:
+                    out.append(A)
+                if Ain != Bin:
+                    dz = B[2] - A[2]
+                    t = 0.0 if abs(dz) < 1e-12 else (c - A[2]) / dz
+                    out.append(A + t * (B - A))
+            return out
 
         # STITCH T-junctions: index every leaf corner so a coarse cell can insert the "hanging" vertices
         # a finer neighbour put on its shared edge -> adjacent cells use identical edge vertices (no cracks).
@@ -333,9 +350,15 @@ class Axes(AnimObject):
             verts2d.append((ax, by))
             verts2d += [(ax, y) for y in reversed(_v(ax, ay, by))]
             zs = [_z(x, y) for (x, y) in verts2d]
-            if not all(_ok(z) for z in zs):                      # any vertex out of the box -> drop the face
+            if not all(z == z for z in zs):                      # a NaN vertex = genuine discontinuity -> gap
                 continue
-            P = [self.coords_to_point(x, y, z) for (x, y), z in zip(verts2d, zs)]
+            poly = [np.array([x, y, z], dtype=float) for (x, y), z in zip(verts2d, zs)]
+            poly = _clip_z(poly, zhi, True)                      # cut at z=z_max on the exact contour
+            poly = _clip_z(poly, zlo, False)                     # and at z=z_min
+            if len(poly) < 3:                                    # face entirely outside the box
+                continue
+            zs = [p[2] for p in poly]                            # clipped heights (for the height colour)
+            P = [self.coords_to_point(p[0], p[1], p[2]) for p in poly]
             # Face normal via NEWELL'S method over the WHOLE polygon (robust for any vertex count and for
             # the hanging-node vertices stitching inserts). The old cross(P1-P0, P2-P0) used just the first
             # three perimeter points, which on a stitched edge are ~collinear -> garbage normal -> adjacent
