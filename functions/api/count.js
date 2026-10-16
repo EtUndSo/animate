@@ -8,6 +8,10 @@
 // Storage: a Workers KV namespace bound as `COUNTERS` (keys "site" and "editor"). KV has no atomic
 // increment, so we read-modify-write; under heavy concurrency a rare increment can be lost — fine for a
 // visit counter. (For exact counts one would use a Durable Object; KV is the simple, free-tier choice.)
+//
+// NOTE: this file lives in <repo-root>/functions, NOT in the build-output dir (web/). Cloudflare Pages
+// reads Functions from `/functions` relative to the project ROOT directory, independent of the static
+// output directory. (If your Pages project's "Root directory" is set to `web`, move this into web/functions.)
 const KEYS = ["site", "editor"];
 
 export async function onRequestGet({ request, env }) {

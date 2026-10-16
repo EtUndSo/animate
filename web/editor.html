@@ -61,6 +61,15 @@
   #camgizmo{position:absolute;top:122px;right:10px;width:104px;height:133px;cursor:grab;touch-action:none;display:none;filter:drop-shadow(0 1px 3px rgba(0,0,0,.2));}
   #sum-overlay{position:absolute;top:18px;left:0;right:0;margin:0 auto;display:none;text-align:center;pointer-events:none;padding:0 18px;overflow:hidden;}
   #sum-overlay .katex{font-size:1.5em;}
+  /* Pre-render overlay: a rotating "compute" gear + progress while all animation frames are rendered
+     up front, so playback from the cache is perfectly smooth (the gear animates on the compositor, so it
+     keeps spinning even while Pyodide is busy rendering frames). */
+  #prerender-overlay{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+    border-radius:8px;z-index:6;color:#fff;font-weight:600;background:rgba(23,20,48,0.55);backdrop-filter:blur(2px);}
+  :root[data-theme="light"] #prerender-overlay{background:rgba(255,255,255,0.62);color:var(--ink);}
+  #prerender-overlay .gear{font-size:46px;line-height:1;animation:prspin 1.6s linear infinite;}
+  #prerender-overlay .pct{font-size:14px;letter-spacing:.02em;}
+  @keyframes prspin{to{transform:rotate(360deg);}}
   .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;align-items:start;}
   .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;}
   .card h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
@@ -149,6 +158,7 @@
       <canvas id="viewcube" width="156" height="156" title="Click a face to view the scene from that side"></canvas>
       <canvas id="camgizmo" width="156" height="200" title="Drag an axis to rotate the camera around it; drag the centre to orbit freely"></canvas>
       <div id="sum-overlay"></div>
+      <div id="prerender-overlay"><div class="gear">⚙</div><div class="pct" id="prerender-pct">Berechne … 0 %</div></div>
     </div>
     <div class="preview-mode">
       <label for="play-mode">Animations:</label>

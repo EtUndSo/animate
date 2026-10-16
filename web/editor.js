@@ -61,10 +61,10 @@ const CATALOG = {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
     Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, x_color:"#000000", y_color:"#000000", z_color:"#000000", grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
-    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
+    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
   },
   "Mathematik · 3D-Flächen & Körper": {   // Surface uses the axes; solids live in world coordinates
-    Surface:    { func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, grid_color:"#ffffff", grid_width:0.5 },
+    Surface:    { func:"sin(x)*cos(y)", adaptive:false, res_max:64, res_min:15, color:"#59a0eb", fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.5 },
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
@@ -161,14 +161,13 @@ const TEMPLATES = {
 };
 
 // Shown once when the editor opens with no saved scene, so the user starts from a concrete 3D example
-// rather than an empty canvas. A surface z = sin(x)+cos(y), viewed in 3D. Only the resolution is pinned
-// (a moderate 24×24 = snappy greeting, not the heavy 64² default); all other styling comes from catalog
-// defaults via ensureDefaults.
+// rather than an empty canvas: the graph of z = sin(x)+cos(y) (a Surface — the only object that can plot
+// a function of BOTH x and y; a 1D FunctionGraph takes x only). Resolution 50, x/y ∈ [-10,10], z ∈ [-3,3].
 const START_EXAMPLE = {
   camera: { mode:"3d", theta:0.6, phi:1.0 },
   objects: [
-    { type:"Axes", props:{ x_range:[-5,5], y_range:[-5,5], z_range:[-3,3], x_length:8, y_length:8, z_length:5 } },
-    { type:"Surface", props:{ func:"sin(x)+cos(y)", adaptive:false, res_max:24 } },
+    { type:"Axes", props:{ x_range:[-10,10], y_range:[-10,10], z_range:[-3,3], x_length:8, y_length:8, z_length:5 } },
+    { type:"Surface", props:{ func:"sin(x)+cos(y)", adaptive:false, res_max:50 } },
   ],
 };
 
@@ -726,33 +725,100 @@ function addAnimation(type){
 }
 function deleteAnimation(id){ model.animations = model.animations.filter(a=>a.id!==id); renderProps(); renderSceneAnims(); renderPreview(); }
 
-// Transport: Play runs the animated scene once from the current position to the end (operators run
-// their process, operands are taken over). Pause freezes. Reset returns to the static EDIT view
-// (all objects as inserted). End jumps to the final frame.
+// Transport: Play PRE-RENDERS every animation frame to an offscreen cache first (a compute gear shows
+// progress), then plays the cached bitmaps back — so playback is perfectly smooth no matter how heavy
+// the per-frame computation (convolution, Fourier, big surfaces). Pause freezes; Reset returns to the
+// static EDIT view; End jumps to the final frame. Any edit (or camera move) invalidates the cache.
 let playT = 0;                        // current animation time (seconds)
 let paused = false;                   // true only while paused (so ▶ resumes instead of restarting)
+let frameCache = null;                // { fps, frames:[ImageBitmap], dur } — the pre-rendered animation
+let prerendering = false, prerenderAbort = false;
+const PRERENDER_BUDGET = 350 * 1024 * 1024;   // ~350 MB cap on the frame cache (else reduce fps/res, then live)
+
 function _prepare(){ playDuration = preparePlay(JSON.stringify(toPythonModel())); return playDuration > 0; }
-function startPlay(){
-  if(playing || !preparePlay) return;
-  if(!_prepare()){ setStatus("Nothing to play — add an animation, or an animated operation."); return; }
-  if(!paused || playT >= playDuration) playT = 0;        // fresh play from the start, unless resuming a pause
-  paused = false;
-  playing = true; const startWall = performance.now() - playT*1000; setStatus("Playing …");
-  const loop = (now)=>{
-    if(!playing) return;
-    playT = (now - startWall)/1000;
-    if(playT >= playDuration){ playT = playDuration; playFrame(playT); updateSumOverlay(1); playing = false; setStatus("Ended ✓"); return; }
-    playFrame(playT); updateSumOverlay(playT/Math.max(1e-6,playDuration)); rafId = requestAnimationFrame(loop);
-  };
-  rafId = requestAnimationFrame(loop);
+function invalidateFrameCache(){ if(frameCache){ for(const b of frameCache.frames){ try{ b.close(); }catch(_){ } } frameCache=null; } }
+
+function showPrerender(frac){ const o=$("prerender-overlay"); if(!o) return; o.style.display="flex"; const p=$("prerender-pct"); if(p) p.textContent="Berechne … "+Math.round(frac*100)+" %"; }
+function hidePrerender(){ const o=$("prerender-overlay"); if(o) o.style.display="none"; }
+
+async function _snapshot(canvas, W, H){            // grab the current canvas as a (possibly downscaled) bitmap
+  try{ return await createImageBitmap(canvas, { resizeWidth:W, resizeHeight:H, resizeQuality:"high" }); }
+  catch(e){ const off=document.createElement("canvas"); off.width=W; off.height=H; off.getContext("2d").drawImage(canvas,0,0,W,H); return await createImageBitmap(off); }
 }
-function pausePlay(){ if(!playing) return; playing = false; paused = true; if(rafId) cancelAnimationFrame(rafId); setStatus("Paused"); }
-function stopPlay(){ playing = false; paused = false; if(rafId) cancelAnimationFrame(rafId); playT = 0; }   // used on edits/settings
-function resetPlay(){ stopPlay(); renderPreview(); setStatus("Reset — edit view"); }         // back to static view
+// Render frames 0..N into the cache, picking an fps/resolution that fits the memory budget. Returns true
+// on success, false if even the smallest setting is over budget (caller falls back to live playback).
+async function prerender(){
+  const canvas=$("view"); const r=canvas.getBoundingClientRect();
+  const baseW=Math.max(1,Math.round(r.width)), baseH=Math.max(1,Math.round(r.height));   // on-screen size (looks identical)
+  const nAt=(f)=> Math.floor(playDuration*f)+1;
+  const fits=(f,w,h)=> nAt(f)*w*h*4 <= PRERENDER_BUDGET;
+  let pick=null;
+  for(const s of [1,0.8,0.65,0.5]){ const w=Math.round(baseW*s), h=Math.round(baseH*s);
+    for(const f of [30,24,20,15]){ if(fits(f,w,h)){ pick={f,w,h}; break; } } if(pick) break; }
+  if(!pick) return false;                           // too large even downscaled -> live fallback
+  const {f:fps,w:W,h:H}=pick, N=nAt(fps), cache=[];
+  showPrerender(0);
+  for(let i=0;i<N;i++){
+    if(prerenderAbort) break;
+    const t=Math.min(playDuration, i/fps);
+    try{ playFrame(t); }catch(e){}
+    cache.push(await _snapshot(canvas, W, H));       // await -> yields to the event loop, UI stays alive
+    showPrerender((i+1)/N);
+    if((i & 3)===0) await new Promise(rr=>requestAnimationFrame(rr));   // let the gear + % actually paint
+  }
+  hidePrerender();
+  if(prerenderAbort){ for(const b of cache){ try{ b.close(); }catch(_){ } } return false; }
+  frameCache={ fps, frames:cache, dur:playDuration };
+  return true;
+}
+function _blit(idx){ const canvas=$("view"); const ctx=canvas.getContext("2d"); const bmp=frameCache&&frameCache.frames[idx]; if(!bmp) return;
+  ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,canvas.width,canvas.height); ctx.drawImage(bmp,0,0,canvas.width,canvas.height); }
+function playFromCache(){
+  playing=true; paused=false; setStatus("Playing …");
+  const startWall=performance.now() - playT*1000, fc=frameCache;
+  const loop=(now)=>{
+    if(!playing) return;
+    playT=(now-startWall)/1000;
+    if(playT>=fc.dur){ playT=fc.dur; _blit(fc.frames.length-1); updateSumOverlay(1); playing=false; setStatus("Ended ✓"); return; }
+    _blit(Math.min(fc.frames.length-1, Math.max(0, Math.floor(playT*fc.fps)))); updateSumOverlay(playT/Math.max(1e-6,fc.dur));
+    rafId=requestAnimationFrame(loop);
+  };
+  rafId=requestAnimationFrame(loop);
+}
+function playLive(){                                 // fallback: seek + paint each frame (cache too big)
+  playing=true; paused=false; const startWall=performance.now() - playT*1000; setStatus("Playing (live) …");
+  const loop=(now)=>{
+    if(!playing) return;
+    playT=(now-startWall)/1000;
+    if(playT>=playDuration){ playT=playDuration; playFrame(playT); updateSumOverlay(1); playing=false; setStatus("Ended ✓"); return; }
+    playFrame(playT); updateSumOverlay(playT/Math.max(1e-6,playDuration)); rafId=requestAnimationFrame(loop);
+  };
+  rafId=requestAnimationFrame(loop);
+}
+async function startPlay(){
+  if(playing || prerendering || !preparePlay) return;
+  if(frameCache){                                    // cache still valid (no edit since) -> play at once
+    if(!paused || playT>=frameCache.dur) playT=0;
+    return playFromCache();
+  }
+  if(!_prepare()){ setStatus("Nothing to play — add an animation, or an animated operation."); return; }
+  if(!paused || playT>=playDuration) playT=0;        // fresh play, unless resuming a pause
+  paused=false;
+  prerendering=true; prerenderAbort=false;
+  let ok=false; try{ ok=await prerender(); }catch(e){ console.error(e); }
+  prerendering=false; hidePrerender();
+  if(prerenderAbort){ prerenderAbort=false; return; }  // user hit Reset while computing
+  if(ok && frameCache) playFromCache(); else playLive();
+}
+function pausePlay(){ if(!playing) return; playing=false; paused=true; if(rafId) cancelAnimationFrame(rafId); setStatus("Paused"); }
+function stopPlay(){ playing=false; paused=false; prerenderAbort=true; if(rafId) cancelAnimationFrame(rafId); playT=0; invalidateFrameCache(); }   // edits/settings
+function resetPlay(){ stopPlay(); renderPreview(); setStatus("Reset — edit view"); }   // back to static view
 function endPlay(){
+  if(playing || prerendering) return;
+  if(frameCache){ paused=false; playT=frameCache.dur; _blit(frameCache.frames.length-1); updateSumOverlay(1); setStatus("End ✓"); return; }
   if(!preparePlay || !_prepare()) return;
-  playing = false; paused = false; if(rafId) cancelAnimationFrame(rafId);
-  playT = playDuration; playFrame(playDuration); updateSumOverlay(1); setStatus("End ✓");
+  paused=false; if(rafId) cancelAnimationFrame(rafId);
+  playT=playDuration; playFrame(playDuration); updateSumOverlay(1); setStatus("End ✓");
 }
 
 // ---------- save / load (download a .json, re-open it, + autosave to the browser) ----------

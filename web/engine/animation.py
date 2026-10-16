@@ -94,8 +94,9 @@ class Create(Animation):
     """Draw an object progressively, as if it were being drawn in real time.
 
     - single path (a line, a continuous graph, an outline): traced end-to-end via partial_bezier;
-    - a SURFACE (z=f(x,y), whose faces are tagged with their anti-diagonal rank _diag): revealed as a
-      growing TRIANGULAR WAVEFRONT sweeping diagonally from one corner to the full landscape;
+    - a SURFACE (z=f(x,y), whose faces carry a radial rank _diag = distance from the domain centre):
+      revealed as a HARD wavefront growing OUTWARD from the middle; each face snaps to full opacity when
+      the front reaches it (no soft fade, so the backdrop never shows through as a colour->white band);
     - any other group (e.g. a discontinuous graph split into pieces, a vector): each piece is traced
       together - so Create never silently does nothing on a grouped object.
     """
@@ -128,14 +129,14 @@ class Create(Animation):
 
     def interpolate(self, a):
         if self._is_surface:
-            band = 0.18                                     # soft edge: bands fade in, not pop in
-            span = 1.0 + band
+            # HARD wavefront: a face is either FULLY shown (its own static opacity) or not yet — no
+            # opacity ramp. A soft ramp left edge faces semi-transparent, so the white background showed
+            # through as a colour->white gradient along the front; a clean on/off edge keeps it crisp.
             for leaf, d, (fo, so) in zip(self._leaves, self._diag, self._op):
                 frac = (d / self._max_diag) if (self._max_diag and d is not None) else 0.0
-                t = (a * span - frac) / band                # wavefront position vs this face's diagonal
-                t = 0.0 if t < 0.0 else (1.0 if t > 1.0 else t)
-                leaf.fill_opacity = fo * t
-                leaf.stroke_opacity = so * t
+                on = 1.0 if (a >= 1.0 or a > frac) else 0.0   # empty at a=0, fully covered at a=1
+                leaf.fill_opacity = fo * on
+                leaf.stroke_opacity = so * on
         elif self._center_out:
             Ln = partial_bezier(self._left_rev, a)[::-1]    # left half, back in normal order
             Rp = partial_bezier(self._right, a)             # right half

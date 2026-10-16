@@ -15,7 +15,7 @@ from .axes import Axes
 from .simpleShape import (Circle, Dot, Line, Polygon, Triangle, Rectangle, Square, FunctionGraph)
 from .text import Text, DecimalNumber
 from .value_tracker import ValueTracker
-from .threed import ThreeDAxes, Surface, Box, Cube, Sphere, Pyramid, Vector
+from .threed import ThreeDAxes, Box, Cube, Sphere, Pyramid, Vector
 from .svg import MathTex, SVGMobject
 from .AnimObject import AnimObject
 from .results import result_value
@@ -53,6 +53,8 @@ def _surface_kw(args, style):
         kw["grid_width"] = float(args["grid_width"])
     if "grid_color" in args:
         kw["grid_color"] = args["grid_color"]
+    if "height_color" in args:                              # colour faces by height (z) instead of a flat tint
+        kw["height_color"] = bool(args["height_color"])
     return kw
 
 # --- registries: add a class here to expose it to the editor + code + interpreter ---
@@ -62,7 +64,7 @@ OBJECT_TYPES = {
     "FunctionGraph": FunctionGraph, "Text": Text,
     "ValueTracker": ValueTracker, "DecimalNumber": DecimalNumber,
     # 3D
-    "ThreeDAxes": ThreeDAxes, "Surface": Surface, "Box": Box, "Cube": Cube,
+    "ThreeDAxes": ThreeDAxes, "Box": Box, "Cube": Cube,
     "Sphere": Sphere, "Pyramid": Pyramid, "Vector": Vector,
     # LaTeX as vector glyphs (glyph data comes from the browser's MathJax -> see editor.js)
     "MathTex": MathTex, "SVGMobject": SVGMobject,

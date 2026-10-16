@@ -234,7 +234,7 @@ class Axes(AnimObject):
         return build_graph(segments, color)
 
     def plot_surface(self, func, resolution=18, color=(0.35, 0.60, 0.92), fill_opacity=1.0, shade=True,
-                     grid_color=None, grid_width=0.5, res_min=15, adaptive=True):
+                     grid_color=None, grid_width=0.5, res_min=15, adaptive=True, height_color=False):
         """Surface z = func(x, y) as a CURVATURE-ADAPTIVE quad mesh (GeoGebra-style): start from a coarse
         grid and recursively subdivide a cell where the surface BENDS. Flat regions stay coarse, curved
         regions get fine - fewer faces for the same look than a uniform grid. `res_min` = the MINIMUM
@@ -293,6 +293,19 @@ class Axes(AnimObject):
         span = (x1a - x0a) + (y1a - y0a)
         group = AnimObject()
 
+        # Height (depth) colouring: the chosen colour is the value AT z=0; above it the colour lightens
+        # toward white, below it it darkens toward black — hue kept, so the surface reads like a height map.
+        _white = np.array([1.0, 1.0, 1.0])
+        _AMT = 0.70                                          # how far to push toward white/black at the extremes
+        def _height_base(zc):
+            if not height_color:
+                return basecol
+            if zc >= 0:
+                t = min(1.0, zc / (zhi if zhi > 1e-9 else 1.0))
+                return basecol + (_white - basecol) * (_AMT * t)     # lighter above
+            s = min(1.0, (-zc) / (-zlo if zlo < -1e-9 else 1.0))
+            return basecol * (1.0 - _AMT * s)                        # darker below
+
         def _ok(z):
             return (z == z) and (zlo <= z <= zhi)
 
@@ -339,7 +352,10 @@ class Axes(AnimObject):
             if nrm[2] < 0:
                 nrm = -nrm
             bright = (0.4 + 0.6 * max(0.0, float(np.dot(nrm, light)))) if shade else 1.0
-            fc = tuple(float(min(1.0, c * bright)) for c in basecol)
+            hbase = _height_base(sum(zs) / len(zs))          # face colour from its mean height (z), or flat
+            # In height-colour mode the colour must encode HEIGHT alone, so Lambert shading is skipped —
+            # otherwise the lighting darkens high faces and the "lighter above" reading is lost.
+            fc = tuple(float(min(1.0, c * (1.0 if height_color else bright))) for c in hbase)
             quad = Polygon(P)
             quad.fill_color = fc
             # mesh (raster) lines = the quad edges: own colour+width if given, else the fill colour
