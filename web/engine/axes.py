@@ -45,10 +45,11 @@ class Axes(AnimObject):
     object exposes a setting for each element it contains.
     """
 
-    def __init__(self, x_range=(-5, 5), y_range=(-3, 3), z_range=(-3, 3),
-                 x_length=12.0, y_length=6.0, z_length=6.0, tick_size=0.1,
-                 show_ticks=True, show_numbers=True, show_labels=True, show_grid=True,
-                 grid_color=(0.85, 0.86, 0.90), grid_width=1.0,
+    def __init__(self, x_range=(-10, 10), y_range=(-10, 10), z_range=(-10, 10),
+                 x_length=7.0, y_length=7.0, z_length=7.0, tick_size=0.1,
+                 show_ticks=True, show_numbers=True, show_labels=True,
+                 grid_x=False, grid_y=False, grid_z=False,
+                 grid_color=(0.0, 0.0, 0.0), grid_width=1.0,
                  x_color=(0.89, 0.38, 0.33), y_color=(0.41, 0.68, 0.39), z_color=(0.32, 0.55, 0.91),
                  x_label="x", y_label="y", z_label="z",
                  number_size=24, label_size=34):
@@ -66,21 +67,31 @@ class Axes(AnimObject):
         self.z_length = z_length
         number_offset = tick_size + 0.22
 
-        # Background coordinate grid: light lines at every tick, spanning the range. Shown by default;
-        # it is rebuilt from the ticks on every (re)build, so it grows/shrinks automatically with the
-        # range. Added FIRST (so the axis lines/ticks sit over it) and tagged so it follows the same
-        # axes_on_top setting as the rest of the axes.
-        if show_grid:
-            grid = AnimObject()
-            for x in self._ticks(self.x_min, self.x_max, self.x_step):
-                grid.add(Line(self.coords_to_point(x, self.y_min), self.coords_to_point(x, self.y_max)))
-            for y in self._ticks(self.y_min, self.y_max, self.y_step):
-                grid.add(Line(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y)))
-            for ln in grid.subObjects:
-                ln.color = tuple(grid_color)
-                ln.stroke_width = float(grid_width)
-            grid._is_grid = True
-            self.add(grid)
+        # Background coordinate grid, TOGGLEABLE PER AXIS (grid_x / grid_y / grid_z, all off by default).
+        # It rebuilds from the ticks on every (re)build, so it grows/shrinks with the range. Tagged
+        # `_is_grid` so the renderer depth-sorts it (it sits in the plane, not on top of objects).
+        def _grid_group(lines, only_3d=False):
+            g = AnimObject()
+            for p0, p1 in lines:
+                ln = Line(p0, p1); ln.color = tuple(grid_color); ln.stroke_width = float(grid_width)
+                g.add(ln)
+            g._is_grid = True
+            if only_3d:
+                g._only_3d = True
+            return g
+        if grid_x:                                          # lines at each x value (parallel to the y-axis)
+            self.add(_grid_group([(self.coords_to_point(x, self.y_min), self.coords_to_point(x, self.y_max))
+                                  for x in self._ticks(self.x_min, self.x_max, self.x_step)]))
+        if grid_y:                                          # lines at each y value (parallel to the x-axis)
+            self.add(_grid_group([(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y))
+                                  for y in self._ticks(self.y_min, self.y_max, self.y_step)]))
+        if grid_z:                                          # 3D only: z grid on the back wall (y = y_min)
+            yw = self.y_min
+            lines = [(self.coords_to_point(self.x_min, yw, z), self.coords_to_point(self.x_max, yw, z))
+                     for z in self._ticks(self.z_min, self.z_max, self.z_step)]            # per z (parallel x)
+            lines += [(self.coords_to_point(x, yw, self.z_min), self.coords_to_point(x, yw, self.z_max))
+                      for x in self._ticks(self.x_min, self.x_max, self.x_step)]           # per x (parallel z)
+            self.add(_grid_group(lines, only_3d=True))
 
         # Axis lines run through the data origin (clamped into the visible range). Each axis gets its
         # classic colour (x=red, y=green, z=blue), so orientation is readable at a glance.

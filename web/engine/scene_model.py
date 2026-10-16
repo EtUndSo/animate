@@ -230,7 +230,8 @@ def _build_object(spec, objects, axes=None):
             obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **_surface_kw(args, style))
         else:
             f = args["func"]
-            xr, yr = args.get("x_range"), args.get("y_range")   # x = plotted domain, y = vertical clip
+            xr = args.get("x_range")                        # x = plotted domain (per function)
+            yr = (axes.y_min, axes.y_max)                   # y value range (Wertebereich) ALWAYS from the Axes
             if _DOMAIN == "complex":                        # draw real AND imaginary parts
                 obj = AnimObject()
                 re_g = axes.plot(lambda x: np.real(f(x)), x_range=xr, y_range=yr)

@@ -59,8 +59,8 @@ const CATALOG = {
   "Axes & Graphs": {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
-    Axes:          { x_range:[-6,6], y_range:[-3,3], z_range:[-3,3], x_length:12, y_length:6, z_length:6, show_grid:true, grid_color:"#d9dbe6", grid_width:1 },
-    FunctionGraph: { func:"sin(x)", x_range:[-4,4], y_range:[-6,6], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
+    Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
+    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#ffffff", grid_width:0.5 },
   },
   "Signals (ET3)": {   // presets: same FunctionGraph type, different standard signal (t = variable)
     "ε(t) step":      { _type:"FunctionGraph", func:"epsilon(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
@@ -203,6 +203,8 @@ for (const grp of Object.values(CATALOG)) for (const [name, def] of Object.entri
 function ensureDefaults(o){
   const d = OBJ_DEFAULTS[o.type];
   if (d && o.props) for (const k in d) if (!(k in o.props)) o.props[k] = structuredClone(d[k]);
+  if (o.type === "Axes" && o.props) delete o.props.show_grid;         // obsolete: replaced by grid_x/grid_y/grid_z
+  if (o.type === "FunctionGraph" && o.props) delete o.props.y_range;  // obsolete: y range now comes from the Axes
   if (o.children) for (const c of o.children) ensureDefaults(c);
 }
 function migrateModel(){ for (const o of (model.objects || [])) ensureDefaults(o); }
@@ -976,7 +978,7 @@ function renderObjectProps(){
   const put=(k)=>{ if(k in o.props && !skip.has(k)){ el.appendChild(propInput(o,k,o.props[k])); skip.add(k); } };
   if((o.type==="FunctionGraph"||o.type==="Surface") && ("adaptive" in o.props)){
     // Ordered layout: 1) the function equation, 2) domain, 3) resolution, 4) colours, 5) the rest.
-    put("func"); put("x_range"); put("y_range");
+    put("func"); put("x_range"); skip.add("y_range");     // y value range comes from the Axes, not per-function
     skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");     // resolution block (rendered specially)
     const sel=document.createElement("select");
     for(const [val,txt] of [["adaptive","Adaptive (curvature)"],["static","Static (uniform)"]]){ const op=document.createElement("option"); op.value=val; op.textContent=txt; sel.appendChild(op); }
@@ -1525,48 +1527,96 @@ document.addEventListener("keydown", (e)=>{
   else if(mod && e.key==="v"){ if(clipboard){ const copy=cloneSpec(clipboard); model.objects.push(copy); model.selectedId=copy.id; renderSceneObjs(); renderProps(); renderPreview(); } }
 });
 
-$("dl-png").onclick = () => {
-  $("view").toBlob((blob)=>{ const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="scene.png"; a.click(); URL.revokeObjectURL(a.href); });
-};
+// ---------- Export: Photo (image) + Animation (video), each with a format dropdown (▾) ----------
+// Video is captured with captureStream(0) + track.requestFrame(): EVERY rendered frame is pushed as one
+// video frame (no dropped frames), so the result is smooth no matter how long a frame takes to render -
+// unlike captureStream(fps), which drops frames when rendering can't keep up (that was the stutter).
+const IMG_FORMATS = [
+  { label:"PNG",  mime:"image/png",  ext:"png" },
+  { label:"JPEG", mime:"image/jpeg", ext:"jpg" },
+  { label:"WebP", mime:"image/webp", ext:"webp" },
+  { label:"AVIF", mime:"image/avif", ext:"avif" },
+  { label:"BMP",  mime:"image/bmp",  ext:"bmp" },
+];
+const VID_FORMATS = [
+  { label:"MP4 (H.264)", mime:"video/mp4;codecs=avc1.42E01E",   ext:"mp4" },
+  { label:"WebM (VP9)",  mime:"video/webm;codecs=vp9",          ext:"webm" },
+  { label:"WebM (VP8)",  mime:"video/webm;codecs=vp8",          ext:"webm" },
+  { label:"WebM (AV1)",  mime:"video/webm;codecs=av01.0.04M.08", ext:"webm" },
+  { label:"MP4 (AV1)",   mime:"video/mp4;codecs=av01.0.04M.08",  ext:"mp4" },
+];
+function _imgSupported(mime){ try{ return document.createElement("canvas").toDataURL(mime).indexOf("data:"+mime)===0; }catch(e){ return false; } }
+function _vidSupported(mime){ try{ return typeof MediaRecorder!=="undefined" && MediaRecorder.isTypeSupported(mime); }catch(e){ return false; } }
 
-// Download the ANIMATION as a video: record the canvas (captureStream + MediaRecorder) while the play
-// loop drives it in real time from t=0 to the end, then save a .webm. The engine draws the Σ/graphs on
-// the canvas itself, so they are captured too (the KaTeX overlay is DOM-only but hidden during play).
+function exportPng(f){
+  f = f || IMG_FORMATS[0];
+  $("view").toBlob((blob)=>{
+    if(!blob){ setStatus("⚠ Export fehlgeschlagen"); return; }
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="scene."+f.ext; a.click(); URL.revokeObjectURL(a.href);
+    setStatus("Bild gespeichert ✓ (scene."+f.ext+")");
+  }, f.mime, 0.95);
+}
+
 let _recording = false;
-function downloadVideo(){
-  if(playing || _recording){ setStatus("Busy — stop playback first."); return; }
-  if(!preparePlay || !_prepare()){ setStatus("Nothing to record — add an animation or an animated operation."); return; }
+function exportVideo(f){
+  if(playing || _recording){ setStatus("Busy — erst die Wiedergabe stoppen."); return; }
+  if(!preparePlay || !_prepare()){ setStatus("Nichts aufzunehmen — füge eine Animation oder animierte Operation hinzu."); return; }
   const canvas=$("view");
-  if(!canvas.captureStream || typeof MediaRecorder==="undefined"){ setStatus("⚠ Video recording isn't supported by this browser."); return; }
-  const mime=["video/webm;codecs=vp9","video/webm;codecs=vp8","video/webm"].find(m=>{ try{return MediaRecorder.isTypeSupported(m);}catch(e){return false;} }) || "";
-  const stream=canvas.captureStream(30);
-  let rec; try{ rec=new MediaRecorder(stream, mime?{mimeType:mime, videoBitsPerSecond:12000000}:{}); }
-  catch(e){ setStatus("⚠ Could not start the recorder: "+e.message); return; }
+  if(!canvas.captureStream || typeof MediaRecorder==="undefined"){ setStatus("⚠ Video wird von diesem Browser nicht unterstützt."); return; }
+  f = f || VID_FORMATS.find(v=>_vidSupported(v.mime)) || { mime:"", ext:"webm" };
+  const fps=30;
+  let stream, track, manual=false;
+  try{ stream=canvas.captureStream(0); track=stream.getVideoTracks()[0]; manual=!!(track && track.requestFrame); }catch(e){ stream=null; }
+  if(!stream || !manual){ try{ stream=canvas.captureStream(fps); track=stream.getVideoTracks()[0]; }catch(e){ setStatus("⚠ captureStream nicht verfügbar."); return; } manual=false; }
+  let rec; try{ rec=new MediaRecorder(stream, f.mime?{mimeType:f.mime, videoBitsPerSecond:12000000}:{}); }
+  catch(e){ setStatus("⚠ Recorder: "+e.message); return; }
   const chunks=[];
   rec.ondataavailable=(e)=>{ if(e.data && e.data.size) chunks.push(e.data); };
   rec.onstop=()=>{
-    const blob=new Blob(chunks, {type:mime||"video/webm"});
-    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="animation.webm"; a.click(); URL.revokeObjectURL(a.href);
-    _recording=false; playing=false; setStatus("Animation saved ✓ (animation.webm)"); renderPreview();
+    const blob=new Blob(chunks, {type:(f.mime||"video/webm").split(";")[0]});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="animation."+f.ext; a.click(); URL.revokeObjectURL(a.href);
+    _recording=false; playing=false; setStatus("Animation gespeichert ✓ (animation."+f.ext+")"); renderPreview();
   };
-  _recording=true; playing=true;                         // block edits / LOD / other play while capturing
+  _recording=true; playing=true;                         // block edits / LOD / other playback while capturing
   playFrame(0); updateSumOverlay(0);
-  try{ rec.start(); }catch(e){ _recording=false; playing=false; setStatus("⚠ Recorder error: "+e.message); return; }
-  setStatus("● Recording animation …");
+  try{ rec.start(); }catch(e){ _recording=false; playing=false; setStatus("⚠ "+e.message); return; }
+  setStatus("● Nehme Animation auf …");
   const startWall=performance.now();
-  const loop=(now)=>{
-    if(!_recording){ return; }                           // safety: aborted
-    const t=(now-startWall)/1000;
-    if(t>=playDuration){
-      playFrame(playDuration); updateSumOverlay(1);
-      setTimeout(()=>{ if(rec.state!=="inactive") rec.stop(); }, 150);   // let the last frame flush, then stop
-      return;
-    }
+  let frame=0; const total=Math.max(1, Math.ceil(playDuration*fps));
+  const step=()=>{
+    if(!_recording) return;
+    const t=Math.min(frame/fps, playDuration);
     playFrame(t); updateSumOverlay(t/Math.max(1e-6,playDuration));
-    requestAnimationFrame(loop);
+    if(manual && track.requestFrame) track.requestFrame();   // push THIS rendered frame -> never dropped
+    frame++;
+    if(frame>total){ setTimeout(()=>{ if(rec.state!=="inactive") rec.stop(); }, 120); return; }
+    const targetWall = startWall + (frame/fps)*1000;           // pace to real time (correct speed when rendering keeps up)
+    setTimeout(step, Math.max(0, targetWall - performance.now()));
   };
-  requestAnimationFrame(loop);
+  requestAnimationFrame(step);
 }
-$("dl-video").onclick = () => downloadVideo();
+
+function _buildExportMenu(menuId, formats, supported, onPick){
+  const menu=$(menuId); if(!menu) return [];
+  let avail = formats.filter(f=>supported(f.mime));
+  if(avail.length===0) avail = [formats[0]];              // always at least the first (browser falls back)
+  const use = avail.slice(0,5);
+  menu.innerHTML="";
+  for(const f of use){ const it=document.createElement("div"); it.className="export-item"; it.textContent=f.label;
+    it.onclick=()=>{ menu.classList.remove("open"); onPick(f); }; menu.appendChild(it); }
+  return use;
+}
+(function setupExports(){
+  const pngUse=_buildExportMenu("dl-png-menu", IMG_FORMATS, _imgSupported, (f)=>{ pngFmt=f; exportPng(f); });
+  const vidUse=_buildExportMenu("dl-video-menu", VID_FORMATS, _vidSupported, (f)=>{ vidFmt=f; exportVideo(f); });
+  let pngFmt=pngUse[0], vidFmt=vidUse[0];
+  $("dl-png").onclick   = ()=> exportPng(pngFmt);
+  $("dl-video").onclick = ()=> exportVideo(vidFmt);
+  const toggle=(id)=>{ const m=$(id); if(!m) return; document.querySelectorAll(".export-menu.open").forEach(x=>{ if(x!==m) x.classList.remove("open"); }); m.classList.toggle("open"); };
+  const pc=$("dl-png-caret"), vc=$("dl-video-caret");
+  if(pc) pc.onclick=(e)=>{ e.stopPropagation(); toggle("dl-png-menu"); };
+  if(vc) vc.onclick=(e)=>{ e.stopPropagation(); toggle("dl-video-menu"); };
+  document.addEventListener("click", ()=> document.querySelectorAll(".export-menu.open").forEach(x=>x.classList.remove("open")));
+})();
 
 boot().catch(e=>{ console.error(e); setStatus("Fehler: " + e.message); });

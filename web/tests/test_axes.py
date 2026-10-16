@@ -11,11 +11,11 @@ assert _nice_step(0, 1) in (0.1, 0.2), _nice_step(0, 1)
 print("nice_step OK:", _nice_step(-100,100), _nice_step(-6,6), _nice_step(0,1))
 
 # --- fixed size: the x-axis LINE stays 12 wide in world, no matter the range ---
-ax = Axes(x_range=(-100, 100), y_range=(-100, 100), x_length=12, y_length=6, show_grid=False)
+ax = Axes(x_range=(-100, 100), y_range=(-100, 100), x_length=12, y_length=6)
 xline = ax.subObjects[0]                       # first child = x-axis line (grid off, so index 0)
 w = xline.points[:,0].max() - xline.points[:,0].min()
 assert abs(w - 12) < 1e-9, w
-ax2 = Axes(x_range=(-6, 6), y_range=(-3, 3), x_length=12, y_length=6, show_grid=False)
+ax2 = Axes(x_range=(-6, 6), y_range=(-3, 3), x_length=12, y_length=6)
 w2 = ax2.subObjects[0].points[:,0].max() - ax2.subObjects[0].points[:,0].min()
 assert abs(w2 - 12) < 1e-9, w2
 print("fixed size OK: axis line width", w, "(range -100..100) ==", w2, "(range -6..6)")
