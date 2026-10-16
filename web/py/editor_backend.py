@@ -91,17 +91,25 @@ def zoom_to(z):
 
 
 def pick(px, py):
-    """Return the id of the topmost object whose bounding box contains the clicked pixel
-    (empty string if none). Lets the editor select objects by clicking the canvas."""
+    """Return the id of the SMALLEST (most specific) object whose bounding box contains the click - so a
+    small object isn't shadowed by a bigger one's rectangular box (e.g. a dot sitting inside a function
+    graph's wide bbox). The coordinate axes are skipped (pick them from the sidebar), so an empty click
+    doesn't grab them. Empty string if nothing matches."""
     if _last_scene is None:
         return ""
-    world = _last_scene.camera.unproject(px, py)
-    m = 0.15                                     # small margin so thin objects stay clickable
-    for oid, obj in reversed(list(_last_scene.objects_by_id.items())):
+    cam = _last_scene.camera
+    world = cam.unproject(px, py)
+    m = max(0.15, 10.0 * cam._upp)               # world margin, with a ~10px floor so thin objects stay clickable
+    best, best_area = "", None
+    for oid, obj in _last_scene.objects_by_id.items():
+        if getattr(obj, "_is_axis", False):       # don't grab the axes by clicking the canvas
+            continue
         lo, hi = obj.get_bounding_box()
         if lo[0] - m <= world[0] <= hi[0] + m and lo[1] - m <= world[1] <= hi[1] + m:
-            return oid
-    return ""
+            area = max(hi[0] - lo[0], 1e-6) * max(hi[1] - lo[1], 1e-6)
+            if best_area is None or area < best_area:
+                best, best_area = oid, area
+    return best
 
 
 def unproj(px, py):

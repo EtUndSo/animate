@@ -7,20 +7,22 @@
   <meta name="description" content="EtUndSo: verständliche Erklärungen, Erklärvideos und Tools zu Elektrotechnik-Modulen — und so. Mit dem Browser-Animations-Editor animate."/>
   <style>
     :root{
-      /* shared EtUndSo brand palette (science/tech): navy + cyan accent — same as the editor */
+      /* shared EtUndSo brand palette: blue + red + orange (same tokens as the editor) */
       --bg:#f4f7fb; --panel:#ffffff; --ink:#0f2033; --muted:#5a6b7b; --border:#dde4ec;
-      --accent:#1d6fe0; --accent2:#0d94a8; --green:#16a34a;
+      --accent:#1d6fe0; --accent2:#d93a2b; --accent3:#e07b10; --green:#16a34a;
     }
     @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-      --bg:#0e1620; --panel:#15202e; --ink:#e6edf3; --muted:#93a4b5; --border:#273647; --accent:#4f9cff; --accent2:#22c3d6;
+      --bg:#101826; --panel:#19232f; --ink:#e6edf3; --muted:#9fb0c0; --border:#33475e; --accent:#4f9cff; --accent2:#ff6a5a; --accent3:#f59e42;
     }}
-    :root[data-theme="dark"]{ --bg:#0e1620; --panel:#15202e; --ink:#e6edf3; --muted:#93a4b5; --border:#273647; --accent:#4f9cff; --accent2:#22c3d6; }
+    :root[data-theme="dark"]{ --bg:#101826; --panel:#19232f; --ink:#e6edf3; --muted:#9fb0c0; --border:#33475e; --accent:#4f9cff; --accent2:#ff6a5a; --accent3:#f59e42; }
     *{box-sizing:border-box;}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;}
     a{color:var(--accent);text-decoration:none;}
+    .build-banner{background:var(--panel);color:var(--ink);border-bottom:1px solid var(--border);padding:7px 16px;font-size:13px;text-align:center;}
+    .build-banner b{color:var(--accent2);font-weight:700;}
     header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--border);background:var(--panel);}
-    .brand{font-weight:800;font-size:20px;letter-spacing:-0.02em;color:var(--accent);}   /* "Et" = blue */
-    .brand span{color:var(--accent2);}   /* "UndSo" = cyan (Und + So same colour) */
+    .brand{font-weight:800;font-size:20px;letter-spacing:-0.02em;color:var(--accent2);}   /* "Et" = red */
+    .brand span{color:var(--accent);}   /* "UndSo" = blue (Und + So same colour, like the CTA button) */
     nav a{margin-left:18px;color:var(--muted);font-weight:600;}
     main{max-width:1000px;margin:0 auto;padding:16px 24px 64px;}
     .hero{padding:56px 0 24px;}
@@ -44,6 +46,7 @@
   </style>
 </head>
 <body>
+  <div class="build-banner">🚧 Diese Seite ist noch im Aufbau und wird laufend aktualisiert. · Letztes Update: <b id="build-date">…</b></div>
   <header class="site">
     <div class="brand">Et<span>UndSo</span></div>
     <nav>
@@ -96,5 +99,6 @@
   </main>
 
   <footer>EtUndSo.de · Erklärungen & Tools für Elektrotechnik — und so.</footer>
+  <script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
 </body>
 </html>

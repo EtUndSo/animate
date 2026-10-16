@@ -18,12 +18,12 @@
   /* Shared EtUndSo brand palette (science/tech): deep navy surfaces + a cyan/teal accent. Same tokens
      as the landing page so editor and site match. Night = default. */
   /* --s1/--s2/--s3 = stepped ELEVATION surfaces: deeper nesting = lighter (in dark mode). */
-  :root{--bg:#0e1620;--panel:#15202e;--field:#1c2a3a;--sel:#243a52;--border:#273647;
-        --s1:#1b2838;--s2:#26374d;--s3:#324863;
-        --ink:#e6edf3;--muted:#93a4b5;--hint:#64748b;--accent:#4f9cff;--accent2:#22c3d6;--green:#3fb950;}
+  :root{--bg:#101826;--panel:#19232f;--field:#2c3c52;--sel:#294063;--border:#33475e;
+        --s1:#202d3e;--s2:#2b3e57;--s3:#395173;
+        --ink:#e6edf3;--muted:#9fb0c0;--hint:#6b7d90;--accent:#4f9cff;--accent2:#ff6a5a;--accent3:#f59e42;--green:#3fb950;}
   :root[data-theme="light"]{--bg:#f4f7fb;--panel:#ffffff;--field:#ffffff;--sel:#e4eefb;--border:#dde4ec;
         --s1:#ffffff;--s2:#f1f5fb;--s3:#e8f0f9;
-        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#0d94a8;--green:#16a34a;}
+        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#d93a2b;--accent3:#e07b10;--green:#16a34a;}
   *{box-sizing:border-box;}
   body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);}
   header{padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;gap:16px;}
@@ -93,7 +93,7 @@
   .bigbox>h2{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;}
   /* bigboxes = elevated surface (s1) with a coloured border + heading for identity (not a dark tint) */
   .box-add{background:var(--s1);border-color:rgba(91,155,255,.55);} .box-add>h2{color:#5b9bff;}
-  .box-scene{background:var(--s1);border-color:rgba(53,196,106,.55);} .box-scene>h2{color:#35c46a;}
+  .box-scene{background:var(--s1);border-color:rgba(225,75,60,.55);} .box-scene>h2{color:#e14b3c;}
   .box-props{background:var(--s1);border-color:rgba(232,130,12,.6);} .box-props>h2{color:#e8820c;}
   .sub{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:10px;overflow:hidden;}
   .sub .sub{background:var(--s3);}   /* deeper nesting -> lighter */
@@ -104,6 +104,8 @@
   .add-areas>.sub{flex:1 1 220px;margin-bottom:0;}
   .anim-row.dragging{opacity:.45;}
   .anim-row.drop-target{box-shadow:inset 0 2px 0 var(--accent);}
+  .build-banner{background:var(--sel);color:var(--ink);border-bottom:1px solid var(--border);padding:6px 16px;font-size:13px;text-align:center;}
+  .build-banner b{color:var(--accent);font-weight:700;}
   /* day/night SLIDE switch: a box slides left<->right; the exposed half is white (day) / black (night) */
   .theme-switch{position:relative;flex:none;width:56px;height:28px;border-radius:14px;border:1px solid var(--border);
                 background:#000;cursor:pointer;padding:0;transition:background .18s;}
@@ -115,6 +117,7 @@
 </style>
 </head>
 <body>
+<div class="build-banner">🚧 Diese Seite ist noch im Aufbau und wird laufend aktualisiert. · Letztes Update: <b id="build-date">…</b></div>
 <header>
   <span class="brand">animate — Editor</span>
   <div class="header-center">
@@ -194,5 +197,6 @@
 <script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
 <!-- load with a per-load cache-buster so a new deploy is picked up immediately (no stale editor.js) -->
 <script type="module">import("./editor.js?v=" + Date.now());</script>
+<script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
 </body>
 </html>

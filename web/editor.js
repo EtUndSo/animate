@@ -1538,7 +1538,11 @@ async function boot(){
   setStatus("Ready ✓ — add an element on the left, or click in the view.");
   let restored=false;                  // restore the autosaved scene, else start with an axes
   try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}
-  if(!restored) addObject("Axes", CATALOG["Axes & Graphs"].Axes);
+  if(!restored){
+    // dark mode: a fresh scene starts on a soft grey (not glaring pure white); light mode stays white
+    if(document.documentElement.getAttribute("data-theme")!=="light") model.background.color="#d4d7dc";
+    addObject("Axes", OBJ_DEFAULTS["Axes"]);        // (OBJ_DEFAULTS is proof against catalog group renames)
+  }
 }
 
 $("reset-btn").onclick = () => resetPlay();
