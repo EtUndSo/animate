@@ -24,20 +24,32 @@ class CanvasPainter:
             self.ctx.fillStyle = _rgb(color)
             self.ctx.fillRect(0, 0, self.w, self.h)
 
-    def draw_path(self, pts, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity):
+    def _trace(self, pts):
         ctx = self.ctx
-        ctx.beginPath()
         ctx.moveTo(pts[0][0], pts[0][1])
-        for i in range(1, len(pts), 3):
+        for i in range(1, len(pts) - 2, 3):
             ctx.bezierCurveTo(pts[i][0], pts[i][1],
                               pts[i + 1][0], pts[i + 1][1],
                               pts[i + 2][0], pts[i + 2][1])
+
+    def draw_path(self, pts, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity, contours=None):
+        ctx = self.ctx
+        ctx.beginPath()
+        if contours:                                    # several contours (e.g. a glyph with a hole)
+            off = 0
+            for n in contours:
+                self._trace(pts[off:off + n]); off += n
+            fill_rule = "evenodd"                       # so holes are cut out, not filled
+        else:
+            self._trace(pts)
+            fill_rule = "nonzero"
         if fill_opacity > 0:
             ctx.fillStyle = _rgba(fill_color, fill_opacity)
-            ctx.fill()
-        ctx.strokeStyle = _rgba(stroke_color, stroke_opacity)
-        ctx.lineWidth = stroke_width
-        ctx.stroke()
+            ctx.fill(fill_rule)
+        if stroke_width > 0:
+            ctx.strokeStyle = _rgba(stroke_color, stroke_opacity)
+            ctx.lineWidth = stroke_width
+            ctx.stroke()
 
     def draw_text(self, text, px, py, font_size, color, opacity):
         ctx = self.ctx

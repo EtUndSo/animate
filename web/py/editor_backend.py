@@ -7,14 +7,15 @@ from canvas_painter import CanvasPainter
 painter = CanvasPainter(js_ctx, js_w, js_h)
 _last_scene = None
 _last_bg = [1.0, 1.0, 1.0]
-_play = None                                     # {"scene":..., "bg":...} while playing
+_last_axtop = True                               # axes drawn on top of objects (vs realistic occlusion)
+_play = None                                     # {"scene":..., "bg":..., "axtop":...} while playing
 
 
 def render_model(json_str):
     """Build the scene described by the editor's model (JSON) and paint it to the canvas.
     If the model is (temporarily) invalid — e.g. a half-typed function like 'exp(x' — we keep
     the last good frame and report the error, instead of crashing. Objects only for now."""
-    global _last_scene, _last_bg
+    global _last_scene, _last_bg, _last_axtop
     try:
         model = json.loads(json_str)
         scene = ModelScene(model)
@@ -22,9 +23,11 @@ def render_model(json_str):
     except Exception as e:
         return "error: " + str(e)               # invalid -> leave the previous frame untouched
     bg = model.get("background", [1.0, 1.0, 1.0])       # None -> transparent
-    paint_scene(painter, scene.objectList, scene.camera, background=bg)
+    axtop = bool(model.get("axes_on_top", True))
+    paint_scene(painter, scene.objectList, scene.camera, background=bg, axes_on_top=axtop)
     _last_scene = scene
     _last_bg = bg
+    _last_axtop = axtop
     return "ok"
 
 
@@ -33,7 +36,7 @@ def orbit(theta, phi):
     if _last_scene is None or getattr(_last_scene.camera, "mode", "2d") != "3d":
         return
     _last_scene.camera.orient(theta, phi)
-    paint_scene(painter, _last_scene.objectList, _last_scene.camera, background=_last_bg)
+    paint_scene(painter, _last_scene.objectList, _last_scene.camera, background=_last_bg, axes_on_top=_last_axtop)
 
 
 def zoom_to(z):
@@ -41,7 +44,7 @@ def zoom_to(z):
     if _last_scene is None:
         return
     _last_scene.camera.zoom = float(z) or 1.0
-    paint_scene(painter, _last_scene.objectList, _last_scene.camera, background=_last_bg)
+    paint_scene(painter, _last_scene.objectList, _last_scene.camera, background=_last_bg, axes_on_top=_last_axtop)
 
 
 def pick(px, py):
@@ -70,7 +73,8 @@ def prepare_play(json_str):
     except Exception:
         _play = None
         return 0.0
-    _play = {"scene": scene, "bg": model.get("background", [1.0, 1.0, 1.0])}
+    _play = {"scene": scene, "bg": model.get("background", [1.0, 1.0, 1.0]),
+             "axtop": bool(model.get("axes_on_top", True))}
     return float(scene.duration)
 
 
@@ -80,4 +84,4 @@ def play_frame(t):
         return
     sc = _play["scene"]
     sc.seek(t)
-    paint_scene(painter, sc.objectList, sc.camera, background=_play["bg"])
+    paint_scene(painter, sc.objectList, sc.camera, background=_play["bg"], axes_on_top=_play["axtop"])

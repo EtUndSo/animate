@@ -60,7 +60,7 @@ const CATALOG = {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
     Axes:          { x_range:[-6,6], y_range:[-3,3], z_range:[-3,3], x_length:12, y_length:6, z_length:6 },
-    FunctionGraph: { func:"sin(x)", x_range:[-4,4], resolution:50, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5 },
+    FunctionGraph: { func:"sin(x)", x_range:[-4,4], adaptive:true, res_max:64, res_min:12, color:"#59a0eb", stroke_width:4, stroke_opacity:0.5, grid_color:"#2f6fb0", grid_width:0.5 },
   },
   "Signals (ET3)": {   // presets: same FunctionGraph type, different standard signal (t = variable)
     "ε(t) step":      { _type:"FunctionGraph", func:"epsilon(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
@@ -71,7 +71,7 @@ const CATALOG = {
     "ramp(t)":        { _type:"FunctionGraph", func:"ramp(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
   },
   "3D (set view to 3D)": {   // Surface uses the axes; solids live in world coordinates
-    Surface:    { func:"sin(x)*cos(y)", resolution:18, color:"#59a0eb", fill_opacity:1.0 },
+    Surface:    { func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#2f6fb0", grid_width:0.5 },
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
@@ -127,7 +127,7 @@ const TEMPLATES = {
     camera: { mode:"3d", theta:0.6, phi:1.0 },
     objects: [
       { type:"Axes", props:{ x_range:[-3,3], y_range:[-3,3], z_range:[-1.5,1.5], x_length:8, y_length:8, z_length:5 } },
-      { type:"Surface", props:{ func:"sin(x)*cos(y)", resolution:22, color:"#59a0eb", fill_opacity:1.0 } },
+      { type:"Surface", props:{ func:"sin(x)*cos(y)", adaptive:true, res_max:64, res_min:12, color:"#59a0eb", fill_opacity:1.0, grid_color:"#2f6fb0", grid_width:0.5 } },
     ],
   },
   "3D solids": {
@@ -182,7 +182,8 @@ const COMPUTATIONS = {
   },
   "Series — sums (Σ)": {   // Σ over an index i, from i=start to i=end (a number, or symbolic 'n')
     "Summation  (Σ)": { type:"Summation", kind:"summation",
-      props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, run_time:5, color:"#e03a2f" } },
+      props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,2.4,0],
+              color:"#111111", var_color:"#1f77b4", value_color:"#2ca02c", end_color:"#9467bd" } },
   },
 };
 const COMP_DEFS = {};
@@ -195,7 +196,7 @@ const setStatus = (m) => { $("status").textContent = m; };
 let renderModel = null, pickFn = null, preparePlay = null, playFrame = null;
 let playing = false, playStart = 0, playDuration = 0, rafId = null;
 const ANIM_TYPES = ["Create", "FadeIn", "GrowFromCenter", "Shift"];
-const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 } };
+const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:true }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 } };
 let nextId = 1, nextAnimId = 1, nextCompId = 1;
 let clipboard = null;                 // last copied object spec {type, props}, for paste/duplicate
 let orbitFn = null;                   // fast 3D re-aim (set after Pyodide boot)
@@ -247,6 +248,7 @@ function toPythonModel(){
   });
   injectTexGlyphs(objects);                   // MathTex: resolve `tex` -> glyph data (async, cached)
   return { objects, animations, computations, background: bg, shadows: !!model.background.shadows,
+           axes_on_top: model.background.axes_on_top !== false,
            angle_unit: model.angleUnit, domain: model.domain, camera: model.camera };
 }
 
@@ -255,12 +257,12 @@ function toPythonModel(){
 // per-quad Canvas draw calls make an orbit drag stutter. So, like GeoGebra/CAD tools, we render at
 // REDUCED detail WHILE rotating and snap back to full detail on release. Only surfaces/solids with a
 // resolution above the cap are heavy enough to bother.
-const ORBIT_DETAIL_CAP = 40;
+const ORBIT_DETAIL_CAP = 28;
 function _hasY(f){ return /(^|[^A-Za-z0-9_])y([^A-Za-z0-9_]|$)/.test(String(f||"")); }
 function needsLOD(){
   let hit=false;
   const scan=(o)=>{
-    const r=o&&o.props&&o.props.resolution;
+    const r=o&&o.props&&(o.props.res_max||o.props.resolution);
     if(typeof r==="number" && r>ORBIT_DETAIL_CAP &&
        (o.type==="Surface" || o.type==="Sphere" || (o.type==="FunctionGraph" && _hasY(o.props.func)))) hit=true;
     if(o&&o.children) o.children.forEach(scan);
@@ -272,12 +274,26 @@ function _capResolution(x){                         // cap every resolution fiel
   if(Array.isArray(x)){ x.forEach(_capResolution); }
   else if(x && typeof x==="object"){
     for(const k in x){
-      if(k==="resolution" && typeof x[k]==="number" && x[k]>ORBIT_DETAIL_CAP) x[k]=ORBIT_DETAIL_CAP;
+      if((k==="res_max"||k==="resolution"||k==="res_min") && typeof x[k]==="number" && x[k]>ORBIT_DETAIL_CAP) x[k]=ORBIT_DETAIL_CAP;
       else _capResolution(x[k]);
     }
   }
 }
 function lowDetailModelJson(){ const m=toPythonModel(); _capResolution(m); return JSON.stringify(m); }
+// Level-of-detail for ANY camera action (orbit drag, zoom, ViewCube snap): once a camera move starts,
+// rebuild the scene ONCE at reduced resolution so re-aiming/zooming stays smooth; snap back to full
+// detail when the move ends.
+let _lowDetail=false;
+function enterLowDetail(){
+  if(_lowDetail || playing) return;
+  _lowDetail=true;
+  if(renderModel && needsLOD()){ try{ renderModel(lowDetailModelJson()); }catch(_){} }
+}
+function exitLowDetail(){
+  if(!_lowDetail) return;
+  _lowDetail=false;
+  renderPreview();                                  // full-detail rebuild
+}
 
 // ---------- ViewCube (CAD-style navigation gizmo, top-right) ----------
 // Mirrors the camera orientation and rotates with it. Each face is a distinctly coloured side of the
@@ -356,13 +372,14 @@ function _tweenCamera(tTheta, tPhi){
   const t0=model.camera.theta, p0=model.camera.phi;
   let dT=((tTheta-t0+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI;  // shortest angular path
   const dP=tPhi-p0, T=320, start=performance.now();
+  enterLowDetail();                                                 // reduce detail while the camera flies
   (function step(now){
     let a=(now-start)/T; if(a>1) a=1;
     const e=a<.5 ? 2*a*a : 1-Math.pow(-2*a+2,2)/2;                   // easeInOutQuad
     model.camera.theta=t0+dT*e; model.camera.phi=p0+dP*e;
     if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);
     drawViewCube();
-    if(a<1) requestAnimationFrame(step); else renderPreview();      // final full-detail frame
+    if(a<1) requestAnimationFrame(step); else exitLowDetail();      // snap back to full detail at the end
   })(performance.now());
 }
 function initViewCube(){
@@ -697,7 +714,7 @@ function eyeIcon(visible){
 function renderSceneObjs(){
   const el=$("scene-objs"); el.innerHTML="";
   const bgRow=document.createElement("div"); bgRow.className="obj-row"+(model.selectedId===BG_ID?" sel":"");
-  bgRow.textContent="Background"; bgRow.onclick=()=>selectObject(BG_ID);              // whole row
+  bgRow.textContent="Settings"; bgRow.onclick=()=>selectObject(BG_ID);              // whole row
   el.appendChild(bgRow);
   if(model.objects.length===0){ const h=document.createElement("div"); h.className="hint"; h.textContent="No objects yet."; el.appendChild(h); }
   const renderNode=(o, depth)=>{
@@ -754,7 +771,7 @@ function renderObjectProps(){
   const el=$("props"); el.innerHTML="";
   if(model.selectedComp){ el.innerHTML='<span class="hint">An operation is selected.</span>'; return; }
   if(model.selectedId===BG_ID){
-    const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent="Background"; el.appendChild(h);
+    const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent="Settings"; el.appendChild(h);
     const ti=document.createElement("input"); ti.type="checkbox"; ti.checked=model.background.transparent;
     ti.onchange=()=>{ model.background.transparent=ti.checked; renderPreview(); };
     const ci=document.createElement("input"); ci.type="color"; ci.value=model.background.color;
@@ -762,15 +779,34 @@ function renderObjectProps(){
     ci.oninput=()=>{ model.background.color=ci.value; if(model.background.transparent){ model.background.transparent=false; ti.checked=false; } renderPreview(); };
     const si=document.createElement("input"); si.type="checkbox"; si.checked=!!model.background.shadows;
     si.onchange=()=>{ model.background.shadows=si.checked; renderPreview(); };
+    const ax=document.createElement("input"); ax.type="checkbox"; ax.checked=model.background.axes_on_top!==false;
+    ax.onchange=()=>{ model.background.axes_on_top=ax.checked; renderPreview(); };
     el.appendChild(propRow("color", ci));
     el.appendChild(propRow("transparent", ti));
     el.appendChild(propRow("shadows (3D surface shading)", si));
+    el.appendChild(propRow("axes on top (off = realistic depth)", ax));
     return;
   }
   const o=selected();
   if(!o){ el.innerHTML='<span class="hint">No object selected.</span>'; return; }
   const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent=o.type; el.appendChild(h);
-  for(const [k,v] of Object.entries(o.props)) el.appendChild(propInput(o,k,v));   // visibility: eye icon in the list
+  // Surface-like objects: a MESH mode toggle. Adaptive -> two fields (min + max); static -> one value.
+  const skip=new Set();
+  if((o.type==="FunctionGraph"||o.type==="Surface") && ("adaptive" in o.props)){
+    skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");
+    const sel=document.createElement("select");
+    for(const [val,txt] of [["adaptive","Adaptive (curvature)"],["static","Static (uniform)"]]){ const op=document.createElement("option"); op.value=val; op.textContent=txt; sel.appendChild(op); }
+    sel.value = o.props.adaptive===false ? "static" : "adaptive";
+    sel.onchange=()=>{ o.props.adaptive = (sel.value==="adaptive"); renderProps(); renderPreview(); };
+    el.appendChild(propRow("resolution mode", sel));
+    if(o.props.adaptive!==false){            // adaptive -> min + max
+      el.appendChild(propInput(o,"res_min", o.props.res_min));
+      el.appendChild(propInput(o,"res_max", o.props.res_max));
+    } else {                                 // static -> single uniform value
+      el.appendChild(propInput(o,"res_max", o.props.res_max));
+    }
+  }
+  for(const [k,v] of Object.entries(o.props)){ if(skip.has(k)) continue; el.appendChild(propInput(o,k,v)); }
   renderResults(el, o);
   renderAnimations(el, o);
 }
@@ -874,25 +910,24 @@ function evalExprJS(src){                   // our syntax -> f(i) numeric (for t
 }
 function _fmtNum(v){ if(!isFinite(v)) return "?"; return String(+v.toPrecision(5)); }
 
-function sumStages(c){                       // ordered LaTeX strings revealed one by one
+function sumStages(c){
   const p=c.props||{}, a=parseInt(p.from)||0, endRaw=String(p.to==null?"n":p.to).trim();
   const endNum=/^-?\d+$/.test(endRaw)?parseInt(endRaw):null, symbolic=endNum===null;
   const B=symbolic?(endRaw||"n"):String(endNum), k=Math.max(1,parseInt(p.show_terms)||3), term=p.term||"";
-  const head="\\sum_{i="+a+"}^{"+B+"} "+exprToLatex(term);
+  const head="\\sum_{i="+a+"}^{"+B+"} "+exprToLatex(term);     // no \color (MathJax-reliable); colours come later via per-piece stages
   let entries=[];
   if(symbolic){ for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"sym",lab:B+"-1"}); entries.push({t:"sym",lab:B}); }
   else { const b=endNum; if(b-a+1<=k+2){ for(let i=a;i<=b;i++) entries.push({t:"num",i}); }
     else { for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"num",i:b-1}); entries.push({t:"num",i:b}); } }
-  const ev=evalExprJS(term), stages=[head], resolved=[];   // leading terms are numeric even when the limit is 'n'
-  for(const e of entries){
-    if(e.t==="ell"){ resolved.push("\\cdots"); stages.push(head+" = "+resolved.join(" + ")); continue; }
-    if(e.t==="sym"){ const sub=exprToLatex(_substI(term,"("+e.lab+")")); stages.push(head+" = "+resolved.concat([sub]).join(" + ")); resolved.push(sub); continue; }
-    const sub=exprToLatex(_substI(term,String(e.i)));
-    stages.push(head+" = "+resolved.concat([sub]).join(" + "));
-    const v=_fmtNum(ev(e.i)); stages.push(head+" = "+resolved.concat([v]).join(" + ")); resolved.push(v);
+  const ev=evalExprJS(term), resolved=[];
+  for(const e of entries){                                    // SUBSTITUTED expressions, not raw numbers
+    if(e.t==="ell"){ resolved.push("\\cdots"); continue; }
+    if(e.t==="sym"){ resolved.push(exprToLatex(_substI(term,"("+e.lab+")"))); continue; }
+    resolved.push(exprToLatex(_substI(term,String(e.i))));
   }
-  if(!symbolic){ let tot=0; for(let i=a;i<=endNum;i++){ const vv=ev(i); if(isFinite(vv)) tot+=vv; } stages.push(head+" = "+resolved.join(" + ")+" = "+_fmtNum(tot)); }
-  return { stages, head, color:p.color||"#e03a2f", mode:p.sum_mode||"number" };
+  let ground=head + (resolved.length ? " = "+resolved.join(" + ") : "");
+  if(!symbolic){ let tot=0; for(let i=a;i<=endNum;i++){ const vv=ev(i); if(isFinite(vv)) tot+=vv; } ground += " = "+_fmtNum(tot); }
+  return { stages:[head, ground], head, ground, color:p.color||"#111111", mode:p.sum_mode||"number" };
 }
 function activeSum(){ return (model.computations||[]).find(c=>c.type==="Summation" && c.visible!==false) || null; }
 function _cssColor(x){ return Array.isArray(x) ? "rgb("+x.map(v=>Math.round(v*255)).join(",")+")" : x; }
@@ -909,8 +944,9 @@ function updateSumOverlay(frac){
   const st=sumStages(c);
   const isFn=(st.mode==="function");
   const latex=isFn ? st.head : _groundLatex(st);
-  // number mode: once the vector glyphs are ready, the engine draws it -> hide the fallback overlay
-  if(!isFn && (latex in _texCache)){ el.style.display="none"; el.innerHTML=""; el.dataset.key=""; return; }
+  // number mode: hide the fallback ONLY once the vector actually has glyphs (non-empty) -> the engine
+  // draws/animates it. If MathJax produced nothing, keep showing the KaTeX formula (never vanish).
+  if(!isFn){ const g=_texCache[latex]; if(g && g.length){ el.style.display="none"; el.innerHTML=""; el.dataset.key=""; return; } }
   const key=(isFn?"fn":"load")+"|"+latex;
   el.style.display="block"; el.style.color=_cssColor(st.color);
   if(el.dataset.key===key) return;
@@ -922,26 +958,41 @@ function updateSumOverlay(frac){
 // ---------- LaTeX -> vector glyphs (MathJax SVG). Each glyph becomes {d, m:[a,b,c,d,e,f], c:char}
 // which the Python MathTex turns into Bézier VMobjects living in the scene graph (so they paint,
 // Transform, zoom, orbit like any object). This is Manim's Tex->SVG->VMobject, browser edition. ----------
-async function texToGlyphs(latex){
-  if(!window.MathJax || !MathJax.tex2svg) return [];
-  try { await MathJax.startup.promise; } catch(e){}
-  const node = MathJax.tex2svg(String(latex||""), {display:true});
-  const svg = node.querySelector("svg");
-  if(!svg) return [];
+function _tex2glyphs(latex){            // one MathJax render -> glyph list (sync; must run in the DOM)
+  const glyphs = [];
+  let node;
+  try { node = MathJax.tex2svg(String(latex || ""), {display:true}); } catch(e){ return glyphs; }
+  const svg = node && node.querySelector("svg");
+  if(!svg) return glyphs;
   const holder = document.createElement("div");
   holder.style.cssText = "position:absolute;left:-99999px;top:0;visibility:hidden";
   holder.appendChild(svg); document.body.appendChild(holder);   // must be in the DOM for getCTM()
-  const glyphs = [];
   const mat = (el)=>{ const m=el.getCTM(); return m ? [m.a,m.b,m.c,m.d,m.e,m.f] : [1,0,0,1,0,0]; };
+  const col = (el)=>{ let f=""; try{ f=getComputedStyle(el).fill || el.getAttribute("fill") || ""; }catch(e){}
+    const m=/rgba?\(([^)]+)\)/.exec(f); if(m){ const p=m[1].split(",").map(parseFloat); return [p[0]/255,p[1]/255,p[2]/255]; } return null; };
   try {
-    svg.querySelectorAll("path").forEach(p=>{ const d=p.getAttribute("d"); if(d) glyphs.push({d, m:mat(p), c:p.getAttribute("data-c")||""}); });
-    svg.querySelectorAll("rect").forEach(r=>{  // fraction bars / sqrt lines -> a rectangle path
-      const x=+r.getAttribute("x")||0, y=+r.getAttribute("y")||0, w=+r.getAttribute("width")||0, h=+r.getAttribute("height")||0;
-      if(w>0 && h>0) glyphs.push({d:`M${x} ${y} h${w} v${h} h${-w} Z`, m:mat(r), c:""});
+    // ONE walk in DOCUMENT order so fraction bars / sqrt lines (<rect>) keep their place in the
+    // reveal order (previously all <rect> came after all <path>, so bars were drawn last).
+    svg.querySelectorAll("path, rect").forEach(el=>{
+      if(el.tagName.toLowerCase()==="rect"){
+        const x=+el.getAttribute("x")||0, y=+el.getAttribute("y")||0, w=+el.getAttribute("width")||0, h=+el.getAttribute("height")||0;
+        if(w>0 && h>0) glyphs.push({d:`M${x} ${y} h${w} v${h} h${-w} Z`, m:mat(el), c:"", col:col(el)});
+      } else {
+        const d=el.getAttribute("d"); if(d) glyphs.push({d, m:mat(el), c:el.getAttribute("data-c")||"", col:col(el)});
+      }
     });
   } catch(e){}
   document.body.removeChild(holder);
   return glyphs;
+}
+async function texToGlyphs(latex){
+  if(!window.MathJax || !MathJax.tex2svg) return [];
+  try { await MathJax.startup.promise; } catch(e){}
+  let g = _tex2glyphs(latex);
+  if(g.length === 0){                  // MathJax choked (e.g. on \color) -> retry WITHOUT colour so it still renders
+    g = _tex2glyphs(String(latex || "").replace(/\\color\{[^}]*\}/g, ""));
+  }
+  return g;
 }
 const _texCache={}, _texPending={};
 function ensureGlyphs(latex){                 // cached glyphs, or null while MathJax resolves (then re-render)
@@ -986,20 +1037,23 @@ async function boot(){
   // Canvas interaction: in 3D, drag = orbit the camera (fast repaint); a click without dragging
   // selects (pick). In 2D, a click selects. The mouse wheel zooms in/out in both modes.
   const VC_LIMIT = Math.PI/2 - 0.03;        // vertical orbit limit (both above and below the plane)
-  let dragging=false, moved=false, sx=0, sy=0, th0=0, ph0=0, lodOn=false;
+  let dragging=false, moved=false, sx=0, sy=0, th0=0, ph0=0;
   const pxy=(e)=>{ const r=canvas.getBoundingClientRect(); return [(e.clientX-r.left)/r.width*canvas.width, (e.clientY-r.top)/r.height*canvas.height]; };
+  let _holdTimer=null;
+  const HOLD_MS=90;                           // held longer than this (no release) => the user is about to orbit
   canvas.onpointerdown = (e)=>{
-    sx=e.clientX; sy=e.clientY; moved=false; lodOn=false;
-    if(model.camera.mode==="3d"){ dragging=true; th0=model.camera.theta; ph0=model.camera.phi; canvas.setPointerCapture(e.pointerId); }
+    sx=e.clientX; sy=e.clientY; moved=false;
+    if(model.camera.mode==="3d"){
+      dragging=true; th0=model.camera.theta; ph0=model.camera.phi; canvas.setPointerCapture(e.pointerId);
+      clearTimeout(_holdTimer);               // predictive LOD: a held press (even before moving) = orbit intent
+      _holdTimer=setTimeout(()=>{ if(dragging) enterLowDetail(); }, HOLD_MS);
+    }
   };
   canvas.onpointermove = (e)=>{
     if(!dragging) return;
     const dx=e.clientX-sx, dy=e.clientY-sy;
     if(Math.abs(dx)+Math.abs(dy)>3) moved=true;
-    if(moved && !lodOn){                       // first real movement: drop to low detail ONCE (smooth orbit)
-      lodOn=true;
-      if(renderModel && needsLOD()){ try{ renderModel(lowDetailModelJson()); }catch(_){} }
-    }
+    if(moved){ clearTimeout(_holdTimer); enterLowDetail(); }   // moving -> low detail now (idempotent)
     model.camera.theta = th0 - dx*0.01;
     // phi = elevation above the ground plane: 0 = horizon (side view), +/-pi/2 = straight down/up.
     // Direct-manipulation feel: dragging UP tilts the camera DOWN (grab-and-pull), hence + dy.
@@ -1008,19 +1062,26 @@ async function boot(){
     drawViewCube();
   };
   canvas.onpointerup = (e)=>{
-    if(dragging){ dragging=false; if(moved){ renderPreview(); return; } }   // sync full render after orbit
+    clearTimeout(_holdTimer);
+    if(dragging){
+      dragging=false;
+      if(moved){ exitLowDetail(); return; }       // orbited -> back to full detail
+      if(_lowDetail) exitLowDetail();             // long hold without moving -> restore, then treat as click
+    }
     if(!pickFn) return;                                                      // otherwise it was a click -> pick
     const [px,py]=pxy(e); const id=String(pickFn(px,py)); if(id) selectObject(id);
   };
-  // Mouse-wheel zoom: scale camera.zoom about 1.0, fast-repaint while scrolling, full render on settle.
+  canvas.onpointercancel = ()=>{ clearTimeout(_holdTimer); dragging=false; if(_lowDetail) exitLowDetail(); };
+  // Mouse-wheel zoom: scale camera.zoom about 1.0, low-detail + fast-repaint while scrolling, full on settle.
   let _zoomTimer=null;
   canvas.onwheel = (e)=>{
     if(playing) return;
     e.preventDefault();
+    enterLowDetail();                                       // reduce detail while zooming
     const f = Math.exp(-e.deltaY * 0.0015);                 // smooth multiplicative zoom
     model.camera.zoom = Math.max(0.2, Math.min(8, (model.camera.zoom||1) * f));
     if(zoomFn) zoomFn(model.camera.zoom);                   // fast repaint (no rebuild)
-    clearTimeout(_zoomTimer); _zoomTimer=setTimeout(()=>{ renderPreview(); saveLocal(); }, 180);
+    clearTimeout(_zoomTimer); _zoomTimer=setTimeout(()=>{ exitLowDetail(); saveLocal(); }, 180);
   };
   initViewCube();
   setStatus("Ready ✓ — add an element on the left, or click in the view.");

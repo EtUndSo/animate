@@ -170,50 +170,110 @@ class Axes(AnimObject):
         segments = plot_graph(func, self.x_min, self.x_max, self.coords_to_point, self.x_length)
         return build_graph(segments, color)
 
-    def plot_surface(self, func, resolution=18, color=(0.35, 0.60, 0.92), fill_opacity=1.0, shade=True):
-        """Surface z = func(x, y) over the axes' x/y ranges, mapped through coords_to_point so it sits
-        in (and scales with) this coordinate system. With shade=True each quad face is LAMBERT-SHADED
-        by its normal vs a fixed light (matplotlib/GeoGebra style) so the 3D form reads; with shade=False
-        the surface is drawn FLAT (one colour, no 'shadows'). Faces are depth-sorted by the renderer."""
-        n = int(resolution)
-        xs = np.linspace(self.x_min, self.x_max, n + 1)
-        ys = np.linspace(self.y_min, self.y_max, n + 1)
+    def plot_surface(self, func, resolution=18, color=(0.35, 0.60, 0.92), fill_opacity=1.0, shade=True,
+                     grid_color=None, grid_width=0.5, res_min=8, adaptive=True):
+        """Surface z = func(x, y) as a CURVATURE-ADAPTIVE quad mesh (GeoGebra-style): start from a coarse
+        grid and recursively subdivide a cell where the surface BENDS. Flat regions stay coarse, curved
+        regions get fine - fewer faces for the same look than a uniform grid. `res_min` = the MINIMUM
+        cells per axis forced everywhere (a floor against faceting even on flat parts); `resolution` =
+        the MAXIMUM cells per axis (the finest adaptive level). With shade=True each face is
+        Lambert-shaded; faces whose z leaves the box are dropped (no plateau)."""
+        x0a, x1a, y0a, y1a = self.x_min, self.x_max, self.y_min, self.y_max
         zlo, zhi = self.z_min, self.z_max
+        maxn = max(2, int(resolution))
+        minn = min(maxn, max(1, int(res_min)))
+        base = 2                                                # coarse starting grid (per axis)
+        min_depth = max(0, int(np.ceil(np.log2(max(1.0, minn / base)))))   # forced everywhere
+        max_depth = min(8, max(min_depth, int(np.floor(np.log2(max(1.0, maxn / base))))))
+        tol = 0.02 * (zhi - zlo if zhi > zlo else 1.0)          # flatness tolerance in z units (smaller = finer)
 
-        Z = [[float(func(xs[i], ys[j])) for j in range(n + 1)] for i in range(n + 1)]
+        def _z(x, y):
+            try:
+                return float(func(x, y))
+            except Exception:
+                return float("nan")
 
-        def _ok(z):
-            """True if z is finite AND within the z-range. A face touching an out-of-range (or NaN)
-            value is simply NOT DRAWN - no fake constant plateau at the boundary, the surface just ends."""
-            return (z == z) and (zlo <= z <= zhi)
+        def _flat(ax, ay, bx, by):
+            z = [_z(ax, ay), _z(bx, ay), _z(bx, by), _z(ax, by)]   # corners
+            if not all(np.isfinite(z)):
+                return False
+            cx, cy = (ax + bx) / 2, (ay + by) / 2
+            checks = [(_z(cx, cy), sum(z) / 4),                     # centre vs corner average
+                      (_z(cx, ay), (z[0] + z[1]) / 2), (_z(cx, by), (z[3] + z[2]) / 2),
+                      (_z(ax, cy), (z[0] + z[3]) / 2), (_z(bx, cy), (z[1] + z[2]) / 2)]   # edge mids
+            return all(np.isfinite(s) and abs(s - est) <= tol for s, est in checks)
+
+        leaves = []
+        if not adaptive:                                        # STATIC: a plain uniform resolution×resolution grid
+            xs = np.linspace(x0a, x1a, maxn + 1)
+            ys = np.linspace(y0a, y1a, maxn + 1)
+            leaves = [(xs[i], ys[j], xs[i + 1], ys[j + 1]) for i in range(maxn) for j in range(maxn)]
+        else:                                                   # ADAPTIVE: curvature quadtree (res_min floor, res_max cap)
+            def recurse(ax, ay, bx, by, depth):
+                force = depth < min_depth                       # below res_min: always subdivide (floor)
+                if force or (depth < max_depth and not _flat(ax, ay, bx, by)):
+                    mx, my = (ax + bx) / 2, (ay + by) / 2
+                    recurse(ax, ay, mx, my, depth + 1); recurse(mx, ay, bx, my, depth + 1)
+                    recurse(ax, my, mx, by, depth + 1); recurse(mx, my, bx, by, depth + 1)
+                else:
+                    leaves.append((ax, ay, bx, by))
+            xs = np.linspace(x0a, x1a, base + 1)
+            ys = np.linspace(y0a, y1a, base + 1)
+            for i in range(base):
+                for j in range(base):
+                    recurse(xs[i], ys[j], xs[i + 1], ys[j + 1], 0)
 
         light = np.array([0.4, 0.6, 0.75]); light = light / np.linalg.norm(light)
-        base = np.asarray(color, dtype=float)
+        basecol = np.asarray(color, dtype=float)
+        span = (x1a - x0a) + (y1a - y0a)
         group = AnimObject()
-        for i in range(n):
-            for j in range(n):
-                z00, z10, z11, z01 = Z[i][j], Z[i + 1][j], Z[i + 1][j + 1], Z[i][j + 1]
-                if not (_ok(z00) and _ok(z10) and _ok(z11) and _ok(z01)):
-                    continue                                # any corner out of the box -> drop the face
-                P = [self.coords_to_point(xs[i], ys[j], z00),
-                     self.coords_to_point(xs[i + 1], ys[j], z10),
-                     self.coords_to_point(xs[i + 1], ys[j + 1], z11),
-                     self.coords_to_point(xs[i], ys[j + 1], z01)]
-                nrm = np.cross(P[1] - P[0], P[2] - P[0])
-                nn = np.linalg.norm(nrm)
-                nrm = nrm / nn if nn > 1e-12 else np.array([0.0, 0.0, 1.0])
-                if nrm[2] < 0:
-                    nrm = -nrm                                  # orient normals upward (consistent shading)
-                bright = (0.4 + 0.6 * max(0.0, float(np.dot(nrm, light)))) if shade else 1.0
-                fc = tuple(float(min(1.0, c * bright)) for c in base)
-                quad = Polygon(P)
-                quad.color = fc
-                quad.fill_color = fc
-                quad.fill_opacity = fill_opacity
-                quad.stroke_width = 0.5
-                quad._diag = i + j                          # anti-diagonal rank -> Create reveals the
-                group.add(quad)                             # surface as a growing triangular wavefront
-        group._surface_max_diag = 2 * (n - 1)
+
+        def _ok(z):
+            return (z == z) and (zlo <= z <= zhi)
+
+        # STITCH T-junctions: index every leaf corner so a coarse cell can insert the "hanging" vertices
+        # a finer neighbour put on its shared edge -> adjacent cells use identical edge vertices (no cracks).
+        R = lambda v: round(float(v), 7)
+        xs_at_y, ys_at_x = {}, {}
+        for (ax, ay, bx, by) in leaves:
+            for px, py in ((ax, ay), (bx, ay), (bx, by), (ax, by)):
+                xs_at_y.setdefault(R(py), set()).add(px)
+                ys_at_x.setdefault(R(px), set()).add(py)
+        eps = 1e-9
+        def _h(y, lo, hi):
+            return sorted(x for x in xs_at_y.get(R(y), ()) if lo + eps < x < hi - eps)
+        def _v(x, lo, hi):
+            return sorted(y for y in ys_at_x.get(R(x), ()) if lo + eps < y < hi - eps)
+
+        for (ax, ay, bx, by) in leaves:
+            verts2d = [(ax, ay)]                                 # CCW perimeter with hanging nodes inserted
+            verts2d += [(x, ay) for x in _h(ay, ax, bx)]
+            verts2d.append((bx, ay))
+            verts2d += [(bx, y) for y in _v(bx, ay, by)]
+            verts2d.append((bx, by))
+            verts2d += [(x, by) for x in reversed(_h(by, ax, bx))]
+            verts2d.append((ax, by))
+            verts2d += [(ax, y) for y in reversed(_v(ax, ay, by))]
+            zs = [_z(x, y) for (x, y) in verts2d]
+            if not all(_ok(z) for z in zs):                      # any vertex out of the box -> drop the face
+                continue
+            P = [self.coords_to_point(x, y, z) for (x, y), z in zip(verts2d, zs)]
+            nrm = np.cross(P[1] - P[0], P[2] - P[0])             # normal from the first corner triangle
+            nn = np.linalg.norm(nrm)
+            nrm = nrm / nn if nn > 1e-12 else np.array([0.0, 0.0, 1.0])
+            if nrm[2] < 0:
+                nrm = -nrm
+            bright = (0.4 + 0.6 * max(0.0, float(np.dot(nrm, light)))) if shade else 1.0
+            fc = tuple(float(min(1.0, c * bright)) for c in basecol)
+            quad = Polygon(P)
+            quad.fill_color = fc
+            # mesh (raster) lines = the quad edges: own colour+width if given, else the fill colour
+            # (invisible, just covers seams). grid_color lets the mesh show; grid_width sets thickness.
+            quad.color = tuple(grid_color) if grid_color is not None else fc
+            quad.fill_opacity = fill_opacity; quad.stroke_width = float(grid_width)
+            quad._diag = (ax + bx) / 2 - x0a + (ay + by) / 2 - y0a   # centroid diagonal -> Create wavefront
+            group.add(quad)
+        group._surface_max_diag = span
         return group
 
     def riemann_rectangles(self, func, count, color=(0.35, 0.60, 0.92), fill_opacity=0.5):

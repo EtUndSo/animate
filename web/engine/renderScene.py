@@ -14,17 +14,31 @@ class CairoPainter:
         self.ctx.set_source_rgb(*color)
         self.ctx.paint()
 
-    def draw_path(self, pixel_points, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity):
+    def _trace(self, pts):
         ctx = self.ctx
-        ctx.move_to(*pixel_points[0])                      # first anchor
-        for i in range(1, len(pixel_points), 3):           # one cubic segment at a time
-            ctx.curve_to(*pixel_points[i], *pixel_points[i + 1], *pixel_points[i + 2])
+        ctx.move_to(*pts[0])                               # starts a new sub-path
+        for i in range(1, len(pts) - 2, 3):                # one cubic segment at a time
+            ctx.curve_to(*pts[i], *pts[i + 1], *pts[i + 2])
+
+    def draw_path(self, pixel_points, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity, contours=None):
+        ctx = self.ctx
+        if contours:                                       # several contours (glyph with a hole) -> even-odd
+            off = 0
+            for n in contours:
+                self._trace(pixel_points[off:off + n]); off += n
+            ctx.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
+        else:
+            self._trace(pixel_points)
+            ctx.set_fill_rule(cairo.FILL_RULE_WINDING)
         if fill_opacity > 0:
             ctx.set_source_rgba(*fill_color, fill_opacity)
             ctx.fill_preserve()                            # fill, keep path for the stroke
-        ctx.set_source_rgba(*stroke_color, stroke_opacity)
-        ctx.set_line_width(stroke_width)
-        ctx.stroke()
+        if stroke_width > 0:
+            ctx.set_source_rgba(*stroke_color, stroke_opacity)
+            ctx.set_line_width(stroke_width)
+            ctx.stroke()
+        else:
+            ctx.new_path()                                 # clear the kept path
 
     def draw_text(self, text, px, py, font_size, color, opacity):
         ctx = self.ctx

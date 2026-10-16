@@ -29,9 +29,31 @@ from . import constants as _const
 _ARITH = {"Addition", "Subtraction", "Multiplication", "Division"}
 
 
-def _has_y(expr):
-    """True if the (1-var) expression actually uses a second variable y -> it is a surface."""
-    return re.search(r"(?<![A-Za-z_0-9])y(?![A-Za-z_0-9])", normalize_expr(expr)) is not None
+def _has_var(expr, v):
+    return re.search(r"(?<![A-Za-z_0-9])" + v + r"(?![A-Za-z_0-9])", normalize_expr(expr)) is not None
+
+def _is_surface(expr):
+    """A FunctionGraph is a SURFACE only when it uses BOTH x and y (a function of two variables).
+    'cos(y)' alone is still a one-variable curve (y is just its single variable)."""
+    return _has_var(expr, "x") and _has_var(expr, "y")
+
+def _surface_kw(args, style):
+    """Collect the keyword args for axes.plot_surface: colour/opacity (from style), resolution (max
+    mesh density) and the mesh-line look (grid_color / grid_width) from args."""
+    kw = {k: style[k] for k in ("color", "fill_opacity") if k in style}
+    if "res_max" in args:                                   # editor name for the maximum (engine: resolution)
+        kw["resolution"] = int(args["res_max"])
+    elif "resolution" in args:                              # back-compat with older scenes
+        kw["resolution"] = int(args["resolution"])
+    if "res_min" in args:
+        kw["res_min"] = int(args["res_min"])
+    if "adaptive" in args:
+        kw["adaptive"] = bool(args["adaptive"])
+    if "grid_width" in args:
+        kw["grid_width"] = float(args["grid_width"])
+    if "grid_color" in args:
+        kw["grid_color"] = args["grid_color"]
+    return kw
 
 # --- registries: add a class here to expose it to the editor + code + interpreter ---
 OBJECT_TYPES = {
@@ -144,7 +166,9 @@ def func_from_expr(expr):
     normalised (GeoGebra style) first; trig respects the current angle unit (_ANGLE_UNIT)."""
     code = compile(normalize_expr(expr), "<func>", "eval")
     names = _safe_names()
-    return lambda x: eval(code, {"__builtins__": {}}, {"x": x, "t": x, **names})   # t = x (ET3 style)
+    # x, t and y all alias the single independent variable, so a 1-var curve works whichever letter it
+    # uses (sin(x), si(t), cos(y)). A SURFACE (both x and y) goes through func2_from_expr instead.
+    return lambda x: eval(code, {"__builtins__": {}}, {"x": x, "t": x, "y": x, **names})
 
 
 def func2_from_expr(expr):
@@ -202,11 +226,8 @@ def _build_object(spec, objects, axes=None):
         obj = objects[spec["on"]].plot(**args)
     elif t == "FunctionGraph" and axes is not None:         # follow the scene's axes (range + scale)
         raw = str(spec.get("args", {}).get("func", "0"))
-        if _has_y(raw):                                     # two variables -> it IS a surface
-            kw = {k: style[k] for k in ("color", "fill_opacity") if k in style}
-            if "resolution" in args:                        # mesh density cap (matplotlib rcount/ccount)
-                kw["resolution"] = int(args["resolution"])
-            obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **kw)
+        if _is_surface(raw):                                # BOTH x and y -> it IS a surface
+            obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **_surface_kw(args, style))
         else:
             f = args["func"]
             if _DOMAIN == "complex":                        # draw real AND imaginary parts
@@ -224,11 +245,11 @@ def _build_object(spec, objects, axes=None):
         obj = axes.riemann_rectangles(args["func"], int(args.get("count", 8)), **kw)
     elif t == "Surface":                                    # z = f(x, y), built on the axes (scaled + shaded)
         raw = str(spec.get("args", {}).get("func", "0"))
-        kw = {k: style[k] for k in ("color", "fill_opacity") if k in style}
-        if "resolution" in args:
-            kw["resolution"] = int(args["resolution"])
-        obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **kw) if axes is not None \
-            else Surface(func2_from_expr(raw), **kw)
+        kw = _surface_kw(args, style)
+        if axes is not None:
+            obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **kw)
+        else:                                               # standalone Surface: no grid-line options
+            obj = Surface(func2_from_expr(raw), **{k: v for k, v in kw.items() if not k.startswith("grid")})
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
@@ -328,7 +349,10 @@ def _run_computation(scene, cspec, objects, types, axes):
         else:
             glyphs = p.get("glyphs")                         # MathJax glyph data from the editor
             if glyphs:                                       # real LaTeX vector Σ in the scene graph
-                _proc.summation_tex(scene, glyphs, run_time=rt, color=color, animating=scene.animating)
+                pos = p.get("position", (0.0, 2.4, 0.0))
+                sz = float(p.get("size", 1.4))
+                _proc.summation_tex(scene, glyphs, run_time=rt, color=color, animating=scene.animating,
+                                    position=pos, height=sz)
             else:                                            # glyphs not ready -> reserve duration (KaTeX overlay shows)
                 _proc.summation_number(scene, term_from_expr_i(expr), i0, i1, symbolic=symbolic,
                                        end_label=end_label, run_time=rt, color=color, show_terms=st,

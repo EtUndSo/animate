@@ -34,7 +34,8 @@ def _paint_leaf(painter, obj, camera):
     elif len(obj.points) >= 4:                                    # a Bézier-based object
         pixel_points = [camera.project(p) for p in obj.points]
         painter.draw_path(pixel_points, _fill_of(obj), obj.fill_opacity,
-                          obj.color, obj.stroke_width, obj.stroke_opacity)
+                          obj.color, obj.stroke_width, obj.stroke_opacity,
+                          getattr(obj, "_contours", None))
     _paint_center(painter, obj, camera)
 
 
@@ -64,10 +65,10 @@ def _collect(obj, is_axis, out):
         _collect(sub, axis_here, out)
 
 
-def _paint_3d(painter, objectList, camera):
+def _paint_3d(painter, objectList, camera, axes_on_top=True):
     """3D paint: project ALL path vertices in a SINGLE batched matmul (fast in Pyodide), depth-sort,
-    draw far-to-near (painter's algorithm), then draw the axes on top so they stay visible through
-    surfaces."""
+    draw far-to-near (painter's algorithm). With axes_on_top the axes are drawn LAST (always visible
+    through surfaces); otherwise they are depth-sorted with everything else (realistic occlusion)."""
     leaves = []
     for obj in objectList:
         _collect(obj, False, leaves)
@@ -92,9 +93,11 @@ def _paint_3d(painter, objectList, camera):
     for o, a in texts:
         record.append((camera.depth(o.points[0]), a, o, None))
 
-    nonaxis = [r for r in record if not r[1]]
-    axis = [r for r in record if r[1]]
-    for group in (nonaxis, axis):                                 # axes drawn LAST -> always on top
+    if axes_on_top:
+        groups = ([r for r in record if not r[1]], [r for r in record if r[1]])   # axes last -> on top
+    else:
+        groups = (record,)                                        # one depth-sorted pass (realistic)
+    for group in groups:
         group.sort(key=lambda r: r[0])                            # far (small depth) first
         for _d, _a, o, pix in group:
             if getattr(o, "text", None) is not None:
@@ -102,22 +105,27 @@ def _paint_3d(painter, objectList, camera):
                 painter.draw_text(o.text, px0, py0, o.font_size, o.color, o.stroke_opacity)
             else:
                 painter.draw_path(pix.tolist(), _fill_of(o), o.fill_opacity,
-                                  o.color, o.stroke_width, o.stroke_opacity)
+                                  o.color, o.stroke_width, o.stroke_opacity,
+                                  getattr(o, "_contours", None))
                 _paint_center(painter, o, camera)
 
 
-def paint_scene(painter, objectList, camera=None, background=(1.0, 1.0, 1.0)):
+def paint_scene(painter, objectList, camera=None, background=(1.0, 1.0, 1.0), axes_on_top=True):
     """Paint the background, then every object. In 3D, leaves are drawn far-to-near (painter's
-    algorithm) so nearer faces correctly cover farther ones. In BOTH modes the coordinate axes are
-    drawn last, so they stay visible in front of all other objects."""
+    algorithm) so nearer faces correctly cover farther ones. With axes_on_top (default) the coordinate
+    axes are drawn last so they stay visible in front of all objects; with axes_on_top=False the axes
+    sit in the normal draw/depth order (realistic occlusion)."""
     camera = camera or _DEFAULT_CAMERA
     painter.background(background)
     if getattr(camera, "mode", "2d") == "3d":
-        _paint_3d(painter, objectList, camera)
-    else:
+        _paint_3d(painter, objectList, camera, axes_on_top)
+    elif axes_on_top:
         nonaxis = [o for o in objectList if not getattr(o, "_is_axis", False)]
         axis = [o for o in objectList if getattr(o, "_is_axis", False)]
         for obj in nonaxis:
             paint_object(painter, obj, camera)
         for obj in axis:
+            paint_object(painter, obj, camera)
+    else:
+        for obj in objectList:                                    # natural order (axes where inserted)
             paint_object(painter, obj, camera)

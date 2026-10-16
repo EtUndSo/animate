@@ -11,6 +11,11 @@ import numpy as np
 
 from .AnimObject import AnimObject
 
+# MathJax's getCTM already maps glyphs to upright final coords, so MathTex needs NO extra y-flip
+# (1.0). Set to -1.0 only if formulas come out upside-down. (SVGMobject flips separately: raw SVG
+# is y-down.)
+_TEX_FLIP_Y = 1.0
+
 _NUM = re.compile(r'[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?')
 _CMDS = set("MmLlHhVvCcSsQqTtZz")
 
@@ -121,27 +126,35 @@ def path_to_cubics(d):
     return subpaths
 
 
+def _leaf_from_path(d, color, fill_opacity, stroke_width):
+    """One `<path>` -> ONE leaf. All its contours are concatenated into `points`, and `_contours`
+    records each contour's length, so the painter can fill the whole glyph with the EVEN-ODD rule
+    (holes in 6/8/0/… are cut out instead of filled). y is flipped to our (up) convention."""
+    chains = []
+    for chain in path_to_cubics(d):
+        chain[:, 1] *= -1.0
+        chains.append(chain)
+    if not chains:
+        return None
+    leaf = AnimObject()
+    leaf.points = np.vstack(chains)
+    leaf._contours = [len(c) for c in chains]             # contour lengths within points
+    leaf.color = color; leaf.fill_color = color
+    leaf.fill_opacity = fill_opacity; leaf.stroke_width = stroke_width
+    return leaf
+
+
 class SVGMobject(AnimObject):
-    """Import an SVG (its `<path>` outlines) as a VMobject: one leaf per sub-path. The y-axis is
-    flipped to our convention (up), and the whole thing is scaled to `height` world units and centred
-    at the origin (so it can then be placed/scaled like any object)."""
+    """Import an SVG (its `<path>` outlines) as a VMobject: ONE leaf per `<path>` (contours kept
+    together for even-odd fill). y is flipped to our convention (up); scaled to `height`, centred."""
 
     def __init__(self, svg, height=1.0, color=(0.0, 0.0, 0.0), fill_opacity=1.0, stroke_width=0.0):
         super().__init__()
         ds = re.findall(r'\bd\s*=\s*"([^"]*)"', svg) if ("<" in svg or "d=" in svg) else [svg]
         for d in ds:
-            for chain in path_to_cubics(d):
-                chain[:, 1] *= -1.0                       # SVG y is down -> our y is up
-                leaf = AnimObject()
-                leaf.points = chain
-                leaf.color = color
-                leaf.fill_color = color
-                leaf.fill_opacity = fill_opacity
-                leaf.stroke_width = stroke_width
+            leaf = _leaf_from_path(d, color, fill_opacity, stroke_width)
+            if leaf is not None:
                 self.add(leaf)
-        self._normalize(height)
-
-    def _normalize(self, height):
         _fit_height(self, height)
 
 
@@ -181,16 +194,20 @@ class MathTex(AnimObject):
             grp = AnimObject()
             grp._tex = g.get("c", "")
             m = g.get("m")
+            gc = g.get("col") or color                     # per-glyph colour from MathJax (\color), else default
+            chains = []
             for chain in path_to_cubics(g.get("d", "")):
                 if m is not None:
-                    chain = _affine(chain, m)
-                chain[:, 1] *= -1.0                        # SVG y down -> our y up
+                    chain = _affine(chain, m)              # MathJax getCTM already maps to final (upright) coords
+                chain[:, 1] *= _TEX_FLIP_Y                 # ... so no extra flip (set -1 only if upside-down)
+                chains.append(chain)
+            if chains:
                 leaf = AnimObject()
-                leaf.points = chain
-                leaf.color = color; leaf.fill_color = color
+                leaf.points = np.vstack(chains)
+                leaf._contours = [len(c) for c in chains]  # one glyph = one path, contours -> even-odd fill
+                leaf.color = gc; leaf.fill_color = gc
                 leaf.fill_opacity = fill_opacity; leaf.stroke_width = 0.0
                 grp.add(leaf)
-            if grp.subObjects:
                 self.add(grp)
         _fit_height(self, height)
         if position is not None:
