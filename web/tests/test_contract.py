@@ -100,6 +100,16 @@ def _rec(s): a = Square(side=1); a.fill_opacity = 1.0; s.add(a); s.play(Recolor(
 cases.append(("Recolor", eng(_rec)))
 def _pulse(s): a = Square(side=1); s.add(a); s.play(Pulse(a), run_time=1)
 cases.append(("Pulse", eng(_pulse)))
+# P0 movement/emphasis animations
+def _mscene(anim):
+    m = {"objects": [{"id": "s", "type": "Square", "args": {"side": 1}}],
+         "animations": [dict({"target": "s", "run_time": 1}, **anim)], "background": [1, 1, 1]}
+    return model_scene(m)
+cases.append(("Rotate", _mscene({"type": "Rotate", "args": {"angle": 1.57}})))
+cases.append(("Scale", _mscene({"type": "Scale", "args": {"factor": 2}})))
+cases.append(("MoveTo", _mscene({"type": "MoveTo", "args": {"point": [2, 1, 0]}})))
+cases.append(("Indicate", _mscene({"type": "Indicate", "args": {}})))
+cases.append(("Write", _mscene({"type": "Write", "args": {}})))
 
 # Σ step-by-step choreography (number mode) with synthetic glyph data
 _G = lambda ch: [{"d": sq, "m": [1, 0, 0, 1, 0, 0], "c": ch}]

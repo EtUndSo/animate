@@ -7,14 +7,14 @@
   <meta name="description" content="EtUndSo: verständliche Erklärungen, Erklärvideos und Tools zu Elektrotechnik-Modulen — und so. Mit dem Browser-Animations-Editor animate."/>
   <style>
     :root{
-      /* shared EtUndSo brand palette: blue + red + orange (same tokens as the editor) */
+      /* shared EtUndSo brand palette: red #d11010, dark blue #322d58, lighter blue (CTA) = accent */
       --bg:#f4f7fb; --panel:#ffffff; --ink:#0f2033; --muted:#5a6b7b; --border:#dde4ec;
-      --accent:#1d6fe0; --accent2:#d93a2b; --accent3:#e07b10; --green:#16a34a;
+      --accent:#1d6fe0; --accent2:#d11010; --accent3:#e07b10; --green:#16a34a;
     }
     @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-      --bg:#101826; --panel:#19232f; --ink:#e6edf3; --muted:#9fb0c0; --border:#33475e; --accent:#4f9cff; --accent2:#ff6a5a; --accent3:#f59e42;
+      --bg:#171430; --panel:#322d58; --ink:#ffffff; --muted:#d3d7ea; --border:#4d477e; --accent:#4f9cff; --accent2:#d11010; --accent3:#f59e42;
     }}
-    :root[data-theme="dark"]{ --bg:#101826; --panel:#19232f; --ink:#e6edf3; --muted:#9fb0c0; --border:#33475e; --accent:#4f9cff; --accent2:#ff6a5a; --accent3:#f59e42; }
+    :root[data-theme="dark"]{ --bg:#171430; --panel:#322d58; --ink:#ffffff; --muted:#d3d7ea; --border:#4d477e; --accent:#4f9cff; --accent2:#d11010; --accent3:#f59e42; }
     *{box-sizing:border-box;}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;}
     a{color:var(--accent);text-decoration:none;}

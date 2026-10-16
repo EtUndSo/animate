@@ -218,8 +218,9 @@ let renderModel = null, pickFn = null, preparePlay = null, playFrame = null;
 let playing = false, playStart = 0, playDuration = 0, rafId = null;
 // Animations, grouped by KIND OF MOTION (appear/disappear vs. move).
 const ANIM_GROUPS = {
-  "Erscheinen": ["Create", "FadeIn", "GrowFromCenter"],
-  "Bewegung":   ["Shift"],
+  "Erscheinen": ["Create", "FadeIn", "Write", "GrowFromCenter"],
+  "Bewegen":    ["Shift", "MoveTo", "Rotate", "Scale"],
+  "Betonen":    ["Indicate"],
 };
 const ANIM_TYPES = Object.values(ANIM_GROUPS).flat();     // flat list (used where grouping isn't needed)
 const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 } };
@@ -254,7 +255,11 @@ function toPythonModel(){
   const animations = model.animations.filter(a=>a.visible!==false).map((a,i)=>({   // eye-hidden -> skipped
     type:a.type, target:a.target, run_time:a.run_time,
     step: model.playMode==="parallel" ? 0 : i,
-    args: a.type==="Shift" ? { vector:a.vector } : {},
+    args: a.type==="Shift"  ? { vector:a.vector }
+        : a.type==="MoveTo" ? { point:a.point }
+        : a.type==="Rotate" ? { angle:(a.angle||0)*Math.PI/180 }   // store degrees, send radians
+        : a.type==="Scale"  ? { factor:a.factor }
+        : {},
   }));
   const computations = model.computations.map(c=>{
     const def = COMP_DEFS[c.type];
@@ -604,6 +609,7 @@ function deleteObject(id){
   renderSceneObjs(); renderComputations(); renderProps(); renderPreview();
 }
 function selectObject(id){ model.selectedId = id; model.selectedComp = null; renderSceneObjs(); renderComputations(); renderProps(); if(typeof refreshMoveGizmo==="function") refreshMoveGizmo(); }
+function deselect(){ model.selectedId = null; model.selectedComp = null; renderSceneObjs(); renderComputations(); renderProps(); if(typeof refreshMoveGizmo==="function") refreshMoveGizmo(); }   // click outside -> clear selection + hide move-gizmo
 
 // ---------- computations (operations over objects) ----------
 function addComputation(def){
@@ -681,6 +687,9 @@ function addAnimation(type){
   if(!selected()) return;
   const a = { id:"a"+(nextAnimId++), type, target:model.selectedId, run_time:1.0 };
   if(type==="Shift") a.vector=[2,0,0];
+  else if(type==="MoveTo") a.point=[0,0,0];
+  else if(type==="Rotate") a.angle=90;          // degrees
+  else if(type==="Scale") a.factor=1.5;
   model.animations.push(a);
   renderProps(); renderSceneAnims(); renderPreview();
 }
@@ -1179,12 +1188,24 @@ function renderAnimations(container, o){
     row.appendChild(numberInput(a.run_time, (x)=>{ a.run_time=x; renderPreview(); }));       // seconds
     const del=document.createElement("button"); del.textContent="✕"; del.style="border:none;background:none;color:#ef4444;cursor:pointer"; del.onclick=()=>deleteAnimation(a.id);
     row.appendChild(del); wrap.appendChild(row);
-    if(a.type==="Shift"){
+    if(a.type==="Shift" || a.type==="MoveTo"){
+      const key = a.type==="Shift" ? "vector" : "point";
+      if(!Array.isArray(a[key])) a[key]=[a.type==="Shift"?2:0,0,0];
       const vr=document.createElement("div"); vr.className="prop";
-      const vl=document.createElement("label"); vl.textContent="vector"; vr.appendChild(vl);
+      const vl=document.createElement("label"); vl.textContent=key; vr.appendChild(vl);
       const vec=document.createElement("div"); vec.className="vec";
-      a.vector.forEach((comp,i)=> vec.appendChild(numberInput(comp, (x)=>{ a.vector[i]=x; renderPreview(); })));
+      a[key].forEach((comp,i)=> vec.appendChild(numberInput(comp, (x)=>{ a[key][i]=x; renderPreview(); })));
       vr.appendChild(vec); wrap.appendChild(vr);
+    } else if(a.type==="Rotate"){
+      const vr=document.createElement("div"); vr.className="prop";
+      const vl=document.createElement("label"); vl.textContent="angle°"; vr.appendChild(vl);
+      vr.appendChild(numberInput(a.angle!=null?a.angle:90, (x)=>{ a.angle=x; renderPreview(); }));
+      wrap.appendChild(vr);
+    } else if(a.type==="Scale"){
+      const vr=document.createElement("div"); vr.className="prop";
+      const vl=document.createElement("label"); vl.textContent="factor"; vr.appendChild(vl);
+      vr.appendChild(numberInput(a.factor!=null?a.factor:1.5, (x)=>{ a.factor=x; renderPreview(); }));
+      wrap.appendChild(vr);
     }
   }
   const adder=document.createElement("div"); adder.style="margin-top:6px";
@@ -1520,7 +1541,7 @@ async function boot(){
       if(_lowDetail) exitLowDetail();             // long hold without moving -> restore, then treat as click
     }
     if(!pickFn) return;                                                      // otherwise it was a click -> pick
-    const [px,py]=pxy(e); const id=String(pickFn(px,py)); if(id) selectObject(id);
+    const [px,py]=pxy(e); const id=String(pickFn(px,py)); if(id) selectObject(id); else deselect();   // empty click -> deselect
   };
   canvas.onpointercancel = ()=>{ clearTimeout(_holdTimer); dragging=false; moveDrag=null; if(_lowDetail) exitLowDetail(); };
   // Mouse-wheel zoom: scale camera.zoom about 1.0, low-detail + fast-repaint while scrolling, full on settle.

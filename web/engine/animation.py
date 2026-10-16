@@ -250,6 +250,93 @@ class Recolor(Animation):
         self.target.fill_color = tuple(c0 + (self.end_color - c0) * a)
 
 
+class Rotate(Animation):
+    """Rotate the target by `angle` radians about its centre (or `around`) over the run time."""
+
+    def __init__(self, target, angle=np.pi / 2, around=None, **kwargs):
+        super().__init__(target, **kwargs)
+        self.angle = float(angle)
+        self.around = around
+
+    def begin(self):
+        super().begin()
+        self.center = self.around if self.around is not None else self.start.get_center()
+
+    def interpolate(self, a):
+        self.target.become(self.start)
+        self.target.rotate(self.angle * a, around=self.center)
+
+
+class Scale(Animation):
+    """Scale the target to `factor`x its size about its centre (or `around`) over the run time."""
+
+    def __init__(self, target, factor=2.0, around=None, **kwargs):
+        super().__init__(target, **kwargs)
+        self.factor = float(factor)
+        self.around = around
+
+    def begin(self):
+        super().begin()
+        self.center = self.around if self.around is not None else self.start.get_center()
+
+    def interpolate(self, a):
+        self.target.become(self.start)
+        s = 1.0 + (self.factor - 1.0) * a
+        self.target.scale(s if abs(s) > 1e-6 else 1e-6, around=self.center)
+
+
+class MoveTo(Animation):
+    """Move the target so its centre ends at world point `point`."""
+
+    def __init__(self, target, point, **kwargs):
+        super().__init__(target, **kwargs)
+        self.point = np.asarray(point, dtype=float)
+
+    def begin(self):
+        super().begin()
+        self.center = self.start.get_center()
+
+    def interpolate(self, a):
+        self.target.become(self.start)
+        self.target.shift((self.point - self.center) * a)
+
+
+class MoveAlongPath(Animation):
+    """Move the target's centre along `path` (any object whose points trace the path, or an (N,3) array)."""
+
+    def __init__(self, target, path, **kwargs):
+        super().__init__(target, **kwargs)
+        self._path = path
+
+    def begin(self):
+        super().begin()
+        self.center = self.start.get_center()
+        pts = self._path.all_points() if hasattr(self._path, "all_points") else np.asarray(self._path, dtype=float)
+        self.pts = pts.reshape(-1, 3) if len(pts) else np.zeros((1, 3))
+
+    def interpolate(self, a):
+        self.target.become(self.start)
+        n = len(self.pts)
+        if n == 0:
+            return
+        f = max(0.0, min(1.0, a)) * (n - 1)
+        i = int(np.floor(f)); t = f - i
+        p = self.pts[i] if i >= n - 1 else self.pts[i] * (1 - t) + self.pts[i + 1] * t
+        self.target.shift(p - self.center)
+
+
+class Indicate(PulseColor):
+    """Briefly enlarge + tint the target to draw attention, then return to normal (amber by default)."""
+
+    def __init__(self, target, color=(1.0, 0.78, 0.25), factor=1.25, **kwargs):
+        super().__init__(target, factor=factor, color=color, **kwargs)
+
+
+class Write(Create):
+    """Write the target on (progressive stroke/glyph reveal) - Create, framed as 'Write' for text/formulas."""
+    pass
+
+
 class Refine(Animation):
     """General '1 -> n' refinement: steps a count from 1 up to n and rebuilds the target's
     children each step via build_func(count). The SAME mechanism serves Riemann rectangles,

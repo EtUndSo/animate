@@ -18,12 +18,14 @@
   /* Shared EtUndSo brand palette (science/tech): deep navy surfaces + a cyan/teal accent. Same tokens
      as the landing page so editor and site match. Night = default. */
   /* --s1/--s2/--s3 = stepped ELEVATION surfaces: deeper nesting = lighter (in dark mode). */
-  :root{--bg:#101826;--panel:#19232f;--field:#2c3c52;--sel:#294063;--border:#33475e;
-        --s1:#202d3e;--s2:#2b3e57;--s3:#395173;
-        --ink:#e6edf3;--muted:#9fb0c0;--hint:#6b7d90;--accent:#4f9cff;--accent2:#ff6a5a;--accent3:#f59e42;--green:#3fb950;}
+  /* brand: red #d11010, dark blue #322d58, lighter blue = the CTA/accent. Night = blue surfaces with
+     WHITE text (high contrast); boxes have a background, selected lighter, subboxes slightly lighter. */
+  :root{--bg:#171430;--panel:#322d58;--field:#4a4480;--sel:#554d90;--border:#4d477e;
+        --s1:#322d58;--s2:#3d3768;--s3:#484178;
+        --ink:#ffffff;--muted:#d3d7ea;--hint:#a7adcb;--accent:#4f9cff;--accent2:#d11010;--accent3:#f59e42;--green:#3fb950;}
   :root[data-theme="light"]{--bg:#f4f7fb;--panel:#ffffff;--field:#ffffff;--sel:#e4eefb;--border:#dde4ec;
         --s1:#ffffff;--s2:#f1f5fb;--s3:#e8f0f9;
-        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#d93a2b;--accent3:#e07b10;--green:#16a34a;}
+        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#d11010;--accent3:#e07b10;--green:#16a34a;}
   *{box-sizing:border-box;}
   body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);}
   header{padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;gap:16px;}
@@ -92,9 +94,9 @@
   .bigbox{border:1px solid;border-radius:14px;padding:14px;overflow:hidden;}
   .bigbox>h2{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;}
   /* bigboxes = elevated surface (s1) with a coloured border + heading for identity (not a dark tint) */
-  .box-add{background:var(--s1);border-color:rgba(91,155,255,.55);} .box-add>h2{color:#5b9bff;}
-  .box-scene{background:var(--s1);border-color:rgba(225,75,60,.55);} .box-scene>h2{color:#e14b3c;}
-  .box-props{background:var(--s1);border-color:rgba(232,130,12,.6);} .box-props>h2{color:#e8820c;}
+  .box-add{background:var(--s1);border-color:var(--accent);} .box-add>h2{color:var(--accent);}
+  .box-scene{background:var(--s1);border-color:var(--accent2);} .box-scene>h2{color:var(--accent2);}
+  .box-props{background:var(--s1);border-color:var(--accent3);} .box-props>h2{color:var(--accent3);}
   .sub{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:10px;overflow:hidden;}
   .sub .sub{background:var(--s3);}   /* deeper nesting -> lighter */
   .sub:last-child{margin-bottom:0;}

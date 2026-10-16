@@ -68,12 +68,14 @@ OBJECT_TYPES = {
     "MathTex": MathTex, "SVGMobject": SVGMobject,
 }
 ANIMATION_TYPES = {
-    "Create": _anim.Create, "FadeIn": _anim.FadeIn,
+    "Create": _anim.Create, "FadeIn": _anim.FadeIn, "Write": _anim.Write,
     "Shift": _anim.Shift, "GrowFromCenter": _anim.GrowFromCenter,
+    "Rotate": _anim.Rotate, "Scale": _anim.Scale, "MoveTo": _anim.MoveTo,
+    "MoveAlongPath": _anim.MoveAlongPath, "Indicate": _anim.Indicate,
     "ChangeValue": _anim.ChangeValue,
 }
 # Animations that make their target APPEAR, so we must NOT pre-add that target.
-_APPEARANCE = {"Create", "FadeIn", "GrowFromCenter"}
+_APPEARANCE = {"Create", "FadeIn", "GrowFromCenter", "Write"}
 
 # Whitelisted names for user math expressions (no builtins -> safe even server-side).
 _SAFE_NAMES = {n: getattr(np, n) for n in
@@ -254,6 +256,12 @@ def _build_object(spec, objects, axes=None):
             obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **kw)
         else:                                               # standalone Surface: no grid-line options
             obj = Surface(func2_from_expr(raw), **{k: v for k, v in kw.items() if not k.startswith("grid")})
+    elif t == "Dot":                                        # a dot is a ROUND marker: map only its CENTRE to
+        c = args.get("center", [0.0, 0.0, 0.0])              # the axes, keep a fixed world radius -> never
+        r = float(args.get("radius", 0.08))                  # stretched into an ellipse on a non-uniform axes
+        wc = (axes.coords_to_point(c[0], c[1], c[2] if len(c) > 2 else 0.0) if axes is not None
+              else np.array([c[0], c[1], c[2] if len(c) > 2 else 0.0], dtype=float))
+        obj = OBJECT_TYPES["Dot"](center=np.asarray(wc, dtype=float), radius=r)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
@@ -317,19 +325,78 @@ _COMP_ACCEPT = {
 # drawn statically (the operator renders them as part of its process, e.g. the sliding graph).
 _COMP_CONSUMES = {"Convolution": {"f", "g"}}
 
+# What KIND of result each operation produces, so its result can be reused as an operand:
+#   function ops -> a callable f(x) (reusable anywhere a FunctionGraph is accepted)
+#   Intersection -> a region polygon (reusable where shapes are accepted)
+_COMP_RESULT_KIND = {"Convolution": "function", "Product": "function", "Sum": "function",
+                     "Difference": "function", "Intersection": "region"}
 
-def _comp_valid(cspec, objects, types):
+
+def _operand_func(oid, objects, results):
+    """Callable f(x) for a function operand - from a FunctionGraph object OR a prior operation's result."""
+    r = results.get(oid)
+    if r is not None and r.get("kind") == "function":
+        return r["func"]
+    o = objects.get(oid)
+    if o is not None and getattr(o, "_func_expr", None) is not None:
+        return func_from_expr(o._func_expr)
+    return None
+
+
+def _operand_shape(oid, objects, results):
+    """Shape/region object for a geometry operand - from a shape object OR a prior region result."""
+    r = results.get(oid)
+    if r is not None and r.get("kind") == "region" and r.get("obj") is not None:
+        return r["obj"]
+    return objects.get(oid)
+
+
+def _topo_order(comps):
+    """Order operations so an operation runs AFTER any operation whose result it uses as an operand
+    (depth-first topological sort). Cycles are broken (the offending edge is skipped)."""
+    by_id = {c.get("id"): c for c in comps if c.get("id")}
+    seen, order = set(), []
+
+    def visit(c, stack):
+        cid = c.get("id")
+        if cid in seen or cid in stack:
+            return
+        stack.add(cid)
+        for dep in (c.get("inputs") or {}).values():
+            if dep in by_id:
+                visit(by_id[dep], stack)
+        stack.discard(cid); seen.add(cid); order.append(c)
+
+    for c in comps:
+        visit(c, set())
+    return order
+
+
+def _comp_valid(cspec, objects, types, comps_by_id=None):
+    comps_by_id = comps_by_id or {}
     for role, allowed in _COMP_ACCEPT.get(cspec["type"], {}).items():
         oid = cspec.get("inputs", {}).get(role)
-        if oid is None or oid not in objects or types.get(oid) not in allowed:
+        if oid is None:
             return False
+        if oid in objects and types.get(oid) in allowed:
+            continue                                        # an object operand of the right type
+        dep = comps_by_id.get(oid)                          # OR another operation's result of a matching kind
+        if dep is not None:
+            kind = _COMP_RESULT_KIND.get(dep.get("type"))
+            if (kind == "function" and "FunctionGraph" in allowed) or (kind == "region" and (allowed & _SHAPES)):
+                continue
+        return False
     return True
 
 
-def _run_computation(scene, cspec, objects, types, axes):
-    """Run one computation: it is an OPERATION over objects, shown as an animated PROCESS (not just a
-    number). Invalid/unconfigured (missing or wrong-type operands) -> skipped (dead). Adds its visual
-    pieces to the scene; animated operations also add their process to the timeline."""
+def _run_computation(scene, cspec, objects, types, axes, results=None, comps_by_id=None):
+    """Run one computation: an OPERATION over objects/other results, shown as an animated PROCESS. Its
+    result is recorded in `results` (by id) so LATER operations can use it as an operand (chaining).
+    Invalid/unconfigured operands -> skipped. Adds its visual pieces to the scene."""
+    if results is None:
+        results = {}
+    if comps_by_id is None:
+        comps_by_id = {}
     t = cspec["type"]
     if t in _ARITH:                                         # number operators: operands are typed-in numbers
         nums = cspec.get("numbers", [])
@@ -376,40 +443,56 @@ def _run_computation(scene, cspec, objects, types, axes):
                                        animating=scene.animating, label_expr=expr)
         return
     inputs = cspec.get("inputs", {})
-    if not _comp_valid(cspec, objects, types):              # missing / wrong-type operands -> dead
+    if not _comp_valid(cspec, objects, types, comps_by_id):  # missing / wrong-type operands -> dead
         return
     props = {k: _resolve_arg(k, v) for k, v in cspec.get("props", {}).items()}
     style = {k: props.pop(k) for k in list(props) if k in _STYLE_ATTRS}
+    cid = cspec.get("id")
 
     if t == "Convolution":
         if axes is None:
             return
-        A, B = objects[inputs["f"]], objects[inputs["g"]]
-        f, g = func_from_expr(A._func_expr), func_from_expr(B._func_expr)
+        f = _operand_func(inputs["f"], objects, results)    # object OR a prior result's callable
+        g = _operand_func(inputs["g"], objects, results)
+        if f is None or g is None:
+            return
         color = style.get("color", (0.89, 0.29, 0.20))
-        if scene.animating:                                 # PLAY: slide g(t−τ) across f (operands consumed)
+        tr = props.get("tau_range") or [axes.x_min, axes.x_max]
+        conv = _calc.make_convolution(f, g, float(tr[0]), float(tr[1]))
+        both_objs = inputs["f"] in objects and inputs["g"] in objects
+        if scene.animating and both_objs:                   # PLAY: slide g(t−τ) across f (operands consumed)
+            A, B = objects[inputs["f"]], objects[inputs["g"]]
             _proc.convolution(scene, f, g, axes, run_time=float(props.get("run_time", 6.0)),
-                              tau_range=props.get("tau_range"), color=color,
-                              f_color=A.color, g_color=B.color)
-        else:                                               # EDIT view: just the finished result curve
-            tr = props.get("tau_range") or [axes.x_min, axes.x_max]
-            obj = axes.plot(_calc.make_convolution(f, g, float(tr[0]), float(tr[1])))
-            obj.color = color
-            obj.stroke_width = style.get("stroke_width", 5)
+                              tau_range=props.get("tau_range"), color=color, f_color=A.color, g_color=B.color)
+        else:                                               # EDIT view / result operand: finished result curve
+            obj = axes.plot(conv); obj.color = color; obj.stroke_width = style.get("stroke_width", 5)
             scene.add(obj)
+        if cid:
+            results[cid] = {"kind": "function", "func": conv}   # reusable: convolution is a function
         return
 
-    if t in ("Product", "Sum", "Difference"):               # static combined function (for now)
+    if t in ("Product", "Sum", "Difference"):               # combined function (object/result operands)
         if axes is None:
             return
-        f = func_from_expr(objects[inputs["f"]]._func_expr)
-        g = func_from_expr(objects[inputs["g"]]._func_expr)
+        f = _operand_func(inputs["f"], objects, results)
+        g = _operand_func(inputs["g"], objects, results)
+        if f is None or g is None:
+            return
         maker = {"Product": _calc.make_product, "Sum": _calc.make_sum, "Difference": _calc.make_difference}[t]
-        obj = axes.plot(maker(f, g))
-    elif t == "Intersection":                               # static region + area (animation: next)
-        region, ar = _geom.intersection(objects[inputs["a"]], objects[inputs["b"]])
+        combined = maker(f, g)
+        obj = axes.plot(combined)
+        if cid:
+            results[cid] = {"kind": "function", "func": combined}
+    elif t == "Intersection":                               # region + area; region is reusable in geometry ops
+        A = _operand_shape(inputs["a"], objects, results)
+        B = _operand_shape(inputs["b"], objects, results)
+        if A is None or B is None:
+            return
+        region, ar = _geom.intersection(A, B)
         obj = Polygon([np.array([p[0], p[1], 0.0]) for p in region]) if len(region) >= 3 else AnimObject()
         obj._result_value = ar
+        if cid:
+            results[cid] = {"kind": "region", "obj": obj}
     else:
         return
 
@@ -508,10 +591,13 @@ class ModelScene(Scene):
         for oid, obj in built:
             if oid not in appearing and oid not in consumed:   # appearance targets are added by play()
                 self.add(obj)
-        for cspec in self.model.get("computations", []):
+        comps = self.model.get("computations", [])
+        comps_by_id = {c.get("id"): c for c in comps if c.get("id")}
+        results = {}                                           # operation id -> {kind, func|obj} for chaining
+        for cspec in _topo_order(comps):                       # run deps before dependents
             if not cspec.get("visible", True):                 # hidden operation -> not built
                 continue
-            _run_computation(self, cspec, objects, types, axes)
+            _run_computation(self, cspec, objects, types, axes, results, comps_by_id)
         # Animations are grouped into STEPS: same step -> played together (simultaneously),
         # steps run in ascending order. No step given -> each animation is its own step (sequential,
         # in list order), which keeps the old behaviour.
