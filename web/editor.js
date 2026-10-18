@@ -738,7 +738,10 @@ let playT = 0;                        // current animation time (seconds)
 let paused = false;                   // true only while paused (so ▶ resumes instead of restarting)
 let frameCache = null;                // { fps, frames:[ImageBitmap], dur } — the pre-rendered animation
 let prerendering = false, prerenderAbort = false;
-const PRERENDER_BUDGET = 350 * 1024 * 1024;   // ~350 MB cap on the frame cache (else reduce fps/res, then live)
+// Frame-cache memory cap. 350 MB forced a downscale for anything longer than ~1.4 s -> the upscale on
+// playback looked blurry/washed out. A desktop editor can afford far more; keep it modest on low-RAM
+// devices. The ladder below reduces FPS BEFORE resolution, so sharpness is preserved first.
+const PRERENDER_BUDGET = ((typeof navigator !== "undefined" && navigator.deviceMemory && navigator.deviceMemory < 4) ? 300 : 1024) * 1024 * 1024;
 
 function _prepare(){ playDuration = preparePlay(JSON.stringify(toPythonModel())); return playDuration > 0; }
 function invalidateFrameCache(){ if(frameCache){ for(const b of frameCache.frames){ try{ b.close(); }catch(_){ } } frameCache=null; } }
@@ -747,7 +750,8 @@ function showPrerender(frac){ const o=$("prerender-overlay"); if(!o) return; o.s
 function hidePrerender(){ const o=$("prerender-overlay"); if(o) o.style.display="none"; }
 
 async function _snapshot(canvas, W, H){            // grab the current canvas as a (possibly downscaled) bitmap
-  try{ return await createImageBitmap(canvas, { resizeWidth:W, resizeHeight:H, resizeQuality:"high" }); }
+  const full = (W===canvas.width && H===canvas.height);   // at full res: plain copy, NO resample -> pixel-perfect
+  try{ return full ? await createImageBitmap(canvas) : await createImageBitmap(canvas, { resizeWidth:W, resizeHeight:H, resizeQuality:"high" }); }
   catch(e){ const off=document.createElement("canvas"); off.width=W; off.height=H; off.getContext("2d").drawImage(canvas,0,0,W,H); return await createImageBitmap(off); }
 }
 // Render frames 0..N into the cache, picking an fps/resolution that fits the memory budget. Returns true
