@@ -105,6 +105,47 @@ def _gl_surface_mesh(func2, axes, n):
     return {"pos": pos.tobytes(), "nrm": nrm.tobytes(), "idx": idx.astype(np.uint16).tobytes(),
             "zt": zt.tobytes(), "count": int(idx.size), "z0": z0, "z1": z1}
 
+
+def _gl_solid_mesh(obj, smooth=False, center=(0.0, 0.0, 0.0)):
+    """WebGL mesh for a 3D SOLID (Box/Cube/Pyramid/Sphere) in world coords, from its face corners
+    (stashed as poly._corners). Polyhedra get FLAT per-face normals (sharp edges); a sphere gets SMOOTH
+    radial normals (smooth=True). Opaque — no depth sorting needed. u16 indices (solids are small)."""
+    cen = np.asarray(center, dtype=float)
+    verts, norms, idx = [], [], []
+    def faces(o):
+        if getattr(o, "_corners", None) is not None:
+            yield o
+        for s in getattr(o, "subObjects", []):
+            yield from faces(s)
+    for f in faces(obj):
+        C = [np.asarray(c, dtype=float) for c in f._corners]
+        if len(C) < 3:
+            continue
+        nrm = np.zeros(3)                                    # Newell face normal (robust, any vertex count)
+        for i in range(len(C)):
+            a, b = C[i], C[(i + 1) % len(C)]
+            nrm[0] += (a[1] - b[1]) * (a[2] + b[2])
+            nrm[1] += (a[2] - b[2]) * (a[0] + b[0])
+            nrm[2] += (a[0] - b[0]) * (a[1] + b[1])
+        ln = np.linalg.norm(nrm); nrm = nrm / ln if ln > 1e-12 else np.array([0.0, 0.0, 1.0])
+        base = len(verts)
+        for c in C:
+            verts.append(c)
+            if smooth:
+                d = c - cen; dl = np.linalg.norm(d)
+                norms.append(d / dl if dl > 1e-9 else nrm)
+            else:
+                norms.append(nrm)
+        for k in range(1, len(C) - 1):                       # fan triangulation
+            idx += [base, base + k, base + k + 1]
+    if len(verts) < 3 or len(verts) >= 65536:
+        return None
+    V = np.asarray(verts, dtype=np.float32)
+    N = np.asarray(norms, dtype=np.float32)
+    I = np.asarray(idx, dtype=np.uint16)
+    return {"pos": V.tobytes(), "nrm": N.tobytes(), "idx": I.tobytes(),
+            "zt": np.zeros(len(verts), dtype=np.float32).tobytes(), "count": int(I.size), "z0": 0.0, "z1": 1.0}
+
 # --- registries: add a class here to expose it to the editor + code + interpreter ---
 OBJECT_TYPES = {
     "Axes": Axes, "Circle": Circle, "Dot": Dot, "Line": Line, "Polygon": Polygon,
@@ -306,6 +347,7 @@ def _build_object(spec, objects, axes=None):
                 obj._gl_color = [float(c) for c in style.get("color", (0.35, 0.60, 0.92))]
                 obj._gl_opacity = float(style.get("fill_opacity", 1.0))
                 obj._gl_height = bool(args.get("height_color", False))
+                obj._gl_surf = True                          # terrain: up-flip shading in the GL fragment shader
                 obj._gl = True
             else:                                           # 2D fallback: the flat CPU-painted surface
                 obj = axes.plot_surface(func2, shade=_SHADOWS, **_surface_kw(args, style))
@@ -351,6 +393,20 @@ def _build_object(spec, objects, axes=None):
         # center=(1,0) sits on the tick '1'. WORLD/3D objects (solids) are left in world coordinates.
         if axes is not None and t not in _WORLD_TYPES:
             axes.place(obj)
+        # 3D SOLIDS on the GPU (smooth/opaque). The cheap 2D faces stay (bbox/pick/fallback); flag `_gl`
+        # so the 2D painter skips drawing them and the GPU draws a clean mesh instead. Sphere = smooth.
+        if _GL and _CAM_MODE == "3d" and t in ("Sphere", "Box", "Cube", "Pyramid"):
+            try:
+                mesh = _gl_solid_mesh(obj, smooth=(t == "Sphere"), center=args.get("center", (0.0, 0.0, 0.0)))
+                if mesh is not None:
+                    obj._gl_mesh = mesh
+                    obj._gl_color = [float(c) for c in style.get("color", (0.35, 0.60, 0.92))]
+                    obj._gl_opacity = 1.0                    # opaque on the GPU (user choice: no transparency sorting)
+                    obj._gl_height = False
+                    obj._gl_surf = False                     # solid: true outward normals (no terrain up-flip)
+                    obj._gl = True
+            except Exception:
+                obj._gl = False
     for k, v in style.items():
         setattr(obj, k, v)
     if hasattr(obj, "_cx_parts"):                           # complex graph: Re takes the chosen style

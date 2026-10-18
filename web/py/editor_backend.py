@@ -100,7 +100,8 @@ def gl_meshes():
                     "count": g["count"], "z0": g["z0"], "z1": g["z1"],
                     "color": list(getattr(o, "_gl_color", [0.35, 0.60, 0.92])),
                     "opacity": float(getattr(o, "_gl_opacity", 1.0)),
-                    "height": bool(getattr(o, "_gl_height", False))})
+                    "height": bool(getattr(o, "_gl_height", False)),
+                    "surf": bool(getattr(o, "_gl_surf", True))})
     return out
 
 

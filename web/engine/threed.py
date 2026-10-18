@@ -19,11 +19,13 @@ def _perp_basis(n):
 
 
 def _face(points, color, fill_opacity, stroke_width=1.0):
-    poly = Polygon([np.asarray(p, dtype=float) for p in points])
+    pts = [np.asarray(p, dtype=float) for p in points]
+    poly = Polygon(pts)
     poly.color = color
     poly.fill_color = color
     poly.fill_opacity = fill_opacity
     poly.stroke_width = stroke_width
+    poly._corners = pts                              # clean corner list (for the WebGL mesh builder)
     return poly
 
 
