@@ -4,100 +4,213 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>EtUndSo — Erklärungen & Tools für Elektrotechnik</title>
-  <meta name="description" content="EtUndSo: verständliche Erklärungen, Erklärvideos und Tools zu Elektrotechnik-Modulen — und so. Mit dem Browser-Animations-Editor animate."/>
+  <meta name="description" content="EtUndSo: verständliche, animierte Erklärungen und Werkzeuge zu Elektrotechnik- und Mathematik-Modulen — und so. Mit dem Browser-Editor zum selbst Nachbauen."/>
   <style>
+    /* Palette „Signal & Ink": Primär/CTA = Blau, Marke/„Et" = Rot, Akzent = Orange. Tag = hell (Default),
+       Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften
+       später per @font-face auf --font-display/--font-body legen. */
     :root{
-      /* shared EtUndSo brand palette: red #E11D48, dark blue #322d58, lighter blue (CTA) = accent */
-      --bg:#f4f7fb; --panel:#ffffff; --ink:#0f2033; --muted:#5a6b7b; --border:#dde4ec;
-      --accent:#1d6fe0; --accent2:#E11D48; --accent3:#e07b10; --green:#16a34a;
+      --bg:#f4f6fa; --panel:#ffffff; --ink:#10161f; --muted:#56617a; --border:#e0e5ee; --soft:#eef1f7;
+      --accent:#2b6def; --accent2:#e5383b; --accent3:#ff9f1c; --green:#16a34a;
+      --font-display:"Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+      --font-body:system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
-    /* DAY is the default; dark only when explicitly set via data-theme="dark" (no auto OS-dark, so the
-       landing page stays light by default, matching the editor). */
-    :root[data-theme="dark"]{ --bg:#171430; --panel:#322d58; --ink:#ffffff; --muted:#d3d7ea; --border:#4d477e; --accent:#4f9cff; --accent2:#E11D48; --accent3:#f59e42; }
+    :root[data-theme="dark"]{
+      --bg:#0d1017; --panel:#1a2130; --ink:#edf1f7; --muted:#99a4b8; --border:#27303f; --soft:#141a26;
+      --accent:#5c94ff; --accent2:#ff5e60; --accent3:#ffb54d; --green:#3fb950;
+    }
     *{box-sizing:border-box;}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;}
+    body{margin:0;font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
     a{color:var(--accent);text-decoration:none;}
-    .build-banner{background:var(--panel);color:var(--ink);border-bottom:1px solid var(--border);padding:7px 16px;font-size:13px;text-align:center;}
+    .build-banner{background:var(--soft);color:var(--muted);border-bottom:1px solid var(--border);padding:7px 16px;font-size:13px;text-align:center;}
     .build-banner b{color:var(--accent2);font-weight:700;}
-    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--border);background:var(--panel);}
-    .brand{font-weight:800;font-size:20px;letter-spacing:-0.02em;color:var(--accent2);}   /* "Et" = red */
-    .brand span{color:var(--accent);}   /* "UndSo" = blue (Und + So same colour, like the CTA button) */
-    nav a{margin-left:18px;color:var(--muted);font-weight:600;}
-    main{max-width:1000px;margin:0 auto;padding:16px 24px 64px;}
-    .hero{padding:56px 0 24px;}
-    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0 0 14px;letter-spacing:-0.02em;}
-    .hero p{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:60ch;margin:0 0 26px;}
-    .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;background:var(--accent);color:#fff;}
-    .btn.alt{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
+    .build-banner a{margin:0 6px;}
+
+    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:5;}
+    .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--accent2);}
+    .brand span{color:var(--accent);}
+    nav{display:flex;align-items:center;gap:20px;}
+    nav a.lnk{color:var(--muted);font-weight:600;font-size:15px;}
+    nav a.lnk:hover{color:var(--ink);}
+    nav a.navcta{background:var(--accent);color:#fff;padding:8px 15px;border-radius:9px;font-weight:700;font-size:14px;}
+
+    main{max-width:1040px;margin:0 auto;padding:16px 24px 72px;}
+    .eyebrow{display:inline-block;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;}
+
+    .hero{display:grid;grid-template-columns:1.25fr .9fr;gap:36px;align-items:center;padding:52px 0 20px;}
+    @media (max-width:760px){ .hero{grid-template-columns:1fr;gap:24px;padding-top:36px;} }
+    .hero h1{font-family:var(--font-display);font-size:clamp(30px,5.2vw,50px);line-height:1.05;margin:12px 0 16px;letter-spacing:-0.025em;text-wrap:balance;}
+    .hero h1 .u{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent3) 55%, transparent) 62%);}
+    .hero p{font-size:clamp(16px,2.1vw,19px);color:var(--muted);max-width:52ch;margin:0 0 26px;}
     .row{display:flex;gap:12px;flex-wrap:wrap;}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px;}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px;}
-    .card h3{margin:.2em 0 .4em;font-size:18px;}
-    .card p{color:var(--muted);margin:0;font-size:15px;}
-    .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.04em;}
-    .feature{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:28px;margin-top:40px;
-             display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
-    .feature .txt{flex:1 1 320px;}
-    .feature h2{margin:.1em 0 .4em;font-size:24px;}
+    .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;background:var(--accent);color:#fff;border:1.5px solid var(--accent);}
+    .btn:hover{filter:brightness(1.06);}
+    .btn.alt{background:transparent;color:var(--accent);}
+    .hero-art{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(16,22,31,.06);}
+    .hero-art svg{display:block;width:100%;height:auto;}
+    .hero-art .cap{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center;}
+
+    section{scroll-margin-top:72px;}
+    .sec-head{margin:56px 0 18px;}
+    .sec-head h2{font-family:var(--font-display);font-size:clamp(22px,3.2vw,30px);margin:6px 0 6px;letter-spacing:-0.02em;}
+    .sec-head p{color:var(--muted);margin:0;max-width:60ch;}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:6px;}
+    .card .tag{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);}
+    .card.m2 .tag{color:var(--accent2);} .card.m3 .tag{color:var(--accent3);}
+    .card h3{font-family:var(--font-display);margin:2px 0 2px;font-size:17.5px;}
+    .card p{color:var(--muted);margin:0;font-size:14.5px;}
+    .card .status{margin-top:auto;padding-top:10px;font-size:12px;color:var(--muted);}
+    .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent3);margin-right:6px;vertical-align:middle;}
+
+    .feature{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:30px;display:flex;gap:30px;align-items:center;flex-wrap:wrap;}
+    .feature .txt{flex:1 1 320px;min-width:0;}
+    .feature h2{font-family:var(--font-display);margin:.1em 0 .45em;font-size:clamp(21px,3vw,27px);letter-spacing:-0.02em;}
     .feature p{color:var(--muted);margin:0 0 18px;}
-    .soon{opacity:.6;}
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:48px;}
+    .feat-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:9px;}
+    .feat-list li{padding-left:26px;position:relative;font-size:15px;}
+    .feat-list li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:3px;background:var(--accent);}
+    .feat-list li:nth-child(2)::before{background:var(--accent2);} .feat-list li:nth-child(3)::before{background:var(--accent3);}
+    .feature .art{flex:1 1 280px;min-width:0;}
+    .feature .art svg{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:14px;background:var(--soft);}
+
+    .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .step{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;}
+    .step .n{font-family:var(--font-display);font-weight:800;font-size:28px;color:var(--accent);line-height:1;}
+    .step h3{font-family:var(--font-display);margin:10px 0 4px;font-size:16.5px;}
+    .step p{color:var(--muted);margin:0;font-size:14.5px;}
+
+    .soon{opacity:.62;}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:56px;}
     .stat{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;}
-    .stat .num{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.02em;color:var(--accent);line-height:1.1;}
+    .stat .num{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.02em;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums;}
     .stat .lbl{color:var(--muted);font-size:14px;margin-top:6px;}
     .stat.site .num{color:var(--accent2);}
-    footer{color:var(--muted);font-size:14px;padding:28px 24px;border-top:1px solid var(--border);text-align:center;}
+
+    footer{color:var(--muted);font-size:14px;padding:30px 24px;border-top:1px solid var(--border);text-align:center;}
+    footer a{margin:0 8px;}
   </style>
 </head>
 <body>
-  <div class="build-banner">🚧 Diese Seite ist noch im Aufbau und wird laufend aktualisiert. · Letztes Update: <b id="build-date">…</b></div>
+  <div class="build-banner">🚧 Noch im Aufbau, wird laufend erweitert. · Letztes Update: <b id="build-date">…</b></div>
+
   <header class="site">
     <div class="brand">Et<span>UndSo</span></div>
     <nav>
-      <a href="#module">Module</a>
-      <a href="#videos">Videos</a>
-      <a href="editor.html">Editor</a>
+      <a class="lnk" href="#module">Module</a>
+      <a class="lnk" href="#editor">Editor</a>
+      <a class="lnk" href="#videos">Videos</a>
+      <a class="navcta" href="editor.html">Editor öffnen</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="tag">Elektrotechnik — und so</div>
-      <h1>Verständliche Erklärungen zu Elektrotechnik-Modulen.</h1>
-      <p>EtUndSo sammelt Erklärungen, Erklärvideos und Werkzeuge rund um die Elektrotechnik —
-         und nebenbei ein paar andere Fächer. Herzstück ist der Browser-Animations-Editor
-         <strong>animate</strong>, mit dem die Grafiken und Animationen entstehen.</p>
-      <div class="row">
-        <a class="btn" href="editor.html">animate öffnen →</a>
-        <a class="btn alt" href="#module">Module ansehen</a>
+      <div>
+        <span class="eyebrow">Elektrotechnik — und so</span>
+        <h1>Elektrotechnik, <span class="u">verständlich</span> erklärt und animiert.</h1>
+        <p>EtUndSo bündelt Schritt-für-Schritt-Erklärungen, Animationen und Werkzeuge zu Elektrotechnik-
+           und Mathematik-Modulen — und nebenbei ein paar andere Fächer. Was du siehst, kannst du im
+           <strong>Editor</strong> direkt selbst nachbauen.</p>
+        <div class="row">
+          <a class="btn" href="editor.html">Editor öffnen →</a>
+          <a class="btn alt" href="#module">Module ansehen</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <!-- Fachgrafik: gedämpfte Schwingung y = e^(−x/6)·cos(x) auf Achsen -->
+        <svg viewBox="0 0 320 180" role="img" aria-label="Graph einer gedämpften Schwingung auf Koordinatenachsen">
+          <line x1="16" y1="90" x2="304" y2="90" style="stroke:var(--border)" stroke-width="2"/>
+          <line x1="40" y1="16" x2="40" y2="164" style="stroke:var(--border)" stroke-width="2"/>
+          <path id="env" d="" fill="none" style="stroke:var(--accent3)" stroke-width="2" stroke-dasharray="4 5" opacity=".8"/>
+          <path id="env2" d="" fill="none" style="stroke:var(--accent3)" stroke-width="2" stroke-dasharray="4 5" opacity=".8"/>
+          <path id="wave" d="" fill="none" style="stroke:var(--accent)" stroke-width="3" stroke-linecap="round"/>
+          <circle id="dot" r="4.5" style="fill:var(--accent2)"/>
+        </svg>
+        <div class="cap">Gebaut im Editor — Funktion, Hüllkurve, Marker.</div>
       </div>
     </section>
 
-    <section class="feature">
-      <div class="txt">
-        <div class="tag">Das wichtigste Tool</div>
-        <h2>animate — mathematische Animationen im Browser</h2>
-        <p>Eine browserbasierte Weiterentwicklung von Manim: Funktionen, 3D-Flächen, Summen/Produkte,
-           Faltungen u. v. m. — direkt im Browser bauen, abspielen und als Bild oder Video exportieren.
-           Keine Installation nötig.</p>
-        <a class="btn" href="editor.html">Zum Editor</a>
+    <section id="module">
+      <div class="sec-head">
+        <span class="eyebrow">Module</span>
+        <h2>Fächer & Themen</h2>
+        <p>Nach und nach wachsen hier ausführliche Erklärungen zu den Modulen — vom ersten Konzept bis
+           zum klausurrelevanten Detail.</p>
+      </div>
+      <div class="cards">
+        <div class="card m1"><span class="tag">ET</span><h3>Grundlagen & Schaltungstechnik</h3>
+          <p>Netzwerke, Bauteile, Analyseverfahren — vom Ohmschen Gesetz bis zu Operationsverstärkern.</p>
+          <div class="status"><span class="dot"></span>im Aufbau</div></div>
+        <div class="card m1"><span class="tag">ET</span><h3>Feldtheorie</h3>
+          <p>Elektrostatik, Strömungsfeld, Magnetismus und Induktion — anschaulich hergeleitet.</p>
+          <div class="status"><span class="dot"></span>im Aufbau</div></div>
+        <div class="card m1"><span class="tag">ET</span><h3>Signale & Systeme</h3>
+          <p>Faltung, Fourier, Übertragungsfunktionen — mit animierten Beispielen statt nur Formeln.</p>
+          <div class="status"><span class="dot"></span>im Aufbau</div></div>
+        <div class="card m1"><span class="tag">ET</span><h3>Elektronische Bauelemente</h3>
+          <p>Halbleiterphysik, Diode, Transistor — wie aus Material ein Bauelement wird.</p>
+          <div class="status"><span class="dot"></span>im Aufbau</div></div>
+        <div class="card m2"><span class="tag">Mathe</span><h3>Höhere Mathematik</h3>
+          <p>Der Unterbau der ET: Analysis, Vektoranalysis, Funktionentheorie, Stochastik.</p>
+          <div class="status"><span class="dot"></span>im Aufbau</div></div>
+        <div class="card m3 soon"><span class="tag">bald</span><h3>Andere Fächer</h3>
+          <p>Nebenbei auch Themen aus weiteren Bereichen — Beiträge willkommen.</p>
+          <div class="status"><span class="dot"></span>geplant</div></div>
       </div>
     </section>
 
-    <section id="module" class="cards">
-      <div class="card"><div class="tag">ET</div><h3>Elektrotechnik-Module</h3>
-        <p>Grundlagen, Feldtheorie, Signale & Systeme, Bauelemente … Schritt für Schritt erklärt. (im Aufbau)</p></div>
-      <div class="card"><div class="tag">Mathe</div><h3>Mathematischer Unterbau</h3>
-        <p>Die Werkzeuge hinter der ET: Analysis, lineare Algebra, Funktionentheorie. (im Aufbau)</p></div>
-      <div class="card soon"><div class="tag">bald</div><h3>Andere Fächer</h3>
-        <p>Nebenbei auch Themen aus weiteren Fächern — Beiträge willkommen.</p></div>
+    <section id="editor">
+      <div class="sec-head">
+        <span class="eyebrow">Das Herzstück</span>
+        <h2>Der Editor</h2>
+      </div>
+      <div class="feature">
+        <div class="txt">
+          <h2 style="margin-top:0">Mathematische Animationen direkt im Browser</h2>
+          <p>Eine browserbasierte Weiterentwicklung von Manim: Objekte und Operationen zusammenstellen,
+             abspielen und als Bild oder Video exportieren. Keine Installation, nichts einzurichten.</p>
+          <ul class="feat-list">
+            <li>Funktionen, 3D-Flächen, Summen & Produkte, Faltungen</li>
+            <li>Schritt-für-Schritt-Choreografie statt bloßer Grafik</li>
+            <li>Export als Bild oder flüssiges Video</li>
+          </ul>
+          <a class="btn" href="editor.html">Editor öffnen →</a>
+        </div>
+        <div class="art">
+          <!-- angedeutete 3D-Fläche z = f(x,y) als Gitter -->
+          <svg viewBox="0 0 320 200" role="img" aria-label="Angedeutete 3D-Funktionsfläche als Gitternetz">
+            <g id="mesh" fill="none" style="stroke:var(--accent)" stroke-width="1.4" opacity=".9"></g>
+          </svg>
+        </div>
+      </div>
     </section>
 
-    <section id="videos" class="feature soon">
-      <div class="txt">
-        <div class="tag">bald</div>
-        <h2>Erklärvideos</h2>
-        <p>Kurze, animierte Videos zu einzelnen Themen — gebaut mit animate. Kommt bald.</p>
+    <section id="how">
+      <div class="sec-head">
+        <span class="eyebrow">So läuft's</span>
+        <h2>Vom Konzept zur Klarheit</h2>
+      </div>
+      <div class="how">
+        <div class="step"><div class="n">1</div><h3>Erst das Bild</h3>
+          <p>Jedes Thema beginnt anschaulich — mit Analogie und großem Zusammenhang, bevor Formeln kommen.</p></div>
+        <div class="step"><div class="n">2</div><h3>Dann die Physik</h3>
+          <p>Sauber hergeleitet, immer mit dem „Warum": welcher Mechanismus die Wirkung erzeugt.</p></div>
+        <div class="step"><div class="n">3</div><h3>Selbst nachbauen</h3>
+          <p>Die Animationen entstehen im Editor — du kannst sie öffnen, verändern und selbst experimentieren.</p></div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="sec-head">
+        <span class="eyebrow">bald</span>
+        <h2 class="soon">Erklärvideos</h2>
+      </div>
+      <div class="feature soon">
+        <div class="txt">
+          <p style="margin:0">Kurze, animierte Videos zu einzelnen Themen — gebaut mit dem Editor. Kommt bald.</p>
+        </div>
       </div>
     </section>
 
@@ -107,11 +220,48 @@
     </section>
   </main>
 
-  <footer>EtUndSo.de · Erklärungen & Tools für Elektrotechnik — und so.</footer>
+  <footer>
+    EtUndSo.de · Erklärungen & Tools für Elektrotechnik — und so.<br/>
+    <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script>
+  // Hero-Fachgrafik: gedämpfte Schwingung + Hüllkurve, rein zeichnerisch (kein Framework).
+  (function(){
+    var W=320,H=180, x0=40, y0=90, xs=24, A=56, k=1/60, w=0.13;
+    function fx(px){ return x0 + px; }                       // pixel x along the axis
+    function fy(px){ return y0 - A*Math.exp(-k*px)*Math.cos(w*px); }
+    var wave="", env="", env2="";
+    for(var px=0;px<=256;px+=4){
+      var cmd=(px===0?"M":"L");
+      wave += cmd+fx(px).toFixed(1)+" "+fy(px).toFixed(1)+" ";
+      env  += cmd+fx(px).toFixed(1)+" "+(y0-A*Math.exp(-k*px)).toFixed(1)+" ";
+      env2 += cmd+fx(px).toFixed(1)+" "+(y0+A*Math.exp(-k*px)).toFixed(1)+" ";
+    }
+    var set=function(id,d){ var e=document.getElementById(id); if(e) e.setAttribute("d",d); };
+    set("wave",wave); set("env",env); set("env2",env2);
+    var dot=document.getElementById("dot"); if(dot){ dot.setAttribute("cx",fx(0)); dot.setAttribute("cy",fy(0)); }
+  })();
+  // Editor-Fachgrafik: isometrisches Gitternetz einer Fläche z=f(x,y).
+  (function(){
+    var g=document.getElementById("mesh"); if(!g) return;
+    var N=9, cx=160, cy=112, sx=15, sy=7.5, zc=46;
+    function P(i,j){
+      var fxy=Math.cos(i*0.6)*Math.sin(j*0.6);               // a gentle surface
+      var X=cx+(i-j)*sx, Y=cy+(i+j)*sy - fxy*zc;
+      return X.toFixed(1)+" "+Y.toFixed(1);
+    }
+    var d="";
+    for(var i=0;i<N;i++){ d+="M"+P(i,0); for(var j=1;j<N;j++) d+="L"+P(i,j); }   // rows
+    for(var j2=0;j2<N;j2++){ d+="M"+P(0,j2); for(var i2=1;i2<N;i2++) d+="L"+P(i2,j2); } // cols
+    var path=document.createElementNS("http://www.w3.org/2000/svg","path");
+    path.setAttribute("d",d); g.appendChild(path);
+  })();
+  </script>
   <script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
   <script>
-  // Anonymous usage counters: count THIS page view once on load, then refresh the displayed totals every
-  // minute (read-only, so refreshes don't inflate the count). Fails silently if the API isn't up yet.
+  // Anonyme Nutzungszähler: diesen Aufruf einmal zählen, dann die Anzeige minütlich auffrischen (read-only,
+  // bläht also nicht auf). Scheitert still, falls die API (noch) nicht erreichbar ist.
   (function(){
     var fmt=function(n){ return (n==null?"–":Number(n).toLocaleString("de-DE")); };
     var paint=function(d){ if(!d) return;
@@ -119,7 +269,7 @@
       if(s) s.textContent=fmt(d.site); if(e) e.textContent=fmt(d.editor); };
     var read=function(){ fetch("/api/count?mode=read").then(function(r){return r.json();}).then(paint).catch(function(){}); };
     fetch("/api/count?event=site&mode=hit").then(function(r){return r.json();}).then(paint).catch(function(){});
-    setInterval(read, 60000);        // update every minute
+    setInterval(read, 60000);
   })();
   </script>
 </body>
