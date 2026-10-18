@@ -79,7 +79,7 @@ def inline(text):
         return raw                                    # math: hand to KaTeX verbatim
     return re.sub(r"\x00(\d+)\x00", restore, text)
 
-CALLOUTS = {"konzept": ("💡", "Konzept"), "kern": ("🎯", "Das Wichtigste"), "merke": ("📌", "Merke")}
+CALLOUTS = {"konzept": ("", "Zur Idee"), "kern": ("", "Das Wichtigste"), "merke": ("", "Merke")}
 
 def md_to_html(md):
     lines = md.replace("\r\n", "\n").split("\n")
@@ -108,7 +108,7 @@ def md_to_html(md):
                 inner.append(lines[i]); i += 1
             i += 1
             icon, label = CALLOUTS.get(kind, ("", kind.title()))
-            out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{icon} {html.escape(label)}</div>'
+            out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{(icon + " " if icon else "") + html.escape(label)}</div>'
                        + md_to_html("\n".join(inner))[0] + "</aside>")
             continue
         if re.match(r"(---|\*\*\*|___)\s*$", s):      # horizontal rule

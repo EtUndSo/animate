@@ -110,17 +110,20 @@ def _gl_solid_mesh(obj, smooth=False, center=(0.0, 0.0, 0.0)):
     """WebGL mesh for a 3D SOLID (Box/Cube/Pyramid/Sphere) in world coords, from its face corners
     (stashed as poly._corners). Polyhedra get FLAT per-face normals (sharp edges); a sphere gets SMOOTH
     radial normals (smooth=True). Opaque — no depth sorting needed. u16 indices (solids are small)."""
-    cen = np.asarray(center, dtype=float)
-    verts, norms, idx = [], [], []
     def faces(o):
         if getattr(o, "_corners", None) is not None:
             yield o
         for s in getattr(o, "subObjects", []):
             yield from faces(s)
-    for f in faces(obj):
-        C = [np.asarray(c, dtype=float) for c in f._corners]
-        if len(C) < 3:
-            continue
+    face_corners = [[np.asarray(c, dtype=float) for c in f._corners] for f in faces(obj)
+                    if len(getattr(f, "_corners", [])) >= 3]
+    if not face_corners:
+        return None
+    allpts = np.array([p for C in face_corners for p in C])
+    gc = allpts.mean(axis=0)                                  # geometric centroid -> orient normals OUTWARD
+    cen = np.asarray(center, dtype=float) if np.any(center) else gc   # sphere centre (smooth), else centroid
+    verts, norms, idx = [], [], []
+    for C in face_corners:
         nrm = np.zeros(3)                                    # Newell face normal (robust, any vertex count)
         for i in range(len(C)):
             a, b = C[i], C[(i + 1) % len(C)]
@@ -128,6 +131,9 @@ def _gl_solid_mesh(obj, smooth=False, center=(0.0, 0.0, 0.0)):
             nrm[1] += (a[2] - b[2]) * (a[0] + b[0])
             nrm[2] += (a[0] - b[0]) * (a[1] + b[1])
         ln = np.linalg.norm(nrm); nrm = nrm / ln if ln > 1e-12 else np.array([0.0, 0.0, 1.0])
+        fcent = np.mean(C, axis=0)                            # flip to point AWAY from the centroid (outward)
+        if np.dot(nrm, fcent - gc) < 0:
+            nrm = -nrm
         base = len(verts)
         for c in C:
             verts.append(c)
