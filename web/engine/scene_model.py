@@ -172,6 +172,8 @@ _ANGLE_UNIT = "rad"
 _DOMAIN = "real"
 _CAM_ZOOM = 1.0
 _CAM_MODE = "2d"
+_GL = False                                          # JS reports WebGL availability; if True + 3D, surfaces
+#                                                      build ONLY the GPU mesh (skip the costly 2D polygon surface)
 # Surface shading ("shadows"): when False, surfaces are drawn FLAT (one colour, no Lambert light).
 _SHADOWS = True
 
@@ -282,19 +284,32 @@ def _build_object(spec, objects, axes=None):
         raw = str(spec.get("args", {}).get("func", "0"))
         if _is_surface(raw):                                # BOTH x and y -> it IS a surface
             func2 = func2_from_expr(raw)
-            obj = axes.plot_surface(func2, shade=_SHADOWS, **_surface_kw(args, style))
-            # Also build a WebGL mesh for the surface (smooth GPU shading). The 2D polygons above stay
-            # (for picking/bbox and as fallback); the backend flags the object `_gl` so the 2D painter
-            # SKIPS it when WebGL is active, and the GPU draws it instead. Only in 3D mode.
-            try:
-                n = int(args.get("res_max", args.get("resolution", 64)) or 64)
-                obj._gl_mesh = _gl_surface_mesh(func2, axes, max(8, min(n, 250)))
+            res = int(args.get("res_max", args.get("resolution", 64)) or 64)
+            use_gl = _GL and _CAM_MODE == "3d"
+            mesh = None
+            if use_gl:                                      # try the GPU path FIRST (skip the costly 2D mesh)
+                try:
+                    n_gl = max(16, min(max(res, 120), 200))  # GPU handles high res cheaply -> smooth silhouette
+                    mesh = _gl_surface_mesh(func2, axes, n_gl)
+                except Exception:
+                    mesh = None
+            if mesh is not None:
+                # GPU renders the surface smoothly. We DON'T build the expensive adaptive polygon mesh;
+                # a tiny proxy (the 8 world-AABB corners) gives selection/pick a bounding box. Not drawn
+                # by the 2D painter (flagged `_gl`), not part of GL (that uses `_gl_mesh`).
+                import numpy as _np
+                pos = _np.frombuffer(mesh["pos"], dtype=_np.float32).reshape(-1, 3)
+                lo, hi = pos.min(axis=0), pos.max(axis=0)
+                corners = _np.array([[x, y, z] for x in (lo[0], hi[0]) for y in (lo[1], hi[1]) for z in (lo[2], hi[2])], dtype=float)
+                obj = AnimObject(); obj.points = corners
+                obj._gl_mesh = mesh
                 obj._gl_color = [float(c) for c in style.get("color", (0.35, 0.60, 0.92))]
                 obj._gl_opacity = float(style.get("fill_opacity", 1.0))
                 obj._gl_height = bool(args.get("height_color", False))
-                obj._gl = (_CAM_MODE == "3d")
-            except Exception:
-                obj._gl = False                              # any trouble -> keep the 2D-painted surface
+                obj._gl = True
+            else:                                           # 2D fallback: the flat CPU-painted surface
+                obj = axes.plot_surface(func2, shade=_SHADOWS, **_surface_kw(args, style))
+                obj._gl = False
         else:
             style.pop("fill_opacity", None); style.pop("fill_color", None)   # a 1D curve is a STROKE, never a filled area
             f = args["func"]
@@ -594,7 +609,7 @@ class ModelScene(Scene):
         #                             then animated operators take over their operands' display.
 
     def construct(self):
-        global _ANGLE_UNIT, _DOMAIN, _SHADOWS, _CAM_ZOOM, _CAM_MODE
+        global _ANGLE_UNIT, _DOMAIN, _SHADOWS, _CAM_ZOOM, _CAM_MODE, _GL
         _ANGLE_UNIT = self.model.get("angle_unit", "rad")   # set before any func is compiled
         _DOMAIN = self.model.get("domain", "real")
         _SHADOWS = bool(self.model.get("shadows", True))    # surface shading on/off
@@ -602,6 +617,7 @@ class ModelScene(Scene):
         zoom = cam.get("zoom", 1.0)                         # orthographic zoom (>1 = magnified)
         _CAM_ZOOM = float(zoom)                             # so the Axes can refine its ticks with zoom (2D)
         _CAM_MODE = "3d" if cam.get("mode") == "3d" else "2d"
+        _GL = bool(self.model.get("gl", False))             # WebGL layer available (set by the editor)?
         if cam.get("mode") == "3d":                         # orbit camera (theta, phi in radians)
             self.camera = Camera(mode="3d", theta=cam.get("theta", 0.0), phi=cam.get("phi", 0.0), zoom=zoom)
         else:

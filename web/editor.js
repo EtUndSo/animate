@@ -394,7 +394,8 @@ function toPythonModel(){
   injectTexGlyphs(objects);                   // MathTex: resolve `tex` -> glyph data (async, cached)
   return { objects, animations, computations, background: bg, shadows: !!model.background.shadows,
            axes_on_top: model.background.axes_on_top === true,
-           angle_unit: model.angleUnit, domain: model.domain, camera: model.camera };
+           angle_unit: model.angleUnit, domain: model.domain, camera: model.camera,
+           gl: (gl3d.ok && !_glFailed) };          // WebGL available -> engine builds only the GPU surface mesh
 }
 
 // ---------- 3D level-of-detail (LOD) ----------
