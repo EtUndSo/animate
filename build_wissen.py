@@ -63,6 +63,33 @@ _PROTECT = []
 def _protect(m):
     _PROTECT.append(m.group(0)); return f"\x00{len(_PROTECT)-1}\x00"
 
+_MC_RED, _MC_BLUE, _MC_GOLD = "#e5383b", "#2b6def", "#ff9f1c"   # Et-rot / UndSo-blau / Palette-gelb
+def colorize_math(s):
+    """Colour an (in)equation: left-hand side RED, every relation ('=' or '\\approx') BLUE, the
+    part after it GOLD (via KaTeX \\textcolor). Splits only on a *top-level* relation (brace depth 0),
+    so \\frac{..}{..}, \\text{..} and units stay intact. An expression without any relation (a lone
+    symbol) is left in the normal colour — it then follows the surrounding text colour."""
+    segs, rels, depth, last, i = [], [], 0, 0, 0
+    while i < len(s):
+        c = s[i]
+        if c == "{":
+            depth += 1; i += 1; continue
+        if c == "}":
+            depth -= 1; i += 1; continue
+        if depth == 0:
+            if c == "=" and (s[i - 1] if i else "") not in "<>!:" and (s[i + 1] if i + 1 < len(s) else "") != "=":
+                segs.append(s[last:i]); rels.append("="); last = i + 1; i += 1; continue
+            if s.startswith(r"\approx", i):
+                segs.append(s[last:i]); rels.append(r"\approx"); last = i + 7; i += 7; continue
+        i += 1
+    segs.append(s[last:])
+    if not rels:
+        return s
+    out = r"\textcolor{%s}{%s}" % (_MC_RED, segs[0])
+    for rel, seg in zip(rels, segs[1:]):
+        out += r"\textcolor{%s}{%s}\textcolor{%s}{%s}" % (_MC_BLUE, rel, _MC_GOLD, seg)
+    return out
+
 def inline(text):
     """Inline markdown -> HTML. Math ($…$, $$…$$) and `code` are protected from other rules."""
     _PROTECT.clear()
@@ -70,16 +97,30 @@ def inline(text):
     text = html.escape(text, quote=False)
     text = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", r'<img src="\2" alt="\1"/>', text)
     text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
-    text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
+    # Namen (Größen-/Begriffsnamen) -> blau: __Name__
+    text = re.sub(r"__([^_]+)__", r'<strong class="nm">\1</strong>', text)
+    # Wichtige Wörter -> orange (Standard); Schritt-Marken „**Schritt 3**" -> rot
+    def _bold(m):
+        t = m.group(1)
+        if re.match(r"^\s*Schritt\s+\d+\s*$", t):
+            return '<strong class="step">' + t + "</strong>"
+        return "<strong>" + t + "</strong>"
+    text = re.sub(r"\*\*([^*]+)\*\*", _bold, text)
     text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", text)
     def restore(m):
         raw = _PROTECT[int(m.group(1))]
         if raw.startswith("`"):
             return "<code>" + html.escape(raw[1:-1], quote=False) + "</code>"
-        return raw                                    # math: hand to KaTeX verbatim
+        if raw.startswith("$$"):
+            return "$$" + colorize_math(raw[2:-2]) + "$$"
+        if raw.startswith("$"):
+            return "$" + colorize_math(raw[1:-1]) + "$"
+        return raw
     return re.sub(r"\x00(\d+)\x00", restore, text)
 
-CALLOUTS = {"konzept": ("", "Zur Idee"), "kern": ("", "Das Wichtigste"), "merke": ("", "Merke")}
+CALLOUTS = {"konzept": ("", "Zur Idee"), "kern": ("", "Das Wichtigste"), "merke": ("", "Merke"),
+            "grafik": ("", "Abbildung"), "satz": ("", "Satz"), "definition": ("", "Definition"),
+            "lemma": ("", "Lemma")}
 
 def md_to_html(md):
     lines = md.replace("\r\n", "\n").split("\n")
@@ -127,6 +168,16 @@ def md_to_html(md):
                 quote.append(re.sub(r"^\s*>\s?", "", lines[i])); i += 1
             out.append("<blockquote>" + md_to_html("\n".join(quote))[0] + "</blockquote>")
             continue
+        if s.startswith("|") and i + 1 < n and re.match(r"^\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$", lines[i + 1].strip()):
+            flush()                                   # GitHub-Tabelle: Kopfzeile + |---|---|-Trenner + Zeilen
+            cells = lambda row: [c.strip() for c in row.strip().strip("|").split("|")]
+            header = cells(s); i += 2; body = []
+            while i < n and lines[i].strip().startswith("|"):
+                body.append(cells(lines[i].strip())); i += 1
+            thead = "<tr>" + "".join(f"<th>{inline(c)}</th>" for c in header) + "</tr>"
+            tbody = "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in body)
+            out.append(f'<div class="table-wrap"><table class="md-table"><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>')
+            continue
         if re.match(r"[-*]\s+", s) or re.match(r"\d+\.\s+", s):   # list (ul/ol)
             flush(); ordered = bool(re.match(r"\d+\.\s+", s)); items = []
             while i < n and (re.match(r"[-*]\s+", lines[i].strip()) or re.match(r"\d+\.\s+", lines[i].strip())):
@@ -149,51 +200,70 @@ def to_plain(md):
     return re.sub(r"\s+", " ", txt).strip()
 
 # ---------------------------------------------------------- build the tree ----
+# Hierarchie beliebig tief, gesteuert über das Frontmatter-Feld `pfad:` (Ebenen durch " / " getrennt),
+# z. B.:  pfad: Elektrotechnik / 1. Semester / Grundgebiete der Elektrotechnik 1 / Ströme und Spannungen in Netzen
+# Der Artikel (das „Thema") hängt am letzten Knoten dieser Kette. Reihenfolge je Ebene über das kleinste
+# `order` der darunterliegenden Artikel (globale Sequenznummer, z. B. 50200 = Kap 5, Abschnitt 2).
+def _new_node(name):
+    return {"name": name, "slug": slugify(name), "order": 10**9, "children": {}, "articles": []}
+
 def collect():
-    fields = {}
+    roots = {}
     for md_file in sorted(SRC.rglob("*.md")):
-        rel = md_file.relative_to(SRC)
-        if len(rel.parts) < 3:                        # need fach/thema/file
-            print("  übersprungen (zu flach):", rel); continue
         meta, body = parse_frontmatter(md_file.read_text(encoding="utf-8"))
-        fach = meta.get("fach") or rel.parts[0]
-        thema = meta.get("thema") or rel.parts[1]
+        pfad = (meta.get("pfad") or "").strip()
+        if not pfad:
+            print("  übersprungen (kein pfad:):", md_file.relative_to(SRC)); continue
+        parts = [p.strip() for p in pfad.split("/") if p.strip()]
         title = meta.get("title") or md_file.stem
-        order = int(meta.get("order") or re.match(r"(\d+)", md_file.stem).group(1) if re.match(r"\d+", md_file.stem) else 999)
-        f_slug, t_slug = slugify(fach), slugify(thema)
+        ov = (meta.get("order") or "").strip()
+        order = int(ov) if ov.isdigit() else (int(re.match(r"(\d+)", md_file.stem).group(1)) if re.match(r"\d+", md_file.stem) else 999999)
+        container, chain = roots, []
+        for part in parts:
+            nd = container.setdefault(slugify(part), _new_node(part))
+            chain.append(nd); container = nd["children"]
         a_slug = re.sub(r"^\d+-", "", md_file.stem) or slugify(title)
-        path = f"{f_slug}/{t_slug}/{a_slug}.html"
-        art = {"title": title, "fach": fach, "thema": thema, "slug": a_slug, "order": order,
-               "path": path, "summary": meta.get("summary", ""), "tags": meta.get("tags", ""),
-               "body": body, "f_slug": f_slug, "t_slug": t_slug}
-        fields.setdefault(f_slug, {"name": fach, "slug": f_slug, "order": 10**9, "themen": {}})
-        th = fields[f_slug]["themen"].setdefault(t_slug, {"name": thema, "slug": t_slug, "order": 10**9, "articles": []})
-        th["articles"].append(art); th["order"] = min(th["order"], order)
-        fields[f_slug]["order"] = min(fields[f_slug]["order"], order)
-    # sort
-    tree = []
-    for f in sorted(fields.values(), key=lambda x: (x["order"], x["name"])):
-        themen = []
-        for t in sorted(f["themen"].values(), key=lambda x: (x["order"], x["name"])):
-            t["articles"].sort(key=lambda a: (a["order"], a["title"]))
-            themen.append(t)
-        f["themen"] = themen; tree.append(f)
-    return tree
+        path = "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html"
+        art = {"title": title, "slug": a_slug, "order": order, "path": path,
+               "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body,
+               "crumbs": [(nd["name"], nd["slug"]) for nd in chain]}
+        chain[-1]["articles"].append(art)
+        for nd in chain:
+            nd["order"] = min(nd["order"], order)
+    def to_list(container):
+        nodes = sorted(container.values(), key=lambda x: (x["order"], x["name"]))
+        for nd in nodes:
+            nd["articles"].sort(key=lambda a: (a["order"], a["title"]))
+            nd["children"] = to_list(nd["children"])
+        return nodes
+    return to_list(roots)
+
+def flatten(nodes):
+    """Articles in reading order (a node's own Themen first, then its sub-levels)."""
+    out = []
+    for nd in nodes:
+        out += nd["articles"]
+        out += flatten(nd["children"])
+    return out
 
 # ------------------------------------------------------------------ render ----
 def sidebar_html(tree, active_path=None):
-    rows = ['<nav class="side" aria-label="Wissensbaum"><a class="side-home" href="/wissen/">Alle Fächer</a>']
-    for f in tree:
-        rows.append(f'<details class="fach" open><summary>{html.escape(f["name"])}</summary>')
-        for t in f["themen"]:
-            rows.append(f'<details class="thema" open><summary>{html.escape(t["name"])}</summary><ul>')
-            for a in t["articles"]:
-                cls = ' class="active"' if a["path"] == active_path else ""
-                rows.append(f'<li><a{cls} href="/wissen/{a["path"]}">{html.escape(a["title"])}</a></li>')
-            rows.append("</ul></details>")
-        rows.append("</details>")
-    rows.append("</nav>")
-    return "".join(rows)
+    def render(nodes, depth):
+        rows = []
+        for nd in nodes:
+            rows.append(f'<details class="lvl lvl{depth}" open><summary>{html.escape(nd["name"])}</summary>')
+            if nd["articles"]:
+                rows.append("<ul>")
+                for a in nd["articles"]:
+                    cls = ' class="active"' if a["path"] == active_path else ""
+                    rows.append(f'<li><a{cls} href="/wissen/{a["path"]}">{html.escape(a["title"])}</a></li>')
+                rows.append("</ul>")
+            if nd["children"]:
+                rows.append(render(nd["children"], depth + 1))
+            rows.append("</details>")
+        return "".join(rows)
+    return ('<nav class="side" aria-label="Wissensbaum"><a class="side-home" href="/wissen/">Alle Module</a>'
+            + render(tree, 0) + "</nav>")
 
 def page_shell(title, desc, body, depth):
     up = "../" * depth
@@ -214,7 +284,10 @@ def page_shell(title, desc, body, depth):
 
 def topbar():
     return ('<div class="topbar"><a class="brand" href="/">Et<span>UndSo</span></a>'
-            '<button id="searchBtn" class="searchBtn" aria-label="Suche">🔎 Suchen <kbd>/</kbd></button>'
+            '<button id="searchBtn" class="searchBtn" aria-label="Suche">'
+            '<svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            'stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/>'
+            '<line x1="21" y1="21" x2="16" y2="16"/></svg> Suchen <kbd>/</kbd></button>'
             '<a class="editorlink" href="/editor.html">Editor</a></div>'
             '<div id="searchOverlay" class="searchOverlay" hidden><div class="searchBox">'
             '<input id="searchInput" type="search" placeholder="Thema, Begriff, Formel …" autocomplete="off"/>'
@@ -224,9 +297,8 @@ def topbar():
 
 def render_article(art, tree, prev_a, next_a):
     body_html, toc = md_to_html(art["body"])
-    crumb = (f'<nav class="crumbs"><a href="/wissen/">Wissen</a> › '
-             f'<a href="/wissen/{art["f_slug"]}/">{html.escape(art["fach"])}</a> › '
-             f'<span>{html.escape(art["thema"])}</span></nav>')
+    crumb = '<nav class="crumbs"><a href="/wissen/">Wissen</a>' + \
+            "".join(f' › <span>{html.escape(nm)}</span>' for nm, sl in art["crumbs"]) + "</nav>"
     toc_html = ""
     if toc:
         toc_html = '<aside class="toc"><div class="toc-h">Auf dieser Seite</div><ul>' + \
@@ -240,7 +312,7 @@ def render_article(art, tree, prev_a, next_a):
             + (f'<p class="lede">{html.escape(art["summary"])}</p>' if art["summary"] else "")
             + body_html + nav + legal_footer() + "</article>" + toc_html + "</main>")
     body = topbar() + '<div class="layout">' + sidebar_html(tree, art["path"]) + main + "</div>"
-    depth = 1 + art["path"].count("/")               # web/wissen/<f>/<t>/<a>.html
+    depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth)
 
 def legal_footer():
@@ -250,15 +322,27 @@ def legal_footer():
 def render_index(tree):
     cards = ['<main class="article"><article><h1>Wissen</h1>'
              '<p class="lede">Verständliche, animierte Erklärungen — von Grund auf und in kleinen Schritten. '
-             'Wähle ein Fach oder nutze die Suche.</p>']
+             'Wähle ein Modul oder nutze die Suche.</p>']
     if not tree:
         cards.append('<p class="empty">Hier entstehen nach und nach die Artikel.</p>')
-    for f in tree:
-        cards.append(f'<section class="field-block"><h2 id="{f["slug"]}">{html.escape(f["name"])}</h2><div class="field-grid">')
-        for t in f["themen"]:
-            links = "".join(f'<li><a href="/wissen/{a["path"]}">{html.escape(a["title"])}</a></li>' for a in t["articles"])
-            cards.append(f'<div class="theme-card"><h3>{html.escape(t["name"])}</h3><ul>{links}</ul></div>')
-        cards.append("</div></section>")
+    # Übersicht: oberste Ebene(n) als Abschnitt, darunter der Baum rekursiv; Themen als verlinkte Karten.
+    def block(nodes, depth):
+        rows = []
+        for nd in nodes:
+            leaf_cards = ""
+            if nd["articles"]:
+                links = "".join(f'<li><a href="/wissen/{a["path"]}">{html.escape(a["title"])}</a></li>' for a in nd["articles"])
+                leaf_cards = f'<div class="theme-card"><ul>{links}</ul></div>'
+            if depth == 0:
+                rows.append(f'<section class="field-block"><h2 id="{nd["slug"]}">{html.escape(nd["name"])}</h2>')
+                rows.append(block(nd["children"], depth + 1) + (f'<div class="field-grid">{leaf_cards}</div>' if leaf_cards else ""))
+                rows.append("</section>")
+            else:
+                hd = f'<h3>{html.escape(nd["name"])}</h3>' if depth >= 2 else f'<h4 class="lvl-h">{html.escape(nd["name"])}</h4>'
+                inner = block(nd["children"], depth + 1)
+                rows.append(f'<div class="idx-node">{hd}{leaf_cards}{inner}</div>' if (inner or leaf_cards) else "")
+        return "".join(rows)
+    cards.append(block(tree, 0))
     cards.append(legal_footer() + "</article></main>")
     body = topbar() + '<div class="layout">' + sidebar_html(tree, None) + "".join(cards) + "</div>"
     return page_shell("Wissen", "Verständliche Erklärungen zu Elektrotechnik, Mathematik und mehr.", body, 1)
@@ -270,7 +354,7 @@ def main():
     (OUT / "data").mkdir(exist_ok=True)
     (OUT / "assets").mkdir(exist_ok=True)
 
-    flat = [a for f in tree for t in f["themen"] for a in t["articles"]]
+    flat = flatten(tree)
     for idx, art in enumerate(flat):
         prev_a = flat[idx - 1] if idx > 0 else None
         nxt = flat[idx + 1] if idx + 1 < len(flat) else None
@@ -280,17 +364,19 @@ def main():
 
     (OUT / "index.html").write_text(render_index(tree), encoding="utf-8")
 
-    # navigation tree (без bodies) + search index
-    def strip(a): return {k: a[k] for k in ("title", "slug", "path", "summary", "order")}
-    tree_json = [{"name": f["name"], "slug": f["slug"],
-                  "themen": [{"name": t["name"], "slug": t["slug"], "articles": [strip(a) for a in t["articles"]]}
-                             for t in f["themen"]]} for f in tree]
+    # navigation tree (ohne bodies, beliebig tief) + search index
+    def jnode(nd):
+        return {"name": nd["name"], "slug": nd["slug"],
+                "articles": [{"title": a["title"], "path": a["path"], "summary": a["summary"]} for a in nd["articles"]],
+                "children": [jnode(c) for c in nd["children"]]}
+    tree_json = [jnode(n) for n in tree]
     (OUT / "data" / "tree.json").write_text(json.dumps(tree_json, ensure_ascii=False), encoding="utf-8")
 
     search = []
     for a in flat:
         plain = to_plain(a["body"])
-        search.append({"title": a["title"], "fach": a["fach"], "thema": a["thema"], "path": a["path"],
+        crumb = " › ".join(nm for nm, sl in a["crumbs"])
+        search.append({"title": a["title"], "crumb": crumb, "path": a["path"],
                        "summary": a["summary"], "tags": a["tags"],
                        # pre-folded fields for fast infix matching; 'text' kept (original) for snippets
                        "ft_title": fold(a["title"]), "ft_tags": fold(a["tags"]),
@@ -300,7 +386,8 @@ def main():
     (OUT / "assets" / "wissen.css").write_text(WISSEN_CSS, encoding="utf-8")
     (OUT / "assets" / "wissen.js").write_text(WISSEN_JS, encoding="utf-8")
 
-    print(f"✓ {len(flat)} Artikel, {len(tree)} Fächer -> {OUT}")
+    n_mod = sum(1 for _ in flat)
+    print(f"✓ {n_mod} Artikel, {len(tree)} Studiengänge -> {OUT}")
 
 # --------------------------------------------------------- shared CSS / JS ----
 WISSEN_CSS = r"""
@@ -329,7 +416,9 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::-webkit-details-marker{display:none;}
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
-.side .thema{margin-left:12px;} .side .thema summary{font-weight:500;}
+.side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
+.side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;}
+.side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
 .side li a{display:block;color:var(--muted);padding:3px 7px;border-radius:7px;}
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
@@ -337,17 +426,36 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
 .article>article{min-width:0;max-width:72ch;}
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
-.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;}
-.article h2{font-family:var(--fdisp);font-size:24px;margin:1.6em 0 .4em;letter-spacing:-.01em;scroll-margin-top:66px;}
-.article h3{font-family:var(--fdisp);font-size:19px;margin:1.3em 0 .3em;scroll-margin-top:66px;}
-.article p,.article li{font-size:16.5px;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.1em;}
+.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
+.article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
+.article h3{font-family:var(--fdisp);font-size:19px;margin:1.9em 0 .35em;scroll-margin-top:66px;color:var(--accent2);}
+.article p,.article li{font-size:16.5px;} .article p{margin:0 0 1.15em;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.3em;}
+/* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = blau, Schritt-Marken = rot --- */
+.article strong{color:var(--accent3);}             /* wichtige Ausdrücke/Wörter */
+.article strong.nm{color:var(--accent);}           /* Namen (Größen, Begriffe, Einheiten) */
+.article strong.step{color:var(--accent2);}        /* „Schritt N" */
+/* Formeln/Gleichungen hervorheben: eigene Box mit blauer Border, deutlich größer */
+.article .katex-display{font-size:1.22em;margin:1.15em 0;padding:14px 20px;border:1.5px solid var(--accent);border-radius:12px;
+  background:color-mix(in srgb,var(--accent) 6%,var(--panel));overflow-x:auto;overflow-y:hidden;}
+.article .katex{font-size:1.06em;}                  /* Inline-Mathe einen Tick größer */
 .article img{max-width:100%;border-radius:10px;} .article code{font-family:var(--fmono);font-size:.9em;background:var(--soft);padding:1px 5px;border-radius:5px;}
 .article pre{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px 16px;overflow:auto;} .article pre code{background:none;padding:0;}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
+.table-wrap{overflow-x:auto;margin:1.2em 0;}
+.md-table{border-collapse:collapse;width:100%;font-size:15.5px;}
+.md-table th,.md-table td{padding:8px 12px;border:1px solid var(--border);text-align:left;vertical-align:top;}
+.md-table thead th{background:var(--soft);font-family:var(--fdisp);color:var(--accent);font-weight:700;}
+.md-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 55%,transparent);}
 .callout{margin:1.2em 0;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
-.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;}
+.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: UndSo-blau */
 .callout.cx-konzept{border-left:4px solid var(--accent);} .callout.cx-kern{border-left:4px solid var(--accent2);background:color-mix(in srgb,var(--accent2) 7%,var(--panel));}
+.callout.cx-kern .callout-h{color:var(--accent2);}  /* Kernbox: Titel in Rot, passend zum roten Rand */
 .callout.cx-merke{border-left:4px solid var(--accent3);}
+.callout.cx-satz,.callout.cx-lemma,.callout.cx-definition{border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,var(--panel));}
+/* Abbildungs-Platzhalter: gestrichelte Box mit Beschreibung, bis echte Editor-Grafik eingesetzt wird */
+.callout.cx-grafik{border:1.5px dashed var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--panel));color:var(--muted);}
+.callout.cx-grafik .callout-h{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;}
+.callout.cx-grafik p{font-size:15px;margin:.2em 0;}
 .prevnext{display:flex;justify-content:space-between;gap:14px;margin:36px 0 10px;flex-wrap:wrap;}
 .pn{flex:1 1 200px;border:1px solid var(--border);border-radius:12px;padding:12px 15px;font-weight:600;background:var(--panel);}
 .pn span{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-bottom:2px;} .pn.next{text-align:right;}
@@ -355,6 +463,8 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .toc-h{text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px;}
 .toc ul{list-style:none;margin:0;padding:0;} .toc li{margin:5px 0;} .toc a{color:var(--muted);} .toc a.active{color:var(--accent);font-weight:600;}
 .field-block{margin:26px 0;} .field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+.idx-node{margin:10px 0 10px 4px;padding-left:14px;border-left:2px solid var(--border);}
+.idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--muted);font-weight:700;letter-spacing:.01em;}
 .theme-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
 .theme-card h3{font-family:var(--fdisp);margin:0 0 6px;font-size:16px;} .theme-card ul{list-style:none;margin:0;padding:0;} .theme-card li{margin:4px 0;}
 .empty{color:var(--muted);}
@@ -404,7 +514,7 @@ WISSEN_JS = r"""
     hits.sort(function(a,b){return a[0]-b[0];});
     hits.slice(0,25).forEach(function(h){ var d=h[1];
       var a=document.createElement("a"); a.href="/wissen/"+d.path;
-      a.innerHTML='<div class="r-crumb">'+esc(d.fach)+' › '+esc(d.thema)+'</div>'+
+      a.innerHTML='<div class="r-crumb">'+esc(d.crumb||"")+'</div>'+
                   '<div class="r-title">'+esc(d.title)+'</div>'+
                   '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
       results.appendChild(a); rows.push(a);

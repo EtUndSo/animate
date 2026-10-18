@@ -27,7 +27,7 @@
     hits.sort(function(a,b){return a[0]-b[0];});
     hits.slice(0,25).forEach(function(h){ var d=h[1];
       var a=document.createElement("a"); a.href="/wissen/"+d.path;
-      a.innerHTML='<div class="r-crumb">'+esc(d.fach)+' › '+esc(d.thema)+'</div>'+
+      a.innerHTML='<div class="r-crumb">'+esc(d.crumb||"")+'</div>'+
                   '<div class="r-title">'+esc(d.title)+'</div>'+
                   '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
       results.appendChild(a); rows.push(a);

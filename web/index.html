@@ -71,19 +71,22 @@
     #module-search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);}
     .mod-tree{display:flex;flex-direction:column;gap:10px;}
     .mod-fallback{color:var(--muted);}
-    .mod-field{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
-    .mod-field>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;font-family:var(--font-display);font-weight:700;font-size:18px;}
-    .mod-field>summary::-webkit-details-marker{display:none;}
-    .mod-field>summary::before{content:"▸";color:var(--accent);font-size:14px;transition:transform .15s;}
-    .mod-field[open]>summary::before{transform:rotate(90deg);}
-    .mod-field>summary .count{margin-left:auto;font-family:var(--font-body);font-weight:600;font-size:12.5px;color:var(--muted);background:var(--soft);padding:3px 10px;border-radius:999px;}
-    .mod-themen{padding:2px 18px 14px 40px;display:flex;flex-direction:column;gap:4px;}
-    .mod-thema{border-left:2px solid var(--border);padding-left:12px;}
-    .mod-thema>summary{list-style:none;cursor:pointer;padding:6px 4px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px;color:var(--ink);}
-    .mod-thema>summary::-webkit-details-marker{display:none;}
-    .mod-thema>summary::before{content:"▸";color:var(--muted);font-size:12px;transition:transform .15s;}
-    .mod-thema[open]>summary::before{transform:rotate(90deg);}
-    .mod-thema>summary .tcount{margin-left:6px;font-size:12px;color:var(--muted);font-weight:500;}
+    /* oberste Ebene (Studiengang) = Karte; tiefere Ebenen (Semester/Modul/Oberthema) = eingerückte Äste */
+    .mod-node.lvl0{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+    .mod-node.lvl0>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;font-family:var(--font-display);font-weight:700;font-size:18px;}
+    .mod-node.lvl0>summary::-webkit-details-marker{display:none;}
+    .mod-node.lvl0>summary::before{content:"▸";color:var(--accent);font-size:14px;transition:transform .15s;}
+    .mod-node.lvl0[open]>summary::before{transform:rotate(90deg);}
+    .mod-node.lvl0>summary .count{margin-left:auto;font-family:var(--font-body);font-weight:600;font-size:12.5px;color:var(--muted);background:var(--soft);padding:3px 10px;border-radius:999px;}
+    .mod-node.lvl0>.mod-children{padding:2px 18px 14px 22px;display:flex;flex-direction:column;gap:4px;}
+    .mod-node:not(.lvl0){border-left:2px solid var(--border);padding-left:12px;margin-left:4px;}
+    .mod-node:not(.lvl0)>summary{list-style:none;cursor:pointer;padding:6px 4px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px;color:var(--ink);}
+    .mod-node:not(.lvl0)>summary::-webkit-details-marker{display:none;}
+    .mod-node:not(.lvl0)>summary::before{content:"▸";color:var(--muted);font-size:12px;transition:transform .15s;}
+    .mod-node:not(.lvl0)[open]>summary::before{transform:rotate(90deg);}
+    .mod-node.lvl2>summary,.mod-node.lvl3>summary{font-weight:500;font-size:14.5px;color:var(--muted);}
+    .mod-node>summary .tcount{margin-left:6px;font-size:12px;color:var(--muted);font-weight:500;}
+    .mod-children{display:flex;flex-direction:column;gap:3px;}
     .mod-arts{list-style:none;margin:2px 0 8px;padding-left:20px;display:flex;flex-direction:column;gap:2px;}
     .mod-arts a{display:block;padding:5px 8px;border-radius:8px;color:var(--muted);font-size:14.5px;}
     .mod-arts a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
@@ -282,7 +285,7 @@
   (function(){
     var treeEl=document.getElementById("module-tree"), input=document.getElementById("module-search");
     if(!treeEl) return;
-    var fields=[];
+    var roots=[];
     function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,""); }
     function esc(s){ return (s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
     function hl(text,raw){ var e=esc(text), q=raw.trim(); if(!q) return e;
@@ -291,55 +294,57 @@
       if(i<0) return hl(text.slice(0,120),raw)+(text.length>120?"…":"");
       var a=Math.max(0,i-40); return (a>0?"…":"")+hl(text.slice(a,i+q.length+70),raw)+"…"; }
     function el(tag,cls){ var e=document.createElement(tag); if(cls)e.className=cls; return e; }
+    function countArts(n){ var c=(n.articles||[]).length; (n.children||[]).forEach(function(k){c+=countArts(k);}); return c; }
 
-    function render(tree, byPath){
-      treeEl.innerHTML=""; fields=[];
-      tree.forEach(function(f){
-        var det=el("details","mod-field"), sum=el("summary"), nm=el("span"); nm.textContent=f.name;
-        var cnt=el("span","count"); sum.appendChild(nm); sum.appendChild(cnt); det.appendChild(sum);
-        var wrap=el("div","mod-themen"), themen=[], total=0;
-        f.themen.forEach(function(t){
-          var tdet=el("details","mod-thema"); tdet.open=true;
-          var tsum=el("summary"), tnm=el("span"); tnm.textContent=t.name;
-          var tc=el("span","tcount"); tc.textContent=t.articles.length; tsum.appendChild(tnm); tsum.appendChild(tc);
-          tdet.appendChild(tsum);
-          var ul=el("ul","mod-arts"), arts=[];
-          t.articles.forEach(function(a){
-            var li=el("li"), link=el("a"); link.href="/wissen/"+a.path; link.textContent=a.title;
-            var snip=el("span","a-snip"); snip.hidden=true; li.appendChild(link); li.appendChild(snip); ul.appendChild(li);
-            var d=byPath[a.path]||{};
-            arts.push({li:li,a:link,snip:snip,title:a.title,text:d.text||a.summary||"",
-                       ftTitle:d.ft_title||fold(a.title),ftTags:d.ft_tags||"",ftText:d.ft_text||fold(a.summary||"")});
-            total++;
-          });
-          tdet.appendChild(ul); wrap.appendChild(tdet);
-          themen.push({det:tdet,folded:fold(t.name),arts:arts});
+    // Ein Knoten (Studiengang/Semester/Modul/Oberthema) -> <details>; Artikel (Themen) als Links am Blatt.
+    function buildNode(node, byPath, depth, parentEl){
+      var det=el("details","mod-node lvl"+depth); det.open = depth>0;   // oberste Ebene eingeklappt, Rest offen
+      var sum=el("summary"), nm=el("span"); nm.textContent=node.name;
+      var cnt=el("span", depth===0?"count":"tcount");
+      sum.appendChild(nm); sum.appendChild(cnt); det.appendChild(sum);
+      var box=el("div","mod-children"), arts=[];
+      if(node.articles && node.articles.length){
+        var ul=el("ul","mod-arts");
+        node.articles.forEach(function(a){
+          var li=el("li"), link=el("a"); link.href="/wissen/"+a.path; link.textContent=a.title;
+          var snip=el("span","a-snip"); snip.hidden=true; li.appendChild(link); li.appendChild(snip); ul.appendChild(li);
+          var d=byPath[a.path]||{};
+          arts.push({li:li,a:link,snip:snip,title:a.title,text:d.text||a.summary||"",
+                     ftTitle:d.ft_title||fold(a.title),ftTags:d.ft_tags||"",ftText:d.ft_text||fold(a.summary||"")});
         });
-        cnt.textContent=total+" Artikel"; det.appendChild(wrap); treeEl.appendChild(det);
-        fields.push({det:det,folded:fold(f.name),themen:themen});
-      });
+        box.appendChild(ul);
+      }
+      var kids=[];
+      (node.children||[]).forEach(function(c){ kids.push(buildNode(c, byPath, depth+1, box)); });
+      det.appendChild(box); parentEl.appendChild(det);
+      var total=countArts(node); cnt.textContent = depth===0 ? (total+" Artikel") : total;
+      return {det:det, depth:depth, folded:fold(node.name), arts:arts, kids:kids};
     }
-    function reset(){ var nr=treeEl.querySelector(".mod-noresult"); if(nr) nr.remove();
-      fields.forEach(function(f){ f.det.hidden=false; f.det.open=false;
-        f.themen.forEach(function(t){ t.det.hidden=false; t.det.open=true;
-          t.arts.forEach(function(a){ a.li.hidden=false; a.a.textContent=a.title; a.snip.hidden=true; }); }); }); }
+    function render(tree, byPath){
+      treeEl.innerHTML=""; roots=[];
+      tree.forEach(function(n){ roots.push(buildNode(n, byPath, 0, treeEl)); });
+    }
+    function walkReset(v){ v.det.hidden=false; v.det.open=v.depth>0;
+      v.arts.forEach(function(a){ a.li.hidden=false; a.a.textContent=a.title; a.snip.hidden=true; });
+      v.kids.forEach(walkReset); }
+    function reset(){ var nr=treeEl.querySelector(".mod-noresult"); if(nr) nr.remove(); roots.forEach(walkReset); }
+    // Treffer, wenn der Knotenname passt (dann alle Nachkommen zeigen: forced) ODER ein Nachkomme passt.
+    function matchNode(v, nq, raw, forced){
+      var nameM = forced || v.folded.indexOf(nq)>=0, any=false;
+      v.arts.forEach(function(a){
+        var inTitle=a.ftTitle.indexOf(nq)>=0, inTag=a.ftTags.indexOf(nq)>=0, inText=a.ftText.indexOf(nq)>=0;
+        var show=nameM||inTitle||inTag||inText; a.li.hidden=!show;
+        if(show){ a.a.innerHTML=hl(a.title,raw);
+          if(inText && !inTitle){ a.snip.innerHTML=snippet(a.text,raw); a.snip.hidden=false; } else a.snip.hidden=true;
+          any=true;
+        } else { a.a.textContent=a.title; a.snip.hidden=true; }
+      });
+      v.kids.forEach(function(k){ if(matchNode(k,nq,raw,nameM)) any=true; });
+      var show=nameM||any; v.det.hidden=!show; v.det.open=show; return show;
+    }
     function filter(raw){
       var nq=fold(raw.trim()); if(nq.length<2){ reset(); return; }
-      var any=false;
-      fields.forEach(function(f){ var fM=f.folded.indexOf(nq)>=0, fAny=false;
-        f.themen.forEach(function(t){ var tM=t.folded.indexOf(nq)>=0, tAny=false;
-          t.arts.forEach(function(a){
-            var inTitle=a.ftTitle.indexOf(nq)>=0, inTag=a.ftTags.indexOf(nq)>=0, inText=a.ftText.indexOf(nq)>=0;
-            var show=fM||tM||inTitle||inTag||inText; a.li.hidden=!show;
-            if(show){ a.a.innerHTML=hl(a.title,raw);
-              if(inText && !inTitle){ a.snip.innerHTML=snippet(a.text,raw); a.snip.hidden=false; } else a.snip.hidden=true;
-              tAny=true;
-            } else { a.a.textContent=a.title; a.snip.hidden=true; }
-          });
-          var showT=tM||tAny||fM; t.det.hidden=!showT; t.det.open=showT; if(showT) fAny=true;
-        });
-        var showF=fM||fAny; f.det.hidden=!showF; f.det.open=showF; if(showF) any=true;
-      });
+      var any=false; roots.forEach(function(r){ if(matchNode(r,nq,raw,false)) any=true; });
       var nr=treeEl.querySelector(".mod-noresult");
       if(!any){ if(!nr){ nr=el("div","mod-noresult"); treeEl.appendChild(nr); } nr.textContent='Nichts gefunden für „'+raw.trim()+'".'; }
       else if(nr) nr.remove();

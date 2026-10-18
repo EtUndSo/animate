@@ -24,7 +24,9 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::-webkit-details-marker{display:none;}
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
-.side .thema{margin-left:12px;} .side .thema summary{font-weight:500;}
+.side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
+.side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;}
+.side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
 .side li a{display:block;color:var(--muted);padding:3px 7px;border-radius:7px;}
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
@@ -32,17 +34,36 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
 .article>article{min-width:0;max-width:72ch;}
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
-.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;}
-.article h2{font-family:var(--fdisp);font-size:24px;margin:1.6em 0 .4em;letter-spacing:-.01em;scroll-margin-top:66px;}
-.article h3{font-family:var(--fdisp);font-size:19px;margin:1.3em 0 .3em;scroll-margin-top:66px;}
-.article p,.article li{font-size:16.5px;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.1em;}
+.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
+.article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
+.article h3{font-family:var(--fdisp);font-size:19px;margin:1.9em 0 .35em;scroll-margin-top:66px;color:var(--accent2);}
+.article p,.article li{font-size:16.5px;} .article p{margin:0 0 1.15em;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.3em;}
+/* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = blau, Schritt-Marken = rot --- */
+.article strong{color:var(--accent3);}             /* wichtige Ausdrücke/Wörter */
+.article strong.nm{color:var(--accent);}           /* Namen (Größen, Begriffe, Einheiten) */
+.article strong.step{color:var(--accent2);}        /* „Schritt N" */
+/* Formeln/Gleichungen hervorheben: eigene Box mit blauer Border, deutlich größer */
+.article .katex-display{font-size:1.22em;margin:1.15em 0;padding:14px 20px;border:1.5px solid var(--accent);border-radius:12px;
+  background:color-mix(in srgb,var(--accent) 6%,var(--panel));overflow-x:auto;overflow-y:hidden;}
+.article .katex{font-size:1.06em;}                  /* Inline-Mathe einen Tick größer */
 .article img{max-width:100%;border-radius:10px;} .article code{font-family:var(--fmono);font-size:.9em;background:var(--soft);padding:1px 5px;border-radius:5px;}
 .article pre{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px 16px;overflow:auto;} .article pre code{background:none;padding:0;}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
+.table-wrap{overflow-x:auto;margin:1.2em 0;}
+.md-table{border-collapse:collapse;width:100%;font-size:15.5px;}
+.md-table th,.md-table td{padding:8px 12px;border:1px solid var(--border);text-align:left;vertical-align:top;}
+.md-table thead th{background:var(--soft);font-family:var(--fdisp);color:var(--accent);font-weight:700;}
+.md-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 55%,transparent);}
 .callout{margin:1.2em 0;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
-.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;}
+.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: UndSo-blau */
 .callout.cx-konzept{border-left:4px solid var(--accent);} .callout.cx-kern{border-left:4px solid var(--accent2);background:color-mix(in srgb,var(--accent2) 7%,var(--panel));}
+.callout.cx-kern .callout-h{color:var(--accent2);}  /* Kernbox: Titel in Rot, passend zum roten Rand */
 .callout.cx-merke{border-left:4px solid var(--accent3);}
+.callout.cx-satz,.callout.cx-lemma,.callout.cx-definition{border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,var(--panel));}
+/* Abbildungs-Platzhalter: gestrichelte Box mit Beschreibung, bis echte Editor-Grafik eingesetzt wird */
+.callout.cx-grafik{border:1.5px dashed var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--panel));color:var(--muted);}
+.callout.cx-grafik .callout-h{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;}
+.callout.cx-grafik p{font-size:15px;margin:.2em 0;}
 .prevnext{display:flex;justify-content:space-between;gap:14px;margin:36px 0 10px;flex-wrap:wrap;}
 .pn{flex:1 1 200px;border:1px solid var(--border);border-radius:12px;padding:12px 15px;font-weight:600;background:var(--panel);}
 .pn span{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-bottom:2px;} .pn.next{text-align:right;}
@@ -50,6 +71,8 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .toc-h{text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px;}
 .toc ul{list-style:none;margin:0;padding:0;} .toc li{margin:5px 0;} .toc a{color:var(--muted);} .toc a.active{color:var(--accent);font-weight:600;}
 .field-block{margin:26px 0;} .field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+.idx-node{margin:10px 0 10px 4px;padding-left:14px;border-left:2px solid var(--border);}
+.idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--muted);font-weight:700;letter-spacing:.01em;}
 .theme-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
 .theme-card h3{font-family:var(--fdisp);margin:0 0 6px;font-size:16px;} .theme-card ul{list-style:none;margin:0;padding:0;} .theme-card li{margin:4px 0;}
 .empty{color:var(--muted);}
