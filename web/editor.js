@@ -63,7 +63,7 @@ const CATALOG = {
     Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, x_color:"#000000", y_color:"#000000", z_color:"#000000", grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
     // A FunctionGraph is 1D (y=f(x)) for a term in x only, and a 3D SURFACE when the term also uses y
     // (z=f(x,y)) — the surface-only props (fill_opacity, height_color, grid_*) are ignored for a 1D curve.
-    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.5 },
+    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.2 },
   },
   "Mathematik · 3D-Körper": {   // solids live in world coordinates (a 2-variable FunctionGraph is the surface)
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
@@ -230,6 +230,102 @@ const setStatus = (m) => { $("status").textContent = m; };
 
 let renderModel = null, pickFn = null, preparePlay = null, playFrame = null;
 let playing = false, playStart = 0, playDuration = 0, rafId = null;
+
+// ---------- WebGL 3D layer (HYBRID): the GPU draws 3D surfaces smoothly on #view3d BEHIND the 2D
+// canvas; the 2D canvas paints axes/labels/2D/Σ transparently ON TOP. The WebGL projection reproduces
+// camera.project() exactly (orthographic, z-up), so the GPU surface lines up pixel-perfect with the axes. ----------
+let glActive = false;                              // the current scene renders its surface via WebGL
+let glMeshesFn = null, glConstFn = null, setGlEnabledFn = null;
+function curBg(){ return model.background.transparent ? null : hexToRgb(model.background.color); }
+function pullMeshes(){
+  if(!glMeshesFn) return [];
+  let r=glMeshesFn();
+  try{ const js = r && r.toJs ? r.toJs({ dict_converter: Object.fromEntries }) : r; if(r && r.destroy) r.destroy(); return js || []; }
+  catch(e){ try{ if(r && r.destroy) r.destroy(); }catch(_){ } return []; }
+}
+function camDraw(){ if(glActive && gl3d.ok) gl3d.draw(curBg()); }   // redraw the GPU surface for the current camera
+const gl3d = (function(){
+  let gl=null, prog=null, loc=null, C={w:1920,h:1080,upp:8/1080}, meshes=[], ok=false;
+  const VS="attribute vec3 aPos;attribute vec3 aN;attribute float aZ;uniform mat4 uM;varying vec3 vN;varying float vZ;"
+    +"void main(){vN=aN;vZ=aZ;gl_Position=uM*vec4(aPos,1.0);}";
+  const FS="precision highp float;varying vec3 vN;varying float vZ;uniform vec3 uColor,uLight;uniform float uHeight,uOpacity;"
+    +"vec3 hc(float t){return t>=0.5?mix(uColor,vec3(1.0),(t-0.5)*1.4):mix(uColor,vec3(0.0),(0.5-t)*1.4);}"
+    +"void main(){vec3 N=normalize(vN);if(N.z<0.0)N=-N;float d=max(dot(N,normalize(uLight)),0.0);"   // flip like the 2D painter (nrm.z>=0)
+    +"float sh=0.4+0.6*d;vec3 b=(uHeight>0.5)?hc(clamp(vZ,0.0,1.0)):uColor;gl_FragColor=vec4(b*sh,uOpacity);}";
+  function compile(t,s){ const sh=gl.createShader(t); gl.shaderSource(sh,s); gl.compileShader(sh);
+    if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){ console.error("GL shader:",gl.getShaderInfoLog(sh)); return null; } return sh; }
+  function init(){
+    const cv=document.getElementById("view3d"); if(!cv) return false;
+    try{ gl=cv.getContext("webgl",{antialias:true,alpha:true,premultipliedAlpha:true,preserveDrawingBuffer:true}); }catch(e){}
+    if(!gl) return false;
+    const vs=compile(gl.VERTEX_SHADER,VS), fs=compile(gl.FRAGMENT_SHADER,FS); if(!vs||!fs) return false;
+    prog=gl.createProgram(); gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ console.error("GL link:",gl.getProgramInfoLog(prog)); return false; }
+    loc={ pos:gl.getAttribLocation(prog,"aPos"), n:gl.getAttribLocation(prog,"aN"), z:gl.getAttribLocation(prog,"aZ"),
+      M:gl.getUniformLocation(prog,"uM"), color:gl.getUniformLocation(prog,"uColor"), light:gl.getUniformLocation(prog,"uLight"),
+      height:gl.getUniformLocation(prog,"uHeight"), opacity:gl.getUniformLocation(prog,"uOpacity") };
+    gl.enable(gl.DEPTH_TEST); ok=true; return true;
+  }
+  function setConstants(c){ if(c && c.w) C=c; }
+  const f32=(u8)=> new Float32Array(u8.slice().buffer), u16=(u8)=> new Uint16Array(u8.slice().buffer);
+  function free(){ meshes.forEach(m=>{ gl.deleteBuffer(m.p); gl.deleteBuffer(m.n); gl.deleteBuffer(m.z); gl.deleteBuffer(m.i); }); meshes=[]; }
+  function setMeshes(arr){
+    if(!ok) return; free(); if(!arr) return;
+    (arr.length!==undefined?arr:[]).forEach(function(m){
+      const p=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,p); gl.bufferData(gl.ARRAY_BUFFER,f32(m.pos),gl.STATIC_DRAW);
+      const n=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,n); gl.bufferData(gl.ARRAY_BUFFER,f32(m.nrm),gl.STATIC_DRAW);
+      const z=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,z); gl.bufferData(gl.ARRAY_BUFFER,f32(m.zt),gl.STATIC_DRAW);
+      const i=gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,i); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,u16(m.idx),gl.STATIC_DRAW);
+      meshes.push({ p:p,n:n,z:z,i:i, count:m.count, color:m.color||[0.2,0.5,0.9], opacity:(m.opacity==null?1:m.opacity), height:!!m.height });
+    });
+  }
+  function camM(){                                 // world -> clip, matching camera.project() exactly
+    const cam=model.camera||{}, th=cam.theta||0, ph=cam.phi||0, zoom=cam.zoom||1;
+    const ct=Math.cos(th),st=Math.sin(th),ce=Math.cos(ph),se=Math.sin(ph);
+    const c=[ce*ct,ce*st,se], fwd=[-c[0],-c[1],-c[2]];
+    let r=[fwd[1]*1-fwd[2]*0, fwd[2]*0-fwd[0]*1, fwd[0]*0-fwd[1]*0];   // cross(fwd,[0,0,1])
+    let rl=Math.hypot(r[0],r[1],r[2]); r = rl>1e-9?[r[0]/rl,r[1]/rl,r[2]/rl]:[1,0,0];
+    let u=[r[1]*fwd[2]-r[2]*fwd[1], r[2]*fwd[0]-r[0]*fwd[2], r[0]*fwd[1]-r[1]*fwd[0]];
+    let ul=Math.hypot(u[0],u[1],u[2])||1; u=[u[0]/ul,u[1]/ul,u[2]/ul];
+    const upp=C.upp/(zoom||1), a=1/(upp*C.w/2), b=1/(upp*C.h/2), D=100, cz=1/D;
+    return new Float32Array([ r[0]*a, u[0]*b, -c[0]*cz, 0,  r[1]*a, u[1]*b, -c[1]*cz, 0,
+                              r[2]*a, u[2]*b, -c[2]*cz, 0,  0,0,0,1 ]);
+  }
+  function draw(bg){
+    if(!ok) return;
+    if(gl.canvas.width!==C.w) gl.canvas.width=C.w; if(gl.canvas.height!==C.h) gl.canvas.height=C.h;
+    gl.viewport(0,0,C.w,C.h);
+    if(bg) gl.clearColor(bg[0],bg[1],bg[2],1); else gl.clearColor(0,0,0,0);
+    gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+    if(!meshes.length) return;
+    gl.useProgram(prog); gl.uniformMatrix4fv(loc.M,false,camM()); gl.uniform3fv(loc.light,[0.4,0.6,0.75]);
+    meshes.forEach(function(m){
+      gl.uniform3fv(loc.color,m.color); gl.uniform1f(loc.height,m.height?1:0); gl.uniform1f(loc.opacity,m.opacity);
+      if(m.opacity<1){ gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA); } else gl.disable(gl.BLEND);
+      gl.bindBuffer(gl.ARRAY_BUFFER,m.p); gl.enableVertexAttribArray(loc.pos); gl.vertexAttribPointer(loc.pos,3,gl.FLOAT,false,0,0);
+      gl.bindBuffer(gl.ARRAY_BUFFER,m.n); gl.enableVertexAttribArray(loc.n); gl.vertexAttribPointer(loc.n,3,gl.FLOAT,false,0,0);
+      gl.bindBuffer(gl.ARRAY_BUFFER,m.z); gl.enableVertexAttribArray(loc.z); gl.vertexAttribPointer(loc.z,1,gl.FLOAT,false,0,0);
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,m.i); gl.drawElements(gl.TRIANGLES,m.count,gl.UNSIGNED_SHORT,0);
+    });
+  }
+  function clear(){ if(ok){ gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT); } }
+  return { init:init, setConstants:setConstants, setMeshes:setMeshes, draw:draw, clear:clear,
+           canvas:function(){ return gl?gl.canvas:null; }, get ok(){ return ok; } };
+})();
+// After a (re)build: if the backend says the scene has a GL surface ("ok:gl"), upload + draw it and make
+// the 2D canvas transparent (.gl); otherwise hide the GL layer and keep the pure-2D path unchanged.
+let _glFailed = false;                             // once the GL layer errors, disable it for good -> 2D fallback
+function syncGL(res){
+  const wrap=document.querySelector(".view-wrap");
+  glActive = (String(res)==="ok:gl") && gl3d.ok;
+  if(glActive){
+    try{ gl3d.setMeshes(pullMeshes()); gl3d.draw(curBg()); }
+    catch(e){ console.error("WebGL layer failed — falling back to the 2D surface:", e); glActive=false;
+      if(setGlEnabledFn && !_glFailed){ _glFailed=true; try{ setGlEnabledFn(false); }catch(_){ } renderPreview(); } }   // re-render flat
+  }
+  else if(gl3d.ok){ gl3d.clear(); }
+  if(wrap) wrap.classList.toggle("gl", glActive);
+}
 // Animations, grouped by KIND OF MOTION (appear/disappear vs. move).
 const ANIM_GROUPS = {
   "Erscheinen": ["Create", "FadeIn", "Write", "GrowFromCenter"],
@@ -345,6 +441,7 @@ function exitLowDetail(){
     if(endLodFn){ try{ endLodFn(); }catch(_){} }    // restore the already-built full scene (no rebuild -> instant)
   }
   if(typeof refreshMoveGizmo==="function") refreshMoveGizmo();   // reposition the move arrows for the new camera
+  camDraw();                                        // redraw the GPU surface for the settled camera
   invalidateFrameCache();                           // the camera changed -> pre-rendered frames are stale
   saveLocal();                                      // persist the new camera either way
 }
@@ -432,7 +529,7 @@ function _tweenCamera(tTheta, tPhi){
     const e=a<.5 ? 2*a*a : 1-Math.pow(-2*a+2,2)/2;                   // easeInOutQuad
     model.camera.theta=t0+dT*e; model.camera.phi=p0+dP*e;
     if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);
-    drawViewCube(); drawCamGizmo();
+    camDraw(); drawViewCube(); drawCamGizmo();
     if(a<1) requestAnimationFrame(step); else exitLowDetail();      // snap back to full detail at the end
   })(performance.now());
 }
@@ -538,7 +635,7 @@ function initCamGizmo(){
       let d=ang-gizPrevAng; d=((d+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI; gizPrevAng=ang;
       _setCamVec(_rotAround(_camVec(model.camera.theta, model.camera.phi), gizDrag.ring.axis, d));
       if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);
-      drawViewCube(); drawCamGizmo();
+      camDraw(); drawViewCube(); drawCamGizmo();
       return;
     }
     const ring=_gizRingAt(mx,my);
@@ -571,6 +668,7 @@ function _doRender(){
   try { res = renderModel(JSON.stringify(toPythonModel())); }
   catch(e){ console.error(e); setStatus("Render error: " + e.message); return; }
   setStatus(String(res).startsWith("error") ? "⚠ " + res + " (last frame kept)" : "Ready ✓");
+  syncGL(res);                         // WebGL surface layer: upload + draw, or hide (2D-only scenes)
   if(typeof drawViewCube==="function") drawViewCube();   // keep the nav-cube in sync with the camera
   if(typeof drawCamGizmo==="function") drawCamGizmo();   // and the rotation gizmo
   if(typeof refreshMoveGizmo==="function") refreshMoveGizmo();   // and the selected object's move arrows
@@ -749,10 +847,18 @@ function invalidateFrameCache(){ if(frameCache){ for(const b of frameCache.frame
 function showPrerender(frac){ const o=$("prerender-overlay"); if(!o) return; o.style.display="flex"; const p=$("prerender-pct"); if(p) p.textContent="Berechne … "+Math.round(frac*100)+" %"; }
 function hidePrerender(){ const o=$("prerender-overlay"); if(o) o.style.display="none"; }
 
+function _compositeSource(canvas){                 // in GL mode, flatten #view3d (surface) + #view (2D) into one canvas
+  if(!glActive) return canvas;
+  const g=gl3d.canvas(); if(!g) return canvas;
+  const off=document.createElement("canvas"); off.width=canvas.width; off.height=canvas.height;
+  const c=off.getContext("2d"); c.drawImage(g,0,0,off.width,off.height); c.drawImage(canvas,0,0,off.width,off.height);
+  return off;
+}
 async function _snapshot(canvas, W, H){            // grab the current canvas as a (possibly downscaled) bitmap
+  const src=_compositeSource(canvas);
   const full = (W===canvas.width && H===canvas.height);   // at full res: plain copy, NO resample -> pixel-perfect
-  try{ return full ? await createImageBitmap(canvas) : await createImageBitmap(canvas, { resizeWidth:W, resizeHeight:H, resizeQuality:"high" }); }
-  catch(e){ const off=document.createElement("canvas"); off.width=W; off.height=H; off.getContext("2d").drawImage(canvas,0,0,W,H); return await createImageBitmap(off); }
+  try{ return full ? await createImageBitmap(src) : await createImageBitmap(src, { resizeWidth:W, resizeHeight:H, resizeQuality:"high" }); }
+  catch(e){ const off=document.createElement("canvas"); off.width=W; off.height=H; off.getContext("2d").drawImage(src,0,0,W,H); return await createImageBitmap(off); }
 }
 // Render frames 0..N into the cache, picking an fps/resolution that fits the memory budget. Returns true
 // on success, false if even the smallest setting is over budget (caller falls back to live playback).
@@ -815,6 +921,7 @@ async function startPlay(){
   if(!_prepare()){ setStatus("Nothing to play — add an animation, or an animated operation."); return; }
   if(!paused || playT>=playDuration) playT=0;        // fresh play, unless resuming a pause
   paused=false;
+  camDraw();                                         // ensure the GPU surface is drawn before pre-rendering frames
   prerendering=true; prerenderAbort=false;
   let ok=false; try{ ok=await prerender(); }catch(e){ console.error(e); }
   prerendering=false; hidePrerender();
@@ -829,7 +936,7 @@ function endPlay(){
   if(frameCache){ paused=false; playT=frameCache.dur; _blit(frameCache.frames.length-1); updateSumOverlay(1); setStatus("End ✓"); return; }
   if(!preparePlay || !_prepare()) return;
   paused=false; if(rafId) cancelAnimationFrame(rafId);
-  playT=playDuration; playFrame(playDuration); updateSumOverlay(1); setStatus("End ✓");
+  camDraw(); playT=playDuration; playFrame(playDuration); updateSumOverlay(1); setStatus("End ✓");
 }
 
 // ---------- save / load (download a .json, re-open it, + autosave to the browser) ----------
@@ -1611,6 +1718,12 @@ async function boot(){
   projFn = pyodide.globals.get("proj");
   nudgeFn = pyodide.globals.get("nudge_object");
   bgFn = pyodide.globals.get("set_background");
+  glMeshesFn = pyodide.globals.get("gl_meshes");
+  glConstFn = pyodide.globals.get("gl_constants");
+  setGlEnabledFn = pyodide.globals.get("set_gl_enabled");
+  // Start the WebGL 3D layer. If it fails (no WebGL), tell Python so it keeps the flat CPU surface.
+  let _glok=false; try{ _glok=gl3d.init(); if(_glok && glConstFn){ try{ gl3d.setConstants(JSON.parse(glConstFn())); }catch(e){} } }catch(e){ console.error(e); }
+  if(setGlEnabledFn){ try{ setGlEnabledFn(!!_glok); }catch(e){} }
   // Canvas interaction: in 3D, drag = orbit the camera (fast repaint); a click without dragging
   // selects (pick). In 2D, a click selects. The mouse wheel zooms in/out in both modes.
   const VC_LIMIT = Math.PI/2 - 0.03;        // vertical orbit limit (both above and below the plane)
@@ -1647,7 +1760,7 @@ async function boot(){
       // Direct-manipulation feel: dragging UP tilts the camera DOWN (grab-and-pull), hence + dy.
       model.camera.phi = Math.max(-VC_LIMIT, Math.min(VC_LIMIT, ph0 + dy*0.01));
       if(orbitFn) orbitFn(model.camera.theta, model.camera.phi);      // re-aim only, no rebuild
-      drawViewCube(); drawCamGizmo();
+      camDraw(); drawViewCube(); drawCamGizmo();
       return;
     }
     if(!playing){                                 // hover: highlight an axis arrow under the cursor
@@ -1676,6 +1789,7 @@ async function boot(){
     const f = Math.exp(-e.deltaY * 0.0015);                 // smooth multiplicative zoom
     model.camera.zoom = Math.max(0.2, Math.min(8, (model.camera.zoom||1) * f));
     if(zoomFn) zoomFn(model.camera.zoom);                   // fast repaint (no rebuild)
+    camDraw();                                              // rescale the GPU surface with the zoom
     clearTimeout(_zoomTimer); _zoomTimer=setTimeout(()=>{ exitLowDetail(); renderPreview(); saveLocal(); }, 180);  // rebuild -> axis ticks refine to the zoom
   };
   initViewCube(); initCamGizmo();
@@ -1740,7 +1854,7 @@ function _vidSupported(mime){ try{ return typeof MediaRecorder!=="undefined" && 
 
 function exportPng(f){
   f = f || IMG_FORMATS[0];
-  $("view").toBlob((blob)=>{
+  _compositeSource($("view")).toBlob((blob)=>{          // flatten GPU surface + 2D canvas in GL mode
     if(!blob){ setStatus("⚠ Export fehlgeschlagen"); return; }
     const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="scene."+f.ext; a.click(); URL.revokeObjectURL(a.href);
     setStatus("Bild gespeichert ✓ (scene."+f.ext+")");
@@ -1752,12 +1866,18 @@ function exportVideo(f){
   if(playing || _recording){ setStatus("Busy — erst die Wiedergabe stoppen."); return; }
   if(!preparePlay || !_prepare()){ setStatus("Nichts aufzunehmen — füge eine Animation oder animierte Operation hinzu."); return; }
   const canvas=$("view");
-  if(!canvas.captureStream || typeof MediaRecorder==="undefined"){ setStatus("⚠ Video wird von diesem Browser nicht unterstützt."); return; }
+  // In GL mode, record a COMPOSITE canvas (GPU surface + 2D overlay) so the surface is in the video too.
+  const capCanvas = glActive ? Object.assign(document.createElement("canvas"),{width:canvas.width,height:canvas.height}) : canvas;
+  const capCtx = glActive ? capCanvas.getContext("2d") : null;
+  const composite = ()=>{ if(!glActive) return; const g=gl3d.canvas();
+    capCtx.clearRect(0,0,capCanvas.width,capCanvas.height); if(g) capCtx.drawImage(g,0,0,capCanvas.width,capCanvas.height);
+    capCtx.drawImage(canvas,0,0,capCanvas.width,capCanvas.height); };
+  if(!capCanvas.captureStream || typeof MediaRecorder==="undefined"){ setStatus("⚠ Video wird von diesem Browser nicht unterstützt."); return; }
   f = f || VID_FORMATS.find(v=>_vidSupported(v.mime)) || { mime:"", ext:"webm" };
   const fps=30;
   let stream, track, manual=false;
-  try{ stream=canvas.captureStream(0); track=stream.getVideoTracks()[0]; manual=!!(track && track.requestFrame); }catch(e){ stream=null; }
-  if(!stream || !manual){ try{ stream=canvas.captureStream(fps); track=stream.getVideoTracks()[0]; }catch(e){ setStatus("⚠ captureStream nicht verfügbar."); return; } manual=false; }
+  try{ stream=capCanvas.captureStream(0); track=stream.getVideoTracks()[0]; manual=!!(track && track.requestFrame); }catch(e){ stream=null; }
+  if(!stream || !manual){ try{ stream=capCanvas.captureStream(fps); track=stream.getVideoTracks()[0]; }catch(e){ setStatus("⚠ captureStream nicht verfügbar."); return; } manual=false; }
   let rec; try{ rec=new MediaRecorder(stream, f.mime?{mimeType:f.mime, videoBitsPerSecond:12000000}:{}); }
   catch(e){ setStatus("⚠ Recorder: "+e.message); return; }
   const chunks=[];
@@ -1768,7 +1888,7 @@ function exportVideo(f){
     _recording=false; playing=false; setStatus("Animation gespeichert ✓ (animation."+f.ext+")"); renderPreview();
   };
   _recording=true; playing=true;                         // block edits / LOD / other playback while capturing
-  playFrame(0); updateSumOverlay(0);
+  camDraw(); playFrame(0); updateSumOverlay(0); composite();
   try{ rec.start(); }catch(e){ _recording=false; playing=false; setStatus("⚠ "+e.message); return; }
   setStatus("● Nehme Animation auf …");
   const startWall=performance.now();
@@ -1776,7 +1896,7 @@ function exportVideo(f){
   const step=()=>{
     if(!_recording) return;
     const t=Math.min(frame/fps, playDuration);
-    playFrame(t); updateSumOverlay(t/Math.max(1e-6,playDuration));
+    playFrame(t); updateSumOverlay(t/Math.max(1e-6,playDuration)); composite();
     if(manual && track.requestFrame) track.requestFrame();   // push THIS rendered frame -> never dropped
     frame++;
     if(frame>total){ setTimeout(()=>{ if(rec.state!=="inactive") rec.stop(); }, 120); return; }
@@ -1828,6 +1948,7 @@ function repaintBg(){
   if(!bgFn) return false;
   const bg = model.background.transparent ? null : hexToRgb(model.background.color);
   try{ bgFn(JSON.stringify(bg)); }catch(e){ return false; }
+  camDraw();                                        // GL clears to the new backdrop colour too
   return true;
 }
 

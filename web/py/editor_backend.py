@@ -2,6 +2,7 @@ import json
 import numpy as np
 from engine.scene_model import ModelScene
 from engine.renderer import paint_scene
+from engine.constants import PIXEL_WIDTH, PIXEL_HEIGHT, FRAME_HEIGHT
 from canvas_painter import CanvasPainter
 
 # js_ctx / js_w / js_h come from JavaScript (pyodide.globals.set in editor.js).
@@ -10,6 +11,7 @@ _last_scene = None
 _last_bg = [1.0, 1.0, 1.0]
 _last_axtop = True                               # axes drawn on top of objects (vs realistic occlusion)
 _play = None                                     # {"scene":..., "bg":..., "axtop":...} while playing
+_GL_ENABLED = False                              # set by JS once WebGL inits; gates the hybrid 3D path
 
 
 def render_model(json_str):
@@ -25,12 +27,12 @@ def render_model(json_str):
         return "error: " + str(e)               # invalid -> leave the previous frame untouched
     bg = model.get("background", [1.0, 1.0, 1.0])       # None -> transparent
     axtop = bool(model.get("axes_on_top", False))
-    paint_scene(painter, scene.objectList, scene.camera, background=bg, axes_on_top=axtop)
     _last_scene = scene
     _last_bg = bg
     _last_axtop = axtop
     _lod_scene = None                           # any edit invalidates a stale low-detail copy
-    return "ok"
+    _paint(scene, bg, axtop)
+    return "ok:gl" if _gl_on(scene) else "ok"   # ':gl' tells JS to draw the WebGL surface layer
 
 
 _lod_scene = None                                # a reduced-resolution copy shown during camera moves
@@ -38,6 +40,68 @@ _lod_scene = None                                # a reduced-resolution copy sho
 
 def _active():
     return _lod_scene if _lod_scene is not None else _last_scene
+
+
+# ---------- WebGL hybrid layer: the GPU draws 3D surfaces, the 2D canvas paints everything else ----------
+def set_gl_enabled(flag):
+    """JS reports whether the WebGL layer initialised. If not, we never skip the surface in the 2D
+    painter, so the scene falls back to the (flat) CPU-painted surface — the editor still works."""
+    global _GL_ENABLED
+    _GL_ENABLED = bool(flag)
+
+
+def gl_constants():
+    """Fixed projection constants so JS can build a camera matrix matching camera.project() exactly."""
+    return json.dumps({"w": PIXEL_WIDTH, "h": PIXEL_HEIGHT, "upp": FRAME_HEIGHT / PIXEL_HEIGHT})
+
+
+def _gl_objs(scene):
+    out = []
+    def scan(o):
+        if getattr(o, "_gl_mesh", None) is not None and getattr(o, "_gl", False):
+            out.append(o)
+        for s in getattr(o, "subObjects", []):
+            scan(s)
+    for o in getattr(scene, "objectList", []):
+        scan(o)
+    return out
+
+
+def _gl_on(scene):
+    return (_GL_ENABLED and scene is not None
+            and getattr(getattr(scene, "camera", None), "mode", "2d") == "3d"
+            and bool(_gl_objs(scene)))
+
+
+def _paint(scene, bg, axtop):
+    """Paint `scene` to the 2D canvas. When the WebGL layer owns the 3D surface: paint TRANSPARENT and
+    SKIP the surface, so the GPU surface (behind) shows through and axes/labels sit on top. Otherwise
+    the normal opaque 2D paint (unchanged behaviour)."""
+    if _gl_on(scene):
+        paint_scene(painter, scene.objectList, scene.camera, background=None, axes_on_top=axtop, skip_gl=True)
+    else:
+        paint_scene(painter, scene.objectList, scene.camera, background=bg, axes_on_top=axtop)
+
+
+def gl_active():
+    return _gl_on(_active())
+
+
+def gl_meshes():
+    """Surface meshes (WORLD coords) of the ACTIVE scene for the WebGL layer; [] when GL isn't active.
+    Byte fields become Uint8Array on the JS side; JS views them as Float32/Uint16 arrays."""
+    sc = _active()
+    if not _gl_on(sc):
+        return []
+    out = []
+    for o in _gl_objs(sc):
+        g = o._gl_mesh
+        out.append({"pos": g["pos"], "nrm": g["nrm"], "idx": g["idx"], "zt": g["zt"],
+                    "count": g["count"], "z0": g["z0"], "z1": g["z1"],
+                    "color": list(getattr(o, "_gl_color", [0.35, 0.60, 0.92])),
+                    "opacity": float(getattr(o, "_gl_opacity", 1.0)),
+                    "height": bool(getattr(o, "_gl_height", False))})
+    return out
 
 
 def begin_lod(json_str):
@@ -52,9 +116,7 @@ def begin_lod(json_str):
         _lod_scene = None
         return
     _lod_scene = scene
-    paint_scene(painter, scene.objectList, scene.camera,
-                background=model.get("background", [1.0, 1.0, 1.0]),
-                axes_on_top=bool(model.get("axes_on_top", False)))
+    _paint(scene, model.get("background", [1.0, 1.0, 1.0]), bool(model.get("axes_on_top", False)))
 
 
 def end_lod():
@@ -69,7 +131,7 @@ def end_lod():
         _last_scene.camera.zoom = c.zoom
     _lod_scene = None
     if _last_scene is not None:
-        paint_scene(painter, _last_scene.objectList, _last_scene.camera, background=_last_bg, axes_on_top=_last_axtop)
+        _paint(_last_scene, _last_bg, _last_axtop)
 
 
 def orbit(theta, phi):
@@ -78,7 +140,7 @@ def orbit(theta, phi):
     if sc is None or getattr(sc.camera, "mode", "2d") != "3d":
         return
     sc.camera.orient(theta, phi)
-    paint_scene(painter, sc.objectList, sc.camera, background=_last_bg, axes_on_top=_last_axtop)
+    _paint(sc, _last_bg, _last_axtop)
 
 
 def zoom_to(z):
@@ -87,7 +149,7 @@ def zoom_to(z):
     if sc is None:
         return
     sc.camera.zoom = float(z) or 1.0
-    paint_scene(painter, sc.objectList, sc.camera, background=_last_bg, axes_on_top=_last_axtop)
+    _paint(sc, _last_bg, _last_axtop)
 
 
 def pick(px, py):
@@ -160,7 +222,7 @@ def nudge_object(oid, dx, dy, dz):
     if obj is None:
         return
     obj.shift(np.array([float(dx), float(dy), float(dz)], dtype=float))
-    paint_scene(painter, sc.objectList, sc.camera, background=_last_bg, axes_on_top=_last_axtop)
+    _paint(sc, _last_bg, _last_axtop)
 
 
 def set_background(bg_json):
@@ -177,7 +239,7 @@ def set_background(bg_json):
     except Exception:
         return
     _last_bg = bg
-    paint_scene(painter, sc.objectList, sc.camera, background=bg, axes_on_top=_last_axtop)
+    _paint(sc, bg, _last_axtop)
 
 
 def prepare_play(json_str):
@@ -203,4 +265,4 @@ def play_frame(t):
         return
     sc = _play["scene"]
     sc.seek(t)
-    paint_scene(painter, sc.objectList, sc.camera, background=_play["bg"], axes_on_top=_play["axtop"])
+    _paint(sc, _play["bg"], _play["axtop"])

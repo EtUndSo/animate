@@ -113,13 +113,18 @@ def _paint_3d(painter, objectList, camera, axes_on_top=True):
                 _paint_center(painter, o, camera)
 
 
-def paint_scene(painter, objectList, camera=None, background=(1.0, 1.0, 1.0), axes_on_top=True):
+def paint_scene(painter, objectList, camera=None, background=(1.0, 1.0, 1.0), axes_on_top=True, skip_gl=False):
     """Paint the background, then every object. In 3D, leaves are drawn far-to-near (painter's
     algorithm) so nearer faces correctly cover farther ones. With axes_on_top (default) the coordinate
     axes are drawn last so they stay visible in front of all objects; with axes_on_top=False the axes
-    sit in the normal draw/depth order (realistic occlusion)."""
+    sit in the normal draw/depth order (realistic occlusion).
+
+    skip_gl: omit objects flagged `_gl` (rendered by the WebGL layer instead) — the editor then paints
+    this 2D canvas transparently ON TOP of the WebGL surface."""
     camera = camera or _DEFAULT_CAMERA
     painter.background(background)
+    if skip_gl:
+        objectList = [o for o in objectList if not getattr(o, "_gl", False)]
     if getattr(camera, "mode", "2d") == "3d":
         _paint_3d(painter, objectList, camera, axes_on_top)
     elif axes_on_top:

@@ -57,6 +57,54 @@ def _surface_kw(args, style):
         kw["height_color"] = bool(args["height_color"])
     return kw
 
+
+def _gl_surface_mesh(func2, axes, n):
+    """WebGL-ready surface mesh in WORLD coordinates: positions + per-vertex (smooth) normals +
+    triangle indices + a 0..1 height field. Uses the SAME affine mapping as coords_to_point so the
+    GPU surface lines up pixel-perfect with the 2D-painted axes. Returns raw little-endian bytes
+    (handed straight to typed arrays in JS)."""
+    xs = np.linspace(axes.x_min, axes.x_max, n + 1)
+    ys = np.linspace(axes.y_min, axes.y_max, n + 1)
+    X, Y = np.meshgrid(xs, ys)
+    try:                                                    # vectorised eval (sin/cos/exp/… over arrays)
+        Z = np.asarray(func2(X, Y), dtype=float)
+        if Z.shape != X.shape:
+            raise ValueError
+    except Exception:                                       # fall back to element-wise for odd functions
+        Z = np.empty_like(X)
+        for j in range(X.shape[0]):
+            for i in range(X.shape[1]):
+                try:
+                    Z[j, i] = float(func2(X[j, i], Y[j, i]))
+                except Exception:
+                    Z[j, i] = np.nan
+    Z = np.nan_to_num(Z, nan=0.0, posinf=0.0, neginf=0.0)
+    z0, z1 = float(Z.min()), float(Z.max())
+    ax = axes.x_length / (axes.x_max - axes.x_min)
+    ay = axes.y_length / (axes.y_max - axes.y_min)
+    az = axes.z_length / (axes.z_max - axes.z_min)
+    pos = np.empty((X.size, 3), dtype=np.float32)
+    pos[:, 0] = (X * ax - axes.x_min * ax - axes.x_length / 2.0).ravel()
+    pos[:, 1] = (Y * ay - axes.y_min * ay - axes.y_length / 2.0).ravel()
+    pos[:, 2] = (Z * az).ravel()
+    m = n + 1
+    rng = np.arange(n)
+    ii, jj = np.meshgrid(rng, rng)
+    a = (jj * m + ii).ravel()
+    tris = np.empty((a.size, 6), dtype=np.int64)
+    tris[:, 0] = a; tris[:, 1] = a + m; tris[:, 2] = a + 1          # two triangles per cell
+    tris[:, 3] = a + 1; tris[:, 4] = a + m; tris[:, 5] = a + m + 1
+    idx = tris.reshape(-1)
+    t = idx.reshape(-1, 3)
+    fn = np.cross(pos[t[:, 1]] - pos[t[:, 0]], pos[t[:, 2]] - pos[t[:, 0]])   # per-face normals
+    nrm = np.zeros((pos.shape[0], 3), dtype=np.float64)
+    np.add.at(nrm, t[:, 0], fn); np.add.at(nrm, t[:, 1], fn); np.add.at(nrm, t[:, 2], fn)
+    ln = np.linalg.norm(nrm, axis=1, keepdims=True); ln[ln == 0] = 1.0
+    nrm = (nrm / ln).astype(np.float32)
+    zt = ((Z - z0) / (z1 - z0 + 1e-9)).ravel().astype(np.float32)
+    return {"pos": pos.tobytes(), "nrm": nrm.tobytes(), "idx": idx.astype(np.uint16).tobytes(),
+            "zt": zt.tobytes(), "count": int(idx.size), "z0": z0, "z1": z1}
+
 # --- registries: add a class here to expose it to the editor + code + interpreter ---
 OBJECT_TYPES = {
     "Axes": Axes, "Circle": Circle, "Dot": Dot, "Line": Line, "Polygon": Polygon,
@@ -233,8 +281,22 @@ def _build_object(spec, objects, axes=None):
     elif t == "FunctionGraph" and axes is not None:         # follow the scene's axes (range + scale)
         raw = str(spec.get("args", {}).get("func", "0"))
         if _is_surface(raw):                                # BOTH x and y -> it IS a surface
-            obj = axes.plot_surface(func2_from_expr(raw), shade=_SHADOWS, **_surface_kw(args, style))
+            func2 = func2_from_expr(raw)
+            obj = axes.plot_surface(func2, shade=_SHADOWS, **_surface_kw(args, style))
+            # Also build a WebGL mesh for the surface (smooth GPU shading). The 2D polygons above stay
+            # (for picking/bbox and as fallback); the backend flags the object `_gl` so the 2D painter
+            # SKIPS it when WebGL is active, and the GPU draws it instead. Only in 3D mode.
+            try:
+                n = int(args.get("res_max", args.get("resolution", 64)) or 64)
+                obj._gl_mesh = _gl_surface_mesh(func2, axes, max(8, min(n, 250)))
+                obj._gl_color = [float(c) for c in style.get("color", (0.35, 0.60, 0.92))]
+                obj._gl_opacity = float(style.get("fill_opacity", 1.0))
+                obj._gl_height = bool(args.get("height_color", False))
+                obj._gl = (_CAM_MODE == "3d")
+            except Exception:
+                obj._gl = False                              # any trouble -> keep the 2D-painted surface
         else:
+            style.pop("fill_opacity", None); style.pop("fill_color", None)   # a 1D curve is a STROKE, never a filled area
             f = args["func"]
             xr = args.get("x_range")                        # x = plotted domain (per function)
             yr = (axes.y_min, axes.y_max)                   # y value range (Wertebereich) ALWAYS from the Axes

@@ -64,6 +64,33 @@
     .card .status{margin-top:auto;padding-top:10px;font-size:12px;color:var(--muted);}
     .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent3);margin-right:6px;vertical-align:middle;}
 
+    /* --- interaktive Modul-/Themen-Übersicht (#module) --- */
+    .mod-searchwrap{position:relative;margin:4px 0 18px;}
+    .mod-searchicon{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.6;font-size:15px;pointer-events:none;}
+    #module-search{width:100%;padding:13px 16px 13px 40px;border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;font-size:16px;}
+    #module-search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);}
+    .mod-tree{display:flex;flex-direction:column;gap:10px;}
+    .mod-fallback{color:var(--muted);}
+    .mod-field{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+    .mod-field>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;font-family:var(--font-display);font-weight:700;font-size:18px;}
+    .mod-field>summary::-webkit-details-marker{display:none;}
+    .mod-field>summary::before{content:"▸";color:var(--accent);font-size:14px;transition:transform .15s;}
+    .mod-field[open]>summary::before{transform:rotate(90deg);}
+    .mod-field>summary .count{margin-left:auto;font-family:var(--font-body);font-weight:600;font-size:12.5px;color:var(--muted);background:var(--soft);padding:3px 10px;border-radius:999px;}
+    .mod-themen{padding:2px 18px 14px 40px;display:flex;flex-direction:column;gap:4px;}
+    .mod-thema{border-left:2px solid var(--border);padding-left:12px;}
+    .mod-thema>summary{list-style:none;cursor:pointer;padding:6px 4px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px;color:var(--ink);}
+    .mod-thema>summary::-webkit-details-marker{display:none;}
+    .mod-thema>summary::before{content:"▸";color:var(--muted);font-size:12px;transition:transform .15s;}
+    .mod-thema[open]>summary::before{transform:rotate(90deg);}
+    .mod-thema>summary .tcount{margin-left:6px;font-size:12px;color:var(--muted);font-weight:500;}
+    .mod-arts{list-style:none;margin:2px 0 8px;padding-left:20px;display:flex;flex-direction:column;gap:2px;}
+    .mod-arts a{display:block;padding:5px 8px;border-radius:8px;color:var(--muted);font-size:14.5px;}
+    .mod-arts a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
+    .mod-arts .a-snip{display:block;font-size:12.5px;color:var(--muted);opacity:.85;padding:0 8px 4px;}
+    .mod-tree mark{background:color-mix(in srgb,var(--accent3) 55%,transparent);color:inherit;border-radius:3px;padding:0 1px;}
+    .mod-noresult{color:var(--muted);padding:6px 2px;}
+
     .feature{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:30px;display:flex;gap:30px;align-items:center;flex-wrap:wrap;}
     .feature .txt{flex:1 1 320px;min-width:0;}
     .feature h2{font-family:var(--font-display);margin:.1em 0 .45em;font-size:clamp(21px,3vw,27px);letter-spacing:-0.02em;}
@@ -98,7 +125,7 @@
   <header class="site">
     <div class="brand">Et<span>UndSo</span></div>
     <nav>
-      <a class="lnk" href="#module">Module</a>
+      <a class="lnk" href="/wissen/">Wissen</a>
       <a class="lnk" href="#editor">Editor</a>
       <a class="lnk" href="#videos">Videos</a>
       <a class="navcta" href="editor.html">Editor öffnen</a>
@@ -136,29 +163,18 @@
       <div class="sec-head">
         <span class="eyebrow">Module</span>
         <h2>Fächer & Themen</h2>
-        <p>Nach und nach wachsen hier ausführliche Erklärungen zu den Modulen — vom ersten Konzept bis
-           zum klausurrelevanten Detail.</p>
+        <p>Ein Fach anklicken, um seinen Themenbaum aufzuklappen — oder direkt suchen: nach Modul, Thema
+           oder einem Begriff mitten im Artikeltext.</p>
       </div>
-      <div class="cards">
-        <div class="card m1"><span class="tag">ET</span><h3>Grundlagen & Schaltungstechnik</h3>
-          <p>Netzwerke, Bauteile, Analyseverfahren — vom Ohmschen Gesetz bis zu Operationsverstärkern.</p>
-          <div class="status"><span class="dot"></span>im Aufbau</div></div>
-        <div class="card m1"><span class="tag">ET</span><h3>Feldtheorie</h3>
-          <p>Elektrostatik, Strömungsfeld, Magnetismus und Induktion — anschaulich hergeleitet.</p>
-          <div class="status"><span class="dot"></span>im Aufbau</div></div>
-        <div class="card m1"><span class="tag">ET</span><h3>Signale & Systeme</h3>
-          <p>Faltung, Fourier, Übertragungsfunktionen — mit animierten Beispielen statt nur Formeln.</p>
-          <div class="status"><span class="dot"></span>im Aufbau</div></div>
-        <div class="card m1"><span class="tag">ET</span><h3>Elektronische Bauelemente</h3>
-          <p>Halbleiterphysik, Diode, Transistor — wie aus Material ein Bauelement wird.</p>
-          <div class="status"><span class="dot"></span>im Aufbau</div></div>
-        <div class="card m2"><span class="tag">Mathe</span><h3>Höhere Mathematik</h3>
-          <p>Der Unterbau der ET: Analysis, Vektoranalysis, Funktionentheorie, Stochastik.</p>
-          <div class="status"><span class="dot"></span>im Aufbau</div></div>
-        <div class="card m3 soon"><span class="tag">bald</span><h3>Andere Fächer</h3>
-          <p>Nebenbei auch Themen aus weiteren Bereichen — Beiträge willkommen.</p>
-          <div class="status"><span class="dot"></span>geplant</div></div>
+      <div class="mod-searchwrap">
+        <span class="mod-searchicon">🔎</span>
+        <input id="module-search" type="search" autocomplete="off" aria-label="Wissen durchsuchen"
+               placeholder="Modul, Thema oder Begriff suchen — auch Teilwörter (z. B. „teiler")"/>
       </div>
+      <div id="module-tree" class="mod-tree" aria-live="polite">
+        <p class="mod-fallback">Übersicht wird geladen … <a href="/wissen/">Zum Wissensbereich →</a></p>
+      </div>
+      <div class="row" style="margin-top:20px"><a class="btn alt" href="/wissen/">Ganzen Wissensbereich öffnen →</a></div>
     </section>
 
     <section id="editor">
@@ -256,6 +272,89 @@
     for(var j2=0;j2<N;j2++){ d+="M"+P(0,j2); for(var i2=1;i2<N;i2++) d+="L"+P(i2,j2); } // cols
     var path=document.createElementNS("http://www.w3.org/2000/svg","path");
     path.setAttribute("d",d); g.appendChild(path);
+  })();
+  </script>
+  <script>
+  // Interaktive Modul-/Themen-Übersicht: Baum aus /wissen/data/tree.json, Volltext aus search.json.
+  // Standard: Fächer EINGEKLAPPT (reine Übersicht), Themen beim Öffnen eines Fachs AUFGEKLAPPT.
+  // Suche filtert den Baum live: Treffer in Fach-/Themennamen ODER im Artikeltext (Teilwort/infix,
+  // umlaut-/ß-tolerant); passende Äste klappen automatisch auf, Treffer werden hervorgehoben.
+  (function(){
+    var treeEl=document.getElementById("module-tree"), input=document.getElementById("module-search");
+    if(!treeEl) return;
+    var fields=[];
+    function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,""); }
+    function esc(s){ return (s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+    function hl(text,raw){ var e=esc(text), q=raw.trim(); if(!q) return e;
+      try{ return e.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi"),function(m){return "<mark>"+m+"</mark>";}); }catch(_){ return e; } }
+    function snippet(text,raw){ if(!text) return ""; var q=raw.trim(), i=text.toLowerCase().indexOf(q.toLowerCase());
+      if(i<0) return hl(text.slice(0,120),raw)+(text.length>120?"…":"");
+      var a=Math.max(0,i-40); return (a>0?"…":"")+hl(text.slice(a,i+q.length+70),raw)+"…"; }
+    function el(tag,cls){ var e=document.createElement(tag); if(cls)e.className=cls; return e; }
+
+    function render(tree, byPath){
+      treeEl.innerHTML=""; fields=[];
+      tree.forEach(function(f){
+        var det=el("details","mod-field"), sum=el("summary"), nm=el("span"); nm.textContent=f.name;
+        var cnt=el("span","count"); sum.appendChild(nm); sum.appendChild(cnt); det.appendChild(sum);
+        var wrap=el("div","mod-themen"), themen=[], total=0;
+        f.themen.forEach(function(t){
+          var tdet=el("details","mod-thema"); tdet.open=true;
+          var tsum=el("summary"), tnm=el("span"); tnm.textContent=t.name;
+          var tc=el("span","tcount"); tc.textContent=t.articles.length; tsum.appendChild(tnm); tsum.appendChild(tc);
+          tdet.appendChild(tsum);
+          var ul=el("ul","mod-arts"), arts=[];
+          t.articles.forEach(function(a){
+            var li=el("li"), link=el("a"); link.href="/wissen/"+a.path; link.textContent=a.title;
+            var snip=el("span","a-snip"); snip.hidden=true; li.appendChild(link); li.appendChild(snip); ul.appendChild(li);
+            var d=byPath[a.path]||{};
+            arts.push({li:li,a:link,snip:snip,title:a.title,text:d.text||a.summary||"",
+                       ftTitle:d.ft_title||fold(a.title),ftTags:d.ft_tags||"",ftText:d.ft_text||fold(a.summary||"")});
+            total++;
+          });
+          tdet.appendChild(ul); wrap.appendChild(tdet);
+          themen.push({det:tdet,folded:fold(t.name),arts:arts});
+        });
+        cnt.textContent=total+" Artikel"; det.appendChild(wrap); treeEl.appendChild(det);
+        fields.push({det:det,folded:fold(f.name),themen:themen});
+      });
+    }
+    function reset(){ var nr=treeEl.querySelector(".mod-noresult"); if(nr) nr.remove();
+      fields.forEach(function(f){ f.det.hidden=false; f.det.open=false;
+        f.themen.forEach(function(t){ t.det.hidden=false; t.det.open=true;
+          t.arts.forEach(function(a){ a.li.hidden=false; a.a.textContent=a.title; a.snip.hidden=true; }); }); }); }
+    function filter(raw){
+      var nq=fold(raw.trim()); if(nq.length<2){ reset(); return; }
+      var any=false;
+      fields.forEach(function(f){ var fM=f.folded.indexOf(nq)>=0, fAny=false;
+        f.themen.forEach(function(t){ var tM=t.folded.indexOf(nq)>=0, tAny=false;
+          t.arts.forEach(function(a){
+            var inTitle=a.ftTitle.indexOf(nq)>=0, inTag=a.ftTags.indexOf(nq)>=0, inText=a.ftText.indexOf(nq)>=0;
+            var show=fM||tM||inTitle||inTag||inText; a.li.hidden=!show;
+            if(show){ a.a.innerHTML=hl(a.title,raw);
+              if(inText && !inTitle){ a.snip.innerHTML=snippet(a.text,raw); a.snip.hidden=false; } else a.snip.hidden=true;
+              tAny=true;
+            } else { a.a.textContent=a.title; a.snip.hidden=true; }
+          });
+          var showT=tM||tAny||fM; t.det.hidden=!showT; t.det.open=showT; if(showT) fAny=true;
+        });
+        var showF=fM||fAny; f.det.hidden=!showF; f.det.open=showF; if(showF) any=true;
+      });
+      var nr=treeEl.querySelector(".mod-noresult");
+      if(!any){ if(!nr){ nr=el("div","mod-noresult"); treeEl.appendChild(nr); } nr.textContent='Nichts gefunden für „'+raw.trim()+'".'; }
+      else if(nr) nr.remove();
+    }
+
+    Promise.all([
+      fetch("/wissen/data/tree.json").then(function(r){return r.json();}),
+      fetch("/wissen/data/search.json").then(function(r){return r.json();}).catch(function(){return [];})
+    ]).then(function(res){
+      var tree=res[0], docs=res[1], byPath={}; docs.forEach(function(d){byPath[d.path]=d;});
+      render(tree, byPath);
+      if(input) input.addEventListener("input",function(){ filter(input.value); });
+    }).catch(function(){
+      treeEl.innerHTML='<p class="mod-fallback">Übersicht konnte nicht geladen werden. <a href="/wissen/">Zum Wissensbereich →</a></p>';
+    });
   })();
   </script>
   <script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
