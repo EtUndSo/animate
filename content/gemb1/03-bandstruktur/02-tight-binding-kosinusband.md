@@ -160,3 +160,26 @@ der Bandmitte.
 Wir haben jetzt die Form eines **einzelnen** Bandes. Reale Festkörper haben aber **mehrere** Bänder mit
 **Lücken** dazwischen — und erst deren **Besetzung** entscheidet, ob ein Material ein Metall, ein Halbleiter oder
 ein Isolator ist. Das ist das Thema des nächsten Artikels.
+
+:::quiz
+F: Was bedeutet „Tight-Binding" und für welche Situation ist das Modell gedacht?
+A: „Stark gebunden" heißt, die Elektronen bleiben überwiegend an ihren Atomen und hüpfen nur gelegentlich zum Nachbarn. Das Modell beschreibt Festkörper, in denen die Atomorbitale nur schwach überlappen — die Kopplung ist eine kleine Störung des Atomniveaus.
+F: Wie entsteht aus der kontinuierlichen Schrödinger-Gleichung die diskrete Form?
+A: Man wertet $\psi$ nur an den Gitterpunkten $x_j=ja$ aus und ersetzt die zweite Ableitung durch den Differenzenquotienten $\frac{\psi_{j+1}-2\psi_j+\psi_{j-1}}{a^2}$. So wird aus der Differentialgleichung eine Beziehung zwischen benachbarten Gitterwerten.
+F: Was beschreibt der Hüpfparameter $t$, und warum gilt $t\propto1/a^2$?
+A: $t$ verknüpft einen Platz mit seinen Nachbarn und misst, wie leicht das Elektron übergeht. Er stammt aus dem Differenzenquotienten ($t=\hbar^2/(2ma^2)$); je enger das Gitter (kleineres $a$), desto größer $t$ und desto stärker die Kopplung.
+F: Was bedeuten Haupt- und Nebendiagonale der Tight-Binding-Hamilton-Matrix?
+A: Die Hauptdiagonale $2t+V_j$ ist die Onsite-Energie — die Energie, am Platz zu „sitzen". Die Nebendiagonalen $-t$ sind der Kopplungsterm — der Beitrag durch „Hüpfen" zum Nachbarn. Dieses Muster kehrt in jeder Tight-Binding-Rechnung wieder.
+F: Warum ist bei konstantem Potential die ebene Welle die richtige Lösung?
+A: Bei $V_j\equiv V_0$ ist jeder Platz gleichwertig, das Gitter ist perfekt periodisch. Dann unterscheidet sich ein Nachbarplatz nur um einen Phasenfaktor ($\psi_{j\pm1}=\psi_j e^{\pm ika}$), und die ebene Welle $\psi_j=\Phi_0 e^{ikja}$ erfüllt die Gleichung an jedem Platz gleich.
+F: Wie entsteht das Kosinus-Band aus dem ebene-Welle-Ansatz?
+A: Einsetzen lässt $\psi_j$ herausfallen, und $e^{ika}+e^{-ika}=2\cos(ka)$ ergibt $E(k)=2t(1-\cos ka)+V_0$. Die einst scharfe Energie verteilt sich so stetig über einen Bereich — das Band.
+F: Warum ist die Bandbreite gerade $4V_{ss}$ und was sagt das physikalisch?
+A: Der Kosinus läuft von $-1$ bis $+1$, also $E$ von $\epsilon_0-2V_{ss}$ bis $\epsilon_0+2V_{ss}$ — Spannweite $4V_{ss}$. Die Bandbreite misst damit direkt die Kopplungsstärke: stärkerer Überlapp (größeres $V_{ss}$) ergibt ein breiteres Band.
+F: Warum verhält sich ein Elektron an der Bandunterkante wie ein freies Teilchen?
+A: Für kleine $k$ ist $1-\cos(ka)\approx\tfrac12(ka)^2$, das Band ist dort eine Parabel $E\propto k^2$ — genau die Dispersion eines freien Elektrons. Deshalb lässt es sich mit einer festen (effektiven) Masse beschreiben.
+F: Wie hängt die Gruppengeschwindigkeit mit dem Band zusammen, und wo ist sie null?
+A: Sie ist $v=\tfrac1\hbar\,\partial E/\partial k\propto\sin(ka)$ — also die Steigung des Bandes. Bei $k=0$ und am Bandrand $k=\pi/a$ ist $\sin=0$, dort steht das Wellenpaket; in der Bandmitte ist $v$ maximal.
+F: Warum verschwindet die Geschwindigkeit ausgerechnet am Bandrand, wo die Energie am höchsten ist?
+A: Bei $k=\pi/a$ ist die Bragg-Bedingung erfüllt: Die Welle wird am periodischen Gitter so reflektiert, dass hin- und rücklaufende Welle eine stehende Welle bilden. Eine stehende Welle trägt keinen Netto-Strom, also $v=0$.
+:::
