@@ -180,3 +180,26 @@ Die Jacobi-Matrix eines Skalarfelds hat uns schon den __Gradienten__ geliefert. 
 Differentialoperator der Vektoranalysis — er zeigt in die Richtung des steilsten Anstiegs und erzeugt aus einem
 Potential ein Vektorfeld. Seine Geometrie und die besondere Klasse der __Gradientenfelder__ sind das Thema des
 nächsten Artikels.
+
+:::quiz
+F: Warum genügt bei einer Abbildung $f:\mathbb{R}^n\to\mathbb{R}^m$ eine einzelne Zahl als Ableitung nicht mehr — und wie kommt man gerade auf eine Matrix?
+A: Die Ableitung ist die beste **lineare** Näherung. Eine lineare Abbildung von $\mathbb{R}^n$ nach $\mathbb{R}^m$ ist aber genau eine $m\times n$-Matrix: Es gibt $n$ Eingangsrichtungen und $m$ Komponenten, deren lokale Änderung man erfassen muss — das sind $m\cdot n$ Zahlen, angeordnet in der Jacobi-Matrix. Eine Zahl kann nur eine Richtung/eine Komponente beschreiben.
+F: Was bedeutet die Jacobi-Matrix $Df(x_0)$ geometrisch?
+A: Sie ist die lineare Abbildung, die $f$ in einer kleinen Umgebung von $x_0$ am besten annähert — sie beschreibt, wie $f$ ein winziges Gitterquadrat dreht, streckt und schert. „Ableitung" heißt hier: lokale Linearisierung.
+F: Wieso stehen die Gradienten der Komponentenfunktionen gerade in den **Zeilen** der Jacobi-Matrix?
+A: Zeile $j$ sammelt alle Ableitungen $\partial f_j/\partial x_k$ **einer** Komponente $f_j$ nach allen Koordinaten $x_k$ — und das ist genau der (transponierte) Gradient von $f_j$. Eine Spalte hingegen bündelt die Ableitungen **aller** Komponenten nach **einer** Koordinate.
+F: Gradient und Jacobi-Matrix eines Skalarfelds enthalten dieselben Zahlen — worin unterscheiden sie sich trotzdem?
+A: In Rolle und Form: $Df$ ist ein Zeilenvektor ($1\times n$) und wird als **lineare Abbildung** verwendet; der Gradient $\nabla f=(Df)^T$ ist der zugehörige **Spaltenvektor** und wird als Richtung/Vektor (steilster Anstieg) gedeutet. Das Unterscheiden verhindert Fehler beim Multiplizieren (Zeile·Spalte).
+F: Warum ist die bloße Existenz **aller** partiellen Ableitungen noch nicht die (totale) Differenzierbarkeit?
+A: Partielle Ableitungen „sehen" nur das Verhalten entlang der Koordinatenachsen. Ein Feld kann dort völlig glatt aussehen und in schrägen Richtungen trotzdem springen. Total differenzierbar bedeutet, dass **eine** lineare Näherung in **alle** Richtungen gleichzeitig gilt — mit überlinear kleinem Fehler.
+F: Was drückt der Grenzwert $\lim_{x\to x_0}\frac{|f(x)-f(x_0)-A(x-x_0)|}{|x-x_0|}=0$ aus, und warum steht $|x-x_0|$ im Nenner?
+A: Er fordert, dass der Fehler der linearen Näherung **schneller als linear** verschwindet. Der Nenner misst den Fehler **relativ** zum Abstand: Nur wenn dieser relative Fehler gegen null geht, ist $A$ wirklich die Ableitung und nicht bloß irgendeine grobe lineare Näherung. (Ohne Nenner wäre fast jede Näherung „gut genug".)
+F: Welche Zusatzeigenschaft macht aus partiellen Ableitungen sicher totale Differenzierbarkeit — und warum ist sie nur hinreichend, nicht notwendig?
+A: **Stetigkeit** aller partiellen Ableitungen ($f\in C^1$) genügt. Notwendig ist sie nicht: Es gibt differenzierbare Abbildungen, deren partielle Ableitungen nicht stetig sind. „Hinreichend" heißt: $C^1\Rightarrow$ differenzierbar, aber nicht umgekehrt.
+F: Warum vertauschen bei einem $C^2$-Feld die gemischten zweiten Ableitungen, und wie heißt diese Aussage?
+A: Das ist der **Satz von Schwarz**: Sind die zweiten partiellen Ableitungen stetig, gilt $\frac{\partial^2 f}{\partial x_j\partial x_k}=\frac{\partial^2 f}{\partial x_k\partial x_j}$. Die Reihenfolge des Ableitens spielt keine Rolle — die zweite Ableitung ist symmetrisch.
+F: Inwiefern ist die Kettenregel $D(f\circ g)=Df(g(x))\,Dg(x)$ dieselbe Idee wie „äußere mal innere Ableitung" aus HM1?
+A: Exakt dieselbe Idee: In 1D ist $(f(g(x)))'=f'(g(x))\cdot g'(x)$. Hier sind die Ableitungen **Matrizen** und „mal" ist die **Matrizenmultiplikation**. Die komponentenweise Summe über die Zwischenvariablen $y_j$ ist nichts anderes als das Zeile-mal-Spalte-Produkt.
+F: Warum ist die Änderung eines Skalarfelds längs einer Kurve gerade $\frac{d}{dt}h(\gamma(t))=\nabla h\cdot\dot\gamma$, und wann ist sie null?
+A: Es ist die Kettenregel für $h\circ\gamma$: die Zeile $Dh=\nabla h^{T}$ mal die Spalte $\dot\gamma$ ergibt das Skalarprodukt $\nabla h\cdot\dot\gamma$. Null wird sie, wenn man **senkrecht** zum Gradienten läuft ($\dot\gamma\perp\nabla h$) — also entlang einer Niveaulinie; maximal ist sie, wenn man in Gradientenrichtung läuft.
+:::

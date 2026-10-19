@@ -142,6 +142,31 @@ def md_to_html(md):
             i += 1
             out.append("<pre><code>" + html.escape("\n".join(code), quote=False) + "</code></pre>")
             continue
+        if re.match(r":::quiz\s*$", s):               # quiz block: Q:/A: pairs -> collapsible items
+            flush(); i += 1; inner = []
+            while i < n and lines[i].strip() != ":::":
+                inner.append(lines[i]); i += 1
+            i += 1
+            items, cur, role = [], None, None
+            for raw in inner:
+                t = raw.strip()
+                mq = re.match(r"(?:Q|F|Frage)\s*[:.]\s*(.*)$", t, re.I)
+                ma = re.match(r"(?:A|Antwort)\s*[:.]\s*(.*)$", t, re.I)
+                if mq:
+                    cur = {"q": mq.group(1), "a": ""}; items.append(cur); role = "q"
+                elif ma and cur is not None:
+                    cur["a"] = ma.group(1); role = "a"
+                elif t and cur is not None and role:
+                    cur[role] += " " + t                 # continuation line of the current Q or A
+            body = []
+            for k, it in enumerate(items, 1):
+                q_html = inline(it["q"].strip())
+                a_html = md_to_html(it["a"].strip())[0]
+                body.append(f'<details class="quiz-item"><summary><span class="quiz-n">{k}.</span> {q_html}</summary>'
+                            f'<div class="quiz-a">{a_html}</div></details>')
+            out.append('<aside class="callout cx-quiz"><div class="callout-h">Quiz — teste dein Verständnis</div>'
+                       + "".join(body) + "</aside>")
+            continue
         m = re.match(r":::(\w+)\s*$", s)              # callout block  :::konzept ... :::
         if m:
             flush(); kind = m.group(1).lower(); i += 1; inner = []
@@ -497,6 +522,16 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .callout.cx-grafik{border:1.5px dashed var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--panel));color:var(--muted);}
 .callout.cx-grafik .callout-h{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;}
 .callout.cx-grafik p{font-size:15px;margin:.2em 0;}
+.callout.cx-quiz{border-left:4px solid var(--accent3);background:color-mix(in srgb,var(--accent3) 5%,var(--panel));}
+.callout.cx-quiz .callout-h{color:var(--accent3);}
+details.quiz-item{margin:.5em 0;border:1px solid var(--border);border-radius:10px;background:var(--panel);}
+details.quiz-item>summary{cursor:pointer;font-weight:600;padding:9px 12px;list-style:none;}
+details.quiz-item>summary::-webkit-details-marker{display:none;}
+details.quiz-item>summary:before{content:"▸";color:var(--accent);margin-right:8px;}
+details.quiz-item[open]>summary:before{content:"▾";}
+.quiz-n{display:inline-block;min-width:1.7em;color:var(--muted);font-variant-numeric:tabular-nums;}
+.quiz-a{padding:2px 14px 12px 34px;border-top:1px solid var(--border);}
+.quiz-a>p:first-child{margin-top:8px;}
 .prevnext{display:flex;justify-content:space-between;gap:14px;margin:36px 0 10px;flex-wrap:wrap;}
 .pn{flex:1 1 200px;border:1px solid var(--border);border-radius:12px;padding:12px 15px;font-weight:600;background:var(--panel);}
 .pn span{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-bottom:2px;} .pn.next{text-align:right;}
