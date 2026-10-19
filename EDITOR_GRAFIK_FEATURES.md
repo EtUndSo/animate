@@ -91,3 +91,17 @@ Gebraucht in: Halbleiter/Bändermodell, Diode.
 2. **Beschriftete Pfeile/Vektoren** (P1) und **erweiterte Kennliniengrafiken** (P1).
 3. Feldlinien, Waveforms, Material-Diagramme (P2).
 4. Animations-Bausteine zuletzt.
+
+---
+
+## 9. Templates + Figur-Verweise  — **P2** (Zukunftsplan, User 2026-10-19)
+Die Szenen, mit denen die Grafiken/Animationen erzeugt werden, als **Templates im Editor** bereitstellen. Jede
+Abbildung im Artikel bekommt einen **anklickbaren Link zum zugehörigen Template** (Klick → öffnet die Szene im
+Editor).
+- **Nummerierung statt Baum:** Im Editor ist wenig Platz für eine grafische Baumstruktur → Templates einfach
+  **durchnummerieren**, aber in **sinnvoller Reihenfolge**: Templates desselben Moduls hintereinander (modulweise
+  gruppiert, fortlaufende Nummern).
+- **Umnummerierbar halten:** Die Nummerierung wird später vermutlich mehrfach angepasst → Template-Referenz
+  flexibel/indirekt (nicht hart verdrahten), damit Umnummerieren leicht bleibt.
+- Greift erst, wenn der Editor echte Grafiken/Templates erzeugt; bis dahin `:::grafik`-Platzhalter mit
+  Bildbeschreibung. Später: im Build je `:::grafik` optional ein Template-Link/-Nummer-Feld.
