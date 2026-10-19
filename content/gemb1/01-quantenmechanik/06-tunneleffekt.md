@@ -147,3 +147,26 @@ __Rastertunnelmikroskops__ (atomare Auflösung) sowie von Tunneldiode, Flash-Spe
 Dass die Welle in eine endliche Wand eindringt, hat auch Folgen, wenn das Elektron in einem Kasten mit
 **endlich** hohen Wänden sitzt: Die Welle leckt in die Wände, passt dadurch „etwas lockerer" in den Kasten, und
 die Energien verschieben sich. Das ist das Thema des nächsten Abschnitts, der __endlich hohen Box__.
+
+:::quiz
+F: Was unterscheidet klassisches und quantenmechanisches Verhalten an einer Potentialstufe mit $E<V_0$?
+A: Klassisch wird eine Kugel mit zu wenig Energie vollständig reflektiert und kann das Gebiet dahinter nie betreten (dort wäre die kinetische Energie negativ). Quantenmechanisch wird die Welle zwar überwiegend reflektiert, dringt aber ein Stück in das klassisch verbotene Gebiet ein.
+F: Warum ist die Lösung im verbotenen Gebiet exponentiell statt oszillierend?
+A: Im erlaubten Bereich steht in der Schrödinger-Gleichung $-k^2\psi$ (oszillierende Lösung); bei $V_0>E$ wird daraus $+\kappa^2\psi$, weil $V_0-E>0$ ist. Diese Gleichung hat als Lösung die Exponentialfunktion $e^{-\kappa x}$, nicht Sinus/Kosinus — das Vorzeichen entscheidet.
+F: Was bedeutet die Abklingkonstante $\kappa=\sqrt{2m(V_0-E)}/\hbar$ anschaulich?
+A: Sie bestimmt, wie schnell die Welle im verbotenen Gebiet abfällt. Je höher und „verbotener" die Stufe ($V_0-E$ groß), desto größer $\kappa$ und desto schneller klingt die evaneszente Welle ab.
+F: Warum ist die Welle bei der unendlich hohen Box sofort null, bei endlicher Stufe aber nicht?
+A: Bei $V_0=\infty$ ist $\kappa=\infty$, die Welle fällt unendlich schnell ab und ist sofort null. Bei endlicher Höhe ist $\kappa$ endlich, das Abklingen geschieht mit endlicher Rate, und die Welle leckt ein Stück in die Wand hinein.
+F: Wie kommt der Tunneleffekt bei einer Barriere endlicher Dicke zustande?
+A: In der Barriere klingt die Welle exponentiell ab, ist bei dünner Barriere am anderen Ende aber noch nicht null. Dort findet sie wieder ein erlaubtes Gebiet und läuft als oszillierende Welle weiter — es gibt also eine endliche Wahrscheinlichkeit, das Elektron dahinter anzutreffen.
+F: Was bedeutet „evaneszente Welle"?
+A: Eine im klassisch verbotenen Gebiet exponentiell abklingende („flüchtige") Welle $\psi\propto e^{-\kappa x}$. Ihre Aufenthaltswahrscheinlichkeit $|\psi|^2\propto e^{-2\kappa x}$ fällt rasch ab, ist aber nicht exakt null.
+F: Warum steht in $T\approx e^{-2\kappa d}$ der Faktor 2 im Exponenten?
+A: Die Wellenamplitude fällt über die Dicke $d$ um $e^{-\kappa d}$ ab. Die Wahrscheinlichkeit ist das Betragsquadrat der Amplitude, und Quadrieren verdoppelt den Exponenten: $(e^{-\kappa d})^2=e^{-2\kappa d}$.
+F: Warum ist die Tunnelwahrscheinlichkeit so extrem empfindlich gegenüber der Barrierendicke?
+A: Weil $T$ exponentiell von $d$ abhängt: Schon eine kleine Vergrößerung von $d$ (etwa um einen Atomdurchmesser) lässt $T$ um Größenordnungen einbrechen. Diese Steilheit macht das Tunneln zu einem empfindlichen Abstandssensor.
+F: Wieso kann ein Rastertunnelmikroskop einzelne Atome abbilden?
+A: Der Tunnelstrom $I\propto e^{-2\kappa d}$ zwischen Spitze und Oberfläche ändert sich bereits bei einer Abstandsänderung von einem Atomdurchmesser um ein Vielfaches. Diese extreme Abstandsabhängigkeit erlaubt es, beim Abrastern Höhenunterschiede auf atomarer Skala aufzulösen — ganz ohne Licht.
+F: Welche weiteren Phänomene und Bauelemente beruhen auf dem Tunneleffekt?
+A: Die Tunneldiode (schnelle, negativ-differentielle Kennlinie durch Durchtunneln), der Flash-Speicher (Elektronen tunneln durch eine dünne Oxidschicht auf ein Floating Gate) und der Alpha-Zerfall (ein Alphateilchen tunnelt aus dem Kern). Überall nutzt oder zeigt sich dieselbe Barrieredurchdringung.
+:::
