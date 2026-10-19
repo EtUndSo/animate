@@ -78,8 +78,10 @@ mit der intrinsischen Dichte $n_i=\sqrt{N_L N_V}\,e^{-E_g/2k_BT}$ (aus dem Stati
   Fermi-Niveaus der beiden Gebiete weiter auseinander.
 - __$n_i^2$__: über das Massenwirkungsgesetz; es macht $V_d$ stark bandlücken- und temperaturabhängig.
 
-Die Bandverbiegung (als Energie) beträgt dann $e\,V_d$. Weil $V_d$ nur **logarithmisch** von der Dotierung
-abhängt, liegt es für Silizium über viele Dekaden hinweg nur bei einigen Zehntel Volt.
+Die Bandverbiegung (als Energie) beträgt dann $e\,V_d$ — diese Barrierenhöhe heißt auch das __eingebaute
+Potential__ $\Phi_{bi} = e\,V_d = E_f^{\,n} - E_f^{\,p}$ (in eV, gerade der ursprüngliche Fermi-Niveau-Abstand der
+getrennten Gebiete). Weil $V_d$ nur **logarithmisch** von der Dotierung abhängt, liegt es für Silizium über viele
+Dekaden hinweg nur bei einigen Zehntel Volt.
 
 :::grafik
 Links die zwei Gebiete vor Kontakt mit verschieden hohem $E_f^{\,n}$ (nahe $E_L$) und $E_f^{\,p}$ (nahe $E_V$).
@@ -121,7 +123,12 @@ im schwach dotierten p-Gebiet. Allgemein gilt für die Gesamtweite $W=x_p+x_n$:
 
 $$W = \sqrt{\frac{2\varepsilon_0\varepsilon_r\,V_d}{e}\left(\frac{1}{N_A}+\frac{1}{N_D}\right)}.$$
 
-Daran liest man auch ab: **stärkere Dotierung → dünnere Verarmungszone** (größere $N$ im Nenner).
+Daran liest man auch ab: **stärkere Dotierung → dünnere Verarmungszone** (größere $N$ im Nenner). Die einzelnen
+Weiten auf p- und n-Seite folgen mit der Neutralität $N_A x_p = N_D x_n$ zu
+
+$$x_p = \frac{N_D}{N_A+N_D}\,W = \sqrt{\frac{N_D}{N_A+N_D}\cdot\frac{2\varepsilon_0\varepsilon_r\,V_d}{e\,N_A}}, \qquad x_n = \frac{N_A}{N_A+N_D}\,W,$$
+
+also fällt der größere Teil der Zone stets ins schwächer dotierte Gebiet.
 
 :::grafik
 Zwei pn-Übergänge mit gleichem $N_A$, aber unterschiedlichem $N_D$: beim symmetrischen Fall ($N_D=N_A$) ist die
