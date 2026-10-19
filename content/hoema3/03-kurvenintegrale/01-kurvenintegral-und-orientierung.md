@@ -147,3 +147,26 @@ Beim Wirbelfeld-Beispiel kam entlang des halben Kreises etwas Nichttriviales her
 das Integral aber **nur von Anfangs- und Endpunkt** ab, nicht vom Weg. Genau das sind die Gradientenfelder, und
 der Zusammenhang „wegunabhängig ⟺ Gradientenfeld ⟺ geschlossenes Integral null" ist der __erste Hauptsatz für
 Kurvenintegrale__ — das Thema des nächsten Artikels.
+
+:::quiz
+F: Was misst das Kurvenintegral $\int_\gamma F\cdot dx$ physikalisch, und warum steht im Integranden ein Skalarprodukt?
+A: Es misst die **Arbeit**, die das Feld an einem längs $\gamma$ bewegten Teilchen verrichtet. Das Skalarprodukt $F(\gamma)\cdot\dot\gamma$ pickt genau die Feldkomponente **in Bewegungsrichtung** heraus — nur der tangentiale Anteil leistet Arbeit, der senkrechte nicht.
+F: Warum verrichtet ein radiales Feld $F=(x,y)$ entlang einer Kreislinie keine Arbeit?
+A: Auf dem Kreis steht das radiale Feld senkrecht zur Bewegungsrichtung (Tangente). Damit ist $F\cdot\dot\gamma=0$ an jedem Punkt, und das Integral verschwindet — es gibt keine tangentiale Komponente, die „schiebt".
+F: Warum liefert das Wirbelfeld $F=(-y,x)$ auf dem Kreis den maximalen (nichttrivialen) Wert?
+A: Dieses Feld zeigt überall **tangential**, also genau in Bewegungsrichtung: $F\cdot\dot\gamma=1$ konstant. Das Feld „schiebt" entlang des ganzen Wegs mit, daher summiert sich die Arbeit auf (auf dem Halbkreis zu $\pi$).
+F: Warum ist das Kurvenintegral invariant unter einer orientierungserhaltenden Umparametrisierung?
+A: Es beschreibt eine geometrische Größe (Arbeit entlang des Weges), nicht die Durchlaufgeschwindigkeit. Formal sorgt die Substitutionsregel dafür, dass sich der Zeitdehnungsfaktor $\tau'$ gerade heraushebt — schneller oder langsamer durchlaufen ändert den Wert nicht.
+F: Warum dreht die Umkehr der Durchlaufrichtung das Vorzeichen des Integrals?
+A: Bei $-\gamma$ zeigt der Geschwindigkeitsvektor $\dot\gamma$ genau entgegengesetzt, also wechselt $F\cdot\dot\gamma$ überall das Vorzeichen. Daher $\int_{-\gamma}F\cdot dx=-\int_\gamma F\cdot dx$ — Arbeit „zurück" ist das Negative der Arbeit „hin".
+F: Wozu dient die Bedingung $\dot\gamma\neq0$ einer regulären Kurve?
+A: Sie garantiert an jeder Stelle eine wohldefinierte **Tangente** (Richtung der Bewegung). Bei $\dot\gamma=0$ käme die Kurve zum Stillstand oder bekäme eine Spitze — dann wäre die Richtung und damit $F\cdot\dot\gamma$ nicht sinnvoll definiert.
+F: Warum ist das **skalare** Kurvenintegral $\int_\gamma f\,ds$ orientierungsunabhängig, das **vektorielle** $\int_\gamma F\cdot dx$ aber nicht?
+A: Im skalaren Fall steckt nur das Längenelement $ds=|\dot\gamma|\,dt>0$ drin, das immer positiv ist (eine Drahtmasse ändert sich nicht mit der Laufrichtung). Im vektoriellen Fall steckt die **Richtung** $\dot\gamma$ (bzw. $\tau$) drin, die sich bei Umkehr umdreht — daher der Vorzeichenwechsel.
+F: Wie zerlegt man das Wegelement $dx$, und wie ergibt sich daraus die Bogenlänge?
+A: $dx=\tau\,ds$ mit der Einheitstangente $\tau=\dot\gamma/|\dot\gamma|$ und dem Linienelement $ds=|\dot\gamma|\,dt$. Mit $F\cdot\tau\equiv1$ (also $F=\tau$) wird das Kurvenintegral zu $\int_\gamma ds=\int_a^b|\dot\gamma|\,dt$ — der Bogenlänge.
+F: Woher kommt die Standardabschätzung $|\int_\gamma F\cdot dx|\le\sup_\gamma|F|\cdot L(\gamma)$?
+A: Es ist $|F\cdot\tau|\le|F|$ (weil $|\tau|=1$, Cauchy-Schwarz). Integriert man diese Schranke über $ds$, erhält man $\sup_\gamma|F|$ mal die Gesamtlänge $L(\gamma)=\int ds$.
+F: Warum ist bei einer geschlossenen Kurve das Integral vom Anfangspunkt unabhängig, und was besagt die Additivität?
+A: Bei einem geschlossenen Umlauf durchläuft man dieselbe Spur vollständig, egal wo man startet — der Wert bleibt gleich. Additivität heißt: Setzt man Wege aneinander, addieren sich ihre Integrale ($\int_{\gamma_1+\gamma_2}=\int_{\gamma_1}+\int_{\gamma_2}$); das erlaubt, komplizierte Wege in einfache Stücke zu zerlegen.
+:::
