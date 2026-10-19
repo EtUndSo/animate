@@ -1244,16 +1244,11 @@ function renderObjectProps(){
   const skip=new Set();
   const put=(k)=>{ if(k in o.props && !skip.has(k)){ el.appendChild(propInput(o,k,o.props[k])); skip.add(k); } };
   if(o.type==="FunctionGraph" && ("adaptive" in o.props)){
-    // Ordered layout: 1) the function equation, 2) domain, 3) resolution, 4) colours, 5) the rest.
+    // Ordered layout: 1) the function equation, 2) domain, 3) colours, 4) the rest.
+    // resolution + static/adaptive: no longer user-tunable (WebGL renders smooth even at low res);
+    // props stay in the model at their defaults, only the UI controls are removed.
     put("func"); put("x_range"); skip.add("y_range");     // y value range comes from the Axes, not per-function
-    skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");     // resolution block (rendered specially)
-    const sel=document.createElement("select");
-    for(const [val,txt] of [["adaptive","Adaptive (curvature)"],["static","Static (uniform)"]]){ const op=document.createElement("option"); op.value=val; op.textContent=txt; sel.appendChild(op); }
-    sel.value = o.props.adaptive===false ? "static" : "adaptive";
-    sel.onchange=()=>{ o.props.adaptive = (sel.value==="adaptive"); renderProps(); renderPreview(); };
-    el.appendChild(propRow("resolution mode", sel));
-    if(o.props.adaptive!==false){ el.appendChild(propInput(o,"res_min", o.props.res_min)); el.appendChild(propInput(o,"res_max", o.props.res_max)); }
-    else { el.appendChild(propInput(o,"res_max", o.props.res_max)); }
+    skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");
     ["color","grid_color","grid_width","stroke_width","stroke_opacity","fill_opacity","height_color"].forEach(put);   // colours / line look (height_color: surface depth shading)
   }
   for(const [k,v] of Object.entries(o.props)){ if(skip.has(k)) continue; el.appendChild(propInput(o,k,v)); }
