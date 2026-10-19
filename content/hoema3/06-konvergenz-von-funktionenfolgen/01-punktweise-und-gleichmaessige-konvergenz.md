@@ -108,3 +108,26 @@ gleichmäßig $\exists N\,\forall x$.
 Warum gleichmäßige Konvergenz so viel stärker ist, zeigt der nächste Artikel: Nur sie erlaubt die __Vertauschung von
 Grenzprozessen__ — der gleichmäßige Limes stetiger Funktionen ist stetig, und Grenzwert und Integral (bzw. Ableitung)
 dürfen vertauscht werden.
+
+:::quiz
+F: Warum braucht man bei Funktionenfolgen überhaupt mehr als einen Konvergenzbegriff, bei Zahlenfolgen aber nicht?
+A: Eine Zahlenfolge strebt einfach gegen eine Zahl. Eine Funktionenfolge hat unendlich viele Stellen, an denen sie zugleich konvergieren soll — und die Qualität dieses Zusammenspiels (jede Stelle für sich oder alle im Gleichschritt) macht den Unterschied, der später über Stetigkeit und Vertauschbarkeit entscheidet.
+F: Worin liegt der genaue Unterschied zwischen punktweiser und gleichmäßiger Konvergenz?
+A: Er steckt in der Reihenfolge der Quantoren: punktweise heißt „zu jedem $x$ gibt es ein $N$" ($\forall x\,\exists N$), das $N$ darf von $x$ abhängen. Gleichmäßig heißt „es gibt ein $N$ für alle $x$" ($\exists N\,\forall x$) — ein gemeinsames Tempo.
+F: Was bedeutet die Supremumsnorm $\|f_n-f\|_\infty\to0$ anschaulich?
+A: Man misst den größten Abstand zwischen $f_n$ und $f$ irgendwo im Intervall. Geht dieser größte Abstand gegen null, liegt die ganze Kurve $f_n$ ab einem Index in einem beliebig dünnen $\varepsilon$-Schlauch um $f$ — das ist gleichmäßige Konvergenz.
+F: Warum impliziert gleichmäßige Konvergenz die punktweise, aber nicht umgekehrt?
+A: Ist das Supremum aller Abstände klein, ist erst recht jeder einzelne Abstand klein — also folgt punktweise aus gleichmäßig. Umgekehrt können die einzelnen Stellen konvergieren, während das Supremum (eine wandernde Beule) nie kleiner wird.
+F: Warum konvergiert $f_n(x)=x^n$ auf $[0,1]$ punktweise, aber nicht gleichmäßig?
+A: Für $x<1$ geht $x^n\to0$, bei $x=1$ bleibt es $1$ — punktweise Grenzfunktion existiert. Aber $\sup_{x}|x^n-f(x)|=1$ für jedes $n$ (nahe $x=1$ ist $x^n$ fast $1$, während $f=0$), das Supremum geht nie gegen null.
+F: Was lehrt das Beispiel $x^n$ über Stetigkeit von Grenzfunktionen?
+A: Alle $f_n=x^n$ sind stetig, ihre punktweise Grenzfunktion springt aber bei $x=1$ von $0$ auf $1$ — ist also unstetig. Punktweise Konvergenz kann die Stetigkeit zerstören; gleichmäßige nicht.
+F: Was ist die „wandernde Beule", und warum verbietet gleichmäßige Konvergenz sie?
+A: Bei $x^n$ bleibt nahe $x=1$ stets ein Bereich, wo $f_n$ fast $1$ ist, obwohl die Grenzfunktion dort $0$ ist; diese Beule flacht nicht ab, sie rutscht nur zum Rand. Gleichmäßige Konvergenz verlangt, dass der maximale Abstand überall gegen null geht — eine bleibende Beule ist damit ausgeschlossen.
+F: Warum zeigt $f_n(x)=\sin(nx)/n$, dass gleichmäßige Konvergenz nichts über die Ableitungen aussagt?
+A: $\sup_x|\sin(nx)/n|=1/n\to0$, also konvergiert $f_n$ gleichmäßig gegen $0$. Die Ableitungen $f_n'=\cos(nx)$ oszillieren aber wild und konvergieren überhaupt nicht — Konvergenz der Funktionen überträgt sich nicht auf die Ableitungen.
+F: Welchen Vorteil bietet das Cauchy-Kriterium gegenüber der Definition der gleichmäßigen Konvergenz?
+A: Man kann gleichmäßige Konvergenz nachweisen, ohne die Grenzfunktion zu kennen: Es genügt zu zeigen, dass $\sup_x|f_m(x)-f_n(x)|\to0$ für $m,n\to\infty$. Das ist oft prüfbar, wenn man die Grenzfunktion gar nicht explizit hat.
+F: Wie gewinnt man aus dem Cauchy-Kriterium die gleichmäßige Konvergenz gegen eine konkrete Grenzfunktion?
+A: Aus dem Cauchy-Kriterium für jedes feste $x$ folgt zunächst punktweise Konvergenz gegen $f(x):=\lim_n f_n(x)$. Lässt man dann in $|f_m(x)-f_n(x)|<\varepsilon$ den Index $m\to\infty$ laufen, erhält man $|f(x)-f_n(x)|\le\varepsilon$ für alle $x$ zugleich — also gleichmäßige Konvergenz.
+:::
