@@ -45,8 +45,13 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   label, offset, font_size, color, stroke_width} = Doppelpfeil (Heads an beiden Enden) mit mittigem Label,
   `offset` schiebt senkrecht zur Strecke. CATALOG-Gruppe „Allgemein · Annotation". Test: Axes + FunctionGraph,
   dann Marker auf einen Kurvenpunkt (show_guides an) und Measure zwischen zwei Punkten (z. B. Periode $T$).
-- [ ] **F3 Flächenfüllung** — Fläche **unter** einer Kurve bzw. **zwischen** zwei Kurven schraffieren/färben
+- [~] **F3 Flächenfüllung** — Fläche **unter** einer Kurve bzw. **zwischen** zwei Kurven schraffieren/färben
   (Integral, Energie, Bereichsmarkierung), Intervallgrenzen als Parameter.
+  **Umgesetzt (wartet auf Test):** neues `Area` (special-cased in `scene_model.py`, `_build_area`): gefülltes
+  Polygon aus gesampelter Oberkante `func` und Unterkante `func2` (leer → Baseline y=0) über `[x_min,x_max]`,
+  `samples` Stützstellen, Pol-/NaN-Clamping auf den y-Bereich. Props {func, func2, x_min, x_max, samples,
+  color, fill_color, fill_opacity, stroke_width}, CATALOG-Gruppe „Funktionen & Achsen". Test: Axes +
+  `Area` func `sin(x)` über [0, π] (Fläche unter Kurve); dann func2 setzen für Fläche zwischen zwei Kurven.
 - [ ] **F4 Tangente/Sekante im Punkt** — an einen Graphen im Punkt $x_0$ (Steigung/Ableitung ablesbar),
   Sekante über zwei Punkte; allgemein für jede plottbare Funktion.
 

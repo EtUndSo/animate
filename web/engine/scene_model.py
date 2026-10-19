@@ -387,6 +387,43 @@ def _build_measure(args, style, axes):
     return obj
 
 
+def _build_area(args, style, axes):
+    """Filled area UNDER a curve y=f(x) over [x_min,x_max], or BETWEEN two curves f and g (g = `func2`;
+    empty -> baseline y=0). A closed polygon sampled along the top (a->b) and bottom (b->a), filled with
+    the style colour/opacity. General: any function(s) via expression, any interval."""
+    f = func_from_expr(str(args.get("func", "0")))
+    g_raw = str(args.get("func2", "")).strip()
+    g = func_from_expr(g_raw) if g_raw else None
+    a, b = float(args.get("x_min", 0.0)), float(args.get("x_max", 1.0))
+    if b < a:
+        a, b = b, a
+    n = max(2, int(args.get("samples", 64)))
+    lo, hi = (axes.y_min, axes.y_max) if axes is not None else (-1e9, 1e9)
+
+    def ev(fn, x):                                            # safe eval, clamped into the y-range (tames poles)
+        try:
+            v = float(fn(x))
+        except Exception:
+            v = lo
+        if not np.isfinite(v):
+            v = lo
+        return min(hi, max(lo, v))
+
+    xs = np.linspace(a, b, n + 1)
+    top = [(float(x), ev(f, x), 0.0) for x in xs]
+    bot = ([(float(x), ev(g, x), 0.0) for x in xs[::-1]] if g is not None
+           else [(b, 0.0, 0.0), (a, 0.0, 0.0)])
+    poly = Polygon([np.asarray(p, dtype=float) for p in top + bot], closed=True)
+    col = style.get("color", (0.35, 0.60, 0.92))
+    poly.color = col
+    poly.fill_color = style.get("fill_color", col)
+    poly.fill_opacity = float(style.get("fill_opacity", 0.4))
+    poly.stroke_width = float(style.get("stroke_width", 0.0))
+    if axes is not None:
+        axes.place(poly)
+    return poly
+
+
 def _build_object(spec, objects, axes=None):
     args = {k: _resolve_arg(k, v) for k, v in spec.get("args", {}).items()}
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
@@ -454,6 +491,8 @@ def _build_object(spec, objects, axes=None):
         obj = _build_marker(args, style, axes)
     elif t == "Measure":                                    # dimension double-arrow with label
         obj = _build_measure(args, style, axes)
+    elif t == "Area":                                       # filled area under / between curve(s)
+        obj = _build_area(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
