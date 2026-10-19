@@ -181,3 +181,26 @@ damit sind nur __diskrete Energien__ erlaubt (Quantisierung). Das erklärt die s
 Damit steht das Bild: Elektronen sind Wellen, und eingesperrte Wellen haben diskrete Energien. Was noch fehlt,
 ist die **Bewegungsgleichung** für diese Wellen — die Gleichung, die festlegt, welche Form $\psi$ in einem
 gegebenen Potential annimmt. Das ist die __Schrödinger-Gleichung__, das Thema des nächsten Abschnitts.
+
+:::quiz
+F: Warum widerlegen die scharfen Spektrallinien der Atome das klassische „Kugel-auf-Bahn"-Bild?
+A: Eine kreisende Kugel könnte jede beliebige Bahn und damit jede Energie annehmen, sodass das Atom Licht aller Farben aussenden müsste. Dass nur wenige scharfe Linien auftreten, bedeutet, dass das Elektron nur ganz bestimmte, diskrete Energien haben darf — das verlangt eine neue Physik.
+F: Warum wäre ein klassisches Atom instabil?
+A: Eine kreisende Ladung müsste nach der klassischen Elektrodynamik ständig Energie abstrahlen und innerhalb von Sekundenbruchteilen in den Kern stürzen. Da Atome seit Milliarden Jahren stabil sind, kann das klassische Bild nicht stimmen.
+F: Was genau zeigt der Doppelspalt mit einzeln abgeschossenen Elektronen?
+A: Jedes Elektron schlägt als einzelner Punkt ein (Teilchencharakter), doch die Verteilung vieler Einschläge bildet ein Interferenzmuster (Wellencharakter). Jedes Elektron muss also gewissermaßen durch beide Spalte zugleich gegangen sein und mit sich selbst interferiert haben.
+F: Warum ist die Bezeichnung „Welle-Teilchen-Dualismus" eigentlich etwas irreführend?
+A: Das Elektron ist weder eine kleine Kugel noch eine Wasserwelle, sondern ein eigenständiges Quantenobjekt. „Welle" und „Teilchen" sind nur zwei Modelle, die je nach Experiment die eine oder andere Seite seines Verhaltens beschreiben.
+F: Warum bemerkt man die Wellennatur bei einem Tennisball nicht, bei einem Elektron aber schon?
+A: Die de-Broglie-Wellenlänge $\lambda=h/(mv)$ ist wegen des winzigen $h$ für große, schwere Objekte absurd klein (beim Ball $\sim10^{-34}$ m). Das leichte Elektron hat dagegen Wellenlängen im Nanometerbereich — vergleichbar mit Atomabständen, wo Wellenverhalten sichtbar wird.
+F: Unter welchen Bedingungen werden Quanteneffekte überhaupt wichtig?
+A: Sobald ein Teilchen leicht ist und auf kleinem Raum eingesperrt wird, sodass seine de-Broglie-Wellenlänge in der Größenordnung der „Hindernisse" liegt. Das trifft auf Elektronen in Atomen und Festkörpern zu, nicht auf Alltagsobjekte.
+F: Was beschreibt die Wellenfunktion $\psi$, und ist sie selbst messbar?
+A: $\psi(x,t)$ ist eine (im Allgemeinen komplexwertige) mathematische Größe, die das Elektron als Welle beschreibt. Anders als eine Wasserwelle ist sie kein direkt messbares Feld; messbar ist erst ihr Betragsquadrat.
+F: Was besagt die Born'sche Regel, und warum muss $\int|\psi|^2\,dx=1$ gelten?
+A: $|\psi(x)|^2\,dx$ ist die Wahrscheinlichkeit, das Elektron zwischen $x$ und $x+dx$ zu finden — die Welle gibt nicht den Ort, sondern die Aufenthaltswahrscheinlichkeit. Da sich das Elektron irgendwo aufhalten muss, ist die Summe aller Wahrscheinlichkeiten eins (Normierung).
+F: Wie erklärt die Wellenfunktion das Doppelspalt-Muster?
+A: $\psi$ geht durch beide Spalte und interferiert; wo $|\psi|^2$ groß ist, schlagen viele Elektronen ein (helle Streifen), wo es null ist, keine (dunkle). Das einzelne Elektron trifft zufällig auf, aber die Verteilung vieler folgt exakt $|\psi|^2$.
+F: Warum führt das Einsperren einer Welle zu diskreten Energien?
+A: Wie bei einer eingespannten Saite überleben nur stehende Wellen, die „ganzzahlig passen" ($\lambda_n=2L/n$). Über $p=h/\lambda$ gehört zu jeder erlaubten Wellenlänge ein bestimmter Impuls und damit eine bestimmte Energie — also sind nur diskrete Energien möglich (Quantisierung), was die Spektrallinien erklärt.
+:::
