@@ -32,7 +32,7 @@ entwickeln daraus den __Zeiger__ (Phasor), der alles einfach macht.
 Ein __Sinussignal__ (oder harmonisches Signal) ist eine Größe, die gleichmäßig zwischen einem Höchst- und einem
 Tiefstwert hin- und herschwingt. In der Signalverarbeitung schreibt man es als Kosinus:
 
-$$x(t) = A\,\cos(\omega t + \varphi).$$
+$$s(t) = A\,\cos(\omega t + \varphi).$$
 
 Bevor wir die drei Buchstaben einzeln ansehen, die Frage: Warum ausgerechnet diese Kurve, und warum beschäftigt
 sich ein ganzes Fach damit? Dafür gibt es zwei tiefe Gründe:
@@ -51,7 +51,7 @@ Kurve ablesen:
 - __$\varphi$__: die __Phase__ — wie weit die Kurve **verschoben** ist, also wo sie bei $t=0$ gerade steht.
 
 :::grafik
-Eine Kosinuskurve $x(t)$ über der Zeit, vollständig beschriftet: die Amplitude $A$ als Höhe vom Mittelwert bis
+Eine Kosinuskurve $s(t)$ über der Zeit, vollständig beschriftet: die Amplitude $A$ als Höhe vom Mittelwert bis
 zum Maximum; die Periodendauer $T$ als waagerechter Abstand zweier aufeinanderfolgender Maxima; die
 Phasenverschiebung als horizontaler Versatz des ersten Maximums gegenüber $t=0$ (bei $\varphi>0$ nach links).
 :::
@@ -109,7 +109,7 @@ wichtig wird: Die Hilfsgrößen $C$ und $S$ sehen verdächtig aus wie Real- und 
 Erinnern wir uns an die Eulersche Formel aus dem vorigen Abschnitt: $\cos\alpha = \operatorname{Re}\{e^{j\alpha}\}$,
 der Kosinus ist der Realteil eines rotierenden Einheitszeigers. Damit schreiben wir das Sinussignal um:
 
-$$x(t) = A\cos(\omega t + \varphi) = \operatorname{Re}\!\left\{A\,e^{\,j(\omega t + \varphi)}\right\} = \operatorname{Re}\!\left\{\underbrace{A\,e^{\,j\varphi}}_{=\,X}\;e^{\,j\omega t}\right\}.$$
+$$s(t) = A\cos(\omega t + \varphi) = \operatorname{Re}\!\left\{A\,e^{\,j(\omega t + \varphi)}\right\} = \operatorname{Re}\!\left\{\underbrace{A\,e^{\,j\varphi}}_{=\,X}\;e^{\,j\omega t}\right\}.$$
 
 Im letzten Schritt haben wir nur $e^{j(\omega t + \varphi)} = e^{j\varphi}\cdot e^{j\omega t}$ benutzt (Exponenten
 addieren sich) und den Teil, der die Zeit enthält, abgespalten. Übrig bleibt vorne eine feste komplexe Zahl, der
@@ -149,7 +149,7 @@ null.
 Das tatsächliche, reelle Signal ist der **Realteil** davon — die Projektion der rotierenden Pfeilspitze auf die
 reelle Achse — ganz im Einklang mit $z = x + jy$ aus dem vorigen Abschnitt ($x$ ist der Realteil):
 
-$$x(t) = \operatorname{Re}\{z(t)\} = \operatorname{Re}\!\left\{X\,e^{\,j\omega t}\right\} = A\cos(\omega t + \varphi).$$
+$$s(t) = \operatorname{Re}\{z(t)\} = \operatorname{Re}\!\left\{X\,e^{\,j\omega t}\right\} = A\cos(\omega t + \varphi).$$
 
 Der **Imaginärteil** desselben rotierenden Zeigers liefert übrigens das um $90^\circ$ verschobene Sinussignal,
 $y(t) = \operatorname{Im}\{z(t)\} = A\sin(\omega t + \varphi)$. Das ist genau die Einstiegs-Animation: Der volle,
@@ -181,7 +181,7 @@ Jetzt lösen wir das Additionsproblem von oben noch einmal — mit Phasoren. Wei
 rotierenden Zeigers ist und der Realteil eine **lineare** Operation ist (man darf die Summe zweier Realteile als
 Realteil der Summe schreiben), gilt:
 
-$$x_1(t) + x_2(t) = \operatorname{Re}\{X_1 e^{j\omega t}\} + \operatorname{Re}\{X_2 e^{j\omega t}\} = \operatorname{Re}\{(X_1 + X_2)\,e^{j\omega t}\}.$$
+$$s_1(t) + s_2(t) = \operatorname{Re}\{X_1 e^{j\omega t}\} + \operatorname{Re}\{X_2 e^{j\omega t}\} = \operatorname{Re}\{(X_1 + X_2)\,e^{j\omega t}\}.$$
 
 Das Ergebnis ist also wieder ein Sinussignal derselben Frequenz, und sein Phasor ist einfach die **Summe der
 Einzelphasoren**:
@@ -198,7 +198,7 @@ Wechselstromtechnik grundsätzlich mit Zeigern rechnet.
 :::grafik
 Zwei Phasoren $X_1$ und $X_2$ (gleiche Frequenz, verschiedene Länge/Winkel) werden
 Pfeil-an-Pfeil addiert; der Summenpfeil $X_\text{ges}$ vom Ursprung zur Spitze ist hervorgehoben, mit
-abgelesener Amplitude und Phase. Darunter, zeitlich gekoppelt, die drei Kosinuskurven: $x_1$, $x_2$ und ihre
+abgelesener Amplitude und Phase. Darunter, zeitlich gekoppelt, die drei Kosinuskurven: $s_1$, $s_2$ und ihre
 Summe — sichtbar wieder eine reine Kosinuskurve derselben Frequenz.
 :::
 
@@ -233,11 +233,11 @@ daneben der Hinweis „Ableiten = $\times\,j\omega$, Integrieren = $\div\,j\omeg
 Beides ist in Ordnung — man muss nur bei **einer** Wahl konsequent bleiben.
 
 :::kern
-Ein __Sinussignal__ $x(t) = A\cos(\omega t + \varphi)$ hat __Amplitude__ $A$, __Kreisfrequenz__ $\omega = 2\pi f$
+Ein __Sinussignal__ $s(t) = A\cos(\omega t + \varphi)$ hat __Amplitude__ $A$, __Kreisfrequenz__ $\omega = 2\pi f$
 (hergeleitet: ein voller Umlauf $2\pi$ je Periode $T$) und __Phase__ $\varphi$. Direktes Addieren über
 Trigonometrie ist umständlich; der __Zeiger__ (Phasor) $X = A e^{j\varphi}$ fasst Amplitude und Phase
 in einer komplexen Zahl zusammen (der gemeinsame Faktor $e^{j\omega t}$ wird ausgeklammert), und
-$x(t) = \operatorname{Re}\{Xe^{j\omega t}\}$ ist der Schatten des rotierenden Zeigers. Dann wird
+$s(t) = \operatorname{Re}\{Xe^{j\omega t}\}$ ist der Schatten des rotierenden Zeigers. Dann wird
 __Addition__ gleichfrequenter Signale zur __Zeigeraddition__ $X_\text{ges} = X_1 +
 X_2$ (genau das, was die Trigonometrie heimlich tut), und __Ableiten/Integrieren__ wird zu
 $\times\,j\omega$ bzw. $\div\,j\omega$ — Differentialgleichungen werden zu Algebra. Konventionen (Kosinus/Sinus,
