@@ -41,6 +41,45 @@ Konfiguration zu erreichen. Die vier Bindungstypen sind vier verschiedene Lösun
 | **metallisch** | Metalle (Au, Cu, Al) | Elektronengas + Ionenrümpfe | *delokalisiert* |
 | **van der Waals** | Graphit, $\text{MoS}_2$ | temporäre Dipole | *kein Austausch* |
 
+## Das Bindungspotential: Gleichgewichtsabstand und Wärmeausdehnung
+
+Bevor wir die einzelnen Typen durchgehen, der gemeinsame physikalische Rahmen — er gilt für **jede** Bindung und
+erklärt nebenbei, warum sich Materialien beim Erwärmen ausdehnen. Zwischen zwei Bausteinen wirkt stets ein
+**Wechselspiel** aus einer **anziehenden** und einer **abstoßenden** Kraft:
+
+- die __anziehende Kraft__ $F_\text{an}$ wirkt weitreichend (je nach Bindungstyp z. B. Coulomb $F_\text{an}\sim
+  r^{-2}$ im Ionenkristall oder van der Waals $F_\text{an}\sim r^{-6}$);
+- die __abstoßende Kraft__ $F_\text{ab}$ wirkt erst bei **starker Annäherung**, dann aber sehr steil (z. B.
+  $\sim r^{-12}$ oder exponentiell). Ihre Ursache ist das __Pauli-Prinzip__: Überlappen die gefüllten Orbitale,
+  dürfen die Elektronen nicht in dieselben Zustände, was stark abstößt.
+
+Kraft und Energie hängen über das **Energiegefälle** zusammen — die Kraft ist der negative Gradient der
+potentiellen Energie $W(r)$:
+
+$$F = -\frac{\mathrm{d}W}{\mathrm{d}r} \qquad\text{(allgemein }\ \vec F = -\operatorname{grad} W\text{)}.$$
+
+Beide Kräfte zusammen ergeben eine **Potentialkurve** $W(r)$ mit einem **Minimum**. An dessen Stelle, dem
+__Gleichgewichts- bzw. Bindungsabstand__ $r_0$, herrscht Kräftegleichgewicht $F_\text{an} = -F_\text{ab}$ (die
+Gesamtkraft ist null). Die **Tiefe** des Minimums ist die __Bindungsenergie__ $W_0$ — die Energie, die man
+aufbringen muss, um die Atome wieder zu trennen. Hier „sitzen" die Atome also: genau am Abstand $r_0$.
+
+**Warum sich Materialien beim Erwärmen ausdehnen.** Die Atome ruhen nicht im Minimum, sondern **schwingen** um
+$r_0$. Nach dem Gleichverteilungssatz trägt jede Schwingung im Mittel die thermische Energie $k_\text{B}T$; im
+Energiebild liegt der Zustand also um rund $k_\text{B}T$ **über** dem Minimum, und die Schwingungsamplitude wird
+durch die Potentialkurve begrenzt. Diese Kurve ist aber **unsymmetrisch** (die abstoßende Flanke ist viel steiler
+als die anziehende). Dadurch verschiebt sich der **zeitliche Mittelwert** des Abstands mit steigender Temperatur
+zu **größeren** Werten — das ist die Ursache der __thermischen Ausdehnung__. Wird $k_\text{B}T$ schließlich
+vergleichbar mit $W_0$, gewinnt die thermische Bewegung die Oberhand: Das Material **schmilzt** und verdampft
+letztlich.
+
+:::grafik
+Die Bindungs-Potentialkurve $W(r)$ über dem Atomabstand $r$: von links kommend steil abstoßend (Pauli), dann ein
+Minimum bei $r_0$ der Tiefe $W_0$, nach rechts flach anziehend gegen null auslaufend. Eine waagerechte Linie
+$k_\text{B}T$ über dem Minimum markiert die thermische Anregung; weil die Kurve unsymmetrisch ist, liegt die
+Mitte dieser Linie rechts von $r_0$ — Pfeil „mittlerer Abstand wächst mit $T$ → Wärmeausdehnung". Zusätzlich
+gestrichelt die beiden Anteile $F_\text{an}\sim r^{-2}/r^{-6}$ und $F_\text{ab}$ (steil).
+:::
+
 ## Ionische Bindung: Elektronen wechseln den Besitzer
 
 Bei der __ionischen Bindung__ *gibt* ein Atom Elektronen ab und ein anderes *nimmt* sie auf — ein echter
@@ -173,7 +212,10 @@ ersten), rechts fcc mit ABCABC (versetzte dritte Lage). Gleiche Packungsdichte, 
 
 :::kern
 Das Gitter beschreibt, die __Bindung__ erklärt die Anordnung; gemeinsames Ziel ist die __Edelgaskonfiguration__
-(Oktettregel). **Ionisch:** Elektronen**transfer** → Coulomb-Anziehung von Ionen (LiF → Steinsalz, 2×FCC).
+(Oktettregel). Jede Bindung ist ein Wechselspiel aus Anziehung ($F_\text{an}$) und Pauli-Abstoßung
+($F_\text{ab}$); die Potentialkurve $W(r)$ (mit $F=-\mathrm{d}W/\mathrm{d}r$) hat ihr Minimum beim
+__Bindungsabstand__ $r_0$ ($F_\text{an}=-F_\text{ab}$), die Tiefe ist die __Bindungsenergie__ $W_0$. Die
+**Unsymmetrie** der Kurve + thermische Schwingung ($\sim k_\text{B}T$) erklärt die __Wärmeausdehnung__. **Ionisch:** Elektronen**transfer** → Coulomb-Anziehung von Ionen (LiF → Steinsalz, 2×FCC).
 **Kovalent:** geteilte, **lokalisierte** Elektronen (Halbleiter/Isolator); __$sp^3$-Hybridisierung__ → Tetraeder
 ($\arccos(-\tfrac13)\approx109{,}47^\circ$) → __Diamantstruktur__ = 2 FCC versetzt um $\vec d=\tfrac{a}{4}(1,1,1)$
 (Si $a=0{,}543\,$nm, Ge $0{,}566\,$nm); $sp^2$ → Graphen-Wabe. **Metallisch:** Abschirmung → leichtere Ionisation
