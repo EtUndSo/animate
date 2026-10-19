@@ -438,6 +438,99 @@ def _cmap(t):
     return _CMAP_STOPS[-1][1]
 
 
+def _build_polar_curve(args, style, axes):
+    """A polar curve r(theta): points (r·cos θ, r·sin θ) as a polyline with orientation arrowhead.
+    Variable `theta` (alias `t`). General: cardioids, roses, spirals, ..."""
+    c2p = _c2p_fn(axes)
+    names = _safe_names()
+    code = compile(normalize_expr(str(args.get("func", "1+cos(theta)"))), "<polar>", "eval")
+
+    def rval(a):
+        try:
+            return float(eval(code, {"__builtins__": {}}, {"theta": a, "t": a, **names}))
+        except Exception:
+            return float("nan")
+
+    a0, a1 = float(args.get("theta_min", 0.0)), float(args.get("theta_max", 6.283185))
+    n = max(2, int(args.get("samples", 200)))
+    th = np.linspace(a0, a1, n)
+    col = style.get("color", (0.35, 0.60, 0.92))
+    sw = float(style.get("stroke_width", 4.0))
+
+    def XY(a):
+        r = rval(a)
+        return r * np.cos(a), r * np.sin(a)
+
+    raw = [XY(a) for a in th]
+    pts = [np.array([x, y, 0.0]) for (x, y) in raw if np.isfinite(x) and np.isfinite(y)]
+    obj = AnimObject()
+    if len(pts) >= 2:
+        poly = Polygon(pts, closed=False)
+        poly.color = col
+        poly.stroke_width = sw
+        obj.add(poly)
+    if axes is not None:
+        axes.place(obj)
+    if args.get("show_arrow", True) and n >= 3:
+        i = max(1, min(n - 2, int(0.55 * (n - 1))))
+        wa = c2p(*XY(th[i - 1]))
+        wb = c2p(*XY(th[i + 1]))
+        d = wb - wa
+        L = float(np.linalg.norm(d))
+        if L > 1e-9:
+            tdir = d / L
+            perp = np.array([-tdir[1], tdir[0], 0.0])
+            tip = c2p(*XY(th[i]))
+            head = 0.22
+            back = tip - head * tdir
+            tri = Polygon([tip, back + 0.5 * head * perp, back - 0.5 * head * perp], closed=True)
+            tri.color = col
+            tri.fill_color = col
+            tri.fill_opacity = 1.0
+            tri.stroke_width = sw
+            obj.add(tri)
+    return obj
+
+
+def _build_number_line(args, style, axes):
+    """A standalone 1D number line (independent of the scene Axes): a main line of world length `length`
+    centred at `center`, with tick marks at multiples of `step` from x_min to x_max and optional labels."""
+    c2p = _c2p_fn(axes)
+    RIGHT = np.array([1.0, 0.0, 0.0])
+    UP = np.array([0.0, 1.0, 0.0])
+    x0, x1 = float(args.get("x_min", -5.0)), float(args.get("x_max", 5.0))
+    if x1 <= x0:
+        x1 = x0 + 1.0
+    step = float(args.get("step", 1.0)) or 1.0
+    length = float(args.get("length", 10.0))
+    c = c2p(*_xyz(args.get("center", [0.0, 0.0, 0.0])))
+    col = style.get("color", (0.1, 0.1, 0.1))
+    sw = float(style.get("stroke_width", 3.0))
+    labels = bool(args.get("tick_labels", True))
+    dec = int(args.get("decimals", 0))
+    fs = float(args.get("font_size", 24))
+    obj = AnimObject()
+    main = Line(c - 0.5 * length * RIGHT, c + 0.5 * length * RIGHT)
+    main.color = col
+    main.stroke_width = sw
+    obj.add(main)
+    v = x0
+    vals = []
+    while v <= x1 + step * 0.5:
+        vals.append(round(v, 9))
+        v += step
+    for val in vals:
+        frac = (val - x0) / (x1 - x0)
+        p = c + (frac - 0.5) * length * RIGHT
+        tick = Line(p - 0.12 * UP, p + 0.12 * UP)
+        tick.color = col
+        tick.stroke_width = sw
+        obj.add(tick)
+        if labels:
+            obj.add(Text(f"{val:.{dec}f}", position=p - 0.38 * UP, font_size=fs, color=col))
+    return obj
+
+
 def _build_parametric_curve(args, style, axes):
     """A parametric curve (x(t), y(t)) as a polyline, with an orientation arrowhead along the sweep and
     an optional running point with tangent/normal vectors. General: any expressions in t."""
@@ -923,6 +1016,10 @@ def _build_object(spec, objects, axes=None):
         obj = _build_curve_family(args, style, axes)
     elif t == "ParametricCurve":                            # (x(t),y(t)) with orientation / running point
         obj = _build_parametric_curve(args, style, axes)
+    elif t == "PolarCurve":                                 # r(theta) polar plot
+        obj = _build_polar_curve(args, style, axes)
+    elif t == "NumberLine":                                 # standalone 1D axis with ticks + labels
+        obj = _build_number_line(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.

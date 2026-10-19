@@ -106,8 +106,14 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   Tangenten-/Normalenvektor (`show_tangent`/`show_normal`). Props {fx, fy, t_min, t_max, samples, show_arrow,
   point_at, show_tangent, show_normal, color, stroke_width}, CATALOG „Funktionen & Achsen". Durchlaufumkehr =
   t_min/t_max tauschen. Test: Kreis `cos(t)`/`sin(t)`; Lissajous `sin(3t)`/`sin(2t)`; `point_at` setzen.
-- [ ] **F10 Polarkurve $r(\theta)$ + eigenständige NumberLine** — Polarplot aus Ausdruck; NumberLine als
+- [~] **F10 Polarkurve $r(\theta)$ + eigenständige NumberLine** — Polarplot aus Ausdruck; NumberLine als
   wiederverwendbares 1D-Achsenobjekt (Marken, Beschriftung, Einheiten).
+  **Umgesetzt (wartet auf Test):** `PolarCurve` (`_build_polar_curve`): $r(\theta)$→$(r\cos\theta,r\sin\theta)$
+  Polyline + Orientierungspfeil, Variable `theta` (alias `t`); Props {func, theta_min, theta_max, samples,
+  show_arrow, color, stroke_width}. `NumberLine` (`_build_number_line`): eigenständige 1D-Achse (Welt-Länge
+  `length` um `center`, Ticks je `step` von x_min..x_max, optionale Wert-Labels); Props {x_min, x_max, step,
+  length, center, tick_labels, decimals, font_size, color, stroke_width}. CATALOG „Funktionen & Achsen". Test:
+  `PolarCurve` func `1+cos(theta)` (Kardioide); `NumberLine` mit step 1.
 - [ ] **F11 Krummliniges Koordinatengitter** — Polar/Zylinder/Kugel-Gitter (konzentrische Kreise, Strahlen,
   Höhenebenen) + hervorgehobenes Flächen-/Volumenelement ($r\,dr\,d\varphi$ usw.).
 

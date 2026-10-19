@@ -75,6 +75,10 @@ const CATALOG = {
     // Parametric curve (x(t),y(t)): polyline + orientation arrowhead. point_at="t" adds a running dot;
     // show_tangent/show_normal add vectors there. For circles, ellipses, Lissajous, spirals, paths.
     ParametricCurve: { fx:"cos(t)", fy:"sin(t)", t_min:0, t_max:6.283185, samples:160, show_arrow:true, point_at:"", show_tangent:false, show_normal:false, color:"#59a0eb", stroke_width:4 },
+    // Polar curve r(theta) -> (r·cosθ, r·sinθ). For cardioids, roses, spirals. var `theta` (alias t).
+    PolarCurve:    { func:"1+cos(theta)", theta_min:0, theta_max:6.283185, samples:200, show_arrow:true, color:"#59a0eb", stroke_width:4 },
+    // Standalone 1D number line (own scale): length (world) centred at `center`, ticks every `step`.
+    NumberLine:    { x_min:-5, x_max:5, step:1, length:10, center:[0,0,0], tick_labels:true, decimals:0, font_size:24, color:"#111111", stroke_width:3 },
     // Legend/key for several curves on the SAME axes: one row per entry (swatch + label). `labels` is
     // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
     Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.8, swatch_len:0.9, gap:0.35, color:"#111111", stroke_width:6 },
