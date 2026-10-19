@@ -159,3 +159,26 @@ die primitive Zelle.
 Wir können Gitter jetzt benennen und vergleichen. Als Nächstes brauchen wir eine Sprache für die **Ebenen und
 Richtungen** in einem Kristall — denn Spaltflächen, Ätzflächen und Transportrichtungen sind physikalisch
 ausgezeichnet. Das leisten die __Millerindizes__, das Thema des nächsten Artikels.
+
+:::quiz
+F: Was misst die Koordinationszahl, und was die Packungsdichte?
+A: Die Koordinationszahl ist die Zahl der nächsten Nachbarn eines Atoms (wie „umringt" es sitzt), die Packungsdichte der Volumenanteil, den die als harte Kugeln gedachten Atome ausfüllen (wie effizient der Raum genutzt wird). Beide steigen zusammen von SC über BCC zu FCC.
+F: Warum trägt ein Eckatom nur 1/8 zur Würfelzelle bei?
+A: Jede Würfelecke wird von 8 angrenzenden Würfeln geteilt, sodass nur ein Achtel des Eckatoms in eine einzelne Zelle fällt. Bei 8 Ecken ergibt das $8\cdot\tfrac18=1$ Atom pro SC-Zelle.
+F: Wie kommt beim SC-Gitter die Beziehung $a=2r$ zustande?
+A: Die Atome berühren sich entlang der Würfelkante, auf der genau zwei Radien liegen (je einer der beiden Eckatome). Daher ist die Kantenlänge $a=2r$, woraus $\text{APF}=\pi/6\approx0{,}52$ folgt.
+F: Warum ist das SC-Gitter in der Natur so selten?
+A: Mit nur 52 % Raumfüllung und Koordinationszahl 6 ist es energetisch ungünstig und instabil — die Atome „verschenken" viel Platz. Praktisch nur Polonium kristallisiert einfach kubisch.
+F: Warum berühren sich die Kugeln bei BCC entlang der Raumdiagonale und nicht der Kante?
+A: Das Zentralatom liegt der Ecke am nächsten, und die Verbindungslinie Ecke–Zentrum–gegenüberliegende Ecke ist die Raumdiagonale. Dort liegen vier Radien, also $\sqrt3\,a=4r$ — entlang der Kante berühren sich die Eckatome dagegen nicht.
+F: Warum beschreiben die Würfelkantenvektoren $(a,0,0)$ usw. das BCC-Gitter falsch?
+A: Ganzzahlige Kombinationen dieser Vektoren treffen nur die Ecken, nie das Zentralatom — die halbe Struktur wird verfehlt. Die primitive Zelle muss genau einen Gitterpunkt enthalten; korrekt sind die halben Raumdiagonalen $\tfrac a2(1,1,-1)$ usw., die von einer Ecke zu den Zentralatomen zeigen.
+F: Was ist der Unterschied zwischen konventioneller und primitiver Zelle bei BCC/FCC?
+A: Der symmetrisch schöne Würfel mit Eck- und Zusatzatomen ist die konventionelle Zelle, enthält aber mehr als einen Gitterpunkt (BCC 2, FCC 4). Die primitive Zelle enthält genau einen und wird von den halben Diagonalen aufgespannt — kleiner, aber weniger anschaulich.
+F: Warum hat FCC mit Koordinationszahl 12 die dichteste Packung gleich großer Kugeln?
+A: Zwölf nächste Nachbarn ist das Maximum, das sich mit gleich großen Kugeln erreichen lässt; die Kugeln berühren sich entlang der Flächendiagonale ($\sqrt2\,a=4r$). Das ergibt $\text{APF}=\pi/(3\sqrt2)\approx0{,}74$ — die dichtestmögliche Kugelpackung.
+F: Warum hat die Wigner-Seitz-Zelle des FCC-Gitters zwölf Flächen?
+A: Jede Fläche der WS-Zelle entsteht als Mittelsenkrechte zu einem nächsten Nachbarn; FCC hat 12 nächste Nachbarn, also 12 Flächen — das Rhombendodekaeder. Die Zahl der WS-Flächen spiegelt direkt die Koordinationszahl.
+F: Welcher allgemeine Trend verbindet SC → BCC → FCC?
+A: Mit zunehmender Zentrierung steigen Koordinationszahl (6→8→12) und Packungsdichte (52 %→68 %→74 %). Mehr nächste Nachbarn bedeuten in der Regel eine dichtere, energetisch günstigere und stabilere Struktur.
+:::
