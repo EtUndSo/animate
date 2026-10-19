@@ -140,3 +140,26 @@ Wir wissen jetzt, **ob** ein Material leitet. Offen ist, **wie gut** — wie sch
 Ladungsträger im Leitungsband sind, die es über die Lücke geschafft haben. Das steckt in der Krümmung der Bänder
 und führt zum Begriff der __effektiven Masse__ (und zum Gegenstück des Elektrons, dem __Loch__) — dem Thema des
 nächsten Artikels.
+
+:::quiz
+F: Was ist die Fermi-Energie, und warum füllt man die Bänder „von unten" auf?
+A: Elektronen sind Fermionen und gehorchen dem Pauli-Prinzip — jeder Zustand nimmt höchstens zwei auf. Man belegt daher die niedrigsten Zustände zuerst, wie Wasser ein Gefäß; die höchste bei $T=0$ besetzte Energie ist die Fermi-Energie $E_f$ (die „Wasserlinie").
+F: Warum entscheidet die Lage der Fermi-Energie über das Verhalten des Materials?
+A: Liegt $E_f$ mitten in einem Band, gibt es direkt darüber freie Zustände (leitfähig). Liegt sie in einer Lücke, ist das untere Band voll und das obere leer — dann hängt alles an der Lückengröße.
+F: Warum trägt ein vollständig gefülltes Band keinen Strom, obwohl es voller Elektronen ist?
+A: In einem vollen Band ist zu jedem Elektron mit Impuls $+k$ auch der Partner mit $-k$ besetzt; ihre Geschwindigkeiten heben sich exakt auf. Für einen Netto-Strom bräuchte man ein Ungleichgewicht, das nur durch freie Zustände entstehen könnte — die es im vollen Band nicht gibt.
+F: Warum kann ein elektrisches Feld in einem vollen Band nichts bewegen?
+A: Das Feld will die Elektronen beschleunigen, also ihren $k$-Wert verschieben — dafür bräuchten sie freie Zustände, in die sie wechseln können. Im vollen Band liegt der nächste freie Zustand erst jenseits der Lücke, das Feld „greift ins Leere".
+F: Warum leitet ein Metall immer, sogar bei $T=0$?
+A: Bei einem Metall liegt $E_f$ mitten in einem Band, direkt oberhalb der besetzten Zustände sind leere. Schon ein kleines Feld verschiebt die Besetzung dorthin und erzeugt einen Überschuss in eine Richtung — Strom, ohne dass thermische Anregung nötig wäre.
+F: Was unterscheidet einen Halbleiter von einem Isolator physikalisch?
+A: Beide haben bei $T=0$ ein volles Valenzband und ein leeres Leitungsband; der Unterschied ist nur die Größe der Bandlücke $E_g$. Bei kleiner Lücke (Halbleiter) heben thermische Fluktuationen einige Elektronen hinüber, bei großer (Isolator) praktisch keine.
+F: Warum nimmt die Leitfähigkeit eines Halbleiters mit der Temperatur zu?
+A: Höhere Temperatur bedeutet mehr thermische Energie, sodass mehr Elektronen über die Lücke ins Leitungsband gelangen und dort beweglich werden. Mehr Ladungsträger heißt höhere Leitfähigkeit — anders als beim Metall, wo sie eher sinkt.
+F: Warum ist die Grenze zwischen Halbleiter und Isolator fließend?
+A: Die Zahl thermisch angeregter Ladungsträger nimmt mit wachsender Lücke stetig (exponentiell) ab, ohne einen scharfen Sprung. „Halbleiter" und „Isolator" sind daher nur Bereiche auf einer kontinuierlichen Skala der Lückengröße.
+F: Warum leitet ein Halbleiter nicht wie ein Metall, obwohl er voller Elektronen ist?
+A: Seine Elektronen sitzen im vollen Valenzband und müssen erst die Lücke überspringen, bevor sie in freie Leitungsbandzustände gelangen und beweglich werden. Genau dieser steuerbare „Sprung über die Lücke" macht Dioden, Transistoren und Solarzellen möglich.
+F: Warum schrumpft die Bandlücke in der IV. Hauptgruppe von C über Si, Ge bis α-Sn?
+A: Nach unten werden die Atome größer und die Bindungen schwächer, sodass die Wellenfunktionen stärker überlappen und die Bänder breiter werden. Breitere Bänder rücken enger zusammen, die Lücke schrumpft von 5,47 eV (Diamant) bis fast 0 (graues Zinn).
+:::
