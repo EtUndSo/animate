@@ -129,3 +129,26 @@ breites Band, weite Atome → schmales Band.
 Das war die anschauliche Seite. Im nächsten Artikel rechnen wir es aus: Mit dem __Tight-Binding__-Modell leiten
 wir die konkrete Bandform $E(k) = \epsilon_0 - 2V_{ss}\cos(ka)$ her — das __Kosinus-Band__ — und sehen, dass die
 Bandbreite exakt $4V_{ss}$ beträgt, also direkt die Kopplung misst.
+
+:::quiz
+F: Warum sind die Energieniveaus eines isolierten Atoms scharf und diskret?
+A: Das Elektron sitzt im Coulomb-Topf des Kerns, und wie beim Teilchen in der Box sind dort nur bestimmte stehende Wellen und damit diskrete Energien erlaubt. Solange das Atom allein steht, gibt es keine Kopplung, die diese Linien verbreitern könnte.
+F: Warum wird das Elektron im H₂⁺-Molekül als Linearkombination beider Atomorbitale beschrieben?
+A: Rücken die Kerne zusammen, überlappen ihre Wellenfunktionen und das Elektron kann nicht mehr einem einzelnen Kern zugeordnet werden. Der LCAO-Ansatz $\psi=c_1\phi_1+c_2\phi_2$ trägt genau dieser Delokalisierung über beide Kerne Rechnung.
+F: Was unterscheidet die bindende von der antibindenden Lösung?
+A: Bei der bindenden (symmetrischen) addieren sich die Orbitale konstruktiv zwischen den Kernen, es sitzt viel Ladung dort, die sie zusammenhält — Energie tiefer als $\epsilon_0$. Bei der antibindenden (antisymmetrischen) gibt es einen Knoten dazwischen, keine bindende Ladung — Energie höher als $\epsilon_0$.
+F: Warum liegt die bindende Lösung energetisch tiefer?
+A: Weil sich zwischen den Kernen Ladung konzentriert, die der Anziehung beider positiver Kerne ausgesetzt ist — das senkt die potentielle Energie. Die antibindende mit ihrem Knoten meidet diesen günstigen Bereich und liegt daher höher.
+F: Warum muss ein Atomniveau beim Koppeln überhaupt aufspalten?
+A: Zwei gekoppelte gleiche Systeme behalten nie dieselbe Energie — wie zwei gekoppelte Pendel nicht mehr mit einer, sondern mit zwei Frequenzen (gleich- und gegenphasig) schwingen. Die Kopplung hebt die Entartung auf und zwingt die Energien auseinander.
+F: Wie wird aus einem Atomniveau bei N Atomen ein Band?
+A: Jedes der $N$ Atome steuert sein Niveau $\epsilon_0$ bei, und die Kopplung fächert sie in $N$ eng benachbarte Niveaus auf. Bei $N\sim10^{23}$ liegen diese so dicht, dass sie ein praktisch kontinuierliches Band bilden.
+F: Woher kommen die Bandlücken zwischen den Bändern?
+A: Jedes ursprüngliche Atomniveau ($E_1,E_2,\dots$) wird zu einem eigenen Band. Zwischen diesen Bändern bleiben Energiebereiche, in denen keine erlaubten Zustände liegen — das sind die verbotenen Bandlücken.
+F: Wovon hängt die Breite eines Bandes ab?
+A: Von der Kopplungsstärke, also dem Überlapp der Wellenfunktionen benachbarter Atome. Starker Überlapp (enge Atome, dünne Barrieren) ergibt ein breites Band, schwacher Überlapp ein schmales.
+F: Was passiert mit der Bandbreite im Grenzfall sehr großer Atomabstände?
+A: Dann überlappen die Wellenfunktionen kaum, die Kopplung geht gegen null und das Band schrumpft zur scharfen Atomlinie zusammen. Ohne Kopplung gibt es kein Band — man ist wieder beim isolierten Atom.
+F: Wie nutzt man den Zusammenhang Kopplung ⇔ Bandbreite technisch aus?
+A: Über mechanische Verspannung (strain) ändert man den Atomabstand und damit gezielt Überlapp, Bandbreite und Ladungsträger-Geschwindigkeit. In modernen Transistoren steigert das den Strom spürbar (strained silicon).
+:::
