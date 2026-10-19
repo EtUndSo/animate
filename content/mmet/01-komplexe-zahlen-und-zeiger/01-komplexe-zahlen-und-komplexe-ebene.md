@@ -33,8 +33,8 @@ $$z = a + j\,b.$$
 
 - __$z$__: die __komplexe Zahl__.
 - __$a = \operatorname{Re}(z)$__: der __Realteil__ (eine gewöhnliche reelle Zahl).
-- __$b = \operatorname{Im}(z)$__: der __Imaginärteil__ (ebenfalls reell — er ist der Faktor **vor** $j$, nicht
-  $jb$ selbst).
+- __$b = \operatorname{Im}(z)$__: der __Imaginärteil__ (ebenfalls reell — er ist der Faktor **nach** $j$, also
+  $b$ selbst, nicht $jb$).
 
 Gerechnet wird wie mit Klammern gewohnt, nur dass am Ende $j^2$ durch $-1$ ersetzt wird. Die __konjugiert
 komplexe Zahl__ $z^* = a - j\,b$ (Imaginärteil mit umgekehrtem Vorzeichen) taucht dabei immer wieder auf — etwa,

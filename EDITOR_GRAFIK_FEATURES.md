@@ -8,15 +8,29 @@ Legende Priorität: **P1** = ohne das geht fast keine ET-Grafik · **P2** = häu
 
 ---
 
-## 1. Schaltplan-/Schaltsymbol-Bibliothek  — **P1 (wichtigstes fehlendes Feature)**
-Fast jede GET1-Grafik ist ein Schaltbild. Gebraucht werden platzierbare, verdrahtbare Symbole:
-- Widerstand, Potentiometer; Kondensator; Spule; Quelle (Spannungs-/Stromquelle, ideal/real); Masse/Bezugsknoten.
-- Diode (+ Z-Diode, LED, Schottky, Photodiode); Bipolartransistor npn/pnp; Operationsverstärker (Dreieck, +/−).
-- Mess­geräte (Amperemeter „A", Voltmeter „V", Galvanometer „G"), Schalter, Klemmen/Knotenpunkte.
-- **Verdrahtung**: orthogonale Leitungen, Knotenpunkte (Lötpunkt), Kreuzungen ohne Verbindung.
-- Automatische/rastende Ausrichtung (Grid-Snap) und saubere Beschriftung der Bauteile ($R_1$, $U_0$ …).
-- Referenz: circuitikz-Umfang. Umsetzung evtl. als SVG-Symbol-Set + Verdrahtungswerkzeug.
-Gebraucht in: praktisch allen Kapiteln 4–12.
+## 1. Schaltplan-Editor / Schaltsymbol-Bibliothek  — **P1 (wichtigstes fehlendes Feature)** — IN ARBEIT
+Fast jede GET1-Grafik ist ein Schaltbild. Ziel: Schemata elektrischer Schaltungen nachbauen wie im
+ET1-Skript — **Rechteck für Widerstand, Dreieck mit Strich für Diode**, usw. (User 2026-10-19).
+
+**Symbol-Set (wie circuitikz / ET1-Skript):**
+- Widerstand (Rechteck), Potentiometer; Kondensator (zwei Platten); Spule; Quelle (Spannungs-/Stromquelle,
+  ideal/real, Kreis mit +/− bzw. Pfeil); Masse/Bezugsknoten.
+- Diode (Dreieck + Strich) und Varianten (Z-Diode, LED, Schottky, Photodiode); Bipolartransistor npn/pnp;
+  Operationsverstärker (Dreieck, +/−); Messgeräte (Kreis „A"/„V"/„G"); Schalter; Klemmen/Knotenpunkte.
+- Beschriftung je Bauteil ($R_1$, $U_0$ …) über das vorhandene MathTex.
+
+**Verdrahtung + Linien-Winkelraster (User 2026-10-19):**
+- Leitungen zwischen Bauteilen/Knoten; Knotenpunkt (Lötpunkt) vs. Kreuzung ohne Verbindung.
+- **Einstellbar: automatische Ausrichtung der Geraden auf horizontal / vertikal / 45°.**
+  **Standard: AN** (Linien rasten auf 0°/45°/90°), **kann ausgeschaltet werden** (dann freie Winkel).
+
+**Grid + Clipping (User 2026-10-19):**
+- **Einstellbar: ob ein darunterliegendes Grid angezeigt wird** und ob es **mit Clipping/Snap** genutzt wird
+  (Bauteile/Linienenden rasten auf Gitterpunkte). Ein/aus schaltbar.
+
+Referenz: circuitikz-Umfang, ET1-Skript-Optik. Umsetzung als neues Objekt-/Werkzeug-Set (SVG-Symbole +
+Verdrahtungs-/Snap-Logik). Gebraucht in: praktisch allen Kapiteln 4–12.
+**→ Wird aktuell parallel in einem eigenen Worktree gebaut.**
 
 ## 2. Beschriftete Pfeile / Vektoren (Zählpfeile, Kräfte, Felder)  — **P1**
 - Gerade **Pfeile mit Label** (Strom-, Spannungs-, Kraft-, Feldstärkepfeile) frei platzierbar.
