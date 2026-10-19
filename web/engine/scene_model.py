@@ -424,6 +424,55 @@ def _build_area(args, style, axes):
     return poly
 
 
+def _build_tangent(args, style, axes):
+    """Tangent (or secant) line to a graph y=f(x). Tangent slope via central difference at x0; secant
+    slope via (f(x1)-f(x0))/(x1-x0). The line runs ±half_len in x; optional touch-point dot(s) and a
+    slope label. General: any function/expression, any point(s). Built in world coords (no distortion)."""
+    c2p = _c2p_fn(axes)
+    f = func_from_expr(str(args.get("func", "0")))
+
+    def fx(x):
+        try:
+            v = float(f(x))
+            return v if np.isfinite(v) else 0.0
+        except Exception:
+            return 0.0
+
+    x0 = float(args.get("x0", 0.0))
+    y0 = fx(x0)
+    half = float(args.get("half_len", 2.0))
+    secant = bool(args.get("secant", False))
+    pts = [(x0, y0)]
+    if secant:
+        x1 = float(args.get("x1", x0 + 1.0))
+        y1 = fx(x1)
+        m = (y1 - y0) / (x1 - x0) if abs(x1 - x0) > 1e-12 else 0.0
+        xa, xb = min(x0, x1) - half, max(x0, x1) + half
+        pts.append((x1, y1))
+    else:
+        h = 1e-4 * max(1.0, abs(x0))
+        m = (fx(x0 + h) - fx(x0 - h)) / (2.0 * h)
+        xa, xb = x0 - half, x0 + half
+    col = style.get("color", (0.0, 0.0, 0.0))
+    obj = AnimObject()
+    ln = Line(c2p(xa, y0 + m * (xa - x0)), c2p(xb, y0 + m * (xb - x0)))
+    ln.color = col
+    ln.stroke_width = float(style.get("stroke_width", 3.0))
+    obj.add(ln)
+    if args.get("show_point", True):
+        for (px, py) in pts:
+            d = OBJECT_TYPES["Dot"](center=c2p(px, py), radius=0.08)
+            d.color = col
+            d.fill_color = col
+            d.fill_opacity = 1.0
+            obj.add(d)
+    if args.get("show_slope", False):
+        lab = Text(f"m = {m:.2f}", position=c2p(x0, y0) + np.array([0.25, 0.25, 0.0]),
+                   font_size=float(args.get("font_size", 26)), color=col)
+        obj.add(lab)
+    return obj
+
+
 def _build_object(spec, objects, axes=None):
     args = {k: _resolve_arg(k, v) for k, v in spec.get("args", {}).items()}
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
@@ -493,6 +542,8 @@ def _build_object(spec, objects, axes=None):
         obj = _build_measure(args, style, axes)
     elif t == "Area":                                       # filled area under / between curve(s)
         obj = _build_area(args, style, axes)
+    elif t == "TangentLine":                                # tangent / secant line to a graph
+        obj = _build_tangent(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.

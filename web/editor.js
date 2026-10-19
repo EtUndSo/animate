@@ -66,6 +66,9 @@ const CATALOG = {
     FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.2 },
     // Filled area under y=f(x) over [x_min,x_max], or BETWEEN f and `func2` (empty -> baseline y=0).
     Area:          { func:"sin(x)", func2:"", x_min:0, x_max:3.14159, samples:64, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.4, stroke_width:0 },
+    // Tangent at x0 (slope via central difference), or secant through x0 & x1 (secant:true). half_len
+    // = line half-length in x. show_point: dot(s) at the touch point(s); show_slope: "m = ..." label.
+    TangentLine:   { func:"sin(x)", x0:1.0, secant:false, x1:2.0, half_len:2.0, show_point:true, show_slope:false, font_size:26, color:"#111111", stroke_width:3 },
     // Legend/key for several curves on the SAME axes: one row per entry (swatch + label). `labels` is
     // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
     Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.8, swatch_len:0.9, gap:0.35, color:"#111111", stroke_width:6 },

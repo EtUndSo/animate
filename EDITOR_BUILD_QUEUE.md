@@ -52,8 +52,15 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   `samples` Stützstellen, Pol-/NaN-Clamping auf den y-Bereich. Props {func, func2, x_min, x_max, samples,
   color, fill_color, fill_opacity, stroke_width}, CATALOG-Gruppe „Funktionen & Achsen". Test: Axes +
   `Area` func `sin(x)` über [0, π] (Fläche unter Kurve); dann func2 setzen für Fläche zwischen zwei Kurven.
-- [ ] **F4 Tangente/Sekante im Punkt** — an einen Graphen im Punkt $x_0$ (Steigung/Ableitung ablesbar),
+- [~] **F4 Tangente/Sekante im Punkt** — an einen Graphen im Punkt $x_0$ (Steigung/Ableitung ablesbar),
   Sekante über zwei Punkte; allgemein für jede plottbare Funktion.
+  **Umgesetzt (wartet auf Test):** `TangentLine` (special-cased in `scene_model.py`, `_build_tangent`):
+  Tangenten-Steigung via zentraler Differenz an `x0`, Sekante durch `x0`&`x1` (`secant:true`); Linie ±`half_len`
+  in x, optional Berührpunkt-Dot(s) (`show_point`) und Steigungslabel „m = …" (`show_slope`). Props {func, x0,
+  secant, x1, half_len, show_point, show_slope, font_size, color, stroke_width}, CATALOG „Funktionen & Achsen".
+  Test: Axes + `TangentLine` func `sin(x)`, x0 variieren; `secant:true` + x1 für Sekante.
+
+**BATCH 1 komplett umgesetzt (F1–F4) — warten auf User-Test.**
 
 ## BATCH 2 — Pfeile & Felder  (K2, K1, K3, K14 — grundlegend für ET & Vektoranalysis)
 - [ ] **F5 Beschriftete Pfeile** — gerader Pfeil mit LaTeX-Label (Strom/Spannung/Kraft/Feld), Doppel-/Maßpfeil
