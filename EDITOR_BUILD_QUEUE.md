@@ -70,8 +70,14 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   end_angle (Grad), label, …} = Bogen mit Pfeilspitze am Ende (Umlauf/Rückkopplung). Maß-/Doppelpfeil bereits
   durch `Measure` (F2) abgedeckt. CATALOG-Gruppe „Annotation". Test: `LabeledArrow` mit `\vec F`-Label; `LoopArrow`
   für einen Maschenumlauf.
-- [ ] **F6 2D-Vektorfeld** — Pfeilraster aus freiem Ausdruck $\vec F(x,y)$ **oder** Presets
+- [~] **F6 2D-Vektorfeld** — Pfeilraster aus freiem Ausdruck $\vec F(x,y)$ **oder** Presets
   (radial/Quelle/Senke/Wirbel/uniform), Pfeillänge/-farbe nach Betrag, optional Divergenz-Farbkodierung.
+  **Umgesetzt (wartet auf Test):** `VectorField` (special-cased, `_build_vector_field`): Pfeilraster `nx`×`ny`,
+  Richtung aus `preset` (radial/source/sink/vortex/uniform) oder freien Komponenten `fx(x,y)`,`fy(x,y)`
+  (`func2_from_expr`); Länge $\propto$ Betrag (gekappt bei `max_len`) oder `normalize` = alle gleich;
+  `color_by_mag` = Blau→Rot-Rampe nach Betrag. Props {preset, fx, fy, x_min..y_max, nx, ny, scale, normalize,
+  max_len, color_by_mag, color, stroke_width}, CATALOG-Gruppe „Mathematik · Felder". Test: `VectorField`
+  preset `vortex`; dann `custom` mit `fx`=`x`, `fy`=`-y` (Sattel) und `color_by_mag` an.
 - [ ] **F7 Skalarfeld-Heatmap + Niveaulinien** — $f(x,y)$ als Farbkarte/Höhenfeld mit Konturlinien;
   andockbarer **Gradientpfeil ⟂ Niveaulinie**. Freier Ausdruck + Colormap.
 - [ ] **F8 Parameter-Schar-Animator** — ein `ValueTracker`-getriebener Parameter ($N$, $T$, $r$, $\varepsilon$)

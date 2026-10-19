@@ -73,6 +73,12 @@ const CATALOG = {
     // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
     Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.8, swatch_len:0.9, gap:0.35, color:"#111111", stroke_width:6 },
   },
+  "Mathematik · Felder": {
+    // 2D vector field (arrow grid). preset: radial/source/sink/vortex/uniform (sets fx,fy) or "custom"
+    // (then your fx(x,y), fy(x,y) expressions are used). normalize = all arrows equal length;
+    // color_by_mag = colour arrows by magnitude (blue->red). nx/ny = grid density.
+    VectorField: { preset:"vortex", fx:"-y", fy:"x", x_min:-3, x_max:3, y_min:-3, y_max:3, nx:11, ny:11, scale:0.3, normalize:false, max_len:0.8, color_by_mag:false, color:"#59a0eb", stroke_width:3 },
+  },
   "Mathematik · 3D-Körper": {   // solids live in world coordinates (a 2-variable FunctionGraph is the surface)
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },

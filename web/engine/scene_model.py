@@ -424,6 +424,63 @@ def _build_area(args, style, axes):
     return poly
 
 
+_VF_PRESETS = {                                              # preset name -> (fx, fy) component expressions
+    "radial": ("x", "y"), "source": ("x", "y"), "sink": ("-x", "-y"),
+    "vortex": ("-y", "x"), "uniform": ("1", "0"),
+}
+_VF_LOW = np.array([0.20, 0.40, 0.90])                        # colour ramp for color_by_mag: small -> large
+_VF_HIGH = np.array([0.90, 0.25, 0.20])
+
+
+def _build_vector_field(args, style, axes):
+    """A 2D vector field as an arrow grid. Direction from free component expressions fx(x,y), fy(x,y) OR
+    a preset (radial/source/sink/vortex/uniform). Arrow length scales with magnitude (or `normalize` =
+    all equal), capped at `max_len`; optional colour-by-magnitude ramp. General for any planar field."""
+    c2p = _c2p_fn(axes)
+    preset = str(args.get("preset", "custom")).strip().lower()
+    fxs, fys = str(args.get("fx", "0")), str(args.get("fy", "0"))
+    if preset in _VF_PRESETS:
+        fxs, fys = _VF_PRESETS[preset]
+    fx, fy = func2_from_expr(fxs), func2_from_expr(fys)
+    if axes is not None:
+        x0 = float(args.get("x_min", axes.x_min)); x1 = float(args.get("x_max", axes.x_max))
+        y0 = float(args.get("y_min", axes.y_min)); y1 = float(args.get("y_max", axes.y_max))
+    else:
+        x0, x1 = float(args.get("x_min", -3.0)), float(args.get("x_max", 3.0))
+        y0, y1 = float(args.get("y_min", -3.0)), float(args.get("y_max", 3.0))
+    nx, ny = max(2, int(args.get("nx", 11))), max(2, int(args.get("ny", 11)))
+    scale = float(args.get("scale", 0.3))
+    maxlen = float(args.get("max_len", 0.8))
+    norm = bool(args.get("normalize", False))
+    cbm = bool(args.get("color_by_mag", False))
+    base = style.get("color", (0.35, 0.60, 0.92))
+    sw = float(style.get("stroke_width", 3.0))
+
+    def uv(xi, yj):
+        try:
+            u, v = float(fx(xi, yj)), float(fy(xi, yj))
+        except Exception:
+            return 0.0, 0.0
+        return (u, v) if (np.isfinite(u) and np.isfinite(v)) else (0.0, 0.0)
+
+    grid = [(xi, yj, *uv(xi, yj)) for xi in np.linspace(x0, x1, nx) for yj in np.linspace(y0, y1, ny)]
+    mmax = max((np.hypot(u, v) for _, _, u, v in grid), default=1.0) or 1.0
+    obj = AnimObject()
+    for (xi, yj, u, v) in grid:
+        m = float(np.hypot(u, v))
+        if m < 1e-12:
+            continue
+        L = scale if norm else min(maxlen, scale * m)
+        a = c2p(xi, yj)
+        b = c2p(xi + L * u / m, yj + L * v / m)
+        col = base
+        if cbm:
+            t = min(1.0, m / mmax)
+            col = tuple((1.0 - t) * _VF_LOW + t * _VF_HIGH)
+        obj.add(Vector(end=b, start=a, color=col, stroke_width=sw))
+    return obj
+
+
 def _build_labeled_arrow(args, style, axes):
     """A straight arrow start->end (DATA coords) with a LaTeX/text label at its midpoint or tip.
     General current/voltage/force/field arrow. `label_at`: 'mid' or 'end'."""
@@ -604,6 +661,8 @@ def _build_object(spec, objects, axes=None):
         obj = _build_labeled_arrow(args, style, axes)
     elif t == "LoopArrow":                                  # curved circulation / feedback arrow
         obj = _build_loop_arrow(args, style, axes)
+    elif t == "VectorField":                                # 2D arrow-grid field (preset or free fx,fy)
+        obj = _build_vector_field(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
