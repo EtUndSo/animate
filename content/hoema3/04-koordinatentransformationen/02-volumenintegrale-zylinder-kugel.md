@@ -126,3 +126,26 @@ $1/|x|$ ($\alpha=1$) und $1/|x|^2$ ($\alpha=2$) integrierbar.
 Dass das Coulomb-Potential im Raum integrierbar ist, ist der Schlüssel zur __Potentialtheorie__: Man kann das
 Potential einer Ladungs- oder Massenverteilung als Integral über lauter Punktpotentiale $1/|x-y|$ bilden. Dieses
 __Newtonpotential__ und seine Eigenschaften (Poisson-Gleichung) sind das Thema des nächsten Artikels.
+
+:::quiz
+F: Warum ist der Jacobi-Faktor in Zylinderkoordinaten $r$ (und nicht $r^2$ oder $1$), obwohl man im Raum rechnet?
+A: Zylinderkoordinaten sind nur die ebenen Polarkoordinaten plus eine unveränderte Höhe $z$. Die $z$-Richtung wird gar nicht verzerrt (Faktor $1$), also bleibt genau der Polarfaktor $r$ aus der Ebene übrig: $dV=r\,dr\,d\varphi\,dz$.
+F: Woher kommt anschaulich der Faktor $r^2\sin\vartheta$ in Kugelkoordinaten?
+A: Das Volumenelement ist ein Kästchen mit drei Kanten: radial $dr$, „Meridian" $r\,d\vartheta$ und „Breitenkreis" $r\sin\vartheta\,d\varphi$. Das Produkt der Kantenlängen ergibt $r\cdot r\sin\vartheta=r^2\sin\vartheta$ — zwei Faktoren $r$ (beide Winkel überstreichen radiusabhängige Bögen) und ein $\sin\vartheta$.
+F: Warum steht beim Breitenkreis der Radius $r\sin\vartheta$ und nicht $r$?
+A: Der Breitenkreis beim Polarwinkel $\vartheta$ ist der Schnitt der Kugel mit einer waagerechten Ebene; sein Radius ist die Projektion $r\sin\vartheta$. An den Polen ($\vartheta=0,\pi$) schrumpft er auf null, am Äquator ($\vartheta=\pi/2$) ist er maximal $=r$ — deshalb verschwindet dort auch das Volumenelement.
+F: Warum lässt sich das Kugelvolumen so mühelos als Produkt dreier Einfachintegrale schreiben?
+A: Weil der Integrand ($f\equiv1$) und der Jacobi-Faktor $r^2\sin\vartheta$ in ein reines Produkt $r^2\cdot\sin\vartheta\cdot1$ zerfallen, dessen Faktoren jeweils nur von einer Variablen abhängen. Dann separieren die drei Integrationen: $\int_0^{2\pi}d\varphi\cdot\int_0^\pi\sin\vartheta\,d\vartheta\cdot\int_0^R r^2\,dr$.
+F: Wie entsteht aus dem 3D-Transformationssatz die bekannte Rotationskörper-Formel $\pi\int f(z)^2\,dz$?
+A: Mit verallgemeinerten Zylinderkoordinaten $\Phi=(rf(z)\cos\varphi, rf(z)\sin\varphi, z)$, $r\in[0,1]$, ist $\det D\Phi=r\,f(z)^2$. Die $r$- und $\varphi$-Integration liefern $\int_0^1 r\,dr\cdot\int_0^{2\pi}d\varphi=\tfrac12\cdot2\pi=\pi$ pro Höhe, übrig bleibt $\pi\int_a^b f(z)^2\,dz$.
+F: Was bedeutet „der Faktor $r^2$ entschärft Singularitäten" konkret?
+A: Eine am Ursprung explodierende radiale Funktion $1/|x|^\alpha$ wird im Volumenintegral mit $r^2$ multipliziert, sodass man $\int r^{2-\alpha}\,dr$ bekommt. Die zwei zusätzlichen $r$-Potenzen heben die Singularität so weit an, dass das Integral für ein deutlich größeres $\alpha$ noch endlich bleibt.
+F: Warum ist die kritische Schwelle gerade $\alpha<3$ und nicht etwa $\alpha<1$?
+A: Das radiale Integral $\int_\varepsilon^R r^{2-\alpha}\,dr$ bleibt für $\varepsilon\to0$ genau dann endlich, wenn der Exponent $2-\alpha>-1$ ist, also $\alpha<3$. Ohne den Volumenfaktor $r^2$ wäre die Schwelle $\alpha<1$ — der Faktor verschiebt sie um die Raumdimension $-1$ nach oben.
+F: Warum ist das Coulomb-Potential $1/(4\pi|x|)$ über eine Kugel integrierbar, und warum sogar sein Feld $\sim1/|x|^2$?
+A: Beim Coulomb-Potential ist $\alpha=1<3$, beim Feld $\alpha=2<3$ — beide liegen unter der Schwelle. Erst ab $\alpha=3$ (z. B. $1/|x|^3$) divergiert das Integral. Genau dass auch $1/|x|^2$ noch geht, sichert später die Wohldefiniertheit der Potentialintegrale.
+F: An welchen Stellen erfüllt die Kugelkoordinaten-Abbildung die Voraussetzungen des Transformationssatzes nicht exakt, und warum schadet das nicht?
+A: Bei $r=0$ (ganze Kugel wird ein Punkt) und bei $\vartheta\in\{0,\pi\}$ (die $z$-Achse) ist $\Phi$ nicht bijektiv bzw. $\det D\Phi=0$. Diese Ausnahmemenge ist aber eine Nullmenge; der $\varepsilon$-Grenzwert (Integration über $\{\varepsilon\le|x|\le R\}$) lässt die Formel gültig bleiben.
+F: Warum ist das Vergessen des Faktors $r^2\sin\vartheta$ die typischste Fehlerquelle, und was passiert dann?
+A: Weil der Faktor leicht übersehen wird, wenn man nur die Integrationsgrenzen in Kugelkoordinaten umschreibt. Ohne ihn integriert man über das „falsche" Volumenelement und zählt die zu den Polen bzw. zum Ursprung hin kleiner werdenden Maschen gleich stark — das Ergebnis (z. B. das Kugelvolumen) wird dann systematisch falsch.
+:::
