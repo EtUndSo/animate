@@ -157,3 +157,26 @@ $(100)$-Si legen die langsamen $\{111\}$-Flanken die Form fest, mit dem Winkel $
 Gitter und ihre Ebenen können wir jetzt beschreiben. Offen bleibt die Frage nach dem **Warum**: Warum ordnen sich
 die Atome überhaupt zu einer bestimmten Struktur? Die Antwort liegt in den __Bindungstypen__ — ionisch, kovalent,
 metallisch, van der Waals — dem Thema des nächsten Artikels.
+
+:::quiz
+F: Warum braucht ein Kristall überhaupt eine eigene Sprache für Ebenen und Richtungen?
+A: Weil ein Kristall anisotrop ist: Bestimmte Ebenen spalten leichter, ätzen langsamer oder leiten besser. Man braucht eine kompakte, eindeutige Benennung, um „diese Ebene/Richtung" anzugeben, ohne jedes Mal Winkel und Achsabschnitte auszuschreiben.
+F: Warum bildet man die Millerindizes aus den Kehrwerten der Achsabschnitte?
+A: Viele wichtige Ebenen liegen parallel zu einer Achse und schneiden sie erst „im Unendlichen" (Abschnitt $\infty$). Der Kehrwert von $\infty$ ist die harmlose $0$, sodass achsenparallele Ebenen ohne Sonderbehandlung einen Index $0$ bekommen — genau dafür ist der Kehrwert-Trick da.
+F: Was bedeutet der Index $0$ in einem Millerindex anschaulich?
+A: Er bedeutet, dass die Ebene parallel zur entsprechenden Achse verläuft (sie schneidet sie nie im Endlichen). $(100)$ ist z. B. eine Würfelfläche, parallel zur $y$- und $z$-Achse.
+F: Wie läuft das vierschrittige Rezept für $(hkl)$ ab?
+A: Achsabschnitte bestimmen, gemeinsame Faktoren kürzen, Kehrwerte bilden, mit dem kgV der Nenner auf drei ganze, teilerfremde Zahlen multiplizieren. Das Ergebnis steht in runden Klammern ohne Kommas, negative Indizes als Balken über der Zahl.
+F: Worin unterscheidet sich die Benennung von Richtungen von der von Ebenen?
+A: Bei Richtungen nimmt man die Komponenten $\vec r=u\vec a_1+v\vec a_2+w\vec a_3$ direkt (auf kleinste ganze Zahlen gebracht), ohne Kehrwerte. Die Kehrwert-Vorschrift gilt ausschließlich für Ebenen.
+F: Was bedeuten die verschiedenen Klammern $(hkl)$, $\{hkl\}$, $[uvw]$, $\langle uvw\rangle$?
+A: Runde $(hkl)$ = eine einzelne Ebene, geschweifte $\{hkl\}$ = alle symmetrisch gleichwertigen Ebenen; eckige $[uvw]$ = eine einzelne Richtung, spitze $\langle uvw\rangle$ = alle gleichwertigen Richtungen. Einzeln vs. Schar, Ebene vs. Richtung.
+F: Warum fasst man z. B. alle sechs Würfelflächen zur Familie $\{100\}$ zusammen?
+A: Weil sie durch die Würfelsymmetrie ineinander überführt werden und physikalisch gleichwertig sind — $(100),(010),(001)$ und ihre Gegenflächen verhalten sich identisch. Die geschweifte Klammer benennt diese ganze symmetrische Familie auf einmal.
+F: Warum gilt $[hkl]\perp(hkl)$ nur im kubischen System?
+A: Nur dort sind die drei Achsen orthogonal und gleich lang, sodass die Richtung mit denselben Zahlen senkrecht auf der Ebene steht. In schiefen oder ungleich langen Systemen (hexagonal, monoklin) stimmt diese Senkrecht-Beziehung im Allgemeinen nicht.
+F: Warum legen beim Ätzen von (100)-Silizium gerade die $\{111\}$-Ebenen die Form fest?
+A: Die $\{111\}$-Ebenen ätzen am langsamsten, bleiben also als saubere Flanken stehen, während die anderen Richtungen schneller abgetragen werden. Dadurch bestimmen sie die geometrische Form der geätzten Gräben und Membranen.
+F: Wie bestimmt man den Flankenwinkel von 54,7° mit der kubischen Sonderregel?
+A: Der Winkel zwischen $(100)$-Oberfläche und $\{111\}$-Flanke ist der Winkel zwischen ihren Normalen $[100]$ und $[111]$. Mit dem Skalarprodukt (im kubischen System erlaubt) ist $\cos\theta=\frac{1}{\sqrt1\sqrt3}=1/\sqrt3$, also $\theta\approx54{,}7^\circ$.
+:::
