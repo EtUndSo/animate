@@ -137,3 +137,26 @@ $200\,$Hz bei $r=1\,$kHz; „Wagenrad-Effekt").
 Wenn unendlich viele Frequenzen dieselbe Folge erzeugen — welche davon gibt ein D/A-Umsetzer bei der
 Rekonstruktion wieder aus? Und unter welcher Bedingung ist das Ergebnis **eindeutig** das Originalsignal? Das
 beantwortet der nächste Artikel über die Rekonstruktion und das __Abtasttheorem__.
+
+:::quiz
+F: Was ist Aliasing in einem Satz?
+A: Aliasing ist das Phänomen, dass verschiedene zeitkontinuierliche Sinussignale nach dem Abtasten mit derselben Rate exakt dieselbe Zahlenfolge ergeben und dadurch ununterscheidbar werden. Eine hohe Frequenz „tarnt" sich als eine andere.
+F: Welche zwei Eigenschaften des Kosinus erzeugen die Alias-Frequenzen?
+A: Die $2\pi$-Periodizität ($\cos(x+2\pi m)=\cos x$) und die Geradheit ($\cos(-x)=\cos x$). Die erste erzeugt die Familie $\hat\omega_0+2\pi k$, die zweite die gespiegelte Familie $2\pi k-\hat\omega_0$.
+F: Warum fällt beim Erhöhen um $2\pi k$ der Zusatzterm im Kosinus weg?
+A: Der Zusatz ist $2\pi k n$, und weil sowohl $k$ als auch der Folgenindex $n$ ganzzahlig sind, ist das stets ein ganzzahliges Vielfaches von $2\pi$. Der Kosinus ist $2\pi$-periodisch, also ändert dieser Term die Folge nicht.
+F: Wie entsteht die zweite Alias-Familie $\hat\omega_k=2\pi k-\hat\omega_0$?
+A: Man setzt die Frequenz $2\pi k-\hat\omega_0$ ein; der Term $2\pi kn$ fällt wieder weg, übrig bleibt $\cos[-(\hat\omega_0 n+\varphi)]$. Weil der Kosinus gerade ist, ist das gleich $\cos(\hat\omega_0 n+\varphi)$ — also dieselbe Folge.
+F: Warum ist es wesentlich, dass $n$ ganzzahlig ist, damit Aliasing auftritt?
+A: Nur für ganze $n$ ist $2\pi k n$ ein Vielfaches von $2\pi$ und verschwindet im Kosinus. Bei einem zeitkontinuierlichen Signal (reelles Argument) träfe das nicht zu — die Frequenzen wären unterscheidbar. Aliasing ist also eine Folge der zeitlichen Diskretisierung.
+F: Was ist die Haupt-Aliasfrequenz und warum ist sie ausgezeichnet?
+A: Sie ist die betragskleinste der unendlich vielen Alias-Frequenzen und liegt im Intervall $-\pi<\hat\omega_0<\pi$. Alle anderen sind „Kopien" davon; sie ist die natürliche eindeutige Repräsentantin der abgetasteten Folge.
+F: Warum gibt es zu einer Folge unendlich viele zeitkontinuierliche Frequenzen und nicht nur eine?
+A: Jede der beiden Familien läuft über alle ganzen $k$, also $\dots,\hat\omega_0,\hat\omega_0\pm2\pi,\dots$ und $\dots,2\pi k-\hat\omega_0,\dots$. Zu jeder abgetasteten Schwingung gehören damit unendlich viele kontinuierliche Frequenzen, die exakt dieselben Abtastwerte liefern.
+F: Wie ordnen sich die Alias-Frequenzen auf der $\hat\omega$-Achse an?
+A: Als äquidistante Paare im Abstand $2\pi$, gespiegelt um die Vielfachen von $\pi$ bzw. $2\pi$. Anschaulich werden alle äußeren Linien ins Grundband $(-\pi,\pi)$ „zurückgefaltet", wo die Haupt-Aliasfrequenz sitzt.
+F: Warum erscheint ein mit 1 kHz abgetasteter 1200-Hz-Ton als 200-Hz-Ton?
+A: Bei $r=1\,$kHz hat 1200 Hz die normierte Kreisfrequenz $2{,}4\pi$, deren Haupt-Alias $2{,}4\pi-2\pi=0{,}4\pi$ ist — genau die von 200 Hz. Beide liefern dieselbe Folge, und die Rekonstruktion wählt die tiefe Frequenz im Grundband.
+F: Was hat der „rückwärts drehende Wagenrad-Effekt" im Film mit Aliasing zu tun?
+A: Die Bildrate (Bilder pro Sekunde) ist eine Abtastrate; dreht sich das Rad zu schnell dafür, fällt seine Drehfrequenz mit einer niedrigeren (oder negativen) Alias-Frequenz zusammen. Das Auge sieht dann eine langsame oder rückwärtige Drehung — dieselbe Frequenzverwechslung wie beim Signal-Aliasing.
+:::
