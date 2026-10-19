@@ -130,3 +130,26 @@ $\operatorname{div}F=3$, beide Seiten $=4\pi R^3$ über $B_R$.
 Gauß und Stokes sind die beiden räumlichen Integralsätze. Zum Abschluss des Kapitels wenden wir sie auf die
 __Poisson-Gleichung__ an (das Newtonpotential als Greensche Funktion) und beweisen den __Hauptsatz der
 Vektoranalysis__ (Helmholtz-Zerlegung) — das Thema des nächsten Artikels.
+
+:::quiz
+F: Was ist die physikalische Grundidee hinter dem Satz von Gauß, in einem Satz?
+A: Es ist eine Bilanz: Was im Inneren eines Volumens an Feld „entspringt" (die aufsummierte Quelldichte), muss netto durch die Hülle nach außen strömen. Deshalb ist das Volumenintegral der Divergenz gleich dem Fluss durch die Randfläche.
+F: Woher stammt das Minuszeichen in der partiellen Integration $\int(\operatorname{div}E)\varphi=-\int E\cdot\nabla\varphi$?
+A: Es kommt aus der Produktregel $\partial_k(fg)=(\partial_k f)g+f(\partial_k g)$: Integriert man diese, verschwindet $\int\partial_k(fg)$ wegen des kompakten Trägers, und die beiden übrigen Terme stehen mit umgekehrtem Vorzeichen gegenüber — die Ableitung wandert mit Vorzeichenwechsel auf den anderen Faktor.
+F: Wozu braucht man bei der randlosen partiellen Integration, dass eine Funktion kompakten Träger hat?
+A: Damit beim Integrieren der Produktregel über den ganzen Raum kein „Randterm im Unendlichen" übrig bleibt. Der kompakte Träger sorgt dafür, dass $fg$ außerhalb eines beschränkten Gebiets null ist und $\int\partial_k(fg)\,dx=0$ gilt.
+F: Wie entsteht aus der randlosen Formel ein Randintegral — wie bringt man den Rand überhaupt ins Spiel?
+A: Man setzt für die Testfunktion die Indikatorfunktion $\mathbf 1_V$ des Bereichs ein. Ihr „Gradient" konzentriert sich am Rand $\partial V$ und zeigt nach innen ($\nabla\mathbf 1_V\,dx\sim -dS$), sodass der Volumenterm $-\int E\cdot\nabla\mathbf 1_V$ in das Flächenintegral $\int_{\partial V}E\cdot dS$ übergeht.
+F: Warum muss die Normale im Satz von Gauß die äußere sein, und was passiert bei der inneren?
+A: Die äußere Normale zählt das, was aus $V$ hinausströmt, positiv — das entspricht der Quellbilanz. Wählt man die innere Normale, dreht sich das Vorzeichen jedes Flusses um und die Gleichung stimmt nur noch mit einem Minuszeichen.
+F: Wie liefert der Satz von Gauß die anschauliche Deutung der Divergenz als Quelldichte?
+A: Zieht man $V$ auf einen Punkt zusammen, wird $\operatorname{div}F(x)=\lim_{V\downarrow x}\frac{1}{\operatorname{vol}V}\int_{\partial V}F\cdot n\,d\sigma$ — also Fluss pro Volumen. Die Divergenz an einem Punkt misst damit, wie stark das Feld dort lokal „quillt" oder „versickert".
+F: Wie wird das physikalische Gaußsche Gesetz $\oint E\cdot dS=Q_{\text{innen}}/\varepsilon_0$ zum Spezialfall des Divergenzsatzes?
+A: Setzt man $\operatorname{div}E=\rho/\varepsilon_0$ in den Satz von Gauß ein, wird das Volumenintegral $\int_V\rho/\varepsilon_0\,dx=Q_{\text{innen}}/\varepsilon_0$, und die rechte Seite ist genau der Fluss $\oint_{\partial V}E\cdot dS$. Der elektrische Fluss durch eine Hülle misst also die eingeschlossene Ladung.
+F: Warum ergeben beim Feld $F(x)=x$ über der Kugel $B_R$ beide Seiten $4\pi R^3$?
+A: Links ist $\operatorname{div}F=3$, also $\int_{B_R}3\,dx=3\cdot\frac43\pi R^3=4\pi R^3$. Rechts ist auf der Sphäre $n=x/R$, also $F\cdot n=|x|^2/R=R$, und $\int_{\partial B_R}R\,d\sigma=R\cdot4\pi R^2=4\pi R^3$ — die Quellbilanz geht exakt auf.
+F: Wie gewinnt man die Greenschen Formeln aus dem Satz von Gauß?
+A: Man wendet Gauß auf das Produktfeld $\varphi E$ an ($\operatorname{div}(\varphi E)=\nabla\varphi\cdot E+\varphi\operatorname{div}E$) und erhält die partielle Integration mit Rand. Mit der Spezialwahl $E=\nabla u$ (also $\operatorname{div}E=\Delta u$) folgt daraus direkt die erste Greensche Formel.
+F: Warum fallen beim Übergang zur zweiten Greenschen Formel die Gradiententerme weg?
+A: Man schreibt die erste Greensche Formel einmal mit $(u,\varphi)$ und einmal vertauscht mit $(\varphi,u)$ und subtrahiert. Der Term $\int\nabla u\cdot\nabla\varphi$ ist symmetrisch und tritt in beiden gleich auf, hebt sich also heraus — übrig bleibt die symmetrische Beziehung zwischen $\varphi\Delta u-u\Delta\varphi$ und den Normalableitungen am Rand.
+:::
