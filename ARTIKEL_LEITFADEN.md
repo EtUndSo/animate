@@ -9,8 +9,8 @@ Artikel kurz durchgehen. (Entstanden aus dem laufenden Feedback; wird bei neuen 
 **Es sind echte ERKLÄRUNGEN, keine Zusammenfassungen.** Geschrieben für jemanden, der vom Thema **noch nie**
 etwas gehört hat. **Korrektheit zuerst**, dann Tiefe, dann alles andere. **Zeit spielt keine Rolle** — ein
 Artikel darf Minuten bis Stunden dauern. **Keine Parallelität** — strikt ein Artikel nach dem anderen, volle
-Konzentration. **Niemals etwas 1:1 kopieren** (Abbildungen/Beispiele/Aufgaben aus Skripten/Büchern) — nur
-allgemeingültiges Wissen eigenständig erklären; Details in §11.
+Konzentration. **Keine fremden Beispiel-/Klausuraufgaben 1:1 übernehmen** (eigene erfinden); Standard-Darstellungen
+von Allgemeinwissen (Schaltungen, Graphen) sind dagegen frei nachbildbar — Details in §11.
 
 ---
 
@@ -46,10 +46,10 @@ allgemeingültiges Wissen eigenständig erklären; Details in §11.
   und Beziehungen sind grafisch oft viel klarer — z. B. „Kosinus = Realteil von $e^{j\varphi}$" als Zeiger der
   Länge 1 mit seiner Projektion auf die reelle Achse. Also möglichst **eine illustrierende Abbildung pro
   wichtiger Gleichung** (nie Platzhalter ohne Mehrwert, aber im Zweifel lieber eine Grafik mehr).
-- **Skript-Abbildungen nur als Ideen-Geber, NIE kopieren:** Skripte zeigen, *welches* Konzept sich grafisch lohnt.
-  Die eigene Abbildung muss aber **neu und eigenständig entworfen** sein — anderes Beispiel, andere Werte, andere
-  Anordnung/Darstellung. Eine konkrete Skript-Abbildung **niemals 1:1 (auch nicht leicht abgewandelt) nachbauen**.
-  Siehe §11 (Keine Kopien).
+- **Skript-Abbildungen als Orientierung nutzen:** Standard-Darstellungen von Allgemeinwissen (Schaltpläne von
+  Grundschaltungen, $E(k)$-/Kennlinien-Graphen, Kristallzellen, Feld-/Bänderbilder) dürfen nach Skript-Vorlage
+  nachgebildet werden — sie sind nur grafische Abbilder freien Wissens. **Nicht** übernommen werden konkrete
+  **Beispiel-/Klausuraufgaben** und einzelne, kreativ gestaltete Spezial-Abbildungen. Details §11 (Keine Kopien).
 - **Deutlich mehr Grafiken**, besonders bei grafisch dankbaren Themen (komplexe Ebene, Zeiger, Felder, Kennlinien,
   Signale …). Richtwert: so viele wie didaktisch helfen (gern 5–10+).
 - Platzhalter-Syntax (bis der Editor echte Grafiken liefert): Block `:::grafik … :::` mit **präziser
@@ -155,16 +155,24 @@ tags: <komma, getrennt>
 ---
 
 ## 11. Keine Kopien (rechtlich zwingend)
-**Niemals etwas 1:1 übernehmen.** Allgemeingültiges Wissen (physikalische Zusammenhänge, Herleitungen, Begriffe)
-ist frei — das kann niemand schützen, die RWTH/Skripte *verbreiten* es nur, haben es nicht erfunden. Das dürfen
-und sollen wir in **eigenen Worten** erklären.
+**Allgemeingültiges Wissen ist frei** — physikalische Zusammenhänge, Herleitungen, Begriffe **und ihre
+Standard-Darstellungen**. Die RWTH/Skripte *verbreiten* dieses Wissen nur, haben es nicht erfunden; sie können es
+nicht für sich beanspruchen. Das dürfen und sollen wir in **eigenen Worten** erklären.
 
-**Geschützt und daher TABU sind konkrete, geschöpfte Inhalte** — insbesondere:
-- **Abbildungen** aus Skripten/Folien/Büchern (nicht nachbauen, auch nicht leicht abgewandelt),
-- **Beispielaufgaben**, **Klausur-/Übungsaufgaben**, deren Angaben, Zahlenwerte und Lösungswege,
-- konkrete Formulierungen, Tabellen, Diagramme mit spezifischen Beispieldaten.
+**Ausdrücklich erlaubt (keine Kopie im rechtlichen Sinn):**
+- **Schaltpläne** von Grund-/Standardschaltungen (Spannungsteiler, Grundgatter, OPV-Grundschaltungen, …),
+- **Graphen/Diagramme** allgemeiner Zusammenhänge (Kennlinien, $E(k)$-Bänder, Funktionsverläufe),
+- **Struktur-/Prinzipdarstellungen** (Kristallzellen, Bänderschema, Feldbilder).
+Solche Darstellungen sind nur grafische Abbilder von Allgemeinwissen — sie dürfen auch nach einer Skript-Vorlage
+nachgebildet werden. In der Praxis müssen wir also **kaum aufpassen**.
 
-**Regel:** Konzept erklären = ja (eigenständig). Eine konkrete fremde Abbildung/Aufgabe übernehmen oder nur
-minimal abändern = nein. Wenn ein Beispiel gebraucht wird, ein **eigenes** erfinden (andere Werte, anderer
-Kontext, eigene Darstellung). Im Zweifel: eigenständig neu gestalten statt anlehnen. Gilt für **alle** Artikel
-und alle Fächer.
+**Weiterhin TABU sind nur echte geistige Schöpfungen:**
+- **Beispielaufgaben**, **Klausur-/Übungsaufgaben** (konkrete Angaben, Zahlenwerte, Formulierung, Lösungsweg) —
+  dafür immer ein **eigenes** Beispiel erfinden,
+- **einzelne, aufwändig/eigenständig gestaltete Abbildungen** mit eigener kreativer Gestaltungshöhe (nicht die
+  Standard-Schaltung/-Kurve, sondern eine individuelle Illustration), Fotos,
+- wörtlich übernommene Textpassagen.
+
+**Regel:** Standard-Darstellung von Allgemeinwissen = frei (auch nachbauen). Eine konkrete fremde **Aufgabe** oder
+eine individuell gestaltete **Einzelabbildung** 1:1 (oder minimal abgewandelt) übernehmen = nein. Gilt für alle
+Artikel und Fächer.
