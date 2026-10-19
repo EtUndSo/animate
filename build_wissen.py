@@ -247,11 +247,24 @@ def flatten(nodes):
     return out
 
 # ------------------------------------------------------------------ render ----
+def _has_active(nd, active_path):
+    return any(a["path"] == active_path for a in nd["articles"]) or any(_has_active(c, active_path) for c in nd["children"])
+
+def _node_label(nd, depth):
+    """Semester-Knoten (Ebene 1) um die Namen ihrer Module ergänzen, z. B. „1. Semester: Grundgebiete …"."""
+    label = html.escape(nd["name"])
+    if depth == 1 and nd["children"]:
+        label += ': <span class="sub-mods">' + html.escape(", ".join(c["name"] for c in nd["children"])) + "</span>"
+    return label
+
 def sidebar_html(tree, active_path=None):
+    # Standard: bis zur Modul-Ebene offen, Module selbst ZUgeklappt (Oberthemen erst auf Klick);
+    # der Ast des aktuell geöffneten Artikels wird automatisch aufgeklappt.
     def render(nodes, depth):
         rows = []
         for nd in nodes:
-            rows.append(f'<details class="lvl lvl{depth}" open><summary>{html.escape(nd["name"])}</summary>')
+            is_open = depth <= 1 or (active_path and _has_active(nd, active_path))
+            rows.append(f'<details class="lvl lvl{depth}"{" open" if is_open else ""}><summary>{_node_label(nd, depth)}</summary>')
             if nd["articles"]:
                 rows.append("<ul>")
                 for a in nd["articles"]:
@@ -338,7 +351,7 @@ def render_index(tree):
                 rows.append(block(nd["children"], depth + 1) + (f'<div class="field-grid">{leaf_cards}</div>' if leaf_cards else ""))
                 rows.append("</section>")
             else:
-                hd = f'<h3>{html.escape(nd["name"])}</h3>' if depth >= 2 else f'<h4 class="lvl-h">{html.escape(nd["name"])}</h4>'
+                hd = f'<h3>{html.escape(nd["name"])}</h3>' if depth >= 2 else f'<h4 class="lvl-h">{_node_label(nd, depth)}</h4>'
                 inner = block(nd["children"], depth + 1)
                 rows.append(f'<div class="idx-node">{hd}{leaf_cards}{inner}</div>' if (inner or leaf_cards) else "")
         return "".join(rows)
@@ -420,6 +433,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;}
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
+.sub-mods{color:var(--muted);font-weight:400;}        /* an Semester angehängte Modulnamen: dezent */
 .side li a{display:block;color:var(--muted);padding:3px 7px;border-radius:7px;}
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:#fff;background:var(--accent);font-weight:600;}
