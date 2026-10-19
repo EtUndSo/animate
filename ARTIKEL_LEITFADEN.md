@@ -41,8 +41,15 @@ Konzentration.
 
 ## 3. Grafiken / Animationen
 - **Jeder Artikel beginnt mit einer Abbildung/Animation** (`:::grafik` als ERSTES Content-Element, VOR `:::konzept`).
+- **JEDE Gleichung / Definition / jeden Zusammenhang durch eine Grafik verdeutlichen** (User-Regel). Definitionen
+  und Beziehungen sind grafisch oft viel klarer — z. B. „Kosinus = Realteil von $e^{j\varphi}$" als Zeiger der
+  Länge 1 mit seiner Projektion auf die reelle Achse. Also möglichst **eine illustrierende Abbildung pro
+  wichtiger Gleichung** (nie Platzhalter ohne Mehrwert, aber im Zweifel lieber eine Grafik mehr).
+- **Vorlagen aus den Skripten nutzen:** Viele Skripte (z. B. das MMET-/Signal-Processing-Skript, das Waser-Skript)
+  enthalten gute Abbildungen, die man nachbilden kann — in der `:::grafik`-Beschreibung daran orientieren. Bei
+  manchen Fächern schwieriger, aber es findet sich fast immer eine sinnvolle Darstellung.
 - **Deutlich mehr Grafiken**, besonders bei grafisch dankbaren Themen (komplexe Ebene, Zeiger, Felder, Kennlinien,
-  Signale …). Richtwert: so viele wie didaktisch helfen (gern 5–10+), nie Platzhalter ohne Mehrwert.
+  Signale …). Richtwert: so viele wie didaktisch helfen (gern 5–10+).
 - Platzhalter-Syntax (bis der Editor echte Grafiken liefert): Block `:::grafik … :::` mit **präziser
   Bildbeschreibung** (was zu sehen ist, Beschriftungen, bei Animationen der Ablauf). Siehe `EDITOR_GRAFIK_FEATURES.md`
   für die dafür nötigen Editor-Features.
