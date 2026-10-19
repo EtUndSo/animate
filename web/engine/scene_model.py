@@ -438,6 +438,88 @@ def _cmap(t):
     return _CMAP_STOPS[-1][1]
 
 
+def _build_parametric_curve(args, style, axes):
+    """A parametric curve (x(t), y(t)) as a polyline, with an orientation arrowhead along the sweep and
+    an optional running point with tangent/normal vectors. General: any expressions in t."""
+    c2p = _c2p_fn(axes)
+    names = _safe_names()
+    cx = compile(normalize_expr(str(args.get("fx", "cos(t)"))), "<px>", "eval")
+    cy = compile(normalize_expr(str(args.get("fy", "sin(t)"))), "<py>", "eval")
+
+    def ev(code, t):
+        try:
+            return float(eval(code, {"__builtins__": {}}, {"t": t, **names}))
+        except Exception:
+            return float("nan")
+
+    def P(t):
+        return ev(cx, t), ev(cy, t)
+
+    t0, t1 = float(args.get("t_min", 0.0)), float(args.get("t_max", 6.283185))
+    n = max(2, int(args.get("samples", 160)))
+    ts = np.linspace(t0, t1, n)
+    col = style.get("color", (0.35, 0.60, 0.92))
+    sw = float(style.get("stroke_width", 4.0))
+    raw = [P(t) for t in ts]
+    pts = [np.array([x, y, 0.0]) for (x, y) in raw if np.isfinite(x) and np.isfinite(y)]
+    obj = AnimObject()
+    if len(pts) >= 2:
+        poly = Polygon(pts, closed=False)
+        poly.color = col
+        poly.stroke_width = sw
+        obj.add(poly)
+    if axes is not None:
+        axes.place(obj)                                      # map the polyline; decorations below are world-space
+
+    def world(t):
+        x, y = P(t)
+        return c2p(x, y)
+
+    if args.get("show_arrow", True) and n >= 3:
+        i = max(1, min(n - 2, int(0.55 * (n - 1))))
+        a, b = world(ts[i - 1]), world(ts[i + 1])
+        d = b - a
+        L = float(np.linalg.norm(d))
+        if L > 1e-9:
+            tdir = d / L
+            perp = np.array([-tdir[1], tdir[0], 0.0])
+            tip = world(ts[i])
+            head = 0.22
+            back = tip - head * tdir
+            tri = Polygon([tip, back + 0.5 * head * perp, back - 0.5 * head * perp], closed=True)
+            tri.color = col
+            tri.fill_color = col
+            tri.fill_opacity = 1.0
+            tri.stroke_width = sw
+            obj.add(tri)
+    pa = str(args.get("point_at", "")).strip()
+    if pa:
+        try:
+            tp = float(pa)
+            x, y = P(tp)
+            if np.isfinite(x) and np.isfinite(y):
+                w = c2p(x, y)
+                dot = OBJECT_TYPES["Dot"](center=w, radius=0.09)
+                dot.color = col
+                dot.fill_color = col
+                dot.fill_opacity = 1.0
+                obj.add(dot)
+                h = 1e-4 * max(1.0, abs(tp))
+                tdx = (ev(cx, tp + h) - ev(cx, tp - h)) / (2 * h)
+                tdy = (ev(cy, tp + h) - ev(cy, tp - h)) / (2 * h)
+                tn = float(np.hypot(tdx, tdy))
+                if np.isfinite(tn) and tn > 1e-9:
+                    sc = 0.8
+                    if args.get("show_tangent", False):
+                        obj.add(Vector(end=c2p(x + sc * tdx / tn, y + sc * tdy / tn), start=w, color=col, stroke_width=sw))
+                    if args.get("show_normal", False):
+                        obj.add(Vector(end=c2p(x - sc * tdy / tn, y + sc * tdx / tn), start=w,
+                                       color=(0.9, 0.45, 0.15), stroke_width=sw))
+        except Exception:
+            pass
+    return obj
+
+
 def _build_curve_family(args, style, axes):
     """A family of curves f(x; p): the parameter `param` sweeps `count` values from p_min to p_max, each
     drawn as its own polyline (optionally fading light->colour with rising p), plus an optional limit
@@ -839,6 +921,8 @@ def _build_object(spec, objects, axes=None):
         obj = _build_scalar_field(args, style, axes)
     elif t == "CurveFamily":                                # family of curves f(x;p) over a parameter
         obj = _build_curve_family(args, style, axes)
+    elif t == "ParametricCurve":                            # (x(t),y(t)) with orientation / running point
+        obj = _build_parametric_curve(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.

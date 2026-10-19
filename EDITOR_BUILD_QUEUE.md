@@ -99,8 +99,13 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
 **BATCH 2 umgesetzt (F5–F8) — warten auf User-Test.**
 
 ## BATCH 3 — Kurven & Koordinaten  (K4, K7)
-- [ ] **F9 Parametrische Kurve** $x(t),y(t)$ — mit Laufpunkt, Orientierungspfeil, Tangente/Normale;
+- [~] **F9 Parametrische Kurve** $x(t),y(t)$ — mit Laufpunkt, Orientierungspfeil, Tangente/Normale;
   Durchlaufsinn/Umkehr (Vorzeichen). Freie Ausdrücke, $t$-Bereich.
+  **Umgesetzt (wartet auf Test):** `ParametricCurve` (special-cased, `_build_parametric_curve`): Polyline aus
+  `fx(t)`,`fy(t)` + Orientierungs-Pfeilspitze (~55 % der Kurve), optional Laufpunkt (`point_at`="t") mit
+  Tangenten-/Normalenvektor (`show_tangent`/`show_normal`). Props {fx, fy, t_min, t_max, samples, show_arrow,
+  point_at, show_tangent, show_normal, color, stroke_width}, CATALOG „Funktionen & Achsen". Durchlaufumkehr =
+  t_min/t_max tauschen. Test: Kreis `cos(t)`/`sin(t)`; Lissajous `sin(3t)`/`sin(2t)`; `point_at` setzen.
 - [ ] **F10 Polarkurve $r(\theta)$ + eigenständige NumberLine** — Polarplot aus Ausdruck; NumberLine als
   wiederverwendbares 1D-Achsenobjekt (Marken, Beschriftung, Einheiten).
 - [ ] **F11 Krummliniges Koordinatengitter** — Polar/Zylinder/Kugel-Gitter (konzentrische Kreise, Strahlen,
