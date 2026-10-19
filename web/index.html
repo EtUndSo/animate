@@ -155,7 +155,7 @@
           <line x1="40" y1="16" x2="40" y2="164" style="stroke:var(--border)" stroke-width="2"/>
           <path id="env" d="" fill="none" style="stroke:var(--accent3)" stroke-width="2" stroke-dasharray="4 5" opacity=".8"/>
           <path id="env2" d="" fill="none" style="stroke:var(--accent3)" stroke-width="2" stroke-dasharray="4 5" opacity=".8"/>
-          <path id="wave" d="" fill="none" style="stroke:var(--accent)" stroke-width="3" stroke-linecap="round"/>
+          <path id="wave" d="" fill="none" style="stroke:var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           <circle id="dot" r="4.5" style="fill:var(--accent2)"/>
         </svg>
         <div class="cap">Gebaut im Editor — Funktion, Hüllkurve, Marker.</div>
@@ -251,7 +251,7 @@
     function fx(px){ return x0 + px; }                       // pixel x along the axis
     function fy(px){ return y0 - A*Math.exp(-k*px)*Math.cos(w*px); }
     var wave="", env="", env2="";
-    for(var px=0;px<=256;px+=4){
+    for(var px=0;px<=256;px+=1){                              // 1-px-Abtastung -> glatte Kurve (vorher 4 -> kantig)
       var cmd=(px===0?"M":"L");
       wave += cmd+fx(px).toFixed(1)+" "+fy(px).toFixed(1)+" ";
       env  += cmd+fx(px).toFixed(1)+" "+(y0-A*Math.exp(-k*px)).toFixed(1)+" ";
