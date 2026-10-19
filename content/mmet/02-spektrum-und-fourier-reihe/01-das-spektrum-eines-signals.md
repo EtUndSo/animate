@@ -167,3 +167,26 @@ $\cos\alpha = \tfrac12(e^{j\alpha}+e^{-j\alpha})$).
 Bisher durften die Frequenzen $\omega_k$ beliebig sein. Bei einem **periodischen** Signal sind sie nicht beliebig,
 sondern ganzzahlige Vielfache einer Grundfrequenz $\omega_T$. Wie man ein beliebiges periodisches Signal in genau
 diese Oberschwingungen zerlegt, beschreibt die __Fourier-Reihe__ — das nächste Thema.
+
+:::quiz
+F: Was ist der Unterschied zwischen Zeit- und Frequenzbereich, und warum enthalten beide dieselbe Information?
+A: Der Zeitbereich zeigt, was das Signal in jedem Augenblick macht; der Frequenzbereich zeigt, aus welchen Schwingungen es zusammengesetzt ist. Beide Beschreibungen sind nur verschiedene Anordnungen derselben Daten — aus der einen lässt sich die andere vollständig rekonstruieren.
+F: Warum reicht die Zeitkurve allein nicht, obwohl sie alle Information enthält?
+A: Einer welligen Zeitkurve sieht man ihre Frequenz-Zutaten nicht an — man erkennt nicht, welche Töne mit welcher Stärke darin stecken. Genau diese Frage beantwortet das Spektrum direkt, weshalb es für Aufgaben wie Filtern unentbehrlich ist.
+F: Wofür steht der Gleichanteil $X_0$, und wo erscheint er im Spektrum?
+A: $X_0$ ist der konstante Mittelwert des Signals — die „Schwingung" mit Frequenz null. Im Spektrum erscheint er als Linie bei $\omega=0$.
+F: Warum braucht ein vollständiges Spektrum zwei Diagramme?
+A: Jede Teilschwingung ist durch zwei Angaben bestimmt — Amplitude und Phase. Das Amplitudenspektrum trägt die Stärke $A_k$, das Phasenspektrum die Verschiebung $\varphi_k$ je Frequenz auf; erst beide zusammen legen das Signal eindeutig fest.
+F: Warum erzeugt ein einzelner reeller Ton im zweiseitigen Spektrum zwei Linien?
+A: Nach $\cos\alpha=\tfrac12(e^{j\alpha}+e^{-j\alpha})$ ist ein Kosinus die Summe zweier gegenläufig rotierender Zeiger — einer bei $+\omega$, einer bei $-\omega$, jeder mit halber Amplitude. Deshalb stehen im zweiseitigen Spektrum stets zwei Linien.
+F: Was bedeutet die konjugierte Symmetrie $a_{-k}=a_k^*$, und wovon ist sie das Erkennungszeichen?
+A: Die Linie bei $-\omega_k$ ist die komplex Konjugierte der Linie bei $+\omega_k$. Das ist das Erkennungszeichen eines reellen Signals; nur so heben sich die Imaginärteile der beiden Zeiger auf und die Summe bleibt reell. Das Betragsspektrum $|a_k|$ ist dadurch spiegelsymmetrisch zu $\omega=0$.
+F: Was ist eine „negative Frequenz" physikalisch, und ist sie ein eigener Ton?
+A: Nein — sie ist kein eigenständig erzeugbarer Ton, sondern die mathematische Begleiterin: der im Uhrzeigersinn rotierende Zeiger, der zusammen mit seinem gegenläufigen Partner den Imaginärteil aufhebt. Sie sorgt dafür, dass die komplexe Darstellung ein reelles Signal ergibt.
+F: Wie hängen die Spektralkoeffizienten $a_k$ mit den Phasoren $X_k$ zusammen?
+A: Es ist $a_0=X_0$, $a_k=\tfrac12 X_k$ für $k>0$ und $a_{-k}=\tfrac12 X_k^*$. So fasst man Gleichanteil, positive und negative Linien einheitlich zusammen, und das Signal wird $s(t)=\sum_k a_k e^{j\omega_k t}$.
+F: Worin unterscheiden sich einseitiges und zweiseitiges Spektrum?
+A: Das zweiseitige Spektrum zeigt Linien bei $-\omega$ und $+\omega$ (mathematisch „ehrlich", passt zur komplexen Rechnung mit $a_k$). Das einseitige fasst beide zu einer Linie bei $\omega\ge0$ zusammen und verdoppelt die Amplitude (anschaulicher für die Praxis). Man muss nur wissen, welche man gerade verwendet.
+F: Warum ist ein Kosinus-Spektrum mit nur der Linie bei $+\omega$ im zweiseitigen Bild falsch?
+A: Ohne die konjugierte Linie $a_{-k}=a_k^*$ bei $-\omega$ wäre das dargestellte Signal nicht reell, sondern ein komplexer rotierender Zeiger. Die negative Linie gehört zwingend dazu, damit das Signal den gemessenen reellen Kosinus beschreibt.
+:::
