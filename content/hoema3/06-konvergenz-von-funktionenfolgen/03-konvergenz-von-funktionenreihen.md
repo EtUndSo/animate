@@ -123,3 +123,26 @@ $R$ n/a), geom. Reihe $R=1$, $e^x=\sum x^k/k!$ ($R=\infty$).
 Als Nächstes betten wir die stetigen Funktionen in einen __normierten Vektorraum__ ein (Supremumsnorm und $L^2$-Norm)
 und lernen die __Konvergenz im quadratischen Mittel__ — den Konvergenzbegriff, in dem Fourier-Reihen am natürlichsten
 leben. Das ist das Thema des nächsten Artikels.
+
+:::quiz
+F: Warum lässt sich die ganze Theorie der Funktionenfolgen direkt auf Funktionenreihen übertragen?
+A: Eine Reihe $\sum_k g_k$ ist definitionsgemäß die Folge ihrer Partialsummen $f_n=\sum_{k=0}^n g_k$. Jede Aussage über Konvergenz und Vertauschbarkeit von Funktionenfolgen gilt daher unverändert für die Partialsummen — Reihen sind ein Spezialfall, kein neues Konzept.
+F: Was ist die Grundidee des Weierstraßschen M-Tests?
+A: Man schätzt jeden Summanden durch eine von $x$ unabhängige Zahl ab, $|g_k(x)|\le M_k$, und verlangt, dass die reine Zahlenreihe $\sum M_k$ konvergiert. Diese summierbare Majorante erzwingt dann die gleichmäßige Konvergenz der Funktionenreihe.
+F: Wieso folgt aus einer konvergenten Zahlen-Majorante die gleichmäßige Konvergenz der Funktionenreihe?
+A: Der Supremumsabstand zweier Partialsummen ist $\sup_x|\sum_{k=m+1}^n g_k(x)|\le\sum_{k=m+1}^\infty M_k$. Da der Reihenrest einer konvergenten Zahlenreihe gegen null geht, erfüllt die Partialsummenfolge das Cauchy-Kriterium gleichmäßig.
+F: Warum ist es so nützlich, die funktionale Konvergenz auf eine Zahlenreihe zurückzuführen?
+A: Die Schranke $M_k$ hängt nicht mehr von $x$ ab, also kontrolliert eine einzige Zahlenreihe das Verhalten an allen Stellen gleichzeitig. Damit wird ein schwer greifbares gleichmäßiges Konvergenzproblem zu einer gewöhnlichen Reihenkonvergenz-Frage.
+F: Was bedeutet der Konvergenzradius $R$ einer Potenzreihe, und was passiert bei $|x-x_0|=R$?
+A: Für $|x-x_0|<R$ konvergiert die Reihe absolut, für $|x-x_0|>R$ divergiert sie. Genau am Rand $|x-x_0|=R$ ist keine allgemeine Aussage möglich — dort muss man jeden Fall einzeln prüfen.
+F: Warum gilt die gleichmäßige Konvergenz einer Potenzreihe nur auf abgeschlossenen Teilscheiben $|x-x_0|\le r<R$ und nicht auf dem ganzen offenen Kreis?
+A: Der M-Test braucht als Majorante $|a_k|r^k$ mit festem $r<R$; nur dann ist $\sum|a_k|r^k$ summierbar. Lässt man $r\to R$, kann die Konvergenz ungleichmäßig werden — die geometrische Reihe etwa wächst bei $x\to1$ über alle Grenzen.
+F: Warum ist eine Potenzreihe in ihrem Konvergenzkreis sogar beliebig oft differenzierbar?
+A: Die gliedweise abgeleitete Reihe hat denselben Konvergenzradius $R$ (da $\sqrt[k]{k}\to1$), konvergiert also wieder gleichmäßig auf Teilscheiben. Satz 6.8 erlaubt dann gliedweises Ableiten; dieses Argument lässt sich induktiv wiederholen, also ist $f$ glatt.
+F: Warum ändert der Faktor $k$ beim Ableiten den Konvergenzradius nicht?
+A: Cauchy–Hadamard gibt $R=1/\limsup\sqrt[k]{|a_k|}$. Beim Ableiten tritt der Faktor $k$ auf, aber $\sqrt[k]{k}\to1$, sodass sich der $\limsup$ und damit $R$ nicht ändert — die abgeleitete Reihe konvergiert im selben Kreis.
+F: Warum ist der M-Test ein hinreichendes, aber kein notwendiges Kriterium?
+A: Er garantiert gleichmäßige Konvergenz nur, wenn eine summierbare Majorante existiert. Es gibt aber gleichmäßig konvergente Reihen ohne solche Majorante (etwa bedingt konvergente Fälle), bei denen der M-Test einfach nicht greift, obwohl die Konvergenz vorliegt.
+F: Warum ist die gliedweise Differenzierbarkeit bei Fourier-Reihen — anders als bei Potenzreihen — nicht selbstverständlich?
+A: Bei Potenzreihen hat die abgeleitete Reihe automatisch denselben Radius und konvergiert gleichmäßig. Die Ableitung einer Fourier-Reihe bringt dagegen Faktoren $k$ in die Koeffizienten, die die Konvergenz zerstören können — gleichmäßige Konvergenz der abgeleiteten Reihe muss hier eigens geprüft werden.
+:::
