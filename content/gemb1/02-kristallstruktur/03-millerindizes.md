@@ -1,0 +1,159 @@
+---
+title: Millerindizes
+pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Kristallstruktur
+order: 4020300
+summary: Die kompakte Sprache, mit der man Ebenen und Richtungen in einem Kristall benennt. Der Trick: Man arbeitet mit den Kehrwerten der Achsabschnitte – so wird aus einer achsenparallelen Ebene (Abschnitt $\infty$) eine harmlose $0$. Daraus folgen die Notationen $(hkl)$ für Ebenen, $[uvw]$ für Richtungen, und die im kubischen System nützliche Regel $[hkl]\perp(hkl)$.
+tags: Millerindizes, Kristallebene, Kristallrichtung, Kehrwerte, kubisches System, Silizium-Ätzen, Notation
+---
+
+:::grafik
+Einstiegs-Animation: Ein Würfel dreht sich langsam; nacheinander leuchten verschiedene Kristallebenen auf und
+werden beschriftet: eine Würfelfläche $(100)$, eine diagonale Ebene $(110)$, eine schräge Dreiecksebene $(111)$.
+Zu jeder Ebene erscheinen kurz die Achsabschnitte und daneben, wie daraus über Kehrwerte die drei Indizes
+entstehen. Kernbotschaft: Jede Ebene und jede Richtung im Kristall bekommt einen eindeutigen, kurzen Namen aus
+drei Zahlen.
+:::
+
+:::konzept
+Ein Kristall ist nicht in alle Richtungen gleich. Bestimmte Ebenen spalten leichter, bestimmte Flächen ätzen
+langsamer, Ladungen fließen in manchen Richtungen besser. Man braucht daher eine **kompakte, eindeutige
+Sprache**, um „diese Ebene" oder „jene Richtung" zu benennen — ohne jedes Mal Winkel und Achsabschnitte
+ausschreiben zu müssen. Das leisten die __Millerindizes__. Ihr cleverer Kern ist ein kleiner Trick mit
+**Kehrwerten**, der genau das Problem löst, an dem eine naive Benennung scheitern würde.
+:::
+
+**Worum es geht:** Wir leiten her, *warum* man Ebenen über die **Kehrwerte** ihrer Achsabschnitte benennt,
+üben das Rezept an Beispielen, führen die Notation für __Richtungen__ ein, und sehen am anisotropen Ätzen von
+Silizium, wofür das in der Technik konkret gebraucht wird.
+
+## Warum Kehrwerte? Das Problem mit dem naiven Ansatz
+
+Die naheliegende Idee wäre: Benenne eine Ebene einfach durch ihre drei **Achsabschnitte** — wo schneidet sie die
+$x$-, $y$- und $z$-Achse (in Einheiten der Gitterkonstante)? Das funktioniert fast, scheitert aber an einem
+häufigen Fall: Viele wichtige Ebenen liegen **parallel** zu einer Achse. Eine achsenparallele Ebene schneidet
+diese Achse erst „im Unendlichen" — ihr Achsabschnitt ist $\infty$. Mit Unendlich zu rechnen und zu benennen ist
+unpraktisch.
+
+Der Trick: Man nimmt die **Kehrwerte** der Achsabschnitte. Denn der Kehrwert von Unendlich ist die harmlose
+**Null**:
+
+$$\frac{1}{\infty} = 0.$$
+
+So wird aus „parallel zur Achse" (Abschnitt $\infty$) einfach der Index $0$ — keine Sonderbehandlung nötig
+([Britannica](https://www.britannica.com/science/Miller-indices), [LibreTexts](https://chem.libretexts.org/Courses/Lafayette_College/CHEM_440:_Structure_Determination/04:_X-ray_Crystallography/4.03:_Miller_Indices_(hkl))).
+Das ist der ganze Grund für die auf den ersten Blick seltsame Kehrwert-Vorschrift.
+
+:::grafik
+Eine Ebene parallel zur $y$- und $z$-Achse, die die $x$-Achse bei $1$ schneidet. Die Achsabschnitte
+$1, \infty, \infty$ stehen daneben, darunter ihre Kehrwerte $1, 0, 0$ → Index $(100)$. Hervorgehoben: „$\infty$
+wird zu $0$".
+:::
+
+## Das Rezept für die Ebene (hkl)
+
+Die Millerindizes $(hkl)$ einer Kristallebene bildet man in vier Schritten:
+
+1. **Achsabschnitte** der Ebene mit den drei Achsen bestimmen (in Einheiten der Gitterkonstante).
+2. Gemeinsame Faktoren **kürzen**.
+3. **Kehrwerte** dieser Abschnitte bilden.
+4. Mit dem kleinsten gemeinsamen Vielfachen der Nenner multiplizieren, bis **drei ganze, teilerfremde Zahlen**
+   dastehen.
+
+Das Ergebnis schreibt man in **runden Klammern** $(hkl)$ — ohne Kommas, ohne Leerzeichen. Ein negativer Index
+wird als Balken über der Zahl geschrieben (z. B. $(\bar1 00)$).
+
+**Durchgerechnetes Beispiel — Ebene mit Achsabschnitten $1, 1, 2$:**
+
+$$\text{Abschnitte } 1,\,1,\,2 \;\longrightarrow\; \text{Kehrwerte } 1,\,1,\,\tfrac12 \;\xrightarrow{\times 2}\; (2\,2\,1).$$
+
+:::grafik
+Ein Würfel mit einer Ebene, die $x$ bei $1$, $y$ bei $1$, $z$ bei $2$ schneidet. Daneben die Rechnung
+$1,1,2 \to 1,1,\tfrac12 \to (221)$ Schritt für Schritt eingeblendet.
+:::
+
+**Weitere wichtige Ebenen** (alle im Würfel):
+
+- $(100)$: eine **Würfelfläche** (parallel zu $y$ und $z$).
+- $(110)$: eine **diagonale** Ebene durch zwei gegenüberliegende Kanten.
+- $(111)$: die Ebene, die alle drei Achsen bei $1$ schneidet (ein Dreieck, das drei Würfelecken verbindet)
+  ([Britannica](https://www.britannica.com/science/Miller-indices)).
+
+Eine einzelne Ebene schreibt man $(hkl)$; die **Menge aller symmetrisch gleichwertigen** Ebenen fasst man in
+**geschweiften Klammern** $\{hkl\}$ zusammen. Im Würfel gehören z. B. alle 6 Seitenflächen zur Familie
+$\{100\}$.
+
+:::grafik
+Drei kleine Würfel nebeneinander mit je einer markierten Ebene: $(100)$ (Seitenfläche), $(110)$ (diagonale
+Ebene), $(111)$ (Dreiecksebene). Darunter der Hinweis: $\{100\}$ = alle 6 äquivalenten Seitenflächen.
+:::
+
+## Richtungen [uvw]
+
+Eine **Richtung** im Kristall schreibt man als Linearkombination der Gittervektoren:
+
+$$\vec r = u\,\vec a_1 + v\,\vec a_2 + w\,\vec a_3.$$
+
+- __$[uvw]$__: eine **einzelne** Richtung (eckige Klammern, keine Kommas), wobei $u,v,w$ auf kleinste ganze
+  Zahlen gebracht werden.
+- __$\langle uvw \rangle$__: die **Menge aller gleichwertigen** Richtungen.
+
+Der Unterschied zur Ebene ist wichtig: Bei Richtungen nimmt man die Komponenten **direkt** (keine Kehrwerte) —
+die Kehrwert-Vorschrift gilt nur für Ebenen.
+
+:::grafik
+Ein Würfel mit eingezeichneten Richtungspfeilen: $[100]$ entlang einer Kante, $[110]$ entlang einer
+Flächendiagonale, $[111]$ entlang der Raumdiagonale. Notation-Legende: $[uvw]$ eine Richtung, $\langle uvw\rangle$
+Richtungsschar, $(hkl)$ Ebene, $\{hkl\}$ Ebenenschar.
+:::
+
+## Die kubische Sonderregel — und ihre Grenze
+
+Im **kubischen** Kristallsystem gilt eine besonders nützliche Beziehung: Die Richtung $[hkl]$ steht **senkrecht**
+auf der gleichnamigen Ebene $(hkl)$.
+
+$$[hkl] \perp (hkl) \qquad (\text{nur im kubischen System!}).$$
+
+So ist etwa $[111]$ die Flächennormale von $(111)$. **Warum nur kubisch?** Weil nur dort die drei Achsen
+orthogonal **und** gleich lang sind. In anderen Systemen (hexagonal, monoklin …) sind die Achsen schief oder
+verschieden lang — dann stimmt die Senkrecht-Beziehung im Allgemeinen **nicht** ([Vedantu](https://vedantu.com/physics/miller-indices)).
+
+:::grafik
+Ein kubischer Würfel mit der Ebene $(111)$ und dem darauf senkrecht stehenden Pfeil $[111]$. Daneben ein schiefes
+(monoklines) Gitter, bei dem $[111]$ sichtbar **nicht** senkrecht auf $(111)$ steht — mit rotem „✗".
+:::
+
+## Anwendung: anisotropes Ätzen von Silizium
+
+Wozu das Ganze? In der Mikro- und Nanotechnik nutzt man, dass verschiedene Kristallebenen **unterschiedlich
+schnell** ätzen. Beim nasschemischen Ätzen von $(100)$-Silizium ätzen die $\{111\}$-Ebenen am **langsamsten** —
+sie bleiben als saubere Flanken stehen und legen die Form der geätzten Struktur fest.
+
+Den charakteristischen Flankenwinkel kann man mit der kubischen Sonderregel sofort ausrechnen: Der Winkel
+zwischen zwei Ebenen ist der Winkel zwischen ihren Normalenrichtungen $[100]$ und $[111]$. Im kubischen System
+gilt für den Winkel zwischen zwei Richtungen das normale Skalarprodukt:
+
+$$\cos\theta = \frac{[100]\cdot[111]}{\big|[100]\big|\,\big|[111]\big|} = \frac{1}{\sqrt{1}\,\sqrt{3}} = \frac{1}{\sqrt3} \;\Longrightarrow\; \theta \approx 54{,}7^\circ.$$
+
+Genau dieser Winkel von $54{,}7^\circ$ tritt zwischen einer $(100)$-Oberfläche und den freigelegten
+$\{111\}$-Flanken auf — er bestimmt die Form von Ätzgräben, Membranen und Nanodraht-Flanken in der
+Siliziumtechnologie.
+
+:::grafik
+Querschnitt durch geätztes $(100)$-Silizium: eine trapezförmige Grube, deren Flanken die $\{111\}$-Ebenen sind;
+der Winkel zwischen Oberfläche und Flanke ist mit $54{,}7^\circ$ bemaßt. Daneben die Rechnung
+$\cos\theta = 1/\sqrt3$.
+:::
+
+:::kern
+__Millerindizes__ benennen Ebenen und Richtungen im Kristall. **Ebene $(hkl)$:** Achsabschnitte → **Kehrwerte** →
+kleinste teilerfremde ganze Zahlen; der Kehrwert-Trick macht aus einem achsenparallelen Abschnitt $\infty$ die
+$0$. **Richtung $[uvw]$:** Komponenten $\vec r = u\vec a_1+v\vec a_2+w\vec a_3$ **direkt** (keine Kehrwerte).
+Klammer-Konvention: $(hkl)$ eine Ebene, $\{hkl\}$ Ebenenschar, $[uvw]$ eine Richtung, $\langle uvw\rangle$
+Richtungsschar. Im **kubischen** System (und nur dort) gilt $[hkl]\perp(hkl)$. Anwendung: Beim Ätzen von
+$(100)$-Si legen die langsamen $\{111\}$-Flanken die Form fest, mit dem Winkel $\cos\theta=1/\sqrt3\Rightarrow
+54{,}7^\circ$.
+:::
+
+Gitter und ihre Ebenen können wir jetzt beschreiben. Offen bleibt die Frage nach dem **Warum**: Warum ordnen sich
+die Atome überhaupt zu einer bestimmten Struktur? Die Antwort liegt in den __Bindungstypen__ — ionisch, kovalent,
+metallisch, van der Waals — dem Thema des nächsten Artikels.
