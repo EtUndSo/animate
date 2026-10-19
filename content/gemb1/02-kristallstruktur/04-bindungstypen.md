@@ -227,3 +227,26 @@ beide KZ 12, APF $\approx0{,}74$.
 Wir wissen jetzt, *warum* Silizium in der Diamantstruktur kristallisiert. Für ein Bauelement braucht man es aber
 als **defektfreien Einkristall** höchster Reinheit. Wie man aus billigem Quarzsand einen solchen Kristall zieht,
 zeigt der nächste Artikel über das __Kristallwachstum__.
+
+:::quiz
+F: Was ist die gemeinsame Triebkraft hinter allen vier Bindungstypen?
+A: Jedes Atom strebt die besonders stabile Edelgaskonfiguration an — eine volle äußere Schale (Oktettregel). Die vier Bindungstypen sind nur verschiedene Wege, dieses eine Ziel über die Außenelektronen zu erreichen.
+F: Woher kommt die abstoßende Kraft, die jede Bindung bei kleinem Abstand begrenzt?
+A: Aus dem Pauli-Prinzip: Überlappen die gefüllten Orbitale zweier Atome, dürfen die Elektronen nicht dieselben Zustände einnehmen, was sehr steil abstößt. Zusammen mit der weitreichenden Anziehung entsteht so eine Potentialkurve mit Minimum.
+F: Was bedeuten Bindungsabstand $r_0$ und Bindungsenergie $W_0$ in der Potentialkurve?
+A: $r_0$ ist die Lage des Minimums, wo sich Anziehung und Abstoßung aufheben ($F=-dW/dr=0$) — dort sitzen die Atome. $W_0$ ist die Tiefe des Minimums, also die Energie, die man aufbringen muss, um die Atome wieder zu trennen.
+F: Warum dehnen sich Materialien beim Erwärmen aus?
+A: Die Atome schwingen um $r_0$ mit einer thermischen Energie $\sim k_\text BT$, und die Potentialkurve ist unsymmetrisch (abstoßende Flanke steiler als anziehende). Dadurch verschiebt sich der zeitliche Mittelwert des Abstands mit steigender Temperatur zu größeren Werten.
+F: Wie unterscheiden sich ionische und kovalente Bindung im Umgang mit Elektronen?
+A: Bei der ionischen Bindung werden Elektronen vollständig übertragen, es entstehen entgegengesetzt geladene Ionen, die sich über Coulomb anziehen. Bei der kovalenten Bindung werden Elektronen geteilt — ein lokalisiertes Bindungspaar sitzt fest zwischen den Partnern, die es beide zu ihrer Schale zählen.
+F: Warum sind kovalente Kristalle typischerweise Halbleiter oder Isolatoren?
+A: Weil die Bindungselektronen lokalisiert sind — sie sitzen fest zwischen den Atomen und sind nicht frei beweglich. Es gibt kein Elektronengas wie im Metall, daher fehlen bei tiefer Temperatur freie Ladungsträger für den Stromtransport.
+F: Wie entsteht aus der $sp^3$-Hybridisierung der Tetraederwinkel von 109,47°?
+A: Die vier gleichwertigen $sp^3$-Hybridorbitale stoßen sich gegenseitig ab und gehen auf maximalen Abstand — das ergibt eine tetraedrische Anordnung. Der Winkel zwischen zwei Bindungen ist dann exakt $\arccos(-\tfrac13)\approx109{,}47^\circ$.
+F: Wie hängt die $sp^3$-Bindung mit der Diamantstruktur von Silizium zusammen?
+A: Setzt man die Tetraeder lückenlos periodisch fort, entstehen zwei um $\vec d=\tfrac a4(1,1,1)$ versetzte FCC-Gitter — die Diamantstruktur. Silizium und Germanium kristallisieren genau so (ein FCC-Bravaisgitter mit zweiatomiger Basis).
+F: Warum lässt sich das äußere Elektron eines Metallatoms so leicht ablösen?
+A: Die inneren gefüllten Orbitale schirmen das Kernpotential ab, sodass das Außenelektron ein flacheres, engeres Potential „sieht" — wie ein Teilchen in kürzerer Box, wo $E\propto1/L^2$ steigt. Die höhere Energie bedeutet leichtere Ionisierung; die abgelösten Elektronen bilden das delokalisierte Elektronengas.
+F: Warum ist die van-der-Waals-Wechselwirkung so schwach und kurzreichweitig, und was folgt daraus praktisch?
+A: Sie beruht nur auf zufälligen, temporären Dipolen ohne Elektronentransfer, und ihr Potential fällt steil wie $1/r^6$ ab. Daher hält sie z. B. die Graphen-Ebenen im Graphit nur lose zusammen — weshalb sich ein Bleistift abblättern lässt und $\text{MoS}_2$ als Trockenschmierstoff taugt.
+:::
