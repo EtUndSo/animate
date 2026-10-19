@@ -180,8 +180,16 @@ def md_to_html(md):
             continue
         if re.match(r"[-*]\s+", s) or re.match(r"\d+\.\s+", s):   # list (ul/ol)
             flush(); ordered = bool(re.match(r"\d+\.\s+", s)); items = []
-            while i < n and (re.match(r"[-*]\s+", lines[i].strip()) or re.match(r"\d+\.\s+", lines[i].strip())):
-                items.append(re.sub(r"^\s*(?:[-*]|\d+\.)\s+", "", lines[i].strip())); i += 1
+            while i < n:
+                raw = lines[i]; st = raw.strip()
+                if not st:
+                    break                                               # Leerzeile beendet die Liste
+                if re.match(r"[-*]\s+", st) or re.match(r"\d+\.\s+", st):
+                    items.append(re.sub(r"^\s*(?:[-*]|\d+\.)\s+", "", st)); i += 1   # neuer Punkt
+                elif items and raw[:1] in (" ", "\t"):
+                    items[-1] += " " + st; i += 1                        # eingerückte Fortsetzungszeile -> an aktuellen Punkt anhängen
+                else:
+                    break
             tag = "ol" if ordered else "ul"
             out.append(f"<{tag}>" + "".join(f"<li>{inline(it)}</li>" for it in items) + f"</{tag}>")
             continue

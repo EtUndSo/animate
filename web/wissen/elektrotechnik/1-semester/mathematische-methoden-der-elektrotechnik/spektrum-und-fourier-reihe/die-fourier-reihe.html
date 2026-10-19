@@ -24,9 +24,7 @@
 <h2 id="die-fourier-reihe-komplexe-form">Die Fourier-Reihe (komplexe Form)</h2>
 <p>Damit lässt sich jedes periodische Signal als Summe seiner Harmonischen schreiben. Am elegantesten in komplexer Form, mit rotierenden Zeigern (wie im Abschnitt über das Spektrum) für positive <strong>und</strong> negative Frequenzen:</p>
 <p>$$\textcolor{#e5383b}{x(t) }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \sum_{k=-\infty}^{\infty} c_k\,e^{\,j k \omega_0 t}.}$$</p>
-<ul><li><strong class="nm">$c_k$</strong>: der komplexe <strong class="nm">Fourierkoeffizient</strong> der $k$-ten Harmonischen — er enthält Amplitude und Phase dieser</li></ul>
-<p>Teilschwingung (die Höhe und Lage der Spektrallinie bei $k f_0$).</p>
-<ul><li><strong class="nm">$e^{\,j k \omega_0 t}$</strong>: der rotierende Einheitszeiger der $k$-ten Harmonischen.</li></ul>
+<ul><li><strong class="nm">$c_k$</strong>: der komplexe <strong class="nm">Fourierkoeffizient</strong> der $k$-ten Harmonischen — er enthält Amplitude und Phase dieser Teilschwingung (die Höhe und Lage der Spektrallinie bei $k f_0$).</li><li><strong class="nm">$e^{\,j k \omega_0 t}$</strong>: der rotierende Einheitszeiger der $k$-ten Harmonischen.</li></ul>
 <p>Für ein <strong>reelles</strong> Signal sind die Koeffizienten konjugiert symmetrisch, $\textcolor{#e5383b}{c_{-k} }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ c_k^{*}}$ — genau die Spiegelbild-Eigenschaft der positiven und negativen Spektrallinien aus dem vorigen Abschnitt. Die ganze Information über das Signal steckt jetzt in der Zahlenfolge der $c_k$.</p>
 <h2 id="wie-man-die-koeffizienten-findet-die-orthogonalitat">Wie man die Koeffizienten findet: die Orthogonalität</h2>
 <p>Die große Frage ist: Wie bekommt man zu einem gegebenen Signal die Koeffizienten $c_k$ heraus? Hier könnte man auf die Idee kommen, ein riesiges Gleichungssystem aufzustellen (das Signal an vielen Zeitpunkten gleich der Summe setzen) — das wäre mühsam und unübersichtlich. Es geht viel eleganter, mit einer besonderen Eigenschaft der Harmonischen.</p>
@@ -46,9 +44,7 @@
 <p>Rechnen wir es an einem konkreten, berühmten Fall durch. Die <strong class="nm">Rechteckschwingung</strong> springt zwischen $+1$ (in der ersten Halbperiode) und $-1$ (in der zweiten) hin und her. Einsetzen in die Koeffizientenformel und Ausrechnen des Integrals über die beiden Hälften liefert (mit $\textcolor{#e5383b}{\omega_0 T_0 }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ 2\pi}$ und $\textcolor{#e5383b}{e^{-jk\pi} }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ (-1)^k}$):</p>
 <p>$$\textcolor{#e5383b}{c_k }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \frac{j}{\pi k}\left((-1)^k - 1\right) }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \begin{cases} -\dfrac{2j}{\pi k}, & k \text{ ungerade},\\[6pt] 0, & k \text{ gerade}. \end{cases}}$$</p>
 <p>Daraus liest man zwei Dinge ab:</p>
-<ul><li><strong>Nur ungerade Harmonische.</strong> Alle geraden Koeffizienten sind null — die Rechteckschwingung enthält nur</li></ul>
-<p>$f_0, 3f_0, 5f_0, \ldots$</p>
-<ul><li><strong>Amplituden fallen mit $1/k$.</strong> Die höheren Harmonischen werden immer schwächer.</li></ul>
+<ul><li><strong>Nur ungerade Harmonische.</strong> Alle geraden Koeffizienten sind null — die Rechteckschwingung enthält nur $f_0, 3f_0, 5f_0, \ldots$</li><li><strong>Amplituden fallen mit $1/k$.</strong> Die höheren Harmonischen werden immer schwächer.</li></ul>
 <p>In reeller Schreibweise ist das die bekannte Reihe</p>
 <p>$$\textcolor{#e5383b}{x(t) }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \frac{4}{\pi}\left(\sin\omega_0 t + \frac{1}{3}\sin 3\omega_0 t + \frac{1}{5}\sin 5\omega_0 t + \ldots\right).}$$</p>
 <p>Genau das zeigt die Einstiegs-Animation: Mit jeder weiteren ungeraden Harmonischen wird die Summe eckiger. An den Sprungstellen bleibt allerdings immer ein kleiner Überschwinger von rund $9\,\%$, der auch bei unendlich vielen Gliedern nicht verschwindet — das <strong class="nm">Gibbs-Phänomen</strong>. Es zeigt anschaulich, dass sich ein echter, unendlich steiler Sprung aus glatten Sinuskurven nur im Grenzwert, aber nie „perfekt an jeder Stelle" nachbilden lässt.</p>
