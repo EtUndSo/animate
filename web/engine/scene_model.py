@@ -1374,6 +1374,7 @@ class ModelScene(Scene):
         # Animations are grouped into STEPS: same step -> played together (simultaneously),
         # steps run in ascending order. No step given -> each animation is its own step (sequential,
         # in list order), which keeps the old behaviour.
+        self._appearance_anims = []                         # Create/FadeIn/... (kept fully shown statically)
         for step in _group_by_step(self.model.get("animations", [])):
             anims = []
             for spec in step:
@@ -1382,11 +1383,26 @@ class ModelScene(Scene):
                 a = _build_animation(spec, objects)
                 a.run_time = spec.get("run_time", 1.0)
                 anims.append(a)
+                if spec.get("type") in _APPEARANCE:
+                    self._appearance_anims.append(a)
             if anims:
                 self.play(*anims)                           # run_time=None -> each keeps its own
         if self.model.get("wait"):
             self.wait(self.model["wait"])
         self.run_updaters()          # settle updater-driven objects for the static (first) frame
+
+    def show_static(self):
+        """Edit-view (non-playing) state. construct() leaves animation targets at their END state (play()
+        advances each to the end so the next begin() is correct). For the static editor we instead want
+        TRANSFORM targets (Rotate/Shift/Scale/MoveTo) at their START — where they begin — so the resting
+        view matches the animation's first frame, not its last. Appearance targets (Create/FadeIn/Write/
+        GrowFromCenter) are then forced fully shown so they stay visible and selectable in the editor."""
+        if self.timeline:
+            self.seek(0.0)                                   # all animations -> their t=0 (start) state
+            for a in getattr(self, "_appearance_anims", []):
+                a.update(1.0)                                # ...but appearance targets stay fully shown
+            self.run_updaters()
+        return self
 
 
 # ---------------------------------------------------------------------------

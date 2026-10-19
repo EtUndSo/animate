@@ -23,6 +23,7 @@ def render_model(json_str):
         model = json.loads(json_str)
         scene = ModelScene(model)
         scene.construct()                       # may fail on an incomplete function expression
+        scene.show_static()                     # resting view: transform targets at START, not END
     except Exception as e:
         return "error: " + str(e)               # invalid -> leave the previous frame untouched
     bg = model.get("background", [1.0, 1.0, 1.0])       # None -> transparent
@@ -113,6 +114,7 @@ def begin_lod(json_str):
         model = json.loads(json_str)
         scene = ModelScene(model)
         scene.construct()
+        scene.show_static()
     except Exception:
         _lod_scene = None
         return

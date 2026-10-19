@@ -117,7 +117,7 @@ const CATALOG = {
     // `offset` shifts the arrow perpendicular to the span so it sits beside the measured section.
     Measure: { start:[0,0,0], end:[2,0,0], label:"d", offset:0.0, font_size:28, color:"#111111", stroke_width:4 },
     // Straight labelled arrow (current/voltage/force/field). label_at: "mid" or "end".
-    LabeledArrow: { start:[0,0,0], end:[2,1,0], label:"\\vec F", label_at:"mid", font_size:28, color:"#111111", stroke_width:4 },
+    LabeledArrow: { start:[0,0,0], end:[2,1,0], label:"F", label_at:"mid", font_size:28, color:"#111111", stroke_width:4 },
     // Curved circulation / mesh-loop / feedback arrow: arc around `center`, world-unit `radius`, from
     // start_angle to end_angle (degrees, CCW if end>start), arrowhead at the end, optional centre label.
     LoopArrow: { center:[0,0,0], radius:0.8, start_angle:30, end_angle:320, label:"", font_size:28, color:"#111111", stroke_width:4 },
@@ -1240,7 +1240,19 @@ function commitOnEnter(i){ i.addEventListener("keydown",(e)=>{ if(e.key==="Enter
 // typing a number no longer re-renders (and stutters) on each digit. onchange fires exactly once, on commit.
 function numberInput(value, on){ const i=document.createElement("input"); i.type="number"; i.step="0.1"; i.value=value; i.onchange=()=>on(parseFloat(i.value)); commitOnEnter(i); return i; }
 function propRow(key, inputEl){ const w=document.createElement("div"); w.className="prop"; const l=document.createElement("label"); l.textContent=key; w.appendChild(l); w.appendChild(inputEl); return w; }
+// Enumerated string props -> a dropdown (so the user sees the allowed values). Key = "<Type>.<prop>".
+const ENUMS = {
+  "LabeledArrow.label_at": ["mid", "end"],
+  "VectorField.preset":    ["custom", "radial", "source", "sink", "vortex", "uniform"],
+};
 function propInput(obj,key,val){
+  const enumOpts = ENUMS[obj.type + "." + key];
+  if(enumOpts){
+    const s=document.createElement("select");
+    enumOpts.forEach(o=>{ const op=document.createElement("option"); op.value=o; op.textContent=o; if(o===val) op.selected=true; s.appendChild(op); });
+    s.onchange=()=>{ obj.props[key]=s.value; renderPreview(); };
+    return propRow(key, s);
+  }
   if(Array.isArray(val)){
     const vec=document.createElement("div"); vec.className="vec";
     val.forEach((comp,i)=> vec.appendChild(numberInput(comp, (x)=>{ obj.props[key][i]=x; renderPreview(); })));

@@ -68,8 +68,11 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   **Umgesetzt (wartet auf Test):** `LabeledArrow` {start, end, label, label_at:"mid"/"end", font_size, color,
   stroke_width} = gerader Pfeil (Vector) + Label an Mitte/Spitze; `LoopArrow` {center, radius (Welt), start_angle,
   end_angle (Grad), label, …} = Bogen mit Pfeilspitze am Ende (Umlauf/Rückkopplung). Maß-/Doppelpfeil bereits
-  durch `Measure` (F2) abgedeckt. CATALOG-Gruppe „Annotation". Test: `LabeledArrow` mit `\vec F`-Label; `LoopArrow`
+  durch `Measure` (F2) abgedeckt. CATALOG-Gruppe „Annotation". Test: `LabeledArrow` mit Label; `LoopArrow`
   für einen Maschenumlauf.
+  **User-Feedback eingearbeitet:** `label_at` ist jetzt ein **Dropdown** (generische ENUMS-Select-Unterstützung
+  im Properties-Panel; auch `VectorField.preset` nun Dropdown). Inline-Labels = **Klartext** (Unicode ok), KEIN
+  LaTeX; Default `\vec F`→`F`. Echtes LaTeX in Inline-Labels → neue Aufgabe F28.
 - [~] **F6 2D-Vektorfeld** — Pfeilraster aus freiem Ausdruck $\vec F(x,y)$ **oder** Presets
   (radial/Quelle/Senke/Wirbel/uniform), Pfeillänge/-farbe nach Betrag, optional Divergenz-Farbkodierung.
   **Umgesetzt (wartet auf Test):** `VectorField` (special-cased, `_build_vector_field`): Pfeilraster `nx`×`ny`,
@@ -155,8 +158,19 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   (Low-Hanging-Fruit: Engine kann es schon, nur UI fehlt.)
 - [ ] **F27 WebGL-Bugfixes #2/#3/#4** — Achsen/Grid im GL-Layer (Axes-on-Top), Tiefensortierung mehrerer
   transparenter Flächen, Wireframe-/Grid-Overlay auf GL-Flächen. Stützt F16/F19.
+- [ ] **F28 LaTeX in Inline-Labels** — Labels in Annotations-/Kurvenobjekten (Marker, Measure, LabeledArrow,
+  LoopArrow, TangentLine, Legend, …) als echtes LaTeX rendern statt Klartext. Braucht die MathJax-Glyph-Injektion
+  (`injectTexGlyphs` in editor.js) auch für Sub-Labels + Bau von MathTex-Glyphen in den Composite-Helfern.
+  (Aus User-Feedback 2026-10-19: `\vec F` wurde als Text angezeigt.)
 
 ---
+
+## Behobene Editor-Bugs (aus User-Tests)
+- **Rotate/Shift/Scale/MoveTo zeigten statisch den Endzustand** (2026-10-19): `Scene.play()` schiebt jedes Ziel per
+  `update(1.0)` ans Ende (für das nächste `begin()`), was die Ruheansicht ans Animationsende setzte. Fix:
+  `ModelScene.show_static()` (nach `construct()` in `render_model`/`begin_lod`): `seek(0)` → Transform-Ziele am
+  START, Appearance-Ziele (Create/FadeIn/Write/GrowFromCenter) bleiben voll sichtbar. Play/seek unverändert korrekt.
+- **`legend.py` fehlte in `ENGINE_FILES`** → ModuleNotFoundError (behoben, 58494d3).
 
 ## Reihenfolge-Logik
 Batch 1–2 decken den Großteil der mmet-/get1-/Fourier-/Grundlagen-Szenen (2D-Plots, Felder, Pfeile) — breitester
