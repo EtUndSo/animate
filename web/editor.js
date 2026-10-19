@@ -78,6 +78,9 @@ const CATALOG = {
     // (then your fx(x,y), fy(x,y) expressions are used). normalize = all arrows equal length;
     // color_by_mag = colour arrows by magnitude (blue->red). nx/ny = grid density.
     VectorField: { preset:"vortex", fx:"-y", fy:"x", x_min:-3, x_max:3, y_min:-3, y_max:3, nx:11, ny:11, scale:0.3, normalize:false, max_len:0.8, color_by_mag:false, color:"#59a0eb", stroke_width:3 },
+    // Scalar field f(x,y): colour heatmap (nx×ny cells) + `levels` contour/level lines. gradient_at="x,y"
+    // draws the gradient arrow (⟂ level line) at that point. color = contour/arrow colour; fill_opacity = heatmap.
+    ScalarField: { func:"x^2+y^2", x_min:-3, x_max:3, y_min:-3, y_max:3, nx:24, ny:24, levels:6, show_heat:true, show_contours:true, gradient_at:"", grad_scale:0.4, font_size:24, color:"#111111", fill_opacity:0.8 },
   },
   "Mathematik · 3D-Körper": {   // solids live in world coordinates (a 2-variable FunctionGraph is the surface)
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },

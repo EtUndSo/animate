@@ -424,6 +424,110 @@ def _build_area(args, style, axes):
     return poly
 
 
+_CMAP_STOPS = [(0.0, (0.23, 0.30, 0.75)), (0.5, (0.95, 0.88, 0.25)), (1.0, (0.85, 0.20, 0.15))]  # blue->yellow->red
+
+
+def _cmap(t):
+    t = 0.0 if t < 0 else (1.0 if t > 1 else float(t))
+    for i in range(len(_CMAP_STOPS) - 1):
+        t0, c0 = _CMAP_STOPS[i]
+        t1, c1 = _CMAP_STOPS[i + 1]
+        if t <= t1:
+            f = (t - t0) / (t1 - t0) if t1 > t0 else 0.0
+            return tuple(c0[k] + f * (c1[k] - c0[k]) for k in range(3))
+    return _CMAP_STOPS[-1][1]
+
+
+def _build_scalar_field(args, style, axes):
+    """A scalar field f(x,y) as a colour heatmap (nx×ny cells) + contour/level lines (marching squares)
+    + an optional gradient arrow (⟂ to the level line) at `gradient_at`="x,y". General: any expression."""
+    c2p = _c2p_fn(axes)
+    f = func2_from_expr(str(args.get("func", "0")))
+    if axes is not None:
+        x0 = float(args.get("x_min", axes.x_min)); x1 = float(args.get("x_max", axes.x_max))
+        y0 = float(args.get("y_min", axes.y_min)); y1 = float(args.get("y_max", axes.y_max))
+    else:
+        x0, x1 = float(args.get("x_min", -3.0)), float(args.get("x_max", 3.0))
+        y0, y1 = float(args.get("y_min", -3.0)), float(args.get("y_max", 3.0))
+    nx, ny = max(2, int(args.get("nx", 24))), max(2, int(args.get("ny", 24)))
+    levels = int(args.get("levels", 6))
+    show_heat = bool(args.get("show_heat", True))
+    show_cont = bool(args.get("show_contours", True))
+    cont_col = style.get("color", (0.1, 0.1, 0.1))
+    fop = float(style.get("fill_opacity", 0.8))
+    csw = float(style.get("stroke_width", 2.0))
+
+    def ev(x, y):
+        try:
+            return float(f(x, y))
+        except Exception:
+            return float("nan")
+
+    nc = 40                                                  # dense grid for min/max + contour lines
+    gx = np.linspace(x0, x1, nc + 1)
+    gy = np.linspace(y0, y1, nc + 1)
+    Z = np.array([[ev(gx[i], gy[j]) for j in range(nc + 1)] for i in range(nc + 1)])
+    fin = Z[np.isfinite(Z)]
+    fmin = float(fin.min()) if fin.size else 0.0
+    fmax = float(fin.max()) if fin.size else 1.0
+    if fmax - fmin < 1e-12:
+        fmax = fmin + 1.0
+    obj = AnimObject()
+    if show_heat:
+        xe = np.linspace(x0, x1, nx + 1)
+        ye = np.linspace(y0, y1, ny + 1)
+        for i in range(nx):
+            for j in range(ny):
+                v = ev(0.5 * (xe[i] + xe[i + 1]), 0.5 * (ye[j] + ye[j + 1]))
+                if not np.isfinite(v):
+                    continue
+                cell = Polygon([c2p(xe[i], ye[j]), c2p(xe[i + 1], ye[j]),
+                                c2p(xe[i + 1], ye[j + 1]), c2p(xe[i], ye[j + 1])], closed=True)
+                col = _cmap((v - fmin) / (fmax - fmin))
+                cell.color = col
+                cell.fill_color = col
+                cell.fill_opacity = fop
+                cell.stroke_width = 0.0
+                obj.add(cell)
+    if show_cont and levels > 0:
+        for lev in np.linspace(fmin, fmax, levels + 2)[1:-1]:
+            for i in range(nc):
+                for j in range(nc):
+                    v = (Z[i, j], Z[i + 1, j], Z[i + 1, j + 1], Z[i, j + 1])
+                    if not all(np.isfinite(vv) for vv in v):
+                        continue
+                    corner = ((gx[i], gy[j]), (gx[i + 1], gy[j]), (gx[i + 1], gy[j + 1]), (gx[i], gy[j + 1]))
+                    pts = []
+                    for e in range(4):
+                        a, b = e, (e + 1) % 4
+                        va, vb = v[a] - lev, v[b] - lev
+                        if va * vb < 0:
+                            fr = (lev - v[a]) / (v[b] - v[a])
+                            pA, pB = corner[a], corner[b]
+                            pts.append((pA[0] + fr * (pB[0] - pA[0]), pA[1] + fr * (pB[1] - pA[1])))
+                    for k in range(0, len(pts) - 1, 2):      # 2 crossings -> 1 segment; 4 -> 2 segments
+                        ln = Line(c2p(*pts[k]), c2p(*pts[k + 1]))
+                        ln.color = cont_col
+                        ln.stroke_width = csw
+                        obj.add(ln)
+    ga = str(args.get("gradient_at", "")).strip()
+    if ga:
+        try:
+            parts = [float(s) for s in ga.replace(";", ",").split(",")[:2]]
+            px, py = parts[0], parts[1]
+            h = 1e-4 * max(1.0, abs(px), abs(py))
+            dfx = (ev(px + h, py) - ev(px - h, py)) / (2 * h)
+            dfy = (ev(px, py + h) - ev(px, py - h)) / (2 * h)
+            nrm = float(np.hypot(dfx, dfy))
+            if np.isfinite(nrm) and nrm > 1e-9:
+                gs = float(args.get("grad_scale", 0.4))
+                obj.add(Vector(end=c2p(px + gs * dfx / nrm, py + gs * dfy / nrm),
+                               start=c2p(px, py), color=cont_col, stroke_width=csw + 1.0))
+        except Exception:
+            pass
+    return obj
+
+
 _VF_PRESETS = {                                              # preset name -> (fx, fy) component expressions
     "radial": ("x", "y"), "source": ("x", "y"), "sink": ("-x", "-y"),
     "vortex": ("-y", "x"), "uniform": ("1", "0"),
@@ -663,6 +767,8 @@ def _build_object(spec, objects, axes=None):
         obj = _build_loop_arrow(args, style, axes)
     elif t == "VectorField":                                # 2D arrow-grid field (preset or free fx,fy)
         obj = _build_vector_field(args, style, axes)
+    elif t == "ScalarField":                                # heatmap + contour lines + gradient arrow
+        obj = _build_scalar_field(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.

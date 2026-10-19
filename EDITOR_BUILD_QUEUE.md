@@ -78,8 +78,14 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   `color_by_mag` = Blau→Rot-Rampe nach Betrag. Props {preset, fx, fy, x_min..y_max, nx, ny, scale, normalize,
   max_len, color_by_mag, color, stroke_width}, CATALOG-Gruppe „Mathematik · Felder". Test: `VectorField`
   preset `vortex`; dann `custom` mit `fx`=`x`, `fy`=`-y` (Sattel) und `color_by_mag` an.
-- [ ] **F7 Skalarfeld-Heatmap + Niveaulinien** — $f(x,y)$ als Farbkarte/Höhenfeld mit Konturlinien;
+- [~] **F7 Skalarfeld-Heatmap + Niveaulinien** — $f(x,y)$ als Farbkarte/Höhenfeld mit Konturlinien;
   andockbarer **Gradientpfeil ⟂ Niveaulinie**. Freier Ausdruck + Colormap.
+  **Umgesetzt (wartet auf Test):** `ScalarField` (special-cased, `_build_scalar_field`): Heatmap (`nx`×`ny`
+  farbige Zellen, Blau→Gelb→Rot-Colormap, `fill_opacity`), Niveaulinien via **Marching Squares** (`levels`
+  Stufen zwischen min/max), optional **Gradientpfeil** (`gradient_at`="x,y", ∇f zentrale Differenz, ⟂ zur
+  Niveaulinie). `show_heat`/`show_contours` schaltbar. Props {func, x_min..y_max, nx, ny, levels, show_heat,
+  show_contours, gradient_at, grad_scale, color, fill_opacity}, CATALOG „Mathematik · Felder". Test: `ScalarField`
+  func `x^2+y^2`, dann `gradient_at`=`1,1`. (Perf-Hinweis: viele Objekte bei hohem nx/ny·levels — ggf. senken.)
 - [ ] **F8 Parameter-Schar-Animator** — ein `ValueTracker`-getriebener Parameter ($N$, $T$, $r$, $\varepsilon$)
   erzeugt eine **Kurvenschar**, die gegen eine Grenzfunktion läuft (Fourier-Partialsummen/Gibbs, Kennlinienfeld,
   Kern-Familie). Allgemein: beliebige parametrisierte Kurve + Sweep.
