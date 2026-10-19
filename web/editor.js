@@ -97,6 +97,11 @@ const CATALOG = {
     // Dimension double-arrow start->end with a centred label (amplitude, period T, distance d, ...).
     // `offset` shifts the arrow perpendicular to the span so it sits beside the measured section.
     Measure: { start:[0,0,0], end:[2,0,0], label:"d", offset:0.0, font_size:28, color:"#111111", stroke_width:4 },
+    // Straight labelled arrow (current/voltage/force/field). label_at: "mid" or "end".
+    LabeledArrow: { start:[0,0,0], end:[2,1,0], label:"\\vec F", label_at:"mid", font_size:28, color:"#111111", stroke_width:4 },
+    // Curved circulation / mesh-loop / feedback arrow: arc around `center`, world-unit `radius`, from
+    // start_angle to end_angle (degrees, CCW if end>start), arrowhead at the end, optional centre label.
+    LoopArrow: { center:[0,0,0], radius:0.8, start_angle:30, end_angle:320, label:"", font_size:28, color:"#111111", stroke_width:4 },
   },
 };
 

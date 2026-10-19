@@ -63,8 +63,13 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
 **BATCH 1 komplett umgesetzt (F1–F4) — warten auf User-Test.**
 
 ## BATCH 2 — Pfeile & Felder  (K2, K1, K3, K14 — grundlegend für ET & Vektoranalysis)
-- [ ] **F5 Beschriftete Pfeile** — gerader Pfeil mit LaTeX-Label (Strom/Spannung/Kraft/Feld), Doppel-/Maßpfeil
+- [~] **F5 Beschriftete Pfeile** — gerader Pfeil mit LaTeX-Label (Strom/Spannung/Kraft/Feld), Doppel-/Maßpfeil
   ($d$, $r$), gebogener Umlaufpfeil (Maschen/Rückkopplung). Freie Platzierung, Label-Anker.
+  **Umgesetzt (wartet auf Test):** `LabeledArrow` {start, end, label, label_at:"mid"/"end", font_size, color,
+  stroke_width} = gerader Pfeil (Vector) + Label an Mitte/Spitze; `LoopArrow` {center, radius (Welt), start_angle,
+  end_angle (Grad), label, …} = Bogen mit Pfeilspitze am Ende (Umlauf/Rückkopplung). Maß-/Doppelpfeil bereits
+  durch `Measure` (F2) abgedeckt. CATALOG-Gruppe „Annotation". Test: `LabeledArrow` mit `\vec F`-Label; `LoopArrow`
+  für einen Maschenumlauf.
 - [ ] **F6 2D-Vektorfeld** — Pfeilraster aus freiem Ausdruck $\vec F(x,y)$ **oder** Presets
   (radial/Quelle/Senke/Wirbel/uniform), Pfeillänge/-farbe nach Betrag, optional Divergenz-Farbkodierung.
 - [ ] **F7 Skalarfeld-Heatmap + Niveaulinien** — $f(x,y)$ als Farbkarte/Höhenfeld mit Konturlinien;

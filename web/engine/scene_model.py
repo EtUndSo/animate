@@ -424,6 +424,62 @@ def _build_area(args, style, axes):
     return poly
 
 
+def _build_labeled_arrow(args, style, axes):
+    """A straight arrow start->end (DATA coords) with a LaTeX/text label at its midpoint or tip.
+    General current/voltage/force/field arrow. `label_at`: 'mid' or 'end'."""
+    c2p = _c2p_fn(axes)
+    col = style.get("color", (0.0, 0.0, 0.0))
+    sw = float(style.get("stroke_width", 4.0))
+    A = c2p(*_xyz(args.get("start", [0.0, 0.0, 0.0])))
+    B = c2p(*_xyz(args.get("end", [2.0, 1.0, 0.0])))
+    obj = AnimObject()
+    obj.add(Vector(end=B, start=A, color=col, stroke_width=sw))
+    label = str(args.get("label", "")).strip()
+    if label:
+        d = B - A
+        L = float(np.linalg.norm(d))
+        perp = np.array([0.0, 0.0, 0.0]) if L < 1e-9 else np.array([-d[1], d[0], 0.0]) / L
+        anchor = B + 0.25 * perp if str(args.get("label_at", "mid")) == "end" else 0.5 * (A + B) + 0.3 * perp
+        obj.add(Text(label, position=anchor, font_size=float(args.get("font_size", 28)), color=col))
+    return obj
+
+
+def _build_loop_arrow(args, style, axes):
+    """A curved (arc) arrow — circulation / mesh loop / feedback. Arc around `center` (DATA coords) with
+    world-unit `radius` from `start_angle` to `end_angle` (degrees), an arrowhead at the end, optional
+    label. `radius` is in world units so the arc stays circular on any axes."""
+    c2p = _c2p_fn(axes)
+    col = style.get("color", (0.0, 0.0, 0.0))
+    sw = float(style.get("stroke_width", 4.0))
+    c = c2p(*_xyz(args.get("center", [0.0, 0.0, 0.0])))
+    r = float(args.get("radius", 0.8))
+    a0 = np.radians(float(args.get("start_angle", 30.0)))
+    a1 = np.radians(float(args.get("end_angle", 320.0)))
+    ts = np.linspace(a0, a1, 48)
+    pts = [c + r * np.array([np.cos(t), np.sin(t), 0.0]) for t in ts]
+    obj = AnimObject()
+    arc = Polygon(pts, closed=False)                            # open polyline through all arc samples
+    arc.color = col
+    arc.stroke_width = sw
+    obj.add(arc)
+    s = 1.0 if a1 >= a0 else -1.0                               # sweep direction -> tangent at the end
+    tan = s * np.array([-np.sin(a1), np.cos(a1), 0.0])
+    tip = pts[-1]
+    head = max(0.12, 0.22 * r)
+    back = tip - head * tan
+    perp = np.array([-tan[1], tan[0], 0.0])
+    ah = Polygon([tip, back + 0.5 * head * perp, back - 0.5 * head * perp], closed=True)
+    ah.color = col
+    ah.fill_color = col
+    ah.fill_opacity = 1.0
+    ah.stroke_width = sw
+    obj.add(ah)
+    label = str(args.get("label", "")).strip()
+    if label:
+        obj.add(Text(label, position=c, font_size=float(args.get("font_size", 28)), color=col))
+    return obj
+
+
 def _build_tangent(args, style, axes):
     """Tangent (or secant) line to a graph y=f(x). Tangent slope via central difference at x0; secant
     slope via (f(x1)-f(x0))/(x1-x0). The line runs ±half_len in x; optional touch-point dot(s) and a
@@ -544,6 +600,10 @@ def _build_object(spec, objects, axes=None):
         obj = _build_area(args, style, axes)
     elif t == "TangentLine":                                # tangent / secant line to a graph
         obj = _build_tangent(args, style, axes)
+    elif t == "LabeledArrow":                               # straight arrow + label
+        obj = _build_labeled_arrow(args, style, axes)
+    elif t == "LoopArrow":                                  # curved circulation / feedback arrow
+        obj = _build_loop_arrow(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
