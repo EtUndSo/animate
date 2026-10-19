@@ -108,3 +108,26 @@ Damit ist der Transformationssatz auf Volumen und Potentiale angewandt. Zum Absc
 wie sich die Differentialoperatoren $\nabla$, $\operatorname{div}$ und $\Delta$ in **krummlinigen**
 Koordinatensystemen (Polar, Zylinder, Kugel) ausdrücken — mit den __Maßfaktoren__, die dabei auftreten. Das ist
 das Thema des nächsten Artikels.
+
+:::quiz
+F: Was ist die Grundidee hinter dem Newtonpotential, bevor man überhaupt rechnet?
+A: Superposition: Man zerlegt die kontinuierliche Quelldichte $f(y)$ in lauter winzige Punktladungen $f(y)\,dy$, von denen jede ihr Coulomb-Punktpotential $\frac{1}{4\pi|x-y|}$ beiträgt, und summiert (integriert) alle Beiträge. Das Gesamtpotential ist also ein Integral über Punktpotentiale.
+F: Warum ist das Integral $u(x)=\frac{1}{4\pi}\int\frac{f(y)}{|x-y|}\,dy$ trotz der Singularität bei $y=x$ wohldefiniert?
+A: Der Kern hat bei $y=x$ eine Singularität vom Typ $1/|x-y|$, also Exponent $\alpha=1<3$. Nach dem Ergebnis des vorigen Artikels sind radiale Singularitäten mit $\alpha<3$ im Raum integrierbar — der $r^2$-Faktor des Volumenelements entschärft sie, also existiert das Integral.
+F: Was besagt die Poisson-Gleichung $\Delta u=-f$ inhaltlich?
+A: Sie verknüpft das Potential mit seiner Quelle: Die „Krümmung" (der Laplace-Operator) des Potentials an einer Stelle ist genau die dort vorhandene negative Quelldichte. Das Potential ist nicht beliebig, sondern von der Ladungs-/Massenverteilung erzwungen.
+F: Welche Rolle spielt die Fundamentallösung $-\Delta\frac{1}{4\pi|x|}=\delta$ beim Beweis von $\Delta u=-f$?
+A: Das Punktpotential ist außerhalb des Ursprungs harmonisch, und seine gesamte „Quelle" steckt als Dirac-Spitze im Ursprung. Wendet man $\Delta$ auf die Superposition an, greift der Operator über die $\delta$-Distribution genau den Wert $f(x)$ heraus: $\Delta u(x)=\int(-\delta(x-y))f(y)\,dy=-f(x)$.
+F: Warum ist das Potential dort, wo keine Quellen sitzen ($f=0$), harmonisch?
+A: Setzt man $f=0$ in $\Delta u=-f$, bleibt $\Delta u=0$ — genau die Definition einer harmonischen Funktion. In quellfreien Gebieten verhält sich das Potential also wie die harmonischen Funktionen aus Kapitel 1 (Mittelwerteigenschaft, kein inneres Extremum).
+F: Warum darf man beim Schalentheorem den Aufpunkt ohne Einschränkung auf die $z$-Achse legen?
+A: Die homogene Kugelschale ist rotationssymmetrisch; das Potential hängt daher nur vom Abstand $a=|x|$ zum Zentrum ab, nicht von der Richtung. Man darf den Aufpunkt deshalb bequem auf die Achse $x=(0,0,a)$ legen, ohne Allgemeinheit zu verlieren.
+F: Warum liefert das Winkelintegral zwei verschiedene Werte ($\tfrac2a$ bzw. $\tfrac2r$), je nachdem ob der Aufpunkt außen oder innen liegt?
+A: Nach der Substitution im Integral $\int\frac{\sin\vartheta\,d\vartheta}{\sqrt{r^2-2ra\cos\vartheta+a^2}}$ entsteht ein Betrag $|a-r|$, der je nach Vorzeichen von $a-r$ unterschiedlich auflöst. Für $a\ge r$ dominiert $a$, für $a\le r$ dominiert $r$ — daher die Fallunterscheidung.
+F: Was besagt das Schalentheorem für einen Beobachter außerhalb der Kugel, und warum ist das bemerkenswert?
+A: Von außen ($a\ge R_2$) ist das Potential $u=\frac{Q}{4\pi a}$ — exakt das einer im Zentrum konzentrierten Punktladung $Q$. Man kann von außen also gar nicht unterscheiden, ob die Masse/Ladung homogen über die Kugel verteilt oder in einem Punkt gebündelt ist.
+F: Warum herrscht im Hohlraum einer homogenen Kugelschale kein Feld?
+A: Dort ($a\le R_1$) ist das Potential konstant, hängt also nicht von $a$ ab. Das Feld ist der (negative) Gradient $-\nabla u$; der Gradient einer Konstanten ist null. Die Beiträge aller Schalenteile heben sich im Inneren exakt auf.
+F: Woran erkennt man, dass das Vorzeichen in $\Delta u=-f$ eine Konventionssache ist?
+A: Es hängt direkt an der Vorzeichenwahl der Fundamentallösung $-\Delta\frac{1}{4\pi|x|}=\delta$ und an der Definition des Potentials. Je nach Lehrbuch (und physikalischer Konstante wie $\varepsilon_0$) kann dieselbe Physik mit umgekehrtem Vorzeichen notiert sein; wichtig ist die konsistente Kopplung Potential ↔ Quelle.
+:::
