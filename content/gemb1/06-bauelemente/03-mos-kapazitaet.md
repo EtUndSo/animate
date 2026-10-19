@@ -94,7 +94,7 @@ Elektronenschicht (Inversionskanal) am Oxid. Beschriftung „p-Bulk, aber n-leit
 :::
 
 Die Spannung, ab der die Inversion einsetzt, heißt __Schwellenspannung__ $V_{th}$; die Spannung des Übergangs von
-Akkumulation zu Verarmung die __Flachbandspannung__ $V_{fb}$.
+Akkumulation zu Verarmung die __Flachbandspannung__ $V_{FB}$.
 
 ## Die Gate-Kapazität
 
@@ -128,7 +128,7 @@ Inversionsladung besteht aus **Minoritäten** (Elektronen im p-Typ), die nur lan
 :::grafik
 Die C-V-Kurve $C_g/C_{ox}$ über $V_g$: links Plateau bei 1 (Akkumulation), Minimum in der Verarmung, dann zwei
 Äste in Inversion — die Niederfrequenzkurve steigt zurück auf 1, die Hochfrequenzkurve bleibt unten. Markiert
-$V_{fb}$ und $V_{th}$.
+$V_{FB}$ und $V_{th}$.
 :::
 
 ## Grenzflächenzustände und warum SiO₂ so gut ist
