@@ -175,3 +175,26 @@ __Knoten__ (nicht gleichverteilt wie klassisch).
 Dasselbe Prinzip lässt sich auf zwei und drei Raumrichtungen übertragen. Sperrt man das Elektron in einer, zwei
 oder drei Richtungen ein, entstehen __Quantenfilme__, __Quantendrähte__ und __Quantenpunkte__ — das Thema der
 nächsten Abschnitte, mit wichtigen Folgen für die Zustandsdichte.
+
+:::quiz
+F: Warum muss die Wellenfunktion an den Wänden des Kastens null sein?
+A: Außerhalb ist das Potential unendlich, dort kann sich das Elektron nicht aufhalten, also ist $\psi=0$. Da $\psi$ stetig sein muss (sie darf nicht springen), muss sie an den Wänden stetig an diese Null anschließen: $\psi(0)=\psi(L)=0$ — die „festen Enden" wie bei der eingespannten Saite.
+F: Wie erzwingen die Randbedingungen die Quantisierung der Wellenzahl?
+A: Aus $\psi(0)=0$ folgt $B=0$, also $\psi=A\sin(kx)$; aus $\psi(L)=0$ folgt $\sin(kL)=0$. Da $A=0$ das leere „kein Elektron" wäre, muss $kL=n\pi$ gelten, also nur diskrete $k_n=n\pi/L$ — nur Wellen, die ganzzahlig in den Kasten passen, überleben.
+F: Warum ist der Fall $n=0$ ausgeschlossen?
+A: $n=0$ gäbe $k=0$ und damit $\psi=A\sin(0)=0$ überall — das beschreibt gar kein Elektron. Die kleinste erlaubte Welle ist $n=1$, eine halbe Wellenlänge im Kasten.
+F: Wie entstehen aus den erlaubten Wellenzahlen die Energien $E_n=n^2h^2/(8mL^2)$?
+A: Zu jeder Wellenzahl gehört über $E=\hbar^2k^2/2m$ eine Energie; Einsetzen von $k_n=n\pi/L$ liefert $E_n=\hbar^2\pi^2n^2/(2mL^2)=n^2h^2/(8mL^2)$. Weil nur diskrete $k_n$ erlaubt sind, sind auch nur diskrete Energien möglich.
+F: Was bedeutet die $n^2$-Abhängigkeit der Energien anschaulich?
+A: Die Energieniveaus wachsen quadratisch mit der Quantenzahl ($1:4:9:16:\dots$), die Abstände zwischen den Stufen werden nach oben also immer größer. Höhere Zustände haben mehr Halbwellen, stärkere Krümmung und damit stark steigende kinetische Energie.
+F: Warum steigen alle Energien, wenn man den Kasten kleiner macht?
+A: $E_n\propto 1/L^2$ — ein engerer Kasten zwingt kürzere Wellenlängen (stärkere Krümmung), also höhere Energie. Genau das nutzt man bei Quantenpunkten: Die „Leuchtfarbe" lässt sich allein über die Kristallgröße $L$ einstellen.
+F: Warum kann die niedrigste Energie nicht null sein (Nullpunktsenergie)?
+A: $E=0$ hieße $k=0$ und $\psi\equiv0$ — kein Elektron. Die kleinste passende Welle ($n=1$) hat bereits Krümmung und damit kinetische Energie; zudem erzwingt die Unschärfe bei Einsperrung auf $\Delta x\sim L$ einen Mindestimpuls $\Delta p\gtrsim\hbar/L$. Einsperren kostet also immer Bewegungsenergie.
+F: Wieso ist die Nullpunktsenergie bei einem engeren Kasten größer?
+A: Je kleiner $\Delta x\sim L$, desto größer der unvermeidbare Impuls $\Delta p\gtrsim\hbar/L$ und damit die kinetische Mindestenergie — konsistent mit $E_1=h^2/(8mL^2)\propto1/L^2$. Stärkere Einsperrung bedeutet stärkeres „Zappeln".
+F: Wie legt die Normierung den Vorfaktor $A=\sqrt{2/L}$ fest?
+A: Das Elektron muss mit Sicherheit irgendwo im Kasten sein, also $\int_0^L|\psi|^2dx=1$. Das Integral über $\sin^2$ ergibt $L/2$, somit $A^2\cdot L/2=1$ und $A=\sqrt{2/L}$ — so hat die Wahrscheinlichkeitsdichte die Gesamtfläche 1.
+F: Wie unterscheidet sich die Aufenthaltswahrscheinlichkeit $|\psi_n|^2$ vom klassischen Bild?
+A: Klassisch wäre das Elektron überall gleich wahrscheinlich; quantenmechanisch hat $|\psi_n|^2$ $n$ Berge und dazwischen Knoten, an denen das Elektron nie angetroffen wird. Erst für sehr große $n$ verwischen die Zacken zur klassischen Gleichverteilung.
+:::
