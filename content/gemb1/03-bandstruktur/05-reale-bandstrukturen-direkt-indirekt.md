@@ -142,3 +142,26 @@ Damit ist das Oberthema **Bandstruktur** komplett: Wir können aus $E(k)$ Leitf�
 effektive Masse, Ladungsträger-Geschwindigkeit und Lichtausbeute ablesen. Als Nächstes zählen wir, **wie viele**
 Zustände es pro Energie gibt (die __Zustandsdichte__) und **wie** sie bei einer gegebenen Temperatur besetzt sind
 (die __Fermi-Verteilung__) — die Grundlage, um die Ladungsträgerdichte in Halbleitern wirklich auszurechnen.
+
+:::quiz
+F: Warum trägt man eine reale Bandstruktur nur entlang eines Wegs durch die Hochsymmetriepunkte auf?
+A: $E(\vec k)$ lebt im dreidimensionalen $k$-Raum und lässt sich nicht direkt zeichnen. Man beschränkt sich auf einen Weg durch die besonders symmetrischen Punkte ($\Gamma$, $X$, $L$), weil dort die Bandextrema und die wesentlichen Merkmale liegen.
+F: Was ist der entscheidende Unterschied zwischen direkter und indirekter Bandlücke?
+A: Bei direkter Lücke liegen Valenzbandmaximum und Leitungsbandminimum beim selben Wellenvektor, bei indirekter bei verschiedenen. Nicht die Größe der Lücke, sondern diese Lage im $k$-Raum entscheidet über die Lichtausbeute.
+F: Warum kann ein Elektron in GaAs allein mit einem Photon über die Lücke springen?
+A: VBM und CBM liegen beide bei $\Gamma$, es muss also kein Wellenvektor-Unterschied überbrückt werden. Ein Photon liefert die nötige Energie, und da sein Impuls fast null ist, passt der senkrechte Übergang perfekt.
+F: Warum ist ein optischer Übergang im $E(k)$-Diagramm praktisch senkrecht?
+A: Ein Photon der Energie ~1,4 eV hat einen Impuls $p_\gamma=E/c$, der rund tausendmal kleiner ist als die Breite des Kristallimpulses über die Brillouin-Zone. Es kann also kaum $k$ ändern — der Übergang verläuft fast ohne horizontalen Versatz.
+F: Warum ist Silizium ein schlechter Lichtemitter?
+A: Sein CBM liegt seitlich (nahe $X$), das VBM bei $\Gamma$ — der Sprung erfordert neben der Energie auch einen Wellenvektor-Unterschied. Den liefert ein Photon nicht; es braucht zusätzlich ein Phonon, also einen unwahrscheinlichen Dreier-Prozess.
+F: Welche Rolle spielt das Phonon beim Übergang in einem indirekten Halbleiter?
+A: Das Phonon (ein Quant der Gitterschwingung) steuert den fehlenden Impuls (Wellenvektor-Unterschied) bei, den das Photon nicht liefern kann. Dadurch wird der Übergang zum Dreier-Prozess (Elektron + Photon + Phonon) und ist viel seltener.
+F: Wie groß ist der Effizienzunterschied zwischen GaAs und Si, und warum ist Si trotzdem dominierend?
+A: Die interne Quanteneffizienz liegt bei GaAs nahe 1, bei Si um $10^{-6}$ — sechs Größenordnungen. Für Elektronik ist die indirekte Lücke aber kein Nachteil, und Si gewinnt durch sein hervorragendes Oxid und die Verfügbarkeit.
+F: Was macht Graphen zu einem Sonderfall?
+A: Sein gefülltes $\pi$- und sein leeres $\pi^\star$-Band berühren sich an den Dirac-Punkten, die Bandlücke ist exakt null (Halbmetall). In deren Umgebung ist die Dispersion linear statt parabolisch, sodass sich die Ladungsträger wie masselose Teilchen verhalten.
+F: Warum sind die Ladungsträger in Graphen besonders beweglich?
+A: Die lineare Dispersion $E\propto|\vec k|$ entspricht keiner gewöhnlichen parabolischen Masse — die Elektronen verhalten sich wie masselose, extrem schnelle Teilchen. Das führt zu sehr hoher Beweglichkeit.
+F: Welche Faustregel verbindet Bandlücke und effektive Masse bei den III-V-Halbleitern?
+A: Kleine Lücke geht mit kleiner effektiver Masse (steileren Bändern) einher. InSb mit nur 0,17 eV hat extrem leichte, schnelle Elektronen ($m^\star=0{,}014\,m_0$), großlückige wie GaN entsprechend trägere Ladungsträger.
+:::
