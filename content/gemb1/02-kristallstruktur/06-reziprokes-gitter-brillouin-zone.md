@@ -174,3 +174,26 @@ Herstellung) **und** den $k$-Raum (reziprokes Gitter, Brillouin-Zone). Die erste
 ein Vorgeschmack. Im nächsten Oberthema, der __Bandstruktur__, verstehen wir, warum aus den vielen Atomniveaus
 breite **Bänder** werden, wie dazwischen eine **Bandlücke** entsteht und was ein Material dadurch zum Leiter,
 Halbleiter oder Isolator macht.
+
+:::quiz
+F: Warum braucht man neben dem Ortsraum-Gitter überhaupt ein zweites Gitter im Wellenzahlraum?
+A: Ein Elektron im Kristall ist eine Welle, die man am besten über ihren Wellenvektor $\vec k$ beschreibt. Die Gitterperiodizität zwingt dieser Welle eine Periodizität im $k$-Raum auf, die in einem eigenen Punktmuster — dem reziproken Gitter — lebt; dort spielt die gesamte Elektronenphysik.
+F: Warum vereinfacht der Bloch-Ansatz $\psi_j=A e^{ikja}$ die diskrete Schrödinger-Gleichung so stark?
+A: Weil sich ein Nachbarplatz dann nur um einen Phasenfaktor unterscheidet ($\psi_{j\pm1}=\psi_j e^{\pm ika}$). Teilt man durch $\psi_j$, verschwindet die ganze Kette und es bleibt eine Gleichung allein für die Zahl $k$.
+F: Wie entsteht aus dem Bloch-Ansatz die Bandstruktur $E(k)=2t(1-\cos ka)+V_0$?
+A: Einsetzen der Phasenfaktoren und $\tfrac12(e^{ika}+e^{-ika})=\cos(ka)$ liefert direkt $E(k)$. Die Kurve gibt an, welche Energie ein Elektron mit Wellenzahl $k$ hat — eine wellige Funktion zwischen $V_0$ und $V_0+4t$.
+F: Warum ist $E(k)$ periodisch mit $2\pi/a$, und was bedeutet das physikalisch?
+A: $\cos(ka)$ wiederholt sich mit Periode $2\pi/a$, also auch $E(k)$. Daher beschreiben $k$ und $k+2\pi/a$ denselben physikalischen Zustand — höhere $k$ bringen keine neue Information.
+F: Wie folgt das reziproke Gitter aus der Forderung $e^{ikR}=1$?
+A: Eine gitterperiodische Größe darf sich beim Verschieben um einen Gittervektor $R=ja$ nicht ändern, also muss der Bloch-Phasenfaktor $e^{ikR}=1$ sein. Das erzwingt $k_m=m\,2\pi/a$ — ein periodisches Punktgitter im $k$-Raum.
+F: Was bedeutet „reziprok" an der Beziehung zwischen Real- und $k$-Raum-Gitter?
+A: Die Gitterkonstanten verhalten sich invers: Ein großer Atomabstand $a$ ergibt ein enges reziprokes Gitter ($2\pi/a$ klein) und umgekehrt. Weiter Realraum heißt also dichter $k$-Raum.
+F: Was besagt die Orthogonalitätsbedingung $\vec a_i\cdot\vec b_j=2\pi\delta_{ij}$?
+A: Jeder reziproke Vektor $\vec b_j$ steht senkrecht auf den beiden „anderen" $\vec a$-Vektoren und ergibt mit dem eigenen $\vec a_j$ gerade $2\pi$. Das ist die 3D-Verallgemeinerung von $e^{i\vec k\cdot\vec R}=1$ für alle Gittervektoren.
+F: Warum liefert die Kreuzprodukt-Formel für $\vec b_1$ genau diese Bedingung?
+A: $\vec b_1\propto\vec a_2\times\vec a_3$ steht per Konstruktion senkrecht auf $\vec a_2$ und $\vec a_3$ (die beiden Skalarprodukte werden null), und der Vorfaktor mit dem Spatprodukt (Zellvolumen) im Nenner ist so gewählt, dass $\vec a_1\cdot\vec b_1=2\pi$ herauskommt.
+F: Was ist die 1. Brillouin-Zone, und warum genügt es, $E(k)$ nur dort zu betrachten?
+A: Sie ist die Wigner-Seitz-Zelle des reziproken Gitters (1D: $[-\pi/a,\pi/a]$). Da sie genau eine Periode der Bandstruktur umfasst und sich alles andere wiederholt, reicht die Darstellung auf dieser einen Zone.
+F: Welche Form hat die Brillouin-Zone von Silizium, und wie kommt das zustande?
+A: Reziprok vertauschen sich BCC und FCC; Silizium hat die Diamantstruktur (FCC-Gitter mit zweiatomiger Basis), sein reziprokes Gitter ist also BCC. Dessen Wigner-Seitz-Zelle — und damit die 1. Brillouin-Zone von Si — ist ein abgestumpftes Oktaeder.
+:::
