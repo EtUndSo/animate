@@ -146,3 +146,26 @@ $\mathbb{R}^3\setminus\{0\}$: $\operatorname{div}E=0$, aber Fluss durch die Kuge
 
 Stokes verbindet Fläche und Rand über die **Rotation**. Das zweite große Raumtheorem verknüpft ein **Volumen** mit
 seiner Randfläche über die **Divergenz**: der __Satz von Gauß im Raum__ — das Thema des nächsten Artikels.
+
+:::quiz
+F: Was misst das Flussintegral $\int_{\mathcal F}F\cdot dS$ anschaulich, und warum zählt nur die Normalkomponente?
+A: Es misst, wie viel vom Feld $F$ netto durch die Fläche hindurchströmt. Der Anteil $F$ parallel zur Fläche fließt an ihr entlang, nicht hindurch; nur die Normalkomponente $F\cdot n$ trägt zum Durchfluss bei.
+F: Warum kann man in der Rechenformel mit dem ungekürzten $x_u\times x_v$ statt dem normierten $n$ arbeiten?
+A: Das Flussintegral $\int F\cdot n\,d\sigma$ enthält $n=\frac{x_u\times x_v}{|x_u\times x_v|}$ und $d\sigma=|x_u\times x_v|\,du\,dv$. Der Normierungsnenner und das Oberflächenelement kürzen sich, übrig bleibt $F\cdot(x_u\times x_v)\,du\,dv$ — bequemer und ohne Wurzel.
+F: Was besagt der Satz von Stokes in Worten, und welche beiden Größen setzt er gleich?
+A: Der Fluss der Rotation durch eine Fläche ist gleich der Zirkulation des Feldes längs ihrer Randkurve: $\int_{\mathcal F}\operatorname{rot}F\cdot dS=\oint_{\partial\mathcal F}F\cdot dx$. Die Wirbel im Inneren treiben gerade die Umströmung des Randes an.
+F: Warum muss die Orientierung von Normale und Randkurve über die Rechte-Hand-Regel gekoppelt sein?
+A: Dreht man die Normalenrichtung $n$ um, wechselt der Rotationsfluss sein Vorzeichen; damit die Gleichung stimmt, muss auch der Umlaufsinn des Randes mitdrehen. Die Rechte-Hand-Regel (Daumen $\parallel n$, Finger = Umlauf) legt die zueinander passende Wahl fest.
+F: Warum liefern zwei verschiedene Flächen mit derselben Randkurve denselben Rotationsfluss?
+A: Nach Stokes hängt $\int_{\mathcal F}\operatorname{rot}F\cdot dS$ nur von der Randkurve ab (es gleicht $\oint_{\partial\mathcal F}F\cdot dx$). Solange zwei Flächen denselben orientierten Rand haben, ist ihr Rotationsfluss gleich — die Fläche selbst darf man beliebig wölben.
+F: Wie führt der Beweis Stokes im Raum auf den ebenen Satz von Green zurück?
+A: Man definiert im Parameterraum das Hilfsfeld $P=F\cdot\Phi_u$, $Q=F\cdot\Phi_v$. Dann ist $\partial_u Q-\partial_v P$ gerade $\operatorname{rot}F\cdot(\Phi_u\times\Phi_v)$ (die zweiten Ableitungen von $\Phi$ heben sich weg), und Green verwandelt das Flächenintegral in das Randintegral $\oint P\,du+Q\,dv=\oint F\cdot dx$.
+F: Warum ist der ebene Satz von Green nur ein Spezialfall von Stokes?
+A: Green ist Stokes für eine flache Fläche in der Ebene; dort reduziert sich $\operatorname{rot}F\cdot n$ auf die skalare Rotation $\partial_x F_2-\partial_y F_1$. Stokes verallgemeinert das auf beliebig gewölbte Flächen im Raum mit der vollen Vektor-Rotation.
+F: Warum ist $\operatorname{div}F=0$ für ein Vektorpotential $F=\operatorname{rot}A$ notwendig?
+A: Es gilt stets die Identität $\operatorname{div}\operatorname{rot}A=0$. Ist $F$ also eine Rotation, muss zwangsläufig $\operatorname{div}F=0$ sein — ein Feld mit Quellen oder Senken kann kein reines Rotationsfeld sein.
+F: Warum ist das divergenzfreie Monopolfeld $E=\frac{Q}{4\pi r^2}\hat e_r$ trotzdem kein Rotationsfeld?
+A: Sein Fluss durch jede Kugel um den Ursprung ist $Q\ne0$. Wäre $E=\operatorname{rot}A$, müsste dieser Fluss (zerlegt in zwei Hemisphären mit gegenläufigem Äquator) nach Stokes null sein — Widerspruch. Also besitzt $E$ kein Vektorpotential.
+F: Welche geometrische Eigenschaft des Gebiets entscheidet, ob $\operatorname{div}F=0$ auch hinreichend ist?
+A: Jede geschlossene Fläche im Gebiet muss ein ganz im Gebiet liegendes Teilvolumen beranden. Bei $\mathbb{R}^3\setminus\{0\}$ ist das verletzt: Die Kugel umschließt den fehlenden Ursprung, berandet also kein Gebiet in $U$ — deshalb versagt die Umkehrung dort.
+:::
