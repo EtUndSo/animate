@@ -16,7 +16,7 @@ pn-Übergang einen Einbahnstraßen-Stromventil — die Diode.
 :::
 
 :::konzept
-Im Gleichgewicht hatte der pn-Übergang eine feste Barriere $eV_{bi}$ und trug keinen Netto-Strom. Jetzt legen wir
+Im Gleichgewicht hatte der pn-Übergang eine feste Barriere $eV_d$ und trug keinen Netto-Strom. Jetzt legen wir
 eine **äußere Spannung** an. Sie verschiebt die Barriere — und zwar **asymmetrisch**: In der einen Richtung bricht
 der Strom exponentiell hervor, in der anderen bleibt er fast null. Genau diese Asymmetrie ist die
 __Gleichrichter__-Wirkung der __Diode__, des einfachsten aktiven Bauelements. Am Ende steht die berühmte
@@ -31,16 +31,16 @@ __Quasi-Fermi-Niveaus__ ein, und leiten über das „Gesetz des Übergangs" die 
 Die angelegte Spannung $V$ (Potential des p- gegenüber dem n-Gebiet) fällt fast vollständig über der hochohmigen
 Verarmungszone ab und verschiebt dort die Barriere:
 
-- **Durchlassrichtung** ($V>0$, Pluspol an p): Die Barriere **sinkt** von $eV_{bi}$ auf $e(V_{bi}-V)$. Jetzt können
+- **Durchlassrichtung** ($V>0$, Pluspol an p): Die Barriere **sinkt** von $eV_d$ auf $e(V_d-V)$. Jetzt können
   **exponentiell viel mehr** Ladungsträger über die Barriere diffundieren — der Diffusionsstrom steigt steil,
   während der (vom Restfeld getriebene) Driftstrom nahezu gleich bleibt. Netto: exponentieller Stromanstieg.
-- **Sperrrichtung** ($V<0$): Die Barriere **steigt** auf $e(V_{bi}+|V|)$, die Diffusion versiegt, es bleibt nur
+- **Sperrrichtung** ($V<0$): Die Barriere **steigt** auf $e(V_d+|V|)$, die Diffusion versiegt, es bleibt nur
   ein winziger, spannungsunabhängiger Sättigungsstrom.
 
 :::grafik
-Zwei Banddiagramme nebeneinander: links Durchlass (Barriere abgesenkt auf $e(V_{bi}-V)$, dicke Diffusionspfeile
+Zwei Banddiagramme nebeneinander: links Durchlass (Barriere abgesenkt auf $e(V_d-V)$, dicke Diffusionspfeile
 über die Barriere), rechts Sperr (Barriere erhöht, nur ein dünner Pfeil). Darunter die Barrierenhöhe als Formel
-$e(V_{bi}\mp V)$.
+$e(V_d\mp V)$.
 :::
 
 ## Quasi-Fermi-Niveaus: das Gleichgewicht ist aufgehoben
@@ -98,6 +98,11 @@ mit dem __Sättigungsstrom__
 
 $$I_S = e\,A\left(\frac{D_p}{L_p}\,\frac{n_i^2}{N_D} + \frac{D_n}{L_n}\,\frac{n_i^2}{N_A}\right) \;\propto\; n_i^2 \;\propto\; e^{-E_g/k_BT}.$$
 
+Bezieht man alles auf die Querschnittsfläche $A$, erhält man die im Skript übliche **Stromdichte-Form** mit der
+__Sättigungsstromdichte__ $J_s = I_S/A$:
+
+$$J_\text{ges} = J_s\left(e^{\,eV/k_BT}-1\right), \qquad J_s = e\left(\frac{D_p}{L_p}\,\frac{n_i^2}{N_D} + \frac{D_n}{L_n}\,\frac{n_i^2}{N_A}\right).$$
+
 - __Durchlass__ ($V>0$, einige $k_BT/e$): Der Exponentialterm dominiert, $I\approx I_S\,e^{eV/k_BT}$ — steiler
   Anstieg. Praktische Faustregel: Der Strom steigt um etwa eine Dekade pro $\approx 60\,$mV mehr Spannung.
 - __Sperr__ ($V<0$): $e^{eV/k_BT}\to 0$, also $I\to -I_S$ — ein kleiner, konstanter Sperrstrom.
@@ -124,7 +129,7 @@ die Durchlasskurve setzt früher ein. Pfeil „$I_S\propto e^{-E_g/k_BT}$: steig
 
 :::kern
 Eine äußere Spannung $V$ verschiebt die Barriere des pn-Übergangs: __Durchlass__ ($V>0$) senkt sie auf
-$e(V_{bi}-V)$ → exponentiell mehr Diffusion; __Sperr__ ($V<0$) hebt sie → nur Sättigungsstrom. Im Nichtgleichgewicht
+$e(V_d-V)$ → exponentiell mehr Diffusion; __Sperr__ ($V<0$) hebt sie → nur Sättigungsstrom. Im Nichtgleichgewicht
 spalten die __Quasi-Fermi-Niveaus__ um $E_f^{\,n}-E_f^{\,p}=eV$ auf. Das „Gesetz des Übergangs"
 $\Delta n_p=n_p^{\text{eq}}(e^{eV/k_BT}-1)$ (Minoritätsinjektion) führt über Diffusion zur
 __Shockley-Diodengleichung__ $I=I_S(e^{eV/k_BT}-1)$ mit $I_S\propto n_i^2\propto e^{-E_g/k_BT}$. Kennlinie:

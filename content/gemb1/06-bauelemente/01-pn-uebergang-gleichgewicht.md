@@ -2,7 +2,7 @@
 title: Der pn-Übergang im Gleichgewicht
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Bauelemente
 order: 4060100
-summary: Das Grundprinzip aller Halbleiterbauelemente – was passiert, wenn ein p- und ein n-dotiertes Gebiet aufeinandertreffen. Ladungsträger diffundieren, rekombinieren und lassen ortsfeste Ionen zurück; es entsteht eine Raumladungszone mit eingebautem Feld und einer Diffusionsspannung $V_{bi}=\tfrac{k_BT}{e}\ln(N_AN_D/n_i^2)$. Im Gleichgewicht ist das Fermi-Niveau überall konstant.
+summary: Das Grundprinzip aller Halbleiterbauelemente – was passiert, wenn ein p- und ein n-dotiertes Gebiet aufeinandertreffen. Ladungsträger diffundieren, rekombinieren und lassen ortsfeste Ionen zurück; es entsteht eine Raumladungszone mit eingebautem Feld und einer Diffusionsspannung $V_d=\tfrac{k_BT}{e}\ln(N_AN_D/n_i^2)$. Im Gleichgewicht ist das Fermi-Niveau überall konstant.
 tags: pn-Übergang, Raumladungszone, Diffusionsspannung, Verarmungszone, Schottky-Näherung, Bandverbiegung, Fermi-Niveau
 ---
 
@@ -26,7 +26,7 @@ pn-Übergang im Gleichgewicht, also noch ohne angelegte Spannung.
 :::
 
 **Worum es geht:** Wir verstehen, *warum* am pn-Übergang eine __Raumladungszone__ entsteht, leiten die
-__Diffusionsspannung__ $V_{bi}$ her und berechnen mit der __Schottky-Näherung__ die Weite der Verarmungszone.
+__Diffusionsspannung__ $V_d$ her und berechnen mit der __Schottky-Näherung__ die Weite der Verarmungszone.
 
 ## Warum eine Raumladungszone entsteht
 
@@ -68,22 +68,22 @@ p-Gebiet (höher) nach oben, während $E_f$ als durchgehende **waagerechte** Lin
 ## Die Diffusionsspannung
 
 Wie hoch ist die Bandverbiegung? Genau so hoch wie der Unterschied der Fermi-Niveaus, den die beiden Gebiete
-**vor** dem Kontakt hatten. Diese __Diffusionsspannung__ $V_{bi}$ (engl. *built-in potential*) ist
+**vor** dem Kontakt hatten. Diese __Diffusionsspannung__ $V_d$ (engl. *built-in potential*) ist
 
-$$V_{bi} = \frac{k_B T}{e}\,\ln\!\left(\frac{N_A\,N_D}{n_i^2}\right),$$
+$$V_d = \frac{k_B T}{e}\,\ln\!\left(\frac{N_A\,N_D}{n_i^2}\right),$$
 
 mit der intrinsischen Dichte $n_i=\sqrt{N_L N_V}\,e^{-E_g/2k_BT}$ (aus dem Statistik-Oberthema).
 
-- __$N_A, N_D$__: die Dotierdichten. Je stärker dotiert, desto **größer** $V_{bi}$ — logisch, denn dann lagen die
+- __$N_A, N_D$__: die Dotierdichten. Je stärker dotiert, desto **größer** $V_d$ — logisch, denn dann lagen die
   Fermi-Niveaus der beiden Gebiete weiter auseinander.
-- __$n_i^2$__: über das Massenwirkungsgesetz; es macht $V_{bi}$ stark bandlücken- und temperaturabhängig.
+- __$n_i^2$__: über das Massenwirkungsgesetz; es macht $V_d$ stark bandlücken- und temperaturabhängig.
 
-Die Bandverbiegung (als Energie) beträgt dann $e\,V_{bi}$. Weil $V_{bi}$ nur **logarithmisch** von der Dotierung
+Die Bandverbiegung (als Energie) beträgt dann $e\,V_d$. Weil $V_d$ nur **logarithmisch** von der Dotierung
 abhängt, liegt es für Silizium über viele Dekaden hinweg nur bei einigen Zehntel Volt.
 
 :::grafik
 Links die zwei Gebiete vor Kontakt mit verschieden hohem $E_f^{\,n}$ (nahe $E_L$) und $E_f^{\,p}$ (nahe $E_V$).
-Rechts nach Kontakt: die Bänder um $eV_{bi}=E_f^{\,n}-E_f^{\,p}$ verbogen. Daneben die Formel $V_{bi}=\tfrac{k_BT}{e}
+Rechts nach Kontakt: die Bänder um $eV_d=E_f^{\,n}-E_f^{\,p}$ verbogen. Daneben die Formel $V_d=\tfrac{k_BT}{e}
 \ln(N_AN_D/n_i^2)$.
 :::
 
@@ -102,14 +102,14 @@ Zweimal Integrieren der Poisson-Gleichung $\dfrac{d^2\phi}{dx^2}=-\dfrac{\rho}{\
 :::grafik
 Drei gestapelte Diagramme über $x$: (1) kastenförmige Raumladung $\rho$ (negativer Block links, positiver rechts),
 (2) das daraus folgende dreieckige Feld $\mathcal E(x)$ mit Maximum am Übergang, (3) das parabelförmige Potential
-$\phi(x)$ mit Gesamthub $V_{bi}$.
+$\phi(x)$ mit Gesamthub $V_d$.
 :::
 
 Zwei Bedingungen legen die Weiten $x_p$ (p-Seite) und $x_n$ (n-Seite) fest:
 
 - **Ladungsneutralität** (die Zone ist nach außen neutral, positive = negative Gesamtladung):
   $$N_A\,x_p = N_D\,x_n.$$
-- **Stetigkeit** des Potentials am Übergang, mit Gesamthub $V_{bi}$.
+- **Stetigkeit** des Potentials am Übergang, mit Gesamthub $V_d$.
 
 Daraus folgt der entscheidende, sehr prüfungsrelevante Befund: Die Verarmungszone reicht **weiter in das schwächer
 dotierte Gebiet** hinein. Denn dort müssen **mehr** Atome „entblößt" werden, um dieselbe Gesamtladung
@@ -119,7 +119,7 @@ bereitzustellen wie die wenigen, aber dicht sitzenden Ionen der stark dotierten 
 ($N_D = 100\,N_A$), dann folgt aus $N_A x_p = N_D x_n$ sofort $x_n = x_p/100$ — die Zone liegt fast vollständig
 im schwach dotierten p-Gebiet. Allgemein gilt für die Gesamtweite $W=x_p+x_n$:
 
-$$W = \sqrt{\frac{2\varepsilon_0\varepsilon_r\,V_{bi}}{e}\left(\frac{1}{N_A}+\frac{1}{N_D}\right)}.$$
+$$W = \sqrt{\frac{2\varepsilon_0\varepsilon_r\,V_d}{e}\left(\frac{1}{N_A}+\frac{1}{N_D}\right)}.$$
 
 Daran liest man auch ab: **stärkere Dotierung → dünnere Verarmungszone** (größere $N$ im Nenner).
 
@@ -133,12 +133,12 @@ Verarmungsweiten $x_p, x_n$ sind als Doppelpfeile bemaßt, die Flächen (= Ladun
 Trifft ein p- auf ein n-Gebiet, diffundieren Ladungsträger über das Konzentrationsgefälle und rekombinieren;
 zurück bleiben ortsfeste ionisierte Dotieratome — die __Raumladungszone__ (Verarmungszone) mit eingebautem Feld.
 Im Gleichgewicht ist das __Fermi-Niveau__ konstant ($dE_f/dx=0$: Diffusion $=$ Feld), die Bänder biegen sich um
-$eV_{bi}$. __Diffusionsspannung__ $V_{bi}=\tfrac{k_BT}{e}\ln(N_AN_D/n_i^2)$ (nur logarithmisch von der Dotierung
+$eV_d$. __Diffusionsspannung__ $V_d=\tfrac{k_BT}{e}\ln(N_AN_D/n_i^2)$ (nur logarithmisch von der Dotierung
 abhängig). Mit der __Schottky-Näherung__ (kastenförmige Raumladung) liefert die Poisson-Gleichung parabolische
 Bänder; Neutralität $N_A x_p=N_D x_n$ → die Zone reicht **weiter ins schwächer dotierte** Gebiet, Gesamtweite
-$W=\sqrt{\tfrac{2\varepsilon_0\varepsilon_r V_{bi}}{e}(\tfrac1{N_A}+\tfrac1{N_D})}$ (stärkere Dotierung → dünner).
+$W=\sqrt{\tfrac{2\varepsilon_0\varepsilon_r V_d}{e}(\tfrac1{N_A}+\tfrac1{N_D})}$ (stärkere Dotierung → dünner).
 :::
 
-Der pn-Übergang im Gleichgewicht hat eine feste Barriere $eV_{bi}$. Interessant wird er, wenn man eine **äußere
+Der pn-Übergang im Gleichgewicht hat eine feste Barriere $eV_d$. Interessant wird er, wenn man eine **äußere
 Spannung** anlegt, die diese Barriere hebt oder senkt — dann entsteht die stark asymmetrische Strom-Spannungs-
 Kennlinie der __Diode__, das Thema des nächsten Artikels.
