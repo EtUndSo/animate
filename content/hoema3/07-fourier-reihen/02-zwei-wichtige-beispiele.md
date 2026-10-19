@@ -110,3 +110,26 @@ fallen schneller ($1/k\to1/k^2$) ⇒ bessere Konvergenz. Ausblick: $C=\frac{\pi^
 Diese Beispiele zeigen Konvergenz „zu Fuß". Der nächste Artikel liefert den **abstrakten** Zugang: Fourierpolynome als
 __Projektion__ auf endlichdimensionale Unterräume, die __Besselsche Ungleichung__ und die __Parseval-Gleichung__ — und
 damit die $L^2$-Konvergenz jeder Fourier-Reihe.
+
+:::quiz
+F: Warum ist der Sägezahn eine reine Sinusreihe?
+A: Die $2\pi$-periodische Fortsetzung ist um den Mittelpunkt ungerade ($f(-x)=-f(x)$). Nach der Symmetrieregel verschwinden dann alle Kosinus-Koeffizienten ($a_k=0$), und es bleibt eine reine Sinusreihe $\sum\frac{\sin kx}{k}$.
+F: Gegen welchen Wert konvergiert die Sägezahn-Reihe an der Sprungstelle $x=0$, und warum?
+A: Gegen den Mittelwert $\tfrac12(f(0^+)+f(2\pi^-))=\tfrac12(\tfrac\pi2-\tfrac\pi2)=0$ der beiden einseitigen Grenzwerte. Jeder Summand $\sin(k\cdot0)=0$, also ist die Summe dort exakt null — und das ist gerade der Mittelwert, nie einer der beiden Sprungwerte.
+F: Warum konvergiert die Sägezahn-Reihe weg vom Sprung gleichmäßig, aber nicht über den Sprung hinweg?
+A: Auf $[\delta,2\pi-\delta]$ sind im Dirichlet-Kern-Argument $1/\sin(y/2)$ und seine Ableitung beschränkt, sodass der oszillierende Faktor sich per partieller Integration „wegmittelt". Nahe dem Sprung wächst $1/\sin(y/2)$ unbeschränkt, die Abschätzung bricht zusammen — dort überschwingt die Reihe (Gibbs).
+F: Was ist das Gibbs-Phänomen?
+A: An einer Sprungstelle überschwingen die Partialsummen die Funktion um einen festen Betrag (~9 % der Sprunghöhe), der auch für $N\to\infty$ nicht verschwindet, sondern nur schmaler zum Sprung wandert. Es ist die konkrete Erscheinungsform der fehlenden gleichmäßigen Konvergenz am Sprung.
+F: Wozu dient der Dirichlet-Kern $\sum_{|k|\le N}e^{ikx}=\frac{\sin((N+\frac12)x)}{\sin(x/2)}$ im Beweis?
+A: Er bringt die Partialsumme aus einer offenen Summe in eine geschlossene Form, die man integrieren und abschätzen kann. Der Nenner $\sin(x/2)$ zeigt direkt, wo das Problem sitzt (bei $x=0$), und steuert so das Konvergenzargument.
+F: Warum darf man die Sägezahn-Reihe gliedweise integrieren, um die Parabel zu bekommen?
+A: Weil die Sägezahn-Reihe auf kompakten Teilintervallen gleichmäßig konvergiert, und gleichmäßige Konvergenz erlaubt das Vertauschen von Summe und Integral (Satz 6.6). Man integriert also einfach jeden $\frac{\sin ky}{k}$-Term einzeln.
+F: Warum konvergiert die Parabel-Reihe $\sum\frac{\cos kx}{k^2}$ gleichmäßig auf ganz $\mathbb{R}$, der Sägezahn aber nicht?
+A: Die Parabel-Koeffizienten fallen wie $1/k^2$, und $\sum 1/k^2<\infty$ liefert über den Weierstraß-M-Test eine summierbare Majorante — also gleichmäßige Konvergenz überall. Die Sägezahn-Koeffizienten fallen nur wie $1/k$, und $\sum 1/k$ divergiert, sodass der M-Test nicht greift.
+F: Welches allgemeine Prinzip über Glattheit und Koeffizientenabfall illustrieren die beiden Beispiele?
+A: Je glatter eine Funktion ist, desto schneller fallen ihre Fourier-Koeffizienten und desto besser konvergiert die Reihe. Der Sprung des Sägezahns erzwingt langsamen $1/k$-Abfall, die glatte Parabel erlaubt $1/k^2$ — das Integrieren hat die Funktion geglättet und die Koeffizienten beschleunigt.
+F: Warum verbessert gliedweises Integrieren die Konvergenz, während Differenzieren sie verschlechtern würde?
+A: Integrieren teilt die Koeffizienten effektiv durch $k$ (aus $1/k$ wird $1/k^2$), macht die Funktion also glatter. Differenzieren multipliziert mit $ik$, verstärkt hohe Frequenzen und kann die Konvergenz zerstören — deshalb ist es nicht ohne Weiteres erlaubt.
+F: Woher stammt die Integrationskonstante $C$ in der Parabel-Darstellung?
+A: Beim gliedweisen Integrieren ist die Stammfunktion nur bis auf eine additive Konstante bestimmt; $C$ ist gerade dieser $x$-unabhängige Gleichanteil (der Mittelwert $a_0/2$). Ihr Wert $\pi^2/12$ liefert, bei $x=0$ eingesetzt, die Basel-Summe $\sum 1/k^2=\pi^2/6$.
+:::
