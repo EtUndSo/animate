@@ -166,8 +166,8 @@
       <div class="sec-head">
         <span class="eyebrow">Module</span>
         <h2>Fächer & Themen</h2>
-        <p>Ein Fach anklicken, um seinen Themenbaum aufzuklappen — oder direkt suchen: nach Modul, Thema
-           oder einem Begriff mitten im Artikeltext.</p>
+        <p>Ein Überblick über alle Module — ein Modul anklicken, um seine Themen aufzuklappen; oder direkt
+           suchen: nach Modul, Thema oder einem Begriff mitten im Artikeltext.</p>
       </div>
       <div class="mod-searchwrap">
         <span class="mod-searchicon">🔎</span>
@@ -298,7 +298,7 @@
 
     // Ein Knoten (Studiengang/Semester/Modul/Oberthema) -> <details>; Artikel (Themen) als Links am Blatt.
     function buildNode(node, byPath, depth, parentEl){
-      var det=el("details","mod-node lvl"+depth); det.open = depth>0;   // oberste Ebene eingeklappt, Rest offen
+      var det=el("details","mod-node lvl"+depth); det.open = depth <= 1;   // offen bis Modul-Ebene (Studiengang+Semester), Module zugeklappt -> schneller Ueberblick
       var sum=el("summary"), nm=el("span"); nm.textContent=node.name;
       var cnt=el("span", depth===0?"count":"tcount");
       sum.appendChild(nm); sum.appendChild(cnt); det.appendChild(sum);
@@ -324,7 +324,7 @@
       treeEl.innerHTML=""; roots=[];
       tree.forEach(function(n){ roots.push(buildNode(n, byPath, 0, treeEl)); });
     }
-    function walkReset(v){ v.det.hidden=false; v.det.open=v.depth>0;
+    function walkReset(v){ v.det.hidden=false; v.det.open=v.depth <= 1;
       v.arts.forEach(function(a){ a.li.hidden=false; a.a.textContent=a.title; a.snip.hidden=true; });
       v.kids.forEach(walkReset); }
     function reset(){ var nr=treeEl.querySelector(".mod-noresult"); if(nr) nr.remove(); roots.forEach(walkReset); }
