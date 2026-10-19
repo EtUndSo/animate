@@ -202,3 +202,26 @@ folgt aus der Krümmung von $E(k)$ und macht Elektronen im Kristall wie freie Te
 Jetzt haben wir das Werkzeug in der Hand. Wenden wir es auf den einfachsten eingesperrten Fall an — ein Elektron
 zwischen zwei undurchdringlichen Wänden —, dann wird aus der Gitarrensaiten-Analogie des vorigen Abschnitts eine
 exakte Rechnung: das __Teilchen in der Box__.
+
+:::quiz
+F: Warum kann man für ein Elektron nicht einfach Newtons $F=ma$ verwenden?
+A: Newtons Gleichung liefert die Bahn $x(t)$ eines Teilchens; ein Elektron hat aber keine Bahn, sondern eine Welle $\psi(x,t)$. Gesucht ist daher ein Gesetz, das die Form und Zeitentwicklung dieser Welle bestimmt — die Schrödinger-Gleichung.
+F: Warum taugt die klassische Wellengleichung nicht für Elektronen?
+A: Die klassische Wellengleichung beschreibt Wellen mit fester Geschwindigkeit, also $\omega\propto k$. Für ein Elektron gilt aber $E=p^2/2m$, mit $E=\hbar\omega$ und $p=\hbar k$ also $\omega\propto k^2$. Man braucht eine Gleichung, die diese quadratische Beziehung erzeugt — eine erste Zeit-, aber zweite Ortsableitung.
+F: Ist die Schrödinger-Gleichung aus der klassischen Physik ableitbar?
+A: Nein — sie ist ein neues Grundgesetz (Postulat), das sich nicht aus der klassischen Mechanik herleiten lässt. Man kann sie aber über die Energiebilanz und die Materiewelle plausibel motivieren, und ihr Erfolg rechtfertigt sie nachträglich.
+F: Wie kommt man auf die Operatoren $\hat p=-i\hbar\partial_x$ und $\hat E=i\hbar\partial_t$?
+A: Leitet man die ebene Welle $e^{i(kx-\omega t)}$ nach $x$ bzw. $t$ ab, fällt gerade $\hbar k=p$ bzw. $\hbar\omega=E$ heraus. Das legt nahe, Impuls und Energie durch diese Ableitungs-Rechenvorschriften (Operatoren) zu ersetzen, die auf $\psi$ wirken.
+F: Warum hängt die kinetische Energie an der Krümmung (zweiten Ableitung) von $\psi$?
+A: Der Operator der kinetischen Energie ist $\hat p^2/2m=-\frac{\hbar^2}{2m}\partial_x^2$, enthält also die zweite Ableitung. Je stärker $\psi$ gekrümmt ist (kürzere Wellenlänge, größeres $k$), desto höher die kinetische Energie — das entspricht $E\propto k^2$.
+F: Warum darf man bei zeitunabhängigem Potential Zeit und Ort separieren?
+A: Der Produktansatz $\psi(x,t)=\psi(x)\varphi(t)$ führt nach Teilen durch $\psi\varphi$ dazu, dass die linke Seite nur von $t$, die rechte nur von $x$ abhängt. Eine Größe, die zugleich nur von $t$ und nur von $x$ abhängt, muss konstant sein — diese Konstante ist die Energie $E$.
+F: Warum heißt ein stationärer Zustand „stationär", obwohl die Wellenfunktion zeitabhängig ist?
+A: Der Zeitfaktor $\varphi(t)=e^{-iEt/\hbar}$ dreht nur die Phase, hat aber Betrag 1. Daher ist $|\psi(x,t)|^2=|\psi(x)|^2$ zeitlich konstant — die Aufenthaltswahrscheinlichkeit ruht, auch wenn die komplexe Phase rotiert.
+F: Wieso strahlt ein Elektron in einem stationären Zustand nicht ab?
+A: Weil $|\psi|^2$ zeitlich konstant ist, ruht die Ladungsverteilung — es gibt keine beschleunigte Ladung, die abstrahlen könnte. Das löst das klassische Stabilitätsrätsel: Atome in Energieeigenzuständen sind stabil.
+F: Was ist die Dispersionsrelation des freien Elektrons, und warum ist sie eine Parabel?
+A: Aus der stationären Gleichung mit $V=0$ folgt $E=\hbar^2k^2/2m$ — Energie proportional zum Quadrat der Wellenzahl. Das ist genau die quadratische $\omega\propto k^2$-Beziehung, für die die Gleichung gebaut wurde; im Kristall wird aus dieser Parabel später die Bandstruktur.
+F: Was bedeutet die effektive Masse, und warum steckt sie in der Krümmung von $E(k)$?
+A: $1/m^*=\frac{1}{\hbar^2}\,d^2E/dk^2$ beschreibt, wie träge ein Wellenpaket auf eine Kraft reagiert. Beim freien Elektron ergibt die Parabel $m^*=m$; im Kristall ist $E(k)$ verbogen, sodass $m^*$ abweicht (kleiner, größer, an Bandkanten negativ) — so lässt sich ein Kristallelektron wie ein freies Teilchen behandeln.
+:::
