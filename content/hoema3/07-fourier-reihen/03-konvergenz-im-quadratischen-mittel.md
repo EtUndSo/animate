@@ -122,3 +122,26 @@ $\frac{1}{2\pi}\int_0^{2\pi}|f|^2dx=\sum_{n\in\mathbb{Z}}|c_n|^2$ (reell $\frac1
 Die $L^2$-Konvergenz gilt für **jede** integrierbare Funktion — sagt aber nichts über einzelne Punkte. Für die
 __punktweise__ Konvergenz brauchen wir ein feineres Werkzeug, den __Dirichlet-Kern__, und als Vorbereitung die
 __Dirac-Scharen__ und die $\delta$-Distribution — die Themen der nächsten Artikel.
+
+:::quiz
+F: Inwiefern ist das Fourierpolynom $T_Nf$ eine „orthogonale Projektion"?
+A: $T_Nf$ ist der Punkt im Unterraum $V_N$ der trigonometrischen Polynome vom Grad $\le N$, der $f$ am nächsten liegt — der Lotfußpunkt. Wie in $\mathbb{R}^n$ erhält man ihn, indem man die Komponenten von $f$ längs jeder Orthonormalbasis-Schwingung $\hat e_k$ aufsummiert.
+F: Warum ist $T_Nf$ die beste $L^2$-Approximation von $f$ unter allen trigonometrischen Polynomen vom Grad $\le N$?
+A: Weil der Fehler $f-T_Nf$ senkrecht auf $V_N$ steht. Nach Pythagoras ist $\|f-S_N\|^2=\|f-T_Nf\|^2+\|T_Nf-S_N\|^2$, und der zweite Term ist $\ge0$ — jede andere Wahl $S_N$ ist also mindestens so schlecht wie $T_Nf$.
+F: Warum berechnet sich die $L^2$-Norm eines trigonometrischen Polynoms wie die euklidische Norm seines Koeffizientenvektors?
+A: Weil die $\hat e_k$ ein Orthonormalsystem bilden: Beim Ausmultiplizieren von $\langle S_N,S_N\rangle$ überleben nur die „Diagonalterme" $\langle\hat e_k,\hat e_k\rangle=1$, die gemischten verschwinden. So wird $\|S_N\|_2^2=\sum|\gamma_k|^2$, genau wie in $\mathbb{C}^{2N+1}$.
+F: Was ist die geometrische Kernaussage, auf der Lemma 7.11 beruht?
+A: Dass der Approximationsfehler $f-T_Nf$ orthogonal zu ganz $V_N$ ist, weil die Projektion gerade alle Komponenten in $V_N$ abzieht. Aus dieser einen Orthogonalität folgen Pythagoras, Bestapproximation und die Bessel-Bilanz.
+F: Was besagt die Besselsche Ungleichung, und was bedeutet sie physikalisch?
+A: $\sum_{|k|\le N}|c_k|^2\le\|f\|_2^2$: Die „Energie" der erfassten Koeffizienten übersteigt nie die Gesamtenergie von $f$. Da die linke Seite wächst und beschränkt bleibt, konvergiert sie — die erfasste Spektralenergie füllt höchstens die vorhandene auf.
+F: Warum folgt aus Bessel, dass die Fourier-Koeffizienten eine Nullfolge bilden (Riemann-Lebesgue)?
+A: Da $\sum|c_k|^2$ konvergiert, müssen die Summanden $|c_k|^2\to0$ gehen. Also $c_k\to0$ für $|k|\to\infty$ — je höher die Frequenz, desto weniger steckt davon in einer integrierbaren Funktion.
+F: Wann wird aus der Bessel-Ungleichung die Parseval-Gleichung?
+A: Genau dann, wenn das Orthonormalsystem vollständig ist, also keinen Rest unerfasst lässt. Für das trigonometrische System ist das der Fall, daher gilt im Limes $\|T_Nf\|_2^2\to\|f\|_2^2$, d. h. Gleichheit statt Ungleichung.
+F: Warum ist die Parseval-Identität gleichbedeutend mit der $L^2$-Konvergenz $T_Nf\to f$?
+A: Nach Lemma 7.11(iii) ist $\|f-T_Nf\|_2^2=\|f\|_2^2-\|T_Nf\|_2^2$. Der Fehler geht genau dann gegen null, wenn $\|T_Nf\|_2^2=\sum_{|k|\le N}|c_k|^2$ gegen $\|f\|_2^2$ strebt — das ist die Parseval-Gleichung.
+F: Warum bedeutet $L^2$-Konvergenz nicht punktweise Konvergenz?
+A: Die $L^2$-Norm misst nur die mittlere quadratische Abweichung; einzelne Punkte (etwa Sprungstellen) tragen zum Integral nichts bei. $T_Nf$ darf dort danebenliegen, während $\|f-T_Nf\|_2\to0$ trotzdem gilt.
+F: Wie liefert Parseval, auf den Sägezahn angewandt, die Basel-Summe $\sum 1/k^2=\pi^2/6$?
+A: Für den Sägezahn ist $|c_k|^2=\frac{1}{4k^2}$ ($k\ne0$), und die linke Parseval-Seite $\frac{1}{2\pi}\int_0^{2\pi}(\frac{\pi-x}{2})^2dx=\frac{\pi^2}{12}$. Gleichsetzen gibt $\frac{\pi^2}{12}=\frac12\sum_{k\ge1}\frac1{k^2}$, also $\sum\frac1{k^2}=\frac{\pi^2}{6}$.
+:::
