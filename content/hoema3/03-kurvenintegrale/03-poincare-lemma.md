@@ -129,3 +129,26 @@ global — die punktierte Ebene ist kein Sterngebiet.
 Das Poincaré-Lemma klärt den **lokalen** Fall. Was aber passiert **global**, wenn ein Weg ein Loch umschlingt —
 und warum gibt der Wirbelfeld-Umlauf immer $2\pi$, egal wie der Weg genau aussieht? Das beantwortet die
 __Homotopieinvarianz__ und der __zweite Hauptsatz__ für Kurvenintegrale im nächsten Artikel.
+
+:::quiz
+F: Was ist ein Sterngebiet, und warum ist die punktierte Ebene $\mathbb{R}^2\setminus\{0\}$ keins?
+A: Ein Sterngebiet hat ein Zentrum $x_0$, von dem aus jeder Punkt auf einer **geraden Strecke** erreichbar ist, die ganz im Gebiet liegt. In der punktierten Ebene blockiert das Loch bei $0$ solche Sichtlinien — kein einziger Punkt „sieht" die ganze Menge, also ist sie nicht sternförmig.
+F: Was besagt das Poincaré-Lemma, und inwiefern macht es die Bedingungen aus Kapitel 1 hinreichend?
+A: Auf einem Sterngebiet gilt: $\operatorname{rot}F=0\Rightarrow F$ Gradientenfeld und $\operatorname{div}F=0\Rightarrow F$ Wirbelfeld. Die in Kapitel 1 nur **notwendigen** Bedingungen werden dort also auch **hinreichend** — aus „wirbelfrei"/„quellenfrei" folgt ein Potential.
+F: Warum gilt das Poincaré-Lemma lokal (in jeder kleinen Kugel) immer?
+A: Jede Kugel ist konvex, also sternförmig (vom Mittelpunkt sieht man jeden Punkt geradlinig). Lokal gibt es daher nie ein Loch, und die Potentialkonstruktion greift immer — unabhängig davon, wie „löchrig" das Gesamtgebiet ist.
+F: Was leistet die explizite Formel $\phi(x)=\int_0^1 F(tx)\cdot x\,dt$ über eine reine Existenzaussage hinaus?
+A: Sie ist eine **konstruktive** Formel: Man kann das Potential wirklich ausrechnen, indem man $F$ längs des Strahls $y(t)=tx$ vom Zentrum zum Punkt integriert. Der Beweis liefert das Potential also gleich mit.
+F: Welche Rolle spielt die Integrabilitätsbedingung $\operatorname{rot}F=0$ im Beweis der Potentialformel?
+A: Sie erlaubt, $\partial F_j/\partial x_k$ durch $\partial F_k/\partial y_j$ zu ersetzen. Dadurch wird der Integrand genau zur vollen Ableitung $\frac{d}{dt}\big(t\,F_k(tx)\big)$, und der Hauptsatz liefert direkt $F_k(x)$ — ohne $\operatorname{rot}F=0$ ginge dieser Schritt nicht auf.
+F: Warum darf man statt des Strahls auch treppenförmig entlang der Koordinatenachsen integrieren?
+A: Auf einem Sterngebiet ist das Feld konservativ, also das Kurvenintegral **wegunabhängig**. Man wählt daher den rechnerisch bequemsten Weg — meist nacheinander entlang der Achsen —, und erhält dasselbe Potential.
+F: Warum ist ein Skalarpotential nur bis auf eine additive Konstante eindeutig?
+A: Haben $g,h$ denselben Gradienten, so ist $\nabla(g-h)=0$, und auf einem zusammenhängenden Gebiet folgt $g-h=\text{const}$. Der Gradient „sieht" eine konstante Verschiebung des Potentials nicht.
+F: Warum ist das Vektorpotential noch freier als das Skalarpotential (Eichfreiheit)?
+A: Man darf zu $A$ ein beliebiges Gradientenfeld $\nabla\psi$ addieren, ohne $B$ zu ändern: $\operatorname{rot}(A+\nabla\psi)=\operatorname{rot}A$, da $\operatorname{rot}\operatorname{grad}\psi=0$. Diese Freiheit ist die Eichfreiheit; sie erlaubt Zusatzbedingungen wie die Coulomb-Eichung $\operatorname{div}A=0$.
+F: Was bedeutet die Aussage „$\operatorname{div}F=0$ und $\operatorname{rot}F=0$ $\Rightarrow$ $F$ harmonisch"?
+A: Dann ist $F=\nabla\phi$ mit $\operatorname{div}F=\Delta\phi=0$, also $\phi$ harmonisch; und $\Delta F=\Delta\nabla\phi=\nabla\Delta\phi=0$. Quell- **und** wirbelfreie Felder erfüllen also komponentenweise die Laplace-Gleichung.
+F: Warum scheitert die globale Potentialbildung in der punktierten Ebene trotz $\operatorname{rot}F=0$?
+A: Sie ist kein Sterngebiet; ein Weg kann das Loch umschlingen und dabei $\oint F\cdot dx\neq0$ liefern (beim Wirbelfeld $2\pi$). Ein globales, eindeutiges Potential ist dann unmöglich — es existiert nur lokal in jeder lochfreien Umgebung.
+:::
