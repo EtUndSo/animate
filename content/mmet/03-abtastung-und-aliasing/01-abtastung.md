@@ -130,3 +130,26 @@ ist die Wurzel von __Aliasing__.
 Verschiedene Signale, die nach dem Abtasten ununterscheidbar werden — das klingt nach Informationsverlust, und
 genau das ist __Aliasing__. Im nächsten Artikel leiten wir her, **welche** Frequenzen bei fester Abtastrate
 dieselbe Folge erzeugen (die „Alias-Frequenzen") und welche davon die ausgezeichnete ist.
+
+:::quiz
+F: Warum muss ein zeitkontinuierliches Signal für den Computer überhaupt abgetastet werden?
+A: Ein Computer kennt keine zu jedem Zeitpunkt definierte Spannung, sondern nur endliche Zahlenfolgen. Das Abtasten misst das Signal in gleichen Zeitabständen und behält nur diese Stichproben — so entsteht der verarbeitbare Rohstoff $\tilde s[n]$.
+F: Was bedeutet die eckige Klammer in $\tilde s[n]$ gegenüber dem runden $s(t)$?
+A: Die runde Klammer steht für ein zeitkontinuierliches Signal (für jedes reelle $t$ definiert), die eckige für ein zeitdiskretes, das nur für ganze $n$ existiert. $\tilde s[n]$ ist formal eine Abbildung $\mathbb Z\to\mathbb R$ — eine Zahlenfolge.
+F: Wie hängen Abtastperiode $T_s$ und Abtastrate $r$ zusammen, und was bedeuten sie?
+A: $T_s$ ist der feste Zeitabstand zwischen zwei Messungen, $r=1/T_s$ die Zahl der Abtastwerte pro Sekunde (Hz). Ein kleineres $T_s$ bedeutet also eine höhere Abtastrate und dichtere Stichproben.
+F: Aus welchen zwei Stufen besteht ein vollständiger A/D-Umsetzer, und warum braucht es beide?
+A: Erstens der Abtaster (zeitliche Diskretisierung → $\tilde s[n]$), zweitens der Quantisierer, der jeden Wert auf endlich viele Stufen rundet (→ $\tilde s_q[n]$). Beide sind nötig, weil der Computer sowohl nur zu diskreten Zeiten misst als auch jede Zahl mit endlich vielen Binärstellen speichert.
+F: Warum ist die normierte Kreisfrequenz $\hat\omega=\omega T_s$ dimensionslos?
+A: $\omega$ hat die Einheit $1/\text{s}$, $T_s$ die Einheit s — ihr Produkt ist einheitenlos (in „rad"). Auch der Folgenindex $n$ ist dimensionslos, sodass $\tilde s[n]=A\cos(\hat\omega n+\varphi)$ ohne physikalische Zeiteinheit auskommt.
+F: Warum hängt ein abgetasteter Sinus nur von $\hat\omega$ ab und nicht von $\omega$ und $r$ einzeln?
+A: Setzt man $t=nT_s$ ein, erscheint $\omega$ und $T_s$ nur als Produkt $\omega T_s=\hat\omega$. Die Folge „sieht" also nur das Verhältnis $\hat\omega=2\pi T_s/T$ aus Abtastperiode und Signalperiode, nicht die beiden Größen getrennt.
+F: Was bedeutet $\hat\omega=2\pi T_s/T$ anschaulich?
+A: Es ist der Bruchteil einer Signalperiode, der zwischen zwei Abtastungen vergeht, mal $2\pi$. Klein ist $\hat\omega$, wenn viele Abtastwerte in eine Periode fallen; groß, wenn pro Periode nur wenige Stichproben genommen werden.
+F: Warum lässt sich aus der Folge allein die absolute Frequenz des Originalsignals nicht rekonstruieren?
+A: Weil $\tilde s[n]$ nur $\hat\omega$ enthält und $\hat\omega=\omega T_s$ ist, kennt man ohne die Abtastrate $r=1/T_s$ den Faktor nicht, mit dem man auf $\omega$ zurückrechnen müsste. Ohne $r$ ist die absolute Frequenz verloren.
+F: Wieso können zwei verschiedene kontinuierliche Sinussignale dieselbe Abtastfolge ergeben?
+A: Wenn ihre normierten Kreisfrequenzen bei gleicher Abtastrate zusammenfallen, liefern sie an allen Abtastzeitpunkten exakt dieselben Werte. Zwischen den Abtastpunkten unterscheiden sie sich zwar, aber dort misst man nicht — genau dieses Zusammenfallen ist Aliasing.
+F: Warum betrachtet man in diesen Artikeln die „ideale" Abtastung ohne Quantisierung?
+A: Um das grundlegende Phänomen (Verlust der absoluten Frequenz, Aliasing) sauber zu verstehen, blendet man den zusätzlichen Quantisierungsfehler aus. Dieser ist ein separater Effekt des Rundens und verdeckt sonst die zeitliche Diskretisierung als eigentliche Ursache.
+:::
