@@ -48,7 +48,7 @@ Kurve ablesen:
 
 - __$A$__: die __Amplitude__ — der maximale Ausschlag, also wie **hoch** die Welle schwingt.
 - __$\omega$__: die __Kreisfrequenz__ — wie **schnell** sie schwingt (Einheit $\text{rad}/\text{s}$).
-- __$\varphi$__: die __Nullphase__ — wie weit die Kurve **verschoben** ist, also wo sie bei $t=0$ gerade steht.
+- __$\varphi$__: die __Phase__ — wie weit die Kurve **verschoben** ist, also wo sie bei $t=0$ gerade steht.
 
 :::grafik
 Eine Kosinuskurve $x(t)$ über der Zeit, vollständig beschriftet: die Amplitude $A$ als Höhe vom Mittelwert bis
@@ -109,57 +109,69 @@ wichtig wird: Die Hilfsgrößen $C$ und $S$ sehen verdächtig aus wie Real- und 
 Erinnern wir uns an die Eulersche Formel aus dem vorigen Abschnitt: $\cos\alpha = \operatorname{Re}\{e^{j\alpha}\}$,
 der Kosinus ist der Realteil eines rotierenden Einheitszeigers. Damit schreiben wir das Sinussignal um:
 
-$$x(t) = A\cos(\omega t + \varphi) = \operatorname{Re}\!\left\{A\,e^{\,j(\omega t + \varphi)}\right\} = \operatorname{Re}\!\left\{\underbrace{A\,e^{\,j\varphi}}_{=\,\underline{X}}\;e^{\,j\omega t}\right\}.$$
+$$x(t) = A\cos(\omega t + \varphi) = \operatorname{Re}\!\left\{A\,e^{\,j(\omega t + \varphi)}\right\} = \operatorname{Re}\!\left\{\underbrace{A\,e^{\,j\varphi}}_{=\,X}\;e^{\,j\omega t}\right\}.$$
 
 Im letzten Schritt haben wir nur $e^{j(\omega t + \varphi)} = e^{j\varphi}\cdot e^{j\omega t}$ benutzt (Exponenten
 addieren sich) und den Teil, der die Zeit enthält, abgespalten. Übrig bleibt vorne eine feste komplexe Zahl, der
 __Zeiger__ oder __Phasor__:
 
-$$\underline{X} = A\,e^{\,j\varphi}.$$
+$$X = A\,e^{\,j\varphi}.$$
 
-- __$\underline{X}$__: der __Phasor__ (komplexe Amplitude) — ein ruhender Zeiger der Länge $A$ unter dem Winkel
-  $\varphi$.
+- __$X$__: der __Phasor__ (komplexe Amplitude) — ein ruhender Zeiger der Länge $A$ unter dem Winkel
+  $\varphi$, also $|X| = A$ und $\arg X = \varphi$.
 - __$A$__: die __Amplitude__ (Betrag des Zeigers).
-- __$\varphi$__: die __Nullphase__ (Winkel des Zeigers).
+- __$\varphi$__: die __Phase__ (Winkel des Zeigers).
 
 Der entscheidende Gedanke: Der Faktor $e^{j\omega t}$ ist für **alle** Signale derselben Frequenz **gleich** —
 er beschreibt nur das gemeinsame Mitdrehen. Alles, was ein Signal von einem anderen unterscheidet, steckt in $A$
-und $\varphi$, also im Phasor $\underline{X}$. Deshalb klammert man $e^{j\omega t}$ aus und rechnet nur noch mit
+und $\varphi$, also im Phasor $X$. Deshalb klammert man $e^{j\omega t}$ aus und rechnet nur noch mit
 den Phasoren. Man ist von der zeitabhängigen Funktion zu **einer komplexen Zahl** übergegangen.
 
 :::grafik
-In der komplexen Ebene ein ruhender Pfeil $\underline{X} = A\,e^{j\varphi}$: Länge $A$, Winkel $\varphi$ zur
+In der komplexen Ebene ein ruhender Pfeil $X = A\,e^{j\varphi}$: Länge $A$, Winkel $\varphi$ zur
 reellen Achse. Daneben die Notiz, dass hier die Zeit (der Faktor $e^{j\omega t}$) bewusst „geparkt" ist — der
 Phasor speichert nur Amplitude und Phase.
 :::
 
 ## Der rotierende Zeiger und sein Schatten
 
-Die Zeit kommt zurück, sobald man den Phasor mit $e^{j\omega t}$ multipliziert: Nach der Multiplikationsregel
-aus dem vorigen Abschnitt dreht das den Pfeil fortlaufend um den Winkel $\omega t$, der mit der Zeit wächst —
-der Zeiger **rotiert** mit der Kreisfrequenz $\omega$ gegen den Uhrzeigersinn. Das tatsächliche, reelle Signal
-ist der **Realteil** davon, also die Projektion der rotierenden Pfeilspitze auf die reelle Achse:
+Die Zeit kommt zurück, sobald man den Phasor mit $e^{j\omega t}$ multipliziert. Dieses Produkt ist das
+__komplexe Sinussignal__
 
-$$x(t) = \operatorname{Re}\!\left\{\underline{X}\,e^{\,j\omega t}\right\}.$$
+$$z(t) = X\,e^{\,j\omega t} = A\,e^{\,j(\omega t + \varphi)}.$$
 
-Das ist genau die Einstiegs-Animation: Der volle, rotierende komplexe Zeiger ist das „ganze" Signal, die reelle
-Kosinuskurve nur sein Schatten auf der reellen Achse.
+Nach der Multiplikationsregel aus dem vorigen Abschnitt dreht der Faktor $e^{j\omega t}$ den Pfeil fortlaufend um
+den mit der Zeit wachsenden Winkel $\omega t$ — der Zeiger **rotiert** mit der Kreisfrequenz $\omega$ gegen den
+Uhrzeigersinn, während seine Länge konstant bleibt. In Zahlen: $|z(t)| = A$ und $\arg z(t) = \omega t + \varphi$,
+und bei $t = 0$ ist $z(0) = X$ — der Phasor ist also die „Momentaufnahme" des rotierenden Zeigers zum Zeitpunkt
+null.
+
+Das tatsächliche, reelle Signal ist der **Realteil** davon — die Projektion der rotierenden Pfeilspitze auf die
+reelle Achse — ganz im Einklang mit $z = x + jy$ aus dem vorigen Abschnitt ($x$ ist der Realteil):
+
+$$x(t) = \operatorname{Re}\{z(t)\} = \operatorname{Re}\!\left\{X\,e^{\,j\omega t}\right\} = A\cos(\omega t + \varphi).$$
+
+Der **Imaginärteil** desselben rotierenden Zeigers liefert übrigens das um $90^\circ$ verschobene Sinussignal,
+$y(t) = \operatorname{Im}\{z(t)\} = A\sin(\omega t + \varphi)$. Das ist genau die Einstiegs-Animation: Der volle,
+rotierende komplexe Zeiger $z(t)$ ist das „ganze" Signal, die reelle Kosinuskurve nur sein Schatten auf der
+reellen Achse.
 
 **Zweite Sichtweise: zwei gegenläufige Zeiger.** Man kann denselben Kosinus auch als Summe **zweier**
 gegenläufig rotierender Zeiger sehen. Aus der umgekehrten Eulerschen Formel folgt nämlich
-$\cos\alpha = \tfrac{1}{2}(e^{j\alpha} + e^{-j\alpha})$, also
+$\cos\alpha = \tfrac{1}{2}(e^{j\alpha} + e^{-j\alpha})$. Addiert man zum komplexen Signal $z(t)$ sein
+konjugiertes $z^*(t)$, heben sich die Imaginärteile weg und der Realteil verdoppelt sich, also
 
-$$A\cos(\omega t + \varphi) = \tfrac{1}{2}\underline{X}\,e^{\,j\omega t} + \tfrac{1}{2}\underline{X}^{*}\,e^{-j\omega t}.$$
+$$A\cos(\omega t + \varphi) = \tfrac{1}{2}\big(z(t) + z^{*}(t)\big) = \tfrac{1}{2}X\,e^{\,j\omega t} + \tfrac{1}{2}X^{*}\,e^{-j\omega t}.$$
 
-Ein Zeiger dreht gegen den Uhrzeigersinn, der andere (mit der konjugierten Amplitude $\underline{X}^*$) im
+Ein Zeiger dreht gegen den Uhrzeigersinn, der andere (mit der konjugierten Amplitude $X^*$) im
 Uhrzeigersinn; ihre Imaginärteile heben sich in jedem Moment auf, sodass die Summe stets reell bleibt. Diese
 Zerlegung in eine „positive" und eine „negative" Drehrichtung ist später der Schlüssel zum **Spektrum** mit
 seinen positiven und negativen Frequenzen.
 
 :::grafik
-Animation mit zwei Teilbildern. Oben: ein einzelner Zeiger $\underline{X}e^{j\omega t}$ rotiert, seine
-Projektion zeichnet die Kosinuskurve. Unten: zwei gegenläufig rotierende Zeiger ($\tfrac12\underline{X}e^{j\omega t}$
-gegen den Uhrzeigersinn, $\tfrac12\underline{X}^*e^{-j\omega t}$ im Uhrzeigersinn); ihre Summe bleibt in jedem
+Animation mit zwei Teilbildern. Oben: ein einzelner Zeiger $Xe^{j\omega t}$ rotiert, seine
+Projektion zeichnet die Kosinuskurve. Unten: zwei gegenläufig rotierende Zeiger ($\tfrac12Xe^{j\omega t}$
+gegen den Uhrzeigersinn, $\tfrac12X^*e^{-j\omega t}$ im Uhrzeigersinn); ihre Summe bleibt in jedem
 Moment auf der reellen Achse und ergibt dieselbe Kosinuskurve.
 :::
 
@@ -169,23 +181,23 @@ Jetzt lösen wir das Additionsproblem von oben noch einmal — mit Phasoren. Wei
 rotierenden Zeigers ist und der Realteil eine **lineare** Operation ist (man darf die Summe zweier Realteile als
 Realteil der Summe schreiben), gilt:
 
-$$x_1(t) + x_2(t) = \operatorname{Re}\{\underline{X}_1 e^{j\omega t}\} + \operatorname{Re}\{\underline{X}_2 e^{j\omega t}\} = \operatorname{Re}\{(\underline{X}_1 + \underline{X}_2)\,e^{j\omega t}\}.$$
+$$x_1(t) + x_2(t) = \operatorname{Re}\{X_1 e^{j\omega t}\} + \operatorname{Re}\{X_2 e^{j\omega t}\} = \operatorname{Re}\{(X_1 + X_2)\,e^{j\omega t}\}.$$
 
 Das Ergebnis ist also wieder ein Sinussignal derselben Frequenz, und sein Phasor ist einfach die **Summe der
 Einzelphasoren**:
 
-$$\underline{X}_\text{ges} = \underline{X}_1 + \underline{X}_2 + \ldots$$
+$$X_\text{ges} = X_1 + X_2 + \ldots$$
 
 Statt der ganzen Zerlege-Sortiere-Zusammenbau-Prozedur aus Trigonometrie legt man nur noch die Zeiger als Pfeile
 aneinander (Real- und Imaginärteile addieren sich getrennt) und liest Amplitude und Phase des Summenpfeils ab.
 Und hier schließt sich der Kreis zur vorhin aufgefallenen Beobachtung: Die mühsamen Hilfsgrößen $C$ und $S$ von
-oben waren **genau** der Real- und Imaginärteil von $\underline{X}_1 + \underline{X}_2$. Die Trigonometrie-Rechnung
+oben waren **genau** der Real- und Imaginärteil von $X_1 + X_2$. Die Trigonometrie-Rechnung
 hat also heimlich dasselbe getan wie die Zeigeraddition — nur viel umständlicher. Das ist der Grund, warum die
 Wechselstromtechnik grundsätzlich mit Zeigern rechnet.
 
 :::grafik
-Zwei Phasoren $\underline{X}_1$ und $\underline{X}_2$ (gleiche Frequenz, verschiedene Länge/Winkel) werden
-Pfeil-an-Pfeil addiert; der Summenpfeil $\underline{X}_\text{ges}$ vom Ursprung zur Spitze ist hervorgehoben, mit
+Zwei Phasoren $X_1$ und $X_2$ (gleiche Frequenz, verschiedene Länge/Winkel) werden
+Pfeil-an-Pfeil addiert; der Summenpfeil $X_\text{ges}$ vom Ursprung zur Spitze ist hervorgehoben, mit
 abgelesener Amplitude und Phase. Darunter, zeitlich gekoppelt, die drei Kosinuskurven: $x_1$, $x_2$ und ihre
 Summe — sichtbar wieder eine reine Kosinuskurve derselben Frequenz.
 :::
@@ -195,7 +207,7 @@ Summe — sichtbar wieder eine reine Kosinuskurve derselben Frequenz.
 Ein zweiter, ebenso großer Vorteil. Leitet man den rotierenden Zeiger nach der Zeit ab, so gilt (die Ableitung
 von $e^{j\omega t}$ ist $j\omega\,e^{j\omega t}$):
 
-$$\frac{\mathrm{d}}{\mathrm{d}t}\left(\underline{X}\,e^{j\omega t}\right) = j\omega\,\underline{X}\,e^{j\omega t}.$$
+$$\frac{\mathrm{d}}{\mathrm{d}t}\left(X\,e^{j\omega t}\right) = j\omega\,X\,e^{j\omega t}.$$
 
 Im Zeiger-Bild bedeutet Ableiten also schlicht: **Multiplizieren mit $j\omega$**. Und weil $j\omega = \omega\,e^{j\pi/2}$
 ist, heißt das anschaulich: um $90^\circ$ drehen (das $j$) und mit $\omega$ strecken. Umgekehrt wird Integrieren
@@ -205,7 +217,7 @@ Zahlen. Genau das macht später die Berechnung von Wechselstromschaltungen mit S
 handlich.
 
 :::grafik
-Ein Phasor $\underline{X}$ und sein abgeleiteter Zeiger $j\omega\underline{X}$: um $90^\circ$ gegen den
+Ein Phasor $X$ und sein abgeleiteter Zeiger $j\omegaX$: um $90^\circ$ gegen den
 Uhrzeigersinn gedreht (durch das $j$) und um den Faktor $\omega$ gestreckt. Pfeile und Winkel beschriftet;
 daneben der Hinweis „Ableiten = $\times\,j\omega$, Integrieren = $\div\,j\omega$".
 :::
@@ -222,12 +234,12 @@ Beides ist in Ordnung — man muss nur bei **einer** Wahl konsequent bleiben.
 
 :::kern
 Ein __Sinussignal__ $x(t) = A\cos(\omega t + \varphi)$ hat __Amplitude__ $A$, __Kreisfrequenz__ $\omega = 2\pi f$
-(hergeleitet: ein voller Umlauf $2\pi$ je Periode $T$) und __Nullphase__ $\varphi$. Direktes Addieren über
-Trigonometrie ist umständlich; der __Zeiger__ (Phasor) $\underline{X} = A e^{j\varphi}$ fasst Amplitude und Phase
+(hergeleitet: ein voller Umlauf $2\pi$ je Periode $T$) und __Phase__ $\varphi$. Direktes Addieren über
+Trigonometrie ist umständlich; der __Zeiger__ (Phasor) $X = A e^{j\varphi}$ fasst Amplitude und Phase
 in einer komplexen Zahl zusammen (der gemeinsame Faktor $e^{j\omega t}$ wird ausgeklammert), und
-$x(t) = \operatorname{Re}\{\underline{X}e^{j\omega t}\}$ ist der Schatten des rotierenden Zeigers. Dann wird
-__Addition__ gleichfrequenter Signale zur __Zeigeraddition__ $\underline{X}_\text{ges} = \underline{X}_1 +
-\underline{X}_2$ (genau das, was die Trigonometrie heimlich tut), und __Ableiten/Integrieren__ wird zu
+$x(t) = \operatorname{Re}\{Xe^{j\omega t}\}$ ist der Schatten des rotierenden Zeigers. Dann wird
+__Addition__ gleichfrequenter Signale zur __Zeigeraddition__ $X_\text{ges} = X_1 +
+X_2$ (genau das, was die Trigonometrie heimlich tut), und __Ableiten/Integrieren__ wird zu
 $\times\,j\omega$ bzw. $\div\,j\omega$ — Differentialgleichungen werden zu Algebra. Konventionen (Kosinus/Sinus,
 Amplitude/Effektivwert) vorher festlegen.
 :::
