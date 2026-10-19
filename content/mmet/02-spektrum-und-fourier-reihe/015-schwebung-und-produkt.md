@@ -176,3 +176,26 @@ Schwebung und Produkt entstehen aus **nicht** harmonisch verwandten Frequenzen u
 Linienraster. Sobald die Frequenzen eines Signals aber ganzzahlige Vielfache einer Grundfrequenz sind, wird das
 Signal periodisch — und lässt sich vollständig in seine Harmonischen zerlegen: die __Fourier-Reihe__, das nächste
 Thema.
+
+:::quiz
+F: Warum rechnet man mit Mitten- und Differenzfrequenz statt direkt mit $\omega_1,\omega_2$?
+A: Die Zerlegung $\omega_M=\tfrac12(\omega_1+\omega_2)$ (groß) und $\omega_\Delta=\tfrac12(\omega_2-\omega_1)$ (klein) trennt die schnelle Trägerschwingung sauber vom langsamen Auf- und Abschwellen. In diesen Größen wird die Doppelnatur „ein schneller Ton, langsam pulsierend" direkt sichtbar.
+F: Wie zeigt die Eulersche Formel, dass $\cos\omega_1 t+\cos\omega_2 t=2\cos\omega_\Delta t\cos\omega_M t$ ist?
+A: Man schreibt das Produkt der beiden Kosinus als Produkt zweier Klammern $\tfrac12(e^{j\cdot}+e^{-j\cdot})$, multipliziert aus und erhält vier Exponentialterme mit Exponenten $\pm(\omega_M\pm\omega_\Delta)$. Da $\omega_M\pm\omega_\Delta=\omega_2,\omega_1$, fassen sich je zwei zu einem Kosinus zusammen — die Summenformel entsteht.
+F: Warum hört man bei zwei dicht benachbarten Tönen nur einen pulsierenden Ton statt zwei?
+A: Rechts der Identität steht ein schneller Träger $\cos\omega_M t$ mit einer langsam schwellenden Hüllkurve $2\cos\omega_\Delta t$. Das Ohr nimmt eine mittlere Tonhöhe $\omega_M$ wahr, deren Lautstärke langsam an- und abschwillt — das ist die Schwebung.
+F: Warum ist die hörbare Schwebungsfrequenz doppelt so hoch wie die der Hüllkurve?
+A: Die Lautstärke hängt vom Betrag der Hüllkurve ab; ob $2\cos\omega_\Delta t$ gerade $+$ oder $-$ ist, klingt gleich laut. Pro voller Hüllkurven-Periode gibt es daher zwei Lautstärkemaxima, also $\omega_\text{Schwebung}=2\omega_\Delta=\omega_2-\omega_1$.
+F: Warum hat das Summensignal keine Spektrallinie bei der Mittenfrequenz $\omega_M$ oder der Pulsationsfrequenz?
+A: Die Summe ist schlicht $\cos\omega_1 t+\cos\omega_2 t$, also stehen nur Linien bei $\omega_1$ und $\omega_2$. $\omega_M$ und $\omega_\Delta$ sind nur Rechen- bzw. Wahrnehmungsgrößen — die Schwebung ist keine eigene Frequenz, sondern die gemeinsame Wahrnehmung zweier dichter Linien.
+F: Wie unterscheiden sich die Spektren von Summe und Produkt?
+A: Die Summe $\cos\omega_1 t+\cos\omega_2 t$ hat zwei Linien (bei $\omega_1,\omega_2$, Höhe $\tfrac12$). Das Produkt $\cos\omega_M t\cos\omega_\Delta t$ ist gleich $\tfrac12\cos\omega_1 t+\tfrac12\cos\omega_2 t$, hat also vier Linien (bei $\pm\omega_M\pm\omega_\Delta$, Höhe $\tfrac14$) — und ebenfalls keine bei den Faktorfrequenzen selbst.
+F: Warum erzeugt das Produkt zweier Sinus nur Summen- und Differenzfrequenz, nicht die Faktoren?
+A: Beim Ausmultiplizieren addieren sich die Exponenten der komplexen Exponentialterme, sodass nur $\omega_M+\omega_\Delta$ und $\omega_M-\omega_\Delta$ auftreten. Die Faktorfrequenzen $\omega_M$ und $\omega_\Delta$ selbst erscheinen nie — Multiplikation verschiebt Frequenzen, erzeugt sie nicht einzeln.
+F: Was bedeutet die Schwebung praktisch für das Stimmen eines Instruments?
+A: Je näher die beiden Frequenzen, desto kleiner $\omega_2-\omega_1$ und desto langsamer das Pulsieren. Verschwindet die Schwebung ganz, sind beide Töne exakt gleich — Klavierstimmer nutzen das als direktes, hörbares Nullabgleich-Kriterium.
+F: Wie liefert dieselbe Identität die Amplitudenmodulation?
+A: Rückwärts gelesen: Multipliziert man einen hochfrequenten Träger $\cos\omega_M t$ mit einem langsamen Signal, verschiebt das dessen Spektrum an den Träger — es entstehen Seitenbänder bei $\omega_M\pm\omega_\Delta$. So wird ein niederfrequentes Signal sendefähig „aufgeprägt".
+F: Warum trägt bei der AM der Träger $\omega_M$ allein keine Information?
+A: Wie beim reinen Produkt gezeigt, steht bei $\omega_M$ selbst keine Linie — die gesamte Information steckt in den Seitenbändern $\omega_M\pm\omega_\Delta$. Der Träger ist nur die „Transportfrequenz", die Botschaft reist in den Seitenbändern.
+:::
