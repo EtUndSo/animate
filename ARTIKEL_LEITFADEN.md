@@ -9,7 +9,8 @@ Artikel kurz durchgehen. (Entstanden aus dem laufenden Feedback; wird bei neuen 
 **Es sind echte ERKLÄRUNGEN, keine Zusammenfassungen.** Geschrieben für jemanden, der vom Thema **noch nie**
 etwas gehört hat. **Korrektheit zuerst**, dann Tiefe, dann alles andere. **Zeit spielt keine Rolle** — ein
 Artikel darf Minuten bis Stunden dauern. **Keine Parallelität** — strikt ein Artikel nach dem anderen, volle
-Konzentration.
+Konzentration. **Niemals etwas 1:1 kopieren** (Abbildungen/Beispiele/Aufgaben aus Skripten/Büchern) — nur
+allgemeingültiges Wissen eigenständig erklären; Details in §11.
 
 ---
 
@@ -45,9 +46,10 @@ Konzentration.
   und Beziehungen sind grafisch oft viel klarer — z. B. „Kosinus = Realteil von $e^{j\varphi}$" als Zeiger der
   Länge 1 mit seiner Projektion auf die reelle Achse. Also möglichst **eine illustrierende Abbildung pro
   wichtiger Gleichung** (nie Platzhalter ohne Mehrwert, aber im Zweifel lieber eine Grafik mehr).
-- **Vorlagen aus den Skripten nutzen:** Viele Skripte (z. B. das MMET-/Signal-Processing-Skript, das Waser-Skript)
-  enthalten gute Abbildungen, die man nachbilden kann — in der `:::grafik`-Beschreibung daran orientieren. Bei
-  manchen Fächern schwieriger, aber es findet sich fast immer eine sinnvolle Darstellung.
+- **Skript-Abbildungen nur als Ideen-Geber, NIE kopieren:** Skripte zeigen, *welches* Konzept sich grafisch lohnt.
+  Die eigene Abbildung muss aber **neu und eigenständig entworfen** sein — anderes Beispiel, andere Werte, andere
+  Anordnung/Darstellung. Eine konkrete Skript-Abbildung **niemals 1:1 (auch nicht leicht abgewandelt) nachbauen**.
+  Siehe §11 (Keine Kopien).
 - **Deutlich mehr Grafiken**, besonders bei grafisch dankbaren Themen (komplexe Ebene, Zeiger, Felder, Kennlinien,
   Signale …). Richtwert: so viele wie didaktisch helfen (gern 5–10+).
 - Platzhalter-Syntax (bis der Editor echte Grafiken liefert): Block `:::grafik … :::` mit **präziser
@@ -149,3 +151,20 @@ tags: <komma, getrennt>
 - `EDITOR_GRAFIK_FEATURES.md` — welche Editor-Features für die Grafiken nötig sind.
 - `EDITOR_FIXES.md` — offene WebGL-/Editor-Fixes.
 - Gedächtnis-Datei `etundso-content-plattform.md` — Projekt-Historie/Details.
+
+---
+
+## 11. Keine Kopien (rechtlich zwingend)
+**Niemals etwas 1:1 übernehmen.** Allgemeingültiges Wissen (physikalische Zusammenhänge, Herleitungen, Begriffe)
+ist frei — das kann niemand schützen, die RWTH/Skripte *verbreiten* es nur, haben es nicht erfunden. Das dürfen
+und sollen wir in **eigenen Worten** erklären.
+
+**Geschützt und daher TABU sind konkrete, geschöpfte Inhalte** — insbesondere:
+- **Abbildungen** aus Skripten/Folien/Büchern (nicht nachbauen, auch nicht leicht abgewandelt),
+- **Beispielaufgaben**, **Klausur-/Übungsaufgaben**, deren Angaben, Zahlenwerte und Lösungswege,
+- konkrete Formulierungen, Tabellen, Diagramme mit spezifischen Beispieldaten.
+
+**Regel:** Konzept erklären = ja (eigenständig). Eine konkrete fremde Abbildung/Aufgabe übernehmen oder nur
+minimal abändern = nein. Wenn ein Beispiel gebraucht wird, ein **eigenes** erfinden (andere Werte, anderer
+Kontext, eigene Darstellung). Im Zweifel: eigenständig neu gestalten statt anlehnen. Gilt für **alle** Artikel
+und alle Fächer.
