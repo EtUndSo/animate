@@ -28,7 +28,6 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;}
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
-.sub-mods{color:var(--muted);font-weight:400;}        /* an Semester angehängte Modulnamen: dezent */
 .side li a{display:block;color:var(--muted);padding:3px 7px;border-radius:7px;}
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:#fff;background:var(--accent);font-weight:600;}

@@ -251,11 +251,7 @@ def _has_active(nd, active_path):
     return any(a["path"] == active_path for a in nd["articles"]) or any(_has_active(c, active_path) for c in nd["children"])
 
 def _node_label(nd, depth):
-    """Semester-Knoten (Ebene 1) um die Namen ihrer Module ergänzen, z. B. „1. Semester: Grundgebiete …"."""
-    label = html.escape(nd["name"])
-    if depth == 1 and nd["children"]:
-        label += ': <span class="sub-mods">' + html.escape(", ".join(c["name"] for c in nd["children"])) + "</span>"
-    return label
+    return html.escape(nd["name"])
 
 def sidebar_html(tree, active_path=None):
     # Standard: bis zur Modul-Ebene offen, Module selbst ZUgeklappt (Oberthemen erst auf Klick);
@@ -433,7 +429,6 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;}
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
-.sub-mods{color:var(--muted);font-weight:400;}        /* an Semester angehängte Modulnamen: dezent */
 .side li a{display:block;color:var(--muted);padding:3px 7px;border-radius:7px;}
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:#fff;background:var(--accent);font-weight:600;}
