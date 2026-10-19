@@ -112,3 +112,26 @@ Gegenbeispiel ohne Gleichmäßigkeit: Wanderhöcker $g_n$, $\int g_n=1\neq0$.
 Diese Vertauschungssätze gelten gleich für **Reihen**, wenn man sie auf die Partialsummen anwendet. Der nächste Artikel
 überträgt die Konvergenzbegriffe auf __Funktionenreihen__ und liefert mit dem __Weierstraßschen M-Test__ ein handliches
 Kriterium für gleichmäßige Konvergenz.
+
+:::quiz
+F: Was ist das gemeinsame Leitmotiv aller drei Sätze dieses Artikels?
+A: Die Frage „darf man die Reihenfolge zweier Grenzprozesse vertauschen?" — den Limes $\lim_n$ gegen den Grenzübergang in $x$ (Stetigkeit), gegen die Integration und gegen die Differentiation. Gleichmäßige Konvergenz ist die Bedingung, unter der das erlaubt ist.
+F: Warum kann der punktweise Limes stetiger Funktionen unstetig sein, der gleichmäßige aber nicht?
+A: Bei punktweiser Konvergenz darf jede Stelle ihr eigenes Tempo haben, sodass sich an einer kritischen Stelle ein Sprung aufbauen kann ($x^n$). Gleichmäßige Konvergenz zwingt alle Stellen in denselben $\varepsilon$-Schlauch — die Stetigkeit überträgt sich dann auf den Limes.
+F: Wie funktioniert das $\varepsilon/3$-Argument im Stetigkeitsbeweis?
+A: Man schätzt $|f(x)-f(y)|$ über drei Zwischenschritte ab: $f$ zu $f_{n_0}$ (klein wegen gleichmäßiger Konvergenz), $f_{n_0}(x)$ zu $f_{n_0}(y)$ (klein wegen Stetigkeit von $f_{n_0}$) und $f_{n_0}$ zurück zu $f$. Jeder Teil ist $<\varepsilon/3$, zusammen $<\varepsilon$.
+F: Warum braucht man im $\varepsilon/3$-Beweis gerade die Gleichmäßigkeit und nicht nur punktweise Konvergenz?
+A: Der Schritt $|f(x)-f_{n_0}(x)|<\varepsilon/3$ muss für dasselbe $n_0$ an beiden Stellen $x$ und $y$ gelten. Nur gleichmäßige Konvergenz liefert ein $n_0$, das für alle Stellen zugleich funktioniert; punktweise könnte es für $x$ und $y$ verschieden sein.
+F: Warum ist die Vertauschung von Limes und Integral bei gleichmäßiger Konvergenz so einfach zu beweisen?
+A: Der Fehler ist $|\int f-\int f_n|\le\int|f-f_n|\le(b-a)\|f-f_n\|_\infty$. Die Supremumsnorm kontrolliert den gesamten Integranden gleichmäßig, mal der Intervalllänge — und geht nach Voraussetzung gegen null.
+F: Was zeigt der „Wanderhöcker" $g_n$, und warum scheitert dort die Vertauschung?
+A: $g_n=n$ auf $[0,1/n]$, sonst $0$, geht punktweise gegen $0$, aber $\int_0^1 g_n=1$ bleibt konstant. Die „Masse" wird schmaler und höher und verschwindet nie — also $\lim\int g_n=1\ne0=\int\lim g_n$. Ohne Gleichmäßigkeit ist die Vertauschung nicht garantiert.
+F: Warum genügt für die Vertauschung von Limes und Ableitung nicht, dass $f_n$ gleichmäßig konvergiert?
+A: Die Ableitung misst die lokale Steigung, und die kann wild schwanken, obwohl die Funktionen selbst in einem dünnen Schlauch liegen. Man braucht daher die gleichmäßige Konvergenz der Ableitungen $f_n'$ selbst, nicht nur der $f_n$.
+F: Wieso zeigt $f_n=\sin(nx)/n$, dass die Ableitungsbedingung nötig ist?
+A: $f_n\to0$ gleichmäßig (Supremum $1/n\to0$), aber $f_n'=\cos(nx)$ konvergiert nirgends. Hier ist $(\lim f_n)'=0$, während $\lim f_n'$ gar nicht existiert — die Vertauschung $\frac{d}{dx}\lim=\lim\frac{d}{dx}$ ist unmöglich.
+F: Wie nutzt der Differentiationsbeweis den Hauptsatz der Differential- und Integralrechnung?
+A: Man schreibt $f_n(x)=f_n(a)+\int_a^x f_n'$. Weil $f_n'$ gleichmäßig konvergiert, darf man mit Satz 6.6 den Limes ins Integral ziehen; der Grenzübergang liefert $f(x)=f(a)+\int_a^x f^*$, und der erste Hauptsatz macht daraus $f'=f^*=\lim_n f_n'$.
+F: Sind diese Vertauschungsbedingungen notwendig oder nur hinreichend?
+A: Nur hinreichend. Es gibt Fälle, in denen Limes und Integral trotz fehlender Gleichmäßigkeit vertauschen (z. B. $\int_0^1 x^n\,dx=\frac{1}{n+1}\to0$). Die Sätze garantieren die Vertauschung, schließen sie bei Verletzung aber nicht aus.
+:::
