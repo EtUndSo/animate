@@ -257,6 +257,48 @@ Summe der Winkel ($\alpha_1 + \alpha_2$). Daneben separat die reine Drehung: ein
 $e^{j\alpha}$ multipliziertes, um $\alpha$ gedrehtes Abbild gleicher Länge.
 :::
 
+## Division, Potenzen und Wurzeln
+
+Mit der Exponentialform fallen jetzt drei weitere Rechenarten fast von selbst ab — alle nach demselben Muster:
+Beträge werden potenziert/dividiert, Winkel addiert/subtrahiert/geteilt.
+
+**Division.** Für $z_2 \neq 0$ teilt man zwei komplexe Zahlen, indem man die Beträge dividiert und die Winkel
+subtrahiert:
+
+$$\frac{z_1}{z_2} = \frac{r_1\,e^{\,j\alpha_1}}{r_2\,e^{\,j\alpha_2}} = \frac{r_1}{r_2}\,e^{\,j(\alpha_1 - \alpha_2)}.$$
+
+In kartesischer Form führt man die Division auf eine **Multiplikation** zurück: Man erweitert mit der
+konjugierten des Nenners, denn $z_2 z_2^{*} = |z_2|^2$ ist reell und macht den Nenner reell:
+
+$$\frac{z_1}{z_2} = \frac{z_1\,z_2^{*}}{z_2\,z_2^{*}} = \frac{z_1\,z_2^{*}}{|z_2|^2}.$$
+
+Der Spezialfall $z_1 = 1$ ist der __Kehrwert__ $\dfrac{1}{z} = \dfrac{z^{*}}{|z|^2} = \dfrac{1}{r}\,e^{-j\alpha}$.
+Zum Beispiel ist $\dfrac{1}{j} = -j$ (denn $j\cdot(-j) = -j^2 = 1$), in Winkeln: $e^{-j\pi/2} = -j$.
+
+**Potenzen (die Formel von de Moivre).** Multipliziert man $z$ $n$-mal mit sich selbst, potenziert sich der
+Betrag und der Winkel wird $n$-fach:
+
+$$z^n = \big(r\,e^{\,j\alpha}\big)^n = r^n\,e^{\,j n\alpha} = r^n\big(\cos n\alpha + j\sin n\alpha\big), \qquad n \in \mathbb{Z}.$$
+
+Für $r = 1$ ist das die __Formel von de Moivre__ $(\cos\alpha + j\sin\alpha)^n = \cos n\alpha + j\sin n\alpha$.
+Sie ist nichts anderes als „$n$-mal um $\alpha$ drehen = einmal um $n\alpha$ drehen".
+
+**Wurzeln.** Umgekehrt sucht man bei der $n$-ten Wurzel alle $w$ mit $w^n = z$. Hier zahlt sich aus, dass der
+Winkel nur bis auf Vielfache von $2\pi$ eindeutig ist (siehe oben): Schreibt man $z = r\,e^{\,j(\alpha + 2\pi k)}$
+und zieht die Wurzel, bekommt man für $k = 0, 1, \ldots, n-1$ genau $n$ **verschiedene** Lösungen:
+
+$$w_k = r^{1/n}\,e^{\,j\frac{\alpha + 2\pi k}{n}}, \qquad k = 0, 1, \ldots, n-1.$$
+
+Sie haben alle denselben Betrag $r^{1/n}$ und liegen daher auf einem **Kreis**, gleichmäßig um den Winkel
+$2\pi/n$ versetzt — die $n$ Ecken eines regelmäßigen Vielecks. (Eine komplexe Zahl hat also $n$ verschiedene
+$n$-te Wurzeln, nicht nur eine.)
+
+:::grafik
+In der komplexen Ebene die Lösungen von $w^n = z$ für ein Beispiel (z. B. $n = 6$): sechs Punkte auf einem Kreis
+vom Radius $r^{1/n}$, gleichmäßig im Winkelabstand $2\pi/n = 60^\circ$ verteilt, als Ecken eines regelmäßigen
+Sechsecks markiert; der erste bei Winkel $\alpha/n$.
+:::
+
 ## Zweite Sichtweise: $j$ ist eine Drehung um 90°
 
 Mit der geometrischen Deutung lässt sich jetzt sogar die Ausgangsregel $j^2 = -1$ noch einmal völlig neu
@@ -294,7 +336,9 @@ $z = r(\cos\alpha + j\sin\alpha)$; $\arg(z)$ ist nur bis auf $2\pi$ eindeutig, H
 über die Reihenentwicklung bewiesene __Eulersche Formel__ $e^{j\alpha} = \cos\alpha + j\sin\alpha$ führt auf die
 __Exponentialform__ $z = r\,e^{j\alpha}$. Ihr entscheidender Vorteil: Multiplizieren = __Beträge mal, Winkel
 plus__ (weil Exponenten sich addieren), also geometrisch __Strecken und Drehen__ — und $e^{j\alpha}$ ist eine
-reine Drehung.
+reine Drehung. Entsprechend: __Division__ $z_1/z_2 = \tfrac{r_1}{r_2}e^{j(\alpha_1-\alpha_2)}$ (kartesisch über
+$z_2^{*}$, Kehrwert $1/z = z^{*}/|z|^2$); __Potenzen__ $z^n = r^n e^{jn\alpha}$ (__de Moivre__); __Wurzeln__:
+$w^n=z$ hat $n$ Lösungen $w_k = r^{1/n}e^{j(\alpha+2\pi k)/n}$ gleichmäßig auf einem Kreis.
 :::
 
 Ein Zeiger, der sich mit der Zeit dreht — das ist der Schritt von der ruhenden komplexen Zahl zur
