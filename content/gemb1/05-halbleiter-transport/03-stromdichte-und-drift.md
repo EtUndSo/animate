@@ -2,7 +2,7 @@
 title: Stromdichte und Drift
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Halbleiter und Ladungstransport
 order: 4050300
-summary: Wie aus beweglichen Ladungsträgern ein Strom wird – und zwei überraschende Einsichten dabei. Ein vollständig gefülltes Band trägt keinen Strom, obwohl es voller Elektronen steckt, weil sich die Geschwindigkeiten paarweise aufheben. Und ohne Streuung gäbe es gar keinen Gleichstrom, sondern nur Oszillationen. Erst die Streuung führt zum stationären Drift mit $j=\sigma E$, $\sigma=en\mu$ und $\mu=e\tau/m^\star$.
+summary: Wie aus beweglichen Ladungsträgern ein Strom wird – und zwei überraschende Einsichten dabei. Ein vollständig gefülltes Band trägt keinen Strom, obwohl es voller Elektronen steckt, weil sich die Geschwindigkeiten paarweise aufheben. Und ohne Streuung gäbe es gar keinen Gleichstrom, sondern nur Oszillationen. Erst die Streuung führt zum stationären Drift mit $J=\sigma E$, $\sigma=en\mu$ und $\mu=e\tau/m^\star$.
 tags: Stromdichte, Drift, Gruppengeschwindigkeit, Bloch-Oszillation, Streuung, Beweglichkeit, Leitfähigkeit, Relaxationszeit
 ---
 
@@ -21,12 +21,12 @@ einen __Strom__? Zwei Dinge sind dabei zunächst verblüffend. Erstens: Ein rand
 Strom, obwohl es die meisten Elektronen enthält — es kommt nicht auf die Zahl, sondern auf die **Asymmetrie** der
 Besetzung an. Zweitens: Ohne Stöße gäbe es gar keinen stationären Gleichstrom, sondern nur Oszillationen —
 ausgerechnet die **Streuung** (die man als „Widerstand" kennt) ermöglicht den gleichmäßigen Stromfluss. Am Ende
-steht das vertraute Ohmsche Gesetz in seiner mikroskopischen Form $j=\sigma E$ mit der __Beweglichkeit__ $\mu$.
+steht das vertraute Ohmsche Gesetz in seiner mikroskopischen Form $J=\sigma E$ mit der __Beweglichkeit__ $\mu$.
 :::
 
 **Worum es geht:** Wir schreiben den Strom als Summe über besetzte Zustände, verstehen *warum* volle Bänder und
 das Gleichgewicht stromlos sind, wie ein Feld die Besetzung verschiebt, warum erst __Streuung__ einen Gleichstrom
-erzeugt, und leiten die __Drift__-Form $j=en\mu E$ her.
+erzeugt, und leiten die __Drift__-Form $J=en\mu E$ her.
 
 ## Strom als Summe über besetzte Zustände
 
@@ -34,7 +34,7 @@ Ein Strom ist bewegte Ladung. Jeder besetzte Zustand $k$ trägt mit seiner Ladun
 __Gruppengeschwindigkeit__ $v(k)=\tfrac1\hbar\tfrac{\partial E}{\partial k}$ bei, gewichtet mit der Besetzung
 $f(k)$. Die __Stromdichte__ ist die Summe über alle Zustände:
 
-$$j = -\frac{e}{L}\sum_k v(k)\,f(k).$$
+$$J = -\frac{e}{L}\sum_k v(k)\,f(k).$$
 
 - __$v(k)=\tfrac1\hbar\tfrac{\partial E}{\partial k}$__: die Geschwindigkeit des Wellenpakets im Zustand $k$ (aus
   dem Bandstruktur-Oberthema).
@@ -42,7 +42,7 @@ $$j = -\frac{e}{L}\sum_k v(k)\,f(k).$$
 
 :::grafik
 Das Kosinus-Band mit einigen besetzten Zuständen; zu jedem ein Geschwindigkeitspfeil $v(k)=\tfrac1\hbar
-\partial E/\partial k$ (Steigung des Bandes). Darunter die Summenformel $j=-\tfrac{e}{L}\sum_k v(k)f(k)$.
+\partial E/\partial k$ (Steigung des Bandes). Darunter die Summenformel $J=-\tfrac{e}{L}\sum_k v(k)f(k)$.
 :::
 
 ## Warum ein volles Band keinen Strom trägt
@@ -51,7 +51,7 @@ Die Banddispersion ist **symmetrisch**: $E(-k)=E(k)$, und damit $v(-k)=-v(k)$. I
 Band ist zu jedem besetzten Zustand $+k$ auch $-k$ besetzt. Ihre Geschwindigkeiten sind entgegengesetzt gleich und
 heben sich **paarweise auf**:
 
-$$\sum_k v(k)\,f(k) = 0 \quad\Rightarrow\quad j = 0.$$
+$$\sum_k v(k)\,f(k) = 0 \quad\Rightarrow\quad J = 0.$$
 
 Das Gleiche gilt im **Gleichgewicht** bei jeder Temperatur: Die Besetzung $f(k)$ ist dann symmetrisch in $k$, also
 fließt kein Strom. Die Lehre: Nicht die **Zahl** der Elektronen erzeugt Strom, sondern eine **asymmetrische**
@@ -59,7 +59,7 @@ Besetzung — mehr Elektronen, die in eine Richtung laufen, als in die andere.
 
 :::grafik
 Ein voll besetztes (oder symmetrisch besetztes) Band: zu jedem $+k$-Zustand der Partner bei $-k$ markiert, mit
-entgegengesetzten Pfeilen, die sich zu null addieren. Beschriftung „symmetrisch → $j=0$".
+entgegengesetzten Pfeilen, die sich zu null addieren. Beschriftung „symmetrisch → $J=0$".
 :::
 
 ## Wie ein Feld Strom erzeugt
@@ -74,7 +74,7 @@ die Besetzung **asymmetrisch** — es gibt netto mehr Elektronen mit $v>0$ als m
 $\sum_k v(k)f(k)\neq 0$. Es fließt ein Strom. Im Anschluss an die Elektrotechnik ist das gerade das Ohmsche Gesetz
 in materialbezogener Form:
 
-$$j = \sigma E, \qquad \sigma = \frac{1}{\rho}\ (\text{Leitfähigkeit}).$$
+$$J = \sigma E, \qquad \sigma = \frac{1}{\rho}\ (\text{Leitfähigkeit}).$$
 
 :::grafik
 Die Fermi-Besetzung im $k$-Raum als Kreis/Intervall: links symmetrisch um $k=0$ (Gleichgewicht), rechts um
@@ -122,11 +122,19 @@ $$\mu = \frac{e\,\tau}{m^\star}.$$
 
 Die Stromdichte ist dann (Ladungsträgerdichte $n$ mal Ladung mal Driftgeschwindigkeit):
 
-$$j = e\,n\,v_{\text{drift}} = e\,n\,\mu\,E = \sigma E, \qquad \sigma = e\,n\,\mu.$$
+$$J = e\,n\,v_{\text{drift}} = e\,n\,\mu\,E = \sigma E, \qquad \sigma = e\,n\,\mu.$$
 
 - __$\mu=e\tau/m^\star$__: groß, wenn die Streuzeit $\tau$ groß (selten gestreut) und die effektive Masse $m^\star$
   klein ist.
 - __$\sigma=en\mu$__: die Leitfähigkeit steigt mit **Ladungsträgerzahl** $n$ (Dotierung!) und **Beweglichkeit**.
+
+Bisher haben wir nur **eine** Ladungsträgersorte betrachtet. In einem Halbleiter tragen aber **Elektronen und
+Löcher** parallel zum Strom bei; ihre Leitfähigkeiten addieren sich:
+
+$$\sigma = \sigma_n + \sigma_p = e\,n\,\mu_n + e\,p\,\mu_p.$$
+
+Dabei ist $n$ die Elektronen-, $p$ die Löcherdichte und $\mu_n, \mu_p$ ihre (im Allgemeinen verschiedenen)
+Beweglichkeiten.
 
 **Warum beschleunigt das Elektron nicht unbegrenzt (unendlicher Strom)?** Weil jeder Stoß seinen Impulsgewinn im
 Mittel wieder vernichtet — nach der Zeit $\tau$ beginnt die Beschleunigung von vorn. Daraus folgt eine
@@ -137,14 +145,14 @@ steckt in der kleinen effektiven Masse.)
 :::grafik
 Oben die „Sägezahn"-Geschwindigkeit eines einzelnen Elektrons: lineare Beschleunigung im Feld, dann abrupter
 Reset durch einen Stoß, immer wieder — der Mittelwert ist die konstante Driftgeschwindigkeit $v_{\text{drift}}$.
-Daneben $\mu=e\tau/m^\star$ und $j=en\mu E=\sigma E$.
+Daneben $\mu=e\tau/m^\star$ und $J=en\mu E=\sigma E$.
 :::
 
 :::kern
-Die __Stromdichte__ ist $j=-\tfrac{e}{L}\sum_k v(k)f(k)$ mit $v(k)=\tfrac1\hbar\partial E/\partial k$. Ein
+Die __Stromdichte__ ist $J=-\tfrac{e}{L}\sum_k v(k)f(k)$ mit $v(k)=\tfrac1\hbar\partial E/\partial k$. Ein
 **volles** (oder symmetrisch besetztes) Band trägt **keinen** Strom, weil $v(-k)=-v(k)$ sich paarweise aufhebt —
 es zählt die **Asymmetrie**, nicht die Zahl. Ein Feld verschiebt die Verteilung ($\hbar\,dk/dt=F$) → asymmetrische
-Besetzung → Strom $j=\sigma E$. Ohne Streuung würde das Elektron am Zonenrand Bragg-reflektiert und
+Besetzung → Strom $J=\sigma E$. Ohne Streuung würde das Elektron am Zonenrand Bragg-reflektiert und
 **oszillieren** (__Bloch-Oszillation__, kein Gleichstrom); erst __Streuung__ (Phononen, ionisierte Störstellen,
 Defekte) erzeugt den stationären Drift. Ergebnis: __Beweglichkeit__ $\mu=e\tau/m^\star$, Driftgeschwindigkeit
 $v_{\text{drift}}=\mu E$, __Leitfähigkeit__ $\sigma=en\mu$.

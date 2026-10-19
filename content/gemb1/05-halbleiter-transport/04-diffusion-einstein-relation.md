@@ -2,7 +2,7 @@
 title: Diffusion und die Einstein-Relation
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Halbleiter und Ladungstransport
 order: 4050400
-summary: Die zweite Triebkraft für Strom neben dem elektrischen Feld – ein Konzentrationsgefälle. Aus der zufälligen Wärmebewegung entsteht ein Diffusionsstrom $j=-eD\,\mathrm{d}n/\mathrm{d}x$. Weil Drift und Diffusion aus derselben Streuzeit stammen, verknüpft sie die Einstein-Beziehung $D=\tfrac{k_BT}{e}\mu$. Und die Beweglichkeit selbst durchläuft mit der Temperatur ein Maximum.
+summary: Die zweite Triebkraft für Strom neben dem elektrischen Feld – ein Konzentrationsgefälle. Aus der zufälligen Wärmebewegung entsteht ein Diffusionsstrom $J_{\text{diff}}=-eD\,\mathrm{d}n/\mathrm{d}x$. Weil Drift und Diffusion aus derselben Streuzeit stammen, verknüpft sie die Einstein-Beziehung $D=\tfrac{k_BT}{e}\mu$. Und die Beweglichkeit selbst durchläuft mit der Temperatur ein Maximum.
 tags: Diffusion, Einstein-Relation, Beweglichkeit, Boltzmann-Transportgleichung, Relaxationszeit, Matthiessen-Regel, Streuung, 2DEG
 ---
 
@@ -36,7 +36,7 @@ gedachten Grenze eine höhere Konzentration als auf der anderen, überqueren von
 die Grenze als von der dünnen zurück — einfach, weil es dort mehr Kandidaten gibt. Netto fließt ein Strom von hoch
 nach niedrig, ohne dass eine Kraft wirkt. Das ist der __Diffusionsstrom__, quantitativ das **Ficksche Gesetz**:
 
-$$j_{\text{diff}} = -e\,D\,\frac{dn}{dx}.$$
+$$J_{\text{diff}} = -e\,D\,\frac{dn}{dx}.$$
 
 - __$D$__: die __Diffusionskonstante__ — wie leicht sich die Ladungsträger ausbreiten.
 - __$dn/dx$__: das Konzentrationsgefälle; das Minuszeichen sagt: der Teilchenfluss läuft **abwärts** (von hoher zu
@@ -44,7 +44,7 @@ $$j_{\text{diff}} = -e\,D\,\frac{dn}{dx}.$$
 
 :::grafik
 Ein Dichteprofil $n(x)$, das von links (hoch) nach rechts (niedrig) abfällt; darunter der konstante
-Teilchenfluss-Pfeil „bergab". Daneben die Formel $j_{\text{diff}}=-eD\,dn/dx$ mit markiertem Gefälle $dn/dx$.
+Teilchenfluss-Pfeil „bergab". Daneben die Formel $J_{\text{diff}}=-eD\,dn/dx$ mit markiertem Gefälle $dn/dx$.
 :::
 
 ## Die gemeinsame Wurzel: die Boltzmann-Transportgleichung
@@ -140,7 +140,7 @@ elektrochemische Potential, chemischer „Konzentrationsdruck" plus elektrostati
 (Konzentration) in einer Größe — im Gleichgewicht ist er null, und es fließt kein Strom.
 
 :::kern
-Neben dem Drift treibt ein **Konzentrationsgefälle** einen __Diffusionsstrom__ $j_{\text{diff}}=-eD\,dn/dx$
+Neben dem Drift treibt ein **Konzentrationsgefälle** einen __Diffusionsstrom__ $J_{\text{diff}}=-eD\,dn/dx$
 (Ficksches Gesetz, rein statistisch). Drift und Diffusion folgen beide aus der __Boltzmann-Transportgleichung__
 $\partial_t f+v\partial_x f+\tfrac{F}{\hbar}\partial_k f=-(f-f^0)/\tau$ (Relaxationszeitnäherung, $\delta f\propto
 e^{-t/\tau}$; Matthiessen $1/\tau=\sum_i 1/\tau_i$). Weil beide dieselbe Streuzeit teilen ($\mu=e\tau/m^\star$,
