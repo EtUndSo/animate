@@ -171,3 +171,26 @@ Wir wissen jetzt, **wie** man ein periodisches Gitter beschreibt. Als Nächstes 
 wichtigsten konkreten Gitter an — die drei __kubischen__ Bravaisgitter (einfach kubisch, raumzentriert,
 flächenzentriert) — und die Kennzahlen __Koordinationszahl__ und __Packungsdichte__, die erklären, warum Atome
 sich zu der einen und nicht der anderen Struktur ordnen.
+
+:::quiz
+F: Warum macht die Periodizität einen Festkörper aus $10^{23}$ Atomen überhaupt handhabbar?
+A: Weil sich dasselbe Bauteil stur in alle Richtungen wiederholt, genügt es, einen kleinen Ausschnitt plus die Verschiebungsregel zu kennen. So wird aus „unendlich viele Atome" eine endliche Beschreibung aus Gittervektoren und Zellinhalt.
+F: Was unterscheidet das Punktgitter von der Basis?
+A: Das Punktgitter ist das reine Positionsraster (das „Wo" — nur die Periodizität), die Basis ist das Motiv, das an jeden Gitterpunkt gehängt wird (das „Was" — ein Atom, eine Gruppe, ein Molekül). Kristall = Punktgitter + Basis.
+F: Warum ist das Gitter allein noch kein Kristall?
+A: Das Gitter enthält nur abstrakte Positionen, keine Atome. Erst wenn man an jeden Punkt die Basis hängt, entsteht das reale Atomgebäude — das Gitter trägt die Periodizität, die Basis den Inhalt.
+F: Was sind primitive Gittervektoren, und warum nur ganzzahlige Vielfache?
+A: Es sind die kürzesten nicht-parallelen Verschiebungen, aus denen sich jede andere zusammensetzt; jeder Gitterpunkt ist $\vec R=\sum m_i\vec a_i$. Nur ganzzahlige Schritte treffen wieder einen Gitterpunkt — bruchteilige Verschiebungen landen zwischen den Punkten.
+F: Was ist eine primitive Einheitszelle, und wie viele Gitterpunkte enthält sie?
+A: Die kleinstmögliche „Kachel", die den Raum durch reines Verschieben lückenlos füllt; sie enthält genau einen Gitterpunkt. Größere (nicht-primitive) Zellen können mehrere enthalten, sind aber nicht minimal.
+F: Warum ist die primitive Einheitszelle nicht eindeutig?
+A: Dieselben Gitterpunkte lassen sich mit verschieden geformten, aber flächengleichen Kacheln auslegen (Parallelogramm, Raute, verschoben). Alle sind gleichberechtigt — es fehlt ein Kriterium, das eine davon auszeichnet.
+F: Wie behebt die Wigner-Seitz-Zelle diese Mehrdeutigkeit?
+A: Sie ist das „Hoheitsgebiet" eines Gitterpunkts — alle Raumpunkte, die ihm näher sind als jedem anderen. Konstruiert über die Mittelsenkrechten zu den Nachbarn ist sie eindeutig, primitiv und trägt die volle Gittersymmetrie.
+F: Was zeichnet ein Bravaisgitter aus?
+A: Es sieht von jedem seiner Punkte aus exakt gleich aus — jeder Gitterpunkt hat die identische Umgebung. Formal bildet jede Translation $\vec R=\sum m_i\vec a_i$ das Gitter deckungsgleich auf sich selbst ab.
+F: Warum gibt es in 3D genau 14 Bravaisgitter und nicht beliebig viele?
+A: Man kombiniert die 7 Kristallsysteme mit den Zentrierungen (keine, raum-, flächen-, basiszentriert). Viele Kombinationen sind aber geometrisch äquivalent zu bereits gezählten, sodass nur 14 wirklich verschiedene übrig bleiben.
+F: Warum ist das Wabenmuster von Graphen kein Bravaisgitter, und wie beschreibt man es trotzdem?
+A: Zwei benachbarte C-Atome haben entgegengesetzt orientierte Bindungen, sehen also unterschiedlich aus — die Bedingung „identische Umgebung" ist verletzt. Man beschreibt Graphen als hexagonales Bravaisgitter mit zweiatomiger Basis (die zwei inäquivalenten C-Plätze).
+:::
