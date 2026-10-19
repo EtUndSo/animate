@@ -128,3 +128,26 @@ Bisher integrierten wir über **ein** Intervall (mit einem Parameter). Jetzt geh
 **mehrdimensionalen** Integralen über: Wie integriert man eine Funktion über einen Quader im $\mathbb{R}^n$, und
 darf man die Integrationen nacheinander in beliebiger Reihenfolge ausführen? Das beantwortet der __Satz von
 Fubini__ im nächsten Artikel.
+
+:::quiz
+F: Warum versagen die bequemen Sätze aus §2.1 (Stetigkeit, Ableiten unter dem Integral) auf einem unendlichen Intervall?
+A: Ihr Beweis beruhte auf der **Kompaktheit** von $[a,b]$, die gleichmäßige Stetigkeit lieferte. Auf $(a,\infty)$ fehlt diese Kompaktheit, also auch die gleichmäßige Kontrolle über den fernen Teil des Integrals — die Vertauschung von Grenzwert und Integral ist dann nicht mehr garantiert.
+F: Beim Beispiel $\int_0^\infty\frac{\sin(tx)}{t}\,dt$: Wie kann $F$ bei $x=0$ springen, obwohl das Integral für jedes $x$ konvergiert?
+A: Das Integral konvergiert nur **bedingt** (nicht absolut), und nahe $x=0$ wird die Konvergenz immer langsamer — man muss die obere Grenze immer weiter hinausschieben. Die Konvergenz ist also **nicht gleichmäßig** in $x$, und genau das erlaubt den Sprung von $-\pi/2$ über $0$ auf $+\pi/2$.
+F: Was heißt „gleichmäßige Konvergenz in $x$" bei einem uneigentlichen Parameterintegral anschaulich?
+A: Dass der ferne Rest $\int_T^\infty f(x,t)\,dt$ für **alle** $x$ gleichzeitig klein wird, sobald $T$ groß genug ist — mit einem von $x$ unabhängigen Maß. Kein Parameterwert darf „hinterherhinken" wie bei $x\to0$ oben.
+F: Was besagt das Majorantenkriterium, und warum muss die Majorante vom Parameter unabhängig sein?
+A: Gibt es ein integrierbares $g(t)$ mit $|f(x,t)|\le g(t)$ für **alle** $x$ und $\int g<\infty$, so ist $F$ stetig. Entscheidend ist die $x$-Unabhängigkeit: nur dann deckelt $g$ den Rest für alle Parameter zugleich — eine $x$-abhängige Schranke brächte keine gleichmäßige Kontrolle.
+F: Durch welchen Mechanismus erzwingt die Majorante die gleichmäßige Konvergenz?
+A: Der Schwanz wird abgeschätzt durch $\big|\int_T^\infty f(x,t)\,dt\big|\le\int_T^\infty g(t)\,dt$. Die rechte Seite hängt **nicht** von $x$ ab und wird für große $T$ klein — also schrumpft der Rest für alle $x$ gleichmäßig.
+F: Welche Zusatzbedingung erlaubt das Ableiten unter dem uneigentlichen Integral?
+A: Man braucht integrierbare Majoranten für die **Ableitungen**: $|\partial f/\partial x_k(x,t)|\le G_k(t)$ mit $\int G_k<\infty$. Dann ist $F$ stetig differenzierbar und $\partial_{x_k}F=\int\partial_{x_k}f\,dt$.
+F: Was besagt die Lokalisierung, und warum genügt eine Majorante nur je Umgebung?
+A: Stetigkeit und Differenzierbarkeit sind **lokale** Eigenschaften — sie hängen nur vom Verhalten in einer kleinen Umgebung jedes Punktes ab. Findet man zu jedem $x_0$ eine Umgebung mit gültiger Majorante, folgt die Aussage auf ganz $U$; eine globale Majorante ist unnötig.
+F: Warum braucht die Laplace-Transformation $\int_0^\infty f(t)e^{-xt}\,dt$ gerade die Lokalisierung?
+A: Der Dämpfer $e^{-xt}$ sorgt nur für $x>0$ für Integrierbarkeit; nahe $x=0$ gibt es keine integrierbare Schranke auf ganz $(0,\infty)$. Für $x\ge x_0/2$ aber gilt lokal $|f(t)e^{-xt}|\le c\,e^{-x_0 t/4}$ — mit Lokalisierung folgt die Glätte auf dem ganzen Bereich.
+F: Warum darf man die Gamma-Funktion unter dem Integral ableiten, und wie lautet $\Gamma'(x)$?
+A: Auf jedem kompakten $x$-Bereich in $(0,\infty)$ findet man integrierbare Majoranten für $e^{-y}y^{x-1}$ und seine $x$-Ableitung $e^{-y}y^{x-1}\ln y$. Also $\Gamma'(x)=\int_0^\infty e^{-y}y^{x-1}\ln y\,dy$.
+F: Warum gilt die Faustregel „schneller Abfall im Ortsraum ⟺ Glätte im Frequenzraum" bei der Fourier-Transformation?
+A: Jede Ableitung von $\hat f$ nach $\xi$ „holt" einen Faktor $-ix$ in das Integral. Ist $x^\ell f(x)$ absolut integrierbar (also fällt $f$ schnell genug ab), liefert die Majorante die $\ell$-fache Differenzierbarkeit von $\hat f$ — mehr Abfall im Ortsraum bedeutet mehr Glätte im Frequenzraum.
+:::
