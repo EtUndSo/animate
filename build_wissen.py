@@ -444,7 +444,9 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .iconBtn:hover,.topbar .panelBtn:hover{border-color:var(--accent);color:var(--ink);}
 .topbar .panelBtn.off{color:var(--accent);border-color:var(--accent);}      /* Panel aktuell eingeklappt */
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
-.layout.hide-left{grid-template-columns:0 minmax(0,1fr);} .layout.hide-left>.side{display:none;}
+/* hide-left: EINE Spalte (nicht 0+1fr) - sonst rutscht der einzige verbleibende Grid-Child (main) in die
+   0-breite erste Spalte, der Text wird links gequetscht und die Gliederung überlappt ihn. */
+.layout.hide-left{grid-template-columns:minmax(0,1fr);} .layout.hide-left>.side{display:none;}
 .layout.hide-right .article{grid-template-columns:minmax(0,1fr) 0;} .layout.hide-right .toc{display:none;}
 .layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:0;max-width:1180px;margin:0 auto;}
 .side{position:sticky;top:53px;align-self:start;max-height:calc(100vh - 53px);overflow:auto;padding:18px 10px 40px 18px;border-right:1px solid var(--border);font-size:14.5px;}
