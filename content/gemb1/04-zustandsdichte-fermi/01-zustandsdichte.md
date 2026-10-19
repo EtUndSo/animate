@@ -162,3 +162,26 @@ Täler zusammen.
 $D(E)$ sagt uns, **wo** Plätze sind. Offen bleibt, **welche** davon besetzt sind. Das beantwortet die
 __Fermi-Dirac-Verteilung__ — die Wahrscheinlichkeit, dass ein Zustand bei gegebener Temperatur besetzt ist — das
 Thema des nächsten Artikels.
+
+:::quiz
+F: Was zählt die Zustandsdichte $D(E)$, und warum ist sie „keine neue Physik"?
+A: Sie gibt die Zahl elektronischer Plätze pro Energie und Volumen an — dieselben Zustände wie die Bandstruktur $E(\vec k)$, nur nach Energie statt nach $\vec k$ sortiert. Es ist eine reine Umbuchführung, die man für die Ladungsträgerdichte $n=\int D(E)f(E)\,dE$ braucht.
+F: Warum sitzen die erlaubten $k$-Zustände auf einem gleichmäßigen Raster mit Abstand $2\pi/L$?
+A: Die periodischen Born-von-Karman-Randbedingungen $\psi(x+L)=\psi(x)$ erzwingen $e^{ik_xL}=1$, also $k_x=\frac{2\pi}{L}n_x$. Damit sind die erlaubten Wellenzahlen diskret und äquidistant mit Abstand $2\pi/L$.
+F: Warum darf man die Summe über Zustände durch ein Integral ersetzen?
+A: Bei realen Kristallen ($L\sim$ mm) ist der Rasterabstand $2\pi/L$ winzig, die Zustände liegen praktisch kontinuierlich. Dann wird aus $\frac1V\sum_{\vec k}$ das Integral $\frac{2}{(2\pi)^3}\int d^3k$, mit dem Faktor 2 für den Spin.
+F: Warum liegen Zustände gleicher Energie in 3D auf einer Kugel im $k$-Raum?
+A: Nahe der Bandkante ist $E-E_L=\hbar^2k^2/2m^\star$, die Energie hängt also nur vom Betrag $k$ ab, nicht von der Richtung. Alle $\vec k$ mit gleichem $|k|$ — und damit gleicher Energie — bilden eine Kugelfläche.
+F: Warum ist die Zahl der Zustände in einer Energieschale proportional zu $k^2$?
+A: Die Zustände einer Energie sitzen auf der Kugeloberfläche im $k$-Raum, und deren Fläche wächst wie $k^2$. Die dünne Schale $[k,k+dk]$ enthält daher $\propto k^2\,dk$ Zustände.
+F: Woher kommt der Wurzelverlauf $D(E)\propto\sqrt{E-E_L}$ in 3D?
+A: Aus zwei Faktoren: die Kugeloberfläche $\propto k^2\propto E$ (wächst) und die Umrechnung $dk/dE\propto1/\sqrt{E}$ (fällt). In 3D überwiegt das Flächenwachstum, netto bleibt $\sqrt{E}$ — an der Kante gibt es wenige Zustände, nach oben wurzelförmig mehr.
+F: Warum verschwindet die Zustandsdichte an der Bandkante?
+A: An der Kante ist $k=0$, die Energieschale schrumpft auf einen Punkt (Kugeloberfläche $\to0$). Daher gibt es dort praktisch keine Zustände, $D(E_L)=0$; erst mit wachsender Energie öffnet sich die Kugel und $D$ steigt an.
+F: Warum sieht die Zustandsdichte in 1D, 2D und 3D so unterschiedlich aus?
+A: Es ändert sich nur der Schalen-Faktor $k^{d-1}$: 1D $\propto k^0$ (→ $D\propto(E-E_L)^{-1/2}$, Divergenz an der Kante), 2D $\propto k^1$ (→ konstant, Treppe), 3D $\propto k^2$ (→ Wurzel). Deshalb haben niederdimensionale Strukturen völlig andere elektronische Eigenschaften.
+F: Warum besteht die Zustandsdichte eines Quantenpunkts (0D) aus einzelnen Linien?
+A: In 0D ist das Elektron in allen Richtungen eingesperrt, es gibt keine freie Bewegung und damit kein kontinuierliches Band — nur diskrete Energieniveaus wie im Atom. Diese erscheinen als scharfe $\delta$-Linien in $D(E)$.
+F: Wozu dient die DOS-effektive Masse $m_{\text{DOS}}^\star$ bei Silizium?
+A: Silizium hat sechs ellipsoide Täler statt einer Kugel; die DOS-effektive Masse $6^{2/3}((m_t^\star)^2 m_l^\star)^{1/3}$ bündelt alle sechs (Faktor $6^{2/3}$) und mittelt die Anisotropie (geometrisches Mittel). So liefert die einfache Kugel-Wurzelformel dieselbe Gesamtzahl an Zuständen wie die echten Ellipsoide.
+:::
