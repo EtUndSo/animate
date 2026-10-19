@@ -132,3 +132,26 @@ __Zustandsdichte__ $D(E)$ (3D: $\sqrt{E}$, 2D: Treppe, 1D: Spitzen, 0D: Linien).
 Bisher waren die Wände **unendlich** hoch — das Elektron blieb perfekt gefangen. In Wirklichkeit sind Barrieren
 endlich hoch, und dann passiert etwas, das es klassisch nicht gibt: Die Welle dringt in die Wand ein und kann
 sie sogar **durchdringen**. Das ist der __Tunneleffekt__, das Thema des nächsten Abschnitts.
+
+:::quiz
+F: Warum bringt der Schritt von 2D auf 3D rechnerisch nichts grundlegend Neues?
+A: Das Potential trennt sich wieder additiv in einen $x$-, $y$- und $z$-Anteil, sodass der Separationsansatz $\psi=X(x)Y(y)Z(z)$ das Problem in drei unabhängige 1D-Kästen zerlegt. Man übernimmt die bekannte 1D-Lösung dreimal und setzt zusammen — nur eine dritte Quantenzahl kommt hinzu.
+F: Wie entstehen die Energien des 3D-Kastens aus den 1D-Lösungen?
+A: Jede Richtung liefert ihre eigene Teilchen-in-der-Box-Energie $\propto n^2/L^2$, und die Separation ergibt $E=E_x+E_y+E_z$. Die Gesamtenergie ist also die Summe der drei unabhängigen Beiträge.
+F: Warum ist die Entartung im Würfel noch häufiger als im 2D-Quadrat?
+A: Im Würfel ($L_x=L_y=L_z$) hängt die Energie nur von $n_x^2+n_y^2+n_z^2$ ab, und drei Quantenzahlen bieten mehr Möglichkeiten, dieselbe Summe zu bilden. So sind etwa $(1,1,2),(1,2,1),(2,1,1)$ dreifach entartet — Folge der hohen Würfelsymmetrie.
+F: Was unterscheidet eingesperrte von freien Richtungen hinsichtlich der Energie?
+A: In eingesperrten Richtungen werden die Energien diskret (quantisiert), in freien Richtungen bewegt sich das Elektron wie ein nahezu freies Teilchen mit kontinuierlicher Energie. Die Zahl der eingesperrten Richtungen bestimmt daher den Charakter der Nanostruktur.
+F: Was bedeuten Quantenfilm, Quantendraht und Quantenpunkt in dieser Systematik?
+A: Quantenfilm = Einsperren in 1 Richtung (Elektron in einer Ebene frei, 2D-Gas), Quantendraht = 2 Richtungen (Bewegung nur entlang einer Linie), Quantenpunkt = 3 Richtungen (in keiner Richtung mehr frei). Je mehr Richtungen eingesperrt sind, desto diskreter die Energien.
+F: Warum nennt man einen Quantenpunkt ein „künstliches Atom"?
+A: Weil er in allen drei Richtungen eingesperrt ist und damit vollständig diskrete Energieniveaus hat — wie ein Atom. Anders als ein echtes Atom lassen sich seine Niveaus aber über die Größe $L$ einstellen ($E\propto1/L^2$).
+F: Warum hängt die Leuchtfarbe eines Quantenpunkts von seiner Größe ab?
+A: Die Energieabstände skalieren mit $1/L^2$; ein kleinerer Punkt hat größere Abstände und sendet daher höherenergetisches (blaueres) Licht aus. So stellt man die Farbe allein über die Kristallgröße ein, ohne das Material zu wechseln.
+F: Was ist die Zustandsdichte $D(E)$, und wovon hängt ihre Form ab?
+A: $D(E)$ gibt an, wie viele Zustände in einem kleinen Energiebereich liegen. Ihre Form hängt entscheidend davon ab, in wie vielen Richtungen das Elektron frei ist — also von der Dimensionalität der Struktur.
+F: Wie ändert sich $D(E)$ von 3D bis 0D qualitativ?
+A: 3D (Volumen): glatt ansteigend wie $\sqrt{E}$; 2D (Film): Treppenfunktion; 1D (Draht): scharfe Spitzen an den Subband-Kanten; 0D (Punkt): einzelne scharfe Linien wie beim Atom. Mit abnehmender Dimension wird die Zustandsdichte immer „gezackter".
+F: Warum haben niederdimensionale Strukturen so andere elektronische und optische Eigenschaften?
+A: Weil ihre Zustandsdichte eine völlig andere Form hat als im Volumen — und $D(E)$ bestimmt, wie viele Elektronen bei welcher Energie beteiligt sein können. Diese veränderte Verteilung der Zustände steuert Leitfähigkeit, Absorption und Emission, weshalb man solche Strukturen gezielt herstellt.
+:::
