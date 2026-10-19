@@ -122,3 +122,26 @@ Normalbereiche funktionieren gut für „kastenartige" Geometrien, werden aber b
 Der elegante Ausweg sind **Koordinatentransformationen** (Polar-, Zylinder-, Kugelkoordinaten) — doch bevor wir
 die systematisch behandeln (Kapitel 4), wenden wir uns den __Kurvenintegralen__ zu: dem Integrieren **entlang von
 Wegen**, dem Herzstück der Vektoranalysis.
+
+:::quiz
+F: Was ist ein Normalbereich, und worin unterscheiden sich Typ 1 und Typ 2?
+A: Ein Gebiet, bei dem eine Koordinate zwischen zwei stetigen Funktionen der anderen eingeschlossen ist. Typ 1: $\alpha(y)\le x\le\beta(y)$ bei festem $y$ (waagerechte Schnitte); Typ 2: $g(x)\le y\le h(x)$ bei festem $x$ (senkrechte Schnitte). Es ist dieselbe Idee, nur mit vertauschten Rollen von $x$ und $y$.
+F: Warum dürfen die **inneren** Integrationsgrenzen von der äußeren Variablen abhängen, die **äußeren** aber nicht?
+A: Das innere Integral wird bei festem äußeren Wert (z. B. festem $y$) gebildet — dort beschreiben die Randkurven $\alpha(y),\beta(y)$ den erlaubten $x$-Bereich, dürfen also von $y$ abhängen. Nach dem äußeren Integral muss eine **Zahl** herauskommen, daher müssen dessen Grenzen konstant sein.
+F: Warum reduziert ein Normalbereich das Doppelintegral auf gewöhnliche 1D-Integrale?
+A: Man integriert zuerst entlang eines Schnitts (eine Variable bei festem anderem) — das ist ein gewöhnliches HM1-Integral mit variablen Grenzen — und summiert die Schnittwerte über die zweite Variable, wieder ein 1D-Integral. So wird aus dem Flächenintegral eine Schachtelung eindimensionaler Integrale.
+F: Wie hängt die Flächenformel $|D|=\int_c^d(\beta-\alpha)\,dy$ mit dem Cavalieri-Prinzip zusammen?
+A: $\beta(y)-\alpha(y)$ ist die **Länge** des waagerechten Schnitts bei Höhe $y$. Die Fläche ist das Integral dieser Schnittlängen — genau das Cavalieri-Prinzip in der Ebene (Fläche = Integral der „Querschnitte").
+F: Warum ist die Wahl des richtigen Normalbereich-Typs praktisch wichtig?
+A: Je nach Typ sind die Randkurven und die innere Stammfunktion unterschiedlich einfach; eine Reihenfolge kann elementar sein, die andere unhandlich. Manche Gebiete lassen sich zudem nur in einem Typ **ohne** Zerlegung beschreiben.
+F: Wie integriert man über ein Gebiet, das kein einzelner Normalbereich ist?
+A: Man zerlegt es in endlich viele reguläre Normalbereiche $D_1,\dots,D_N$, die sich nur längs ihrer Ränder überlappen, integriert über jeden einzeln und addiert: $\int_D f=\sum_j\int_{D_j}f$.
+F: Warum ist die abgeschlossene Kreisscheibe ein problematischer Normalbereich, obwohl sie formal einer ist?
+A: Mit $-\sqrt{1-y^2}\le x\le\sqrt{1-y^2}$ ist sie ein Normalbereich, aber die Randfunktionen haben bei $y=\pm1$ eine **senkrechte Tangente** und sind dort nicht differenzierbar (nicht regulär). Man zerlegt deshalb geeignet — oder wechselt gleich zu Polarkoordinaten.
+F: In welcher Reihenfolge „schält" man ein Dreifachintegral über einen räumlichen Normalbereich ab?
+A: Zuerst **senkrecht in $z$** von Boden $\phi(x,y)$ bis Dach $\psi(x,y)$; das ergibt ein Integral über das ebene Grundgebiet $D$. Da $D$ selbst ein Normalbereich ist, folgen zwei weitere 1D-Integrale — insgesamt drei gewöhnliche Integrale.
+F: Warum liefert $\int_M 1\,dV$ über einen räumlichen Normalbereich gerade das Volumen zwischen Boden und Dach?
+A: Das innerste Integral $\int_{\phi}^{\psi}1\,dz=\psi-\phi$ ist die **Höhe** der Säule über $(x,y)$. Integriert man diese Höhe über das Grundgebiet $D$, summiert man lauter Säulenvolumina — das ist das Gesamtvolumen.
+F: Warum ist das Ergebnis unabhängig davon, wie man das Gebiet in Normalbereiche zerlegt?
+A: Das Integral über die Menge ist bereits eindeutig definiert (Fortsetzung durch null); die Zerlegung ist nur ein Rechenweg. Die Überlappungen der Teilbereiche sind Randkurven — Nullmengen, die nichts beitragen —, daher kommt jede zulässige Zerlegung auf denselben Wert.
+:::
