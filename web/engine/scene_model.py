@@ -17,6 +17,7 @@ from .text import Text, DecimalNumber
 from .value_tracker import ValueTracker
 from .threed import ThreeDAxes, Box, Cube, Sphere, Pyramid, Vector
 from .svg import MathTex, SVGMobject
+from .legend import Legend
 from .AnimObject import AnimObject
 from .results import result_value
 from . import calc as _calc
@@ -156,7 +157,7 @@ def _gl_solid_mesh(obj, smooth=False, center=(0.0, 0.0, 0.0)):
 OBJECT_TYPES = {
     "Axes": Axes, "Circle": Circle, "Dot": Dot, "Line": Line, "Polygon": Polygon,
     "Triangle": Triangle, "Rectangle": Rectangle, "Square": Square,
-    "FunctionGraph": FunctionGraph, "Text": Text,
+    "FunctionGraph": FunctionGraph, "Text": Text, "Legend": Legend,
     "ValueTracker": ValueTracker, "DecimalNumber": DecimalNumber,
     # 3D
     "ThreeDAxes": ThreeDAxes, "Box": Box, "Cube": Cube,

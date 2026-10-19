@@ -27,9 +27,15 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
 ---
 
 ## BATCH 1 — 2D-Plot-Fundament & Annotationen  (höchste Szenen-Abdeckung: K13)
-- [ ] **F1 Mehrkurven-Plot + Legende** — mehrere Graphen/Signale auf **gemeinsamem** Achsensystem,
+- [~] **F1 Mehrkurven-Plot + Legende** — mehrere Graphen/Signale auf **gemeinsamem** Achsensystem,
   automatische Farbrotation, optionale Legende (Label je Kurve). Basis für Kennlinienscharen, Fermi-Dirac,
   Vergleich mehrerer $f$.
+  **Umgesetzt (wartet auf Test):** Mehrere `FunctionGraph` teilen bereits automatisch die eine Szenen-`Axes`
+  (jede Kurve folgt deren Bereich/Skalierung) — Mehrkurven-Plot funktioniert also ohne Änderung; die
+  Farbrotation beim Anlegen existiert. NEU: allgemeines **`Legend`**-Primitiv (`web/engine/legend.py`,
+  registriert in `scene_model.py`, Palette-Eintrag in `editor.js`): eine Zeile je Eintrag (Farb-Swatch + Label),
+  `labels` als `;`-Liste, `colors` optional (`;`-Liste Hex ohne `#`, sonst Auto-Palette), frei platzierbar,
+  skaliert mit der Achse. Test: Axes + 2–3 FunctionGraphs anlegen, dann „Legend" mit passenden Labels/Farben.
 - [ ] **F2 Marker & Vermaßung** — Punkt-Marker mit Koordinaten/LaTeX-Label; Hilfslinien zu den Achsen;
   Maß-Angaben (Amplitude, Periode $T$, Sprunghöhe, markierter Punkt $(x_0,y_0)$). Allgemein: an jedes
   Graph-/Kurvenobjekt andockbar.

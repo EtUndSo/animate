@@ -64,6 +64,9 @@ const CATALOG = {
     // A FunctionGraph is 1D (y=f(x)) for a term in x only, and a 3D SURFACE when the term also uses y
     // (z=f(x,y)) — the surface-only props (fill_opacity, height_color, grid_*) are ignored for a 1D curve.
     FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.2 },
+    // Legend/key for several curves on the SAME axes: one row per entry (swatch + label). `labels` is
+    // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
+    Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.8, swatch_len:0.9, gap:0.35, color:"#111111", stroke_width:6 },
   },
   "Mathematik · 3D-Körper": {   // solids live in world coordinates (a 2-variable FunctionGraph is the surface)
     Sphere:     { radius:1.0, center:[0,0,0], resolution:10, color:"#59a0eb", fill_opacity:0.5 },
