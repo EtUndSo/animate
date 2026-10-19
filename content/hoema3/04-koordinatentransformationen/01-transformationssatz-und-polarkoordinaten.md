@@ -125,3 +125,26 @@ nehmen; Randfälle ($r=0$) per $\varepsilon$-Grenzwert. Anwendung: __Gauß-Integ
 Dasselbe Prinzip trägt in drei Dimensionen — dort führen __Zylinder-__ und __Kugelkoordinaten__ zu den
 Volumenelementen $r\,dr\,d\varphi\,dz$ bzw. $r^2\sin\vartheta\,dr\,d\vartheta\,d\varphi$. Das ist das Thema des
 nächsten Artikels.
+
+:::quiz
+F: Was leistet der Transformationssatz, und warum rechnet man lieber über das Urbildgebiet $B$?
+A: Er schreibt ein Integral in neue Koordinaten um: $\int_D f\,dy=\int_B f(\Phi(x))\,|\det D\Phi|\,dx$. Das Zielgebiet $D$ (z. B. eine Kreisscheibe) ist krumm, das Urbildgebiet $B$ (ein Rechteck in $(r,\varphi)$) hingegen einfach — Grenzen und oft auch der Integrand werden dort bequem.
+F: Warum steht im Transformationssatz der **Betrag** $|\det D\Phi|$, während die 1D-Substitution $\Phi'$ ohne Betrag hat?
+A: In 1D wird die Orientierung über die Integrationsgrenzen mitgeführt (Vertauschen der Grenzen dreht das Vorzeichen). In mehreren Dimensionen gibt es keine solche Grenzenorientierung; man integriert über ein Gebiet und braucht den **positiven** Volumenfaktor — daher der Betrag.
+F: Warum ist $|\det D\Phi|$ geometrisch der lokale Volumenfaktor?
+A: Für eine lineare Abbildung $A$ ist $|\det A|$ das Volumen des von den Spalten aufgespannten Parallelotops, also der Faktor, um den $A$ jedes Volumen streckt. Lokal ist $\Phi\approx\Phi(x_0)+D\Phi(x_0)(\cdot)$, ein kleiner Quader wird also um $|\det D\Phi|$ verzerrt; die Riemann-Summe über alle Quader erzeugt genau diesen Faktor.
+F: Warum ist $\det D\Phi=r$ in Polarkoordinaten, und was bedeutet das anschaulich?
+A: Die Jacobi-Determinante ist $r\cos^2\varphi+r\sin^2\varphi=r$. Anschaulich: Weiter außen überstreicht derselbe Winkelzuwachs $d\varphi$ einen längeren Bogen, die Maschen werden größer — der Streckfaktor wächst linear mit dem Radius $r$.
+F: Warum ist das Flächenelement $dx\,dy=r\,dr\,d\varphi$ und nicht $dr\,d\varphi$?
+A: Nach dem Transformationssatz ist das Flächenelement $|\det D\Phi|\,dr\,d\varphi=r\,dr\,d\varphi$. Der zusätzliche Faktor $r$ ist genau die Maschenverzerrung — ohne ihn würde man die nach außen größer werdenden Zellen falsch (zu klein) zählen.
+F: Warum ist die Polar-Parametrisierung bei $r=0$ streng genommen nicht erlaubt, und warum ändert das am Ergebnis nichts?
+A: Bei $r=0$ wird die ganze Winkelkante auf den Ursprung abgebildet (nicht bijektiv) und $\det D\Phi=0$. Das betroffene Stück ist aber eine **Nullmenge** am Rand; man schränkt per $\varepsilon$-Grenzwert ein, und der weggelassene Beitrag geht gegen null — die Formel bleibt gültig.
+F: Warum ist $e^{-r^2}r$ elementar integrierbar, $e^{-x^2}$ aber nicht?
+A: Der Faktor $r$ (aus dem Flächenelement) ist gerade die „innere Ableitung": $e^{-r^2}r=-\tfrac12\frac{d}{dr}e^{-r^2}$, also elementar. In einer Dimension fehlt dieser Faktor $r$, und $e^{-x^2}$ hat keine elementare Stammfunktion.
+F: Wie liefert der Umweg über ein Flächenintegral das Gauß-Integral $\int_{-\infty}^\infty e^{-x^2}dx$?
+A: Über die Scheibe ist $\iint e^{-(x^2+y^2)}=\pi(1-e^{-R^2})\to\pi$. Da sich das Doppelintegral als Produkt $\big(\int e^{-x^2}dx\big)^2$ schreiben lässt, folgt $\big(\int_{-\infty}^\infty e^{-x^2}dx\big)^2=\pi$, also $\int_{-\infty}^\infty e^{-x^2}dx=\sqrt\pi$.
+F: Wozu dient das „Sandwich" zwischen zwei Kreisscheiben im Beweis?
+A: Das Quadrat $I(R)^2$ entspricht einem Integral über ein **Quadrat**, nicht über eine Scheibe. Man klemmt es zwischen die einbeschriebene und die umschriebene Kreisscheibe (deren Integrale man kennt); beide streben gegen $\pi$, also auch $I(R)^2$.
+F: Warum ist die Rotationssymmetrie von $e^{-(x^2+y^2)}$ der Schlüssel für die Polar-Rechnung?
+A: In Polarkoordinaten hängt der Integrand nur von $r$ ab ($e^{-r^2}$). Dann ist die $\varphi$-Integration trivial (liefert nur den Faktor $2\pi$), und es bleibt ein elementares eindimensionales $r$-Integral. Nur bei radialsymmetrischen Integranden spielt der Polarwechsel diesen Vorteil voll aus.
+:::
