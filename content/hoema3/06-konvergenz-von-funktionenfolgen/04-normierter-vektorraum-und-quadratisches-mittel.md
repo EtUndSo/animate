@@ -132,3 +132,26 @@ $[0,n^{-3}]$: $\|f_n\|_{\sup}=n$, $\|f_n\|_2^2=1/n\to0$). $\|\cdot\|_2$ nur **Ha
 Damit ist Kapitel 6 abgeschlossen: Wir haben punktweise, gleichmäßige und $L^2$-Konvergenz, die zugehörigen Räume und
 ihre Vertauschungsregeln. Auf dieser Bühne entfaltet sich nun die __Fourier-Theorie__ — die Zerlegung periodischer
 Funktionen in das orthogonale System $e^{ikx}$, das Thema des nächsten Kapitels.
+
+:::quiz
+F: Was gewinnt man, wenn man Funktionen als Vektoren in einem normierten Raum auffasst?
+A: Konvergenz wird zu einem einzigen einheitlichen Begriff: $\|f_n-f\|\to0$, genau wie bei Zahlenfolgen. Länge und Abstand von Funktionen werden messbar, und man kann die ganze lineare Algebra (Geometrie, Orthogonalität) auf Funktionen übertragen.
+F: Was misst die Supremumsnorm, und welchem Konvergenzbegriff entspricht sie?
+A: Sie misst den größten Abstand zweier Funktionen irgendwo im Intervall, $\|f-g\|_{\sup}=\sup_x|f(x)-g(x)|$. Konvergenz in dieser Norm ist genau die gleichmäßige Konvergenz — der ganze $\varepsilon$-Schlauch zugleich.
+F: Was bedeutet es, dass $C^0([a,b])$ mit der Supremumsnorm vollständig (ein Banachraum) ist?
+A: Jede Cauchy-Folge stetiger Funktionen hat einen Grenzwert, der selbst wieder stetig ist — man fällt beim Grenzübergang nicht aus dem Raum heraus. Das ist die funktionale Entsprechung der Vollständigkeit von $\mathbb{R}$ und folgt gerade daraus, dass der gleichmäßige Limes stetiger Funktionen stetig ist.
+F: Warum ist die gleichmäßige Konvergenz für Fourier-Reihen zu streng?
+A: Fourier-Reihen sollen auch sprungbehaftete (stückweise stetige) Funktionen darstellen. Eine Summe stetiger Terme kann aber nie gleichmäßig gegen eine unstetige Funktion konvergieren — man braucht einen toleranteren Abstandsbegriff.
+F: Was misst die $L^2$-Norm, und warum stört sie ein schmaler hoher Zacken kaum?
+A: Sie misst die Wurzel der mittleren quadratischen Abweichung, also im Wesentlichen die Fläche unter $(f-g)^2$. Ein sehr schmaler Zacken trägt kaum Fläche bei, selbst wenn er hoch ist — darum bleibt die $L^2$-Norm klein, während die Supremumsnorm explodiert.
+F: Was bedeutet Konvergenz im quadratischen Mittel anschaulich?
+A: $\int_a^b|f_n-f|^2\,dx\to0$ — die mittlere quadratische Abweichung verschwindet. Die Funktionen müssen also „im Durchschnitt" (energetisch) immer besser passen, dürfen aber an einzelnen Stellen durchaus abweichen.
+F: Warum impliziert gleichmäßige Konvergenz die $L^2$-Konvergenz (auf endlichem Intervall), aber nicht umgekehrt?
+A: Ist der Supremumsabstand klein, ist auch das Integral von $|f_n-f|^2$ klein (höchstens $(b-a)$ mal das Supremum-Quadrat). Umgekehrt kann die mittlere Abweichung klein sein, während ein schmaler Zacken das Supremum groß hält — der Zacken $f_n=n$ auf $[0,n^{-3}]$ zeigt das ($\|f_n\|_{\sup}=n$, $\|f_n\|_2^2=1/n\to0$).
+F: Welche Rolle spielt die Cauchy–Schwarz-Ungleichung hier?
+A: Sie ist die „Winkel"-Ungleichung des Skalarprodukts, $|\langle f,g\rangle|\le\|f\|_2\|g\|_2$. Unter anderem zeigt sie, dass $L^2$-Konvergenz die Vertauschung mit dem Integral erlaubt, weil sie $\int|f_n-f|$ durch $\|f_n-f\|_2$ abschätzt.
+F: Warum ist $\|\cdot\|_2$ auf den $R$-integrierbaren Funktionen nur eine Halbnorm?
+A: Weil $\|f\|_2=0$ nicht $f\equiv0$ erzwingt: Eine Funktion, die nur an endlich vielen (allgemeiner: auf einer Nullmenge) Punkten von null verschieden ist, hat Integral null. Die Definitheit der Norm ist damit verletzt.
+F: Warum ist $L^2$ ein Hilbertraum und nicht nur ein Banachraum, und wozu ist das wichtig?
+A: Seine Norm stammt aus einem Skalarprodukt, nicht nur aus einer Norm. Das liefert Winkel, Orthogonalität und Projektionen — genau die Geometrie, mit der man eine Funktion in das orthogonale System $e^{ikx}$ zerlegt (Fourier-Theorie).
+:::
