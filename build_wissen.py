@@ -355,7 +355,8 @@ def render_index(tree):
                 rows.append(block(nd["children"], depth + 1) + (f'<div class="field-grid">{leaf_cards}</div>' if leaf_cards else ""))
                 rows.append("</section>")
             else:
-                hd = f'<h3>{html.escape(nd["name"])}</h3>' if depth >= 2 else f'<h4 class="lvl-h">{_node_label(nd, depth)}</h4>'
+                hd = (f'<h3 class="idx-lvl{depth}">{html.escape(nd["name"])}</h3>' if depth >= 2
+                      else f'<h4 class="lvl-h idx-lvl{depth}">{_node_label(nd, depth)}</h4>')
                 inner = block(nd["children"], depth + 1)
                 rows.append(f'<div class="idx-node">{hd}{leaf_cards}{inner}</div>' if (inner or leaf_cards) else "")
         return "".join(rows)
@@ -434,10 +435,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
 .side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
-.side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;}
+.side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
+.side .lvl2>summary{color:var(--accent2);}                /* Modul: rot */
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
-.side li a{display:block;color:var(--muted);padding:3px 7px;border-radius:7px;}
+.side li a{display:block;color:var(--accent);padding:3px 7px;border-radius:7px;}   /* Themen: blau */
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:#fff;background:var(--accent);font-weight:600;}
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
@@ -481,7 +483,8 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .toc ul{list-style:none;margin:0;padding:0;} .toc li{margin:5px 0;} .toc a{color:var(--muted);} .toc a.active{color:var(--accent);font-weight:600;}
 .field-block{margin:26px 0;} .field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
 .idx-node{margin:10px 0 10px 4px;padding-left:14px;border-left:2px solid var(--border);}
-.idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--muted);font-weight:700;letter-spacing:.01em;}
+.idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--accent3);font-weight:700;letter-spacing:.01em;}  /* Semester: orange */
+.idx-node h3.idx-lvl2{color:var(--accent2);}             /* Modul: rot (Themen-Links sind schon blau) */
 .theme-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
 .theme-card h3{font-family:var(--fdisp);margin:0 0 6px;font-size:16px;} .theme-card ul{list-style:none;margin:0;padding:0;} .theme-card li{margin:4px 0;}
 .empty{color:var(--muted);}
