@@ -138,3 +138,26 @@ Damit haben wir das **reale** Material: einen periodischen, hochreinen Einkrista
 darin brauchen wir aber noch eine zweite Beschreibung der Periodizität — nicht im Orts-, sondern im
 **Wellenzahl-Raum**. Dieses __reziproke Gitter__ und seine zentrale Zelle, die __Brillouin-Zone__, sind das Thema
 des letzten Kristallstruktur-Artikels und zugleich die Bühne der Bandstruktur.
+
+:::quiz
+F: Warum genügt das 98 %-reine metallurgische Silizium aus Stufe 1 nicht für Bauelemente?
+A: 2–4 % Fremdatome sind für die Elektronik katastrophal viel, denn schon ein Fremdatom pro Milliarde Si-Atome ändert die elektrischen Eigenschaften. Das Material muss noch um etwa den Faktor $10^9$ reiner werden.
+F: Welche Rolle spielt der Kohlenstoff bei der Reduktion $\text{SiO}_2+2\text{C}\to\text{Si}+2\text{CO}$?
+A: Der Kohlenstoff bindet den Sauerstoff aus dem $\text{SiO}_2$ (es entsteht Kohlenmonoxid) und reißt ihn so vom Silizium weg. Zurück bleibt elementares Silizium — das ist eine klassische Reduktion.
+F: Warum reinigt man Silizium über ein Gas statt den festen Brocken direkt?
+A: In einem Festkörper sitzen Verunreinigungen fest und lassen sich kaum heraustrennen. Ein Gas dagegen kann man per Destillation nach Siedepunkten sauber trennen — deshalb wandelt man das Silizium erst in eine flüchtige Verbindung um.
+F: Warum ist gerade Trichlorsilan für die Reinigung so geeignet?
+A: Sein Siedepunkt von $31{,}8\,^\circ$C unterscheidet sich deutlich von denen der Fremd-Chloride (z. B. $\text{BCl}_3$ 12 °C, $\text{AsCl}_3$ 132 °C). Durch mehrfache Destillation lässt es sich daher sauber von den Verunreinigungen abtrennen.
+F: Warum scheidet sich beim Siemens-Prozess das Silizium nur am glühenden Stab ab?
+A: Die Zersetzung $\text{SiHCl}_3+\text{H}_2\to\text{Si}+3\text{HCl}$ läuft nur bei der hohen Temperatur ($\approx1150\,^\circ$C) der Staboberfläche ab. Nur dort zerfällt das Gas und lagert reines Silizium an, während es im kühleren Raum stabil bleibt.
+F: Warum ist das Silizium nach dem Siemens-Prozess noch nicht brauchbar für Bauelemente?
+A: Es ist zwar hochrein, aber polykristallin — es besteht aus vielen kleinen, verschieden orientierten Kristalliten. Bauelemente brauchen einen einzigen, durchgehend geordneten Einkristall, den erst die Czochralski-Zucht liefert.
+F: Wie überträgt der Impfkristall seine Ordnung auf die ganze Schmelze?
+A: Taucht man den Seed in die knapp überschmelzende Masse, erstarren die Atome an seiner Berührfläche und übernehmen dabei seine Kristallorientierung. Zieht man ihn langsam heraus, wächst der Kristall an der kühleren Grenzfläche in derselben Ordnung stetig weiter.
+F: Wozu dient der dünne „Dash-Neck" beim Czochralski-Ziehen?
+A: Beim ersten Kontakt erzeugt der Thermoschock Versetzungen im Seed. Zieht man zunächst schnell einen nur ~3 mm dünnen Hals, laufen diese Versetzungen seitlich heraus; erst im versetzungsfreien Hals weitet man auf den vollen Durchmesser auf.
+F: Was ist der Segregations-Effekt, und welche Folge hat er für den Barren?
+A: Beim Erstarren nimmt das feste Silizium Fremdatome schlechter auf als die Schmelze, sodass Verunreinigungen in der Schmelze zurückbleiben und sich dort anreichern. Dadurch ist der Kristall am Seed-Ende reiner als am Fuß-Ende — er ist leicht inhomogen.
+F: Wie nutzt man das Segregationsprinzip gezielt zur Reinigung?
+A: Beim Zonenschmelzen schiebt man eine schmale geschmolzene Zone durch den Stab; die Fremdatome wandern mit der Schmelze zum Ende, weil das erstarrende Silizium sie zurückweist. So reichert man die Verunreinigungen gezielt an einem Ende an und trennt sie ab.
+:::
