@@ -114,3 +114,26 @@ Das Cavalieri-Prinzip zerlegt einen Körper in Scheiben senkrecht zu **einer** A
 wird das durch die __Normalbereiche__: Gebiete, bei denen eine Koordinate zwischen zwei Funktionen der anderen
 eingeschlossen ist. Über sie integriert man direkt per iteriertem Integral mit variablen Grenzen — das Thema des
 nächsten Artikels.
+
+:::quiz
+F: Wie integriert man eine Funktion über ein krummes Gebiet $M$, und warum funktioniert die „Fortsetzung durch null"?
+A: Man bettet $M$ in einen Quader $Q$ ein und setzt $f$ außerhalb $M$ auf $0$ ($\bar f$), dann $\int_M f:=\int_Q\bar f$. Weil $\bar f$ außerhalb $M$ verschwindet, trägt der Bereich $Q\setminus M$ nichts bei — der Quader ist nur ein bequemer Rahmen.
+F: Warum ist die fortgesetzte Funktion $\bar f$ am Rand von $M$ im Allgemeinen unstetig, und warum stört das nicht?
+A: Am Rand springt $\bar f$ vom Funktionswert auf $0$. Der Rand eines (gutartigen) Gebiets ist jedoch eine **Nullmenge** — er hat Volumen $0$ und trägt zum Integral nichts bei; die Lebesgue-Theorie sichert dadurch die Wohldefiniertheit.
+F: Warum ist $\mathrm{vol}(M)=\int_M 1\,dx$ eine sinnvolle Definition des Volumens?
+A: Integriert man die konstante Funktion $1$, summiert man gerade „Einheitsvolumen pro Punkt" über $M$ — das misst, wie groß $M$ ist. Das verallgemeinert die vertraute Idee „Fläche $=\int 1$" auf jede Dimension (beim Quader kommt das Produkt der Kantenlängen heraus).
+F: Was besagt das Cavalieri-Prinzip, und wie entsteht das Integral $\int_0^H A(z)\,dz$ aus Scheiben?
+A: Das Volumen ist das Integral der Querschnittsflächen: $\mathrm{vol}(K)=\int_0^H A(z)\,dz$. Man zerlegt den Körper in dünne Scheiben der Dicke $h$ mit Volumen $\approx A(z_k)h$; die Summe $h\sum A(z_k)$ ist eine Riemann-Summe, die für $h\to0$ gegen das Integral strebt.
+F: Was ist die ursprüngliche (geometrische) Aussage Cavalieris?
+A: Zwei Körper, die in **jeder** Höhe dieselbe Querschnittsfläche haben, besitzen dasselbe Volumen — ganz gleich, wie „schief" oder verschoben sie aussehen. Nur die Flächenfunktion $A(z)$ zählt, nicht die Form der Scheiben.
+F: Warum ist beim Kegel $A(z)=\pi(zR/H)^2$, und wie folgt daraus $\frac{\pi}{3}R^2H$?
+A: Auf die Spitze gestellt wächst der Radius linear mit der Höhe, $r(z)=zR/H$, also $A(z)=\pi r(z)^2=\pi\frac{R^2}{H^2}z^2$. Integration liefert $\int_0^H$ von $z^2$ gleich $H^3/3$, also $\mathrm{vol}=\pi\frac{R^2}{H^2}\cdot\frac{H^3}{3}=\frac{\pi}{3}R^2H$.
+F: Warum hat der Kugelquerschnitt in Höhe $z$ die Fläche $A(z)=\pi(R^2-z^2)$?
+A: Der Schnitt einer Kugel vom Radius $R$ in Höhe $z$ ist ein Kreis; sein Radius ist nach Pythagoras $\sqrt{R^2-z^2}$. Also $A(z)=\pi(\sqrt{R^2-z^2})^2=\pi(R^2-z^2)$ — null an den Polen ($z=\pm R$), maximal am Äquator.
+F: Inwiefern ist das Cavalieri-Prinzip nur ein Spezialfall des Satzes von Fubini?
+A: Das Volumenintegral $\int_K 1\,dV$ ist ein Dreifachintegral. Integriert man nach Fubini zuerst über den Querschnitt $(x,y)\in D(z)$, erhält man $\int_{D(z)}1\,dx\,dy=A(z)$, und das äußere Integral über $z$ ergibt $\int_0^H A(z)\,dz$ — genau Cavalieri.
+F: Warum rechnet man in der Praxis selten direkt mit der „Fortsetzung durch null"?
+A: Die unstetige Fortsetzung ist zum konkreten Ausrechnen unhandlich. Praktisch zerlegt man das Gebiet in **Normalbereiche** (variable Integrationsgrenzen) oder nutzt **Koordinatentransformationen** — beides vermeidet den springenden Rand.
+F: Welche Rolle spielt die Stetigkeit der Querschnittsfläche $A(z)$ für das Cavalieri-Integral?
+A: Sie sichert, dass $A$ Riemann-integrierbar ist, sodass die Scheiben-Riemann-Summe $h\sum A(z_k)$ unabhängig von den Zwischenstellen gegen $\int_0^H A(z)\,dz$ konvergiert. Ohne eine solche Regularität wäre der Grenzwert nicht garantiert.
+:::
