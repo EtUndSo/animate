@@ -120,3 +120,26 @@ radial $f''+\frac2r f'$ (Coulomb $\tfrac1r$ harmonisch).
 Damit ist das Rechen-Handwerkszeug (Transformationen, Volumina, Potentiale, krummlinige Operatoren) komplett. Zum
 Schluss der Vektoranalysis kommen die großen __Integralsätze im Raum__ — der Satz von Stokes über Flächen und der
 Satz von Gauß für Volumina —, die Rand und Inneres im Dreidimensionalen verbinden. Das ist das nächste Kapitel.
+
+:::quiz
+F: Was ist ein Maßfaktor $h_u$, und warum braucht man ihn überhaupt?
+A: Der Maßfaktor $h_u=|\partial\Phi/\partial u|$ ist die Länge des natürlichen Koordinatenvektorfelds, also der Umrechnungsfaktor zwischen einem Koordinatenschritt $du$ und der echten zurückgelegten Strecke $h_u\,du$. Man braucht ihn, weil z. B. ein Winkelschritt $d\varphi$ je nach Radius eine ganz andere Länge bedeutet.
+F: Warum drehen sich die Basisvektoren $\hat e_u$ in krummlinigen Koordinaten mit, anders als in kartesischen?
+A: Die Basisvektoren zeigen tangential zu den Koordinatenlinien; diese sind krumm (Kreise, Strahlen), also ändert sich ihre Tangentenrichtung von Punkt zu Punkt. In kartesischen Koordinaten sind die Linien gerade und parallel, daher bleibt die Basis dort überall gleich.
+F: Warum ist $h_\varphi=r$ in Polarkoordinaten, aber $h_r=1$?
+A: Ein Schritt $dr$ in radialer Richtung ist eine echte Länge von genau $dr$ (Faktor $1$). Ein Winkelschritt $d\varphi$ dagegen überstreicht den Bogen $r\,d\varphi$, dessen Länge mit dem Radius wächst — also $h_\varphi=r$.
+F: Wie hängt das Produkt der Maßfaktoren mit der Jacobi-Determinante zusammen?
+A: In orthogonalen Koordinaten ist $\det D\Phi=h_u h_v h_w$, denn das Volumenelement ist ein Quader mit Kantenlängen $h_u\,du$, $h_v\,dv$, $h_w\,dw$. Für die Kugel ergibt das $1\cdot r\cdot r\sin\vartheta=r^2\sin\vartheta$ — genau der Volumenfaktor aus dem Transformationssatz.
+F: Warum taucht im Gradienten überall ein Faktor $1/h_u$ auf?
+A: Der Gradient misst die Änderung pro echter Länge, nicht pro Koordinate. Eine Koordinatenänderung $du$ entspricht aber der Länge $h_u\,du$, also muss man die Ableitung $\partial f/\partial u$ durch $h_u$ teilen, um eine Änderungsrate pro Länge zu bekommen.
+F: Woher kommt der Zusatzterm $\frac1r E_r$ in der Zylinder-Divergenz?
+A: Beim Ableiten von $F=F_r\hat e_r+\dots$ werden auch die mitdrehenden Basisvektoren abgeleitet, z. B. $\partial_\varphi\hat e_r=\hat e_\varphi$. Diese Ableitungen der Basis erzeugen die „Zusatzterme" — sie sind also keine Willkür, sondern Folge der rotierenden Basis.
+F: Warum vereinfacht sich der Kugel-Laplace für eine radialsymmetrische Funktion $f=f(r)$ zu $f''+\frac2r f'$?
+A: Hängt $f$ nur von $r$ ab, verschwinden alle $\vartheta$- und $\varphi$-Ableitungen, und es bleibt nur der Radialterm $\frac1{r^2}(r^2 f')'$. Ausdifferenziert ist das $f''+\frac2r f'$ — der Term $\frac2r f'$ stammt aus der Produktregel an $r^2$.
+F: Wie zeigt man mit dem radialen Laplace schnell, dass das Coulomb-Potential $1/r$ harmonisch ist?
+A: Mit $f=1/r$ ist $f'=-1/r^2$, also $r^2 f'=-1$, eine Konstante. Deren Ableitung ist null, daher $\Delta f=\frac1{r^2}\cdot0=0$ für $r\ne0$. Das Coulomb-Potential ist also außerhalb des Ursprungs harmonisch.
+F: Warum gelten die angegebenen einfachen Formeln nur für orthogonale Koordinaten?
+A: Die Zerlegung $F=\sum F_i\hat e_i$ mit $F_i=F\cdot\hat e_i$ und die kompakten Operator-Formeln setzen voraus, dass das Dreibein in jedem Punkt orthonormal ist. Bei schiefwinkligen Koordinaten mischen sich die Komponenten, und man braucht den allgemeineren Metrik-Tensor.
+F: Was bedeutet es anschaulich, dass der Breitenkreis-Maßfaktor $h_\varphi=r\sin\vartheta$ an den Polen null wird?
+A: An den Polen ($\vartheta=0,\pi$) schrumpft der Breitenkreis auf einen Punkt, ein Azimutschritt $d\varphi$ bewegt also fast nichts — der Maßfaktor geht gegen null. Das ist dieselbe Entartung, die $\Phi$ dort nicht-bijektiv macht und den $\sin\vartheta$-Faktor im Volumenelement erklärt.
+:::
