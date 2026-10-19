@@ -175,3 +175,26 @@ Bisher waren unsere Potentiale **kastenförmig** — mit ebenem Boden und senkre
 das ein Elektron im Atom fühlt, ist aber kein Kasten, sondern der **trichterförmige** Coulomb-Topf des Kerns. Löst
 man die Schrödinger-Gleichung für dieses Potential, bekommt man die __Atomorbitale__ — das Thema des nächsten
 Abschnitts.
+
+:::quiz
+F: Was ändert sich grundlegend, wenn die Wände der Box nicht mehr unendlich, sondern endlich hoch sind?
+A: Die Welle ist an der Wand nicht mehr exakt null, sondern leckt wie beim Tunneleffekt exponentiell in die Wand hinein. Das verschiebt die Energien, begrenzt die Zahl der Zustände und macht eine saubere Formel unmöglich.
+F: Warum gibt es innen und außen zwei verschiedene Sorten von Lösungen?
+A: Innen ist $E>V$, die Schrödinger-Gleichung ist die oszillierende Sorte ($\sin$/$\cos$ mit $k=\sqrt{2mE}/\hbar$). Außen ist $E<V_0$, also die „verbotene" Sorte mit exponentiellem Abklingen ($\kappa=\sqrt{2m(V_0-E)}/\hbar$) — das Vorzeichen in der Gleichung entscheidet über oszillierend vs. abklingend.
+F: Warum müssen die Lösungen entweder gerade oder ungerade sein?
+A: Weil der Topf symmetrisch liegt ($V(-x)=V(x)$), muss $|\psi|^2$ symmetrisch sein — links kann das Elektron nicht anders sein als rechts. Daraus folgt, dass $\psi$ selbst spiegelsymmetrisch (gerade, $\cos$) oder punktsymmetrisch (ungerade, $\sin$) ist.
+F: Welche Vereinfachung bringt die Aufteilung in gerade und ungerade Zustände?
+A: Statt an beiden Wänden getrennt rechnen zu müssen, genügt eine Wand — die andere Seite ergibt sich aus der Symmetrie. Man behandelt gerade und ungerade Lösungen getrennt und halbiert so den Aufwand.
+F: Welche zwei Bedingungen müssen an der Wand erfüllt sein, und warum?
+A: Die Wellenfunktion $\psi$ muss stetig sein (kein Sprung) und ihre Steigung $\psi'$ ebenfalls (kein Knick). Beides verlangt die Schrödinger-Gleichung, denn ein Knick in $\psi$ entspräche einer unendlichen zweiten Ableitung und damit unendlicher kinetischer Energie.
+F: Warum gibt es keine geschlossene Energieformel mehr wie $E_n=n^2h^2/(8mL^2)$?
+A: Die Anschlussbedingung $k\tan(kL/2)=\kappa$ enthält die Unbekannte $E$ sowohl im Tangens-Argument als auch außerhalb (über $k$ und $\kappa$). Eine solche transzendente Gleichung lässt sich nicht nach $E$ auflösen — die Energien bestimmt man grafisch oder numerisch.
+F: Wie liest man die Zustände aus dem $u$-$v$-Diagramm ab?
+A: Mit $u=kL/2$, $v=\kappa L/2$ gilt $u^2+v^2=z_0^2$ (ein Viertelkreis mit Radius $z_0$). Die Anschlussbedingungen werden zu Tangens- bzw. Cotangens-Ästen; jeder Schnittpunkt von Kreis und Ast ist ein erlaubter gebundener Zustand.
+F: Warum gibt es nur endlich viele gebundene Zustände?
+A: Der Viertelkreis hat den endlichen Radius $z_0=\frac{L}{2}\sqrt{2mV_0}/\hbar$ und kann die Kurvenäste nur endlich oft schneiden. Ihre Zahl wächst mit $z_0$, also mit Breite mal Wurzel der Tiefe — anders als die unendliche Leiter der unendlichen Box.
+F: Warum existiert immer mindestens ein gebundener Zustand, egal wie flach der Topf ist?
+A: Der erste Tangens-Ast beginnt im Ursprung, und der Viertelkreis liegt im Bereich $u\ge0$ — sie schneiden sich stets, auch bei winzigem $z_0$. Schon der flachste Topf hält daher mindestens einen (geraden) Zustand fest.
+F: Warum liegen die Energien tiefer als in der unendlichen Box, und wie erhält man diese als Grenzfall zurück?
+A: Weil die Welle in die Wände hineinleckt, passt sie effektiv in eine etwas breitere Box, und wegen $E\propto1/L^2$ bedeutet breiter niedrigere Energie. Für $V_0\to\infty$ geht $\kappa\to\infty$ (kein Hineinlecken), $z_0\to\infty$, die Schnittpunkte rücken auf $kL=n\pi$ — man erhält $E_n=n^2h^2/(8mL^2)$ zurück.
+:::
