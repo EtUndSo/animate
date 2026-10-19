@@ -124,3 +124,26 @@ Beispiele: Kugel $d\sigma=R^2\sin\vartheta\,d\vartheta\,d\varphi$ ($A=4\pi R^2$)
 Mit dem Oberflächenintegral können wir **Flüsse** von Vektorfeldern durch Flächen messen — und damit die großen
 räumlichen Integralsätze formulieren. Der erste ist der __Satz von Stokes im Raum__, der die Zirkulation längs der
 Randkurve einer Fläche mit dem Rotationsfluss durch die Fläche verbindet: das Thema des nächsten Artikels.
+
+:::quiz
+F: Warum braucht man für eine gekrümmte Fläche überhaupt ein eigenes „Flächenelement" $d\sigma$ und nicht einfach $du\,dv$?
+A: Weil die Parametrisierung ein ebenes Kästchen $du\times dv$ auf ein verzerrtes Parallelogramm auf der Fläche abbildet, dessen echte Fläche größer oder kleiner ist. $d\sigma$ ist der lokale Streckfaktor, der jedes Parameterkästchen auf seinen tatsächlichen Flächeninhalt umrechnet.
+F: Was bedeutet die Regularitätsbedingung $\partial_u x\times\partial_v x\ne0$ anschaulich?
+A: Sie garantiert, dass die beiden Tangentenvektoren linear unabhängig sind, also wirklich eine Ebene (die Tangentialebene) aufspannen. Verschwindet das Kreuzprodukt, fallen die Tangenten zusammen oder einer wird null — die Fläche entartet zu einer Spitze oder Kante.
+F: Warum ist das Oberflächenelement gerade der Betrag des Kreuzprodukts $|\partial_u x\times\partial_v x|$?
+A: Der Betrag eines Kreuzprodukts zweier Vektoren ist genau die Fläche des von ihnen aufgespannten Parallelogramms. Die Kanten des Bildkästchens sind $\partial_u x\,du$ und $\partial_v x\,dv$, also ist dessen Fläche $|\partial_u x\times\partial_v x|\,du\,dv$.
+F: Wie hängen die metrischen Koeffizienten $E,F,G$ mit dem Kreuzprodukt zusammen, und warum?
+A: Es gilt $\sqrt{EG-F^2}=|\partial_u x\times\partial_v x|$ (Lagrange-Identität). $EG$ ist das Produkt der Kantenlängen-Quadrate, und $F^2$ zieht den Anteil ab, der auf den Winkel zwischen den Tangenten (die Scherung) entfällt — übrig bleibt die reine Parallelogrammfläche.
+F: Welche Rolle spielt $F=\partial_u x\cdot\partial_v x$ geometrisch?
+A: $F$ misst, wie schief die beiden Tangentenrichtungen zueinander stehen (ihr Skalarprodukt). Bei orthogonalen Koordinatenlinien ist $F=0$, und das Flächenelement vereinfacht sich zu $\sqrt{EG}$; $F\ne0$ bedeutet, die Parameterlinien schneiden sich schräg.
+F: Warum ist das Oberflächenintegral unabhängig von der gewählten Parametrisierung?
+A: Bei einem Parameterwechsel $\Psi$ transformiert sich $\sqrt{\det g}$ gerade mit $|\det D\Psi|$, und dieser Faktor wird vom Transformationssatz für das $du\,dv$-Integral exakt kompensiert. Übrig bleibt derselbe Wert — das Integral ist eine echte geometrische Größe der Fläche.
+F: Warum schrumpfen die Flächenmaschen der Kugel zu den Polen hin, und wie zeigt sich das im $d\sigma$?
+A: Das Oberflächenelement der Kugel ist $R^2\sin\vartheta\,d\vartheta\,d\varphi$; der Faktor $\sin\vartheta$ geht an den Polen ($\vartheta=0,\pi$) gegen null. Das spiegelt, dass die Breitenkreise zu den Polen hin zusammenlaufen, ein Azimutschritt $d\varphi$ dort also kaum Fläche überstreicht.
+F: Warum ist das Graphen-Flächenelement $\sqrt{1+|\nabla H|^2}\,dx\,dy$ immer mindestens so groß wie $dx\,dy$?
+A: Der Graph liegt über dem Grundriss-Kästchen geneigt; je steiler (größer $|\nabla H|$), desto mehr geneigte Fläche steckt über derselben Grundfläche. Da $|\nabla H|^2\ge0$, ist der Faktor $\sqrt{1+|\nabla H|^2}\ge1$ — bei waagerechtem Graphen ($\nabla H=0$) genau $1$.
+F: Wie berechnet man die Kugeloberfläche $4\pi R^2$ aus dem Oberflächenintegral?
+A: Mit $f\equiv1$ und $d\sigma=R^2\sin\vartheta\,d\vartheta\,d\varphi$ separiert das Integral: $R^2\int_0^{2\pi}d\varphi\int_0^\pi\sin\vartheta\,d\vartheta=R^2\cdot2\pi\cdot2=4\pi R^2$. Das Radialintegral entfällt, weil der Radius auf $R$ festgehalten ist.
+F: Wie geht man mit geschlossenen Flächen (Kugel, Quaderrand) um, obwohl eine einzige Parametrisierung dort nicht injektiv sein kann?
+A: Man zerlegt die geschlossene Fläche in endlich viele reguläre Flächenstücke, integriert über jedes einzeln und summiert. So umgeht man das „Injektivitätsdilemma", denn jedes Teilstück besitzt eine saubere injektive Parametrisierung.
+:::
