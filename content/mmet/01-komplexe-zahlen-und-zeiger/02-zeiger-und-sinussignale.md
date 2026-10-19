@@ -2,115 +2,236 @@
 title: Zeiger (Phasoren) und Sinussignale
 pfad: Elektrotechnik / 1. Semester / Mathematische Methoden der Elektrotechnik / Komplexe Zahlen und Zeiger
 order: 10200
-summary: Warum ein Sinussignal nichts anderes ist als der Schatten eines rotierenden Zeigers – und wie man mit diesem Phasor das lästige Rechnen mit Sinus und Kosinus in einfache Addition komplexer Zahlen verwandelt.
-tags: Sinussignal, Amplitude, Kreisfrequenz, Phase, Phasor, Zeiger, komplexe Amplitude, Zeigeraddition
+summary: Von Grund auf – was ein Sinussignal ist und warum es überall auftaucht, warum das Rechnen mit Sinus und Kosinus direkt so mühsam ist, und wie der rotierende Zeiger (Phasor) daraus einfache Addition und Multiplikation macht. Jeder Schritt wird hergeleitet.
+tags: Sinussignal, Amplitude, Kreisfrequenz, Phase, Phasor, Zeiger, komplexe Amplitude, Zeigeraddition, Ableitung
 ---
 
-:::konzept
-Ein Sinussignal ist der **Schatten eines rotierenden Zeigers**. Stell dir einen Pfeil der Länge $A$ vor, der
-sich mit konstanter Geschwindigkeit in der komplexen Ebene dreht. Projiziert man seine Spitze auf die reelle
-Achse, wandert dieser Schatten als Kosinuskurve auf und ab. Hält man die Zeit an, ist der Pfeil eine komplexe
-Zahl — der **Phasor**. Der ganze Gewinn: Das umständliche Rechnen mit Sinus und Kosinus wird zum einfachen
-Addieren von Pfeilen.
+:::grafik
+Einstiegs-Animation: Links dreht sich ein Pfeil (Länge $A$) gleichmäßig in der komplexen Ebene gegen den
+Uhrzeigersinn. Rechts, direkt daneben über eine gemeinsame waagerechte Zeitachse gekoppelt, zeichnet die
+Projektion der Pfeilspitze auf die reelle Achse eine Kosinuskurve. Eine wandernde Verbindungslinie zeigt in
+jedem Moment: Höhe der Kurve = waagerechter Schatten des Pfeils. Kernbotschaft des Bildes: **Ein Sinussignal ist
+der Schatten eines rotierenden Zeigers.**
 :::
 
-**Worum es geht:** Komplexe Zahlen (voriger Abschnitt) treffen auf Schwingungen. Wir beschreiben das
-__Sinussignal__ durch seine drei Kenngrößen, fassen es als __Zeiger__ (Phasor) zusammen und sehen, warum sich
-gleichfrequente Signale dann durch bloße __Zeigeraddition__ überlagern lassen.
+:::konzept
+Ein Sinussignal sieht aus wie eine endlos auf- und abschwingende Welle — aber dahinter steckt etwas viel
+Einfacheres: ein Pfeil, der sich im Kreis dreht. Schaut man nur auf seinen **Schatten** an einer Wand, wandert
+der genau als Sinuskurve auf und ab. Diese Sichtweise ist kein hübsches Beiwerk, sondern der entscheidende
+Trick der ganzen Wechselstrom- und Signaltechnik: Weil wir im vorigen Abschnitt gelernt haben, dass sich
+drehende Pfeile komplexe Zahlen sind, wird aus mühsamer Rechnerei mit Sinus und Kosinus plötzlich einfaches
+Rechnen mit komplexen Zahlen — Addieren wird zum Aneinanderlegen von Pfeilen.
+:::
 
-## Das Sinussignal und seine drei Parameter
+**Worum es geht:** Komplexe Zahlen sind das Werkzeug (voriger Abschnitt), jetzt kommt die Anwendung. Wir klären
+von Grund auf, was ein __Sinussignal__ ist, sehen, *warum* das direkte Rechnen damit so sperrig ist, und
+entwickeln daraus den __Zeiger__ (Phasor), der alles einfach macht.
 
-Ein harmonisches Signal schreibt man in der Signalverarbeitung meist als Kosinus:
+## Was ist ein Sinussignal — und warum ist es so wichtig?
+
+Ein __Sinussignal__ (oder harmonisches Signal) ist eine Größe, die gleichmäßig zwischen einem Höchst- und einem
+Tiefstwert hin- und herschwingt. In der Signalverarbeitung schreibt man es als Kosinus:
 
 $$x(t) = A\,\cos(\omega t + \varphi).$$
 
-- __$A$__: die __Amplitude__ — der Maximalausschlag des Signals.
-- __$\omega$__: die __Kreisfrequenz__ in $\text{rad}/\text{s}$, also wie schnell die Schwingung abläuft.
-- __$\varphi$__: die __Nullphase__ — der Winkel zum Zeitpunkt $t = 0$, also die „Verschiebung" der Kurve.
+Bevor wir die drei Buchstaben einzeln ansehen, die Frage: Warum ausgerechnet diese Kurve, und warum beschäftigt
+sich ein ganzes Fach damit? Dafür gibt es zwei tiefe Gründe:
 
-Die Kreisfrequenz hängt mit der gewohnten __Frequenz__ $f$ (in Hertz) und der __Periodendauer__ $T$ zusammen
-über
+- **Sinusschwingungen sind überall.** Die Netzspannung aus der Steckdose, ein reiner Ton, die Pendelbewegung,
+  Licht- und Funkwellen — alle sind sinusförmig.
+- **Alle Signale bestehen aus ihnen.** Jedes noch so komplizierte periodische Signal lässt sich als Summe von
+  Sinusschwingungen schreiben (die Fourier-Idee, die später kommt). Wer die Sinusschwingung beherrscht,
+  beherrscht im Grunde alle Signale.
 
-$$\omega = 2\pi f = \frac{2\pi}{T}.$$
+Deshalb lohnt sich der Aufwand, sie von Grund auf zu verstehen. Die drei Kenngrößen lassen sich direkt an der
+Kurve ablesen:
 
-Drei Zahlen — Amplitude, Frequenz, Phase — legen die Schwingung also vollständig fest.
+- __$A$__: die __Amplitude__ — der maximale Ausschlag, also wie **hoch** die Welle schwingt.
+- __$\omega$__: die __Kreisfrequenz__ — wie **schnell** sie schwingt (Einheit $\text{rad}/\text{s}$).
+- __$\varphi$__: die __Nullphase__ — wie weit die Kurve **verschoben** ist, also wo sie bei $t=0$ gerade steht.
 
 :::grafik
-Eine Kosinuskurve über der Zeit mit markierter Amplitude $A$ (Höhe), Periodendauer $T$ (Abstand zweier Maxima)
-und der Phasenverschiebung $\varphi$ (horizontale Verschiebung des ersten Maximums gegenüber $t = 0$).
+Eine Kosinuskurve $x(t)$ über der Zeit, vollständig beschriftet: die Amplitude $A$ als Höhe vom Mittelwert bis
+zum Maximum; die Periodendauer $T$ als waagerechter Abstand zweier aufeinanderfolgender Maxima; die
+Phasenverschiebung als horizontaler Versatz des ersten Maximums gegenüber $t=0$ (bei $\varphi>0$ nach links).
 :::
+
+## Woher die Kreisfrequenz kommt: ω = 2πf
+
+Die Kreisfrequenz $\omega$ wirkt zunächst künstlich — warum nicht einfach die gewohnte __Frequenz__ $f$ (Anzahl
+der Schwingungen pro Sekunde, in Hertz)? Der Zusammenhang lässt sich herleiten, und dann wird $\omega$
+natürlich. Eine volle Schwingung ist einmal rund um den Kreis, und das entspricht einem Winkel von $2\pi$ (dem
+vollen Vollkreis im Bogenmaß). Dieser volle Durchlauf dauert genau eine __Periodendauer__ $T$. Das Argument des
+Kosinus, $\omega t$, muss in dieser Zeit also um genau $2\pi$ zunehmen:
+
+$$\omega\,T = 2\pi \quad\Longrightarrow\quad \omega = \frac{2\pi}{T} = 2\pi f.$$
+
+- __$\omega$__: die __Kreisfrequenz__ (Winkelzuwachs pro Sekunde).
+- __$T$__: die __Periodendauer__ (Dauer einer vollen Schwingung); $f = 1/T$ ist die __Frequenz__.
+
+$\omega$ ist also nichts anderes als „wie viel Winkel pro Sekunde" — und genau das passt zum Bild des
+rotierenden Pfeils, der pro Sekunde um $\omega$ weiterdreht. Der Faktor $2\pi$ ist nur die Umrechnung von „volle
+Umläufe" in „Bogenmaß".
+
+:::grafik
+Links ein Kreis, auf dem ein Punkt in der Zeit $T$ einmal ganz herumläuft (Winkel $2\pi$). Rechts die zugehörige
+Kosinuskurve mit derselben Periodendauer $T$. Pfeile verdeutlichen: ein voller Umlauf ($2\pi$) entspricht einer
+Periode ($T$), daher $\omega = 2\pi/T$.
+:::
+
+## Warum nicht direkt rechnen? Das Problem mit Sinus und Kosinus
+
+Jetzt die entscheidende Motivation. In Schaltungen muss man Sinussignale ständig **addieren** — etwa wenn zwei
+Wechselspannungen gleicher Frequenz zusammenkommen. Versuchen wir das ganz direkt, nur mit Trigonometrie. Mit
+dem Additionstheorem $\cos(\omega t + \varphi) = \cos\omega t\,\cos\varphi - \sin\omega t\,\sin\varphi$ wird aus
+jedem Summanden eine Mischung aus $\cos\omega t$ und $\sin\omega t$. Für die Summe zweier Signale gleicher
+Frequenz:
+
+$$A_1\cos(\omega t + \varphi_1) + A_2\cos(\omega t + \varphi_2) = \underbrace{(A_1\cos\varphi_1 + A_2\cos\varphi_2)}_{=\,C}\,\cos\omega t \;-\; \underbrace{(A_1\sin\varphi_1 + A_2\sin\varphi_2)}_{=\,S}\,\sin\omega t.$$
+
+Das Ergebnis, $C\cos\omega t - S\sin\omega t$, soll am Ende wieder ein **einziges** Kosinussignal
+$A\cos(\omega t + \varphi)$ sein. Vergleicht man es mit $A\cos(\omega t+\varphi) = A\cos\varphi\,\cos\omega t -
+A\sin\varphi\,\sin\omega t$, muss $A\cos\varphi = C$ und $A\sin\varphi = S$ gelten — woraus man
+$A = \sqrt{C^2 + S^2}$ und $\varphi = \operatorname{atan2}(S, C)$ zurückrechnet.
+
+Das funktioniert, verlangt aber für eine simple Addition drei umständliche Arbeitsschritte:
+
+1. **Zerlegen** — jedes Signal mit dem Additionstheorem in einen $\cos\omega t$- und einen $\sin\omega t$-Anteil
+   aufspalten.
+2. **Sammeln** — alle $\cos\omega t$-Anteile zu $C$ und alle $\sin\omega t$-Anteile zu $S$ zusammenfassen.
+3. **Zusammenbauen** — aus $C$ und $S$ wieder Amplitude und Phase des einen Kosinus zurückrechnen.
+
+Bei drei oder mehr Signalen wird das noch zäher. Genau hier setzt die bessere Idee an. Ein Hinweis, der gleich
+wichtig wird: Die Hilfsgrößen $C$ und $S$ sehen verdächtig aus wie Real- und Imaginärteil *einer komplexen Zahl*.
 
 ## Der Zeiger (Phasor)
 
-Bei festem $\omega$ unterscheiden sich zwei Signale nur noch in **Amplitude** und **Phase**. Genau diese beiden
-Angaben stecken in einer einzigen komplexen Zahl, dem __Phasor__ (oder __komplexen Amplitude__):
+Erinnern wir uns an die Eulersche Formel aus dem vorigen Abschnitt: $\cos\alpha = \operatorname{Re}\{e^{j\alpha}\}$,
+der Kosinus ist der Realteil eines rotierenden Einheitszeigers. Damit schreiben wir das Sinussignal um:
+
+$$x(t) = A\cos(\omega t + \varphi) = \operatorname{Re}\!\left\{A\,e^{\,j(\omega t + \varphi)}\right\} = \operatorname{Re}\!\left\{\underbrace{A\,e^{\,j\varphi}}_{=\,\underline{X}}\;e^{\,j\omega t}\right\}.$$
+
+Im letzten Schritt haben wir nur $e^{j(\omega t + \varphi)} = e^{j\varphi}\cdot e^{j\omega t}$ benutzt (Exponenten
+addieren sich) und den Teil, der die Zeit enthält, abgespalten. Übrig bleibt vorne eine feste komplexe Zahl, der
+__Zeiger__ oder __Phasor__:
 
 $$\underline{X} = A\,e^{\,j\varphi}.$$
 
-- __$\underline{X}$__: der __Phasor__ — ein ruhender Zeiger mit Länge $A$ und Winkel $\varphi$.
+- __$\underline{X}$__: der __Phasor__ (komplexe Amplitude) — ein ruhender Zeiger der Länge $A$ unter dem Winkel
+  $\varphi$.
 - __$A$__: die __Amplitude__ (Betrag des Zeigers).
 - __$\varphi$__: die __Nullphase__ (Winkel des Zeigers).
 
-Die Frequenz $\omega$ taucht im Phasor **nicht** auf — sie wird ausgeklammert, weil in einer Schaltung ohnehin
-alle Signale dieselbe Frequenz haben und diese konstant bleibt. Der Phasor speichert also nur das, was sich von
-Signal zu Signal unterscheidet: wie groß und wie verschoben.
-
-## Der rotierende Zeiger
-
-Die Zeit kommt über einen rotierenden Faktor wieder ins Spiel. Multipliziert man den Phasor mit $e^{j\omega t}$,
-dreht sich der Zeiger mit der Kreisfrequenz $\omega$ gegen den Uhrzeigersinn. Das ursprüngliche reelle Signal ist
-dann genau der **Realteil** (die Projektion auf die reelle Achse):
-
-$$x(t) = \operatorname{Re}\!\left\{\underline{X}\,e^{\,j\omega t}\right\} = \operatorname{Re}\!\left\{A\,e^{\,j(\omega t + \varphi)}\right\} = A\cos(\omega t + \varphi).$$
-
-Die letzte Gleichheit ist direkt die Eulersche Formel: Der Realteil von $A\,e^{j(\omega t+\varphi)}$ ist
-$A\cos(\omega t+\varphi)$. Anschaulich: Der rotierende Zeiger ist das „volle" komplexe Signal, das reelle
-Sinussignal sein Schatten auf der reellen Achse.
-
-**Anders betrachtet.** Man kann das Signal auch als Summe **zweier** gegenläufig rotierender Zeiger sehen, denn
-nach der umgekehrten Eulerschen Formel ist $\cos\theta = \tfrac{1}{2}(e^{j\theta} + e^{-j\theta})$. Diese
-Zerlegung in eine positive und eine negative Frequenz ist später der Schlüssel zum **Spektrum**.
+Der entscheidende Gedanke: Der Faktor $e^{j\omega t}$ ist für **alle** Signale derselben Frequenz **gleich** —
+er beschreibt nur das gemeinsame Mitdrehen. Alles, was ein Signal von einem anderen unterscheidet, steckt in $A$
+und $\varphi$, also im Phasor $\underline{X}$. Deshalb klammert man $e^{j\omega t}$ aus und rechnet nur noch mit
+den Phasoren. Man ist von der zeitabhängigen Funktion zu **einer komplexen Zahl** übergegangen.
 
 :::grafik
-Links die komplexe Ebene mit dem rotierenden Zeiger $\underline{X}e^{j\omega t}$ (Drehrichtung gegen den
-Uhrzeigersinn, Winkelgeschwindigkeit $\omega$). Rechts, zeitlich daneben aufgetragen, die Projektion seiner
-Spitze auf die reelle Achse, die als Kosinuskurve $x(t)$ mitwandert — eine Momentlinie verbindet Zeigerspitze
-und Kurvenpunkt. (Animation: Zeiger dreht, Kurve entsteht.)
+In der komplexen Ebene ein ruhender Pfeil $\underline{X} = A\,e^{j\varphi}$: Länge $A$, Winkel $\varphi$ zur
+reellen Achse. Daneben die Notiz, dass hier die Zeit (der Faktor $e^{j\omega t}$) bewusst „geparkt" ist — der
+Phasor speichert nur Amplitude und Phase.
 :::
 
-## Summe gleichfrequenter Signale = Zeigeraddition
+## Der rotierende Zeiger und sein Schatten
 
-Hier zahlt sich alles aus. Addiert man mehrere Sinussignale **gleicher Frequenz**, ist das Ergebnis wieder ein
-Sinussignal derselben Frequenz — und seinen Phasor bekommt man durch einfache **Addition der Einzelphasoren**:
+Die Zeit kommt zurück, sobald man den Phasor mit $e^{j\omega t}$ multipliziert: Nach der Multiplikationsregel
+aus dem vorigen Abschnitt dreht das den Pfeil fortlaufend um den Winkel $\omega t$, der mit der Zeit wächst —
+der Zeiger **rotiert** mit der Kreisfrequenz $\omega$ gegen den Uhrzeigersinn. Das tatsächliche, reelle Signal
+ist der **Realteil** davon, also die Projektion der rotierenden Pfeilspitze auf die reelle Achse:
+
+$$x(t) = \operatorname{Re}\!\left\{\underline{X}\,e^{\,j\omega t}\right\}.$$
+
+Das ist genau die Einstiegs-Animation: Der volle, rotierende komplexe Zeiger ist das „ganze" Signal, die reelle
+Kosinuskurve nur sein Schatten auf der reellen Achse.
+
+**Zweite Sichtweise: zwei gegenläufige Zeiger.** Man kann denselben Kosinus auch als Summe **zweier**
+gegenläufig rotierender Zeiger sehen. Aus der umgekehrten Eulerschen Formel folgt nämlich
+$\cos\alpha = \tfrac{1}{2}(e^{j\alpha} + e^{-j\alpha})$, also
+
+$$A\cos(\omega t + \varphi) = \tfrac{1}{2}\underline{X}\,e^{\,j\omega t} + \tfrac{1}{2}\underline{X}^{*}\,e^{-j\omega t}.$$
+
+Ein Zeiger dreht gegen den Uhrzeigersinn, der andere (mit der konjugierten Amplitude $\underline{X}^*$) im
+Uhrzeigersinn; ihre Imaginärteile heben sich in jedem Moment auf, sodass die Summe stets reell bleibt. Diese
+Zerlegung in eine „positive" und eine „negative" Drehrichtung ist später der Schlüssel zum **Spektrum** mit
+seinen positiven und negativen Frequenzen.
+
+:::grafik
+Animation mit zwei Teilbildern. Oben: ein einzelner Zeiger $\underline{X}e^{j\omega t}$ rotiert, seine
+Projektion zeichnet die Kosinuskurve. Unten: zwei gegenläufig rotierende Zeiger ($\tfrac12\underline{X}e^{j\omega t}$
+gegen den Uhrzeigersinn, $\tfrac12\underline{X}^*e^{-j\omega t}$ im Uhrzeigersinn); ihre Summe bleibt in jedem
+Moment auf der reellen Achse und ergibt dieselbe Kosinuskurve.
+:::
+
+## Der Lohn: Addition wird zur Zeigeraddition
+
+Jetzt lösen wir das Additionsproblem von oben noch einmal — mit Phasoren. Weil jedes Signal der Realteil seines
+rotierenden Zeigers ist und der Realteil eine **lineare** Operation ist (man darf die Summe zweier Realteile als
+Realteil der Summe schreiben), gilt:
+
+$$x_1(t) + x_2(t) = \operatorname{Re}\{\underline{X}_1 e^{j\omega t}\} + \operatorname{Re}\{\underline{X}_2 e^{j\omega t}\} = \operatorname{Re}\{(\underline{X}_1 + \underline{X}_2)\,e^{j\omega t}\}.$$
+
+Das Ergebnis ist also wieder ein Sinussignal derselben Frequenz, und sein Phasor ist einfach die **Summe der
+Einzelphasoren**:
 
 $$\underline{X}_\text{ges} = \underline{X}_1 + \underline{X}_2 + \ldots$$
 
-Statt Kosinusterme mit verschiedenen Phasen mühsam mit Additionstheoremen zusammenzufassen, legt man einfach die
-Zeiger als Pfeile aneinander (Real- und Imaginärteile addieren sich getrennt) und liest Amplitude und Phase des
-Summenzeigers ab. Das ist die __Zeigeraddition__ und der eigentliche Grund, warum man in der Wechselstrom- und
-Signaltechnik komplex rechnet. Ein weiterer Bonus: Ableiten wird zur Multiplikation mit $j\omega$, Integrieren
-zur Division durch $j\omega$ — aus Differentialgleichungen werden algebraische Gleichungen.
+Statt der ganzen Zerlege-Sortiere-Zusammenbau-Prozedur aus Trigonometrie legt man nur noch die Zeiger als Pfeile
+aneinander (Real- und Imaginärteile addieren sich getrennt) und liest Amplitude und Phase des Summenpfeils ab.
+Und hier schließt sich der Kreis zur vorhin aufgefallenen Beobachtung: Die mühsamen Hilfsgrößen $C$ und $S$ von
+oben waren **genau** der Real- und Imaginärteil von $\underline{X}_1 + \underline{X}_2$. Die Trigonometrie-Rechnung
+hat also heimlich dasselbe getan wie die Zeigeraddition — nur viel umständlicher. Das ist der Grund, warum die
+Wechselstromtechnik grundsätzlich mit Zeigern rechnet.
 
 :::grafik
-Zwei Phasoren $\underline{X}_1$ und $\underline{X}_2$ (gleiche Frequenz, verschiedene Amplitude/Phase) werden
-als Pfeile aneinandergehängt; der resultierende Summenzeiger $\underline{X}_\text{ges}$ vom Ursprung zur Spitze
-ist hervorgehoben, mit abgelesener Amplitude und Phase. Daneben der Hinweis, dass die drei zugehörigen
-Kosinuskurven sich im Zeitbereich genauso überlagern.
+Zwei Phasoren $\underline{X}_1$ und $\underline{X}_2$ (gleiche Frequenz, verschiedene Länge/Winkel) werden
+Pfeil-an-Pfeil addiert; der Summenpfeil $\underline{X}_\text{ges}$ vom Ursprung zur Spitze ist hervorgehoben, mit
+abgelesener Amplitude und Phase. Darunter, zeitlich gekoppelt, die drei Kosinuskurven: $x_1$, $x_2$ und ihre
+Summe — sichtbar wieder eine reine Kosinuskurve derselben Frequenz.
 :::
 
-**Stolperstein: Sinus oder Kosinus?** Die Phasorlage hängt davon ab, ob man das Signal als Kosinus oder als
-Sinus ansetzt. Ein Sinus ist ein um $\tfrac{\pi}{2}$ verschobener Kosinus: $\sin(\omega t) = \cos(\omega t -
-\tfrac{\pi}{2})$. Rechnet man konsequent mit **einer** Konvention (meist Kosinus), ist alles stimmig — mischt
-man beide, verschieben sich alle Phasen um $90^\circ$. Deshalb immer vorher festlegen, welche Bezugsform gilt.
+## Ableiten und Integrieren werden zu Multiplikation
+
+Ein zweiter, ebenso großer Vorteil. Leitet man den rotierenden Zeiger nach der Zeit ab, so gilt (die Ableitung
+von $e^{j\omega t}$ ist $j\omega\,e^{j\omega t}$):
+
+$$\frac{\mathrm{d}}{\mathrm{d}t}\left(\underline{X}\,e^{j\omega t}\right) = j\omega\,\underline{X}\,e^{j\omega t}.$$
+
+Im Zeiger-Bild bedeutet Ableiten also schlicht: **Multiplizieren mit $j\omega$**. Und weil $j\omega = \omega\,e^{j\pi/2}$
+ist, heißt das anschaulich: um $90^\circ$ drehen (das $j$) und mit $\omega$ strecken. Umgekehrt wird Integrieren
+zur **Division durch $j\omega$**. Das ist enorm: Eine Differentialgleichung für Ströme und Spannungen (mit
+Ableitungen) verwandelt sich im Zeiger-Bild in eine ganz gewöhnliche **algebraische** Gleichung mit komplexen
+Zahlen. Genau das macht später die Berechnung von Wechselstromschaltungen mit Spulen und Kondensatoren so
+handlich.
+
+:::grafik
+Ein Phasor $\underline{X}$ und sein abgeleiteter Zeiger $j\omega\underline{X}$: um $90^\circ$ gegen den
+Uhrzeigersinn gedreht (durch das $j$) und um den Faktor $\omega$ gestreckt. Pfeile und Winkel beschriftet;
+daneben der Hinweis „Ableiten = $\times\,j\omega$, Integrieren = $\div\,j\omega$".
+:::
+
+**Stolperstein: Kosinus oder Sinus, Amplitude oder Effektivwert?** Zwei Konventionen muss man vorab festlegen:
+
+- **Bezugsform (Kosinus oder Sinus):** Ein Sinus ist ein um $90^\circ$ verschobener Kosinus, $\sin(\omega t) =
+  \cos(\omega t - \tfrac{\pi}{2})$. Rechnet man die Phasen mal auf Kosinus, mal auf Sinus bezogen, verschiebt
+  sich alles um $90^\circ$.
+- **Zeigerlänge (Amplitude oder Effektivwert):** In der Elektrotechnik nimmt man als Länge häufig nicht die
+  Amplitude $A$, sondern den **Effektivwert** $A/\sqrt{2}$ (praktisch fürs Rechnen mit Leistungen).
+
+Beides ist in Ordnung — man muss nur bei **einer** Wahl konsequent bleiben.
 
 :::kern
-Ein __Sinussignal__ $x(t) = A\cos(\omega t + \varphi)$ hat drei Parameter: __Amplitude__ $A$, __Kreisfrequenz__
-$\omega = 2\pi f$ und __Nullphase__ $\varphi$. Bei fester Frequenz steckt alles Unterscheidende im __Phasor__
-$\underline{X} = A e^{j\varphi}$ (Frequenz ausgeklammert). Das Signal ist der Realteil des __rotierenden Zeigers__:
-$x(t) = \operatorname{Re}\{\underline{X} e^{j\omega t}\}$. Der große Vorteil: __gleichfrequente__ Signale
-überlagern sich durch __Zeigeraddition__ ($\underline{X}_\text{ges} = \underline{X}_1 + \underline{X}_2 + \ldots$),
-und Ableiten/Integrieren wird zu $\cdot\,j\omega$ bzw. $/\,j\omega$. Konvention Kosinus vs. Sinus konsequent halten.
+Ein __Sinussignal__ $x(t) = A\cos(\omega t + \varphi)$ hat __Amplitude__ $A$, __Kreisfrequenz__ $\omega = 2\pi f$
+(hergeleitet: ein voller Umlauf $2\pi$ je Periode $T$) und __Nullphase__ $\varphi$. Direktes Addieren über
+Trigonometrie ist umständlich; der __Zeiger__ (Phasor) $\underline{X} = A e^{j\varphi}$ fasst Amplitude und Phase
+in einer komplexen Zahl zusammen (der gemeinsame Faktor $e^{j\omega t}$ wird ausgeklammert), und
+$x(t) = \operatorname{Re}\{\underline{X}e^{j\omega t}\}$ ist der Schatten des rotierenden Zeigers. Dann wird
+__Addition__ gleichfrequenter Signale zur __Zeigeraddition__ $\underline{X}_\text{ges} = \underline{X}_1 +
+\underline{X}_2$ (genau das, was die Trigonometrie heimlich tut), und __Ableiten/Integrieren__ wird zu
+$\times\,j\omega$ bzw. $\div\,j\omega$ — Differentialgleichungen werden zu Algebra. Konventionen (Kosinus/Sinus,
+Amplitude/Effektivwert) vorher festlegen.
 :::
 
-Ein einzelner Zeiger beschreibt eine einzelne Frequenz. Setzt man ein Signal aus mehreren Frequenzen zusammen,
-führt das direkt zum __Spektrum__ — der Darstellung eines Signals nach seinen Frequenzanteilen.
+Ein einzelner Zeiger beschreibt genau eine Frequenz. Setzt man ein Signal aus mehreren Frequenzen zusammen,
+braucht man eine Darstellung, die alle Anteile auf einmal zeigt — das __Spektrum__, das Thema des nächsten
+Abschnitts.
