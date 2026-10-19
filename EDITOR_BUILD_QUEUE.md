@@ -86,9 +86,17 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   Niveaulinie). `show_heat`/`show_contours` schaltbar. Props {func, x_min..y_max, nx, ny, levels, show_heat,
   show_contours, gradient_at, grad_scale, color, fill_opacity}, CATALOG „Mathematik · Felder". Test: `ScalarField`
   func `x^2+y^2`, dann `gradient_at`=`1,1`. (Perf-Hinweis: viele Objekte bei hohem nx/ny·levels — ggf. senken.)
-- [ ] **F8 Parameter-Schar-Animator** — ein `ValueTracker`-getriebener Parameter ($N$, $T$, $r$, $\varepsilon$)
+- [~] **F8 Parameter-Schar-Animator** — ein `ValueTracker`-getriebener Parameter ($N$, $T$, $r$, $\varepsilon$)
   erzeugt eine **Kurvenschar**, die gegen eine Grenzfunktion läuft (Fourier-Partialsummen/Gibbs, Kennlinienfeld,
   Kern-Familie). Allgemein: beliebige parametrisierte Kurve + Sweep.
+  **Umgesetzt — STATISCHE Schar (wartet auf Test):** `CurveFamily` (special-cased, `_build_curve_family`):
+  Ausdruck $f(x;p)$ mit frei benanntem Parameter `param`; `count` Kurven über `p_min..p_max`, Fade hell→Farbe
+  (`fade`), optionale dicke Grenzkurve (`show_limit`+`limit_func`). Props {func, param, p_min, p_max, count,
+  x_min, x_max, samples, fade, show_limit, limit_func, color, stroke_width}, CATALOG „Funktionen & Achsen".
+  Test: `CurveFamily` func `sin(k*x)/k`, param `k`; oder Fermi-Dirac/Kern über Parameter. **Offen (Verfeinerung):**
+  echte **Animation** des Parameters via ValueTracker/Timeline — bei Bedarf als F8b nachrüsten.
+
+**BATCH 2 umgesetzt (F5–F8) — warten auf User-Test.**
 
 ## BATCH 3 — Kurven & Koordinaten  (K4, K7)
 - [ ] **F9 Parametrische Kurve** $x(t),y(t)$ — mit Laufpunkt, Orientierungspfeil, Tangente/Normale;

@@ -69,6 +69,9 @@ const CATALOG = {
     // Tangent at x0 (slope via central difference), or secant through x0 & x1 (secant:true). half_len
     // = line half-length in x. show_point: dot(s) at the touch point(s); show_slope: "m = ..." label.
     TangentLine:   { func:"sin(x)", x0:1.0, secant:false, x1:2.0, half_len:2.0, show_point:true, show_slope:false, font_size:26, color:"#111111", stroke_width:3 },
+    // Family of curves f(x; p): parameter `param` sweeps count values p_min..p_max; fade = lighten low p.
+    // show_limit + limit_func (expr in x) draws a thick limit/envelope curve. For harmonics, Fermi-Dirac, kernels.
+    CurveFamily:   { func:"sin(k*x)/k", param:"k", p_min:1, p_max:5, count:5, x_min:-6, x_max:6, samples:120, fade:true, show_limit:false, limit_func:"", color:"#59a0eb", stroke_width:3 },
     // Legend/key for several curves on the SAME axes: one row per entry (swatch + label). `labels` is
     // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
     Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.8, swatch_len:0.9, gap:0.35, color:"#111111", stroke_width:6 },

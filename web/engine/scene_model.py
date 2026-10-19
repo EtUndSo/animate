@@ -438,6 +438,74 @@ def _cmap(t):
     return _CMAP_STOPS[-1][1]
 
 
+def _build_curve_family(args, style, axes):
+    """A family of curves f(x; p): the parameter `param` sweeps `count` values from p_min to p_max, each
+    drawn as its own polyline (optionally fading light->colour with rising p), plus an optional limit
+    curve. General: any expression in x and one named parameter (Fourier harmonics, Fermi-Dirac over T,
+    kernels over r/ε, ...)."""
+    c2p = _c2p_fn(axes)
+    param = str(args.get("param", "k")).strip() or "k"
+    code = compile(normalize_expr(str(args.get("func", "0"))), "<fam>", "eval")
+    names = _safe_names()
+
+    def fval(x, p):
+        try:
+            v = float(eval(code, {"__builtins__": {}}, {"x": x, param: p, **names}))
+        except Exception:
+            return float("nan")
+        return v
+
+    if axes is not None:
+        x0 = float(args.get("x_min", axes.x_min)); x1 = float(args.get("x_max", axes.x_max))
+        ylo, yhi = axes.y_min, axes.y_max
+    else:
+        x0, x1 = float(args.get("x_min", -6.0)), float(args.get("x_max", 6.0))
+        ylo, yhi = -1e9, 1e9
+    n = max(2, int(args.get("samples", 120)))
+    count = max(1, int(args.get("count", 5)))
+    p0, p1 = float(args.get("p_min", 1.0)), float(args.get("p_max", 5.0))
+    fade = bool(args.get("fade", True))
+    base = np.array(style.get("color", (0.35, 0.60, 0.92)), dtype=float)
+    white = np.array([1.0, 1.0, 1.0])
+    sw = float(style.get("stroke_width", 3.0))
+    xs = np.linspace(x0, x1, n)
+    ps = np.linspace(p0, p1, count)
+
+    def clamp(v):
+        if not np.isfinite(v):
+            return ylo
+        return min(yhi, max(ylo, v))
+
+    obj = AnimObject()
+    for i, p in enumerate(ps):
+        pts = [np.array([float(x), clamp(fval(x, p)), 0.0]) for x in xs]
+        poly = Polygon(pts, closed=False)
+        if fade and count > 1:
+            mix = 0.3 + 0.7 * (i / (count - 1))
+            poly.color = tuple(white * (1.0 - mix) + base * mix)
+        else:
+            poly.color = tuple(base)
+        poly.stroke_width = sw
+        obj.add(poly)
+    lim = str(args.get("limit_func", "")).strip()
+    if bool(args.get("show_limit", False)) and lim:
+        g = func_from_expr(lim)
+        pts = []
+        for x in xs:
+            try:
+                v = float(g(x))
+            except Exception:
+                v = float("nan")
+            pts.append(np.array([float(x), clamp(v), 0.0]))
+        lp = Polygon(pts, closed=False)
+        lp.color = (0.1, 0.1, 0.1)
+        lp.stroke_width = sw + 2.0
+        obj.add(lp)
+    if axes is not None:
+        axes.place(obj)
+    return obj
+
+
 def _build_scalar_field(args, style, axes):
     """A scalar field f(x,y) as a colour heatmap (nx×ny cells) + contour/level lines (marching squares)
     + an optional gradient arrow (⟂ to the level line) at `gradient_at`="x,y". General: any expression."""
@@ -769,6 +837,8 @@ def _build_object(spec, objects, axes=None):
         obj = _build_vector_field(args, style, axes)
     elif t == "ScalarField":                                # heatmap + contour lines + gradient arrow
         obj = _build_scalar_field(args, style, axes)
+    elif t == "CurveFamily":                                # family of curves f(x;p) over a parameter
+        obj = _build_curve_family(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
