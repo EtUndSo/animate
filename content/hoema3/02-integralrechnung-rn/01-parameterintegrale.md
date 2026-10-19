@@ -117,3 +117,26 @@ Die ganze Argumentation ruhte auf der **Kompaktheit** des Intervalls $[a,b]$ (gl
 das Integral bis $\infty$ laufen, bricht diese Grundlage weg — und tatsächlich können Stetigkeit und
 Differenzierbarkeit verloren gehen. Wann sie trotzdem erhalten bleiben (Stichwort: __Majorantenkriterium__), ist
 das Thema des nächsten Artikels über __uneigentliche Parameterintegrale__.
+
+:::quiz
+F: Was ist ein Parameterintegral, und welche Rolle spielen dabei Integrationsvariable und Parameter?
+A: $F(x)=\int_a^b f(x,t)\,dt$: Über $t$ wird integriert (es „verschwindet"), $x$ bleibt als **Parameter** stehen und ist das Argument der neuen Funktion $F$. Aus einer Funktion zweier Argumente wird so eine Funktion nur noch von $x$.
+F: Warum sind viele zentrale Funktionen überhaupt als Parameterintegral definiert?
+A: Weil sie keine elementare geschlossene Formel haben, sondern erst durch ein Integral entstehen — z. B. die Gamma-Funktion, die Fourier- und Laplace-Transformierte oder Potentiale in der Feldtheorie. Ihre Eigenschaften (Stetigkeit, Ableitung) muss man dann aus dem Integral gewinnen.
+F: Welche Bedingung sichert die Stetigkeit von $F$, und welche zusätzlich die Differenzierbarkeit?
+A: Ist der Integrand $f$ stetig, so ist $F$ stetig. Sind zusätzlich die partiellen Ableitungen $\partial f/\partial x_k$ stetig, ist $F$ sogar stetig differenzierbar und man darf unter dem Integral ableiten.
+F: Warum darf man die Ableitung ins Integral ziehen — wozu dient die Kompaktheit von $[a,b]$ im Beweis?
+A: Man schreibt den Differenzenquotienten mit dem Mittelwertsatz als $\partial f/\partial x_k$ an einer Zwischenstelle. Auf dem **kompakten** Bereich $[0,h_0]\times[a,b]$ ist diese Ableitung gleichmäßig stetig — dadurch darf man beim Grenzübergang $h\to0$ den Limes ins Integral ziehen. Genau diese Gleichmäßigkeit liefert die Kompaktheit.
+F: Warum kann dieselbe Vertauschung bei einem unendlichen Integrationsbereich scheitern?
+A: Dann ist der Bereich nicht kompakt, die gleichmäßige Stetigkeit fehlt, und der Grenzübergang „Limes ins Integral" ist nicht mehr automatisch erlaubt. Es braucht eine Zusatzbedingung (Majorante), sonst können Stetigkeit/Differenzierbarkeit verloren gehen.
+F: Wie knackt man mit „Ableiten unter dem Integral" ein schwieriges Integral — am Beispiel $\int_0^1 x^s\ln x\,dx$?
+A: Man kennt $F(s)=\int_0^1 x^s\,dx=\frac{1}{s+1}$. Einmal direkt abgeleitet ist $F'(s)=-\frac{1}{(s+1)^2}$; andererseits liefert Ableiten unter dem Integral $F'(s)=\int_0^1 x^s\ln x\,dx$. Gleichsetzen gibt sofort $\int_0^1 x^s\ln x\,dx=-\frac{1}{(s+1)^2}$.
+F: Was bedeuten die drei Terme der Leibnizregel anschaulich?
+A: Der Integral-Term $\int\partial_y f\,dx$ erfasst, dass sich der **Integrand** mit $y$ ändert („die Fläche atmet"). Der obere Randterm $f(\beta,y)\beta'$ ist der Flächenstreifen, den die wandernde obere Grenze **hinzuschiebt**; der untere $-f(\alpha,y)\alpha'$ der Streifen, den die untere Grenze **abgibt**.
+F: Warum trägt der untere Randterm ein Minuszeichen?
+A: Wandert die untere Grenze $\alpha$ nach rechts, wird am linken Rand Fläche **entfernt** — das verkleinert $F$. Die Orientierung des Integrals (untere Grenze) kehrt das Vorzeichen gegenüber dem oberen Randterm um.
+F: Was wird aus der Leibnizregel, wenn die Grenzen konstant sind?
+A: Dann ist $\alpha'=\beta'=0$, beide Randterme fallen weg, und es bleibt das reine Ableiten unter dem Integral $F'(y)=\int_a^b\partial_y f\,dx$. Die Leibnizregel ist also die Verallgemeinerung für mitlaufende Grenzen.
+F: Warum ist es korrekt, dass $F$ nur noch vom Parameter abhängt, obwohl $f$ von zwei Variablen abhängt?
+A: Das bestimmte Integral über $t$ liefert für **jeden** festen Parameterwert $x$ eine einzige Zahl (die Fläche); die Abhängigkeit von $t$ ist „weg-integriert". Damit ist $F(x)$ eine wohldefinierte Funktion allein von $x$.
+:::
