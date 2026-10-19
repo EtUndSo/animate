@@ -12,6 +12,14 @@ Artikel darf Minuten bis Stunden dauern. **Keine Parallelität** — strikt ein 
 Konzentration. **Keine fremden Beispiel-/Klausuraufgaben 1:1 übernehmen** (eigene erfinden); Standard-Darstellungen
 von Allgemeinwissen (Schaltungen, Graphen) sind dagegen frei nachbildbar — Details in §11.
 
+**Vollständigkeit gegenüber der Quelle (User-Vorgabe 2026-10-19):** Jeder Artikel muss **alle wichtigen
+Inhalte und Formeln** des zugehörigen Quell-Kapitels (Vorlesung/Skript) enthalten — wer den Artikel liest, darf
+nichts Wesentliches verpassen, das in der Quelle steht. Lange Fließtexte dürfen (und sollen) zusammengefasst
+werden, aber **keine wichtige Formel, Größe, Definition, Herleitung oder Kernaussage weglassen**. Bei jedem
+Erstellen **und** jeder Angleichung: Quell-Kapitel gegen den Artikel abgleichen (am besten anhand der
+Lernziel-/Inhalts-Folien), fehlende wichtige Punkte ergänzen. Maßstab „wichtig": Lernziele, benannte Formeln/
+Sätze, zentrale Begriffe, typische Prüfungsinhalte. (Reine Beispiel-Zahlen/Aufgaben nicht kopieren → §11.)
+
 ---
 
 ## 1. Didaktik (das Wichtigste)
