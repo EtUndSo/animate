@@ -32,4 +32,6 @@ anders implementiert werden. Gemeldet vom User 2026-10-19.
    GL-Auflösung behoben) — nur die UI-Steuerung raus.
 
 ## Status
-- Aufgenommen 2026-10-19. Noch nicht umgesetzt. Abarbeiten „nebenbei" neben der Content-Erstellung.
+- Aufgenommen 2026-10-19.
+- **#5 ERLEDIGT** (Commit „Editor-Fix #5"): resolution/static-adaptive aus der UI entfernt, Props intern auf Default behalten.
+- **#1–#4 offen.** Das sind WebGL-Render-Änderungen (Shader-Uniform für Shadows; Achsen im GL für echte Verdeckung „on top"; Alpha-Blending + Tiefensortierung für Transparenz; Wireframe-Overlay fürs Grid). Sie lassen sich nicht headless prüfen → am besten in einem fokussierten Durchgang umsetzen und im Browser testen (der User testet live). #2 „Achsen über 3D" entspricht dem geplanten WebGL-v3-Schritt (Achsen ins GL).
