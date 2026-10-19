@@ -188,3 +188,26 @@ Die Fourier-Reihe gilt für **periodische** Signale und liefert ein **diskretes*
 immer länger werden (das Signal wird „einmalig", nicht mehr periodisch), rücken die Spektrallinien immer enger
 zusammen und verschmelzen zu einem **kontinuierlichen** Spektrum — das führt zur Fourier-Transformation für
 nicht-periodische Signale.
+
+:::quiz
+F: Was ist die zentrale, überraschende Aussage der Fourier-Reihe?
+A: Jedes periodische Signal — egal wie kantig oder krumm — ist eine Summe reiner Sinusschwingungen, deren Frequenzen ausschließlich auf einem festen Raster (Grundfrequenz und ihre ganzzahligen Vielfachen) sitzen. Selbst ein Rechteck ist nur eine Summe runder Schwingungen.
+F: Warum dürfen nur ganzzahlige Vielfache der Grundfrequenz vorkommen?
+A: Damit sich die Summe nach $T$ exakt wiederholt, muss jeder Baustein in der Zeit $T$ eine ganze Zahl von Schwingungen vollenden und wieder am Anfang stehen — das heißt $\omega_k=k\omega_T$. Nur dann bleibt die Summe periodisch mit $T$.
+F: Was passiert, wenn man eine Zwischenfrequenz wie $1{,}5\,\omega_T$ hinzunimmt?
+A: Diese Schwingung hätte nach $T$ erst anderthalb Perioden hinter sich, stünde also nicht wieder am Startwert. Die Summe würde sich nach $T$ nicht mehr exakt wiederholen — die Periodizität wäre zerstört. Darum sind Zwischenfrequenzen verboten.
+F: Was bedeutet der Fourierkoeffizient $a_k$ anschaulich?
+A: $a_k$ ist die komplexe Amplitude der $k$-ten Harmonischen — er enthält Stärke und Phase der Spektrallinie bei $\omega_k=k\omega_T$. Die ganze Information über das Signal steckt in der Zahlenfolge der $a_k$.
+F: Warum gilt für ein reelles Signal $a_{-k}=a_k^*$?
+A: Ein reeller Kosinus entsteht nur, wenn sich die Imaginärteile des mit $+\omega$ und des mit $-\omega$ rotierenden Zeigers aufheben — das verlangt konjugierte Koeffizienten. Diese Spiegelbild-Symmetrie ist das Erkennungszeichen eines reellen Signals.
+F: Was besagt die Orthogonalität der Harmonischen?
+A: Mittelt man das Produkt zweier harmonischer Zeiger über eine volle Periode, ergibt sich $1$ bei gleicher Harmonischer und $0$ bei verschiedenen. Verschiedene Harmonische „stören sich" beim Mitteln nicht — sie stehen im Sinne des Skalarprodukts senkrecht aufeinander.
+F: Warum mittelt sich $e^{j(n-k)\omega_T t}$ für $n\neq k$ über eine Periode zu null?
+A: Der Zeiger dreht in der Zeit $T$ genau $(n-k)$-mal voll im Kreis; zu jeder Position oben gibt es eine gegenüberliegende unten, sodass sich alle Beiträge aufheben. Nur für $n=k$ ist der Integrand konstant $1$ und das Mittel ungleich null.
+F: Wie nutzt die Koeffizientenformel die Orthogonalität wie ein Sieb?
+A: Man multipliziert die Reihe mit $e^{-jk\omega_T t}$ und mittelt über eine Periode. Alle Terme $n\neq k$ mitteln sich weg, nur der mit $n=k$ bleibt — übrig bleibt $a_k=\tfrac1T\int_0^T s(t)e^{-jk\omega_T t}\,dt$. Das Multiplizieren „hält die $k$-te Harmonische an", während die anderen weiterrotieren.
+F: Warum hat ein periodisches Signal ein diskretes Linienspektrum?
+A: Weil es nur aus Harmonischen besteht, sitzen die Spektrallinien ausschließlich bei $0,\omega_T,2\omega_T,\dots$ (und spiegelbildlich negativ), mit konstantem Abstand $\omega_T$. Dazwischen gibt es keine Anteile — anders als beim beliebigen Signal.
+F: Was lehrt das Gibbs-Phänomen beim Rechteck über die Grenzen der Fourier-Darstellung?
+A: An den Sprungstellen bleibt ein fester Überschwinger von ~9 %, der auch bei unendlich vielen Gliedern nicht verschwindet. Ein unendlich steiler Sprung lässt sich aus glatten Sinuskurven nur im Grenzwert (im Mittel), aber nie punktweise perfekt nachbilden.
+:::
