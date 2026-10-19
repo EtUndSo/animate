@@ -2,7 +2,7 @@
 title: Die Fourier-Reihe
 pfad: Elektrotechnik / 1. Semester / Mathematische Methoden der Elektrotechnik / Spektrum und Fourier-Reihe
 order: 20200
-summary: Von Grund auf – warum sich jedes periodische Signal aus Schwingungen der Grundfrequenz und ihren ganzzahligen Vielfachen zusammensetzt, warum gerade nur diese „Harmonischen" erlaubt sind, und wie man mit einem Orthogonalitäts-Trick genau ihre Anteile berechnet. Mit vollständiger Herleitung und dem Rechteck-Beispiel.
+summary: Von Grund auf – warum sich jedes periodische Signal aus Schwingungen der Grundfrequenz $\omega_T$ und ihren ganzzahligen Vielfachen zusammensetzt, warum gerade nur diese „Harmonischen" erlaubt sind, und wie man mit einem Orthogonalitäts-Trick genau ihre Anteile $a_k$ berechnet. Mit vollständiger Herleitung und dem Rechteck-Beispiel.
 tags: Fourier-Reihe, periodisches Signal, Grundfrequenz, Harmonische, Fourierkoeffizienten, Orthogonalität, Rechteckschwingung
 ---
 
@@ -25,15 +25,17 @@ immer eine Summe sauberer Sinusschwingungen, deren Frequenzen auf einem festen R
 
 **Worum es geht:** Wir klären drei Dinge von Grund auf — *warum* ein periodisches Signal nur aus Harmonischen
 bestehen kann, *wie* die __Fourier-Reihe__ es darstellt, und *wie* man mit einem Orthogonalitäts-Trick die
-Anteile (die __Fourierkoeffizienten__) ausrechnet.
+Anteile (die __Fourierkoeffizienten__ $a_k$) ausrechnet.
 
 ## Periodische Signale und die Grundfrequenz
 
-Ein Signal heißt __periodisch__, wenn es sich nach einer festen Zeit, der __Periodendauer__ $T_0$, exakt
-wiederholt: $x(t + T_0) = x(t)$ für alle $t$. Daraus ergeben sich zwei feste Bezugsgrößen:
+Ein Signal heißt __periodisch__, wenn es sich nach einer festen Zeit, der __Periodendauer__ $T$, exakt
+wiederholt: $s(t + T) = s(t)$ für alle $t$ (dabei ist $T$ die *kleinste* solche positive Zeit). Daraus ergeben
+sich zwei feste Bezugsgrößen:
 
-- __$f_0 = \dfrac{1}{T_0}$__: die __Grundfrequenz__ — wie oft sich das Signal pro Sekunde wiederholt.
-- __$\omega_0 = 2\pi f_0 = \dfrac{2\pi}{T_0}$__: die __Grundkreisfrequenz__.
+- die __Grundfrequenz__ $1/T$ — wie oft sich das Signal pro Sekunde wiederholt (in Hertz).
+- __$\omega_T = \dfrac{2\pi}{T}$__: die __Grundkreisfrequenz__ — der Winkelzuwachs pro Sekunde einer Schwingung,
+  die genau einmal pro Periode durchläuft.
 
 Diese Grundfrequenz ist der „Taktgeber" des Signals. Alle Bausteine, aus denen es sich zusammensetzen darf,
 müssen zu diesem Takt passen — warum, zeigt der nächste Abschnitt.
@@ -41,30 +43,30 @@ müssen zu diesem Takt passen — warum, zeigt der nächste Abschnitt.
 ## Warum nur ganzzahlige Vielfache? (Harmonische)
 
 Hier lohnt es, genau hinzusehen, denn die Antwort erklärt, warum die Fourier-Reihe überhaupt so aussieht, wie
-sie aussieht. Die Frage: Welche Sinusschwingungen darf man addieren, damit die Summe wieder die Periode $T_0$
+sie aussieht. Die Frage: Welche Sinusschwingungen darf man addieren, damit die Summe wieder die Periode $T$
 hat?
 
-Eine Schwingung mit der Frequenz $f$ hat selbst die Periode $1/f$. Damit die **Summe** sich nach $T_0$
-wiederholt, muss **jeder einzelne** Baustein nach $T_0$ wieder genau am Anfang stehen — er muss in der Zeit
-$T_0$ also eine **ganze Zahl** von Schwingungen vollenden. Das bedeutet $T_0 = k \cdot \tfrac{1}{f}$ mit einer
-ganzen Zahl $k$, und aufgelöst:
+Eine Schwingung mit der Kreisfrequenz $\omega$ hat selbst die Periode $2\pi/\omega$. Damit die **Summe** sich
+nach $T$ wiederholt, muss **jeder einzelne** Baustein nach $T$ wieder genau am Anfang stehen — er muss in der
+Zeit $T$ also eine **ganze Zahl** von Schwingungen vollenden. Das bedeutet, seine Kreisfrequenz muss ein
+ganzzahliges Vielfaches von $\omega_T$ sein:
 
-$$f = k\,f_0, \qquad k = 1, 2, 3, \ldots$$
+$$\omega_k = k\,\omega_T, \qquad k = 1, 2, 3, \ldots$$
 
-Erlaubt sind also nur die Grundfrequenz $f_0$ und ihre **ganzzahligen Vielfachen** $2f_0, 3f_0, \ldots$ — die
-__Harmonischen__ (die $k$-te Harmonische hat die $k$-fache Grundfrequenz). Dazu kommt der Gleichanteil (Frequenz
-$0$) als Mittelwert.
+Erlaubt sind also nur die Grundkreisfrequenz $\omega_T$ und ihre **ganzzahligen Vielfachen** $2\omega_T,
+3\omega_T, \ldots$ — die __Harmonischen__ (die $k$-te Harmonische hat die $k$-fache Grundfrequenz). Dazu kommt der
+Gleichanteil (Frequenz $0$) als Mittelwert.
 
-**Warum nicht eine beliebige Zwischenfrequenz?** Nähme man etwa eine Schwingung mit $f = 1{,}5\,f_0$ hinzu, so
-hätte diese nach $T_0$ gerade erst anderthalb Schwingungen hinter sich — sie stünde **nicht** wieder am Anfang.
-Die Summe würde sich nach $T_0$ nicht mehr exakt wiederholen, wäre also gar nicht mehr periodisch mit $T_0$. Eine
-nicht-ganzzahlige Frequenz zerstört die Periodizität. Genau deshalb — und nur deshalb — sind ausschließlich die
-Harmonischen zugelassen.
+**Warum nicht eine beliebige Zwischenfrequenz?** Nähme man etwa eine Schwingung mit $\omega = 1{,}5\,\omega_T$
+hinzu, so hätte diese nach $T$ gerade erst anderthalb Schwingungen hinter sich — sie stünde **nicht** wieder am
+Anfang. Die Summe würde sich nach $T$ nicht mehr exakt wiederholen, wäre also gar nicht mehr periodisch mit $T$.
+Eine nicht-ganzzahlige Frequenz zerstört die Periodizität. Genau deshalb — und nur deshalb — sind ausschließlich
+die Harmonischen zugelassen.
 
 :::grafik
-Zwei Fälle über zwei Perioden $T_0$: Oben eine Harmonische (z. B. $3f_0$), die in $T_0$ genau drei volle
+Zwei Fälle über zwei Perioden $T$: Oben eine Harmonische (z. B. $3\omega_T$), die in $T$ genau drei volle
 Schwingungen macht und am Ende wieder am Startwert ist — gestrichelt markiert, dass sich alles sauber
-wiederholt. Unten eine „verbotene" Zwischenfrequenz ($1{,}5\,f_0$), die nach $T_0$ mitten in der Schwingung
+wiederholt. Unten eine „verbotene" Zwischenfrequenz ($1{,}5\,\omega_T$), die nach $T$ mitten in der Schwingung
 steht; die Fortsetzung passt nicht zur ersten Periode — die Periodizität ist zerstört.
 :::
 
@@ -73,19 +75,20 @@ steht; die Fortsetzung passt nicht zur ersten Periode — die Periodizität ist 
 Damit lässt sich jedes periodische Signal als Summe seiner Harmonischen schreiben. Am elegantesten in komplexer
 Form, mit rotierenden Zeigern (wie im Abschnitt über das Spektrum) für positive **und** negative Frequenzen:
 
-$$x(t) = \sum_{k=-\infty}^{\infty} c_k\,e^{\,j k \omega_0 t}.$$
+$$s(t) = \sum_{k=-\infty}^{\infty} a_k\,e^{\,j k \omega_T t}.$$
 
-- __$c_k$__: der komplexe __Fourierkoeffizient__ der $k$-ten Harmonischen — er enthält Amplitude und Phase dieser
-  Teilschwingung (die Höhe und Lage der Spektrallinie bei $k f_0$).
-- __$e^{\,j k \omega_0 t}$__: der rotierende Einheitszeiger der $k$-ten Harmonischen.
+- __$a_k$__: der komplexe __Fourierkoeffizient__ der $k$-ten Harmonischen — er enthält Amplitude und Phase dieser
+  Teilschwingung (die Höhe und Lage der Spektrallinie bei $\omega_k = k\omega_T$). Es sind dieselben
+  Spektralkoeffizienten $a_k$ wie im vorigen Abschnitt, nur jetzt für unendlich viele Harmonische.
+- __$e^{\,j k \omega_T t}$__: der rotierende Einheitszeiger der $k$-ten Harmonischen.
 
-Für ein **reelles** Signal sind die Koeffizienten konjugiert symmetrisch, $c_{-k} = c_k^{*}$ — genau die
+Für ein **reelles** Signal sind die Koeffizienten konjugiert symmetrisch, $a_{-k} = a_k^{*}$ — genau die
 Spiegelbild-Eigenschaft der positiven und negativen Spektrallinien aus dem vorigen Abschnitt. Die ganze
-Information über das Signal steckt jetzt in der Zahlenfolge der $c_k$.
+Information über das Signal steckt jetzt in der Zahlenfolge der $a_k$.
 
 ## Wie man die Koeffizienten findet: die Orthogonalität
 
-Die große Frage ist: Wie bekommt man zu einem gegebenen Signal die Koeffizienten $c_k$ heraus? Hier könnte man
+Die große Frage ist: Wie bekommt man zu einem gegebenen Signal die Koeffizienten $a_k$ heraus? Hier könnte man
 auf die Idee kommen, ein riesiges Gleichungssystem aufzustellen (das Signal an vielen Zeitpunkten gleich der
 Summe setzen) — das wäre mühsam und unübersichtlich. Es geht viel eleganter, mit einer besonderen Eigenschaft
 der Harmonischen.
@@ -93,25 +96,27 @@ der Harmonischen.
 **Der Schlüssel — die Orthogonalität.** Mittelt man das Produkt zweier harmonischer Zeiger über eine volle
 Periode, so passiert etwas Bemerkenswertes:
 
-$$\frac{1}{T_0}\int_{0}^{T_0} e^{\,j m \omega_0 t}\,e^{-j k \omega_0 t}\,\mathrm{d}t = \frac{1}{T_0}\int_{0}^{T_0} e^{\,j(m-k)\omega_0 t}\,\mathrm{d}t = \begin{cases} 1, & m = k,\\[2pt] 0, & m \neq k. \end{cases}$$
+$$\frac{1}{T}\int_{0}^{T} e^{\,j n \omega_T t}\,e^{-j k \omega_T t}\,\mathrm{d}t = \frac{1}{T}\int_{0}^{T} e^{\,j(n-k)\omega_T t}\,\mathrm{d}t = \begin{cases} 1, & n = k,\\[2pt] 0, & n \neq k. \end{cases}$$
 
-Warum? Für $m = k$ ist der Integrand $e^{0} = 1$, das Mittel über eine Periode ist also $1$. Für $m \neq k$
-dreht sich der Zeiger $e^{j(m-k)\omega_0 t}$ in der Zeit $T_0$ genau $(m-k)$-mal **ganz** im Kreis — und ein
+Warum? Für $n = k$ ist der Integrand $e^{0} = 1$, das Mittel über eine Periode ist also $1$. Für $n \neq k$
+dreht sich der Zeiger $e^{j(n-k)\omega_T t}$ in der Zeit $T$ genau $(n-k)$-mal **ganz** im Kreis — und ein
 voller Umlauf mittelt sich zu null (für jede Position oben gibt es eine gegenüberliegende unten). Verschiedene
-Harmonische „stören sich" beim Mitteln also nicht; nur die gleiche überlebt.
+Harmonische „stören sich" beim Mitteln also nicht; nur die gleiche überlebt. (In der Sprache der
+__Orthogonalität__: Mit dem Skalarprodukt $\langle s_1, s_2\rangle = \int_0^T s_1(t)\,s_2^{*}(t)\,\mathrm{d}t$
+stehen verschiedene harmonische Zeiger „senkrecht" aufeinander.)
 
 **Die Koeffizientenformel.** Diesen Effekt nutzt man wie ein Sieb. Man multipliziert die Fourier-Reihe mit
-$e^{-j k \omega_0 t}$ und mittelt über eine Periode. Nach der Orthogonalität bleibt von der ganzen Summe nur der
-eine Term mit $m = k$ übrig:
+$e^{-j k \omega_T t}$ und mittelt über eine Periode. Nach der Orthogonalität bleibt von der ganzen Summe nur der
+eine Term mit $n = k$ übrig:
 
-$$\frac{1}{T_0}\int_{0}^{T_0} x(t)\,e^{-j k \omega_0 t}\,\mathrm{d}t = \sum_{m} c_m\,\underbrace{\frac{1}{T_0}\int_{0}^{T_0} e^{\,j(m-k)\omega_0 t}\,\mathrm{d}t}_{=\,1 \text{ nur für } m=k} = c_k.$$
+$$\frac{1}{T}\int_{0}^{T} s(t)\,e^{-j k \omega_T t}\,\mathrm{d}t = \sum_{n} a_n\,\underbrace{\frac{1}{T}\int_{0}^{T} e^{\,j(n-k)\omega_T t}\,\mathrm{d}t}_{=\,1 \text{ nur für } n=k} = a_k.$$
 
 Damit ist die Formel für die __Fourierkoeffizienten__ hergeleitet:
 
-$$c_k = \frac{1}{T_0}\int_{0}^{T_0} x(t)\,e^{-j k \omega_0 t}\,\mathrm{d}t.$$
+$$a_k = \frac{1}{T}\int_{0}^{T} s(t)\,e^{-j k \omega_T t}\,\mathrm{d}t.$$
 
 In Worten: Man „fragt" das Signal, wie viel es von der $k$-ten Harmonischen enthält, indem man es mit deren
-gegenläufigem Zeiger multipliziert und mittelt. Das Multiplizieren mit $e^{-jk\omega_0 t}$ hält die $k$-te
+gegenläufigem Zeiger multipliziert und mittelt. Das Multiplizieren mit $e^{-jk\omega_T t}$ hält die $k$-te
 Harmonische gleichsam „an" (ihr Produkt wird konstant), während alle anderen weiterrotieren und sich
 wegmitteln.
 
@@ -125,35 +130,35 @@ weg".
 
 ## Das Spektrum eines periodischen Signals
 
-Trägt man die $|c_k|$ über der Frequenz auf, entsteht das Spektrum — und es ist ein **diskretes Linienspektrum**:
-Es gibt nur Linien bei den Harmonischen $0, f_0, 2f_0, 3f_0, \ldots$ (und spiegelbildlich bei den negativen).
-Dazwischen ist nichts. Das ist der entscheidende Unterschied zu einem beliebigen Signal: Weil ein periodisches
-Signal nur aus Harmonischen besteht, sitzen seine Spektrallinien auf einem festen, gleichmäßigen Raster mit dem
-Abstand $f_0$.
+Trägt man die $|a_k|$ über der Kreisfrequenz auf, entsteht das Spektrum — und es ist ein **diskretes
+Linienspektrum**: Es gibt nur Linien bei den Harmonischen $0, \omega_T, 2\omega_T, 3\omega_T, \ldots$ (und
+spiegelbildlich bei den negativen). Dazwischen ist nichts. Das ist der entscheidende Unterschied zu einem
+beliebigen Signal: Weil ein periodisches Signal nur aus Harmonischen besteht, sitzen seine Spektrallinien auf
+einem festen, gleichmäßigen Raster mit dem Abstand $\omega_T$.
 
 :::grafik
-Das diskrete Amplitudenspektrum $|c_k|$ über der Frequenz: Linien ausschließlich bei $0, f_0, 2f_0, 3f_0,
-\ldots$ (und bei $-f_0, -2f_0, \ldots$), mit dem konstanten Linienabstand $f_0$. Betont, dass dazwischen keine
-Anteile liegen.
+Das diskrete Amplitudenspektrum $|a_k|$ über der Kreisfrequenz: Linien ausschließlich bei $0, \omega_T,
+2\omega_T, 3\omega_T, \ldots$ (und bei $-\omega_T, -2\omega_T, \ldots$), mit dem konstanten Linienabstand
+$\omega_T$. Betont, dass dazwischen keine Anteile liegen.
 :::
 
 ## Beispiel: die Rechteckschwingung
 
 Rechnen wir es an einem konkreten, berühmten Fall durch. Die __Rechteckschwingung__ springt zwischen $+1$ (in
 der ersten Halbperiode) und $-1$ (in der zweiten) hin und her. Einsetzen in die Koeffizientenformel und
-Ausrechnen des Integrals über die beiden Hälften liefert (mit $\omega_0 T_0 = 2\pi$ und $e^{-jk\pi} = (-1)^k$):
+Ausrechnen des Integrals über die beiden Hälften liefert (mit $\omega_T T = 2\pi$ und $e^{-jk\pi} = (-1)^k$):
 
-$$c_k = \frac{j}{\pi k}\left((-1)^k - 1\right) = \begin{cases} -\dfrac{2j}{\pi k}, & k \text{ ungerade},\\[6pt] 0, & k \text{ gerade}. \end{cases}$$
+$$a_k = \frac{j}{\pi k}\left((-1)^k - 1\right) = \begin{cases} -\dfrac{2j}{\pi k}, & k \text{ ungerade},\\[6pt] 0, & k \text{ gerade}. \end{cases}$$
 
 Daraus liest man zwei Dinge ab:
 
 - **Nur ungerade Harmonische.** Alle geraden Koeffizienten sind null — die Rechteckschwingung enthält nur
-  $f_0, 3f_0, 5f_0, \ldots$
+  $\omega_T, 3\omega_T, 5\omega_T, \ldots$
 - **Amplituden fallen mit $1/k$.** Die höheren Harmonischen werden immer schwächer.
 
 In reeller Schreibweise ist das die bekannte Reihe
 
-$$x(t) = \frac{4}{\pi}\left(\sin\omega_0 t + \frac{1}{3}\sin 3\omega_0 t + \frac{1}{5}\sin 5\omega_0 t + \ldots\right).$$
+$$s(t) = \frac{4}{\pi}\left(\sin\omega_T t + \frac{1}{3}\sin 3\omega_T t + \frac{1}{5}\sin 5\omega_T t + \ldots\right).$$
 
 Genau das zeigt die Einstiegs-Animation: Mit jeder weiteren ungeraden Harmonischen wird die Summe eckiger. An
 den Sprungstellen bleibt allerdings immer ein kleiner Überschwinger von rund $9\,\%$, der auch bei unendlich
@@ -168,14 +173,15 @@ $+$ siebte — jede Summe der Zielform näher. An den Sprungstellen der kleine, 
 :::
 
 :::kern
-Ein __periodisches__ Signal (Periode $T_0$, Grundfrequenz $f_0 = 1/T_0$) besteht ausschließlich aus __Harmonischen__
-— Schwingungen bei $k f_0$ —, weil nur ganzzahlige Vielfache nach $T_0$ wieder am Anfang stehen (eine
-Zwischenfrequenz zerstört die Periodizität). Die __Fourier-Reihe__ ist $x(t) = \sum_k c_k e^{jk\omega_0 t}$ mit
-$c_{-k} = c_k^{*}$ für reelle Signale. Die __Fourierkoeffizienten__ findet man über die __Orthogonalität__ der
-Harmonischen (verschiedene mitteln sich über eine Periode weg): $c_k = \tfrac{1}{T_0}\int_{0}^{T_0} x(t)\,e^{-jk\omega_0 t}\,\mathrm{d}t$.
-Das Spektrum ist ein __diskretes Linienspektrum__ im Raster $f_0$. Beispiel __Rechteckschwingung__: nur ungerade
-Harmonische mit $1/k$-Abfall, $x(t) = \tfrac{4}{\pi}\sum_{k\,\text{ung.}}\tfrac1k\sin(k\omega_0 t)$, mit
-Gibbs-Überschwinger an den Sprüngen.
+Ein __periodisches__ Signal (Periode $T$, Grundkreisfrequenz $\omega_T = 2\pi/T$) besteht ausschließlich aus
+__Harmonischen__ — Schwingungen bei $\omega_k = k\omega_T$ —, weil nur ganzzahlige Vielfache nach $T$ wieder am
+Anfang stehen (eine Zwischenfrequenz zerstört die Periodizität). Die __Fourier-Reihe__ ist
+$s(t) = \sum_k a_k e^{jk\omega_T t}$ mit $a_{-k} = a_k^{*}$ für reelle Signale. Die __Fourierkoeffizienten__
+findet man über die __Orthogonalität__ der Harmonischen (verschiedene mitteln sich über eine Periode weg):
+$a_k = \tfrac{1}{T}\int_{0}^{T} s(t)\,e^{-jk\omega_T t}\,\mathrm{d}t$. Das Spektrum ist ein __diskretes
+Linienspektrum__ im Raster $\omega_T$. Beispiel __Rechteckschwingung__: nur ungerade Harmonische mit
+$1/k$-Abfall, $s(t) = \tfrac{4}{\pi}\sum_{k\,\text{ung.}}\tfrac1k\sin(k\omega_T t)$, mit Gibbs-Überschwinger an
+den Sprüngen.
 :::
 
 Die Fourier-Reihe gilt für **periodische** Signale und liefert ein **diskretes** Spektrum. Lässt man die Periode
