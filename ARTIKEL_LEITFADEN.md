@@ -91,7 +91,18 @@ von Allgemeinwissen (Schaltungen, Graphen) sind dagegen frei nachbildbar — Det
 ---
 
 ## 6. Mathematik / Notation
-- **Elektrotechnik-Konventionen:** imaginäre Einheit **`j`** (nicht `i`); Ströme/Spannungen klein (Zeitgrößen) etc.
+- **NOTATION EXAKT WIE IM VORLESUNGSSKRIPT des jeweiligen Moduls** (User-Vorgabe 2026-10-19: „Der Formalismus
+  soll genau gleich sein"). Vor dem Schreiben die passenden Folien/Skript-Seiten lesen und **Symbole, Formen,
+  Benennungen 1:1 übernehmen** (NICHT die Inhalte kopieren — §11 —, sondern den Formalismus). Modul-spezifisch,
+  z. B.:
+  - **MMET** (Signal Processing First / LfB-Folien): imaginäre Einheit $j=\sqrt{-1}$; komplexe Zahl $z=x+jy$ mit
+    $x=\operatorname{Re}\{z\}$, $y=\operatorname{Im}\{z\}$ (geschweifte Klammern); Betrag $r=|z|=\sqrt{x^2+y^2}$;
+    Winkel/Argument $\alpha$ (nicht $\varphi$!), $\arg(z)=\{\alpha+2\pi k\}$, Hauptwert $-\pi<\alpha\le\pi$;
+    Polarform $z=r(\cos\alpha+j\sin\alpha)$; Sinussignal $s(t)=A\cos(\omega t+\varphi)=A\cos(\tfrac{2\pi}{T}t+\varphi)$
+    ($\varphi$ = Signal-Phase); Folge $f[n]$ bzw. $\tilde s[n]=s(nT_s)=s(n/r)$; Abtastrate $r=1/T_s$; normierte
+    Kreisfrequenz $\hat\omega=\omega T_s=\omega/r$.
+  - **GEMB1** (Waser): Physik-Konvention imaginäre Einheit $i$; Symbole wie im Waser-Skript.
+- **Elektrotechnik-Konventionen (Default, wenn kein Skript etwas anderes vorgibt):** imaginäre Einheit **`j`**; Ströme/Spannungen klein (Zeitgrößen) etc.
 - **KaTeX:** `\mu` (NICHT `\upmu`), `\operatorname{atan2}`, `\mathrm{d}` für Differentiale, `\varphi` für Phase.
 - **Korrektheit prüfen (!!!):** jede Positions-/Richtungs-/Vorzeichenangabe gegen die Formel gegenlesen
   (z. B. in $z=a+jb$ steht $b$ **nach** dem $j$). Differential-Ordnungen exakt, keine doppelt benutzten Symbole.
