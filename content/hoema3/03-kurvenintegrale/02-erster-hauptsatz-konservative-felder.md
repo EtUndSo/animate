@@ -128,3 +128,26 @@ $\oint_{K_R}F\cdot dx=2\pi$. Eigenes Beispiel: $F=(y,x)=\nabla(xy)$ gibt zwische
 Bleibt die Frage: Wann reicht $\operatorname{rot}F=0$ **doch** für ein Potential? Die Antwort hängt an der
 Topologie des Gebiets. Das __Poincaré-Lemma__ zeigt, dass die Rotations- (und analog die Divergenz-)Bedingung
 **lokal** immer hinreichend ist — das Thema des nächsten Artikels.
+
+:::quiz
+F: Was besagt der erste Hauptsatz für Kurvenintegrale, und warum fällt der Weg aus dem Ergebnis heraus?
+A: Für ein Gradientenfeld ist $\int_\gamma\nabla h\cdot dx=h(x_1)-h(x_0)$ — nur die Endpunkte zählen. Grund: Nach der Kettenregel ist der Integrand gerade $\frac{d}{dt}h(\gamma(t))$, und der Hauptsatz der Differential- und Integralrechnung liefert die Differenz der Randwerte, unabhängig vom dazwischenliegenden Weg.
+F: Was heißt „konservativ", und warum ist das gleichwertig zu „jedes geschlossene Integral ist null"?
+A: Konservativ heißt: die Kurvenintegrale hängen nur von Anfangs- und Endpunkt ab. Zwei Wege mit gleichen Enden bilden, wenn man einen rückwärts durchläuft, einen geschlossenen Weg; die Differenz ihrer Integrale ist genau dieses Umlaufintegral. Es ist also null ⟺ beide Wege liefern dasselbe.
+F: Warum ist jedes Gradientenfeld automatisch konservativ?
+A: Nach dem ersten Hauptsatz ist sein Kurvenintegral die Potentialdifferenz $h(x_1)-h(x_0)$. Diese hängt nur von den Endpunkten ab — damit ist das Feld per Definition wegunabhängig, also konservativ.
+F: Wie konstruiert man aus einem konservativen Feld ein Potential, und warum ist es wohldefiniert?
+A: Man setzt $h(x):=\int_{x_0}^{x}F\cdot dy$ über irgendeinen Weg von einem festen $x_0$ nach $x$. Wegen der Wegunabhängigkeit ist der Wert vom gewählten Weg unabhängig (wohldefiniert); ein kleiner Schritt in Richtung $\hat e_k$ zeigt mit dem Mittelwertsatz $\partial h/\partial x_k=F_k$, also $\nabla h=F$.
+F: Was ist die physikalische Bedeutung des Hauptsatzes (Arbeit, Spannung)?
+A: Die Arbeit einer konservativen Kraft hängt nur von Start und Ziel ab und ist die Differenz der potentiellen Energie. In der Elektrotechnik ist die Spannung genau das Wegintegral des $E$-Feldes, also die Potentialdifferenz $\varphi(x_0)-\varphi(x_1)$ — unabhängig vom gewählten Weg.
+F: Warum ist $\operatorname{rot}F=0$ notwendig für Konservativität, aber nicht hinreichend?
+A: Notwendig, weil ein Gradientenfeld stets $\operatorname{rot}\operatorname{grad}h=0$ erfüllt. Nicht hinreichend, weil auf einem Gebiet mit „Loch" ein Feld überall wirbelfrei sein und trotzdem kein globales Potential besitzen kann — die Topologie des Gebiets entscheidet mit.
+F: Beim Wirbelfeld $F=\frac{(-y,x)}{x^2+y^2}$: Warum ist $\operatorname{rot}F=0$ überall, der Umlauf aber $\oint_{K_R}=2\pi$?
+A: Lokal ist $F$ der Gradient des Polarwinkels $\varphi$, also wirbelfrei. Der Kreis $K_R$ umschließt aber das Loch bei $0$; beim vollen Umlauf wächst $\varphi$ um $2\pi$. Dieser Sprung ist gerade das Integral — er entsteht nur, weil das Loch eingeschlossen wird.
+F: Warum beweist $\oint_{K_R}F\cdot dx=2\pi\neq0$, dass $F$ kein Gradientenfeld ist?
+A: Ein Gradientenfeld hat auf **jeder** geschlossenen Kurve das Integral $0$ (erster Hauptsatz). Ein Umlaufwert $2\pi\neq0$ widerspricht dem — also kann $F$ auf $\mathbb{R}^2\setminus\{0\}$ kein Potential besitzen.
+F: Was bedeutet es, dass beim Wirbelfeld „lokal ein Potential existiert, global aber nicht"?
+A: In jeder lochfreien Umgebung lässt sich der Winkel $\varphi$ eindeutig als Potential wählen ($F=\nabla\varphi$). Global scheitert das, weil $\varphi$ beim Umrunden des Lochs um $2\pi$ springt — es gibt keine über ganz $G$ eindeutige Potentialfunktion.
+F: Welche Eigenschaft des Gebiets macht $\operatorname{rot}F=0$ doch hinreichend für ein Potential?
+A: Ein **einfach zusammenhängendes** (lochfreies) Gebiet: Dort lässt sich jede geschlossene Kurve zusammenziehen, und $\operatorname{rot}F=0$ erzwingt dann ein globales Potential. Das ist die Aussage des Poincaré-Lemmas (nächster Artikel).
+:::
