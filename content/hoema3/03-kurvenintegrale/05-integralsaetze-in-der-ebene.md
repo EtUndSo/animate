@@ -138,3 +138,26 @@ Die Integralsätze in der Ebene verbinden Rand und Fläche. In drei Dimensionen 
 — den Satz von Stokes über Flächen im Raum und den Satz von Gauß für Volumina. Bevor wir sie angehen, brauchen wir
 aber ein Werkzeug, um Integrale über krumme Gebiete (Kreise, Kugeln) überhaupt bequem zu berechnen: die
 __Koordinatentransformationen__, das nächste Kapitel.
+
+:::quiz
+F: Was ist die gemeinsame Grundidee der ebenen Integralsätze?
+A: Sie verbinden ein **Randintegral** (über die geschlossene Randkurve) mit einem **Flächenintegral** (über das eingeschlossene Gebiet). Alles, was im Inneren passiert — Wirbel bzw. Quellen —, zeigt sich vollständig am Rand.
+F: Was bedeutet „positiv orientierter Rand", und wie sieht das bei einem Ringgebiet aus?
+A: Positiv orientiert heißt: beim Durchlaufen liegt das Innere stets **links**. Bei der Scheibe ist das gegen den Uhrzeigersinn; beim Ring läuft der äußere Rand gegen, der innere Rand im Uhrzeigersinn — so liegt das Ringmaterial jeweils links.
+F: Was besagt der Satz von Green/Stokes anschaulich?
+A: Die **Zirkulation** eines Feldes längs des Randes ist gleich dem Integral seiner **Rotation** über die Fläche: $\oint_{\partial D}F\cdot dx=\iint_D\operatorname{rot}F\,dA$. Die vielen kleinen inneren Wirbel summieren sich genau zur Randzirkulation.
+F: Warum heben sich die „inneren Wirbel" paarweise auf, sodass nur der Rand übrig bleibt?
+A: Zerlegt man das Gebiet in kleine Zellen, wird jede innere Kante von den beiden angrenzenden Zellen **gegenläufig** durchlaufen — ihre Beiträge löschen sich. Nur die Kanten am äußeren Rand haben keinen Partner und bleiben als $\oint_{\partial D}$ stehen.
+F: Welche Rolle spielen Hauptsatz und Leibnizregel im Beweis am Normalbereich?
+A: Für den $Q$-Term liefert der Hauptsatz der Differential- und Integralrechnung die Differenz der Randwerte in $x$-Richtung, für den $P$-Term die Leibnizregel (variable Grenzen) in $y$-Richtung. Setzt man die vier Randstücke zusammen, ergeben sie genau $\oint_{\partial D}F\cdot dx$.
+F: Wie folgt der zweite Hauptsatz ($\operatorname{rot}F=0\Rightarrow\oint=0$) aus Green?
+A: Ist $\operatorname{rot}F=0$ und berandet die geschlossene Kurve das Gebiet $D$, so ist $\oint_{\partial D}F\cdot dx=\iint_D\operatorname{rot}F\,dA=\iint_D 0\,dA=0$. Green liefert also einen zweiten, direkten Beweis der Wegunabhängigkeit.
+F: Warum sind Green und Gauß in der Ebene äquivalent?
+A: Dreht man das Feld um $90°$, geht die Tangentialkomponente $F\cdot\tau$ in die Normalkomponente $F\cdot\nu$ über (wegen $\tau=\nu^\perp$) und $\operatorname{rot}$ in $\operatorname{div}$. Damit wird aus der Green-Aussage (Zirkulation = Rotationsfluss) genau die Gauß-Aussage (Ausfluss = Quellintegral).
+F: Was besagt der Satz von Gauß in der Ebene, und was ist $\nu$?
+A: $\iint_D\operatorname{div}F\,dA=\oint_{\partial D}F\cdot\nu\,ds$: Der gesamte **Ausfluss** durch den Rand (Fluss in Richtung der äußeren Einheitsnormale $\nu$) gleicht dem Integral der Quelldichte $\operatorname{div}F$ über das Gebiet.
+F: Wie liefern die Integralsätze eine koordinatenfreie Deutung von Divergenz und Rotation?
+A: Zieht man ein kleines Kreisscheibchen auf einen Punkt zusammen, ist $\operatorname{div}F=\lim\frac{1}{|B_R|}\oint F\cdot\nu\,ds$ (Ausfluss pro Fläche) und $\operatorname{rot}F=\lim\frac{1}{|B_R|}\oint F\cdot\tau\,ds$ (Zirkulation pro Fläche). Das rechtfertigt die Bilder „Quelldichte" und „Wirbeldichte" ohne jedes Koordinatensystem.
+F: Wie gewinnt man aus Green eine Flächenformel, und warum fällt bei der Ellipse die Fläche $\pi ab$ mühelos, der Umfang aber nicht?
+A: Mit $P=-y/2,\,Q=x/2$ ist $\partial_x Q-\partial_y P=1$, also $|D|=\frac12\oint_{\partial D}(x\,dy-y\,dx)$ — die Fläche als reines Randintegral (Planimeter). Für die Ellipse gibt das $\frac12\int_0^{2\pi}ab\,dt=\pi ab$; der Umfang hingegen ist $\int|\dot\gamma|\,dt$ und führt auf nicht-elementare elliptische Integrale.
+:::
