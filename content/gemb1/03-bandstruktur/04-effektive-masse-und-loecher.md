@@ -157,3 +157,26 @@ $m_t^\star\approx0{,}19\,m_0$).
 Wir können jetzt aus einer Bandstruktur die **Geschwindigkeit** und **Trägheit** der Ladungsträger ablesen. Im
 letzten Bandstruktur-Artikel schauen wir **reale** Materialien an — Silizium, Galliumarsenid, Graphen — und den
 für die Optoelektronik entscheidenden Unterschied zwischen einer __direkten__ und einer __indirekten__ Bandlücke.
+
+:::quiz
+F: Warum darf man ein Band nahe seinem Extremum durch eine Parabel nähern?
+A: Jede glatte Kurve lässt sich lokal durch ihre Taylor-Entwicklung approximieren, und am Extremum verschwindet die erste Ableitung — es bleibt ein quadratischer (parabolischer) Verlauf. Genau dort sammeln sich die relevanten Ladungsträger (Elektronen am Leitungsband-Minimum, Löcher am Valenzband-Maximum).
+F: Was ist die Grundidee hinter der effektiven Masse?
+A: Man steckt die gesamte Wirkung des komplizierten Gitterpotentials in eine einzige geänderte Massenzahl $m^\star$ und rechnet das Kristallelektron dann wie ein freies Teilchen mit $F=m^\star a$. So bleibt die einfache newtonsche Beschreibung erhalten.
+F: Wie kommt die Formel $m^\star=(\tfrac1{\hbar^2}\partial^2E/\partial k^2)^{-1}$ zustande?
+A: Aus $F=\dot p=\hbar\dot k$ und $a=\dot v=\tfrac1\hbar E''\dot k$ folgt durch Einsetzen $a=\tfrac1{\hbar^2}E''F$. Vergleich mit $a=F/m^\star$ liefert $m^\star$ als Kehrwert der Bandkrümmung mal $\hbar^2$.
+F: Warum bedeutet starke Bandkrümmung eine kleine effektive Masse?
+A: $m^\star$ ist der Kehrwert der zweiten Ableitung; große Krümmung (steiles, schmales Band) ergibt also kleines $m^\star$. Physikalisch: Das Elektron reagiert dann schnell auf Kräfte, ist „leicht" und beweglich.
+F: Welche Faustregel verbindet Bandlücke und effektive Masse?
+A: Steile (stark gekrümmte) Bänder gehen mit starker Kopplung und kleiner Bandlücke einher. Daher gilt: kleinere Bandlücke ↔ kleinere effektive Masse ↔ schnellere Ladungsträger.
+F: Warum nimmt man nicht einfach die echte Elektronenmasse $m_0$?
+A: Im Gitter reagiert das Elektron auf eine Kraft völlig anders als im Vakuum — mal leichter, mal schwerer, am Bandrand sogar mit negativer Trägheit. Nur $m^\star$ fasst diese Gitterwirkung korrekt zusammen; $m_0$ würde das Transportverhalten grob falsch vorhersagen.
+F: Warum ist die effektive Masse am Valenzbandmaximum negativ?
+A: Dort ist die Parabel nach unten offen, die Krümmung (zweite Ableitung) also negativ — und $m^\star$ ist ihr Kehrwert. Eine negative Masse ist unanschaulich, weshalb man zum Loch-Bild übergeht.
+F: Was ist ein Loch, und warum ist diese Beschreibung erlaubt?
+A: Statt das fast volle Valenzband mit Milliarden Elektronen zu verfolgen, beschreibt man die wenigen fehlenden Plätze als „Löcher" mit positiver Masse und positiver Ladung $+e$. Da ein volles Band keinen Strom trägt, ist der Reststrom minus dem fehlenden Elektron — exakt der eines positiven Teilchens.
+F: Wann genügt eine einzige effektive Masse und wann nicht?
+A: Sind die Flächen konstanter Energie Kugeln (isotrop, z. B. GaAs-$\Gamma$), ist die Krümmung richtungsunabhängig — eine Masse reicht. Sind sie Ellipsoide (anisotrop), unterscheidet sich die Krümmung je nach Richtung, und man braucht mehrere Massen.
+F: Warum braucht Silizium zwei effektive Massen?
+A: Sein Leitungsband-Minimum liegt nicht im Zentrum, sondern in sechs Tälern entlang $\langle100\rangle$; die Flächen konstanter Energie sind Ellipsoide. Längs und quer sind sie verschieden gekrümmt, daher eine longitudinale ($m_l^\star\approx0{,}92\,m_0$) und eine transversale Masse ($m_t^\star\approx0{,}19\,m_0$).
+:::
