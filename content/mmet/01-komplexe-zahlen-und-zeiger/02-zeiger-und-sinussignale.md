@@ -247,3 +247,26 @@ Amplitude/Effektivwert) vorher festlegen.
 Ein einzelner Zeiger beschreibt genau eine Frequenz. Setzt man ein Signal aus mehreren Frequenzen zusammen,
 braucht man eine Darstellung, die alle Anteile auf einmal zeigt — das __Spektrum__, das Thema des nächsten
 Abschnitts.
+
+:::quiz
+F: Inwiefern ist ein Sinussignal „der Schatten eines rotierenden Zeigers"?
+A: Lässt man einen Pfeil der Länge $A$ gleichmäßig in der komplexen Ebene rotieren, so wandert die Projektion seiner Spitze auf die reelle Achse genau als Kosinuskurve auf und ab. Das reelle Signal $s(t)=A\cos(\omega t+\varphi)$ ist also der Realteil (Schatten) des vollen komplexen Zeigers $z(t)=A e^{j(\omega t+\varphi)}$.
+F: Warum beschäftigt sich ein ganzes Fach gerade mit der Sinusschwingung?
+A: Erstens sind Sinusschwingungen überall (Netzspannung, Ton, Welle, Pendel). Zweitens lässt sich jedes periodische Signal als Summe von Sinusschwingungen schreiben (Fourier) — wer die Sinusschwingung beherrscht, beherrscht im Grunde alle Signale.
+F: Wie leitet sich $\omega=2\pi f$ her, und was bedeutet $\omega$ anschaulich?
+A: Eine volle Schwingung entspricht einem Umlauf um $2\pi$ im Bogenmaß und dauert eine Periode $T$; das Kosinusargument $\omega t$ muss in dieser Zeit um $2\pi$ zunehmen, also $\omega T=2\pi$, d. h. $\omega=2\pi/T=2\pi f$. $\omega$ ist der Winkelzuwachs pro Sekunde — wie schnell der Zeiger dreht.
+F: Warum ist das direkte Addieren zweier Sinussignale über Trigonometrie so umständlich?
+A: Man muss jedes Signal per Additionstheorem in $\cos\omega t$- und $\sin\omega t$-Anteile zerlegen, diese getrennt zu $C$ und $S$ sammeln und daraus Amplitude und Phase des Summensignals zurückrechnen — drei Schritte, die mit jedem weiteren Summanden zäher werden.
+F: Was ist der Phasor $X=Ae^{j\varphi}$, und warum darf man den Faktor $e^{j\omega t}$ ausklammern?
+A: Der Phasor ist ein ruhender Zeiger, der Amplitude ($|X|=A$) und Phase ($\arg X=\varphi$) in einer komplexen Zahl speichert. Da $e^{j\omega t}$ das gemeinsame Mitdrehen aller Signale derselben Frequenz beschreibt, trägt nur $X$ die unterscheidende Information — man klammert den Zeitfaktor aus und rechnet nur mit den Phasoren.
+F: Warum ist das reelle Signal der Realteil und nicht der Zeiger selbst?
+A: Der physikalisch messbare Wert ist eine reelle Größe — die waagerechte Projektion des rotierenden Zeigers, also $\operatorname{Re}\{z(t)\}=A\cos(\omega t+\varphi)$. Der komplexe Zeiger ist das vollständige Rechenobjekt; der Imaginärteil liefert dasselbe Signal um $90^\circ$ verschoben.
+F: Was besagt die Zerlegung $A\cos(\omega t+\varphi)=\tfrac12(z+z^*)$ in zwei gegenläufige Zeiger?
+A: Ein Kosinus lässt sich als Summe zweier halb so langer Zeiger schreiben, die gegenläufig rotieren ($\tfrac12Xe^{j\omega t}$ und $\tfrac12X^*e^{-j\omega t}$); ihre Imaginärteile heben sich stets auf, die Summe bleibt reell. Diese Aufspaltung in positive und negative Drehrichtung ist später der Ursprung der positiven und negativen Frequenzen im Spektrum.
+F: Warum wird die Addition gleichfrequenter Signale zur bloßen Zeigeraddition $X_\text{ges}=X_1+X_2$?
+A: Weil der Realteil linear ist, darf man $\operatorname{Re}\{X_1e^{j\omega t}\}+\operatorname{Re}\{X_2e^{j\omega t}\}=\operatorname{Re}\{(X_1+X_2)e^{j\omega t}\}$ schreiben. Das Ergebnis ist wieder ein Sinussignal derselben Frequenz mit Phasor $X_1+X_2$ — man legt nur noch die Pfeile aneinander. Die Hilfsgrößen $C,S$ der Trigonometrie waren gerade Real- und Imaginärteil dieser Summe.
+F: Warum wird Ableiten im Zeigerbild zur Multiplikation mit $j\omega$?
+A: Die Ableitung von $e^{j\omega t}$ ist $j\omega e^{j\omega t}$, also $\frac{d}{dt}(Xe^{j\omega t})=j\omega Xe^{j\omega t}$. Mit $j\omega=\omega e^{j\pi/2}$ heißt das: um $90^\circ$ drehen und mit $\omega$ strecken; Integrieren ist entsprechend Division durch $j\omega$. Dadurch werden Differentialgleichungen für Ströme und Spannungen zu algebraischen Gleichungen.
+F: Welche zwei Konventionen muss man beim Rechnen mit Zeigern vorab festlegen?
+A: Erstens die Bezugsform (Kosinus oder Sinus), denn ein Sinus ist ein um $90^\circ$ verschobener Kosinus — sonst verschieben sich alle Phasen. Zweitens die Zeigerlänge (Amplitude $A$ oder Effektivwert $A/\sqrt2$); in der ET nimmt man oft den Effektivwert. Entscheidend ist, bei einer Wahl konsequent zu bleiben.
+:::
