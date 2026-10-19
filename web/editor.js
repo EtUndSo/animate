@@ -248,11 +248,11 @@ const gl3d = (function(){
   let gl=null, prog=null, loc=null, C={w:1920,h:1080,upp:8/1080}, meshes=[], ok=false;
   const VS="attribute vec3 aPos;attribute vec3 aN;attribute float aZ;uniform mat4 uM;varying vec3 vN;varying float vZ;"
     +"void main(){vN=aN;vZ=aZ;gl_Position=uM*vec4(aPos,1.0);}";
-  const FS="precision highp float;varying vec3 vN;varying float vZ;uniform vec3 uColor,uLight;uniform float uHeight,uOpacity,uSurf;"
+  const FS="precision highp float;varying vec3 vN;varying float vZ;uniform vec3 uColor,uLight;uniform float uHeight,uOpacity,uSurf,uShade;"
     +"vec3 hc(float t){return t>=0.5?mix(uColor,vec3(1.0),(t-0.5)*1.4):mix(uColor,vec3(0.0),(0.5-t)*1.4);}"
     +"void main(){vec3 N=normalize(vN);if(uSurf>0.5&&N.z<0.0)N=-N;"   // terrain surface: force up-facing (like 2D painter); solids keep true normals
     +"float d=max(dot(N,normalize(uLight)),0.0);"
-    +"float sh=0.4+0.6*d;vec3 b=(uHeight>0.5)?hc(clamp(vZ,0.0,1.0)):uColor;gl_FragColor=vec4(b*sh,uOpacity);}";
+    +"float sh=(uShade>0.5)?(0.4+0.6*d):1.0;vec3 b=(uHeight>0.5)?hc(clamp(vZ,0.0,1.0)):uColor;gl_FragColor=vec4(b*sh,uOpacity);}";   // uShade=0 -> flat (shadows off)
   function compile(t,s){ const sh=gl.createShader(t); gl.shaderSource(sh,s); gl.compileShader(sh);
     if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){ console.error("GL shader:",gl.getShaderInfoLog(sh)); return null; } return sh; }
   function init(){
@@ -264,7 +264,7 @@ const gl3d = (function(){
     if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ console.error("GL link:",gl.getProgramInfoLog(prog)); return false; }
     loc={ pos:gl.getAttribLocation(prog,"aPos"), n:gl.getAttribLocation(prog,"aN"), z:gl.getAttribLocation(prog,"aZ"),
       M:gl.getUniformLocation(prog,"uM"), color:gl.getUniformLocation(prog,"uColor"), light:gl.getUniformLocation(prog,"uLight"),
-      height:gl.getUniformLocation(prog,"uHeight"), opacity:gl.getUniformLocation(prog,"uOpacity"), surf:gl.getUniformLocation(prog,"uSurf") };
+      height:gl.getUniformLocation(prog,"uHeight"), opacity:gl.getUniformLocation(prog,"uOpacity"), surf:gl.getUniformLocation(prog,"uSurf"), shade:gl.getUniformLocation(prog,"uShade") };
     gl.enable(gl.DEPTH_TEST); ok=true; return true;
   }
   function setConstants(c){ if(c && c.w) C=c; }
@@ -297,17 +297,21 @@ const gl3d = (function(){
     if(gl.canvas.width!==C.w) gl.canvas.width=C.w; if(gl.canvas.height!==C.h) gl.canvas.height=C.h;
     gl.viewport(0,0,C.w,C.h);
     if(bg) gl.clearColor(bg[0],bg[1],bg[2],1); else gl.clearColor(0,0,0,0);
+    gl.depthMask(true);                                   // ensure the depth buffer actually clears (a prior transparent pass may have left it masked)
     gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
     if(!meshes.length) return;
     gl.useProgram(prog); gl.uniformMatrix4fv(loc.M,false,camM()); gl.uniform3fv(loc.light,[0.4,0.6,0.75]);
+    gl.uniform1f(loc.shade,(model.background&&model.background.shadows)?1:0);   // fix #1: shading on/off follows the "shadows" option
     meshes.forEach(function(m){
       gl.uniform3fv(loc.color,m.color); gl.uniform1f(loc.height,m.height?1:0); gl.uniform1f(loc.opacity,m.opacity); gl.uniform1f(loc.surf,m.surf?1:0);
-      if(m.opacity<1){ gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA); } else gl.disable(gl.BLEND);
+      // fix #3: transparent meshes blend AND stop writing depth, so they don't occlude what's behind them
+      if(m.opacity<1){ gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA); gl.depthMask(false); } else { gl.disable(gl.BLEND); gl.depthMask(true); }
       gl.bindBuffer(gl.ARRAY_BUFFER,m.p); gl.enableVertexAttribArray(loc.pos); gl.vertexAttribPointer(loc.pos,3,gl.FLOAT,false,0,0);
       gl.bindBuffer(gl.ARRAY_BUFFER,m.n); gl.enableVertexAttribArray(loc.n); gl.vertexAttribPointer(loc.n,3,gl.FLOAT,false,0,0);
       gl.bindBuffer(gl.ARRAY_BUFFER,m.z); gl.enableVertexAttribArray(loc.z); gl.vertexAttribPointer(loc.z,1,gl.FLOAT,false,0,0);
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,m.i); gl.drawElements(gl.TRIANGLES,m.count,gl.UNSIGNED_SHORT,0);
     });
+    gl.depthMask(true); gl.disable(gl.BLEND);             // restore default state for the next frame
   }
   function clear(){ if(ok){ gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT); } }
   return { init:init, setConstants:setConstants, setMeshes:setMeshes, draw:draw, clear:clear,

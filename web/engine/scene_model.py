@@ -407,7 +407,7 @@ def _build_object(spec, objects, axes=None):
                 if mesh is not None:
                     obj._gl_mesh = mesh
                     obj._gl_color = [float(c) for c in style.get("color", (0.35, 0.60, 0.92))]
-                    obj._gl_opacity = 1.0                    # opaque on the GPU (user choice: no transparency sorting)
+                    obj._gl_opacity = float(style.get("fill_opacity", 1.0))   # fix #3: honour the object's transparency (GL blends + masks depth)
                     obj._gl_height = False
                     obj._gl_surf = False                     # solid: true outward normals (no terrain up-flip)
                     obj._gl = True

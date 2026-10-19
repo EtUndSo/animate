@@ -34,4 +34,6 @@ anders implementiert werden. Gemeldet vom User 2026-10-19.
 ## Status
 - Aufgenommen 2026-10-19.
 - **#5 ERLEDIGT** (Commit „Editor-Fix #5"): resolution/static-adaptive aus der UI entfernt, Props intern auf Default behalten.
-- **#1–#4 offen.** Das sind WebGL-Render-Änderungen (Shader-Uniform für Shadows; Achsen im GL für echte Verdeckung „on top"; Alpha-Blending + Tiefensortierung für Transparenz; Wireframe-Overlay fürs Grid). Sie lassen sich nicht headless prüfen → am besten in einem fokussierten Durchgang umsetzen und im Browser testen (der User testet live). #2 „Achsen über 3D" entspricht dem geplanten WebGL-v3-Schritt (Achsen ins GL).
+- **#1 ERLEDIGT (Browsertest offen)**: Fragment-Shader nutzt jetzt ein `uShade`-Uniform; `draw()` setzt es aus `model.background.shadows` (`0.4+0.6*d` an / flach `1.0` aus). `editor.js` (FS + loc + draw).
+- **#3 ERLEDIGT (Browsertest offen)**: `scene_model.py` setzt für 3D-Körper nicht mehr hart `_gl_opacity=1.0`, sondern `fill_opacity`; `draw()` schaltet bei `opacity<1` zusätzlich `depthMask(false)` (und stellt den Default danach/vor dem Clear wieder her), damit transparente Körper nicht verdecken. Hinweis: Für mehrere überlappende transparente Flächen fehlt noch Tiefensortierung (bei einfachen Szenen ok).
+- **#2, #4 offen.** #4 (Grid-Overlay) = Wireframe-Linien entlang der u/v-Linien auf der GL-Fläche (Backend muss Linien-Indizes liefern, Frontend als `LINES` zeichnen). #2 (Achsen „on top") = Achsen im GL mitzeichnen (echte Verdeckung) = WebGL-v3-Schritt. Beide im nächsten Durchgang, nach dem Browsertest von #1/#3.
