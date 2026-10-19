@@ -344,3 +344,26 @@ $w^n=z$ hat $n$ Lösungen $w_k = r^{1/n}e^{j(\alpha+2\pi k)/n}$ gleichmäßig au
 Ein Zeiger, der sich mit der Zeit dreht — das ist der Schritt von der ruhenden komplexen Zahl zur
 **Schwingung**. Damit beschreibt man Sinussignale als rotierende Zeiger (__Phasoren__), das Thema des nächsten
 Abschnitts.
+
+:::quiz
+F: Warum kann keine reelle Zahl die Gleichung $z^2=-1$ lösen?
+A: Das Quadrat jeder reellen Zahl ist $\ge0$: positiv mal positiv ergibt positiv, negativ mal negativ ebenfalls („minus mal minus ist plus"), und $0^2=0$. Eine Zahl mit Quadrat $-1$ liegt also außerhalb der reellen Zahlen — genau diese Lücke füllt man mit $j$.
+F: Was war der gedankliche Trick bei der Einführung von $j$, und wo wurde er schon früher angewandt?
+A: Statt zu sagen „so eine Zahl gibt es nicht", definiert man einfach eine neue mit der gewünschten Eigenschaft $j^2=-1$ und prüft, ob man widerspruchsfrei weiterrechnen kann. Denselben Schritt ging die Mathematik schon bei den negativen Zahlen ($3-5$) und den Brüchen ($1:2$) — jedes Mal wurde eine Rechenlücke durch eine neue Zahlenart geschlossen.
+F: Warum schreibt man in der Elektrotechnik $j$ statt $i$, und was ist der Imaginärteil von $z=x+jy$ genau?
+A: Das Symbol $i$ ist in der ET für den Strom reserviert, daher nimmt man $j$ für die imaginäre Einheit. Der Imaginärteil ist die reelle Zahl $y$ — der Faktor **nach** dem $j$, nicht $jy$ selbst.
+F: Warum ist das Produkt $z\cdot z^*$ einer Zahl mit ihrer konjugierten stets reell, und welche Bedeutung hat es?
+A: $z\,z^*=(x+jy)(x-jy)=x^2-(jy)^2=x^2+y^2$ — der imaginäre Anteil hebt sich auf. Das Ergebnis ist das Quadrat der Pfeillänge, also $|z|^2$; deshalb nutzt man die Konjugierte, um Nenner reell zu machen.
+F: Warum lässt sich eine komplexe Zahl überhaupt als Punkt bzw. Pfeil in einer Ebene darstellen?
+A: Sie besteht aus zwei unabhängigen reellen Zahlen $x$ und $y$, und alles, was durch zwei Zahlen festgelegt ist, lässt sich als Punkt $(x,y)$ in einer Ebene zeichnen. Der Realteil wird zur waagerechten, der Imaginärteil zur senkrechten Koordinate (Gaußsche Zahlenebene).
+F: Wie leitet man Betrag und Argument aus den Koordinaten $x,y$ her?
+A: Der Pfeil bildet mit seinen Projektionen ein rechtwinkliges Dreieck: nach Pythagoras ist der Betrag $r=\sqrt{x^2+y^2}$ (Hypotenuse), und aus den Winkelfunktionen folgt $x=r\cos\alpha$, $y=r\sin\alpha$, womit sich das Argument $\alpha$ bestimmt.
+F: Warum genügt $\alpha=\arctan(y/x)$ nicht, um das Argument korrekt zu bestimmen?
+A: Der Arkustangens liefert nur Winkel in $(-\tfrac\pi2,\tfrac\pi2)$, also die rechte Halbebene; er sieht am Verhältnis $y/x$ die Einzelvorzeichen nicht ($\tfrac yx=\tfrac{-y}{-x}$). Bei negativem Realteil muss man $\pi$ addieren — sicher ist, den Quadranten aus den Vorzeichen von $x,y$ mitzudenken (atan2).
+F: Wie beweist man die Eulersche Formel $e^{j\alpha}=\cos\alpha+j\sin\alpha$?
+A: Man setzt $j\alpha$ in die Taylor-Reihe von $e^x$ ein und nutzt den Viererzyklus der $j$-Potenzen ($j^2=-1$, $j^4=1$, …). Sortiert man die Summanden nach Termen mit und ohne $j$, entstehen genau die Reihen von $\cos\alpha$ und $\sin\alpha$ — die Formel ist damit bewiesen, nicht nur definiert.
+F: Warum wird aus der mühsamen kartesischen Multiplikation in der Exponentialform „Beträge mal, Winkel plus"?
+A: Mit $z_1=r_1e^{j\alpha_1}$, $z_2=r_2e^{j\alpha_2}$ ist $z_1z_2=r_1r_2\,e^{j(\alpha_1+\alpha_2)}$, weil sich beim Multiplizieren von Potenzen die Exponenten addieren. Die Winkel stehen als Exponenten, daher addieren sie sich — geometrisch: Strecken um $r_1r_2$ und Drehen um $\alpha_1+\alpha_2$.
+F: Wieso ergibt $j^2=-1$ aus der geometrischen Deutung zwangsläufig?
+A: $j=e^{j\pi/2}$ ist ein Pfeil der Länge 1 unter $90^\circ$; Multiplizieren mit $j$ ist also eine Drehung um $90^\circ$. $j^2$ heißt zweimal um $90^\circ$ drehen, zusammen $180^\circ$ — ein Pfeil von $+1$ zeigt dann auf $-1$. Die Regel ist also nur die Aussage, dass zwei Vierteldrehungen eine Halbdrehung sind.
+:::
