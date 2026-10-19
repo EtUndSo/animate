@@ -154,3 +154,26 @@ Damit ist die **Differentialrechnung** für Felder vollständig: Gradient, Diver
 Identitäten. Als Nächstes kommt die **Integralseite** — zunächst, wie man Integrale, die von einem Parameter
 abhängen, differenziert und wie man über mehrdimensionale Bereiche integriert. Das ist das Thema des Kapitels
 __Integralrechnung im $\mathbb{R}^n$__.
+
+:::quiz
+F: Warum steht in der Produktregel $\operatorname{div}(\phi E)=\nabla\phi\cdot E+\phi\operatorname{div}E$ der Gradient $\nabla\phi$ und nicht einfach $\phi'$?
+A: Es ist dieselbe Struktur wie $(\phi E)'=\phi'E+\phi E'$ in 1D, nur dass „ableiten" hier $\operatorname{div}$ heißt. Wirkt die Ableitung auf das **Skalarfeld** $\phi$, entsteht sein Gradient $\nabla\phi$, der dann (als Vektor) mit $E$ skalar multipliziert wird.
+F: Was ist mit der „Doppelnatur" von $\nabla$ gemeint, und welcher Fehler droht beim Rechnen?
+A: $\nabla$ verhält sich teils wie ein **Vektor** (Skalar-/Kreuzprodukte) und ist zugleich ein **Ableitungsoperator** (Produktregeln). Beim Ausmultiplizieren muss man stets mitführen, **worauf** die Ableitung gerade wirkt — sonst gehen Terme verloren oder man wendet vektoralgebraische Regeln falsch an.
+F: Warum ist $\operatorname{div}\operatorname{rot}E=0$ — welche Symmetrie steckt dahinter?
+A: In Levi-Civita-Form ist es $\sum_{i,j,k}\varepsilon_{ijk}\,\partial^2 E_k/(\partial x_i\partial x_j)$. Die zweite Ableitung ist **symmetrisch** in $i,j$ (Schwarz), $\varepsilon_{ijk}$ **antisymmetrisch** — ihr Produkt summiert sich paarweise zu null. Anschaulich: ein reines Wirbelfeld hat keine Quellen.
+F: Inwiefern ist $\operatorname{div}\operatorname{rot}=0$ das Spiegelbild von $\operatorname{rot}\operatorname{grad}=0$?
+A: Beide sagen „zwei Operatoren hintereinander ergeben null". $\operatorname{rot}\operatorname{grad}\phi=0$: ein Gradientenfeld ist **wirbelfrei**. $\operatorname{div}\operatorname{rot}E=0$: ein Wirbelfeld ist **quellenfrei**. Gradient und Rotation sind so die jeweils „komplementären" Felder.
+F: Was besagt $\operatorname{rot}\operatorname{rot}E=\nabla(\operatorname{div}E)-\Delta E$, und wofür ist sie zentral?
+A: Sie zerlegt die doppelte Rotation in einen Quellen- ($\nabla\operatorname{div}E$) und einen „Krümmungsanteil" ($\Delta E$). Sie ist das Herzstück der **Wellengleichungs-Herleitung** aus den Maxwell-Gleichungen: im quellenfreien Fall ($\operatorname{div}E=0$) wird daraus $\operatorname{rot}\operatorname{rot}E=-\Delta E$.
+F: Was ist ein Vektorpotential, und warum ist $B=\operatorname{rot}A$ zwangsläufig divergenzfrei?
+A: $A$ heißt Vektorpotential von $B$, wenn $B=\operatorname{rot}A$. Wegen $\operatorname{div}\operatorname{rot}=0$ folgt sofort $\operatorname{div}B=0$ — Divergenzfreiheit ist also eine **notwendige** Bedingung dafür, dass $B$ überhaupt ein Wirbelfeld sein kann.
+F: Warum ist $\operatorname{div}B=0$ notwendig, aber nicht hinreichend für die Existenz eines Vektorpotentials?
+A: Notwendig folgt es aus $\operatorname{div}\operatorname{rot}=0$. Die Umkehrung „divergenzfrei $\Rightarrow$ Wirbelfeld" hängt — wie bei Gradientenfeldern — von der **Topologie des Gebiets** ab und gilt nicht allgemein (später über die Integralsätze geklärt).
+F: Was bedeutet Eichfreiheit beim Vektorpotential, und warum ändert das Addieren von $\nabla\psi$ das Feld $B$ nicht?
+A: Das Vektorpotential ist nicht eindeutig: $A$ und $A+\nabla\psi$ liefern dasselbe $B$, denn $\operatorname{rot}(A+\nabla\psi)=\operatorname{rot}A+\operatorname{rot}\nabla\psi=\operatorname{rot}A$ (da $\operatorname{rot}\operatorname{grad}=0$). Diese Freiheit nutzt man, um ein bequemes $A$ zu wählen.
+F: Wozu dient die Coulomb-Eichung $\operatorname{div}A=0$, und wie erreicht man sie?
+A: Sie „räumt auf" und vereinfacht $\operatorname{rot}B=\operatorname{rot}\operatorname{rot}A=-\Delta A$. Ist $\operatorname{div}A\neq0$, löst man die Poisson-Gleichung $\Delta\psi=\operatorname{div}A$ und setzt $A'=A-\nabla\psi$; dann ist $\operatorname{div}A'=0$, und $B$ bleibt unverändert.
+F: Warum muss man die Graßmann-Identität $a\times(b\times c)=(a\cdot c)b-(a\cdot b)c$ bei der Übertragung auf $\nabla\times(\nabla\times E)$ mit Vorsicht anwenden?
+A: $\nabla$ ist ein Operator, der nach rechts wirkt — das abzuleitende Feld $E$ muss **an letzter Stelle** stehen. Die rein vektoralgebraische Regel würde Terme falsch anordnen; richtig angewandt ergibt sie $\nabla(\operatorname{div}E)-\Delta E$, nicht etwa $E$-Faktoren vor den Ableitungen.
+:::
