@@ -80,6 +80,13 @@ sich später der ganze Vorteil der komplexen Zahlen.
 
 $$z_1 + z_2 = (a_1 + j b_1) + (a_2 + j b_2) = (a_1 + a_2) + j\,(b_1 + b_2).$$
 
+:::grafik
+Animation zur Addition: In der komplexen Ebene liegen zwei Pfeile $z_1$ und $z_2$ vom Ursprung. Der zweite
+Pfeil wird an die Spitze des ersten verschoben (Pfeil-an-Pfeil, „Spitze an Fuß"), und der Summenpfeil
+$z_1 + z_2$ führt vom Ursprung zur neuen Spitze. Sichtbar wird, dass sich dabei die waagerechten Anteile
+($a_1+a_2$) und die senkrechten Anteile ($b_1+b_2$) getrennt addieren — genau die komponentenweise Rechnung.
+:::
+
 **Multiplikation** ist der interessante Fall. Man multipliziert die Klammern wie gewohnt aus (jedes Glied mit
 jedem) und ersetzt am Ende $j^2$ durch $-1$. Schritt für Schritt:
 
@@ -241,6 +248,32 @@ Multiplizieren mit $e^{j\varphi}$.
 Zwei Zeiger $z_1$ und $z_2$ und ihr Produkt: Die Länge des Produkts ist das Produkt der Längen, der Winkel die
 Summe der Winkel ($\varphi_1 + \varphi_2$). Daneben separat die reine Drehung: ein Zeiger und sein mit
 $e^{j\varphi}$ multipliziertes, um $\varphi$ gedrehtes Abbild gleicher Länge.
+:::
+
+## Zweite Sichtweise: $j$ ist eine Drehung um 90°
+
+Mit der geometrischen Deutung lässt sich jetzt sogar die Ausgangsregel $j^2 = -1$ noch einmal völlig neu
+verstehen — nicht als willkürliche Festlegung, sondern als zwangsläufige Folge. Die Zahl $j$ hat den Realteil
+$0$ und den Imaginärteil $1$, liegt also als Pfeil der Länge $1$ genau auf der imaginären Achse, unter dem Winkel
+$90^\circ$. In Exponentialform ist sie
+
+$$j = e^{\,j\pi/2}.$$
+
+Nach dem gerade Gelernten bedeutet **Multiplizieren mit $j$** daher eine **Drehung um $90^\circ$** (bei Länge
+$1$, also ohne Streckung). Und nun der Clou: $j^2$ heißt „zweimal mit $j$ multiplizieren", also **zweimal um
+$90^\circ$ drehen** — zusammen $180^\circ$. Ein Pfeil, der bei $+1$ startet und um $180^\circ$ gedreht wird,
+zeigt auf $-1$. Also ist $j^2 = -1$ — nicht per Dekret, sondern weil zweimal 90° genau eine Halbdrehung ist. Die
+Potenzen von $j$ laufen entsprechend in 90°-Schritten im Kreis: $j^0 = 1$ (0°), $j^1 = j$ (90°), $j^2 = -1$
+(180°), $j^3 = -j$ (270°), $j^4 = 1$ (360°, wieder am Start).
+
+Das ist genau die Art von Einsicht, die Vertrauen schafft: Die zunächst mysteriöse Regel „$j^2 = -1$" ist in
+Wahrheit nur die Aussage, dass eine Vierteldrehung, zweimal ausgeführt, eine Halbdrehung ergibt.
+
+:::grafik
+Animation: Ein Pfeil startet bei $+1$ auf der reellen Achse. Schrittweise wird mit $j$ multipliziert, und der
+Pfeil springt jeweils um $90^\circ$ weiter: $1 \to j \to -1 \to -j \to 1$. Die vier Positionen auf dem
+Einheitskreis sind beschriftet; hervorgehoben, dass die zwei Schritte von $1$ nach $-1$ zusammen eine
+$180^\circ$-Drehung sind — die anschauliche Bedeutung von $j^2 = -1$.
 :::
 
 :::kern
