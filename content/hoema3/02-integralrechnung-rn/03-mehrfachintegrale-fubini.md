@@ -133,3 +133,26 @@ im uneigentlichen Fall absolute Integrierbarkeit.
 Bisher integrierten wir über **Quader**. Reale Gebiete sind aber selten rechteckig — Kreise, Kugeln, Dreiecke. Wie
 man über solche **allgemeinen Mengen** integriert und daraus **Volumina** berechnet (Cavalieri-Prinzip), ist das
 Thema des nächsten Artikels.
+
+:::quiz
+F: Was ist ein iteriertes Integral, und warum ist es wohldefiniert?
+A: Man integriert nacheinander nach je einer Variablen und behandelt die übrigen als Parameter. Wohldefiniert ist das, weil jedes innere Integral nach dem Parameterintegral-Satz eine **stetige** Funktion der restlichen Variablen liefert — über die man dann weiter integrieren kann (induktiv in jeder Dimension).
+F: Was besagt der Satz von Fubini, und unter welcher Voraussetzung?
+A: Für eine **stetige** Funktion auf einem **endlichen** Quader darf man die Reihenfolge der Integrationen beliebig vertauschen: $\int_c^d\int_a^b f\,dx\,dy=\int_a^b\int_c^d f\,dy\,dx$. Das Ergebnis hängt nicht von der Reihenfolge ab.
+F: Warum ist Fubini anschaulich nichts anderes als das Cavalieri-Prinzip?
+A: Das Integral ist das Volumen unter der Fläche $z=f(x,y)$. Ob man dieses Volumen aus Scheiben in $x$-Richtung oder in $y$-Richtung aufbaut, ändert nichts am Gesamtvolumen — genau das ist Cavalieri.
+F: Wie zeigt der Beweis, dass beide Reihenfolgen gleich sind (Rolle der Hilfsfunktion $h$)?
+A: Man bildet die Differenz $h(\xi,\eta)$ der beiden bis zu variablen Grenzen integrierten Reihenfolgen. Mit Hauptsatz und Leibnizregel folgt $\partial_\xi h=\partial_\eta h=0$, also ist $h$ konstant; wegen $h(a,c)=0$ ist $h\equiv0$ — und das ist die behauptete Gleichheit.
+F: Warum lohnt es sich, die Integrationsreihenfolge klug zu wählen, und nach welchem Kriterium?
+A: Weil beide Reihenfolgen dasselbe Ergebnis geben, aber unterschiedlich aufwändig sind — eine kann elementar sein, die andere partielle Integration erfordern. Faustregel: zuerst die Variable integrieren, bei der der Integrand am einfachsten eine Stammfunktion hat.
+F: Warum gilt Fubini bei uneigentlichen Mehrfachintegralen nur unter absoluter Integrierbarkeit?
+A: Ohne absolute Konvergenz hängt der Wert von der Summationsreihenfolge ab — die beiden Integrationsreihenfolgen können dann **verschiedene** Ergebnisse liefern. Absolute Integrierbarkeit garantiert, dass die Vertauschung erlaubt bleibt.
+F: Was besagt die Standardabschätzung $|\int_Q f|\le|Q|\sup_Q|f|$, und woher kommt sie?
+A: Der Betrag des Integrals ist höchstens das Quadervolumen mal den größten Funktionsbetrag. Sie folgt aus Monotonie und Linearität ($|f|\le\sup|f|$ integrieren) und ist das mehrdimensionale Gegenstück zur 1D-Regel „Integral $\le$ Intervalllänge × Maximum".
+F: Wozu sind Linearität und Monotonie des Integrals praktisch nützlich?
+A: Linearität erlaubt, Integrale zu zerlegen und Konstanten herauszuziehen; Monotonie erlaubt Abschätzungen nach oben/unten. Zusammen sind sie das Rückgrat fast aller Integral-Beweise (u. a. der Standardabschätzung).
+F: Was heißt „kompakter Träger", und warum ist $\int_{\mathbb{R}^n}f:=\int_Q f$ unabhängig vom gewählten Quader $Q$?
+A: $f$ hat kompakten Träger, wenn $f(x)=0$ für $|x|>R$. Außerhalb dieses Radius trägt nichts zum Integral bei, also liefert **jeder** Quader $Q$, der den Träger umschließt, denselben Wert — die Wahl von $Q$ ist beliebig.
+F: Warum braucht man für Funktionen ohne kompakten Träger einen Grenzwert bzw. das Lebesgue-Integral?
+A: Der einfache Quader-Zugang funktioniert nur, solange das Integrationsgebiet beschränkt ist bzw. $f$ außerhalb verschwindet. Für unbeschränkte Gebiete oder langsam abfallende Funktionen muss man das Integral als Grenzwert auffassen; der saubere Rahmen dafür ist das Lebesgue-Integral.
+:::
