@@ -31,8 +31,11 @@ $D(E)\propto\sqrt{E-E_C}$. Anschließend sehen wir, *warum* die Form in 1D, 2D u
 ## Zustände sitzen im k-Raum auf einem gleichmäßigen Raster
 
 Löst man die Schrödinger-Gleichung in einem endlichen Kristall der Kantenlänge $L$ mit **periodischen
-Randbedingungen** (die Wellenfunktion wiederholt sich nach einer Kristalllänge), sind die erlaubten Wellenzahlen
-**diskret und äquidistant**:
+Randbedingungen** (__Born-von-Karman-Randbedingungen__: die Wellenfunktion wiederholt sich nach einer
+Kristalllänge, $\psi(x+L)=\psi(x)$), sind die erlaubten Wellenzahlen **diskret und äquidistant**. Diese
+periodischen Randbedingungen sind für einen ausgedehnten Kristall die realistische Wahl — sie liefern laufende
+Wellen $e^{ikx}$ mit dem Rasterabstand $2\pi/L$ (gegenüber $\pi/L$ bei den harten Wänden des Potentialkastens,
+die stehende Wellen erzwingen); für das Abzählen der Zustände ist nur der Rasterabstand entscheidend:
 
 $$e^{ik_x(x+L)} = e^{ik_x x} \;\Longrightarrow\; k_x = \frac{2\pi}{L}\,n_x, \quad n_x \in \mathbb{Z}.$$
 

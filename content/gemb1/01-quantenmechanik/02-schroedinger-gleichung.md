@@ -137,6 +137,10 @@ Welle__, mit der __Wellenzahl__
 
 $$k = \frac{\sqrt{2mE}}{\hbar} \qquad\Longleftrightarrow\qquad E = \frac{\hbar^2 k^2}{2m}.$$
 
+Die __Wellenzahl__ $k$ zählt die Phase pro Länge (Bogenmaß pro Meter) und hängt direkt mit der Wellenlänge
+zusammen, $k = 2\pi/\lambda$. Zusammen mit $p = \hbar k$ ist das genau die de-Broglie-Beziehung aus dem vorigen
+Abschnitt: $p = \hbar k = \tfrac{h}{2\pi}\tfrac{2\pi}{\lambda} = h/\lambda$.
+
 Diese Beziehung zwischen Energie und Wellenzahl heißt __Dispersionsrelation__. Für das freie Elektron ist sie
 eine **Parabel** $E(k) \propto k^2$ — genau die quadratische Beziehung, für die wir die Gleichung gebaut haben.
 Diese $E(k)$-Kurve ist die „DNA" eines Materials: Im Kristall wird aus der freien Parabel später die
