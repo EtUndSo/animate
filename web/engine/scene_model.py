@@ -321,6 +321,72 @@ def _init_params(cls):
         return set()
 
 
+def _c2p_fn(axes):
+    """Data->world mapper that also works WITHOUT an axes (then data == world).
+    Lets annotation objects (Marker/Measure) be built in world coordinates so arrow cones/dots
+    never distort under a non-uniform axes (same reason Dot maps only its centre)."""
+    if axes is not None:
+        return lambda x, y, z=0.0: np.asarray(axes.coords_to_point(x, y, z), dtype=float)
+    return lambda x, y, z=0.0: np.array([x, y, z], dtype=float)
+
+
+def _xyz(p):
+    p = list(p) + [0.0, 0.0, 0.0]
+    return float(p[0]), float(p[1]), float(p[2])
+
+
+def _build_marker(args, style, axes):
+    """A point marker in DATA coords: a dot at (x,y), an optional label, and optional thin guide
+    lines down to the x-axis and across to the y-axis. General: works for any marked point."""
+    c2p = _c2p_fn(axes)
+    x, y, z = _xyz(args.get("point", [0.0, 0.0, 0.0]))
+    col = style.get("color", (0.0, 0.0, 0.0))
+    obj = AnimObject()
+    if args.get("show_guides", False):
+        for end in ((x, 0.0, z), (0.0, y, z)):                      # to x-axis (y=0), to y-axis (x=0)
+            g = Line(c2p(x, y, z), c2p(*end))
+            g.color = (0.6, 0.6, 0.6)
+            g.stroke_width = 1.5
+            obj.add(g)
+    wc = c2p(x, y, z)
+    dot = OBJECT_TYPES["Dot"](center=wc, radius=float(args.get("radius", 0.08)))
+    dot.color = col
+    dot.fill_color = col
+    dot.fill_opacity = 1.0
+    obj.add(dot)
+    label = str(args.get("label", "")).strip()
+    if label:
+        lab = Text(label, position=wc + np.array([0.22, 0.22, 0.0]),
+                   font_size=float(args.get("font_size", 28)), color=col)
+        obj.add(lab)
+    return obj
+
+
+def _build_measure(args, style, axes):
+    """A dimension double-arrow between two DATA points with a centred label (amplitude, period,
+    distance d, jump height, ...). `offset` shifts the whole arrow perpendicular to the span. General
+    measuring annotation, dockable to any curve/graph by giving the two endpoints."""
+    c2p = _c2p_fn(axes)
+    col = style.get("color", (0.0, 0.0, 0.0))
+    sw = float(style.get("stroke_width", 4.0))
+    A = c2p(*_xyz(args.get("start", [0.0, 0.0, 0.0])))
+    B = c2p(*_xyz(args.get("end", [1.0, 0.0, 0.0])))
+    d = B - A
+    L = float(np.linalg.norm(d))
+    perp = np.array([0.0, 0.0, 0.0]) if L < 1e-9 else np.array([-d[1], d[0], 0.0]) / L
+    off = float(args.get("offset", 0.0))
+    A2, B2 = A + off * perp, B + off * perp
+    obj = AnimObject()
+    obj.add(Vector(end=B2, start=A2, color=col, stroke_width=sw),     # heads at BOTH ends
+            Vector(end=A2, start=B2, color=col, stroke_width=sw))
+    label = str(args.get("label", "")).strip()
+    if label:
+        lab = Text(label, position=0.5 * (A2 + B2) + 0.3 * perp,
+                   font_size=float(args.get("font_size", 28)), color=col)
+        obj.add(lab)
+    return obj
+
+
 def _build_object(spec, objects, axes=None):
     args = {k: _resolve_arg(k, v) for k, v in spec.get("args", {}).items()}
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
@@ -384,6 +450,10 @@ def _build_object(spec, objects, axes=None):
         wc = (axes.coords_to_point(c[0], c[1], c[2] if len(c) > 2 else 0.0) if axes is not None
               else np.array([c[0], c[1], c[2] if len(c) > 2 else 0.0], dtype=float))
         obj = OBJECT_TYPES["Dot"](center=np.asarray(wc, dtype=float), radius=r)
+    elif t == "Marker":                                     # point marker (dot + label + guides)
+        obj = _build_marker(args, style, axes)
+    elif t == "Measure":                                    # dimension double-arrow with label
+        obj = _build_measure(args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.

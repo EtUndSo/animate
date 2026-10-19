@@ -36,9 +36,15 @@ Legende: `[ ]` offen · `[~]` in Arbeit · `[x]` fertig & vom User getestet.
   registriert in `scene_model.py`, Palette-Eintrag in `editor.js`): eine Zeile je Eintrag (Farb-Swatch + Label),
   `labels` als `;`-Liste, `colors` optional (`;`-Liste Hex ohne `#`, sonst Auto-Palette), frei platzierbar,
   skaliert mit der Achse. Test: Axes + 2–3 FunctionGraphs anlegen, dann „Legend" mit passenden Labels/Farben.
-- [ ] **F2 Marker & Vermaßung** — Punkt-Marker mit Koordinaten/LaTeX-Label; Hilfslinien zu den Achsen;
+- [~] **F2 Marker & Vermaßung** — Punkt-Marker mit Koordinaten/LaTeX-Label; Hilfslinien zu den Achsen;
   Maß-Angaben (Amplitude, Periode $T$, Sprunghöhe, markierter Punkt $(x_0,y_0)$). Allgemein: an jedes
   Graph-/Kurvenobjekt andockbar.
+  **Umgesetzt (wartet auf Test):** zwei neue Objekte (special-cased in `scene_model.py`, Welt-Koordinaten
+  via `coords_to_point` → keine Dot-/Pfeil-Verzerrung): **`Marker`** {point, label, show_guides, radius,
+  font_size, color} = Punkt + optionale dünne Hilfslinien zu x-/y-Achse + Label; **`Measure`** {start, end,
+  label, offset, font_size, color, stroke_width} = Doppelpfeil (Heads an beiden Enden) mit mittigem Label,
+  `offset` schiebt senkrecht zur Strecke. CATALOG-Gruppe „Allgemein · Annotation". Test: Axes + FunctionGraph,
+  dann Marker auf einen Kurvenpunkt (show_guides an) und Measure zwischen zwei Punkten (z. B. Periode $T$).
 - [ ] **F3 Flächenfüllung** — Fläche **unter** einer Kurve bzw. **zwischen** zwei Kurven schraffieren/färben
   (Integral, Energie, Bereichsmarkierung), Intervallgrenzen als Parameter.
 - [ ] **F4 Tangente/Sekante im Punkt** — an einen Graphen im Punkt $x_0$ (Steigung/Ableitung ablesbar),

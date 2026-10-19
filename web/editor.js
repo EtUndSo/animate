@@ -86,6 +86,13 @@ const CATALOG = {
     Text:   { text:"Text", position:[0,0,0], font_size:40, color:"#111111" },
     MathTex:{ tex:"\\frac{a}{b}", height:1.2, position:[0,0,0], color:"#111111" },   // real LaTeX via MathJax -> VMobjects
   },
+  "Allgemein · Annotation": {
+    // Point marker: dot at (x,y) + label, optional thin guide lines to the x- and y-axis.
+    Marker:  { point:[1,1,0], label:"P", show_guides:true, radius:0.08, font_size:28, color:"#111111" },
+    // Dimension double-arrow start->end with a centred label (amplitude, period T, distance d, ...).
+    // `offset` shifts the arrow perpendicular to the span so it sits beside the measured section.
+    Measure: { start:[0,0,0], end:[2,0,0], label:"d", offset:0.0, font_size:28, color:"#111111", stroke_width:4 },
+  },
 };
 
 // Ready-made scenes. Each is an editor model (objects + animations) the user can load and then
