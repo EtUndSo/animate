@@ -123,3 +123,26 @@ $r^{|k|}$, nichtnegativ) vs. $D_N$ (Abschneiden, oszillierend).
 Damit schließt das Fourier-Kapitel: von der Zerlegung in Schwingungen über $L^2$- und punktweise Konvergenz bis zur
 Lösung der Laplace-Gleichung. Das letzte Kapitel wechselt zur __Wahrscheinlichkeitsrechnung__ — Wahrscheinlichkeits-
 räume, Zufallsvariablen und die Grenzwertsätze. Das ist der Start des nächsten Kapitels.
+
+:::quiz
+F: Was fragt das Dirichlet-Problem anschaulich, und was heißt „harmonisch"?
+A: Gesucht ist die Gleichgewichtsverteilung im Inneren einer Scheibe (z. B. stationäre Temperatur), wenn am Rand feste Werte $g$ vorgegeben sind. „Harmonisch" ($\Delta u=0$) bedeutet quellenfrei — die Funktion gleicht sich überall glatt aus, ohne Maxima oder Minima im Inneren zu erzeugen.
+F: Was ist die Grundidee des Separationsansatzes $v_k=A_k(r)e^{ik\theta}$?
+A: Man zerlegt die Randfunktion in Fourier-Moden $e^{ik\theta}$ und sucht für jede getrennt die radiale Fortsetzung $A_k(r)$ ins Innere. Die Laplace-Gleichung entkoppelt dann in eine gewöhnliche ODE pro Mode, die man einzeln lösen kann.
+F: Warum wird von den beiden ODE-Lösungen nur $A_k(r)=c_k r^{|k|}$ behalten?
+A: Die zweite Lösung ($r^{-|k|}$ bzw. $\ln r$ für $k=0$) wird bei $r=0$ unbeschränkt. Da $u$ auf der ganzen Scheibe (inklusive Zentrum) glatt sein soll, ist nur die bei $r=0$ beschränkte Lösung $r^{|k|}$ zulässig.
+F: Was bedeutet der Dämpfungsfaktor $r^{|k|}$ anschaulich?
+A: Jede Rand-Mode klingt nach innen ab, und hohe Frequenzen (großes $|k|$) klingen schneller ab, da $r^{|k|}$ für $r<1$ mit $|k|$ rasch gegen null geht. Feine Randdetails dringen also kaum ins Innere — das Feld wird zur Mitte hin immer glatter.
+F: Wie entsteht aus der Modensumme die Poisson-Integralformel?
+A: Man setzt die Koeffizienten $c_k=\frac{1}{2\pi}\int g\,e^{-ikt}dt$ in $\sum_k c_k r^{|k|}e^{ik\theta}$ ein und vertauscht (gleichmäßige Konvergenz für $r<1$) Summe und Integral. Die verbleibende Summe $\sum_k r^{|k|}e^{ik(\theta-t)}$ ist der Poisson-Kern, also wird $u$ die Faltung von $g$ mit $P_r$.
+F: Welche Eigenschaft des Poisson-Kerns macht ihn dem Dirichlet-Kern überlegen?
+A: $P_r$ ist nichtnegativ und erfüllt $\frac{1}{2\pi}\int P_r=1$ — eine echte Dirac-Schar. Der Dirichlet-Kern oszillierte dagegen ins Negative (divergierende Lebesgue-Konstante); die Nichtnegativität von $P_r$ sichert die Approximation der Randwerte.
+F: Warum werden die Randwerte sogar für bloß stetiges $g$ angenommen?
+A: Weil $P_r$ eine nichtnegative, gleichmäßig absolut integrierbare Dirac-Schar ist, konzentriert sich ihre Masse für $r\nearrow1$ bei $\theta=0$. Die Faltung $P_r*g$ konvergiert dann gleichmäßig gegen $g$ — bloße Stetigkeit genügt, anders als beim Dirichlet-Kern.
+F: Was besagt die Mittelwerteigenschaft, und wie folgt sie aus der Lösung?
+A: Im Zentrum ist $P_0\equiv1$, also $u(0)=\frac{1}{2\pi}\int_0^{2\pi}g(e^{it})\,dt$ — der Wert im Mittelpunkt ist das Mittel der Randwerte. Allgemein ist jeder Wert einer harmonischen Funktion der Mittelwert über jeden umgebenden Kreis.
+F: Wie sichert das Maximumprinzip die Eindeutigkeit der Lösung?
+A: Harmonische Funktionen nehmen Maximum und Minimum am Rand an. Die Differenz zweier Lösungen mit gleichem Rand ist harmonisch mit Randwert null, liegt also zwischen null und null — sie ist überall null, die Lösungen stimmen überein.
+F: Warum kann eine harmonische Funktion kein echtes Maximum im Inneren haben (Beweisidee)?
+A: Nähme $u$ innen ein Maximum an, hätte die leicht gestörte Funktion $\tilde u=u+\frac\delta2|x|^2$ dort auch ein Maximum, wo die Spur der Hesse-Matrix $\le0$ sein müsste. Aber $\operatorname{spur}D^2\tilde u=\Delta u+2\delta=2\delta>0$ — ein Widerspruch, also liegt das Maximum am Rand.
+:::
