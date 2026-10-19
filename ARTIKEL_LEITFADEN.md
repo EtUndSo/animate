@@ -111,6 +111,9 @@ tags: <komma, getrennt>
   `Elektrotechnik / 1. Semester / <Modul> / <Oberthema>`. Modul-/Oberthema-Namen **wie im Skript**.
 - **`order`:** Sequenznummer, Schema `Kapitel*10000 + Abschnitt*100` (sortiert Oberthemen & Artikel je Ebene;
   kleinstes order bestimmt die Ebenen-Reihenfolge).
+- **`summary`:** erscheint als Lede-Absatz oben im Artikel; KaTeX rendert darüber. **Formeln deshalb immer in
+  `$…$`** (z. B. `$E_n = n^2 h^2/(8mL^2)$`), **nie** als Klartext mit Unicode-Hoch/-Tiefstellung (`E_n = n²…`),
+  sonst erscheint die Formel roh im Lede.
 - **Ablage:** `content/<modulkürzel>/<NN-oberthema>/<NN-thema>.md` (Ordnerstruktur nur zur Organisation; fürs
   Rendern zählt `pfad`).
 - **Skript-Orientierung:** Themenauswahl/Gliederung an der Unterteilung des jeweiligen Skripts; nur abweichen,

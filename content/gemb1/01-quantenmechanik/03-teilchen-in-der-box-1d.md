@@ -2,7 +2,7 @@
 title: Teilchen in der Box (1D)
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Quantenmechanik
 order: 4010300
-summary: Der einfachste Fall von Quantisierung, komplett durchgerechnet – ein Elektron zwischen zwei undurchdringlichen Wänden. Aus den Randbedingungen folgen stehende Wellen, daraus die diskreten Energien E_n = n²h²/(8mL²), eine unvermeidbare Nullpunktsenergie und Aufenthaltswahrscheinlichkeiten mit Knoten.
+summary: Der einfachste Fall von Quantisierung, komplett durchgerechnet – ein Elektron zwischen zwei undurchdringlichen Wänden. Aus den Randbedingungen folgen stehende Wellen, daraus die diskreten Energien $E_n = n^2 h^2/(8mL^2)$, eine unvermeidbare Nullpunktsenergie und Aufenthaltswahrscheinlichkeiten mit Knoten.
 tags: Potentialkasten, Teilchen in der Box, Randbedingungen, stehende Wellen, Quantisierung, Nullpunktsenergie, Normierung, Quantenpunkt
 ---
 

@@ -2,7 +2,7 @@
 title: Atomorbitale
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Quantenmechanik
 order: 4010800
-summary: Der Abschluss der Quantenmechanik-Reihe – jetzt kein Kasten mehr, sondern das trichterförmige Coulomb-Potential des Atomkerns. Aus der Schrödinger-Gleichung fallen drei Quantenzahlen, die Energieformel En = −13,6 eV/n² und die vertrauten s-, p-, d-Orbitale. Mit dem Pauli-Prinzip erklärt das die Schalen und das Periodensystem – und schlägt die Brücke zu Bindungen und Energiebändern im Festkörper.
+summary: Der Abschluss der Quantenmechanik-Reihe – jetzt kein Kasten mehr, sondern das trichterförmige Coulomb-Potential des Atomkerns. Aus der Schrödinger-Gleichung fallen drei Quantenzahlen, die Energieformel $E_n = -13{,}6\,\text{eV}/n^2$ und die vertrauten s-, p-, d-Orbitale. Mit dem Pauli-Prinzip erklärt das die Schalen und das Periodensystem – und schlägt die Brücke zu Bindungen und Energiebändern im Festkörper.
 tags: Atomorbitale, Wasserstoffatom, Quantenzahlen, Coulomb-Potential, Pauli-Prinzip, Schalen, Periodensystem
 ---
 
