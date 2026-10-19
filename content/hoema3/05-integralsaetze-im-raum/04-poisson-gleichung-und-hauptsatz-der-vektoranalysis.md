@@ -131,3 +131,26 @@ Eichung $\operatorname{div}A=0$ via $\Delta\psi=-\operatorname{div}A$.
 Damit schließt das Kapitel über die Integralsätze im Raum: Gauß und Stokes verbinden Volumen, Fläche und Rand über
 Divergenz und Rotation — und tragen Potentialtheorie und Feldphysik. Das nächste Kapitel wechselt das Thema und fragt,
 **wie Folgen von Funktionen konvergieren** — punktweise gegen gleichmäßig — die Grundlage für Fourier-Reihen.
+
+:::quiz
+F: Was heißt es, dass das Coulomb-Potential $\Phi=\frac{1}{4\pi r}$ die „Greensche Funktion" des Laplace-Operators ist?
+A: Es ist die Antwort auf eine Punktquelle: formal $-\Delta\Phi=\delta$. Weil der Laplace-Operator linear ist, erhält man die Lösung für eine beliebige Quelldichte $f$ durch Überlagerung (Faltung) der Punktantworten, also $u=\Phi*f$.
+F: Warum ist es nötig, im Beweis eine kleine Kugel $B_\varepsilon$ um den Aufpunkt auszuschneiden?
+A: Der Kern $\Phi$ ist bei $r=0$ singulär, und sein Laplace ist dort eine $\delta$-Spitze — direktes Anwenden von Gauß ist unmöglich. Schneidet man $B_\varepsilon$ aus, ist $\Phi$ auf dem Rest harmonisch, und der ganze „Quellbeitrag" sammelt sich im Randintegral über $S_\varepsilon$.
+F: Warum fallen beim Anwenden der partiellen Integration alle Volumenterme weg?
+A: Außerhalb der kleinen Kugel ist $\Phi$ harmonisch ($\Delta\Phi=0$, also $\operatorname{div}\nabla\Phi=0$). In der Greenschen Formel multiplizieren die Volumenterme gerade diesen Ausdruck, sind also null — übrig bleibt nur das Oberflächenintegral über $S_\varepsilon$.
+F: Warum ist auf $S_\varepsilon$ die Normalableitung $\partial\Phi/\partial n$ gerade $1/|S_\varepsilon|=1/(4\pi\varepsilon^2)$?
+A: Mit $\nabla\Phi=-\frac{1}{4\pi r^2}\hat e_r$ und der (nach innen zeigenden) Normale $n=-\hat e_r$ ist $n\cdot\nabla\Phi=\frac{1}{4\pi r^2}$, auf $S_\varepsilon$ also $\frac{1}{4\pi\varepsilon^2}$. Das ist genau der Kehrwert des Kugelflächeninhalts $4\pi\varepsilon^2$.
+F: Wieso strebt das Randintegral für $\varepsilon\to0$ gerade gegen $f(x)$?
+A: Weil $\partial\Phi/\partial n=1/|S_\varepsilon|$ ist, ist das Randintegral das Oberflächenmittel von $f$ über die kleine Sphäre. Da $f$ stetig ist, strebt dieser Mittelwert gegen den Funktionswert im Zentrum, also $f(x)$.
+F: Was besagt der Hauptsatz der Vektoranalysis (Helmholtz-Zerlegung) anschaulich?
+A: Jedes hinreichend abklingende Vektorfeld lässt sich in zwei „reine" Teile zerlegen: einen Quellenanteil $\nabla u$ (trägt die gesamte Divergenz, ist wirbelfrei) und einen Wirbelanteil $\operatorname{rot}A$ (trägt die gesamte Rotation, ist quellenfrei).
+F: Wie baut der Beweis der Helmholtz-Zerlegung auf den vorigen Resultaten auf?
+A: Man löst zuerst $\Delta u=\operatorname{div}F$ (Poisson-Lösungsformel), dann ist $F-\nabla u$ divergenzfrei. Nach dem Poincaré-Lemma besitzt ein divergenzfreies Feld im sternförmigen $\mathbb{R}^3$ ein Vektorpotential $A$ mit $F-\nabla u=\operatorname{rot}A$ — zusammen $F=\nabla u+\operatorname{rot}A$.
+F: Warum ist es kein Widerspruch, dass $\nabla u$ die Divergenz und $\operatorname{rot}A$ die Rotation „allein" trägt?
+A: Es gilt $\operatorname{rot}\nabla u=0$ und $\operatorname{div}\operatorname{rot}A=0$ (beides Identitäten). Der Gradiententerm hat also keine Rotation, der Rotationsterm keine Divergenz — die beiden Anteile stören einander nicht und teilen die beiden „Eigenschaften" sauber auf.
+F: Was bedeutet die Eichfreiheit des Vektorpotentials $A$, und wie nutzt man sie?
+A: $A$ ist nur bis auf ein Gradientenfeld $\nabla\psi$ bestimmt, denn $\operatorname{rot}(A+\nabla\psi)=\operatorname{rot}A$. Man kann diese Freiheit nutzen, um $\operatorname{div}A=0$ zu erzwingen (Coulomb-Eichung), indem man $\Delta\psi=-\operatorname{div}A$ löst und $A$ durch $A+\nabla\psi$ ersetzt.
+F: Warum braucht die Helmholtz-Zerlegung eine Abklingbedingung im Unendlichen?
+A: Die Potentiale $u$ und $A$ werden über Faltungsintegrale mit dem Coulomb-Kern konstruiert; diese konvergieren nur, wenn $F$ hinreichend schnell abfällt (kompakter Träger oder $F=o(1/|x|^2)$). Ohne Abklingen ist die Existenz der Zerlegung nicht garantiert.
+:::
