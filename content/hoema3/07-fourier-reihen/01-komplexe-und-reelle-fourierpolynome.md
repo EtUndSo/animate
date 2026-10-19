@@ -126,3 +126,26 @@ Verschiebung $f(x+\tau)\to e^{i\tau k}c_k$; Ableitung $f'\to ik\,c_k$.
 Als Nächstes rechnen wir zwei klassische Fourier-Reihen **zu Fuß** aus — den Sägezahn und eine weitere Standardfunktion
 — und sehen dabei, wie die Koeffizienten konkret entstehen und was am Sprung passiert. Das ist das Thema des nächsten
 Artikels.
+
+:::quiz
+F: Warum darf man sich bei der Fourier-Theorie ohne Einschränkung auf die Periode $2\pi$ beschränken?
+A: Jede $T$-periodische Funktion lässt sich durch die Skalierung $\tilde f(x)=f(\tfrac{T}{2\pi}x)$ auf Periode $2\pi$ umrechnen. Die $2\pi$-Periode ist zudem die natürliche von $\sin$, $\cos$ und $e^{ikx}$, sodass die Formeln am einfachsten werden.
+F: Was bedeutet es, dass die Schwingungen $\hat e_k=e^{ikx}$ ein Orthonormalsystem bilden, und warum ist das zentral?
+A: Bezüglich $\langle f,g\rangle=\frac{1}{2\pi}\int_0^{2\pi}f\bar g$ gilt $\langle\hat e_k,\hat e_\ell\rangle=\delta_{k\ell}$ — verschiedene Schwingungen sind „senkrecht", jede hat Länge $1$. Das macht die Fourier-Entwicklung zur Zerlegung eines Vektors in einer Orthonormalbasis, bei der jeder Koeffizient unabhängig bestimmbar ist.
+F: Warum ist der Fourier-Koeffizient $c_k=\langle f,\hat e_k\rangle$ eine „Projektion"?
+A: Wie in der linearen Algebra die Komponente eines Vektors längs eines Basisvektors das Skalarprodukt mit ihm ist, misst $c_k=\langle f,\hat e_k\rangle$ den Anteil der Schwingung $\hat e_k$ in $f$. Dank Orthonormalität stören sich die Projektionen gegenseitig nicht.
+F: Warum verschwindet im Nachweis der Orthonormalität $\frac{1}{2\pi}\int_0^{2\pi}e^{i(k-\ell)x}dx$ für $k\ne\ell$?
+A: Für $k\ne\ell$ ist $e^{i(k-\ell)x}$ eine ganze Anzahl voller Schwingungen über $[0,2\pi]$; über eine volle Periode mitteln sich Real- und Imaginärteil zu null. Nur für $k=\ell$ ist der Integrand konstant $1$ und das Integral gibt $1$.
+F: Warum darf man die Fourier-Koeffizienten über jede beliebige volle Periode integrieren?
+A: Der Integrand $f(x)e^{-ikx}$ ist selbst $2\pi$-periodisch (Produkt zweier $2\pi$-periodischer Faktoren). Das Integral über ein Intervall der Länge $2\pi$ hängt daher nicht von der Lage des Intervalls ab — oft wählt man $[-\pi,\pi]$.
+F: Wieso wird die reelle Form mit $\frac{1}{\pi}$ normiert, die komplexe aber mit $\frac{1}{2\pi}$?
+A: Auch $\{\cos(kx),\sin(kx)\}$ bilden ein Orthonormalsystem, aber bezüglich $\frac{1}{\pi}\int_0^{2\pi}$ statt $\frac{1}{2\pi}\int_0^{2\pi}$. Der Faktor $\frac1\pi$ ist gerade der, der $\cos$ und $\sin$ auf Norm $1$ bringt — kein Widerspruch, sondern verschiedene Normierung verschiedener Basen.
+F: Was bedeutet der Term $\frac{a_0}{2}$ in der reellen Fourierreihe anschaulich?
+A: Er ist der Mittelwert von $f$ über eine Periode (der Anteil der „nullten Schwingung", einer Konstanten). Alle $\cos$- und $\sin$-Terme haben Mittelwert null, also trägt nur $\frac{a_0}{2}$ zum Gleichanteil bei.
+F: Warum ist eine gerade Funktion eine reine Kosinusreihe, eine ungerade eine reine Sinusreihe?
+A: $\cos$ ist gerade, $\sin$ ungerade. Eine gerade Funktion hat keinen ungeraden Anteil, also $b_k=0$ (nur Kosinus); eine ungerade keinen geraden Anteil, also $a_k=0$ (nur Sinus). Die Integrale der jeweils „falschen" Symmetrie verschwinden.
+F: Was bedeutet die Ableitungsregel $f'\to ik\,c_k$ für das Spektrum?
+A: Differenzieren im Ortsraum entspricht Multiplikation mit $ik$ im Spektrum. Hohe Frequenzen werden dadurch verstärkt — das erklärt, warum Ableiten die Konvergenz der Fourier-Reihe verschlechtert und glatte Funktionen schnell abfallende Koeffizienten haben.
+F: Warum kann man die Fourier-Koeffizienten von $\cos^2 x$ ohne jedes Integral ablesen?
+A: Mit $\cos^2 x=\tfrac12+\tfrac12\cos(2x)$ steht die Funktion bereits als Linearkombination von Basisschwingungen da. Da die Zerlegung in das Orthonormalsystem eindeutig ist, sind das genau die Fourier-Koeffizienten ($a_0=1$, $a_2=\tfrac12$, sonst null).
+:::
