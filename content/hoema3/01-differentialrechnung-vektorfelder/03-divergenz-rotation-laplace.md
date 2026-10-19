@@ -167,3 +167,26 @@ Schlüsselidentität: $\operatorname{rot}\operatorname{grad}\phi=0$ (Schwarz) �
 Divergenz und Rotation gehorchen einer Reihe eleganter **Rechenregeln und Identitäten** — etwa
 $\operatorname{div}\operatorname{rot}F=0$ und $\operatorname{rot}\operatorname{rot}F=\nabla\operatorname{div}F-\Delta F$.
 Sie sind das Handwerkszeug für alle folgenden Rechnungen und das Thema des nächsten Artikels.
+
+:::quiz
+F: Warum ist die Divergenz ein Skalar, die (3D-)Rotation aber ein Vektor — was misst jede der beiden?
+A: Die Divergenz $\nabla\cdot E$ bündelt die „auseinanderstrebende" Information zu **einer** Zahl pro Punkt: die **Quelldichte** (wie viel netto herausströmt). Die Rotation $\nabla\times E$ braucht eine **Richtung** (Drehachse) und eine Stärke — das ist ein Vektor, der die **Wirbeldichte** beschreibt.
+F: Was bedeuten $\operatorname{div}E>0$, $<0$ und $=0$ anschaulich?
+A: $>0$: eine **Quelle** — aus einer kleinen Umgebung strömt netto mehr heraus als hinein. $<0$: eine **Senke** — es verschwindet Feld. $=0$: **quellenfrei** — es fließt genauso viel rein wie raus. Präzise wird das durch den Gaußschen Satz (Fluss durch die Hülle).
+F: Warum führt $\operatorname{div}(\operatorname{grad}\phi)$ auf den Laplace-Operator, und was misst $\Delta\phi$ anschaulich?
+A: Setzt man $E=\nabla\phi$ in die Divergenz ein, entstehen die diagonalen zweiten Ableitungen $\sum_j\partial^2\phi/\partial x_j^2=\Delta\phi$. $\Delta\phi$ misst, wie stark der Wert an einem Punkt vom **Mittel seiner Umgebung** abweicht (eine „Krümmung" des Feldes).
+F: Was bedeutet es physikalisch, dass eine Funktion harmonisch ist ($\Delta\phi=0$)?
+A: Sie beschreibt einen **Gleichgewichtszustand**: kein Punkt weicht vom Umgebungsmittel ab (Mittelwerteigenschaft). Beispiele sind das Potential im ladungsfreien Raum oder eine stationäre Temperaturverteilung — nichts „quillt" oder „staut" sich.
+F: Warum ist das Coulomb-Potential $\frac{Q}{4\pi r}$ außerhalb der Ladung harmonisch, nicht aber im Ursprung?
+A: Für $r>0$ gibt die radiale Divergenzformel exakt $\Delta u=0$ — im leeren Raum gibt es keine Quelle. Im Ursprung sitzt die Punktladung selbst (Singularität); dort ist $u$ nicht definiert und $\Delta u$ wird zur Quelle (Poisson-Gleichung, später).
+F: Warum gibt es die dreikomponentige Rotation nur im $\mathbb{R}^3$, die Divergenz aber in jeder Dimension?
+A: Die Rotation ist formal das Kreuzprodukt $\nabla\times E$, und das Kreuzprodukt (Vektor senkrecht auf zwei Vektoren) ist eine Besonderheit von genau drei Dimensionen. Die Divergenz ist nur eine Summe von Ableitungen und funktioniert in jedem $\mathbb{R}^n$.
+F: Warum ist die Rotation in 2D eine skalare Größe, und wie hängen Divergenz und Rotation dort über eine $90°$-Drehung zusammen?
+A: Ein ebenes Feld hat als 3D-Rotation nur die dritte Komponente $\partial_{x_1}E_2-\partial_{x_2}E_1$ — also eine Zahl. Mit dem um $90°$ gedrehten Feld $F^\perp=(-F_2,F_1)$ gilt $\operatorname{div}F=\operatorname{rot}F^\perp$: Quelle und Wirbel sind „dasselbe, um $90°$ gedreht".
+F: Warum gilt $\operatorname{rot}(\operatorname{grad}\phi)=0$, und welche Eigenschaft steckt dahinter?
+A: Jede Komponente von $\operatorname{rot}\nabla\phi$ ist eine Differenz gemischter zweiter Ableitungen, z. B. $\partial_{x_2}\partial_{x_3}\phi-\partial_{x_3}\partial_{x_2}\phi$. Nach dem Satz von Schwarz vertauschen diese, also ist alles null: Gradientenfelder sind **wirbelfrei**.
+F: Warum ist „$\operatorname{rot}F=0$" nur notwendig, nicht hinreichend dafür, dass $F$ ein Gradientenfeld ist?
+A: Notwendig folgt es aus $\operatorname{rot}\operatorname{grad}=0$. Ob die Umkehrung gilt, hängt von der **Gestalt des Gebiets** ab: Auf einem Gebiet mit „Loch" kann ein Feld überall rotationsfrei sein und trotzdem kein globales Potential haben. Erst einfach zusammenhängende Gebiete sichern die Umkehrung (Poincaré/Stokes, später).
+F: Was besagt die radiale Divergenzformel $\operatorname{div}(f(r)\hat e_r)=f'(r)+(n-1)\frac{f(r)}{r}$ — insbesondere der Term $(n-1)\frac{f(r)}{r}$?
+A: $f'(r)$ ist die Änderung der Feldstärke entlang des Radius; $(n-1)\frac{f(r)}{r}$ ist ein rein **geometrischer** Beitrag, weil radiale Pfeile beim Auseinanderlaufen eine mit $r^{n-1}$ wachsende Fläche „aufspannen". Er erklärt, warum gerade ein $\sim r^{-(n-1)}$-Feld quellenfrei ist (die beiden Terme heben sich auf).
+:::
