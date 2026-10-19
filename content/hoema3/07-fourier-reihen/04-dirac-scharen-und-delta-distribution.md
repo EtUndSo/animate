@@ -131,3 +131,26 @@ punktweisen Konvergenz).
 
 Mit der Dirac-Schar im Gepäck untersuchen wir jetzt, wann $T_Nf(x)\to f(x)$ **punktweise** gilt. Das Werkzeug ist der
 __Dirichlet-Kern__, und das Ergebnis betrifft insbesondere Sprungstellen (Mittelwert) — das Thema des nächsten Artikels.
+
+:::quiz
+F: Was macht eine Dirac-Schar $\varphi_\varepsilon$ aus, und was bleibt beim Umskalieren erhalten?
+A: Es ist eine Familie glatter, nichtnegativer Buckel, die sich für $\varepsilon\downarrow0$ immer schmaler und höher bei $x=0$ zusammenziehen. Die Umskalierung $\varphi_\varepsilon(x)=\frac1\varepsilon\varphi(x/\varepsilon)$ ist gerade so gebaut, dass das Integral stets $1$ bleibt — die Fläche bleibt erhalten.
+F: Warum macht gerade der Faktor $\frac1\varepsilon$ das Integral unabhängig von $\varepsilon$?
+A: Beim Stauchen des Arguments um den Faktor $\varepsilon$ schrumpft die Fläche um $\varepsilon$; der Vorfaktor $\frac1\varepsilon$ gleicht das genau aus. Per Substitution $u=x/\varepsilon$ wird $\int\frac1\varepsilon\varphi(x/\varepsilon)dx=\int\varphi(u)\,du=1$.
+F: Was bedeutet die Faltung $\varphi_\varepsilon*f$ anschaulich?
+A: Sie bildet an jeder Stelle einen gewichteten Mittelwert von $f$ über eine kleine Umgebung, wobei $\varphi_\varepsilon$ die Gewichte liefert. Das Ergebnis ist eine geglättete, „verwischte" Version von $f$ — daher der Name Glättungskern.
+F: Warum konvergiert $\varphi_\varepsilon*f$ gegen $f$?
+A: Weil $\int\varphi_\varepsilon=1$ ist, gilt $f(x)-f_\varepsilon(x)=\int\varphi_\varepsilon(x-y)(f(x)-f(y))\,dy$. Nur $|x-y|<\varepsilon$ trägt bei, und dort ist $f$ wegen Stetigkeit fast konstant, also geht der Fehler $\le\sup_{|x-y|<\varepsilon}|f(x)-f(y)|\to0$.
+F: Warum ist $\varphi_\varepsilon*f$ glatt, obwohl $f$ selbst rau sein kann?
+A: Nach dem Satz über Parameterintegrale fällt beim Ableiten die Ableitung komplett auf den glatten Faktor $\varphi_\varepsilon$, nicht auf $f$. Da $\varphi_\varepsilon$ beliebig oft differenzierbar ist, ist es auch die Faltung — die Rauheit von $f$ wird „weggemittelt".
+F: Was heißt „Approximation der Eins", und warum braucht man sie?
+A: Die Faltung hat kein neutrales Element — keine Funktion $g$ mit $f*g=f$ für alle $f$. Die Dirac-Scharen $\varphi_\varepsilon$ kommen dem beliebig nahe ($\varphi_\varepsilon*f\to f$), sind also eine „approximative Eins" der Faltung.
+F: Warum ist die δ-Distribution keine gewöhnliche Funktion?
+A: Es gibt keine Funktion $\delta$ mit $\int f(y)\delta(y)\,dy=f(0)$; die Scharen $\varphi_\varepsilon$ konvergieren als Funktionenfolge gar nicht. $\delta_0$ existiert nur als Grenzwert der Integrale, also als Funktional/Maß, das eine Funktion auswertet — „im Distributionssinn".
+F: Was besagt die Siebeigenschaft der δ-Distribution?
+A: $\int f\,d\delta_x=f(x)$ — das δ-„Integral" greift aus einer stetigen Funktion genau ihren Wert an der Stelle $x$ heraus. Anders als das Riemann-Integral merkt es sogar, ob der Punkt $x$ zum Integrationsbereich gehört.
+F: Wieso hat der Dirac-Kamm die Fourier-Koeffizienten $c_k=\frac{1}{2\pi}$ für alle $k$?
+A: Nach der Siebeigenschaft ist $c_k=\frac{1}{2\pi}\int_0^{2\pi}e^{-ikx}\,\delta_0(dx)=\frac{1}{2\pi}e^{-ik\cdot0}=\frac{1}{2\pi}$. Alle Frequenzen sind also gleich stark vertreten — ein „weißes" Spektrum.
+F: Wieso ist der Dirichlet-Kern zwar Dirac-artig, aber problematischer als die glatten Glättungskerne hier?
+A: Das Fourierpolynom $T_Nf$ ist die Faltung von $f$ mit dem Dirichlet-Kern $\frac{1}{2\pi}\sum_{|k|\le N}e^{ikx}$, der für $N\to\infty$ gegen $\delta_0$ strebt. Er ist aber nicht nichtnegativ, sondern oszilliert — deshalb ist die punktweise Konvergenz subtiler (und der nichtnegative Fejér-Kern verhält sich gutmütiger).
+:::
