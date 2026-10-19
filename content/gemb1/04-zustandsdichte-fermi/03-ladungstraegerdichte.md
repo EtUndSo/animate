@@ -2,7 +2,7 @@
 title: Ladungsträgerdichte – Elektronen und Löcher
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Zustandsdichte und Fermi-Verteilung
 order: 4040300
-summary: Der Zusammenbau beider Bausteine zur gesuchten Zahl – wie viele bewegliche Ladungsträger ein Halbleiter enthält. Aus $n=\int D(E)f(E)\,dE$ wird mit der Boltzmann-Näherung die einfache Form $n=N_C\,e^{-(E_L-E_f)/k_BT}$, analog $p=N_V\,e^{-(E_f-E_V)/k_BT}$ für die Löcher. Multipliziert man beide, fällt das Fermi-Niveau heraus – das Massenwirkungsgesetz $n\cdot p=n_i^2$.
+summary: Der Zusammenbau beider Bausteine zur gesuchten Zahl – wie viele bewegliche Ladungsträger ein Halbleiter enthält. Aus $n=\int D(E)f(E)\,dE$ wird mit der Boltzmann-Näherung die einfache Form $n=N_L\,e^{-(E_L-E_f)/k_BT}$, analog $p=N_V\,e^{-(E_f-E_V)/k_BT}$ für die Löcher. Multipliziert man beide, fällt das Fermi-Niveau heraus – das Massenwirkungsgesetz $n\cdot p=n_i^2$.
 tags: Ladungsträgerdichte, Elektronen, Löcher, effektive Zustandsdichte, Massenwirkungsgesetz, intrinsische Dichte, Boltzmann-Näherung
 ---
 
@@ -25,7 +25,7 @@ nächste Oberthema (Dotierung).
 :::
 
 **Worum es geht:** Wir berechnen aus $n=\int D\,f\,dE$ die Elektronendichte, führen das __Loch__ sauber ein,
-leiten die einfachen Formeln mit der __effektiven Zustandsdichte__ $N_C, N_V$ her und gewinnen daraus das
+leiten die einfachen Formeln mit der __effektiven Zustandsdichte__ $N_L, N_V$ her und gewinnen daraus das
 __Massenwirkungsgesetz__ und die intrinsische Dichte $n_i$.
 
 ## Die Masterformel und die zwei Ladungsträger
@@ -86,32 +86,32 @@ Mit der Substitution $x=\tfrac{E-E_L}{k_BT}$ (also $dE=k_BT\,dx$) spaltet sich d
 als Vorfaktor ab, und das Restintegral ist ein reiner Zahlenwert — die Gamma-Funktion
 $\int_0^\infty\sqrt{x}\,e^{-x}dx=\Gamma(\tfrac32)=\tfrac{\sqrt\pi}{2}$:
 
-$$n = \underbrace{2\left(\frac{2\pi m_L^\star k_BT}{h^2}\right)^{3/2}}_{N_C}\;\exp\!\left(-\frac{E_L-E_f}{k_BT}\right).$$
+$$n = \underbrace{2\left(\frac{2\pi m_L^\star k_BT}{h^2}\right)^{3/2}}_{N_L}\;\exp\!\left(-\frac{E_L-E_f}{k_BT}\right).$$
 
 Das ist das zentrale Ergebnis:
 
-$$n = N_C\,\exp\!\left(-\frac{E_L-E_f}{k_BT}\right), \qquad N_C = 2\left(\frac{2\pi m_L^\star k_BT}{h^2}\right)^{3/2}.$$
+$$n = N_L\,\exp\!\left(-\frac{E_L-E_f}{k_BT}\right), \qquad N_L = 2\left(\frac{2\pi m_L^\star k_BT}{h^2}\right)^{3/2}.$$
 
 :::grafik
 Links die zu integrierende Fläche: Produkt aus Wurzelkurve $D_L$ und abfallender Boltzmann-Kurve ergibt einen
 schmalen Buckel über $E_L$ (Fläche = $n$). Rechts die Zusammenfassung: dieselbe Fläche als **ein** Ersatzzustand
-$N_C$ direkt an der Kante $E_L$, besetzt mit $e^{-(E_L-E_f)/k_BT}$.
+$N_L$ direkt an der Kante $E_L$, besetzt mit $e^{-(E_L-E_f)/k_BT}$.
 :::
 
 ## Was die effektive Zustandsdichte bedeutet
 
-Die __effektive Zustandsdichte__ $N_C$ fasst das **gesamte** über die Energie verteilte Leitungsband zu **einem
-einzigen** Ersatzzustand direkt an der Bandkante $E_L$ zusammen. Interpretation: „Es ist so, *als ob* es $N_C$
+Die __effektive Zustandsdichte__ $N_L$ fasst das **gesamte** über die Energie verteilte Leitungsband zu **einem
+einzigen** Ersatzzustand direkt an der Bandkante $E_L$ zusammen. Interpretation: „Es ist so, *als ob* es $N_L$
 Plätze genau bei $E_L$ gäbe, die mit dem Boltzmann-Faktor besetzt werden." Das ist die enorme Vereinfachung —
-statt eines Integrals nur noch ein Produkt. Der Faktor $N_C\propto T^{3/2}$ wächst mit der Temperatur, weil ein
+statt eines Integrals nur noch ein Produkt. Der Faktor $N_L\propto T^{3/2}$ wächst mit der Temperatur, weil ein
 breiteres Energiefenster thermisch zugänglich wird.
 
 Für die **Löcher** läuft alles symmetrisch (mit $D_V$ und $1-f$), und man erhält:
 
 $$p = N_V\,\exp\!\left(-\frac{E_f-E_V}{k_BT}\right), \qquad N_V = 2\left(\frac{2\pi m_V^\star k_BT}{h^2}\right)^{3/2}.$$
 
-Für **Silizium** bei $300\,$K: $N_C \approx 2{,}82\times10^{19}\,\text{cm}^{-3}$ und
-$N_V \approx 1{,}83\times10^{19}\,\text{cm}^{-3}$. Dass $N_C>N_V$ ist, liegt an der größeren
+Für **Silizium** bei $300\,$K: $N_L \approx 2{,}82\times10^{19}\,\text{cm}^{-3}$ und
+$N_V \approx 1{,}83\times10^{19}\,\text{cm}^{-3}$. Dass $N_L>N_V$ ist, liegt an der größeren
 DOS-effektiven Masse des Leitungsbandes (sechs Täler) ([IUE TU Wien](https://www.iue.tuwien.ac.at/phd/ayalew/node62.html)).
 
 | | Elektronen ($n$) | Löcher ($p$) |
@@ -120,7 +120,7 @@ DOS-effektiven Masse des Leitungsbandes (sechs Täler) ([IUE TU Wien](https://ww
 | Zustandsdichte | $D_L\propto\sqrt{E-E_L}$ | $D_V\propto\sqrt{E_V-E}$ |
 | Besetzung | $f(E)$ | $1-f(E)=f_h$ |
 | sammeln sich an | Kante $E_L$ | Kante $E_V$ |
-| Dichte | $N_C\,e^{-(E_L-E_f)/k_BT}$ | $N_V\,e^{-(E_f-E_V)/k_BT}$ |
+| Dichte | $N_L\,e^{-(E_L-E_f)/k_BT}$ | $N_V\,e^{-(E_f-E_V)/k_BT}$ |
 | Ladung | $-e$ | $+e$ |
 
 ## Das Massenwirkungsgesetz
@@ -128,7 +128,7 @@ DOS-effektiven Masse des Leitungsbandes (sechs Täler) ([IUE TU Wien](https://ww
 Jetzt der elegante Abschluss. Multipliziert man $n$ und $p$, **fällt das Fermi-Niveau heraus** (die Exponenten
 addieren sich zu $-(E_L-E_V)/k_BT = -E_g/k_BT$):
 
-$$n\cdot p = N_C N_V\,\exp\!\left(-\frac{E_g}{k_BT}\right), \qquad E_g = E_L - E_V.$$
+$$n\cdot p = N_L N_V\,\exp\!\left(-\frac{E_g}{k_BT}\right), \qquad E_g = E_L - E_V.$$
 
 Das ist das __Massenwirkungsgesetz__: Das **Produkt** $n\cdot p$ hängt nur von Temperatur und Bandlücke ab —
 **nicht** von der Lage des Fermi-Niveaus und damit **nicht** von der Dotierung. Erhöht eine Dotierung die
@@ -136,7 +136,7 @@ Elektronenzahl, sinkt die Löcherzahl im selben Maß.
 
 Für den **intrinsischen** (undotierten) Halbleiter gilt zusätzlich $n=p=:n_i$, woraus folgt:
 
-$$n_i = \sqrt{N_C N_V}\,\exp\!\left(-\frac{E_g}{2k_BT}\right), \qquad n\cdot p = n_i^2.$$
+$$n_i = \sqrt{N_L N_V}\,\exp\!\left(-\frac{E_g}{2k_BT}\right), \qquad n\cdot p = n_i^2.$$
 
 Für Silizium ergibt das $n_i \approx 10^{10}\,\text{cm}^{-3}$ bei $300\,$K — winzig gegenüber den $\sim 10^{22}$
 Atomen pro cm³, weshalb reines Silizium ein sehr schlechter Leiter ist. Zugleich stellt sich das Fermi-Niveau
@@ -152,10 +152,10 @@ const" — mehr $n$ bedeutet weniger $p$.
 __Ladungsträgerdichte__ = Zustandsdichte mal Besetzung, integriert: $n=\int D_L f\,dE$,
 $p=\int D_V (1-f)\,dE$. Ein __Loch__ ist ein fehlendes Elektron (Ladung $+e$); $1-f(E)=f_h$ hat dieselbe Form wie
 $f$, gespiegelt. Mit der __Boltzmann-Näherung__ und $\Gamma(\tfrac32)=\tfrac{\sqrt\pi}{2}$:
-$n=N_C\,e^{-(E_L-E_f)/k_BT}$, $p=N_V\,e^{-(E_f-E_V)/k_BT}$ mit der __effektiven Zustandsdichte__
+$n=N_L\,e^{-(E_L-E_f)/k_BT}$, $p=N_V\,e^{-(E_f-E_V)/k_BT}$ mit der __effektiven Zustandsdichte__
 $N_{C,V}=2(2\pi m^\star k_BT/h^2)^{3/2}\propto T^{3/2}$ (das ganze Band auf **einen** Ersatzzustand an der Kante).
-Si (300 K): $N_C\approx2{,}82\cdot10^{19}$, $N_V\approx1{,}83\cdot10^{19}\,$cm⁻³. __Massenwirkungsgesetz__
-$n\cdot p=N_C N_V\,e^{-E_g/k_BT}=n_i^2$ — **$E_f$-unabhängig**; intrinsisch $n=p=n_i=\sqrt{N_C N_V}\,e^{-E_g/2k_BT}$
+Si (300 K): $N_L\approx2{,}82\cdot10^{19}$, $N_V\approx1{,}83\cdot10^{19}\,$cm⁻³. __Massenwirkungsgesetz__
+$n\cdot p=N_L N_V\,e^{-E_g/k_BT}=n_i^2$ — **$E_f$-unabhängig**; intrinsisch $n=p=n_i=\sqrt{N_L N_V}\,e^{-E_g/2k_BT}$
 ($\approx10^{10}\,$cm⁻³ für Si), $E_f$ etwa in Bandlückenmitte.
 :::
 

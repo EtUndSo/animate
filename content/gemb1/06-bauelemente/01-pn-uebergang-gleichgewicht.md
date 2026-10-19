@@ -72,7 +72,7 @@ Wie hoch ist die Bandverbiegung? Genau so hoch wie der Unterschied der Fermi-Niv
 
 $$V_{bi} = \frac{k_B T}{e}\,\ln\!\left(\frac{N_A\,N_D}{n_i^2}\right),$$
 
-mit der intrinsischen Dichte $n_i=\sqrt{N_C N_V}\,e^{-E_g/2k_BT}$ (aus dem Statistik-Oberthema).
+mit der intrinsischen Dichte $n_i=\sqrt{N_L N_V}\,e^{-E_g/2k_BT}$ (aus dem Statistik-Oberthema).
 
 - __$N_A, N_D$__: die Dotierdichten. Je stärker dotiert, desto **größer** $V_{bi}$ — logisch, denn dann lagen die
   Fermi-Niveaus der beiden Gebiete weiter auseinander.

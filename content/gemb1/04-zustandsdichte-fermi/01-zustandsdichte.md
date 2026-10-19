@@ -2,7 +2,7 @@
 title: Die Zustandsdichte
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Zustandsdichte und Fermi-Verteilung
 order: 4040100
-summary: Wie viele elektronische Plätze es pro Energie überhaupt gibt – die Zustandsdichte $D(E)$. Sie folgt allein aus der Bandstruktur, indem man die im k-Raum gleichmäßig verteilten Zustände nach Energie sortiert. Für ein parabolisches Band in 3D ergibt sich der Wurzelverlauf $D(E)\propto\sqrt{E-E_C}$ – und je nach Dimension (1D, 2D, 3D, 0D) sieht die Zustandsdichte völlig anders aus.
+summary: Wie viele elektronische Plätze es pro Energie überhaupt gibt – die Zustandsdichte $D(E)$. Sie folgt allein aus der Bandstruktur, indem man die im k-Raum gleichmäßig verteilten Zustände nach Energie sortiert. Für ein parabolisches Band in 3D ergibt sich der Wurzelverlauf $D(E)\propto\sqrt{E-E_L}$ – und je nach Dimension (1D, 2D, 3D, 0D) sieht die Zustandsdichte völlig anders aus.
 tags: Zustandsdichte, density of states, k-Raum, parabolisches Band, Dimensionsabhängigkeit, van-Hove-Singularität, effektive Masse
 ---
 
@@ -26,7 +26,7 @@ $\vec k$ sortiert. Das ist der erste von zwei Bausteinen für die Ladungsträger
 
 **Worum es geht:** Wir leiten her, dass die Zustände im $k$-Raum ein gleichmäßiges Raster bilden, zählen sie in
 einer Energieschale ab und erhalten so für ein parabolisches Band in 3D den Wurzelverlauf
-$D(E)\propto\sqrt{E-E_C}$. Anschließend sehen wir, *warum* die Form in 1D, 2D und 0D ganz anders aussieht.
+$D(E)\propto\sqrt{E-E_L}$. Anschließend sehen wir, *warum* die Form in 1D, 2D und 0D ganz anders aussieht.
 
 ## Zustände sitzen im k-Raum auf einem gleichmäßigen Raster
 
@@ -60,7 +60,7 @@ Kästchen der Fläche $(2\pi/L)^2$. Hinweis „großer Kristall → feines Raste
 
 ## Abzählen in der Energieschale (3D, parabolisches Band)
 
-Nahe einer Bandkante ist das Band parabolisch: $E - E_C = \hbar^2 k^2/(2m^\star)$ (mit der effektiven Masse aus dem
+Nahe einer Bandkante ist das Band parabolisch: $E - E_L = \hbar^2 k^2/(2m^\star)$ (mit der effektiven Masse aus dem
 Bandstruktur-Oberthema). Die Zustände **gleicher Energie** liegen dann auf einer **Kugel** im $k$-Raum. Wir zählen
 in drei Schritten.
 
@@ -76,23 +76,23 @@ Das ist im Kern die **Oberfläche der $k$-Kugel** ($\propto k^2$), auf der alle 
 
 __Schritt 3__ — Von $dk$ auf $dE$ umrechnen über die Bandbeziehung:
 
-$$k = \frac{\sqrt{2m^\star(E-E_C)}}{\hbar}, \qquad \frac{dk}{dE} = \frac{\sqrt{2m^\star}}{2\hbar\sqrt{E-E_C}}.$$
+$$k = \frac{\sqrt{2m^\star(E-E_L)}}{\hbar}, \qquad \frac{dk}{dE} = \frac{\sqrt{2m^\star}}{2\hbar\sqrt{E-E_L}}.$$
 
 :::grafik
 Drei Panels: (1) gefüllte $k$-Kugel mit Radius $k$ („alle Zustände bis $k$"), (2) dünne Kugelschale $[k,k+dk]$
-(„Zustände dieser Energie", $\propto k^2$), (3) die Parabel $E-E_C=\hbar^2k^2/2m^\star$ mit markiertem $dk \to dE$.
+(„Zustände dieser Energie", $\propto k^2$), (3) die Parabel $E-E_L=\hbar^2k^2/2m^\star$ mit markiertem $dk \to dE$.
 :::
 
-Zusammensetzen ($D(E) = \tfrac1V\tfrac{dN}{dk}\cdot\tfrac{dk}{dE}$, mit $k^2 = 2m^\star(E-E_C)/\hbar^2$) ergibt die
+Zusammensetzen ($D(E) = \tfrac1V\tfrac{dN}{dk}\cdot\tfrac{dk}{dE}$, mit $k^2 = 2m^\star(E-E_L)/\hbar^2$) ergibt die
 __Zustandsdichte des Leitungsbandes__:
 
-$$D(E) = \frac{(2m^\star)^{3/2}}{2\pi^2\hbar^3}\sqrt{E-E_C} = \frac{4\pi\,(2m^\star)^{3/2}}{h^3}\sqrt{E-E_C}, \qquad E \ge E_C.$$
+$$D(E) = \frac{(2m^\star)^{3/2}}{2\pi^2\hbar^3}\sqrt{E-E_L} = \frac{4\pi\,(2m^\star)^{3/2}}{h^3}\sqrt{E-E_L}, \qquad E \ge E_L.$$
 
 Für das **Valenzband** gilt dasselbe gespiegelt — die Zustände füllen den Bereich **unterhalb** der Kante $E_V$,
 also steht dort $\sqrt{E_V - E}$.
 
 :::grafik
-Die Kurve $D(E) = \tfrac{4\pi(2m^\star)^{3/2}}{h^3}\sqrt{E-E_C}$ über $E$: startet bei null an der Bandkante $E_C$
+Die Kurve $D(E) = \tfrac{4\pi(2m^\star)^{3/2}}{h^3}\sqrt{E-E_L}$ über $E$: startet bei null an der Bandkante $E_L$
 und steigt wurzelförmig an. Gespiegelt darunter die Valenzband-Zustandsdichte $\propto\sqrt{E_V-E}$, die von $E_V$
 nach unten ansteigt. Dazwischen die leere Bandlücke.
 :::
@@ -118,9 +118,9 @@ Artikel) so andere Eigenschaften haben:
 
 | Dimension | Schale $\propto$ | $D(E)\propto$ | Charakter |
 |---|---|---|---|
-| **1D** (Draht) | $k^0$ | $(E-E_C)^{-1/2}$ | **divergiert** an der Kante (van-Hove-Spitze) |
+| **1D** (Draht) | $k^0$ | $(E-E_L)^{-1/2}$ | **divergiert** an der Kante (van-Hove-Spitze) |
 | **2D** (Film) | $k^1$ | const | **Treppenstufe**, energieunabhängig |
-| **3D** (Volumen) | $k^2$ | $(E-E_C)^{+1/2}$ | **Wurzel**, startet bei 0 |
+| **3D** (Volumen) | $k^2$ | $(E-E_L)^{+1/2}$ | **Wurzel**, startet bei 0 |
 | **0D** (Punkt) | — | $\delta$-Linien | **einzelne scharfe Niveaus** (wie im Atom) |
 
 :::grafik
@@ -152,9 +152,9 @@ erzeugt.
 Die __Zustandsdichte__ $D(E)$ zählt die elektronischen Plätze pro Energie und Volumen — dieselben Zustände wie
 $E(\vec k)$, nur nach Energie sortiert. Im $k$-Raum sitzen die Zustände auf einem Raster mit Abstand $2\pi/L$, die
 Summe wird zum Integral $\tfrac{2}{(2\pi)^3}\int d^3k$ (Faktor 2 = Spin). Für ein parabolisches 3D-Band:
-$D(E)=\tfrac{4\pi(2m^\star)^{3/2}}{h^3}\sqrt{E-E_C}$ (Valenzband: $\sqrt{E_V-E}$). Der **Wurzelverlauf** kommt aus
+$D(E)=\tfrac{4\pi(2m^\star)^{3/2}}{h^3}\sqrt{E-E_L}$ (Valenzband: $\sqrt{E_V-E}$). Der **Wurzelverlauf** kommt aus
 Kugeloberfläche $\propto k^2\propto E$ mal Umrechnung $dk/dE\propto1/\sqrt{E}$. Je Dimension anders: **1D**
-$\propto(E-E_C)^{-1/2}$ (Divergenz), **2D** konstant (Treppe), **3D** $\sqrt{E}$, **0D** einzelne Linien. Bei
+$\propto(E-E_L)^{-1/2}$ (Divergenz), **2D** konstant (Treppe), **3D** $\sqrt{E}$, **0D** einzelne Linien. Bei
 Silizium fasst die __DOS-effektive Masse__ $m_{\text{DOS}}^\star=6^{2/3}((m_t^\star)^2 m_l^\star)^{1/3}$ die sechs
 Täler zusammen.
 :::
