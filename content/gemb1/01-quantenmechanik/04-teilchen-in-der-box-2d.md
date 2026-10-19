@@ -163,3 +163,26 @@ verschwindet sie wieder. Technische Anwendung: der __Quantendraht__.
 Der nächste Schritt ist naheliegend: das Einsperren in **allen drei** Raumrichtungen — der __Quantenpunkt__ —,
 mit dem die Reihe Quantenfilm/Quantendraht/Quantenpunkt vollständig wird und die wichtige Frage nach der
 Zustandsdichte aufwirft.
+
+:::quiz
+F: Warum muss man den 2D-Kasten nicht von Grund auf neu lösen?
+A: Solange die Wände in $x$- und $y$-Richtung unabhängig sind, zerfällt das Problem in zwei getrennte 1D-Kästen, deren Lösungen man bereits kennt. Man kombiniert sie nur noch — das Produkt der Wellenfunktionen und die Summe der Energien.
+F: Welche Eigenschaft des Potentials macht den Separationsansatz überhaupt möglich?
+A: Dass sich $V(x,y)$ additiv in einen reinen $x$- und einen reinen $y$-Anteil trennt, die sich nicht gegenseitig beeinflussen. Dann sind die Bewegungen in beide Richtungen unabhängig, und man darf einen Produktansatz $\psi=X(x)Y(y)$ machen.
+F: Warum muss im separierten Ausdruck jeder Summand für sich konstant sein?
+A: Der erste Summand hängt nur von $x$ ab, der zweite nur von $y$, ihre Summe ist aber die konstante Energie $E$. Eine Größe, die nur von $x$ abhängt und doch konstant sein muss, kann nur konstant sein — ebenso die $y$-Größe; so entstehen $E_x$ und $E_y$ mit $E=E_x+E_y$.
+F: Warum trägt jeder 2D-Zustand zwei Quantenzahlen?
+A: Jede Raumrichtung liefert ein eigenes 1D-Kastenproblem mit eigener Quantisierung $k_x=n_x\pi/L_x$ bzw. $k_y=n_y\pi/L_y$. Jeder Zustand braucht daher eine Quantenzahl pro Richtung, $(n_x,n_y)$ — die Wellenfunktion ist das Produkt der beiden Sinus-Wellen.
+F: Warum addieren sich die Energien der beiden Richtungen?
+A: Weil $E=E_x+E_y$ aus der Separation folgt und jede Richtung ihre eigene „Teilchen-in-der-Box"-Energie $\propto n^2/L^2$ beisteuert. Die kinetische Energie setzt sich aus den unabhängigen Krümmungen in $x$ und $y$ zusammen.
+F: Was bedeuten die Knotenlinien in den $|\psi|^2$-Mustern?
+A: Es sind Linien, auf denen die Wellenfunktion null ist — dort wird das Elektron nie angetroffen. Sie trennen die Wahrscheinlichkeitshügel; im Zustand $(n_x,n_y)$ entsteht so ein Schachbrett aus $n_x\times n_y$ Hügeln.
+F: Was ist Entartung, und warum gibt es sie im 1D-Fall nicht?
+A: Entartung heißt, dass mehrere physikalisch verschiedene Zustände dieselbe Energie haben. In 1D bestimmt die eine Quantenzahl $n$ die Energie eindeutig; erst mit zwei Quantenzahlen kann die energiebestimmende Summe $n_x^2+n_y^2$ auf verschiedene Weisen zustande kommen.
+F: Warum haben in der quadratischen Box $(1,2)$ und $(2,1)$ dieselbe Energie?
+A: Bei $L_x=L_y=L$ hängt die Energie nur von $n_x^2+n_y^2$ ab, und $1+4=4+1=5$. Beide Zustände sind aber verschieden (die Welle schwingt einmal stärker in $x$, einmal in $y$) — ein zweifach entartetes Niveau.
+F: Woher kommt diese Entartung, und wie kann man sie aufheben?
+A: Aus der Symmetrie der quadratischen Box: Eine $90^\circ$-Drehung vertauscht $x$ und $y$ und überführt $(1,2)$ in $(2,1)$, ohne die Energie zu ändern. Macht man die Box ungleichseitig ($L_x\neq L_y$), ist diese Symmetrie gebrochen und die Niveaus spalten auf.
+F: Was ist ein Quantendraht und wie hängt er mit dem 2D-Kasten zusammen?
+A: Sperrt man Elektronen in zwei Richtungen auf wenige Nanometer ein und lässt sie nur in der dritten frei, entsteht ein Quantendraht. Die hier berechneten diskreten $(n_x,n_y)$-Niveaus sind die „Kanäle", in denen der Strom entlang der freien Richtung fließt.
+:::
