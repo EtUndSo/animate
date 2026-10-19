@@ -59,6 +59,36 @@
   }
   window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
 })();
+// Hell/Dunkel-Umschalter + einklappbare Panels (Fokusmodus) + Mobil-Menü für den Themenbaum.
+(function(){
+  var root=document.documentElement, layout=document.querySelector(".layout");
+  var tb=document.getElementById("themeBtn");
+  if(tb) tb.addEventListener("click",function(){
+    var dark=root.getAttribute("data-theme")==="dark";          // Wissen-Konvention: dunkel = data-theme="dark"
+    if(dark) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem("animate-theme", dark?"light":"dark"); }catch(e){}   // Schlüssel mit dem Editor geteilt
+  });
+  if(!layout) return;
+  var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
+  var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
+  function mark(btn,on){ if(btn){ btn.classList.toggle("off",!!on); btn.setAttribute("aria-pressed",on?"true":"false"); } }
+  function L(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
+  function S(k,v){ try{ localStorage.setItem(k,v?"1":"0"); }catch(e){} }
+  // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
+  if(bR){ if(L("wissen-hide-right")){ layout.classList.add("hide-right"); mark(bR,true); }
+    bR.addEventListener("click",function(){ var now=layout.classList.toggle("hide-right"); mark(bR,now); S("wissen-hide-right",now); }); }
+  // Links (Themenbaum): Desktop = einklappen (gemerkt); Mobil = Overlay auf/zu.
+  if(bL){ if(L("wissen-hide-left") && !mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
+    bL.addEventListener("click",function(){
+      if(mq.matches){ var o=side&&side.classList.toggle("open"); mark(bL,!!o); }
+      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); S("wissen-hide-left",now); }
+    }); }
+  // Breitenwechsel aufräumen: Overlay nur mobil, Einklappen nur Desktop.
+  (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
+    if(e.matches){ layout.classList.remove("hide-left"); mark(bL, side&&side.classList.contains("open")); }
+    else { if(side) side.classList.remove("open"); var hl=L("wissen-hide-left"); layout.classList.toggle("hide-left",hl); mark(bL,hl); }
+  });
+})();
 // KaTeX automatisch rendern.
 window.addEventListener("DOMContentLoaded",function(){
   if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[

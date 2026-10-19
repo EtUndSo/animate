@@ -17,6 +17,12 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
 .topbar .editorlink{font-weight:600;color:var(--muted);} .topbar .editorlink:hover{color:var(--ink);}
+.topbar .iconBtn,.topbar .panelBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
+.topbar .iconBtn:hover,.topbar .panelBtn:hover{border-color:var(--accent);color:var(--ink);}
+.topbar .panelBtn.off{color:var(--accent);border-color:var(--accent);}      /* Panel aktuell eingeklappt */
+/* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
+.layout.hide-left{grid-template-columns:0 minmax(0,1fr);} .layout.hide-left>.side{display:none;}
+.layout.hide-right .article{grid-template-columns:minmax(0,1fr) 0;} .layout.hide-right .toc{display:none;}
 .layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:0;max-width:1180px;margin:0 auto;}
 .side{position:sticky;top:53px;align-self:start;max-height:calc(100vh - 53px);overflow:auto;padding:18px 10px 40px 18px;border-right:1px solid var(--border);font-size:14.5px;}
 .side-home{display:block;font-weight:700;color:var(--ink);margin-bottom:10px;}
@@ -25,15 +31,16 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
 .side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
-.side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
+.side .lvl0>summary{font-weight:700;color:var(--accent2);}  /* Fach/Studiengang: rot */
+.side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
-.side .lvl2>summary{color:var(--accent2);}                /* Modul: rot */
+.side .lvl2>summary{color:var(--accent);}                 /* Modul: blau */
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
-.side li a{display:block;color:var(--accent);padding:3px 7px;border-radius:7px;}   /* Themen: blau */
+.side li a{display:block;color:var(--ink);padding:3px 7px;border-radius:7px;}   /* Unterthemen/Themen: schwarz (im Dunkelmodus hell) */
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:#fff;background:var(--accent);font-weight:600;}
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
-.article>article{min-width:0;max-width:72ch;}
+.article>article{min-width:0;max-width:72ch;margin-inline:auto;}   /* zentriert -> bleibt beim Einklappen der Panels gleich breit */
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
 .article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
 .article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
@@ -74,9 +81,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .field-block{margin:26px 0;} .field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
 .idx-node{margin:10px 0 10px 4px;padding-left:14px;border-left:2px solid var(--border);}
 .idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--accent3);font-weight:700;letter-spacing:.01em;}  /* Semester: orange */
-.idx-node h3.idx-lvl2{color:var(--accent2);}             /* Modul: rot (Themen-Links sind schon blau) */
+.idx-node h3.idx-lvl2{color:var(--accent);}              /* Modul: blau (Oberthemen bleiben Standard-Ink/schwarz) */
 .theme-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
 .theme-card h3{font-family:var(--fdisp);margin:0 0 6px;font-size:16px;} .theme-card ul{list-style:none;margin:0;padding:0;} .theme-card li{margin:4px 0;}
+.theme-card a{color:var(--ink);} .theme-card a:hover{color:var(--accent);}   /* Unterthemen schwarz, Hover blau */
+.field-block>h2{color:var(--accent2);}   /* Fach/Studiengang: rot (wie Sidebar lvl0) */
 .empty{color:var(--muted);}
 .wfoot{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13.5px;}
 .searchOverlay{position:fixed;inset:0;z-index:50;background:rgba(10,14,22,.5);backdrop-filter:blur(2px);display:flex;justify-content:center;padding:10vh 16px 16px;}
@@ -89,7 +98,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .searchResults .r-snip{font-size:13.5px;color:var(--muted);margin-top:2px;} .searchResults mark{background:color-mix(in srgb,var(--accent3) 55%,transparent);color:inherit;border-radius:3px;}
 .searchHint{padding:10px 18px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--border);}
 .menuBtn{display:none;}
-@media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} }
-@media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;} .side.open{display:block;position:fixed;inset:53px 0 0;z-index:30;background:var(--panel);max-height:none;}
-  .menuBtn{display:inline-flex;}
+@media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
+@media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
+  /* Themenbaum als Overlay (über #toggleLeft geöffnet); muss das Desktop-Einklappen überstimmen */
+  .layout .side.open{display:block;position:fixed;inset:56px 0 0;z-index:30;background:var(--panel);max-height:none;overflow:auto;padding:14px 16px 48px;}
+  .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
+  .topbar .searchBtn .lbl,.topbar .searchBtn kbd{display:none;}   /* Suchknopf nur als Lupe */
+  .article{padding:20px 16px 60px;}                               /* schmalere Seitenränder auf dem Handy */
 }

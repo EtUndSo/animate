@@ -299,13 +299,26 @@ def page_shell(title, desc, body, depth):
 <script src="/wissen/assets/wissen.js"></script>
 </body></html>"""
 
-def topbar():
+def topbar(panels=False):
+    # Panel-Einklapp-Buttons (nur Artikelseiten, links neben der Marke): links=Themenbaum, rechts=Gliederung.
+    pbtns = ('<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
+             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
+             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
+             '<button id="toggleRight" class="panelBtn" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="false">'
+             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
+             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>UndSo</span></a>'
-            '<button id="searchBtn" class="searchBtn" aria-label="Suche">'
+            + pbtns
+            + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'
             '<svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
             'stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/>'
-            '<line x1="21" y1="21" x2="16" y2="16"/></svg> Suchen <kbd>/</kbd></button>'
-            '<a class="editorlink" href="/editor.html">Editor</a></div>'
+            '<line x1="21" y1="21" x2="16" y2="16"/></svg> <span class="lbl">Suchen </span><kbd>/</kbd></button>'
+            # Hell/Dunkel-Umschalter — immer oben rechts, auf allen Wissensseiten an gleicher Stelle.
+            '<button id="themeBtn" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten">'
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            '<path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button>'
+            + '<a class="editorlink" href="/editor.html">Editor</a></div>'
             '<div id="searchOverlay" class="searchOverlay" hidden><div class="searchBox">'
             '<input id="searchInput" type="search" placeholder="Thema, Begriff, Formel …" autocomplete="off"/>'
             '<div id="searchResults" class="searchResults"></div>'
@@ -328,7 +341,7 @@ def render_article(art, tree, prev_a, next_a):
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
             + (f'<p class="lede">{html.escape(art["summary"])}</p>' if art["summary"] else "")
             + body_html + nav + legal_footer() + "</article>" + toc_html + "</main>")
-    body = topbar() + '<div class="layout">' + sidebar_html(tree, art["path"]) + main + "</div>"
+    body = topbar(panels=True) + '<div class="layout">' + sidebar_html(tree, art["path"]) + main + "</div>"
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth)
 
@@ -427,6 +440,12 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
 .topbar .editorlink{font-weight:600;color:var(--muted);} .topbar .editorlink:hover{color:var(--ink);}
+.topbar .iconBtn,.topbar .panelBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
+.topbar .iconBtn:hover,.topbar .panelBtn:hover{border-color:var(--accent);color:var(--ink);}
+.topbar .panelBtn.off{color:var(--accent);border-color:var(--accent);}      /* Panel aktuell eingeklappt */
+/* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
+.layout.hide-left{grid-template-columns:0 minmax(0,1fr);} .layout.hide-left>.side{display:none;}
+.layout.hide-right .article{grid-template-columns:minmax(0,1fr) 0;} .layout.hide-right .toc{display:none;}
 .layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:0;max-width:1180px;margin:0 auto;}
 .side{position:sticky;top:53px;align-self:start;max-height:calc(100vh - 53px);overflow:auto;padding:18px 10px 40px 18px;border-right:1px solid var(--border);font-size:14.5px;}
 .side-home{display:block;font-weight:700;color:var(--ink);margin-bottom:10px;}
@@ -435,15 +454,16 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
 .side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
-.side .lvl0>summary{font-weight:700;} .side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
+.side .lvl0>summary{font-weight:700;color:var(--accent2);}  /* Fach/Studiengang: rot */
+.side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
-.side .lvl2>summary{color:var(--accent2);}                /* Modul: rot */
+.side .lvl2>summary{color:var(--accent);}                 /* Modul: blau */
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
-.side li a{display:block;color:var(--accent);padding:3px 7px;border-radius:7px;}   /* Themen: blau */
+.side li a{display:block;color:var(--ink);padding:3px 7px;border-radius:7px;}   /* Unterthemen/Themen: schwarz (im Dunkelmodus hell) */
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:#fff;background:var(--accent);font-weight:600;}
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
-.article>article{min-width:0;max-width:72ch;}
+.article>article{min-width:0;max-width:72ch;margin-inline:auto;}   /* zentriert -> bleibt beim Einklappen der Panels gleich breit */
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
 .article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
 .article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
@@ -484,9 +504,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .field-block{margin:26px 0;} .field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
 .idx-node{margin:10px 0 10px 4px;padding-left:14px;border-left:2px solid var(--border);}
 .idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--accent3);font-weight:700;letter-spacing:.01em;}  /* Semester: orange */
-.idx-node h3.idx-lvl2{color:var(--accent2);}             /* Modul: rot (Themen-Links sind schon blau) */
+.idx-node h3.idx-lvl2{color:var(--accent);}              /* Modul: blau (Oberthemen bleiben Standard-Ink/schwarz) */
 .theme-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
 .theme-card h3{font-family:var(--fdisp);margin:0 0 6px;font-size:16px;} .theme-card ul{list-style:none;margin:0;padding:0;} .theme-card li{margin:4px 0;}
+.theme-card a{color:var(--ink);} .theme-card a:hover{color:var(--accent);}   /* Unterthemen schwarz, Hover blau */
+.field-block>h2{color:var(--accent2);}   /* Fach/Studiengang: rot (wie Sidebar lvl0) */
 .empty{color:var(--muted);}
 .wfoot{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13.5px;}
 .searchOverlay{position:fixed;inset:0;z-index:50;background:rgba(10,14,22,.5);backdrop-filter:blur(2px);display:flex;justify-content:center;padding:10vh 16px 16px;}
@@ -499,9 +521,13 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .searchResults .r-snip{font-size:13.5px;color:var(--muted);margin-top:2px;} .searchResults mark{background:color-mix(in srgb,var(--accent3) 55%,transparent);color:inherit;border-radius:3px;}
 .searchHint{padding:10px 18px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--border);}
 .menuBtn{display:none;}
-@media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} }
-@media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;} .side.open{display:block;position:fixed;inset:53px 0 0;z-index:30;background:var(--panel);max-height:none;}
-  .menuBtn{display:inline-flex;}
+@media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
+@media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
+  /* Themenbaum als Overlay (über #toggleLeft geöffnet); muss das Desktop-Einklappen überstimmen */
+  .layout .side.open{display:block;position:fixed;inset:56px 0 0;z-index:30;background:var(--panel);max-height:none;overflow:auto;padding:14px 16px 48px;}
+  .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
+  .topbar .searchBtn .lbl,.topbar .searchBtn kbd{display:none;}   /* Suchknopf nur als Lupe */
+  .article{padding:20px 16px 60px;}                               /* schmalere Seitenränder auf dem Handy */
 }
 """
 
@@ -565,6 +591,36 @@ WISSEN_JS = r"""
     links.forEach(function(a){a.classList.remove("active");}); if(cur) cur.a.classList.add("active");
   }
   window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+})();
+// Hell/Dunkel-Umschalter + einklappbare Panels (Fokusmodus) + Mobil-Menü für den Themenbaum.
+(function(){
+  var root=document.documentElement, layout=document.querySelector(".layout");
+  var tb=document.getElementById("themeBtn");
+  if(tb) tb.addEventListener("click",function(){
+    var dark=root.getAttribute("data-theme")==="dark";          // Wissen-Konvention: dunkel = data-theme="dark"
+    if(dark) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem("animate-theme", dark?"light":"dark"); }catch(e){}   // Schlüssel mit dem Editor geteilt
+  });
+  if(!layout) return;
+  var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
+  var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
+  function mark(btn,on){ if(btn){ btn.classList.toggle("off",!!on); btn.setAttribute("aria-pressed",on?"true":"false"); } }
+  function L(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
+  function S(k,v){ try{ localStorage.setItem(k,v?"1":"0"); }catch(e){} }
+  // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
+  if(bR){ if(L("wissen-hide-right")){ layout.classList.add("hide-right"); mark(bR,true); }
+    bR.addEventListener("click",function(){ var now=layout.classList.toggle("hide-right"); mark(bR,now); S("wissen-hide-right",now); }); }
+  // Links (Themenbaum): Desktop = einklappen (gemerkt); Mobil = Overlay auf/zu.
+  if(bL){ if(L("wissen-hide-left") && !mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
+    bL.addEventListener("click",function(){
+      if(mq.matches){ var o=side&&side.classList.toggle("open"); mark(bL,!!o); }
+      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); S("wissen-hide-left",now); }
+    }); }
+  // Breitenwechsel aufräumen: Overlay nur mobil, Einklappen nur Desktop.
+  (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
+    if(e.matches){ layout.classList.remove("hide-left"); mark(bL, side&&side.classList.contains("open")); }
+    else { if(side) side.classList.remove("open"); var hl=L("wissen-hide-left"); layout.classList.toggle("hide-left",hl); mark(bL,hl); }
+  });
 })();
 // KaTeX automatisch rendern.
 window.addEventListener("DOMContentLoaded",function(){
