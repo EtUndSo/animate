@@ -130,3 +130,26 @@ Wir haben Kurvenintegrale und die Frage nach Potentialen vollständig durchdrung
 Zusammenhang zwischen einem **Randintegral** (längs einer geschlossenen Kurve) und einem **Flächenintegral** über
 das eingeschlossene Gebiet — die __Integralsätze in der Ebene__ (Green und Gauß), das Thema des letzten Artikels
 dieses Kapitels.
+
+:::quiz
+F: Was ist eine Homotopie, und was besagt die Homotopieinvarianz für wirbelfreie Felder?
+A: Eine Homotopie ist eine stetige Deformation $\gamma_s=h(s,t)$ einer Kurve in eine andere. Ist $\operatorname{rot}F=0$, so bleibt das Kurvenintegral $\int_{\gamma_s}F\cdot dx$ **während der ganzen Verformung konstant** — man darf den Weg beliebig „verbiegen", ohne den Wert zu ändern.
+F: Warum bleibt bei der Deformation nur ein Randterm übrig, und wann verschwindet er?
+A: Die Ableitung nach $s$ lässt sich (dank Integrabilität) als $\partial_t$ eines Ausdrucks schreiben, also $\frac{d}{ds}\int_{\gamma_s}F\cdot dx=[F(h)\cdot\partial_s h]_{t=a}^{t=b}$. Der Randterm ist null bei (i) geschlossenen Kurven (Enden bleiben zusammengeheftet) oder (ii) festen Endpunkten ($\partial_s h=0$ an den Enden).
+F: Welche Rolle spielt die Integrabilitätsbedingung $\operatorname{rot}F=0$ für die Invarianz?
+A: Sie liefert die Vertauschungs-Identität $\partial_s(F(h)\cdot\partial_t h)=\partial_t(F(h)\cdot\partial_s h)$, die den Integranden erst zu einer $t$-Ableitung macht. Ohne $\operatorname{rot}F=0$ gilt diese Identität nicht, und das Integral ist im Allgemeinen **nicht** homotopieinvariant.
+F: Was bedeutet „einfach zusammenhängend"?
+A: Dass sich **jede** geschlossene Kurve im Gebiet stetig (innerhalb des Gebiets) auf einen Punkt zusammenziehen lässt. Anschaulich in der Ebene: das Gebiet hat keine Löcher.
+F: Warum ist die geschlitzte Ebene einfach zusammenhängend, die punktierte Ebene aber nicht?
+A: In der punktierten Ebene bleibt eine Schleife um das Loch beim Zusammenziehen am Loch hängen. Der Schlitz der geschlitzten Ebene verhindert, dass eine Schleife das Loch überhaupt ganz umrunden kann — dadurch ist jede Schleife zusammenziehbar.
+F: Warum ist der punktierte Raum $\mathbb{R}^3\setminus\{0\}$ einfach zusammenhängend, die punktierte Ebene nicht?
+A: In 3D kann man eine Schleife am Punkt-Loch **vorbei** aus dem Weg nach außen ziehen und so zusammenziehen; in 2D sperrt der fehlende Punkt die Ebene in zwei Seiten. Die Intuition „ein Loch = nicht einfach zusammenhängend" trügt also ab Dimension 3.
+F: Was besagt der zweite Hauptsatz, und wie beweist man ihn mit Homotopie?
+A: Auf einem einfach zusammenhängenden Gebiet ist $F$ konservativ $\Leftrightarrow\operatorname{rot}F=0$. Beweis: Jede geschlossene Kurve lässt sich auf einen Punkt zusammenziehen; das Integral über den Punkt ist $0$, und die Homotopieinvarianz hält den Wert dabei fest — also $\oint F\cdot dx=0$ für jede Schleife.
+F: Inwiefern ist der zweite Hauptsatz die globale Fassung des Poincaré-Lemmas?
+A: Das Poincaré-Lemma verlangte ein **Sterngebiet**; der zweite Hauptsatz kommt mit der schwächeren, allgemeineren Bedingung **einfach zusammenhängend** aus. Beide liefern dieselbe Kernaussage: ohne Löcher wird aus „wirbelfrei" ein globales Potential.
+F: Warum liefert das Wirbelfeld $\oint_{K_R}=2\pi$, und was misst dieser Wert?
+A: Die punktierte Ebene ist nicht einfach zusammenhängend — der Kreis ums Loch ist nicht zusammenziehbar, also greift der zweite Hauptsatz nicht und $\oint\neq0$ ist erlaubt. Nach der Homotopieinvarianz ist $2\pi$ für **jede** das Loch einmal umschlingende Schleife gleich; der Wert misst die **Umlaufzahl**, nicht die Form.
+F: Warum besitzt dasselbe Wirbelfeld auf der geschlitzten Ebene plötzlich ein Potential?
+A: Dort ist die Argumentfunktion (der Polarwinkel) $\varphi$ ein globales Potential mit $\nabla\varphi=F$. Der Schlitz blockiert gerade den vollen Umlauf, bei dem $\varphi$ um $2\pi$ springen würde — dieselbe Formel, aber ein einfach zusammenhängendes Gebiet, und schon existiert das Potential.
+:::
