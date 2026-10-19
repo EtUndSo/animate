@@ -3,7 +3,7 @@
 
 const ENGINE_FILES = [
   "__init__.py", "constants.py", "camera.py", "renderer.py", "AnimObject.py",
-  "bezier.py", "plotting.py", "simpleShape.py", "text.py", "svg.py", "axes.py", "threed.py", "value_tracker.py",
+  "bezier.py", "plotting.py", "simpleShape.py", "text.py", "svg.py", "axes.py", "threed.py", "legend.py", "value_tracker.py",
   "results.py", "calc.py", "geometry.py", "processes.py", "arithmetic.py", "animation.py", "rate_functions.py", "scene.py", "scene_model.py",
 ];
 
