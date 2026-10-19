@@ -53,11 +53,11 @@ Oxid-Grenzfläche. Dort entsteht eine hohe Löcherdichte — die Grenzschicht wi
 MOS-Kondensator ein simpler **Plattenkondensator** Metall–Oxid–„Metall", seine Kapazität ist schlicht die des
 Oxids:
 
-$$C_g \approx C_{ox} = \frac{\varepsilon_0\varepsilon_{ox}}{d_{ox}}.$$
+$$C_{ges} \approx C_{IS} = \frac{\varepsilon_0\varepsilon_{IS}}{d_{IS}}.$$
 
 :::grafik
 Banddiagramm an der Oberfläche: Valenzband biegt sich zur Grenzfläche hin **nach oben** an $E_f$ heran, viele
-Löcher (offene Kreise) sammeln sich am Oxid. Daneben das Ersatzbild „Plattenkondensator, $C_g\approx C_{ox}$".
+Löcher (offene Kreise) sammeln sich am Oxid. Daneben das Ersatzbild „Plattenkondensator, $C_{ges}\approx C_{IS}$".
 :::
 
 ## Zustand 2 — Verarmung (V_g > 0, moderat)
@@ -67,15 +67,15 @@ Zurück bleiben die ortsfesten, ionisierten **Akzeptoren** $N_A^-$ — eine __Ve
 pn-Übergang, nur einseitig. Die Poisson-Gleichung liefert wieder eine **parabelförmige** Bandverbiegung mit der
 Verarmungsweite
 
-$$L_{\text{depl}} = \sqrt{\frac{2\,\Phi_0\,\varepsilon_0\varepsilon_{si}}{e^2\,N_A}},$$
+$$L_{\text{depl}} = \sqrt{\frac{2\,\varphi_s\,\varepsilon_0\varepsilon_{r,SC}}{e^2\,N_A}},$$
 
-wobei $\Phi_0$ die Bandverbiegung an der Oberfläche ist. Kapazitiv liegt jetzt zur Oxidkapazität eine
-**Verarmungskapazität** $C_{\text{depl}}=\varepsilon_0\varepsilon_{si}/L_{\text{depl}}$ in **Reihe** — die
+wobei $\varphi_s$ die Bandverbiegung an der Oberfläche ist. Kapazitiv liegt jetzt zur Oxidkapazität eine
+**Verarmungskapazität** $C_{\text{depl}}=\varepsilon_0\varepsilon_{r,SC}/L_{\text{depl}}$ in **Reihe** — die
 Gesamtkapazität sinkt in ein **Minimum**.
 
 :::grafik
 Banddiagramm: Bänder biegen sich an der Oberfläche nach unten, Löcher sind weg, nur ortsfeste „−"-Akzeptoren in
-einer Zone der Breite $L_{\text{depl}}$. Daneben das Ersatzbild „$C_{ox}$ in Reihe mit $C_{\text{depl}}$ →
+einer Zone der Breite $L_{\text{depl}}$. Daneben das Ersatzbild „$C_{IS}$ in Reihe mit $C_{\text{depl}}$ →
 Kapazität fällt".
 :::
 
@@ -85,7 +85,7 @@ Erhöht man die Spannung weiter, wird das **intrinsische** Fermi-Niveau $E_f^{\,
 **unter** das Fermi-Niveau $E_f$ gedrückt. Damit ist die Oberfläche dort **lokal n-leitend** — obwohl der Bulk
 p-Typ ist; die Ladungsträgersorte hat sich „invertiert". Weil $E_f$ nun dem Leitungsband nahekommt, steigt die
 **Elektronendichte exponentiell** und bildet eine hauchdünne __Inversionsschicht__ direkt unter dem Oxid. Diese
-Schicht ist wieder quasi-metallisch, also $C_g\approx C_{ox}$ — und sie ist genau der **leitende Kanal**, den der
+Schicht ist wieder quasi-metallisch, also $C_{ges}\approx C_{IS}$ — und sie ist genau der **leitende Kanal**, den der
 MOSFET später zum Schalten nutzt.
 
 :::grafik
@@ -96,37 +96,46 @@ Elektronenschicht (Inversionskanal) am Oxid. Beschriftung „p-Bulk, aber n-leit
 Die Spannung, ab der die Inversion einsetzt, heißt __Schwellenspannung__ $V_{th}$; die Spannung des Übergangs von
 Akkumulation zu Verarmung die __Flachbandspannung__ $V_{FB}$.
 
+**Wann genau setzt starke Inversion ein?** Das übliche Kriterium: Die Oberfläche soll so stark n-leitend werden,
+wie der Bulk p-leitend ist. Das ist erreicht, wenn das __Oberflächenpotential__ $\varphi_s$ gerade das Doppelte des
+__Bulk-Potentials__ $\varphi_B$ erreicht,
+
+$$\varphi_s = 2\,\varphi_B, \qquad \varphi_B = V_T\,\ln\!\frac{N_A}{n_i}, \qquad V_T = \frac{k_B T}{e}\approx 26\,\text{mV (RT)},$$
+
+mit der __Temperaturspannung__ $V_T$. Genau an dieser Schwelle ($\varphi_s = 2\varphi_B$) liegt die
+Schwellenspannung $V_{th}$ — darüber wächst die Inversionsladung exponentiell.
+
 ## Die Gate-Kapazität
 
 Die Gatespannung teilt sich auf zwischen dem Abfall über dem **Oxid** und der **Bandverbiegung** im Halbleiter —
 kapazitiv eine **Reihenschaltung**:
 
-$$C_g = \frac{C_{ox}\,C_{si}}{C_{ox}+C_{si}}, \qquad C_{si} = C_{\text{depl}} + C_{\text{int}} + C_{\text{inv}}.$$
+$$C_{ges} = \frac{C_{IS}\,C_{SC}}{C_{IS}+C_{SC}}, \qquad C_{SC} = C_{\text{depl}} + C_{\text{it}} + C_{\text{inv}}.$$
 
-Die Halbleiterkapazität $C_{si}$ ist ihrerseits eine **Parallelschaltung** der Beiträge von Verarmung, Inversion
+Die Halbleiterkapazität $C_{SC}$ ist ihrerseits eine **Parallelschaltung** der Beiträge von Verarmung, Inversion
 und Grenzflächenzuständen (alle reagieren am selben Ort auf die Oberflächenspannung). In **Akkumulation** und
-**starker Inversion** ist die Grenzschicht quasi-metallisch ($C_{si}$ riesig), sodass $C_g\approx C_{ox}$; in der
-**Verarmung** dazwischen fällt $C_g$ in ein Minimum.
+**starker Inversion** ist die Grenzschicht quasi-metallisch ($C_{SC}$ riesig), sodass $C_{ges}\approx C_{IS}$; in der
+**Verarmung** dazwischen fällt $C_{ges}$ in ein Minimum.
 
 :::grafik
-Ersatzschaltbild: $C_{ox}$ in Reihe zur Parallelschaltung $C_{\text{depl}}\,\|\,C_{\text{int}}\,\|\,
+Ersatzschaltbild: $C_{IS}$ in Reihe zur Parallelschaltung $C_{\text{depl}}\,\|\,C_{\text{it}}\,\|\,
 C_{\text{inv}}$. Daneben drei Miniatur-Banddiagramme (Akkumulation/Verarmung/Inversion) mit dem jeweils
 dominierenden Kapazitätsbeitrag.
 :::
 
 ## Die C-V-Kurve: nieder- vs. hochfrequent
 
-Trägt man $C_g/C_{ox}$ über der Gatespannung auf, entsteht die charakteristische Wanne: **hoch** in Akkumulation
-($\approx C_{ox}$), **Minimum** in Verarmung — und in Inversion wird es **frequenzabhängig**. Der Grund: Die
+Trägt man $C_{ges}/C_{IS}$ über der Gatespannung auf, entsteht die charakteristische Wanne: **hoch** in Akkumulation
+($\approx C_{IS}$), **Minimum** in Verarmung — und in Inversion wird es **frequenzabhängig**. Der Grund: Die
 Inversionsladung besteht aus **Minoritäten** (Elektronen im p-Typ), die nur langsam nachgeliefert werden.
 
-- **Niederfrequenz** (quasi-statisch): Die Inversionsladung kann dem langsamen Messsignal folgen → $C_g$ steigt
-  in Inversion wieder auf $\approx C_{ox}$.
-- **Hochfrequenz**: Die träge Inversionsladung kann **nicht** folgen; nur die Verarmungsladung reagiert → $C_g$
-  bleibt in Inversion auf einem tiefen Plateau $\dfrac{C_{ox}C_{\text{depl}}}{C_{ox}+C_{\text{depl}}}$.
+- **Niederfrequenz** (quasi-statisch): Die Inversionsladung kann dem langsamen Messsignal folgen → $C_{ges}$ steigt
+  in Inversion wieder auf $\approx C_{IS}$.
+- **Hochfrequenz**: Die träge Inversionsladung kann **nicht** folgen; nur die Verarmungsladung reagiert → $C_{ges}$
+  bleibt in Inversion auf einem tiefen Plateau $\dfrac{C_{IS}C_{\text{depl}}}{C_{IS}+C_{\text{depl}}}$.
 
 :::grafik
-Die C-V-Kurve $C_g/C_{ox}$ über $V_g$: links Plateau bei 1 (Akkumulation), Minimum in der Verarmung, dann zwei
+Die C-V-Kurve $C_{ges}/C_{IS}$ über $V_g$: links Plateau bei 1 (Akkumulation), Minimum in der Verarmung, dann zwei
 Äste in Inversion — die Niederfrequenzkurve steigt zurück auf 1, die Hochfrequenzkurve bleibt unten. Markiert
 $V_{FB}$ und $V_{th}$.
 :::
@@ -151,11 +160,11 @@ zwei C-V-Kurven, deren Differenzfläche „$\propto D_{it}$" schraffiert ist.
 Der __MOS-Kondensator__ (Metall–Oxid–p-Si) steuert über die Gatespannung die Bandverbiegung an der Oberfläche;
 durch das Oxid fließt kein Strom. __Debye-Länge__ $L_D=\sqrt{\varepsilon_0\varepsilon_r k_BT/(e^2N_A)}$ =
 Abschirmlänge. Drei Zustände: __Akkumulation__ ($V_g<0$: Löcher an der Oberfläche, quasi-metallisch,
-$C_g\approx C_{ox}$), __Verarmung__ (moderat $V_g>0$: ortsfeste Akzeptoren, $L_{\text{depl}}=\sqrt{2\Phi_0
-\varepsilon_0\varepsilon_{si}/(e^2N_A)}$, $C_g$-Minimum), __Inversion__ (großes $V_g$: Oberfläche n-leitend,
-Elektronen-__Inversionsschicht__ = späterer Kanal, $C_g\approx C_{ox}$). Gate-Kapazität $C_g=\tfrac{C_{ox}C_{si}}
-{C_{ox}+C_{si}}$ mit $C_{si}=C_{\text{depl}}+C_{\text{int}}+C_{\text{inv}}$. __C-V-Kurve__: Niederfrequenz steigt
-in Inversion zurück auf $C_{ox}$, Hochfrequenz bleibt auf tiefem Plateau; ihre Differenz liefert $D_{it}$.
+$C_{ges}\approx C_{IS}$), __Verarmung__ (moderat $V_g>0$: ortsfeste Akzeptoren, $L_{\text{depl}}=\sqrt{2\varphi_s
+\varepsilon_0\varepsilon_{r,SC}/(e^2N_A)}$, $C_{ges}$-Minimum), __Inversion__ (großes $V_g$: Oberfläche n-leitend,
+Elektronen-__Inversionsschicht__ = späterer Kanal, $C_{ges}\approx C_{IS}$). Gate-Kapazität $C_{ges}=\tfrac{C_{IS}C_{SC}}
+{C_{IS}+C_{SC}}$ mit $C_{SC}=C_{\text{depl}}+C_{\text{it}}+C_{\text{inv}}$. __C-V-Kurve__: Niederfrequenz steigt
+in Inversion zurück auf $C_{IS}$, Hochfrequenz bleibt auf tiefem Plateau; ihre Differenz liefert $D_{it}$.
 $\text{SiO}_2$ senkt die Grenzflächenfallen $D_{it}$ um $\sim10^5$.
 :::
 

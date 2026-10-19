@@ -2,7 +2,7 @@
 title: Der MOSFET
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Bauelemente
 order: 4060400
-summary: Das wichtigste Bauelement der Elektronik – ein MOS-Kondensator mit zwei Kontakten. Die Gatespannung schaltet berührungslos einen leitenden Inversionskanal zwischen Source und Drain ein. Aus der Gradual-Channel-Näherung folgt die Kennlinie $I=W\tfrac{\mu}{L}C_{ox}(V_{DS}(V_{GS}-V_{th})-\tfrac{V_{DS}^2}{2})$ mit linearem und Sättigungsbereich – und die berühmte 60-mV/Dekade-Grenze des Schaltens.
+summary: Das wichtigste Bauelement der Elektronik – ein MOS-Kondensator mit zwei Kontakten. Die Gatespannung schaltet berührungslos einen leitenden Inversionskanal zwischen Source und Drain ein. Aus der Gradual-Channel-Näherung folgt die Kennlinie $I=W\tfrac{\mu}{L}C_{IS}(V_{DS}(V_{GS}-V_{th})-\tfrac{V_{DS}^2}{2})$ mit linearem und Sättigungsbereich – und die berühmte 60-mV/Dekade-Grenze des Schaltens.
 tags: MOSFET, Transistor, Inversionskanal, Gradual-Channel-Näherung, Sättigung, pinch-off, Schwellenspannung, Unterschwellensteigung
 ---
 
@@ -71,26 +71,26 @@ langsam, dass man an jedem Ort $x$ die MOS-Kapazität lokal als Plattenkondensat
 __Schritt 1 — Kanalladung.__ In starker Inversion ist die Flächenladung die eines Plattenkondensators, vermindert
 um das lokale Kanalpotential $V(x)$ (es steigt von $0$ an der Source auf $V_{DS}$ am Drain):
 
-$$Q(x) = C_{ox}\big(V_{GS} - V_{th} - V(x)\big).$$
+$$Q(x) = C_{IS}\big(V_{GS} - V_{th} - V(x)\big).$$
 
 __Schritt 2 — Stromgleichung.__ Wegen der Kontinuität ist der Strom an **jedem** Ort gleich groß; lokal ist es ein
 Driftstrom $I = W\,\mu\,Q(x)\,\dfrac{dV}{dx}$.
 
 __Schritt 3 — Integration von Source ($V=0$) bis Drain ($V=V_{DS}$).__ Da $I$ konstant ist:
 
-$$I\!\cdot\!L = W\mu C_{ox}\!\int_0^{V_{DS}}\!\!\big(V_{GS}-V_{th}-V\big)\,dV \;\Longrightarrow\; I = W\frac{\mu}{L}C_{ox}\left(V_{DS}(V_{GS}-V_{th}) - \frac{V_{DS}^2}{2}\right).$$
+$$I\!\cdot\!L = W\mu C_{IS}\!\int_0^{V_{DS}}\!\!\big(V_{GS}-V_{th}-V\big)\,dV \;\Longrightarrow\; I = W\frac{\mu}{L}C_{IS}\left(V_{DS}(V_{GS}-V_{th}) - \frac{V_{DS}^2}{2}\right).$$
 
 Den feldunabhängigen Vorfaktor fasst man zum __Entwurfsparameter__ (Transkonduktanz-Koeffizient) zusammen:
 
-$$K_n = \frac{W}{L}\,\mu\,C_{ox} = \frac{W}{L}\,\frac{\mu\,\varepsilon_{IS}\varepsilon_0}{d_{IS}},$$
+$$K_n = \frac{W}{L}\,\mu\,C_{IS} = \frac{W}{L}\,\frac{\mu\,\varepsilon_{IS}\varepsilon_0}{d_{IS}},$$
 
-mit der flächenbezogenen Isolator-(Oxid-)Kapazität $C_{ox}=\varepsilon_{IS}\varepsilon_0/d_{IS}$ (Oxiddicke $d_{IS}$). Damit
+mit der flächenbezogenen Isolator-(Oxid-)Kapazität $C_{IS}=\varepsilon_{IS}\varepsilon_0/d_{IS}$ (Oxiddicke $d_{IS}$). Damit
 schreibt sich die Kennlinie im **ungesättigten Bereich** ($V_{DS}\le V_{GS}-V_{th}$) kompakt
 
 $$I_D = K_n\left[(V_{GS}-V_{th})\,V_{DS} - \tfrac{1}{2}V_{DS}^2\right].$$
 
 :::grafik
-Der Kanal mit ansteigendem Potential $V(x)$ von 0 (Source) auf $V_{DS}$ (Drain); die Kanalladung $Q(x)=C_{ox}
+Der Kanal mit ansteigendem Potential $V(x)$ von 0 (Source) auf $V_{DS}$ (Drain); die Kanalladung $Q(x)=C_{IS}
 (V_{GS}-V_{th}-V(x))$ wird zum Drain hin dünner (keilförmige Ladungsschicht). Daneben die integrierte Kennlinie.
 :::
 
@@ -147,9 +147,9 @@ man braucht, um den Strom um **eine Dekade** (Faktor 10) zu ändern.
 Nur ein Bruchteil der Gatespannung erreicht die Oberfläche — ein kapazitiver Spannungsteiler aus Oxid- und
 Verarmungskapazität:
 
-$$S = \frac{k_B T}{e}\,\ln(10)\cdot\frac{C_{ox}+C_{\text{depl}}}{C_{ox}}.$$
+$$S = \frac{k_B T}{e}\,\ln(10)\cdot\frac{C_{IS}+C_{\text{depl}}}{C_{IS}}.$$
 
-Im **Idealfall** perfekter Gate-Kontrolle ($C_{ox}\gg C_{\text{depl}}$) erreicht man die physikalische Untergrenze
+Im **Idealfall** perfekter Gate-Kontrolle ($C_{IS}\gg C_{\text{depl}}$) erreicht man die physikalische Untergrenze
 
 $$S_{\min} = \frac{k_B T}{e}\,\ln(10) \approx 60\ \text{mV/Dekade} \quad(\text{bei Raumtemperatur}).$$
 
@@ -161,19 +161,19 @@ zentrale Engpass bei der weiteren Verkleinerung der Transistoren.
 :::grafik
 Transferkennlinie **halblogarithmisch** ($\log I_D$ über $V_{GS}$): im Unterschwellenbereich eine Gerade, deren
 Steigung die Unterschwellensteigung $S$ ist; eingezeichnet die ideale Grenze „$60\,$mV/Dekade". Daneben der
-kapazitive Teiler $C_{ox}$ / $C_{\text{depl}}$.
+kapazitive Teiler $C_{IS}$ / $C_{\text{depl}}$.
 :::
 
 :::kern
 Der __MOSFET__ ist ein MOS-Kondensator mit __Source__/__Drain__ ($n^{++}$): Die Gatespannung erzeugt über $V_{th}$
 den __Inversionskanal__ und schaltet den Strom **berührungslos** (keine Quasi-Fermi-Aufspaltung). Transport über
-den „Top of the Barrier" (Diffusion hinauf, Drift hinab). __Gradual-Channel-Näherung__: $Q(x)=C_{ox}(V_{GS}-V_{th}
--V(x))$, Integration → mit dem __Entwurfsparameter__ $K_n=\tfrac{W}{L}\mu C_{ox}=\tfrac{W}{L}\tfrac{\mu\varepsilon_{IS}\varepsilon_0}{d_{IS}}$
+den „Top of the Barrier" (Diffusion hinauf, Drift hinab). __Gradual-Channel-Näherung__: $Q(x)=C_{IS}(V_{GS}-V_{th}
+-V(x))$, Integration → mit dem __Entwurfsparameter__ $K_n=\tfrac{W}{L}\mu C_{IS}=\tfrac{W}{L}\tfrac{\mu\varepsilon_{IS}\varepsilon_0}{d_{IS}}$
 ist $I_D=K_n[(V_{GS}-V_{th})V_{DS}-\tfrac{1}{2}V_{DS}^2]$. **Ohmsch/linear** (kleine $V_{DS}$:
 $I_D\approx K_n(V_{GS}-V_{th})V_{DS}$, spannungsgesteuerter Widerstand), **Sättigung/pinch-off**
 ($V_{DS}\ge V_{GS}-V_{th}$, $I_{sat}=\tfrac{K_n}{2}(V_{GS}-V_{th})^2$, Strom konstant). $V_{th}$ über Austrittsarbeit $\Phi_m-\chi_{si}$ ($\chi_{si}=4{,}05\,$eV)
 + Bulk-Dotierung. Im Auszustand exponentieller Unterschwellenstrom; __inverse Unterschwellensteigung__
-$S=\tfrac{k_BT}{e}\ln(10)\tfrac{C_{ox}+C_{\text{depl}}}{C_{ox}}\ge 60\,$mV/Dekade bei RT (thermische Grenze,
+$S=\tfrac{k_BT}{e}\ln(10)\tfrac{C_{IS}+C_{\text{depl}}}{C_{IS}}\ge 60\,$mV/Dekade bei RT (thermische Grenze,
 Skalierungs-Engpass).
 :::
 
