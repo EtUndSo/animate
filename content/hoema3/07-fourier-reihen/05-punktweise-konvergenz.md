@@ -134,3 +134,26 @@ Du Bois-Reymond: stetig ⇏ punktweise.
 Zum Abschluss des Kapitels wenden wir die Fourier-Theorie auf eine **partielle Differentialgleichung** an: Das
 __Dirichlet-Problem__ auf der Einheitskreisscheibe (harmonische Funktion mit vorgegebenem Rand) löst sich durch eine
 Fourier-Reihe mit dem __Poisson-Kern__ — das Thema des nächsten Artikels.
+
+:::quiz
+F: Warum lässt sich das Fourierpolynom $T_Nf$ als Faltung $D_N*f$ schreiben?
+A: Setzt man die Koeffizientenformel $c_k=\frac{1}{2\pi}\int f(y)e^{-iky}dy$ in $T_Nf=\sum_{|k|\le N}c_k e^{ikx}$ ein und vertauscht Summe und Integral, entsteht ein Integral über $f(y)$ mal $\sum_{|k|\le N}e^{ik(x-y)}=D_N(x-y)$. Das ist genau die periodische Faltung mit dem Dirichlet-Kern.
+F: Was bedeutet die Normierung $\frac{1}{2\pi}\int_0^{2\pi}D_N=1$ für die Interpretation?
+A: Sie besagt, dass $D_N$ wie eine Dirac-Schar eine „Approximation der Eins" ist — die Faltung mittelt $f$ mit Gesamtgewicht $1$. Ohne diese Normierung würde $T_Nf$ die Funktion systematisch skalieren statt approximieren.
+F: Warum reicht bloße Stetigkeit von $f$ nicht für punktweise Konvergenz, obwohl $D_N$ Dirac-artig ist?
+A: Weil $D_N$ nicht nichtnegativ ist, sondern in Nebenzipfeln ins Negative schwingt, die mit $N$ nicht abklingen. Seine absolute Masse $\int|D_N|$ (Lebesgue-Konstante) divergiert, sodass sich positive und negative Beiträge für ungünstige stetige Funktionen aufschaukeln können.
+F: Was ist die Lebesgue-Konstante und warum ist ihr Wachstum entscheidend?
+A: Sie ist $\int_0^{2\pi}|D_N|\,dx$ und wächst wie $\ln N\to\infty$. Dieses Wachstum ist der Grund, warum das einfache Dirac-Argument (das $\int|\varphi_\varepsilon|=1$ nutzt) hier versagt — der Kern ist nicht gleichmäßig absolut integrierbar.
+F: Gegen welchen Wert konvergiert $T_Nf$ an einer Sprungstelle, und warum nicht gegen einen der beiden Werte?
+A: Gegen den Mittelwert $\frac12(f(x+)+f(x-))$ der einseitigen Grenzwerte. Der gerade Dirichlet-Kern mittelt symmetrisch über beide Seiten des Punktes, sodass beide Sprungwerte gleich gewichtet eingehen — keiner dominiert.
+F: Welche Rolle spielt Riemann-Lebesgue im Beweis der punktweisen Konvergenz?
+A: Der Fehler $I_N$ wird als Fourier-Koeffizient-artiges Integral $\frac{1}{2\pi}\int g(y)\sin((N+\frac12)y)\,dy$ einer stückweise stetigen Funktion $g$ geschrieben. Nach Riemann-Lebesgue bilden solche Koeffizienten eine Nullfolge, also $I_N\to0$.
+F: Warum muss im Beweis $g(y)=\frac{f(x+y)-f(x+)+\dots}{2\sin(y/2)}$ bei $y=0$ beschränkt bleiben, und wie wird das sichergestellt?
+A: Der Nenner $2\sin(y/2)\approx y$ geht bei $y=0$ gegen null, also müsste der Zähler ebenfalls verschwinden. Weil die einseitigen Ableitungen existieren (stückweise $C^1$), strebt $g(y)\to f'(x+)+f'(x-)$ — $g$ ist beschränkt und integrierbar, der Beweis greift.
+F: Warum konvergiert eine stetige, stückweise $C^1$-Funktion sogar gleichmäßig?
+A: Ohne Sprung gibt es keinen Punkt, an dem nur der Mittelwert getroffen wird — überall ist der Grenzwert $f(x)$. Führt man dieselbe Fehlerabschätzung gleichmäßig in $x$, geht $I_N(x)\to0$ gleichmäßig, also $T_Nf\to f$ gleichmäßig.
+F: Wie liest man aus dem Abfall der Koeffizienten die Glattheit von $f$ ab?
+A: Ist $\sum|c_k|<\infty$, ist $f$ stetig (M-Test); ist $\sum|k|^m|c_k|<\infty$, ist $f$ sogar $m$-mal stetig differenzierbar mit $f^{(\ell)}=\sum(ik)^\ell c_k e^{ikx}$. Fallen die $c_k$ wie $1/|k|^{m+2}$, reicht das für $m$-fache Differenzierbarkeit — schneller Abfall bedeutet mehr Glattheit.
+F: Was besagt das Gegenbeispiel von Du Bois-Reymond, und wie passt es zum Fejér-Kern?
+A: Es gibt eine stetige $2\pi$-periodische Funktion, deren Fourier-Reihe in einem Punkt divergiert — Fouriers Behauptung „stetig ⇒ punktweise Konvergenz" ist also falsch. Mittelt man dagegen die Partialsummen (Cesàro/Fejér mit dem nichtnegativen Fejér-Kern), konvergiert es für jede stetige Funktion gleichmäßig.
+:::
