@@ -162,3 +162,26 @@ gebundene, diskrete Zustände einnimmt. Im Festkörper sitzen aber $10^{23}$ Ato
 Orbitale überlappen, verschmelzen die vielen einzelnen Niveaus zu breiten __Energiebändern__ — und genau daraus
 ergibt sich, ob ein Material Leiter, Halbleiter oder Isolator ist. Bevor wir das verstehen, brauchen wir aber
 erst das Gerüst, in dem die Atome stecken: die __Kristallstruktur__, das Thema des nächsten Oberthemas.
+
+:::quiz
+F: Worin unterscheidet sich das Atompotential grundlegend von der Box?
+A: Das Coulomb-Potential $V(r)=-e^2/(4\pi\varepsilon_0 r)$ ist ein radialsymmetrischer Trichter, der zum Kern hin immer tiefer wird — kein flacher Boden, keine senkrechten Wände. Diese Form (statt fester Wände) bestimmt, welche Wellen hineinpassen.
+F: Warum ist die potentielle Energie im Atom negativ?
+A: Das negative Vorzeichen zeigt, dass das Elektron gebunden ist — es sitzt in einer Energiemulde. Um es ganz vom Kern zu lösen, muss man Energie zuführen; die gebundenen Niveaus liegen deshalb unterhalb von null.
+F: Warum rechnet man das Atom in Kugelkoordinaten statt in x,y,z?
+A: Weil der Trichter kugelsymmetrisch ist (hängt nur vom Abstand $r$ ab). In Kugelkoordinaten trennt der Separationsansatz die Wellenfunktion sauber in einen Radialteil $R_{nl}(r)$ und einen Winkelteil $Y_{lm}(\theta,\varphi)$ — in x,y,z ginge das nicht.
+F: Was bestimmen die drei Quantenzahlen $n$, $l$, $m$ jeweils?
+A: $n$ (Hauptquantenzahl) bestimmt Energie und grobe Größe/Schale, $l$ (Nebenquantenzahl) die Form ($s,p,d,f$), $m$ (Magnetquantenzahl) die Ausrichtung der Wolke im Raum. Sie entstehen aus den Randbedingungen in jeder der drei Koordinaten.
+F: Warum sind die Wertebereiche $l\le n-1$ und $|m|\le l$ eingeschränkt?
+A: Sie folgen aus den Randbedingungen des Radial- und Winkelteils: Nur für diese Kombinationen existiert eine normierbare, überall endliche Lösung. Pro $n$ gibt es daher $l=0,\dots,n-1$, und zu jedem $l$ genau $2l+1$ Orientierungen $m$.
+F: Was ist an der Energieformel $E_n=-13{,}6\,\text{eV}/n^2$ überraschend?
+A: Die Energie hängt nur von $n$ ab, nicht von $l$ oder $m$ — alle Orbitale einer Schale ($2s$ und $2p$ usw.) liegen energetisch gleich. Das ist eine besondere Entartung des reinen $1/r$-Potentials.
+F: Warum ist jede Schale $n^2$-fach entartet, und wann wird das aufgehoben?
+A: Zählt man alle $(l,m)$-Kombinationen zu festem $n$, ergeben sich genau $n^2$ Zustände gleicher Energie. Im Mehrelektronen-Atom ist das $1/r$-Potential durch die Elektron-Elektron-Abstoßung gestört, sodass z. B. $2s$ tiefer liegt als $2p$ — die Entartung bricht auf.
+F: Warum gibt es genau ein $s$-, drei $p$- und fünf $d$-Orbitale?
+A: Die Zahl der Orientierungen ist $2l+1$: für $l=0$ eines, $l=1$ drei, $l=2$ fünf. Summiert man $2l+1$ über $l=0$ bis $n-1$, erhält man wieder die $n^2$ Orbitale der Schale.
+F: Wie folgt aus dem Pauli-Prinzip, dass in jedes Orbital nur zwei Elektronen passen?
+A: Elektronen haben zusätzlich einen Spin mit zwei Einstellungen ($\uparrow/\downarrow$), und das Pauli-Prinzip verbietet, dass zwei Elektronen in allen Quantenzahlen übereinstimmen. Pro Orbital $(n,l,m)$ bleiben daher nur die zwei Spin-Varianten — höchstens zwei Elektronen.
+F: Wie erklären die Orbitale den Aufbau des Periodensystems?
+A: Pro Schale gibt es $n^2$ Orbitale, also $2n^2$ Plätze ($2,8,18,\dots$); man füllt sie von unten auf. Diese Kapazitäten erzeugen die Periodenlängen, und die chemischen Eigenschaften stecken fast ganz in den äußersten, nur teilgefüllten Valenzelektronen.
+:::
