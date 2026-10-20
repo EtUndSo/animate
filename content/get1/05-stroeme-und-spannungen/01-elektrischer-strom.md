@@ -216,7 +216,7 @@ Aus der Stromdichte folgt, wie schnell die Ladungsträger im Mittel vorankommen.
 ist für einen Draht mit dem Querschnitt $A$ die __Driftgeschwindigkeit__
 
 :::formel
-$$v_\text{d} = \frac{I}{n\,e\,A}.$$
+$$v_\text{D} = \frac{I}{n\,e\,A}.$$
 :::
 
 **So liest man das:** Die Driftgeschwindigkeit ist die mittlere Geschwindigkeit der Träger längs des Leiters. Weil $n$ in Metallen riesig ist, ist sie
@@ -227,7 +227,7 @@ winzig — Bruchteile eines Millimeters pro Sekunde.
 :::herleitung
 Bei gleichmäßiger Verteilung ist der Betrag der Stromdichte einerseits Strom durch Fläche, andererseits Betrag der Raumladungsdichte mal Geschwindigkeit:
 
-$$\frac{I}{A} = n\,e\,v_\text{d}.$$
+$$\frac{I}{A} = n\,e\,v_\text{D}.$$
 
 Nach der Geschwindigkeit aufgelöst steht die Formel da.
 :::
@@ -246,7 +246,7 @@ elektromagnetischer Wellen.
 ::::beispiel Kriechende Elektronen
 Ein Kupferdraht mit $1{,}5\,\text{mm}^2$ Querschnitt führt $1\,\text{A}$. Mit der Trägerdichte von Kupfer:
 
-$$v_\text{d} = \frac{1\,\text{A}}{8{,}49\cdot10^{28}\,\text{m}^{-3}\cdot1{,}602\cdot10^{-19}\,\text{C}\cdot1{,}5\cdot10^{-6}\,\text{m}^2} \approx 4{,}9\cdot10^{-5}\,\frac{\text{m}}{\text{s}}.$$
+$$v_\text{D} = \frac{1\,\text{A}}{8{,}49\cdot10^{28}\,\text{m}^{-3}\cdot1{,}602\cdot10^{-19}\,\text{C}\cdot1{,}5\cdot10^{-6}\,\text{m}^2} \approx 4{,}9\cdot10^{-5}\,\frac{\text{m}}{\text{s}}.$$
 
 Knapp fünf Hundertstel Millimeter pro Sekunde. Für einen Meter Draht bräuchte ein Elektron
 
@@ -309,7 +309,7 @@ Widerstand und das Ohmsche Gesetz.
 - __Stromstärke__: $I=\frac{dQ}{dt}$, Einheit Ampere; bei konstantem Strom ist die Ladung Strom mal Zeit.
 - Die __technische Stromrichtung__ zählt positive Ladung von Plus nach Minus; Elektronen laufen entgegen, mit demselben Ergebnis.
 - __Stromdichte__: $\vec J=\rho\,\vec v$, Strom pro Fläche; bei Elektronen zeigt sie gegen ihre Bewegung.
-- Die __Driftgeschwindigkeit__ $v_\text{d}=\frac{I}{neA}$ ist in Metallen winzig, Bruchteile eines Millimeters pro Sekunde.
+- Die __Driftgeschwindigkeit__ $v_\text{D}=\frac{I}{neA}$ ist in Metallen winzig, Bruchteile eines Millimeters pro Sekunde.
 - Das Licht geht trotzdem sofort an: Das antreibende Feld breitet sich fast mit Lichtgeschwindigkeit aus.
 - Dauerhafter Strom braucht eine Quelle und einen geschlossenen Kreis; durch jeden Querschnitt eines unverzweigten Leiters fließt derselbe Strom.
 :::
@@ -328,7 +328,7 @@ A: Eine negative Ladung, die nach links wandert, ändert die Ladungsverteilung g
 F: Was ist die Stromdichte, und in welche Richtung zeigt sie bei Elektronen?
 A: Strom pro Fläche, als Vektor $\vec J=\rho\vec v$; bei gleichmäßiger Verteilung $\frac IA$, allgemein ist der Strom das Integral von $\vec J$ über die Fläche. Bei Elektronen ist $\rho$ negativ, $\vec J$ zeigt also ihrer Bewegung entgegen, in die technische Stromrichtung. Eine Leitung von $1{,}5\,\text{mm}^2$ mit $16\,\text{A}$ hat etwa $10{,}7\,\frac{\text{A}}{\text{mm}^2}$.
 F: Wie schnell driften die Elektronen bei $1\,\text{A}$ in einem Kupferdraht von $1{,}5\,\text{mm}^2$, und warum so langsam?
-A: Aus $\frac IA=n\,e\,v_\text{d}$ folgt $v_\text{d}=\frac{I}{neA}\approx4{,}9\cdot10^{-5}\,\frac{\text{m}}{\text{s}}$, knapp fünf Hundertstel Millimeter pro Sekunde; für einen Meter bräuchte ein Elektron über fünf Stunden. So langsam, weil die Trägerdichte von rund $8{,}5\cdot10^{28}\,\text{m}^{-3}$ riesig ist: Sehr viele Träger teilen sich den Strom.
+A: Aus $\frac IA=n\,e\,v_\text{D}$ folgt $v_\text{D}=\frac{I}{neA}\approx4{,}9\cdot10^{-5}\,\frac{\text{m}}{\text{s}}$, knapp fünf Hundertstel Millimeter pro Sekunde; für einen Meter bräuchte ein Elektron über fünf Stunden. So langsam, weil die Trägerdichte von rund $8{,}5\cdot10^{28}\,\text{m}^{-3}$ riesig ist: Sehr viele Träger teilen sich den Strom.
 F: Warum leuchtet die Lampe sofort, obwohl die Elektronen so langsam kriechen?
 A: Kein Elektron muss vom Schalter zur Lampe reisen; der Draht ist überall voller Leitungselektronen. Das antreibende Feld breitet sich mit einem großen Bruchteil der Lichtgeschwindigkeit aus, in Kabeln etwa zwei Drittel davon, und setzt alle praktisch gleichzeitig in Bewegung — ein Meter dauert etwa fünf Nanosekunden. Wie bei einem vollen Wasserrohr tritt am Ende sofort etwas aus.
 F: Welche Bedingungen braucht ein dauerhafter Strom, und warum fließt durch jeden Querschnitt eines unverzweigten Leiters derselbe Strom?
