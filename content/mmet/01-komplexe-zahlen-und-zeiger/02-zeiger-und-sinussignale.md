@@ -217,7 +217,7 @@ Zahlen. Genau das macht später die Berechnung von Wechselstromschaltungen mit S
 handlich.
 
 :::grafik
-Ein Phasor $X$ und sein abgeleiteter Zeiger $j\omegaX$: um $90^\circ$ gegen den
+Ein Phasor $X$ und sein abgeleiteter Zeiger $j\omega X$: um $90^\circ$ gegen den
 Uhrzeigersinn gedreht (durch das $j$) und um den Faktor $\omega$ gestreckt. Pfeile und Winkel beschriftet;
 daneben der Hinweis „Ableiten = $\times\,j\omega$, Integrieren = $\div\,j\omega$".
 :::

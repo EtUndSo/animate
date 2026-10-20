@@ -80,7 +80,8 @@
   // Links (Themenbaum): Desktop = beim Öffnen IMMER eingeklappt (Toggle gilt nur für die aktuelle Seite); Mobil = Overlay auf/zu.
   if(bL){ if(!mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
     bL.addEventListener("click",function(){
-      if(mq.matches){ var o=side&&side.classList.toggle("open"); mark(bL,!!o); }
+      var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");   // geteilte Ansicht: Baum als Overlay
+      if(mq.matches||split){ var o=side&&side.classList.toggle("open"); mark(bL,mq.matches?!!o:!o); }
       else { var now=layout.classList.toggle("hide-left"); mark(bL,now); }
     }); }
   // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
@@ -89,8 +90,91 @@
     else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); mark(bL,true); }
   });
 })();
-// KaTeX automatisch rendern.
-window.addEventListener("DOMContentLoaded",function(){
-  if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
-    {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}]});
-});
+// Beispiel-Seite (geteilte Ansicht): Theorie links, Beispiele rechts. Beide Spalten laufen synchron – jedes Beispiel
+// steht auf Höhe der Formel, zu der es gehört (Bezugslinie bei 35 % der Fensterhöhe, dazwischen linear überblendet).
+// Zu schmale Fenster: Die Beispiel-Seite legt sich als Ebene über den Artikel.
+(function(){
+  var root=document.documentElement, btn=document.getElementById("toggleBsp"),
+      layout=document.querySelector(".layout.has-bsp"), pane=document.getElementById("bspPane");
+  if(!btn) return;
+  if(!layout||!pane){ root.classList.remove("bsp-on"); return; }
+  var wide=window.matchMedia("(min-width:1180px)"), REF=0.35;
+  var refs=[].slice.call(document.querySelectorAll(".bsp-ref[data-bsp]"));
+  var cards=refs.map(function(r){ return document.getElementById("bsp-"+r.getAttribute("data-bsp")); });
+  function isOn(){ return root.classList.contains("bsp-on"); }
+  function paint(){ var v=isOn(); btn.classList.toggle("on",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
+  function set(v,remember){
+    root.classList.toggle("bsp-on",v); paint();
+    var sd=layout.querySelector(".side"), bL=document.getElementById("toggleLeft");
+    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")){
+      sd.classList.remove("open"); if(bL){ bL.classList.add("off"); bL.setAttribute("aria-pressed","true"); } }
+    if(remember && wide.matches){ try{ localStorage.setItem("wissen-split",v?"1":"0"); }catch(e){} }
+    try{ document.dispatchEvent(new Event("wissen:layout")); }catch(e){}   // Spaltenbreite geändert -> Formeln neu einpassen
+    if(v) requestAnimationFrame(sync);
+  }
+  function anchorEl(r){ return r.previousElementSibling || r; }     // Formel/Aussage direkt vor dem Verweis
+  function sync(){
+    if(!isOn() || !wide.matches || !refs.length) return;
+    var ref=window.innerHeight*REF, k=-1, A=[], P=[];
+    for(var i=0;i<refs.length;i++){ A.push(anchorEl(refs[i]).getBoundingClientRect().top); P.push(cards[i].offsetTop); if(A[i]<=ref) k=i; }
+    var p;                                                       // Stelle der Beispiel-Seite, die auf die Bezugslinie gehört
+    if(k<0) p=P[0]-(A[0]-ref);
+    else if(k===refs.length-1) p=P[k]+(ref-A[k]);
+    else { var t=(ref-A[k])/Math.max(1,A[k+1]-A[k]); p=P[k]+t*(P[k+1]-P[k]); }
+    pane.scrollTop=p-(ref-pane.getBoundingClientRect().top);
+  }
+  var tick=false;
+  function later(){ if(tick) return; tick=true; requestAnimationFrame(function(){ tick=false; sync(); }); }
+  window.addEventListener("scroll",later,{passive:true});
+  window.addEventListener("resize",later);
+  window.addEventListener("load",later);                          // nach Schriften/KaTeX noch einmal ausrichten
+  document.addEventListener("toggle",later,true);                 // Herleitung auf-/zugeklappt -> Höhen ändern sich
+  document.addEventListener("wissen:fitted",later);               // Formeln eingepasst -> Höhen ändern sich
+  function flash(c){ if(!c) return; c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash");
+    setTimeout(function(){ c.classList.remove("flash"); },1600); }
+  function toAnchor(i){                                          // Artikel so scrollen, dass die Formel auf der Bezugslinie steht
+    var y=window.scrollY+anchorEl(refs[i]).getBoundingClientRect().top-window.innerHeight*REF;
+    window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+  }
+  refs.forEach(function(r,i){ var a=r.querySelector("a"); if(!a) return;
+    a.addEventListener("click",function(e){ e.preventDefault(); if(!isOn()) set(true,true);
+      requestAnimationFrame(function(){ if(wide.matches){ toAnchor(i); sync(); } else { pane.scrollTop=cards[i].offsetTop-12; } flash(cards[i]); });
+    }); });
+  [].slice.call(pane.querySelectorAll(".bsp-back")).forEach(function(a){
+    a.addEventListener("click",function(e){ e.preventDefault();
+      var i=refs.indexOf(document.getElementById("bspref-"+a.getAttribute("data-bsp"))); if(i<0) return;
+      if(!wide.matches) set(false,false);
+      requestAnimationFrame(function(){ toAnchor(i); });
+    }); });
+  btn.addEventListener("click",function(){ set(!isOn(),true); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && isOn() && !wide.matches) set(false,false); });
+  (wide.addEventListener?wide.addEventListener.bind(wide,"change"):wide.addListener.bind(wide))(function(e){
+    if(!e.matches){ set(false,false); }
+    else { var st=false; try{ st=localStorage.getItem("wissen-split")==="1"; }catch(x){} set(st,false); }
+  });
+  paint(); if(isOn()) requestAnimationFrame(sync);
+})();
+// KaTeX automatisch rendern; zu breite abgesetzte Formeln danach passend verkleinern (höchstens auf 70 %),
+// statt sie abzuschneiden – wichtig in der geteilten Ansicht und auf dem Handy.
+(function(){
+  function fitMath(){
+    var ds=[].slice.call(document.querySelectorAll(".katex-display"));
+    ds.forEach(function(d){ d.style.fontSize=""; });
+    for(var pass=0;pass<2;pass++){                               // zweiter Durchgang: Skalierung ist nicht ganz linear
+      var m=ds.map(function(d){ return [d.clientWidth,d.scrollWidth,parseFloat(getComputedStyle(d).fontSize)]; });
+      ds.forEach(function(d,i){ var w=m[i][0],s=m[i][1];          // w=0: eingeklappte Herleitung -> beim Aufklappen
+        if(w && s>w+1) d.style.fontSize=(m[i][2]*Math.max(0.7,w/s))+"px"; });
+    }
+    try{ document.dispatchEvent(new Event("wissen:fitted")); }catch(e){}   // Höhen haben sich geändert -> Beispiele neu ausrichten
+  }
+  var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
+  window.addEventListener("DOMContentLoaded",function(){
+    if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
+      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}]});
+    fitMath();
+  });
+  window.addEventListener("resize",later);
+  window.addEventListener("load",fitMath);
+  document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
+  document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
+})();

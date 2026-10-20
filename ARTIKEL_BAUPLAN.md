@@ -27,7 +27,7 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
    eingeklappt und stört den Lesefluss nicht.
 8. **Konkret machen:** Abstrakte Aussagen an echten Zahlen zeigen (z. B. eine Jacobi-Matrix an zwei konkreten
    Punkten auswerten und deuten). Aussagen der Art „gilt nicht immer" mit einem konkreten **Gegenbeispiel** samt
-   Rechnung belegen.
+   Rechnung belegen. Diese Beispiele stehen auf der **Beispiel-Seite** (§3a), nicht im Fließtext.
 9. **Keine undefinierten Symbole:** Jedes Symbol und jede Dimension (z. B. $p$ in $\mathbb{R}^p$) vor der ersten
    Benutzung einführen; kein Symbol doppelt belegen (z. B. $h$ nicht zugleich als Schritt und als Funktion).
 10. **Anschauung und Mathematik fusionieren** (User 2026-10-20): Die anschauliche Sicht ist kein Vorspann, der
@@ -75,6 +75,9 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
 - **Herleitung IMMER als ausklappbare Box an der Formel**: `:::herleitung` … `:::` → eingeklappt. Sichtbar
   bleiben Konzept + Ergebnis-Formel; die formale Herleitung ist aufklappbar. In `:::herleitung` nur
   `$$…$$`/Listen/Text, **keine** verschachtelten `:::`-Blöcke (sonst bricht der Parser).
+- **Mehrteilige Formelzeilen** mit `\qquad` trennen (z. B. `$$a=1, \qquad b=2.$$`): Der Build bricht die Teile in
+  schmalen Spalten (geteilte Ansicht, Handy) automatisch untereinander um; zu breite Formeln werden passend
+  verkleinert. Lange Gleichungs**ketten** (mehr als etwa drei Glieder) lieber auf mehrere Zeilen verteilen.
 
 ## 3. Artikel-Aufbau
 **Frontmatter** (unverändert lassen, nur `summary` ggf. anpassen): `title`, `pfad`, `order`, `summary`
@@ -90,13 +93,40 @@ Dann die `##`-Abschnitte (jeder wird als **Karte** gerendert). Typischer Bogen (
 3. `## <Herleitung/Kernbegriff>` — **„Die zwei (o. mehr) Akteure:"** (jedes Objekt mit Raum definieren) →
    **„Das Zusammenspiel:"** + *kursive* Leitfrage → Ergebnis als `:::formel` → `:::herleitung`.
 4. `## Warum die … Eigenschaften folgen` — intuitive Aussagen aus der Kernformel ableiten.
-5. weitere `##`-Abschnitte je Thema; **Zahlenbeispiele** mit echten Zahlen (Rechnungen auf eigener Zeile).
+5. weitere `##`-Abschnitte je Thema; **Zahlenbeispiele** mit echten Zahlen als `::::beispiel`-Blöcke (§3a).
 6. `## Physikalische Bedeutung und Ausblick` — Anwendung + Vorgriff auf den nächsten Artikel.
 
 Zum Schluss:
 - `:::kern` — „Das Wichtigste" als **Stichpunkt-Liste** (`- …`).
 - `:::quiz` — **genau 10** F:/A:-Paare (je eine Zeile), verständnisorientiert (Herleitung + Bedeutung),
   **nur Inhalte, die im Artikel vorkommen**.
+
+## 3a. Beispiel-Seite: Theorie links, Praxis rechts (User 2026-10-20)
+- **Ansicht:** Der dritte Button oben in der Leiste öffnet die **geteilte Ansicht**. Der Artikel (Theorie) rückt nach
+  links, rechts öffnet sich in gleicher Breite die **Beispiel-Seite** (Praxis). Beide Spalten laufen synchron: Jedes
+  Beispiel steht auf Höhe der Formel, zu der es gehört. Ohne geteilte Ansicht steht im Artikel an der Stelle nur ein
+  Verweis „Beispiel k →“ (auf dem Handy öffnet er die Beispiel-Seite als Ebene über dem Artikel).
+- **Trennung:** Im Artikel bleiben Definitionen, Sätze, Herleitungen, „Im Bild"-Deutungen, das Leitbild, `:::kern`
+  und `:::quiz`. **Alles Durchgerechnete** wandert auf die Beispiel-Seite: Zahlenbeispiele, Beispielrechnungen,
+  konkrete Funktionen und Felder, Zahlenproben, Gegenbeispiele samt Rechnung. Im Artikel bleibt dann die
+  allgemeine Aussage mit ihrer Deutung stehen (z. B. „partielle Ableitungen allein reichen nicht — im Bild: …"),
+  das konkrete Gegenbeispiel steht rechts. Nur wo ein Beispiel untrennbar zur Theorie gehört (etwa eine Rechnung
+  im Leitbild des Anschaulich-Abschnitts), bleibt es im Text.
+- **Zu jeder wichtigen Formel ein Beispiel:** Jede `:::formel`-Box und jede Rechenregel, Identität oder Abschätzung
+  bekommt mindestens ein durchgerechnetes Beispiel. Wo das Skript keines hat, eines konstruieren — einfach, mit
+  echten Zahlen, im Leitbild gedeutet. Lieber mehrere kurze Beispiele als ein langes. Wiederkehrende Beispielobjekte
+  (z. B. das „Quadrieren" in Kap 1.1) machen die Beispiel-Seite zu einer durchgehenden Geschichte.
+- **Syntax:** `::::beispiel <Titel>` … `::::` (vier Doppelpunkte) **direkt hinter** die Formel oder Aussage, die es
+  zeigt — die Beispielkarte richtet sich am Block unmittelbar davor aus. Darin erlaubt: Text, `$$`-Formeln, Listen,
+  Tabellen, `:::herleitung` und `:::grafik` (drei Doppelpunkte). Nicht erlaubt: `:::formel`-Boxen (Nummerierung),
+  `##`-Überschriften, verschachtelte Beispiele. Nie zwei Beispiel-Blöcke direkt hintereinander — lieber eines mit
+  Teilen **(a)**, **(b)**. Die Nummern vergibt der Build; im Text nie „Beispiel 3" schreiben, sondern über den Inhalt
+  verweisen („wie beim Quadrieren").
+- **Jedes Beispiel ist selbsttragend:** Es nennt die verwendete Funktion bzw. das Feld mit Räumen (auf eigener Zeile),
+  rechnet jeden Schritt auf eigener Zeile, deutet das Ergebnis „Im Bild" und hält alle Regeln aus §1–§2 ein (Pfeile,
+  Groß/Klein, keine Gleichungen im Fließtext, nicht-triviale Behauptungen mit `:::herleitung`).
+- Zu einem Beispiel gehörende Grafiken stehen als `:::grafik` **im** Beispiel-Block. `:::quiz` darf Beispiele
+  abfragen — die Beispiel-Seite gehört zum Artikel.
 
 ## 4. Grafiken (später im Editor, animiert — NICHT im Loop erzeugen)
 - An jeder wichtigen Stelle ein `:::grafik`-Block. Diese Blöcke sind die **gespeicherte Liste** der zu
@@ -112,6 +142,8 @@ Zum Schluss:
 - `## Überschrift` → Abschnitts-Karte (+ Eintrag im Inhaltsverzeichnis).
 - `:::formel <Typ>` / `:::herleitung` / `:::grafik` / `:::kern` / `:::quiz` (+ `:::merke` / `:::satz` /
   `:::definition` / `:::lemma`).
+- `::::beispiel <Titel>` … `::::` → Karte auf der Beispiel-Seite + Verweis im Artikel (§3a); darf `:::herleitung`
+  und `:::grafik` enthalten.
 - `__begriff__` = blau (definierter Begriff), `**wort**` = orange (wichtig), `*wort*` = kursiv,
   `**Schritt N**` = rot. Tabellen als GitHub-Pipes.
 
@@ -137,7 +169,9 @@ Zum Schluss:
 Inhaltsverzeichnis-Start (Marker = Pfeil →), Abschnitts-Karten, größere Formeln (auch mobil), `:::kern` als
 Stichpunkte, Nachbar-Spalten am Ende (vorheriger | nächster Artikel mit Themen-Stichpunkten), linke Baumspalte
 beim Öffnen **eingeklappt** (Textblock bleibt an gleicher Position), Panel-Buttons **mittig** in der oberen
-Leiste, Formel-Boxen mit Typ-Label + Nummer.
+Leiste, Formel-Boxen mit Typ-Label + Nummer. Dritter Panel-Button = geteilte Ansicht mit Beispiel-Seite (§3a;
+Zustand wird gemerkt, `?bsp=1` in der URL öffnet sie direkt); mehrteilige Formelzeilen brechen um, zu breite Formeln
+werden eingepasst; Mathe wird HTML-maskiert (`<` in Formeln ist sicher).
 
 ## 8. Review-Checkliste
 Gilt für jeden Artikel — beim Neuschreiben vor dem Commit, beim Überarbeiten (Phase A, `REVIEW_OPUS55.md`) als
@@ -159,3 +193,6 @@ Prüfliste:
 9. **`:::quiz`:** genau 10; jede Frage und Antwort vollständig durch den Artikeltext gedeckt.
 10. **`:::grafik`:** Szene-Zeile, präzise Beschreibung der Animation, Farblogik; Grafiken überall dort, wo ein Bild
     das Verständnis trägt.
+11. **Beispiel-Seite (§3a):** Nichts Durchgerechnetes mehr im Fließtext; jede wichtige Formel hat ein
+    `::::beispiel` direkt dahinter; keine zwei Beispiele direkt hintereinander; Beispiele selbsttragend und im
+    Leitbild gedeutet; Build zeigt so viele Beispielkarten wie Verweise.

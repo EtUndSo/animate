@@ -61,6 +61,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article .fbox-n{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px;}
 .article .fbox .katex-display{margin:.15em 0;padding:0;border:none;background:none;}
 .article .katex{font-size:1.12em;}                  /* Inline-Mathe – gut lesbar, auch mobil */
+/* Mehrteilige Formelzeilen (im Quelltext durch \qquad getrennt): Teile nebeneinander, bei Platzmangel untereinander */
+.mrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:2.6em;row-gap:0;margin:1.3em 0;}
+.mcell{min-width:0;max-width:100%;}
+.article .mrow .katex-display{margin:.2em 0;}
+.article .fbox .mrow{margin:.3em 0;}
 .article img{max-width:100%;border-radius:10px;} .article code{font-family:var(--fmono);font-size:.9em;background:var(--soft);padding:1px 5px;border-radius:5px;}
 .article pre{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px 16px;overflow:auto;} .article pre code{background:none;padding:0;}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
@@ -151,6 +156,47 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .arttoc a{display:block;padding:5px 0;color:var(--ink);font-weight:500;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
+/* ---------- Beispiel-Seite: geteilte Ansicht (Theorie links | Beispiele rechts, Farbe Orange = Praxis) ---------- */
+.topbar .panelBtn.on{color:#fff;background:var(--accent3);border-color:var(--accent3);}   /* geteilte Ansicht aktiv */
+.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}
+.topbar .panelBtn:disabled:hover{border-color:var(--border);color:var(--muted);}
+.bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;}         /* Verweis im Artikel, wo das Beispiel hingehört */
+.bsp-ref a{display:inline-flex;align-items:baseline;gap:8px;max-width:100%;font-size:14.5px;line-height:1.4;color:var(--ink);
+  border:1px solid color-mix(in srgb,var(--accent3) 55%,var(--border));background:color-mix(in srgb,var(--accent3) 8%,var(--panel));
+  border-radius:999px;padding:4px 14px;}
+.bsp-ref a:hover{text-decoration:none;border-color:var(--accent3);}
+.bsp-ref .bsp-n{font-family:var(--fdisp);font-weight:700;color:var(--accent3);white-space:nowrap;}
+.bsp-ref .bsp-tt{color:var(--muted);min-width:0;}
+.bsp-ref .bsp-arr{color:var(--accent3);font-weight:700;}
+.bsp-pane{display:none;}
+.bsp-pane-h{font-family:var(--fdisp);font-weight:800;color:var(--accent3);font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:4px 2px 14px;}
+.bsp-pane-h span{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:13.5px;}
+.bsp-card{border:1px solid var(--border);border-top:4px solid var(--accent3);border-radius:14px;background:var(--panel);padding:4px 20px 14px;margin:0 0 18px;transition:box-shadow .35s;}
+.bsp-card.flash{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent3) 40%,transparent);}
+.bsp-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:9px 0 2px;}
+.bsp-card-n{font-family:var(--fdisp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);white-space:nowrap;}
+.bsp-back{font-size:13px;color:var(--muted);text-align:right;}
+.bsp-card-t{font-family:var(--fdisp);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:2px 0 .7em;}
+/* geteilt: Baum-Spalte entfällt, Artikel rückt nach links, rechts die Beispiel-Seite in gleicher Breite (eigene Scroll-Spalte) */
+.bsp-on .layout.has-bsp{grid-template-columns:minmax(0,1fr);max-width:none;}
+.bsp-on .layout.has-bsp>.side{display:none;}
+.bsp-on .layout.has-bsp>main{grid-column:1;}
+.bsp-on .layout.has-bsp .toc,.bsp-on #toggleRight{display:none;}
+.bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,72ch) minmax(0,72ch);justify-content:center;gap:30px;}
+.bsp-on .layout.has-bsp .article>article{margin-inline:0;}
+.bsp-on .layout.has-bsp .bsp-pane{display:block;position:sticky;top:59px;align-self:start;height:calc(100vh - 59px);overflow:auto;
+  overscroll-behavior:contain;padding:18px 6px 45vh 2px;scrollbar-width:thin;}
+.bsp-on .layout.has-bsp .bsp-ref a{border-color:var(--accent3);}
+.bsp-on .layout.has-bsp .article .katex-display{font-size:1.16em;}   /* schmalere Spalten: lange Formeln passen eher */
+.bsp-pane .katex-display{font-size:1.16em;}
+.bsp-on .layout.has-bsp>.side.open{display:block;position:fixed;top:59px;left:0;bottom:0;width:min(320px,88vw);z-index:30;
+  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);}   /* Themenbaum als Overlay */
+@media(max-width:1179px){   /* zu schmal für zwei Spalten: Beispiel-Seite legt sich über den Artikel */
+  .bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,1fr);}
+  .bsp-on .layout.has-bsp .bsp-pane{position:fixed;inset:59px 0 0;z-index:25;height:auto;align-self:stretch;background:var(--bg);
+    padding:16px max(14px,calc((100vw - 76ch) / 2)) 64px;}   /* stretch: sonst hängt die Ebene in voller Inhaltshöhe am oberen Rand */
+}
+@media(max-width:720px){ .bsp-on .layout.has-bsp .bsp-pane{top:57px;} .bsp-card{padding:4px 15px 12px;} }
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}

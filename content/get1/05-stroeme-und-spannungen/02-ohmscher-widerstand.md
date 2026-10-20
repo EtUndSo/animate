@@ -99,7 +99,7 @@ Metall, schwingen seine Atomrümpfe heftiger, die driftenden Elektronen stoßen 
 
 $$R(\vartheta) = R_0\,\bigl(1 + \alpha \cdot \Delta\vartheta\bigr).$$
 
-- __$R_0$__: der __Widerstand__ bei der Bezugstemperatur (meist $20\,^\circ\text{C}$).
+- __$R_0$__: der __Widerstand__ bei der Bezugstemperatur (meist $20\,{}^\circ\text{C}$).
 - __$\alpha$__: der __Temperaturkoeffizient__ des Materials (für Metalle positiv).
 - __$\Delta\vartheta$__: die __Temperaturänderung__ gegenüber der Bezugstemperatur.
 

@@ -53,24 +53,24 @@ Festkörper festsitzen und sich kaum heraustrennen lassen. Viel besser lässt si
 **Destillation**, die Stoffe nach ihrem Siedepunkt trennt. Die Idee ist deshalb, das feste, schmutzige Silizium
 in eine **flüchtige Verbindung** zu verwandeln, diese zu reinigen und dann wieder festes Silizium abzuscheiden.
 
-Dazu lässt man das gemahlene Roh-Silizium bei etwa $300\,^\circ$C mit Chlorwasserstoff reagieren — es entsteht
+Dazu lässt man das gemahlene Roh-Silizium bei etwa $300\,{}^\circ$C mit Chlorwasserstoff reagieren — es entsteht
 __Trichlorsilan__ $\text{SiHCl}_3$:
 
 $$\text{Si} + 3\,\text{HCl} \;\longrightarrow\; \text{SiHCl}_3 + \text{H}_2.$$
 
-Der entscheidende Punkt ist der **Siedepunkt** von Trichlorsilan: nur $31{,}8\,^\circ$C. Die Chloride der
-Verunreinigungen sieden bei deutlich anderen Temperaturen (z. B. $\text{BCl}_3$ bei $12\,^\circ$C,
-$\text{AsCl}_3$ bei $132\,^\circ$C). Durch mehrfache **Destillation** trennt man das $\text{SiHCl}_3$ sauber von
+Der entscheidende Punkt ist der **Siedepunkt** von Trichlorsilan: nur $31{,}8\,{}^\circ$C. Die Chloride der
+Verunreinigungen sieden bei deutlich anderen Temperaturen (z. B. $\text{BCl}_3$ bei $12\,{}^\circ$C,
+$\text{AsCl}_3$ bei $132\,{}^\circ$C). Durch mehrfache **Destillation** trennt man das $\text{SiHCl}_3$ sauber von
 ihnen ab — so entsteht hochreines Trichlorsilan.
 
 :::grafik
-Links der Reaktor „Si + 3 HCl → SiHCl₃ + H₂" bei $300\,^\circ$C. Rechts eine Destillationskolonne: eine
+Links der Reaktor „Si + 3 HCl → SiHCl₃ + H₂" bei $300\,{}^\circ$C. Rechts eine Destillationskolonne: eine
 Temperaturskala mit eingetragenen Siedepunkten ($\text{BCl}_3$ 12 °C, $\text{SiHCl}_3$ 31,8 °C, $\text{AsCl}_3$
 132 °C); ein Pfeil zeigt, wie bei 31,8 °C reines $\text{SiHCl}_3$ abgezogen wird.
 :::
 
 Das gereinigte Trichlorsilan wird anschließend im __Siemens-Prozess__ wieder zu festem Silizium zersetzt: Man
-leitet es mit Wasserstoff über einen **stromdurchflossenen, glühenden Siliziumstab** ($\approx 1150\,^\circ$C).
+leitet es mit Wasserstoff über einen **stromdurchflossenen, glühenden Siliziumstab** ($\approx 1150\,{}^\circ$C).
 Nur an der heißen Staboberfläche zerfällt das Gas und scheidet reines Silizium ab:
 
 $$\text{SiHCl}_3 + \text{H}_2 \;\longrightarrow\; \text{Si} + 3\,\text{HCl}.$$
@@ -91,7 +91,7 @@ Jetzt fehlt nur noch die **Ordnung**: aus vielen kleinen Kristalliten soll ein e
 werden. Beim __Czochralski-Verfahren__ nutzt man einen __Impfkristall__ (Seed), der die gewünschte Orientierung
 vorgibt. Der Ablauf:
 
-- Das poly-kristalline Silizium wird **aufgeschmolzen** — knapp über dem Schmelzpunkt von $1414\,^\circ$C, unter
+- Das poly-kristalline Silizium wird **aufgeschmolzen** — knapp über dem Schmelzpunkt von $1414\,{}^\circ$C, unter
   **Argon-Atmosphäre** (verhindert Oxidation).
 - Der **Impfkristall** wird von oben in die Schmelze getaucht. An der Berührstelle erstarren die Atome und
   übernehmen die **Kristallorientierung** des Seeds.
@@ -106,7 +106,7 @@ der Hals versetzungsfrei ist, zieht man **langsamer** und lässt den Kristall au
 anwachsen ([US6080237](https://patents.google.com/patent/US6080237), [US5628823](https://patents.google.com/patent/US5628823)).
 
 :::grafik
-Der Czochralski-Zieher im Schnitt: Tiegel mit glühender Schmelze ($1414\,^\circ$C, Argon), von oben der
+Der Czochralski-Zieher im Schnitt: Tiegel mit glühender Schmelze ($1414\,{}^\circ$C, Argon), von oben der
 rotierende, gezogene Kristall. Hervorgehoben die Abfolge am Barren: Seed → dünner neck (Versetzungen laufen
 seitlich heraus) → sich weitende Schulter (cone) → zylindrischer Einkristall.
 :::
@@ -127,9 +127,9 @@ am Seed-Ende rein, am Fuß-Ende unreiner.
 Vom Quarzsand zum Si-Einkristall in **drei Stufen**: (1) **Reduktion** $\text{SiO}_2+2\text{C}\to\text{Si}+2\text{CO}$
 im Lichtbogen → Roh-Si (noch 2–4 % Fremdatome). (2) **Reinigung** über __Trichlorsilan__
 $\text{Si}+3\text{HCl}\to\text{SiHCl}_3+\text{H}_2$: als Gas per **Destillation** reinigbar (Siedepunkt
-$31{,}8\,^\circ$C, verschieden von den Fremd-Chloriden), dann __Siemens-Prozess__
+$31{,}8\,{}^\circ$C, verschieden von den Fremd-Chloriden), dann __Siemens-Prozess__
 $\text{SiHCl}_3+\text{H}_2\to\text{Si}+3\text{HCl}$ am glühenden Stab → reines, aber **poly**-kristallines Si.
-(3) __Czochralski__: Impfkristall in die Schmelze ($>1414\,^\circ$C, Argon), drehen + langsam ziehen; **Dash-Neck**
+(3) __Czochralski__: Impfkristall in die Schmelze ($>1414\,{}^\circ$C, Argon), drehen + langsam ziehen; **Dash-Neck**
 ($\approx3\,$mm) wächst Versetzungen aus; __Segregation__ (Fremdatome bleiben in der Schmelze) macht den Kristall
 vom Seed- zum Fuß-Ende unreiner.
 :::
@@ -147,9 +147,9 @@ A: Der Kohlenstoff bindet den Sauerstoff aus dem $\text{SiO}_2$ (es entsteht Koh
 F: Warum reinigt man Silizium über ein Gas statt den festen Brocken direkt?
 A: In einem Festkörper sitzen Verunreinigungen fest und lassen sich kaum heraustrennen. Ein Gas dagegen kann man per Destillation nach Siedepunkten sauber trennen — deshalb wandelt man das Silizium erst in eine flüchtige Verbindung um.
 F: Warum ist gerade Trichlorsilan für die Reinigung so geeignet?
-A: Sein Siedepunkt von $31{,}8\,^\circ$C unterscheidet sich deutlich von denen der Fremd-Chloride (z. B. $\text{BCl}_3$ 12 °C, $\text{AsCl}_3$ 132 °C). Durch mehrfache Destillation lässt es sich daher sauber von den Verunreinigungen abtrennen.
+A: Sein Siedepunkt von $31{,}8\,{}^\circ$C unterscheidet sich deutlich von denen der Fremd-Chloride (z. B. $\text{BCl}_3$ 12 °C, $\text{AsCl}_3$ 132 °C). Durch mehrfache Destillation lässt es sich daher sauber von den Verunreinigungen abtrennen.
 F: Warum scheidet sich beim Siemens-Prozess das Silizium nur am glühenden Stab ab?
-A: Die Zersetzung $\text{SiHCl}_3+\text{H}_2\to\text{Si}+3\text{HCl}$ läuft nur bei der hohen Temperatur ($\approx1150\,^\circ$C) der Staboberfläche ab. Nur dort zerfällt das Gas und lagert reines Silizium an, während es im kühleren Raum stabil bleibt.
+A: Die Zersetzung $\text{SiHCl}_3+\text{H}_2\to\text{Si}+3\text{HCl}$ läuft nur bei der hohen Temperatur ($\approx1150\,{}^\circ$C) der Staboberfläche ab. Nur dort zerfällt das Gas und lagert reines Silizium an, während es im kühleren Raum stabil bleibt.
 F: Warum ist das Silizium nach dem Siemens-Prozess noch nicht brauchbar für Bauelemente?
 A: Es ist zwar hochrein, aber polykristallin — es besteht aus vielen kleinen, verschieden orientierten Kristalliten. Bauelemente brauchen einen einzigen, durchgehend geordneten Einkristall, den erst die Czochralski-Zucht liefert.
 F: Wie überträgt der Impfkristall seine Ordnung auf die ganze Schmelze?

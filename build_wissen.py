@@ -60,6 +60,9 @@ def parse_frontmatter(text):
 # ![alt](src), - / 1. lists, ``` fenced code ```, > blockquote, --- rule, raw <html> lines,
 # callouts ':::konzept' / ':::kern' / ':::merke ... :::', and $…$ / $$…$$ left intact for KaTeX.
 _PROTECT = []
+# Beispiel-Seite: render_article setzt hier eine Liste; md_to_html legt jedes ::::beispiel dort ab und lässt im
+# Artikel nur einen Verweis stehen. None = Beispiele verwerfen (z. B. beim Lesen der Nachbar-Stichpunkte).
+BSP_SINK = None
 def _protect(m):
     _PROTECT.append(m.group(0)); return f"\x00{len(_PROTECT)-1}\x00"
 
@@ -119,12 +122,46 @@ def inline(text):
         raw = _PROTECT[int(m.group(1))]
         if raw.startswith("`"):
             return "<code>" + html.escape(raw[1:-1], quote=False) + "</code>"
+        # Mathe HTML-maskieren: „a<X" würde der Browser sonst als Tag-Anfang lesen und die Formel verschlucken;
+        # KaTeX liest den Textinhalt und bekommt so wieder das echte „<", „>" und „&".
         if raw.startswith("$$"):
-            return "$$" + colorize_math(raw[2:-2]) + "$$"
+            return "$$" + html.escape(colorize_math(raw[2:-2]), quote=False) + "$$"
         if raw.startswith("$"):
-            return "$" + colorize_math(raw[1:-1]) + "$"
+            return "$" + html.escape(colorize_math(raw[1:-1]), quote=False) + "$"
         return raw
     return re.sub(r"\x00(\d+)\x00", restore, text)
+
+def split_display(txt):
+    """Absatz, der nur aus EINER abgesetzten Formel $$…$$ besteht und mehrere durch \\qquad getrennte Teile hat
+    -> Liste der Teile (sonst None). Getrennt wird nur auf oberster Ebene (nicht in {…}, \\begin…\\end, \\left…\\right),
+    damit die Teile in schmalen Spalten untereinander umbrechen können, statt abgeschnitten zu werden."""
+    m = re.fullmatch(r"\$\$(.+)\$\$", txt, flags=re.S)
+    if not m or "$$" in m.group(1):
+        return None
+    s, parts, depth, last, i = m.group(1), [], 0, 0, 0
+    def cmd(name):                                        # Befehl \name an Stelle i (nicht Anfang eines längeren Namens)?
+        return s.startswith(name, i) and not s[i + len(name):i + len(name) + 1].isalpha()
+    while i < len(s):
+        if s.startswith("\\begin{", i) or s.startswith("\\end{", i):   # Umgebung zählt wie eine Klammer
+            depth += 1 if s.startswith("\\begin{", i) else -1
+            j = s.find("}", i); i = (j + 1) if j != -1 else len(s); continue
+        if cmd("\\left"):
+            depth += 1; i += 5; continue
+        if cmd("\\right"):
+            depth -= 1; i += 6; continue
+        c = s[i]
+        if c == "\\" and i + 1 < len(s):
+            if depth == 0 and cmd("\\qquad"):
+                parts.append(s[last:i]); last = i + 6; i += 6; continue
+            i += 2; continue                              # Escape (\{, \\ …) bzw. Befehlsanfang überspringen
+        if c == "{":
+            depth += 1
+        elif c == "}":
+            depth -= 1
+        i += 1
+    parts.append(s[last:])
+    parts = [p.strip() for p in parts if p.strip()]
+    return parts if len(parts) >= 2 else None
 
 CALLOUTS = {"konzept": ("", "Zur Idee"), "kern": ("", "Das Wichtigste"), "merke": ("", "Merke"),
             "grafik": ("", "Abbildung"), "satz": ("", "Satz"), "definition": ("", "Definition"),
@@ -135,12 +172,26 @@ def md_to_html(md):
     out, toc, i, n = [], [], 0, len(lines)
     section_open = False                                  # jeder ##-Abschnitt wird als Karte <section class="sect"> eingefasst
     formel_n = 0                                          # fortlaufende Nummer der :::formel-Boxen (zum Referenzieren, wie im Skript)
+    cur_sect = ""                                         # Titel des aktuellen ##-Abschnitts (Bezug der Beispiele)
     para = []
+    def beispiel(title, inner):                           # Beispiel -> Beispiel-Seite; im Artikel bleibt nur der Verweis
+        if BSP_SINK is None:
+            return
+        k = len(BSP_SINK) + 1
+        BSP_SINK.append({"k": k, "title": title, "sect": cur_sect, "html": md_to_html("\n".join(inner))[0]})
+        out.append(f'<div class="bsp-ref" id="bspref-{k}" data-bsp="{k}"><a href="#bsp-{k}">'
+                   f'<span class="bsp-n">Beispiel {k}</span><span class="bsp-tt">{inline(title)}</span>'
+                   '<span class="bsp-arr" aria-hidden="true">→</span></a></div>')
     def flush():
         if para:
             txt = " ".join(para).strip()
             if not txt.startswith("**Worum es geht"):   # Einstiegs-Absatz entfällt – Artikel startet mit dem Inhaltsverzeichnis
-                out.append("<p>" + inline(txt) + "</p>")
+                parts = split_display(txt)
+                if parts:                                # mehrteilige Formelzeile: Teile dürfen umbrechen
+                    out.append('<div class="mrow">' + "".join('<div class="mcell">' + inline("$$" + p + "$$") + "</div>"
+                                                              for p in parts) + "</div>")
+                else:
+                    out.append("<p>" + inline(txt) + "</p>")
             para.clear()
     while i < n:
         ln = lines[i]
@@ -153,6 +204,14 @@ def md_to_html(md):
                 code.append(lines[i]); i += 1
             i += 1
             out.append("<pre><code>" + html.escape("\n".join(code), quote=False) + "</code></pre>")
+            continue
+        mb = re.match(r"::::beispiel(?:\s+(.+?))?\s*$", s)   # ::::beispiel … :::: (vier Doppelpunkte, darf :::-Blöcke enthalten)
+        if mb:
+            flush(); i += 1; inner = []
+            while i < n and lines[i].strip() != "::::":
+                inner.append(lines[i]); i += 1
+            i += 1
+            beispiel((mb.group(1) or "").strip(), inner)
             continue
         if re.match(r":::quiz\s*$", s):               # quiz block: Q:/A: pairs -> collapsible items
             flush()
@@ -190,6 +249,9 @@ def md_to_html(md):
             i += 1
             if kind == "konzept":                         # „Zur Idee"-Einstiegskasten entfällt – Start ist das Inhaltsverzeichnis
                 continue
+            if kind == "beispiel":                        # Kurzform :::beispiel … ::: (ohne innere Blöcke)
+                beispiel(label_arg, inner)
+                continue
             if kind == "kern" and section_open:           # „Das Wichtigste" steht als eigene Box außerhalb der Abschnitts-Karten
                 out.append("</section>"); section_open = False
             if kind == "formel":                          # wichtige Formel: Box mit Typ-Label (Definition/Satz/…) + Nummer
@@ -214,7 +276,7 @@ def md_to_html(md):
             flush(); lvl = len(hm.group(1)); txt = hm.group(2).strip()
             hid = slugify(txt)
             if lvl == 2:                                   # neuer ##-Abschnitt -> alte Karte schließen, neue öffnen
-                toc.append((hid, txt))
+                toc.append((hid, txt)); cur_sect = txt
                 if section_open:
                     out.append("</section>")
                 out.append('<section class="sect">')
@@ -350,7 +412,8 @@ def page_shell(title, desc, body, depth):
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{html.escape(title)} — EtUndSo</title>
 <meta name="description" content="{html.escape(desc)}"/>
-<script>try{{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}</script>
+<script>try{{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}
+try{{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")==="1"&&matchMedia("(min-width:1180px)").matches))document.documentElement.classList.add("bsp-on");}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
 <link rel="stylesheet" href="/wissen/assets/wissen.css"/>
 </head><body data-root="/wissen/">
@@ -360,14 +423,22 @@ def page_shell(title, desc, body, depth):
 <script src="/wissen/assets/wissen.js"></script>
 </body></html>"""
 
-def topbar(panels=False):
-    # Panel-Einklapp-Buttons (nur Artikelseiten, links neben der Marke): links=Themenbaum, rechts=Gliederung.
+def topbar(panels=False, bsp=False):
+    # Panel-Buttons (nur Artikelseiten, mittig): links=Themenbaum, rechts=Gliederung, dritter=geteilte Ansicht
+    # mit der Beispiel-Seite (Theorie links, Beispiele rechts) – ausgegraut, solange der Artikel keine Beispiele hat.
+    bsp_btn = ('<button id="toggleBsp" class="panelBtn" aria-pressed="false" '
+               + ('aria-label="Beispiel-Seite ein-/ausblenden" title="Beispiel-Seite: Theorie links, Beispiele rechts"'
+                  if bsp else 'aria-label="Beispiel-Seite" title="Für diesen Artikel gibt es noch keine Beispiel-Seite" disabled')
+               + '><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
+               '<rect x="2.5" y="4" width="19" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/>'
+               '<line x1="14.5" y1="9" x2="19" y2="9"/><line x1="14.5" y1="12.5" x2="19" y2="12.5"/><line x1="14.5" y1="16" x2="17.5" y2="16"/></svg></button>')
     pbtns = ('<div class="panelCenter"><button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
              '<button id="toggleRight" class="panelBtn" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
-             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button></div>') if panels else ''
+             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>'
+             + bsp_btn + '</div>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>UndSo</span></a>'
             + pbtns
             + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'
@@ -387,7 +458,20 @@ def topbar(panels=False):
             '<kbd>Esc</kbd> schließt.</div></div></div>')
 
 def render_article(art, tree, prev_a, next_a):
+    global BSP_SINK
+    BSP_SINK = []
     body_html, toc = md_to_html(art["body"])
+    examples, BSP_SINK = BSP_SINK, None
+    pane = ""
+    if examples:                                       # Beispiel-Seite (rechts in der geteilten Ansicht)
+        cards = "".join(
+            f'<section class="bsp-card" id="bsp-{e["k"]}"><div class="bsp-card-h"><span class="bsp-card-n">Beispiel {e["k"]}</span>'
+            f'<a class="bsp-back" href="#bspref-{e["k"]}" data-bsp="{e["k"]}" title="Zur Stelle im Artikel">↖ {html.escape(e["sect"])}</a></div>'
+            + (f'<div class="bsp-card-t">{inline(e["title"])}</div>' if e["title"] else "")
+            + e["html"] + "</section>" for e in examples)
+        pane = ('<aside class="bsp-pane" id="bspPane" aria-label="Beispiele zu diesem Artikel">'
+                '<div class="bsp-pane-h">Beispiele <span>– die Aussagen des Artikels, an konkreten Fällen durchgerechnet</span></div>'
+                + cards + "</aside>")
     crumb = '<nav class="crumbs"><a href="/wissen/">Wissen</a>' + \
             "".join(f' › <span>{html.escape(nm)}</span>' for nm, sl in art["crumbs"]) + "</nav>"
     toc_html = ""
@@ -413,8 +497,9 @@ def render_article(art, tree, prev_a, next_a):
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
             + arttoc
-            + body_html + nav + legal_footer() + "</article>" + toc_html + "</main>")
-    body = topbar(panels=True) + '<div class="layout">' + sidebar_html(tree, art["path"]) + main + "</div>"
+            + body_html + nav + legal_footer() + "</article>" + toc_html + pane + "</main>")
+    body = (topbar(panels=True, bsp=bool(examples)) + f'<div class="layout{" has-bsp" if examples else ""}">'
+            + sidebar_html(tree, art["path"]) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth)
 
@@ -557,6 +642,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article .fbox-n{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px;}
 .article .fbox .katex-display{margin:.15em 0;padding:0;border:none;background:none;}
 .article .katex{font-size:1.12em;}                  /* Inline-Mathe – gut lesbar, auch mobil */
+/* Mehrteilige Formelzeilen (im Quelltext durch \qquad getrennt): Teile nebeneinander, bei Platzmangel untereinander */
+.mrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:2.6em;row-gap:0;margin:1.3em 0;}
+.mcell{min-width:0;max-width:100%;}
+.article .mrow .katex-display{margin:.2em 0;}
+.article .fbox .mrow{margin:.3em 0;}
 .article img{max-width:100%;border-radius:10px;} .article code{font-family:var(--fmono);font-size:.9em;background:var(--soft);padding:1px 5px;border-radius:5px;}
 .article pre{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px 16px;overflow:auto;} .article pre code{background:none;padding:0;}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
@@ -647,6 +737,47 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .arttoc a{display:block;padding:5px 0;color:var(--ink);font-weight:500;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
+/* ---------- Beispiel-Seite: geteilte Ansicht (Theorie links | Beispiele rechts, Farbe Orange = Praxis) ---------- */
+.topbar .panelBtn.on{color:#fff;background:var(--accent3);border-color:var(--accent3);}   /* geteilte Ansicht aktiv */
+.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}
+.topbar .panelBtn:disabled:hover{border-color:var(--border);color:var(--muted);}
+.bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;}         /* Verweis im Artikel, wo das Beispiel hingehört */
+.bsp-ref a{display:inline-flex;align-items:baseline;gap:8px;max-width:100%;font-size:14.5px;line-height:1.4;color:var(--ink);
+  border:1px solid color-mix(in srgb,var(--accent3) 55%,var(--border));background:color-mix(in srgb,var(--accent3) 8%,var(--panel));
+  border-radius:999px;padding:4px 14px;}
+.bsp-ref a:hover{text-decoration:none;border-color:var(--accent3);}
+.bsp-ref .bsp-n{font-family:var(--fdisp);font-weight:700;color:var(--accent3);white-space:nowrap;}
+.bsp-ref .bsp-tt{color:var(--muted);min-width:0;}
+.bsp-ref .bsp-arr{color:var(--accent3);font-weight:700;}
+.bsp-pane{display:none;}
+.bsp-pane-h{font-family:var(--fdisp);font-weight:800;color:var(--accent3);font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:4px 2px 14px;}
+.bsp-pane-h span{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:13.5px;}
+.bsp-card{border:1px solid var(--border);border-top:4px solid var(--accent3);border-radius:14px;background:var(--panel);padding:4px 20px 14px;margin:0 0 18px;transition:box-shadow .35s;}
+.bsp-card.flash{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent3) 40%,transparent);}
+.bsp-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:9px 0 2px;}
+.bsp-card-n{font-family:var(--fdisp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);white-space:nowrap;}
+.bsp-back{font-size:13px;color:var(--muted);text-align:right;}
+.bsp-card-t{font-family:var(--fdisp);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:2px 0 .7em;}
+/* geteilt: Baum-Spalte entfällt, Artikel rückt nach links, rechts die Beispiel-Seite in gleicher Breite (eigene Scroll-Spalte) */
+.bsp-on .layout.has-bsp{grid-template-columns:minmax(0,1fr);max-width:none;}
+.bsp-on .layout.has-bsp>.side{display:none;}
+.bsp-on .layout.has-bsp>main{grid-column:1;}
+.bsp-on .layout.has-bsp .toc,.bsp-on #toggleRight{display:none;}
+.bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,72ch) minmax(0,72ch);justify-content:center;gap:30px;}
+.bsp-on .layout.has-bsp .article>article{margin-inline:0;}
+.bsp-on .layout.has-bsp .bsp-pane{display:block;position:sticky;top:59px;align-self:start;height:calc(100vh - 59px);overflow:auto;
+  overscroll-behavior:contain;padding:18px 6px 45vh 2px;scrollbar-width:thin;}
+.bsp-on .layout.has-bsp .bsp-ref a{border-color:var(--accent3);}
+.bsp-on .layout.has-bsp .article .katex-display{font-size:1.16em;}   /* schmalere Spalten: lange Formeln passen eher */
+.bsp-pane .katex-display{font-size:1.16em;}
+.bsp-on .layout.has-bsp>.side.open{display:block;position:fixed;top:59px;left:0;bottom:0;width:min(320px,88vw);z-index:30;
+  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);}   /* Themenbaum als Overlay */
+@media(max-width:1179px){   /* zu schmal für zwei Spalten: Beispiel-Seite legt sich über den Artikel */
+  .bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,1fr);}
+  .bsp-on .layout.has-bsp .bsp-pane{position:fixed;inset:59px 0 0;z-index:25;height:auto;align-self:stretch;background:var(--bg);
+    padding:16px max(14px,calc((100vw - 76ch) / 2)) 64px;}   /* stretch: sonst hängt die Ebene in voller Inhaltshöhe am oberen Rand */
+}
+@media(max-width:720px){ .bsp-on .layout.has-bsp .bsp-pane{top:57px;} .bsp-card{padding:4px 15px 12px;} }
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
@@ -746,7 +877,8 @@ WISSEN_JS = r"""
   // Links (Themenbaum): Desktop = beim Öffnen IMMER eingeklappt (Toggle gilt nur für die aktuelle Seite); Mobil = Overlay auf/zu.
   if(bL){ if(!mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
     bL.addEventListener("click",function(){
-      if(mq.matches){ var o=side&&side.classList.toggle("open"); mark(bL,!!o); }
+      var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");   // geteilte Ansicht: Baum als Overlay
+      if(mq.matches||split){ var o=side&&side.classList.toggle("open"); mark(bL,mq.matches?!!o:!o); }
       else { var now=layout.classList.toggle("hide-left"); mark(bL,now); }
     }); }
   // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
@@ -755,11 +887,94 @@ WISSEN_JS = r"""
     else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); mark(bL,true); }
   });
 })();
-// KaTeX automatisch rendern.
-window.addEventListener("DOMContentLoaded",function(){
-  if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
-    {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}]});
-});
+// Beispiel-Seite (geteilte Ansicht): Theorie links, Beispiele rechts. Beide Spalten laufen synchron – jedes Beispiel
+// steht auf Höhe der Formel, zu der es gehört (Bezugslinie bei 35 % der Fensterhöhe, dazwischen linear überblendet).
+// Zu schmale Fenster: Die Beispiel-Seite legt sich als Ebene über den Artikel.
+(function(){
+  var root=document.documentElement, btn=document.getElementById("toggleBsp"),
+      layout=document.querySelector(".layout.has-bsp"), pane=document.getElementById("bspPane");
+  if(!btn) return;
+  if(!layout||!pane){ root.classList.remove("bsp-on"); return; }
+  var wide=window.matchMedia("(min-width:1180px)"), REF=0.35;
+  var refs=[].slice.call(document.querySelectorAll(".bsp-ref[data-bsp]"));
+  var cards=refs.map(function(r){ return document.getElementById("bsp-"+r.getAttribute("data-bsp")); });
+  function isOn(){ return root.classList.contains("bsp-on"); }
+  function paint(){ var v=isOn(); btn.classList.toggle("on",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
+  function set(v,remember){
+    root.classList.toggle("bsp-on",v); paint();
+    var sd=layout.querySelector(".side"), bL=document.getElementById("toggleLeft");
+    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")){
+      sd.classList.remove("open"); if(bL){ bL.classList.add("off"); bL.setAttribute("aria-pressed","true"); } }
+    if(remember && wide.matches){ try{ localStorage.setItem("wissen-split",v?"1":"0"); }catch(e){} }
+    try{ document.dispatchEvent(new Event("wissen:layout")); }catch(e){}   // Spaltenbreite geändert -> Formeln neu einpassen
+    if(v) requestAnimationFrame(sync);
+  }
+  function anchorEl(r){ return r.previousElementSibling || r; }     // Formel/Aussage direkt vor dem Verweis
+  function sync(){
+    if(!isOn() || !wide.matches || !refs.length) return;
+    var ref=window.innerHeight*REF, k=-1, A=[], P=[];
+    for(var i=0;i<refs.length;i++){ A.push(anchorEl(refs[i]).getBoundingClientRect().top); P.push(cards[i].offsetTop); if(A[i]<=ref) k=i; }
+    var p;                                                       // Stelle der Beispiel-Seite, die auf die Bezugslinie gehört
+    if(k<0) p=P[0]-(A[0]-ref);
+    else if(k===refs.length-1) p=P[k]+(ref-A[k]);
+    else { var t=(ref-A[k])/Math.max(1,A[k+1]-A[k]); p=P[k]+t*(P[k+1]-P[k]); }
+    pane.scrollTop=p-(ref-pane.getBoundingClientRect().top);
+  }
+  var tick=false;
+  function later(){ if(tick) return; tick=true; requestAnimationFrame(function(){ tick=false; sync(); }); }
+  window.addEventListener("scroll",later,{passive:true});
+  window.addEventListener("resize",later);
+  window.addEventListener("load",later);                          // nach Schriften/KaTeX noch einmal ausrichten
+  document.addEventListener("toggle",later,true);                 // Herleitung auf-/zugeklappt -> Höhen ändern sich
+  document.addEventListener("wissen:fitted",later);               // Formeln eingepasst -> Höhen ändern sich
+  function flash(c){ if(!c) return; c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash");
+    setTimeout(function(){ c.classList.remove("flash"); },1600); }
+  function toAnchor(i){                                          // Artikel so scrollen, dass die Formel auf der Bezugslinie steht
+    var y=window.scrollY+anchorEl(refs[i]).getBoundingClientRect().top-window.innerHeight*REF;
+    window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+  }
+  refs.forEach(function(r,i){ var a=r.querySelector("a"); if(!a) return;
+    a.addEventListener("click",function(e){ e.preventDefault(); if(!isOn()) set(true,true);
+      requestAnimationFrame(function(){ if(wide.matches){ toAnchor(i); sync(); } else { pane.scrollTop=cards[i].offsetTop-12; } flash(cards[i]); });
+    }); });
+  [].slice.call(pane.querySelectorAll(".bsp-back")).forEach(function(a){
+    a.addEventListener("click",function(e){ e.preventDefault();
+      var i=refs.indexOf(document.getElementById("bspref-"+a.getAttribute("data-bsp"))); if(i<0) return;
+      if(!wide.matches) set(false,false);
+      requestAnimationFrame(function(){ toAnchor(i); });
+    }); });
+  btn.addEventListener("click",function(){ set(!isOn(),true); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && isOn() && !wide.matches) set(false,false); });
+  (wide.addEventListener?wide.addEventListener.bind(wide,"change"):wide.addListener.bind(wide))(function(e){
+    if(!e.matches){ set(false,false); }
+    else { var st=false; try{ st=localStorage.getItem("wissen-split")==="1"; }catch(x){} set(st,false); }
+  });
+  paint(); if(isOn()) requestAnimationFrame(sync);
+})();
+// KaTeX automatisch rendern; zu breite abgesetzte Formeln danach passend verkleinern (höchstens auf 70 %),
+// statt sie abzuschneiden – wichtig in der geteilten Ansicht und auf dem Handy.
+(function(){
+  function fitMath(){
+    var ds=[].slice.call(document.querySelectorAll(".katex-display"));
+    ds.forEach(function(d){ d.style.fontSize=""; });
+    for(var pass=0;pass<2;pass++){                               // zweiter Durchgang: Skalierung ist nicht ganz linear
+      var m=ds.map(function(d){ return [d.clientWidth,d.scrollWidth,parseFloat(getComputedStyle(d).fontSize)]; });
+      ds.forEach(function(d,i){ var w=m[i][0],s=m[i][1];          // w=0: eingeklappte Herleitung -> beim Aufklappen
+        if(w && s>w+1) d.style.fontSize=(m[i][2]*Math.max(0.7,w/s))+"px"; });
+    }
+    try{ document.dispatchEvent(new Event("wissen:fitted")); }catch(e){}   // Höhen haben sich geändert -> Beispiele neu ausrichten
+  }
+  var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
+  window.addEventListener("DOMContentLoaded",function(){
+    if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
+      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}]});
+    fitMath();
+  });
+  window.addEventListener("resize",later);
+  window.addEventListener("load",fitMath);
+  document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
+  document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
+})();
 """
 
 if __name__ == "__main__":
