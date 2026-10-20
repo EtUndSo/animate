@@ -43,7 +43,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:#fff;background:var(--accent);font-weight:600;}
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
-.article>article{min-width:0;max-width:72ch;margin-inline:auto;}   /* zentriert -> bleibt beim Einklappen der Panels gleich breit */
+.article>article{min-width:0;width:100%;max-width:72ch;margin-inline:auto;}   /* zentriert -> bleibt beim Einklappen der Panels gleich breit; width:100%: sonst zieht die breiteste Formel den Artikel (auto-Ränder = fit-content) über die Spalte hinaus -> Text läuft auf Handy/Tablet rechts raus */
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
 .article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
 .article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
