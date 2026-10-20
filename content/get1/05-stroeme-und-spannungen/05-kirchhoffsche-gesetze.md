@@ -97,3 +97,26 @@ und den $k-1$ bzw. $m = z-(k-1)$ unabhängigen Gleichungen lässt sich damit jed
 
 Diese Gesetze von Hand auf jedes Netzwerk anzuwenden ist möglich, aber mühsam. Für oft gebrauchte Strukturen gibt
 es Abkürzungen — die __Zusammenschaltung von Widerständen__ zu Reihen, Parallelschaltungen und Spannungsteilern.
+
+:::quiz
+F: Welches physikalische Prinzip steckt hinter der Knotenregel?
+A: Die Ladungserhaltung: Ein Knoten hat kein „Lager", in dem sich Ladung ansammeln könnte. Was pro Sekunde hineinfließt, muss in derselben Sekunde wieder herausfließen, sonst würde sich dort Ladung aufstauen.
+F: Welches Prinzip begründet die Maschenregel?
+A: Die Energieerhaltung bzw. die Eindeutigkeit des Potenzials: Nach einer geschlossenen Runde ist man wieder am Startpunkt, also auf demselben Potenzial. Alle Spannungs-Anstiege und -Abfälle müssen sich daher zu null summieren.
+F: Wie behandelt man Vorzeichen in der Knotenregel?
+A: Man legt für jeden Zweigstrom eine Zählrichtung fest und zählt zufließende positiv, abfließende negativ (oder umgekehrt, nur konsequent). Dann lautet die Bilanz kompakt $\sum I_k=0$.
+F: Wie bestimmt man die Vorzeichen in der Maschenregel?
+A: Man wählt eine Umlaufrichtung und zählt jede Spannung positiv, deren Zählpfeil in Umlaufrichtung zeigt, sonst negativ. Die so vorzeichenbehaftete Summe aller Teilspannungen ist null.
+F: Warum tragen in der Reihenschaltung alle Widerstände denselben Strom?
+A: Zwischen ihnen liegt kein Knoten, an dem sich der Strom aufteilen könnte — die Knotenregel erzwingt also überall denselben Zweigstrom. Deshalb darf man in $U_0=R_1 I+R_2 I$ mit einem gemeinsamen $I$ rechnen.
+F: Wie spielen Kirchhoff-Regeln und Ohmsches Gesetz beim Lösen zusammen?
+A: Knoten- und Maschenregel liefern die Bilanzgleichungen für Ströme und Spannungen, das Ohmsche Gesetz verknüpft an jedem Widerstand $U$ und $I$. Erst beide zusammen ergeben genug Gleichungen für alle Unbekannten.
+F: Woran prüft man am Beispiel, dass die Maschenregel erfüllt ist?
+A: Die Teilspannungen $U_1=4\,$V und $U_2=8\,$V summieren sich zu den $12\,$V der Quelle. Genau das verlangt $\sum U_k=0$: Quellenspannung gleich Summe der Abfälle.
+F: Wie viele unabhängige Gleichungen braucht ein Netzwerk, und woher kommen sie?
+A: Genau $z$ für die $z$ Zweigströme: $k-1$ liefert die Knotenregel, $m=z-(k-1)$ die Maschenregel. Zusammen mit dem Ohmschen Gesetz ist das System eindeutig lösbar.
+F: Was wäre falsch daran, an jedem der $k$ Knoten eine Knotengleichung zu verwenden?
+A: Die letzte Knotengleichung ist von den anderen abhängig und bringt keine neue Information. Man würde eine redundante Gleichung mitschleppen und hätte zu wenige unabhängige Maschengleichungen.
+F: Gelten die Kirchhoffschen Gesetze unabhängig davon, welche Bauteile in den Zweigen sitzen?
+A: Ja — sie sind reine Bilanzregeln für Ströme und Spannungen und folgen nur aus Ladungs- und Energieerhaltung. Welches Bauteilgesetz (Ohm, Diode, Quelle) im Zweig gilt, kommt erst beim Einsetzen hinzu.
+:::
