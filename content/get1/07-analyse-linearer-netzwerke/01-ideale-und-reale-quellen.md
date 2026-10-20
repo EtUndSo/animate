@@ -108,3 +108,26 @@ gleicher $R_i$ (einmal in Reihe, einmal parallel) — nach außen gleichwertig.
 Diese Gleichwertigkeit ist der Schlüssel zu einem mächtigen Werkzeug: Man kann ein ganzes Netzwerk, so
 kompliziert es auch ist, von zwei Klemmen aus durch **eine einzige** Ersatzquelle beschreiben — die
 __Ersatzspannungsquelle__ und __Ersatzstromquelle__ (Thévenin und Norton).
+
+:::quiz
+F: Was bedeutet $R_i=0$ für eine ideale Spannungsquelle anschaulich?
+A: Es fällt intern keine Spannung ab, egal wie viel Strom fließt, also bleibt die Klemmenspannung immer $U_0$. Die Kennlinie ist eine Waagerechte — die Quelle ist unerschütterlich.
+F: Warum hat eine ideale Stromquelle einen unendlichen Innenwiderstand?
+A: Nur bei $R_i\to\infty$ bleibt der eingeprägte Strom unabhängig von der anliegenden Spannung konstant. Die Quelle „presst" einen festen Strom durch, und die Spannung stellt sich allein nach dem Verbraucher ein.
+F: Warum bricht eine reale Spannungsquelle unter Last ein?
+A: Der entnommene Strom fällt am Innenwiderstand als $R_i I$ ab, sodass außen nur $U=U_0-R_i I$ ankommt. Je mehr Strom, desto größer dieser interne Abfall und desto kleiner die Klemmenspannung.
+F: Was ist die Leerlaufspannung und warum ist sie gleich $U_0$?
+A: Im Leerlauf fließt kein Strom ($I=0$), also fällt an $R_i$ nichts ab. Damit erscheint an den Klemmen die volle innere Spannung $U_0$.
+F: Wie entsteht der Kurzschlussstrom $I_K=U_0/R_i$?
+A: Bei Kurzschluss ist die Klemmenspannung null, sodass die gesamte Quellenspannung über $R_i$ abfällt. Nach dem Ohmschen Gesetz ergibt das den maximalen Strom $U_0/R_i$.
+F: Woran erkennt man an der Kennlinie eine „gute" (nahezu ideale) Spannungsquelle?
+A: An einer möglichst flachen, nur schwach fallenden Geraden — kleines $R_i$ bedeutet geringen Einbruch unter Last. Je flacher, desto näher an der idealen Waagerechten.
+F: Warum können eine reale Spannungs- und eine reale Stromquelle von außen ununterscheidbar sein?
+A: Beide erzeugen dieselbe fallende Klemmen-Kennlinie, wenn $I_0=U_0/R_i$ und derselbe $R_i$ verwendet wird. Da ein Verbraucher nur die Klemmengrößen „sieht", kann er die beiden Modelle nicht unterscheiden.
+F: Wie lautet das Rezept der Quellenumwandlung?
+A: Die Leerlaufspannung bleibt $U_0$, der Kurzschlussstrom $I_0=U_0/R_i$ wird zum Quellenstrom, und derselbe $R_i$ wandert von der Reihe in die Parallelschaltung (oder umgekehrt). Damit sind beide Darstellungen äquivalent.
+F: Warum liegt $R_i$ bei der Spannungsquelle in Reihe, bei der Stromquelle aber parallel?
+A: In Reihe zieht $R_i$ mit steigendem Strom Spannung ab (Einbruch), parallel leitet er mit steigender Spannung Strom ab. Beide Anordnungen erzeugen genau dieselbe fallende Klemmen-Kennlinie.
+F: Wozu ist die Quellenumwandlung in der Netzwerkanalyse nützlich?
+A: Man wählt jeweils die Darstellung, die sich gerade leichter zusammenfassen lässt — Reihen-Spannungsquellen oder parallele Stromquellen. So lassen sich gemischte Netze schrittweise vereinfachen.
+:::
