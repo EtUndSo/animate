@@ -25,6 +25,13 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
    Rechnung belegen.
 9. **Keine undefinierten Symbole:** Jedes Symbol und jede Dimension (z. B. $p$ in $\mathbb{R}^p$) vor der ersten
    Benutzung einführen; kein Symbol doppelt belegen (z. B. $h$ nicht zugleich als Schritt und als Funktion).
+10. **Anschauung und Mathematik fusionieren** (User 2026-10-20): Die anschauliche Sicht ist kein Vorspann, der
+    danach in trockene Mathematik übergeht. Sie läuft als roter Faden durch den ganzen Artikel: Jede Definition,
+    jede Formel und jeder Herleitungsschritt bekommt **an Ort und Stelle** seine Bedeutung im Bild („Im Bild: …"
+    oder direkt in den Satz verwoben) — was bedeutet dieses Symbol, dieser Term, dieser Schritt in der Landschaft,
+    am Gitter, an der Strömung? Ein **durchgehendes Leitbild** (z. B. Gebirgslandschaft + Wanderer) aus dem
+    Anschaulich-Abschnitt wird in allen folgenden Abschnitten konsequent weiterverwendet, statt in jedem Abschnitt
+    ein neues Bild zu erfinden. Lieber noch etwas anschaulicher als zu knapp.
 
 ## 2. Formeln
 - **Jede Formel steht auf einer eigenen Zeile** (`$$…$$`). Nie eine stehende Formel inline im Fließtext, erst
@@ -52,7 +59,8 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
 mit dem **Inhaltsverzeichnis** (wird aus den `##`-Überschriften erzeugt).
 
 Dann die `##`-Abschnitte (jeder wird als **Karte** gerendert). Typischer Bogen (ET4):
-1. `## Anschaulich` — Alltagsbild, Konzept im Bild, 1–2 intuitive Konsequenzen.
+1. `## Anschaulich` — Alltagsbild, Konzept im Bild, 1–2 intuitive Konsequenzen. Das hier eingeführte
+   **Leitbild** wird in allen folgenden Abschnitten weiterverwendet und mit jeder Formel verknüpft (§1 Nr. 10).
 2. `## Was ist …?` / fehlende Grundlage — nötige Vorbausteine von Grund auf.
 3. `## <Herleitung/Kernbegriff>` — **„Die zwei (o. mehr) Akteure:"** (jedes Objekt mit Raum definieren) →
    **„Das Zusammenspiel:"** + *kursive* Leitfrage → Ergebnis als `:::formel` → `:::herleitung`.
