@@ -153,3 +153,26 @@ Gradient von Fermi-Niveau und Temperatur.
 Wir haben jetzt alle Bausteine: Ladungsträgerdichte, Drift, Diffusion und ihre Kopplung. Im letzten Artikel
 dieses Oberthemas schalten wir sie zu den __Grundgleichungen des Halbleiters__ zusammen — Kontinuität,
 Drift-Diffusion und Poisson —, mit denen sich jedes Bauelement berechnen lässt.
+
+:::quiz
+F: Warum fließt bei einem Konzentrationsgefälle ein Strom, obwohl keine Kraft wirkt?
+A: Jedes Teilchen macht eine zufällige Wärmebewegung in alle Richtungen. Weil auf der dichten Seite einer Grenze mehr Kandidaten sitzen, überqueren von dort netto mehr die Grenze als zurück — rein statistisch entsteht ein gerichteter Fluss von hoch nach niedrig.
+F: Was bedeutet das Minuszeichen im Fickschen Gesetz $J_{\text{diff}}=-eD\,dn/dx$?
+A: Der Teilchenfluss läuft „bergab", also entgegengesetzt zum Konzentrationsgradienten — von hoher zu niedriger Dichte. Das Minuszeichen kodiert genau diese Richtung.
+F: Wieso stammen Drift und Diffusion aus derselben Gleichung?
+A: Beide sind Terme der Boltzmann-Transportgleichung für die Verteilungsfunktion $f(x,k,t)$: der Ortsterm $v\,\partial_x f$ erzeugt die Diffusion, der Kraftterm $\tfrac{F}{\hbar}\partial_k f$ den Drift. Es ist dieselbe Bewegung, nur von zwei verschiedenen Ursachen angetrieben.
+F: Was besagt die Relaxationszeitnäherung anschaulich?
+A: Jede Abweichung $f-f^0$ vom Gleichgewicht klingt durch Stöße exponentiell mit der Streuzeit $\tau$ ab ($\delta f\propto e^{-t/\tau}$). Die Streuung zieht das System also stets zurück zum Gleichgewicht, mit $\tau$ als charakteristischer Zeitkonstante.
+F: Warum addieren sich bei der Matthiessen-Regel die Raten $1/\tau$ und nicht die Zeiten $\tau$?
+A: Jeder unabhängige Streumechanismus liefert pro Zeiteinheit eigenständig eine gewisse Zahl Stöße, und Stoßhäufigkeiten (Raten) sind additiv. Folglich dominiert der schnellste Prozess mit dem kürzesten $\tau$ die gesamte Streurate.
+F: Warum fällt bei der Einstein-Relation der Faktor $\tau/m^\star$ heraus?
+A: Drift liefert $\mu=e\tau/m^\star$, Diffusion $D=k_BT\tau/m^\star$ — beide enthalten identisch $\tau/m^\star$, weil beide auf dieselben Stöße zurückgehen. Beim Bilden des Verhältnisses $D/\mu$ kürzt sich dieser gemeinsame Faktor weg.
+F: Was ist die tiefere Bedeutung der Einstein-Beziehung $D=\tfrac{k_BT}{e}\mu$?
+A: Die Zufallsbewegung (Diffusion) und die Reaktion auf eine Kraft (Beweglichkeit) sind nicht unabhängig, sondern über die Temperatur fest gekoppelt — beide entspringen derselben Streuung. Das ist ein Beispiel des allgemeinen Fluktuations-Dissipations-Prinzips.
+F: Warum hat die Beweglichkeit $\mu(T)$ ein Maximum statt monoton zu verlaufen?
+A: Zwei Mechanismen wirken gegenläufig: Phononenstreuung nimmt mit $T$ zu ($\mu\propto T^{-3/2}$), Störstellenstreuung mit $T$ ab ($\mu\propto T^{+3/2}$). Bei tiefer $T$ begrenzen Störstellen, bei hoher $T$ Phononen — dazwischen liegt das Maximum.
+F: Warum nimmt die Störstellenstreuung mit steigender Temperatur ab?
+A: Schnellere Elektronen halten sich kürzer im Coulomb-Potential eines Dotier-Ions auf und werden dadurch weniger stark abgelenkt. Mit steigender Temperatur werden die Elektronen schneller, entkommen leichter, und $\mu_{\text{Störstelle}}$ wächst.
+F: Wie erreicht man im 2DEG eine besonders hohe Beweglichkeit?
+A: Durch $\delta$-Dotierung legt man die Dotier-Ionen in eine dünne Schicht, die vom leitenden Kanal räumlich getrennt ist. Die Elektronen sind dann weit von ihren Streuzentren entfernt, $\tau$ wird groß und damit $\mu$ sehr hoch — die Basis der schnellsten Transistoren (HEMTs).
+:::
