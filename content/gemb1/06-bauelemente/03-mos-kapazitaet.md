@@ -171,3 +171,26 @@ $\text{SiO}_2$ senkt die Grenzflächenfallen $D_{it}$ um $\sim10^5$.
 Der MOS-Kondensator kann an der Oberfläche einen leitenden Elektronenkanal **ein- und ausschalten**. Gibt man
 ihm zwei Kontakte (Source und Drain), die diesen Kanal anzapfen, wird daraus das wichtigste Bauelement der
 Elektronik — der __MOSFET__, das Thema des letzten Artikels.
+
+:::quiz
+F: Warum steuert die Gatespannung den Halbleiter, obwohl durch das Oxid gar kein Strom fließt?
+A: Das Oxid wirkt als Isolator eines Kondensators: Die Gatespannung erzeugt ein Feld, das die Bänder an der Halbleiteroberfläche verbiegt und dort Ladungsträger anzieht oder wegdrückt. Gesteuert wird also kapazitiv, nicht durch Stromfluss.
+F: Was sagt die Debye-Länge über die Schärfe der Bandverbiegung aus?
+A: Sie ist die Strecke, über die freie Ladungen eine Potentialstörung abschirmen. Viele freie Ladungen (Akkumulation, Inversion) ergeben ein winziges $L_D$ und eine quasi-metallische, scharfe Grenzschicht; wenige (Verarmung) lassen die Verbiegung tief ins Innere reichen.
+F: Warum verhält sich der MOS-Kondensator in Akkumulation wie ein einfacher Plattenkondensator?
+A: Die negative Gatespannung häuft Löcher an der Oxidgrenze zu einer quasi-metallischen Schicht. Damit liegt effektiv Metall–Oxid–Metall vor, und die Gesamtkapazität ist schlicht die des Oxids $C_{IS}$.
+F: Warum sinkt die Kapazität in der Verarmung in ein Minimum?
+A: Die weggedrückten Löcher hinterlassen eine Verarmungszone, die wie ein zweiter Kondensator wirkt. Diese Verarmungskapazität liegt in Reihe zum Oxid, und eine Reihenschaltung ergibt stets eine kleinere Gesamtkapazität.
+F: Warum entsteht bei großer positiver Spannung eine n-leitende Schicht auf einem p-Halbleiter?
+A: Die starke Bandverbiegung drückt das Leitungsband an der Oberfläche nahe an $E_f$, sodass dort die Elektronendichte exponentiell ansteigt. An der Oberfläche überwiegen dann Elektronen — die Ladungsträgersorte hat sich gegenüber dem p-Bulk „invertiert".
+F: Was besagt das Inversionskriterium $\varphi_s=2\varphi_B$ anschaulich?
+A: Die Oberfläche soll so stark n-leitend werden, wie der Bulk p-leitend ist. Das ist gerade erreicht, wenn das Oberflächenpotential das Doppelte des Bulk-Potentials beträgt — die Schwelle, ab der die Inversionsladung exponentiell wächst.
+F: Warum ist die Gate-Kapazität eine Reihenschaltung aus Oxid- und Halbleiterkapazität?
+A: Die Gatespannung teilt sich in den Abfall über dem Oxid und die Bandverbiegung im Halbleiter auf. Zwei hintereinander durchlaufene Spannungsabfälle entsprechen kapazitiv einer Reihenschaltung der beiden zugehörigen Kapazitäten.
+F: Warum ist die C-V-Kurve in Inversion frequenzabhängig?
+A: Die Inversionsladung besteht aus Minoritäten (Elektronen im p-Typ), die nur langsam nachgeliefert werden. Bei niedriger Frequenz folgen sie dem Messsignal (C steigt zurück auf $C_{IS}$), bei hoher Frequenz können sie nicht folgen und nur die Verarmungsladung reagiert (tiefes Plateau).
+F: Warum sind Grenzflächenzustände (dangling bonds) schädlich?
+A: An der Si/SiO₂-Grenze bleiben ungesättigte Bindungen, deren Energien in der Bandlücke liegen und als Fallen wirken. Sie fangen Ladung ein, verfälschen die Schwellenspannung und verschlechtern den Schaltvorgang des Transistors.
+F: Warum hat ausgerechnet SiO₂ Silizium zur Dominanz in der Mikroelektronik verholfen?
+A: Als arteigenes, aus dem Silizium selbst gewachsenes Oxid passiviert SiO₂ die Grenzfläche außergewöhnlich gut und senkt die Grenzflächenzustandsdichte $D_{it}$ um rund fünf Größenordnungen. Eine so saubere Isolator-Halbleiter-Grenze bietet kaum ein anderes Materialsystem.
+:::
