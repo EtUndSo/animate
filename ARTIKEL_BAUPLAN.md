@@ -44,6 +44,22 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
   $D\subseteq\mathbb{R}^2$ usw. Symbol stets $\subseteq$ (Teilmenge, Gleichheit erlaubt) — nicht $\subset$, das als
   echte Teilmenge gelesen werden kann. Keine Menge ($U$, $V$, $G$, $D$, $M$, $Q$ …) benutzen, ohne sie im Artikel
   beim ersten Auftreten mit ihrem Grundraum einzuführen.
+- **Pfeil-Notation wie in ET4** (User 2026-10-20): Jede **vektorielle** Größe trägt einen Pfeil — Punkte und
+  Ortsvektoren ($\vec x$, $\vec x_0$), Vektorfelder und vektorwertige Abbildungen ($\vec E$, $\vec F$, $\vec A$,
+  $\vec B$, $\vec f$, $\vec g$), Kurven und Tangenten ($\vec\gamma$, $\dot{\vec\gamma}$), Einheitsvektoren ($\vec e_k$,
+  $\vec e_r$, Laufrichtung $\vec v$), vektorielle Schritte ($\vec h$), das Wegelement ($d\vec x$), Normalen ($\vec n$)
+  und der Nullvektor ($\vec 0$, z. B. $\mathbb{R}^3\setminus\{\vec 0\}$). **Ohne** Pfeil: Skalare und Komponenten
+  ($x_j$, $E_j$, $f_j$), der Gradient $\nabla f$ bzw. $\operatorname{grad} f$ und der Operator $\nabla$, Matrizen
+  ($D\vec f$), benannte Punkte ($P$, $A$, $B$) und skalare Koordinaten in Beispielen ($f(x,y)$).
+- **Groß- und Kleinschreibung** (User 2026-10-20): **Vektorfelder** und vektorwertige Abbildungen immer mit
+  **Großbuchstaben** ($\vec E$, $\vec F$, $\vec G$; Komponenten $F_j$); **Skalarfelder**, Skalare und einzelne
+  **Vektoren** (Punkte $\vec x$, Richtungen $\vec v$, Einheitsvektoren $\vec e_k$, $\vec e_r$, Kurven $\vec\gamma$)
+  mit **Kleinbuchstaben** ($f$, $u$, $\phi$, $\varphi$). Zusammen mit der Pfeil-Notation ergibt das ein eindeutiges
+  Lesesystem: Großbuchstabe mit Pfeil = Vektorfeld, Kleinbuchstabe mit Pfeil = Vektor, Kleinbuchstabe ohne Pfeil =
+  Skalar/Skalarfeld, Großbuchstabe ohne Pfeil = Menge oder Matrix ($U$, $D$, $A$). Ausnahmen nur für fest etablierte
+  Namen: Konstanten wie Ladung $Q$, Radius $R$; spezielle Funktionen/Transformationen wie $\Gamma$, $\mathcal L f$.
+  Skalare Ergebnisfunktionen (Parameterintegrale, Stammfunktionen, Profile) deshalb klein benennen, z. B.
+  $g(x)=\int_a^b f(x,t)\,dt$.
 - **Nur die wichtigsten** Formeln kommen in eine **Box**:
   `:::formel <Typ>` … `:::` — `<Typ>` ist das Label oben links: **Definition**, **Satz**, **Lemma**,
   **Gesetz**, **Formel** (Default, wenn nichts angegeben). Die Box wird **automatisch nummeriert** (fortlaufend
@@ -126,7 +142,8 @@ Prüfliste:
 3. **Von Grund auf:** jeder Begriff, jedes Symbol, jede Dimension vor der ersten Benutzung eingeführt; kein Symbol
    doppelt belegt; Fachbegriffe bei Erstnennung erklärt; jede Menge mit Grundraum eingeführt ($U\subseteq\mathbb{R}^n$).
 4. **Formeln:** keine Gleichungen oder Formelketten im Fließtext (auch nicht in Herleitungen); jede wichtige Formel
-   erklärt (Eingabe → Ausgabe, Symbole); Boxen nur für die wichtigsten, mit passendem Typ-Label.
+   erklärt (Eingabe → Ausgabe, Symbole); Boxen nur für die wichtigsten, mit passendem Typ-Label; Pfeil-Notation
+   (jede vektorielle Größe mit Pfeil, §2) — auch in `:::kern`, `:::quiz` und `:::grafik`.
 5. **Herleitungen:** jede Aussage, die sich kurz begründen lässt, hat eine `:::herleitung`; Herleitungen erklären
    jeden Schritt.
 6. **Konkret:** mindestens ein Zahlenbeispiel; „gilt nicht immer"-Aussagen mit konkretem Gegenbeispiel.

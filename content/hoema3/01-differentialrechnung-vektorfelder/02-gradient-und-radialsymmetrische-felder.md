@@ -2,13 +2,13 @@
 title: Der Gradient, Gradientenfelder und radialsymmetrische Felder
 pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
 order: 3010200
-summary: Von Grund auf – der Gradient als Steigungspfeil einer Landschaft. Warum er in Richtung des steilsten Anstiegs zeigt und senkrecht auf den Höhenlinien steht, wie man die Steigung in jede Richtung als Schatten $\nabla f\cdot v$ abliest, wann ein Pfeilfeld überhaupt zu einer echten Landschaft gehört (Gradientenfeld, Integrabilitätsbedingung) und wie man für rotationssymmetrische Landschaften $u(x)=f(r)$ sofort $\nabla u=f'(r)\,\hat e_r$ erhält – bis zum Coulomb-Feld.
+summary: Von Grund auf – der Gradient als Steigungspfeil einer Landschaft. Warum er in Richtung des steilsten Anstiegs zeigt und senkrecht auf den Höhenlinien steht, wie man die Steigung in jede Richtung als Schatten $\nabla f\cdot\vec v$ abliest, wann ein Pfeilfeld überhaupt zu einer echten Landschaft gehört (Gradientenfeld, Integrabilitätsbedingung) und wie man für rotationssymmetrische Landschaften $u(\vec x)=f(r)$ sofort $\nabla u=f'(r)\,\vec e_r$ erhält – bis zum Coulomb-Feld.
 tags: Gradient, Richtungsableitung, Niveaufläche, Gradientenfeld, Skalarpotential, Integrabilitätsbedingung, radialsymmetrisch, Zentralfeld, Coulomb-Feld
 ---
 
 ## Anschaulich
 
-Stell dir ein Skalarfeld $f$ als **Gebirgslandschaft** vor: Jedem Ort $x$ der Landkarte ist eine Höhe $f(x)$
+Stell dir ein Skalarfeld $f$ als **Gebirgslandschaft** vor: Jedem Ort $\vec x$ der Landkarte ist eine Höhe $f(\vec x)$
 zugeordnet. Auf der Karte sind die __Höhenlinien__ eingezeichnet — Linien, auf denen die Höhe überall gleich ist.
 
 Ein Wanderer steht an einem Punkt und fragt sich zwei Dinge: *In welche Richtung geht es am steilsten bergauf?* Und
@@ -40,25 +40,25 @@ Zuerst die Bühne: Im ganzen Artikel ist $U\subseteq\mathbb{R}^n$ eine offene Me
 zeigt — und $f:U\to\mathbb{R}$ ein differenzierbares Skalarfeld, die Landschaft. Für eine echte Landkarte ist $n=2$.
 
 Der Wanderer muss nicht in Gradientenrichtung laufen. Er kann jede Richtung wählen, beschrieben durch einen
-__Einheitsvektor__ $v\in\mathbb{R}^n$ — einen Pfeil der Länge $1$, der nur die Richtung angibt.
+__Einheitsvektor__ $\vec v\in\mathbb{R}^n$ — einen Pfeil der Länge $1$, der nur die Richtung angibt.
 
-Wie steil es in diese Richtung geht, misst die __Richtungsableitung__. Der Wanderer läuft vom Punkt $x_0$ geradeaus
-in Richtung $v$, und man schaut, wie schnell sich seine Höhe beim Losgehen ändert:
+Wie steil es in diese Richtung geht, misst die __Richtungsableitung__. Der Wanderer läuft vom Punkt $\vec x_0$
+geradeaus in Richtung $\vec v$, und man schaut, wie schnell sich seine Höhe beim Losgehen ändert:
 
-$$D_v f(x_0) := \frac{d}{dt}\, f(x_0+t\,v)\Big|_{t=0}.$$
+$$D_{\vec v} f(\vec x_0) := \frac{d}{dt}\, f(\vec x_0+t\,\vec v)\Big|_{t=0}.$$
 
-**So liest man das:** $x_0+t\,v$ ist der Ort des Wanderers nach der Zeit $t$, wenn er mit Tempo $1$ in Richtung $v$
-läuft. $f(x_0+t\,v)$ ist seine Höhe zu diesem Zeitpunkt — eine Funktion der einen Variablen $t$. Ihre gewöhnliche
-Ableitung bei $t=0$ ist die Steigung, die er beim Losgehen unter den Füßen spürt.
+**So liest man das:** $\vec x_0+t\,\vec v$ ist der Ort des Wanderers nach der Zeit $t$, wenn er mit Tempo $1$ in
+Richtung $\vec v$ läuft. $f(\vec x_0+t\,\vec v)$ ist seine Höhe zu diesem Zeitpunkt — eine Funktion der einen
+Variablen $t$. Ihre gewöhnliche Ableitung bei $t=0$ ist die Steigung, die er beim Losgehen unter den Füßen spürt.
 
-Für die Koordinatenrichtungen, also $v=e_k$, ist das genau die partielle Ableitung nach $x_k$. Die Richtungsableitung
-verallgemeinert sie auf **jede** Richtung — und man muss dafür nichts Neues ausrechnen:
+Für die Koordinatenrichtungen, also $\vec v=\vec e_k$, ist das genau die partielle Ableitung nach $x_k$. Die
+Richtungsableitung verallgemeinert sie auf **jede** Richtung — und man muss dafür nichts Neues ausrechnen:
 
 :::formel Satz
-$$D_v f(x_0) = \nabla f(x_0)\cdot v = \lvert\nabla f(x_0)\rvert\,\cos\theta.$$
+$$D_{\vec v} f(\vec x_0) = \nabla f(\vec x_0)\cdot\vec v = \lvert\nabla f(\vec x_0)\rvert\,\cos\theta.$$
 :::
 
-Dabei ist $\theta$ der Winkel zwischen dem Gradientenpfeil und der Laufrichtung $v$.
+Dabei ist $\theta$ der Winkel zwischen dem Gradientenpfeil und der Laufrichtung $\vec v$.
 
 **Im Bild:** Die Steigung, die der Wanderer spürt, ist der **Schatten** des Gradientenpfeils auf seine Laufrichtung.
 Läuft er genau in Pfeilrichtung, ist der Schatten so lang wie der Pfeil selbst. Läuft er quer dazu, verschwindet der
@@ -67,15 +67,15 @@ Schatten.
 :::herleitung
 Der Weg des Wanderers ist eine Gerade, die er mit konstanter Geschwindigkeit durchläuft:
 
-$$\gamma(t) = x_0+t\,v, \qquad \dot\gamma(t) = v.$$
+$$\vec\gamma(t) = \vec x_0+t\,\vec v, \qquad \dot{\vec\gamma}(t) = \vec v.$$
 
 Die Kettenregel für ein Feld entlang einer Kurve (voriger Artikel) liefert für die Höhe längs dieses Weges
 
-$$\frac{d}{dt}\,f(x_0+t\,v) = \nabla f(x_0+t\,v)\cdot v.$$
+$$\frac{d}{dt}\,f(\vec x_0+t\,\vec v) = \nabla f(\vec x_0+t\,\vec v)\cdot\vec v.$$
 
 Bei $t=0$ steht der Wanderer noch am Start — das ist genau die erste Form der Formel. Die zweite Form ist die
 geometrische Deutung des Skalarprodukts (Betrag mal Betrag mal Kosinus des Zwischenwinkels), hier mit
-$\lvert v\rvert=1$.
+$\lvert\vec v\rvert=1$.
 :::
 
 **Warum der Gradient bergauf zeigt.** Aus der Formel liest man den steilsten Anstieg sofort ab, denn der Kosinus ist
@@ -96,7 +96,7 @@ $$\nabla f(x,y) = (2x,\;4y), \qquad \nabla f(P) = (2,\;4), \qquad \lvert\nabla f
 
 Damit ergeben sich die Steigungen in vier Laufrichtungen:
 
-| Laufrichtung | Einheitsvektor $v$ | Steigung $D_v f(P)$ |
+| Laufrichtung | Einheitsvektor $\vec v$ | Steigung $D_{\vec v} f(P)$ |
 |---|---|---|
 | nach Osten | $(1,0)$ | $2$ |
 | nach Norden | $(0,1)$ | $4$ |
@@ -105,7 +105,7 @@ Damit ergeben sich die Steigungen in vier Laufrichtungen:
 
 Die Zeile „bergauf" im Einzelnen:
 
-$$D_v f(P) = (2,4)\cdot\tfrac{1}{\sqrt5}(1,2) = \frac{2+8}{\sqrt5} = \frac{10}{\sqrt5} = \sqrt{20}.$$
+$$D_{\vec v} f(P) = (2,4)\cdot\tfrac{1}{\sqrt5}(1,2) = \frac{2+8}{\sqrt5} = \frac{10}{\sqrt5} = \sqrt{20}.$$
 
 **Im Bild:** Nach Norden ist es doppelt so steil wie nach Osten — die Schüssel ist in $y$-Richtung enger gekrümmt,
 ihre Höhenlinien (Ellipsen) liegen dort dichter. Der steilste Weg führt schräg bergauf, mehr nach Norden als nach
@@ -114,9 +114,9 @@ Osten. Genau quer dazu verläuft die Höhenlinie durch $P$.
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/02-richtungsableitung-schatten · Vorlage: gradient-projektion-2d
 Am Punkt $P=(1,1)$ der elliptischen Schüssel $f=x^2+2y^2$ (Höhenlinien als Ellipsen) steht der Gradientenpfeil
-$(2,4)$. Ein drehbarer Einheitspfeil $v$ (Kompassnadel) kreist um $P$; der Schatten des Gradienten auf $v$ wird als
-Balken angezeigt, seine Länge ist $D_v f(P)$ — maximal parallel zum Gradienten, null tangential zur Höhenlinie,
-negativ in Gegenrichtung. (Rot = Gradient, orange = Laufrichtung $v$ und Schatten, grau = Höhenlinien.)
+$(2,4)$. Ein drehbarer Einheitspfeil $\vec v$ (Kompassnadel) kreist um $P$; der Schatten des Gradienten auf $\vec v$
+wird als Balken angezeigt, seine Länge ist $D_{\vec v} f(P)$ — maximal parallel zum Gradienten, null tangential zur
+Höhenlinie, negativ in Gegenrichtung. (Rot = Gradient, orange = Laufrichtung $\vec v$ und Schatten, grau = Höhenlinien.)
 :::
 
 ## Höhenlinien und Niveauflächen: der Gradient steht senkrecht
@@ -124,7 +124,7 @@ negativ in Gegenrichtung. (Rot = Gradient, orange = Laufrichtung $v$ und Schatte
 Eine __Niveaufläche__ ist die Menge aller Punkte mit gleichem Feldwert $c$ — in der Ebene eine __Niveaulinie__ (die
 Höhenlinie), im Raum eine Fläche, etwa eine Äquipotentialfläche:
 
-$$N_c = \{\,x\in U \;:\; f(x)=c\,\}.$$
+$$N_c = \{\,\vec x\in U \;:\; f(\vec x)=c\,\}.$$
 
 Der Gradient steht in jedem Punkt **senkrecht** auf der Niveaufläche durch diesen Punkt.
 
@@ -132,12 +132,12 @@ Der Gradient steht in jedem Punkt **senkrecht** auf der Niveaufläche durch dies
 Gradientenrichtung — der Schatten des Gradienten auf seine Laufrichtung ist null.
 
 :::herleitung
-Läuft man mit einer Kurve $\gamma$ **innerhalb** einer Niveaufläche, ändert sich der Feldwert nicht. Mit der
+Läuft man mit einer Kurve $\vec\gamma$ **innerhalb** einer Niveaufläche, ändert sich der Feldwert nicht. Mit der
 Kettenregel heißt das
 
-$$0 = \frac{d}{dt}\,f(\gamma(t)) = \nabla f(\gamma(t))\cdot\dot\gamma(t).$$
+$$0 = \frac{d}{dt}\,f(\vec\gamma(t)) = \nabla f(\vec\gamma(t))\cdot\dot{\vec\gamma}(t).$$
 
-Die Geschwindigkeit $\dot\gamma$ kann dabei **jede** Richtung annehmen, die in der Fläche liegt — jede
+Die Geschwindigkeit $\dot{\vec\gamma}$ kann dabei **jede** Richtung annehmen, die in der Fläche liegt — jede
 Tangentialrichtung. Das Skalarprodukt mit $\nabla f$ ist für alle diese Richtungen null. Also steht $\nabla f$
 senkrecht auf der ganzen Fläche.
 :::
@@ -154,8 +154,8 @@ Linien.
 Szene: hoema3/differentialrechnung-vektorfelder/02-hoehenlinien-dichte · Vorlage: hoehenlinien-abstand-2d
 Zwei Kartenausschnitte nebeneinander: links dicht liegende Höhenlinien mit langem Gradientenpfeil (steiler Hang),
 rechts weit auseinanderliegende mit kurzem Pfeil (flaches Tal); eingezeichnet $\Delta c$ und $\Delta s$. An einer
-Höhenlinie ein tangentialer Schritt $\dot\gamma$ (keine Höhenänderung) und der senkrecht darauf stehende Gradient.
-(Rot = Gradient, orange = Tangentialschritt, grau = Höhenlinien.)
+Höhenlinie ein tangentialer Schritt $\dot{\vec\gamma}$ (keine Höhenänderung) und der senkrecht darauf stehende
+Gradient. (Rot = Gradient, orange = Tangentialschritt, grau = Höhenlinien.)
 :::
 
 ## Gradientenfelder: Landschaft und Steigungspfeile
@@ -164,27 +164,27 @@ Jetzt drehen wir die Blickrichtung um. Bisher war die Landschaft gegeben, und wi
 abgelesen. Ein Vektorfeld, das genau so entsteht, heißt __Gradientenfeld__:
 
 :::formel Definition
-$$E = \nabla\phi.$$
+$$\vec E = \nabla\phi.$$
 :::
 
-Dabei ist $\phi:U\to\mathbb{R}$ ein Skalarfeld — die **Landschaft** —, und $E:U\to\mathbb{R}^n$ ist das Feld ihrer
-**Steigungspfeile**. Man nennt $\phi$ ein __Skalarpotential__ von $E$.
+Dabei ist $\phi:U\to\mathbb{R}$ ein Skalarfeld — die **Landschaft** —, und $\vec E:U\to\mathbb{R}^n$ ist das Feld
+ihrer **Steigungspfeile**. Man nennt $\phi$ ein __Skalarpotential__ von $\vec E$.
 
 **Ein Potential ist nie eindeutig.** Hebt man die ganze Landschaft um eine Konstante an, ändert sich keine einzige
 Steigung. Mit $\phi$ ist also auch $\phi+c$ ein Potential desselben Feldes, für jede Konstante $c$.
 
 **Die physikalische Konvention.** In der Physik schreibt man meist
 
-$$E = -\nabla\varphi.$$
+$$\vec E = -\nabla\varphi.$$
 
 **Im Bild:** Das Feld zeigt dann nicht bergauf, sondern **bergab** — wie eine Kugel, die den Hang hinunterrollt.
-Dabei nimmt die potentielle Energie ab. Läuft ein Teilchen entlang einer Feldlinie $\gamma$, also mit einer
-Geschwindigkeit $\dot\gamma$ in Feldrichtung, so liefert die Kettenregel
+Dabei nimmt die potentielle Energie ab. Läuft ein Teilchen entlang einer Feldlinie $\vec\gamma$, also mit einer
+Geschwindigkeit $\dot{\vec\gamma}$ in Feldrichtung, so liefert die Kettenregel
 
-$$\frac{d}{dt}\,\varphi(\gamma(t)) = \nabla\varphi\cdot\dot\gamma = -E\cdot\dot\gamma < 0.$$
+$$\frac{d}{dt}\,\varphi(\vec\gamma(t)) = \nabla\varphi\cdot\dot{\vec\gamma} = -\vec E\cdot\dot{\vec\gamma} < 0.$$
 
-Der Ausdruck ist negativ, weil $E$ und $\dot\gamma$ in dieselbe Richtung zeigen. Für den bloßen **Begriff**
-Gradientenfeld ist das Vorzeichen egal: $E$ ist genau dann ein Gradientenfeld, wenn $-E$ eines ist.
+Der Ausdruck ist negativ, weil $\vec E$ und $\dot{\vec\gamma}$ in dieselbe Richtung zeigen. Für den bloßen **Begriff**
+Gradientenfeld ist das Vorzeichen egal: $\vec E$ ist genau dann ein Gradientenfeld, wenn $-\vec E$ eines ist.
 
 ## Echte oder unmögliche Landschaft? Die Integrabilitätsbedingung
 
@@ -196,11 +196,11 @@ Gibt es einen einfachen **lokalen Test**, der solche unmöglichen Pfeilfelder en
 zweimal stetig differenzierbarem Potential $\phi$ gilt:
 
 :::formel Lemma
-$$E=\nabla\phi \quad\Longrightarrow\quad \frac{\partial E_j}{\partial x_k} = \frac{\partial E_k}{\partial x_j} \quad\text{für alle } j,k.$$
+$$\vec E=\nabla\phi \quad\Longrightarrow\quad \frac{\partial E_j}{\partial x_k} = \frac{\partial E_k}{\partial x_j} \quad\text{für alle } j,k.$$
 :::
 
-Gelesen: Die Jacobi-Matrix $DE$ eines Gradientenfelds ist **symmetrisch** — an der Diagonale gespiegelte Einträge
-sind gleich. Diese Aussage heißt __Integrabilitätsbedingung__.
+Gelesen: Die Jacobi-Matrix $D\vec E$ eines Gradientenfelds ist **symmetrisch** — an der Diagonale gespiegelte
+Einträge sind gleich. Diese Aussage heißt __Integrabilitätsbedingung__.
 
 **Im Bild (in der Ebene):** $E_1$ ist die Steigung nach Osten, $E_2$ die Steigung nach Norden. Die linke Seite fragt:
 Wie ändert sich die Ost-Steigung, wenn man nach Norden geht? Die rechte Seite fragt: Wie ändert sich die
@@ -208,11 +208,11 @@ Nord-Steigung, wenn man nach Osten geht? In einer echten Landschaft beschreiben 
 Hangs — sie müssen übereinstimmen.
 
 :::herleitung
-Ist $E=\nabla\phi$, so ist jede Komponente eine partielle Ableitung des Potentials:
+Ist $\vec E=\nabla\phi$, so ist jede Komponente eine partielle Ableitung des Potentials:
 
 $$E_j = \frac{\partial\phi}{\partial x_j}.$$
 
-Die Einträge der Jacobi-Matrix von $E$ sind damit **zweite** Ableitungen des Potentials:
+Die Einträge der Jacobi-Matrix von $\vec E$ sind damit **zweite** Ableitungen des Potentials:
 
 $$\frac{\partial E_j}{\partial x_k} = \frac{\partial^2\phi}{\partial x_k\,\partial x_j}, \qquad \frac{\partial E_k}{\partial x_j} = \frac{\partial^2\phi}{\partial x_j\,\partial x_k}.$$
 
@@ -222,33 +222,33 @@ messen dieselbe Verwindung der Landschaft, nur von zwei Seiten aus betrachtet.
 
 **Zwei Zahlenbeispiele in der Ebene.** Für das Feld
 
-$$F(x,y) = (y,\;x)$$
+$$\vec F(x,y) = (y,\;x)$$
 
 besteht der Test:
 
 $$\frac{\partial F_1}{\partial y} = 1 = \frac{\partial F_2}{\partial x}.$$
 
-Tatsächlich ist $F$ ein Gradientenfeld — es sind die Steigungspfeile der Sattelfläche:
+Tatsächlich ist $\vec F$ ein Gradientenfeld — es sind die Steigungspfeile der Sattelfläche:
 
-$$\phi(x,y) = xy, \qquad \nabla\phi = (y,\;x) = F.$$
+$$\phi(x,y) = xy, \qquad \nabla\phi = (y,\;x) = \vec F.$$
 
 Für das kreisende Feld
 
-$$G(x,y) = (-y,\;x)$$
+$$\vec G(x,y) = (-y,\;x)$$
 
 fällt der Test dagegen durch:
 
 $$\frac{\partial G_1}{\partial y} = -1 \;\neq\; 1 = \frac{\partial G_2}{\partial x}.$$
 
-Also ist $G$ **kein** Gradientenfeld. **Im Bild:** Die Pfeile kreisen gegen den Uhrzeigersinn um den Ursprung. Wären
-es Steigungspfeile, ginge es beim Umlaufen ständig bergauf, und man käme trotzdem am Start an — genau die unmögliche
-Escher-Treppe.
+Also ist $\vec G$ **kein** Gradientenfeld. **Im Bild:** Die Pfeile kreisen gegen den Uhrzeigersinn um den Ursprung.
+Wären es Steigungspfeile, ginge es beim Umlaufen ständig bergauf, und man käme trotzdem am Start an — genau die
+unmögliche Escher-Treppe.
 
 **Stolperstein — notwendig, aber nicht hinreichend.** Die Bedingung ist nur ein **lokaler** Test. Hat das Gebiet ein
 **Loch**, kann ein Feld ihn überall bestehen und trotzdem keine Landschaft besitzen. Das berühmte Beispiel lebt auf der
 Ebene ohne Ursprung:
 
-$$W(x,y) = \frac{1}{x^2+y^2}\,(-y,\;x), \qquad (x,y)\neq(0,0).$$
+$$\vec W(x,y) = \frac{1}{x^2+y^2}\,(-y,\;x), \qquad (x,y)\neq(0,0).$$
 
 Es erfüllt die Integrabilitätsbedingung überall:
 
@@ -270,9 +270,9 @@ $$\frac{\partial W_1}{\partial y} = -\frac{\rho - y\cdot 2y}{\rho^2} = \frac{y^2
 Beide Ausdrücke stimmen überein — auf der ganzen gelochten Ebene.
 :::
 
-**Im Bild:** $W$ ist eine **Wendeltreppe** um eine Säule im Ursprung. Jede einzelne Stufe ist ein ganz normaler Hang,
-doch wer einmal um die Säule herumgeht, steht eine Etage höher. Das geht nur, weil man die Säule — den Ursprung —
-nicht betreten kann. Im Kapitel über Kurvenintegrale wird diese Etage genau gemessen: Ein Umlauf liefert $2\pi$.
+**Im Bild:** $\vec W$ ist eine **Wendeltreppe** um eine Säule im Ursprung. Jede einzelne Stufe ist ein ganz normaler
+Hang, doch wer einmal um die Säule herumgeht, steht eine Etage höher. Das geht nur, weil man die Säule — den Ursprung
+— nicht betreten kann. Im Kapitel über Kurvenintegrale wird diese Etage genau gemessen: Ein Umlauf liefert $2\pi$.
 
 In drei Dimensionen ist die Symmetrie der Jacobi-Matrix gleichbedeutend mit „Rotation gleich null" — dem Wirbel-Maß
 des nächsten Artikels. Wann die Bedingung doch ausreicht (bei Gebieten ohne Löcher), klärt das Poincaré-Lemma im
@@ -280,10 +280,10 @@ Kapitel über Kurvenintegrale.
 
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/02-echt-vs-unmoeglich · Vorlage: escher-vs-landschaft-2d
-Drei Pfeilfelder nebeneinander: links $F=(y,x)$ als Steigungspfeile der Sattelfläche $\phi=xy$ (echte Landschaft,
-Test bestanden); Mitte das kreisende Feld $G=(-y,x)$ als „Escher-Treppe" (Test fällt durch: $-1\neq1$); rechts das
-Feld $W$ um ein Loch als Wendeltreppe um eine Säule (Test lokal bestanden, ein Umlauf gewinnt eine Etage). (Rot =
-echte Landschaft/Potential, orange = Pfeilfeld, grau = Säule/Loch.)
+Drei Pfeilfelder nebeneinander: links $\vec F=(y,x)$ als Steigungspfeile der Sattelfläche $\phi=xy$ (echte
+Landschaft, Test bestanden); Mitte das kreisende Feld $\vec G=(-y,x)$ als „Escher-Treppe" (Test fällt durch:
+$-1\neq1$); rechts das Feld $\vec W$ um ein Loch als Wendeltreppe um eine Säule (Test lokal bestanden, ein Umlauf
+gewinnt eine Etage). (Rot = echte Landschaft/Potential, orange = Pfeilfeld, grau = Säule/Loch.)
 :::
 
 ## Rotationssymmetrische Landschaften
@@ -291,9 +291,9 @@ echte Landschaft/Potential, orange = Pfeilfeld, grau = Säule/Loch.)
 In der Feldtheorie hängen viele Größen nur vom **Abstand** zu einem Zentrum ab — etwa das Potential einer
 Punktladung. Eine __radialsymmetrische Funktion__ hat die Form
 
-$$u(x) = f(r), \qquad r := \lvert x\rvert = \sqrt{x_1^2+\cdots+x_n^2}.$$
+$$u(\vec x) = f(r), \qquad r := \lvert\vec x\rvert = \sqrt{x_1^2+\cdots+x_n^2}.$$
 
-**So liest man das:** $r$ ist der Abstand des Punktes $x$ vom Ursprung, also eine Zahl. Die Funktion
+**So liest man das:** $r$ ist der Abstand des Punktes $\vec x$ vom Ursprung, also eine Zahl. Die Funktion
 $f:(0,\infty)\to\mathbb{R}$ ist eine gewöhnliche Funktion **einer** Variablen — das Höhenprofil, das man sieht, wenn
 man vom Zentrum geradeaus nach außen läuft.
 
@@ -305,9 +305,9 @@ zeigen: direkt zum Zentrum hin oder von ihm weg.
 einen Schritt nach außen, wächst der Abstand um genau diesen Schritt — die Steigung nach außen ist überall $1$. Ihr
 Gradient ist deshalb ein **Einheitspfeil nach außen**:
 
-$$\nabla r = \frac{x}{r} =: \hat e_r.$$
+$$\nabla r = \frac{\vec x}{r} =: \vec e_r.$$
 
-Das Feld $\hat e_r$ heißt __radialer Einheitsvektor__. Es zeigt an jedem Punkt außer dem Ursprung radial nach außen
+Das Feld $\vec e_r$ heißt __radialer Einheitsvektor__. Es zeigt an jedem Punkt außer dem Ursprung radial nach außen
 und hat die Länge $1$.
 
 :::herleitung
@@ -315,14 +315,15 @@ Nach der Kettenregel ist für jede Koordinate
 
 $$\frac{\partial r}{\partial x_j} = \frac{\partial}{\partial x_j}\sqrt{x_1^2+\cdots+x_n^2} = \frac{1}{2\sqrt{x_1^2+\cdots+x_n^2}}\cdot 2x_j = \frac{x_j}{r}.$$
 
-Fasst man die $n$ Komponenten zu einem Vektor zusammen, entsteht $x/r$. Seine Länge ist $\lvert x\rvert/r$, also $1$.
+Fasst man die $n$ Komponenten zu einem Vektor zusammen, entsteht $\vec x/r$. Seine Länge ist $\lvert\vec x\rvert/r$,
+also $1$.
 :::
 
 Mit einer weiteren Anwendung der Kettenregel folgt die Gradientenformel für **jede** rotationssymmetrische
 Landschaft. Ist das Höhenprofil $f:(0,\infty)\to\mathbb{R}$ differenzierbar, so gilt:
 
 :::formel Satz
-$$u(x)=f(r) \quad\Longrightarrow\quad \nabla u = f'(r)\,\hat e_r.$$
+$$u(\vec x)=f(r) \quad\Longrightarrow\quad \nabla u = f'(r)\,\vec e_r.$$
 :::
 
 **Im Bild:** Der Gradient zeigt radial, und seine Länge ist die Steigung des Höhenprofils, $\lvert f'(r)\rvert$.
@@ -330,59 +331,59 @@ Steigt die Landschaft nach außen an wie eine Schüssel ($f'>0$), zeigt er nach 
 Berg ($f'<0$), zeigt er nach innen — zum Gipfel hin.
 
 :::herleitung
-$u$ ist die Verkettung der Abstandsfunktion $x\mapsto r$ mit dem Höhenprofil $r\mapsto f(r)$. Die Kettenregel gibt
-„äußere Ableitung mal innere Ableitung":
+$u$ ist die Verkettung der Abstandsfunktion $\vec x\mapsto r$ mit dem Höhenprofil $r\mapsto f(r)$. Die Kettenregel
+gibt „äußere Ableitung mal innere Ableitung":
 
-$$\nabla u = f'(r)\,\nabla r = f'(r)\,\hat e_r.$$
+$$\nabla u = f'(r)\,\nabla r = f'(r)\,\vec e_r.$$
 :::
 
 **Zahlenbeispiel.** Für die Schüssel
 
-$$u(x) = \tfrac12\,r^2 = \tfrac12\,\lvert x\rvert^2$$
+$$u(\vec x) = \tfrac12\,r^2 = \tfrac12\,\lvert\vec x\rvert^2$$
 
 ist das Höhenprofil eine Parabel, und die Gradientenformel liefert
 
-$$f(r) = \tfrac12\,r^2, \qquad f'(r) = r, \qquad \nabla u = r\,\hat e_r = r\cdot\frac{x}{r} = x.$$
+$$f(r) = \tfrac12\,r^2, \qquad f'(r) = r, \qquad \nabla u = r\,\vec e_r = r\cdot\frac{\vec x}{r} = \vec x.$$
 
 **Im Bild:** Die Steigungspfeile zeigen überall nach außen und werden linear mit dem Abstand länger — je weiter vom
 Zentrum, desto steiler die Schüssel.
 
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/02-radialformel · Vorlage: radialfeld-schuessel-2d
-Eine rotationssymmetrische Landschaft $u(x)=f(r)$ als „Schüssel" über der Ebene; die Höhenlinien sind konzentrische
-Kreise. Ein Schieberegler blendet das Höhenprofil $f(r)$ entlang eines Radius ein; der Gradient $\nabla u=f'(r)\hat e_r$
-zeigt radial (nach außen für $f'>0$) und steht senkrecht auf den Kreisen. Daneben der Kegel $r$ mit Steigung $1$ und
-seinem Einheitspfeil $\hat e_r$. (Rot = Gradient, orange = Höhenprofil, grau = Höhenkreise.)
+Eine rotationssymmetrische Landschaft $u(\vec x)=f(r)$ als „Schüssel" über der Ebene; die Höhenlinien sind
+konzentrische Kreise. Ein Schieberegler blendet das Höhenprofil $f(r)$ entlang eines Radius ein; der Gradient
+$\nabla u=f'(r)\vec e_r$ zeigt radial (nach außen für $f'>0$) und steht senkrecht auf den Kreisen. Daneben der Kegel
+$r$ mit Steigung $1$ und seinem Einheitspfeil $\vec e_r$. (Rot = Gradient, orange = Höhenprofil, grau = Höhenkreise.)
 :::
 
 ## Zentralfelder und das Coulomb-Feld
 
 Ein __Zentralfeld__ ist ein Vektorfeld, dessen Pfeile überall radial zeigen:
 
-$$F(x) = g(x)\,\hat e_r.$$
+$$\vec F(\vec x) = g(\vec x)\,\vec e_r.$$
 
 Die skalare Funktion $g$ gibt an, wie lang der Pfeil ist und ob er nach außen ($g>0$) oder innen ($g<0$) zeigt. Hängt
 diese Länge nur vom Abstand ab, heißt das Feld __radialsymmetrisch__:
 
-$$F(x) = f(r)\,\hat e_r.$$
+$$\vec F(\vec x) = f(r)\,\vec e_r.$$
 
 Radialsymmetrische Felder sind **immer** Gradientenfelder, und die passende Landschaft findet man durch eine einzige
-eindimensionale Integration. Ist $f$ stetig auf $(0,\infty)$, so gilt auf $\mathbb{R}^n\setminus\{0\}$:
+eindimensionale Integration. Ist $f$ stetig auf $(0,\infty)$, so gilt auf $\mathbb{R}^n\setminus\{\vec 0\}$:
 
 :::formel Satz
-$$F=f(r)\,\hat e_r \quad\Longrightarrow\quad F=\nabla\phi \quad\text{mit}\quad \phi(x)=\Phi(r),\ \ \Phi'=f.$$
+$$\vec F=f(r)\,\vec e_r \quad\Longrightarrow\quad \vec F=\nabla\phi \quad\text{mit}\quad \phi(\vec x)=\psi(r),\ \ \psi'=f.$$
 :::
 
-Gelesen: Das Höhenprofil $\Phi$ der gesuchten Landschaft ist eine **Stammfunktion** des Feldprofils $f$. Im Bild: Die
+Gelesen: Das Höhenprofil $\psi$ der gesuchten Landschaft ist eine **Stammfunktion** des Feldprofils $f$. Im Bild: Die
 Steigung des Profils soll ja gerade die Pfeillänge sein — also muss man die Pfeillängen entlang des Radius
 aufsummieren, um die Höhe zu erhalten.
 
 :::herleitung
 Nach der Gradientenformel für rotationssymmetrische Landschaften ist
 
-$$\nabla\big(\Phi(r)\big) = \Phi'(r)\,\hat e_r = f(r)\,\hat e_r = F.$$
+$$\nabla\big(\psi(r)\big) = \psi'(r)\,\vec e_r = f(r)\,\vec e_r = \vec F.$$
 
-Der Ursprung muss ausgenommen werden, weil $\hat e_r$ dort nicht definiert ist. Die Stammfunktion ist nur bis auf eine
+Der Ursprung muss ausgenommen werden, weil $\vec e_r$ dort nicht definiert ist. Die Stammfunktion ist nur bis auf eine
 Konstante bestimmt — das ist wieder das Anheben der ganzen Landschaft.
 :::
 
@@ -393,21 +394,21 @@ hoch noch runter. Die Landschaft hat auf jeder Kugel überall dieselbe Höhe —
 :::herleitung
 Angenommen, das Zentralfeld ist ein Gradientenfeld:
 
-$$F = g(x)\,\hat e_r = \nabla\phi.$$
+$$\vec F = g(\vec x)\,\vec e_r = \nabla\phi.$$
 
-Sei $\gamma$ eine beliebige Kurve, die ganz auf einer Kugel um den Ursprung verläuft. Ihre Geschwindigkeit
-$\dot\gamma$ ist tangential zur Kugel, steht also senkrecht auf $\hat e_r$. Die Kettenregel gibt
+Sei $\vec\gamma$ eine beliebige Kurve, die ganz auf einer Kugel um den Ursprung verläuft. Ihre Geschwindigkeit
+$\dot{\vec\gamma}$ ist tangential zur Kugel, steht also senkrecht auf $\vec e_r$. Die Kettenregel gibt
 
-$$\frac{d}{dt}\,\phi(\gamma(t)) = \nabla\phi\cdot\dot\gamma = g\,\hat e_r\cdot\dot\gamma = 0.$$
+$$\frac{d}{dt}\,\phi(\vec\gamma(t)) = \nabla\phi\cdot\dot{\vec\gamma} = g\,\vec e_r\cdot\dot{\vec\gamma} = 0.$$
 
 Also ist $\phi$ längs jeder solchen Kurve konstant. Für $n\ge2$ lassen sich je zwei Punkte der Kugel durch so eine
 Kurve verbinden — $\phi$ hat auf der ganzen Kugel denselben Wert und hängt nur vom Radius ab. Nach der Gradientenformel
-hat $\nabla\phi$ dann die Form $f(r)\,\hat e_r$, das Feld ist also radialsymmetrisch.
+hat $\nabla\phi$ dann die Form $f(r)\,\vec e_r$, das Feld ist also radialsymmetrisch.
 :::
 
 **Die kanonische Anwendung — das Coulomb-Feld.** Das Potential einer Punktladung $Q$ im Ursprung ist
 
-$$u(x) = \frac{Q}{4\pi r}, \qquad x\in\mathbb{R}^3\setminus\{0\}.$$
+$$u(\vec x) = \frac{Q}{4\pi r}, \qquad \vec x\in\mathbb{R}^3\setminus\{\vec 0\}.$$
 
 **Im Bild** (für $Q>0$): ein Berg, der zum Zentrum hin immer steiler und höher wird. Sein Höhenprofil fällt nach außen
 wie $1/r$ ab, mit der Ableitung
@@ -416,7 +417,7 @@ $$\frac{d}{dr}\,\frac{Q}{4\pi r} = \frac{Q}{4\pi}\cdot\Big(-\frac{1}{r^2}\Big) =
 
 Die Gradientenformel liefert damit sofort Gradient und Feld:
 
-$$\nabla u = -\frac{Q}{4\pi r^2}\,\hat e_r, \qquad E = -\nabla u = \frac{Q}{4\pi r^2}\,\hat e_r.$$
+$$\nabla u = -\frac{Q}{4\pi r^2}\,\vec e_r, \qquad \vec E = -\nabla u = \frac{Q}{4\pi r^2}\,\vec e_r.$$
 
 **Im Bild:** Das Feld zeigt bergab, also vom Gipfel weg nach außen — eine positive Probeladung wird abgestoßen und rollt
 den Potentialberg hinunter. Seine Stärke fällt wie $1/r^2$, weil der Berg nach außen immer flacher wird. Das ist (in
@@ -425,9 +426,9 @@ geeigneten Einheiten) genau das bekannte elektrische Feld einer Punktladung.
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/02-coulomb · Vorlage: punktladung-feld-2d
 Links das Coulomb-Potential $u=\frac{Q}{4\pi r}$ als nach innen spitz ansteigender Berg mit konzentrischen
-Äquipotentialkreisen; rechts das Feld $E=\frac{Q}{4\pi r^2}\hat e_r$ als sternförmiges Pfeilbild (Pfeile nach außen,
-mit dem Abstand kürzer wegen $1/r^2$), senkrecht auf den Kreisen. Eine kleine Probeladung rollt den Berg hinab nach
-außen. (Rot = Feld, orange = Probeladung, grau = Äquipotentiallinien.)
+Äquipotentialkreisen; rechts das Feld $\vec E=\frac{Q}{4\pi r^2}\vec e_r$ als sternförmiges Pfeilbild (Pfeile nach
+außen, mit dem Abstand kürzer wegen $1/r^2$), senkrecht auf den Kreisen. Eine kleine Probeladung rollt den Berg hinab
+nach außen. (Rot = Feld, orange = Probeladung, grau = Äquipotentiallinien.)
 :::
 
 ## Bedeutung und Ausblick
@@ -442,36 +443,37 @@ sind das Thema des nächsten Artikels.
 
 :::kern
 - Der __Gradient__ $\nabla f$ ist der Steigungspfeil der Landschaft $f$: Er zeigt in Richtung des steilsten Anstiegs, seine Länge ist die größte Steigung.
-- Die __Richtungsableitung__ in Richtung eines Einheitsvektors $v$ ist der Schatten des Gradienten auf $v$: $D_v f=\nabla f\cdot v$.
+- Die __Richtungsableitung__ in Richtung eines Einheitsvektors $\vec v$ ist der Schatten des Gradienten auf $\vec v$: $D_{\vec v} f=\nabla f\cdot\vec v$.
 - Der Gradient steht **senkrecht** auf den __Niveauflächen__ (Höhenlinien); dicht liegende Höhenlinien bedeuten einen langen Pfeil.
-- Ein __Gradientenfeld__ ist $E=\nabla\phi$ mit __Skalarpotential__ $\phi$; das Potential ist nur bis auf eine Konstante bestimmt.
-- Die Physik schreibt $E=-\nabla\varphi$: Das Feld zeigt bergab, die potentielle Energie nimmt längs der Feldlinien ab.
+- Ein __Gradientenfeld__ ist $\vec E=\nabla\phi$ mit __Skalarpotential__ $\phi$; das Potential ist nur bis auf eine Konstante bestimmt.
+- Die Physik schreibt $\vec E=-\nabla\varphi$: Das Feld zeigt bergab, die potentielle Energie nimmt längs der Feldlinien ab.
 - __Integrabilitätsbedingung__: Die Jacobi-Matrix eines Gradientenfelds ist symmetrisch, $\partial E_j/\partial x_k=\partial E_k/\partial x_j$ (Satz von Schwarz).
-- Die Bedingung ist **notwendig, nicht hinreichend**: $(-y,x)$ fällt durch, das Wendeltreppen-Feld $W$ um ein Loch besteht sie trotzdem ohne Potential.
-- __Radialsymmetrisch__: Aus $u=f(r)$ folgt $\nabla u=f'(r)\,\hat e_r$ mit dem __radialen Einheitsvektor__ $\hat e_r=x/r$.
-- Jedes radialsymmetrische Feld $f(r)\hat e_r$ ist ein Gradientenfeld (Höhenprofil = Stammfunktion von $f$); ein Zentralfeld ist nur dann ein Gradientenfeld, wenn es radialsymmetrisch ist.
-- __Coulomb__: Aus $u=\tfrac{Q}{4\pi r}$ folgt das Feld $E=-\nabla u=\tfrac{Q}{4\pi r^2}\hat e_r$.
+- Die Bedingung ist **notwendig, nicht hinreichend**: $\vec G=(-y,x)$ fällt durch, das Wendeltreppen-Feld $\vec W$ um ein Loch besteht sie trotzdem ohne Potential.
+- __Radialsymmetrisch__: Aus $u=f(r)$ folgt $\nabla u=f'(r)\,\vec e_r$.
+- Der __radiale Einheitsvektor__ $\vec e_r=\vec x/r$ ist der Gradient der Abstandsfunktion $r$.
+- Jedes radialsymmetrische Feld $f(r)\,\vec e_r$ ist ein Gradientenfeld (Höhenprofil = Stammfunktion von $f$); ein Zentralfeld ist nur dann ein Gradientenfeld, wenn es radialsymmetrisch ist.
+- __Coulomb__: Aus $u=\tfrac{Q}{4\pi r}$ folgt das Feld $\vec E=-\nabla u=\tfrac{Q}{4\pi r^2}\vec e_r$.
 :::
 
 :::quiz
 F: Warum steht der Gradient $\nabla f$ senkrecht auf den Niveauflächen?
-A: Wer auf einer Niveaufläche (Höhenlinie) läuft, bleibt auf gleicher Höhe: Mit der Kettenregel ist $\nabla f\cdot\dot\gamma=0$ für jede Laufrichtung $\dot\gamma$ in der Fläche. Ein Vektor, dessen Skalarprodukt mit allen Tangentialrichtungen null ist, steht senkrecht auf der Fläche.
+A: Wer auf einer Niveaufläche (Höhenlinie) läuft, bleibt auf gleicher Höhe: Mit der Kettenregel ist $\nabla f\cdot\dot{\vec\gamma}=0$ für jede Laufrichtung $\dot{\vec\gamma}$ in der Fläche. Ein Vektor, dessen Skalarprodukt mit allen Tangentialrichtungen null ist, steht senkrecht auf der Fläche.
 F: Warum zeigt der Gradient in Richtung des steilsten Anstiegs, und was bedeutet seine Länge?
-A: Die Steigung in Richtung $v$ ist der Schatten des Gradienten auf $v$, also $|\nabla f|\cos\theta$. Das ist maximal für $\cos\theta=1$, wenn man genau in Pfeilrichtung läuft; die maximale Steigung ist dann die Pfeillänge $|\nabla f|$.
-F: Woher kommt die Formel $D_v f(x_0)=\nabla f(x_0)\cdot v$ für die Richtungsableitung?
-A: Man läuft auf der Geraden $\gamma(t)=x_0+tv$, deren Geschwindigkeit überall $v$ ist. Die Kettenregel für ein Feld längs einer Kurve gibt $\frac{d}{dt}f(x_0+tv)=\nabla f(x_0+tv)\cdot v$; bei $t=0$ ist das die Richtungsableitung.
+A: Die Steigung in Richtung $\vec v$ ist der Schatten des Gradienten auf $\vec v$, also $|\nabla f|\cos\theta$. Das ist maximal für $\cos\theta=1$, wenn man genau in Pfeilrichtung läuft; die maximale Steigung ist dann die Pfeillänge $|\nabla f|$.
+F: Woher kommt die Formel $D_{\vec v} f(\vec x_0)=\nabla f(\vec x_0)\cdot\vec v$ für die Richtungsableitung?
+A: Man läuft auf der Geraden $\vec\gamma(t)=\vec x_0+t\vec v$, deren Geschwindigkeit überall $\vec v$ ist. Die Kettenregel für ein Feld längs einer Kurve gibt $\frac{d}{dt}f(\vec x_0+t\vec v)=\nabla f(\vec x_0+t\vec v)\cdot\vec v$; bei $t=0$ ist das die Richtungsableitung.
 F: Wie steil ist die Schüssel $f=x^2+2y^2$ im Punkt $(1,1)$ nach Osten, nach Norden, bergauf und entlang der Höhenlinie?
 A: Der Gradient dort ist $(2,4)$. Nach Osten ist die Steigung $2$, nach Norden $4$, in Gradientenrichtung $\sqrt{20}\approx4{,}47$ (das Maximum) und entlang der Höhenlinie, also senkrecht zum Gradienten, $0$.
-F: Was ist ein Gradientenfeld mit Skalarpotential, und warum schreibt die Physik $E=-\nabla\varphi$?
-A: Ein Gradientenfeld ist das Feld der Steigungspfeile einer Landschaft, $E=\nabla\phi$; die Landschaft $\phi$ ist das Potential, bis auf eine Konstante bestimmt. Mit dem Minuszeichen zeigt das Feld bergab wie eine rollende Kugel, und die potentielle Energie nimmt längs der Feldlinien ab. Für den Begriff selbst ist das Vorzeichen egal.
+F: Was ist ein Gradientenfeld mit Skalarpotential, und warum schreibt die Physik $\vec E=-\nabla\varphi$?
+A: Ein Gradientenfeld ist das Feld der Steigungspfeile einer Landschaft, $\vec E=\nabla\phi$; die Landschaft $\phi$ ist das Potential, bis auf eine Konstante bestimmt. Mit dem Minuszeichen zeigt das Feld bergab wie eine rollende Kugel, und die potentielle Energie nimmt längs der Feldlinien ab. Für den Begriff selbst ist das Vorzeichen egal.
 F: Warum muss die Jacobi-Matrix eines Gradientenfelds symmetrisch sein — formal und im Bild?
 A: Formal sind ihre Einträge zweite Ableitungen des Potentials, und nach dem Satz von Schwarz vertauschen diese. Im Bild misst $\partial E_1/\partial y$, wie sich die Ost-Steigung nach Norden ändert, und $\partial E_2/\partial x$, wie sich die Nord-Steigung nach Osten ändert — in einer echten Landschaft ist das dieselbe Verwindung des Hangs.
-F: Warum ist das kreisende Feld $G=(-y,x)$ kein Gradientenfeld?
+F: Warum ist das kreisende Feld $\vec G=(-y,x)$ kein Gradientenfeld?
 A: Es ist $\partial G_1/\partial y=-1$, aber $\partial G_2/\partial x=1$ — die Integrabilitätsbedingung ist verletzt. Im Bild: Wären das Steigungspfeile, ginge es beim Umlaufen ständig bergauf, und man käme trotzdem am Start an — eine unmögliche Escher-Treppe.
 F: Warum ist die Integrabilitätsbedingung nicht hinreichend, und was hat das mit einer Wendeltreppe zu tun?
-A: Sie ist nur ein lokaler Test. Das Feld $W=\frac{(-y,x)}{x^2+y^2}$ besteht ihn auf der ganzen Ebene ohne Ursprung, hat dort aber kein Potential: Wie bei einer Wendeltreppe um eine Säule ist jede Stufe ein normaler Hang, doch ein Umlauf führt eine Etage höher. Das ist nur möglich, weil das Gebiet ein Loch hat.
-F: Warum gilt $\nabla u=f'(r)\,\hat e_r$ für $u(x)=f(r)$, und warum folgt daraus, dass jedes radialsymmetrische Feld ein Gradientenfeld ist?
-A: Kettenregel: äußere Ableitung $f'(r)$ mal innere Ableitung $\nabla r=\hat e_r$. Für ein Feld $f(r)\hat e_r$ nimmt man als Höhenprofil eine Stammfunktion $\Phi$ von $f$; dann ist $\nabla\Phi(r)=\Phi'(r)\hat e_r=f(r)\hat e_r$ — die Landschaft ist mit einer einzigen eindimensionalen Integration gefunden.
+A: Sie ist nur ein lokaler Test. Das Feld $\vec W=\frac{(-y,x)}{x^2+y^2}$ besteht ihn auf der ganzen Ebene ohne Ursprung, hat dort aber kein Potential: Wie bei einer Wendeltreppe um eine Säule ist jede Stufe ein normaler Hang, doch ein Umlauf führt eine Etage höher. Das ist nur möglich, weil das Gebiet ein Loch hat.
+F: Warum gilt $\nabla u=f'(r)\,\vec e_r$ für $u(\vec x)=f(r)$, und warum folgt daraus, dass jedes radialsymmetrische Feld ein Gradientenfeld ist?
+A: Kettenregel: äußere Ableitung $f'(r)$ mal innere Ableitung $\nabla r=\vec e_r$. Für ein Feld $f(r)\vec e_r$ nimmt man als Höhenprofil eine Stammfunktion $\psi$ von $f$; dann ist $\nabla\psi(r)=\psi'(r)\vec e_r=f(r)\vec e_r$ — die Landschaft ist mit einer einzigen eindimensionalen Integration gefunden.
 F: Wie entsteht aus dem Coulomb-Potential $u=\frac{Q}{4\pi r}$ das $1/r^2$-Feld, und warum zeigt es für $Q>0$ nach außen?
-A: Die Gradientenformel mit $\frac{d}{dr}\frac1r=-\frac1{r^2}$ gibt $\nabla u=-\frac{Q}{4\pi r^2}\hat e_r$, also $E=-\nabla u=\frac{Q}{4\pi r^2}\hat e_r$. Das Potential ist ein Berg mit Gipfel im Zentrum; das Feld zeigt bergab, also nach außen, und wird schwächer, weil der Berg nach außen flacher wird.
+A: Die Gradientenformel mit $\frac{d}{dr}\frac1r=-\frac1{r^2}$ gibt $\nabla u=-\frac{Q}{4\pi r^2}\vec e_r$, also $\vec E=-\nabla u=\frac{Q}{4\pi r^2}\vec e_r$. Das Potential ist ein Berg mit Gipfel im Zentrum; das Feld zeigt bergab, also nach außen, und wird schwächer, weil der Berg nach außen flacher wird.
 :::
