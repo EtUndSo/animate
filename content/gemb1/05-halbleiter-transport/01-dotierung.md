@@ -145,3 +145,26 @@ Bandkante) sind die Nutzdotierung; __tiefe__ (Bandmitte, z. B. Au) wirken als Re
 Wir können jetzt Elektronen oder Löcher gezielt einbauen. Als Nächstes schauen wir, wie sich die
 Ladungsträgerdichte und das __Fermi-Niveau__ eines dotierten Halbleiters mit der **Temperatur** verhalten — mit
 den drei charakteristischen Bereichen Freeze-out, Sättigung und Eigenleitung.
+
+:::quiz
+F: Warum reicht die intrinsische Leitung nicht, warum braucht ein Bauelement Dotierung?
+A: $n_i\approx10^{10}\,$cm⁻³ ist winzig und zudem extrem temperaturempfindlich ($\propto e^{-E_g/2k_BT}$). Ein Bauelement braucht aber eine fest einstellbare, über einen weiten Temperaturbereich stabile Ladungsträgerdichte — genau das liefert die Dotierung.
+F: Warum macht ein Gruppe-V-Atom einen n-Leiter?
+A: Es bringt fünf Valenzelektronen mit, vier davon sättigen die kovalenten Bindungen zum Silizium ab. Das fünfte ist überzählig und schwach gebunden, löst sich leicht ins Leitungsband und wird zum zusätzlichen (negativen) Ladungsträger.
+F: Warum bleibt der ionisierte Donator ortsfest positiv, trägt also nicht zum Strom bei?
+A: Er gibt sein überzähliges Elektron ab, der Atomrumpf ist aber fest ins Gitter eingebaut und kann nicht wandern. Beweglich ist nur das abgegebene Elektron; der positive Rumpf bleibt als ortsfeste Raumladung zurück.
+F: Wieso erzeugt ein Akzeptor einen positiven beweglichen Ladungsträger, obwohl er selbst negativ wird?
+A: Die offene vierte Bindung fängt ein Elektron aus dem Valenzband ein — der Akzeptor wird dadurch negativ. Das herausgerissene Elektron hinterlässt im Valenzband ein Loch, und dieses Loch ist der bewegliche, positive Ladungsträger.
+F: Warum liegt das Donatorniveau $E_d$ knapp *unter* $E_L$ und das Akzeptorniveau $E_a$ knapp *über* $E_V$?
+A: Das überzählige Donatorelektron ist nur schwach gebunden, es fehlt ihm also fast nichts mehr zum Leitungsband — daher $E_d$ dicht unter $E_L$. Der Akzeptor braucht umgekehrt nur wenig Energie, um ein Valenzbandelektron aufzunehmen, deshalb liegt $E_a$ dicht über $E_V$.
+F: Warum darf man das Donatorelektron wie ein Wasserstoffatom behandeln?
+A: Ein einzelnes Elektron umkreist einen einfach positiven Rumpf — genau die Geometrie des Wasserstoffatoms. Nur ist es in den Kristall eingebettet, sodass man die Rydberg-Energie mit effektiver Masse und Permittivität an die Kristallumgebung anpasst.
+F: Warum ist die Ionisierungsenergie im Kristall nur ~45 meV statt 13,6 eV?
+A: Die effektive Masse $m^\star\approx0{,}19\,m_0$ macht das Elektron „leichter", und die Permittivität $\varepsilon_r=11{,}7$ schirmt das anziehende Coulomb-Feld des Rumpfs ab — letztere sogar quadratisch. Beide Faktoren im Zähler/Nenner drücken $E_\text{ion}$ um rund drei Größenordnungen herunter.
+F: Warum sind flache Störstellen bei Raumtemperatur praktisch vollständig ionisiert?
+A: Ihre Ionisierungsenergie (~einige 10 meV) liegt in derselben Größenordnung wie die thermische Energie $k_BT\approx25\,$meV. Die thermische Bewegung reicht damit aus, nahezu jedem Donator/Akzeptor seinen Ladungsträger zu entreißen.
+F: Was unterscheidet tiefe von flachen Störstellen, und warum sind tiefe meist unerwünscht?
+A: Tiefe Störstellen sitzen nahe der Bandmitte, zu weit von jeder Bandkante, um mit $k_BT$ ionisiert zu werden — sie liefern kaum Ladungsträger. Schlimmer: sie fangen Elektronen und Löcher ein und vernichten sie als Rekombinationszentren.
+F: Warum nutzt man gezielt doch manchmal tiefe Störstellen (z. B. Gold)?
+A: Ihre Wirkung als Rekombinationszentrum vernichtet überschüssige Ladungsträger schnell. Das verkürzt die Ladungsträgerlebensdauer und erhöht damit die Schaltgeschwindigkeit eines Bauelements — in Fällen, wo es auf Tempo statt auf lange Lebensdauer ankommt.
+:::
