@@ -215,3 +215,26 @@ Erwärmung.
 Damit ist geklärt, *was* fließt. Die nächste Frage ist, *was es antreibt*: die __Spannung__. Aus dem
 Zusammenspiel von Strom und Spannung ergibt sich dann der wichtigste Zusammenhang der Schaltungsanalyse, das
 __Ohmsche Gesetz__.
+
+:::quiz
+F: Warum erscheint der Strom als glatte Größe, obwohl Ladung in Elementarportionen auftritt?
+A: Jedes Elektron trägt nur $e\approx1{,}6\cdot10^{-19}\,$C, aber pro Sekunde wandern Trillionen davon vorbei. Bei solchen Stückzahlen fällt die Körnigkeit der Einzelladungen nicht auf, der Strom wirkt kontinuierlich.
+F: Warum definiert man die Stromstärke als Ableitung $\mathrm{d}Q/\mathrm{d}t$ und nicht als $Q/t$?
+A: Der Strom ändert sich im Allgemeinen ständig (Einschalten, Wechselstrom). Die Ableitung gibt den Momentanwert in genau einem Augenblick; nur bei konstantem Strom darf man sie durch den Quotienten $Q/t$ ersetzen.
+F: Warum ist das Ampere eine SI-Basisgröße und nicht abgeleitet?
+A: Die elektrische Stromstärke gehört zu den sieben nicht aufeinander zurückführbaren Grundgrößen des SI. Das Coulomb ist umgekehrt aus ihr abgeleitet ($1\,$C$=1\,$A·s), nicht andersherum.
+F: Was ist die Stromstärke im $Q$-$t$-Diagramm anschaulich?
+A: Sie ist die Steigung der Ladungs-Zeit-Kurve. Konstanter Strom ergibt eine Gerade, ein veränderlicher eine gekrümmte Kurve — analog zur Geschwindigkeit als Steigung der Weg-Zeit-Kurve.
+F: Warum behält man die technische Stromrichtung bei, obwohl Elektronen anders laufen?
+A: Eine positive Ladung nach rechts ist für jede Rechnung dasselbe wie eine negative nach links — das Ergebnis ist identisch. Die historische Festlegung Plus→Minus liefert korrekte Vorzeichen, ein Korrigieren wäre unnötig.
+F: Warum driften die Elektronen trotz kräftigen Stroms nur bruchteile eines Millimeters pro Sekunde?
+A: Die Trägerdichte $n$ in Metall ist astronomisch ($\sim10^{29}/$m³). Weil in $I=nAev_\text{d}$ so viele Träger beitragen, genügt eine winzige gemeinsame Driftgeschwindigkeit für einen großen Strom.
+F: Worin unterscheiden sich thermische Bewegung und Driftgeschwindigkeit?
+A: Die thermische Bewegung ist ein schnelles, ungeordnetes Zittern (hunderte km/s), das sich im Mittel aufhebt und nichts transportiert. Die Drift ist nur die winzige gemeinsame Vorzugsrichtung, die das Feld aufprägt und die den Strom trägt.
+F: Warum leuchtet die Lampe sofort, obwohl die Elektronen so langsam sind?
+A: Kein Elektron muss von der Quelle bis zur Lampe reisen — der Draht ist überall schon mit Ladungsträgern gefüllt. Das treibende elektrische Feld breitet sich fast mit Lichtgeschwindigkeit aus und setzt die ganze Kette gleichzeitig in Bewegung.
+F: Wie entsteht der Zusammenhang $I=nAev_\text{d}$ anschaulich?
+A: In der Zeit $t$ erreichen den Querschnitt alle Träger aus einem Drahtstück der Länge $v_\text{d}t$, also dem Volumen $A\,v_\text{d}t$. Darin sitzen $nAv_\text{d}t$ Träger mit je Ladung $e$; teilt man die Gesamtladung durch $t$, bleibt $I=nAev_\text{d}$.
+F: Warum reicht die Stromstärke nicht und man braucht zusätzlich die Stromdichte?
+A: $I$ sagt nur, wie viel Ladung pro Zeit fließt, nicht wie dicht gedrängt. $J=I/A$ erfasst die Drängung — wichtig für die Erwärmung — und ist allgemein ein Vektorfeld, das in verzweigten Leitern Richtung und Dichte ortsabhängig beschreibt.
+:::
