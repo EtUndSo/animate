@@ -97,3 +97,26 @@ Maschenstromverfahren (R↔G, Masche↔Knoten) — man wählt das Verfahren mit 
 
 Damit sind die systematischen Verfahren für Gleichstromnetze abgeschlossen. Die folgenden Kapitel verlassen die
 reinen Widerstandsnetze und wenden sich den __Halbleiterbauelementen__ zu — zuerst der Diode.
+
+:::quiz
+F: Was sind beim Knotenpotentialverfahren die Unbekannten?
+A: Die Potenziale der Knoten, gemessen gegen einen frei gewählten Bezugsknoten mit $\varphi=0$. Statt Strömen bestimmt man also „auf welcher Spannung" jeder Knoten liegt.
+F: Warum ist die Maschenregel beim Knotenpotentialverfahren automatisch erfüllt?
+A: Jede Zweigspannung ist die Differenz zweier Knotenpotenziale ($U=\varphi_a-\varphi_b$). Läuft man eine Masche ab, heben sich diese Differenzen von selbst auf, sodass keine Maschengleichung mehr nötig ist.
+F: Wozu dient der Bezugsknoten?
+A: Er legt das Nullniveau fest ($\varphi=0$), gegen das alle anderen Potenziale gemessen werden. Ohne diesen Bezugspunkt wären nur Differenzen definiert und das System unterbestimmt.
+F: Warum wandelt man vorab Spannungsquellen in Stromquellen und Widerstände in Leitwerte um?
+A: Das Verfahren bilanziert an jedem Knoten Ströme (Knotenregel), und Stromquellen plus Leitwerte fügen sich direkt in diese Strombilanz ein. $I=G\,U$ macht die Gleichungen linear in den Potenzialen.
+F: Was bedeutet der Diagonaleintrag $G_{ii}$ der Leitwertmatrix?
+A: Die Summe aller Leitwerte, die an Knoten $i$ angeschlossen sind, mit positivem Vorzeichen. Sie geben an, wie „stark" der Knoten mit seiner Umgebung verbunden ist.
+F: Was bedeutet der Außerdiagonaleintrag $G_{ij}$, und warum negativ?
+A: Er ist der Koppelleitwert, der die Knoten $i$ und $j$ direkt verbindet, und steht mit Minuszeichen. Das Vorzeichen folgt daraus, dass ein höheres Nachbarpotenzial Strom in den Knoten treibt.
+F: Warum ist auch die Leitwertmatrix symmetrisch?
+A: Der verbindende Leitwert zwischen zwei Knoten ist in beide Richtungen derselbe, also $G_{ij}=G_{ji}$. Wie beim Maschenstromverfahren dient die Symmetrie als Kontrolle.
+F: Wie gewinnt man nach dem Lösen die Zweigströme zurück?
+A: Jede Zweigspannung ist die Differenz der beteiligten Knotenpotenziale, und daraus folgt der Strom mit $I=G\,U$. So rechnet man von den Potenzialen auf alle gesuchten Zweiggrößen zurück.
+F: In welchem Sinn ist das Knotenpotential- das Duale zum Maschenstromverfahren?
+A: Es vertauscht systematisch die Rollen: Widerstand ↔ Leitwert, Masche ↔ Knoten, Maschenstrom ↔ Knotenpotenzial. Beide führen auf eine symmetrische Matrixgleichung mit derselben Bauregel.
+F: Nach welchem Kriterium wählt man zwischen den beiden Verfahren?
+A: Nach der kleineren Zahl von Unbekannten: Das Maschenstromverfahren braucht $m=z-(k-1)$ Gleichungen, das Knotenpotentialverfahren $k-1$. Bei wenigen Maschen nimmt man ersteres, bei wenigen Knoten (vielen parallelen Zweigen) letzteres.
+:::
