@@ -163,3 +163,26 @@ Damit ist die Kette aus Quantenmechanik und Statistik komplett: Wir können die 
 Halbleiters ausrechnen. Technisch interessant wird es aber erst, wenn man $n$ und $p$ **gezielt einstellt** — durch
 __Dotierung__. Wie das geht und wie sich die Ladungsträger dann im Feld bewegen (Drift und Diffusion), ist das
 Thema des nächsten Oberthemas: __Halbleiter und Ladungstransport__.
+
+:::quiz
+F: Warum ist die Ladungsträgerdichte ein Integral über das Produkt $D(E)\,f(E)$?
+A: $D(E)$ sagt, wie viele Plätze bei einer Energie existieren, $f(E)$, mit welcher Wahrscheinlichkeit sie besetzt sind. Erst „Plätze mal Besetzung", über alle Energien aufsummiert, ergibt die tatsächliche Zahl beweglicher Elektronen.
+F: Warum tragen in einem Halbleiter immer zwei Ladungssorten zum Strom bei?
+A: Hebt die thermische Energie ein Elektron über die Lücke ins Leitungsband, bleibt im Valenzband eine Leerstelle zurück. Oben entsteht ein bewegliches Elektron, unten ein bewegliches Loch — beide gleichzeitig und immer paarweise.
+F: Was ist ein Loch anschaulich, und warum trägt es positive Ladung?
+A: Ein Loch ist ein fehlendes Elektron in einem sonst vollen Band. Wie beim randvollen Parkplatz, auf dem nur die eine Lücke Bewegung erlaubt, verfolgt man bequem die Leerstelle statt $10^{23}$ Autos; weil das fehlende Objekt negativ ist, verhält sich die Lücke wie eine positive Ladung.
+F: Warum beschreibt man die Löcher über $1-f(E)$ statt über $f(E)$?
+A: $f(E)$ ist die Wahrscheinlichkeit, dass ein Zustand besetzt ist; ein Loch ist aber ein *leerer* Zustand, also die Gegenwahrscheinlichkeit $1-f(E)$. Umgeformt hat diese „Loch-Fermi-Funktion" dieselbe Gestalt wie $f$, nur mit umgedrehtem Vorzeichen im Exponenten.
+F: Warum darf man im Leitungsband die Boltzmann-Näherung verwenden?
+A: Die Leitungsbandzustände liegen bei $E\ge E_L$, und $E_L$ liegt viele $k_BT$ oberhalb von $E_f$. Damit ist $E-E_f\gg k_BT$, der Exponentialterm dominiert, und $f(E)\approx e^{-(E-E_f)/k_BT}$ gilt mit hoher Genauigkeit.
+F: Was bedeutet die effektive Zustandsdichte $N_L$ anschaulich?
+A: Sie fasst das gesamte, über die Energie verteilte Leitungsband zu einem einzigen Ersatzzustand genau an der Bandkante $E_L$ zusammen. Statt eines Integrals rechnet man dann nur noch mit „$N_L$ Plätzen bei $E_L$", besetzt mit dem Boltzmann-Faktor.
+F: Warum wächst $N_L$ mit der Temperatur ($\propto T^{3/2}$)?
+A: Je höher die Temperatur, desto breiter das thermisch zugängliche Energiefenster oberhalb der Bandkante. Mehr erreichbare Zustände bedeuten eine größere effektive Platzzahl, und die Rechnung liefert dafür die Potenz $T^{3/2}$.
+F: Warum fällt beim Massenwirkungsgesetz das Fermi-Niveau heraus?
+A: In $n$ steht $e^{-(E_L-E_f)/k_BT}$, in $p$ steht $e^{-(E_f-E_V)/k_BT}$. Im Produkt addieren sich die Exponenten, $+E_f$ und $-E_f$ heben sich auf, und übrig bleibt nur $-(E_L-E_V)/k_BT=-E_g/k_BT$.
+F: Was folgt aus $n\cdot p=n_i^2$ für die Dotierung?
+A: Das Produkt hängt nur von Temperatur und Bandlücke ab, nicht von der Lage von $E_f$. Erhöht eine Dotierung die Elektronenzahl, muss die Löcherzahl im selben Maß sinken — die beiden verhalten sich wie eine Waage mit konstantem Produkt.
+F: Warum ist reines Silizium trotz $10^{22}$ Atomen/cm³ ein schlechter Leiter?
+A: Weil die intrinsische Dichte $n_i\approx10^{10}\,$cm⁻³ winzig ist — nur jedes rund $10^{12}$-te Atom stellt einen beweglichen Ladungsträger. Die große Bandlücke im Exponenten $e^{-E_g/2k_BT}$ unterdrückt die thermische Paarbildung sehr stark.
+:::
