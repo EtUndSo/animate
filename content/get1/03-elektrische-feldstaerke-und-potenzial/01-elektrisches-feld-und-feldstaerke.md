@@ -138,3 +138,26 @@ Im __Plattenkondensator__ ist das Feld __homogen__ und besonders einfach: $E = U
 
 Bisher ging es um die Kraft. Als Nächstes die Energie: Was kostet es, eine Ladung im Feld zu verschieben? Daraus
 entstehen die Begriffe __Arbeit__, __Potenzial__ und schließlich die __Spannung__.
+
+:::quiz
+F: Warum führt man überhaupt den Begriff „Feld" ein, statt nur mit der Coulombkraft zu rechnen?
+A: Die Coulombkraft hängt immer von beiden Ladungen ab. Das Feld beschreibt den Einfluss *einer* Ladung auf den Raum unabhängig davon, was man später hineinstellt — der unsichtbare Vermittler, den eine zweite Ladung an ihrem Ort spürt.
+F: Warum fällt die Coulombkraft mit $1/r^2$ und nicht etwa mit $1/r$?
+A: Das Feld einer Punktladung verteilt sich gleichmäßig auf Kugelschalen, deren Fläche mit $r^2$ wächst. Dieselbe „Menge Feld" auf immer größerer Fläche bedeutet eine Abnahme proportional zu $1/r^2$.
+F: Was bedeutet die elektrische Feldkonstante $\varepsilon_0$ physikalisch?
+A: Sie legt fest, wie stark elektrische Kräfte im Vakuum überhaupt sind — ein Umrechnungsfaktor zwischen Ladung/Abstand und Kraft. Ihr fester Zahlenwert eicht das Coulombsche Gesetz an die beobachtete Natur.
+F: Warum teilt man bei der Definition der Feldstärke durch die Probeladung?
+A: Die Kraft ist proportional zur Probeladung, also kürzt der Quotient $F/q$ diese Abhängigkeit genau heraus. Übrig bleibt eine Eigenschaft des Raumes allein, die man einmal bestimmt und danach für jede Ladung über $\vec F=q\vec E$ nutzt.
+F: Warum muss die Probeladung gedanklich „klein" sein?
+A: Eine reale Ladung erzeugt selbst ein Feld und würde die Quellladungen verschieben oder das zu messende Feld verzerren. Nur eine beliebig kleine Probeladung tastet das Feld ab, ohne es zu stören.
+F: Warum ist $\vec E$ ein Vektor, und wie ist seine Richtung festgelegt?
+A: Die Kraft hat eine Richtung, und da $\vec E=\vec F/q$ ist, erbt das Feld diese Richtung. Per Konvention zeigt $\vec E$ in die Kraftrichtung auf eine *positive* Ladung.
+F: Woran erkennt man an Feldlinien, wo das Feld stärker ist?
+A: An der Liniendichte: Wo die Feldlinien enger beieinanderliegen, ist das Feld stärker. Bei einer Punktladung laufen sie nach außen auseinander, liegen dünner und zeigen so die $1/r^2$-Abnahme.
+F: Warum starten Feldlinien bei positiven und enden bei negativen Ladungen?
+A: Sie folgen der Kraftrichtung auf eine positive Probeladung, die von positiven Ladungen weg- und zu negativen hingezogen wird. Daraus ergibt sich die Konvention Quelle (+) → Senke (−).
+F: Warum ist das Feld im Plattenkondensator homogen, am Rand aber nicht?
+A: Zwischen großen, parallelen Platten verlaufen die Feldlinien gleichmäßig und parallel, Betrag und Richtung sind überall gleich. Am Rand „quellen" sie nach außen (Randfeld), weshalb „homogen" streng nur für den Innenraum als Idealisierung gilt.
+F: Warum erzeugt eine kleine Spannung in einem engen Spalt ein sehr starkes Feld?
+A: Wegen $E=U/d$ wächst die Feldstärke, je kleiner der Abstand bei gleicher Spannung. In sehr engen Spalten werden dadurch so hohe Feldstärken erreicht, dass selbst Luft durchschlägt (Funke).
+:::
