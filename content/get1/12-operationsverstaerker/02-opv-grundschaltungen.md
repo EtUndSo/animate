@@ -120,3 +120,26 @@ Widerstände das Verhalten fest.
 
 Alle diese Ergebnisse gelten für den **idealen** OPV. In der Praxis setzen endliche Verstärkung, begrenzte
 Bandbreite und kleine Fehlerspannungen dem Ganzen Grenzen — das ist das Thema des letzten Abschnitts.
+
+:::quiz
+F: Warum steckt die Verstärkung einer OPV-Schaltung in den äußeren Widerständen, nicht im OPV?
+A: Die Gegenkopplung zwingt die Eingangsdifferenz auf null, sodass die gigantische Leerlaufverstärkung herausfällt. Übrig bleibt allein das Verhältnis der Rückkopplungs- und Eingangswiderstände.
+F: Was bedeutet „virtuelle Masse" beim invertierenden Verstärker?
+A: Weil der +-Eingang auf Masse liegt, zwingt der virtuelle Kurzschluss auch den −-Eingang auf 0 V — ohne ihn leitend mit Masse zu verbinden. Er liegt auf null Potenzial, aber es fließt kein Strom direkt zur Masse.
+F: Warum ist beim invertierenden Verstärker $I_1=I_f$?
+A: In den OPV-Eingang fließt kein Strom (Regel 1), also muss der gesamte Strom durch $R_1$ über $R_f$ weiterlaufen. Dieser Knotenstrombilanz an der virtuellen Masse entspringt die Verstärkungsformel.
+F: Warum hat der nichtinvertierende Verstärker einen sehr hohen Eingangswiderstand?
+A: Das Signal liegt direkt am +-Eingang, und dort fließt (Regel 1) kein Strom hinein. Die Quelle sieht also praktisch den unendlichen Eingangswiderstand des OPV und wird kaum belastet.
+F: Warum ist die Verstärkung des nichtinvertierenden Verstärkers immer mindestens 1?
+A: Sie ist $1+R_f/R_1$, und der Bruch ist nie negativ. Selbst bei $R_f=0$ bleibt der Faktor 1 — die Schaltung kann nicht abschwächen.
+F: Wie entsteht aus dem nichtinvertierenden Verstärker der Spannungsfolger?
+A: Man setzt $R_f=0$ und lässt $R_1$ weg, dann wird $1+R_f/R_1=1$ und $U_a=U_e$. Der Ausgang folgt dem Eingang exakt.
+F: Wozu dient der Spannungsfolger, wenn er doch nicht verstärkt?
+A: Als Impedanzwandler: hoher Eingangs-, niedriger Ausgangswiderstand. Er entkoppelt eine empfindliche, hochohmige Quelle von einer niederohmigen Last, ohne das Signal zu verändern.
+F: Warum kann man an der virtuellen Masse mehrere Signale addieren?
+A: Jeder Eingang speist über seinen Widerstand einen Strom in den gemeinsamen Knoten, und nach der Knotenregel summieren sich diese Ströme. Der Rückkopplungswiderstand wandelt die Summe in die (negative, gewichtete) Ausgangsspannung.
+F: Warum ist ein Addierer am invertierenden Eingang besonders einfach, aber ein Subtrahierer aufwendiger?
+A: Am invertierenden Eingang laufen alle Ströme an der virtuellen Masse zusammen und addieren sich direkt. Für eine Differenz muss man zusätzlich den nichtinvertierenden Eingang und die Widerstände passend wählen, damit sich die Gewichte sauber subtrahieren.
+F: Wieso bildet ein Kondensator statt $R_f$ einen Integrator?
+A: Der konstante Eingangsstrom $U_e/R_1$ lädt den Kondensator, und seine Spannung wächst proportional zur aufgenommenen Ladung — also zum Zeitintegral des Eingangs. Daraus folgt $U_a=-\tfrac{1}{R_1 C}\int U_e\,\mathrm{d}t$.
+:::
