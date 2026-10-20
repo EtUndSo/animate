@@ -429,22 +429,37 @@ try{{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")
 <script src="/wissen/assets/wissen.js"></script>
 </body></html>"""
 
-def topbar(panels=False, bsp=False):
+def nav_arrow(a, prev):
+    # Pfeil neben den Panel-Buttons zum vorherigen/nächsten Artikel (dieselbe Reihenfolge wie unten
+    # „Vorheriger/Nächster Artikel"); am Anfang bzw. Ende grau und ohne Funktion.
+    bid, word = ("navPrev", "Vorheriger") if prev else ("navNext", "Nächster")
+    svg = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" '
+           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+           + ('<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>' if prev else
+              '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>') + '</svg>')
+    if a:
+        t = html.escape(f'{word} Artikel: {a["title"]}')
+        return f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}" title="{t}" aria-label="{t}">{svg}</a>'
+    return f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="Kein {word.lower()} Artikel">{svg}</span>'
+
+def topbar(panels=False, bsp=False, prev_a=None, next_a=None):
     # Panel-Buttons (nur Artikelseiten, mittig): links=Themenbaum, rechts=Gliederung, dritter=geteilte Ansicht
     # mit der Beispiel-Seite (Theorie links, Beispiele rechts) – ausgegraut, solange der Artikel keine Beispiele hat.
+    # Davor und dahinter je ein Pfeil zum vorherigen/nächsten Artikel. Farbe: offen = blau, zu = grau.
     bsp_btn = ('<button id="toggleBsp" class="panelBtn" aria-pressed="false" '
                + ('aria-label="Beispiel-Seite ein-/ausblenden" title="Beispiel-Seite: Theorie links, Beispiele rechts"'
                   if bsp else 'aria-label="Beispiel-Seite" title="Für diesen Artikel gibt es noch keine Beispiel-Seite" disabled')
                + '><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
                '<rect x="2.5" y="4" width="19" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/>'
                '<line x1="14.5" y1="9" x2="19" y2="9"/><line x1="14.5" y1="12.5" x2="19" y2="12.5"/><line x1="14.5" y1="16" x2="17.5" y2="16"/></svg></button>')
-    pbtns = ('<div class="panelCenter"><button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
+    pbtns = ('<div class="panelCenter">' + nav_arrow(prev_a, True)
+             + '<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
-             '<button id="toggleRight" class="panelBtn" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="false">'
+             '<button id="toggleRight" class="panelBtn is-open" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="true">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>'
-             + bsp_btn + '</div>') if panels else ''
+             + bsp_btn + nav_arrow(next_a, False) + '</div>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>UndSo</span></a>'
             + pbtns
             + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'
@@ -504,7 +519,8 @@ def render_article(art, tree, prev_a, next_a):
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
             + arttoc
             + body_html + nav + legal_footer() + "</article>" + toc_html + pane + "</main>")
-    body = (topbar(panels=True, bsp=bool(examples)) + f'<div class="layout{" has-bsp" if examples else ""}">'
+    body = (topbar(panels=True, bsp=bool(examples), prev_a=prev_a, next_a=next_a)
+            + f'<div class="layout{" has-bsp" if examples else ""}">'
             + sidebar_html(tree, art["path"]) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth)
@@ -604,9 +620,13 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
 .topbar .editorlink{font-weight:600;color:var(--muted);} .topbar .editorlink:hover{color:var(--ink);}
-.topbar .iconBtn,.topbar .panelBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
-.topbar .iconBtn:hover,.topbar .panelBtn:hover{border-color:var(--accent);color:var(--ink);}
-.topbar .panelBtn.off{color:var(--accent);border-color:var(--accent);}      /* Panel aktuell eingeklappt */
+.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
+.topbar .iconBtn:hover{border-color:var(--accent);color:var(--ink);}
+.topbar .panelBtn:hover{background:color-mix(in srgb,var(--accent) 12%,var(--soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
+.topbar .panelBtn.is-open{color:var(--accent);border-color:var(--accent);}   /* Panel offen = blau, zu = grau (Grundfarbe) */
+.topbar .navBtn{color:var(--accent);border-color:var(--accent);}             /* Pfeile zum vorherigen/nächsten Artikel */
+.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 12%,var(--soft));}
+.topbar .navBtn.disabled{color:var(--muted);border-color:var(--border);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
 /* hide-left: EINE Spalte (nicht 0+1fr) - sonst rutscht der einzige verbleibende Grid-Child (main) in die
@@ -745,8 +765,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
 /* ---------- Beispiel-Seite: geteilte Ansicht (Theorie links | Beispiele rechts, Farbe Orange = Praxis) ---------- */
-.topbar .panelBtn.on{color:#fff;background:var(--accent3);border-color:var(--accent3);}   /* geteilte Ansicht aktiv */
-.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}
+.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}   /* Beispiel-Knopf: offen = blau wie die anderen Panels (is-open) */
 .topbar .panelBtn:disabled:hover{border-color:var(--border);color:var(--muted);}
 .bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;}         /* Verweis im Artikel, wo das Beispiel hingehört */
 .bsp-ref a{display:inline-flex;align-items:baseline;gap:8px;max-width:100%;font-size:14.5px;line-height:1.4;color:var(--ink);
@@ -778,7 +797,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .bsp-on .layout.has-bsp .article .katex-display{font-size:1.16em;}   /* schmalere Spalten: lange Formeln passen eher */
 .bsp-pane .katex-display{font-size:1.16em;}
 .bsp-on .layout.has-bsp>.side.open{display:block;position:fixed;top:59px;left:0;bottom:0;width:min(320px,88vw);z-index:30;
-  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);}   /* Themenbaum als Overlay */
+  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);align-self:stretch;}   /* Themenbaum als Overlay (stretch: zwischen Leiste und Unterkante) */
 @media(max-width:1179px){   /* zu schmal für zwei Spalten: Beispiel-Seite legt sich über den Artikel */
   .bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,1fr);}
   .bsp-on .layout.has-bsp .bsp-pane{position:fixed;inset:59px 0 0;z-index:25;height:auto;align-self:stretch;background:var(--bg);
@@ -789,8 +808,10 @@ details.herleitung>summary:hover{text-decoration:underline;}
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
   /* Themenbaum als Overlay (über #toggleLeft geöffnet); muss das Desktop-Einklappen überstimmen */
-  .layout .side.open{display:block;position:fixed;inset:56px 0 0;z-index:30;background:var(--panel);max-height:none;overflow:auto;padding:14px 16px 48px;}
+  .layout .side.open{display:block;position:fixed;inset:56px 0 0;z-index:30;background:var(--panel);max-height:none;overflow:auto;padding:14px 16px 48px;
+    align-self:stretch;}   /* stretch: sonst richtet sich das Overlay nach dem Inhalt (align-self:start der Spalte) und rutscht über die Leiste */
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
+  .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
   .topbar .searchBtn .lbl,.topbar .searchBtn kbd{display:none;}   /* Suchknopf nur als Lupe */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
@@ -800,6 +821,11 @@ details.herleitung>summary:hover{text-decoration:underline;}
   .article .sect{padding:2px 15px 14px;}
   .neighbors{grid-template-columns:1fr;}
 }
+@media(max-width:400px){   /* schmale Handys: Leiste kompakter, damit Pfeile und Knöpfe nebeneinander passen (Höhe bleibt 57 px) */
+  .topbar{gap:4px;padding:12px 8px;} .brand{font-size:17px;}
+  .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .searchBtn{width:32px;height:32px;padding:0;justify-content:center;border-radius:9px;}
+}
+@media(max-width:350px){ .topbar .editorlink{display:none;} }   /* sehr schmal: Editor-Link weg (Desktop-Werkzeug) */
 """
 
 WISSEN_JS = r"""
@@ -875,23 +901,33 @@ WISSEN_JS = r"""
   if(!layout) return;
   var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
   var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
-  function mark(btn,on){ if(btn){ btn.classList.toggle("off",!!on); btn.setAttribute("aria-pressed",on?"true":"false"); } }
+  // Knopffarbe: Panel offen = blau (Klasse is-open), zu = grau; aria-pressed folgt „offen".
+  function mark(btn,open){ if(btn){ btn.classList.toggle("is-open",!!open); btn.setAttribute("aria-pressed",open?"true":"false"); } }
   function L(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
   function S(k,v){ try{ localStorage.setItem(k,v?"1":"0"); }catch(e){} }
+  // Ist der Themenbaum sichtbar? Mobil und in der geteilten Ansicht ist er ein Overlay, sonst eine Spalte.
+  function leftOpen(){ var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");
+    return (mq.matches||split) ? !!(side&&side.classList.contains("open")) : !layout.classList.contains("hide-left"); }
   // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
-  if(bR){ if(L("wissen-hide-right")){ layout.classList.add("hide-right"); mark(bR,true); }
-    bR.addEventListener("click",function(){ var now=layout.classList.toggle("hide-right"); mark(bR,now); S("wissen-hide-right",now); }); }
+  if(bR){ if(L("wissen-hide-right")) layout.classList.add("hide-right");
+    mark(bR,!layout.classList.contains("hide-right"));
+    bR.addEventListener("click",function(){ var hidden=layout.classList.toggle("hide-right"); mark(bR,!hidden); S("wissen-hide-right",hidden); }); }
   // Links (Themenbaum): Desktop = beim Öffnen IMMER eingeklappt (Toggle gilt nur für die aktuelle Seite); Mobil = Overlay auf/zu.
-  if(bL){ if(!mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
+  if(bL){ if(!mq.matches) layout.classList.add("hide-left");
+    mark(bL,leftOpen());
     bL.addEventListener("click",function(){
       var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");   // geteilte Ansicht: Baum als Overlay
-      if(mq.matches||split){ var o=side&&side.classList.toggle("open"); mark(bL,mq.matches?!!o:!o); }
-      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); }
-    }); }
+      if(mq.matches||split){ if(side) side.classList.toggle("open"); }
+      else layout.classList.toggle("hide-left");
+      mark(bL,leftOpen());
+    });
+    document.addEventListener("wissen:layout",function(){ mark(bL,leftOpen()); });   // geteilte Ansicht an/aus
+  }
   // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
   (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
-    if(e.matches){ layout.classList.remove("hide-left"); mark(bL, side&&side.classList.contains("open")); }
-    else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); mark(bL,true); }
+    if(e.matches) layout.classList.remove("hide-left");
+    else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); }
+    mark(bL,leftOpen());
   });
 })();
 // Beispiel-Seite (geteilte Ansicht): Theorie links, Beispiele rechts. Beide Spalten laufen synchron – jedes Beispiel
@@ -906,12 +942,11 @@ WISSEN_JS = r"""
   var refs=[].slice.call(document.querySelectorAll(".bsp-ref[data-bsp]"));
   var cards=refs.map(function(r){ return document.getElementById("bsp-"+r.getAttribute("data-bsp")); });
   function isOn(){ return root.classList.contains("bsp-on"); }
-  function paint(){ var v=isOn(); btn.classList.toggle("on",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
+  function paint(){ var v=isOn(); btn.classList.toggle("is-open",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
   function set(v,remember){
     root.classList.toggle("bsp-on",v); paint();
-    var sd=layout.querySelector(".side"), bL=document.getElementById("toggleLeft");
-    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")){
-      sd.classList.remove("open"); if(bL){ bL.classList.add("off"); bL.setAttribute("aria-pressed","true"); } }
+    var sd=layout.querySelector(".side");                         // Overlay-Baum schließen; seine Knopffarbe folgt über wissen:layout
+    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")) sd.classList.remove("open");
     if(remember && wide.matches){ try{ localStorage.setItem("wissen-split",v?"1":"0"); }catch(e){} }
     try{ document.dispatchEvent(new Event("wissen:layout")); }catch(e){}   // Spaltenbreite geändert -> Formeln neu einpassen
     if(v) requestAnimationFrame(sync);

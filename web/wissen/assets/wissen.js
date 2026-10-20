@@ -71,23 +71,33 @@
   if(!layout) return;
   var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
   var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
-  function mark(btn,on){ if(btn){ btn.classList.toggle("off",!!on); btn.setAttribute("aria-pressed",on?"true":"false"); } }
+  // Knopffarbe: Panel offen = blau (Klasse is-open), zu = grau; aria-pressed folgt „offen".
+  function mark(btn,open){ if(btn){ btn.classList.toggle("is-open",!!open); btn.setAttribute("aria-pressed",open?"true":"false"); } }
   function L(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
   function S(k,v){ try{ localStorage.setItem(k,v?"1":"0"); }catch(e){} }
+  // Ist der Themenbaum sichtbar? Mobil und in der geteilten Ansicht ist er ein Overlay, sonst eine Spalte.
+  function leftOpen(){ var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");
+    return (mq.matches||split) ? !!(side&&side.classList.contains("open")) : !layout.classList.contains("hide-left"); }
   // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
-  if(bR){ if(L("wissen-hide-right")){ layout.classList.add("hide-right"); mark(bR,true); }
-    bR.addEventListener("click",function(){ var now=layout.classList.toggle("hide-right"); mark(bR,now); S("wissen-hide-right",now); }); }
+  if(bR){ if(L("wissen-hide-right")) layout.classList.add("hide-right");
+    mark(bR,!layout.classList.contains("hide-right"));
+    bR.addEventListener("click",function(){ var hidden=layout.classList.toggle("hide-right"); mark(bR,!hidden); S("wissen-hide-right",hidden); }); }
   // Links (Themenbaum): Desktop = beim Öffnen IMMER eingeklappt (Toggle gilt nur für die aktuelle Seite); Mobil = Overlay auf/zu.
-  if(bL){ if(!mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
+  if(bL){ if(!mq.matches) layout.classList.add("hide-left");
+    mark(bL,leftOpen());
     bL.addEventListener("click",function(){
       var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");   // geteilte Ansicht: Baum als Overlay
-      if(mq.matches||split){ var o=side&&side.classList.toggle("open"); mark(bL,mq.matches?!!o:!o); }
-      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); }
-    }); }
+      if(mq.matches||split){ if(side) side.classList.toggle("open"); }
+      else layout.classList.toggle("hide-left");
+      mark(bL,leftOpen());
+    });
+    document.addEventListener("wissen:layout",function(){ mark(bL,leftOpen()); });   // geteilte Ansicht an/aus
+  }
   // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
   (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
-    if(e.matches){ layout.classList.remove("hide-left"); mark(bL, side&&side.classList.contains("open")); }
-    else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); mark(bL,true); }
+    if(e.matches) layout.classList.remove("hide-left");
+    else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); }
+    mark(bL,leftOpen());
   });
 })();
 // Beispiel-Seite (geteilte Ansicht): Theorie links, Beispiele rechts. Beide Spalten laufen synchron – jedes Beispiel
@@ -102,12 +112,11 @@
   var refs=[].slice.call(document.querySelectorAll(".bsp-ref[data-bsp]"));
   var cards=refs.map(function(r){ return document.getElementById("bsp-"+r.getAttribute("data-bsp")); });
   function isOn(){ return root.classList.contains("bsp-on"); }
-  function paint(){ var v=isOn(); btn.classList.toggle("on",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
+  function paint(){ var v=isOn(); btn.classList.toggle("is-open",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
   function set(v,remember){
     root.classList.toggle("bsp-on",v); paint();
-    var sd=layout.querySelector(".side"), bL=document.getElementById("toggleLeft");
-    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")){
-      sd.classList.remove("open"); if(bL){ bL.classList.add("off"); bL.setAttribute("aria-pressed","true"); } }
+    var sd=layout.querySelector(".side");                         // Overlay-Baum schließen; seine Knopffarbe folgt über wissen:layout
+    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")) sd.classList.remove("open");
     if(remember && wide.matches){ try{ localStorage.setItem("wissen-split",v?"1":"0"); }catch(e){} }
     try{ document.dispatchEvent(new Event("wissen:layout")); }catch(e){}   // Spaltenbreite geändert -> Formeln neu einpassen
     if(v) requestAnimationFrame(sync);

@@ -17,9 +17,13 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
 .topbar .editorlink{font-weight:600;color:var(--muted);} .topbar .editorlink:hover{color:var(--ink);}
-.topbar .iconBtn,.topbar .panelBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
-.topbar .iconBtn:hover,.topbar .panelBtn:hover{border-color:var(--accent);color:var(--ink);}
-.topbar .panelBtn.off{color:var(--accent);border-color:var(--accent);}      /* Panel aktuell eingeklappt */
+.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
+.topbar .iconBtn:hover{border-color:var(--accent);color:var(--ink);}
+.topbar .panelBtn:hover{background:color-mix(in srgb,var(--accent) 12%,var(--soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
+.topbar .panelBtn.is-open{color:var(--accent);border-color:var(--accent);}   /* Panel offen = blau, zu = grau (Grundfarbe) */
+.topbar .navBtn{color:var(--accent);border-color:var(--accent);}             /* Pfeile zum vorherigen/nächsten Artikel */
+.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 12%,var(--soft));}
+.topbar .navBtn.disabled{color:var(--muted);border-color:var(--border);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
 /* hide-left: EINE Spalte (nicht 0+1fr) - sonst rutscht der einzige verbleibende Grid-Child (main) in die
@@ -158,8 +162,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
 /* ---------- Beispiel-Seite: geteilte Ansicht (Theorie links | Beispiele rechts, Farbe Orange = Praxis) ---------- */
-.topbar .panelBtn.on{color:#fff;background:var(--accent3);border-color:var(--accent3);}   /* geteilte Ansicht aktiv */
-.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}
+.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}   /* Beispiel-Knopf: offen = blau wie die anderen Panels (is-open) */
 .topbar .panelBtn:disabled:hover{border-color:var(--border);color:var(--muted);}
 .bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;}         /* Verweis im Artikel, wo das Beispiel hingehört */
 .bsp-ref a{display:inline-flex;align-items:baseline;gap:8px;max-width:100%;font-size:14.5px;line-height:1.4;color:var(--ink);
@@ -191,7 +194,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .bsp-on .layout.has-bsp .article .katex-display{font-size:1.16em;}   /* schmalere Spalten: lange Formeln passen eher */
 .bsp-pane .katex-display{font-size:1.16em;}
 .bsp-on .layout.has-bsp>.side.open{display:block;position:fixed;top:59px;left:0;bottom:0;width:min(320px,88vw);z-index:30;
-  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);}   /* Themenbaum als Overlay */
+  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);align-self:stretch;}   /* Themenbaum als Overlay (stretch: zwischen Leiste und Unterkante) */
 @media(max-width:1179px){   /* zu schmal für zwei Spalten: Beispiel-Seite legt sich über den Artikel */
   .bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,1fr);}
   .bsp-on .layout.has-bsp .bsp-pane{position:fixed;inset:59px 0 0;z-index:25;height:auto;align-self:stretch;background:var(--bg);
@@ -202,8 +205,10 @@ details.herleitung>summary:hover{text-decoration:underline;}
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
   /* Themenbaum als Overlay (über #toggleLeft geöffnet); muss das Desktop-Einklappen überstimmen */
-  .layout .side.open{display:block;position:fixed;inset:56px 0 0;z-index:30;background:var(--panel);max-height:none;overflow:auto;padding:14px 16px 48px;}
+  .layout .side.open{display:block;position:fixed;inset:56px 0 0;z-index:30;background:var(--panel);max-height:none;overflow:auto;padding:14px 16px 48px;
+    align-self:stretch;}   /* stretch: sonst richtet sich das Overlay nach dem Inhalt (align-self:start der Spalte) und rutscht über die Leiste */
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
+  .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
   .topbar .searchBtn .lbl,.topbar .searchBtn kbd{display:none;}   /* Suchknopf nur als Lupe */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
@@ -213,3 +218,8 @@ details.herleitung>summary:hover{text-decoration:underline;}
   .article .sect{padding:2px 15px 14px;}
   .neighbors{grid-template-columns:1fr;}
 }
+@media(max-width:400px){   /* schmale Handys: Leiste kompakter, damit Pfeile und Knöpfe nebeneinander passen (Höhe bleibt 57 px) */
+  .topbar{gap:4px;padding:12px 8px;} .brand{font-size:17px;}
+  .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .searchBtn{width:32px;height:32px;padding:0;justify-content:center;border-radius:9px;}
+}
+@media(max-width:350px){ .topbar .editorlink{display:none;} }   /* sehr schmal: Editor-Link weg (Desktop-Werkzeug) */
