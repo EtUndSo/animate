@@ -149,3 +149,26 @@ __Störstellenband__ → Bandgap-Narrowing → __entarteter__ (metallischer) Hal
 Wir wissen jetzt, **wie viele** bewegliche Ladungsträger vorhanden sind. Im nächsten Artikel beginnt der zweite
 Teil des Oberthemas: **wie** diese Ladungsträger unter einem elektrischen Feld einen __Strom__ erzeugen — und
 warum dafür ausgerechnet Streuung nötig ist.
+
+:::quiz
+F: Was legt im dotierten Halbleiter die Lage des Fermi-Niveaus fest?
+A: Die Elektroneutralität des Kristalls: Die positiven Ladungen (Löcher + ionisierte Donatoren) müssen die negativen (Elektronen + ionisierte Akzeptoren) genau ausgleichen. Da alle vier Dichten von $E_f$ abhängen, ist diese Bilanz die Bestimmungsgleichung für $E_f$.
+F: Warum beschreibt man die Dotieratome über eine Delta-Funktion in der Zustandsdichte?
+A: Solange die Atome weit genug auseinandersitzen, überlappen ihre Wellenfunktionen nicht und jedes liefert genau einen scharfen Zustand bei $E_d$. Viele identische, unendlich schmale Zustände mit Gesamtfläche $N_d$ ergeben zusammen einen Delta-Peak.
+F: Warum steht im Nenner von $N_d^+$ der Faktor 2 (Spin-Entartung)?
+A: Ein Donator kann sein Elektron mit Spin auf *oder* Spin ab binden, also auf zwei Weisen besetzt sein, aber wegen der Coulomb-Abstoßung niemals mit zwei Elektronen. Diese Asymmetrie zwischen „zwei Besetzungsmöglichkeiten, aber nur ein Elektron" liefert den Faktor 2.
+F: Warum friert ein Halbleiter bei tiefer Temperatur zum Isolator aus (Freeze-out)?
+A: Es fehlt die thermische Energie, um die Elektronen von den Donatoren ins Leitungsband zu heben. Für $T\to0$ bleiben alle Elektronen an ihren Donatoren gebunden, $n\to0$, und ohne bewegliche Ladung leitet der Kristall nicht.
+F: Warum ist die Ladungsträgerdichte im Sättigungsbereich temperaturunabhängig?
+A: Dort sind bereits alle Donatoren ionisiert (mehr geht nicht), während die intrinsische Paarbildung noch vernachlässigbar ist. Damit ist $n\approx N_d$ fest durch die Dotierung vorgegeben und ändert sich über einen weiten Temperaturbereich kaum.
+F: Warum ist gerade der Sättigungsbereich der Arbeitsbereich der Bauelemente?
+A: Weil dort die Ladungsträgerdichte gleich der eingestellten Dotierung und praktisch temperaturstabil ist. Nur so haben Dioden und Transistoren über den Betriebstemperaturbereich vorhersagbare, konstante Eigenschaften.
+F: Warum übernimmt bei hoher Temperatur die Eigenleitung?
+A: Die intrinsische Dichte $n_i$ wächst exponentiell mit $T$ und übersteigt irgendwann die feste Dotierung $N_d$. Dann dominieren die thermisch über die Bandlücke erzeugten Paare, und der Halbleiter verhält sich wieder intrinsisch.
+F: Warum ist die Arrhenius-Steigung bei Eigenleitung steiler als beim Freeze-out?
+A: Die Freeze-out-Steigung ist $(E_L-E_d)/2k_B$, die Eigenleitungs-Steigung $E_g/2k_B$. Da die Bandlücke $E_g$ viel größer ist als der kleine Donatorabstand $E_L-E_d$, fällt der Eigenleitungsast deutlich steiler aus.
+F: Wie wandert das Fermi-Niveau beim Durchlaufen der drei Bereiche?
+A: Bei tiefer Temperatur liegt $E_f$ hoch, zwischen $E_L$ und $E_d$. Mit steigender Temperatur sinkt es durch den Sättigungsbereich ab und landet bei Eigenleitung wieder in der Bandmitte — dem intrinsischen Wert.
+F: Was passiert bei sehr hoher Dotierung ($\gtrsim10^{19}\,$cm⁻³)?
+A: Die Dotieratome rücken so eng zusammen, dass ihre Wellenfunktionen überlappen und aus den diskreten Niveaus ein Störstellenband entsteht. Es verschmilzt mit dem Leitungsband (Bandgap-Narrowing), $E_f$ rückt ins Band, und der Halbleiter wird entartet und leitet metallisch sogar bei $T=0$.
+:::
