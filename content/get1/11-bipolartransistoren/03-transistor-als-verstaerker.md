@@ -104,3 +104,26 @@ aber kleiner).
 Ein einzelner Transistor verstärkt also kräftig, aber die Verstärkung hängt noch von Bauteilwerten und
 Arbeitspunkt ab. Kombiniert man viele Transistoren zu einem fertigen Baustein mit riesiger Verstärkung, entsteht
 das vielleicht vielseitigste analoge Bauteil: der __Operationsverstärker__.
+
+:::quiz
+F: Was bedeutet Verstärkung beim Transistor anschaulich?
+A: Ein kleines Eingangssignal „reitet" als winzige Schwankung auf dem festen Arbeitspunkt und steuert eine große, formgleiche Ausgangsgröße. Eine kleine Änderung von $u_{BE}$ erzeugt über den Kollektorstrom einen großen Spannungshub an $R_C$.
+F: Warum muss das Signal für lineare Verstärkung klein bleiben?
+A: Nur bei kleiner Aussteuerung darf man die gekrümmte Kennlinie durch ihre Tangente im Arbeitspunkt ersetzen. Dann gelten konstante lineare Faktoren; bei großer Aussteuerung würde die Krümmung das Signal verzerren.
+F: Warum trennt man Groß- und Kleinsignal?
+A: Der Gleichanteil legt den Arbeitspunkt fest, der Wechselanteil ist das eigentliche Signal. Die Trennung erlaubt es, den nichtlinearen Gleich-Arbeitspunkt getrennt zu bestimmen und für das Signal mit einem einfachen linearen Modell zu rechnen.
+F: Was beschreibt die Steilheit $g_m$?
+A: Sie gibt an, wie stark der Kollektorstrom auf eine kleine Änderung der Basis-Emitter-Spannung reagiert ($i_C=g_m u_{BE}$). Sie ist die lokale Steigung der Übertragungskennlinie im Arbeitspunkt.
+F: Warum hängt $g_m=I_C/U_T$ nur vom Arbeitspunktstrom ab?
+A: Sie folgt aus dem Ableiten der exponentiellen Kennlinie und ergibt gerade $I_C/U_T$ — unabhängig vom einzelnen Transistor. Ein größerer Arbeitspunktstrom macht den Verstärker „steiler".
+F: Wie hängen $r_{BE}$ und $g_m$ zusammen?
+A: Über $r_{BE}=\beta/g_m=\beta U_T/I_C$. Der Eingangswiderstand ist also die Stromverstärkung geteilt durch die Steilheit und sinkt mit steigendem Arbeitspunktstrom.
+F: Wie wird der Transistor im Kleinsignal-Ersatzschaltbild dargestellt?
+A: Als gesteuerte Stromquelle $g_m u_{BE}$ am Ausgang mit dem Eingangswiderstand $r_{BE}$ zwischen Basis und Emitter. Dieses lineare Modell ersetzt den Transistor für die Wechselanteile.
+F: Woher kommt das Minuszeichen in $v_U=-g_m R_C$?
+A: Ein größerer Kollektorstrom erzeugt einen größeren Abfall an $R_C$, was die Kollektorspannung absinken lässt. Steigende Eingangsspannung führt also zu fallender Ausgangsspannung — die Emitterschaltung invertiert.
+F: Wie erreicht die Emitterschaltung Verstärkungen von mehreren Hundert?
+A: Mit $v_U=-\tfrac{I_C}{U_T}R_C$: Bei $I_C=2\,$mA ist $g_m\approx77\,$mS, mit $R_C=3{,}3\,$kΩ ergibt sich $v_U\approx-254$. Hohe Steilheit mal großer Kollektorwiderstand liefert den großen Betrag.
+F: Welchen Kompromiss bedeutet ein für das Signal wirksamer Emitterwiderstand?
+A: Ohne Überbrückungskondensator sinkt die Verstärkung auf $v_U\approx-R_C/R_E$ — deutlich kleiner, aber unabhängig von $g_m$ und damit stabiler gegen Exemplarstreuung und Temperatur. Man wählt zwischen maximaler Verstärkung und Stabilität.
+:::
