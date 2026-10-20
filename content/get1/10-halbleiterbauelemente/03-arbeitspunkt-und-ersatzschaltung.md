@@ -94,3 +94,26 @@ im Kleinsignal, arbeitspunktabhängig).
 
 Mit Arbeitspunkt und Ersatzmodell lässt sich die Diode in Schaltungen berechnen. Damit sind die Werkzeuge
 beisammen, um ihre wichtigste Anwendung zu verstehen: die __Gleichrichtung__ von Wechselspannung.
+
+:::quiz
+F: Warum kann man bei einer Diode nicht einfach $U=R\,I$ ansetzen?
+A: Ihre Kennlinie ist gekrümmt (nichtlinear), der „Widerstand" $U/I$ ist also nicht konstant. Man braucht entweder die grafische Arbeitspunktmethode oder ein lineares Ersatzmodell.
+F: Woher kommt die Arbeitsgerade, und was beschreibt sie?
+A: Aus der Maschenregel der äußeren Schaltung: $I=(U_0-U_D)/R$. Sie ist die „Spielregel" von Quelle und Vorwiderstand — alle Betriebszustände, die die äußere Schaltung zulässt.
+F: Warum ist der Arbeitspunkt gerade der Schnittpunkt von Kennlinie und Arbeitsgerade?
+A: Die Diode muss gleichzeitig ihrer eigenen Kennlinie *und* der Bedingung der äußeren Schaltung genügen. Nur im Schnittpunkt sind beide erfüllt — er legt $U_{AP}$ und $I_{AP}$ fest.
+F: Was bestimmt die Steigung der Arbeitsgeraden?
+A: Der Vorwiderstand: Die Steigung ist $-1/R$. Ein großer Vorwiderstand macht die Gerade flach, ein kleiner steil.
+F: Wie wandert der Arbeitspunkt, wenn man die Quellenspannung erhöht?
+A: Die Arbeitsgerade verschiebt sich parallel (gleiche Steigung $-1/R$, anderer Achsenschnittpunkt $U_0$). Der Schnittpunkt mit der Kennlinie wandert auf ihr entlang zu höherem Strom.
+F: Was leistet die einfachste Ersatzschaltung (ideale Diode als Schalter)?
+A: Sie behandelt die Diode als widerstandslosen Draht in Durchlass und als Unterbrechung in Sperrrichtung ($U_D=0$). Das genügt für grobe Überschläge, wenn die 0,7 V neben großen Spannungen vernachlässigbar sind.
+F: Was fügt die zweite Stufe (ideale Diode + Schleusenspannung) hinzu?
+A: Eine konstante „Gegenbatterie" $U_S\approx0{,}7\,$V: Die Diode leitet erst, wenn die äußere Spannung sie überschreitet, und hält dann diese Spannung. Das ist das Standardmodell für Handrechnungen.
+F: Wofür steht der differentielle Widerstand $r_D$?
+A: Für die leichte Steigung der Kennlinie oberhalb der Schwelle, modelliert als kleiner Reihenwiderstand. Er ist die Ableitung $dU/dI$ im Arbeitspunkt, $r_D=U_T/I_{AP}$.
+F: Warum ist $r_D$ kein fester Bauteilwert?
+A: Er hängt vom Arbeitspunkt ab: $r_D=U_T/I_{AP}$ wird mit steigendem Strom kleiner. Zudem gilt er nur für kleine Auslenkungen um den Arbeitspunkt (Kleinsignalbetrieb).
+F: Warum reicht das Kleinsignalmodell mit $r_D$ bei großen Strömen nicht mehr?
+A: Es beschreibt nur die lokale Steigung um den Arbeitspunkt. Bei großen Strömen kommt zusätzlich der konstante Bahnwiderstand des Halbleitermaterials hinzu, den $r_D$ nicht erfasst.
+:::
