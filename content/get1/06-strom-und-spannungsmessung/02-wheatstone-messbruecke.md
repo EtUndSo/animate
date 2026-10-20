@@ -98,3 +98,26 @@ und __Innenwiderstand__ des Galvanometers heraus — diese __Nullmethode__ macht
 Damit ist die Messtechnik des Grundkurses abgedeckt. Das nächste Kapitel widmet sich den systematischen
 Verfahren, mit denen man auch verzweigte Netzwerke elegant löst: Quellenumwandlung, Ersatzquellen,
 Superposition und Leistungsanpassung.
+
+:::quiz
+F: Was ist die Grundidee der Wheatstone-Brücke im Vergleich zu einem normalen Messgerät?
+A: Statt einen Zeigerausschlag abzulesen, vergleicht man den unbekannten mit bekannten Widerständen — wie eine Balkenwaage, die eine Masse ins Gleichgewicht bringt. Gemessen wird nur, ob die beiden Teiler gleich stehen.
+F: Woraus besteht die Brücke strukturell?
+A: Aus zwei Spannungsteilern an derselben Quelle, deren Mittelabgriffe A und B über ein Galvanometer in der Diagonalen verbunden sind. Jeder Teiler legt an seinem Mittelpunkt ein Potenzial fest.
+F: Was bedeutet es, dass die Brücke „abgeglichen" ist?
+A: Durch die Diagonale fließt kein Strom, weil beide Mittelpunkte auf demselben Potenzial liegen ($U_A=U_B$). Dann teilen beide Teiler im gleichen Verhältnis.
+F: Wie entsteht aus $U_A=U_B$ die Abgleichbedingung $R_1/R_2=R_3/R_4$?
+A: Man setzt die beiden Spannungsteiler-Ausdrücke gleich; beim Überkreuzmultiplizieren kürzt sich die Quellenspannung heraus. Übrig bleibt die Verhältnisgleichung bzw. $R_1 R_4=R_2 R_3$.
+F: Warum ist die Messung unabhängig von der Quellenspannung?
+A: Beim Gleichsetzen der beiden Teilerverhältnisse kürzt sich $U$ vollständig heraus. Schwankungen oder Ungenauigkeiten der Speisespannung beeinflussen den Abgleichpunkt daher nicht.
+F: Warum spielt der Innenwiderstand des Galvanometers im Abgleich keine Rolle?
+A: Im Abgleich fließt durch das Galvanometer kein Strom, und wo kein Strom fließt, fällt unabhängig vom Widerstand keine Spannung ab. Der genaue $R_i$ des Messgeräts ist damit irrelevant.
+F: Warum ist eine Nullmethode genauer als das Ablesen eines Ausschlags?
+A: Sie verlangt dem Messgerät nur eine einzige einfache Entscheidung ab — null oder nicht null — statt einer kalibrierten Skala. Das Ergebnis hängt dann allein vom Verhältnis gut bekannter Widerstände ab.
+F: Warum muss man das Galvanometer für die Messung nicht kalibrieren?
+A: Es dient nur als Nullindikator; sein Absolutwert wird nie abgelesen. Man braucht lediglich ein empfindliches Erkennen, ob ein Strom fließt, nicht dessen genaue Größe.
+F: Wie bestimmt man aus der abgeglichenen Brücke den unbekannten Widerstand?
+A: Ist $R_x=R_1$ und sind die anderen drei bekannt (einer einstellbar), folgt aus der Abgleichbedingung $R_x=R_2\,R_3/R_4$. Man verstellt also einen Widerstand bis zum Nullabgleich und rechnet $R_x$ aus dem erreichten Verhältnis.
+F: Warum genügt ein einstellbarer Referenzwiderstand, um beliebige $R_x$ zu messen?
+A: Weil nur das *Verhältnis* der Teiler zählt. Durch Verstellen eines bekannten Widerstands trifft man für jeden $R_x$ den Punkt, an dem beide Teiler gleich stehen, und liest $R_x$ aus diesem Verhältnis ab.
+:::
