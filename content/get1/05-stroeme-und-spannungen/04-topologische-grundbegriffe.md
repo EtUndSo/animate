@@ -94,3 +94,26 @@ genau eine unabhängige Masche.
 
 Mit diesem Vokabular lassen sich die beiden zentralen Gesetze der Netzwerkanalyse sauber formulieren: die
 __Kirchhoffsche Knoten- und Maschenregel__.
+
+:::quiz
+F: Was beschreibt die Topologie eines Netzwerks, und was lässt sie bewusst weg?
+A: Sie beschreibt nur, *wie* die Bauteile verbunden sind — das Gerüst aus Treffpunkten und Verbindungen. *Welche* Bauteile in den Zweigen sitzen, spielt für die topologische Betrachtung keine Rolle.
+F: Warum ist der Strom längs eines ganzen Zweigs konstant?
+A: Ein Zweig verläuft zwischen zwei Knoten ohne weiteren Knoten dazwischen, und nur an Knoten kann sich der Strom aufteilen. Ohne Verzweigungspunkt fließt also überall im Zweig derselbe Zweigstrom.
+F: Was ist eine Masche genau?
+A: Ein geschlossener Umlauf durch das Netzwerk, der zum Ausgangspunkt zurückführt, ohne eine Leitung doppelt zu benutzen. Maschen sind die Grundlage für die zweite Kirchhoffsche Regel.
+F: Warum liefern nicht alle $k$ Knoten unabhängige Gleichungen, sondern nur $k-1$?
+A: Die Knotenregeln hängen zusammen: Was in alle Knoten hineinfließt, muss insgesamt wieder heraus. Die letzte Knotengleichung ergibt sich daher automatisch aus den übrigen und ist nicht unabhängig.
+F: Wie viele unabhängige Maschengleichungen braucht man, und warum gerade so viele?
+A: $m=z-(k-1)$ — genau so viele, wie nach den $k-1$ Knotengleichungen noch zu den $z$ unbekannten Zweigströmen fehlen. Zusammen ergeben sie exakt $z$ Gleichungen für $z$ Unbekannte.
+F: Warum ergeben $k-1$ Knoten- plus $m$ Maschengleichungen zusammen genau $z$?
+A: Es ist $(k-1)+(z-(k-1))=z$. Die Aufteilung ist so gewählt, dass genau ein eindeutig lösbares Gleichungssystem für die $z$ Zweigströme entsteht.
+F: Was ist ein vollständiger Baum, und welche Eigenschaft hat er?
+A: Eine Auswahl von Zweigen, die alle Knoten verbindet, aber keine geschlossene Masche bildet. Ein solcher Baum enthält immer genau $k-1$ Baumzweige.
+F: Warum liefert jeder Verbindungszweig genau eine unabhängige Masche?
+A: Fügt man einen Verbindungszweig zum masch­enfreien Baum hinzu, schließt er genau einen Umlauf. Da es $z-(k-1)$ Verbindungszweige gibt, erhält man ebenso viele unabhängige Maschen — genau die Formel $m=z-(k-1)$.
+F: Warum ist der Baum ein sicheres Rezept gegen doppelt gezählte Maschen?
+A: Jede der so gefundenen Maschen enthält genau einen Verbindungszweig, den keine andere enthält. Dadurch ist garantiert, dass keine Masche sich aus den anderen zusammensetzen lässt — sie sind alle unabhängig.
+F: Wozu braucht man das Abzählen von Knoten und Zweigen überhaupt?
+A: Es sagt vorab, wie viele unabhängige Gleichungen ein Netzwerk zur eindeutigen Lösung braucht. So stellt man genau die richtige Zahl auf — weder zu wenige (unterbestimmt) noch redundante.
+:::
