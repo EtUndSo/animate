@@ -111,3 +111,26 @@ sind umrechenbar.
 
 Damit ist die Werkzeugkiste der Netzwerkanalyse komplett. Die nächsten Kapitel systematisieren das Lösen großer
 Netze zu festen Rechenschemata: dem __Maschenstromverfahren__ und dem __Knotenpotentialverfahren__.
+
+:::quiz
+F: Was beschreibt ein Zweitor, und was lässt es bewusst weg?
+A: Es beschreibt nur, wie die Spannungen und Ströme am Eingangstor mit denen am Ausgangstor zusammenhängen — als Black Box. Das innere Schaltungsdetail bleibt unberücksichtigt; es zählt allein das Klemmenverhalten.
+F: Warum genügen zwei Gleichungen (eine 2×2-Matrix), um ein lineares Zweitor zu beschreiben?
+A: Es gibt vier Torgrößen ($U_1,I_1,U_2,I_2$), und weil das Innere linear ist, verknüpfen sie zwei lineare Gleichungen. Damit darf man zwei frei wählen und die anderen beiden daraus berechnen.
+F: Wodurch unterscheiden sich die vier Parameterformen überhaupt?
+A: Durch die Wahl, welche zwei Torgrößen man als unabhängig (die „Ursachen") ansetzt. Jede Wahl führt auf eine andere, aber gleichwertige Matrixdarstellung desselben Zweitors.
+F: Warum misst man Z-Parameter im Leerlauf und Y-Parameter im Kurzschluss?
+A: Bei den Z-Parametern sind die Ströme unabhängig, also setzt man den jeweils anderen Strom null — das ist Leerlauf. Bei den Y-Parametern sind die Spannungen unabhängig, man setzt die andere null — das ist Kurzschluss.
+F: In welchem Verhältnis stehen Z- und Y-Matrix zueinander?
+A: Sie beschreiben dasselbe Zweitor und sind zueinander invers. Die eine entsteht aus der anderen durch Matrixinversion.
+F: Warum ist die Z-Form natürlich für Reihen-, die Y-Form für Parallelschaltung?
+A: Bei Reihenschaltung addieren sich die Tornspannungen bei gleichen Strömen, sodass sich die Z-Matrizen addieren; bei Parallelschaltung addieren sich die Ströme bei gleichen Spannungen, sodass sich die Y-Matrizen addieren. Jede Form passt zur Verschaltung, bei der sich ihre Matrizen einfach summieren.
+F: Warum heißen die H-Parameter „hybrid"?
+A: Weil sie gemischte unabhängige Größen (Eingangsstrom und Ausgangsspannung) verwenden, sind ihre Parameter unterschiedlicher Art: $h_{11}$ ein Widerstand, $h_{22}$ ein Leitwert, $h_{12},h_{21}$ dimensionslos. Diese Mischung gibt der Form ihren Namen.
+F: Warum ist die Hybridform die klassische Wahl für Transistoren?
+A: Beim Transistor sind Eingangsstrom und Ausgangsspannung die natürlichen Steuergrößen, und $h_{21}$ ist gerade die Stromverstärkung. Die H-Parameter bilden das Verstärkerverhalten damit direkt ab.
+F: Welchen entscheidenden Vorteil hat die Kettenform bei hintereinandergeschalteten Zweitoren?
+A: Die Gesamt-Kettenmatrix ist einfach das Produkt der Einzelmatrizen. Eine Reihe von Übertragungsgliedern rechnet man dadurch durch bloße Matrizenmultiplikation durch.
+F: Enthält jede Parameterform dieselbe Information über das Zweitor?
+A: Ja — alle vier beschreiben exakt dasselbe Zweitor und lassen sich ineinander umrechnen. Sie verpacken die Verknüpfung von Ein- und Ausgang nur unterschiedlich; man wählt die zur Aufgabe passende Form.
+:::
