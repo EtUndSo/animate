@@ -94,3 +94,26 @@ Klemmen-zu-Klemmen-Widerstände. Symmetrisch gilt $R_\star = R_\triangle/3$.
 
 Mit allen Analysewerkzeugen zur Hand bleibt eine letzte, praktisch wichtige Frage: Wie überträgt man die
 **größte Leistung** von einer Quelle auf einen Verbraucher? Das ist die __Leistungsanpassung__.
+
+:::quiz
+F: Warum reichen Reihen- und Parallelregeln bei einer Brückenschaltung nicht aus?
+A: Der Querwiderstand in der Mitte sorgt dafür, dass kein Widerstandspaar rein in Reihe oder rein parallel liegt. Damit greift keine der einfachen Zusammenfassungsregeln, und man braucht die Stern-Dreieck-Transformation.
+F: Was leistet die Stern-Dreieck-Transformation grundsätzlich?
+A: Sie ersetzt drei als Stern verschaltete Widerstände durch ein gleichwertiges Dreieck (oder umgekehrt), ohne das Klemmenverhalten zu ändern. Dadurch löst sich der blockierende Querzweig auf und es entstehen wieder zusammenfassbare Gruppen.
+F: Was bedeutet „gleichwertig" bei dieser Transformation genau?
+A: Zwischen je zwei der drei Klemmen A, B, C muss der gemessene Widerstand in beiden Formen identisch sein. Von außen sind Stern und Dreieck dann ununterscheidbar.
+F: Wie merkt man sich die Dreieck→Stern-Formel?
+A: Der Sternwiderstand an einer Klemme ist das Produkt der beiden an dieser Klemme zusammentreffenden Dreieckswiderstände, geteilt durch die Summe aller drei. „Anliegende Produkte durch Gesamtsumme."
+F: Wie lautet die Merkregel für Stern→Dreieck?
+A: Jeder Dreieckswiderstand ist die Summe der paarweisen Produkte der Sternwiderstände, geteilt durch den gegenüberliegenden Sternwiderstand. Der Nenner gehört also zur Klemme, die dem gesuchten Dreieckszweig gegenüberliegt.
+F: Woher kommen beide Formelsätze mathematisch?
+A: Aus der Forderung, dass die drei Klemmen-zu-Klemmen-Widerstände in Stern und Dreieck übereinstimmen. Setzt man diese drei Bedingungen paarweise gleich, ergibt das Gleichungssystem genau die Umrechnungsformeln.
+F: Warum ist bei symmetrischem Dreieck der Stern gerade ein Drittel?
+A: Bei $R_{AB}=R_{BC}=R_{CA}=R_\triangle$ liefert die Dreieck→Stern-Formel $R_\triangle^2/(3R_\triangle)=R_\triangle/3$. Alle Sternwiderstände werden gleich und betragen ein Drittel des Dreieckswerts.
+F: Warum ändert die Transformation das übrige Netz nicht?
+A: Weil nur die Klemmen A, B, C mit dem Rest verbunden sind und das Klemmenverhalten erhalten bleibt. Der (beim Stern zusätzliche) Mittelpunkt ist intern und für die Außenwelt unsichtbar.
+F: In welche Richtung wandelt man um, um eine Brücke aufzulösen?
+A: Man wählt die Richtung, die den störenden Querzweig beseitigt — meist formt man ein Dreieck aus drei der Brückenwiderstände in einen Stern um (oder umgekehrt). Danach liegen wieder reine Reihen- und Parallelgruppen vor.
+F: Warum ist der symmetrische Sonderfall z. B. beim Widerstandswürfel so nützlich?
+A: Dort treten viele gleiche Widerstände auf, sodass $R_\star=R_\triangle/3$ direkt anwendbar ist und das Netz stark vereinfacht. Man spart sich das Aufstellen und Lösen des vollen Gleichungssystems.
+:::
