@@ -98,3 +98,26 @@ Verbraucher von Quelle unterscheidet. Richtungen darf man frei wählen — nur k
 
 Mit festgelegten Zählrichtungen lässt sich jede Schaltung eindeutig beschreiben. Als Nächstes die Sprache, in
 der man über die Struktur eines Netzwerks spricht: __Knoten__, __Zweige__ und __Maschen__.
+
+:::quiz
+F: Warum legt man Zählpfeile fest, obwohl man die wahren Richtungen noch nicht kennt?
+A: Um ein Netzwerk zu berechnen, braucht man vorab eine Vorzeichenkonvention — die kennt man aber erst nach der Rechnung. Der Zählpfeil löst dieses Henne-Ei-Problem: Man nimmt eine Richtung an und das Ergebnisvorzeichen liefert die Wahrheit nach.
+F: Was bedeutet ein negatives Ergebnis bei einer Zählpfeilrechnung?
+A: Die Größe zeigt in Wirklichkeit entgegengesetzt zum angenommenen Pfeil. Die Rechnung bleibt dabei völlig korrekt — das Minuszeichen ist nur die Auskunft über die tatsächliche Richtung.
+F: Warum darf man die Pfeilrichtungen frei wählen?
+A: Weil der Pfeil nur die positiv gezählte Richtung definiert, wie die positive Seite eines Zahlenstrahls. Jede Wahl führt zum richtigen physikalischen Ergebnis, solange man konsequent dabei bleibt.
+F: Was unterscheidet Verbraucher- und Erzeugerpfeilsystem?
+A: Im Verbraucherpfeilsystem zeigen Strom- und Spannungspfeil gleichsinnig, im Erzeugerpfeilsystem gegensinnig. Die Pfeilanordnung legt fest, wie Vorzeichen von Spannung, Strom und Leistung zu deuten sind.
+F: Warum passt das Verbraucherpfeilsystem zum Widerstand?
+A: Der technische Strom fließt durch einen Verbraucher vom höheren zum niedrigeren Potenzial, also in Spannungsrichtung — das ist genau gleichsinnig. Deshalb gilt dort das Ohmsche Gesetz ohne Vorzeichenärger als $U=RI$.
+F: Warum passt das Erzeugerpfeilsystem zur Quelle?
+A: Eine Batterie treibt den Strom in ihrem Inneren vom Minus- zum Pluspol, also gegen das Spannungsgefälle. Strom- und Spannungspfeil liegen dann gegensinnig, was das Erzeugerpfeilsystem kennzeichnet.
+F: Warum wählt man üblicherweise Verbraucher im VZS und Quellen im EZS?
+A: Dann kommen die „erwarteten" Größen mit positivem Vorzeichen heraus — der Verbraucher nimmt Leistung auf ($P>0$), die Quelle gibt sie ab ($P>0$). Das macht die Ergebnisse intuitiv lesbar.
+F: Was bedeutet ein positives $P$ im VZS gegenüber dem EZS?
+A: Im Verbraucherpfeilsystem heißt $P>0$, das Bauteil nimmt Energie auf (z. B. der Widerstand erwärmt sich); im Erzeugerpfeilsystem heißt $P>0$, es gibt Energie ab. Dasselbe Produkt $UI$, nur je nach System anders gedeutet.
+F: Wie erkennt man an der berechneten Leistung, ob ein Bauteil Verbraucher oder Quelle ist?
+A: Das Vorzeichen von $P=UI$ im gewählten System verrät es direkt — unabhängig davon, wie man das Bauteil anfangs angenommen hat. Ein unerwartetes Vorzeichen zeigt, dass es tatsächlich die andere Rolle spielt.
+F: Was passiert, wenn man Strom- und Spannungspfeil inkonsistent einträgt?
+A: Dann stimmen die Vorzeichenregeln für Ohmsches Gesetz und Leistung nicht mehr, und man kann aus dem Ergebnis nicht mehr ablesen, ob aufgenommen oder abgegeben wird. Entscheidend ist nicht die Wahl des Systems, sondern dass man innerhalb einer Rechnung konsequent bleibt.
+:::
