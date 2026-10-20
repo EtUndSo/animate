@@ -121,3 +121,26 @@ großen __Kollektorstrom__, $I_\text{C} = \beta I_\text{B}$ (mit $I_\text{E} = I
 
 Damit der Transistor sauber als Verstärker arbeitet, muss man ihn in den aktiven Bereich bringen und dort
 stabil halten — das ist die __Arbeitspunkteinstellung__, das Thema des nächsten Abschnitts.
+
+:::quiz
+F: Warum ist die geringe Dicke der Basis entscheidend für den Transistoreffekt?
+A: Nur weil die Basis hauchdünn ist, durchqueren die vom Emitter injizierten Elektronen sie, bevor sie rekombinieren können, und erreichen den Kollektor. Eine dicke Basis würde die meisten Träger als Basisstrom abfangen und die Verstärkung zunichtemachen.
+F: Warum ist die Basis zusätzlich nur schwach dotiert?
+A: Wenige Löcher in der Basis bedeuten wenige Rekombinationspartner, sodass kaum ein durchlaufendes Elektron „hängen bleibt". So bleibt der Basisstrom klein und der Kollektorstrom groß.
+F: Wie müssen die beiden pn-Übergänge im aktiven Bereich gepolt sein?
+A: Der Basis-Emitter-Übergang in Durchlassrichtung, der Basis-Kollektor-Übergang in Sperrrichtung. Nur so injiziert der Emitter Träger, die das Sperrfeld des BC-Übergangs dann zum Kollektor zieht.
+F: Welche Rolle spielt das Feld des gesperrten BC-Übergangs?
+A: Es zieht die Elektronen, die die Basis durchquert haben, sofort zum Kollektor hinüber. Der gesperrte Übergang ist also kein Hindernis, sondern das „Absaugen", das aus den durchlaufenden Trägern den Kollektorstrom macht.
+F: Warum steuert ein kleiner Basisstrom einen viel größeren Kollektorstrom?
+A: Nur ein winziger Bruchteil der injizierten Elektronen rekombiniert und fließt als Basisstrom ab, der große Rest wird zum Kollektorstrom. Da der Basisstrom die Injektionsrate bestimmt, kontrolliert er den vielfach größeren Kollektorstrom.
+F: Was besagt $I_E=I_C+I_B$?
+A: Der gesamte vom Emitter kommende Strom teilt sich in den großen Kollektor- und den kleinen Basisanteil auf (Knotenregel). Da $I_B$ winzig ist, ist $I_E$ nur wenig größer als $I_C$.
+F: Was bedeutet eine Stromverstärkung $\beta=200$ konkret?
+A: Der Kollektorstrom ist 200-mal so groß wie der Basisstrom ($I_C=\beta I_B$). Ein Basisstrom von 10 µA erzeugt dann 2 mA Kollektorstrom.
+F: Warum ist die Gleichstromverstärkung $\alpha=I_C/I_E$ knapp unter 1?
+A: Weil fast der gesamte Emitterstrom zum Kollektor gelangt und nur ein winziger Teil als Basisstrom abfließt. Je näher $\alpha$ an 1 liegt, desto größer das $\beta=\alpha/(1-\alpha)$.
+F: Wodurch unterscheiden sich die drei Betriebsbereiche?
+A: Durch die Polung der beiden Übergänge: beide gesperrt → Sperrbereich (aus), BE leitend/BC gesperrt → aktiver Bereich (Verstärker), beide leitend → Sättigung (voll durchgeschaltet). Die Polung legt fest, ob der Transistor verstärkt oder schaltet.
+F: Warum nutzt man für Digitalelektronik Sperrbereich und Sättigung statt des aktiven Bereichs?
+A: In diesen beiden Zuständen ist der Transistor voll aus bzw. voll ein — klar unterscheidbare Schalterstellungen für die Logikpegel 0 und 1. Der aktive Bereich dient dagegen der linearen (analogen) Verstärkung.
+:::
