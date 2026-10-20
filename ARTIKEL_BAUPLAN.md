@@ -65,6 +65,10 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
   Namen: Konstanten wie Ladung $Q$, Radius $R$; spezielle Funktionen/Transformationen wie $\Gamma$, $\mathcal L f$.
   Skalare Ergebnisfunktionen (Parameterintegrale, Stammfunktionen, Profile) deshalb klein benennen, z. B.
   $g(x)=\int_a^b f(x,t)\,dt$.
+- **Elektrotechnik (ET1 und folgende, 2026-10-20):** Formelzeichen wie im Skript bzw. nach DIN 1304 und DIN 5483 —
+  Gleich- und Effektivgrößen groß ($U$, $I$, $R$, $C$, $L$, $P$, $W$, $Q$), zeitabhängige Momentanwerte klein
+  ($u(t)$, $i(t)$), vektorielle Feldgrößen mit Pfeil ($\vec E$, $\vec F$, $\vec D$, $\vec J$). Diese Großbuchstaben-Skalare
+  sind etablierte Namen und fallen unter die Ausnahme oben; Einheiten stets mitführen.
 - **Nur die wichtigsten** Formeln kommen in eine **Box**:
   `:::formel <Typ>` … `:::` — `<Typ>` ist das Label oben links: **Definition**, **Satz**, **Lemma**,
   **Gesetz**, **Formel** (Default, wenn nichts angegeben). Die Box wird **automatisch nummeriert** (fortlaufend
@@ -149,12 +153,15 @@ Zum Schluss:
 
 ## 6. Workflow (Loop)
 - Repo `C:\Users\info\PycharmProjects\pythonanimation`, Artikel in `content/<modul>/…`.
-  Reihenfolge: **HöMa3 komplett zuerst**, dann `mmet`, `gemb1`, `get1`.
-- „Noch nicht überarbeitet" = Quelldatei enthält `:::konzept`. Nächster offener Artikel = **erster** HöMa3-Artikel
-  mit `:::konzept` (in `find … | sort`-Reihenfolge).
+  Reihenfolge: HöMa3 Kap 1–5 sind fertig; **jetzt `get1` (ET1)** (User 2026-10-20: „Erstmal genug Mathe"), HöMa3
+  Kap 6–8, `mmet` und `gemb1` danach nach Absprache.
+- „Noch nicht überarbeitet" = Quelldatei enthält `:::konzept`. Nächster offener Artikel = **erster** Artikel des
+  aktuellen Moduls mit `:::konzept` (in `find … | sort`-Reihenfolge).
 - **Jeden Artikel von Grund auf NEU schreiben (leere Seite).** Die Struktur ist nach diesem Bauplan ohnehin
   komplett anders — nicht die alten Artikel umbauen. Inhaltsquelle ist das **Skript** (HöMa3:
-  `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf`, passende Seiten/Kapitel) plus der ET4-Ordner als Stilvorbild. Der
+  `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf`; GET1: `C:\Bücher\EtUndSo\1.Semester\ET1\(VO) Grundgebiete der
+  Elektrotechnik 1 - Einführung in die Schaltungsanalyse_20261018_2239\Vorlesung\Begleit-Skript zur
+  Vorlesung\GET1_Lecture_Script_WS2425_3_03.pdf`, passende Seiten/Kapitel) plus der ET4-Ordner als Stilvorbild. Der
   bestehende Artikel dient **höchstens** als schneller Vollständigkeits-Check (welche Themen/Formeln vorkommen),
   **nicht** als Struktur- oder Textvorlage. Alle wichtigen Inhalte/Formeln der Skript-Quelle müssen enthalten sein.
 - **Pro Tick genau ein Artikel**: auswählen → komplett neu im Bauplan-Stil schreiben →
