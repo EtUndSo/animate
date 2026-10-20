@@ -140,3 +140,26 @@ der Sperrstrom) ist stark temperatur- und bandlückenabhängig.
 Die Diode steuert ihre Barriere über eine Spannung **im** Halbleiter. Beim Transistor steuert man sie stattdessen
 berührungslos über eine **isolierte Elektrode** — das Prinzip des __MOS-Kondensators__, den wir als Nächstes
 untersuchen, bevor daraus der MOSFET wird.
+
+:::quiz
+F: Warum fällt die angelegte Spannung fast vollständig über der Verarmungszone ab?
+A: Die Verarmungszone ist an beweglichen Ladungsträgern verarmt und damit hochohmig, während die neutralen Bahngebiete gut leiten. Der größte Spannungsabfall tritt immer am größten Widerstand auf — also über der Sperrschicht, wo er die Barriere verschiebt.
+F: Warum steigt der Strom in Durchlassrichtung exponentiell statt linear?
+A: Die Spannung senkt die Barriere, und die Zahl der Ladungsträger, die über eine Barriere diffundieren können, folgt dem Boltzmann-Faktor $e^{eV/k_BT}$. Eine lineare Barrierensenkung übersetzt sich damit in einen exponentiellen Stromanstieg.
+F: Warum fließt in Sperrrichtung nur ein winziger, spannungsunabhängiger Strom?
+A: Die erhöhte Barriere unterbindet die Diffusion der Majoritäten fast vollständig. Übrig bleibt nur der Strom thermisch erzeugter Minoritäten, der von der Spannung kaum abhängt, weil ohnehin jede erzeugte Minorität sofort abgesaugt wird.
+F: Was bedeuten die Quasi-Fermi-Niveaus, und warum braucht man sie unter Spannung?
+A: Unter Spannung fließt Strom, das System ist nicht mehr im Gleichgewicht, also gibt es kein einheitliches $E_f$ mehr. Man beschreibt Elektronen und Löcher durch getrennte Niveaus $E_f^n$, $E_f^p$ — jede Sorte für sich im Gleichgewicht, aber um $eV$ gegeneinander verschoben.
+F: Was besagt das „Gesetz des Übergangs" anschaulich?
+A: Die Minoritätsdichte am Rand der Verarmungszone wird gegenüber dem Gleichgewicht um den Faktor $e^{eV/k_BT}$ angehoben. Der injizierte Überschuss $\Delta n_p=n_p^{\text{eq}}(e^{eV/k_BT}-1)$ wächst exponentiell mit der Spannung — das ist die Wurzel der Diodenkennlinie.
+F: Warum taucht in der Diodengleichung der Term $-1$ auf?
+A: Er sorgt dafür, dass bei $V=0$ der Strom exakt null ist (Gleichgewicht). In starkem Durchlass ist der Exponentialterm riesig und die $-1$ vernachlässigbar, in Sperrung geht der Exponentialterm gegen null und übrig bleibt $-I_S$.
+F: Warum wirkt die Diode als Gleichrichter und nicht als symmetrischer Widerstand?
+A: Ein Ohmscher Widerstand gäbe $I\propto V$ punktsymmetrisch. Die Barriere reagiert aber exponentiell *und* vorzeichenabhängig: Senken flutet den Strom, Heben blockiert ihn — diese eingebaute Asymmetrie ist die Gleichrichtung.
+F: Warum ist der Sättigungsstrom $I_S$ proportional zu $n_i^2$?
+A: Der Sperrstrom wird von den Minoritäten getragen, deren Gleichgewichtsdichte über das Massenwirkungsgesetz $n_i^2/N$ beträgt. Da sowohl Elektronen- als auch Löcherbeitrag so skalieren, ist $I_S\propto n_i^2\propto e^{-E_g/k_BT}$.
+F: Warum steigt der Sperrstrom stark mit der Temperatur?
+A: Wegen $I_S\propto n_i^2\propto e^{-E_g/k_BT}$ wächst die intrinsische Dichte und damit die Minoritätszahl exponentiell mit $T$. Mehr thermisch erzeugte Paare liefern mehr Sperrstrom — ein Grund, warum Leistungselektronik auf großlückige Materialien (SiC, GaN) setzt.
+F: Warum injiziert man gerade Minoritäten, und wo spielt die Diffusionslänge die Rolle?
+A: Über die Barriere gelangen Majoritäten der einen Seite als Minoritäten auf die andere, wo sie im Überschuss vorliegen. Dort diffundieren sie ins Bahngebiet und rekombinieren über die charakteristische Diffusionslänge $L$ — diese Abklingstrecke bestimmt den Diffusionsstrom und damit $I_S$.
+:::
