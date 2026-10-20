@@ -408,8 +408,9 @@ und Untersumme.)
 ::::
 
 **Was die Lebesgue-Theorie leistet.** Für **jede** abgeschlossene, beschränkte Menge $M$ und jedes stetige $f$ liefert die
-Integrationstheorie nach Lebesgue einen eindeutigen Wert für das Integral über $M$. Wo das iterierte Integral existiert,
-stimmt er damit überein. Die Begründung sprengt den Rahmen dieses Kurses; die Idee ist anschaulich.
+Integrationstheorie nach Lebesgue einen eindeutigen Wert für das Integral über $M$. Wo ein iteriertes Integral existiert —
+in welcher Reihenfolge auch immer —, stimmt es mit diesem Wert überein. Die Begründung sprengt den Rahmen dieses Kurses;
+die Idee ist anschaulich.
 
 :::herleitung
 Nur die Beweisidee. Man ersetzt die senkrechte Wand durch eine **Böschung**. Dazu setzt man $f$ zuerst zu einer stetigen
@@ -426,6 +427,9 @@ positiv — weil $M$ abgeschlossen ist —, sodass der Faktor ab einem $\ell$ nu
 Maximum von $\lvert\hat f\rvert$ auf dem Kasten. Der Satz von der majorisierten Konvergenz, das Gegenstück zum
 Majorantenkriterium im vorletzten Artikel, sichert dann, dass die Integrale konvergieren und der Grenzwert nicht von der
 gewählten Böschung abhängt. Er ist das Integral über $M$.
+
+Die Fortsetzung ist beschränkt und lebt auf einem beschränkten Kasten, ist also absolut integrierbar. Nach dem Satz von
+Fubini–Tonelli aus dem vorigen Artikel liefert deshalb jede Integrationsreihenfolge denselben Wert.
 :::
 
 ::::beispiel Die Wand abschrägen
