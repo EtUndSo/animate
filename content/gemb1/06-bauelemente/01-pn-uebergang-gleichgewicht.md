@@ -149,3 +149,26 @@ $W=\sqrt{\tfrac{2\varepsilon_0\varepsilon_r V_d}{e}(\tfrac1{N_A}+\tfrac1{N_D})}$
 Der pn-Übergang im Gleichgewicht hat eine feste Barriere $eV_d$. Interessant wird er, wenn man eine **äußere
 Spannung** anlegt, die diese Barriere hebt oder senkt — dann entsteht die stark asymmetrische Strom-Spannungs-
 Kennlinie der __Diode__, das Thema des nächsten Artikels.
+
+:::quiz
+F: Warum entsteht am pn-Übergang überhaupt eine Raumladungszone?
+A: Am Kontakt herrscht ein riesiges Konzentrationsgefälle, sodass Elektronen und Löcher über die Grenze diffundieren und dort rekombinieren. Zurück bleiben die ortsfesten ionisierten Dotieratome, die als unkompensierte Raumladung eine Zone ohne bewegliche Ladungsträger bilden.
+F: Was stoppt die Diffusion am pn-Übergang, sodass kein Dauerstrom fließt?
+A: Die zurückbleibenden Ionen erzeugen ein elektrisches Feld, das der Diffusion entgegenwirkt. Es wächst, bis sein „Gegendruck" den chemischen Diffusionsantrieb exakt kompensiert — dann herrscht Gleichgewicht.
+F: Warum ist im Gleichgewicht das Fermi-Niveau über den ganzen Übergang konstant?
+A: Ein konstantes (elektrochemisches) Fermi-Niveau ist gleichbedeutend mit „kein Netto-Strom". Diffusionsantrieb $d\mu/dx$ und Feldkraft $|e|\,d\phi/dx$ heben sich gerade auf, was eine durchgehend waagerechte $E_f$-Linie bedeutet.
+F: Warum biegen sich die Bänder, obwohl $E_f$ waagerecht bleibt?
+A: Die beiden Gebiete hatten vor dem Kontakt verschieden hohe Fermi-Niveaus; beim Angleichen auf ein gemeinsames $E_f$ müssen sich die Bandkanten relativ dazu verschieben. Diese Verschiebung ist genau die Bandverbiegung um $eV_d$.
+F: Warum wird die Diffusionsspannung größer, je stärker beide Seiten dotiert sind?
+A: Stärkere Dotierung schiebt $E_f$ der n-Seite näher an $E_L$ und das der p-Seite näher an $E_V$, sodass die beiden Fermi-Niveaus vor Kontakt weiter auseinanderliegen. Dieser Abstand ist gerade $eV_d$, also wächst $V_d$ mit der Dotierung — allerdings nur logarithmisch.
+F: Warum hängt $V_d$ nur so schwach (logarithmisch) von der Dotierung ab?
+A: $V_d$ misst den Fermi-Niveau-Abstand, und $E_f$ verschiebt sich gegenüber einer Bandkante nur logarithmisch mit der Ladungsträgerdichte ($E_f=E_L-k_BT\ln(N_L/N_D)$). Selbst über viele Dekaden Dotierung bleibt $V_d$ daher bei einigen Zehntel Volt.
+F: Was idealisiert die Schottky-Näherung und wozu?
+A: Sie ersetzt den weichen Übergang der Raumladung durch eine kastenförmige Verteilung: ein Ort ist entweder voll verarmt oder voll neutral. Dadurch wird die Poisson-Gleichung analytisch lösbar und liefert dreieckiges Feld und parabolische Bänder.
+F: Warum reicht die Verarmungszone weiter in das schwächer dotierte Gebiet?
+A: Die Ladungsneutralität $N_A x_p=N_D x_n$ verlangt beiderseits gleich viel Gesamtladung. Auf der schwach dotierten Seite sitzen die Ionen dünner, also müssen mehr Atome über eine größere Weite entblößt werden, um dieselbe Ladung bereitzustellen.
+F: Warum wird die Verarmungszone bei stärkerer Dotierung dünner?
+A: In $W=\sqrt{\tfrac{2\varepsilon_0\varepsilon_r V_d}{e}(1/N_A+1/N_D)}$ stehen die Dotierdichten im Nenner. Mehr Ionen pro Volumen liefern die nötige Ladung auf engerem Raum, sodass die Zone schrumpft (abgesehen vom schwachen logarithmischen Anstieg von $V_d$).
+F: Warum ist das dreieckige Feldprofil am Übergang maximal und an den Zonenrändern null?
+A: Das Feld ist das Integral der Raumladung; es baut sich über die ganze Zone auf und erreicht an der Grenze zwischen positiver und negativer Ladung sein Maximum. An den Außenrändern grenzt die Zone an das neutrale Gebiet, wo kein Feld herrschen darf — dort fällt es auf null.
+:::
