@@ -102,3 +102,26 @@ Beide sind gleichwertig.
 
 Die Ersatzquelle nutzt die Linearität, um ein Netz zu *ersetzen*. Dieselbe Linearität erlaubt noch einen zweiten
 Trick — mehrere Quellen getrennt zu behandeln und ihre Wirkungen zu addieren: das __Superpositionsverfahren__.
+
+:::quiz
+F: Warum lässt sich jedes lineare Netzwerk von zwei Klemmen aus als reale Quelle beschreiben?
+A: Weil bei linearen Bauteilen der Zusammenhang zwischen Klemmenspannung und -strom eine Gerade ist — genau wie bei einer realen Quelle. Zwei Zweipole mit derselben Kennlinie sind von außen ununterscheidbar.
+F: Was ist ein aktiver Zweipol?
+A: Ein aus der Schaltung herausgetrenntes Netzwerk mit zwei Anschlussklemmen, in dem Quellen stecken. Der Rest der Welt „sieht" von ihm nur die Klemmengrößen Spannung und Strom.
+F: Welche drei Größen legen die Ersatzquelle fest, und wie hängen sie zusammen?
+A: Leerlaufspannung $U_L$, Kurzschlussstrom $I_K$ und Innenwiderstand $R_i=U_L/I_K$. Zwei davon sind die bekannten Grenzfälle, die dritte folgt aus ihnen.
+F: Wie misst man $U_L$ und $I_K$ konkret?
+A: $U_L$ ist die Spannung zwischen den offenen Klemmen (kein Verbraucher, Strom null), $I_K$ der Strom bei direkt verbundenen Klemmen (Spannung null). Es sind die beiden Extremfälle der Belastung.
+F: Wie bestimmt man $R_i$ über das Deaktivieren der Quellen?
+A: Man ersetzt jede ideale Spannungsquelle durch einen Kurzschluss und jede ideale Stromquelle durch eine Unterbrechung und fasst das verbleibende Widerstandsnetz zwischen den Klemmen zusammen. Das ergibt denselben $R_i$ wie $U_L/I_K$.
+F: Warum ersetzt man Spannungsquellen durch Draht und Stromquellen durch eine Lücke?
+A: Man ersetzt jede Quelle durch ihren eigenen Innenwiderstand: eine ideale Spannungsquelle hat $R_i=0$ (Draht), eine ideale Stromquelle $R_i\to\infty$ (offene Stelle). Übrig bleibt nur noch das Widerstandsnetz, das das Klemmenverhalten bestimmt.
+F: Was ist der große praktische Vorteil der Ersatzquelle bei wechselnder Last?
+A: $U_L$ und $R_i$ hängen nur vom Netzwerk ab, nicht vom Verbraucher. Ändert man $R_L$, setzt man es einfach in $I=U_L/(R_i+R_L)$ ein, ohne das ganze Netz neu zu berechnen.
+F: Wie hängen Thévenin- und Norton-Form zusammen?
+A: Sie sind per Quellenumwandlung dasselbe: $I_K=U_L/R_i$ und derselbe $R_i$, einmal in Reihe (Thévenin), einmal parallel (Norton). Beide beschreiben denselben Zweipol mit identischem Klemmenverhalten.
+F: Wann ist die Spannungs-, wann die Stromform bequemer?
+A: Die Thévenin-Form ist handlich bei hochohmiger Last (viel größer als $R_i$), die Norton-Form bei niederohmiger. Das Ergebnis ist in beiden Fällen gleich — es ist reine Rechenbequemlichkeit.
+F: Worauf beruht der ganze Zweipolsatz letztlich?
+A: Auf der Linearität aller Bauteile, die eine geradlinige Klemmen-Kennlinie garantiert. Ohne Linearität (z. B. mit einer Diode im Netz) wäre die Kennlinie gekrümmt und nicht durch eine einzige reale Quelle darstellbar.
+:::
