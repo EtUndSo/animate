@@ -109,3 +109,26 @@ maximale Leistung und maximaler Wirkungsgrad schließen sich aus.
 
 Bleibt ein letzter, allgemeinerer Baustein: Bauteile mit **vier** Anschlüssen, die ein Eingangs- mit einem
 Ausgangstor verknüpfen — die __Zweitore__.
+
+:::quiz
+F: Warum erwärmt sich ein stromdurchflossener Widerstand?
+A: Die driftenden Elektronen stoßen ständig mit den Gitterbausteinen zusammen und geben dabei Bewegungsenergie ab. Diese Energie erscheint als Wärme — die Joulesche Wärme.
+F: Warum sind $P=UI$, $P=I^2R$ und $P=U^2/R$ dieselbe Aussage?
+A: Sie entstehen auseinander durch Einsetzen des Ohmschen Gesetzes $U=RI$. Man wählt die Form, in der die gerade bekannten Größen stehen.
+F: Warum hält man in der Energieübertragung den Strom klein und die Spannung hoch?
+A: Die Verlustleistung in den Leitungen ist $I^2R$, also quadratisch im Strom — halber Strom bedeutet nur ein Viertel Verlust. Dieselbe Leistung $P=UI$ überträgt man daher lieber mit hoher Spannung und kleinem Strom.
+F: Warum gibt es überhaupt einen optimalen Lastwiderstand für maximale Leistung?
+A: Bei kleinem $R_L$ fließt viel Strom, aber es liegt kaum Spannung an; bei großem $R_L$ ist es umgekehrt. Das Produkt $P=UI$ ist dazwischen maximal — bei $R_L=R_i$.
+F: Wie leitet man die Anpassungsbedingung $R_L=R_i$ her?
+A: Man schreibt $P_L=U_0^2 R_L/(R_i+R_L)^2$ und maximiert nach $R_L$, indem man die Ableitung null setzt. Das liefert als Optimum $R_L=R_i$.
+F: Wie groß ist die maximal übertragbare Leistung?
+A: Setzt man $R_L=R_i$ ein, ergibt sich $P_\text{max}=U_0^2/(4R_i)$. Mehr als dieses Viertel von $U_0^2/R_i$ kann die Quelle an keinen Verbraucher abgeben.
+F: Warum ist der Wirkungsgrad bei Leistungsanpassung nur 50 %?
+A: Bei $R_L=R_i$ sind Last- und Innenwiderstand gleich, sodass in beiden gleich viel Leistung umgesetzt wird. Die Hälfte geht als Wärme im Innenwiderstand der Quelle verloren, $\eta=R_L/(R_i+R_L)=1/2$.
+F: Warum schließen sich maximale Leistung und maximaler Wirkungsgrad aus?
+A: Maximale Leistung verlangt $R_L=R_i$ (η = 50 %), hoher Wirkungsgrad dagegen $R_L\gg R_i$. Je effizienter man überträgt, desto kleiner wird die absolute Leistung — beide Ziele liegen auf entgegengesetzten Seiten des Optimums.
+F: Wann wählt man Leistungsanpassung, wann hohen Wirkungsgrad?
+A: Anpassung ($R_L=R_i$) nutzt man, wo es auf die maximale Leistung ankommt und Verluste zweitrangig sind — etwa bei schwachen Signalen in der Nachrichten- und Messtechnik. Hoher Wirkungsgrad ($R_L\gg R_i$) gilt der Energieübertragung in Kraftwerk und Netzteil.
+F: Was bedeutet die quadratische Stromabhängigkeit der Leistung für einen verdoppelten Strom?
+A: Bei doppeltem Strom vervierfacht sich die umgesetzte Leistung ($P\propto I^2$). Deshalb steigen Verluste und Erwärmung überproportional, wenn der Strom wächst.
+:::
