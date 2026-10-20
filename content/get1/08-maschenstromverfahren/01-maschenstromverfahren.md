@@ -89,3 +89,26 @@ dann __Zweigströme__ als Maschenstrom bzw. als **Differenz** zweier Maschenstr�
 
 Das Gegenstück dazu — mit Knotenpotentialen statt Maschenströmen als Unbekannten — ist das
 __Knotenpotentialverfahren__, das sich besonders für Netze mit vielen Zweigen zwischen wenigen Knoten eignet.
+
+:::quiz
+F: Warum reduziert das Maschenstromverfahren die Zahl der Unbekannten gegenüber direktem Kirchhoff?
+A: Statt eines Zweigstroms pro Zweig ($z$ Unbekannte) nutzt man nur einen Maschenstrom pro unabhängiger Masche ($m=z-(k-1)$). Das sind deutlich weniger Gleichungen, weil die Knotenregel schon eingebaut ist.
+F: Warum ist die Knotenregel bei Maschenströmen automatisch erfüllt?
+A: Ein umlaufender Maschenstrom tritt in jeden Knoten seiner Masche genauso ein wie aus. Seine Bilanz an jedem Knoten ist damit von vornherein null, sodass keine Knotengleichung mehr nötig ist.
+F: Warum wandelt man zuerst alle Stromquellen in Spannungsquellen um?
+A: Das Verfahren bilanziert in jeder Masche Spannungen (Maschenregel). Nur Spannungsquellen fügen sich direkt in diese Spannungsbilanz ein, deshalb bringt man alle Quellen vorab in diese Form.
+F: Was bedeutet der Diagonaleintrag $R_{ii}$ der Widerstandsmatrix?
+A: Er ist die Summe aller Widerstände, die der Maschenstrom $i$ auf seinem Umlauf durchfließt. Diese „Eigenwiderstände" der Masche stehen auf der Hauptdiagonale.
+F: Was bedeutet der Außerdiagonaleintrag $R_{ij}$, und warum oft negativ?
+A: Er ist der von Masche $i$ und $j$ gemeinsam genutzte Widerstand. Durchfließen ihn die beiden (gleichsinnig gewählten) Maschenströme gegenläufig, bekommt er ein Minuszeichen.
+F: Warum ist die Widerstandsmatrix symmetrisch?
+A: Der gemeinsame Widerstand zweier Maschen ist derselbe, egal von welcher aus man ihn betrachtet, also $R_{ij}=R_{ji}$. Diese Symmetrie dient zugleich als Kontrolle beim Aufstellen.
+F: Wie bestimmt man das Vorzeichen der Quellenspannung auf der rechten Seite?
+A: Treibt die Quelle in Richtung des Maschenstroms, zählt sie positiv, sonst negativ. Maßgeblich ist, ob sie den angenommenen Umlaufsinn unterstützt oder ihm entgegenwirkt.
+F: Wie gewinnt man aus den Maschenströmen die tatsächlichen Zweigströme zurück?
+A: Ein Zweig, der nur zu einer Masche gehört, führt deren Maschenstrom; ein von zwei Maschen geteilter Zweig führt die Differenz der beiden Maschenströme. So setzt sich jeder reale Zweigstrom aus den fiktiven Umläufen zusammen.
+F: Warum trägt der gemeinsame Zweig gerade die Differenz zweier Maschenströme?
+A: Beide Maschenströme fließen durch ihn, bei gleichsinniger Wahl aber in entgegengesetzter Richtung. Der reale Strom ist ihre vorzeichenrichtige Überlagerung, also die Differenz.
+F: Für welche Netze ist das Maschenstromverfahren besonders günstig?
+A: Für Netze mit wenigen unabhängigen Maschen, aber vielen Zweigen — dann ist $m=z-(k-1)$ klein und das Gleichungssystem kompakt. Bei vielen Zweigen zwischen wenigen Knoten lohnt eher das Knotenpotentialverfahren.
+:::
