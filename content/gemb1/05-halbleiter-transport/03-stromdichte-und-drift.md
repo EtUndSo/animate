@@ -161,3 +161,26 @@ $v_{\text{drift}}=\mu E$, __Leitfähigkeit__ $\sigma=en\mu$.
 Der Drift ist die eine treibende Kraft für Strom — das elektrische Feld. Es gibt eine zweite, rein statistische:
 ein **Konzentrationsgefälle** der Ladungsträger. Diese __Diffusion__ und ihre enge Verwandtschaft mit der
 Beweglichkeit (die __Einstein-Beziehung__) sind das Thema des nächsten Artikels.
+
+:::quiz
+F: Warum erzeugt nicht die Zahl der Elektronen den Strom, sondern die Asymmetrie der Besetzung?
+A: Zu jedem Zustand $+k$ mit Geschwindigkeit $v$ gibt es einen Partner $-k$ mit $-v$. Sind beide gleich besetzt, heben sich ihre Beiträge paarweise auf — Strom entsteht erst, wenn eine Richtung stärker besetzt ist als die andere.
+F: Warum trägt ein vollständig gefülltes Band keinen Strom, obwohl es die meisten Elektronen enthält?
+A: Im vollen Band ist zu jedem $+k$ auch $-k$ besetzt, und wegen $v(-k)=-v(k)$ summieren sich alle Geschwindigkeiten zu null. Die Elektronen sind da, aber ihre Bewegungen kompensieren sich exakt.
+F: Warum fließt im thermischen Gleichgewicht trotz endlicher Temperatur kein Strom?
+A: Die Gleichgewichtsbesetzung $f(k)$ ist symmetrisch in $k$ — thermisch angeregte Elektronen laufen in beide Richtungen gleich häufig. Erst ein äußeres Feld bricht diese Symmetrie und erzeugt einen Nettostrom.
+F: Wie macht ein elektrisches Feld die Besetzung asymmetrisch?
+A: Die Kraft $F=-eE$ ändert über $\hbar\,dk/dt=F$ den Kristallimpuls aller Elektronen gleichmäßig, sodass sich die gesamte Besetzungswolke im $k$-Raum um $\delta k$ verschiebt. Danach gibt es mehr Elektronen mit $v>0$ als mit $v<0$.
+F: Was ist eine Bloch-Oszillation und warum folgt sie aus der Bewegungsgleichung?
+A: $k(t)=k(0)+Ft/\hbar$ lässt das Elektron im $k$-Raum immer weiterklettern; am Zonenrand wird es Bragg-reflektiert und läuft zurück. Ohne Störung pendelt es so periodisch, und im zeitlichen Mittel fließt kein Strom.
+F: Warum ist ausgerechnet Streuung die Voraussetzung für einen stationären Gleichstrom?
+A: Sie wirft das Elektron aus seinem Zustand, bevor es den Zonenrand erreicht, und bricht so die Bloch-Oszillation ab. Übrig bleibt eine konstante kleine Verschiebung der Verteilung — also ein stetiger Strom statt einer Pendelbewegung.
+F: Warum beschleunigt das Elektron im Feld nicht unbegrenzt zu unendlichem Strom?
+A: Jeder Stoß vernichtet im Mittel den gewonnenen Impuls, und die Beschleunigung beginnt von vorn. Das führt zu einer endlichen, feldproportionalen Driftgeschwindigkeit statt ewiger Beschleunigung.
+F: Wovon hängt die Beweglichkeit $\mu=e\tau/m^\star$ ab?
+A: Sie ist groß, wenn die Streuzeit $\tau$ groß ist (das Elektron wird selten gestoßen) und die effektive Masse $m^\star$ klein (es reagiert leicht auf das Feld). Beide Faktoren bestimmen, wie schnell ein Ladungsträger bei gegebenem Feld driftet.
+F: Warum streuen Ladungsträger bei tiefer und bei hoher Temperatur an verschiedenen Partnern?
+A: Bei hoher Temperatur sind viele Gitterschwingungen angeregt, also dominiert die Phononenstreuung. Bei tiefer Temperatur verschwinden die Phononen, und die Coulomb-Streuung an ionisierten Störstellen übernimmt.
+F: Warum addieren sich im Halbleiter die Leitfähigkeiten von Elektronen und Löchern?
+A: Beide Sorten driften unabhängig im selben Feld und tragen jeweils eigene Ladung in ihre Richtung. Ihre Strombeiträge $e n\mu_n$ und $e p\mu_p$ fließen parallel, sodass sich $\sigma=\sigma_n+\sigma_p$ ergibt.
+:::
