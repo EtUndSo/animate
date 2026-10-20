@@ -11,7 +11,7 @@
 <section class="sect">
 <h2 id="der-sagezahn">Der Sägezahn</h2>
 <p>Betrachte die $2\pi$-periodische Fortsetzung von</p>
-<p>$$\textcolor{#e5383b}{f(x):=\begin{cases}0, & x}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0,\\[1mm] \dfrac{\pi-x}{2}, & x\in(0,2\pi).\end{cases}}$$</p>
+<p>$$f(x):=\begin{cases}0, & x=0,\\[1mm] \dfrac{\pi-x}{2}, & x\in(0,2\pi).\end{cases}$$</p>
 <p>Diese Funktion ist (um den Mittelpunkt) <strong>ungerade</strong>, also eine reine Sinusreihe. Die Rechnung $\textcolor{#e5383b}{b_k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1\pi\int_0^{2\pi} \frac{\pi-x}{2}\sin(kx)\,dx}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1k}$ (partielle Integration) liefert $\textcolor{#e5383b}{a_k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ und das Resultat</p>
 <p>$$\textcolor{#e5383b}{f(x)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{k=1}^\infty\frac{\sin(kx)}{k}\qquad\text{für alle } x\in\mathbb{R}.}$$</p>
 <p><strong>Konvergenzverhalten.</strong> Die Reihe konvergiert für jedes $\delta>0$ <strong>gleichmäßig</strong> auf $[\delta,2\pi-\delta]$ — aber <strong>nicht</strong> gleichmäßig über den Sprung bei $\textcolor{#e5383b}{x}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ hinweg. Das zeigt man über die Partialsummen: Mit $\textcolor{#e5383b}{\sum_{k=1}^N\frac {\sin(kx)}{k}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_\pi^x\sum_{k=1}^N\cos(ky)\,dy}$ und dem <strong class="nm">Dirichlet-Kern</strong> (Lemma 7.8)</p>

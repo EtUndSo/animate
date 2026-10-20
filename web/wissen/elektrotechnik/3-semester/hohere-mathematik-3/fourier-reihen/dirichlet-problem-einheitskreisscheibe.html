@@ -11,7 +11,7 @@
 <section class="sect">
 <h2 id="das-problem-und-der-separationsansatz">Das Problem und der Separationsansatz</h2>
 <p>Auf der Einheitskreisscheibe $\textcolor{#e5383b}{D}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\{(x,y):x^2+y^2<1\}}$ und zu stetigen Randwerten $g:\partial D\to\mathbb{R}$ sucht man die Lösung des <strong class="nm">Dirichlet-Problems</strong></p>
-<p>$$\textcolor{#e5383b}{\begin{cases}\Delta u}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0 & \text{in } D,\\ u}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{g & \text{auf } \partial D.\end{cases}}$$</p>
+<p>$$\begin{cases}\Delta u=0 & \text{in } D,\\ u=g & \text{auf } \partial D.\end{cases}$$</p>
 <p>Man entwickelt die stetige $2\pi$-periodische Randfunktion $\theta\mapsto g(e^{i\theta})$ in eine Fourier-Reihe $\textcolor{#e5383b}{g(e^{i\theta})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{k\in\mathbb{Z}}c_k e^{ik\theta}}$ und sucht $u$ in Polarkoordinaten, $\textcolor{#e5383b}{u(re^{i\theta})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{v(r,\theta)}$. Die Laplace-Gleichung lautet dort</p>
 <p>$$\textcolor{#e5383b}{\frac{\partial^2 v}{\partial r^2}+\frac1r\frac{\partial v}{\partial r}+\frac{1}{r^2}\frac{\partial^2 v}{\partial\theta^2}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0, \qquad v(1,\theta)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{g(e^{i\theta}).}$$</p>
 <p>Der <strong class="nm">Separationsansatz</strong> $\textcolor{#e5383b}{v_k(r,\theta)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{A_k(r)\,e^{ik\theta}}$ führt auf die gewöhnliche (Euler-)Differentialgleichung</p>

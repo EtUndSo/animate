@@ -18,8 +18,13 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
 4. Immer das **WARUM** / den konkreten Mechanismus; nie nur behaupten.
 5. **Exakt**: Räume/Definitionsbereiche und Voraussetzungen jeder Aussage nennen.
 6. **Kürzere Absätze** — ein Gedanke pro Absatz, Leerzeile dazwischen.
-7. **Behauptungen belegen:** Was sich in wenigen Zeilen begründen lässt (Eindeutigkeit, Äquivalenzen, „A ⇒ B",
-   Rechenregeln), bekommt eine `:::herleitung` — nicht nur „es gilt" hinschreiben.
+7. **Alles herleiten, was keine Definition ist** (User 2026-10-20: „Es gibt noch viel zu wenige Herleitungen. Die
+   Produktregeln mit einem Skalarfeld wurden z. B. überhaupt nicht hergeleitet. Steht einfach so dort"): Jede
+   Formel, Rechenregel, Identität, Abschätzung, jeder Satz und jeder Spezialfall, der keine reine Definition ist,
+   bekommt eine `:::herleitung` — gerade auch „einfache" Regeln wie Produktregeln. Nie „es gilt …" ohne Begründung.
+   Nur wenn ein Beweis klar über den Kursrahmen hinausgeht (z. B. Lebesgue-Theorie), sagt man das ausdrücklich und
+   skizziert in der Box wenigstens die Beweisidee. Lieber eine Herleitung zu viel als eine zu wenig — sie ist
+   eingeklappt und stört den Lesefluss nicht.
 8. **Konkret machen:** Abstrakte Aussagen an echten Zahlen zeigen (z. B. eine Jacobi-Matrix an zwei konkreten
    Punkten auswerten und deuten). Aussagen der Art „gilt nicht immer" mit einem konkreten **Gegenbeispiel** samt
    Rechnung belegen.
@@ -36,8 +41,8 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
 ## 2. Formeln
 - **Jede Formel steht auf einer eigenen Zeile** (`$$…$$`). Nie eine stehende Formel inline im Fließtext, erst
   recht keine Formel-**Ketten** im Text — das gilt auch für den Text in `:::herleitung`. Inline erlaubt sind nur
-  einzelne Symbole und Objektnamen ($x$, $\nabla f$, $\hat e_r$, $\mathbb{R}^n$) und kurze Parameterangaben
-  ($m=1$, $k\ge2$, $|v|=1$). Jede Gleichung oder Ungleichung, die einen **Zusammenhang** aussagt, und jede
+  einzelne Symbole und Objektnamen ($\vec x$, $\nabla f$, $\vec e_r$, $\mathbb{R}^n$) und kurze Parameterangaben
+  ($m=1$, $k\ge2$, $|\vec v|=1$). Jede Gleichung oder Ungleichung, die einen **Zusammenhang** aussagt, und jede
   Funktionsvorschrift in Beispielen gehört auf eine eigene Zeile. In `:::kern`-Bullets ist höchstens eine kurze
   Formel pro Bullet erlaubt.
 - **Teilmengen immer mit Grundraum** (User 2026-10-20): $U\subseteq\mathbb{R}^n$ bzw. $U\subseteq\mathbb{R}^3$,
@@ -65,7 +70,7 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
   **Gesetz**, **Formel** (Default, wenn nichts angegeben). Die Box wird **automatisch nummeriert** (fortlaufend
   pro Artikel, oben rechts `(1)`, `(2)`, …) → im Text referenzierbar („nach Formel (2)").
 - **Jede Formel erklären**: Eingabe → Ausgabe mit **Typen** und jedes Symbol. Beispiel Kurve
-  $\gamma:[a,b]\to\mathbb{R}^n$: Eingabe = **Skalar** $t$, Ausgabe = **Vektor** (Ortskoordinaten); Pfeil $\to$
+  $\vec\gamma:[a,b]\to\mathbb{R}^n$: Eingabe = **Skalar** $t$, Ausgabe = **Vektor** (Ortskoordinaten); Pfeil $\to$
   nennt die **Räume**, $\mapsto$ die **Zuordnung**. Bei Skalarprodukt-Integranden: „zwei Vektoren → eine Zahl".
 - **Herleitung IMMER als ausklappbare Box an der Formel**: `:::herleitung` … `:::` → eingeklappt. Sichtbar
   bleiben Konzept + Ergebnis-Formel; die formale Herleitung ist aufklappbar. In `:::herleitung` nur
@@ -144,8 +149,9 @@ Prüfliste:
 4. **Formeln:** keine Gleichungen oder Formelketten im Fließtext (auch nicht in Herleitungen); jede wichtige Formel
    erklärt (Eingabe → Ausgabe, Symbole); Boxen nur für die wichtigsten, mit passendem Typ-Label; Pfeil-Notation
    (jede vektorielle Größe mit Pfeil, §2) — auch in `:::kern`, `:::quiz` und `:::grafik`.
-5. **Herleitungen:** jede Aussage, die sich kurz begründen lässt, hat eine `:::herleitung`; Herleitungen erklären
-   jeden Schritt.
+5. **Herleitungen:** JEDE nicht-definitorische Formel/Regel/Identität/Abschätzung hat eine `:::herleitung` (§1 Nr. 7)
+   — beim Review jede Formel einzeln durchgehen und fragen „Ist das eine Definition? Wenn nein: Wo ist die
+   Herleitung?"; Herleitungen erklären jeden Schritt und deuten ihn im Bild.
 6. **Konkret:** mindestens ein Zahlenbeispiel; „gilt nicht immer"-Aussagen mit konkretem Gegenbeispiel.
 7. **Lesbarkeit:** Der Anschaulich-Einstieg trägt das Konzept; kurze Absätze (ein Gedanke); Abschnitte sinnvoll
    geschnitten.

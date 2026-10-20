@@ -26,7 +26,7 @@
 <h2 id="rezept-und-beispiel">Rezept und Beispiel</h2>
 <p><strong class="step">Schritt 1</strong> — Stromquellen in Spannungsquellen umwandeln, unabhängige Maschen festlegen, in jede einen Maschenstrom (z. B. alle im Uhrzeigersinn) einzeichnen.</p>
 <p><strong class="step">Schritt 2</strong> — die Widerstandsmatrix nach obiger Regel hinschreiben. Für zwei Maschen, die sich den Widerstand $R_2$ teilen (Masche 1 mit $U_0, R_1, R_2$; Masche 2 mit $R_2, R_3$):</p>
-<p>$$\textcolor{#e5383b}{\begin{aligned} (R_1 + R_2)\,I_1 \;-\; R_2\,I_2 &}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ U_0,\\ -\,R_2\,I_1 \;+\; (R_2 + R_3)\,I_2 &}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ 0. \end{aligned}}$$</p>
+<p>$$\begin{aligned} (R_1 + R_2)\,I_1 \;-\; R_2\,I_2 &= U_0,\\ -\,R_2\,I_1 \;+\; (R_2 + R_3)\,I_2 &= 0. \end{aligned}$$</p>
 <p><strong class="step">Schritt 3</strong> — das Gleichungssystem nach den Maschenströmen $I_1, I_2$ auflösen (einsetzen, Cramersche Regel oder Gauß).</p>
 <p><strong class="step">Schritt 4</strong> — die gesuchten <strong class="nm">Zweigströme</strong> zurückgewinnen: Ein Zweig, der nur zu einer Masche gehört, trägt deren Maschenstrom; ein von zwei Maschen geteilter Zweig trägt die <strong>Differenz</strong> der beiden Maschenströme (im Beispiel fließt durch $R_2$ der Strom $I_1 - I_2$).</p>
 <aside class="callout cx-grafik"><div class="callout-h">Abbildung</div><p>Die 2×2-Widerstandsmatrix des Beispiels mit hervorgehobener Struktur: Diagonale $R_1+R_2$ und $R_2+R_3$ (Summe je Masche), Nebendiagonale $-R_2$ (gemeinsamer Widerstand, negativ), rechte Seite $U_0$ und $0$.</p></aside>

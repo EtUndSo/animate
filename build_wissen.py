@@ -72,6 +72,14 @@ def colorize_math(s):
     segs, rels, depth, last, i = [], [], 0, 0, 0
     while i < len(s):
         c = s[i]
+        # Umgebungen (cases, pmatrix …) zählen wie eine Klammer: ein '=' darin (etwa „x=0" in einer
+        # Fallunterscheidung) darf nie trennen, sonst landen \begin und \end in verschiedenen \textcolor-Gruppen.
+        if s.startswith("\\begin{", i):
+            j = s.find("}", i + 7)
+            depth += 1; i = (j + 1) if j != -1 else len(s); continue
+        if s.startswith("\\end{", i):
+            j = s.find("}", i + 5)
+            depth -= 1; i = (j + 1) if j != -1 else len(s); continue
         if c == "{":
             depth += 1; i += 1; continue
         if c == "}":
