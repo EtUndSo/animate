@@ -99,3 +99,26 @@ rechnen muss.
 Damit ist der Operationsverstärker — und mit ihm der gesamte Grundkurs „Grundgebiete der Elektrotechnik 1 —
 Einführung in die Schaltungsanalyse" — abgeschlossen: von der Ladung über Felder, Kondensator und Netzwerke bis
 zu Diode, Transistor und Operationsverstärker.
+
+:::quiz
+F: Was besagt das Verstärkungs-Bandbreite-Produkt?
+A: Das Produkt aus eingestellter Verstärkung und zugehöriger Grenzfrequenz ist konstant und gleich der Transitfrequenz $f_T$ ($V\cdot f_g=f_T$). Verstärkung und nutzbare Bandbreite sind damit fest gegeneinander gekoppelt.
+F: Warum sinkt bei höherer Verstärkung die nutzbare Bandbreite?
+A: Weil $V\cdot f_g$ konstant bleibt: Wählt man $V$ größer, muss $f_g$ im selben Maß kleiner werden. Ein OPV mit $f_T=1\,$MHz liefert bei 100-facher Verstärkung nur noch 10 kHz Bandbreite.
+F: Was ist die Transitfrequenz $f_T$?
+A: Die Frequenz, bei der die Leerlaufverstärkung auf 1 abgesunken ist. Oberhalb davon kann der OPV nicht mehr verstärken; sie ist die obere Schranke für das Verstärkungs-Bandbreite-Produkt.
+F: Was begrenzt die Slew Rate, und wobei macht sie sich bemerkbar?
+A: Sie ist die maximale Änderungsrate der Ausgangsspannung ($V/\mu s$). Verlangt ein großes, schnelles Signal einen steileren Anstieg, kann der Ausgang nicht folgen — aus steilen Flanken werden Rampen, ein Sinus wird zum Dreieck.
+F: Worin unterscheiden sich Bandbreite und Slew Rate als Tempogrenzen?
+A: Die Bandbreite begrenzt vor allem kleine Signale (frequenzabhängige Verstärkung), die Slew Rate große, schnelle Signale (maximale Anstiegsgeschwindigkeit). Erst beide zusammen bestimmen, wie schnell ein OPV wirklich ist.
+F: Was ist die Offsetspannung, und woher kommt sie?
+A: Die kleine Eingangsspannung, die man anlegen müsste, damit der Ausgang bei gleichen Eingängen exakt null wird. Sie entsteht durch unvermeidliche Fertigungsunsymmetrien zwischen den beiden Eingängen.
+F: Warum ist die Offsetspannung mehr als eine Winzigkeit?
+A: Sie wird wie jedes Eingangssignal mit der Schaltungsverstärkung multipliziert und erscheint als konstanter Fehler am Ausgang. Bei hoher Verstärkung oder Präzisionsmessung kann dieser Fehler erheblich werden.
+F: Welche Idealannahme verletzen die Eingangsruheströme?
+A: Die Annahme eines unendlichen Eingangswiderstands (goldene Regel: kein Eingangsstrom). Real fließen kleine Bias-Ströme in die Eingänge, die an den äußeren Widerständen zusätzliche Fehlerspannungen erzeugen.
+F: Warum erreicht der Ausgang die Versorgungsspannung nicht ganz?
+A: Die internen Endstufen haben einen Restspannungsabfall, sodass die maximale Ausgangsspannung etwas unter den Versorgungsschienen bleibt. Spezielle „Rail-to-Rail"-OPV kommen besonders nah heran, aber nie exakt dran.
+F: Was beschreibt die Gleichtaktunterdrückung (CMRR)?
+A: Das Verhältnis von Differenz- zu Gleichtaktverstärkung — wie gut der OPV ein gemeinsames Eingangsniveau ignoriert und nur die Differenz verstärkt. Ideal wäre es unendlich; real liegt es bei $10^3$ bis $10^5$, sodass Gleichtaktstörungen stark, aber nicht vollständig unterdrückt werden.
+:::
