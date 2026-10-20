@@ -18,10 +18,21 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
 4. Immer das **WARUM** / den konkreten Mechanismus; nie nur behaupten.
 5. **Exakt**: Räume/Definitionsbereiche und Voraussetzungen jeder Aussage nennen.
 6. **Kürzere Absätze** — ein Gedanke pro Absatz, Leerzeile dazwischen.
+7. **Behauptungen belegen:** Was sich in wenigen Zeilen begründen lässt (Eindeutigkeit, Äquivalenzen, „A ⇒ B",
+   Rechenregeln), bekommt eine `:::herleitung` — nicht nur „es gilt" hinschreiben.
+8. **Konkret machen:** Abstrakte Aussagen an echten Zahlen zeigen (z. B. eine Jacobi-Matrix an zwei konkreten
+   Punkten auswerten und deuten). Aussagen der Art „gilt nicht immer" mit einem konkreten **Gegenbeispiel** samt
+   Rechnung belegen.
+9. **Keine undefinierten Symbole:** Jedes Symbol und jede Dimension (z. B. $p$ in $\mathbb{R}^p$) vor der ersten
+   Benutzung einführen; kein Symbol doppelt belegen (z. B. $h$ nicht zugleich als Schritt und als Funktion).
 
 ## 2. Formeln
 - **Jede Formel steht auf einer eigenen Zeile** (`$$…$$`). Nie eine stehende Formel inline im Fließtext, erst
-  recht keine Formel-**Ketten** im Text. (Kurze Symbol-Definitionen in einem Satz, z. B. „mit $R_1$", sind ok.)
+  recht keine Formel-**Ketten** im Text — das gilt auch für den Text in `:::herleitung`. Inline erlaubt sind nur
+  einzelne Symbole und Objektnamen ($x$, $\nabla f$, $\hat e_r$, $\mathbb{R}^n$) und kurze Parameterangaben
+  ($m=1$, $k\ge2$, $|v|=1$). Jede Gleichung oder Ungleichung, die einen **Zusammenhang** aussagt, und jede
+  Funktionsvorschrift in Beispielen gehört auf eine eigene Zeile. In `:::kern`-Bullets ist höchstens eine kurze
+  Formel pro Bullet erlaubt.
 - **Nur die wichtigsten** Formeln kommen in eine **Box**:
   `:::formel <Typ>` … `:::` — `<Typ>` ist das Label oben links: **Definition**, **Satz**, **Lemma**,
   **Gesetz**, **Formel** (Default, wenn nichts angegeben). Die Box wird **automatisch nummeriert** (fortlaufend
@@ -76,13 +87,15 @@ Zum Schluss:
   Reihenfolge: **HöMa3 komplett zuerst**, dann `mmet`, `gemb1`, `get1`.
 - „Noch nicht überarbeitet" = Quelldatei enthält `:::konzept`. Nächster offener Artikel = **erster** HöMa3-Artikel
   mit `:::konzept` (in `find … | sort`-Reihenfolge).
-- Inhaltsquelle: der **bestehende** Artikel (fachlich schon ok) + bei Bedarf HöMa3-Skript
-  `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf` und der ET4-Ordner als Stilvorbild. Alle wichtigen Inhalte der Quelle
-  müssen enthalten bleiben.
+- **Jeden Artikel von Grund auf NEU schreiben (leere Seite).** Die Struktur ist nach diesem Bauplan ohnehin
+  komplett anders — nicht die alten Artikel umbauen. Inhaltsquelle ist das **Skript** (HöMa3:
+  `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf`, passende Seiten/Kapitel) plus der ET4-Ordner als Stilvorbild. Der
+  bestehende Artikel dient **höchstens** als schneller Vollständigkeits-Check (welche Themen/Formeln vorkommen),
+  **nicht** als Struktur- oder Textvorlage. Alle wichtigen Inhalte/Formeln der Skript-Quelle müssen enthalten sein.
 - **Pro Tick genau ein Artikel**: auswählen → komplett neu im Bauplan-Stil schreiben →
   `PYTHONIOENCODING=utf-8 python build_wissen.py` (muss grün sein, „✓ … Artikel") →
   grep-Check `grep -o 'details class="quiz-item"' <html> | wc -l` == 10 → **committen**
-  (KEIN Push; Attribution `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>` +
+  (KEIN Push; Attribution `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>` +
   `Claude-Session: https://claude.ai/code/session_011k5g5E9cexRssEPuRKzSTZ`).
 - **Editor/Animationen laufen NICHT im Loop** (hohe Fehlerrate, baut aufeinander auf) — separat, wenn der User
   aktiv mitschauen kann.
@@ -92,3 +105,22 @@ Inhaltsverzeichnis-Start (Marker = Pfeil →), Abschnitts-Karten, größere Form
 Stichpunkte, Nachbar-Spalten am Ende (vorheriger | nächster Artikel mit Themen-Stichpunkten), linke Baumspalte
 beim Öffnen **eingeklappt** (Textblock bleibt an gleicher Position), Panel-Buttons **mittig** in der oberen
 Leiste, Formel-Boxen mit Typ-Label + Nummer.
+
+## 8. Review-Checkliste
+Gilt für jeden Artikel — beim Neuschreiben vor dem Commit, beim Überarbeiten (Phase A, `REVIEW_OPUS55.md`) als
+Prüfliste:
+1. **Korrektheit:** Rechnungen nachrechnen; Vorzeichen; Voraussetzungen der Sätze vollständig genannt.
+2. **Vollständigkeit:** alle Definitionen, Sätze, Formeln und Beispiele des Skript-Abschnitts enthalten.
+3. **Von Grund auf:** jeder Begriff, jedes Symbol, jede Dimension vor der ersten Benutzung eingeführt; kein Symbol
+   doppelt belegt; Fachbegriffe bei Erstnennung erklärt.
+4. **Formeln:** keine Gleichungen oder Formelketten im Fließtext (auch nicht in Herleitungen); jede wichtige Formel
+   erklärt (Eingabe → Ausgabe, Symbole); Boxen nur für die wichtigsten, mit passendem Typ-Label.
+5. **Herleitungen:** jede Aussage, die sich kurz begründen lässt, hat eine `:::herleitung`; Herleitungen erklären
+   jeden Schritt.
+6. **Konkret:** mindestens ein Zahlenbeispiel; „gilt nicht immer"-Aussagen mit konkretem Gegenbeispiel.
+7. **Lesbarkeit:** Der Anschaulich-Einstieg trägt das Konzept; kurze Absätze (ein Gedanke); Abschnitte sinnvoll
+   geschnitten.
+8. **`:::kern`:** kurze Bullets, ein Gedanke und höchstens eine Formel pro Bullet.
+9. **`:::quiz`:** genau 10; jede Frage und Antwort vollständig durch den Artikeltext gedeckt.
+10. **`:::grafik`:** Szene-Zeile, präzise Beschreibung der Animation, Farblogik; Grafiken überall dort, wo ein Bild
+    das Verständnis trägt.
