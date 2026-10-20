@@ -163,3 +163,26 @@ die __Dimensionskontrolle__ jede Herleitung auf Plausibilität.
 
 Damit steht das Messwerkzeug. Im nächsten Schritt geht es um die erste große physikalische Erscheinung der
 Elektrotechnik: die __elektrische Ladung__ und das __elektrische Feld__, das sie umgibt.
+
+:::quiz
+F: Warum ist eine physikalische Angabe ohne Einheit wertlos?
+A: Der Zahlenwert sagt nur, *wie viele* einer Bezugsgröße vorliegen, aber nicht *wovon*. Erst die Einheit legt das Bezugsmaß fest — „5" allein kann Ampere, Meter oder Sekunden bedeuten und ist damit nicht interpretierbar.
+F: Warum ändert sich der Zahlenwert, wenn man die Einheit wechselt, der physikalische Wert aber nicht?
+A: Die Größe ist das Produkt $G=\{G\}\cdot[G]$; bleibt $G$ konstant, müssen sich Zahlenwert und Einheit gegenläufig anpassen. Wie bei „5 Euro = 500 Cent" beschreiben $1\,$m und $100\,$cm denselben Wert in anderer Stückelung.
+F: Warum braucht das SI überhaupt Basisgrößen, statt alle Einheiten gleichberechtigt zu behandeln?
+A: Man muss irgendwo anfangen: Sieben nicht aufeinander zurückführbare Größen bilden den Grundstock, aus dem sich alle anderen durch Multiplikation und Division aufbauen lassen. So braucht man nur sieben Festlegungen statt unendlich vieler.
+F: Warum ist es für die Elektrotechnik bedeutsam, dass die Stromstärke eine Basisgröße ist?
+A: Das Ampere wird nicht aus mechanischen Größen abgeleitet, sondern ist selbst ein Grundpfeiler. Die elektrischen Größen stehen damit gleichberechtigt neben Länge, Masse und Zeit und bilden das Fundament, auf dem Ladung, Spannung usw. aufbauen.
+F: Welchen Vorteil bringt es, Einheiten über Naturkonstanten statt über Prototypen zu definieren?
+A: Eine Naturkonstante wie die Elementarladung ist überall im Universum gleich und jederzeit reproduzierbar. Die Definition hängt dann nicht mehr von einem einzelnen aufbewahrten Gegenstand ab, der beschädigt werden oder sich verändern könnte.
+F: Was bedeutet es anschaulich, dass das Ampere seit 2019 an der Elementarladung hängt?
+A: Der Zahlenwert von $e$ ist per Definition exakt festgelegt, sodass ein Ampere einer ganz bestimmten, festen Anzahl Elementarladungen pro Sekunde durch den Querschnitt entspricht. Der Strom ist damit direkt auf das Abzählen von Ladungen zurückgeführt.
+F: Warum tragen manche abgeleiteten Einheiten eigene Namen wie Coulomb oder Newton?
+A: Das ist reine Bequemlichkeit für häufig gebrauchte Kombinationen; dahinter steckt immer nur ein Produkt der Basiseinheiten (z. B. $1\,$C$=1\,$A·s). Bei Bedarf lässt sich jede dieser Einheiten wieder in m, kg, s und A zerlegen.
+F: Wozu dienen Einheitenvorsätze, und ändern sie den physikalischen Wert?
+A: Sie ersetzen unübersichtliche Zehnerpotenzen durch einen festen Faktor (etwa k für $10^3$), sodass die Zahlen handlich bleiben. Der Vorsatz verschiebt nur das Komma — am physikalischen Wert ändert sich nichts.
+F: Warum rechnen Einheiten in einer Größengleichung einfach mit?
+A: Multipliziert und dividiert man Größen, werden ihre Einheiten wie normale Faktoren mitgeführt und gekürzt. Dadurch entsteht die Einheit des Ergebnisses automatisch aus der Rechnung, z. B. $A\cdot s=C$.
+F: Wie funktioniert die Dimensionskontrolle als Sicherheitsnetz?
+A: Man setzt am Ende einer Herleitung nur die Einheiten ein und prüft, ob die erwartete Einheit herauskommt. Stimmt sie nicht (etwa $A/\Omega$ statt $V=A\cdot\Omega$), steckt ein Fehler im Ansatz — und das zeigt sich, noch bevor man eine Zahl einsetzt.
+:::
