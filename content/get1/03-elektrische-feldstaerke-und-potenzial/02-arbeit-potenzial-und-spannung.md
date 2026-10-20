@@ -125,3 +125,26 @@ __Äquipotentialflächen__ stehen senkrecht auf den Feldlinien, und längs ihnen
 
 Mit Feld, Potenzial und Spannung ist die Elektrostatik beisammen. Das erste Bauelement, das sie alle vereint und
 Ladung gezielt speichert, ist der __Kondensator__ — das Thema des nächsten Kapitels.
+
+:::quiz
+F: Warum ist die Arbeit im Feld im Grunde nur „Kraft mal Weg"?
+A: Das Feld übt auf die Ladung die Kraft $F=qE$ aus; verschiebt man sie längs dieser Kraft über die Strecke $d$, ergibt $W=F\cdot d=qEd$. Es ist dieselbe mechanische Grundformel, nur mit der elektrischen Feldkraft eingesetzt.
+F: Warum zählt nur die Strecke längs der Feldrichtung zur Arbeit?
+A: Arbeit entsteht nur, wenn die Kraft eine Komponente in Bewegungsrichtung hat. Quer zum Feld steht die Kraft senkrecht zum Weg und leistet nichts — wie das waagerechte Tragen eines Koffers keine Hubarbeit kostet.
+F: Warum gibt das Feld einer mitlaufenden positiven Ladung Energie, während man gegen das Feld Energie aufbringen muss?
+A: Das Feld beschleunigt eine positive Ladung in Feldrichtung, gibt also Energie ab. Schiebt man sie umgekehrt gegen das Feld, muss man gegen die Kraft arbeiten — wie beim Anheben eines Gewichts gegen die Schwerkraft.
+F: Warum teilt man die Arbeit durch die Ladung, um das Potenzial zu definieren?
+A: Die Arbeit hängt von der verschobenen Ladung ab; der Quotient $W/q$ kürzt diese Abhängigkeit heraus. Übrig bleibt eine reine Orts-Eigenschaft des Feldes — die potentielle Energie pro Ladung.
+F: Warum braucht das Potenzial einen frei wählbaren Bezugspunkt?
+A: Das Potenzial ist wie eine Höhe, und Höhe hat nur relativ zu einem Nullniveau einen Sinn. Man ordnet einem beliebigen Punkt (oft Erde oder Minuspol) $\varphi=0$ zu; der absolute Zahlenwert allein ist daher nicht aussagekräftig.
+F: Warum ist die Spannung unabhängig von der Wahl des Bezugspunkts?
+A: Sie ist die Differenz $U=\varphi_1-\varphi_2$, und ein gemeinsam addierter Nullpunkt fällt beim Subtrahieren heraus. Deshalb misst man in der Praxis stets Spannungen (Differenzen) statt absoluter Potenziale.
+F: Was bedeutet „eine Spannung von 1 Volt" energetisch?
+A: Wegen $U=W/q$ und $1\,$V$=1\,$J/C liegt 1 Volt vor, wenn pro Coulomb verschobener Ladung ein Joule Energie umgesetzt wird. Die Spannung ist also Energie pro Ladung.
+F: Warum ist die Spannung die Ursache und der Strom die Folge?
+A: Die Spannung ist das Potenzialgefälle, das Ladungen in Bewegung treiben will — wie ein Höhenunterschied das Wasser. Ohne Gefälle kein Antrieb: Strom fließt erst, wenn eine Spannung anliegt.
+F: Warum kostet das Verschieben einer Ladung auf einer Äquipotentialfläche keine Arbeit?
+A: Auf ihr ist das Potenzial überall gleich, es gibt also keine Potenzialdifferenz und damit kein $W=qU$. Wie auf einem waagerechten Weg gleicher Höhe wird keine Energie umgesetzt.
+F: Warum stehen Äquipotentialflächen immer senkrecht auf den Feldlinien?
+A: Gäbe es eine Feldkomponente längs der Fläche, würde Verschieben dort Arbeit kosten — im Widerspruch zur Gleichheit des Potenzials. Also darf das Feld nur senkrecht zur Fläche stehen.
+:::
