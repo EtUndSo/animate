@@ -133,3 +133,26 @@ Wir haben jetzt beide Bausteine: $D(E)$ sagt, **wo** Plätze sind, $f(E)$, **wel
 über die Energie integriert, ergibt die gesuchte __Ladungsträgerdichte__ — Elektronen im Leitungsband und Löcher
 im Valenzband. Das ist das Thema des nächsten Artikels, der die Kette aus Quantenmechanik und Statistik
 abschließt.
+
+:::quiz
+F: Was gibt die Fermi-Dirac-Verteilung $f(E)$ an?
+A: Die Wahrscheinlichkeit (zwischen 0 und 1), dass ein Zustand bei der Energie $E$ im thermischen Gleichgewicht besetzt ist. Zusammen mit der Zustandsdichte sagt sie, welche der vorhandenen Plätze tatsächlich gefüllt sind.
+F: Was bedeutet das Fermi-Niveau $E_f$, und warum muss es kein erlaubter Zustand sein?
+A: $E_f$ ist die Energie mit Besetzungswahrscheinlichkeit $\tfrac12$ — das chemische Potential bzw. der „Wasserstand" der Elektronen. Es ist nur ein Bezugswert der Statistik; bei einem Halbleiter liegt es mitten in der Bandlücke, wo es gar keine Zustände gibt.
+F: Warum ist $f(E_f)=\tfrac12$ bei jeder Temperatur?
+A: Bei $E=E_f$ ist der Exponent $(E-E_f)/k_BT=0$, also $\exp(0)=1$ und $f=\tfrac{1}{1+1}=\tfrac12$. Die Temperatur kürzt sich heraus — deshalb drehen sich alle Kurven um den Fixpunkt $(E_f,\tfrac12)$.
+F: Wie sieht die Verteilung bei $T=0$ aus und warum?
+A: Eine scharfe Stufe: alle Zustände bis $E_f$ besetzt ($f=1$), alle darüber leer ($f=0$). Ohne thermische Energie kann kein Elektron über $E_f$ gehoben werden, und das Pauli-Prinzip füllt die Plätze lückenlos von unten auf.
+F: Was passiert mit der Verteilung bei steigender Temperatur?
+A: Die Stufe weicht auf — in einem Fenster von einigen $k_BT$ um $E_f$ werden manche Zustände darunter leer und manche darüber besetzt. Je höher $T$, desto breiter der Übergang, aber der Fixpunkt $(E_f,\tfrac12)$ bleibt.
+F: Warum folgen Elektronen der Fermi-Dirac- und nicht der Boltzmann-Statistik?
+A: Das Pauli-Prinzip verbietet, dass zwei Elektronen denselben Zustand besetzen — klassische Teilchen dürften sich beliebig häufen. Dieser Zwang „ein Platz, ein Teilchen" führt auf die Sättigung bei $f=1$ und damit die charakteristische Fermi-Dirac-Form.
+F: Was bedeutet die thermische Energie $k_BT$ für die Verteilung?
+A: Sie legt die Breite des Übergangsbereichs fest (bei 300 K rund 26 meV). Nur in einem Fenster von einigen $k_BT$ um $E_f$ ist $f$ weder 0 noch 1 — dort findet die thermische Umverteilung statt.
+F: Wie entsteht aus der Fermi-Funktion die Boltzmann-Näherung?
+A: Weit oberhalb von $E_f$ ($E-E_f\gg k_BT$) ist der Exponentialterm riesig, sodass man im Nenner die 1 vernachlässigen darf. Übrig bleibt $f\approx e^{-(E-E_f)/k_BT}$ — die klassische Boltzmann-Verteilung.
+F: Warum spielt in der Boltzmann-Näherung das Pauli-Prinzip keine Rolle mehr?
+A: Dort ist $f\ll1$, die Plätze sind so dünn besetzt, dass praktisch nie zwei Elektronen um denselben Zustand konkurrieren. Ohne diese Konkurrenz verhalten sich die Elektronen wie klassische, unterscheidbare Teilchen.
+F: Wann versagt die Boltzmann-Näherung?
+A: Bei entarteten Halbleitern, wo $E_f$ durch starke Dotierung an eine Bandkante oder ins Band rückt. Dann ist $E-E_f$ nicht mehr $\gg k_BT$, die 1 im Nenner zählt wieder, und man muss die volle Fermi-Funktion verwenden.
+:::
