@@ -177,7 +177,8 @@ bilden wir die partielle Ableitung nach $x$ zuerst streng nach Definition. Läng
 
 $$\frac{f(x+t,y)-f(x,y)}{t} = \frac{\big((x+t)^2-x^2\big)\,y}{t} = \frac{(2xt+t^2)\,y}{t} = (2x+t)\,y \;\longrightarrow\; 2xy \qquad (t\to0).$$
 
-Die Abkürzung „$y$ wie eine Konstante behandeln" liefert dasselbe sofort, ebenso die Ableitung nach $y$:
+Die Abkürzung „$y$ wie eine Konstante behandeln" liefert dasselbe sofort, ebenso „$x$ wie eine Konstante behandeln" bei
+der Ableitung nach $y$:
 
 $$\frac{\partial f}{\partial x}(x,y) = 2xy, \qquad \frac{\partial f}{\partial y}(x,y) = x^2.$$
 
