@@ -6,128 +6,159 @@ summary: Von Grund auf – warum das Kurvenintegral eines Gradientenfelds nur vo
 tags: erster Hauptsatz, konservatives Feld, Wegunabhängigkeit, Gradientenfeld, Potential, geschlossenes Kurvenintegral, Wirbelfeld, Gebiet
 ---
 
+## Anschaulich
+
+Beim Wirbelfeld-Beispiel des vorigen Artikels kam entlang eines Weges ein echter Wert heraus. Bei anderen Feldern
+aber hängt das Kurvenintegral **nur von Anfangs- und Endpunkt** ab, nicht vom Weg dazwischen.
+
+Denk an eine Höhenlandschaft (ein Potential $h$). Egal, welchen Weg ein Wanderer von $A$ nach $B$ nimmt — sein
+Netto-Höhengewinn ist immer $h(B)-h(A)$. Auf einem **Rundweg** zurück zum Start kommt null heraus.
+
+Felder mit dieser Eigenschaft heißen __konservativ__, und sie sind genau die __Gradientenfelder__ $F=\nabla h$.
+Das Kurvenintegral ist dann schlicht die **Potentialdifferenz** — der Hauptsatz der Differential- und
+Integralrechnung, übertragen auf Wege. In der Physik: „Die Arbeit einer konservativen Kraft ist die Differenz der
+potentiellen Energie" (Spannung = Potentialdifferenz).
+
+Ein Kontrast schärft das Bild: Ein Wirbelfeld um ein kleines **Loch** gibt auf einem Rundweg $2\pi\neq0$ — es hat
+kein Potential. Die Gestalt des Gebiets entscheidet mit.
+
 :::grafik
-Einstiegs-Animation: Eine Höhenlandschaft $h$ (Potential) mit zwei **verschiedenen** Wegen zwischen demselben
-Start- und Zielpunkt. Beide Wege werden abgelaufen; der „Arbeits"-Zähler $\int_\gamma\nabla h\cdot dx$ zeigt am
-Ende **denselben** Wert — nämlich die Höhendifferenz $h(\text{Ziel})-h(\text{Start})$, unabhängig vom Weg. Dann
-ein **geschlossener** Rundweg zurück zum Start: der Zähler landet bei **null**. Daneben, als Kontrast, ein
-Wirbelfeld um ein kleines Loch: Hier gibt ein Rundweg $2\pi\neq0$ — dieses Feld hat kein Potential. Kernbotschaft:
-Für Gradientenfelder zählt nur der Höhenunterschied; Rundwege geben null — außer das Gebiet hat ein Loch.
+Szene: hoema3/kurvenintegrale/02-wegunabhaengig-vs-wirbel · Vorlage: zwei-wege-und-wirbel-2d
+Links eine Höhenlandschaft $h$ mit zwei verschiedenen Wegen zwischen demselben Start und Ziel; beide „Arbeits"-Zähler
+$\int_\gamma\nabla h\cdot dx$ enden beim selben Wert $h(\text{Ziel})-h(\text{Start})$, ein Rundweg bei null. Rechts
+als Kontrast ein Wirbelfeld um ein Loch bei $0$: Rundweg gibt $2\pi\neq0$. (Rot = Potential/Feld, orange = Wege,
+grau = Höhenlinien/Loch.)
 :::
-
-:::konzept
-Beim Wirbelfeld-Beispiel des vorigen Artikels kam entlang eines Weges ein echter Wert heraus — bei anderen
-Feldern aber hängt das Kurvenintegral **nur von Anfangs- und Endpunkt** ab, nicht vom Weg dazwischen. Das sind die
-__konservativen__ Felder, und sie sind genau die __Gradientenfelder__ $F=\nabla h$: Dann ist das Integral schlicht
-die **Potentialdifferenz** $h(\text{Ende})-h(\text{Start})$ — der Hauptsatz der Differential- und Integralrechnung,
-übertragen auf Wege. In der Physik ist das die Aussage „die Arbeit einer konservativen Kraft ist die Differenz der
-potentiellen Energie" (Spannung = Potentialdifferenz). Drei Eigenschaften sind dabei **gleichwertig**:
-wegunabhängig, Gradientenfeld, jedes geschlossene Integral null.
-:::
-
-**Worum es geht:** Wir definieren __Gebiet__, __Wegunabhängigkeit__ und __konservativ__, beweisen den __ersten
-Hauptsatz__ ($\int\nabla h\cdot dx=h(x_1)-h(x_0)$ und die Äquivalenz konservativ ⟺ Gradientenfeld) und sehen, warum
-$\operatorname{rot}F=0$ zwar notwendig, aber nicht hinreichend ist.
 
 ## Gebiet, Wegunabhängigkeit, konservativ
 
-Ein __Gebiet__ $G\subset\mathbb{R}^n$ ist eine **offene** und **wegzusammenhängende** Menge — je zwei Punkte
-lassen sich durch eine ganz in $G$ verlaufende reguläre Kurve verbinden. Auf einem Gebiet heißt das Kurvenintegral
-von $F$ __wegunabhängig__, wenn
+Ein __Gebiet__ $G\subset\mathbb{R}^n$ ist eine **offene** und **wegzusammenhängende** Menge — je zwei Punkte lassen
+sich durch eine ganz in $G$ verlaufende Kurve verbinden.
 
-$$\int_\gamma F\cdot dx = \int_{\gamma'} F\cdot dx$$
+Auf einem Gebiet heißt das Kurvenintegral von $F$ __wegunabhängig__, wenn $\int_\gamma F\cdot dx=\int_{\gamma'}
+F\cdot dx$ für **alle** regulären Kurven $\gamma,\gamma'$ in $G$ mit gleichem Anfangs- und Endpunkt gilt. Ein
+stetiges Feld mit dieser Eigenschaft heißt __konservativ__.
 
-für **alle** regulären Kurven $\gamma,\gamma'$ in $G$ mit gleichem Anfangs- und Endpunkt gilt. Ein stetiges Feld,
-dessen Kurvenintegrale nur von Anfangs- und Endpunkt abhängen, heißt __konservativ__. Dazu gleichwertig ist eine
-besonders handliche Bedingung (Lemma 3.10):
+Dazu gleichwertig ist eine besonders handliche Bedingung:
 
+:::formel Lemma
 $$F \text{ konservativ} \quad\Longleftrightarrow\quad \oint_\gamma F\cdot dx = 0 \ \text{ für jede geschlossene Kurve } \gamma \text{ in } G.$$
+:::
 
-(Denn: Zwei Wege mit gleichen Enden bilden zusammen — einer davon rückwärts — einen geschlossenen Weg; die
-Differenz der Integrale ist das geschlossene Integral.)
+Der Grund: Zwei Wege mit gleichen Enden bilden zusammen — einer davon rückwärts durchlaufen — einen geschlossenen
+Weg. Die Differenz ihrer Integrale ist genau dieses Umlaufintegral; es verschwindet also **genau dann**, wenn
+beide Wege denselben Wert liefern.
 
 ## Der erste Hauptsatz für Kurvenintegrale
 
 Jetzt der Kern. Ist $h:G\to\mathbb{R}$ stetig differenzierbar und $F=\nabla h$ ein **Gradientenfeld**, so gilt für
 jede reguläre Kurve $\gamma$ von $x_0=\gamma(0)$ nach $x_1=\gamma(1)$:
 
-$$\int_\gamma F\cdot dx = h(x_1) - h(x_0).$$
-
-**Beweis (kurz).** Nach der Kettenregel ist $\frac{d}{dt}h(\gamma(t)) = \nabla h(\gamma(t))\cdot\dot\gamma(t) =
-F(\gamma(t))\cdot\dot\gamma(t)$. Das Kurvenintegral ist also das gewöhnliche Integral dieser Ableitung, und nach
-dem Hauptsatz der Differential- und Integralrechnung
-
-$$\int_\gamma F\cdot dx = \int_0^1 \frac{d}{dt}h(\gamma(t))\,dt = h(\gamma(1)) - h(\gamma(0)). \qquad\square$$
-
-Die rechte Seite enthält **keine Spur** mehr vom Weg — nur die Endpunkte. Also ist jedes Gradientenfeld
-wegunabhängig (konservativ). Das ist die eine Richtung der zentralen Äquivalenz; sie gilt in jeder Dimension:
-
-$$F \text{ konservativ in } G \quad\Longleftrightarrow\quad F \text{ ist ein Gradientenfeld in } G.$$
-
-**Die Umkehrung — ein Potential bauen.** Ist $F$ konservativ, konstruiert man sein Potential direkt: Man fixiert
-$x_0\in G$ und setzt $h(x):=\int_{\gamma(x)} F\cdot dy$ über irgendeinen Weg von $x_0$ nach $x$ (wegen
-Wegunabhängigkeit wohldefiniert). Integriert man ein kleines Stück in Koordinatenrichtung $\hat e_k$ weiter, so
-ist nach dem Mittelwertsatz der Integralrechnung $\frac{1}{s}\big(h(x+s\hat e_k)-h(x)\big) = F_k(x+t_0\hat e_k)
-\to F_k(x)$ für $s\to0$. Also $\frac{\partial h}{\partial x_k}=F_k$, d. h. $\nabla h=F$ — $F$ ist Gradientenfeld.
-
-:::grafik
-Zwei Wege von $x_0$ nach $x_1$ über einer Potential-Landschaft $h$; beide Integrale ergeben $h(x_1)-h(x_0)$
-(gleiche „Höhendifferenz"). Daneben die Potentialkonstruktion $h(x)=\int_{x_0}^{x}F\cdot dy$ mit einem kleinen
-Schritt $s\hat e_k$, der $\partial h/\partial x_k=F_k$ liefert.
+:::formel Satz
+$$\int_\gamma \nabla h\cdot dx = h(x_1) - h(x_0).$$
 :::
 
-**Eigenes Beispiel.** Das Feld $F(x,y)=(y,x)$ ist der Gradient von $h(x,y)=xy$ (denn $\nabla(xy)=(y,x)$). Also ist
-für jeden Weg von $(0,0)$ nach $(1,1)$
+Die rechte Seite enthält **keine Spur** mehr vom Weg — nur die beiden Endpunkte. Jedes Gradientenfeld ist also
+wegunabhängig.
 
-$$\int_\gamma F\cdot dx = h(1,1) - h(0,0) = 1\cdot1 - 0 = 1,$$
+:::herleitung
+Nach der Kettenregel (Kapitel 1) ist die Änderung des Potentials längs der Kurve
 
-egal ob man z. B. erst nach rechts und dann nach oben läuft oder diagonal — immer $1$. Rundwege geben $0$.
+$$\frac{d}{dt}\,h(\gamma(t)) = \nabla h(\gamma(t))\cdot\dot\gamma(t) = F(\gamma(t))\cdot\dot\gamma(t).$$
+
+Der Integrand des Kurvenintegrals ist also gerade diese Ableitung. Nach dem Hauptsatz der Differential- und
+Integralrechnung folgt
+
+$$\int_\gamma F\cdot dx = \int_0^1 \frac{d}{dt}h(\gamma(t))\,dt = h(\gamma(1)) - h(\gamma(0)).$$
+:::
+
+**Eigenes Beispiel.** Das Feld $F(x,y)=(y,x)$ ist der Gradient von $h(x,y)=xy$ (denn $\nabla(xy)=(y,x)$). Für jeden
+Weg von $(0,0)$ nach $(1,1)$ ist daher
+
+$$\int_\gamma F\cdot dx = h(1,1)-h(0,0) = 1-0 = 1,$$
+
+egal ob erst nach rechts dann nach oben oder diagonal. Rundwege geben $0$.
+
+## Konservativ ist dasselbe wie Gradientenfeld
+
+Der Hauptsatz liefert die eine Richtung (Gradientenfeld $\Rightarrow$ konservativ). Es gilt aber die volle
+Äquivalenz, in jeder Dimension:
+
+:::formel Satz
+$$F \text{ konservativ in } G \quad\Longleftrightarrow\quad F \text{ ist ein Gradientenfeld in } G.$$
+:::
+
+:::herleitung
+Für die noch fehlende Richtung (konservativ $\Rightarrow$ Gradientenfeld) **baut** man das Potential direkt. Man
+fixiert $x_0\in G$ und setzt
+
+$$h(x) := \int_{\gamma(x)} F\cdot dy \quad\text{über irgendeinen Weg von } x_0 \text{ nach } x.$$
+
+Wegen der Wegunabhängigkeit ist das wohldefiniert. Geht man ein kleines Stück $s$ in Koordinatenrichtung
+$\hat e_k$ weiter, liefert der Mittelwertsatz der Integralrechnung
+
+$$\frac{h(x+s\hat e_k)-h(x)}{s} = F_k(x+t_0\hat e_k) \xrightarrow{\,s\to0\,} F_k(x),$$
+
+also $\frac{\partial h}{\partial x_k}=F_k$ für alle $k$, d. h. $\nabla h=F$.
+:::
+
+Physikalisch ist das der Grund, warum man einem Punkt überhaupt ein eindeutiges Potential (eine potentielle
+Energie, eine Spannung) zuordnen darf.
 
 ## Notwendig, aber nicht hinreichend: $\operatorname{rot}F=0$
 
-In $n=2,3$ folgt aus „$F$ ist Gradientenfeld" sofort $\operatorname{rot}F=0$ (das ist $\operatorname{rot}
-\operatorname{grad}h=0$ aus Kapitel 1). Also ist $\operatorname{rot}F=0$ eine **notwendige** Bedingung für
-Konservativität. **Die Umkehrung gilt im Allgemeinen nicht** — und zwar aus einem topologischen Grund: Hat das
-Gebiet ein **Loch**, kann ein Feld überall wirbelfrei sein und trotzdem kein Potential besitzen.
+In $n=2,3$ folgt aus „$F$ ist Gradientenfeld" sofort $\operatorname{rot}F=0$ (das ist
+$\operatorname{rot}\operatorname{grad}h=0$ aus Kapitel 1). Also ist $\operatorname{rot}F=0$ eine **notwendige**
+Bedingung für Konservativität.
 
-**Das berühmte Gegenbeispiel.** Auf $G=\mathbb{R}^2\setminus\{0\}$ (Ebene ohne Ursprung) betrachte
+**Die Umkehrung gilt im Allgemeinen nicht** — aus einem topologischen Grund: Hat das Gebiet ein **Loch**, kann ein
+Feld überall wirbelfrei sein und trotzdem kein Potential besitzen.
 
-$$F(x,y) = \frac{1}{x^2+y^2}\begin{pmatrix} -y \\ x \end{pmatrix}.$$
+**Das berühmte Gegenbeispiel** auf $G=\mathbb{R}^2\setminus\{0\}$ (Ebene ohne Ursprung):
 
-Man rechnet nach: $\operatorname{rot}F = 0$ überall in $G$. Dennoch ist das Integral über den einmal gegen den
-Uhrzeigersinn durchlaufenen Kreis $K_R$ (beliebiger Radius $R>0$)
+$$F(x,y) = \frac{1}{x^2+y^2}\begin{pmatrix}-y\\x\end{pmatrix}.$$
 
-$$\oint_{K_R} F\cdot dx = 2\pi \neq 0.$$
+:::herleitung
+Man rechnet nach, dass $\operatorname{rot}F=\partial_x F_2-\partial_y F_1=0$ überall in $G$. Dennoch ist das
+Integral über den einmal gegen den Uhrzeigersinn durchlaufenen Kreis $K_R$ (Radius $R$, $\gamma(t)=(R\cos t,R\sin t)$):
 
-Also ist $F$ **nicht** konservativ und kein Gradientenfeld in $G$ — obwohl es wirbelfrei ist. Der „Schuldige" ist
-das Loch bei $0$: Der Weg $K_R$ umschließt es, und das $2\pi$ ist gerade der Umlaufwinkel. (Lokal, in jeder
-lochfreien Umgebung, **gibt** es ein Potential — nämlich den Polarwinkel $\varphi$ —, nur nicht global eindeutig.)
+$$\oint_{K_R} F\cdot dx = \int_0^{2\pi} \frac{1}{R^2}(-R\sin t,\,R\cos t)\cdot(-R\sin t,\,R\cos t)\,dt = \int_0^{2\pi} 1\,dt = 2\pi \neq 0.$$
+
+Ein Gradientenfeld hätte auf jeder geschlossenen Kurve das Integral $0$ — also ist $F$ auf $G$ **kein**
+Gradientenfeld, obwohl es wirbelfrei ist.
+:::
+
+Der „Schuldige" ist das Loch bei $0$: Der Kreis umschließt es, und das $2\pi$ ist gerade der Umlaufwinkel. Lokal,
+in jeder lochfreien Umgebung, **gibt** es ein Potential (den Polarwinkel $\varphi$) — nur global nicht eindeutig,
+weil $\varphi$ beim Umrunden um $2\pi$ springt.
 
 :::grafik
-Das Wirbelfeld $F=\frac{(-y,x)}{x^2+y^2}$ auf der punktierten Ebene: kreisende Pfeile um das Loch bei $0$;
-$\operatorname{rot}F=0$ an jedem Punkt, aber der Umlauf $\oint_{K_R}=2\pi$. Daneben eine lochfreie Umgebung, in der
-lokal ein Potential (der Winkel $\varphi$) existiert. Beschriftung „wirbelfrei $\neq$ Gradientenfeld, wenn das
-Gebiet ein Loch hat".
+Szene: hoema3/kurvenintegrale/02-wirbelfeld-loch · Vorlage: wirbelfeld-punktierte-ebene-2d
+Das Wirbelfeld $F=\frac{(-y,x)}{x^2+y^2}$ auf der punktierten Ebene: kreisende Pfeile um das Loch bei $0$,
+$\operatorname{rot}F=0$ an jedem Punkt, aber Umlauf $\oint_{K_R}=2\pi$. Daneben eine lochfreie Umgebung, in der
+lokal ein Potential (der Winkel $\varphi$) existiert. (Blau = Feld, orange = Umlaufkreis, grau = Loch.)
 :::
 
 **Stolperstein:** $\operatorname{rot}F=0$ allein garantiert **kein** Potential. Erst die Gestalt des Gebiets
-entscheidet: Auf „lochfreien" (einfach zusammenhängenden) Gebieten ist $\operatorname{rot}F=0$ doch hinreichend —
-das ist das Poincaré-Lemma des nächsten Artikels.
+entscheidet — auf „lochfreien" (einfach zusammenhängenden) Gebieten ist $\operatorname{rot}F=0$ doch hinreichend.
 
-:::kern
-Auf einem __Gebiet__ (offen + wegzusammenhängend) heißt $F$ __konservativ__, wenn seine Kurvenintegrale nur von
-Anfangs-/Endpunkt abhängen — gleichwertig: $\oint_\gamma F\cdot dx=0$ für jede geschlossene Kurve (Lemma 3.10). Der
-__erste Hauptsatz__ (Satz 3.11): für ein Gradientenfeld $F=\nabla h$ ist $\int_\gamma F\cdot dx=h(x_1)-h(x_0)$
-(Beweis: $\tfrac{d}{dt}h(\gamma)=\nabla h\cdot\dot\gamma$ + Hauptsatz), also **wegunabhängig**. Zentrale Äquivalenz:
-$F$ konservativ $\Leftrightarrow$ $F$ Gradientenfeld (Potential $h(x)=\int_{x_0}^x F\cdot dy$, MWT →
-$\partial_{x_k}h=F_k$). In 2D/3D folgt $\operatorname{rot}F=0$ (**notwendig**). **Nicht hinreichend** auf Gebieten
-mit Loch: Wirbelfeld $F=\tfrac{(-y,x)}{x^2+y^2}$ auf $\mathbb{R}^2\setminus\{0\}$ hat $\operatorname{rot}F=0$, aber
-$\oint_{K_R}F\cdot dx=2\pi$. Eigenes Beispiel: $F=(y,x)=\nabla(xy)$ gibt zwischen $(0,0)$ und $(1,1)$ stets $1$.
-:::
+## Bedeutung und Ausblick
+
+Der erste Hauptsatz ist das mehrdimensionale Gegenstück zum Hauptsatz der Differential- und Integralrechnung: Er
+macht aus einem Wegintegral eine bloße Differenz von Randwerten — und erklärt, warum Spannung und potentielle
+Energie überhaupt wohldefinierte Größen sind.
 
 Bleibt die Frage: Wann reicht $\operatorname{rot}F=0$ **doch** für ein Potential? Die Antwort hängt an der
-Topologie des Gebiets. Das __Poincaré-Lemma__ zeigt, dass die Rotations- (und analog die Divergenz-)Bedingung
-**lokal** immer hinreichend ist — das Thema des nächsten Artikels.
+Topologie des Gebiets. Das __Poincaré-Lemma__ zeigt, dass die Bedingung **lokal** immer hinreichend ist — das
+Thema des nächsten Artikels.
+
+:::kern
+- Ein __Gebiet__ ist offen + wegzusammenhängend. $F$ heißt __konservativ__, wenn die Kurvenintegrale nur von Anfangs-/Endpunkt abhängen — gleichwertig: $\oint_\gamma F\cdot dx=0$ für jede geschlossene Kurve.
+- __Erster Hauptsatz:__ für ein Gradientenfeld $F=\nabla h$ ist $\int_\gamma F\cdot dx=h(x_1)-h(x_0)$ (Beweis: $\tfrac{d}{dt}h(\gamma)=\nabla h\cdot\dot\gamma$ + Hauptsatz) — also wegunabhängig.
+- Zentrale Äquivalenz: $F$ konservativ $\Leftrightarrow$ $F$ Gradientenfeld (Potential $h(x)=\int_{x_0}^x F\cdot dy$, MWT $\Rightarrow\partial_{x_k}h=F_k$).
+- In 2D/3D ist $\operatorname{rot}F=0$ **notwendig** ($\operatorname{rot}\operatorname{grad}=0$), aber **nicht hinreichend** auf Gebieten mit Loch.
+- Gegenbeispiel: $F=\tfrac{(-y,x)}{x^2+y^2}$ auf $\mathbb{R}^2\setminus\{0\}$ hat $\operatorname{rot}F=0$, aber $\oint_{K_R}F\cdot dx=2\pi$. Eigenes Beispiel: $F=(y,x)=\nabla(xy)$ gibt zwischen $(0,0)$ und $(1,1)$ stets $1$.
+:::
 
 :::quiz
 F: Was besagt der erste Hauptsatz für Kurvenintegrale, und warum fällt der Weg aus dem Ergebnis heraus?
