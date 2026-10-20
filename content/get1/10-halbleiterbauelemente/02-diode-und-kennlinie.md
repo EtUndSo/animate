@@ -113,3 +113,26 @@ __Schottky__ (schnell, kleine Schwelle), __Photodiode__ (Lichtsensor).
 Weil die Diodenkennlinie gekrümmt (nichtlinear) ist, kann man nicht einfach mit einem festen Widerstand rechnen.
 Wie man trotzdem den Betriebspunkt einer Diode in einer Schaltung bestimmt, zeigt der nächste Abschnitt über den
 __Arbeitspunkt__.
+
+:::quiz
+F: Warum leitet die Diode nur in eine Richtung?
+A: Die äußere Spannung wirkt je nach Polung dem inneren Feld der Raumladungszone entgegen oder verstärkt es. In Durchlassrichtung schrumpft die Sperrschicht und Strom fließt, in Sperrrichtung wächst sie und blockiert — ein Ventil.
+F: Was passiert mit der Raumladungszone in Durchlass- und in Sperrrichtung?
+A: In Durchlassrichtung (Plus an der Anode) wird sie schmaler, bis die Träger sie überwinden; in Sperrrichtung (Plus an der Kathode) wird sie breiter und zieht freie Träger von der Grenze weg. Breite der Zone und Leitfähigkeit hängen also direkt zusammen.
+F: Woher kommt der winzige Sperrstrom, obwohl die Diode „sperrt"?
+A: Er wird von den wenigen Minoritätsträgern getragen, die thermisch ständig erzeugt werden. Das innere Feld saugt sie ab, sodass ein kleiner, nahezu konstanter Strom ($\approx I_S$) fließt.
+F: Wie erklärt die Shockley-Gleichung beide Betriebsrichtungen zugleich?
+A: Bei stark negativem $U$ geht $e^{U/U_T}$ gegen null und übrig bleibt $I\approx-I_S$ (Sperrstrom); bei positivem $U$ wächst der Exponentialterm extrem und der Strom steigt exponentiell. Ein einziger Ausdruck deckt Sperren und Leiten ab.
+F: Warum ist die $-1$ in der Shockley-Gleichung in Durchlassrichtung bedeutungslos?
+A: Schon bei einigen Zehntel Volt ist $e^{U/U_T}$ riesig gegenüber 1. Die $-1$ sorgt nur dafür, dass bei $U=0$ der Strom exakt null ist, spielt im Durchlass aber keine Rolle mehr.
+F: Warum steigt der Durchlassstrom so steil an („Knie")?
+A: Wegen der exponentiellen Abhängigkeit von der Spannung ändert sich der Strom über viele Größenordnungen in einem engen Spannungsbereich. Unterhalb der Schleusenspannung ist er praktisch null, darüber schießt er hoch.
+F: Was ist die Schleusenspannung, und ist sie eine scharfe Grenze?
+A: Sie ist die praktische Einsatzschwelle, ab der merklich Strom fließt (Si ≈ 0,7 V). Sie ist keine exakte physikalische Grenze, sondern eine Näherung des exponentiellen Knies für die Schaltungsrechnung.
+F: Warum nähert man eine Si-Diode oft als „leitet ab 0,7 V, sonst sperrt"?
+A: Oberhalb der Schleusenspannung ändert sich die Diodenspannung kaum noch, obwohl der Strom stark steigt. Diese fast konstante Durchlassspannung erlaubt die einfache Näherung einer idealen Schwelle.
+F: Wie nutzt die Z-Diode den Durchbruch gezielt?
+A: Sie wird bewusst in Sperrrichtung betrieben; oberhalb ihrer festgelegten Durchbruchspannung hält sie die Spannung nahezu konstant. Das macht sie zur Spannungsreferenz bzw. zur Stabilisierung — ein bei normalen Dioden zerstörerischer Effekt wird hier genutzt.
+F: Warum sind LED und Photodiode gegensätzliche Nutzungen desselben pn-Übergangs?
+A: In der LED geben rekombinierende Elektron-Loch-Paare in Durchlassrichtung Energie als Licht ab; in der Photodiode erzeugt einfallendes Licht in Sperrrichtung Ladungsträger und damit einen messbaren Strom. Einmal Strom → Licht, einmal Licht → Strom.
+:::
