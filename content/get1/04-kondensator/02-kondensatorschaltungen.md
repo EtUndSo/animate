@@ -111,3 +111,26 @@ Spannungen addieren sich, und es gilt $\tfrac{1}{C_\text{ges}} = \tfrac{1}{C_1} 
 
 Damit ist das statische Verhalten des Kondensators geklärt. Interessant wird es zeitlich: Wie *schnell* lädt
 sich ein Kondensator auf, wenn ein Widerstand im Spiel ist? Das führt zum __Auf- und Entladevorgang__.
+
+:::quiz
+F: Warum addieren sich bei der Parallelschaltung die Kapazitäten?
+A: Alle Kondensatoren liegen an derselben Spannung, und ihre Ladungen summieren sich: $Q_\text{ges}=(C_1+C_2)U$. Der Vergleich mit $Q_\text{ges}=C_\text{ges}U$ liefert direkt $C_\text{ges}=C_1+C_2$.
+F: Warum ist die Parallelschaltung anschaulich wie eine größere Platte?
+A: Parallel bedeutet, die Plattenflächen nebeneinanderzulegen. Nach $C=\varepsilon_0\varepsilon_r A/d$ erhöht mehr Fläche die Kapazität — deshalb wächst die Gesamtkapazität durch Addition.
+F: Welche Größe ist bei Parallel-, welche bei Reihenschaltung gemeinsam?
+A: Parallel liegt an allen dieselbe Spannung, in Reihe tragen alle dieselbe Ladung. Welche Größe gleich bleibt, entscheidet, ob sich Kapazitäten oder deren Kehrwerte addieren.
+F: Warum ist die Gesamtkapazität in Reihe kleiner als der kleinste Einzelkondensator?
+A: Es addieren sich die Kehrwerte $1/C_i$, und eine Summe von Kehrwerten ergibt einen größeren Kehrwert, also ein kleineres $C_\text{ges}$. Anschaulich vergrößert die Reihe den effektiven Plattenabstand, und größerer Abstand heißt weniger Kapazität.
+F: Warum tragen in Reihe alle Kondensatoren dieselbe Ladung?
+A: Die inneren Platten bilden einen elektrisch isolierten Mittelbereich, der neutral bleiben muss. Lädt die Quelle außen $+Q$ auf, zieht das $-Q$ auf die gegenüberliegende innere Platte, und zur Neutralität bleibt dort $+Q$ übrig — das pflanzt sich durch die ganze Kette fort.
+F: Welche Rolle spielt die Ladungserhaltung bei der Reihenschaltung?
+A: Der isolierte Mittelbereich kann keine Ladung aufnehmen oder abgeben, seine Gesamtladung bleibt null. Diese erzwungene Buchführung sorgt dafür, dass die an einem Ende angesammelte negative Ladung am anderen Ende als positive fehlt — also überall dieselbe Ladung $Q$ steht.
+F: Warum verhalten sich Kondensatoren genau spiegelbildlich zu Widerständen?
+A: Beim Widerstand steht $R$ in $U=RI$ im Zähler, bei der Kapazität $C$ in $U=Q/C$ im Nenner. Diese Kehrwert-Verschiebung dreht die Rollen von Reihe und Parallel gegeneinander um.
+F: Wie teilt sich in der Reihenschaltung die Spannung auf die Kondensatoren auf?
+A: Da alle dieselbe Ladung $Q$ tragen, ist $U_i=Q/C_i$ — der kleinste Kondensator bekommt die größte Spannung. Die Einzelspannungen addieren sich zur Gesamtspannung $U=U_1+U_2$.
+F: Warum ist die Parallelschaltung von Kondensatoren das Gegenstück zur Reihenschaltung von Widerständen?
+A: Bei beiden addieren sich die direkten Größen ($C$ bzw. $R$), weil jeweils dieselbe „treibende" Größe anliegt bzw. derselbe Strom fließt. Die Kehrwert-Beziehung zwischen $C$ und $R$ vertauscht dabei die Schaltungsart.
+F: Kann man in einer Reihenschaltung die Gesamtkapazität zweier Kondensatoren kompakt angeben?
+A: Ja, aus $1/C_\text{ges}=1/C_1+1/C_2$ folgt $C_\text{ges}=\tfrac{C_1 C_2}{C_1+C_2}$ („Produkt durch Summe"). Das zeigt direkt, dass das Ergebnis kleiner als jeder der beiden Werte ist.
+:::
