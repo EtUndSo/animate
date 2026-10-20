@@ -61,6 +61,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article .fbox-n{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px;}
 .article .fbox .katex-display{margin:.15em 0;padding:0;border:none;background:none;}
 .article .katex{font-size:1.12em;}                  /* Inline-Mathe – gut lesbar, auch mobil */
+.nobr{white-space:nowrap;}                           /* kurze Formel + anliegendes Satzzeichen: kein Umbruch dazwischen */
 /* Mehrteilige Formelzeilen (im Quelltext durch \qquad getrennt): Teile nebeneinander, bei Platzmangel untereinander */
 .mrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:2.6em;row-gap:0;margin:1.3em 0;}
 .mcell{min-width:0;max-width:100%;}

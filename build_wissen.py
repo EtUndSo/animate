@@ -119,17 +119,23 @@ def inline(text):
     text = re.sub(r"\*\*([^*]+)\*\*", _bold, text)
     text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", text)
     def restore(m):
-        raw = _PROTECT[int(m.group(1))]
+        lead, raw, tail = m.group(1), _PROTECT[int(m.group(2))], m.group(3)
         if raw.startswith("`"):
-            return "<code>" + html.escape(raw[1:-1], quote=False) + "</code>"
+            return lead + "<code>" + html.escape(raw[1:-1], quote=False) + "</code>" + tail
         # Mathe HTML-maskieren: „a<X" würde der Browser sonst als Tag-Anfang lesen und die Formel verschlucken;
         # KaTeX liest den Textinhalt und bekommt so wieder das echte „<", „>" und „&".
         if raw.startswith("$$"):
-            return "$$" + html.escape(colorize_math(raw[2:-2]), quote=False) + "$$"
+            return lead + "$$" + html.escape(colorize_math(raw[2:-2]), quote=False) + "$$" + tail
         if raw.startswith("$"):
-            return "$" + html.escape(colorize_math(raw[1:-1]), quote=False) + "$"
-        return raw
-    return re.sub(r"\x00(\d+)\x00", restore, text)
+            body = "$" + html.escape(colorize_math(raw[1:-1]), quote=False) + "$"
+            # Neben einer KaTeX-Formel darf der Browser umbrechen (auch ein Wortverbinder hilft in Chrome nicht);
+            # ein Punkt, eine Klammer oder „-Achse" stünde dann allein am Zeilenanfang. Kurze Formeln werden darum mit
+            # ihren anliegenden Satzzeichen untrennbar geklammert; lange behalten ihre Umbruchstellen.
+            if (lead or tail) and len(re.sub(r"[{}\s]", "", re.sub(r"\\[A-Za-z]+", "#", raw[1:-1]))) <= 24:
+                return '<span class="nobr">' + lead + body + tail + "</span>"
+            return lead + body + tail
+        return lead + raw + tail
+    return re.sub(r"([(„]?)\x00(\d+)\x00([.,;:!?)“”-]?)", restore, text)
 
 def split_display(txt):
     """Absatz, der nur aus EINER abgesetzten Formel $$…$$ besteht und mehrere durch \\qquad getrennte Teile hat
@@ -642,6 +648,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article .fbox-n{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px;}
 .article .fbox .katex-display{margin:.15em 0;padding:0;border:none;background:none;}
 .article .katex{font-size:1.12em;}                  /* Inline-Mathe – gut lesbar, auch mobil */
+.nobr{white-space:nowrap;}                           /* kurze Formel + anliegendes Satzzeichen: kein Umbruch dazwischen */
 /* Mehrteilige Formelzeilen (im Quelltext durch \qquad getrennt): Teile nebeneinander, bei Platzmangel untereinander */
 .mrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:2.6em;row-gap:0;margin:1.3em 0;}
 .mcell{min-width:0;max-width:100%;}
