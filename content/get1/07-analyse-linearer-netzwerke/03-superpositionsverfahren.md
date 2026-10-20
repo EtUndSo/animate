@@ -93,3 +93,26 @@ summieren, dann $P = I^2 R$.
 Neben diesen allgemeinen Verfahren helfen bei bestimmten Strukturen gezielte Umformungen. Eine besonders
 nützliche ist die __Stern-Dreieck-Transformation__, mit der sich sonst unauflösbare Widerstandsgruppen doch
 zusammenfassen lassen.
+
+:::quiz
+F: Was ist die Grundidee des Superpositionsverfahrens?
+A: Man lässt jede Quelle einzeln wirken, während die anderen abgeschaltet sind, berechnet jeden Beitrag für sich und addiert am Ende alle. Ein schwieriges Mehrquellen-Problem zerfällt so in mehrere einfache Einzelquellen-Probleme.
+F: Warum funktioniert die Überlagerung nur in linearen Netzen?
+A: Linearität heißt, jede Wirkung ist proportional zu ihrer Ursache und mehrere Ursachen überlagern sich additiv. Genau diese beiden Eigenschaften erlauben das Zerlegen in Einzelbeiträge und das spätere Aufsummieren.
+F: Wie deaktiviert man die übrigen Quellen korrekt?
+A: Jede ideale Spannungsquelle wird durch einen Kurzschluss ersetzt, jede ideale Stromquelle durch eine Unterbrechung. Ein etwaiger Innenwiderstand der Quelle bleibt dabei im Netz stehen.
+F: Warum ersetzt man eine Spannungsquelle durch Draht und eine Stromquelle durch eine Lücke?
+A: Man setzt jede Quelle auf ihren „nulltreibenden" Zustand: eine Spannungsquelle mit null Spannung ist ein Draht, eine Stromquelle mit null Strom eine offene Stelle. So trägt nur noch die betrachtete Quelle zur Wirkung bei.
+F: Warum muss man bei allen Teilrechnungen dieselbe Zählpfeilrichtung verwenden?
+A: Nur dann sind die Teilbeiträge vorzeichenrichtig vergleichbar und dürfen algebraisch addiert werden. Eine andere Richtung würde ein Vorzeichen verfälschen und die Summe falsch machen.
+F: Warum werden die Teilwirkungen *algebraisch* (mit Vorzeichen) addiert?
+A: Weil manche Quellen die gesuchte Größe in Zählrichtung, andere entgegen treiben. Entgegengesetzte Beiträge müssen sich teilweise aufheben, was nur mit korrekten Vorzeichen gelingt.
+F: Was passiert mit dem Beitrag einer Quelle, wenn man sie verdoppelt?
+A: In einem linearen Netz verdoppelt sich ihr Beitrag ebenfalls, unabhängig von den anderen Quellen. Diese strikte Proportionalität ist gerade das, was die Zerlegung rechtfertigt.
+F: Warum darf man Leistungen nicht überlagern?
+A: Die Leistung hängt quadratisch von Strom bzw. Spannung ab, und Quadrate sind nicht additiv: $(I_1+I_2)^2\ne I_1^2+I_2^2$. Man muss erst die Ströme/Spannungen summieren und dann daraus die Leistung bilden.
+F: Wie berechnet man korrekt die Leistung in einem Mehrquellennetz?
+A: Zuerst bestimmt man mit Superposition den Gesamtstrom bzw. die Gesamtspannung, danach setzt man diese in $P=I^2R$ bzw. $P=U^2/R$ ein. Superposition gilt nur für die linearen Größen Strom und Spannung.
+F: Was passiert mit dem Verfahren, sobald eine Diode im Netz sitzt?
+A: Dann ist das Netz nicht mehr linear, die Beiträge der Quellen überlagern sich nicht additiv, und man darf sie nicht getrennt behandeln. Das Superpositionsverfahren ist ausdrücklich nur für lineare Netze gültig.
+:::
