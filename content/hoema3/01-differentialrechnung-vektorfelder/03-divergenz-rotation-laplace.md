@@ -31,7 +31,7 @@ auswärts strömenden Pfeilen (positive Divergenz = Quelle), einer mit um einen 
 
 ## Die Divergenz: Quelldichte eines Feldes
 
-Für ein differenzierbares Vektorfeld $E=(E_1,\ldots,E_n)^T$ auf einer offenen Menge $U\subset\mathbb{R}^n$ ist die
+Für ein differenzierbares Vektorfeld $E=(E_1,\ldots,E_n)^T$ auf einer offenen Menge $U\subseteq\mathbb{R}^n$ ist die
 __Divergenz__ die Summe der „diagonalen" partiellen Ableitungen:
 
 :::formel Definition
@@ -111,7 +111,7 @@ ist $u$ nicht definiert, und $\Delta u$ wird zur Quelle (Poisson-Gleichung, spä
 
 ## Die Rotation in 3D
 
-Für ein differenzierbares Vektorfeld $E=(E_1,E_2,E_3)$ auf $U\subset\mathbb{R}^3$ ist die __Rotation__ (englisch
+Für ein differenzierbares Vektorfeld $E=(E_1,E_2,E_3)$ auf $U\subseteq\mathbb{R}^3$ ist die __Rotation__ (englisch
 __curl__) das formale Kreuzprodukt von $\nabla$ mit $E$:
 
 :::formel Definition

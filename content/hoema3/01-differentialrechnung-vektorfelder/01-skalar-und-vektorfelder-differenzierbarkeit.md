@@ -41,7 +41,7 @@ Ein __Feld__ ordnet jedem Punkt eines Bereichs eine Größe zu. Formal ist es ei
 
 $$f:U\to\mathbb{R}^m, \qquad x=(x_1,\ldots,x_n)\;\mapsto\; f(x)=\big(f_1(x),\ldots,f_m(x)\big),$$
 
-definiert auf einer offenen Menge $U\subset\mathbb{R}^n$.
+definiert auf einer offenen Menge $U\subseteq\mathbb{R}^n$.
 
 **So liest man diese Zeile:** Die **Eingabe** ist ein Punkt $x$ mit $n$ Koordinaten — für einen Ort im Raum ist
 $n=3$. Die **Ausgabe** ist ein Vektor mit $m$ Komponenten. Jede Komponente $f_j:U\to\mathbb{R}$ ist eine
@@ -314,7 +314,7 @@ Teilt man durch $h^2$ und lässt $h\to0$ gehen, rücken $\xi$ und $\eta$ an $x$ 
 
 Der große Vorteil der Matrix-Schreibweise zeigt sich beim Verketten zweier Abbildungen:
 
-$$g:U\to\mathbb{R}^m \ \ (U\subset\mathbb{R}^n), \qquad f:V\to\mathbb{R}^p \ \ (V\subset\mathbb{R}^m), \qquad g(U)\subset V.$$
+$$g:U\to\mathbb{R}^m \ \ (U\subseteq\mathbb{R}^n), \qquad f:V\to\mathbb{R}^p \ \ (V\subseteq\mathbb{R}^m), \qquad g(U)\subseteq V.$$
 
 Erst bildet $g$ einen Punkt $x\in\mathbb{R}^n$ auf einen Punkt in $\mathbb{R}^m$ ab, dann $f$ diesen weiter nach
 $\mathbb{R}^p$. Ist $g$ in $x$ und $f$ im Bildpunkt $g(x)$ differenzierbar, so ist auch die Verkettung $f\circ g$ in
@@ -361,7 +361,7 @@ Jeder Summand ist ein „Umweg": wie stark $f_i$ auf $y_j$ reagiert, mal wie sta
 :::
 
 **Wichtiger Spezialfall: ein Feld entlang einer Kurve.** Sei $\gamma:[a,b]\to U$ eine differenzierbare Kurve und
-$\varphi:U\to\mathbb{R}$ ein differenzierbares Skalarfeld auf $U\subset\mathbb{R}^n$. Dann ist
+$\varphi:U\to\mathbb{R}$ ein differenzierbares Skalarfeld auf $U\subseteq\mathbb{R}^n$. Dann ist
 $t\mapsto\varphi(\gamma(t))$ eine Funktion **einer** Variablen, und die Kettenregel liefert:
 
 $$\frac{d}{dt}\,\varphi(\gamma(t)) = D\varphi(\gamma(t))\,\dot\gamma(t) = \nabla\varphi(\gamma(t))\cdot\dot\gamma(t).$$
@@ -411,7 +411,7 @@ Anstiegs und erzeugt aus einem Potential ein Vektorfeld. Seine Geometrie und die
 das Thema des nächsten Artikels.
 
 :::kern
-- __Felder__ sind Abbildungen $f:U\to\mathbb{R}^m$ auf offenen Mengen $U\subset\mathbb{R}^n$: __Skalarfeld__ ($m=1$, Zahl pro Punkt), __Vektorfeld__ ($m\ge2$, Vektor pro Punkt).
+- __Felder__ sind Abbildungen $f:U\to\mathbb{R}^m$ auf offenen Mengen $U\subseteq\mathbb{R}^n$: __Skalarfeld__ ($m=1$, Zahl pro Punkt), __Vektorfeld__ ($m\ge2$, Vektor pro Punkt).
 - Die __partielle Ableitung__ $\partial f_j/\partial x_k$ leitet nur entlang der $x_k$-Achse ab; alle anderen Koordinaten bleiben fest.
 - Die __Jacobi-Matrix__ $Df=(\partial f_j/\partial x_k)_{jk}\in\mathbb{R}^{m\times n}$ sammelt alle ersten partiellen Ableitungen; ihre Zeilen sind die Gradienten der Komponenten.
 - Für ein Skalarfeld ist $Df$ eine Zeile und der __Gradient__ $\nabla f=(Df)^T$ die zugehörige Spalte.

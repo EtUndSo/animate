@@ -86,7 +86,7 @@ Geschwindigkeit. Achsen in Grau.
 **Die zwei Akteure.** Jetzt wirken zwei Objekte zusammen:
 
 - __Die Kurve__ $\gamma:[a,b]\to\mathbb{R}^n$ (eben definiert) — der Weg durch den Raum mit Tangente $\dot\gamma$.
-- __Das Vektorfeld__ $F:U\to\mathbb{R}^n$ auf einer offenen Menge $U\subset\mathbb{R}^n$, in der die Kurve
+- __Das Vektorfeld__ $F:U\to\mathbb{R}^n$ auf einer offenen Menge $U\subseteq\mathbb{R}^n$, in der die Kurve
   verläuft — an **jedem** Punkt ein Pfeil (denk an ein Wind- oder Kraftfeld). $F$ sei stetig.
 
 **Das Zusammenspiel.** Setzt man die Kurve ins Feld ein, erhält man das Feld **entlang** des Weges,

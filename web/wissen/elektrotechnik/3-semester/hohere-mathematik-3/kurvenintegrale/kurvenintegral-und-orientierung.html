@@ -34,7 +34,7 @@
 <section class="sect">
 <h2 id="das-kurvenintegral-die-zwei-akteure">Das Kurvenintegral: die zwei Akteure</h2>
 <p><strong>Die zwei Akteure.</strong> Jetzt wirken zwei Objekte zusammen:</p>
-<ul><li><strong class="nm">Die Kurve</strong> $\gamma:[a,b]\to\mathbb{R}^n$ (eben definiert) — der Weg durch den Raum mit Tangente $\dot\gamma$.</li><li><strong class="nm">Das Vektorfeld</strong> $F:U\to\mathbb{R}^n$ auf einer offenen Menge $U\subset\mathbb{R}^n$, in der die Kurve verläuft — an <strong>jedem</strong> Punkt ein Pfeil (denk an ein Wind- oder Kraftfeld). $F$ sei stetig.</li></ul>
+<ul><li><strong class="nm">Die Kurve</strong> $\gamma:[a,b]\to\mathbb{R}^n$ (eben definiert) — der Weg durch den Raum mit Tangente $\dot\gamma$.</li><li><strong class="nm">Das Vektorfeld</strong> $F:U\to\mathbb{R}^n$ auf einer offenen Menge $U\subseteq\mathbb{R}^n$, in der die Kurve verläuft — an <strong>jedem</strong> Punkt ein Pfeil (denk an ein Wind- oder Kraftfeld). $F$ sei stetig.</li></ul>
 <p><strong>Das Zusammenspiel.</strong> Setzt man die Kurve ins Feld ein, erhält man das Feld <strong>entlang</strong> des Weges, $F(\gamma(t))$ — welchen Pfeil der Wanderer an jeder Stelle vorfindet. Die zentrale Frage: <em>Wie viel Arbeit verrichtet das Feld, während wir die Kurve durchlaufen?</em></p>
 <p>Die <strong>Idee</strong> ist einfach: den Weg in winzige Schritte zerlegen, für jeden Schritt die geleistete Arbeit bestimmen und alles aufsummieren. Heraus kommt das <strong class="nm">Kurvenintegral</strong> von $F$ längs $\gamma$:</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Definition</span><span class="fbox-n">(2)</span></div><p>$$\int_\gamma F\cdot dx := \int_a^b F(\gamma(t))\cdot\dot\gamma(t)\,dt.$$</p></div>

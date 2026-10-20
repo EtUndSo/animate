@@ -26,7 +26,7 @@
 </section>
 <section class="sect">
 <h2 id="das-majorantenkriterium">Das Majorantenkriterium</h2>
-<p>Die Rettung ist eine Bedingung, die <strong>gleichmäßige</strong> Konvergenz erzwingt: eine integrierbare Schranke, die <strong>nicht vom Parameter abhängt</strong>. Sei $U\subset\mathbb{R}^n$ offen und $f:U\times(a,b)\to\mathbb{R}$ stetig (mit $-\infty\le a<b\le\infty$).</p>
+<p>Die Rettung ist eine Bedingung, die <strong>gleichmäßige</strong> Konvergenz erzwingt: eine integrierbare Schranke, die <strong>nicht vom Parameter abhängt</strong>. Sei $U\subseteq\mathbb{R}^n$ offen und $f:U\times(a,b)\to\mathbb{R}$ stetig (mit $-\infty\le a<b\le\infty$).</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Satz</span><span class="fbox-n">(1)</span></div><p>$$\textcolor{#e5383b}{|f(x,t)| \le g(t)\ \ \text{für alle } x\in U, \quad \int_a^b g(t)\,dt < \infty \qquad\Longrightarrow\qquad F(x)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_a^b f(x,t)\,dt\ \text{ist stetig.}}$$</p></div>
 <p>Dabei ist $g:(a,b)\to\mathbb{R}$ die <strong class="nm">Majorante</strong> — eine einzige Funktion <strong>ohne</strong> $x$-Abhängigkeit, die alle $|f(x,t)|$ gemeinsam nach oben begrenzt und selbst integrierbar ist.</p>
 <p>Ist $f$ zusätzlich stetig differenzierbar und gibt es integrierbare Majoranten $\big|\frac{\partial f}{\partial x_k}(x,t)\big|\le G_k(t)$ mit $\int_a^b G_k<\infty$, so ist $F$ stetig differenzierbar, und Ableitung und Integral dürfen <strong>vertauscht</strong> werden, $\textcolor{#e5383b}{\frac{\partial F}{\partial x_k}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_a^b\frac{\partial f}{\partial x_k}\,dt}$.</p>

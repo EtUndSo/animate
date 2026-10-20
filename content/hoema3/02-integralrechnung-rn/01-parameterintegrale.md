@@ -41,14 +41,14 @@ Hier ist $t$ die **Integrationsvariable** (sie „verschwindet" durch das Integr
 der als Argument von $F$ übrig bleibt.
 
 Für jeden festen Wert $x$ liefert das bestimmte Integral eine einzige Zahl (die Fläche); deshalb ist $F$ eine
-wohldefinierte Funktion allein von $x$. Allgemein darf der Parameter sogar ein Vektor $x\in U\subset\mathbb{R}^n$
+wohldefinierte Funktion allein von $x$. Allgemein darf der Parameter sogar ein Vektor $x\in U\subseteq\mathbb{R}^n$
 sein.
 
 Die erste Frage: Überträgt sich die Glätte des Integranden $f$ auf $F$?
 
 ## Stetigkeit und Ableiten unter dem Integral
 
-Die Antwort ist beruhigend. Für eine offene Menge $U\subset\mathbb{R}^n$ und einen **stetigen** Integranden
+Die Antwort ist beruhigend. Für eine offene Menge $U\subseteq\mathbb{R}^n$ und einen **stetigen** Integranden
 $f:U\times[a,b]\to\mathbb{R}$ ist $F$ stetig. Sind zusätzlich alle partiellen Ableitungen
 $\partial f/\partial x_k$ stetig, so ist $F$ sogar stetig differenzierbar, und man darf die Ableitung in das
 Integral ziehen:

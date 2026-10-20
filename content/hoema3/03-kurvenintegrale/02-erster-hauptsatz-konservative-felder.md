@@ -32,7 +32,7 @@ grau = Höhenlinien/Loch.)
 
 ## Gebiet, Wegunabhängigkeit, konservativ
 
-Ein __Gebiet__ $G\subset\mathbb{R}^n$ ist eine **offene** und **wegzusammenhängende** Menge — je zwei Punkte lassen
+Ein __Gebiet__ $G\subseteq\mathbb{R}^n$ ist eine **offene** und **wegzusammenhängende** Menge — je zwei Punkte lassen
 sich durch eine ganz in $G$ verlaufende Kurve verbinden.
 
 Auf einem Gebiet heißt das Kurvenintegral von $F$ __wegunabhängig__, wenn $\int_\gamma F\cdot dx=\int_{\gamma'}

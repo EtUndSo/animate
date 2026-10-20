@@ -17,7 +17,7 @@
 </section>
 <section class="sect">
 <h2 id="die-divergenz-quelldichte-eines-feldes">Die Divergenz: Quelldichte eines Feldes</h2>
-<p>Für ein differenzierbares Vektorfeld $\textcolor{#e5383b}{E}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{(E_1,\ldots,E_n)^T}$ auf einer offenen Menge $U\subset\mathbb{R}^n$ ist die <strong class="nm">Divergenz</strong> die Summe der „diagonalen" partiellen Ableitungen:</p>
+<p>Für ein differenzierbares Vektorfeld $\textcolor{#e5383b}{E}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{(E_1,\ldots,E_n)^T}$ auf einer offenen Menge $U\subseteq\mathbb{R}^n$ ist die <strong class="nm">Divergenz</strong> die Summe der „diagonalen" partiellen Ableitungen:</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Definition</span><span class="fbox-n">(1)</span></div><p>$$\textcolor{#e5383b}{\operatorname{div} E := \nabla\cdot E }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \sum_{j=1}^{n}\frac{\partial E_j}{\partial x_j}.}$$</p></div>
 <p>Die Eingabe ist ein <strong>Vektorfeld</strong> ($E:U\to\mathbb{R}^n$), die Ausgabe eine <strong>Funktion</strong> (ein Skalarfeld): Jede Komponente $E_j$ wird nach <em>ihrer eigenen</em> Koordinate $x_j$ abgeleitet, und diese $n$ Zahlen werden addiert.</p>
 <p>Anschaulich ist das die lokale <strong class="nm">Quelldichte</strong>:</p>
@@ -46,7 +46,7 @@
 </section>
 <section class="sect">
 <h2 id="die-rotation-in-3d">Die Rotation in 3D</h2>
-<p>Für ein differenzierbares Vektorfeld $\textcolor{#e5383b}{E}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{(E_1,E_2,E_3)}$ auf $U\subset\mathbb{R}^3$ ist die <strong class="nm">Rotation</strong> (englisch <strong class="nm">curl</strong>) das formale Kreuzprodukt von $\nabla$ mit $E$:</p>
+<p>Für ein differenzierbares Vektorfeld $\textcolor{#e5383b}{E}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{(E_1,E_2,E_3)}$ auf $U\subseteq\mathbb{R}^3$ ist die <strong class="nm">Rotation</strong> (englisch <strong class="nm">curl</strong>) das formale Kreuzprodukt von $\nabla$ mit $E$:</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Definition</span><span class="fbox-n">(3)</span></div><p>$$\textcolor{#e5383b}{\operatorname{rot} E := \nabla\times E }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \begin{pmatrix} \dfrac{\partial E_3}{\partial x_2} - \dfrac{\partial E_2}{\partial x_3} \\[2mm] \dfrac{\partial E_1}{\partial x_3} - \dfrac{\partial E_3}{\partial x_1} \\[2mm] \dfrac{\partial E_2}{\partial x_1} - \dfrac{\partial E_1}{\partial x_2} \end{pmatrix}.}$$</p></div>
 <p>Eingabe und Ausgabe sind <strong>Vektorfelder</strong>. Jede Komponente misst die <strong class="nm">Wirbeldichte</strong> um die jeweilige Koordinatenachse — wie stark das Feld dort zirkuliert. Das macht später der <strong class="nm">Stokessche Integralsatz</strong> präzise.</p>
 <p>Zwei praktische Schreibweisen helfen beim Rechnen und Merken. Mit dem <strong class="nm">Levi-Civita-Symbol</strong> $\varepsilon_{ijk}\in\{-1,0,1\}$ ($\textcolor{#e5383b}{\varepsilon_{123}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$, bei zyklischer Vertauschung $+1$, bei Vertauschung zweier Indizes $-1$, sonst $0$) ist die $i$-te Komponente kompakt</p>

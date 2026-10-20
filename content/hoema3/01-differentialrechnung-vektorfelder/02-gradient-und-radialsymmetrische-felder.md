@@ -36,6 +36,9 @@ Linien), kurz im flachen Tal. Daneben das physikalische Gegenstück: eine Kugel 
 
 ## Wie steil ist es in meine Richtung? Die Richtungsableitung
 
+Zuerst die Bühne: Im ganzen Artikel ist $U\subseteq\mathbb{R}^n$ eine offene Menge — das Gebiet, das die Landkarte
+zeigt — und $f:U\to\mathbb{R}$ ein differenzierbares Skalarfeld, die Landschaft. Für eine echte Landkarte ist $n=2$.
+
 Der Wanderer muss nicht in Gradientenrichtung laufen. Er kann jede Richtung wählen, beschrieben durch einen
 __Einheitsvektor__ $v\in\mathbb{R}^n$ — einen Pfeil der Länge $1$, der nur die Richtung angibt.
 

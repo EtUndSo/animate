@@ -40,6 +40,10 @@ Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_
   ($m=1$, $k\ge2$, $|v|=1$). Jede Gleichung oder Ungleichung, die einen **Zusammenhang** aussagt, und jede
   Funktionsvorschrift in Beispielen gehört auf eine eigene Zeile. In `:::kern`-Bullets ist höchstens eine kurze
   Formel pro Bullet erlaubt.
+- **Teilmengen immer mit Grundraum** (User 2026-10-20): $U\subseteq\mathbb{R}^n$ bzw. $U\subseteq\mathbb{R}^3$,
+  $D\subseteq\mathbb{R}^2$ usw. Symbol stets $\subseteq$ (Teilmenge, Gleichheit erlaubt) — nicht $\subset$, das als
+  echte Teilmenge gelesen werden kann. Keine Menge ($U$, $V$, $G$, $D$, $M$, $Q$ …) benutzen, ohne sie im Artikel
+  beim ersten Auftreten mit ihrem Grundraum einzuführen.
 - **Nur die wichtigsten** Formeln kommen in eine **Box**:
   `:::formel <Typ>` … `:::` — `<Typ>` ist das Label oben links: **Definition**, **Satz**, **Lemma**,
   **Gesetz**, **Formel** (Default, wenn nichts angegeben). Die Box wird **automatisch nummeriert** (fortlaufend
@@ -120,7 +124,7 @@ Prüfliste:
 1. **Korrektheit:** Rechnungen nachrechnen; Vorzeichen; Voraussetzungen der Sätze vollständig genannt.
 2. **Vollständigkeit:** alle Definitionen, Sätze, Formeln und Beispiele des Skript-Abschnitts enthalten.
 3. **Von Grund auf:** jeder Begriff, jedes Symbol, jede Dimension vor der ersten Benutzung eingeführt; kein Symbol
-   doppelt belegt; Fachbegriffe bei Erstnennung erklärt.
+   doppelt belegt; Fachbegriffe bei Erstnennung erklärt; jede Menge mit Grundraum eingeführt ($U\subseteq\mathbb{R}^n$).
 4. **Formeln:** keine Gleichungen oder Formelketten im Fließtext (auch nicht in Herleitungen); jede wichtige Formel
    erklärt (Eingabe → Ausgabe, Symbole); Boxen nur für die wichtigsten, mit passendem Typ-Label.
 5. **Herleitungen:** jede Aussage, die sich kurz begründen lässt, hat eine `:::herleitung`; Herleitungen erklären

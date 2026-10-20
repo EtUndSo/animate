@@ -56,7 +56,7 @@ Bild der nicht gleichmäßigen Konvergenz. (Rot = Grenzfunktion, orange = Teilin
 ## Das Majorantenkriterium
 
 Die Rettung ist eine Bedingung, die **gleichmäßige** Konvergenz erzwingt: eine integrierbare Schranke, die
-**nicht vom Parameter abhängt**. Sei $U\subset\mathbb{R}^n$ offen und $f:U\times(a,b)\to\mathbb{R}$ stetig (mit
+**nicht vom Parameter abhängt**. Sei $U\subseteq\mathbb{R}^n$ offen und $f:U\times(a,b)\to\mathbb{R}$ stetig (mit
 $-\infty\le a<b\le\infty$).
 
 :::formel Satz

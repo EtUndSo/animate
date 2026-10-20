@@ -31,7 +31,7 @@ $\int_0^H A(z)\,dz$. (Rot = $f$ bzw. Körper, orange = eine Scheibe, grau = Quad
 
 ## Integration über ein beliebiges Gebiet
 
-Sei $M\subset\mathbb{R}^n$ abgeschlossen und beschränkt und $f:M\to\mathbb{R}$ stetig. Man führt den Fall auf
+Sei $M\subseteq\mathbb{R}^n$ abgeschlossen und beschränkt und $f:M\to\mathbb{R}$ stetig. Man führt den Fall auf
 einen umgebenden Quader $Q\supset M$ zurück, indem man $f$ **durch null fortsetzt**:
 
 :::formel Definition
@@ -61,7 +61,7 @@ erwartungsgemäß $\mathrm{vol}(Q)=(b_1-a_1)\cdots(b_n-a_n)$ heraus.
 ## Das Cavalieri-Prinzip
 
 Für Körper im $\mathbb{R}^3$ gibt es eine besonders anschauliche Methode. Ein Körper $K$ sei als Stapel von
-**Querschnitten** gegeben: In Höhe $z$ (mit $0\le z\le H$) ist der Schnitt eine Fläche $D(z)\subset\mathbb{R}^2$
+**Querschnitten** gegeben: In Höhe $z$ (mit $0\le z\le H$) ist der Schnitt eine Fläche $D(z)\subseteq\mathbb{R}^2$
 mit Flächeninhalt $A(z)=|D(z)|$ (stetig in $z$). Dann gilt:
 
 :::formel Satz
@@ -133,7 +133,7 @@ eingeschlossen ist. Über sie integriert man direkt per iteriertem Integral mit 
 nächsten Artikels.
 
 :::kern
-- Über ein abgeschlossenes, beschränktes Gebiet $M\subset\mathbb{R}^n$ integriert man eine stetige Funktion durch **Fortsetzung mit null**: $\int_M f:=\int_Q\bar f$ (wohldefiniert via Lebesgue; der Rand ist eine Nullmenge; praktisch rechnet man mit Normalbereichen/Transformation).
+- Über ein abgeschlossenes, beschränktes Gebiet $M\subseteq\mathbb{R}^n$ integriert man eine stetige Funktion durch **Fortsetzung mit null**: $\int_M f:=\int_Q\bar f$ (wohldefiniert via Lebesgue; der Rand ist eine Nullmenge; praktisch rechnet man mit Normalbereichen/Transformation).
 - Das __Volumen__ ist $\mathrm{vol}(M)=\int_M 1\,dx$ (Quader: Produkt der Kantenlängen).
 - Das __Cavalieri-Prinzip__ baut Volumina aus Querschnittsflächen: $\mathrm{vol}(K)=\int_0^H A(z)\,dz$ (Grenzwert der Scheiben-Riemann-Summe $h\sum A(z_k)$; zugleich Fubini-Spezialfall).
 - Zwei Körper mit in jeder Höhe gleicher Querschnittsfläche haben dasselbe Volumen (ursprüngliche Aussage Cavalieris).

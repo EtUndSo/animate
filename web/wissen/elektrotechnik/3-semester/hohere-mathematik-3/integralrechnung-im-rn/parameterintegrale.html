@@ -20,12 +20,12 @@
 <p>Ist $f(x,t)$ eine Funktion zweier Argumente, so kann man über <strong>eine</strong> Variable integrieren und die andere als <strong class="nm">Parameter</strong> stehen lassen. Das Ergebnis ist wieder eine Funktion — nur noch des Parameters:</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Definition</span><span class="fbox-n">(1)</span></div><p>$$F(x) := \int_a^b f(x,t)\,dt.$$</p></div>
 <p>Hier ist $t$ die <strong>Integrationsvariable</strong> (sie „verschwindet" durch das Integrieren), und $x$ ist der <strong>Parameter</strong>, der als Argument von $F$ übrig bleibt.</p>
-<p>Für jeden festen Wert $x$ liefert das bestimmte Integral eine einzige Zahl (die Fläche); deshalb ist $F$ eine wohldefinierte Funktion allein von $x$. Allgemein darf der Parameter sogar ein Vektor $x\in U\subset\mathbb{R}^n$ sein.</p>
+<p>Für jeden festen Wert $x$ liefert das bestimmte Integral eine einzige Zahl (die Fläche); deshalb ist $F$ eine wohldefinierte Funktion allein von $x$. Allgemein darf der Parameter sogar ein Vektor $x\in U\subseteq\mathbb{R}^n$ sein.</p>
 <p>Die erste Frage: Überträgt sich die Glätte des Integranden $f$ auf $F$?</p>
 </section>
 <section class="sect">
 <h2 id="stetigkeit-und-ableiten-unter-dem-integral">Stetigkeit und Ableiten unter dem Integral</h2>
-<p>Die Antwort ist beruhigend. Für eine offene Menge $U\subset\mathbb{R}^n$ und einen <strong>stetigen</strong> Integranden $f:U\times[a,b]\to\mathbb{R}$ ist $F$ stetig. Sind zusätzlich alle partiellen Ableitungen $\partial f/\partial x_k$ stetig, so ist $F$ sogar stetig differenzierbar, und man darf die Ableitung in das Integral ziehen:</p>
+<p>Die Antwort ist beruhigend. Für eine offene Menge $U\subseteq\mathbb{R}^n$ und einen <strong>stetigen</strong> Integranden $f:U\times[a,b]\to\mathbb{R}$ ist $F$ stetig. Sind zusätzlich alle partiellen Ableitungen $\partial f/\partial x_k$ stetig, so ist $F$ sogar stetig differenzierbar, und man darf die Ableitung in das Integral ziehen:</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Satz</span><span class="fbox-n">(2)</span></div><p>$$\textcolor{#e5383b}{\frac{\partial F}{\partial x_k}(x) }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \int_a^b \frac{\partial f}{\partial x_k}(x,t)\,dt.}$$</p></div>
 <p>Links steht die Ableitung der durch das Integral definierten Funktion $F$, rechts das Integral über die abgeleitete Integrandenfunktion — die Reihenfolge „ableiten" und „integrieren" ist also vertauschbar.</p>
 <details class="herleitung"><summary>Herleitung</summary><div class="hl-body"><p>Man bildet den Differenzenquotienten in Richtung $x_k$ und wendet im Integranden den <strong>Mittelwertsatz</strong> an:</p>
