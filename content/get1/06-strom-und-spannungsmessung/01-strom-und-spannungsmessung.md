@@ -103,3 +103,26 @@ Amperemeter ($R_\text{p} = R_i/(n-1)$, ein Stromteiler) bzw. einem __Vorwidersta
 Besonders genau wird eine Messung, wenn man gar nicht auf einen Zeigerausschlag angewiesen ist, sondern nur auf
 „Strom null" abgleicht. Dieses Prinzip steckt in der __Wheatstoneschen Messbrücke__ — dem Thema des nächsten
 Abschnitts.
+
+:::quiz
+F: Warum wird ein Amperemeter in Reihe geschaltet?
+A: Es misst den Strom, der durch es hindurchfließt, also muss genau der zu messende Strom durch das Gerät laufen. Das erreicht man nur, indem man es in den Zweig einfügt, dessen Strom man wissen will.
+F: Warum muss ein Amperemeter einen möglichst kleinen Innenwiderstand haben?
+A: In Reihe addiert sich sein $R_i$ zum vorhandenen Widerstand und verkleinert gerade den Strom, den man messen will. Nur bei $R_i\to0$ verhält es sich wie ein Stück Draht und verfälscht nichts.
+F: Warum wird ein Voltmeter parallel geschaltet?
+A: Spannung ist die Differenz zwischen zwei Punkten, also legt man das Gerät zwischen genau diese beiden Punkte — parallel zum Bauteil, über dem gemessen wird. So liegt am Voltmeter dieselbe Spannung an wie am Bauteil.
+F: Warum braucht ein Voltmeter einen möglichst großen Innenwiderstand?
+A: Parallel geschaltet zieht es über $R_i$ einen Strom, der sonst woanders geflossen wäre, und verfälscht die Stromverteilung. Nur bei $R_i\to\infty$ nimmt es keinen Strom auf und belastet die Schaltung nicht.
+F: Was ist das gemeinsame Prinzip hinter beiden Innenwiderstands-Idealen?
+A: Beide folgen aus „nicht stören": In Reihe stört ein zusätzlicher Widerstand (also $R_i$ klein), parallel stört ein zusätzlicher Strompfad (also $R_i$ groß). Die beiden Ideale sind spiegelbildlich.
+F: Was passiert, wenn man ein Amperemeter versehentlich parallel schaltet?
+A: Sein winziger Innenwiderstand bildet einen Kurzschluss über das Bauteil, durch den ein sehr großer Strom fließt. Das verfälscht nicht nur die Messung, sondern kann Gerät oder Schaltung beschädigen.
+F: Wie erweitert ein Shunt den Messbereich eines Amperemeters?
+A: Der parallel geschaltete Nebenwiderstand übernimmt den Großteil des Stroms, sodass durch das Messwerk nur ein bekannter Bruchteil fließt. So kann man einen $n$-fach größeren Strom messen, mit $R_\text{p}=R_i/(n-1)$.
+F: Wie erweitert ein Vorwiderstand den Messbereich eines Voltmeters?
+A: In Reihe geschaltet nimmt er den überschüssigen Teil der Spannung auf, sodass am Messwerk nur ein bekannter Bruchteil anliegt. Für die $n$-fache Reichweite gilt $R_\text{v}=R_i(n-1)$.
+F: Warum ist die Messbereichserweiterung im Grunde nichts Neues?
+A: Der Shunt bildet mit dem Messwerk einen Stromteiler, der Vorwiderstand einen Spannungsteiler. Beide Formeln sind also nur Anwendungen der bereits bekannten Teilerregeln.
+F: Warum stehen in den Erweiterungsformeln $R_i/(n-1)$ und $R_i(n-1)$ entgegengesetzte Strukturen?
+A: Beim Strom soll ein immer größerer Anteil am Messwerk *vorbei* (kleiner Shunt, Nenner wächst), bei der Spannung ein immer größerer Anteil *vor* dem Messwerk abfallen (großer Vorwiderstand, Faktor wächst). Die gegensätzliche Rolle von Reihe und Parallel kehrt die Formeln um.
+:::
