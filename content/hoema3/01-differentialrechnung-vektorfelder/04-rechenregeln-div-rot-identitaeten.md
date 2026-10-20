@@ -2,7 +2,7 @@
 title: Rechenregeln und Identitäten für Divergenz und Rotation
 pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
 order: 3010400
-summary: Von Grund auf – das Handwerkszeug für Rechnungen mit $\nabla$, jede Regel hergeleitet. Kreuzprodukt in Indexschreibweise (Levi-Civita, Kronecker-Delta), Produktregeln für $\operatorname{div}(\phi\vec E)$ und $\operatorname{rot}(\phi\vec E)$, Spatprodukt und Graßmann-Identität, die Produktregeln für $\vec E\times\vec B$ und die zwei zentralen Identitäten $\operatorname{div}\operatorname{rot}\vec E=0$ und $\operatorname{rot}\operatorname{rot}\vec E=\nabla\operatorname{div}\vec E-\Delta\vec E$. Dazu Vektorpotentiale, Eichfreiheit und Coulomb-Eichung.
+summary: Von Grund auf – das Handwerkszeug für Rechnungen mit $\nabla$, jede Regel hergeleitet. Kreuzprodukt in Indexschreibweise (Levi-Civita, Kronecker-Delta), Produktregeln für $\operatorname{div}(\phi\vec E)$ und $\operatorname{rot}(\phi\vec E)$, Spatprodukt und Graßmann-Identität, die Produktregeln für $\vec E\times\vec B$ und die zwei zentralen Identitäten $\operatorname{div}\operatorname{rot}\vec E=0$ und $\operatorname{rot}\operatorname{rot}\vec E=\nabla\operatorname{div}\vec E-\Delta\vec E$. Dazu Vektorpotentiale, Eichfreiheit und Coulomb-Eichung – mit Beispiel-Seite bis zur Wellengleichung.
 tags: Produktregel, Levi-Civita-Symbol, Kronecker-Delta, Spatprodukt, Graßmann-Identität, div rot, rot rot, Vektorpotential, Eichfreiheit, Coulomb-Eichung
 ---
 
@@ -72,6 +72,29 @@ Das ist genau die erste Komponente des Kreuzprodukts. Die zweite und dritte Komp
 rücken nur zyklisch weiter.
 :::
 
+::::beispiel Ein Kreuzprodukt mit Indizes
+Für die Vektoren
+
+$$\vec a = (1,\ 2,\ 3), \qquad \vec b = (4,\ 5,\ 6)$$
+
+bleiben in jeder Komponente genau zwei Terme der Summe übrig, einer mit $+1$ und einer mit $-1$:
+
+$$(\vec a\times\vec b)_1 = \varepsilon_{123}\,a_2b_3+\varepsilon_{132}\,a_3b_2 = 12-15 = -3,$$
+
+$$(\vec a\times\vec b)_2 = \varepsilon_{231}\,a_3b_1+\varepsilon_{213}\,a_1b_3 = 12-6 = 6,$$
+
+$$(\vec a\times\vec b)_3 = \varepsilon_{312}\,a_1b_2+\varepsilon_{321}\,a_2b_1 = 5-8 = -3.$$
+
+Also ist $\vec a\times\vec b=(-3,6,-3)$. Das Kronecker-Delta wirkt in einer Summe als Filter, es lässt genau einen
+Summanden übrig:
+
+$$\sum_{j=1}^{3}\delta_{2j}\,a_j = a_2 = 2.$$
+
+**Im Bild:** Das Ergebnis steht senkrecht auf beiden Faktoren, wie es ein Kreuzprodukt muss:
+
+$$(-3,6,-3)\cdot(1,2,3) = -3+12-9 = 0, \qquad (-3,6,-3)\cdot(4,5,6) = -12+30-18 = 0.$$
+::::
+
 Ersetzt man den Vektor $\vec a$ durch den Nabla-Operator, also $a_j$ durch $\partial_j$, entsteht dieselbe Schreibweise
 für die Rotation eines Feldes $\vec E$ (vorheriger Artikel):
 
@@ -88,6 +111,25 @@ $$(\operatorname{rot}\vec E)_1 = \varepsilon_{123}\,\partial_2E_3 + \varepsilon_
 
 Das ist genau die erste Komponente aus der Definition der Rotation; die anderen beiden folgen zyklisch.
 :::
+
+::::beispiel Eine Rotation mit Indizes
+Für die Strömung $\vec E:\mathbb{R}^3\to\mathbb{R}^3$ mit
+
+$$\vec E(x,y,z) = (yz,\ 0,\ 0)$$
+
+ist nur die erste Komponente von null verschieden. Die Indexformel liefert
+
+$$(\operatorname{rot}\vec E)_1 = \varepsilon_{123}\,\partial_yE_3+\varepsilon_{132}\,\partial_zE_2 = 0,$$
+
+$$(\operatorname{rot}\vec E)_2 = \varepsilon_{231}\,\partial_zE_1+\varepsilon_{213}\,\partial_xE_3 = \partial_z(yz) = y,$$
+
+$$(\operatorname{rot}\vec E)_3 = \varepsilon_{312}\,\partial_xE_2+\varepsilon_{321}\,\partial_yE_1 = -\partial_y(yz) = -z.$$
+
+Also ist die Rotation $(0,\ y,\ -z)$ — dasselbe wie mit der komponentenweisen Definition.
+
+**Im Bild:** Das Wasser fließt in $x$-Richtung, umso schneller, je größer $y$ und $z$ sind. Die Zunahme in $z$-Richtung
+treibt ein Rad mit Achse längs $y$ an, die Zunahme in $y$-Richtung eines mit Achse längs $z$.
+::::
 
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/04-levi-civita-hand · Vorlage: rechte-hand-achsen-3d
@@ -131,8 +173,8 @@ $$\sum_{j}\partial_j\phi\;E_j = \nabla\phi\cdot\vec E, \qquad \sum_{j}\phi\;\par
 Nirgends wurde benutzt, dass es drei Dimensionen sind — die erste Regel gilt deshalb in jedem $\mathbb{R}^n$.
 :::
 
-**Zahlenbeispiel: Farbstoff, der stromabwärts dichter wird.** Das Wasser fließt gleichmäßig nach rechts, und die
-Konzentration nimmt nach rechts zu:
+::::beispiel Farbstoff, der stromabwärts dichter wird
+Das Wasser fließt gleichmäßig nach rechts, und die Konzentration nimmt nach rechts zu:
 
 $$\vec E(x,y,z) = (1,0,0), \qquad \phi(x,y,z) = x, \qquad \phi\,\vec E = (x,0,0).$$
 
@@ -147,6 +189,7 @@ $$\operatorname{div}(x,0,0) = \partial_x x = 1.$$
 **Im Bild:** Nimm den Würfel $[0,1]^3\subseteq\mathbb{R}^3$. Durch die linke Wand bei $x=0$ kommt Wasser ohne Farbstoff
 herein, durch die rechte Wand bei $x=1$ verlässt Wasser mit Konzentration $1$ den Würfel; durch die übrigen Wände fließt
 nichts. Netto verlässt also pro Zeiteinheit eine Einheit Farbstoff den Würfel — bei Volumen $1$ genau die Divergenz $1$.
+::::
 
 **Im Bild (Rotation):** Ein Schaufelrad dreht sich, wenn das Wasser selbst wirbelt (der Term
 $\phi\,\operatorname{rot}\vec E$). Es dreht sich aber auch, wenn die Gewichtung $\phi$ die Strömung auf einer Seite des
@@ -165,8 +208,8 @@ zweite die $i$-te Komponente von $\operatorname{rot}\vec E$:
 $$(\operatorname{rot}(\phi\,\vec E))_i = (\nabla\phi\times\vec E)_i + \phi\,(\operatorname{rot}\vec E)_i.$$
 :::
 
-**Zahlenbeispiel: die Scherströmung.** Wir nehmen eine gleichmäßige Strömung nach rechts, die selbst nicht wirbelt,
-und eine Gewichtung, die nach oben zunimmt:
+::::beispiel Die Scherströmung
+Wir nehmen eine gleichmäßige Strömung nach rechts, die selbst nicht wirbelt, und eine Gewichtung, die nach oben zunimmt:
 
 $$\vec E(x,y,z) = (1,0,0), \qquad \phi(x,y,z) = y, \qquad \phi\,\vec E = (y,0,0).$$
 
@@ -189,6 +232,7 @@ der Mitte dreht sich im Uhrzeigersinn, weil seine obere Hälfte stärker angestr
 $\nabla\phi\times\vec E=(0,0,-1)$ (Drehachse nach unten). Zum Vergleich die gleichmäßige Strömung $\vec E=(1,0,0)$, in der
 das Rad stillsteht. (Blau = Strömung, orange = Schaufelrad, rot = Rotationsvektor, grau = Gitter.)
 :::
+::::
 
 **Die ebene Version.** Für ein ebenes Feld $\vec E=(E_1,E_2)$ mit der skalaren 2D-Rotation (vorheriger Artikel) lautet
 die zweite Regel
@@ -214,6 +258,23 @@ $$(\nabla\phi\times\vec E)_3 = \partial_1\phi\;E_2 - \partial_2\phi\;E_1.$$
 
 Die ebene Regel ist also einfach die dritte Komponente der räumlichen.
 :::
+
+::::beispiel Die ebene Regel nachgerechnet
+In der Ebene fließt das Wasser gleichmäßig nach oben, die Gewichtung nimmt nach rechts zu:
+
+$$\vec E(x,y) = (0,\ 1), \qquad \phi(x,y) = x, \qquad \phi\,\vec E = (0,\ x).$$
+
+Direkt ist die 2D-Rotation des gewichteten Feldes
+
+$$\operatorname{rot}(\phi\,\vec E) = \partial_x(x)-\partial_y(0) = 1,$$
+
+und die ebene Regel gibt dasselbe:
+
+$$\big(\partial_x\phi\;E_2-\partial_y\phi\;E_1\big)+\phi\,\operatorname{rot}\vec E = (1\cdot1-0\cdot0)+x\cdot0 = 1.$$
+
+**Im Bild:** Die rechte Hälfte eines Rades wird stärker nach oben geschoben als die linke — es dreht sich gegen den
+Uhrzeigersinn, passend zur positiven Rotation.
+::::
 
 ## Spatprodukt und Graßmann-Identität
 
@@ -250,6 +311,28 @@ $$a_1b_2c_3 + a_2b_3c_1 + a_3b_1c_2 - a_3b_2c_1 - a_1b_3c_2 - a_2b_1c_3 = \det(\
 Zyklisches Vertauschen von $\vec a,\vec b,\vec c$ entspricht zyklischem Weiterrücken der Indizes von $\varepsilon_{ijk}$, und
 das ändert das Symbol nicht.
 :::
+
+::::beispiel Ein Spat mit dem Volumen 6
+Für die drei Vektoren
+
+$$\vec a = (1,0,0), \qquad \vec b = (1,2,0), \qquad \vec c = (0,1,3)$$
+
+ist zuerst
+
+$$\vec b\times\vec c = (2\cdot3-0\cdot1,\ \ 0\cdot0-1\cdot3,\ \ 1\cdot1-2\cdot0) = (6,\ -3,\ 1), \qquad \vec a\cdot(\vec b\times\vec c) = 6.$$
+
+Die Matrix mit den Spalten $\vec a,\vec b,\vec c$ ist eine obere Dreiecksmatrix; ihre Determinante ist das Produkt der
+Diagonale:
+
+$$\det\begin{pmatrix} 1 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 3 \end{pmatrix} = 1\cdot2\cdot3 = 6.$$
+
+Auch zyklisch vertauscht kommt dasselbe heraus:
+
+$$\vec c\times\vec a = (0,\ 3,\ -1), \qquad \vec b\cdot(\vec c\times\vec a) = 0+6+0 = 6.$$
+
+**Im Bild:** Der schiefe Kasten hat das Volumen $6$. Das Vorzeichen ist positiv, also bilden $\vec a,\vec b,\vec c$ in
+dieser Reihenfolge ein rechtshändiges System.
+::::
 
 **Die Graßmann-Identität.** Sie löst ein doppeltes Kreuzprodukt auf:
 
@@ -293,7 +376,8 @@ $$\text{erster Term: } l=i,\ m=j, \qquad \text{zweiter Term: } m=i,\ l=j.$$
 $$\sum_j a_j c_j\; b_i - \sum_j a_j b_j\; c_i = (\vec a\cdot\vec c)\,b_i - (\vec a\cdot\vec b)\,c_i.$$
 :::
 
-**Zahlenbeispiel.** Wir wählen drei Standard-Einheitsvektoren, also Achsenrichtungen:
+::::beispiel Graßmann an zwei Beispielen
+**(a) Mit Achsenrichtungen.** Wir wählen drei Standard-Einheitsvektoren:
 
 $$\vec a = \vec e_1, \qquad \vec b = \vec e_1, \qquad \vec c = \vec e_2.$$
 
@@ -304,6 +388,22 @@ $$\vec b\times\vec c = \vec e_1\times\vec e_2 = \vec e_3, \qquad \vec a\times(\v
 und rechts ebenso
 
 $$(\vec a\cdot\vec c)\,\vec b - (\vec a\cdot\vec b)\,\vec c = 0\cdot\vec e_1 - 1\cdot\vec e_2 = -\vec e_2.$$
+
+**(b) Mit einem schrägen Vektor.** Für
+
+$$\vec a = (1,1,0), \qquad \vec b = (1,0,0), \qquad \vec c = (0,0,1)$$
+
+ist links
+
+$$\vec b\times\vec c = (0,\ -1,\ 0), \qquad \vec a\times(\vec b\times\vec c) = (1,1,0)\times(0,-1,0) = (0,\ 0,\ -1),$$
+
+und rechts, mit den Skalarprodukten $0$ und $1$,
+
+$$(\vec a\cdot\vec c)\,\vec b - (\vec a\cdot\vec b)\,\vec c = 0\cdot\vec b - 1\cdot\vec c = (0,\ 0,\ -1).$$
+
+**Im Bild:** Das Ergebnis $(0,0,-1)$ liegt in der $xz$-Ebene, die $\vec b$ und $\vec c$ aufspannen — genau wie die
+Identität es verspricht.
+::::
 
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/04-spat-grassmann · Vorlage: spat-und-doppelkreuz-3d
@@ -342,6 +442,28 @@ Der letzte Faktor ist die Richtungsableitung von $B_k$ in Richtung des Einheitsv
 (Gradienten-Artikel).
 :::
 
+::::beispiel Die Ableitung eines Feldes in Richtung eines anderen
+Für die konstante Richtung und das Feld
+
+$$\vec E = (1,\ 2,\ 0), \qquad \vec B(x,y,z) = (y^2,\ x,\ 0)$$
+
+braucht man die Ableitungen von $\vec B$ nach den Koordinaten:
+
+$$\frac{\partial\vec B}{\partial x} = (0,\ 1,\ 0), \qquad \frac{\partial\vec B}{\partial y} = (2y,\ 0,\ 0), \qquad \frac{\partial\vec B}{\partial z} = \vec 0.$$
+
+Gewichtet mit den Komponenten von $\vec E$ ergibt das
+
+$$(\vec E\cdot\nabla)\vec B = 1\cdot(0,1,0)+2\cdot(2y,0,0) = (4y,\ 1,\ 0).$$
+
+Probe am Punkt $(0,1,0)$: Geht man von dort mit der Geschwindigkeit $\vec E$ los, ist man nach der Zeit $t$ bei
+$(t,\,1+2t,\,0)$, und der Pfeil dort ist
+
+$$\vec B(t,\,1+2t,\,0) = \big((1+2t)^2,\ t,\ 0\big), \qquad \frac{d}{dt}\Big|_{t=0} = (4,\ 1,\ 0).$$
+
+**Im Bild:** Wer am Punkt $(0,1,0)$ in Richtung $\vec E$ losläuft, sieht den Pfeil $\vec B$ mit der Rate $(4,1,0)$ wachsen —
+genau der Wert von $(4y,1,0)$ bei $y=1$.
+::::
+
 **Stolperstein — $\nabla$ ist kein gewöhnlicher Vektor.** Würde man $\operatorname{div}(\vec E\times\vec B)$ wie ein
 Spatprodukt behandeln und zyklisch vertauschen, käme nur $\vec B\cdot\operatorname{rot}\vec E$ heraus. Der zweite Term
 fehlt dann, weil $\nabla$ als Ableitung auf **beide** Faktoren wirkt — die Produktregel erzeugt zwei Terme. Die korrekten
@@ -373,6 +495,39 @@ $$\sum_j\partial_j(E_i B_j) - \sum_j\partial_j(E_j B_i) = \sum_j\big(B_j\,\parti
 Die vier Summen sind der Reihe nach die $i$-ten Komponenten von $(\vec B\cdot\nabla)\vec E$, $\vec E\,\operatorname{div}\vec B$,
 $\vec B\,\operatorname{div}\vec E$ und $(\vec E\cdot\nabla)\vec B$ — genau die behauptete Formel.
 :::
+
+::::beispiel Beide Kreuzprodukt-Regeln nachgerechnet
+**(a) Divergenz.** Die Scherströmung und ein konstantes Feld in $z$-Richtung,
+
+$$\vec E(x,y,z) = (y,\ 0,\ 0), \qquad \vec B = (0,\ 0,\ 1),$$
+
+haben das Kreuzprodukt und die Divergenz
+
+$$\vec E\times\vec B = (0,\ -y,\ 0), \qquad \operatorname{div}(\vec E\times\vec B) = \partial_y(-y) = -1.$$
+
+Die Regel gibt dasselbe, denn die Scherung hat die Rotation $(0,0,-1)$ und das konstante Feld keine:
+
+$$\vec B\cdot\operatorname{rot}\vec E - \vec E\cdot\operatorname{rot}\vec B = (0,0,1)\cdot(0,0,-1) - 0 = -1.$$
+
+**(b) Rotation.** Für die Felder
+
+$$\vec E(x,y,z) = (x,\ 0,\ 0), \qquad \vec B(x,y,z) = (0,\ x,\ 0)$$
+
+ist direkt
+
+$$\vec E\times\vec B = (0,\ 0,\ x^2), \qquad \operatorname{rot}(\vec E\times\vec B) = (0,\ -2x,\ 0).$$
+
+In der Regel sind die Divergenzen $1$ und $0$, und die Ableitungen in Richtung des jeweils anderen Feldes sind
+
+$$(\vec B\cdot\nabla)\vec E = x\,\partial_y\vec E = \vec 0, \qquad (\vec E\cdot\nabla)\vec B = x\,\partial_x\vec B = (0,\ x,\ 0).$$
+
+Zusammengesetzt:
+
+$$\underbrace{\vec E\,\operatorname{div}\vec B}_{\vec 0} - \underbrace{\vec B\,\operatorname{div}\vec E}_{(0,\,x,\,0)} + \underbrace{(\vec B\cdot\nabla)\vec E}_{\vec 0} - \underbrace{(\vec E\cdot\nabla)\vec B}_{(0,\,x,\,0)} = (0,\ -2x,\ 0).$$
+
+**Im Bild:** Ohne den Term $(\vec E\cdot\nabla)\vec B$ — den der falsche Vektor-Kalkül vergessen würde — käme nur die
+Hälfte heraus.
+::::
 
 **Bedeutung in der Elektrotechnik.** Mit dem elektrischen Feld $\vec E$ und dem Magnetfeld $\vec H$ ist
 $\vec E\times\vec H$ der __Poynting-Vektor__, die Energiestromdichte des Feldes. Die erste Regel zerlegt seine Divergenz
@@ -408,6 +563,19 @@ $$S = \sum_{i,j,k}\varepsilon_{jik}\,\partial_j\partial_i E_k = -\sum_{i,j,k}\va
 Eine Zahl, die gleich ihrem Negativen ist, ist null. Im Bild: Jeder Beitrag wird von einem gespiegelten Beitrag mit
 umgekehrtem Vorzeichen ausgelöscht — symmetrisch mal antisymmetrisch ergibt null.
 :::
+
+::::beispiel Ein Wirbel, der nicht quillt
+Die Strömung $(yz,0,0)$ hat, wie mit Indizes gerechnet, die Rotation
+
+$$\operatorname{rot}(yz,\ 0,\ 0) = (0,\ y,\ -z).$$
+
+Deren Divergenz ist null:
+
+$$\operatorname{div}(0,\ y,\ -z) = 0+1-1 = 0.$$
+
+**Im Bild:** Das Wirbelfeld $(0,y,-z)$ strömt in $y$-Richtung aus jedem Kästchen hinaus und in $z$-Richtung genauso stark
+hinein — netto quillt nichts.
+::::
 
 **2. Die Rotation der Rotation.**
 
@@ -445,7 +613,8 @@ $$\nabla\times(\nabla\times\vec E) = \nabla(\nabla\cdot\vec E) - (\nabla\cdot\na
 Dabei muss das Feld immer an letzter Stelle stehen, weil $\nabla$ nach rechts ableitet.
 :::
 
-**Zahlenbeispiel.** Für das Feld
+::::beispiel Die doppelte Rotation nachgerechnet
+Für das Feld
 
 $$\vec E(x,y,z) = (0,\;0,\;x^2)$$
 
@@ -456,6 +625,10 @@ $$\operatorname{rot}\vec E = (0,\;-2x,\;0), \qquad \operatorname{rot}\operatorna
 Die rechte Seite der Identität stimmt damit überein:
 
 $$\operatorname{div}\vec E = 0, \qquad \Delta\vec E = (0,\;0,\;2), \qquad \nabla(\operatorname{div}\vec E)-\Delta\vec E = (0,\;0,\;-2).$$
+
+**Im Bild:** Das Feld quillt nirgends, also bleibt nur der Krümmungs-Anteil: Die Komponente $x^2$ liegt überall in einer
+Mulde, und die doppelte Rotation zeigt mit $-2$ gegen diese Krümmung.
+::::
 
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/04-nullregeln-spiegel · Vorlage: zwei-nullregeln-2d
@@ -490,9 +663,14 @@ $$\operatorname{div}\vec B = \operatorname{div}\operatorname{rot}\vec A = 0.$$
 :::
 
 **Notwendig, aber nicht hinreichend.** Wie bei den Gradientenfeldern gilt die Umkehrung im Allgemeinen nicht; sie
-hängt von der Gestalt des Gebiets ab. Das Gegenbeispiel ist das Coulomb-Feld $\vec x/\lvert\vec x\rvert^3$ auf
-$\mathbb{R}^3\setminus\{\vec 0\}$. Nach der Radialformel aus dem Gradienten-Artikel ist es der negative Gradient von
-$1/\lvert\vec x\rvert$:
+hängt von der Gestalt des Gebiets ab. Ein Feld kann auf einem Gebiet mit Loch überall quellenfrei sein und trotzdem kein
+Vektorpotential besitzen. Den Beweis liefert erst der Satz von Stokes: Der Fluss eines Wirbelfeldes durch eine
+geschlossene Fläche ist null. **Im Bild:** Die Quelle sitzt im Loch, wo das Gebiet sie nicht sieht — überall sonst
+quillt nichts, und doch strömt durch jede Fläche um das Loch etwas heraus.
+
+::::beispiel Das Coulomb-Feld hat kein Vektorpotential
+Das Coulomb-Feld $\vec x/\lvert\vec x\rvert^3$ auf $\mathbb{R}^3\setminus\{\vec 0\}$ ist nach der Radialformel aus dem
+Gradienten-Artikel der negative Gradient von $1/\lvert\vec x\rvert$:
 
 $$\nabla\frac{1}{\lvert\vec x\rvert} = -\frac{1}{\lvert\vec x\rvert^2}\,\frac{\vec x}{\lvert\vec x\rvert} = -\frac{\vec x}{\lvert\vec x\rvert^3}.$$
 
@@ -501,10 +679,13 @@ aus dem vorigen Artikel. Also ist das Feld divergenzfrei:
 
 $$\operatorname{div}\frac{\vec x}{\lvert\vec x\rvert^3} = -\operatorname{div}\nabla\frac{1}{\lvert\vec x\rvert} = -\Delta\frac{1}{\lvert\vec x\rvert} = 0.$$
 
-Trotzdem besitzt es dort kein Vektorpotential. Das zeigt erst der Satz von Stokes im Kapitel über Integralsätze: Sein
-Fluss durch jede Kugel um den Ursprung ist $4\pi$, der Fluss eines Wirbelfeldes durch eine geschlossene Fläche wäre
-null. **Im Bild:** Die Quelle sitzt im Ursprung, und genau diesen Punkt spart das Gebiet aus. Überall sonst quillt
-nichts, und doch strömt durch jede Kugel um den Ursprung etwas heraus.
+Trotzdem besitzt es dort kein Vektorpotential: Sein Fluss durch jede Kugel um den Ursprung ist $4\pi$ — auf der
+Einheitskugel steht das Feld überall senkrecht mit der Länge $1$, und die Kugel hat die Fläche $4\pi$. Der Fluss eines
+Wirbelfeldes durch eine geschlossene Fläche wäre null.
+
+**Im Bild:** Die Quelle sitzt im Ursprung, und genau diesen Punkt spart das Gebiet aus. Überall sonst quillt nichts, und
+doch strömt durch jede Kugel um den Ursprung etwas heraus.
+::::
 
 **Eichfreiheit.** Vektorpotentiale sind nicht eindeutig: Mit $\vec A$ ist auch $\vec A+\nabla\psi$ ein Vektorpotential
 desselben Feldes, für jedes zweimal stetig differenzierbare Skalarfeld $\psi$. **Im Bild:** Steigungspfeile einer
@@ -516,6 +697,27 @@ Weil die Rotation eines Gradientenfelds verschwindet (vorheriger Artikel), ist
 
 $$\operatorname{rot}(\vec A+\nabla\psi) = \operatorname{rot}\vec A + \operatorname{rot}\nabla\psi = \operatorname{rot}\vec A = \vec B.$$
 :::
+
+::::beispiel Ein homogenes Magnetfeld, zwei Vektorpotentiale
+Das überall gleiche Feld
+
+$$\vec B = (0,\ 0,\ 2)$$
+
+ist quellenfrei und hat zum Beispiel die beiden Vektorpotentiale
+
+$$\vec A(x,y,z) = (-y,\ x,\ 0), \qquad \vec A_2(x,y,z) = (0,\ 2x,\ 0).$$
+
+Beide haben dieselbe Rotation, denn nur die dritte Komponente ist von null verschieden:
+
+$$(\operatorname{rot}\vec A)_3 = \partial_x x-\partial_y(-y) = 2, \qquad (\operatorname{rot}\vec A_2)_3 = \partial_x(2x)-\partial_y 0 = 2.$$
+
+Ihr Unterschied ist ein Gradientenfeld, nämlich das der Sattelfläche $xy$:
+
+$$\vec A_2-\vec A = (y,\ x,\ 0) = \nabla(xy).$$
+
+**Im Bild:** $\vec A$ kreist um die $z$-Achse, $\vec A_2$ ist eine Scherströmung — zwei ganz verschiedene Strömungen mit
+demselben Wirbel. Der Unterschied besteht aus Steigungspfeilen, und die wirbeln nicht.
+::::
 
 **Die Coulomb-Eichung.** Diese Freiheit nutzt man, um ein besonders bequemes Vektorpotential zu wählen — eines ohne
 Quellen. Ist $\operatorname{div}\vec A\neq0$ und löst $\psi$ die Poisson-Gleichung
@@ -540,6 +742,31 @@ $$\operatorname{rot}\vec B = \operatorname{rot}\operatorname{rot}\vec A' = \nabl
 Dass die Poisson-Gleichung tatsächlich eine Lösung hat, zeigt erst das Kapitel über die Integralsätze.
 :::
 
+::::beispiel Die Coulomb-Eichung durchgerechnet
+Auch das Potential
+
+$$\vec A_3(x,y,z) = (x^2-y,\ x,\ 0)$$
+
+beschreibt das homogene Feld $(0,0,2)$, denn seine Rotation ist
+
+$$(\operatorname{rot}\vec A_3)_3 = \partial_x x-\partial_y(x^2-y) = 1+1 = 2.$$
+
+Es hat aber Quellen:
+
+$$\operatorname{div}\vec A_3 = \partial_x(x^2-y)+\partial_y x = 2x.$$
+
+Die Poisson-Gleichung mit dieser rechten Seite löst man hier durch Hinsehen:
+
+$$\Delta\psi = 2x, \qquad \psi(x,y,z) = \tfrac13\,x^3, \qquad \nabla\psi = (x^2,\ 0,\ 0).$$
+
+Das geeichte Potential ist dann quellenfrei — es ist wieder das kreisende $\vec A$:
+
+$$\vec A' = \vec A_3-\nabla\psi = (-y,\ x,\ 0), \qquad \operatorname{div}\vec A' = 0.$$
+
+**Im Bild:** Die Eichung zieht genau die Steigungspfeile ab, die das Potential quellen ließen. Übrig bleibt die reine
+Kreisströmung, die nur noch den Wirbel trägt.
+::::
+
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/04-eichfreiheit · Vorlage: vektorpotential-eichung-3d
 Ein Wirbelfeld $\vec B$ mit mehreren möglichen Vektorpotentialen $\vec A$ und $\vec A'=\vec A-\nabla\psi$, die alle dieselbe
@@ -554,20 +781,36 @@ $\nabla\psi$.)
 Mit diesen Regeln ist die **Differentialrechnung** für Felder vollständig: Gradient, Divergenz, Rotation, Laplace und
 ihre Rechenregeln. Sie sind das Handwerkszeug, mit dem man in der Elektrodynamik die Feldgleichungen umformt.
 
-Das schönste Beispiel ist die Wellengleichung. Im ladungsfreien Vakuum gelten die Maxwell-Gleichungen, mit der
-Lichtgeschwindigkeit $c$ und der Zeit $t$:
+Das schönste Beispiel ist die **Wellengleichung**. Im ladungsfreien Vakuum folgt aus den Maxwell-Gleichungen mit der
+rot-rot-Identität, dass jede Komponente des elektrischen Feldes eine Welle ist, die mit der Lichtgeschwindigkeit läuft —
+das ist Licht.
+
+::::beispiel Die Wellengleichung des Lichts
+Im ladungsfreien Vakuum gelten die Maxwell-Gleichungen, mit der Lichtgeschwindigkeit $c$ und der Zeit $t$:
 
 $$\operatorname{rot}\vec E = -\frac{\partial\vec B}{\partial t}, \qquad \operatorname{rot}\vec B = \frac{1}{c^2}\,\frac{\partial\vec E}{\partial t}, \qquad \operatorname{div}\vec E = 0.$$
 
-Bildet man von der ersten Gleichung die Rotation, setzt die zweite ein und benutzt die rot-rot-Identität mit
-$\operatorname{div}\vec E=0$, so entsteht
+Bildet man von der ersten Gleichung die Rotation, setzt die zweite ein und benutzt die rot-rot-Identität mit der
+Quellenfreiheit, so entsteht
 
 $$-\Delta\vec E = \operatorname{rot}\operatorname{rot}\vec E = -\frac{\partial}{\partial t}\operatorname{rot}\vec B = -\frac{1}{c^2}\,\frac{\partial^2\vec E}{\partial t^2}.$$
 
 Im zweiten Schritt wird die Rotation (Ableitungen nach dem Ort) mit der Zeitableitung vertauscht. Das erlaubt der Satz
-von Schwarz, wenn die Felder zweimal stetig differenzierbar sind. Das ist die **Wellengleichung**: Elektromagnetische Wellen — Licht — breiten sich mit der Geschwindigkeit $c$ aus.
+von Schwarz, wenn die Felder zweimal stetig differenzierbar sind. Übrig bleibt die Wellengleichung:
 
 $$\Delta\vec E = \frac{1}{c^2}\,\frac{\partial^2\vec E}{\partial t^2}.$$
+
+**Eine ebene Welle.** Das Feld
+
+$$\vec E(x,y,z,t) = \big(0,\ \sin(x-ct),\ 0\big)$$
+
+ist quellenfrei und erfüllt die Gleichung, denn zweimal nach $x$ und zweimal nach $t$ abgeleitet ergibt
+
+$$\Delta\vec E = \big(0,\ -\sin(x-ct),\ 0\big), \qquad \frac{1}{c^2}\,\frac{\partial^2\vec E}{\partial t^2} = \frac{1}{c^2}\big(0,\ -c^2\sin(x-ct),\ 0\big).$$
+
+**Im Bild:** Ein Wellenberg, der mit dem Tempo $c$ in $x$-Richtung läuft, während das Feld quer dazu in $y$-Richtung
+schwingt — eine Lichtwelle.
+::::
 
 Als Nächstes kommt die **Integralseite**: zunächst, wie man Integrale differenziert, die von einem Parameter abhängen,
 und wie man über mehrdimensionale Bereiche integriert — das Kapitel __Integralrechnung im $\mathbb{R}^n$__.
@@ -594,19 +837,19 @@ A: Formal wirkt in jedem Summanden $\partial_j(\phi E_j)$ die Produktregel aus H
 F: Wie kann $\operatorname{rot}(\phi\vec E)$ von null verschieden sein, obwohl $\operatorname{rot}\vec E=\vec 0$ ist — am Beispiel $\vec E=(1,0,0)$, $\phi=y$?
 A: Der Term $\nabla\phi\times\vec E$ bleibt übrig: $(0,1,0)\times(1,0,0)=(0,0,-1)$. Das gewichtete Feld $(y,0,0)$ ist eine Scherströmung, oben schneller als unten — ein Schaufelrad wird oben stärker angeschoben und dreht sich, obwohl die Strömung geradlinig ist.
 F: Was misst das Levi-Civita-Symbol, und wie schreibt man damit das Kreuzprodukt?
-A: $\varepsilon_{ijk}$ ist $+1$ für eine rechtshändige Reihenfolge der Achsen, $-1$ für eine linkshändige und $0$, wenn zwei Indizes gleich sind. Damit ist $(\vec a\times\vec b)_i=\sum_{j,k}\varepsilon_{ijk}a_jb_k$; für $i=1$ bleiben genau $a_2b_3-a_3b_2$ übrig.
+A: $\varepsilon_{ijk}$ ist $+1$ für eine rechtshändige Reihenfolge der Achsen, $-1$ für eine linkshändige und $0$, wenn zwei Indizes gleich sind. Damit ist $(\vec a\times\vec b)_i=\sum_{j,k}\varepsilon_{ijk}a_jb_k$; für $i=1$ bleiben genau $a_2b_3-a_3b_2$ übrig, bei $(1,2,3)\times(4,5,6)$ also $12-15=-3$.
 F: Warum ist das Spatprodukt $\vec a\cdot(\vec b\times\vec c)$ eine Determinante, und was bedeutet es anschaulich?
-A: In Indexschreibweise ist es $\sum\varepsilon_{ijk}a_ib_jc_k$ — ausgeschrieben genau die Regel von Sarrus für $\det(\vec a|\vec b|\vec c)$. Anschaulich ist es das orientierte Volumen des schiefen Kastens, den die drei Vektoren aufspannen: Grundfläche $|\vec b\times\vec c|$ mal Höhe.
+A: In Indexschreibweise ist es $\sum\varepsilon_{ijk}a_ib_jc_k$ — ausgeschrieben genau die Regel von Sarrus für $\det(\vec a|\vec b|\vec c)$. Anschaulich ist es das orientierte Volumen des schiefen Kastens, den die drei Vektoren aufspannen: Grundfläche $|\vec b\times\vec c|$ mal Höhe; für $(1,0,0)$, $(1,2,0)$, $(0,1,3)$ etwa $6$.
 F: Warum liegt $\vec a\times(\vec b\times\vec c)$ in der Ebene von $\vec b$ und $\vec c$, und wie beweist man die Graßmann-Identität?
 A: $\vec b\times\vec c$ steht senkrecht auf dieser Ebene; ein weiteres Kreuzprodukt steht senkrecht auf dieser Normalen und liegt damit wieder in der Ebene. Formal setzt man die Indexformel zweimal ein und benutzt $\sum_k\varepsilon_{ijk}\varepsilon_{klm}=\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}$; die Deltas lassen $(\vec a\cdot\vec c)\vec b-(\vec a\cdot\vec b)\vec c$ übrig.
 F: Warum darf man $\operatorname{div}(\vec E\times\vec B)$ nicht wie ein Spatprodukt einfach zyklisch vertauschen?
-A: Dann käme nur $\vec B\cdot\operatorname{rot}\vec E$ heraus. $\nabla$ ist aber auch ein Ableitungsoperator und wirkt nach der Produktregel auf beide Faktoren — daher der zweite Term $-\vec E\cdot\operatorname{rot}\vec B$.
+A: Dann käme nur $\vec B\cdot\operatorname{rot}\vec E$ heraus. $\nabla$ ist aber auch ein Ableitungsoperator und wirkt nach der Produktregel auf beide Faktoren — daher der zweite Term $-\vec E\cdot\operatorname{rot}\vec B$. Bei der Rotation von $\vec E\times\vec B$ fehlte ohne die Richtungsableitungen sogar die Hälfte des Ergebnisses.
 F: Was bedeutet der Ausdruck $(\vec E\cdot\nabla)\vec B$?
-A: Er ist $\sum_jE_j\,\partial\vec B/\partial x_j$: die Ableitung des Feldes $\vec B$ in Richtung von $\vec E$, komponentenweise und mit der Länge von $\vec E$ gewichtet. Er beantwortet, wie sich der Pfeil $\vec B$ ändert, wenn man ein Stück in Richtung $\vec E$ geht.
+A: Er ist $\sum_jE_j\,\partial\vec B/\partial x_j$: die Ableitung des Feldes $\vec B$ in Richtung von $\vec E$, komponentenweise und mit der Länge von $\vec E$ gewichtet. Er beantwortet, wie sich der Pfeil $\vec B$ ändert, wenn man mit der Geschwindigkeit $\vec E$ losläuft.
 F: Warum ist $\operatorname{div}\operatorname{rot}\vec E=0$ — formal und anschaulich?
-A: Formal ist $S=\sum\varepsilon_{ijk}\partial_i\partial_jE_k$; Umbenennen von $i$ und $j$ zeigt mit der Antisymmetrie von $\varepsilon$ und dem Satz von Schwarz $S=-S$, also $S=0$. Anschaulich lässt ein reiner Wirbel das Wasser im Kreis laufen, aus keinem Kästchen strömt netto etwas heraus.
+A: Formal ist $S=\sum\varepsilon_{ijk}\partial_i\partial_jE_k$; Umbenennen von $i$ und $j$ zeigt mit der Antisymmetrie von $\varepsilon$ und dem Satz von Schwarz $S=-S$, also $S=0$. Anschaulich lässt ein reiner Wirbel das Wasser im Kreis laufen, aus keinem Kästchen strömt netto etwas heraus — beim Wirbelfeld $(0,y,-z)$ fließt in $y$-Richtung so viel hinaus wie in $z$-Richtung hinein.
 F: Woher kommt $\operatorname{rot}\operatorname{rot}\vec E=\nabla\operatorname{div}\vec E-\Delta\vec E$, und wofür braucht man die Identität?
-A: Zweimal die Indexformel der Rotation und die Identität für zwei Levi-Civita-Symbole ergeben $\partial_i(\operatorname{div}\vec E)-\Delta E_i$. Im ladungsfreien Vakuum wird damit aus den Maxwell-Gleichungen die Wellengleichung $\Delta\vec E=\frac{1}{c^2}\partial^2\vec E/\partial t^2$.
+A: Zweimal die Indexformel der Rotation und die Identität für zwei Levi-Civita-Symbole ergeben $\partial_i(\operatorname{div}\vec E)-\Delta E_i$. Im ladungsfreien Vakuum wird damit aus den Maxwell-Gleichungen die Wellengleichung $\Delta\vec E=\frac{1}{c^2}\partial^2\vec E/\partial t^2$, die etwa die ebene Welle $(0,\sin(x-ct),0)$ löst.
 F: Was bedeutet Eichfreiheit beim Vektorpotential, und wie erreicht man die Coulomb-Eichung?
-A: Mit $\vec A$ ist auch $\vec A+\nabla\psi$ ein Vektorpotential desselben $\vec B$, weil Gradientenfelder nicht wirbeln. Löst $\psi$ die Gleichung $\Delta\psi=\operatorname{div}\vec A$, so ist $\vec A'=\vec A-\nabla\psi$ quellenfrei, und es gilt $\operatorname{rot}\vec B=-\Delta\vec A'$.
+A: Mit $\vec A$ ist auch $\vec A+\nabla\psi$ ein Vektorpotential desselben $\vec B$, weil Gradientenfelder nicht wirbeln — beim homogenen Feld $(0,0,2)$ etwa $(-y,x,0)$ und $(0,2x,0)$, die sich um $\nabla(xy)$ unterscheiden. Löst $\psi$ die Gleichung $\Delta\psi=\operatorname{div}\vec A$, so ist $\vec A'=\vec A-\nabla\psi$ quellenfrei, und es gilt $\operatorname{rot}\vec B=-\Delta\vec A'$.
 :::
