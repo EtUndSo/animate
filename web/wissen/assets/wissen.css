@@ -164,7 +164,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
 /* ---------- Beispiel-Seite: geteilte Ansicht (Theorie links | Beispiele rechts, Farbe Orange = Praxis) ---------- */
 .topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}   /* Beispiel-Knopf: offen = blau wie die anderen Panels (is-open) */
 .topbar .panelBtn:disabled:hover{border-color:var(--border);color:var(--muted);}
-.bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;}         /* Verweis im Artikel, wo das Beispiel hingehört */
+.bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;position:relative;z-index:1;}  /* Verweis im Artikel, wo das Beispiel hingehört; über den KaTeX-Hilfsboxen des Folgetexts */
 .bsp-ref a{display:inline-flex;align-items:baseline;gap:8px;max-width:100%;font-size:14.5px;line-height:1.4;color:var(--ink);
   border:1px solid color-mix(in srgb,var(--accent3) 55%,var(--border));background:color-mix(in srgb,var(--accent3) 8%,var(--panel));
   border-radius:999px;padding:4px 14px;}
