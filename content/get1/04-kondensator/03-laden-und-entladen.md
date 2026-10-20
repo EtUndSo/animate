@@ -112,3 +112,26 @@ praktisch fertig.
 
 Damit ist das Kapitel zum Kondensator abgeschlossen. Als Nächstes verlässt die Elektrostatik die Ruhe: Es geht
 um __bewegte__ Ladungen — den Strom in Leitern, den ohmschen Widerstand und die Gesetze ganzer Netzwerke.
+
+:::quiz
+F: Warum springt die Kondensatorspannung beim Einschalten nicht sofort auf den Endwert?
+A: Der Widerstand begrenzt den Ladestrom, und eine Spannungsänderung am Kondensator erfordert erst, dass Ladung hinüberfließt. Wie ein Tank durch ein dünnes Rohr füllt er sich allmählich, nicht schlagartig.
+F: Wie entsteht aus der Maschenregel eine Differentialgleichung?
+A: In $U_0=u_R+u_C$ setzt man $u_R=Ri$ und $i=C\,\mathrm{d}u_C/\mathrm{d}t$ ein. Dann steht die gesuchte Spannung $u_C$ zusammen mit ihrer eigenen Ableitung in einer Gleichung — genau das Kennzeichen einer Differentialgleichung.
+F: Warum beschreibt gerade eine e-Funktion den Verlauf?
+A: Die Änderungsrate ist proportional zum noch verbleibenden Abstand zum Endwert ($\dot u_C\propto U_0-u_C$). Eine Größe, deren Änderung proportional zu sich selbst (bzw. zum Rest) ist, wächst oder fällt exponentiell.
+F: Warum ist der Ladestrom im ersten Moment am größten und fällt dann ab?
+A: Anfangs ist der Kondensator leer, die volle Differenz $U_0-u_C=U_0$ treibt den Strom. Je voller er wird, desto kleiner diese treibende Differenz und damit der Strom — bis nichts mehr nachfließt.
+F: Was bedeutet die Zeitkonstante $\tau$ anschaulich?
+A: Sie ist das charakteristische Tempo des Vorgangs: Nach $\tau$ ist der Kondensator auf rund 63 % geladen (bzw. auf 37 % entladen). Nach etwa $5\tau$ gilt der Vorgang als praktisch abgeschlossen.
+F: Warum verlängern sowohl ein größerer Widerstand als auch eine größere Kapazität die Ladezeit?
+A: Ein großer Widerstand drosselt den Ladestrom, eine große Kapazität verlangt mehr Ladung für dieselbe Spannung. Beides zusammen steckt im Produkt $\tau=RC$ — Verdopplung von $R$ oder $C$ verdoppelt die Zeit.
+F: Wie zeigt die Dimensionskontrolle, dass $RC$ wirklich eine Zeit ist?
+A: $\Omega\cdot$F$=\tfrac{V}{A}\cdot\tfrac{A\cdot s}{V}=s$ — Volt und Ampere kürzen sich heraus, übrig bleibt die Sekunde. Das bestätigt $\tau=RC$ als Zeitkonstante.
+F: Warum ist der Entladeverlauf das Spiegelbild des Ladevorgangs?
+A: Ohne Quelle lautet die Gleichung $0=RC\,\dot u_C+u_C$, deren Lösung der reine Abfall $u_C=U_0 e^{-t/\tau}$ ist. Nach $\tau$ sind noch 37 % übrig — genau der Komplementärwert zu den 63 % beim Laden.
+F: Warum fließt beim Entladen der Strom, obwohl keine Quelle angeschlossen ist?
+A: Der geladene Kondensator ist selbst die Spannungsquelle: Seine gespeicherte Ladung treibt einen Strom durch den Widerstand, bis er sich entladen hat. Die Energie stammt aus dem zuvor aufgebauten Feld.
+F: Warum betrachtet man den Vorgang nach etwa $5\tau$ als abgeschlossen?
+A: Nach $5\tau$ ist $e^{-5}\approx0{,}0067$, also unter 1 % Restabweichung vom Endwert. Dieser Rest ist für praktische Zwecke vernachlässigbar, daher die Faustregel „nach $5\tau$ fertig".
+:::
