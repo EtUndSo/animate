@@ -120,3 +120,26 @@ die Grundlage der Diode.
 
 Aus diesem einseitig leitenden Übergang wird das erste Halbleiterbauelement: die __Diode__. Wie ihre Kennlinie
 aussieht und warum sie in einer Richtung sperrt, klärt der nächste Abschnitt.
+
+:::quiz
+F: Was macht einen Halbleiter gegenüber Leiter und Isolator besonders?
+A: Seine Leitfähigkeit ist nicht fest, sondern gezielt steuerbar — durch Temperatur, Licht, Dotierung oder angelegte Spannung. Genau diese Steuerbarkeit macht ihn zum Baustein von Dioden und Transistoren.
+F: Warum entstehen aus den Atomniveaus im Kristall breite Energiebänder?
+A: Rücken viele Atome zusammen, beeinflussen sich ihre erlaubten Energieniveaus und spalten in dicht benachbarte Zustände auf. Diese verschmelzen zu breiten Bändern — dem gefüllten Valenz- und dem leeren Leitungsband.
+F: Warum entscheidet die Breite der Bandlücke über Leiter, Halbleiter oder Isolator?
+A: Die Lücke ist die Energie, die ein Elektron zum Sprung ins Leitungsband braucht. Bei Überlapp (Leiter) sind immer Träger frei, bei kleiner Lücke (~1 eV, Halbleiter) reicht Wärme, bei großer (>3 eV, Isolator) nicht.
+F: Warum leitet ein reiner Halbleiter bei höherer Temperatur besser?
+A: Mehr thermische Energie hebt mehr Elektronen über die Bandlücke ins Leitungsband. Jedes erzeugt ein Elektron-Loch-Paar, sodass die Zahl der Ladungsträger — und damit die Eigenleitfähigkeit — mit der Temperatur steigt.
+F: Warum behandelt man ein Loch als eigenständigen positiven Ladungsträger?
+A: Rückt ein Nachbarelektron nach, wandert die Leerstelle in die Gegenrichtung — effektiv bewegt sich eine positive Ladung. Wie eine aufsteigende Luftblase im Wasser ist das Loch eine bequeme Beschreibung der tatsächlichen Elektronenbewegung.
+F: Warum entstehen bei der Eigenleitung Elektronen und Löcher immer paarweise?
+A: Jedes ins Leitungsband gehobene Elektron lässt genau eine Leerstelle im Valenzband zurück. Erzeugung bedeutet also stets ein Elektron-Loch-Paar — eine freie negative und eine freie positive Ladung zugleich.
+F: Warum liefert ein fünfwertiger Donator freie Elektronen?
+A: Vier seiner Außenelektronen binden ins Silizium-Gitter, das fünfte ist überzählig und nur schwach gebunden. Schon bei Raumtemperatur löst es sich und steht als frei beweglicher Ladungsträger zur Verfügung.
+F: Warum erzeugt ein dreiwertiger Akzeptor ein Loch?
+A: Ihm fehlt ein Elektron, um alle vier Gitterbindungen zu schließen, also fängt er eines aus dem Valenzband ein. Dort bleibt eine Leerstelle — ein bewegliches Loch — zurück.
+F: Warum bildet sich am pn-Übergang eine ladungsträgerfreie Raumladungszone?
+A: An der Grenze diffundieren Elektronen und Löcher ins jeweils andere Gebiet und rekombinieren. Zurück bleiben nur die ortsfesten geladenen Dotierrümpfe — eine an freien Trägern verarmte Zone.
+F: Wodurch stellt sich am pn-Übergang das Gleichgewicht ein?
+A: Die ortsfesten Ladungen bauen ein inneres Feld auf, das einen Driftstrom erzeugt, der dem Diffusionsstrom entgegenwirkt. Im Gleichgewicht heben sich beide auf, und über der Zone liegt die Diffusionsspannung $U_D$ (Si ≈ 0,7 V).
+:::
