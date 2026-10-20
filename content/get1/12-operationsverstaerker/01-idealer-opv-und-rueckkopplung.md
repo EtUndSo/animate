@@ -106,3 +106,26 @@ Präzision — äußere Widerstände legen das Verhalten fest.
 Mit diesen beiden Regeln als Werkzeug lassen sich die wichtigsten __Grundschaltungen__ des Operationsverstärkers
 in jeweils wenigen Zeilen herleiten — invertierender und nichtinvertierender Verstärker, Spannungsfolger,
 Addierer und mehr.
+
+:::quiz
+F: Was verstärkt ein Operationsverstärker genau?
+A: Nicht eine einzelne Spannung, sondern die Differenz seiner beiden Eingänge: $U_a=V_0(U_+-U_-)$. Er ist im Kern ein Differenzverstärker mit sehr großer Leerlaufverstärkung.
+F: Warum ist der OPV ohne Beschaltung nur als Komparator brauchbar?
+A: Seine Leerlaufverstärkung ist so riesig ($10^5$–$10^6$), dass schon Mikrovolt Eingangsdifferenz den Ausgang in die Sättigung treiben. Er kann dann nur „größer/kleiner" melden, nicht linear verstärken.
+F: Was bedeutet der unendliche Eingangswiderstand des idealen OPV praktisch?
+A: In die Eingänge fließt kein Strom ($I_+=I_-=0$). Die Quelle am Eingang wird also nicht belastet, was das Rechnen stark vereinfacht.
+F: Was bedeutet der Ausgangswiderstand null?
+A: Der Ausgang verhält sich wie eine ideale Spannungsquelle und hält seine Spannung unabhängig von der Last. Nachfolgende Stufen können ihn belasten, ohne dass die Ausgangsspannung einbricht.
+F: Warum verschwindet beim idealen OPV die Gleichtaktverstärkung?
+A: Er verstärkt nur die *Differenz* der Eingänge, nicht ihr gemeinsames Niveau. Hebt man beide Eingänge gleich an, ändert sich der Ausgang idealerweise nicht.
+F: Was besagt die erste goldene Regel und wann gilt sie?
+A: In beide Eingänge fließt kein Strom ($I_+=I_-=0$), weil der Eingangswiderstand unendlich ist. Diese Regel gilt immer, unabhängig von der Beschaltung.
+F: Woher kommt der virtuelle Kurzschluss ($U_+=U_-$)?
+A: Für einen endlichen Ausgang muss bei $V_0\to\infty$ die Eingangsdifferenz $U_+-U_-=U_a/V_0$ gegen null gehen. Der gegengekoppelte OPV regelt seinen Ausgang gerade so, dass beide Eingänge auf gleichem Potenzial liegen.
+F: Warum heißt der virtuelle Kurzschluss „virtuell"?
+A: Die Eingänge liegen zwar auf gleicher Spannung, sind aber nicht leitend verbunden — zwischen ihnen fließt kein Strom (Regel 1). Der OPV *erzeugt* die Gleichheit durch Nachführen des Ausgangs, nicht durch eine echte Verbindung.
+F: Warum gilt die zweite goldene Regel nur bei negativer Rückkopplung?
+A: Nur die Gegenkopplung regelt die Differenz selbsttätig auf null. Bei Mitkopplung (positiver Rückkopplung) verstärkt sich jede Abweichung, und es entstehen Kipp- und Schwingschaltungen statt eines virtuellen Kurzschlusses.
+F: Was ist der eigentliche Gewinn der Gegenkopplung?
+A: Sie tauscht überschüssige, aber ungenaue Verstärkung gegen Präzision: Das Verhalten wird durch exakte äußere Widerstände festgelegt statt durch den streuenden Chip. Zusätzlich wird die Schaltung linearer, stabiler und breitbandiger.
+:::
