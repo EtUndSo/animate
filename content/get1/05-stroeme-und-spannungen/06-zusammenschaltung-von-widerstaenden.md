@@ -114,3 +114,26 @@ __schrittweise__ zu einem Ersatzwiderstand zusammen.
 
 Damit ist das Rüstzeug für Gleichstromnetze komplett. Im nächsten Kapitel geht es darum, Ströme und Spannungen
 auch tatsächlich zu **messen** — und warum das Messgerät die Schaltung dabei möglichst wenig stören darf.
+
+:::quiz
+F: Warum addieren sich in der Reihenschaltung die Widerstände?
+A: Durch alle fließt derselbe Strom, und die Teilspannungen addieren sich: $U=(R_1+R_2)I$. Der Vergleich mit $U=R_\text{ges}I$ liefert direkt $R_\text{ges}=R_1+R_2$.
+F: Warum ist der Ersatzwiderstand einer Parallelschaltung kleiner als der kleinste Einzelwiderstand?
+A: Jeder zusätzliche Pfad bietet dem Strom einen weiteren Weg, also sinkt der Gesamtwiderstand. Rechnerisch addieren sich die Leitwerte $G=1/R$, sodass $R_\text{ges}$ unter jeden Einzelwert fällt.
+F: Warum verteilt sich in der Reihe die Spannung proportional zu den Widerständen?
+A: Da überall derselbe Strom fließt, ist $U_i=R_i I$ — die Teilspannung wächst direkt mit $R_i$. Am größten Widerstand fällt daher die größte Spannung ab.
+F: Warum ist es mit Leitwerten einfacher, die Parallelschaltung zu beschreiben?
+A: Die Leitwerte addieren sich schlicht: $G_\text{ges}=G_1+G_2+\dots$, analog zur Reihe bei Widerständen. Das vermeidet die unhandliche Kehrwertsumme.
+F: Woher kommt das Teilerverhältnis $R_1/(R_1+R_2)$ beim Spannungsteiler?
+A: Durch beide Widerstände fließt derselbe Strom $I=U/(R_1+R_2)$, und $U_1=R_1 I$. Einsetzen ergibt $U_1=U\cdot R_1/(R_1+R_2)$ — der Anteil von $R_1$ am Gesamtwiderstand.
+F: Warum hängt beim Stromteiler der Strom durch $R_1$ vom *anderen* Widerstand $R_2$ ab?
+A: An beiden liegt dieselbe Spannung, und der leichtere Weg bekommt mehr Strom. Durch den kleineren Widerstand fließt der größere Strom, weshalb im Zähler von $I_1=I\,R_2/(R_1+R_2)$ gerade $R_2$ steht (Überkreuz).
+F: Nach welchem Verhältnis teilt sich der Strom in der Parallelschaltung allgemein auf?
+A: Nach dem Verhältnis der Leitwerte: $I_1=I\,G_1/(G_1+G_2)$. Der Zweig mit dem größeren Leitwert (kleineren Widerstand) führt den größeren Strom.
+F: Warum darf man gemischte Netze schrittweise zusammenfassen?
+A: Jede reine Reihen- oder Parallelgruppe ist für den Rest der Schaltung äquivalent zu ihrem Ersatzwiderstand. Man ersetzt die innersten Gruppen nacheinander, bis nur ein Widerstand bleibt, ohne das Verhalten zu ändern.
+F: Wie bestimmt man nach dem Zusammenfassen wieder die einzelnen Teilspannungen und -ströme?
+A: Mit dem Gesamtstrom bzw. der Gesamtspannung arbeitet man sich über Spannungs- und Stromteiler wieder „nach innen" vor. So erhält man jede Teilgröße, ohne ein großes Gleichungssystem aufzustellen.
+F: In welchem Sinn sind Reihen- und Parallelschaltung von Widerständen Spiegelbilder der Kondensatorregeln?
+A: Bei Widerständen addieren sich die Werte in Reihe, bei Kondensatoren parallel — und umgekehrt bei der Kehrwertregel. Grund ist, dass $R$ in $U=RI$ im Zähler, $C$ in $U=Q/C$ im Nenner steht.
+:::
