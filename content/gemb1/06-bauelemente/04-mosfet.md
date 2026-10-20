@@ -181,3 +181,26 @@ Damit ist der Bogen komplett: von der Quantenmechanik einzelner Elektronen über
 Statistik bis zum Transistor, der daraus Logik macht. Der MOSFET vereint praktisch **alles** aus diesem Modul —
 Bandlücke, effektive Masse, Dotierung, Inversionskanal, Drift, Diffusion und Barrierensteuerung — in einem einzigen
 Bauelement.
+
+:::quiz
+F: Was ist der entscheidende Unterschied zwischen MOSFET und Diode bei der Barrierensteuerung?
+A: Bei der Diode legt man eine Spannung direkt ins p-Gebiet und verschiebt so die Barriere. Beim MOSFET geschieht das berührungslos über das isolierte Gate — rein elektrostatisch, ohne dass Strom in die Steuerelektrode fließt.
+F: Warum ist der MOSFET im Kern nur ein MOS-Kondensator mit zwei Kontakten?
+A: Die Gatespannung erzeugt über die Schwelle genau den Inversionskanal des MOS-Kondensators. Source und Drain zapfen diesen Kanal nur an — gibt es ihn, sind sie leitend verbunden, fehlt er, blockiert die Barriere.
+F: Was bedeutet der „Top of the Barrier" für den Transport?
+A: Am höchsten Punkt der Source-Kanal-Barriere ist das Feld null; bis dorthin werden Elektronen per Diffusion aus der Source injiziert, dahinter driften sie zum Drain. Die Drainspannung entvölkert die rücklaufende $-k_x$-Hälfte, sodass ein Nettostrom übrig bleibt.
+F: Was nimmt die Gradual-Channel-Näherung an und warum ist das nützlich?
+A: Sie nimmt an, dass sich das Potential längs des Kanals nur langsam ändert, sodass man an jedem Ort die MOS-Kapazität lokal als Plattenkondensator behandeln darf. Dadurch wird die Kanalladung $Q(x)=C_{IS}(V_{GS}-V_{th}-V(x))$ einfach und die Kennlinie analytisch integrierbar.
+F: Warum wird die Kanalladung zum Drain-Ende hin dünner?
+A: Das lokale Kanalpotential $V(x)$ steigt von 0 an der Source auf $V_{DS}$ am Drain und wird von der Gate-Übersteuerung abgezogen. Je näher am Drain, desto kleiner $V_{GS}-V_{th}-V(x)$, also desto weniger Inversionsladung — eine keilförmige Schicht.
+F: Warum wirkt der MOSFET bei kleinem $V_{DS}$ wie ein spannungsgesteuerter Widerstand?
+A: Für kleines $V_{DS}$ ist der quadratische Term vernachlässigbar und $I_D\approx K_n(V_{GS}-V_{th})V_{DS}$, also linear in $V_{DS}$. Die Steigung (der Leitwert) lässt sich über $V_{GS}$ einstellen — ein durch die Gatespannung steuerbarer Widerstand.
+F: Was passiert beim pinch-off, und warum bleibt der Strom danach konstant?
+A: Bei $V_{DS}=V_{GS}-V_{th}$ verschwindet die Kanalladung am Drain-Ende, der Kanal ist dort abgeschnürt. Weiteres Erhöhen von $V_{DS}$ fällt über die abgeschnürte Zone ab und ändert den Barrierenscheitel kaum, sodass der Strom in Sättigung konstant bleibt.
+F: Wodurch stellt der Prozessingenieur die Schwellenspannung ein?
+A: Über zwei Stellschrauben: die Austrittsarbeitsdifferenz $\Phi_m-\chi_{si}$ zwischen Gate-Metall und Silizium (Materialwahl) und die Dotierung des Substrats (über das Bulk-Potential). $V_{th}$ ist also keine Naturkonstante, sondern gezielt designbar.
+F: Warum fließt auch unterhalb der Schwellenspannung noch ein Strom?
+A: Die Source-Kanal-Barriere ist endlich hoch, und thermisch angeregte Elektronen diffundieren exponentiell über sie — wie über die Diodenbarriere. Dieser Unterschwellenstrom nimmt exponentiell mit $V_{GS}$ zu, statt abrupt null zu sein.
+F: Warum kann ein klassischer MOSFET bei Raumtemperatur nicht steiler als ~60 mV/Dekade schalten?
+A: Der Strom fließt über eine thermisch besetzte Barriere mit Boltzmann-Faktor $\propto k_BT$, und selbst bei perfekter Gate-Kontrolle braucht eine Dekade Stromänderung mindestens $\tfrac{k_BT}{e}\ln(10)\approx60\,$mV. Diese thermische Grenze limitiert, wie weit man Versorgungsspannung und Verlustleistung senken kann.
+:::
