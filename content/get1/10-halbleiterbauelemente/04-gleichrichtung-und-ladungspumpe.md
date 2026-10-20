@@ -105,3 +105,26 @@ Spannung sogar an (Spannungsverdoppler $\approx 2\hat{U}$, kaskadierbar).
 
 Mit der Diode ist das erste, einfachste Halbleiterbauelement verstanden. Fügt man eine dritte Zone hinzu,
 entsteht ein Bauteil, das Ströme nicht nur schaltet, sondern **verstärkt** — der __Bipolartransistor__.
+
+:::quiz
+F: Warum macht eine einzelne Diode aus Wechsel- pulsierende Gleichspannung?
+A: Sie leitet nur in den Halbwellen, in denen sie in Durchlassrichtung gepolt ist, und sperrt die anderen. So fließt der Strom nur noch in eine Richtung, am Ausgang bleiben aber nur die durchgelassenen Halbwellen übrig.
+F: Was ist der Hauptnachteil des Einweggleichrichters?
+A: Die halbe Zeit liegt gar keine Spannung an, weil eine komplette Halbwelle fehlt. Damit bleibt die Hälfte der Energie ungenutzt und zwischen den Pulsen klaffen große Lücken.
+F: Wie nutzt die Graetz-Brücke beide Halbwellen?
+A: Ihre vier Dioden sind so verschaltet, dass in jeder Halbwelle ein anderes Paar leitet, der Strom durch die Last aber immer gleich gepolt ist. Die negative Halbwelle wird so effektiv „nach oben geklappt".
+F: Warum pulsiert der Brückenausgang mit doppelter Netzfrequenz?
+A: Weil pro Netzperiode beide Halbwellen zu einem positiven Puls werden, entstehen doppelt so viele Pulse. Bei 50 Hz Netz ergibt das 100 Hz am Ausgang.
+F: Welchen Preis zahlt man bei der Graetz-Brücke gegenüber dem Einweggleichrichter?
+A: In jeder Halbwelle liegen zwei Dioden im Strompfad, es fallen also zwei Schleusenspannungen ab statt einer. Das kostet etwas mehr Spannung, nutzt aber beide Halbwellen.
+F: Wie glättet der Ladekondensator die pulsierende Spannung?
+A: In den Spannungsspitzen lädt er sich auf, in den Lücken speist er den Verbraucher weiter und füllt so die Täler. Übrig bleibt eine fast glatte Spannung mit kleiner sägezahnförmiger Restwelligkeit.
+F: Warum wird die Brummspannung mit größerem $C$ und höherer Frequenz kleiner?
+A: Laut $U_\text{br}\approx I/(f\,C)$ entlädt sich ein größerer Kondensator zwischen zwei Spitzen weniger, und bei höherer Pulsfrequenz wird er öfter nachgeladen. Beides verkürzt die Täler und glättet stärker.
+F: Warum glättet die Graetz-Brücke besser als der Einweggleichrichter?
+A: Sie lädt den Kondensator mit 100 Hz doppelt so oft nach wie der Einweggleichrichter (50 Hz). Nach $U_\text{br}\approx I/(f\,C)$ halbiert die doppelte Frequenz die Brummspannung bei gleichem $C$.
+F: Wie hebt eine Ladungspumpe die Spannung über den Scheitelwert hinaus?
+A: In einer Halbwelle lädt sich ein Kondensator auf $\hat U$ auf; in der nächsten wird er in Reihe zur Quelle geschaltet, sodass sich beide Spannungen addieren. Über eine zweite Diode lädt das den Ausgang auf nahezu $2\hat U$.
+F: Wozu dient eine Kaskade mehrerer Ladungspumpenstufen?
+A: Jede Stufe hebt die Spannung weiter an, sodass sich die Spannung vervielfachen lässt — ganz ohne Transformator. Das nutzt man in Hochspannungserzeugern und in ICs, die intern mehr Spannung brauchen als von außen anliegt.
+:::
