@@ -118,3 +118,26 @@ $R(\vartheta) = R_0(1 + \alpha\,\Delta\vartheta)$.
 
 Mit Strom, Spannung und Widerstand sind die drei Grundgrößen beisammen. Bevor man ganze Netzwerke berechnet,
 braucht man aber eine saubere Vorzeichen-Vereinbarung — die __Zählpfeile__.
+
+:::quiz
+F: Was bedeutet es physikalisch, dass ein Leiter einen Widerstand hat?
+A: Die driftenden Elektronen stoßen auf ihrem Weg immer wieder mit den schwingenden Atomrümpfen zusammen und geben dabei Energie ab. Dieser „Reibungswiderstand" begrenzt den Strom bei gegebener Spannung.
+F: Warum ist der Widerstand im ohmschen Fall eine Konstante?
+A: Bei Metallen und konstanter Temperatur ist der Strom der Spannung streng proportional, sodass das Verhältnis $U/I$ unabhängig vom Betriebspunkt denselben Wert hat. Dieser feste Wert ist der Widerstand $R$.
+F: Was sagt der Leitwert $G=1/R$ zusätzlich aus?
+A: Er beschreibt dieselbe Eigenschaft aus umgekehrter Sicht — wie *gut* statt wie *schlecht* ein Bauteil leitet. In der Kennlinie ist er direkt die Steigung $I/U$.
+F: Warum erhöht ein längerer Leiter den Widerstand, ein dickerer ihn verringert?
+A: Über eine längere Strecke stoßen die Träger öfter mit dem Gitter zusammen, daher steht $l$ im Zähler. Ein größerer Querschnitt verteilt den Strom auf mehr Fläche, daher steht $A$ im Nenner — genau das Rohrbild „lang und dünn sperrt".
+F: Was unterscheidet den spezifischen Widerstand $\rho$ vom Widerstand $R$?
+A: $\rho$ ist eine reine Materialeigenschaft, unabhängig von der Form; $R=\rho\,l/A$ kombiniert sie erst mit der Geometrie des konkreten Leiterstücks. Zwei gleich geformte Drähte aus verschiedenem Material unterscheiden sich allein über $\rho$.
+F: Wohin geht die Energie, die am Widerstand „verloren" geht?
+A: Bei jedem Stoß der Elektronen mit den Atomrümpfen wird Bewegungsenergie an das Gitter abgegeben und erscheint als Wärme. Der Widerstand wandelt elektrische Energie in Wärme um.
+F: Woran erkennt man in der Kennlinie einen linearen von einem nichtlinearen Zweipol?
+A: Ein linearer (ohmscher) Zweipol hat eine Gerade durch den Ursprung — doppelte Spannung, doppelter Strom. Bei nichtlinearen Bauteilen krümmt sich die Kennlinie, weil $R=U/I$ nicht konstant ist.
+F: Warum knickt die Kennlinie einer Glühlampe nach oben ab?
+A: Mit steigendem Strom wird der Draht heißer und sein Widerstand wächst. Dadurch steigt der Strom langsamer als die Spannung, und die $I$-$U$-Kurve flacht ab.
+F: Warum steigt der Widerstand eines Metalls mit der Temperatur?
+A: Höhere Temperatur bedeutet heftiger schwingende Atomrümpfe, an denen die Elektronen häufiger stoßen. Mehr Stöße pro Strecke erhöhen den Widerstand — mit positivem Temperaturkoeffizienten $\alpha$.
+F: Warum kann bei Halbleitern der Temperaturkoeffizient negativ sein?
+A: Dort nimmt mit steigender Temperatur die Zahl frei beweglicher Ladungsträger stark zu, und dieser Effekt überwiegt die häufigeren Stöße. Mehr Träger bedeuten einen sinkenden Widerstand, also negatives $\alpha$.
+:::
