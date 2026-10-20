@@ -109,3 +109,26 @@ Impedanzwandler), __Basisschaltung__ (Hochfrequenz).
 
 Mit stabilem Arbeitspunkt im aktiven Bereich kann der Transistor seine eigentliche Aufgabe erfüllen: ein kleines
 Signal **verstärken**. Wie das quantitativ funktioniert, zeigt der letzte Abschnitt.
+
+:::quiz
+F: Warum muss man den Arbeitspunkt eines Verstärkertransistors überhaupt einstellen?
+A: Der Transistor verstärkt linear nur im aktiven Bereich. Der Arbeitspunkt legt die Ruhe-Gleichgrößen fest, um die das Signal schwankt, damit es weder in Sättigung noch in den Sperrbereich gerät.
+F: Warum legt man den Arbeitspunkt mittig in den aktiven Bereich?
+A: Damit das Signal nach oben und unten gleich viel Aussteuerraum hat. Sitzt der AP zu nah an einer Grenze, wird eine Halbwelle in Sättigung oder Sperrbereich abgeschnitten und das Signal verzerrt.
+F: Wozu dient der Basisspannungsteiler?
+A: Er erzeugt an der Basis eine feste, definierte Spannung und legt so den Arbeitspunkt fest. Ein fester Basispunkt ist Voraussetzung dafür, dass der Emitterwiderstand überhaupt gegenkoppeln kann.
+F: Warum wählt man den Querstrom durch den Teiler etwa zehnmal so groß wie den Basisstrom?
+A: Dann belastet der schwankende Basisstrom den Teiler kaum, und die Basisspannung bleibt nahezu konstant. So ist der Arbeitspunkt unabhängig von den Streuungen des Transistors.
+F: Wie stabilisiert der Emitterwiderstand den Arbeitspunkt?
+A: Durch Stromgegenkopplung: Steigt $I_C$, steigt der Abfall $I_E R_E$, das Emitterpotenzial hebt sich, und bei fester Basisspannung sinkt $U_{BE}$ — das drosselt $I_C$ wieder. Der Arbeitspunkt regelt sich selbst nach.
+F: Warum ist diese Selbststabilisierung überhaupt nötig?
+A: Die Stromverstärkung $\beta$ streut stark von Exemplar zu Exemplar und wandert mit der Temperatur. Ohne Gegenkopplung würde der Arbeitspunkt wegdriften; $R_E$ fängt das automatisch ab.
+F: Warum kostet der Emitterwiderstand Verstärkung, und wie umgeht man das?
+A: $R_E$ koppelt auch für das Signal gegen, sodass $v_U\approx-R_C/R_E$ sinkt. Überbrückt man $R_E$ mit einem Kondensator $C_E$, bleibt die Gegenkopplung für den Gleich-Arbeitspunkt erhalten, verschwindet aber für das Wechselsignal.
+F: Wonach unterscheidet man die drei Grundschaltungen?
+A: Danach, welcher Anschluss Ein- und Ausgang gemeinsam ist — Emitter, Kollektor oder Basis. Diese Wahl bestimmt Spannungs- und Stromverstärkung sowie Ein- und Ausgangswiderstand.
+F: Warum eignet sich die Kollektorschaltung als Impedanzwandler, obwohl sie die Spannung nicht verstärkt?
+A: Sie hat hohen Eingangs- und niedrigen Ausgangswiderstand bei $v_U\approx1$. Damit entkoppelt sie eine empfindliche, hochohmige Quelle von einer niederohmigen Last, ohne die Spannung zu verändern.
+F: Warum invertiert die Emitterschaltung das Signal?
+A: Steigt die Basisspannung, steigt $I_C$, und der größere Abfall an $R_C$ senkt die Kollektorspannung. Ein steigender Eingang führt also zu einem fallenden Ausgang — eine Phasendrehung um 180°.
+:::
