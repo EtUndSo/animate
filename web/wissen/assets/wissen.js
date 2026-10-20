@@ -77,16 +77,16 @@
   // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
   if(bR){ if(L("wissen-hide-right")){ layout.classList.add("hide-right"); mark(bR,true); }
     bR.addEventListener("click",function(){ var now=layout.classList.toggle("hide-right"); mark(bR,now); S("wissen-hide-right",now); }); }
-  // Links (Themenbaum): Desktop = einklappen (gemerkt); Mobil = Overlay auf/zu.
-  if(bL){ if(L("wissen-hide-left") && !mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
+  // Links (Themenbaum): Desktop = beim Öffnen IMMER eingeklappt (Toggle gilt nur für die aktuelle Seite); Mobil = Overlay auf/zu.
+  if(bL){ if(!mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
     bL.addEventListener("click",function(){
       if(mq.matches){ var o=side&&side.classList.toggle("open"); mark(bL,!!o); }
-      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); S("wissen-hide-left",now); }
+      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); }
     }); }
-  // Breitenwechsel aufräumen: Overlay nur mobil, Einklappen nur Desktop.
+  // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
   (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
     if(e.matches){ layout.classList.remove("hide-left"); mark(bL, side&&side.classList.contains("open")); }
-    else { if(side) side.classList.remove("open"); var hl=L("wissen-hide-left"); layout.classList.toggle("hide-left",hl); mark(bL,hl); }
+    else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); mark(bL,true); }
   });
 })();
 // KaTeX automatisch rendern.

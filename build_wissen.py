@@ -125,10 +125,14 @@ CALLOUTS = {"konzept": ("", "Zur Idee"), "kern": ("", "Das Wichtigste"), "merke"
 def md_to_html(md):
     lines = md.replace("\r\n", "\n").split("\n")
     out, toc, i, n = [], [], 0, len(lines)
+    section_open = False                                  # jeder ##-Abschnitt wird als Karte <section class="sect"> eingefasst
+    formel_n = 0                                          # fortlaufende Nummer der :::formel-Boxen (zum Referenzieren, wie im Skript)
     para = []
     def flush():
         if para:
-            out.append("<p>" + inline(" ".join(para).strip()) + "</p>")
+            txt = " ".join(para).strip()
+            if not txt.startswith("**Worum es geht"):   # Einstiegs-Absatz entfällt – Artikel startet mit dem Inhaltsverzeichnis
+                out.append("<p>" + inline(txt) + "</p>")
             para.clear()
     while i < n:
         ln = lines[i]
@@ -143,7 +147,10 @@ def md_to_html(md):
             out.append("<pre><code>" + html.escape("\n".join(code), quote=False) + "</code></pre>")
             continue
         if re.match(r":::quiz\s*$", s):               # quiz block: Q:/A: pairs -> collapsible items
-            flush(); i += 1; inner = []
+            flush()
+            if section_open:                          # Quiz steht als eigene Box außerhalb der Abschnitts-Karten
+                out.append("</section>"); section_open = False
+            i += 1; inner = []
             while i < n and lines[i].strip() != ":::":
                 inner.append(lines[i]); i += 1
             i += 1
@@ -167,12 +174,27 @@ def md_to_html(md):
             out.append('<aside class="callout cx-quiz"><div class="callout-h">Quiz — teste dein Verständnis</div>'
                        + "".join(body) + "</aside>")
             continue
-        m = re.match(r":::(\w+)\s*$", s)              # callout block  :::konzept ... :::
+        m = re.match(r":::(\w+)(?:\s+(.+?))?\s*$", s)  # callout block  :::konzept / :::formel Definition ... :::
         if m:
-            flush(); kind = m.group(1).lower(); i += 1; inner = []
+            flush(); kind = m.group(1).lower(); label_arg = (m.group(2) or "").strip(); i += 1; inner = []
             while i < n and lines[i].strip() != ":::":
                 inner.append(lines[i]); i += 1
             i += 1
+            if kind == "konzept":                         # „Zur Idee"-Einstiegskasten entfällt – Start ist das Inhaltsverzeichnis
+                continue
+            if kind == "kern" and section_open:           # „Das Wichtigste" steht als eigene Box außerhalb der Abschnitts-Karten
+                out.append("</section>"); section_open = False
+            if kind == "formel":                          # wichtige Formel: Box mit Typ-Label (Definition/Satz/…) + Nummer
+                formel_n += 1
+                lbl = label_arg or "Formel"
+                out.append(f'<div class="fbox"><div class="fbox-h"><span class="fbox-t">{html.escape(lbl)}</span>'
+                           f'<span class="fbox-n">({formel_n})</span></div>'
+                           + md_to_html("\n".join(inner))[0] + '</div>')
+                continue
+            if kind == "herleitung":                      # Herleitung als ausklappbare Box an der Formel
+                out.append('<details class="herleitung"><summary>Herleitung</summary>'
+                           '<div class="hl-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                continue
             icon, label = CALLOUTS.get(kind, ("", kind.title()))
             out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{(icon + " " if icon else "") + html.escape(label)}</div>'
                        + md_to_html("\n".join(inner))[0] + "</aside>")
@@ -183,8 +205,12 @@ def md_to_html(md):
         if hm:
             flush(); lvl = len(hm.group(1)); txt = hm.group(2).strip()
             hid = slugify(txt)
-            if lvl == 2:
+            if lvl == 2:                                   # neuer ##-Abschnitt -> alte Karte schließen, neue öffnen
                 toc.append((hid, txt))
+                if section_open:
+                    out.append("</section>")
+                out.append('<section class="sect">')
+                section_open = True
             out.append(f'<h{lvl} id="{hid}">{inline(txt)}</h{lvl}>')
             i += 1; continue
         if s.startswith(">"):                         # blockquote
@@ -222,6 +248,8 @@ def md_to_html(md):
             flush(); out.append(ln); i += 1; continue
         para.append(s); i += 1                         # ordinary paragraph line
     flush()
+    if section_open:                                   # letzte Abschnitts-Karte schließen
+        out.append("</section>")
     return "\n".join(out), toc
 
 # ---------------------------------------------------------- plain text (search) ----
@@ -326,12 +354,12 @@ def page_shell(title, desc, body, depth):
 
 def topbar(panels=False):
     # Panel-Einklapp-Buttons (nur Artikelseiten, links neben der Marke): links=Themenbaum, rechts=Gliederung.
-    pbtns = ('<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
+    pbtns = ('<div class="panelCenter"><button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
              '<button id="toggleRight" class="panelBtn" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
-             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>') if panels else ''
+             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button></div>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>UndSo</span></a>'
             + pbtns
             + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'
@@ -355,16 +383,28 @@ def render_article(art, tree, prev_a, next_a):
     crumb = '<nav class="crumbs"><a href="/wissen/">Wissen</a>' + \
             "".join(f' › <span>{html.escape(nm)}</span>' for nm, sl in art["crumbs"]) + "</nav>"
     toc_html = ""
+    arttoc = ""
     if toc:
         toc_html = '<aside class="toc"><div class="toc-h">Auf dieser Seite</div><ul>' + \
             "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></aside>"
-    nav = '<div class="prevnext">'
-    if prev_a: nav += f'<a class="pn prev" href="/wissen/{prev_a["path"]}"><span>← Zurück</span>{html.escape(prev_a["title"])}</a>'
-    else: nav += "<span></span>"
-    if next_a: nav += f'<a class="pn next" href="/wissen/{next_a["path"]}"><span>Weiter →</span>{html.escape(next_a["title"])}</a>'
+        arttoc = '<nav class="arttoc" aria-label="Inhalt dieses Artikels"><div class="arttoc-h">In diesem Artikel</div><ul>' + \
+            "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></nav>"
+    def _topics(a):                                    # Themen-Stichpunkte (##-Überschriften) eines Nachbarartikels
+        return "".join(f"<li>{html.escape(t)}</li>" for _, t in md_to_html(a["body"])[1])
+    nav = '<div class="neighbors">'
+    if prev_a:
+        nav += (f'<a class="nb" href="/wissen/{prev_a["path"]}"><div class="nb-dir">← Vorheriger Artikel</div>'
+                f'<div class="nb-t">{html.escape(prev_a["title"])}</div><ul>{_topics(prev_a)}</ul></a>')
+    else:
+        nav += '<div class="nb empty"></div>'
+    if next_a:
+        nav += (f'<a class="nb" href="/wissen/{next_a["path"]}"><div class="nb-dir next">Nächster Artikel →</div>'
+                f'<div class="nb-t">{html.escape(next_a["title"])}</div><ul>{_topics(next_a)}</ul></a>')
+    else:
+        nav += '<div class="nb empty"></div>'
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
-            + (f'<p class="lede">{html.escape(art["summary"])}</p>' if art["summary"] else "")
+            + arttoc
             + body_html + nav + legal_footer() + "</article>" + toc_html + "</main>")
     body = topbar(panels=True) + '<div class="layout">' + sidebar_html(tree, art["path"]) + main + "</div>"
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
@@ -455,7 +495,7 @@ WISSEN_CSS = r"""
 :root[data-theme="dark"]{ --bg:#0d1017; --panel:#1a2130; --ink:#edf1f7; --muted:#99a4b8; --border:#27303f; --soft:#141a26;
   --accent:#5c94ff; --accent2:#ff5e60; --accent3:#ffb54d; }
 *{box-sizing:border-box;} html{scroll-behavior:smooth;}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.62;-webkit-font-smoothing:antialiased;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.68;-webkit-font-smoothing:antialiased;}
 a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--panel);border-bottom:1px solid var(--border);}
@@ -468,11 +508,12 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .iconBtn,.topbar .panelBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
 .topbar .iconBtn:hover,.topbar .panelBtn:hover{border-color:var(--accent);color:var(--ink);}
 .topbar .panelBtn.off{color:var(--accent);border-color:var(--accent);}      /* Panel aktuell eingeklappt */
+.topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
 /* hide-left: EINE Spalte (nicht 0+1fr) - sonst rutscht der einzige verbleibende Grid-Child (main) in die
    0-breite erste Spalte, der Text wird links gequetscht und die Gliederung überlappt ihn. */
-.layout.hide-left{grid-template-columns:minmax(0,1fr);} .layout.hide-left>.side{display:none;}
-.layout.hide-right .article{grid-template-columns:minmax(0,1fr) 0;} .layout.hide-right .toc{display:none;}
+.layout.hide-left{grid-template-columns:260px minmax(0,1fr);} .layout.hide-left>.side{display:none;} .layout.hide-left>main{grid-column:2;}  /* Baum zu, aber Textblock bleibt an gleicher Position (main bleibt in Spalte 2) */
+.layout.hide-right .toc{display:none;}  /* Gliederung aus, aber die Spalte bleibt -> Artikel-Block verschiebt sich nicht */
 .layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:0;max-width:1180px;margin:0 auto;}
 .side{position:sticky;top:53px;align-self:start;max-height:calc(100vh - 53px);overflow:auto;padding:18px 10px 40px 18px;border-right:1px solid var(--border);font-size:14.5px;}
 .side-home{display:block;font-weight:700;color:var(--ink);margin-bottom:10px;}
@@ -494,16 +535,20 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
 .article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
 .article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
-.article h3{font-family:var(--fdisp);font-size:19px;margin:1.9em 0 .35em;scroll-margin-top:66px;color:var(--accent2);}
-.article p,.article li{font-size:16.5px;} .article p{margin:0 0 1.15em;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.3em;}
+.article h3{font-family:var(--fdisp);font-size:19px;margin:1.9em 0 .7em;scroll-margin-top:66px;color:var(--accent2);}
+.article p,.article li{font-size:17.5px;} .article p{margin:0 0 1.35em;} .article li{margin:.3em 0;} .article ul,.article ol{margin:0 0 1.35em;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.3em;}
 /* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = blau, Schritt-Marken = rot --- */
 .article strong{color:var(--accent3);}             /* wichtige Ausdrücke/Wörter */
 .article strong.nm{color:var(--accent);}           /* Namen (Größen, Begriffe, Einheiten) */
 .article strong.step{color:var(--accent2);}        /* „Schritt N" */
 /* Formeln/Gleichungen hervorheben: eigene Box mit blauer Border, deutlich größer */
-.article .katex-display{font-size:1.22em;margin:1.15em 0;padding:14px 20px;border:1.5px solid var(--accent);border-radius:12px;
-  background:color-mix(in srgb,var(--accent) 6%,var(--panel));overflow-x:auto;overflow-y:hidden;}
-.article .katex{font-size:1.06em;}                  /* Inline-Mathe einen Tick größer */
+.article .katex-display{font-size:1.3em;margin:1.3em 0;overflow-x:auto;overflow-y:hidden;}   /* Formel auf eigener Zeile, NICHT geboxt */
+.article .fbox{margin:1.5em 0;padding:9px 18px 14px;border:1.5px solid var(--accent);border-radius:12px;background:color-mix(in srgb,var(--accent) 6%,var(--panel));}  /* nur die wichtigsten Formeln */
+.article .fbox-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;}
+.article .fbox-t{font-family:var(--fdisp);font-weight:700;color:var(--accent);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;}
+.article .fbox-n{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px;}
+.article .fbox .katex-display{margin:.15em 0;padding:0;border:none;background:none;}
+.article .katex{font-size:1.12em;}                  /* Inline-Mathe – gut lesbar, auch mobil */
 .article img{max-width:100%;border-radius:10px;} .article code{font-family:var(--fmono);font-size:.9em;background:var(--soft);padding:1px 5px;border-radius:5px;}
 .article pre{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px 16px;overflow:auto;} .article pre code{background:none;padding:0;}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
@@ -512,7 +557,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .md-table th,.md-table td{padding:8px 12px;border:1px solid var(--border);text-align:left;vertical-align:top;}
 .md-table thead th{background:var(--soft);font-family:var(--fdisp);color:var(--accent);font-weight:700;}
 .md-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 55%,transparent);}
-.callout{margin:1.2em 0;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
+.callout{margin:1.7em 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
 .callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: UndSo-blau */
 .callout.cx-konzept{border-left:4px solid var(--accent);} .callout.cx-kern{border-left:4px solid var(--accent2);background:color-mix(in srgb,var(--accent2) 7%,var(--panel));}
 .callout.cx-kern .callout-h{color:var(--accent2);}  /* Kernbox: Titel in Rot, passend zum roten Rand */
@@ -522,6 +567,25 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .callout.cx-grafik{border:1.5px dashed var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--panel));color:var(--muted);}
 .callout.cx-grafik .callout-h{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;}
 .callout.cx-grafik p{font-size:15px;margin:.2em 0;}
+/* Echte Abbildung (SVG) mit Bildunterschrift – ersetzt nach und nach die cx-grafik-Platzhalter */
+.article figure.fig{margin:1.8em 0;text-align:center;}
+.article figure.fig svg{width:min(560px,100%);height:auto;}
+.article figure.fig figcaption{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.5;max-width:52ch;margin-inline:auto;}
+/* Abschnitte als Karten: klar getrennt, in Stücken lernen */
+.article .sect{border:1px solid var(--border);border-radius:14px;background:var(--panel);padding:2px 22px 18px;margin:0 0 18px;}
+.article .sect>h2{margin:.7em 0 .9em;} .article .sect>h2:first-child{margin-top:.5em;}  /* Text beginnt klar eine Zeile unter der Überschrift */
+/* „Das Wichtigste" als klare Stichpunkte statt Textblock */
+.callout.cx-kern ul{margin:.2em 0 0;padding-left:1.2em;} .callout.cx-kern li{margin:.45em 0;}
+.callout ul{padding-left:1.2em;margin:.4em 0;}
+/* Nachbar-Artikel: zwei Spalten mit Themen-Stichpunkten (vorher | nächstes) */
+.neighbors{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 8px;}
+.neighbors .nb{display:block;border:1px solid var(--border);border-radius:12px;padding:13px 16px;background:var(--panel);color:inherit;}
+.neighbors .nb:hover{border-color:var(--accent);text-decoration:none;}
+.nb-dir{font-size:12px;color:var(--muted);font-weight:600;} .nb-dir.next{text-align:right;}
+.nb-t{font-weight:700;color:var(--accent2);margin:3px 0 8px;font-family:var(--fdisp);}
+.nb ul{list-style:none;margin:0;padding:0;} .nb li{font-size:13.5px;color:var(--muted);margin:3px 0;padding-left:14px;position:relative;}
+.nb li::before{content:"▸";position:absolute;left:0;top:1px;color:var(--accent);font-size:.8em;}
+.nb.empty{border:none;background:none;}
 .callout.cx-quiz{border-left:4px solid var(--accent3);background:color-mix(in srgb,var(--accent3) 5%,var(--panel));}
 .callout.cx-quiz .callout-h{color:var(--accent3);}
 details.quiz-item{margin:.5em 0;border:1px solid var(--border);border-radius:10px;background:var(--panel);}
@@ -532,6 +596,15 @@ details.quiz-item[open]>summary:before{content:"▾";}
 .quiz-n{display:inline-block;min-width:1.7em;color:var(--muted);font-variant-numeric:tabular-nums;}
 .quiz-a{padding:2px 14px 12px 34px;border-top:1px solid var(--border);}
 .quiz-a>p:first-child{margin-top:8px;}
+/* Herleitung: ausklappbare Box direkt an der Formel */
+details.herleitung{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;background:color-mix(in srgb,var(--accent) 4%,var(--panel));}
+details.herleitung>summary{cursor:pointer;font-weight:700;font-family:var(--fdisp);color:var(--accent);padding:10px 14px;list-style:none;}
+details.herleitung>summary::-webkit-details-marker{display:none;}
+details.herleitung>summary::before{content:"▸";display:inline-block;margin-right:9px;transition:transform .15s;}
+details.herleitung[open]>summary::before{transform:rotate(90deg);}
+details.herleitung>summary:hover{text-decoration:underline;}
+.hl-body{padding:0 16px 10px;border-top:1px solid var(--border);}
+.hl-body>p:first-child{margin-top:12px;}
 .prevnext{display:flex;justify-content:space-between;gap:14px;margin:36px 0 10px;flex-wrap:wrap;}
 .pn{flex:1 1 200px;border:1px solid var(--border);border-radius:12px;padding:12px 15px;font-weight:600;background:var(--panel);}
 .pn span{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-bottom:2px;} .pn.next{text-align:right;}
@@ -558,13 +631,28 @@ details.quiz-item[open]>summary:before{content:"▾";}
 .searchResults .r-snip{font-size:13.5px;color:var(--muted);margin-top:2px;} .searchResults mark{background:color-mix(in srgb,var(--accent3) 55%,transparent);color:inherit;border-radius:3px;}
 .searchHint{padding:10px 18px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--border);}
 .menuBtn{display:none;}
+/* Inhaltsverzeichnis am Artikelanfang (ersetzt die früheren Einstiegs-Boxen Lede / „Zur Idee" / „Worum es geht") */
+.arttoc{margin:.3em 0 2.2em;padding:16px 20px;background:var(--soft);border:1px solid var(--border);border-radius:12px;}
+.arttoc-h{text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:10px;}
+.arttoc ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;}
+.arttoc li{margin:0;}
+.arttoc a{display:block;padding:5px 0;color:var(--ink);font-weight:500;}
+.arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
+.arttoc a:hover{color:var(--accent);text-decoration:none;}
+@media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
   /* Themenbaum als Overlay (über #toggleLeft geöffnet); muss das Desktop-Einklappen überstimmen */
   .layout .side.open{display:block;position:fixed;inset:56px 0 0;z-index:30;background:var(--panel);max-height:none;overflow:auto;padding:14px 16px 48px;}
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
   .topbar .searchBtn .lbl,.topbar .searchBtn kbd{display:none;}   /* Suchknopf nur als Lupe */
-  .article{padding:20px 16px 60px;}                               /* schmalere Seitenränder auf dem Handy */
+  .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
+  .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
+  .article .katex{font-size:1.14em;}                              /* Inline-Formeln auf dem Handy nicht zu klein */
+  .article .katex-display{font-size:1.2em;} .article .fbox{padding:8px 13px 12px;}     /* abgesetzte Formeln gut lesbar */
+  .arttoc{padding:14px 16px;}
+  .article .sect{padding:2px 15px 14px;}
+  .neighbors{grid-template-columns:1fr;}
 }
 """
 
@@ -647,16 +735,16 @@ WISSEN_JS = r"""
   // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
   if(bR){ if(L("wissen-hide-right")){ layout.classList.add("hide-right"); mark(bR,true); }
     bR.addEventListener("click",function(){ var now=layout.classList.toggle("hide-right"); mark(bR,now); S("wissen-hide-right",now); }); }
-  // Links (Themenbaum): Desktop = einklappen (gemerkt); Mobil = Overlay auf/zu.
-  if(bL){ if(L("wissen-hide-left") && !mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
+  // Links (Themenbaum): Desktop = beim Öffnen IMMER eingeklappt (Toggle gilt nur für die aktuelle Seite); Mobil = Overlay auf/zu.
+  if(bL){ if(!mq.matches){ layout.classList.add("hide-left"); mark(bL,true); }
     bL.addEventListener("click",function(){
       if(mq.matches){ var o=side&&side.classList.toggle("open"); mark(bL,!!o); }
-      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); S("wissen-hide-left",now); }
+      else { var now=layout.classList.toggle("hide-left"); mark(bL,now); }
     }); }
-  // Breitenwechsel aufräumen: Overlay nur mobil, Einklappen nur Desktop.
+  // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
   (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
     if(e.matches){ layout.classList.remove("hide-left"); mark(bL, side&&side.classList.contains("open")); }
-    else { if(side) side.classList.remove("open"); var hl=L("wissen-hide-left"); layout.classList.toggle("hide-left",hl); mark(bL,hl); }
+    else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); mark(bL,true); }
   });
 })();
 // KaTeX automatisch rendern.
