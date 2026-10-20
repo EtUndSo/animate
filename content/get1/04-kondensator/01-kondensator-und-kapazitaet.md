@@ -123,3 +123,26 @@ __Energie__ $W = \tfrac{1}{2}CU^2$ — der Faktor $\tfrac12$ kommt vom allmähli
 
 Bisher ging es um einen einzelnen Kondensator. Als Nächstes die Frage, wie sich mehrere Kondensatoren in Reihe
 und parallel verhalten — und warum dabei die __Ladungserhaltung__ den Ausschlag gibt.
+
+:::quiz
+F: Warum bleibt die Ladung auf einem geladenen Kondensator „gefangen"?
+A: Die beiden Platten tragen entgegengesetzte Ladung, die sich über das Feld gegenseitig anzieht und festhält. Da zwischen ihnen ein Isolator liegt, kann die Ladung nicht abfließen und bleibt gespeichert.
+F: Warum ist die Kapazität eine Bauteil-Eigenschaft, obwohl sie als $Q/U$ definiert ist?
+A: Ladung und Spannung ändern sich zwar, aber stets proportional zueinander, sodass ihr Verhältnis konstant bleibt. Dieser feste Faktor hängt nur von Geometrie und Material ab, nicht vom gerade eingestellten Betriebspunkt.
+F: Warum erhöht eine größere Plattenfläche die Kapazität?
+A: Mehr Fläche bietet mehr Platz, auf dem sich bei gegebener Spannung Ladung verteilen kann. Da $C=Q/U$ und $Q$ mit der Fläche steigt, wächst auch die Kapazität — Fläche steht im Zähler.
+F: Warum erhöht ein kleinerer Plattenabstand die Kapazität?
+A: Bei kleinerem $d$ ist das Feld $E=U/d$ bei gleicher Spannung stärker und bindet mehr Ladung an die Platten. Deshalb steht der Abstand im Nenner von $C=\varepsilon_0\varepsilon_r A/d$.
+F: Wie erhöht ein Dielektrikum die Kapazität?
+A: Seine Bausteine richten sich im Feld als Dipole aus und erzeugen ein Gegenfeld, das das innere Feld teilweise aufhebt. Bei gleicher Spannung passt dadurch mehr Ladung auf die Platten — die Kapazität steigt um den Faktor $\varepsilon_r$.
+F: Was bedeutet die Polarisation anschaulich für die Spannungsquelle?
+A: Das Dielektrikum „entschärft" einen Teil des Feldes von innen, sodass die Quelle nachladen kann, bis die alte Spannung wieder erreicht ist. Es nimmt der Quelle einen Teil der Abstoßungsarbeit ab — mehr Ladung bei gleichem „Druck".
+F: Warum ist die gespeicherte Energie $\tfrac12 CU^2$ und nicht $QU$?
+A: Beim Laden steigt die Spannung erst allmählich von null auf $U$; die erste Ladung fließt bei fast 0 V, die letzte bei voller Spannung. Im Mittel wird nur die halbe Endspannung „bezahlt", daher der Faktor $\tfrac12$.
+F: Wie sieht man den Faktor $\tfrac12$ im $Q$-$U$-Diagramm?
+A: Die Ladung steigt linear mit der Spannung (Gerade durch den Ursprung mit Steigung $C$). Die Energie ist die Fläche darunter — ein Dreieck mit Fläche $\tfrac12 QU$.
+F: Warum ist ein Farad eine so große Einheit?
+A: $1\,$F bedeutet, dass pro Volt ein ganzes Coulomb Ladung gespeichert wird — eine enorme Ladungsmenge. Reale Bauteile schaffen meist nur pF bis µF, weshalb man fast immer mit diesen Vorsätzen rechnet.
+F: Lassen sich mit $Q=CU$ die drei Energieformen ineinander umrechnen?
+A: Ja: Aus $W=\tfrac12 CU^2$ wird mit $Q=CU$ sowohl $\tfrac12 QU$ als auch $\tfrac{Q^2}{2C}$. Alle drei beschreiben dieselbe Energie, man wählt je nach gegebenen Größen die passende Form.
+:::
