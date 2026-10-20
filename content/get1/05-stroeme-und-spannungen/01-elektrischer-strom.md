@@ -2,239 +2,337 @@
 title: Der elektrische Strom
 pfad: Elektrotechnik / 1. Semester / Grundgebiete der Elektrotechnik 1 / Ströme und Spannungen in Netzen
 order: 50100
-summary: Was im Draht wirklich passiert, wenn Strom fließt — von der Ladung über die Stromstärke bis zur Frage, warum das Licht sofort angeht, obwohl die Elektronen kriechen.
+summary: Von Grund auf – was im Draht fließt, wenn Strom fließt. Leitbild ist ein randvolles Wasserrohr mit einer Wasseruhr: Strom ist, was pro Sekunde durch einen Querschnitt tritt, und weil das Rohr voll ist, genügt ein langsames Wandern für einen kräftigen Strom. Mit Ladung und Ladungsträgern, der Raumladungsdichte am Quader, der Stromstärke als Grenzwert, der technischen Stromrichtung, der Stromdichte als Vektor, der überraschend kleinen Driftgeschwindigkeit, der Frage, warum das Licht trotzdem sofort angeht, und den Bedingungen für einen dauerhaften Strom samt Kontinuität. Mit Beispiel-Seite.
 tags: Strom, Ladung, Stromstärke, Ampere, Stromdichte, Driftgeschwindigkeit, technische Stromrichtung
 ---
 
-:::konzept
-Strom ist nichts anderes als **Ladung, die sich bewegt**. Stell dir vor, du stehst an einer Stelle im Draht
-und zählst, wie viel Ladung pro Sekunde an dir vorbeikommt. Genau diese Zahl ist die __Stromstärke__. Mehr
-steckt im Kern nicht dahinter — alles Weitere ist nur die Frage, *was* da wandert, *wie schnell* und *in
-welche Richtung*.
-:::
+## Anschaulich
 
-**Worum es geht:** „Strom fließt" ist schnell gesagt, aber was fließt da physikalisch, und wie macht man
-daraus eine messbare Größe? Dieser Abschnitt baut den Begriff von unten auf: erst die Ladung, dann ihre
-Bewegung, dann die Zahl, die beides zusammenfasst.
+Strom ist bewegte Ladung. Wer wissen will, wie stark ein Strom ist, stellt sich an eine Stelle des Leiters und zählt, wie viel Ladung pro Sekunde an
+ihm vorbeikommt. Mehr steckt im Kern nicht dahinter — alles Weitere ist die Frage, was da wandert, wie schnell und in welche Richtung.
 
-## Was fließt da eigentlich: die Ladung
+**Das Leitbild dieses Artikels:** **ein randvolles Wasserrohr mit einer Wasseruhr**. Die Wasseruhr sitzt an einer Stelle des Rohrs und misst, wie viel
+Wasser pro Sekunde hindurchtritt — das ist die Stromstärke. Weil das Rohr voll ist, kann ein kräftiger Durchfluss entstehen, obwohl jedes einzelne
+Wasserteilchen nur langsam wandert. Und drückt man am einen Ende Wasser hinein, tritt es am anderen Ende sofort aus, ohne dass ein Teilchen die ganze
+Strecke zurücklegen muss.
 
-Bevor etwas fließen kann, muss klar sein, *was* fließt. Das ist die __elektrische Ladung__ $Q$, gemessen in
-__Coulomb__ (Einheitszeichen C). Ladung gibt es in zwei Sorten, die wir **positiv** und **negativ** nennen.
-Gleichnamige Ladungen stoßen sich ab, ungleichnamige ziehen sich an — das ist die Grundkraft, aus der am Ende
-jede Spannung und jeder Strom entstehen.
+Ein Metalldraht ist ein solches volles Rohr, gefüllt mit beweglichen Elektronen. Damit es dauerhaft fließt, braucht es eine Pumpe und einen
+geschlossenen Kreislauf — elektrisch eine Quelle und einen geschlossenen Stromkreis. Das Wasserbild ist eine Analogie und an manchen Stellen
+schief, etwa beim Vorzeichen der Ladung; wo es nicht trägt, steht es unten dabei.
 
 :::grafik
-Zwei Kugeln mit $+$ und $-$: bei gleichen Vorzeichen Pfeile voneinander weg (Abstoßung), bei
-ungleichen aufeinander zu (Anziehung). Pfeillängen gleich groß, um das Kräftegleichgewicht zu zeigen.
+Szene: get1/stroeme-und-spannungen/01-volles-rohr · Vorlage: rohr-wasseruhr
+Ein langes, durchsichtiges Rohr voller Kugeln, links eine Pumpe, das Rohr zum Kreis geschlossen. An einer Stelle eine Wasseruhr mit Zähler. Ein
+Regler startet die Pumpe: Alle Kugeln setzen sich gleichzeitig langsam in Bewegung, und der Zähler zählt einen kräftigen Durchfluss. Ein markiertes
+Kügelchen kriecht dabei nur ein kurzes Stück, während am anderen Ende sofort Kugeln austreten. Ein zweiter Regler verengt ein Rohrstück: Dort laufen
+die Kugeln schneller, der Zähler an der engen Stelle zeigt denselben Durchfluss. Kernaussage: Strom ist Durchfluss durch einen Querschnitt; im vollen
+Rohr genügt langsames Wandern für einen großen Strom. (Blau = Kugeln und Strömung, rot = markierte Kugel, orange = Zähler, grau = Rohr und Pumpe.)
 :::
 
-Entscheidend ist, dass Ladung nicht beliebig fein teilbar ist. Sie tritt immer als ganzzahliges Vielfaches
-einer kleinsten Portion auf, der __Elementarladung__
+## Ladung und Ladungsträger
 
-$$e \approx 1{,}602 \cdot 10^{-19}\,\text{C}.$$
+Was fließt, ist __elektrische Ladung__ $Q$, gemessen in __Coulomb__. Es gibt sie in zwei Sorten, positiv und negativ, und sie ist nicht beliebig fein
+teilbar: Jede Ladung ist ein ganzzahliges Vielfaches der __Elementarladung__ $e$, rund $1{,}602\cdot10^{-19}\,\text{C}$. Ein Proton trägt $+e$, ein
+Elektron $-e$.
 
-Ein einzelnes Elektron trägt die Ladung **$-e$**, ein Proton **$+e$**. Dass uns der Strom trotzdem wie eine
-glatte, kontinuierliche Größe erscheint, liegt an den gewaltigen Stückzahlen: In einem Alltagsstrom wandern
-pro Sekunde Trillionen Elektronen vorbei, da fällt die Körnigkeit der einzelnen Ladungsportionen nicht auf.
+Die Ladungen, die sich bewegen können, heißen __Ladungsträger__. In Metallen sind es die __Leitungselektronen__: Die Atome sitzen als positive
+__Atomrümpfe__ fest in einem regelmäßigen Gitter, dem __Kristallgitter__, und jedes gibt eines oder mehrere Außenelektronen ab, die sich frei durch das
+ganze Metall bewegen. In Salzlösungen und Batterien wandern __Ionen__, geladene Atome oder Moleküle; in Halbleitern zusätzlich __Löcher__, fehlende
+Elektronen, die sich wie positive Ladungen verhalten (Kapitel 10).
 
-In einem Metalldraht sind es die __Leitungselektronen__, die sich bewegen. Die __Atomrümpfe__ — die Atome
-ohne ihre abgegebenen Außenelektronen — sitzen fest im __Kristallgitter__, dem regelmäßigen räumlichen Muster,
-in dem die Atome angeordnet sind. Einige äußere Elektronen sind aber an kein einzelnes Atom gebunden und
-können durch das ganze Metall wandern. Diese frei beweglichen Elektronen sind die __Ladungsträger__, um die es
-geht. Wie viele davon pro Volumen zur Verfügung stehen, ist von Material zu Material verschieden und entscheidet
-später mit darüber, wie gut ein Stoff leitet.
+**Im Bild:** Die Leitungselektronen sind das Wasser im Rohr, das Gitter der Atomrümpfe ist das Rohr selbst. Anders als beim Wasser ist das Rohr hier
+positiv geladen und gleicht die Ladung des Wassers genau aus: Ein Draht ist im Ganzen neutral, auch wenn Strom fließt.
 
-## Die Stromstärke: Ladung pro Zeit
+## Bewegte Ladung: die Raumladungsdichte
 
-Damit lässt sich die __Stromstärke__ sauber definieren. Sie ist die Ladungsmenge, die pro Zeit durch einen
-Querschnitt des Leiters tritt:
+Um den Strom zu berechnen, betrachtet das Skript einen kleinen Quader mit den Kantenlängen $\Delta x$, $\Delta y$ und $\Delta z$, also dem Volumen
+$\Delta V$, in dem die bewegliche Ladung $\Delta Q$ steckt. Wie dicht sie verteilt ist, misst die __Raumladungsdichte__:
 
-$$I = \frac{\mathrm{d}Q}{\mathrm{d}t}.$$
+$$\rho = \frac{\Delta Q}{\Delta V}, \qquad \Delta V = \Delta x\,\Delta y\,\Delta z.$$
 
-Bestandteil für Bestandteil:
+Das Skript nennt sie $q$; hier heißt sie nach DIN $\rho$. Bewegt sich die Ladung mit der Geschwindigkeit $v_z$ in $z$-Richtung, tritt in der Zeit $\Delta t$
+durch die Seitenfläche $\Delta x\,\Delta y$ die Ladung
 
-- __$I$__: die __Stromstärke__, die gesuchte Größe. Einheit __Ampere__ (A), und zwar eine der sieben
-  __SI-Basisgrößen__, also nicht aus anderen Größen abgeleitet, sondern selbst Grundbaustein.
-- __$Q$__: die __Ladung__, die bereits durch den Querschnitt geflossen ist, in Coulomb.
-- __$t$__: die __Zeit__ in Sekunden.
-- __$\dfrac{\mathrm{d}Q}{\mathrm{d}t}$__: die __Ableitung__ der Ladung nach der Zeit, also die *Rate*, mit der
-  gerade Ladung vorbeiströmt.
+$$\frac{\Delta Q}{\Delta t} = \rho\,v_z\,\Delta x\,\Delta y$$
 
-Warum überhaupt eine Ableitung und nicht einfach $Q/t$? Weil der Strom sich im Allgemeinen ständig ändert —
-beim Einschalten, bei Wechselstrom, in jeder realen Schaltung. Die Ableitung $\mathrm{d}Q/\mathrm{d}t$ liefert
-den Wert **genau in einem Augenblick**, den __Momentanwert__. Fließt der Strom dagegen gleichmäßig, bleibt die
-Rate konstant, und man darf die Ableitung durch den einfachen Quotienten $I = Q/t$ ersetzen. Aus der Definition
-folgt direkt der Zusammenhang der Einheiten:
+pro Zeit hindurch.
 
-$$1\,\text{A} = 1\,\frac{\text{C}}{\text{s}}, \qquad \text{also} \qquad 1\,\text{C} = 1\,\text{A}\cdot\text{s}.$$
+**So liest man das:** Der Durchfluss ist Dichte mal Geschwindigkeit mal Fläche. Mehr Ladung pro Volumen, schnellere Bewegung oder ein größerer
+Querschnitt — jedes davon vergrößert, was pro Sekunde durchtritt.
 
-Ein __Coulomb__ ist damit keine besonders handliche Portion Ladung, sondern schlicht die Ladung, die bei einem
-__Ampere__ in einer Sekunde durch den Querschnitt tritt. Und das Ampere selbst ist über die Elementarladung
-festgelegt: Seit der Neudefinition der SI-Einheiten (2019) hat $e$ einen exakt festgelegten Zahlenwert, und ein
-Ampere bedeutet, dass in jeder Sekunde eine fest definierte, riesige Zahl von Elementarladungen den Querschnitt
-passiert.
+**Im Bild:** Durch die Wasseruhr tritt pro Sekunde das Wasser aus einer Säule, deren Grundfläche der Querschnitt ist und deren Länge die Strecke, die
+das Wasser in einer Sekunde zurücklegt.
 
-**Anders betrachtet.** Trägt man die durchgeflossene Ladung $Q$ über der Zeit $t$ auf, dann ist die
-Stromstärke nichts anderes als die **Steigung dieser Kurve**. Ein konstanter Strom ist eine Gerade, ein
-ansteigender Strom eine nach oben gekrümmte Kurve. Das ist dasselbe Bild wie in der Mechanik: So wie die
-Geschwindigkeit die Steigung der Weg-Zeit-Kurve ist, ist der Strom die Steigung der Ladungs-Zeit-Kurve.
+:::herleitung
+In der Zeit $\Delta t$ legt jede Ladung die Strecke $v_z\,\Delta t$ zurück. Durch die Seitenfläche treten also genau die Ladungen, die höchstens so weit
+von ihr entfernt waren: alle in einer Säule mit der Grundfläche $\Delta x\,\Delta y$ und der Länge $v_z\,\Delta t$. Ihre Ladung ist Dichte mal Volumen:
+
+$$\Delta Q = \rho\cdot\Delta x\,\Delta y\,v_z\,\Delta t.$$
+
+Geteilt durch $\Delta t$ folgt die Formel.
+:::
 
 :::grafik
-Ein $Q$-$t$-Diagramm. Eine gerade Linie für konstanten Strom, daneben ein Steigungsdreieck, dessen
-Verhältnis $\Delta Q / \Delta t$ als $I$ beschriftet ist. Zweite, gekrümmte Kurve für ansteigenden Strom mit
-einer Tangente, die zeigt: der Momentanwert ist die Steigung in genau einem Punkt.
+Szene: get1/stroeme-und-spannungen/01-ladungssaeule · Vorlage: quader-durchfluss
+Ein Quader mit den Kanten $\Delta x$, $\Delta y$, $\Delta z$, gefüllt mit Ladungen, die sich mit $v_z$ in $z$-Richtung bewegen; die Seitenfläche $\Delta x\,\Delta y$ ist
+hervorgehoben. Ein Zeitregler läuft von $0$ bis $\Delta t$: Vor der Fläche färbt sich eine Säule der Länge $v_z\,\Delta t$, deren Ladungen in dieser Zeit die
+Fläche passieren; ein Zähler zeigt $\rho\,\Delta x\,\Delta y\,v_z\,\Delta t$. Regler für $\rho$ und $v_z$ verlängern bzw. verdichten die Säule. Kernaussage: Pro
+Zeit tritt die Ladung einer Säule aus Querschnitt mal Geschwindigkeit durch die Fläche. (Blau = Ladungen, rot = durchtretende Säule, orange = Zähler,
+grau = Quaderkanten.)
 :::
 
-Was heißt das konkret? Ein Strom von $I = 2\,\text{A}$ bedeutet, dass pro Sekunde $2\,\text{C}$ an Ladung einen
-Querschnitt passieren. In Elektronen umgerechnet:
+::::beispiel Wie viel bewegliche Ladung steckt in Kupfer?
+Kupfer hat die Dichte $8{,}96\,\frac{\text{g}}{\text{cm}^3}$ und die molare Masse $63{,}55\,\frac{\text{g}}{\text{mol}}$, und jedes Atom gibt ein
+Leitungselektron ab. Mit der Avogadro-Konstante aus dem Artikel über Einheiten ist die Zahl der Leitungselektronen pro Volumen
 
-$$\frac{2\,\text{C}}{1{,}602 \cdot 10^{-19}\,\text{C}} \approx 1{,}25 \cdot 10^{19}\ \text{Elektronen pro Sekunde.}$$
+$$n = \frac{8{,}96\,\text{g}/\text{cm}^3}{63{,}55\,\text{g}/\text{mol}}\cdot6{,}022\cdot10^{23}\,\frac{1}{\text{mol}} \approx 8{,}49\cdot10^{22}\,\frac{1}{\text{cm}^3} = 8{,}49\cdot10^{28}\,\frac{1}{\text{m}^3}.$$
 
-## In welche Richtung? Technische und tatsächliche Stromrichtung
+Ihre Raumladungsdichte:
 
-An diesem Punkt stolpern viele. Lange bevor man das Elektron kannte, hatte man schon festgelegt, dass der
-Strom außerhalb der Quelle vom __Pluspol__ zum __Minuspol__ fließt. Das nennt man die __technische
-Stromrichtung__. Später zeigte sich, dass im Metall die negativ geladenen Elektronen wandern — und die laufen
-genau andersherum, vom Minus- zum Pluspol.
+$$\rho = -n\,e \approx -8{,}49\cdot10^{28}\,\frac{1}{\text{m}^3}\cdot1{,}602\cdot10^{-19}\,\text{C} \approx -1{,}36\cdot10^{10}\,\frac{\text{C}}{\text{m}^3}.$$
 
-Korrigiert hat man die alte Festlegung trotzdem nicht, und das muss man auch nicht.
+Das sind über $13\,000$ Coulomb in jedem Kubikzentimeter — ausgeglichen durch ebenso viel positive Ladung der Atomrümpfe. Wandern die Elektronen nur
+$0{,}1\,\frac{\text{mm}}{\text{s}}$ durch einen Querschnitt von $1\,\text{mm}^2$, sind das schon
+
+$$1{,}36\cdot10^{10}\,\frac{\text{C}}{\text{m}^3}\cdot10^{-4}\,\frac{\text{m}}{\text{s}}\cdot10^{-6}\,\text{m}^2 \approx 1{,}36\,\frac{\text{C}}{\text{s}}.$$
+
+**Im Bild:** Das Rohr ist bis zum Rand voll. Schon ein Kriechen von einem Zehntel Millimeter pro Sekunde schiebt mehr als ein Coulomb pro Sekunde durch
+die Wasseruhr.
+::::
+
+## Die Stromstärke
+
+Lässt man das Zeitintervall gegen null gehen, erhält man den Durchfluss in einem Augenblick, die __Stromstärke__:
+
+:::formel Definition
+$$I := \lim_{\Delta t\to0}\frac{\Delta Q}{\Delta t} = \frac{dQ}{dt}, \qquad [I] = \frac{\text{C}}{\text{s}} = \text{A}.$$
+:::
+
+**So liest man das:** Die Stromstärke ist die Ladung, die pro Zeit durch einen Querschnitt tritt, im Augenblick betrachtet. Ihre Einheit, das
+__Ampere__, ist eine der sieben Basiseinheiten, und das Coulomb ist daraus abgeleitet, eine Amperesekunde. Ändert sich der Strom mit der Zeit, schreibt
+man nach DIN kleine Buchstaben, $i(t)$ als Ableitung der Ladung $q(t)$; das Skript schreibt durchweg groß. Bei konstantem Strom ist die Ableitung
+ein einfacher Quotient:
+
+$$Q = I\cdot t.$$
+
+**Im Bild:** Die Anzeige der Wasseruhr — nicht die Wassermenge, die insgesamt durchgeflossen ist, sondern wie schnell sie gerade zunimmt. Trägt man
+die durchgeflossene Ladung über der Zeit auf, ist der Strom die Steigung der Kurve, so wie die Geschwindigkeit die Steigung des Wegs.
+
+:::herleitung
+**Der Grenzwert** ist die Ableitung der durchgeflossenen Ladung nach der Zeit, wie im Artikel über Einheiten die Geschwindigkeit die Ableitung des Wegs.
+
+**Konstanter Strom.** Ist die Ableitung konstant, ist die durchgeflossene Ladung eine lineare Funktion der Zeit; ab dem Start bei null ist sie
+Steigung mal Zeit. Allgemein ist sie das Integral des Stroms.
+:::
+
+::::beispiel Elektronen pro Sekunde
+**(a) Ein Strom von $2\,\text{A}$** bringt in jeder Sekunde $2\,\text{C}$ durch den Querschnitt, getragen von
+
+$$\frac{2\,\text{C}}{1{,}602\cdot10^{-19}\,\text{C}} \approx 1{,}25\cdot10^{19}$$
+
+Elektronen pro Sekunde.
+
+**(b) Eine Stunde lang** sind das $2\,\text{A}$ mal $3600\,\text{s}$, also $7200\,\text{C}$ — in der Einheit der Akkus $2\,\text{Ah}$.
+
+**Im Bild:** Die Wasseruhr dreht sich gleichmäßig; was in einer Stunde durchgeflossen ist, ist Anzeige mal Zeit.
+::::
+
+## Die Stromrichtung
+
+Die __technische Stromrichtung__ wurde festgelegt, bevor man das Elektron kannte: Außerhalb der Quelle fließt der Strom vom Plus- zum Minuspol, als
+wanderten positive Ladungen. In Metallen bewegen sich aber Elektronen, und die laufen genau andersherum, vom Minus- zum Pluspol.
+
+Für den Strom macht das keinen Unterschied. Eine negative Ladung, die nach links wandert, verschiebt Ladung genauso wie eine positive, die nach rechts
+wandert. Formal steckt das im Vorzeichen: Bei Elektronen ist die Raumladungsdichte negativ, und Dichte mal Geschwindigkeit ergibt einen positiven
+Durchfluss gegen ihre Bewegungsrichtung. Alle Formeln der Schaltungstechnik beziehen sich auf die technische Stromrichtung; die tatsächliche Bewegung
+der Elektronen braucht man nur, wenn es um das Innere des Materials geht.
+
+**Im Bild:** Hier hinkt das Wasserbild. Das „Wasser" im Draht ist negativ geladen; die Wasseruhr zählt Elektronen, die nach links strömen, als
+positiven Strom nach rechts.
 
 :::grafik
-Ein Stromkreis mit Batterie und Lampe. Ein roter Pfeil außen zeigt die technische Stromrichtung (Plus → Minus),
-ein zweiter, blauer Pfeil daneben die tatsächliche Bewegung der Elektronen (Minus → Plus), damit der Gegensatz
-sofort sichtbar wird.
+Szene: get1/stroeme-und-spannungen/01-stromrichtungen · Vorlage: stromkreis-richtungen
+Ein Stromkreis aus einer Batterie und einer Lampe. Außen am Leiter ein roter Pfeil in technischer Stromrichtung, vom Pluspol durch die Lampe zum
+Minuspol; im Leiter kleine Elektronen, die langsam in Gegenrichtung wandern, mit blauen Pfeilen. Ein Umschalter zeigt dasselbe einmal mit gedachten
+positiven Ladungen in technischer Richtung: Der Zähler für die Ladung rechts eines Querschnitts zeigt in beiden Fällen dieselbe Zunahme. Kernaussage:
+Positive Ladung nach rechts und negative nach links sind derselbe Strom. (Rot = technische Stromrichtung, blau = Elektronen, orange = Zähler, grau =
+Batterie und Lampe.)
 :::
 
-**Zwei Sichtweisen, dasselbe Ergebnis.** Eine positive Ladung, die nach rechts wandert, ist für jede Rechnung
-dasselbe wie eine negative Ladung, die nach links wandert — in beiden Fällen nimmt die positive Ladung rechts
-zu. Deshalb darf man rechnen, als flössen positive Träger in technischer Richtung, obwohl physikalisch
-Elektronen entgegengesetzt laufen. Alle Formeln und Vorzeichen der Schaltungsanalyse beziehen sich auf die
-__technische Stromrichtung__; die tatsächliche Elektronenbewegung braucht man nur, wenn es um das Innenleben
-des Materials geht.
-
-## Der mikroskopische Blick: warum das Licht sofort angeht
-
-Man würde erwarten, dass die Elektronen schnell durch den Draht wandern. Das Gegenteil ist der Fall: Sie
-bewegen sich **sehr langsam** vorwärts. Zur Einordnung muss man zwei Geschwindigkeiten auseinanderhalten.
-Zufällig, durch die Wärme, zittern die Elektronen mit mehreren Hundert Kilometern pro Sekunde kreuz und quer —
-aber dieses Gewusel hebt sich im Mittel auf und transportiert nichts. Legt man eine Spannung an, bekommt die
-ungeordnete Bewegung nur eine winzige gemeinsame Vorzugsrichtung. Diese mittlere Netto-Geschwindigkeit in
-Stromrichtung heißt __Driftgeschwindigkeit__ $v_\text{d}$ und liegt bei Alltagsströmen bei Bruchteilen eines
-Millimeters pro Sekunde — langsamer als eine kriechende Schnecke.
-
-:::grafik
-Ein Ausschnitt des Drahts mit vielen Elektronen. Dünne, wirre Zickzack-Linien zeigen die thermische Bewegung;
-darüber ein einzelner, langer, langsamer Pfeil nach rechts für die gemeinsame Drift. Kernaussage des Bildes:
-viel Gezappel, kaum Netto-Weg.
+:::herleitung
+Eine positive Ladung $+e$ wandert durch einen Querschnitt nach rechts: Rechts davon wächst die Ladung um $+e$. Eine negative Ladung $-e$ wandert nach
+links: Rechts davon fehlt jetzt $-e$, die Ladung dort wächst also ebenfalls um $+e$. Beide Vorgänge ändern die Ladungsverteilung gleich, sie sind
+derselbe Strom. In der Formel des Quaders sind bei Elektronen Dichte und Geschwindigkeit in $z$-Richtung beide negativ, ihr Produkt positiv.
 :::
 
-Diesen überraschend kleinen Wert liefert der folgende Zusammenhang, der die makroskopische Stromstärke mit dem
-mikroskopischen Geschehen verbindet:
+## Die Stromdichte
 
-$$I = n \cdot A \cdot e \cdot v_\text{d}.$$
+Die Stromstärke sagt, wie viel Ladung pro Zeit durch einen Querschnitt tritt, aber nicht, wie dicht gedrängt sie fließt. Das misst die __Stromdichte__,
+Strom pro Fläche. Im Quader des Skripts, eindimensional in Flussrichtung und als Vektor:
 
-Jeder Faktor einzeln:
-
-- __$n$__: die __Ladungsträgerdichte__, also die Zahl der frei beweglichen Elektronen pro Volumen (Einheit
-  $1/\text{m}^3$). In Kupfer ist sie gewaltig, rund $n \approx 10^{29}\,\text{m}^{-3}$.
-- __$A$__: die __Querschnittsfläche__ des Drahtes, durch die der Strom tritt (in $\text{m}^2$).
-- __$e$__: die __Elementarladung__, die jedes Elektron beisteuert.
-- __$v_\text{d}$__: die __Driftgeschwindigkeit__ der Träger (in $\text{m}/\text{s}$).
-
-Woher dieses Produkt kommt, sieht man am besten, wenn man es in zwei Schritten aufbaut.
-
-**Schritt 1** — welche Ladungsträger schaffen es in einer Sekunde durch den Querschnitt? Alle, die nicht weiter
-als eine Wegstrecke $v_\text{d}\cdot t$ entfernt sind, denn genau so weit kommt ein Träger in der Zeit $t$.
-Diese Träger füllen ein gedachtes Stück Draht mit der Querschnittsfläche $A$ und der Länge $v_\text{d}\cdot t$,
-also mit dem Volumen $V = A \cdot v_\text{d} \cdot t$.
-
-**Schritt 2** — wie viel Ladung sitzt in diesem Volumen? Die Trägerdichte $n$ sagt, wie viele Träger pro
-Volumen da sind; mal dem Volumen ergibt das ihre Anzahl $N = n \cdot V$. Jeder trägt die Ladung $e$, also ist
-die durchgetretene Ladung $Q = e \cdot N = e \cdot n \cdot A \cdot v_\text{d} \cdot t$. Teilt man das durch die
-Zeit, fällt $t$ heraus, und übrig bleibt genau
-
-$$I = \frac{Q}{t} = n \cdot A \cdot e \cdot v_\text{d}.$$
-
-Die eigentliche Pointe steckt in den Größenordnungen. Weil $n$ in einem Metall astronomisch groß ist (in Kupfer
-rund $10^{29}$ Träger pro Kubikmeter), muss jeder einzelne Träger nur winzig langsam wandern, um in Summe einen
-kräftigen Strom zu tragen. Stellt man die Gleichung nach $v_\text{d}$ um und setzt für einen typischen Draht
-($I = 1\,\text{A}$, Querschnitt $1{,}5\,\text{mm}^2$) ein, erhält man
-
-$$v_\text{d} = \frac{I}{n \cdot A \cdot e} \approx 0{,}04\,\frac{\text{mm}}{\text{s}}.$$
-
-Vier Hundertstel Millimeter pro Sekunde — ein einzelnes Elektron bräuchte für einen Meter Draht also fast einen
-halben Tag.
-
-**Stolperstein: Wenn die Elektronen so langsam sind, warum leuchtet die Lampe dann sofort, wenn ich den
-Schalter drücke?** Weil kein einzelnes Elektron von der Quelle bis zur Lampe reisen muss. Der Draht ist bereits
-**überall** voll mit Ladungsträgern. Drückt man am einen Ende, setzt sich die ganze Kette praktisch
-gleichzeitig in Bewegung — das treibende elektrische Feld breitet sich im Leiter **nahezu mit
-Lichtgeschwindigkeit** aus.
-
-Das gleiche Bild liefert ein randvoll mit Wasser gefülltes Rohr: Drückst du vorne Wasser hinein, tritt hinten
-sofort welches aus, obwohl kein einzelnes Wassermolekül in dieser kurzen Zeit die ganze Strecke zurücklegt.
-(Das Wasserbild ist eine *Analogie* und darf nicht überstrapaziert werden — Ladung ist kein Wasser —, aber für
-genau diesen Punkt trifft es den Kern.)
-
-## Die Stromdichte: Strom pro Fläche
-
-Die Stromstärke sagt, *wie viel* Ladung pro Zeit fließt, aber nicht, *wie dicht gedrängt*. Dafür gibt es die
-__Stromdichte__. Verteilt sich der Strom $I$ gleichmäßig über die Querschnittsfläche $A$, ist sie
-
-$$J = \frac{I}{A}, \qquad [J] = \frac{\text{A}}{\text{m}^2}.$$
-
-- __$J$__: die __Stromdichte__, ein Maß dafür, wie viel Strom sich durch jede Flächeneinheit zwängt.
-- __$I$__: die __Stromstärke__ durch die Fläche.
-- __$A$__: die durchströmte __Querschnittsfläche__.
-
-In der Praxis rechnet man oft in $\text{A}/\text{mm}^2$, weil Drahtquerschnitte in Quadratmillimetern
-angegeben werden.
-
-:::grafik
-Zwei Drähte mit demselben Strom, einer dick, einer dünn. Im dünnen Draht drängen sich die Stromlinien enger —
-höhere Stromdichte —, angedeutet durch eine wärmere Einfärbung, um die stärkere Erwärmung sichtbar zu machen.
+:::formel Definition
+$$J_z = \frac{I}{\Delta x\,\Delta y} = \rho\,v_z, \qquad \vec J = \rho\,\vec v.$$
 :::
 
-Genau genommen ist die __Stromdichte__ mehr als eine Zahl: Sie ist ein __Vektor__ $\vec{J}$, der in jedem Punkt
-in die Richtung zeigt, in die dort gerade Ladung strömt, und dessen Betrag angibt, wie dicht der Fluss ist. Der
-einfache Quotient $J = I/A$ ist der Spezialfall eines Drahtes, in dem der Strom überall gleich stark und
-parallel fließt. In verzweigten Leitern oder im Inneren von Körpern ändert die Strömung Richtung und Dichte von
-Ort zu Ort — dann braucht man das __Vektorfeld__. Es ist der erste Schritt von der Schaltungsgröße Strom hin zur
-Feldbeschreibung, mit der sich später beschreiben lässt, *wie* sich der Strom im Material verteilt.
+**So liest man das:** Die Stromdichte zeigt in die Richtung, in die positive Ladung strömt; ihr Betrag ist Strom pro Fläche, in Ampere pro
+Quadratmeter, in der Praxis meist pro Quadratmillimeter. Bei Elektronen ist die Dichte negativ, also zeigt $\vec J$ ihrer Bewegung entgegen — in die
+technische Stromrichtung. Das Skript schreibt die Stromdichte klein, $\vec j$; im Kasten steht dort im Zähler versehentlich ein $l$ statt des Stroms $I$.
+
+Verteilt sich der Strom gleichmäßig und senkrecht über einen Querschnitt $A$, ist die Stromdichte einfach $\frac IA$. Ist er ungleich verteilt, ist der
+Strom die Summe über kleine Flächenstücke $d\vec A$, jedes mit seiner Normalen als Richtung:
+
+$$I = \int_A\vec J\cdot d\vec A.$$
+
+**Im Bild:** An einer engen Stelle des Rohrs drängt sich derselbe Durchfluss auf weniger Fläche — die Strömung ist dort dichter.
+
+:::herleitung
+**Die Dichte am Quader.** Der Strom durch die Seitenfläche ist nach dem Abschnitt über die Raumladungsdichte $\rho\,v_z\,\Delta x\,\Delta y$; durch die
+Fläche geteilt, bleibt $\rho\,v_z$. Bewegt sich die Ladung in eine beliebige Richtung, gilt das für jede Komponente, und die Komponenten bilden den
+Vektor $\rho\,\vec v$.
+
+**Das Integral.** Durch ein kleines Flächenstück trägt nur die Komponente von $\vec J$ senkrecht zur Fläche Ladung hindurch; ein Anteil parallel zur
+Fläche streift an ihr entlang. Der Vektor $d\vec A$ steht senkrecht auf dem Stück und ist so lang, wie das Stück groß ist; das Skalarprodukt
+$\vec J\cdot d\vec A$ ist deshalb genau der Strom durch das Stück, und die Summe über alle Stücke ist der Strom durch die ganze Fläche.
+:::
+
+::::beispiel Stromdichten im Alltag
+**(a) Hausinstallation.** Eine Leitung mit $1{,}5\,\text{mm}^2$ Kupferquerschnitt, abgesichert mit $16\,\text{A}$, und eine mit $2{,}5\,\text{mm}^2$:
+
+$$J = \frac{16\,\text{A}}{1{,}5\,\text{mm}^2} \approx 10{,}7\,\frac{\text{A}}{\text{mm}^2}, \qquad J = \frac{16\,\text{A}}{2{,}5\,\text{mm}^2} = 6{,}4\,\frac{\text{A}}{\text{mm}^2}.$$
+
+**(b) Ein dünner Litzendraht** von $0{,}14\,\text{mm}^2$ mit $1\,\text{A}$:
+
+$$J = \frac{1\,\text{A}}{0{,}14\,\text{mm}^2} \approx 7{,}1\,\frac{\text{A}}{\text{mm}^2}.$$
+
+Beide Leiter sind ähnlich stark belastet, obwohl die Ströme sich um den Faktor $16$ unterscheiden. Wie stark sich ein Leiter erwärmt, hängt an der
+Stromdichte, nicht am Strom allein (Kapitel 7).
+
+**Im Bild:** Ein dickes Rohr mit großem Durchfluss und ein dünnes mit kleinem können gleich „voll" strömen.
+::::
+
+## Wie schnell wandern die Elektronen?
+
+Aus der Stromdichte folgt, wie schnell die Ladungsträger im Mittel vorankommen. Mit der Trägerdichte $n$ und dem Betrag $n\,e$ der Raumladungsdichte
+ist für einen Draht mit dem Querschnitt $A$ die __Driftgeschwindigkeit__
+
+:::formel
+$$v_\text{d} = \frac{I}{n\,e\,A}.$$
+:::
+
+**So liest man das:** Die Driftgeschwindigkeit ist die mittlere Geschwindigkeit der Träger längs des Leiters. Weil $n$ in Metallen riesig ist, ist sie
+winzig — Bruchteile eines Millimeters pro Sekunde.
+
+**Im Bild:** In einem randvollen, weiten Rohr genügt ein Kriechen für einen kräftigen Durchfluss.
+
+:::herleitung
+Bei gleichmäßiger Verteilung ist der Betrag der Stromdichte einerseits Strom durch Fläche, andererseits Betrag der Raumladungsdichte mal Geschwindigkeit:
+
+$$\frac{I}{A} = n\,e\,v_\text{d}.$$
+
+Nach der Geschwindigkeit aufgelöst steht die Formel da.
+:::
+
+Langsam sind die Elektronen dabei keineswegs. Ihre ungeordnete Bewegung ist sehr schnell — in Kupfer über tausend Kilometer pro Sekunde, eine Folge der
+Quantenmechanik —, aber sie hebt sich im Mittel auf und transportiert nichts. Der Strom ist nur die winzige gemeinsame Vorzugsrichtung, die das Feld
+dieser Bewegung aufprägt; wie das geschieht, zeigt der nächste Artikel.
+
+**Warum das Licht trotzdem sofort angeht.** Kein Elektron muss vom Schalter zur Lampe reisen. Der Draht ist überall voller Leitungselektronen. Schließt
+man den Kreis, breitet sich das antreibende Feld mit einem großen Bruchteil der Lichtgeschwindigkeit aus — in einem Kabel typisch etwa zwei Dritteln
+davon —, und die Elektronen setzen sich überall praktisch gleichzeitig in Bewegung. Wie schnell genau, hängt von der Leitung ab und folgt aus der Theorie
+elektromagnetischer Wellen.
+
+**Im Bild:** Drückt man am einen Ende Wasser in das volle Rohr, tritt am anderen sofort Wasser aus — nicht dasselbe, das man hineingedrückt hat.
+
+::::beispiel Kriechende Elektronen
+Ein Kupferdraht mit $1{,}5\,\text{mm}^2$ Querschnitt führt $1\,\text{A}$. Mit der Trägerdichte von Kupfer:
+
+$$v_\text{d} = \frac{1\,\text{A}}{8{,}49\cdot10^{28}\,\text{m}^{-3}\cdot1{,}602\cdot10^{-19}\,\text{C}\cdot1{,}5\cdot10^{-6}\,\text{m}^2} \approx 4{,}9\cdot10^{-5}\,\frac{\text{m}}{\text{s}}.$$
+
+Knapp fünf Hundertstel Millimeter pro Sekunde. Für einen Meter Draht bräuchte ein Elektron
+
+$$\frac{1\,\text{m}}{4{,}9\cdot10^{-5}\,\text{m}/\text{s}} \approx 2{,}0\cdot10^{4}\,\text{s},$$
+
+gut fünfeinhalb Stunden. Das Signal, mit etwa $2\cdot10^{8}\,\frac{\text{m}}{\text{s}}$, braucht für denselben Meter fünf Nanosekunden.
+
+**Im Bild:** Die einzelne Kugel im Rohr kommt kaum voran, der Schub am anderen Ende ist sofort da.
+::::
+
+## Wann fließt ein Strom?
+
+Das Skript nennt zwei Bedingungen für einen dauerhaften Strom: Es muss eine __Ladungsquelle__ geben, die die Ladungen antreibt, etwa eine Batterie oder
+ein Netzteil, und der __Stromkreis__ muss geschlossen sein. Ein Strom, der sich zeitlich nicht ändert, heißt __stationär__. In einem stationären Strom
+fließt durch jeden Querschnitt eines unverzweigten Leiters derselbe Strom, die __Kontinuität__:
+
+$$I_1 = I_2 \quad\text{für zwei Querschnitte desselben unverzweigten Leiters}.$$
+
+**So liest man das:** Ladung kann sich nirgends anhäufen, solange sich nichts ändert. An einer engen Stelle sind deshalb Stromdichte und
+Driftgeschwindigkeit größer, der Strom aber derselbe.
+
+**Im Bild:** Wasser lässt sich nicht zusammendrücken. Was in ein Rohrstück hineinfließt, muss hinten wieder hinaus; schließt man ein Ventil, steht der
+ganze Kreislauf.
+
+:::herleitung
+**Kontinuität.** Zwischen zwei Querschnitten ändert sich die Ladung nur, wenn hinein ein anderer Strom fließt als hinaus; ihre Änderungsrate ist die
+Differenz der beiden Ströme. Nach dem Ladungserhaltungssatz kann Ladung dabei weder entstehen noch verschwinden. In einem stationären Zustand ändert
+sich nichts, also ist die Differenz null.
+
+**Geschlossener Kreis.** Wäre der Kreis offen, sammelte sich Ladung an der Unterbrechung an, wie auf den Platten eines Kondensators. Ihr Feld wüchse,
+bis es dem antreibenden Feld die Waage hält, und der Strom käme zum Erliegen — kein dauerhafter Strom ohne geschlossenen Kreis.
+:::
+
+::::beispiel Eine enge Stelle
+Ein Strom von $1\,\text{A}$ fließt durch einen Kupferdraht von $1{,}5\,\text{mm}^2$, der an einer Stelle auf $0{,}25\,\text{mm}^2$ verjüngt ist. Der Strom ist
+überall $1\,\text{A}$, Stromdichte und Driftgeschwindigkeit aber nicht:
+
+| Querschnitt | Stromdichte | Driftgeschwindigkeit |
+|---|---|---|
+| $1{,}5\,\text{mm}^2$ | $0{,}67\,\frac{\text{A}}{\text{mm}^2}$ | $0{,}049\,\frac{\text{mm}}{\text{s}}$ |
+| $0{,}25\,\text{mm}^2$ | $4{,}0\,\frac{\text{A}}{\text{mm}^2}$ | $0{,}29\,\frac{\text{mm}}{\text{s}}$ |
+
+An der engen Stelle müssen die Elektronen sechsmal so schnell wandern, damit pro Sekunde dieselbe Ladung durchkommt.
+
+**Im Bild:** In der Engstelle des Rohrs strömt das Wasser schneller, die Wasseruhr zeigt dort aber denselben Durchfluss.
+::::
+
+## Bedeutung und Ausblick
+
+Die Stromstärke ist die Grundgröße jeder Schaltung, und das Ampere ist eine Basiseinheit des SI. Die Stromdichte entscheidet, wie stark sich ein Leiter
+erwärmt — sie bestimmt Leitungsquerschnitte und Sicherungen — und im Inneren von Halbleitern, wie die Bauelemente arbeiten. Aus der Kontinuität wird
+später in diesem Kapitel die Knotenregel von Kirchhoff: An einer Verzweigung teilt sich der Strom, und die Summe bleibt erhalten.
+
+Der nächste Artikel fragt, was die Elektronen antreibt und was sie bremst: das Feld im Leiter und die Stöße mit dem Gitter. Daraus entstehen der
+Widerstand und das Ohmsche Gesetz.
 
 :::kern
-Strom ist bewegte Ladung. Die __Stromstärke__ $I = \dfrac{\mathrm{d}Q}{\mathrm{d}t}$ zählt die Ladung pro Zeit;
-ihre Einheit __Ampere__ ist eine SI-Basisgröße, und es gilt $1\,\text{C} = 1\,\text{A}\cdot\text{s}$. Als
-__technische Stromrichtung__ gilt der Weg von Plus nach Minus. Die __Ladungsträger__ driften überraschend
-langsam ($I = n\,A\,e\,v_\text{d}$), der Effekt breitet sich aber fast mit Lichtgeschwindigkeit aus. Die
-__Stromdichte__ $J = \dfrac{I}{A}$ beschreibt, wie dicht gedrängt der Strom fließt, und entscheidet über die
-Erwärmung.
+- Strom ist bewegte Ladung; __Ladungsträger__ sind in Metallen Leitungselektronen, in Lösungen Ionen, in Halbleitern auch Löcher.
+- Die __Raumladungsdichte__ ist $\rho=\frac{\Delta Q}{\Delta V}$; der Durchfluss durch eine Fläche ist Dichte mal Geschwindigkeit mal Fläche.
+- __Stromstärke__: $I=\frac{dQ}{dt}$, Einheit Ampere; bei konstantem Strom ist die Ladung Strom mal Zeit.
+- Die __technische Stromrichtung__ zählt positive Ladung von Plus nach Minus; Elektronen laufen entgegen, mit demselben Ergebnis.
+- __Stromdichte__: $\vec J=\rho\,\vec v$, Strom pro Fläche; bei Elektronen zeigt sie gegen ihre Bewegung.
+- Die __Driftgeschwindigkeit__ $v_\text{d}=\frac{I}{neA}$ ist in Metallen winzig, Bruchteile eines Millimeters pro Sekunde.
+- Das Licht geht trotzdem sofort an: Das antreibende Feld breitet sich fast mit Lichtgeschwindigkeit aus.
+- Dauerhafter Strom braucht eine Quelle und einen geschlossenen Kreis; durch jeden Querschnitt eines unverzweigten Leiters fließt derselbe Strom.
 :::
 
-Damit ist geklärt, *was* fließt. Die nächste Frage ist, *was es antreibt*: die __Spannung__. Aus dem
-Zusammenspiel von Strom und Spannung ergibt sich dann der wichtigste Zusammenhang der Schaltungsanalyse, das
-__Ohmsche Gesetz__.
-
 :::quiz
-F: Warum erscheint der Strom als glatte Größe, obwohl Ladung in Elementarportionen auftritt?
-A: Jedes Elektron trägt nur $e\approx1{,}6\cdot10^{-19}\,$C, aber pro Sekunde wandern Trillionen davon vorbei. Bei solchen Stückzahlen fällt die Körnigkeit der Einzelladungen nicht auf, der Strom wirkt kontinuierlich.
-F: Warum definiert man die Stromstärke als Ableitung $\mathrm{d}Q/\mathrm{d}t$ und nicht als $Q/t$?
-A: Der Strom ändert sich im Allgemeinen ständig (Einschalten, Wechselstrom). Die Ableitung gibt den Momentanwert in genau einem Augenblick; nur bei konstantem Strom darf man sie durch den Quotienten $Q/t$ ersetzen.
-F: Warum ist das Ampere eine SI-Basisgröße und nicht abgeleitet?
-A: Die elektrische Stromstärke gehört zu den sieben nicht aufeinander zurückführbaren Grundgrößen des SI. Das Coulomb ist umgekehrt aus ihr abgeleitet ($1\,$C$=1\,$A·s), nicht andersherum.
-F: Was ist die Stromstärke im $Q$-$t$-Diagramm anschaulich?
-A: Sie ist die Steigung der Ladungs-Zeit-Kurve. Konstanter Strom ergibt eine Gerade, ein veränderlicher eine gekrümmte Kurve — analog zur Geschwindigkeit als Steigung der Weg-Zeit-Kurve.
-F: Warum behält man die technische Stromrichtung bei, obwohl Elektronen anders laufen?
-A: Eine positive Ladung nach rechts ist für jede Rechnung dasselbe wie eine negative nach links — das Ergebnis ist identisch. Die historische Festlegung Plus→Minus liefert korrekte Vorzeichen, ein Korrigieren wäre unnötig.
-F: Warum driften die Elektronen trotz kräftigen Stroms nur bruchteile eines Millimeters pro Sekunde?
-A: Die Trägerdichte $n$ in Metall ist astronomisch ($\sim10^{29}/$m³). Weil in $I=nAev_\text{d}$ so viele Träger beitragen, genügt eine winzige gemeinsame Driftgeschwindigkeit für einen großen Strom.
-F: Worin unterscheiden sich thermische Bewegung und Driftgeschwindigkeit?
-A: Die thermische Bewegung ist ein schnelles, ungeordnetes Zittern (hunderte km/s), das sich im Mittel aufhebt und nichts transportiert. Die Drift ist nur die winzige gemeinsame Vorzugsrichtung, die das Feld aufprägt und die den Strom trägt.
-F: Warum leuchtet die Lampe sofort, obwohl die Elektronen so langsam sind?
-A: Kein Elektron muss von der Quelle bis zur Lampe reisen — der Draht ist überall schon mit Ladungsträgern gefüllt. Das treibende elektrische Feld breitet sich fast mit Lichtgeschwindigkeit aus und setzt die ganze Kette gleichzeitig in Bewegung.
-F: Wie entsteht der Zusammenhang $I=nAev_\text{d}$ anschaulich?
-A: In der Zeit $t$ erreichen den Querschnitt alle Träger aus einem Drahtstück der Länge $v_\text{d}t$, also dem Volumen $A\,v_\text{d}t$. Darin sitzen $nAv_\text{d}t$ Träger mit je Ladung $e$; teilt man die Gesamtladung durch $t$, bleibt $I=nAev_\text{d}$.
-F: Warum reicht die Stromstärke nicht und man braucht zusätzlich die Stromdichte?
-A: $I$ sagt nur, wie viel Ladung pro Zeit fließt, nicht wie dicht gedrängt. $J=I/A$ erfasst die Drängung — wichtig für die Erwärmung — und ist allgemein ein Vektorfeld, das in verzweigten Leitern Richtung und Dichte ortsabhängig beschreibt.
+F: Was zählt die Stromstärke anschaulich, und warum ist sie als Grenzwert definiert?
+A: Sie zählt, wie viel Ladung pro Zeit durch einen Querschnitt tritt, wie die Anzeige einer Wasseruhr. Weil sich der Strom im Allgemeinen ändert, nimmt man den Grenzwert $\frac{dQ}{dt}$, den Wert im Augenblick; im Ladung-Zeit-Diagramm ist er die Steigung. Nur bei konstantem Strom ist die Ladung einfach Strom mal Zeit.
+F: Wie hängen Raumladungsdichte, Geschwindigkeit und Durchfluss am Quader zusammen?
+A: In der Zeit $\Delta t$ treten durch die Seitenfläche alle Ladungen einer Säule der Länge $v_z\Delta t$, also $\rho\,\Delta x\,\Delta y\,v_z\,\Delta t$. Der Durchfluss ist deshalb $\rho\,v_z\,\Delta x\,\Delta y$ — Dichte mal Geschwindigkeit mal Fläche.
+F: Warum ist ein Kupferdraht neutral, obwohl jeder Kubikzentimeter über $13\,000\,\text{C}$ bewegliche Ladung enthält?
+A: Jedes Kupferatom gibt ein Leitungselektron ab und bleibt als positiver Atomrumpf im Gitter zurück. Die Raumladungsdichte der Elektronen von etwa $-1{,}36\cdot10^{10}\,\frac{\text{C}}{\text{m}^3}$ wird von den Rümpfen genau ausgeglichen. Wandern die Elektronen, bleibt der Draht neutral — es fließt nur Ladung hindurch.
+F: Wie viele Elektronen tragen einen Strom von $2\,\text{A}$, und was bedeuten $2\,\text{Ah}$?
+A: Zwei Coulomb pro Sekunde, geteilt durch die Elementarladung, sind rund $1{,}25\cdot10^{19}$ Elektronen pro Sekunde. $2\,\text{Ah}$ sind die Ladung, die $2\,\text{A}$ in einer Stunde transportieren, also $7200\,\text{C}$.
+F: Warum darf man mit der technischen Stromrichtung rechnen, obwohl Elektronen andersherum laufen?
+A: Eine negative Ladung, die nach links wandert, ändert die Ladungsverteilung genauso wie eine positive nach rechts: Rechts wächst die Ladung in beiden Fällen um $+e$. In der Formel sind bei Elektronen Dichte und Geschwindigkeit beide negativ, ihr Produkt positiv. Deshalb gelten alle Formeln mit der Richtung von Plus nach Minus.
+F: Was ist die Stromdichte, und in welche Richtung zeigt sie bei Elektronen?
+A: Strom pro Fläche, als Vektor $\vec J=\rho\vec v$; bei gleichmäßiger Verteilung $\frac IA$, allgemein ist der Strom das Integral von $\vec J$ über die Fläche. Bei Elektronen ist $\rho$ negativ, $\vec J$ zeigt also ihrer Bewegung entgegen, in die technische Stromrichtung. Eine Leitung von $1{,}5\,\text{mm}^2$ mit $16\,\text{A}$ hat etwa $10{,}7\,\frac{\text{A}}{\text{mm}^2}$.
+F: Wie schnell driften die Elektronen bei $1\,\text{A}$ in einem Kupferdraht von $1{,}5\,\text{mm}^2$, und warum so langsam?
+A: Aus $\frac IA=n\,e\,v_\text{d}$ folgt $v_\text{d}=\frac{I}{neA}\approx4{,}9\cdot10^{-5}\,\frac{\text{m}}{\text{s}}$, knapp fünf Hundertstel Millimeter pro Sekunde; für einen Meter bräuchte ein Elektron über fünf Stunden. So langsam, weil die Trägerdichte von rund $8{,}5\cdot10^{28}\,\text{m}^{-3}$ riesig ist: Sehr viele Träger teilen sich den Strom.
+F: Warum leuchtet die Lampe sofort, obwohl die Elektronen so langsam kriechen?
+A: Kein Elektron muss vom Schalter zur Lampe reisen; der Draht ist überall voller Leitungselektronen. Das antreibende Feld breitet sich mit einem großen Bruchteil der Lichtgeschwindigkeit aus, in Kabeln etwa zwei Drittel davon, und setzt alle praktisch gleichzeitig in Bewegung — ein Meter dauert etwa fünf Nanosekunden. Wie bei einem vollen Wasserrohr tritt am Ende sofort etwas aus.
+F: Welche Bedingungen braucht ein dauerhafter Strom, und warum fließt durch jeden Querschnitt eines unverzweigten Leiters derselbe Strom?
+A: Eine Quelle, die die Ladungen antreibt, und einen geschlossenen Kreis; bei einer Unterbrechung sammelte sich Ladung an, deren Feld den Strom stoppt. Zwischen zwei Querschnitten ändert sich die Ladung um die Differenz der Ströme; im stationären Zustand ändert sich nichts, also sind die Ströme gleich — die Kontinuität, ein Fall der Ladungserhaltung.
+F: Was ändert sich an einer engen Stelle eines Leiters, und was bleibt gleich?
+A: Der Strom bleibt derselbe, denn Ladung häuft sich nicht an. Stromdichte und Driftgeschwindigkeit wachsen mit dem Kehrwert des Querschnitts: Verjüngt sich ein Draht mit $1\,\text{A}$ von $1{,}5$ auf $0{,}25\,\text{mm}^2$, steigt die Stromdichte von $0{,}67$ auf $4\,\frac{\text{A}}{\text{mm}^2}$, und die Elektronen wandern sechsmal so schnell.
 :::
