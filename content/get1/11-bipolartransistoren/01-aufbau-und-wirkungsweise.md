@@ -2,504 +2,483 @@
 title: Der Bipolartransistor – Aufbau und Wirkungsweise
 pfad: Elektrotechnik / 1. Semester / Grundgebiete der Elektrotechnik 1 / Bipolartransistoren
 order: 110100
-summary: Von Grund auf – wie aus drei dotierten Schichten ein Bauteil wird, in dem ein kleiner Basisstrom einen großen Kollektorstrom begleitet und steuert. Leitbild sind drei Parkhäuser in einer Reihe, mit einer Rampe vom Emitter in die schmale Basis und einer Absturzkante zum Kollektor. Mit Aufbau, Schaltsymbol und Zählpfeilen, dem Transistoreffekt und der Transfergleichung, Stromverstärkung B und α samt Herkunft aus Rekombination und Rückinjektion, der Frage nach Strom- oder Spannungssteuerung, den Kennlinien, den drei Arbeitsbereichen mit Annahme und Probe, dem Transistor als Schalter und dem pnp-Transistor. Mit Beispiel-Seite.
+summary: Wie aus drei dotierten Schichten ein Bauteil wird, in dem die Basis-Emitter-Spannung einen großen Kollektorstrom festlegt und nur ein kleiner Basisstrom fließt: Aufbau, Transistoreffekt mit Transfergleichung, Basisstrom und Stromverstärkung, Kennlinien, Arbeitsbereiche mit Sättigung, Schalter und pnp-Transistor. Kompakte Fassung; die ausführliche enthält zusätzlich die Stromverstärkung aus Dotierung und Geometrie, die Belege für die Spannungssicht, den Inversbetrieb, die Speicherzeit und weitere Beispiele.
 tags: Bipolartransistor, npn, pnp, Transistoreffekt, Stromverstärkung, aktiver Bereich, Sättigung
+stil: 3
+fassung: kompakt
 ---
 
-## Anschaulich
+## Worum es geht
 
-Mit der Diode kann man Strom nur durchlassen oder sperren. Der __Bipolartransistor__ kann mehr: Ein kleiner Strom an einem seiner Anschlüsse geht mit einem
-viel größeren Strom an einem anderen einher und steuert ihn. Damit verstärkt man Signale und schaltet Lasten, und aus Milliarden solcher Schalter bestehen
-Rechner. Der Name kommt daher, dass beide Sorten von Ladungsträgern beteiligt sind, Elektronen und Löcher.
+Eine Diode lässt Strom durch oder sperrt ihn. Zum Verstärken und Schalten braucht man ein Bauteil, in dem eine kleine Steuergröße einen großen Strom festlegt; der __Bipolartransistor__ erreicht das mit zwei pn-Übergängen in einem Kristall.
+**Ein gesperrter pn-Übergang führt so viel Strom, wie Nachschub an Minoritätsträgern zu ihm gelangt; im Bipolartransistor liefert ein leitender Übergang diesen Nachschub durch eine sehr dünne Basis, sodass die Basis-Emitter-Spannung den Kollektorstrom exponentiell festlegt, die Kollektorspannung ihn kaum beeinflusst und nur ein kleiner, fester Bruchteil als Basisstrom fließt.**
+Minoritätsträger sind die seltene Ladungsträgersorte eines Gebiets, etwa Elektronen in einem p-dotierten Gebiet.
 
-**Das Leitbild dieses Artikels:** **drei Parkhäuser in einer Reihe.** Es ist das Parkhaus aus den Artikeln über Halbleiter und die Diode, jetzt dreimal
-nebeneinander. Links steht das Emitter-Parkhaus, auf dem Oberdeck dicht voller Autos. In der Mitte steht ein sehr schmales Basis-Parkhaus mit wenigen Lücken
-im Unterdeck. Rechts liegt das Kollektor-Parkhaus tief unten. Zwischen Emitter und Basis führt eine Rampe hinauf, deren Höhe die Spannung zwischen Basis und
-Emitter verstellt; zwischen Basis und Kollektor geht es an einer Kante steil hinab.
-
-Vier Folgerungen:
-
-- **Wer die Rampe schafft, stürzt fast sicher hinab.** Senkt man die Rampe, fahren viele Autos ins Basis-Parkhaus. Weil es so schmal ist, rollen fast alle bis
-  zur Kante und stürzen ins Kollektor-Parkhaus, bevor sie eine Lücke finden.
-- **Nur wenige bleiben hängen.** Die wenigen Autos, die in der Basis in eine Lücke fallen, und die wenigen Lücken, die zum Emitter hinüberwandern, müssen über
-  den Basisanschluss ersetzt werden. Das ist ein kleiner Basisstrom neben einem großen Kollektorstrom.
-- **Die Tiefe des Absturzes ist gleichgültig.** Wie tief das Kollektor-Parkhaus liegt, ändert nichts daran, wie viele Autos ankommen; das bestimmt allein die
-  Rampe. Der Transistor liefert deshalb einen Strom, der fast nicht von der Kollektorspannung abhängt.
-- **Ohne Kante kein Strom.** Hebt man das Kollektor-Parkhaus zu weit an, verschwindet die Kante, und Autos rollen zurück; der Strom wird von außen begrenzt. Das
-  ist die Sättigung. Ist die Rampe zu hoch, kommt niemand hinüber: Der Transistor sperrt.
-
-| Im Parkhaus | Im Transistor |
-|---|---|
-| Emitter-Parkhaus, oben dicht voll | stark n-dotierter Emitter |
-| schmales Basis-Parkhaus mit wenigen Lücken | dünne, p-dotierte Basis |
-| tief liegendes Kollektor-Parkhaus | n-dotierter Kollektor |
-| Rampe vom Emitter in die Basis | Basis-Emitter-Übergang, verstellt durch $U_{BE}$ |
-| steile Kante zum Kollektor | gesperrter Basis-Kollektor-Übergang |
-| Autos, die durch die Basis rollen und hinabstürzen | Kollektorstrom |
-| Autos, die in der Basis in Lücken fallen | Rekombination, ein Teil des Basisstroms |
-| Lücken, die ins Emitter-Parkhaus wandern | Rückinjektion, der andere Teil |
+Vorausgesetzt werden der pn-Übergang aus [Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html), die Kennlinie aus [Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html) und Annahme und Probe aus [Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html).
 
 :::grafik
-Szene: get1/bipolartransistoren/01-drei-parkhaeuser · Vorlage: transistor-parkhaeuser
-Drei Parkhäuser im Querschnitt nebeneinander: links das Emitter-Parkhaus mit dicht besetztem Oberdeck, in der Mitte ein schmales Basis-Parkhaus mit wenigen
-Lücken im Unterdeck, rechts das tief liegende Kollektor-Parkhaus. Zwischen Emitter und Basis eine Rampe, deren Höhe ein Regler für $U_{BE}$ von $0$ bis
-$0{,}75\,\text{V}$ verstellt; zwischen Basis und Kollektor eine Kante, deren Tiefe ein Regler für $U_{CB}$ verstellt. Autos fahren je nach Rampenhöhe über die
-Rampe, rollen durch die Basis und stürzen über die Kante; einzelne fallen unterwegs in eine Lücke und werden rot markiert, einzelne Lücken wandern nach links.
-Zähler zeigen den Kollektor- und den Basisstrom und ihr Verhältnis $B$. Wird $U_{CB}$ negativ, verschwindet die Kante, Autos rollen zurück, und der Zähler des
-Kollektorstroms fällt. Kernaussage: Die Rampe bestimmt, wie viele Autos kommen, fast alle erreichen den Kollektor, und nur wenige bilden den Basisstrom.
-(Blau = Elektronen als Autos, rot = Rekombination und Lücken, orange = Rampe und Kante, grau = Parkhäuser.)
+Szene: get1/bipolartransistoren/01-npn-querschnitt · Vorlage: querschnitt-traegerfluesse
+**Abbildung 1:** npn-Transistor im Querschnitt im Normalbetrieb, schematisch (Dicken nicht maßstäblich): stark n-dotierter Emitter, dünne p-dotierte Basis, schwach n-dotierter Kollektor, Raumladungszonen grau. Bei 2 mA Kollektorstrom laufen Elektronen (blau) vom Emitter durch die Basis in den Kollektor; über den Basisanschluss kommen nur Löcher (rot) nach, zusammen 4 µA, die Verluste durch Rückinjektion in den Emitter und durch Rekombination ersetzen. Die Pfeile an den Anschlüssen zeigen die technische Stromrichtung. Der Kollektorstrom fließt nicht über die Basis; die Basis ersetzt nur Verluste.
 :::
 
 ## Aufbau, Schaltsymbol und Zählpfeile
 
-Ein Bipolartransistor besteht nach Abschnitt 11.1 des Skripts aus drei unterschiedlich dotierten Bereichen desselben Grundmaterials: dem __Emitter__ (E), der
-__Basis__ (B) und dem __Kollektor__ (C). Der Emitter ist am stärksten dotiert, der Kollektor am schwächsten, und die Basis dazwischen ist sehr viel schmaler als
-die beiden anderen. Beim __npn-Transistor__ ist die Basis p-dotiert zwischen zwei n-Gebieten, beim __pnp-Transistor__ n-dotiert zwischen zwei p-Gebieten; der
-npn-Transistor ist in der Praxis weit häufiger. Der Transistor enthält damit zwei pn-Übergänge, den __Basis-Emitter-Übergang__ und den
-__Basis-Kollektor-Übergang__.
+*Woraus besteht ein Bipolartransistor, und wie zählt man seine Ströme und Spannungen?*
 
-Im __Schaltsymbol__ in Bild 11.1 trägt der Emitter einen Pfeil, beim npn-Transistor nach außen, in die Richtung, in die der Emitterstrom fließt. Gezählt wird wie
-im Skript: Basisstrom $I_B$ und Kollektorstrom $I_C$ fließen in den Transistor hinein, der Emitterstrom $I_E$ heraus. Die Spannungen $U_{BE}$, $U_{CB}$ und
-$U_{CE}$ zählen jeweils vom ersten zum zweiten genannten Anschluss. Für diese Größen gelten, wie das Skript festhält, eine Knoten- und eine Maschenregel:
-
-:::formel
-$$I_E = I_B + I_C, \qquad U_{CE} = U_{CB} + U_{BE}.$$
+:::grafik
+Szene: get1/bipolartransistoren/01-aufbau-symbole · Vorlage: aufbau-und-symbol
+**Abbildung 2:** (a) npn-Transistor: Schichtfolge Emitter (n⁺, 10¹⁹ cm⁻³), Basis (p, 10¹⁷ cm⁻³, 0,5 µm), Kollektor (n, 10¹⁶ cm⁻³), dazu die Polung im Normalbetrieb und das Schaltsymbol mit den Zählpfeilen des Skripts: Basis- und Kollektorstrom in den Transistor hinein, Emitterstrom heraus, Spannungen $U_{BE}$, $U_{CB}$ und $U_{CE}$. (b) pnp-Transistor mit umgekehrter Schichtfolge, Emitterpfeil nach innen und den Zählpfeilen aus Bild 11.30 des Skripts: Emitterstrom hinein, Basis- und Kollektorstrom heraus. Drei Gebiete, zwei Übergänge; der Emitterpfeil zeigt die Richtung des Emitterstroms.
 :::
 
-**So liest man das:** Der Emitterstrom ist die Summe der beiden anderen, weil der Transistor keine Ladung speichert. Die Spannung von Kollektor zu Emitter ist der
-Weg über die Basis. Damit sind von den drei Strömen und drei Spannungen jeweils nur zwei unabhängig.
+Drei unterschiedlich dotierte Gebiete in einem Siliziumkristall bilden den Transistor: __Emitter__ (E), __Basis__ (B) und __Kollektor__ (C). Dotiert heißt, dass Fremdatome eingebaut sind, die Elektronen abgeben (n-Gebiet) oder Löcher erzeugen (p-Gebiet). Beim __npn-Transistor__ liegt eine p-Basis zwischen zwei n-Gebieten, beim __pnp-Transistor__ umgekehrt (Abbildung 2). Dazwischen liegen zwei pn-Übergänge, der __Basis-Emitter-Übergang__ und der __Basis-Kollektor-Übergang__.
 
-**Im Bild:** Was aus dem Emitter-Parkhaus verschwindet, kommt im Kollektor oder an der Basis wieder heraus, und der Höhenunterschied von Kollektor zu Emitter ist
-der über die Basis.
+Die Gebiete sind bewusst ungleich (Skript, S. 175). Beim Beispieltransistor dieses Artikels, der in seinen Kennwerten dem BC547C aus dem Praktikum entspricht, trägt der Emitter 10¹⁹ Donatoren pro cm³, die Basis 100-mal weniger Akzeptoren und der Kollektor noch einmal zehnmal weniger Donatoren. Die neutrale Basis ist nur 0,5 µm weit. Der Name „bipolar“ besagt, dass Elektronen und Löcher beteiligt sind.
+
+Im __Schaltsymbol__ zeigt der Pfeil am Emitter die Richtung des Emitterstroms, beim npn-Transistor aus dem Bauteil heraus. Gezählt wird wie im Skript (Bild 11.1): Basis- und Kollektorstrom hinein, Emitterstrom heraus; Spannungen vom ersten zum zweiten genannten Anschluss.
+
+**Die Akteure:**
+
+- __$I_C$__: __Kollektorstrom__, in den Kollektor hinein; in A; beim Beispieltransistor typisch 0,1 bis 10 mA. Ihn will man steuern.
+- __$I_B$__: __Basisstrom__, in die Basis hinein; in A; beim Beispieltransistor 500-mal kleiner als der Kollektorstrom.
+- __$I_E$__: __Emitterstrom__, aus dem Emitter heraus; in A.
+- __$U_{BE}$__: Spannung von der Basis zum Emitter; in V; im Normalbetrieb 0,6 bis 0,7 V, Basis-Emitter-Übergang in Durchlassrichtung.
+- __$U_{CB}$__, __$U_{CE}$__: Spannungen vom Kollektor zur Basis bzw. zum Emitter; in V; im Normalbetrieb einige Volt. Positives $U_{CB}$ sperrt den Basis-Kollektor-Übergang.
+
+**Das Zusammenspiel:** Weil der Transistor als Ganzes neutral bleibt, fließt am Emitter heraus, was an Basis und Kollektor hineinfließt; und die Spannung vom Kollektor zum Emitter führt über die Basis (Skript, S. 176):
+
+:::formel Formel
+$$I_E = I_B + I_C$$
+
+$$U_{CE} = U_{CB} + U_{BE}$$
+:::
+
+**So liest man das:** Je zwei Ströme und zwei Spannungen legen die dritte Größe fest. Ist $U_{CE}$ größer als $U_{BE}$, ist $U_{CB}$ positiv und der Basis-Kollektor-Übergang gesperrt.
+
+Idee der Herleitung: Knotenregel für eine Hülle um den Transistor, Maschenregel über die drei Anschlüsse.
 
 :::herleitung
-**Knotenregel.** Man legt eine Hülle um den ganzen Transistor. Im Gleichgewicht sammelt sich darin keine Ladung, also fließt ebenso viel hinein wie heraus, wie
-im Artikel über die Kirchhoffschen Gesetze für einen Knoten. Mit den Zählpfeilen fließen $I_B$ und $I_C$ hinein und $I_E$ heraus.
+**Ausgangspunkt:** die Knotenregel (Ladungserhaltung) und die Maschenregel (Spannung als Differenz zweier Potenziale) aus [Kirchhoffsche Gesetze](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/kirchhoffsche-gesetze.html).
 
-**Maschenregel.** Die drei Anschlüsse bilden eine Masche; nach dem Artikel über Arbeit, Potenzial und Spannung ist jede Spannung eine Potenzialdifferenz:
+**Annahmen:** (i) Der Transistor ist als Ganzes neutral; gespeicherte Ladungen, etwa in den Raumladungszonen, treten immer paarweise positiv und negativ auf. (ii) Die Spannungen sind Klemmenspannungen zwischen den Anschlüssen.
 
-$$U_{CE} = \varphi_C - \varphi_E = (\varphi_C - \varphi_B) + (\varphi_B - \varphi_E) = U_{CB} + U_{BE}.$$
+**Schritt 1**: Eine geschlossene Hülle um den Transistor schneidet die drei Anschlüsse. Nach (i) sammelt sich darin keine Ladung, die hineinfließenden Ströme sind also gleich den herausfließenden. Mit den Zählpfeilen fließen Basis- und Kollektorstrom hinein, der Emitterstrom heraus:
 
-Im Bild: Der Höhenunterschied zweier Parkhäuser ist derselbe, ob man ihn direkt misst oder über das mittlere.
+$$I_B + I_C = I_E$$
+
+**Schritt 2**: Jede Spannung ist eine Differenz der Potenziale $\varphi_C$, $\varphi_B$ und $\varphi_E$ der Anschlüsse. Man ergänzt das Basispotenzial:
+
+$$U_{CE} = \varphi_C - \varphi_E = (\varphi_C - \varphi_B) + (\varphi_B - \varphi_E) = U_{CB} + U_{BE}$$
+
+**Ergebnis:**
+
+$$I_E = I_B + I_C$$
+
+$$U_{CE} = U_{CB} + U_{BE}$$
+
+**Woher die Faktoren kommen:** Alle Faktoren sind 1, weil Ladung erhalten bleibt und Potenzialdifferenzen sich addieren; die Vorzeichen folgen aus den Zählpfeilen.
+
+**Proben:** Einheit A bzw. V. Im Normalbetrieb sind Basis- und Kollektorstrom positiv, der Emitterstrom ist also größer als jeder von beiden.
+
+**Grenzen:** An den Bahnwiderständen der Gebiete fallen bei großen Strömen kleine Spannungen ab; die Spannung direkt am Übergang ist dann etwas kleiner als die Klemmenspannung.
 :::
 
 ## Der Transistoreffekt
 
-Im Normalbetrieb, dem __aktiven Bereich__, liegt der Basis-Emitter-Übergang in Durchlassrichtung, mit $U_{BE}$ um $0{,}6$ bis $0{,}7\,\text{V}$, und der
-Basis-Kollektor-Übergang in Sperrrichtung, der Kollektor positiv gegen die Basis. Das zeigen die beiden Quellen in Bild 11.1 des Skripts.
+*Warum fließt durch den gesperrten Basis-Kollektor-Übergang ein großer Strom, und warum legt ihn $U_{BE}$ fest?*
 
-Wie bei der Diode lässt die Durchlassspannung viele Elektronen aus dem stark dotierten Emitter in die Basis gelangen. In der p-dotierten Basis sind sie
-Minoritätsträger und wandern durch Diffusion weiter. Ein Minoritätsträger legt im Mittel eine bestimmte Strecke zurück, bevor er rekombiniert, die
-__Diffusionslänge__; in Silizium sind das Mikrometer bis Millimeter. Die Basis ist viel dünner, deshalb erreichen fast alle Elektronen ihren Rand zum Kollektor,
-wie das Skript sagt. Dort fasst sie das Feld des gesperrten Basis-Kollektor-Übergangs und zieht sie in den Kollektor. Dieser Strom heißt auch __Transferstrom__.
-Weil er von den Elektronen getragen wird, die der Basis-Emitter-Übergang durchlässt, hängt er wie der Diodenstrom exponentiell von $U_{BE}$ ab:
+:::grafik
+Szene: get1/bipolartransistoren/01-transistoreffekt · Vorlage: banddiagramm-abfolge
+**Abbildung 3:** (a) Leitungsbandkante $W_L$ entlang des Beispieltransistors ohne äußere Spannung: Stufe von 0,95 eV zwischen Emitter und Basis, 0,77 eV zwischen Basis und Kollektor. (b) Normalbetrieb mit $U_{BE}$ = 0,65 V und $U_{CB}$ = 5 V: Die erste Stufe ist auf 0,30 eV abgesenkt, die zweite auf 5,77 eV vertieft (Achse unterbrochen); Elektronen (blau) kommen über die abgesenkte Stufe, diffundieren durch die Basis und fallen am Basis-Kollektor-Übergang hinab. (c) Elektronendichte in der Basis über dem Ort: am Emitterrand 8,3·10¹³ cm⁻³, am Kollektorrand null, dazwischen eine Gerade; gestrichelt bei 0,70 V mit 5,7·10¹⁴ cm⁻³. Die Stufe am Emitter bestimmt, wie viele Elektronen kommen; die Kante am Kollektor sammelt sie alle ein.
+:::
+
+**Die Akteure:**
+
+- __$n(x)$__: Elektronendichte in der Basis am Ort $x$; in cm⁻³. Bei $x$ = 0 grenzt die neutrale Basis an die Basis-Emitter-Zone, bei $x$ = $w_B$ an die Basis-Kollektor-Zone. Die Elektronen sind dort Minoritätsträger neben 10¹⁷ Löchern pro cm³.
+- __$n_{B0}$__: Elektronendichte der Basis im Gleichgewicht, nach dem Massenwirkungsgesetz $n_i^2/N_B$ mit der Eigenleitungsdichte $n_i$ = 10¹⁰ cm⁻³ und der Basisdotierung $N_B$; 10³ cm⁻³.
+- __$w_B$__: Weite der neutralen Basis; 0,5 µm.
+- __$D_n$__: __Diffusionskonstante__ der Elektronen in der Basis; 20,7 cm²/s. Sie misst, wie schnell die Wärmebewegung einen Dichteunterschied ausgleicht.
+- __$L_n$__: __Diffusionslänge__, die Strecke, die ein Elektron diffundiert, bevor es nach seiner __Lebensdauer__ $\tau_n$ von 80 ns mit einem Loch rekombiniert; 12,9 µm, 26-mal die Basisweite.
+- __$U_T$__: __Temperaturspannung__ $k_B T/e$; 25,85 mV bei 300 K.
+
+**Das Zusammenspiel in Schritten:**
+
+**Schritt 1**: Im __aktiven Bereich__, dem Normalbetrieb, leitet der Basis-Emitter-Übergang mit $U_{BE}$ um 0,65 V, und der Basis-Kollektor-Übergang sperrt mit einigen Volt. In Abbildung 3b ist die Stufe vor der Basis dadurch von 0,95 auf 0,30 eV gesunken, die Stufe zum Kollektor auf 5,77 eV gewachsen.
+
+**Schritt 2**: Über die gesenkte Stufe kommen Elektronen aus dem Emitter in die Basis, wie bei der Diode um den Boltzmann-Faktor $\exp(U_{BE}/U_T)$ mehr als im Gleichgewicht. Bei 0,65 V steigt die Elektronendichte am Emitterrand der Basis von 10³ auf 8,3·10¹³ cm⁻³; das sind 0,08 % der Löcherdichte.
+
+**Schritt 3**: In der feldfreien Basis wandern die Elektronen durch __Diffusion__ weiter, die ungeordnete Wärmebewegung, die im Mittel Teilchen von dichten zu dünnen Stellen trägt. Weil die Basis 26-mal dünner ist als die Diffusionslänge, kommt fast jedes Elektron an ihrem anderen Ende an.
+
+**Schritt 4**: Dort zieht das Feld des gesperrten Basis-Kollektor-Übergangs jedes Elektron in den Kollektor; am Kollektorrand der Basis ist die Elektronendichte praktisch null. Das ist der Sperrstrom der Diode mit einem riesigen Nachschub: Statt der Wärme liefert hier der Emitter die Minoritätsträger, bei 0,65 V 8·10¹⁰-mal so viele, wie die Wärme in der Basis bereitstellt.
+
+**Schritt 5**: Zwischen den Rändern fällt die Dichte geradlinig ab (Abbildung 3c). Der Diffusionsstrom ist proportional zu diesem Gefälle, also zur Randdichte am Emitter, die exponentiell mit $U_{BE}$ wächst. Wie tief die Kante ist, spielt keine Rolle: Bei 5 V wie bei 10 V Sperrspannung bleibt die Dichte am Kollektorrand null. Zwischen 1 und 10 V steigt der Kollektorstrom des Beispieltransistors deshalb nur um 13 %, weil die Basis mit wachsender Sperrspannung etwas dünner wird (Early-Effekt).
+
+Daraus folgt die __Transfergleichung__:
 
 :::formel Gesetz
-$$I_C = I_S\,\exp\frac{U_{BE}}{U_T}.$$
+$$I_C = I_S\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
 :::
 
-**So liest man das:** Eingabe ist die Basis-Emitter-Spannung, Ausgabe der Kollektorstrom. $I_S$ ist der __Transfersättigungsstrom__ des Transistors, wie bei der
-Diode proportional zur Fläche und zu $n_i^2$, und $U_T$ die Temperaturspannung, bei $300\,\text{K}$ gleich $25{,}9\,\text{mV}$. Die Kollektorspannung kommt
-in der Gleichung nicht vor: Solange der Basis-Kollektor-Übergang sperrt, sammelt er jedes Elektron ein, das ihn erreicht. Der Kollektor verhält sich deshalb wie
-eine Stromquelle, die $U_{BE}$ steuert. Die Gleichung heißt __Transfergleichung__; das Skript nennt sie nicht, sie folgt aber aus der Diodengleichung.
+**So liest man das:** Die Basis-Emitter-Spannung legt den Kollektorstrom fest. Der __Sättigungsstrom__ $I_S$, beim Beispieltransistor 10⁻¹⁴ A, ist der Vorfaktor, anschaulich der Teil des Sperrstroms, den bei $U_{BE}$ = 0 die thermischen Elektronen der Basis tragen; er wächst mit der Emitterfläche und sinkt mit Dotierung und Weite der Basis. Je 17,9 mV mehr verdoppelt sich der Strom, je 59,5 mV verzehnfacht er sich. Die Kollektorspannung kommt nicht vor, solange der Basis-Kollektor-Übergang sperrt.
 
-**Im Bild:** Wie viele Autos ins Kollektor-Parkhaus stürzen, entscheidet allein die Höhe der Rampe vom Emitter, nicht die Tiefe des Absturzes.
+Idee der Herleitung: Der Boltzmann-Faktor legt die Randdichte am Emitter fest; das geradlinige Profil in der dünnen Basis macht daraus einen Diffusionsstrom.
 
 :::herleitung
-**Der Elektronenstrom über den Basis-Emitter-Übergang.** Nach dem Artikel über die Diode wächst der Strom über die Rampe eines pn-Übergangs mit
-$\exp(U/U_T)$, wobei die angelegte Spannung die Rampe absenkt. Am Basis-Emitter-Übergang ist das $U_{BE}$; die Elektronen, die der Emitter liefert, wachsen also
-mit $\exp(U_{BE}/U_T)$.
+**Ausgangspunkt:** die Boltzmann-Verteilung und das Massenwirkungsgesetz aus [Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html), dazu das __Ficksche Gesetz__ der Diffusion: Durch eine Fläche $A$ diffundieren je Sekunde $D_n$ mal Dichtegefälle mal Fläche Elektronen, von hoher zu niedriger Dichte. Als elektrischer Strom:
 
-**Kein Rückstrom.** Bei der Diode floss der Rückstrom von Minoritätsträgern, die von der anderen Seite herunterrollten. Hier gibt es auf der Kollektorseite der
-Basis praktisch keine Elektronen, denn das Feld des gesperrten Übergangs räumt sie sofort ab. Der Rückstrom fehlt deshalb; streng genommen steht $\exp - 1$, und
-die Eins ist bei Durchlassspannungen unwichtig.
+$$I_\mathrm{Diff} = e\,A\,D_n\,\Big|\frac{\mathrm{d}n}{\mathrm{d}x}\Big|$$
 
-**Fast alle kommen an.** Weil die Basis viel dünner als die Diffusionslänge ist, erreicht fast jedes Elektron den Kollektor. Der Kollektorstrom ist deshalb bis
-auf einen winzigen Bruchteil dieser Elektronenstrom, und die Konstante davor heißt $I_S$. Im Bild: Die Rampe zählt die Autos, die Basis ist zu schmal, um viele zu
-verlieren, und die Kante nimmt alle.
+**Annahmen:**
+(i) aktiver Bereich: $U_{BE}$ ist viel größer als $U_T$, der Basis-Kollektor-Übergang sperrt mit einigen Zehntelvolt oder mehr;
+(ii) schwache Injektion: Die Elektronendichte bleibt klein gegen die Löcherdichte der Basis; beim Beispieltransistor erreicht sie erst bei 100 mA 10 %;
+(iii) die neutrale Basis ist feldfrei und viel dünner als die Diffusionslänge, das Verhältnis ist 0,04;
+(iv) über die Basis-Emitter-Zone hinweg bleiben die Elektronen Boltzmann-verteilt, wie bei der Herleitung der Diodenkennlinie.
+
+**Schritt 1**: Im Gleichgewicht folgt die Elektronendichte der Basis aus dem Massenwirkungsgesetz, weil dort die Löcherdichte gleich der Dotierung $N_B$ ist:
+
+$$n_{B0} = \frac{n_i^2}{N_B}$$
+
+**Schritt 2**: Mit $U_{BE}$ ist die Stufe zwischen Emitter und Basis um $e\,U_{BE}$ niedriger als im Gleichgewicht. Nach (ii) und (iv) wächst die Dichte am Emitterrand der Basis um den Boltzmann-Faktor dieser Absenkung:
+
+$$n(0) = n_{B0}\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
+
+**Schritt 3**: Am Kollektorrand ist die Stufe um $e\,U_{CB}$ höher als im Gleichgewicht, die Dichte dort also um den Faktor $\exp(-U_{CB}/U_T)$ kleiner, bei 5 V um 10⁻⁸⁴. Nach (i) gilt deshalb
+
+$$n(w_B) \approx 0$$
+
+**Schritt 4**: Nach (iii) geht in der Basis kein Elektron verloren; durch jeden Querschnitt fließt derselbe Strom. Nach dem Fickschen Gesetz ist dann das Gefälle überall gleich, und das Profil ist eine Gerade:
+
+$$n(x) = n(0)\,\Big(1 - \frac{x}{w_B}\Big)$$
+
+**Schritt 5** (entscheidender Schritt): Das Gefälle hat den Betrag $n(0)/w_B$. Die Elektronen diffundieren zum Kollektor; der technische Strom fließt entgegengesetzt, vom Kollektor durch die Basis zum Emitter, und ist der Kollektorstrom:
+
+$$I_C = e\,A\,D_n\,\frac{n(0)}{w_B}$$
+
+**Schritt 6**: Schritt 1 und Schritt 2 eingesetzt:
+
+$$I_C = \frac{e\,A\,D_n\,n_i^2}{N_B\,w_B}\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
+
+**Ergebnis:**
+
+$$I_C = I_S\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
+
+**Woher die Faktoren kommen:** Der Exponentialfaktor ist der Boltzmann-Faktor der abgesenkten Stufe (Schritt 2). Der Sättigungsstrom ist der Vorfaktor aus Schritt 6:
+
+$$I_S = \frac{e\,A\,D_n\,n_i^2}{N_B\,w_B}$$
+
+Darin ist $n_i^2/N_B$ die Elektronendichte der Basis im Gleichgewicht, und $D_n/w_B$ macht aus einer Dichte einen Strom. Eine dünne, schwach dotierte Basis und eine große Fläche ergeben einen großen Sättigungsstrom. $U_{CB}$ fehlt, weil die Dichte am Kollektorrand für jede Sperrspannung null ist (Schritt 3).
+
+**Proben:** Einheit: C mal cm² mal cm²/s mal cm⁻⁶, geteilt durch cm⁻³ mal cm, ergibt C/s, also A. Zahlenwert mit $e$ = 1,602·10⁻¹⁹ C, der Emitterfläche 1,5·10⁻⁴ cm² des Beispieltransistors, $D_n$ = 20,7 cm²/s, $n_i$ = 10¹⁰ cm⁻³, $N_B$ = 10¹⁷ cm⁻³ und $w_B$ = 0,5 µm:
+
+$$e\,A\,D_n\,n_i^2 = 0{,}0497\ \mathrm{A/cm^2}, \qquad N_B\,w_B = 5\cdot10^{12}\ \mathrm{cm^{-2}}, \qquad I_S = 0{,}99\cdot10^{-14}\ \mathrm{A}$$
+
+Grenzfall: Bei $U_{BE}$ = 0 bleibt der Sättigungsstrom übrig, der Anteil des Sperrstroms, den die thermischen Elektronen der Basis tragen; im realen Sperrstrom kommen Löcher aus dem Kollektor und Ladungsträger hinzu, die in der Sperrschicht entstehen.
+
+**Grenzen:** Bei starker Injektion, wenn die Elektronendichte in die Nähe der Löcherdichte kommt, wächst der Strom langsamer als exponentiell. Leitet auch der Basis-Kollektor-Übergang, ist die Dichte am Kollektorrand nicht mehr null (Abschnitt *Die Arbeitsbereiche*). Die Rekombination in der Basis, hier vernachlässigt, macht den Kollektorstrom um 0,08 % kleiner als den Elektronenstrom am Emitter.
 :::
 
-::::beispiel Der Kollektorstrom und die Basis-Emitter-Spannung
-Ein kleiner Siliziumtransistor mit
+::::beispiel Kollektorstrom des Beispieltransistors
+**Gegeben:** Beispieltransistor mit $I_S$ = 10⁻¹⁴ A und $n_{B0}$ = 10³ cm⁻³; $U_T$ = 25,85 mV bei 300 K.
 
-$$I_S = 10^{-14}\,\text{A}, \qquad U_T = 25{,}85\,\text{mV}, \qquad B = 200.$$
+**Gesucht:** Kollektorstrom bei 0,65 V und 0,70 V, die Spannung für 2 mA und die Randdichte bei 0,65 V.
 
-Der Basisstrom ist, wie der nächste Abschnitt zeigt, ein Zweihundertstel des Kollektorstroms.
+**Rechnung:** Bei 0,65 V:
 
-**Drei Spannungen.**
+$$I_C = 10^{-14}\ \mathrm{A}\cdot\exp\!\Big(\frac{0{,}65\ \mathrm{V}}{25{,}85\ \mathrm{mV}}\Big) = 10^{-14}\ \mathrm{A}\cdot8{,}31\cdot10^{10} = 0{,}831\ \mathrm{mA}$$
 
-| $U_{BE}$ | $I_C$ | $I_B$ |
-|---|---|---|
-| $0{,}60\,\text{V}$ | $0{,}12\,\text{mA}$ | $0{,}60\,\mu\text{A}$ |
-| $0{,}65\,\text{V}$ | $0{,}83\,\text{mA}$ | $4{,}15\,\mu\text{A}$ |
-| $0{,}70\,\text{V}$ | $5{,}75\,\text{mA}$ | $28{,}7\,\mu\text{A}$ |
+Bei 0,70 V ergeben sich ebenso 5,75 mA. Nach $U_{BE}$ aufgelöst und die Randdichte:
 
-Zum Beispiel bei $0{,}65\,\text{V}$:
+$$U_{BE} = U_T\,\ln\frac{2\ \mathrm{mA}}{10^{-14}\ \mathrm{A}} = 0{,}673\ \mathrm{V}, \qquad n(0) = 10^{3}\ \mathrm{cm^{-3}}\cdot8{,}31\cdot10^{10} = 8{,}3\cdot10^{13}\ \mathrm{cm^{-3}}$$
 
-$$I_C = 10^{-14}\,\text{A}\cdot\exp\frac{0{,}65\,\text{V}}{0{,}02585\,\text{V}} = 10^{-14}\,\text{A}\cdot8{,}3\cdot10^{10} = 0{,}83\,\text{mA}.$$
+**Ergebnis:** **0,831 mA bei 0,65 V, 5,75 mA bei 0,70 V; 0,673 V für 2 mA; Randdichte 8,3·10¹³ cm⁻³.**
 
-**Wie empfindlich.** Schon $18\,\text{mV}$ mehr verdoppeln den Strom, $2{,}5\,\text{mV}$ mehr erhöhen ihn um $10\,\%$:
-
-$$\exp\frac{18\,\text{mV}}{25{,}85\,\text{mV}} = 2{,}0, \qquad \exp\frac{2{,}5\,\text{mV}}{25{,}85\,\text{mV}} = 1{,}10.$$
-
-Für $1\,\text{mA}$ braucht dieser Transistor $0{,}655\,\text{V}$. Erwärmt er sich um ein Kelvin, sinkt die dafür nötige Spannung wie bei der Diode um
-etwa $1{,}8\,\text{mV}$; bei fester Spannung steigt der Strom dann um rund $7\,\%$.
-
-**Im Bild:** Wenige Millivolt an der Rampe entscheiden, ob doppelt so viele Autos hinüberkommen.
+**Einordnung:** 50 mV mehr ergeben fast den siebenfachen Strom, 1 mV schon 3,9 %. Das Datenblatt des BC547C nennt für 2 mA 0,55 bis 0,70 V; der Beispieltransistor liegt mit 0,673 V darin.
 ::::
 
-## Die Stromverstärkung
-
-Ganz ohne Verluste geht der Weg durch die Basis nicht. Der Basisstrom hat zwei Ursachen:
-
-- **Rekombination in der Basis.** Ein kleiner Teil der Elektronen trifft unterwegs auf ein Loch und rekombiniert. Jedes verbrauchte Loch muss über den
-  Basisanschluss ersetzt werden.
-- **Rückinjektion.** Der leitende Basis-Emitter-Übergang lässt wie jeder pn-Übergang auch Löcher in die Gegenrichtung, aus der Basis in den Emitter. Weil der
-  Emitter viel stärker dotiert ist als die Basis, sind es wenige; auch sie liefert der Basisanschluss.
-
-Beide Anteile sind proportional zum Strom der Elektronen, die der Emitter aussendet, und damit zum Kollektorstrom. Ihr Verhältnis ist die Kennzahl des
-Transistors, die __Stromverstärkung__ $B$, im Skript Verstärkung genannt. Daneben benutzt man das Verhältnis von Kollektor- zu Emitterstrom $\alpha$:
-
-:::formel
-$$B = \frac{I_C}{I_B}, \qquad \alpha = \frac{I_C}{I_E}, \qquad B = \frac{\alpha}{1 - \alpha}.$$
+:::frage
+„Ein Transistor enthält zwei pn-Übergänge. Kann man ihn aus zwei Dioden zusammenlöten?“
+Nein. Die Elektronen, die die erste Diode in ihr p-Gebiet schickt, rekombinieren dort, im Mittel nach einer Diffusionslänge von einigen 10 µm und spätestens am Metallkontakt. Bei der zweiten Diode kommt keines an; durch den Draht fließt nur ein gewöhnlicher Strom, der ihrem gesperrten Übergang keinen Nachschub an Minoritätsträgern bringt. Der Transistoreffekt verlangt zwei Übergänge in einem Kristall, viel enger beieinander als eine Diffusionslänge.
 :::
 
-**So liest man das:** $B$ liegt nach dem Skript zwischen $10$ und $1000$, bei kleinen Transistoren meist bei einigen hundert; $\alpha$ ist knapp unter eins. Weil
-$\alpha$ so nahe an eins liegt, verändert schon eine winzige Änderung von $\alpha$ den Wert von $B$ stark. Deshalb streut $B$ in der Fertigung beträchtlich, wie
-das Skript sagt, und gute Schaltungen müssen mit jedem $B$ eines ganzen Bereichs funktionieren. Für kleine Änderungen um einen Arbeitspunkt benutzt man später
-die differentielle Stromverstärkung $\beta$; in diesem Kapitel genügt $B$.
+## Der Basisstrom und die Stromverstärkung
 
-**Im Bild:** Auf jedes Auto, das in der Basis in eine Lücke fällt, und jede Lücke, die ins Emitter-Parkhaus wandert, kommen einige hundert Autos, die in den
-Kollektor stürzen.
+*Woher kommt der Basisstrom, und warum ist er 500-mal kleiner als der Kollektorstrom?*
+
+:::grafik
+Szene: get1/bipolartransistoren/01-stromaufteilung · Vorlage: stromfluss-bilanz
+**Abbildung 4:** Bilanz der Ladungsträger im aktiven Bereich, bezogen auf 10 000 Elektronen, die am Kollektor ankommen: Der Emitter schickt 10 007,6 Elektronen in die Basis, 7,6 davon rekombinieren dort; zugleich gehen 12,5 Löcher aus der Basis in den Emitter. Über den Basisanschluss kommen 20,1 Löcher nach. Kollektor- und Basisstrom stehen im Verhältnis 10 000 zu 20, also rund 500 zu 1.
+:::
+
+**Das Zusammenspiel in Schritten:**
+
+**Schritt 1**: Die Elektronen des Kollektorstroms kommen aus dem Emitter und verlassen den Transistor am Kollektor; keines fließt über den Basisanschluss (Abbildung 1). Über ihn kommen Löcher, so viele, wie der Basis verloren gehen.
+
+**Schritt 2**: Die gesenkte Stufe lässt auch Löcher aus der Basis in den Emitter, die __Rückinjektion__. Weil der Emitter 100-mal stärker dotiert ist als die Basis, sind es auf 10 000 Elektronen am Kollektor nur 12,5 Löcher (Abbildung 4).
+
+**Schritt 3**: Unterwegs rekombinieren einige Elektronen mit Löchern der Basis. Ein Elektron braucht für die 0,5 µm im Mittel 60 ps und lebt 80 ns; auf 10 000 ankommende Elektronen rekombinieren deshalb 7,6.
+
+**Schritt 4**: Beide Verluste hängen an derselben Stufe, die Rückinjektion als Löcherstrom über sie, die Rekombination als Bruchteil des Elektronenstroms, der über sie kommt. Beide wachsen deshalb mit demselben Faktor $\exp(U_{BE}/U_T)$ wie der Kollektorstrom, und der Basisstrom ist ein fester Bruchteil davon, 20 auf 10 000.
+
+Dieses Verhältnis ist die Kennzahl des Transistors:
+
+:::formel Definition
+$$B = \frac{I_C}{I_B}$$
+:::
+
+**So liest man das:** Die __Stromverstärkung__ $B$ (das Formelzeichen, nicht der Anschlussname) gibt an, wie viel größer der Kollektor- als der Basisstrom ist; beim Beispieltransistor 500, beim BC547C nach Datenblatt 420 bis 800. Man definiert sie so, weil das Verhältnis im aktiven Bereich über einen weiten Strombereich fast konstant ist, beim Beispieltransistor auf 10 % genau zwischen 0,3 und 20 mA. Weil der Basisstrom nur ein kleiner Rest ist, 0,2 % des Emitterstroms, streut $B$ stark: Ein Rest von 0,4 % ergäbe nur 249. Hersteller sortieren Transistoren deshalb in Gruppen, beim BC547 von A (110 bis 220) bis C (420 bis 800).
+
+:::frage
+„Wenn der Basisstrom den Kollektorstrom nicht verursacht, wozu braucht man ihn dann? Was geschieht bei offener Basis?“
+Ohne Nachschub verliert die Basis ständig Löcher, an den Emitter und durch Rekombination. Sie lädt sich negativ auf, die Spannung am Basis-Emitter-Übergang sinkt, die Stufe wächst, und es kommen weniger Elektronen, bis Verlust und Nachschub wieder gleich sind. Bei offener Basis bleibt nur ein Leckstrom, um viele Zehnerpotenzen kleiner als im Betrieb. Der Basisstrom ersetzt also die verlorenen Löcher und hält den Zustand aufrecht, den $U_{BE}$ beschreibt; er ist der Preis des Betriebs, nicht seine Ursache.
+:::
+
+## Strom- oder Spannungssteuerung
+
+*Steuert der Basisstrom oder die Basis-Emitter-Spannung den Kollektorstrom?*
+
+Physikalisch steuert die Spannung: $U_{BE}$ legt die Stufe fest und damit, wie viele Elektronen in die Basis gelangen. Das Skript beschreibt den Transistor trotzdem als __stromgesteuerte Stromquelle__, deren Kollektorstrom das $B$-Fache des Basisstroms ist (S. 175). Beides passt zusammen, denn der Basisstrom folgt demselben Exponentialgesetz; geteilt durch $B$ wird aus der Transfergleichung die __Eingangskennlinie__:
+
+:::formel Formel
+$$I_B = \frac{I_S}{B}\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
+:::
+
+**So liest man das:** Die Eingangskennlinie ist eine Diodenkennlinie mit dem Sättigungsstrom $I_S/B$; zu jedem Basisstrom gehört genau eine Spannung, zu 4 µA beim Beispieltransistor 0,673 V. Wer also den Basisstrom erzwingt, legt damit auch $U_{BE}$ und den Kollektorstrom fest, 2 mA. Weil sich $U_{BE}$ für Handrechnungen kaum ändert, 60 mV je Zehnfaches des Stroms, ersetzt die Vorlesung den Basis-Emitter-Übergang durch eine feste Spannung, und der Basisstrom bleibt als einfache, lineare Stellgröße.
+
+Idee der Herleitung: Man teilt die Transfergleichung durch $B$.
 
 :::herleitung
-**$B$ aus $\alpha$.** Nach der Knotenregel ist der Basisstrom der Unterschied aus Emitter- und Kollektorstrom. Mit $I_E = I_C/\alpha$:
+**Ausgangspunkt:** die Transfergleichung und die Definition von $B$.
 
-$$I_B = I_E - I_C = I_C\,\Big(\frac{1}{\alpha} - 1\Big) = I_C\,\frac{1 - \alpha}{\alpha}, \qquad B = \frac{I_C}{I_B} = \frac{\alpha}{1 - \alpha}.$$
+**Annahmen:** (i) aktiver Bereich; (ii) $B$ hängt nicht vom Strom ab; auf 10 % genau gilt das zwischen etwa 0,3 und 20 mA (Abschnitt *Die Kennlinien*).
 
-Umgekehrt ist $\alpha$ gleich $B/(B + 1)$.
+**Schritt 1** (entscheidender Schritt): Nach der Definition von $B$ ist der Basisstrom der Kollektorstrom geteilt durch $B$, und nach (ii) ist $B$ eine Konstante:
 
-**$B$ aus den Verlusten.** Der Emitter sende den Elektronenstrom $I_n$ in die Basis. Davon rekombiniere der Bruchteil $\delta$; die Löcher, die in den Emitter
-zurückgehen, seien der Bruchteil $\eta$ von $I_n$. Dann ist
+$$I_B = \frac{I_C}{B} = \frac{I_S}{B}\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
 
-$$I_C = (1 - \delta)\,I_n, \qquad I_B = (\delta + \eta)\,I_n, \qquad B = \frac{1 - \delta}{\delta + \eta} \approx \frac{1}{\delta + \eta}.$$
+**Ergebnis:**
 
-Eine dünne Basis macht $\delta$ klein, ein stark dotierter Emitter $\eta$. Im Bild: Je schmaler das Basis-Parkhaus und je voller das Emitter-Parkhaus, desto
-weniger Autos und Lücken gehen unterwegs verloren.
+$$I_B = \frac{I_S}{B}\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
+
+**Woher die Faktoren kommen:** Der Exponentialfaktor stammt aus der Stufe am Basis-Emitter-Übergang, $1/B$ aus den beiden Verlusten (Abschnitt *Der Basisstrom und die Stromverstärkung*).
+
+**Proben:** Einheit A. Bei 0,65 V: 10⁻¹⁴ A mal 8,31·10¹⁰ durch 500 ergibt 1,66 µA.
+
+**Grenzen:** Bei sehr kleinen Strömen ist der Basisstrom größer als nach dieser Formel, weil Ladungsträger auch in der Basis-Emitter-Zone rekombinieren.
 :::
 
-::::beispiel Stromverstärkung in Zahlen
-**(a) Aus gemessenen Strömen.** Ein Transistor führt
-
-$$I_C = 2\,\text{mA}, \qquad I_B = 10\,\mu\text{A}.$$
-
-Dann sind
-
-$$I_E = 2{,}010\,\text{mA}, \qquad B = \frac{2\,\text{mA}}{10\,\mu\text{A}} = 200, \qquad \alpha = \frac{2\,\text{mA}}{2{,}010\,\text{mA}} = 0{,}99502.$$
-
-Zur Probe ergibt $\alpha/(1 - \alpha)$ wieder $200$.
-
-**(b) Wie empfindlich $B$ auf $\alpha$ reagiert.** Drei Werte von $\alpha$:
-
-$$\alpha = 0{,}990: \ B = 99, \qquad \alpha = 0{,}995: \ B = 199, \qquad \alpha = 0{,}996: \ B = 249.$$
-
-Ein Tausendstel mehr $\alpha$ macht $B$ um ein Viertel größer; das ist die Streuung, mit der Schaltungen leben müssen.
-
-**(c) Aus den Verlusten.** Rekombinieren $0{,}3\,\%$ der Elektronen in der Basis und gehen Löcher im Umfang von $0{,}2\,\%$ in den Emitter zurück:
-
-$$B = \frac{1 - 0{,}003}{0{,}003 + 0{,}002} = 199.$$
-
-**Im Bild:** Ein halbes Prozent Verluste unterwegs, und auf jeden verlorenen Platz kommen rund zweihundert Autos im Kollektor.
-::::
-
-## Strom- oder spannungsgesteuert?
-
-Die Transfergleichung sagt, dass $U_{BE}$ den Kollektorstrom steuert. Das Skript beschreibt den Transistor dagegen als stromgesteuerte Stromquelle, kurz CCCS,
-nach dem Artikel über Zweitore: Der Basisstrom steuert den Kollektorstrom. Beides stimmt, denn der Basisstrom ist ein fester Bruchteil des Kollektorstroms und
-folgt deshalb demselben Gesetz. Das ist die __Eingangskennlinie__:
-
-$$I_B = \frac{I_S}{B}\,\exp\frac{U_{BE}}{U_T}.$$
-
-**So liest man das:** Physikalisch ist die Spannung am Basis-Emitter-Übergang die Ursache. Sie legt fest, wie viele Elektronen hinübergehen, und der Basisstrom
-ist die Folge der Rekombination und Rückinjektion. In einer Schaltung kann man aber beides vorgeben. Gibt man eine Spannung vor, folgt der Kollektorstrom
-exponentiell und empfindlich: $18\,\text{mV}$ verdoppeln ihn, ein Kelvin Erwärmung erhöht ihn um $7\,\%$, und ein anderes Exemplar mit doppeltem $I_S$ führt den
-doppelten Strom. Gibt man einen Basisstrom vor, folgt der Kollektorstrom linear über $B$, unabhängig von $I_S$ und kaum von der Temperatur, dafür mit der Streuung
-von $B$. Rechnet man von Hand mit festem $U_{BE}$ wie bei der Diode, bleibt nur der Basisstrom als Stellgröße; daher stammt die Stromsicht der Vorlesung. Gute
-Schaltungen machen sich von beidem unabhängig, wie der nächste Artikel zeigt.
-
-**Im Bild:** Die Höhe der Rampe entscheidet, wie viele Autos kommen, und mit ihnen, wie viele Lücken die Basis ersetzen muss. Man kann die Rampe einstellen oder
-die Zahl der Ersatzlücken vorgeben; das eine legt das andere fest.
-
-:::herleitung
-Man teilt die Transfergleichung durch $B$; nach der Definition von $B$ steht links der Basisstrom:
-
-$$I_B = \frac{I_C}{B} = \frac{I_S}{B}\,\exp\frac{U_{BE}}{U_T}.$$
-
-Die Eingangskennlinie ist also die Kennlinie einer Diode mit dem Sättigungsstrom $I_S/B$; deshalb ähnelt sie, wie das Skript sagt, der einer pn-Diode, mit einer
-Durchlassspannung um $0{,}6\,\text{V}$. Im Bild: Rampe und Ersatzlücken hängen fest zusammen; wer das eine kennt, kennt das andere.
+:::fehlvorstellung
+„Der Basisstrom öffnet den Transistor wie ein Ventil; die Elektronen des Kollektorstroms kommen über die Basis herein.“
+Das legen das Wort Steuerstrom und die Wasseranalogie des Skripts nahe (S. 176, Bild 11.2), in der ein Wasserstrahl aus der Basis eine Klappe aufdrückt. Die Elektronen des Kollektorstroms kommen aber aus dem Emitter und gehen nie über den Basisanschluss (Abbildung 1); über ihn fließen nur Löcher für die Verluste, bei 2 mA Kollektorstrom 4 µA. Als Rechenmodell bleibt die Stromsicht richtig, weil der Basisstrom eindeutig mit $U_{BE}$ verknüpft ist.
 :::
-
-::::beispiel Zwei Sichten auf denselben Arbeitspunkt
-Der Transistor von oben, mit
-
-$$I_S = 10^{-14}\,\text{A}, \qquad B = 200, \qquad U_{BE} = 0{,}65\,\text{V}.$$
-
-**Spannungssicht.** Die Transfergleichung ergibt $0{,}83\,\text{mA}$ und daraus der Basisstrom:
-
-$$I_B = \frac{0{,}83\,\text{mA}}{200} = 4{,}15\,\mu\text{A}.$$
-
-**Stromsicht.** Wer den Basisstrom $4{,}15\,\mu\text{A}$ vorgibt, erhält über $B$ dieselben $0{,}83\,\text{mA}$ und, aus der Eingangskennlinie, dieselbe Spannung.
-
-**Doppelter Strom.** In der Spannungssicht braucht man $18\,\text{mV}$ mehr, in der Stromsicht den doppelten Basisstrom.
-
-**Was streut.** Ein zweites Exemplar habe den doppelten Sättigungsstrom und eine größere Verstärkung:
-
-$$I_S = 2\cdot10^{-14}\,\text{A}, \qquad B = 300.$$
-
-Bei derselben Spannung führt es $1{,}66\,\text{mA}$, beim selben Basisstrom $1{,}25\,\text{mA}$. Beide Sichten liefern also unterschiedlich große Abweichungen, je nachdem, welcher Kennwert stärker streut.
-
-**Im Bild:** Dasselbe Parkhaus, einmal über die Rampenhöhe, einmal über die Zahl der Ersatzlücken eingestellt.
-::::
 
 ## Die Kennlinien
 
-Das Verhalten eines Transistors beschreibt man durch drei Kennlinien, wie in Bild 11.3 des Skripts:
-
-- Die **Eingangskennlinie** zeigt $I_B$ über $U_{BE}$, nach dem vorigen Abschnitt eine Diodenkennlinie mit dem Knie um $0{,}6\,\text{V}$.
-- Die **Stromsteuerkennlinie** oder Übertragungskennlinie zeigt $I_C$ über $I_B$, für kleine und mittlere Ströme eine Gerade durch den Ursprung mit der Steigung
-  $B$. In der doppelt logarithmischen Darstellung von Bild 11.3b ist sie eine Gerade der Steigung eins, und $B$ zeigt sich als ihr Abstand von der Diagonale,
-  nicht als Steigung, wie das Skript schreibt. Bei sehr großen Strömen sinkt $B$, weil dann so viele Elektronen in der Basis sind wie Löcher; das Skript sagt
-  dazu, der Transistor gehe in Sättigung, meint aber nicht den Sättigungsbereich der nächsten Zeile.
-- Die **Ausgangskennlinie** zeigt $I_C$ über $U_{CE}$, für jeden Basisstrom eine eigene Kurve. Oberhalb einiger Zehntelvolt verläuft sie fast waagrecht, wie
-  die Kennlinie einer Stromquelle, nach der Transfergleichung. Bei echten Transistoren steigt sie dort leicht an, weil eine größere Kollektorspannung die
-  Sperrschicht verbreitert und die Basis wirksam dünner macht, der __Early-Effekt__. Nahe null fällt sie steil ab, weil der Kollektor dann nicht mehr positiv
-  gegen die Basis ist. Die eingezeichnete Linie $U_{CE} = U_{BE}$ ist die Grenze, an der $U_{CB}$ nach der Maschenregel null ist.
-
-Die Kurven in Bild 11.3c gehören zu $B$ um $1600$, etwa $9\,\text{mA}$ bei $5\,\mu\text{A}$ und $31\,\text{mA}$ bei $20\,\mu\text{A}$, mehr als die $10$ bis $1000$
-des Textes; das Bild ist schematisch.
-
-**Im Bild:** Eingangskennlinie: wie viele Ersatzlücken je Rampenhöhe; Stromsteuerkennlinie: Kollektorautos je Ersatzlücke; Ausgangskennlinie: Kollektorautos je
-Absturztiefe, gleich viele, solange es eine Kante gibt.
+*Wie liest man Eingangs-, Steuer- und Ausgangskennlinie eines Transistors?*
 
 :::grafik
-Szene: get1/bipolartransistoren/01-kennlinien · Vorlage: transistor-kennlinien
-Drei verbundene Diagramme eines Transistors mit $I_S = 10^{-14}\,\text{A}$ und $B = 200$: links die Eingangskennlinie $I_B$ über $U_{BE}$ bis $0{,}75\,\text{V}$
-mit dem Knie um $0{,}6\,\text{V}$; in der Mitte die Stromsteuerkennlinie $I_C$ über $I_B$ als Gerade der Steigung $200$, umschaltbar auf doppelt logarithmische
-Achsen mit der Steigung eins und dem Abstand $B$, und mit einem Abknicken bei großen Strömen; rechts das Ausgangskennlinienfeld $I_C$ über $U_{CE}$ bis
-$12\,\text{V}$ für $I_B = 0$, $5$, $10$, $15$ und $20\,\mu\text{A}$, mit der Linie $U_{CE} = U_{BE}$ und der Grenze $U_{CE,\text{sat}} = 0{,}2\,\text{V}$. Ein Regler
-für $U_{BE}$ bewegt einen Punkt auf allen drei Kurven zugleich. Ein Schalter blendet den Early-Effekt ein, der die waagrechten Äste leicht ansteigen lässt.
-Kernaussage: Eine Diodenkennlinie am Eingang, eine Gerade dazwischen und Stromquellenäste am Ausgang. (Rot = Kennlinien, blau = Arbeitspunkt, orange =
-Bereichsgrenzen, grau = Achsen.)
+Szene: get1/bipolartransistoren/01-kennlinien · Vorlage: kennlinien-drei
+**Abbildung 5:** Kennlinien des Beispieltransistors, berechnet. (a) Eingangskennlinie bei $U_{CE}$ = 5 V: $I_B$ über $U_{BE}$ von 0,5 bis 0,75 V, 20 µA bei 0,714 V. (b) Stromsteuerkennlinie doppelt logarithmisch: $I_C$ über $I_B$ von 1 nA bis 1 mA, eine Gerade der Steigung 1, um den Faktor 500 über der Diagonalen; bei kleinen und großen Strömen sinkt $B$ (an das Datenblatt des BC547C angepasst: 260 bei 10 µA, 500 bei 2 mA, 285 bei 100 mA Kollektorstrom). (c) Ausgangskennlinienfeld: $I_C$ über $U_{CE}$ von 0 bis 10 V für $I_B$ = 2, 4, 6, 8 und 10 µA; oberhalb von etwa 0,3 V fast waagrecht mit leichtem Anstieg (für 4 µA 1,88 mA bei 0,5 V, 2,00 mA bei 5 V, 2,13 mA bei 10 V), darunter steiler Abfall; markiert $U_{CE,\mathrm{sat}}$ = 0,2 V und die Grenzlinie $U_{CB}$ = 0 bei 0,65 bis 0,70 V. Eine Diodenkennlinie am Eingang, eine Gerade dazwischen, Stromquellenäste am Ausgang.
 :::
 
-## Die drei Arbeitsbereiche
+Das Skript beschreibt den Transistor mit drei Kennlinien (S. 176, Bild 11.3 auf S. 177). Die **Eingangskennlinie** (Abbildung 5a) ist die Diodenkennlinie aus dem vorigen Abschnitt; auf linearer Achse scheint sie bei etwa 0,6 V einzusetzen, das Skript nennt diesen Wert $U_{BE,\mathrm{ein}}$. Eine Schwelle gibt es nicht: Bei 0,55 V fließen schon 35 nA Basisstrom und 17 µA Kollektorstrom.
 
-Für die Rechnung von Hand legt das Skript, wie bei der Diode, drei Arbeitsbereiche mit einfachen Modellen fest. In jedem ersetzt man den Transistor durch ein
-lineares Modell, rechnet und prüft danach eine Bedingung. Die beiden Grenzwerte des Skripts sind $0{,}6\,\text{V}$ für $U_{BE,\text{ein}}$ und $0{,}2\,\text{V}$
-für $U_{CE,\text{sat}}$:
+Die **Stromsteuerkennlinie** (Abbildung 5b) ist im mittleren Bereich eine Gerade mit der Steigung $B$. Trägt man sie doppelt logarithmisch auf wie das Skript (Bild 11.3b), hat sie die Steigung 1, und $B$ ist ihr senkrechter Abstand von der Diagonalen. Dass sie bei großen Strömen abbiegt, nennt das Skript „Sättigung“; was das Bild dort zeigt, ist ein Rückgang von $B$ bei hohen Stromdichten, beim BC547C von typisch 520 bei 2 mA auf 300 bei 100 mA, nicht der Sättigungsbereich des nächsten Abschnitts.
 
-:::formel Definition
-$$\begin{cases} I_B = I_C = 0, & U_{BE} < U_{BE,\text{ein}}, \\ I_C = B\,I_B, & U_{CE} \ge U_{CE,\text{sat}}, \\ U_{CE} = U_{CE,\text{sat}}, & I_C \le B\,I_B. \end{cases}$$
-:::
+Die **Ausgangskennlinien** (Abbildung 5c) verlaufen oberhalb von etwa 0,3 V fast waagrecht: Der Transistor wirkt als Stromquelle, deren Strom die Basisseite vorgibt. Unterhalb von etwa 0,2 V fallen sie steil ab, weil der Basis-Kollektor-Übergang zu leiten beginnt.
 
-**So liest man das:** Die erste Zeile ist der __Sperrbereich__, die zweite der __aktive Bereich__, die dritte der __Sättigungsbereich__. Links steht jeweils das
-Modell, mit dem man rechnet, rechts die Bedingung, die das Ergebnis erfüllen muss. Im aktiven und im Sättigungsbereich leitet der Basis-Emitter-Übergang, und
-man setzt $U_{BE}$ gleich $U_{BE,\text{ein}}$. In der Sprache der Übergänge: Im Sperrbereich sperren beide, im aktiven Bereich leitet nur der Basis-Emitter-Übergang,
-in der Sättigung leiten beide. Die vierte Möglichkeit, nur der Basis-Kollektor-Übergang leitet, vertauscht Emitter und Kollektor mit sehr kleiner Verstärkung;
-dieser __Inversbetrieb__ kommt selten vor.
+## Die Arbeitsbereiche
 
-**Im Bild:** Sperrbereich: Die Rampe ist zu hoch. Aktiver Bereich: Die Rampe ist abgesenkt, und die Kante ist tief. Sättigung: Das Kollektor-Parkhaus ist bis auf
-die Höhe der Basis gehoben, es gibt keine Kante mehr, und die Straßen außen begrenzen den Verkehr.
+*Was geschieht, wenn der Basis-Kollektor-Übergang nicht mehr sperrt, und wie findet man den Bereich eines Transistors?*
 
-:::herleitung
-**Aktiver Bereich.** Die Transfergleichung und damit $I_C = BI_B$ gelten, solange der Basis-Kollektor-Übergang sperrt. Das ist der Fall, solange $U_{CE}$ nicht
-unter einige Zehntelvolt fällt; das Modell setzt die Grenze bei $U_{CE,\text{sat}}$.
+Jeder der beiden Übergänge kann leiten oder sperren:
 
-**Sättigung.** Kann die äußere Schaltung den Strom $BI_B$ nicht liefern, etwa weil der Kollektorwiderstand dafür mehr Spannung bräuchte, als die Quelle hat,
-sinkt $U_{CE}$, bis auch der Basis-Kollektor-Übergang leitet. Dann bestimmt die äußere Schaltung den Kollektorstrom, und er bleibt unter $BI_B$; die Spannung
-bleibt bei rund $U_{CE,\text{sat}}$.
+| Bereich und Übergänge | Verhalten |
+|---|---|
+| aktiver Bereich: Basis-Emitter-Übergang leitet, Basis-Kollektor-Übergang sperrt | Stromquelle mit $B$-fachem Basisstrom; Verstärker |
+| Sättigung: beide Übergänge leiten | $U_{CE}$ nur 0,1 bis 0,2 V, den Strom begrenzt der äußere Kreis; Schalter ein |
+| Sperrbereich: beide Übergänge sperren | fast kein Strom; Schalter aus |
+| Inversbetrieb: nur der Basis-Kollektor-Übergang leitet | Emitter und Kollektor vertauscht; selten genutzt |
 
-**Sperrbereich.** Unter $U_{BE,\text{ein}}$ ist der Exponentialterm so klein, dass man beide Ströme null setzt, wie im Modell der Stufe 2 bei der Diode. Im Bild:
-Erst wenn die Rampe niedrig genug ist, kommt merklicher Verkehr hinüber.
-:::
+Für Handrechnungen gibt das Skript jedem Bereich ein Modell (S. 176), mit $U_{BE,\mathrm{ein}}$ = 0,6 V und der __Sättigungsspannung__ $U_{CE,\mathrm{sat}}$ = 0,2 V. Wie bei der Diode nimmt man einen Bereich an, rechnet mit seinem Modell und prüft die Bedingung:
 
-::::beispiel Ein Transistor in allen drei Bereichen
-Ein npn-Transistor mit $B = 200$; der Kollektor liegt über $R_C$ an der Versorgung, der Emitter an Masse, und eine Stromquelle gibt den Basisstrom vor:
-
-$$U_{CC} = 12\,\text{V}, \qquad R_C = 2\,\text{k}\Omega.$$
-
-Im aktiven Bereich gilt am Kollektor die Maschenregel:
-
-$$U_{CE} = U_{CC} - R_C\,I_C.$$
-
-**$I_B = 0$.** Kein Basisstrom, Sperrbereich; $U_{CE}$ ist $12\,\text{V}$.
-
-**$I_B = 10\,\mu\text{A}$.** Annahme aktiv:
-
-$$I_C = 200\cdot10\,\mu\text{A} = 2\,\text{mA}, \qquad U_{CE} = 12\,\text{V} - 2\,\text{k}\Omega\cdot2\,\text{mA} = 8\,\text{V}.$$
-
-Das ist mehr als $0{,}2\,\text{V}$; die Annahme hält.
-
-**$I_B = 25\,\mu\text{A}$.** Annahme aktiv:
-
-$$I_C = 5\,\text{mA}, \qquad U_{CE} = 12\,\text{V} - 10\,\text{V} = 2\,\text{V}.$$
-
-Auch diese Annahme hält.
-
-**$I_B = 50\,\mu\text{A}$.** Annahme aktiv: $10\,\text{mA}$ verlangten $20\,\text{V}$ an $R_C$, und $U_{CE}$ wäre $-8\,\text{V}$, ein Widerspruch. Also Sättigung:
-
-$$I_C = \frac{12\,\text{V} - 0{,}2\,\text{V}}{2\,\text{k}\Omega} = 5{,}9\,\text{mA} \le B\,I_B = 10\,\text{mA}.$$
-
-Die Probe hält. Die Grenze zwischen aktivem Bereich und Sättigung liegt bei einem Basisstrom von $5{,}9\,\text{mA}/200$, also $29{,}5\,\mu\text{A}$.
-
-**Im Bild:** Mehr Ersatzlücken in der Basis bringen mehr Autos in den Kollektor, bis die Straße am Kollektor nicht mehr hergibt; dann füllt sich das
-Kollektor-Parkhaus bis zur Kante.
-::::
-
-Zwischen Sperrbereich und Sättigung springt der Transistor, wenn man ihn als __Schalter__ benutzt: aus bei null Basisstrom, ein bei so viel Basisstrom, dass er
-sicher sättigt. In beiden Zuständen verliert er wenig Leistung, sperrend fließt kein Strom, gesättigt liegen nur $U_{CE,\text{sat}}$ an; und er schaltet, wie
-das Skript sagt, sehr schnell und ohne Verschleiß. Damit er auch mit der kleinsten Verstärkung $B_\text{min}$ eines Typs sicher sättigt, muss der Basisstrom
-mindestens betragen:
-
-$$I_B \ge \frac{U_{CC} - U_{CE,\text{sat}}}{B_\text{min}\,R_C}.$$
-
-**So liest man das:** Der Bruch ist der Kollektorstrom in der Sättigung, geteilt durch die kleinste Verstärkung. Praktisch gibt man das Zwei- bis Fünffache, die
-__Übersteuerung__, damit Streuung, Alterung und Temperatur nicht schaden. Liegt im Kollektorkreis noch eine Last mit eigener Spannung, zieht man auch sie im
-Zähler ab.
-
-**Im Bild:** So viele Ersatzlücken, dass der Verkehr auch bei der schwächsten Basis noch mehr Autos bringen könnte, als die Straße zum Kollektor aufnimmt.
-
-:::herleitung
-In der Sättigung bestimmt der Kollektorkreis den Strom: Die Spannung $U_{CC} - U_{CE,\text{sat}}$ liegt an $R_C$. Die Bedingung der Sättigung, $I_C \le BI_B$,
-muss auch für die kleinste Verstärkung gelten; nach $I_B$ aufgelöst ergibt sich die Formel. Im Bild: Die Basis muss mehr Verkehr anbieten, als abfließen kann.
-:::
-
-::::beispiel Eine Leuchtdiode schalten
-Ein Logikausgang mit $5\,\text{V}$ soll eine Leuchtdiode mit etwa $20\,\text{mA}$ schalten; er selbst darf nur wenige Milliampere liefern. Leuchtdiode und
-Transistor liegen in Reihe mit $R_C$ an $5\,\text{V}$, der Logikausgang speist die Basis über $R_B$:
-
-$$U_{LED} = 2{,}0\,\text{V}, \qquad I_{LED} = 20\,\text{mA}, \qquad B_\text{min} = 100, \qquad U_{BE} = 0{,}7\,\text{V}.$$
-
-**Kollektorwiderstand.** In der Sättigung bleiben für $R_C$:
-
-$$R_C = \frac{5\,\text{V} - 2{,}0\,\text{V} - 0{,}2\,\text{V}}{20\,\text{mA}} = 140\,\Omega.$$
-
-Mit dem Normwert $150\,\Omega$ fließen $18{,}7\,\text{mA}$.
-
-**Basisstrom.** Mindestens $20\,\text{mA}/100$, also $0{,}2\,\text{mA}$; mit dreifacher Übersteuerung $0{,}6\,\text{mA}$:
-
-$$R_B = \frac{5\,\text{V} - 0{,}7\,\text{V}}{0{,}6\,\text{mA}} = 7{,}2\,\text{k}\Omega.$$
-
-Mit dem Normwert $6{,}8\,\text{k}\Omega$ fließen $0{,}63\,\text{mA}$; selbst $B = 100$ böte $63\,\text{mA}$, weit mehr als die $18{,}7\,\text{mA}$, die der
-Kollektorkreis zulässt.
-
-**Verluste.** Im gesättigten Transistor fallen nur
-
-$$P = 0{,}2\,\text{V}\cdot18{,}7\,\text{mA} = 3{,}7\,\text{mW}$$
-
-an. Der Logikausgang liefert $0{,}63\,\text{mA}$ statt $19\,\text{mA}$.
-
-**Im Bild:** Ein kleiner Ersatzstrom von $0{,}6\,\text{mA}$ öffnet die Rampe so weit, dass mehr kommen könnte, als die Straße zur Leuchtdiode aufnimmt.
-::::
+| Bereich | Modell | Probe |
+|---|---|---|
+| Sperrbereich | $I_B$ = $I_C$ = 0 | $U_{BE}$ < 0,6 V |
+| aktiv | $U_{BE}$ = 0,6 V, $I_C$ = $B\,I_B$ | $U_{CE}$ ≥ 0,2 V |
+| Sättigung | $U_{BE}$ = 0,6 V, $U_{CE}$ = 0,2 V | $I_C$ ≤ $B\,I_B$ |
 
 :::grafik
-Szene: get1/bipolartransistoren/01-arbeitsbereiche · Vorlage: lastgerade-transistor
-Das Ausgangskennlinienfeld eines Transistors mit $B = 200$ für Basisströme von $0$ bis $50\,\mu\text{A}$, darüber die Arbeitsgerade der Schaltung mit
-$U_{CC} = 12\,\text{V}$ und $R_C = 2\,\text{k}\Omega$ von $(12\,\text{V}, 0)$ nach $(0, 6\,\text{mA})$. Ein Regler für $I_B$ schiebt den Arbeitspunkt längs der
-Geraden: bei null im Sperrbereich unten rechts, bei $10$ und $25\,\mu\text{A}$ im aktiven Bereich bei $8$ und $2\,\text{V}$, ab $29{,}5\,\mu\text{A}$ in der Sättigung
-links, wo er bei $5{,}9\,\text{mA}$ und $0{,}2\,\text{V}$ stehen bleibt, obwohl der Basisstrom weiter steigt. Die drei Bereiche sind farbig hinterlegt, daneben
-ein kleines Bild der drei Parkhäuser im jeweiligen Zustand und ein zweiter Reiter mit der Schaltung der Leuchtdiode. Kernaussage: Auf der Arbeitsgeraden wandert
-der Transistor vom Sperren über den aktiven Bereich in die Sättigung. (Rot = Arbeitspunkt, blau = Kennlinien, orange = Arbeitsgerade, grau = Bereiche und
-Achsen.)
+Szene: get1/bipolartransistoren/01-arbeitsgerade · Vorlage: kennlinienfeld-arbeitsgerade
+**Abbildung 6:** Modellkennlinien des Beispieltransistors nach dem Skript ($B$ = 500, waagrecht ab $U_{CE,\mathrm{sat}}$ = 0,2 V) für $I_B$ = 2, 8 und 20 µA, dazu die Arbeitsgerade eines Kollektorwiderstands von 2,2 kΩ an 10 V von (10 V, 0) nach (0, 4,55 mA). Arbeitspunkte: 2 µA bei 7,8 V und 1,0 mA (aktiv), 8 µA bei 1,2 V und 4,0 mA (aktiv), 20 µA bei 0,2 V und 4,45 mA (Sättigung; die Modellkennlinie läge bei 10 mA). Die Bereiche sind farbig hinterlegt. Ab 8,9 µA bleibt der Arbeitspunkt in der Sättigung stehen; mehr Basisstrom ändert den Kollektorstrom nicht.
 :::
+
+**Die Akteure:**
+
+- __$U_{CC}$__, __$R_C$__: Versorgungsspannung und Kollektorwiderstand des Kollektorkreises; 10 V und 2,2 kΩ im Beispiel.
+- __$U_{BC}$__: Spannung von der Basis zum Kollektor, der Gegenwert von $U_{CB}$; positiv, wenn der Basis-Kollektor-Übergang in Durchlassrichtung liegt.
+
+**Das Zusammenspiel in Schritten:**
+
+**Schritt 1**: Was am Kollektorwiderstand abfällt, fehlt an $U_{CE}$; alle möglichen Arbeitspunkte liegen auf der __Arbeitsgeraden__ in Abbildung 6. Mehr Basisstrom bringt im aktiven Bereich $B$-mal mehr Kollektorstrom und senkt $U_{CE}$: Bei 8 µA bleiben 1,2 V.
+
+**Schritt 2**: Sinkt $U_{CE}$ unter $U_{BE}$, liegt der Kollektor tiefer als die Basis. Ab etwa 0,5 V Durchlassspannung, also ab $U_{CE}$ um 0,2 V, leitet der Basis-Kollektor-Übergang merklich und lässt Löcher aus der Basis in den schwach dotierten Kollektor.
+
+**Schritt 3**: Damit teilt sich der Basisstrom: Ein Teil ersetzt die Verluste durch Rückinjektion und Rekombination, der Rest fließt über den Basis-Kollektor-Übergang ab, bei 20 µA Basisstrom 9,6 und 10,4 µA. Der Kollektorstrom wächst nicht mehr mit und bleibt bei dem Wert, den der Kollektorkreis zulässt, rund 4,5 mA statt 10 mA. Daher der Name __Sättigung__.
+
+**Schritt 4**: $U_{CE}$ ist jetzt der Unterschied zweier Durchlassspannungen, $U_{BE}$ minus $U_{BC}$, beim Beispieltransistor 0,696 V minus 0,552 V, also 0,144 V. Das Skript rechnet mit 0,2 V.
+
+Strom und Grenze der Sättigung folgen aus der Maschenregel des Kollektorkreises:
+
+:::formel Formel
+$$I_{C,\mathrm{sat}} = \frac{U_{CC} - U_{CE,\mathrm{sat}}}{R_C}, \qquad I_B \ge \frac{I_{C,\mathrm{sat}}}{B}$$
+:::
+
+**So liest man das:** Der Kollektorkreis bestimmt den Strom in der Sättigung, und ab dem Basisstrom $I_{C,\mathrm{sat}}/B$ ist sie erreicht; mehr Basisstrom ändert nichts mehr. Mit 10 V, 2,2 kΩ und $B$ = 500 sind es 4,45 mA ab 8,9 µA.
+
+Idee der Herleitung: Maschenregel mit dem Sättigungsmodell, dann die Bedingung der Sättigung nach dem Basisstrom aufgelöst.
+
+:::herleitung
+**Ausgangspunkt:** die Maschenregel und das Modell der Sättigung aus der Tabelle.
+
+**Annahmen:** (i) In der Sättigung gilt das Modell des Skripts, $U_{CE}$ = 0,2 V; (ii) der Kollektorkreis besteht aus $U_{CC}$ und $R_C$.
+
+**Schritt 1**: Maschenregel im Kollektorkreis:
+
+$$U_{CC} = R_C\,I_C + U_{CE}$$
+
+**Schritt 2**: In der Sättigung nach (i) eingesetzt und nach dem Strom aufgelöst:
+
+$$I_{C,\mathrm{sat}} = \frac{U_{CC} - U_{CE,\mathrm{sat}}}{R_C}$$
+
+**Schritt 3** (entscheidender Schritt): Die Bedingung der Sättigung verlangt, dass der Transistor mindestens diesen Strom liefern könnte, dass also $B$ mal Basisstrom nicht kleiner ist als $I_{C,\mathrm{sat}}$. Nach dem Basisstrom aufgelöst:
+
+$$I_B \ge \frac{I_{C,\mathrm{sat}}}{B}$$
+
+**Ergebnis:**
+
+$$I_{C,\mathrm{sat}} = \frac{U_{CC} - U_{CE,\mathrm{sat}}}{R_C}, \qquad I_B \ge \frac{I_{C,\mathrm{sat}}}{B}$$
+
+**Woher die Faktoren kommen:** $U_{CC} - U_{CE,\mathrm{sat}}$ ist die Spannung, die für den Widerstand bleibt; $1/B$ übersetzt Kollektor- in Basisstrom.
+
+**Proben:** Einheit A. Grenzfall: Ohne Kollektorwiderstand begrenzt nichts den Strom, $I_{C,\mathrm{sat}}$ wird unendlich, und der Transistor erreicht die Sättigung nie. Zahlenwert: 9,8 V durch 2,2 kΩ ergibt 4,455 mA, geteilt durch 500 ergibt 8,91 µA.
+
+**Grenzen:** Die Sättigungsspannung hängt in Wirklichkeit vom Strom und vom Verhältnis der Ströme ab; im Beispiel ergibt das vollständige Modell 0,144 V statt 0,2 V, der Kollektorstrom ändert sich dadurch nur um 0,6 %.
+:::
+
+::::beispiel Ein Transistor an 10 V und 2,2 kΩ in allen drei Bereichen
+**Gegeben:** Beispieltransistor mit $B$ = 500, Kollektor über $R_C$ = 2,2 kΩ an $U_{CC}$ = 10 V, Emitter an Masse; eine Stromquelle gibt 0, 2, 8 oder 20 µA in die Basis. Modellwerte 0,6 V und 0,2 V.
+
+**Gesucht:** Bereich, Kollektorstrom und $U_{CE}$.
+
+**Rechnung:** Ohne Basisstrom sperrt der Transistor, $U_{CE}$ = 10 V. Bei 2 µA und 8 µA, Annahme aktiv:
+
+$$I_C = 500\cdot2\ \mu\mathrm{A} = 1{,}00\ \mathrm{mA},\ U_{CE} = 7{,}8\ \mathrm{V}, \qquad I_C = 4{,}00\ \mathrm{mA},\ U_{CE} = 10\ \mathrm{V} - 8{,}8\ \mathrm{V} = 1{,}2\ \mathrm{V}$$
+
+Beide Male mehr als 0,2 V; die Annahme hält. Bei 20 µA verlangte die Annahme aktiv 10 mA, also 22 V am Widerstand und $U_{CE}$ = −12 V, ein Widerspruch. Annahme Sättigung:
+
+$$I_C = \frac{10\ \mathrm{V} - 0{,}2\ \mathrm{V}}{2{,}2\ \mathrm{k\Omega}} = 4{,}46\ \mathrm{mA} \le 500\cdot20\ \mu\mathrm{A} = 10\ \mathrm{mA}$$
+
+**Ergebnis:** **0 µA gesperrt; 2 µA aktiv mit 1,00 mA bei 7,8 V; 8 µA aktiv mit 4,00 mA bei 1,2 V; 20 µA gesättigt mit 4,45 mA bei 0,2 V.**
+
+**Einordnung:** Ab 8,9 µA steigt der Kollektorstrom nicht mehr. Bei 20 µA ist der Transistor 2,2-fach übersteuert; das vollständige Modell des Zahlenwerks ergibt 0,144 V und 4,48 mA, die einfache Rechnung trifft den Strom also gut.
+::::
+
+:::frage
+„Warum liegt die Grenze bei 0,2 V und nicht dort, wo $U_{CB}$ null wird?“
+Bei $U_{CB}$ = 0, mit 8 µA Basisstrom bei 0,69 V, liegt am Basis-Kollektor-Übergang keine Spannung: Er sammelt die Elektronen weiter ein, schickt aber selbst nichts zurück. In Durchlassrichtung leitet ein pn-Übergang merklich erst ab etwa 0,45 bis 0,5 V, und dann ist $U_{CE}$ auf 0,2 bis 0,25 V gesunken. Beim Beispieltransistor fließen bei 0,3 V erst 0,25 % des Basisstroms über den Basis-Kollektor-Übergang ab, bei 0,25 V 1,7 %, bei 0,2 V 11 %. Oberhalb von etwa 0,25 V arbeitet der Transistor deshalb praktisch wie im aktiven Bereich.
+:::
+
+:::fehlvorstellung
+„In der Sättigung liefert der Transistor seinen größten Strom.“
+Das liegt nahe, weil Sättigung im Alltag „mehr geht nicht“ bedeutet. Den Strom begrenzt aber der Kollektorkreis: Im Beispiel könnte der Transistor mit 20 µA Basisstrom 10 mA liefern, der Widerstand lässt nur 4,45 mA zu, und mit einem kleineren Widerstand flösse beim selben Basisstrom mehr. Kennzeichen der Sättigung sind die kleine Spannung $U_{CE}$ und ein Kollektorstrom unter $B\,I_B$.
+:::
+
+## Der Transistor als Schalter
+
+*Wie viel Basisstrom braucht ein Transistor, damit er sicher durchschaltet?*
+
+Als __Schalter__ wechselt der Transistor zwischen Sperrbereich und Sättigung (Skript, S. 175 und 178): gesperrt fast kein Strom, gesättigt nur 0,1 bis 0,2 V, in beiden Zuständen wenig Verlustleistung und kein Verschleiß. Sicher gesättigt ist er, wenn die Sättigungsbedingung auch für das kleinste $B$ seines Typs gilt, beim BC547C 420 bei 2 mA; weil $B$ bei größeren Strömen sinkt und mit Temperatur und Alterung schwankt, gibt man das Zwei- bis Fünffache, die __Übersteuerung__.
+
+::::beispiel Leuchtdiode an einem 3,3-V-Mikrocontroller
+**Gegeben:** Mikrocontroller-Ausgang mit 3,3 V; rote Leuchtdiode mit 2,0 V bei 20 mA an 5 V; BC547C mit $B_\mathrm{min}$ = 420; Modellwerte 0,2 V und $U_{BE}$ = 0,7 V; Übersteuerung fünffach; Normreihe E12.
+
+:::grafik
+Szene: get1/bipolartransistoren/01-led-schalter · Vorlage: schaltplan
+**Abbildung 7:** Schaltplan: Mikrocontroller-Ausgang (3,3 V) über $R_B$ = 12 kΩ an die Basis eines BC547C, Emitter an Masse; vom Kollektor über $R_C$ = 150 Ω und die Leuchtdiode an +5 V. Eingetragen: Basisstrom 0,217 mA, Kollektorstrom 18,7 mA, $U_{CE}$ um 0,1 V. Ein Ausgangsstrom von einem Prozent des Laststroms schaltet die Leuchtdiode.
+:::
+
+**Gesucht:** $R_C$, $R_B$ und Basisstrom.
+
+**Rechnung:** Kollektorwiderstand und Laststrom (Abbildung 7):
+
+$$R_C = \frac{5\ \mathrm{V} - 2{,}0\ \mathrm{V} - 0{,}2\ \mathrm{V}}{20\ \mathrm{mA}} = 140\ \Omega \;\rightarrow\; 150\ \Omega, \qquad I_C = \frac{2{,}8\ \mathrm{V}}{150\ \Omega} = 18{,}7\ \mathrm{mA}$$
+
+Basisstrom mit fünffacher Übersteuerung und Basiswiderstand:
+
+$$I_B = 5\cdot\frac{18{,}7\ \mathrm{mA}}{420} = 0{,}222\ \mathrm{mA}, \qquad R_B = \frac{3{,}3\ \mathrm{V} - 0{,}7\ \mathrm{V}}{0{,}222\ \mathrm{mA}} = 11{,}7\ \mathrm{k\Omega} \;\rightarrow\; 12\ \mathrm{k\Omega}$$
+
+Mit dem Normwert fließt
+
+$$I_B = \frac{2{,}6\ \mathrm{V}}{12\ \mathrm{k\Omega}} = 0{,}217\ \mathrm{mA}$$
+
+**Ergebnis:** **150 Ω und 12 kΩ; der Ausgang liefert 0,217 mA, der Transistor schaltet 18,7 mA.**
+
+**Einordnung:** Der Ausgang liefert ein Prozent des Laststroms. Im Transistor werden mit den Modellwerten rund 3,9 mW zu Wärme, 3,7 mW im Kollektorkreis und 0,15 mW an der Basis-Emitter-Strecke; das vollständige Modell ergibt bei dieser Übersteuerung 0,11 V und zusammen 2,3 mW.
+::::
 
 ## Der pnp-Transistor
 
-Kehrt man die Dotierfolge um, entsteht nach Abschnitt 11.7 des Skripts der __pnp-Transistor__: ein p-dotierter Emitter, eine n-dotierte Basis und ein
-p-dotierter Kollektor. Der Emitter sendet jetzt Löcher durch die Basis, und alle Spannungen und Ströme kehren sich um. Im Symbol zeigt der Emitterpfeil nach
-innen; in Bild 11.30 fließt der Emitterstrom hinein, Basis- und Kollektorstrom fließen heraus, und $U_{BE,\text{ein}}$ und $U_{CE,\text{sat}}$ sind negativ. Mit
-Basis- und Kollektorstrom in dieser Flussrichtung gezählt, aus dem Transistor heraus, gelten die drei Bereiche gespiegelt:
+*Was ändert sich, wenn man die Dotierfolge umkehrt?*
 
-$$\begin{cases} I_B = I_C = 0, & U_{BE} > -0{,}6\,\text{V}, \\ I_C = B\,I_B, & U_{CE} \le -0{,}2\,\text{V}, \\ U_{CE} = -0{,}2\,\text{V}, & I_C \le B\,I_B. \end{cases}$$
+Beim pnp-Transistor sind Emitter und Kollektor p-dotiert und die Basis n-dotiert (Abbildung 2b; Skript, S. 193). Den Transferstrom tragen Löcher, und alle Spannungen und Ströme kehren sich um: Der Emitter liegt höher als die Basis, die Basis höher als der Kollektor, und der Strom fließt in den Emitter hinein und aus Basis und Kollektor heraus. Das Skript zählt die Ströme in dieser Richtung, sodass sie positiv sind, behält die Spannungsrichtungen bei und erhält negative Grenzwerte (S. 194):
 
-**So liest man das:** Spannungen tauschen ihr Vorzeichen, die Ungleichungen für sie drehen sich um, die Ströme laufen in der Gegenrichtung. Das Skript schreibt
-für die Sättigung $I_C \ge I_B\cdot B$. Das stimmt nur, wenn man die Ströme wie beim npn-Transistor in den Transistor hinein zählt, wo sie negativ werden; mit
-den Pfeilen von Bild 11.30 gilt wie beim npn-Transistor das Kleiner-gleich. Das Skript sagt außerdem, auch hier sei die Basis schwächer dotiert als Kollektor und
-Emitter. Nach Abschnitt 11.1 ist aber der Kollektor am schwächsten dotiert, und das gilt für beide Typen. Man braucht pnp-Transistoren etwa, wenn ein Verbraucher an
-Masse hängt und an der positiven Versorgung geschaltet werden soll, und in Gegentaktstufen zusammen mit npn-Transistoren; das Skript verweist dafür auf
-Schaltungstechnik 1 und 2.
+| Bereich | Modell | Probe |
+|---|---|---|
+| Sperrbereich | $I_B$ = $I_C$ = 0 | $U_{BE}$ > −0,6 V |
+| aktiv | $U_{BE}$ = −0,6 V, $I_C$ = $B\,I_B$ | $U_{CE}$ ≤ −0,2 V |
+| Sättigung | $U_{BE}$ = −0,6 V, $U_{CE}$ = −0,2 V | $I_C$ ≤ $B\,I_B$ |
 
-**Im Bild:** Dieselben drei Parkhäuser, aber für Lücken statt für Autos: Lücken wandern über die Rampe vom Emitter in die Basis und fallen dann in den Kollektor.
+Die Ungleichungen für die Spannungen kehren sich um, die für die Ströme nicht. Das Skript verlangt für die Sättigung dagegen, dass $I_C$ mindestens $B\,I_B$ ist (S. 194); das stimmt nur für hineingezählte, negative Ströme, nicht für die Pfeile seines Bildes 11.30. Auch die Angabe, die Basis sei schwächer dotiert als der Kollektor (S. 193), widerspricht Abschnitt 11.1: Der Kollektor ist bei beiden Typen am schwächsten dotiert. Gebraucht wird der pnp-Transistor, um Lasten an Masse von der positiven Versorgung aus zu schalten, und in Gegentaktstufen wie der Endstufe des Praktikumsverstärkers.
 
-:::herleitung
-Jede Aussage über den npn-Transistor gilt für den pnp-Transistor, wenn man p- und n-Dotierung, Elektronen und Löcher vertauscht. Dabei kehren alle
-Übergangsspannungen ihr Vorzeichen um, und alle Ströme fließen in der Gegenrichtung. Zählt man die Ströme in der neuen Flussrichtung, sind ihre Werte positiv
-und erfüllen dieselben Beziehungen wie beim npn-Transistor; die Spannungen werden negativ, und jede Ungleichung für eine Spannung kehrt sich um. Im Bild: Ein
-Parkhaus, auf den Kopf gestellt, mit Lücken statt Autos, funktioniert genauso.
-:::
+## Alles hängt an einem Prinzip
 
-::::beispiel Ein pnp-Transistor schaltet an der Versorgung
-Der Emitter liegt an $+12\,\text{V}$, ein Verbraucher $R_C$ vom Kollektor nach Masse; die Basis zieht ein Widerstand $R_B$ nach Masse; $B = 200$:
+| Einzelheit | welche Seite des Prinzips sie zeigt |
+|---|---|
+| dünne Basis und Transfergleichung | Die Stufe am Emitter bestimmt den Nachschub, und fast jedes Elektron erreicht den Kollektor. |
+| flache Ausgangskennlinien | Der gesperrte Kollektorübergang sammelt jeden Nachschub ein, gleich wie hoch die Sperrspannung ist. |
+| Basisstrom und Stromverstärkung | Zwei kleine Verluste an derselben Stufe; deshalb ein fester Bruchteil, und Strom- und Spannungssicht passen zusammen. |
+| Sättigung | Leitet auch der Kollektorübergang, fließt überschüssiger Basisstrom in den Kollektor ab, und der äußere Kreis begrenzt den Strom. |
+| pnp-Transistor | Derselbe Mechanismus mit Löchern als Nachschub. |
 
-$$R_C = 1\,\text{k}\Omega, \qquad R_B = 47\,\text{k}\Omega, \qquad U_{BE} = -0{,}7\,\text{V}.$$
-
-**Basisstrom,** aus der Basis heraus nach Masse:
-
-$$I_B = \frac{12\,\text{V} - 0{,}7\,\text{V}}{47\,\text{k}\Omega} = 0{,}240\,\text{mA}.$$
-
-**Annahme aktiv.** $I_C$ wäre $48{,}1\,\text{mA}$; an $R_C$ lägen dann $48\,\text{V}$, mehr als die Versorgung hat, ein Widerspruch.
-
-**Sättigung.** Am Verbraucher liegen $12\,\text{V}$ bis auf die $0{,}2\,\text{V}$ des Transistors:
-
-$$I_C = \frac{12\,\text{V} - 0{,}2\,\text{V}}{1\,\text{k}\Omega} = 11{,}8\,\text{mA} \le B\,I_B = 48{,}1\,\text{mA}, \qquad U_{CE} = -0{,}2\,\text{V}.$$
-
-Der Emitterstrom, in den Transistor hinein, ist $12{,}04\,\text{mA}$. Bis zu einem Basiswiderstand von rund $190\,\text{k}\Omega$ bliebe der Transistor gesättigt.
-
-**Im Bild:** Lücken stürzen in Massen in den Kollektor, mehr als der Verbraucher abnehmen kann; der Transistor ist ganz durchgeschaltet.
-::::
+Ein gesperrter pn-Übergang führt so viel Strom, wie Nachschub an Minoritätsträgern zu ihm gelangt; im Bipolartransistor liefert ein leitender Übergang diesen Nachschub durch eine sehr dünne Basis, sodass die Basis-Emitter-Spannung den Kollektorstrom exponentiell festlegt, die Kollektorspannung ihn kaum beeinflusst und nur ein kleiner, fester Bruchteil als Basisstrom fließt.
 
 ## Bedeutung und Ausblick
 
-Der Bipolartransistor hat zwei Gesichter. Im aktiven Bereich ist er eine gesteuerte Stromquelle und damit ein Verstärker; zwischen Sperrbereich und Sättigung ist
-er ein Schalter. Beide beruhen auf demselben Effekt: Die Spannung am Basis-Emitter-Übergang schickt Ladungsträger durch eine Basis, die zu dünn ist, um viele zu
-verlieren, und der gesperrte Kollektorübergang sammelt sie ein.
+Bipolartransistoren verstärken im Audioverstärker des Praktikums die Signale und schalten Leuchtdioden, Relais und Motoren. Der nächste Artikel, [Arbeitspunkt und Grundschaltungen des Transistors](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/arbeitspunkt-und-grundschaltungen.html), zeigt, wie man einen Transistor trotz der Streuung von $B$ und $I_S$ in einen festen Arbeitspunkt bringt; Early-Effekt und Kleinsignalverhalten behandelt [Der Transistor als Verstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/transistor-als-verstaerker.html).
 
-Der nächste Artikel zeigt, wie man einen Transistor in seinen Arbeitspunkt bringt und dort hält, unabhängig von der Streuung von $B$ und von der Temperatur, und
-welche drei Grundschaltungen es gibt. Danach folgt der Transistor als Verstärker für kleine Signale. Der andere große Transistortyp, der MOSFET, der in der
-Digitaltechnik vorherrscht, gehört nach dem Skript nicht zu dieser Vorlesung.
+**In der ausführlichen Fassung:** die Stromverstärkung aus Dotierung und Geometrie, das Stromverhältnis $\alpha$, die Belege für die Spannungssicht, Inversbetrieb und schwach dotierter Kollektor, die Trägerflüsse in der Sättigung, die Schaltgeschwindigkeit, ein pnp-Schalter, die Korrekturen zu Bild 11.3 und weitere Beispiele. [Zur ausführlichen Fassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise-ausfuehrlich.html)
 
 :::kern
-- Drei Zonen: stark dotierter Emitter, dünne Basis, schwach dotierter Kollektor; zwei pn-Übergänge.
-- Am Transistor gelten $I_E=I_B+I_C$ und $U_{CE}=U_{CB}+U_{BE}$.
-- Im aktiven Bereich leitet der Basis-Emitter-Übergang, der Basis-Kollektor-Übergang sperrt.
-- Transfergleichung: $I_C=I_Se^{U_{BE}/U_T}$, unabhängig von der Kollektorspannung.
-- Der Basisstrom stammt aus Rekombination in der Basis und Rückinjektion in den Emitter; $B=I_C/I_B$, typisch einige hundert.
-- $\alpha=I_C/I_E$ ist knapp eins, und $B=\alpha/(1-\alpha)$ reagiert stark auf kleine Änderungen von $\alpha$.
-- Physikalisch steuert $U_{BE}$; weil $I_B$ ein fester Bruchteil ist, kann man ebenso mit dem Basisstrom rechnen.
-- Sperrbereich, aktiver Bereich und Sättigung: annehmen, rechnen, prüfen.
-- Als Schalter braucht der Transistor genug Basisstrom für die kleinste Verstärkung, mit Übersteuerung.
-- Beim pnp-Transistor kehren sich alle Spannungen und Ströme um.
+- Drei Gebiete: stark dotierter Emitter, dünne Basis, schwach dotierter Kollektor; im aktiven Bereich leitet der Basis-Emitter-Übergang, der Basis-Kollektor-Übergang sperrt.
+- Knotenregel am Transistor: $I_E = I_B + I_C$; die Spannungen addieren sich über die Basis.
+- Transfergleichung: $I_C = I_S\exp(U_{BE}/U_T)$; der gesperrte Kollektorübergang sammelt den Nachschub ein, $U_{CE}$ wirkt kaum.
+- Der Basisstrom ersetzt Löcher, die durch Rückinjektion in den Emitter und Rekombination in der Basis verloren gehen.
+- Stromverstärkung $B = I_C/I_B$, einige hundert; weil der Basisstrom nur ein kleiner Rest des Emitterstroms ist, streut $B$ stark.
+- Physikalisch steuert $U_{BE}$; weil zu jedem Basisstrom genau eine Spannung gehört, darf man mit dem Basisstrom rechnen.
+- Sättigung: Beide Übergänge leiten, $U_{CE}$ beträgt nur 0,1 bis 0,2 V, und der äußere Kreis begrenzt den Strom unter $B\,I_B$; Schalter brauchen Basisstrom für $B_\mathrm{min}$ mit Übersteuerung.
+- pnp: alles umgekehrt; mit Strömen in Flussrichtung gelten dieselben Beziehungen, die Spannungsbedingungen kehren sich um.
 :::
 
 :::quiz
-F: Woraus besteht ein Bipolartransistor, und welche Rolle spielt die Dotierung?
-A: Aus drei Zonen, Emitter, Basis und Kollektor, mit zwei pn-Übergängen. Der Emitter ist am stärksten dotiert, damit kaum Löcher aus der Basis zurückkommen, der Kollektor am schwächsten, und die Basis ist sehr dünn, damit kaum Elektronen in ihr rekombinieren.
-F: Was geschieht im aktiven Bereich, und warum hängt der Kollektorstrom kaum von der Kollektorspannung ab?
-A: Der leitende Basis-Emitter-Übergang lässt Elektronen in die dünne Basis, sie diffundieren zum Kollektorrand, und das Feld des gesperrten Basis-Kollektor-Übergangs zieht sie in den Kollektor. Dieser Übergang sammelt jedes ankommende Elektron ein, gleich wie stark er gesperrt ist; daher $I_C=I_Se^{U_{BE}/U_T}$ ohne $U_{CE}$.
-F: Wie empfindlich reagiert der Kollektorstrom auf $U_{BE}$?
-A: Exponentiell: Mit $I_S=10^{-14}\,\text{A}$ fließen bei $0{,}60\,\text{V}$ $0{,}12\,\text{mA}$, bei $0{,}70\,\text{V}$ $5{,}75\,\text{mA}$. $18\,\text{mV}$ mehr verdoppeln den Strom, und ein Kelvin Erwärmung erhöht ihn bei fester Spannung um etwa $7\,\%$.
-F: Woher kommt der Basisstrom, und wie groß ist $B$?
-A: Aus der Rekombination eines kleinen Teils der Elektronen in der Basis und aus der Rückinjektion von Löchern in den Emitter; beide sind proportional zum Kollektorstrom. Mit $0{,}3\,\%$ und $0{,}2\,\%$ Verlust ist $B=(1-\delta)/(\delta+\eta)\approx199$; das Skript nennt $10$ bis $1000$.
-F: Was ist $\alpha$, und warum streut $B$ so stark?
-A: $\alpha=I_C/I_E$ ist knapp eins, bei $2\,\text{mA}$ und $10\,\mu\text{A}$ Basisstrom $0{,}995$. Aus der Knotenregel folgt $B=\alpha/(1-\alpha)$, und weil der Nenner so klein ist, macht ein Tausendstel mehr $\alpha$ den Wert $B$ von $199$ auf $249$.
-F: Ist der Transistor strom- oder spannungsgesteuert?
-A: Physikalisch steuert $U_{BE}$ die Zahl der Elektronen, der Basisstrom ist ihre Folge; weil er ein fester Bruchteil $1/B$ ist, folgt er demselben Gesetz, $I_B=(I_S/B)e^{U_{BE}/U_T}$. Man kann deshalb ebenso mit dem Basisstrom rechnen; mit festem $U_{BE}$ wie bei der Diode bleibt er die einzige Stellgröße, daher die Stromsicht der Vorlesung.
-F: Was zeigen die drei Kennlinien, und was ist an der Darstellung des Skripts zu präzisieren?
-A: Die Eingangskennlinie ist eine Diodenkennlinie mit Knie um $0{,}6\,\text{V}$, die Stromsteuerkennlinie eine Gerade $I_C=BI_B$, die Ausgangskennlinie oberhalb weniger Zehntelvolt fast waagrecht wie eine Stromquelle. In der doppelt logarithmischen Darstellung ist $B$ der Abstand, nicht die Steigung; das Abfallen von $B$ bei großen Strömen ist nicht der Sättigungsbereich; und Bild 11.3c entspricht $B$ um $1600$.
-F: Wie bestimmt man den Arbeitsbereich eines Transistors?
-A: Man nimmt einen Bereich an, rechnet mit seinem Modell und prüft die Bedingung: Sperrbereich mit $I_B=I_C=0$ bei $U_{BE}<U_{BE,\text{ein}}$, aktiv mit $I_C=BI_B$ bei $U_{CE}\ge U_{CE,\text{sat}}$, Sättigung mit $U_{CE}=U_{CE,\text{sat}}$ bei $I_C\le BI_B$. Mit $12\,\text{V}$, $2\,\text{k}\Omega$ und $B=200$ ist der Transistor bei $25\,\mu\text{A}$ aktiv mit $2\,\text{V}$ und bei $50\,\mu\text{A}$ gesättigt mit $5{,}9\,\text{mA}$.
-F: Wie legt man einen Transistor als Schalter aus?
-A: Der Kollektorkreis legt den Strom in der Sättigung fest, und der Basisstrom muss ihn auch mit der kleinsten Verstärkung tragen, $I_B\ge(U_{CC}-U_{CE,\text{sat}})/(B_\text{min}R_C)$, mit zwei- bis fünffacher Übersteuerung. Für eine Leuchtdiode mit $20\,\text{mA}$ an $5\,\text{V}$ ergeben sich $150\,\Omega$ und $6{,}8\,\text{k}\Omega$, und der Transistor verliert nur $3{,}7\,\text{mW}$.
-F: Was ändert sich beim pnp-Transistor, und welche Unstimmigkeiten hat das Skript dort?
-A: Dotierung, Ladungsträger, Spannungen und Ströme kehren sich um; $U_{BE,\text{ein}}$ und $U_{CE,\text{sat}}$ sind negativ, und mit den Strömen in Flussrichtung gelten dieselben Beziehungen. Das Skript schreibt für die Sättigung $I_C\ge I_B\cdot B$, was nur mit hineingezählten, negativen Strömen stimmt, und nennt die Basis schwächer dotiert als den Kollektor, entgegen seinem Abschnitt 11.1.
+F: Warum fließt durch den gesperrten Basis-Kollektor-Übergang ein großer Strom?
+A: Ein gesperrter Übergang führt so viel Strom, wie Minoritätsträger zu ihm gelangen. Der leitende Basis-Emitter-Übergang schickt Elektronen in die Basis, und weil die Basis 26-mal dünner ist als die Diffusionslänge, erreicht fast jedes den Kollektorrand, wo das Feld es in den Kollektor zieht.
+F: Warum hängt der Kollektorstrom kaum von $U_{CE}$ ab?
+A: Der gesperrte Basis-Kollektor-Übergang sammelt jedes ankommende Elektron ein; die Dichte am Kollektorrand ist bei jeder Sperrspannung null. Den Strom bestimmt die Randdichte am Emitter und damit $U_{BE}$; zwischen 1 und 10 V steigt er beim Beispieltransistor nur um 13 %.
+F: Wie groß ist der Kollektorstrom des Beispieltransistors bei 0,70 V, und wie viel mehr Spannung verdoppelt ihn?
+A: $10^{-14}$ A mal $\exp(0{,}70\ \mathrm{V}/25{,}85\ \mathrm{mV})$ ergibt 5,75 mA. Verdoppeln kostet 17,9 mV.
+F: Stimmt es, dass die Elektronen des Kollektorstroms über die Basis hereinkommen und der Basisstrom den Transistor öffnet?
+A: Nein. Die Elektronen kommen aus dem Emitter und verlassen den Transistor am Kollektor; über die Basis fließen nur Löcher, die Verluste ersetzen, bei 2 mA Kollektorstrom 4 µA. Die Ursache ist $U_{BE}$; weil der Basisstrom eindeutig dazugehört, darf man trotzdem mit ihm rechnen.
+F: In welchem Bereich arbeitet der Beispieltransistor mit 2,2 kΩ an 10 V bei 20 µA Basisstrom?
+A: Annahme aktiv verlangte 10 mA und $U_{CE}$ = −12 V, ein Widerspruch. Annahme Sättigung: 9,8 V durch 2,2 kΩ ergibt 4,45 mA, weniger als 500 mal 20 µA; die Probe hält, der Transistor ist gesättigt.
+F: Stimmt es, dass der Transistor in der Sättigung seinen größten Strom liefert?
+A: Nein. In der Sättigung begrenzt der äußere Kreis den Strom unter $B\,I_B$; im Beispiel könnte der Transistor 10 mA liefern, der Widerstand lässt 4,45 mA zu.
 :::

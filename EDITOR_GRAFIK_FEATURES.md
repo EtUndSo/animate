@@ -64,7 +64,7 @@ Gebraucht in: RC-Laden/Entladen, Gleichrichtung, OPV-Slew-Rate.
 - **Bändermodell**: gefüllte/leere Energiebänder als Balken, Bandlücke, Elektron (Punkt) / Loch (Kreis), Übergang über die Lücke.
 - **Kristallgitter**: Atome als Kreise im Raster mit Bindungen; Dotieratome (Donator/Akzeptor) hervorgehoben; freie Ladungsträger.
 - **pn-Übergang**: zwei Gebiete, Raumladungszone, ortsfeste Ionen, Feldpfeil, Ladungsträgerbewegung.
-Gebraucht in: Halbleiter/Bändermodell, Diode.
+Gebraucht in: Halbleiter/Bändermodell, Diode, Bipolartransistor (Querschnitt mit drei Gebieten und zwei Zonen, Schichtfolge mit Dotierungsbalken).
 
 ## 7. Hervorhebungen, Labels, Container  — **P2**
 - Textlabels mit LaTeX/Formelsatz an beliebiger Stelle (nutzt vorhandenes MathTex).
@@ -165,6 +165,11 @@ Gebraucht in: Gesamtbild, Leiter/Halbleiter/Isolator, dotierte Bänder, Kristall
 - Eine Achse mit sichtbarem Bruch bzw. getrennten Maßstäben je Abschnitt, z. B. Strom in mA oberhalb und in pA unterhalb der Nulllinie, Spannung in 0,1 V rechts und in 10 V links.
 - Die Beschriftung macht die Maßstabswechsel unübersehbar.
 Gebraucht in: Gesamtkennlinie der Diode (Durchlass, Sperr, Durchbruch); später Transistor-Kennlinienfelder mit Sperrbereich.
+
+## 18. Mengenpfeile und Bilanzdiagramme  — **P2** (neu 2026-10-21, Bipolartransistor)
+- Pfeile, deren Breite proportional zu einem Wert ist (Ströme, Teilchenflüsse), mit der Zahl am Pfeil; Verzweigen und Zusammenführen wie in einem Sankey-Diagramm.
+- Sehr ungleiche Flüsse (10 000 gegen 12,5) mit gekennzeichneter Lupe bzw. eigenem Maßstab für die kleinen Pfeile.
+Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und gesättigt (get1/bipolartransistoren/01-…).
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

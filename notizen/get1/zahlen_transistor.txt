@@ -1,0 +1,100 @@
+== Beispieltransistor: physikalisches Modell ==
+N_E = 1e+19, N_B = 1e+17, N_C = 1e+16 cm^-3; W_E = 0.5 um, W_B = 0.5 um, W_C = 5 um; A = 1.5e-04 cm^2 = 0.015 mm^2
+D_n(Basis) = 20.68 cm^2/s, D_p(Emitter) = 2.585, D_p(Kollektor) = 11.63; tau_n = 80 ns; L_n = 12.86 um; W_B/L_n = 0.0389
+Minoritätsdichten im Gleichgewicht: Elektronen in der Basis 1e+03, Löcher im Emitter 1e+01, im Kollektor 1e+04 cm^-3
+U_Diff(BE) = 0.952 V, U_Diff(BC) = 0.774 V (Emitter mit 1e19: Boltzmann-Näherung nur grob)
+Transitzeit W_B^2/(2 D_n) = 60.4 ps; Grenzfrequenz 1/(2 pi tau_t) = 2.63 GHz (Datenblatt BC547: f_T typ. 300 MHz, also 1/(2 pi f_T) = 0.53 ns Gesamtverzögerung: Transitzeit des realen Transistors plus Umladen der Sperrschichtkapazitäten)
+Knickstrom der starken Injektion im physikalischen Modell e A D_n N_B / W_B = 0.99 A
+I_S exakt (sinh) = 9.9382e-15 A, Näherung dünne Basis e A D_n n_i^2/(N_B W_B) = 9.9407e-15 A
+Transportfaktor alpha_T = 1/cosh(W_B/L_n) = 0.999245 (1 - W_B^2/(2 L_n^2) = 0.999244); Rekombinationsanteil delta = tau_t/tau_n = 7.555e-04
+Rückinjektion eta = (D_p N_B W_B)/(D_n N_E W_E) = 1.250e-03 (= mu_p/mu_n 0.125 x N_B/N_E 1e-02 x W_B/W_E 1.0); Emitterwirkungsgrad gamma = 0.998752
+alpha = gamma alpha_T = 0.997998; B = alpha/(1-alpha) = 498.5; Näherung 1/(eta+delta) = 498.6
+   Auf 10 000 Elektronen am Kollektor: Rückinjektion 12.5 Löcher, Rekombination 7.56, zusammen 20.1 -> B = 499
+   Basisweite 0.25 um: delta 1.89e-04, eta 6.25e-04, B ~ 1229, I_S ~ 1.99e-14 A
+   Basisweite 0.50 um: delta 7.56e-04, eta 1.25e-03, B ~ 499, I_S ~ 9.94e-15 A
+   Basisweite 1.00 um: delta 3.02e-03, eta 2.50e-03, B ~ 181, I_S ~ 4.97e-15 A
+   Emitterdotierung 1e+18 (gleiche D_p): eta 1.25e-02, B ~ 75
+   Emitterdotierung 1e+19 (gleiche D_p): eta 1.25e-03, B ~ 499
+   Emitterdotierung 1e+20 (gleiche D_p): eta 1.25e-04, B ~ 1136
+   'Basis' 10 um lang (zwei getrennte Dioden): Transportfaktor 1/cosh = 7.589e-01
+   'Basis' 1000 um lang (zwei getrennte Dioden): Transportfaktor 1/cosh = 3.448e-34
+Inversbetrieb: Löcher in den Kollektor eta_R = (D_pC N_B W_B)/(D_n N_C W_C) = 0.563 -> B_R ~ 1.78 (Modell: 1,8)
+   I_C =    1.0 mA: Randdichte n(0) = 1.01e+14 cm^-3 = 0.10 % von N_B; Basisladung tau_t I_C = 0.0604 pC; Stromdichte 6.7 A/cm^2
+   I_C =    2.0 mA: Randdichte n(0) = 2.01e+14 cm^-3 = 0.20 % von N_B; Basisladung tau_t I_C = 0.121 pC; Stromdichte 13.3 A/cm^2
+   I_C =   10.0 mA: Randdichte n(0) = 1.01e+15 cm^-3 = 1.01 % von N_B; Basisladung tau_t I_C = 0.604 pC; Stromdichte 66.7 A/cm^2
+   I_C =  100.0 mA: Randdichte n(0) = 1.01e+16 cm^-3 = 10.06 % von N_B; Basisladung tau_t I_C = 6.04 pC; Stromdichte 666.7 A/cm^2
+   bei U_BE = 0.65 V: n(0) = n_B0 exp(U/U_T) = 8.308e+13 cm^-3; Profil (x in um, n): 0.0: 8.308e+13, 0.1: 6.646e+13, 0.2: 4.984e+13, 0.3: 3.323e+13, 0.4: 1.661e+13, 0.5: 0.000e+00
+BC-Zone bei U_CB = 5 V: Weite 0.906 um, davon in der Basis 0.082 um, im Kollektor 0.824 um; C' = 11.43 nF/cm^2; Early-Spannung e N_B W_B/C' = 70 V
+   U_CB =    1 V: Eindringtiefe in die Basis 0.0457 um
+   U_CB =   10 V: Eindringtiefe in die Basis 0.1125 um
+
+== Elektrisches Modell: I_S = 1e-14 A, B = 500, B_R = 1,8, U_A = 70 V ==
+   U_BE = 0.55 V, U_CE = 5 V: I_C = 0.01736 mA, I_B = 0.03472 uA
+   U_BE = 0.60 V, U_CE = 5 V: I_C = 0.1201 mA, I_B = 0.2402 uA
+   U_BE = 0.65 V, U_CE = 5 V: I_C = 0.8308 mA, I_B = 1.662 uA
+   U_BE = 0.70 V, U_CE = 5 V: I_C = 5.748 mA, I_B = 11.5 uA
+   I_C = 0.001 mA braucht U_BE = 476.2 mV
+   I_C = 0.01 mA braucht U_BE = 535.7 mV
+   I_C = 0.1 mA braucht U_BE = 595.3 mV
+   I_C = 1 mA braucht U_BE = 654.8 mV
+   I_C = 2 mA braucht U_BE = 672.7 mV
+   I_C = 10 mA braucht U_BE = 714.3 mV
+   Verdopplung 17.9 mV, Dekade 59.5 mV, 1 mV mehr: +3.94 %
+   Temperatur bei 2 mA: dU_BE/dT = -2.04 mV/K; bei fester U_BE pro Kelvin x1.082, über 10 K x2.20
+   Eingangskennlinie U_CE = 5 V: I_B =   0.1 uA bei U_BE = 577.3 mV
+   Eingangskennlinie U_CE = 5 V: I_B =   1.0 uA bei U_BE = 636.9 mV
+   Eingangskennlinie U_CE = 5 V: I_B =   2.0 uA bei U_BE = 654.8 mV
+   Eingangskennlinie U_CE = 5 V: I_B =   4.0 uA bei U_BE = 672.7 mV
+   Eingangskennlinie U_CE = 5 V: I_B =  10.0 uA bei U_BE = 696.4 mV
+   Eingangskennlinie U_CE = 5 V: I_B =  20.0 uA bei U_BE = 714.3 mV
+Ausgangskennlinien I_C in mA (Zeilen I_B, Spalten U_CE in V):
+   I_B       0.05     0.1    0.15     0.2     0.3     0.5     1.0     5.0    10.0
+     2 uA   0.017   0.133   0.506   0.834   0.935   0.940   0.947   1.000   1.067
+     4 uA   0.035   0.266   1.012   1.668   1.870   1.880   1.893   2.000   2.133
+     6 uA   0.052   0.398   1.518   2.503   2.805   2.820   2.840   3.000   3.200
+     8 uA   0.070   0.531   2.025   3.337   3.740   3.760   3.787   4.000   4.267
+    10 uA   0.087   0.664   2.531   4.171   4.675   4.700   4.733   5.000   5.333
+   I_B = 8 uA, U_CE = 0.1 V: I_C/(B I_B) = 0.133; Anteil des Basisstroms im BC-Übergang 85.30 %; U_BE = 641.1 mV, U_BC = 541.1 mV
+   I_B = 8 uA, U_CE = 0.143 V: I_C/(B I_B) = 0.443; Anteil des Basisstroms im BC-Übergang 52.38 %; U_BE = 671.4 mV, U_BC = 528.4 mV
+   I_B = 8 uA, U_CE = 0.2 V: I_C/(B I_B) = 0.834; Anteil des Basisstroms im BC-Übergang 10.82 %; U_BE = 687.7 mV, U_BC = 487.7 mV
+   I_B = 8 uA, U_CE = 0.25 V: I_C/(B I_B) = 0.920; Anteil des Basisstroms im BC-Übergang 1.72 %; U_BE = 690.2 mV, U_BC = 440.2 mV
+   I_B = 8 uA, U_CE = 0.3 V: I_C/(B I_B) = 0.935; Anteil des Basisstroms im BC-Übergang 0.25 %; U_BE = 690.6 mV, U_BC = 390.6 mV
+   I_B = 8 uA, U_CE = 0.65 V: I_C/(B I_B) = 0.942; Anteil des Basisstroms im BC-Übergang 0.00 %; U_BE = 690.6 mV, U_BC = 40.6 mV
+   halber Basisstrom in den BC-Übergang bei U_CE = U_T ln(B/B_R) = 145 mV
+   bei U_CB = 0 (U_CE = U_BE) sammelt der BC-Übergang weiter alles ein (Randdichte n_B0 statt 0), injiziert aber nichts
+Stromverstärkung über dem Strom (Gummel-Poon-Form, an das BC547C-Datenblatt angepasst, ISE = 6,4e-13 A, IKF = 110 mA):
+   0.001 mA: 122, 0.01 mA: 260, 0.1 mA: 406, 1 mA: 490, 2 mA: 500, 10 mA: 487, 18.7 mA: 458, 30 mA: 424, 48 mA: 377, 100 mA: 285
+   Datenblatt onsemi Gruppe C: typ. 270 (10 uA), 520 (2 mA), 300 (100 mA); skaliert auf 500 bei 2 mA: 260, 500, 288
+
+== Zwei Sichten auf denselben Arbeitspunkt ==
+   U_BE = 0,65 V: I_C = 0.831 mA, I_B = 1.662 uA; umgekehrt aus I_B: U_BE = 650.0 mV
+   doppelter Strom: +17.9 mV bzw. doppelter Basisstrom
+   zweites Exemplar I_S = 2e-14 A, B = 700: gleiche U_BE -> 1.662 mA (+100 %), gleicher I_B -> 1.163 mA (+40 %)
+   +10 K bei fester U_BE, linearisiert: x2.26
+   +10 K exakt (I_S ~ T^3 exp(-W_g0/(k_B T)), U_T(T)): x2.208; B steigt grob 0,5 bis 1 % je K: x1,05 bis x1,10
+
+== Arbeitsbereiche: U_CC = 10 V, R_C = 2,2 kOhm, Basisstrom vorgegeben ==
+   Grenze aktiv/Sättigung (einfaches Modell, U_CE,sat = 0,2 V): I_B = 8.91 uA (I_C = 4.455 mA)
+   I_B =    0 uA: Sperrbereich: I_C = 0, U_CE = 10 V
+   I_B =    2 uA: aktiv: I_C = 1.00 mA, U_CE = 7.80 V (>= 0,2 V, Probe hält)
+      volles Modell: U_CE = 7720.2 mV, I_C = 1.0363 mA, U_BE = 654.8 mV, U_BC = -7065.4 mV
+   I_B =    8 uA: aktiv: I_C = 4.00 mA, U_CE = 1.20 V (>= 0,2 V, Probe hält)
+      volles Modell: U_CE = 1599.0 mV, I_C = 3.8186 mA, U_BE = 690.6 mV, U_BC = -908.4 mV
+   I_B =   20 uA: aktiv verlangte U_CE = -12.0 V, Widerspruch; Sättigung: I_C = 4.455 mA <= B I_B = 10.0 mA, erzwungenes I_C/I_B = 223
+      volles Modell: U_CE = 143.6 mV, I_C = 4.4802 mA, U_BE = 695.5 mV, U_BC = 551.8 mV
+Elektronendichte in der Basis: aktiv (I_B = 8 uA) gegen Sättigung (I_B = 20 uA), lineares Profil:
+   I_B =  8 uA: n(0) = 4.000e+14, n(W_B) = 5.486e-13 cm^-3 (0.0 % von n(0)); Ladung in der Basis 0.240 pC; Ladung je mA Kollektorstrom 0.063 pC/mA; Gefälle-Strom e A D_n (n(0)-n(W_B))/W_B = 3.976 mA
+      Aufteilung des Basisstroms: Verluste durch Rückinjektion und Rekombination I_S e^(U_BE/U_T)/B = 8.00 uA, über den BC-Übergang (vor allem Löcher in den Kollektor) -0.00 uA; Sättigungsgrenze bei 0,2 V: I_C/B = 8.91 uA
+   I_B = 20 uA: n(0) = 4.820e+14, n(W_B) = 1.865e+12 cm^-3 (0.4 % von n(0)); Ladung in der Basis 0.291 pC; Ladung je mA Kollektorstrom 0.065 pC/mA; Gefälle-Strom e A D_n (n(0)-n(W_B))/W_B = 4.773 mA
+      Aufteilung des Basisstroms: Verluste durch Rückinjektion und Rekombination I_S e^(U_BE/U_T)/B = 9.64 uA, über den BC-Übergang (vor allem Löcher in den Kollektor) 10.36 uA; Sättigungsgrenze bei 0,2 V: I_C/B = 8.91 uA
+
+== Schalter: Leuchtdiode an 5 V, angesteuert von einem 3,3-V-Mikrocontroller-Ausgang ==
+   R_C = (5 V - 2,0 V - 0,2 V)/20 mA = 140 Ohm -> E12 150 Ohm, I_C = 18.67 mA
+   B_min = 420: I_B,min = 44.4 uA; fünffach: 0.222 mA -> R_B = (3,3 V - 0,7 V)/I_B = 11.70 kOhm -> E12 12 kOhm, I_B = 0.217 mA (Übersteuerung 4.9, erzwungenes I_C/I_B = 86)
+   volles Modell: U_CE = 108.8 mV, I_C = 19.27 mA, U_BE = 734 mV; Verlust 2.10 mW + 0.16 mW = 2.26 mW (Modellwerte: 3.73 mW + 0.15 mW = 3.88 mW); Pin liefert 0.217 mA statt 18.7 mA
+   B des Modells bei 18.7 mA: 458 (B_min 420 gilt bei 2 mA)
+
+== pnp-Schalter an +5 V (BC557C, B_min = 420), Last 100 Ohm nach Masse, Ansteuerung 0 V = ein ==
+   I_C = (5 V - 0,2 V)/100 Ohm = 48 mA; I_B,min = 0.114 mA; vierfach 0.457 mA -> R_B = 9.41 kOhm -> E12 10.0 kOhm, I_B = 0.430 mA; B_min I_B = 181 mA >= 48 mA; I_E = 48.43 mA
+   aus: Steuerpin 5 V -> U_BE = 0. Ein 3,3-V-Pin ließe 1,7 V über R_B und Emitter-Basis-Strecke; diese leitet mit rund 0,7 V, an R_B blieben 1,0 V, I_B = 0.100 mA -> B_min I_B = 42 mA, B I_B = 50 mA: der Transistor bliebe leitend
+   B des Modells bei 48 mA: 377

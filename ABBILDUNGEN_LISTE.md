@@ -718,3 +718,182 @@ Hilfslinie bei 8,8 V.
 - §4 Treppenkurve mit markierten Punkten;
 - §11 Datenkurve;
 - §15 optional: Regler für Last und C1.
+
+---
+
+## ET1 Kap. 11: Der Bipolartransistor – Aufbau und Wirkungsweise
+Zahlenwerk: `notizen/get1/zahlen_transistor.py` (Beispieltransistor nach Art des BC547C), Funktionen `stroeme`, `ube_bei_ib`, `ic_bei_ib`, `arbeitspunkt`, `b_von_ic`, `profil`, Bericht `bericht()`.
+
+**get1/bipolartransistoren/01-npn-querschnitt**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Querschnitt eines npn-Transistors im Normalbetrieb, schematisch, Dicken nicht maßstäblich (so beschriftet): Emitter n⁺, Basis p (schmal), Kollektor n, Raumladungszonen grau hinterlegt; Anschlüsse E, B, C. Werte bei 2 mA:
+- breiter blauer Pfeil: Elektronen vom Emitter durch die Basis in den Kollektor, 2 mA;
+- dünne rote Pfeile: Löcher aus der Basis in den Emitter (Rückinjektion, 2,5 µA), Rekombinationszeichen in der Basis (1,5 µA), Löcherzufuhr am Basisanschluss (zusammen 4 µA);
+- an den Anschlüssen die technischen Stromrichtungen mit $I_C$ = 2,000 mA, $I_B$ = 4,0 µA, $I_E$ = 2,004 mA; Hinweis, dass Elektronen entgegen der technischen Stromrichtung laufen.
+
+Farben nach ERKLAER_PROMPT §7.4: Elektronen blau, Löcher rot, Raumladungszonen grau.
+
+*Kernaussage:* Der Kollektorstrom läuft vom Emitter durch die dünne Basis; über den Basisanschluss kommen nur Löcher für die kleinen Verluste.
+
+*Daten:* Rückinjektion 1,25·10⁻³ und Rekombination 0,756·10⁻³ je Kollektorelektron aus `bericht()`.
+
+*Editor:*
+- §6 Querschnitt, erweitert vom pn-Übergang auf drei Gebiete mit zwei Zonen;
+- §2 Pfeile mit Werten;
+- §18 Pfeilbreite nach Wert;
+- §14 Teilchen optional;
+- §8 Animation: Elektronen wandern hindurch, einzelne rekombinieren, Löcher kommen über die Basis nach.
+
+**get1/bipolartransistoren/01-aufbau-symbole**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) npn: drei Schichten mit Dotierung als Balken auf logarithmischer Skala (Emitter 10¹⁹, Basis 10¹⁷, Kollektor 10¹⁶ cm⁻³) und Dicken (0,5 µm, 0,5 µm, 5 µm; „nicht maßstäblich“); zwei Quellen für den Normalbetrieb (Basis positiv gegen Emitter, Kollektor positiv gegen Basis) wie Skript Bild 11.1a; daneben das Schaltsymbol mit $I_B$ und $I_C$ hinein, $I_E$ heraus, $U_{BE}$, $U_{CB}$, $U_{CE}$ wie Bild 11.1b.
+- (b) pnp: Schichtfolge p, n, p mit umgekehrter Polung; Symbol mit Emitterpfeil nach innen; $I_E$ hinein, $I_B$ und $I_C$ heraus wie Skript Bild 11.30.
+
+*Kernaussage:* Drei Gebiete, zwei Übergänge; der Emitterpfeil zeigt die Richtung des Emitterstroms, die Zählpfeile folgen dem Skript.
+
+*Editor:*
+- §1 Symbole npn und pnp, Spannungsquellen;
+- §2 Zählpfeile;
+- §6 Schichtfolge;
+- §4 bzw. §12 logarithmischer Balken;
+- §10 Teilbilder.
+
+**get1/bipolartransistoren/01-transistoreffekt**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder, x-Achse durch Emitter, Basis (0,5 µm) und Kollektor, schematisch gedehnt.
+- (a) Leitungsbandkante $W_L$ im Gleichgewicht: Stufe 0,95 eV zwischen Emitter und Basis, 0,77 eV zwischen Basis und Kollektor.
+- (b) Normalbetrieb mit $U_{BE}$ = 0,65 V und $U_{CB}$ = 5 V: Stufe vor der Basis 0,30 eV, Stufe zum Kollektor 5,77 eV (Achsenbruch); Elektronen (blau) über der Stufe, Diffusionspfeil durch die Basis, Absturz am Basis-Kollektor-Übergang.
+- (c) Elektronendichte $n(x)$ in der Basis, x von 0 bis 0,5 µm, y linear in 10¹³ cm⁻³: Gerade von 8,3·10¹³ auf 0 bei 0,65 V; gestrichelt 5,75·10¹⁴ auf 0 bei 0,70 V (eigener Maßstab oder Faktor im Bild).
+
+*Kernaussage:* Die Stufe am Emitter bestimmt, wie viele Elektronen in die Basis kommen; die Kante am Kollektor sammelt sie alle ein, unabhängig von ihrer Tiefe.
+
+*Daten:* $U_\mathrm{Diff}$ (BE) = 0,952 V, (BC) = 0,774 V und Profil aus `profil(0.65)`, `profil(0.70)`.
+
+*Editor:*
+- §16 Bänderschema;
+- §17 Achsenbruch;
+- §11 Datenkurve;
+- §10 Teilbilder;
+- §15 Regler für $U_{BE}$ (Stufe und Profil ändern sich) und $U_{CB}$ (nur die Kante wird tiefer, das Profil bleibt);
+- §8 Animation der Elektronen.
+
+**get1/bipolartransistoren/01-stromaufteilung**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Bilanz je 10 000 Elektronen, die am Kollektor ankommen:
+- vom Emitter in die Basis 10 007,6 Elektronen;
+- davon rekombinieren 7,6 in der Basis;
+- 12,5 Löcher gehen aus der Basis in den Emitter;
+- über den Basisanschluss kommen 20,1 Löcher nach;
+- Ergebnis $B$ = 10 000/20,1 ≈ 500 und $\alpha$ = 0,998.
+
+Pfeilbreiten proportional; die kleinen Ströme in einem gekennzeichneten vergrößerten Maßstab (Lupe, Faktor 100).
+
+*Kernaussage:* Die Stromverstärkung von 500 entsteht aus zwei kleinen Verlusten desselben Elektronenstroms.
+
+*Daten:* η und δ aus `bericht()`.
+
+*Editor:*
+- §18 Mengenpfeile und Bilanz;
+- §7 Labels;
+- §2 Pfeile.
+
+**get1/bipolartransistoren/01-zwei-sichten**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Zwei Diagramme nebeneinander mit gemeinsamer linearer y-Achse $I_C$ in mA (0 bis 3 mA):
+- links $I_C$ über $U_{BE}$ von 0,55 bis 0,70 V (Transfergleichung);
+- rechts $I_C$ über $I_B$ von 0 bis 6 µA (Gerade mit Steigung 500);
+- Arbeitspunkt 0,65 V, 1,66 µA, 0,831 mA in beiden markiert und waagrecht verbunden;
+- gestrichelt Exemplar 2 mit $I_S$ = 2·10⁻¹⁴ A (links um 17,9 mV nach links) und $B$ = 700 (rechts steiler): bei fester Spannung 1,66 mA, bei festem Basisstrom 1,16 mA.
+
+*Kernaussage:* Beide Sichten beschreiben denselben Zustand; sie streuen verschieden.
+
+*Daten:* Abschnitt „Zwei Sichten“ in `bericht()`.
+
+*Editor:*
+- §13 sinngemäß (nebeneinander, gemeinsame y-Achse);
+- §11 Datenkurven;
+- §15 Regler für $I_S$ und $B$.
+
+**get1/bipolartransistoren/01-kennlinien**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Drei Diagramme.
+- (a) Eingangskennlinie bei $U_{CE}$ = 5 V: $I_B$ in µA über $U_{BE}$ in V (0,5 bis 0,75 V, 0 bis 20 µA); 1 µA bei 0,637 V, 4 µA bei 0,673 V, 20 µA bei 0,714 V.
+- (b) Stromsteuerkennlinie doppelt logarithmisch: $I_C$ über $I_B$ (1 nA bis 1 mA); ideale Gerade mit Steigung 1, um den Faktor 500 über der gestrichelten Diagonalen; reale Kurve, an das Datenblatt des BC547C angepasst (`b_von_ic`, onsemi typisch 270/520/300 bei 10 µA/2 mA/100 mA): $B$ = 122 bei 1 µA, 260 bei 10 µA, 500 bei 2 mA, 487 bei 10 mA, 285 bei 100 mA Kollektorstrom.
+- (c) Ausgangskennlinienfeld: $I_C$ in mA über $U_{CE}$ in V (0 bis 10 V) für $I_B$ = 2, 4, 6, 8, 10 µA (Tabelle im Zahlenwerk, z. B. für 4 µA 1,668 mA bei 0,2 V, 1,880 mA bei 0,5 V, 2,000 mA bei 5 V, 2,133 mA bei 10 V); gepunktet die Grenzlinie $U_{CB}$ = 0 (0,65 bis 0,70 V), gestrichelt $U_{CE,\mathrm{sat}}$ = 0,2 V; optional die Verlängerungen der Geraden bis −70 V (Early-Spannung).
+
+*Kernaussage:* Eine Diodenkennlinie am Eingang, eine Gerade dazwischen, Stromquellenäste am Ausgang.
+
+*Daten:* `ube_bei_ib`, `ic_bei_ib`, `b_von_ic`.
+
+*Editor:*
+- §4 Kennlinien, auch doppelt logarithmisch;
+- §11 Datenkurven;
+- §10 Teilbilder;
+- §17 Ausschnitt nahe null optional.
+
+**get1/bipolartransistoren/01-arbeitsgerade**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Modellkennlinien nach dem Skript: für $I_B$ = 2, 8, 20 µA waagrecht bei 1, 4 und 10 mA ab $U_{CE}$ = 0,2 V, darunter Gerade aus dem Ursprung. Dazu:
+- die Arbeitsgerade von (10 V; 0) nach (0; 4,545 mA) für 2,2 kΩ an 10 V;
+- die Arbeitspunkte (7,8 V; 1,0 mA), (1,2 V; 4,0 mA) und (0,2 V; 4,455 mA);
+- die Bereiche hinterlegt: Sperrbereich unten, aktiver Bereich, Sättigung links von 0,2 V;
+- Grenze bei $I_B$ = 8,91 µA markiert.
+
+*Kernaussage:* Auf der Arbeitsgeraden wandert der Transistor vom Sperren über den aktiven Bereich in die Sättigung; dort ändert mehr Basisstrom den Kollektorstrom nicht.
+
+*Daten:* Abschnitt „Arbeitsbereiche“ in `bericht()`.
+
+*Editor:*
+- §4 Kennlinienfeld mit Gerade;
+- §7 hinterlegte Bereiche;
+- §15 Regler für $I_B$ (Punkt wandert und bleibt in der Sättigung stehen);
+- §8 Animation.
+
+**get1/bipolartransistoren/01-saettigung-fluesse**
+- Fassung: ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Querschnitt wie 01-npn-querschnitt, jetzt in der Sättigung bei 20 µA Basisstrom:
+- $U_{BE}$ = 0,696 V, $U_{BC}$ = 0,552 V, $U_{CE}$ = 0,144 V;
+- Elektronenstrom vom Emitter zum Kollektor rund 4,5 mA (Klemme 4,48 mA);
+- Basisstrom 20 µA, davon 9,6 µA für die Verluste durch Rückinjektion und Rekombination und 10,4 µA als Löcher über den Basis-Kollektor-Übergang in den Kollektor (roter Pfeil);
+- Einschub $n(x)$: am Kollektorrand 0,4 % der Randdichte am Emitter.
+
+*Kernaussage:* In der Sättigung fließt der überschüssige Basisstrom in den Kollektor ab, statt den Kollektorstrom zu erhöhen.
+
+*Daten:* „Elektronendichte in der Basis: aktiv gegen Sättigung“ in `bericht()`.
+
+*Editor:*
+- §6 Querschnitt;
+- §2 Pfeile;
+- §18 Mengenpfeile;
+- §10 Einschub.
+
+**get1/bipolartransistoren/01-led-schalter**
+- Fassung: kompakt Abb. 7, ausführlich Abb. 9 (jeweils im Beispiel).
+- Status: offen.
+
+*Inhalt:* Schaltplan: Mikrocontroller-Ausgang (3,3 V) über $R_B$ = 12 kΩ an die Basis eines BC547C; Emitter an Masse; Kollektor über $R_C$ = 150 Ω und eine rote Leuchtdiode (2,0 V) an +5 V. Eingetragen: $I_B$ = 0,217 mA, $I_C$ = 18,7 mA, $U_{CE}$ ≈ 0,1 V.
+
+*Kernaussage:* Ein Ausgangsstrom von einem Prozent des Laststroms schaltet die Leuchtdiode.
+
+*Daten:* Abschnitt „Schalter“ in `bericht()`.
+
+*Editor:*
+- §1 Symbole npn-Transistor, Leuchtdiode, Logikausgang;
+- §2 Strompfeile mit Werten.
