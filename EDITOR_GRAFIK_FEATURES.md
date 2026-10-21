@@ -161,6 +161,11 @@ Gebraucht in: Bänder bei Spannung, Fermi-Verteilung (T), später Kennlinie und 
 - Kristallgitter (§6) mit einzeln ausblendbaren Bindungen (Loch) und hervorgehobenen Dotieratomen.
 Gebraucht in: Gesamtbild, Leiter/Halbleiter/Isolator, dotierte Bänder, Kristallgitter, Loch-Wanderung.
 
+## 17. Achsenbruch und abschnittsweiser Maßstab  — **P2** (neu 2026-10-21, Diode)
+- Eine Achse mit sichtbarem Bruch bzw. getrennten Maßstäben je Abschnitt, z. B. Strom in mA oberhalb und in pA unterhalb der Nulllinie, Spannung in 0,1 V rechts und in 10 V links.
+- Die Beschriftung macht die Maßstabswechsel unübersehbar.
+Gebraucht in: Gesamtkennlinie der Diode (Durchlass, Sperr, Durchbruch); später Transistor-Kennlinienfelder mit Sperrbereich.
+
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten
    Kennlinien- und Profil-Abbildungen frei.

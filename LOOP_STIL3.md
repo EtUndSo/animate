@@ -56,10 +56,15 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
 
 ## (B1) Nächstes offenes Thema ermitteln
 
-Erst ET1, dann GEMB1. Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) kein `stil: 3` hat:
+Erst ET1, dann GEMB1. Innerhalb von ET1 kommt zuerst der Halbleiter-Block, Kap. 10 bis 12, danach Kap. 2 bis 9 (Entscheidung vom 21.10.2026). Gründe:
+- Der Block baut direkt auf dem Piloten und seinem Zahlenwerk auf.
+- Er passt zum laufenden Praktikum MiNa.
+- Dem User war die Diode als nächstes Thema angekündigt.
+
+Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) kein `stil: 3` hat:
 
 ```
-cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(find content/gemb1 -name '*.md' ! -name '*-ausfuehrlich.md' | sort); do grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
+cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1/1[0-2]-* -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' ! -path 'content/get1/1[0-2]-*' | sort) $(find content/gemb1 -name '*.md' ! -name '*-ausfuehrlich.md' | sort); do grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
 ```
 
 - **Erstes gemb1-Thema:** dem User melden („ET1 in Stil 3 komplett, weiter mit GEMB1“), im Loop per PushNotification, und ohne Stopp weitermachen.

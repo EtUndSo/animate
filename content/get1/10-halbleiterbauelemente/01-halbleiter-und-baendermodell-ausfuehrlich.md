@@ -917,8 +917,8 @@ Szene: get1/halbleiterbauelemente/01-baender-spannung · Vorlage: banddiagramm-p
 
 Reale Siliziumdioden sperren schlechter als dieses ideale Modell.
 In der Zone selbst entstehen durch Generation zusätzlich Paare, deren Ladungsträger das Feld sofort trennt.
-Mit einer mittleren Lebensdauer der Ladungsträger bis zur Rekombination von 1 µs, wie in der Beispieldiode, sind das bei −1 V etwa 53 pA, über dreitausendmal mehr als $I_S$.
-Weil die Zone mit der Sperrspannung breiter wird, wächst dieser Anteil langsam mit, bei −5 V auf etwa 97 pA.
+Mit einer mittleren Lebensdauer der Ladungsträger bis zur Rekombination von 1 µs, wie in der Beispieldiode, sind das bei −1 V etwa 20 pA, über tausendmal mehr als $I_S$.
+Weil die Zone mit der Sperrspannung breiter wird, wächst dieser Anteil langsam mit, bei −5 V auf etwa 64 pA.
 
 :::analogie
 **Der Sperrstrom wie ein Wasserfall.** Wie viel Wasser pro Sekunde einen Wasserfall hinabstürzt, bestimmt der Zufluss oben, nicht die Fallhöhe. Ebenso bestimmt den Strom hinunter der Nachschub an Minoritätsträgern, nicht die Höhe der Stufe.
@@ -997,7 +997,7 @@ $$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
 
 **Proben:** Ohne Spannung ist der Strom null, das Gleichgewicht. Für große negative Spannungen geht er gegen $-I_S$, die Sättigung. Einheit Ampere. Zahlenwert bei 0,6 V: 1,46·10⁻¹⁴ A mal 1,2·10¹⁰ ergibt 0,18 mA (ideales Modell).
 
-**Grenzen:** Oberhalb von etwa 0,65 V erreichen die übergetretenen Minoritätsträger am Rand der Zone 8 % der Dotierung, bei 0,7 V schon 57 %; Annahme (iv) bricht zusammen (starke Injektion). Zugleich fällt ein wachsender Teil der Spannung an den neutralen Gebieten ab, und Annahme (i) gilt nicht mehr (Bahnwiderstand). In Sperrrichtung setzt bei hohen Feldern der Durchbruch ein. Annahme (v) gilt in realen Siliziumdioden meist nicht: Bei Raumtemperatur bestimmt die Generation in der Zone den Sperrstrom (mit 1 µs Lebensdauer etwa 53 pA bei −1 V statt 15 fA), und bei kleinen Durchlassspannungen kommt Rekombination in der Zone hinzu. Diese Abweichungen behandelt der Folgeartikel.
+**Grenzen:** Oberhalb von etwa 0,65 V erreichen die übergetretenen Minoritätsträger am Rand der Zone 8 % der Dotierung, bei 0,7 V schon 57 %; Annahme (iv) bricht zusammen (starke Injektion). Zugleich fällt ein wachsender Teil der Spannung an den neutralen Gebieten ab, und Annahme (i) gilt nicht mehr (Bahnwiderstand). In Sperrrichtung setzt bei hohen Feldern der Durchbruch ein. Annahme (v) gilt in realen Siliziumdioden meist nicht: Bei Raumtemperatur bestimmt die Generation in der Zone den Sperrstrom (mit 1 µs Lebensdauer etwa 20 pA bei −1 V statt 15 fA), und bei kleinen Durchlassspannungen kommt Rekombination in der Zone hinzu. Diese Abweichungen behandelt der Folgeartikel.
 :::
 
 ::::beispiel Ströme der Beispieldiode und Spitzenspannung im Einweggleichrichter

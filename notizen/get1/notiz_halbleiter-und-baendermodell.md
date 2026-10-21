@@ -169,7 +169,7 @@ Damit hat die ausführliche Fassung 13 Abbildungen, die kompakte 6.
 - Modellcharakter von R ∝ n·p (in Si über Störstellen); Grenze „nicht entartet“.
 - Temperaturgang: 8,3 %/K gilt bei 300 K, bei 400 K sind es 4,7 %/K.
 - Boltzmann-Ausläufer erst ab etwa 3 k_BT.
-- Ideales Modell und reale Diode: Generationsstrom der Zone 53 pA bei −1 V statt 15 fA; Rekombination in der Zone.
+- Ideales Modell und reale Diode: Generationsstrom der Zone rund 20 pA bei −1 V statt 15 fA (am 21.10.2026 korrigiert: Nur das Innere der Zone erzeugt mit voller Rate, siehe notiz_diode-und-kennlinie.md §11); Rekombination in der Zone.
 - Gleichrichterbeispiel jenseits 0,65 V nur „im idealen Modell, rund 9,3 V“.
 - Hinauf/hinunter von den örtlichen Drift- und Diffusionsströmen (4·10³ A/cm²) abgegrenzt.
 - Shockley-Annahmen (ii) und (v) ergänzt.

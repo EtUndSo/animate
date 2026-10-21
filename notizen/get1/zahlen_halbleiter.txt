@@ -82,3 +82,101 @@ U_A,Spitze = 9.30 V, Diodenspannung 0.703 V, Strom 9.30 mA
 
 == Atmosphäre (Analogie) ==
 Skalenhöhe H = kB T/(m g) = 8.4 km; Mount Everest 8,85 km: 0.35
+
+== Diode als Bauteil (Thema 02) ==
+Schreibweise des Skripts: kB T = 25.85 meV ist eine Energie; U_T = kB T/e = 25.85 mV
+Durchlassspannung (ideal) bei gegebenem Strom; scheinbare Schwelle = 1 % des Achsenendes:
+   I = 1e-06 A: U = U_T ln(I/I_S + 1) = 0.4665 V;  Achse bis 1e-06 A -> scheinbare Schwelle 0.347 V
+   I = 1e-05 A: U = U_T ln(I/I_S + 1) = 0.5260 V;  Achse bis 1e-05 A -> scheinbare Schwelle 0.407 V
+   I = 1e-04 A: U = U_T ln(I/I_S + 1) = 0.5855 V;  Achse bis 1e-04 A -> scheinbare Schwelle 0.466 V
+   I = 1e-03 A: U = U_T ln(I/I_S + 1) = 0.6451 V;  Achse bis 1e-03 A -> scheinbare Schwelle 0.526 V
+   I = 1e-02 A: U = U_T ln(I/I_S + 1) = 0.7046 V;  Achse bis 1e-02 A -> scheinbare Schwelle 0.586 V
+   I = 1e-01 A: U = U_T ln(I/I_S + 1) = 0.7641 V;  Achse bis 1e-01 A -> scheinbare Schwelle 0.645 V
+   I = 1e+00 A: U = U_T ln(I/I_S + 1) = 0.8236 V;  Achse bis 1e+00 A -> scheinbare Schwelle 0.705 V
+Dekade je U_T ln 10 = 59.5 mV
+Material bei gleichem Aufbau, I_S ~ n_i^2 (D, L, Beweglichkeiten gleich gesetzt):
+   Germanium       Wg = 0.66 eV, n_i = 2.0e+13: I_S = 5.83e-08 A, U(1 mA) = 0.252 V
+   Silizium        Wg = 1.12 eV, n_i = 1.0e+10: I_S = 1.46e-14 A, U(1 mA) = 0.645 V
+   Galliumarsenid  Wg = 1.42 eV, n_i = 2.1e+06: I_S = 6.43e-22 A, U(1 mA) = 1.083 V
+
+Bahnwiderstand (je 100 um): n-Seite 4.99 Ohm, p-Seite 13.87 Ohm, zusammen R_B = 18.86 Ohm
+Knickstrom der starken Injektion I_KF = I_S N_A N_D/n_i^2 = 14.57 mA (entspricht U_j = U_Diff = 0.714 V)
+e n_i A = 1.6022e-12 C/cm; grobe Schranke e n_i A w0/(2 tau) = 3.443e-11 A
+Randschicht mit Majoritätsdichte > n_i: d = sqrt(2 eps U_T ln(N/n_i)/(e N)) = 0.2149 um je Seite (Potenzialabfall U_T ln(N/n_i) = 0.357 V)
+Anteile bei der Übergangsspannung Uj (ohne Bahnwiderstand); Rekombination integriert (SRH), Schätzung mit w_eff = pi U_T/E_max, grobe Schranke mit voller Weite:
+   Uj = 0.10 V: Diffusion 6.828e-13 A, Rekombination 1.390e-11 A (Schätzung 1.25e-11, Schranke 1.89e-10), Anteil Rek.  95.3 %, w = 0.399 um, E_max = 3.082e+04 V/cm, w_eff = 0.0263 um
+   Uj = 0.20 V: Diffusion 3.336e-11 A, Rekombination 1.168e-10 A (Schätzung 1.08e-10, Schranke 1.37e-09), Anteil Rek.  77.8 %, w = 0.365 um, E_max = 2.820e+04 V/cm, w_eff = 0.0288 um
+   Uj = 0.25 V: Diffusion 2.308e-10 A, Rekombination 3.292e-10 A (Schätzung 3.03e-10, Schranke 3.47e-09), Anteil Rek.  58.8 %, w = 0.347 um, E_max = 2.680e+04 V/cm, w_eff = 0.0303 um
+   Uj = 0.30 V: Diffusion 1.597e-09 A, Rekombination 9.312e-10 A (Schätzung 8.48e-10, Schranke 8.65e-09), Anteil Rek.  36.8 %, w = 0.327 um, E_max = 2.531e+04 V/cm, w_eff = 0.0321 um
+   Uj = 0.40 V: Diffusion 7.643e-08 A, Rekombination 7.723e-09 A (Schätzung 6.75e-09, Schranke 5.23e-08), Anteil Rek.   9.2 %, w = 0.285 um, E_max = 2.205e+04 V/cm, w_eff = 0.0368 um
+   Uj = 0.50 V: Diffusion 3.657e-06 A, Rekombination 6.999e-08 A (Schätzung 5.66e-08, Schranke 2.99e-07), Anteil Rek.   1.9 %, w = 0.235 um, E_max = 1.821e+04 V/cm, w_eff = 0.0446 um
+   Uj = 0.60 V: Diffusion 1.750e-04 A, Rekombination 7.115e-07 A (Schätzung 5.36e-07, Schranke 1.51e-06), Anteil Rek.   0.4 %, w = 0.172 um, E_max = 1.330e+04 V/cm, w_eff = 0.0611 um
+   Uj = 0.65 V: Diffusion 1.211e-03 A, Rekombination 2.147e-06 A (Schätzung 1.88e-06, Schranke 2.98e-06), Anteil Rek.   0.2 %, w = 0.129 um, E_max = 9.974e+03 V/cm, w_eff = 0.0814 um
+   Uj = 0.70 V: Diffusion 8.376e-03 A, Rekombination 2.715e-06 A (Schätzung 5.52e-06, Schranke 7.02e-06), Anteil Rek.   0.0 %, w = 0.116 um, E_max = 8.942e+03 V/cm, w_eff = 0.0908 um
+Rekombination = Diffusion bei Uj = 0.270 V, I = 9.928e-10 A
+Klemmenspannung der realen Beispieldiode (Rekombination, starke Injektion, R_B):
+   I = 1e-09 A: ideal 0.2879 V, real 0.2700 V (Übergang 0.2700 V, I R_B = 0.0000 V); lokaler Emissionskoeffizient des Übergangs n = 1.30
+   I = 1e-08 A: ideal 0.3474 V, real 0.3410 V (Übergang 0.3410 V, I R_B = 0.0000 V); lokaler Emissionskoeffizient des Übergangs n = 1.11
+   I = 1e-07 A: ideal 0.4070 V, real 0.4046 V (Übergang 0.4046 V, I R_B = 0.0000 V); lokaler Emissionskoeffizient des Übergangs n = 1.04
+   I = 1e-06 A: ideal 0.4665 V, real 0.4656 V (Übergang 0.4656 V, I R_B = 0.0000 V); lokaler Emissionskoeffizient des Übergangs n = 1.01
+   I = 1e-05 A: ideal 0.5260 V, real 0.5259 V (Übergang 0.5257 V, I R_B = 0.0002 V); lokaler Emissionskoeffizient des Übergangs n = 1.01
+   I = 1e-04 A: ideal 0.5855 V, real 0.5874 V (Übergang 0.5855 V, I R_B = 0.0019 V); lokaler Emissionskoeffizient des Übergangs n = 1.01
+   I = 1e-03 A: ideal 0.6451 V, real 0.6648 V (Übergang 0.6459 V, I R_B = 0.0189 V); lokaler Emissionskoeffizient des Übergangs n = 1.04
+   I = 1e-02 A: ideal 0.7046 V, real 0.9019 V (Übergang 0.7133 V, I R_B = 0.1886 V); lokaler Emissionskoeffizient des Übergangs n = 1.32
+   I = 3e-02 A: ideal 0.7330 V, real 1.3222 V (Übergang 0.7563 V, I R_B = 0.5659 V); lokaler Emissionskoeffizient des Übergangs n = 1.72
+   I = 1e-01 A: ideal 0.7641 V, real 2.7008 V (Übergang 0.8144 V, I R_B = 1.8863 V); lokaler Emissionskoeffizient des Übergangs n = 1.96
+Sperrbereich: Generationsstrom integriert, Schätzung e n_i A w_eff/(2 tau) mit w_eff = w - 2 d, grobe Schranke:
+   U =   -0.1 V: w = 0.459 um, w_eff = 0.029 um, I_gen = -3.2 pA (Schätzung -2.0 pA, Schranke -36.8 pA), ideal -I_S = -14.6 fA, Verhältnis 222
+   U =   -1.0 V: w = 0.666 um, w_eff = 0.236 um, I_gen = -19.9 pA (Schätzung -18.9 pA, Schranke -53.3 pA), ideal -I_S = -14.6 fA, Verhältnis 1363
+   U =   -2.0 V: w = 0.838 um, w_eff = 0.408 um, I_gen = -33.6 pA (Schätzung -32.7 pA, Schranke -67.1 pA), ideal -I_S = -14.6 fA, Verhältnis 2309
+   U =   -5.0 V: w = 1.216 um, w_eff = 0.786 um, I_gen = -63.9 pA (Schätzung -63.0 pA, Schranke -97.4 pA), ideal -I_S = -14.6 fA, Verhältnis 4386
+   U =  -10.0 V: w = 1.665 um, w_eff = 1.235 um, I_gen = -99.9 pA (Schätzung -98.9 pA, Schranke -133.4 pA), ideal -I_S = -14.6 fA, Verhältnis 6854
+   U =  -50.0 V: w = 3.622 um, w_eff = 3.192 um, I_gen = -256.7 pA (Schätzung -255.7 pA, Schranke -290.1 pA), ideal -I_S = -14.6 fA, Verhältnis 17612
+   U = -100.0 V: w = 5.104 um, w_eff = 4.674 um, I_gen = -375.4 pA (Schätzung -374.4 pA, Schranke -408.9 pA), ideal -I_S = -14.6 fA, Verhältnis 25759
+
+Temperatur:
+   d ln I_S/dT = 3/T + W_g0/(kB T^2) = 16.6 %/K, Verdopplung alle 4.2 K
+   Generationsstrom ~ n_i: 8.28 %/K, Verdopplung alle 8.4 K
+   U(1 mA) = 0.6451 V; dU/dT = -2.13 mV/K;  bei 0,6 V -2.28, bei 0,7 V -1.95 mV/K
+   bei fester Spannung U = 0.645 V: d ln I/dT = 16.6 - 8.3 = 8.2 %/K
+     0 °C: I_S = 1.12e-16 A, U(1 mA) = 0.7019 V, n_i = 8.77e+08
+    25 °C: I_S = 1.07e-14 A, U(1 mA) = 0.6490 V, n_i = 8.57e+09
+    50 °C: I_S = 5.15e-13 A, U(1 mA) = 0.5956 V, n_i = 5.94e+10
+    75 °C: I_S = 1.44e-11 A, U(1 mA) = 0.5416 V, n_i = 3.15e+11
+   100 °C: I_S = 2.63e-10 A, U(1 mA) = 0.4872 V, n_i = 1.34e+12
+
+Durchbruch (Abschätzungen, Verarmungsnäherung):
+   Beispieldiode: Lawine bei E = 4e+05 V/cm -> Spannung über der Zone 103.5 V, äußere Sperrspannung 102.7 V, w = 5.17 um
+      mit E = 3.5e+05 V/cm: 78 V
+      mit E = 4.5e+05 V/cm: 130 V
+   Z-Diode 5,6 V (symmetrisch): N_A = N_D = 9.87e+17 cm^-3, U_Diff = 0.952 V, w = 131 nm, Tunnelstrecke W_g/(e E) = 11.2 nm
+   Kontrolle E_max(1e18, 1e18, U_Diff+5,6 V) = 1.007e+06 V/cm
+   Beispieldiode: E_max bei -5 V = 9.40e+04 V/cm, bei -50 V = 2.80e+05 V/cm
+   W_g/e = 1.12 V: 4 W_g/e = 4.5 V, 6 W_g/e = 6.7 V
+
+Z-Diode als Spannungsstabilisierung (Beispiel): U_E = 12 V +- 1 V, R_V = 330 Ohm, R_L = 1 kOhm, U_Z = 5,6 V bei 5 mA, r_Z = 20 Ohm
+   U_E = 11 V: U_A = 5.7067 V, I_RV = 16.04 mA, I_L = 5.71 mA, I_Z = 10.33 mA, P_Z = 59 mW
+   U_E = 12 V: U_A = 5.7628 V, I_RV = 18.90 mA, I_L = 5.76 mA, I_Z = 13.14 mA, P_Z = 76 mW
+   U_E = 13 V: U_A = 5.8188 V, I_RV = 21.76 mA, I_L = 5.82 mA, I_Z = 15.94 mA, P_Z = 93 mW
+   Glättungsfaktor 1 + R_V/(r_Z || R_L) = 17.8;  ohne Last: U_E = 13 V -> I_Z = 21.4 mA, P_Z = 127 mW
+
+Sperrschichtkapazität (A = 0,1 mm^2) und Schwingkreis mit L = 1 uH:
+   U =  +0.0 V: w = 0.430 um, C_j = 24.10 pF, f = 32.4 MHz
+   U =  -1.0 V: w = 0.666 um, C_j = 15.56 pF, f = 40.4 MHz
+   U =  -2.0 V: w = 0.838 um, C_j = 12.36 pF, f = 45.3 MHz
+   U =  -5.0 V: w = 1.216 um, C_j = 8.52 pF, f = 54.5 MHz
+   U = -10.0 V: w = 1.665 um, C_j = 6.22 pF, f = 63.8 MHz
+   U = -25.0 V: w = 2.579 um, C_j = 4.02 pF, f = 79.4 MHz
+   Plattenkondensator-Kontrolle: eps A / w0 = 24.10 pF
+Gespeicherte Ladung bei 1 mA: tau I = 1.00 nC; Diffusionskapazität lange Diode (Kleinsignal, omega tau << 1): tau I/(2 U_T) = 19.3 nF (quasistatisch tau I/U_T = 38.7 nF); Speicherzeit bei I_F = I_R: tau ln 2 = 0.69 us
+
+Fotodiode und Solarzelle:
+   Grenzwellenlänge h c/W_g = 1107 nm; h c/e = 1239.8 nm V
+   lambda = 850 nm, Photonenenergie 1.459 eV, eta = 0.8: S = 0.548 A/W; 1 mW -> 0.548 mA, Photonen/s 4.28e+15
+   lambda = 650 nm, Photonenenergie 1.907 eV, eta = 0.7: S = 0.367 A/W; 1 mW -> 0.367 mA, Photonen/s 3.27e+15
+   lambda = 950 nm, Photonenenergie 1.305 eV, eta = 0.85: S = 0.651 A/W; 1 mW -> 0.651 mA, Photonen/s 4.78e+15
+   Bestrahlung  1000 W/m^2: I_ph = I_K = 35.00 uA, U_L ideal 0.5584 V, mit Rekombination 0.5582 V
+   Bestrahlung   100 W/m^2: I_ph = I_K = 3.50 uA, U_L ideal 0.4989 V, mit Rekombination 0.4984 V
+   Bestrahlung    10 W/m^2: I_ph = I_K = 0.35 uA, U_L ideal 0.4393 V, mit Rekombination 0.4380 V
+   MPP (ideal, 1000 W/m^2): U = 0.4814 V, I = 33.22 uA, P = 15.99 uW, Füllfaktor 0.818, Lichtleistung 0.100 mW, Wirkungsgrad 16.0 %
+   U_L-Zuwachs je Dekade Licht: 59.5 mV

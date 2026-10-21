@@ -2,615 +2,583 @@
 title: Die Diode und ihre Kennlinie
 pfad: Elektrotechnik / 1. Semester / Grundgebiete der Elektrotechnik 1 / Halbleiterbauelemente
 order: 100300
-summary: Von Grund auf – wie aus dem pn-Übergang ein Bauteil mit Anode und Kathode wird, warum sein Strom exponentiell mit der Spannung wächst und was die Shockley-Gleichung über Durchlass, Sperren und die Schleusenspannung sagt. Leitbild bleibt das Parkhaus mit der Rampe zwischen p- und n-Seite. Mit Aufbau, Schaltsymbol und Zählpfeilen, Shockley-Gleichung und Temperaturspannung, Kennlinie, Schleusenspannung und Temperaturgang, Durchbruch durch Lawinen- und Zener-Effekt sowie den Spezialdioden des Skripts: Z-Diode zur Spannungsstabilisierung, Kapazitätsdiode, Fotodiode und Solarzelle, dazu die Leuchtdiode. Mit Beispiel-Seite.
+summary: Wie aus dem pn-Übergang ein Bauteil mit Anode und Kathode wird und was seine Kennlinie in Durchlassrichtung, in Sperrrichtung und im Durchbruch bestimmt, bis hin zu Z-Diode, Kapazitätsdiode, Fotodiode und Solarzelle. Kompakte Fassung; die ausführliche enthält zusätzlich die reale Kennlinie und den Temperaturgang mit Herleitung, die Abschätzung der Durchbruchspannung und weitere Hintergründe.
 tags: Diode, pn-Übergang, Durchlassrichtung, Sperrrichtung, Schleusenspannung, Shockley-Gleichung, Z-Diode
+stil: 3
+fassung: kompakt
 ---
 
-## Anschaulich
+## Worum es geht
 
-Der vorige Artikel endete mit dem pn-Übergang als Ventil. Dieser Artikel macht daraus ein Bauteil mit zwei Anschlüssen, beschreibt es durch eine einzige
-Gleichung, die __Kennlinie__ der Diode, und zeigt die Spezialdioden, die einzelne Seiten dieses Ventils gezielt ausnutzen.
+Eine Diode lässt Strom fast nur in eine Richtung durch; Gleichrichter, Schutzschaltungen, Spannungsreferenzen, Lichtsensoren und Solarzellen beruhen darauf.
+Physikalisch ist sie ein pn-Übergang mit zwei Anschlüssen, und ihre Kennlinie folgt aus der Barriere zwischen p- und n-Gebiet: **In Durchlassrichtung senkt die Spannung die Barriere, und der Strom wächst exponentiell, um eine Dekade je 60 mV; in Sperrrichtung bestimmt allein der Nachschub an Ladungsträgern den Strom, und den liefern Wärme kaum, Licht in Maßen und ein sehr starkes Feld im Überfluss.**
 
-**Das Leitbild bleibt:** **das Parkhaus mit der Rampe.** Zwei Parkhäuser stehen nebeneinander, das der p-Seite und das der n-Seite, und zwischen ihren
-Oberdecks liegt eine Rampe der Höhe $e\,U_\text{Diff}$. Die äußere Spannung hebt oder senkt das p-Parkhaus und verstellt damit die Rampe. Den Hinstrom bilden
-Autos, die die Rampe hinauffahren, den Rückstrom die wenigen, die von drüben hinunterrollen.
-
-Vier Folgerungen:
-
-- **Steil in der einen, flach in der anderen Richtung.** Senkt man die Rampe, vervielfacht sich der Verkehr hinauf mit jedem Stück; hebt man sie, bleibt
-  das stetige Rinnsal, das herunterrollt. Daraus wird die ungleiche Kennlinie: großer Strom in Durchlassrichtung, ein winziger, fester Strom in
-  Sperrrichtung.
-- **Ein Knie statt einer Schwelle.** Weil schon $60\,\text{mV}$ den Strom verzehnfachen, steigt er innerhalb weniger Zehntelvolt von Nanoampere auf
-  Milliampere. In linearer Darstellung sieht das aus wie eine Schwelle bei $0{,}6$ bis $0{,}7\,\text{V}$.
-- **Eine zu steile Rampe gibt nach.** Bei sehr großer Sperrspannung wird die Rampe zur steilen, dünnen Wand. Autos gelangen dann durch die Wand hindurch,
-  oder sie werden beim Hinabrollen so schnell, dass sie andere aus ihren Plätzen stoßen: der Durchbruch, den die Z-Diode nutzt.
-- **Die leere Zone und das Licht.** Zwischen den Parkhäusern liegt eine Zone ohne Autos, nur mit geladenen Plattformen; sie wirkt wie der Spalt eines
-  Kondensators, den die Spannung breiter oder schmaler macht. Und Licht, das in dieser Zone Autos aufs Oberdeck hebt, lässt sie die Rampe hinunterrollen:
-  ein Strom aus Licht.
-
-| Im Parkhaus | An der Diode |
-|---|---|
-| Eingang am p-Parkhaus | Anode |
-| Eingang am n-Parkhaus | Kathode |
-| Autos, die die Rampe hinauffahren | Hinstrom der Majoritätsträger |
-| Autos, die von drüben hinunterrollen | Sättigungssperrstrom $I_S$ |
-| Rampe wird zur dünnen, steilen Wand | Durchbruch, Zener- und Lawinen-Effekt |
-| leere Zone zwischen den Parkhäusern | Sperrschicht, Sperrschichtkapazität |
-| Licht hebt Autos in der leeren Zone | Fotostrom |
+Vorausgesetzt wird der Artikel [Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html) mit pn-Übergang, Raumladungszone und den beiden Strömen über die Barriere. Darauf bauen [Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html) und [Gleichrichtung und Ladungspumpe](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/gleichrichtung-und-ladungspumpe.html) auf.
 
 :::grafik
-Szene: get1/halbleiterbauelemente/02-parkhaus-kennlinie · Vorlage: rampe-und-kennlinie
-Links die beiden Parkhäuser des vorigen Artikels, p links und n rechts, zwischen ihren Oberdecks die Rampe; unter dem p-Parkhaus der Anschluss „Anode“, unter
-dem n-Parkhaus „Kathode“. Ein Regler für die Spannung $U$ von $-2$ bis $+0{,}75\,\text{V}$ hebt oder senkt das p-Parkhaus; die Autos, die hinauffahren, werden
-als dicker werdender Strom gezeigt, die wenigen, die herunterrollen, als dünner, gleich bleibender Strom. Rechts entsteht dabei die Kennlinie $I(U)$, mit
-einem Umschalter zwischen linearer und logarithmischer Stromachse: logarithmisch eine Gerade mit einer Dekade je $59{,}5\,\text{mV}$, linear das Knie zwischen
-$0{,}6$ und $0{,}7\,\text{V}$. Kernaussage: Die Kennlinie der Diode ist der Hinstrom über die verstellbare Rampe minus dem festen Rückstrom. (Rot = Rampe und
-Spannung, blau = Autos und Ströme, orange = Kennlinienpunkt, grau = Parkhäuser und Achsen.)
+Szene: get1/halbleiterbauelemente/02-aufbau-symbol · Vorlage: bauteil-querschnitt-symbol
+**Abbildung 1:** Die Diode als Bauteil. (a) Querschnitt: Metallkontakt, p-Gebiet, Raumladungszone (grau), n-Gebiet, Metallkontakt. (b) Schaltsymbol mit Anode A und Kathode K; Spannung $U$ und Strom $I$ zählen von A nach K. (c) Gehäuse mit einem Ring auf der Kathodenseite. In Durchlassrichtung fließt der Strom von der Anode zur Kathode, in Pfeilrichtung des Symbols.
 :::
 
 ## Aufbau, Anschlüsse und Zählpfeile
 
-Eine __pn-Diode__ besteht aus einem p-dotierten und einem n-dotierten Gebiet in einem Kristall, mit je einem Metallkontakt, wie Bild 10.6 des Skripts zeigt.
-Der Anschluss am p-Gebiet heißt __Anode__, abgekürzt A, der am n-Gebiet __Kathode__, K. In der üblichen ebenen Bauform, dem Querschnitt in Bild 10.6, ist
-das p-Gebiet von oben in eine n-dotierte Siliziumscheibe eindiffundiert, mit dem Anodenkontakt oben und dem Kathodenkontakt auf der Rückseite.
+*Wie wird aus einem pn-Übergang ein Bauteil, und wie zählt man Spannung und Strom?*
 
-Das __Schaltsymbol__ ist ein Dreieck, das auf einen Querstrich zeigt. Das Dreieck zeigt in die Richtung, in die der Strom leicht fließt, von der Anode zur
-Kathode; der Strich ist die Kathode, auf dem Bauteil meist durch einen Ring markiert.
+Eine Diode ist ein Siliziumplättchen, auf der einen Seite p- und auf der anderen n-dotiert, mit Metallkontakten an beiden Enden (Abbildung 1a). An der Grenze liegt die Raumladungszone, ein weniger als ein Mikrometer breiter Bereich fast ohne bewegliche Ladungsträger; über ihr steht die Barriere, in der Beispieldiode die Diffusionsspannung von 0,714 V ([Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html)). Der Anschluss am p-Gebiet heißt __Anode__ (A), der am n-Gebiet __Kathode__ (K).
+Im Schaltsymbol (Abbildung 1b) zeigt ein Dreieck auf einen Querstrich, der für die Kathode steht; das Dreieck weist in die Richtung, in der die Diode leitet. Auf dem Gehäuse markiert ein Ring die Kathode.
 
-Gezählt wird, wie im Skript, im Verbraucherzählpfeilsystem aus dem Artikel über Zählpfeile und Vorzeichen: Die Spannung $U$ und der Strom $I$ zählen beide von
-der Anode zur Kathode. Positive $U$ bedeutet Durchlassrichtung, negative Sperrrichtung. Bei den Spezialdioden schreibt das Skript dieselbe Spannung als
-$U_{AB}$, von A nach B.
+Spannung und Strom zählen von der Anode zur Kathode, im Verbraucherzählpfeilsystem ([Zählpfeile und Vorzeichen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/zaehlpfeile-und-vorzeichen.html)); das Produkt aus $U$ und $I$ ist die Leistung, die die Diode aufnimmt. Positives $U$, die Anode auf höherem Potenzial, ist die __Durchlassrichtung__, negatives $U$ die __Sperrrichtung__.
 
-**Im Bild:** Die Anode ist die Zufahrt zum p-Parkhaus, die Kathode die zum n-Parkhaus; eine positive Spannung senkt die Rampe zwischen ihnen.
+:::frage
+„Die Elektronen laufen doch von der Kathode zur Anode. Warum zeigt das Dreieck in die Gegenrichtung?“
+Das Symbol folgt der technischen Stromrichtung, also der Richtung, in die positive Ladung fließen würde. In einer leitenden Diode wandern die Elektronen tatsächlich von der Kathode zur Anode und die Löcher von der Anode zur Kathode; beide Bewegungen ergeben einen Strom in Pfeilrichtung. So stimmen Symbol, Zählpfeil und Vorzeichen der Kennlinie überein: In Pfeilrichtung ist $I$ positiv.
+:::
 
-## Die Shockley-Gleichung
+## Die Kennlinie im Überblick
 
-Der vorige Artikel hat die beiden Ströme über die Rampe hergeleitet: den Hinstrom der Majoritätsträger, der mit der Spannung exponentiell wächst, und den
-festen Rückstrom der Minoritätsträger. Der Strom durch die Diode ist ihr Unterschied.
+*Welcher Strom fließt bei welcher Spannung?*
+
+:::grafik
+Szene: get1/halbleiterbauelemente/02-kennlinie-bereiche · Vorlage: kennlinie-bereiche
+**Abbildung 2:** Kennlinie der Beispieldiode, schematisch und mit getrennten Maßstäben: im Durchlassbereich Milliampere bis 0,8 V, im Sperrbereich Pikoampere (real einige 10 pA, bei −1 V −20 pA; ideal −15 fA), der Durchbruch bei rund −100 V. Die drei Bereiche liegen auf völlig verschiedenen Skalen.
+:::
 
 **Die Akteure:**
 
-- die Spannung $U$ in Volt und der Strom $I$ in Ampere, beide von der Anode zur Kathode gezählt;
-- der __Sättigungssperrstrom__ $I_S$ in Ampere, eine kleine positive Größe, proportional zur Fläche des Übergangs und, wie im vorigen Artikel, zu $n_i^2$;
-- die __Temperaturspannung__ $U_T$ in Volt, die Wärmeenergie $k_BT$ als Spannung ausgedrückt, bei $300\,\text{K}$ gleich $25{,}9\,\text{mV}$.
+- __$I_S$__: __Sättigungssperrstrom__, kurz Sperrstrom; in A; 1,46·10⁻¹⁴ A bei der Beispieldiode dieses Themas (Silizium, je 10¹⁶ Fremdatome pro cm³ auf beiden Seiten, Fläche 0,1 mm², 300 K). Er ist der Betrag der beiden gleich großen Ströme, die im Gleichgewicht über die Barriere fließen.
+- __$U_T$__: __Temperaturspannung__; 25,85 mV bei 300 K. Eine um $U_T$ niedrigere Barriere lässt 2,72-mal so viele Ladungsträger hinüber.
 
-**Das Zusammenspiel:** *Welcher Strom bleibt übrig, wenn der Hinstrom über die verstellte Rampe und der feste Rückstrom gegeneinander laufen?*
+**Das Zusammenspiel:** Im __Durchlassbereich__ senkt die Spannung die Barriere, und der Strom der __Majoritätsträger__, der Sorte in der Überzahl (Elektronen im n-, Löcher im p-Gebiet), die sie überwinden, wächst mit jeden 59,5 mV auf das Zehnfache; ab etwa 0,6 V fließen Milliampere.
+Im __Sperrbereich__ ist die Barriere höher als im Gleichgewicht; übrig bleibt der Strom der __Minoritätsträger__, der seltenen Sorte (Löcher im n-, Elektronen im p-Gebiet), den ihr Nachschub begrenzt, ideal 15 fA, real einige 10 pA.
+Im __Durchbruch__ erzeugt ein sehr starkes Feld in der Zone selbst Ladungsträger, und der Sperrstrom steigt steil an, bei der Beispieldiode ab rund 100 V (Abbildung 2).
+
+Durchlass- und Sperrbereich beschreibt die __Shockley-Gleichung__:
 
 :::formel Gesetz
-$$I = I_S\,\Big(\exp\frac{U}{U_T} - 1\Big), \qquad U_T = \frac{k_B\,T}{e}.$$
+$$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
 :::
 
-**So liest man das:** Eingabe ist die Spannung, Ausgabe der Strom. Ohne Spannung fließt kein Strom. In Durchlassrichtung wächst der Strom exponentiell, sobald
-$U$ einige $U_T$ beträgt; die Eins ist dann unwichtig. In Sperrrichtung geht die Exponentialfunktion gegen null, und es bleibt $-I_S$, der kleine, von der
-Spannung unabhängige Sperrstrom. Das ist die __Shockley-Gleichung__, nach William Shockley, der sie 1949 aus der Diffusion der Ladungsträger herleitete.
+**So liest man das:** Eingabe ist die Spannung an der Diode, Ausgabe der Strom. Der erste Summand ist der Strom über die abgesenkte Barriere, die −1 der Strom der Minoritätsträger, der nicht von der Spannung abhängt.
+Ab etwa 0,1 V ist die −1 vernachlässigbar; unterhalb von etwa −0,1 V ist der Strom gleich $-I_S$. Den Durchbruch enthält die Gleichung nicht.
 
-**Im Bild:** Autos, die hinauffahren, minus Autos, die herunterrollen. Ohne Spannung sind es gleich viele; jede Absenkung um $U_T$ vervielfacht die einen um
-den Faktor $e$, die anderen bleiben, wie sie sind.
+Das Skript lässt die −1 weg (Gl. 10.1, S. 162), das ist der Grenzfall für den Durchlassbereich. Außerdem nennt es „das Produkt k_B · T“ die thermische Spannung; das ist eine Energie, 25,85 meV. Die Temperaturspannung entsteht erst durch Division durch die Elementarladung:
+
+$$U_T = \frac{k_B\,T}{e} = 25{,}85\ \mathrm{mV}$$
+
+Idee der Herleitung: Die Spannung verschiebt nur die Barriere; darauf reagiert allein der Strom hinauf, mit dem Boltzmann-Faktor der Verschiebung.
 
 :::herleitung
-**Die beiden Ströme.** Nach dem Satz des vorigen Artikels über Durchlass- und Sperrrichtung:
+**Ausgangspunkt:** das Zwei-Ströme-Bild des pn-Übergangs, ausführlich hergeleitet im Artikel [Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html), Abschnitte *Zwei Ströme im Gleichgewicht* und *Durchlass- und Sperrrichtung*. Im Gleichgewicht fließen zwei gleich große Ströme vom Betrag $I_S$ gegeneinander: der Strom der Majoritätsträger hinauf über die Barriere und der Strom der Minoritätsträger hinunter.
 
-$$I_\text{hin}(U) = I_S\,\exp\frac{U}{U_T}, \qquad I_\text{rück} = I_S.$$
+**Annahmen:**
+(i) die äußere Spannung fällt ganz an der Raumladungszone ab;
+(ii) die Majoritätsträger sind bis an die Zone Boltzmann-verteilt;
+(iii) der Nachschub an Minoritätsträgern hängt nicht von der Spannung ab;
+(iv) schwache Injektion: Die Ladungsträger, die über die Barriere kommen, bleiben auf der anderen Seite selten gegenüber der Dotierung;
+(v) in der Zone entstehen und verschwinden keine Paare.
 
-**Ihre Richtungen.** Den Hinstrom tragen Löcher von p nach n und Elektronen von n nach p; beide ergeben einen Strom von der Anode zur Kathode. Den Rückstrom
-tragen Minoritätsträger in der Gegenrichtung, Elektronen von p nach n und Löcher von n nach p; das ist ein Strom von der Kathode zur Anode. Im
-Verbraucherzählpfeilsystem ist der Diodenstrom also der Unterschied:
+**Schritt 1**: Mit der Spannung $U$ ist die Barriere für die Elektronen nach (i)
 
-$$I = I_\text{hin}(U) - I_\text{rück} = I_S\,\exp\frac{U}{U_T} - I_S.$$
+$$W_\mathrm{Barriere} = e\,(U_\mathrm{Diff} - U)$$
 
-**Die Temperaturspannung.** Im Boltzmann-Faktor steht die Rampenhöhe $e\,(U_\text{Diff} - U)$ geteilt durch $k_BT$; teilt man Zähler und Nenner durch $e$,
-steht dort die Spannung geteilt durch $k_BT/e$. Im Bild: Jedes Stück Rampenhöhe zählt in Einheiten des typischen Stoßes.
+**Schritt 2** (entscheidender Schritt): Nach (ii) ist der Strom hinauf proportional zum Anteil der Majoritätsträger mit genug Energie, also zum Boltzmann-Faktor der Barriere. Bezogen auf seinen Wert $I_S$ bei $U = 0$ bleibt nur der Faktor der Absenkung:
+
+$$I_\mathrm{hinauf}(U) = I_S\,\exp\!\Big(\frac{U}{U_T}\Big)$$
+
+**Schritt 3**: Nach (iii) bleibt der Strom hinunter beim Gleichgewichtswert:
+
+$$I_\mathrm{hinunter} = I_S$$
+
+**Schritt 4**: Hinauf wandern Elektronen vom n- ins p-Gebiet und Löcher vom p- ins n-Gebiet; beides ist ein Strom von der Anode zur Kathode und zählt positiv. Netto:
+
+$$I = I_\mathrm{hinauf} - I_\mathrm{hinunter} = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
+
+**Ergebnis:**
+
+$$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
+
+**Woher die Faktoren kommen:** $\exp(U/U_T)$ ist der Boltzmann-Faktor der um $U$ abgesenkten Barriere, die −1 der unveränderte Strom hinunter, $I_S$ der Betrag beider Ströme im Gleichgewicht.
+
+**Proben:** Ohne Spannung ist der Strom null. Für große negative Spannungen geht er gegen $-I_S$. Bei 0,6 V: 1,46·10⁻¹⁴ A mal 1,20·10¹⁰ ergibt 0,175 mA.
+
+**Grenzen:** (i) und (iv) versagen oberhalb von etwa 0,65 V, (v) bei kleinen Strömen und im Sperrbereich; den Durchbruch enthält das Modell nicht.
 :::
 
-Das Skript schreibt die Gleichung, als Gleichung 10.1, in der Form
+## Die Durchlassspannung
 
-$$I = I_s\,\exp\frac{e\,U}{k_B\,T}$$
+*Ab welcher Spannung leitet eine Diode, und was legt diesen Wert fest?*
 
-und sagt, das Produkt $k_B\cdot T$ heiße thermische Spannung $U_T$. Das Produkt ist aber eine Energie, gemessen in Joule; die Spannung ist $k_BT$ geteilt
-durch die Elementarladung, so wie oben. Die Gleichung des Skripts selbst stimmt, weil im Exponenten
-das $e$ steht. Ihr fehlt aber die $-1$: Sie gilt nur im Durchlassbereich, wie das Skript auch sagt, und gibt bei $U = 0$ fälschlich $I_S$ statt null.
+**Die Akteure:**
 
-Reale Dioden weichen in zwei Punkten ab. Rekombination in der Raumladungszone streckt die Kennlinie; man schreibt dann $m\,U_T$ statt $U_T$, mit dem
-__Idealitätsfaktor__ $m$ zwischen 1 und 2, in Datenblättern oft $n$ genannt. Und bei großen Strömen fällt zusätzlich Spannung am __Bahnwiderstand__ ab, dem
-ohmschen Widerstand der neutralen Gebiete und Kontakte. Den Durchbruch bei großer Sperrspannung enthält die Gleichung nicht; er hat einen eigenen Abschnitt.
+- __$U_F$__: __Durchlassspannung__, die Spannung an der leitenden Diode bei einem genannten Strom $I_F$ (F für englisch forward); 0,645 V bei 1 mA für die Beispieldiode im idealen Modell.
 
-::::beispiel Die Kennlinie in Zahlen
-Eine kleine Siliziumdiode mit
+Nach der Spannung aufgelöst, sagt die Shockley-Gleichung, welche Spannung ein gegebener Strom braucht:
 
-$$I_S = 10^{-14}\,\text{A}, \qquad U_T = 25{,}9\,\text{mV}.$$
-
-**Durchlassrichtung.** Die Shockley-Gleichung für einige Spannungen; die Eins spielt ab $0{,}1\,\text{V}$ keine Rolle mehr:
-
-| $U$ | $I$ |
-|---|---|
-| $0{,}1\,\text{V}$ | $0{,}47\,\text{pA}$ |
-| $0{,}3\,\text{V}$ | $1{,}1\,\text{nA}$ |
-| $0{,}4\,\text{V}$ | $52\,\text{nA}$ |
-| $0{,}5\,\text{V}$ | $2{,}5\,\mu\text{A}$ |
-| $0{,}6\,\text{V}$ | $0{,}12\,\text{mA}$ |
-| $0{,}65\,\text{V}$ | $0{,}83\,\text{mA}$ |
-| $0{,}7\,\text{V}$ | $5{,}7\,\text{mA}$ |
-| $0{,}75\,\text{V}$ | $40\,\text{mA}$ |
-
-Zum Beispiel bei $0{,}7\,\text{V}$:
-
-$$I = 10^{-14}\,\text{A}\cdot\Big(\exp\frac{0{,}7\,\text{V}}{0{,}02585\,\text{V}} - 1\Big) = 10^{-14}\,\text{A}\cdot5{,}75\cdot10^{11} = 5{,}7\,\text{mA}.$$
-
-In einem Diagramm mit linearer Stromachse bis $40\,\text{mA}$ liegt alles unter $0{,}6\,\text{V}$ auf der Nulllinie, und zwischen $0{,}6$ und $0{,}75\,\text{V}$
-schießt die Kurve hoch: das Knie.
-
-**Sperrrichtung.** Schon bei $-0{,}1\,\text{V}$ ist der Strom fast $-I_S$:
-
-$$I(-0{,}1\,\text{V}) = 10^{-14}\,\text{A}\cdot(0{,}021 - 1) = -0{,}98\cdot10^{-14}\,\text{A}.$$
-
-Bei $-1\,\text{V}$ wie bei $-50\,\text{V}$ fließen $-10\,\text{fA}$, bis zum Durchbruch.
-
-**Ohne die Eins.** Die Form des Skripts weicht bei $0{,}1\,\text{V}$ um $2\,\%$ ab, bei $0{,}3\,\text{V}$ um weniger als ein Millionstel; im Durchlassbereich
-taugt sie also.
-
-**Im Bild:** Vier Zehntelvolt Absenkung, von $0{,}3$ auf $0{,}7\,\text{V}$, vervielfachen den Verkehr hinauf auf das Fünfmillionenfache; das Rinnsal hinunter
-bleibt bei $10\,\text{fA}$.
-::::
-
-## Knie, Schleusenspannung und Temperatur
-
-Löst man die Shockley-Gleichung nach der Spannung auf, sieht man, warum die Spannung an einer leitenden Diode so wenig vom Strom abhängt:
-
-:::formel
-$$U = U_T\,\ln\Big(1 + \frac{I}{I_S}\Big).$$
+:::formel Formel
+$$U = U_T\,\ln\!\Big(\frac{I}{I_S} + 1\Big)$$
 :::
 
-**So liest man das:** Eingabe ist der Strom, Ausgabe die Spannung. Sie wächst nur logarithmisch: Je Verzehnfachung des Stroms kommen $U_T\ln10$ hinzu, also
-$59{,}5\,\text{mV}$. Über fünf Dekaden, von Mikroampere bis $100\,\text{mA}$, ändert sie sich deshalb nur um gut $0{,}3\,\text{V}$. Darum rechnet man eine
-leitende Siliziumdiode oft mit einer festen Spannung, der __Schleusenspannung__ $U_S$, auch Durchlass- oder Flussspannung, meist $0{,}6$ bis $0{,}7\,\text{V}$.
-Sie ist keine physikalische Grenze, sondern die Spannung bei einem gewählten Bezugsstrom, etwa $1\,\text{mA}$. Das Skript zeichnet in seinen
-Gleichrichterbildern $0{,}6\,\text{V}$.
+**So liest man das:** Eingabe ist der Strom, Ausgabe die Spannung. Jede Verzehnfachung des Stroms erhöht die Spannung um 59,5 mV, das $\ln 10$-Fache von $U_T$; zwischen 1 µA und 100 mA liegen deshalb nur 0,30 V, von 0,467 V bis 0,764 V.
 
-Von Werkstoff zu Werkstoff verschiebt sie sich mit $I_S$, also mit $n_i^2$: Germanium mit seiner kleineren Bandlücke hat eine Schleusenspannung um
-$0{,}2$ bis $0{,}3\,\text{V}$. __Schottky-Dioden__, Übergänge zwischen Metall und Halbleiter, kommen auf etwa $0{,}3\,\text{V}$.
-
-**Im Bild:** Um den Verkehr hinauf zu verzehnfachen, muss die Rampe jedes Mal um dasselbe kleine Stück sinken. Für jeden Verkehr, den man praktisch braucht,
-steht sie deshalb fast gleich hoch.
+Idee der Herleitung: Man löst die Shockley-Gleichung nach der Spannung auf.
 
 :::herleitung
-Man bringt $I_S$ auf die andere Seite und logarithmiert:
+**Ausgangspunkt:** die Shockley-Gleichung.
 
-$$\frac{I}{I_S} + 1 = \exp\frac{U}{U_T}, \qquad U = U_T\,\ln\Big(1 + \frac{I}{I_S}\Big).$$
+**Annahmen:** wie dort; außerdem ist der Strom größer als $-I_S$, sonst hat die Gleichung keine Lösung.
 
-**Je Dekade.** Für $I$ viel größer als $I_S$ ist die Eins unwichtig, und ein zehnfacher Strom ergibt $U_T\ln(10\,I/I_S)$, also $U_T\ln10$ mehr.
+**Schritt 1**: Durch $I_S$ teilen und 1 addieren:
 
-**Werkstoff.** Bei gleichem Strom ist $U$ um $U_T\ln(I_{S2}/I_{S1})$ kleiner, wenn der Sättigungsstrom von $I_{S1}$ auf $I_{S2}$ wächst; ein größeres $n_i$
-heißt größeres $I_S$ und kleinere Spannung.
+$$\frac{I}{I_S} + 1 = \exp\!\Big(\frac{U}{U_T}\Big)$$
+
+**Schritt 2**: Beide Seiten logarithmieren und mit $U_T$ malnehmen:
+
+$$U = U_T\,\ln\!\Big(\frac{I}{I_S} + 1\Big)$$
+
+**Ergebnis:**
+
+$$U = U_T\,\ln\!\Big(\frac{I}{I_S} + 1\Big)$$
+
+**Woher die Faktoren kommen:** Der Logarithmus kehrt die Exponentialfunktion um; $U_T$ ist die Spannung, die den Strom um den Faktor 2,72 ändert, und damit die Einheit, in der die Spannung zählt.
+
+**Proben:** Ohne Strom ist die Spannung null. Für Ströme weit über $I_S$ erhöht eine Verzehnfachung die Spannung um $U_T \ln 10$, also 59,5 mV. Bei 1 mA: 25,85 mV mal $\ln(6{,}86\cdot10^{10})$, also mal 24,95, ergibt 0,645 V.
+
+**Grenzen:** Ein Sperrstrom über $I_S$ kommt im idealen Modell nicht vor; reale Dioden erreichen ihn durch Generation in der Zone und im Durchbruch.
 :::
-
-Auch die Temperatur verschiebt die Kennlinie, und zwar entgegen dem ersten Eindruck: Zwar wächst $U_T$ mit $T$, aber $I_S$ wächst mit $n_i^2$ viel schneller.
-Bei festem Strom sinkt die Durchlassspannung deshalb, für Silizium um rund $2\,\text{mV}$ je Kelvin:
-
-$$\frac{dU}{dT} \approx \frac{U - W_g/e}{T} - \frac{3\,k_B}{e}.$$
-
-**So liest man das:** Für Silizium bei $1\,\text{mA}$ ist $U$ etwa $0{,}65\,\text{V}$, $W_g/e$ ist $1{,}12\,\text{V}$, und es ergeben sich
-$-1{,}8\,\text{mV/K}$. Man nutzt das in Temperaturfühlern; in Schaltungen muss man es berücksichtigen, weil eine warme Diode bei gleicher Spannung mehr
-Strom zieht.
-
-**Im Bild:** Stärkeres Rütteln bringt drüben viel mehr Autos aufs Oberdeck, die hinunterrollen; für denselben Netto-Verkehr muss die Rampe weniger weit
-gesenkt werden.
-
-:::herleitung
-**Der Sättigungsstrom.** Nach dem vorigen Artikel ist $I_S$ proportional zu $n_i^2$, und $n_i^2$ ist proportional zu $T^3\exp(-W_g/(k_BT))$; die übrigen
-Größen in $I_S$ hängen nur schwach von der Temperatur ab. Mit einer Konstanten $c$:
-
-$$\ln I_S = c + 3\ln T - \frac{W_g}{k_B\,T}.$$
-
-**Die Spannung bei festem Strom.** In die umgestellte Shockley-Gleichung ohne die Eins eingesetzt, mit $k_BT/e$ für $U_T$:
-
-$$U = \frac{k_B\,T}{e}\,\big(\ln I - c - 3\ln T\big) + \frac{W_g}{e}.$$
-
-**Ableiten.** Die Klammer mal $k_B/e$ ist nach dieser Gleichung $(U - W_g/e)/T$; dazu kommt die Ableitung von $-3\ln T$, mal $k_BT/e$, also $-3k_B/e$. Das
-ergibt die Formel. Die kleine Temperaturabhängigkeit der Bandlücke selbst ist dabei vernachlässigt.
-:::
-
-::::beispiel Schleusenspannung, Germanium und Temperatur
-Die Siliziumdiode von oben, $I_S = 10^{-14}\,\text{A}$ bei $300\,\text{K}$.
-
-**(a) Spannung bei drei Strömen.** Nach der umgestellten Gleichung:
-
-$$U(1\,\mu\text{A}) = 0{,}476\,\text{V}, \qquad U(1\,\text{mA}) = 0{,}655\,\text{V}, \qquad U(100\,\text{mA}) = 0{,}774\,\text{V}.$$
-
-Fünf Dekaden Strom, aber nur $0{,}3\,\text{V}$ Unterschied. Mit dem Bezugsstrom $1\,\text{mA}$ ist die Schleusenspannung dieser Diode $0{,}655\,\text{V}$.
-
-**(b) Germanium.** Eine gleich gebaute Germaniumdiode: $n_i$ ist dort rund $2{,}4\cdot10^{13}\,\text{cm}^{-3}$, $2400$-mal so groß wie in Silizium, also $I_S$
-rund $5{,}8\cdot10^{6}$-mal so groß. Bei $1\,\text{mA}$ ist die Spannung um
-
-$$U_T\,\ln(5{,}8\cdot10^{6}) = 0{,}402\,\text{V}$$
-
-kleiner, nur noch $0{,}25\,\text{V}$.
-
-**(c) Fünfzig Grad wärmer.** Bei $1\,\text{mA}$ und $300\,\text{K}$:
-
-$$\frac{dU}{dT} = \frac{0{,}655\,\text{V} - 1{,}12\,\text{V}}{300\,\text{K}} - \frac{3\cdot8{,}617\cdot10^{-5}\,\text{V}}{\text{K}} = -1{,}55\,\frac{\text{mV}}{\text{K}} - 0{,}26\,\frac{\text{mV}}{\text{K}} = -1{,}81\,\frac{\text{mV}}{\text{K}}.$$
-
-Fünfzig Kelvin mehr senken die Spannung also um gut $90\,\text{mV}$, auf $0{,}56\,\text{V}$; die volle Rechnung mit $I_S$ bei $350\,\text{K}$, das
-$774$-mal so groß ist, ergibt $0{,}563\,\text{V}$.
-
-**Im Bild:** Ein Parkhaus mit niedrigerer Rampe (Germanium) braucht viel weniger Absenkung für denselben Verkehr; ein stärker gerütteltes ebenso.
-::::
 
 :::grafik
-Szene: get1/halbleiterbauelemente/02-kennlinie · Vorlage: diodenkennlinie
-Die Kennlinie einer Siliziumdiode mit $I_S = 10^{-14}\,\text{A}$ in zwei Darstellungen nebeneinander: links mit linearer Stromachse bis $40\,\text{mA}$, das
-Knie zwischen $0{,}6$ und $0{,}75\,\text{V}$, die Schleusenspannung $0{,}655\,\text{V}$ bei $1\,\text{mA}$ markiert; rechts mit logarithmischer Stromachse von
-$10^{-15}$ bis $10^{-1}\,\text{A}$, eine Gerade mit einer Dekade je $59{,}5\,\text{mV}$ und in Sperrrichtung die waagrechte Linie bei $I_S$. Ein Umschalter
-blendet eine Germaniumdiode ein, deren Kurve um $0{,}4\,\text{V}$ nach links verschoben ist. Ein Regler für die Temperatur von $0$ bis $100\,{}^\circ\text{C}$
-verschiebt die Siliziumkurve um $-1{,}8\,\text{mV/K}$; ein Punkt bei $1\,\text{mA}$ zeigt die Spannung als Zahl. Im dritten Quadranten deutet ein steiler Abfall
-den Durchbruch an. Kernaussage: Weil die Spannung nur logarithmisch mit dem Strom wächst, erscheint die exponentielle Kennlinie als Knie bei einer fast festen
-Schleusenspannung. (Rot = Kennlinie, blau = Bezugspunkt und Zahlen, orange = Verschiebung durch Werkstoff und Temperatur, grau = Achsen.)
+Szene: get1/halbleiterbauelemente/02-schwelle-massstab · Vorlage: kennlinie-lin-zoom
+**Abbildung 3:** Dieselbe ideale Kennlinie der Beispieldiode dreimal linear, mit dem Achsenende 10 µA, 1 mA und 100 mA. Markiert ist, wo der Strom 1 % des Achsenendes erreicht: bei 0,407 V, 0,526 V und 0,645 V. Die scheinbare Schwelle wandert mit dem Maßstab, um 59,5 mV je Dekade.
+:::
+
+**Das Zusammenspiel in Schritten:**
+
+**Schritt 1**: Auf einer linearen Achse sieht man den Strom erst, wenn er einige Prozent des Achsenendes erreicht, und wo das geschieht, legt der Maßstab fest. Ein Prozent von 10 µA erreicht die Beispieldiode bei 0,407 V, ein Prozent von 100 mA bei 0,645 V (Abbildung 3). Einen ausgezeichneten Knick hat die Exponentialfunktion nicht.
+
+**Schritt 2**: In Schaltungen fließen typisch einige Milliampere; auf dieser Skala leitet eine Siliziumdiode ab 0,6 bis 0,7 V. Diesen Erfahrungswert nennt man __Schleusenspannung__. Datenblätter nennen deshalb keine Schwelle, sondern die Durchlassspannung bei einem bestimmten Strom, bei der Kleinsignaldiode 1N4148 höchstens 1 V bei 10 mA, typisch um 0,7 V.
+
+**Schritt 3**: Das Material verschiebt die ganze Kennlinie. Der Sättigungssperrstrom wird von Minoritätsträgern getragen, deren Dichte mit dem Quadrat der Eigenleitungsdichte wächst. Germanium mit 2000-mal mehr freien Ladungsträgern als Silizium hat ein 4·10⁶-mal größeres $I_S$ und braucht für 1 mA nur 0,25 V; Galliumarsenid braucht 1,08 V.
+
+**Schritt 4**: Die Temperatur wirkt an zwei Stellen. Das wachsende $U_T$ im Exponenten allein würde den Strom bei fester Spannung, bei 0,645 V, um 8,3 % je Kelvin senken. $I_S$ wächst aber mit dem Quadrat der Eigenleitungsdichte um 16,6 % je Kelvin, doppelt so schnell. Netto sinkt die Durchlassspannung bei festem Strom, bei 1 mA um 2,1 mV je Kelvin; 50 K Erwärmung kosten 0,1 V. Deshalb taugt eine Diode mit konstantem Strom als Temperatursensor.
+
+::::beispiel Durchlassspannung und scheinbare Schwelle der Beispieldiode
+**Gegeben:** Sättigungssperrstrom 1,457·10⁻¹⁴ A, Temperaturspannung 25,85 mV (Zahlenwerk dieses Themas).
+
+**Gesucht:** (a) die Durchlassspannung bei 1 µA, 1 mA und 100 mA; (b) die scheinbare Schwelle für die Achsenenden 10 µA und 100 mA.
+
+**Rechnung:** (a) Mit Formel 2:
+
+$$U(10^{-6}\ \mathrm{A}) = 25{,}85\ \mathrm{mV}\cdot\ln\!\Big(\frac{10^{-6}\ \mathrm{A}}{1{,}457\cdot10^{-14}\ \mathrm{A}} + 1\Big)$$
+
+$$= 25{,}85\ \mathrm{mV}\cdot18{,}04 = 0{,}467\ \mathrm{V}$$
+
+$$U(10^{-3}\ \mathrm{A}) = 25{,}85\ \mathrm{mV}\cdot24{,}95 = 0{,}645\ \mathrm{V}, \qquad U(0{,}1\ \mathrm{A}) = 25{,}85\ \mathrm{mV}\cdot29{,}56 = 0{,}764\ \mathrm{V}$$
+
+(b) Die scheinbare Schwelle liegt dort, wo der Strom 1 % des Achsenendes erreicht. Beim Achsenende 10 µA ist das der Strom 0,1 µA:
+
+$$U(10^{-7}\ \mathrm{A}) = 25{,}85\ \mathrm{mV}\cdot15{,}74 = 0{,}407\ \mathrm{V}$$
+
+Beim Achsenende 100 mA ist es der Strom 1 mA, also 0,645 V aus Teil (a).
+
+**Ergebnis:** **0,467 V, 0,645 V und 0,764 V; die scheinbare Schwelle liegt bei 0,407 V bzw. 0,645 V.**
+
+**Einordnung:** Fünf Dekaden Strom brauchen nur 0,3 V mehr Spannung; deshalb rechnen Schaltungsentwürfe mit rund 0,7 V, und das genügt meist. Die scheinbare Schwelle hängt dagegen allein am Maßstab: Wer Mikroampere misst, sieht dieselbe Diode schon bei 0,4 V leiten.
+::::
+
+:::fehlvorstellung
+„Die Schleusenspannung von 0,7 V ist eine feste Eigenschaft jeder Siliziumdiode.“
+Das liegt nahe, weil Schaltungsrechnungen mit 0,7 V arbeiten und die Ergebnisse meist passen. Die Spannung an einer leitenden Diode hängt aber vom Strom ab, um 59,5 mV je Dekade, von der Temperatur, um rund −2 mV je Kelvin, und von der Fläche: Eine zehnmal größere Diode braucht für denselben Strom 59,5 mV weniger. Die Beispieldiode liegt bei 1 µA bei 0,467 V und bei 100 mA im idealen Modell bei 0,764 V.
+:::
+
+Reale Dioden weichen vom idealen Modell in drei Strombereichen ab.
+Bei kleinen Strömen rekombinieren Elektronen und Löcher an Störstellen (Fremdatomen und Gitterfehlern) in der Zone selbst; dieser Strom wächst nur um eine Dekade je 119 mV und überwiegt bei der Beispieldiode unterhalb von 0,27 V, bei Dioden mit kürzerer Lebensdauer bis zu viel größeren Strömen.
+Bei großen Strömen, oberhalb von etwa 0,65 V, erreichen die übergetretenen Ladungsträger einen merklichen Teil der Dotierung, bei 0,7 V schon 57 %, und der Strom wächst ebenfalls langsamer (__starke Injektion__).
+Schließlich wirken die neutralen Gebiete als ohmscher __Bahnwiderstand__: Bei der Beispieldiode mit 18,9 Ω fallen bei 10 mA weitere 0,19 V ab, sie braucht dann 0,90 V statt 0,70 V; reale Kleinsignaldioden haben Bahnwiderstände unter einem Ohm.
+Datenblätter und Simulatoren fassen das mit einem __Emissionskoeffizienten__ zwischen 1 und 2 im Nenner des Exponenten und dem Bahnwiderstand zusammen.
+
+:::frage
+„Warum ist der gemessene Sperrstrom einer Siliziumdiode viel größer als $I_S$?“
+Weil in der gesperrten Zone selbst Paare entstehen. In ihrem Inneren gibt es fast keine beweglichen Ladungsträger und deshalb keine Rekombination; Störstellen erzeugen ungestört Paare, die das Feld sofort trennt. Bei der Beispieldiode sind das rund 20 pA bei −1 V statt 15 fA, dazu kommen Leckströme an der Oberfläche; die 1N4148 garantiert höchstens 25 nA bei 20 V. Weil dieser Strom an der Eigenleitungsdichte hängt, verdoppelt er sich etwa alle 8 bis 10 K.
 :::
 
 ## Der Durchbruch
 
-In Sperrrichtung bleibt der Strom bei $-I_S$, bis er bei einer bestimmten Sperrspannung, der __Durchbruchspannung__ $U_\text{BR}$, steil ansteigt, wie Bild
-10.7 des Skripts zeigt. Die Ursache ist das Feld in der Raumladungszone. Die äußere Spannung fällt fast ganz an der Zone ab und addiert sich in Sperrrichtung
-zur Diffusionsspannung; deshalb wird die Zone breiter und ihr Feld stärker. Für einen Übergang mit gleicher Dotierung $N$ auf beiden Seiten gilt mit den
-Formeln des vorigen Artikels:
+*Warum steigt der Sperrstrom ab einer bestimmten Spannung plötzlich steil an?*
 
-$$E_\text{max} = \sqrt{\frac{e\,N\,(U_\text{Diff} - U)}{\varepsilon}}.$$
-
-**So liest man das:** Das größte Feld wächst mit der Wurzel aus der Sperrspannung und mit der Wurzel aus der Dotierung. Zwei Vorgänge setzen ein, sobald es
-groß genug ist:
-
-- Beim __Lawinendurchbruch__ gewinnen Ladungsträger im starken Feld zwischen zwei Stößen so viel Energie, dass sie beim nächsten Stoß ein Elektron aus seiner
-  Bindung schlagen, die __Stoßionisation__. Jedes neue Paar wird seinerseits beschleunigt und schlägt weitere los, eine Lawine. In mäßig dotiertem
-  Silizium setzt das bei grob $30$ bis $40\,\text{MV/m}$ ein, bei Durchbruchspannungen von einigen zehn bis einigen hundert Volt.
-- Beim __Zener-Effekt__ ist die Zone eines stark dotierten Übergangs so dünn und das Feld so stark, um $100\,\text{MV/m}$, dass Elektronen aus dem
-  Valenzband der p-Seite unmittelbar ins Leitungsband der n-Seite gelangen, ohne die Energie dafür aufzubringen. Die Quantenmechanik nennt das
-  __Tunneleffekt__. Er tritt bei Durchbruchspannungen unter etwa $5\,\text{V}$ auf.
-
-Der Durchbruch selbst schadet dem Kristall nicht. Zerstörerisch ist die Wärme: Im Durchbruch liegen Spannung und Strom zugleich an, und ohne äußere
-Strombegrenzung steigt die Leistung, bis der Übergang überhitzt. Das Skript sagt, der Durchbruch zerstöre die Diode irreversibel, und schreibt einen Absatz
-später bei der Z-Diode selbst, der Effekt sei reversibel, solange die Diode thermisch nicht überlastet wird. Richtig ist das Zweite. Gewöhnliche Dioden sind
-nur für den Betrieb darunter vorgesehen, Z-Dioden gerade für den Durchbruch.
-
-**Im Bild:** Unter großer Sperrspannung wird die Rampe zu einer steilen, dünnen Wand. Entweder kommen die Autos aus dem Unterdeck der einen Seite direkt durch
-die Wand aufs Oberdeck der anderen (Zener), oder Autos, die die steile Rampe hinabrollen, werden so schnell, dass sie andere aus ihren Plätzen stoßen, die
-ebenfalls losrollen (Lawine).
-
-:::herleitung
-**Spannung an der Zone.** Liegt außen die Spannung $U$, liegt an der Zone statt $U_\text{Diff}$ die Spannung $U_\text{Diff} - U$, in Sperrrichtung also mehr.
-In den Formeln des vorigen Artikels für Breite und Feld steht deshalb $U_\text{Diff} - U$:
-
-$$w = \sqrt{\frac{4\,\varepsilon\,(U_\text{Diff} - U)}{e\,N}}, \qquad E_\text{max} = \frac{2\,(U_\text{Diff} - U)}{w}.$$
-
-**Einsetzen.** Die Breite in das Feld eingesetzt, kürzt sich eine Wurzel aus der Spannung heraus:
-
-$$E_\text{max} = \frac{2\,(U_\text{Diff} - U)}{2\,\sqrt{\varepsilon\,(U_\text{Diff} - U)/(e\,N)}} = \sqrt{\frac{e\,N\,(U_\text{Diff} - U)}{\varepsilon}}.$$
-
-Im Bild: Mehr Sperrspannung macht die leere Zone breiter, aber die Rampe wächst schneller als die Zone, und so wird sie steiler.
+:::grafik
+Szene: get1/halbleiterbauelemente/02-durchbruch-mechanismen · Vorlage: banddiagramm-durchbruch
+**Abbildung 4:** Die beiden Durchbruchmechanismen im Banddiagramm. (a) Lawine in der Beispieldiode bei rund 100 V: Die Zone ist etwa 5 µm breit; ein Elektron gewinnt im Feld Energie, schlägt beim Stoß ein Elektron aus einer Bindung und erzeugt so ein Paar, und die neuen Ladungsträger tun dasselbe. (b) Zener-Effekt in einem Übergang mit 10¹⁸ cm⁻³: Die Zone ist nur 0,13 µm breit, die Bänder fallen steil, und ein Elektron tunnelt waagrecht vom Valenzband der p-Seite in das 11 nm entfernte Leitungsband der n-Seite.
 :::
 
-::::beispiel Wie stark das Feld wird
-Silizium mit gleicher Dotierung auf beiden Seiten und der Permittivität
+**Die Akteure:**
 
-$$\varepsilon = 11{,}7\,\varepsilon_0 = 1{,}036\cdot10^{-10}\,\frac{\text{F}}{\text{m}}.$$
+- __$N_A$__, __$N_D$__: Dichte der Akzeptoren im p-Gebiet bzw. der Donatoren im n-Gebiet; je 10¹⁶ cm⁻³ in der Beispieldiode.
+- __$\varepsilon$__: Permittivität von Silizium; 1,036·10⁻¹² F/cm.
+- __$w$__, __$E_\mathrm{max}$__: Weite der Raumladungszone und Betrag des Feldes an der Grenzfläche, wo es am stärksten ist; 0,43 µm und 3,3·10⁴ V/cm ohne Spannung.
 
-**(a) Mäßig dotiert, $10^{16}\,\text{cm}^{-3}$.** Mit der Diffusionsspannung $0{,}714\,\text{V}$ aus dem vorigen Artikel:
+**Das Zusammenspiel:** Eine Sperrspannung zieht für einen Augenblick Majoritätsträger von der Grenze ab; weitere Rümpfe liegen frei, und die Zone wird breiter, bis sie die Diffusionsspannung plus die Sperrspannung trägt. In der Zone sitzt dann nur die feste Ladung der Rümpfe, und durch sie wächst das Feld linear bis zur Grenzfläche an. Die Spannung über der Zone ist die Fläche unter diesem Felddreieck.
 
-| Spannung $U$ | $0\,\text{V}$ | $-10\,\text{V}$ | $-50\,\text{V}$ | $-100\,\text{V}$ |
-|---|---|---|---|---|
-| $E_\text{max}$ | $3{,}3\,\text{MV/m}$ | $12{,}9\,\text{MV/m}$ | $28\,\text{MV/m}$ | $39{,}5\,\text{MV/m}$ |
+:::formel Formel
+$$w = \sqrt{\frac{2\varepsilon\,(U_\mathrm{Diff} - U)}{e}\cdot\frac{N_A + N_D}{N_A\,N_D}}$$
 
-Zum Beispiel bei $-100\,\text{V}$:
+$$E_\mathrm{max} = \frac{2\,(U_\mathrm{Diff} - U)}{w}$$
+:::
 
-$$E_\text{max} = \sqrt{\frac{1{,}602\cdot10^{-19}\,\text{C}\cdot10^{22}\,\text{m}^{-3}\cdot100{,}7\,\text{V}}{1{,}036\cdot10^{-10}\,\text{F/m}}} = 3{,}9\cdot10^{7}\,\frac{\text{V}}{\text{m}}.$$
+**So liest man das:** Eingabe ist die Spannung an der Diode, Ausgabe die Weite der Zone und ihr Höchstfeld. Beide wachsen mit der Wurzel der Spannung über der Zone: Bei −5 V sind es 1,22 µm und 9,4·10⁴ V/cm, bei −50 V 3,62 µm und 2,8·10⁵ V/cm. Hoch dotierte Übergänge sind dünn und haben schon bei kleinen Spannungen starke Felder.
 
-Erst um $100\,\text{V}$ erreicht das Feld die Größenordnung des Lawinendurchbruchs; eine solche Diode sperrt bis etwa dorthin.
+Idee der Herleitung: Die Zone ist insgesamt neutral, das Feld wächst linear durch die geladenen Schichten, und die Spannung ist die Fläche des Felddreiecks.
 
-**(b) Stark dotiert, $10^{18}\,\text{cm}^{-3}$.** Hier ist $U_\text{Diff} = 0{,}95\,\text{V}$, und schon ohne äußere Spannung herrschen $38\,\text{MV/m}$; bei
-$-5\,\text{V}$ sind es $96\,\text{MV/m}$. Das Feld für den Tunneleffekt, rund $100\,\text{MV/m}$, ist bei
+:::herleitung
+**Ausgangspunkt:** das Gaußsche Gesetz aus dem Artikel [Kondensator und Kapazität](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/kondensator-und-kapazitaet.html). Angewandt auf eine flache Schachtel, deren Deckflächen parallel zum Übergang liegen und den Abstand $\mathrm{d}x$ haben, ergibt es: Über eine Schicht mit der Ladungsdichte $\rho$ ändert sich das Feld um
 
-$$U_\text{Diff} - U = \frac{E_\text{max}^2\,\varepsilon}{e\,N} = \frac{(10^{8}\,\text{V/m})^2\cdot1{,}036\cdot10^{-10}\,\text{F/m}}{1{,}602\cdot10^{-19}\,\text{C}\cdot10^{24}\,\text{m}^{-3}} = 6{,}5\,\text{V}$$
+$$\mathrm{d}E = \frac{\rho}{\varepsilon}\,\mathrm{d}x$$
 
-erreicht, also bei rund $5{,}5\,\text{V}$ Sperrspannung. So entstehen Z-Dioden für wenige Volt.
+**Annahmen:**
+(i) Verarmungsnäherung: In der Zone gibt es keine beweglichen Ladungsträger. Die Ladungsdichte ist $+e N_D$ auf der n-Seite (Breite $x_n$) und $-e N_A$ auf der p-Seite (Breite $x_p$); außerhalb ist das Material neutral und feldfrei.
+(ii) Über der Zone liegt die Spannung $U_\mathrm{Diff} - U$.
+(iii) Der Übergang ist eben und groß gegen die Weite der Zone.
 
-Die Feldstärken für den Durchbruch sind Richtwerte aus Messungen; die Rechnung zeigt, warum die Dotierung über die Durchbruchspannung entscheidet.
+**Schritt 1**: Insgesamt ist die Zone neutral, die Ladungen beider Seiten sind gleich groß:
 
-**Im Bild:** Dieselbe Rampenhöhe auf einer viel kürzeren Strecke ergibt eine viel steilere Wand; bei starker Dotierung ist die leere Zone schmal.
-::::
+$$N_D\,x_n = N_A\,x_p, \qquad x_n + x_p = w$$
+
+**Schritt 2**: Vom feldfreien Rand der n-Seite bis zur Grenzfläche wächst das Feld nach dem Ausgangspunkt linear auf
+
+$$E_\mathrm{max} = \frac{e\,N_D\,x_n}{\varepsilon}$$
+
+und fällt auf der p-Seite ebenso linear wieder auf null.
+
+**Schritt 3** (entscheidender Schritt): Die Spannung ist das Integral des Feldes über die Zone, also die Fläche des Dreiecks:
+
+$$U_\mathrm{Diff} - U = \frac{1}{2}\,E_\mathrm{max}\,w$$
+
+Das ist die zweite Formel.
+
+**Schritt 4**: Aus Schritt 1 folgt
+
+$$x_n = \frac{N_A}{N_A + N_D}\,w$$
+
+und damit aus Schritt 2
+
+$$E_\mathrm{max} = \frac{e}{\varepsilon}\cdot\frac{N_A\,N_D}{N_A + N_D}\cdot w$$
+
+**Schritt 5**: In Schritt 3 eingesetzt:
+
+$$U_\mathrm{Diff} - U = \frac{e}{2\,\varepsilon}\cdot\frac{N_A\,N_D}{N_A + N_D}\cdot w^2$$
+
+Nach $w$ aufgelöst, ergibt das die erste Formel.
+
+**Ergebnis:**
+
+$$w = \sqrt{\frac{2\varepsilon\,(U_\mathrm{Diff} - U)}{e}\cdot\frac{N_A + N_D}{N_A\,N_D}}$$
+
+$$E_\mathrm{max} = \frac{2\,(U_\mathrm{Diff} - U)}{w}$$
+
+**Woher die Faktoren kommen:** Die 2 stammt aus der Dreiecksfläche, der Bruch der Dichten aus der Neutralität, $\varepsilon$ aus dem Gaußschen Gesetz: Ein Material mit größerer Permittivität schwächt das Feld der Rümpfe, und die Zone muss breiter werden, um dieselbe Spannung zu tragen.
+
+**Proben:** Einheit: F/cm mal V geteilt durch C mal cm³ ergibt cm², unter der Wurzel also cm. Ohne Spannung ergibt die Formel 0,430 µm und 3,3·10⁴ V/cm. Die genaue numerische Lösung im Artikel [Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html) liefert 3,2·10⁴ V/cm, weil die Ränder der Zone dort über einige 10 nm verschmiert sind.
+
+**Grenzen:** Nähert sich die Spannung der Diffusionsspannung, wird die Zone sehr dünn; dann sind die beweglichen Ladungsträger nicht mehr vernachlässigbar, und die Näherung versagt.
+:::
+
+**Das Zusammenspiel in Schritten:**
+
+**Schritt 1**: Im Sperrbereich begrenzt der Nachschub den Strom: Die Wärme erzeugt nur einige 10 pA, und mehr Sperrspannung erhöht das nur langsam.
+
+**Schritt 2**: Das Feld in der Zone wächst aber mit der Wurzel der Spannung. Ein Ladungsträger, der im Feld mehr Energie als die Bandlücke sammelt, kann beim Stoß ein Elektron aus einer Bindung schlagen. Ab etwa 4·10⁵ V/cm erzeugt jeder Ladungsträger auf seinem Weg durch die Zone im Mittel ein weiteres Paar, die neuen tun dasselbe, und aus einem Ladungsträger wird eine Lawine (Abbildung 4a). Diesen __Lawinendurchbruch__ erreicht die Beispieldiode bei rund 100 V.
+
+**Schritt 3**: In sehr hoch dotierten Übergängen, um 10¹⁸ cm⁻³, ist die Zone nur rund 0,1 µm breit, und wenige Volt ergeben 10⁶ V/cm. Dann liegt das Leitungsband der n-Seite auf gleicher Energie nur 11 nm neben dem Valenzband der p-Seite, und Elektronen gelangen durch die verbotene Zone hindurch, ohne Energie zu brauchen: Sie __tunneln__ (Abbildung 4b). Das ist der __Zener-Effekt__.
+
+**Schritt 4**: In beiden Fällen erzeugt das Feld selbst Ladungsträger, und der äußere Kreis muss den Strom begrenzen. Unter etwa 5 V überwiegt der Zener-Effekt, über etwa 6 V die Lawine. Ihre Temperaturgänge sind entgegengesetzt: Mit der Wärme stoßen die Ladungsträger öfter, und die Lawinenspannung steigt; die Bandlücke schrumpft, und die Zener-Spannung sinkt. Um 5 bis 6 V heben sich beide nahezu auf.
+
+:::fehlvorstellung
+„Im Durchbruch wird die Diode zerstört.“
+Das liegt nahe, weil das Skript es so formuliert (S. 162) und weil gewöhnliche Dioden ohne Strombegrenzung im Durchbruch tatsächlich ausfallen. Der Durchbruch selbst ist aber umkehrbar: Z-Dioden arbeiten dauernd darin, wie das Skript eine Seite später selbst schreibt (S. 163). Zerstörend ist die Wärme: Bei 100 V und 10 mA setzt eine kleine Diode 1 W um, doppelt so viel, wie typische kleine Gehäuse vertragen. Bei gewöhnlichen Dioden beginnt der Durchbruch zudem oft an den Rändern des Übergangs, wo sich der Strom zusammendrängt.
+:::
 
 ## Die Z-Diode
 
-Die __Z-Diode__, oft Zener-Diode genannt, ist eine Siliziumdiode, die für den Betrieb im Durchbruch gebaut ist, mit einer genau festgelegten
-__Zenerspannung__ $U_Z$, von etwa $2{,}4$ bis über $100\,\text{V}$. Unter etwa $5\,\text{V}$ beruht der Durchbruch auf dem Zener-Effekt, darüber auf der
-Lawine; beide Bauarten heißen Z-Diode. In Durchlassrichtung verhält sie sich wie eine gewöhnliche Diode. Das Skript sagt, sie werde im Sperrzustand betrieben;
-genauer ist es der Durchbruch in Sperrrichtung. Ihr Symbol in Bild 10.8 hat einen Querstrich mit abgewinkelten Enden.
-
-Im Durchbruch ändert sich ihre Spannung kaum mit dem Strom. Die Steigung des steilen Astes beschreibt der __differentielle Widerstand__, der Quotient aus
-einer kleinen Spannungsänderung und der zugehörigen Stromänderung, im Bild 10.8 des Skripts $\Delta U$ und $\Delta I$:
-
-$$r_Z = \frac{\Delta U}{\Delta I}.$$
-
-Er beträgt bei kleinen Z-Dioden einige Ohm bis einige zehn Ohm. Damit stabilisiert man Spannungen: Eine schwankende Eingangsspannung $U_E$ speist über einen
-__Vorwiderstand__ $R_V$ die Z-Diode, mit der Kathode am Ausgang und der Anode an Masse, und die Ausgangsspannung $U_A$ liegt an der Z-Diode. Schwankt $U_E$,
-schwankt $U_A$ nur um einen kleinen Bruchteil:
-
-:::formel
-$$\Delta U_A = \frac{r_Z}{R_V + r_Z}\,\Delta U_E.$$
-:::
-
-**So liest man das:** Für Änderungen bilden $R_V$ und $r_Z$ einen Spannungsteiler, wie im Artikel über die Zusammenschaltung von Widerständen. Weil $r_Z$ klein
-gegen $R_V$ ist, kommt nur ein kleiner Bruchteil der Schwankung am Ausgang an. Den Strom begrenzt $R_V$, nicht die Diode: Das Skript spricht von einem
-Stromfluss in fast beliebiger Höhe, aber er muss durch den Vorwiderstand begrenzt werden, damit die Leistung an der Z-Diode zulässig bleibt. Wie man die
-Stabilisierung mit einem Transistor verbessert, behandeln die Kapitel über Transistoren.
-
-**Im Bild:** Ab einer bestimmten Steilheit lässt die Wand Autos durch, und zwar so viele, wie nötig sind, damit sie nicht höher wird. Mehr Zufluss erhöht den
-Durchlass, nicht die Höhe.
-
-:::herleitung
-**Das Modell des steilen Astes.** Im Durchbruch nähert man die Kennlinie durch eine Gerade: Mit dem Strom $I_Z$ in Sperrrichtung, von der Kathode zur Anode
-gezählt, und der Spannung $U_{Z0}$, bei der die Gerade die Spannungsachse schneidet, ist die Spannung an der Diode
-
-$$U_A = U_{Z0} + r_Z\,I_Z.$$
-
-**Ohne Last.** Der ganze Strom durch $R_V$ fließt durch die Diode; nach der Maschenregel liegen $R_V$ und die Gerade in Reihe an $U_E$:
-
-$$I_Z = \frac{U_E - U_{Z0}}{R_V + r_Z}, \qquad U_A = U_{Z0} + \frac{r_Z}{R_V + r_Z}\,\big(U_E - U_{Z0}\big).$$
-
-**Die Änderung.** $U_{Z0}$ ist fest, also ändert sich $U_A$ um den Faktor vor der Klammer mal der Änderung von $U_E$. Im Bild: Wie viel mehr Zufluss auch kommt,
-die Wand gibt fast alles davon durch.
-:::
-
-::::beispiel Eine Spannung stabilisieren
-Eine Z-Diode mit
-
-$$U_{Z0} = 5{,}1\,\text{V}, \qquad r_Z = 10\,\Omega, \qquad R_V = 330\,\Omega,$$
-
-an einer Eingangsspannung, die zwischen $9$ und $12\,\text{V}$ schwankt.
-
-**Ohne Last.** Strom und Ausgangsspannung an beiden Enden:
-
-$$I_Z(9\,\text{V}) = \frac{3{,}9\,\text{V}}{340\,\Omega} = 11{,}5\,\text{mA}, \qquad U_A = 5{,}1\,\text{V} + 10\,\Omega\cdot11{,}5\,\text{mA} = 5{,}215\,\text{V},$$
-
-$$I_Z(12\,\text{V}) = \frac{6{,}9\,\text{V}}{340\,\Omega} = 20{,}3\,\text{mA}, \qquad U_A = 5{,}1\,\text{V} + 10\,\Omega\cdot20{,}3\,\text{mA} = 5{,}303\,\text{V}.$$
-
-Drei Volt Schwankung am Eingang ergeben am Ausgang
-
-$$\Delta U_A = \frac{10\,\Omega}{340\,\Omega}\cdot3\,\text{V} = 88\,\text{mV},$$
-
-ein Vierunddreißigstel.
-
-**Die Leistung.** Bei $12\,\text{V}$ setzen Z-Diode und Vorwiderstand um:
-
-$$P_Z = 5{,}3\,\text{V}\cdot20{,}3\,\text{mA} = 108\,\text{mW}, \qquad P_{R_V} = \frac{(12\,\text{V} - 5{,}3\,\text{V})^2}{330\,\Omega} = 136\,\text{mW}.$$
-
-Beide Bauteile müssen das aushalten.
-
-**Mit Last.** Ein Verbraucher mit $1\,\text{k}\Omega$ am Ausgang, bei $9\,\text{V}$: Nach der Knotenregel teilt sich der Strom durch $R_V$ auf Diode und Last auf,
-und es ergeben sich
-
-$$U_A = 5{,}165\,\text{V}, \qquad I_L = 5{,}16\,\text{mA}, \qquad I_Z = 6{,}46\,\text{mA}.$$
-
-Die Last nimmt der Diode Strom weg; damit die Stabilisierung hält, darf $I_Z$ nicht bis an das Knie absinken.
-
-**Im Bild:** Zu viel Zufluss läuft durch die Wand ab, und der Pegel am Ausgang bleibt fast, wo er ist.
-::::
+*Wie hält eine Diode eine Spannung fest, obwohl der Strom durch sie schwankt?*
 
 :::grafik
-Szene: get1/halbleiterbauelemente/02-durchbruch-z-diode · Vorlage: durchbruch-stabilisierung
-Links das Banddiagramm eines stark dotierten Übergangs unter Sperrspannung: Ein Regler von $0$ bis $-8\,\text{V}$ macht die Bandverbiegung höher und die Zone
-dabei nur wenig breiter, das Feld als Zahl in MV/m steigt. Ab etwa $100\,\text{MV/m}$ springen Elektronen waagrecht aus dem Valenzband der p-Seite ins
-Leitungsband der n-Seite (Zener); ein Umschalter zeigt den schwach dotierten Fall bei $-100\,\text{V}$, in dem ein Elektron auf der Rampe beschleunigt wird und
-beim Stoß ein Paar erzeugt, das wieder beschleunigt wird (Lawine). Rechts die Stabilisierungsschaltung: Quelle $U_E$ mit Regler von $9$ bis $12\,\text{V}$,
-$R_V = 330\,\Omega$, Z-Diode mit der Kathode oben am Ausgang, Ausgangsspannung $U_A$ als Zahl, die nur von $5{,}215$ auf $5{,}303\,\text{V}$ wandert, daneben der
-Kennlinienast mit dem wandernden Arbeitspunkt und dem Steigungsdreieck $\Delta U/\Delta I = 10\,\Omega$. Kernaussage: Im Durchbruch hält die Diode ihre
-Spannung fast fest, und mit einem Vorwiderstand wird daraus eine stabile Spannung. (Rot = Z-Diode und Kennlinienast, blau = Elektronen und Spannungen, orange =
-Feld und Steigungsdreieck, grau = Bänder und Schaltung.)
+Szene: get1/halbleiterbauelemente/02-z-diode-stabilisierung · Vorlage: schaltung-und-kennlinie
+**Abbildung 5:** Spannungsstabilisierung mit einer Z-Diode. (a) Schaltung: Eingangsspannung 12 V ± 1 V, Vorwiderstand 330 Ω, Z-Diode 5,6 V parallel zum Lastwiderstand 1 kΩ. (b) Durchbruchast der Z-Diode mit den Arbeitspunkten bei 11, 12 und 13 V Eingangsspannung: 10,3 mA, 13,1 mA und 15,9 mA bei 5,707 V, 5,763 V und 5,819 V. Ein Stromhub von 5,6 mA ändert die Spannung nur um 0,11 V.
 :::
+
+**Die Akteure:**
+
+- __$U_Z$__: __Z-Spannung__, der Betrag der Spannung im Durchbruch bei einem genannten Strom; 5,6 V bei 5 mA im Beispiel.
+- __$r_Z$__: __differentieller Widerstand__, die Steigung des Durchbruchasts, also Spannungsänderung geteilt durch Stromänderung; im Beispiel 20 Ω. Allgemein behandelt ihn der Artikel [Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html).
+
+**Das Zusammenspiel:** Eine __Z-Diode__ ist eine Siliziumdiode, die für den Betrieb im Durchbruch gebaut ist. Ihre Dotierung legt die Z-Spannung fest, je nach Typ zwischen etwa 2 V und über 100 V; in Durchlassrichtung verhält sie sich wie eine gewöhnliche Diode.
+Im Durchbruch ist ihre Kennlinie steil, und darauf beruht die Stabilisierung (Abbildung 5a): Ein Vorwiderstand nimmt die Differenz zwischen schwankender Eingangsspannung und Z-Spannung auf. Steigt die Eingangsspannung, fließt mehr Strom durch den Vorwiderstand, und fast der ganze zusätzliche Strom geht durch die Z-Diode, deren Spannung sich dabei kaum ändert. Die Last parallel zur Z-Diode sieht eine fast konstante Spannung (Abbildung 5b).
+
+::::beispiel Stabilisierung mit einer 5,6-V-Z-Diode
+**Gegeben:** Eingangsspannung 12 V ± 1 V; Vorwiderstand 330 Ω; Lastwiderstand 1 kΩ; Z-Diode mit 5,6 V bei 5 mA und 20 Ω differentiellem Widerstand, ihr Durchbruchast also eine Gerade durch 5,5 V bei null Strom.
+
+**Gesucht:** Ausgangsspannung und Z-Strom bei 11, 12 und 13 V; die Verlustleistung der Z-Diode im ungünstigsten Fall.
+
+**Rechnung:** Auf der Geraden ist der Z-Strom
+
+$$I_Z = \frac{U_A - 5{,}5\ \mathrm{V}}{20\ \Omega}$$
+
+Die Knotenregel am Ausgang: Der Strom durch den Vorwiderstand teilt sich in Laststrom und Z-Strom.
+
+$$\frac{U_E - U_A}{330\ \Omega} = \frac{U_A}{1\ \mathrm{k}\Omega} + \frac{U_A - 5{,}5\ \mathrm{V}}{20\ \Omega}$$
+
+Bei 12 V nach der Ausgangsspannung aufgelöst:
+
+$$U_A = \frac{36{,}36\ \mathrm{mA} + 275\ \mathrm{mA}}{3{,}030\ \mathrm{mS} + 1\ \mathrm{mS} + 50\ \mathrm{mS}} = 5{,}763\ \mathrm{V}, \qquad I_Z = 13{,}1\ \mathrm{mA}$$
+
+Ebenso bei 11 V: 5,707 V und 10,3 mA; bei 13 V: 5,819 V und 15,9 mA. Am meisten Leistung setzt die Z-Diode bei 13 V ohne Last um, wenn der ganze Strom durch sie fließt:
+
+$$I_Z = \frac{13\ \mathrm{V} - 5{,}5\ \mathrm{V}}{330\ \Omega + 20\ \Omega} = 21{,}4\ \mathrm{mA}, \qquad P_Z = 5{,}93\ \mathrm{V}\cdot21{,}4\ \mathrm{mA} = 127\ \mathrm{mW}$$
+
+**Ergebnis:** **Ausgang 5,763 V ± 0,056 V bei 13,1 mA ± 2,8 mA; höchstens 127 mW in der Z-Diode.**
+
+**Einordnung:** Eine Schwankung von ±1 V am Eingang kommt am Ausgang als ±0,056 V an, 17,8-mal kleiner; relativ sind das ±8 % gegen ±1 %. Eine Z-Diode für 0,5 W genügt auch im ungünstigsten Fall.
+::::
 
 ## Die Kapazitätsdiode
 
-In Sperrrichtung ist die Raumladungszone eine Schicht ohne freie Träger zwischen zwei leitenden Gebieten, also ein Plattenkondensator. Sein Plattenabstand
-ist die Breite der Zone, und weil sie mit der Sperrspannung wächst, nimmt die Kapazität ab, wie das Skript sagt. Diese __Sperrschichtkapazität__ $C_\text{Sp}$
-eines Übergangs mit der Fläche $A$ hängt so von der Spannung ab, mit der Breite $w_0$ und der Kapazität $C_0$ ohne äußere Spannung:
+*Warum hängt die Kapazität einer gesperrten Diode von der Spannung ab?*
 
-:::formel
-$$C_\text{Sp}(U) = \frac{\varepsilon\,A}{w(U)} = \frac{C_0}{\sqrt{1 - U/U_\text{Diff}}}, \qquad C_0 = \frac{\varepsilon\,A}{w_0}.$$
+:::grafik
+Szene: get1/halbleiterbauelemente/02-sperrschichtkapazitaet · Vorlage: funktionsgraph
+**Abbildung 6:** Sperrschichtkapazität der Beispieldiode zwischen 0 und −25 V: 24,1 pF ohne Spannung, 12,4 pF bei −2 V, 8,5 pF bei −5 V, 6,2 pF bei −10 V und 4,0 pF bei −25 V. Daneben die Zone als Plattenkondensator, dessen Plattenabstand mit der Sperrspannung wächst, von 0,43 µm auf 1,22 µm bei −5 V. Je breiter die Zone, desto kleiner die Kapazität.
 :::
 
-**So liest man das:** Eingabe ist die Spannung, in Sperrrichtung negativ, Ausgabe eine Kapazität in Farad. Je größer die Sperrspannung, desto kleiner die
-Kapazität, mit der Wurzel. Dioden, die dafür gebaut sind, heißen __Kapazitätsdioden__ oder Varaktoren; mit besonderen Dotierungsverläufen erreichen sie
-stärkere Änderungen als die Wurzel. Man stimmt mit ihnen Schwingkreise und Oszillatoren elektrisch ab, ohne bewegliche Teile.
+**Die Akteure:**
 
-**Im Bild:** Die leere Zone zwischen den Parkhäusern ist der Spalt zwischen zwei Platten. Höhere Sperrspannung räumt sie breiter frei, und ein breiterer Spalt
-speichert bei gleicher Spannungsänderung weniger Ladung.
+- __$C_j$__: __Sperrschichtkapazität__ (j für englisch junction, Übergang), die Änderung der Ladung in der Zone je Änderung der Spannung; $C_{j0}$ ist ihr Wert ohne Spannung, 24,1 pF bei der Beispieldiode.
+
+**Das Zusammenspiel:** Die Zone besteht aus zwei Schichten fester Ladung mit entgegengesetztem Vorzeichen. Ändert man die Sperrspannung ein wenig, legt die Quelle an beiden Rändern einige Rümpfe zusätzlich frei oder deckt sie wieder zu; die Ladung ändert sich also im Abstand $w$, wie bei einem [Plattenkondensator](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/kondensator-und-kapazitaet.html) mit diesem Plattenabstand. Weil die Zone mit der Sperrspannung breiter wird, sinkt die Kapazität.
+
+:::formel Gesetz
+$$C_j = \frac{\varepsilon\,A}{w(U)} = \frac{C_{j0}}{\sqrt{1 - U/U_\mathrm{Diff}}}$$
+:::
+
+**So liest man das:** Eingabe ist die Spannung, in Sperrrichtung negativ, Ausgabe die Kapazität; $A$ ist die Fläche des Übergangs. Vervierfacht sich die Spannung über der Zone, halbiert sich die Kapazität: Bei −2 V sinkt sie von 24,1 auf 12,4 pF, bei −10 V auf 6,2 pF (Abbildung 6).
+
+Idee der Herleitung: Man schreibt die Ladung einer Seite der Zone als Funktion ihrer Weite und leitet nach der Spannung ab.
 
 :::herleitung
-**Der Kondensator.** Nach dem Artikel über den Kondensator hat ein Plattenkondensator mit der Fläche $A$, dem Abstand $d$ und der Permittivität
-$\varepsilon$ die Kapazität $\varepsilon A/d$; hier ist $d$ die Breite $w$ der Zone.
+**Ausgangspunkt:** die Formel für Weite und Höchstfeld der Zone. Weil die Ladung hier nicht proportional zur Spannung wächst, zählt für kleine Änderungen die Ladungsänderung je Spannungsänderung:
 
-**Die Breite.** Nach dem Abschnitt über den Durchbruch wächst $w$ mit der Wurzel aus $U_\text{Diff} - U$; bezogen auf $U = 0$:
+$$C_j = \Big|\frac{\mathrm{d}Q}{\mathrm{d}U}\Big|$$
 
-$$w(U) = w_0\,\sqrt{1 - \frac{U}{U_\text{Diff}}}.$$
+**Annahmen:** wie bei Weite und Höchstfeld; die Spannung ändert sich so langsam, dass die Zone ihr folgt.
 
-Eingesetzt ergibt sich die Formel.
+**Schritt 1**: Die Ladung der n-Seite ist Ladungsdichte mal Volumen. Mit der Breite $x_n$ der n-Seite aus der Herleitung von Weite und Höchstfeld:
 
-**Warum das auch für die Ladung stimmt.** Die Platten sind keine Flächen, sondern die Ladung sitzt in der Zone verteilt. Bei gleich dotierten Seiten ist die
-Ladung einer Seite $Q = e\,N\,A\,w/2$, und ändert sich die Spannung, wächst die Zone an ihren Rändern. Mit der Breite von eben ist
+$$Q = e\,N_D\,x_n\,A = e\,A\,\frac{N_A\,N_D}{N_A + N_D}\,w$$
 
-$$Q = A\,\sqrt{e\,N\,\varepsilon\,(U_\text{Diff} - U)}, \qquad \Big|\frac{dQ}{dU}\Big| = \frac{A}{2}\,\sqrt{\frac{e\,N\,\varepsilon}{U_\text{Diff} - U}} = \frac{\varepsilon\,A}{w}.$$
+**Schritt 2**: Nach derselben Formel ist das Quadrat der Weite proportional zur Spannung über der Zone:
 
-Die Kapazität für kleine Spannungsänderungen ist also genau $\varepsilon A/w$. Im Bild: Die zusätzlichen Ladungen kommen an den Rändern der leeren Zone hinzu,
-wo sie die Platten bilden.
+$$w^2 = \frac{2\,\varepsilon\,(U_\mathrm{Diff} - U)}{e}\cdot\frac{N_A + N_D}{N_A\,N_D}$$
+
+Abgeleitet nach der Spannung:
+
+$$2\,w\,\frac{\mathrm{d}w}{\mathrm{d}U} = -\frac{2\,\varepsilon}{e}\cdot\frac{N_A + N_D}{N_A\,N_D}$$
+
+**Schritt 3** (entscheidender Schritt): Die Ladung aus Schritt 1 nach der Spannung ableiten und Schritt 2 einsetzen; der Bruch der Dichten kürzt sich heraus:
+
+$$\frac{\mathrm{d}Q}{\mathrm{d}U} = e\,A\,\frac{N_A\,N_D}{N_A + N_D}\cdot\frac{\mathrm{d}w}{\mathrm{d}U} = -\frac{\varepsilon\,A}{w}$$
+
+**Schritt 4**: Damit hängt die Weite so von der Spannung ab:
+
+$$w(U) = w_0\,\sqrt{1 - \frac{U}{U_\mathrm{Diff}}}$$
+
+mit der Weite $w_0$ ohne Spannung. Mit dem Wert ohne Spannung
+
+$$C_{j0} = \frac{\varepsilon\,A}{w_0}$$
+
+folgt die zweite Form.
+
+**Ergebnis:**
+
+$$C_j = \frac{\varepsilon\,A}{w(U)} = \frac{C_{j0}}{\sqrt{1 - U/U_\mathrm{Diff}}}$$
+
+**Woher die Faktoren kommen:** $\varepsilon A/w$ ist der Plattenkondensator mit dem Abstand der beiden Ränder; die Wurzel stammt aus dem Felddreieck, in dem die Weite mit der Wurzel der Spannung wächst.
+
+**Proben:** Einheit: F/cm mal cm² geteilt durch cm ergibt F. Zahlenwert: 1,036·10⁻¹² F/cm mal 10⁻³ cm² geteilt durch 4,30·10⁻⁵ cm ergibt 24,1 pF.
+
+**Grenzen:** Nähert sich die Spannung der Diffusionsspannung, wächst die Formel über alle Grenzen; dort gilt die Verarmungsnäherung nicht mehr.
 :::
 
-::::beispiel Eine Kapazitätsdiode
-Ein gleich dotierter Siliziumübergang mit
-
-$$A = 1\,\text{mm}^2, \qquad N = 10^{16}\,\text{cm}^{-3}, \qquad U_\text{Diff} = 0{,}714\,\text{V}, \qquad w_0 = 0{,}43\,\mu\text{m}.$$
-
-**Ohne Spannung.**
-
-$$C_0 = \frac{1{,}036\cdot10^{-10}\,\frac{\text{F}}{\text{m}}\cdot10^{-6}\,\text{m}^2}{0{,}43\cdot10^{-6}\,\text{m}} = 241\,\text{pF}.$$
-
-**Mit Sperrspannung.** Der Nenner $\sqrt{1 - U/U_\text{Diff}}$ wächst:
-
-| $U$ | $0\,\text{V}$ | $-1\,\text{V}$ | $-4\,\text{V}$ | $-10\,\text{V}$ | $-25\,\text{V}$ |
-|---|---|---|---|---|---|
-| $w$ | $0{,}43\,\mu\text{m}$ | $0{,}67\,\mu\text{m}$ | $1{,}10\,\mu\text{m}$ | $1{,}67\,\mu\text{m}$ | $2{,}58\,\mu\text{m}$ |
-| $C_\text{Sp}$ | $241\,\text{pF}$ | $156\,\text{pF}$ | $94\,\text{pF}$ | $62\,\text{pF}$ | $40\,\text{pF}$ |
-
-Zwischen $0$ und $-25\,\text{V}$ ändert sich die Kapazität also um den Faktor sechs. Das Bild 10.9 des Skripts zeigt denselben Verlauf schematisch, von
-$200$ auf $100\,\text{pF}$.
-
-**Im Bild:** Fünfundzwanzig Volt Sperrspannung räumen die leere Zone sechsmal so breit frei; der Spalt ist sechsmal so groß, die Kapazität ein Sechstel.
-::::
+Dioden, die man gezielt so nutzt, heißen __Kapazitätsdioden__ (Skript, Bild 10.9, S. 163). Man betreibt sie nur in Sperrrichtung, damit kein Strom fließt, und stimmt mit ihrer Steuerspannung Schwingkreise in Radioempfängern und Oszillatoren ab, ohne bewegte Teile.
 
 ## Fotodiode und Solarzelle
 
-Licht, dessen Photonen mindestens die Bandlücke mitbringen, bei Silizium also Licht unter $1107\,\text{nm}$ Wellenlänge, erzeugt im Kristall Elektron-Loch-Paare,
-wie im vorigen Artikel. Entstehen sie in der Raumladungszone oder so nahe daran, dass sie hineingelangen, trennt sie das Feld: Die Elektronen laufen zur
-n-Seite, die Löcher zur p-Seite. Das ist ein Strom von der Kathode zur Anode durch die Diode, also in Sperrrichtung, der __Fotostrom__ $I_\text{Ph}$. Jedes
-getrennte Paar trägt eine Elementarladung über den Übergang; der Fotostrom ist deshalb proportional zur Zahl der Photonen je Sekunde und damit zur
-Bestrahlungsstärke. Das Skript nennt den Vorgang Photoeffekt im Inneren der Diode, __innerer Fotoeffekt__.
-
-:::formel
-$$I = I_S\,\Big(\exp\frac{U}{U_T} - 1\Big) - I_\text{Ph}.$$
-:::
-
-**So liest man das:** Die beleuchtete Diode ist eine gewöhnliche Diode mit einer Stromquelle parallel, die $I_\text{Ph}$ von der Kathode zur Anode treibt; das
-ist das Ersatzschaltbild in Bild 10.10 des Skripts. Ihre Kennlinie ist die Diodenkennlinie, um $I_\text{Ph}$ nach unten verschoben, umso weiter, je heller es
-ist. Zwei Betriebsarten:
-
-- Als __Fotodiode__ in Sperrrichtung fließt fast genau $-(I_S + I_\text{Ph})$: Der Sperrstrom steigt mit der Beleuchtung, wie das Skript sagt, und hängt
-  nicht von der Spannung ab. Das macht sie zum Lichtsensor.
-- Als __Solarzelle__ arbeitet sie im vierten Quadranten, mit positivem $U$ und negativem $I$. Im Verbraucherzählpfeilsystem heißt das: Die Diode nimmt die
-  Leistung $UI$ auf, und die ist negativ; sie gibt also die Leistung $-UI$ an einen äußeren Verbraucher ab.
-
-**Im Bild:** Licht hebt in der leeren Zone Autos aufs Oberdeck, und sie rollen die Rampe hinunter zur n-Seite, während die Lücken zur p-Seite wandern. Das ist
-Verkehr bergab, der keine Spannung braucht; ein äußerer Kreis kann ihn nutzen.
-
-:::herleitung
-**Die beiden Anteile.** Ohne Licht fließt der Strom der Shockley-Gleichung. Die durch Licht erzeugten Träger laufen denselben Weg wie die Minoritätsträger des
-Rückstroms, von der Kathode zur Anode, und zählen deshalb negativ. Dass sich beide Anteile einfach addieren, zeigt die genaue Theorie der idealen Diode,
-deren Gleichungen für die Minoritätsträger linear sind; das Ergebnis ist das Ersatzschaltbild aus Diode und Stromquelle.
-
-**Die Proportionalität.** Wird von je $\eta$ Photonen eines zu einem getrennten Paar, und treffen $\Phi$ Photonen je Sekunde ein, fließt die Ladung $e$ je Paar:
-
-$$I_\text{Ph} = \eta\,e\,\Phi.$$
-
-Im Bild: Jedes Auto, das das Licht in der Zone hebt, rollt einmal die Rampe hinunter.
-:::
-
-Aus der Gleichung folgen die beiden Kennwerte einer Solarzelle, die __Leerlaufspannung__ $U_L$ ohne Verbraucher und der __Kurzschlussstrom__ $I_K$ bei
-kurzgeschlossenen Anschlüssen, der aus der Anode herausfließt:
-
-$$U_L = U_T\,\ln\Big(1 + \frac{I_\text{Ph}}{I_S}\Big), \qquad I_K = I_\text{Ph}.$$
-
-**So liest man das:** Die Leerlaufspannung wächst nur logarithmisch mit dem Licht, der Kurzschlussstrom proportional. Über $I_S$, also über $n_i^2$, hängt die
-Spannung vom Werkstoff ab. Das ist genau das Ergebnis des Versuchs in Bild 10.12 des Skripts: Die abgreifbare Spannung hängt vom Halbleitermaterial ab, bei
-Silizium etwa $0{,}5$ bis $0{,}6\,\text{V}$, und nur schwach von der Einstrahlung, während der Strom mit der Bestrahlung proportional ansteigt. Zwischen Leerlauf
-und Kurzschluss liegt der __Punkt maximaler Leistung__, auf den Wechselrichter von Solaranlagen regeln. Wie rechteckig die Kennlinie dort ist, misst der
-__Füllfaktor__, die größte Leistung geteilt durch das Produkt aus Leerlaufspannung und Kurzschlussstrom.
-
-**Im Bild:** Ohne Verbraucher stauen sich die heruntergerollten Autos auf der n-Seite, bis sie die Rampe so weit absenken, dass ebenso viele wieder hinauffahren.
-Dafür genügt wenig, weil jede kleine Absenkung den Verkehr hinauf vervielfacht.
-
-:::herleitung
-**Leerlauf.** Ohne Verbraucher ist $I$ null; der Durchlassstrom der Diode muss den Fotostrom genau ausgleichen:
-
-$$0 = I_S\,\Big(\exp\frac{U_L}{U_T} - 1\Big) - I_\text{Ph}, \qquad U_L = U_T\,\ln\Big(1 + \frac{I_\text{Ph}}{I_S}\Big).$$
-
-**Kurzschluss.** Mit $U$ gleich null verschwindet der Diodenanteil, und $I$ ist $-I_\text{Ph}$; außen fließt der Fotostrom aus der Anode heraus. Im Bild: Ohne
-Stau rollt jedes gehobene Auto hinunter und fährt außen herum zurück.
-:::
-
-::::beispiel Eine Solarzelle
-Eine Siliziumzelle von rund $100\,\text{cm}^2$ in voller Sonne:
-
-$$I_S = 10^{-10}\,\text{A}, \qquad I_\text{Ph} = 3\,\text{A}, \qquad U_T = 25{,}9\,\text{mV}.$$
-
-**Leerlauf und Kurzschluss.**
-
-$$U_L = 0{,}02585\,\text{V}\cdot\ln\big(1 + 3\cdot10^{10}\big) = 0{,}624\,\text{V}, \qquad I_K = 3\,\text{A}.$$
-
-**Der Punkt maximaler Leistung.** Die abgegebene Leistung $-UI$ ist für jede Spannung ausrechenbar; ihr Größtwert liegt bei
-
-$$U = 0{,}544\,\text{V}, \qquad -I = 2{,}86\,\text{A}, \qquad P_\text{max} = 1{,}56\,\text{W}.$$
-
-Der Füllfaktor ist
-
-$$\frac{1{,}56\,\text{W}}{0{,}624\,\text{V}\cdot3\,\text{A}} = 0{,}83.$$
-
-**Halbe Bestrahlung.** Mit $I_\text{Ph} = 1{,}5\,\text{A}$:
-
-$$U_L = 0{,}606\,\text{V}, \qquad I_K = 1{,}5\,\text{A}, \qquad P_\text{max} = 0{,}75\,\text{W}.$$
-
-Die Spannung sinkt nur um $18\,\text{mV}$, nämlich um $U_T\ln2$, Strom und Leistung halbieren sich. Für $12\,\text{V}$ schaltet man deshalb Zellen in Reihe, für
-mehr Strom macht man sie größer.
-
-**Im Bild:** Halb so viel Licht hebt halb so viele Autos; für den Rückstau genügt fast dieselbe Absenkung der Rampe.
-::::
-
-**Umgekehrt: die Leuchtdiode.** In Durchlassrichtung gelangen Elektronen und Löcher auf die jeweils andere Seite und rekombinieren dort. Die frei werdende
-Energie, rund $W_g$ je Paar, geht in Silizium fast ganz als Wärme ins Gitter. In Halbleitern wie Galliumarsenid oder Galliumnitrid wird sie überwiegend als
-Photon abgegeben: Das ist die __Leuchtdiode__, kurz LED. Ihre Farbe folgt aus der Bandlücke, wie die Tabelle der Grenzwellenlängen im vorigen Artikel zeigt:
-Galliumarsenid leuchtet im Infraroten, Galliumnitrid mit Indium blau. Fotodiode und Solarzelle machen aus Licht Strom, die Leuchtdiode aus Strom Licht. Im
-Bild: Ein Auto, das in eine Lücke fällt, gibt die Höhe der Rampe frei, als Wärme oder als Lichtblitz.
+*Wie erzeugt Licht in einer Diode einen Strom, und warum kann eine beleuchtete Diode Leistung abgeben?*
 
 :::grafik
-Szene: get1/halbleiterbauelemente/02-fotodiode-solarzelle · Vorlage: fotodiode-kennlinienfeld
-Links der Querschnitt einer Solarzelle wie in Bild 10.11: oben eine dünne n-Schicht mit Metallfingern, darunter die p-Schicht mit metallischer Rückseite;
-Photonen fallen ein und erzeugen nahe der Grenzschicht Paare, die Elektronen wandern nach oben zum Minuspol, die Löcher nach unten zum Pluspol, und durch
-einen angeschlossenen Widerstand fließt der Strom. In der Mitte das Ersatzschaltbild: eine Stromquelle $I_\text{Ph}$ mit dem Pfeil von der Kathode zur Anode
-parallel zur Diode. Rechts das Kennlinienfeld für vier Beleuchtungen mit $I_\text{Ph} = 0$, $0{,}75$, $1{,}5$, $2{,}25$ und $3\,\text{A}$: die dunkle Kennlinie
-durch den Ursprung, die beleuchteten um $I_\text{Ph}$ nach unten verschoben; der vierte Quadrant ist hervorgehoben, auf jeder Kurve $U_L$ und $I_K$ markiert,
-und am Punkt maximaler Leistung ein Rechteck aus $U$ und $-I$, dessen Fläche die Leistung ist. Ein Regler für die Beleuchtung verschiebt die Kurven, ein
-Regler für den Lastwiderstand den Arbeitspunkt längs der Kurve; die Leistung steht als Zahl daneben. Kernaussage: Licht verschiebt die Diodenkennlinie nach
-unten; im vierten Quadranten liefert die Diode Leistung, mit fast fester Spannung und lichtproportionalem Strom. (Rot = Kennlinien, blau = Ladungsträger und
-Photonen, orange = Leistungsrechteck und Arbeitspunkt, grau = Achsen und Aufbau.)
+Szene: get1/halbleiterbauelemente/02-fotodiode-quadranten · Vorlage: kennlinienschar-quadranten
+**Abbildung 7:** Kennlinien der Beispieldiode bei vier Bestrahlungsstärken: Fotostrom 0, 11,7, 23,3 und 35 µA (bis 1000 W/m²). Im dritten Quadranten arbeitet sie als Fotodiode, im vierten als Solarzelle; markiert sind Kurzschlussstrom −35 µA, Leerlaufspannung 0,558 V und der Punkt größter Leistung bei 0,481 V und −33,2 µA. Daneben das Ersatzschaltbild: Stromquelle parallel zur Diode. Licht verschiebt die Kennlinie um den Fotostrom nach unten.
 :::
+
+**Die Akteure:**
+
+- __$I_\mathrm{ph}$__: __Fotostrom__, der Strom der Paare, die das Licht erzeugt und das Feld der Zone trennt; proportional zur Lichtleistung.
+- __$U_L$__, __$I_K$__: __Leerlaufspannung__ und __Kurzschlussstrom__ der beleuchteten Diode.
+
+**Das Zusammenspiel in Schritten:**
+
+**Schritt 1**: Ein Photon mit mehr Energie als die Bandlücke kann ein Elektron aus einer Bindung ins Leitungsband heben; es entsteht ein Paar (__innerer Fotoeffekt__). Entscheidend ist die Energie des einzelnen Photons; das meint das Skript mit der „Energie der Strahlung (antiproportional zur Wellenlänge)“ (S. 163). Silizium reagiert deshalb nur auf Licht unterhalb von 1107 nm Wellenlänge; längerwelliges Licht erzeugt praktisch keinen Fotostrom, auch wenn es hell ist.
+
+**Schritt 2**: Entsteht das Paar in der Zone oder nahe daneben, trennt es das Feld: Das Elektron läuft ins n-Gebiet, das Loch ins p-Gebiet. Das Licht vergrößert also den Nachschub an Minoritätsträgern, und der Fotostrom fließt in der Diode von der Kathode zur Anode, in Sperrrichtung.
+
+**Schritt 3**: Die ganze Kennlinie verschiebt sich um den Fotostrom nach unten (Abbildung 7); im Ersatzschaltbild ist das eine [Stromquelle](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ideale-und-reale-quellen.html) parallel zur Diode. In Sperrrichtung ist der Strom fast genau der negative Fotostrom, proportional zum Licht: der __Fotodiodenbetrieb__ in Lichtschranken und Lichtsensoren.
+
+**Schritt 4**: Zwischen Kurzschluss und Leerlauf ist die Spannung positiv und der Strom negativ, ihr Produkt also negativ: Im Verbraucherzählpfeilsystem heißt das, die Diode gibt Leistung ab. So arbeitet die __Solarzelle__.
+
+:::formel Gesetz
+$$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big] - I_\mathrm{ph}$$
+:::
+
+**So liest man das:** Eingabe sind Spannung und Fotostrom, Ausgabe der Strom der beleuchteten Diode. Ohne Licht bleibt die Shockley-Gleichung; mit Licht verschiebt sich die Kennlinie um $I_\mathrm{ph}$ nach unten, ohne ihre Form zu ändern.
+
+Idee der Herleitung: Das Licht erzeugt zusätzliche Minoritätsträger und vergrößert damit den Strom hinunter; der Strom hinauf bleibt unberührt.
+
+:::herleitung
+**Ausgangspunkt:** das Zwei-Ströme-Bild aus der Herleitung der Shockley-Gleichung.
+
+**Annahmen:** (i) Das Licht erzeugt Paare in und neben der Zone mit einer Rate, die nicht von der Spannung abhängt; (ii) jedes Paar, das in der Zone entsteht oder deren Rand erreicht, wird getrennt; (iii) schwache Injektion: Auch mit Licht bleiben die Minoritätsträger selten gegenüber der Dotierung.
+
+**Schritt 1**: Die vom Licht erzeugten Minoritätsträger fallen wie die thermisch erzeugten über die Barriere hinunter. Der Strom hinunter wird
+
+$$I_\mathrm{hinunter} = I_S + I_\mathrm{ph}$$
+
+**Schritt 2** (entscheidender Schritt): Der Strom hinauf hängt nur von der Höhe der Barriere ab, und die legt nach (iii) weiterhin die Spannung fest:
+
+$$I_\mathrm{hinauf} = I_S\,\exp\!\Big(\frac{U}{U_T}\Big)$$
+
+**Schritt 3**: Netto:
+
+$$I = I_S\,\exp\!\Big(\frac{U}{U_T}\Big) - I_S - I_\mathrm{ph}$$
+
+**Ergebnis:**
+
+$$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big] - I_\mathrm{ph}$$
+
+**Woher die Faktoren kommen:** Der Fotostrom ist ein zusätzlicher Strom hinunter; er steht deshalb mit demselben Vorzeichen wie die −1.
+
+**Proben:** Ohne Licht ergibt sich die Shockley-Gleichung. Ohne Spannung fließt genau der negative Fotostrom. Einheit A.
+
+**Grenzen:** Bei starkem Licht verformt der Bahnwiderstand die Kennlinie, bei schwachem Licht die Rekombination in der Zone; dazu kommen Leckpfade parallel zum Übergang. Reale Solarzellen haben deshalb einen kleineren Füllfaktor als die ideale.
+:::
+
+:::frage
+„Macht Licht die Fotodiode leitend, so wie ein Schalter, der sich schließt?“
+Nein. Ein Fotowiderstand verhält sich so, eine Fotodiode nicht: Sie wird zu einer Stromquelle in Sperrrichtung, deren Strom das Licht festlegt, fast unabhängig von der Spannung. Eine Silizium-Fotodiode liefert bei 1 mW Licht von 850 nm rund 0,55 mA, gleich ob 0 V, −1 V oder −5 V anliegen; sie braucht dafür nicht einmal eine äußere Spannungsquelle.
+:::
+
+Aus der Gleichung der beleuchteten Diode folgen ihre beiden Grenzfälle:
+
+:::formel Formel
+$$U_L = U_T\,\ln\!\Big(\frac{I_\mathrm{ph}}{I_S} + 1\Big)$$
+
+$$I_K = -I_\mathrm{ph}$$
+:::
+
+**So liest man das:** Der Kurzschlussstrom ist der negative Fotostrom und wächst proportional zum Licht. Die Leerlaufspannung wächst dagegen nur logarithmisch, um 59,5 mV je Verzehnfachung des Lichts. Das ist das Ergebnis des Solarzellenversuchs im Skript (S. 164 f.): Die Spannung hängt kaum von der Einstrahlung ab, der Strom wächst proportional. Mit den dort genannten 0,5 V ist vermutlich die Leerlaufspannung gemeint; bei voller Sonne liegt sie bei Siliziumzellen zwischen 0,6 und 0,7 V, die Spannung im Punkt größter Leistung bei etwa 0,5 V.
+
+Idee der Herleitung: Leerlauf heißt kein Strom, Kurzschluss heißt keine Spannung; beides setzt man in die Gleichung der beleuchteten Diode ein.
+
+:::herleitung
+**Ausgangspunkt:** die Gleichung der beleuchteten Diode.
+
+**Annahmen:** wie dort.
+
+**Schritt 1**: Im Leerlauf fließt kein Strom:
+
+$$0 = I_S\,\Big[\exp\!\Big(\frac{U_L}{U_T}\Big) - 1\Big] - I_\mathrm{ph}$$
+
+**Schritt 2** (entscheidender Schritt): Nach der Exponentialfunktion auflösen und logarithmieren; der Strom hinauf gleicht dann den Fotostrom aus:
+
+$$\exp\!\Big(\frac{U_L}{U_T}\Big) = \frac{I_\mathrm{ph}}{I_S} + 1 \quad\Rightarrow\quad U_L = U_T\,\ln\!\Big(\frac{I_\mathrm{ph}}{I_S} + 1\Big)$$
+
+**Schritt 3**: Im Kurzschluss ist die Spannung null, und die eckige Klammer verschwindet:
+
+$$I_K = -I_\mathrm{ph}$$
+
+**Ergebnis:**
+
+$$U_L = U_T\,\ln\!\Big(\frac{I_\mathrm{ph}}{I_S} + 1\Big)$$
+
+$$I_K = -I_\mathrm{ph}$$
+
+**Woher die Faktoren kommen:** Der Logarithmus kehrt die Exponentialfunktion des Stroms hinauf um; $I_S$ steht im Nenner, weil ein großer Sperrstrom den Fotostrom schon bei kleiner Spannung ausgleicht.
+
+**Proben:** Ohne Licht ist die Leerlaufspannung null. Zehnmal mehr Licht erhöht sie um $U_T \ln 10$, also 59,5 mV.
+
+**Grenzen:** Rekombination in der Zone senkt die Leerlaufspannung bei schwachem Licht etwas; bei der Beispieldiode und 10 W/m² um 1,3 mV.
+:::
+
+::::beispiel Die Beispieldiode als Solarzelle
+**Gegeben:** Fläche 0,1 mm², Sättigungssperrstrom 1,457·10⁻¹⁴ A, Temperaturspannung 25,85 mV; bei voller Sonne (1000 W/m²) eine Fotostromdichte von 35 mA/cm², wie bei guten Siliziumzellen.
+
+**Gesucht:** Kurzschlussstrom und Leerlaufspannung bei 1000 W/m² und bei 100 W/m².
+
+**Rechnung:** Fotostrom bei voller Sonne:
+
+$$I_\mathrm{ph} = 35\ \mathrm{mA/cm^2}\cdot10^{-3}\ \mathrm{cm^2} = 35\ \mu\mathrm{A}$$
+
+Leerlaufspannung nach Formel 6:
+
+$$U_L = 25{,}85\ \mathrm{mV}\cdot\ln\!\Big(\frac{35\cdot10^{-6}\ \mathrm{A}}{1{,}457\cdot10^{-14}\ \mathrm{A}} + 1\Big)$$
+
+$$= 25{,}85\ \mathrm{mV}\cdot21{,}60 = 0{,}558\ \mathrm{V}$$
+
+Bei 100 W/m² ist der Fotostrom zehnmal kleiner, 3,5 µA, und die Leerlaufspannung
+
+$$U_L = 25{,}85\ \mathrm{mV}\cdot19{,}30 = 0{,}499\ \mathrm{V}$$
+
+**Ergebnis:** **35 µA und 0,558 V bei voller Sonne; 3,5 µA und 0,499 V bei einem Zehntel.**
+
+**Einordnung:** Ein Zehntel des Lichts kostet 90 % des Stroms, aber nur 59,5 mV Spannung. Die größte Leistung gibt die Zelle zwischen beiden Grenzfällen ab, bei 0,481 V und 33,2 µA: 16 µW aus 0,1 mW Licht, ein Wirkungsgrad von 16 %.
+::::
+
+## Alles hängt an einem Prinzip
+
+| Einzelheit | welche Seite des Prinzips sie zeigt |
+|---|---|
+| Durchlassspannung 0,6 bis 0,7 V, 59,5 mV je Dekade | Die Spannung senkt die Barriere, und der Strom folgt dem Boltzmann-Faktor. |
+| Material und Temperatur | Sie ändern den Nachschub an Minoritätsträgern über $n_i^2$ und verschieben die ganze Kennlinie. |
+| Sperrstrom und Kapazitätsdiode | Wärme liefert kaum Nachschub; die Zone bleibt fast leer, und ihre Weite folgt der Spannung. |
+| Durchbruch und Z-Diode | Ein sehr starkes Feld erzeugt selbst Ladungsträger, durch Stoßionisation oder Tunneln. |
+| Fotodiode und Solarzelle | Licht liefert zusätzlichen Nachschub, proportional zur Lichtleistung. |
+
+In Durchlassrichtung senkt die Spannung die Barriere, und der Strom wächst exponentiell, um eine Dekade je 60 mV; in Sperrrichtung bestimmt allein der Nachschub an Ladungsträgern den Strom, und den liefern Wärme kaum, Licht in Maßen und ein sehr starkes Feld im Überfluss.
 
 ## Bedeutung und Ausblick
 
-Die Shockley-Gleichung ist das Modell der Diode: ein Ventil mit exponentieller Durchlasskennlinie, einem winzigen Sperrstrom und einem Durchbruch, den die
-Z-Diode gezielt nutzt. Licht verschiebt die Kennlinie und macht die Diode zum Sensor oder zur Stromquelle, Sperrspannung verändert ihre Kapazität, und
-Rekombination kann Licht erzeugen.
+Dioden stecken in fast jedem elektronischen Gerät, vom Gleichrichter im Netzteil bis zum Kamerasensor. Im Praktikum begegnet die Kennlinie als Basis-Emitter-Strecke des Transistors BC547C; ihr Temperaturgang von rund −2 mV/K ist ein wichtiger Grund, warum Transistorschaltungen eine Gegenkopplung brauchen, eine Rückführung, die den Arbeitspunkt stabilisiert. Wie man mit der gekrümmten Kennlinie in Schaltungen rechnet, zeigt der nächste Artikel, [Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html).
 
-Weil die Kennlinie gekrümmt ist, lassen sich Schaltungen mit Dioden nicht unmittelbar mit den linearen Verfahren der Kapitel 7 bis 9 lösen. Der nächste
-Artikel zeigt, wie man trotzdem den __Arbeitspunkt__ findet, grafisch mit der Arbeitsgeraden und rechnerisch mit linearen Ersatzschaltungen; die Gerade für
-den Durchbruchsast der Z-Diode war schon eine solche Ersatzschaltung. Danach folgen Gleichrichter und schließlich der Transistor, zwei pn-Übergänge
-hintereinander.
+**In der ausführlichen Fassung:** der Einfluss des Halbleitermaterials und der Temperaturgang mit Herleitung, die reale Kennlinie mit Rekombinations- und Generationsstrom und dem Emissionskoeffizienten, die Abschätzung der Durchbruchspannung und der Dotierung einer Z-Diode, der Glättungsfaktor der Stabilisierungsschaltung, Grenzwellenlänge und Empfindlichkeit einer Fotodiode, der Punkt größter Leistung einer Solarzelle, das Schaltverhalten und die Leuchtdiode. [Zur ausführlichen Fassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie-ausfuehrlich.html)
 
 :::kern
-- Die Diode hat die Anode am p- und die Kathode am n-Gebiet; $U$ und $I$ zählen von der Anode zur Kathode.
-- Shockley-Gleichung: $I=I_S(e^{U/U_T}-1)$, mit $U_T=k_BT/e$, bei $300\,\text{K}$ gleich $25{,}9\,\text{mV}$.
-- Die Spannung wächst nur logarithmisch mit dem Strom, um $59{,}5\,\text{mV}$ je Dekade; daher die fast feste Schleusenspannung von $0{,}6$ bis $0{,}7\,\text{V}$.
-- Bei festem Strom sinkt die Durchlassspannung um rund $2\,\text{mV}$ je Kelvin.
-- Im Durchbruch steigt der Sperrstrom steil an, durch Lawine oder Zener-Effekt; zerstörerisch ist nur die Wärme.
-- Die Z-Diode hält im Durchbruch ihre Spannung; mit Vorwiderstand gilt $\Delta U_A=\frac{r_Z}{R_V+r_Z}\Delta U_E$.
-- Die Sperrschicht ist ein Kondensator, dessen Kapazität mit der Sperrspannung sinkt: die Kapazitätsdiode.
-- Licht erzeugt einen Fotostrom in Sperrrichtung: $I=I_S(e^{U/U_T}-1)-I_\text{Ph}$.
-- Solarzelle: Leerlaufspannung logarithmisch im Licht, Kurzschlussstrom proportional.
-- Die Leuchtdiode gibt die Rekombinationsenergie, etwa $W_g$, als Licht ab.
+- Anode ist die p-, Kathode die n-Seite; das Dreieck im Symbol zeigt die Durchlassrichtung des Stroms.
+- Ideale Kennlinie: $I = I_S\,[\exp(U/U_T) - 1]$, mit $U_T$ = 25,85 mV bei 300 K.
+- Eine Dekade Strom kostet 59,5 mV; eine feste Schwellspannung gibt es nicht, Datenblätter nennen die Durchlassspannung bei einem Strom.
+- Bei festem Strom sinkt die Durchlassspannung um rund 2 mV je Kelvin, weil $I_S$ um 16,6 % je Kelvin wächst.
+- Real: Rekombination in der Zone bei kleinen, starke Injektion und Bahnwiderstand bei großen Strömen; der Sperrstrom stammt aus der Generation in der Zone (pA bis nA).
+- Durchbruch durch Lawine (über etwa 6 V, positiver Temperaturgang) oder Zener-Effekt (unter etwa 5 V, negativer Temperaturgang); er ist umkehrbar, zerstörend ist nur die Wärme.
+- Sperrschichtkapazität: $C_j = \varepsilon A / w(U)$; sie sinkt mit der Sperrspannung.
+- Licht verschiebt die Kennlinie um $-I_\mathrm{ph}$; Fotodiode im dritten, Solarzelle im vierten Quadranten, Leerlaufspannung plus 59,5 mV je Dekade Licht.
 :::
 
 :::quiz
-F: Wie hängen Anode, Kathode und die Zählpfeile zusammen?
-A: Die Anode ist der Anschluss am p-Gebiet, die Kathode der am n-Gebiet; das Dreieck des Symbols zeigt von der Anode zur Kathode, in die Richtung des leichten Stroms. Im Verbraucherzählpfeilsystem zählen $U$ und $I$ von der Anode zur Kathode; positives $U$ ist Durchlass-, negatives Sperrrichtung.
-F: Woher kommt die Shockley-Gleichung, und was bedeuten ihre beiden Glieder?
-A: $I_Se^{U/U_T}$ ist der Hinstrom der Majoritätsträger über die Rampe, die die Spannung absenkt, $-I_S$ der feste Rückstrom der Minoritätsträger. Ohne Spannung heben sie sich auf, in Sperrrichtung bleibt $-I_S$, in Durchlassrichtung wächst der Strom exponentiell.
-F: Was ist an der Gleichung des Skripts zu korrigieren?
-A: $k_BT$ ist eine Energie; die Temperaturspannung ist $U_T=k_BT/e$, bei $300\,\text{K}$ gleich $25{,}9\,\text{mV}$. Außerdem fehlt die $-1$: Die Form $I_Se^{eU/(k_BT)}$ gilt nur im Durchlassbereich, gäbe bei $U=0$ den Strom $I_S$ und weicht bei $0{,}1\,\text{V}$ um $2\,\%$ ab.
-F: Warum wirkt die exponentielle Kennlinie wie eine Schwelle bei $0{,}6$ bis $0{,}7\,\text{V}$?
-A: Die Spannung wächst nur logarithmisch mit dem Strom, um $59{,}5\,\text{mV}$ je Dekade. Mit $I_S=10^{-14}\,\text{A}$ fließen bei $0{,}5\,\text{V}$ erst $2{,}5\,\mu\text{A}$, bei $0{,}7\,\text{V}$ schon $5{,}7\,\text{mA}$; in linearer Darstellung liegt alles darunter auf der Nulllinie.
-F: Warum hat Germanium eine kleinere Schleusenspannung, und warum sinkt die Durchlassspannung mit der Temperatur?
-A: $I_S$ wächst mit $n_i^2$; bei Germanium ist es rund $5{,}8\cdot10^6$-mal so groß, was die Spannung bei $1\,\text{mA}$ um $0{,}4\,\text{V}$ auf $0{,}25\,\text{V}$ senkt. Mit der Temperatur wächst $I_S$ viel schneller als $U_T$, und bei festem Strom sinkt die Spannung um etwa $1{,}8\,\text{mV/K}$.
-F: Was geschieht beim Durchbruch, und zerstört er die Diode?
-A: Das Feld der Zone wächst mit der Wurzel aus Sperrspannung und Dotierung. Ab grob $30$ bis $40\,\text{MV/m}$ setzt Stoßionisation ein, die Lawine, bei stark dotierten Übergängen um $100\,\text{MV/m}$ der Tunneleffekt, der Zener-Effekt unter etwa $5\,\text{V}$. Zerstörerisch ist nur die Wärme bei unbegrenztem Strom; das Skript nennt den Durchbruch fälschlich stets irreversibel.
-F: Wie stabilisiert eine Z-Diode eine Spannung?
-A: Im Durchbruch ändert sich ihre Spannung kaum, ihr differentieller Widerstand $r_Z$ ist klein. Mit einem Vorwiderstand $R_V$ bilden beide für Änderungen einen Spannungsteiler, $\Delta U_A=\frac{r_Z}{R_V+r_Z}\Delta U_E$; mit $10\,\Omega$ und $330\,\Omega$ wird aus $3\,\text{V}$ Schwankung eine von $88\,\text{mV}$.
-F: Warum sinkt die Kapazität einer Kapazitätsdiode mit der Sperrspannung?
-A: Die Sperrschicht ist ein Kondensator mit der Zonenbreite als Plattenabstand, und die Breite wächst mit der Wurzel aus $U_\text{Diff}-U$. Also ist $C_\text{Sp}=C_0/\sqrt{1-U/U_\text{Diff}}$; im Beispiel sinkt sie von $241\,\text{pF}$ ohne Spannung auf $40\,\text{pF}$ bei $-25\,\text{V}$.
-F: Wie entsteht der Fotostrom, und was unterscheidet Fotodiode und Solarzelle?
-A: Photonen mit mindestens $W_g$ erzeugen Paare, die das Feld der Zone trennt; das ist ein Strom von der Kathode zur Anode, proportional zur Bestrahlung, mit $I=I_S(e^{U/U_T}-1)-I_\text{Ph}$. In Sperrrichtung ist die Diode ein Lichtsensor; im vierten Quadranten gibt sie Leistung ab und ist eine Solarzelle.
-F: Warum hängt die Spannung einer Solarzelle kaum vom Licht ab, ihr Strom aber stark?
-A: Die Leerlaufspannung ist $U_T\ln(1+I_\text{Ph}/I_S)$ und wächst nur logarithmisch: bei halber Bestrahlung im Beispiel von $0{,}624$ auf $0{,}606\,\text{V}$. Der Kurzschlussstrom ist $I_\text{Ph}$ selbst und halbiert sich mit. Das ist das Versuchsergebnis des Skripts; am besten Punkt liefert die Zelle $0{,}544\,\text{V}$ und $2{,}86\,\text{A}$, also $1{,}56\,\text{W}$.
+F: Warum steigt die Spannung an einer Siliziumdiode zwischen 1 µA und 100 mA nur um 0,3 V?
+A: Weil der Strom über die Barriere mit dem Boltzmann-Faktor ihrer Absenkung wächst: Jede Verzehnfachung kostet nur 59,5 mV. Fünf Dekaden ergeben 0,30 V, bei der Beispieldiode von 0,467 auf 0,764 V.
+F: Stimmt es, dass eine Siliziumdiode erst ab 0,7 V leitet?
+A: Nein. Die scheinbare Schwelle hängt vom Maßstab ab: Auf einer Achse bis 10 µA scheint die Beispieldiode ab 0,407 V zu leiten, auf einer Achse bis 100 mA ab 0,645 V. Datenblätter nennen deshalb die Durchlassspannung bei einem bestimmten Strom.
+F: Warum sinkt die Durchlassspannung bei Erwärmung, obwohl die Temperaturspannung im Exponenten wächst?
+A: Weil der Sättigungssperrstrom mit dem Quadrat der Eigenleitungsdichte um 16,6 % je Kelvin wächst, doppelt so schnell, wie der Exponent den Strom bei 1 mA bremst (8,3 % je Kelvin). Bei festem Strom sinkt die Spannung deshalb, bei 1 mA um rund 2 mV je Kelvin.
+F: Stimmt es, dass eine Diode im Durchbruch zerstört wird?
+A: Nein. Der Durchbruch ist umkehrbar; Z-Dioden arbeiten dauernd darin. Zerstörend ist die Wärme aus Spannung mal Strom.
+F: Wie groß ist die Leerlaufspannung der Beispieldiode als Solarzelle bei 35 µA Fotostrom, und wie ändert sie sich bei einem Zehntel des Lichts?
+A: 25,85 mV mal ln(35 µA geteilt durch 1,457·10⁻¹⁴ A plus 1) ergibt 0,558 V. Bei einem Zehntel des Lichts sind es 59,5 mV weniger, 0,499 V, während der Kurzschlussstrom auf ein Zehntel sinkt.
+F: Warum sinkt die Kapazität einer Kapazitätsdiode mit steigender Sperrspannung?
+A: Die Zone wirkt wie ein Plattenkondensator, dessen Plattenabstand ihre Weite ist, und diese wächst mit der Wurzel der Spannung über der Zone. Bei der Beispieldiode sinkt die Kapazität von 24,1 pF ohne Spannung auf 6,2 pF bei −10 V.
 :::
