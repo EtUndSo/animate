@@ -561,7 +561,7 @@ def bericht_arbeitspunkt():
     ue2 = kollektorschaltung_voll(2.0, 5.0, 1e3)
     ic, ib = stroeme(2.0 - ue2, 5.0 - ue2)
     P(f"      bei 2 V: U_BE = {(2.0-ue2)*1e3:.0f} mV, I_E = {(ic+ib)*1e3:.3f} mA, I_B = {ib*1e6:.2f} uA, Stromverstärkung "
-      f"I_E/I_B = {(ic+ib)/ib:.0f}; Kleinsignal-Steigung zwischen 2 und 3 V: "
+      f"I_E/I_B = {(ic+ib)/ib:.0f}; mittlere Steigung (Sekante) zwischen 2 und 3 V: "
       f"{(kollektorschaltung_voll(3.0,5.0,1e3)-kollektorschaltung_voll(2.0,5.0,1e3)):.4f}")
     P("   Basisschaltung, Eingang direkt am Emitter: " +
       ", ".join(f"{u:.2f} V -> {basisschaltung_voll(u, 5.0, 1e3):.3f} V" for u in (0.0, -0.5, -0.55, -0.6, -0.62, -0.64, -0.66, -0.68, -0.7, -1.0)))
@@ -593,6 +593,320 @@ def bericht_arbeitspunkt():
     P("   Emitterschaltung mit R_B = 10 kOhm = Inverter (oben); Kollektorschaltung einfaches Modell U_aus = U_ein - 0,6 V")
 
 
+# ------------------------------------------------------------------ Thema 03: Transistor als Verstärker
+# Datenblattwerte Gruppe C bei U_CE = 5 V, I_C = 2 mA, f = 1 kHz: Vishay BC546/547/548 (Dok. 85113, Rev. 1.2) und onsemi BC546/D
+HIE_C = (6e3, 8.7e3, 15e3)            # Eingangsimpedanz h_ie min/typ/max (Vishay)
+HOE_C = (60e-6, 110e-6)               # Ausgangsleitwert h_oe typ/max (Vishay)
+HRE_C = 3e-4                          # Spannungsrückwirkung h_re typ (Vishay)
+HFE_C = (450, 600, 900)               # Kleinsignal-Stromverstärkung h_fe min/typ/max (onsemi; Vishay typ 600)
+R1S, R2S, RCS, RES, UCCS = 330e3, 68e3, 3.9e3, 1e3, 10.0     # Verstärkerstufe = Stromgegenkopplung aus Thema 02
+UZ_N, RZ_N, IZ_N = 5.6, 20.0, 5e-3    # Z-Diode wie in zahlen_halbleiter.py: 5,6 V bei 5 mA, r_Z = 20 Ohm
+UZ_K = UZ_N - RZ_N * IZ_N             # Knickspannung des Geradenmodells: 5,5 V
+
+
+def kleinsignal(UBE, UCE, Bf=B, h=1e-6):
+    """Kleinsignalparameter des vollständigen Modells durch numerisches Ableiten im Arbeitspunkt:
+    g_m = dI_C/dU_BE (U_CE fest), r_BE = dU_BE/dI_B (U_CE fest), r_CE = dU_CE/dI_C (U_BE fest), beta = g_m r_BE."""
+    icp, ibp = stroeme(UBE + h, UCE, Bf=Bf)
+    icm, ibm = stroeme(UBE - h, UCE, Bf=Bf)
+    gm, rbe = (icp - icm) / (2 * h), 2 * h / (ibp - ibm)
+    rce = 2 * h / (stroeme(UBE, UCE + h, Bf=Bf)[0] - stroeme(UBE, UCE - h, Bf=Bf)[0])
+    return gm, rbe, rce, gm * rbe
+
+
+def stufe_ap(UCC=UCCS, R1=R1S, R2=R2S, RC=RCS, RE=RES, Bf=B):
+    """Arbeitspunkt der Verstärkerstufe (Basisspannungsteiler, R_E, R_C): Knotenpotenziale und Ströme."""
+    def f(x):
+        ub, ue, uc = x
+        ic, ib = stroeme(ub - ue, uc - ue, Bf=Bf)
+        return [(UCC - ub) / R1 - ub / R2 - ib, ue / RE - (ic + ib), (UCC - uc) / RC - ic]
+    ub, ue, uc = _loese(f, [1.6, 1.0, UCC / 2])
+    ic, ib = stroeme(ub - ue, uc - ue, Bf=Bf)
+    return ub, ue, uc, ic, ib
+
+
+def stufe_mit_ce(du, ap, RL=None, UCC=UCCS, RC=RCS, Bf=B):
+    """Kollektorpotenzial, wenn die Basis um du gegen den Ruhewert verschoben ist und der Emitter über C_E fest
+    bleibt; eine Last RL hängt über einen großen Koppelkondensator am Kollektor (er hält die Ruhespannung)."""
+    ub, ue, uc0 = ap[0], ap[1], ap[2]
+
+    def g(uc):                         # steigend in uc
+        il = 0.0 if RL is None else (uc - uc0) / RL
+        return stroeme(ub + du - ue, uc - ue, Bf=Bf)[0] + il - (UCC - uc) / RC
+    return _bisekt(g, ue - 0.5, UCC + 1.0)
+
+
+def stufe_ohne_ce(du, ap, RL=None, UCC=UCCS, RC=RCS, RE=RES, Bf=B):
+    """Wie stufe_mit_ce, aber ohne Emitterkondensator: Emitter- und Kollektorpotenzial stellen sich frei ein."""
+    ub, uc0 = ap[0] + du, ap[2]
+
+    def uc_von(ue):
+        def g(uc):                     # steigend in uc
+            il = 0.0 if RL is None else (uc - uc0) / RL
+            return stroeme(ub - ue, uc - ue, Bf=Bf)[0] + il - (UCC - uc) / RC
+        return _bisekt(g, ue - 0.5, UCC + 1.0, n=60)
+
+    def h(ue):                         # steigend in ue: mehr Emitterpotenzial, weniger U_BE und Strom
+        ic, ib = stroeme(ub - ue, uc_von(ue) - ue, Bf=Bf)
+        return ue / RE - (ic + ib)
+    return uc_von(_bisekt(h, ub - 1.0, ub, n=60))
+
+
+def stufe_teil(du, ap, RE1, RL=None, UCC=UCCS, RC=RCS, RE=RES, Bf=B):
+    """Teilweise überbrückter Emitterwiderstand: R_E1 bleibt im Signalweg, der Rest R_E - R_E1 liegt parallel zu C_E,
+    dessen Fußpunkt deshalb auf seiner Ruhespannung bleibt."""
+    ub, uc0 = ap[0] + du, ap[2]
+    ux0 = (ap[3] + ap[4]) * (RE - RE1)        # Ruhespannung am überbrückten Teil
+
+    def uc_von(ue):
+        def g(uc):
+            il = 0.0 if RL is None else (uc - uc0) / RL
+            return stroeme(ub - ue, uc - ue, Bf=Bf)[0] + il - (UCC - uc) / RC
+        return _bisekt(g, ue - 0.5, UCC + 1.0, n=60)
+
+    def h(ue):
+        ic, ib = stroeme(ub - ue, uc_von(ue) - ue, Bf=Bf)
+        return (ue - ux0) / RE1 - (ic + ib)
+    return uc_von(_bisekt(h, ub - 1.0, ub, n=60))
+
+
+def harmonische(fun, uhat, N=256):
+    """Antwort auf u_ein = uhat sin(wt) über eine Periode: Amplituden der 1. bis 3. Harmonischen, größter Ausschlag
+    nach oben und unten gegen den Ruhewert, Verschiebung des Mittelwerts."""
+    import numpy as np
+    y0 = fun(0.0)
+    y = np.array([fun(uhat * math.sin(2 * math.pi * k / N)) for k in range(N)])
+    A = np.abs(np.fft.rfft(y)) / N * 2
+    return A[1], A[2], A[3], y.max() - y0, y0 - y.min(), y.mean() - y0
+
+
+def stabilisierung(UE, R1, RL, Bf=B):
+    """Längsregler nach Skript Bild 11.28: R1 von U_E zur Basis, Z-Diode (Knick 5,5 V, r_Z = 20 Ohm) von der Basis
+    nach Masse, Kollektor an U_E, Ausgang am Emitter mit RL nach Masse."""
+    def iz(u):
+        return max(0.0, (u - UZ_K) / RZ_N)
+
+    def f(x):
+        uk, ua = x
+        ic, ib = stroeme(uk - ua, UE - ua, Bf=Bf)
+        return [(UE - uk) / R1 - iz(uk) - ib, ua / RL - (ic + ib)]
+    uk, ua = _loese(f, [5.55, 4.8])
+    ic, ib = stroeme(uk - ua, UE - ua, Bf=Bf)
+    return uk, ua, ic, ib, iz(uk)
+
+
+def nur_z_diode(UE, RV, RL):
+    """Z-Diode allein mit Vorwiderstand RV und Last RL (Geradenmodell wie oben)."""
+    ua = UE * RL / (RV + RL)
+    if ua <= UZ_K:
+        return ua, 0.0
+    ua = (UE / RV + UZ_K / RZ_N) / (1 / RV + 1 / RL + 1 / RZ_N)
+    return ua, (ua - UZ_K) / RZ_N
+
+
+def stufe_frequenzgang(f, gm, rbe, rce, C1=1e-6, C2=1e-6, CE=470e-6, RL=10e3, RC=RCS, RE=RES):
+    """Kleinsignal-Frequenzgang der Verstärkerstufe (ideale Quelle über C_1, Last über C_2, R_E parallel C_E):
+    Knotenanalyse mit komplexen Leitwerten, Unbekannte Basis, Emitter, Kollektor, Ausgang; Rückgabe u_aus/u_ein."""
+    import numpy as np
+    w = 2 * math.pi * f
+    R12 = R1S * R2S / (R1S + R2S)
+    Y1, Y2, YE = 1j * w * C1, 1j * w * C2, 1 / RE + 1j * w * CE
+    A = np.array([
+        [Y1 + 1 / R12 + 1 / rbe, -1 / rbe, 0, 0],
+        [-1 / rbe - gm, 1 / rbe + gm + 1 / rce + YE, -1 / rce, 0],
+        [gm, -gm - 1 / rce, 1 / rce + 1 / RC + Y2, -Y2],
+        [0, 0, -Y2, Y2 + 1 / RL]], dtype=complex)
+    b = np.array([Y1, 0, 0, 0], dtype=complex)
+    return np.linalg.solve(A, b)[3]
+
+
+def bericht_verstaerker():
+    global UA                          # wird für einen Vergleich ohne Early-Effekt kurz umgestellt
+    P = print
+    P("\n== Thema 03: Transistor als Verstärker (vollständiges Modell, U_T = %.3f mV) ==" % (UT * 1e3))
+    # --- Kleinsignalparameter am Datenblattpunkt
+    ube2 = UT * math.log(2e-3 / IS + 1)
+    gm, rbe, rce, beta = kleinsignal(ube2, 5.0)
+    P(f"Datenblattpunkt I_C = 2 mA, U_CE = 5 V: U_BE = {ube2*1e3:.2f} mV, I_B = {2e-3/B*1e6:.2f} uA")
+    P(f"   g_m = {gm*1e3:.2f} mS (I_C/U_T = {2e-3/UT*1e3:.2f} mS), r_e = 1/g_m = {1/gm:.2f} Ohm, beta = g_m r_BE = {beta:.1f}")
+    P(f"   r_BE = {rbe/1e3:.3f} kOhm (U_T/I_B = {UT/(2e-3/B)/1e3:.3f} kOhm), r_CE = {rce/1e3:.2f} kOhm "
+      f"((U_A + U_CE)/I_C = {(UA+5)/2e-3/1e3:.2f} kOhm), 1/r_CE = {1/rce*1e6:.1f} uS")
+    P(f"   Datenblatt Gruppe C: h_fe {HFE_C[0]}/{HFE_C[1]}/{HFE_C[2]}; h_ie {HIE_C[0]/1e3:.1f}/{HIE_C[1]/1e3:.1f}/{HIE_C[2]/1e3:.0f} kOhm "
+      f"(h_fe typ/g_m = {HFE_C[1]/gm/1e3:.2f} kOhm); h_oe typ {HOE_C[0]*1e6:.0f} uS -> {1/HOE_C[0]/1e3:.1f} kOhm, "
+      f"max {HOE_C[1]*1e6:.0f} uS -> {1/HOE_C[1]/1e3:.1f} kOhm; h_re {HRE_C:.0e}")
+    U0 = ube2 - UT
+    B0 = B * UA / (UA + 5.0)
+    P(f"   erweitertes Ersatzschaltbild (Tangente im Arbeitspunkt): U_0 = U_BE - U_T = {U0*1e3:.2f} mV, R_BE = r_BE, "
+      f"Quelle B_0 I_B mit B_0 = B U_A/(U_A + 5 V) = {B0:.1f}, R_CE = U_A/(B_0 I_B) = {UA/(B0*2e-3/B)/1e3:.2f} kOhm")
+    for ibx in (1e-6, 2e-6, 8e-6, 16e-6):
+        u_esb = U0 + rbe * ibx
+        u_echt = UT * math.log(ibx * B / IS + 1)
+        P(f"      I_B = {ibx*1e6:4.0f} uA: Ersatzschaltbild U_BE = {u_esb*1e3:.1f} mV, Modell {u_echt*1e3:.1f} mV, "
+          f"Fehler {(u_esb-u_echt)*1e3:+.1f} mV")
+    P(f"   Ausgang als Tangentialebene: I_C = beta I_B + (U_CE - 5 V)/r_CE, also Quelle beta I_B minus U_CE,AP/r_CE = "
+      f"{5.0/rce*1e3:.4f} mA, parallel r_CE (die Form B_0 I_B + U_CE/r_CE ergäbe für Änderungen {B0:.1f} statt beta = {beta:.1f})")
+    for ibx in (2e-6, 8e-6):
+        for ucex in (1.0, 10.0):
+            ic_mod = B * ibx * early(ucex)
+            ic_esb = beta * ibx + (ucex - 5.0) / rce
+            P(f"      I_B = {ibx*1e6:.0f} uA, U_CE = {ucex:4.1f} V: Modell {ic_mod*1e3:.4f} mA, Ersatzschaltbild "
+              f"{ic_esb*1e3:.4f} mA ({(ic_esb/ic_mod-1)*100:+.1f} %); bei 5 V stimmt es für jeden Basisstrom")
+    # --- Groß- und Kleinsignal: Exponentialkennlinie gegen Tangente
+    P("Kleinsignal: i_c/I_C = exp(u/U_T) - 1 gegen Tangente u/U_T:")
+    for u in (1e-3, 2e-3, 5e-3, 10e-3, 20e-3, 26e-3):
+        x = u / UT
+        P(f"   u = {u*1e3:4.0f} mV: Tangente {x*100:6.2f} %, exakt +{(math.exp(x)-1)*100:6.2f} % / -{(1-math.exp(-x))*100:5.2f} %, "
+          f"Fehler der Tangente {((math.exp(x)-1)/x-1)*100:5.2f} % (Näherung u/(2U_T) {x/2*100:5.2f} %)")
+    # --- Verstärkerstufe aus Thema 02
+    ap = stufe_ap()
+    ub, ue, uc, ic, ib = ap
+    gm, rbe, rce, beta = kleinsignal(ub - ue, uc - ue)
+    P(f"Verstärkerstufe (10 V; 330 k/68 k; R_C 3,9 k; R_E 1 k): U_B = {ub:.4f} V, U_E = {ue:.4f} V, U_C = {uc:.4f} V, "
+      f"U_CE = {uc-ue:.3f} V, I_C = {ic*1e3:.4f} mA, I_B = {ib*1e6:.3f} uA, U_RC = {RCS*ic:.3f} V")
+    P(f"   g_m = {gm*1e3:.2f} mS, r_e = {1/gm:.2f} Ohm, r_BE = {rbe/1e3:.2f} kOhm, beta = {beta:.1f}, r_CE = {rce/1e3:.1f} kOhm")
+    Rp = RCS * rce / (RCS + rce)
+    Ri = R1S * R2S / (R1S + R2S)
+    P(f"   mit C_E: v_u = -g_m (R_C || r_CE) = {-gm*Rp:.1f} (ohne r_CE: -g_m R_C = {-gm*RCS:.1f} = -U_RC/U_T = "
+      f"{-RCS*ic/UT:.1f}); numerisch {(stufe_mit_ce(1e-5, ap)-stufe_mit_ce(-1e-5, ap))/2e-5:.1f}")
+    for RL in (10e3,):
+        Rpl = 1 / (1 / RCS + 1 / rce + 1 / RL)
+        P(f"   mit C_E und Last {RL/1e3:.0f} kOhm: v_u = {-gm*Rpl:.1f}; numerisch "
+          f"{(stufe_mit_ce(1e-5, ap, RL)-stufe_mit_ce(-1e-5, ap, RL))/2e-5:.1f}")
+    v_ohne = -beta * RCS / (rbe + (beta + 1) * RES)
+    P(f"   ohne C_E: v_u = -beta R_C/(r_BE + (beta+1) R_E) = {v_ohne:.3f} (r_CE vernachlässigt); Näherung -R_C/(R_E + r_e) = "
+      f"{-RCS/(RES+1/gm):.3f}; -R_C/R_E = {-RCS/RES:.2f}; numerisch "
+      f"{(stufe_ohne_ce(1e-4, ap)-stufe_ohne_ce(-1e-4, ap))/2e-4:.3f}")
+    P(f"   ohne C_E wirkt r_CE vergrößert: r_CE (1 + beta R_E/(r_BE + R_E)) = {rce*(1+beta*RES/(rbe+RES))/1e6:.2f} MOhm, "
+      f"deshalb bleibt R_C allein im Zähler; Faktor 1 + g_m R_E = {1+gm*RES:.1f}")
+    RE1 = 100.0
+    P(f"   Teilüberbrückung (R_E1 = 100 Ohm im Signalweg, 900 Ohm überbrückt): v_u = -beta R_C/(r_BE + (beta+1) R_E1) = "
+      f"{-beta*RCS/(rbe+(beta+1)*RE1):.2f}; Näherung -R_C/(R_E1 + r_e) = {-RCS/(RE1+1/gm):.2f}; numerisch "
+      f"{(stufe_teil(1e-4, ap, RE1)-stufe_teil(-1e-4, ap, RE1))/2e-4:.2f}; Eingangswiderstand "
+      f"{1/(1/Ri+1/(rbe+(beta+1)*RE1))/1e3:.1f} kOhm")
+    IR1 = (UCCS - ub) / R1S
+    v_last = -gm / (1 / RCS + 1 / rce + 1 / 10e3)
+    p_ein = (1e-3) ** 2 / (2 * 1 / (1 / Ri + 1 / rbe))
+    p_aus = (abs(v_last) * 1e-3) ** 2 / (2 * 10e3)
+    P(f"   Leistung: Versorgung U_CC (I_C + I_R1) = 10 V ({ic*1e3:.4f} + {IR1*1e3:.4f}) mA = {UCCS*(ic+IR1)*1e3:.2f} mW; "
+      f"Signal 1 mV: Eingang {p_ein*1e12:.1f} pW, an 10 kOhm Last {p_aus*1e9:.0f} nW, Leistungsverstärkung {p_aus/p_ein:.0f}")
+    rin_mit = 1 / (1 / Ri + 1 / rbe)
+    rin_ohne = 1 / (1 / Ri + 1 / (rbe + (beta + 1) * RES))
+    P(f"   Eingangswiderstand: mit C_E R_1||R_2||r_BE = {rin_mit/1e3:.2f} kOhm (r_BE allein {rbe/1e3:.2f}); ohne C_E "
+      f"R_1||R_2||(r_BE + (beta+1) R_E) = {rin_ohne/1e3:.1f} kOhm (Transistor allein {(rbe+(beta+1)*RES)/1e3:.0f} kOhm); "
+      f"Teiler R_1||R_2 = {Ri/1e3:.2f} kOhm")
+    P(f"   Ausgangswiderstand mit C_E: R_C || r_CE = {Rp/1e3:.3f} kOhm")
+    rce_typ = 1 / (HOE_C[0] * ic / 2e-3)      # typischer Datenblattwert, proportional zum Strom umgerechnet
+    P(f"   mit typischem h_oe des BC547C (60 uS bei 2 mA, proportional zu I_C): r_CE = {rce_typ/1e3:.1f} kOhm, "
+      f"v_u = {-gm/(1/RCS+1/rce_typ):.1f} ({(gm/(1/RCS+1/rce_typ))/(gm*Rp)*100-100:+.1f} %)")
+    for Bx in (420, 800):
+        apx = stufe_ap(Bf=Bx)
+        gmx, rbex, rcex, betax = kleinsignal(apx[0] - apx[1], apx[2] - apx[1], Bf=Bx)
+        Rpx = RCS * rcex / (RCS + rcex)
+        P(f"   Exemplar B = {Bx}: I_C = {apx[3]*1e3:.4f} mA ({(apx[3]/ic-1)*100:+.1f} %), v_u mit C_E = {-gmx*Rpx:.1f} "
+          f"({(gmx*Rpx/(gm*Rp)-1)*100:+.1f} %), r_BE = {rbex/1e3:.2f} kOhm, "
+          f"Eingangswiderstand mit C_E {1/(1/Ri+1/rbex)/1e3:.2f} kOhm, ohne C_E v_u = "
+          f"{-betax*RCS/(rbex+(betax+1)*RES):.3f}")
+    # Koppel- und Emitterkondensatoren: untere Grenzfrequenzen
+    for C1 in (1e-6, 10e-6):
+        P(f"   C_1 = {C1*1e6:.0f} uF am Eingang ({rin_mit/1e3:.1f} kOhm): f_u = {1/(2*math.pi*C1*rin_mit):.1f} Hz")
+    P(f"   C_2 = 1 uF vor 10 kOhm Last (R_C || r_CE + R_L = {(Rp+10e3)/1e3:.2f} kOhm): f_u = {1/(2*math.pi*1e-6*(Rp+10e3)):.1f} Hz; "
+      f"Obergrenze der Verstärkung einer Stufe an 10 V: U_CC/U_T = {UCCS/UT:.1f}; mit Stromquelle als Last statt R_C: "
+      f"g_m r_CE = {gm*rce:.0f} (= (U_A + U_CE)/U_T = {(UA+uc-ue)/UT:.0f})")
+    vmid = abs(stufe_frequenzgang(1e5, gm, rbe, rce))
+    P(f"   Frequenzgang mit C_1 = C_2 = 1 uF, C_E = 470 uF, 10 kOhm Last (mittlere Frequenzen |v_u| = {vmid:.1f}):")
+    for fx in (10.0, 14.4, 20.0, 30.0, 50.0, 100.0, 1000.0):
+        P(f"      {fx:7.1f} Hz: |v_u| = {abs(stufe_frequenzgang(fx, gm, rbe, rce)):.1f} "
+          f"({abs(stufe_frequenzgang(fx, gm, rbe, rce))/vmid*100:.0f} %)")
+    f3 = _bisekt(lambda fx: abs(stufe_frequenzgang(fx, gm, rbe, rce)) / vmid - 2 ** -0.5, 1.0, 1000.0, n=60)
+    f3c1 = _bisekt(lambda fx: abs(stufe_frequenzgang(fx, gm, rbe, rce, C2=1.0, CE=1.0)) / vmid - 2 ** -0.5, 0.1, 1000.0, n=60)
+    P(f"      untere Grenzfrequenz der Stufe (71 %): {f3:.1f} Hz; nur C_1 wirksam: {f3c1:.1f} Hz")
+    for CE in (100e-6, 470e-6):
+        rq = 1 / (1 / RES + gm)       # Widerstand, den C_E sieht (ideale Quelle am Eingang): R_E || r_e
+        P(f"   C_E = {CE*1e6:.0f} uF sieht R_E || r_e = {rq:.1f} Ohm: f_u = {1/(2*math.pi*CE*rq):.1f} Hz")
+    # Verzerrung: Ausschläge und 2. Harmonische
+    P("   Verzerrung mit C_E (Eingangsamplitude -> Ausgangsamplitude 1. Harmonische, k2 = A2/A1, Ausschlag ab/auf):")
+    for uh in (1e-3, 2e-3, 5e-3, 7.34e-3, 10e-3):
+        a1, a2, a3, auf, ab, dm = harmonische(lambda d: stufe_mit_ce(d, ap), uh)
+        P(f"      {uh*1e3:4.0f} mV: A1 = {a1*1e3:7.1f} mV, k2 = {a2/a1*100:5.2f} % (Näherung u/(4U_T) {uh/(4*UT)*100:5.2f} %), "
+          f"k3 = {a3/a1*100:5.2f} %, Ausgang nach unten {ab:.3f} V, nach oben {auf:.3f} V, Mittelwert {dm*1e3:+.1f} mV")
+    uh1 = _bisekt(lambda u: (lambda h: h[1] / h[0])(harmonische(lambda d: stufe_mit_ce(d, ap), u)) - 0.01,
+                  0.5e-3, 3e-3, n=30)
+    a1_1 = harmonische(lambda d: stufe_mit_ce(d, ap), uh1)[0]
+    P(f"   für k2 = 1 %: Eingangsamplitude {uh1*1e3:.2f} mV, Ausgangsamplitude {a1_1:.3f} V (Näherung 4 k2 U_RC = "
+      f"{4*0.01*RCS*ic:.3f} V); Platz am Kollektor bis zur Versorgung {RCS*ic:.2f} V, bis U_CE = 0,2 V {uc-ue-0.2:.2f} V")
+    UA_alt = UA
+    UA = 1e12                          # Early-Effekt abgeschaltet: Stufe wie reine Exponentialfunktion
+    ap_ohne_early = stufe_ap()
+    k2_oe = [harmonische(lambda d: stufe_mit_ce(d, ap_ohne_early), uh) for uh in (1e-3, 10e-3)]
+    UA = UA_alt
+    P(f"   zum Vergleich ohne Early-Effekt: k2 = {k2_oe[0][1]/k2_oe[0][0]*100:.3f} % bei 1 mV, "
+      f"{k2_oe[1][1]/k2_oe[1][0]*100:.3f} % bei 10 mV; Faktor (1 + R_C/r_CE)^2 = {(1+RCS/rce)**2:.3f}")
+    P("   ohne C_E, gleiche Ausgangsamplitude:")
+    for uh in (0.0105, 0.0263, 0.0527, 0.263):
+        a1, a2, a3, auf, ab, dm = harmonische(lambda d: stufe_ohne_ce(d, ap), uh)
+        P(f"      {uh*1e3:6.1f} mV: A1 = {a1*1e3:7.1f} mV, k2 = {a2/a1*100:6.3f} %, k3 = {a3/a1*100:6.3f} %, "
+          f"nach unten {ab:.3f} V, nach oben {auf:.3f} V")
+    # --- Grundschaltungen für kleine Signale bei gleichem Ruhestrom
+    P(f"Grundschaltungen im Kleinsignal bei I_C = {ic*1e3:.4f} mA (g_m = {gm*1e3:.2f} mS, beta = {beta:.1f}), Widerstand 3,9 kOhm:")
+    P(f"   Emitterschaltung: v_u = {-gm*Rp:.1f}, r_ein = r_BE = {rbe/1e3:.2f} kOhm, r_aus = R_C || r_CE = {Rp/1e3:.2f} kOhm, "
+      f"Stromverstärkung bei kurzgeschlossenem Ausgang beta = {beta:.0f}, in R_C beta r_CE/(r_CE + R_C) = "
+      f"{beta*rce/(rce+RCS):.0f}")
+    vcc = RCS / (RCS + 1 / gm)
+    Rcc = Rp                           # am Emitter liegen für Signale R_E und r_CE parallel
+    P(f"   Kollektorschaltung (R_E = 3,9 kOhm): v_u = R_E/(R_E + r_e) = {vcc:.4f}, mit r_CE parallel {Rcc/(Rcc+1/gm):.4f}; "
+      f"r_ein = r_BE + (beta+1) R_E = {(rbe+(beta+1)*RCS)/1e6:.2f} MOhm, mit R_E || r_CE = {Rcc/1e3:.3f} kOhm: "
+      f"{(rbe+(beta+1)*Rcc)/1e6:.3f} MOhm; r_aus = r_e + R_q/(beta+1) = {1/gm:.1f} Ohm + R_q/{beta+1:.0f}; "
+      f"mit R_q = 10 kOhm: {1/gm+10e3/(beta+1):.1f} Ohm; Stromverstärkung beta + 1 = {beta+1:.0f}")
+    alpha = beta / (beta + 1)
+    P(f"   Basisschaltung: v_u = +g_m (R_C || r_CE) = {gm*Rp:.1f}, r_ein = 1/(g_m + 1/r_BE) = {1/(gm+1/rbe):.1f} Ohm, "
+      f"r_aus mit idealer Quelle R_C || r_CE = {Rp/1e3:.2f} kOhm, Stromverstärkung alpha = {alpha:.4f}")
+    # Emitterfolger aus Thema 02 (5 V, R_E 1 kOhm, Eingang 2 V)
+    s = (kollektorschaltung_voll(2.0 + 1e-5, 5.0, 1e3) - kollektorschaltung_voll(2.0 - 1e-5, 5.0, 1e3)) / 2e-5
+    ua2 = kollektorschaltung_voll(2.0, 5.0, 1e3)
+    gm2, rbe2, rce2, beta2 = kleinsignal(2.0 - ua2, 5.0 - ua2)
+    P(f"   Emitterfolger aus Thema 02 (5 V, 1 kOhm, Eingang 2 V): Kleinsignal-Steigung {s:.4f}; R_E/(R_E + r_e) = "
+      f"{1e3/(1e3+1/gm2):.4f}; r_e = {1/gm2:.2f} Ohm; r_ein = {(rbe2+(beta2+1)*1e3)/1e3:.0f} kOhm")
+    # --- Spannungsstabilisierung (Skript 11.6)
+    R1z, RLz = 1e3, 200.0
+    P(f"Spannungsstabilisierung (Skript Bild 11.28): U_E = 12 V +- 1 V, R_1 = {R1z/1e3:.0f} kOhm, Z-Diode 5,6 V bei 5 mA "
+      f"(r_Z = 20 Ohm, Knick {UZ_K:.2f} V), Last {RLz:.0f} Ohm")
+    res = {}
+    for UEx in (11.0, 12.0, 13.0):
+        uk, ua, icx, ibx, izx = stabilisierung(UEx, R1z, RLz)
+        res[UEx] = ua
+        P(f"   U_E = {UEx:.0f} V: U_Z = {uk:.4f} V, U_A = {ua:.4f} V, U_BE = {(uk-ua)*1e3:.1f} mV, I_L = {ua/RLz*1e3:.2f} mA, "
+          f"I_B = {ibx*1e6:.1f} uA, I_Z = {izx*1e3:.2f} mA, P_T = {(UEx-ua)*icx*1e3:.0f} mW")
+    dA = res[13.0] - res[11.0]
+    P(f"   Brummhub am Ausgang {dA*1e3:.1f} mV für 2 V am Eingang: Glättungsfaktor {2/dA:.1f} (Näherung 1 + R_1/r_Z = "
+      f"{1+R1z/RZ_N:.0f})")
+    uk12, ua12 = stabilisierung(12.0, R1z, RLz)[:2]
+    P(f"   Skriptformel U_Z + U_BE ergäbe {uk12+(uk12-ua12):.3f} V statt U_Z - U_BE = {ua12:.3f} V")
+    p13 = (13.0 - res[13.0]) * stabilisierung(13.0, R1z, RLz)[2]
+    P(f"   Erwärmung bei {p13*1e3:.0f} mW: onsemi (625 mW, 200 K/W) {p13*BC547['RthJA']:.1f} K; "
+      f"Vishay (500 mW, 250 K/W) {p13*250.0:.1f} K")
+    for RLx in (1e4, 1e3, 500.0, 200.0, 100.0):
+        uk, ua, icx, ibx, izx = stabilisierung(12.0, R1z, RLx)
+        P(f"   Last {RLx:7.0f} Ohm: U_A = {ua:.4f} V, I_L = {ua/RLx*1e3:6.2f} mA, U_BE = {(uk-ua)*1e3:.1f} mV, "
+          f"I_Z = {izx*1e3:.2f} mA, P_T = {(12.0-ua)*icx*1e3:.0f} mW (bei 13 V {(13.0-stabilisierung(13.0,R1z,RLx)[1])*stabilisierung(13.0,R1z,RLx)[2]*1e3:.0f} mW)")
+    # kleinste Eingangsspannung, bei der die Z-Diode noch 1 mA führt
+    UEmin = _bisekt(lambda u: stabilisierung(u, R1z, RLz)[4] - 1e-3, 6.0, 12.0)
+    P(f"   kleinste Eingangsspannung für I_Z >= 1 mA bei 200 Ohm: {UEmin:.3f} V (U_A dann {stabilisierung(UEmin, R1z, RLz)[1]:.3f} V)")
+    gmz, rbez, rcez, betaz = kleinsignal(*(lambda r: (r[0] - r[1], 12.0 - r[1]))(stabilisierung(12.0, R1z, RLz)))
+    P(f"   Ausgangswiderstand r_e + (R_1 || r_Z)/(beta+1) = {1/gmz:.3f} + {(R1z*RZ_N/(R1z+RZ_N))/(betaz+1):.3f} Ohm")
+    P("   zum Vergleich Z-Diode allein (R_V = 330 Ohm wie im Diodenartikel) an derselben Last 200 Ohm:")
+    for UEx in (11.0, 12.0, 13.0):
+        ua, izx = nur_z_diode(UEx, 330.0, RLz)
+        P(f"      U_E = {UEx:.0f} V: U_A = {ua:.3f} V, I_Z = {izx*1e3:.2f} mA")
+    P(f"   Lastkennlinie bei 12 V (Längsregler | Z-Diode allein mit 330 Ohm); Z allein leitet bis R_L > "
+      f"{UZ_K*330.0/(12.0-UZ_K):.0f} Ohm, also I_L < {UZ_K/(UZ_K*330.0/(12.0-UZ_K))*1e3:.1f} mA:")
+    for RLx in (1e4, 2e3, 1e3, 500.0, 300.0, 250.0, 200.0, 150.0, 100.0):
+        ua_t = stabilisierung(12.0, R1z, RLx)[1]
+        ua_z, iz_z = nur_z_diode(12.0, 330.0, RLx)
+        P(f"      R_L = {RLx:6.0f} Ohm: Regler U_A = {ua_t:.4f} V (I_L {ua_t/RLx*1e3:6.2f} mA) | Z allein U_A = {ua_z:.3f} V "
+          f"(I_L {ua_z/RLx*1e3:6.2f} mA, I_Z {iz_z*1e3:5.2f} mA)")
+
+
 if __name__ == "__main__":
     bericht()
     bericht_arbeitspunkt()
+    bericht_verstaerker()

@@ -58,7 +58,8 @@ Gebraucht in: Diode, Arbeitspunkt, Transistor-Kennlinienfeld, OPV-GBW, Energie i
 - Sinus und abgeleitete Formen; **stückweise/abgeschnittene** Signale (Einweg-/Brückengleichrichtung).
 - Überlagerung geglättet + Welligkeit (Brummspannung), Rampe (Slew Rate), Rechteck-Sprungantwort.
 - Lade-/Entladekurven (e-Funktion) mit markierter Zeitkonstante τ.
-Gebraucht in: RC-Laden/Entladen, Gleichrichtung, OPV-Slew-Rate.
+- **Signalprojektion über eine Kennlinie** (neu 2026-10-21): Eingangssinus unterhalb der x-Achse, Antwort rechts neben der y-Achse, Hilfslinien zeigen die Abbildung Punkt für Punkt; dazu die Tangente zum Vergleich.
+Gebraucht in: RC-Laden/Entladen, Gleichrichtung, OPV-Slew-Rate; Transistor als Verstärker (get1/bipolartransistoren/03-verstaerkerstufe, 03-tangente, 03-emitterwiderstand, 03-stabilisierung).
 
 ## 6. Mikrostruktur-/Material-Diagramme  — **P2**
 - **Bändermodell**: gefüllte/leere Energiebänder als Balken, Bandlücke, Elektron (Punkt) / Loch (Kreis), Übergang über die Lücke.
@@ -165,7 +166,7 @@ Gebraucht in: Gesamtbild, Leiter/Halbleiter/Isolator, dotierte Bänder, Kristall
 ## 17. Achsenbruch und abschnittsweiser Maßstab  — **P2** (neu 2026-10-21, Diode)
 - Eine Achse mit sichtbarem Bruch bzw. getrennten Maßstäben je Abschnitt, z. B. Strom in mA oberhalb und in pA unterhalb der Nulllinie, Spannung in 0,1 V rechts und in 10 V links.
 - Die Beschriftung macht die Maßstabswechsel unübersehbar.
-Gebraucht in: Gesamtkennlinie der Diode (Durchlass, Sperr, Durchbruch); später Transistor-Kennlinienfelder mit Sperrbereich.
+Gebraucht in: Gesamtkennlinie der Diode (Durchlass, Sperr, Durchbruch); später Transistor-Kennlinienfelder mit Sperrbereich; Ausgangskennlinien bis zur Early-Spannung −70 V (get1/bipolartransistoren/03-reale-kennlinien).
 
 ## 18. Mengenpfeile und Bilanzdiagramme  — **P2** (neu 2026-10-21, Bipolartransistor)
 - Pfeile, deren Breite proportional zu einem Wert ist (Ströme, Teilchenflüsse), mit der Zahl am Pfeil; Verzweigen und Zusammenführen wie in einem Sankey-Diagramm.
@@ -175,7 +176,7 @@ Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und
 ## 19. Wirkungsketten und Blockbilder  — **P2** (neu 2026-10-21, Arbeitspunkt)
 - Kästen mit Text und Formeln, verbunden durch Pfeile; Anordnung als Kette oder als geschlossener Kreis, Pfeile folgen der Anordnung automatisch.
 - Vorzeichen oder Symbole an Pfeilen und Kästen (+/−, steigt/sinkt), damit Mit- und Gegenkopplung unterscheidbar sind; Auslöser als Kasten außerhalb des Kreises.
-Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); absehbar Gegenkopplung beim Operationsverstärker und Regelkreise.
+Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); absehbar Gegenkopplung beim Operationsverstärker und Regelkreise.
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

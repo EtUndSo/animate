@@ -173,7 +173,7 @@ Inverter: U_CC = 5 V, R_C = 1 kOhm, R_B = 10 kOhm:
 Grundschaltungen (U_CC = 5 V, R_C = R_E = 1 kOhm, vollständiges Modell):
    Emitterschaltung, Eingang direkt an der Basis: 0.50 V -> 4.997 V, 0.55 V -> 4.983 V, 0.60 V -> 4.880 V, 0.62 V -> 4.741 V, 0.64 V -> 4.440 V, 0.66 V -> 3.796 V, 0.68 V -> 2.439 V, 0.70 V -> 0.076 V, 0.75 V -> 0.016 V
    Kollektorschaltung: 0.5 V -> 0.002 V, 0.7 V -> 0.104 V, 1.0 V -> 0.371 V, 2.0 V -> 1.337 V, 3.0 V -> 2.323 V, 4.0 V -> 3.313 V, 5.0 V -> 4.306 V, 5.5 V -> 4.803 V
-      bei 2 V: U_BE = 663 mV, I_E = 1.337 mA, I_B = 2.72 uA, Stromverstärkung I_E/I_B = 492; Kleinsignal-Steigung zwischen 2 und 3 V: 0.9854
+      bei 2 V: U_BE = 663 mV, I_E = 1.337 mA, I_B = 2.72 uA, Stromverstärkung I_E/I_B = 492; mittlere Steigung (Sekante) zwischen 2 und 3 V: 0.9854
    Basisschaltung, Eingang direkt am Emitter: 0.00 V -> 5.000 V, -0.50 V -> 4.997 V, -0.55 V -> 4.983 V, -0.60 V -> 4.879 V, -0.62 V -> 4.738 V, -0.64 V -> 4.435 V, -0.66 V -> 3.786 V, -0.68 V -> 2.416 V, -0.70 V -> -0.388 V, -1.00 V -> -0.988 V
    Steigungen bei U_aus = 2,5 V (I_C = 2,5 mA), Ansteuerung ohne Vorwiderstand: voll Emitterschaltung -93.5, Basisschaltung +93.5; ideal -/+ R_C I_C/U_T = 96.7
    größte Steigung Emitterschaltung (ohne Vorwiderstand): -170 bei U_aus = 0.28 V, I_C = 4.72 mA (Rand der Sättigung)
@@ -181,3 +181,99 @@ Grundschaltungen (U_CC = 5 V, R_C = R_E = 1 kOhm, vollständiges Modell):
    Basisschaltung mit R_E = 1 kOhm vor dem Emitter (U_CC = 5 V, R_C = 1 kOhm): 0.0 V -> 5.000 V, -0.5 V -> 4.998 V, -1.0 V -> 4.630 V, -2.0 V -> 3.665 V, -3.0 V -> 2.682 V, -4.0 V -> 1.693 V, -5.0 V -> 0.703 V, -6.0 V -> -0.289 V
       einfaches Modell: Steigung alpha R_C/R_E = 0.998; Sättigung, wenn U_aus auf U_E + 0,2 V = -0,4 V fällt: U_ein = -6.01 V
    Emitterschaltung mit R_B = 10 kOhm = Inverter (oben); Kollektorschaltung einfaches Modell U_aus = U_ein - 0,6 V
+
+== Thema 03: Transistor als Verstärker (vollständiges Modell, U_T = 25.852 mV) ==
+Datenblattpunkt I_C = 2 mA, U_CE = 5 V: U_BE = 672.71 mV, I_B = 4.00 uA
+   g_m = 77.36 mS (I_C/U_T = 77.36 mS), r_e = 1/g_m = 12.93 Ohm, beta = g_m r_BE = 500.0
+   r_BE = 6.463 kOhm (U_T/I_B = 6.463 kOhm), r_CE = 37.50 kOhm ((U_A + U_CE)/I_C = 37.50 kOhm), 1/r_CE = 26.7 uS
+   Datenblatt Gruppe C: h_fe 450/600/900; h_ie 6.0/8.7/15 kOhm (h_fe typ/g_m = 7.76 kOhm); h_oe typ 60 uS -> 16.7 kOhm, max 110 uS -> 9.1 kOhm; h_re 3e-04
+   erweitertes Ersatzschaltbild (Tangente im Arbeitspunkt): U_0 = U_BE - U_T = 646.86 mV, R_BE = r_BE, Quelle B_0 I_B mit B_0 = B U_A/(U_A + 5 V) = 466.7, R_CE = U_A/(B_0 I_B) = 37.50 kOhm
+      I_B =    1 uA: Ersatzschaltbild U_BE = 653.3 mV, Modell 636.9 mV, Fehler +16.4 mV
+      I_B =    2 uA: Ersatzschaltbild U_BE = 659.8 mV, Modell 654.8 mV, Fehler +5.0 mV
+      I_B =    8 uA: Ersatzschaltbild U_BE = 698.6 mV, Modell 690.6 mV, Fehler +7.9 mV
+      I_B =   16 uA: Ersatzschaltbild U_BE = 750.3 mV, Modell 708.5 mV, Fehler +41.7 mV
+   Ausgang als Tangentialebene: I_C = beta I_B + (U_CE - 5 V)/r_CE, also Quelle beta I_B minus U_CE,AP/r_CE = 0.1333 mA, parallel r_CE (die Form B_0 I_B + U_CE/r_CE ergäbe für Änderungen 466.7 statt beta = 500.0)
+      I_B = 2 uA, U_CE =  1.0 V: Modell 0.9467 mA, Ersatzschaltbild 0.8933 mA (-5.6 %); bei 5 V stimmt es für jeden Basisstrom
+      I_B = 2 uA, U_CE = 10.0 V: Modell 1.0667 mA, Ersatzschaltbild 1.1333 mA (+6.3 %); bei 5 V stimmt es für jeden Basisstrom
+      I_B = 8 uA, U_CE =  1.0 V: Modell 3.7867 mA, Ersatzschaltbild 3.8933 mA (+2.8 %); bei 5 V stimmt es für jeden Basisstrom
+      I_B = 8 uA, U_CE = 10.0 V: Modell 4.2667 mA, Ersatzschaltbild 4.1333 mA (-3.1 %); bei 5 V stimmt es für jeden Basisstrom
+Kleinsignal: i_c/I_C = exp(u/U_T) - 1 gegen Tangente u/U_T:
+   u =    1 mV: Tangente   3.87 %, exakt +  3.94 % / - 3.79 %, Fehler der Tangente  1.96 % (Näherung u/(2U_T)  1.93 %)
+   u =    2 mV: Tangente   7.74 %, exakt +  8.04 % / - 7.44 %, Fehler der Tangente  3.97 % (Näherung u/(2U_T)  3.87 %)
+   u =    5 mV: Tangente  19.34 %, exakt + 21.34 % / -17.59 %, Fehler der Tangente 10.33 % (Näherung u/(2U_T)  9.67 %)
+   u =   10 mV: Tangente  38.68 %, exakt + 47.23 % / -32.08 %, Fehler der Tangente 22.10 % (Näherung u/(2U_T) 19.34 %)
+   u =   20 mV: Tangente  77.36 %, exakt +116.76 % / -53.87 %, Fehler der Tangente 50.93 % (Näherung u/(2U_T) 38.68 %)
+   u =   26 mV: Tangente 100.57 %, exakt +173.39 % / -63.42 %, Fehler der Tangente 72.40 % (Näherung u/(2U_T) 50.29 %)
+Verstärkerstufe (10 V; 330 k/68 k; R_C 3,9 k; R_E 1 k): U_B = 1.6023 V, U_E = 0.9490 V, U_C = 6.3063 V, U_CE = 5.357 V, I_C = 0.9471 mA, I_B = 1.885 uA, U_RC = 3.694 V
+   g_m = 36.64 mS, r_e = 27.30 Ohm, r_BE = 13.71 kOhm, beta = 502.4, r_CE = 79.6 kOhm
+   mit C_E: v_u = -g_m (R_C || r_CE) = -136.2 (ohne r_CE: -g_m R_C = -142.9 = -U_RC/U_T = -142.9); numerisch -136.2
+   mit C_E und Last 10 kOhm: v_u = -99.3; numerisch -99.3
+   ohne C_E: v_u = -beta R_C/(r_BE + (beta+1) R_E) = -3.789 (r_CE vernachlässigt); Näherung -R_C/(R_E + r_e) = -3.796; -R_C/R_E = -3.90; numerisch -3.782
+   ohne C_E wirkt r_CE vergrößert: r_CE (1 + beta R_E/(r_BE + R_E)) = 2.80 MOhm, deshalb bleibt R_C allein im Zähler; Faktor 1 + g_m R_E = 37.6
+   Teilüberbrückung (R_E1 = 100 Ohm im Signalweg, 900 Ohm überbrückt): v_u = -beta R_C/(r_BE + (beta+1) R_E1) = -30.59; Näherung -R_C/(R_E1 + r_e) = -30.64; numerisch -30.26; Eingangswiderstand 30.0 kOhm
+   Leistung: Versorgung U_CC (I_C + I_R1) = 10 V (0.9471 + 0.0254) mA = 9.73 mW; Signal 1 mV: Eingang 45.3 pW, an 10 kOhm Last 493 nW, Leistungsverstärkung 10874
+   Eingangswiderstand: mit C_E R_1||R_2||r_BE = 11.03 kOhm (r_BE allein 13.71); ohne C_E R_1||R_2||(r_BE + (beta+1) R_E) = 50.8 kOhm (Transistor allein 517 kOhm); Teiler R_1||R_2 = 56.38 kOhm
+   Ausgangswiderstand mit C_E: R_C || r_CE = 3.718 kOhm
+   mit typischem h_oe des BC547C (60 uS bei 2 mA, proportional zu I_C): r_CE = 35.2 kOhm, v_u = -128.6 (-5.6 %)
+   Exemplar B = 420: I_C = 0.9295 mA (-1.9 %), v_u mit C_E = -133.8 (-1.8 %), r_BE = 11.75 kOhm, Eingangswiderstand mit C_E 9.72 kOhm, ohne C_E v_u = -3.786
+   Exemplar B = 800: I_C = 0.9838 mA (+3.9 %), v_u mit C_E = -141.2 (+3.7 %), r_BE = 21.07 kOhm, Eingangswiderstand mit C_E 15.34 kOhm, ohne C_E v_u = -3.796
+   C_1 = 1 uF am Eingang (11.0 kOhm): f_u = 14.4 Hz
+   C_1 = 10 uF am Eingang (11.0 kOhm): f_u = 1.4 Hz
+   C_2 = 1 uF vor 10 kOhm Last (R_C || r_CE + R_L = 13.72 kOhm): f_u = 11.6 Hz; Obergrenze der Verstärkung einer Stufe an 10 V: U_CC/U_T = 386.8; mit Stromquelle als Last statt R_C: g_m r_CE = 2915 (= (U_A + U_CE)/U_T = 2915)
+   Frequenzgang mit C_1 = C_2 = 1 uF, C_E = 470 uF, 10 kOhm Last (mittlere Frequenzen |v_u| = 99.3):
+         10.0 Hz: |v_u| = 23.6 (24 %)
+         14.4 Hz: |v_u| = 38.1 (38 %)
+         20.0 Hz: |v_u| = 53.2 (54 %)
+         30.0 Hz: |v_u| = 70.7 (71 %)
+         50.0 Hz: |v_u| = 86.3 (87 %)
+        100.0 Hz: |v_u| = 95.6 (96 %)
+       1000.0 Hz: |v_u| = 99.3 (100 %)
+      untere Grenzfrequenz der Stufe (71 %): 29.6 Hz; nur C_1 wirksam: 14.4 Hz
+   C_E = 100 uF sieht R_E || r_e = 26.6 Ohm: f_u = 59.9 Hz
+   C_E = 470 uF sieht R_E || r_e = 26.6 Ohm: f_u = 12.7 Hz
+   Verzerrung mit C_E (Eingangsamplitude -> Ausgangsamplitude 1. Harmonische, k2 = A2/A1, Ausschlag ab/auf):
+         1 mV: A1 =   136.2 mV, k2 =  0.88 % (Näherung u/(4U_T)  0.97 %), k3 =  0.00 %, Ausgang nach unten 0.139 V, nach oben 0.134 V, Mittelwert -1.2 mV
+         2 mV: A1 =   272.6 mV, k2 =  1.75 % (Näherung u/(4U_T)  1.93 %), k3 =  0.02 %, Ausgang nach unten 0.282 V, nach oben 0.263 V, Mittelwert -4.8 mV
+         5 mV: A1 =   683.3 mV, k2 =  4.37 % (Näherung u/(4U_T)  4.84 %), k3 =  0.11 %, Ausgang nach unten 0.744 V, nach oben 0.624 V, Mittelwert -29.9 mV
+         7 mV: A1 =  1007.1 mV, k2 =  6.41 % (Näherung u/(4U_T)  7.10 %), k3 =  0.24 %, Ausgang nach unten 1.139 V, nach oben 0.881 V, Mittelwert -64.5 mV
+        10 mV: A1 =  1380.7 mV, k2 =  8.70 % (Näherung u/(4U_T)  9.67 %), k3 =  0.45 %, Ausgang nach unten 1.627 V, nach oben 1.147 V, Mittelwert -119.9 mV
+   für k2 = 1 %: Eingangsamplitude 1.14 mV, Ausgangsamplitude 0.155 V (Näherung 4 k2 U_RC = 0.148 V); Platz am Kollektor bis zur Versorgung 3.69 V, bis U_CE = 0,2 V 5.16 V
+   zum Vergleich ohne Early-Effekt: k2 = 0.967 % bei 1 mV, 9.611 % bei 10 mV; Faktor (1 + R_C/r_CE)^2 = 1.100
+   ohne C_E, gleiche Ausgangsamplitude:
+        10.5 mV: A1 =    39.7 mV, k2 =  0.007 %, k3 =  0.000 %, nach unten 0.040 V, nach oben 0.040 V
+        26.3 mV: A1 =    99.5 mV, k2 =  0.018 %, k3 =  0.000 %, nach unten 0.100 V, nach oben 0.099 V
+        52.7 mV: A1 =   199.3 mV, k2 =  0.035 %, k3 =  0.001 %, nach unten 0.199 V, nach oben 0.199 V
+       263.0 mV: A1 =   994.3 mV, k2 =  0.182 %, k3 =  0.016 %, nach unten 0.998 V, nach oben 0.991 V
+Grundschaltungen im Kleinsignal bei I_C = 0.9471 mA (g_m = 36.64 mS, beta = 502.4), Widerstand 3,9 kOhm:
+   Emitterschaltung: v_u = -136.2, r_ein = r_BE = 13.71 kOhm, r_aus = R_C || r_CE = 3.72 kOhm, Stromverstärkung bei kurzgeschlossenem Ausgang beta = 502, in R_C beta r_CE/(r_CE + R_C) = 479
+   Kollektorschaltung (R_E = 3,9 kOhm): v_u = R_E/(R_E + r_e) = 0.9930, mit r_CE parallel 0.9927; r_ein = r_BE + (beta+1) R_E = 1.98 MOhm, mit R_E || r_CE = 3.718 kOhm: 1.885 MOhm; r_aus = r_e + R_q/(beta+1) = 27.3 Ohm + R_q/503; mit R_q = 10 kOhm: 47.2 Ohm; Stromverstärkung beta + 1 = 503
+   Basisschaltung: v_u = +g_m (R_C || r_CE) = 136.2, r_ein = 1/(g_m + 1/r_BE) = 27.2 Ohm, r_aus mit idealer Quelle R_C || r_CE = 3.72 kOhm, Stromverstärkung alpha = 0.9980
+   Emitterfolger aus Thema 02 (5 V, 1 kOhm, Eingang 2 V): Kleinsignal-Steigung 0.9807; R_E/(R_E + r_e) = 0.9810; r_e = 19.37 Ohm; r_ein = 502 kOhm
+Spannungsstabilisierung (Skript Bild 11.28): U_E = 12 V +- 1 V, R_1 = 1 kOhm, Z-Diode 5,6 V bei 5 mA (r_Z = 20 Ohm, Knick 5.50 V), Last 200 Ohm
+   U_E = 11 V: U_Z = 5.6069 V, U_A = 4.8700 V, U_BE = 736.9 mV, I_L = 24.35 mA, I_B = 47.9 uA, I_Z = 5.35 mA, P_T = 149 mW
+   U_E = 12 V: U_Z = 5.6265 V, U_A = 4.8899 V, U_BE = 736.7 mV, I_L = 24.45 mA, I_B = 47.5 uA, I_Z = 6.33 mA, P_T = 174 mW
+   U_E = 13 V: U_Z = 5.6461 V, U_A = 4.9097 V, U_BE = 736.4 mV, I_L = 24.55 mA, I_B = 47.1 uA, I_Z = 7.31 mA, P_T = 198 mW
+   Brummhub am Ausgang 39.7 mV für 2 V am Eingang: Glättungsfaktor 50.4 (Näherung 1 + R_1/r_Z = 51)
+   Skriptformel U_Z + U_BE ergäbe 6.363 V statt U_Z - U_BE = 4.890 V
+   Erwärmung bei 198 mW: onsemi (625 mW, 200 K/W) 39.6 K; Vishay (500 mW, 250 K/W) 49.6 K
+   Last   10000 Ohm: U_A = 4.9913 V, I_L =   0.50 mA, U_BE = 636.1 mV, I_Z = 6.37 mA, P_T = 3 mW (bei 13 V 4 mW)
+   Last    1000 Ohm: U_A = 4.9320 V, I_L =   4.93 mA, U_BE = 695.3 mV, I_Z = 6.36 mA, P_T = 35 mW (bei 13 V 40 mW)
+   Last     500 Ohm: U_A = 4.9140 V, I_L =   9.83 mA, U_BE = 713.1 mV, I_Z = 6.35 mA, P_T = 70 mW (bei 13 V 79 mW)
+   Last     200 Ohm: U_A = 4.8899 V, I_L =  24.45 mA, U_BE = 736.7 mV, I_Z = 6.33 mA, P_T = 174 mW (bei 13 V 198 mW)
+   Last     100 Ohm: U_A = 4.8711 V, I_L =  48.71 mA, U_BE = 754.5 mV, I_Z = 6.28 mA, P_T = 347 mW (bei 13 V 396 mW)
+   kleinste Eingangsspannung für I_Z >= 1 mA bei 200 Ohm: 6.570 V (U_A dann 4.782 V)
+   Ausgangswiderstand r_e + (R_1 || r_Z)/(beta+1) = 1.059 + 0.038 Ohm
+   zum Vergleich Z-Diode allein (R_V = 330 Ohm wie im Diodenartikel) an derselben Last 200 Ohm:
+      U_E = 11 V: U_A = 4.151 V, I_Z = 0.00 mA
+      U_E = 12 V: U_A = 4.528 V, I_Z = 0.00 mA
+      U_E = 13 V: U_A = 4.906 V, I_Z = 0.00 mA
+   Lastkennlinie bei 12 V (Längsregler | Z-Diode allein mit 330 Ohm); Z allein leitet bis R_L > 279 Ohm, also I_L < 19.7 mA:
+      R_L =  10000 Ohm: Regler U_A = 4.9913 V (I_L   0.50 mA) | Z allein U_A = 5.860 V (I_L   0.59 mA, I_Z 18.02 mA)
+      R_L =   2000 Ohm: Regler U_A = 4.9499 V (I_L   2.47 mA) | Z allein U_A = 5.817 V (I_L   2.91 mA, I_Z 15.83 mA)
+      R_L =   1000 Ohm: Regler U_A = 4.9320 V (I_L   4.93 mA) | Z allein U_A = 5.763 V (I_L   5.76 mA, I_Z 13.14 mA)
+      R_L =    500 Ohm: Regler U_A = 4.9140 V (I_L   9.83 mA) | Z allein U_A = 5.658 V (I_L  11.32 mA, I_Z  7.90 mA)
+      R_L =    300 Ohm: Regler U_A = 4.9006 V (I_L  16.34 mA) | Z allein U_A = 5.524 V (I_L  18.41 mA, I_Z  1.21 mA)
+      R_L =    250 Ohm: Regler U_A = 4.8958 V (I_L  19.58 mA) | Z allein U_A = 5.172 V (I_L  20.69 mA, I_Z  0.00 mA)
+      R_L =    200 Ohm: Regler U_A = 4.8899 V (I_L  24.45 mA) | Z allein U_A = 4.528 V (I_L  22.64 mA, I_Z  0.00 mA)
+      R_L =    150 Ohm: Regler U_A = 4.8822 V (I_L  32.55 mA) | Z allein U_A = 3.750 V (I_L  25.00 mA, I_Z  0.00 mA)
+      R_L =    100 Ohm: Regler U_A = 4.8711 V (I_L  48.71 mA) | Z allein U_A = 2.791 V (I_L  27.91 mA, I_Z  0.00 mA)

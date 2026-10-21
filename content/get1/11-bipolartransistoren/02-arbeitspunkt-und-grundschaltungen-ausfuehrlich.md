@@ -636,7 +636,7 @@ Die __Kollektorschaltung__ heißt auch __Emitterfolger__: Die Ausgangsspannung a
 $$U_\mathrm{aus} = U_\mathrm{ein} - U_{BE,\mathrm{ein}}$$
 :::
 
-**So liest man das:** Solange der Transistor leitet, ist der Ausgang der Eingang minus 0,6 V; die Spannungsverstärkung ist knapp 1, im vollständigen Modell 0,985. Die Stromverstärkung ist $B + 1$: Die Quelle am Eingang liefert nur den Basisstrom, die Last bekommt den Emitterstrom.
+**So liest man das:** Solange der Transistor leitet, ist der Ausgang der Eingang minus 0,6 V; die Spannungsverstärkung ist knapp 1, im vollständigen Modell 0,981 bei 2 V Eingang und 0,985 im Mittel zwischen 2 und 3 V. Die Stromverstärkung ist $B + 1$: Die Quelle am Eingang liefert nur den Basisstrom, die Last bekommt den Emitterstrom.
 
 Idee der Herleitung: Maschenregel vom Eingang über die Basis-Emitter-Strecke zum Ausgang.
 

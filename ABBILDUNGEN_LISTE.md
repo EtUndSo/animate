@@ -1066,3 +1066,166 @@ Zahlenwerk: `notizen/get1/zahlen_transistor.py` (derselbe Beispieltransistor), F
 - §4 Kennlinien mit Hilfslinie;
 - §11 Datenkurven;
 - §10 Teilbilder im Raster 3 × 2.
+
+## ET1 Kap. 11: Der Transistor als Verstärker
+Zahlenwerk: `notizen/get1/zahlen_transistor.py` (derselbe Beispieltransistor; Z-Diode wie in `zahlen_halbleiter.py`), Funktionen `kleinsignal`, `stufe_ap`, `stufe_mit_ce`, `stufe_ohne_ce`, `stufe_teil`, `harmonische`, `stabilisierung`, `nur_z_diode`, dazu `stroeme`, `ube_bei_ib`, `ic_bei_ib`, `kollektorschaltung_voll`; Bericht `bericht_verstaerker()` (Abschnitt „Thema 03“).
+
+**get1/bipolartransistoren/03-verstaerkerstufe**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltplan: +10 V; $R_1$ = 330 kΩ von +10 V zur Basis, $R_2$ = 68 kΩ von der Basis nach Masse; $R_C$ = 3,9 kΩ; $R_E$ = 1 kΩ parallel $C_E$ = 470 µF; Signalquelle über $C_1$ = 1 µF an der Basis; Ausgang über $C_2$ = 1 µF am Kollektor. Ruhewerte an den Knoten: Basis 1,602 V, Emitter 0,949 V, Kollektor 6,306 V, $I_C$ = 0,947 mA.
+- (b) Drei gestapelte Zeitverläufe über 2 ms bei 1 kHz: Basispotenzial 1,602 V ± 1 mV; Kollektorpotenzial 6,306 V ± 136 mV, gegenphasig; Ausgang hinter $C_2$ ± 136 mV um null. Signale blau, Ruhewerte als graue gestrichelte Linien.
+
+*Kernaussage:* Eine Änderung von einem Millivolt an der Basis erscheint 136-fach vergrößert und umgekehrt am Kollektor.
+
+*Daten:* `stufe_ap()`, `stufe_mit_ce(d, ap)` für d = 1 mV · sin.
+
+*Editor:*
+- §1 Schaltplan mit npn, Kondensatoren, Quelle;
+- §5 Zeitverläufe, gestapelt;
+- §13 gemeinsame Zeitachse;
+- §10 Teilbilder;
+- §8 Animation optional: Punkt läuft synchron durch die drei Verläufe.
+
+**get1/bipolartransistoren/03-tangente**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* $I_C$ über $U_{BE}$ von 0,60 bis 0,70 V (vollständiges Modell bei $U_{CE}$ = 5,36 V), Arbeitspunkt (0,653 V; 0,947 mA) markiert, Tangente mit 36,6 mS gestrichelt orange. Unter der U-Achse zwei Eingangssinusse (1 mV und 10 mV Amplitude, Zeitachse nach unten), rechts die Stromverläufe: bei 1 mV +3,94 %/−3,79 %, bei 10 mV +47,2 %/−32,1 % des Ruhestroms; bei 10 mV die Tangentenwerte (±38,7 %) gestrichelt daneben.
+
+*Kernaussage:* Im Kleinen ist die Kennlinie eine Gerade, im Großen verzerrt sie das Signal.
+
+*Daten:* `stroeme`; Prozentwerte aus `bericht_verstaerker()` („Kleinsignal: …“).
+
+*Editor:*
+- §4 Kennlinie mit Tangente und Arbeitspunkt;
+- §5 Signalprojektion über die Kennlinie (Eingangssinus unten, Ausgangssinus rechts);
+- §11 Datenkurve;
+- §15 Schieberegler für die Eingangsamplitude (0,5 bis 20 mV), die Asymmetrie wächst sichtbar.
+
+**get1/bipolartransistoren/03-reale-kennlinien**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder nach Skript Bild 11.19/11.20.
+- (a) $I_B$ über $U_{BE}$ (0,55 bis 0,72 V, 0 bis 12 µA): idealisiert grau (senkrecht bei 0,6 V), real rot (Exponentialkurve); Tangente im Arbeitspunkt (0,673 V; 4 µA) gestrichelt, Schnitt mit der Achse bei 0,647 V markiert, Steigung 1/(6,46 kΩ).
+- (b) $I_C$ über $U_{CE}$ (−75 bis 12 V, mit abgesetztem negativem Teil bzw. Achsenbruch): idealisiert waagrecht ab 0,2 V (grau), real für $I_B$ = 2, 4, 6, 8 µA leicht steigend (rot); Verlängerungen gestrichelt bis zum gemeinsamen Punkt −70 V; Steigung im Punkt 2 mA/5 V als 1/(37,5 kΩ) beschriftet.
+
+*Kernaussage:* Die realen Kennlinien haben endliche Steigungen; ihre Kehrwerte sind der Eingangs- und der Ausgangswiderstand.
+
+*Daten:* `ube_bei_ib`, `stroeme`; Tangente aus `bericht_verstaerker()` (U_0 = 646,9 mV).
+
+*Editor:*
+- §4 Kennlinien und Kennlinienschar, Tangente;
+- §17 Achsenbruch für den Bereich bis −70 V;
+- §10 Teilbilder;
+- §11 Datenkurven.
+
+**get1/bipolartransistoren/03-ersatzschaltbilder**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Zwei Schaltbilder nebeneinander, Klemmen B, C, E.
+- (a) erweitertes Ersatzschaltbild (Skript Bild 11.21) mit Tangentenwerten: B–E Spannungsquelle 0,647 V in Reihe mit 6,46 kΩ; C–E gesteuerte Stromquelle 500 · $I_B$ − 0,133 mA parallel 37,5 kΩ.
+- (b) Kleinsignal-Ersatzschaltbild: B–E $r_{BE}$ = 6,46 kΩ mit $u_{be}$ und $i_b$; C–E Stromquelle $g_m u_{be}$ (77,4 mS) = $\beta i_b$ (500) parallel $r_{CE}$ = 37,5 kΩ; Zählpfeile für $u_{ce}$, $i_c$.
+
+*Kernaussage:* Für Änderungen fallen die festen Quellen weg; übrig bleiben Eingangswiderstand, gesteuerte Quelle und Ausgangswiderstand.
+
+*Daten:* `bericht_verstaerker()` (Datenblattpunkt).
+
+*Editor:*
+- §1 Spannungs- und gesteuerte Stromquelle, Widerstände, Klemmen;
+- §2 Zählpfeile;
+- §10 Teilbilder;
+- §8 Animation optional: die feste Quelle in (a) wird beim Übergang zu (b) durch einen Kurzschluss ersetzt.
+
+**get1/bipolartransistoren/03-signalweg**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Kleinsignal-Ersatzschaltbild der Stufe mit $C_E$: Quelle $u_\mathrm{ein}$; parallel zum Eingang 330 kΩ, 68 kΩ und $r_{BE}$ = 13,7 kΩ; Stromquelle $g_m u_{be}$ (36,6 mS); am Ausgang $r_{CE}$ = 79,6 kΩ und $R_C$ = 3,9 kΩ parallel nach Masse. Entlang des Signalwegs Pfeile mit den Werten für 1 mV: 1 mV → 36,6 µA → −136 mV. Kondensatoren und Versorgung als Kurzschlüsse angedeutet (blasse Symbole mit Verbindungslinie).
+
+*Kernaussage:* Die Verstärkung ist die Steilheit mal dem Widerstand, in den die Stromänderung fließt.
+
+*Daten:* `bericht_verstaerker()` (Verstärkerstufe).
+
+*Editor:*
+- §1 Schaltplan;
+- §2 Pfeile mit Werten;
+- §19 Wirkungskette entlang des Signalwegs;
+- §7 Hervorhebung der kurzgeschlossenen Bauteile.
+
+**get1/bipolartransistoren/03-emitterwiderstand**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Übertragungskennlinien, Änderung des Kollektorpotenzials über der Änderung des Basispotenzials (vollständiges Modell): mit $C_E$ von −10 bis +10 mV (Steigung −136; −1,63 V bei +10 mV, +1,15 V bei −10 mV); ohne $C_E$ von −263 bis +263 mV (Steigung −3,78; −1,00 V und +0,99 V). Zwei x-Maßstäbe, deshalb zwei Teilachsen übereinander oder normierte x-Achse (Eingang geteilt durch Eingang für 1 V Ausgang).
+- (b) Ausgangsspannung über eine Periode bei 1 V Amplitude: mit $C_E$ aus 7,34 mV, −1,14 V/+0,88 V, Klirrfaktor 6,4 %; ohne $C_E$ aus 263 mV, −1,00 V/+0,99 V, 0,18 %; idealer Sinus grau gestrichelt.
+
+*Kernaussage:* Der Emitterwiderstand tauscht Verstärkung gegen Linearität.
+
+*Daten:* `stufe_mit_ce`, `stufe_ohne_ce`, `harmonische`.
+
+*Editor:*
+- §4 zwei Kennlinien;
+- §5 Zeitverläufe;
+- §11 Datenkurven;
+- §10 Teilbilder;
+- §15 Schieberegler für den überbrückten Anteil von $R_E$ (0 bis 1 kΩ im Signalweg).
+
+**get1/bipolartransistoren/03-grundschaltungen-kleinsignal**
+- Fassung: kompakt Abb. 7, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Drei Kleinsignal-Ersatzschaltbilder nebeneinander, Transistor jeweils als $r_{BE}$, $g_m u_{be}$ (36,6 mS), $r_{CE}$; Ruhestrom 0,947 mA, $\beta$ = 502.
+- (a) Emitterschaltung: Emitter an Masse, $R_C$ = 3,9 kΩ; Werte −136, 13,7 kΩ, 3,72 kΩ.
+- (b) Kollektorschaltung: Kollektor an Masse, $R_E$ = 3,9 kΩ am Emitter (für Signale parallel $r_{CE}$), Quelle mit 10 kΩ; Werte 0,993, 1,88 MΩ, 47,2 Ω.
+- (c) Basisschaltung: Basis an Masse, Eingang am Emitter, $R_C$ = 3,9 kΩ; Werte +136, 27,2 Ω, 3,72 kΩ.
+Gemeinsamer Anschluss jeweils farbig hervorgehoben.
+
+*Kernaussage:* Welcher Anschluss gemeinsam ist, bestimmt, wie Spannung, Strom und Widerstände übertragen werden.
+
+*Daten:* `bericht_verstaerker()` („Grundschaltungen im Kleinsignal …“).
+
+*Editor:*
+- §1 Ersatzschaltbilder;
+- §7 Hervorhebung des gemeinsamen Anschlusses, Wertetafeln;
+- §10 Teilbilder.
+
+**get1/bipolartransistoren/03-stabilisierung**
+- Fassung: kompakt Abb. 8, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltplan wie Skript Bild 11.28: Eingang $U_\mathrm{ein}$ (12 V ± 1 V); $R_1$ = 1 kΩ von der Eingangsschiene zur Basis; Z-Diode 5,6 V von der Basis nach Masse; npn mit Kollektor an der Eingangsschiene, Emitter = Ausgang; Last 200 Ω. Zählpfeile $U_Z$ (Basisknoten nach Masse), $U_{BE}$ (Basis zum Emitter), $U_\mathrm{aus}$; Werte 5,627 V, 0,737 V, 4,890 V; Ströme 24,5 mA, 48 µA, 6,3 mA.
+- (b) Zwei gestapelte Zeitverläufe über 40 ms mit Brummen (Sägezahn wie hinter einem Gleichrichter, 100 Hz): oben $U_\mathrm{ein}$ 11 bis 13 V; unten $U_\mathrm{aus}$ 4,870 bis 4,910 V (eigener Maßstab) und gestrichelt die Z-Diode allein (330 Ω, 200 Ω Last) mit 4,15 bis 4,91 V.
+
+*Kernaussage:* Der Transistor gibt die Spannung der Z-Diode, um $U_{BE}$ vermindert, an die Last weiter; das Brummen wird 50-mal kleiner.
+
+*Daten:* `stabilisierung(U_ein, 1e3, 200)`, `nur_z_diode(U_ein, 330, 200)` über den Verlauf von $U_\mathrm{ein}$.
+
+*Editor:*
+- §1 Schaltplan mit Z-Diode und npn;
+- §2 Zählpfeile;
+- §5 Zeitverläufe;
+- §13 gestapelt mit gemeinsamer Zeitachse;
+- §10 Teilbilder;
+- §15 Schieberegler optional für die Last.
+
+**get1/bipolartransistoren/03-lastkennlinie**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* $U_\mathrm{aus}$ über $I_L$ (logarithmisch, 0,5 bis 50 mA) bei 12 V Eingang. Längsregler: 4,991 V (0,50 mA), 4,950 V (2,47 mA), 4,932 V (4,93 mA), 4,914 V (9,83 mA), 4,901 V (16,3 mA), 4,890 V (24,5 mA), 4,882 V (32,6 mA), 4,871 V (48,7 mA); Steigung 60 mV je Zehnfaches. Z-Diode allein mit 330 Ω: 5,860 V (0,59 mA), 5,763 V (5,76 mA), 5,658 V (11,3 mA), 5,524 V (18,4 mA), 5,172 V (20,7 mA), 4,528 V (22,6 mA), 2,791 V (27,9 mA); Knick bei 19,7 mA markiert.
+
+*Kernaussage:* Der Transistor liefert den Laststrom; die Ausgangsspannung hängt nur noch über $U_{BE}$ schwach von ihm ab.
+
+*Daten:* `bericht_verstaerker()` („Lastkennlinie bei 12 V …“).
+
+*Editor:*
+- §4 zwei Kurven;
+- §12 logarithmische x-Achse;
+- §11 Datenkurven.
