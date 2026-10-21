@@ -132,13 +132,14 @@ Gebraucht in: Gesamtbild (d), Gleichgewichts-Profile, Gleichrichter, Bänder bei
 ## 12. Halblogarithmische Achsen  — **P1**
 - Logarithmische y-Achse mit Zehnerpotenz-Beschriftung (10⁵ … 10¹⁸), x linear; Hilfslinien bei Zehnerpotenzen.
 - Ergänzt §4, das bisher nur doppeltlogarithmische Achsen nennt.
-Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über U (Teilströme).
+- Ebenso logarithmische x-Achse bei linearer y-Achse (Widerstand von 50 kΩ bis 2 MΩ).
+Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über U (Teilströme), Spannungsgegenkopplung über $R_B$.
 
 ## 13. Gestapelte Diagramme mit gemeinsamer x-Achse  — **P2**
 - Mehrere Größen über demselben Ort übereinander (Dichte, Raumladung, Feld, Potenzial, Bänder), nur unten
   beschriftete x-Achse.
 - **Eine Hinterlegung, die durch alle Teilbilder geht** (Raumladungszone).
-Gebraucht in: Gleichgewichts-Profile am pn-Übergang; später Transistor (Profile in Emitter/Basis/Kollektor).
+Gebraucht in: Gleichgewichts-Profile am pn-Übergang; später Transistor (Profile in Emitter/Basis/Kollektor); Spannungsgegenkopplung, Strom und $U_{CE}$ über $R_B$ (get1/bipolartransistoren/02-spannungsgk-kompromiss).
 
 ## 14. Teilchenwolken  — **P2**
 - Viele Punkte/Kreise, zufällig nach einer Verteilung gesetzt (exponentiell in der Energie über einer Bandkante,
@@ -170,6 +171,11 @@ Gebraucht in: Gesamtkennlinie der Diode (Durchlass, Sperr, Durchbruch); später 
 - Pfeile, deren Breite proportional zu einem Wert ist (Ströme, Teilchenflüsse), mit der Zahl am Pfeil; Verzweigen und Zusammenführen wie in einem Sankey-Diagramm.
 - Sehr ungleiche Flüsse (10 000 gegen 12,5) mit gekennzeichneter Lupe bzw. eigenem Maßstab für die kleinen Pfeile.
 Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und gesättigt (get1/bipolartransistoren/01-…).
+
+## 19. Wirkungsketten und Blockbilder  — **P2** (neu 2026-10-21, Arbeitspunkt)
+- Kästen mit Text und Formeln, verbunden durch Pfeile; Anordnung als Kette oder als geschlossener Kreis, Pfeile folgen der Anordnung automatisch.
+- Vorzeichen oder Symbole an Pfeilen und Kästen (+/−, steigt/sinkt), damit Mit- und Gegenkopplung unterscheidbar sind; Auslöser als Kasten außerhalb des Kreises.
+Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); absehbar Gegenkopplung beim Operationsverstärker und Regelkreise.
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

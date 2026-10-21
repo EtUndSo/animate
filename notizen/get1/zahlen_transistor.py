@@ -302,5 +302,297 @@ def bericht():
     P(f"   B des Modells bei {ICp*1e3:.0f} mA: {b_von_ic(ICp):.0f}")
 
 
+# ------------------------------------------------------------------ Thema 02: Arbeitspunkt und Grundschaltungen
+UBE_EIN, UCE_SAT = 0.6, 0.2          # Modellwerte des Skripts
+BC547 = dict(UCEO=45.0, UCBO=50.0, UEBO=6.0, ICmax=0.1, Ptot=0.625, RthJA=200.0, TJmax=150.0)  # onsemi BC546/D
+
+
+def _loese(f, x0):
+    from scipy.optimize import fsolve
+    x, info, ok, msg = fsolve(f, x0, full_output=True, xtol=1e-13)
+    if ok != 1:
+        raise RuntimeError(msg)
+    return x
+
+
+def ap_einfach_basis(UCC, UE, RB, RC, Bf=B):
+    """Einfaches Modell (Skript): Basiswiderstand RB an UE, Kollektorwiderstand RC an UCC."""
+    IB = max(0.0, (UE - UBE_EIN) / RB)
+    IC, UCE = Bf * IB, UCC - RC * Bf * IB
+    if UCE < UCE_SAT:
+        UCE, IC = UCE_SAT, (UCC - UCE_SAT) / RC
+    return IB, IC, UCE
+
+
+def ap_voll_basis(UCC, UE, RB, RC, Bf=B):
+    def f(x):
+        ub, uc = x
+        ic, ib = stroeme(ub, uc, Bf=Bf)
+        return [(UE - ub) / RB - ib, (UCC - uc) / RC - ic]
+    ub, uc = _loese(f, [0.66, UCC / 2])
+    ic, ib = stroeme(ub, uc, Bf=Bf)
+    return ib, ic, uc, ub
+
+
+def ap_einfach_stromgk(UCC, R1, R2, RC, RE, Bf=B, ube=UBE_EIN):
+    Uq, Ri = UCC * R2 / (R1 + R2), R1 * R2 / (R1 + R2)
+    IC = (Uq - ube) / (RE * (1 + 1 / Bf) + Ri / Bf)
+    return Uq, Ri, IC, UCC - RC * IC - RE * IC * (1 + 1 / Bf)
+
+
+def ap_voll_stromgk(UCC, R1, R2, RC, RE, Bf=B):
+    def f(x):
+        ub, ue, uc = x
+        ic, ib = stroeme(ub - ue, uc - ue, Bf=Bf)
+        return [(UCC - ub) / R1 - ub / R2 - ib, ue / RE - (ic + ib), (UCC - uc) / RC - ic]
+    ub, ue, uc = _loese(f, [1.6, 1.0, UCC / 2])
+    ic, ib = stroeme(ub - ue, uc - ue, Bf=Bf)
+    return ic, uc - ue, ub - ue
+
+
+def ap_einfach_spannungsgk(UCC, RB, RC, Bf=B, ube=UBE_EIN):
+    IC = (UCC - ube) / (RC * (1 + 1 / Bf) + RB / Bf)
+    return IC, ube + IC / Bf * RB
+
+
+def ap_voll_spannungsgk(UCC, RB, RC, Bf=B):
+    def f(x):
+        ub, uc = x
+        ic, ib = stroeme(ub, uc, Bf=Bf)
+        return [(uc - ub) / RB - ib, (UCC - uc) / RC - ic - ib]
+    ub, uc = _loese(f, [0.66, UCC / 2])
+    ic, ib = stroeme(ub, uc, Bf=Bf)
+    return ic, uc, ub
+
+
+def spiegel_voll(UCC, R, UCE2, Bf=B, Is2=IS):
+    """Stromspiegel: T1 als Diode geschaltet (U_CE1 = U_BE), T2 mit fester U_CE2; Referenzstrom über R aus UCC."""
+    def f(x):
+        ube = x[0]
+        ic1, ib1 = stroeme(ube, ube, Bf=Bf)
+        ic2, ib2 = stroeme(ube, UCE2, Is=Is2, Bf=Bf)
+        return [(UCC - ube) / R - (ic1 + ib1 + ib2)]
+    ube = _loese(f, [0.65])[0]
+    ic1, _ = stroeme(ube, ube, Bf=Bf)
+    ic2, _ = stroeme(ube, UCE2, Is=Is2, Bf=Bf)
+    return (UCC - ube) / R, ic1, ic2, ube
+
+
+def inverter_voll(Uein, UCC, RB, RC, Bf=B):
+    """Verschachtelte Bisektion: zu jedem Basispotenzial das Kollektorpotenzial aus der Kollektormasche (monoton),
+    dann das Basispotenzial aus der Basismasche (monoton fallend)."""
+    def uc_von(ub):                    # _bisekt erwartet eine steigende Funktion
+        return _bisekt(lambda uc: stroeme(ub, uc, Bf=Bf)[0] - (UCC - uc) / RC, 0.0, UCC + 0.5)
+
+    def h(ub):
+        return (Uein - ub) / RB - stroeme(ub, uc_von(ub), Bf=Bf)[1]
+    ub = _bisekt(lambda u: -h(u), min(Uein, 0.0) - 0.1, max(Uein, 0.0) + 0.1)
+    return uc_von(ub), ub
+
+
+def emitterschaltung_voll(Uein, UCC, RC):
+    return _bisekt(lambda u: stroeme(Uein, u)[0] - (UCC - u) / RC, 0.0, UCC + 0.5)
+
+
+def kollektorschaltung_voll(Uein, UCC, RE):
+    def g(ue):
+        ic, ib = stroeme(Uein - ue, UCC - ue)
+        return ue / RE - (ic + ib)
+    return _bisekt(g, -0.5, max(Uein, 0.0) + 0.5)
+
+
+def basisschaltung_voll(Uein, UCC, RC):
+    """Basis an Masse, Eingangsspannung direkt am Emitter (negativ), RC an UCC."""
+    def g(uc):                         # steigend in uc, wie _bisekt es erwartet
+        ic, ib = stroeme(-Uein, uc - Uein)
+        return ic - (UCC - uc) / RC
+    return _bisekt(g, Uein, UCC + 0.5)
+
+
+def basisschaltung_re_voll(Uein, UCC, RE, RC, Bf=B):
+    """Basis an Masse, Eingangsspannung über den Widerstand RE am Emitter, RC an UCC (verschachtelte Bisektion)."""
+    def uc_von(ue):
+        return _bisekt(lambda uc: stroeme(-ue, uc - ue, Bf=Bf)[0] - (UCC - uc) / RC, ue, UCC + 0.5)
+
+    def h(ue):                         # Emitterstrom aus dem Transistor minus Strom durch RE; steigend in ue
+        ic, ib = stroeme(-ue, uc_von(ue) - ue, Bf=Bf)
+        return (ue - Uein) / RE - (ic + ib)
+    ue = _bisekt(h, min(Uein, 0.0) - 0.1, 0.1)
+    return uc_von(ue), ue
+
+
+def bericht_arbeitspunkt():
+    P = print
+    P("\n== Thema 02: Arbeitspunkt und Grundschaltungen (Modellwerte 0,6 V und 0,2 V; vollständiges Modell zum Vergleich) ==")
+    UCC, RC = 10.0, 2.2e3
+    P(f"Arbeitsgerade 10 V, 2,2 kOhm: Kurzschlussstrom {UCC/RC*1e3:.3f} mA; Mitte U_CE = (U_CC + U_CE,sat)/2 = "
+      f"{(UCC+UCE_SAT)/2:.2f} V, I_C = {(UCC-(UCC+UCE_SAT)/2)/RC*1e3:.3f} mA, P = {(UCC+UCE_SAT)/2*(UCC-(UCC+UCE_SAT)/2)/RC*1e3:.2f} mW")
+    P(f"   größte Verlustleistung auf der Geraden bei U_CC/2: U_CC^2/(4 R_C) = {UCC**2/(4*RC)*1e3:.2f} mW; "
+      f"Erwärmung {UCC**2/(4*RC)*BC547['RthJA']:.1f} K mit R_thJA = 200 K/W")
+    P(f"   gesättigt bei 4,455 mA: {UCE_SAT*(UCC-UCE_SAT)/RC*1e3:.2f} mW; gesperrt: 0")
+    P(f"BC547 Grenzwerte: U_CEO {BC547['UCEO']:.0f} V, I_C {BC547['ICmax']*1e3:.0f} mA, P_tot {BC547['Ptot']*1e3:.0f} mW "
+      f"(25 °C); Hyperbel: 10 V -> {BC547['Ptot']/10*1e3:.1f} mA, 45 V -> {BC547['Ptot']/45*1e3:.1f} mA; "
+      f"Erwärmung bei P_tot: {BC547['Ptot']*BC547['RthJA']:.0f} K")
+    for U, R in ((30.0, 200.0), (24.0, 1e3)):
+        P(f"   Gerade {U:.0f} V/{R:.0f} Ohm: Kurzschlussstrom {U/R*1e3:.0f} mA, größte Leistung {U**2/(4*R)*1e3:.0f} mW bei "
+          f"{U/2:.0f} V und {U/(2*R)*1e3:.0f} mA")
+    P("Bereiche aus gemessenen Werten (B = 500): I_B = 20 uA, I_C = 4,45 mA -> B I_B = 10 mA > I_C: Sättigung; "
+      "I_B = 4 uA, U_CE = 5 V -> aktiv, I_C = 2 mA; U_BE = 0,3 V -> gesperrt")
+
+    P("Basiswiderstand an U_E = U_CC = 10 V, R_C = 2,2 kOhm, Mitte:")
+    UCEm = (UCC + UCE_SAT) / 2
+    ICm = (UCC - UCEm) / RC
+    IBm = ICm / B
+    RBr = (UCC - UBE_EIN) / IBm
+    RBn = e12(RBr)
+    P(f"   I_C = {ICm*1e3:.3f} mA, I_B = {IBm*1e6:.3f} uA, R_B = {RBr/1e6:.3f} MOhm -> E12 {RBn/1e6:.1f} MOhm")
+    for Bx in (420, 500, 800):
+        ib, ic, uce = ap_einfach_basis(UCC, UCC, RBn, RC, Bf=Bx)
+        ibv, icv, ucv, ubv = ap_voll_basis(UCC, UCC, RBn, RC, Bf=Bx)
+        P(f"   B = {Bx}: einfach I_B = {ib*1e6:.3f} uA, I_C = {ic*1e3:.3f} mA, U_CE = {uce:.2f} V; voll I_C = {icv*1e3:.3f} mA, "
+          f"U_CE = {ucv:.2f} V, U_BE = {ubv*1e3:.0f} mV")
+
+    P("Stromgegenkopplung, einfachster Fall: Basis fest auf 1,6 V, R_E = 1 kOhm:")
+    for Bx in (420, 500, 800):
+        IE = (1.6 - UBE_EIN) / 1e3
+        P(f"   B = {Bx}: I_E = {IE*1e3:.3f} mA, I_C = {IE*Bx/(Bx+1)*1e3:.4f} mA")
+    R1, R2, RCs, RE = 330e3, 68e3, 3.9e3, 1e3
+    P(f"Stromgegenkopplung mit Basisspannungsteiler: U_CC = 10 V, R1 = 330 kOhm, R2 = 68 kOhm, R_C = 3,9 kOhm, R_E = 1 kOhm")
+    for Bx in (420, 500, 800):
+        Uq, Ri, ic, uce = ap_einfach_stromgk(UCC, R1, R2, RCs, RE, Bf=Bx)
+        icv, ucev, ubev = ap_voll_stromgk(UCC, R1, R2, RCs, RE, Bf=Bx)
+        P(f"   B = {Bx}: U_q = {Uq:.4f} V, R_i = {Ri/1e3:.2f} kOhm, einfach I_C = {ic*1e3:.4f} mA, U_CE = {uce:.2f} V; "
+          f"voll I_C = {icv*1e3:.4f} mA, U_CE = {ucev:.2f} V, U_BE = {ubev*1e3:.0f} mV")
+    Uq, Ri, ic5, _ = ap_einfach_stromgk(UCC, R1, R2, RCs, RE)
+    P(f"   Nenner R_E(1+1/B) + R_i/B = {RE*(1+1/B):.1f} + {Ri/B:.1f} Ohm; Querstrom durch R2 ~ {(UBE_EIN+RE*ic5*(1+1/B))/R2*1e6:.1f} uA "
+      f"= {(UBE_EIN+RE*ic5*(1+1/B))/R2/(ic5/B):.1f} I_B")
+    P(f"   Skript Gl. 11.1 ohne U_BE: U_CC R2/(R_E (R1+R2)) = {UCC*R2/(RE*(R1+R2))*1e3:.3f} mA "
+      f"(statt {ic5*1e3:.3f} mA, +{(UCC*R2/(RE*(R1+R2))/ic5-1)*100:.0f} %)")
+    dT = abs(dUdT(0.655)) / (RE * (1 + 1 / B) + Ri / B)
+    P(f"   Temperatur: dI_C/dT = |dU_BE/dT|/(Nenner) = {dT*1e6:.2f} uA/K = {dT/ic5*100:.2f} %/K (feste U_BE: 8 %/K); "
+      f"|dU_BE/dT| bei rund 1 mA (U_BE = 0,655 V) = {abs(dUdT(0.655))*1e3:.2f} mV/K")
+    S_B = (RE / B + Ri / B) / (RE * (1 + 1 / B) + Ri / B)
+    tk_lo, tk_hi = dT / ic5 * 100 + 0.5 * S_B, dT / ic5 * 100 + 1.0 * S_B
+    P(f"   Temperatur gesamt, dazu B mit 0,5 bis 1 %/K mal Empfindlichkeit {S_B:.3f}: {tk_lo:.2f} bis {tk_hi:.2f} %/K; "
+      f"gegenüber 8 %/K Faktor {8/tk_hi:.0f} bis {8/tk_lo:.0f}")
+    P(f"   U_BE-Unsicherheit 50 mV ändert I_C um {0.05/(RE*(1+1/B)+Ri/B)/ic5*100:.1f} % ")
+
+    P("Spannungsgegenkopplung: U_CC = 10 V, R_C = 2,2 kOhm, R_B vom Kollektor zur Basis:")
+    for RB in (1.0e6, 100e3):
+        for Bx in (420, 500, 800):
+            ic, uce = ap_einfach_spannungsgk(UCC, RB, RC, Bf=Bx)
+            icv, ucv, ubv = ap_voll_spannungsgk(UCC, RB, RC, Bf=Bx)
+            P(f"   R_B = {RB/1e3:.0f} kOhm, B = {Bx}: einfach I_C = {ic*1e3:.3f} mA, U_CE = {uce:.2f} V; voll I_C = "
+              f"{icv*1e3:.3f} mA, U_CE = {ucv:.2f} V")
+    RBm = (UCEm - UBE_EIN) / ((UCC - UCEm) / (RC * (1 + 1 / B)) / B)
+    P(f"   R_B für die Mitte (B = 500): {RBm/1e6:.3f} MOhm")
+    P("   Kompromiss, einfaches Modell (R_B in kOhm: I_C in mA und U_CE in V für B = 420 / 800; Empfindlichkeit "
+      "(U_CE - U_BE)/(U_CC - U_BE) bei B = 500):")
+    for RB in (50e3, 100e3, 200e3, 500e3, 1e6, 2e6):
+        a = ap_einfach_spannungsgk(UCC, RB, RC, Bf=420)
+        b = ap_einfach_spannungsgk(UCC, RB, RC, Bf=800)
+        m = ap_einfach_spannungsgk(UCC, RB, RC, Bf=500)
+        P(f"      {RB/1e3:6.0f}: {a[0]*1e3:.3f}/{b[0]*1e3:.3f} mA, {a[1]:.2f}/{b[1]:.2f} V; "
+          f"Empfindlichkeit {(m[1]-UBE_EIN)/(UCC-UBE_EIN):.3f}")
+    P("I_C über B (einfaches Modell) für die drei Einstellungen: B: Basiswiderstand 2,2 MOhm / Spannungs-GK 1 MOhm / "
+      "Strom-GK Teiler")
+    for Bx in (300, 420, 500, 600, 800, 1000):
+        P(f"   {Bx:5d}: {ap_einfach_basis(UCC, UCC, 2.2e6, RC, Bf=Bx)[1]*1e3:.3f} / "
+          f"{ap_einfach_spannungsgk(UCC, 1e6, RC, Bf=Bx)[0]*1e3:.3f} / "
+          f"{ap_einfach_stromgk(UCC, 330e3, 68e3, 3.9e3, 1e3, Bf=Bx)[2]*1e3:.4f} mA")
+    Uq, Ri, _, _ = ap_einfach_stromgk(UCC, 330e3, 68e3, 3.9e3, 1e3)
+    P(f"   Empfindlichkeit Strom-GK (R_E/B + R_i/B)/Nenner bei B = 500: {(1e3/500 + Ri/500)/(1e3*(1+1/500)+Ri/500):.3f}; "
+      f"Basiswiderstand: 1; Temperatur Basiswiderstand über U_BE: {2.04e-3/(UCC-UBE_EIN)*100:.3f} %/K, über B 0,5 bis 1 %/K")
+    dev = []
+    for Bx in (420, 500, 800):
+        _, ic, uce = ap_einfach_basis(UCC, UCC, RBn, RC, Bf=Bx)
+        _, icv, ucv, _ = ap_voll_basis(UCC, UCC, RBn, RC, Bf=Bx)
+        dev.append(("Basiswiderstand", Bx, icv / ic - 1, ucv - uce))
+        _, _, ic, uce = ap_einfach_stromgk(UCC, R1, R2, RCs, RE, Bf=Bx)
+        icv, ucv, _ = ap_voll_stromgk(UCC, R1, R2, RCs, RE, Bf=Bx)
+        dev.append(("Strom-GK", Bx, icv / ic - 1, ucv - uce))
+        for RB in (1e6, 100e3):
+            ic, uce = ap_einfach_spannungsgk(UCC, RB, RC, Bf=Bx)
+            icv, ucv, _ = ap_voll_spannungsgk(UCC, RB, RC, Bf=Bx)
+            dev.append((f"Spannungs-GK {RB/1e3:.0f} kOhm", Bx, icv / ic - 1, ucv - uce))
+    mi = max(dev, key=lambda d: abs(d[2]))
+    mu = max(dev, key=lambda d: abs(d[3]))
+    P(f"   Abweichung vollständiges gegen einfaches Modell (alle Arbeitspunkte oben): größte bei I_C {mi[2]*100:+.1f} % "
+      f"({mi[0]}, B = {mi[1]}), größte bei U_CE {mu[3]:+.2f} V ({mu[0]}, B = {mu[1]})")
+
+    P("Stromspiegel: U_CC = 10 V, R = 10 kOhm (einfach: I_ref = (U_CC - 0,6 V)/R):")
+    Iref = (UCC - UBE_EIN) / 10e3
+    for Bx in (420, 500, 800):
+        P(f"   B = {Bx}: I_ref = {Iref*1e3:.3f} mA, I_C2 = I_ref/(1+2/B) = {Iref/(1+2/Bx)*1e3:.4f} mA "
+          f"(-{(1-1/(1+2/Bx))*100:.2f} %)")
+    for UCE2 in (0.3, 0.65, 1.0, 5.0, 10.0):
+        Ir, ic1, ic2, ube = spiegel_voll(UCC, 10e3, UCE2)
+        P(f"   voll, U_CE2 = {UCE2:4.2f} V: I_ref = {Ir*1e3:.4f} mA, I_C1 = {ic1*1e3:.4f} mA, I_C2 = {ic2*1e3:.4f} mA "
+          f"(I_C2/I_ref = {ic2/Ir:.4f}), U_BE = {ube*1e3:.1f} mV")
+    Ir, ic1, ic2, ube = spiegel_voll(UCC, 10e3, 5.0, Is2=1.1e-14)
+    P(f"   T2 mit 10 % größerem I_S (U_CE2 = 5 V): I_C2/I_ref = {ic2/Ir:.4f}")
+    P(f"   Last bis U_CE2 = 0,3 V: R_L,max = (10 V - 0,3 V)/I_C2 = {(UCC-0.3)/(Iref/(1+2/B))/1e3:.1f} kOhm")
+    ube0 = spiegel_voll(UCC, 10e3, 0.65)[3]
+    Ir, _, ic2b, _ = spiegel_voll(UCC, 10e3, ube0)
+    ic21, ic25 = spiegel_voll(UCC, 10e3, 1.0)[2], spiegel_voll(UCC, 10e3, 5.0)[2]
+    P(f"   Early: I_C2 bei U_CE2 = U_BE ({ube0*1e3:.1f} mV) = {ic2b*1e3:.4f} mA; bei 5 V {(ic25/ic2b-1)*100:.1f} % darüber; "
+      f"Anstieg {(ic25-ic21)/4/Ir*100:.2f} % des Referenzstroms je Volt")
+    P(f"   Streuung von B zwischen 420 und 800 (einfach): Kopie ändert sich um "
+      f"{(Iref/(1+2/800)-Iref/(1+2/420))/(Iref/(1+2/B))*100:.3f} %")
+
+    P("Inverter: U_CC = 5 V, R_C = 1 kOhm, R_B = 10 kOhm:")
+    for Bx in (420, 500, 800):
+        P(f"   B = {Bx}: U_E,sat = (U_CC - U_CE,sat) R_B/(B R_C) + U_BE = {(5-UCE_SAT)*10e3/(Bx*1e3)+UBE_EIN:.3f} V; "
+          f"Steigung -B R_C/R_B = {-Bx*1e3/10e3:.0f}")
+    pts = (0.0, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 1.0, 2.0, 3.3, 5.0)
+    P("   voll (B = 500): " + ", ".join(f"{u:.2f} V -> {inverter_voll(u, 5.0, 10e3, 1e3)[0]:.3f} V" for u in pts))
+    for u in (3.3, 5.0):
+        ib = (u - 0.7) / 10e3
+        P(f"   Eingang {u} V: I_B = {ib*1e3:.3f} mA, nötig für Sättigung mit B_min 420: {4.8e-3/420*1e6:.1f} uA "
+          f"-> {ib/(4.8e-3/420):.0f}-fach übersteuert")
+    P(f"   Skript Gl. 11.4 nur um R_C ergänzt, ohne Klammer: U_CC - U_CE,sat R_B/(B R_C) + U_BE = "
+      f"{5.0 - UCE_SAT*10e3/(B*1e3) + UBE_EIN:.3f} V (richtig {(5.0-UCE_SAT)*10e3/(B*1e3)+UBE_EIN:.3f} V)")
+
+    P("Grundschaltungen (U_CC = 5 V, R_C = R_E = 1 kOhm, vollständiges Modell):")
+    P("   Emitterschaltung, Eingang direkt an der Basis: " +
+      ", ".join(f"{u:.2f} V -> {emitterschaltung_voll(u, 5.0, 1e3):.3f} V" for u in (0.5, 0.55, 0.6, 0.62, 0.64, 0.66, 0.68, 0.7, 0.75)))
+    P("   Kollektorschaltung: " + ", ".join(f"{u:.1f} V -> {kollektorschaltung_voll(u, 5.0, 1e3):.3f} V"
+                                         for u in (0.5, 0.7, 1.0, 2.0, 3.0, 4.0, 5.0, 5.5)))
+    ue2 = kollektorschaltung_voll(2.0, 5.0, 1e3)
+    ic, ib = stroeme(2.0 - ue2, 5.0 - ue2)
+    P(f"      bei 2 V: U_BE = {(2.0-ue2)*1e3:.0f} mV, I_E = {(ic+ib)*1e3:.3f} mA, I_B = {ib*1e6:.2f} uA, Stromverstärkung "
+      f"I_E/I_B = {(ic+ib)/ib:.0f}; Kleinsignal-Steigung zwischen 2 und 3 V: "
+      f"{(kollektorschaltung_voll(3.0,5.0,1e3)-kollektorschaltung_voll(2.0,5.0,1e3)):.4f}")
+    P("   Basisschaltung, Eingang direkt am Emitter: " +
+      ", ".join(f"{u:.2f} V -> {basisschaltung_voll(u, 5.0, 1e3):.3f} V" for u in (0.0, -0.5, -0.55, -0.6, -0.62, -0.64, -0.66, -0.68, -0.7, -1.0)))
+    import numpy as np
+
+    def fe(u):
+        return emitterschaltung_voll(u, 5.0, 1e3)
+
+    def fb(u):
+        return basisschaltung_voll(u, 5.0, 1e3)
+
+    def steig(f, u, h=1e-4):
+        return (f(u + h) - f(u - h)) / (2 * h)
+    ue_e = _bisekt(lambda u: 2.5 - fe(u), 0.6, 0.75)      # fe fällt, 2,5 V - fe steigt
+    ue_b = _bisekt(lambda u: fb(u) - 2.5, -0.75, -0.6)    # fb steigt mit dem Eingang
+    P(f"   Steigungen bei U_aus = 2,5 V (I_C = 2,5 mA), Ansteuerung ohne Vorwiderstand: voll Emitterschaltung "
+      f"{steig(fe, ue_e):.1f}, Basisschaltung {steig(fb, ue_b):+.1f}; ideal -/+ R_C I_C/U_T = {1e3*2.5e-3/UT:.1f}")
+    for name, f, a, b in (("Emitterschaltung", fe, 0.6, 0.75), ("Basisschaltung", fb, -0.75, -0.6)):
+        us = np.linspace(a, b, 3001)
+        ys = np.array([f(u) for u in us])
+        d = np.gradient(ys, us)
+        i = int(np.argmax(np.abs(d)))
+        P(f"   größte Steigung {name} (ohne Vorwiderstand): {d[i]:+.0f} bei U_aus = {ys[i]:.2f} V, "
+          f"I_C = {(5.0-ys[i]):.2f} mA (Rand der Sättigung)")
+    P("   Basisschaltung mit R_E = 1 kOhm vor dem Emitter (U_CC = 5 V, R_C = 1 kOhm): " +
+      ", ".join(f"{u:.1f} V -> {basisschaltung_re_voll(u, 5.0, 1e3, 1e3)[0]:.3f} V" for u in (0.0, -0.5, -1.0, -2.0, -3.0, -4.0, -5.0, -6.0)))
+    P(f"      einfaches Modell: Steigung alpha R_C/R_E = {B/(B+1):.3f}; Sättigung, wenn U_aus auf U_E + 0,2 V = -0,4 V fällt: "
+      f"U_ein = {-0.6-(5.0+0.4)/(B/(B+1)):.2f} V")
+    P("   Emitterschaltung mit R_B = 10 kOhm = Inverter (oben); Kollektorschaltung einfaches Modell U_aus = U_ein - 0,6 V")
+
+
 if __name__ == "__main__":
     bericht()
+    bericht_arbeitspunkt()

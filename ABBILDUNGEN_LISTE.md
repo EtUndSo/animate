@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §17);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §19);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -897,3 +897,172 @@ Pfeilbreiten proportional; die kleinen Ströme in einem gekennzeichneten vergrö
 *Editor:*
 - §1 Symbole npn-Transistor, Leuchtdiode, Logikausgang;
 - §2 Strompfeile mit Werten.
+
+## ET1 Kap. 11: Arbeitspunkt und Grundschaltungen des Transistors
+Zahlenwerk: `notizen/get1/zahlen_transistor.py` (derselbe Beispieltransistor), Funktionen `ap_einfach_basis`, `ap_voll_basis`, `ap_einfach_stromgk`, `ap_voll_stromgk`, `ap_einfach_spannungsgk`, `ap_voll_spannungsgk`, `spiegel_voll`, `inverter_voll`, `kollektorschaltung_voll`, `basisschaltung_re_voll`, Grenzwerte im Wörterbuch `BC547`, Bericht `bericht_arbeitspunkt()`.
+
+**get1/bipolartransistoren/02-arbeitsgerade-grenzen**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder, weil die Maßstäbe weit auseinanderliegen.
+- (a) Ausgangskennlinienfeld, $U_{CE}$ 0 bis 12 V, $I_C$ 0 bis 6 mA, Scharparameter $I_B$ = 2, 4, 6, 8, 10 µA; Arbeitsgerade 10 V / 2,2 kΩ von (10 V; 0) nach (0; 4,55 mA); Arbeitspunkt (5,1 V; 2,23 mA) markiert; die Endpunkte als „gesperrt“ (10 V) und „gesättigt“ (0,2 V; 4,45 mA) beschriftet.
+- (b) $U_{CE}$ 0 bis 50 V, $I_C$ 0 bis 160 mA: senkrechte Grenze bei 45 V, waagrechte bei 100 mA, Hyperbel 625 mW (62,5 mA bei 10 V, 13,9 mA bei 45 V), erlaubter Bereich hell hinterlegt; die Gerade aus (a) nahe am Ursprung; zweite Gerade 30 V / 200 Ω bis 150 mA, ihr Abschnitt außerhalb rot; größte Leistung dieser Geraden 1,125 W bei 15 V und 75 mA markiert.
+
+*Kernaussage:* Der Arbeitspunkt ist der Schnittpunkt von Kennlinie und Arbeitsgerade; jede Gerade muss in den Grenzen bleiben.
+
+*Daten:* Kennlinien aus `ic_bei_ib`; Gerade, Mitte (11,36 mW) und Grenzen aus `bericht_arbeitspunkt()` und `BC547`.
+
+*Editor:*
+- §4 Kennlinienschar, Arbeitsgerade mit Schnittpunkt, Bereich hinterlegen;
+- §11 Datenkurven;
+- §10 Teilbilder;
+- §15 Schieberegler optional: $R_C$ dreht die Gerade, der Arbeitspunkt wandert.
+
+**get1/bipolartransistoren/02-ersatzschaltbilder**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder nebeneinander, jeweils oben das Ersatzschaltbild zwischen den Klemmen B, C, E, darunter die linearisierte Kennlinie.
+- (a) Sperrbereich: alle drei Klemmen offen.
+- (b) Aktiver Bereich: B–E Spannungsquelle 0,6 V; C–E gesteuerte Stromquelle $B\,I_B$ (Rautensymbol mit Pfeil).
+- (c) Sättigung: B–E wie (b); C–E Spannungsquelle 0,2 V.
+- Kennlinien: Eingang $I_B$ über $U_{BE}$ mit Knick bei 0,6 V; Steuerkennlinie $I_C$ über $I_B$ mit Steigung $B$, ab der Sättigung waagrecht; Ausgang $I_C$ über $U_{CE}$ mit senkrechtem Ast bei 0,2 V und waagrechten Linien $B\,I_B$.
+
+*Kernaussage:* In jedem Bereich wird der Transistor zu Quellen, mit denen man wie in jedem linearen Netz rechnet.
+
+*Editor:*
+- §1 Symbole Spannungsquelle, gesteuerte Stromquelle, offene Klemmen;
+- §4 stückweise lineare Kennlinien;
+- §10 Teilbilder;
+- §7 Rahmen um das Ersatzschaltbild.
+
+**get1/bipolartransistoren/02-einstellungen**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Drei Schaltpläne an 10 V, gleicher Maßstab.
+- (a) $R_B$ = 2,2 MΩ von +10 V zur Basis, $R_C$ = 2,2 kΩ, Emitter an Masse.
+- (b) Teiler $R_1$ = 330 kΩ / $R_2$ = 68 kΩ an der Basis, $R_E$ = 1 kΩ, $R_C$ = 3,9 kΩ; daneben gestrichelt umrahmt die Ersatzspannungsquelle $U_q$ = 1,71 V mit $R_i$ = 56,4 kΩ.
+- (c) $R_B$ = 1 MΩ vom Kollektor zur Basis, $R_C$ = 2,2 kΩ.
+- Zählpfeile $I_B$, $I_C$, $U_{CE}$ in allen drei.
+
+*Kernaussage:* Drei Wege, den Basisstrom festzulegen, mit sehr verschiedener Abhängigkeit von $B$.
+
+*Editor:*
+- §1 Schaltplan mit npn-Symbol;
+- §2 Zählpfeile;
+- §7 gestrichelter Rahmen für die Ersatzquelle;
+- §10 Teilbilder.
+
+**get1/bipolartransistoren/02-gegenkopplung-kette**
+- Fassung: ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Wirkungskreis aus vier Kästen mit Pfeilen im Uhrzeigersinn:
+- „$I_C$ steigt“ (Auslöser daneben: wärmer oder größeres $B$);
+- „Spannung an $R_E$ steigt“;
+- „bei fester Basisspannung: $U_{BE}$ sinkt, Stufe am Basis-Emitter-Übergang wächst“;
+- „$I_C$ sinkt zurück“, Pfeil zurück zum ersten Kasten mit Minuszeichen (Gegenkopplung).
+
+*Kernaussage:* Jede Abweichung erzeugt ihre eigene Gegenwirkung.
+
+*Editor:*
+- §19 Wirkungskette als Kreis, Kästen mit Formeltext, Pfeile mit Vorzeichen;
+- §8 Animation optional: Pfeile leuchten nacheinander auf.
+
+**get1/bipolartransistoren/02-streuung-vergleich**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* $I_C$ über $B$ von 300 bis 1000, drei Kurven mit Legende (einfaches Modell, Schaltungen aus Abb. 3):
+- Basiswiderstand: proportional, 1,28 mA bei 300 bis 4,27 mA bei 1000 (1,80 mA bei 420, 3,42 mA bei 800);
+- Spannungsgegenkopplung: 1,70 bis 2,94 mA (2,05 mA bei 420, 2,72 mA bei 800);
+- Stromgegenkopplung: 0,931 bis 1,048 mA (0,975 mA bei 420, 1,034 mA bei 800).
+- Die Spanne des BC547C von 420 bis 800 hell hinterlegt, $B$ = 500 gestrichelt.
+
+*Kernaussage:* Je stärker der Strom auf seine eigene Ansteuerung zurückwirkt, desto weniger zählt $B$.
+
+*Daten:* `ap_einfach_basis`, `ap_einfach_spannungsgk`, `ap_einfach_stromgk` über $B$; Tabelle in `bericht_arbeitspunkt()`.
+
+*Editor:*
+- §4 mehrere Kurven mit Legende, Bereich hinterlegen;
+- §11 Datenkurven.
+
+**get1/bipolartransistoren/02-spannungsgk-kompromiss**
+- Fassung: ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei gestapelte Diagramme über $R_B$ von 50 kΩ bis 2 MΩ, x logarithmisch, je eine Kurve für $B$ = 420 und $B$ = 800 (Spannungsgegenkopplung an 10 V, $R_C$ = 2,2 kΩ, einfaches Modell):
+- oben $I_C$: bei 100 kΩ 3,85 und 4,04 mA, bei 1 MΩ 2,05 und 2,72 mA;
+- unten $U_{CE}$: bei 100 kΩ 1,52 und 1,10 V, bei 1 MΩ 5,48 und 4,00 V; Sättigungsgrenze 0,2 V und Mitte 5,1 V als waagrechte Hilfslinien.
+- Senkrechte Markierungen bei 100 kΩ und 1 MΩ durch beide Diagramme.
+
+*Kernaussage:* Unabhängigkeit von $B$ gibt es bei dieser Schaltung nur nahe der Sättigung.
+
+*Daten:* `ap_einfach_spannungsgk` über $R_B$; Empfindlichkeit 0,043 bis 0,645 aus `bericht_arbeitspunkt()`.
+
+*Editor:*
+- §13 gestapelte Diagramme mit gemeinsamer x-Achse;
+- §12 logarithmische x-Achse;
+- §11 Datenkurven;
+- §15 Schieberegler optional für $R_B$.
+
+**get1/bipolartransistoren/02-stromspiegel**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltplan wie Skript Bild 11.15: +10 V, $R_\mathrm{ref}$ = 10 kΩ zum Kollektor von $T_1$, Kollektor und Basis von $T_1$ verbunden, Basen verbunden, Emitter an Masse; $T_2$ mit Last $R_L$ an +10 V; Ströme $I_\mathrm{ref}$, $I_{C1}$, $I_{B1}$, $I_{B2}$, $I_{C2}$ als Pfeile.
+- (b) $I_{C2}$ über $U_{CE2}$ von 0 bis 10 V (vollständiges Modell) und waagrecht $I_\mathrm{ref}$ = 0,935 mA: 0,926 mA bei 0,3 V, 0,935 mA bei 1 V, 0,988 mA bei 5 V, 1,054 mA bei 10 V; Bereich unter 0,3 V als Sättigung hinterlegt.
+
+*Kernaussage:* Der Spiegel liefert den Referenzstrom an jede Last, solange $T_2$ im aktiven Bereich bleibt.
+
+*Daten:* `spiegel_voll` über $U_{CE2}$; Verhältnisse 0,991 / 1,0006 / 1,057 / 1,1275 aus `bericht_arbeitspunkt()`.
+
+*Editor:*
+- §1 Schaltplan mit zwei npn-Symbolen;
+- §2 Strompfeile;
+- §4 Kurve mit waagrechter Bezugslinie und hinterlegtem Bereich;
+- §11 Datenkurve;
+- §10 Teilbilder;
+- §15 Schieberegler optional: $R_L$ verschiebt den Arbeitspunkt auf der Kurve.
+
+**get1/bipolartransistoren/02-inverter**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltplan wie Skript Bild 11.16: Eingang über $R_B$ = 10 kΩ an die Basis, $R_C$ = 1 kΩ an +5 V, Ausgang am Kollektor.
+- (b) $U_\mathrm{aus}$ über $U_\mathrm{ein}$ von 0 bis 2 V. Modell durchgezogen: 5 V bis 0,6 V, Gerade mit Steigung −50 bis 0,2 V bei 0,696 V, danach 0,2 V. Vollständiges Modell gestrichelt: 4,890 V bei 0,60 V, 4,459 V bei 0,65 V, 3,405 V bei 0,70 V, 1,894 V bei 0,75 V, 0,250 V bei 0,80 V, 0,129 V bei 1 V, 0,084 V bei 2 V. Die drei Bereiche (Sperrbereich, aktiv, Sättigung) als Streifen hinterlegt.
+
+*Kernaussage:* Der Arbeitspunkt durchläuft alle drei Bereiche; zwischen den Pegeln liegt ein schmaler Übergang.
+
+*Daten:* `inverter_voll`; Modellkante 0,714 / 0,696 / 0,660 V für $B$ = 420 / 500 / 800.
+
+*Editor:*
+- §1 Schaltplan;
+- §4 zwei Kurven, Bereiche hinterlegen;
+- §11 Datenkurve;
+- §10 Teilbilder;
+- §15 Schieberegler optional: $U_\mathrm{ein}$ bewegt den Arbeitspunkt zugleich im Kennlinienfeld.
+
+**get1/bipolartransistoren/02-grundschaltungen**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Drei Spalten, oben Schaltplan, unten Gleichspannungskennlinie (vollständiges Modell), alle an 5 V; der gemeinsame Anschluss farbig hervorgehoben.
+- (a) Emitterschaltung: Eingang über 10 kΩ an der Basis, $R_C$ = 1 kΩ; Kennlinie wie Abb. 02-inverter (b).
+- (b) Kollektorschaltung: Kollektor an +5 V, Eingang an der Basis, $R_E$ = 1 kΩ nach Masse, Ausgang am Emitter; $U_\mathrm{aus}$ über $U_\mathrm{ein}$ von 0 bis 5 V: 1,337 V bei 2 V, 4,306 V bei 5 V, Steigung 0,985; Hilfslinie $U_\mathrm{aus} = U_\mathrm{ein}$.
+- (c) Basisschaltung: Basis an Masse, Eingang über 1 kΩ am Emitter, $R_C$ = 1 kΩ; $U_\mathrm{ein}$ von −5 bis 0 V: 0,703 V bei −5 V, 1,693 V bei −4 V, 2,682 V bei −3 V, 3,665 V bei −2 V, 4,630 V bei −1 V, 5 V ab etwa −0,5 V; Steigung 0,98.
+
+*Kernaussage:* Welcher Anschluss Ein- und Ausgang gemeinsam ist, bestimmt, ob die Schaltung umkehrt, folgt oder nicht umkehrend überträgt.
+
+*Daten:* `inverter_voll`, `kollektorschaltung_voll`, `basisschaltung_re_voll`.
+
+*Editor:*
+- §1 Schaltpläne;
+- §7 Hervorhebung des gemeinsamen Anschlusses;
+- §4 Kennlinien mit Hilfslinie;
+- §11 Datenkurven;
+- §10 Teilbilder im Raster 3 × 2.

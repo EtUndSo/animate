@@ -98,3 +98,86 @@ Elektronendichte in der Basis: aktiv (I_B = 8 uA) gegen Sättigung (I_B = 20 uA)
    I_C = (5 V - 0,2 V)/100 Ohm = 48 mA; I_B,min = 0.114 mA; vierfach 0.457 mA -> R_B = 9.41 kOhm -> E12 10.0 kOhm, I_B = 0.430 mA; B_min I_B = 181 mA >= 48 mA; I_E = 48.43 mA
    aus: Steuerpin 5 V -> U_BE = 0. Ein 3,3-V-Pin ließe 1,7 V über R_B und Emitter-Basis-Strecke; diese leitet mit rund 0,7 V, an R_B blieben 1,0 V, I_B = 0.100 mA -> B_min I_B = 42 mA, B I_B = 50 mA: der Transistor bliebe leitend
    B des Modells bei 48 mA: 377
+
+== Thema 02: Arbeitspunkt und Grundschaltungen (Modellwerte 0,6 V und 0,2 V; vollständiges Modell zum Vergleich) ==
+Arbeitsgerade 10 V, 2,2 kOhm: Kurzschlussstrom 4.545 mA; Mitte U_CE = (U_CC + U_CE,sat)/2 = 5.10 V, I_C = 2.227 mA, P = 11.36 mW
+   größte Verlustleistung auf der Geraden bei U_CC/2: U_CC^2/(4 R_C) = 11.36 mW; Erwärmung 2.3 K mit R_thJA = 200 K/W
+   gesättigt bei 4,455 mA: 0.89 mW; gesperrt: 0
+BC547 Grenzwerte: U_CEO 45 V, I_C 100 mA, P_tot 625 mW (25 °C); Hyperbel: 10 V -> 62.5 mA, 45 V -> 13.9 mA; Erwärmung bei P_tot: 125 K
+   Gerade 30 V/200 Ohm: Kurzschlussstrom 150 mA, größte Leistung 1125 mW bei 15 V und 75 mA
+   Gerade 24 V/1000 Ohm: Kurzschlussstrom 24 mA, größte Leistung 144 mW bei 12 V und 12 mA
+Bereiche aus gemessenen Werten (B = 500): I_B = 20 uA, I_C = 4,45 mA -> B I_B = 10 mA > I_C: Sättigung; I_B = 4 uA, U_CE = 5 V -> aktiv, I_C = 2 mA; U_BE = 0,3 V -> gesperrt
+Basiswiderstand an U_E = U_CC = 10 V, R_C = 2,2 kOhm, Mitte:
+   I_C = 2.227 mA, I_B = 4.455 uA, R_B = 2.110 MOhm -> E12 2.2 MOhm
+   B = 420: einfach I_B = 4.273 uA, I_C = 1.795 mA, U_CE = 6.05 V; voll I_C = 1.806 mA, U_CE = 6.03 V, U_BE = 670 mV
+   B = 500: einfach I_B = 4.273 uA, I_C = 2.136 mA, U_CE = 5.30 V; voll I_C = 2.128 mA, U_CE = 5.32 V, U_BE = 674 mV
+   B = 800: einfach I_B = 4.273 uA, I_C = 3.418 mA, U_CE = 2.48 V; voll I_C = 3.286 mA, U_CE = 2.77 V, U_BE = 686 mV
+Stromgegenkopplung, einfachster Fall: Basis fest auf 1,6 V, R_E = 1 kOhm:
+   B = 420: I_E = 1.000 mA, I_C = 0.9976 mA
+   B = 500: I_E = 1.000 mA, I_C = 0.9980 mA
+   B = 800: I_E = 1.000 mA, I_C = 0.9988 mA
+Stromgegenkopplung mit Basisspannungsteiler: U_CC = 10 V, R1 = 330 kOhm, R2 = 68 kOhm, R_C = 3,9 kOhm, R_E = 1 kOhm
+   B = 420: U_q = 1.7085 V, R_i = 56.38 kOhm, einfach I_C = 0.9753 mA, U_CE = 5.22 V; voll I_C = 0.9295 mA, U_CE = 5.44 V, U_BE = 653 mV
+   B = 500: U_q = 1.7085 V, R_i = 56.38 kOhm, einfach I_C = 0.9944 mA, U_CE = 5.13 V; voll I_C = 0.9471 mA, U_CE = 5.36 V, U_BE = 653 mV
+   B = 800: U_q = 1.7085 V, R_i = 56.38 kOhm, einfach I_C = 1.0344 mA, U_CE = 4.93 V; voll I_C = 0.9838 mA, U_CE = 5.18 V, U_BE = 654 mV
+   Nenner R_E(1+1/B) + R_i/B = 1002.0 + 112.8 Ohm; Querstrom durch R2 ~ 23.5 uA = 11.8 I_B
+   Skript Gl. 11.1 ohne U_BE: U_CC R2/(R_E (R1+R2)) = 1.709 mA (statt 0.994 mA, +72 %)
+   Temperatur: dI_C/dT = |dU_BE/dT|/(Nenner) = 1.88 uA/K = 0.19 %/K (feste U_BE: 8 %/K); |dU_BE/dT| bei rund 1 mA (U_BE = 0,655 V) = 2.10 mV/K
+   Temperatur gesamt, dazu B mit 0,5 bis 1 %/K mal Empfindlichkeit 0.103: 0.24 bis 0.29 %/K; gegenüber 8 %/K Faktor 27 bis 33
+   U_BE-Unsicherheit 50 mV ändert I_C um 4.5 % 
+Spannungsgegenkopplung: U_CC = 10 V, R_C = 2,2 kOhm, R_B vom Kollektor zur Basis:
+   R_B = 1000 kOhm, B = 420: einfach I_C = 2.050 mA, U_CE = 5.48 V; voll I_C = 2.041 mA, U_CE = 5.50 V
+   R_B = 1000 kOhm, B = 500: einfach I_C = 2.236 mA, U_CE = 5.07 V; voll I_C = 2.219 mA, U_CE = 5.11 V
+   R_B = 1000 kOhm, B = 800: einfach I_C = 2.722 mA, U_CE = 4.00 V; voll I_C = 2.687 mA, U_CE = 4.08 V
+   R_B = 100 kOhm, B = 420: einfach I_C = 3.847 mA, U_CE = 1.52 V; voll I_C = 3.792 mA, U_CE = 1.64 V
+   R_B = 100 kOhm, B = 500: einfach I_C = 3.909 mA, U_CE = 1.38 V; voll I_C = 3.856 mA, U_CE = 1.50 V
+   R_B = 100 kOhm, B = 800: einfach I_C = 4.038 mA, U_CE = 1.10 V; voll I_C = 3.987 mA, U_CE = 1.22 V
+   R_B für die Mitte (B = 500): 1.012 MOhm
+   Kompromiss, einfaches Modell (R_B in kOhm: I_C in mA und U_CE in V für B = 420 / 800; Empfindlichkeit (U_CE - U_BE)/(U_CC - U_BE) bei B = 500):
+          50: 4.044/4.150 mA, 1.08/0.86 V; Empfindlichkeit 0.043
+         100: 3.847/4.038 mA, 1.52/1.10 V; Empfindlichkeit 0.083
+         200: 3.506/3.832 mA, 2.27/1.56 V; Empfindlichkeit 0.154
+         500: 2.768/3.324 mA, 3.90/2.68 V; Empfindlichkeit 0.312
+        1000: 2.050/2.722 mA, 5.48/4.00 V; Empfindlichkeit 0.476
+        2000: 1.349/1.999 mA, 7.02/5.60 V; Empfindlichkeit 0.645
+I_C über B (einfaches Modell) für die drei Einstellungen: B: Basiswiderstand 2,2 MOhm / Spannungs-GK 1 MOhm / Strom-GK Teiler
+     300: 1.282 / 1.697 / 0.9306 mA
+     420: 1.795 / 2.050 / 0.9753 mA
+     500: 2.136 / 2.236 / 0.9944 mA
+     600: 2.564 / 2.429 / 1.0118 mA
+     800: 3.418 / 2.722 / 1.0344 mA
+    1000: 4.273 / 2.935 / 1.0484 mA
+   Empfindlichkeit Strom-GK (R_E/B + R_i/B)/Nenner bei B = 500: 0.103; Basiswiderstand: 1; Temperatur Basiswiderstand über U_BE: 0.022 %/K, über B 0,5 bis 1 %/K
+   Abweichung vollständiges gegen einfaches Modell (alle Arbeitspunkte oben): größte bei I_C -4.9 % (Strom-GK, B = 800), größte bei U_CE +0.29 V (Basiswiderstand, B = 800)
+Stromspiegel: U_CC = 10 V, R = 10 kOhm (einfach: I_ref = (U_CC - 0,6 V)/R):
+   B = 420: I_ref = 0.940 mA, I_C2 = I_ref/(1+2/B) = 0.9355 mA (-0.47 %)
+   B = 500: I_ref = 0.940 mA, I_C2 = I_ref/(1+2/B) = 0.9363 mA (-0.40 %)
+   B = 800: I_ref = 0.940 mA, I_C2 = I_ref/(1+2/B) = 0.9377 mA (-0.25 %)
+   voll, U_CE2 = 0.30 V: I_ref = 0.9346 mA, I_C1 = 0.9306 mA, I_C2 = 0.9259 mA (I_C2/I_ref = 0.9908), U_BE = 654.5 mV
+   voll, U_CE2 = 0.65 V: I_ref = 0.9346 mA, I_C1 = 0.9306 mA, I_C2 = 0.9305 mA (I_C2/I_ref = 0.9957), U_BE = 654.5 mV
+   voll, U_CE2 = 1.00 V: I_ref = 0.9346 mA, I_C1 = 0.9306 mA, I_C2 = 0.9352 mA (I_C2/I_ref = 1.0006), U_BE = 654.5 mV
+   voll, U_CE2 = 5.00 V: I_ref = 0.9346 mA, I_C1 = 0.9306 mA, I_C2 = 0.9878 mA (I_C2/I_ref = 1.0570), U_BE = 654.5 mV
+   voll, U_CE2 = 10.00 V: I_ref = 0.9346 mA, I_C1 = 0.9306 mA, I_C2 = 1.0537 mA (I_C2/I_ref = 1.1275), U_BE = 654.5 mV
+   T2 mit 10 % größerem I_S (U_CE2 = 5 V): I_C2/I_ref = 1.1625
+   Last bis U_CE2 = 0,3 V: R_L,max = (10 V - 0,3 V)/I_C2 = 10.4 kOhm
+   Early: I_C2 bei U_CE2 = U_BE (654.5 mV) = 0.9306 mA; bei 5 V 6.2 % darüber; Anstieg 1.41 % des Referenzstroms je Volt
+   Streuung von B zwischen 420 und 800 (einfach): Kopie ändert sich um 0.225 %
+Inverter: U_CC = 5 V, R_C = 1 kOhm, R_B = 10 kOhm:
+   B = 420: U_E,sat = (U_CC - U_CE,sat) R_B/(B R_C) + U_BE = 0.714 V; Steigung -B R_C/R_B = -42
+   B = 500: U_E,sat = (U_CC - U_CE,sat) R_B/(B R_C) + U_BE = 0.696 V; Steigung -B R_C/R_B = -50
+   B = 800: U_E,sat = (U_CC - U_CE,sat) R_B/(B R_C) + U_BE = 0.660 V; Steigung -B R_C/R_B = -80
+   voll (B = 500): 0.00 V -> 5.000 V, 0.50 V -> 4.997 V, 0.60 V -> 4.890 V, 0.65 V -> 4.459 V, 0.70 V -> 3.405 V, 0.75 V -> 1.894 V, 0.80 V -> 0.250 V, 1.00 V -> 0.129 V, 2.00 V -> 0.084 V, 3.30 V -> 0.067 V, 5.00 V -> 0.056 V
+   Eingang 3.3 V: I_B = 0.260 mA, nötig für Sättigung mit B_min 420: 11.4 uA -> 23-fach übersteuert
+   Eingang 5.0 V: I_B = 0.430 mA, nötig für Sättigung mit B_min 420: 11.4 uA -> 38-fach übersteuert
+   Skript Gl. 11.4 nur um R_C ergänzt, ohne Klammer: U_CC - U_CE,sat R_B/(B R_C) + U_BE = 5.596 V (richtig 0.696 V)
+Grundschaltungen (U_CC = 5 V, R_C = R_E = 1 kOhm, vollständiges Modell):
+   Emitterschaltung, Eingang direkt an der Basis: 0.50 V -> 4.997 V, 0.55 V -> 4.983 V, 0.60 V -> 4.880 V, 0.62 V -> 4.741 V, 0.64 V -> 4.440 V, 0.66 V -> 3.796 V, 0.68 V -> 2.439 V, 0.70 V -> 0.076 V, 0.75 V -> 0.016 V
+   Kollektorschaltung: 0.5 V -> 0.002 V, 0.7 V -> 0.104 V, 1.0 V -> 0.371 V, 2.0 V -> 1.337 V, 3.0 V -> 2.323 V, 4.0 V -> 3.313 V, 5.0 V -> 4.306 V, 5.5 V -> 4.803 V
+      bei 2 V: U_BE = 663 mV, I_E = 1.337 mA, I_B = 2.72 uA, Stromverstärkung I_E/I_B = 492; Kleinsignal-Steigung zwischen 2 und 3 V: 0.9854
+   Basisschaltung, Eingang direkt am Emitter: 0.00 V -> 5.000 V, -0.50 V -> 4.997 V, -0.55 V -> 4.983 V, -0.60 V -> 4.879 V, -0.62 V -> 4.738 V, -0.64 V -> 4.435 V, -0.66 V -> 3.786 V, -0.68 V -> 2.416 V, -0.70 V -> -0.388 V, -1.00 V -> -0.988 V
+   Steigungen bei U_aus = 2,5 V (I_C = 2,5 mA), Ansteuerung ohne Vorwiderstand: voll Emitterschaltung -93.5, Basisschaltung +93.5; ideal -/+ R_C I_C/U_T = 96.7
+   größte Steigung Emitterschaltung (ohne Vorwiderstand): -170 bei U_aus = 0.28 V, I_C = 4.72 mA (Rand der Sättigung)
+   größte Steigung Basisschaltung (ohne Vorwiderstand): +194 bei U_aus = -0.41 V, I_C = 5.41 mA (Rand der Sättigung)
+   Basisschaltung mit R_E = 1 kOhm vor dem Emitter (U_CC = 5 V, R_C = 1 kOhm): 0.0 V -> 5.000 V, -0.5 V -> 4.998 V, -1.0 V -> 4.630 V, -2.0 V -> 3.665 V, -3.0 V -> 2.682 V, -4.0 V -> 1.693 V, -5.0 V -> 0.703 V, -6.0 V -> -0.289 V
+      einfaches Modell: Steigung alpha R_C/R_E = 0.998; Sättigung, wenn U_aus auf U_E + 0,2 V = -0,4 V fällt: U_ein = -6.01 V
+   Emitterschaltung mit R_B = 10 kOhm = Inverter (oben); Kollektorschaltung einfaches Modell U_aus = U_ein - 0,6 V
