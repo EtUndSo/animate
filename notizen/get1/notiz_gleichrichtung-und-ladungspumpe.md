@@ -72,6 +72,9 @@ Mittel: zwei Schaltungen mit Dioden als Ventilen und Kondensatoren als Speicher,
 - Brummspannung ΔU ≈ I/(2 f C) für den Brückengleichrichter als Standard-Abschätzung (Tietze/Schenk, Halbleiter-Schaltungstechnik, Netzgeräte); die Simulation zeigt, warum sie überschätzt (Entladung nur außerhalb der Ladezeit).
 - Schaltkondensator-Spannungsverdoppler (z. B. ICL7660-Prinzip): Ausgangswiderstand etwa 1/(f C) — Lehrbuchwissen.
 - 1N4001: höchstens 1,1 V bei 1 A (Datenblätter).
+- Links (WebSearch 21.10.2026):
+  - Ausgangswiderstand einer Ladungspumpe 1/(f C1), mit f als Pumpfrequenz, also einer Umladung je Periode (so im Artikel definiert); größere Kapazität hilft nur, bis Schalterwiderstand und ESR überwiegen: [Maxim/Analog Devices, Guide to Integrated Charge Pump DC-DC Conversion](https://www.analog.com/jp/resources/technical-articles/guide-to-integrated-charge-pump-dcdc-conversion.html).
+  - 1N4001 höchstens 1,1 V bei 1 A: [onsemi 1N4001G bei DigiKey](https://azcus.digikey.com/en/products/detail/onsemi/1N4001G/1485468), [Multicomp 1N4001 bei element14](https://sg.element14.com/multicomp/1n4001/diode-standard-1a-50v-do-41/dp/9564993).
 
 ## 10. Skript-Abgleich (S. 170–173 = PDF 176–179)
 **Inhalte:** Anwendungen (Ladungspumpe, Graetz-Brücke; Stabilisierung mit Verweis auf „Kapitel 11.5“, gemeint ist 11.6). Ladungspumpe: Schaltung mit D1, R1, R2, D2, C1, C2, Schalter (Bild 10.23, 10.24); ideale Dioden; Takt 1 lädt C1 auf U_e; Takt 2: Eingangsspannung und C1 in Reihe, D1 sperrt, D2 leitet, C2 auf ca. 2 U_e; weitere Stufen. Gleichrichter: Zweck, Anwendungen, Graetz-Brücke mit vier Dioden, Last als Widerstand (Bild 10.25); U_e > 0: D1, D3 leiten (Bild 10.26); U_e < 0: D2, D4 (Bild 10.27); Eingang 10 V, Ausgang 8,8 V, Durchlassspannung etwa 0,6 V, Totzone |U_e| < 1,2 V (Bild 10.28, 10.29).
