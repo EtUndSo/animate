@@ -154,15 +154,18 @@ Zum Schluss:
 
 ## 6. Workflow (Loop)
 - Repo `C:\Users\info\PycharmProjects\pythonanimation`, Artikel in `content/<modul>/…`.
-  Reihenfolge: HöMa3 Kap 1–5 sind fertig; **jetzt `get1` (ET1)** (User 2026-10-20: „Erstmal genug Mathe"), HöMa3
-  Kap 6–8, `mmet` und `gemb1` danach nach Absprache.
+  Reihenfolge: HöMa3 Kap 1–5 sind fertig; **jetzt `get1` (ET1)** (User 2026-10-20: „Erstmal genug Mathe"), **danach
+  ohne Rückfrage `gemb1`** (User 2026-10-21: „Beende alle Artikel für ET1. Mach danach mit Gemb1 weiter"); HöMa3
+  Kap 6–8 und `mmet` erst danach nach Absprache.
 - „Noch nicht überarbeitet" = Quelldatei enthält `:::konzept`. Nächster offener Artikel = **erster** Artikel des
   aktuellen Moduls mit `:::konzept` (in `find … | sort`-Reihenfolge).
 - **Jeden Artikel von Grund auf NEU schreiben (leere Seite).** Die Struktur ist nach diesem Bauplan ohnehin
   komplett anders — nicht die alten Artikel umbauen. Inhaltsquelle ist das **Skript** (HöMa3:
   `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf`; GET1: `C:\Bücher\EtUndSo\1.Semester\ET1\(VO) Grundgebiete der
   Elektrotechnik 1 - Einführung in die Schaltungsanalyse_20261018_2239\Vorlesung\Begleit-Skript zur
-  Vorlesung\GET1_Lecture_Script_WS2425_3_03.pdf`, passende Seiten/Kapitel) plus der ET4-Ordner als Stilvorbild. Der
+  Vorlesung\GET1_Lecture_Script_WS2425_3_03.pdf`; GEMB1: `C:\Bücher\GEMB\(VO) Grundlagen elektronischer Materialien und
+  Bauelemente 1_20260831_1820\Vorlesungsfolien\Vorlesung 1.pdf` bis `Vorlesung 14.pdf`, dazu der Ordner „Vorlesungsfolien
+  mit Anmerkungen", Übungen nur als Ideengeber; passende Seiten/Kapitel) plus der ET4-Ordner als Stilvorbild. Der
   bestehende Artikel dient **höchstens** als schneller Vollständigkeits-Check (welche Themen/Formeln vorkommen),
   **nicht** als Struktur- oder Textvorlage. Alle wichtigen Inhalte/Formeln der Skript-Quelle müssen enthalten sein.
 - **Pro Tick genau ein Artikel**: auswählen → komplett neu im Bauplan-Stil schreiben →
