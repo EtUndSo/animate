@@ -503,6 +503,190 @@ def bericht_ap():
         P(f"   {TC} °C: U = {Ut:.4f} V, I = {(U0_AP-Ut)/R_AP*1e3:.4f} mA")
 
 
+# ------------------------------------------------------------------ Gleichrichtung und Ladungspumpe (Thema 04)
+def glaettung_sim(Uh=10.0, f=50.0, UF=0.6, Ri=5.0, C=470e-6, RL=470.0, dt=2e-6, dauer=1.2, Ustart=8.0):
+    """Brückengleichrichter mit Ladekondensator: Quelle Uh sin(wt) mit Innenwiderstand Ri, zwei leitende Dioden
+    im 0,6 V-Modell je Halbwelle, C parallel RL. Euler-Verfahren; ausgewertet wird die letzte Periode."""
+    w = 2 * math.pi * f
+    n = int(dauer / dt)
+    per = int(round(1 / f / dt))
+    uc = Ustart
+    U_hist, I_hist = np.empty(per), np.empty(per)
+    for k in range(n):
+        ue = abs(Uh * math.sin(w * k * dt))
+        iD = (ue - 2 * UF - uc) / Ri
+        if iD < 0:
+            iD = 0.0
+        uc += (iD - uc / RL) * dt / C
+        if k >= n - per:
+            U_hist[k - (n - per)] = uc
+            I_hist[k - (n - per)] = iD
+    return U_hist, I_hist, per, dt
+
+
+def glaettung_einschalten(phase, Uh=10.0, f=50.0, UF=0.6, Ri=5.0, C=470e-6, RL=470.0, dt=1e-6, dauer=0.04):
+    """Einschalten der Brücke mit leerem Ladekondensator bei der Phase `phase` der Quelle (0: Nulldurchgang,
+    pi/2: Scheitel). Rückgabe: größter Diodenstrom, Zeitpunkt, Kondensatorspannung am Ende."""
+    w = 2 * math.pi * f
+    uc, imax, tmax = 0.0, 0.0, 0.0
+    for k in range(int(dauer / dt)):
+        iD = max(0.0, (abs(Uh * math.sin(w * k * dt + phase)) - 2 * UF - uc) / Ri)
+        if iD > imax:
+            imax, tmax = iD, k * dt
+        uc += (iD - uc / RL) * dt / C
+    return imax, tmax, uc
+
+
+def ladungspumpe(Ue=5.0, UF=0.6, C1=1e-6, C2=1e-6, f=10e3, IL=0.0, perioden=12):
+    """Ladungspumpe des Skripts im Grenzfall schnellen Ausgleichs (R1 C1, R2 C2 klein gegen einen Takt).
+    Takt 1: Unterseite von C1 an Masse; die Quelle lädt C1 über D1 auf Ue - UF. Liegt C2 unter Ue - 2 UF, leitet
+    auch D2 und lädt C2 dorthin; sonst speist C2 die Last allein.
+    Takt 2: Unterseite von C1 an Ue; Ladungsausgleich über D2. Danach bleibt D2 unter Last leitend, und C1 und C2
+    teilen sich den Laststrom. Rückgabe: Endwert und je Periode (U2 am Ende von Takt 1, direkt nach dem Ausgleich,
+    am Ende von Takt 2)."""
+    Vz = 2 * Ue - 2 * UF
+    h = 1 / (2 * f)
+    U1, U2, folge = 0.0, 0.0, []
+    for _ in range(perioden):
+        U1 = Ue - UF
+        U2 = max(U2 - IL * h / C2, Ue - 2 * UF)
+        nach_takt1 = U2
+        dQ = max(0.0, (Ue + U1 - UF - U2) / (1 / C1 + 1 / C2))
+        U1, U2 = U1 - dQ / C1, U2 + dQ / C2
+        nach_ausgleich = U2
+        dU = IL * h / (C1 + C2)
+        U1, U2 = U1 - dU, U2 - dU
+        folge.append((nach_takt1, nach_ausgleich, U2))
+    return Vz, folge
+
+
+def pumpe_sim(Ue=5.0, UF=0.6, C1=1e-6, C2=1e-6, R1=10.0, R2=10.0, f=10e3, IL=0.0, perioden=80, n=2000):
+    """Ladungspumpe als Schaltung mit R1 und R2 (0,6 V-Modell, Last als Konstantstrom); Runge-Kutta 4. Ordnung mit
+    n Schritten je Takt. Rückgabe: je Periode U2 am Ende von Takt 1 und Takt 2; Kennwerte der letzten Periode."""
+    h = 1 / (2 * f)
+    dt = h / n
+    u1 = u2 = 0.0
+    ende, kenn = [], {}
+    for k in range(perioden):
+        letzte = k == perioden - 1
+        s = dict(u2min=1e9, u2max=-1e9, u2int=0.0, isrc=0.0, i1=0.0, i2=0.0, i1q=0.0, i2q=0.0, i2_ende=0.0)
+        werte = []
+        for takt, Vb in ((1, 0.0), (2, Ue)):
+            def abl(x1, x2):
+                VX = Vb + x1
+                i1 = max(0.0, (Ue - UF - VX) / R1)
+                i2 = max(0.0, (VX - UF - x2) / R2)
+                return (i1 - i2) / C1, (i2 - IL) / C2, i1, i2
+            for _ in range(n):
+                a1, a2, i1, i2 = abl(u1, u2)
+                if letzte:
+                    s["u2min"], s["u2max"] = min(s["u2min"], u2), max(s["u2max"], u2)
+                    s["u2int"] += u2 * dt
+                    s["isrc"] += (i1 if takt == 1 else i2) * dt
+                    s["i1"] += i1 * dt
+                    s["i2"] += i2 * dt
+                    s["i1q"] += i1 * i1 * dt
+                    s["i2q"] += i2 * i2 * dt
+                b1, b2, _, _ = abl(u1 + a1 * dt / 2, u2 + a2 * dt / 2)
+                c1, c2, _, _ = abl(u1 + b1 * dt / 2, u2 + b2 * dt / 2)
+                d1, d2, _, _ = abl(u1 + c1 * dt, u2 + c2 * dt)
+                u1 += (a1 + 2 * b1 + 2 * c1 + d1) * dt / 6
+                u2 += (a2 + 2 * b2 + 2 * c2 + d2) * dt / 6
+            werte.append(u2)
+            if letzte and takt == 2:
+                s["i2_ende"] = abl(u1, u2)[3]
+        ende.append(tuple(werte))
+        if letzte:
+            T = 2 * h
+            kenn = dict(u2min=s["u2min"], u2max=s["u2max"], u2mittel=s["u2int"] / T, Iq=s["isrc"] / T,
+                        Pin=Ue * s["isrc"] / T, Pout=IL * s["u2int"] / T, PD=UF * (s["i1"] + s["i2"]) / T,
+                        PR=(R1 * s["i1q"] + R2 * s["i2q"]) / T, i2_ende=s["i2_ende"])
+    return ende, kenn
+
+
+def bericht_gleichrichter():
+    P = print
+    P("\n== Gleichrichtung und Ladungspumpe (Thema 04) ==")
+    Uh, f, UF = 10.0, 50.0, 0.6
+    w = 2 * math.pi * f
+    P(f"Brücke ohne Glättung, Quelle {Uh} V Scheitel, {f:.0f} Hz, Last 1 kOhm:")
+    P(f"   0,6 V-Modell: Spitze am Ausgang {Uh-2*UF:.2f} V; Totzone |u_e| < {2*UF:.1f} V, je Nulldurchgang "
+      f"{2*math.asin(2*UF/Uh)/w*1e3:.3f} ms von 10 ms ({2*math.asin(2*UF/Uh)/math.pi*100:.1f} %)")
+    Ud = _bisekt(lambda u: IS * (math.exp(u / UT) - 1) - (Uh - 2 * u) / 1000, 0.0, 1.0)
+    P(f"   zwei Beispieldioden (ideal): je Diode {Ud:.4f} V, Spitze {Uh-2*Ud:.3f} V, Spitzenstrom {(Uh-2*Ud):.3f} mA")
+    Ue1 = _bisekt(lambda u: IS * (math.exp(u / UT) - 1) - (Uh - u) / 1000, 0.0, 1.0)
+    P(f"   Einweg mit einer Beispieldiode: Spitze {Uh-Ue1:.3f} V (vgl. Pilot 9,3 V)")
+    t = np.linspace(0, 1 / f, 400001)
+    ue = Uh * np.sin(w * t)
+    ua_i, ua_m, ua_h = np.abs(ue), np.maximum(np.abs(ue) - 2 * UF, 0), np.maximum(ue, 0)
+    P(f"   Mittelwert Doppelweg ideal {ua_i.mean():.4f} V (2/pi Û = {2/math.pi*Uh:.4f} V), mit 2 x 0,6 V {ua_m.mean():.4f} V;"
+      f" Einweg ideal {ua_h.mean():.4f} V (Û/pi = {Uh/math.pi:.4f} V)")
+    th1 = math.asin(2 * UF / Uh)
+    P(f"   geschlossen mit Totzone: theta1 = arcsin(2 U_F/Û) = {th1:.4f}; 2/pi [Û cos theta1 - 2 U_F (pi/2 - theta1)] = "
+      f"{2/math.pi*(Uh*math.cos(th1) - 2*UF*(math.pi/2 - th1)):.4f} V")
+    P(f"   Effektivwert Doppelweg ideal {math.sqrt((ua_i**2).mean()):.4f} V (Û/sqrt 2 = {Uh/math.sqrt(2):.4f} V), "
+      f"mit Abfall {math.sqrt((ua_m**2).mean()):.4f} V; Einweg ideal {math.sqrt((ua_h**2).mean()):.4f} V (Û/2)")
+    P(f"   Sperrspannung je Diode: Û - U_F = {Uh-UF:.1f} V; Einweggleichrichter ohne Glättung: Û = {Uh:.0f} V")
+    P("Glättung mit Ladekondensator (Simulation): Ri = 5 Ohm, C = 470 uF, RL = 470 Ohm, 0,6 V-Modell:")
+    U_h, I_h, per, dt = glaettung_sim()
+    IL = U_h.mean() / 470.0
+    leit = (I_h > 0).sum() * dt
+    P(f"   U_C zwischen {U_h.min():.3f} und {U_h.max():.3f} V, Mittel {U_h.mean():.3f} V, Brumm (Spitze-Spitze) "
+      f"{U_h.max()-U_h.min():.3f} V; Laststrom {IL*1e3:.2f} mA")
+    P(f"   Näherung I/(2 f C) = {IL/(2*f*470e-6):.3f} V; Dioden leiten je Halbwelle {leit/2*1e3:.3f} ms von 10 ms "
+      f"(Stromflusswinkel {leit/2*f*2*180:.1f} Grad), Spitzenstrom {I_h.max()*1e3:.0f} mA, Mittel {I_h.mean()*1e3:.2f} mA")
+    on = np.nonzero(I_h > 0)[0]
+    j_aus = on[on < per // 2][-1]                          # letzter leitender Schritt der ersten Halbwelle
+    P(f"   Dioden sperren bei |u_e| = {abs(Uh*math.sin(w*j_aus*dt)):.3f} V, u_C = {U_h[j_aus]:.3f} V "
+      f"(Differenz {abs(Uh*math.sin(w*j_aus*dt)) - U_h[j_aus]:.3f} V = 2 U_F)")
+    for Cx in (100e-6, 220e-6, 1000e-6):
+        Ux, Ix, _, _ = glaettung_sim(C=Cx)
+        P(f"   C = {Cx*1e6:5.0f} uF: Brumm {Ux.max()-Ux.min():.3f} V (Näherung {Ux.mean()/470/(2*f*Cx):.3f} V), "
+          f"Spitzenstrom {Ix.max()*1e3:.0f} mA, Mittel U {Ux.mean():.3f} V")
+    lo, hi = 1000e-6, 2000e-6
+    for _ in range(12):
+        Cm = (lo + hi) / 2
+        Ux, _, _, _ = glaettung_sim(C=Cm, dauer=1.5)
+        lo, hi = (lo, Cm) if Ux.max() - Ux.min() < 0.1 else (Cm, hi)
+    P(f"   0,1 V Brumm nach der Simulation bei C = {(lo+hi)/2*1e6:.0f} uF (Schätzung I_L/(2 f 0,1 V) = "
+      f"{IL/(2*f*0.1)*1e6:.0f} uF)")
+    for ph, name in ((0.0, "im Nulldurchgang"), (math.pi / 2, "im Scheitel")):
+        imax, tmax, uc_end = glaettung_einschalten(ph)
+        P(f"   Einschalten {name}, C leer: größter Puls {imax*1e3:.0f} mA bei {tmax*1e3:.2f} ms; u_C nach 40 ms {uc_end:.2f} V")
+    P("Ladungspumpe, Grenzfall schnellen Ausgleichs, U_e = 5 V, 0,6 V-Modell, C1 = C2 = 1 uF, f = 10 kHz "
+      "(Periode 100 us = Takt 1 + Takt 2):")
+    Vz, folge = ladungspumpe()
+    P(f"   Endwert 2 U_e - 2 U_F = {Vz:.2f} V; ohne Last nach dem ersten Takt 1 (D2 leitet mit) {folge[0][0]:.3f} V; "
+      f"am Ende der Perioden 1..5: " + ", ".join(f"{x[2]:.4f}" for x in folge[:5]) + f"; Periode 10: {folge[9][2]:.4f} V "
+      f"(Abstand {Vz - folge[9][2]:.4f} V = 5 V/2^10 = {5/2**10:.4f} V)")
+    Vz, folge = ladungspumpe(IL=1e-3, perioden=60)
+    a, b, c = folge[-1]
+    P(f"   mit 1 mA Last, eingeschwungen: Ende Takt 1 {a:.4f} V, nach dem Ausgleich {b:.4f} V, Ende Takt 2 {c:.4f} V; "
+      f"Formel Ziel - I/(f C1) = {Vz - 1e-3/(10e3*1e-6):.4f} V; Mittel {((c + a)/2 + (b + c)/2)/2:.5f} V")
+    P(f"   Abfall in Takt 1 I/(2 f C2) = {1e-3/(2*10e3*1e-6):.3f} V; im Rest von Takt 2 I/(2 f (C1+C2)) = "
+      f"{1e-3/(2*10e3*2e-6):.4f} V; Sprung beim Ausgleich {b - a:.4f} V")
+    P(f"   Zeitkonstanten mit R1 = R2 = 10 Ohm: R1 C1 = {10*1e-6*1e6:.0f} us, Ausgleich R2 C1 C2/(C1+C2) = "
+      f"{10*0.5e-6*1e6:.0f} us, gegen einen Takt von {0.5/10e3*1e6:.0f} us")
+    ende, _ = pumpe_sim(perioden=12)
+    P("   Schaltung mit R1 = R2 = 10 Ohm, ohne Last: Ende Takt 1 der ersten Periode "
+      f"{ende[0][0]:.3f} V; Ende Takt 2 der Perioden 1..5: " + ", ".join(f"{e[1]:.3f}" for e in ende[:5]) +
+      f"; Periode 10: {ende[9][1]:.4f} V")
+    _, kn = pumpe_sim(IL=1e-3, perioden=80)
+    P(f"   Schaltung mit 1 mA: U_C2 {kn['u2min']:.4f} bis {kn['u2max']:.4f} V, Mittel {kn['u2mittel']:.4f} V; "
+      f"D2 führt am Ende von Takt 2 noch {kn['i2_ende']*1e3:.3f} mA")
+    P(f"   Energiebilanz Schaltung: Quelle {kn['Iq']*1e3:.4f} mA, {kn['Pin']*1e3:.3f} mW; Ausgang {kn['Pout']*1e3:.3f} mW; "
+      f"Dioden {kn['PD']*1e3:.3f} mW; Widerstände {kn['PR']*1e3:.3f} mW; Summe {(kn['Pout']+kn['PD']+kn['PR'])*1e3:.3f} mW")
+    Pout_g = 1e-3 * ((c + a) / 2 + (b + c) / 2) / 2
+    P(f"   Energiebilanz Grenzfall: Ausgang {Pout_g*1e3:.3f} mW, Dioden 1,200 mW, Rest beim Umladen "
+      f"{10 - 1.2 - Pout_g*1e3:.3f} mW (= 1/2 C1 (0,1 V)^2 f + 1/2 C1 C2/(C1+C2) (0,15 V)^2 f = "
+      f"{(0.5*1e-6*0.1**2 + 0.5*0.5e-6*0.15**2)*10e3*1e3:.3f} mW)")
+    for C1x in (0.1e-6, 1e-6, 10e-6):
+        Vz, fx = ladungspumpe(C1=C1x, C2=1e-6, IL=1e-3, perioden=400)
+        _, kx = pumpe_sim(C1=C1x, IL=1e-3, perioden=150 if C1x < 5e-6 else 400, n=1000)
+        P(f"   C1 = {C1x*1e6:4.1f} uF, C2 = 1 uF, 1 mA: Ende Takt 2 {fx[-1][2]:.3f} V (Formel "
+          f"{Vz - 1e-3/(10e3*C1x):.3f} V), Bereich {fx[-1][0]:.3f} bis {fx[-1][1]:.3f} V; Schaltung Mittel {kx['u2mittel']:.3f} V")
+
+
 def bericht():
     sys.stdout.reconfigure(encoding="utf-8")
     P = print
@@ -589,3 +773,4 @@ if __name__ == "__main__":
     bericht()
     bericht_diode()
     bericht_ap()
+    bericht_gleichrichter()

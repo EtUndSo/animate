@@ -235,3 +235,35 @@ Schutzdioden am Eingang (Annahmenverfahren), R = 1 kOhm, R_L = 10 kOhm, V_DD = 5
 Temperatur: Arbeitspunkt der Grundschaltung bei 25 und 75 °C:
    25 °C: U = 0.6865 V, I = 4.3135 mA
    75 °C: U = 0.5862 V, I = 4.4138 mA
+
+== Gleichrichtung und Ladungspumpe (Thema 04) ==
+Brücke ohne Glättung, Quelle 10.0 V Scheitel, 50 Hz, Last 1 kOhm:
+   0,6 V-Modell: Spitze am Ausgang 8.80 V; Totzone |u_e| < 1.2 V, je Nulldurchgang 0.766 ms von 10 ms (7.7 %)
+   zwei Beispieldioden (ideal): je Diode 0.7007 V, Spitze 8.599 V, Spitzenstrom 8.599 mA
+   Einweg mit einer Beispieldiode: Spitze 9.297 V (vgl. Pilot 9,3 V)
+   Mittelwert Doppelweg ideal 6.3662 V (2/pi Û = 6.3662 V), mit 2 x 0,6 V 5.2121 V; Einweg ideal 3.1831 V (Û/pi = 3.1831 V)
+   geschlossen mit Totzone: theta1 = arcsin(2 U_F/Û) = 0.1203; 2/pi [Û cos theta1 - 2 U_F (pi/2 - theta1)] = 5.2121 V
+   Effektivwert Doppelweg ideal 7.0711 V (Û/sqrt 2 = 7.0711 V), mit Abfall 6.0104 V; Einweg ideal 5.0000 V (Û/2)
+   Sperrspannung je Diode: Û - U_F = 9.4 V; Einweggleichrichter ohne Glättung: Û = 10 V
+Glättung mit Ladekondensator (Simulation): Ri = 5 Ohm, C = 470 uF, RL = 470 Ohm, 0,6 V-Modell:
+   U_C zwischen 8.046 und 8.338 V, Mittel 8.192 V, Brumm (Spitze-Spitze) 0.292 V; Laststrom 17.43 mA
+   Näherung I/(2 f C) = 0.371 V; Dioden leiten je Halbwelle 2.216 ms von 10 ms (Stromflusswinkel 39.9 Grad), Spitzenstrom 118 mA, Mittel 17.43 mA
+   Dioden sperren bei |u_e| = 9.537 V, u_C = 8.336 V (Differenz 1.202 V = 2 U_F)
+   C =   100 uF: Brumm 1.299 V (Näherung 1.694 V), Spitzenstrom 109 mA, Mittel U 7.961 V
+   C =   220 uF: Brumm 0.617 V (Näherung 0.788 V), Spitzenstrom 117 mA, Mittel U 8.147 V
+   C =  1000 uF: Brumm 0.137 V (Näherung 0.175 V), Spitzenstrom 119 mA, Mittel U 8.202 V
+   0,1 V Brumm nach der Simulation bei C = 1375 uF (Schätzung I_L/(2 f 0,1 V) = 1743 uF)
+   Einschalten im Nulldurchgang, C leer: größter Puls 799 mA bei 3.20 ms; u_C nach 40 ms 8.14 V
+   Einschalten im Scheitel, C leer: größter Puls 1760 mA bei 0.00 ms; u_C nach 40 ms 8.18 V
+Ladungspumpe, Grenzfall schnellen Ausgleichs, U_e = 5 V, 0,6 V-Modell, C1 = C2 = 1 uF, f = 10 kHz (Periode 100 us = Takt 1 + Takt 2):
+   Endwert 2 U_e - 2 U_F = 8.80 V; ohne Last nach dem ersten Takt 1 (D2 leitet mit) 3.800 V; am Ende der Perioden 1..5: 6.3000, 7.5500, 8.1750, 8.4875, 8.6438; Periode 10: 8.7951 V (Abstand 0.0049 V = 5 V/2^10 = 0.0049 V)
+   mit 1 mA Last, eingeschwungen: Ende Takt 1 8.6500 V, nach dem Ausgleich 8.7250 V, Ende Takt 2 8.7000 V; Formel Ziel - I/(f C1) = 8.7000 V; Mittel 8.69375 V
+   Abfall in Takt 1 I/(2 f C2) = 0.050 V; im Rest von Takt 2 I/(2 f (C1+C2)) = 0.0250 V; Sprung beim Ausgleich 0.0750 V
+   Zeitkonstanten mit R1 = R2 = 10 Ohm: R1 C1 = 10 us, Ausgleich R2 C1 C2/(C1+C2) = 5 us, gegen einen Takt von 50 us
+   Schaltung mit R1 = R2 = 10 Ohm, ohne Last: Ende Takt 1 der ersten Periode 3.103 V; Ende Takt 2 der Perioden 1..5: 5.736, 7.258, 8.024, 8.409, 8.603; Periode 10: 8.7936 V
+   Schaltung mit 1 mA: U_C2 8.6443 bis 8.7083 V, Mittel 8.6843 V; D2 führt am Ende von Takt 2 noch 0.501 mA
+   Energiebilanz Schaltung: Quelle 2.0031 mA, 10.016 mW; Ausgang 8.684 mW; Dioden 1.202 mW; Widerstände 0.116 mW; Summe 10.002 mW
+   Energiebilanz Grenzfall: Ausgang 8.694 mW, Dioden 1,200 mW, Rest beim Umladen 0.106 mW (= 1/2 C1 (0,1 V)^2 f + 1/2 C1 C2/(C1+C2) (0,15 V)^2 f = 0.106 mW)
+   C1 =  0.1 uF, C2 = 1 uF, 1 mA: Ende Takt 2 7.800 V (Formel 7.800 V), Bereich 7.750 bis 7.845 V; Schaltung Mittel 7.797 V
+   C1 =  1.0 uF, C2 = 1 uF, 1 mA: Ende Takt 2 8.700 V (Formel 8.700 V), Bereich 8.650 bis 8.725 V; Schaltung Mittel 8.684 V
+   C1 = 10.0 uF, C2 = 1 uF, 1 mA: Ende Takt 2 8.790 V (Formel 8.790 V), Bereich 8.740 bis 8.795 V; Schaltung Mittel 8.749 V

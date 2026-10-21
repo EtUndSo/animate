@@ -620,3 +620,101 @@ Daneben für $U_E$ = 9 V zwei Zustände mit Potenzialen:
 - §5 Zeitverläufe an den Achsen;
 - §8 Animation des wandernden Punkts;
 - §1 Ersatzschaltbild.
+
+---
+
+## ET1 Kap. 10: Gleichrichtung und Ladungspumpe
+Zahlenwerk: `notizen/get1/zahlen_halbleiter.py`, Funktionen `glaettung_sim`, `glaettung_einschalten`, `ladungspumpe`, `pumpe_sim`, `bericht_gleichrichter()`.
+
+**get1/halbleiterbauelemente/04-bruecke-strompfade**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Brückenschaltung nach Graetz mit Wechselspannungsquelle $u_e$ (10 V Scheitel), vier Dioden D1 bis D4 und Lastwiderstand mit fester Polung von $u_a$. Nummerierung wie im Skript (Bild 10.25), jeweils von der Anode zur Kathode: D1 oberer Eingang → oberes Lastende, D4 unterer Eingang → oberes Lastende, D2 unteres Lastende → oberer Eingang, D3 unteres Lastende → unterer Eingang. Zwei Teilbilder:
+- (a) positive Halbwelle: Strompfad farbig über D1, Last, D3; D2 und D4 grau;
+- (b) negative Halbwelle: Strompfad vom unteren Eingang über D4, Last, D2 zum oberen Eingang.
+
+In beiden Teilbildern fließt der Strom durch die Last in derselben Richtung (Pfeil).
+
+*Kernaussage:* Die Brücke lenkt beide Halbwellen in derselben Richtung durch die Last; je Halbwelle leiten zwei Dioden in Reihe.
+
+*Editor:*
+- §1 Schaltplan mit Brückenanordnung;
+- §2 Strompfeile;
+- §10 Teilbilder;
+- §8 Animation mit wechselndem Pfad.
+
+**get1/halbleiterbauelemente/04-bruecke-zeitverlauf**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Zeitverläufe über 40 ms:
+- $u_e$ gestrichelt, Scheitel ±10 V;
+- $u_a$ kräftig, Betrag von $u_e$ minus 1,2 V, Spitze 8,8 V;
+- um jeden Nulldurchgang eine Totzone von 0,77 ms, in der $u_a$ = 0 ist (markiert);
+- waagrechte Linie für den Mittelwert 5,21 V.
+
+*Kernaussage:* Der Ausgang ist der Betrag des Eingangs abzüglich zweier Durchlassspannungen, mit Lücken um die Nulldurchgänge.
+
+*Daten:* Tabelle „Brücke ohne Glättung“ in `bericht_gleichrichter()`.
+
+*Editor:*
+- §5 Zeitverläufe mit abgeschnittenen Signalen;
+- §4 markierte Bereiche und Hilfslinien;
+- §15 optional: Regler für die Durchlassspannung.
+
+**get1/halbleiterbauelemente/04-glaettung**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:*
+- (a) Brücke mit Ladekondensator 470 µF parallel zur Last 470 Ω, Innenwiderstand der Quelle 5 Ω.
+- (b) Zwei gestapelte Diagramme über 30 ms:
+  - oben $u_C$ zwischen 8,05 und 8,34 V (gezoomte Achse), dazu gestrichelt der Betrag von $u_e$ minus 1,2 V;
+  - unten der Diodenstrom: Pulse von 2,2 ms Dauer und 118 mA Spitze, dazu der konstante Laststrom von 17,4 mA.
+
+*Kernaussage:* Der Kondensator wird nur kurz um die Spitzen nachgeladen; dazwischen speist er die Last allein, die Spannung sinkt um 0,29 V.
+
+*Daten:* `glaettung_sim()`.
+
+*Editor:*
+- §1 Schaltplan;
+- §13 gestapelte Diagramme;
+- §11 Datenkurven aus der Simulation;
+- §15 optional: Regler für C und Last.
+
+**get1/halbleiterbauelemente/04-ladungspumpe-takte**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Die Ladungspumpe des Skripts in zwei Teilbildern: Eingang $U_e$ = 5 V, D1, R1, Knoten mit C1 nach unten zum Umschalter, R2, D2, Ausgangskondensator C2. Die Unterseite von C1 hängt nur am Umschalter; im Skriptbild ist sie zusätzlich fest an Masse gezeichnet, ein Zeichenfehler, der nicht übernommen wird.
+- (a) Takt 1: Unterseite von C1 an Masse; Strompfad über D1 und R1 in C1, C1 auf 4,4 V.
+- (b) Takt 2: Unterseite von C1 an $U_e$; Oberseite auf 9,4 V, D1 gesperrt (rot), Strompfad über R2 und D2 in C2; C2 nähert sich 8,8 V.
+
+*Kernaussage:* Der geladene Kondensator wird auf die Eingangsspannung gestapelt und gibt seine Ladung an den Ausgang weiter.
+
+*Editor:*
+- §1 Schaltplan mit Umschalter;
+- §2 Strompfeile;
+- §7 Spannungsbeschriftungen;
+- §10 Teilbilder;
+- §8 Animation der beiden Takte.
+
+**get1/halbleiterbauelemente/04-ladungspumpe-aufladen**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Spannung an C2 als Zeitverlauf (Takt 1 und Takt 2 je 50 µs), zwei Teilbilder:
+- (a) ohne Last über die ersten zehn Perioden (1 ms): im ersten Takt 1 Anstieg auf 3,80 V (D2 leitet mit), am Ende der Perioden 6,30; 7,55; 8,18; 8,49; 8,64 V … gegen 8,8 V; optional gestrichelt die Schaltung mit 10 Ω (3,10 V, dann 5,74; 7,26; 8,02; 8,41; 8,60 V);
+- (b) mit 1 mA Last, eingeschwungen, zwei Perioden vergrößert: in Takt 1 Abfall von 8,70 auf 8,65 V, Sprung beim Ausgleich auf 8,725 V, im Rest von Takt 2 Abfall zurück auf 8,70 V.
+
+Hilfslinie bei 8,8 V.
+
+*Kernaussage:* Bei C1 = C2 halbiert jede Periode den Abstand zum Endwert; unter Last liegt der Ausgang am Ende von Takt 2 um I/(f C1) darunter.
+
+*Daten:* `ladungspumpe()` (Grenzfall schnellen Ausgleichs), `pumpe_sim()` (Schaltung mit R1 = R2 = 10 Ω).
+
+*Editor:*
+- §4 Treppenkurve mit markierten Punkten;
+- §11 Datenkurve;
+- §15 optional: Regler für Last und C1.
