@@ -180,3 +180,58 @@ Fotodiode und Solarzelle:
    Bestrahlung    10 W/m^2: I_ph = I_K = 0.35 uA, U_L ideal 0.4393 V, mit Rekombination 0.4380 V
    MPP (ideal, 1000 W/m^2): U = 0.4814 V, I = 33.22 uA, P = 15.99 uW, Füllfaktor 0.818, Lichtleistung 0.100 mW, Wirkungsgrad 16.0 %
    U_L-Zuwachs je Dekade Licht: 59.5 mV
+
+== Arbeitspunkt und Ersatzschaltung (Thema 03) ==
+Grundschaltung 5.0 V, 1000 Ohm, Beispieldiode ideal: U = 0.6829 V, I = 4.3171 mA, P_D = 2.95 mW
+Arbeitsgerade: Leerlauf (5.0 V | 0), Kurzschluss (0 | 5.0 mA), Steigung -1/R = -1.0 mA/V
+geschlossene Lösung mit Lambert-W: I = 4.31713 mA (Argument 5.589e+74)
+Fixpunktiteration (Start 0,7 V):
+   Schritt 1: I = 4.30000 mA -> U = 0.682764 V
+   Schritt 2: I = 4.31724 mA -> U = 0.682868 V
+   Schritt 3: I = 4.31713 mA -> U = 0.682867 V
+   Schritt 4: I = 4.31713 mA -> U = 0.682867 V
+Fixpunktiteration (Start 0 V):
+   Schritt 1: I = 5.00000 mA -> U = 0.686663 V
+   Schritt 2: I = 4.31334 mA -> U = 0.682844 V
+   Schritt 3: I = 4.31716 mA -> U = 0.682867 V
+   Schritt 4: I = 4.31713 mA -> U = 0.682867 V
+Newton (Start 0,7 V): 0.6874591, 0.6832499, 0.6828699, 0.6828671, 0.6828671
+Newton (Start 0 V):   5.0000, 4.9741, 4.9483, 4.9224, 4.8966, 4.8707, 4.8449, 4.8190, 4.7932, 4.7673, 4.7415, 4.7156
+   Newton ab 0 V erreicht 1 uV Genauigkeit nach 171 Schritten
+   Konvergenzfaktor der Fixpunktiteration bei 0.5 V und 1 kOhm: U_T/(R (I + I_S)) = 8.01 (I = 3.23 uA, Spannung am Widerstand 3.2 mV)
+   Konvergenzfaktor der Fixpunktiteration bei 0.55 V und 1 kOhm: U_T/(R (I + I_S)) = 1.79 (I = 14.46 uA, Spannung am Widerstand 14.5 mV)
+   Konvergenzfaktor der Fixpunktiteration bei 0.6 V und 1 kOhm: U_T/(R (I + I_S)) = 0.66 (I = 38.89 uA, Spannung am Widerstand 38.9 mV)
+Ersatzschaltungen in der Grundschaltung:
+   ideale Diode                : I = 5.000 mA (+15.8 %), U = 0.000 V
+   Durchlassspannung 0,6 V     : I = 4.400 mA (+1.9 %), U = 0.600 V
+   Durchlassspannung 0,7 V     : I = 4.300 mA (-0.4 %), U = 0.700 V
+   Knickkennlinie (Tangente bei 1 mA): U_F0 = 0.6192 V, r_F = 25.85 Ohm -> I = 4.270 mA (-1.08 %), U = 0.7296 V (exakt 0.6829 V)
+   Quelle 1 V: exakt 0.3800 mA bei 0.6200 V; ideal 1.000 mA (+163 %), 0,6 V: 0.400 mA (+5.3 %), 0,7 V: 0.300 mA (-21.0 %)
+   Quelle 2 V: exakt 1.3472 mA bei 0.6528 V; ideal 2.000 mA (+48 %), 0,6 V: 1.400 mA (+3.9 %), 0,7 V: 1.300 mA (-3.5 %)
+   Quelle 6 V: exakt 5.3118 mA bei 0.6882 V; ideal 6.000 mA (+13 %), 0,6 V: 5.400 mA (+1.7 %), 0,7 V: 5.300 mA (-0.2 %)
+   Knickkennlinie (Sekante 1 mA bis 10 mA): U_F0 = 0.6384 V, r_F = 6.614 Ohm -> I = 4.333 mA (+0.37 %), U = 0.6671 V
+   Tangente im exakten Arbeitspunkt: U_F0 = 0.6570 V, r_F = 5.988 Ohm
+Differentieller und statischer Widerstand der idealen Kennlinie:
+   I =   0.0010 mA: U = 0.4665 V, r_d = U_T/I = 25851.999 Ohm, statisch U/I = 466476.9 Ohm
+   I =   0.1000 mA: U = 0.5855 V, r_d = U_T/I = 258.520 Ohm, statisch U/I = 5855.3 Ohm
+   I =   1.0000 mA: U = 0.6451 V, r_d = U_T/I = 25.852 Ohm, statisch U/I = 645.1 Ohm
+   I =   4.3171 mA: U = 0.6829 V, r_d = U_T/I = 5.988 Ohm, statisch U/I = 158.2 Ohm
+   I =  10.0000 mA: U = 0.7046 V, r_d = U_T/I = 2.585 Ohm, statisch U/I = 70.5 Ohm
+Kleinsignal: Fehler der Tangente, i_exakt/i_linear - 1 = (exp(x)-1)/x - 1 mit x = u/U_T:
+   u =  1.00 mV:   2.0 %  (zweiter Term u/(2 U_T) = 1.9 %)
+   u =  5.00 mV:  10.3 %  (zweiter Term u/(2 U_T) = 9.7 %)
+   u = 10.00 mV:  22.1 %  (zweiter Term u/(2 U_T) = 19.3 %)
+   u = 25.85 mV:  71.8 %  (zweiter Term u/(2 U_T) = 50.0 %)
+Kleinsignal in der Grundschaltung: U0 = 5 V +- 0,1 V -> exakt U_D = 0.68226 / 0.68287 / 0.68346 V (Hub 0.595 mV), linear 0,1 V r_d/(R + r_d) = 0.595 mV; Stromhub exakt 0.0994 mA, linear 0.0994 mA
+Synthese: Vorwiderstand für 5 mA aus 5 V mit der Beispieldiode:
+   U(5 mA) = 0.6867 V, R = (5 V - U)/5 mA = 862.7 Ohm; mit 820 Ohm: 5.259 mA, mit 910 Ohm: 4.741 mA
+Schutzdioden am Eingang (Annahmenverfahren), R = 1 kOhm, R_L = 10 kOhm, V_DD = 5 V, U_F0 = 0,6 V:
+   U_E = +9 V: beide sperren -> phi_A = 8.182 V, U_D1 = phi_A - V_DD = +3.182 V, U_D2 = 0 - phi_A = -8.182 V
+      D1 leitet: phi_A = 5.60 V, I_R = 3.400 mA, I_L = 0.560 mA, I_D1 = 2.840 mA, U_D2 = -5.60 V
+      exakt mit Beispieldioden: phi_A = 5.6713 V, I_D1 = 2.762 mA
+   U_E = +3 V: beide sperren -> phi_A = 2.727 V, U_D1 = phi_A - V_DD = -2.273 V, U_D2 = 0 - phi_A = -2.727 V
+   U_E = -3 V: beide sperren -> phi_A = -2.727 V, U_D1 = phi_A - V_DD = -7.727 V, U_D2 = 0 - phi_A = +2.727 V
+      D2 leitet: phi_A = -0.60 V, I_R = -2.400 mA, I_L = -0.060 mA, I_D2 = 2.340 mA (von Masse nach A), U_D1 = -5.60 V
+Temperatur: Arbeitspunkt der Grundschaltung bei 25 und 75 °C:
+   25 °C: U = 0.6865 V, I = 4.3135 mA
+   75 °C: U = 0.5862 V, I = 4.4138 mA

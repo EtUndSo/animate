@@ -499,3 +499,124 @@ Kleines Ersatzschaltbild: Stromquelle $I_{ph}$ parallel zur Diode.
 - §1 Ersatzschaltbild mit Stromquelle;
 - §7 Quadrantenbeschriftung;
 - §15 optional: Regler für die Bestrahlung.
+
+---
+
+## ET1 Kap. 10: Arbeitspunkt und Ersatzschaltung der Diode
+Zahlenwerk: `notizen/get1/zahlen_halbleiter.py`, Funktion `bericht_ap()`.
+
+**get1/halbleiterbauelemente/03-arbeitsgerade**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:*
+- (a) Grundschaltung: Quelle 5 V, Widerstand 1 kΩ, Beispieldiode; der lineare Rest (Quelle und Widerstand) ist gestrichelt umrahmt. Zählpfeile $U$ an der Diode und $I$.
+- (b) Diagramm $I$ in mA (0 bis 5,5) über $U$ in V (0 bis 5): Arbeitsgerade von (5 V; 0) nach (0; 5 mA), Kennlinie der Beispieldiode, die bei 0,6 bis 0,7 V fast senkrecht ansteigt, Schnittpunkt AP bei 0,683 V und 4,32 mA.
+- Ausschnitt (Lupe) 0,6 bis 0,75 V und 3,5 bis 5 mA mit dem Schnittpunkt.
+
+*Kernaussage:* Der Arbeitspunkt ist der Schnittpunkt der Diodenkennlinie mit der Arbeitsgeraden des übrigen Netzes.
+
+*Daten:* `ap_exakt(5, 1000)`, `strom(U)`.
+
+*Editor:*
+- §1 Schaltplan mit Rahmen;
+- §4 Kennlinie, Gerade, Schnittpunkt;
+- §10 Teilbilder und Ausschnitt;
+- §11 Datenkurve;
+- §15 optional: Regler für Quellenspannung und Widerstand.
+
+**get1/halbleiterbauelemente/03-iteration**
+- Fassung: ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Ausschnitt der Kennlinie und der Arbeitsgeraden um den Arbeitspunkt (0,66 bis 0,71 V, 4,2 bis 4,4 mA). Treppenweg der Fixpunktiteration ab 0,7 V:
+- waagrecht zur Arbeitsgeraden: 4,300 mA;
+- senkrecht zur Kennlinie: 0,68276 V;
+- wieder zur Geraden: 4,3172 mA;
+- dann im Rahmen der Zeichengenauigkeit im Arbeitspunkt 0,68287 V und 4,3171 mA.
+
+*Kernaussage:* Jeder Schritt verkleinert den Fehler auf das U_T/(R I)-Fache, hier etwa 0,006.
+
+*Daten:* `ap_iteration(5, 1000)`.
+
+*Editor:*
+- §4 Kurven und Pfeilzug;
+- §8 Animation Schritt für Schritt.
+
+**get1/halbleiterbauelemente/03-ersatzschaltungen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder, je eine Modellkennlinie über der realen Kennlinie (grau):
+- (a) ideale Diode: senkrechte Linie bei 0 V und waagrechte bei 0 A;
+- (b) Diode mit Durchlassspannung $U_{F0}$ = 0,6 V;
+- (c) Knickkennlinie: ab $U_{F0}$ eine Gerade mit der Steigung $1/r_F$.
+
+Unter jedem Teilbild die Ersatzschaltbilder für „leitend“ (Kurzschluss, Spannungsquelle, Spannungsquelle mit Widerstand) und „sperrend“ (offener Schalter).
+
+*Kernaussage:* Jedes Modell ersetzt die Diode je Zustand durch lineare Bauteile.
+
+*Editor:*
+- §1 Schaltsymbole (Quelle, Widerstand, offene Klemmen);
+- §4 Kennlinien;
+- §10 Teilbilder.
+
+**get1/halbleiterbauelemente/03-modellvergleich**
+- Fassung: ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Arbeitsgerade der Grundschaltung von 0 bis 0,8 V (5,0 bis 4,2 mA), dazu die Modellkennlinien und ihre Schnittpunkte:
+- ideal: 0 V, 5,00 mA;
+- 0,6 V-Modell: 4,40 mA;
+- 0,7 V-Modell: 4,30 mA;
+- exakt: 0,683 V, 4,317 mA.
+
+*Kernaussage:* Der Strom hängt kaum vom Modell ab, solange die Quellenspannung groß gegen die Durchlassspannung ist.
+
+*Daten:* Tabelle „Ersatzschaltungen in der Grundschaltung“ in `bericht_ap()`.
+
+*Editor:*
+- §4 Gerade, Kurven, markierte Punkte mit Werten.
+
+**get1/halbleiterbauelemente/03-schutzdioden**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Eingangsschutz:
+- Eingangsspannung $U_E$ über 1 kΩ an den Knoten A;
+- D1 von A (Anode) zur Versorgung 5 V (Kathode);
+- D2 von Masse (Anode) nach A (Kathode);
+- Last 10 kΩ von A nach Masse.
+
+Daneben für $U_E$ = 9 V zwei Zustände mit Potenzialen:
+- „beide sperren“: A auf 8,18 V, an D1 +3,18 V, rot markiert als Widerspruch;
+- „D1 leitet“: A auf 5,6 V, 3,4 mA durch den Widerstand, 0,56 mA durch die Last, 2,84 mA durch D1, an D2 −5,6 V.
+
+*Kernaussage:* Die Probe der Annahme an den Potenzialen zeigt sofort, welche Diode leiten muss.
+
+*Daten:* Tabelle „Schutzdioden am Eingang“ in `bericht_ap()`.
+
+*Editor:*
+- §1 Schaltplan;
+- §7 Potenzial-Beschriftungen und Markierungen;
+- §10 Teilbilder;
+- §15 optional: Regler für $U_E$ von −5 bis +10 V mit wechselndem Zustand.
+
+**get1/halbleiterbauelemente/03-kleinsignal**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:*
+- (a) Kennlinie der Beispieldiode um den Arbeitspunkt (4,32 mA) mit der Tangente der Steigung $1/r_d$, $r_d$ = 6,0 Ω.
+- Ein kleiner Sinus der Spannung (±0,6 mV) auf der Spannungsachse erzeugt einen Sinus des Stroms (±0,1 mA) auf der Stromachse; ein großer Hub (±20 mV) zum Vergleich mit sichtbarer Verzerrung.
+- (b) Kleinsignal-Ersatzschaltbild: Diode durch $r_d$ ersetzt, Quelle durch ihre Änderung.
+
+*Kernaussage:* Für kleine Änderungen verhält sich die Diode wie ein Widerstand $U_T/I$.
+
+*Daten:* `r_diff(I)`, Kleinsignal-Werte in `bericht_ap()`.
+
+*Editor:*
+- §4 Tangente im Punkt;
+- §5 Zeitverläufe an den Achsen;
+- §8 Animation des wandernden Punkts;
+- §1 Ersatzschaltbild.

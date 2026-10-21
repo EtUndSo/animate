@@ -368,6 +368,141 @@ def bericht_diode():
     P(f"   U_L-Zuwachs je Dekade Licht: {UT*math.log(10)*1e3:.1f} mV")
 
 
+# ------------------------------------------------------------------ Arbeitspunkt und Ersatzschaltung (Thema 03)
+U0_AP, R_AP = 5.0, 1000.0                   # Grundschaltung: Quelle 5 V, Vorwiderstand 1 kOhm, Beispieldiode (ideal)
+
+
+def ap_exakt(U0, R, IS_=None):
+    """Arbeitspunkt (U, I) von Quelle U0, Widerstand R und idealer Beispieldiode: U0 = R I + U_T ln(I/I_S + 1)."""
+    IS_ = IS if IS_ is None else IS_
+    U = _bisekt(lambda u: IS_ * (math.exp(u / UT) - 1) - (U0 - u) / R, -1.0, min(U0, 1.5))
+    return U, (U0 - U) / R
+
+
+def ap_iteration(U0, R, U_start=0.7, schritte=4):
+    """Fixpunktiteration wie von Hand: I aus der Arbeitsgeraden, dann U aus der umgestellten Kennlinie."""
+    U, folge = U_start, []
+    for _ in range(schritte):
+        I = (U0 - U) / R
+        U = UT * math.log(I / IS + 1)
+        folge.append((I, U))
+    return folge
+
+
+def ap_newton(U0, R, U_start=0.7, schritte=5):
+    """Newton-Verfahren auf f(U) = I_S (exp(U/U_T) - 1) - (U0 - U)/R, wie es Schaltungssimulatoren verwenden."""
+    U, folge = U_start, []
+    for _ in range(schritte):
+        f = IS * (math.exp(U / UT) - 1) - (U0 - U) / R
+        df = IS / UT * math.exp(U / UT) + 1 / R
+        U -= f / df
+        folge.append(U)
+    return folge
+
+
+def r_diff(I):
+    """Differentieller Widerstand der idealen Kennlinie: U_T/(I + I_S)."""
+    return UT / (I + IS)
+
+
+def bericht_ap():
+    P = print
+    P("\n== Arbeitspunkt und Ersatzschaltung (Thema 03) ==")
+    U, I = ap_exakt(U0_AP, R_AP)
+    P(f"Grundschaltung {U0_AP} V, {R_AP:.0f} Ohm, Beispieldiode ideal: U = {U:.4f} V, I = {I*1e3:.4f} mA, P_D = {U*I*1e3:.2f} mW")
+    P(f"Arbeitsgerade: Leerlauf ({U0_AP} V | 0), Kurzschluss (0 | {U0_AP/R_AP*1e3:.1f} mA), Steigung -1/R = {-1/R_AP*1e3:.1f} mA/V")
+    Ur, Ir = U, I
+    from scipy.special import lambertw
+    a = IS * R_AP / UT
+    I_W = UT / R_AP * float(lambertw(a * math.exp((U0_AP + IS * R_AP) / UT)).real) - IS
+    P(f"geschlossene Lösung mit Lambert-W: I = {I_W*1e3:.5f} mA (Argument {a*math.exp((U0_AP+IS*R_AP)/UT):.3e})")
+    P("Fixpunktiteration (Start 0,7 V):")
+    for k, (Ik, Uk) in enumerate(ap_iteration(U0_AP, R_AP), 1):
+        P(f"   Schritt {k}: I = {Ik*1e3:.5f} mA -> U = {Uk:.6f} V")
+    P("Fixpunktiteration (Start 0 V):")
+    for k, (Ik, Uk) in enumerate(ap_iteration(U0_AP, R_AP, U_start=0.0), 1):
+        P(f"   Schritt {k}: I = {Ik*1e3:.5f} mA -> U = {Uk:.6f} V")
+    P("Newton (Start 0,7 V): " + ", ".join(f"{u:.7f}" for u in ap_newton(U0_AP, R_AP)))
+    P("Newton (Start 0 V):   " + ", ".join(f"{u:.4f}" for u in ap_newton(U0_AP, R_AP, U_start=0.0, schritte=12)))
+    folge = ap_newton(U0_AP, R_AP, U_start=0.0, schritte=400)
+    n1 = next(k for k, u in enumerate(folge, 1) if abs(u - Ur) < 1e-6)
+    P(f"   Newton ab 0 V erreicht 1 uV Genauigkeit nach {n1} Schritten")
+    for U0x in (0.5, 0.55, 0.6):
+        Ux, Ix = ap_exakt(U0x, R_AP)
+        P(f"   Konvergenzfaktor der Fixpunktiteration bei {U0x} V und 1 kOhm: U_T/(R (I + I_S)) = "
+          f"{UT/(R_AP*(Ix+IS)):.2f} (I = {Ix*1e6:.2f} uA, Spannung am Widerstand {R_AP*Ix*1e3:.1f} mV)")
+    P("Ersatzschaltungen in der Grundschaltung:")
+    for name, UF0, rF in (("ideale Diode", 0.0, 0.0), ("Durchlassspannung 0,6 V", 0.6, 0.0), ("Durchlassspannung 0,7 V", 0.7, 0.0)):
+        Im = (U0_AP - UF0) / (R_AP + rF)
+        P(f"   {name:28s}: I = {Im*1e3:.3f} mA ({(Im/Ir-1)*100:+.1f} %), U = {UF0 + rF*Im:.3f} V")
+    # Knickkennlinie als Tangente bei 1 mA (Schätzung, bevor man den Arbeitspunkt kennt)
+    I1 = 1e-3
+    U1 = UT * math.log(I1 / IS + 1)
+    rF = r_diff(I1)
+    UF0 = U1 - rF * I1
+    Im = (U0_AP - UF0) / (R_AP + rF)
+    P(f"   Knickkennlinie (Tangente bei 1 mA): U_F0 = {UF0:.4f} V, r_F = {rF:.2f} Ohm -> I = {Im*1e3:.3f} mA "
+      f"({(Im/Ir-1)*100:+.2f} %), U = {UF0 + rF*Im:.4f} V (exakt {Ur:.4f} V)")
+    for U0x in (1.0, 2.0, 6.0):
+        Ux, Ix = ap_exakt(U0x, R_AP)
+        P(f"   Quelle {U0x:.0f} V: exakt {Ix*1e3:.4f} mA bei {Ux:.4f} V; ideal {U0x/R_AP*1e3:.3f} mA "
+          f"({(U0x/R_AP/Ix-1)*100:+.0f} %), 0,6 V: {(U0x-0.6)/R_AP*1e3:.3f} mA ({((U0x-0.6)/R_AP/Ix-1)*100:+.1f} %), "
+          f"0,7 V: {(U0x-0.7)/R_AP*1e3:.3f} mA ({((U0x-0.7)/R_AP/Ix-1)*100:+.1f} %)")
+    Ua_, Ub_ = UT * math.log(1e-3 / IS + 1), UT * math.log(1e-2 / IS + 1)
+    rFs = (Ub_ - Ua_) / (1e-2 - 1e-3)
+    UF0s = Ua_ - rFs * 1e-3
+    Is_ = (U0_AP - UF0s) / (R_AP + rFs)
+    P(f"   Knickkennlinie (Sekante 1 mA bis 10 mA): U_F0 = {UF0s:.4f} V, r_F = {rFs:.3f} Ohm -> I = {Is_*1e3:.3f} mA "
+      f"({(Is_/Ir-1)*100:+.2f} %), U = {UF0s + rFs*Is_:.4f} V")
+    rF2 = r_diff(Ir)
+    UF02 = Ur - rF2 * Ir
+    P(f"   Tangente im exakten Arbeitspunkt: U_F0 = {UF02:.4f} V, r_F = {rF2:.3f} Ohm")
+    P("Differentieller und statischer Widerstand der idealen Kennlinie:")
+    for Ix in (1e-6, 1e-4, 1e-3, Ir, 1e-2):
+        Ux = UT * math.log(Ix / IS + 1)
+        P(f"   I = {Ix*1e3:8.4f} mA: U = {Ux:.4f} V, r_d = U_T/I = {r_diff(Ix):.3f} Ohm, statisch U/I = {Ux/Ix:.1f} Ohm")
+    P("Kleinsignal: Fehler der Tangente, i_exakt/i_linear - 1 = (exp(x)-1)/x - 1 mit x = u/U_T:")
+    for u in (1e-3, 5e-3, 10e-3, UT):
+        x = u / UT
+        P(f"   u = {u*1e3:5.2f} mV: {((math.exp(x)-1)/x - 1)*100:5.1f} %  (zweiter Term u/(2 U_T) = {x/2*100:.1f} %)")
+    dU0 = 0.1
+    Up, Ip = ap_exakt(U0_AP + dU0, R_AP)
+    Um, Imn = ap_exakt(U0_AP - dU0, R_AP)
+    rd = r_diff(Ir)
+    P(f"Kleinsignal in der Grundschaltung: U0 = 5 V +- 0,1 V -> exakt U_D = {Um:.5f} / {Ur:.5f} / {Up:.5f} V "
+      f"(Hub {(Up-Um)/2*1e3:.3f} mV), linear 0,1 V r_d/(R + r_d) = {dU0*rd/(R_AP+rd)*1e3:.3f} mV; "
+      f"Stromhub exakt {(Ip-Imn)/2*1e3:.4f} mA, linear {dU0/(R_AP+rd)*1e3:.4f} mA")
+    P("Synthese: Vorwiderstand für 5 mA aus 5 V mit der Beispieldiode:")
+    U5 = UT * math.log(5e-3 / IS + 1)
+    P(f"   U(5 mA) = {U5:.4f} V, R = (5 V - U)/5 mA = {(5-U5)/5e-3:.1f} Ohm; mit 820 Ohm: {ap_exakt(5, 820)[1]*1e3:.3f} mA, "
+      f"mit 910 Ohm: {ap_exakt(5, 910)[1]*1e3:.3f} mA")
+    P("Schutzdioden am Eingang (Annahmenverfahren), R = 1 kOhm, R_L = 10 kOhm, V_DD = 5 V, U_F0 = 0,6 V:")
+    R1, RL, VDD, UF = 1000.0, 10000.0, 5.0, 0.6
+    for UE in (9.0, 3.0, -3.0):
+        phi0 = UE * RL / (R1 + RL)
+        P(f"   U_E = {UE:+.0f} V: beide sperren -> phi_A = {phi0:.3f} V, U_D1 = phi_A - V_DD = {phi0-VDD:+.3f} V, "
+          f"U_D2 = 0 - phi_A = {-phi0:+.3f} V")
+        if phi0 - VDD > UF:
+            phi = VDD + UF
+            IR = (UE - phi) / R1
+            IL = phi / RL
+            P(f"      D1 leitet: phi_A = {phi:.2f} V, I_R = {IR*1e3:.3f} mA, I_L = {IL*1e3:.3f} mA, I_D1 = {(IR-IL)*1e3:.3f} mA, "
+              f"U_D2 = {-phi:.2f} V")
+            phx = _bisekt(lambda p: (p - 0) / RL + IS * (math.exp((p - VDD) / UT) - 1) - (UE - p) / R1, 0.0, UE)
+            P(f"      exakt mit Beispieldioden: phi_A = {phx:.4f} V, I_D1 = {((UE-phx)/R1 - phx/RL)*1e3:.3f} mA")
+        if -phi0 > UF:
+            phi = -UF
+            IR = (UE - phi) / R1
+            IL = phi / RL
+            P(f"      D2 leitet: phi_A = {phi:.2f} V, I_R = {IR*1e3:.3f} mA, I_L = {IL*1e3:.3f} mA, I_D2 = {(IL-IR)*1e3:.3f} mA "
+              f"(von Masse nach A), U_D1 = {phi-VDD:.2f} V")
+    P("Temperatur: Arbeitspunkt der Grundschaltung bei 25 und 75 °C:")
+    for TC in (25, 75):
+        TK = 273.15 + TC
+        Ut = _bisekt(lambda u: strom_T(u, TK) - (U0_AP - u) / R_AP, 0.0, 1.0)
+        P(f"   {TC} °C: U = {Ut:.4f} V, I = {(U0_AP-Ut)/R_AP*1e3:.4f} mA")
+
+
 def bericht():
     sys.stdout.reconfigure(encoding="utf-8")
     P = print
@@ -453,3 +588,4 @@ def bericht():
 if __name__ == "__main__":
     bericht()
     bericht_diode()
+    bericht_ap()
