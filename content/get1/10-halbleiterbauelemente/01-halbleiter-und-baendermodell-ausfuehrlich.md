@@ -16,13 +16,19 @@ Gebaut wird sie aus einem Werkstoff, dessen Leitfähigkeit sich gezielt einstell
 Alles in diesem Artikel hängt an einem Prinzip: **Ein Halbleiter hat wenige bewegliche Ladungsträger, deren Art und Zahl die Dotierung festlegt; wo ein n- und ein p-Gebiet aneinandergrenzen, baut der Dichteunterschied von selbst eine Barriere auf, deren Höhe eine äußere Spannung verschiebt.**
 Vorausgesetzt werden nur der [elektrische Strom](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/elektrischer-strom.html), [Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html) und das [elektrische Feld](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/elektrisches-feld-und-feldstaerke.html); auf dem Thema bauen [die Kennlinie der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html) und der [Bipolartransistor](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html) auf.
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-1.svg" alt="Bänderschema von reinem, n-dotiertem und p-dotiertem Silizium und Bandverlauf am pn-Übergang"/><figcaption>Abbildung 1: Der Weg dieses Artikels im Bändermodell, berechnet für Silizium bei 300 K. (a) Reines Silizium: volles Valenzband, leeres Leitungsband, dazwischen 1,12 eV, nur wenige Elektronen und Löcher. (b), (c) Dotiertes Silizium: viele Elektronen bzw. viele Löcher; das Fermi-Niveau W_F rückt an das jeweilige Band. (d) n- und p-Gebiet im Kontakt: Die Bänder bilden eine Stufe von 0,714 eV, an der sich entscheidet, ob Strom fließt. Teilchenzahlen schematisch.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-gesamtbild · Vorlage: banddiagramm-vergleich
+**Abbildung 1:** Der Weg dieses Artikels im Bändermodell, berechnet für Silizium bei 300 K. (a) Reines Silizium: volles Valenzband, leeres Leitungsband, dazwischen 1,12 eV, nur wenige Elektronen und Löcher. (b), (c) Dotiertes Silizium: viele Elektronen bzw. viele Löcher; das Fermi-Niveau $W_F$ rückt an das jeweilige Band. (d) n- und p-Gebiet im Kontakt: Die Bänder bilden eine Stufe von 0,714 eV, an der sich entscheidet, ob Strom fließt. Teilchenzahlen schematisch.
+:::
 
 ## Wozu ein Bauteil mit Vorzugsrichtung
 
 *Was muss ein Bauteil können, damit aus Wechselspannung eine Spannung mit nur einer Polarität wird?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-2.svg" alt="Einweggleichrichter mit Quelle, Diode und Widerstand sowie Verlauf von Eingangs- und Ausgangsspannung"/><figcaption>Abbildung 2: Einweggleichrichter mit Wechselspannungsquelle (Scheitelwert 10 V, 50 Hz), Diode D und Widerstand R = 1 kΩ; Verläufe berechnet mit der idealen Beispieldiode dieses Artikels. Nur die positiven Halbwellen erreichen den Widerstand; an der Diode gehen dabei rund 0,7 V verloren.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-einweggleichrichter · Vorlage: schaltung-und-zeitverlauf
+**Abbildung 2:** Einweggleichrichter mit Wechselspannungsquelle (Scheitelwert 10 V, 50 Hz), Diode D und Widerstand R = 1 kΩ; Verläufe berechnet mit der idealen Beispieldiode dieses Artikels. Nur die positiven Halbwellen erreichen den Widerstand; an der Diode gehen dabei rund 0,7 V verloren.
+:::
 
 Abbildung 2 zeigt die einfachste Schaltung dafür, den __Einweggleichrichter__ aus dem Skript.
 Während der positiven Halbwelle lässt die Diode Strom durch, und am Widerstand liegt fast die ganze Quellenspannung an; die Spitze erreicht im idealen Modell der Beispieldiode 9,3 V.
@@ -86,7 +92,10 @@ $$\lambda_\mathrm{max} = \frac{1240\ \mathrm{eV\,nm}}{1{,}12\ \mathrm{eV}} = 110
 
 *Warum leitet Kupfer, Silizium kaum und Glas praktisch gar nicht, obwohl alle drei Elektronen im Überfluss enthalten?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-3.svg" alt="Bänderschema von Metall, Halbleiter und Isolator mit Besetzung"/><figcaption>Abbildung 3: Metall, Halbleiter und Isolator im Bändermodell, Energieachse in eV (bei Halbleiter und Isolator mit der Valenzbandkante bei null). Grau: besetzte Zustände. Leiten kann nur ein teilweise besetztes Band; beim Halbleiter entstehen solche Bänder erst, weil die Wärme einige Elektronen über die kleine Lücke hebt.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-leiter-halbleiter-isolator · Vorlage: baender-vergleich
+**Abbildung 3:** Metall, Halbleiter (Silizium, Lücke 1,12 eV) und Isolator (Siliziumdioxid, Lücke etwa 9 eV) im Bändermodell, Energieachse in eV (bei Halbleiter und Isolator mit der Valenzbandkante bei null). Grau: besetzte Zustände. Leiten kann nur ein teilweise besetztes Band; beim Halbleiter entstehen solche Bänder erst, weil die Wärme einige Elektronen über die kleine Lücke hebt.
+:::
 
 **Das Zusammenspiel:** Strom fließt nur, wenn ein Feld die Elektronen im Mittel in eine Richtung lenken kann.
 Dazu muss ein Elektron seinen Zustand wechseln, also in einen freien Zustand mit etwas mehr Geschwindigkeit in Richtung der Kraft übergehen, die das Feld auf es ausübt.
@@ -118,7 +127,10 @@ Bei Raumtemperatur trennen sie aber viele Zehnerpotenzen: Reines Silizium hat ei
 
 *Woher kommen in reinem Silizium bewegliche Ladungsträger, und warum gibt es gleich zwei Sorten?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-4.svg" alt="Ebenes Schema des Siliziumgitters: rein, mit Phosphor und mit Bor"/><figcaption>Abbildung 4: Siliziumgitter als ebenes Schema (der echte Kristall ist dreidimensional); jede Doppellinie ist eine Bindung aus zwei Elektronen. (a) Die Wärme hat eine Bindung aufgebrochen: ein freies Elektron (blau) und eine Lücke (rot). (b) Phosphor gibt sein fünftes Elektron ab und bleibt als P⁺ zurück. (c) Bor hat ein Elektron aufgenommen und ist zu B⁻ geworden; die Lücke sitzt eine Bindung weiter. Schematisch.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-kristallgitter · Vorlage: kristallgitter-2d
+**Abbildung 4:** Siliziumgitter als ebenes Schema (der echte Kristall ist dreidimensional); jede Doppellinie ist eine Bindung aus zwei Elektronen. (a) Die Wärme hat eine Bindung aufgebrochen: ein freies Elektron (blau) und eine Lücke (rot). (b) Phosphor gibt sein fünftes Elektron ab und bleibt als P⁺ zurück. (c) Bor hat ein Elektron aufgenommen und ist zu B⁻ geworden; die Lücke sitzt eine Bindung weiter. Schematisch.
+:::
 
 **Die Akteure:**
 
@@ -141,7 +153,10 @@ In einem Feld springen die gebundenen Elektronen bevorzugt gegen die Feldrichtun
 In ihrer Umgebung fehlt die negative Ladung eines Elektrons, während die positiven Atomkerne unverändert sind: Die Lücke trägt netto die Ladung $+e$.
 Man nennt sie deshalb __Loch__ (auch Defektelektron) und behandelt sie wie ein bewegliches Teilchen mit der Ladung $+e$.
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-5.svg" alt="Drei Momente, in denen ein gebundenes Elektron in eine Lücke springt und die Lücke dadurch weiterwandert"/><figcaption>Abbildung 5: Wie ein Loch wandert, in drei Momenten. Jeder Strich ist eine Bindung, ein blauer Punkt das Elektron, das ihr noch fehlen könnte. Gebundene Elektronen springen gegen das Feld in die Lücke; die Lücke wandert dadurch mit dem Feld, wie eine positive Ladung. Schematisch.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-loch-wanderung · Vorlage: kette-mit-luecke
+**Abbildung 5:** Wie ein Loch wandert, in drei Momenten. Eine Reihe von Bindungsplätzen: Auf allen bis auf einen sitzt ein gebundenes Elektron (blau), der freie Platz ist die Lücke (rot). Von Moment zu Moment springt ein Nachbarelektron gegen das Feld in die Lücke; die Lücke wandert dadurch mit dem Feld, wie eine positive Ladung. Schematisch.
+:::
 
 :::frage
 „Ist ein Loch ein echtes Teilchen, so wie ein Elektron?“
@@ -159,7 +174,10 @@ In reinem Silizium entsteht jedes freie Elektron zusammen mit einem Loch, deshal
 
 *Wie verteilen sich die Elektronen bei einer bestimmten Temperatur auf die vorhandenen Zustände?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-7.svg" alt="Fermi-Verteilung linear und halblogarithmisch"/><figcaption>Abbildung 6: Die Fermi-Verteilung bei 300 K. (a) Linear: Am Fermi-Niveau ist ein Zustand mit Wahrscheinlichkeit 1/2 besetzt; die Kante ist über wenige k_B·T verschmiert (gestrichelt die scharfe Kante bei T = 0). (b) Halblogarithmisch: Oberhalb von etwa 3 k_B·T fällt die Besetzung um den Faktor 2,72 je 25,85 meV, genau wie die Boltzmann-Verteilung (gestrichelt). An der Leitungsbandkante von reinem Silizium beträgt sie nur 3·10⁻¹⁰.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-fermi-verteilung · Vorlage: funktionsgraph-lin-log
+**Abbildung 6:** Die Fermi-Verteilung bei 300 K. (a) Linear: Am Fermi-Niveau ist ein Zustand mit Wahrscheinlichkeit 1/2 besetzt; die Kante ist über wenige $k_B T$ verschmiert (gestrichelt die scharfe Kante bei T = 0). (b) Halblogarithmisch: Oberhalb von etwa 3 $k_B T$ fällt die Besetzung um den Faktor 2,72 je 25,85 meV, genau wie die Boltzmann-Verteilung (gestrichelt). An der Leitungsbandkante von reinem Silizium beträgt sie nur 3·10⁻¹⁰.
+:::
 
 **Die Akteure:**
 
@@ -340,7 +358,10 @@ Das Fermi-Niveau ist kein Zustand, sondern eine Kenngröße der Verteilung, ähn
 
 *Wie viele freie Elektronen hat reines Silizium, und warum hängt ihre Zahl so stark von der Temperatur ab?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-6.svg" alt="Eigenleitungsdichte von Silizium über der Temperatur, halblogarithmisch"/><figcaption>Abbildung 7: Eigenleitungsdichte n_i von Silizium über der Temperatur, halblogarithmisch, berechnet aus n_i = 10¹⁰ cm⁻³ bei 300 K und dem Temperaturgang der Herleitung unten. Sie wächst bei 300 K um 8,3 % pro Kelvin, bei 400 K noch um 4,7 %, und erreicht die Dotierung der Beispieldiode (10¹⁶ cm⁻³) erst bei 655 K.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-eigenleitung-temperatur · Vorlage: funktionsgraph-semilog
+**Abbildung 7:** Eigenleitungsdichte n_i von Silizium über der Temperatur, halblogarithmisch, berechnet aus n_i = 10¹⁰ cm⁻³ bei 300 K und dem Temperaturgang der Herleitung unten. Sie wächst bei 300 K um 8,3 % pro Kelvin, bei 400 K noch um 4,7 %, und erreicht die Dotierung der Beispieldiode (10¹⁶ cm⁻³) erst bei 655 K.
+:::
 
 **Die Akteure:**
 
@@ -496,7 +517,10 @@ In Kupfer ist die Zahl der freien Elektronen fest, 8,5·10²² pro cm³. Mit der
 
 *Wie macht man aus Silizium einen guten Leiter für genau eine Sorte von Ladungsträgern?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-8.svg" alt="Bänderschema von n- und p-Silizium mit Donator- und Akzeptorniveau und Fermi-Niveau"/><figcaption>Abbildung 8: Bänder von n- und p-Silizium mit je 10¹⁶ Fremdatomen pro cm³, Lagen berechnet. Donatorniveau W_D 45 meV unter W_L, Akzeptorniveau W_A 45 meV über W_V. Das Fermi-Niveau rückt um 0,36 eV aus der Mitte W_i heraus, bis auf 0,21 eV an W_L bzw. 0,19 eV an W_V; symmetrisch ist das nicht, weil das Valenzband weniger effektive Plätze hat. Teilchenzahlen schematisch.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-baender-dotiert · Vorlage: banddiagramm-niveaus
+**Abbildung 8:** Bänder von n- und p-Silizium mit je 10¹⁶ Fremdatomen pro cm³, Lagen berechnet. Donatorniveau $W_D$ 45 meV unter $W_L$, Akzeptorniveau $W_A$ 45 meV über $W_V$. Das Fermi-Niveau rückt um 0,36 eV aus der Mitte $W_i$ heraus, bis auf 0,21 eV an $W_L$ bzw. 0,19 eV an $W_V$; symmetrisch ist das nicht, weil das Valenzband weniger effektive Plätze hat. Teilchenzahlen schematisch.
+:::
 
 **Die Akteure:**
 
@@ -672,7 +696,10 @@ Bei 300 K stimmt das nicht: $W_F$ liegt 0,21 eV unter $W_L$ und 0,16 eV unter de
 
 *Was geschieht, wenn ein n- und ein p-Gebiet im selben Kristall aneinandergrenzen?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-9.svg" alt="Entstehung der Raumladungszone in drei Zuständen"/><figcaption>Abbildung 9: Wie die Raumladungszone entsteht, schematisch. (a) Zwei neutrale Gebiete: Jeder feste Rumpf hat seinen beweglichen Gegenpart in der Nähe. (b) Im Kontakt diffundieren Elektronen nach rechts und Löcher nach links und rekombinieren nahe der Grenze (×); zurück bleiben Rümpfe ohne Gegenpart. (c) Die freigelegten Rümpfe bilden die Raumladungszone; ihr Feld treibt die Ladungsträger zurück, bis sich Diffusion und Rücktrieb aufheben.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-rlz-entstehung · Vorlage: pn-uebergang-teilchen
+**Abbildung 9:** Wie die Raumladungszone entsteht, schematisch. (a) Zwei neutrale Gebiete: Jeder feste Rumpf hat seinen beweglichen Gegenpart in der Nähe. (b) Im Kontakt diffundieren Elektronen nach rechts und Löcher nach links und rekombinieren nahe der Grenze (×); zurück bleiben Rümpfe ohne Gegenpart. (c) Die freigelegten Rümpfe bilden die Raumladungszone; ihr Feld treibt die Ladungsträger zurück, bis sich Diffusion und Rücktrieb aufheben.
+:::
 
 **Die Akteure:**
 
@@ -698,7 +725,10 @@ Bei 300 K stimmt das nicht: $W_F$ liegt 0,21 eV unter $W_L$ und 0,16 eV unter de
 Das liegt nahe, weil ein dotiertes Gebiet als Ganzes neutral ist. Die Rümpfe selbst sind es aber nicht: P⁺ trägt $+e$, B⁻ trägt $-e$. Neutral ist ein Gebiet nur, solange jeder Rumpf seinen beweglichen Gegenpart in der Nähe hat, und in der Raumladungszone ist dieser fortdiffundiert. 10¹⁶ freigelegte Rümpfe pro cm³ sind eine Raumladung von 1,6·10⁻³ C/cm³; das erzeugt schon über 0,2 µm ein Feld von über 3·10⁴ V/cm.
 :::
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-10.svg" alt="Dichten, Raumladung, Feld, Potenzial und Bänder über dem Ort am pn-Übergang"/><figcaption>Abbildung 10: Der pn-Übergang der Beispieldiode im Gleichgewicht, numerisch berechnet aus den Grundgleichungen für Ladung, Feld und Ladungsträgerdichten; grau die Raumladungszone, gestrichelt die Näherung mit scharf begrenzter Zone. Die ganze Potenzialstufe liegt in der verarmten Zone.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-profile-gleichgewicht · Vorlage: gestapelte-profile
+**Abbildung 10:** Der pn-Übergang der Beispieldiode im Gleichgewicht, numerisch berechnet aus den Grundgleichungen für Ladung, Feld und Ladungsträgerdichten. Fünf Diagramme über demselben Ort von −0,6 bis 0,6 µm: (a) Elektronen- und Löcherdichte, halblogarithmisch; (b) Raumladung; (c) elektrisches Feld, an der Grenze 32 kV/cm; (d) Potenzial mit der Stufe von 0,714 V; (e) Bänder. Grau die 0,43 µm breite Raumladungszone, gestrichelt die Näherung mit scharf begrenzter Zone. Die ganze Potenzialstufe liegt in der verarmten Zone.
+:::
 
 Abbildung 10 zeigt den fertigen Zustand der Beispieldiode, fünf Größen über demselben Ort:
 
@@ -823,7 +853,10 @@ Als Durchlass- oder Schleusenspannung bezeichnet man dagegen die Spannung, ab de
 
 *Wenn sich Diffusion und Drift aufheben, steht dann alles still?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-11.svg" alt="Banddiagramm mit Elektronen und Löchern und den Strömen hinauf und hinunter"/><figcaption>Abbildung 11: Die beiden Ströme im Gleichgewicht, schematisch (thermische Energien stark vergrößert). Oben das Leitungsband mit Elektronen (Punkte), unten das Valenzband mit Löchern (Kreise), orange die Minoritätsträger. Elektronen bewegen sich im Bild von selbst nach unten, Löcher nach oben. Für jede Sorte gleicht der Diffusionsstrom der wenigen energiereichen Majoritätsträger den Driftstrom der wenigen Minoritätsträger genau aus.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-hinauf-hinunter · Vorlage: banddiagramm-teilchenwolke
+**Abbildung 11:** Die beiden Ströme im Gleichgewicht, schematisch (thermische Energien stark vergrößert). Oben das Leitungsband mit Elektronen (Punkte), unten das Valenzband mit Löchern (Kreise), orange die Minoritätsträger. Elektronen bewegen sich im Bild von selbst nach unten, Löcher nach oben. Für jede Sorte gleicht der Diffusionsstrom der wenigen energiereichen Majoritätsträger den Driftstrom der wenigen Minoritätsträger genau aus.
+:::
 
 **Das Zusammenspiel in Schritten**, hier für die Elektronen; für die Löcher gilt alles spiegelbildlich:
 
@@ -860,7 +893,10 @@ Nein. Hinauf und hinunter zählen nur Ladungsträger, die die Seite ganz wechsel
 
 *Was ändert eine äußere Spannung am Gleichgewicht der beiden Ströme?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-12.svg" alt="Bänder der Beispieldiode bei 0 V, plus 0,5 V und minus 2 V"/><figcaption>Abbildung 12: Bänder der Beispieldiode ohne Spannung (a), in Durchlassrichtung mit +0,5 V (b) und in Sperrrichtung mit −2 V (c), berechnet mit scharf begrenzter Zone; das n-Gebiet ist jeweils festgehalten. Die äußere Spannung verändert nur die Höhe der Stufe, 0,714 eV, 0,214 eV und 2,714 eV. Der Strom hinauf ändert sich um den angegebenen Faktor, der Strom hinunter nicht.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-baender-spannung · Vorlage: banddiagramm-parameter
+**Abbildung 12:** Bänder der Beispieldiode ohne Spannung (a), in Durchlassrichtung mit +0,5 V (b) und in Sperrrichtung mit −2 V (c), berechnet mit scharf begrenzter Zone; das n-Gebiet ist jeweils festgehalten. Die Spannung verändert nur die Höhe der Stufe: 0,714 eV, 0,214 eV und 2,714 eV. Der Strom hinauf steigt bei +0,5 V auf das 2,5·10⁸-Fache seines Gleichgewichtswerts und sinkt bei −2 V auf das 2,5·10⁻³⁴-Fache; der Strom hinunter bleibt gleich.
+:::
 
 **Die Akteure:**
 
@@ -901,7 +937,10 @@ Weil die Zone mit der Sperrspannung breiter wird, wächst dieser Anteil langsam 
 Die äußere Spannung schiebt die Ladungsträger nicht über die Barriere. Sie verändert nur deren Höhe; über die Barriere bringt die Ladungsträger ihre eigene Wärmebewegung.
 :::
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-13.svg" alt="Teilströme und Netto-Strom über der Spannung, halblogarithmisch"/><figcaption>Abbildung 13: Teilströme und Netto-Strom der Beispieldiode über der Spannung, halblogarithmisch. Der Netto-Strom folgt in Durchlassrichtung dem Strom hinauf (Faktor 10 je 59,5 mV), in Sperrrichtung dem konstanten Strom hinunter (15 fA).</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-teilstroeme · Vorlage: kennlinie-semilog
+**Abbildung 13:** Teilströme und Netto-Strom der Beispieldiode über der Spannung, halblogarithmisch. Der Netto-Strom folgt in Durchlassrichtung dem Strom hinauf (Faktor 10 je 59,5 mV), in Sperrrichtung dem konstanten Strom hinunter (15 fA).
+:::
 
 In Abbildung 13 ist die Stromachse logarithmisch, damit 15 fA und 10 mA in dasselbe Bild passen; dadurch wird der exponentiell wachsende Strom hinauf zur Geraden.
 

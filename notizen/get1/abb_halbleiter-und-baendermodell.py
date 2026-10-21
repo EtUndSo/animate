@@ -20,7 +20,7 @@ import zahlen_halbleiter as Z                         # noqa: E402
 
 sys.stdout.reconfigure(encoding="utf-8")
 SLUG = "halbleiter-und-baendermodell"
-OUT = HIER.parents[1] / "web" / "wissen" / "img" / "get1"
+OUT = HIER / "abb_referenz"          # nur Entwürfe als Vorlage für die Editor-Abbildungen, nicht für die Webseite
 OUT.mkdir(parents=True, exist_ok=True)
 VOR = Path(sys.argv[1]) if len(sys.argv) > 1 else HIER / "_vorschau"
 VOR.mkdir(parents=True, exist_ok=True)

@@ -2,7 +2,8 @@
 
 Hauptpfad = sichtbarer Text ohne Herleitungskästen, Antworten der Frage-Kästen (beide eingeklappt), Beispiele und
 Quiz; die Frage selbst (erste Zeile eines Frage-Kastens) zählt mit. Abgesetzte Formeln zählen nicht,
-eine Inline-Formel zählt als ein Wort, rohe HTML-Zeilen (Abbildungen) zählen nicht.
+eine Inline-Formel zählt als ein Wort. Abbildungen zählen nicht: weder die Platzhalter `:::grafik` (Szene-Zeile und
+Bildbeschreibung, seit 21.10.2026 die einzige erlaubte Form, ERKLAER_PROMPT §7.5) noch rohe HTML-Zeilen.
 Aufruf: python -I tools/artikel_kennzahlen.py <artikel.md> [<artikel.md> …]
 """
 import re
@@ -30,10 +31,10 @@ def analyse(path):
         while i < len(lines) and lines[i].strip() != "---":
             i += 1
         i += 1
-    haupt, herl, bsp, antw, quiz_n = [], [], [], [], 0
+    haupt, herl, bsp, antw, gr, quiz_n = [], [], [], [], [], 0
     sektionen, akt = [], None
-    kaesten, abb, formeln, grafik = {}, 0, 0, 0
-    modus = None                                                 # None | herleitung | beispiel | quiz | frage | box
+    kaesten, abb, formeln, grafik, grafik_bsp = {}, 0, 0, 0, 0
+    modus = None                                                 # None | herleitung | beispiel | quiz | frage | grafik | box
     frage_zeile = False
     for ln in lines[i:]:
         s = ln.strip()
@@ -42,13 +43,16 @@ def analyse(path):
                 modus = None
             else:
                 bsp.append(ln)
+                grafik_bsp += bool(re.match(r":::\s*grafik\b", s))
             continue
-        if modus in ("herleitung", "quiz", "box", "frage"):
+        if modus in ("herleitung", "quiz", "box", "frage", "grafik"):
             if s == ":::":
                 modus = None
                 continue
             if modus == "herleitung":
                 herl.append(ln)
+            elif modus == "grafik":
+                gr.append(ln)
             elif modus == "quiz":
                 quiz_n += bool(re.match(r"(F|Q|Frage)\s*[:.]", s))
             elif modus == "frage" and not (frage_zeile and s):
@@ -72,7 +76,7 @@ def analyse(path):
                 formeln += 1
             if art == "grafik":
                 grafik += 1
-            modus = {"herleitung": "herleitung", "quiz": "quiz", "frage": "frage"}.get(art, "box")
+            modus = {"herleitung": "herleitung", "quiz": "quiz", "frage": "frage", "grafik": "grafik"}.get(art, "box")
             frage_zeile = art == "frage"
             continue
         if s.startswith("<"):
@@ -96,9 +100,12 @@ def analyse(path):
     print(f"  Frage-Antworten:  {kaesten.get('frage', 0)} Kästen, {woerter(chr(10).join(antw))} Wörter (eingeklappt)")
     print(f"  Beispiele:        {kaesten.get('beispiel', 0)}, {woerter(chr(10).join(bsp))} Wörter")
     print(f"  Quiz-Fragen:      {quiz_n}")
-    print(f"  Abbildungen:      {abb}  (eine je {w / abb:.0f} Wörter)" if abb else "  Abbildungen:      0")
+    n_abb = grafik + grafik_bsp
+    print(f"  Abbildungen:      {n_abb} Platzhalter :::grafik, davon {grafik_bsp} in Beispielen"
+          + (f"  (eine je {w / grafik:.0f} Wörter Hauptpfad)" if grafik else ""))
+    print(f"  Bildbeschreib.:   {woerter(chr(10).join(gr))} Wörter (nicht im Hauptpfad)")
+    print(f"  <figure>-Zeilen:  {abb}  (Soll: 0, nur Editor-Abbildungen)")
     print(f"  Formel-Boxen:     {formeln}")
-    print(f"  :::grafik:        {grafik}  (Soll: 0)")
     andere = {k: v for k, v in sorted(kaesten.items()) if k not in ("herleitung", "beispiel", "quiz", "formel", "grafik")}
     print(f"  Kästen:           {andere}")
     print(f"  Gedankenstriche:  {striche} ({1000 * striche / max(w, 1):.1f} je 1000 Wörter)")

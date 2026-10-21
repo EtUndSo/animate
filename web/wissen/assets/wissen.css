@@ -96,6 +96,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .callout.cx-grafik{border:1.5px dashed var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--panel));color:var(--muted);}
 .callout.cx-grafik .callout-h{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;}
 .callout.cx-grafik p{font-size:15px;margin:.2em 0;}
+.callout.cx-grafik .gr-szene{font-size:12px;color:var(--muted);margin-top:6px;font-family:ui-monospace,Consolas,monospace;overflow-wrap:anywhere;}
 /* Echte Abbildung (SVG) mit Bildunterschrift – ersetzt nach und nach die cx-grafik-Platzhalter */
 .article figure.fig{margin:1.8em 0;text-align:center;}
 .article figure.fig svg{width:min(560px,100%);height:auto;}

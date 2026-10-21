@@ -280,6 +280,15 @@ def md_to_html(md):
                 out.append('<details class="frage"><summary><span class="fr-k">Frage</span>' + inline(frage) + '</summary>'
                            '<div class="fr-body">' + md_to_html("\n".join(rest))[0] + '</div></details>')
                 continue
+            if kind == "grafik":                          # Platzhalter einer Editor-Abbildung: Beschreibung als Text, Szene-Zeile klein darunter
+                k0 = next((j for j, l in enumerate(inner) if l.strip()), len(inner))
+                szene = ""
+                if k0 < len(inner) and inner[k0].strip().startswith("Szene:"):
+                    szene, inner = inner[k0].strip()[len("Szene:"):].strip(), inner[k0 + 1:]
+                out.append('<aside class="callout cx-grafik"' + (f' data-szene="{html.escape(szene)}"' if szene else "")
+                           + '><div class="callout-h">Abbildung in Vorbereitung</div>' + md_to_html("\n".join(inner))[0]
+                           + (f'<div class="gr-szene">Editor-Szene: {html.escape(szene)}</div>' if szene else "") + "</aside>")
+                continue
             icon, label = CALLOUTS.get(kind, ("", kind.title()))
             out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{(icon + " " if icon else "") + html.escape(label)}</div>'
                        + md_to_html("\n".join(inner))[0] + "</aside>")
@@ -457,6 +466,7 @@ def lesezeit(body):
     """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
     t = re.sub(r"^::::\s*beispiel.*?^::::\s*$", " ", body, flags=re.S | re.M)
     t = re.sub(r"^:::\s*(?:herleitung|quiz|frage)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # eingeklappte Kästen
+    t = re.sub(r"^:::\s*grafik\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # Abbildungen zählen nicht (wie früher die Bildunterschriften)
     t = re.sub(r"\$\$.+?\$\$", " ", t, flags=re.S)
     t = re.sub(r"^\s*<.*$", " ", t, flags=re.M)
     return max(1, round(len([w for w in t.split() if re.search(r"[A-Za-zÄÖÜäöüß0-9]", w)]) / 170))
@@ -763,6 +773,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .callout.cx-grafik{border:1.5px dashed var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--panel));color:var(--muted);}
 .callout.cx-grafik .callout-h{color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:12.5px;}
 .callout.cx-grafik p{font-size:15px;margin:.2em 0;}
+.callout.cx-grafik .gr-szene{font-size:12px;color:var(--muted);margin-top:6px;font-family:ui-monospace,Consolas,monospace;overflow-wrap:anywhere;}
 /* Echte Abbildung (SVG) mit Bildunterschrift – ersetzt nach und nach die cx-grafik-Platzhalter */
 .article figure.fig{margin:1.8em 0;text-align:center;}
 .article figure.fig svg{width:min(560px,100%);height:auto;}

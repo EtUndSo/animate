@@ -15,6 +15,11 @@ Diese Datei beschreibt jeden Bestandteil eines Artikels: was hineingehört, wie 
 - **Gut strukturieren, nichts doppeln, Unwichtiges aussortieren.** Die Ausführlichkeit richtet sich nach der Schwierigkeit; zu knapp darf auch die kompakte Fassung nicht sein.
 - **Nichts als bekannt voraussetzen.** Erklärt wird immer so, als wüsste die Person nichts über das Thema. Themen werden erklärt, nicht aufgelistet.
 - Abbildungen werden eingebaut, wo sie helfen; der Text baut auf dem Konzept auf, das sie zeigen.
+- **Nur Editor-Abbildungen** (nach dem Piloten, ebenfalls 21.10.2026):
+  - In allen Artikeln stehen nur Abbildungen, die der EtUndSo-Editor erzeugt.
+  - Bis die nötigen Editor-Funktionen gebaut sind, steht an jeder Stelle ein Platzhalter `:::grafik` mit Bildbeschreibung.
+  - Was jede Abbildung zeigen soll und welche Editor-Funktionen sie braucht, steht in `ABBILDUNGEN_LISTE.md`.
+  - Funktionen und Abbildungen entstehen **nach** den Artikeln, nicht im Loop, weil neue Features oft Probleme machen (§7.5).
 - Herleitungen bleiben in eigenen, ausklappbaren Kästen.
 - **Fragen an Ort und Stelle,** wie im Lernskript: Die Fragen, die sich Leserinnen und Leser an einer Stelle wahrscheinlich stellen, stehen genau dort als ausklappbare Frage-Kästen. Sichtbar ist die Frage, die Antwort öffnet sich per Klick (§9.3).
 
@@ -85,7 +90,7 @@ Die Tiefe bleibt: Mechanismen, Herleitungen und gerade die Hintergründe, die Sk
 | Quiz | genau 6 Fragen | genau 10 Fragen |
 
 **Was für beide Fassungen gilt:**
-- **Von null an:** Beide erklären von null an (§5.1), im selben Ton, mit denselben Zahlen, Symbolen und Abbildungsdateien und mit demselben Ein-Satz-Prinzip.
+- **Von null an:** Beide erklären von null an (§5.1), im selben Ton, mit denselben Zahlen, Symbolen und Abbildungen (dieselben Szenen) und mit demselben Ein-Satz-Prinzip.
 - **In sich vollständig:**
   - Wer nur die kompakte Fassung liest, hat im Kern keine Lücke.
   - Die ausführliche Fassung setzt die kompakte nicht voraus.
@@ -278,13 +283,19 @@ fassung: ausfuehrlich
 
 <Problem.> <Ein-Satz-Prinzip.> <Voraussetzungen mit Links; was darauf aufbaut.>
 
-<figure class="fig"><img src="/wissen/img/<modul>/<slug>-1.svg" alt="<Kurzbeschreibung>"/><figcaption>Abbildung 1: <Was gezeigt ist.> <Kernaussage in einem Satz.></figcaption></figure>
+:::grafik
+Szene: <modul>/<kapitel>/<nr>-<name> · Vorlage: <vorlage>
+**Abbildung 1:** <Was gezeigt ist, mit den wichtigsten Zahlen.> <Kernaussage in einem Satz.>
+:::
 
 ## <Inhalt des Abschnitts, sachlich benannt>
 
 *<Leitfrage?>*
 
-<figure class="fig"><img src="/wissen/img/<modul>/<slug>-2.svg" alt="…"/><figcaption>Abbildung 2: … <Kernaussage.></figcaption></figure>
+:::grafik
+Szene: <modul>/<kapitel>/<nr>-<name> · Vorlage: <vorlage>
+**Abbildung 2:** … <Kernaussage.>
+:::
 
 **Die Akteure:**
 
@@ -498,7 +509,8 @@ Eine Abbildung zeigt das Konzept, auf dem der Text dann aufbaut. Was man sehen k
 - **Richtwert:** eine Abbildung je 300 bis 500 Wörter Hauptpfad.
   - kompakte Fassung: etwa 3 bis 6 Abbildungen;
   - ausführliche Fassung: etwa 6 bis 12 Abbildungen.
-- **Gemeinsame Dateien:** Beide Fassungen benutzen dieselben Bilddateien. Die Nummer in der Bildunterschrift zählt je Fassung neu.
+- **Gemeinsame Szenen:** Beide Fassungen benutzen dieselben Abbildungen, also dieselben Szene-IDs. Die Nummer in der Bildunterschrift zählt je Fassung neu.
+- **Platzhalter zählen:** Solange eine Abbildung nur als Platzhalter steht (§7.5), zählt sie für diese Richtwerte voll.
 - **Beispiele:** Abbildungen dürfen auch in Beispielen stehen, wenn das Beispiel ein Bild braucht, etwa Arbeitsgerade und Arbeitspunkt.
 
 ### 7.3 Inhalt: welche Abbildung wofür
@@ -519,6 +531,8 @@ Eine Abbildung zeigt das Konzept, auf dem der Text dann aufbaut. Was man sehen k
 | Strukturgleiche Analogie | Zwillingsdarstellung, etwa Luftdichte über der Höhe neben Elektronendichte über der Energie |
 
 ### 7.4 Gestaltung
+Diese Regeln gelten für die fertige Editor-Abbildung. Bildbeschreibung und Listeneintrag (§7.5) legen sie schon beim Schreiben fest: Daten, Achsen, Farben und Kernaussage.
+
 - **Echte Daten.** Kurven werden aus dem Zahlenwerk berechnet, nicht frei gezeichnet. Schematische Abbildungen tragen den Zusatz „schematisch“, und die Bildunterschrift sagt, was überzeichnet ist (etwa „thermische Energien stark vergrößert“).
 - **Achsen.** Jede Achse trägt Größe und Einheit, etwa „I in mA“. Ein Diagramm hat nie zwei y-Achsen; zwei Größen mit verschiedenen Einheiten stehen in zwei gestapelten Diagrammen mit gemeinsamer x-Achse.
 - **Beschriftung.** Wo möglich direkt an den Kurven statt in einer Legende, auf Deutsch und auch bei 360 px Breite lesbar.
@@ -531,22 +545,38 @@ Eine Abbildung zeigt das Konzept, auf dem der Text dann aufbaut. Was man sehen k
   - Er führt durch sie hindurch: worauf man links, in der Mitte und rechts achten muss und was daraus folgt.
   - Was man ohnehin sieht, beschreibt er nicht noch einmal vollständig.
 
-### 7.5 Herstellung
-- **Skript.** Jede Abbildung wird von einem Python-Skript erzeugt: `notizen/<modul>/abb_<slug>.py`.
-  - Diagramme mit matplotlib; Schaltbilder und Schemata mit matplotlib-Patches oder handgeschriebenem SVG.
-  - Die Werte kommen per Import aus `zahlen_<oberthema>.py`, nicht abgetippt.
-  - Ausgabe nach `web/wissen/img/<modul>/<slug>-<n>.svg`.
-- **Einbindung.** In einer Zeile als rohes HTML (der Build reicht Zeilen, die mit `<` beginnen, unverändert durch):
-  ```
-  <figure class="fig"><img src="/wissen/img/<modul>/<slug>-<n>.svg" alt="<Kurzbeschreibung>"/><figcaption>Abbildung n: …</figcaption></figure>
-  ```
-- **Sichtprüfung.** Jede Abbildung wird vor dem Commit gerendert und angesehen: keine Überlappungen, alles lesbar, Werte stimmen mit dem Text überein.
-- **Spätere Animation.** Die Idee dafür steht in `notizen/<modul>/grafiken_<slug>.md`, nicht im Artikel:
-  - Szene-Zeile „Szene: <modul>/<kapitel>/<nr>-<slug> · Vorlage: …“;
-  - was sich bewegt;
-  - was interaktiv ist.
+### 7.5 Herstellung: nur mit dem Editor
+**Entscheidung des Users (21.10.2026):**
+- In den Artikeln stehen nur Abbildungen, die der EtUndSo-Editor erzeugt.
+- Keine Bilddateien aus anderen Werkzeugen, also kein matplotlib und kein handgeschriebenes SVG.
+- Die nötigen Editor-Funktionen und die Abbildungen selbst entstehen **nach** den Artikeln, in einer eigenen Phase mit dem User und nicht im Loop, weil neue Features oft Probleme machen.
 
-  Im Artikel stehen keine `:::grafik`-Platzhalter mehr.
+**Beim Schreiben entstehen für jede Abbildung drei Dinge:**
+1. **Der Platzhalter im Artikel,** an der Stelle, an der die Abbildung stehen wird:
+   ```
+   :::grafik
+   Szene: <modul>/<kapitel>/<nr>-<name> · Vorlage: <vorlage>
+   **Abbildung n:** <Was gezeigt ist, mit den wichtigsten Zahlen.> <Kernaussage in einem Satz.>
+   :::
+   ```
+   - Die **Szene-ID** ist eindeutig und in beiden Fassungen gleich, zum Beispiel `get1/halbleiterbauelemente/01-teilstroeme`.
+   - Die **Vorlage** nennt den Abbildungstyp, zum Beispiel `kennlinie-semilog` oder `banddiagramm-parameter`.
+   - Die **Bildbeschreibung** ist sichtbar; der Build zeigt sie als „Abbildung in Vorbereitung“.
+     - Sie beginnt mit „**Abbildung n:**“.
+     - Sie sagt, was gezeigt ist, mit den wichtigsten Zahlen.
+     - Sie endet mit der Kernaussage.
+     - Solange das Bild fehlt, muss der Text mit ihr verständlich bleiben.
+2. **Ein Eintrag in `ABBILDUNGEN_LISTE.md`:**
+   - Szene-ID, Fassung(en) und Nummer;
+   - Inhalt mit allen Zahlen, Wertebereichen, Achsen und Farben (§7.4);
+   - Kernaussage;
+   - Datenquelle: die Funktion im Zahlenwerk, die die Kurve liefert;
+   - benötigte Editor-Funktionen mit Verweis auf die Abschnitte von `EDITOR_GRAFIK_FEATURES.md`;
+   - wo sinnvoll die Animationsidee: was sich bewegt, was interaktiv ist;
+   - Status „offen“.
+3. **Neue Editor-Funktionen,** die noch nicht in `EDITOR_GRAFIK_FEATURES.md` stehen, bekommen dort einen eigenen Abschnitt mit „Gebraucht in“.
+
+**Nicht mehr nötig:** Abbildungs-Skripte und Referenzentwürfe. Die matplotlib-Entwürfe des Piloten liegen nur noch als Vorlage in `notizen/get1/abb_referenz/`.
 
 ## 8. Vorgaben für Beispiele (Beispiel-Seite)
 
@@ -670,7 +700,7 @@ Lege vor jedem Thema im Repo `notizen/<modul>/notiz_<slug>.md` an und committe s
    - Beispiel;
    - gegebenenfalls eine Analogie.
 6. **Aussortier-Liste.** Alle möglichen Inhalte mit Kategorie K, H, V oder S (§3.2) und mit der Angabe, in welche Fassung sie kommen und wohin dort (Abschnitt, Kasten, Beispiel).
-7. **Abbildungsplan.** Alle Abbildungen mit Nummer, Inhalt, Kernaussage und Abschnitt, mit Vermerk, welche davon die kompakte Fassung benutzt. Geprüft gegen §7.2.
+7. **Abbildungsplan.** Alle Abbildungen mit Nummer, Szene-ID, Vorlage, Inhalt, Kernaussage und Abschnitt, mit Vermerk, welche davon die kompakte Fassung benutzt. Geprüft gegen §7.2. Aus dem Plan entstehen die Platzhalter und die Einträge in `ABBILDUNGEN_LISTE.md` (§7.5).
 8. **Zahlenwerk.**
    - Ein konsistentes Beispielsystem pro Oberthema, berechnet mit `notizen/<modul>/zahlen_<oberthema>.py`; die Ausgabe steht in `zahlen_<oberthema>.txt`.
    - Das Skript legst du beim ersten Thema des Oberthemas an und erweiterst es danach.
@@ -698,7 +728,7 @@ Das Ergebnis kommt in die Zeile in `REVIEW_OPUS55.md`.
 4. **Fassungs-Test.**
    - Die kompakte Fassung enthält jeden K-Inhalt, ist neu geschrieben (kein Zusammenschnitt) und hat den Absatz „In der ausführlichen Fassung“.
    - Die ausführliche Fassung enthält alle K-, H- und V-Inhalte der Aussortier-Liste.
-   - Zahlen, Symbole und Abbildungsdateien sind in beiden gleich.
+   - Zahlen, Symbole und Abbildungen (Szene-IDs) sind in beiden gleich.
 5. **Listen-Test.** Kein Listenpunkt enthält eine Erklärung, die als Fließtext stehen müsste.
 6. **Ton-Test.**
    - Gibt es Figuren, Szenen, vermenschlichte Teilchen, verspielte Titel oder niedliche bzw. reißerische Bilder?
@@ -712,10 +742,10 @@ Das Ergebnis kommt in die Zeile in `REVIEW_OPUS55.md`.
     - Ausgangspunkt, Annahmen, Schritte, Ergebnis, Herkunft der Faktoren, Proben und Grenzen sind vorhanden.
     - Es gibt keine Verweis-Herleitung.
 11. **Abbildungs-Test.**
-    - Die Häufigkeit nach §7.2 ist erreicht.
-    - Jede Abbildung hat Achsen mit Einheiten und eine Bildunterschrift mit Kernaussage.
-    - Jede ist gerendert und angesehen, und ihre Werte stimmen mit dem Text überein.
-    - Der Text führt durch jede Abbildung.
+    - Die Häufigkeit nach §7.2 ist erreicht; es gibt keine `<figure>`-Zeilen, nur Platzhalter `:::grafik`.
+    - Jeder Platzhalter hat die Szene-Zeile und eine Bildbeschreibung mit Inhalt, wichtigsten Zahlen und Kernaussage. Ihre Zahlen stimmen mit dem Text und dem Zahlenwerk überein.
+    - Jede Szene hat ihren Eintrag in `ABBILDUNGEN_LISTE.md` mit Inhalt, Daten, Achsen und benötigten Editor-Funktionen. Fehlende Funktionen sind in `EDITOR_GRAFIK_FEATURES.md` ergänzt.
+    - Der Text führt durch jede Abbildung und bleibt mit der Bildbeschreibung allein verständlich.
 12. **Beispiel-Test.** Die Beispiele erfüllen §8.3, und jedes hat Gegeben, Gesucht, Rechnung, Ergebnis und Einordnung.
 13. **Zahlen-Test.** Jede Zahl stammt aus `zahlen_<oberthema>.txt`; Literaturwerte sind abgeglichen.
 14. **Analogie-Test.** Die Höchstzahl ist eingehalten. Jede Analogie steht im Kasten, ist strukturgleich, hat Zuordnung und „Wo der Vergleich nicht stimmt“ und wird nirgends benutzt, wo sie falsch ist.
@@ -808,7 +838,7 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
 - **Sachlicher Ton** statt Leitbild-Erzählung; Analogien knapp im Kasten, mit Grenzen.
 - **„Worum es geht“** als kurzer Sachabschnitt nach dem Inhaltsverzeichnis, mit Einstiegsabbildung.
 - **Akteure** vor jeder Kernformel und jedem Mechanismus, danach „Das Zusammenspiel“.
-- **Echte, berechnete Abbildungen** in fester Häufigkeit statt `:::grafik`-Textplatzhaltern.
+- **Abbildungen in fester Häufigkeit,** mit Inhalt, Daten und Kernaussage geplant. Sie stehen zunächst als `:::grafik`-Platzhalter mit Bildbeschreibung im Artikel und werden später ausschließlich mit dem Editor erzeugt (`ABBILDUNGEN_LISTE.md`).
 - **Fester Aufbau** für Herleitungen und Beispiele.
 - **Fehlvorstellungen und typische Fragen** werden ausdrücklich beantwortet.
 - **Zahlen aus einem Zahlen-Skript**, eine Arbeitsnotiz pro Thema im Repo.
@@ -819,10 +849,11 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
 - **Bauplan §3** (Bogen „Anschaulich → …“): ersetzt durch §3 und §4 dieser Datei. Das Inhaltsverzeichnis bleibt der Seitenanfang; „Worum es geht“ ist der erste Abschnitt danach.
 - **Bauplan §3 Quiz „genau 10“:** gilt für die ausführliche Fassung; die kompakte hat genau 6.
 - **Bauplan §3a:** Größenordnungen, die ein Argument tragen, bleiben im Fließtext (§5.4), als Zahl bzw. kurze Angabe; Gleichungen stehen weiterhin auf eigener Zeile (Bauplan §2). Der Aufbau der Beispiele folgt §8.
-- **Bauplan §4** (`:::grafik`-Platzhalter, keine Grafiken im Loop): ersetzt durch §7.
-  - Statische, berechnete Abbildungen werden mit dem Artikel erzeugt und eingebunden.
-  - Die Animationsidee kommt in die Notiz.
-  - Der Animations-Editor läuft weiterhin nicht im Loop.
+- **Bauplan §4** (`:::grafik`-Platzhalter, keine Grafiken im Loop): gilt wieder (Entscheidung vom 21.10.2026), präzisiert durch §7.5.
+  - Platzhalter mit Szene-Zeile und Bildbeschreibung, dazu je ein Eintrag in `ABBILDUNGEN_LISTE.md`.
+  - Für Farben und Gestaltung gilt §7.4, nicht die Farblogik aus Bauplan §4.
+  - Editor-Funktionen und Abbildungen entstehen nach den Artikeln, nicht im Loop.
+  - Der kurzzeitige Weg über matplotlib-SVGs (Pilot) ist aufgehoben.
 - **Bauplan §8:** ergänzt durch §11 dieser Datei.
 - **Neue Kastentypen:**
   - `:::analogie`, `:::fehlvorstellung` und `:::vertiefung` stellt der Build ohne Codeänderung dar; die Überschrift ergibt sich aus dem Namen.
@@ -831,4 +862,5 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
   - Er erkennt `fassung:`.
   - Er führt jedes Thema im Navigationsbaum nur einmal.
   - Er setzt den Umschalter „Kompakt | Ausführlich“ mit Lesezeiten an den Seitenanfang und merkt sich die Wahl der Leserin.
-  - Er bekommt eine CSS-Regel für `figure.fig img`.
+  - Er bekommt eine CSS-Regel für `figure.fig img` (derzeit ungenutzt).
+  - Er zeigt `:::grafik` als „Abbildung in Vorbereitung“: die Bildbeschreibung als Text, die Szene-Zeile klein darunter.

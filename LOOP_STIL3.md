@@ -10,7 +10,7 @@
 - **Repo:** `C:\Users\info\PycharmProjects\pythonanimation`. Modell: Opus 5.5.
 - **Ein Thema pro Durchgang:** Ein Thema besteht aus zwei Artikeln, der ausführlichen und der kompakten Fassung (ERKLAER_PROMPT §3.1).
 - **Qualität vor Tempo:** Qualität und Tiefe gehen vor Tempo; Zeit spielt keine Rolle.
-- **Nicht im Ablauf:** Editor und Animationen laufen hier nicht mit.
+- **Nicht im Ablauf:** Editor-Funktionen, Abbildungen und Animationen entstehen erst nach den Artikeln, in einer eigenen Phase mit dem User (Entscheidung vom 21.10.2026). Im Ablauf entstehen nur Platzhalter und Listeneinträge (B4).
 - **Nur eine Sitzung im Repo:** Es arbeitet immer nur **eine** Sitzung im Repo, denn der Build schreibt jedes Mal ganz `web/wissen` neu.
 
 ## Pflichtlektüre in jedem Durchgang, vor dem Schreiben
@@ -45,7 +45,7 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
    - Vor/Zurück innerhalb derselben Fassung;
    - Suche findet beide Fassungen;
    - `:::frage` ausklappbar (Frage sichtbar, Antwort per Klick);
-   - CSS-Regel für `figure.fig img`.
+   - `:::grafik` als „Abbildung in Vorbereitung“ mit kleiner Szene-Zeile.
    
    Den Build danach testen: hell, dunkel, Handybreite.
 2. **Pilot schreiben:** das Thema `content/get1/10-halbleiterbauelemente/01-halbleiter-und-baendermodell.md` nach (B2) bis (B7).
@@ -99,11 +99,20 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
 
 **Der bestehende Artikel** dient nur als Vollständigkeits-Check, nicht als Text- oder Strukturvorlage.
 
-## (B4) Abbildungen (ERKLAER_PROMPT §7)
+## (B4) Abbildungen planen (ERKLAER_PROMPT §7.5): nur Platzhalter und Liste
 
-1. Abbildungsplan aus der Notiz umsetzen: `notizen/<modul>/abb_<slug>.py` (Werte per Import aus dem Zahlenwerk). Das Skript schreibt die SVGs nach `web/wissen/img/<modul>/<slug>-<n>.svg` und zusätzlich PNG-Vorschauen ins Scratchpad der Sitzung.
-2. Jede PNG-Vorschau mit Read ansehen und korrigieren, bis nichts überlappt, alles lesbar ist und die Werte stimmen.
-3. Die Animationsideen kommen nach `notizen/<modul>/grafiken_<slug>.md`.
+In den Artikeln stehen nur Editor-Abbildungen. Im Ablauf wird **keine** Abbildung gezeichnet: kein matplotlib, kein SVG, kein Editor-Feature.
+1. **Szenen festlegen:** Für jede Abbildung des Abbildungsplans eine Szene-ID `<modul>/<kapitel>/<nr>-<name>` und eine Vorlage (Abbildungstyp) festlegen. In beiden Fassungen gilt dieselbe Szene-ID.
+2. **Listeneintrag:** Die Szene in `ABBILDUNGEN_LISTE.md` eintragen, unter einer Überschrift für das Thema. Der Eintrag enthält:
+   - Fassungen und Nummern;
+   - Inhalt mit allen Zahlen, Wertebereichen, Achsen und Farben;
+   - Kernaussage;
+   - Datenquelle im Zahlenwerk;
+   - benötigte Editor-Funktionen (§-Verweise auf `EDITOR_GRAFIK_FEATURES.md`);
+   - gegebenenfalls die Animationsidee;
+   - Status „offen“.
+3. **Neue Funktionen:** Fehlt eine Funktion in `EDITOR_GRAFIK_FEATURES.md`, dort einen neuen Abschnitt mit „Gebraucht in“ anlegen.
+4. **Platzhalter beim Schreiben (B5):** Im Artikel steht an der Stelle der Abbildung der Block aus ERKLAER_PROMPT §7.5, mit der Bildbeschreibung „**Abbildung n:** …“.
 
 ## (B5) Schreiben (leere Seite)
 
@@ -123,7 +132,7 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
 2. **ARTIKEL_BAUPLAN §8 komplett:** Rechnungen, Vorzeichen und Zählpfeil-Richtungen nachrechnen; keine doppelt belegten Symbole.
 3. **Kennzahlen:** `python -I tools/artikel_kennzahlen.py <beide md>`. Soll:
    - Hauptpfad in der Spanne der Notiz;
-   - `:::grafik` 0;
+   - Abbildungs-Platzhalter `:::grafik` so viele wie im Abbildungsplan der jeweiligen Fassung, `<figure>`-Zeilen 0;
    - Quiz 10 bzw. 6;
    - jeden Treffer der Verbotsliste prüfen.
 4. **Fließtext-Formeln:** `python -I tools/audit_inline.py <beide md>`, Ziel 0.
@@ -149,10 +158,10 @@ python -m http.server 8000 --directory /c/Users/info/PycharmProjects/pythonanima
 - **KaTeX:** `python -I tools/katexcheck.py <html-name-ohne-.html>` meldet 0 Fehler.
 - **Handy:** `python -I tools/widefind.py <url>`, `python -I tools/widefind_open.py <url>` (Herleitungen offen) und `python -I tools/widefind_bsp.py <url>` (Beispiel-Seite) geben nichts aus.
 - **Geteilte Ansicht:** `python -I tools/splitalign.py <url> <png>` zeigt Karten ab 2 bei 350 und „Fehler: keine“.
-- **Bilder vorhanden:** Der folgende Befehl darf nichts ausgeben.
+- **Abbildungsliste vollständig:** Der folgende Befehl darf nichts ausgeben. Er meldet jede Szene eines Artikels, die in `ABBILDUNGEN_LISTE.md` fehlt.
 
   ```
-  cd /c/Users/info/PycharmProjects/pythonanimation && grep -ho 'src="/wissen/img/[^"]*"' <md> | sed 's/^src="\///;s/"$//' | while read p; do [ -f "web/$p" ] || echo "fehlt: $p"; done
+  cd /c/Users/info/PycharmProjects/pythonanimation && grep -h '^Szene: ' <beide md> | sed 's/^Szene: \([^ ]*\).*/\1/' | sort -u | while read s; do grep -q "\*\*$s\*\*" ABBILDUNGEN_LISTE.md || echo "fehlt in Liste: $s"; done
   ```
 
 - **Sichtprüfung:** Screenshot beider Fassungen hell und dunkel, ansehen.
@@ -165,7 +174,7 @@ python -m http.server 8000 --directory /c/Users/info/PycharmProjects/pythonanima
 - **Hinzufügen:**
 
   ```
-  git add <beide md> notizen/<modul> web REVIEW_OPUS55.md
+  git add <beide md> notizen/<modul> web REVIEW_OPUS55.md ABBILDUNGEN_LISTE.md EDITOR_GRAFIK_FEATURES.md
   ```
 
   `build_wissen.py` und `tools/` nur dazunehmen, wenn sie geändert wurden.

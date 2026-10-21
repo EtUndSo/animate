@@ -15,13 +15,19 @@ Gebaut wird sie aus einem Halbleiter wie Silizium, dessen Leitfähigkeit sich ge
 Alles in diesem Artikel hängt an einem Prinzip: **Ein Halbleiter hat wenige bewegliche Ladungsträger, deren Art und Zahl die Dotierung festlegt; wo ein n- und ein p-Gebiet aneinandergrenzen, baut der Dichteunterschied von selbst eine Barriere auf, deren Höhe eine äußere Spannung verschiebt.**
 Vorausgesetzt werden der [elektrische Strom](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/elektrischer-strom.html), [Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html) und das [elektrische Feld](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/elektrisches-feld-und-feldstaerke.html); darauf bauen [die Kennlinie der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html) und der [Bipolartransistor](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html) auf.
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-1.svg" alt="Bänderschema von reinem, n-dotiertem und p-dotiertem Silizium und Bandverlauf am pn-Übergang"/><figcaption>Abbildung 1: Der Weg dieses Artikels im Bändermodell, berechnet für Silizium bei 300 K: (a) reines Silizium mit wenigen Elektronen und Löchern, (b), (c) dotiertes Silizium, (d) n- und p-Gebiet im Kontakt. An der Stufe von 0,714 eV in (d) entscheidet sich, ob Strom fließt. Teilchenzahlen schematisch.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-gesamtbild · Vorlage: banddiagramm-vergleich
+**Abbildung 1:** Der Weg dieses Artikels im Bändermodell, berechnet für Silizium bei 300 K: (a) reines Silizium mit wenigen Elektronen und Löchern, (b), (c) dotiertes Silizium, (d) n- und p-Gebiet im Kontakt. An der Stufe von 0,714 eV in (d) entscheidet sich, ob Strom fließt. Teilchenzahlen schematisch.
+:::
 
 ## Bänder: warum Silizium kaum leitet
 
 *Warum leitet Kupfer gut, Silizium kaum und Glas praktisch gar nicht, obwohl alle drei Elektronen im Überfluss enthalten?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-3.svg" alt="Bänderschema von Metall, Halbleiter und Isolator mit Besetzung"/><figcaption>Abbildung 2: Metall, Halbleiter und Isolator im Bändermodell, Energie in eV (bei Halbleiter und Isolator mit der Valenzbandkante bei null); grau sind besetzte Zustände. Leiten kann nur ein teilweise besetztes Band.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-leiter-halbleiter-isolator · Vorlage: baender-vergleich
+**Abbildung 2:** Metall, Halbleiter (Silizium, Lücke 1,12 eV) und Isolator (Siliziumdioxid, Lücke etwa 9 eV) im Bändermodell, Energie in eV (bei Halbleiter und Isolator mit der Valenzbandkante bei null); grau sind besetzte Zustände. Leiten kann nur ein teilweise besetztes Band.
+:::
 
 **Die Akteure:**
 
@@ -59,7 +65,10 @@ Das Skript zählt die Halbleiter zu den Isolatoren mit kleiner Lücke (S. 160); 
 
 *Woher kommen in reinem Silizium bewegliche Ladungsträger, und wie viele sind es?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-4.svg" alt="Ebenes Schema des Siliziumgitters: rein, mit Phosphor und mit Bor"/><figcaption>Abbildung 3: Siliziumgitter als ebenes Schema; jede Doppellinie ist eine Bindung aus zwei Elektronen. (a) Die Wärme hat eine Bindung aufgebrochen: freies Elektron (blau) und Lücke (rot). (b) Phosphor gibt sein fünftes Elektron ab und bleibt als P⁺ zurück. (c) Bor hat ein Elektron aufgenommen (B⁻); die Lücke sitzt eine Bindung weiter. Schematisch.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-kristallgitter · Vorlage: kristallgitter-2d
+**Abbildung 3:** Siliziumgitter als ebenes Schema; jede Doppellinie ist eine Bindung aus zwei Elektronen. (a) Die Wärme hat eine Bindung aufgebrochen: freies Elektron (blau) und Lücke (rot). (b) Phosphor gibt sein fünftes Elektron ab und bleibt als P⁺ zurück. (c) Bor hat ein Elektron aufgenommen (B⁻); die Lücke sitzt eine Bindung weiter. Schematisch.
+:::
 
 **Die Akteure:**
 
@@ -223,7 +232,10 @@ Zwei weitere Kleinigkeiten auf derselben Seite: Die Bindungen heißen kovalent, 
 
 *Was geschieht, wenn ein n- und ein p-Gebiet im selben Kristall aneinandergrenzen?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-9.svg" alt="Entstehung der Raumladungszone in drei Zuständen"/><figcaption>Abbildung 4: Wie die Raumladungszone entsteht, schematisch. (a) Zwei neutrale Gebiete. (b) Elektronen und Löcher diffundieren hinüber und rekombinieren (×). (c) Zurück bleiben feste Rümpfe ohne Gegenpart; ihr Feld treibt die Ladungsträger zurück.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-rlz-entstehung · Vorlage: pn-uebergang-teilchen
+**Abbildung 4:** Wie die Raumladungszone entsteht, schematisch. (a) Zwei neutrale Gebiete. (b) Elektronen und Löcher diffundieren hinüber und rekombinieren (×). (c) Zurück bleiben feste Rümpfe ohne Gegenpart; ihr Feld treibt die Ladungsträger zurück.
+:::
 
 **Die Akteure:**
 
@@ -344,7 +356,10 @@ Das sind zwei verschiedene Größen: Die Diffusionsspannung ist die innere Stufe
 
 *Warum lässt der pn-Übergang Strom nur in eine Richtung durch?*
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-12.svg" alt="Bänder der Beispieldiode bei 0 V, plus 0,5 V und minus 2 V"/><figcaption>Abbildung 5: Bänder der Beispieldiode ohne Spannung (a), in Durchlassrichtung mit +0,5 V (b) und in Sperrrichtung mit −2 V (c), berechnet; das n-Gebiet ist jeweils festgehalten. Die Spannung verändert nur die Höhe der Stufe; der Strom hinauf ändert sich um den angegebenen Faktor, der Strom hinunter nicht.</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-baender-spannung · Vorlage: banddiagramm-parameter
+**Abbildung 5:** Bänder der Beispieldiode ohne Spannung (a), in Durchlassrichtung mit +0,5 V (b) und in Sperrrichtung mit −2 V (c), berechnet; das n-Gebiet ist jeweils festgehalten. Die Spannung verändert nur die Höhe der Stufe: 0,714 eV, 0,214 eV und 2,714 eV. Der Strom hinauf steigt bei +0,5 V auf das 2,5·10⁸-Fache seines Gleichgewichtswerts und sinkt bei −2 V auf das 2,5·10⁻³⁴-Fache; der Strom hinunter bleibt gleich.
+:::
 
 **Die Akteure:**
 
@@ -366,7 +381,10 @@ Das sind zwei verschiedene Größen: Die Diffusionsspannung ist die innere Stufe
 
 **Schritt 6**: In Durchlassrichtung überwiegt deshalb der Strom hinauf, und der Netto-Strom wächst um den Faktor 10 je 59,5 mV. In Sperrrichtung ist der Strom hinauf schon bei −0,1 V auf 2 % gefallen; übrig bleibt der Strom hinunter, 15 fA, und der hängt im idealen Modell nicht von der Spannung ab (Abbildung 6). Reale Siliziumdioden sperren schlechter, weil in der Zone selbst zusätzlich Paare entstehen; bei der Beispieldiode wären das bei −1 V etwa 53 pA, und dieser Anteil wächst langsam mit der Sperrspannung.
 
-<figure class="fig"><img src="/wissen/img/get1/halbleiter-und-baendermodell-13.svg" alt="Teilströme und Netto-Strom über der Spannung, halblogarithmisch"/><figcaption>Abbildung 6: Teilströme und Netto-Strom der Beispieldiode über der Spannung, halblogarithmisch. Der Netto-Strom folgt in Durchlassrichtung dem Strom hinauf (Faktor 10 je 59,5 mV), in Sperrrichtung dem konstanten Strom hinunter (15 fA).</figcaption></figure>
+:::grafik
+Szene: get1/halbleiterbauelemente/01-teilstroeme · Vorlage: kennlinie-semilog
+**Abbildung 6:** Teilströme und Netto-Strom der Beispieldiode über der Spannung, halblogarithmisch. Der Netto-Strom folgt in Durchlassrichtung dem Strom hinauf (Faktor 10 je 59,5 mV), in Sperrrichtung dem konstanten Strom hinunter (15 fA).
+:::
 
 :::formel Gesetz
 $$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$

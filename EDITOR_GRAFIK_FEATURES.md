@@ -105,3 +105,64 @@ Editor).
   flexibel/indirekt (nicht hart verdrahten), damit Umnummerieren leicht bleibt.
 - Greift erst, wenn der Editor echte Grafiken/Templates erzeugt; bis dahin `:::grafik`-Platzhalter mit
   Bildbeschreibung. Später: im Build je `:::grafik` optional ein Template-Link/-Nummer-Feld.
+
+---
+
+## Ergänzungen aus den Stil-3-Artikeln (ab 2026-10-21)
+
+Seit dem 21.10.2026 gilt: In den Artikeln stehen **nur noch Editor-Abbildungen** (User). Jede geplante Abbildung
+ist mit Inhalt, Daten und benötigten Funktionen in `ABBILDUNGEN_LISTE.md` erfasst. Die Features werden **nach**
+dem Schreiben der Artikel gebaut, nicht im Loop. Die folgenden Abschnitte ergänzen §1–§9 um das, was der
+Halbleiter-Pilot zusätzlich braucht.
+
+## 10. Teilbild-Layout  — **P1**
+- Mehrere Teilbilder (a), (b), … in einer Abbildung, nebeneinander oder untereinander, auch gemischt
+  (drei kleine oben, eines breit darunter).
+- Gemeinsame Bildunterschrift; Teilbild-Buchstaben automatisch; Achsen optional gekoppelt.
+Gebraucht in: fast jeder Stil-3-Abbildung (Halbleiter-Pilot: Gesamtbild, Kristallgitter, Fermi-Verteilung,
+Bänder bei Spannung, Gleichrichter).
+
+## 11. Datenkurven aus dem Zahlenwerk  — **P1**
+- Kurven aus einer **Datentabelle** (CSV/JSON) statt nur aus einer Formel: numerisch gelöste Profile
+  (Poisson-Lösung am pn-Übergang), implizit gelöste Größen (Gleichrichter-Ausgang über die Shockley-Gleichung).
+- Die Tabelle wird vom Zahlenwerk des Oberthemas erzeugt (`notizen/<modul>/zahlen_<oberthema>.py`), damit
+  Abbildung und Text dieselben Zahlen zeigen.
+Gebraucht in: Gesamtbild (d), Gleichgewichts-Profile, Gleichrichter, Bänder bei Spannung.
+
+## 12. Halblogarithmische Achsen  — **P1**
+- Logarithmische y-Achse mit Zehnerpotenz-Beschriftung (10⁵ … 10¹⁸), x linear; Hilfslinien bei Zehnerpotenzen.
+- Ergänzt §4, das bisher nur doppeltlogarithmische Achsen nennt.
+Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über U (Teilströme).
+
+## 13. Gestapelte Diagramme mit gemeinsamer x-Achse  — **P2**
+- Mehrere Größen über demselben Ort übereinander (Dichte, Raumladung, Feld, Potenzial, Bänder), nur unten
+  beschriftete x-Achse.
+- **Eine Hinterlegung, die durch alle Teilbilder geht** (Raumladungszone).
+Gebraucht in: Gleichgewichts-Profile am pn-Übergang; später Transistor (Profile in Emitter/Basis/Kollektor).
+
+## 14. Teilchenwolken  — **P2**
+- Viele Punkte/Kreise, zufällig nach einer Verteilung gesetzt (exponentiell in der Energie über einer Bandkante,
+  gleichverteilt im Ort); fester Zufallsstartwert, damit die Abbildung reproduzierbar ist.
+- Hervorhebung nach Bedingung („Energie über der Barriere“) in eigener Farbe.
+- Animierbar: Zufallsbewegung, Zähler für übergewechselte Teilchen.
+Gebraucht in: „hinauf und hinunter“ (Diffusion gegen Drift), später Diodenstrom, Transistor-Basis.
+
+## 15. Parameter-Schieberegler  — **P2**
+- Ein Parameter (Diodenspannung U, Temperatur T) wird live verändert; abhängige Kurven, Maßpfeile und
+  Beschriftungen (Barrierenhöhe, Faktoren wie ×2,5·10⁸) werden neu berechnet.
+- Für die statische Abbildung: feste Stützwerte als Teilbilder (§10).
+Gebraucht in: Bänder bei Spannung, Fermi-Verteilung (T), später Kennlinie und Arbeitspunkt.
+
+## 16. Bänderschema mit Zusatzniveaus  — **P2** (Ausbau von §6)
+- Kurze Strichniveaus für Donator/Akzeptor ($W_D$, $W_A$), gepunktetes Eigenleitungsniveau $W_i$,
+  gestricheltes Fermi-Niveau $W_F$, Maßpfeile zwischen Niveaus mit Zahlenwert.
+- Bänder auf **echter Energieachse** (Metall/Halbleiter/Isolator maßstäblich) oder als **Verlauf über dem Ort**
+  (Bandverbiegung aus Datentabelle, §11).
+- Kristallgitter (§6) mit einzeln ausblendbaren Bindungen (Loch) und hervorgehobenen Dotieratomen.
+Gebraucht in: Gesamtbild, Leiter/Halbleiter/Isolator, dotierte Bänder, Kristallgitter, Loch-Wanderung.
+
+## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
+1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten
+   Kennlinien- und Profil-Abbildungen frei.
+2. Bänderschema/Kristallgitter/pn-Übergang (§6, §16) und Pfeile (§2).
+3. Gestapelte Diagramme, Teilchenwolken, Schieberegler (§13–§15), Animationen (§8) zuletzt.
