@@ -103,7 +103,8 @@ Dann die `##`-Abschnitte (jeder wird als **Karte** gerendert). Typischer Bogen (
 Zum Schluss:
 - `:::kern` — „Das Wichtigste" als **Stichpunkt-Liste** (`- …`).
 - `:::quiz` — **genau 10** F:/A:-Paare (je eine Zeile), verständnisorientiert (Herleitung + Bedeutung),
-  **nur Inhalte, die im Artikel vorkommen**.
+  **nur Inhalte, die im Artikel vorkommen**. Im Quelltext steht es am Ende; der Build setzt es auf der Seite ganz
+  nach unten, unter die Nachbar-Spalten (User 2026-10-21).
 
 ## 3a. Beispiel-Seite: Theorie links, Praxis rechts (User 2026-10-20)
 - **Ansicht:** Der dritte Button oben in der Leiste öffnet die **geteilte Ansicht**. Der Artikel (Theorie) rückt nach
@@ -174,11 +175,16 @@ Zum Schluss:
 
 ## 7. Layout/Technik (global, bereits in build_wissen.py umgesetzt)
 Inhaltsverzeichnis-Start (Marker = Pfeil →), Abschnitts-Karten, größere Formeln (auch mobil), `:::kern` als
-Stichpunkte, Nachbar-Spalten am Ende (vorheriger | nächster Artikel mit Themen-Stichpunkten), linke Baumspalte
+Stichpunkte, Nachbar-Spalten am Ende (vorheriger | nächster Artikel mit Themen-Stichpunkten) und **darunter ganz unten
+das Quiz** (User 2026-10-21: erst sieht man, wie es weitergeht, dann das Quiz), linke Baumspalte
 beim Öffnen **eingeklappt** (Textblock bleibt an gleicher Position), Panel-Buttons **mittig** in der oberen
 Leiste, Formel-Boxen mit Typ-Label + Nummer. Dritter Panel-Button = geteilte Ansicht mit Beispiel-Seite (§3a;
 Zustand wird gemerkt, `?bsp=1` in der URL öffnet sie direkt); mehrteilige Formelzeilen brechen um, zu breite Formeln
-werden eingepasst; Mathe wird HTML-maskiert (`<` in Formeln ist sicher).
+werden eingepasst; Mathe wird HTML-maskiert (`<` in Formeln ist sicher). Seit 2026-10-21 (User): Logo „EtUndSo“ mit
+Et rot, Und blau, So orange (`--accent3`), auch auf Startseite, Impressum und Datenschutz; Suchknopf und Suchfelder ohne
+Lupen-Symbol, auf dem Handy mit dem Wort „Suchen“ (Editor-Link unter 380 px ausgeblendet, bis 320 px geprüft);
+`web/version.json` für „Letztes Update“ auf der Startseite schreibt der Build mit dem Datum der jüngsten Änderung an
+Artikeln, Build oder `web/`-Dateien.
 
 ## 8. Review-Checkliste
 Gilt für jeden Artikel — beim Neuschreiben vor dem Commit, beim Überarbeiten (Phase A, `REVIEW_OPUS55.md`) als

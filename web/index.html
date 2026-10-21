@@ -28,7 +28,7 @@
 
     header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:5;}
     .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--accent2);}
-    .brand span{color:var(--accent);}
+    .brand span{color:var(--accent);} .brand span.so{color:var(--accent3);}
     nav{display:flex;align-items:center;gap:20px;}
     nav a.lnk{color:var(--muted);font-weight:600;font-size:15px;}
     nav a.lnk:hover{color:var(--ink);}
@@ -66,8 +66,7 @@
 
     /* --- interaktive Modul-/Themen-Übersicht (#module) --- */
     .mod-searchwrap{position:relative;margin:4px 0 18px;}
-    .mod-searchicon{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.6;font-size:15px;pointer-events:none;}
-    #module-search{width:100%;padding:13px 16px 13px 40px;border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;font-size:16px;}
+    #module-search{width:100%;padding:13px 16px;border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;font-size:16px;}
     #module-search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);}
     .mod-tree{display:flex;flex-direction:column;gap:10px;}
     .mod-fallback{color:var(--muted);}
@@ -126,7 +125,7 @@
   <div class="build-banner">🚧 Noch im Aufbau, wird laufend erweitert. · Letztes Update: <b id="build-date">…</b></div>
 
   <header class="site">
-    <div class="brand">Et<span>UndSo</span></div>
+    <div class="brand">Et<span>Und</span><span class="so">So</span></div>
     <nav>
       <a class="lnk" href="/wissen/">Wissen</a>
       <a class="lnk" href="#editor">Editor</a>
@@ -170,7 +169,6 @@
            suchen: nach Modul, Thema oder einem Begriff mitten im Artikeltext.</p>
       </div>
       <div class="mod-searchwrap">
-        <span class="mod-searchicon">🔎</span>
         <input id="module-search" type="search" autocomplete="off" aria-label="Wissen durchsuchen"
                placeholder="Modul, Thema oder Begriff suchen — auch Teilwörter (z. B. „teiler")"/>
       </div>

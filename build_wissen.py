@@ -23,7 +23,7 @@ Artikel-Kopf (zwischen zwei '---'-Zeilen):
     ---
 Reihenfolge der Fächer/Themen: über das kleinste `order` ihrer Artikel; Dateiname-Präfix NN- sortiert innerhalb.
 """
-import json, re, html, unicodedata
+import datetime, json, re, html, unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -460,12 +460,10 @@ def topbar(panels=False, bsp=False, prev_a=None, next_a=None):
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>'
              + bsp_btn + nav_arrow(next_a, False) + '</div>') if panels else ''
-    return ('<div class="topbar"><a class="brand" href="/">Et<span>UndSo</span></a>'
+    return ('<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
             + pbtns
-            + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'
-            '<svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-            'stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/>'
-            '<line x1="21" y1="21" x2="16" y2="16"/></svg> <span class="lbl">Suchen </span><kbd>/</kbd></button>'
+            + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'   # ohne Lupen-Symbol (User 2026-10-21)
+            '<span class="lbl">Suchen</span><kbd>/</kbd></button>'
             # Hell/Dunkel-Umschalter — immer oben rechts, auf allen Wissensseiten an gleicher Stelle.
             '<button id="themeBtn" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten">'
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
@@ -483,6 +481,11 @@ def render_article(art, tree, prev_a, next_a):
     BSP_SINK = []
     body_html, toc = md_to_html(art["body"])
     examples, BSP_SINK = BSP_SINK, None
+    quiz_html = ""                                     # Quiz ganz unten, unter den Nachbar-Spalten (User 2026-10-21)
+    qa = body_html.find('<aside class="callout cx-quiz">')
+    if qa >= 0:
+        qe = body_html.index("</aside>", qa) + len("</aside>")
+        quiz_html, body_html = body_html[qa:qe], body_html[:qa] + body_html[qe:]
     pane = ""
     if examples:                                       # Beispiel-Seite (rechts in der geteilten Ansicht)
         cards = "".join(
@@ -518,7 +521,7 @@ def render_article(art, tree, prev_a, next_a):
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
             + arttoc
-            + body_html + nav + legal_footer() + "</article>" + toc_html + pane + "</main>")
+            + body_html + nav + quiz_html + legal_footer() + "</article>" + toc_html + pane + "</main>")
     body = (topbar(panels=True, bsp=bool(examples), prev_a=prev_a, next_a=next_a)
             + f'<div class="layout{" has-bsp" if examples else ""}">'
             + sidebar_html(tree, art["path"]) + main + "</div>")
@@ -596,9 +599,21 @@ def main():
 
     (OUT / "assets" / "wissen.css").write_text(WISSEN_CSS, encoding="utf-8")
     (OUT / "assets" / "wissen.js").write_text(WISSEN_JS, encoding="utf-8")
+    day = write_version()
 
     n_mod = sum(1 for _ in flat)
-    print(f"✓ {n_mod} Artikel, {len(tree)} Studiengänge -> {OUT}")
+    print(f"✓ {n_mod} Artikel, {len(tree)} Studiengänge -> {OUT} · Stand {day}")
+
+def write_version():
+    """web/version.json für die Meldung „Letztes Update“ der Startseite (User 2026-10-21: blieb nach dem Push stehen).
+    Datum = jüngste Änderung an Artikeln, diesem Build oder den Dateien unter web/ außer den erzeugten Seiten;
+    ein Build ohne Änderungen lässt das Datum also stehen."""
+    web = ROOT / "web"
+    srcs = list(SRC.rglob("*.md")) + [Path(__file__).resolve()] + \
+        [p for p in web.rglob("*") if p.is_file() and OUT not in p.parents and p.name != "version.json"]
+    day = datetime.date.fromtimestamp(max(p.stat().st_mtime for p in srcs)).isoformat()
+    (web / "version.json").write_text(f'{{ "updated": "{day}" }}\n', encoding="utf-8")
+    return day
 
 # --------------------------------------------------------- shared CSS / JS ----
 WISSEN_CSS = r"""
@@ -615,7 +630,7 @@ a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--panel);border-bottom:1px solid var(--border);}
 .brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--accent2);}
-.brand span{color:var(--accent);}
+.brand span{color:var(--accent);} .brand span.so{color:var(--accent3);}
 .topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);color:var(--muted);
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
@@ -812,7 +827,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
     align-self:stretch;}   /* stretch: sonst richtet sich das Overlay nach dem Inhalt (align-self:start der Spalte) und rutscht über die Leiste */
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
   .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
-  .topbar .searchBtn .lbl,.topbar .searchBtn kbd{display:none;}   /* Suchknopf nur als Lupe */
+  .topbar .searchBtn kbd{display:none;}   /* Suchknopf nur mit dem Wort, ohne Tastenhinweis */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
   .article .katex{font-size:1.14em;}                              /* Inline-Formeln auf dem Handy nicht zu klein */
@@ -823,9 +838,11 @@ details.herleitung>summary:hover{text-decoration:underline;}
 }
 @media(max-width:400px){   /* schmale Handys: Leiste kompakter, damit Pfeile und Knöpfe nebeneinander passen (Höhe bleibt 57 px) */
   .topbar{gap:4px;padding:12px 8px;} .brand{font-size:17px;}
-  .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .searchBtn{width:32px;height:32px;padding:0;justify-content:center;border-radius:9px;}
+  .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{width:32px;height:32px;padding:0;justify-content:center;border-radius:9px;}
+  .topbar .searchBtn{height:32px;padding:0 9px;border-radius:9px;font-size:13px;}
 }
-@media(max-width:350px){ .topbar .editorlink{display:none;} }   /* sehr schmal: Editor-Link weg (Desktop-Werkzeug) */
+@media(max-width:379px){ .topbar .editorlink{display:none;} }   /* schmal: Editor-Link weg (Desktop-Werkzeug), Platz für das Wort „Suchen“ */
+@media(max-width:330px){ .brand{font-size:15px;} .topbar .searchBtn{padding:0 6px;} }   /* sehr schmal (320 px): Logo und Suchknopf kleiner */
 """
 
 WISSEN_JS = r"""

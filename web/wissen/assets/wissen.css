@@ -12,7 +12,7 @@ a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--panel);border-bottom:1px solid var(--border);}
 .brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--accent2);}
-.brand span{color:var(--accent);}
+.brand span{color:var(--accent);} .brand span.so{color:var(--accent3);}
 .topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);color:var(--muted);
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
@@ -209,7 +209,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
     align-self:stretch;}   /* stretch: sonst richtet sich das Overlay nach dem Inhalt (align-self:start der Spalte) und rutscht über die Leiste */
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
   .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
-  .topbar .searchBtn .lbl,.topbar .searchBtn kbd{display:none;}   /* Suchknopf nur als Lupe */
+  .topbar .searchBtn kbd{display:none;}   /* Suchknopf nur mit dem Wort, ohne Tastenhinweis */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
   .article .katex{font-size:1.14em;}                              /* Inline-Formeln auf dem Handy nicht zu klein */
@@ -220,6 +220,8 @@ details.herleitung>summary:hover{text-decoration:underline;}
 }
 @media(max-width:400px){   /* schmale Handys: Leiste kompakter, damit Pfeile und Knöpfe nebeneinander passen (Höhe bleibt 57 px) */
   .topbar{gap:4px;padding:12px 8px;} .brand{font-size:17px;}
-  .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .searchBtn{width:32px;height:32px;padding:0;justify-content:center;border-radius:9px;}
+  .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{width:32px;height:32px;padding:0;justify-content:center;border-radius:9px;}
+  .topbar .searchBtn{height:32px;padding:0 9px;border-radius:9px;font-size:13px;}
 }
-@media(max-width:350px){ .topbar .editorlink{display:none;} }   /* sehr schmal: Editor-Link weg (Desktop-Werkzeug) */
+@media(max-width:379px){ .topbar .editorlink{display:none;} }   /* schmal: Editor-Link weg (Desktop-Werkzeug), Platz für das Wort „Suchen“ */
+@media(max-width:330px){ .brand{font-size:15px;} .topbar .searchBtn{padding:0 6px;} }   /* sehr schmal (320 px): Logo und Suchknopf kleiner */
