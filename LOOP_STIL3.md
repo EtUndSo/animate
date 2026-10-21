@@ -127,6 +127,11 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
    - Quiz 10 bzw. 6;
    - jeden Treffer der Verbotsliste prüfen.
 4. **Fließtext-Formeln:** `python -I tools/audit_inline.py <beide md>`, Ziel 0.
+5. **Unabhängige Faktenprüfung (Pflicht):**
+   - Ein zweiter Agent (general-purpose) prüft beide Fassungen gegen Zahlenwerk und Skriptseiten: Physik bzw. Mathematik, jede Zahl selbst nachgerechnet, Vorzeichen, Skriptkorrekturen auf Fairness, Herleitungen, Widersprüche zwischen den Fassungen.
+   - Ausgabe: nur echte Probleme, „falsch“ getrennt von „ungenau“.
+   - Jeden Befund selbst nachrechnen, bevor er eingearbeitet wird.
+   - Beim Piloten fand diese Prüfung sechs echte Fehler.
 
 ## (B7) Bauen, technische Checks, Commit
 
