@@ -1,0 +1,84 @@
+== Konstanten ==
+U_T = kB T/e = 25.852 mV;  kB T = 25.85 meV;  U_T ln10 = 59.5 mV
+
+== Bänder ==
+Wg = 1.12 eV = 43.3 kB T;  Wg/2 = 0.56 eV = 21.66 kB T
+Valenzelektronen = Plätze im Valenzband: 4 * N_Si = 2.0e+23 cm^-3
+Niveauabstand bei ~12 eV Bandbreite: 6e-23 eV
+
+== Leiter / Halbleiter / Isolator (300 K) ==
+Germanium       Wg = 0.66 eV  exp(-Wg/2kT) = 2.9e-06  n_i(Abschätzung) = 6.9e+13  Literatur: 20000000000000.0
+Silizium        Wg = 1.12 eV  exp(-Wg/2kT) = 3.9e-10  n_i(Abschätzung) = 9.4e+09  Literatur: 10000000000.0
+Galliumarsenid  Wg = 1.42 eV  exp(-Wg/2kT) = 1.2e-12  n_i(Abschätzung) = 2.8e+07  Literatur: 2100000.0
+Diamant         Wg = 5.50 eV  exp(-Wg/2kT) = 6.3e-47  n_i(Abschätzung) = 1.5e-27  Literatur: None
+Siliziumdioxid  Wg = 9.00 eV  exp(-Wg/2kT) = 2.5e-76  n_i(Abschätzung) = 6.1e-57  Literatur: None
+Kupfer: n = 8.5e+22 cm^-3, rho = 1.68e-06 Ohm cm, sigma = 5.95e+05 S/cm
+V_Erde = 1.08e27 m^3 = 1.08e33 cm^3; SiO2-Elektronen darin: 7e-24
+
+== Eigenleitung ==
+n_i = 1e+10 cm^-3 (Literatur 9.65e+09); n_i aus N_L, N_V: 9.39e+09
+Atome je freies Elektron: 5e+12
+Temperaturgang: d ln n_i/dT = 8.28 %/K; Verdopplung alle 8.4 K
+   n_i(250 K) = 7.17e+07 cm^-3
+   n_i(300 K) = 1.00e+10 cm^-3
+   n_i(350 K) = 3.53e+11 cm^-3
+   n_i(400 K) = 5.25e+12 cm^-3
+   n_i(500 K) = 2.43e+14 cm^-3
+   n_i = N_D = 1e16 bei T = 655 K
+Eigenleitungsniveau W_i liegt -7.4 meV neben der Bandmitte
+f(W_L) bei W_F = W_i: 2.9e-10
+sigma_i = 2.96e-06 S/cm, rho_i = 3.37e+05 Ohm cm
+G = R im n-Gebiet: p_n0/tau = 1e+10 cm^-3 s^-1
+
+== Fermi-Verteilung ==
+   f(W_F -3 kT) = 0.9526   Boltzmann exp(-dW) = 20.0855
+   f(W_F -1 kT) = 0.7311   Boltzmann exp(-dW) = 2.7183
+   f(W_F +0 kT) = 0.5000   Boltzmann exp(-dW) = 1.0000
+   f(W_F +1 kT) = 0.2689   Boltzmann exp(-dW) = 0.3679
+   f(W_F +3 kT) = 0.0474   Boltzmann exp(-dW) = 0.0498
+   f(W_F +5 kT) = 0.0067   Boltzmann exp(-dW) = 0.0067
+   f(W_F +10 kT) = 0.0000   Boltzmann exp(-dW) = 0.0000
+
+== Dotierung (N_D = N_A = 1e16) ==
+Fremdatom je Si-Atome: 5e+06;  mittlerer Abstand N^(-1/3) = 46 nm
+n = 1e+16, p = n_i^2/N_D = 1e+04; Verhältnis 1e+12
+W_F - W_i = kT ln(N_D/n_i) = 0.357 eV;  W_L - W_F = kT ln(N_L/N_D) = 0.209 eV
+p-Seite: W_F - W_V = kT ln(N_V/N_A) = 0.194 eV (über n_i und W_i: 0.195 eV); n-Seite über n_i und W_i: W_L - W_F = 0.210 eV
+W_D - W_F = 0.164 eV; neutrale (besetzte) Donatoren: 0.36 %  -> ionisiert 99.64 %
+E_D/kT = 1.74;  Wg/E_D = 25
+Wasserstoffmodell: E_D = 13,6 eV m*/eps_r^2 = 26 meV; Bahnradius = 2.38 nm = 10 Bindungslängen; Atome in der Kugel: 2825
+sigma(n, 1e16) = 2.00 S/cm, rho = 0.50 Ohm cm; Faktor gegen undotiert: 6.8e+05; Kupfer leitet 3.0e+05-mal besser
+dielektrische Relaxationszeit eps/sigma = 0.52 ps
+
+== pn-Übergang im Gleichgewicht ==
+U_Diff = U_T ln(N_A N_D/n_i^2) = 0.714 V = 27.6 U_T; Boltzmann-Faktor exp(-U_Diff/U_T) = 1.0e-12
+   N_A = 1e+15, N_D = 1e+15:  U_Diff = 0.595 V
+   N_A = 1e+16, N_D = 1e+16:  U_Diff = 0.714 V
+   N_A = 1e+17, N_D = 1e+17:  U_Diff = 0.833 V
+   N_A = 1e+19, N_D = 1e+16:  U_Diff = 0.893 V
+   N_A = 1e+20, N_D = 1e+17:  U_Diff = 1.012 V
+w = 0.430 um, x_n = x_p = 0.215 um, E_max = 3.32e+04 V/cm, Debye-Länge 41 nm
+Poisson numerisch: U_Diff = 0.7143 V, E_max = 3.20e+04 V/cm, n = p in der Mitte: 9.70e+09 cm^-3
+Raumladung e N_D = 1.60e-03 C/cm^3; Feld nach 0,2 um: 3.09e+04 V/cm
+
+== Ströme ==
+D_n = 32.3, D_p = 11.6 cm^2/s; L_n = 57 um, L_p = 34 um
+J_S = 1.457e-11 A/cm^2 (Elektronen 9.11e-12, Löcher 5.46e-12); I_S = 1.457e-14 A
+   U = -5.00 V: Faktor hinauf exp(U/U_T) = 1.009e-84, I = -1.457e-14 A, Barriere 5.714 V, w = 1.216 um
+   U = -1.00 V: Faktor hinauf exp(U/U_T) = 1.588e-17, I = -1.457e-14 A, Barriere 1.714 V, w = 0.666 um
+   U = -0.10 V: Faktor hinauf exp(U/U_T) = 2.090e-02, I = -1.427e-14 A, Barriere 0.814 V, w = 0.459 um
+   U = +0.00 V: Faktor hinauf exp(U/U_T) = 1.000e+00, I = +0.000e+00 A, Barriere 0.714 V, w = 0.430 um
+   U = +0.10 V: Faktor hinauf exp(U/U_T) = 4.785e+01, I = +6.828e-13 A, Barriere 0.614 V, w = 0.399 um
+   U = +0.30 V: Faktor hinauf exp(U/U_T) = 1.096e+05, I = +1.597e-09 A, Barriere 0.414 V, w = 0.327 um
+   U = +0.40 V: Faktor hinauf exp(U/U_T) = 5.245e+06, I = +7.643e-08 A, Barriere 0.314 V, w = 0.285 um
+   U = +0.50 V: Faktor hinauf exp(U/U_T) = 2.510e+08, I = +3.657e-06 A, Barriere 0.214 V, w = 0.235 um
+   U = +0.60 V: Faktor hinauf exp(U/U_T) = 1.201e+10, I = +1.750e-04 A, Barriere 0.114 V, w = 0.172 um
+   U = +0.65 V: Faktor hinauf exp(U/U_T) = 8.308e+10, I = +1.211e-03 A, Barriere 0.064 V, w = 0.129 um
+   U = +0.70 V: Faktor hinauf exp(U/U_T) = 5.748e+11, I = +8.376e-03 A, Barriere 0.014 V, w = 0.061 um
+J(0,6 V) = 0.175 A/cm^2; Feld im neutralen n-Gebiet J/sigma = 0.087 V/cm; Spannung über 100 um: 0.87 mV
+
+== Einweggleichrichter (Motivation): U_E = 10 V Spitze, R = 1 kOhm ==
+U_A,Spitze = 9.30 V, Diodenspannung 0.703 V, Strom 9.30 mA
+
+== Atmosphäre (Analogie) ==
+Skalenhöhe H = kB T/(m g) = 8.4 km; Mount Everest 8,85 km: 0.35

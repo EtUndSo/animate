@@ -100,6 +100,25 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article figure.fig{margin:1.8em 0;text-align:center;}
 .article figure.fig svg{width:min(560px,100%);height:auto;}
 .article figure.fig figcaption{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.5;max-width:52ch;margin-inline:auto;}
+.article figure.fig img{width:min(680px,100%);height:auto;border-radius:8px;background:#fff;}   /* berechnete Abbildung (SVG, weißer Grund) */
+/* Fassung wählen: kompakt | ausführlich, jeweils mit Lesezeit */
+.fassung{display:inline-flex;margin:.1em 0 1.2em;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);}
+.fassung .f-btn{display:flex;align-items:baseline;gap:8px;padding:7px 15px;color:var(--muted);font-weight:600;font-size:14.5px;}
+.fassung .f-btn span{font-weight:500;font-size:12.5px;}
+.fassung .f-btn.on{background:var(--panel);color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent);}
+.fassung .f-btn:hover{text-decoration:none;color:var(--ink);}
+/* Frage-Kasten: die Frage ist sichtbar, die Antwort klappt auf */
+details.frage{margin:1.1em 0;border:1px solid var(--border);border-radius:10px;background:var(--panel);}
+details.frage>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.frage>summary::-webkit-details-marker{display:none;}
+details.frage>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent);transition:transform .15s;}
+details.frage[open]>summary::before{transform:rotate(90deg);}
+details.frage .fr-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
+.fr-body{padding:0 16px 8px;border-top:1px solid var(--border);}
+.fr-body>p:first-child{margin-top:12px;}
+.callout.cx-fehlvorstellung{border-left:4px solid var(--accent2);} .callout.cx-fehlvorstellung .callout-h{color:var(--accent2);}
+.callout.cx-analogie{border-left:4px solid var(--muted);} .callout.cx-analogie .callout-h{color:var(--muted);}
+.callout.cx-vertiefung{border-left:4px solid var(--border);} .callout.cx-vertiefung .callout-h{color:var(--muted);}
 /* Abschnitte als Karten: klar getrennt, in Stücken lernen */
 .article .sect{border:1px solid var(--border);border-radius:14px;background:var(--panel);padding:2px 22px 18px;margin:0 0 18px;}
 .article .sect>h2{margin:.7em 0 .9em;} .article .sect>h2:first-child{margin-top:.5em;}  /* Text beginnt klar eine Zeile unter der Überschrift */

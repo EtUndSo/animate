@@ -271,6 +271,15 @@ def md_to_html(md):
                 out.append('<details class="herleitung"><summary>Herleitung</summary>'
                            '<div class="hl-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
                 continue
+            if kind == "frage":                           # Frage-Kasten (wie im Lernskript): Frage sichtbar, Antwort ausklappbar
+                if label_arg:
+                    frage, rest = label_arg, inner
+                else:
+                    k0 = next((j for j, l in enumerate(inner) if l.strip()), len(inner))
+                    frage, rest = (inner[k0].strip() if k0 < len(inner) else ""), inner[k0 + 1:]
+                out.append('<details class="frage"><summary><span class="fr-k">Frage</span>' + inline(frage) + '</summary>'
+                           '<div class="fr-body">' + md_to_html("\n".join(rest))[0] + '</div></details>')
+                continue
             icon, label = CALLOUTS.get(kind, ("", kind.title()))
             out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{(icon + " " if icon else "") + html.escape(label)}</div>'
                        + md_to_html("\n".join(inner))[0] + "</aside>")
@@ -345,7 +354,7 @@ def _new_node(name):
     return {"name": name, "slug": slugify(name), "order": 10**9, "children": {}, "articles": []}
 
 def collect():
-    roots = {}
+    roots, ausf = {}, []
     for md_file in sorted(SRC.rglob("*.md")):
         meta, body = parse_frontmatter(md_file.read_text(encoding="utf-8"))
         pfad = (meta.get("pfad") or "").strip()
@@ -363,10 +372,21 @@ def collect():
         path = "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html"
         art = {"title": title, "slug": a_slug, "order": order, "path": path,
                "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body,
-               "crumbs": [(nd["name"], nd["slug"]) for nd in chain]}
+               "crumbs": [(nd["name"], nd["slug"]) for nd in chain],
+               "fassung": (meta.get("fassung") or "").strip().lower()}
+        if art["fassung"] == "ausfuehrlich":           # zweite Fassung eines Themas: kein eigener Eintrag im Baum
+            ausf.append((art, chain[-1], re.sub(r"-ausfuehrlich$", "", a_slug)))
+            continue
         chain[-1]["articles"].append(art)
         for nd in chain:
             nd["order"] = min(nd["order"], order)
+    for art, node, base in ausf:                       # ausführliche Fassung an die kompakte desselben Themas hängen
+        partner = next((a for a in node["articles"] if a["slug"] == base), None)
+        if partner:
+            partner["alt"], art["alt"] = art, partner
+            partner["fassung"] = partner["fassung"] or "kompakt"
+        else:                                          # (noch) ohne kompakte Fassung: normal im Baum führen
+            node["articles"].append(art)
     def to_list(container):
         nodes = sorted(container.values(), key=lambda x: (x["order"], x["name"]))
         for nd in nodes:
@@ -402,7 +422,7 @@ def sidebar_html(tree, active_path=None):
                 rows.append("<ul>")
                 for a in nd["articles"]:
                     cls = ' class="active"' if a["path"] == active_path else ""
-                    rows.append(f'<li><a{cls} href="/wissen/{a["path"]}">{html.escape(a["title"])}</a></li>')
+                    rows.append(f'<li><a{cls} href="/wissen/{a["path"]}"{alt_attr(a)}>{html.escape(a["title"])}</a></li>')
                 rows.append("</ul>")
             if nd["children"]:
                 rows.append(render(nd["children"], depth + 1))
@@ -429,6 +449,18 @@ try{{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")
 <script src="/wissen/assets/wissen.js"></script>
 </body></html>"""
 
+def alt_attr(a):
+    """data-alt an Links auf die kompakte Fassung eines Themas: wer „Ausführlich“ gewählt hat, wird per JS dorthin gelenkt."""
+    return f' data-alt="/wissen/{a["alt"]["path"]}"' if a and a.get("alt") and a.get("fassung") == "kompakt" else ""
+
+def lesezeit(body):
+    """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
+    t = re.sub(r"^::::\s*beispiel.*?^::::\s*$", " ", body, flags=re.S | re.M)
+    t = re.sub(r"^:::\s*(?:herleitung|quiz|frage)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # eingeklappte Kästen
+    t = re.sub(r"\$\$.+?\$\$", " ", t, flags=re.S)
+    t = re.sub(r"^\s*<.*$", " ", t, flags=re.M)
+    return max(1, round(len([w for w in t.split() if re.search(r"[A-Za-zÄÖÜäöüß0-9]", w)]) / 170))
+
 def nav_arrow(a, prev):
     # Pfeil neben den Panel-Buttons zum vorherigen/nächsten Artikel (dieselbe Reihenfolge wie unten
     # „Vorheriger/Nächster Artikel"); am Anfang bzw. Ende grau und ohne Funktion.
@@ -439,7 +471,7 @@ def nav_arrow(a, prev):
               '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>') + '</svg>')
     if a:
         t = html.escape(f'{word} Artikel: {a["title"]}')
-        return f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}" title="{t}" aria-label="{t}">{svg}</a>'
+        return f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
     return f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="Kein {word.lower()} Artikel">{svg}</span>'
 
 def topbar(panels=False, bsp=False, prev_a=None, next_a=None):
@@ -507,24 +539,33 @@ def render_article(art, tree, prev_a, next_a):
             "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></nav>"
     def _topics(a):                                    # Themen-Stichpunkte (##-Überschriften) eines Nachbarartikels
         return "".join(f"<li>{html.escape(t)}</li>" for _, t in md_to_html(a["body"])[1])
+    switch = ""                                        # Umschalter kompakt | ausführlich, mit Lesezeit
+    if art.get("alt"):
+        kompakt, ausf = (art, art["alt"]) if art["fassung"] == "kompakt" else (art["alt"], art)
+        def _fbtn(x, label):
+            on = x is art
+            return (f'<a class="f-btn{" on" if on else ""}" href="/wissen/{x["path"]}" data-fassung="{x["fassung"]}"'
+                    + (' aria-current="page"' if on else "") + f'>{label}<span>{lesezeit(x["body"])} min</span></a>')
+        switch = '<nav class="fassung" aria-label="Fassung wählen">' + _fbtn(kompakt, "Kompakt") + _fbtn(ausf, "Ausführlich") + "</nav>"
     nav = '<div class="neighbors">'
     if prev_a:
-        nav += (f'<a class="nb" href="/wissen/{prev_a["path"]}"><div class="nb-dir">← Vorheriger Artikel</div>'
+        nav += (f'<a class="nb" href="/wissen/{prev_a["path"]}"{alt_attr(prev_a)}><div class="nb-dir">← Vorheriger Artikel</div>'
                 f'<div class="nb-t">{html.escape(prev_a["title"])}</div><ul>{_topics(prev_a)}</ul></a>')
     else:
         nav += '<div class="nb empty"></div>'
     if next_a:
-        nav += (f'<a class="nb" href="/wissen/{next_a["path"]}"><div class="nb-dir next">Nächster Artikel →</div>'
+        nav += (f'<a class="nb" href="/wissen/{next_a["path"]}"{alt_attr(next_a)}><div class="nb-dir next">Nächster Artikel →</div>'
                 f'<div class="nb-t">{html.escape(next_a["title"])}</div><ul>{_topics(next_a)}</ul></a>')
     else:
         nav += '<div class="nb empty"></div>'
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
-            + arttoc
+            + switch + arttoc
             + body_html + nav + quiz_html + legal_footer() + "</article>" + toc_html + pane + "</main>")
+    nav_path = art["alt"]["path"] if art.get("fassung") == "ausfuehrlich" and art.get("alt") else art["path"]
     body = (topbar(panels=True, bsp=bool(examples), prev_a=prev_a, next_a=next_a)
             + f'<div class="layout{" has-bsp" if examples else ""}">'
-            + sidebar_html(tree, art["path"]) + main + "</div>")
+            + sidebar_html(tree, nav_path) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth)
 
@@ -575,25 +616,33 @@ def main():
         dest = OUT / Path(art["path"])
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(render_article(art, tree, prev_a, nxt), encoding="utf-8")
+        if art.get("alt"):                             # ausführliche Fassung: Nachbarn möglichst ebenfalls ausführlich
+            p2 = (prev_a.get("alt") or prev_a) if prev_a else None
+            n2 = (nxt.get("alt") or nxt) if nxt else None
+            dest2 = OUT / Path(art["alt"]["path"])
+            dest2.write_text(render_article(art["alt"], tree, p2, n2), encoding="utf-8")
 
     (OUT / "index.html").write_text(render_index(tree), encoding="utf-8")
 
     # navigation tree (ohne bodies, beliebig tief) + search index
     def jnode(nd):
         return {"name": nd["name"], "slug": nd["slug"],
-                "articles": [{"title": a["title"], "path": a["path"], "summary": a["summary"]} for a in nd["articles"]],
+                "articles": [{"title": a["title"], "path": a["path"], "summary": a["summary"],
+                              **({"alt": a["alt"]["path"]} if a.get("alt") else {})} for a in nd["articles"]],
                 "children": [jnode(c) for c in nd["children"]]}
     tree_json = [jnode(n) for n in tree]
     (OUT / "data" / "tree.json").write_text(json.dumps(tree_json, ensure_ascii=False), encoding="utf-8")
 
     search = []
-    for a in flat:
+    alts = [a["alt"] for a in flat if a.get("alt")]
+    for a in flat + alts:
         plain = to_plain(a["body"])
         crumb = " › ".join(nm for nm, sl in a["crumbs"])
-        search.append({"title": a["title"], "crumb": crumb, "path": a["path"],
+        title = a["title"] + (" (ausführlich)" if a.get("fassung") == "ausfuehrlich" and a.get("alt") else "")
+        search.append({"title": title, "crumb": crumb, "path": a["path"],
                        "summary": a["summary"], "tags": a["tags"],
                        # pre-folded fields for fast infix matching; 'text' kept (original) for snippets
-                       "ft_title": fold(a["title"]), "ft_tags": fold(a["tags"]),
+                       "ft_title": fold(title), "ft_tags": fold(a["tags"]),
                        "ft_text": fold(a["summary"] + " " + plain), "text": plain})
     (OUT / "data" / "search.json").write_text(json.dumps(search, ensure_ascii=False), encoding="utf-8")
 
@@ -602,7 +651,7 @@ def main():
     day = write_version()
 
     n_mod = sum(1 for _ in flat)
-    print(f"✓ {n_mod} Artikel, {len(tree)} Studiengänge -> {OUT} · Stand {day}")
+    print(f"✓ {n_mod} Artikel (+{len(alts)} ausführliche Fassungen), {len(tree)} Studiengänge -> {OUT} · Stand {day}")
 
 def write_version():
     """web/version.json für die Meldung „Letztes Update“ der Startseite (User 2026-10-21: blieb nach dem Push stehen).
@@ -718,6 +767,25 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article figure.fig{margin:1.8em 0;text-align:center;}
 .article figure.fig svg{width:min(560px,100%);height:auto;}
 .article figure.fig figcaption{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.5;max-width:52ch;margin-inline:auto;}
+.article figure.fig img{width:min(680px,100%);height:auto;border-radius:8px;background:#fff;}   /* berechnete Abbildung (SVG, weißer Grund) */
+/* Fassung wählen: kompakt | ausführlich, jeweils mit Lesezeit */
+.fassung{display:inline-flex;margin:.1em 0 1.2em;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);}
+.fassung .f-btn{display:flex;align-items:baseline;gap:8px;padding:7px 15px;color:var(--muted);font-weight:600;font-size:14.5px;}
+.fassung .f-btn span{font-weight:500;font-size:12.5px;}
+.fassung .f-btn.on{background:var(--panel);color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent);}
+.fassung .f-btn:hover{text-decoration:none;color:var(--ink);}
+/* Frage-Kasten: die Frage ist sichtbar, die Antwort klappt auf */
+details.frage{margin:1.1em 0;border:1px solid var(--border);border-radius:10px;background:var(--panel);}
+details.frage>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.frage>summary::-webkit-details-marker{display:none;}
+details.frage>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent);transition:transform .15s;}
+details.frage[open]>summary::before{transform:rotate(90deg);}
+details.frage .fr-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
+.fr-body{padding:0 16px 8px;border-top:1px solid var(--border);}
+.fr-body>p:first-child{margin-top:12px;}
+.callout.cx-fehlvorstellung{border-left:4px solid var(--accent2);} .callout.cx-fehlvorstellung .callout-h{color:var(--accent2);}
+.callout.cx-analogie{border-left:4px solid var(--muted);} .callout.cx-analogie .callout-h{color:var(--muted);}
+.callout.cx-vertiefung{border-left:4px solid var(--border);} .callout.cx-vertiefung .callout-h{color:var(--muted);}
 /* Abschnitte als Karten: klar getrennt, in Stücken lernen */
 .article .sect{border:1px solid var(--border);border-radius:14px;background:var(--panel);padding:2px 22px 18px;margin:0 0 18px;}
 .article .sect>h2{margin:.7em 0 .9em;} .article .sect>h2:first-child{margin-top:.5em;}  /* Text beginnt klar eine Zeile unter der Überschrift */
@@ -1040,6 +1108,19 @@ WISSEN_JS = r"""
   window.addEventListener("load",fitMath);
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
   document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
+})();
+/* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links mit data-alt führen dann zur ausführlichen Fassung */
+(function(){
+  function pref(){ try{ return localStorage.getItem("wissen-fassung"); }catch(e){ return null; } }
+  document.addEventListener("click",function(ev){
+    var b=ev.target.closest&&ev.target.closest(".fassung .f-btn");
+    if(b){ try{ localStorage.setItem("wissen-fassung",b.getAttribute("data-fassung")); }catch(e){} }
+  });
+  function apply(){
+    if(pref()!=="ausfuehrlich") return;
+    document.querySelectorAll("a[data-alt]").forEach(function(a){ a.setAttribute("href",a.getAttribute("data-alt")); });
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
 })();
 """
 

@@ -187,3 +187,16 @@
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
   document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
 })();
+/* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links mit data-alt führen dann zur ausführlichen Fassung */
+(function(){
+  function pref(){ try{ return localStorage.getItem("wissen-fassung"); }catch(e){ return null; } }
+  document.addEventListener("click",function(ev){
+    var b=ev.target.closest&&ev.target.closest(".fassung .f-btn");
+    if(b){ try{ localStorage.setItem("wissen-fassung",b.getAttribute("data-fassung")); }catch(e){} }
+  });
+  function apply(){
+    if(pref()!=="ausfuehrlich") return;
+    document.querySelectorAll("a[data-alt]").forEach(function(a){ a.setAttribute("href",a.getAttribute("data-alt")); });
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
+})();
