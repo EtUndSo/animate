@@ -558,9 +558,10 @@ zwei Messungen an seinen Klemmen. Das Skript stellt dazu zwei Dateien für das S
 einer Ersatzquelle bestimmt und ihr Verhalten unter Last mit dem des Netzes vergleicht.
 
 In der Herleitung war die Leerlaufspannung eine Summe von Beiträgen der einzelnen Quellen, jede mit ihrem festen Faktor; am Referenznetz mit zweiter
-Quelle hat sich das gezeigt. Diese Zerlegung ist ein eigenes Rechenverfahren, das __Superpositionsverfahren__ des nächsten Artikels: Man rechnet jede
-Quelle allein, alle anderen stillgelegt, und addiert die Ergebnisse. Später in diesem Kapitel folgt die Frage, bei welcher Last eine Ersatzquelle die
-größte Leistung abgibt, die __Leistungsanpassung__. Und in der Wechselstromtechnik gilt der Satz genauso, mit komplexen Widerständen, den Impedanzen, an
+Quelle hat sich das gezeigt. Diese Zerlegung ist ein eigenes Rechenverfahren, das __Superpositionsverfahren__, dem ein späterer Artikel dieses Kapitels
+gilt: Man rechnet jede Quelle allein, alle anderen stillgelegt, und addiert die Ergebnisse. Ebenfalls später folgt die Frage, bei welcher Last eine
+Ersatzquelle die größte Leistung abgibt, die __Leistungsanpassung__. Der nächste Artikel betrachtet zunächst Netze mit zwei Klemmenpaaren, die
+__Zweitore__. Und in der Wechselstromtechnik gilt der Satz genauso, mit komplexen Widerständen, den Impedanzen, an
 Stelle der ohmschen.
 
 :::kern

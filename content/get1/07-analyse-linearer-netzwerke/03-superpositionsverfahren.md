@@ -447,8 +447,8 @@ Arbeitspunkt linear, mit der Tangente an die Kennlinie, und dort gilt die Überl
 
 Für lineare Netze stehen nun drei Werkzeuge nebeneinander, die stets dasselbe Ergebnis liefern: die Kirchhoffschen Gleichungen für alle Größen auf
 einmal, die Ersatzquelle für das Verhalten an zwei Klemmen und die Überlagerung für Netze mit mehreren Quellen. Das Skript stellt für das R-2R-Netzwerk eine
-Datei für das Schaltungssimulationsprogramm LTspice bereit. Der nächste Artikel behandelt Netze, die sich weder als Reihen- noch als Parallelschaltung
-zusammenfassen lassen: die Stern-Dreieck-Umwandlung.
+Datei für das Schaltungssimulationsprogramm LTspice bereit. Der nächste Artikel fragt, wie viel Leistung ein Widerstand aufnimmt und bei welcher Last eine
+Quelle die größte Leistung abgibt: Energieumsetzung und Leistungsanpassung.
 
 :::kern
 - __Linear__ heißt additiv und homogen: Die Wirkung der Summe ist die Summe der Wirkungen.
