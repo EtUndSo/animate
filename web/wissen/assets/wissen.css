@@ -4,8 +4,15 @@
   --accent:#2b6def; --accent2:#e5383b; --accent3:#ff9f1c; --radius:14px;
   --fdisp:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif; --fbody:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --fmono:ui-monospace,"Cascadia Code",Consolas,monospace; }
-:root[data-theme="dark"]{ --bg:#0d1017; --panel:#1a2130; --ink:#edf1f7; --muted:#99a4b8; --border:#27303f; --soft:#141a26;
+/* Nacht (User 2026-10-21): Flächen aus der verbreiteten Slate-Skala (Dunkelblau-Grau, kein Schwarz; Tiefe durch hellere
+   Karten wie bei Material Design), Hauptfarben bleiben Rot, Orange und Hellblau, alle mit mindestens 4,5 : 1 auf den Karten. */
+:root[data-theme="dark"]{ --bg:#0f172a; --panel:#1e293b; --ink:#f1f5f9; --muted:#94a3b8; --border:#334155; --soft:#162032;
   --accent:#5c94ff; --accent2:#ff5e60; --accent3:#ffb54d; }
+/* Formelfarben (\textcolor der Build-Färbung) nachts in den hellen Varianten, sonst nur gut 3 : 1 Kontrast.
+   KaTeX setzt die Farbe per Skript, der Browser schreibt sie dann als rgb(…) ins style-Attribut. */
+:root[data-theme="dark"] .katex [style*="rgb(229, 56, 59)"],:root[data-theme="dark"] .katex [style*="#e5383b"]{color:var(--accent2)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(43, 109, 239)"],:root[data-theme="dark"] .katex [style*="#2b6def"]{color:var(--accent)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(255, 159, 28)"],:root[data-theme="dark"] .katex [style*="#ff9f1c"]{color:var(--accent3)!important;}
 *{box-sizing:border-box;} html{scroll-behavior:smooth;}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.68;-webkit-font-smoothing:antialiased;}
 a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
