@@ -98,7 +98,7 @@ mit dem __Sättigungsstrom__
 
 $$I_S = e\,A\left(\frac{D_p}{L_p}\,\frac{n_i^2}{N_D} + \frac{D_n}{L_n}\,\frac{n_i^2}{N_A}\right) \;\propto\; n_i^2 \;\propto\; e^{-E_g/k_BT}.$$
 
-Bezieht man alles auf die Querschnittsfläche $A$, erhält man die im Skript übliche **Stromdichte-Form** mit der
+Bezieht man alles auf die Querschnittsfläche $A$, erhält man die übliche **Stromdichte-Form** mit der
 __Sättigungsstromdichte__ $J_s = I_S/A$:
 
 $$J_\text{ges} = J_s\left(e^{\,eV/k_BT}-1\right), \qquad J_s = e\left(\frac{D_p}{L_p}\,\frac{n_i^2}{N_D} + \frac{D_n}{L_n}\,\frac{n_i^2}{N_A}\right).$$

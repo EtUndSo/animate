@@ -25,7 +25,7 @@ $L^2$-Konvergenz jeder Fourier-Reihe.
 :::
 
 **Worum es geht:** Wir verstehen $T_Nf$ als __Projektion__ (Bestapproximation), beweisen __Pythagoras__ und
-__Bessel__ (Lemma 7.11), und erhalten die $L^2$-__Konvergenz__ mit der __Parseval-Gleichung__ (Satz 7.13).
+__Bessel__, und erhalten die $L^2$-__Konvergenz__ mit der __Parseval-Gleichung__.
 
 ## Fourierpolynome als Projektion
 
@@ -36,7 +36,7 @@ Orthonormalität der $\hat e_k$ berechnet sich die $L^2$-Norm wie die euklidisch
 $$\|S_N\|_2^2=\sum_{|k|\le N}|\gamma_k|^2.$$
 
 In $\mathbb{R}^n$ ist die Bestapproximation eines Vektors $v$ in einem Unterraum $V_m$ mit Orthonormalbasis
-$\{\hat e_1,\dots,\hat e_m\}$ gerade die Projektion $v_0=\sum_k(v\cdot\hat e_k)\hat e_k$ (Bemerkung 7.10). Genau das
+$\{\hat e_1,\dots,\hat e_m\}$ gerade die Projektion $v_0=\sum_k(v\cdot\hat e_k)\hat e_k$. Genau das
 imitieren wir mit dem $L^2$-Skalarprodukt: Der __Projektionsoperator__
 
 $$T_N:\ f\longmapsto T_Nf=\sum_{|k|\le N}\langle f,\hat e_k\rangle\,\hat e_k\in V_N$$
@@ -45,7 +45,7 @@ bildet $f$ auf ihr nächstes trigonometrisches Polynom ab.
 
 ## Pythagoras, Bestapproximation und Bessel
 
-**Lemma 7.11.** Für $2\pi$-periodisches, über $[0,2\pi]$ $R$-integrierbares $f$, alle $N$ und beliebiges $S_N\in V_N$:
+**Lemma.** Für $2\pi$-periodisches, über $[0,2\pi]$ $R$-integrierbares $f$, alle $N$ und beliebiges $S_N\in V_N$:
 
 $$\text{(i)}\quad \|f-S_N\|_2^2=\|f-T_Nf\|_2^2+\|T_Nf-S_N\|_2^2 \qquad(\text{Pythagoras}),$$
 $$\text{(ii)}\quad \|f-S_N\|_2^2\ge\|f-T_Nf\|_2^2 \qquad(L^2\text{-Bestapproximation}),$$
@@ -56,7 +56,7 @@ für alle $|k|\le N$ (die Projektion zieht genau die Komponenten in $V_N$ ab), i
 Mit Pythagoras ($\|a+b\|^2=\|a\|^2+\|b\|^2$ bei $\langle a,b\rangle=0$) folgt (i), und da der zweite Summand $\ge0$ ist,
 (ii) — $T_Nf$ ist die beste Approximation. Mit $S_N=0$ folgen (iii) und (iv). $\square$
 
-**Besselsche Ungleichung** (Bemerkung 7.12) konkret: $\sum_{|k|\le N}|c_k|^2\le\frac{1}{2\pi}\int_0^{2\pi}|f(x)|^2\,dx$.
+**Besselsche Ungleichung** konkret: $\sum_{|k|\le N}|c_k|^2\le\frac{1}{2\pi}\int_0^{2\pi}|f(x)|^2\,dx$.
 Da die linke Seite in $N$ wächst und beschränkt bleibt, bilden die Fourier-Koeffizienten eine **Nullfolge**
 ($\lim_{|k|\to\infty}\int_0^{2\pi}f(x)e^{ikx}\,dx=0$ — das __Riemann-Lebesgue-Lemma__): Je höher die Frequenz, desto
 weniger steckt davon in einer integrierbaren Funktion.
@@ -72,12 +72,12 @@ der mit $N$ schrumpft.
 
 Das trigonometrische System ist **vollständig** — es lässt keinen Rest übrig:
 
-**Satz 7.13 (Konvergenz im quadratischen Mittel).** Für $2\pi$-periodisches, über $[0,2\pi]$ $R$-integrierbares $f$
+**Satz (Konvergenz im quadratischen Mittel).** Für $2\pi$-periodisches, über $[0,2\pi]$ $R$-integrierbares $f$
 konvergiert die Fourier-Reihe im quadratischen Mittel, $T_Nf\to f$, und es gilt die __Parseval-Identität__
 
 $$\frac{1}{2\pi}\int_0^{2\pi}|f(x)|^2\,dx=\sum_{n\in\mathbb{Z}}|c_n|^2.$$
 
-Nach Lemma 7.11 (iii) ist $T_Nf\to f$ im quadratischen Mittel **gleichbedeutend** mit $\|T_Nf\|_2^2=\sum_{|k|\le N}
+Nach Teil (iii) des Lemmas ist $T_Nf\to f$ im quadratischen Mittel **gleichbedeutend** mit $\|T_Nf\|_2^2=\sum_{|k|\le N}
 |c_k|^2\to\|f\|_2^2$ — aus der Bessel-**Ungleichung** wird im Limes die Parseval-**Gleichung**. Man zeigt das zunächst
 für **Treppenfunktionen** (schon eine einzelne Stufe genügt) und überträgt es durch deren Dichtheit auf alle
 $R$-integrierbaren Funktionen. Physikalisch ist Parseval die __Energieerhaltung__: Die „Gesamtenergie" $\|f\|_2^2$ im
@@ -99,7 +99,7 @@ berühmte __Basel-Problem__
 
 $$\sum_{k=1}^\infty\frac{1}{k^2}=\frac{\pi^2}{6}.$$
 
-Daraus folgt auch die Konstante aus Lemma 7.9: $C=\sum_{k=1}^\infty\frac{(-1)^{k+1}}{k^2}=\frac{\pi^2}{12}$ (die
+Daraus folgt auch die Konstante der Parabel-Reihe: $C=\sum_{k=1}^\infty\frac{(-1)^{k+1}}{k^2}=\frac{\pi^2}{12}$ (die
 alternierende Variante).
 
 **Stolperstein:** (1) $L^2$-Konvergenz ist **nicht** punktweise Konvergenz — $T_Nf$ kann an einzelnen Punkten (Sprüngen)
@@ -110,10 +110,10 @@ Sonderterm $\frac{a_0^2}{2}$).
 
 :::kern
 $V_N$ (trig. Polynome Grad $\le N$, dim $2N+1$); $\|S_N\|_2^2=\sum_{|k|\le N}|\gamma_k|^2$. __Projektionsoperator__
-$T_Nf=\sum_{|k|\le N}\langle f,\hat e_k\rangle\hat e_k$ = __Bestapproximation__ in $V_N$. __Lemma 7.11__ (Fehler
+$T_Nf=\sum_{|k|\le N}\langle f,\hat e_k\rangle\hat e_k$ = __Bestapproximation__ in $V_N$. __Lemma__ (Fehler
 $f-T_Nf\perp V_N$): (i) Pythagoras $\|f-S_N\|^2=\|f-T_Nf\|^2+\|T_Nf-S_N\|^2$; (ii) $T_Nf$ minimiert $\|f-S_N\|_2$;
 (iii) $\|f-T_Nf\|^2=\|f\|^2-\|T_Nf\|^2$; (iv) __Bessel__ $\sum_{|k|\le N}|c_k|^2\le\|f\|_2^2$ ⇒ $c_k$ Nullfolge
-(__Riemann-Lebesgue__). __Satz 7.13__: trig. System vollständig ⇒ $T_Nf\to f$ im quadratischen Mittel + __Parseval__
+(__Riemann-Lebesgue__). __$L^2$-Konvergenz__: trig. System vollständig ⇒ $T_Nf\to f$ im quadratischen Mittel + __Parseval__
 $\frac{1}{2\pi}\int_0^{2\pi}|f|^2dx=\sum_{n\in\mathbb{Z}}|c_n|^2$ (reell $\frac1\pi\int|f|^2=\frac{a_0^2}{2}+\sum(a_k^2
 +b_k^2)$), „Energieerhaltung". Anwendung (Sägezahn): $|c_k|^2=\frac1{4k^2}$, LHS $=\frac{\pi^2}{12}$ ⇒ $\sum\frac1{k^2}
 =\frac{\pi^2}{6}$ (Basel), $C=\frac{\pi^2}{12}$. $L^2$-Konvergenz $\neq$ punktweise.
@@ -130,7 +130,7 @@ F: Warum ist $T_Nf$ die beste $L^2$-Approximation von $f$ unter allen trigonomet
 A: Weil der Fehler $f-T_Nf$ senkrecht auf $V_N$ steht. Nach Pythagoras ist $\|f-S_N\|^2=\|f-T_Nf\|^2+\|T_Nf-S_N\|^2$, und der zweite Term ist $\ge0$ — jede andere Wahl $S_N$ ist also mindestens so schlecht wie $T_Nf$.
 F: Warum berechnet sich die $L^2$-Norm eines trigonometrischen Polynoms wie die euklidische Norm seines Koeffizientenvektors?
 A: Weil die $\hat e_k$ ein Orthonormalsystem bilden: Beim Ausmultiplizieren von $\langle S_N,S_N\rangle$ überleben nur die „Diagonalterme" $\langle\hat e_k,\hat e_k\rangle=1$, die gemischten verschwinden. So wird $\|S_N\|_2^2=\sum|\gamma_k|^2$, genau wie in $\mathbb{C}^{2N+1}$.
-F: Was ist die geometrische Kernaussage, auf der Lemma 7.11 beruht?
+F: Was ist die geometrische Kernaussage, auf der Pythagoras, Bestapproximation und Bessel beruhen?
 A: Dass der Approximationsfehler $f-T_Nf$ orthogonal zu ganz $V_N$ ist, weil die Projektion gerade alle Komponenten in $V_N$ abzieht. Aus dieser einen Orthogonalität folgen Pythagoras, Bestapproximation und die Bessel-Bilanz.
 F: Was besagt die Besselsche Ungleichung, und was bedeutet sie physikalisch?
 A: $\sum_{|k|\le N}|c_k|^2\le\|f\|_2^2$: Die „Energie" der erfassten Koeffizienten übersteigt nie die Gesamtenergie von $f$. Da die linke Seite wächst und beschränkt bleibt, konvergiert sie — die erfasste Spektralenergie füllt höchstens die vorhandene auf.
@@ -139,7 +139,7 @@ A: Da $\sum|c_k|^2$ konvergiert, müssen die Summanden $|c_k|^2\to0$ gehen. Also
 F: Wann wird aus der Bessel-Ungleichung die Parseval-Gleichung?
 A: Genau dann, wenn das Orthonormalsystem vollständig ist, also keinen Rest unerfasst lässt. Für das trigonometrische System ist das der Fall, daher gilt im Limes $\|T_Nf\|_2^2\to\|f\|_2^2$, d. h. Gleichheit statt Ungleichung.
 F: Warum ist die Parseval-Identität gleichbedeutend mit der $L^2$-Konvergenz $T_Nf\to f$?
-A: Nach Lemma 7.11(iii) ist $\|f-T_Nf\|_2^2=\|f\|_2^2-\|T_Nf\|_2^2$. Der Fehler geht genau dann gegen null, wenn $\|T_Nf\|_2^2=\sum_{|k|\le N}|c_k|^2$ gegen $\|f\|_2^2$ strebt — das ist die Parseval-Gleichung.
+A: Nach Pythagoras mit $S_N=0$ ist $\|f-T_Nf\|_2^2=\|f\|_2^2-\|T_Nf\|_2^2$. Der Fehler geht genau dann gegen null, wenn $\|T_Nf\|_2^2=\sum_{|k|\le N}|c_k|^2$ gegen $\|f\|_2^2$ strebt — das ist die Parseval-Gleichung.
 F: Warum bedeutet $L^2$-Konvergenz nicht punktweise Konvergenz?
 A: Die $L^2$-Norm misst nur die mittlere quadratische Abweichung; einzelne Punkte (etwa Sprungstellen) tragen zum Integral nichts bei. $T_Nf$ darf dort danebenliegen, während $\|f-T_Nf\|_2\to0$ trotzdem gilt.
 F: Wie liefert Parseval, auf den Sägezahn angewandt, die Basel-Summe $\sum 1/k^2=\pi^2/6$?

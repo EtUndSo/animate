@@ -112,7 +112,7 @@ $$p = N_V\,\exp\!\left(-\frac{E_f-E_V}{k_BT}\right), \qquad N_V = 2\left(\frac{2
 
 Für **Silizium** bei $300\,$K: $N_L \approx 2{,}82\times10^{19}\,\text{cm}^{-3}$ und
 $N_V \approx 1{,}83\times10^{19}\,\text{cm}^{-3}$. Dass $N_L>N_V$ ist, liegt an der größeren
-DOS-effektiven Masse des Leitungsbandes (sechs Täler) ([IUE TU Wien](https://www.iue.tuwien.ac.at/phd/ayalew/node62.html)).
+DOS-effektiven Masse des Leitungsbandes (sechs Täler).
 
 | | Elektronen ($n$) | Löcher ($p$) |
 |---|---|---|

@@ -2,7 +2,7 @@
 title: Elektronen als Wellen – Einführung in die Quantenmechanik
 pfad: Elektrotechnik / 4. Semester / Grundlagen elektronischer Materialien und Bauelemente / Quantenmechanik
 order: 4010100
-summary: Von Grund auf – warum ein Elektron sich nicht wie eine winzige Kugel, sondern wie eine Welle verhält, was der Doppelspalt und die atomaren Spektrallinien darüber verraten, was die Wellenfunktion bedeutet und warum das „Einsperren" einer Welle automatisch nur noch bestimmte Energien zulässt. Das Fundament des ganzen Moduls.
+summary: Von Grund auf – warum ein Elektron sich nicht wie eine winzige Kugel, sondern wie eine Welle verhält, was der Doppelspalt und die atomaren Spektrallinien darüber verraten, was die Wellenfunktion bedeutet und warum das „Einsperren" einer Welle automatisch nur noch bestimmte Energien zulässt. Das Fundament für alles Weitere.
 tags: Quantenmechanik, Welle-Teilchen-Dualismus, Doppelspalt, de-Broglie-Wellenlänge, Wellenfunktion, Aufenthaltswahrscheinlichkeit, Quantisierung
 ---
 
@@ -15,7 +15,7 @@ verteilt sich aber wie eine Welle. Genau dieses Doppelgesicht ist der Ausgangspu
 :::
 
 :::konzept
-In diesem Modul geht es um Elektronen in Materialien — und die zentrale Erkenntnis gleich zu Beginn: Ein
+In diesem Themenbereich geht es um Elektronen in Materialien — und die zentrale Erkenntnis gleich zu Beginn: Ein
 Elektron ist **keine winzige Kugel**, die auf einer Bahn fliegt, sondern verhält sich wie eine **Welle**. Die
 ganze Quantenmechanik ist das Werkzeug, mit dem man ausrechnet, welche **Energien** und **Aufenthaltsorte** so
 eine Elektronen-Welle haben darf. Das klingt abstrakt, hat aber sehr handfeste Folgen: Warum Atome nur
@@ -138,7 +138,7 @@ Punkteschleier (Elektron wahrscheinlich), wo es null ist, keine Punkte. Beschrif
 
 ## Einsperren erzeugt diskrete Energien
 
-Jetzt kommt der rote Faden des ganzen Moduls — und die Antwort auf die Eingangsfrage, warum Atome nur bestimmte
+Jetzt kommt der rote Faden aller folgenden Artikel — und die Antwort auf die Eingangsfrage, warum Atome nur bestimmte
 Energien haben. Die Analogie dazu kennt jeder: eine __Gitarrensaite__.
 
 Eine zwischen zwei festen Punkten eingespannte Saite kann nicht beliebig schwingen. An den Enden muss sie fest
@@ -157,7 +157,7 @@ $p = h/\lambda$ ein bestimmter Impuls und damit eine bestimmte **Energie**. Weil
 passen, sind auch nur bestimmte, **diskrete Energien** erlaubt — man sagt, die Energie ist __quantisiert__. Die
 scharfen Spektrallinien der Atome sind genau das: Übergänge zwischen diesen erlaubten Energiestufen.
 
-Das ist die Kernmaschinerie des gesamten Moduls: **Räumliche Einschränkung einer Welle ⇒ diskrete Energien.**
+Das ist die Kernmaschinerie des ganzen Themenbereichs: **Räumliche Einschränkung einer Welle ⇒ diskrete Energien.**
 Alles Weitere — Teilchen in der Box, Atomorbitale, Energiebänder im Kristall — ist dieselbe Idee, nur mit
 anderer Form und Dimension des „Kastens".
 

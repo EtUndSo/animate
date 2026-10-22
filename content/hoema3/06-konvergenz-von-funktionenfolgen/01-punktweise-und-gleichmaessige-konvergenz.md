@@ -30,7 +30,7 @@ dass sie verschieden sind, und lernen das __Cauchy-Kriterium__ für gleichmäßi
 ## Die zwei Konvergenzbegriffe
 
 Wir betrachten Folgen $(f_n)_{n\in\mathbb{N}}$ beschränkter Funktionen $f_n:[a,b]\to\mathbb{R}$ (oder $\mathbb{C}$) und
-eine beschränkte Grenzfunktion $f$ (Definition 6.1).
+eine beschränkte Grenzfunktion $f$.
 
 **Punktweise Konvergenz.** $f_n$ konvergiert für $n\to\infty$ __punktweise__ gegen $f$, wenn
 
@@ -52,7 +52,7 @@ einzelne Abstand klein) — aber **nicht umgekehrt**.
 
 ## Warum die Umkehrung scheitert: das Beispiel $x^n$
 
-Betrachte auf $[0,1]$ die Folge $f_n(x)=x^n$ (Beispiel 6.2). Punktweise ist
+Betrachte auf $[0,1]$ die Folge $f_n(x)=x^n$. Punktweise ist
 
 $$\lim_{n\to\infty}x^n=\begin{cases}0, & 0\le x<1,\\ 1, & x=1,\end{cases}$$
 
@@ -62,10 +62,10 @@ jedes $n$ ist $\sup_{x\in[0,1]}|x^n-f(x)|=1$ (nahe $x=1$ bleibt $x^n$ dicht bei 
 0$. Anschaulich: Die „Beule" an der Stelle $1$ wird nie flacher, sie rutscht nur immer näher an den Rand. Genau solche
 wandernden Beulen verbietet die gleichmäßige Konvergenz.
 
-**Eigenes Gegenbeispiel (umgekehrter Fall).** Die Folge $f_n(x)=\frac{\sin(nx)}{n}$ auf $\mathbb{R}$ konvergiert
+**Ein zweites Beispiel (umgekehrter Fall).** Die Folge $f_n(x)=\frac{\sin(nx)}{n}$ auf $\mathbb{R}$ konvergiert
 **gleichmäßig** gegen $0$, denn $\sup_x\big|\frac{\sin(nx)}{n}\big|=\frac1n\to0$ — obwohl die Ableitungen $f_n'(x)=
 \cos(nx)$ wild oszillieren und **nicht** konvergieren. Gleichmäßige Konvergenz der Funktionen sagt also nichts über die
-Ableitungen (dazu später Satz 6.8).
+Ableitungen (mehr dazu im nächsten Artikel).
 
 :::grafik
 Links $f_n(x)=x^n$ auf $[0,1]$: die Kurvenschar wird zum Rand hin immer steiler, die Grenzfunktion springt bei $x=1$
@@ -76,7 +76,7 @@ Oszillation, komplett in einem $\varepsilon$-Schlauch um $0$ — gleichmäßige 
 ## Das Cauchy-Kriterium
 
 Oft will man gleichmäßige Konvergenz nachweisen, **ohne die Grenzfunktion zu kennen**. Das leistet — wie bei
-Zahlenfolgen — ein Cauchy-Kriterium (Lemma 6.3): Eine Folge $(f_n)$ konvergiert genau dann gleichmäßig, wenn
+Zahlenfolgen — ein Cauchy-Kriterium: Eine Folge $(f_n)$ konvergiert genau dann gleichmäßig, wenn
 
 $$\sup_{x\in[a,b]}|f_m(x)-f_n(x)|\longrightarrow 0 \qquad\text{für } m,n\to\infty.$$
 
@@ -93,14 +93,14 @@ und das ist gerade die gleichmäßige Konvergenz gegen $f$.
 **Stolperstein:** (1) Der Unterschied steckt allein in der **Reihenfolge der Quantoren**: punktweise „$\forall x\,
 \exists N$", gleichmäßig „$\exists N\,\forall x$" — bei gleichmäßiger Konvergenz **ein** $N$ für alle Stellen. (2)
 Punktweise Grenzfunktionen stetiger Funktionen können **unstetig** sein ($x^n$); gleichmäßige Grenzfunktionen nicht
-(Satz 6.4). (3) Gleichmäßige Konvergenz der $f_n$ erzwingt **nicht** die Konvergenz der Ableitungen $f_n'$.
+(das zeigt der nächste Artikel). (3) Gleichmäßige Konvergenz der $f_n$ erzwingt **nicht** die Konvergenz der Ableitungen $f_n'$.
 
 :::kern
 Für beschränkte $f_n,f:[a,b]\to\mathbb{R}$ (oder $\mathbb{C}$): __punktweise__ $\lim_n f_n(x)=f(x)\ \forall x$ (jedes
 $x$ eigenes Tempo, $N=N(x)$); __gleichmäßig__ $\sup_{x\in[a,b]}|f_n(x)-f(x)|=\|f_n-f\|_\infty\to0$ (ein gemeinsames
 $N$ für alle $x$). __Gleichmäßig ⇒ punktweise__, nicht umgekehrt: $f_n(x)=x^n$ auf $[0,1]$ konvergiert punktweise gegen
 eine **unstetige** Grenzfunktion ($0$ auf $[0,1)$, $1$ bei $x{=}1$), aber $\sup|x^n-f|=1\not\to0$ — nicht gleichmäßig.
-__Cauchy-Kriterium__ (Lemma 6.3): $(f_n)$ gleichmäßig konvergent $\Leftrightarrow\sup_x|f_m(x)-f_n(x)|\to0$ für
+__Cauchy-Kriterium__: $(f_n)$ gleichmäßig konvergent $\Leftrightarrow\sup_x|f_m(x)-f_n(x)|\to0$ für
 $m,n\to\infty$ — Nachweis **ohne** Kenntnis der Grenzfunktion. Quantoren-Merksatz: punktweise $\forall x\,\exists N$,
 gleichmäßig $\exists N\,\forall x$.
 :::

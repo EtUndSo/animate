@@ -24,12 +24,12 @@ sind. Das ist der Grund, warum sie das Arbeitspferd der Analysis ist — und die
 und Fourier-Reihen **gliedweise** integrieren und (unter Zusatzbedingung) differenzieren darf.
 :::
 
-**Worum es geht:** Drei Vertauschungssätze — gleichmäßiger Limes erhält __Stetigkeit__ (Satz 6.4), vertauscht mit dem
-__Integral__ (Satz 6.6) und — bei gleichmäßiger Konvergenz der Ableitungen — mit der __Differentiation__ (Satz 6.8).
+**Worum es geht:** Drei Vertauschungssätze — gleichmäßiger Limes erhält __Stetigkeit__, vertauscht mit dem
+__Integral__ und — bei gleichmäßiger Konvergenz der Ableitungen — mit der __Differentiation__.
 
 ## Stetigkeit bleibt erhalten
 
-**Satz 6.4.** Ist $(f_n)$ eine Folge **stetiger** Funktionen auf $[a,b]$ mit $f_n\to f$ **gleichmäßig**, so ist die
+**Satz (Stetigkeit des Limes).** Ist $(f_n)$ eine Folge **stetiger** Funktionen auf $[a,b]$ mit $f_n\to f$ **gleichmäßig**, so ist die
 Grenzfunktion $f:[a,b]\to\mathbb{C}$ stetig.
 
 *Beweis ($\varepsilon/3$-Argument).* Sei $\varepsilon>0$. Wegen gleichmäßiger Konvergenz gibt es ein $n_0$ mit
@@ -38,13 +38,13 @@ f_{n_0}(y)|<\varepsilon/3$, sobald $|x-y|<\delta$. Dann folgt für $|x-y|<\delta
 
 $$|f(x)-f(y)|\le\underbrace{|f(x)-f_{n_0}(x)|}_{<\varepsilon/3}+\underbrace{|f_{n_0}(x)-f_{n_0}(y)|}_{<\varepsilon/3}+\underbrace{|f_{n_0}(y)-f(y)|}_{<\varepsilon/3}<\varepsilon.$$
 
-Also ist $f$ stetig. $\square$ In Worten (Bemerkung 6.5): **Gleichmäßig konvergente Folgen stetiger Funktionen
+Also ist $f$ stetig. $\square$ In Worten: **Gleichmäßig konvergente Folgen stetiger Funktionen
 konvergieren gegen eine stetige Funktion.** Dass hier die **Gleichmäßigkeit** zählt, zeigt der Kontrast zu $x^n$ (nur
 punktweise, Grenzfunktion unstetig).
 
 ## Grenzwert und Integral vertauschen
 
-**Satz 6.6.** Ist $(f_n)$ eine Folge stetiger Funktionen mit $f_n\to f$ **gleichmäßig** auf $[a,b]$, so gilt
+**Satz (Limes und Integral).** Ist $(f_n)$ eine Folge stetiger Funktionen mit $f_n\to f$ **gleichmäßig** auf $[a,b]$, so gilt
 
 $$\lim_{n\to\infty}\int_a^b f_n(x)\,dx = \int_a^b f(x)\,dx = \int_a^b \Big(\lim_{n\to\infty}f_n(x)\Big)\,dx.$$
 
@@ -54,7 +54,7 @@ $$\left|\int_a^b f\,dx-\int_a^b f_n\,dx\right|\le\int_a^b|f(x)-f_n(x)|\,dx\le(b-
 
 Der ganze Fehler wird durch die Supremumsnorm kontrolliert, mal der Intervalllänge. (Die Voraussetzungen sind
 keineswegs optimal — es gibt stärkere Vertauschungssätze, etwa den von Lebesgue — aber dieser genügt für stetige
-Funktionen und ist elementar.) **Bemerkung 6.7:** Für komplexwertige $f(x)=u(x)+iv(x)$ ist $\int_a^b f\,dx=\int_a^b u\,
+Funktionen und ist elementar.) **Bemerkung:** Für komplexwertige $f(x)=u(x)+iv(x)$ ist $\int_a^b f\,dx=\int_a^b u\,
 dx+i\int_a^b v\,dx$ und ebenso $f'(x)=u'(x)+iv'(x)$ — alles läuft komponentenweise in Real- und Imaginärteil.
 
 **Warnung (Wanderhöcker).** Ohne gleichmäßige Konvergenz kann die Vertauschung scheitern: Die Höcker $g_n$ mit
@@ -72,7 +72,7 @@ Fläche $1$), der punktweise gegen $0$ geht, dessen Integral aber $1$ bleibt —
 Bei der Ableitung ist mehr Vorsicht nötig. Es genügt **nicht**, dass $f_n$ gleichmäßig konvergiert — es müssen die
 **Ableitungen** $f_n'$ gleichmäßig konvergieren.
 
-**Satz 6.8.** Sei $(f_n)$ eine Folge **stetig differenzierbarer** Funktionen mit $f_n\to f$ **punktweise** auf $[a,b]$
+**Satz (Limes und Ableitung).** Sei $(f_n)$ eine Folge **stetig differenzierbarer** Funktionen mit $f_n\to f$ **punktweise** auf $[a,b]$
 und $(f_n')$ **gleichmäßig** konvergent. Dann ist $f$ stetig differenzierbar und
 
 $$f'(x)=\lim_{n\to\infty}f_n'(x).$$
@@ -83,9 +83,9 @@ Integrals folgt
 $$\sup_{x\in[a,b]}|f_n(x)-f_m(x)|\le|f_n(a)-f_m(a)|+\int_a^b|f_n'(y)-f_m'(y)|\,dy,$$
 
 und die rechte Seite geht wegen der punktweisen Konvergenz der $f_n(a)$ und der gleichmäßigen Konvergenz der $f_n'$
-(mit Satz 6.6) für $m,n\to\infty$ gegen null — also konvergiert $f_n$ sogar **gleichmäßig** gegen $f$. Der
-Grenzübergang in der Hauptsatz-Formel liefert $f(x)=f(a)+\int_a^x f^*(y)\,dy$, wobei $f^*$ der (nach Satz 6.4 stetige)
-gleichmäßige Limes der $f_n'$ ist. Nach dem **ersten Hauptsatz** ist $f$ stetig differenzierbar mit $f'=f^*=\lim_n f_n'$.
+(mit dem Satz über Limes und Integral) für $m,n\to\infty$ gegen null — also konvergiert $f_n$ sogar **gleichmäßig**
+gegen $f$. Der Grenzübergang in der Hauptsatz-Formel liefert $f(x)=f(a)+\int_a^x f^*(y)\,dy$, wobei $f^*$ der (nach dem
+Satz über die Stetigkeit des Limes stetige) gleichmäßige Limes der $f_n'$ ist. Nach dem **ersten Hauptsatz** ist $f$ stetig differenzierbar mit $f'=f^*=\lim_n f_n'$.
 $\square$
 
 **Warum die Zusatzbedingung?** Das Gegenbeispiel aus dem letzten Artikel: $f_n(x)=\frac{\sin(nx)}{n}\to0$ **gleichmäßig**,
@@ -100,10 +100,10 @@ Sätze geben **hinreichende**, nicht notwendige Bedingungen — manchmal vertaus
 dieser Vertauschungen (Wanderhöcker).
 
 :::kern
-__Gleichmäßige Konvergenz erlaubt das Vertauschen von Grenzprozessen.__ **Stetigkeit** (Satz 6.4): $f_n$ stetig,
-$f_n\to f$ gleichmäßig ⇒ $f$ stetig ($\varepsilon/3$-Beweis). **Integration** (Satz 6.6): dann $\lim_n\int_a^b f_n\,dx=
-\int_a^b f\,dx$, denn $|\int f-\int f_n|\le(b-a)\|f-f_n\|_\infty\to0$. **Komplex** (Bem 6.7): Integral/Ableitung
-komponentenweise $u+iv$. **Differentiation** (Satz 6.8): $f_n$ stetig diff, $f_n\to f$ **punktweise** UND $f_n'$
+__Gleichmäßige Konvergenz erlaubt das Vertauschen von Grenzprozessen.__ **Stetigkeit**: $f_n$ stetig,
+$f_n\to f$ gleichmäßig ⇒ $f$ stetig ($\varepsilon/3$-Beweis). **Integration**: dann $\lim_n\int_a^b f_n\,dx=
+\int_a^b f\,dx$, denn $|\int f-\int f_n|\le(b-a)\|f-f_n\|_\infty\to0$. **Komplex**: Integral/Ableitung
+komponentenweise $u+iv$. **Differentiation**: $f_n$ stetig diff, $f_n\to f$ **punktweise** UND $f_n'$
 **gleichmäßig** ⇒ $f$ stetig diff mit $f'=\lim_n f_n'$ (Beweis über $f_n(x)=f_n(a)+\int_a^x f_n'$ + Hauptsatz). Bei der
 Ableitung reicht gleichmäßige Konvergenz der $f_n$ **nicht** ($\frac{\sin nx}{n}\to0$ glm., aber $\cos(nx)$ divergiert).
 Gegenbeispiel ohne Gleichmäßigkeit: Wanderhöcker $g_n$, $\int g_n=1\neq0$.
@@ -131,7 +131,7 @@ A: Die Ableitung misst die lokale Steigung, und die kann wild schwanken, obwohl 
 F: Wieso zeigt $f_n=\sin(nx)/n$, dass die Ableitungsbedingung nötig ist?
 A: $f_n\to0$ gleichmäßig (Supremum $1/n\to0$), aber $f_n'=\cos(nx)$ konvergiert nirgends. Hier ist $(\lim f_n)'=0$, während $\lim f_n'$ gar nicht existiert — die Vertauschung $\frac{d}{dx}\lim=\lim\frac{d}{dx}$ ist unmöglich.
 F: Wie nutzt der Differentiationsbeweis den Hauptsatz der Differential- und Integralrechnung?
-A: Man schreibt $f_n(x)=f_n(a)+\int_a^x f_n'$. Weil $f_n'$ gleichmäßig konvergiert, darf man mit Satz 6.6 den Limes ins Integral ziehen; der Grenzübergang liefert $f(x)=f(a)+\int_a^x f^*$, und der erste Hauptsatz macht daraus $f'=f^*=\lim_n f_n'$.
+A: Man schreibt $f_n(x)=f_n(a)+\int_a^x f_n'$. Weil $f_n'$ gleichmäßig konvergiert, darf man nach dem Satz über Limes und Integral den Limes ins Integral ziehen; der Grenzübergang liefert $f(x)=f(a)+\int_a^x f^*$, und der erste Hauptsatz macht daraus $f'=f^*=\lim_n f_n'$.
 F: Sind diese Vertauschungsbedingungen notwendig oder nur hinreichend?
 A: Nur hinreichend. Es gibt Fälle, in denen Limes und Integral trotz fehlender Gleichmäßigkeit vertauschen (z. B. $\int_0^1 x^n\,dx=\frac{1}{n+1}\to0$). Die Sätze garantieren die Vertauschung, schließen sie bei Verletzung aber nicht aus.
 :::

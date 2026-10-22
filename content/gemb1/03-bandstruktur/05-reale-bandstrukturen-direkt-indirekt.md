@@ -61,7 +61,7 @@ des Kristallimpulses $\sim \hbar\pi/a$ über die Brillouin-Zone. Im $E(k)$-Diagr
 daher praktisch **senkrecht** (kein Versatz in $k$). Bei direkter Lücke passt das perfekt zum Abstand VBM→CBM →
 Lichtabsorption und -emission sind **effizient** (interne Quanteneffizienz nahe 1). Deshalb macht man LEDs, Laser
 und hocheffiziente Solarzellen aus GaAs und verwandten III-V-Halbleitern. Bei $1{,}42$ eV liegt die Emission bei
-etwa $870$ nm (nahes Infrarot) ([halbleiter.org](https://www.halbleiter.org/en/optoelectronics-photonics/fundamentals-optoelectronics/)).
+etwa $870$ nm (nahes Infrarot).
 
 :::grafik
 GaAs-Bänder nahe $\Gamma$: VBM und CBM genau übereinander. Ein senkrechter Pfeil (Photon $h\nu = E_g$) verbindet
@@ -78,8 +78,7 @@ Problem: Für den Sprung übers Band muss nicht nur die Energie $E_g$, sondern a
 Der Ausweg ist ein drittes Teilchen: ein __Phonon__ (ein Quant der Gitterschwingung), das den fehlenden Impuls
 beisteuert. Ein optischer Übergang in Silizium ist damit ein **Dreier-Prozess** (Elektron + Photon + Phonon), der
 viel unwahrscheinlicher ist als der direkte Zweier-Prozess. Konkret: Die interne Quanteneffizienz liegt bei
-Silizium um $\sim 10^{-6}$, bei GaAs nahe $1$ — ein Unterschied von sechs Größenordnungen
-([halbleiter.org](https://www.halbleiter.org/en/optoelectronics-photonics/fundamentals-optoelectronics/)). Darum
+Silizium um $\sim 10^{-6}$, bei GaAs nahe $1$ — ein Unterschied von sechs Größenordnungen. Darum
 gibt es keine Silizium-LEDs. Für **Elektronik** ist dieselbe indirekte Lücke dagegen kein Nachteil — und Silizium
 ist aus anderen Gründen (Oxid, Verfügbarkeit) das dominierende Material.
 

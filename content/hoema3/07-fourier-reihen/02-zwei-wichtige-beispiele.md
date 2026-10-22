@@ -39,7 +39,7 @@ $$f(x)=\sum_{k=1}^\infty\frac{\sin(kx)}{k}\qquad\text{für alle } x\in\mathbb{R}
 
 **Konvergenzverhalten.** Die Reihe konvergiert für jedes $\delta>0$ **gleichmäßig** auf $[\delta,2\pi-\delta]$ — aber
 **nicht** gleichmäßig über den Sprung bei $x=0$ hinweg. Das zeigt man über die Partialsummen: Mit $\sum_{k=1}^N\frac
-{\sin(kx)}{k}=\int_\pi^x\sum_{k=1}^N\cos(ky)\,dy$ und dem __Dirichlet-Kern__ (Lemma 7.8)
+{\sin(kx)}{k}=\int_\pi^x\sum_{k=1}^N\cos(ky)\,dy$ und dem __Dirichlet-Kern__
 
 $$\sum_{|k|\le N}e^{ikx}=\frac{\sin\!\big((N+\tfrac12)x\big)}{\sin\tfrac{x}{2}}$$
 
@@ -63,7 +63,7 @@ $x\in[0,2\pi]$. Wegen $\frac{d}{dy}\frac{(\pi-y)^2}{4}=-\frac{\pi-y}{2}$ ist
 $$\frac{(\pi-x)^2}{4}=\int_\pi^x\frac{d}{dy}\frac{(\pi-y)^2}{4}\,dy=-\int_\pi^x\frac{\pi-y}{2}\,dy=-\int_\pi^x\sum_{k=1}^\infty\frac{\sin(ky)}{k}\,dy.$$
 
 Da die Sägezahn-Reihe auf kompakten Teilintervallen **gleichmäßig** konvergiert, dürfen wir für $x\in(0,2\pi)$
-**Summation und Integration vertauschen** (Satz 6.6):
+**Summation und Integration vertauschen** (Satz über Limes und Integral):
 
 $$\frac{(\pi-x)^2}{4}=-\sum_{k=1}^\infty\int_\pi^x\frac{\sin(ky)}{k}\,dy=\sum_{k=1}^\infty\frac{\cos kx}{k^2}-\sum_{k=1}^\infty\frac{(-1)^k}{k^2}.$$
 
@@ -71,14 +71,14 @@ Das ist eine reine **Kosinusreihe** (denn $F$ ist gerade) mit $a_k=\frac{1}{k^2}
 dem **Weierstraßschen M-Test** ($M_k=\frac1{k^2}$, $\sum\frac1{k^2}<\infty$) **gleichmäßig auf ganz $\mathbb{R}$**
 konvergiert, ist die rechte Seite stetig und stimmt auf $[0,2\pi]$ mit der stetigen Parabel überein:
 
-**Lemma 7.9.** $\displaystyle\frac{(\pi-x)^2}{4}=\sum_{k=1}^\infty\frac{\cos kx}{k^2}+C$ für alle $x\in[0,2\pi]$, mit
+**Lemma.** $\displaystyle\frac{(\pi-x)^2}{4}=\sum_{k=1}^\infty\frac{\cos kx}{k^2}+C$ für alle $x\in[0,2\pi]$, mit
 $C=\sum_{k=1}^\infty\frac{(-1)^{k+1}}{k^2}$; die Reihe konvergiert **gleichmäßig**.
 
 Der Kontrast ist lehrreich: Die **glatte** Parabel (ihre Reihe fällt mit $1/k^2$ ab) konvergiert überall gleichmäßig;
 der **sprunghafte** Sägezahn (Reihe fällt nur mit $1/k$) konvergiert nur weg vom Sprung. **Je glatter die Funktion,
 desto schneller fallen die Koeffizienten** und desto besser die Konvergenz — ein zentrales Prinzip der Fourier-Theorie.
 
-**Berühmte Zahlenreihen (Ausblick).** Wertet man Lemma 7.9 an einem Punkt aus, fallen klassische Summen heraus. Die
+**Berühmte Zahlenreihen (Ausblick).** Wertet man die Parabel-Reihe an einem Punkt aus, fallen klassische Summen heraus. Die
 Konstante $C$ bestimmen wir im nächsten Artikel mit der Parseval-Gleichung zu $C=\frac{\pi^2}{12}$; einsetzen von $x=0$
 ($\cos0=1$) gibt dann $\frac{\pi^2}{4}=\sum\frac1{k^2}+\frac{\pi^2}{12}$, also die berühmte __Basel-Summe__ $\sum_{k=1}
 ^\infty\frac1{k^2}=\frac{\pi^2}{6}$.
@@ -99,9 +99,9 @@ sie entsteht, weil die Stammfunktion nur bis auf eine Konstante bestimmt ist (bz
 :::kern
 __Sägezahn__: $f(x)=\frac{\pi-x}{2}$ auf $(0,2\pi)$ (ungerade) hat $a_k=0$, $b_k=\frac1k$, also $f(x)=\sum_{k=1}^\infty
 \frac{\sin kx}{k}$. Konvergenz **gleichmäßig auf $[\delta,2\pi-\delta]$**, nicht über den Sprung; am Sprung $x=0$ →
-Mittelwert $0$. Werkzeug: __Dirichlet-Kern__ (Lemma 7.8) $\sum_{|k|\le N}e^{ikx}=\frac{\sin((N+\frac12)x)}{\sin(x/2)}$ +
+Mittelwert $0$. Werkzeug: __Dirichlet-Kern__ $\sum_{|k|\le N}e^{ikx}=\frac{\sin((N+\frac12)x)}{\sin(x/2)}$ +
 partielle Integration. __Parabel__ (Integral der Säge): $F(x)=\frac{(\pi-x)^2}{4}$ (gerade) → gliedweise Integration
-(erlaubt wegen glm. Konvergenz) gibt $\frac{(\pi-x)^2}{4}=\sum_{k=1}^\infty\frac{\cos kx}{k^2}+C$ (Lemma 7.9), $C=\sum
+(erlaubt wegen glm. Konvergenz) gibt $\frac{(\pi-x)^2}{4}=\sum_{k=1}^\infty\frac{\cos kx}{k^2}+C$, $C=\sum
 \frac{(-1)^{k+1}}{k^2}$; **gleichmäßig auf ganz $\mathbb{R}$** (M-Test, $M_k=1/k^2$). Prinzip: glatter ⇒ Koeffizienten
 fallen schneller ($1/k\to1/k^2$) ⇒ bessere Konvergenz. Ausblick: $C=\frac{\pi^2}{12}$, $x=0$ ⇒ $\sum\frac1{k^2}=
 \frac{\pi^2}{6}$ (Basel).
@@ -123,7 +123,7 @@ A: An einer Sprungstelle überschwingen die Partialsummen die Funktion um einen 
 F: Wozu dient der Dirichlet-Kern $\sum_{|k|\le N}e^{ikx}=\frac{\sin((N+\frac12)x)}{\sin(x/2)}$ im Beweis?
 A: Er bringt die Partialsumme aus einer offenen Summe in eine geschlossene Form, die man integrieren und abschätzen kann. Der Nenner $\sin(x/2)$ zeigt direkt, wo das Problem sitzt (bei $x=0$), und steuert so das Konvergenzargument.
 F: Warum darf man die Sägezahn-Reihe gliedweise integrieren, um die Parabel zu bekommen?
-A: Weil die Sägezahn-Reihe auf kompakten Teilintervallen gleichmäßig konvergiert, und gleichmäßige Konvergenz erlaubt das Vertauschen von Summe und Integral (Satz 6.6). Man integriert also einfach jeden $\frac{\sin ky}{k}$-Term einzeln.
+A: Weil die Sägezahn-Reihe auf kompakten Teilintervallen gleichmäßig konvergiert, und gleichmäßige Konvergenz erlaubt das Vertauschen von Summe und Integral (Satz über Limes und Integral). Man integriert also einfach jeden $\frac{\sin ky}{k}$-Term einzeln.
 F: Warum konvergiert die Parabel-Reihe $\sum\frac{\cos kx}{k^2}$ gleichmäßig auf ganz $\mathbb{R}$, der Sägezahn aber nicht?
 A: Die Parabel-Koeffizienten fallen wie $1/k^2$, und $\sum 1/k^2<\infty$ liefert über den Weierstraß-M-Test eine summierbare Majorante — also gleichmäßige Konvergenz überall. Die Sägezahn-Koeffizienten fallen nur wie $1/k$, und $\sum 1/k$ divergiert, sodass der M-Test nicht greift.
 F: Welches allgemeine Prinzip über Glattheit und Koeffizientenabfall illustrieren die beiden Beispiele?

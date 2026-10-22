@@ -87,8 +87,7 @@ Und hier steckt der Haken: In dieser Gleichung tauchen $k$ und $\kappa$ beide au
 $\sqrt{E}$ bzw. $\sqrt{V_0-E}$ von derselben Unbekannten $E$ ab — $E$ steckt einmal **im** Tangens (im Argument)
 und einmal **außerhalb**. Eine solche Gleichung heißt __transzendent__: Man kann sie nicht nach $E$ auflösen. Es
 gibt also **keine** geschlossene Formel wie $E_n = n^2 h^2/(8mL^2)$ mehr; die Energien muss man grafisch oder
-numerisch bestimmen ([dxwl.bnu.edu.cn](https://dxwl.bnu.edu.cn/EN/Y2018/V37/I12/49),
-[people.goshen.edu](https://people.goshen.edu/~paulmr/physix/313/gco/5.7.php?bigify=yup)).
+numerisch bestimmen.
 
 :::grafik
 Die Wandstelle $x = L/2$ im Ausschnitt: links der $\cos$-Ast (innen), rechts der $e^{-\kappa x}$-Ast (außen). Zwei
@@ -116,7 +115,7 @@ $$u^2 + v^2 = \left(\frac{L}{2}\right)^2\frac{2mV_0}{\hbar^2} \equiv z_0^2, \qqu
 Diese eine Zeile ist der Schlüssel: $u^2 + v^2 = z_0^2$ ist die Gleichung eines **Viertelkreises** mit Radius
 $z_0$. Die Anschlussbedingungen von oben, in denselben Variablen geschrieben ($v = u\tan u$ für gerade,
 $v = -u\cot u$ für ungerade Zustände), sind **Kurvenscharen**. Jeder **Schnittpunkt** von Kreis und Kurve ist ein
-erlaubter gebundener Zustand ([zzz.physics.umn.edu](https://zzz.physics.umn.edu/_export/xhtml/classes/2009/fall/phys4101.001/lec_notes_1014)).
+erlaubter gebundener Zustand.
 
 :::grafik
 Das klassische $u$-$v$-Diagramm: ein Viertelkreis mit Radius $z_0$, dazu die Tangens-Äste (gerade Zustände) und
@@ -134,7 +133,7 @@ Dieses eine Diagramm liefert direkt die drei physikalischen Kernaussagen:
   Box mit ihrer unendlichen Leiter. Ihre Zahl wächst mit $z_0$, also mit **Breite $\times \sqrt{\text{Tiefe}}$**.
 - **Mindestens einer existiert immer.** Der erste Tangens-Ast beginnt im Ursprung, der Viertelkreis ebenfalls im
   Bereich $u \ge 0$ — sie schneiden sich **immer**, egal wie klein $z_0$ ist. Selbst der flachste Topf hält also
-  **einen** (geraden) Zustand fest ([cmms.triumf.ca](https://cmms.triumf.ca/~jess/p200/sq_well/sq_well.html)).
+  **einen** (geraden) Zustand fest.
 - **Energien tiefer als in der unendlichen Box.** Weil die Welle in die Wände hineinleckt, passt sie effektiv in
   eine **etwas breitere** Box. Und breiter heißt (Erinnerung: $E \propto 1/L^2$) **niedrigere** Energie. Jedes
   Niveau liegt damit **unter** dem entsprechenden Niveau der unendlich hohen Box gleicher Breite.
@@ -152,7 +151,7 @@ Jetzt sieht man auch, **warum** die bequeme unendliche Box überhaupt eine gute 
 Wandhöhe sehr groß werden ($V_0 \to \infty$), dann wird $z_0 \to \infty$ (der Kreis-Radius wächst über alle
 Grenzen) und die Abklingkonstante $\kappa \to \infty$ (die Welle leckt gar nicht mehr heraus). Die Schnittpunkte
 rücken dann genau auf die Stellen $kL = n\pi$ — und wir erhalten die vertraute Formel
-$E_n = n^2 h^2/(8mL^2)$ zurück ([dxwl.bnu.edu.cn](https://dxwl.bnu.edu.cn/EN/Y2018/V37/I12/49)).
+$E_n = n^2 h^2/(8mL^2)$ zurück.
 
 Die unendliche Box ist also kein anderes Modell, sondern der **Grenzfall sehr hoher Wände** der endlichen Box.
 Für ein tief gebundenes Elektron (Energie weit unter der Wandhöhe) ist das Hineinlecken winzig, und die einfache

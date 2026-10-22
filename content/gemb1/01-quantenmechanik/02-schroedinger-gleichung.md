@@ -20,7 +20,7 @@ Wir wissen jetzt: Ein Elektron ist eine Welle, beschrieben durch die Wellenfunkt
 Was noch fehlt, ist das **Gesetz**, das festlegt, welche Form diese Welle in einer gegebenen Umgebung annimmt —
 das Gegenstück zu Newtons $F = m\,a$, aber für Wellen. Dieses Gesetz ist die **Schrödinger-Gleichung**. Mit ihr
 rechnet man aus, welche Wellenformen und welche Energien ein Elektron in einem bestimmten Potential haben darf.
-Sie ist das Arbeitspferd der gesamten Quantenmechanik und damit des ganzen Moduls.
+Sie ist das Arbeitspferd der gesamten Quantenmechanik und damit aller folgenden Artikel.
 :::
 
 **Worum es geht:** Wir klären, *warum* man eine neue Gleichung braucht und wie man sie **konstruiert**, schreiben
@@ -165,7 +165,7 @@ Für das freie Elektron ($E = \hbar^2 k^2/2m$) ergibt das $v_\text{g} = \hbar k/
 vertraute klassische Geschwindigkeit. Beruhigend: Im Mittel bewegt sich das Wellenpaket so, wie man es von einem
 Teilchen erwartet.
 
-Noch wichtiger für dieses Modul ist die zweite Ableitung. Fragt man, wie das Paket auf eine Kraft reagiert
+Noch wichtiger für die Festkörperphysik ist die zweite Ableitung. Fragt man, wie das Paket auf eine Kraft reagiert
 („beschleunigt"), landet man bei der __effektiven Masse__
 
 $$\frac{1}{m^{*}} = \frac{1}{\hbar^2}\,\frac{\mathrm{d}^2 E}{\mathrm{d}k^2}.$$

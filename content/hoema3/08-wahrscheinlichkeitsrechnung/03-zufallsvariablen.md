@@ -26,7 +26,7 @@ vergisst den Grundraum $(\Omega,\mathcal E,P)$ und arbeitet nur noch mit der Ver
 Binomial-, Poisson- und Normalverteilung zu universellen Bausteinen.
 :::
 
-**Worum es geht:** Wir definieren die __Zufallsvariable__ und ihre __Verteilungsfunktion__ $F_X$ (Lemma 8.19),
+**Worum es geht:** Wir definieren die __Zufallsvariable__ und ihre __Verteilungsfunktion__ $F_X$,
 unterscheiden __diskrete__ (Binomial, Poisson, hypergeometrisch) und __absolut-stetige__ Variablen (Dichte, Gleich-,
 Normalverteilung) und führen die __Verteilung__ $P_X$ ein.
 
@@ -35,43 +35,45 @@ Normalverteilung) und führen die __Verteilung__ $P_X$ ein.
 Eine __reelle Zufallsvariable__ ist eine Zahl, die am Ausgang eines Experiments abgelesen wird — also eine Funktion
 auf $\Omega$. Damit „$X$ ist höchstens $x$" ein zulässiges Ereignis ist, braucht man eine Strukturbedingung:
 
-__Definition 8.16.__ Eine Funktion $X:\Omega\to\mathbb R$ heißt __Zufallsvariable__, wenn
+__Definition.__ Eine Funktion $X:\Omega\to\mathbb R$ heißt __Zufallsvariable__, wenn
 $$\{\omega\in\Omega:X(\omega)\le x\}\in\mathcal E\qquad\text{für alle }x\in\mathbb R$$
 (__Messbarkeit__ bezüglich $\mathcal E$). Genau dann ist die __Verteilungsfunktion__
 $$F_X(x):=P(X\le x)=P(\{\omega:X(\omega)\le x\})$$
 wohldefiniert. Die Messbarkeit ist also keine Schikane, sondern genau das, was gebraucht wird, damit $F_X$ Sinn
 ergibt — jede interessierende Wahrscheinlichkeit „$X$ in einem Bereich" muss ein Ereignis sein.
 
-__Bemerkung 8.17.__ Verkettet man $X$ mit einer stetigen Funktion $g:\mathbb R\to\mathbb R$, so ist $Y=g(X)$ wieder
+__Bemerkung.__ Verkettet man $X$ mit einer stetigen Funktion $g:\mathbb R\to\mathbb R$, so ist $Y=g(X)$ wieder
 eine Zufallsvariable — man darf also rechnen (quadrieren, skalieren, …) und bleibt im Rahmen.
 
-__Lemma 8.19 (Eigenschaften von $F_X$).__ Jede Verteilungsfunktion ist
+__Lemma (Eigenschaften von $F_X$).__ Jede Verteilungsfunktion ist
 $$\text{monoton steigend},\quad\text{rechtsseitig stetig},\qquad \lim_{x\to-\infty}F_X(x)=0,\quad\lim_{x\to+\infty}F_X(x)=1.$$
 Monotonie folgt aus der Monotonie von $P$ (größeres $x$ ⇒ größeres Ereignis $\{X\le x\}$); die Grenzwerte und die
-Rechtsstetigkeit sind gerade die Stetigkeit des Maßes (Satz 8.4), angewandt auf auf- bzw. absteigende
+Rechtsstetigkeit sind gerade die Stetigkeit des Maßes aus dem Artikel
+[Wahrscheinlichkeitsräume](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung/wahrscheinlichkeitsraeume.html),
+angewandt auf auf- bzw. absteigende
 Ereignisfolgen $\{X\le x_n\}$ mit $x_n\to\pm\infty$ bzw. $x_n\downarrow x$. Anschaulich: $F_X$ sammelt
 Wahrscheinlichkeit „von links nach rechts" bis auf $1$ auf.
 
 ## Diskrete Zufallsvariablen
 
-__Definition 8.20.__ Hat $X$ einen endlichen oder abzählbaren Wertebereich $\{x_0,x_1,\dots\}$, heißt $X$
+__Definition.__ Hat $X$ einen endlichen oder abzählbaren Wertebereich $\{x_0,x_1,\dots\}$, heißt $X$
 __diskret__. Dann beschreibt man sie durch die __Wahrscheinlichkeitsfunktion__
 $$p_X(x)=\begin{cases}P(X=x_k) & x=x_k,\\ 0 & \text{sonst,}\end{cases}\qquad F_X(x)=\sum_{x_k\le x}p_X(x_k).$$
 Die Verteilungsfunktion entsteht also durch **Aufsummieren** der Stäbe bis zur Stelle $x$ — eine rechtsstetige Treppe
 mit Sprunghöhe $p_X(x_k)$ an jedem möglichen Wert.
 
-__Beispiel 8.21 (Binomialverteilung).__ $X$ zählt die Treffer bei $n$ unabhängigen Bernoulli-Versuchen mit
+__Beispiel (Binomialverteilung).__ $X$ zählt die Treffer bei $n$ unabhängigen Bernoulli-Versuchen mit
 Trefferwahrscheinlichkeit $p$:
 $$P(X=k)=\binom nk p^k(1-p)^{n-k}=:b_{n,p}(k),\qquad k=0,\dots,n.$$
 
-__Beispiel 8.22 (Poisson-Verteilung).__ $X$ ist __Poisson-verteilt__ mit Parameter $\lambda>0$, wenn
+__Beispiel (Poisson-Verteilung).__ $X$ ist __Poisson-verteilt__ mit Parameter $\lambda>0$, wenn
 $$P(X=k)=\frac{\lambda^k}{k!}\,e^{-\lambda},\qquad k\in\mathbb N_0.$$
 Sie ist der __Grenzfall der Binomialverteilung__ für $n\to\infty$, $p\to0$ bei festem $np=\lambda$ („Verteilung der
 seltenen Ereignisse"). Der Grenzübergang zeigt, wie sie entsteht:
 $$\binom nk\Big(\frac\lambda n\Big)^k\Big(1-\frac\lambda n\Big)^{n-k}=\frac{\lambda^k}{k!}\underbrace{\frac{n(n-1)\cdots(n-k+1)}{n^k}}_{\to1}\underbrace{\Big(1-\frac\lambda n\Big)^n}_{\to e^{-\lambda}}\underbrace{\Big(1-\frac\lambda n\Big)^{-k}}_{\to1}\ \xrightarrow{n\to\infty}\ \frac{\lambda^k}{k!}e^{-\lambda}.$$
 Die drei markierten Faktoren streben gegen $1$, $e^{-\lambda}$ und $1$ — übrig bleibt genau die Poisson-Formel.
 
-__Beispiel 8.23 (Hypergeometrische Verteilung).__ Eine Urne enthält $N$ Elemente, davon $M$ mit einer bestimmten
+__Beispiel (Hypergeometrische Verteilung).__ Eine Urne enthält $N$ Elemente, davon $M$ mit einer bestimmten
 Eigenschaft; man zieht $n$ **ohne Zurücklegen**. Die Zahl $X$ der gezogenen „Eigenschafts-Elemente" ist
 $$P(X=k)=\frac{\binom Mk\binom{N-M}{n-k}}{\binom Nn},\qquad k=0,\dots,n.$$
 Das ist Urnenmodell (iii): abzählen, wie viele Auswahlen genau $k$ markierte enthalten. (Beim Lotto „6 aus 49" ist
@@ -91,19 +93,19 @@ $P(B\setminus A)=P(B)-P(A)$ folgt
 $$P(a<X\le b)=F_X(b)-F_X(a).$$
 Das erinnert an den 2. Hauptsatz $\int_a^b f=F(b)-F(a)$ — und motiviert die Dichte.
 
-__Definition 8.24.__ $X$ heißt __absolut-stetig__, wenn eine nichtnegative integrierbare __Dichte__ $f_X:\mathbb
+__Definition.__ $X$ heißt __absolut-stetig__, wenn eine nichtnegative integrierbare __Dichte__ $f_X:\mathbb
 R\to[0,\infty)$ existiert mit
 $$F_X(x)=\int_{-\infty}^x f_X(y)\,dy\qquad\text{für alle }x.$$
 
-__Bemerkung 8.25.__ „Absolut-stetig" bezieht sich auf $F_X$, nicht auf $X$. Für absolut-stetige $X$ ist notwendig
+__Bemerkung.__ „Absolut-stetig" bezieht sich auf $F_X$, nicht auf $X$. Für absolut-stetige $X$ ist notwendig
 $P(X=x)=0$ für **jeden** Punkt (ein einzelner Wert hat keine Fläche), und an Stetigkeitsstellen von $f_X$ ist $F_X$
 differenzierbar mit $F_X'(x)=f_X(x)$ — die Dichte ist also die **Ableitung** der Verteilungsfunktion. Eine konstante
 Variable $X\equiv c$ ist **nicht** absolut-stetig (ihre „Dichte" wäre eine singuläre Dirac-Masse bei $c$).
 
-__Beispiel 8.26 (Gleichverteilung).__ $X$ ist über $[a,b]$ gleichverteilt mit Dichte $f_X(x)=\frac{1}{b-a}$ für
+__Beispiel (Gleichverteilung).__ $X$ ist über $[a,b]$ gleichverteilt mit Dichte $f_X(x)=\frac{1}{b-a}$ für
 $x\in[a,b]$, sonst $0$ — jeder Teilbereich gleicher Länge ist gleich wahrscheinlich.
 
-__Beispiel 8.27 (Normalverteilung).__ $X\sim\mathcal N(\mu,\sigma^2)$ hat die Dichte
+__Beispiel (Normalverteilung).__ $X\sim\mathcal N(\mu,\sigma^2)$ hat die Dichte
 $$f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}\,e^{-\frac12\big(\frac{x-\mu}{\sigma}\big)^2};$$
 $\mu=0,\sigma=1$ ist die __Standard-Normalverteilung__. Sie ist die wichtigste stetige Verteilung überhaupt — warum,
 zeigt der zentrale Grenzwertsatz.
@@ -119,20 +121,20 @@ $P_X((a,b])=\int_a^b f_X(x)\,dx$ (dann spielt offen/abgeschlossen keine Rolle, d
 haben), im diskreten Fall $P_X(A)=\sum_{x_k\in A}p_X(x_k)$. $P_X$ „überträgt" also das Maß von $\Omega$ nach
 $\mathbb R$ — und nur dieses übertragene Maß braucht man für alle weiteren Rechnungen.
 
-**Stolperstein:** (1) Die __Messbarkeit__ (Def. 8.16) ist Voraussetzung, nicht Beiwerk: Ohne sie ist „$X\le x$" kein
+**Stolperstein:** (1) Die __Messbarkeit__ ist Voraussetzung, nicht Beiwerk: Ohne sie ist „$X\le x$" kein
 Ereignis und $F_X$ nicht definiert. (2) $F_X$ ist __rechtsseitig__ stetig (wegen „$\le x$"); an einem Sprung gehört
 der Wert zur **oberen** Stufe. (3) Eine __Dichte ist keine Wahrscheinlichkeit__ — $f_X(x)$ darf $>1$ sein; nur
 $\int_a^b f_X\in[0,1]$. (4) Absolut-stetig heißt $P(X=x)=0$ überall; „Wahrscheinlichkeit $0$" ist nicht „unmöglich".
 (5) Poisson ist der Grenzfall der Binomialverteilung bei $np=\lambda=\text{const}$ — nicht bei festem $p$.
 
 :::kern
-__Zufallsvariable__ (Def. 8.16): messbare $X:\Omega\to\mathbb R$, $\{X\le x\}\in\mathcal E$ ⟹
-__Verteilungsfunktion__ $F_X(x)=P(X\le x)$. __Lemma 8.19__: $F_X$ monoton steigend, rechtsstetig,
-$F_X(-\infty)=0$, $F_X(+\infty)=1$ (aus Satz 8.4); $g$ stetig ⟹ $g(X)$ Zufallsvariable (Bem. 8.17). __Diskret__
-(Def. 8.20): $p_X(x_k)=P(X=x_k)$, $F_X(x)=\sum_{x_k\le x}p_X(x_k)$ (Treppe). Beispiele: __Binomial__ $\binom nk
+__Zufallsvariable__: messbare $X:\Omega\to\mathbb R$, $\{X\le x\}\in\mathcal E$ ⟹
+__Verteilungsfunktion__ $F_X(x)=P(X\le x)$: monoton steigend, rechtsstetig,
+$F_X(-\infty)=0$, $F_X(+\infty)=1$ (Stetigkeit des Maßes); $g$ stetig ⟹ $g(X)$ Zufallsvariable. __Diskret__:
+$p_X(x_k)=P(X=x_k)$, $F_X(x)=\sum_{x_k\le x}p_X(x_k)$ (Treppe). Beispiele: __Binomial__ $\binom nk
 p^k(1-p)^{n-k}$; __Poisson__ $\frac{\lambda^k}{k!}e^{-\lambda}$ (Grenzfall Binomial, $n\to\infty,p\to0,np=\lambda$);
-__hypergeometrisch__ $\frac{\binom Mk\binom{N-M}{n-k}}{\binom Nn}$ (Ziehen ohne Zurücklegen). __Absolut-stetig__
-(Def. 8.24): Dichte $f_X\ge0$ mit $F_X(x)=\int_{-\infty}^x f_X$; dann $P(X=x)=0$, $F_X'=f_X$ (Bem. 8.25);
+__hypergeometrisch__ $\frac{\binom Mk\binom{N-M}{n-k}}{\binom Nn}$ (Ziehen ohne Zurücklegen). __Absolut-stetig__:
+Dichte $f_X\ge0$ mit $F_X(x)=\int_{-\infty}^x f_X$; dann $P(X=x)=0$, $F_X'=f_X$;
 $P(a<X\le b)=F_X(b)-F_X(a)=\int_a^b f_X$. Beispiele: __Gleichverteilung__ $\frac1{b-a}$ auf $[a,b]$,
 __Normalverteilung__ $\mathcal N(\mu,\sigma^2)$ $\frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}$. __Verteilung__
 $P_X(A)=P(X\in A)$ auf $\mathbb R$ (Borel) — löst $X$ vom Grundraum.
@@ -148,7 +150,7 @@ A: Nur dann ist „$X$ ist höchstens $x$" ein zulässiges Ereignis, dem das Ma�
 F: Was beschreibt die Verteilungsfunktion $F_X$ anschaulich, und warum läuft sie von 0 nach 1?
 A: $F_X(x)=P(X\le x)$ sammelt die Wahrscheinlichkeit „von links nach rechts" auf: links von allem ist noch nichts dabei ($\to0$), rechts von allem ist alles erfasst ($\to1$). Dazwischen wächst sie monoton, weil ein größeres $x$ ein größeres Ereignis einschließt.
 F: Woher kommen Monotonie und Rechtsstetigkeit von $F_X$?
-A: Die Monotonie folgt aus der Monotonie von $P$ ($x_1\le x_2\Rightarrow\{X\le x_1\}\subset\{X\le x_2\}$). Rechtsstetigkeit und die Grenzwerte $0$/$1$ sind die Stetigkeit des Maßes (Satz 8.4), angewandt auf absteigende bzw. auf-/absteigende Ereignisfolgen $\{X\le x_n\}$.
+A: Die Monotonie folgt aus der Monotonie von $P$ ($x_1\le x_2\Rightarrow\{X\le x_1\}\subset\{X\le x_2\}$). Rechtsstetigkeit und die Grenzwerte $0$/$1$ sind die Stetigkeit des Maßes, angewandt auf absteigende bzw. auf-/absteigende Ereignisfolgen $\{X\le x_n\}$.
 F: Warum ist bei diskreten Variablen $F_X$ eine rechtsstetige Treppe?
 A: $F_X(x)=\sum_{x_k\le x}p_X(x_k)$ springt an jedem möglichen Wert $x_k$ um dessen Wahrscheinlichkeit $p_X(x_k)$ und bleibt dazwischen konstant. Weil die Bedingung „$\le x$" den Wert $x_k$ einschließt, gehört der Sprung zur oberen Stufe — also rechtsstetig.
 F: Wie entsteht die Poisson-Verteilung als Grenzfall der Binomialverteilung?

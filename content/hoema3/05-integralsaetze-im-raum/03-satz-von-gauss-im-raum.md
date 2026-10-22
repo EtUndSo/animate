@@ -39,8 +39,6 @@ gilt für jede Koordinate $x_k$
 
 $$\int_{\mathbb{R}^n}\frac{\partial f}{\partial x_k}(\vec x)\,g(\vec x)\;d^nx = -\int_{\mathbb{R}^n}f(\vec x)\,\frac{\partial g}{\partial x_k}(\vec x)\;d^nx.$$
 
-Das Skript schreibt dazu „offenbar (warum?)" — die Antwort steht in der Box.
-
 :::herleitung
 Nach der Produktregel ist
 
@@ -63,9 +61,7 @@ $$\int_{\mathbb{R}^n}\big(\operatorname{div}\vec G\big)(\vec x)\,\psi(\vec x)\;d
 :::
 
 **So liest man das:** Die Ableitung wandert vom Feld, wo sie als Divergenz steht, auf die Funktion, wo sie als Gradient steht,
-mit einem Minuszeichen. Das Skript nennt Feld und Funktion $\boldsymbol E$ und $\varphi$; hier heißen sie $\vec G$ und $\psi$, weil
-$\vec E$ weiter unten das elektrische Feld und $\varphi$ der Azimut ist. Der Zusatz über die äußere Normale, der im Skript an diesem
-Satz steht, gehört erst zum Satz von Gauß.
+mit einem Minuszeichen.
 
 **Im Bild:** Eine Gewichtung $\psi$ der Zimmer. Die gewichtete Summe der Quellen ist das, was entlang des Gefälles der
 Gewichtung abfließt.
@@ -109,7 +105,7 @@ __Indikatorfunktion__ $\mathbf 1_V$, die auf $V$ gleich $1$ und außerhalb gleic
 $$\int_V\operatorname{div}\vec G\;d^3x = \int_{\mathbb{R}^3}\operatorname{div}\vec G\;\mathbf 1_V\;d^3x.$$
 
 Die Indikatorfunktion springt aber am Rand $\partial V$ und ist nicht stetig; den Satz darf man mit ihr nicht anwenden. Ihr
-„Gradient" ist überall null, nur am Rand nicht — dort konzentriert er sich und zeigt ins Innere. Formal schreibt das Skript
+„Gradient" ist überall null, nur am Rand nicht — dort konzentriert er sich und zeigt ins Innere. Formal schreibt man
 
 $$\nabla\mathbf 1_V\,d^3x \sim -\,d\vec S,$$
 
@@ -186,7 +182,7 @@ dasselbe für $F_1$ und $F_2$. Die Summe der drei Gleichungen ist der Satz.
 
 **Schritt 4: zusammensetzen.** Einen allgemeineren Körper zerlegt man in solche Stücke. Eine Schnittfläche zwischen zwei Stücken
 gehört zu beiden, mit entgegengesetzten äußeren Normalen; ihre Flüsse heben sich weg. Dass sich jeder Körper mit glattem Rand so
-zerlegen lässt, ist ein technischer Punkt, den das Skript nicht ausführt.
+zerlegen lässt, ist ein technischer Punkt, den wir hier nicht ausführen.
 
 **Im Bild:** Schritt 1 und 2 sind Säulen von Zimmern übereinander: Was durch die Decken strömt, hebt sich auf, übrig bleiben
 Dach und Keller. Schritt 4 sind die Innentüren zwischen verschiedenen Gebäudeteilen.
@@ -222,7 +218,8 @@ $$\operatorname{div}\vec F(\vec x) = \lim_{\delta\to0}\frac{1}{\mathrm{vol}\big(
 :::
 
 **So liest man das:** Die Divergenz an einem Punkt ist der Ausfluss aus einer winzigen Kugel um ihn, geteilt durch ihr Volumen.
-Das ist die räumliche Fassung der koordinatenfreien Divergenz aus dem Kapitel über Kurvenintegrale.
+Das ist die räumliche Fassung der koordinatenfreien Divergenz aus dem Artikel über die
+[Integralsätze in der Ebene](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/integralsaetze-in-der-ebene.html).
 
 **Im Bild:** Ein einziges winziges Zimmer. Sein Ausfluss pro Volumen ist die Leistung des Gebläses darin.
 
@@ -341,8 +338,7 @@ $$\int_V\nabla u\cdot\nabla\psi\;d^3x = \int_{\partial V}\psi\,\frac{\partial u}
 
 $$\int_V\big(\psi\,\Delta u-u\,\Delta\psi\big)\;d^3x = \int_{\partial V}\Big(\psi\,\frac{\partial u}{\partial n}-u\,\frac{\partial\psi}{\partial n}\Big)\;d\sigma.$$
 
-Das Skript nennt sie nicht ausdrücklich; der Beweis der Poisson-Gleichung im nächsten Artikel benutzt die partielle Integration
-mit Rand auf dieselbe Weise.
+Der Beweis der Poisson-Gleichung im nächsten Artikel benutzt die partielle Integration mit Rand auf dieselbe Weise.
 
 :::herleitung
 **Die erste Formel.** Man setzt in die partielle Integration mit Rand das Gradientenfeld $\vec G=\nabla u$ ein. Seine Divergenz ist
@@ -383,7 +379,7 @@ eingeschlossene Ladung; in der Strömungslehre ist der Ausfluss aus einem Volume
 __Kontinuitätsgleichung__ der Ladung — die zeitliche Änderung der Ladungsdichte plus die Divergenz der Stromdichte ist null —
 sagt integriert: Die Ladung in einem Volumen nimmt genau um den Strom ab, der durch seine Oberfläche hinausfließt.
 
-Mit Gauß und Stokes sind die beiden räumlichen Integralsätze beisammen. Der letzte Artikel des Kapitels setzt sie ein: Er beweist
+Mit Gauß und Stokes sind die beiden räumlichen Integralsätze beisammen. Der nächste Artikel setzt sie ein: Er beweist
 mit der partiellen Integration mit Rand, dass das Newtonpotential die Poisson-Gleichung löst, und zerlegt jedes Vektorfeld in
 ein Gradienten- und ein Rotationsfeld — den Hauptsatz der Vektoranalysis.
 

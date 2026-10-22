@@ -27,7 +27,10 @@ MUSTER = {
     "Kurs": r"GET-?1|\bMiNa\b|RWTH|Lehrstuhl|Formelsammlung|KGÜ|Hilfsfolie|\bProf\.|Dozent",
     "Modulkürzel": r"\bET\s?[1-4]\b|\bGEMB\b|\bHöMa\b|\bHM\s?[1-4]\b|Höhere(n)? Mathematik\s(I{1,3}|[1-4])\b",
     "Veranstaltung": r"\bKurs(es|e)?\b|Schaltungstechnik\s?\d|\bModul(e|en|s)?\b|\b(späteren|nächsten|vorigen|früheren|zweiten|dritten|vierten|fünften|sechsten) Semester",
-    "Satz-Nr": r"\b(Satz|Definition|Lemma|Korollar|Bemerkung|Formel)\s\(?([A-Z]\d+|\d+\.\d+)(\.\d+)*\)?",
+    "Satz-Nr": r"(?<![A-Za-zÄÖÜäöüß])(Satz|Definition|Def\.?|Lemma|Korollar|Bemerkung|Bem\.?|Formel|Beispiel)\s\(?"
+               r"([A-Z]\d+|\d+\.\d+)(\.\d+)*\)?",
+    "Artikelbezug": r"\bArtikel\s\d|\b(ersten|zweiten|dritten) Artikel",
+    "Unterricht": r"Tafelbild|[Pp]rüfungsrelevant|Prüfungsaufgabe|Eigenes Beispiel",
     "Seitenbezug": r"derselben Seite|Seite später|eine Seite (früher|vorher|davor)",
     "intern": r"Zahlenwerk",
 }

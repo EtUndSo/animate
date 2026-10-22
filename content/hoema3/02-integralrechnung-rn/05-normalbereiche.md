@@ -18,7 +18,7 @@ der linken Wand bis zur rechten. Rückt das Messer weiter, wandern beide Enden s
 __Normalbereiche__.
 
 Für sie wird das Integral zu zwei gewöhnlichen Integralen: innen über die Scheibe, mit Grenzen, die von der Stellung des
-Messers abhängen; außen über alle Stellungen des Messers. Das ist die Lage der Leibnizregel aus dem ersten Artikel — eine
+Messers abhängen; außen über alle Stellungen des Messers. Das ist die Lage der Leibnizregel aus dem Artikel [Parameterintegrale und Ableiten unter dem Integral](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/parameterintegrale.html) — eine
 Fläche zwischen wandernden Grenzen.
 
 Nicht jede Form ist so gutmütig. Beim Ring zerfällt die Scheibe durch die Mitte in zwei Stücke; dann zerlegt man die Form
@@ -147,7 +147,7 @@ stapelt man die Scheiben.
 Szene: hoema3/integralrechnung-rn/05-zieharmonika · Vorlage: normalbereich-scan-2d
 Ein Normalbereich vom Typ 1 mit Brot der Höhe $f$. Das Messer steht bei $y$, die Scheibe reicht von $\alpha(y)$ bis
 $\beta(y)$. Ein Knopf „strecken" zieht jede Scheibe wie eine Ziehharmonika auf die feste Breite $[0,1]$; danach sieht man
-über einem festen Intervall eine Kurve, die sich mit $y$ stetig verformt — die Lage aus dem ersten Artikel. Kernaussage:
+über einem festen Intervall eine Kurve, die sich mit $y$ stetig verformt — die Lage aus dem Artikel [Parameterintegrale und Ableiten unter dem Integral](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/parameterintegrale.html). Kernaussage:
 Gestreckt auf eine feste Breite, wird jede Scheibe zu einem gewöhnlichen Parameterintegral. (Rot = Brot, orange =
 aktuelle Scheibe, blau = Wände, grau = Achsen.)
 :::
@@ -392,7 +392,7 @@ wird das innere Integral zu
 $$w(x,y) := \int_{\varphi(x,y)}^{\psi(x,y)} f\,dz = (\psi-\varphi)\int_0^1 f\big(x,y,\varphi+t\,(\psi-\varphi)\big)\,dt.$$
 
 Der Integrand ist auf der kompakten Menge $D\times[0,1]$ stetig, also gleichmäßig stetig; dasselbe Argument wie beim
-Stetigkeitssatz des ersten Artikels zeigt, dass $w$ auf $D$ stetig ist.
+Stetigkeitssatz aus dem Artikel [Parameterintegrale und Ableiten unter dem Integral](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/parameterintegrale.html) zeigt, dass $w$ auf $D$ stetig ist.
 
 **Der Rest.** Über den Normalbereich $D$ lässt sich $w$ nach dem ebenen Satz integrieren. Dass das Ergebnis das Integral
 über $M$ ist, sichert wie beim Typ 2 die Aussage des vorigen Artikels, dass jede Integrationsreihenfolge denselben Wert

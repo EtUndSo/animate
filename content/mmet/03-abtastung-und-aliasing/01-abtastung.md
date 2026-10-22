@@ -38,7 +38,7 @@ $$\tilde s[n] = s(n\,T_s) = s\!\left(\frac{n}{r}\right).$$
 
 - __$T_s$__: die __Abtastperiode__ — der feste Zeitabstand zwischen zwei Messungen.
 - __$r = 1/T_s$__: die __Abtastrate__ (Abtastfrequenz), in Hertz — wie viele Abtastwerte pro Sekunde. (In der
-  Literatur oft auch $f_s$ geschrieben; die Vorlesung nutzt $r$.)
+  Literatur oft auch $f_s$ geschrieben.)
 - __$\tilde s[n]$__: der $n$-te Abtastwert. Die **eckige** Klammer kennzeichnet ein __zeitdiskretes__ Signal (nur
   für ganze $n$ definiert), im Unterschied zum runden $s(t)$. Formal ist es eine Abbildung $\tilde s:\mathbb
   Z\to\mathbb R$.
@@ -58,8 +58,8 @@ besteht aus zwei Stufen:
   jede gespeicherte Zahl hat nur endlich viele Binärstellen.
 
 Umgekehrt macht ein __D/A-Umsetzer__ (bzw. __D/C-Umsetzer__, *Diskret-Continuierlich*) aus der Folge wieder ein
-zeitkontinuierliches Signal — durch Rekonstruktion und Interpolation zwischen den Abtastwerten (Thema des dritten
-Artikels). In diesem und dem nächsten Artikel betrachten wir die **ideale** Abtastung, also ohne den
+zeitkontinuierliches Signal — durch Rekonstruktion und Interpolation zwischen den Abtastwerten (Thema eines
+späteren Artikels). In diesem und dem nächsten Artikel betrachten wir die **ideale** Abtastung, also ohne den
 Quantisierungsfehler.
 
 :::grafik
@@ -88,7 +88,7 @@ Dazwischen die Umrechnung $\hat\omega=\omega T_s=2\pi T_s/T$ mit markierter Peri
 $T_s$.
 :::
 
-**Eigenes Zahlenbeispiel:** Ein Ton $s(t)=\cos(2\pi\cdot 200\,\text{Hz}\cdot t)$ (also $T=5\,$ms) werde mit
+**Zahlenbeispiel:** Ein Ton $s(t)=\cos(2\pi\cdot 200\,\text{Hz}\cdot t)$ (also $T=5\,$ms) werde mit
 $r=1\,$kHz abgetastet ($T_s=1\,$ms). Dann
 
 $$\hat\omega = 2\pi\cdot 200\cdot 0{,}001 = 0{,}4\pi \quad\Rightarrow\quad \tilde s[n] = \cos(0{,}4\pi\,n),$$

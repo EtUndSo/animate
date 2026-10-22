@@ -70,7 +70,7 @@ Zustand → „kein Strom".
 Ganz anders, wenn die Fermi-Energie **mitten in einem Band** liegt (teilgefülltes Band, oder zwei überlappende
 Bänder). Dann sitzen direkt oberhalb der besetzten Zustände **leere** Zustände. Schon ein kleines Feld kann die
 Elektronen an der Wasserlinie dorthin verschieben — es entsteht ein Überschuss in eine Richtung, also **Strom**.
-Das ist ein __Metall__: Es leitet immer, auch bei $T=0$ ([OpenStax](https://openstax.org/books/university-physics-volume-3/pages/9-5-band-theory-of-solids)).
+Das ist ein __Metall__: Es leitet immer, auch bei $T=0$.
 
 :::grafik
 Ein halb gefülltes Band mit der Fermi-Linie in der Mitte; direkt darüber leere Zustände. Ein Feldpfeil verschiebt
@@ -91,7 +91,7 @@ $E_g$ (der Abstand zwischen Valenzband-Oberkante und Leitungsband-Unterkante):
   Beispiel: Diamant, $E_g \approx 5{,}47$ eV.
 
 Der Übergang ist **fließend** — es gibt keine scharfe Grenze zwischen Halbleiter und Isolator, nur eine immer
-kleiner werdende Zahl thermisch angeregter Ladungsträger ([Penn State](https://courses.ems.psu.edu/matse81/book/export/html/2228)).
+kleiner werdende Zahl thermisch angeregter Ladungsträger.
 
 :::grafik
 Halbleiter vs. Isolator nebeneinander: beide mit vollem Valenzband und leerem Leitungsband, aber links eine

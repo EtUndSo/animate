@@ -8,9 +8,8 @@ tags: Poisson-Gleichung, Greensche Funktion, Fundamentallösung, Coulomb-Potenti
 
 ## Anschaulich
 
-Die beiden Integralsätze des Kapitels verbinden einen Körper mit seiner Oberfläche und eine Fläche mit ihrem Rand. Dieser
-letzte Artikel des Kapitels zeigt, was sie in der Potentialtheorie leisten: Aus seinen Quellen und Wirbeln lässt sich ein Feld
-zurückgewinnen.
+Die beiden Integralsätze im Raum verbinden einen Körper mit seiner Oberfläche und eine Fläche mit ihrem Rand. Dieser
+Artikel zeigt, was sie in der Potentialtheorie leisten: Aus seinen Quellen und Wirbeln lässt sich ein Feld zurückgewinnen.
 
 **Das Leitbild dieses Artikels:** **Wasser mit Quellen und Strudeln.** Man denke sich den ganzen Raum mit Wasser gefüllt, das
 weit draußen ruht. In Bewegung setzen es zwei Dinge: __Quellen__, aus denen Wasser entspringt — oder Senken, in denen es
@@ -19,7 +18,8 @@ verschwindet —, und __Strudel__, um die es kreist. Die Quellen misst die Diver
 **Eine einzelne Quelle.** Stößt eine Quelle in jeder Sekunde eine Einheit Wasser aus — ihre __Schüttung__ ist $1$ —, drückt sie
 es gleichmäßig nach allen Seiten weg. Durch jede Kugel um die Quelle muss diese eine Einheit hindurch, wie groß die Kugel auch
 ist. Die Kugel vom Radius $r$ hat die Fläche $4\pi r^2$, also strömt das Wasser dort mit der Stärke $\frac{1}{4\pi r^2}$. Das
-Potential dieser Strömung ist das Coulomb-Potential aus dem Kapitel über Koordinatentransformationen.
+Potential dieser Strömung ist das Coulomb-Potential aus dem Artikel
+[Das Newtonpotential und die Poisson-Gleichung](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/newtonpotential.html).
 
 **Viele Quellen.** Verteilt man Quellen mit einer Dichte $f$ im Raum, überlagern sich ihre Strömungen, und ihre Potentiale
 addieren sich zum Newtonpotential $u$. Der erste Teil des Artikels beweist, dass diese Strömung genau die Quellen hat, die man
@@ -54,9 +54,7 @@ Strudel, blau = Strömungspfeile, orange = Zähler und Zerlegung, grau = Kugeln 
 $$g:\mathbb{R}^3\setminus\{\vec 0\}\to\mathbb{R}, \qquad g(\vec z) = \frac{1}{4\pi\lvert\vec z\rvert}.$$
 
 Eingabe ist ein Punkt $\vec z$ außer dem Ursprung, Ausgabe eine Zahl. Mit dem Abstand $r=\lvert\vec z\rvert$ ist das
-$\frac{1}{4\pi r}$; der Einheitsvektor $\vec e_r$ zeigt in Richtung von $\vec z$, vom Ursprung weg. Das Skript nennt die Funktion
-$\phi$ und benutzt ähnliche Zeichen in diesem Abschnitt auch für eine Gewichtung und ein Eichpotential; hier heißt sie $g$ wie im
-Artikel über das Newtonpotential.
+$\frac{1}{4\pi r}$; der Einheitsvektor $\vec e_r$ zeigt in Richtung von $\vec z$, vom Ursprung weg.
 
 Zwei Eigenschaften tragen den ganzen Artikel: das Gefälle von $g$ und seine Quellenfreiheit. Für jeden Punkt $\vec z$ außer dem
 Ursprung gilt
@@ -136,7 +134,9 @@ verloren geht und nichts hinzukommt, ist die Quellenfreiheit außerhalb des Ursp
 
 **Integrierbar trotz Singularität.** Am Ursprung werden $g$ und sein Gradient unendlich. Trotzdem sind beide über jede Kugel um
 den Ursprung integrierbar, weil sie wie $\frac1r$ bzw. $\frac{1}{r^2}$ wachsen, beides langsamer als $\frac{1}{r^3}$ — das ist der
-Satz über singuläre Integranden aus dem Kapitel über Koordinatentransformationen, im Skript Satz 4.8. Genau ist
+Satz über singuläre Integranden aus dem Artikel über
+[Volumenintegrale](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/volumenintegrale-zylinder-kugel.html).
+Genau ist
 
 $$\int_{K_R(\vec 0)}g\;d^3z = \frac{R^2}{2}, \qquad \int_{K_R(\vec 0)}\lvert\nabla g\rvert\;d^3z = R.$$
 
@@ -157,11 +157,12 @@ Singularität wett.
 ## Das Newtonpotential löst die Poisson-Gleichung
 
 **Die Akteure:** eine stetig differenzierbare Quelldichte $f:\mathbb{R}^3\to\mathbb{R}$ mit kompaktem Träger — sie ist außerhalb
-einer Kugel $K_{R_0}(\vec 0)\subseteq\mathbb{R}^3$ null — und ihr Newtonpotential aus dem Kapitel über Koordinatentransformationen,
+einer Kugel $K_{R_0}(\vec 0)\subseteq\mathbb{R}^3$ null — und ihr Newtonpotential aus dem Artikel
+[Das Newtonpotential und die Poisson-Gleichung](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/newtonpotential.html),
 
 $$u(\vec x) = \int_{\mathbb{R}^3}g(\vec x-\vec y)\,f(\vec y)\;d^3y, \qquad \vec x\in\mathbb{R}^3.$$
 
-Der folgende Satz stand dort schon, im Skript als Satz 4.9, aber ohne Beweis. Jetzt folgt der Beweis mit dem Satz von Gauß: Die
+Der folgende Satz stand dort schon, aber nur mit einer Beweisidee. Jetzt folgt der Beweis mit dem Satz von Gauß: Die
 Funktion $u$ ist zweimal stetig differenzierbar, und es gilt
 
 :::formel Satz
@@ -184,7 +185,7 @@ wird das Potential zu
 $$u(\vec x) = \int_{\mathbb{R}^3}g(\vec z)\,f(\vec x-\vec z)\;d^3z.$$
 
 **Im Bild:** Das Körnchen am Ort $\vec x-\vec z$ trägt $g(\vec z)$ mal seine Dichte bei. Der Kern hängt nur noch vom Versatz ab,
-der Messpunkt steht nur noch in der Dichte. Das Skript nennt die neue Variable wieder $\vec y$.
+der Messpunkt steht nur noch in der Dichte.
 
 :::herleitung
 Die Abbildung $\vec z\mapsto\vec x-\vec z$ hat als Jacobi-Matrix die negative Einheitsmatrix, mit der Determinante $-1$. Ihr Betrag ist $1$, und nach dem
@@ -198,8 +199,6 @@ $$\nabla u(\vec x) = \int_{\mathbb{R}^3}\nabla g(\vec x-\vec y)\,f(\vec y)\;d^3y
 
 $$\Delta u(\vec x) = \int_{\mathbb{R}^3}\nabla g(\vec z)\cdot(\nabla f)(\vec x-\vec z)\;d^3z.$$
 
-Im Skript fehlt im zweiten Integral für $\nabla u$ das Nabla vor dem Kern.
-
 **Im Bild:** Die Strömung $-\nabla u$ ist die Summe der Strömungen aller Körnchen, jede die einer Einheitsquelle, gewichtet mit
 der Dichte des Körnchens. Für die Quelldichte dieser Strömung leitet man noch einmal ab — aber nicht wieder den Kern, sondern die
 Dichte.
@@ -212,7 +211,7 @@ Dichte, und nach der Kettenregel ist
 $$\frac{\partial}{\partial x_k}\Big[f(\vec x-\vec z)\Big] = (\partial_k f)(\vec x-\vec z), \qquad \operatorname{div}_{\vec x}\Big[\nabla g(\vec z)\,f(\vec x-\vec z)\Big] = \nabla g(\vec z)\cdot(\nabla f)(\vec x-\vec z).$$
 
 **Warum man unter dem Integral ableiten darf.** Ganz streng braucht das einen Satz über parameterabhängige Lebesgue-Integrale, auf
-den das Skript verzichtet. Die Idee in drei Gedanken:
+den wir hier verzichten. Die Idee in drei Gedanken:
 
 **Ohne Singularität ist alles gewöhnlich.** Rundet man den Kern in einer kleinen Kugel $K_\varepsilon(\vec 0)$ vom Radius
 $\varepsilon>0$ glatt ab — innen eine beschränkte, glatte Kappe, außen unverändert —, sind alle Integranden stetig
@@ -223,8 +222,9 @@ schon $\lvert\nabla g\rvert$ nur das Integral $\varepsilon$ hat, sind die Unters
 eine feste Zahl mal $\varepsilon$ — für jeden Messpunkt dieselbe Schranke.
 
 **Grenzübergang.** Für $\varepsilon\to0$ konvergieren deshalb die abgerundeten Potentiale und ihre Ableitungen bis zur zweiten Ordnung
-gleichmäßig. Nach dem Satz über gleichmäßige Konvergenz von Ableitungen aus dem Kapitel über Funktionenfolgen ist dann $u$
-zweimal stetig differenzierbar, mit den Formeln oben.
+gleichmäßig. Nach dem Satz über gleichmäßige Konvergenz von Ableitungen aus dem Artikel
+[Vertauschbarkeit von Grenzprozessen](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/vertauschbarkeit-von-grenzprozessen.html)
+ist dann $u$ zweimal stetig differenzierbar, mit den Formeln oben.
 :::
 
 **Schritt 3: Eine Blase ausschneiden.** Weil $\nabla g$ integrierbar ist, ändert sich das Integral im Grenzwert nicht, wenn man um
@@ -300,8 +300,7 @@ $$-\Delta u(\vec x) = \lim_{\varepsilon\searrow0}\int_{\lvert\vec z\rvert\ge\var
 
 **Im Bild:** $\psi$ ist die Quellwolke, vom Messpunkt aus gesehen — die Dichte am Ort mit dem Versatz $\vec z$. Geht man im Versatz
 einen Schritt weiter, geht man in der Wolke einen Schritt in die Gegenrichtung; daher das Minuszeichen, das das Minus vor dem
-Integral aufhebt. Das Skript nennt die Gewichtung $\varphi$ und schreibt die Zeile vor diesem Schritt schon ohne Minuszeichen;
-gemeint ist dort bereits der Gradient nach der Integrationsvariablen.
+Integral aufhebt.
 
 :::herleitung
 Nach der Kettenregel ist für jede Koordinate
@@ -323,7 +322,7 @@ $$V = \big\{\vec z\in\mathbb{R}^3 : \varepsilon\le\lvert\vec z\rvert\le R\big\}.
 
 Sie ist beschränkt und abgeschlossen mit glattem Rand: außen die große Kugeloberfläche, innen die Blasenhaut
 $S_\varepsilon=\partial K_\varepsilon(\vec 0)$. Die partielle Integration mit Rand aus dem Artikel über den Satz von Gauß verlangt
-einen beschränkten Körper — deshalb der äußere Radius $R$, den das Skript stillschweigend übergeht. Mit dem Feld $\nabla g$ und der
+einen beschränkten Körper — deshalb der äußere Radius $R$. Mit dem Feld $\nabla g$ und der
 Gewichtung $\psi$, beide stetig differenzierbar auf einer offenen Menge um $V$, weil $V$ den Ursprung nicht enthält, gilt
 
 $$\int_V\nabla g\cdot\nabla\psi\;d^3z = \int_{\partial V}\psi\,\nabla g\cdot d\vec S-\int_V\Delta g\;\psi\;d^3z.$$
@@ -334,7 +333,7 @@ Rechts verschwindet das Volumenintegral, weil $g$ in $V$ harmonisch ist, und auf
 $$\int_V\nabla g\cdot\nabla\psi\;d^3z = \int_{S_\varepsilon}\psi\,\frac{\partial g}{\partial n}\;d\sigma, \qquad \vec n = -\vec e_r \quad\text{auf } S_\varepsilon.$$
 
 Dabei ist $\frac{\partial g}{\partial n}=\nabla g\cdot\vec n$ die Normalableitung aus dem Artikel über den Satz von Gauß. Die
-Blasenhaut ist hier Rand der Schale, nicht der Blase; darauf weist auch das Skript ausdrücklich hin.
+Blasenhaut ist hier Rand der Schale, nicht der Blase.
 
 **Im Bild:** In der Schale ist die Strömung der Einheitsquelle quellenfrei — ein Gebäude ohne Gebläse. Die partielle Integration
 schiebt die Ableitung von der Wolke auf diese Strömung, wo sie nichts mehr findet. Übrig bleibt nur, was durch die Blasenhaut
@@ -360,8 +359,7 @@ Blasenhaut:
 $$\Big\lvert\frac{1}{\lvert S_\varepsilon\rvert}\int_{S_\varepsilon}f(\vec x-\vec z)\;d\sigma-f(\vec x)\Big\rvert \le \max_{\lvert\vec z\rvert=\varepsilon}\big\lvert f(\vec x-\vec z)-f(\vec x)\big\rvert.$$
 
 Weil $f$ stetig ist, geht die rechte Seite für $\varepsilon\to0$ gegen null. Also ist $-\Delta u(\vec x)=f(\vec x)$ für jeden
-Messpunkt, und der Satz ist bewiesen. Das Skript schreibt die Bedingung unter dem Supremum als $\lvert x-y\rvert<\varepsilon$;
-gemeint ist, dass der Punkt $\vec x-\vec z$ höchstens $\varepsilon$ vom Messpunkt entfernt ist.
+Messpunkt, und der Satz ist bewiesen.
 
 **Im Bild:** Eine winzige Blase sieht nur noch die Dichte am Messpunkt.
 
@@ -428,7 +426,9 @@ Messpunkt nach unten gewölbt, deshalb liegt das Kugelmittel etwas darunter.
 
 :::herleitung
 Mit $r=\lvert\vec y\rvert$ ist die Dichte in der Wolke ein Polynom in $r^2$. Nach der radialen Formel für den Laplace-Operator aus
-dem ersten Kapitel, Ableitung zweimal plus $\frac2r$ mal Ableitung einmal, ist
+dem Artikel
+[Divergenz, Rotation und Laplace-Operator](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/divergenz-rotation-laplace.html),
+Ableitung zweimal plus $\frac2r$ mal Ableitung einmal, ist
 
 $$f = 1-2r^2+r^4, \qquad \Delta\big(r^2\big) = 2+4 = 6, \qquad \Delta\big(r^4\big) = 12r^2+8r^2 = 20\,r^2,$$
 
@@ -445,8 +445,7 @@ $$(g*f)(\vec x) = \int_{\mathbb{R}^3}g(\vec x-\vec y)\,f(\vec y)\;d^3y$$
 
 die __Faltung__ von $g$ und $f$; das Newtonpotential ist also $g*f$. Eine Funktion heißt __Greensche Funktion__ — auch
 __Fundamentallösung__ — des Operators $-\Delta$ im $\mathbb{R}^3$, wenn ihre Faltung mit jeder stetig differenzierbaren Dichte mit
-kompaktem Träger die Poisson-Gleichung löst. Nach dem Satz ist das Coulomb-Potential eine solche Funktion; das meint das Skript
-mit dem Satz, das Ergebnis identifiziere sie als Greensche Funktion des Laplace-Operators.
+kompaktem Träger die Poisson-Gleichung löst. Nach dem Satz ist das Coulomb-Potential eine solche Funktion.
 
 **Im Bild:** $g(\vec x-\vec y)$ ist das Potential am Messpunkt $\vec x$, das eine Einheitsquelle am Ort $\vec y$ erzeugt. Weil sich
 Strömungen überlagern, ist das Potential der ganzen Wolke die mit der Dichte gewichtete Summe dieser Antworten.
@@ -457,8 +456,9 @@ $$-\Delta g = \delta_{\vec 0},$$
 
 mit der __Dirac-Distribution__ $\delta_{\vec 0}$, einer Punktquelle der Stärke $1$ im Ursprung. Als Gleichung zwischen Funktionen ist
 das nicht zu lesen: Außerhalb des Ursprungs ist $\Delta g$ null, und im Ursprung ist $g$ nicht einmal definiert. Gemeint ist, dass
-die ganze Quellstärke $1$ im Ursprung sitzt. Den genauen Sinn gibt die folgende Formel; das Kapitel über Fourier-Reihen baut die
-Idee aus.
+die ganze Quellstärke $1$ im Ursprung sitzt. Den genauen Sinn gibt die folgende Formel; der Artikel
+[Dirac-Scharen und die δ-Distribution](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen/dirac-scharen-und-delta-distribution.html)
+baut die Idee aus.
 
 **Der Filter.** Für jede zweimal stetig differenzierbare Funktion $f:\mathbb{R}^3\to\mathbb{R}$ mit kompaktem Träger gilt
 
@@ -528,7 +528,7 @@ Feld der Form $\nabla u$ mit einem Skalarfeld $u$, ein __Rotationsfeld__ oder Wi
 einem Vektorfeld $\vec A$, seinem __Vektorpotential__ — beides wie im Poincaré-Artikel.
 
 **Die Akteure:** ein zweimal stetig differenzierbares Vektorfeld $\vec F:\mathbb{R}^3\to\mathbb{R}^3$ mit kompaktem Träger; außerhalb
-einer Kugel ist es null. Der Satz 5.19 des Skripts, die __Helmholtz-Zerlegung__, sagt: Es gibt zweimal stetig differenzierbare
+einer Kugel ist es null. Die __Helmholtz-Zerlegung__ sagt: Es gibt zweimal stetig differenzierbare
 Felder $u:\mathbb{R}^3\to\mathbb{R}$ und $\vec A:\mathbb{R}^3\to\mathbb{R}^3$ mit
 
 :::formel Satz
@@ -536,7 +536,8 @@ $$\vec F = \nabla u+\operatorname{rot}\vec A.$$
 :::
 
 **So liest man das:** Jedes solche Feld ist die Summe eines Gradientenfelds und eines Rotationsfelds. $u$ nimmt einen Punkt und
-gibt eine Zahl aus, $\vec A$ nimmt einen Punkt und gibt einen Vektor aus. Das Skript schreibt die Rotation als $\nabla\times\vec A$.
+gibt eine Zahl aus, $\vec A$ nimmt einen Punkt und gibt einen Vektor aus. Üblich ist für die Rotation auch die Schreibweise
+$\nabla\times\vec A$.
 
 **Im Bild:** Die Strömung $\vec F$ ist eine Quellenströmung $\nabla u$ plus eine Wirbelströmung $\operatorname{rot}\vec A$.
 
@@ -628,7 +629,8 @@ Zusammen ist das die Zerlegung des Satzes.
 quellenfreie Rest ist.
 
 **Schritt 4: Glattheit.** Die Formel zeigt: $\vec A$ ist mindestens so oft stetig differenzierbar wie das Restfeld
-$\vec F-\nabla u$; das Skript verweist dafür auf das Ableiten unter dem Integral, Satz 2.1. Vom Restfeld weiß man nach dem
+$\vec F-\nabla u$, nach dem Ableiten unter dem Integral aus dem Artikel über
+[Parameterintegrale](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/parameterintegrale.html). Vom Restfeld weiß man nach dem
 Poisson-Satz aber zunächst nur, dass es einmal stetig differenzierbar ist — $u$ ist zweimal stetig differenzierbar, $\nabla u$ also
 einmal. Damit ist $\vec A$ sicher einmal stetig differenzierbar. Dass es sogar ein zweimal stetig differenzierbares
 Vektorpotential gibt, wie der Satz behauptet, zeigt der nächste Abschnitt ausdrücklich.
@@ -652,7 +654,7 @@ $$u(\vec x) = -\int_{\mathbb{R}^3}g(\vec x-\vec y)\,\operatorname{div}\vec F(\ve
 :::
 
 Beide sind zweimal stetig differenzierbar, sie zerlegen $\vec F$ wie im Satz, und $\vec A$ ist von selbst quellenfrei. Das $u$ ist
-dasselbe wie im Beweis des Skripts.
+dasselbe wie im Beweis mit dem Poincaré-Lemma.
 
 **So liest man das:** $u$ ist minus das Newtonpotential der Quelldichte $\operatorname{div}\vec F$, $\vec A$ komponentenweise das
 Newtonpotential der __Wirbeldichte__ $\operatorname{rot}\vec F$. Das Feld ist aus seinen Quellen und Wirbeln vollständig
@@ -688,7 +690,8 @@ sind $u$ und $\vec A$ zweimal stetig differenzierbar.
 
 $$\operatorname{div}\vec A = \operatorname{div}\operatorname{rot}\vec Z = 0.$$
 
-Das $u$ ist das Newtonpotential von $-\operatorname{div}\vec F$, also dasselbe wie in Schritt 1 des Skript-Beweises.
+Das $u$ ist das Newtonpotential von $-\operatorname{div}\vec F$, also dasselbe wie in Schritt 1 des Beweises mit dem
+Poincaré-Lemma.
 
 **Im Bild:** $\vec Z$ ist das Potential der ganzen Strömung, Komponente für Komponente. Divergenz und Rotation sortieren daraus die
 Quellen und die Strudel.
@@ -805,7 +808,7 @@ $\vec A+\nabla\chi$ eines — die __Eichfreiheit__ aus dem Poincaré-Artikel. Ro
 
 $$\operatorname{rot}\big(\vec A+\nabla\chi\big) = \operatorname{rot}\vec A, \qquad \operatorname{div}\big(\vec A+\nabla\chi\big) = \operatorname{div}\vec A+\Delta\chi.$$
 
-Wie in Bemerkung 3.18 des Skripts erreicht man deshalb die __Coulomb-Eichung__, ein quellenfreies Vektorpotential, indem man $\chi$
+Wie im Poincaré-Artikel erreicht man deshalb die __Coulomb-Eichung__, ein quellenfreies Vektorpotential, indem man $\chi$
 als Lösung der Poisson-Gleichung
 
 $$\Delta\chi = -\operatorname{div}\vec A$$
@@ -867,7 +870,7 @@ am Wirbelbild etwas zu ändern.
 
 ## Ist die Zerlegung eindeutig?
 
-Das Skript sagt nur, dass es eine Zerlegung **gibt**. Eindeutig ist sie ohne Zusatzbedingung nicht. Hat $\vec F$ zwei Zerlegungen,
+Der Satz sagt nur, dass es eine Zerlegung **gibt**. Eindeutig ist sie ohne Zusatzbedingung nicht. Hat $\vec F$ zwei Zerlegungen,
 mit $u_1,\vec A_1$ und mit $u_2,\vec A_2$, so ist ihre Differenz
 
 $$\vec H = \nabla u_1-\nabla u_2 = \operatorname{rot}\vec A_2-\operatorname{rot}\vec A_1$$
@@ -906,8 +909,8 @@ Für ein beliebiges konstantes Feld zeigt der Poincaré-Artikel dasselbe mit der
 **Im Bild:** Ein gleichmäßiger Strom ist das Gefälle einer schiefen Ebene und zugleich das Wirbelbild eines starr kreisenden Felds.
 ::::
 
-**Mit Abklingen eindeutig.** Verlangt man, dass beide Anteile im Unendlichen gegen null gehen, bleibt nur das Nullfeld; das Skript
-führt das nicht aus. Die Anteile aus den ausdrücklichen Formeln erfüllen die Bedingung: Wie im Fernfeld des Newtonpotentials
+**Mit Abklingen eindeutig.** Verlangt man, dass beide Anteile im Unendlichen gegen null gehen, bleibt nur das Nullfeld. Die
+Anteile aus den ausdrücklichen Formeln erfüllen die Bedingung: Wie im Fernfeld des Newtonpotentials
 fallen sie mindestens wie $\frac{1}{\lvert\vec x\rvert^2}$ ab. Die Beweisidee benutzt wieder ein Kugelmittel. Für eine harmonische
 Funktion $h$ ist das Mittel über jede Kugeloberfläche um einen Punkt gleich dem Wert in der Mitte, die __Mittelwerteigenschaft__:
 
@@ -937,19 +940,19 @@ Das zweite Gleichheitszeichen ist der Satz von Gauß für das Feld $\nabla h$. A
 in Schritt 7 gegen $h(\vec x)$.
 
 **Glatt genug.** Hier ist $\vec H$ der Gradient der harmonischen Funktion $u_1-u_2$. Dass dessen Komponenten wieder harmonisch sind,
-sichert ein Satz über harmonische Funktionen jenseits des Kurses: Sie sind automatisch beliebig oft differenzierbar.
+sichert ein Satz über harmonische Funktionen, den wir hier nicht beweisen: Sie sind automatisch beliebig oft differenzierbar.
 :::
 
 ## Schwächere Voraussetzungen
 
-Der kompakte Träger ist bequem, aber nicht nötig. Laut Skript genügt die Abklingbedingung
+Der kompakte Träger ist bequem, aber nicht nötig. Es genügt die Abklingbedingung
 
 $$\vec F(\vec x) = o\Big(\frac{1}{\lvert\vec x\rvert^2}\Big) \quad\text{für } \lvert\vec x\rvert\to\infty.$$
 
 Das heißt: $\lvert\vec x\rvert^2\,\lvert\vec F(\vec x)\rvert$ geht gegen null, das Feld fällt schneller ab als $\frac{1}{\lvert\vec x\rvert^2}$.
 Die Bedingung sichert die Konvergenz der Integrale aus dem Poisson-Satz. Für beliebig oft differenzierbare Felder genügt sogar
-irgendein Abklingen von $\vec F$ samt aller Ableitungen; das bewies 1905 Otto Blumenthal, Mathematikprofessor an der RWTH Aachen.
-Beide Abschwächungen nennt das Skript ohne Beweis, sie gehen über den Kurs hinaus.
+irgendein Abklingen von $\vec F$ samt aller Ableitungen; das bewies 1905 der Mathematiker Otto Blumenthal.
+Beide Abschwächungen stehen hier ohne Beweis.
 
 **Im Bild:** Die Strömung muss weit draußen nicht ruhen, aber schnell genug abflauen. Sonst summieren sich die fernen Quellen und
 Strudel nicht mehr zu endlichen Potentialen.
@@ -1017,10 +1020,12 @@ $$\operatorname{rot}\vec B = \operatorname{rot}\operatorname{rot}\vec A = \nabla
 und quellenfrei ist $\vec B$ als Rotationsfeld ohnehin.
 :::
 
-Damit endet das Kapitel über die Integralsätze im Raum. Das nächste Kapitel wechselt das Thema und fragt, wie Folgen von
-Funktionen konvergieren — punktweise oder gleichmäßig. Genau diese Frage steckte im zweiten Beweisschritt: Darf man einen
-Grenzübergang mit dem Ableiten vertauschen? Und die Gewichte $\frac{1}{\lvert S_\varepsilon\rvert}$ auf immer kleineren
-Kugeloberflächen sind ein erstes Beispiel einer Dirac-Schar, die das Kapitel über Fourier-Reihen genauer untersucht.
+Damit sind die Integralsätze im Raum abgeschlossen. Der Artikel
+[Punktweise und gleichmäßige Konvergenz](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/punktweise-und-gleichmaessige-konvergenz.html)
+wechselt das Thema und fragt, wie Folgen von Funktionen konvergieren — punktweise oder gleichmäßig. Genau diese Frage steckte
+im zweiten Beweisschritt: Darf man einen Grenzübergang mit dem Ableiten vertauschen? Und die Gewichte
+$\frac{1}{\lvert S_\varepsilon\rvert}$ auf immer kleineren Kugeloberflächen sind ein erstes Beispiel einer Dirac-Schar, die der
+Artikel über Dirac-Scharen und die δ-Distribution genauer untersucht.
 
 :::kern
 - Die __Einheitsquelle__ $g(\vec z)=\frac{1}{4\pi\lvert\vec z\rvert}$ schickt durch jede Kugel um den Ursprung die Schüttung $1$; außerhalb des Ursprungs ist sie harmonisch.
@@ -1050,7 +1055,7 @@ F: Was zeigt das Kugelmittel der glatten Wolke $(1-\lvert\vec y\rvert^2)^2$ um d
 A: Es ist $f(\vec x)-\frac76\varepsilon^2+\varepsilon^4$, also $0{,}5509$ für $\varepsilon=0{,}1$ und $0{,}562\,38$ für $\varepsilon=0{,}01$, mit dem Grenzwert $f(\vec x)=0{,}5625$. Die Schranke aus Schritt 7 ist mit $0{,}1529$ viel gröber, weil sich Abweichungen nach oben und unten fast aufheben. Die Abweichung $-\frac76\varepsilon^2$ ist $\frac{\varepsilon^2}{6}$ mal $\Delta f(\vec x)=-7$: Der Laplace-Operator misst, wie weit das Mittel der Umgebung vom Wert in der Mitte abweicht.
 F: Was bedeuten „Greensche Funktion" und die Kurzschrift $-\Delta g=\delta_{\vec 0}$ genau?
 A: $g$ ist die Greensche Funktion von $-\Delta$, weil ihre Faltung $g*f$ mit jeder zulässigen Dichte die Poisson-Gleichung löst; $g(\vec x-\vec y)$ ist die Antwort auf eine Einheitsquelle bei $\vec y$, und die Wolke ist eine Überlagerung solcher Quellen. Die Kurzschrift sagt, dass die ganze Quellstärke $1$ im Ursprung sitzt. Genau heißt sie: Für jede zweimal stetig differenzierbare Funktion $f$ mit kompaktem Träger ist $\int g\,(-\Delta f)\,d^3y=f(\vec 0)$ — für $f=(1-r^2)^3$ kommt $1$ heraus, obwohl sich Quellen und Senken von $-\Delta f$ insgesamt aufheben.
-F: Wie beweist das Skript den Hauptsatz der Vektoranalysis, und was fehlt dem Glattheitsargument?
+F: Wie beweist man den Hauptsatz der Vektoranalysis mit dem Poincaré-Lemma, und was fehlt dem Glattheitsargument?
 A: Man löst $\Delta u=\operatorname{div}\vec F$ mit dem Newtonpotential von $-\operatorname{div}\vec F$; dann ist $\vec F-\nabla u$ quellenfrei und nach dem Poincaré-Lemma auf dem Sterngebiet $\mathbb{R}^3$ ein Wirbelfeld $\operatorname{rot}\vec A$. Die Formel des Lemmas macht $\vec A$ mindestens so glatt wie das Restfeld, und das ist zunächst nur einmal stetig differenzierbar, weil $u$ zweimal stetig differenzierbar ist. Ein zweimal stetig differenzierbares Vektorpotential liefern erst die ausdrücklichen Formeln.
 F: Wie lauten die ausdrücklichen Potentiale, und was zeigen sie am Strahl in der Kugel?
 A: Mit $\vec Z$, dem komponentenweisen Newtonpotential von $\vec F$, ist $u=-\operatorname{div}\vec Z$, minus das Newtonpotential der Quellen $\operatorname{div}\vec F$, und $\vec A=\operatorname{rot}\vec Z$, das Newtonpotential der Wirbel $\operatorname{rot}\vec F$. Das folgt aus $-\Delta\vec Z=\vec F$ und der rot-rot-Identität; $\vec A$ ist von selbst quellenfrei. Beim Strahl $f\,\vec e_3$ sitzen Quellen unten, Senken oben und ein Wirbelring um die Achse. Draußen sind beide Anteile nicht null — bei $(0,0,2)$ ist $\nabla u=-\frac q4\vec e_3$ und $\operatorname{rot}\vec A=\frac q4\vec e_3$ mit $q=\frac{16}{315}$ —, aber sie heben sich auf.

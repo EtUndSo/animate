@@ -134,8 +134,8 @@ Ob eine **einzige** effektive Masse genügt, hängt von der Form der Flächen ko
   gleichwertigen Tälern entlang der $\langle 100\rangle$-Richtungen. Jede Fläche konstanter Energie ist ein
   **Ellipsoid** — in der Längsrichtung anders gekrümmt als quer. Daher braucht Silizium **zwei** effektive
   Massen: eine longitudinale $m_l^\star \approx 0{,}92\,m_0$ (entlang der Ellipsoid-Längsachse) und eine
-  transversale $m_t^\star \approx 0{,}19\,m_0$ (quer dazu) ([IUE TU Wien](https://www.iue.tuwien.ac.at/phd/smirnov/node45.html),
-  [QuantumATK](https://docs.quantumatk.com/tutorials/effective_mass/effective_mass.html)).
+  transversale $m_t^\star \approx 0{,}19\,m_0$ (quer dazu)
+  ([QuantumATK](https://docs.quantumatk.com/tutorials/effective_mass/effective_mass.html)).
 
 :::grafik
 Links GaAs: eine kugelförmige Fläche konstanter Energie um $\Gamma$ → eine einzige Masse. Rechts Silizium: sechs

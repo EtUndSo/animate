@@ -113,11 +113,11 @@ Zwei Bedingungen legen die Weiten $x_p$ (p-Seite) und $x_n$ (n-Seite) fest:
   $$N_A\,x_p = N_D\,x_n.$$
 - **Stetigkeit** des Potentials am Übergang, mit Gesamthub $V_d$.
 
-Daraus folgt der entscheidende, sehr prüfungsrelevante Befund: Die Verarmungszone reicht **weiter in das schwächer
+Daraus folgt der entscheidende Befund: Die Verarmungszone reicht **weiter in das schwächer
 dotierte Gebiet** hinein. Denn dort müssen **mehr** Atome „entblößt" werden, um dieselbe Gesamtladung
 bereitzustellen wie die wenigen, aber dicht sitzenden Ionen der stark dotierten Seite.
 
-**Eigenes Zahlenbeispiel zur Veranschaulichung:** Ist die n-Seite $100$-mal stärker dotiert als die p-Seite
+**Ein Zahlenbeispiel zur Veranschaulichung:** Ist die n-Seite $100$-mal stärker dotiert als die p-Seite
 ($N_D = 100\,N_A$), dann folgt aus $N_A x_p = N_D x_n$ sofort $x_n = x_p/100$ — die Zone liegt fast vollständig
 im schwach dotierten p-Gebiet. Allgemein gilt für die Gesamtweite $W=x_p+x_n$:
 

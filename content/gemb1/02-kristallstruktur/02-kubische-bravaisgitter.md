@@ -45,8 +45,7 @@ günstigere, stabilere Struktur. Genau diesen Trend sehen wir gleich bei SC → 
 
 Beim __einfach kubischen__ Gitter (*simple cubic*, SC) sitzen Atome nur auf den **8 Würfelecken**. Da jede Ecke
 zu 8 angrenzenden Würfeln gehört, trägt sie nur $1/8$ zum Würfel bei — macht $8 \cdot \tfrac18 = 1$ Atom pro
-Zelle. Ein Atom hat **6** nächste Nachbarn (oben, unten, links, rechts, vorn, hinten), also Koordinationszahl 6
-([KSU](https://faculty.ksu.edu.sa/sites/default/files/Lecture_8_Important_Crystal_Structures.pdf)).
+Zelle. Ein Atom hat **6** nächste Nachbarn (oben, unten, links, rechts, vorn, hinten), also Koordinationszahl 6.
 
 Hier sind die primitiven Gittervektoren tatsächlich die Würfelkanten:
 
@@ -70,7 +69,7 @@ $\text{APF} = \pi/6$.
 
 Beim __raumzentrierten__ Gitter (*body-centered cubic*, BCC) kommt zu den 8 Ecken **ein Atom im Würfelzentrum**
 hinzu. Pro Zelle also $8\cdot\tfrac18 + 1 = 2$ Atome. Das Zentralatom „sieht" alle 8 Ecken gleich weit — die
-Koordinationszahl ist **8** ([KSU](https://faculty.ksu.edu.sa/sites/default/files/Lecture_8_Important_Crystal_Structures.pdf)).
+Koordinationszahl ist **8**.
 Beispiele: Natrium, $\alpha$-Eisen, Wolfram, Chrom, Kalium.
 
 Jetzt berühren sich die Kugeln entlang der **Raumdiagonale** (Länge $\sqrt3\,a$), auf der vier Radien liegen:
@@ -107,9 +106,8 @@ zu Zentralatomen zeigen und so jeden Gitterpunkt treffen.
 
 Beim __flächenzentrierten__ Gitter (*face-centered cubic*, FCC) sitzt zu den 8 Ecken **je ein Atom auf den 6
 Flächenmitten**. Jede Flächenmitte gehört zu 2 Würfeln, trägt also $\tfrac12$ bei: $8\cdot\tfrac18 + 6\cdot\tfrac12
-= 4$ Atome pro Zelle. Die Koordinationszahl ist **12** — der höchstmögliche Wert für gleich große Kugeln
-([KSU](https://faculty.ksu.edu.sa/sites/default/files/Lecture_8_Important_Crystal_Structures.pdf)). Beispiele:
-Aluminium, Kupfer, Gold, Silber.
+= 4$ Atome pro Zelle. Die Koordinationszahl ist **12** — der höchstmögliche Wert für gleich große Kugeln.
+Beispiele: Aluminium, Kupfer, Gold, Silber.
 
 Hier berühren sich die Kugeln entlang der **Flächendiagonale** (Länge $\sqrt2\,a$), auf der vier Radien liegen:
 $\sqrt2\,a = 4r$. Mit 4 Atomen pro Zelle:

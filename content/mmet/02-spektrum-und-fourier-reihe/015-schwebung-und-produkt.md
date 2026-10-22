@@ -70,7 +70,7 @@ t)$ (kleine Frequenz) und einer **schnellen** $\cos(\omega_M t)$ (große Frequen
 anders hingeschrieben. Genau diese Doppeldeutung erklärt die Schwebung.
 
 :::grafik
-Rechenkette als Tafelbild: oben das Produkt $\cos\omega_M t\cos\omega_\Delta t$, über die Eulersche Formel in vier
+Rechenkette als Schaubild: oben das Produkt $\cos\omega_M t\cos\omega_\Delta t$, über die Eulersche Formel in vier
 Exponentialterme zerlegt, diese paarweise zu $\tfrac12\cos\omega_2 t+\tfrac12\cos\omega_1 t$ zusammengefasst;
 Ergebnis als eingerahmte Identität $\cos\omega_1 t+\cos\omega_2 t=2\cos\omega_\Delta t\,\cos\omega_M t$. Die
 Zuordnung $\omega_1=\omega_M-\omega_\Delta$, $\omega_2=\omega_M+\omega_\Delta$ farbig markiert.
@@ -111,7 +111,7 @@ pulsiert.
 
 ## Die Spektren: Summe gegen Produkt
 
-Jetzt die Spektren — und hier zeigt sich ein überraschender, prüfungsrelevanter Unterschied. Wir nutzen die
+Jetzt die Spektren — und hier zeigt sich ein überraschender, wichtiger Unterschied. Wir nutzen die
 zweiseitige Darstellung mit Koeffizienten $a_k$ aus dem vorigen Abschnitt.
 
 **Spektrum der Summe (Schwebung).** Das Signal $s(t) = \cos\omega_1 t + \cos\omega_2 t$ ist einfach die Summe
@@ -138,7 +138,7 @@ Rechts „Produkt": vier Linien bei $\pm(\omega_M-\omega_\Delta)$ und $\pm(\omeg
 $\tfrac14$; ebenfalls „keine Linie bei $\omega_M$ oder $\omega_\Delta$".
 :::
 
-## Eigenes Zahlenbeispiel
+## Ein Zahlenbeispiel
 
 Zwei Flötentöne von $f_1 = 200\,$Hz und $f_2 = 206\,$Hz werden zusammen gespielt. Dann ist die Mittenfrequenz
 $f_M = \tfrac12(200+206) = 203\,$Hz und die halbe Differenz $f_\Delta = \tfrac12(206-200) = 3\,$Hz. Man hört

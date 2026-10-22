@@ -39,8 +39,7 @@ Der Trick: Man nimmt die **Kehrwerte** der Achsabschnitte. Denn der Kehrwert von
 
 $$\frac{1}{\infty} = 0.$$
 
-So wird aus „parallel zur Achse" (Abschnitt $\infty$) einfach der Index $0$ — keine Sonderbehandlung nötig
-([Britannica](https://www.britannica.com/science/Miller-indices), [LibreTexts](https://chem.libretexts.org/Courses/Lafayette_College/CHEM_440:_Structure_Determination/04:_X-ray_Crystallography/4.03:_Miller_Indices_(hkl))).
+So wird aus „parallel zur Achse" (Abschnitt $\infty$) einfach der Index $0$ — keine Sonderbehandlung nötig.
 Das ist der ganze Grund für die auf den ersten Blick seltsame Kehrwert-Vorschrift.
 
 :::grafik
@@ -75,8 +74,7 @@ $1,1,2 \to 1,1,\tfrac12 \to (221)$ Schritt für Schritt eingeblendet.
 
 - $(100)$: eine **Würfelfläche** (parallel zu $y$ und $z$).
 - $(110)$: eine **diagonale** Ebene durch zwei gegenüberliegende Kanten.
-- $(111)$: die Ebene, die alle drei Achsen bei $1$ schneidet (ein Dreieck, das drei Würfelecken verbindet)
-  ([Britannica](https://www.britannica.com/science/Miller-indices)).
+- $(111)$: die Ebene, die alle drei Achsen bei $1$ schneidet (ein Dreieck, das drei Würfelecken verbindet).
 
 Eine einzelne Ebene schreibt man $(hkl)$; die **Menge aller symmetrisch gleichwertigen** Ebenen fasst man in
 **geschweiften Klammern** $\{hkl\}$ zusammen. Im Würfel gehören z. B. alle 6 Seitenflächen zur Familie
@@ -115,7 +113,7 @@ $$[hkl] \perp (hkl) \qquad (\text{nur im kubischen System!}).$$
 
 So ist etwa $[111]$ die Flächennormale von $(111)$. **Warum nur kubisch?** Weil nur dort die drei Achsen
 orthogonal **und** gleich lang sind. In anderen Systemen (hexagonal, monoklin …) sind die Achsen schief oder
-verschieden lang — dann stimmt die Senkrecht-Beziehung im Allgemeinen **nicht** ([Vedantu](https://vedantu.com/physics/miller-indices)).
+verschieden lang — dann stimmt die Senkrecht-Beziehung im Allgemeinen **nicht**.
 
 :::grafik
 Ein kubischer Würfel mit der Ebene $(111)$ und dem darauf senkrecht stehenden Pfeil $[111]$. Daneben ein schiefes

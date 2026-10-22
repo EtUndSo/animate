@@ -76,8 +76,7 @@ Nur an der heißen Staboberfläche zerfällt das Gas und scheidet reines Siliziu
 $$\text{SiHCl}_3 + \text{H}_2 \;\longrightarrow\; \text{Si} + 3\,\text{HCl}.$$
 
 Das Ergebnis ist zwar hochrein, aber **poly-kristallin** (viele kleine, verschieden orientierte Kristallite). Für
-Bauelemente braucht man dagegen einen **Ein**kristall — das leistet erst die dritte Stufe
-([pv-manufacturing](https://pv-manufacturing.org/silicon-production/polysilicon-production/)).
+Bauelemente braucht man dagegen einen **Ein**kristall — das leistet erst die dritte Stufe.
 
 :::grafik
 Eine Siemens-Glocke: im Inneren ein U-förmiger, rot glühender Si-Stab, umströmt von $\text{SiHCl}_3 + \text{H}_2$;
@@ -103,7 +102,7 @@ der **Versetzungen** (Gitterfehler) erzeugt. Würden sie in den Kristall hineinw
 Der Trick: Man zieht zuerst **schnell** und erzeugt dabei einen dünnen Hals (__neck__) von nur $\approx 3\,$mm
 Durchmesser. In diesem engen Hals „wachsen sich die Versetzungen aus" (sie laufen zur Seite heraus). Erst wenn
 der Hals versetzungsfrei ist, zieht man **langsamer** und lässt den Kristall auf den vollen Durchmesser
-anwachsen ([US6080237](https://patents.google.com/patent/US6080237), [US5628823](https://patents.google.com/patent/US5628823)).
+anwachsen.
 
 :::grafik
 Der Czochralski-Zieher im Schnitt: Tiegel mit glühender Schmelze ($1414\,{}^\circ$C, Argon), von oben der

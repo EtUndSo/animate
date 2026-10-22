@@ -108,7 +108,7 @@ die äußeren Linien ins Band zurück. Formeln $\hat\omega_k=\hat\omega_0+2\pi k
 
 ## Was das praktisch bedeutet
 
-Knüpfen wir an das Beispiel aus dem vorigen Artikel an (eigene Zahlen): Ein 200-Hz-Ton, abgetastet mit
+Knüpfen wir an das Beispiel aus dem vorigen Artikel an: Ein 200-Hz-Ton, abgetastet mit
 $r=1\,$kHz, hat $\hat\omega_0 = 0{,}4\pi$. Seine Alias-Frequenzen sind $0{,}4\pi + 2\pi = 2{,}4\pi$ (entspricht
 $f = r\hat\omega/2\pi = 1200\,$Hz) und $2\pi - 0{,}4\pi = 1{,}6\pi$ ($f = 800\,$Hz), dann $2800\,$Hz, $1800\,$Hz
 usw. Alle diese Töne — **200 Hz, 800 Hz, 1200 Hz, 1800 Hz, …** — erzeugen bei $r=1\,$kHz die **identische**

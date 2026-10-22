@@ -26,7 +26,7 @@ __Dirichlet-Kern__) — der Schlüssel zum nächsten Artikel.
 :::
 
 **Worum es geht:** Wir definieren __Glättungskern__ und __Dirac-Schar__, zeigen, dass die __Faltung__ $\varphi_
-\varepsilon*f\to f$ (Satz 7.16), deuten die Schar als __Approximation der Eins__ und führen die __δ-Distribution__ ein.
+\varepsilon*f\to f$, deuten die Schar als __Approximation der Eins__ und führen die __δ-Distribution__ ein.
 
 ## Glättungskern und Dirac-Schar
 
@@ -45,9 +45,9 @@ Buckel wird schmaler und höher, die Fläche bleibt erhalten.
 
 ## Glättung durch Faltung
 
-**Satz 7.16.** Sei $f:\mathbb{R}\to\mathbb{R}$ stetig und $f_\varepsilon(x):=\int_{\mathbb{R}}\varphi_\varepsilon(x-y)
+**Satz.** Sei $f:\mathbb{R}\to\mathbb{R}$ stetig und $f_\varepsilon(x):=\int_{\mathbb{R}}\varphi_\varepsilon(x-y)
 f(y)\,dy$. Dann ist $f_\varepsilon$ für $\varepsilon>0$ **beliebig glatt**, und $f_\varepsilon(x)\to f(x)$ für
-$\varepsilon\downarrow0$ (punktweise, auf endlichen Intervallen sogar gleichmäßig, Bemerkung 7.17).
+$\varepsilon\downarrow0$ (punktweise, auf endlichen Intervallen sogar gleichmäßig).
 
 *Beweis der Konvergenz.* Weil $\int\varphi_\varepsilon(x-y)\,dy=1$, ist $\int\varphi_\varepsilon(x-y)f(x)\,dy=f(x)$,
 und mit der Standardabschätzung für Integrale
@@ -82,14 +82,14 @@ $\delta_0$ **im Distributionssinn**, und meint
 $$\lim_{\varepsilon\downarrow0}\int_{\mathbb{R}}f(y)\,\varphi_\varepsilon(y)\,dy=f(0)=:\int_{\mathbb{R}}f(x)\,\delta_0(dx).$$
 
 Die __Dirac'sche δ-Distribution__ $\delta_0$ definiert also ein **neues Integral**, das eine stetige Funktion bei
-$x=0$ **auswertet** (__Siebeigenschaft__). Allgemeiner für $x\in\mathbb{R}$ und $I\subset\mathbb{R}$ (Bemerkung 7.18):
+$x=0$ **auswertet** (__Siebeigenschaft__). Allgemeiner für $x\in\mathbb{R}$ und $I\subset\mathbb{R}$:
 
 $$\int_I f(y)\,\delta_x(dy)=\int_I f\,d\delta_x=\begin{cases}f(x), & x\in I,\\ 0, & x\notin I,\end{cases} \qquad \delta_x(I)=\begin{cases}1, & x\in I,\\ 0, & x\notin I.\end{cases}$$
 
 Anders als das $R$-Integral „bemerkt" das δ-Integral, ob über ein offenes oder abgeschlossenes Intervall integriert
 wird (ob der Punkt $x$ dazugehört).
 
-**Eigene Beispiele (andere Dirac-Scharen).** Der Glättungskern muss nicht kompakten Träger haben; es genügen
+**Weitere Beispiele (andere Dirac-Scharen).** Der Glättungskern muss nicht kompakten Träger haben; es genügen
 Nichtnegativität, Integral $1$ und Konzentration bei $0$. Klassiker: der __Gauß-Kern__ $\varphi_\varepsilon(x)=
 \frac{1}{\sqrt{2\pi\varepsilon}}\,e^{-x^2/(2\varepsilon)}$ (die Wärmeleitungslösung — glatt, überall positiv) und das
 einfachste __Rechteck__ $\varphi_\varepsilon(x)=\frac{1}{2\varepsilon}\mathbf{1}_{[-\varepsilon,\varepsilon]}(x)$ (der
@@ -120,7 +120,7 @@ besser).
 :::kern
 __Glättungskern__ $\varphi\ge0$ glatt, $\varphi=0$ für $|x|\ge1$, $\int\varphi=1$ (z. B. Buckel $\frac1c e^{1/(x^2-1)}$);
 __Dirac-Schar__ $\varphi_\varepsilon(x)=\frac1\varepsilon\varphi(x/\varepsilon)$, $\int\varphi_\varepsilon=1$,
-konzentriert bei $0$ für $\varepsilon\downarrow0$. __Satz 7.16__: $f_\varepsilon=\varphi_\varepsilon*f$ ist glatt und
+konzentriert bei $0$ für $\varepsilon\downarrow0$. __Glättung__: $f_\varepsilon=\varphi_\varepsilon*f$ ist glatt und
 $f_\varepsilon\to f$ (Beweis: $|f-f_\varepsilon|\le\sup_{|x-y|<\varepsilon}|f(x)-f(y)|\to0$). __Faltung__ $(f*g)(x)=
 \int f(x-y)g(y)\,dy$ (kommutativ, kein Einselement) ⇒ Dirac-Schar = __Approximation der Eins__. __δ-Distribution__:
 $\int f\,d\delta_x=f(x)$ (__Siebeigenschaft__), $\delta_x(I)=1$ falls $x\in I$ sonst $0$; **keine Funktion**, nur als

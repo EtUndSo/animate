@@ -120,7 +120,7 @@ $\vec a_2\cdot\vec b_1 = \vec a_3\cdot\vec b_1 = 0$.
 
 Das reziproke Gitter ist selbst ein Bravais-Gitter — also kann man darauf **erneut die
 Wigner-Seitz-Konstruktion** anwenden (alle Punkte, die dem Ursprung näher sind als jedem anderen reziproken
-Gitterpunkt). Diese Zelle hat einen eigenen Namen: die __1. Brillouin-Zone__ ([Oxford Solid State](https://vaia.com/en-us/textbooks/physics/the-oxford-solid-state-basics-1-edition/chapter-13)).
+Gitterpunkt). Diese Zelle hat einen eigenen Namen: die __1. Brillouin-Zone__.
 
 In 1D ist das schlicht das Intervall
 
@@ -139,8 +139,7 @@ davon blass die Wiederholungen. Hinweis „eine Periode genügt".
 
 Ein überraschendes, für Silizium wichtiges Ergebnis: Setzt man die primitiven **BCC**-Vektoren in die
 $\vec b_i$-Formeln ein, kommt ein **FCC**-Gitter im reziproken Raum heraus — und umgekehrt ist das reziproke
-Gitter von FCC ein BCC ([Cambridge QCMP](https://www.sp.phy.cam.ac.uk/files/media/qcmp_lectures_5-8_2020-21.pdf),
-[Oxford Solid State](https://vaia.com/en-us/textbooks/physics/the-oxford-solid-state-basics-1-edition/chapter-13)).
+Gitter von FCC ein BCC.
 
 Daraus folgt direkt die Form der Brillouin-Zonen:
 

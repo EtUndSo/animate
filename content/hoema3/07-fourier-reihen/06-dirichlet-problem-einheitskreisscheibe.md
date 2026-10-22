@@ -70,14 +70,14 @@ vertauschen darf (der Poisson-Kern und seine Ableitungen sind auf $[0,1-\delta]\
 Hier zeigt sich der Vorteil gegenüber dem Dirichlet-Kern: $P_r$ ist eine **echte, nichtnegative Dirac-Schar**. Es gilt
 $\frac{1}{2\pi}\int_0^{2\pi}P_r(\theta)\,d\theta=1$ **und** $P_r(\theta)\ge0$ (der Zähler $1-r^2>0$, der Nenner $>0$),
 also ist $P_r$ — anders als $D_N$ — **gleichmäßig absolut integrierbar**; sein Integral konzentriert sich für $r\nearrow
-1$ bei $\theta=0$. Daraus folgt (Lemma 7.27): Für stetiges, $2\pi$-periodisches $f$ konvergiert
+1$ bei $\theta=0$. Daraus folgt: Für stetiges, $2\pi$-periodisches $f$ konvergiert
 
 $$\frac{1}{2\pi}\int_0^{2\pi}P_r(\theta-t)\,f(t)\,dt\xrightarrow{r\nearrow1} f(\theta) \qquad\text{gleichmäßig in }\theta.$$
 
 Die Nichtnegativität ist genau das, was dem Dirichlet-Kern fehlte — deshalb werden die Randwerte sogar für **bloß
 stetige** $g$ angenommen. Zusammengefasst:
 
-**Satz 7.28.** Für stetiges $g:\partial D\to\mathbb{R}$ existiert eine **eindeutige** glatte Lösung $u:D\to\mathbb{R}$
+**Satz.** Für stetiges $g:\partial D\to\mathbb{R}$ existiert eine **eindeutige** glatte Lösung $u:D\to\mathbb{R}$
 der Laplace-Gleichung $\Delta u=0$ in $D$ mit $\lim_{y\to x}u(y)=g(x)$ für alle $x\in\partial D$.
 
 :::grafik
@@ -95,7 +95,7 @@ Randmaximum), so hätte $\tilde u(x)=u(x)+\frac{\delta}{2}|x|^2$ ebenfalls ein i
 aber $\operatorname{spur}D^2\tilde u(x_0)=\Delta u(x_0)+2\delta=2\delta>0$, im Widerspruch zum notwendigen Kriterium
 $\operatorname{spur}D^2\tilde u(x_0)\le0$ an einem Maximum. Analog für das Minimum.
 
-**Eigene Deutung (Mittelwerteigenschaft).** Im Zentrum $r=0$ ist $P_0\equiv1$, also
+**Deutung (Mittelwerteigenschaft).** Im Zentrum $r=0$ ist $P_0\equiv1$, also
 
 $$u(0)=\frac{1}{2\pi}\int_0^{2\pi}g(e^{it})\,dt$$
 
@@ -115,14 +115,15 @@ $r^2A_k''+rA_k'-k^2A_k=0$, beschränkte Lösung $A_k=c_k r^{|k|}$ ⇒ $u(r,\thet
 \theta}$ (Fourier-Koeffizienten $c_k$ von $g$; Mode klingt mit $r^{|k|}$ ab). __Poisson-Kern__ $P_r(\theta)=\sum_k
 r^{|k|}e^{ik\theta}=\frac{1-r^2}{1-2r\cos\theta+r^2}$; __Poisson-Integralformel__ $u(r,\theta)=\frac1{2\pi}\int_0^{2\pi}
 P_r(\theta-t)g(e^{it})\,dt$. $P_r\ge0$, $\frac1{2\pi}\int P_r=1$ → **nichtnegative Dirac-Schar** ⇒ Randwerte angenommen
-(Lemma 7.27, $r\nearrow1$ gleichmäßig). __Satz 7.28__: eindeutige glatte Lösung; Eindeutigkeit via __Maximumprinzip__
+($r\nearrow1$ gleichmäßig). __Existenz und Eindeutigkeit__: eindeutige glatte Lösung; Eindeutigkeit via __Maximumprinzip__
 (harmonisch ⇒ Max/Min am Rand). __Mittelwerteigenschaft__ $u(0)=\frac1{2\pi}\int g$. Gegensatz: $P_r$ (Dämpfung
 $r^{|k|}$, nichtnegativ) vs. $D_N$ (Abschneiden, oszillierend).
 :::
 
-Damit schließt das Fourier-Kapitel: von der Zerlegung in Schwingungen über $L^2$- und punktweise Konvergenz bis zur
-Lösung der Laplace-Gleichung. Das letzte Kapitel wechselt zur __Wahrscheinlichkeitsrechnung__ — Wahrscheinlichkeits-
-räume, Zufallsvariablen und die Grenzwertsätze. Das ist der Start des nächsten Kapitels.
+Damit sind die Fourier-Reihen abgeschlossen: von der Zerlegung in Schwingungen über $L^2$- und punktweise Konvergenz bis
+zur Lösung der Laplace-Gleichung. Als Nächstes geht es um __Wahrscheinlichkeitsrechnung__ — Wahrscheinlichkeitsräume,
+Zufallsvariablen und die Grenzwertsätze, beginnend mit dem Artikel
+[Wahrscheinlichkeitsräume](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung/wahrscheinlichkeitsraeume.html).
 
 :::quiz
 F: Was fragt das Dirichlet-Problem anschaulich, und was heißt „harmonisch"?

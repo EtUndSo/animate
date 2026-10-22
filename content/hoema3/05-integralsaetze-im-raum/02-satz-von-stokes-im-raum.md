@@ -8,8 +8,9 @@ tags: Satz von Stokes, Flussintegral, orientierte Fläche, Normalenfeld, Rotatio
 
 ## Anschaulich
 
-Im Kapitel über Kurvenintegrale hat der Satz von Stokes in der Ebene die Arbeit längs eines Zauns mit den Wirbeln im
-eingezäunten Grundstück verbunden. Im Raum ist die Fläche nicht mehr flach, sondern beliebig gewölbt, und die Rotation ist ein
+Im Artikel über die
+[Integralsätze in der Ebene](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/integralsaetze-in-der-ebene.html)
+hat der Satz von Stokes in der Ebene die Arbeit längs eines Zauns mit den Wirbeln im eingezäunten Grundstück verbunden. Im Raum ist die Fläche nicht mehr flach, sondern beliebig gewölbt, und die Rotation ist ein
 echter Vektor. Die Aussage bleibt: **Die Wirbel, die durch eine Fläche treten, sind die Zirkulation längs ihres Randes.**
 
 **Das Leitbild dieses Artikels:** ein **Kescher** — ein Netz, das an einem Ring hängt. Das Netz besteht aus kleinen Maschen,
@@ -97,8 +98,6 @@ Flächenstück.
 Für eine reguläre Parametrisierung, die zur Orientierung passt, wird daraus eine Rechenformel ohne Normieren:
 
 $$\int_S\vec F\cdot d\vec S = \int_B\vec F\big(\vec\Phi(u,v)\big)\cdot\big(\partial_u\vec\Phi\times\partial_v\vec\Phi\big)(u,v)\;du\,dv.$$
-
-Das Skript integriert hier über $\mathcal G$; gemeint ist der Parameterbereich $B$.
 
 :::herleitung
 Nach der Definition des Oberflächenintegrals ist $d\sigma$ der Betrag des Kreuzprodukts mal $du\,dv$, und die Normale ist das
@@ -193,7 +192,7 @@ zurück — im Parameterbereich $B$. Dort definiert man ein ebenes Hilfsfeld $\v
 
 $$G_1(u,v) := \vec F\big(\vec\Phi(u,v)\big)\cdot\partial_u\vec\Phi(u,v), \qquad G_2(u,v) := \vec F\big(\vec\Phi(u,v)\big)\cdot\partial_v\vec\Phi(u,v).$$
 
-Das Skript nennt sie $P$ und $Q$. Ihre ebene Rotation ist genau der Integrand des Wirbelflusses:
+Ihre ebene Rotation ist genau der Integrand des Wirbelflusses:
 
 :::formel Lemma
 $$\partial_uG_2-\partial_vG_1 = \big(\operatorname{rot}\vec F\big)\big(\vec\Phi\big)\cdot\big(\partial_u\vec\Phi\times\partial_v\vec\Phi\big).$$
@@ -232,7 +231,8 @@ Geschwindigkeit der Bildkurve $\partial_u\vec\Phi\,\dot\gamma_1+\partial_v\vec\P
 $$\oint_{\partial B}G_1\,du+G_2\,dv = \int_a^b\vec F\big(\vec\Phi(\vec\gamma)\big)\cdot\Big(\partial_u\vec\Phi\,\dot\gamma_1+\partial_v\vec\Phi\,\dot\gamma_2\Big)\;dt = \oint_{\partial S}\vec F\cdot d\vec x.$$
 
 **Im Bild:** Erst rechnet man die Wirbel durch jede Masche in Wirbel des Hilfsfelds um, dann gilt im flachen Parameterbereich
-das Grundstücks-Argument aus dem Kapitel über Kurvenintegrale, und zuletzt wird der Zaun um $B$ wieder zum Ring des Keschers.
+das Grundstücks-Argument aus dem Artikel über die Integralsätze in der Ebene, und zuletzt wird der Zaun um $B$ wieder zum Ring
+des Keschers.
 :::
 
 ::::beispiel Der Beweis an der Halbkugel
@@ -261,8 +261,9 @@ Notwendig ist dann, dass $\vec F$ quellenfrei ist, denn für ein zweimal stetig 
 $\operatorname{div}\operatorname{rot}\vec A=0$ (Artikel über Rechenregeln). Auf sternförmigen Mengen reicht das nach dem
 Poincaré-Lemma auch. Im Allgemeinen reicht es nicht — und der Satz von Stokes zeigt, warum.
 
-**Das Coulomb-Feld.** Auf $U=\mathbb{R}^3\setminus\{\vec 0\}$ — nach dem Kapitel über Kurvenintegrale einfach zusammenhängend —
-betrachtet man das Feld einer Punktladung $Q$:
+**Das Coulomb-Feld.** Auf $U=\mathbb{R}^3\setminus\{\vec 0\}$ — nach dem Artikel
+[Homotopieinvarianz und der zweite Hauptsatz](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/homotopie-und-zweiter-hauptsatz.html)
+einfach zusammenhängend — betrachtet man das Feld einer Punktladung $Q$:
 
 $$\vec E(\vec x) = \frac{Q}{4\pi r^2}\,\vec e_r, \qquad r = \lvert\vec x\rvert.$$
 
@@ -294,7 +295,8 @@ Durch sie kann kein Wirbelfluss treten, die Punktladung schickt aber den Fluss $
 
 $$U = \big\{(x,y,z)\in\mathbb{R}^3 : x^2+y^2\neq0\big\},$$
 
-betrachtet man die räumliche Fassung der Wendeltreppe aus dem Kapitel über Kurvenintegrale; das Skript nennt das Feld $\vec H$:
+betrachtet man die räumliche Fassung der Wendeltreppe aus dem Artikel
+[Homotopieinvarianz und der zweite Hauptsatz](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/homotopie-und-zweiter-hauptsatz.html):
 
 $$\vec W(x,y,z) = \frac{1}{x^2+y^2}\,\big(-y,\ x,\ 0\big).$$
 
@@ -302,8 +304,6 @@ Es ist wirbelfrei, aber kein Gradientenfeld — um die Achse herum leistet es di
 zusammenhängend. Es ist aber quellenfrei, und es **ist** ein Rotationsfeld, mit dem Vektorpotential
 
 $$\vec W = \operatorname{rot}\vec A, \qquad \vec A(x,y,z) = -\ln\varrho\;\vec e_z, \qquad \varrho = \sqrt{x^2+y^2}.$$
-
-Im Skript steht die Menge als $\mathbb{R}^3\setminus\{x^2+y^2\neq0\}$; das wäre die Achse selbst — gemeint ist ihr Komplement.
 
 :::herleitung
 **Quellenfrei.** Mit der Quotientenregel heben sich die beiden Ableitungen weg:
@@ -320,8 +320,8 @@ die die Achse nicht trifft, umschließt kein Stück von ihr, denn die Achse ist 
 Fluss.
 :::
 
-**Die allgemeine Bedingung.** Für Rotationsfelder kommt es also auf Flächen an, nicht auf Kurven. Das Skript nennt dazu ohne
-Beweis den folgenden Satz. Ist $U\subseteq\mathbb{R}^3$ ein Gebiet, in dem jede geschlossene stückweise reguläre Fläche der Rand
+**Die allgemeine Bedingung.** Für Rotationsfelder kommt es also auf Flächen an, nicht auf Kurven. Dazu gilt der folgende
+Satz, hier ohne vollständigen Beweis. Ist $U\subseteq\mathbb{R}^3$ ein Gebiet, in dem jede geschlossene stückweise reguläre Fläche der Rand
 eines regulären Bereichs $V\subseteq U$ ist, und ist $\vec F:U\to\mathbb{R}^3$ stetig differenzierbar, so gilt
 
 :::formel Satz
@@ -343,10 +343,10 @@ Fläche etwas im Gebiet umschließt.
 **Von links nach rechts** gilt das immer, für ein zweimal stetig differenzierbares Vektorpotential: Die Divergenz einer
 Rotation ist null.
 
-**Von rechts nach links** nennt das Skript den Satz ohne Beweis. Die Idee: Die Bedingung an das Gebiet sorgt dafür, dass der
+**Von rechts nach links** folgt hier nur die Beweisidee: Die Bedingung an das Gebiet sorgt dafür, dass der
 Fluss eines quellenfreien Felds durch jede geschlossene Fläche verschwindet — nach dem Satz von Gauß im nächsten Artikel ist er
 das Integral der Divergenz über den umschlossenen Bereich. Damit fehlt genau das Hindernis, an dem das Coulomb-Feld scheitert.
-Aus dieser Flussbedingung ein Vektorpotential zu bauen, geht über den Kurs hinaus.
+Aus dieser Flussbedingung ein Vektorpotential zu bauen, führt hier zu weit.
 :::
 
 :::grafik

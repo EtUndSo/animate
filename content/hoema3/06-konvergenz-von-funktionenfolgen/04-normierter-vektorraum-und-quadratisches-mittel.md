@@ -22,7 +22,7 @@ einfach $\|f_n-f\|\to0$ — wie bei Zahlenfolgen, nur mit Funktionen. Zwei Norme
 fasst die **gleichmäßige** Konvergenz (ideal für Potenzreihen). Für Fourier-Reihen und allgemeinere (auch
 unstetige) Funktionen ist sie aber zu streng — dort passt die __$L^2$-Norm__ aus einem **Skalarprodukt**, die der
 Funktionenwelt eine Geometrie mit Winkeln, Orthogonalität und Pythagoras gibt. Das ist die Bühne, auf der die
-Fourier-Theorie im nächsten Kapitel spielt.
+Fourier-Theorie der folgenden Artikel spielt.
 :::
 
 **Worum es geht:** Wir machen die stetigen Funktionen mit der __Supremumsnorm__ zu einem vollständigen Raum
@@ -41,10 +41,11 @@ schreibt sich kompakt als Cauchy-Bedingung
 
 $$\|f_m-f_n\|_{\sup}\to0\quad\text{für } m,n\to\infty.$$
 
-Da jede gleichmäßig konvergente Folge stetiger Funktionen einen stetigen Limes **im Raum** besitzt (Satz 6.4), ist der
+Da jede gleichmäßig konvergente Folge stetiger Funktionen einen stetigen Limes **im Raum** besitzt (Satz über die
+Stetigkeit des Limes), ist der
 Raum **vollständig**:
 
-**Satz 6.11.** Die stetigen Funktionen $C^0([a,b];\mathbb{C})=\{f:[a,b]\to\mathbb{C}\ \text{stetig}\}$ bilden mit der
+**Satz.** Die stetigen Funktionen $C^0([a,b];\mathbb{C})=\{f:[a,b]\to\mathbb{C}\ \text{stetig}\}$ bilden mit der
 Supremumsnorm einen **vollständigen** normierten Vektorraum (einen __Banachraum__); man schreibt $\|f\|_{C^0}\equiv
 \|f\|_{\sup}$. Ebenso sind die Räume $C^k([a,b])$ der $k$-mal stetig differenzierbaren Funktionen mit der Norm
 $\|f\|_{C^k}:=\sup_{x\in[a,b]}\sum_{i=0}^k|f^{(i)}(x)|$ vollständig.
@@ -56,14 +57,14 @@ aus den stetigen Funktionen heraus. Das ist die funktionale Entsprechung der Vol
 
 Für die Approximation durch **orthogonale Funktionensysteme** (Fourier-, Legendre-Polynome) ist die gleichmäßige
 Konvergenz zu streng — schon stückweise stetige Funktionen mit Sprüngen lassen sich nicht gleichmäßig durch stetige
-Summen approximieren. Der passende Begriff ist die __Konvergenz im quadratischen Mittel__ (Definition 6.12): Für
+Summen approximieren. Der passende Begriff ist die __Konvergenz im quadratischen Mittel__: Für
 $R$-integrierbare $f_n,f:[a,b]\to\mathbb{C}$ gilt $f_n\to f$ im quadratischen Mittel, wenn
 
 $$\lim_{n\to\infty}\int_a^b|f_n(x)-f(x)|^2\,dx=0.$$
 
 Der Raum $\mathcal{R}([a,b];\mathbb{C})$ der $R$-integrierbaren Funktionen enthält insbesondere alle stetigen und
-stückweise stetigen Funktionen (und mit $f$ auch $|f|^2$). Der Zusammenhang zur gleichmäßigen Konvergenz
-(Bemerkung 6.13): **Gleichmäßige Konvergenz impliziert Konvergenz im quadratischen Mittel** (auf dem endlichen
+stückweise stetigen Funktionen (und mit $f$ auch $|f|^2$). Der Zusammenhang zur gleichmäßigen Konvergenz:
+**Gleichmäßige Konvergenz impliziert Konvergenz im quadratischen Mittel** (auf dem endlichen
 Intervall) — aber **nicht umgekehrt**.
 
 ## Das Skalarprodukt und die $L^2$-Norm
@@ -74,13 +75,13 @@ man das (hermitesche) Skalarprodukt und die zugehörige Norm
 $$\langle f,g\rangle:=\frac{1}{b-a}\int_a^b f(x)\,\overline{g(x)}\,dx, \qquad \|f\|_2^2:=\langle f,f\rangle=\frac{1}{b-a}\int_a^b|f(x)|^2\,dx.$$
 
 Die Normierung mit der Intervalllänge $\frac{1}{b-a}$ ist für Konvergenzfragen unerheblich (auf unbeschränkten
-Gebieten lässt man sie weg). Es gelten (Lemma 6.15) die **Dreiecksungleichung** $\|f+g\|_2\le\|f\|_2+\|g\|_2$ und die
+Gebieten lässt man sie weg). Es gelten die **Dreiecksungleichung** $\|f+g\|_2\le\|f\|_2+\|g\|_2$ und die
 __Cauchy–Schwarz-Ungleichung__
 
 $$|\langle f,g\rangle|\le\|f\|_2\,\|g\|_2.$$
 
 Für stückweise stetige $f_n,f$ ist Konvergenz im quadratischen Mittel genau $\|f_n-f\|_2\to0$; man nennt sie daher
-auch __$L^2$-Konvergenz__. Sie lässt sich mit der **Integration vertauschen** (Lemma 6.16): $f_n\to f$ im
+auch __$L^2$-Konvergenz__. Sie lässt sich mit der **Integration vertauschen**: $f_n\to f$ im
 quadratischen Mittel $\Rightarrow\lim_n\int_a^b f_n\,dx=\int_a^b f\,dx$, denn mit Cauchy–Schwarz ist
 
 $$\left|\int_a^b f_n\,dx-\int_a^b f\,dx\right|\le\int_a^b|f_n-f|\,dx\le(b-a)^{1/2}\Big(\int_a^b|f_n-f|^2\,dx\Big)^{1/2}\to0.$$
@@ -94,7 +95,7 @@ Fourier-Systems.
 
 ## Warum $L^2$ schwächer ist — und der Hilbertraum
 
-**Eigenes Beispiel (Zacken).** Betrachte auf $[0,1]$ die Spitzen $f_n(x)=n$ für $x\in[0,\tfrac1{n^3}]$ und $0$ sonst.
+**Beispiel (Zacken).** Betrachte auf $[0,1]$ die Spitzen $f_n(x)=n$ für $x\in[0,\tfrac1{n^3}]$ und $0$ sonst.
 Dann ist $\|f_n\|_{\sup}=n\to\infty$ (keine gleichmäßige Konvergenz, nicht einmal beschränkt), aber
 
 $$\|f_n\|_2^2=\int_0^1|f_n|^2\,dx=n^2\cdot\frac{1}{n^3}=\frac1n\to0.$$
@@ -103,7 +104,7 @@ Im quadratischen Mittel konvergiert $f_n\to0$, gleichmäßig überhaupt nicht �
 hohen Zacken fast nicht. Genau diese Toleranz gegenüber Ausreißern macht $L^2$ für sprungbehaftete Funktionen
 geeignet.
 
-**Vorsicht (Bemerkung 6.14).** $\|\cdot\|_2$ ist auf $\mathcal{R}([a,b];\mathbb{C})$ **streng genommen keine Norm**:
+**Vorsicht.** $\|\cdot\|_2$ ist auf $\mathcal{R}([a,b];\mathbb{C})$ **streng genommen keine Norm**:
 $\|f\|_2=0$ erzwingt nicht $f\equiv0$ — jede Funktion, die nur an endlich vielen Punkten $\neq0$ ist, hat $\|f\|_2=0$.
 Es ist also nur eine **Halbnorm**. Vervollständigt man den Raum bezüglich $\|\cdot\|_2$ und identifiziert Funktionen,
 die sich nur auf einer **Nullmenge** (fast überall gleich) unterscheiden, erhält man den Raum der quadratisch
@@ -119,19 +120,20 @@ Konvergenz nichts.
 
 :::kern
 Funktionen = Vektoren, Konvergenz = $\|f_n-f\|\to0$. __Supremumsnorm__ $\|f\|_{\sup}=\sup_x|f(x)|$ (Normaxiome);
-gleichmäßige Konvergenz $\Leftrightarrow\|f_m-f_n\|_{\sup}\to0$. **Satz 6.11:** $C^0([a,b];\mathbb{C})$ mit
+gleichmäßige Konvergenz $\Leftrightarrow\|f_m-f_n\|_{\sup}\to0$. $C^0([a,b];\mathbb{C})$ mit
 $\|\cdot\|_{\sup}$ ist **vollständig** (__Banachraum__), ebenso $C^k$ mit $\|f\|_{C^k}=\sup_x\sum_{i=0}^k|f^{(i)}(x)|$.
-__Konvergenz im quadratischen Mittel__ (Def 6.12): $\int_a^b|f_n-f|^2\,dx\to0$; aus __Skalarprodukt__ $\langle f,g
-\rangle=\frac{1}{b-a}\int_a^b f\bar g\,dx$ und $\|f\|_2^2=\langle f,f\rangle=\frac{1}{b-a}\int_a^b|f|^2\,dx$. Lemma
-6.15: Dreieck + __Cauchy–Schwarz__ $|\langle f,g\rangle|\le\|f\|_2\|g\|_2$; $L^2$-Konvergenz $=\|f_n-f\|_2\to0$. Lemma
-6.16: $L^2$-Konvergenz $\Rightarrow\lim\int f_n=\int f$. **Gleichmäßig ⇒ $L^2$**, nicht umgekehrt (Zacken $f_n=n$ auf
-$[0,n^{-3}]$: $\|f_n\|_{\sup}=n$, $\|f_n\|_2^2=1/n\to0$). $\|\cdot\|_2$ nur **Halbnorm** (Bem 6.14); Vervollständigung
+__Konvergenz im quadratischen Mittel__: $\int_a^b|f_n-f|^2\,dx\to0$; aus __Skalarprodukt__ $\langle f,g
+\rangle=\frac{1}{b-a}\int_a^b f\bar g\,dx$ und $\|f\|_2^2=\langle f,f\rangle=\frac{1}{b-a}\int_a^b|f|^2\,dx$.
+Dreieck + __Cauchy–Schwarz__ $|\langle f,g\rangle|\le\|f\|_2\|g\|_2$; $L^2$-Konvergenz $=\|f_n-f\|_2\to0$.
+$L^2$-Konvergenz $\Rightarrow\lim\int f_n=\int f$. **Gleichmäßig ⇒ $L^2$**, nicht umgekehrt (Zacken $f_n=n$ auf
+$[0,n^{-3}]$: $\|f_n\|_{\sup}=n$, $\|f_n\|_2^2=1/n\to0$). $\|\cdot\|_2$ nur **Halbnorm**; Vervollständigung
 = __Hilbertraum__ $L^2$ (fast-überall-Identifikation, Lebesgue).
 :::
 
-Damit ist Kapitel 6 abgeschlossen: Wir haben punktweise, gleichmäßige und $L^2$-Konvergenz, die zugehörigen Räume und
-ihre Vertauschungsregeln. Auf dieser Bühne entfaltet sich nun die __Fourier-Theorie__ — die Zerlegung periodischer
-Funktionen in das orthogonale System $e^{ikx}$, das Thema des nächsten Kapitels.
+Damit sind die Konvergenzbegriffe beisammen: Wir haben punktweise, gleichmäßige und $L^2$-Konvergenz, die zugehörigen
+Räume und ihre Vertauschungsregeln. Auf dieser Bühne entfaltet sich nun die __Fourier-Theorie__ — die Zerlegung
+periodischer Funktionen in das orthogonale System $e^{ikx}$, beginnend mit dem Artikel
+[Komplexe und reelle Fourierpolynome](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen/komplexe-und-reelle-fourierpolynome.html).
 
 :::quiz
 F: Was gewinnt man, wenn man Funktionen als Vektoren in einem normierten Raum auffasst?

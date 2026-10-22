@@ -35,7 +35,7 @@ Gitter, orange = Kanten und Normale, grau = Achsen.)
 
 ## Reguläre Flächenstücke
 
-**Die Akteure:** ein Gebiet $W\subseteq\mathbb{R}^2$ — offen und zusammenhängend, im Skript $\mathcal G$ —, eine stetig
+**Die Akteure:** ein Gebiet $W\subseteq\mathbb{R}^2$ — offen und zusammenhängend —, eine stetig
 differenzierbare Abbildung
 
 $$\vec\Phi:W\to\mathbb{R}^3, \qquad \vec\Phi(u,v) = \big(x(u,v),\ y(u,v),\ z(u,v)\big),$$
@@ -51,8 +51,7 @@ so heißt die Bildmenge
 $$S = \big\{\vec x\in\mathbb{R}^3 : \vec x = \vec\Phi(u,v)\ \text{für ein}\ (u,v)\in B\big\}$$
 :::
 
-ein __reguläres Flächenstück__ und $\vec\Phi$ eine __reguläre Parametrisierung__ von $S$. Das Skript nennt die Fläche $\mathcal F$; hier
-heißt sie $S$, weil $F$ gleich ein metrischer Koeffizient wird.
+ein __reguläres Flächenstück__ und $\vec\Phi$ eine __reguläre Parametrisierung__ von $S$.
 
 **So liest man das:** Die Parametrisierung nimmt zwei Zahlen $(u,v)$ und gibt einen Punkt im Raum aus. Die Ableitungen
 $\partial_u\vec\Phi$ und $\partial_v\vec\Phi$ sind die __Tangentenvektoren__ an die Linien, auf denen nur $u$ bzw. nur $v$ läuft. Ihr
@@ -167,8 +166,8 @@ schmal, weil der Breitenkreis schrumpft.
 
 Dasselbe Flächenstück lässt sich auf viele Arten parametrisieren — dasselbe Tuch mit einem anderen Gitter bemalt. Seien
 $\vec\Phi$ auf $B$ und $\vec\Phi\circ\vec\Psi$ auf $B'$ zwei reguläre Parametrisierungen von $S$, verbunden durch einen
-__Parameterwechsel__: eine bijektive, stetig differenzierbare Abbildung $\vec\Psi:B'\to B$ mit $\det D\vec\Psi\neq0$. Das Skript nennt
-ihn $\psi$. Für den metrischen Tensor $\tilde g$ der zweiten Parametrisierung gilt
+__Parameterwechsel__: eine bijektive, stetig differenzierbare Abbildung $\vec\Psi:B'\to B$ mit $\det D\vec\Psi\neq0$. Für den
+metrischen Tensor $\tilde g$ der zweiten Parametrisierung gilt
 
 :::formel Lemma
 $$\tilde g = D\vec\Psi^{\mathsf T}\,\big(g\circ\vec\Psi\big)\,D\vec\Psi, \qquad \sqrt{\det\tilde g} = \sqrt{\det\big(g\circ\vec\Psi\big)}\;\big\lvert\det D\vec\Psi\big\rvert.$$
@@ -230,7 +229,7 @@ und mit $f=1$ entsteht der __Flächeninhalt__
 $$\lvert S\rvert = \int_B\sqrt{E(u,v)\,G(u,v)-F(u,v)^2}\;du\,dv.$$
 
 **So liest man das:** Rechts steht ein gewöhnliches Integral über den ebenen Parameterbereich. Das Oberflächenelement rechnet
-jede Parametermasche in ihre echte Fläche um. Das Skript schreibt den Flächeninhalt $\mathcal A(\mathcal F)$.
+jede Parametermasche in ihre echte Fläche um.
 
 **Im Bild:** Die Summe über alle Maschen des Tuchs, jede mit dem Wert der Funktion mal ihrer Fläche. Bei $f=1$ misst man nur
 die Haut selbst.
@@ -316,10 +315,12 @@ $[0,\pi]\times[0,2\pi]$ nicht injektiv und entartet an den Polen; trotzdem gilt
 $$\int_{\partial K_R}f\,d\sigma = R^2\int_0^{2\pi}\int_0^{\pi}f\big(\vec\Phi(\theta,\varphi)\big)\,\sin\theta\;d\theta\,d\varphi.$$
 :::
 
-**So liest man das:** Das Oberflächenelement der Kugel ist $R^2\sin\theta\,d\theta\,d\varphi$. Das Skript schreibt die Kugel als
-$\partial B_R(0)$.
+**So liest man das:** Das Oberflächenelement der Kugel ist $R^2\sin\theta\,d\theta\,d\varphi$. Üblich ist für die Kugel auch die
+Schreibweise $\partial B_R(0)$.
 
-**Im Bild:** Das Gradnetz des Globus aus dem vorigen Kapitel. Die Maschen sind am Äquator am größten und laufen zu den Polen
+**Im Bild:** Das Gradnetz des Globus aus dem Artikel über
+[krummlinige Koordinaten](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/krummlinige-koordinaten.html).
+Die Maschen sind am Äquator am größten und laufen zu den Polen
 hin zu schmalen Zwickeln zusammen.
 
 :::herleitung
@@ -364,7 +365,7 @@ $I\subseteq\mathbb{R}$, mit dem Abstand $\varrho(t)$ zur Achse und der Höhe $\z
 
 $$\vec\gamma(t) = \big(\varrho(t),\ \zeta(t)\big), \qquad \vec\Phi(t,\varphi) = \big(\varrho(t)\cos\varphi,\ \varrho(t)\sin\varphi,\ \zeta(t)\big), \qquad (t,\varphi)\in[a,b]\times[0,2\pi].$$
 
-Das Skript schreibt das Profil als $(x(t),z(t))$. Der Flächeninhalt ist
+Der Flächeninhalt ist
 
 :::formel
 $$\lvert S\rvert = 2\pi\int_a^b\sqrt{\dot\varrho(t)^2+\dot\zeta(t)^2}\;\lvert\varrho(t)\rvert\;dt.$$
@@ -425,7 +426,7 @@ Mittel so lang wie der Kreis des Mittelpunkts.
 ## Graphen
 
 Oft ist ein Flächenstück der Graph einer stetig differenzierbaren Funktion $h:W\to\mathbb{R}$ über einem Gebiet $W\subseteq\mathbb{R}^2$
-— ein Dach über einem Grundriss. Das Skript nennt die Funktion $H$. Die Parametrisierung und ihre Tangenten sind
+— ein Dach über einem Grundriss. Die Parametrisierung und ihre Tangenten sind
 
 $$\vec\Phi(x,y) = \big(x,\ y,\ h(x,y)\big), \qquad \partial_x\vec\Phi = \big(1,\ 0,\ \partial_xh\big), \qquad \partial_y\vec\Phi = \big(0,\ 1,\ \partial_yh\big),$$
 

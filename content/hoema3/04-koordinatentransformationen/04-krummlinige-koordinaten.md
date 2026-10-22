@@ -136,7 +136,7 @@ hier stillschweigend mitlaufen.
 lang; wer das Gefälle pro Grad kennt, muss durch diese $70\,\mathrm{km}$ teilen.
 
 :::herleitung
-Nach der Kettenregel aus dem ersten Artikel ist die Ableitung von $\tilde f$ nach $u$ die Ableitung von $f$ längs der
+Nach der Kettenregel aus dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html) ist die Ableitung von $\tilde f$ nach $u$ die Ableitung von $f$ längs der
 Koordinatenlinie:
 
 $$\frac{\partial\tilde f}{\partial u} = \nabla f\big(\vec\Phi\big)\cdot\partial_u\vec\Phi = h_u\,\nabla f\cdot\vec e_u.$$

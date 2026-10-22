@@ -16,8 +16,10 @@ Koeffizient = Projektion.
 :::
 
 :::konzept
-Im letzten Kapitel haben wir die Funktionen mit einem __Skalarprodukt__ $\langle f,g\rangle$ ausgestattet — damit
-tragen sie eine **Geometrie** mit Längen, Winkeln und Orthogonalität. Die __Fourier-Theorie__ nutzt das aus: Die
+Im Artikel
+[Normierter Vektorraum und Konvergenz im quadratischen Mittel](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/normierter-vektorraum-und-quadratisches-mittel.html)
+haben wir die Funktionen mit einem __Skalarprodukt__ $\langle f,g\rangle$ ausgestattet — damit tragen sie eine
+**Geometrie** mit Längen, Winkeln und Orthogonalität. Die __Fourier-Theorie__ nutzt das aus: Die
 Schwingungen $\hat e_k(x)=e^{ikx}$ bilden ein __Orthonormalsystem__ — paarweise senkrecht, jede auf Länge $1$. Eine
 periodische Funktion in Fourier zu entwickeln heißt dann genau dasselbe wie einen Vektor in einer Orthonormalbasis zu
 zerlegen: Der Koeffizient ist die __Projektion__ $\langle f,\hat e_k\rangle$. Das ist die mathematische Grundlage von
@@ -36,7 +38,7 @@ $\sin$, $\cos$ und der __komplex-trigonometrischen Basisfunktionen__
 
 $$\hat e_k(x):=e^{ikx}, \qquad x\in\mathbb{R},\ k\in\mathbb{Z}.$$
 
-**Lemma 7.1.** Die $\{\hat e_k\}_{k\in\mathbb{Z}}$ bilden ein __Orthonormalsystem__ bezüglich des Skalarprodukts
+**Lemma.** Die $\{\hat e_k\}_{k\in\mathbb{Z}}$ bilden ein __Orthonormalsystem__ bezüglich des Skalarprodukts
 
 $$\langle f,g\rangle=\frac{1}{2\pi}\int_0^{2\pi}f(x)\,\overline{g(x)}\,dx, \qquad\text{d.h.}\qquad \langle\hat e_k,\hat e_\ell\rangle=\delta_{k\ell}\ \ \text{für alle } k,\ell\in\mathbb{Z}.$$
 
@@ -47,7 +49,7 @@ Schwingungssystem.
 ## Fourier-Koeffizienten und Fourierpolynom
 
 Sei $f:\mathbb{R}\to\mathbb{C}$ $2\pi$-periodisch und über $[0,2\pi]$ $R$-integrierbar. Die __Fourier-Koeffizienten__
-(Definition 7.2) sind die Projektionen auf die Basis,
+sind die Projektionen auf die Basis,
 
 $$c_k=\langle f,\hat e_k\rangle=\frac{1}{2\pi}\int_0^{2\pi}f(x)\,e^{-ikx}\,dx, \qquad k\in\mathbb{Z},$$
 
@@ -55,9 +57,9 @@ und das __$N$-te Fourierpolynom__ ist die abgeschnittene Entwicklung
 
 $$T_N f=\sum_{|k|\le N}c_k\,\hat e_k=\sum_{|k|\le N}\langle f,\hat e_k\rangle\,\hat e_k.$$
 
-Wegen der Periodizität darf man über **jede** volle Periode integrieren (Bemerkung 7.3): $c_k=\frac{1}{2\pi}
+Wegen der Periodizität darf man über **jede** volle Periode integrieren: $c_k=\frac{1}{2\pi}
 \int_\alpha^{2\pi+\alpha}f(x)e^{-ikx}\,dx$ für beliebiges $\alpha$; eine häufige Konvention ist $\alpha=-\pi$ (Integration
-über $[-\pi,\pi]$). Die __formale Fourierreihe__ (Definition 7.7) ist der Grenzfall $N\to\infty$,
+über $[-\pi,\pi]$). Die __formale Fourierreihe__ ist der Grenzfall $N\to\infty$,
 
 $$Tf=\sum_{k\in\mathbb{Z}}c_k\,\hat e_k=\sum_{k\in\mathbb{Z}}\langle f,\hat e_k\rangle\,\hat e_k.$$
 
@@ -66,7 +68,6 @@ $$Tf=\sum_{k\in\mathbb{Z}}c_k\,\hat e_k=\sum_{k\in\mathbb{Z}}\langle f,\hat e_k\
 ## Die reelle Form: $\cos$ und $\sin$
 
 Mit der __Eulerschen Formel__ $e^{-ikx}=\cos(kx)-i\sin(kx)$ geht die komplexe in die reelle Darstellung über. Man setzt
-(Lemma 7.4)
 
 $$a_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\cos(kx)\,dx, \qquad b_k=\frac{1}{\pi}\int_0^{2\pi}f(x)\sin(kx)\,dx.$$
 
@@ -78,7 +79,7 @@ zusammen. Damit schreibt sich das Fourierpolynom reell als
 
 $$T_N f(x)=\frac{a_0}{2}+\sum_{k=1}^{N}\big(a_k\cos(kx)+b_k\sin(kx)\big).$$
 
-Dass hier mit $\frac1\pi$ (statt $\frac{1}{2\pi}$) normiert wird (Bemerkung 7.5), liegt daran, dass auch $\{\cos(kx),
+Dass hier mit $\frac1\pi$ (statt $\frac{1}{2\pi}$) normiert wird, liegt daran, dass auch $\{\cos(kx),
 \sin(kx)\}$ ein Orthonormalsystem bezüglich des reellen Skalarprodukts bilden: $\frac1\pi\int_0^{2\pi}\cos(kx)\cos(\ell
 x)\,dx=\frac1\pi\int_0^{2\pi}\sin(kx)\sin(\ell x)\,dx=\delta_{k\ell}$ und $\frac1\pi\int_0^{2\pi}\sin(kx)\cos(\ell x)\,
 dx=0$. Der Term $\frac{a_0}{2}$ ist der **Mittelwert** von $f$ über eine Periode.
@@ -89,7 +90,7 @@ Hinweis auf ihre Orthonormalität ($\frac1\pi\int\cos\cos=\delta_{k\ell}$). Rech
 Fourierpolynome $T_1,T_3,T_5$, die sich schrittweise anschmiegen; $\frac{a_0}{2}$ als Mittelwertlinie markiert.
 :::
 
-## Rechenregeln (Lemma 7.6)
+## Rechenregeln
 
 Die Koeffizientenzuordnung ist **linear** ($f+\lambda g$ hat $c_k+\lambda d_k$). Weiter gilt für $2\pi$-periodisches,
 $R$-integrierbares $f$ mit $c_k=\tfrac12(a_k-ib_k)$:
@@ -101,7 +102,7 @@ $R$-integrierbares $f$ mit $c_k=\tfrac12(a_k-ib_k)$:
 - **(v) Ableitung:** Ist $f$ stetig differenzierbar, so hat $f'$ die Koeffizienten $ik\,c_k$ (Differenzieren $=$ Mal
   $ik$ im Spektrum).
 
-**Eigenes Beispiel.** Für $f(x)=\cos^2 x$ nutzt man $\cos^2 x=\tfrac12+\tfrac12\cos(2x)$ und **liest die Koeffizienten
+**Beispiel.** Für $f(x)=\cos^2 x$ nutzt man $\cos^2 x=\tfrac12+\tfrac12\cos(2x)$ und **liest die Koeffizienten
 direkt ab**: $\frac{a_0}{2}=\tfrac12$ (also $a_0=1$), $a_2=\tfrac12$, alle übrigen $a_k,b_k=0$; komplex $c_0=\tfrac12$,
 $c_2=c_{-2}=\tfrac14$. Da $f$ gerade ist, verschwinden erwartungsgemäß alle $b_k$ (Regel ii). Kein Integral nötig — die
 Orthonormalität garantiert die Eindeutigkeit der Zerlegung.
@@ -113,12 +114,12 @@ das ist kein Widerspruch, sondern folgt aus der jeweiligen Orthonormalität. (2)
 
 :::kern
 __Trigonometrische Basis__ $\hat e_k(x)=e^{ikx}$, $k\in\mathbb{Z}$, ist ein __Orthonormalsystem__ bzgl. $\langle f,g
-\rangle=\frac{1}{2\pi}\int_0^{2\pi}f\bar g\,dx$ (Lemma 7.1: $\langle\hat e_k,\hat e_\ell\rangle=\delta_{k\ell}$).
+\rangle=\frac{1}{2\pi}\int_0^{2\pi}f\bar g\,dx$ ($\langle\hat e_k,\hat e_\ell\rangle=\delta_{k\ell}$).
 __Fourier-Koeffizient__ (Projektion) $c_k=\langle f,\hat e_k\rangle=\frac{1}{2\pi}\int_0^{2\pi}f(x)e^{-ikx}\,dx$;
 __Fourierpolynom__ $T_N f=\sum_{|k|\le N}c_k\hat e_k$, formale Reihe $Tf=\sum_{k\in\mathbb{Z}}c_k\hat e_k$ (Integration
-über jede Periode möglich). __Reelle Form__ (Lemma 7.4): $a_k=\frac1\pi\int_0^{2\pi}f\cos(kx)$, $b_k=\frac1\pi\int_0^
+über jede Periode möglich). __Reelle Form__: $a_k=\frac1\pi\int_0^{2\pi}f\cos(kx)$, $b_k=\frac1\pi\int_0^
 {2\pi}f\sin(kx)$; $c_k=\tfrac12(a_k-ib_k)$, $c_{-k}=\tfrac12(a_k+ib_k)$; $T_N f=\frac{a_0}{2}+\sum_{k=1}^N(a_k\cos kx+
-b_k\sin kx)$ (auch $\{\cos,\sin\}$ ONS mit $\frac1\pi$). __Regeln__ (Lemma 7.6): linear; $f$ reell $\Rightarrow c_{-k}
+b_k\sin kx)$ (auch $\{\cos,\sin\}$ ONS mit $\frac1\pi$). __Regeln__: linear; $f$ reell $\Rightarrow c_{-k}
 =\overline{c_k}$; $f$ gerade $\Rightarrow b_k=0$ (Kosinusreihe); $f$ ungerade $\Rightarrow a_k=0$ (Sinusreihe);
 Verschiebung $f(x+\tau)\to e^{i\tau k}c_k$; Ableitung $f'\to ik\,c_k$.
 :::

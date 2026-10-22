@@ -65,7 +65,7 @@ auf das Ergebnis eines anderen anwendet:
 $$\int_c^d s(y)\,dy = \int_c^d\Big(\int_a^b f(x,y)\,dx\Big)dy.$$
 
 :::herleitung
-Das ist der Stetigkeitssatz für Parameterintegrale aus dem ersten Artikel, mit dem Parameter $y$ im abgeschlossenen
+Das ist der Stetigkeitssatz für Parameterintegrale aus dem Artikel [Parameterintegrale und Ableiten unter dem Integral](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/parameterintegrale.html), mit dem Parameter $y$ im abgeschlossenen
 Intervall $[c,d]$. Kurz nachgerechnet: Das Rechteck $Q$ ist kompakt, also beschränkt und abgeschlossen. Darum ist $f$
 dort __gleichmäßig stetig__ — zu jedem $\varepsilon>0$ gibt es ein $\delta>0$, das an **allen** Stellen zugleich
 funktioniert. Für $y,y_0\in[c,d]$ mit $\lvert y-y_0\rvert<\delta$ gilt also

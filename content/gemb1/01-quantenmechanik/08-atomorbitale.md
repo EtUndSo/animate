@@ -22,7 +22,7 @@ fällt die Energie (das Coulomb-Potential $\propto -1/r$). Löst man die Schröd
 kommen keine einfachen Sinus-Wellen heraus, sondern die __Atomorbitale__ — die dreidimensionalen
 Aufenthaltswolken $s, p, d, \dots$. Sie sind das letzte Puzzleteil der Quantenmechanik, das wir brauchen: Aus
 ihnen entstehen durch das __Pauli-Prinzip__ die Elektronenschalen, das Periodensystem — und, wenn viele Atome
-zusammenrücken, die **Energiebänder** des Festkörpers, um die es im Rest dieses Moduls geht.
+zusammenrücken, die **Energiebänder** des Festkörpers, um die es in den folgenden Artikeln geht.
 :::
 
 **Worum es geht:** Wir lösen (qualitativ) die Schrödinger-Gleichung für das einfachste Atom, den Wasserstoff, und
@@ -64,9 +64,7 @@ $$\psi_{n,l,m}(r,\theta,\varphi) = R_{n,l}(r)\cdot Y_{l,m}(\theta,\varphi).$$
 - __$Y_{l,m}(\theta,\varphi)$__: der __Winkelteil__ (die __Kugelflächenfunktionen__) — beschreibt die **Form**
   bzw. Ausrichtung der Wolke.
 
-Aus den Randbedingungen in jeder Koordinate fallen drei __Quantenzahlen__ mit festen Wertebereichen
-([uni-frankfurt](https://www.theochem.uni-frankfurt.de/teaching/2018_2019_ws_tc1/TC1_L12_2018_19.pdf),
-[chemie.de](https://www.chemie.de/lexikon/Wasserstoffatom.html)):
+Aus den Randbedingungen in jeder Koordinate fallen drei __Quantenzahlen__ mit festen Wertebereichen:
 
 - __Hauptquantenzahl $n = 1, 2, 3, \dots$__ — bestimmt die **Energie** und grob die Größe der Wolke (die
   „Schale"). Sie ist das direkte Gegenstück zur Quantenzahl der Box.
@@ -92,8 +90,7 @@ $$E_n = -\frac{E_0}{n^2}, \qquad E_0 \approx 13{,}6\ \text{eV}.$$
 - __$E_0 \approx 13{,}6\ \text{eV}$__: die __Rydberg-Energie__; $-13{,}6\,$eV ist die Energie des Grundzustands
   ($n=1$, das $1s$-Orbital) — zugleich die Energie, die man braucht, um das Elektron ganz vom Atom zu lösen.
 
-Das Überraschende: Die Energie hängt **nur von $n$** ab — **nicht** von $l$ oder $m$
-([evulpo](https://evulpo.com/de/de/dashboard/lesson/de-p-sek-06structure-of-matter-02quantum-physics-03energyvalues-and-orbitals-of-the-hydrogen-atom)).
+Das Überraschende: Die Energie hängt **nur von $n$** ab — **nicht** von $l$ oder $m$.
 Alle Orbitale einer Schale ($2s$ und $2p$, oder $3s$, $3p$, $3d$) liegen energetisch gleich — sie sind
 __entartet__. Zählt man alle $(l,m)$-Kombinationen zu festem $n$, kommt man auf genau $n^2$ Zustände gleicher
 Energie. Diese starke Entartung ist eine Besonderheit des $1/r$-Potentials; bei einem anderen Trichter-Profil

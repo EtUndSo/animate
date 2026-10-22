@@ -2,7 +2,7 @@
 title: Komplexe Zahlen und die komplexe Ebene
 pfad: Elektrotechnik / 1. Semester / Mathematische Methoden der Elektrotechnik / Komplexe Zahlen und Zeiger
 order: 10100
-summary: Von Grund auf erklärt – warum die reellen Zahlen nicht ausreichen, wie man sie um die imaginäre Einheit $j$ erweitert, wie man mit komplexen Zahlen $z=x+jy$ rechnet und warum die Exponentialform aus mühsamer Rechnung eine einfache Drehung macht. Jede Formel wird hergeleitet; Notation wie in der Vorlesung.
+summary: Von Grund auf erklärt – warum die reellen Zahlen nicht ausreichen, wie man sie um die imaginäre Einheit $j$ erweitert, wie man mit komplexen Zahlen $z=x+jy$ rechnet und warum die Exponentialform aus mühsamer Rechnung eine einfache Drehung macht. Jede Formel wird hergeleitet.
 tags: komplexe Zahlen, imaginäre Einheit, komplexe Ebene, Betrag, Argument, Polarform, Eulersche Formel, Multiplikation
 ---
 
@@ -23,8 +23,7 @@ aus komplizierter Sinus-Rechnerei eine einfache Multiplikation. Dieser Artikel b
 Null auf — niemand muss vorher etwas davon gehört haben.
 :::
 
-**Worum es geht:** „Mathematische Methoden der Elektrotechnik" beginnt mit dem Werkzeug, auf dem die gesamte
-Signalverarbeitung ruht. Wir klären erst, *warum* man die reellen Zahlen überhaupt erweitern muss, führen die
+**Worum es geht:** Am Anfang steht das Werkzeug, auf dem die gesamte Signalverarbeitung ruht. Wir klären erst, *warum* man die reellen Zahlen überhaupt erweitern muss, führen die
 __imaginäre Einheit__ ein, lernen das Rechnen mit komplexen Zahlen, zeichnen sie in die __komplexe Ebene__ und
 arbeiten uns zur __Exponentialform__ vor — und leiten dabei jeden Schritt her.
 
@@ -54,8 +53,8 @@ Wir führen also eine neue Zahl ein, die __imaginäre Einheit__, und legen als i
 $$j = \sqrt{-1}, \qquad\text{also}\qquad j^2 = -1.$$
 
 Die Lösungen von $z^2=-1$ sind damit $z=\pm j$. Ein Wort zur Schreibweise: In der Mathematik heißt diese Einheit
-$i$. In der Elektrotechnik ist $i$ aber schon für den **Strom** vergeben, deshalb schreibt man sie dort $j$ — und
-so auch in dieser Vorlesung. Wir benutzen durchgehend $j$.
+$i$. In der Elektrotechnik ist $i$ aber schon für den **Strom** vergeben, deshalb schreibt man sie dort $j$. Wir
+benutzen durchgehend $j$.
 
 Der Name „imaginär" (eingebildet) ist historisch und etwas unglücklich — er suggeriert, diese Zahlen seien
 weniger real als die gewohnten. Das sind sie nicht. $j$ ist einfach eine Zahl in einer **neuen Richtung**, die

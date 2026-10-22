@@ -25,17 +25,16 @@ ist zugleich ein schönes Beispiel für die Einheit der Mathematik: Sein Beweis 
 Funktion__ — nichts anderes als eine Fourier-Transformierte der Dichte.
 :::
 
-**Worum es geht:** Wir __standardisieren__ Zufallsvariablen und Summen, formulieren den __zentralen Grenzwertsatz__
-(Satz 8.61), skizzieren den Beweis über die __charakteristische Funktion__ (Satz/Def. 8.62) und wenden ihn auf eine
-__Wahlprognose__ an.
+**Worum es geht:** Wir __standardisieren__ Zufallsvariablen und Summen, formulieren den __zentralen Grenzwertsatz__,
+skizzieren den Beweis über die __charakteristische Funktion__ und wenden ihn auf eine __Wahlprognose__ an.
 
 ## Standardisierung
 
 Hat $X$ den Erwartungswert $\mu$ und die Varianz $\sigma^2$, so ist die __standardisierte Zufallsvariable__
 $$X^*=\frac{X-\mu}{\sigma},\qquad E(X^*)=0,\ \ \mathrm{Var}(X^*)=1.$$
 Man verschiebt auf Mittel $0$ und skaliert auf Streuung $1$ — die „Einheitsform" jeder Verteilung. Für die
-__Partialsumme__ $S_n=X_1+\dots+X_n$ unabhängiger $X_i$ (gleiches $\mu,\sigma^2$) ist nach Satz 8.53 $E(S_n)=n\mu$
-und $\mathrm{Var}(S_n)=n\sigma^2$, also
+__Partialsumme__ $S_n=X_1+\dots+X_n$ unabhängiger $X_i$ (gleiches $\mu,\sigma^2$) ist nach der Linearität des
+Erwartungswerts und der Additivität der Varianz $E(S_n)=n\mu$ und $\mathrm{Var}(S_n)=n\sigma^2$, also
 $$S_n^*=\frac{S_n-n\mu}{\sigma\sqrt n},\qquad S_n^*=\frac{\sqrt n}{\sigma}\,(\overline X_n-\mu).$$
 Der Zusammenhang mit dem Mittel zeigt direkt: Die typischen __Fluktuationen__ von $\overline X_n$ um $\mu$ sind von
 der Ordnung $\sigma/\sqrt n$. Der entscheidende Skalierungsfaktor ist $\sqrt n$ (nicht $n$): Teilt man nur durch $n$
@@ -44,7 +43,7 @@ gerade sichtbar — als normalverteilte Schwankung.
 
 ## Der zentrale Grenzwertsatz
 
-__Satz 8.61 (ZGS).__ Sei $(X_i)$ eine Folge __i.i.d.__ Zufallsvariablen mit endlichem $\mu$ und $\sigma^2$. Dann ist
+__Satz (ZGS).__ Sei $(X_i)$ eine Folge __i.i.d.__ Zufallsvariablen mit endlichem $\mu$ und $\sigma^2$. Dann ist
 die standardisierte Summe $S_n^*$ für große $n$ __asymptotisch standard-normalverteilt__: für alle $x\in\mathbb R$
 $$P(S_n^*\le x)\ \xrightarrow{n\to\infty}\ \Phi(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^x e^{-y^2/2}\,dy.$$
 Das Bemerkenswerte: Der Grenzwert $\Phi$ hängt **nicht** von der Verteilung der $X_i$ ab — nur $\mu$ und $\sigma^2$
@@ -60,9 +59,9 @@ zählen".
 
 ## Beweisidee: die charakteristische Funktion
 
-__Definition 8.62.__ Die __charakteristische Funktion__ einer Zufallsvariablen $X$ ist
+__Definition.__ Die __charakteristische Funktion__ einer Zufallsvariablen $X$ ist
 $$\varphi_X(t)=E(e^{itX}).$$
-Für absolut-stetiges $X$ mit Dichte $f_X$ ist $\varphi_X(t)=\int_{\mathbb R}f_X(x)e^{itx}\,dx$ (Satz 8.31) — bis auf
+Für absolut-stetiges $X$ mit Dichte $f_X$ ist $\varphi_X(t)=\int_{\mathbb R}f_X(x)e^{itx}\,dx$ (Transformationsformel) — bis auf
 den Faktor $1/\sqrt{2\pi}$ die __Fourier-Transformierte__ der Dichte. Hier schließt sich der Kreis zur
 Fourier-Analysis: Die Gaußfunktion ist ihr **eigener** Fixpunkt unter der Fourier-Transformation,
 $$f_X(x)=\tfrac{1}{\sqrt{2\pi}}e^{-x^2/2}\ \Longleftrightarrow\ \varphi_X(t)=e^{-t^2/2},$$
@@ -80,7 +79,7 @@ $S_n^*$ asymptotisch normal. (Der vollständige Beweis ist technisch aufwendig; 
 
 ## Anwendung: Wahlprognose
 
-__Beispiel 8.63.__ Ein Kandidat hat den unbekannten Stimmenanteil $p$. Man wertet $n$ zufällige Stimmzettel
+__Beispiel.__ Ein Kandidat hat den unbekannten Stimmenanteil $p$. Man wertet $n$ zufällige Stimmzettel
 $X_j\in\{0,1\}$ aus (Bernoulli, $E(X_j)=p$, $\mathrm{Var}(X_j)=p(1-p)$). Wie groß muss $n$ sein, damit die Prognose
 $\overline X_n$ mit höchstens $5\%$ Wahrscheinlichkeit um mehr als $1\%$ danebenliegt, also $P(|\overline
 X_n-p|<0.01)\ge0.95$? Mit $S_n^*=\frac{\sqrt n}{\sigma}(\overline X_n-p)$ und dem ZGS:
@@ -103,17 +102,17 @@ weil die Gaußfunktion deren Fixpunkt ist.
 :::kern
 __Standardisierung__ $X^*=\frac{X-\mu}{\sigma}$ ($E=0$, $\mathrm{Var}=1$); Summe $S_n=\sum X_i$:
 $S_n^*=\frac{S_n-n\mu}{\sigma\sqrt n}=\frac{\sqrt n}{\sigma}(\overline X_n-\mu)$. Fluktuationen von $\overline X_n$
-der Ordnung $\sigma/\sqrt n$. __ZGS__ (Satz 8.61): für i.i.d. $(X_i)$ mit endlichem $\mu,\sigma^2$ gilt
+der Ordnung $\sigma/\sqrt n$. __ZGS__: für i.i.d. $(X_i)$ mit endlichem $\mu,\sigma^2$ gilt
 $P(S_n^*\le x)\to\Phi(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^x e^{-y^2/2}dy$ — **unabhängig** von der
 Ausgangsverteilung (nur $\mu,\sigma^2$ zählen; Form universell normal). __Beweisidee__ via __charakteristische
-Funktion__ $\varphi_X(t)=E(e^{itX})$ (= Fourier-Transformierte der Dichte, Def. 8.62): $\varphi_{S_n^*}=[\varphi_{Y_1}]^n$
+Funktion__ $\varphi_X(t)=E(e^{itX})$ (= Fourier-Transformierte der Dichte): $\varphi_{S_n^*}=[\varphi_{Y_1}]^n$
 mit $\varphi_{Y_1}(t)\approx1-\frac{t^2}{2n}$, also $\to e^{-t^2/2}=\varphi_{\mathcal N(0,1)}$ (Gauß = Fixpunkt der
 Fourier-Transformation). __Anwendung__ Wahlprognose: $P(|\overline X_n-p|<0.01)\ge0.95$, $p(1-p)\le\tfrac14$,
 $\Phi(1.96)=0.975$ ⇒ $n\approx9600$ (unabhängig von der Wählerzahl).
 :::
 
-Damit schließt die Wahrscheinlichkeitsrechnung — und mit ihr die gesamte Höhere Mathematik III: von der
-Vektoranalysis über die Integralsätze, Funktionenfolgen und Fourier-Reihen bis zur Stochastik. Der zentrale
+Damit schließt die Wahrscheinlichkeitsrechnung — und mit ihr der Bogen von der Vektoranalysis über die
+Integralsätze, Funktionenfolgen und Fourier-Reihen bis zur Stochastik. Der zentrale
 Grenzwertsatz verbindet dabei alle Fäden: Die Normalverteilung des Zufalls ist dieselbe Gaußfunktion, die als Fixpunkt
 der Fourier-Transformation schon die Analysis durchzog — ein letzter Beleg für die tiefe Einheit der Mathematik.
 

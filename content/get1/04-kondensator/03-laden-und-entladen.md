@@ -40,7 +40,7 @@ Buchstaben stehen nach DIN für zeitabhängige Werte.
 Zwei Gesetze bestimmen alles. Erstens addieren sich längs der geschlossenen Schleife die Spannungen; in Stellung 1 ist die Quellenspannung die Summe der
 beiden anderen. Zweitens ist am Widerstand die Spannung proportional zum Strom, das __Ohmsche Gesetz__, das der Artikel über den
 [ohmschen Widerstand](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/ohmscher-widerstand.html)
-ausführlich behandelt. Mit der Gleichung des Kondensators aus dem ersten Artikel über den Kondensator:
+ausführlich behandelt. Mit der Gleichung des Kondensators aus dem Artikel [Der Kondensator und seine Kapazität](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/kondensator-und-kapazitaet.html):
 
 $$U_0 = u_R(t)+u_C(t), \qquad u_R(t) = R\,i(t), \qquad i(t) = C\,\frac{du_C}{dt}.$$
 
@@ -336,7 +336,7 @@ zwischen Laden und Entladen, ein Regler ändert $R$ und $C$. Kernaussage: Laden 
 
 RC-Glieder sind die einfachsten Zeitgeber der Elektronik. Sie verzögern Signale, entprellen Taster, bestimmen in Oszillatoren den Takt und begrenzen in
 Digitalschaltungen, wie schnell eine Leitung umgeladen werden kann. Als Filter lassen sie langsame Änderungen durch und dämpfen schnelle — ein Thema der
-Wechselstromtechnik. Auch die Selbstentladung aus dem ersten Artikel über den Kondensator ist ein solcher Entladevorgang, über den Isolationswiderstand mit der
+Wechselstromtechnik. Auch die Selbstentladung aus dem Artikel [Der Kondensator und seine Kapazität](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/kondensator-und-kapazitaet.html) ist ein solcher Entladevorgang, über den Isolationswiderstand mit der
 Zeitkonstante $R_\text{I}C$.
 
 Ohmsches Gesetz und Maschenregel, die hier schon benutzt wurden, führen die folgenden Artikel von Grund auf ein, beginnend mit

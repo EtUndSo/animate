@@ -16,10 +16,10 @@ Punkte" + „was sitzt an jedem Punkt".
 :::
 
 :::konzept
-Im ganzen bisherigen Quantenmechanik-Kapitel saß **ein** Elektron in **einem** Potential. Ein Festkörper besteht
+Im ganzen bisherigen Oberthema Quantenmechanik saß **ein** Elektron in **einem** Potential. Ein Festkörper besteht
 aber aus rund $10^{23}$ Atomen. Das klingt hoffnungslos — bis man bemerkt, dass ein __Kristall__ **periodisch**
 ist: Dasselbe Bauteil wiederholt sich stur in alle Richtungen. Genau diese Periodizität ist der Schlüssel zu
-allem, was danach kommt (Bandstruktur, effektive Masse, Halbleiter). Dieses Kapitel stellt das Werkzeug bereit,
+allem, was danach kommt (Bandstruktur, effektive Masse, Halbleiter). Dieses Oberthema stellt das Werkzeug bereit,
 mit dem man Periodizität **mathematisch** fasst. Der erste und wichtigste Schritt: die Zerlegung in ein
 __Gitter__ (die Positionen) und eine __Basis__ (das Motiv). Damit wird aus „unendlich viele Atome" eine
 endliche, handhabbare Beschreibung.
@@ -42,7 +42,7 @@ möglichst wenig Information zu beschreiben, trennt man zwei Dinge sauber vonein
 - __Basis__ (anschaulich: das Motiv, das an jeden Gitterpunkt gehängt wird) — der konkrete Inhalt: ein Atom,
   eine Atomgruppe, ein ganzes Molekül. Die Basis kann beliebig kompliziert sein: das **Was**.
 
-Zusammengefasst in der zentralen Gleichung dieses Kapitels ([Mahidol](https://physics.sc.mahidol.ac.th/sces/SCPY371/lec1.pdf)):
+Zusammengefasst in der zentralen Gleichung dieses Oberthemas:
 
 $$\text{Kristall} = \text{Punktgitter} + \text{Basis}.$$
 
@@ -69,8 +69,7 @@ $$\vec R = m_1\,\vec a_1 + m_2\,\vec a_2, \qquad m_1, m_2 \in \mathbb{Z}.$$
 
 Das von den primitiven Vektoren aufgespannte Parallelogramm (in 3D: Parallelepiped) ist die __Einheitszelle__ —
 die „Kachel", die den Raum durch reines Verschieben lückenlos füllt. Die __primitive Einheitszelle__ ist die
-**kleinstmögliche** solche Kachel; sie enthält genau **einen** Gitterpunkt ([Wikipedia](https://en.wikipedia.org/wiki/Bravais_lattice),
-[vlab IIITH](https://bss-iiith.vlabs.ac.in/exp/unit-cells/theory.html)).
+**kleinstmögliche** solche Kachel; sie enthält genau **einen** Gitterpunkt.
 
 :::grafik
 Ein 2D-Punktgitter mit eingezeichneten $\vec a_1, \vec a_2$ von einem Ursprungspunkt aus. Ein Beispielpunkt wird
@@ -80,14 +79,16 @@ Parallelogramm ist als __Einheitszelle__ schattiert.
 
 **Warum ist das so mächtig?** Weil eine unendliche, komplizierte Struktur damit auf wenige Zahlen (die
 Gittervektoren) plus einen kleinen Zellinhalt (die Basis) reduziert ist. Genau diese **endliche** Beschreibung
-macht die Quantenmechanik im Festkörper (nächstes Kapitel) überhaupt lösbar.
+macht die Quantenmechanik im Festkörper (ab dem Artikel
+[Von Atomniveaus zu Bändern](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/bandstruktur/von-atomniveaus-zu-baendern.html))
+überhaupt lösbar.
 
 ## Das Problem: die Zelle ist nicht eindeutig
 
-Jetzt kommt ein Stolperstein, der sich durch das ganze Kapitel zieht: Die primitive Einheitszelle ist **nicht
+Jetzt kommt ein Stolperstein, der sich durch das ganze Oberthema zieht: Die primitive Einheitszelle ist **nicht
 eindeutig**. Dieselben Gitterpunkte lassen sich mit verschieden geformten Kacheln lückenlos auslegen — als
 Parallelogramm, als Raute, verschoben nach links oder rechts. Alle diese Zellen sind gleichberechtigt und haben
-**dieselbe** (minimale) Fläche, aber sie sehen unterschiedlich aus ([Wikipedia](https://en.wikipedia.org/wiki/Bravais_lattice)).
+**dieselbe** (minimale) Fläche, aber sie sehen unterschiedlich aus.
 
 Diese Wahlfreiheit ist unbequem: Man möchte **eine** Zelle, die eindeutig festliegt und die Symmetrie des
 Gitters widerspiegelt — ohne Willkür.
@@ -101,7 +102,7 @@ nicht eindeutig".
 ## Die Lösung: die Wigner-Seitz-Zelle
 
 Um die Willkür zu beseitigen, definiert man die __Wigner-Seitz-Zelle__ (anschaulich: das „Hoheitsgebiet" eines
-Gitterpunkts — **alle** Raumpunkte, die diesem Gitterpunkt näher sind als jedem anderen) ([Wikipedia](https://en.wikipedia.org/wiki/Bravais_lattice)).
+Gitterpunkts — **alle** Raumpunkte, die diesem Gitterpunkt näher sind als jedem anderen).
 Die Konstruktion ist ein einfaches Rezept:
 
 1. Ziehe **Verbindungslinien** vom Gitterpunkt zu seinen nächsten Nachbarn.
@@ -124,7 +125,7 @@ Ein __Bravaisgitter__ ist ein periodisches Punktgitter mit einer entscheidenden 
 Translation $\vec R = \sum_i m_i \vec a_i$ (ganze $m_i$) bildet das Gitter deckungsgleich auf sich selbst ab.
 
 Die überraschende Antwort auf „wie viele grundsätzlich verschiedene solche Raster gibt es?" ist eine **endliche,
-kleine** Zahl ([Wikipedia](https://en.wikipedia.org/wiki/Bravais_lattice)):
+kleine** Zahl:
 
 - **1D:** genau **1** Bravaisgitter (die Kette äquidistanter Punkte, Abstand $a$).
 - **2D:** genau **5** Bravaisgitter (quadratisch, rechteckig, zentriert-rechteckig, hexagonal, schiefwinklig).
@@ -133,7 +134,7 @@ kleine** Zahl ([Wikipedia](https://en.wikipedia.org/wiki/Bravais_lattice)):
 **Warum ausgerechnet 14 und nicht mehr?** Man kombiniert die 7 Kristallsysteme mit den möglichen
 **Zentrierungen** (keine, raumzentriert, flächenzentriert, basiszentriert). Nicht jede Kombination ergibt aber
 ein **geometrisch neues** Gitter — viele sind zu einem bereits gezählten äquivalent. Übrig bleiben genau 14
-verschiedene ([vlab IIITH](https://bss-iiith.vlabs.ac.in/exp/unit-cells/theory.html)).
+verschiedene.
 
 :::grafik
 Eine kleine Galerie: 1 Gitter in 1D (Punktkette), daneben die 5 Gitter in 2D als Miniaturen mit ihren

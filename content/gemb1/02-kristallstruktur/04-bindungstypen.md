@@ -84,7 +84,7 @@ gestrichelt die beiden Anteile $F_\text{an}\sim r^{-2}/r^{-6}$ und $F_\text{ab}$
 
 Bei der __ionischen Bindung__ *gibt* ein Atom Elektronen ab und ein anderes *nimmt* sie auf — ein echter
 **Elektronentransfer**. Beide erreichen so die Edelgaskonfiguration und werden zu __Ionen__ entgegengesetzter
-Ladung, die sich über die **Coulomb-Kraft** anziehen ([Duke APEP](https://sites.duke.edu/apep/module-4-alcohol-and-the-breathalyzer-test/biology-and-chemistry-connections/chemical-bonding/)).
+Ladung, die sich über die **Coulomb-Kraft** anziehen.
 
 **Beispiel LiF:** Lithium ($1s^2\,2s^1$) hat ein einzelnes Außenelektron, Fluor ($1s^2\,2s^2\,2p^5$) hat genau
 ein freies Plätzchen in der $2p$-Schale.
@@ -134,14 +134,14 @@ Coulomb-Abstoßung → Tetraeder".
 :::
 
 Setzt man diese Tetraeder lückenlos periodisch fort, entsteht die __Diamantstruktur__: **zwei ineinander
-geschobene FCC-Gitter**, versetzt um ein Viertel der Raumdiagonale ([edtechbooks](https://edtechbooks.org/semiconductor_physics/classification_of_semiconductor_materials),
-[HyperPhysics](http://hyperphysics.phy-astr.gsu.edu/hbase/Solids/sili2.html)):
+geschobene FCC-Gitter**, versetzt um ein Viertel der Raumdiagonale:
 
 $$\vec d = \tfrac{a}{4}\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}.$$
 
 Genau diese Struktur haben **Silizium** (Kantenlänge $a = 0{,}543\,$nm) und **Germanium** ($a = 0{,}566\,$nm) —
-weshalb die tetraedrische $sp^3$-Bindung *das* Grundmotiv der Halbleiterelektronik ist. (Im Sinne des ersten
-Artikels: Die Diamantstruktur ist ein **FCC-Bravaisgitter mit zweiatomiger Basis** an $(0,0,0)$ und $\vec d$.)
+weshalb die tetraedrische $sp^3$-Bindung *das* Grundmotiv der Halbleiterelektronik ist. (Im Sinne des Artikels
+[Gitter, Basis und Einheitszelle](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/kristallstruktur/gitter-basis-einheitszelle.html):
+Die Diamantstruktur ist ein **FCC-Bravaisgitter mit zweiatomiger Basis** an $(0,0,0)$ und $\vec d$.)
 
 :::grafik
 Die Diamantstruktur: ein FCC-Würfel, in dem vier der Tetraederlücken mit einem zweiten Atom besetzt sind;
@@ -159,7 +159,7 @@ Bei Metallen ist das äußerste Elektron nur **schwach** gebunden. Der konkrete 
 __Abschirmung__: Die inneren, gefüllten Orbitale schirmen das Kern-Potential ab, sodass das äußere Elektron statt
 des tiefen ein **flacheres, abgeschirmtes** Potential „sieht". Ein flacheres, räumlich engeres Potential
 entspricht einem Teilchen in einer **kürzeren Box** — und dort steigt die Grundzustandsenergie, denn (aus dem
-QM-Kapitel)
+Artikel [Teilchen in der Box (1D)](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/quantenmechanik/teilchen-in-der-box-1d.html))
 
 $$E_n = \frac{\hbar^2 \pi^2 n^2}{2 m L^2} \propto \frac{1}{L^2}.$$
 

@@ -27,8 +27,8 @@ Missverständnis: __unabhängig__ ist strikt stärker als __unkorreliert__.
 :::
 
 **Worum es geht:** Wir definieren die __Unabhängigkeit__ über die __gemeinsame Verteilungsfunktion__, zeigen die
-__Produkteigenschaft__ $E(XY)=E(X)E(Y)$ und ihre Folgen, trennen __unabhängig__ von __unkorreliert__ (Lemma 8.41) und
-behandeln den diskreten (Satz 8.43) und absolut-stetigen Fall (__Randdichten__, Satz 8.45) bis zur
+__Produkteigenschaft__ $E(XY)=E(X)E(Y)$ und ihre Folgen, trennen __unabhängig__ von __unkorreliert__ und
+behandeln den diskreten und absolut-stetigen Fall (__Randdichten__) bis zur
 __zweidimensionalen Normalverteilung__.
 
 ## Gemeinsame Verteilung und Unabhängigkeit
@@ -42,7 +42,7 @@ $$F_{X,Y}(x,y)=F_X(x)\,F_Y(y)\qquad\text{für alle }(x,y)\in\mathbb R^2.$$
 Die gemeinsame Verteilung ist dann vollständig durch die beiden Einzelverteilungen bestimmt — kein „Zusammenhang"
 bleibt übrig.
 
-__Beispiel 8.39.__ Auf $\Omega=[0,1]^2$ mit $P(M)=$ Flächeninhalt sei $X(\omega)=g(s)$, $Y(\omega)=h(t)$ für
+__Beispiel.__ Auf $\Omega=[0,1]^2$ mit $P(M)=$ Flächeninhalt sei $X(\omega)=g(s)$, $Y(\omega)=h(t)$ für
 $\omega=(s,t)$ — jede Variable hängt nur von **einer** Koordinate ab. Dann ist $\{X\le x\}$ ein vertikaler Streifen,
 $\{Y\le y\}$ ein horizontaler; solche Streifen sind unabhängig, also sind $X,Y$ unabhängig. Hier ist $P$ gerade das
 Lebesgue-Maß $ds\,dt$, und weil $X$ nur von $s$ abhängt, ist $E(X)=\int_0^1 g(s)\,ds$ (die $t$-Integration ist
@@ -60,17 +60,17 @@ $$E(XY)=E(X)\,E(Y).$$
 Im Allgemeinen hat der Erwartungswert **keine** Produkteigenschaft — sie ist eine Spezialität der Unabhängigkeit.
 Daraus folgt sofort mit $\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)$:
 $$\mathrm{Cov}(X,Y)=0\quad\Longrightarrow\quad \mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)$$
-(nach Lemma 8.35). Die **Additivität der Varianz** unter Unabhängigkeit ist der Grund, warum das Mittel vieler
+(nach der Formel für $\mathrm{Var}(X+Y)$ aus dem vorigen Artikel). Die **Additivität der Varianz** unter Unabhängigkeit ist der Grund, warum das Mittel vieler
 unabhängiger Messungen eine kleine Streuung hat — der Keim des Gesetzes der großen Zahlen.
 
 ## Unabhängig ist mehr als unkorreliert
 
-__Definition 8.40.__ $X,Y$ mit $\mathrm{Cov}(X,Y)=0$ heißen __unkorreliert__.
+__Definition.__ $X,Y$ mit $\mathrm{Cov}(X,Y)=0$ heißen __unkorreliert__.
 
-__Lemma 8.41.__ Unabhängigkeit $\Rightarrow$ Unkorreliertheit, aber **nicht** umgekehrt. Unkorreliertheit erfasst nur
+__Lemma.__ Unabhängigkeit $\Rightarrow$ Unkorreliertheit, aber **nicht** umgekehrt. Unkorreliertheit erfasst nur
 den **linearen** Zusammenhang (verschwindende Kovarianz); Unabhängigkeit verbietet **jeden** Zusammenhang.
 
-__Beispiel 8.42 (unkorreliert, aber abhängig).__ Auf dem Laplace-Raum $\Omega=\{1,2,3\}$ sei $X(1)=-1$, $X(2)=0$,
+__Beispiel (unkorreliert, aber abhängig).__ Auf dem Laplace-Raum $\Omega=\{1,2,3\}$ sei $X(1)=-1$, $X(2)=0$,
 $X(3)=1$ und $Y(1)=0$, $Y(2)=1$, $Y(3)=0$. Dann ist $XY\equiv0$, also $E(XY)=0$; außerdem $E(X)=0$, somit
 $\mathrm{Cov}(X,Y)=0$ — **unkorreliert**. Aber $P(X\le-1,Y\le0)=\tfrac13$, während $P(X\le-1)P(Y\le0)=\tfrac13\cdot\tfrac23=\tfrac29$,
 also $F_{X,Y}(-1,0)\neq F_X(-1)F_Y(0)$ — **nicht unabhängig**. ($Y=1$ erzwingt $X=0$: ein klarer, aber nicht-linearer
@@ -78,7 +78,7 @@ Zusammenhang.)
 
 ## Der diskrete Fall
 
-__Satz 8.43.__ Diskrete $X,Y$ mit Werten $\{x_k\}$, $\{y_\ell\}$ sind genau dann unabhängig, wenn
+__Satz.__ Diskrete $X,Y$ mit Werten $\{x_k\}$, $\{y_\ell\}$ sind genau dann unabhängig, wenn
 $$P(X=x_k,\ Y=y_\ell)=P(X=x_k)\,P(Y=y_\ell)\qquad\text{für alle }k,\ell.$$
 Dann zerfällt auch der Erwartungswert des Produkts: $E(XY)=\sum_{k,\ell}x_k y_\ell\,P(X=x_k,Y=y_\ell)=\big(\sum_k
 x_k P(X=x_k)\big)\big(\sum_\ell y_\ell P(Y=y_\ell)\big)=E(X)E(Y)$ — die Produkteigenschaft folgt hier aus dem
@@ -86,15 +86,15 @@ Faktorisieren der Doppelsumme.
 
 ## Der absolut-stetige Fall und Randdichten
 
-__Definition 8.44.__ Ein Zufallsvektor $(X,Y)$ heißt __absolut-stetig__ mit __gemeinsamer Dichte__ $f_{X,Y}\ge0$,
+__Definition.__ Ein Zufallsvektor $(X,Y)$ heißt __absolut-stetig__ mit __gemeinsamer Dichte__ $f_{X,Y}\ge0$,
 wenn $F_{X,Y}(x,y)=\int_{-\infty}^x\int_{-\infty}^y f_{X,Y}(s,t)\,ds\,dt$, mit Normierung $\int_{\mathbb R^2}
 f_{X,Y}=1$.
 
-__Satz 8.45.__ Besitzt $(X,Y)$ die Dichte $f_{X,Y}$, so gilt:
+__Satz.__ Besitzt $(X,Y)$ die Dichte $f_{X,Y}$, so gilt:
 $$\text{(i) Randdichten}\quad f_X(x)=\int_{-\infty}^\infty f_{X,Y}(x,y)\,dy,\quad f_Y(y)=\int_{-\infty}^\infty f_{X,Y}(x,y)\,dx;$$
 $$\text{(ii)}\quad X,Y\ \text{unabhängig}\ \Longleftrightarrow\ f_{X,Y}(x,y)=f_X(x)\,f_Y(y)\ \text{für alle }x,y.$$
 Teil (i) ist „Ausintegrieren" der jeweils anderen Variablen (man vergisst $Y$, indem man über alle $y$
-aufsummiert); Teil (ii) ist die Faktorisierung auf Ebene der Dichten. __Bemerkung 8.46:__ Sind $X,Y$ unabhängig mit
+aufsummiert); Teil (ii) ist die Faktorisierung auf Ebene der Dichten. __Bemerkung:__ Sind $X,Y$ unabhängig mit
 Dichten $f_X,f_Y$, so hat $(X,Y)$ die Produktdichte $f_Xf_Y$; abhängige absolut-stetige $X,Y$ müssen dagegen gar
 keine gemeinsame Dichte besitzen. Und wieder: $E(XY)=\int\!\int xy\,f_{X,Y}\,dx\,dy=E(X)E(Y)$ bei Unabhängigkeit.
 
@@ -107,11 +107,11 @@ abhängig).
 
 ## Beispiel: die zweidimensionale Normalverteilung
 
-__Beispiel 8.47.__ Sind $X,Y\sim\mathcal N(0,1)$ unabhängig, so ist die gemeinsame Dichte das Produkt
+__Beispiel.__ Sind $X,Y\sim\mathcal N(0,1)$ unabhängig, so ist die gemeinsame Dichte das Produkt
 $$f_{X,Y}(x,y)=\frac{1}{2\pi}\exp\!\Big(-\frac{x^2+y^2}{2}\Big)$$
 — eine rotationssymmetrische „Glocke" über der Ebene (die Standard-2D-Normalverteilung).
 
-__Beispiel 8.48 (korrelierter Fall).__ Für $0\le\rho<1$ sei
+__Beispiel (korrelierter Fall).__ Für $0\le\rho<1$ sei
 $$f_{X,Y}(x,y)=\frac{1}{2\pi\sqrt{1-\rho^2}}\exp\!\Big(-\frac{x^2-2\rho xy+y^2}{2(1-\rho^2)}\Big).$$
 Durch **quadratische Ergänzung** und Substitution berechnet man die Randdichten zu $f_X(x)=\frac{1}{\sqrt{2\pi}}
 e^{-x^2/2}$ und ebenso $f_Y$ — beide Komponenten sind also für **jedes** $\rho$ standard-normalverteilt. Trotzdem sind
@@ -121,17 +121,16 @@ strukturen zulassen — und bei der Normalverteilung fällt „unkorreliert" ($\
 zusammen.
 
 **Stolperstein:** (1) __Unabhängig $\neq$ unkorreliert__: Unabhängigkeit ⇒ $\mathrm{Cov}=0$, aber $\mathrm{Cov}=0$
-erfasst nur linearen Zusammenhang (Beispiel 8.42). (2) Die Produkteigenschaft $E(XY)=E(X)E(Y)$ gilt **nur** bei
+erfasst nur linearen Zusammenhang (Beispiel „unkorreliert, aber abhängig"). (2) Die Produkteigenschaft $E(XY)=E(X)E(Y)$ gilt **nur** bei
 Unabhängigkeit (bzw. Unkorreliertheit) — nicht allgemein; die Linearität $E(X+Y)=E(X)+E(Y)$ gilt dagegen immer. (3)
 $\mathrm{Var}(X+Y)=\mathrm{Var}X+\mathrm{Var}Y$ braucht nur $\mathrm{Cov}=0$, also schon Unkorreliertheit. (4) Gleiche
 Randverteilungen legen die gemeinsame Verteilung **nicht** fest (die 2D-Normalverteilung mit beliebigem $\rho$).
 
 :::kern
 __Unabhängigkeit__: $F_{X,Y}(x,y)=F_X(x)F_Y(y)$ für alle $x,y$ (gemeinsame Verteilungsfunktion faktorisiert). Folge:
-__Produkteigenschaft__ $E(XY)=E(X)E(Y)$ ⇒ $\mathrm{Cov}(X,Y)=0$ ⇒ $\mathrm{Var}(X+Y)=\mathrm{Var}X+\mathrm{Var}Y$
-(Lemma 8.35). __Unkorreliert__ (Def. 8.40): $\mathrm{Cov}=0$; __Lemma 8.41__: unabhängig ⇒ unkorreliert, **nicht**
-umgekehrt (Beispiel 8.42: $X\in\{-1,0,1\}$, $Y$ Indikator — $\mathrm{Cov}=0$, aber abhängig). __Diskret__ (Satz
-8.43): $P(X=x_k,Y=y_\ell)=P(X=x_k)P(Y=y_\ell)$. __Absolut-stetig__ (Def. 8.44, Satz 8.45): gemeinsame Dichte
+__Produkteigenschaft__ $E(XY)=E(X)E(Y)$ ⇒ $\mathrm{Cov}(X,Y)=0$ ⇒ $\mathrm{Var}(X+Y)=\mathrm{Var}X+\mathrm{Var}Y$.
+__Unkorreliert__: $\mathrm{Cov}=0$; unabhängig ⇒ unkorreliert, **nicht** umgekehrt (Beispiel: $X\in\{-1,0,1\}$, $Y$ Indikator — $\mathrm{Cov}=0$, aber abhängig). __Diskret__:
+$P(X=x_k,Y=y_\ell)=P(X=x_k)P(Y=y_\ell)$. __Absolut-stetig__: gemeinsame Dichte
 $f_{X,Y}$, __Randdichten__ $f_X=\int f_{X,Y}\,dy$, $f_Y=\int f_{X,Y}\,dx$; unabhängig ⟺ $f_{X,Y}=f_Xf_Y$.
 __2D-Normal__: $\rho=0$ Produktdichte (unabhängig), $\rho\neq0$ gekippte Ellipse (abhängig, aber Ränder weiter
 $\mathcal N(0,1)$); bei Normalverteilung unkorreliert = unabhängig.
@@ -150,12 +149,12 @@ F: Warum ist die Varianz unter Unabhängigkeit additiv, und welche Annahme reich
 A: Aus $E(XY)=E(X)E(Y)$ folgt $\mathrm{Cov}(X,Y)=0$, und $\mathrm{Var}(X+Y)=\mathrm{Var}X+\mathrm{Var}Y+2\mathrm{Cov}$ reduziert sich auf die Summe. Tatsächlich genügt dafür schon $\mathrm{Cov}=0$, also Unkorreliertheit — Unabhängigkeit ist hinreichend, aber mehr als nötig.
 F: Worin unterscheidet sich „unkorreliert" von „unabhängig"?
 A: Unkorreliert heißt nur $\mathrm{Cov}=0$, erfasst also ausschließlich den **linearen** Zusammenhang. Unabhängig verlangt das Faktorisieren der ganzen Verteilung und schließt **jeden** (auch nicht-linearen) Zusammenhang aus — deshalb ist unabhängig strikt stärker.
-F: Wie zeigt Beispiel 8.42, dass unkorreliert nicht unabhängig bedeutet?
+F: Wie zeigt das Beispiel auf $\Omega=\{1,2,3\}$, dass unkorreliert nicht unabhängig bedeutet?
 A: Dort ist $XY\equiv0$ und $E(X)=0$, also $\mathrm{Cov}=0$ (unkorreliert). Aber $Y=1$ erzwingt $X=0$ — ein klarer Zusammenhang; entsprechend faktorisiert die gemeinsame Verteilung nicht ($F_{X,Y}\neq F_XF_Y$). Der Zusammenhang ist nicht-linear, daher für die Kovarianz unsichtbar.
 F: Was ist eine Randdichte, und wie gewinnt man sie aus der gemeinsamen Dichte?
 A: Die Randdichte $f_X(x)=\int f_{X,Y}(x,y)\,dy$ ist die Dichte von $X$ allein, gewonnen durch „Ausintegrieren" von $Y$ über alle Werte. Man vergisst also die Information über $Y$ und behält die reine $X$-Verteilung.
 F: Wie prüft man im absolut-stetigen Fall die Unabhängigkeit?
-A: Man bildet die Randdichten $f_X,f_Y$ und testet, ob $f_{X,Y}(x,y)=f_X(x)f_Y(y)$ für alle $x,y$ gilt (Satz 8.45(ii)). Faktorisiert die gemeinsame Dichte in das Produkt der Randdichten, sind $X,Y$ unabhängig, sonst nicht.
+A: Man bildet die Randdichten $f_X,f_Y$ und testet, ob $f_{X,Y}(x,y)=f_X(x)f_Y(y)$ für alle $x,y$ gilt. Faktorisiert die gemeinsame Dichte in das Produkt der Randdichten, sind $X,Y$ unabhängig, sonst nicht.
 F: Warum legen gleiche Randverteilungen die gemeinsame Verteilung nicht fest?
 A: Die Ränder sagen nur, wie sich jede Variable einzeln verhält, nicht wie sie zusammenhängen. Die 2D-Normalverteilung zeigt es: Für jedes $\rho\in[0,1)$ sind beide Ränder $\mathcal N(0,1)$, aber die Abhängigkeitsstruktur (die Verkippung der Wolke) ist völlig verschieden.
 F: Wann sind die Komponenten einer zweidimensionalen Normalverteilung unabhängig?

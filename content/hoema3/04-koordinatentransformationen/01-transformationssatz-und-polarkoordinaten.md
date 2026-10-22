@@ -2,7 +2,7 @@
 title: Der Transformationssatz und Polarkoordinaten
 pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
 order: 3040100
-summary: Von Grund auf – wie man ein Flächenintegral in bequemere Koordinaten umschreibt, $\int_{\vec\Phi(B)}f(\vec x)\,d^2x=\int_B f(\vec\Phi(\vec u))\,\lvert\det D\vec\Phi(\vec u)\rvert\,d^2u$. Leitbild ist das Gummituch aus dem ersten Artikel – ein Gitter wird verzerrt, und jede Masche ändert ihre Fläche um den Faktor $\lvert\det D\vec\Phi\rvert$. Mit dem Flächenfaktor linearer Abbildungen, dem Beweis über den Satz von Stokes, der Substitutionsregel als Spezialfall, Polarkoordinaten mit $r\,dr\,d\varphi$ und dem Gauß-Integral $\int e^{-x^2}dx=\sqrt\pi$. Mit Beispiel-Seite.
+summary: Von Grund auf – wie man ein Flächenintegral in bequemere Koordinaten umschreibt, $\int_{\vec\Phi(B)}f(\vec x)\,d^2x=\int_B f(\vec\Phi(\vec u))\,\lvert\det D\vec\Phi(\vec u)\rvert\,d^2u$. Leitbild ist das Gummituch – ein Gitter wird verzerrt, und jede Masche ändert ihre Fläche um den Faktor $\lvert\det D\vec\Phi\rvert$. Mit dem Flächenfaktor linearer Abbildungen, dem Beweis über den Satz von Stokes, der Substitutionsregel als Spezialfall, Polarkoordinaten mit $r\,dr\,d\varphi$ und dem Gauß-Integral $\int e^{-x^2}dx=\sqrt\pi$. Mit Beispiel-Seite.
 tags: Transformationssatz, Jacobi-Determinante, Substitutionsregel, Polarkoordinaten, Flächenelement, Gauß-Integral, Koordinatenwechsel
 ---
 
@@ -12,12 +12,12 @@ Integrale über Kreisscheiben, Ringe oder Ellipsen sind in kartesischen Koordina
 Wurzeln. In Polarkoordinaten dagegen ist eine Kreisscheibe einfach ein Rechteck: Der Radius läuft von $0$ bis $R$, der Winkel
 von $0$ bis $2\pi$. Der Preis für den Wechsel der Koordinaten ist ein Faktor im Integral.
 
-**Das Leitbild dieses Artikels:** das **Gummituch** aus dem ersten Artikel. Auf das Tuch ist ein Gitter aus kleinen, gleich
+**Das Leitbild dieses Artikels:** das **Gummituch** aus dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html). Auf das Tuch ist ein Gitter aus kleinen, gleich
 großen Quadraten gezeichnet. Eine Abbildung $\vec\Phi$ verzerrt das Tuch, und aus jedem Quadrat wird eine krumme **Masche**.
 
 Unter der Lupe sieht jede glatte Verzerrung linear aus; deshalb ist jede kleine Masche fast ein Parallelogramm. Ihre Fläche
 ist die Fläche des Quadrats mal dem Betrag der __Jacobi-Determinante__ $\det D\vec\Phi$, der Determinante der Jacobi-Matrix aus
-dem ersten Artikel. Dieser Betrag ist der __Flächenfaktor__.
+dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html). Dieser Betrag ist der __Flächenfaktor__.
 
 Ein Integral über das verzerrte Tuch zählt jede Masche mit ihrer neuen Fläche. Das ist der __Transformationssatz__: Man
 integriert über das einfache, unverzerrte Gitter und multipliziert mit dem Flächenfaktor.
@@ -164,7 +164,7 @@ entstand. Ihre Fläche ist $\lvert\det D\vec\Phi\rvert$ mal die Fläche des Quad
 
 :::herleitung
 **Die Idee, in jeder Dimension.** Unter der Lupe ist $\vec\Phi$ nahe einem Punkt $\vec u_0$ fast linear. Das ist die totale
-Differenzierbarkeit aus dem ersten Artikel:
+Differenzierbarkeit aus dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html):
 
 $$\frac{\big\lvert\vec\Phi(\vec u)-\vec\Phi(\vec u_0)-D\vec\Phi(\vec u_0)\,(\vec u-\vec u_0)\big\rvert}{\lvert\vec u-\vec u_0\rvert}\to0 \qquad\text{für } \vec u\to\vec u_0.$$
 
@@ -424,7 +424,7 @@ $$\frac{\partial\vec\Phi}{\partial r} = (\cos\varphi,\ \sin\varphi), \qquad \fra
 Die Determinante ist „links oben mal rechts unten minus rechts oben mal links unten", und $\cos^2\varphi+\sin^2\varphi=1$.
 
 **Im Bild:** Der erste Gitterpfeil zeigt radial nach außen und hat die Länge $1$, der zweite tangential und hat die Länge
-$r$. Sie stehen senkrecht aufeinander und spannen ein Rechteck der Fläche $r$ auf. Im ersten Artikel kam derselbe Faktor
+$r$. Sie stehen senkrecht aufeinander und spannen ein Rechteck der Fläche $r$ auf. Im Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html) kam derselbe Faktor
 schon heraus.
 :::
 

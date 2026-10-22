@@ -324,7 +324,7 @@ Halbebene einsetzt. Mit der Abbildung der Zylinderkoordinaten $\vec\Phi_{\mathrm
 
 $$\vec\Phi = \vec\Phi_{\mathrm{Zyl}}\circ\vec\Psi, \qquad \vec\Psi(r,\theta,\varphi) = \big(r\sin\theta,\ \varphi,\ r\cos\theta\big).$$
 
-Nach der Kettenregel aus dem ersten Artikel ist die Jacobi-Matrix das Produkt der beiden Jacobi-Matrizen, und die
+Nach der Kettenregel aus dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html) ist die Jacobi-Matrix das Produkt der beiden Jacobi-Matrizen, und die
 Determinante eines Produkts ist das Produkt der Determinanten:
 
 $$\det D\vec\Phi(r,\theta,\varphi) = \det D\vec\Phi_{\mathrm{Zyl}}\big(\vec\Psi(r,\theta,\varphi)\big)\cdot\det D\vec\Psi(r,\theta,\varphi) = r\sin\theta\cdot r.$$

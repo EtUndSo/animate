@@ -40,25 +40,25 @@ $$\text{diskret:}\ \ E(X)=\sum_k x_k\,P(X=x_k),\qquad \text{absolut-stetig:}\ \ 
 Man schreibt oft $\mu_X=E(X)$. Die geometrische Deutung ist der **Schwerpunkt**: Trägt man die Wahrscheinlichkeit als
 Masse auf, liegt $E(X)$ genau am Balancepunkt.
 
-__Beispiel 8.28 (Poisson).__ Für $X\sim\text{Poisson}(\lambda)$ ist $E(X)=\lambda$, denn
+__Beispiel (Poisson).__ Für $X\sim\text{Poisson}(\lambda)$ ist $E(X)=\lambda$, denn
 $$E(X)=\sum_{k=0}^\infty k\,\frac{\lambda^k}{k!}e^{-\lambda}=\lambda\,e^{-\lambda}\sum_{k=1}^\infty\frac{\lambda^{k-1}}{(k-1)!}=\lambda\,e^{-\lambda}e^{\lambda}=\lambda.$$
 Der Faktor $k$ hebt den $k=0$-Term weg und verschiebt den Index — die verbleibende Reihe ist wieder $e^\lambda$. Der
 Parameter $\lambda$ ist also direkt der Erwartungswert.
 
-__Beispiel 8.29 (Normal).__ Für $X\sim\mathcal N(\mu,\sigma^2)$ ist $E(X)=\mu$. Man schreibt
+__Beispiel (Normal).__ Für $X\sim\mathcal N(\mu,\sigma^2)$ ist $E(X)=\mu$. Man schreibt
 $x=(x-\mu)+\mu$; das Integral über $(x-\mu)\,e^{-\frac12(\frac{x-\mu}{\sigma})^2}$ verschwindet aus
 **Punktsymmetrie** (ungerader Integrand um $\mu$), und übrig bleibt $\mu\cdot\int f_X=\mu$.
 
 ## Linearität, Monotonie und E(g(X))
 
-__Lemma 8.30.__ Für Zufallsvariablen $X,Y$ auf einem gemeinsamen Raum und $c\in\mathbb R$:
+__Lemma.__ Für Zufallsvariablen $X,Y$ auf einem gemeinsamen Raum und $c\in\mathbb R$:
 $$E(X+cY)=E(X)+c\,E(Y)\quad(\text{Linearität}),\qquad X\le Y\Rightarrow E(X)\le E(Y)\quad(\text{Monotonie}).$$
 Das sind genau die Eigenschaften eines Integrals — tatsächlich ist $E(X)=\int_\Omega X\,dP$ die Integration von $X$
 bezüglich $P$. Im diskreten Fall ($\Omega=\{\omega_1,\dots\}$) liest man es direkt ab: $E(X)=\sum_i
 X(\omega_i)P(\omega_i)$, und Linearität/Monotonie folgen sofort. Die Linearität ist **bemerkenswert stark**: Sie gilt
 **ohne** jede Unabhängigkeitsannahme über $X$ und $Y$.
 
-__Satz 8.31 (Transformationsformel).__ Für absolut-stetiges $X$ mit Dichte $f_X$ und stetiges $g$:
+__Satz (Transformationsformel).__ Für absolut-stetiges $X$ mit Dichte $f_X$ und stetiges $g$:
 $$E(g(X))=\int_{\mathbb R}g(x)\,f_X(x)\,dx$$
 (diskret entsprechend $E(g(X))=\sum_i g(X(\omega_i))P(\omega_i)$). Der Clou: Man braucht die Dichte von $g(X)$
 **nicht** — man integriert $g$ gegen die Dichte von $X$. Das ist das Arbeitspferd für alle abgeleiteten Größen, allen
@@ -69,7 +69,7 @@ voran $E(X^2)$.
 Ein großer Erwartungswert sagt nichts darüber, ob $X$ **nahe** bei $\mu$ liegt. Dafür misst man die mittlere
 quadratische Abweichung.
 
-__Definition 8.32.__ Existiert $E(X^2)$, so ist die __Varianz__
+__Definition.__ Existiert $E(X^2)$, so ist die __Varianz__
 $$\mathrm{Var}(X):=E\big((X-E(X))^2\big),\qquad \sigma_X:=\sqrt{\mathrm{Var}(X)}\ \ (\text{Standardabweichung}).$$
 Aus der Linearität folgt sofort die meistbenutzte Rechenform (Ausmultiplizieren von $(X-\mu)^2$):
 $$\mathrm{Var}(X)=E(X^2)-E(X)^2.$$
@@ -77,12 +77,12 @@ Warum **quadratisch**? Die lineare mittlere Abweichung $E(X-\mu)$ ist immer $0$ 
 heben sich auf). Das Quadrat macht alle Abweichungen positiv und bestraft große stärker — und die Wurzel $\sigma_X$
 bringt das Ergebnis zurück in die Einheit von $X$.
 
-__Beispiel 8.33 (Poisson).__ Für $X\sim\text{Poisson}(\lambda)$ ist auch $\mathrm{Var}(X)=\lambda$. Mit dem Trick
+__Beispiel (Poisson).__ Für $X\sim\text{Poisson}(\lambda)$ ist auch $\mathrm{Var}(X)=\lambda$. Mit dem Trick
 $k^2=k(k-1)+k$ zerfällt $E(X^2)$ in zwei verschiebbare Reihen, man erhält $E(X^2)=\lambda^2+\lambda$, also
 $\mathrm{Var}(X)=\lambda^2+\lambda-\lambda^2=\lambda$. (Bei Poisson sind Erwartungswert und Varianz gleich — ein
 Erkennungsmerkmal.)
 
-__Beispiel 8.34 (Normal).__ Für $X\sim\mathcal N(\mu,\sigma^2)$ ist $\mathrm{Var}(X)=\sigma^2$. Nach Substitution
+__Beispiel (Normal).__ Für $X\sim\mathcal N(\mu,\sigma^2)$ ist $\mathrm{Var}(X)=\sigma^2$. Nach Substitution
 $y=\frac{x-\mu}{\sigma}$ bleibt $\frac{\sigma^2}{\sqrt{2\pi}}\int y^2 e^{-y^2/2}dy$; mit $y\,e^{-y^2/2}=-\frac{d}{dy}e^{-y^2/2}$
 liefert **partielle Integration** gerade wieder das Gauß-Integral, also $\mathrm{Var}(X)=\sigma^2$. Die Parameter
 $(\mu,\sigma^2)$ der Normalverteilung sind damit **exakt** Erwartungswert und Varianz.
@@ -91,9 +91,9 @@ $(\mu,\sigma^2)$ der Normalverteilung sind damit **exakt** Erwartungswert und Va
 
 Weil die Varianz quadratisch ist, verhält sie sich beim Addieren anders als der Erwartungswert.
 
-__Lemma 8.35.__ Für $X,Y$ mit existierenden zweiten Momenten und $c\in\mathbb R$:
+__Lemma.__ Für $X,Y$ mit existierenden zweiten Momenten und $c\in\mathbb R$:
 $$\mathrm{Var}(cX)=c^2\,\mathrm{Var}(X),\qquad \mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)+2\,\mathrm{Cov}(X,Y),$$
-mit der __Kovarianz__ $\mathrm{Cov}(X,Y):=E\big[(X-E(X))(Y-E(Y))\big]$. __Bemerkung 8.36:__ Es gilt die Rechenform
+mit der __Kovarianz__ $\mathrm{Cov}(X,Y):=E\big[(X-E(X))(Y-E(Y))\big]$. __Bemerkung:__ Es gilt die Rechenform
 $\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)$. Der Faktor $c^2$ (nicht $c$) ist die Signatur des Quadrats, und die Kovarianz ist
 der „gemischte Term", der beim Ausmultiplizieren von $((X-\mu_X)+(Y-\mu_Y))^2$ entsteht. Sie misst, ob $X$ und $Y$
 **gemeinsam** über oder unter ihrem Mittel liegen; verschwindet sie, addieren sich die Varianzen einfach — das wird
@@ -113,11 +113,11 @@ ausnutzt:
 $$\mathrm{Var}(X)=\sum_i(x_i-\mu)^2P(X=x_i)\ \ge\!\!\sum_{|x_i-\mu|\ge\varepsilon}\!\!(x_i-\mu)^2P(X=x_i)\ \ge\ \varepsilon^2\!\!\sum_{|x_i-\mu|\ge\varepsilon}\!\!P(X=x_i)=\varepsilon^2\,P(|X-\mu|\ge\varepsilon).$$
 Nach $P(\cdot)$ aufgelöst ergibt das:
 
-__Satz 8.37 (Tschebyschew-Ungleichung).__ Für $X$ mit $E(X)=\mu$, $\mathrm{Var}(X)=\sigma^2$ und jedes
+__Satz (Tschebyschew-Ungleichung).__ Für $X$ mit $E(X)=\mu$, $\mathrm{Var}(X)=\sigma^2$ und jedes
 $\varepsilon>0$:
 $$P(|X-\mu|\ge\varepsilon)\le\frac{\sigma^2}{\varepsilon^2}.$$
 
-__Bemerkung 8.38.__ Interessant ist sie für **große** Abweichungen: Mit $\varepsilon\to\infty$ fällt die
+__Bemerkung.__ Interessant ist sie für **große** Abweichungen: Mit $\varepsilon\to\infty$ fällt die
 Wahrscheinlichkeit großer Abweichungen quadratisch. Für $\varepsilon\le\sigma$ liefert sie nichts Neues (die
 Schranke ist $\ge1$, und $P\le1$ gilt ohnehin); der Grenzfall $\varepsilon=\sigma$ markiert genau die
 Standardabweichung. Die Stärke der Ungleichung ist ihre **Universalität**: Sie gilt für **jede** Verteilung, nur mit
@@ -131,12 +131,12 @@ g(E(X))$ im Allgemeinen (z. B. $E(X^2)\neq E(X)^2$ — genau die Differenz ist d
 
 :::kern
 __Erwartungswert__ $E(X)=\int_{\mathbb R}x\,P_X(dx)$ (Maßintegral) — diskret $\sum_k x_k P(X=x_k)$, stetig $\int
-x f_X\,dx$ (absolut konvergent); Schwerpunkt, $\mu_X$. Beispiele: Poisson $E=\lambda$, Normal $E=\mu$. __Lemma
-8.30__: $E$ linear ($E(X+cY)=E(X)+cE(Y)$, immer!) und monoton. __Satz 8.31__: $E(g(X))=\int g(x)f_X(x)\,dx$ (Dichte
-von $g(X)$ unnötig). __Varianz__ (Def. 8.32): $\mathrm{Var}(X)=E((X-\mu)^2)=E(X^2)-E(X)^2$, $\sigma_X=\sqrt{\mathrm{Var}}$;
+x f_X\,dx$ (absolut konvergent); Schwerpunkt, $\mu_X$. Beispiele: Poisson $E=\lambda$, Normal $E=\mu$.
+$E$ linear ($E(X+cY)=E(X)+cE(Y)$, immer!) und monoton. __Transformationsformel__: $E(g(X))=\int g(x)f_X(x)\,dx$ (Dichte
+von $g(X)$ unnötig). __Varianz__: $\mathrm{Var}(X)=E((X-\mu)^2)=E(X^2)-E(X)^2$, $\sigma_X=\sqrt{\mathrm{Var}}$;
 quadratisch (lineare mittlere Abweichung $=0$). Poisson $\mathrm{Var}=\lambda$, Normal $\mathrm{Var}=\sigma^2$.
-__Lemma 8.35__: $\mathrm{Var}(cX)=c^2\mathrm{Var}(X)$, $\mathrm{Var}(X+Y)=\mathrm{Var}X+\mathrm{Var}Y+2\mathrm{Cov}(X,Y)$,
-$\mathrm{Cov}(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]=E(XY)-E(X)E(Y)$. __Tschebyschew__ (Satz 8.37):
+$\mathrm{Var}(cX)=c^2\mathrm{Var}(X)$, $\mathrm{Var}(X+Y)=\mathrm{Var}X+\mathrm{Var}Y+2\mathrm{Cov}(X,Y)$,
+$\mathrm{Cov}(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]=E(XY)-E(X)E(Y)$. __Tschebyschew__:
 $P(|X-\mu|\ge\varepsilon)\le\sigma^2/\varepsilon^2$ — universell, für große $\varepsilon$ quadratischer Abfall.
 :::
 

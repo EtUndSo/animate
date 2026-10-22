@@ -68,7 +68,7 @@ zusammen ist das
 $$h\,E_1\big(\vec x_0+\tfrac h2\vec e_1\big) - h\,E_1\big(\vec x_0-\tfrac h2\vec e_1\big) \;\approx\; h\cdot h\,\frac{\partial E_1}{\partial x_1}(\vec x_0).$$
 
 Denn zwei Werte im Abstand $h$ längs einer Gitterlinie unterscheiden sich ungefähr um $h$ mal die Ableitung — das ist
-die lineare Näherung aus dem ersten Artikel. Ober- und Unterwand liefern ebenso $h^2\,\partial E_2/\partial x_2$.
+die lineare Näherung aus dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html). Ober- und Unterwand liefern ebenso $h^2\,\partial E_2/\partial x_2$.
 Zusammen:
 
 $$\text{Netto-Ausfluss} \;\approx\; h^2\Big(\frac{\partial E_1}{\partial x_1}+\frac{\partial E_2}{\partial x_2}\Big)(\vec x_0) = h^2\,\operatorname{div}\vec E(\vec x_0).$$
@@ -539,7 +539,7 @@ $$\sum_{j,k}\varepsilon_{ijk}\,\omega_{jk} = \frac12\,(\operatorname{rot}\vec F)
 $$\varepsilon_{12}\,\omega_{12}+\varepsilon_{21}\,\omega_{21} = \omega_{12}-\omega_{21} = 2\,\omega_{12} = \frac{\partial F_2}{\partial x_1}-\frac{\partial F_1}{\partial x_2} = \operatorname{rot}\vec F.$$
 :::
 
-**Im Bild: Dehnung für das Kästchen, Drehung für das Rad.** Unter der Lupe des ersten Artikels ist die Strömung nahe
+**Im Bild: Dehnung für das Kästchen, Drehung für das Rad.** Unter der Lupe aus dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html) ist die Strömung nahe
 $\vec x_0$ linear, beschrieben durch die Jacobi-Matrix. Jede Matrix zerfällt in einen symmetrischen und einen
 schiefsymmetrischen Anteil:
 

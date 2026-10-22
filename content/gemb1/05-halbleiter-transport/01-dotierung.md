@@ -97,8 +97,7 @@ Der entscheidende Vergleich: Die thermische Energie bei Raumtemperatur ist $k_B 
 derselben Größenordnung** wie $E_{\text{ion}}$. Deshalb sind diese __flachen Störstellen__ (Niveau nur knapp neben
 der Bandkante) bei Raumtemperatur **nahezu vollständig ionisiert**: Praktisch jedes Donatoratom hat sein Elektron
 schon abgegeben. Gemessene Ionisierungsenergien in Silizium (von der nächsten Bandkante): Phosphor $\approx 45\,$meV,
-Arsen $54\,$meV, Antimon $39\,$meV (Donatoren); Bor $45\,$meV, Aluminium $67\,$meV (Akzeptoren)
-([NCBI/PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5519722/), [arXiv](https://arxiv.org/pdf/cond-mat/0309139)).
+Arsen $54\,$meV, Antimon $39\,$meV (Donatoren); Bor $45\,$meV, Aluminium $67\,$meV (Akzeptoren).
 
 :::grafik
 Ein Energiebalken: links $13{,}6\,$eV (H-Atom), rechts stark zusammengeschrumpft $\sim 45\,$meV (Donator in Si),

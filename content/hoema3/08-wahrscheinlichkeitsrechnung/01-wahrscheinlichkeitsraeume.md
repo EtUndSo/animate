@@ -49,7 +49,7 @@ Ereignisse heißt __Ereignisraum__ $\mathcal E$ — auch er ist problemabhängig
 Damit die Mengenoperationen (und damit die logischen Verknüpfungen von Fragen) nie aus $\mathcal E$ herausführen,
 muss der Ereignisraum eine __$\sigma$-Algebra__ sein.
 
-__Definition 8.1.__ Ein System $\mathcal E$ von Teilmengen von $\Omega$ heißt __$\sigma$-Algebra über $\Omega$__,
+__Definition.__ Ein System $\mathcal E$ von Teilmengen von $\Omega$ heißt __$\sigma$-Algebra über $\Omega$__,
 wenn
 $$\text{(i)}\ \ \Omega\in\mathcal E, \qquad \text{(ii)}\ \ A,B\in\mathcal E\Rightarrow A\cap B\in\mathcal E, \qquad \text{(iii)}\ \ A_i\in\mathcal E\ (i\in\mathbb N)\Rightarrow \bigcup_{i\in\mathbb N}A_i\in\mathcal E.$$
 
@@ -61,7 +61,7 @@ unter **abzählbaren Schnitten**:
 $$A_i\in\mathcal E\ (i\in\mathbb N)\quad\Longrightarrow\quad \bigcap_{i\in\mathbb N}A_i\in\mathcal E.$$
 
 Das „$\sigma$" steht gerade für die **abzählbare** (nicht nur endliche) Version von (iii) — sie ist nötig, damit man
-Grenzwerte von Ereignisfolgen bilden darf. __Beispiel 8.2:__ Die __Potenzmenge__ $\mathcal P(\Omega)$ (alle
+Grenzwerte von Ereignisfolgen bilden darf. __Beispiel:__ Die __Potenzmenge__ $\mathcal P(\Omega)$ (alle
 Teilmengen) ist die größtmögliche $\sigma$-Algebra über $\Omega$.
 
 ## Das Wahrscheinlichkeitsmaß
@@ -70,7 +70,7 @@ Jetzt ordnet man jedem Ereignis eine Wahrscheinlichkeit zu. Die Leitidee: $P(A)$
 von $A$ in sehr vielen unabhängigen Wiederholungen entsprechen. Relative Häufigkeiten sind nichtnegativ, addieren
 sich bei disjunkten Ereignissen und ergeben in der Summe über alle Ausgänge $1$ — daraus wird die Definition.
 
-__Definition 8.3.__ Sei $\mathcal E$ eine $\sigma$-Algebra über $\Omega$. Eine __$\sigma$-additive__ Mengenfunktion
+__Definition.__ Sei $\mathcal E$ eine $\sigma$-Algebra über $\Omega$. Eine __$\sigma$-additive__ Mengenfunktion
 $P:\mathcal E\to[0,1]$, d. h. für **paarweise disjunkte** $A_i\in\mathcal E$ gilt
 $$P\!\Big(\bigcup_{i\in\mathbb N}A_i\Big)=\sum_{i\in\mathbb N}P(A_i),$$
 mit $P(\Omega)=1$, heißt __Wahrscheinlichkeitsmaß__ auf $\Omega$. Aus den Axiomen folgen unmittelbar:
@@ -81,7 +81,7 @@ $B=A\cup(B\setminus A)$ (disjunkt), sodass $P(B)=P(A)+P(B\setminus A)\ge P(A)$.
 
 Das Tripel $(\Omega,\mathcal E,P)$ heißt __Wahrscheinlichkeitsraum__.
 
-__Satz 8.4 (Stetigkeit von $P$).__ Ist $(A_n)$ eine **aufsteigende** Ereignisfolge ($A_n\subset A_{n+1}$), so gilt
+__Satz (Stetigkeit von $P$).__ Ist $(A_n)$ eine **aufsteigende** Ereignisfolge ($A_n\subset A_{n+1}$), so gilt
 $$\lim_{n\to\infty}P(A_n)=P\!\Big(\bigcup_{k\in\mathbb N}A_k\Big);$$
 für eine **absteigende** Folge entsprechend $\lim_{n\to\infty}P(A_n)=P\big(\bigcap_{k}A_k\big)$. Das ist die
 „Stetigkeit des Maßes" gegenüber monotoner Konvergenz von Mengen — genau hier wird die $\sigma$-Additivität (nicht
@@ -140,7 +140,7 @@ $$P(A)=\int_A\rho(x)\,dx.$$
 Wahrscheinlichkeit ist nun **Fläche unter der Dichte**, nicht Summe von Punktmassen — ein einzelner Punkt hat
 Wahrscheinlichkeit $0$.
 
-__Beispiel 8.8 (Normalverteilungen).__ Für $\mu\in\mathbb R$ und $\sigma>0$ ist
+__Beispiel (Normalverteilungen).__ Für $\mu\in\mathbb R$ und $\sigma>0$ ist
 $$\rho(x)=\frac{1}{\sigma\sqrt{2\pi}}\,\exp\!\Big(-\tfrac12\big(\tfrac{x-\mu}{\sigma}\big)^2\Big)$$
 eine Familie von Dichten — Verschiebungen (um $\mu$) und Skalierungen (mit $\sigma$) der Gaußfunktion
 $f(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}$, für die wir $\int_{\mathbb R}f=1$ früher über den Polarkoordinaten-Trick
@@ -163,17 +163,17 @@ einziger Rahmen, ein einziges Integral.
 
 **Stolperstein:** (1) $\Omega$ und $\mathcal E$ sind __problemabhängig__ — es gibt nicht „den" richtigen
 Stichprobenraum, nur einen zur Fragestellung passenden. (2) Das „$\sigma$" (abzählbare Additivität/Vereinigung) ist
-**kein Luxus**: Nur damit gilt die Stetigkeit (Satz 8.4) und darf man Grenzwerte von Ereignissen bilden. (3) Im
+**kein Luxus**: Nur damit gilt die Stetigkeit von $P$ und darf man Grenzwerte von Ereignissen bilden. (3) Im
 kontinuierlichen Fall ist $P(\{x\})=0$ für jeden Einzelpunkt — Wahrscheinlichkeit $0$ heißt **nicht** „unmöglich".
 (4) Eine Dichte ist **kein** Wahrscheinlichkeitswert: $\rho(x)$ darf $>1$ sein; erst das Integral über ein Intervall
 liegt in $[0,1]$.
 
 :::kern
 Ein __Wahrscheinlichkeitsraum__ ist ein Tripel $(\Omega,\mathcal E,P)$: __Stichprobenraum__ $\Omega$ (alle
-Ergebnisse, problemabhängig), __Ereignisraum__ $\mathcal E$ = __$\sigma$-Algebra__ (Def. 8.1: enthält $\Omega$,
+Ergebnisse, problemabhängig), __Ereignisraum__ $\mathcal E$ = __$\sigma$-Algebra__ (enthält $\Omega$,
 abgeschlossen unter Komplement/Schnitt und **abzählbarer** Vereinigung ⇒ auch $\emptyset$, Differenz, abzählbarer
-Schnitt), __Wahrscheinlichkeitsmaß__ $P:\mathcal E\to[0,1]$ (Def. 8.3: $\sigma$-additiv auf disjunkten Mengen,
-$P(\Omega)=1$) ⇒ $P(A^c)=1-P(A)$, Monotonie, Stetigkeit (Satz 8.4). __Diskret__: $\Omega$ abzählbar, $P(A)=\sum_{\omega_i\in
+Schnitt), __Wahrscheinlichkeitsmaß__ $P:\mathcal E\to[0,1]$ ($\sigma$-additiv auf disjunkten Mengen,
+$P(\Omega)=1$) ⇒ $P(A^c)=1-P(A)$, Monotonie, Stetigkeit. __Diskret__: $\Omega$ abzählbar, $P(A)=\sum_{\omega_i\in
 A}p_i$; __Laplace__: $p_i=1/n$, $P(A)=|A|/|\Omega|$ (Kombinatorik). __Urnenmodell__ ($n$, $k$ Züge): (i) $n^k$,
 (ii) $(n)_k=n!/(n-k)!$, (iii) $\binom nk$, (iv) $\binom{n+k-1}{k}$. __Bernoulli__/Binomial: $P_n(A_k)=\binom
 nk p^k(1-p)^{n-k}$. __Kontinuierlich__: Dichte $\rho\ge0$, $\int\rho=1$, $P(A)=\int_A\rho$ (z. B. Normalverteilung
@@ -191,14 +191,14 @@ A: Weil er davon abhängt, welche Frage man beantworten will. Wirft man zwei Wü
 F: Warum modelliert man Ereignisse als Teilmengen von $\Omega$?
 A: Ein Ereignis ist eine mit ja/nein beantwortbare Frage, und die Menge aller Ergebnisse mit Antwort „ja" ist gerade eine Teilmenge $A\subset\Omega$. Logische Verknüpfungen von Fragen (und/oder/nicht) werden so zu Mengenoperationen (Schnitt/Vereinigung/Komplement).
 F: Wofür steht das „$\sigma$" in $\sigma$-Algebra, und warum reicht endliche Abgeschlossenheit nicht?
-A: Es steht für die Abgeschlossenheit unter **abzählbar** unendlichen Vereinigungen, nicht nur endlichen. Nur so darf man Grenzwerte von Ereignisfolgen bilden — etwa „irgendwann tritt $A$ ein" als $\bigcup_n A_n$ — und es gilt die Stetigkeit des Maßes (Satz 8.4).
+A: Es steht für die Abgeschlossenheit unter **abzählbar** unendlichen Vereinigungen, nicht nur endlichen. Nur so darf man Grenzwerte von Ereignisfolgen bilden — etwa „irgendwann tritt $A$ ein" als $\bigcup_n A_n$ — und es gilt die Stetigkeit des Maßes.
 F: Warum enthält jede $\sigma$-Algebra automatisch die leere Menge und ist unter abzählbarem Schnitt abgeschlossen?
 A: Aus $\Omega\in\mathcal E$ und Abgeschlossenheit unter Komplement folgt $\emptyset=\Omega^c\in\mathcal E$. Mit den de-Morgan-Regeln ist ein abzählbarer Schnitt das Komplement einer abzählbaren Vereinigung von Komplementen — also wieder in $\mathcal E$.
 F: Woraus leitet sich die Forderung ab, dass $P$ $\sigma$-additiv ist und $P(\Omega)=1$ gilt?
 A: $P(A)$ soll die relative Häufigkeit von $A$ in sehr vielen Wiederholungen nachbilden. Relative Häufigkeiten sind nichtnegativ, addieren sich bei disjunkten Ereignissen und ergeben über alle Ausgänge zusammen $1$ — das führt direkt auf Additivität (verschärft zu $\sigma$-Additivität) und die Normierung $P(\Omega)=1$.
 F: Wie folgt die Gegenwahrscheinlichkeit $P(A^c)=1-P(A)$ aus den Axiomen?
 A: $\Omega$ zerfällt disjunkt in $A$ und $A^c$, also $P(A)+P(A^c)=P(\Omega)=1$ nach Additivität und Normierung. Umgestellt ergibt sich $P(A^c)=1-P(A)$ — oft rechnet man das Gegenereignis, weil es einfacher ist.
-F: Was bedeutet die Stetigkeit des Wahrscheinlichkeitsmaßes (Satz 8.4) anschaulich?
+F: Was bedeutet die Stetigkeit des Wahrscheinlichkeitsmaßes anschaulich?
 A: Wächst eine Ereignisfolge monoton ($A_n\subset A_{n+1}$) gegen ihre Vereinigung, so konvergieren die Wahrscheinlichkeiten $P(A_n)$ gegen $P$ der Vereinigung. Grenzwertbildung bei Mengen und beim Maß sind also vertauschbar — genau dafür braucht man die abzählbare Additivität.
 F: Warum reduziert sich im Laplace-Raum die Wahrscheinlichkeit auf das Abzählen von Elementen?
 A: Sind alle $n$ Elementarereignisse gleich wahrscheinlich ($p_i=1/n$), so ist $P(A)=\sum_{\omega_i\in A}\frac1n=\frac{|A|}{n}$. Die Wahrscheinlichkeit ist dann nur noch das Verhältnis günstiger zu möglichen Fällen — ein rein kombinatorisches Zählproblem.

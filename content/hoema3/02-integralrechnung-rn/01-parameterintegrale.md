@@ -163,7 +163,7 @@ $$\Big\lvert\frac{g(\vec x+h\,\vec e_k)-g(\vec x)}{h} - \int_a^b\frac{\partial f
 
 Also existiert die partielle Ableitung von $g$ und ist das behauptete Integral. Sie ist stetig, denn sie ist selbst ein
 Parameterintegral mit stetigem Integranden — dafür sorgt der Stetigkeitssatz. Stetige partielle Ableitungen machen $g$
-nach dem ersten Artikel total differenzierbar.
+nach dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html) total differenzierbar.
 
 **Im Bild:** Ohne die gleichmäßige Stetigkeit könnte ein winziges Stück der Kurve beim Verstellen des Reglers
 davonschießen und die Fläche verändern, obwohl sich an jeder einzelnen Stelle kaum etwas tut.
@@ -304,7 +304,7 @@ unter dem Integral:
 $$\frac{\partial H}{\partial v} = f(y,v), \qquad \frac{\partial H}{\partial u} = -f(y,u), \qquad \frac{\partial H}{\partial y} = \int_u^v\frac{\partial f}{\partial y}(y,t)\,dt.$$
 
 Alle drei sind stetig, also ist $H$ stetig differenzierbar. Das gesuchte $g$ ist die Verkettung von $H$ mit
-$y\mapsto(\alpha(y),\beta(y),y)$, und die Kettenregel des ersten Artikels gibt
+$y\mapsto(\alpha(y),\beta(y),y)$, und die Kettenregel aus dem Artikel [Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html) gibt
 
 $$g'(y) = \frac{\partial H}{\partial u}\,\alpha'(y) + \frac{\partial H}{\partial v}\,\beta'(y) + \frac{\partial H}{\partial y}\cdot1,$$
 

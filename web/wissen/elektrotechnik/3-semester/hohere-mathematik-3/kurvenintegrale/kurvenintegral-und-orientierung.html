@@ -19,7 +19,7 @@ try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")=
 </section>
 <section class="sect">
 <h2 id="was-ist-eine-regulare-kurve">Was ist eine reguläre Kurve?</h2>
-<p>Im ersten Kapitel war eine Kurve eine Abbildung auf einem offenen Intervall. Für eine Tour braucht man Anfang und Ende, also ein abgeschlossenes Intervall <span class="nobr">$[a,b]$,</span> und man möchte Ecken zulassen — eine Tour um einen Häuserblock biegt ab.</p>
+<p>Im Artikel über <a href="/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html">Skalar- und Vektorfelder</a> war eine Kurve eine Abbildung auf einem offenen Intervall. Für eine Tour braucht man Anfang und Ende, also ein abgeschlossenes Intervall <span class="nobr">$[a,b]$,</span> und man möchte Ecken zulassen — eine Tour um einen Häuserblock biegt ab.</p>
 <p><strong>Stückweise stetig differenzierbar</strong> heißt: $\vec\gamma:[a,b]\to\mathbb{R}^n$ ist stetig, und es gibt endlich viele Stellen</p>
 <p>$$\textcolor{#e5383b}{a }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ a_0 &lt; a_1 &lt; \ldots &lt; a_N }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ b,}$$</p>
 <p>sodass $\vec\gamma$ auf jedem Teilintervall $[a_{k-1},a_k]$ stetig differenzierbar ist. An den <strong class="nm">Knickstellen</strong> $a_k$ und an den Endpunkten existieren nur die einseitigen Ableitungen — dort darf die Kurve eine Ecke haben.</p>
@@ -60,14 +60,14 @@ try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")=
 <p>$$\textcolor{#e5383b}{\int_\gamma\big(\lambda\vec F+\mu\vec G\big)\cdot d\vec x }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \lambda\int_\gamma\vec F\cdot d\vec x+\mu\int_\gamma\vec G\cdot d\vec x.}$$</p>
 <details class="herleitung"><summary>Herleitung</summary><div class="hl-body"><p>Das Skalarprodukt ist linear in seinem ersten Faktor, der Integrand also</p>
 <p>$$\textcolor{#e5383b}{\big(\lambda\vec F+\mu\vec G\big)\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t) }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \lambda\,\vec F\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t)+\mu\,\vec G\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t),}$$</p>
-<p>und das gewöhnliche Integral ist linear (HM1).</p></div></details>
+<p>und das gewöhnliche Integral ist linear.</p></div></details>
 <div class="bsp-ref" id="bspref-3" data-bsp="3"><a href="#bsp-3"><span class="bsp-n">Beispiel 3</span><span class="bsp-tt">Drei Winde auf dem Halbkreis</span><span class="bsp-arr" aria-hidden="true">→</span></a></div>
 </section>
 <section class="sect">
 <h2 id="das-tempo-ist-egal-umparametrisierung">Das Tempo ist egal: Umparametrisierung</h2>
 <p>Fährt man dieselbe Strecke in derselben Richtung, aber mit anderem Tempo, ändert sich die Arbeit nicht. Mathematisch heißt ein anderes Tempo: Man ersetzt die Zeit $t$ durch eine neue Zeit <span class="nobr">$s$,</span> mit einer stetig differenzierbaren, streng monoton wachsenden Funktion</p>
 <div class="mrow"><div class="mcell">$$\sigma:[\alpha,\beta]\to[a,b],$$</div><div class="mcell">$$\textcolor{#e5383b}{\sigma(\alpha)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{a,}$$</div><div class="mcell">$$\textcolor{#e5383b}{\sigma(\beta)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{b.}$$</div></div>
-<p>Die neue Tour $\vec\gamma\circ\sigma$ besucht dieselben Orte in derselben Reihenfolge, nur zu anderen Zeiten. Im Skript heißt diese Funktion <span class="nobr">$\tau$;</span> hier ist $\tau$ für die Einheitstangente reserviert.</p>
+<p>Die neue Tour $\vec\gamma\circ\sigma$ besucht dieselben Orte in derselben Reihenfolge, nur zu anderen Zeiten.</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Lemma</span><span class="fbox-n">(3)</span></div><p>$$\textcolor{#e5383b}{\int_\alpha^\beta \vec F\big(\vec\gamma(\sigma(s))\big)\cdot\frac{d}{ds}\,\vec\gamma\big(\sigma(s)\big)\,ds }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \int_a^b \vec F\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t)\,dt.}$$</p></div>
 <p><strong>So liest man das:</strong> Links fährt man die Tour nach der neuen Uhr <span class="nobr">$s$,</span> rechts nach der alten Uhr <span class="nobr">$t$.</span> Kurz:</p>
 <p>$$\textcolor{#e5383b}{\int_{\gamma\circ\sigma}\vec F\cdot d\vec x }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \int_\gamma\vec F\cdot d\vec x.}$$</p>
@@ -85,7 +85,7 @@ try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")=
 <h2 id="die-richtung-zahlt-orientierung">Die Richtung zählt: Orientierung</h2>
 <p>Fährt man dieselbe Strecke <strong>zurück</strong>, kehrt sich die Arbeit um. Die Rückfahrt ist die Kurve</p>
 <div class="mrow"><div class="mcell">$$\vec\gamma_-(t) := \vec\gamma(a+b-t),$$</div><div class="mcell">$$t\in[a,b].$$</div></div>
-<p>Sie beginnt bei $\vec\gamma(b)$ und endet bei <span class="nobr">$\vec\gamma(a)$.</span> Das Skript schreibt sie $\gamma^{-1}$ — gemeint ist nicht die Umkehrabbildung, sondern die rückwärts durchlaufene Kurve.</p>
+<p>Sie beginnt bei $\vec\gamma(b)$ und endet bei <span class="nobr">$\vec\gamma(a)$.</span> Üblich ist auch die Schreibweise $\gamma^{-1}$ — gemeint ist dann nicht die Umkehrabbildung, sondern die rückwärts durchlaufene Kurve.</p>
 <div class="fbox"><div class="fbox-h"><span class="fbox-t">Satz</span><span class="fbox-n">(4)</span></div><p>$$\textcolor{#e5383b}{\int_{\gamma_-}\vec F\cdot d\vec x }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ -\int_\gamma\vec F\cdot d\vec x.}$$</p></div>
 <p><strong>Im Bild:</strong> Auf der Rückfahrt kommt jeder Wind, der vorher von hinten kam, von vorn. Der Ort ist derselbe, die Fahrtrichtung entgegengesetzt — also wechselt der Windanteil in Fahrtrichtung überall das Vorzeichen.</p>
 <details class="herleitung"><summary>Herleitung</summary><div class="hl-body"><p>Die Geschwindigkeit der Rückfahrt ist nach der Kettenregel</p>
@@ -136,7 +136,7 @@ try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")=
 <p>Dieser Wert hängt nicht davon ab, welche doppelpunktfreie Parametrisierung man wählt — solange der Durchlaufsinn derselbe bleibt. Deshalb gibt man einer regulären Kurve immer eine <strong class="nm">Orientierung</strong> mit, einen Durchlaufsinn. Die Kurve mit umgekehrtem Durchlaufsinn heißt <span class="nobr">$-\Gamma$.</span></p>
 <details class="herleitung"><summary>Herleitung</summary><div class="hl-body"><p>Nur die Beweisidee. Seien $\vec x_1:[a,b]\to\Gamma$ und $\vec x_2:[c,d]\to\Gamma$ zwei doppelpunktfreie reguläre Parametrisierungen mit demselben Anfangs- und Endpunkt. Weil $\vec x_1$ keinen Punkt zweimal trifft, kann man zurückrechnen, zu welcher Zeit der ersten Uhr ein Punkt erreicht wird:</p>
 <p>$$\sigma := \vec x_1^{-1}\circ\vec x_2:[c,d]\to[a,b].$$</p>
-<p>$\sigma$ ist stetig und streng monoton (eine stetige, umkehrbare Abbildung eines Intervalls), und wachsend, weil beide Uhren denselben Anfang haben. Stetig differenzierbar ist sie wegen der Regularität: In der Nähe jedes Punkts ist eine Koordinate von $\vec x_1$ streng monoton, und über deren Umkehrfunktion (HM1) lässt sich $\sigma$ ausdrücken. Nach dem Lemma über das Tempo geben dann beide Parametrisierungen dasselbe Kurvenintegral. Mit umgekehrtem Durchlaufsinn ist $\sigma$ fallend, und es kommt das Minuszeichen der Rückfahrt hinzu.</p></div></details>
+<p>$\sigma$ ist stetig und streng monoton (eine stetige, umkehrbare Abbildung eines Intervalls), und wachsend, weil beide Uhren denselben Anfang haben. Stetig differenzierbar ist sie wegen der Regularität: In der Nähe jedes Punkts ist eine Koordinate von $\vec x_1$ streng monoton, und über deren Umkehrfunktion lässt sich $\sigma$ ausdrücken. Nach dem Lemma über das Tempo geben dann beide Parametrisierungen dasselbe Kurvenintegral. Mit umgekehrtem Durchlaufsinn ist $\sigma$ fallend, und es kommt das Minuszeichen der Rückfahrt hinzu.</p></div></details>
 <p><strong>Rundtouren.</strong> Bei einer geschlossenen Kurve ist das Kurvenintegral auch davon unabhängig, wo auf der Kurve man losfährt.</p>
 <details class="herleitung"><summary>Herleitung</summary><div class="hl-body"><p>Sei $\vec x:[a,b]\to\mathbb{R}^n$ geschlossen, und man starte stattdessen zur Zeit <span class="nobr">$c\in(a,b)$.</span> Die neue Tour fährt erst von $c$ bis $b$ und dann, wegen der Geschlossenheit nahtlos, das Stück von $a$ bis <span class="nobr">$c$:</span></p>
 <p>$$\textcolor{#e5383b}{\vec y(t) }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \begin{cases}\vec x(t), &amp; c\le t\le b,\\ \vec x\big(t-(b-a)\big), &amp; b\le t\le c+(b-a).\end{cases}}$$</p>

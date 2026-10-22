@@ -22,8 +22,8 @@ Artikel, erweitert um **zwei Kontakte**. Seine Idee: Die Gatespannung erzeugt (o
 __Inversionskanal__ an der Oberfläche und schaltet damit einen leitenden Pfad zwischen __Source__ und __Drain__
 ein oder aus. Entscheidend und elegant: Die steuernde Barriere wird **berührungslos** über das isolierte Gate
 verschoben — anders als bei der Diode, wo man eine Spannung direkt ins p-Gebiet legen muss. Der MOSFET ist das
-meistgefertigte Bauelement der Geschichte und der Grund, warum dieses ganze Modul — von der Quantenmechanik bis
-hierher — überhaupt so wichtig ist.
+meistgefertigte Bauelement der Geschichte und der Grund, warum dieser ganze Themenbereich — von der Quantenmechanik
+bis hierher — überhaupt so wichtig ist.
 :::
 
 **Worum es geht:** Wir verstehen den Aufbau und den Schaltmechanismus, leiten mit der
@@ -178,7 +178,7 @@ Skalierungs-Engpass).
 :::
 
 Damit ist der Bogen komplett: von der Quantenmechanik einzelner Elektronen über Kristall, Energiebänder und
-Statistik bis zum Transistor, der daraus Logik macht. Der MOSFET vereint praktisch **alles** aus diesem Modul —
+Statistik bis zum Transistor, der daraus Logik macht. Der MOSFET vereint praktisch **alles** aus diesen Artikeln —
 Bandlücke, effektive Masse, Dotierung, Inversionskanal, Drift, Diffusion und Barrierensteuerung — in einem einzigen
 Bauelement.
 

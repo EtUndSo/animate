@@ -16,7 +16,7 @@ Kernbotschaft: Kopplung benachbarter Atome macht aus einem scharfen Niveau ein b
 :::
 
 :::konzept
-Dies ist das **Herzstück** des ganzen Moduls — die Frage, warum sich Festkörper elektrisch so unterschiedlich
+Dies ist das **Herzstück** des ganzen Themenbereichs — die Frage, warum sich Festkörper elektrisch so unterschiedlich
 verhalten (Metall, Halbleiter, Isolator), beginnt genau hier. Ein einzelnes Atom hat **scharfe, diskrete**
 Energieniveaus (wie das „Teilchen in der Box" aus dem QM-Oberthema). Bringt man aber $10^{23}$ Atome zu einem
 Kristall zusammen, entstehen aus jedem scharfen Niveau breite **Energiebänder** mit **verbotenen Lücken**
@@ -63,7 +63,7 @@ Dafür gibt es genau zwei ausgezeichnete Möglichkeiten — und das ist der ents
   **höher** als $\epsilon_0$.
 
 Aus dem **einen** Atomniveau $\epsilon_0$ sind durch die Kopplung also **zwei** Molekülniveaus geworden — eines
-darunter, eines darüber ([Tsymbal](https://tsymbal.unl.edu/sites/unl.edu.cas.physics.tsymbal/files/media/file/Section%2011_Methods_for_calculating_band_structure.pdf)).
+darunter, eines darüber.
 
 :::grafik
 Links die zwei Atome mit je einem Niveau $\epsilon_0$ (weit entfernt). In der Mitte das Zusammenrücken. Rechts
@@ -87,7 +87,7 @@ Weil $N$ gigantisch groß ist ($\sim 10^{23}$), liegen diese Niveaus so dicht, d
 - $N$ Atome → $N$ Niveaus = ein __Band__
 
 Jedes ursprüngliche Atomniveau ($E_1, E_2, \ldots$) wird so zu einem **eigenen** Band. Zwischen diesen Bändern
-bleiben Energiebereiche, in denen es **keine** erlaubten Zustände gibt — die __Bandlücken__ ([Cornell MSE5470](https://courses.cit.cornell.edu/mse5470/handout8.pdf)).
+bleiben Energiebereiche, in denen es **keine** erlaubten Zustände gibt — die __Bandlücken__.
 
 :::grafik
 Ein „Fächer"-Diagramm: auf der x-Achse der Atomabstand (von groß nach klein), auf der y-Achse die Energie. Rechts
@@ -104,7 +104,7 @@ ab.** Und die Kopplung ist der Überlapp der Wellenfunktionen benachbarter Atome
 - **Enge Atome / dünne, niedrige Barrieren** zwischen den Töpfen → starker Überlapp → starke Kopplung →
   **breites** Band.
 - **Weit auseinander / hohe, dicke Barrieren** → schwacher Überlapp → schwache Kopplung → **schmales** Band
-  (im Grenzfall wieder die scharfe Atomlinie) ([Junquera](https://personales.unican.es/junqueraj/JavierJunquera_files/MiniAsesma/7.Tight-binding.pdf)).
+  (im Grenzfall wieder die scharfe Atomlinie).
 
 Dieser Zusammenhang ist technisch bares Geld wert: Über mechanische **Verspannung** (*strain*) ändert man den
 Atomabstand und damit gezielt Bandbreite und Ladungsträger-Geschwindigkeit — in modernen Transistoren steigert
