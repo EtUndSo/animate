@@ -76,8 +76,10 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
 ### (B1a) Modul Numa einrichten (einmalig, vom User am 22.10.2026 beauftragt)
 
 1. **Entpacken:** `C:\Bücher\EtUndSo\3.Semester\(UE) Numerische Mathematik für Elektrotechnik (Großgruppenübung)_20261019_1452.zip` mit Pythons `zipfile` in einen neuen, leeren Ordner `C:\Bücher\EtUndSo\3.Semester\Numa\` entpacken. Nichts aus dem Archiv ausführen. Inhalt: `Vorlesungsfolien  Skript/Buch zur Vorlesung.pdf`, `Fortschritt der Vorlesung.html`, Foliensätze zu Kap. 2, 3, 4, 5, 6, 8 und 10, Übungsblätter 1 bis 8.
-2. **Volltext:** `tools/dump_numa.py` nach dem Muster von `dump_get1.py`; Quelle ist das Buch, Ausgabe `C:\Bücher\EtUndSo\_volltext\numa_clean.txt` mit Markierungen „=== Seite N“.
-3. **Themenplan:** aus dem Inhaltsverzeichnis des Buchs, abgeglichen mit dem Vorlesungsfortschritt und den Foliensätzen; ein Thema hat etwa den Umfang eines HöMa3-Themas. Festhalten in `notizen/numa/themenplan.md`, je Thema eine Tabellenzeile mit:
+2. **Volltext:** `tools/dump_numa.py` nach dem Muster von `dump_get1.py`, für Buch und Folien:
+   - das Buch (656 Seiten) nach `C:\Bücher\EtUndSo\_volltext\numa_clean.txt`, mit Markierungen „=== Seite N“;
+   - die Foliensätze nach `C:\Bücher\EtUndSo\_volltext\numa_folien_clean.txt`, mit Markierungen „=== <Datei> Folie N“.
+3. **Themenplan:** Den Stoffumfang bestimmen die Folien und der Vorlesungsfortschritt (Hinweis des Users vom 22.10.2026: Quellen im Archivordner „Vorlesungsfolien  Skript“). Behandelt werden die Buchkapitel 2 (Fehleranalyse), 3 (lineare Gleichungssysteme), 4 (lineare Ausgleichsrechnung), 5 (nichtlineare Gleichungssysteme), 6 (nichtlineare Ausgleichsrechnung), 8 (Interpolation) und 10 (numerische Integration). Die Kapitel 1, 7, 9 und 11 haben keine Folien und entfallen; mit * markierte Buchabschnitte nur, soweit die Folien sie behandeln. Das Buch liefert Herleitungen und Hintergründe, die Folien Umfang, Reihenfolge und Notation. Ein Thema hat etwa den Umfang eines HöMa3-Themas. Festhalten in `notizen/numa/themenplan.md`, je Thema eine Tabellenzeile mit:
    - Dateipfad `content/numa/<nn>-<kapitel>/<nr>-<slug>.md`;
    - `title`, `pfad` (`Elektrotechnik / 3. Semester / Numerische Mathematik für Elektrotechnik / <Kapitel>`), `order` (Muster 35KKTT00), `tags`;
    - Buchseiten und zugehörige Folien.
@@ -120,8 +122,8 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
 - **Zahlenwerk:** `notizen/hoema3/zahlen_<kapitel>.py`; Integrale, Flüsse, Koeffizienten und Wahrscheinlichkeiten der Beispiele werden dort berechnet.
 
 **Numa** (nach B1a):
-- **Buch:** `C:\Bücher\EtUndSo\3.Semester\Numa\Vorlesungsfolien  Skript\Buch zur Vorlesung.pdf`, Folien je Kapitel im selben Ordner.
-- **Volltext:** `C:\Bücher\EtUndSo\_volltext\numa_clean.txt`.
+- **Quellen:** der Ordner `C:\Bücher\EtUndSo\3.Semester\Numa\Vorlesungsfolien  Skript\` (aus dem Archiv entpackt): das Buch zur Vorlesung (`Buch zur Vorlesung.pdf`) und die Foliensätze zu Kap. 2, 3, 4, 5, 6, 8 und 10. Die Folien sind maßgeblich für Umfang und Notation, das Buch für Herleitungen und Hintergründe.
+- **Volltext:** `C:\Bücher\EtUndSo\_volltext\numa_clean.txt` (Buch) und `numa_folien_clean.txt` (Folien).
 - **Nur als Ideengeber:** die Übungsblätter 1 bis 8. Keine Aufgaben kopieren.
 - **Zahlenwerk:** `notizen/numa/zahlen_<kapitel>.py`; die Verfahren werden dort tatsächlich ausgeführt (Fehlerverläufe, Konvergenzordnungen, Kondition), und jede Zahl der Artikel stammt daraus.
 
