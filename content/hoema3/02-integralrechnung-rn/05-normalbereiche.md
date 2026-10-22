@@ -99,8 +99,8 @@ Bereich regulär beschrieben ist, hängt also von der Schnittrichtung ab.
 
 $$\alpha(y) = -\sqrt{1-y^2}, \qquad \beta(y) = \sqrt{1-y^2}, \qquad y\in[-1,1],$$
 
-und aus Symmetriegründen auch einer vom Typ 2. Im Skript sind die beiden Wände vertauscht notiert; die linke Wand ist die
-mit dem Minuszeichen. Regulär ist diese Beschreibung nicht: Die Steigung der Wände wird an den Polen unendlich.
+und aus Symmetriegründen auch einer vom Typ 2. Regulär ist diese Beschreibung nicht: Die Steigung der Wände wird an den
+Polen unendlich.
 
 :::herleitung
 Die Ableitung der rechten Wand ist
@@ -128,7 +128,7 @@ die Mitte zwei Stücke ab.
 
 Für einen Normalbereich $D$ und eine stetige Funktion $f:D\to\mathbb{R}$ existiert das Integral über $D$. Es ist ein
 iteriertes Integral mit wandernden inneren Grenzen. Das Volumenelement schreiben wir hier mit den Koordinaten als $d(x,y)$;
-das Skript schreibt an dieser Stelle $dx\,dy$.
+üblich ist auch $dx\,dy$.
 
 :::formel Satz
 $$\int_D f(x,y)\,d(x,y) = \int_c^d\bigg(\int_{\alpha(y)}^{\beta(y)} f(x,y)\,dx\bigg)dy \qquad\text{(Typ 1)},$$
@@ -161,8 +161,8 @@ Rechteck
 $$Q = [a_0,b_0]\times[c,d].$$
 
 **Schritt 2: eine Scheibe.** Bei fester Höhe $y\in[c,d]$ ist die Fortsetzung $x\mapsto\bar f(x,y)$ auf
-$[\alpha(y),\beta(y)]$ gleich $f$ und daneben null — stückweise stetig mit höchstens zwei Sprüngen, also integrierbar
-(HM1). Ihr Integral ist die Scheibenfläche:
+$[\alpha(y),\beta(y)]$ gleich $f$ und daneben null — stückweise stetig mit höchstens zwei Sprüngen, also integrierbar.
+Ihr Integral ist die Scheibenfläche:
 
 $$\int_{a_0}^{b_0}\bar f(x,y)\,dx = \int_{\alpha(y)}^{\beta(y)} f(x,y)\,dx =: s(y).$$
 
@@ -287,7 +287,7 @@ und legt die Stücke danach wieder zusammen.
 :::herleitung
 **Der einfachste Fall.** Zwei Bereiche vom Typ 1 über demselben Intervall $[c,d]$ liegen nebeneinander und teilen sich die
 Wand: Die rechte Wand des linken Bereichs ist die linke Wand des rechten. In jeder Höhe $y$ sind ihre Scheiben dann zwei
-aneinanderstoßende Intervalle, und das Integral über ihre Vereinigung zerfällt nach HM1 in die Summe:
+aneinanderstoßende Intervalle, und das Integral über ihre Vereinigung zerfällt in die Summe:
 
 $$\int_{\alpha_1(y)}^{\beta_2(y)} f\,dx = \int_{\alpha_1(y)}^{\beta_1(y)} f\,dx + \int_{\beta_1(y)}^{\beta_2(y)} f\,dx \qquad\text{mit } \beta_1=\alpha_2.$$
 
@@ -303,8 +303,9 @@ Linearität folgt die Summe. Weil jede Zerlegung das Integral über $D$ ergibt, 
 :::
 
 **Wozu regulär?** Für das Integral genügt die Stetigkeit der Wände, wie der Satz zeigt. Glatte Wände braucht man erst, wenn
-man über den Rand selbst integriert oder die Grenzen ableitet. Der Beweis des Satzes von Stokes in der Ebene, später im
-Skript, benutzt genau das: die Leibnizregel mit den Ableitungen der Randfunktionen. Darum zerlegt man auch Formen wie die
+man über den Rand selbst integriert oder die Grenzen ableitet. Der Beweis des Satzes von Stokes im Artikel über die
+[Integralsätze in der Ebene](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/integralsaetze-in-der-ebene.html)
+benutzt genau das: die Leibnizregel mit den Ableitungen der Randfunktionen. Darum zerlegt man auch Formen wie die
 Kreisscheibe, die zwar Normalbereiche sind, aber keine regulären, in reguläre Stücke.
 
 ::::beispiel Kreisscheibe und Ring zerlegt
@@ -395,8 +396,8 @@ Stetigkeitssatz des ersten Artikels zeigt, dass $w$ auf $D$ stetig ist.
 
 **Der Rest.** Über den Normalbereich $D$ lässt sich $w$ nach dem ebenen Satz integrieren. Dass das Ergebnis das Integral
 über $M$ ist, sichert wie beim Typ 2 die Aussage des vorigen Artikels, dass jede Integrationsreihenfolge denselben Wert
-liefert. Das Skript verlangt den Boden echt unter der Kruste; für die Formel genügt, dass er nicht darüber liegt — im
-Beispiel des Skripts berühren sich beide sogar am Rand.
+liefert. Oft wird verlangt, dass der Boden echt unter der Kruste liegt; für die Formel genügt, dass er nicht darüber
+liegt — im Beispiel der zwei Zylinder unten berühren sich beide sogar am Rand.
 :::
 
 ::::beispiel Das Tetraeder
@@ -438,7 +439,7 @@ Grenzen, die von $x$ abhängen; außen über $x$ mit festen Grenzen. Der Begriff
 übertragen: Die letzte Koordinate liegt zwischen zwei stetigen Funktionen über einem Normalbereich der Dimension darunter.
 
 ::::beispiel Zwei Zylinder im Oktanten
-Das Beispiel des Skripts: Zwei Zylinder vom Radius $1$ kreuzen sich rechtwinklig, der eine um die $z$-Achse, der andere
+Zwei Zylinder vom Radius $1$ kreuzen sich rechtwinklig, der eine um die $z$-Achse, der andere
 um die $y$-Achse,
 
 $$Z_1 = \big\{x^2+y^2\le1\big\}, \qquad Z_2 = \big\{x^2+z^2\le1\big\},$$
@@ -493,7 +494,7 @@ blau = Zylinderflächen, grau = Achsen.)
 ## Bedeutung und Ausblick
 
 Mit Normalbereichen rechnet man die allermeisten Flächen- und Volumenintegrale der Praxis aus: Massen, Ladungen,
-Schwerpunkte und Trägheitsmomente realer Körper. Neue Theorie braucht man dafür nicht — nur gewöhnliche Integrale aus HM1
+Schwerpunkte und Trägheitsmomente realer Körper. Neue Theorie braucht man dafür nicht — nur gewöhnliche Integrale
 mit sauber gewählten Grenzen. Wie beim Satz von Fubini lohnt es sich, die Schnittrichtung klug zu wählen: Sie entscheidet,
 wie einfach die Grenzen und die Stammfunktionen werden.
 
@@ -534,5 +535,5 @@ A: Im einfachsten Fall teilen sich zwei Bereiche eine Wand; in jeder Höhe stoß
 F: Was heißt „regulär", warum ist die übliche Beschreibung der Kreisscheibe es nicht, und wie hilft man sich?
 A: Regulär heißt, dass die Wände stetig differenzierbar sind. Die Wände $\pm\sqrt{1-y^2}$ der Kreisscheibe haben an den Polen $y=\pm1$ unendliche Steigung. Man schneidet die Pole ab: ein Band $\lvert y\rvert\le\frac{1}{\sqrt2}$ mit waagerechten Scheiben und zwei Kappen mit senkrechten Scheiben, alle regulär; zusammen wieder die Fläche $\pi$. Gebraucht wird die Regularität später, etwa beim Satz von Stokes in der Ebene.
 F: Wie berechnet man ein Integral über einen räumlichen Normalbereich, etwa über den Teil zweier gekreuzter Zylinder im Oktanten?
-A: Zuerst längs des senkrechten Stäbchens vom Boden $\varphi$ bis zur Kruste $\psi$, dann über die ebene Grundform. Beim Skript-Beispiel liegt $z$ zwischen $0$ und $\sqrt{1-x^2}$ über der Viertelkreisscheibe $0\le y\le\sqrt{1-x^2}$, $0\le x\le1$. Für $x^2+y^2+z^2$ ergibt sich $\frac{22}{45}$, das Volumen ist $\frac23$, denn der Querschnitt bei festem $x$ ist ein Quadrat der Fläche $1-x^2$.
+A: Zuerst längs des senkrechten Stäbchens vom Boden $\varphi$ bis zur Kruste $\psi$, dann über die ebene Grundform. Bei den gekreuzten Zylindern liegt $z$ zwischen $0$ und $\sqrt{1-x^2}$ über der Viertelkreisscheibe $0\le y\le\sqrt{1-x^2}$, $0\le x\le1$. Für $x^2+y^2+z^2$ ergibt sich $\frac{22}{45}$, das Volumen ist $\frac23$, denn der Querschnitt bei festem $x$ ist ein Quadrat der Fläche $1-x^2$.
 :::

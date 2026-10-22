@@ -10,7 +10,7 @@ fassung: kompakt
 
 ## Worum es geht
 
-Wer die Spannung einer Steckdose angibt, schreibt 230 V und nicht 230: Erst die Einheit macht die Zahl zu einer Aussage über die Welt, und an den Einheiten lässt sich jede Rechnung prüfen. Das Kapitel folgt aus einem Prinzip:
+Wer die Spannung einer Steckdose angibt, schreibt 230 V und nicht 230: Erst die Einheit macht die Zahl zu einer Aussage über die Welt, und an den Einheiten lässt sich jede Rechnung prüfen. Das Thema folgt aus einem Prinzip:
 
 **Jede physikalische Größe ist Zahlenwert mal Einheit, und jede SI-Einheit ist ein Produkt von Potenzen der sieben Basiseinheiten; neue Größen entstehen, indem man bekannte multipliziert, dividiert, ableitet oder integriert, und ihre Einheiten entstehen dabei mit, so dass die Einheiten jeden Rechenfehler verraten, der die Einheit verändert.**
 
@@ -514,7 +514,7 @@ $$W = 49{,}05\ \mathrm{N}\cdot 12\ \mathrm{m} = 588{,}6\ \mathrm{J}$$
 
 :::frage
 „Hängt die Arbeit bei jeder Kraft nur von Anfangs- und Endpunkt ab?“
-Nein. Kraftfelder mit dieser Eigenschaft heißen __konservativ__; bei ihnen ist die Arbeit auf jedem geschlossenen Weg null. Das Schwerefeld ist konservativ; für das gleichmäßige Feld nahe der Erdoberfläche zeigt das die Herleitung von $W = m g h$. Gleitreibung an einer ruhenden Unterlage, etwa auf der Rampe, wirkt dagegen stets der Bewegung entgegen und verrichtet auf jedem Wegstück negative Arbeit; bei gleicher Andruckkraft kostet sie auf einem längeren Weg mehr, und auf einem geschlossenen Weg ist ihre Arbeit nicht null. Das elektrische Feld ruhender Ladungen ist ebenfalls konservativ; darauf beruht im nächsten Kapitel das Potential.
+Nein. Kraftfelder mit dieser Eigenschaft heißen __konservativ__; bei ihnen ist die Arbeit auf jedem geschlossenen Weg null. Das Schwerefeld ist konservativ; für das gleichmäßige Feld nahe der Erdoberfläche zeigt das die Herleitung von $W = m g h$. Gleitreibung an einer ruhenden Unterlage, etwa auf der Rampe, wirkt dagegen stets der Bewegung entgegen und verrichtet auf jedem Wegstück negative Arbeit; bei gleicher Andruckkraft kostet sie auf einem längeren Weg mehr, und auf einem geschlossenen Weg ist ihre Arbeit nicht null. Das elektrische Feld ruhender Ladungen ist ebenfalls konservativ; darauf beruht das Potential ([Arbeit, Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html)).
 :::
 
 ## Alles hängt an einem Prinzip

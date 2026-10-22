@@ -39,7 +39,7 @@ und Achsen.)
 
 ## Abgeschlossen und beschränkt: welche Formen erlaubt sind
 
-Das Skript integriert über Mengen $M\subseteq\mathbb{R}^n$, die __beschränkt__ und __abgeschlossen__ sind. Beide
+Integriert wird hier über Mengen $M\subseteq\mathbb{R}^n$, die __beschränkt__ und __abgeschlossen__ sind. Beide
 Bedingungen haben im Bild einen klaren Sinn.
 
 **Beschränkt** heißt, dass $M$ in eine Kugel um den Ursprung passt: Es gibt eine Zahl $R_M>0$ mit
@@ -48,7 +48,8 @@ $$\lvert\vec x\rvert\le R_M \qquad\text{für alle } \vec x\in M.$$
 
 Im Bild: Die Form ist nicht unendlich groß, sie passt in einen Kasten.
 
-**Abgeschlossen** heißt, dass das Komplement $\mathbb{R}^n\setminus M$ offen ist, im Sinne des ersten Kapitels: Um jeden
+**Abgeschlossen** heißt, dass das Komplement $\mathbb{R}^n\setminus M$ offen ist, im Sinne des Artikels
+[Skalarfelder, Vektorfelder und die Jacobi-Matrix](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html): Um jeden
 Punkt außerhalb von $M$ liegt noch eine kleine Kugel ganz außerhalb von $M$.
 
 Was das bedeutet, zeigt der Rand. Ein Punkt $\vec x\in\mathbb{R}^n$ heißt __Randpunkt__ von $M$, wenn jede Kugel
@@ -69,7 +70,7 @@ $\vec x$ selbst. Also enthält sie keinen Punkt von $M$ und liegt ganz im Komple
 
 **Im Bild:** Bei einer abgeschlossenen Form gehört der Rand dazu — die Wand des Brots steht auf der Form, nicht daneben.
 Beschränkt und abgeschlossen zusammen heißt __kompakt__. Eine stetige Funktion auf einer kompakten Menge ist beschränkt und
-nimmt ihr Maximum an (HM2): Das Brot ist nirgends unendlich hoch.
+nimmt ihr Maximum an: Das Brot ist nirgends unendlich hoch.
 
 :::grafik
 Szene: hoema3/integralrechnung-rn/04-rand-und-abschluss · Vorlage: menge-rand-2d
@@ -122,7 +123,8 @@ $$x^2+y^2\le2,$$
 
 also ist es mit $R_M=\sqrt2$ beschränkt. Erlaubt.
 
-**(c) Die offene Kreisscheibe** $B_1(\vec 0)\subseteq\mathbb{R}^2$ aus dem ersten Kapitel enthält ihren Randpunkt $(1,0)$
+**(c) Die offene Kreisscheibe** $B_1(\vec 0)\subseteq\mathbb{R}^2$ aus dem Artikel über
+[Skalar- und Vektorfelder](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html) enthält ihren Randpunkt $(1,0)$
 nicht: Jede Kugel um ihn enthält für hinreichend kleine $t>0$ den Punkt $(1-t,0)$ der Scheibe und den Punkt $(1+t,0)$
 außerhalb. Nicht abgeschlossen.
 
@@ -168,7 +170,7 @@ wie groß der Kasten ist.
 Sind $Q\subseteq\tilde Q$ zwei Kästen um $M$, so ist die Fortsetzung auf $\tilde Q$ außerhalb von $Q$ null. Man rechnet
 wie beim kompakten Träger im vorigen Artikel: Jedes Kantenintervall von $\tilde Q$ zerfällt in die Kante von $Q$ und zwei
 Zusatzstücke. Auf den Zusatzstücken ist die Fortsetzung null — höchstens bis auf einen Endpunkt, und ein einzelner Punkt
-ändert ein Integral nicht (HM1). Stetigkeit braucht diese Rechnung nicht. Die Integrale über $Q$ und $\tilde Q$ stimmen
+ändert ein Integral nicht. Stetigkeit braucht diese Rechnung nicht. Die Integrale über $Q$ und $\tilde Q$ stimmen
 also überein, sobald sie existieren. Zwei beliebige Kästen vergleicht man über einen großen, der beide enthält.
 :::
 
@@ -328,7 +330,7 @@ Platz ein. Die Kreislinie ist eine Nullmenge, ebenso jede Strecke — und damit 
 
 **Im Bild:** Die Wand eines gebackenen Brots ist hoch, aber im Grundriss nur ein Strich ohne Breite. Die Sprünge der
 Fortsetzung sitzen auf diesem Strich und kosten nichts. Genau gesagt: Ist der Rand eine Nullmenge, so stört die Wand nicht
-(Integrierbarkeitskriterium von Lebesgue). Für die Formen, mit denen man in diesem Kurs rechnet — die Normalbereiche —,
+(Integrierbarkeitskriterium von Lebesgue). Für die Formen, mit denen man in der Praxis rechnet — die Normalbereiche —,
 zeigt der nächste Artikel direkt, dass die iterierten Integrale existieren.
 
 :::herleitung
@@ -388,7 +390,7 @@ Intervall. Solche Teilintervalle haben zusammen höchstens die entfernte Länge 
 ist das Supremum $1$, und sie haben zusammen mindestens die Länge $\tfrac12$. Jede Obersumme ist also mindestens
 $\tfrac12$.
 
-Ober- und Untersummen kommen sich nie näher als $\tfrac12$ — die Fortsetzung ist nicht Riemann-integrierbar (HM1). Die
+Ober- und Untersummen kommen sich nie näher als $\tfrac12$ — die Fortsetzung ist nicht Riemann-integrierbar. Die
 Lebesgue-Theorie misst der Menge dagegen die Länge zu, die übrig blieb:
 
 $$\int_C 1\,dx = 1-\frac12 = \frac12.$$
@@ -409,7 +411,7 @@ und Untersumme.)
 
 **Was die Lebesgue-Theorie leistet.** Für **jede** abgeschlossene, beschränkte Menge $M$ und jedes stetige $f$ liefert die
 Integrationstheorie nach Lebesgue einen eindeutigen Wert für das Integral über $M$. Wo ein iteriertes Integral existiert —
-in welcher Reihenfolge auch immer —, stimmt es mit diesem Wert überein. Die Begründung sprengt den Rahmen dieses Kurses;
+in welcher Reihenfolge auch immer —, stimmt es mit diesem Wert überein. Die Begründung sprengt den Rahmen dieser Seiten;
 die Idee ist anschaulich.
 
 :::herleitung
@@ -484,7 +486,7 @@ Die Fläche des Querschnitts in der Höhe $z$ sei eine stetige Funktion von $z$:
 
 $$s(z) := \mathrm{vol}\big(D(z)\big), \qquad z\in[0,H].$$
 
-Im Skript heißt sie $A(z)$; als skalare Ergebnisfunktion heißt sie hier klein, $s$ wie Scheibe — wie die Scheibenfläche
+Üblich ist auch $A(z)$; als skalare Ergebnisfunktion heißt sie hier klein, $s$ wie Scheibe — wie die Scheibenfläche
 im vorigen Artikel.
 
 **Das Zusammenspiel:** *Wie viel Teig steckt in der Torte?*
@@ -511,7 +513,7 @@ aktuelle Schicht, blau = Flächenfunktion $s$, grau = Achsen.)
 :::
 
 :::herleitung
-**Die Scheibchen-Summe (Skript).** Man teilt die Höhe in $N\in\mathbb{N}$ Schichten der Dicke
+**Die Scheibchen-Summe.** Man teilt die Höhe in $N\in\mathbb{N}$ Schichten der Dicke
 
 $$h = \frac{H}{N}$$
 
@@ -524,7 +526,7 @@ Die $k$-te Schicht ist ungefähr ein flacher Zylinder mit der Grundfläche $D(z_
 $$\mathrm{vol}(K) \approx h\sum_{k=1}^{N} s(z_k).$$
 
 Das ist eine __Riemann-Summe__ der stetigen Funktion $s$. Für $h\to0$ strebt sie nach der Theorie des Riemann-Integrals
-(HM1) gegen $\int_0^H s(z)\,dz$, gleich wie man die $z_k$ wählt.
+gegen $\int_0^H s(z)\,dz$, gleich wie man die $z_k$ wählt.
 
 **Exakt aus der Definition.** Man stellt $K$ in den Kasten $Q_2\times[0,H]$. Ein Punkt in der Höhe $z$ liegt genau dann in
 $K$, wenn $(x,y)$ in $D(z)$ liegt:
@@ -545,7 +547,7 @@ Scheibchen-Summe ist nur die Riemann-Summe des äußersten Integrals.
 :::
 
 ::::beispiel Die Eiswaffel
-Ein Kegel mit Grundradius $R$ und Höhe $H$ wird wie im Skript auf die Spitze gestellt: Spitze im Ursprung, Grundkreis oben
+Ein Kegel mit Grundradius $R$ und Höhe $H$ wird auf die Spitze gestellt: Spitze im Ursprung, Grundkreis oben
 in der Höhe $H$.
 
 **Der Querschnitt.** In der Höhe $z$ ist er eine Kreisscheibe. Ihr Radius wächst nach dem Strahlensatz linear von $0$ an
@@ -711,7 +713,7 @@ A: Man ersetzt die Wand durch eine Böschung: stetige Funktionen $f_\ell$, die i
 F: Wie hängt $\mathrm{vol}(M)=\int_M 1\,d^n x$ mit dem Brot-Bild zusammen, und was ergibt sich für Quader, Kreisscheibe und Dreieck?
 A: Ein Brot der Höhe $1$ in der Form $M$ hat das Volumen „Grundfläche mal $1$" — das Integral der Eins misst die Grundfläche, in drei Dimensionen die Masse eines Teigs der Dichte $1$. Für einen Quader ergibt sich das Produkt der Kantenlängen, für die Kreisscheibe vom Radius $r$ der Flächeninhalt $\pi r^2$, für das Dreieck $0\le y\le x\le1$ in beiden Schnittrichtungen $\tfrac12$.
 F: Was besagt das Prinzip von Cavalieri, und warum folgt es direkt aus der Definition des Mehrfachintegrals?
-A: $\mathrm{vol}(K)=\int_0^H s(z)\,dz$ mit der Querschnittsfläche $s(z)$. Das Mehrfachintegral integriert zuerst über $x$ und $y$ und zuletzt über $z$; die inneren Integrale messen also genau die Querschnittsfläche, das äußere stapelt die Böden. Die Scheibchen-Summe $h\sum s(z_k)$ des Skripts ist die Riemann-Summe dazu.
+A: $\mathrm{vol}(K)=\int_0^H s(z)\,dz$ mit der Querschnittsfläche $s(z)$. Das Mehrfachintegral integriert zuerst über $x$ und $y$ und zuletzt über $z$; die inneren Integrale messen also genau die Querschnittsfläche, das äußere stapelt die Böden. Die Scheibchen-Summe $h\sum s(z_k)$ ist die Riemann-Summe dazu.
 F: Wie ergeben sich Kegel- und Kugelvolumen mit Cavalieri, und was zeigt der Napf?
 A: Kegel auf der Spitze: Der Radius in der Höhe $z$ ist $zR/H$ (Strahlensatz), also $s(z)=\pi R^2z^2/H^2$ und $\mathrm{vol}=\frac{\pi}{3}R^2H$. Kugel: Radius $\sqrt{R^2-z^2}$ (Pythagoras), also $\frac43\pi R^3$. Der Napf, ein Zylinder ohne Kegel, hat in jeder Höhe denselben Querschnitt $\pi(R^2-z^2)$ wie die Halbkugel, also dasselbe Volumen $\frac23\pi R^3$.
 :::

@@ -22,10 +22,10 @@ MUSTER = {
     "Bild-Nr": r"\bBild(er)?\s\d+\.\d+|\bAbb\.\s?\d+\.\d+",
     "Tabelle-Nr": r"\bTabelle\s\d+\.\d+",
     "Abschnitt-Nr": r"\bAbschnitt\s\d+(\.\d+)+",
-    "Kapitel-Nr": r"\bKap(itel|\.)\s\d+(\.\d+)*",
+    "Kapitel": r"\bKapitel|\bKap\.\s?\d",
     "Gleichung-Nr": r"\b(Gl\.|Gleichung(en)?)\s\(?\d+\.\d+",
     "Kurs": r"GET-?1|\bMiNa\b|RWTH|Lehrstuhl|Formelsammlung|KGÜ|Hilfsfolie|\bProf\.|Dozent",
-    "Modulkürzel": r"\bET\s?[1-4]\b|\bGEMB\b|\bHöMa\b|\bHM\s?[1-4]\b",
+    "Modulkürzel": r"\bET\s?[1-4]\b|\bGEMB\b|\bHöMa\b|\bHM\s?[1-4]\b|Höhere(n)? Mathematik\s(I{1,3}|[1-4])\b",
     "Veranstaltung": r"\bKurs(es|e)?\b|Schaltungstechnik\s?\d|\bModul(e|en|s)?\b|\b(späteren|nächsten|vorigen|früheren|zweiten|dritten|vierten|fünften|sechsten) Semester",
     "Satz-Nr": r"\b(Satz|Definition|Lemma|Korollar|Bemerkung|Formel)\s\(?([A-Z]\d+|\d+\.\d+)(\.\d+)*\)?",
     "Seitenbezug": r"derselben Seite|Seite später|eine Seite (früher|vorher|davor)",
@@ -38,6 +38,7 @@ for p in dateien:
     for nr, zeile in enumerate(p.read_text(encoding="utf-8").split("\n"), 1):
         if zeile.startswith(("pfad:", "order:")):                # Gliederung der Website, kein Quellenbezug
             continue
+        zeile = re.sub(r"\]\([^)]*\)|https?://\S+", "]", zeile)   # Linkziele und Adressen nicht prüfen
         for name, rx in MUSTER.items():
             for m in re.finditer(rx, zeile):
                 a, b = max(0, m.start() - 50), min(len(zeile), m.end() + 50)

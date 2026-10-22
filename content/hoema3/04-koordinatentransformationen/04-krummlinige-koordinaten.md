@@ -42,8 +42,8 @@ zwei Koordinaten fest und lässt die dritte laufen, entsteht eine __Koordinatenl
 Breitenkreis oder ein Strahl nach außen.
 
 Die partiellen Ableitungen $\partial_u\vec\Phi$, $\partial_v\vec\Phi$ und $\partial_w\vec\Phi$ — die Gitterpfeile aus dem ersten
-Artikel, die Spalten der Jacobi-Matrix — heißen __natürliche Koordinatenvektorfelder__; das Skript nennt sie $\vec a_u$, $\vec a_v$,
-$\vec a_w$. Sie liegen tangential an den Koordinatenlinien. Ihre Längen und ihre Richtungen bekommen eigene Namen:
+Artikel, die Spalten der Jacobi-Matrix — heißen __natürliche Koordinatenvektorfelder__. Sie liegen tangential an den
+Koordinatenlinien. Ihre Längen und ihre Richtungen bekommen eigene Namen:
 
 :::formel Definition
 $$h_u = \big\lvert\partial_u\vec\Phi\big\rvert, \qquad \vec e_u = \frac{1}{h_u}\,\partial_u\vec\Phi, \qquad\text{ebenso für } v \text{ und } w.$$
@@ -51,8 +51,7 @@ $$h_u = \big\lvert\partial_u\vec\Phi\big\rvert, \qquad \vec e_u = \frac{1}{h_u}\
 
 **So liest man das:** Der __Maßfaktor__ $h_u$ sagt, wie lang ein Schritt der Koordinate $u$ ist: Der Schritt $du$ bewegt den
 Punkt um ungefähr $h_u\,du$. Das __normierte Koordinatenvektorfeld__ $\vec e_u$ zeigt in die Richtung, in die der Punkt dabei
-läuft, und hat die Länge $1$. Das Skript schreibt $\hat e_u$; hier tragen alle Vektoren einen Pfeil wie in ET4, wo die
-Maßfaktoren $t$ heißen.
+läuft, und hat die Länge $1$. Üblich ist auch $\hat e_u$; hier tragen alle Vektoren einen Pfeil.
 
 **Im Bild:** Der Wegweiser am Ort $\vec\Phi(u,v,w)$ hat die drei Arme $\vec e_u$, $\vec e_v$ und $\vec e_w$, und neben jedem Arm steht
 sein Maßfaktor — Kilometer pro Koordinatenschritt.
@@ -87,8 +86,8 @@ die Volumenfaktoren aus dem Artikel über Volumenintegrale.
 :::
 
 ::::beispiel Wegweiser in Polar-, Zylinder- und Kugelkoordinaten
-**(a) Zylinderkoordinaten** $(\varrho,\varphi,z)$ wie im Artikel über Volumenintegrale; das Skript nennt den Abstand zur Achse
-$r$. Die natürlichen Koordinatenvektorfelder sind
+**(a) Zylinderkoordinaten** $(\varrho,\varphi,z)$ wie im Artikel über Volumenintegrale.
+Die natürlichen Koordinatenvektorfelder sind
 
 $$\partial_\varrho\vec\Phi = (\cos\varphi,\ \sin\varphi,\ 0), \qquad \partial_\varphi\vec\Phi = (-\varrho\sin\varphi,\ \varrho\cos\varphi,\ 0), \qquad \partial_z\vec\Phi = (0,\ 0,\ 1).$$
 
@@ -130,8 +129,8 @@ $$\nabla f = \frac{1}{h_u}\frac{\partial\tilde f}{\partial u}\,\vec e_u+\frac{1}
 :::
 
 **So liest man das:** Jede Ableitung nach einer Koordinate wird durch den Maßfaktor dieser Koordinate geteilt. Die Formel gilt
-genauso in der Ebene, mit zwei Koordinaten. Wie im Skript lassen wir die Auswertung am Punkt $\vec\Phi(u,v,w)$ auf der linken
-Seite ab hier stillschweigend mitlaufen.
+genauso in der Ebene, mit zwei Koordinaten. Die Auswertung am Punkt $\vec\Phi(u,v,w)$ auf der linken Seite lassen wir ab
+hier stillschweigend mitlaufen.
 
 **Im Bild:** Der Gradient misst Gefälle pro Kilometer, nicht pro Grad. Ein Grad nach Osten ist in Aachen nur $70\,\mathrm{km}$
 lang; wer das Gefälle pro Grad kennt, muss durch diese $70\,\mathrm{km}$ teilen.
@@ -181,11 +180,12 @@ $$D\vec F = \sum_u\frac{1}{h_u}\,\partial_u\big(\vec F\circ\vec\Phi\big)\otimes\
 
 Dabei ist $\vec p\otimes\vec q$ für zwei Vektoren die Matrix mit den Einträgen $p_iq_j$; sie bildet einen Vektor $\vec y$ auf
 $\vec p\,(\vec q\cdot\vec y)$ ab. Die Divergenz ist die Spur der Jacobi-Matrix, und die Spur von $\vec p\otimes\vec q$ ist das Skalarprodukt
-$\vec p\cdot\vec q$. Mit der Produktregel folgt die Form des Skripts:
+$\vec p\cdot\vec q$. Mit der Produktregel folgt:
 
 $$\operatorname{div}\vec F = \sum_{u}\frac{1}{h_u}\Big(\partial_u\big(\vec F\circ\vec\Phi\big)\cdot\vec e_u\Big), \qquad \partial_u\big(\vec F\circ\vec\Phi\big)\cdot\vec e_u = \frac{\partial F_u}{\partial u}-\big(\vec F\circ\vec\Phi\big)\cdot\partial_u\vec e_u.$$
 
-Die Summe läuft über die drei Koordinaten. Der zweite Term ist neu: Er kommt daher, dass sich die Wegweiser mitdrehen.
+Die Summe läuft über die drei Koordinaten. Der zweite Term ist neu, der Drehterm: Er kommt daher, dass sich die Wegweiser
+mitdrehen.
 
 :::herleitung
 **Die Jacobi-Matrix.** Nach der Kettenregel ist die Ableitung längs einer Koordinatenlinie
@@ -239,7 +239,7 @@ bekannte Summe der Ableitungen.
 
 **Im Bild:** Die Divergenz ist der Ausfluss aus einem Klötzchen pro Volumen. Durch die beiden Seitenflächen senkrecht zu
 $\vec e_u$ fließt $F_u$ mal Fläche, und die Fläche ist $h_vh_w\,dv\,dw$. Geht man in $u$-Richtung weiter, ändert sich nicht nur das
-Feld, sondern auch die Fläche — deshalb steht $h_vh_w$ innerhalb der Ableitung. So erklärt es auch ET4.
+Feld, sondern auch die Fläche — deshalb steht $h_vh_w$ innerhalb der Ableitung.
 
 :::grafik
 Szene: hoema3/koordinatentransformationen/04-kloetzchen-fluss · Vorlage: fluss-quader-3d
@@ -264,7 +264,7 @@ folgt
 
 $$\vec e_k\cdot\partial_u\vec e_u = -\vec e_u\cdot\partial_u\vec e_k = -\frac{1}{h_k}\,\partial_kh_u.$$
 
-**Schritt 2: einsetzen.** Zerlegt man das Feld in den Wegweisern, ist der Drehterm des Skripts
+**Schritt 2: einsetzen.** Zerlegt man das Feld in den Wegweisern, ist der Drehterm
 
 $$\big(\vec F\circ\vec\Phi\big)\cdot\partial_u\vec e_u = \sum_{k\neq u}F_k\,\vec e_k\cdot\partial_u\vec e_u = -\sum_{k\neq u}\frac{F_k}{h_k}\,\partial_kh_u,$$
 
@@ -339,7 +339,7 @@ pro Volumen bleibt der Ausfluss konstant.
 
 ## Zylinderkoordinaten
 
-Das Skript rechnet die Zylinderkoordinaten ausführlich durch, auf dem Weg über die sich drehenden Wegweiser. Die Koordinaten
+Die Zylinderkoordinaten rechnen wir ausführlich durch, auf dem Weg über die sich drehenden Wegweiser. Die Koordinaten
 laufen dabei durch offene Intervalle, damit $\vec\Phi$ injektiv ist und nirgends flachdrückt:
 
 $$\vec\Phi(\varrho,\varphi,z) = (\varrho\cos\varphi,\ \varrho\sin\varphi,\ z), \qquad \varrho\in(0,\infty),\quad \varphi\in(0,2\pi),\quad z\in\mathbb{R}.$$
@@ -351,8 +351,7 @@ $$\vec e_\varrho = (\cos\varphi,\ \sin\varphi,\ 0), \qquad \vec e_\varphi = (-\s
 $$\partial_\varphi\vec e_\varrho = \vec e_\varphi, \qquad \partial_\varphi\vec e_\varphi = -\vec e_\varrho,$$
 
 und alle übrigen Ableitungen der Wegweiser sind null. Damit sind der Gradient einer Funktion $f$, die Divergenz eines
-Vektorfelds $\vec E$ mit den Komponenten $E_\varrho$, $E_\varphi$, $E_z$ — das Skript benutzt hier den Buchstaben des elektrischen Felds —
-und der Laplace-Operator
+Vektorfelds $\vec E$ mit den Komponenten $E_\varrho$, $E_\varphi$, $E_z$ und der Laplace-Operator
 
 $$\nabla f = \frac{\partial\tilde f}{\partial\varrho}\,\vec e_\varrho+\frac1\varrho\,\frac{\partial\tilde f}{\partial\varphi}\,\vec e_\varphi+\frac{\partial\tilde f}{\partial z}\,\vec e_z,$$
 
@@ -378,7 +377,7 @@ Kreis.)
 $\varrho$ und $1$, sind die drei Wegweiser. Abgeleitet nach $\varphi$ wird $(\cos\varphi,\sin\varphi,0)$ zu $(-\sin\varphi,\cos\varphi,0)$ und
 dieses zu $(-\cos\varphi,-\sin\varphi,0)$. Von $\varrho$ und $z$ hängt kein Wegweiser ab.
 
-**Die Divergenz auf dem Weg des Skripts.** In der Summe aus Ableitung und Drehterm tragen die drei Koordinaten bei:
+**Die Divergenz über den Drehterm.** In der Summe aus Ableitung und Drehterm tragen die drei Koordinaten bei:
 
 $$\frac{\partial E_\varrho}{\partial\varrho}-\vec E\cdot\partial_\varrho\vec e_\varrho = \frac{\partial E_\varrho}{\partial\varrho}, \qquad \frac1\varrho\Big(\frac{\partial E_\varphi}{\partial\varphi}-\vec E\cdot\partial_\varphi\vec e_\varphi\Big) = \frac1\varrho\Big(\frac{\partial E_\varphi}{\partial\varphi}+E_\varrho\Big), \qquad \frac{\partial E_z}{\partial z}.$$
 
@@ -400,11 +399,12 @@ Länge ohne Feldkonstante:
 
 $$\vec E = \frac{1}{2\pi\varrho}\,\vec e_\varrho, \qquad \operatorname{div}\vec E = \frac1\varrho\,\frac{\partial}{\partial\varrho}\Big(\varrho\cdot\frac{1}{2\pi\varrho}\Big) = 0.$$
 
-Auf dem Weg des Skripts heben sich zwei Terme weg:
+Auf dem Weg über den Drehterm heben sich zwei Terme weg:
 
 $$\frac{\partial E_\varrho}{\partial\varrho}+\frac1\varrho\,E_\varrho = -\frac{1}{2\pi\varrho^2}+\frac{1}{2\pi\varrho^2} = 0.$$
 
-**(b) Der Wirbel** um die Achse, das Feld der Wendeltreppe aus dem Kapitel über Kurvenintegrale, hat nur eine
+**(b) Der Wirbel** um die Achse, das Feld der Wendeltreppe aus dem Artikel
+[Der erste Hauptsatz und konservative Felder](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/erster-hauptsatz-konservative-felder.html), hat nur eine
 Umlaufkomponente, die nicht vom Winkel abhängt:
 
 $$\vec E = \frac1\varrho\,\vec e_\varphi, \qquad \operatorname{div}\vec E = \frac1\varrho\,\frac{\partial}{\partial\varphi}\Big(\frac1\varrho\Big) = 0.$$
@@ -434,8 +434,9 @@ $$\operatorname{div}\vec F = \frac{1}{r^2}\,\frac{\partial}{\partial r}\big(r^2F
 
 $$\Delta f = \frac{1}{r^2}\,\frac{\partial}{\partial r}\Big(r^2\,\frac{\partial\tilde f}{\partial r}\Big)+\frac{1}{r^2\sin\theta}\,\frac{\partial}{\partial\theta}\Big(\sin\theta\,\frac{\partial\tilde f}{\partial\theta}\Big)+\frac{1}{r^2\sin^2\theta}\,\frac{\partial^2\tilde f}{\partial\varphi^2}.$$
 
-Hängt $f$ nur vom Abstand ab, bleibt vom Laplace-Operator nur der erste Term — die radiale Form aus dem ersten Kapitel und aus
-dem Artikel über das Newtonpotential.
+Hängt $f$ nur vom Abstand ab, bleibt vom Laplace-Operator nur der erste Term — die radiale Form aus dem Artikel
+[Divergenz, Rotation und Laplace-Operator](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/divergenz-rotation-laplace.html)
+und aus dem Artikel über das Newtonpotential.
 
 **Im Bild:** Die Wegweiser des Globus. Der Faktor $\frac{1}{r\sin\theta}$ vor der Ostrichtung ist der Kehrwert des Breitenkreisradius:
 Nahe am Pol ist ein Grad Ost kurz, und ein kleiner Unterschied pro Grad ist ein großes Gefälle pro Kilometer.
@@ -490,9 +491,11 @@ Mit den Maßfaktoren übersetzt man jeden Differentialoperator in das Koordinate
 Zylinderkoordinaten für Leiter, Koaxialkabel und Spulen, Kugelkoordinaten für Punktladungen, Antennen und Atome. Die
 Zusatzterme sind keine Willkür; sie zählen, dass sich die Wegweiser drehen und die Klötzchen-Flächen wachsen.
 
-Das Skript nennt noch einen zweiten Weg zu diesen Formeln, der das Ableiten der Wegweiser umgeht: den Transformationssatz
-zusammen mit den Integralsätzen von Gauß und Stokes im Raum. Diese Integralsätze sind das Thema des nächsten Kapitels; mit
-ihnen wird auch das Bild vom Ausfluss aus einem Klötzchen zur Rechnung.
+Es gibt noch einen zweiten Weg zu diesen Formeln, der das Ableiten der Wegweiser umgeht: den Transformationssatz
+zusammen mit den Integralsätzen von Gauß und Stokes im Raum. Diese Integralsätze sind das Thema der Artikel
+[Der Satz von Stokes im Raum](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/satz-von-stokes-im-raum.html)
+und [Der Satz von Gauß im Raum](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/satz-von-gauss-im-raum.html);
+mit ihnen wird auch das Bild vom Ausfluss aus einem Klötzchen zur Rechnung.
 
 :::kern
 - __Krummlinige Koordinaten__: Eine injektive, nirgends flachdrückende Abbildung $\vec\Phi(u,v,w)$ gibt jedem Punkt ein Koordinatentripel.

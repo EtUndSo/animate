@@ -144,7 +144,7 @@ Farbstofffluss $\phi\vec E$ aus zwei Gründen: weil das Wasser selbst quillt, od
 Strömungsrichtung zunimmt. Der nächste Artikel nimmt dieses Bild ausführlich auseinander.
 
 :::herleitung
-Auf jeden Summanden der Divergenz wirkt die gewöhnliche Produktregel aus HM1:
+Auf jeden Summanden der Divergenz wirkt die gewöhnliche Produktregel:
 
 $$\operatorname{div}(\phi\,\vec E) = \sum_j\frac{\partial(\phi E_j)}{\partial x_j} = \sum_j\frac{\partial\phi}{\partial x_j}\,E_j + \phi\sum_j\frac{\partial E_j}{\partial x_j} = \nabla\phi\cdot\vec E + \phi\,\operatorname{div}\vec E.$$
 :::
@@ -248,7 +248,7 @@ $\vec x_0\pm h\,\vec e_k$. Ihr Mittelwert liegt um ungefähr $\tfrac{h^2}{2n}\De
 $$\frac{1}{2n}\sum_{k=1}^{n}\Big(\phi(\vec x_0+h\vec e_k)+\phi(\vec x_0-h\vec e_k)\Big) - \phi(\vec x_0) \;\approx\; \frac{h^2}{2n}\,\Delta\phi(\vec x_0).$$
 
 :::herleitung
-Längs jeder Gitterlinie ist $\phi$ eine Funktion einer Variablen. Die Taylor-Formel aus HM1 bis zur zweiten Ordnung gibt
+Längs jeder Gitterlinie ist $\phi$ eine Funktion einer Variablen. Die Taylor-Formel bis zur zweiten Ordnung gibt
 
 $$\phi(\vec x_0\pm h\vec e_k) = \phi(\vec x_0) \pm h\,\frac{\partial\phi}{\partial x_k}(\vec x_0) + \frac{h^2}{2}\,\frac{\partial^2\phi}{\partial x_k^2}(\vec x_0) + \ldots$$
 

@@ -50,14 +50,16 @@ $$\mathrm{vol}(AQ) = \lvert\det A\rvert\;\mathrm{vol}(Q).$$
 **So liest man das:** Der Betrag der Determinante ist der Streckfaktor für Volumina, in der Ebene für Flächen. Ihr Vorzeichen
 sagt, ob die Abbildung die Orientierung erhält (positiv) oder spiegelt (negativ); für das Volumen zählt nur der Betrag.
 
-Das Skript drückt es so aus: $\det A$ ist das orientierte Volumen des Parallelotops, das die Spalten von $A$ aufspannen —
+Anders gesagt: $\det A$ ist das orientierte Volumen des Parallelotops, das die Spalten von $A$ aufspannen —
 oder ihre Zeilen, denn eine Matrix und ihre Transponierte haben dieselbe Determinante.
 
 **Im Bild:** Eine gleichmäßige Verzerrung des Gummituchs macht aus jedem Quadrat des Gitters dasselbe Parallelogramm, nur an
 einer anderen Stelle. Alle Maschen ändern ihre Fläche um denselben Faktor.
 
 :::herleitung
-**In der Ebene** reicht die Schnürsenkelformel aus dem vorigen Kapitel. Sei zuerst $Q$ das Einheitsquadrat $[0,1]^2$, und
+**In der Ebene** reicht die Schnürsenkelformel aus dem Artikel über die
+[Integralsätze in der Ebene](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/integralsaetze-in-der-ebene.html).
+Sei zuerst $Q$ das Einheitsquadrat $[0,1]^2$, und
 seien $\vec a$ und $\vec b$ die Spalten von $A$. Das Bild $AQ$ ist das Parallelogramm mit den Ecken $\vec 0$, $\vec a$,
 $\vec a+\vec b$ und $\vec b$. Für diese Reihenfolge der Ecken gibt die Formel
 
@@ -129,8 +131,9 @@ Uhrzeigersinn. Bei (d) wird das Tuch zu einem Faden zusammengedrückt — genau 
 ## Der Transformationssatz
 
 **Die Akteure:** ein __Gebiet__ $G\subseteq\mathbb{R}^2$ — eine offene, zusammenhängende Menge —, eine stetig differenzierbare
-Abbildung $\vec\Phi:G\to\mathbb{R}^2$ und ein regulärer Bereich $B\subseteq G$. Ein __regulärer Bereich__ ist wie im vorigen
-Kapitel eine beschränkte, abgeschlossene Menge mit zusammenhängendem Inneren, deren Rand aus endlich vielen geschlossenen
+Abbildung $\vec\Phi:G\to\mathbb{R}^2$ und ein regulärer Bereich $B\subseteq G$. Ein __regulärer Bereich__ ist wie im Artikel über die
+[Integralsätze in der Ebene](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/integralsaetze-in-der-ebene.html)
+eine beschränkte, abgeschlossene Menge mit zusammenhängendem Inneren, deren Rand aus endlich vielen geschlossenen
 regulären Kurven besteht.
 
 Die Abbildung nimmt einen Punkt $\vec u$ — die neuen Koordinaten — und gibt einen Punkt der Ebene aus:
@@ -153,8 +156,8 @@ $$\int_{\vec\Phi(B)}f(\vec x)\,d^2x = \int_B f\big(\vec\Phi(\vec u)\big)\,\big\l
 integriert man über das einfache Gebiet $B$ in den neuen Koordinaten $\vec u$: Man setzt $\vec\Phi$ in $f$ ein und gewichtet
 mit dem Flächenfaktor.
 
-Das Skript nennt das Bild $D$ und die Punkte von $B$ und $D$ der Reihe nach $x$ und $y$. Hier heißen sie $\vec u$ und $\vec x$,
-damit $(x,y)$ später wie gewohnt die kartesischen Koordinaten sein können.
+Die neuen Koordinaten heißen hier $\vec u$, die alten $\vec x$, damit $(x,y)$ später wie gewohnt die kartesischen
+Koordinaten sein können.
 
 **Im Bild:** Jede kleine Masche des verzerrten Tuchs ist unter der Lupe ein Parallelogramm, das aus einem Quadrat des Gitters
 entstand. Ihre Fläche ist $\lvert\det D\vec\Phi\rvert$ mal die Fläche des Quadrats — genau dieser Faktor steht im Integral.
@@ -175,15 +178,15 @@ $\vec\Phi(Q_k)$ das Gebiet $\vec\Phi(B)$. In der Näherung
 $$\sum_k f\big(\vec\Phi(\vec u_k)\big)\,\mathrm{vol}\big(\vec\Phi(Q_k)\big) \approx \sum_k f\big(\vec\Phi(\vec u_k)\big)\,\big\lvert\det D\vec\Phi(\vec u_k)\big\rvert\,\mathrm{vol}(Q_k)$$
 
 ist die linke Summe eine Näherung für das Integral über $\vec\Phi(B)$, die rechte eine für das Integral über $B$ — die beiden
-Seiten des Satzes. Werden die Quader feiner, verschwindet der Fehler. Das ist die Begründung des Skripts; einen vollständigen
-Beweis in jeder Dimension führt es nicht.
+Seiten des Satzes. Werden die Quader feiner, verschwindet der Fehler. Das ist die Beweisidee; einen vollständigen
+Beweis in jeder Dimension führen wir hier nicht.
 
 **Im Bild:** Links zählt man die Maschen des verzerrten Tuchs mit ihrer echten Fläche, rechts die Quadrate des Gitters mit
 ihrem Flächenfaktor. Für feine Gitter ist das dieselbe Summe.
 :::
 
 :::herleitung
-**Der Beweis in der Ebene**, wie im Skript, mit drei Zusatzannahmen. Erstens ist $f$ sogar stetig differenzierbar, und zwar
+**Der Beweis in der Ebene**, mit drei Zusatzannahmen. Erstens ist $f$ sogar stetig differenzierbar, und zwar
 auf einer offenen, __sternförmigen__ Menge $U\subseteq\mathbb{R}^2$, die $\vec\Phi(B)$ enthält: Von einem Zentrum $\vec x_0$ aus
 ist wie beim Aussichtsturm im Poincaré-Lemma jeder Punkt von $U$ auf gerader Linie sichtbar. Zweitens ist $\vec\Phi$ zweimal
 stetig differenzierbar. Drittens ist der Rand von $B$ eine einzige geschlossene reguläre Kurve
@@ -201,8 +204,7 @@ Dabei dreht $\perp$ einen Vektor um $90^\circ$ nach links. Dann ist $\vec F$ auf
 $$\operatorname{rot}\vec F = \partial_1F_2-\partial_2F_1 = f.$$
 
 Der Ansatz ist derselbe wie im Poincaré-Lemma: Man integriert längs der Strahlen vom Zentrum aus. Die Rechnung steht am Ende
-der Box. Das Skript beruft sich an dieser Stelle auf Lemma 1.21; dort stehen aber nur die Identitäten für
-$\operatorname{div}\operatorname{rot}$ und $\operatorname{rot}\operatorname{rot}$, die ein solches Feld nicht liefern.
+der Box.
 
 **Im Bild:** $\vec F$ ist ein Wind, dessen Wirbelstärke an jedem Punkt genau $f$ ist.
 
@@ -283,7 +285,7 @@ Damit ist
 $$\operatorname{rot}\vec F(\vec x) = \int_0^1\Big(t^2\,(\nabla f)(t\vec x)\cdot\vec x+2t\,f(t\vec x)\Big)\,dt = \int_0^1\frac{d}{dt}\Big(t^2f(t\vec x)\Big)\,dt = f(\vec x).$$
 
 **Was der Beweis nicht abdeckt:** Für ein nur stetiges $f$ oder einen Rand aus mehreren Kurven braucht man zusätzliche
-Näherungs- und Zerlegungsargumente, die das Skript nicht ausführt.
+Näherungs- und Zerlegungsargumente, die hier nicht ausgeführt werden.
 :::
 
 ::::beispiel Ellipse und gefaltetes Tuch
@@ -304,7 +306,8 @@ Mit $f=1$ gibt der Satz die Fläche
 
 $$\mathrm{vol}(E) = \int_{S_1}6\,d^2u = 6\pi.$$
 
-Das passt zu $\pi\cdot2\cdot3$, der Fläche, die die Planimeter-Formel im vorigen Kapitel für diese Ellipse liefert.
+Das passt zu $\pi\cdot2\cdot3$, der Fläche, die die Planimeter-Formel im Artikel über die Integralsätze in der Ebene für
+diese Ellipse liefert.
 
 **Im Bild:** Das Gummituch wird überall gleich gestreckt, waagerecht um $2$, senkrecht um $3$. Jede Masche wird sechsmal so
 groß, der Kreis zur Ellipse.
@@ -327,7 +330,7 @@ Masche des Quadrats liegt zweimal da, und der Flächenfaktor zählt beide Lagen.
 
 ## In einer Dimension: die Substitutionsregel
 
-Für Funktionen einer Variablen ist der Satz die Substitutionsregel aus HM1. Dort steht die Ableitung ohne Betrag, dafür mit
+Für Funktionen einer Variablen ist der Satz die Substitutionsregel. Dort steht die Ableitung ohne Betrag, dafür mit
 orientierten Grenzen: Für ein stetig differenzierbares $\psi:[\alpha,\beta]\to\mathbb{R}$ und ein auf dem Bild von $\psi$
 stetiges $f$ gilt
 
@@ -342,7 +345,7 @@ Läuft $\psi$ rückwärts, ist $\psi'$ negativ, und zugleich stehen links die Gr
 In der Ebene gibt es keine Grenzen mit Richtung — man integriert über Mengen —, deshalb steht dort der Betrag.
 
 :::herleitung
-**Direkt mit dem Hauptsatz**, wie in HM1. Ist $s$ eine Stammfunktion von $f$, so ist nach der Kettenregel $s\circ\psi$ eine
+**Direkt mit dem Hauptsatz.** Ist $s$ eine Stammfunktion von $f$, so ist nach der Kettenregel $s\circ\psi$ eine
 Stammfunktion von $(f\circ\psi)\,\psi'$. Beide Seiten sind deshalb dieselbe Differenz:
 
 $$\int_{\psi(\alpha)}^{\psi(\beta)}f(x)\,dx = s\big(\psi(\beta)\big)-s\big(\psi(\alpha)\big) = \int_\alpha^\beta f\big(\psi(u)\big)\,\psi'(u)\,du.$$
@@ -561,8 +564,7 @@ $$2\pi\int_0^R e^{-r^2}\,r\,dr = 2\pi\Big[-\frac12\,e^{-r^2}\Big]_0^R = \pi\big(
 
 Für $R\to\infty$ strebt das gegen $\pi$.
 
-**Schritt 2: das Quadrat dazwischen.** Das Integral der Glockenkurve bis $R$ — im Skript $I(R)$, hier klein geschrieben wie
-alle skalaren Funktionen — ist
+**Schritt 2: das Quadrat dazwischen.** Das Integral der Glockenkurve bis $R$ ist
 
 $$g(R) := \int_{-R}^{R}e^{-x^2}\,dx.$$
 

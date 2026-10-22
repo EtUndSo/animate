@@ -105,7 +105,7 @@ naheliegende Schranke $1/t$ hat unendliche Fläche, das Integral ist nicht einma
 Schwingung und desto weiter muss man gehen, bis sich positive und negative Bögen ausgleichen.
 
 :::herleitung
-Der Wert des Dirichlet-Integrals lässt sich selbst mit einem Parameter finden — eine Idee, die über den Stoff hinausgeht
+Der Wert des Dirichlet-Integrals lässt sich selbst mit einem Parameter finden — eine Idee, die über diesen Artikel hinausgeht
 und hier nur skizziert wird. Für $s>0$ sei
 
 $$I(s) = \int_0^\infty e^{-st}\,\frac{\sin t}{t}\,dt.$$
@@ -131,8 +131,8 @@ Konvergenz kann die Grenzfunktion springen. (Rot = Grenzfunktion, orange = Fläc
 ## Das Majorantenkriterium: ein Deckel für alle Schwänze
 
 Die Rettung ist eine Bedingung, die gleichmäßige Kontrolle über die Schwänze erzwingt: eine integrierbare Schranke, die
-**nicht vom Parameter abhängt**. Eine solche Funktion $m:(a,b)\to\mathbb{R}$ heißt __Majorante__ (im Skript $g$); für die
-Ableitungen braucht man ebensolche Funktionen $m_k$ (im Skript $G_k$).
+**nicht vom Parameter abhängt**. Eine solche Funktion $m:(a,b)\to\mathbb{R}$ heißt __Majorante__; für die
+Ableitungen braucht man ebensolche Funktionen $m_k$.
 
 :::formel Satz
 $$\lvert f(\vec x,t)\rvert\le m(t)\ \text{ auf } U\times(a,b),\ \ \int_a^b m(t)\,dt<\infty \quad\Longrightarrow\quad g \text{ ist stetig auf } U.$$
@@ -151,7 +151,7 @@ ab. Wird er klein, werden alle Schwänze zugleich klein.
 
 :::herleitung
 **Existenz.** Für jedes $\vec x$ konvergiert das Integral über $\lvert f(\vec x,\cdot)\rvert$ nach dem
-Vergleichskriterium aus HM1, denn es liegt unter dem Integral über $m$.
+Vergleichskriterium, denn es liegt unter dem Integral über $m$.
 
 **Stetigkeit.** Sei $\vec x_0\in U$ und $\varepsilon>0$. Weil die Fläche unter $m$ endlich ist, gibt es Grenzen
 $a<\alpha<\beta<b$, jenseits derer der Deckel nur noch wenig Fläche hat:
@@ -367,7 +367,7 @@ dank Deckel". (Rot = Ergebnisfunktion, blau = Eingabe, orange = Deckel, grau = A
 
 Das Majorantenkriterium ist der Grund, warum man mit Gamma-Funktion, Laplace- und Fourier-Transformation rechnen darf
 wie mit gewöhnlichen Funktionen: Es sichert Stetigkeit und das Ableiten unter dem Integral, obwohl der Bereich unendlich
-ist. Im Lebesgue-Integral, das über diesen Kurs hinausgeht, heißt dasselbe Prinzip __Satz von der majorisierten
+ist. Im Lebesgue-Integral, das auf diesen Seiten nicht behandelt wird, heißt dasselbe Prinzip __Satz von der majorisierten
 Konvergenz__ — ein Deckel mit endlicher Fläche erlaubt dort ganz allgemein, Grenzwert und Integral zu vertauschen.
 
 Bisher integrierten wir über **ein** Intervall, mit einem Parameter. Jetzt geht es zu echten **mehrdimensionalen**

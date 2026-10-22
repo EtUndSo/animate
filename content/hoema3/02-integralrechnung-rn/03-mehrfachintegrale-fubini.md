@@ -15,8 +15,8 @@ Bretts hat es die Höhe $f(x,y)$. Gesucht ist sein **Volumen** — und genau das
 Rechteck sein.
 
 Niemand misst ein Brot auf einmal aus. Man schneidet es in **Scheiben**. Stellt man das Messer an die Stelle $y$, zeigt
-die Schnittfläche die Kurve $x\mapsto f(x,y)$. Ihre Fläche ist ein Parameterintegral wie im ersten Artikel dieses
-Kapitels — das Messer ist der Schieberegler von dort.
+die Schnittfläche die Kurve $x\mapsto f(x,y)$. Ihre Fläche ist ein Parameterintegral wie im Artikel
+[Parameterintegrale und Ableiten unter dem Integral](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/parameterintegrale.html) — das Messer ist der Schieberegler von dort.
 
 Eine dünne Scheibe der Dicke $\Delta y$ hat ungefähr das Volumen „Schnittfläche mal Dicke". Legt man alle Scheiben wieder
 zusammen, summiert man diese Volumina; im Grenzfall immer dünnerer Scheiben wird daraus ein Integral über $y$. So
@@ -56,8 +56,7 @@ darunter ist die Fläche der Scheibe an der Stelle $y$:
 $$s(y) := \int_a^b f(x,y)\,dx, \qquad y\in[c,d].$$
 
 Das ist ein Parameterintegral: $x$ wird weg-integriert, $y$ bleibt als Parameter stehen — die Stellung des Messers.
-Eingabe ist eine Zahl $y$, Ausgabe eine Fläche. Das Skript nennt diese Funktion $F$; als skalare Ergebnisfunktion heißt
-sie hier klein, $s$ wie Scheibe.
+Eingabe ist eine Zahl $y$, Ausgabe eine Fläche. Als skalare Ergebnisfunktion heißt sie klein, $s$ wie Scheibe.
 
 **Schritt 2: der Stapel.** Die Scheibenfläche ändert sich **ohne Sprünge**, wenn das Messer wandert: $s$ ist stetig auf
 $[c,d]$. Deshalb existiert das Integral über den Stapel, das __iterierte Integral__ — „iteriert", weil man ein Integral
@@ -77,7 +76,7 @@ Dann unterscheiden sich die beiden Scheibenflächen um höchstens
 
 $$\lvert s(y)-s(y_0)\rvert \le \int_a^b\lvert f(x,y)-f(x,y_0)\rvert\,dx \le (b-a)\,\varepsilon.$$
 
-Eine stetige Funktion auf $[c,d]$ ist integrierbar (HM1), also existiert das äußere Integral.
+Eine stetige Funktion auf $[c,d]$ ist integrierbar, also existiert das äußere Integral.
 
 **Im Bild:** Rückt das Messer um weniger als $\delta$ weiter, bleibt die neue Schnittkurve überall in einem Band der Höhe
 $\varepsilon$ um die alte. Die Schnittfläche ändert sich dann höchstens um Breite mal Bandhöhe.
@@ -85,7 +84,7 @@ $\varepsilon$ um die alte. Die Schnittfläche ändert sich dann höchstens um Br
 
 **Im Bild:** Das innere Integral misst eine Scheibe, das äußere stapelt die Scheiben. Liest man das iterierte Integral
 von innen nach außen, schneidet man das Brot erst auf und legt es dann wieder zusammen. Wo $f$ negativ ist, hängt der
-Teig gewissermaßen unter dem Brett; dieses Volumen zählt negativ — so wie in HM1 eine Fläche unterhalb der Achse.
+Teig gewissermaßen unter dem Brett; dieses Volumen zählt negativ — so wie beim gewöhnlichen Integral eine Fläche unterhalb der Achse.
 
 ::::beispiel Der Brotkeil
 Auf dem Brett
@@ -124,7 +123,7 @@ $$\int_c^d\Big(\int_a^b f(x,y)\,dx\Big)dy = \int_a^b\Big(\int_c^d f(x,y)\,dy\Big
 :::
 
 **So liest man das:** Links stehen Scheiben bei festem $y$, gestapelt längs der $y$-Achse. Rechts stehen Scheiben bei
-festem $x$, gestapelt längs der $x$-Achse. Der Satz sagt: Beide Stapel enthalten gleich viel Brot. Das Skript nennt das
+festem $x$, gestapelt längs der $x$-Achse. Der Satz sagt: Beide Stapel enthalten gleich viel Brot. Das ist
 eine elementare Version des Satzes von Fubini; die allgemeine gehört zur Integrationstheorie nach Lebesgue.
 
 **Im Bild — die Beweisidee:** Statt gleich das ganze Brot zu vergleichen, misst man ein **Eckstück** über dem
@@ -186,9 +185,9 @@ $$h(a,\eta) = \int_a^a \sigma(x,\eta)\,dx - \int_c^\eta \tau(a,y)\,dy = 0-\int_c
 
 Also ist $h$ überall null. Für die Ecke $(\xi,\eta)=(b,d)$ ist das die Behauptung.
 
-Das Skript zeigt zusätzlich, dass auch die Ableitung nach $\eta$ verschwindet (dieselbe Rechnung mit vertauschten
-Rollen), und schließt mit dem Wert in der Ecke $(a,c)$. Für die Konstanz genügt schon eine der beiden Ableitungen, weil
-$h$ am ganzen linken Rand verschwindet.
+Ebenso verschwindet die Ableitung nach $\eta$ (dieselbe Rechnung mit vertauschten Rollen), und man könnte auch mit dem
+Wert in der Ecke $(a,c)$ schließen. Für die Konstanz genügt aber schon eine der beiden Ableitungen, weil $h$ am ganzen
+linken Rand verschwindet.
 :::
 
 ::::beispiel Das Eckstück des Brotkeils
@@ -275,7 +274,7 @@ und damit ebenso unendlich tief.
 
 **Im Bild:** Jede Scheibe bei festem $x$ enthält mehr Berg als Mulde, ihre Fläche $\frac{1}{1+x^2}$ ist positiv. Jede
 Scheibe bei festem $y$ enthält mehr Mulde als Berg. Zwei unendliche Volumina gegeneinander verrechnet ergeben, was die
-Schnittrichtung daraus macht — ähnlich wie eine nur bedingt konvergente Reihe beim Umordnen ihren Wert ändern kann (HM1).
+Schnittrichtung daraus macht — ähnlich wie eine nur bedingt konvergente Reihe beim Umordnen ihren Wert ändern kann.
 
 :::grafik
 Szene: hoema3/integralrechnung-rn/03-berg-und-mulde · Vorlage: flaeche-3d-schnitte
@@ -291,7 +290,7 @@ liefern. (Rot = Berg, blau = Mulde, orange = Messer und Scheibe, gestrichelt = D
 und unbeschränkten Gebieten vertauschen, sobald das Volumen von $\lvert f\rvert$ endlich ist. Das heißt __absolute
 Integrierbarkeit__ und ist das mehrdimensionale Gegenstück zur absoluten Konvergenz aus dem vorigen Artikel. Berg und
 Mulde haben dann je ein endliches Volumen, und keine Schnittrichtung kann das eine gegen das andere ausspielen. Der Beweis
-(Satz von Fubini–Tonelli) sprengt den Rahmen dieses Kurses.
+(Satz von Fubini–Tonelli) sprengt den Rahmen dieser Seiten.
 
 :::herleitung
 Nur die Beweisidee; die Einzelheiten brauchen die Lebesgue-Theorie. Man zerlegt $f$ in Berg und Mulde, also in
@@ -381,7 +380,7 @@ $$\int_c^d\Big(\int_a^b u(x)\,v(y)\,dx\Big)dy = \Big(\int_a^b u(x)\,dx\Big)\Big(
 Fläche unter $u$, und der Stapel summiert die Streckfaktoren.
 
 :::herleitung
-Für die Integration über $x$ ist $v(y)$ eine Konstante und darf vor das innere Integral (Linearität, HM1):
+Für die Integration über $x$ ist $v(y)$ eine Konstante und darf vor das innere Integral (Linearität):
 
 $$\int_a^b u(x)\,v(y)\,dx = v(y)\int_a^b u(x)\,dx.$$
 
@@ -442,7 +441,7 @@ iterierte Integral der vorigen Abschnitte.
 
 Das Zeichen $d^n x$ ist kein Vektor, sondern das $n$-dimensionale __Volumenelement__ — das Volumen eines winzigen
 Klötzchens mit den Kanten $dx_1,\ldots,dx_n$. Deshalb trägt es keinen Pfeil, anders als das Wegelement $d\vec x$ der
-Kurvenintegrale im nächsten Kapitel.
+[Kurvenintegrale](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegral-und-orientierung.html).
 
 **Im Bild,** mit $f$ als Dichte des Teigs in drei Dimensionen: Das innerste Integral wiegt ein dünnes Stäbchen in
 $x_1$-Richtung, genauer: Es gibt seine Masse pro Querschnittsfläche an. Das mittlere wiegt eine Scheibe aus
@@ -557,8 +556,7 @@ $$\int_0^2 (6+3x_2)\,dx_2 = 12+6 = 18.$$
 Masse bleibt $18$.
 ::::
 
-**Andere Schreibweisen.** Statt $d^n x$ schreibt man auch $dx_1\cdots dx_n$ oder $d(x_1,\ldots,x_n)$; das Skript schreibt
-kurz $dx$. In den Natur- und Ingenieurwissenschaften heißt der dreidimensionale Fall __Volumenintegral__:
+**Andere Schreibweisen.** Statt $d^n x$ schreibt man auch $dx_1\cdots dx_n$, $d(x_1,\ldots,x_n)$ oder kurz $dx$. In den Natur- und Ingenieurwissenschaften heißt der dreidimensionale Fall __Volumenintegral__:
 
 $$\iiint_Q f(x,y,z)\,dx\,dy\,dz = \iiint_Q f\,dV.$$
 
@@ -567,7 +565,7 @@ Elektrotechnik: Die Gesamtladung in einem Gebiet ist das Volumenintegral der Lad
 
 ## Rechenregeln: linear, monoton, abschätzbar
 
-Mit dem Mehrfachintegral rechnet man wie mit dem gewöhnlichen Integral aus HM1. Für stetige $f,g:Q\to\mathbb{R}$ und
+Mit dem Mehrfachintegral rechnet man wie mit dem gewöhnlichen Integral. Für stetige $f,g:Q\to\mathbb{R}$ und
 Zahlen $\lambda,\mu\in\mathbb{R}$ gilt:
 
 :::formel Lemma
@@ -598,14 +596,14 @@ gestrichelt = Brotkasten, orange = Vergleichsbalken.)
 :::
 
 :::herleitung
-**Linearität.** Jede einzelne Integration ist linear (HM1). Schon die innerste liefert
+**Linearität.** Jede einzelne Integration ist linear. Schon die innerste liefert
 
 $$\int_{a_1}^{b_1}\big(\lambda f+\mu g\big)\,dx_1 = \lambda\int_{a_1}^{b_1} f\,dx_1+\mu\int_{a_1}^{b_1} g\,dx_1,$$
 
 also dieselbe Kombination der beiden Zwischenergebnisse. Die nächste Integration übernimmt sie wieder, und so fort durch
 alle $n$ Schritte.
 
-**Monotonie.** Aus $f\le g$ folgt für die innerste Integration, wieder nach HM1, an jeder Stelle $(x_2,\ldots,x_n)$
+**Monotonie.** Aus $f\le g$ folgt für die innerste Integration an jeder Stelle $(x_2,\ldots,x_n)$
 
 $$\int_{a_1}^{b_1} f\,dx_1 \le \int_{a_1}^{b_1} g\,dx_1.$$
 
@@ -782,11 +780,11 @@ nicht, weil der Kasten nur leeren Tisch dazunimmt.
 
 **Wie geht es weiter?** Viele wichtige Funktionen haben keinen kompakten Träger — etwa die Glockenkurve
 $e^{-\lvert\vec x\rvert^2}$, die nirgends ganz null wird. Es liegt nahe, sie als Grenzwert von Funktionen mit kompaktem
-Träger zu behandeln. Wann das möglich ist, klärt erst die __Lebesgue-Integration__; sie sprengt den Rahmen dieses Kurses.
+Träger zu behandeln. Wann das möglich ist, klärt erst die __Lebesgue-Integration__; sie sprengt den Rahmen dieser Seiten.
 
 ## Bedeutung und Ausblick
 
-Mit dem iterierten Integral führt man jedes Integral über einen Quader auf $n$ gewöhnliche Integrale aus HM1 zurück —
+Mit dem iterierten Integral führt man jedes Integral über einen Quader auf $n$ gewöhnliche Integrale zurück —
 Scheibe für Scheibe, Stäbchen für Stäbchen. Der Satz von Fubini erlaubt, die Schnittrichtung frei zu wählen, und das ist
 in der Praxis oft der entscheidende Rechentrick. Massen, Ladungen, Schwerpunkte und Trägheitsmomente sind solche
 Mehrfachintegrale, später in der Stochastik auch Wahrscheinlichkeiten für mehrere Zufallsgrößen.

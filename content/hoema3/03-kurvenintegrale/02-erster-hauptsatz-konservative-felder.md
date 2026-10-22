@@ -47,7 +47,8 @@ Richtung — man kann von jedem Ort aus einen kleinen Schritt nach Osten oder No
 Wegzusammenhängend heißt, man kommt von überall überall hin.
 
 ::::beispiel Gebiet oder nicht?
-**(a) Die Ebene ohne Ursprung** $\mathbb{R}^2\setminus\{\vec 0\}$ ist ein Gebiet. Offen ist sie nach dem ersten Kapitel.
+**(a) Die Ebene ohne Ursprung** $\mathbb{R}^2\setminus\{\vec 0\}$ ist ein Gebiet. Offen ist sie aus demselben Grund wie
+der Raum ohne Ursprung im Artikel über [Skalar- und Vektorfelder](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html).
 Und zwei Punkte $\vec x,\vec y$ verbindet man durch die Strecke zwischen ihnen — es sei denn, der Ursprung liegt darauf.
 Dann fährt man über einen Punkt $\vec z$ abseits der Geraden durch $\vec x$ und $\vec y$, erst geradeaus zu $\vec z$,
 dann zu $\vec y$. Diese beiden Strecken treffen die Gerade nur in $\vec x$ bzw. $\vec y$, also nicht im Ursprung.
@@ -57,7 +58,7 @@ dann zu $\vec y$. Diese beiden Strecken treffen die Gerade nur in $\vec x$ bzw. 
 $$M = B_1\big((-2,0)\big)\cup B_1\big((2,0)\big)$$
 
 sind offen, aber kein Gebiet. Eine stetige Kurve von der linken zur rechten Scheibe beginnt bei einer $x$-Koordinate
-unter $-1$ und endet bei einer über $1$. Nach dem Zwischenwertsatz (HM1) hat sie unterwegs die $x$-Koordinate $0$ — und
+unter $-1$ und endet bei einer über $1$. Nach dem Zwischenwertsatz hat sie unterwegs die $x$-Koordinate $0$ — und
 dort liegt kein Punkt von $M$.
 
 **(c) Die abgeschlossene Kreisscheibe** ist wegzusammenhängend, aber nicht offen: Um einen Randpunkt ragt jede Kugel
@@ -77,7 +78,7 @@ mit gleichem Anfangs- und gleichem Endpunkt denselben Wert liefern:
 $$\int_\gamma\vec F\cdot d\vec x = \int_{\gamma'}\vec F\cdot d\vec x \qquad\text{für alle Kurven } \gamma,\gamma' \text{ in } G \text{ von } \vec x_0 \text{ nach } \vec x_1.$$
 :::
 
-Ein stetiges Feld mit dieser Eigenschaft heißt __konservativ__. Das Skript formuliert die Definition mit doppelpunktfreien
+Ein stetiges Feld mit dieser Eigenschaft heißt __konservativ__. Oft formuliert man die Definition mit doppelpunktfreien
 Kurven; wir lassen Doppelpunkte zu, dann werden die folgenden Beweise einfacher.
 
 **Im Bild:** Die Arbeit des Winds hängt nur davon ab, wo man startet und wo man ankommt — wie die Anzeige eines
@@ -149,7 +150,7 @@ $$\int_\gamma\nabla h\cdot d\vec x = h(\vec x_1)-h(\vec x_0).$$
 :::
 
 **So liest man das:** Links steht die Arbeit des Felds $\nabla h$ auf der Tour, rechts nur noch die Potentialwerte an Ziel
-und Start — vom Weg dazwischen keine Spur. Das ist der Hauptsatz der Differential- und Integralrechnung aus HM1, übertragen
+und Start — vom Weg dazwischen keine Spur. Das ist der Hauptsatz der Differential- und Integralrechnung, übertragen
 auf Wege: Das Integral einer Ableitung ist die Differenz der Randwerte. Eine Funktion $h$ mit $\nabla h=\vec F$ heißt
 __Potential__ oder Stammfunktion von $\vec F$, das Feld dann __Gradientenfeld__.
 
@@ -157,7 +158,7 @@ __Potential__ oder Stammfunktion von $\vec F$, das Feld dann __Gradientenfeld__.
 Höhengewinn. Damit ist jedes Gradientenfeld konservativ.
 
 :::herleitung
-Auf jedem glatten Stück der Kurve gibt die Kettenregel aus dem ersten Kapitel die Änderungsrate der Höhe:
+Auf jedem glatten Stück der Kurve gibt die Kettenregel für ein Feld entlang einer Kurve die Änderungsrate der Höhe:
 
 $$\frac{d}{dt}\,h\big(\vec\gamma(t)\big) = \nabla h\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t).$$
 
@@ -324,7 +325,7 @@ nach dem Satz von Schwarz.
 :::
 
 **Die Umkehrung ist falsch.** Ein Feld kann überall wirbelfrei sein und trotzdem kein Potential haben — wenn das Gebiet ein
-Loch hat. Das Gegenbeispiel des Skripts ist die Wendeltreppe aus dem Gradienten-Artikel.
+Loch hat. Das klassische Gegenbeispiel ist die Wendeltreppe aus dem Gradienten-Artikel.
 
 ::::beispiel Die Wendeltreppe
 Auf dem Gebiet $G=\mathbb{R}^2\setminus\{\vec 0\}$ sei
@@ -422,7 +423,7 @@ solche Löcher und liefert dazu eine Formel, mit der man das Potential direkt au
 - Ein __Gebiet__ ist offen und wegzusammenhängend: Man kommt von jedem Punkt zu jedem anderen.
 - __Konservativ__ heißt: Die Arbeit hängt nur von Start und Ziel ab — wie die Anzeige eines Höhenmessers.
 - Gleichwertig: Jede Rundtour bringt die Arbeit null, $\oint_\gamma\vec F\cdot d\vec x=0$.
-- __Erster Hauptsatz__ (i): $\int_\gamma\nabla h\cdot d\vec x=h(\vec x_1)-h(\vec x_0)$ — Kettenregel plus Hauptsatz aus HM1.
+- __Erster Hauptsatz__ (i): $\int_\gamma\nabla h\cdot d\vec x=h(\vec x_1)-h(\vec x_0)$ — Kettenregel plus Hauptsatz der Differential- und Integralrechnung.
 - (ii): Konservativ ist dasselbe wie Gradientenfeld; das Potential baut man als Arbeit vom festen Startpunkt aus.
 - Physik: Die Spannung im elektrostatischen Feld ist die Potentialdifferenz, unabhängig vom Weg.
 - In 2D und 3D ist $\operatorname{rot}\vec F=\vec 0$ **notwendig** für ein Potential, aber nicht hinreichend.
@@ -436,7 +437,7 @@ A: Eine offene Menge, in der sich je zwei Punkte durch eine Kurve in der Menge v
 F: Was heißt konservativ, und warum genügt es, Rundtouren zu prüfen?
 A: Konservativ heißt, dass das Kurvenintegral nur von Anfangs- und Endpunkt abhängt. Zwei Wege mit gleichem Start und Ziel ergeben, den einen rückwärts gefahren, eine Rundtour; ihre Arbeit ist die Differenz der beiden Wege. Also liefern alle Wege dasselbe genau dann, wenn jede Rundtour die Arbeit null bringt.
 F: Was besagt der erste Hauptsatz (i), und wie beweist man ihn?
-A: Für ein Gradientenfeld ist $\int_\gamma\nabla h\cdot d\vec x=h(\vec x_1)-h(\vec x_0)$. Nach der Kettenregel ist der Integrand die Ableitung $\frac{d}{dt}h(\vec\gamma(t))$; der Hauptsatz aus HM1 gibt auf jedem glatten Stück die Differenz der Randwerte, und über die Stücke summiert bleibt eine Teleskopsumme. Im Bild zeigt der Höhenmesser nur den Höhengewinn an.
+A: Für ein Gradientenfeld ist $\int_\gamma\nabla h\cdot d\vec x=h(\vec x_1)-h(\vec x_0)$. Nach der Kettenregel ist der Integrand die Ableitung $\frac{d}{dt}h(\vec\gamma(t))$; der Hauptsatz der Differential- und Integralrechnung gibt auf jedem glatten Stück die Differenz der Randwerte, und über die Stücke summiert bleibt eine Teleskopsumme. Im Bild zeigt der Höhenmesser nur den Höhengewinn an.
 F: Warum liefern beim Sattelfeld $(y,x)$ Diagonale, Treppe und Parabel von $(0,0)$ nach $(1,1)$ alle die Arbeit $1$?
 A: Weil $(y,x)=\nabla(xy)$ ein Gradientenfeld ist; die Arbeit ist $h(1,1)-h(0,0)=1$. Nachgerechnet: diagonal $\int_0^1 2t\,dt$, auf der Treppe $0+1$, auf der Parabel $\int_0^1 3t^2\,dt$ — jeweils $1$. Jede Rundtour bringt null.
 F: Warum ist die Spannung im Feld einer Punktladung wegunabhängig, und welchen Wert hat sie?

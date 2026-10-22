@@ -37,7 +37,8 @@ Achsen.)
 
 ## Was ist eine reguläre Kurve?
 
-Im ersten Kapitel war eine Kurve eine Abbildung auf einem offenen Intervall. Für eine Tour braucht man Anfang und Ende,
+Im Artikel über [Skalar- und Vektorfelder](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/skalar-und-vektorfelder-differenzierbarkeit.html)
+war eine Kurve eine Abbildung auf einem offenen Intervall. Für eine Tour braucht man Anfang und Ende,
 also ein abgeschlossenes Intervall $[a,b]$, und man möchte Ecken zulassen — eine Tour um einen Häuserblock biegt ab.
 
 **Stückweise stetig differenzierbar** heißt: $\vec\gamma:[a,b]\to\mathbb{R}^n$ ist stetig, und es gibt endlich viele
@@ -213,7 +214,7 @@ Das Skalarprodukt ist linear in seinem ersten Faktor, der Integrand also
 
 $$\big(\lambda\vec F+\mu\vec G\big)\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t) = \lambda\,\vec F\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t)+\mu\,\vec G\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t),$$
 
-und das gewöhnliche Integral ist linear (HM1).
+und das gewöhnliche Integral ist linear.
 :::
 
 ::::beispiel Drei Winde auf dem Halbkreis
@@ -261,8 +262,7 @@ wachsenden Funktion
 
 $$\sigma:[\alpha,\beta]\to[a,b], \qquad \sigma(\alpha)=a, \qquad \sigma(\beta)=b.$$
 
-Die neue Tour $\vec\gamma\circ\sigma$ besucht dieselben Orte in derselben Reihenfolge, nur zu anderen Zeiten. Im Skript
-heißt diese Funktion $\tau$; hier ist $\tau$ für die Einheitstangente reserviert.
+Die neue Tour $\vec\gamma\circ\sigma$ besucht dieselben Orte in derselben Reihenfolge, nur zu anderen Zeiten.
 
 :::formel Lemma
 $$\int_\alpha^\beta \vec F\big(\vec\gamma(\sigma(s))\big)\cdot\frac{d}{ds}\,\vec\gamma\big(\sigma(s)\big)\,ds = \int_a^b \vec F\big(\vec\gamma(t)\big)\cdot\dot{\vec\gamma}(t)\,dt.$$
@@ -323,8 +323,8 @@ Fährt man dieselbe Strecke **zurück**, kehrt sich die Arbeit um. Die Rückfahr
 
 $$\vec\gamma_-(t) := \vec\gamma(a+b-t), \qquad t\in[a,b].$$
 
-Sie beginnt bei $\vec\gamma(b)$ und endet bei $\vec\gamma(a)$. Das Skript schreibt sie $\gamma^{-1}$ — gemeint ist nicht die
-Umkehrabbildung, sondern die rückwärts durchlaufene Kurve.
+Sie beginnt bei $\vec\gamma(b)$ und endet bei $\vec\gamma(a)$. Üblich ist auch die Schreibweise $\gamma^{-1}$ — gemeint ist
+dann nicht die Umkehrabbildung, sondern die rückwärts durchlaufene Kurve.
 
 :::formel Satz
 $$\int_{\gamma_-}\vec F\cdot d\vec x = -\int_\gamma\vec F\cdot d\vec x.$$
@@ -507,7 +507,7 @@ $$\sigma := \vec x_1^{-1}\circ\vec x_2:[c,d]\to[a,b].$$
 
 $\sigma$ ist stetig und streng monoton (eine stetige, umkehrbare Abbildung eines Intervalls), und wachsend, weil beide Uhren
 denselben Anfang haben. Stetig differenzierbar ist sie wegen der Regularität: In der Nähe jedes Punkts ist eine Koordinate
-von $\vec x_1$ streng monoton, und über deren Umkehrfunktion (HM1) lässt sich $\sigma$ ausdrücken. Nach dem Lemma über das
+von $\vec x_1$ streng monoton, und über deren Umkehrfunktion lässt sich $\sigma$ ausdrücken. Nach dem Lemma über das
 Tempo geben dann beide Parametrisierungen dasselbe Kurvenintegral. Mit umgekehrtem Durchlaufsinn ist $\sigma$ fallend,
 und es kommt das Minuszeichen der Rückfahrt hinzu.
 :::

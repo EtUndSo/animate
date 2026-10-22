@@ -41,8 +41,7 @@ __Kern__ $k:\mathbb{R}^n\setminus\{\vec 0\}\to\mathbb{R}$, der am Ursprung eine 
 $$u(\vec x) = \int_{\mathbb{R}^n}k(\vec x-\vec y)\,f(\vec y)\,d^ny.$$
 
 Das ist ein Parameterintegral wie im Artikel über Parameterintegrale, mit dem Punkt $\vec x$ als Parameter. Neu ist die
-Singularität: Bei $\vec y=\vec x$ ist der Kern nicht definiert. Das Skript nennt den Kern $\mathcal G$; hier heißt er klein, wie
-alle skalaren Funktionen.
+Singularität: Bei $\vec y=\vec x$ ist der Kern nicht definiert.
 
 Man versteht solche Integrale wie im vorigen Artikel als eine Art uneigentliches Integral: Man schneidet die Singularität ab —
 etwa eine kleine Kugel um $\vec x$ — und lässt den abgeschnittenen Teil gegen null gehen.
@@ -89,7 +88,7 @@ $$\int_{K_\delta(\vec x)}\frac{b}{4\pi\lvert\vec x-\vec y\rvert}\,d^3y = \frac{b
 also wie $\delta^3$, ihr Gewicht wächst nur wie $\frac{1}{\delta}$ — zusammen bleibt $\delta^2$.
 :::
 
-Das Skript beschreibt das Abschneiden auch so: Ersetzt man den Abstand im Nenner durch einen Abstand, der nie unter $\delta$
+Man kann das Abschneiden auch so beschreiben: Ersetzt man den Abstand im Nenner durch einen Abstand, der nie unter $\delta$
 fällt, etwa durch
 
 $$\max\big(\lvert\vec x-\vec y\rvert,\ \delta\big),$$
@@ -270,7 +269,7 @@ Ladung, grau = äußere Schalen, blau = Messpunkt und Profil, orange = Doppelkeg
 :::
 
 ::::beispiel Die gleichmäßig geladene Kugelschale
-Das Beispiel des Skripts: eine Kugelschale zwischen den Radien $R_1$ und $R_2$, mit $0\le R_1<R_2$, mit der konstanten Dichte
+Eine Kugelschale zwischen den Radien $R_1$ und $R_2$, mit $0\le R_1<R_2$, mit der konstanten Dichte
 $\rho$ — das Profil ist $\rho$ zwischen den beiden Radien und null sonst:
 
 $$S = \big\{\vec y\in\mathbb{R}^3 : R_1\le\lvert\vec y\rvert\le R_2\big\}, \qquad u(\vec x) = \frac{\rho}{4\pi}\int_S\frac{d^3y}{\lvert\vec x-\vec y\rvert}.$$
@@ -296,7 +295,7 @@ $$h(0{,}5) = 1{,}5, \qquad h(1{,}5)\approx1{,}40, \qquad h(3) = \frac79\approx0{
 
 $$Q = \rho\cdot\frac43\pi R^3,$$
 
-wie im Skript; innen gibt (c)
+innen gibt (c)
 
 $$h(a) = \rho\Big(\frac{R^2}{2}-\frac{a^2}{6}\Big).$$
 
@@ -369,20 +368,25 @@ zweimal stetig differenzierbar, und es gilt
 $$-\Delta u = f \quad\text{in } \mathbb{R}^3, \qquad u(\vec x)\to0 \quad\text{für } \lvert\vec x\rvert\to\infty.$$
 :::
 
-**So liest man das:** $\Delta$ ist der Laplace-Operator aus dem ersten Kapitel, die Divergenz des Gradienten. Weil das Feld der
+**So liest man das:** $\Delta$ ist der Laplace-Operator aus dem Artikel
+[Divergenz, Rotation und Laplace-Operator](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/divergenz-rotation-laplace.html),
+die Divergenz des Gradienten. Weil das Feld der
 negative Gradient ist, sagt die Gleichung: Die Quelldichte des Felds $\vec E=-\nabla u$ ist die Ladungsdichte. Die Bedingung im
 Unendlichen legt die Lösung fest; ohne sie könnte man etwa eine Konstante addieren.
 
 In der Elektrostatik ist das Potential einer Ladungsdichte $f$ das Newtonpotential geteilt durch die Feldkonstante
 $\varepsilon_0$; die Gleichung lautet dann mit $\frac{f}{\varepsilon_0}$ auf der rechten Seite. In der Gravitation ist es $-4\pi G$ mal
 das Newtonpotential der Massendichte. Physiker fassen den Satz kurz so zusammen: Minus der Laplace-Operator des Kerns $g$
-ist eine Punktquelle der Stärke $1$ im Ursprung, die Dirac-Distribution, die das Kapitel über Fourier-Reihen genauer erklärt.
+ist eine Punktquelle der Stärke $1$ im Ursprung, die Dirac-Distribution, die der Artikel
+[Dirac-Scharen und die δ-Distribution](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen/dirac-scharen-und-delta-distribution.html)
+genauer erklärt.
 
-**Im Bild:** Wo Körnchen sitzen, ist das Potential eine Kuppe — höher als der Durchschnitt seiner Umgebung. Nach dem ersten
-Kapitel misst der Laplace-Operator genau diesen Unterschied, und je dichter die Körnchen, desto stärker die Kuppe.
+**Im Bild:** Wo Körnchen sitzen, ist das Potential eine Kuppe — höher als der Durchschnitt seiner Umgebung. Nach dem Artikel
+über Divergenz und Rotation misst der Laplace-Operator genau diesen Unterschied, und je dichter die Körnchen, desto stärker die Kuppe.
 
 :::herleitung
-**Für kugelsymmetrische Wolken vollständig.** Nach dem ersten Kapitel hat ein radiales Feld mit dem Profil $v$ die Divergenz
+**Für kugelsymmetrische Wolken vollständig.** Nach dem Artikel über Divergenz und Rotation hat ein radiales Feld mit dem
+Profil $v$ die Divergenz
 
 $$\operatorname{div}\big(v(a)\,\vec e_r\big) = v'(a)+\frac{2}{a}\,v(a) = \frac{1}{a^2}\big(a^2v(a)\big)'.$$
 
@@ -391,7 +395,7 @@ $4\pi\rho(a)\,a^2$ ist, folgt an jeder Stetigkeitsstelle des Profils
 
 $$-\Delta u = \operatorname{div}\vec E = \frac{1}{a^2}\Big(\frac{q(a)}{4\pi}\Big)' = \frac{1}{a^2}\,\rho(a)\,a^2 = \rho(a) = f(\vec x).$$
 
-**Im allgemeinen Fall** nennt das Skript den Satz ohne Beweis. Die Idee in drei Schritten:
+**Im allgemeinen Fall** folgt hier nur die Beweisidee, in drei Schritten:
 
 - **Glatt.** Mit $\vec y=\vec x-\vec z$ steht $\vec x$ nur noch in der Dichte: $u$ ist das Integral von $g(\vec z)\,f(\vec x-\vec z)$ über $\vec z$.
   Ableitungen nach $\vec x$ fallen auf $f$; weil $g$ integrierbar ist und die Ableitungen von $f$ beschränkt sind, darf man nach
@@ -401,9 +405,13 @@ $$-\Delta u = \operatorname{div}\vec E = \frac{1}{a^2}\Big(\frac{q(a)}{4\pi}\Big
   Betrag des Felds Ladung durch $4\pi$ mal Radiusquadrat, die Oberfläche $4\pi$ mal Radiusquadrat —, und nichts, wenn es außen
   sitzt. Der Fluss von $\vec E$ durch die Kugeloberfläche ist also die Ladung in der Kugel — das Gaußsche Gesetz.
 - **Dichte.** Teilt man durch das Volumen der Kugel und lässt sie auf $\vec x$ schrumpfen, wird links die Divergenz von $\vec E$ —
-  die Quelldichte, wie in der Ebene im Kapitel über Kurvenintegrale —, rechts $f(\vec x)$.
+  die Quelldichte, wie in der Ebene im Artikel über die
+  [Integralsätze in der Ebene](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/integralsaetze-in-der-ebene.html) —,
+  rechts $f(\vec x)$.
 
-Was fehlt, sind die Flussrechnung im Raum, die der Satz von Gauß im Kapitel über Integralsätze im Raum liefert, und der
+Was fehlt, sind die Flussrechnung im Raum, die der
+[Satz von Gauß im Raum](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/satz-von-gauss-im-raum.html)
+liefert, und der
 Nachweis, dass $u$ sogar zweimal stetig differenzierbar ist. Dafür braucht man feinere Abschätzungen; hier kommt die
 Voraussetzung ins Spiel, dass $f$ stetig differenzierbar ist.
 :::
@@ -454,8 +462,9 @@ steckt das in jeder Feldberechnung — bei Raumladungszonen in Halbleitern, bei 
 Feld in einer gleichmäßig geladenen Kugelschale verschwindet.
 
 Für kugelsymmetrische Wolken reichte das radiale Profil. Wie der Laplace-Operator in Kugel- und Zylinderkoordinaten allgemein
-aussieht, zeigt der nächste Artikel über krummlinige Koordinaten. Die Flussrechnung hinter dem Gaußschen Gesetz wird mit den
-Integralsätzen im Raum im nächsten Kapitel zum Beweis.
+aussieht, zeigt der nächste Artikel über krummlinige Koordinaten. Mit den Integralsätzen im Raum wird die Flussrechnung hinter
+dem Gaußschen Gesetz zum Beweis, im Artikel
+[Poisson-Gleichung und Hauptsatz der Vektoranalysis](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/poisson-gleichung-und-hauptsatz-der-vektoranalysis.html).
 
 :::kern
 - Ein __singuläres Parameterintegral__ $\int k(\vec x-\vec y)\,f(\vec y)\,d^ny$ versteht man, indem man die Singularität ausschneidet und den Schnitt schrumpfen lässt.

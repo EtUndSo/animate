@@ -91,7 +91,7 @@ Vektorfeld $\vec F:G\to\mathbb{R}^n$, das die __Integrabilitätsbedingung__ aus 
 $$\frac{\partial F_j}{\partial x_k} = \frac{\partial F_k}{\partial x_j} \qquad\text{für alle } j,k.$$
 
 In zwei und drei Dimensionen heißt das: Die Rotation ist null. Dann ist $\vec F$ ein Gradientenfeld, und ein Potential
-lässt sich direkt angeben. Es heißt hier wie im Skript $\varphi$; im vorigen Artikel hieß es $h$.
+lässt sich direkt angeben. Es heißt hier $\varphi$; im vorigen Artikel hieß es $h$.
 
 :::formel Lemma
 $$\vec F(\vec x) = \nabla\varphi(\vec x), \qquad \varphi(\vec x) := \int_0^1\vec F(t\vec x)\cdot\vec x\,dt.$$
@@ -297,7 +297,9 @@ verschwindende Rotation bzw. Divergenz. Die Formeln mit dem Turm im Ursprung, an
 sind die angegebenen.
 :::
 
-Zusammen mit den notwendigen Bedingungen aus dem ersten Kapitel ergibt sich der Satz.
+Zusammen mit den notwendigen Bedingungen aus dem Artikel über
+[Rechenregeln und Identitäten](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/rechenregeln-div-rot-identitaeten.html)
+ergibt sich der Satz.
 
 :::formel Satz
 $$\vec F \text{ Gradientenfeld} \iff \operatorname{rot}\vec F = \vec 0, \qquad\qquad \vec F \text{ Wirbelfeld} \iff \operatorname{div}\vec F = 0.$$
@@ -311,7 +313,7 @@ Skalarpotentials klappt auf Sterngebieten in jeder Dimension, sobald die Integra
 schon dasselbe wie „hat einen Höhenmesser", und „quellenfrei" dasselbe wie „ist ein Wirbelbild".
 
 :::herleitung
-**Von links nach rechts** sind das die Identitäten aus dem ersten Kapitel: Gradientenfelder wirbeln nicht, Wirbelfelder
+**Von links nach rechts** sind das die Identitäten aus dem Rechenregeln-Artikel: Gradientenfelder wirbeln nicht, Wirbelfelder
 quellen nicht. Für $\vec F=\nabla\varphi$ mit stetig differenzierbarem $\vec F$ ist $\varphi$ zweimal stetig differenzierbar,
 und die Rotation verschwindet nach Schwarz. Für $\vec F=\operatorname{rot}\vec A$ mit zweimal stetig differenzierbarem
 $\vec A$ ist die Divergenz null.
@@ -402,7 +404,7 @@ zweiten und dritten entsprechend $F_2$ und $F_3$. Die Additivität der Etappen g
 Kugel ist, muss man nachprüfen, ob der Treppenweg darin bleibt.
 :::
 
-::::beispiel Der Treppenweg aus dem Skript
+::::beispiel Ein Potential über den Treppenweg
 Für das Feld auf ganz $\mathbb{R}^3$
 
 $$\vec F(x,y,z) = \big(y^2\cos x,\ 2y\sin x+e^{2z},\ 2y\,e^{2z}\big)$$
@@ -458,7 +460,8 @@ Vektorpotential, so addiert man ein Gradientenfeld $\nabla\psi$, dessen Potentia
 
 $$\Delta\psi = -\operatorname{div}\vec A'$$
 
-löst. Ob sie lösbar ist, klärt erst ein späteres Kapitel.
+löst. Ob sie lösbar ist, klärt erst der Artikel
+[Poisson-Gleichung und Hauptsatz der Vektoranalysis](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/poisson-gleichung-und-hauptsatz-der-vektoranalysis.html).
 
 :::herleitung
 Die Rotation des Gradientenfelds verschwindet, also bleibt das Feld dasselbe. Für die Divergenz des neuen Potentials gilt
@@ -469,7 +472,7 @@ Der Rechenregeln-Artikel schreibt dasselbe mit umgekehrtem Vorzeichen von $\psi$
 :::
 
 ::::beispiel Anderer Turm, andere Konstante
-**(a) Skalarpotential.** Für das Feld aus dem Skript-Beispiel mit dem Start im Punkt $(0,1,0)$ statt im Ursprung lauten die
+**(a) Skalarpotential.** Für das Feld aus dem Treppenweg-Beispiel mit dem Start im Punkt $(0,1,0)$ statt im Ursprung lauten die
 drei Stufen
 
 $$\int_0^x F_1(t,1,0)\,dt = \sin x, \qquad \int_1^y F_2(x,t,0)\,dt = (y^2-1)\sin x+y-1, \qquad \int_0^z F_3(x,y,t)\,dt = y\big(e^{2z}-1\big).$$
@@ -533,7 +536,7 @@ A: Für stetig differenzierbare Felder auf Sterngebieten im $\mathbb{R}^3$ gilt:
 F: Warum hat die Wendeltreppe auf der geschlitzten Ebene ein Potential, auf der gelochten aber nicht?
 A: Die geschlitzte Ebene ist ein Sterngebiet mit dem Turm $(1,0)$; dort liefert das Lemma ein Potential, den Polarwinkel zwischen $-\pi$ und $\pi$. Eine Rundtour um den Ursprung müsste den Schlitz kreuzen und ist dort nicht möglich. In der gelochten Ebene kann man die Säule umrunden und gewinnt $2\pi$ — ein Potential ist ausgeschlossen.
 F: Wie berechnet man ein Potential mit dem Treppenweg, und warum bleibt der Weg in der Kugel?
-A: Man integriert nacheinander $F_1$ in $x$-Richtung, $F_2$ in $y$-Richtung und $F_3$ in $z$-Richtung, jeweils mit den schon erreichten Koordinaten. Beim Skript-Beispiel ergibt das $y^2\sin x+ye^{2z}$. Jeder Punkt des Treppenwegs weicht in jeder Koordinate höchstens so weit vom Mittelpunkt ab wie das Ziel, liegt also nicht weiter weg.
+A: Man integriert nacheinander $F_1$ in $x$-Richtung, $F_2$ in $y$-Richtung und $F_3$ in $z$-Richtung, jeweils mit den schon erreichten Koordinaten. Beim Feld $(y^2\cos x,\,2y\sin x+e^{2z},\,2ye^{2z})$ ergibt das $y^2\sin x+ye^{2z}$. Jeder Punkt des Treppenwegs weicht in jeder Koordinate höchstens so weit vom Mittelpunkt ab wie das Ziel, liegt also nicht weiter weg.
 F: Wie eindeutig sind Skalar- und Vektorpotentiale?
-A: Zwei Skalarpotentiale unterscheiden sich auf einem Gebiet um eine Konstante: Ihre Differenz hat den Gradienten null, und nach dem ersten Hauptsatz ist sie längs jeder Kurve konstant — ein anderer Startpunkt verschiebt das Skript-Potential um $1$. Zu einem Vektorpotential darf man jedes Gradientenfeld addieren, weil es nicht wirbelt (Eichfreiheit); mit $\Delta\psi=-\operatorname{div}\vec A'$ erreicht man die Coulomb-Eichung.
+A: Zwei Skalarpotentiale unterscheiden sich auf einem Gebiet um eine Konstante: Ihre Differenz hat den Gradienten null, und nach dem ersten Hauptsatz ist sie längs jeder Kurve konstant — der Start in $(0,1,0)$ statt im Ursprung verschiebt das Potential $y^2\sin x+ye^{2z}$ um $1$. Zu einem Vektorpotential darf man jedes Gradientenfeld addieren, weil es nicht wirbelt (Eichfreiheit); mit $\Delta\psi=-\operatorname{div}\vec A'$ erreicht man die Coulomb-Eichung.
 :::

@@ -121,8 +121,7 @@ ableiten, und die Identität macht aus dem Integranden eine Ableitung nach $t$:
 
 $$\frac{d}{ds}\int_{\gamma_s}\vec F\cdot d\vec x = \int_a^b\frac{\partial}{\partial t}\Big(\vec F(\vec h)\cdot\frac{\partial\vec h}{\partial s}\Big)\,dt = \Big[\vec F\big(\vec h(s,t)\big)\cdot\frac{\partial\vec h}{\partial s}(s,t)\Big]_{t=a}^{t=b}.$$
 
-Übrig bleibt nur, was an den beiden Enden geschieht. Im Skript sind die Grenzen des mittleren Integrals vertauscht notiert;
-gemeint ist das Integral von $a$ bis $b$.
+Übrig bleibt nur, was an den beiden Enden geschieht.
 
 :::herleitung
 Der Integrand $(s,t)\mapsto\vec F(\vec h(s,t))\cdot\partial_t\vec h(s,t)$ ist auf dem kompakten Rechteck $[0,1]\times[a,b]$
@@ -203,9 +202,9 @@ $$\vec h(0,t) = \vec\gamma(t), \qquad \vec h(1,t) = \text{konstant}, \qquad \vec
 :::
 
 **So liest man das:** Die Homotopie beginnt bei der gegebenen Rundtour und endet bei einer Kurve, die stillsteht — einem
-Punkt. Jede Zwischenkurve ist geschlossen und liegt in $G$. Im Skript fehlt die letzte Bedingung. Ohne sie wäre jede Kurve
-zusammenziehbar: Man könnte sie einfach längs ihrer selbst aufrollen, also auch ein Band um eine Säule, das dabei
-aufgeschnitten wird. Gemeint ist eine Homotopie geschlossener Kurven.
+Punkt. Jede Zwischenkurve ist geschlossen und liegt in $G$. Achtung: Auf diese Geschlossenheit, die letzte Bedingung, kommt
+es an. Ohne sie wäre jede Kurve zusammenziehbar: Man könnte sie einfach längs ihrer selbst aufrollen, also auch ein Band um eine Säule, das dabei
+aufgeschnitten wird.
 
 **Im Bild:** Jedes Gummiband lässt sich auf dem Gelände zu einem Punkt zusammenziehen, ohne zu reißen. In der Ebene heißt
 das anschaulich: Das Gelände hat keine Löcher.
@@ -296,8 +295,8 @@ Homotopieinvarianz
 
 $$\oint_\gamma\vec F\cdot d\vec x = \oint_{\gamma_1}\vec F\cdot d\vec x = 0.$$
 
-Im allgemeinen Fall ist die Homotopie nur stetig; dann glättet man sie zuerst — diesen technischen Schritt überlässt das
-Skript den Mathematikern. Weil jede Rundtour die Arbeit null bringt, ist $\vec F$ nach dem Rundtour-Lemma konservativ.
+Im allgemeinen Fall ist die Homotopie nur stetig; dann glättet man sie zuerst — diesen technischen Schritt führen wir
+hier nicht aus. Weil jede Rundtour die Arbeit null bringt, ist $\vec F$ nach dem Rundtour-Lemma konservativ.
 :::
 
 ::::beispiel Ein Gummiband neben der Säule
@@ -452,8 +451,8 @@ F: Warum ändert sich die Arbeit eines wirbelfreien Felds beim Verformen nicht?
 A: Mit der Identität ist die Ableitung der Arbeit nach $s$ das Integral einer $t$-Ableitung, also der Randterm $[\vec F(\vec h)\cdot\partial_s\vec h]_{t=a}^{t=b}$. Bei geschlossenen Zwischenkurven heben sich die beiden Randwerte weg, bei festen Endpunkten ist $\partial_s\vec h$ dort null. Die Arbeit ist also konstant in $s$.
 F: Was zeigt die Rechnung an den Ellipsen um die Säule?
 A: Verformt man den Einheitskreis in Ellipsen $(p\cos t,\sin t)$, hängt der Integrand $\frac{p}{p^2\cos^2t+\sin^2t}$ von $p$ ab, das Integral über $[0,2\pi]$ ist aber immer $2\pi$. Auf den Längsseiten ist der Wind schwach, an den Enden nah an der Säule stark — beides gleicht sich genau aus.
-F: Was heißt einfach zusammenhängend, und welche Bedingung fehlt im Skript?
-A: Jede geschlossene Kurve im Gebiet lässt sich durch eine Homotopie geschlossener Kurven im Gebiet zu einem Punkt zusammenziehen. Das Skript verlangt nicht ausdrücklich, dass die Zwischenkurven geschlossen bleiben; ohne diese Bedingung könnte man jede Kurve längs ihrer selbst aufrollen, und der Begriff wäre leer.
+F: Was heißt einfach zusammenhängend, und warum müssen die Zwischenkurven geschlossen bleiben?
+A: Jede geschlossene Kurve im Gebiet lässt sich durch eine Homotopie geschlossener Kurven im Gebiet zu einem Punkt zusammenziehen. Ohne die Bedingung, dass die Zwischenkurven geschlossen bleiben, könnte man jede Kurve längs ihrer selbst aufrollen, und der Begriff wäre leer.
 F: Warum ist jedes Sterngebiet einfach zusammenhängend, und warum braucht man trotzdem den allgemeineren Begriff?
 A: Die Homotopie $(1-s)\vec\gamma(t)+s\vec x_0$ zieht jede Rundtour längs der Sichtlinien zum Zentrum, und jede Zwischenkurve bleibt geschlossen und im Gebiet. Es gibt aber einfach zusammenhängende Gebiete ohne Turm, der alles sieht, etwa den aufgeschnittenen Ring; für sie liefert erst der zweite Hauptsatz das Potential.
 F: Was besagt der zweite Hauptsatz, und wie beweist man ihn?

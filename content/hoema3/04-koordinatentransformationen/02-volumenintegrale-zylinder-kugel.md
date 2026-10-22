@@ -50,8 +50,9 @@ Wie in der Ebene muss $\vec\Phi$ auf $B$ injektiv sein und darf nirgends flachdr
 $$\det D\vec\Phi(\vec u)\neq0 \quad\text{für alle } \vec u\in B.$$
 
 Ein __regulärer Bereich__ im Raum ist beschränkt und abgeschlossen, und sein Rand besteht aus regulären Flächen. Genau
-definiert das Skript diese Flächen erst im Kapitel über Integralsätze im Raum; für diesen Artikel reichen Quader, Zylinder,
-Kugeln, Kegel und Rotationskörper.
+definiert werden diese Flächen erst im Artikel
+[Reguläre Flächen und das Oberflächenintegral](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/regulaere-flaechen-und-oberflaechenintegral.html);
+für diesen Artikel reichen Quader, Zylinder, Kugeln, Kegel und Rotationskörper.
 
 Dann gilt für jede stetige Funktion $f:\vec\Phi(B)\to\mathbb{R}$
 
@@ -75,7 +76,7 @@ Unter der Lupe ist $\vec\Phi$ nahe jedem Punkt fast linear, mit der Jacobi-Matri
 wird deshalb fast auf ein Parallelotop abgebildet, dessen Volumen das Würfelvolumen mal $\lvert\det D\vec\Phi\rvert$ ist.
 Riemann-Summen über feine Würfelgitter ergeben die beiden Seiten des Satzes.
 
-Einen vollständigen Beweis im Raum führt das Skript nicht; es nennt den Satz und rechnet mit ihm.
+Einen vollständigen Beweis im Raum führen wir hier nicht; wir rechnen mit dem Satz.
 
 **Im Bild:** Links zählt man die Klötzchen des verformten Klotzes mit ihrem echten Volumen, rechts die Würfel des Gitters mit
 ihrem Volumenfaktor.
@@ -106,8 +107,8 @@ groß.
 ## Zylinderkoordinaten
 
 Zylinderkoordinaten sind die Polarkoordinaten der $xy$-Ebene, ergänzt um die unveränderte Höhe $z$. Den Abstand von der
-$z$-Achse nennen wir hier $\varrho$ wie in ET4. Das Skript schreibt $r$, aber $r$ ist in diesem Artikel der Abstand vom
-Ursprung, wie in den Kugelkoordinaten weiter unten.
+$z$-Achse nennen wir hier $\varrho$, wie in der Elektrotechnik üblich. Oft schreibt man dafür auch $r$, aber $r$ ist in diesem
+Artikel der Abstand vom Ursprung, wie in den Kugelkoordinaten weiter unten.
 
 **Die Akteure:** ein Radius $R>0$, zwei Höhen $a<b$ und der Zylinder
 
@@ -195,8 +196,7 @@ $p:[a,b]\to\mathbb{R}$ ohne Nullstelle. Der Körper ist
 
 $$W = \big\{(x,y,z)\in\mathbb{R}^3 : a\le z\le b,\ x^2+y^2\le p(z)^2\big\}.$$
 
-In der Höhe $z$ ist sein Querschnitt die Kreisscheibe vom Radius $\lvert p(z)\rvert$. Das Skript nennt das Profil $f$ und den
-Körper $R$; hier heißen sie anders, weil $f$ der Integrand und $R$ ein Radius ist.
+In der Höhe $z$ ist sein Querschnitt die Kreisscheibe vom Radius $\lvert p(z)\rvert$.
 
 Statt bis zu einem festen Radius läuft man in jeder Höhe bis zum Profil, mit dem Anteil $t\in[0,1]$ des Profilradius. Das
 sind die __verallgemeinerten Zylinderkoordinaten__:
@@ -207,7 +207,7 @@ Ihre Determinante ist
 
 $$\det D\vec\Phi(t,\varphi,z) = t\,p(z)^2.$$
 
-Für das konstante Profil $1$ entstehen die Zylinderkoordinaten des Zylinders vom Radius $1$ — im Skript der Standardfall.
+Für das konstante Profil $1$ entstehen die Zylinderkoordinaten des Zylinders vom Radius $1$.
 
 :::herleitung
 Die Spalten der Jacobi-Matrix sind die Ableitungen nach $t$, $\varphi$ und $z$:
@@ -296,7 +296,7 @@ $$K_R = \big\{\vec x\in\mathbb{R}^3 : \lvert\vec x\rvert\le R\big\}.$$
 
 Ihre Punkte beschreibt man durch drei Zahlen: den Abstand $r\in[0,R]$ vom Ursprung, den __Polarwinkel__ $\theta\in[0,\pi]$
 gegen die positive $z$-Achse und den __Azimut__ $\varphi\in[0,2\pi]$, den Winkel der Projektion in die $xy$-Ebene gegen die
-$x$-Achse — wie bei den Polarkoordinaten. In ET4 heißt der Polarwinkel $\vartheta$.
+$x$-Achse — wie bei den Polarkoordinaten. In der Elektrotechnik schreibt man den Polarwinkel oft $\vartheta$.
 
 $$\vec\Phi(r,\theta,\varphi) = \big(r\sin\theta\cos\varphi,\ r\sin\theta\sin\varphi,\ r\cos\theta\big), \qquad (r,\theta,\varphi)\in[0,R]\times[0,\pi]\times[0,2\pi].$$
 
@@ -517,7 +517,7 @@ grau = Achsen.)
 :::
 
 ::::beispiel Coulomb-Potential und Coulomb-Feld
-Das Coulomb-Potential der Einheitsladung heißt im Skript $\varphi$; hier ist $\varphi$ schon der Azimut, deshalb
+Das Coulomb-Potential der Einheitsladung, oft $\varphi$ geschrieben, heißt hier $g$, weil $\varphi$ schon der Azimut ist:
 
 $$g(\vec x) = \frac{1}{4\pi\lvert\vec x\rvert}.$$
 
@@ -634,7 +634,7 @@ dieses Integral trotz der Singularität jedes Summanden existiert, sichert genau
 F: Was besagt der Transformationssatz im Raum, und was bedeutet er im Bild des Gummiklotzes?
 A: Ist $\vec\Phi$ stetig differenzierbar, auf dem regulären Bereich $B$ injektiv mit $\det D\vec\Phi\neq0$ und $\vec\Phi(B)$ wieder regulär, so ist $\int_{\vec\Phi(B)}f\,d^3x=\int_B f(\vec\Phi(\vec u))\,\lvert\det D\vec\Phi(\vec u)\rvert\,d^3u$. Jedes Klötzchen des verformten Klotzes ist unter der Lupe ein Parallelotop mit dem Würfelvolumen mal $\lvert\det D\vec\Phi\rvert$. Das Ellipsoid mit den Halbachsen $1$, $2$, $3$ hat deshalb das Sechsfache des Volumens der Einheitskugel, $8\pi$.
 F: Warum ist der Volumenfaktor der Zylinderkoordinaten $\varrho$, und warum heißt der Abstand zur Achse hier nicht $r$?
-A: Zylinderkoordinaten sind Polarkoordinaten der $xy$-Ebene mit unverzerrter Höhe; entwickelt man die Determinante nach der letzten Zeile, bleibt die der Polarkoordinaten, $\varrho$. Ein Klötzchen des Baumstamms hat die Kanten $d\varrho$, $\varrho\,d\varphi$ und $dz$. Der Buchstabe $r$ ist in diesem Artikel der Abstand vom Ursprung; deshalb heißt der Abstand von der Achse wie in ET4 $\varrho$.
+A: Zylinderkoordinaten sind Polarkoordinaten der $xy$-Ebene mit unverzerrter Höhe; entwickelt man die Determinante nach der letzten Zeile, bleibt die der Polarkoordinaten, $\varrho$. Ein Klötzchen des Baumstamms hat die Kanten $d\varrho$, $\varrho\,d\varphi$ und $dz$. Der Buchstabe $r$ ist in diesem Artikel der Abstand vom Ursprung; deshalb heißt der Abstand von der Achse $\varrho$, wie in der Elektrotechnik üblich.
 F: Wie viel Kupfer steckt in einem Rohr, und warum hängt das Trägheitsmoment einer Walze nicht von ihrer Länge ab?
 A: Das Rohr hat das Volumen $\pi(R_2^2-R_1^2)H$; bei $7$ und $8\,\mathrm{mm}$ Radius und $1\,\mathrm{m}$ Länge sind das etwa $47\,\mathrm{cm}^3$, gut $400\,\mathrm{g}$ Kupfer. Die Walze hat $J=\frac{m}{\pi R^2H}\int\varrho^2\,dV=\frac{mR^2}{2}$: Sie ist ein Stapel gleicher Scheiben, jede mit ihrer Masse mal dem halben Radiusquadrat, und die Länge kürzt sich heraus.
 F: Wie entsteht die Volumenformel für Rotationskörper, und warum fällt die Ableitung des Profils heraus?

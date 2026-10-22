@@ -148,7 +148,7 @@ Farbstoff-Konzentration — und $\vec E:U\to\mathbb{R}^3$ ein differenzierbares 
 $$\operatorname{div}(\phi\,\vec E) = \nabla\phi\cdot\vec E + \phi\,\operatorname{div}\vec E, \qquad \operatorname{rot}(\phi\,\vec E) = \nabla\phi\times\vec E + \phi\,\operatorname{rot}\vec E.$$
 :::
 
-**So liest man das:** Beide Regeln haben die Struktur der HM1-Produktregel, „Ableitung des ersten Faktors mal zweiten
+**So liest man das:** Beide Regeln haben die Struktur der gewöhnlichen Produktregel, „Ableitung des ersten Faktors mal zweiten
 plus ersten mal Ableitung des zweiten". Einmal wird $\phi$ abgeleitet — das gibt den Gradienten $\nabla\phi$, der dann
 per Skalar- bzw. Kreuzprodukt mit $\vec E$ verknüpft wird. Einmal wird $\vec E$ abgeleitet — das gibt $\phi$ mal
 Divergenz bzw. Rotation von $\vec E$.
@@ -162,7 +162,7 @@ verlässt mehr Farbstoff das Kästchen, als hineinkommt, obwohl das Wasser gar n
 Fließt es in Richtung fallender Konzentration, sammelt sich Farbstoff im Kästchen, der Term ist negativ.
 
 :::herleitung
-Die Divergenz ist eine Summe von Ableitungen, und auf jeden Summanden wirkt die gewöhnliche Produktregel aus HM1:
+Die Divergenz ist eine Summe von Ableitungen, und auf jeden Summanden wirkt die gewöhnliche Produktregel:
 
 $$\operatorname{div}(\phi\,\vec E) = \sum_{j}\partial_j(\phi\,E_j) = \sum_{j}\big(\partial_j\phi\;E_j + \phi\;\partial_j E_j\big).$$
 
@@ -198,7 +198,7 @@ Rades stärker macht als auf der anderen — wie in einem Fluss, der an der Ober
 hier steht es für die Rotation des gewichteten Feldes $\phi\vec E$.
 
 :::herleitung
-Für die Rotation nimmt man die Indexschreibweise und wieder die Produktregel aus HM1:
+Für die Rotation nimmt man die Indexschreibweise und wieder die Produktregel:
 
 $$(\operatorname{rot}(\phi\,\vec E))_i = \sum_{j,k}\varepsilon_{ijk}\,\partial_j(\phi\,E_k) = \sum_{j,k}\varepsilon_{ijk}\,(\partial_j\phi)\,E_k + \phi\sum_{j,k}\varepsilon_{ijk}\,\partial_j E_k.$$
 
@@ -242,8 +242,8 @@ $$\operatorname{rot}(\phi\,\vec E) = \big(\partial_1\phi\;E_2 - \partial_2\phi\;
 Das Kreuzprodukt wird dabei durch das „äußere Produkt" $\partial_1\phi\,E_2-\partial_2\phi\,E_1$ in der Ebene ersetzt.
 
 :::herleitung
-Die 2D-Rotation eines Feldes ist $\partial_1 E_2 - \partial_2 E_1$. Für das Feld $\phi\vec E$ liefert die Produktregel aus
-HM1 in beiden Termen je zwei Summanden:
+Die 2D-Rotation eines Feldes ist $\partial_1 E_2 - \partial_2 E_1$. Für das Feld $\phi\vec E$ liefert die Produktregel
+in beiden Termen je zwei Summanden:
 
 $$\operatorname{rot}(\phi\,\vec E) = \partial_1(\phi E_2) - \partial_2(\phi E_1) = \partial_1\phi\;E_2 + \phi\,\partial_1E_2 - \partial_2\phi\;E_1 - \phi\,\partial_2E_1.$$
 
@@ -470,7 +470,7 @@ fehlt dann, weil $\nabla$ als Ableitung auf **beide** Faktoren wirkt — die Pro
 Formeln sind genau das Ergebnis dieser achtsamen Buchführung.
 
 :::herleitung
-**Divergenz.** Mit der Indexformel und der Produktregel aus HM1:
+**Divergenz.** Mit der Indexformel und der Produktregel:
 
 $$\operatorname{div}(\vec E\times\vec B) = \sum_i\partial_i\sum_{j,k}\varepsilon_{ijk}\,E_j B_k = \sum_{i,j,k}\varepsilon_{ijk}\,(\partial_i E_j)\,B_k + \sum_{i,j,k}\varepsilon_{ijk}\,E_j\,(\partial_i B_k).$$
 
@@ -536,7 +536,7 @@ die Maxwell-Gleichungen ein, und so entsteht die Energiebilanz des elektromagnet
 
 ## Die zwei zentralen Identitäten
 
-Die wichtigsten Regeln des Kapitels entstehen, wenn man **zwei** Operatoren hintereinander anwendet. Sei
+Die wichtigsten Regeln entstehen, wenn man **zwei** Operatoren hintereinander anwendet. Sei
 $\vec E:U\to\mathbb{R}^3$ auf $U\subseteq\mathbb{R}^3$ zweimal stetig differenzierbar.
 
 **1. Ein Wirbel quillt nie.**
@@ -739,7 +739,8 @@ gezeigten Quellenfreiheit folgt
 
 $$\operatorname{rot}\vec B = \operatorname{rot}\operatorname{rot}\vec A' = \nabla(\operatorname{div}\vec A') - \Delta\vec A' = -\Delta\vec A'.$$
 
-Dass die Poisson-Gleichung tatsächlich eine Lösung hat, zeigt erst das Kapitel über die Integralsätze.
+Dass die Poisson-Gleichung tatsächlich eine Lösung hat, zeigt erst der Artikel
+[Poisson-Gleichung und Hauptsatz der Vektoranalysis](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/poisson-gleichung-und-hauptsatz-der-vektoranalysis.html).
 :::
 
 ::::beispiel Die Coulomb-Eichung durchgerechnet
@@ -813,7 +814,8 @@ schwingt — eine Lichtwelle.
 ::::
 
 Als Nächstes kommt die **Integralseite**: zunächst, wie man Integrale differenziert, die von einem Parameter abhängen,
-und wie man über mehrdimensionale Bereiche integriert — das Kapitel __Integralrechnung im $\mathbb{R}^n$__.
+und wie man über mehrdimensionale Bereiche integriert — die __Integralrechnung im $\mathbb{R}^n$__, beginnend mit dem
+Artikel [Parameterintegrale und Ableiten unter dem Integral](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/parameterintegrale.html).
 
 :::kern
 - __Kronecker-Delta__ $\delta_{ij}$ (gleich oder nicht) und __Levi-Civita-Symbol__ $\varepsilon_{ijk}$ (Orientierung) schreiben das Kreuzprodukt kompakt: $(\vec a\times\vec b)_i=\sum\varepsilon_{ijk}a_jb_k$.
@@ -833,7 +835,7 @@ und wie man über mehrdimensionale Bereiche integriert — das Kapitel __Integra
 
 :::quiz
 F: Warum hat $\operatorname{div}(\phi\vec E)$ zwei Terme — formal und im Bild des Farbstoffs?
-A: Formal wirkt in jedem Summanden $\partial_j(\phi E_j)$ die Produktregel aus HM1; das liefert $\nabla\phi\cdot\vec E+\phi\,\operatorname{div}\vec E$. Im Bild quillt der Farbstofffluss aus zwei Gründen: weil das Wasser selbst quillt, oder weil die Konzentration längs der Strömung zunimmt — dann tritt dünnes Farbwasser ein und dichtes aus (Beispiel $\vec E=(1,0,0)$, $\phi=x$: Divergenz $1$).
+A: Formal wirkt in jedem Summanden $\partial_j(\phi E_j)$ die Produktregel; das liefert $\nabla\phi\cdot\vec E+\phi\,\operatorname{div}\vec E$. Im Bild quillt der Farbstofffluss aus zwei Gründen: weil das Wasser selbst quillt, oder weil die Konzentration längs der Strömung zunimmt — dann tritt dünnes Farbwasser ein und dichtes aus (Beispiel $\vec E=(1,0,0)$, $\phi=x$: Divergenz $1$).
 F: Wie kann $\operatorname{rot}(\phi\vec E)$ von null verschieden sein, obwohl $\operatorname{rot}\vec E=\vec 0$ ist — am Beispiel $\vec E=(1,0,0)$, $\phi=y$?
 A: Der Term $\nabla\phi\times\vec E$ bleibt übrig: $(0,1,0)\times(1,0,0)=(0,0,-1)$. Das gewichtete Feld $(y,0,0)$ ist eine Scherströmung, oben schneller als unten — ein Schaufelrad wird oben stärker angeschoben und dreht sich, obwohl die Strömung geradlinig ist.
 F: Was misst das Levi-Civita-Symbol, und wie schreibt man damit das Kreuzprodukt?

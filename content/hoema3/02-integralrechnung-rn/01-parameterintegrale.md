@@ -48,7 +48,7 @@ $$g(\vec x) := \int_a^b f(\vec x,t)\,dt, \qquad \vec x\in U.$$
 
 **So liest man das:** $t$ ist die **Integrationsvariable** — sie wird weg-integriert und taucht im Ergebnis nicht mehr
 auf. $\vec x$ ist der **Parameter**, er bleibt als Argument von $g$ stehen. Die Eingabe von $g$ ist ein Punkt
-$\vec x\in U$, die Ausgabe eine Zahl. Das Ergebnis ist eine skalare Funktion, darum heißt sie klein, $g$ (im Skript $F$).
+$\vec x\in U$, die Ausgabe eine Zahl. Das Ergebnis ist eine skalare Funktion, darum heißt sie klein, $g$ (üblich ist auch $F$).
 
 ::::beispiel Ein Parameterintegral ausrechnen
 Mit dem Parameter $x\in\mathbb{R}$ und
@@ -78,7 +78,7 @@ Sei $\vec x_0\in U$. Weil $U$ offen ist, liegt eine abgeschlossene Kugel um $\ve
 $$K = \big\{\,\vec x\in\mathbb{R}^n \;:\; \lvert\vec x-\vec x_0\rvert\le r\,\big\} \subseteq U \qquad\text{für ein } r>0.$$
 
 Die Menge $K\times[a,b]\subseteq\mathbb{R}^{n+1}$ ist __kompakt__, also beschränkt und abgeschlossen. Eine stetige
-Funktion auf einer kompakten Menge ist dort __gleichmäßig stetig__ (Satz von Heine, HM2): Zu jedem $\varepsilon>0$ gibt es
+Funktion auf einer kompakten Menge ist dort __gleichmäßig stetig__ (Satz von Heine): Zu jedem $\varepsilon>0$ gibt es
 ein $\delta>0$, das für **alle** Stellen $t$ gleichzeitig funktioniert. Für $\vec x\in K$ mit
 $\lvert\vec x-\vec x_0\rvert<\delta$ gilt also
 
@@ -146,7 +146,7 @@ Differenzenquotient von $g$ ist das Integral der Differenzenquotienten der Kurve
 
 $$\frac{g(\vec x+h\,\vec e_k)-g(\vec x)}{h} = \int_a^b \frac{f(\vec x+h\,\vec e_k,t)-f(\vec x,t)}{h}\,dt.$$
 
-Für jedes feste $t$ liefert der Mittelwertsatz aus HM1 eine Zwischenstelle $\xi$ zwischen $0$ und $h$ — sie darf von $t$
+Für jedes feste $t$ liefert der Mittelwertsatz der Differentialrechnung eine Zwischenstelle $\xi$ zwischen $0$ und $h$ — sie darf von $t$
 abhängen —, an der der Quotient gleich der Ableitung ist:
 
 $$\frac{f(\vec x+h\,\vec e_k,t)-f(\vec x,t)}{h} = \frac{\partial f}{\partial x_k}(\vec x+\xi\,\vec e_k,\,t).$$
@@ -276,8 +276,8 @@ stetig differenzierbar ist. Das Parameterintegral mit wandernden Grenzen ist
 
 $$g(y) := \int_{\alpha(y)}^{\beta(y)} f(y,t)\,dt.$$
 
-Im Skript heißen die Variablen umgekehrt, $f(x,y)\,dx$; hier steht wie oben der Parameter vorn und $t$ für die
-Integrationsvariable. Es gilt die __Leibnizregel__:
+Üblich ist auch die umgekehrte Reihenfolge, $f(x,y)\,dx$ mit dem Parameter $y$ hinten; hier steht wie oben der Parameter
+vorn und $t$ für die Integrationsvariable. Es gilt die __Leibnizregel__:
 
 :::formel Satz
 $$g'(y) = \int_{\alpha(y)}^{\beta(y)} \frac{\partial f}{\partial y}(y,t)\,dt \;+\; f\big(y,\beta(y)\big)\,\beta'(y) \;-\; f\big(y,\alpha(y)\big)\,\alpha'(y).$$

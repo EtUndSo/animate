@@ -93,7 +93,7 @@ $$\int_D\operatorname{rot}\vec F\,d(x,y) = \oint_{\partial D}\vec F\cdot d\vec x
 :::
 
 **So liest man das:** Links stehen die Wirbel, über das Grundstück summiert — Eingabe ist das Feld, Ausgabe eine Zahl.
-Rechts steht die Arbeit des Winds längs aller Randkurven, positiv durchlaufen. In Komponenten, im Skript $P$ und $Q$
+Rechts steht die Arbeit des Winds längs aller Randkurven, positiv durchlaufen. In Komponenten, oft auch $P$ und $Q$
 genannt, ist das die __Greensche Formel__:
 
 :::formel
@@ -138,11 +138,10 @@ $-S(d)$, die untere, nach rechts, $+S(c)$. Zusammen ist das genau das Negative d
 
 $$\oint_{\partial D}\vec F\cdot d\vec x = \int_D\frac{\partial F_2}{\partial x}\,d(x,y)-\int_D\frac{\partial F_1}{\partial y}\,d(x,y) = \int_D\operatorname{rot}\vec F\,d(x,y).$$
 
-Hier braucht man, dass die Wände stetig differenzierbar sind — deshalb verlangt der Satz reguläre Bereiche. Im Skript sind
-in diesem Beweis die Durchlaufrichtungen der beiden Wände vertauscht und zwei Vorzeichen beim Zusammensetzen verdreht;
-hier steht die stimmige Fassung. Für Normalbereiche vom zweiten Typ geht es mit vertauschten Rollen von $x$ und $y$ genauso.
+Hier braucht man, dass die Wände stetig differenzierbar sind — deshalb verlangt der Satz reguläre Bereiche. Für
+Normalbereiche vom zweiten Typ geht es mit vertauschten Rollen von $x$ und $y$ genauso.
 
-**Schritt 2: zusammengesetzte Bereiche** — die Antwort auf das „warum?" des Skripts. Ein allgemeiner regulärer Bereich
+**Schritt 2: zusammengesetzte Bereiche.** Ein allgemeiner regulärer Bereich
 lässt sich in reguläre Normalbereiche zerlegen. Für jedes Teilstück gilt Schritt 1. Summiert man, addieren sich links die
 Flächenintegrale zum Integral über $D$. Rechts wird jede innere Schnittlinie zweimal befahren, einmal von jedem
 angrenzenden Teilstück aus und in entgegengesetzter Richtung, weil jedes sein Inneres links hat; diese Beiträge heben sich
@@ -428,12 +427,15 @@ Dreieck negativ — und am Ende bleibt genau die umfahrene Fläche.
 ## Bedeutung und Ausblick
 
 Die Integralsätze verbinden das Innere eines Gebiets mit seinem Rand: Wirbel im Inneren zeigen sich als Arbeit längs des
-Randes, Quellen im Inneren als Fluss durch den Rand. Damit ist das ebene Bild aus dem ersten Kapitel vollständig — Divergenz
+Randes, Quellen im Inneren als Fluss durch den Rand. Damit ist das ebene Bild aus dem Divergenz-Artikel vollständig — Divergenz
 und Rotation sind die Dichten von Fluss und Arbeit. In der Elektrotechnik sind das die Grundformen der Maxwell-Gleichungen in
-Integralform; ihre räumlichen Fassungen, die Sätze von Gauß und Stokes im Raum, folgen im fünften Kapitel.
+Integralform; ihre räumlichen Fassungen folgen in den Artikeln
+[Der Satz von Stokes im Raum](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/satz-von-stokes-im-raum.html)
+und [Der Satz von Gauß im Raum](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/satz-von-gauss-im-raum.html).
 
-Zunächst hilft der Satz von Stokes an unerwarteter Stelle. Das Skript beweist mit ihm im nächsten Kapitel den
-__Transformationssatz__ in der Ebene — die Regel, wie sich Flächenintegrale beim Wechsel der Koordinaten ändern, etwa zu
+Zunächst hilft der Satz von Stokes an unerwarteter Stelle. Mit ihm beweist der Artikel
+[Der Transformationssatz und Polarkoordinaten](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/transformationssatz-und-polarkoordinaten.html)
+den __Transformationssatz__ in der Ebene — die Regel, wie sich Flächenintegrale beim Wechsel der Koordinaten ändern, etwa zu
 Polarkoordinaten. Die Planimeter-Formel deutet schon an, warum dabei eine Determinante auftaucht.
 
 :::kern

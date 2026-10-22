@@ -12,9 +12,9 @@ Stell dir zwei Landkarten vor. Auf der ersten steht an jedem Ort eine **Zahl** �
 __Skalarfeld__. Auf der zweiten steht an jedem Ort ein **Pfeil** — Windrichtung und Windstärke. Das ist ein
 __Vektorfeld__.
 
-Die Höhere Mathematik III beginnt mit der Frage: Was ist die **Ableitung** eines solchen Feldes?
+Die Vektoranalysis beginnt mit der Frage: Was ist die **Ableitung** eines solchen Feldes?
 
-In HM1 war die Ableitung einer Funktion $f:\mathbb{R}\to\mathbb{R}$ eine einzige Zahl $f'(x)$, die Steigung der
+Bei einer Funktion $f:\mathbb{R}\to\mathbb{R}$ einer Variablen ist die Ableitung eine einzige Zahl $f'(x)$, die Steigung der
 Tangente. Dahinter steckt eine tiefere Idee: Hält man eine **Lupe** an den Graphen und vergrößert immer stärker, sieht
 er aus wie eine **Gerade**. Die Ableitung beschreibt diese beste **lineare Näherung**.
 
@@ -160,7 +160,7 @@ Nullen. Die $k$-te Gitterlinie durch $\vec x$ ist die Gerade
 $$t\;\mapsto\;\vec x+t\,\vec e_k \qquad (t\in\mathbb{R}),$$
 
 auf der sich nur die $k$-te Koordinate ändert; für kleine $t$ liegt sie in $U$, weil $U$ offen ist. Die __partielle
-Ableitung__ der Komponente $F_j$ nach $x_k$ ist die gewöhnliche HM1-Ableitung längs dieser Linie:
+Ableitung__ der Komponente $F_j$ nach $x_k$ ist die gewöhnliche Ableitung längs dieser Linie:
 
 $$\frac{\partial F_j}{\partial x_k}(\vec x) = \lim_{t\to0}\frac{F_j(\vec x+t\,\vec e_k)-F_j(\vec x)}{t}.$$
 
@@ -623,7 +623,7 @@ Kugel um $\vec x_0$, die ganz in $U$ enthalten ist:
 
 $$f(\vec x_0+\vec h)-f(\vec x_0) = \big[f(\vec x_0+h_1\vec e_1)-f(\vec x_0)\big] + \big[f(\vec x_0+h_1\vec e_1+h_2\vec e_2)-f(\vec x_0+h_1\vec e_1)\big].$$
 
-Auf jeder Stufe ändert sich nur eine Variable. Der Mittelwertsatz aus HM1 liefert deshalb eine Zwischenstelle
+Auf jeder Stufe ändert sich nur eine Variable. Der Mittelwertsatz der Differentialrechnung liefert deshalb eine Zwischenstelle
 $\vec\xi_1$ auf der ersten Stufe und eine Zwischenstelle $\vec\xi_2$ auf der zweiten:
 
 $$f(\vec x_0+\vec h)-f(\vec x_0) = \frac{\partial f}{\partial x_1}(\vec\xi_1)\,h_1 + \frac{\partial f}{\partial x_2}(\vec\xi_2)\,h_2.$$
@@ -674,7 +674,7 @@ existieren und stetig sind. Die Menge dieser Abbildungen ist
 
 $$C^\ell(U;\mathbb{R}^m) = \big\{\, \vec F:U\to\mathbb{R}^m \;\big|\; \vec F \text{ ist } \ell\text{-mal stetig differenzierbar} \,\big\};$$
 
-für Skalarfelder schreibt man kurz $C^\ell(U)$. Im Skript heißt die Ordnung $k$; hier ist $k$ schon ein Index.
+für Skalarfelder schreibt man kurz $C^\ell(U)$. Üblich ist auch $C^k$; hier ist $k$ aber schon ein Index.
 
 ::::beispiel $C^1$, aber nicht $C^2$
 Das Skalarfeld $f:\mathbb{R}^2\to\mathbb{R}$ mit
@@ -708,7 +708,7 @@ Polynome dagegen haben beliebig viele stetige Ableitungen; sie liegen in $C^\ell
 ::::
 
 Bei zweiten Ableitungen stellt sich eine neue Frage: Spielt die Reihenfolge eine Rolle? Für $C^2$-Funktionen nicht —
-das ist der __Satz von Schwarz__ (im Skript „Lemma von Schwarz"):
+das ist der __Satz von Schwarz__:
 
 :::formel Satz
 $$\frac{\partial^2 f}{\partial x_j\,\partial x_k} = \frac{\partial^2 f}{\partial x_k\,\partial x_j} \qquad \text{für } f\in C^2(U),\ U\subseteq\mathbb{R}^n \text{ offen}.$$
@@ -850,7 +850,7 @@ $\vec F$ diesen weiter nach $\mathbb{R}^p$. Die Bedingung $\vec G(U)\subseteq V$
 definiert ist. Die Koordinaten im Zwischenraum heißen $y_1,\ldots,y_m$.
 
 Ist $\vec G$ in $\vec x$ und $\vec F$ im Bildpunkt $\vec G(\vec x)$ differenzierbar, so ist auch die Verkettung
-$\vec F\circ\vec G$ in $\vec x$ differenzierbar. Ihre Ableitung ist — wie „äußere mal innere Ableitung" in HM1 — ein
+$\vec F\circ\vec G$ in $\vec x$ differenzierbar. Ihre Ableitung ist — wie „äußere mal innere Ableitung" in einer Variablen — ein
 **Matrizenprodukt**:
 
 :::formel Satz
@@ -952,8 +952,7 @@ $D\vec F(\vec y)\,D\vec G(\vec x)$ — und nach der Eindeutigkeit der Ableitung 
 :::
 
 **Komponentenweise.** Der Eintrag in Zeile $i$, Spalte $k$ eines Matrixprodukts ist Zeile $i$ der ersten Matrix mal
-Spalte $k$ der zweiten. Ausgeschrieben ist die Kettenregel deshalb eine Summe über alle Zwischenkoordinaten $y_j$ — so
-steht sie im Skript:
+Spalte $k$ der zweiten. Ausgeschrieben ist die Kettenregel deshalb eine Summe über alle Zwischenkoordinaten $y_j$:
 
 $$\frac{\partial (\vec F\circ\vec G)_i}{\partial x_k}(\vec x) = \sum_{j=1}^{m} \frac{\partial F_i}{\partial y_j}\big(\vec G(\vec x)\big)\,\frac{\partial G_j}{\partial x_k}(\vec x).$$
 
@@ -1074,7 +1073,7 @@ Die Jacobi-Matrix ist das mehrdimensionale Gegenstück zur Ableitung: Sie ist da
 Abbildung, die ein Feld nahe einem Punkt ersetzt. Auf dieser Linearisierung bauen alle Werkzeuge der Vektoranalysis auf,
 und in der Elektrotechnik steckt sie hinter jedem Feld, ob elektrisches Feld, Strömung oder Temperatur.
 
-In Kapitel 4 kehrt sie als __Jacobi-Determinante__ $\det D\vec F$ zurück. Unter der Lupe ist ihr Betrag der Faktor, um den
+Im Artikel [Der Transformationssatz und Polarkoordinaten](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/transformationssatz-und-polarkoordinaten.html) kehrt sie als __Jacobi-Determinante__ $\det D\vec F$ zurück. Unter der Lupe ist ihr Betrag der Faktor, um den
 sich der **Flächeninhalt** einer kleinen Masche ändert — die Fläche eines Parallelogramms ist der Betrag der Determinante
 seiner Kantenvektoren (lineare Algebra). Für die Polarkoordinaten entsteht so der Faktor $r$, den man beim Integrieren in
 Polarkoordinaten braucht.
@@ -1096,7 +1095,7 @@ der Symmetrie ihrer Jacobi-Matrix, die aus dem Satz von Schwarz folgt — sind d
 :::kern
 - __Felder__ sind Abbildungen $\vec F:U\to\mathbb{R}^m$ auf offenen Mengen $U\subseteq\mathbb{R}^n$: __Skalarfeld__ $f$ ($m=1$, Zahl pro Punkt), __Vektorfeld__ ($m=n$, Pfeil pro Punkt).
 - __Offen__: Um jeden Punkt liegt noch eine kleine Kugel in $U$ — Platz für Differenzenquotienten in jede Richtung.
-- Die __partielle Ableitung__ $\partial F_j/\partial x_k$ ist die HM1-Ableitung längs der $k$-ten Gitterlinie; der Vektor $\partial\vec F/\partial x_k$ ist der Tangentenpfeil an die verbogene Gitterlinie (**Gitterpfeil**).
+- Die __partielle Ableitung__ $\partial F_j/\partial x_k$ ist die gewöhnliche Ableitung längs der $k$-ten Gitterlinie; der Vektor $\partial\vec F/\partial x_k$ ist der Tangentenpfeil an die verbogene Gitterlinie (**Gitterpfeil**).
 - Die __Jacobi-Matrix__ $D\vec F=(\partial F_j/\partial x_k)_{jk}\in\mathbb{R}^{m\times n}$: Spalten sind die Gitterpfeile, Zeilen die transponierten Gradienten der Komponenten.
 - Lineare Näherung unter der Lupe: $\vec F(\vec x_0+\vec h)\approx\vec F(\vec x_0)+D\vec F(\vec x_0)\,\vec h$.
 - Für ein Skalarfeld ist $Df$ eine Zeile und der __Gradient__ $\nabla f=(Df)^T$ die zugehörige Spalte.

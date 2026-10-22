@@ -171,8 +171,8 @@ senkrecht auf der ganzen Fläche.
 :::
 
 **Genau genommen** gilt das an Stellen mit $\nabla f(\vec x)\neq\vec 0$. Dort ist die Niveaufläche nahe $\vec x$ wirklich
-eine glatte Fläche, durch deren Tangentialrichtungen Kurven laufen (das sichert der Satz über implizite Funktionen aus
-HM2). Wo der Gradient null ist, etwa im Sattelpunkt einer Sattelfläche, können sich Niveaulinien sogar kreuzen.
+eine glatte Fläche, durch deren Tangentialrichtungen Kurven laufen (das sichert der Satz über implizite Funktionen).
+Wo der Gradient null ist, etwa im Sattelpunkt einer Sattelfläche, können sich Niveaulinien sogar kreuzen.
 
 ::::beispiel Die Höhenlinie der Schüssel durch $P$
 Durch $P=(1,1)$ läuft die Höhenlinie der Schüssel zur Höhe $3$, eine Ellipse:
@@ -443,8 +443,8 @@ wieder am Start, wo die Höhe dieselbe sein müsste — ein Widerspruch. Also gi
 :::
 
 **Im Bild:** $\vec W$ ist genau die Wendeltreppe. Jede Stufe ist ein normaler Hang (der Test passt überall), doch jede
-Runde um die Säule im Ursprung bringt die Höhe $2\pi$. Im Kapitel über Kurvenintegrale wird diese Rechnung zum
-allgemeinen Werkzeug.
+Runde um die Säule im Ursprung bringt die Höhe $2\pi$. Im Artikel [Das Kurvenintegral und die Orientierung](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegral-und-orientierung.html)
+wird diese Rechnung zum allgemeinen Werkzeug.
 
 :::grafik
 Szene: hoema3/differentialrechnung-vektorfelder/02-wendeltreppe · Vorlage: wendeltreppe-loch-2d
@@ -456,8 +456,8 @@ Gebiet wäre so eine Treppe unmöglich. (Orange = Pfeilfeld, rot = Weg des Wande
 ::::
 
 In drei Dimensionen ist die Symmetrie der Jacobi-Matrix gleichbedeutend mit „Rotation gleich null" — dem Wirbel-Maß
-des nächsten Artikels. Wann die Bedingung doch ausreicht (bei Gebieten ohne Löcher), klärt das Poincaré-Lemma im
-Kapitel über Kurvenintegrale.
+des nächsten Artikels. Wann die Bedingung doch ausreicht (bei Gebieten ohne Löcher), klärt das
+[Poincaré-Lemma](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/poincare-lemma.html).
 
 ## Rotationssymmetrische Landschaften
 
@@ -468,8 +468,7 @@ $$u(\vec x) = h(r), \qquad r := \lvert\vec x\rvert = \sqrt{x_1^2+\cdots+x_n^2}.$
 
 **So liest man das:** $r$ ist der Abstand des Punktes $\vec x$ vom Ursprung, also eine Zahl. Die Funktion
 $h:(0,\infty)\to\mathbb{R}$ ist eine gewöhnliche Funktion **einer** Variablen — das __Höhenprofil__, das man sieht, wenn
-man vom Zentrum geradeaus nach außen läuft. Im Skript heißt das Profil $f$; hier ist $f$ schon die allgemeine
-Landschaft.
+man vom Zentrum geradeaus nach außen läuft.
 
 **Im Bild:** eine rotationssymmetrische Landschaft — eine Schüssel, ein Kegel, ein Vulkan. Die Höhenlinien sind Kreise
 (im Raum: Kugeln) um das Zentrum. Weil der Gradient senkrecht auf den Höhenlinien steht, muss er überall **radial**
