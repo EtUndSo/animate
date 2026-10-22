@@ -56,22 +56,23 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
 
 ## (B1) Nächstes offenes Thema ermitteln
 
-**Reihenfolge der Module** (Entscheidung vom 22.10.2026): erst ET1, dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa). GEMB1 ist damit zurückgestellt; wann es folgt, stimmst du nach Numa mit dem User ab.
+**Reihenfolge der Module** (Entscheidung vom 22.10.2026): erst ET1, dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa), danach GEMB1. Der User hat angekündigt, dass sich die Reihenfolge noch ändern kann; maßgeblich ist diese Datei.
 
 Innerhalb von ET1 kommt zuerst der Halbleiter-Block, Kap. 10 bis 12, danach Kap. 2 bis 9 (Entscheidung vom 21.10.2026). Gründe:
 - Der Block baut direkt auf dem Piloten und seinem Zahlenwerk auf.
 - Er passt zum laufenden Praktikum MiNa.
 - Dem User war die Diode als nächstes Thema angekündigt.
 
-Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) fehlt oder kein `stil: 3` hat. Die Numa-Themen stehen als Dateipfade im Themenplan (B1a):
+Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) fehlt oder kein `stil: 3` hat. Die Numa-Themen stehen als Dateipfade im Themenplan (B1a); fehlt der Themenplan noch, steht an seiner Stelle das Wort `NUMA_EINRICHTEN`:
 
 ```
-cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1/1[0-2]-* -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' ! -path 'content/get1/1[0-2]-*' | sort) $(find content/hoema3 -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(grep -o 'content/numa/[^ |`]*\.md' notizen/numa/themenplan.md 2>/dev/null); do [ -f "$f" ] && grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
+cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1/1[0-2]-* -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' ! -path 'content/get1/1[0-2]-*' | sort) $(find content/hoema3 -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $([ -f notizen/numa/themenplan.md ] && grep -o 'content/numa/[^ |`]*\.md' notizen/numa/themenplan.md || echo NUMA_EINRICHTEN) $(find content/gemb1 -name '*.md' ! -name '*-ausfuehrlich.md' | sort); do [ -f "$f" ] && grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
 ```
 
 - **Erstes hoema3-Thema:** dem User melden („ET1 in Stil 3 komplett, weiter mit HöMa3“), im Loop per PushNotification, und ohne Stopp weitermachen. Vorher den HöMa3-Volltext anlegen (B3).
-- **Leere Ausgabe, `notizen/numa/themenplan.md` fehlt:** HöMa3 ist komplett. Melden („HöMa3 in Stil 3 komplett, weiter mit Numa“), im Loop per PushNotification. In diesem Durchgang das Modul Numa einrichten (B1a), committen und berichten; das erste Numa-Thema folgt im nächsten Durchgang.
-- **Leere Ausgabe, Themenplan vorhanden:** ET1, HöMa3 und Numa sind komplett. Melden, im Loop ScheduleWakeup mit nur `stop: true`, und mit dem User abstimmen, wie es weitergeht (GEMB1, mmet, ET3, Schaltungstechnik 1). Lege **nicht** eigenmächtig weitere Module oder Themen an.
+- **Ausgabe `NUMA_EINRICHTEN`:** HöMa3 ist komplett. Melden („HöMa3 in Stil 3 komplett, weiter mit Numa“), im Loop per PushNotification. In diesem Durchgang das Modul Numa einrichten (B1a), committen und berichten; das erste Numa-Thema folgt im nächsten Durchgang.
+- **Erstes gemb1-Thema:** Numa ist komplett. Melden („Numa in Stil 3 komplett, weiter mit GEMB1“), im Loop per PushNotification, und ohne Stopp weitermachen.
+- **Leere Ausgabe:** ET1, HöMa3, Numa und GEMB1 sind komplett. Melden, im Loop ScheduleWakeup mit nur `stop: true`, und mit dem User abstimmen, wie es weitergeht (mmet, ET3, Schaltungstechnik 1). Lege **nicht** eigenmächtig weitere Module oder Themen an.
 
 ### (B1a) Modul Numa einrichten (einmalig, vom User am 22.10.2026 beauftragt)
 
@@ -127,7 +128,7 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
 - **Nur als Ideengeber:** die Übungsblätter 1 bis 8. Keine Aufgaben kopieren.
 - **Zahlenwerk:** `notizen/numa/zahlen_<kapitel>.py`; die Verfahren werden dort tatsächlich ausgeführt (Fehlerverläufe, Konvergenzordnungen, Kondition), und jede Zahl der Artikel stammt daraus.
 
-**GEMB1** (zurückgestellt, Entscheidung vom 22.10.2026):
+**GEMB1** (nach Numa, Entscheidung vom 22.10.2026):
 - **Folien:** `C:\Bücher\GEMB\(VO) Grundlagen elektronischer Materialien und Bauelemente 1_20260831_1820\Vorlesungsfolien\Vorlesung 1.pdf` bis `Vorlesung 14.pdf`, dazu der Ordner „Vorlesungsfolien mit Anmerkungen“.
 - **Volltext:** Beim ersten GEMB1-Thema `tools/dump_gemb1.py` nach dem Muster von `dump_get1.py` anlegen. Ausgabe nach `C:\Bücher\EtUndSo\_volltext\gemb1_clean.txt`, mit Markierungen „=== Vorlesung V Seite N“.
 - **Nur als Ideengeber:** Frontal-, Kleingruppen- und Selbstrechenübungen. Keine Aufgaben kopieren.
