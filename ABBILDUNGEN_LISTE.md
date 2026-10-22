@@ -1406,3 +1406,141 @@ Zahlenwerk: `notizen/get1/zahlen_opv.py` (neu; Beispiel-OPV nach Art des 741 an 
 - §5 Rechteck- und Zeitverläufe;
 - §13 gestapelt;
 - §7 Lupe auf ein Bündel.
+
+## ET1 Kap. 12: Die OPV-Grundschaltungen
+Zahlenwerk: `notizen/get1/zahlen_opv.py`, Abschnitt „Thema 02“, Funktionen `a_invertierend`, `a_nichtinvertierend`, `subtrahierer`, Bericht `bericht_grundschaltungen()`; Beispieldiode aus `zahlen_halbleiter.py` ($I_S$ = 1,457·10⁻¹⁴ A, `IS_von_T`, `spannung_real`); Beispiel-OPV wie in 12/01 (±14 V an ±15 V).
+
+**get1/operationsverstaerker/02-invertierer**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltplan nach Skript Bild 12.7: $R_1$ = 10 kΩ, $R_2$ = 20 kΩ, Pluseingang an Masse; Quelle 1 V. Strompfeil 0,1 mA durch $R_1$ und $R_2$ (orange), am Minuseingang vorbei; Knotenwerte: Minuseingang 0 V („virtuelle Masse“), Ausgang −2 V.
+- (b) Zeitverläufe über zwei Perioden: Eingang Sinus 5 V Amplitude (blau); Ausgang mit $R_2$ = 20 kΩ gegenphasig ±10 V (rot); Ausgang mit $R_2$ = 30 kΩ (rot gestrichelt) bei ±14 V abgeflacht von 69° bis 111° jeder Halbwelle; Grenzen ±14 V grau gestrichelt.
+
+*Kernaussage:* Der Strom durch $R_1$ muss durch $R_2$; das Widerstandsverhältnis bestimmt die Verstärkung, bis der Ausgang an seine Grenze stößt.
+
+*Daten:* `bericht_grundschaltungen()` (Invertierender Verstärker).
+
+*Editor:*
+- §1 Schaltplan mit OPV;
+- §2 Strompfeile mit Wert;
+- §5 Zeitverläufe mit Begrenzung;
+- §10 Teilbilder;
+- §15 optional: Schieberegler für $R_2$ (5 bis 40 kΩ), die Begrenzung setzt ab 28 kΩ ein.
+
+**get1/operationsverstaerker/02-rechenschema**
+- Fassung: ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Ablaufdiagramm nach Skript Bild 12.22: Start → Raute „mit- oder gegengekoppelt?“; Zweig mitgekoppelt → Kasten „$U_D$ ≠ 0, Ausgang meist an $U_{A,\min}$ oder $U_{A,\max}$“; Zweig gegengekoppelt → Raute „übersteuert?“; ja → „$U_D$ ≠ 0, Ausgang an einer Grenze“; nein → „$U_D$ = 0, Ausgang zwischen den Grenzen“; alle drei → Kasten „mit Ohmschem Gesetz und Kirchhoffschen Regeln rechnen“.
+
+*Kernaussage:* Die Regel $U_D$ = 0 ist eine Folge der Gegenkopplung, keine Eigenschaft des Bauteils.
+
+*Daten:* keine.
+
+*Editor:*
+- §19 Blockbilder mit Entscheidungsrauten (neu ergänzt).
+
+**get1/operationsverstaerker/02-nichtinvertierer**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Schaltplan nach Skript Bild 12.10: $R_1$ = 10 kΩ nach Masse, $R_2$ = 20 kΩ vom Ausgang; 1 V am Pluseingang; Minuseingang 1 V, 0,1 mA durch beide Widerstände, Ausgang 3 V.
+- (b) Impedanzwandler nach Bild 12.19: Ausgang am Minuseingang, $U_A = U_E$.
+- (c) Messaufbau: Quelle 5 V mit 100 kΩ; links Messgerät 1 MΩ direkt, Anzeige 4,545 V; rechts mit Impedanzwandler davor, Anzeige 5,000 V (mit dem Ruhestrom des 741: 4,992 V).
+
+*Kernaussage:* In den Pluseingang fließt kein Strom; die Quelle wird nicht belastet.
+
+*Daten:* `bericht_grundschaltungen()` (Nichtinvertierender Verstärker, Impedanzwandler).
+
+*Editor:*
+- §1 Schaltpläne mit Messgerät-Symbol;
+- §7 Anzeigewerte als Beschriftung;
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/02-addierer-subtrahierer**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Addierer nach Bild 12.11: Eingänge über 10 kΩ, 20 kΩ, 40 kΩ an der virtuellen Masse, $R_4$ = 10 kΩ; Eingänge 5 V, 0 V, 5 V; Ströme 0,5 mA, 0, 0,125 mA mit Pfeilbreite proportional zum Strom (§18), Summe 0,625 mA durch $R_4$; Ausgang −6,25 V.
+- (b) Subtrahierer nach Bild 12.12: $R_1$ = $R_3$ = 10 kΩ, $R_2$ = $R_4$ = 100 kΩ; $U_{E1}$ = 2,500 V, $U_{E2}$ = 2,505 V; beide OPV-Eingänge 2,2773 V; Ausgang 50 mV.
+
+*Kernaussage:* An der virtuellen Masse addieren sich Ströme; der Subtrahierer verstärkt nur die Differenz, wenn die Widerstandsverhältnisse gleich sind.
+
+*Daten:* `bericht_grundschaltungen()` (Addierer, Subtrahierer).
+
+*Editor:*
+- §1 Schaltpläne;
+- §18 Mengenpfeile für die Ströme;
+- §10 Teilbilder;
+- §15 optional: Schalter für die drei Bits, der Ausgang springt in Stufen von 1,25 V.
+
+**get1/operationsverstaerker/02-integrator**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder, je Schaltplan oben und Zeitverlauf darunter.
+- (a) Integrator nach Bild 12.13 ($R$ = 10 kΩ, $C$ = 100 nF); Eingang Rechteck ±1 V, 1 kHz (blau); Ausgang Dreieck 0,5 V Spitze-Spitze (rot), fallend während +1 V, Steigung −1 V/ms beschriftet; Zeitachse 0 bis 3 ms.
+- (b) Differenzierer nach Bild 12.14 (dieselben Bauteile vertauscht), ausdrücklich mit idealem OPV beschriftet; Eingang Dreieck ±1 V, 1 kHz (Steigung ±4 V/ms); Ausgang Rechteck ∓4 V. (Mit realem OPV schwänge die Schaltung bei 12,6 kHz; das gehört nicht ins Bild.)
+
+*Kernaussage:* Der Kondensator im Rückkopplungsweg integriert, am Eingang differenziert er.
+
+*Daten:* `bericht_grundschaltungen()` (Integrator, Differenzierer).
+
+*Editor:*
+- §1 Schaltpläne mit Kondensator;
+- §5 Rechteck, Dreieck, gestapelt;
+- §13 gemeinsame Zeitachse;
+- §8 optional: Animation, die Ladung des Kondensators als Balken.
+
+**get1/operationsverstaerker/02-logarithmierer**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Logarithmierer nach Bild 12.15 (10 kΩ, Beispieldiode im Rückkopplungsweg, Anode am Minuseingang) und Exponentialschaltung nach Bild 12.16 (Diode am Eingang, Anode an $U_E$, Kathode am Minuseingang; 10 kΩ im Rückkopplungsweg).
+- (b) $U_A$ in mV über $U_E$ von 10 mV bis 10 V, $U_E$ logarithmisch: Gerade durch −466, −526, −586, −645 mV, Steigung 59,5 mV je Dekade beschriftet (rot); gestrichelt die Kennlinie bei 310 K, steiler (61,5 mV je Dekade) und um 27 mV (bei 10 mV) bis 21 mV (bei 10 V) höher; dünn grau die reale Beispieldiode (bei 10 V 20 mV tiefer durch den Bahnwiderstand).
+
+*Kernaussage:* Die Diode im Rückkopplungsweg macht aus dem Strom eine Spannung, die mit dem Logarithmus wächst.
+
+*Daten:* `bericht_grundschaltungen()` (Logarithmierer, Exponentialfunktion), `spannung_real`, `IS_von_T(310)`.
+
+*Editor:*
+- §1 Schaltpläne mit Diode;
+- §12 logarithmische x-Achse;
+- §11 Datenkurven;
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/02-multiplizierer**
+- Fassung: ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Oben Blockschaltbild nach Skript Bild 12.17 ($U_X$, $U_Y$ → Logarithmierer → Addierer → Exponentialschaltung → Produkt). Darunter die Schaltung nach Bild 12.18 mit $R_L$ = 10 kΩ und Beispieldioden; Ergebnis $-U_X U_Y/(R_L I_S)$ mit dem Faktor 6,9·10⁹ je Volt beschriftet. Rechts ergänzt ein dritter Logarithmierer für 10 V Referenz, dessen Ausgang über einen Umkehrer (−1) in den Addierer geht und so abgezogen wird; Ergebnis $-U_X U_Y/(10\ \mathrm{V})$, Beispiel 2 V und 3 V → −0,6 V.
+
+*Kernaussage:* Der Logarithmus macht aus dem Produkt eine Summe; brauchbar wird das Ergebnis erst mit einer Referenz.
+
+*Daten:* `bericht_grundschaltungen()` (Multiplizierer).
+
+*Editor:*
+- §19 Blockbilder;
+- §1 Schaltplan mit mehreren OPV.
+
+**get1/operationsverstaerker/02-transimpedanz-nic**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Transimpedanzverstärker ($R$ = 100 kΩ), Fotodiode zwischen Masse und Minuseingang (Anode am Minuseingang, Kathode an Masse), 1 µA Fotostrom (Pfeil), Diode auf 0 V, Ausgang −0,1 V.
+- (b) NIC nach Skript S. 211: zwei $R$ = 10 kΩ vom Ausgang zu beiden Eingängen, $R_2$ = 10 kΩ vom Minuseingang nach Masse; am Pluseingang parallel Stromquelle 1 mA mit 10 kΩ und Last 1 kΩ; Werte: Last 1,000 mA (ohne NIC 0,909 mA), Anschluss 1 V, OPV-Ausgang 2 V, Strom aus dem Anschluss 0,1 mA.
+
+*Kernaussage:* Die virtuelle Masse misst Ströme ohne Spannungsabfall; der negative Widerstand hebt den Innenwiderstand der Quelle auf.
+
+*Daten:* `bericht_grundschaltungen()` (Transimpedanzverstärker, NIC).
+
+*Editor:*
+- §1 Schaltpläne mit Fotodiode und Stromquelle;
+- §2 Strompfeile;
+- §10 Teilbilder.

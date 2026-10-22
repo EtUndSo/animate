@@ -409,9 +409,184 @@ def bericht_schmitt():
     P(f"   Rauschen 0,2 V eff: Hysterese 2,8 V = {2.8/0.2:.0f} Effektivwerte")
 
 
+# ------------------------------------------------------------------ Thema 02: Grundschaltungen
+def a_invertierend(R1, R2, vD=VD):
+    """Verstärkung des invertierenden Verstärkers mit endlicher Leerlaufverstärkung."""
+    return -(R2 / R1) / (1 + (1 + R2 / R1) / vD)
+
+
+def a_nichtinvertierend(R1, R2, vD=VD):
+    return (1 + R2 / R1) / (1 + (1 + R2 / R1) / vD)
+
+
+def subtrahierer(ue1, ue2, R1, R2, R3, R4):
+    """Gl. 12.6: U_A = (R1+R2)/R1 * R4/(R3+R4) * U_E2 - R2/R1 * U_E1 (idealer OPV)."""
+    return (R1 + R2) / R1 * R4 / (R3 + R4) * ue2 - R2 / R1 * ue1
+
+
+def bericht_grundschaltungen():
+    from zahlen_halbleiter import IS as IS_DIODE, IS_von_T, spannung_real
+    P("=" * 100)
+    P("THEMA 02 (Kap. 12.5, 12.6, 12.8): Grundschaltungen")
+    P("=" * 100)
+    R1, R2 = 10e3, 20e3
+    P("Invertierender Verstärker R_1 = 10 kOhm, R_2 = 20 kOhm:")
+    P(f"   ideal A = {-R2/R1:.4f}; mit v_D = 200 000: {a_invertierend(R1, R2):.6f}; mit 50 000: {a_invertierend(R1, R2, VD_MIN):.6f}")
+    UE = 1.0
+    UA = a_invertierend(R1, R2) * UE
+    P(f"   U_E = 1 V: Strom U_E/R_1 = {UE/R1*1e3:.3f} mA, U_A = {UA:.6f} V, Minuseingang (virtuelle Masse) "
+      f"{-UA/VD*1e6:.2f} uV; Eingangswiderstand = R_1 = {R1/1e3:.0f} kOhm")
+    for R2x in (20e3, 30e3):
+        A = R2x / R1
+        uhat = 5.0
+        P(f"   Sinus 5 V Amplitude, A = -{A:.0f}: ideal {A*uhat:.1f} V Spitze; Grenze ±{UAMAX:.0f} V -> größte unverzerrte "
+          f"Eingangsamplitude {UAMAX/A:.3f} V")
+        if A * uhat > UAMAX:
+            phi = math.degrees(math.asin(UAMAX / (A * uhat)))
+            anteil = (180 - 2 * phi) / 180
+            phim = (uhat * R2x + (-UAMAX) * R1) / (R1 + R2x)
+            P(f"      begrenzt von {phi:.1f}° bis {180-phi:.1f}° jeder Halbwelle ({anteil*100:.1f} % der Zeit); im Scheitel "
+              f"liegt der Minuseingang auf {phim:.3f} V statt 0 (U_D = {-phim:.3f} V)")
+    P("Nichtinvertierender Verstärker mit denselben Widerständen:")
+    P(f"   A = 1 + R_2/R_1 = {1+R2/R1:.4f}; mit v_D = 200 000: {a_nichtinvertierend(R1, R2):.6f}")
+    k = R1 / (R1 + R2)
+    P(f"   Eingangswiderstand des 741 im Folger-Betrieb etwa R_e (1 + k v_D) = {RE_OPV*(1+k*VD):.3e} Ohm (k = {k:.4f}); "
+      f"Ruhestrom {IBIAS*1e9:.0f} nA dominiert")
+    P("Impedanzwandler (Spannungsfolger) an einer Quelle 5 V mit 100 kOhm Innenwiderstand:")
+    Uq, Rq, Rm = 5.0, 100e3, 1e6
+    P(f"   Messgerät 1 MOhm direkt: {Uq*Rm/(Rq+Rm):.4f} V (Fehler {(Rm/(Rq+Rm)-1)*100:.2f} %); mit Folger (741, 80 nA "
+      f"Ruhestrom): {Uq-IBIAS*Rq:.4f} V (Fehler {-IBIAS*Rq*1e3:.1f} mV = {-IBIAS*Rq/Uq*100:.2f} %); ideal 5,0000 V")
+    P(f"   mit zusätzlich ±1 mV Offset: {Uq-IBIAS*Rq-1e-3:.4f} bis {Uq-IBIAS*Rq+1e-3:.4f} V")
+    P("Addierer als 3-Bit-Digital-Analog-Umsetzer: R_4 = 10 kOhm, R_1 = 10 kOhm (höchstes Bit), R_2 = 20 kOhm, R_3 = 40 kOhm, "
+      "Eingänge 0 oder 5 V:")
+    Rs, R4 = (10e3, 20e3, 40e3), 10e3
+    for code in range(8):
+        bits = [(code >> 2) & 1, (code >> 1) & 1, code & 1]
+        ua = -sum(R4 / r * 5.0 * b for r, b in zip(Rs, bits))
+        P(f"   {bits[0]}{bits[1]}{bits[2]}: U_A = {ua:6.3f} V")
+    P("Subtrahierer R_1 = R_3 = 10 kOhm, R_2 = R_4 = 100 kOhm (Verstärkung 10):")
+    ua = subtrahierer(2.500, 2.505, 10e3, 100e3, 10e3, 100e3)
+    P(f"   U_E1 = 2,500 V, U_E2 = 2,505 V: U_A = {ua*1e3:.3f} mV")
+    for R4x in (101e3, 100.1e3):
+        ua_ = subtrahierer(2.500, 2.505, 10e3, 100e3, 10e3, R4x)
+        vgl = subtrahierer(1.0, 1.0, 10e3, 100e3, 10e3, R4x)
+        vdiff = (subtrahierer(-0.5, 0.5, 10e3, 100e3, 10e3, R4x))
+        P(f"   R_4 = {R4x/1e3:.1f} kOhm: U_A = {ua_*1e3:.3f} mV; Gleichtaktverstärkung {vgl:.5f} (bei 2,5 V: {vgl*2.5*1e3:.2f} mV); "
+          f"Differenzverstärkung {vdiff:.4f}; Gleichtaktunterdrückung {abs(vdiff/vgl):.0f} = {20*math.log10(abs(vdiff/vgl)):.1f} dB")
+    P("   Skript 12.8 (S. 213), Endformel mit R_3 statt R_1 in einem Nenner gegen richtige Formel, R = 1/2/3/4 kOhm, U_1 = 0, "
+      "U_2 = 1 V:")
+    r1, r2, r3, r4 = 1e3, 2e3, 3e3, 4e3
+    richtig = (r1 + r2) / r1 * r4 / (r3 + r4)
+    skript = (r1 + r2) / (r3 + r4) * r4 / r3
+    P(f"   richtig {richtig:.4f} V, Skriptformel {skript:.4f} V; bei gleichen Widerständen beide {2*0.5:.1f}")
+    r3 = r1
+    P(f"   mit R_3 = R_1 = 1 kOhm: richtig {(r1 + r2) / r1 * r4 / (r3 + r4):.4f} V, Skriptformel "
+      f"{(r1 + r2) / (r3 + r4) * r4 / r3:.4f} V (gleich)")
+    Ri, Ci = 10e3, 100e-9
+    tau = Ri * Ci
+    P(f"Integrator R = 10 kOhm, C = 100 nF, RC = {tau*1e3:.1f} ms:")
+    P(f"   U_E = 1 V: Steigung -{1/tau/1e3:.1f} V/ms, -14 V nach {UAMAX*tau*1e3:.0f} ms")
+    for f in (1e3,):
+        halb = 1 / (2 * f)
+        P(f"   Rechteck ±1 V, {f/1e3:.0f} kHz: je Halbperiode ({halb*1e3:.2f} ms) ändert sich U_A um {1*halb/tau:.2f} V -> "
+          f"Dreieck {1*halb/tau:.2f} V Spitze-Spitze")
+    P(f"   Offset 1 mV integriert: Steigung {1e-3/tau:.1f} V/s, -14 V nach {UAMAX/(1e-3/tau):.0f} s")
+    P(f"   Ruhestrom 80 nA lädt C: {IBIAS/Ci:.2f} V/s; mit 1 MOhm parallel: {IBIAS*1e6*1e3:.0f} mV; Offset mit 1 MOhm parallel: "
+      f"(1 + R_p/R) U_os = {(1+1e6/Ri)*1e-3*1e3:.0f} mV")
+    for Rp in (1e6,):
+        P(f"   Widerstand {Rp/1e6:.0f} MOhm parallel zu C: Gleichspannungsverstärkung -{Rp/Ri:.0f}, Offset 1 mV -> "
+          f"{Rp/Ri*1e-3*1e3:.0f} mV; Grenzfrequenz 1/(2 pi R_p C) = {1/(2*math.pi*Rp*Ci):.2f} Hz")
+    P(f"Differenzierer R = 10 kOhm, C = 100 nF:")
+    steig = 2.0 / 0.5e-3
+    P(f"   Dreieck ±1 V, 1 kHz: Steigung ±{steig/1e3:.0f} V/ms -> Rechteck U_A = ∓{tau*steig:.1f} V")
+    for f in (100.0, 1e3, 10e3, 100e3):
+        P(f"   Sinus {f/1e3:7.1f} kHz: Amplitudenverhältnis 2 pi f R C = {2*math.pi*f*tau:.3f}")
+    fn = math.sqrt(WT / tau) / (2 * math.pi)
+    Q = math.sqrt(WT * tau)
+    P(f"   mit realem OPV (Integratormodell, f_T = 1 MHz): RC s^2 + s + omega_T = 0 -> Resonanz {fn/1e3:.2f} kHz, Güte {Q:.1f}, "
+      f"Abklingzeit 2RC = {2*tau*1e3:.1f} ms")
+    for f in (1e3, 10e3, fn, 100e3):
+        s = 2j * math.pi * f
+        H = -s * tau / (1 + s / WT + s * s * tau / WT)
+        P(f"      {f/1e3:7.2f} kHz: |H| = {abs(H):8.1f} (ideal {2*math.pi*f*tau:7.1f})")
+    # Zeitsimulation: Dreieck ±1 V, 1 kHz, idealer und realer Differenzierer
+    dt, tend = 2e-8, 5e-3
+    n = int(tend / dt)
+    um, ua = 0.0, 0.0
+    amin, amax = 0.0, 0.0
+    for i in range(n):
+        tt = i * dt
+        ph = (tt * 1e3) % 1.0
+        due = 4e3 if ph < 0.5 else -4e3          # Steigung des Dreiecks in V/s (±4 V/ms)
+        dua = -WT * um
+        dum = due - (um - ua) / tau
+        ua += dua * dt
+        um += dum * dt
+        if tt > 1e-3:
+            amin, amax = min(amin, ua), max(amax, ua)
+    P(f"      Dreieck ±1 V, 1 kHz, Zeitsimulation 1–5 ms: Ausgang zwischen {amin:.1f} V und {amax:.1f} V (ideal ∓4 V)")
+    for Rs in (1e3,):
+        tau2 = Rs * Ci
+        zeta = (1 / tau + WT * tau2 / tau) / (2 * math.sqrt(WT / tau))
+        P(f"   mit {Rs/1e3:.0f} kOhm in Reihe zu C: Dämpfungsgrad etwa {zeta:.2f} (statt {1/(2*Q):.4f}); Verstärkung oberhalb "
+          f"1/(2 pi R_s C) = {1/(2*math.pi*tau2)/1e3:.2f} kHz auf R/R_s = {Ri/Rs:.0f} begrenzt")
+    P(f"Logarithmierer R = 10 kOhm, Beispieldiode I_S = {IS_DIODE:.4e} A (ideal):")
+    Rl = 10e3
+    for ue in (0.01, 0.1, 1.0, 10.0):
+        I = ue / Rl
+        ua = -UT * math.log(I / (Rl * 0 + IS_DIODE))
+        ureal = spannung_real(I)
+        P(f"   U_E = {ue:6.2f} V: I = {I*1e6:9.3f} uA, U_A = {ua*1e3:8.2f} mV (reale Beispieldiode mit Rekombination und "
+          f"Bahnwiderstand: {-ureal*1e3:8.2f} mV, Abweichung {(-ureal-ua)*1e3:+.2f} mV)")
+    P(f"   je Dekade am Eingang: {UT*math.log(10)*1e3:.2f} mV am Ausgang")
+    for TK in (310.0,):
+        UTT = kB * TK / e
+        P(f"   bei {TK:.0f} K: {UTT*math.log(10)*1e3:.2f} mV je Dekade (statt {UT*math.log(10)*1e3:.2f}), U_T um "
+          f"{(TK/T-1)*100:.1f} % größer")
+        for ue in (0.01, 0.1, 1.0, 10.0):
+            I = ue / Rl
+            ua300 = -UT * math.log(I / IS_DIODE)
+            uaT = -UTT * math.log(I / IS_von_T(TK))
+            dek = (uaT - ua300) / (UT * math.log(10))
+            P(f"   U_E = {ue:6.2f} V bei {TK:.0f} K: U_A = {uaT*1e3:.2f} mV statt {ua300*1e3:.2f} mV ({(uaT-ua300)*1e3:+.2f} mV = "
+              f"{dek:+.3f} Dekaden, als wäre der Eingang {10**(dek):.2f}-mal kleiner)")
+    P(f"Exponentialfunktion R = 10 kOhm, Beispieldiode:")
+    for ue in (0.40, 0.45, 0.50, 0.55, 0.60):
+        P(f"   U_E = {ue:.2f} V: U_A = {-Rl*IS_DIODE*math.exp(ue/UT):.5f} V")
+    P(f"   Grenze 14 V erreicht bei U_E = U_T ln(14 V/(R I_S)) = {UT*math.log(UAMAX/(Rl*IS_DIODE)):.4f} V; "
+      f"R I_S = {Rl*IS_DIODE*1e9:.4f} nV; Strom 1 uA gegen I_S: Faktor {1e-6/IS_DIODE:.3e}")
+    P(f"Multiplizierer nach Skript Bild 12.18 mit R_L = 10 kOhm: U_A = -U_X U_Y/(R_L I_S), Faktor 1/(R_L I_S) = "
+      f"{1/(Rl*IS_DIODE):.3e} 1/V")
+    P(f"   U_X = U_Y = 1 mV: U_A = {-(1e-3*1e-3)/(Rl*IS_DIODE):.1f} V (unmöglich); ±14 V erreichbar mit U_X = U_Y = "
+      f"{math.sqrt(UAMAX*Rl*IS_DIODE)*1e6:.1f} uV")
+    P(f"   mit Referenz 10 V (dritter Logarithmierer abgezogen): U_A = -U_X U_Y/10 V, z. B. 2 V und 3 V -> {-2*3/10:.2f} V")
+    P("Transimpedanzverstärker R = 100 kOhm:")
+    for Ie in (1e-9, 1e-6, 10e-6):
+        P(f"   I_e = {Ie:.0e} A: U_a = {-Ie*100e3*1e3:.3f} mV")
+    P(f"   Dunkelstrom der Fotodiode bei 0 V (ideal): I_S (exp(0) - 1) = 0; bei -5 V wären es bis zu -I_S bzw. der "
+      f"Generationsstrom (Beispieldiode einige 10 pA)")
+    P("NIC: R = 10 kOhm (beide), R_2 = 10 kOhm -> Eingangswiderstand -10 kOhm; reale Stromquelle 1 mA mit R_q = 10 kOhm:")
+    R, Rq2, I0 = 10e3, 10e3, 1e-3
+    for RL in (1e3, 2e3, 5e3):
+        ohne = I0 * Rq2 / (Rq2 + RL)
+        U1 = I0 * RL
+        I2 = U1 / Rq2
+        Va = U1 + R * I2
+        rp = Rq2 * RL / (Rq2 + RL)
+        kp, km = rp / (R + rp), Rq2 / (R + Rq2)
+        P(f"   Last {RL/1e3:.0f} kOhm: ohne NIC {ohne*1e3:.4f} mA, mit NIC {I0*1e3:.4f} mA; U_1 = {U1:.2f} V, OPV-Ausgang "
+          f"{Va:.2f} V; Rückkopplung plus {kp:.4f}, minus {km:.4f} -> {'stabil' if km > kp else 'instabil'}")
+    P(f"   ohne Last: plus {Rq2/(R+Rq2):.4f}, minus {Rq2/(R+Rq2):.4f} -> Grenzfall")
+    P("Kaskade zweier invertierender Verstärker R_1 = 10 kOhm, R_2 = 100 kOhm, R_3 = 10 kOhm, R_4 = 50 kOhm:")
+    A1, A2 = -100e3 / 10e3, -50e3 / 10e3
+    P(f"   A = ({A1:.0f}) · ({A2:.0f}) = {A1*A2:.0f}; U_E = 0,2 V -> Zwischenknoten {A1*0.2:.1f} V, U_A {A1*A2*0.2:.1f} V; "
+      f"U_E = 0,3 V -> OP2 bräuchte {A1*A2*0.3:.1f} V, begrenzt auf {UAMAX:.0f} V")
+
+
 if __name__ == "__main__":
     bericht_rauschen()
     bericht_differenz()
     bericht_opv()
     bericht_rueckkopplung()
     bericht_schmitt()
+    bericht_grundschaltungen()

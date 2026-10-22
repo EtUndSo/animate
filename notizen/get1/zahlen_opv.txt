@@ -163,3 +163,86 @@ Verrauschter Eingang: Sinus 3 V, 50 Hz, Rauschen 0,2 V eff. (Abtastung 200 kHz),
    Schmitt-Wechsel bei t =  26.085 ms: 1.09 ms nach dem Nulldurchgang, Signal ohne Rauschen -1.003 V, mit Rauschen -1.520 V; zum Zurückschalten nötiger Rauschausschlag 2.40 V = 12.0 Effektivwerte
    Schmitt-Wechsel bei t =  36.005 ms: 1.01 ms nach dem Nulldurchgang, Signal ohne Rauschen +0.932 V, mit Rauschen +1.618 V; zum Zurückschalten nötiger Rauschausschlag 2.33 V = 11.7 Effektivwerte
    Rauschen 0,2 V eff: Hysterese 2,8 V = 14 Effektivwerte
+====================================================================================================
+THEMA 02 (Kap. 12.5, 12.6, 12.8): Grundschaltungen
+====================================================================================================
+Invertierender Verstärker R_1 = 10 kOhm, R_2 = 20 kOhm:
+   ideal A = -2.0000; mit v_D = 200 000: -1.999970; mit 50 000: -1.999880
+   U_E = 1 V: Strom U_E/R_1 = 0.100 mA, U_A = -1.999970 V, Minuseingang (virtuelle Masse) 10.00 uV; Eingangswiderstand = R_1 = 10 kOhm
+   Sinus 5 V Amplitude, A = -2: ideal 10.0 V Spitze; Grenze ±14 V -> größte unverzerrte Eingangsamplitude 7.000 V
+   Sinus 5 V Amplitude, A = -3: ideal 15.0 V Spitze; Grenze ±14 V -> größte unverzerrte Eingangsamplitude 4.667 V
+      begrenzt von 69.0° bis 111.0° jeder Halbwelle (23.4 % der Zeit); im Scheitel liegt der Minuseingang auf 0.250 V statt 0 (U_D = -0.250 V)
+Nichtinvertierender Verstärker mit denselben Widerständen:
+   A = 1 + R_2/R_1 = 3.0000; mit v_D = 200 000: 2.999955
+   Eingangswiderstand des 741 im Folger-Betrieb etwa R_e (1 + k v_D) = 1.333e+11 Ohm (k = 0.3333); Ruhestrom 80 nA dominiert
+Impedanzwandler (Spannungsfolger) an einer Quelle 5 V mit 100 kOhm Innenwiderstand:
+   Messgerät 1 MOhm direkt: 4.5455 V (Fehler -9.09 %); mit Folger (741, 80 nA Ruhestrom): 4.9920 V (Fehler -8.0 mV = -0.16 %); ideal 5,0000 V
+   mit zusätzlich ±1 mV Offset: 4.9910 bis 4.9930 V
+Addierer als 3-Bit-Digital-Analog-Umsetzer: R_4 = 10 kOhm, R_1 = 10 kOhm (höchstes Bit), R_2 = 20 kOhm, R_3 = 40 kOhm, Eingänge 0 oder 5 V:
+   000: U_A = -0.000 V
+   001: U_A = -1.250 V
+   010: U_A = -2.500 V
+   011: U_A = -3.750 V
+   100: U_A = -5.000 V
+   101: U_A = -6.250 V
+   110: U_A = -7.500 V
+   111: U_A = -8.750 V
+Subtrahierer R_1 = R_3 = 10 kOhm, R_2 = R_4 = 100 kOhm (Verstärkung 10):
+   U_E1 = 2,500 V, U_E2 = 2,505 V: U_A = 50.000 mV
+   R_4 = 101.0 kOhm: U_A = 72.568 mV; Gleichtaktverstärkung 0.00901 (bei 2,5 V: 22.52 mV); Differenzverstärkung 10.0045; Gleichtaktunterdrückung 1110 = 60.9 dB
+   R_4 = 100.1 kOhm: U_A = 52.275 mV; Gleichtaktverstärkung 0.00091 (bei 2,5 V: 2.27 mV); Differenzverstärkung 10.0005; Gleichtaktunterdrückung 11010 = 80.8 dB
+   Skript 12.8 (S. 213), Endformel mit R_3 statt R_1 in einem Nenner gegen richtige Formel, R = 1/2/3/4 kOhm, U_1 = 0, U_2 = 1 V:
+   richtig 1.7143 V, Skriptformel 0.5714 V; bei gleichen Widerständen beide 1.0
+   mit R_3 = R_1 = 1 kOhm: richtig 2.4000 V, Skriptformel 2.4000 V (gleich)
+Integrator R = 10 kOhm, C = 100 nF, RC = 1.0 ms:
+   U_E = 1 V: Steigung -1.0 V/ms, -14 V nach 14 ms
+   Rechteck ±1 V, 1 kHz: je Halbperiode (0.50 ms) ändert sich U_A um 0.50 V -> Dreieck 0.50 V Spitze-Spitze
+   Offset 1 mV integriert: Steigung 1.0 V/s, -14 V nach 14 s
+   Ruhestrom 80 nA lädt C: 0.80 V/s; mit 1 MOhm parallel: 80 mV; Offset mit 1 MOhm parallel: (1 + R_p/R) U_os = 101 mV
+   Widerstand 1 MOhm parallel zu C: Gleichspannungsverstärkung -100, Offset 1 mV -> 100 mV; Grenzfrequenz 1/(2 pi R_p C) = 1.59 Hz
+Differenzierer R = 10 kOhm, C = 100 nF:
+   Dreieck ±1 V, 1 kHz: Steigung ±4 V/ms -> Rechteck U_A = ∓4.0 V
+   Sinus     0.1 kHz: Amplitudenverhältnis 2 pi f R C = 0.628
+   Sinus     1.0 kHz: Amplitudenverhältnis 2 pi f R C = 6.283
+   Sinus    10.0 kHz: Amplitudenverhältnis 2 pi f R C = 62.832
+   Sinus   100.0 kHz: Amplitudenverhältnis 2 pi f R C = 628.319
+   mit realem OPV (Integratormodell, f_T = 1 MHz): RC s^2 + s + omega_T = 0 -> Resonanz 12.62 kHz, Güte 79.3, Abklingzeit 2RC = 2.0 ms
+         1.00 kHz: |H| =      6.3 (ideal     6.3)
+        10.00 kHz: |H| =    169.0 (ideal    62.8)
+        12.62 kHz: |H| =   6283.2 (ideal    79.3)
+       100.00 kHz: |H| =     10.2 (ideal   628.3)
+      Dreieck ±1 V, 1 kHz, Zeitsimulation 1–5 ms: Ausgang zwischen -15.1 V und 13.4 V (ideal ∓4 V)
+   mit 1 kOhm in Reihe zu C: Dämpfungsgrad etwa 3.97 (statt 0.0063); Verstärkung oberhalb 1/(2 pi R_s C) = 1.59 kHz auf R/R_s = 10 begrenzt
+Logarithmierer R = 10 kOhm, Beispieldiode I_S = 1.4572e-14 A (ideal):
+   U_E =   0.01 V: I =     1.000 uA, U_A =  -466.48 mV (reale Beispieldiode mit Rekombination und Bahnwiderstand:  -465.65 mV, Abweichung +0.83 mV)
+   U_E =   0.10 V: I =    10.000 uA, U_A =  -526.00 mV (reale Beispieldiode mit Rekombination und Bahnwiderstand:  -525.87 mV, Abweichung +0.13 mV)
+   U_E =   1.00 V: I =   100.000 uA, U_A =  -585.53 mV (reale Beispieldiode mit Rekombination und Bahnwiderstand:  -587.37 mV, Abweichung -1.84 mV)
+   U_E =  10.00 V: I =  1000.000 uA, U_A =  -645.06 mV (reale Beispieldiode mit Rekombination und Bahnwiderstand:  -664.75 mV, Abweichung -19.70 mV)
+   je Dekade am Eingang: 59.53 mV am Ausgang
+   bei 310 K: 61.51 mV je Dekade (statt 59.53), U_T um 3.3 % größer
+   U_E =   0.01 V bei 310 K: U_A = -439.20 mV statt -466.48 mV (+27.28 mV = +0.458 Dekaden, als wäre der Eingang 2.87-mal kleiner)
+   U_E =   0.10 V bei 310 K: U_A = -500.71 mV statt -526.00 mV (+25.29 mV = +0.425 Dekaden, als wäre der Eingang 2.66-mal kleiner)
+   U_E =   1.00 V bei 310 K: U_A = -562.22 mV statt -585.53 mV (+23.31 mV = +0.392 Dekaden, als wäre der Eingang 2.46-mal kleiner)
+   U_E =  10.00 V bei 310 K: U_A = -623.73 mV statt -645.06 mV (+21.33 mV = +0.358 Dekaden, als wäre der Eingang 2.28-mal kleiner)
+Exponentialfunktion R = 10 kOhm, Beispieldiode:
+   U_E = 0.40 V: U_A = -0.00076 V
+   U_E = 0.45 V: U_A = -0.00529 V
+   U_E = 0.50 V: U_A = -0.03657 V
+   U_E = 0.55 V: U_A = -0.25300 V
+   U_E = 0.60 V: U_A = -1.75020 V
+   Grenze 14 V erreicht bei U_E = U_T ln(14 V/(R I_S)) = 0.6538 V; R I_S = 0.1457 nV; Strom 1 uA gegen I_S: Faktor 6.862e+07
+Multiplizierer nach Skript Bild 12.18 mit R_L = 10 kOhm: U_A = -U_X U_Y/(R_L I_S), Faktor 1/(R_L I_S) = 6.862e+09 1/V
+   U_X = U_Y = 1 mV: U_A = -6862.3 V (unmöglich); ±14 V erreichbar mit U_X = U_Y = 45.2 uV
+   mit Referenz 10 V (dritter Logarithmierer abgezogen): U_A = -U_X U_Y/10 V, z. B. 2 V und 3 V -> -0.60 V
+Transimpedanzverstärker R = 100 kOhm:
+   I_e = 1e-09 A: U_a = -0.100 mV
+   I_e = 1e-06 A: U_a = -100.000 mV
+   I_e = 1e-05 A: U_a = -1000.000 mV
+   Dunkelstrom der Fotodiode bei 0 V (ideal): I_S (exp(0) - 1) = 0; bei -5 V wären es bis zu -I_S bzw. der Generationsstrom (Beispieldiode einige 10 pA)
+NIC: R = 10 kOhm (beide), R_2 = 10 kOhm -> Eingangswiderstand -10 kOhm; reale Stromquelle 1 mA mit R_q = 10 kOhm:
+   Last 1 kOhm: ohne NIC 0.9091 mA, mit NIC 1.0000 mA; U_1 = 1.00 V, OPV-Ausgang 2.00 V; Rückkopplung plus 0.0833, minus 0.5000 -> stabil
+   Last 2 kOhm: ohne NIC 0.8333 mA, mit NIC 1.0000 mA; U_1 = 2.00 V, OPV-Ausgang 4.00 V; Rückkopplung plus 0.1429, minus 0.5000 -> stabil
+   Last 5 kOhm: ohne NIC 0.6667 mA, mit NIC 1.0000 mA; U_1 = 5.00 V, OPV-Ausgang 10.00 V; Rückkopplung plus 0.2500, minus 0.5000 -> stabil
+   ohne Last: plus 0.5000, minus 0.5000 -> Grenzfall
+Kaskade zweier invertierender Verstärker R_1 = 10 kOhm, R_2 = 100 kOhm, R_3 = 10 kOhm, R_4 = 50 kOhm:
+   A = (-10) · (-5) = 50; U_E = 0,2 V -> Zwischenknoten -2.0 V, U_A 10.0 V; U_E = 0,3 V -> OP2 bräuchte 15.0 V, begrenzt auf 14 V

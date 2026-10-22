@@ -176,7 +176,8 @@ Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und
 ## 19. Wirkungsketten und Blockbilder  — **P2** (neu 2026-10-21, Arbeitspunkt)
 - Kästen mit Text und Formeln, verbunden durch Pfeile; Anordnung als Kette oder als geschlossener Kreis, Pfeile folgen der Anordnung automatisch.
 - Vorzeichen oder Symbole an Pfeilen und Kästen (+/−, steigt/sinkt), damit Mit- und Gegenkopplung unterscheidbar sind; Auslöser als Kasten außerhalb des Kreises.
-Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); absehbar Regelkreise.
+- Entscheidungsrauten mit beschrifteten Ausgängen (ja/nein), verzweigte und wieder zusammenlaufende Abläufe (Rechenschema für OPV-Schaltungen).
+Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); Rechenschema und Multiplizierer (02-rechenschema, 02-multiplizierer); absehbar Regelkreise.
 
 
 ## 20. Hystereseschleifen  — **P2** (neu 2026-10-22, Operationsverstärker)
