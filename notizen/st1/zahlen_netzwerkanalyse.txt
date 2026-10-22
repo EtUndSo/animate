@@ -1,0 +1,197 @@
+
+====================================================================================================
+A. Arbeitspunkt der MOS-Diode an der realen Stromquelle
+====================================================================================================
+Quelle: I_q = 0.50 mA, G_q = 0.250 mS (R_q = 4.0 kOhm); Leerlaufspannung I_q/G_q = 2.00 V
+Quadratische Gleichung: Wurzeln 1.000000 V und -0.250000 V (die zweite liegt unter U_th und entfällt)
+Arbeitspunkt U_A = 1.0000 V, I_A = 0.2500 mA, Strom durch G_q = 0.2500 mA (Summe 0.5000 mA)
+g(U_A) = 2 k (U_A - U_th) = 1.0000 mS -> r = 1/g = 1000.0 Ohm; statischer Wert U_A/I_A = 4000.0 Ohm (Verhältnis 4.00)
+Kontrolle g = 2 I_A/(U_A - U_th) = 1.0000 mS
+  U = 0.60 V: I = 0.0100 mA, g = 0.200 mS, statisch U/I = 60.00 kOhm
+  U = 0.75 V: I = 0.0625 mA, g = 0.500 mS, statisch U/I = 12.00 kOhm
+  U = 1.00 V: I = 0.2500 mA, g = 1.000 mS, statisch U/I = 4.00 kOhm
+  U = 1.25 V: I = 0.5625 mA, g = 1.500 mS, statisch U/I = 2.22 kOhm
+  U = 1.50 V: I = 1.0000 mA, g = 2.000 mS, statisch U/I = 1.50 kOhm
+Quellengerade: I = I_q - G_q U, Punkte (0 V; 0.50 mA) und (2.0 V; 0 mA)
+
+====================================================================================================
+B. Sinus am Arbeitspunkt: Gleichanteil, Grundwelle, 2. Harmonische (MOS-Diode, U_0 = U_A)
+====================================================================================================
+  û =    10 mV: Grundwelle   10.000 µA, 2. Harmonische   0.050 µA ( 0.50 % = û/(4(U_0-U_th)) =  0.50 %), Gleichanteil  250.050 µA (+0.02 %)
+  û =    50 mV: Grundwelle   50.000 µA, 2. Harmonische   1.250 µA ( 2.50 % = û/(4(U_0-U_th)) =  2.50 %), Gleichanteil  251.250 µA (+0.50 %)
+  û =   100 mV: Grundwelle  100.000 µA, 2. Harmonische   5.000 µA ( 5.00 % = û/(4(U_0-U_th)) =  5.00 %), Gleichanteil  255.000 µA (+2.00 %)
+  û =   250 mV: Grundwelle  250.000 µA, 2. Harmonische  31.250 µA (12.50 % = û/(4(U_0-U_th)) = 12.50 %), Gleichanteil  281.250 µA (+12.50 %)
+  û =   400 mV: Grundwelle  400.000 µA, 2. Harmonische  80.000 µA (20.00 % = û/(4(U_0-U_th)) = 20.00 %), Gleichanteil  330.000 µA (+32.00 %)
+  û =   500 mV: Grundwelle  500.000 µA, 2. Harmonische 125.000 µA (25.00 % = û/(4(U_0-U_th)) = 25.00 %), Gleichanteil  375.000 µA (+50.00 %)
+  FFT û = 50 mV: DC 251.250 µA, |1.| 50.000 µA, |2.| 1.250 µA, |3.| 0.000 µA (3. Harmonische entsteht erst, wenn die Diode zeitweise sperrt)
+  FFT û = 400 mV: DC 330.000 µA, |1.| 400.000 µA, |2.| 80.000 µA, |3.| 0.000 µA (3. Harmonische entsteht erst, wenn die Diode zeitweise sperrt)
+  FFT û = 700 mV: DC 489.812 µA, |1.| 709.946 µA, |2.| 236.260 µA, |3.| 6.983 µA (3. Harmonische entsteht erst, wenn die Diode zeitweise sperrt)
+
+====================================================================================================
+C. pn-Diode (ET1-Beispieldiode): Kennlinie, differentieller Leitwert, Kleinheit des Signals
+====================================================================================================
+  U = 0.3 V: I = 1.600e-09 A
+  U = 0.4 V: I = 7.657e-08 A
+  U = 0.5 V: I = 3.664e-06 A
+  U = 0.6 V: I = 1.754e-04 A
+  U = 0.7 V: I = 8.391e-03 A
+Dekade je U_T ln 10 = 59.53 mV; U_T = 25.85 mV
+Spannung bei I = 0.25 mA: 0.6092 V; g = (I + I_S)/U_T = 9.670 mS (r = 103.4 Ohm)
+Vergleich bei gleichem Strom 0,25 mA: g_Diode/g_MOS = 9.67; g/I: Diode 38.7 1/V, MOS 4.0 1/V
+  Diode û = 1 mV: 2./1. Harmonische exakt 0.97 %, Näherung û/(4 U_T) = 0.97 %; Gleichanteil +0.037 %
+  Diode û = 5 mV: 2./1. Harmonische exakt 4.83 %, Näherung û/(4 U_T) = 4.84 %; Gleichanteil +0.937 %
+  Diode û = 10 mV: 2./1. Harmonische exakt 9.61 %, Näherung û/(4 U_T) = 9.67 %; Gleichanteil +3.776 %
+  Diode û = 26 mV: 2./1. Harmonische exakt 24.15 %, Näherung û/(4 U_T) = 25.14 %; Gleichanteil +26.931 %
+1 % Klirr der Diode bei û = 0,04 U_T = 1.03 mV; MOS-Diode im Beispiel bei û = 0,04 (U_A-U_th) = 20 mV
+
+====================================================================================================
+D. Newton-Verfahren für den Arbeitspunkt der MOS-Diode
+====================================================================================================
+ i      U_i in V      F(U_i) in mA     G = g+G_q in mS     ΔU in V        Fehler U_i - U_A in V
+  0   0.000000000   -5.000000e-01      0.250000    2.000000e+00   -1.000000e+00
+  1   2.000000000    2.250000e+00      3.250000   -6.923077e-01    1.000000e+00
+  2   1.307692308    4.792899e-01      1.865385   -2.569389e-01    3.076923e-01
+  3   1.050753370    6.601762e-02      1.351507   -4.884742e-02    5.075337e-02
+  4   1.001905950    2.386070e-03      1.253812   -1.903053e-03    1.905950e-03
+  5   1.000002897    3.621611e-06      1.250006   -2.897275e-06    2.897282e-06
+  6   1.000000000    8.394327e-12      1.250000   -6.715517e-12    6.715517e-12
+  7   1.000000000    0.000000e+00      1.250000    0.000000e+00    0.000000e+00
+Lösung 1.000000000000 V
+  Verhältnis e_(i+1)/e_i^2 bei i = 2: 0.5361 1/V (Grenzwert F''/(2F') = k/(g+G_q) = 0.8000 1/V)
+  Verhältnis e_(i+1)/e_i^2 bei i = 3: 0.7399 1/V (Grenzwert F''/(2F') = k/(g+G_q) = 0.8000 1/V)
+  Verhältnis e_(i+1)/e_i^2 bei i = 4: 0.7976 1/V (Grenzwert F''/(2F') = k/(g+G_q) = 0.8000 1/V)
+  Verhältnis e_(i+1)/e_i^2 bei i = 5: 0.8000 1/V (Grenzwert F''/(2F') = k/(g+G_q) = 0.8000 1/V)
+Startwert aus der bei 0 V linearisierten Gleichung: U = I_q/(g(0) + G_q) = 2.000 V
+Fixpunktiteration U_(i+1) = U_th + sqrt((I_q - G_q U_i)/k) ab 2 V (bei 2 V ist der Quellstrom null, deshalb ab 0 V):
+  i = 0: U = 0.000000 V -> 1.207107 V, Fehler +2.071e-01 V
+  i = 1: U = 1.207107 V -> 0.945223 V, Fehler -5.478e-02 V
+  i = 2: U = 0.945223 V -> 1.013512 V, Fehler +1.351e-02 V
+  i = 3: U = 1.013512 V -> 0.996611 V, Fehler -3.389e-03 V
+  i = 4: U = 0.996611 V -> 1.000847 V, Fehler +8.466e-04 V
+  i = 5: U = 1.000847 V -> 0.999788 V, Fehler -2.117e-04 V
+  i = 6: U = 0.999788 V -> 1.000053 V, Fehler +5.292e-05 V
+  i = 7: U = 1.000053 V -> 0.999987 V, Fehler -1.323e-05 V
+Konvergenzfaktor der Fixpunktiteration |dU_neu/dU| = G_q/g(U_A) = 0.250
+
+====================================================================================================
+E. Newton-Verfahren für die pn-Diode an 5 V über 1 kOhm (Norton: 5 mA, 1 mS)
+====================================================================================================
+Start 0 V: 174 Schritte bis |ΔU| < 1e-12 V, Lösung 0.682819 V, I = 4.3172 mA
+  i = 0: U = 0.000000 V, F = -5.000e-03 A, ΔU = +5.000000 V
+  i = 1: U = 5.000000 V, F = 1.448e+70 A, ΔU = -0.025852 V
+  i = 2: U = 4.974148 V, F = 5.326e+69 A, ΔU = -0.025852 V
+  i = 3: U = 4.948296 V, F = 1.959e+69 A, ΔU = -0.025852 V
+  i = 170: U = 0.682957 V, ΔU = -1.379e-04 V
+  i = 171: U = 0.682819 V, ΔU = -3.667e-07 V
+  i = 172: U = 0.682819 V, ΔU = -2.585e-12 V
+  i = 173: U = 0.682819 V, ΔU = +0.000e+00 V
+Diodenstrom nach dem ersten Schritt bei 5.000 V laut Modell: 1.448e+70 A (Exponent 193.4)
+Schritte, solange U über 0,75 V liegt: 165; typischer Schritt dort ΔU = -25.85 mV (U_T = 25.85 mV)
+Start 0,6 V: 24 Schritte, Lösung 0.682819 V
+  i = 0: U = 0.600000000 V, F = -4.225e-03 A, Fehler -8.282e-02 V
+  i = 1: U = 1.142811987 V, F = +2.305e+05 A, Fehler +4.600e-01 V
+  i = 2: U = 1.116959988 V, F = +8.481e+04 A, Fehler +4.341e-01 V
+  i = 3: U = 1.091107989 V, F = +3.120e+04 A, Fehler +4.083e-01 V
+  i = 4: U = 1.065255993 V, F = +1.148e+04 A, Fehler +3.824e-01 V
+  i = 5: U = 1.039404002 V, F = +4.223e+03 A, Fehler +3.566e-01 V
+  i = 6: U = 1.013552026 V, F = +1.553e+03 A, Fehler +3.307e-01 V
+  i = 7: U = 0.987700093 V, F = +5.715e+02 A, Fehler +3.049e-01 V
+  i = 8: U = 0.961848276 V, F = +2.102e+02 A, Fehler +2.790e-01 V
+  i = 9: U = 0.935996776 V, F = +7.734e+01 A, Fehler +2.532e-01 V
+  i = 10: U = 0.910146144 V, F = +2.845e+01 A, Fehler +2.273e-01 V
+  i = 11: U = 0.884297883 V, F = +1.046e+01 A, Fehler +2.015e-01 V
+  i = 12: U = 0.858456111 V, F = +3.849e+00 A, Fehler +1.756e-01 V
+  i = 13: U = 0.832632073 V, F = +1.415e+00 A, Fehler +1.498e-01 V
+  i = 14: U = 0.806856471 V, F = +5.193e-01 A, Fehler +1.240e-01 V
+  i = 15: U = 0.781212794 V, F = +1.899e-01 A, Fehler +9.839e-02 V
+  i = 16: U = 0.755925896 V, F = +6.876e-02 A, Fehler +7.311e-02 V
+  i = 17: U = 0.731585409 V, F = +2.421e-02 A, Fehler +4.877e-02 V
+  i = 18: U = 0.709628721 V, F = +7.888e-03 A, Fehler +2.681e-02 V
+  i = 19: U = 0.692919673 V, F = +2.074e-03 A, Fehler +1.010e-02 V
+  i = 20: U = 0.684551202 V, F = +3.010e-04 A, Fehler +1.733e-03 V
+  i = 21: U = 0.682875058 V, F = +9.497e-06 A, Fehler +5.647e-05 V
+  i = 22: U = 0.682818651 V, F = +1.029e-08 A, Fehler +6.126e-08 V
+  i = 23: U = 0.682818590 V, F = +1.213e-14 A, Fehler +7.216e-14 V
+Mit Spannungsbegrenzung (U_crit = 0.720 V) ab 0 V: 12 Schritte, Lösung 0.682819 V
+  i = 0: U = 0.000000 V, ΔU = +1.3611e-01 V
+  i = 1: U = 0.136106 V, ΔU = +1.3553e-01 V
+  i = 2: U = 0.271635 V, ΔU = +1.3480e-01 V
+  i = 3: U = 0.406437 V, ΔU = +1.3396e-01 V
+  i = 4: U = 0.540398 V, ΔU = +1.1994e-01 V
+  i = 5: U = 0.660341 V, ΔU = +3.5633e-02 V
+  i = 6: U = 0.695974 V, ΔU = -1.0321e-02 V
+  i = 7: U = 0.685653 V, ΔU = -2.6858e-03 V
+  i = 8: U = 0.682968 V, ΔU = -1.4868e-04 V
+  i = 9: U = 0.682819 V, ΔU = -4.2661e-07 V
+  i = 10: U = 0.682819 V, ΔU = -3.4992e-12 V
+  i = 11: U = 0.682819 V, ΔU = +0.0000e+00 V
+
+====================================================================================================
+F. Differentielle Kapazität: Sperrschicht und gespeicherte Ladung der pn-Diode
+====================================================================================================
+  U =  +0.4 V: C_S =  36.34 pF, Ladung der Sperrschicht (eine Seite) Q_j =   -22.82 pC
+  U =  +0.0 V: C_S =  24.10 pF, Ladung der Sperrschicht (eine Seite) Q_j =   -34.41 pC
+  U =  -1.0 V: C_S =  15.55 pF, Ladung der Sperrschicht (eine Seite) Q_j =   -53.32 pC
+  U =  -5.0 V: C_S =   8.52 pF, Ladung der Sperrschicht (eine Seite) Q_j =   -97.36 pC
+  U = -10.0 V: C_S =   6.22 pF, Ladung der Sperrschicht (eine Seite) Q_j =  -133.31 pC
+  Probe dQ/dU numerisch bei +0.0 V: 24.100 pF
+  Probe dQ/dU numerisch bei -1.0 V: 15.555 pF
+Gespeicherte Ladung der injizierten Ladungsträger bei 1 mA: tau I = 1.00 nC; Ableitung tau I/U_T = 38.7 nF (quasistatisch)
+Ladestrom bei -1 V und 1 V/µs Spannungsänderung: C_S du/dt = 15.55 µA
+
+====================================================================================================
+G. Differentielle Induktivität einer Spule mit sättigendem Eisenkern (Modell)
+====================================================================================================
+  I = 0.0 A: Psi = 0.000 mVs, L_diff = dPsi/dI = 10.000 mH, statisch Psi/I = 10.000 mH
+  I = 0.5 A: Psi = 4.621 mVs, L_diff = dPsi/dI = 7.864 mH, statisch Psi/I = 9.242 mH
+  I = 1.0 A: Psi = 7.616 mVs, L_diff = dPsi/dI = 4.200 mH, statisch Psi/I = 7.616 mH
+  I = 2.0 A: Psi = 9.640 mVs, L_diff = dPsi/dI = 0.707 mH, statisch Psi/I = 4.820 mH
+Spannung bei di/dt = 1 A/ms: bei 0 A 10.0 V, bei 2 A 0.71 V
+
+====================================================================================================
+H. Kleinsignalrechnung im Arbeitspunkt und Vergleich mit der exakten Lösung
+====================================================================================================
+Signalanteil der Quelle î_q = 10 µA: û = î_q/(g + G_q) = 8.000 mV; Diodenstromanteil î = g û = 8.000 µA, Anteil durch G_q 2.000 µA
+Exakt: U bei +10 µA 1.007949 V (+7.9494 mV), bei -10 µA 0.991948 V (-8.0519 mV); Mittel der Ausschläge 8.0007 mV gegen linear 8.0000 mV
+Klirrmaß-Abschätzung: û/(4(U_A-U_th)) mit û = 8.0 mV: 0.40 %
+Großes Signal î_q = 0,2 mA: exakt +143.5 mV / -188.4 mV, linear ±160.0 mV
+Mit C = 1 pF (angenommen) parallel: Grenzfrequenz (g + G_q)/(2 pi C) = 198.9 MHz
+  Kapazitätsstrom C omega û bei 1.0 MHz und û = 8 mV: 0.0503 µA (Strom durch g + G_q: 10.0 µA)
+  Kapazitätsstrom C omega û bei 10.0 MHz und û = 8 mV: 0.5027 µA (Strom durch g + G_q: 10.0 µA)
+  Kapazitätsstrom C omega û bei 198.9 MHz und û = 8 mV: 10.0000 µA (Strom durch g + G_q: 10.0 µA)
+Diode: Stromzuwachs von 0,6 auf 0,7 V Faktor 47.9
+Triode aus dem Einführungsthema als Beispiel für zwei Steuerspannungen: S = 1,6 mA/V, 1/R_i = 16.0 µS
+Großsignal: Gleichspannungsquelle bleibt im Kleinsignalbild als Kurzschluss, Gleichstromquelle als Unterbrechung
+
+====================================================================================================
+I. Triode (Modell aus zahlen_einfuehrung.py, Abschnitt A): Linearisierung mit zwei Steuergrößen
+====================================================================================================
+Arbeitspunkt U_g = -2.0 V, U_a = 250 V: I_a = 1.2000 mA; dI/dU_g = 1.6000 mA/V, dI/dU_a = 16.000 µS
+Weg in zwei Teilschritten: +0.1 V am Gitter: exakt 0.1635 mA (linear 0.1600 mA); danach +6.25 V an der Anode: exakt 0.1057 mA (linear 0.1000 mA)
+Summe exakt 0.2692 mA, linear 0.2600 mA; neuer Strom exakt 1.4692 mA
+Kennlinien für die Abbildung (U_g von -3 bis -1 V in 0,25-V-Schritten), I_a in mA:
+  U_a = 250.00 V: 0.044 0.231 0.497 0.823 1.200 1.621 2.083 2.582 3.115
+  U_a = 256.25 V: 0.082 0.291 0.573 0.913 1.301 1.733 2.205 2.712 3.254
+Gitterspannung des neuen Punkts -1,9 V: I_a(250 V) = 1.3635 mA, I_a(256,25 V) = 1.4692 mA
+
+====================================================================================================
+J. Nachträge: Abbruchkriterien, reale Dioden, Gültigkeitsbereiche, Kapazität bei der Grenzfrequenz
+====================================================================================================
+Diode 5 V/1 kOhm ab 0 V, ohne Begrenzung: |ΔU| < 1e-12 V: 174 Schritte; SPICE-Kriterium: 171 Schritte (Lösung 0.682819 V)
+Diode 5 V/1 kOhm ab 0 V, mit Begrenzung (pnjlim wie oben): |ΔU| < 1e-12 V: 12 Schritte; SPICE-Kriterium: 9 Schritte (Lösung 0.682819 V)
+Emissionskoeffizient N = 1.0: Stromfaktor 0,6 -> 0,7 V = 47.85, Dekade 59.5 mV
+Emissionskoeffizient N = 1.752: Stromfaktor 0,6 -> 0,7 V = 9.10, Dekade 104.3 mV
+Emissionskoeffizient N = 1.906: Stromfaktor 0,6 -> 0,7 V = 7.61, Dekade 113.5 mV
+  Verhältnis I(U + 59,5 mV)/I(U) bei U = 0.01 V: 29.056
+  Verhältnis I(U + 59,5 mV)/I(U) bei U = 0.05 V: 11.521
+  Verhältnis I(U + 59,5 mV)/I(U) bei U = 0.1 V: 10.192
+  Verhältnis I(U + 59,5 mV)/I(U) bei U = 0.2 V: 10.004
+  Sperrstrom bei -0.1 V: -0.97910 I_S
+  Sperrstrom bei -0.2 V: -0.99956 I_S
+Diode: 1 % zweite Harmonische exakt bei û = 1.0341 mV (û/U_T = 0.04000); bei 1 mV: 0.967 %
+1 mV / 0,7 V = 1.429 Promille; 1 mV / 0,609 V = 1.642 Promille
+Bei f = 198.9 MHz mit 1 pF: Spannungsamplitude 5.6569 mV (8 mV/sqrt2 = 5.6569 mV), Strom durch g + G_q 7.0711 µA, durch C 7.0711 µA
+Fixpunktiteration ab 0 V, Fehler nach 1 ... 8 Schritten: +2.071e-01, -5.478e-02, +1.351e-02, -3.389e-03, +8.466e-04, -2.117e-04, +5.292e-05, -1.323e-05 V
+  Quotienten aufeinanderfolgender Fehler: -0.264, -0.247, -0.251, -0.250, -0.250, -0.250, -0.250 (Grenzwert -G_q/g = -0.250)
+Statischer Leitwert im Arbeitspunkt I/U = 0.250 mS (Kehrwert 4.0 kOhm), differentieller Leitwert 1.000 mS (Kehrwert 1.0 kOhm)
+Gleichanteil bei 400 mV: +32 %; ±160 mV / 0,5 V = 0.32

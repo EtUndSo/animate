@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §27);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §29);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -1974,3 +1974,171 @@ Steuergröße ($U_g$, $U_{BE}$, $U_{GS}$) als blauer Spannungspfeil, gesteuerter
 - §7 Rahmen und Container.
 
 *Animation:* Ein Signalspektrum wandert durch die Blöcke; in (a) erscheint es nach dem Mischer bei 10,7 MHz, in (b) direkt um 0 Hz, getrennt in I und Q.
+
+## ST1 Netzwerkanalyse: Nichtlineare Bauelemente, Arbeitspunkt und Linearisierung
+Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte A bis H; eigenes Beispielsystem: MOS-Diode mit $k$ = 1 mA/V² und $U_\mathrm{th}$ = 0,5 V an einer realen Stromquelle (0,5 mA, 4 kΩ), die ET1-Beispieldiode, ein Spulenmodell mit Sättigung.
+
+**st1/netzwerkanalyse/01-tangente**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Diagramm $I$ in mA (0 bis 1,4) über $U$ in V (0,4 bis 1,6). Kennlinie der MOS-Diode: null bis 0,5 V, darüber $I = k\,(U - U_\mathrm{th})^2$ (0,25 mA bei 1,0 V, 1,0 mA bei 1,5 V, 1,21 mA bei 1,6 V). Arbeitspunkt (1,0 V; 0,25 mA) markiert, Tangente mit der Steigung 1 mS (schneidet die Spannungsachse bei 0,75 V). Signalprojektion: unter der Spannungsachse eine Sinusspannung ±50 mV um 1,0 V über zwei Perioden (Zeit nach unten), rechts neben dem Diagramm der Strom über der Zeit (Zeit nach rechts), mit Hilfslinien Punkt für Punkt über die Kennlinie abgebildet: zwischen 0,2025 und 0,3025 mA (Spitzen +52,5 µA und −47,5 µA um 0,25 mA), Grundwelle 50 µA. Zum Vergleich dünn die Projektion über die Tangente (genau ±50 µA); beide Kurven fallen fast zusammen.
+
+*Kernaussage:* Kleine Änderungen um den Arbeitspunkt sehen von der Kennlinie nur die Tangente.
+
+*Daten:* Zahlenwerk A (Arbeitspunkt, $g$), B (Sinus 50 mV).
+
+*Editor:*
+- §4 Tangente im Punkt;
+- §5 Signalprojektion über eine Kennlinie;
+- §11 Datenkurven.
+
+*Animation:* Schieberegler für die Amplitude (§15) von 10 mV bis 450 mV: Bei großen Amplituden trennen sich die Projektion über die Kennlinie (oben schmal und hoch, unten breit und flach) und die über die Tangente sichtbar; eine Anzeige nennt das Verhältnis zweite Harmonische zu Grundwelle, $\hat u$ geteilt durch 2 V.
+
+**st1/netzwerkanalyse/01-zustandsgroessen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder nebeneinander, je mit dem Symbol des Bauelements in der Ecke.
+- (a) Strom über Spannung, $U$ von 0 bis 1,5 V, $I$ von 0 bis 2 mA: die Beispieldiode, $I = I_S\,[\exp(U/U_T) - 1]$ mit $I_S$ = 1,46·10⁻¹⁴ A und $U_T$ = 25,85 mV, verlässt das Bild bei 0,663 V (2 mA), ein Pfeil am Rand „8,4 mA bei 0,7 V“; die MOS-Diode, null bis 0,5 V, dann Parabel bis 1,0 mA bei 1,5 V. Direkt beschriftet.
+- (b) Ladung über Spannung, $U$ von −10 V bis +0,4 V: Sperrschichtladung der Beispieldiode auf der p-Seite (negativ wegen der Akzeptorrümpfe; null bei $U_\mathrm{Diff}$ = 0,714 V, wo die Zone in der Näherung verschwindet, Formel $Q = -2\,C_\mathrm{S0}\,U_\mathrm{Diff}\sqrt{1 - U/U_\mathrm{Diff}}$), −133,3 pC bei −10 V, −97,4 pC bei −5 V, −53,3 pC bei −1 V, −34,4 pC bei 0 V, −22,8 pC bei +0,4 V; die Kurve wird zur Durchlassrichtung hin steiler.
+- (c) Flussverkettung über Strom, $I$ von 0 bis 2 A: Spulenmodell $\Psi = \Psi_\mathrm{max}\tanh(L_0 I/\Psi_\mathrm{max})$ mit $L_0$ = 10 mH und $\Psi_\mathrm{max}$ = 10 mV s: 4,62 mV s bei 0,5 A, 7,62 mV s bei 1 A, 9,64 mV s bei 2 A; gestrichelte Asymptote bei 10 mV s; dünn gestrichelt eine schematische Hystereseschleife um die Kurve (Beschriftung „mit Hysterese“).
+
+*Kernaussage:* Jedes Bauelement lässt sich durch Strom, Ladung und Fluss als Funktionen seiner Steuergrößen beschreiben.
+
+*Daten:* Zahlenwerk C (Diode), A (MOS-Diode), F (Ladung), G (Fluss); Hystereseschleife schematisch.
+
+*Editor:*
+- §10 Teilbilder;
+- §4 mehrere Kurven, direkte Beschriftung;
+- §11 Datenkurven;
+- §20 Hystereseschleifen;
+- §1 und §24 kleine Symbole (Diode, MOS-Diode, Spule).
+
+*Animation:* Ein Punkt läuft gleichzeitig auf allen drei Kennlinien, während die jeweilige Steuergröße steigt; das Symbol des Bauelements leuchtet dabei auf.
+
+**st1/netzwerkanalyse/01-oberwellen**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Zwei Spalten, oben Zeitverläufe über zwei Perioden, unten Spektren.
+- Links, $\hat u$ = 50 mV: Strom zwischen 0,2025 und 0,3025 mA um den Mittelwert 0,25125 mA, fast sinusförmig; gepunktet die Gerade 0,25 mA.
+- Rechts, $\hat u$ = 400 mV: Strom zwischen 0,01 und 0,81 mA, oben schmale, hohe, unten breite, flache Halbwellen; dünn die Zerlegung: Gleichanteil 0,33 mA (gestrichelt, gepunktet zum Vergleich 0,25 mA), Grundwelle 0,4 mA·sin ωt, zweite Harmonische −0,08 mA·cos 2ωt.
+- Spektren als Linien bei 0, $f$ und $2f$, mit Werten beschriftet: links 251,25 µA, 50 µA, 1,25 µA; rechts 330 µA, 400 µA, 80 µA.
+
+*Kernaussage:* Die Krümmung der Kennlinie erzeugt eine Schwingung doppelter Frequenz und verschiebt den Gleichanteil, beide wachsen mit dem Quadrat der Amplitude.
+
+*Daten:* Zahlenwerk B (Formel und numerische Zerlegung).
+
+*Editor:*
+- §5 Zeitverläufe;
+- §25 Spektren;
+- §10 Teilbilder;
+- §11 Datenkurven.
+
+*Animation:* Schieberegler für $\hat u$ (§15) von 0 bis 700 mV: Die $2f$-Linie wächst quadratisch, die $f$-Linie linear; oberhalb von 500 mV wird der Strom unten abgeschnitten, und eine $3f$-Linie erscheint (bei 700 mV 7 µA).
+
+**st1/netzwerkanalyse/01-zwei-steuergroessen**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Diagramm Anodenstrom $I_a$ in mA (0 bis 3,5) über der Gitterspannung $U_g$ in V (−3 bis −1) für $U_a$ = 250 V und 256,25 V aus dem Kennlinienmodell $I_a = K\,(U_g + D\,U_a + U_0)^{3/2}$ mit $K$ = 1,00566 mA/V^1,5, $D$ = 0,01, $U_0$ = 0,625 V. Stützwerte in 0,25-V-Schritten von −3 V bis −1 V: für 250 V 0,044; 0,231; 0,497; 0,823; 1,200; 1,621; 2,083; 2,582; 3,115 mA, für 256,25 V 0,082; 0,291; 0,573; 0,913; 1,301; 1,733; 2,205; 2,712; 3,254 mA. Arbeitspunkt (−2 V; 1,2 mA) auf der 250-V-Kurve mit Tangente 1,6 mA/V. Der Weg in zwei Teilschritten als Pfeile:
+- (1) entlang der 250-V-Kurve nach −1,9 V, 1,3635 mA (Zuwachs 0,164 mA; die Tangente sagt 0,16 mA);
+- (2) senkrecht hinauf zur 256,25-V-Kurve, 1,4692 mA (Zuwachs 0,106 mA; 16 µS mal 6,25 V ergibt 0,10 mA).
+
+Lupe um (−1,9 V; 1,4 mA). Beschriftung der Summe: „0,269 mA, aus den Steigungen 0,26 mA“. Kurven direkt beschriftet.
+
+*Kernaussage:* Bei kleinen Änderungen mehrerer Steuergrößen ist die Gesamtänderung näherungsweise die Summe der Beiträge, jeder mit seiner eigenen Steigung.
+
+*Daten:* Zahlenwerk I (Kennlinienmodell wie im Zahlenwerk der Einführung, Abschnitt A).
+
+*Editor:*
+- §4 Kennlinienscharen und Tangente;
+- §2 Pfeile mit Text;
+- §22 Ausschnittvergrößerung;
+- §11 Datenkurven.
+
+*Animation:* Schieberegler für die beiden Schrittweiten (§15): Mit kleineren Schritten nähert sich die exakte Summe der aus den Steigungen; eine Anzeige zeigt die Abweichung, die mit dem Quadrat der Schrittweite schrumpft.
+
+**st1/netzwerkanalyse/01-kapazitaet-induktivitaet**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Zwei Spalten mit je zwei gestapelten Diagrammen und gemeinsamer x-Achse.
+- Links oben: Sperrschichtladung der Beispieldiode über $U$ von −10 V bis +0,4 V (Werte wie in 01-zustandsgroessen), Tangenten bei 0 V (Steigung 24,1 pF) und bei −5 V (8,5 pF). Links unten: ihre Steigung $C_\mathrm{S}(U) = C_\mathrm{S0}/\sqrt{1 - U/U_\mathrm{Diff}}$ mit $C_\mathrm{S0}$ = 24,10 pF und $U_\mathrm{Diff}$ = 0,714 V: 6,2 pF bei −10 V, 8,5 pF bei −5 V, 15,6 pF bei −1 V, 24,1 pF bei 0 V, 36,3 pF bei +0,4 V; die beiden Tangentenpunkte als Punkte auf dieser Kurve.
+- Rechts oben: Flussverkettung der Spule über $I$ von 0 bis 2 A (Modell wie in 01-zustandsgroessen), Tangenten bei 0 A (10 mH) und 1 A (4,2 mH). Rechts unten: $L(I) = L_0/\cosh^2(L_0 I/\Psi_\mathrm{max})$: 10 mH bei 0 A, 7,86 mH bei 0,5 A, 4,20 mH bei 1 A, 0,71 mH bei 2 A.
+
+*Kernaussage:* Kapazität und Induktivität sind die Steigungen der Ladungs- und der Flusskennlinie und hängen vom Arbeitspunkt ab.
+
+*Daten:* Zahlenwerk F, G.
+
+*Editor:*
+- §13 gestapelte Diagramme;
+- §4 Tangente im Punkt;
+- §10 Teilbilder;
+- §11 Datenkurven.
+
+*Animation:* Schieberegler für den Arbeitspunkt (§15): Die Tangente gleitet über die obere Kurve, der zugehörige Punkt auf der unteren Kurve wandert mit; Anzeige von $C$ bzw. $L$.
+
+**st1/netzwerkanalyse/01-arbeitspunkt-grafisch**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:*
+- (a) Schaltbild: ideale Stromquelle $I_q$ = 0,5 mA, parallel der Innenwiderstand $R_q$ = 4 kΩ ($G_q$ = 0,25 mS) und das Beispielbauelement als MOS-Diode (n-Kanal-MOSFET, Gate mit Drain verbunden); Knotenspannung $U$ als Spannungspfeil; Strompfeile $G_q U$ durch den Innenwiderstand und $I(U)$ durch das Bauelement.
+- (b) Diagramm $I$ in mA (0 bis 0,6) über $U$ in V (0 bis 2,2): die fallende Gerade der Quelle von (0 V; 0,5 mA) bis (2 V; 0 mA), Endpunkte beschriftet „Kurzschlussstrom 0,5 mA“ und „Leerlaufspannung 2 V“; die Kennlinie des Bauelements, null bis 0,5 V, dann Parabel (0,25 mA bei 1,0 V, 0,5625 mA bei 1,25 V); Schnittpunkt (1,0 V; 0,25 mA) markiert und beschriftet.
+
+*Kernaussage:* Der Arbeitspunkt ist der einzige Punkt, an dem das Angebot der Quelle und die Kennlinie des Bauelements übereinstimmen.
+
+*Daten:* Zahlenwerk A.
+
+*Editor:*
+- §1 Schaltplan, §24 MOSFET-Symbol;
+- §4 Gerade ins Kennlinienfeld und Schnittpunkt;
+- §10 Teilbilder;
+- §2 Zählpfeile.
+
+*Animation:* Schieberegler für $I_q$ und $R_q$ (§15): Die Gerade verschiebt sich bzw. kippt um ihren Achsenpunkt, der Schnittpunkt wandert auf der Kennlinie; die Werte $U_A$ und $I_A$ werden live aus der Knotengleichung berechnet.
+
+**st1/netzwerkanalyse/01-newton**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Diagramm Fehlerstrom $F(U) = I(U) + G_q U - I_q$ in mA (−0,6 bis 3) über $U$ in V (0 bis 2,2): von −0,5 mA bei 0 V gerade ansteigend auf −0,375 mA bei 0,5 V, dann parabelförmig durch null bei 1,0 V bis 2,25 mA bei 2 V und 2,94 mA bei 2,2 V. Newton-Schritte, nummeriert:
+- Tangente bei $U^{(0)}$ = 0 V (Steigung 0,25 mS, fällt mit dem geraden Stück zusammen), Nullstelle $U^{(1)}$ = 2 V;
+- senkrechte Hilfslinie zur Kurve, Tangente bei 2 V ($F$ = 2,25 mA, 3,25 mS), Nullstelle $U^{(2)}$ = 1,3077 V;
+- Tangente bei 1,3077 V ($F$ = 0,479 mA, 1,865 mS), Nullstelle $U^{(3)}$ = 1,0508 V;
+- Tangente bei 1,0508 V ($F$ = 0,066 mA, 1,352 mS), Nullstelle $U^{(4)}$ = 1,0019 V.
+Lupe um 1,0 V für die letzten beiden Schritte. Daneben die Tabelle des Beispiels ($U^{(\nu)}$, $F(U^{(\nu)})$, $g + G_q$, Fehler).
+
+*Kernaussage:* Jede Tangente ist die bei der jeweiligen Schätzung linearisierte Schaltung, und ihre Nullstellen laufen schnell auf 1,0 V zu.
+
+*Daten:* Zahlenwerk D (Tabelle).
+
+*Editor:*
+- §29 Iterationsdarstellungen (neu);
+- §4 Tangente im Punkt;
+- §22 Ausschnittvergrößerung;
+- §11 Datenkurven.
+
+*Animation:* Schritt für Schritt (§8): Tangente erscheint, ihre Nullstelle wird markiert, die senkrechte Hilfslinie führt zur Kurve, die passende Tabellenzeile leuchtet auf. Startwert per Schieberegler (§15) von 0 bis 2 V wählbar.
+
+**st1/netzwerkanalyse/01-ersatzschaltbilder**
+- Fassung: kompakt Abb. 7, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Zwei Schaltbilder gleicher Anordnung nebeneinander.
+- (a) Großsignal-Ersatzschaltbild im Arbeitspunkt: Gleichstromquelle 0,5 mA, Innenwiderstand 4 kΩ, das Bauelement als nichtlinearer Zweipol mit Kennlinie $I(U)$; Knotenspannung 1,0 V, Ströme 0,25 mA durch den Innenwiderstand und 0,25 mA durch das Bauelement.
+- (b) Kleinsignal-Ersatzschaltbild: Signalstromquelle $i_q$ (Amplitude 10 µA), Innenleitwert 0,25 mS, das Bauelement ersetzt durch den Leitwert $g$ = 1 mS; daneben klein die gleichwertige Darstellung als spannungsgesteuerte Stromquelle $g\,u$, gesteuert von der eigenen Spannung; gestrichelt die Kapazität $C(U_A)$ (im Beispiel angenommen 1 pF, nur für schnelle Signale). An der Stelle der Gleichstromquelle eine Unterbrechung mit Vermerk „konstant, Änderung null“. Spannung $u$ = 8 mV, Ströme 8 µA durch $g$ und 2 µA durch den Innenleitwert.
+- Unten eine Legende: Gleichspannungsquelle wird zum Kurzschluss, Gleichstromquelle zur Unterbrechung.
+
+*Kernaussage:* Im Kleinsignalbild steht nur, was sich ändert.
+
+*Daten:* Zahlenwerk A, H.
+
+*Editor:*
+- §28 gesteuerte Quellen, nichtlinearer Zweipol, Gegenüberstellung Groß- und Kleinsignalbild (neu);
+- §1 Schaltplan;
+- §10 Teilbilder, §7 Container.
+
+*Animation:* Übergang von (a) nach (b): Die Gleichstromquelle verblasst zur Unterbrechung, das Bauelementsymbol wird zum Leitwert $g$, die Zahlenwerte wechseln von Gleich- zu Kleinsignalgrößen.

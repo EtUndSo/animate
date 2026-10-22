@@ -231,6 +231,18 @@ Gebraucht in: st1/einfuehrung/01-drei-ventile.
 - Ebenso einfache Querschnitte von Röhren (Kathode, Gitterdrähte im Schnitt, Anode).
 Gebraucht in: st1/einfuehrung/01-planartechnik, 01-skalierung, 01-triode-aufbau; absehbar MOSFET-Aufbau, Latch-Up und parasitäre Kapazitäten.
 
+## 28. Gesteuerte Quellen, nichtlineare Zweipole und Kleinsignal-Ersatzschaltbilder  — **P1** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Gesteuerte Quellen als Raute: spannungs- und stromgesteuerte Strom- und Spannungsquelle; Beschriftung mit dem Steuerausdruck ($g\,u$, $\beta\,i_B$, $v\,u_1$) und gestrichelte Zuordnung zur Steuergröße (Spannungspfeil oder Strompfeil an anderer Stelle der Schaltung).
+- Nichtlinearer Zweipol: Widerstandsrechteck mit schräger, geknickter Linie, beschriftet mit der Kennlinienfunktion; ebenso nichtlineare Kapazität.
+- Gegenüberstellung Großsignal- und Kleinsignal-Ersatzschaltbild: dieselbe Anordnung in zwei Teilbildern (§10), Bauteile paarweise farbig gekoppelt; Gleichspannungsquelle wird zum Kurzschluss, Gleichstromquelle zur Unterbrechung, wahlweise als Animation (§8).
+Gebraucht in: st1/netzwerkanalyse/01-ersatzschaltbilder; absehbar alle Kleinsignal-Ersatzschaltbilder von Diode, Bipolartransistor und MOSFET, modifizierte Knotenanalyse, Vierpole.
+
+## 29. Iterationsdarstellungen  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Folge von Tangenten an eine Funktion: Nullstelle jeder Tangente auf der Achse markiert, senkrechte Hilfslinie zurück zur Kurve, nummerierte Schätzwerte $U^{(0)}, U^{(1)}, \ldots$; schrittweise einblendbar (§8).
+- Ebenso die einfache Iteration als Treppen- oder Spinnwebdiagramm zwischen Funktion und Winkelhalbierender.
+- Synchron dazu eine Wertetabelle, deren Zeile beim jeweiligen Schritt hervorgehoben wird; Startwert per Schieberegler (§15).
+Gebraucht in: st1/netzwerkanalyse/01-newton; absehbar numerische Verfahren (Numerik), transiente Analyse.
+
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten
    Kennlinien- und Profil-Abbildungen frei.
