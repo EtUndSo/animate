@@ -1,6 +1,7 @@
 """Prüft Artikel auf Hinweise auf Vorlagen und Lehrveranstaltungen (ERKLAER_PROMPT §5.7, Vorgabe des Users vom 22.10.2026:
 keine Verweise auf Skript, Vorlesung, Übung, Praktikum, Tutorium, Klausur, Folien, Seiten-, Bild-, Tabellen-, Kapitel-,
-Abschnitts- oder Gleichungsnummern einer Vorlage, Lehrveranstaltungs- oder Hochschulnamen).
+Abschnitts- oder Gleichungsnummern einer Vorlage, Lehrveranstaltungs- oder Hochschulnamen, Modulkürzel und interne
+Werkzeuge wie das Zahlenwerk).
 Gibt jede Fundstelle aus und endet mit Code 1, wenn es welche gibt. Ohne Argumente prüft es alle Dateien in content/.
 Aufruf: python -I tools/quellen_check.py [<artikel.md> …]"""
 import re
@@ -18,12 +19,15 @@ MUSTER = {
     "Klausur": r"[Kk]lausur",
     "Folie": r"\bFolie",
     "Seite": r"\(S\.\s?\d|\bS\.\s?\d+(?:\s?[–-]\s?\d+)?\)|\bSeite\s\d",
-    "Bild-Nr": r"\bBild\s\d+\.\d+",
+    "Bild-Nr": r"\bBilder?\s\d+\.\d+",
     "Tabelle-Nr": r"\bTabelle\s\d+\.\d+",
     "Abschnitt-Nr": r"\bAbschnitt\s\d+(\.\d+)+",
     "Kapitel-Nr": r"\bKap(itel|\.)\s\d+(\.\d+)*",
     "Gleichung-Nr": r"\b(Gl\.|Gleichung)\s\(?\d+\.\d+",
     "Kurs": r"GET-?1|\bMiNa\b|RWTH|Lehrstuhl|Formelsammlung|KGÜ|Hilfsfolie|\bProf\.|Dozent",
+    "Modulkürzel": r"\bET\s?[1-4]\b|\bGEMB\b|\bHöMa\b|\bHM\s?[1-4]\b",
+    "Seitenbezug": r"derselben Seite|Seite später|eine Seite (früher|vorher|davor)",
+    "intern": r"Zahlenwerk",
 }
 
 dateien = [Path(a) for a in sys.argv[1:]] or sorted((REPO / "content").rglob("*.md"))

@@ -61,7 +61,7 @@ $$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
 **So liest man das:** Eingabe ist die Spannung an der Diode, Ausgabe der Strom. Der erste Summand ist der Strom über die abgesenkte Barriere, die −1 der Strom der Minoritätsträger, der nicht von der Spannung abhängt.
 Ab etwa 0,1 V ist die −1 vernachlässigbar; unterhalb von etwa −0,1 V ist der Strom gleich $-I_S$. Den Durchbruch enthält die Gleichung nicht.
 
-Das Skript lässt die −1 weg (Gl. 10.1, S. 162), das ist der Grenzfall für den Durchlassbereich. Außerdem nennt es „das Produkt k_B · T“ die thermische Spannung; das ist eine Energie, 25,85 meV. Die Temperaturspannung entsteht erst durch Division durch die Elementarladung:
+Oft lässt man die −1 weg; das ist der Grenzfall für den Durchlassbereich. Ein häufiger Fehler ist, schon das Produkt $k_B T$ die thermische Spannung zu nennen; das ist eine Energie, 25,85 meV. Die Temperaturspannung entsteht erst durch Division durch die Elementarladung:
 
 $$U_T = \frac{k_B\,T}{e} = 25{,}85\ \mathrm{mV}$$
 
@@ -162,7 +162,7 @@ Szene: get1/halbleiterbauelemente/02-schwelle-massstab · Vorlage: kennlinie-lin
 **Schritt 4**: Die Temperatur wirkt an zwei Stellen. Das wachsende $U_T$ im Exponenten allein würde den Strom bei fester Spannung, bei 0,645 V, um 8,3 % je Kelvin senken. $I_S$ wächst aber mit dem Quadrat der Eigenleitungsdichte um 16,6 % je Kelvin, doppelt so schnell. Netto sinkt die Durchlassspannung bei festem Strom, bei 1 mA um 2,1 mV je Kelvin; 50 K Erwärmung kosten 0,1 V. Deshalb taugt eine Diode mit konstantem Strom als Temperatursensor.
 
 ::::beispiel Durchlassspannung und scheinbare Schwelle der Beispieldiode
-**Gegeben:** Sättigungssperrstrom 1,457·10⁻¹⁴ A, Temperaturspannung 25,85 mV (Zahlenwerk dieses Themas).
+**Gegeben:** Sättigungssperrstrom 1,457·10⁻¹⁴ A, Temperaturspannung 25,85 mV.
 
 **Gesucht:** (a) die Durchlassspannung bei 1 µA, 1 mA und 100 mA; (b) die scheinbare Schwelle für die Achsenenden 10 µA und 100 mA.
 
@@ -293,7 +293,7 @@ $$E_\mathrm{max} = \frac{2\,(U_\mathrm{Diff} - U)}{w}$$
 
 :::fehlvorstellung
 „Im Durchbruch wird die Diode zerstört.“
-Das liegt nahe, weil das Skript es so formuliert (S. 162) und weil gewöhnliche Dioden ohne Strombegrenzung im Durchbruch tatsächlich ausfallen. Der Durchbruch selbst ist aber umkehrbar: Z-Dioden arbeiten dauernd darin, wie das Skript eine Seite später selbst schreibt (S. 163). Zerstörend ist die Wärme: Bei 100 V und 10 mA setzt eine kleine Diode 1 W um, doppelt so viel, wie typische kleine Gehäuse vertragen. Bei gewöhnlichen Dioden beginnt der Durchbruch zudem oft an den Rändern des Übergangs, wo sich der Strom zusammendrängt.
+Das liegt nahe, weil es oft so heißt und weil gewöhnliche Dioden ohne Strombegrenzung im Durchbruch tatsächlich ausfallen. Der Durchbruch selbst ist aber umkehrbar: Z-Dioden arbeiten dauernd darin. Zerstörend ist die Wärme: Bei 100 V und 10 mA setzt eine kleine Diode 1 W um, doppelt so viel, wie typische kleine Gehäuse vertragen. Bei gewöhnlichen Dioden beginnt der Durchbruch zudem oft an den Rändern des Übergangs, wo sich der Strom zusammendrängt.
 :::
 
 ## Die Z-Diode
@@ -406,7 +406,7 @@ $$C_j = \frac{\varepsilon\,A}{w(U)} = \frac{C_{j0}}{\sqrt{1 - U/U_\mathrm{Diff}}
 **Grenzen:** Nähert sich die Spannung der Diffusionsspannung, wächst die Formel über alle Grenzen; dort gilt die Verarmungsnäherung nicht mehr.
 :::
 
-Dioden, die man gezielt so nutzt, heißen __Kapazitätsdioden__ (Skript, Bild 10.9, S. 163). Man betreibt sie nur in Sperrrichtung, damit kein Strom fließt, und stimmt mit ihrer Steuerspannung Schwingkreise in Radioempfängern und Oszillatoren ab, ohne bewegte Teile.
+Dioden, die man gezielt so nutzt, heißen __Kapazitätsdioden__. Man betreibt sie nur in Sperrrichtung, damit kein Strom fließt, und stimmt mit ihrer Steuerspannung Schwingkreise in Radioempfängern und Oszillatoren ab, ohne bewegte Teile.
 
 ## Fotodiode und Solarzelle
 
@@ -424,7 +424,7 @@ Szene: get1/halbleiterbauelemente/02-fotodiode-quadranten · Vorlage: kennlinien
 
 **Das Zusammenspiel in Schritten:**
 
-**Schritt 1**: Ein Photon mit mehr Energie als die Bandlücke kann ein Elektron aus einer Bindung ins Leitungsband heben; es entsteht ein Paar (__innerer Fotoeffekt__). Entscheidend ist die Energie des einzelnen Photons; das meint das Skript mit der „Energie der Strahlung (antiproportional zur Wellenlänge)“ (S. 163). Silizium reagiert deshalb nur auf Licht unterhalb von 1107 nm Wellenlänge; längerwelliges Licht erzeugt praktisch keinen Fotostrom, auch wenn es hell ist.
+**Schritt 1**: Ein Photon mit mehr Energie als die Bandlücke kann ein Elektron aus einer Bindung ins Leitungsband heben; es entsteht ein Paar (__innerer Fotoeffekt__). Entscheidend ist die Energie des einzelnen Photons, die umgekehrt proportional zur Wellenlänge ist, nicht die Energie der Strahlung als Ganzes. Silizium reagiert deshalb nur auf Licht unterhalb von 1107 nm Wellenlänge; längerwelliges Licht erzeugt praktisch keinen Fotostrom, auch wenn es hell ist.
 
 **Schritt 2**: Entsteht das Paar in der Zone oder nahe daneben, trennt es das Feld: Das Elektron läuft ins n-Gebiet, das Loch ins p-Gebiet. Das Licht vergrößert also den Nachschub an Minoritätsträgern, und der Fotostrom fließt in der Diode von der Kathode zur Anode, in Sperrrichtung.
 
@@ -481,7 +481,7 @@ $$U_L = U_T\,\ln\!\Big(\frac{I_\mathrm{ph}}{I_S} + 1\Big)$$
 $$I_K = -I_\mathrm{ph}$$
 :::
 
-**So liest man das:** Der Kurzschlussstrom ist der negative Fotostrom und wächst proportional zum Licht. Die Leerlaufspannung wächst dagegen nur logarithmisch, um 59,5 mV je Verzehnfachung des Lichts. Das ist das Ergebnis des Solarzellenversuchs im Skript (S. 164 f.): Die Spannung hängt kaum von der Einstrahlung ab, der Strom wächst proportional. Mit den dort genannten 0,5 V ist vermutlich die Leerlaufspannung gemeint; bei voller Sonne liegt sie bei Siliziumzellen zwischen 0,6 und 0,7 V, die Spannung im Punkt größter Leistung bei etwa 0,5 V.
+**So liest man das:** Der Kurzschlussstrom ist der negative Fotostrom und wächst proportional zum Licht. Die Leerlaufspannung wächst dagegen nur logarithmisch, um 59,5 mV je Verzehnfachung des Lichts. Messungen an Solarzellen zeigen genau das: Die Spannung hängt kaum von der Einstrahlung ab, der Strom wächst proportional. Bei voller Sonne liegt die Leerlaufspannung von Siliziumzellen zwischen 0,6 und 0,7 V, die Spannung im Punkt größter Leistung bei etwa 0,5 V.
 
 Idee der Herleitung: Leerlauf heißt kein Strom, Kurzschluss heißt keine Spannung; beides setzt man in die Gleichung der beleuchteten Diode ein.
 
@@ -553,7 +553,7 @@ In Durchlassrichtung senkt die Spannung die Barriere, und der Strom wächst expo
 
 ## Bedeutung und Ausblick
 
-Dioden stecken in fast jedem elektronischen Gerät, vom Gleichrichter im Netzteil bis zum Kamerasensor. Im Praktikum begegnet die Kennlinie als Basis-Emitter-Strecke des Transistors BC547C; ihr Temperaturgang von rund −2 mV/K ist ein wichtiger Grund, warum Transistorschaltungen eine Gegenkopplung brauchen, eine Rückführung, die den Arbeitspunkt stabilisiert. Wie man mit der gekrümmten Kennlinie in Schaltungen rechnet, zeigt der nächste Artikel, [Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html).
+Dioden stecken in fast jedem elektronischen Gerät, vom Gleichrichter im Netzteil bis zum Kamerasensor. Als Basis-Emitter-Strecke steckt die Kennlinie auch im Bipolartransistor, etwa im BC547C; ihr Temperaturgang von rund −2 mV/K ist ein wichtiger Grund, warum Transistorschaltungen eine Gegenkopplung brauchen, eine Rückführung, die den Arbeitspunkt stabilisiert. Wie man mit der gekrümmten Kennlinie in Schaltungen rechnet, zeigt der nächste Artikel, [Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html).
 
 **In der ausführlichen Fassung:** der Einfluss des Halbleitermaterials und der Temperaturgang mit Herleitung, die reale Kennlinie mit Rekombinations- und Generationsstrom und dem Emissionskoeffizienten, die Abschätzung der Durchbruchspannung und der Dotierung einer Z-Diode, der Glättungsfaktor der Stabilisierungsschaltung, Grenzwellenlänge und Empfindlichkeit einer Fotodiode, der Punkt größter Leistung einer Solarzelle, das Schaltverhalten und die Leuchtdiode. [Zur ausführlichen Fassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie-ausfuehrlich.html)
 

@@ -28,7 +28,7 @@ Szene: get1/halbleiterbauelemente/04-bruecke-strompfade · Vorlage: schaltung-st
 
 - __$u_e$__: Eingangsspannung, eine Sinusspannung mit dem Scheitelwert $\hat u_e$ = 10 V und der Frequenz 50 Hz; klein geschrieben, weil sie sich mit der Zeit ändert.
 - __$u_a$__: Spannung an der Last, oben positiv gezählt.
-- __$U_{F0}$__: Durchlassspannung im Ersatzschaltbild, wie im Skript 0,6 V.
+- __$U_{F0}$__: Durchlassspannung im Ersatzschaltbild, hier 0,6 V.
 
 **Das Zusammenspiel in Schritten:**
 
@@ -46,7 +46,7 @@ $$\hat u_a = \hat u_e - 2\,U_{F0}$$
 $$u_a = |u_e| - 2\,U_{F0} \quad\text{für } |u_e| > 2\,U_{F0}, \qquad u_a = 0 \quad\text{sonst}$$
 :::
 
-**So liest man das:** Eingabe ist die Eingangsspannung, Ausgabe die Spannung an der Last. Die Spitze am Ausgang ist um zwei Durchlassspannungen kleiner, 8,8 V statt 10 V, wie im Skript (Bild 10.29, S. 173). Um jeden Nulldurchgang gibt es eine __Totzone__, in der kein Strom fließt; bei 10 V Scheitelwert dauert sie 0,77 ms von jeder 10 ms langen Halbperiode.
+**So liest man das:** Eingabe ist die Eingangsspannung, Ausgabe die Spannung an der Last. Die Spitze am Ausgang ist um zwei Durchlassspannungen kleiner, 8,8 V statt 10 V. Um jeden Nulldurchgang gibt es eine __Totzone__, in der kein Strom fließt; bei 10 V Scheitelwert dauert sie 0,77 ms von jeder 10 ms langen Halbperiode.
 
 **Kurz gesagt:** Bei vier gleichen Dioden ändert sich an der Last nichts, wenn man die beiden Anschlüsse der Quelle vertauscht; es zählt nur der Betrag der Eingangsspannung.
 
@@ -87,7 +87,7 @@ Szene: get1/halbleiterbauelemente/04-bruecke-zeitverlauf · Vorlage: zeitverlauf
 **Abbildung 2:** Eingangsspannung (gestrichelt, Scheitelwert 10 V) und Ausgangsspannung der Brücke über 40 ms. Der Ausgang ist der Betrag des Eingangs minus 1,2 V, mit der Spitze 8,8 V und einer Totzone von 0,77 ms um jeden Nulldurchgang; die waagrechte Linie zeigt den Mittelwert von 5,21 V.
 :::
 
-Das Skript schreibt für die negative Halbwelle, bei negativer „oder sehr kleiner positiver“ Eingangsspannung leiteten D2 und D4 (S. 172). Bei kleiner positiver Spannung leiten sie nicht; für Beträge unter 1,2 V sperren alle vier Dioden, wie das Skript wenige Zeilen später selbst schreibt. D2 und D4 leiten erst unterhalb von −1,2 V.
+D2 und D4 leiten also erst unterhalb von −1,2 V; bei kleiner positiver Spannung sperren sie.
 
 :::frage
 „Warum braucht man vier Dioden? Zwei würden doch reichen.“
@@ -144,7 +144,7 @@ $$\overline{u}_\mathrm{Doppelweg} = \frac{2}{\pi}\,\hat u, \qquad \overline{u}_\
 
 **Woher die Faktoren kommen:** $2/\pi$ ist die mittlere Höhe einer Sinushalbwelle, bezogen auf ihre Spitze; der Einweggleichrichter halbiert sie, weil er die Hälfte der Zeit nichts liefert.
 
-**Proben:** Einheit V. Zahlenwert: 2 durch π mal 10 V ergibt 6,37 V; die numerische Mittelung im Zahlenwerk liefert dasselbe.
+**Proben:** Einheit V. Zahlenwert: 2 durch π mal 10 V ergibt 6,37 V; eine numerische Mittelung liefert dasselbe.
 
 **Grenzen:** Mit Durchlassspannungen fehlen an jeder Halbwelle 1,2 V und die Stücke um die Nulldurchgänge. Die Dioden leiten dann nur zwischen den Winkeln $\theta_1$ und $\pi - \theta_1$, wobei $\theta$ für $\omega t$ steht und
 
@@ -158,7 +158,7 @@ Der Sinus liefert das Doppelte von $\hat u\cos\theta_1$, die Konstante ihr Produ
 
 $$\overline{u} = \frac{2}{\pi}\Big[\hat u\cos\theta_1 - 2\,U_{F0}\Big(\frac{\pi}{2} - \theta_1\Big)\Big]$$
 
-Mit 10 V und 0,6 V ist $\theta_1$ = 0,1203, und es ergeben sich 5,21 V wie bei der numerischen Mittelung im Zahlenwerk.
+Mit 10 V und 0,6 V ist $\theta_1$ = 0,1203, und es ergeben sich 5,21 V wie bei der numerischen Mittelung.
 :::
 
 ::::beispiel Brücke ohne Glättung bei 10 V Scheitelwert
@@ -248,7 +248,7 @@ $$\Delta U \approx \frac{I_L}{2\,f\,C}$$
 :::
 
 ::::beispiel Ladekondensator für ein kleines Netzteil
-**Gegeben:** Quelle mit 10 V Scheitelwert, 50 Hz und 5 Ω Innenwiderstand; Brücke im 0,6 V-Modell; Last 470 Ω; Ladekondensator 470 µF (Simulation im Zahlenwerk).
+**Gegeben:** Quelle mit 10 V Scheitelwert, 50 Hz und 5 Ω Innenwiderstand; Brücke im 0,6 V-Modell; Last 470 Ω; Ladekondensator 470 µF; die Werte stammen aus einer Schaltungssimulation.
 
 **Gesucht:** Ausgangsspannung, Brummspannung nach der Schätzung und nach der Simulation, Leitdauer und Spitzenstrom der Dioden; die Kapazität für 0,1 V Brumm.
 
@@ -287,7 +287,7 @@ Im Modell allein der Innenwiderstand der Quelle, im Beispiel 5 Ω, also der Wide
 
 :::grafik
 Szene: get1/halbleiterbauelemente/04-ladungspumpe-takte · Vorlage: schaltung-zustaende
-**Abbildung 4:** Die Ladungspumpe des Skripts mit 5 V Eingangsspannung. (a) Takt 1: Die Unterseite von C1 liegt an Masse, über D1 und R1 lädt C1 auf 4,4 V. (b) Takt 2: Die Unterseite von C1 liegt an 5 V, seine Oberseite damit auf 9,4 V; D1 sperrt, über R2 und D2 fließt Ladung in C2, der sich 8,8 V nähert. Der geladene Kondensator wird auf die Eingangsspannung gestapelt.
+**Abbildung 4:** Die Ladungspumpe mit 5 V Eingangsspannung. (a) Takt 1: Die Unterseite von C1 liegt an Masse, über D1 und R1 lädt C1 auf 4,4 V. (b) Takt 2: Die Unterseite von C1 liegt an 5 V, seine Oberseite damit auf 9,4 V; D1 sperrt, über R2 und D2 fließt Ladung in C2, der sich 8,8 V nähert. Der geladene Kondensator wird auf die Eingangsspannung gestapelt.
 :::
 
 **Die Akteure:**
@@ -302,11 +302,11 @@ Szene: get1/halbleiterbauelemente/04-ladungspumpe-takte · Vorlage: schaltung-zu
 
 **Schritt 1**: In Takt 1 liegt die Unterseite von C1 an Masse. Über D1 und R1 lädt die Quelle C1 auf ihre Spannung abzüglich der Durchlassspannung von D1, auf 4,4 V (Abbildung 4a).
 
-**Schritt 2**: In Takt 2 schaltet der Umschalter die Unterseite von C1 an die Eingangsspannung. Der geladene Kondensator steht damit auf den 5 V, seine Oberseite springt auf die Summe, 9,4 V. D1 sperrt, denn ihre Kathode liegt nun 4,4 V über ihrer Anode. Im Skriptbild (Bild 10.23 und 10.24, S. 171) ist die Unterseite von C1 zusätzlich fest mit Masse verbunden; das ist ein Zeichenfehler, denn über diese Leitung schlösse der Umschalter in Takt 2 die Quelle kurz.
+**Schritt 2**: In Takt 2 schaltet der Umschalter die Unterseite von C1 an die Eingangsspannung. Der geladene Kondensator steht damit auf den 5 V, seine Oberseite springt auf die Summe, 9,4 V. D1 sperrt, denn ihre Kathode liegt nun 4,4 V über ihrer Anode. Achtung: Die Unterseite von C1 darf nicht zusätzlich fest mit Masse verbunden sein, denn über diese Leitung schlösse der Umschalter in Takt 2 die Quelle kurz.
 
 **Schritt 3**: Über R2 und D2 fließt Ladung von C1 nach C2, bis die Oberseite von C1 nur noch eine Durchlassspannung über C2 liegt. Dabei gleichen sich die beiden Kondensatoren aus: C1 verliert Spannung, C2 gewinnt.
 
-**Schritt 4**: Periode für Periode wiederholt sich das. Nur in der allerersten leitet D2 schon in Takt 1: C2 ist noch leer, und die Quelle lädt ihn über D1 und D2 mit auf, bis auf zwei Durchlassspannungen unter der Eingangsspannung, 3,8 V. Danach halbiert bei gleichen Kapazitäten jede Periode den Abstand zwischen der Spannung an C2 und dem Endwert, der eine Durchlassspannung unter den 9,4 V liegt, also bei 8,8 V: Am Ende der Perioden liegt C2 bei 6,3 V, 7,55 V, 8,18 V, 8,49 V und so weiter (Abbildung 5). Das Skript gibt „ca. 2 U_e“ an und betrachtet die Dioden als ideal (S. 171), schreibt am Kondensator aber $U_e - U_{D1}$; mit Durchlassspannungen sind es 8,8 V statt 10 V.
+**Schritt 4**: Periode für Periode wiederholt sich das. Nur in der allerersten leitet D2 schon in Takt 1: C2 ist noch leer, und die Quelle lädt ihn über D1 und D2 mit auf, bis auf zwei Durchlassspannungen unter der Eingangsspannung, 3,8 V. Danach halbiert bei gleichen Kapazitäten jede Periode den Abstand zwischen der Spannung an C2 und dem Endwert, der eine Durchlassspannung unter den 9,4 V liegt, also bei 8,8 V: Am Ende der Perioden liegt C2 bei 6,3 V, 7,55 V, 8,18 V, 8,49 V und so weiter (Abbildung 5). Mit idealen Dioden wäre der Endwert das Doppelte der Eingangsspannung; mit Durchlassspannungen sind es 8,8 V statt 10 V.
 
 **Schritt 5**: Zieht eine Last Strom, muss C1 jede Periode die verbrauchte Ladung nachliefern und sich dafür in Takt 2 weiter entladen; der Ausgang bleibt unter dem Endwert. D2 bleibt dabei nach dem Ausgleich leitend: Sobald die Last C2 ein wenig entlädt, liegt an D2 wieder mehr als die Durchlassspannung, und C1 speist mit. Bis zum Ende von Takt 2 teilen sich C1 und C2 deshalb den Laststrom; in Takt 1 speist C2 die Last allein.
 
@@ -359,7 +359,7 @@ $$U_a = 2\,U_e - 2\,U_{F0} - \frac{I_L}{f\,C_1}$$
 
 **Woher die Faktoren kommen:** Die 2 vor $U_e$ entsteht durch das Stapeln von C1 auf die Quelle, die 2 vor $U_{F0}$ durch die beiden Dioden; $I_L/(f\,C_1)$ ist die Spannung, um die C1 sich je Periode entladen muss, um die Ladung der Last zu liefern.
 
-**Proben:** Ohne Last: 8,8 V. Mit 1 mA, 10 kHz und 1 µF: 0,1 V weniger, 8,7 V am Ende von Takt 2. Die Rechnung Takt für Takt im Zahlenwerk ergibt nach dem Einschwingen genau diesen Wert und dazu den Verlauf: In Takt 1 fällt der Ausgang um 0,05 V auf 8,65 V, beim Ausgleich springt er auf 8,725 V, im Rest von Takt 2 fällt er um 0,025 V zurück auf 8,70 V. Einheit: A durch Hz mal F ergibt V.
+**Proben:** Ohne Last: 8,8 V. Mit 1 mA, 10 kHz und 1 µF: 0,1 V weniger, 8,7 V am Ende von Takt 2. Eine Rechnung Takt für Takt ergibt nach dem Einschwingen genau diesen Wert und dazu den Verlauf: In Takt 1 fällt der Ausgang um 0,05 V auf 8,65 V, beim Ausgleich springt er auf 8,725 V, im Rest von Takt 2 fällt er um 0,025 V zurück auf 8,70 V. Einheit: A durch Hz mal F ergibt V.
 
 **Grenzen:** Sind die Zeitkonstanten nicht kurz gegen einen Takt, gleichen sich die Kondensatoren nicht vollständig aus, und der Ausgang sinkt weiter; mit den 10 Ω des Beispiels liegt er im Mittel bei 8,68 statt 8,69 V. Reale Dioden haben bei kleinen Strömen kleinere Durchlassspannungen als 0,6 V.
 :::
@@ -404,7 +404,7 @@ Je Periode fließen 100 nC zur Last. Die Quelle liefert diese Ladung zweimal: in
 Das liegt nahe, weil am Ausgang fast die doppelte Spannung anliegt. Die Quelle liefert aber auch den doppelten Strom: Jede Ladung, die zur Last fließt, kommt zweimal aus ihr, einmal beim Laden von C1 und einmal beim Umladen nach C2. Im Beispiel stehen 10 mW aus der Quelle 8,69 mW an der Last gegenüber; der Rest wird in den Dioden und Widerständen zu Wärme.
 :::
 
-Nach demselben Schema lassen sich mehrere Stufen hintereinanderschalten (Skript, S. 171): Jede weitere stapelt einen Kondensator mehr auf, und die Leerlaufspannung wächst mit jeder Stufe um etwa die Eingangsspannung, abzüglich der Durchlassspannungen. So erzeugen Ladungspumpen in Chips die Programmierspannung von Flash-Speichern und in Hochspannungsgeräten Kilovolt aus Netzspannung.
+Nach demselben Schema lassen sich mehrere Stufen hintereinanderschalten: Jede weitere stapelt einen Kondensator mehr auf, und die Leerlaufspannung wächst mit jeder Stufe um etwa die Eingangsspannung, abzüglich der Durchlassspannungen. So erzeugen Ladungspumpen in Chips die Programmierspannung von Flash-Speichern und in Hochspannungsgeräten Kilovolt aus Netzspannung.
 
 ## Alles hängt an einem Prinzip
 
@@ -422,7 +422,7 @@ Eine Diode lässt Strom nur in eine Richtung: Gleichrichter lenken damit beide H
 ## Bedeutung und Ausblick
 
 Die meisten Netzteile mit Transformator beginnen mit einem Brückengleichrichter und einem Ladekondensator; auch Schaltnetzteile richten die Netzspannung zuerst so gleich. Ladungspumpen versorgen Schnittstellenbausteine mit Hilfsspannungen und erzeugen in Speicherchips die Programmierspannung.
-Die geglättete Spannung schwankt noch mit der Last und dem Netz; wie man sie mit einer Z-Diode und einem Transistor stabilisiert, behandelt das Skript in Kapitel 11.6 (S. 192; der Verweis auf S. 170 nennt versehentlich 11.5), die Grundlage dafür der Artikel [Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html).
+Die geglättete Spannung schwankt noch mit der Last und dem Netz; wie man sie mit einer Z-Diode und einem Transistor stabilisiert, zeigt der Artikel [Der Transistor als Verstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/transistor-als-verstaerker.html), die Grundlage dafür der Artikel [Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html).
 Der nächste Artikel, [Aufbau und Wirkungsweise des Bipolartransistors](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html), setzt zwei pn-Übergänge zu einem Verstärker zusammen.
 
 :::kern
@@ -438,7 +438,7 @@ Der nächste Artikel, [Aufbau und Wirkungsweise des Bipolartransistors](/wissen/
 F: Warum fließt der Strom in der Brückenschaltung in beiden Halbwellen in derselben Richtung durch die Last?
 A: In der positiven Halbwelle leiten D1 und D3, in der negativen D2 und D4. Beide Paare führen den Strom zum selben Ende der Last, die Brücke kehrt die Polung der negativen Halbwelle um.
 F: Warum ist die Spitze am Ausgang der Brücke 1,2 V kleiner als die Spitze am Eingang?
-A: In jedem Strompfad liegen zwei leitende Dioden in Reihe, jede mit 0,6 V im Modell des Skripts. Aus 10 V werden 8,8 V.
+A: In jedem Strompfad liegen zwei leitende Dioden in Reihe, jede mit 0,6 V im Modell mit Durchlassspannung. Aus 10 V werden 8,8 V.
 F: Stimmt es, dass hinter einem Brückengleichrichter ohne Kondensator eine Gleichspannung liegt?
 A: Nein. Die Spannung wechselt ihr Vorzeichen nicht mehr, pulsiert aber zwischen null und 8,8 V im Takt von 100 Hz; ihr Mittelwert liegt bei 5,21 V.
 F: Welchen Mittelwert hat eine doppelweg gleichgerichtete Sinusspannung mit 10 V Scheitelwert bei idealen Dioden?

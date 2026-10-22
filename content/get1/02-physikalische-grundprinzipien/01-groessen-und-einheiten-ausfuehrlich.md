@@ -30,7 +30,7 @@ Szene: get1/grundprinzipien/01-zahlenwert-einheit · Vorlage: schema
 **Abbildung 2:** Die Netzspannung $U$ als Produkt aus Zahlenwert und Einheit: 230 mal 1 V. Darunter dieselbe Spannung in zwei anderen Schreibweisen, 0,23 mal 1 kV und 230 000 mal 1 mV; Pfeile zeigen, dass der Zahlenwert um den Faktor 1000 kleiner bzw. größer wird, wenn die Einheit um denselben Faktor größer bzw. kleiner wird. Zahlenwert und Einheit ändern sich gegenläufig, die Größe bleibt dieselbe.
 :::
 
-Eine __physikalische Größe__ ist eine messbare Eigenschaft eines Körpers oder Vorgangs, etwa eine Länge, eine Masse oder eine Spannung. Messbar heißt: Man vergleicht sie mit einer festgelegten Vergleichsgröße, der __Einheit__, und gibt an, wie oft diese hineinpasst. Zwei Messgeräte zeigen an derselben Steckdose 230 V, gleich wer misst; ein Urteil wie „ziemlich viel Spannung“ hängt dagegen vom Beobachter ab. Eine physikalische Größe ist deshalb quantitativ und objektiv (Skript S. 3).
+Eine __physikalische Größe__ ist eine messbare Eigenschaft eines Körpers oder Vorgangs, etwa eine Länge, eine Masse oder eine Spannung. Messbar heißt: Man vergleicht sie mit einer festgelegten Vergleichsgröße, der __Einheit__, und gibt an, wie oft diese hineinpasst. Zwei Messgeräte zeigen an derselben Steckdose 230 V, gleich wer misst; ein Urteil wie „ziemlich viel Spannung“ hängt dagegen vom Beobachter ab. Eine physikalische Größe ist deshalb quantitativ und objektiv.
 
 **Die Akteure:**
 
@@ -60,7 +60,7 @@ $$U = 230\cdot 1000\ \mathrm{mV} = 230\,000\ \mathrm{mV}$$
 **Einordnung:** In allen drei Schreibweisen ist das Produkt aus Zahlenwert und Einheit gleich; welche man wählt, ist eine Frage der Lesbarkeit. Für eine Steckdose ist 230 V üblich, für Hochspannungsleitungen kV, für Sensorsignale mV.
 ::::
 
-Die Physik sucht Gesetzmäßigkeiten zwischen solchen Größen, etwa das Ohmsche Gesetz, nach dem die Spannung an einem Widerstand das Produkt aus Widerstand und Strom ist; die Ingenieurwissenschaften wenden sie an, in Bauelementen, Schaltungen und Kraftwerken (Skript S. 3). Jede Größe hat ein festes __Formelzeichen__, einen Buchstaben, der für sie steht. Die wichtigsten des ersten Semesters:
+Die Physik sucht Gesetzmäßigkeiten zwischen solchen Größen, etwa das Ohmsche Gesetz, nach dem die Spannung an einem Widerstand das Produkt aus Widerstand und Strom ist; die Ingenieurwissenschaften wenden sie an, in Bauelementen, Schaltungen und Kraftwerken. Jede Größe hat ein festes __Formelzeichen__, einen Buchstaben, der für sie steht. Die wichtigsten des ersten Semesters:
 
 | Gebiet | Größe und Formel­zeichen |
 |---|---|
@@ -68,13 +68,13 @@ Die Physik sucht Gesetzmäßigkeiten zwischen solchen Größen, etwa das Ohmsche
 | Elektrizitätslehre | Ladung $Q$, Strom $I$, Span­nung $U$, Feldstärke $E$, Wider­stand $R$ |
 | Wärmelehre | Tempe­ratur $T$, Wärmemenge $Q$, Entropie $S$ |
 
-Dasselbe Zeichen steht manchmal für zwei Größen: $Q$ für die Ladung und für die Wärmemenge (Skript Tabelle 2.1). Was gemeint ist, sagt der Zusammenhang; in der Elektrotechnik ist $Q$ fast immer die Ladung.
+Dasselbe Zeichen steht manchmal für zwei Größen: $Q$ für die Ladung und für die Wärmemenge. Was gemeint ist, sagt der Zusammenhang; in der Elektrotechnik ist $Q$ fast immer die Ladung.
 
 ## Basisgrößen und Basiseinheiten des SI
 
 *Aus welchen Grundbausteinen sind alle Einheiten gebaut, und wie sind diese festgelegt?*
 
-Das __Internationale Einheitensystem__ (Système international d'unités, SI) teilt die Größen in sieben __Basisgrößen__ und alle übrigen, die __abgeleiteten Größen__. Im SI gelten die Basisgrößen als voneinander unabhängig: Keine wird durch die anderen ausgedrückt, und jede abgeleitete Größe lässt sich auf sie zurückführen (Skript S. 4). Das ist eine Festlegung; ältere Einheitensysteme kamen mit weniger Basisgrößen aus (Frage-Kasten unten).
+Das __Internationale Einheitensystem__ (Système international d'unités, SI) teilt die Größen in sieben __Basisgrößen__ und alle übrigen, die __abgeleiteten Größen__. Im SI gelten die Basisgrößen als voneinander unabhängig: Keine wird durch die anderen ausgedrückt, und jede abgeleitete Größe lässt sich auf sie zurückführen. Das ist eine Festlegung; ältere Einheitensysteme kamen mit weniger Basisgrößen aus (Frage-Kasten unten).
 
 | Basis­größe | Formel­zeichen | Einheit | Zeichen |
 |---|---|---|---|
@@ -91,7 +91,7 @@ Szene: get1/grundprinzipien/01-si-konstanten · Vorlage: blockschaltbild
 **Abbildung 3:** Die sieben definierenden Konstanten des SI mit ihren seit 2019 exakt festgelegten Werten und Pfeilen zu den Basiseinheiten, die sie festlegen: Cäsium-Frequenz 9 192 631 770 Hz → Sekunde; Lichtgeschwindigkeit 299 792 458 m/s → Meter (mit der Sekunde); Planck-Konstante 6,626 070 15·10⁻³⁴ J s → Kilogramm (mit Meter und Sekunde); Elementarladung 1,602 176 634·10⁻¹⁹ C → Ampere (mit der Sekunde); Boltzmann-Konstante 1,380 649·10⁻²³ J/K → Kelvin (mit Kilogramm, Meter und Sekunde); Avogadro-Konstante 6,022 140 76·10²³ /mol → Mol; photometrisches Strahlungsäquivalent für Licht der Frequenz 540·10¹² Hz, 683 lm/W → Candela (mit Kilogramm, Meter und Sekunde). Die Einheiten hängen an exakt festgelegten Konstanten, nicht mehr an Gegenständen.
 :::
 
-Wie groß eine Einheit ist, muss irgendwo festgelegt sein. Konkret: Die Sekunde ist die Dauer von genau 9 192 631 770 Schwingungen einer bestimmten Strahlung des Atoms Cäsium-133; das Meter ist die Strecke, die Licht im Vakuum in genau 1/299 792 458 Sekunde zurücklegt, 3,34 ns; ein Ampere ist ein Strom, bei dem je Sekunde genau 1/(1,602 176 634·10⁻¹⁹) __Elementarladungen__ fließen, rund 6,24·10¹⁸; die Elementarladung, der Betrag der Ladung eines Elektrons, ist dafür auf genau 1,602 176 634·10⁻¹⁹ A s festgelegt. Eine Amperesekunde heißt Coulomb, C, die Einheit der Ladung. Seit dem 20. Mai 2019 sind alle sieben Basiseinheiten so über sieben __definierende Konstanten__ festgelegt, deren Zahlenwerte vereinbart sind und nicht mehr gemessen werden (Abbildung 3); dabei greifen die Definitionen ineinander, das Kilogramm etwa braucht zusätzlich Meter und Sekunde. Vorher hing das Kilogramm an einem Metallzylinder in Sèvres bei Paris und das Ampere an der Kraft zwischen zwei stromdurchflossenen Drähten. Das Skript nennt die Definitionen nicht endgültig; sie würden mit der Messtechnik weiterentwickelt (S. 4). Gemeint sind die Definitionen der Einheiten, nicht der Größen. Seit 2019 werden vor allem die Verfahren verbessert, mit denen man die Einheiten verwirklicht; die Definitionen selbst ändern sich nur noch selten, als nächste ist eine neue Definition der Sekunde über optische Atomuhren in Vorbereitung.
+Wie groß eine Einheit ist, muss irgendwo festgelegt sein. Konkret: Die Sekunde ist die Dauer von genau 9 192 631 770 Schwingungen einer bestimmten Strahlung des Atoms Cäsium-133; das Meter ist die Strecke, die Licht im Vakuum in genau 1/299 792 458 Sekunde zurücklegt, 3,34 ns; ein Ampere ist ein Strom, bei dem je Sekunde genau 1/(1,602 176 634·10⁻¹⁹) __Elementarladungen__ fließen, rund 6,24·10¹⁸; die Elementarladung, der Betrag der Ladung eines Elektrons, ist dafür auf genau 1,602 176 634·10⁻¹⁹ A s festgelegt. Eine Amperesekunde heißt Coulomb, C, die Einheit der Ladung. Seit dem 20. Mai 2019 sind alle sieben Basiseinheiten so über sieben __definierende Konstanten__ festgelegt, deren Zahlenwerte vereinbart sind und nicht mehr gemessen werden (Abbildung 3); dabei greifen die Definitionen ineinander, das Kilogramm etwa braucht zusätzlich Meter und Sekunde. Vorher hing das Kilogramm an einem Metallzylinder in Sèvres bei Paris und das Ampere an der Kraft zwischen zwei stromdurchflossenen Drähten. Endgültig sind die Definitionen der Einheiten auch heute nicht; sie werden mit der Messtechnik weiterentwickelt. Seit 2019 werden vor allem die Verfahren verbessert, mit denen man die Einheiten verwirklicht; die Definitionen selbst ändern sich nur noch selten, als nächste ist eine neue Definition der Sekunde über optische Atomuhren in Vorbereitung.
 
 ::::beispiel Wie viele Elektronen sind ein Strom?
 **Gegeben:** Elementarladung $e$ = 1,602 176 634·10⁻¹⁹ C (exakt); Ströme 1 A, 20 mA (eine Leuchtdiode), 80 nA (Eingangsruhestrom eines Operationsverstärkers), 1 pA.
@@ -123,7 +123,7 @@ Bis dahin war das Kilogramm die Masse eines Platin-Iridium-Zylinders in Sèvres.
 
 *Wie entstehen Einheiten wie Newton, Volt oder Ohm aus den Basiseinheiten?*
 
-Ein Körper von 1 kg, der in jeder Sekunde um 1 m/s schneller wird, erfährt insgesamt eine Kraft von einem __Newton__. Weil Kraft Masse mal Beschleunigung ist, ist das Newton Kilogramm mal Meter durch Sekunde zum Quadrat. So entsteht jede abgeleitete Einheit aus der Gleichung, die ihre Größe festlegt, und viele bekommen einen eigenen Namen (Skript S. 4). Abbildung 1 zeigt die Kette von der Mechanik zur Elektrotechnik:
+Ein Körper von 1 kg, der in jeder Sekunde um 1 m/s schneller wird, erfährt insgesamt eine Kraft von einem __Newton__. Weil Kraft Masse mal Beschleunigung ist, ist das Newton Kilogramm mal Meter durch Sekunde zum Quadrat. So entsteht jede abgeleitete Einheit aus der Gleichung, die ihre Größe festlegt, und viele bekommen einen eigenen Namen. Abbildung 1 zeigt die Kette von der Mechanik zur Elektrotechnik:
 
 | Größe | Einheit | in Basis­einheiten und anderen SI-Ein­heiten |
 |---|---|---|
@@ -139,7 +139,7 @@ Ein Körper von 1 kg, der in jeder Sekunde um 1 m/s schneller wird, erfährt ins
 | magne­tischer Fluss $\Phi$ | Weber, Wb | kg m² s⁻² A⁻¹ = V s |
 | magne­tische Fluss­dichte $B$ | Tesla, T | kg s⁻² A⁻¹ = V s/m² |
 
-Das Skript schreibt den magnetischen Fluss mit $\phi$ und nennt die Flussdichte „magnetische Induktion“ (Tabelle 2.3); üblich sind heute $\Phi$ und „Flussdichte“. Wie jede dieser Zeilen entsteht, zeigt das Volt.
+Für die Flussdichte ist auch der Name „magnetische Induktion“ üblich. Wie jede dieser Zeilen entsteht, zeigt das Volt.
 
 :::formel Formel
 $$1\ \mathrm{V} = 1\ \frac{\mathrm{W}}{\mathrm{A}} = 1\ \frac{\mathrm{kg}\,\mathrm{m}^2}{\mathrm{s}^3\,\mathrm{A}}$$
@@ -202,7 +202,7 @@ In Basiseinheiten ist ein Volt je Ampere kg m² s⁻³ A⁻².
 ::::
 
 :::fehlvorstellung
-„Haben zwei Größen dieselben Basiseinheiten, sind sie dieselbe Größe.“ Das liegt nahe, weil die Einheitenkontrolle sonst so zuverlässig ist. Das Hertz der Frequenz und das Becquerel der radioaktiven Aktivität sind aber beide eine durch Sekunde, und das Newtonmeter des Drehmoments hat dieselben Basiseinheiten wie das Joule der Energie, kg m² s⁻². Ein Drehmoment ist trotzdem keine Energie: Beim Drehmoment steht die Kraft senkrecht zum Hebelarm, bei der Arbeit wirkt sie längs des Weges (Abschnitt *Arbeit*). Deshalb schreibt man N m für Drehmomente und J für Energien, Hz nur für periodische Vorgänge und Bq nur für Zerfälle. Das Skript nennt N m auch als Energieeinheit der Mechanik (S. 9). Rechnerisch ist das richtig, 1 J = 1 N m; damit beide Größen unterscheidbar bleiben, schreibt die SI-Broschüre Energien in J und verwendet das Joule nie für Drehmomente.
+„Haben zwei Größen dieselben Basiseinheiten, sind sie dieselbe Größe.“ Das liegt nahe, weil die Einheitenkontrolle sonst so zuverlässig ist. Das Hertz der Frequenz und das Becquerel der radioaktiven Aktivität sind aber beide eine durch Sekunde, und das Newtonmeter des Drehmoments hat dieselben Basiseinheiten wie das Joule der Energie, kg m² s⁻². Ein Drehmoment ist trotzdem keine Energie: Beim Drehmoment steht die Kraft senkrecht zum Hebelarm, bei der Arbeit wirkt sie längs des Weges (Abschnitt *Arbeit*). Deshalb schreibt man N m für Drehmomente und J für Energien, Hz nur für periodische Vorgänge und Bq nur für Zerfälle. In der Mechanik steht N m manchmal auch für Energien; rechnerisch ist das richtig, 1 J = 1 N m. Damit beide Größen unterscheidbar bleiben, schreibt die SI-Broschüre Energien in J und verwendet das Joule nie für Drehmomente.
 :::
 
 ## Einheitenvorsätze
@@ -231,7 +231,7 @@ Ein Operationsverstärker vom Typ 741 nimmt an jedem Eingang typisch 0,000 000
 | Ronto r | 10⁻²⁷ | Ronna R | 10²⁷ |
 | Quekto q | 10⁻³⁰ | Quetta Q | 10³⁰ |
 
-Das Skript führt die Vorsätze von Atto bis Exa auf (Tabelle 2.4). Zepto, Zetta, Yokto und Yotta kamen 1991 hinzu, Ronto, Ronna, Quekto und Quetta 2022, vor allem weil die Datenmengen der Informationstechnik an die Grenze der alten Vorsätze stießen. Für ihren Gebrauch gelten wenige Regeln (Skript S. 5):
+Zepto, Zetta, Yokto und Yotta kamen 1991 hinzu, Ronto, Ronna, Quekto und Quetta 2022, vor allem weil die Datenmengen der Informationstechnik an die Grenze der alten Vorsätze stießen. Für ihren Gebrauch gelten wenige Regeln:
 
 - Vorsätze für Teile werden klein geschrieben, für Vielfache ab Mega groß; Deka, Hekto und Kilo sind aus historischen Gründen klein.
 - Vor einer Einheit steht höchstens ein Vorsatz: 1 nF, nicht 1 mµF.
@@ -252,7 +252,7 @@ Weil bei Vorsätzen die Groß- und Kleinschreibung Bedeutung trägt: m ist Milli
 
 *Wie rechnet man mit Größen, und wie verraten Einheiten einen Rechenfehler?*
 
-Weil eine Größe ein Produkt aus Zahlenwert und Einheit ist, sind Einheiten und Vorsätze Faktoren, und man rechnet mit ihnen nach den gewohnten Regeln für Produkte (Skript S. 9–10).
+Weil eine Größe ein Produkt aus Zahlenwert und Einheit ist, sind Einheiten und Vorsätze Faktoren, und man rechnet mit ihnen nach den gewohnten Regeln für Produkte.
 
 **Das Zusammenspiel in Schritten:**
 
@@ -379,7 +379,7 @@ $$v = \frac{ds}{dt}$$
 $$a = \frac{dv}{dt} = \frac{d^2 s}{dt^2}$$
 :::
 
-Man definiert die Geschwindigkeit als Grenzwert, weil nur er angibt, wie schnell sich der Ort in einem Augenblick ändert; der Quotient über ein endliches Zeitstück ist ein Mittelwert (Skript S. 5–6). Die Beschleunigung ist die zweite Ableitung des Orts; im Skript fehlt dabei im Nenner das Quadrat (Bild 2.2, „d²s/dt“). Dass die Zeit zweimal im Nenner steht, zeigt die Einheit m/s².
+Man definiert die Geschwindigkeit als Grenzwert, weil nur er angibt, wie schnell sich der Ort in einem Augenblick ändert; der Quotient über ein endliches Zeitstück ist ein Mittelwert. Die Beschleunigung ist die zweite Ableitung des Orts. Dass die Zeit zweimal im Nenner steht, zeigt die Einheit m/s².
 
 **Kurz gesagt:** Die Geschwindigkeit ist die Steigung des Orts, die Beschleunigung die Steigung der Geschwindigkeit, und die Änderung des Orts ist die Fläche unter der Geschwindigkeit (Flächen unter der Zeitachse zählen negativ). Die Einheit einer Steigung ist die Einheit der senkrechten Achse durch die der waagrechten, die Einheit einer Fläche ihr Produkt.
 
@@ -446,7 +446,7 @@ $$s = \tfrac{1}{2}\cdot 4{,}63\ \frac{\mathrm{m}}{\mathrm{s}^2}\cdot(6{,}0\ \mat
 **Variation:** Ein Smartphone, das aus 1,5 m Höhe fällt, beschleunigt mit 9,81 m/s² und braucht ohne Luftwiderstand 0,553 s bis zum Boden; es trifft mit 5,42 m/s auf, rund 19,5 km/h.
 ::::
 
-Das Skript schreibt den Weg als zweifaches Integral mit der festen oberen Grenze $t_1$ auch im inneren Integral (S. 6 und 7). Wörtlich genommen wäre das innere Integral dann eine feste Zahl, und für konstante Beschleunigung ergäbe sich $a\,(t_1 - t_0)^2$ statt $\tfrac{1}{2}\,a\,(t_1 - t_0)^2$, beim E-Auto mit $t_0$ = 0 also 166,7 m statt 83,3 m. Die innere Grenze muss die laufende Zeit sein, wie in Schritt 2 des Herleitungskastens; im eigenen Rechenbeispiel rechnet das Skript richtig mit ½ a t². Außerdem nennt es die Summe mit dem Anfangsort $s_0$ „Δs“ (S. 7); mit $s_0$ ist das der Ort zur Zeit $t_1$, nicht seine Änderung.
+Ein häufiger Fehler ist, den Weg von $t_0$ bis $t_1$ als zweifaches Integral mit der festen oberen Grenze $t_1$ auch im inneren Integral zu schreiben. Das innere Integral wäre dann eine feste Zahl, und für konstante Beschleunigung ergäbe sich $a\,(t_1 - t_0)^2$ statt $\tfrac{1}{2}\,a\,(t_1 - t_0)^2$, beim E-Auto mit $t_0$ = 0 also 166,7 m statt 83,3 m. Die innere Grenze muss die laufende Zeit sein, wie in Schritt 2 des Herleitungskastens. Zählt man den Anfangsort $s_0$ hinzu, erhält man den Ort zur Zeit $t_1$, nicht seine Änderung Δs.
 
 :::fehlvorstellung
 „Geschwindigkeit ist Weg durch Zeit.“ Das liegt nahe, weil man sie so in der Schule kennenlernt, und für eine gleichförmige Bewegung stimmt es. Ändert sich die Geschwindigkeit, ist Weg durch Zeit nur ihr Mittelwert über das Zeitstück, beim E-Auto 13,9 m/s, während es am Ende doppelt so schnell fährt (Schritt 1). Die Geschwindigkeit in einem Augenblick ist der Grenzwert für immer kürzere Zeitstücke, die Ableitung (Schritt 3).
@@ -465,15 +465,15 @@ Das Skript schreibt den Weg als zweifaches Integral mit der festen oberen Grenze
 - __$M$__, __$r$__: Masse eines zweiten Körpers und Abstand der beiden Körper. Für punktförmige und kugelsymmetrische Körper ist $r$ der Abstand ihrer Mittelpunkte; für andere Formen gilt das Gesetz nur, wenn der Abstand groß gegen ihre Ausdehnung ist.
 - __$\gamma$__: Gravitationskonstante; 6,674·10⁻¹¹ m³/(kg s²).
 
-Eine Kraft verformt einen festgehaltenen Körper oder beschleunigt einen beweglichen (Skript S. 8). Ein Körper von 1 kg, den man ohne Luftwiderstand fallen lässt, wird in jeder Sekunde um 9,81 m/s schneller; die Schwerkraft auf ihn beträgt deshalb 9,81 N, auf den Koffer von 20 kg 196,2 N.
+Eine Kraft verformt einen festgehaltenen Körper oder beschleunigt einen beweglichen. Ein Körper von 1 kg, den man ohne Luftwiderstand fallen lässt, wird in jeder Sekunde um 9,81 m/s schneller; die Schwerkraft auf ihn beträgt deshalb 9,81 N, auf den Koffer von 20 kg 196,2 N.
 
 :::formel Definition
 $$\sum \vec F = m\,\vec a$$
 :::
 
-Newtons zweites Gesetz lässt sich als Festlegung der Kraft lesen: Eine Kraft ist, was eine Masse beschleunigt, und ihre Größe misst man an der Beschleunigung, die sie einer bekannten Masse erteilt. Die resultierende Kraft und die Beschleunigung zeigen in dieselbe Richtung. Hebt die Hand den Koffer gleichmäßig, heben sich Handkraft und Gewichtskraft auf, und die Beschleunigung ist null. Das Gesetz gilt so für Körper mit fester Masse, beobachtet von einem nicht beschleunigten Standpunkt aus. Das Skript schreibt es ohne Pfeile und ohne Summe, für die Beträge einer einzelnen Kraft. Die Kraft, mit der die Erde einen Körper anzieht, heißt __Gewichtskraft__; ihr Betrag ist $m g$.
+Newtons zweites Gesetz lässt sich als Festlegung der Kraft lesen: Eine Kraft ist, was eine Masse beschleunigt, und ihre Größe misst man an der Beschleunigung, die sie einer bekannten Masse erteilt. Die resultierende Kraft und die Beschleunigung zeigen in dieselbe Richtung. Hebt die Hand den Koffer gleichmäßig, heben sich Handkraft und Gewichtskraft auf, und die Beschleunigung ist null. Das Gesetz gilt so für Körper mit fester Masse, beobachtet von einem nicht beschleunigten Standpunkt aus. Üblich ist auch die Schreibweise ohne Pfeile und ohne Summe, für die Beträge einer einzelnen Kraft. Die Kraft, mit der die Erde einen Körper anzieht, heißt __Gewichtskraft__; ihr Betrag ist $m g$.
 
-Woher die Schwerkraft kommt, sagt das __Gravitationsgesetz__: Zwei Massen ziehen einander an (Skript S. 8).
+Woher die Schwerkraft kommt, sagt das __Gravitationsgesetz__: Zwei Massen ziehen einander an.
 
 :::formel Gesetz
 $$F = \gamma\,\frac{m\,M}{r^2}$$
@@ -548,7 +548,7 @@ Szene: get1/grundprinzipien/01-arbeit · Vorlage: schema-zustaende
 
 **Das Zusammenspiel in Schritten** (Abbildung 6):
 
-**Schritt 1**: Wird der Koffer 3 m senkrecht hochgehoben, wirkt die Hand mit seinem Gewicht, 196,2 N, längs des Wegs; die Arbeit ist Kraft mal Weg, 588,6 J (Skript S. 8: „Arbeit ist Kraft · Weg“).
+**Schritt 1**: Wird der Koffer 3 m senkrecht hochgehoben, wirkt die Hand mit seinem Gewicht, 196,2 N, längs des Wegs; die Arbeit ist Kraft mal Weg, 588,6 J.
 
 **Schritt 2**: Wirkt die Kraft schräg zum Weg, zählt nur ihr Anteil längs des Wegs. Ein Schlitten wird mit 50 N an einer Schnur gezogen, die 30° gegen den Boden geneigt ist; längs des Bodens wirken 50 N mal cos 30°, also 43,3 N, und auf 20 m sind das 866 J (Abbildung 6b). Der Anteil senkrecht zum Boden, 25 N, trägt nichts bei: Die Arbeit der ganzen Kraft ist die Summe der Arbeiten ihrer beiden Anteile, 866 J plus 0 J.
 
@@ -567,7 +567,7 @@ Man definiert die Arbeit über das __Skalarprodukt__ zweier Vektoren, das Produk
 
 **Kurz gesagt:** Die Arbeit über den ganzen Weg ist die Summe der Arbeiten über seine Stücke. Für eine Kraft, die nur vom Ort abhängt, wie die Schwerkraft, ist die Arbeit auf demselben Weg in Gegenrichtung das Negative der Arbeit auf dem Hinweg.
 
-Das Skript schreibt die erste Zeile mit einem Betrag, $|\vec F\cdot\vec s|$ (S. 8); der Betrag ist falsch, denn er könnte nicht negativ werden, die Arbeit beim Absetzen ist es aber. In seinem Beispiel nennt das Skript 130 J eine „Änderung der Energie“ (S. 9); genauer verrichtet die Schwerkraft am Körper 130 J, und seine __potentielle Energie__, die Energie seiner Lage im Schwerefeld, nimmt um ebenso viel ab.
+Ein häufiger Fehler ist, die erste Zeile mit einem Betrag zu schreiben, $|\vec F\cdot\vec s|$; der Betrag ist falsch, denn er könnte nicht negativ werden, die Arbeit beim Absetzen ist es aber. Die Arbeit der Schwerkraft an einem Körper ist so groß wie die Abnahme seiner __potentiellen Energie__, der Energie seiner Lage im Schwerefeld.
 
 :::formel Formel
 $$W = m\,g\,h$$

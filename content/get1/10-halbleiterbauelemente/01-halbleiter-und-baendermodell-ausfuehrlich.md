@@ -2,7 +2,7 @@
 title: Halbleiter und das Bändermodell
 pfad: Elektrotechnik / 1. Semester / Grundgebiete der Elektrotechnik 1 / Halbleiterbauelemente
 order: 100100
-summary: Warum reines Silizium kaum leitet, wie Dotierung Art und Zahl der Ladungsträger festlegt und wie am pn-Übergang eine Barriere entsteht, deren Höhe die äußere Spannung verschiebt. Ausführliche Fassung mit allen Herleitungen, Hintergründen und Korrekturen zum Skript.
+summary: Warum reines Silizium kaum leitet, wie Dotierung Art und Zahl der Ladungsträger festlegt und wie am pn-Übergang eine Barriere entsteht, deren Höhe die äußere Spannung verschiebt. Ausführliche Fassung mit allen Herleitungen und Hintergründen.
 tags: Halbleiter, Bändermodell, Bandlücke, Eigenleitung, Loch, Fermi-Niveau, Dotierung, pn-Übergang, Raumladungszone, Diffusionsspannung
 stil: 3
 fassung: ausfuehrlich
@@ -30,15 +30,14 @@ Szene: get1/halbleiterbauelemente/01-einweggleichrichter · Vorlage: schaltung-u
 **Abbildung 2:** Einweggleichrichter mit Wechselspannungsquelle (Scheitelwert 10 V, 50 Hz), Diode D und Widerstand R = 1 kΩ; Verläufe berechnet mit der idealen Beispieldiode dieses Artikels. Nur die positiven Halbwellen erreichen den Widerstand; an der Diode gehen dabei rund 0,7 V verloren.
 :::
 
-Abbildung 2 zeigt die einfachste Schaltung dafür, den __Einweggleichrichter__ aus dem Skript.
+Abbildung 2 zeigt die einfachste Schaltung dafür, den __Einweggleichrichter__.
 Während der positiven Halbwelle lässt die Diode Strom durch, und am Widerstand liegt fast die ganze Quellenspannung an; die Spitze erreicht im idealen Modell der Beispieldiode 9,3 V.
 Während der negativen Halbwelle sperrt die Diode, und die Ausgangsspannung bleibt null.
 Übrig bleibt eine pulsierende Spannung mit nur einer Polarität, die ein Kondensator anschließend glättet ([Gleichrichtung und Ladungspumpe](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/gleichrichtung-und-ladungspumpe.html)).
 
 Ein Widerstand oder ein Draht kann das nicht, denn bei ihnen ist der Strom proportional zur Spannung, in beiden Richtungen gleich.
 Gebraucht wird ein Bauteil, dessen Leitfähigkeit vom Vorzeichen der Spannung abhängt.
-Das Skript formuliert die Bedingung als „nur positive Spannungen ($\hat U_E > 0$) führen zu einem Stromfluss“ (S. 159).
-Gemeint ist der Augenblickswert $u_E(t)$; der Scheitelwert $\hat U_E$ ist eine feste Zahl, hier 10 V.
+Die Bedingung betrifft den Augenblickswert: Nur bei $u_E(t) > 0$ soll Strom fließen; der Scheitelwert $\hat U_E$ ist eine feste Zahl, hier 10 V.
 
 ## Vom Atom zum Kristall: Energiebänder
 
@@ -107,7 +106,7 @@ Leiten kann nur ein **teilweise besetztes Band**.
 
 Damit unterscheiden sich die drei Stoffklassen in Abbildung 3:
 
-- **Metall:** Das oberste besetzte Band ist nur teilweise gefüllt, bei Kupfer etwa zur Hälfte, weil jedes Atom ein Valenzelektron beisteuert. Direkt über den besetzten Zuständen liegen freie; alle 8,5·10²² Valenzelektronen pro cm³ sind beweglich. Das Skript beschreibt Metalle mit „$W_g = 0$“ (S. 160); das trifft auf Metalle mit überlappenden Bändern zu (Magnesium), bei Kupfer ist ein Band nur halb voll. Entscheidend ist in beiden Fällen das teilweise besetzte Band.
+- **Metall:** Das oberste besetzte Band ist nur teilweise gefüllt, bei Kupfer etwa zur Hälfte, weil jedes Atom ein Valenzelektron beisteuert. Direkt über den besetzten Zuständen liegen freie; alle 8,5·10²² Valenzelektronen pro cm³ sind beweglich. Oft beschreibt man Metalle mit $W_g = 0$; das trifft auf Metalle mit überlappenden Bändern zu (Magnesium), bei Kupfer ist ein Band nur halb voll. Entscheidend ist in beiden Fällen das teilweise besetzte Band.
 - **Halbleiter:** Am absoluten Nullpunkt ist das Valenzband voll und das Leitungsband leer; Silizium wäre dann ein Isolator. Bei 300 K hebt die Wärmebewegung einige Elektronen über die Lücke. Die typische thermische Energie $k_B T$ ($k_B$ ist die Boltzmann-Konstante) beträgt 25,85 meV, die Lücke ist 43-mal größer; deshalb gelingt das nur selten. Danach sind beide Bänder ein wenig teilweise besetzt: oben einige Elektronen, unten ebenso viele freie Plätze. Beide Bänder leiten, aber schwach.
 - **Isolator:** Siliziumdioxid hat eine Lücke von etwa 9 eV, 350-mal $k_B T$. Praktisch kein Elektron gelangt hinüber.
 
@@ -120,7 +119,7 @@ Der Unterschied zwischen Halbleiter und Isolator liegt also nur in der Breite de
 | Galliumarsenid | 1,42 eV | 2·10⁶ pro cm³ |
 | Siliziumdioxid | etwa 9 eV | praktisch keine |
 
-Das Skript zählt die Halbleiter zu den Isolatoren mit kleiner Bandlücke (S. 160); im Bänderbild ist das die übliche Einteilung, denn bei $T = 0$ leiten sie nicht.
+Im Bänderbild zählt man die Halbleiter oft zu den Isolatoren mit kleiner Bandlücke, denn bei $T = 0$ leiten sie nicht.
 Bei Raumtemperatur trennen sie aber viele Zehnerpotenzen: Reines Silizium hat einen spezifischen Widerstand von 3·10⁵ Ωcm, Siliziumdioxid über 10¹⁴ Ωcm.
 
 ## Elektronen und Löcher
@@ -143,7 +142,7 @@ Gelegentlich sammelt die Wärmebewegung des Gitters so viel Energie an einer Ste
 Im Bändermodell springt es dabei vom Valenz- ins Leitungsband.
 Der Vorgang heißt __Generation__ und erzeugt immer ein Paar: ein freies Elektron und eine Bindung mit nur einem Elektron, eine Lücke im Valenzband.
 Auch Licht kann Paare erzeugen, wenn seine Lichtquanten mehr als 1,12 eV tragen.
-Das Skript nennt als dritte Anregung die elektrische Spannung (S. 160); gewöhnliche Spannungen erzeugen aber keine Ladungsträger, sie bewegen vorhandene.
+Eine gewöhnliche elektrische Spannung erzeugt dagegen keine Ladungsträger, sie bewegt vorhandene.
 Erst Felder von einigen 10⁵ V/cm erzeugen Paare, beim Durchbruch einer Diode ([Folgeartikel](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html)).
 
 Die Lücke bleibt nicht an ihrem Platz (Abbildung 5).
@@ -186,7 +185,7 @@ Szene: get1/halbleiterbauelemente/01-fermi-verteilung · Vorlage: funktionsgraph
 - __$k_B T$__: thermische Energie, 25,85 meV bei 300 K. Sie bestimmt, wie stark die Wärme die Besetzung verschmiert.
 
 **Das Zusammenspiel:** Am absoluten Nullpunkt besetzen die Elektronen die Zustände von unten her, jeden mit genau einem Elektron, bis alle untergebracht sind.
-Die Grenze zwischen voll und leer heißt Fermi-Niveau; so führt das Skript es ein (S. 160).
+Die Grenze zwischen voll und leer heißt Fermi-Niveau.
 Bei endlicher Temperatur stößt die Wärmebewegung einige Elektronen in Zustände oberhalb dieser Grenze, und darunter bleiben dafür Plätze frei.
 Die scharfe Kante verschmiert über einige $k_B T$ (Abbildung 6 a).
 Das Fermi-Niveau ist dann die Energie, bei der ein Zustand, falls es dort einen gibt, zur Hälfte wahrscheinlich besetzt ist.
@@ -212,7 +211,7 @@ Idee der Herleitung: Man sucht die Verteilung, die bei fester Gesamtenergie und 
 
 **Beweisidee:** Man zählt, auf wie viele Arten sich die Elektronen auf Gruppen gleich energiereicher Zustände verteilen lassen. Dann sucht man das Maximum dieser Zahl unter den Nebenbedingungen „feste Elektronenzahl“ und „feste Gesamtenergie“. Die Nebenbedingungen gehen über zwei Lagrange-Multiplikatoren ein; einer erweist sich als $1/(k_B T)$, der andere als $-W_F/(k_B T)$. Das Pauli-Prinzip erzeugt die „+1“ im Nenner. Wo die Besetzung klein ist, spielt sie keine Rolle mehr, und es bleibt die Boltzmann-Verteilung der klassischen Physik.
 
-**Hinweis:** Die vollständige Rechnung gehört zur statistischen Physik und geht über den Rahmen von ET1 hinaus. Sie steht in jedem Lehrbuch der Festkörperphysik.
+**Hinweis:** Die vollständige Rechnung gehört zur statistischen Physik und geht über den Rahmen dieses Artikels hinaus. Sie steht in jedem Lehrbuch der Festkörperphysik.
 
 **Proben:** Weit unterhalb von $W_F$ geht $f$ gegen 1, weit oberhalb gegen 0, und bei $W_F$ ist $f$ genau 1/2. Die Verteilung ist symmetrisch um $W_F$:
 
@@ -220,7 +219,7 @@ $$f(W_F + \Delta W) = 1 - f(W_F - \Delta W)$$
 
 Ein Zustand $\Delta W$ oberhalb von $W_F$ ist also genau so wahrscheinlich besetzt, wie einer $\Delta W$ unterhalb leer ist.
 
-**Grenzen:** Gilt nur im thermischen Gleichgewicht. Fließt Strom, beschreibt man Elektronen und Löcher mit getrennten Verteilungen; das ist Stoff von GEMB.
+**Grenzen:** Gilt nur im thermischen Gleichgewicht. Fließt Strom, beschreibt man Elektronen und Löcher mit getrennten Verteilungen; das zeigt der Artikel über den [pn-Übergang unter Spannung](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/bauelemente/diode-pn-uebergang-spannung.html).
 :::
 
 ::::beispiel Besetzung einzelner Zustände bei 300 K
@@ -310,7 +309,7 @@ $$1 - f(W) \approx \exp\!\Big(-\frac{W_F - W}{k_B T}\Big)$$
 
 Dieselbe Rechnung von der Kante $W_V$ nach unten liefert $p$ mit $N_V$.
 
-**Hinweis:** Die Summe in Schritt 2 als Integral über die Zustandsdichte auszuwerten ($N_L \propto T^{3/2}$) gehört zu GEMB. In ET1 genügt das Ergebnis, $3{,}2\cdot10^{19}\ \mathrm{cm^{-3}}$ für Silizium bei 300 K.
+**Hinweis:** Wie man die Summe in Schritt 2 als Integral über die Zustandsdichte auswertet ($N_L \propto T^{3/2}$), zeigt der Artikel über die [Ladungsträgerdichte](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/zustandsdichte-und-fermi-verteilung/ladungstraegerdichte.html). Hier genügt das Ergebnis, $3{,}2\cdot10^{19}\ \mathrm{cm^{-3}}$ für Silizium bei 300 K.
 
 **Proben:** Einheit cm⁻³ auf beiden Seiten. Rückt $W_F$ immer weiter unter $W_L$, geht $n$ gegen null, wie es sein muss.
 
@@ -347,7 +346,7 @@ $$= 1{,}8\cdot10^{19}\ \mathrm{cm^{-3}}\cdot5{,}2\cdot10^{-10} = 9{,}4\cdot10^{9
 **Einordnung:** Gleich große Dichten verlangt die Paarbildung. Weil das Valenzband weniger effektive Plätze hat als das Leitungsband, muss das Fermi-Niveau etwas näher am Valenzband liegen, damit beide Produkte gleich werden; daher die 7 meV unter der Mitte.
 ::::
 
-Das Skript schreibt, das Fermi-Niveau sei bei undotierten Halbleitern „in der Mitte der Bandlücke definiert“ (S. 160); es ergibt sich dort aus der Bedingung $n = p$, eine Definition ist das nicht.
+Ein häufiger Fehler ist, das Fermi-Niveau undotierter Halbleiter als Mitte der Bandlücke zu definieren; es ergibt sich dort aus der Bedingung $n = p$, eine Definition ist das nicht.
 
 :::frage
 „Wie kann das Fermi-Niveau in der Bandlücke liegen, wenn es dort gar keine Zustände gibt?“
@@ -459,7 +458,7 @@ $$n_i^2 = N_L N_V \exp\!\Big(-\frac{W_g}{k_B T}\Big)$$
 
 $$n_i = \sqrt{N_L N_V}\;\exp\!\Big(-\frac{W_g}{2\,k_B T}\Big)$$
 
-**Folgerung für den Temperaturgang** (entscheidender Schritt für die Praxis): $N_L$ und $N_V$ wachsen beide wie $T^{3/2}$ (Ergebnis der Zustandsdichte-Rechnung, GEMB), ihr Produkt unter der Wurzel also wie $T^3$. Die Bandlücke nimmt mit steigender Temperatur leicht ab; um 300 K gilt in guter Näherung
+**Folgerung für den Temperaturgang** (entscheidender Schritt für die Praxis): $N_L$ und $N_V$ wachsen beide wie $T^{3/2}$ (Ergebnis der Zustandsdichte-Rechnung im Artikel über die [Ladungsträgerdichte](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/zustandsdichte-und-fermi-verteilung/ladungstraegerdichte.html)), ihr Produkt unter der Wurzel also wie $T^3$. Die Bandlücke nimmt mit steigender Temperatur leicht ab; um 300 K gilt in guter Näherung
 
 $$W_g(T) \approx W_{g0} - \alpha\,T, \qquad W_{g0} = 1{,}206\ \mathrm{eV}.$$
 
@@ -549,10 +548,7 @@ Die Rümpfe P⁺ und B⁻ sind über vier Bindungen fest ins Gitter eingebaut un
 Typische Dotierungen liegen zwischen 10¹⁵ und 10²⁰ cm⁻³, ein Fremdatom auf 5·10⁷ bis 500 Siliziumatome.
 Schon 10¹⁵ cm⁻³ sind hunderttausendmal mehr als $n_i$; die Dotierung legt die Ladungsträger deshalb vollständig fest.
 
-Drei Stellen im Skript (S. 161) sind ungenau.
-Beim Bor bleibe „ein Elektron beim Silizium-Atom übrig“, das vom Bor aufgenommen werde; genauer fehlt der Bindung zwischen Bor und einem Nachbaratom das zweite Elektron, Bor wird zu B⁻, wenn ein Elektron aus einer anderen Bindung diesen Platz füllt, und das Loch entsteht dort, wo dieses Elektron herkommt.
-Die Bindungen sind kovalent, nicht „kohärent“.
-Und „Halbmetall“ heißt Silizium nur in der Chemie; in der Festkörperphysik ist ein Halbmetall ein Stoff mit überlappenden Bändern wie Bismut.
+„Halbmetall“ heißt Silizium nur in der Chemie; in der Festkörperphysik ist ein Halbmetall ein Stoff mit überlappenden Bändern wie Bismut, und Silizium ist ein Halbleiter.
 
 :::frage
 „Warum ist das fünfte Elektron so locker gebunden, wenn ein Wasserstoffatom 13,6 eV braucht, um sein Elektron abzugeben?“
@@ -691,7 +687,7 @@ $$f(W_D) = \frac{1}{1 + \exp(0{,}164/0{,}02585)} = \frac{1}{1 + 569} = 0{,}0018$
 **Einordnung:** Das Fermi-Niveau liegt bei 300 K unter dem Donatorniveau; deshalb ist das fünfte Elektron fast nie an seinem Rumpf. Die beiden Rechenwege in (a) passen auf 1 meV zusammen: Zieht man 0,357 eV vom Abstand 0,5674 eV zwischen $W_i$ und $W_L$ ab, bleiben 0,210 eV.
 ::::
 
-Das Skript nennt das Fermi-Niveau im n-dotierten Halbleiter „wieder den höchsten besetzten Zustand“ (S. 161).
+Ein häufiger Fehler ist, das Fermi-Niveau im n-dotierten Halbleiter den höchsten besetzten Zustand zu nennen.
 Bei 300 K stimmt das nicht: $W_F$ liegt 0,21 eV unter $W_L$ und 0,16 eV unter den Donatorniveaus, an einer Stelle ohne Zustände, und darüber sind Zustände besetzt, nämlich die 10¹⁶ Elektronen pro cm³ im Leitungsband.
 
 ## Der pn-Übergang
@@ -714,7 +710,7 @@ Szene: get1/halbleiterbauelemente/01-rlz-entstehung · Vorlage: pn-uebergang-tei
 
 **Schritt 1**: Vor dem Kontakt sind beide Gebiete neutral. An der künftigen Grenze springt die Elektronendichte von 10¹⁶ auf 10⁴ cm⁻³, die Löcherdichte in Gegenrichtung ebenso.
 
-**Schritt 2**: Jedes Teilchen bewegt sich ständig zufällig. Wo mehr Teilchen sind, bewegen sich auch mehr zur dünneren Seite als umgekehrt; so entsteht ganz ohne Kraft ein Netto-Fluss vom Dichten ins Dünne, die __Diffusion__ (Fußnote im Skript, S. 161). Elektronen diffundieren ins p-Gebiet, Löcher ins n-Gebiet, und nahe der Grenze rekombinieren sie mit den Majoritätsträgern der anderen Seite.
+**Schritt 2**: Jedes Teilchen bewegt sich ständig zufällig. Wo mehr Teilchen sind, bewegen sich auch mehr zur dünneren Seite als umgekehrt; so entsteht ganz ohne Kraft ein Netto-Fluss vom Dichten ins Dünne, die __Diffusion__. Elektronen diffundieren ins p-Gebiet, Löcher ins n-Gebiet, und nahe der Grenze rekombinieren sie mit den Majoritätsträgern der anderen Seite.
 
 **Schritt 3**: Jedes Elektron, das das n-Gebiet verlässt, lässt einen P⁺-Rumpf ohne Gegenpart zurück; jedes Loch, das das p-Gebiet verlässt, einen B⁻-Rumpf. So entsteht eine Schicht positiver Ladung auf der n-Seite und eine negativer Ladung auf der p-Seite: die __Raumladungszone__. Weil sie an beweglichen Ladungsträgern verarmt ist, heißt sie auch Verarmungszone oder Sperrschicht.
 
@@ -748,7 +744,7 @@ $$U_T = \frac{k_B T}{e}$$
 
 **So liest man das:** $U_T$ ist die thermische Energie, ausgedrückt als Spannung: die Spannung, die ein Elektron durchlaufen muss, um die Energie $k_B T$ zu gewinnen; 25,85 mV bei 300 K.
 Man definiert sie, weil Potenzialstufen genau im Vergleich mit ihr wirken: Eine Stufe von $U_T$ ändert eine Dichte im Gleichgewicht um den Faktor $\exp(1)$, also 2,72, eine Stufe von 59,5 mV um den Faktor 10.
-Das Skript nennt auf S. 162 das Produkt $k_B T$ selbst „thermische Spannung“; das ist eine Energie, erst geteilt durch $e$ wird daraus eine Spannung.
+Ein häufiger Fehler ist, schon das Produkt $k_B T$ „thermische Spannung“ zu nennen; das ist eine Energie, erst geteilt durch $e$ wird daraus eine Spannung.
 
 **Kurz gesagt:** Im thermischen Gleichgewicht und solange die Boltzmann-Verteilung gilt, addieren sich die Höhen hintereinanderliegender Potenzialstufen, und die Faktoren, um die sie eine Dichte ändern, multiplizieren sich. Zwei Stufen von je 59,5 mV, zusammen 119 mV, ändern die Dichte um den Faktor 10 mal 10, also 100.
 
@@ -850,7 +846,7 @@ $$n_{n0}\,\exp\!\Big(-\frac{U_\mathrm{Diff}}{U_T}\Big) = 10^{16}\ \mathrm{cm^{-3
 Nein. Die Messleitungen bilden an beiden Enden Kontakte zwischen Metall und Halbleiter, und an diesen Kontakten entstehen ebenfalls Potenzialstufen. Im Gleichgewicht ist die Summe aller Stufen im geschlossenen Kreis genau null; wäre sie es nicht, flösse ohne jede Energiequelle dauerhaft ein Strom. Im Bändermodell heißt dasselbe: Das Fermi-Niveau ist im ganzen Kreis waagerecht, und ein Voltmeter zeigt gerade den Unterschied der Fermi-Niveaus seiner Anschlüsse an, hier also null. Indirekt lässt sich die Diffusionsspannung trotzdem bestimmen, etwa aus der Kapazität der Raumladungszone bei verschiedenen Sperrspannungen.
 :::
 
-Das Skript nennt den Potenzialunterschied zwischen den Gebieten die „Durchlassspannung“ (S. 161).
+Ein häufiger Fehler ist, den Potenzialunterschied zwischen den Gebieten „Durchlassspannung“ zu nennen.
 Das sind zwei verschiedene Größen.
 Die Diffusionsspannung ist die innere Stufe im Gleichgewicht, 0,714 V bei der Beispieldiode; ein Voltmeter an den Anschlüssen zeigt sie nicht, indirekt bestimmen lässt sie sich etwa aus der Sperrschichtkapazität.
 Als Durchlass- oder Schleusenspannung bezeichnet man dagegen die Spannung, ab der eine Diode in einer Schaltung merklich Strom führt, typisch 0,6 bis 0,7 V bei Silizium; ihr Wert hängt davon ab, welchen Strom man als merklich ansieht ([Folgeartikel](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html)).
@@ -878,7 +874,7 @@ Szene: get1/halbleiterbauelemente/01-hinauf-hinunter · Vorlage: banddiagramm-te
 
 Beide Ströme sind klein: In der Beispieldiode wechseln pro Sekunde und Quadratzentimeter rund 10⁸ Ladungsträger vollständig die Seite, in jede Richtung gleich viele.
 Für die ganze Diode mit 0,1 mm² Fläche ist jeder der beiden Ströme 1,46·10⁻¹⁴ A groß, Elektronen und Löcher zusammen.
-Dieser Betrag heißt __Sättigungssperrstrom__ __$I_S$__; wie er aus der Dotierung und der mittleren Zeit bis zur Rekombination der Minoritätsträger folgt, leitet GEMB her.
+Dieser Betrag heißt __Sättigungssperrstrom__ __$I_S$__; wie er aus der Dotierung und der mittleren Zeit bis zur Rekombination der Minoritätsträger folgt, leitet der Artikel über den [pn-Übergang unter Spannung](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/bauelemente/diode-pn-uebergang-spannung.html) her.
 
 | | hinauf | hinunter |
 |---|---|---|
@@ -913,7 +909,7 @@ Szene: get1/halbleiterbauelemente/01-baender-spannung · Vorlage: banddiagramm-p
 
 **Schritt 1**: Die äußere Spannung fällt fast vollständig an der Raumladungszone ab. Die neutralen Gebiete leiten gut, das n-Gebiet 680 000-mal und das p-Gebiet 240 000-mal besser als reines Silizium, und tragen den Strom deshalb schon mit einem winzigen Feld: Bei 0,6 V fallen auf je 100 µm nur 0,9 mV im n- und 2,4 mV im p-Gebiet ab (Beispiel weiter unten). Für die Stufe in der Zone bleibt fast die ganze Spannung.
 
-**Schritt 2**: Eine Spannung in Durchlassrichtung verkleinert die Stufe auf $U_\mathrm{Diff} - U$, eine Spannung in Sperrrichtung vergrößert sie (Abbildung 12). Das meint das Skript, wenn es schreibt, eine Spannung in Durchlassrichtung wirke dem elektrischen Feld in der Diode entgegen (S. 161).
+**Schritt 2**: Eine Spannung in Durchlassrichtung verkleinert die Stufe auf $U_\mathrm{Diff} - U$, eine Spannung in Sperrrichtung vergrößert sie (Abbildung 12). Das ist gemeint, wenn es heißt, eine Spannung in Durchlassrichtung wirke dem elektrischen Feld in der Diode entgegen.
 
 **Schritt 3**: Der Strom hinauf hängt nach der Boltzmann-Verteilung exponentiell von der Höhe der Stufe ab. Wird sie um $U$ niedriger, haben $\exp(U/U_T)$-mal so viele Ladungsträger genug Energie: bei 0,5 V das 2,5·10⁸-Fache, bei 0,6 V das 1,2·10¹⁰-Fache.
 
@@ -1008,7 +1004,7 @@ $$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
 
 ::::beispiel Ströme der Beispieldiode und Spitzenspannung im Einweggleichrichter
 **Gegeben:**
-- Sättigungssperrstrom der Beispieldiode 1,457·10⁻¹⁴ A (genauer Wert aus dem Zahlenwerk);
+- Sättigungssperrstrom der Beispieldiode 1,457·10⁻¹⁴ A;
 - Temperaturspannung 25,85 mV;
 - Einweggleichrichter aus Abbildung 2 mit Scheitelwert 10 V und Widerstand 1 kΩ.
 
@@ -1047,7 +1043,7 @@ Ein zweiter Durchgang mit 9,297 mA ändert das Ergebnis nicht mehr.
 
 :::fehlvorstellung
 „Unter 0,7 V fließt kein Strom durch die Diode.“
-Das liegt nahe, weil eine Siliziumdiode in Schaltungen erst ab etwa 0,6 V merklich leitet, und das Skript schreibt, ein Strom fließe, sobald die Spannung die Durchlassspannung überschreitet (S. 161). Tatsächlich fließt bei jeder positiven Spannung Strom, nur wenig: im idealen Modell 76 nA bei 0,4 V und 3,7 µA bei 0,5 V; reale Dioden führen dort durch Rekombination in der Zone eher noch mehr. Die scheinbare Schwelle entsteht durch den steilen Anstieg; auf einer linearen Achse in Milliampere wird der Strom erst ab etwa 0,6 V sichtbar.
+Das liegt nahe, weil eine Siliziumdiode in Schaltungen erst ab etwa 0,6 V merklich leitet und weil es oft heißt, ein Strom fließe, sobald die Spannung die Durchlassspannung überschreitet. Tatsächlich fließt bei jeder positiven Spannung Strom, nur wenig: im idealen Modell 76 nA bei 0,4 V und 3,7 µA bei 0,5 V; reale Dioden führen dort durch Rekombination in der Zone eher noch mehr. Die scheinbare Schwelle entsteht durch den steilen Anstieg; auf einer linearen Achse in Milliampere wird der Strom erst ab etwa 0,6 V sichtbar.
 :::
 
 ::::beispiel Wie viel Spannung in den neutralen Gebieten abfällt
@@ -1083,8 +1079,7 @@ $$E_p = \frac{0{,}175\ \mathrm{A/cm^2}}{0{,}72\ \mathrm{S/cm}} = 0{,}24\ \mathrm
 Das liegt nahe, weil in einem Widerstand tatsächlich die Quelle die Ladungsträger durch ihr Feld treibt. Am pn-Übergang verkleinert sie dagegen die Stufe, bei 0,6 V von 0,714 auf 0,114 V, und über den Rest kommen die Ladungsträger durch ihre eigene Wärmebewegung. Das Feld der Quelle im neutralen p-Gebiet, aus dem die Löcher kommen, beträgt bei 0,6 V nur 0,24 V/cm; über 100 µm sind das 2,4 mV, verglichen mit der verbliebenen Stufe von 114 mV. Es lässt nur Majoritätsträger aus dem Kontakt nachfließen.
 :::
 
-Das Skript nennt den Sperrstrom einen „sehr kleinen Diffusionsstrom“ (S. 161).
-Das ist die übliche Bezeichnung: Seine Größe bestimmt die Diffusion der Minoritätsträger in den neutralen Gebieten zum Rand der Zone; über die Zone selbst gelangen sie durch Drift, als Strom hinunter.
+Den Sperrstrom nennt man üblicherweise einen Diffusionsstrom: Seine Größe bestimmt die Diffusion der Minoritätsträger in den neutralen Gebieten zum Rand der Zone; über die Zone selbst gelangen sie durch Drift, als Strom hinunter.
 
 ## Alles hängt an einem Prinzip
 
@@ -1104,7 +1099,7 @@ Ein Halbleiter hat wenige bewegliche Ladungsträger, deren Art und Zahl die Doti
 ## Bedeutung und Ausblick
 
 Jede Siliziumdiode beruht auf diesem Mechanismus, vom Gleichrichter in einem Ladegerät bis zur Schutzdiode an einem Mikrocontroller-Eingang.
-Fotodioden und Solarzellen nutzen die Paarbildung durch Licht bis 1,1 µm Wellenlänge, und ein [Bipolartransistor](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html) besteht aus zwei pn-Übergängen dicht hintereinander; im Praktikum begegnet einer davon als Basis-Emitter-Strecke eines Transistors wie dem BC547C.
+Fotodioden und Solarzellen nutzen die Paarbildung durch Licht bis 1,1 µm Wellenlänge, und ein [Bipolartransistor](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html) besteht aus zwei pn-Übergängen dicht hintereinander; einer davon ist die Basis-Emitter-Strecke eines Transistors wie des BC547C.
 Das Modell dieses Artikels hat Grenzen: Oberhalb von etwa 0,65 V werden die übergetretenen Ladungsträger so zahlreich, dass seine Annahmen nicht mehr gelten, und der Widerstand der neutralen Gebiete macht sich bemerkbar; in Sperrrichtung setzt bei hohen Feldern der Durchbruch ein, und mit der Temperatur ändern sich $I_S$ und die Durchlassspannung erheblich.
 Diese Effekte und die Kennlinie als Ganzes behandelt der nächste Artikel, [Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html).
 

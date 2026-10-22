@@ -28,7 +28,7 @@ Szene: get1/halbleiterbauelemente/04-bruecke-strompfade · Vorlage: schaltung-st
 
 - __$u_e$__: Eingangsspannung, eine Sinusspannung mit dem Scheitelwert $\hat u_e$ = 10 V und 50 Hz.
 - __$u_a$__: Spannung an der Last.
-- __$U_{F0}$__: Durchlassspannung im Ersatzschaltbild, wie im Skript 0,6 V.
+- __$U_{F0}$__: Durchlassspannung im Ersatzschaltbild, hier 0,6 V.
 
 **Das Zusammenspiel in Schritten:**
 
@@ -36,7 +36,7 @@ Szene: get1/halbleiterbauelemente/04-bruecke-strompfade · Vorlage: schaltung-st
 
 **Schritt 2**: In der negativen Halbwelle leiten D4 und D2: Der Strom fließt über D4 wieder von oben in die Last und über D2 zurück (Abbildung 1b). Die Last sieht in beiden Halbwellen dieselbe Polung, den Betrag der Eingangsspannung; deshalb heißt die Schaltung __Doppelweggleichrichter__. Ein __Einweggleichrichter__ mit einer Diode nutzt nur die positiven Halbwellen.
 
-**Schritt 3**: In jedem Strompfad liegen zwei leitende Dioden in Reihe. Am Ausgang fehlen deshalb 1,2 V, und solange der Betrag der Eingangsspannung unter 1,2 V liegt, sperren alle vier (Abbildung 2). Das Skript lässt D2 und D4 schon bei „sehr kleiner positiver“ Spannung leiten (S. 172); dort sperren aber alle vier, wie es wenige Zeilen später selbst schreibt.
+**Schritt 3**: In jedem Strompfad liegen zwei leitende Dioden in Reihe. Am Ausgang fehlen deshalb 1,2 V, und solange der Betrag der Eingangsspannung unter 1,2 V liegt, sperren alle vier (Abbildung 2).
 
 :::formel Formel
 $$\hat u_a = \hat u_e - 2\,U_{F0}$$
@@ -44,7 +44,7 @@ $$\hat u_a = \hat u_e - 2\,U_{F0}$$
 $$u_a = |u_e| - 2\,U_{F0} \quad\text{für } |u_e| > 2\,U_{F0}, \qquad u_a = 0 \quad\text{sonst}$$
 :::
 
-**So liest man das:** Die Spitze am Ausgang ist um zwei Durchlassspannungen kleiner, 8,8 V statt 10 V, wie im Skript (Bild 10.29). Um jeden Nulldurchgang gibt es eine __Totzone__ von 0,77 ms, in der kein Strom fließt.
+**So liest man das:** Die Spitze am Ausgang ist um zwei Durchlassspannungen kleiner, 8,8 V statt 10 V. Um jeden Nulldurchgang gibt es eine __Totzone__ von 0,77 ms, in der kein Strom fließt.
 
 **Kurz gesagt:** Bei vier gleichen Dioden ändert sich an der Last nichts, wenn man die beiden Anschlüsse der Quelle vertauscht; es zählt nur der Betrag der Eingangsspannung.
 
@@ -154,7 +154,7 @@ $$\Delta U \approx \frac{I_L}{2\,f\,C}$$
 :::
 
 ::::beispiel Ladekondensator für ein kleines Netzteil
-**Gegeben:** Quelle mit 10 V Scheitelwert, 50 Hz und 5 Ω Innenwiderstand; Brücke im 0,6 V-Modell; Last 470 Ω; Ladekondensator 470 µF (Simulation im Zahlenwerk).
+**Gegeben:** Quelle mit 10 V Scheitelwert, 50 Hz und 5 Ω Innenwiderstand; Brücke im 0,6 V-Modell; Last 470 Ω; Ladekondensator 470 µF; die Werte stammen aus einer Schaltungssimulation.
 
 **Gesucht:** Brummspannung nach der Schätzung und nach der Simulation; Kapazität für 0,1 V Brumm.
 
@@ -177,7 +177,7 @@ $$C = \frac{17{,}4\ \mathrm{mA}}{2\cdot50\ \mathrm{Hz}\cdot0{,}1\ \mathrm{V}} = 
 
 :::grafik
 Szene: get1/halbleiterbauelemente/04-ladungspumpe-takte · Vorlage: schaltung-zustaende
-**Abbildung 4:** Die Ladungspumpe des Skripts mit 5 V Eingangsspannung. (a) Takt 1: Die Unterseite von C1 liegt an Masse, über D1 und R1 lädt C1 auf 4,4 V. (b) Takt 2: Die Unterseite von C1 liegt an 5 V, seine Oberseite damit auf 9,4 V; D1 sperrt, über R2 und D2 fließt Ladung in C2, der sich 8,8 V nähert. Der geladene Kondensator wird auf die Eingangsspannung gestapelt.
+**Abbildung 4:** Die Ladungspumpe mit 5 V Eingangsspannung. (a) Takt 1: Die Unterseite von C1 liegt an Masse, über D1 und R1 lädt C1 auf 4,4 V. (b) Takt 2: Die Unterseite von C1 liegt an 5 V, seine Oberseite damit auf 9,4 V; D1 sperrt, über R2 und D2 fließt Ladung in C2, der sich 8,8 V nähert. Der geladene Kondensator wird auf die Eingangsspannung gestapelt.
 :::
 
 **Die Akteure:**
@@ -191,9 +191,9 @@ Szene: get1/halbleiterbauelemente/04-ladungspumpe-takte · Vorlage: schaltung-zu
 
 **Schritt 1**: In Takt 1 liegt die Unterseite von C1 an Masse, und die Quelle lädt C1 über D1 und R1 auf 5 V minus die Durchlassspannung, 4,4 V.
 
-**Schritt 2**: In Takt 2 legt der Umschalter die Unterseite von C1 an die 5 V. Der geladene Kondensator steht damit auf der Quelle, seine Oberseite liegt bei 9,4 V; D1 sperrt, weil ihre Kathode nun höher liegt als ihre Anode. Im Skriptbild ist die Unterseite von C1 zusätzlich fest mit Masse verbunden; das ist ein Zeichenfehler, denn so schlösse der Umschalter in Takt 2 die Quelle kurz.
+**Schritt 2**: In Takt 2 legt der Umschalter die Unterseite von C1 an die 5 V. Der geladene Kondensator steht damit auf der Quelle, seine Oberseite liegt bei 9,4 V; D1 sperrt, weil ihre Kathode nun höher liegt als ihre Anode. Achtung: Die Unterseite von C1 darf nicht zusätzlich fest mit Masse verbunden sein, sonst schlösse der Umschalter in Takt 2 die Quelle kurz.
 
-**Schritt 3**: Über R2 und D2 fließt Ladung von C1 nach C2, bis die Oberseite von C1 nur noch eine Durchlassspannung über C2 liegt. Periode für Periode nähert sich C2 dem Endwert 8,8 V. Das Skript nennt „ca. 2 U_e“ und betrachtet die Dioden als ideal (S. 171); mit Durchlassspannungen sind es 8,8 V statt 10 V.
+**Schritt 3**: Über R2 und D2 fließt Ladung von C1 nach C2, bis die Oberseite von C1 nur noch eine Durchlassspannung über C2 liegt. Periode für Periode nähert sich C2 dem Endwert 8,8 V. Mit idealen Dioden wäre der Endwert das Doppelte der Eingangsspannung; mit Durchlassspannungen sind es 8,8 V statt 10 V.
 
 **Schritt 4**: Zieht eine Last Strom, muss C1 jede Periode die verbrauchte Ladung nachliefern und sich dafür weiter entladen; der Ausgang bleibt unter dem Endwert. D2 bleibt dabei nach dem Ausgleich leitend, und bis zum Ende von Takt 2 speisen C1 und C2 die Last gemeinsam; in Takt 1 speist C2 sie allein.
 
@@ -246,7 +246,7 @@ $$U_a = 2\,U_e - 2\,U_{F0} - \frac{I_L}{f\,C_1}$$
 
 **Woher die Faktoren kommen:** Die 2 vor $U_e$ entsteht durch das Stapeln von C1 auf die Quelle, die 2 vor $U_{F0}$ durch die beiden Dioden; $I_L/(f\,C_1)$ ist die Spannung, um die C1 sich je Periode entladen muss, um die Ladung der Last zu liefern.
 
-**Proben:** Ohne Last: 8,8 V. Mit 1 mA, 10 kHz und 1 µF: 0,1 V weniger, 8,7 V am Ende von Takt 2. Die Rechnung Takt für Takt im Zahlenwerk ergibt nach dem Einschwingen genau diesen Wert und dazu den Verlauf: In Takt 1 fällt der Ausgang um 0,05 V auf 8,65 V, beim Ausgleich springt er auf 8,725 V, im Rest von Takt 2 fällt er um 0,025 V zurück auf 8,70 V. Einheit: A durch Hz mal F ergibt V.
+**Proben:** Ohne Last: 8,8 V. Mit 1 mA, 10 kHz und 1 µF: 0,1 V weniger, 8,7 V am Ende von Takt 2. Eine Rechnung Takt für Takt ergibt nach dem Einschwingen genau diesen Wert und dazu den Verlauf: In Takt 1 fällt der Ausgang um 0,05 V auf 8,65 V, beim Ausgleich springt er auf 8,725 V, im Rest von Takt 2 fällt er um 0,025 V zurück auf 8,70 V. Einheit: A durch Hz mal F ergibt V.
 
 **Grenzen:** Sind die Zeitkonstanten nicht kurz gegen einen Takt, gleichen sich die Kondensatoren nicht vollständig aus, und der Ausgang sinkt weiter; mit den 10 Ω des Beispiels liegt er im Mittel bei 8,68 statt 8,69 V. Reale Dioden haben bei kleinen Strömen kleinere Durchlassspannungen als 0,6 V.
 :::
@@ -308,7 +308,7 @@ Die meisten Netzteile mit Transformator beginnen mit Brücke und Ladekondensator
 F: Warum fließt der Strom in der Brückenschaltung in beiden Halbwellen in derselben Richtung durch die Last?
 A: In der positiven Halbwelle leiten D1 und D3, in der negativen D2 und D4. Beide Paare führen den Strom zum selben Ende der Last, die Brücke kehrt die Polung der negativen Halbwelle um.
 F: Warum ist die Spitze am Ausgang der Brücke 1,2 V kleiner als die Spitze am Eingang?
-A: In jedem Strompfad liegen zwei leitende Dioden in Reihe, jede mit 0,6 V im Modell des Skripts. Aus 10 V werden 8,8 V.
+A: In jedem Strompfad liegen zwei leitende Dioden in Reihe, jede mit 0,6 V im Modell mit Durchlassspannung. Aus 10 V werden 8,8 V.
 F: Stimmt es, dass hinter einem Brückengleichrichter ohne Kondensator eine Gleichspannung liegt?
 A: Nein. Die Spannung wechselt ihr Vorzeichen nicht mehr, pulsiert aber zwischen null und 8,8 V im Takt von 100 Hz; ihr Mittelwert liegt bei 5,21 V.
 F: Warum leiten die Dioden mit Ladekondensator nur kurz?

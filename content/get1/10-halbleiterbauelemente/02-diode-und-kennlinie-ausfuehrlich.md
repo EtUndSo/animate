@@ -2,7 +2,7 @@
 title: Die Diode und ihre Kennlinie
 pfad: Elektrotechnik / 1. Semester / Grundgebiete der Elektrotechnik 1 / Halbleiterbauelemente
 order: 100300
-summary: Wie aus dem pn-Übergang ein Bauteil mit Anode und Kathode wird und was seine Kennlinie in Durchlassrichtung, in Sperrrichtung und im Durchbruch bestimmt, bis hin zu Z-Diode, Kapazitätsdiode, Fotodiode und Solarzelle. Ausführliche Fassung mit allen Herleitungen, der realen Kennlinie, dem Temperaturgang und Korrekturen zum Skript.
+summary: Wie aus dem pn-Übergang ein Bauteil mit Anode und Kathode wird und was seine Kennlinie in Durchlassrichtung, in Sperrrichtung und im Durchbruch bestimmt, bis hin zu Z-Diode, Kapazitätsdiode, Fotodiode und Solarzelle. Ausführliche Fassung mit allen Herleitungen, der realen Kennlinie und dem Temperaturgang.
 tags: Diode, pn-Übergang, Durchlassrichtung, Sperrrichtung, Schleusenspannung, Shockley-Gleichung, Z-Diode
 stil: 3
 fassung: ausfuehrlich
@@ -66,8 +66,8 @@ $$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
 **So liest man das:** Eingabe ist die Spannung an der Diode, Ausgabe der Strom. Der erste Summand ist der Strom hinauf, die −1 der Strom hinunter, der nicht von der Spannung abhängt.
 Ab etwa 0,1 V ist die −1 vernachlässigbar, und der Strom wächst rein exponentiell; unterhalb von etwa −0,1 V ist der Strom gleich $-I_S$. Den Durchbruch enthält die Gleichung nicht.
 
-Das Skript schreibt die Gleichung ohne die −1 (Gl. 10.1, S. 162); das ist ihr Grenzfall für den Durchlassbereich.
-Ungenau ist dort die Temperaturspannung: Das Skript nennt „das Produkt k_B · T“ die thermische Spannung. $k_B T$ ist aber eine Energie, bei 300 K 25,85 meV; eine Spannung wird daraus erst durch Division durch die Elementarladung:
+Oft schreibt man die Gleichung ohne die −1; das ist ihr Grenzfall für den Durchlassbereich.
+Ein häufiger Fehler ist, schon das Produkt $k_B T$ die thermische Spannung zu nennen. $k_B T$ ist aber eine Energie, bei 300 K 25,85 meV; eine Spannung wird daraus erst durch Division durch die Elementarladung:
 
 $$U_T = \frac{k_B\,T}{e} = \frac{1{,}3806\cdot10^{-23}\ \mathrm{J/K}\cdot300\ \mathrm{K}}{1{,}6022\cdot10^{-19}\ \mathrm{C}} = 25{,}85\ \mathrm{mV}$$
 
@@ -169,7 +169,7 @@ Szene: get1/halbleiterbauelemente/02-schwelle-massstab · Vorlage: kennlinie-lin
 **Schritt 4**: Datenblätter nennen deshalb keine Schwelle, sondern die Durchlassspannung bei einem bestimmten Strom. Die Kleinsignaldiode 1N4148 hat höchstens 1 V bei 10 mA; das ist ein garantierter Höchstwert, typische Exemplare liegen um 0,7 V.
 
 ::::beispiel Durchlassspannung und scheinbare Schwelle der Beispieldiode
-**Gegeben:** Sättigungssperrstrom 1,457·10⁻¹⁴ A, Temperaturspannung 25,85 mV (Zahlenwerk dieses Themas).
+**Gegeben:** Sättigungssperrstrom 1,457·10⁻¹⁴ A, Temperaturspannung 25,85 mV.
 
 **Gesucht:** (a) die Durchlassspannung bei 1 µA, 1 mA und 100 mA; (b) die scheinbare Schwelle für die Achsenenden 10 µA und 100 mA.
 
@@ -486,7 +486,7 @@ Idee der Herleitung: Man berechnet die Netto-Rate der Rekombination über Störs
 
 $$R = \frac{n\,p - n_i^2}{\tau\,(n + p + 2\,n_i)}$$
 
-Positives $R$ bedeutet, dass mehr Paare verschwinden als entstehen. Die Idee dahinter: Eine Störstelle fängt erst ein Elektron und dann ein Loch ein, oder sie gibt beide ab; im Gleichgewicht, wenn das Produkt der Dichten gleich $n_i^2$ ist, heben sich Einfang und Abgabe auf. Die vollständige Herleitung geht über ET1 hinaus.
+Positives $R$ bedeutet, dass mehr Paare verschwinden als entstehen. Die Idee dahinter: Eine Störstelle fängt erst ein Elektron und dann ein Loch ein, oder sie gibt beide ab; im Gleichgewicht, wenn das Produkt der Dichten gleich $n_i^2$ ist, heben sich Einfang und Abgabe auf. Die vollständige Herleitung geht über diesen Artikel hinaus.
 
 **Annahmen:**
 (i) Störstellen in der Mitte der Bandlücke, gleiche Lebensdauer $\tau$ für beide Sorten;
@@ -584,13 +584,13 @@ $$R_B = \frac{0{,}01\ \mathrm{cm}}{2{,}00\ \mathrm{S/cm}\cdot10^{-3}\ \mathrm{cm
 
 $$= 5{,}0\ \Omega + 13{,}9\ \Omega = 18{,}9\ \Omega$$
 
-Bei 10 mA liegen am Übergang nach Formel 2 0,705 V, mit starker Injektion 0,713 V (Zahlenwerk); dazu kommen
+Bei 10 mA liegen am Übergang nach Formel 2 0,705 V, mit starker Injektion 0,713 V; dazu kommen
 
 $$R_B\,I = 18{,}9\ \Omega\cdot10\ \mathrm{mA} = 0{,}19\ \mathrm{V}$$
 
 **Ergebnis:** **(a) 0,85 nA Rekombination gegen 1,6 nA Diffusion bei 0,3 V; (b) rund −19 pA statt −15 fA; (c) 18,9 Ω und 0,90 V bei 10 mA.**
 
-**Einordnung:** Die genaue Integration im Zahlenwerk ergibt 0,93 nA und −19,9 pA, die Schätzung trifft also auf 10 %. Bei 0,3 V liefert die Rekombination schon halb so viel Strom wie die Diffusion, unterhalb von 0,27 V mehr. Die 0,90 V bei 10 mA stammen vor allem von den schwach dotierten, 100 µm langen Bahnen der Beispieldiode; reale Kleinsignaldioden haben Bahnwiderstände unter einem Ohm, die 1N4148 liegt bei 10 mA typisch um 0,7 V.
+**Einordnung:** Die genaue numerische Integration ergibt 0,93 nA und −19,9 pA, die Schätzung trifft also auf 10 %. Bei 0,3 V liefert die Rekombination schon halb so viel Strom wie die Diffusion, unterhalb von 0,27 V mehr. Die 0,90 V bei 10 mA stammen vor allem von den schwach dotierten, 100 µm langen Bahnen der Beispieldiode; reale Kleinsignaldioden haben Bahnwiderstände unter einem Ohm, die 1N4148 liegt bei 10 mA typisch um 0,7 V.
 ::::
 
 ## Der Durchbruch
@@ -691,7 +691,7 @@ $$d = \frac{W_g}{e\,E} = \frac{1{,}12\ \mathrm{V}}{10^{6}\ \mathrm{V/cm}} = 1{,}
 
 :::fehlvorstellung
 „Im Durchbruch wird die Diode zerstört.“
-Das liegt nahe, weil das Skript es so formuliert (S. 162) und weil gewöhnliche Dioden ohne Strombegrenzung im Durchbruch tatsächlich ausfallen. Der Durchbruch selbst ist aber umkehrbar: Sinkt die Sperrspannung, hören Stoßionisation und Tunneln sofort auf, und Z-Dioden arbeiten dauernd im Durchbruch, wie das Skript eine Seite später selbst schreibt (S. 163). Zerstörend ist die Wärme: Bei 100 V und 10 mA setzt eine kleine Diode 1 W um, doppelt so viel wie die 0,5 W, für die typische kleine Gehäuse ausgelegt sind. Bei gewöhnlichen Dioden beginnt der Durchbruch zudem oft an den Rändern des Übergangs, wo das Feld am stärksten ist; der Strom drängt sich dort zusammen und erhitzt eine kleine Stelle. Datenblätter lassen den Betrieb im Durchbruch deshalb nur bei Bauteilen zu, die dafür gebaut sind.
+Das liegt nahe, weil es oft so heißt und weil gewöhnliche Dioden ohne Strombegrenzung im Durchbruch tatsächlich ausfallen. Der Durchbruch selbst ist aber umkehrbar: Sinkt die Sperrspannung, hören Stoßionisation und Tunneln sofort auf, und Z-Dioden arbeiten dauernd im Durchbruch. Zerstörend ist die Wärme: Bei 100 V und 10 mA setzt eine kleine Diode 1 W um, doppelt so viel wie die 0,5 W, für die typische kleine Gehäuse ausgelegt sind. Bei gewöhnlichen Dioden beginnt der Durchbruch zudem oft an den Rändern des Übergangs, wo das Feld am stärksten ist; der Strom drängt sich dort zusammen und erhitzt eine kleine Stelle. Datenblätter lassen den Betrieb im Durchbruch deshalb nur bei Bauteilen zu, die dafür gebaut sind.
 :::
 
 ## Die Z-Diode
@@ -857,7 +857,7 @@ $$C_j = \frac{\varepsilon\,A}{w(U)} = \frac{C_{j0}}{\sqrt{1 - U/U_\mathrm{Diff}}
 **Grenzen:** Nähert sich die Spannung der Diffusionsspannung, wächst die Formel über alle Grenzen; dort gilt die Verarmungsnäherung nicht mehr.
 :::
 
-Dioden, die man gezielt so nutzt, heißen __Kapazitätsdioden__ oder Varaktoren (Skript, Bild 10.9, S. 163). Nimmt ihre Dotierung zum Übergang hin zu, hängt die Kapazität stärker von der Spannung ab als mit der Wurzel.
+Dioden, die man gezielt so nutzt, heißen __Kapazitätsdioden__ oder Varaktoren. Nimmt ihre Dotierung zum Übergang hin zu, hängt die Kapazität stärker von der Spannung ab als mit der Wurzel.
 Man betreibt sie nur in Sperrrichtung, damit kein Strom fließt, und stimmt mit ihrer Steuerspannung Schwingkreise in Radioempfängern und Oszillatoren ab, ohne bewegte Teile.
 
 ::::beispiel Sperrschichtkapazität der Beispieldiode
@@ -963,7 +963,7 @@ $$I_\mathrm{ph} = \eta\,\frac{e\,\lambda}{h\,c}\,P$$
 
 **So liest man das:** $\lambda_g$ ist die __Grenzwellenlänge__, oberhalb der die Photonen zu wenig Energie haben: 1107 nm für Silizium. $P$ ist die Lichtleistung, $h$ das Planck-Wirkungsquantum und $c$ die Lichtgeschwindigkeit. Der Fotostrom wächst proportional zur Lichtleistung und bei gleicher Leistung mit der Wellenlänge, weil längerwelliges Licht aus mehr Photonen mit je weniger Energie besteht. Den Quotienten aus Fotostrom und Lichtleistung nennt man __Empfindlichkeit__, in A/W.
 
-Das Skript verlangt, „die Energie der Strahlung“ müsse mindestens die Bandlücke erreichen (S. 163); gemeint ist die Energie jedes einzelnen Photons. Oberhalb von 1107 nm erzeugt Licht in Silizium praktisch keinen Fotostrom, auch wenn es hell ist.
+Die Bandlücke erreichen muss die Energie jedes einzelnen Photons, nicht die der Strahlung als Ganzes: Oberhalb von 1107 nm erzeugt Licht in Silizium praktisch keinen Fotostrom, auch wenn es hell ist.
 
 Idee der Herleitung: Man zählt die Photonen pro Sekunde und rechnet jedem getrennten Paar eine Elementarladung im Stromkreis zu.
 
@@ -1037,7 +1037,7 @@ $$I_K = -I_\mathrm{ph}$$
 :::
 
 **So liest man das:** Der Kurzschlussstrom ist der negative Fotostrom und wächst proportional zum Licht. Die Leerlaufspannung wächst dagegen nur logarithmisch, um 59,5 mV je Verzehnfachung des Lichts: Bei zehnmal weniger Licht liefert eine Solarzelle fast dieselbe Spannung, aber ein Zehntel des Stroms.
-Das ist das Ergebnis des Versuchs im Skript, bei dem eine Lampe in veränderlichem Abstand eine Solarzelle beleuchtet und ein Potentiometer die Last einstellt (S. 164 f.). Mit den dort genannten 0,5 V ist vermutlich die Leerlaufspannung gemeint; bei voller Sonne liegt sie bei Siliziumzellen zwischen 0,6 und 0,7 V, die Spannung im Punkt größter Leistung bei etwa 0,5 V.
+Das zeigt eine Messung, bei der eine Lampe in veränderlichem Abstand eine Solarzelle beleuchtet und ein Potentiometer die Last einstellt. Bei voller Sonne liegt die Leerlaufspannung von Siliziumzellen zwischen 0,6 und 0,7 V, die Spannung im Punkt größter Leistung bei etwa 0,5 V.
 
 Idee der Herleitung: Leerlauf heißt kein Strom, Kurzschluss heißt keine Spannung; beides setzt man in Formel 9 ein.
 
@@ -1109,7 +1109,7 @@ $$\mathrm{FF} = \frac{16{,}0\ \mu\mathrm{W}}{0{,}558\ \mathrm{V}\cdot35\ \mu\mat
 
 **Ergebnis:** **35 µA und 0,558 V bei voller Sonne, 3,5 µA und 0,499 V bei einem Zehntel; größte Leistung 16 µW bei 0,481 V, Füllfaktor 0,82, Wirkungsgrad 16 %.**
 
-**Einordnung:** Ein Zehntel des Lichts kostet nur 59,5 mV Spannung, aber 90 % des Stroms, genau wie das Skript es beschreibt. Der Füllfaktor gibt an, wie gut das Rechteck aus Leerlaufspannung und Kurzschlussstrom ausgenutzt wird; handelsübliche Siliziumzellen liegen bei ähnlichen Werten. Eine Solarzelle von 10 cm mal 10 cm mit demselben Aufbau liefert nach derselben Rechnung 3,5 A bei derselben Leerlaufspannung von 0,558 V, denn Fotostrom und Sättigungssperrstrom wachsen beide mit der Fläche.
+**Einordnung:** Ein Zehntel des Lichts kostet nur 59,5 mV Spannung, aber 90 % des Stroms. Der Füllfaktor gibt an, wie gut das Rechteck aus Leerlaufspannung und Kurzschlussstrom ausgenutzt wird; handelsübliche Siliziumzellen liegen bei ähnlichen Werten. Eine Solarzelle von 10 cm mal 10 cm mit demselben Aufbau liefert nach derselben Rechnung 3,5 A bei derselben Leerlaufspannung von 0,558 V, denn Fotostrom und Sättigungssperrstrom wachsen beide mit der Fläche.
 ::::
 
 :::vertiefung
@@ -1136,7 +1136,7 @@ In Durchlassrichtung senkt die Spannung die Barriere, und der Strom wächst expo
 ## Bedeutung und Ausblick
 
 Dioden stecken in fast jedem elektronischen Gerät, vom Gleichrichter im Netzteil über Spannungsreferenzen und abstimmbare Oszillatoren bis zu Kamerasensoren und Solarmodulen.
-Im Praktikum begegnet die Kennlinie als Basis-Emitter-Strecke des Transistors BC547C ([Bipolartransistor](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html)); ihr Temperaturgang von rund −2 mV/K ist ein wichtiger Grund, warum Transistorschaltungen eine Gegenkopplung brauchen, eine Rückführung, die den Arbeitspunkt stabilisiert. Die Herleitung der Kennlinie aus den Grundgleichungen des Halbleiters zeigt der Artikel [Die Diode – der pn-Übergang unter Spannung](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/bauelemente/diode-pn-uebergang-spannung.html) im Modul GEMB.
+Als Basis-Emitter-Strecke steckt die Kennlinie auch im [Bipolartransistor](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html), etwa im BC547C; ihr Temperaturgang von rund −2 mV/K ist ein wichtiger Grund, warum Transistorschaltungen eine Gegenkopplung brauchen, eine Rückführung, die den Arbeitspunkt stabilisiert. Die Herleitung der Kennlinie aus den Grundgleichungen des Halbleiters zeigt der Artikel [Die Diode – der pn-Übergang unter Spannung](/wissen/elektrotechnik/4-semester/grundlagen-elektronischer-materialien-und-bauelemente/bauelemente/diode-pn-uebergang-spannung.html).
 Schottky-Dioden aus einem Metall-Halbleiter-Kontakt, die schneller schalten und schon bei 0,2 bis 0,4 V leiten, behandelt dieser Artikel nicht.
 Wie man mit der gekrümmten Kennlinie in Schaltungen rechnet, zeigt der nächste Artikel, [Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html).
 

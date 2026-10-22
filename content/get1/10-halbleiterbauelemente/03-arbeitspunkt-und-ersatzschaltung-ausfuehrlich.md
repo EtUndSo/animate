@@ -33,7 +33,7 @@ Szene: get1/halbleiterbauelemente/03-arbeitsgerade · Vorlage: schaltung-und-ken
 
 **Das Zusammenspiel:** In jeder Schaltung gelten zwei Arten von Gesetzen zugleich. Jedes Bauteil gehorcht seiner eigenen Kennlinie, beim Widerstand dem ohmschen Gesetz, bei der Diode der Shockley-Gleichung. Die Verbindungen erzwingen die Kirchhoffschen Gesetze: Die Spannungen jeder Masche ergeben null, die Ströme jedes Knotens ebenso. Der Arbeitspunkt ist die Lösung, die alle diese Gleichungen zugleich erfüllt.
 
-Bestehen alle Bauteile aus Widerständen und Quellen, sind alle Gleichungen linear, und man löst sie wie gewohnt. Das Skript zeigt das an einem Widerstand, der über einen zweiten Widerstand an einer Quelle hängt (Bild 10.13, S. 165): Seine Kennlinie ist eine Gerade durch den Ursprung, die Maschenregel liefert eine zweite Gerade, und beide schneiden sich im Arbeitspunkt. Mit einer Diode wird eine der beiden Linien gekrümmt; daran hängt alles Folgende.
+Bestehen alle Bauteile aus Widerständen und Quellen, sind alle Gleichungen linear, und man löst sie wie gewohnt. Ein Beispiel ist ein Widerstand, der über einen zweiten Widerstand an einer Quelle hängt: Seine Kennlinie ist eine Gerade durch den Ursprung, die Maschenregel liefert eine zweite Gerade, und beide schneiden sich im Arbeitspunkt. Mit einer Diode wird eine der beiden Linien gekrümmt; daran hängt alles Folgende.
 
 ## Die Arbeitsgerade
 
@@ -162,7 +162,7 @@ Szene: get1/halbleiterbauelemente/03-iteration · Vorlage: kennlinie-iteration
 :::
 
 ::::beispiel Arbeitspunkt der Grundschaltung, grafisch und iterativ
-**Gegeben:** Quelle 5 V, Widerstand 1 kΩ, Beispieldiode mit dem Sättigungssperrstrom 1,4572·10⁻¹⁴ A und der Temperaturspannung 25,852 mV (Zahlenwerk, so genau angegeben, weil die Rechnung auf Mikrovolt geht).
+**Gegeben:** Quelle 5 V, Widerstand 1 kΩ, Beispieldiode mit dem Sättigungssperrstrom 1,4572·10⁻¹⁴ A und der Temperaturspannung 25,852 mV (so genau angegeben, weil die Rechnung auf Mikrovolt geht).
 
 **Gesucht:** die Punkte der Arbeitsgeraden und der Arbeitspunkt.
 
@@ -187,7 +187,7 @@ Ein dritter Schritt ändert die Spannung um weniger als 1 µV.
 
 :::frage
 „Kann es mehrere Arbeitspunkte geben?“
-Bei einer gewöhnlichen pn-Diode nicht: Ihre Kennlinie steigt überall, die Arbeitsgerade fällt, und eine steigende und eine fallende Linie schneiden sich höchstens einmal. Mehrere Schnittpunkte gibt es nur bei Bauteilen mit einem fallenden Ast in der Kennlinie, etwa der Tunneldiode, einer extrem hoch dotierten Diode; dann kann die Gerade sie dreimal schneiden. Welcher Schnittpunkt sich einstellt, hängt dann von der Stabilität und von der Vorgeschichte ab. Das meint das Skript mit dem Hinweis auf „hysteresebehaftete Kennlinien“ (S. 166).
+Bei einer gewöhnlichen pn-Diode nicht: Ihre Kennlinie steigt überall, die Arbeitsgerade fällt, und eine steigende und eine fallende Linie schneiden sich höchstens einmal. Mehrere Schnittpunkte gibt es nur bei Bauteilen mit einem fallenden Ast in der Kennlinie, etwa der Tunneldiode, einer extrem hoch dotierten Diode; dann kann die Gerade sie dreimal schneiden. Welcher Schnittpunkt sich einstellt, hängt dann von der Stabilität und von der Vorgeschichte ab; die Schaltung zeigt eine Hysterese.
 :::
 
 :::vertiefung
@@ -212,7 +212,7 @@ Szene: get1/halbleiterbauelemente/03-ersatzschaltungen · Vorlage: kennlinie-mod
 - __$r_F$__: Widerstand des Modells im leitenden Zustand, der Kehrwert der Steigung der Knickkennlinie im Diagramm Strom über Spannung; einige Ohm.
 
 **Das Zusammenspiel:** Die gekrümmte Kennlinie wird stückweise durch Geraden ersetzt. Dann ist die Diode in jedem Zustand ein lineares Bauteil: leitend eine Spannungsquelle, gegebenenfalls mit Widerstand; sperrend eine Unterbrechung. Mit diesen Ersatzschaltungen rechnet man wie mit jedem linearen Netz.
-Der Preis ist, dass man vorher wissen muss, in welchem Zustand die Diode ist, und das Ergebnis anschließend prüfen muss (Abschnitt *Schaltungen mit mehreren Dioden*). Das Skript verwendet die ersten beiden Modelle (Bild 10.15 und 10.17, S. 167 f.).
+Der Preis ist, dass man vorher wissen muss, in welchem Zustand die Diode ist, und das Ergebnis anschließend prüfen muss (Abschnitt *Schaltungen mit mehreren Dioden*).
 
 :::formel Definition
 $$U = U_{F0} + r_F\,I \quad\text{für } I > 0$$
@@ -223,7 +223,7 @@ $$I = 0 \quad\text{für } U < U_{F0}$$
 **So liest man das:** Das ist die __Knickkennlinie__: Leitet die Diode, fällt an ihr die Durchlassspannung $U_{F0}$ plus ein Anteil proportional zum Strom ab; sperrt sie, fließt kein Strom. Mit $r_F$ = 0 wird daraus die __Diode mit Durchlassspannung__, mit $U_{F0}$ = 0 und $r_F$ = 0 die __ideale Diode__, ein Schalter, der in Durchlassrichtung schließt.
 Man definiert die Modelle so, weil jedes Stück eine Gerade ist und eine Gerade einem linearen Bauteil entspricht; zugleich bleibt die wichtigste Eigenschaft der Diode erhalten, der Unterschied zwischen beiden Richtungen.
 
-**Welche Durchlassspannung?** Man nimmt die Spannung der echten Kennlinie bei dem Strom, den man erwartet. Für die Beispieldiode sind das 0,645 V bei 1 mA und 0,705 V bei 10 mA; deshalb rechnen viele mit 0,7 V, das Skript mit 0,6 V. Für eine Knickkennlinie legt man eine Gerade durch zwei Punkte des erwarteten Strombereichs, etwa durch 1 mA und 10 mA: Das ergibt $U_{F0}$ = 0,638 V und $r_F$ = 6,6 Ω.
+**Welche Durchlassspannung?** Man nimmt die Spannung der echten Kennlinie bei dem Strom, den man erwartet. Für die Beispieldiode sind das 0,645 V bei 1 mA und 0,705 V bei 10 mA; deshalb rechnen viele mit 0,7 V, manche mit 0,6 V. Für eine Knickkennlinie legt man eine Gerade durch zwei Punkte des erwarteten Strombereichs, etwa durch 1 mA und 10 mA: Das ergibt $U_{F0}$ = 0,638 V und $r_F$ = 6,6 Ω.
 
 :::grafik
 Szene: get1/halbleiterbauelemente/03-modellvergleich · Vorlage: kennlinie-ausschnitt
@@ -299,8 +299,6 @@ Mit einer Diode weiß man meist, ob sie leitet. Mit mehreren hängt der Zustand 
 **Schritt 4**: Bei einem Widerspruch war die Annahme falsch; man wählt eine neue und rechnet erneut. Sind alle Proben erfüllt, ist die Lösung gefunden. Weil jede Diode zwei Zustände hat, gibt es bei $n$ Dioden $2^n$ Kombinationen.
 
 **Schritt 5**: Viele Kombinationen scheiden ohne Rechnung aus, wenn man die Potenziale betrachtet: Die Spannung an einer Diode ist die Differenz der [Potenziale](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html) von Anode und Kathode. Liegt die Anode einer angeblich sperrenden Diode um mehr als 0,6 V über ihrer Kathode, muss sie leiten.
-
-Das Skript führt das Verfahren an zwei eigenen Rechenbeispielen vor (S. 168 ff.). Bei der Potenzialbetrachtung trägt Bild 10.22 die Unterschrift „Rechenbeispiel 2“, zeigt aber die Anordnung von Rechenbeispiel 1, mit 14 V statt 15 V (S. 170).
 
 ::::beispiel Schutzdioden am Eingang bei +9 V und −3 V
 **Gegeben:** Schaltung aus Abbildung 5: Vorwiderstand 1 kΩ, Last 10 kΩ, Versorgung 5 V; Modell mit Durchlassspannung 0,6 V; Eingangsspannung (a) +9 V, (b) −3 V.
@@ -456,7 +454,7 @@ Der Arbeitspunkt ist der Punkt, an dem das Gesetz des Bauteils und die Gesetze d
 ## Bedeutung und Ausblick
 
 Dasselbe Vorgehen trägt durch die ganze Elektronik: Den Arbeitspunkt eines Transistors findet man mit seiner Arbeitsgeraden im Kennlinienfeld, und Verstärker berechnet man im Kleinsignal mit differentiellen Widerständen ([Arbeitspunkt und Grundschaltungen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/arbeitspunkt-und-grundschaltungen.html)).
-Im Praktikum begegnet die Unterscheidung von Arbeitspunkt und Kleinsignal in der Simulation mit LTspice, als Arbeitspunktanalyse und Wechselstromanalyse.
+In der Simulation, etwa mit LTspice, begegnet die Unterscheidung von Arbeitspunkt und Kleinsignal als Arbeitspunktanalyse und Wechselstromanalyse.
 Der nächste Artikel, [Gleichrichtung und Ladungspumpe](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/gleichrichtung-und-ladungspumpe.html), wendet die Ersatzschaltungen auf Schaltungen mit Wechselspannung und Kondensatoren an.
 
 :::kern

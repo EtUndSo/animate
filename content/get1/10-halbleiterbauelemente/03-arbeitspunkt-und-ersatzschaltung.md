@@ -82,7 +82,7 @@ Weil die Gleichung, die man durch Einsetzen der Shockley-Gleichung in die Arbeit
 :::
 
 ::::beispiel Arbeitspunkt der Grundschaltung
-**Gegeben:** Quelle 5 V, Widerstand 1 kΩ, Beispieldiode mit dem Sättigungssperrstrom 1,4572·10⁻¹⁴ A und der Temperaturspannung 25,852 mV (Zahlenwerk, so genau angegeben, weil die Rechnung auf Mikrovolt geht).
+**Gegeben:** Quelle 5 V, Widerstand 1 kΩ, Beispieldiode mit dem Sättigungssperrstrom 1,4572·10⁻¹⁴ A und der Temperaturspannung 25,852 mV (so genau angegeben, weil die Rechnung auf Mikrovolt geht).
 
 **Gesucht:** die Punkte der Arbeitsgeraden und der Arbeitspunkt.
 
@@ -123,7 +123,7 @@ Szene: get1/halbleiterbauelemente/03-ersatzschaltungen · Vorlage: kennlinie-mod
 - __$U_{F0}$__: Durchlassspannung des Modells, ab der die Modelldiode leitet; meist 0,6 oder 0,7 V für Silizium.
 - __$r_F$__: Widerstand des Modells im leitenden Zustand; einige Ohm.
 
-**Das Zusammenspiel:** Die gekrümmte Kennlinie wird stückweise durch Geraden ersetzt. Dann ist die Diode in jedem Zustand ein lineares Bauteil, leitend eine Spannungsquelle, sperrend eine Unterbrechung, und man rechnet wie mit jedem linearen Netz (Skript, Bild 10.15 und 10.17). Dafür muss man vorher annehmen, in welchem Zustand die Diode ist, und das Ergebnis prüfen.
+**Das Zusammenspiel:** Die gekrümmte Kennlinie wird stückweise durch Geraden ersetzt. Dann ist die Diode in jedem Zustand ein lineares Bauteil, leitend eine Spannungsquelle, sperrend eine Unterbrechung, und man rechnet wie mit jedem linearen Netz. Dafür muss man vorher annehmen, in welchem Zustand die Diode ist, und das Ergebnis prüfen.
 
 :::formel Definition
 $$U = U_{F0} + r_F\,I \quad\text{für } I > 0$$

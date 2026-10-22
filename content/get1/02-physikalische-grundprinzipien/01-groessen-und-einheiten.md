@@ -30,7 +30,7 @@ Szene: get1/grundprinzipien/01-zahlenwert-einheit · Vorlage: schema
 **Abbildung 2:** Die Netzspannung $U$ als Produkt aus Zahlenwert und Einheit: 230 mal 1 V. Darunter dieselbe Spannung in zwei anderen Schreibweisen, 0,23 mal 1 kV und 230 000 mal 1 mV; Pfeile zeigen, dass der Zahlenwert um den Faktor 1000 kleiner bzw. größer wird, wenn die Einheit um denselben Faktor größer bzw. kleiner wird. Zahlenwert und Einheit ändern sich gegenläufig, die Größe bleibt dieselbe.
 :::
 
-Eine __physikalische Größe__ ist eine messbare Eigenschaft eines Körpers oder Vorgangs, etwa eine Länge oder eine Spannung. Gemessen wird sie, indem man sie mit einer festgelegten Vergleichsgröße, der __Einheit__, vergleicht und angibt, wie oft diese hineinpasst. Das Ergebnis ist ein Zahlenwert zu einer festgelegten Einheit und hängt deshalb nicht davon ab, wer misst (Skript S. 3).
+Eine __physikalische Größe__ ist eine messbare Eigenschaft eines Körpers oder Vorgangs, etwa eine Länge oder eine Spannung. Gemessen wird sie, indem man sie mit einer festgelegten Vergleichsgröße, der __Einheit__, vergleicht und angibt, wie oft diese hineinpasst. Das Ergebnis ist ein Zahlenwert zu einer festgelegten Einheit und hängt deshalb nicht davon ab, wer misst.
 
 **Die Akteure:**
 
@@ -44,7 +44,7 @@ $$G = \{G\}\cdot[G]$$
 
 Die Größe ist ein Produkt; deshalb rechnet man mit Zahlenwert und Einheit wie mit zwei Faktoren. Wählt man eine tausendmal größere Einheit, wird der Zahlenwert tausendmal kleiner, und die Größe bleibt gleich: 230 V sind 0,23 kV oder 230 000 mV (Abbildung 2).
 
-Jede Größe hat ein festes __Formelzeichen__ (Skript Tabelle 2.1):
+Jede Größe hat ein festes __Formelzeichen__:
 
 | Gebiet | Größe und Formel­zeichen |
 |---|---|
@@ -58,7 +58,7 @@ $Q$ steht also für zwei Größen; in der Elektrotechnik ist fast immer die Ladu
 
 *Aus welchen Grundbausteinen sind alle Einheiten gebaut, und wie sind sie festgelegt?*
 
-Das __Internationale Einheitensystem__ (SI) teilt die Größen in sieben __Basisgrößen__ und die übrigen, __abgeleiteten Größen__. Im SI gelten die Basisgrößen als voneinander unabhängig, eine Festlegung: Keine wird durch die anderen ausgedrückt, und jede abgeleitete Größe lässt sich auf sie zurückführen (Skript S. 4).
+Das __Internationale Einheitensystem__ (SI) teilt die Größen in sieben __Basisgrößen__ und die übrigen, __abgeleiteten Größen__. Im SI gelten die Basisgrößen als voneinander unabhängig, eine Festlegung: Keine wird durch die anderen ausgedrückt, und jede abgeleitete Größe lässt sich auf sie zurückführen.
 
 | Basis­größe | Formel­zeichen | Einheit | Zeichen |
 |---|---|---|---|
@@ -81,7 +81,7 @@ Bis 2019 war das Kilogramm die Masse eines Metallzylinders in Sèvres bei Paris.
 
 *Wie entstehen Einheiten wie Newton, Volt oder Ohm aus den Basiseinheiten?*
 
-Ein Körper von 1 kg, der in jeder Sekunde um 1 m/s schneller wird, erfährt insgesamt eine Kraft von einem __Newton__; weil Kraft Masse mal Beschleunigung ist, ist das Newton kg m s⁻². So entsteht jede abgeleitete Einheit aus der Gleichung ihrer Größe, und viele bekommen einen eigenen Namen (Skript S. 4, Abbildung 1):
+Ein Körper von 1 kg, der in jeder Sekunde um 1 m/s schneller wird, erfährt insgesamt eine Kraft von einem __Newton__; weil Kraft Masse mal Beschleunigung ist, ist das Newton kg m s⁻². So entsteht jede abgeleitete Einheit aus der Gleichung ihrer Größe, und viele bekommen einen eigenen Namen (Abbildung 1):
 
 | Größe | Einheit | in Basis­einheiten und anderen SI-Ein­heiten |
 |---|---|---|
@@ -97,7 +97,7 @@ Ein Körper von 1 kg, der in jeder Sekunde um 1 m/s schneller wird, erfährt ins
 | magne­tischer Fluss $\Phi$ | Weber, Wb | kg m² s⁻² A⁻¹ = V s |
 | magne­tische Fluss­dichte $B$ | Tesla, T | kg s⁻² A⁻¹ = V s/m² |
 
-Das Skript schreibt den Fluss mit $\phi$ und nennt die Flussdichte „magnetische Induktion“ (Tabelle 2.3); üblich sind $\Phi$ und „Flussdichte“. Wie eine Zeile der Tabelle entsteht, zeigt das Volt:
+Für die Flussdichte ist auch der Name „magnetische Induktion“ üblich. Wie eine Zeile der Tabelle entsteht, zeigt das Volt:
 
 :::formel Formel
 $$1\ \mathrm{V} = 1\ \frac{\mathrm{W}}{\mathrm{A}} = 1\ \frac{\mathrm{kg}\,\mathrm{m}^2}{\mathrm{s}^3\,\mathrm{A}}$$
@@ -148,7 +148,7 @@ Szene: get1/grundprinzipien/01-vorsaetze · Vorlage: skala-log
 **Abbildung 3:** Logarithmische Achse der Stromstärke von 1 pA bis 10 A, darüber die Vorsätze Piko, Nano, Mikro, Milli als Abschnitte je drei Zehnerpotenzen. Markiert: 1 pA (6,24 Millionen Elementarladungen je Sekunde), 20 pA (Sperrstrom der Beispieldiode aus dem Diodenkapitel bei −1 V), 80 nA (Eingangsruhestrom eines Operationsverstärkers), 20 mA (Leuchtdiode), 9,13 A (Föhn mit 2100 W an 230 V). Zwischen dem kleinsten und dem größten Strom liegen knapp dreizehn Zehnerpotenzen; Vorsätze machen sie lesbar.
 :::
 
-Ein Operationsverstärker vom Typ 741 nimmt an jedem Eingang typisch 0,000 000 080 A auf, lesbar als 80 nA: Der __Vorsatz__ n (Nano) steht für den Faktor 10⁻⁹. Ein Vorsatz ist ein Zahlfaktor vor der Einheit (Abbildung 3). Die Vorsätze des SI reichen seit 2022 von 10⁻³⁰ bis 10³⁰; das Skript nennt Atto bis Exa (Tabelle 2.4):
+Ein Operationsverstärker vom Typ 741 nimmt an jedem Eingang typisch 0,000 000 080 A auf, lesbar als 80 nA: Der __Vorsatz__ n (Nano) steht für den Faktor 10⁻⁹. Ein Vorsatz ist ein Zahlfaktor vor der Einheit (Abbildung 3). Die Vorsätze des SI reichen seit 2022 von 10⁻³⁰ bis 10³⁰:
 
 | Teile | Faktor | Vielfache | Faktor |
 |---|---|---|---|
@@ -165,7 +165,7 @@ Ein Operationsverstärker vom Typ 741 nimmt an jedem Eingang typisch 0,000 000
 | Ronto r | 10⁻²⁷ | Ronna R | 10²⁷ |
 | Quekto q | 10⁻³⁰ | Quetta Q | 10³⁰ |
 
-Teile schreibt man klein, Vielfache ab Mega groß; Deka, Hekto und Kilo sind aus historischen Gründen klein. Die Schreibweise trägt Bedeutung, denn m ist Milli und M ist Mega; nur Schaltungssimulatoren der SPICE-Familie unterscheiden Groß- und Kleinschreibung nicht, dort bedeutet auch M Milli, und Mega schreibt man MEG. Vor einer Einheit steht höchstens ein Vorsatz, 1 nF und nicht 1 mµF, und Vorsatz und Einheit bilden ein einziges Zeichen, für das eine Hochzahl als Ganzes gilt (Skript S. 5).
+Teile schreibt man klein, Vielfache ab Mega groß; Deka, Hekto und Kilo sind aus historischen Gründen klein. Die Schreibweise trägt Bedeutung, denn m ist Milli und M ist Mega; nur Schaltungssimulatoren der SPICE-Familie unterscheiden Groß- und Kleinschreibung nicht, dort bedeutet auch M Milli, und Mega schreibt man MEG. Vor einer Einheit steht höchstens ein Vorsatz, 1 nF und nicht 1 mµF, und Vorsatz und Einheit bilden ein einziges Zeichen, für das eine Hochzahl als Ganzes gilt.
 
 :::fehlvorstellung
 „1 km² sind 1000 m².“ Das liegt nahe, weil ein Kilometer 1000 m sind. Die Hochzahl gilt aber für Vorsatz und Einheit zusammen: 1 km² ist ein Quadrat von 1000 m mal 1000 m, also eine Million Quadratmeter. Ebenso sind 1 mm² Leiterquerschnitt 10⁻⁶ m².
@@ -175,7 +175,7 @@ Teile schreibt man klein, Vielfache ab Mega groß; Deka, Hekto und Kilo sind aus
 
 *Wie rechnet man mit Größen, und wie verraten Einheiten einen Rechenfehler?*
 
-Weil eine Größe ein Produkt ist, sind Einheiten und Vorsätze Faktoren, und es gelten die gewohnten Regeln für Produkte (Skript S. 9–10).
+Weil eine Größe ein Produkt ist, sind Einheiten und Vorsätze Faktoren, und es gelten die gewohnten Regeln für Produkte.
 
 **Das Zusammenspiel in Schritten** (Abbildung 2):
 
@@ -284,7 +284,7 @@ $$v = \frac{ds}{dt}$$
 $$a = \frac{dv}{dt} = \frac{d^2 s}{dt^2}$$
 :::
 
-Nur der Grenzwert sagt, wie schnell sich der Ort in einem Augenblick ändert (Skript S. 5–6). In der zweiten Ableitung steht die Zeit zweimal im Nenner, daher m/s²; im Skript fehlt dort das Quadrat (Bild 2.2, „d²s/dt“).
+Nur der Grenzwert sagt, wie schnell sich der Ort in einem Augenblick ändert. In der zweiten Ableitung steht die Zeit zweimal im Nenner, daher m/s².
 
 **Kurz gesagt:** Die Geschwindigkeit ist die Steigung des Orts, die Beschleunigung die Steigung der Geschwindigkeit, und die Änderung des Orts ist die Fläche unter der Geschwindigkeit (Flächen unter der Zeitachse zählen negativ). Die Einheit einer Steigung ist die Einheit der senkrechten Achse durch die der waagrechten, die Einheit einer Fläche ihr Produkt.
 
@@ -327,7 +327,7 @@ $$s(t) = s_0 + v_0\,t + \tfrac{1}{2}\,a\,t^2$$
 **Grenzen:** Die Formel gilt nur für konstante Beschleunigung; ein reales Auto beschleunigt bei hoher Geschwindigkeit schwächer, und dann muss man die Integrale mit der tatsächlichen Beschleunigung ausrechnen.
 :::
 
-Im Skript reicht beim zweifachen Integral auch das innere bis zur festen Zeit $t_1$ (S. 6 und 7); wörtlich ergäbe das $a\,(t_1 - t_0)^2$, beim E-Auto mit $t_0$ = 0 also 166,7 m statt 83,3 m. Innen gehört die laufende Zeit hin, wie in Schritt 2 des Kastens; im Rechenbeispiel rechnet das Skript richtig. Seine Summe mit $s_0$ heißt dort „Δs“, ist aber der Ort zur Zeit $t_1$ (S. 7).
+Ein häufiger Fehler ist, beim zweifachen Integral für den Weg von $t_0$ bis $t_1$ auch das innere Integral bis zur festen Zeit $t_1$ laufen zu lassen; das ergäbe $a\,(t_1 - t_0)^2$, beim E-Auto mit $t_0$ = 0 also 166,7 m statt 83,3 m. Innen gehört die laufende Zeit hin, wie in Schritt 2 des Kastens. Zählt man den Anfangsort $s_0$ hinzu, erhält man den Ort zur Zeit $t_1$, nicht seine Änderung Δs.
 
 ::::beispiel Ein E-Auto von 0 auf 100 km/h
 **Gegeben:** Das E-Auto erreicht aus dem Stand in 6,0 s 100 km/h; die Beschleunigung sei dabei konstant.
@@ -362,13 +362,13 @@ $$s = \tfrac{1}{2}\cdot 4{,}63\ \frac{\mathrm{m}}{\mathrm{s}^2}\cdot(6{,}0\ \mat
 - __$M$__, __$r$__: Masse eines zweiten Körpers und Abstand der beiden Körper. Für punktförmige und kugelsymmetrische Körper ist $r$ der Abstand ihrer Mittelpunkte; für andere Formen gilt das Gesetz nur, wenn der Abstand groß gegen ihre Ausdehnung ist.
 - __$\gamma$__: Gravitationskonstante; 6,674·10⁻¹¹ m³/(kg s²).
 
-Eine Kraft verformt einen festgehaltenen Körper oder beschleunigt einen beweglichen (Skript S. 8); gemessen wird sie an der Beschleunigung, die sie einer bekannten Masse erteilt.
+Eine Kraft verformt einen festgehaltenen Körper oder beschleunigt einen beweglichen; gemessen wird sie an der Beschleunigung, die sie einer bekannten Masse erteilt.
 
 :::formel Definition
 $$\sum \vec F = m\,\vec a$$
 :::
 
-Ein Körper von 1 kg, der ohne Luftwiderstand fällt, spürt nur die Schwerkraft und wird in jeder Sekunde um 9,81 m/s schneller; die __Gewichtskraft__ auf ihn ist deshalb 9,81 N, allgemein $m g$, auf einen Koffer von 20 kg 196,2 N. Hebt die Hand den Koffer gleichmäßig, hält sie ihm mit 196,2 N das Gleichgewicht: Die Summe der Kräfte ist null, und er wird nicht schneller. Woher die Gewichtskraft kommt, sagt das __Gravitationsgesetz__ (Skript S. 8):
+Ein Körper von 1 kg, der ohne Luftwiderstand fällt, spürt nur die Schwerkraft und wird in jeder Sekunde um 9,81 m/s schneller; die __Gewichtskraft__ auf ihn ist deshalb 9,81 N, allgemein $m g$, auf einen Koffer von 20 kg 196,2 N. Hebt die Hand den Koffer gleichmäßig, hält sie ihm mit 196,2 N das Gleichgewicht: Die Summe der Kräfte ist null, und er wird nicht schneller. Woher die Gewichtskraft kommt, sagt das __Gravitationsgesetz__:
 
 :::formel Gesetz
 $$F = \gamma\,\frac{m\,M}{r^2}$$
@@ -425,7 +425,7 @@ Szene: get1/grundprinzipien/01-arbeit · Vorlage: schema-zustaende
 
 **Das Zusammenspiel in Schritten** (Abbildung 5):
 
-**Schritt 1**: Hebt man den Koffer von 20 kg senkrecht um 3 m, wirkt die Hand mit seinem Gewicht, 196,2 N, längs des Wegs; die Arbeit ist Kraft mal Weg, 588,6 J (Skript S. 8).
+**Schritt 1**: Hebt man den Koffer von 20 kg senkrecht um 3 m, wirkt die Hand mit seinem Gewicht, 196,2 N, längs des Wegs; die Arbeit ist Kraft mal Weg, 588,6 J.
 
 **Schritt 2**: Wirkt die Kraft schräg zum Weg, zählt nur ihr Anteil längs des Wegs. Zieht man einen Schlitten mit 50 N an einer Schnur, die 30° gegen den Boden geneigt ist, wirken längs des Bodens 50 N mal cos 30°, also 43,3 N, auf 20 m 866 J; der Anteil senkrecht zum Boden, 25 N, trägt nichts bei.
 
@@ -444,7 +444,7 @@ Das __Skalarprodukt__ zweier Vektoren, das Produkt aus der Länge des einen und 
 
 **Kurz gesagt:** Die Arbeit über den ganzen Weg ist die Summe der Arbeiten über seine Stücke. Für eine Kraft, die nur vom Ort abhängt, wie die Schwerkraft, ist die Arbeit auf demselben Weg in Gegenrichtung das Negative der Arbeit auf dem Hinweg.
 
-Das Skript schreibt die erste Zeile mit Betragsstrichen, $|\vec F\cdot\vec s|$ (S. 8). Mit dem Betrag könnte die Arbeit nie negativ werden; beim Absetzen ist sie es aber. Die 130 J seines Beispiels, die es „Änderung der Energie“ nennt (S. 9), sind genauer die Arbeit der Schwerkraft am Körper; seine __potentielle Energie__, die Energie seiner Lage im Schwerefeld, nimmt um ebenso viel ab.
+Ein häufiger Fehler ist, die erste Zeile mit Betragsstrichen zu schreiben, $|\vec F\cdot\vec s|$. Mit dem Betrag könnte die Arbeit nie negativ werden; beim Absetzen ist sie es aber. Die Arbeit der Schwerkraft an einem Körper ist so groß wie die Abnahme seiner __potentiellen Energie__, der Energie seiner Lage im Schwerefeld.
 
 :::formel Formel
 $$W = m\,g\,h$$

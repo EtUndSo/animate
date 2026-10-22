@@ -59,7 +59,7 @@ Damit unterscheiden sich die drei Stoffklassen in Abbildung 2.
 In Kupfer ist das oberste besetzte Band etwa halb voll, und alle 8,5·10²² Valenzelektronen pro cm³ sind beweglich.
 In Silizium hebt die Wärmebewegung nur wenige Elektronen über die Lücke; danach sind beide Bänder ein wenig teilweise besetzt, und beide leiten schwach.
 In Siliziumdioxid ist die Lücke so groß, dass praktisch kein Elektron hinübergelangt.
-Das Skript zählt die Halbleiter zu den Isolatoren mit kleiner Lücke (S. 160); im Bänderbild ist das die übliche Einteilung, bei Raumtemperatur leitet reines Silizium aber um viele Zehnerpotenzen besser als Glas.
+Im Bänderbild zählt man die Halbleiter oft zu den Isolatoren mit kleiner Lücke; bei Raumtemperatur leitet reines Silizium aber um viele Zehnerpotenzen besser als Glas.
 
 ## Elektronen und Löcher
 
@@ -221,12 +221,12 @@ $$\sigma_i = 1{,}602\cdot10^{-19}\ \mathrm{C}\cdot10^{10}\ \mathrm{cm^{-3}}\cdot
 **Einordnung:** Ein Phosphoratom auf fünf Millionen Siliziumatome steigert die Leitfähigkeit auf das 680 000-Fache. Kupfer (1,68·10⁻⁶ Ωcm) leitet trotzdem noch 300 000-mal besser, denn dort ist jedes Atom an der Leitung beteiligt.
 ::::
 
-Das Skript zeichnet die Bänder zusätzlich mit dem __Fermi-Niveau__ $W_F$ (Bilder 10.4 und 10.5).
+Bänderbilder zeigen oft zusätzlich das __Fermi-Niveau__ $W_F$.
 Es ist die Energie, bei der ein Zustand mit der Wahrscheinlichkeit 1/2 besetzt wäre; je näher es an einem Band liegt, desto mehr Ladungsträger hat dieses Band.
-In reinem Silizium ergibt es sich fast genau in der Mitte der Lücke, weil Elektronen und Löcher gleich häufig sind; als Definition, wie im Skript (S. 160), taugt diese Lage nicht.
+In reinem Silizium ergibt es sich fast genau in der Mitte der Lücke, weil Elektronen und Löcher gleich häufig sind; als Definition taugt diese Lage nicht.
 Dotierung schiebt es zum Band der Majoritätsträger, bei 10¹⁶ cm⁻³ bis auf 0,21 eV an $W_L$ bzw. 0,19 eV an $W_V$ heran (Abbildung 1 b, c).
-Es liegt dann 0,16 eV unter dem Niveau des locker gebundenen fünften Elektrons, an einer Stelle ohne Zustände, und darüber sind Zustände besetzt, die 10¹⁶ Leitungselektronen pro cm³. Anders als das Skript schreibt (S. 161), ist es bei 300 K also nicht der „höchste besetzte Zustand“.
-Zwei weitere Kleinigkeiten auf derselben Seite: Die Bindungen heißen kovalent, nicht „kohärent“, und in der Festkörperphysik ist Silizium ein Halbleiter, kein Halbmetall.
+Es liegt dann 0,16 eV unter dem Niveau des locker gebundenen fünften Elektrons, an einer Stelle ohne Zustände, und darüber sind Zustände besetzt, die 10¹⁶ Leitungselektronen pro cm³. Ein häufiger Fehler ist, es den höchsten besetzten Zustand zu nennen; bei 300 K ist es das nicht.
+Die Bindungen im Siliziumgitter heißen kovalent, und in der Festkörperphysik ist Silizium ein Halbleiter, kein Halbmetall.
 
 ## Der pn-Übergang
 
@@ -351,7 +351,7 @@ $$n_{n0}\,\exp\!\Big(-\frac{U_\mathrm{Diff}}{U_T}\Big) = 10^{16}\ \mathrm{cm^{-3
 Nein. Die Messleitungen bilden an beiden Enden Kontakte zwischen Metall und Halbleiter, an denen ebenfalls Potenzialstufen entstehen. Im Gleichgewicht ist die Summe aller Stufen im geschlossenen Kreis genau null; wäre sie es nicht, flösse ohne jede Energiequelle dauerhaft ein Strom. Das Voltmeter zeigt deshalb null.
 :::
 
-Das Skript nennt den Potenzialunterschied zwischen den Gebieten die „Durchlassspannung“ (S. 161).
+Ein häufiger Fehler ist, den Potenzialunterschied zwischen den Gebieten „Durchlassspannung“ zu nennen.
 Das sind zwei verschiedene Größen: Die Diffusionsspannung ist die innere Stufe im Gleichgewicht, die kein Voltmeter an den Anschlüssen zeigt; als Durchlass- oder Schleusenspannung bezeichnet man die Spannung, ab der eine Diode in einer Schaltung merklich Strom führt, typisch 0,6 bis 0,7 V bei Silizium.
 
 ## Zwei Ströme und die Wirkung einer Spannung
@@ -445,7 +445,7 @@ $$I = I_S\,\Big[\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big]$$
 
 ::::beispiel Ströme der Beispieldiode und Spitzenspannung in einem Einweggleichrichter
 **Gegeben:**
-- Sättigungssperrstrom der Beispieldiode 1,457·10⁻¹⁴ A (genauer Wert aus dem Zahlenwerk);
+- Sättigungssperrstrom der Beispieldiode 1,457·10⁻¹⁴ A;
 - Temperaturspannung 25,85 mV;
 - Einweggleichrichter: Wechselspannungsquelle mit Scheitelwert 10 V, Diode und Widerstand 1 kΩ in Reihe.
 
@@ -478,11 +478,10 @@ Ein zweiter Durchgang mit 9,297 mA ändert das Ergebnis nicht mehr.
 
 :::fehlvorstellung
 „Unter 0,7 V fließt kein Strom durch die Diode.“
-Das liegt nahe, weil eine Siliziumdiode in Schaltungen erst ab etwa 0,6 V merklich leitet, und das Skript schreibt, ein Strom fließe, sobald die Spannung die Durchlassspannung überschreitet (S. 161). Tatsächlich fließt bei jeder positiven Spannung Strom, nur wenig: im idealen Modell 76 nA bei 0,4 V und 3,7 µA bei 0,5 V; reale Dioden führen dort durch Rekombination in der Zone eher noch mehr. Die scheinbare Schwelle entsteht durch den steilen Anstieg; auf einer linearen Achse in Milliampere wird der Strom erst ab etwa 0,6 V sichtbar.
+Das liegt nahe, weil eine Siliziumdiode in Schaltungen erst ab etwa 0,6 V merklich leitet und weil es oft heißt, ein Strom fließe, sobald die Spannung die Durchlassspannung überschreitet. Tatsächlich fließt bei jeder positiven Spannung Strom, nur wenig: im idealen Modell 76 nA bei 0,4 V und 3,7 µA bei 0,5 V; reale Dioden führen dort durch Rekombination in der Zone eher noch mehr. Die scheinbare Schwelle entsteht durch den steilen Anstieg; auf einer linearen Achse in Milliampere wird der Strom erst ab etwa 0,6 V sichtbar.
 :::
 
-Das Skript nennt den Sperrstrom einen „sehr kleinen Diffusionsstrom“ (S. 161).
-Das ist die übliche Bezeichnung: Seine Größe bestimmt die Diffusion der Minoritätsträger in den neutralen Gebieten zum Rand der Zone; über die Zone selbst gelangen sie durch Drift, als Strom hinunter.
+Den Sperrstrom nennt man üblicherweise einen Diffusionsstrom: Seine Größe bestimmt die Diffusion der Minoritätsträger in den neutralen Gebieten zum Rand der Zone; über die Zone selbst gelangen sie durch Drift, als Strom hinunter.
 
 ## Alles hängt an einem Prinzip
 
