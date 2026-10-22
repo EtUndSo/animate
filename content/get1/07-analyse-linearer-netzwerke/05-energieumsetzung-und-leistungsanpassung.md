@@ -59,9 +59,9 @@ In der Elektrotechnik rechnet man meist in Wattsekunden oder Kilowattstunden. Im
 __Stromwärme__: Nach dem Drude-Modell aus dem Artikel über den ohmschen Widerstand geben die Elektronen die Energie, die das Feld ihnen zwischen zwei
 Stößen zuführt, beim Stoß an das Kristallgitter ab. So arbeiten Föhn, Toaster und Lötkolben.
 
-Zwei Stellen im Skript sind ungenau. Es schreibt die Spannung hier als $\varphi_2 - \varphi_1$; das ist die Änderung der potenziellen Energie je Ladung,
-die auf dem Weg zum niedrigeren Potenzial negativ ist, während die abgegebene Energie mit $U_{12}$ positiv zählt. Und das Newtonmeter ist keine Einheit
-mechanischer Leistung, wie es dort heißt, sondern der mechanischen Arbeit und des Drehmoments.
+Achtung, Vorzeichen: Schreibt man die Spannung hier als $\varphi_2 - \varphi_1$, erhält man die Änderung der potenziellen Energie je Ladung, die auf dem
+Weg zum niedrigeren Potenzial negativ ist; die abgegebene Energie zählt mit $U_{12}$ positiv. Ein häufiger Fehler ist auch, das Newtonmeter für eine
+Einheit der Leistung zu halten; es ist die Einheit der mechanischen Arbeit und des Drehmoments.
 
 **Im Bild:** Jeder Liter, der vom Turm hinunterfließt, gibt Druck mal Menge ab; fließt das Wasser gleichmäßig, wächst die abgegebene Energie
 gleichmäßig mit der Zeit.
@@ -105,8 +105,8 @@ Elektrische Geräte laufen meist dauernd. Dann ist nicht die Energie die nützli
 $$P = \frac{W}{\Delta t}, \qquad [P] = \frac{\text{J}}{\text{s}} = \text{V}\,\text{A} = \text{W}\ \text{(Watt)}.$$
 :::
 
-**So liest man das:** Energie geteilt durch die Zeit, in der sie umgesetzt wird. Über ein Zeitintervall gerechnet ist das die __mittlere Leistung__; das
-Skript spricht vom zeitlichen Mittelwert. Lässt man das Intervall schrumpfen, erhält man die __Augenblicksleistung__, für zeitabhängige Größen klein
+**So liest man das:** Energie geteilt durch die Zeit, in der sie umgesetzt wird. Über ein Zeitintervall gerechnet ist das die __mittlere Leistung__, der
+zeitliche Mittelwert. Lässt man das Intervall schrumpfen, erhält man die __Augenblicksleistung__, für zeitabhängige Größen klein
 geschrieben; bei Gleichstrom sind beide gleich. Für Gleichstrom und am Widerstand folgt mit dem ohmschen Gesetz:
 
 $$P = U\,I = R\,I^2 = \frac{U^2}{R}, \qquad p(t) = \frac{dW}{dt} = u(t)\,i(t).$$
@@ -151,7 +151,7 @@ Bauformen vertragen typisch $0{,}25$ bis $0{,}6\,\text{W}$. Die Bedingung begren
 
 $$P \le P_\text{max}, \qquad U \le \sqrt{P_\text{max}\,R}, \qquad I \le \sqrt{\frac{P_\text{max}}{R}}.$$
 
-**So liest man das:** Im Diagramm Strom über Spannung (Bild 7.72 des Skripts) liegt der erlaubte Bereich unter der Hyperbel, auf der Spannung mal Strom
+**So liest man das:** Im Diagramm Strom über Spannung liegt der erlaubte Bereich unter der Hyperbel, auf der Spannung mal Strom
 gleich $P_\text{max}$ ist. Die Kennlinie eines Widerstands, eine Gerade durch den Ursprung, schneidet sie im höchsten erlaubten Betriebspunkt: Ein großer
 Widerstand verträgt viel Spannung, aber wenig Strom, ein kleiner umgekehrt.
 
@@ -187,7 +187,7 @@ Ein Viertelwatt-Widerstand reicht, er ist zu $56\,\%$ ausgelastet.
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/05-belastbarkeit · Vorlage: belastbarkeit-hyperbel
-Nach Bild 7.72 des Skripts: ein Diagramm Strom über Spannung von $0$ bis $60\,\text{V}$ und $0$ bis $60\,\text{mA}$ mit der Hyperbel für $0{,}25\,\text{W}$,
+Ein Diagramm Strom über Spannung von $0$ bis $60\,\text{V}$ und $0$ bis $60\,\text{mA}$ mit der Hyperbel für $0{,}25\,\text{W}$,
 der Bereich darunter hell, darüber rot schraffiert. Drei Widerstandsgeraden für $100\,\Omega$, $1\,\text{k}\Omega$ und $10\,\text{k}\Omega$ enden an der
 Hyperbel bei $(5\,\text{V}, 50\,\text{mA})$, $(15{,}8\,\text{V}, 15{,}8\,\text{mA})$ und $(50\,\text{V}, 5\,\text{mA})$. Ein Regler fährt die Spannung hoch; ein
 Punkt läuft auf der gewählten Geraden, ein Widerstandssymbol daneben glüht stärker und wird rot, sobald der Punkt die Hyperbel überschreitet. Kernaussage:
@@ -197,7 +197,7 @@ orange = Betriebspunkt, grau = Achsen.)
 
 ## Leitungsverluste und Hochspannung
 
-Wird Leistung über eine Leitung zu einem Verbraucher übertragen, setzt auch der Widerstand der Leitung einen Teil um (Bild 7.73 des Skripts). Eine Quelle
+Wird Leistung über eine Leitung zu einem Verbraucher übertragen, setzt auch der Widerstand der Leitung einen Teil um. Eine Quelle
 mit der Spannung $U_q$ treibt den Strom $I$ durch eine Leitung mit dem Widerstand $R_\text{Kabel}$ beider Leiter zusammen und weiter durch den Verbraucher.
 Am Kabel fällt die Spannung $U_\text{Kabel}$ ab, es setzt die __Verlustleistung__ $P_V$ um, und beim Verbraucher kommt die __Nutzleistung__ an:
 
@@ -210,7 +210,7 @@ $$P_V = R_\text{Kabel}\,\frac{P_q^2}{U_q^2}.$$
 :::
 
 **So liest man das:** Bei gleicher übertragener Leistung und gleichem Kabel sinken die Verluste mit dem Quadrat der Spannung: zehnfache Spannung, ein
-Hundertstel Verlust. Das Skript vergleicht $220\,\text{V}$ mit $220\,\text{kV}$, ein Tausendstel des Stroms und ein Millionstel der Verluste. Deshalb
+Hundertstel Verlust. Beim Vergleich von $220\,\text{V}$ mit $220\,\text{kV}$ sind es ein Tausendstel des Stroms und ein Millionstel der Verluste. Deshalb
 überträgt man große Leistungen über weite Strecken mit Hoch- und Höchstspannung und setzt die Spannung erst nahe am Verbraucher herab.
 
 **Im Bild:** Eine Fernwasserleitung bringt dieselbe Leistung mit hohem Druck und kleinem Durchfluss viel verlustärmer als mit niedrigem Druck und großem.
@@ -245,7 +245,7 @@ die Formeln gelten dann mit den Effektivwerten des nächsten Abschnitts.
 den dicken Strom.
 ::::
 
-Die Spannungsebenen im deutschen Netz ordnen sich nach der Entfernung, über die sie Energie verteilen (Tabelle im Skript):
+Die Spannungsebenen im deutschen Netz ordnen sich nach der Entfernung, über die sie Energie verteilen:
 
 | Nennspannung | Bezeichnung | Entfernung | Aufgabe |
 |---|---|---|---|
@@ -254,7 +254,7 @@ Die Spannungsebenen im deutschen Netz ordnen sich nach der Entfernung, über die
 | $110\,\text{kV}$ | Hochspannung | bis etwa $100\,\text{km}$ | Versorgung der Mittelspannungsnetze |
 | $220\,\text{kV}$, $380\,\text{kV}$ | Höchstspannung | einige $100\,\text{km}$ bis über $1000\,\text{km}$ | Verbund im In- und Ausland |
 
-Für die Niederspannung nennt das Skript noch $230/380\,\text{V}$; genormt sind heute $230\,\text{V}$ zwischen Außenleiter und Neutralleiter und $400\,\text{V}$
+Für die Niederspannung liest man oft noch $380\,\text{V}$; genormt sind heute $230\,\text{V}$ zwischen Außenleiter und Neutralleiter und $400\,\text{V}$
 zwischen zwei Außenleitern.
 
 ## Leistung bei Sinusspannung
@@ -305,7 +305,7 @@ $$P = \frac{(325\,\text{V})^2}{2\cdot23\,\Omega} \approx 2300\,\text{W}, \qquad 
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/05-sinusleistung · Vorlage: sinusleistung-mittelwert
-Nach dem Bild auf Seite 136 des Skripts: oben eine Wechselspannungsquelle an einem Widerstand von $23\,\Omega$ mit den Zählpfeilen von $u(t)$ und $i(t)$.
+Oben eine Wechselspannungsquelle an einem Widerstand von $23\,\Omega$ mit den Zählpfeilen von $u(t)$ und $i(t)$.
 Darunter drei Kurven über zwei Perioden: $u(t)$ mit dem Scheitelwert $325\,\text{V}$, $i(t)$ mit $14{,}1\,\text{A}$ und die Augenblicksleistung $p(t)$, die mit
 doppelter Frequenz zwischen null und $4600\,\text{W}$ schwingt. Eine waagrechte Linie bei $2300\,\text{W}$ markiert den Mittelwert; ein Schieber füllt die
 Flächen über der Linie in die Täler darunter, bis eine gleichmäßige Fläche entsteht. Daneben eine Gleichspannung von $230\,\text{V}$ am selben Widerstand
@@ -315,13 +315,12 @@ Spannung, rot = Strom, orange = Leistung und Mittelwert, grau = Achsen.)
 
 ## Leistungsanpassung
 
-Eine reale Spannungsquelle gibt Leistung an einen Verbraucher ab (Bild 7.74 des Skripts). Wie viel, hängt vom Verbraucher ab; das Skript fragt nach dem
+Eine reale Spannungsquelle gibt Leistung an einen Verbraucher ab. Wie viel, hängt vom Verbraucher ab; gesucht ist der
 Lastwiderstand, der die größte Leistung aufnimmt.
 
 **Die Akteure:**
 
-- die reale Spannungsquelle aus der Quellenspannung $U_q$ und dem Innenwiderstand $R_q$ (Artikel über ideale und reale Quellen), im Skript an dieser
-  Stelle versehentlich als $(U_q, I_q)$ bezeichnet;
+- die reale Spannungsquelle aus der Quellenspannung $U_q$ und dem Innenwiderstand $R_q$ (Artikel über ideale und reale Quellen);
 - der __Lastwiderstand__ $R_L$ und das Verhältnis $\alpha$ von Last- zu Innenwiderstand, eine Zahl ohne Einheit;
 - der Strom im Kreis und die drei Leistungen: die der Quelle, $P_q$ gleich $U_q I$, die Verlustleistung im Innenwiderstand, $P_v$ gleich $R_q I^2$, und die
   Nutzleistung am Verbraucher, $P_L$ gleich $R_L I^2$;
@@ -341,9 +340,9 @@ $$R_L = R_q:\qquad P_{L,\max} = \frac{P_K}{4} = \frac{U_q^2}{4R_q}.$$
 der Quelle ist, und dann ein Viertel der Kurzschlussleistung. Ist er kleiner, fließt zwar viel Strom, aber an ihm liegt wenig Spannung; ist er größer, liegt
 viel Spannung an, aber es fließt wenig Strom. Bei Anpassung liegt an ihm die halbe Quellenspannung, und es fließt der halbe Kurzschlussstrom.
 
-Das Verhältnis zur Kurzschlussleistung hängt nur von $\alpha$ ab, jede Quelle hat dieselbe Kurve (Bild 7.75). Sie ist symmetrisch in einem bemerkenswerten
+Das Verhältnis zur Kurzschlussleistung hängt nur von $\alpha$ ab, jede Quelle hat dieselbe Kurve. Sie ist symmetrisch in einem bemerkenswerten
 Sinn: Ein Lastwiderstand $\alpha R_q$ und einer $R_q/\alpha$ nehmen dieselbe Leistung auf. Halber und doppelter Innenwiderstand liefern also gleich viel,
-wie im Skript $50\,\Omega$ und $200\,\Omega$ an einer Quelle mit $100\,\Omega$.
+etwa $50\,\Omega$ und $200\,\Omega$ an einer Quelle mit $100\,\Omega$.
 
 **Im Bild:** Das Rad holt am meisten heraus, wenn es genauso stark bremst wie die Zuleitung. Dann liegt am Rad der halbe Turmdruck, und es fließt der halbe
 Durchfluss, den ein offenes Rohr zuließe.
@@ -353,7 +352,7 @@ Durchfluss, den ein offenes Rohr zuließe.
 
 $$P_L = R_L\,I^2 = \frac{U_q^2\,R_L}{(R_q + R_L)^2} = \frac{U_q^2}{R_q}\cdot\frac{R_L/R_q}{(1 + R_L/R_q)^2} = P_K\,\frac{\alpha}{(1 + \alpha)^2}.$$
 
-**Das Maximum mit der Ableitung.** Nach der Quotientenregel, wie im Skript:
+**Das Maximum mit der Ableitung.** Nach der Quotientenregel:
 
 $$\frac{dP_L}{d\alpha} = P_K\,\frac{(1 + \alpha)^2 - 2\alpha\,(1 + \alpha)}{(1 + \alpha)^4} = P_K\,\frac{1 - \alpha}{(1 + \alpha)^3}.$$
 
@@ -401,8 +400,8 @@ genutzten an der aufgewendeten Leistung, steigt dagegen stetig.
 ::::
 
 Was für eine einzelne reale Quelle gilt, gilt für jedes lineare Netz: Von zwei Klemmen aus ist es eine Ersatzspannungsquelle mit $U_i$ und $R_i$ (Artikel
-über Ersatzquellen), und angepasst ist ein Verbraucher, dessen Widerstand gleich $R_i$ ist. Das Skript rechnet das an einer Quelle $U_q$ mit $R_q$ und einem
-Widerstand $R$ parallel zu den Klemmen vor (Bild 7.77). Über die Ersatzquelle geht es kurz:
+über Ersatzquellen), und angepasst ist ein Verbraucher, dessen Widerstand gleich $R_i$ ist. Ein Beispiel ist eine Quelle $U_q$ mit $R_q$ und einem
+Widerstand $R$ parallel zu den Klemmen. Über die Ersatzquelle geht es kurz:
 
 $$U_i = \frac{R}{R_q + R}\,U_q, \qquad R_i = \frac{R_q R}{R_q + R}, \qquad P_{L,\max} = \frac{U_i^2}{4R_i} = \frac{R}{4R_q\,(R_q + R)}\,U_q^2.$$
 
@@ -429,7 +428,7 @@ $$R_\text{ges} = R_q + \frac{R\,R_q}{2R_q + R} = \frac{2R_q\,(R_q + R)}{2R_q + R
 
 $$\eta = \frac{P_{L,\max}}{P_q} = \frac{R}{4R_q\,(R_q + R)}\cdot\frac{2R_q\,(R_q + R)}{2R_q + R} = \frac12\cdot\frac{R}{2R_q + R}.$$
 
-Für jedes endliche $R$ ist der zweite Faktor kleiner als eins. Das Skript kommt über die Spannung am Verbraucher auf einem längeren Weg zum selben
+Für jedes endliche $R$ ist der zweite Faktor kleiner als eins. Über die Spannung am Verbraucher kommt man auf einem längeren Weg zum selben
 Ergebnis.
 :::
 
@@ -469,7 +468,7 @@ $$\eta = \frac{\text{genutzte Leistung}}{\text{gesamte aufgewendete Leistung der
 
 $$\eta = \frac{P_L}{P_q} = \frac{R_L}{R_L + R_q} = \frac{\alpha}{1 + \alpha}.$$
 
-Der Wirkungsgrad steigt mit dem Lastwiderstand stetig an (Bild 7.76): Bei Kurzschluss ist er null, bei Anpassung die Hälfte, und für einen Lastwiderstand
+Der Wirkungsgrad steigt mit dem Lastwiderstand stetig an: Bei Kurzschluss ist er null, bei Anpassung die Hälfte, und für einen Lastwiderstand
 weit über dem Innenwiderstand kommt er der Eins nahe — dann ist aber auch die Leistung klein. Größte Leistung und größter Wirkungsgrad schließen sich aus,
 und die Anwendung entscheidet, worauf es ankommt:
 
@@ -505,15 +504,15 @@ An den Klemmen liegen dann nur noch $32{,}25\,\text{V}$.
 
 $$P_v = (0{,}3\,\text{A})^2\cdot0{,}25\,\Omega = 0{,}0225\,\text{W}, \qquad \eta = 1 - \frac{0{,}0225\,\text{W}}{10{,}8\,\text{W}} \approx 99{,}8\,\%.$$
 
-Bei großem Strom kostet der Innenwiderstand einen spürbaren Teil, bei kleinem fast nichts. Das Skript zeigt dasselbe an einer Autobatterie beim Anlassen
-und mit dem Parklicht; sein Bild 7.78 zeigt dabei die belastete Batterie, nicht, wie die Unterschrift sagt, ihren Ladevorgang.
+Bei großem Strom kostet der Innenwiderstand einen spürbaren Teil, bei kleinem fast nichts. Dasselbe gilt für eine Autobatterie beim Anlassen
+und mit dem Parklicht.
 
 **Im Bild:** Ein Turm mit weiter Zuleitung: Wer viel zapft, verliert in der Leitung merklich Druck, wer wenig zapft, merkt nichts.
 ::::
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/05-anpassung-wirkungsgrad · Vorlage: anpassung-wirkungsgrad
-Nach Bild 7.74 bis 7.76 des Skripts: oben die reale Quelle mit $U_q = 2{,}4\,\text{V}$ und $R_q = 2\,\Omega$ an einem verstellbaren Lastwiderstand $R_L$, mit
+Oben die reale Quelle mit $U_q = 2{,}4\,\text{V}$ und $R_q = 2\,\Omega$ an einem verstellbaren Lastwiderstand $R_L$, mit
 den Zählpfeilen von $I$, $U_{Rq}$ und $U_L$. Darunter zwei Kurven über $\alpha$ von $0$ bis $10$: $P_L/P_K$ mit dem Maximum $0{,}25$ bei $\alpha$ gleich eins und
 der Wirkungsgrad $\eta$, der von null gegen eins steigt und bei $\alpha$ gleich eins die Hälfte erreicht. Ein Regler verschiebt $R_L$; zwei Balken zeigen die
 Leistung im Innenwiderstand und im Verbraucher, und eine gestrichelte Linie verbindet die gleich hohen Punkte bei $\alpha$ und $1/\alpha$. Kernaussage:
@@ -530,7 +529,8 @@ Innenwiderstand und lieferte den halben Kurzschlussstrom, einen riesigen Strom �
 $8\,\Omega$ und ist bewusst nicht angepasst.
 
 Bei Wechselstrom mit Spulen und Kondensatoren wird die Bedingung zur Anpassung komplexer Widerstände, ein Thema der Wechselstromtechnik. Der nächste
-Artikel beginnt ein neues Kapitel: Mit dem __Maschenstromverfahren__ lassen sich auch große Netze systematisch berechnen, Masche für Masche.
+Artikel, [Das Maschenstromverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/maschenstromverfahren/maschenstromverfahren.html),
+beginnt ein neues Thema: Mit dem __Maschenstromverfahren__ lassen sich auch große Netze systematisch berechnen, Masche für Masche.
 
 :::kern
 - Energie ist das Zeitintegral von Spannung mal Strom, bei Gleichstrom $W=UI\,\Delta t$; gemessen in Joule, Wattsekunden oder Kilowattstunden.
@@ -562,6 +562,6 @@ F: Was ist der Wirkungsgrad, und warum schließen sich größte Leistung und gr�
 A: Genutzte durch aufgewendete Leistung; an der realen Quelle $\eta=R_L/(R_L+R_q)$, denn durch beide Widerstände fließt derselbe Strom. Bei Anpassung ist er die Hälfte, nahe eins erst für $R_L\gg R_q$, wo die Leistung klein ist. Die Nachrichtentechnik passt deshalb an, die Energietechnik hält den Innenwiderstand klein; der E-Bike-Akku mit $0{,}25\,\Omega$ hat bei $15\,\text{A}$ noch $89{,}6\,\%$.
 F: Wie passt man einen Verbraucher an ein ganzes Netz an, und welchen Wirkungsgrad hat das?
 A: Man bestimmt die Ersatzquelle und wählt $R_L=R_i$; die Leistung ist dann $U_i^2/(4R_i)$. Bezogen auf die eigentliche Quelle kann der Wirkungsgrad weit unter $50\,\%$ liegen, weil die übrigen Widerstände mitverbrauchen: beim Teiler aus $R_q$ und $R$ ist er $\frac12\cdot\frac{R}{2R_q+R}$, beim Referenznetz mit $12\,\text{V}$ nur $1\,\text{mW}$ von $18\,\text{mW}$, gut $5{,}6\,\%$.
-F: Welche Ungenauigkeiten stehen im Skript bei Energie und Leistung?
-A: Die Spannung beim Verschieben der Ladung ist als $\varphi_2-\varphi_1$ geschrieben; die abgegebene Energie zählt mit $U_{12}=\varphi_1-\varphi_2$ positiv. Das Newtonmeter ist eine Einheit der Arbeit und des Drehmoments, nicht der mechanischen Leistung. Die Niederspannung ist heute $230/400\,\text{V}$ statt $230/380\,\text{V}$; die Quelle in 7.9 heißt einmal $(U_q, I_q)$ statt $(U_q, R_q)$, und Bild 7.78 zeigt die belastete Batterie, keinen Ladevorgang.
+F: Welche Fehler passieren bei Energie, Leistung und Netzspannung leicht?
+A: Schreibt man die Spannung beim Verschieben der Ladung als $\varphi_2-\varphi_1$, wird die abgegebene Energie negativ; positiv zählt sie mit $U_{12}=\varphi_1-\varphi_2$. Das Newtonmeter ist eine Einheit der Arbeit und des Drehmoments, nicht der mechanischen Leistung. Und zwischen zwei Außenleitern des Niederspannungsnetzes liegen heute $400\,\text{V}$, nicht $380\,\text{V}$; zwischen Außenleiter und Neutralleiter sind es $230\,\text{V}$.
 :::

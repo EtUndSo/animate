@@ -42,7 +42,7 @@ gleichen Drucks fließt nichts. (Blau = Wasser und Drücke, rot = Ringleitung un
 
 Die meisten Netze bestehen aus __Gruppen__, deren Widerstände für sich in Reihe oder parallel liegen. Man fasst sie __von innen nach außen__ zusammen, wie
 im Artikel über die Zusammenschaltung von Widerständen: zuerst eine innerste Gruppe, deren Teile wirklich nur in Reihe oder nur parallel liegen, dann die
-nächste, bis ein einziger Widerstand zwischen den Klemmen steht (Bild 7.1 bis 7.3 des Skripts).
+nächste, bis ein einziger Widerstand zwischen den Klemmen steht.
 
 Zwei Schreibweisen helfen, den Überblick zu behalten. Mit dem Zeichen $\parallel$ für die Parallelschaltung zeigen Klammern die Reihenfolge. Als
 __Kettenbruch__ geschrieben wechseln sich die beiden Regeln ab: In Reihe addiert man Widerstände, parallel Leitwerte, und dazwischen nimmt man den
@@ -99,10 +99,10 @@ $$\varphi_P + \varphi_{P'} = \varphi_A + \varphi_B, \qquad \varphi_P = \frac{\va
 :::
 
 **So liest man das:** Gespiegelte Knoten liegen gleich weit über und unter dem Mittelwert der Klemmenpotenziale. Alle Knoten auf der Spiegelachse haben
-genau diesen Mittelwert; man darf sie verbinden (Bild 7.4 des Skripts) oder das Netz entlang der Achse in zwei gleiche __Halbschaltungen__ zerschneiden
-(Bild 7.5 und 7.6). Ein Widerstand, der die Achse kreuzt, wird dazu in zwei Hälften geteilt, deren Mittelpunkt auf der Achse liegt; ein Widerstand, der
+genau diesen Mittelwert; man darf sie verbinden oder das Netz entlang der Achse in zwei gleiche __Halbschaltungen__ zerschneiden.
+Ein Widerstand, der die Achse kreuzt, wird dazu in zwei Hälften geteilt, deren Mittelpunkt auf der Achse liegt; ein Widerstand, der
 auf der Achse liegt, führt keinen Strom. Ebenso haben Knoten gleiches Potenzial, die eine Drehung des Netzes um die Verbindung von A und B ineinander
-überführt, wie die Ecken des Widerstandswürfels im Skript (Bild 7.8).
+überführt, wie beim Widerstandswürfel über die Raumdiagonale weiter unten.
 
 **Im Bild:** In einem symmetrischen Rohrnetz zwischen Zulauf und Ablauf hat jeder Punkt so viel Druck über dem Mittelwert wie sein Spiegelpunkt darunter;
 auf der Symmetrielinie herrscht überall der mittlere Druck, und Querrohre dort bleiben leer.
@@ -143,14 +143,14 @@ $$R_{AM} = \frac R2 \parallel \frac{3R}{2} = \frac38\,R = 375\,\Omega, \qquad R_
 
 $$\varphi_{(0,0,1)} = 3\,\text{V} + 3\,\text{V}\cdot\frac{R/2}{R + R/2} = 4\,\text{V}.$$
 
-Zum Vergleich: Über die Raumdiagonale ergibt der Würfel im Skript $\frac56\,R$, also etwas mehr, denn der Weg ist länger.
+Zum Vergleich: Über die Raumdiagonale ergibt der Würfel $\frac56\,R$, also etwas mehr, denn der Weg ist länger.
 
 **Im Bild:** Vier Ecken auf halber Höhe zwischen Zulauf und Ablauf haben denselben mittleren Druck; ein Rohr zwischen ihnen bliebe leer.
 ::::
 
-Die Beispiele des Skripts nutzen genau das: In Bild 7.4 liegen C und D auf der Spiegelachse und werden verbunden, in Bild 7.5 und 7.6 wird ein
-Widerstand auf der Achse in zwei Hälften $2R \parallel 2R$ und ein kreuzender in $R/2 + R/2$ geteilt, um die Halbschaltung abzutrennen. Beim
-Widerstandswürfel über die Raumdiagonale (Bild 7.7 bis 7.9) liegen die drei Nachbarecken von A auf gleichem Potenzial, denn eine Drehung um die
+So geht man in der Praxis vor: Liegen zwei Knoten C und D auf der Spiegelachse, verbindet man sie; um die Halbschaltung abzutrennen, teilt man einen
+Widerstand auf der Achse in zwei Hälften $2R \parallel 2R$ und einen kreuzenden in $R/2 + R/2$. Beim
+Widerstandswürfel über die Raumdiagonale liegen die drei Nachbarecken von A auf gleichem Potenzial, denn eine Drehung um die
 Raumdiagonale führt sie ineinander über, und ebenso die drei Nachbarecken der Gegenecke. Verbunden ergeben sich drei Gruppen paralleler Widerstände in
 Reihe, drei, sechs und drei Kanten:
 
@@ -158,7 +158,7 @@ $$R_g = \frac R3 + \frac R6 + \frac R3 = \frac56\,R.$$
 
 ## Stern und Dreieck
 
-Drei Widerstände können drei Knoten 1, 2 und 3 auf zwei verschiedene Arten verbinden (Bild 7.10 des Skripts). Sind die Knoten Teil eines größeren
+Drei Widerstände können drei Knoten 1, 2 und 3 auf zwei verschiedene Arten verbinden. Sind die Knoten Teil eines größeren
 Netzes, das sich so nicht zusammenfassen lässt, ersetzt man die eine Form durch die andere.
 
 **Die Akteure:**
@@ -173,13 +173,13 @@ dieselben Ströme aufnehmen; der Sternpunkt ist von außen nicht zu sehen.
 
 **Das Zusammenspiel:** *Welcher Stern ersetzt ein gegebenes Dreieck, und welches Dreieck einen gegebenen Stern?*
 
-Für die Richtung vom Dreieck zum Stern, die __Dreieck-Stern-Umwandlung__ (Bild 7.11):
+Für die Richtung vom Dreieck zum Stern, die __Dreieck-Stern-Umwandlung__:
 
 :::formel Satz
 $$R_{10} = \frac{R_{12}\,R_{31}}{R_{12} + R_{23} + R_{31}}, \qquad R_{20} = \frac{R_{12}\,R_{23}}{R_{12} + R_{23} + R_{31}}, \qquad R_{30} = \frac{R_{23}\,R_{31}}{R_{12} + R_{23} + R_{31}}.$$
 :::
 
-**So liest man das:** Das Skript fasst es in einen Merksatz: Sternwiderstand gleich Produkt der __Anliegerwiderstände__ des Dreiecks, geteilt durch den
+**So liest man das:** Als Merksatz: Sternwiderstand gleich Produkt der __Anliegerwiderstände__ des Dreiecks, geteilt durch den
 __Umfangswiderstand__. Anlieger sind die beiden Dreieckswiderstände, die an demselben Knoten ankommen wie der gesuchte Sternwiderstand; der
 Umfangswiderstand ist die Summe aller drei. Nach Arthur Edwin Kennelly, der die Umwandlung 1899 veröffentlichte, heißt sie auch Kennelly-Umwandlung.
 
@@ -238,7 +238,7 @@ $0{,}32\,\text{A}$ von 2 nach 3.
 **Im Bild:** Die Ringleitung oben wird durch einen Verteiler ersetzt; danach sind es nur noch zwei Rohrstränge nebeneinander hinter einem Zulaufrohr.
 ::::
 
-Für die Gegenrichtung, die __Stern-Dreieck-Umwandlung__ (Bild 7.12), rechnet man am bequemsten mit Leitwerten:
+Für die Gegenrichtung, die __Stern-Dreieck-Umwandlung__, rechnet man am bequemsten mit Leitwerten:
 
 :::formel Satz
 $$G_{12} = \frac{G_{10}\,G_{20}}{G_{10} + G_{20} + G_{30}}, \qquad G_{23} = \frac{G_{20}\,G_{30}}{G_{10} + G_{20} + G_{30}}, \qquad G_{31} = \frac{G_{30}\,G_{10}}{G_{10} + G_{20} + G_{30}},$$
@@ -246,7 +246,7 @@ $$G_{12} = \frac{G_{10}\,G_{20}}{G_{10} + G_{20} + G_{30}}, \qquad G_{23} = \fra
 $$R_{12} = R_{10} + R_{20} + \frac{R_{10}\,R_{20}}{R_{30}}, \qquad R_{23} = R_{20} + R_{30} + \frac{R_{20}\,R_{30}}{R_{10}}, \qquad R_{31} = R_{30} + R_{10} + \frac{R_{30}\,R_{10}}{R_{20}}.$$
 :::
 
-**So liest man das:** Der Merksatz des Skripts ist das Spiegelbild des ersten: Dreiecksleitwert gleich Produkt der Anliegerleitwerte des Sterns, geteilt
+**So liest man das:** Der Merksatz ist das Spiegelbild des ersten: Dreiecksleitwert gleich Produkt der Anliegerleitwerte des Sterns, geteilt
 durch die Summe der Leitwerte des Sterns. Widerstände und Leitwerte, Dreieck und Stern tauschen die Rollen. In Widerständen ist der Dreieckswiderstand
 zwischen zwei Knoten die Reihe ihrer beiden Sternwiderstände, vergrößert um deren Produkt geteilt durch den dritten Sternwiderstand — umso mehr, je
 kleiner dieser dritte ist.
@@ -351,7 +351,7 @@ nur ein Drittel.
 ## π- und T-Schaltung
 
 Zeichnet man ein Dreieck zwischen zwei Klemmenpaaren, wird es zur __π-Schaltung__: zwei Querwiderstände und ein Längswiderstand, und der dritte Knoten ist
-die gemeinsame untere Leitung (Bild 7.15 des Skripts). Ein Stern wird ebenso zur __T-Schaltung__ aus zwei Längswiderständen und einem Querwiderstand.
+die gemeinsame untere Leitung. Ein Stern wird ebenso zur __T-Schaltung__ aus zwei Längswiderständen und einem Querwiderstand.
 
 In der π-Schaltung liegt $R_1$ zwischen dem oberen Eingangsknoten und der unteren Leitung, $R_2$ zwischen den beiden oberen Knoten und $R_3$ zwischen dem
 oberen Ausgangsknoten und der unteren Leitung. In der T-Schaltung sitzt $R'_1$ am Eingangsknoten, $R'_3$ am Ausgangsknoten und $R'_2$ an der unteren
@@ -359,9 +359,10 @@ Leitung. Dann gilt:
 
 $$R'_1 = \frac{R_1\,R_2}{R_1 + R_2 + R_3}, \qquad R'_2 = \frac{R_1\,R_3}{R_1 + R_2 + R_3}, \qquad R'_3 = \frac{R_2\,R_3}{R_1 + R_2 + R_3}.$$
 
-**So liest man das:** Es ist die Dreieck-Stern-Umwandlung, nur anders gezeichnet. Das Skript nennt Anwendungen in der Nachrichtentechnik: Ein
+**So liest man das:** Es ist die Dreieck-Stern-Umwandlung, nur anders gezeichnet. Anwendungen gibt es in der Nachrichtentechnik: Ein
 __Dämpfungsglied__ schwächt ein Signal um einen festen Faktor ab und soll an beiden Klemmenpaaren denselben Eingangswiderstand haben wie die Leitungen und
-Geräte, an denen es hängt, damit dort __Leistungsanpassung__ herrscht, die größtmögliche Leistungsübertragung, ein Thema am Ende dieses Kapitels. Und
+Geräte, an denen es hängt, damit dort __Leistungsanpassung__ herrscht, die größtmögliche Leistungsübertragung, ein Thema des Artikels
+[Energieumsetzung und Leistungsanpassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/energieumsetzung-und-leistungsanpassung.html). Und
 Filter aus Spulen und Kondensatoren lassen sich in π- und T-Form ineinander umrechnen.
 
 **Im Bild:** Eine Ringleitung, deren eines Rohr am Boden entlangläuft, und ein Verteiler, dessen einer Arm zum Boden führt.
@@ -396,7 +397,7 @@ Das Glied halbiert die Spannung und belastet die Quelle genau wie eine Leitung m
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/04-stern-dreieck · Vorlage: stern-dreieck-umwandlung
-Nach Bild 7.10 bis 7.12 und 7.13 des Skripts, an der Brücke der Beispiel-Seite: links die Brücke mit A oben (Knoten 1), B unten, $R_{12} = 10\,\Omega$ und
+An der Brücke der Beispiel-Seite: links die Brücke mit A oben (Knoten 1), B unten, $R_{12} = 10\,\Omega$ und
 $R_{2B} = 26\,\Omega$ links, $R_{31} = 20\,\Omega$ und $R_{3B} = 12\,\Omega$ rechts, $R_{23} = 20\,\Omega$ als Brücke, das Dreieck 1, 2, 3 gestrichelt
 hervorgehoben. Ein Knopf „umwandeln" lässt die drei Dreieckswiderstände schrumpfen und an ihrer Stelle einen Stern mit $R_{10} = 4\,\Omega$,
 $R_{20} = 4\,\Omega$ und $R_{30} = 8\,\Omega$ um den Sternpunkt 0 wachsen; neben jedem Sternarm leuchten die beiden Anliegerwiderstände und der Umfang auf.

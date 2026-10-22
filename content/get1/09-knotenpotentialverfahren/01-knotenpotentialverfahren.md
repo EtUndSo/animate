@@ -137,7 +137,7 @@ niedrigeren Spiegel, und um jede Schleife gehen die Unterschiede auf.
 
 ## Das Verfahren in vier Schritten
 
-Das Skript gliedert das Vorgehen in vier Schritte:
+Das Vorgehen gliedert sich in vier Schritte:
 
 1. Reale Spannungsquellen werden in reale Stromquellen umgewandelt, die Ersatzstromquellen aus dem Artikel über Ersatzquellen; Widerstände schreibt man
    als Leitwerte. Warum das nötig ist und was mit idealen Spannungsquellen geschieht, zeigen eigene Abschnitte unten.
@@ -147,12 +147,12 @@ Das Skript gliedert das Vorgehen in vier Schritte:
 4. Man löst das Gleichungssystem nach den Knotenspannungen und berechnet daraus die Zweigspannungen und Zweigströme.
 
 Die Knotenregel am Knoten $\nu$ sagt dann: Was über die Leitwerte abfließt, speisen die Stromquellen ein. Nach den Knotenspannungen geordnet, hat das
-System immer dieselbe Gestalt, die man direkt aus dem Schaltbild abliest (Gleichungen 9.1 und 9.2 des Skripts).
+System immer dieselbe Gestalt, die man direkt aus dem Schaltbild abliest.
 
 **Die drei Akteure:**
 
 - der Vektor der Knotenspannungen $\vec U \in \mathbb R^n$, mit den Komponenten $U_\nu$ in Volt;
-- die __Knotenleitwertmatrix__ $\mathbf Y \in \mathbb R^{n\times n}$ mit den Einträgen $Y_{\nu\mu}$ in Siemens. Das Skript nennt sie auch Admittanz- oder
+- die __Knotenleitwertmatrix__ $\mathbf Y \in \mathbb R^{n\times n}$ mit den Einträgen $Y_{\nu\mu}$ in Siemens. Üblich sind auch die Namen Admittanz- oder
   Knotenadmittanzmatrix: Eine __Admittanz__ ist ein verallgemeinerter Leitwert, der bei Wechselstrom komplex wird; in Gleichstromnetzen ist sie einfach
   der Leitwert;
 - der Vektor der __Quellströme__ $\vec I_q \in \mathbb R^n$, mit den Komponenten $I_{q\nu}$ in Ampere: der gesamte Strom, den Stromquellen in den Knoten
@@ -177,9 +177,8 @@ In Formeln, mit der Summe über alle Knoten $\mu$ außer $\nu$ selbst, den Bezug
 
 $$Y_{\nu\nu} = \sum_{\mu \ne \nu} G_{\nu\mu}, \qquad Y_{\nu\mu} = -G_{\nu\mu}.$$
 
-Die Einheiten passen: Siemens mal Volt ergibt Ampere. Das Skript schreibt die Einträge in der Matrix als $Y$, im Text als $G_{\nu\nu}$ und $G_{\mu\nu}$; dann
-ist $G_{\mu\nu}$ zugleich Matrixeintrag und, mit umgekehrtem Vorzeichen, Koppelleitwert. Hier heißen deshalb die Einträge $Y$ und die Leitwerte der
-Bauteile $G$.
+Die Einheiten passen: Siemens mal Volt ergibt Ampere. Die Einträge der Matrix heißen $Y$, die Leitwerte der Bauteile $G$: Schriebe man beide als $G$, wäre
+$G_{\mu\nu}$ zugleich Matrixeintrag und, mit umgekehrtem Vorzeichen, Koppelleitwert.
 
 **Im Bild:** Der Abfluss aus einem Knoten wächst mit seinem eigenen Pegel, durch alle angeschlossenen Rohre zugleich; das ist die Diagonale. Ein hoher
 Nachbarpegel drückt Wasser zurück und verringert den Abfluss; das ist der negative Koppeleintrag. Die Pumpen speisen ein; das ist die rechte Seite.
@@ -275,7 +274,7 @@ Knotenspannungen und Pegel, orange = Matrixeinträge und hervorgehobene Leitwert
 
 Das Verfahren bilanziert Ströme. Eine ideale Stromquelle passt unmittelbar hinein: Ihr Strom hängt von keiner Knotenspannung ab und steht nur rechts. Eine
 Spannungsquelle dagegen legt eine Spannung fest, aber keinen Strom; ihr Strom stellt sich nach dem übrigen Netz ein, und kein Satz gibt ihn aus den
-Knotenspannungen. Deshalb verlangt das Skript, Spannungsquellen zuerst in Stromquellen umzuwandeln.
+Knotenspannungen. Deshalb verlangt Schritt 1 des Verfahrens, Spannungsquellen zuerst in Stromquellen umzuwandeln.
 
 **Die reale Spannungsquelle.** Eine reale Spannungsquelle mit der Quellenspannung $U_q$ und dem Innenwiderstand $R_q$ liege zwischen dem Knoten $\nu$ an
 ihrem Pluspol und dem Knoten $\mu$. Für das Verfahren ist sie eine ideale Stromquelle, die ihren Kurzschlussstrom in den Knoten $\nu$ schiebt, parallel zu
@@ -385,8 +384,8 @@ Rohr eng ist oder nicht.
 
 ## Warum die Matrix symmetrisch und das System lösbar ist
 
-Wie die Widerstandsmatrix des vorigen Artikels hat die Knotenleitwertmatrix zwei Eigenschaften, die das Verfahren zuverlässig machen. Das Skript nennt die
-erste, die Symmetrie; die zweite, die __positive Definitheit__, ist der Grund, warum man nie ein unlösbares System erhält. Sie besagt, dass die Doppelsumme
+Wie die Widerstandsmatrix des vorigen Artikels hat die Knotenleitwertmatrix zwei Eigenschaften, die das Verfahren zuverlässig machen. Die
+erste ist die Symmetrie; die zweite, die __positive Definitheit__, ist der Grund, warum man nie ein unlösbares System erhält. Sie besagt, dass die Doppelsumme
 unten für alle Knotenspannungen positiv ist, die nicht sämtlich null sind. Die Symmetrie gilt für jedes Netz aus Leitwerten und unabhängigen Quellen, die
 positive Definitheit, wenn außerdem alle Leitwerte positiv sind und jeder Knoten über einen Weg aus Leitwerten mit dem Bezugsknoten verbunden ist. Die Summe
 rechts läuft über alle Leitwerte $G_j$ des Netzes, mit ihren Zweigspannungen $U_j$:
@@ -459,7 +458,7 @@ verbindet ihn mit der Nullmarke.
 ## Knoten oder Maschen?
 
 Beide Verfahren lösen dasselbe Netz, aber verschieden schnell. Das Knotenpotentialverfahren braucht $k - 1$ Gleichungen, das Maschenstromverfahren
-$z - k + 1$. Das Skript hält fest, wann das Knotenpotentialverfahren kürzer ist:
+$z - k + 1$. Kürzer ist das Knotenpotentialverfahren also genau dann, wenn
 
 $$k - 1 < z - k + 1 \iff z > 2k - 2.$$
 
@@ -467,7 +466,7 @@ $$k - 1 < z - k + 1 \iff z > 2k - 2.$$
 bei Netzen mit vielen Knoten, aber wenigen Schleifen, etwa langen Ketten. Ideale Quellen verschieben die Rechnung: Jede ideale Spannungsquelle, deren einer
 Pol am Bezugsknoten liegt, macht eine Knotenspannung bekannt, wie der nächste Abschnitt zeigt; jede ideale Stromquelle macht einen Maschenstrom bekannt.
 
-Das Skript schreibt zu Beginn des Kapitels, die Maschenstromanalyse sei nur für Schaltungen mit Spannungsquellen geeignet, und im Knotenpotentialverfahren
+Oft liest man, die Maschenstromanalyse sei nur für Schaltungen mit Spannungsquellen geeignet, und im Knotenpotentialverfahren
 könnten nur Stromquellen berücksichtigt werden. Beides ist zu streng: Der vorige Artikel hat gezeigt, wie Maschenströme mit idealen Stromquellen umgehen,
 und der nächste Abschnitt zeigt, wie Knotenspannungen mit idealen Spannungsquellen umgehen.
 
@@ -511,9 +510,8 @@ vier Standrohre außer der Nullmarke.
 
 ## Ideale Spannungsquellen
 
-In der Zusammenfassung des Skripts heißt es, ideale Spannungsquellen und Widerstände von $0\,\Omega$ könnten im Knotenpotentialverfahren nicht
-berücksichtigt werden. Für die Leitwertmatrix stimmt das: Eine ideale Spannungsquelle hat keinen Innenwiderstand, ihr Strom hängt von keiner
-Knotenspannung ab, und eine Ersatzstromquelle hätte den Kurzschlussstrom $U_q/0$. Für die Rechnung von Hand gibt es aber zwei einfache Wege; den dritten, den
+Ideale Spannungsquellen und Widerstände von $0\,\Omega$ lassen sich nicht in die Leitwertmatrix eintragen: Eine ideale Spannungsquelle hat keinen
+Innenwiderstand, ihr Strom hängt von keiner Knotenspannung ab, und eine Ersatzstromquelle hätte den Kurzschlussstrom $U_q/0$. Für die Rechnung von Hand gibt es aber zwei einfache Wege; den dritten, den
 Simulatoren gehen, zeigt der Exkurs unten.
 
 **Ein Pol am Bezugsknoten.** Liegt die Quelle zwischen dem Knoten $\nu$ an ihrem Pluspol und dem Bezugsknoten, ist die Knotenspannung bekannt:
@@ -647,12 +645,12 @@ grau = Widerstände, gestrichelt = Hülle.)
 
 ## Exkurs: Die Matrix Bauteil für Bauteil
 
-Das Skript schließt das Kapitel mit einem Abschnitt über die modifizierte Knotenpotentialanalyse, eine Erweiterung des Verfahrens, die auch ideale
-Spannungsquellen fasst, und sagt selbst, sie gehöre nicht zu GET1, sondern zur Schaltungstechnik 1 im dritten Semester. Wer nur die Rechnung von Hand braucht, kann bei der Bedeutung am Ende weiterlesen. Die beiden Exkurse zeigen, wie
-ein Schaltungssimulator dieselbe Matrix aufbaut, ohne über das Netz nachzudenken.
+Die beiden Exkurse führen über die Rechnung von Hand hinaus, bis zur modifizierten Knotenpotentialanalyse, einer Erweiterung des Verfahrens, die auch ideale
+Spannungsquellen fasst. Sie zeigen, wie ein Schaltungssimulator dieselbe Matrix aufbaut, ohne über das Netz nachzudenken. Wer nur die Rechnung von Hand
+braucht, kann bei der Bedeutung am Ende weiterlesen.
 
 Die Idee: Jedes Bauteil liefert einen festen Beitrag zur Matrix, unabhängig von allen anderen Bauteilen, sein __Eintragsmuster__ (englisch stamp, Stempel).
-Ein Programm beginnt mit einer Nullmatrix und einem Nullvektor, geht die Bauteile nacheinander durch und addiert ihre Muster. Das Skript nimmt dabei
+Ein Programm beginnt mit einer Nullmatrix und einem Nullvektor, geht die Bauteile nacheinander durch und addiert ihre Muster. Dabei nimmt man
 zunächst auch den Bezugsknoten als Knoten 0 mit; die Matrix hat dann $n + 1$ Zeilen und Spalten, und am Ende streicht man Zeile und Spalte 0.
 
 Neben Leitwerten und unabhängigen Stromquellen kommen __spannungsgesteuerte Stromquellen__ vor, wie im Artikel über Zweitore: Quellen, deren Strom
@@ -703,7 +701,7 @@ Im __Kleinsignalersatzschaltbild__ eines Verstärkers, dem linearen Modell dafü
 Ruhezustand, um den die Signale schwanken, liegt am
 Eingang, dem Knoten 1, der Eingangsleitwert $G_i$ nach Masse. Am Ausgang, dem Knoten 2, zieht eine von $U_1$ gesteuerte Quelle den Strom $g_mU_1$ nach Masse,
 parallel zum Ausgangsleitwert $G_o$ und zur Last $G_L$. Das ist das Y-Ersatzschaltbild aus dem Artikel über Zweitore, ohne Rückwirkung vom Ausgang auf den
-Eingang. Für diese Grundstruktur gilt die Regel, die das Skript für nahezu alle Verstärker hervorhebt, Spannungsverstärkung gleich minus Steilheit mal
+Eingang. Für diese Grundstruktur gilt eine Regel, die sich bei nahezu allen Verstärkern wiederfindet, Spannungsverstärkung gleich minus Steilheit mal
 Lastwiderstand:
 
 :::formel
@@ -810,21 +808,18 @@ eigene Ursache verstärkt, steht an der Grenze zur Instabilität.
 (b). Eine Pumpe, die in ihr eigenes Standrohr fördert, hält jeden Pegel (c).
 ::::
 
-Das Skript rechnet dieselben beiden Schaltungen mit Buchstaben, in den Beispielen zu Bild 9.5 und Bild 9.7. Im ersten steht im Zähler von Gleichung 9.5 oben
-links $G_q$ statt $G_q + G_i$, ohne Folgen, weil der Eintrag mit null multipliziert wird; die Steilheit heißt mal $g$, mal $g_m$. Im zweiten sagt Schritt 6,
-$G_o + G_L$ werde bei $Y_{22}$, $Y_{33}$, $Y_{23}$ und $Y_{32}$ eingetragen. $G_L$ liegt aber zwischen dem Knoten 2 und Masse und gehört nur nach $Y_{22}$;
-die Matrix 9.12 ist trotzdem richtig. Die Determinanten 9.13 und 9.14 rechnen dagegen mit Einträgen, die nicht zu 9.12 passen, mit $+G_L$ in $Y_{23}$,
-$Y_{32}$ und $Y_{33}$, und das Ergebnis 9.15 ist falsch. Richtig ist, in den Bezeichnungen des Skripts mit $G_s$ für den Gegenkopplungsleitwert, hier
-$G_E$:
+Die gegengekoppelte Schaltung lässt sich auch allgemein mit Buchstaben rechnen, mit $G_E$ als Leitwert des Gegenkopplungswiderstands. Ein häufiger Fehler
+ist dabei, $G_L$ wie in (a) mit $G_o$ zusammenzufassen; mit Gegenkopplung führt $G_L$ aber vom Knoten 2 nach Masse und gehört nur nach $Y_{22}$, während
+$G_o$ die Knoten 2 und 3 verbindet. Richtig ist:
 
-$$\frac{U_2}{I_q} = \frac{G_i\,G_o - g_m\,G_s}{D},$$
+$$\frac{U_2}{I_q} = \frac{G_i\,G_o - g_m\,G_E}{D},$$
 
-$$\begin{aligned} D = {}& \big[(G_q + G_i)\,G_s + G_i\,G_q\big](G_o + G_L) \\ &+ G_L\big[G_q\,(g_m + G_o) + G_i\,G_o\big]. \end{aligned}$$
+$$\begin{aligned} D = {}& \big[(G_q + G_i)\,G_E + G_i\,G_q\big](G_o + G_L) \\ &+ G_L\big[G_q\,(g_m + G_o) + G_i\,G_o\big]. \end{aligned}$$
 
 :::herleitung
-**Die Determinante.** Mit drei Abkürzungen für die Diagonale der Matrix 9.12:
+**Die Determinante.** Mit drei Abkürzungen für die Diagonale der Matrix des gegengekoppelten Verstärkers:
 
-$$a = G_q + G_i, \qquad b = G_o + G_L, \qquad c = G_s + g_m + G_i + G_o.$$
+$$a = G_q + G_i, \qquad b = G_o + G_L, \qquad c = G_E + g_m + G_i + G_o.$$
 
 Entwickelt nach der ersten Zeile:
 
@@ -832,23 +827,23 @@ $$D = a\,\big[b\,c - G_o\,(g_m + G_o)\big] - G_i\,\big[b\,(g_m + G_i) - g_m\,G_o
 
 Nach $G_o$ und $G_L$ sortiert, mit $b$ ausgeschrieben:
 
-$$D = G_o\,\big[a\,(G_s + G_i) - G_i^2\big] + G_L\,\big[a\,c - G_i\,(g_m + G_i)\big].$$
+$$D = G_o\,\big[a\,(G_E + G_i) - G_i^2\big] + G_L\,\big[a\,c - G_i\,(g_m + G_i)\big].$$
 
 Die beiden Klammern ausmultipliziert:
 
-$$a\,(G_s + G_i) - G_i^2 = (G_q + G_i)\,G_s + G_i\,G_q,$$
+$$a\,(G_E + G_i) - G_i^2 = (G_q + G_i)\,G_E + G_i\,G_q,$$
 
-$$\begin{aligned} a\,c - G_i\,(g_m + G_i) = {}& (G_q + G_i)\,G_s + G_i\,G_q \\ &+ G_q\,(g_m + G_o) + G_i\,G_o. \end{aligned}$$
+$$\begin{aligned} a\,c - G_i\,(g_m + G_i) = {}& (G_q + G_i)\,G_E + G_i\,G_q \\ &+ G_q\,(g_m + G_o) + G_i\,G_o. \end{aligned}$$
 
 Das ist $D$ aus der Formel.
 
 **Die Zählerdeterminante.** In der zweiten Spalte steht jetzt die rechte Seite mit $I_q$ oben und sonst Nullen; entwickelt nach dieser Spalte:
 
-$$\begin{aligned} D_2 &= -I_q\,\big[g_m\,c - (g_m + G_o)(g_m + G_i)\big] \\ &= (G_i\,G_o - g_m\,G_s)\,I_q. \end{aligned}$$
+$$\begin{aligned} D_2 &= -I_q\,\big[g_m\,c - (g_m + G_o)(g_m + G_i)\big] \\ &= (G_i\,G_o - g_m\,G_E)\,I_q. \end{aligned}$$
 
-**Die Probe.** Mit kurzgeschlossenem Ausgang, $G_L$ gegen unendlich, muss $U_2$ verschwinden. Die richtige Formel geht dann gegen null, die des Skripts gegen
-$G_i/[(G_q + G_i)G_s + G_iG_q]$. Mit den Zahlen des Verstärkers ergibt die richtige Formel $-21{,}92\,\text{k}\Omega$, wie die Lösung des
-Gleichungssystems. Den Grenzwert für $G_s$ gegen unendlich, den das Skript prüft, erfüllen beide Formeln. Im Bild: Ein kurzgeschlossener Ausgang hängt fest
+**Die Probe.** Mit kurzgeschlossenem Ausgang, $G_L$ gegen unendlich, muss $U_2$ verschwinden, und die Formel geht dann gegen null: Der Zähler enthält kein
+$G_L$, der Nenner wächst mit ihm. Mit den Zahlen des Verstärkers ergibt sie $-21{,}92\,\text{k}\Omega$, wie die Lösung des Gleichungssystems. Der
+Grenzfall $G_E$ gegen unendlich, also $R_E$ gleich null, führt auf die Schaltung ohne Gegenkopplung zurück. Im Bild: Ein kurzgeschlossener Ausgang hängt fest
 an der Nullmarke, sein Pegel kann nicht ausschlagen.
 :::
 
@@ -856,8 +851,8 @@ So arbeiten Schaltungssimulatoren. Aus dem gezeichneten Schaltplan erzeugen sie 
 muss vorher niemand wissen: Taucht ein neuer Knoten auf, wächst sie um eine Zeile und eine Spalte. Das Format stammt von SPICE, einem Simulator, der Anfang
 der 1970er-Jahre an der University of California in Berkeley entstand, in FORTRAN geschrieben und mit Lochkarten gefüttert; fast alle Simulatoren lesen es
 bis heute. Die Matrizen großer Schaltungen sind __dünn besetzt__, englisch sparse: Jeder Knoten ist nur mit wenigen anderen verbunden, fast alle Einträge
-sind null. Simulatoren speichern nur die übrigen und lösen mit Verfahren, die das ausnutzen. Für kleine Systeme von Hand, bis zur Größe vier, empfiehlt das
-Skript die Cramersche Regel.
+sind null. Simulatoren speichern nur die übrigen und lösen mit Verfahren, die das ausnutzen. Für kleine Systeme von Hand, bis zur Größe vier, eignet sich
+die Cramersche Regel.
 
 :::grafik
 Szene: get1/knotenpotentialverfahren/01-eintragsmuster · Vorlage: stamp-matrix
@@ -876,7 +871,7 @@ Matrix. (Rot = gerade gelesenes Bauteil, blau = Knotenspannungen, orange = Muste
 Was die Leitwertmatrix nicht fassen kann, sind ideale Spannungsquellen, denn ihr Strom hängt von keiner Spannung ab. Die __modifizierte
 Knotenpotentialanalyse__, englisch modified nodal analysis, kurz MNA, nimmt ihn deshalb als weitere Unbekannte auf und die Quellengleichung als weitere
 Gleichung. Für jede ideale Spannungsquelle wächst das System um eine Zeile und eine Spalte; die Ströme der Quellen bilden den Vektor $\vec I_V$, ihre
-Quellenspannungen den Vektor $\vec U_q$. Der Strom einer Quelle zählt wie im Skript vom Knoten an ihrem Pluspol durch die Quelle zum Knoten an ihrem
+Quellenspannungen den Vektor $\vec U_q$. Der Strom einer Quelle zählt vom Knoten an ihrem Pluspol durch die Quelle zum Knoten an ihrem
 Minuspol:
 
 :::formel
@@ -889,8 +884,8 @@ sind die Quellengleichungen, die Differenz der Knotenspannungen an den Polen ist
 $\mathbf B$, und $\mathbf C$ ist $\mathbf B$ an der Diagonale gespiegelt, __transponiert__. Liegt ein Pol am Bezugsknoten, fällt sein Eintrag weg.
 
 Ein Widerstand von $0\,\Omega$ und ein idealer Strommesser sind Spannungsquellen mit $0\,\text{V}$; in der MNA wird ihr Strom zur Unbekannten. Ebenso
-behandeln Simulatoren eine Spule, die bei Gleichstrom wie ein Kurzschluss wirkt und deren Leitwert dort unendlich wäre. Das ist die Lösung, die das Skript
-für __Impedanzen__ ankündigt, die verallgemeinerten Widerstände, wenn sie zu null werden.
+behandeln Simulatoren eine Spule, die bei Gleichstrom wie ein Kurzschluss wirkt und deren Leitwert dort unendlich wäre. So behandelt man auch
+__Impedanzen__, die verallgemeinerten Widerstände, wenn sie zu null werden.
 
 **Im Bild:** Für jede Druckerhöhungspumpe führt man ihren Durchfluss als weitere Unbekannte mit und schreibt ihren festen Pegelunterschied als weitere
 Gleichung dazu.
@@ -946,9 +941,8 @@ sinkt, heißt __Transitfrequenz__ und beschreibt, wie schnell ein Transistor ist
 null, die anzeigt, wie viel durch sie fließt (b).
 ::::
 
-Treibt man den Eingang statt mit einer Stromquelle mit einer idealen Spannungsquelle, wie in Bild 9.11 des Skripts, liefert die MNA die Verstärkung in
-einem Schritt. Das Skript erhält dort $-g_m/G_o$, weil Bild 9.11 die Last $G_L$ weglässt, obwohl es den Verstärker aus Bild 9.5 analysieren will; mit ihr
-ergibt sich wieder $-g_m/(G_o + G_L)$ wie in seiner Gleichung 9.11.
+Treibt man den Eingang statt mit einer Stromquelle mit einer idealen Spannungsquelle, liefert die MNA die Verstärkung in
+einem Schritt, wieder $-g_m/(G_o + G_L)$. Falsch wäre, dabei die Last $G_L$ wegzulassen; dann ergäbe sich nur $-g_m/G_o$.
 
 ## Bedeutung und Ausblick
 
@@ -958,11 +952,12 @@ ihrem Pol oder ein Superknoten. Ob Knoten oder Maschen schneller sind, entscheid
 
 In der Form der modifizierten Knotenpotentialanalyse ist es die Grundlage praktisch aller Schaltungssimulatoren. Dort muss niemand Maschen wählen oder
 Quellen umwandeln, jedes Bauteil trägt sein Muster unabhängig von den anderen ein. Bei Wechselstrom bleibt das Verfahren dasselbe, nur stehen komplexe
-Admittanzen in der Matrix; deshalb schreibt das Skript $\mathbf Y$.
+Admittanzen in der Matrix; daher auch die Schreibweise $\mathbf Y$.
 
-Die folgenden Kapitel verlassen die linearen Netze. Halbleiterbauelemente wie die Diode haben gekrümmte Kennlinien. Ein Simulator ersetzt sie in einem
+Die folgenden Artikel verlassen die linearen Netze. Halbleiterbauelemente wie die Diode haben gekrümmte Kennlinien. Ein Simulator ersetzt sie in einem
 angenommenen Arbeitspunkt durch Leitwerte und Quellen, löst das lineare System, verbessert den Arbeitspunkt und wiederholt das, bis er sich nicht mehr
-ändert; jeder dieser Schritte ist ein Knotenpotentialverfahren wie hier. Der nächste Artikel beginnt mit den Grundlagen: Halbleiter und das Bändermodell.
+ändert; jeder dieser Schritte ist ein Knotenpotentialverfahren wie hier. Der nächste Artikel beginnt mit den Grundlagen:
+[Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html).
 
 :::kern
 - Die Knotenspannungen gegen einen Bezugsknoten sind die Unbekannten; jede Zweigspannung ist eine Differenz von ihnen.
@@ -998,6 +993,6 @@ F: Was ist ein Eintragsmuster, und was ändern gesteuerte Quellen an der Matrix?
 A: Der feste Beitrag eines Bauteils, unabhängig von allen anderen: Ein Leitwert trägt $\pm G$ an die vier Plätze seiner Knoten ein, eine unabhängige Stromquelle nur in den Quellvektor. Eine spannungsgesteuerte Stromquelle steht in den Zeilen ihrer Knoten, aber in den Spalten der steuernden Knoten, und macht $\mathbf Y$ unsymmetrisch. Für den Verstärker folgt $A_u=-g_m(R_o\parallel R_L)=-160$, mit Gegenkopplung über $500\,\Omega$ nur noch $-9{,}29$, nahe bei $-R_L/R_E$.
 F: Wie macht die modifizierte Knotenpotentialanalyse ideale Spannungsquellen rechenbar?
 A: Sie nimmt den Strom jeder idealen Spannungsquelle als weitere Unbekannte und ihre Quellengleichung als weitere Zeile auf; in der neuen Spalte und der neuen Zeile stehen $+1$ und $-1$ bei den Knoten ihrer Pole. So werden auch Kurzschlüsse und Strommesser zu 0-V-Quellen; am Verstärker misst eine solche Quelle die Stromverstärkung $-g_m/G_i=-100$.
-F: Welche Unstimmigkeiten hat das Skript in Kapitel 9?
-A: Es sagt, im Knotenpotentialverfahren gingen nur Stromquellen; ideale Spannungsquellen und Widerstände von $0\,\Omega$ lassen sich aber mit Bezugsknoten, Superknoten oder Zusammenfassen von Knoten behandeln. $G_{\mu\nu}$ ist zugleich Matrixeintrag und Koppelleitwert. In 9.5 steht $G_q$ statt $G_q+G_i$; im gegengekoppelten Beispiel trägt Schritt 6 $G_L$ falsch ein, die Determinanten 9.13 und 9.14 passen nicht zur Matrix 9.12, und das Ergebnis 9.15 ist falsch, es ergäbe bei kurzgeschlossenem Ausgang eine Spannung. Bild 9.11 lässt die Last weg.
+F: Wie prüft man die allgemeine Formel für $U_2/I_q$ des gegengekoppelten Verstärkers, und welcher Fehler liegt beim Aufstellen nahe?
+A: Mit kurzgeschlossenem Ausgang, $G_L$ gegen unendlich, muss $U_2$ verschwinden; $\frac{G_iG_o-g_mG_E}{D}$ geht dann gegen null, weil nur $D$ mit $G_L$ wächst. Mit den Zahlen des Verstärkers ergibt sie $-21{,}92\,\text{k}\Omega$, wie das Gleichungssystem. Nahe liegt der Fehler, $G_L$ wie ohne Gegenkopplung mit $G_o$ zusammenzufassen; $G_L$ gehört aber nur nach $Y_{22}$, und wer es wie $G_o$ zwischen die Knoten 2 und 3 legt, erhält eine Formel, die bei kurzgeschlossenem Ausgang noch eine Spannung liefert.
 :::

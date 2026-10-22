@@ -47,8 +47,8 @@ Rohrnetz und Gebäude.)
 Ein __Eintor__, auch __Zweipol__ genannt, ist ein Netzwerk mit genau zwei Anschlüssen nach außen, den __Klemmen__ A und B. Zusammen bilden sie ein
 __Tor__: Was durch die eine Klemme hineinfließt, fließt durch die andere wieder heraus. Deshalb beschreibt ein einziger Strom, was durch das Tor fließt.
 
-Wie im vorigen Artikel zählen wir den __Klemmenstrom__ $I_A$ aus der Klemme A heraus und die __Klemmenspannung__ $U_{AB}$ von A nach B (Bild 7.26 des
-Skripts). Das ist das Generatorzählpfeilsystem aus dem Artikel über Zählpfeile: Das Produkt aus $U_{AB}$ und $I_A$ ist die Leistung, die das Eintor
+Wie im vorigen Artikel zählen wir den __Klemmenstrom__ $I_A$ aus der Klemme A heraus und die __Klemmenspannung__ $U_{AB}$ von A nach B.
+Das ist das Generatorzählpfeilsystem aus dem Artikel über Zählpfeile: Das Produkt aus $U_{AB}$ und $I_A$ ist die Leistung, die das Eintor
 abgibt.
 
 Ein Eintor heißt __linear__, wenn es nur aus ohmschen Widerständen und idealen Quellen besteht. Es heißt __aktiv__, wenn Quellen darin wirken, und
@@ -81,9 +81,9 @@ Bild: Was aus dem Hahn läuft, kommt über den Rücklauf zurück.
   $U_{q1}, U_{q2}, \dots$ und ideale Stromquellen mit den Quellströmen $I_{q1}, I_{q2}, \dots$; die Innenwiderstände realer Quellen zählen einfach zu
   den Widerständen;
 - seine __Leerlaufspannung__ $U_{LL}$, die Klemmenspannung bei offenen Klemmen, und sein __Kurzschlussstrom__ $I_{KS}$, der Klemmenstrom bei
-  kurzgeschlossenen Klemmen (Bild 7.27);
+  kurzgeschlossenen Klemmen;
 - die __Ersatzspannungsquelle__, eine ideale Spannungsquelle $U_i$ mit dem __Innenwiderstand__ $R_i$ in Reihe, und die __Ersatzstromquelle__, eine
-  ideale Stromquelle $I_i$ mit dem __Innenleitwert__ $G_i$ parallel (Bild 7.26), beide mit den Zählpfeilen von $I_A$ und $U_{AB}$.
+  ideale Stromquelle $I_i$ mit dem __Innenleitwert__ $G_i$ parallel, beide mit den Zählpfeilen von $I_A$ und $U_{AB}$.
 
 Spannungen werden in Volt gemessen, Ströme in Ampere, Widerstände in Ohm und Leitwerte in Siemens, dem Kehrwert des Ohm.
 
@@ -102,8 +102,8 @@ Helmholtz) auch __Thévenin-Quelle__ genannt. Die zweite gehört zur Ersatzstrom
 Jahr unabhängig von Hans Ferdinand Mayer). Die Quellenspannung der einen ist die Leerlaufspannung des Netzes, der Quellstrom der anderen sein
 Kurzschlussstrom, und der Innenwiderstand ist in beiden derselbe.
 
-Alle drei Kenngrößen hängen nur vom Netz ab, nicht von dem, was außen angeschlossen ist. Die Unterschrift von Bild 7.26 spricht von einem passiven
-Netzwerk; gemeint ist ein aktives, denn ein passives hätte weder Leerlaufspannung noch Kurzschlussstrom.
+Alle drei Kenngrößen hängen nur vom Netz ab, nicht von dem, was außen angeschlossen ist. Gemeint ist dabei ein aktives Netz, denn ein passives hätte
+weder Leerlaufspannung noch Kurzschlussstrom.
 
 **Im Bild:** Statt des Stadtnetzes ein einziger Ersatzturm mit Ersatzleitung oder eine einzige Ersatzpumpe mit Leck. Der Turmdruck ist der Ruhedruck am
 Hahn, der Pumpendurchfluss der größte Durchfluss am ganz offenen Hahn.
@@ -184,7 +184,7 @@ entspricht, mit einer Zuleitung von 4 kΩ.
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/02-ersatzquellen · Vorlage: eintor-ersatzquelle
-Nach Bild 7.26 des Skripts: links das Referenznetz der Beispiel-Seite als graue Wolke mit sichtbarem Inhalt ($U_q = 12\,\text{V}$ über
+Links das Referenznetz der Beispiel-Seite als graue Wolke mit sichtbarem Inhalt ($U_q = 12\,\text{V}$ über
 $R_1 = 6\,\text{k}\Omega$ zum Mittelknoten M, $R_2 = 3\,\text{k}\Omega$ von M nach B, $R_3 = 2\,\text{k}\Omega$ von M nach A), Klemmenstrom $I_A$ aus A
 heraus, Klemmenspannung $U_{AB}$ von A nach B. Zwei Pfeile führen nach rechts zu den beiden Ersatzschaltungen: oben die Ersatzspannungsquelle
 $U_i = 4\,\text{V}$ mit $R_i = 4\,\text{k}\Omega$ in Reihe, unten die Ersatzstromquelle $I_i = 1\,\text{mA}$ mit $G_i = 0{,}25\,\text{mS}$ parallel, beide
@@ -196,7 +196,7 @@ Klemmengrößen, orange = Innenwiderstand und Innenleitwert, grau = Netzinneres 
 ## Leerlauf- und Kurzschlussversuch
 
 Der Satz sagt, dass es die Ersatzquelle gibt. Ihre Kenngrößen findet man am einfachsten mit zwei Versuchen, die die Kennlinie an ihren beiden Enden
-abtasten (Bild 7.27 des Skripts):
+abtasten:
 
 - Im __Leerlaufversuch__ bleiben die Klemmen offen. Man misst oder berechnet die Leerlaufspannung $U_{LL}$; ein Klemmenstrom fließt nicht.
 - Im __Kurzschlussversuch__ verbindet man die Klemmen durch einen widerstandslosen Leiter. Man misst oder berechnet den Kurzschlussstrom $I_{KS}$; die
@@ -256,16 +256,16 @@ In der Praxis haben beide Versuche Tücken. Das Messgerät für die Leerlaufspan
 viel größer als $R_i$ sein muss (Artikel über Strom- und Spannungsmessung). Und ein Kurzschluss kann eine Quelle überlasten: Bei der Autobatterie des
 vorigen Artikels flössen rechnerisch etwa 1600 A. Dann nimmt man statt der beiden Extremfälle zwei gewöhnliche Belastungen, wie im nächsten Abschnitt.
 
-Das erste Beispiel des Skripts (Bild 7.30 bis 7.32) geht genau diesen Weg. Bei den Kenngrößen der Ersatzspannungsquelle steht dort am Ende ein $I_q$, wo
-$U_q$ hingehört; richtig ist, wie eine Seite vorher,
+Ein weiteres Beispiel für den Leerlaufversuch ist eine reale Spannungsquelle $U_q$ mit dem Innenwiderstand $R_q$, zu deren Klemmen ein Widerstand $R_1$
+parallel liegt. Im Leerlauf bilden $R_q$ und $R_1$ einen unbelasteten Spannungsteiler:
 
 $$U_i = U_{LL} = \frac{R_1}{R_q + R_1}\,U_q.$$
 
 ## Zwei Belastungsfälle statt Kurzschluss
 
 Lassen sich Leerlauf und Kurzschluss nicht messen, genügen zwei beliebige Belastungen. Man schließt nacheinander zwei verschiedene Lastwiderstände
-$R_{L1}$ und $R_{L2}$ an (Bild 7.28 des Skripts, dort $R_1$ und $R_2$ genannt), misst jeweils Strom und Spannung und erhält zwei Punkte $(I_1, U_1)$ und
-$(I_2, U_2)$ der Kennlinie (Bild 7.29). Durch zwei Punkte geht genau eine Gerade:
+$R_{L1}$ und $R_{L2}$ an, misst jeweils Strom und Spannung und erhält zwei Punkte $(I_1, U_1)$ und
+$(I_2, U_2)$ der Kennlinie. Durch zwei Punkte geht genau eine Gerade:
 
 :::formel
 $$R_i = \frac{U_1 - U_2}{I_2 - I_1}, \qquad U_i = U_{LL} = \frac{U_1\,I_2 - U_2\,I_1}{I_2 - I_1}.$$
@@ -273,7 +273,7 @@ $$R_i = \frac{U_1 - U_2}{I_2 - I_1}, \qquad U_i = U_{LL} = \frac{U_1\,I_2 - U_2\
 
 **So liest man das:** Der Innenwiderstand ist die Spannungsabnahme pro Stromzunahme zwischen den beiden Lastpunkten, die Leerlaufspannung der Wert, den
 die verlängerte Gerade beim Strom null erreicht. Die beiden Lastpunkte sollten weit auseinanderliegen, denn je kleiner die Stromdifferenz, desto stärker
-schlägt ein Messfehler auf $R_i$ durch. Das Skript nennt die gesuchte Spannung an dieser Stelle einmal $U_{eq}$; gemeint ist $U_i$.
+schlägt ein Messfehler auf $R_i$ durch.
 
 **Im Bild:** Zwei verschieden weit geöffnete Hähne statt zu und ganz offen. Auch zwei solche Punkte legen die Gerade des Ersatzturms fest.
 
@@ -329,7 +329,7 @@ man nie direkt gemessen hat.
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/02-kennlinie-zwei-punkte · Vorlage: kennlinie-eintor
-Nach Bild 7.29 des Skripts: die Kennlinie $U_{AB}$ über $I_A$ des Steckernetzteils als fallende Gerade von $U_{LL} = 10{,}2\,\text{V}$ bis
+Die Kennlinie $U_{AB}$ über $I_A$ des Steckernetzteils als fallende Gerade von $U_{LL} = 10{,}2\,\text{V}$ bis
 $I_{KS} = 3{,}4\,\text{A}$. Zwei verschiebbare Lastpunkte $(I_1, U_1)$ und $(I_2, U_2)$, anfangs bei $0{,}2\,\text{A}$ und $0{,}6\,\text{A}$, mit
 gestrichelten Loten auf die Achsen; ein Steigungsdreieck zwischen ihnen zeigt $R_i$, die gestrichelte Verlängerung trifft beide Achsen. Ein Schalter
 „Messfehler" hebt $U_1$ um $0{,}05\,\text{V}$: Liegen die Punkte weit auseinander, kippt die Gerade kaum; rücken sie zusammen, kippt sie stark, und die
@@ -341,7 +341,7 @@ Kennlinie, blau = Lastpunkte, orange = Steigungsdreieck, grau = Achsen, gestrich
 
 Oft ist es bequemer, $R_i$ nicht aus zwei Versuchen zu berechnen, sondern direkt aus dem Netz abzulesen. Die Herleitung des Satzes zeigt, warum das geht:
 Der Faktor $R_i$ hängt nur von den Widerständen ab, nicht von den Quellen. Man darf deshalb alle Quellenwerte null setzen, ohne $R_i$ zu ändern; übrig
-bleibt ein reines Widerstandsnetz. Das Skript sagt dazu: Jede Quelle wird durch ihren Innenwiderstand ersetzt. Was eine Quelle mit dem Wert null ist,
+bleibt ein reines Widerstandsnetz. Oft heißt es dafür kurz: Jede Quelle wird durch ihren Innenwiderstand ersetzt. Was eine Quelle mit dem Wert null ist,
 folgt aus ihrer Kennlinie:
 
 - Eine ideale Spannungsquelle mit dem Wert null hält zwischen ihren Anschlüssen die Spannung null, bei jedem Strom. Sie ist ein __Kurzschluss__, ein
@@ -350,8 +350,7 @@ folgt aus ihrer Kennlinie:
   unendlichem Innenwiderstand.
 
 Innenwiderstände realer Quellen bleiben dabei stehen, stillgelegt wird nur der ideale Teil. Den Innenwiderstand des Eintors liefert dann der Widerstand
-$R_{AB}$, den man zwischen den Klemmen des stillgelegten Netzes misst oder mit den Regeln für Reihen- und Parallelschaltung berechnet (Bild 7.35 und
-7.38):
+$R_{AB}$, den man zwischen den Klemmen des stillgelegten Netzes misst oder mit den Regeln für Reihen- und Parallelschaltung berechnet:
 
 :::formel Satz
 $$R_i = R_{AB}\Big|_{\text{alle } U_{q\nu} = 0,\ \text{alle } I_{q\mu} = 0}.$$
@@ -431,17 +430,14 @@ $$U_{LL} = R_i\,I_{KS} = 3\,\text{k}\Omega\cdot1{,}5\,\text{mA} = 4{,}5\,\text{V
 Hat sie ein Leck, ist es ein zusätzlicher Abfluss neben dem Hahn, und das Netz wird von außen durchlässiger.
 ::::
 
-Die Beispiele 2 und 3 des Skripts (Bild 7.33 bis 7.38) bestimmen den Innenwiderstand auf diesem Weg. Im zweiten ist das Bauteil parallel zur
-Stromquelle mit seinem Leitwert $G_q$ beschriftet, gerechnet wird mit seinem Widerstand $R_q$, dem Kehrwert. Bei den Kenngrößen der Ersatzstromquelle
-steht dort am Ende $R_2$ im Zähler, wo $R_q$ hingehört; richtig ist, wie in der Rechnung zuvor,
+Ebenso lässt sich eine reale Stromquelle $I_q$ mit dem Innenwiderstand $R_q$ parallel behandeln, von der ein Widerstand $R_2$ zur Klemme A führt.
+Stillgelegt liegen $R_q$ und $R_2$ in Reihe, $R_i$ ist ihre Summe. Im Kurzschluss teilt sich $I_q$ nach dem Stromteiler auf $R_q$ und $R_2$ auf:
 
 $$I_i = I_q\,\frac{R_q}{R_q + R_2}.$$
 
-Im dritten Beispiel fehlt am Ende in $U_i$ und $I_i$ zweimal ein Index: Statt $R_2$ muss es $R_{q2}$ heißen.
-
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/02-quellen-stilllegen · Vorlage: quellen-stilllegen
-Nach Bild 7.38 des Skripts, am Referenznetz mit zweiter Quelle: $U_q = 12\,\text{V}$ über $R_1 = 6\,\text{k}\Omega$ zum Mittelknoten M,
+Am Referenznetz mit zweiter Quelle: $U_q = 12\,\text{V}$ über $R_1 = 6\,\text{k}\Omega$ zum Mittelknoten M,
 $R_2 = 3\,\text{k}\Omega$ von M nach B, $R_3 = 2\,\text{k}\Omega$ von M nach A, zwischen B und A die Stromquelle $I_{q2} = 0{,}5\,\text{mA}$ mit Pfeil
 zur Klemme A und wahlweise $R_{q2} = 12\,\text{k}\Omega$ parallel. Ein Knopf „stilllegen" lässt die Spannungsquelle zu einem Draht schrumpfen
 (Beschriftung „Kurzschluss") und die Stromquelle verblassen (Beschriftung „offen"); $R_{q2}$ bleibt stehen. Dann fassen sich die Widerstände schrittweise
@@ -502,13 +498,13 @@ alles durch ihr Leck zurück.
 
 ## Spannungsform oder Stromform?
 
-Beide Ersatzquellen beschreiben das Netz an den Klemmen gleich gut. Das Skript gibt eine Faustregel: bei kleinem Innenwiderstand die
+Beide Ersatzquellen beschreiben das Netz an den Klemmen gleich gut. Als Faustregel gilt: bei kleinem Innenwiderstand die
 Ersatzspannungsquelle, bei großem die Ersatzstromquelle. Der Grund ist die Anschauung. Mit kleinem $R_i$ ist die Ersatzspannungsquelle fast ideal: Ihre
 Klemmenspannung hängt kaum von der Last ab, und $U_i$ sagt unmittelbar, was an den Klemmen liegt. Die Stromform hätte dann einen riesigen Quellstrom,
 der fast vollständig durch einen riesigen Innenleitwert zurückfließt — richtig, aber unanschaulich. Bei großem $R_i$ ist es umgekehrt.
 
 In den Grenzfällen gibt es keine Wahl: Mit $R_i$ gleich null existiert nur die Spannungsform, mit $G_i$ gleich null nur die Stromform. Dazu passt die
-Sprechweise des Skripts: Spannungsquellen sind __niederohmig__, ideal mit dem Innenwiderstand null, Stromquellen __hochohmig__, ideal mit unendlichem
+übliche Sprechweise: Spannungsquellen sind __niederohmig__, ideal mit dem Innenwiderstand null, Stromquellen __hochohmig__, ideal mit unendlichem
 Innenwiderstand.
 
 **Im Bild:** Ein Turm mit sehr weiter Zuleitung ist fast ideal. Als Pumpe beschrieben, müsste er riesige Mengen fördern, die fast alle durch ein riesiges
@@ -554,12 +550,12 @@ auch, nur verdreht sie das Bild.
 Der Satz von der Ersatzquelle ist eines der meistgebrauchten Werkzeuge der Schaltungsanalyse. Man schneidet eine Schaltung an der Stelle auf, die
 interessiert, ersetzt den festen Teil durch seine Ersatzquelle und untersucht den veränderlichen Teil mit einer einzigen Masche: einen Verbraucher an
 einem Netzteil, ein Messgerät an einer Schaltung, die Diagonale einer Messbrücke. Messtechnisch erhält man die Ersatzquelle eines unbekannten Geräts aus
-zwei Messungen an seinen Klemmen. Das Skript stellt dazu zwei Dateien für das Schaltungssimulationsprogramm LTspice bereit, in denen man die Kenngrößen
-einer Ersatzquelle bestimmt und ihr Verhalten unter Last mit dem des Netzes vergleicht.
+zwei Messungen an seinen Klemmen. Mit einem Schaltungssimulationsprogramm wie LTspice lassen sich die Kenngrößen einer Ersatzquelle ebenso bestimmen
+und ihr Verhalten unter Last mit dem des Netzes vergleichen.
 
 In der Herleitung war die Leerlaufspannung eine Summe von Beiträgen der einzelnen Quellen, jede mit ihrem festen Faktor; am Referenznetz mit zweiter
-Quelle hat sich das gezeigt. Diese Zerlegung ist ein eigenes Rechenverfahren, das __Superpositionsverfahren__, dem ein späterer Artikel dieses Kapitels
-gilt: Man rechnet jede Quelle allein, alle anderen stillgelegt, und addiert die Ergebnisse. Ebenfalls später folgt die Frage, bei welcher Last eine
+Quelle hat sich das gezeigt. Diese Zerlegung ist ein eigenes Rechenverfahren, das __Superpositionsverfahren__, dem der Artikel
+[Das Superpositionsverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/superpositionsverfahren.html) gilt: Man rechnet jede Quelle allein, alle anderen stillgelegt, und addiert die Ergebnisse. Ebenfalls später folgt die Frage, bei welcher Last eine
 Ersatzquelle die größte Leistung abgibt, die __Leistungsanpassung__. Der nächste Artikel betrachtet zunächst Netze mit zwei Klemmenpaaren, die
 __Zweitore__. Und in der Wechselstromtechnik gilt der Satz genauso, mit komplexen Widerständen, den Impedanzen, an
 Stelle der ohmschen.
@@ -594,6 +590,6 @@ F: In welchem Sinn sind ein Netz und seine Ersatzquelle gleich, und wo hört die
 A: An den Klemmen liefern sie bei jeder Last dasselbe, im Inneren nicht: Im Leerlauf setzt das Referenznetz $16\,\text{mW}$ um, die Ersatzspannungsquelle nichts, die Ersatzstromquelle $4\,\text{mW}$. Außerdem gilt die Ersatzquelle nur für lineare Netze, mit Dioden nur als Tangente an einem Betriebspunkt, und nur für das Klemmenpaar, für das man sie bestimmt hat.
 F: Wann wählt man die Spannungsform, wann die Stromform, und wann gibt es keine Wahl?
 A: Bei kleinem $R_i$ die Spannungsform, weil die Klemmenspannung dann fast $U_i$ ist; bei großem $R_i$ die Stromform, weil der Klemmenstrom fast $I_i$ ist. Ein Netzgerät mit $5\,\text{V}$ und $10\,\text{m}\Omega$ wäre als Stromquelle $500\,\text{A}$ parallel zu $100\,\text{S}$ — richtig, aber unanschaulich. Mit $R_i$ gleich null gibt es nur die Spannungsform, mit $G_i$ gleich null nur die Stromform.
-F: Welche Druckfehler stehen im Skript bei den Ersatzquellen?
-A: Die Unterschrift von Bild 7.26 spricht von einem passiven Netzwerk, gemeint ist ein aktives. Im ersten Beispiel muss es $U_i=\frac{R_1}{R_q+R_1}\,U_q$ heißen statt mit $I_q$; im zweiten $I_i=I_q\frac{R_q}{R_q+R_2}$ statt mit $R_2$ im Zähler; im dritten $R_{q2}$ statt $R_2$ in $U_i$ und $I_i$. Außerdem heißt die gesuchte Spannung bei den zwei Belastungsfällen einmal $U_{eq}$ statt $U_i$.
+F: Welche Kenngrößen haben eine reale Spannungsquelle $U_q$ mit $R_q$, zu deren Klemmen $R_1$ parallel liegt, und eine reale Stromquelle $I_q$ mit $R_q$ parallel, von der $R_2$ zur Klemme A führt?
+A: Im ersten Netz bilden $R_q$ und $R_1$ im Leerlauf einen unbelasteten Teiler, $U_i=\frac{R_1}{R_q+R_1}\,U_q$. Im zweiten teilt sich $I_q$ im Kurzschluss auf $R_q$ und $R_2$ auf, $I_i=I_q\frac{R_q}{R_q+R_2}$; stillgelegt liegen $R_q$ und $R_2$ in Reihe, $R_i=R_q+R_2$. Ein passives Netz hätte dagegen weder Leerlaufspannung noch Kurzschlussstrom.
 :::

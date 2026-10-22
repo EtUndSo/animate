@@ -41,9 +41,9 @@ Verbraucher.)
 
 ## Die ideale Spannungsquelle
 
-Eine __ideale Spannungsquelle__ stellt an ihren Klemmen eine feste Spannung $U_q$ bereit, unabhängig vom Strom, der aus ihr fließt (Bild 7.16 des
-Skripts: ein Kreis, durch den die Leitung hindurchgeht, mit dem Spannungspfeil $U_q$). Ihre __Kennlinie__ ist deshalb eine Gerade parallel zur
-Stromachse (Bild 7.17):
+Eine __ideale Spannungsquelle__ stellt an ihren Klemmen eine feste Spannung $U_q$ bereit, unabhängig vom Strom, der aus ihr fließt (Schaltzeichen:
+ein Kreis, durch den die Leitung hindurchgeht, mit dem Spannungspfeil $U_q$). Ihre __Kennlinie__ ist deshalb eine Gerade parallel zur
+Stromachse:
 
 $$U = U_q \quad\text{für jeden Strom } I.$$
 
@@ -66,14 +66,13 @@ widerstandslosen Draht verletzte die Maschenregel: Um den Kreis müsste die Span
 
 ## Die ideale Stromquelle
 
-Eine __ideale Stromquelle__ erzwingt einen festen Strom $I_q$ durch sich hindurch, unabhängig von der Spannung, die an ihr liegt (Bild 7.18: ein Kreis
-mit einem Querstrich senkrecht zur Leitung, mit dem Strompfeil $I_q$). Ihre Kennlinie ist eine Gerade parallel zur Spannungsachse (Bild 7.19; dessen
-Unterschrift nennt versehentlich eine Spannungsquelle):
+Eine __ideale Stromquelle__ erzwingt einen festen Strom $I_q$ durch sich hindurch, unabhängig von der Spannung, die an ihr liegt (Schaltzeichen: ein Kreis
+mit einem Querstrich senkrecht zur Leitung, mit dem Strompfeil $I_q$). Ihre Kennlinie ist eine Gerade parallel zur Spannungsachse:
 
 $$I = I_q \quad\text{für jede Spannung } U.$$
 
 **So liest man das:** Welche Spannung sich einstellt, entscheidet die angeschlossene Schaltung; die Quelle hält nur den Strom. In der Analyse legt sie den
-Strom in ihrem Zweig fest. Das setzt voraus, wie das Skript betont, dass die Beschaltung einen Stromfluss erlaubt: Offen lassen darf man eine ideale
+Strom in ihrem Zweig fest. Das setzt voraus, dass die Beschaltung einen Stromfluss erlaubt: Offen lassen darf man eine ideale
 Stromquelle nicht.
 
 **Im Bild:** Die Spritzenpumpe ohne Leck. Sie schiebt immer denselben Durchfluss, und der Druck steigt so weit, wie es nötig ist.
@@ -108,7 +107,7 @@ das unbegrenzt durch.
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/01-ideale-kennlinien · Vorlage: ideale-quellen
-Zwei Spalten nach Bild 7.16 bis 7.19 des Skripts. Links das Symbol der idealen Spannungsquelle mit $U_q$ und darunter ihre Kennlinie, $U$ über $I$ als
+Zwei Spalten. Links das Symbol der idealen Spannungsquelle mit $U_q$ und darunter ihre Kennlinie, $U$ über $I$ als
 waagrechte Gerade bei $U_q$ und $I$ über $U$ als senkrechte; rechts das Symbol der idealen Stromquelle mit $I_q$ und ihre Kennlinie, $I$ über $U$ waagrecht bei
 $I_q$ und $U$ über $I$ senkrecht. Ein Lastregler verschiebt auf jeder Kennlinie den Betriebspunkt als Schnittpunkt mit der Widerstandsgeraden der Last;
 bei Lastwiderstand null (Spannungsquelle) bzw. unendlich (Stromquelle) läuft der Punkt aus dem Bild, ein Warnsymbol erscheint. Kernaussage: Eine ideale
@@ -118,19 +117,19 @@ Achsen.)
 
 ## Die reale Spannungsquelle
 
-Echte Quellen geben unter Last nach. Belastet man eine Batterie mit wachsendem Strom (Bild 7.20 des Skripts), fällt ihre Klemmenspannung vom Wert im
+Echte Quellen geben unter Last nach. Belastet man eine Batterie mit wachsendem Strom, fällt ihre Klemmenspannung vom Wert im
 Leerlauf aus linear ab. Die Ursache sind Widerstände in ihrem Inneren, die Leiter und der chemische Weg der Ladung, an denen der Strom Spannung kostet.
 Ein __Ersatzschaltbild__ ist eine Schaltung aus idealen Bauteilen, die sich an den Klemmen verhält wie das echte Gerät. Das der __realen
-Spannungsquelle__ (Bild 7.21a) ist eine ideale Spannungsquelle $U_q$ mit dem __Innenwiderstand__ $R_q$ in Reihe, im Skript auch Quellwiderstand genannt;
+Spannungsquelle__ ist eine ideale Spannungsquelle $U_q$ mit dem __Innenwiderstand__ $R_q$ in Reihe, auch Quellwiderstand genannt;
 $I_A$ ist der Strom aus der Klemme A, $U_{AB}$ die Klemmenspannung:
 
 :::formel
 $$U_{AB} = U_q - R_q\,I_A.$$
 :::
 
-**So liest man das:** Gleichung 7.1 des Skripts. Die Klemmenspannung ist die __Leerlaufspannung__ $U_q$ minus dem Spannungsabfall am Innenwiderstand. Im
+**So liest man das:** Die Klemmenspannung ist die __Leerlaufspannung__ $U_q$ minus dem Spannungsabfall am Innenwiderstand. Im
 Leerlauf, ohne Strom, liegt an den Klemmen die volle Leerlaufspannung; bei Kurzschluss, ohne Klemmenspannung, fließt der __Kurzschlussstrom__
-$U_q/R_q$. Die Kennlinie ist eine fallende Gerade zwischen diesen beiden Punkten, umso flacher, je kleiner $R_q$ (Bild 7.22a). Den Innenwiderstand bestimmt
+$U_q/R_q$. Die Kennlinie ist eine fallende Gerade zwischen diesen beiden Punkten, umso flacher, je kleiner $R_q$. Den Innenwiderstand bestimmt
 man aus zwei Messpunkten als Betrag der Steigung, $\frac{\Delta U}{\Delta I}$.
 
 **Im Bild:** Der Wasserturm mit dünner Zuleitung. Der Druck am Hahn ist der Turmdruck minus dem Verlust in der Leitung, und der wächst mit dem Durchfluss.
@@ -171,16 +170,16 @@ Bei kleinen Strömen merkt man vom Innenwiderstand kaum etwas, beim Anlasser seh
 
 ## Die reale Stromquelle
 
-Das Gegenstück ist die __reale Stromquelle__ (Bild 7.21b): eine ideale Stromquelle $I_q$ mit dem __Innenleitwert__ $G_q$ parallel, im Skript Quellleitwert genannt. Ein Teil ihres Stroms
+Das Gegenstück ist die __reale Stromquelle__: eine ideale Stromquelle $I_q$ mit dem __Innenleitwert__ $G_q$ parallel, auch Quellleitwert genannt. Ein Teil ihres Stroms
 fließt durch diesen Leitwert gleich wieder zurück, und zwar umso mehr, je höher die Klemmenspannung ist:
 
 :::formel
 $$I_A = I_q - G_q\,U_{AB}.$$
 :::
 
-**So liest man das:** Gleichung 7.2 des Skripts. Der Klemmenstrom ist der __Kurzschlussstrom__ $I_q$ minus dem Strom durch den Innenleitwert. Bei
+**So liest man das:** Der Klemmenstrom ist der __Kurzschlussstrom__ $I_q$ minus dem Strom durch den Innenleitwert. Bei
 Kurzschluss kommt der ganze Strom heraus; im Leerlauf fließt alles durch $G_q$, und an den Klemmen liegt die Leerlaufspannung $I_q/G_q$. Je kleiner $G_q$,
-desto flacher die Kennlinie (Bild 7.22b), desto näher an der idealen Stromquelle.
+desto flacher die Kennlinie, desto näher an der idealen Stromquelle.
 
 **Im Bild:** Die Spritzenpumpe mit Leck. Was sie fördert, kommt beim Verbraucher an, abzüglich dessen, was der Gegendruck durchs Leck zurückdrückt.
 
@@ -209,7 +208,7 @@ von der Leitung ab — darum überträgt man Messwerte über weite Strecken lieb
 
 ## Spannungsquelle und Stromquelle ineinander umrechnen
 
-Zwei Netzwerke heißen __äquivalent__, wenn sie an ihren Klemmen dieselbe Kennlinie haben (Abschnitt 7.4.2 des Skripts): Eine angeschlossene Schaltung
+Zwei Netzwerke heißen __äquivalent__, wenn sie an ihren Klemmen dieselbe Kennlinie haben: Eine angeschlossene Schaltung
 kann sie dann nicht unterscheiden. Eine reale Spannungsquelle und eine reale Stromquelle sind äquivalent, wenn
 
 :::formel Satz
@@ -260,7 +259,7 @@ Wasser — und beides verschieden viel Energie.
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/01-umwandlung · Vorlage: quellenumwandlung
-Oben die beiden Ersatzschaltbilder nach Bild 7.21 des Skripts: links $U_q=12\,\text{V}$ mit $R_q=2\,\Omega$ in Reihe, rechts $I_q=6\,\text{A}$ mit
+Oben die beiden Ersatzschaltbilder: links $U_q=12\,\text{V}$ mit $R_q=2\,\Omega$ in Reihe, rechts $I_q=6\,\text{A}$ mit
 $G_q=0{,}5\,\text{S}$ parallel, beide mit den Klemmen A und B, dem Klemmenstrom $I_A$ aus A und der Klemmenspannung $U_{AB}$ nach unten; dazwischen ein
 Doppelpfeil mit den Umrechnungsformeln. Unten das Kennlinienfeld $U_{AB}$ über $I_A$: Beide Quellen liegen auf derselben fallenden Geraden von $12\,\text{V}$
 nach $6\,\text{A}$. Ein Lastregler verschiebt den Betriebspunkt; zwei Balken zeigen die Leistung im Inneren, die bei der einen Quelle mit dem Strom,
@@ -270,7 +269,7 @@ Kennlinie und Betriebspunkt, orange = innere Leistung, grau = Klemmen und Leitun
 
 ## Quellen zusammenschalten
 
-Oft braucht man mehr Spannung oder mehr Strom, als eine Quelle hergibt (Abschnitt 7.4.3 des Skripts). Dann schaltet man Quellen zusammen, und ob das
+Oft braucht man mehr Spannung oder mehr Strom, als eine Quelle hergibt. Dann schaltet man Quellen zusammen, und ob das
 gutgeht, hängt von der Art ab.
 
 - **Spannungsquellen in Reihe** sind unkritisch: Die Spannungen und die Innenwiderstände addieren sich, wie bei Batterien hintereinander im Gerät.
@@ -279,16 +278,15 @@ gutgeht, hängt von der Art ab.
   einfachsten rechnet man sie in Stromquellen um, addiert und rechnet zurück.
 
 Für zwei reale Spannungsquellen parallel ergibt sich so eine Ersatzquelle mit einem gewichteten Mittel der Spannungen und der Parallelschaltung der
-Innenwiderstände; ohne Last fließt zwischen ihnen ein __Ausgleichsstrom__ (das Skript nennt in Bild 7.23 den Ausgangsstrom $I_\text{aus}$, daher hier
-$I_\text{ausgl}$):
+Innenwiderstände; ohne Last fließt zwischen ihnen ein __Ausgleichsstrom__
+$I_\text{ausgl}$:
 
 $$U_\text{ers} = \frac{U_{q1}/R_{q1} + U_{q2}/R_{q2}}{1/R_{q1} + 1/R_{q2}}, \qquad R_\text{ers} = R_{q1} \parallel R_{q2}, \qquad I_\text{ausgl} = \frac{U_{q1} - U_{q2}}{R_{q1} + R_{q2}}.$$
 
 **So liest man das:** Die Ersatzspannung liegt zwischen den beiden Quellenspannungen, näher an der mit dem kleineren Innenwiderstand. Bei gleichen
-Quellen ist sie die gemeinsame Spannung, der Innenwiderstand halbiert sich, und ein Ausgleichsstrom fließt nicht. Das ist der Fall im Skript mit zwei
-Akkus von $1{,}2\,\text{V}$ und $10\,\Omega$: $5\,\Omega$ Innenwiderstand, $240\,\text{mA}$ Kurzschlussstrom. Seine Formel für die Ausgangsspannung ist dort
-verdruckt, $U_a$ ist gleich $U_q-\frac{R}{2}\,I_a$, nicht $U_q-\frac{R}{2I_a}$; und die Gerade in Bild 7.24 scheint die Stromachse schon bei rund
-$120\,\text{mA}$ zu schneiden, wo nach der Rechnung $240\,\text{mA}$ hingehören.
+Quellen ist sie die gemeinsame Spannung, der Innenwiderstand halbiert sich, und ein Ausgleichsstrom fließt nicht. Zwei Akkus von $1{,}2\,\text{V}$ und
+je $10\,\Omega$ ergeben so $5\,\Omega$ Innenwiderstand und $240\,\text{mA}$ Kurzschlussstrom. Mit $R$ für den Innenwiderstand eines Akkus ist die
+Ausgangsspannung $U_a$ gleich $U_q-\frac{R}{2}\,I_a$.
 
 **Im Bild:** Zwei Wassertürme, durch Leitungen verbunden. Steht das Wasser in beiden gleich hoch, ruht es; steht es in einem höher, strömt es hinüber,
 und nur die Leitungen bremsen.
@@ -341,7 +339,7 @@ Szene: get1/analyse-linearer-netzwerke/01-zusammenschaltung · Vorlage: quellen-
 Drei Felder. Links zwei reale Spannungsquellen in Reihe, je $U_q=1{,}5\,\text{V}$ mit $R_q=0{,}15\,\Omega$, Spannungspfeile gleichsinnig von Plus nach
 Minus, daneben die Ersatzquelle mit $3\,\text{V}$ und $0{,}3\,\Omega$. In der Mitte zwei reale Stromquellen parallel, $I_{q1}=20\,\text{mA}$ mit
 $G_{q1}=1\,\mu\text{S}$ und $I_{q2}=10\,\text{mA}$ mit $G_{q2}=2\,\mu\text{S}$, daneben die Ersatzquelle mit $30\,\text{mA}$ und $3\,\mu\text{S}$. Rechts zwei
-reale Spannungsquellen parallel wie in Bild 7.23 des Skripts, $U_{q1}=1{,}30\,\text{V}$ und $U_{q2}$ mit je $0{,}05\,\Omega$, beide mit Plus oben, die
+reale Spannungsquellen parallel, $U_{q1}=1{,}30\,\text{V}$ und $U_{q2}$ mit je $0{,}05\,\Omega$, beide mit Plus oben, die
 Klemmen offen; ein Regler verstellt $U_{q2}$, ein Strompfeil im Uhrzeigersinn (aufwärts durch Quelle 1, abwärts durch Quelle 2) zeigt den
 Ausgleichsstrom $I_\text{ausgl}$, der bei gleichen Spannungen verschwindet und bei $U_{q2}=1{,}25\,\text{V}$ $0{,}5\,\text{A}$ erreicht; darunter die
 Kennlinie der Ersatzquelle, deren Leerlaufspannung zwischen den beiden Quellenspannungen liegt. Ein zweiter Regler verkleinert die Innenwiderstände,
@@ -360,8 +358,8 @@ fast eine Stromquelle, ihre Kennlinie knickt aber zu höheren Spannungen hin ab.
 nur in der Nähe eines Betriebspunkts.
 
 Der nächste Artikel verallgemeinert die Umwandlung: Jedes lineare Netz aus Quellen und Widerständen verhält sich von zwei Klemmen aus wie eine einzige
-reale Spannungs- oder Stromquelle, die __Ersatzquelle__. Und der Innenwiderstand begrenzt, wie viel Leistung eine Quelle abgeben kann — das Thema der
-Leistungsanpassung am Ende dieses Kapitels.
+reale Spannungs- oder Stromquelle, die __Ersatzquelle__. Und der Innenwiderstand begrenzt, wie viel Leistung eine Quelle abgeben kann — das Thema des Artikels
+[Energieumsetzung und Leistungsanpassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/energieumsetzung-und-leistungsanpassung.html).
 
 :::kern
 - Eine __ideale Spannungsquelle__ hält ihre Spannung $U_q$ bei jedem Strom; kurzschließen darf man sie nicht.
@@ -393,6 +391,6 @@ F: Was ergibt die Reihenschaltung von Spannungsquellen und die Parallelschaltung
 A: In Reihe fließt durch alle derselbe Strom, und nach der Maschenregel addieren sich Quellenspannungen und Innenwiderstände: vier Zellen mit $1{,}5\,\text{V}$ und $0{,}15\,\Omega$ ergeben $6\,\text{V}$ und $0{,}6\,\Omega$. Parallel liegt an allen dieselbe Spannung, und nach der Knotenregel addieren sich Quellströme und Innenleitwerte.
 F: Was passiert, wenn man zwei Spannungsquellen verschiedener Spannung parallel schaltet?
 A: Ohne Last bilden sie eine Masche, und der Unterschied treibt den Ausgleichsstrom $\frac{U_{q1}-U_{q2}}{R_{q1}+R_{q2}}$ durch beide Innenwiderstände. Bei zwei Akkuzellen mit $1{,}30$ und $1{,}25\,\text{V}$ und je $0{,}05\,\Omega$ sind das $0{,}5\,\text{A}$, bei zwei Autobatterien mit $0{,}6\,\text{V}$ Unterschied und je $10\,\text{m}\Omega$ schon $30\,\text{A}$. Bei idealen Quellen wäre der Strom unendlich.
-F: Welche Fehler stehen im Skript bei den parallelen Akkus und den Kennlinien der Stromquelle?
-A: Die Ausgangsspannung ist $U_a=U_q-\frac R2\,I_a$; im Skript steht $\frac{R}{2I_a}$, was nicht einmal die Einheit einer Spannung hat. Die Gerade in Bild 7.24 scheint die Stromachse schon bei etwa $120\,\text{mA}$ zu schneiden, nach der Rechnung gehört der Kurzschlussstrom von $240\,\text{mA}$ dorthin. Und die Unterschrift von Bild 7.19 nennt eine Spannungsquelle, gezeigt ist die Kennlinie der Stromquelle.
+F: Zwei gleiche Akkus mit $1{,}2\,\text{V}$ und je $10\,\Omega$ liegen parallel. Wie lautet ihre Ausgangsspannung, und wo schneidet die Kennlinie die Stromachse?
+A: Der Innenwiderstand halbiert sich auf $5\,\Omega$, ein Ausgleichsstrom fließt nicht, und die Ausgangsspannung ist $U_a=U_q-\frac R2\,I_a$; die Einheit bestätigt die Form, $\frac R2\,I_a$ ist eine Spannung. Die Kennlinie schneidet die Stromachse beim Kurzschlussstrom $\frac{1{,}2\,\text{V}}{5\,\Omega}=240\,\text{mA}$.
 :::

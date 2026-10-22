@@ -14,7 +14,7 @@ Wer die Spannung einer Steckdose angibt, schreibt 230 V und nicht 230. Die Zahl 
 
 **Jede physikalische Größe ist Zahlenwert mal Einheit, und jede SI-Einheit ist ein Produkt von Potenzen der sieben Basiseinheiten; neue Größen entstehen, indem man bekannte multipliziert, dividiert, ableitet oder integriert, und ihre Einheiten entstehen dabei mit, so dass die Einheiten jeden Rechenfehler verraten, der die Einheit verändert.**
 
-Vorausgesetzt werden nur Schulmathematik (Potenzen, Ableitung als Steigung, Integral als Fläche) und Schulphysik. Alles Weitere in der Elektrotechnik baut darauf auf: Im nächsten Kapitel wird die Spannung als Arbeit je Ladung eingeführt, und ihre Einheit Volt ist dann Joule durch Coulomb.
+Vorausgesetzt werden nur Schulmathematik (Potenzen, Ableitung als Steigung, Integral als Fläche) und Schulphysik. Alles Weitere in der Elektrotechnik baut darauf auf: Im Artikel [Arbeit, Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html) wird die Spannung als Arbeit je Ladung eingeführt, und ihre Einheit Volt ist dann Joule durch Coulomb.
 
 :::grafik
 Szene: get1/grundprinzipien/01-einheitenbaum · Vorlage: blockschaltbild
@@ -526,7 +526,7 @@ $$F = 6{,}674\cdot10^{-11}\ \frac{\mathrm{m}^3}{\mathrm{kg}\,\mathrm{s}^2}\cdot\
 
 **Ergebnis:** **9,82 m/s² und 6,67·10⁻¹¹ N.**
 
-**Einordnung:** Die Gravitation ist die schwächste der bekannten Kräfte; spürbar wird sie erst durch die riesige Masse der Erde. Im nächsten Kapitel ist die Kraft zwischen Ladungen genauso gebaut, aber unvergleichlich stärker.
+**Einordnung:** Die Gravitation ist die schwächste der bekannten Kräfte; spürbar wird sie erst durch die riesige Masse der Erde. Die Kraft zwischen Ladungen ist genauso gebaut, aber unvergleichlich stärker ([Das elektrische Feld und die Feldstärke](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/elektrisches-feld-und-feldstaerke.html)).
 ::::
 
 ## Arbeit
@@ -658,7 +658,7 @@ Jede physikalische Größe ist Zahlenwert mal Einheit, und jede SI-Einheit ist e
 
 Einheiten sind das wichtigste Prüfwerkzeug beim Rechnen: Wer in jeder Zeile die Einheiten mitführt, findet vertauschte Formeln und vergessene Vorsätze, bevor eine falsche Zahl in ein Datenblatt oder eine Schaltung gelangt. Datenblätter, Messgeräte und Simulationsprogramme arbeiten überwiegend im SI; die Vorsätze von Piko bis Giga begegnen in der Elektrotechnik ständig, vom Sperrstrom einer Diode bis zur Taktfrequenz eines Prozessors.
 
-Arbeit als Wegintegral und das Schwerefeld, in dem die Arbeit nur von Anfangs- und Endpunkt abhängt, sind das Vorbild für das nächste Kapitel: Dort wirkt auf Ladungen eine Kraft, das elektrische Feld verrichtet an ihnen Arbeit, und die Arbeit je Ladung ist die elektrische Spannung, ein Joule je Coulomb ist ein Volt ([Elektrisches Feld und Feldstärke](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/elektrisches-feld-und-feldstaerke.html), [Arbeit, Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html)).
+Arbeit als Wegintegral und das Schwerefeld, in dem die Arbeit nur von Anfangs- und Endpunkt abhängt, sind das Vorbild für das elektrische Feld: Dort wirkt auf Ladungen eine Kraft, das elektrische Feld verrichtet an ihnen Arbeit, und die Arbeit je Ladung ist die elektrische Spannung, ein Joule je Coulomb ist ein Volt ([Elektrisches Feld und Feldstärke](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/elektrisches-feld-und-feldstaerke.html), [Arbeit, Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html)).
 
 :::kern
 - Eine Größe ist Zahlenwert mal Einheit: $G = \{G\}\cdot[G]$.

@@ -33,7 +33,7 @@ aussehen, ein Produkt gleich einem anderen, zeigt der Abschnitt über die Abglei
 Szene: get1/strom-und-spannungsmessung/02-waage-bruecke · Vorlage: balkenwaage-bruecke
 Links eine Balkenwaage mit Zeiger: Auf die linke Schale wird ein unbekanntes Gewicht gelegt, rechts kommen bekannte Gewichtsstücke dazu, bis der Zeiger
 auf null steht. Ein Regler „Schwerkraft" verringert die Fallbeschleunigung wie auf dem Mond: Beide Schalen werden leichter, der Balken bleibt waagrecht.
-Rechts die Brücke nach Bild 6.12 des Skripts: eine Quelle $U_q$, links $R_1$ über $R_2$, rechts $R_3$ über $R_4$, dazwischen ein Strommesser als
+Rechts die Brücke: eine Quelle $U_q$, links $R_1$ über $R_2$, rechts $R_3$ über $R_4$, dazwischen ein Strommesser als
 Nullindikator. Ein Regler verstellt $R_3$; der Zeiger des Strommessers schlägt nach links oder rechts aus und steht beim Abgleich auf null. Ein Regler für
 $U_q$ ändert nichts am Abgleichpunkt. Kernaussage: Abgleichen heißt vergleichen; im Gleichgewicht zählen nur die Verhältnisse. (Rot = unbekannter Widerstand
 und unbekanntes Gewicht, blau = Ströme, orange = Zeiger und Nullindikator, grau = Waage und Leitungen.)
@@ -41,14 +41,14 @@ und unbekanntes Gewicht, blau = Ströme, orange = Zeiger und Nullindikator, grau
 
 ## Aufbau: zwei Teiler an einer Quelle
 
-**Die Akteure** (Bild 6.12 des Skripts):
+**Die Akteure:**
 
 - eine Quelle mit der Spannung $U_q$;
 - links ein Spannungsteiler aus $R_1$ oben und $R_2$ unten, rechts einer aus $R_3$ oben und $R_4$ unten, beide an $U_q$;
-- zwischen den beiden Teilermitten, in der __Brückendiagonale__, ein empfindliches Messgerät als __Nullindikator__, im Skript ein Strommesser;
+- zwischen den beiden Teilermitten, in der __Brückendiagonale__, ein empfindliches Messgerät als __Nullindikator__, hier ein Strommesser;
 - die Ströme $I_1$ bis $I_4$ durch die vier Widerstände, alle von oben nach unten gezählt, und die Spannungen $U_2$ über $R_2$ und $U_4$ über $R_4$.
 
-Die Rollen verteilt das Skript so: $R_4$ ist der unbekannte, gesuchte Widerstand, $R_3$ ein genau bekannter __Referenzwiderstand__, und von $R_1$ und $R_2$
+Die Rollen sind so verteilt: $R_4$ ist der unbekannte, gesuchte Widerstand, $R_3$ ein genau bekannter __Referenzwiderstand__, und von $R_1$ und $R_2$
 muss man nur das Verhältnis kennen, das man einstellen kann; ihre Werte selbst sind gleichgültig.
 
 Ohne Strom durch die Diagonale ist jeder Teiler unbelastet, und die Teilermitten liegen nach der Spannungsteilerregel auf
@@ -67,7 +67,7 @@ Das Messgerät in der Diagonale sieht den Unterschied $U_2-U_4$.
 $$R_4 = R_3\,\frac{R_2}{R_1} \qquad\Longleftrightarrow\qquad R_1\,R_4 = R_2\,R_3.$$
 :::
 
-**So liest man das:** Die Brücke ist __abgeglichen__, wenn die beiden Teiler im selben Verhältnis teilen (Gleichung 6.3 des Skripts). Dann liegen die
+**So liest man das:** Die Brücke ist __abgeglichen__, wenn die beiden Teiler im selben Verhältnis teilen. Dann liegen die
 beiden Teilermitten auf demselben Potenzial, und durch die Diagonale fließt nichts. Ist $R_3$ bekannt und das Verhältnis $R_2/R_1$ eingestellt, folgt der
 unbekannte Widerstand $R_4$. Die Quellenspannung kommt in der Bedingung nicht vor.
 
@@ -118,7 +118,7 @@ bekannt, bleibt der Abgleichpunkt derselbe.
 
 **Der Nullindikator muss nicht genau sein.** Sein Innenwiderstand und seine Skala gehen nicht ein: Im Abgleich fließt durch ihn nichts, und an einem
 Widerstand ohne Strom fällt keine Spannung ab. Er muss nur empfindlich genug sein, um ein kleines Ungleichgewicht zu erkennen. Statt eines
-Strommessers kann man deshalb auch einen Spannungsmesser nehmen (Bild 6.14 des Skripts) — beide zeigen im Abgleich null.
+Strommessers kann man deshalb auch einen Spannungsmesser nehmen — beide zeigen im Abgleich null.
 
 **Die Genauigkeit liegt in den Vergleichswiderständen.** Das Ergebnis hängt nur von $R_3$ und vom Verhältnis $R_2/R_1$ ab. Präzise Referenzwiderstände und
 Verhältnisse lassen sich viel genauer herstellen als präzise Zeigerskalen.
@@ -157,15 +157,15 @@ verrät schon ein winziges Übergewicht.
 
 ## Schleifdraht und Dekaden
 
-**Die Schleifdrahtbrücke.** In der praktischen Ausführung (Bild 6.12 rechts) bestehen $R_1$ und $R_2$ aus einem einzigen gleichmäßigen Widerstandsdraht der
-Länge $l$ mit dem Gesamtwiderstand $R_0$, auf dem ein Schleifkontakt läuft. Er sitzt an der Stelle $x$, vom unteren Ende aus gemessen; das Skript nennt sie
-$\alpha$, doch $\alpha$ ist in diesen Artikeln schon der Temperaturkoeffizient. Abgeglichen wird, indem man den Kontakt verschiebt:
+**Die Schleifdrahtbrücke.** In der praktischen Ausführung bestehen $R_1$ und $R_2$ aus einem einzigen gleichmäßigen Widerstandsdraht der
+Länge $l$ mit dem Gesamtwiderstand $R_0$, auf dem ein Schleifkontakt läuft. Er sitzt an der Stelle $x$, vom unteren Ende aus gemessen. Abgeglichen wird,
+indem man den Kontakt verschiebt:
 
 :::formel
 $$R_2 = R_0\,\frac{x}{l}, \qquad R_1 = R_0\Big(1 - \frac{x}{l}\Big), \qquad R_4 = R_3\,\frac{x}{l - x}.$$
 :::
 
-**So liest man das:** Das Teilerverhältnis ist das Verhältnis der beiden Drahtstücke; $R_0$ kürzt sich heraus, sein Wert ist, wie das Skript sagt, ohne
+**So liest man das:** Das Teilerverhältnis ist das Verhältnis der beiden Drahtstücke; $R_0$ kürzt sich heraus, sein Wert ist ohne
 Belang. Man braucht nur einen gleichmäßigen Draht und einen Maßstab. Am genauesten misst man, wenn der Kontakt nahe der Mitte steht, also mit einem
 Referenzwiderstand ähnlich dem gesuchten.
 
@@ -198,19 +198,19 @@ auf rund $150{,}6\,\Omega$. Stünde der Abgleich bei $90\,\text{cm}$, wären es 
 **Im Bild:** Steht das Laufgewicht nahe am Drehpunkt, verändert schon ein kleines Verschieben das Gleichgewicht stark.
 ::::
 
-**Die Dekadenbrücke.** Genauer als ein Schleifdraht sind fest abgestufte Widerstände. In Bild 6.13 des Skripts ist der Referenzwiderstand $R_3$ aus
+**Die Dekadenbrücke.** Genauer als ein Schleifdraht sind fest abgestufte Widerstände. In der Dekadenbrücke ist der Referenzwiderstand $R_3$ aus
 __Dekaden__ zusammengesetzt, je neun gleichen Widerständen von $100\,\Omega$, $10\,\Omega$, $1\,\Omega$ und $0{,}1\,\Omega$, mit Schaltern für jede Stelle.
-Der Messwiderstand $R_m$ sitzt dort links unten, $R_2$ und $R_4$ oben, und die Abgleichbedingung lautet
+Der Messwiderstand $R_m$ sitzt in dieser Anordnung links unten, $R_2$ und $R_4$ oben, und die Abgleichbedingung lautet
 
 $$R_m = R_3\,\frac{R_2}{R_4}.$$
 
-Das Verhältnis $R_2/R_4$ ist ein Multiplikator in Zehnerpotenzen, die Stellen von $R_3$ liest man direkt ab. Genau so arbeitet das historische Gerät in
-Bild 6.11: Der Drehknopf stellt die Dekaden ein, der mittlere Schalter den Multiplikator von $0{,}01$ bis $1000$.
+Das Verhältnis $R_2/R_4$ ist ein Multiplikator in Zehnerpotenzen, die Stellen von $R_3$ liest man direkt ab. Genau so arbeiten historische Messbrücken
+in Kastenform: Man stellt die Dekaden ein und wählt mit einem Schalter den Multiplikator, etwa von $0{,}01$ bis $1000$.
 
 **Im Bild:** Der Gewichtssatz einer Feinwaage, mit Stücken zu $100$, $10$, $1$ und $0{,}1\,\text{g}$, und dazu ein umschaltbarer Hebelarm.
 
 :::herleitung
-In Bild 6.13 bilden $R_2$ über $R_m$ den linken, $R_4$ über $R_3$ den rechten Teiler. Gleiche Teilerverhältnisse heißen
+In der Dekadenbrücke bilden $R_2$ über $R_m$ den linken, $R_4$ über $R_3$ den rechten Teiler. Gleiche Teilerverhältnisse heißen
 
 $$\frac{R_2}{R_m} = \frac{R_4}{R_3}, \qquad R_m = R_3\,\frac{R_2}{R_4}.$$
 
@@ -297,10 +297,9 @@ $$U_2 - U_4 = U_q\Big(\frac{1-\varepsilon}{2} - \frac{1+\varepsilon}{2}\Big) = -
 **Temperatur.** Wachsen alle vier Widerstände um denselben Faktor, kürzt er sich in jedem Teilerverhältnis heraus.
 :::
 
-**Das Beispiel des Skripts.** In Bild 6.15 ist $R_4$ der Dehnungsmessstreifen, rot und mit Pfeil gezeichnet, und gerechnet wird mit $R_4$ gleich
-$101\,\Omega$. Im Text heißt es dagegen, man berechne „die Änderung des Widerstandes $R_3$". Mit $R_4$ als DMS ist die Verstimmung negativ, $U_2-U_4$
-ergibt rund $-24{,}9\,\text{mV}$; das Skript gibt nur den Betrag $24{,}9\,\text{mV}$ an. Der Betrag stimmt und passt zur Näherung, ein Viertel von
-$10\,\text{V}$ mal ein Prozent sind $25\,\text{mV}$.
+**Ein Zahlenbeispiel.** Drei Brückenwiderstände haben $100\,\Omega$, der vierte, $R_4$, ist ein Dehnungsmessstreifen und steigt von $100$ auf
+$101\,\Omega$; die Quelle hat $10\,\text{V}$. Mit $R_4$ als DMS ist die Verstimmung negativ, $U_2-U_4$ ergibt rund $-24{,}9\,\text{mV}$. Der Betrag passt
+zur Näherung, ein Viertel von $10\,\text{V}$ mal ein Prozent sind $25\,\text{mV}$.
 
 ::::beispiel Ein Dehnungsmessstreifen in drei Brücken
 DMS mit $350\,\Omega$, k-Faktor $2$, an $5\,\text{V}$. Eine Dehnung von $0{,}5$ Promille ändert den Widerstand um
@@ -326,7 +325,7 @@ ebenfalls um $1{,}25\,\text{mV}$, aber auf $2{,}5\,\text{V}$ obendrauf — das M
 
 :::grafik
 Szene: get1/strom-und-spannungsmessung/02-dms-bruecke · Vorlage: verstimmte-bruecke
-Die Brücke nach Bild 6.15 des Skripts mit eigenen Werten: $U_q=5\,\text{V}$, vier Widerstände zu $350\,\Omega$, in der Diagonale ein Spannungsmesser, die
+Die Brücke: $U_q=5\,\text{V}$, vier Widerstände zu $350\,\Omega$, in der Diagonale ein Spannungsmesser, die
 Spannungen $U_2$ über $R_2$ und $U_4$ über $R_4$ nach unten. Daneben ein Biegebalken, auf dem die DMS kleben. Ein Regler biegt den Balken: Der DMS auf der
 Oberseite wird gedehnt (rot), einer auf der Unterseite gestaucht (blau); die Anzeige zeigt die Verstimmung, und ein Umschalter wechselt zwischen
 Viertel-, Halb- und Vollbrücke, wobei der Ausschlag sich verdoppelt und vervierfacht. Ein zweiter Regler erwärmt alle DMS gleich: Die Anzeige bleibt
@@ -336,13 +335,13 @@ Verstimmung, grau = Balken und Leitungen.)
 
 ## Messtechnik im Überblick
 
-Das Skript schließt Kapitel 6 mit einer Vereinbarung: Sofern nicht ausdrücklich anders gesagt, gelten Messgeräte von nun an als **ideal** — Strommesser
+Für die folgenden Artikel gilt eine Vereinbarung: Sofern nicht ausdrücklich anders gesagt, gelten Messgeräte von nun an als **ideal** — Strommesser
 mit verschwindendem, Spannungsmesser mit unendlich großem Innenwiderstand.
 
 Zusammengefasst: Messgeräte haben einen Innenwiderstand, der vom idealen abweicht und eine Messung stark verfälschen kann; Strommesser sollen einen
 möglichst kleinen, Spannungsmesser einen möglichst großen haben; Strom und Spannung lassen sich mit den Anzeigen allein nicht zugleich exakt messen, mit
-bekannten Innenwiderständen aber korrigieren. Zur Brücke heißt es im Skript, mit ihr könne man „kleine Widerstände genau bestimmen". Gemeint sind, wie
-das Skript selbst bei der Widerstandsmessung schreibt, kleinste **Widerstandsänderungen**. Für sehr kleine Widerstände unter etwa einem Ohm verfälschen
+bekannten Innenwiderständen aber korrigieren. Oft liest man, mit der Brücke könne man „kleine Widerstände genau bestimmen"; genauer sind kleinste
+**Widerstandsänderungen** gemeint. Für sehr kleine Widerstände unter etwa einem Ohm verfälschen
 in der gewöhnlichen Brücke wieder Leitungs- und Kontaktwiderstände das Ergebnis; dafür gibt es die Vierleitermessung und eine erweiterte Brücke, die
 Thomson-Brücke.
 
@@ -355,8 +354,11 @@ Metallkörper mit vier DMS in Vollbrücke — die elektrische Balkenwaage steckt
 Temperaturfühler wie der Pt100 arbeiten ebenso.
 
 Für die Netzwerkanalyse ist die Brücke außerdem ein Lehrstück: Mit einem Widerstand statt eines idealen Messgeräts in der Diagonale lässt sie sich nicht
-mehr in Reihen und Parallelen zerlegen. Kapitel 7 zeigt, wie man solche Netze trotzdem behandelt, etwa mit der Stern-Dreieck-Umwandlung und mit
-Ersatzquellen; die Kapitel 8 und 9 liefern die allgemeinen Verfahren.
+mehr in Reihen und Parallelen zerlegen. Wie man solche Netze trotzdem behandelt, zeigen die Artikel zur Analyse linearer Netzwerke, etwa mit der
+[Stern-Dreieck-Umwandlung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/stern-dreieck-transformation.html)
+und mit [Ersatzquellen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ersatzquellen-thevenin-norton.html);
+die allgemeinen Verfahren liefern das [Maschenstromverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/maschenstromverfahren/maschenstromverfahren.html)
+und das [Knotenpotentialverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/knotenpotentialverfahren/knotenpotentialverfahren.html).
 
 :::kern
 - Die __Wheatstonesche Messbrücke__ vergleicht zwei Spannungsteiler an derselben Quelle mit einem Nullindikator in der Diagonale.
@@ -389,6 +391,6 @@ F: Woher kommt der k-Faktor eines Dehnungsmessstreifens?
 A: Aus $R=\rho\frac lA$: Beim Dehnen wächst die Länge um $\varepsilon_l$, der Querschnitt schrumpft um $2\nu\varepsilon_l$, und die relativen Änderungen addieren sich. Die Geometrie gibt $(1+2\nu)\varepsilon_l$, mit $\nu\approx0{,}3$ also etwa $1{,}6\,\varepsilon_l$; den Rest bis zum k-Faktor um $2$ liefert die Änderung des spezifischen Widerstands.
 F: Warum verwendet man Halb- und Vollbrücken, und warum stört eine Erwärmung nicht?
 A: Mit einem gedehnten und einem gestauchten DMS im selben Teiler verdoppelt sich die Verstimmung auf $-\frac{U_q}{2}\varepsilon$ und wird exakt linear; mit vier aktiven DMS vervierfacht sie sich auf $-U_q\varepsilon$. Ändern sich alle Widerstände um denselben Faktor, kürzt er sich in jedem Teilerverhältnis heraus, und der Abgleich bleibt.
-F: Welche Unstimmigkeiten hat das DMS-Beispiel des Skripts, und was bedeutet „kleine Widerstände" in seiner Zusammenfassung?
-A: Bild und Rechnung verändern $R_4$ auf $101\,\Omega$, der Text spricht von $R_3$; mit $R_4$ als DMS ist $U_2-U_4$ rund $-24{,}9\,\text{mV}$, das Skript nennt nur den Betrag. In der Zusammenfassung sind kleine Widerstandsänderungen gemeint; sehr kleine Widerstände misst man wegen der Leitungswiderstände mit vier Leitern oder der Thomson-Brücke.
+F: Ein DMS als $R_4$ steigt in einer Brücke aus $100\,\Omega$ an $10\,\text{V}$ auf $101\,\Omega$. Wie groß ist die Verstimmung, und misst die Brücke besonders gut kleine Widerstände oder kleine Widerstandsänderungen?
+A: Mit $R_4$ als DMS ist $U_2-U_4$ negativ, rund $-24{,}9\,\text{mV}$; der Betrag passt zur Näherung $\frac{U_q}{4}\frac{\Delta R}{R}=25\,\text{mV}$. Die Stärke der Brücke sind kleine Widerstandsänderungen; sehr kleine Widerstände misst man wegen der Leitungswiderstände mit vier Leitern oder der Thomson-Brücke.
 :::

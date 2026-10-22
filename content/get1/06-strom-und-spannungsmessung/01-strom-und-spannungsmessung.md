@@ -70,7 +70,7 @@ wird. Er verschwindet für jede Spannung nur, wenn $R_i$ gegen unendlich geht.
 ## Der Fehler der Strommessung
 
 **Die Akteure:** eine ideale Spannungsquelle $U$, ein Widerstand $R$, der Strom $I_R$ ohne und $I_R'$ mit Strommesser, dessen Innenwiderstand $R_i$ in Reihe
-zu $R$ liegt (Bild 6.2 des Skripts).
+zu $R$ liegt.
 
 **Das Zusammenspiel:** *Wie viel kleiner wird der Strom, weil der Strommesser im Weg liegt?*
 
@@ -80,7 +80,7 @@ $$I_R = \frac{U}{R}, \qquad I_R' = \frac{U}{R + R_i}, \qquad \frac{I_R'}{I_R} = 
 
 **So liest man das:** Der Strommesser liegt mit seinem Innenwiderstand in Reihe zum Widerstand, der Kreis hat jetzt $R+R_i$. Der angezeigte Strom ist um
 den Faktor $\frac{1}{1+R_i/R}$ zu klein, der relative Fehler ist $-\frac{R_i}{R+R_i}$, ungefähr $-\frac{R_i}{R}$. Für einen kleinen Fehler muss $R_i$ viel
-kleiner sein als $R$. Das Skript schreibt in dieser Rechnung abwechselnd $R$ und $R_L$ für denselben Widerstand.
+kleiner sein als $R$.
 
 **Im Bild:** Eine Wasseruhr mit spürbarem Strömungswiderstand im Rohr: Der Kreislauf hat jetzt eine Engstelle mehr, und es fließt weniger, als ohne die
 Uhr geflossen wäre.
@@ -95,7 +95,7 @@ Ist $R_i$ klein gegen $R$, ist der Nenner ungefähr $R$.
 
 **Allgemein.** Liegt der Strommesser in einem größeren Netz, steht an der Stelle von $R$ der Widerstand, den das übrige Netz zwischen den beiden
 Anschlüssen des Strommessers bietet, wenn man die Quellen durch ihre Innenwiderstände ersetzt — das Bild der Ersatzquelle aus dem Artikel über die
-Zusammenschaltung, das Kapitel 7 ausbaut.
+Zusammenschaltung, ausgebaut im Artikel über [Ersatzquellen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ersatzquellen-thevenin-norton.html).
 :::
 
 ::::beispiel Ein Strommesser im Kreis
@@ -119,7 +119,7 @@ $17{,}5\,\%$ zu wenig. Bei kleinen Widerständen braucht man einen Strommesser m
 ## Der Fehler der Spannungsmessung
 
 **Die Akteure:** eine ideale Stromquelle $I_q$, die einen Lastwiderstand $R_L$ speist, die Spannung $U_L$ ohne und $U_L'$ mit Spannungsmesser, dessen
-Innenwiderstand $R_i$ parallel zu $R_L$ liegt (Bild 6.3 des Skripts).
+Innenwiderstand $R_i$ parallel zu $R_L$ liegt.
 
 **Das Zusammenspiel:** *Wie viel kleiner wird die Spannung, weil der Spannungsmesser einen Teil des Stroms abzweigt?*
 
@@ -129,9 +129,7 @@ $$U_L = I_q\,R_L, \qquad U_L' = I_q\,(R_L \parallel R_i) = U_L\cdot\frac{1}{1 + 
 
 **So liest man das:** Der Spannungsmesser ist ein zusätzlicher Strompfad parallel zur Last. Der Strom der Quelle teilt sich auf, durch die Last fließt
 weniger, und die Spannung sinkt um den __Fehlerfaktor__ $\frac{1}{1+R_L/R_i}$; der relative Fehler ist ungefähr $-\frac{R_L}{R_i}$. Für einen kleinen Fehler
-muss $R_i$ viel größer sein als $R_L$. Im Text des Skripts heißt es an dieser Stelle „Innenwiderstand des Strommessers"; gemeint ist der Spannungsmesser.
-In seinem zweiten Beispiel ist $R_i$ zehnmal so groß wie $R_L$, nicht ungefähr gleich, wie die Überschrift sagt, und der Fehlerfaktor $1/1{,}1$ ergibt
-$0{,}9091\,\text{V}$ statt der angegebenen $0{,}9101\,\text{V}$; die Fehlerangabe von rund $9\,\%$ stimmt.
+muss $R_i$ viel größer sein als $R_L$.
 
 **Im Bild:** Ein dickes Nebenröhrchen zapft so viel Wasser ab, dass der Druckunterschied, den es messen soll, selbst sinkt.
 
@@ -146,7 +144,7 @@ einem Innenwiderstand $R_\text{ers}$. Der Spannungsmesser ist für sie eine Last
 
 $$U' = U_0\,\frac{R_i}{R_i + R_\text{ers}}.$$
 
-Im Fall des Skripts ist $R_\text{ers}$ gerade $R_L$: Die ideale Stromquelle hat einen unendlich großen Innenwiderstand und trägt nichts bei.
+In der Schaltung mit Stromquelle ist $R_\text{ers}$ gerade $R_L$: Die ideale Stromquelle hat einen unendlich großen Innenwiderstand und trägt nichts bei.
 :::
 
 ::::beispiel Zwei Spannungsmesser an derselben Stelle
@@ -169,7 +167,7 @@ Entscheidend ist nicht der Widerstand, an dem man misst, sondern der Innenwiders
 
 :::grafik
 Szene: get1/strom-und-spannungsmessung/01-messfehler · Vorlage: messgeraet-belastung
-Zwei Schaltbilder nach Bild 6.2 und 6.3 des Skripts. Links eine Spannungsquelle $U$ mit Widerstand $R$ und einem Strommesser, gezeichnet als ideales
+Zwei Schaltbilder. Links eine Spannungsquelle $U$ mit Widerstand $R$ und einem Strommesser, gezeichnet als ideales
 Amperemeter mit $R_i$ in Reihe in einem gestrichelten Kasten; ein Regler für $R_i$ lässt den Strom $I_R'$ gegenüber $I_R$ sinken, ein Balken zeigt den
 relativen Fehler $-R_i/(R+R_i)$. Rechts eine Stromquelle $I_q$ mit Last $R_L$ und einem Spannungsmesser, gezeichnet als ideales Voltmeter mit $R_i$
 parallel; animierte Ladungen zweigen durch $R_i$ ab, $U_L'$ sinkt gegenüber $U_L$, ein Balken zeigt den Fehlerfaktor $1/(1+R_L/R_i)$. Kernaussage: Der
@@ -180,7 +178,7 @@ und Spannungen, orange = Fehlerbalken, grau = Quellen und Leitungen.)
 ## Strom und Spannung zugleich messen
 
 Will man den Widerstand $R$ eines Bauteils aus Spannung und Strom bestimmen, braucht man beide Geräte gleichzeitig. Dann misst eines von ihnen
-zwangsläufig auch das andere mit (Bild 6.4 des Skripts):
+zwangsläufig auch das andere mit:
 
 - Bei der __stromrichtigen Messung__ liegt der Strommesser direkt in Reihe mit $R$, der Spannungsmesser über beiden. Der Strom stimmt, die Spannung
   enthält zusätzlich den Abfall am Strommesser.
@@ -195,8 +193,8 @@ $$\frac{U}{I} = R + R_{IA} \quad\text{(stromrichtig)}, \qquad \frac{U}{I} = R \p
 :::
 
 **So liest man das:** Stromrichtig misst man den Widerstand samt Strommesser, also etwas zu viel; spannungsrichtig den Widerstand parallel zum
-Spannungsmesser, also etwas zu wenig. Das Skript folgert, dass man Strom und Spannung nicht zugleich exakt messen kann — mit den Anzeigen allein stimmt
-das. Kennt man aber die Innenwiderstände, rechnet man den Fehler heraus:
+Spannungsmesser, also etwas zu wenig. Mit den Anzeigen allein kann man Strom und Spannung deshalb nicht zugleich exakt messen. Kennt man aber die
+Innenwiderstände, rechnet man den Fehler heraus:
 
 $$R = \frac{U}{I} - R_{IA} \quad\text{(stromrichtig)}, \qquad R = \frac{U}{I - U/R_{IV}} \quad\text{(spannungsrichtig)}.$$
 
@@ -253,7 +251,7 @@ $$R = \frac{U}{I - U/R_{IV}}, \qquad \frac{1}{909{,}1\,\text{k}\Omega} - \frac{1
 
 ## Widerstandsmessung im Multimeter
 
-Ein Digitalmultimeter misst Widerstände ohne Strommesser (Bild 6.5 des Skripts). Es schickt einen genau bekannten Strom $I_q$ aus einer
+Ein Digitalmultimeter misst Widerstände ohne Strommesser. Es schickt einen genau bekannten Strom $I_q$ aus einer
 __Konstantstromquelle__ durch den Widerstand und misst nur die Spannung:
 
 $$R = \frac{U}{I_q}.$$
@@ -272,7 +270,7 @@ Formel. Ist $I_q$ zum Beispiel $1\,\text{mA}$, entspricht $1\,\text{V}$ gerade $
 
 **Kleine Widerstände und die Vierleitermessung.** Bei kleinen Widerständen verfälschen die Messleitungen und Kontakte das Ergebnis, denn ihr Widerstand
 liegt in Reihe: Das Gerät misst die Spannung an seinen eigenen Buchsen, und dort fällt auch die Spannung an den Leitungen ab. Abhilfe schafft die
-__Vierleitermessung__ (nach Kelvin; im Skript erwähnt, nicht ausgeführt): Zwei Leitungen führen den Strom, zwei getrennte Leitungen greifen die Spannung
+__Vierleitermessung__ (nach Kelvin): Zwei Leitungen führen den Strom, zwei getrennte Leitungen greifen die Spannung
 direkt am Widerstand ab. Durch die Spannungsleitungen fließt wegen des großen Innenwiderstands des Spannungsmessers fast kein Strom, an ihnen fällt also
 fast nichts ab.
 
@@ -307,8 +305,8 @@ an $0{,}15\,\Omega$ also $0{,}15\,\text{nV}$. Angezeigt wird $1{,}000\,\Omega$.
 
 ## Den Messbereich eines Strommessers erweitern
 
-Ein __Drehspulinstrument__, das klassische Zeigerinstrument, schlägt bei einem bestimmten Strom voll aus, im Skript bei $100\,\mu\text{A}$ (Bild 6.6). Für
-größere Ströme legt man einen __Nebenwiderstand__ (englisch shunt) $R_\text{Shunt}$ parallel zum Messwerk (Bild 6.7). Er übernimmt den Überschuss, und durch
+Ein __Drehspulinstrument__, das klassische Zeigerinstrument, schlägt bei einem bestimmten Strom voll aus, zum Beispiel bei $100\,\mu\text{A}$. Für
+größere Ströme legt man einen __Nebenwiderstand__ (englisch shunt) $R_\text{Shunt}$ parallel zum Messwerk. Er übernimmt den Überschuss, und durch
 das Messwerk fließt ein fester Bruchteil des Stroms:
 
 :::formel
@@ -316,7 +314,7 @@ $$R_\text{Shunt} = R_{iA}\,\frac{I_{iA}}{I - I_{iA}} = \frac{R_{iA}}{n - 1}, \qq
 :::
 
 **So liest man das:** $R_{iA}$ ist der Innenwiderstand des Messwerks, $I_{iA}$ sein Vollausschlag, $I$ der neue Vollausschlag und $n$ der Faktor der
-Erweiterung (Gleichung 6.1 des Skripts). Für die zehnfache Erweiterung muss der Nebenwiderstand ein Neuntel des Messwerkwiderstands haben. Mehrere Bereiche
+Erweiterung. Für die zehnfache Erweiterung muss der Nebenwiderstand ein Neuntel des Messwerkwiderstands haben. Mehrere Bereiche
 baut man schrittweise: Für den nächsten Bereich zählt die schon vorhandene Parallelschaltung als Messwerk.
 
 **Im Bild:** Eine Umgehungsleitung neben der Wasseruhr, so bemessen, dass die Uhr genau ein $n$-tel des Durchflusses sieht.
@@ -357,14 +355,14 @@ also $0{,}1\,\text{V}$, ab.
 ## Den Messbereich eines Spannungsmessers erweitern
 
 Ein Zeigerinstrument mit dem Vollausschlag $I_{iA}$ und dem Innenwiderstand $R_i$ ist auch ein Spannungsmesser mit dem kleinen Bereich $I_{iA}R_i$. Für
-größere Spannungen schaltet man einen __Vorwiderstand__ $R_V$ in Reihe (Bild 6.9 des Skripts). Er nimmt den Überschuss der Spannung auf, und am Messwerk
+größere Spannungen schaltet man einen __Vorwiderstand__ $R_V$ in Reihe. Er nimmt den Überschuss der Spannung auf, und am Messwerk
 liegt ein fester Bruchteil:
 
 :::formel
 $$R_V = R_i\,(\alpha - 1), \qquad \alpha = \frac{U_{V,\text{max,neu}}}{U_{V,\text{max,alt}}}.$$
 :::
 
-**So liest man das:** $\alpha$ ist der Faktor der Erweiterung (Gleichung 6.2 des Skripts). Für die zehnfache Erweiterung braucht man das Neunfache des
+**So liest man das:** $\alpha$ ist der Faktor der Erweiterung. Für die zehnfache Erweiterung braucht man das Neunfache des
 Innenwiderstands in Reihe. Auch hier baut man mehrere Bereiche schrittweise; für den nächsten Bereich zählt die vorhandene Reihe als Messwerk.
 
 **Im Bild:** Eine Engstelle vor dem Nebenröhrchen, die den größten Teil des Druckunterschieds aufnimmt, so dass auf die kleine Uhr nur ein Bruchteil wirkt.
@@ -407,10 +405,9 @@ Digitalmultimeter mit $10\,\text{M}\Omega$ in jedem Bereich stört fünfzigmal w
 
 :::grafik
 Szene: get1/strom-und-spannungsmessung/01-messbereiche · Vorlage: shunt-vorwiderstand
-Links das Messwerk (Kreis mit A, $R_{iA}=2\,\text{k}\Omega$, $50\,\mu\text{A}$) mit drei zuschaltbaren Nebenwiderständen $R_1$, $R_2$, $R_3$ parallel, wie Bild
-6.7 und das Beispiel des Skripts, aber mit eigenen Werten; ein Bereichsschalter $1$, $10$, $100\,\text{mA}$, eine Stromaufteilung als Pfeilbreiten, die
+Links das Messwerk (Kreis mit A, $R_{iA}=2\,\text{k}\Omega$, $50\,\mu\text{A}$) mit drei zuschaltbaren Nebenwiderständen $R_1$, $R_2$, $R_3$ parallel; ein Bereichsschalter $1$, $10$, $100\,\text{mA}$, eine Stromaufteilung als Pfeilbreiten, die
 Bürdenspannung $0{,}1\,\text{V}$ bleibt eingeblendet. Rechts dasselbe Messwerk mit drei Vorwiderständen $R_1$, $R_2$, $R_3$ in Reihe, die je ein Schalter
-überbrückt, wie Bild 6.10, für $1$, $10$, $100\,\text{V}$; ein Potenzialbalken zeigt, wie sich die Spannung aufteilt, und die Anzeige „$20\,\text{k}\Omega/\text{V}$"
+überbrückt, für $1$, $10$, $100\,\text{V}$; ein Potenzialbalken zeigt, wie sich die Spannung aufteilt, und die Anzeige „$20\,\text{k}\Omega/\text{V}$"
 bleibt stehen. Kernaussage: Ein Nebenwiderstand teilt den Strom, ein Vorwiderstand die Spannung — beides sind die Teilerregeln. (Rot = Messwerk, blau =
 Ströme und Spannungen, orange = Zusatzwiderstände, grau = Schalter und Leitungen.)
 :::
@@ -423,7 +420,8 @@ Spannungsteiler. Dasselbe Prinzip steckt in jedem Tastkopf eines Oszilloskops: E
 Eingang mit $1\,\text{M}\Omega$, er teilt die Spannung durch zehn und belastet die Schaltung nur noch mit $10\,\text{M}\Omega$.
 
 Der nächste Artikel zeigt einen Weg, den Eingriff ganz zu vermeiden: die __Wheatstonesche Messbrücke__. Sie vergleicht zwei Spannungsteiler und gleicht
-ab, bis durch das Messgerät kein Strom mehr fließt. Dann spielt sein Innenwiderstand keine Rolle mehr. Kapitel 7 baut das Bild aus, nach dem sich jede
+ab, bis durch das Messgerät kein Strom mehr fließt. Dann spielt sein Innenwiderstand keine Rolle mehr. Der Artikel über
+[Ersatzquellen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ersatzquellen-thevenin-norton.html) baut das Bild aus, nach dem sich jede
 Schaltung an zwei Klemmen wie eine Quelle mit Innenwiderstand verhält — genau das Bild, mit dem sich hier der Fehler eines Spannungsmessers in beliebigen
 Schaltungen berechnen ließ.
 
@@ -446,9 +444,9 @@ A: Der Strommesser liegt in Reihe im Zweig; an ihm fällt die Spannung $R_i\,I$ 
 F: Wie groß ist der Fehler eines Strommessers mit $1\,\Omega$ an $4{,}5\,\text{V}$ und $4{,}7\,\Omega$, und warum so groß?
 A: Ohne Messgerät flössen $957\,\text{mA}$, mit ihm hat der Kreis $5{,}7\,\Omega$ und es fließen nur $789\,\text{mA}$, $17{,}5\,\%$ weniger. Der relative Fehler ist $\frac{R_i}{R+R_i}$; bei einem kleinen Widerstand im Kreis fällt der Innenwiderstand stark ins Gewicht. An $150\,\Omega$ wären es nur $0{,}66\,\%$.
 F: Was hängt beim Spannungsmessen vom Messgerät ab und was von der Schaltung?
-A: Der Spannungsmesser zeigt $U_0\,\frac{R_i}{R_i+R_\text{ers}}$: Sein Innenwiderstand $R_i$ steht dem Innenwiderstand $R_\text{ers}$ der Schaltung an den Messpunkten gegenüber. Im Fall des Skripts mit Stromquelle ist $R_\text{ers}$ gleich $R_L$; am Teiler aus zweimal $4{,}7\,\text{k}\Omega$ sind es $2{,}35\,\text{k}\Omega$, und ein Zeigerinstrument mit $200\,\text{k}\Omega$ zeigt dort $4{,}94$ statt $5\,\text{V}$.
-F: Welche Fehler stehen im Skript beim zweiten Beispiel zur Spannungsmessung?
-A: Mit $1\,\mu\text{A}$, $1\,\text{M}\Omega$ und $10\,\text{M}\Omega$ ergibt der Fehlerfaktor $\frac{1}{1{,}1}$ den Wert $0{,}9091\,\text{V}$, nicht $0{,}9101\,\text{V}$; die Fehlerangabe von rund $9\,\%$ stimmt. Und $R_i$ ist dort zehnmal so groß wie $R_L$, nicht ungefähr gleich. Im Text davor heißt es außerdem „Innenwiderstand des Strommessers", gemeint ist der Spannungsmesser.
+A: Der Spannungsmesser zeigt $U_0\,\frac{R_i}{R_i+R_\text{ers}}$: Sein Innenwiderstand $R_i$ steht dem Innenwiderstand $R_\text{ers}$ der Schaltung an den Messpunkten gegenüber. In der Schaltung mit Stromquelle ist $R_\text{ers}$ gleich $R_L$; am Teiler aus zweimal $4{,}7\,\text{k}\Omega$ sind es $2{,}35\,\text{k}\Omega$, und ein Zeigerinstrument mit $200\,\text{k}\Omega$ zeigt dort $4{,}94$ statt $5\,\text{V}$.
+F: Eine Stromquelle mit $1\,\mu\text{A}$ speist $1\,\text{M}\Omega$, gemessen wird mit einem Spannungsmesser von $10\,\text{M}\Omega$. Was zeigt er, und wie groß ist der Fehler?
+A: Ohne Messgerät liegen $1\,\mu\text{A}\cdot1\,\text{M}\Omega = 1\,\text{V}$ an. Der Fehlerfaktor $\frac{1}{1+R_L/R_i}$ ist $\frac{1}{1{,}1}$; angezeigt werden $0{,}9091\,\text{V}$, rund $9\,\%$ zu wenig. Der Innenwiderstand des Spannungsmessers ist zwar zehnmal so groß wie $R_L$, für einen kleinen Fehler aber nicht groß genug.
 F: Was misst man stromrichtig und spannungsrichtig, und wie bekommt man trotzdem den genauen Widerstand?
 A: Stromrichtig liegt der Strommesser direkt in Reihe mit $R$, der Quotient der Anzeigen ist $R+R_{IA}$. Spannungsrichtig liegt der Spannungsmesser direkt an $R$, der Quotient ist $R\parallel R_{IV}$. Mit bekannten Innenwiderständen rechnet man zurück: $R=\frac UI-R_{IA}$ bzw. $R=\frac{U}{I-U/R_{IV}}$.
 F: Woher kommt der Grenzwiderstand $\sqrt{R_{IA}R_{IV}}$, und was sagt er?

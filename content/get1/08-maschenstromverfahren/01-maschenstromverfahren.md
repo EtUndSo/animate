@@ -95,22 +95,23 @@ für alle Werte der drei Maschenströme.
 
 ## Das Verfahren in vier Schritten
 
-Das Skript fasst das Vorgehen in vier Schritten zusammen:
+Das Vorgehen lässt sich in vier Schritten zusammenfassen:
 
-1. Stromquellen werden in Spannungsquellen umgewandelt, wie im Artikel über ideale und reale Quellen; das Skript verweist dafür auf Kapitel 2.4.1, gemeint
-   ist Abschnitt 7.4.2. Was mit idealen Stromquellen geschieht, behandelt ein eigener Abschnitt unten.
+1. Stromquellen werden in Spannungsquellen umgewandelt, wie im Artikel über
+   [ideale und reale Quellen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ideale-und-reale-quellen.html).
+   Was mit idealen Stromquellen geschieht, behandelt ein eigener Abschnitt unten.
 2. Man wählt $m$ gleich $z - k + 1$ unabhängige Maschen und legt in jede einen Maschenstrom; sein Umlaufsinn ist beliebig und zugleich der Umlaufsinn der
    Masche.
 3. Für jede Masche stellt man die Maschenregel auf, mit den Zweigströmen als Summen von Maschenströmen.
 4. Man löst das Gleichungssystem nach den Maschenströmen und berechnet daraus die gesuchten Zweigströme.
 
-Das Gleichungssystem hat immer dieselbe Gestalt, die man direkt aus dem Schaltbild ablesen kann (Gleichung 8.1 des Skripts):
+Das Gleichungssystem hat immer dieselbe Gestalt, die man direkt aus dem Schaltbild ablesen kann:
 
 :::formel
 $$\begin{pmatrix} R_{11} & R_{12} & \cdots & R_{1m} \\ R_{21} & R_{22} & \cdots & R_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ R_{m1} & R_{m2} & \cdots & R_{mm} \end{pmatrix}\begin{pmatrix} I_1 \\ I_2 \\ \vdots \\ I_m \end{pmatrix} = \begin{pmatrix} U_{q1} \\ U_{q2} \\ \vdots \\ U_{qm} \end{pmatrix}.$$
 :::
 
-**So liest man das:** Die __Widerstandsmatrix__ $\mathbf R$, eine $m\times m$-Matrix, im Skript als Impedanzmatrix $\mathbf Z$ geschrieben, entsteht nach drei
+**So liest man das:** Die __Widerstandsmatrix__ $\mathbf R$, eine $m\times m$-Matrix, oft auch als Impedanzmatrix $\mathbf Z$ geschrieben, entsteht nach drei
 Regeln:
 
 - Auf der Diagonale steht der __Umlaufwiderstand__ $R_{\nu\nu}$, die Summe aller Widerstände der Masche $\nu$.
@@ -119,12 +120,14 @@ Regeln:
 - Rechts steht $U_{q\nu}$, die Summe der Quellenspannungen der Masche $\nu$, jede mit umgekehrtem Vorzeichen, wenn ihr Zählpfeil mit dem Umlaufsinn
   übereinstimmt, und mit ihrem eigenen, wenn er ihm entgegen zeigt.
 
-Die Indizes zählen hier Maschen, nicht Knoten; $R_{12}$ in der Matrix ist ein anderes Ding als ein Bauteil namens $R_{12}$ in einem Beispiel. Die Matrix
-des Skript-Beispiels zu Bild 8.1, die dort angekündigt wird, aber fehlt, lautet mit den Maschenströmen $I_1$, $I_2$, $I_3$:
+Die Indizes zählen hier Maschen, nicht Knoten; $R_{12}$ in der Matrix ist ein anderes Ding als ein Bauteil namens $R_{12}$ in einem Beispiel. Ein allgemeines
+Beispiel sind drei Maschen in einer Kette: Masche 1 enthält die Quelle $U_{q1}$, $R_1$ und $R_4$, Masche 2 die Widerstände $R_2$, $R_4$ und $R_5$, Masche 3
+die Quelle $U_{q3}$, $R_3$ und $R_5$. Die Maschenströme $I_1$ und $I_2$ durchlaufen $R_4$ in derselben Richtung, $I_2$ und $I_3$ durchlaufen $R_5$
+gegeneinander, und beide Quellenpfeile zeigen gegen den Umlaufsinn ihrer Masche:
 
 $$\begin{pmatrix} R_1 + R_4 & R_4 & 0 \\ R_4 & R_2 + R_4 + R_5 & -R_5 \\ 0 & -R_5 & R_3 + R_5 \end{pmatrix}\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} = \begin{pmatrix} U_{q1} \\ 0 \\ U_{q3} \end{pmatrix};$$
 
-die Gleichung 8.2 dort wiederholt nur 8.1.
+die mittlere Masche enthält keine Quelle, deshalb steht in ihrer Zeile rechts eine Null.
 
 **Im Bild:** Der Druckverlust um eine Schleife besteht aus dem Verlust des eigenen Ringstroms in allen ihren Rohren und aus den Anteilen der Nachbarringe in
 den gemeinsamen Rohren; die Pumpen der Schleife halten dagegen.
@@ -172,8 +175,8 @@ $I_2$ zu $+1{,}6\,\text{A}$, der Koppelwiderstand positiv und $U_{q2}$ positiv; 
 
 ## Warum die Matrix symmetrisch und das System lösbar ist
 
-Zwei Eigenschaften der Widerstandsmatrix machen das Verfahren zuverlässig, und das Skript nennt die erste: Koppelwiderstände, die spiegelbildlich zur
-Diagonale liegen, sind gleich. Die zweite steht dort nicht, ist aber der Grund, warum man nie ein unlösbares System erhält: Die Matrix ist __positiv definit__.
+Zwei Eigenschaften der Widerstandsmatrix machen das Verfahren zuverlässig. Die erste: Koppelwiderstände, die spiegelbildlich zur
+Diagonale liegen, sind gleich. Die zweite ist der Grund, warum man nie ein unlösbares System erhält: Die Matrix ist __positiv definit__.
 
 :::formel Satz
 $$R_{\nu\mu} = R_{\mu\nu}, \qquad \sum_{\nu,\mu} R_{\nu\mu}\,I_\nu\,I_\mu = \sum_j R_j\,I_j^2 > 0.$$
@@ -182,7 +185,8 @@ $$R_{\nu\mu} = R_{\mu\nu}, \qquad \sum_{\nu,\mu} R_{\nu\mu}\,I_\nu\,I_\mu = \sum
 **So liest man das:** Die Symmetrie ist eine Probe beim Aufstellen. Die Doppelsumme über alle Paare von Maschen ist die Leistung, die alle Widerstände
 zusammen umsetzen, und die ist positiv, sobald nicht alle Maschenströme null sind. Daraus folgt, dass das Gleichungssystem für jede rechte Seite genau eine Lösung hat. Ein nützlicher
 Kniff: Wählt man in einem eben gezeichneten Netz alle Maschenströme im selben Drehsinn, laufen zwei benachbarte Fenster im gemeinsamen Zweig immer
-gegeneinander, und alle Koppelwiderstände werden negativ oder null. Das Skript wählt in Bild 8.1 gemischte Drehsinne, deshalb steht dort $R_4$ mit Plus.
+gegeneinander, und alle Koppelwiderstände werden negativ oder null. In der Kette aus drei Maschen oben sind die Drehsinne gemischt, deshalb steht dort $R_4$
+mit Plus.
 
 **Im Bild:** Jedes Rohr, das zwei Schleifen teilen, gehört zu beiden Druckbilanzen gleich stark; und Ringströme, die irgendwo fließen, erwärmen die Rohre
 immer, nie kühlen sie sie.
@@ -202,7 +206,7 @@ Multipliziert man jede linke Seite mit ihrem Maschenstrom und addiert, erhält m
 $\mathbf R$ umkehrbar, und jede rechte Seite hat genau eine Lösung.
 :::
 
-Um eine einzelne Größe zu berechnen, muss man nicht das ganze System lösen, wie das Skript betont. Die __Cramersche Regel__ aus der linearen Algebra gibt jeden
+Um eine einzelne Größe zu berechnen, muss man nicht das ganze System lösen. Die __Cramersche Regel__ aus der linearen Algebra gibt jeden
 Maschenstrom als Quotienten zweier Determinanten: im Nenner die der Widerstandsmatrix, im Zähler die einer Matrix, in der die Spalte dieses Maschenstroms
 durch die rechte Seite ersetzt ist.
 
@@ -258,7 +262,7 @@ Quelle, blau = Maschenströme, orange = Matrixeinträge und gemeinsame Zweige, g
 
 ## Stromquellen im Netz
 
-Das Skript verlangt, alle Stromquellen vorab in Spannungsquellen umzuwandeln. Das geht für eine __reale__ Stromquelle, eine ideale mit einem Innenwiderstand
+Schritt 1 des Verfahrens verlangt, alle Stromquellen vorab in Spannungsquellen umzuwandeln. Das geht für eine __reale__ Stromquelle, eine ideale mit einem Innenwiderstand
 parallel: Sie wird zur Spannungsquelle mit der Spannung $I_q R_q$ und demselben Widerstand in Reihe. Eine __ideale__ Stromquelle hat keinen Innenwiderstand und
 lässt sich nicht umwandeln. Man legt die Maschen dann so, dass nur eine einzige durch ihren Zweig läuft, etwa indem man ihn zum Verbindungszweig eines Baums
 macht. Der Maschenstrom dieser Masche ist dann bekannt, und ihre Maschengleichung braucht man nicht:
@@ -319,9 +323,8 @@ kleines System. Es lohnt vor allem, wenn ein Netz wenige Maschen und überwiegen
 nächsten Artikels: Es nimmt die $k - 1$ Potenziale der Knoten als Unbekannte und erfüllt damit die Maschenregel von selbst. Welches von beiden weniger
 Gleichungen braucht, entscheidet der Vergleich von $z - k + 1$ und $k - 1$.
 
-Schaltungssimulatoren wie SPICE arbeiten mit einer Form des Knotenpotentialverfahrens; das Skript nennt in seiner Einleitung beide Verfahren als ihre
-Grundlage, sagt am Ende aber richtig, dass die Maschenstromanalyse dort nicht verwendet wird. Bei Wechselstrom bleibt das Verfahren dasselbe, mit komplexen
-Widerständen in der Matrix, wie es die Schreibweise $\mathbf Z$ des Skripts schon andeutet.
+Schaltungssimulatoren wie SPICE arbeiten mit einer Form des Knotenpotentialverfahrens; die Maschenstromanalyse verwenden sie nicht. Bei Wechselstrom
+bleibt das Verfahren dasselbe, mit komplexen Widerständen in der Matrix, wie es die Schreibweise $\mathbf Z$ als Impedanzmatrix schon andeutet.
 
 :::kern
 - Maschenströme umlaufen unabhängige Maschen; jeder Zweigstrom ist ihre Summe mit Vorzeichen.
@@ -353,6 +356,6 @@ F: Was ändert sich, wenn man den Umlaufsinn einer Masche umdreht?
 A: Ihr Maschenstrom wechselt das Vorzeichen, ebenso ihre Koppelwiderstände und die Vorzeichen ihrer Quellen auf der rechten Seite. Die Zweigströme bleiben dieselben: Bei Ladegerät und Batterie wird $I_2$ von $-1{,}6$ zu $+1{,}6\,\text{A}$, die Ströme in Last und Batterie ändern sich nicht.
 F: Wie behandelt man Stromquellen?
 A: Eine reale Stromquelle wandelt man in eine Spannungsquelle um. Durch eine ideale legt man genau eine Masche, deren Strom dann der Quellstrom ist; ihre Maschengleichung liefert nur die Spannung an der Quelle. Am Knoten mit $10\,\text{V}$, $2$ und $3\,\text{k}\Omega$ und $2\,\text{mA}$ bleibt eine einzige Gleichung, mit $0{,}8\,\text{mA}$, $8{,}4\,\text{V}$ am Knoten und $18{,}4\,\text{V}$ an der Stromquelle samt Vorwiderstand.
-F: Welche Unstimmigkeiten hat das Skript beim Maschenstromverfahren?
-A: Für die Quellenumwandlung verweist es auf Kapitel 2.4.1, gemeint ist 7.4.2. Die Matrix des Beispiels zu Bild 8.1 wird angekündigt, fehlt aber, und Gleichung 8.2 wiederholt 8.1. Ideale Stromquellen lassen sich nicht umwandeln, wie es verlangt, und seine Einleitung nennt beide Verfahren als Grundlage von Simulatoren, während am Ende richtig steht, dass die Maschenstromanalyse dort nicht verwendet wird.
+F: Wann lohnt das Maschenstromverfahren, und womit rechnen Schaltungssimulatoren?
+A: Es lohnt bei wenigen Maschen und überwiegend Spannungsquellen; ob es weniger Gleichungen braucht als das Knotenpotentialverfahren, entscheidet der Vergleich von $z-k+1$ und $k-1$, bei der Brücke mit sechs Zweigen und vier Knoten drei gegen drei. Simulatoren wie SPICE verwenden eine Form des Knotenpotentialverfahrens, nicht die Maschenstromanalyse.
 :::

@@ -38,7 +38,7 @@ Anzeigen, rot = Kasten und Tore, orange = gemessene Quotienten, grau = Rohre im 
 
 ## Vom Vierpol zum Zweitor
 
-Ein Netz mit vier Anschlussklemmen heißt __Vierpol__ (Bild 7.41 des Skripts). Seine vier Klemmenströme $I_1$ bis $I_4$, alle hineinfließend gezählt, und die
+Ein Netz mit vier Anschlussklemmen heißt __Vierpol__. Seine vier Klemmenströme $I_1$ bis $I_4$, alle hineinfließend gezählt, und die
 Spannungen zwischen den Klemmen sind nicht unabhängig: Nach der Knotenregel für eine Hülle um den Vierpol und nach der Maschenregel um die vier Klemmen
 gilt
 
@@ -53,7 +53,7 @@ $$I_1 = I'_1 = -I_3, \qquad I_2 = I'_2 = -I_4.$$
 
 **So liest man das:** Das ist die __Torbedingung__, mit $I'_1$ und $I'_2$ als den Strömen, die aus den Klemmen 1' und 2' herausfließen; im Vierpol sind das
 die Klemmen 3 und 4, deren Ströme hineingezählt waren, daher das Minus. Sie gilt von selbst,
-wenn an jedem Tor ein eigener Zweipol hängt, links etwa eine Quelle und rechts ein Verbraucher (Bild 7.39). Ob ein Vierpol ein Zweitor ist, hängt also von
+wenn an jedem Tor ein eigener Zweipol hängt, links etwa eine Quelle und rechts ein Verbraucher. Ob ein Vierpol ein Zweitor ist, hängt also von
 seiner Beschaltung ab: Verbinden äußere Leitungen die beiden Seiten, kann die Bedingung verletzt sein, und die Zweitorbeschreibung gilt nicht mehr.
 Ein Zweitor hat dann nur noch zwei Ströme $I_1$, $I_2$ und zwei Torspannungen $U_1$, $U_2$; die Energie fließt meist vom __Eingangstor__ 1 zum
 __Ausgangstor__ 2, in __Vorwärtsrichtung__.
@@ -95,7 +95,7 @@ mehr.
 zurückzufließen.
 ::::
 
-Ein paar Begriffe ordnen die Zweitore (Bild 7.42 des Skripts):
+Ein paar Begriffe ordnen die Zweitore:
 
 - __Erdunsymmetrisch__ ist ein Zweitor, dessen untere Klemmen innen durch eine durchgehende Leitung verbunden sind, die __Masse__; eigentlich ist es ein
   Dreipol. So sind die meisten Modelle von Transistoren und Verstärkern gebaut. __Erdsymmetrisch__ ist eines, das zu einer waagrechten Linie
@@ -105,7 +105,7 @@ Ein paar Begriffe ordnen die Zweitore (Bild 7.42 des Skripts):
 - __Aktive__ Zweitore können am Ausgang mehr Leistung abgeben, als sie am Eingang aufnehmen; die Energie dafür liefert eine Hilfsquelle, etwa die
   Versorgungsspannung eines Verstärkers. __Passive__ können das nicht. Der Abschnitt über Zweitoreigenschaften macht beides genau.
 
-Für die Zählpfeile gibt es zwei Gewohnheiten (Bild 7.43). Im __symmetrischen__ Pfeilsystem, einem Verbraucherzählpfeilsystem an beiden Toren, fließen beide
+Für die Zählpfeile gibt es zwei Gewohnheiten. Im __symmetrischen__ Pfeilsystem, einem Verbraucherzählpfeilsystem an beiden Toren, fließen beide
 Ströme in das Zweitor hinein; es gilt hier für alle Formen außer der Kettenform. Im __Kettenpfeilsystem__ fließt der Ausgangsstrom zum Verbraucher hinaus;
 die Kettenform behält deshalb den hineinfließenden Strom $I_2$ und schreibt den hinausfließenden als $-I_2$.
 
@@ -117,7 +117,7 @@ umgekehrt:
 $$I_1 = f_1(U_1, U_2), \qquad I_2 = g_1(U_1, U_2) \qquad\text{oder}\qquad U_1 = f_2(I_1, I_2), \qquad U_2 = g_2(I_1, I_2).$$
 
 Bei einem linearen Zweitor sind diese Funktionen linear, jede eine Summe der beiden unabhängigen Größen mit festen Faktoren. Trägt man eine Torgröße über
-einer anderen auf und hält die dritte als __Parameter__ fest, entstehen __Kennlinien__ (Bild 7.44):
+einer anderen auf und hält die dritte als __Parameter__ fest, entstehen __Kennlinien__:
 
 - die __Eingangskennlinie__, $I_1$ über $U_1$, mit $U_2$ als Parameter;
 - die __Übertragungskennlinie__, $I_2$ über $U_1$, mit $U_2$ als Parameter;
@@ -139,7 +139,7 @@ dieselbe.
 :::
 
 ::::beispiel Kennlinien eines Längs- und eines Querleitwerts
-Ein Zweitor aus einem Querleitwert $G_1$ am Eingang und einem Längsleitwert $G_2$ zum Ausgang, wie in Bild 7.44 des Skripts:
+Ein Zweitor aus einem Querleitwert $G_1$ am Eingang und einem Längsleitwert $G_2$ zum Ausgang:
 
 $$G_1 = 10\,\text{mS}, \qquad G_2 = 5\,\text{mS}, \qquad I_1 = (G_1 + G_2)\,U_1 - G_2\,U_2, \qquad I_2 = -G_2\,U_1 + G_2\,U_2.$$
 
@@ -159,7 +159,7 @@ Durch $G_1$ fließen $40\,\text{mA}$, durch $G_2$ $10\,\text{mA}$ nach rechts, d
 
 ## Widerstandsform
 
-Gibt man die beiden Ströme vor, sind die Spannungen lineare Funktionen von ihnen, die __Widerstandsform__ (Abschnitt 7.6.2 des Skripts):
+Gibt man die beiden Ströme vor, sind die Spannungen lineare Funktionen von ihnen, die __Widerstandsform__:
 
 :::formel Definition
 $$U_1 = Z_{11}\,I_1 + Z_{12}\,I_2, \qquad U_2 = Z_{21}\,I_1 + Z_{22}\,I_2, \qquad \begin{pmatrix} U_1 \\ U_2 \end{pmatrix} = \mathbf Z \begin{pmatrix} I_1 \\ I_2 \end{pmatrix}, \qquad \mathbf Z = \begin{pmatrix} Z_{11} & Z_{12} \\ Z_{21} & Z_{22} \end{pmatrix}.$$
@@ -167,7 +167,7 @@ $$U_1 = Z_{11}\,I_1 + Z_{12}\,I_2, \qquad U_2 = Z_{21}\,I_1 + Z_{22}\,I_2, \qqua
 
 **So liest man das:** Die vier __Widerstandsparameter__ oder Z-Parameter haben die Einheit Ohm und hängen nur vom Zweitor ab. Der Buchstabe Z erinnert an
 die Impedanz, den Widerstand der Wechselstromtechnik; für ein Netz aus Widerständen sind die Parameter einfach Widerstände. Jeden misst man im
-__Leerlaufversuch__ (Bild 7.46): Man lässt ein Tor offen, sodass dort kein Strom fließt, und prägt am anderen einen Strom ein:
+__Leerlaufversuch__: Man lässt ein Tor offen, sodass dort kein Strom fließt, und prägt am anderen einen Strom ein:
 
 $$Z_{11} = \frac{U_1}{I_1}\Big|_{I_2 = 0}, \qquad Z_{21} = \frac{U_2}{I_1}\Big|_{I_2 = 0}, \qquad Z_{12} = \frac{U_1}{I_2}\Big|_{I_1 = 0}, \qquad Z_{22} = \frac{U_2}{I_2}\Big|_{I_1 = 0}.$$
 
@@ -187,8 +187,7 @@ Versuche, um die Spannungen für jede Kombination der Ströme vorherzusagen.
 :::
 
 ::::beispiel Z-Parameter einer T-Schaltung und einer Brücke
-**(a) Die T-Schaltung** aus einem Längswiderstand $R_1$ am Eingang, einem Querwiderstand $R_2$ und einem Längswiderstand $R_3$ am Ausgang (Bild 7.50 des
-Skripts):
+**(a) Die T-Schaltung** aus einem Längswiderstand $R_1$ am Eingang, einem Querwiderstand $R_2$ und einem Längswiderstand $R_3$ am Ausgang:
 
 $$R_1 = 100\,\Omega, \qquad R_2 = 300\,\Omega, \qquad R_3 = 200\,\Omega.$$
 
@@ -196,8 +195,8 @@ Bei offenem Ausgang fließt $I_1$ durch $R_1$ und $R_2$, und an $R_3$ fällt nic
 
 $$Z_{11} = R_1 + R_2 = 400\,\Omega, \qquad Z_{21} = Z_{12} = R_2 = 300\,\Omega, \qquad Z_{22} = R_2 + R_3 = 500\,\Omega.$$
 
-**(b) Eine Brücke als Zweitor.** In einer Brücke liegt das Eingangstor an den Ecken, an denen sonst die Quelle hängt, das Ausgangstor in der Diagonale
-(Bild 7.49). Umgezeichnet führt von der Eingangsklemme 1 ein Widerstand $R_a$ zur Ausgangsklemme 2 und ein $R_b$ zur Klemme 2', von der Klemme 1' ein $R_a$
+**(b) Eine Brücke als Zweitor.** In einer Brücke liegt das Eingangstor an den Ecken, an denen sonst die Quelle hängt, das Ausgangstor in der Diagonale.
+Umgezeichnet führt von der Eingangsklemme 1 ein Widerstand $R_a$ zur Ausgangsklemme 2 und ein $R_b$ zur Klemme 2', von der Klemme 1' ein $R_a$
 zu 2' und ein $R_b$ zu 2:
 
 $$R_a = 100\,\Omega, \qquad R_b = 300\,\Omega.$$
@@ -214,14 +213,14 @@ nichts an.
 rechts.
 ::::
 
-Die Gleichungen lassen sich als Schaltung lesen, das __Ersatzschaltbild__ der Widerstandsform (Bild 7.45). Es braucht ein neues Bauteil, die __gesteuerte
+Die Gleichungen lassen sich als Schaltung lesen, das __Ersatzschaltbild__ der Widerstandsform. Es braucht ein neues Bauteil, die __gesteuerte
 Quelle__: eine ideale Quelle, deren Wert von einer Spannung oder einem Strom an anderer Stelle abhängt. Hier sind es zwei __stromgesteuerte
 Spannungsquellen__ (englisch *current-controlled voltage source*, CCVS). Am Eingang liegt $Z_{11}$ in Reihe mit einer Quelle $Z_{12} I_2$, die der
-Ausgangsstrom steuert, am Ausgang $Z_{22}$ in Reihe mit einer Quelle $Z_{21} I_1$, die der Eingangsstrom steuert. Im Skript ist die Zuordnung zu den Toren
-beim Text vertauscht: $Z_{21}$ gehört zur Quelle am Ausgang, $Z_{12}$ zur Quelle am Eingang, wie das Bild selbst zeigt.
+Ausgangsstrom steuert, am Ausgang $Z_{22}$ in Reihe mit einer Quelle $Z_{21} I_1$, die der Eingangsstrom steuert. Achtung, Indizes: Der erste nennt das Tor, an dem die
+Quelle sitzt, der zweite das Tor des steuernden Stroms.
 
 Hängt am Ausgang ein Lastwiderstand $R_L$, fließt der Strom $I_2$, im symmetrischen Pfeilsystem in das Zweitor hineingezählt, durch die Last hinaus. Der
-Eingangswiderstand hängt dann von der Last ab (Bild 7.48):
+Eingangswiderstand hängt dann von der Last ab:
 
 :::formel
 $$Z_1 = \frac{U_1}{I_1} = Z_{11} - \frac{Z_{12}\,Z_{21}}{Z_{22} + R_L}, \qquad Z_{1,LL} = Z_{11}, \qquad Z_{1,KS} = Z_{11} - \frac{Z_{12}\,Z_{21}}{Z_{22}}.$$
@@ -229,7 +228,7 @@ $$Z_1 = \frac{U_1}{I_1} = Z_{11} - \frac{Z_{12}\,Z_{21}}{Z_{22} + R_L}, \qquad Z
 
 **So liest man das:** Bei offenem Ausgang ist der Eingangswiderstand $Z_{11}$, bei kurzgeschlossenem um $Z_{12}Z_{21}/Z_{22}$ kleiner, dazwischen liegt jede
 Last. Verantwortlich ist $Z_{12}$, die __Rückwirkung__ des Ausgangs auf den Eingang. Ist sie null, ist der Eingangswiderstand bei jeder Last $Z_{11}$, und
-das Zweitor heißt __rückwirkungsfrei__; im Skript steht dafür einmal $Z_{12}$ gleich $0\,\text{A}$, gemeint ist $0\,\Omega$.
+das Zweitor heißt __rückwirkungsfrei__.
 
 **Im Bild:** Was rechts angeschlossen ist, bestimmt mit, wie leicht das Wasser durch den Kasten fließt, und das spürt die Pumpe links — außer der Kasten
 lässt nichts von rechts nach links zurückwirken.
@@ -269,7 +268,7 @@ $$\frac{I_2}{I_1} = -\frac{300}{500 + 100} = -0{,}5, \qquad \frac{U_2}{U_1} = \f
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/06-z-ersatzschaltbild · Vorlage: zweitor-z-esb
-Nach Bild 7.45 und 7.48 des Skripts: links eine Stromquelle $I_q$ am Eingangstor, rechts ein verstellbarer Lastwiderstand $R_L$. Dazwischen das
+Links eine Stromquelle $I_q$ am Eingangstor, rechts ein verstellbarer Lastwiderstand $R_L$. Dazwischen das
 Ersatzschaltbild der Widerstandsform: am Eingang $Z_{11} = 400\,\Omega$ in Reihe mit einer stromgesteuerten Spannungsquelle $Z_{12} I_2$, am Ausgang
 $Z_{22} = 500\,\Omega$ in Reihe mit $Z_{21} I_1$, beide Quellen als Rauten mit Spannungspfeilen nach unten; $I_1$ fließt in Klemme 1, $I_2$ in Klemme 2
 hinein, $U_1$ und $U_2$ zeigen nach unten. Gestrichelte Pfeile verbinden jede gesteuerte Quelle mit dem Strom, der sie steuert. Der Lastregler fährt von
@@ -280,26 +279,23 @@ gesteuerte Quellen, blau = Torgrößen, orange = Steuerpfeile, grau = Widerstän
 
 ## Leitwertform
 
-Gibt man die beiden Spannungen vor, sind die Ströme lineare Funktionen von ihnen, die __Leitwertform__ (Abschnitt 7.6.3 des Skripts):
+Gibt man die beiden Spannungen vor, sind die Ströme lineare Funktionen von ihnen, die __Leitwertform__:
 
 :::formel Definition
 $$I_1 = Y_{11}\,U_1 + Y_{12}\,U_2, \qquad I_2 = Y_{21}\,U_1 + Y_{22}\,U_2, \qquad \begin{pmatrix} I_1 \\ I_2 \end{pmatrix} = \mathbf Y \begin{pmatrix} U_1 \\ U_2 \end{pmatrix}.$$
 :::
 
-**So liest man das:** Die vier __Leitwertparameter__ oder Y-Parameter haben die Einheit Siemens. Man misst sie im __Kurzschlussversuch__ (Bild 7.54): Ein Tor
+**So liest man das:** Die vier __Leitwertparameter__ oder Y-Parameter haben die Einheit Siemens. Man misst sie im __Kurzschlussversuch__: Ein Tor
 wird kurzgeschlossen, sodass seine Spannung null ist, und am anderen wird eine Spannung eingeprägt:
 
 $$Y_{11} = \frac{I_1}{U_1}\Big|_{U_2 = 0}, \qquad Y_{21} = \frac{I_2}{U_1}\Big|_{U_2 = 0}, \qquad Y_{12} = \frac{I_1}{U_2}\Big|_{U_1 = 0}, \qquad Y_{22} = \frac{I_2}{U_2}\Big|_{U_1 = 0}.$$
 
 $Y_{11}$ ist der __Kurzschlusseingangsleitwert__, $Y_{22}$ der __Kurzschlussausgangsleitwert__, $Y_{21}$ der Kurzschlussübertragungsleitwert vorwärts, bei
-Transistoren __Steilheit__ genannt, $Y_{12}$ der rückwärts. Im Ersatzschaltbild (Bild 7.53) liegen am Eingang $Y_{11}$ und eine __spannungsgesteuerte
+Transistoren __Steilheit__ genannt, $Y_{12}$ der rückwärts. Im Ersatzschaltbild liegen am Eingang $Y_{11}$ und eine __spannungsgesteuerte
 Stromquelle__ (*voltage-controlled current source*, VCCS) $Y_{12} U_2$ parallel, am Ausgang $Y_{22}$ und die Quelle $Y_{21} U_1$. Mit einem Lastleitwert $G_L$
 am Ausgang gilt für den Eingangsleitwert, ganz entsprechend zur Widerstandsform:
 
 $$Y_1 = \frac{I_1}{U_1} = Y_{11} - \frac{Y_{12}\,Y_{21}}{Y_{22} + G_L}, \qquad Y_{1,KS} = Y_{11}, \qquad Y_{1,LL} = Y_{11} - \frac{Y_{12}\,Y_{21}}{Y_{22}}.$$
-
-Im Skript sind in diesem Abschnitt drei Kleinigkeiten verrutscht: Sein erster Satz kündigt ein Ersatzschaltbild in Z-Form an, gemeint ist die Y-Form;
-$Y_{11}$ wird als Eingangsleitwert an Tor 2 bezeichnet statt an Tor 1; und in Bild 7.55b, dem Leerlauf, steht $Y_{1,KS}$ statt $Y_{1,LL}$.
 
 **Im Bild:** Rechts drucklos offen, links einen festen Druck anlegen und die Durchflüsse an beiden Seiten messen: Durchfluss pro Druck.
 
@@ -339,7 +335,7 @@ Längsrohr ab.
 ## Widerstands- und Leitwertform ineinander umrechnen
 
 Beide Formen beschreiben dasselbe Zweitor. Die eine löst die Gleichungen nach den Spannungen auf, die andere nach den Strömen; ihre Matrizen sind deshalb
-zueinander invers (Abschnitt 7.6.4 des Skripts):
+zueinander invers:
 
 :::formel
 $$\mathbf Y = \mathbf Z^{-1} = \frac{1}{\det\mathbf Z}\begin{pmatrix} Z_{22} & -Z_{12} \\ -Z_{21} & Z_{11} \end{pmatrix}, \qquad \det\mathbf Z = Z_{11}Z_{22} - Z_{12}Z_{21},$$
@@ -348,10 +344,10 @@ $$\mathbf Z = \mathbf Y^{-1} = \frac{1}{\det\mathbf Y}\begin{pmatrix} Y_{22} & -
 :::
 
 **So liest man das:** Invers heißt nicht elementweise: $Y_{11}$ ist im Allgemeinen nicht $1/Z_{11}$, denn das eine ist ein Kurzschluss-, das andere ein
-Leerlaufwert. Das Skript nennt die beiden Parametersätze zueinander reziprok; gemeint ist genau diese Matrixinversion. Ein Netz aus Widerständen in
+Leerlaufwert. Ein Netz aus Widerständen in
 T-Form hat eine einfache Widerstandsmatrix, eines in π-Form eine einfache Leitwertmatrix, und beide Schaltungen gehen durch die Stern-Dreieck-Umwandlung
-ineinander über (Bild 7.57). So kann man jedes umkehrbare Zweitor als T oder als π aus drei Widerständen darstellen, wobei die Werte bei manchen Netzen,
-etwa Brücken, auch negativ ausfallen; das Skript sagt etwas zu knapp, die Leitwertbeschreibung passiver Zweitore lasse sich stets als π deuten.
+ineinander über. So kann man jedes umkehrbare Zweitor als T oder als π aus drei Widerständen darstellen, wobei die Werte bei manchen Netzen,
+etwa Brücken, auch negativ ausfallen.
 
 **Im Bild:** Ob man nach dem Druck bei vorgegebenem Durchfluss oder nach dem Durchfluss bei vorgegebenem Druck fragt: Es ist derselbe Kasten, nur die Frage
 umgedreht.
@@ -362,13 +358,12 @@ indem man die Diagonale tauscht, die Nebendiagonale umpolt und durch die Determi
 
 $$\frac{1}{\det\mathbf Z}\begin{pmatrix} Z_{22} & -Z_{12} \\ -Z_{21} & Z_{11} \end{pmatrix}\begin{pmatrix} Z_{11} & Z_{12} \\ Z_{21} & Z_{22} \end{pmatrix} = \frac{1}{\det\mathbf Z}\begin{pmatrix} Z_{11}Z_{22} - Z_{12}Z_{21} & 0 \\ 0 & Z_{11}Z_{22} - Z_{12}Z_{21} \end{pmatrix}.$$
 
-**Im Ersatzschaltbild.** Das Skript rechnet dasselbe über Kurzschlussversuche am Ersatzschaltbild der Widerstandsform. Mit kurzgeschlossenem Ausgang ist
+**Im Ersatzschaltbild.** Dasselbe ergibt sich über Kurzschlussversuche am Ersatzschaltbild der Widerstandsform. Mit kurzgeschlossenem Ausgang ist
 $Z_{21}I_1$ gleich $-Z_{22}I_2$, und
 
 $$I_2 = -\frac{Z_{21}}{Z_{22}}\,I_1, \qquad U_1 = \Big(Z_{11} - \frac{Z_{12}Z_{21}}{Z_{22}}\Big)I_1, \qquad Y_{11} = \frac{I_1}{U_1} = \frac{Z_{22}}{\det\mathbf Z}.$$
 
-Die übrigen drei folgen ebenso, die beiden in der zweiten Zeile mit kurzgeschlossenem Eingang; das Skript überschreibt auch diesen zweiten Versuch
-versehentlich mit „Kurzschluss am Ausgang".
+Die übrigen drei folgen ebenso, die beiden in der zweiten Zeile mit kurzgeschlossenem Eingang.
 
 **Die π-Deutung.** Die Leitwertmatrix einer π-Schaltung hat, wie im Beispiel oben, $G_1 + G_2$, $-G_2$ und $G_2 + G_3$. Ist $Y_{12}$ gleich $Y_{21}$, lassen sich
 die drei Leitwerte aus jeder Leitwertmatrix ablesen:
@@ -399,7 +394,7 @@ $200 + 300 + \frac{200\cdot300}{100}$ Ohm.
 
 ## Hybridform
 
-Gibt man den Eingangsstrom und die Ausgangsspannung vor, entsteht die __Hybridform__ (Abschnitt 7.6.5 des Skripts), die Leerlauf und Kurzschluss mischt:
+Gibt man den Eingangsstrom und die Ausgangsspannung vor, entsteht die __Hybridform__, die Leerlauf und Kurzschluss mischt:
 
 :::formel Definition
 $$U_1 = H_{11}\,I_1 + H_{12}\,U_2, \qquad I_2 = H_{21}\,I_1 + H_{22}\,U_2, \qquad \begin{pmatrix} U_1 \\ I_2 \end{pmatrix} = \mathbf H \begin{pmatrix} I_1 \\ U_2 \end{pmatrix}.$$
@@ -411,10 +406,9 @@ Zahlen ohne Einheit. Man bestimmt sie mit kurzgeschlossenem Ausgang und mit offe
 $$H_{11} = \frac{U_1}{I_1}\Big|_{U_2 = 0}, \qquad H_{21} = \frac{I_2}{I_1}\Big|_{U_2 = 0}, \qquad H_{12} = \frac{U_1}{U_2}\Big|_{I_1 = 0}, \qquad H_{22} = \frac{I_2}{U_2}\Big|_{I_1 = 0}.$$
 
 $H_{11}$ ist der __Kurzschlusseingangswiderstand__, $H_{21}$ die __Kurzschlussstromübersetzung__ oder __Stromverstärkung__, $H_{12}$ die __Spannungsrückwirkung__
-bei offenem Eingang und $H_{22}$ der __Leerlaufausgangsleitwert__. Im Ersatzschaltbild (Bild 7.63) liegt am Eingang $H_{11}$ in Reihe mit einer
+bei offenem Eingang und $H_{22}$ der __Leerlaufausgangsleitwert__. Im Ersatzschaltbild liegt am Eingang $H_{11}$ in Reihe mit einer
 __spannungsgesteuerten Spannungsquelle__ (VCVS) $H_{12} U_2$, am Ausgang $H_{22}$ parallel zu einer __stromgesteuerten Stromquelle__ (CCCS) $H_{21} I_1$. Das ist
-das klassische Modell des Transistors für kleine Änderungen um einen Arbeitspunkt. Das Bild im Skript beschriftet die Eingangsquelle mit $H_{12} I_2$, richtig
-ist $H_{12} U_2$, und bei $H_{12}$ und $H_{22}$ steht als Bedingung $I_1$ gleich $0\,\text{V}$ statt $0\,\text{A}$.
+das klassische Modell des Transistors für kleine Änderungen um einen Arbeitspunkt.
 
 **Im Bild:** Links eine feste Wassermenge hineinpumpen, rechts den Druck vorgeben: Links stellt sich ein Druck ein, rechts ein Durchfluss.
 
@@ -451,7 +445,7 @@ Die zusätzliche Leistung stammt aus der Versorgungsspannung des Transistors, ni
 ## Kettenform
 
 Fragt man, was man am Eingang liefern muss, damit am Ausgang eine bestimmte Spannung und ein bestimmter Strom herauskommen, drückt man die Eingangsgrößen
-durch die Ausgangsgrößen aus, die __Kettenform__ (Abschnitt 7.6.6 des Skripts):
+durch die Ausgangsgrößen aus, die __Kettenform__:
 
 :::formel Definition
 $$U_1 = A_{11}\,U_2 + A_{12}\,(-I_2), \qquad I_1 = A_{21}\,U_2 + A_{22}\,(-I_2), \qquad \begin{pmatrix} U_1 \\ I_1 \end{pmatrix} = \mathbf A \begin{pmatrix} U_2 \\ -I_2 \end{pmatrix}.$$
@@ -498,7 +492,7 @@ den Längswiderstand:
 $$A_{11} = A_{22} = 1 + \frac{37{,}5}{150} = 1{,}25, \qquad A_{12} = 37{,}5\,\Omega, \qquad A_{21} = \frac{2}{150\,\Omega} + \frac{37{,}5\,\Omega}{(150\,\Omega)^2} = 0{,}015\,\text{S}.$$
 
 :::herleitung
-**Die Kettenmatrix einer π-Schaltung.** Mit den Leitwerten $G_1$ und $G_3$ quer und $G_2$ längs, wie im Beispiel des Skripts zu Bild 7.64. Bei offenem
+**Die Kettenmatrix einer π-Schaltung.** Mit den Leitwerten $G_1$ und $G_3$ quer und $G_2$ längs. Bei offenem
 Ausgang teilen $G_2$ und $G_3$ die Eingangsspannung, und der Eingangsstrom fließt durch $G_1$ und durch die Reihe aus $G_2$ und $G_3$:
 
 $$U_2 = U_1\,\frac{G_2}{G_2 + G_3}, \qquad I_1 = U_1\Big(G_1 + \frac{G_2G_3}{G_2 + G_3}\Big), \qquad A_{11} = 1 + \frac{G_3}{G_2}, \qquad A_{21} = G_1 + G_3 + \frac{G_1G_3}{G_2}.$$
@@ -536,8 +530,8 @@ sich die Kettenmatrizen. (Rot = Glieder, blau = Spannungen, orange = Matrizen un
 
 ## Alle Formen ineinander umrechnen
 
-Jede Form lässt sich in jede andere umrechnen, indem man die beiden Gleichungen nach dem anderen Paar von Größen auflöst. Das Skript fasst alle
-Umrechnungen in Tabelle 7.2 zusammen; zeilenweise steht hier jede Matrix in den Parametern der drei anderen:
+Jede Form lässt sich in jede andere umrechnen, indem man die beiden Gleichungen nach dem anderen Paar von Größen auflöst. Zusammengefasst
+steht hier zeilenweise jede Matrix in den Parametern der drei anderen:
 
 :::formel
 $$\mathbf Z = \begin{pmatrix} \frac{Y_{22}}{\det\mathbf Y} & \frac{-Y_{12}}{\det\mathbf Y} \\ \frac{-Y_{21}}{\det\mathbf Y} & \frac{Y_{11}}{\det\mathbf Y} \end{pmatrix} \qquad = \begin{pmatrix} \frac{\det\mathbf H}{H_{22}} & \frac{H_{12}}{H_{22}} \\ \frac{-H_{21}}{H_{22}} & \frac{1}{H_{22}} \end{pmatrix} \qquad = \begin{pmatrix} \frac{A_{11}}{A_{21}} & \frac{\det\mathbf A}{A_{21}} \\ \frac{1}{A_{21}} & \frac{A_{22}}{A_{21}} \end{pmatrix},$$
@@ -549,7 +543,7 @@ $$\mathbf H = \begin{pmatrix} \frac{\det\mathbf Z}{Z_{22}} & \frac{Z_{12}}{Z_{22
 $$\mathbf A = \begin{pmatrix} \frac{Z_{11}}{Z_{21}} & \frac{\det\mathbf Z}{Z_{21}} \\ \frac{1}{Z_{21}} & \frac{Z_{22}}{Z_{21}} \end{pmatrix} \qquad = \begin{pmatrix} \frac{-Y_{22}}{Y_{21}} & \frac{-1}{Y_{21}} \\ \frac{-\det\mathbf Y}{Y_{21}} & \frac{-Y_{11}}{Y_{21}} \end{pmatrix} \qquad = \begin{pmatrix} \frac{-\det\mathbf H}{H_{21}} & \frac{-H_{11}}{H_{21}} \\ \frac{-H_{22}}{H_{21}} & \frac{-1}{H_{21}} \end{pmatrix}.$$
 :::
 
-**So liest man das:** In jeder Zeile steht dieselbe Matrix, einmal durch jede der anderen ausgedrückt; die Tabelle im Skript stimmt in allen Einträgen.
+**So liest man das:** In jeder Zeile steht dieselbe Matrix, einmal durch jede der anderen ausgedrückt.
 Wird ein Nenner null, gibt es die Form nicht. Bei einer abgeglichenen Brücke etwa ist $Z_{21}$ null, und eine Kettenmatrix existiert nicht: Man kann vorne
 nichts einspeisen, um hinten eine Spannung zu bekommen.
 
@@ -594,7 +588,7 @@ $$\frac{U_1}{U_2} = A_{11} + \frac{A_{12}}{R_L} = 1{,}333 + \frac{366{,}7\,\Omeg
 
 ## Zweitoreigenschaften
 
-Drei Eigenschaften sortieren die Zweitore (Abschnitt 7.6.7 des Skripts). Ein Zweitor heißt __umkehrbar__, __übertragungssymmetrisch__ oder __reziprok__, wenn
+Drei Eigenschaften sortieren die Zweitore. Ein Zweitor heißt __umkehrbar__, __übertragungssymmetrisch__ oder __reziprok__, wenn
 dieselbe Ursache an der einen Seite dieselbe Wirkung an der anderen hat wie umgekehrt: Ein Strom, der in Tor 1 eingespeist wird, erzeugt am offenen Tor 2
 dieselbe Spannung wie derselbe Strom in Tor 2 am offenen Tor 1. In jeder Form lässt sich das ablesen:
 
@@ -605,8 +599,7 @@ $$Y_{12} = Y_{21}, \qquad Z_{12} = Z_{21}, \qquad H_{12} = -H_{21}, \qquad \det\
 **So liest man das:** Die vier Bedingungen sind gleichwertig; jede zieht die anderen nach sich. Ein umkehrbares Zweitor hat nur drei unabhängige Parameter und lässt sich durch eine T- oder π-Schaltung ohne Quellen nachbilden.
 Jedes Netz aus Widerständen ist umkehrbar, und später auch jedes aus Spulen und Kondensatoren; nicht umkehrbar sind Zweitore mit gesteuerten Quellen wie
 Verstärker. Umkehrbar ist dabei schwächer als __symmetrisch__: Ein symmetrisches Zweitor hat zusätzlich gleiche Ein- und Ausgangswiderstände, man darf seine
-Tore vertauschen. Die Zusammenfassung des Skripts beschreibt mit der Vertauschung der Pole eher diese Symmetrie, und dass nicht umkehrbare Zweitore auch
-aktiv heißen, trifft nicht immer zu.
+Tore vertauschen. Und nicht umkehrbar heißt nicht automatisch aktiv.
 
 Ein nicht umkehrbares Zweitor wird im Grenzfall ohne jede Rückwirkung __rückwirkungsfrei__, mit vier wieder gleichwertigen Bedingungen:
 
@@ -620,8 +613,8 @@ Schließlich nimmt ein Zweitor im symmetrischen Pfeilsystem insgesamt die Leistu
 $$P = U_1I_1 + U_2I_2 = Y_{11}\,U_1^2 + (Y_{12} + Y_{21})\,U_1U_2 + Y_{22}\,U_2^2$$
 
 auf. Es ist __passiv__, wenn diese Leistung bei keiner Beschaltung negativ wird, und __aktiv__, wenn sie negativ werden kann, das Zweitor also am Ausgang
-mehr abgibt, als es am Eingang aufnimmt. Im Skript steht in der ersten Zeile $U_1I_1 - U_2I_2$; da es die abgegebene Leistung als $-U_2I_2$ zählt, muss
-es $U_1I_1 + U_2I_2$ heißen, und in der zweiten Zeile fehlt ein Pluszeichen.
+mehr abgibt, als es am Eingang aufnimmt. Achtung, Vorzeichen: Weil die abgegebene Leistung als $-U_2I_2$ zählt, nimmt das Zweitor insgesamt
+$U_1I_1 + U_2I_2$ auf, nicht $U_1I_1 - U_2I_2$.
 
 **Im Bild:** Ein Kasten nur aus Rohren antwortet in beide Richtungen gleich und kann nie mehr Leistung abgeben, als er bekommt; einer mit eigener,
 angetriebener Pumpe kann beides brechen.
@@ -672,7 +665,7 @@ nichtlineares Bauteil mit Kennlinien und für kleine Signale um einen Arbeitspun
 
 Für die vier Arten, Zweitore zu verbinden, gibt es je eine passende Form. In der __Kettenschaltung__ multiplizieren sich die Kettenmatrizen. In der
 __Reihenschaltung__, beide Eingänge und beide Ausgänge in Reihe, addieren sich die Widerstandsmatrizen, in der __Parallelschaltung__ die Leitwertmatrizen,
-und in der __Reihen-Parallel-Schaltung__, Eingänge in Reihe und Ausgänge parallel, die Hybridmatrizen, weshalb das Skript diese auch Reihenparallelmatrix
+und in der __Reihen-Parallel-Schaltung__, Eingänge in Reihe und Ausgänge parallel, die Hybridmatrizen, die man deshalb auch Reihen-Parallel-Matrizen
 nennt. Das gilt, solange die Torbedingungen erhalten bleiben; dass sie verletzt werden können, hat das Beispiel mit der Masseverbindung gezeigt.
 
 Bei Wechselstrom werden die Parameter komplexe Zahlen, die Formen bleiben dieselben. Der nächste Artikel kehrt zu Netzen mit mehreren Quellen zurück: Das
@@ -719,6 +712,6 @@ F: Warum steht in der Kettenform $-I_2$, und was ergibt das für hintereinanderg
 A: $-I_2$ ist der Strom, der das Zweitor hinaus zum nächsten verlässt und dort als dessen Eingangsstrom hineinfließt. Damit gehen die Ausgangsgrößen des einen Glieds ohne Vorzeichenwechsel in die Eingangsgrößen des nächsten über, und die Kettenmatrizen multiplizieren sich. Das π-Dämpfungsglied mit $\det\mathbf A=1$ halbiert an $50\,\Omega$ die Spannung, zwei hintereinander vierteln sie, und beide zeigen am Eingang $50\,\Omega$.
 F: Was heißt umkehrbar, rückwirkungsfrei und aktiv, und warum sind Widerstandsnetze umkehrbar und passiv?
 A: Umkehrbar: $Z_{12}=Z_{21}$, gleichwertig $Y_{12}=Y_{21}$, $H_{12}=-H_{21}$, $\det\mathbf A=1$; rückwirkungsfrei: alle diese Nebengrößen null; aktiv: $U_1I_1+U_2I_2$ kann negativ werden. Ein Widerstandsnetz hat eine symmetrische Knotenleitwertmatrix, die beim Eliminieren innerer Knoten symmetrisch bleibt, und seine aufgenommene Leistung ist nach Tellegen die Summe der $R_kI_k^2$, also nie negativ.
-F: Welche Druckfehler stehen im Skript bei den Zweitoren?
-A: Bei der Widerstandsform sind im Text die Tore der beiden gesteuerten Quellen vertauscht, und es heißt einmal $Z_{12}=0\,\text{A}$ statt $0\,\Omega$. Bei der Leitwertform wird ein ESB in Z-Form angekündigt, $Y_{11}$ ans Tor 2 gelegt, Bild 7.55b mit $Y_{1,KS}$ statt $Y_{1,LL}$ beschriftet, und der zweite Kurzschlussversuch heißt „am Ausgang" statt „am Eingang"; im Nenner von $Y_{12}$ der T-Schaltung steht $R_1R_2$ doppelt statt $R_2R_3$. Bild 7.52 trägt die Unterschrift von Bild 7.51, Bild 7.63 die Quelle $H_{12}I_2$ statt $H_{12}U_2$, und in der Leistungsbilanz muss es $U_1I_1+U_2I_2$ heißen.
+F: Welche Verwechslungen passieren bei Zweitoren leicht?
+A: Bei den gesteuerten Quellen der Widerstandsform sitzt $Z_{12}I_2$ am Eingang und $Z_{21}I_1$ am Ausgang; der erste Index nennt das Tor der Quelle. In der Hybridform steuert die Ausgangsspannung die Eingangsquelle, $H_{12}U_2$, nicht der Ausgangsstrom. Und im symmetrischen Pfeilsystem nimmt ein Zweitor die Leistung $U_1I_1+U_2I_2$ auf; ein Minus vor $U_2I_2$ wäre falsch, weil $I_2$ schon in das Zweitor hineinzählt.
 :::

@@ -94,8 +94,8 @@ mitgezählt werden, wenn sich Drücke addieren sollen.
 
 **Die Akteure:**
 
-- ein lineares Netz aus Widerständen mit $n$ idealen Spannungsquellen $U_{q1}, \dots, U_{qn}$ und $m$ idealen Stromquellen $I_{q1}, \dots, I_{qm}$ (Bild 7.65
-  des Skripts); die Innenwiderstände realer Quellen zählen zu den Widerständen;
+- ein lineares Netz aus Widerständen mit $n$ idealen Spannungsquellen $U_{q1}, \dots, U_{qn}$ und $m$ idealen Stromquellen $I_{q1}, \dots, I_{qm}$;
+  die Innenwiderstände realer Quellen zählen zu den Widerständen;
 - eine beliebige Spannung $U_{AB}$ zwischen zwei Knoten A und B und ein beliebiger Strom $I_{CD}$, etwa in einer Verbindung zwischen zwei Knoten C und D;
 - für jede Quelle ein fester Faktor: für $U_{AB}$ die __Spannungsverstärkungen__ $a_\nu$ ohne Einheit und die __Transimpedanzen__ $Z_\mu$ in Ohm, für $I_{CD}$
   die __Transadmittanzen__ $Y_\nu$ in Siemens und die __Stromverstärkungen__ $c_\mu$ ohne Einheit.
@@ -113,8 +113,7 @@ Widerständen ab, nicht von den Quellenwerten.
 Die Namen beschreiben, was wohin wirkt. Eine Spannungsverstärkung macht aus einer Quellenspannung eine Spannung, eine Stromverstärkung aus einem
 Quellstrom einen Strom. Eine Transimpedanz macht aus einem Strom an einer Stelle eine Spannung an einer anderen, *trans* heißt hinüber; __Impedanz__ ist der
 Name für einen Widerstand in der Wechselstromtechnik, bei Gleichstrom ist es ein gewöhnlicher Widerstand. Eine Transadmittanz, ein Leitwert, macht
-umgekehrt aus einer Spannung einen Strom. Das Skript nennt die Stromverstärkungen $b_i$; hier heißen sie $c_\mu$, weil $b_k$ weiter unten die Bits eines
-Wandlers bezeichnet. Seine Summe über die Stromquellen endet beim Index $i$; gemeint ist $m$.
+umgekehrt aus einer Spannung einen Strom.
 
 **Im Bild:** Der Druck am Hahn ist die Summe der Drücke, die jedes Werk allein dort erzeugt, jeder mit dem Faktor, den das Rohrnetz zwischen Werk und Hahn
 festlegt.
@@ -182,7 +181,7 @@ niedrigere, fließt aus ihm viel heraus. Zusammen bleibt ein kleiner Rest.
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/03-teilbilder · Vorlage: superposition-teilbilder
-Nach Bild 7.67 und 7.68 des Skripts, an Ladegerät und Batterie der Beispiel-Seite: oben das vollständige Netz mit $U_{q1} = 14\,\text{V}$ und
+An Ladegerät und Batterie der Beispiel-Seite: oben das vollständige Netz mit $U_{q1} = 14\,\text{V}$ und
 $R_{q1} = 0{,}5\,\Omega$ links, $R_L = 2\,\Omega$ in der Mitte, $U_{q2} = 12\,\text{V}$ und $R_{q2} = 0{,}1\,\Omega$ rechts, alle zwischen Knoten K und Masse,
 Spannungspfeile der Quellen und von $U$ nach unten, $I_B$ aus dem Pluspol der Batterie nach oben. Darunter zwei Teilbilder: links ist $U_{q2}$ durch einen
 Draht ersetzt, Anzeige $U' = 2{,}24\,\text{V}$ und $I'_B = -22{,}4\,\text{A}$ mit umgedrehtem Pfeil; rechts ist $U_{q1}$ durch einen Draht ersetzt, Anzeige
@@ -193,7 +192,7 @@ ihre Drähte, blau = Spannungen, orange = Teilströme, grau = Widerstände.)
 
 ## Das Verfahren in drei Schritten
 
-Aus dem Satz wird ein Rezept, im Skript die Vorgehensweise des Superpositionsverfahrens:
+Aus dem Satz wird ein Rezept, die Vorgehensweise des Superpositionsverfahrens:
 
 1. **Stilllegen.** Alle Quellen bis auf eine werden stillgelegt: ideale Spannungsquellen durch einen Kurzschluss ersetzt, mit dem Innenwiderstand null,
    ideale Stromquellen durch eine Unterbrechung, mit dem Innenleitwert null. Innenwiderstände realer Quellen bleiben stehen.
@@ -268,7 +267,7 @@ $$P = R\,(I' + I'')^2 = P' + P'' + 2R\,I'\,I''.$$
 
 **So liest man das:** Die Summe der Teilleistungen verfehlt die wahre Leistung um den __Kreuzterm__ $2R\,I'\,I''$. Er verschwindet nur, wenn eine der beiden
 Teilwirkungen null ist. Haben die Teilströme gleiches Vorzeichen, ist die wahre Leistung größer als die Summe, bei entgegengesetztem kleiner, unter
-Umständen fast null. Man überlagert deshalb immer zuerst Ströme und Spannungen und berechnet erst danach die Leistung. Das Skript sagt es allgemein: Wo
+Umständen fast null. Man überlagert deshalb immer zuerst Ströme und Spannungen und berechnet erst danach die Leistung. Allgemein gilt: Wo
 die Wirkung nicht linear von der Ursache abhängt, wie bei der Leistung, gilt das Überlagerungsprinzip nicht.
 
 **Im Bild:** Die Reibungswärme in einem Rohr wächst mit dem Quadrat des Durchflusses. Schicken zwei Werke Wasser in dieselbe Richtung, entsteht mehr Wärme
@@ -306,9 +305,11 @@ $$P' + P'' = \frac{(2{,}24\,\text{V})^2 + (9{,}6\,\text{V})^2}{2\,\Omega} \appro
 sie in dieselbe Richtung.
 ::::
 
-Eine Ausnahme kennt die Wechselstromtechnik, worauf das Skript hinweist: Haben zwei Teilströme verschiedene Frequenzen, mittelt sich der Kreuzterm über
-die Zeit heraus, und die mittleren Leistungen addieren sich doch. Das gehört zu einem späteren Kapitel. Bei Gleichstrom gibt es nichts zu mitteln; der
-Kreuzterm bleibt, außer eine der Teilwirkungen ist null.
+Eine Ausnahme kennt die Wechselstromtechnik: Haben zwei Teilströme verschiedene Frequenzen, mittelt sich der Kreuzterm über
+die Zeit heraus, und die mittleren Leistungen addieren sich doch. Wie das Produkt zweier Sinusschwingungen in Schwingungen der Summen- und der
+Differenzfrequenz zerfällt, zeigt der Artikel
+[Schwebung und das Produkt zweier Sinussignale](/wissen/elektrotechnik/1-semester/mathematische-methoden-der-elektrotechnik/spektrum-und-fourier-reihe/schwebung-und-produkt.html).
+Bei Gleichstrom gibt es nichts zu mitteln; der Kreuzterm bleibt, außer eine der Teilwirkungen ist null.
 
 :::herleitung
 **Zwei Sinusströme.** Mit den Scheitelwerten $\hat\imath_1$, $\hat\imath_2$ und den Kreisfrequenzen $\omega_1$, $\omega_2$ ist der Momentanwert des Stroms und
@@ -356,7 +357,7 @@ Die Summe der Teilwirkungen ist null, die Wirkung beider Quellen $3\,\text{mA}$:
 
 ## Anwendung: der spannungsbasierte Digital-Analog-Wandler
 
-Ein __Digital-Analog-Wandler__ macht aus einer Binärzahl eine Spannung. Bild 7.69 des Skripts zeigt eine Bauform mit einem __R-2R-Netzwerk__, das im
+Ein __Digital-Analog-Wandler__ macht aus einer Binärzahl eine Spannung. Eine Bauform nutzt ein __R-2R-Netzwerk__, das im
 Artikel über die Zusammenschaltung von Widerständen schon als Stromteiler vorkam; hier wird es mit Spannungen betrieben.
 
 - Längs liegt zwischen aufeinanderfolgenden Knoten $0, 1, \dots, N-1$ jeweils ein Widerstand $R$.
@@ -401,13 +402,13 @@ $$U_\text{aus} = U_{N-1}^* = \sum_{k=0}^{N-1} \frac{b_k\,U_\text{ref}}{2^{N-k}}.
 Die Bits wirken unabhängig voneinander und addieren sich: die Überlagerung, mit Faktoren, die nur vom Platz im Netz abhängen.
 :::
 
-Das Skript rechnet die Teilwirkungen in einem Ersatzschaltbild mit sieben Quellen $U_0$ bis $U_6$ einzeln aus (Bild 7.70). Für $U_5$, die zweithöchste
-Stelle, steht dort $\frac38\,U_5$. Das ist die Spannung am Knoten 5, wenn nur $U_5$ wirkt: Links von ihm liegen $2R$, rechts $R$ und der Zweig $2R$ des
-letzten Knotens, zusammen $3R$. Bis zum Ausgang teilen $R$ und dieser Zweig sie noch einmal:
+Man kann die Teilwirkungen auch einzeln im Netz ausrechnen, etwa für einen Wandler mit sieben Bits und den Bitquellen $U_0$ bis $U_6$. Wirkt nur
+$U_5$, die zweithöchste Stelle, liegen links vom Knoten 5 $2R$, rechts $R$ und der Zweig $2R$ des letzten Knotens, zusammen $3R$. Am Knoten 5 stellt
+sich $\frac38\,U_5$ ein, und bis zum Ausgang teilen $R$ und dieser Zweig die Spannung noch einmal:
 
 $$U_5\cdot\frac{2R \parallel 3R}{2R + 2R \parallel 3R} = \frac38\,U_5, \qquad U_\text{aus} = \frac38\,U_5\cdot\frac{2R}{R + 2R} = \frac14\,U_5,$$
 
-wie es die Zweierpotenzen verlangen.
+wie es die Zweierpotenzen verlangen. Falsch wäre, schon die Knotenspannung $\frac38\,U_5$ für die Teilwirkung am Ausgang zu halten.
 
 ::::beispiel Ein 4-Bit-Wandler mit dem Wort 1011
 Ein Wandler mit vier Bits und der Referenzspannung $8\,\text{V}$ erhält das Wort 1011:
@@ -429,7 +430,7 @@ Beide Wege geben $5{,}5\,\text{V}$, elf Stufen zu je $0{,}5\,\text{V}$, denn 101
 
 :::grafik
 Szene: get1/analyse-linearer-netzwerke/03-r2r-wandler · Vorlage: r2r-spannungswandler
-Nach Bild 7.69 des Skripts als 4-Bit-Wandler: Abschluss $2R$ nach Masse am Knoten 0, Längswiderstände $R$ zwischen den Knoten 0 bis 3, an jedem Knoten ein
+Ein 4-Bit-Wandler: Abschluss $2R$ nach Masse am Knoten 0, Längswiderstände $R$ zwischen den Knoten 0 bis 3, an jedem Knoten ein
 Zweig $2R$ zu einem Umschalter zwischen Masse und $U_\text{ref} = 8\,\text{V}$, am Knoten 3 der Ausgang mit einem Operationsverstärker und der Anzeige
 $U_\text{aus}$. Vier Schalter für die Bits $b_3$ bis $b_0$, anfangs 1011. Rechts ein Balkendiagramm der Teilwirkungen, $4\,\text{V}$, $2\,\text{V}$,
 $1\,\text{V}$ und $0{,}5\,\text{V}$ für gesetzte Bits, gestapelt zur Ausgangsspannung $5{,}5\,\text{V}$. Ein zweiter Modus „aufrollen" lässt von links
@@ -446,8 +447,8 @@ für sich und setzt die Antworten wieder zusammen. Auch Netze mit Dioden und Tra
 Arbeitspunkt linear, mit der Tangente an die Kennlinie, und dort gilt die Überlagerung wieder.
 
 Für lineare Netze stehen nun drei Werkzeuge nebeneinander, die stets dasselbe Ergebnis liefern: die Kirchhoffschen Gleichungen für alle Größen auf
-einmal, die Ersatzquelle für das Verhalten an zwei Klemmen und die Überlagerung für Netze mit mehreren Quellen. Das Skript stellt für das R-2R-Netzwerk eine
-Datei für das Schaltungssimulationsprogramm LTspice bereit. Der nächste Artikel fragt, wie viel Leistung ein Widerstand aufnimmt und bei welcher Last eine
+einmal, die Ersatzquelle für das Verhalten an zwei Klemmen und die Überlagerung für Netze mit mehreren Quellen. Das R-2R-Netzwerk lässt sich gut mit einem
+Schaltungssimulationsprogramm wie LTspice nachvollziehen. Der nächste Artikel fragt, wie viel Leistung ein Widerstand aufnimmt und bei welcher Last eine
 Quelle die größte Leistung abgibt: Energieumsetzung und Leistungsanpassung.
 
 :::kern
@@ -480,6 +481,6 @@ F: Warum darf man Leistungen nicht überlagern?
 A: Die Leistung ist quadratisch im Strom, $P=R(I'+I'')^2=P'+P''+2RI'I''$, und der Kreuzterm fehlt in der Summe der Teilleistungen. Im Innenwiderstand der Batterie ergäben die Teilströme $50{,}2\,\text{W}$ und $57{,}6\,\text{W}$, tatsächlich sind es $0{,}256\,\text{W}$. Nur bei Wechselströmen verschiedener Frequenz mittelt sich der Kreuzterm über die Zeit heraus.
 F: Warum versagt die Überlagerung bei einer Diode?
 A: Der Beweis braucht für jedes Bauteil, dass die Kennlinie der Summe die Summe der Kennlinien ist, und das gilt nur für Geraden durch den Ursprung. Eine Diode sperrt unterhalb von etwa $0{,}7\,\text{V}$: Zwei Quellen mit je $0{,}5\,\text{V}$ treiben einzeln keinen Strom, zusammen über $100\,\Omega$ aber $3\,\text{mA}$.
-F: Warum gewichtet das R-2R-Netz die Bits mit Zweierpotenzen, und welcher Fehler steht dazu im Skript?
-A: Von links aufgerollt liegen an jedem Knoten zwei gleiche Widerstände $2R$ mit zwei Spannungen parallel; ihre Ersatzquelle ist $R$ mit dem Mittelwert, also halbiert jede Stufe, was von links kommt. Bit $k$ trägt $U_\text{ref}/2^{N-k}$ bei; das Wort 1011 an $8\,\text{V}$ ergibt $5{,}5\,\text{V}$. Im Skript ist die Teilwirkung von $U_5$ mit $\frac38\,U_5$ angegeben — das ist die Spannung am Knoten 5; am Ausgang sind es $\frac14\,U_5$.
+F: Warum gewichtet das R-2R-Netz die Bits mit Zweierpotenzen, und welcher Fehler liegt nahe, wenn man ein Bit einzeln rechnet?
+A: Von links aufgerollt liegen an jedem Knoten zwei gleiche Widerstände $2R$ mit zwei Spannungen parallel; ihre Ersatzquelle ist $R$ mit dem Mittelwert, also halbiert jede Stufe, was von links kommt. Bit $k$ trägt $U_\text{ref}/2^{N-k}$ bei; das Wort 1011 an $8\,\text{V}$ ergibt $5{,}5\,\text{V}$. Einzeln gerechnet darf man die Knotenspannung nicht mit der Teilwirkung am Ausgang verwechseln: Bei sieben Bits liegt am Knoten 5 $\frac38\,U_5$, am Ausgang kommen $\frac14\,U_5$ an.
 :::

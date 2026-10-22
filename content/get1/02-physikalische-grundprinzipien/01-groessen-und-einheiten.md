@@ -14,7 +14,7 @@ Wer die Spannung einer Steckdose angibt, schreibt 230 V und nicht 230: Erst die 
 
 **Jede physikalische Größe ist Zahlenwert mal Einheit, und jede SI-Einheit ist ein Produkt von Potenzen der sieben Basiseinheiten; neue Größen entstehen, indem man bekannte multipliziert, dividiert, ableitet oder integriert, und ihre Einheiten entstehen dabei mit, so dass die Einheiten jeden Rechenfehler verraten, der die Einheit verändert.**
 
-Vorausgesetzt werden Schulmathematik (Potenzen, Ableitung als Steigung, Integral als Fläche) und Schulphysik. Auf dem Kapitel baut das nächste auf, in dem die Spannung als Arbeit je Ladung eingeführt wird.
+Vorausgesetzt werden Schulmathematik (Potenzen, Ableitung als Steigung, Integral als Fläche) und Schulphysik. Darauf baut der Artikel [Arbeit, Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html) auf, in dem die Spannung als Arbeit je Ladung eingeführt wird.
 
 :::grafik
 Szene: get1/grundprinzipien/01-einheitenbaum · Vorlage: blockschaltbild
@@ -531,7 +531,7 @@ Jede physikalische Größe ist Zahlenwert mal Einheit, und jede SI-Einheit ist e
 
 ## Bedeutung und Ausblick
 
-Wer in jeder Zeile die Einheiten mitführt, findet vertauschte Formeln und vergessene Vorsätze, bevor eine falsche Zahl in eine Schaltung gelangt. Im nächsten Kapitel verrichtet das elektrische Feld Arbeit an Ladungen, und die Arbeit je Ladung ist die Spannung, ein Joule je Coulomb ist ein Volt ([Arbeit, Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html)).
+Wer in jeder Zeile die Einheiten mitführt, findet vertauschte Formeln und vergessene Vorsätze, bevor eine falsche Zahl in eine Schaltung gelangt. Ebenso verrichtet das elektrische Feld Arbeit an Ladungen, und die Arbeit je Ladung ist die Spannung, ein Joule je Coulomb ist ein Volt ([Arbeit, Potenzial und Spannung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/elektrische-feldstarke-und-potenzial/arbeit-potenzial-und-spannung.html)).
 
 **In der ausführlichen Fassung:** die sieben definierenden Konstanten im Einzelnen, warum es gerade sieben Basisgrößen sind, Größen mit denselben Basiseinheiten (Drehmoment und Energie, Hertz und Becquerel), die Schreibweise der Vorsätze, ein Vergleich der Einheiten mit Währungen und weitere Rechenbeispiele vom Föhn bis zur Gravitation zweier Körper. [Zur ausführlichen Fassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/physikalische-grundprinzipien/groessen-und-einheiten-ausfuehrlich.html)
 
