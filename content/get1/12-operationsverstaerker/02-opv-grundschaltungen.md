@@ -18,14 +18,14 @@ Vorausgesetzt werden die goldenen Regeln aus [Der Operationsverstärker – idea
 
 :::grafik
 Szene: get1/operationsverstaerker/02-invertierer · Vorlage: schaltung-und-zeitverlauf
-**Abbildung 1:** (a) Invertierender Verstärker nach Skript Bild 12.7 mit $R_1$ = 10 kΩ und $R_2$ = 20 kΩ an einer Eingangsspannung von 1 V: Pluseingang an Masse, Minuseingang auf 0 V (virtuelle Masse), ein Strom von 0,1 mA von der Quelle durch $R_1$ und weiter durch $R_2$ zum Ausgang, der Ausgang auf −2 V; der Strompfeil führt am OPV-Eingang vorbei. (b) Zeitverläufe bei sinusförmiger Eingangsspannung mit 5 V Amplitude: mit $R_2$ = 20 kΩ gegenphasig mit 10 V Amplitude; mit $R_2$ = 30 kΩ verlangt die Schaltung 15 V, der Ausgang bleibt bei ±14 V stehen und ist in 23 % jeder Periode abgeflacht. Der Strom durch $R_1$ muss durch $R_2$; deshalb bestimmt das Widerstandsverhältnis die Verstärkung, bis der Ausgang an seine Grenze stößt.
+**Abbildung 1:** (a) Invertierender Verstärker mit $R_1$ = 10 kΩ und $R_2$ = 20 kΩ an einer Eingangsspannung von 1 V: Pluseingang an Masse, Minuseingang auf 0 V (virtuelle Masse), ein Strom von 0,1 mA von der Quelle durch $R_1$ und weiter durch $R_2$ zum Ausgang, der Ausgang auf −2 V; der Strompfeil führt am OPV-Eingang vorbei. (b) Zeitverläufe bei sinusförmiger Eingangsspannung mit 5 V Amplitude: mit $R_2$ = 20 kΩ gegenphasig mit 10 V Amplitude; mit $R_2$ = 30 kΩ verlangt die Schaltung 15 V, der Ausgang bleibt bei ±14 V stehen und ist in 23 % jeder Periode abgeflacht. Der Strom durch $R_1$ muss durch $R_2$; deshalb bestimmt das Widerstandsverhältnis die Verstärkung, bis der Ausgang an seine Grenze stößt.
 :::
 
 ## Das Rechenverfahren
 
 *Wann darf man mit einer Differenzspannung von null rechnen?*
 
-Für den idealen OPV gelten bei Gegenkopplung zwei Regeln ([Der Operationsverstärker – idealer OPV und Rückkopplung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/idealer-opv-und-rueckkopplung.html), Abschnitt *Die goldenen Regeln*): Die Differenzspannung $U_D$ zwischen den Eingängen ist null, und in die Eingänge fließt kein Strom. Die erste ist ein Ergebnis der Regelung und gilt nur, solange der Ausgang nicht an seiner Grenze liegt, beim Beispiel-OPV (Art 741 an ±15 V) bei ±14 V. Das Skript ordnet das in einem Schema (S. 214, Bild 12.22):
+Für den idealen OPV gelten bei Gegenkopplung zwei Regeln ([Der Operationsverstärker – idealer OPV und Rückkopplung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/idealer-opv-und-rueckkopplung.html), Abschnitt *Die goldenen Regeln*): Die Differenzspannung $U_D$ zwischen den Eingängen ist null, und in die Eingänge fließt kein Strom. Die erste ist ein Ergebnis der Regelung und gilt nur, solange der Ausgang nicht an seiner Grenze liegt, beim Beispiel-OPV (Art 741 an ±15 V) bei ±14 V. Ein Schema ordnet das Vorgehen:
 
 **Schritt 1**: Prüfen, ob der Ausgang auf den Minuseingang zurückwirkt (Gegenkopplung) oder auf den Pluseingang (Mitkopplung).
 
@@ -93,7 +93,7 @@ $$A = \frac{U_A}{U_E} = -\frac{R_2}{R_1}$$
 **Grenzen:** Mit endlicher Leerlaufverstärkung weicht $A$ geringfügig ab (−1,99997 bei 200 000); liegt der Ausgang an einer Grenze, gilt die Rechnung nicht mehr.
 :::
 
-Wie weit die Schaltung aussteuern kann, zeigt Abbildung 1b mit 5 V Amplitude am Eingang (das Skript rechnet dasselbe mit ±10 V Grenzen, S. 203–205). Mit $A$ = −2 bleibt der Ausgang mit ±10 V innerhalb der ±14 V. Mit $A$ = −3 verlangt die Schaltung 15 V; der Ausgang bleibt in 23 % der Zeit bei ±14 V stehen, und unverzerrt sind nur Amplituden bis 4,67 V. In dieser Zeit gilt die erste Regel nicht: Im Scheitel liegt der Minuseingang auf 0,25 V.
+Wie weit die Schaltung aussteuern kann, zeigt Abbildung 1b mit 5 V Amplitude am Eingang. Mit $A$ = −2 bleibt der Ausgang mit ±10 V innerhalb der ±14 V. Mit $A$ = −3 verlangt die Schaltung 15 V; der Ausgang bleibt in 23 % der Zeit bei ±14 V stehen, und unverzerrt sind nur Amplituden bis 4,67 V. In dieser Zeit gilt die erste Regel nicht: Im Scheitel liegt der Minuseingang auf 0,25 V.
 
 ::::beispiel Invertierender Verstärker mit 10 kΩ und 20 kΩ
 **Gegeben:** $R_1$ = 10 kΩ, $R_2$ = 20 kΩ; 1 V am Eingang; Beispiel-OPV mit $v_D$ = 200 000 und ±14 V.
@@ -122,7 +122,7 @@ Unverzerrt bleiben Amplituden bis 14 V/2 = 7 V.
 Die Quelle ist mit $R_1$ verbunden, und dessen anderes Ende liegt auf der virtuellen Masse, also auf 0 V. Für die Quelle ist das ein Widerstand von 10 kΩ gegen Masse; sie liefert 0,1 mA je Volt. Wer die Quelle nicht belasten will, nimmt den nichtinvertierenden Verstärker.
 :::
 
-**Mehrere Stufen hintereinander** (Skript S. 213–214, Bild 12.21). Der ideale OPV liefert an seinem Ausgang jeden Strom, ohne dass dessen Spannung nachgibt; eine nachfolgende Stufe belastet ihn nicht, und die Verstärkungen multiplizieren sich. Für zwei invertierende Stufen:
+**Mehrere Stufen hintereinander.** Der ideale OPV liefert an seinem Ausgang jeden Strom, ohne dass dessen Spannung nachgibt; eine nachfolgende Stufe belastet ihn nicht, und die Verstärkungen multiplizieren sich. Für zwei invertierende Stufen:
 
 $$A = A_1\,A_2 = \Big(-\frac{R_2}{R_1}\Big)\Big(-\frac{R_4}{R_3}\Big) = \frac{R_2}{R_1}\cdot\frac{R_4}{R_3}$$
 
@@ -131,7 +131,7 @@ Mit −10 und −5 ergibt sich +50; 0,2 V werden zu 10 V. Bei 0,3 V verlangte di
 Idee der Herleitung: Die erste Stufe liefert die Eingangsspannung der zweiten, gleich wie viel Strom diese aufnimmt.
 
 :::herleitung
-**Ausgangspunkt:** die Verstärkung des invertierenden Verstärkers (oben) und die Eigenschaft des idealen OPV, dass sein Ausgang jeden Strom liefert (Ausgangswiderstand null, Skript S. 198).
+**Ausgangspunkt:** die Verstärkung des invertierenden Verstärkers (oben) und die Eigenschaft des idealen OPV, dass sein Ausgang jeden Strom liefert (Ausgangswiderstand null).
 
 **Annahmen:** (i) Beide Stufen sind gegengekoppelt und nicht übersteuert. (ii) Ausgangswiderstand null.
 
@@ -160,16 +160,16 @@ $$U_A = \frac{R_2}{R_1}\cdot\frac{R_4}{R_3}\,U_E$$
 
 :::grafik
 Szene: get1/operationsverstaerker/02-nichtinvertierer · Vorlage: schaltung-zustaende
-**Abbildung 2:** (a) Nichtinvertierender Verstärker nach Skript Bild 12.10 mit $R_1$ = 10 kΩ vom Minuseingang nach Masse und $R_2$ = 20 kΩ vom Ausgang zum Minuseingang; 1 V am Pluseingang, Minuseingang auf 1 V, 0,1 mA durch beide Widerstände, Ausgang auf 3 V. (b) Impedanzwandler nach Skript Bild 12.19: Ausgang direkt am Minuseingang, $U_A = U_E$. (c) Messung an einer Quelle von 5 V mit 100 kΩ Innenwiderstand: links ein Messgerät mit 1 MΩ direkt, Anzeige 4,545 V; rechts mit vorgeschaltetem Impedanzwandler, Anzeige 5,000 V. In den Pluseingang fließt kein Strom; die Quelle wird nicht belastet.
+**Abbildung 2:** (a) Nichtinvertierender Verstärker mit $R_1$ = 10 kΩ vom Minuseingang nach Masse und $R_2$ = 20 kΩ vom Ausgang zum Minuseingang; 1 V am Pluseingang, Minuseingang auf 1 V, 0,1 mA durch beide Widerstände, Ausgang auf 3 V. (b) Impedanzwandler: Ausgang direkt am Minuseingang, $U_A = U_E$. (c) Messung an einer Quelle von 5 V mit 100 kΩ Innenwiderstand: links ein Messgerät mit 1 MΩ direkt, Anzeige 4,545 V; rechts mit vorgeschaltetem Impedanzwandler, Anzeige 5,000 V. In den Pluseingang fließt kein Strom; die Quelle wird nicht belastet.
 :::
 
-Beim __nichtinvertierenden Verstärker__ (Skript S. 205, Bild 12.10) liegt die Eingangsspannung am Pluseingang; ein Teiler aus $R_2$ und $R_1$ führt einen Teil der Ausgangsspannung auf den Minuseingang. In den Pluseingang fließt kein Strom, die Quelle wird also nicht belastet. Wegen $U_D$ = 0 liegt der Minuseingang auf $U_E$; durch $R_1$ fließt $U_E/R_1$, und derselbe Strom kommt vom Ausgang durch $R_2$. Der Ausgang liegt deshalb noch um den Spannungsabfall an $R_2$ weiter von null entfernt als $U_E$ (Abbildung 2a):
+Beim __nichtinvertierenden Verstärker__ liegt die Eingangsspannung am Pluseingang; ein Teiler aus $R_2$ und $R_1$ führt einen Teil der Ausgangsspannung auf den Minuseingang. In den Pluseingang fließt kein Strom, die Quelle wird also nicht belastet. Wegen $U_D$ = 0 liegt der Minuseingang auf $U_E$; durch $R_1$ fließt $U_E/R_1$, und derselbe Strom kommt vom Ausgang durch $R_2$. Der Ausgang liegt deshalb noch um den Spannungsabfall an $R_2$ weiter von null entfernt als $U_E$ (Abbildung 2a):
 
 :::formel Formel
 $$A = \frac{U_A}{U_E} = 1 + \frac{R_2}{R_1}$$
 :::
 
-**So liest man das:** Die Verstärkung ist positiv und mindestens 1 (Skript Gl. 12.5); mit denselben Widerständen wie oben ergibt sich +3 statt −2.
+**So liest man das:** Die Verstärkung ist positiv und mindestens 1; mit denselben Widerständen wie oben ergibt sich +3 statt −2.
 
 **Kurz gesagt:** Mit idealem OPV macht der nichtinvertierende Verstärker genau rückgängig, was sein Teiler tut: Seine Verstärkung ist der Kehrwert des Anteils, den der Teiler von der Ausgangsspannung an den Minuseingang zurückgibt, solange der Ausgang nicht an einer Grenze liegt.
 
@@ -199,7 +199,7 @@ $$A = \frac{U_A}{U_E} = \frac{R_1 + R_2}{R_1} = 1 + \frac{R_2}{R_1}$$
 **Grenzen:** Mit endlicher Leerlaufverstärkung 2,99996 statt 3. Die Eingangsspannung darf nicht so groß werden, dass der Ausgang die Grenze erreicht.
 :::
 
-Führt man den ganzen Ausgang zurück, entsteht der __Impedanzwandler__ oder __Spannungsfolger__ (Skript S. 210, Bild 12.19) mit der Verstärkung 1:
+Führt man den ganzen Ausgang zurück, entsteht der __Impedanzwandler__ oder __Spannungsfolger__ (Abbildung 2b) mit der Verstärkung 1:
 
 $$U_A = U_E$$
 
@@ -227,10 +227,10 @@ Mit Impedanzwandler fließt nur der Ruhestrom durch den Innenwiderstand: 80 nA m
 
 :::grafik
 Szene: get1/operationsverstaerker/02-addierer-subtrahierer · Vorlage: schaltung-zustaende
-**Abbildung 3:** (a) Addierer nach Skript Bild 12.11 mit drei Eingängen über $R_1$ = 10 kΩ, $R_2$ = 20 kΩ und $R_3$ = 40 kΩ an der virtuellen Masse, Rückkopplung $R_4$ = 10 kΩ; an den Eingängen 5 V, 0 V und 5 V (Code 101): Ströme 0,5 mA, 0 und 0,125 mA, zusammen 0,625 mA durch $R_4$, Ausgang −6,25 V. (b) Subtrahierer nach Skript Bild 12.12 mit $R_1$ = $R_3$ = 10 kΩ und $R_2$ = $R_4$ = 100 kΩ; $U_{E1}$ = 2,500 V, $U_{E2}$ = 2,505 V, beide Eingänge auf 2,2773 V, Ausgang 50 mV. An der virtuellen Masse addieren sich Ströme; der Subtrahierer verstärkt nur die Differenz, wenn die Widerstandsverhältnisse gleich sind.
+**Abbildung 3:** (a) Addierer mit drei Eingängen über $R_1$ = 10 kΩ, $R_2$ = 20 kΩ und $R_3$ = 40 kΩ an der virtuellen Masse, Rückkopplung $R_4$ = 10 kΩ; an den Eingängen 5 V, 0 V und 5 V (Code 101): Ströme 0,5 mA, 0 und 0,125 mA, zusammen 0,625 mA durch $R_4$, Ausgang −6,25 V. (b) Subtrahierer mit $R_1$ = $R_3$ = 10 kΩ und $R_2$ = $R_4$ = 100 kΩ; $U_{E1}$ = 2,500 V, $U_{E2}$ = 2,505 V, beide Eingänge auf 2,2773 V, Ausgang 50 mV. An der virtuellen Masse addieren sich Ströme; der Subtrahierer verstärkt nur die Differenz, wenn die Widerstandsverhältnisse gleich sind.
 :::
 
-Schließt man an die virtuelle Masse mehrere Eingangswiderstände an, erhält man den __Addierer__ (Skript Bild 12.11, Abbildung 3a). Jede Quelle schiebt ihren eigenen Strom in den Knoten; keine stört die andere, weil er auf 0 V festgehalten wird. Alle Ströme zusammen fließen durch $R_4$ zum Ausgang. Mit den Eingangsspannungen __$U_1$__, __$U_2$__, __$U_3$__ an den Widerständen __$R_1$__, __$R_2$__, __$R_3$__:
+Schließt man an die virtuelle Masse mehrere Eingangswiderstände an, erhält man den __Addierer__ (Abbildung 3a). Jede Quelle schiebt ihren eigenen Strom in den Knoten; keine stört die andere, weil er auf 0 V festgehalten wird. Alle Ströme zusammen fließen durch $R_4$ zum Ausgang. Mit den Eingangsspannungen __$U_1$__, __$U_2$__, __$U_3$__ an den Widerständen __$R_1$__, __$R_2$__, __$R_3$__:
 
 :::formel Formel
 $$U_A = -\Big(\frac{R_4}{R_1}\,U_1 + \frac{R_4}{R_2}\,U_2 + \frac{R_4}{R_3}\,U_3\Big)$$
@@ -251,7 +251,7 @@ Idee der Herleitung: Knotenregel an der virtuellen Masse mit drei zufließenden 
 
 $$I_i = \frac{U_i}{R_i}$$
 
-**Schritt 2** (entscheidender Schritt): Knotenregel; alle Ströme fließen durch $R_4$ weiter (Skript: $I_4 = I_1 + I_2 + I_3$):
+**Schritt 2** (entscheidender Schritt): Knotenregel; alle Ströme fließen durch $R_4$ weiter, $I_4 = I_1 + I_2 + I_3$:
 
 $$\frac{U_1}{R_1} + \frac{U_2}{R_2} + \frac{U_3}{R_3} = \frac{0 - U_A}{R_4}$$
 
@@ -266,14 +266,14 @@ $$U_A = -\Big(\frac{R_4}{R_1}\,U_1 + \frac{R_4}{R_2}\,U_2 + \frac{R_4}{R_3}\,U_3
 **Grenzen:** Übersteigt die Summe die Aussteuergrenze, begrenzt der Ausgang.
 :::
 
-Beim __Subtrahierer__ (Skript Bild 12.12, Abbildung 3b) liegt __$U_{E1}$__ über $R_1$ am Minuseingang, __$U_{E2}$__ über den Teiler aus $R_3$ und $R_4$ am Pluseingang. Das Skript rechnet mit dem Überlagerungsprinzip: Für $U_{E1}$ allein ist die Schaltung ein invertierender Verstärker, für $U_{E2}$ allein ein nichtinvertierender hinter einem Spannungsteiler.
+Beim __Subtrahierer__ (Abbildung 3b) liegt __$U_{E1}$__ über $R_1$ am Minuseingang, __$U_{E2}$__ über den Teiler aus $R_3$ und $R_4$ am Pluseingang. Man rechnet mit dem Überlagerungsprinzip: Für $U_{E1}$ allein ist die Schaltung ein invertierender Verstärker, für $U_{E2}$ allein ein nichtinvertierender hinter einem Spannungsteiler.
 
 :::formel Formel
 $$U_A = \frac{R_1 + R_2}{R_1}\cdot\frac{R_4}{R_3 + R_4}\,U_{E2} - \frac{R_2}{R_1}\,U_{E1}$$
 $$U_A = \frac{R_2}{R_1}\,(U_{E2} - U_{E1})$$
 :::
 
-**So liest man das:** Die zweite Zeile (Gl. 12.7) gilt nur, wenn $R_4/R_3$ gleich $R_2/R_1$ ist, etwa mit $R_3$ gleich $R_1$ und $R_4$ gleich $R_2$; dann bleibt allein die Differenz. Mit 10 kΩ und 100 kΩ werden aus 2,505 V gegen 2,500 V am Ausgang 50 mV, die gemeinsamen 2,5 V verschwinden. Im Zwischenschritt des Skripts steht $R_3$ statt $R_4$ im Zähler des Teilers (S. 207), und im Abschnitt 12.8 steht im Endergebnis derselben Schaltung in einem Nenner $R_3$, wo $R_1$ stehen müsste (S. 213); richtig ist die erste Zeile oben.
+**So liest man das:** Die zweite Zeile gilt nur, wenn $R_4/R_3$ gleich $R_2/R_1$ ist, etwa mit $R_3$ gleich $R_1$ und $R_4$ gleich $R_2$; dann bleibt allein die Differenz. Mit 10 kΩ und 100 kΩ werden aus 2,505 V gegen 2,500 V am Ausgang 50 mV, die gemeinsamen 2,5 V verschwinden. Leicht vertauscht man dabei Widerstände: Im Zähler des Teilers steht $R_4$, nicht $R_3$, im Nenner des ersten Bruchs $R_1$, nicht $R_3$; richtig ist die erste Zeile oben.
 
 Idee der Herleitung: Überlagerung der beiden Eingänge, jeder einzeln als invertierender bzw. nichtinvertierender Verstärker.
 
@@ -308,7 +308,7 @@ $$\frac{R_1 + R_2}{R_1}\cdot\frac{R_4}{R_3 + R_4} = \Big(1 + \frac{R_2}{R_1}\Big
 
 und es bleibt die Differenz, verstärkt um $R_2/R_1$.
 
-**Zweiter Weg** (Skript 12.8, S. 213, über die Potentiale): Der Pluseingang liegt auf dem Teilerwert, und wegen $U_D$ = 0 liegt der Minuseingang ebenso:
+**Zweiter Weg** (über die Potentiale): Der Pluseingang liegt auf dem Teilerwert, und wegen $U_D$ = 0 liegt der Minuseingang ebenso:
 
 $$U_{e-} = U_{e+} = \frac{R_4}{R_3 + R_4}\,U_{E2}$$
 
@@ -331,7 +331,7 @@ Mit $U_{e-}$ eingesetzt ist das dasselbe Ergebnis.
 
 :::grafik
 Szene: get1/operationsverstaerker/02-integrator · Vorlage: schaltung-und-zeitverlauf
-**Abbildung 4:** (a) Integrator nach Skript Bild 12.13 mit $R$ = 10 kΩ und $C$ = 100 nF ($RC$ = 1 ms); darunter Eingang Rechteck ±1 V mit 1 kHz und Ausgang Dreieck mit 0,5 V Spitze-Spitze, gegenläufig: Während der Eingang +1 V hat, fällt der Ausgang mit 1 V je Millisekunde. (b) Differenzierer nach Skript Bild 12.14 mit denselben Bauteilen, vertauscht, mit idealem OPV; Eingang Dreieck ±1 V mit 1 kHz (Steigung ±4 V/ms), Ausgang Rechteck ∓4 V. Der Kondensator im Rückkopplungsweg integriert, am Eingang differenziert er.
+**Abbildung 4:** (a) Integrator mit $R$ = 10 kΩ und $C$ = 100 nF ($RC$ = 1 ms); darunter Eingang Rechteck ±1 V mit 1 kHz und Ausgang Dreieck mit 0,5 V Spitze-Spitze, gegenläufig: Während der Eingang +1 V hat, fällt der Ausgang mit 1 V je Millisekunde. (b) Differenzierer mit denselben Bauteilen, vertauscht, mit idealem OPV; Eingang Dreieck ±1 V mit 1 kHz (Steigung ±4 V/ms), Ausgang Rechteck ∓4 V. Der Kondensator im Rückkopplungsweg integriert, am Eingang differenziert er.
 :::
 
 **Die Akteure:**
@@ -408,7 +408,7 @@ bis −14 V nach 14 ms. (b) Je Halbperiode von 0,5 ms ändert sich der Ausgang u
 Doch, sobald am Eingang auch nur eine kleine Gleichspannung liegt. Schon die Offsetspannung des 741 von typisch 1 mV lässt den Ausgang um 1 V je Sekunde wandern; nach 14 s liegt er an der Grenze, und der Eingangsruhestrom von 80 nA wirkt ähnlich stark. Praktische Integratoren werden deshalb über einen Schalter entladen oder bekommen einen großen Widerstand parallel zum Kondensator; mit 1 MΩ bleiben aus dem Offset nur rund 0,1 V.
 :::
 
-Vertauscht man $R$ und $C$, entsteht der __Differenzierer__ (Skript Bild 12.14, Abbildung 4b): Am Kondensator liegt die ganze Eingangsspannung, sein Strom ist $C$ mal ihrer Änderungsgeschwindigkeit, und dieser Strom fließt durch $R$ zum Ausgang:
+Vertauscht man $R$ und $C$, entsteht der __Differenzierer__ (Abbildung 4b): Am Kondensator liegt die ganze Eingangsspannung, sein Strom ist $C$ mal ihrer Änderungsgeschwindigkeit, und dieser Strom fließt durch $R$ zum Ausgang:
 
 :::formel Formel
 $$u_A(t) = -RC\,\frac{du_E}{dt}$$
@@ -450,21 +450,21 @@ $$u_A(t) = -RC\,\frac{du_E}{dt}$$
 
 :::grafik
 Szene: get1/operationsverstaerker/02-logarithmierer · Vorlage: kennlinie-semilog
-**Abbildung 5:** (a) Logarithmierer nach Skript Bild 12.15 mit $R$ = 10 kΩ und der Beispieldiode im Rückkopplungsweg (Anode am Minuseingang); daneben die Exponentialschaltung nach Bild 12.16 mit der Diode am Eingang (Anode an $U_E$, Kathode am Minuseingang) und $R$ = 10 kΩ im Rückkopplungsweg. (b) $U_A$ des Logarithmierers über $U_E$ von 10 mV bis 10 V, $U_E$ logarithmisch: eine Gerade von −466 mV über −526 mV und −586 mV bis −645 mV, je Dekade 59,5 mV; gestrichelt die Kennlinie bei 310 K: steiler, 61,5 mV je Dekade, und um 27 mV (bei 10 mV) bis 21 mV (bei 10 V) höher, bei 1 V um 23 mV. Die Diode im Rückkopplungsweg macht aus dem Strom eine Spannung, die mit dem Logarithmus wächst.
+**Abbildung 5:** (a) Logarithmierer mit $R$ = 10 kΩ und der Beispieldiode im Rückkopplungsweg (Anode am Minuseingang); daneben die Exponentialschaltung mit der Diode am Eingang (Anode an $U_E$, Kathode am Minuseingang) und $R$ = 10 kΩ im Rückkopplungsweg. (b) $U_A$ des Logarithmierers über $U_E$ von 10 mV bis 10 V, $U_E$ logarithmisch: eine Gerade von −466 mV über −526 mV und −586 mV bis −645 mV, je Dekade 59,5 mV; gestrichelt die Kennlinie bei 310 K: steiler, 61,5 mV je Dekade, und um 27 mV (bei 10 mV) bis 21 mV (bei 10 V) höher, bei 1 V um 23 mV. Die Diode im Rückkopplungsweg macht aus dem Strom eine Spannung, die mit dem Logarithmus wächst.
 :::
 
-Mit einer Diode im Rückkopplungsweg (Skript Bild 12.15) muss der Eingangsstrom $U_E/R$ durch die Diode. Sie stellt ihre Spannung so ein, dass sie genau diesen Strom führt; da ihr Strom exponentiell mit der Spannung wächst ([Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html)), wächst ihre Spannung mit dem Logarithmus des Stroms. Der Ausgang liegt um diese Spannung unter der virtuellen Masse: der __Logarithmierer__.
+Mit einer Diode im Rückkopplungsweg (Abbildung 5a) muss der Eingangsstrom $U_E/R$ durch die Diode. Sie stellt ihre Spannung so ein, dass sie genau diesen Strom führt; da ihr Strom exponentiell mit der Spannung wächst ([Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html)), wächst ihre Spannung mit dem Logarithmus des Stroms. Der Ausgang liegt um diese Spannung unter der virtuellen Masse: der __Logarithmierer__.
 
 **Die Akteure:**
 
 - __$I_S$__: Sättigungsstrom der Diode, bei der Beispieldiode 1,457·10⁻¹⁴ A; __$U_T$__: Temperaturspannung, 25,85 mV.
-- __$U_{Di}$__: Spannung an der Diode; das Skript schreibt $U_D$, das hier die Differenzspannung bezeichnet.
+- __$U_{Di}$__: Spannung an der Diode; der Index unterscheidet sie von der Differenzspannung $U_D$.
 
 :::formel Formel
 $$U_A = -U_T\,\ln\frac{U_E}{R\,I_S}$$
 :::
 
-**So liest man das:** Jede Zehnerpotenz am Eingang verschiebt den Ausgang um 59,5 mV: Mit 10 kΩ ergeben 10 mV −466 mV, 1 V −586 mV und 10 V −645 mV. Die Schaltung arbeitet nur mit positiven Eingängen, und sie hängt stark von der Temperatur ab: Bei 310 K statt 300 K liegt der Ausgang bei 1 V Eingang um 23 mV höher, als wäre der Eingang 2,5-mal kleiner. Praktische Logarithmierer verwenden Transistoren und gleichen die Temperatur eigens aus (Skript S. 209).
+**So liest man das:** Jede Zehnerpotenz am Eingang verschiebt den Ausgang um 59,5 mV: Mit 10 kΩ ergeben 10 mV −466 mV, 1 V −586 mV und 10 V −645 mV. Die Schaltung arbeitet nur mit positiven Eingängen, und sie hängt stark von der Temperatur ab: Bei 310 K statt 300 K liegt der Ausgang bei 1 V Eingang um 23 mV höher, als wäre der Eingang 2,5-mal kleiner. Praktische Logarithmierer verwenden Transistoren und gleichen die Temperatur eigens aus.
 
 Idee der Herleitung: Die Diodenkennlinie wird nach der Spannung aufgelöst.
 
@@ -498,7 +498,7 @@ $$U_A = -U_T\,\ln\frac{U_E}{R\,I_S}$$
 **Grenzen:** Die reale Beispieldiode weicht durch Rekombinationsstrom und Bahnwiderstand ab: zwischen 1 µA und 100 µA um weniger als 2 mV, bei 1 mA um 20 mV. Dazu kommt der Temperaturgang (Text).
 :::
 
-Vertauscht man Diode und Widerstand (Skript Bild 12.16), bestimmt die Eingangsspannung die Diodenspannung, und $R$ setzt den exponentiell wachsenden Strom in die Ausgangsspannung um:
+Vertauscht man Diode und Widerstand, bestimmt die Eingangsspannung die Diodenspannung, und $R$ setzt den exponentiell wachsenden Strom in die Ausgangsspannung um:
 
 $$U_A = -R\,I_S\,\exp\Big(\frac{U_E}{U_T}\Big)$$
 
@@ -530,11 +530,11 @@ $$U_A = -R\,I_S\,\exp\Big(\frac{U_E}{U_T}\Big)$$
 **Grenzen:** Ab 0,654 V verlangte die Schaltung mehr als 14 V; dieselben Temperatureinflüsse wie beim Logarithmierer.
 :::
 
-Weil der Logarithmus eines Produkts die Summe der Logarithmen ist, lässt sich mit zwei Logarithmierern, einem Addierer und einer Exponentialschaltung multiplizieren (Skript S. 210, Bilder 12.17 und 12.18). Rechnet man die gezeichnete Schaltung durch, ergibt sich
+Weil der Logarithmus eines Produkts die Summe der Logarithmen ist, lässt sich mit zwei Logarithmierern, einem Addierer und einer Exponentialschaltung multiplizieren. Rechnet man diese Schaltung durch, ergibt sich
 
 $$U_A = -\frac{U_X\,U_Y}{R_L\,I_S}$$
 
-ein Produkt, aber mit einem Maßstab, den das Skript offenlässt: Mit $R_L$ = 10 kΩ und der Beispieldiode verlangte 1 mV an beiden Eingängen −6862 V. Brauchbar wird die Schaltung erst, wenn der Addierer über einen Umkehrer den Logarithmus einer Referenzspannung abzieht; mit 10 V Referenz ergeben 2 V und 3 V dann −0,6 V.
+ein Produkt, aber mit einem ungünstigen Maßstab: Mit $R_L$ = 10 kΩ und der Beispieldiode verlangte 1 mV an beiden Eingängen −6862 V. Brauchbar wird die Schaltung erst, wenn der Addierer über einen Umkehrer den Logarithmus einer Referenzspannung abzieht; mit 10 V Referenz ergeben 2 V und 3 V dann −0,6 V.
 
 Idee der Herleitung: Die Formeln der drei Stufen werden hintereinander eingesetzt; die Logarithmen addieren sich, die Exponentialfunktion hebt den Logarithmus auf.
 
@@ -574,10 +574,10 @@ $$U_A = -\frac{U_X\,U_Y}{R_L\,I_S}$$
 
 :::grafik
 Szene: get1/operationsverstaerker/02-transimpedanz-nic · Vorlage: schaltung-zustaende
-**Abbildung 6:** (a) Transimpedanzverstärker nach Skript S. 212 mit $R$ = 100 kΩ; eine Fotodiode zwischen Masse und Minuseingang (Anode am Minuseingang, Kathode an Masse) liefert 1 µA Fotostrom in die virtuelle Masse, die Diode liegt auf 0 V, der Ausgang auf −0,1 V. (b) Konverter für negative Impedanzen (NIC) nach Skript S. 211: OPV mit $R$ = 10 kΩ vom Ausgang zum Pluseingang und $R$ = 10 kΩ vom Ausgang zum Minuseingang, $R_2$ = 10 kΩ vom Minuseingang nach Masse; der Pluseingang ist der Anschluss der Schaltung. Daran parallel eine Stromquelle 1 mA mit 10 kΩ Innenwiderstand und eine Last von 1 kΩ: ohne NIC 0,909 mA durch die Last, mit NIC 1,000 mA; Ausgang des OPV auf 2 V. Die virtuelle Masse misst Ströme ohne Spannungsabfall; der negative Widerstand hebt den Innenwiderstand der Quelle auf.
+**Abbildung 6:** (a) Transimpedanzverstärker mit $R$ = 100 kΩ; eine Fotodiode zwischen Masse und Minuseingang (Anode am Minuseingang, Kathode an Masse) liefert 1 µA Fotostrom in die virtuelle Masse, die Diode liegt auf 0 V, der Ausgang auf −0,1 V. (b) Konverter für negative Impedanzen (NIC): OPV mit $R$ = 10 kΩ vom Ausgang zum Pluseingang und $R$ = 10 kΩ vom Ausgang zum Minuseingang, $R_2$ = 10 kΩ vom Minuseingang nach Masse; der Pluseingang ist der Anschluss der Schaltung. Daran parallel eine Stromquelle 1 mA mit 10 kΩ Innenwiderstand und eine Last von 1 kΩ: ohne NIC 0,909 mA durch die Last, mit NIC 1,000 mA; Ausgang des OPV auf 2 V. Die virtuelle Masse misst Ströme ohne Spannungsabfall; der negative Widerstand hebt den Innenwiderstand der Quelle auf.
 :::
 
-Speist man einen Strom $I_E$ direkt in die virtuelle Masse, fließt er durch $R$ zum Ausgang: der __Transimpedanzverstärker__ (Skript S. 211–212, Abbildung 6a).
+Speist man einen Strom $I_E$ direkt in die virtuelle Masse, fließt er durch $R$ zum Ausgang: der __Transimpedanzverstärker__ (Abbildung 6a).
 
 :::formel Formel
 $$U_A = -I_E\,R$$
@@ -609,18 +609,18 @@ $$U_A = -I_E\,R$$
 **Grenzen:** Ströme über 140 µA verlangten mehr als 14 V.
 :::
 
-Der __Konverter für negative Impedanzen__ (NIC, Skript S. 211, Abbildung 6b) hat zwei gleiche Widerstände $R$ vom Ausgang zu beiden Eingängen; der Pluseingang ist der Anschluss (Spannung $U_1$, Strom $I_1$ hinein), am Minuseingang liegt $R_2$ nach Masse (Spannung $U_2$, Strom $I_2$). Wegen der ersten Regel ist $U_1$ gleich $U_2$; vom Ausgang fließt deshalb in beide Knoten derselbe Strom. Am Minuseingang fließt er durch $R_2$, am Pluseingang aus dem Anschluss heraus:
+Der __Konverter für negative Impedanzen__ (NIC, Abbildung 6b) hat zwei gleiche Widerstände $R$ vom Ausgang zu beiden Eingängen; der Pluseingang ist der Anschluss (Spannung $U_1$, Strom $I_1$ hinein), am Minuseingang liegt $R_2$ nach Masse (Spannung $U_2$, Strom $I_2$). Wegen der ersten Regel ist $U_1$ gleich $U_2$; vom Ausgang fließt deshalb in beide Knoten derselbe Strom. Am Minuseingang fließt er durch $R_2$, am Pluseingang aus dem Anschluss heraus:
 
 :::formel Formel
 $$R_E = \frac{U_1}{I_1} = -R_2$$
 :::
 
-**So liest man das:** Steigt die Spannung am Anschluss, fließt Strom heraus: Er verhält sich wie −10 kΩ. Parallel zu einer Stromquelle mit 10 kΩ Innenwiderstand hebt er diesen auf. Weil die Schaltung zugleich mitgekoppelt ist, gilt die erste Regel nur, solange der Widerstand am Pluseingang, Quelle und Last parallel, kleiner ist als $R_2$; das Skript setzt das stillschweigend voraus.
+**So liest man das:** Steigt die Spannung am Anschluss, fließt Strom heraus: Er verhält sich wie −10 kΩ. Parallel zu einer Stromquelle mit 10 kΩ Innenwiderstand hebt er diesen auf. Weil die Schaltung zugleich mitgekoppelt ist, gilt die erste Regel nur, solange der Widerstand am Pluseingang, Quelle und Last parallel, kleiner ist als $R_2$.
 
 Idee der Herleitung: Gleiche Spannung an beiden Eingängen bedeutet gleiche Ströme in beiden Widerständen $R$; einer fließt hinein, einer heraus.
 
 :::herleitung
-**Ausgangspunkt:** die goldenen Regeln, Knotenregel und Ohmsches Gesetz; der Ausgang des OPV liegt auf $V_a$ (Bezeichnung wie im Skript).
+**Ausgangspunkt:** die goldenen Regeln, Knotenregel und Ohmsches Gesetz; der Ausgang des OPV liegt auf $V_a$.
 
 **Annahmen:** (i) Die Gegenkopplung überwiegt (Bedingung unten); Ausgang nicht an einer Grenze. (ii) Idealer OPV, beide Widerstände $R$ gleich.
 

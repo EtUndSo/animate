@@ -65,9 +65,9 @@ $$U_{CE} = U_{CC} - R_C\,I_C$$
 **Grenzen:** Liegt auch im Emitterkreis ein Widerstand, kommt dessen Spannung hinzu, und die Gerade wird flacher (Abschnitt *Stromgegenkopplung mit Emitterwiderstand*).
 :::
 
-Ob der Transistor schalten oder verstärken soll, bestimmt, wo auf der Geraden man ihn betreibt (Skript, S. 178). Als __Schalter__ springt er zwischen zwei Endpunkten: gesperrt bei 10 V ohne Strom und gesättigt bei 0,2 V und 4,45 mA. In beiden ist die Verlustleistung klein, null bzw. 0,9 mW, und der Abstand zwischen Ein und Aus ist so groß wie möglich. Als __Verstärker__ arbeitet er im aktiven Bereich, wo der Kollektorstrom dem Eingang folgt. Damit ein Signal in beide Richtungen gleich weit ausschlagen kann, legt man den Arbeitspunkt in die Mitte zwischen der Sättigungsgrenze und der Versorgung: bei 10 V auf 5,1 V und 2,23 mA. Dort ist die Verlustleistung am größten, 11,4 mW.
+Ob der Transistor schalten oder verstärken soll, bestimmt, wo auf der Geraden man ihn betreibt. Als __Schalter__ springt er zwischen zwei Endpunkten: gesperrt bei 10 V ohne Strom und gesättigt bei 0,2 V und 4,45 mA. In beiden ist die Verlustleistung klein, null bzw. 0,9 mW, und der Abstand zwischen Ein und Aus ist so groß wie möglich. Als __Verstärker__ arbeitet er im aktiven Bereich, wo der Kollektorstrom dem Eingang folgt. Damit ein Signal in beide Richtungen gleich weit ausschlagen kann, legt man den Arbeitspunkt in die Mitte zwischen der Sättigungsgrenze und der Versorgung: bei 10 V auf 5,1 V und 2,23 mA. Dort ist die Verlustleistung am größten, 11,4 mW.
 
-Für jeden Transistor gelten __Betriebsgrenzen__ (Skript, S. 181–182, Bild 11.9). Beim BC547 sind es höchstens 45 V zwischen Kollektor und Emitter, 100 mA Kollektorstrom und 625 mW Verlustleistung bei 25 °C Umgebung. Die Leistungsgrenze ist im Kennlinienfeld eine Hyperbel, weil $U_{CE}$ mal $I_C$ konstant ist: bei 10 V 62,5 mA, bei 45 V nur 13,9 mA. Der Text des Skripts nennt nur die ersten beiden Grenzen; Bild 11.9 zeigt die Hyperbel als dritte. Die Leistung wird zu Wärme: Mit einem Wärmewiderstand von 200 K/W zur Umgebung erwärmen 11,4 mW den Übergang um 2,3 K, 625 mW um 125 K, bis an die zulässigen 150 °C.
+Für jeden Transistor gelten __Betriebsgrenzen__. Beim BC547 sind es höchstens 45 V zwischen Kollektor und Emitter, 100 mA Kollektorstrom und 625 mW Verlustleistung bei 25 °C Umgebung. Die Leistungsgrenze ist im Kennlinienfeld eine Hyperbel, weil $U_{CE}$ mal $I_C$ konstant ist: bei 10 V 62,5 mA, bei 45 V nur 13,9 mA. Die Leistung wird zu Wärme: Mit einem Wärmewiderstand von 200 K/W zur Umgebung erwärmen 11,4 mW den Übergang um 2,3 K, 625 mW um 125 K, bis an die zulässigen 150 °C.
 
 Die größte Leistung, die ein Arbeitspunkt auf der Geraden haben kann, liegt bei halber Versorgungsspannung:
 
@@ -98,7 +98,7 @@ $$P_\mathrm{max} = \frac{U_{CC}^2}{4\,R_C}$$
 
 **Proben:** Einheit V²/Ω = W. Zahlenwert: 100 V² durch 8,8 kΩ ergibt 11,4 mW.
 
-**Grenzen:** Gilt für einen reinen Widerstand im Kollektorkreis; die Mitte des Skripts, 5,1 V, liegt nur 0,1 V neben dem Maximum.
+**Grenzen:** Gilt für einen reinen Widerstand im Kollektorkreis; die Mitte zwischen Sättigungsgrenze und Versorgung, 5,1 V, liegt nur 0,1 V neben dem Maximum.
 :::
 
 ::::beispiel Arbeitsgerade, Mitte und Grenzen an 10 V und 2,2 kΩ
@@ -127,12 +127,12 @@ $$\frac{30\ \mathrm{V}}{200\ \Omega} = 150\ \mathrm{mA}, \qquad P_\mathrm{max} =
 
 :::grafik
 Szene: get1/bipolartransistoren/02-ersatzschaltbilder · Vorlage: schaltung-zustaende
-**Abbildung 2:** Die linearen Ersatzschaltbilder des npn-Transistors nach dem Skript. (a) Sperrbereich: alle drei Anschlüsse offen. (b) Aktiver Bereich: zwischen Basis und Emitter eine Spannungsquelle 0,6 V, zwischen Kollektor und Emitter eine gesteuerte Stromquelle $B\,I_B$. (c) Sättigung: Basis-Emitter wie in (b), Kollektor-Emitter eine Spannungsquelle 0,2 V. Darunter die zugehörigen linearisierten Kennlinien: Eingang mit Knick bei 0,6 V, Steuerkennlinie mit der Steigung $B$ bis zur Sättigung und danach waagrecht, Ausgang mit senkrechtem Ast bei 0,2 V. In jedem Bereich wird der Transistor zu Quellen, mit denen man wie in jedem linearen Netz rechnet.
+**Abbildung 2:** Die linearen Ersatzschaltbilder des npn-Transistors. (a) Sperrbereich: alle drei Anschlüsse offen. (b) Aktiver Bereich: zwischen Basis und Emitter eine Spannungsquelle 0,6 V, zwischen Kollektor und Emitter eine gesteuerte Stromquelle $B\,I_B$. (c) Sättigung: Basis-Emitter wie in (b), Kollektor-Emitter eine Spannungsquelle 0,2 V. Darunter die zugehörigen linearisierten Kennlinien: Eingang mit Knick bei 0,6 V, Steuerkennlinie mit der Steigung $B$ bis zur Sättigung und danach waagrecht, Ausgang mit senkrechtem Ast bei 0,2 V. In jedem Bereich wird der Transistor zu Quellen, mit denen man wie in jedem linearen Netz rechnet.
 :::
 
-Für Handrechnungen ersetzt das Skript den Transistor in jedem Arbeitsbereich durch ein lineares Netzwerk (S. 182–184, Bilder 11.10 bis 11.13), mit den Modellwerten $U_{BE,\mathrm{ein}}$ = 0,6 V und $U_{CE,\mathrm{sat}}$ = 0,2 V. Abbildung 2 zeigt die drei Ersatzschaltbilder. Im Sperrbereich fließt kein Strom. In beiden leitenden Bereichen wird der Basis-Emitter-Übergang zur Spannungsquelle, wie die Diode im Modell mit Durchlassspannung. Zwischen Kollektor und Emitter liegt im aktiven Bereich eine gesteuerte Stromquelle, deren Strom das $B$-Fache des Basisstroms ist, in der Sättigung eine Spannungsquelle mit 0,2 V. Am Emitter treffen in jedem Ersatzschaltbild Basis- und Kollektorstrom zusammen.
+Für Handrechnungen ersetzt man den Transistor in jedem Arbeitsbereich durch ein lineares Netzwerk, mit den Modellwerten $U_{BE,\mathrm{ein}}$ = 0,6 V und $U_{CE,\mathrm{sat}}$ = 0,2 V. Abbildung 2 zeigt die drei Ersatzschaltbilder. Im Sperrbereich fließt kein Strom. In beiden leitenden Bereichen wird der Basis-Emitter-Übergang zur Spannungsquelle, wie die Diode im Modell mit Durchlassspannung. Zwischen Kollektor und Emitter liegt im aktiven Bereich eine gesteuerte Stromquelle, deren Strom das $B$-Fache des Basisstroms ist, in der Sättigung eine Spannungsquelle mit 0,2 V. Am Emitter treffen in jedem Ersatzschaltbild Basis- und Kollektorstrom zusammen.
 
-Weil man vorher nicht weiß, welches Ersatzschaltbild gilt, rechnet man wie bei der Diode mit Annahme und Probe: einen Bereich annehmen, mit seinem Ersatzschaltbild rechnen, die Bedingung des Bereichs prüfen. Die drei Bedingungen und ein durchgerechnetes Beispiel stehen im Abschnitt *Die Arbeitsbereiche* von [Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html). In der linearisierten Steuerkennlinie (Abbildung 2) wird die Kurve in der Sättigung waagrecht. Das Skript sagt dazu, die Stromverstärkung sinke dort auf null (S. 182); genau genommen wird die Steigung null, während das Verhältnis von Kollektor- zu Basisstrom nur unter $B$ sinkt.
+Weil man vorher nicht weiß, welches Ersatzschaltbild gilt, rechnet man wie bei der Diode mit Annahme und Probe: einen Bereich annehmen, mit seinem Ersatzschaltbild rechnen, die Bedingung des Bereichs prüfen. Die drei Bedingungen und ein durchgerechnetes Beispiel stehen im Abschnitt *Die Arbeitsbereiche* von [Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html). In der linearisierten Steuerkennlinie (Abbildung 2) wird die Kurve in der Sättigung waagrecht. Oft liest man dazu, die Stromverstärkung sinke dort auf null; genau genommen wird die Steigung null, während das Verhältnis von Kollektor- zu Basisstrom nur unter $B$ sinkt.
 
 Zum Vergleich nennt dieser Artikel immer wieder Werte des __vollständigen Modells__. Das ist der Beispieltransistor aus [Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html) ohne Vereinfachungen: Der Kollektorstrom folgt der Transfergleichung mit dem Sättigungsstrom $10^{-14}$ A, $B$ beträgt 500 bei 5 V, und durch den Early-Effekt ist der Kollektorstrom proportional zur Summe aus 70 V und $U_{CE}$. Die Sättigung entsteht darin von selbst, sobald auch der Kollektor-Basis-Übergang leitet.
 
@@ -165,11 +165,11 @@ Szene: get1/bipolartransistoren/02-einstellungen · Vorlage: schaltplan
 **Abbildung 3:** Drei Schaltungen zur Arbeitspunkteinstellung an 10 V. (a) Basiswiderstand $R_B$ = 2,2 MΩ von der Versorgung zur Basis, $R_C$ = 2,2 kΩ. (b) Stromgegenkopplung: Basisspannungsteiler $R_1$ = 330 kΩ, $R_2$ = 68 kΩ, Emitterwiderstand $R_E$ = 1 kΩ, $R_C$ = 3,9 kΩ; daneben der Teiler als Ersatzspannungsquelle mit $U_q$ = 1,71 V und $R_i$ = 56,4 kΩ. (c) Spannungsgegenkopplung: $R_B$ = 1 MΩ vom Kollektor zur Basis, $R_C$ = 2,2 kΩ. Drei Wege, den Basisstrom festzulegen, mit sehr verschiedener Abhängigkeit von $B$.
 :::
 
-Die einfachste Einstellung ist ein Widerstand $R_B$ von einer Spannung zur Basis (Abbildung 3a, Skript Bild 11.4). Er legt den Basisstrom fest, denn an ihm liegt die Ansteuerspannung abzüglich der 0,6 V der Basis-Emitter-Strecke.
+Die einfachste Einstellung ist ein Widerstand $R_B$ von einer Spannung zur Basis (Abbildung 3a). Er legt den Basisstrom fest, denn an ihm liegt die Ansteuerspannung abzüglich der 0,6 V der Basis-Emitter-Strecke.
 
 **Die Akteure:**
 
-- __$U_\mathrm{ein}$__: Spannung, an der der Basiswiderstand liegt; hier die Versorgung, 10 V. Das Skript nennt sie $U_E$.
+- __$U_\mathrm{ein}$__: Spannung, an der der Basiswiderstand liegt; hier die Versorgung, 10 V.
 - __$R_B$__: __Basiswiderstand__; 2,2 MΩ.
 
 :::formel Formel
@@ -213,7 +213,7 @@ $$U_{CE} = U_{CC} - R_C\,B\,I_B$$
 
 **Proben:** Mit 10 V, 2,2 MΩ, $B$ = 500 und 2,2 kΩ: 4,27 µA, 2,14 mA, 5,30 V; mehr als 0,2 V, die Annahme hält.
 
-**Grenzen:** Ergibt Schritt 3 weniger als 0,2 V, gilt das Ersatzschaltbild der Sättigung (Skript, S. 179).
+**Grenzen:** Ergibt Schritt 3 weniger als 0,2 V, gilt das Ersatzschaltbild der Sättigung.
 :::
 
 ::::beispiel Basiswiderstand für die Mitte und drei Exemplare
@@ -234,7 +234,7 @@ $$B = 420\!:\ 1{,}80\ \mathrm{mA},\ 6{,}05\ \mathrm{V}, \qquad B = 500\!:\ 2{,}1
 **Einordnung:** Innerhalb einer einzigen Verstärkungsgruppe wandert der Arbeitspunkt um mehr als ein Drittel der Geraden; mit $B$ = 800 bleiben nach unten nur noch 2,3 V Aussteuerung. Das vollständige Modell ergibt für $B$ = 500 fast dieselben Werte (2,13 mA und 5,32 V). Für $B$ = 800 liegt $U_{CE}$ dort mit 2,77 V um 0,29 V höher, weil die Stromverstärkung bei kleinerer $U_{CE}$ durch den Early-Effekt etwas sinkt und die echte $U_{BE}$ über 0,6 V liegt.
 ::::
 
-Warum der Arbeitspunkt wandert, zeigt die Formel: Der Kollektorstrom ist $B$-mal der Basisstrom, und alles, was $B$ verändert, verschiebt ihn im selben Verhältnis. Das sind die Fertigungsstreuung (beim BC547C der Faktor 1,9 zwischen 420 und 800) und die Temperatur, mit der $B$ um 0,5 bis 1 % je Kelvin steigt. Die Temperaturdrift von $U_{BE}$, 2 mV je Kelvin, spielt hier kaum eine Rolle, weil am Basiswiderstand 9,4 V liegen: Sie ändert den Basisstrom nur um 0,02 % je Kelvin. Das Skript fordert deshalb, den Kollektorstrom durch die äußere Beschaltung festzulegen statt durch $B$ (S. 179).
+Warum der Arbeitspunkt wandert, zeigt die Formel: Der Kollektorstrom ist $B$-mal der Basisstrom, und alles, was $B$ verändert, verschiebt ihn im selben Verhältnis. Das sind die Fertigungsstreuung (beim BC547C der Faktor 1,9 zwischen 420 und 800) und die Temperatur, mit der $B$ um 0,5 bis 1 % je Kelvin steigt. Die Temperaturdrift von $U_{BE}$, 2 mV je Kelvin, spielt hier kaum eine Rolle, weil am Basiswiderstand 9,4 V liegen: Sie ändert den Basisstrom nur um 0,02 % je Kelvin. Besser legt man den Kollektorstrom deshalb durch die äußere Beschaltung fest statt durch $B$.
 
 :::fehlvorstellung
 „Mit dem Basiswiderstand stelle ich den Kollektorstrom ein.“
@@ -259,19 +259,19 @@ Szene: get1/bipolartransistoren/02-gegenkopplung-kette · Vorlage: blockbild
 
 **Das Zusammenspiel in Schritten:**
 
-**Schritt 1**: Liegt die Basis auf einer festen Spannung, liegt der Emitter um die 0,6 V der Basis-Emitter-Strecke tiefer. Die Spannung am Emitterwiderstand ist damit festgelegt, und mit ihr der Emitterstrom: Bei 1,6 V an der Basis und 1 kΩ fließt 1,0 mA. $B$ kommt darin nicht vor (Skript, Beispielschaltung 2, S. 179).
+**Schritt 1**: Liegt die Basis auf einer festen Spannung, liegt der Emitter um die 0,6 V der Basis-Emitter-Strecke tiefer. Die Spannung am Emitterwiderstand ist damit festgelegt, und mit ihr der Emitterstrom: Bei 1,6 V an der Basis und 1 kΩ fließt 1,0 mA. $B$ kommt darin nicht vor.
 
 **Schritt 2**: Wodurch das stabil ist, zeigt Abbildung 4. Will der Kollektorstrom steigen, steigt die Spannung am Emitterwiderstand, und bei fester Basisspannung bleibt weniger für $U_{BE}$. Die Stufe am Basis-Emitter-Übergang wächst, und der Strom geht zurück. Diese Rückwirkung, bei der eine Änderung ihre eigene Ursache schwächt, heißt __Gegenkopplung__, hier __Stromgegenkopplung__, weil der Kollektorstrom selbst die rückwirkende Spannung erzeugt.
 
 **Schritt 3**: Dasselbe gilt für die Temperatur. Sinkt $U_{BE}$ um 2 mV je Kelvin, steigt die Spannung am Emitterwiderstand um diese 2 mV, also der Strom um 2 µA je Kelvin bei 1 kΩ: 0,2 % je Kelvin bei 1 mA, gegenüber 8 % je Kelvin, wenn man $U_{BE}$ festhielte.
 
-**Schritt 4**: In der Praxis erzeugt ein __Basisspannungsteiler__ die Basisspannung (Abbildung 3b, Skript Bild 11.6). Als Ersatzspannungsquelle betrachtet (Bild 11.7) hat er einen Innenwiderstand, an dem der Basisstrom einen kleinen Spannungsabfall erzeugt. Weil der Basisstrom $B$ enthält, schleicht sich $B$ über diesen Abfall wieder ein, aber nur als Korrektur: Ein Basisstrom von 2 µA erzeugt an 56,4 kΩ 0,11 V.
+**Schritt 4**: In der Praxis erzeugt ein __Basisspannungsteiler__ die Basisspannung (Abbildung 3b). Als Ersatzspannungsquelle betrachtet hat er einen Innenwiderstand, an dem der Basisstrom einen kleinen Spannungsabfall erzeugt. Weil der Basisstrom $B$ enthält, schleicht sich $B$ über diesen Abfall wieder ein, aber nur als Korrektur: Ein Basisstrom von 2 µA erzeugt an 56,4 kΩ 0,11 V.
 
 :::formel Formel
 $$I_C = \frac{U_q - U_{BE,\mathrm{ein}}}{R_E\,(1 + 1/B) + R_i/B}, \qquad I_C \approx \frac{U_q - U_{BE,\mathrm{ein}}}{R_E}$$
 :::
 
-**So liest man das:** Die Leerlaufspannung des Teilers abzüglich der Basis-Emitter-Spannung liegt fast ganz am Emitterwiderstand und bestimmt den Strom. $B$ steht nur in den Korrekturen $R_E/B$ und $R_i/B$, im Beispiel 2 Ω und 113 Ω neben 1000 Ω; deshalb ergeben 10 % mehr $B$ nur rund 1 % mehr Strom. Die Näherung rechts gilt, wenn $R_E$ viel größer ist als $R_i/B$ und $B$ groß ist (Skript, Gl. 11.1). Den letzten Schritt des Skripts, auch $U_{BE}$ wegzulassen, darf man nur bei Basisspannungen weit über 0,6 V gehen; mit den 1,71 V des Beispiels ergäbe er 1,71 mA statt 0,99 mA.
+**So liest man das:** Die Leerlaufspannung des Teilers abzüglich der Basis-Emitter-Spannung liegt fast ganz am Emitterwiderstand und bestimmt den Strom. $B$ steht nur in den Korrekturen $R_E/B$ und $R_i/B$, im Beispiel 2 Ω und 113 Ω neben 1000 Ω; deshalb ergeben 10 % mehr $B$ nur rund 1 % mehr Strom. Die Näherung rechts gilt, wenn $R_E$ viel größer ist als $R_i/B$ und $B$ groß ist. Auch $U_{BE}$ noch wegzulassen, ist nur bei Basisspannungen weit über 0,6 V erlaubt; mit den 1,71 V des Beispiels ergäbe das 1,71 mA statt 0,99 mA.
 
 Idee der Herleitung: Man ersetzt den Teiler durch seine Ersatzspannungsquelle und geht einmal um den Basiskreis bis Masse.
 
@@ -347,7 +347,7 @@ Der Basisstrom fließt durch den Innenwiderstand des Teilers und senkt die Basis
 Ja, für Signale wirkt die Gegenkopplung genauso wie für langsame Änderungen und senkt die Spannungsverstärkung. Deshalb überbrückt man den Emitterwiderstand in Verstärkern oft mit einem Kondensator: Für die langsame Arbeitspunkteinstellung ist er da, für das schnelle Signal kurzgeschlossen. Wie das genau wirkt, behandelt [Der Transistor als Verstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/transistor-als-verstaerker.html).
 :::
 
-Das Skript verweist das Temperaturproblem auf eine spätere Veranstaltung (S. 179). Die Stromgegenkopplung löst es zum großen Teil schon: Statt 8 % je Kelvin bei fester $U_{BE}$ ändert sich der Strom im Beispiel um 0,24 bis 0,29 % je Kelvin, rund dreißigmal weniger.
+Das Temperaturproblem löst die Stromgegenkopplung damit zum großen Teil: Statt 8 % je Kelvin bei fester $U_{BE}$ ändert sich der Strom im Beispiel um 0,24 bis 0,29 % je Kelvin, rund dreißigmal weniger.
 
 ## Spannungsgegenkopplung
 
@@ -358,13 +358,13 @@ Szene: get1/bipolartransistoren/02-streuung-vergleich · Vorlage: kennlinie-para
 **Abbildung 5:** Kollektorstrom über der Stromverstärkung von 300 bis 1000 für die drei Schaltungen aus Abbildung 3, einfaches Modell. Mit Basiswiderstand wächst er proportional zu $B$ (1,80 mA bei 420, 3,42 mA bei 800), mit Spannungsgegenkopplung schwächer (2,05 bis 2,72 mA), mit Stromgegenkopplung fast gar nicht (0,975 bis 1,034 mA). Markiert ist die Spanne des BC547C von 420 bis 800. Je stärker der Strom auf seine eigene Ansteuerung zurückwirkt, desto weniger zählt $B$.
 :::
 
-Bei der __Spannungsgegenkopplung__ hängt der Basiswiderstand am Kollektor (Abbildung 3c, Skript Bild 11.8). Steigt der Kollektorstrom, fällt mehr Spannung am Kollektorwiderstand ab, $U_{CE}$ sinkt, und am Basiswiderstand liegt weniger Spannung: Der Basisstrom sinkt und bremst den Anstieg. Zurückgeführt wird die Spannung am Ausgang, daher der Name.
+Bei der __Spannungsgegenkopplung__ hängt der Basiswiderstand am Kollektor (Abbildung 3c). Steigt der Kollektorstrom, fällt mehr Spannung am Kollektorwiderstand ab, $U_{CE}$ sinkt, und am Basiswiderstand liegt weniger Spannung: Der Basisstrom sinkt und bremst den Anstieg. Zurückgeführt wird die Spannung am Ausgang, daher der Name.
 
 :::formel Formel
 $$I_C = \frac{U_{CC} - U_{BE,\mathrm{ein}}}{R_C\,(1 + 1/B) + R_B/B}$$
 :::
 
-**So liest man das:** $B$ steht nur noch in den Termen $R_B/B$ und $R_C/B$, und $R_C/B$ ist winzig. Ist $R_C$ viel größer als $R_B/B$, bleibt näherungsweise $(U_{CC} - U_{BE,\mathrm{ein}})/R_C$, unabhängig von $B$ (Skript, Gl. 11.2). Was das Skript nicht sagt: Am Basiswiderstand liegt dann nur die kleine Spannung $R_B\,I_B$, $U_{CE}$ rückt also bis auf wenige Zehntelvolt an $U_{BE}$ heran, und der Arbeitspunkt sitzt nahe der Sättigungsgrenze.
+**So liest man das:** $B$ steht nur noch in den Termen $R_B/B$ und $R_C/B$, und $R_C/B$ ist winzig. Ist $R_C$ viel größer als $R_B/B$, bleibt näherungsweise $(U_{CC} - U_{BE,\mathrm{ein}})/R_C$, unabhängig von $B$. Der Preis dafür: Am Basiswiderstand liegt dann nur die kleine Spannung $R_B\,I_B$, $U_{CE}$ rückt also bis auf wenige Zehntelvolt an $U_{BE}$ heran, und der Arbeitspunkt sitzt nahe der Sättigungsgrenze.
 
 Idee der Herleitung: Maschenregel von der Versorgung über $R_C$, $R_B$ und die Basis-Emitter-Strecke.
 
@@ -459,14 +459,14 @@ Ebenso 3,85 mA bei 1,52 V für 420 und 4,04 mA bei 1,10 V für 800.
 
 :::grafik
 Szene: get1/bipolartransistoren/02-stromspiegel · Vorlage: schaltung-und-kennlinie
-**Abbildung 7:** (a) Stromspiegel nach Skript Bild 11.15 an 10 V: $T_1$ mit verbundenem Kollektor und Basis über den Referenzwiderstand 10 kΩ an der Versorgung, $T_2$ mit derselben Basis und demselben Emitter, im Kollektorkreis die Last $R_L$. (b) Kollektorstrom von $T_2$ über $U_{CE2}$ von 0 bis 10 V (vollständiges Modell), dazu waagrecht der Referenzstrom 0,935 mA: ab etwa 0,3 V fast waagrecht, bei 1 V gleich dem Referenzstrom, bei 5 V um 5,7 % darüber. Der Spiegel liefert den Referenzstrom an jede Last, solange $T_2$ im aktiven Bereich bleibt.
+**Abbildung 7:** (a) Stromspiegel an 10 V: $T_1$ mit verbundenem Kollektor und Basis über den Referenzwiderstand 10 kΩ an der Versorgung, $T_2$ mit derselben Basis und demselben Emitter, im Kollektorkreis die Last $R_L$. (b) Kollektorstrom von $T_2$ über $U_{CE2}$ von 0 bis 10 V (vollständiges Modell), dazu waagrecht der Referenzstrom 0,935 mA: ab etwa 0,3 V fast waagrecht, bei 1 V gleich dem Referenzstrom, bei 5 V um 5,7 % darüber. Der Spiegel liefert den Referenzstrom an jede Last, solange $T_2$ im aktiven Bereich bleibt.
 :::
 
 **Die Akteure:**
 
 - __$T_1$__, __$T_2$__: zwei gleich gebaute Transistoren, möglichst nebeneinander auf einem Chip.
 - __$I_\mathrm{ref}$__: __Referenzstrom__, den der Spiegel kopiert; 0,94 mA im Beispiel.
-- __$R_\mathrm{ref}$__: Widerstand, der den Referenzstrom einstellt; 10 kΩ. Das Skript nennt ihn $R_C$.
+- __$R_\mathrm{ref}$__: Widerstand, der den Referenzstrom einstellt; 10 kΩ.
 - __$R_L$__: Last, in die der kopierte Strom fließt.
 
 **Das Zusammenspiel in Schritten:**
@@ -483,7 +483,7 @@ Szene: get1/bipolartransistoren/02-stromspiegel · Vorlage: schaltung-und-kennli
 $$I_{C2} = \frac{I_\mathrm{ref}}{1 + 2/B}$$
 :::
 
-**So liest man das:** Der Ausgangsstrom ist der Referenzstrom, verkleinert um die beiden Basisströme; für großes $B$ ist er gleich dem Referenzstrom (Skript, Gl. 11.3). Er hängt nicht von der Last ab, nur vom Referenzzweig. Mehrere Transistoren an derselben Basisleitung liefern mehrere Kopien, ein Transistor mit doppelter Emitterfläche den doppelten Strom; so lässt sich ein Strom auch vervielfachen.
+**So liest man das:** Der Ausgangsstrom ist der Referenzstrom, verkleinert um die beiden Basisströme; für großes $B$ ist er gleich dem Referenzstrom. Er hängt nicht von der Last ab, nur vom Referenzzweig. Mehrere Transistoren an derselben Basisleitung liefern mehrere Kopien, ein Transistor mit doppelter Emitterfläche den doppelten Strom; so lässt sich ein Strom auch vervielfachen.
 
 Idee der Herleitung: Gleiche Spannung an gleichen Transistoren ergibt gleiche Ströme; die Knotenregel am Referenzzweig verteilt den Referenzstrom.
 
@@ -535,7 +535,7 @@ $$R_{L,\mathrm{max}} = \frac{10\ \mathrm{V} - 0{,}3\ \mathrm{V}}{0{,}936\ \mathr
 
 :::fehlvorstellung
 „Der Spiegel kopiert den Strom, weil beide Basen denselben Basisstrom bekommen.“
-Das liegt nahe, weil die Basen verbunden sind und das Skript mit Basisströmen rechnet. Kopiert wird aber über die gemeinsame Spannung $U_{BE}$: Gleiche Spannung an gleichen Übergängen ergibt nach der Transfergleichung gleiche Kollektorströme, die gleichen Basisströme sind erst die Folge. Deshalb versagt der Spiegel bei ungleichen Transistoren: Hat $T_2$ 10 % mehr Sättigungsstrom, liefert er bei derselben Spannung 10 % mehr Strom.
+Das liegt nahe, weil die Basen verbunden sind und man oft mit Basisströmen rechnet. Kopiert wird aber über die gemeinsame Spannung $U_{BE}$: Gleiche Spannung an gleichen Übergängen ergibt nach der Transfergleichung gleiche Kollektorströme, die gleichen Basisströme sind erst die Folge. Deshalb versagt der Spiegel bei ungleichen Transistoren: Hat $T_2$ 10 % mehr Sättigungsstrom, liefert er bei derselben Spannung 10 % mehr Strom.
 :::
 
 :::frage
@@ -549,20 +549,20 @@ Weil der Spiegel nur bei gleichem Sättigungsstrom und gleicher Temperatur kopie
 
 :::grafik
 Szene: get1/bipolartransistoren/02-inverter · Vorlage: schaltung-und-kennlinie
-**Abbildung 8:** (a) Inverter nach Skript Bild 11.16: Eingang über $R_B$ = 10 kΩ an der Basis, $R_C$ = 1 kΩ an 5 V, Ausgang am Kollektor. (b) Ausgangsspannung über der Eingangsspannung von 0 bis 2 V. Modell: waagrecht bei 5 V bis 0,6 V, dann eine Gerade mit der Steigung −50 bis auf 0,2 V bei 0,696 V, danach waagrecht. Vollständiges Modell (gestrichelt): weicher, 4,89 V bei 0,6 V, 3,41 V bei 0,7 V, 0,25 V bei 0,8 V. Der Arbeitspunkt durchläuft alle drei Bereiche; zwischen den Pegeln liegt ein schmaler Übergang.
+**Abbildung 8:** (a) Inverter: Eingang über $R_B$ = 10 kΩ an der Basis, $R_C$ = 1 kΩ an 5 V, Ausgang am Kollektor. (b) Ausgangsspannung über der Eingangsspannung von 0 bis 2 V. Modell: waagrecht bei 5 V bis 0,6 V, dann eine Gerade mit der Steigung −50 bis auf 0,2 V bei 0,696 V, danach waagrecht. Vollständiges Modell (gestrichelt): weicher, 4,89 V bei 0,6 V, 3,41 V bei 0,7 V, 0,25 V bei 0,8 V. Der Arbeitspunkt durchläuft alle drei Bereiche; zwischen den Pegeln liegt ein schmaler Übergang.
 :::
 
-Ein __Inverter__ kehrt ein logisches Signal um (Skript, S. 186–188). Ist die Eingangsspannung kleiner als 0,6 V, sperrt der Transistor, durch $R_C$ fließt kein Strom, und am Ausgang liegt die Versorgung: Eingang 0, Ausgang 1. Ist sie groß genug, sättigt er, und am Ausgang liegen 0,2 V: Eingang 1, Ausgang 0. Dazwischen läuft der Arbeitspunkt durch den aktiven Bereich, und der Ausgang fällt mit der Steigung $-B\,R_C/R_B$; dort ist der Pegel weder 0 noch 1. Abbildung 8 zeigt die Kennlinie.
+Ein __Inverter__ kehrt ein logisches Signal um. Ist die Eingangsspannung kleiner als 0,6 V, sperrt der Transistor, durch $R_C$ fließt kein Strom, und am Ausgang liegt die Versorgung: Eingang 0, Ausgang 1. Ist sie groß genug, sättigt er, und am Ausgang liegen 0,2 V: Eingang 1, Ausgang 0. Dazwischen läuft der Arbeitspunkt durch den aktiven Bereich, und der Ausgang fällt mit der Steigung $-B\,R_C/R_B$; dort ist der Pegel weder 0 noch 1. Abbildung 8 zeigt die Kennlinie.
 
 **Die Akteure:**
 
-- __$U_{\mathrm{ein,sat}}$__: Eingangsspannung, ab der der Transistor gesättigt ist; das Skript nennt sie $U_{E,\mathrm{sat}}$.
+- __$U_{\mathrm{ein,sat}}$__: Eingangsspannung, ab der der Transistor gesättigt ist.
 
 :::formel Formel
 $$U_{\mathrm{ein,sat}} = \frac{(U_{CC} - U_{CE,\mathrm{sat}})\,R_B}{B\,R_C} + U_{BE,\mathrm{ein}}$$
 :::
 
-**So liest man das:** Der erste Summand ist die Breite des Übergangs oberhalb von 0,6 V; sie ist klein, wenn $R_B$ klein gegen $B\,R_C$ ist. Mit 10 kΩ, 1 kΩ und $B$ = 500 sind es 96 mV. Weil $B$ streut, verschiebt sich die Kante, bei 420 auf 0,714 V. Im Skript fehlen in dieser Formel (Gl. 11.4, S. 188) und in der Zeile davor der Widerstand $R_C$ und die Klammer um die Differenz aus $U_{CC}$ und $U_{CE,\mathrm{sat}}$; ergänzt man nur $R_C$, ergeben sich 5,6 V statt 0,696 V. Auf S. 187 steht außerdem „0,6 Ω“ statt 0,6 V.
+**So liest man das:** Der erste Summand ist die Breite des Übergangs oberhalb von 0,6 V; sie ist klein, wenn $R_B$ klein gegen $B\,R_C$ ist. Mit 10 kΩ, 1 kΩ und $B$ = 500 sind es 96 mV. Weil $B$ streut, verschiebt sich die Kante, bei 420 auf 0,714 V. Achtung: Die Klammer um die Differenz aus $U_{CC}$ und $U_{CE,\mathrm{sat}}$ ist nötig; ohne sie ergäben sich 5,6 V statt 0,696 V.
 
 Idee der Herleitung: Man setzt die Ausgangsspannung des aktiven Bereichs gleich der Sättigungsspannung und löst nach dem Eingang auf.
 
@@ -622,7 +622,7 @@ Szene: get1/bipolartransistoren/02-grundschaltungen · Vorlage: schaltung-und-ke
 **Abbildung 9:** Die drei Grundschaltungen an 5 V mit ihren Gleichspannungskennlinien (vollständiges Modell). (a) Emitterschaltung: Eingang über 10 kΩ an der Basis, Ausgang am Kollektor mit 1 kΩ; fallende Kennlinie wie der Inverter. (b) Kollektorschaltung: Kollektor an 5 V, Eingang an der Basis, Ausgang am Emitter mit 1 kΩ nach Masse; Ausgang folgt dem Eingang um gut 0,6 V tiefer (1,34 V bei 2 V, 4,31 V bei 5 V). (c) Basisschaltung: Basis an Masse, Eingang über 1 kΩ am Emitter (negative Spannungen), Ausgang am Kollektor mit 1 kΩ; steigende Kennlinie (4,63 V bei −1 V, 2,68 V bei −3 V, 0,70 V bei −5 V). Welcher Anschluss Ein- und Ausgang gemeinsam ist, bestimmt, ob die Schaltung umkehrt, folgt oder nicht umkehrend überträgt.
 :::
 
-Ein- und Ausgangsspannung misst man gegen denselben Bezugspunkt, der Transistor hat aber nur drei Anschlüsse. Einer gehört deshalb zu Eingang und Ausgang zugleich; er gibt der __Grundschaltung__ ihren Namen (Skript, S. 190–192). Auch der Kollektor an der Versorgung zählt als gemeinsamer Anschluss: Ein Signal ist eine Änderung, und eine konstante Quelle trägt zu Änderungen nichts bei; für das Signal wirkt sie wie Masse ([Überlagerungsverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/superpositionsverfahren.html)).
+Ein- und Ausgangsspannung misst man gegen denselben Bezugspunkt, der Transistor hat aber nur drei Anschlüsse. Einer gehört deshalb zu Eingang und Ausgang zugleich; er gibt der __Grundschaltung__ ihren Namen. Auch der Kollektor an der Versorgung zählt als gemeinsamer Anschluss: Ein Signal ist eine Änderung, und eine konstante Quelle trägt zu Änderungen nichts bei; für das Signal wirkt sie wie Masse ([Überlagerungsverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/superpositionsverfahren.html)).
 
 | Grundschaltung | Ein- und Ausgang, Verhalten |
 |---|---|
@@ -630,7 +630,7 @@ Ein- und Ausgangsspannung misst man gegen denselben Bezugspunkt, der Transistor 
 | Kollektorschaltung (Emitterfolger) | Eingang an der Basis, Ausgang am Emitter; Kennlinie steigend, Ausgang um $U_{BE}$ tiefer, Steigung knapp 1; Stromverstärkung $B + 1$ |
 | Basisschaltung | Eingang am Emitter, Ausgang am Kollektor; Kennlinie steigend, nicht umkehrend; Stromverstärkung knapp 1 |
 
-Die __Emitterschaltung__ ist der Inverter des vorigen Abschnitts. Ohne Basiswiderstand, wie in Bild 11.22 des Skripts, liegt der Eingang direkt als $U_{BE}$ an, und der Übergang ist noch schmaler: Beim Beispieltransistor fällt der Ausgang zwischen 0,62 und 0,70 V von 4,7 V auf 0,08 V. Das Skript nennt ihre Kennlinie „dieselbe wie in Abb. 11.18“ (S. 190); gemeint ist Bild 11.17, Bild 11.18 zeigt den Zeitverlauf.
+Die __Emitterschaltung__ ist der Inverter des vorigen Abschnitts. Ohne Basiswiderstand liegt der Eingang direkt als $U_{BE}$ an, und der Übergang ist noch schmaler: Beim Beispieltransistor fällt der Ausgang zwischen 0,62 und 0,70 V von 4,7 V auf 0,08 V.
 
 Die __Kollektorschaltung__ heißt auch __Emitterfolger__: Die Ausgangsspannung am Emitter folgt der Eingangsspannung an der Basis, um die Basis-Emitter-Spannung tiefer.
 
@@ -687,9 +687,9 @@ Das liegt nahe, weil die Spannungsverstärkung knapp unter 1 liegt. Verstärkt w
 
 Bei der __Basisschaltung__ liegt die Basis an Masse, das Signal kommt an den Emitter, der Ausgang ist der Kollektor. Fast der ganze Eingangsstrom kommt als Kollektorstrom heraus; die Stromverstärkung ist knapp 1, nämlich $\alpha$, das Verhältnis von Kollektor- zu Emitterstrom. Mit 1 kΩ vor dem Emitter steigt der Ausgang mit dem Eingang an: Wird die Eingangsspannung weniger negativ, sinkt der Strom aus dem Emitter, mit ihm der Kollektorstrom und der Abfall an $R_C$. Die Steigung beträgt 0,98 (Abbildung 9c), die Schaltung kehrt nicht um.
 
-Das Skript stellt fest, dass die größte Steigung der Basisschaltung größer ist als die der Emitterschaltung (S. 191). Für die gezeichneten Schaltungen ohne Vorwiderstand trifft das zu, der Grund ist aber keine stärkere Steuerwirkung: In beiden Schaltungen legt die Eingangsspannung unmittelbar $U_{BE}$ fest, und bei gleichem Kollektorstrom sind beide Steigungen gleich groß, beim Beispieltransistor bei 2,5 mA −93,5 und +93,5. Die Basisschaltung kann aber mehr Strom führen, bevor sie sättigt, denn ihr Kollektor darf bis etwa −0,4 V unter Masse sinken, während der Kollektor der Emitterschaltung über etwa 0,25 V bleiben muss. Am Rand der Sättigung erreicht sie deshalb +194 bei 5,41 mA, die Emitterschaltung −170 bei 4,72 mA.
+Ohne Vorwiderstand ist die größte Steigung der Basisschaltung größer als die der Emitterschaltung; der Grund ist aber keine stärkere Steuerwirkung: In beiden Schaltungen legt die Eingangsspannung unmittelbar $U_{BE}$ fest, und bei gleichem Kollektorstrom sind beide Steigungen gleich groß, beim Beispieltransistor bei 2,5 mA −93,5 und +93,5. Die Basisschaltung kann aber mehr Strom führen, bevor sie sättigt, denn ihr Kollektor darf bis etwa −0,4 V unter Masse sinken, während der Kollektor der Emitterschaltung über etwa 0,25 V bleiben muss. Am Rand der Sättigung erreicht sie deshalb +194 bei 5,41 mA, die Emitterschaltung −170 bei 4,72 mA.
 
-Dass sich die Skriptbilder 11.23 und 11.27 viel stärker unterscheiden, liegt an Bild 11.23: Seine Kennlinie fällt über rund 0,5 V Eingangsspannung statt über weniger als 0,1 V wie bei direkter Ansteuerung; das Skript nennt sie selbst dieselbe Kennlinie wie die des Inverters, also mit Basiswiderstand. Wie sich die drei Schaltungen für kleine Signale verhalten, behandelt [Der Transistor als Verstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/transistor-als-verstaerker.html).
+Wie sich die drei Schaltungen für kleine Signale verhalten, behandelt [Der Transistor als Verstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/transistor-als-verstaerker.html).
 
 ## Alles hängt an einem Prinzip
 

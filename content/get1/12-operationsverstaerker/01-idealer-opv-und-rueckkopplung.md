@@ -36,10 +36,10 @@ $$U_\mathrm{eff} = \sqrt{\overline{u^2}}$$
 
 **Die Akteure:**
 
-- __$U_r$__: Effektivwert der Rauschspannung $u_r(t)$, im Skript $u_{r,\mathrm{eff}}$; bei einem 10-kΩ-Widerstand und 1 MHz Bandbreite 12,9 µV.
-- __$|u_r(f)|^2$__: __spektrale Rauschdichte__, der Anteil am mittleren Quadrat der Rauschspannung je Hertz Bandbreite bei der Frequenz $f$; in V²/Hz. Datenblätter geben ihre Wurzel in nV/√Hz an, beim 10-kΩ-Widerstand 12,9 nV/√Hz. Im Skript heißt sie Rauschspannungsdichte.
+- __$U_r$__: Effektivwert der Rauschspannung $u_r(t)$; bei einem 10-kΩ-Widerstand und 1 MHz Bandbreite 12,9 µV.
+- __$|u_r(f)|^2$__: __spektrale Rauschdichte__, der Anteil am mittleren Quadrat der Rauschspannung je Hertz Bandbreite bei der Frequenz $f$; in V²/Hz. Datenblätter geben ihre Wurzel in nV/√Hz an, beim 10-kΩ-Widerstand 12,9 nV/√Hz. Üblich ist auch der Name Rauschspannungsdichte.
 
-**Das Zusammenspiel:** Sinusschwingungen verschiedener Frequenz tragen zum mittleren Quadrat unabhängig voneinander bei; ihre Beiträge addieren sich. Deshalb verteilt man das mittlere Quadrat als Dichte über die Frequenz und gewinnt den Effektivwert durch Aufsummieren zurück (Skript S. 195, Gleichung 12.1):
+**Das Zusammenspiel:** Sinusschwingungen verschiedener Frequenz tragen zum mittleren Quadrat unabhängig voneinander bei; ihre Beiträge addieren sich. Deshalb verteilt man das mittlere Quadrat als Dichte über die Frequenz und gewinnt den Effektivwert durch Aufsummieren zurück:
 
 :::formel Definition
 $$U_r = \sqrt{\int_0^\infty |u_r(f)|^2\,df}$$
@@ -50,7 +50,7 @@ $$U_r = \sqrt{\int_0^\infty |u_r(f)|^2\,df}$$
 Idee der Herleitung: Man quadriert eine Summe von Sinusschwingungen; alle Mischprodukte verschiedener Frequenzen mitteln sich zu null.
 
 :::herleitung
-**Ausgangspunkt:** die Definition des Effektivwerts über das mittlere Quadrat und die Vorstellung des Rauschens als Summe von Sinusschwingungen (Skript S. 195).
+**Ausgangspunkt:** die Definition des Effektivwerts über das mittlere Quadrat und die Vorstellung des Rauschens als Summe von Sinusschwingungen.
 
 **Annahmen:** (i) Das Rauschen ist eine Summe von Sinusschwingungen mit verschiedenen Frequenzen $f_i$, Amplituden $\hat u_i$ und Phasen $\phi_i$. (ii) Die Mittelungszeit $T_m$ ist lang gegen alle Perioden, auch gegen die Kehrwerte der Frequenzabstände.
 
@@ -95,14 +95,14 @@ $$\mathrm{SNR}_\mathrm{dB} = 10\,\lg\frac{U_S^2}{U_r^2}$$
 **So liest man das:** Je größer das Verhältnis, desto weniger fällt das Rauschen auf. Ein Faktor 10 in der Spannung sind 20 dB, weil das Verhältnis die Quadrate enthält. Ein Signal von 1 mV liegt 54,8 dB über dem Rauschen eines 10-kΩ-Widerstands im Hörbereich.
 
 :::fehlvorstellung
-„Wenn man das Nutzsignal verstärkt, wird das Signal-Rausch-Verhältnis besser.“ So steht es im Skript (S. 195). Ein Verstärker hebt aber das Rauschen, das schon im Signal steckt, um denselben Faktor an und fügt eigenes hinzu: Ein Sensor mit 1 mV und 10 kΩ hat im Hörbereich 54,8 dB, hinter einem OPV mit 23 nV/√Hz bleiben 48,6 dB. Verstärkung schützt nur gegen Rauschen, das erst danach hinzukommt, etwa aus einer Folgestufe; besser wird das Verhältnis außerdem, wenn man die Bandbreite auf die des Signals begrenzt.
+„Wenn man das Nutzsignal verstärkt, wird das Signal-Rausch-Verhältnis besser.“ So liest man es oft. Ein Verstärker hebt aber das Rauschen, das schon im Signal steckt, um denselben Faktor an und fügt eigenes hinzu: Ein Sensor mit 1 mV und 10 kΩ hat im Hörbereich 54,8 dB, hinter einem OPV mit 23 nV/√Hz bleiben 48,6 dB. Verstärkung schützt nur gegen Rauschen, das erst danach hinzukommt, etwa aus einer Folgestufe; besser wird das Verhältnis außerdem, wenn man die Bandbreite auf die des Signals begrenzt.
 :::
 
 Die wichtigste Quelle ist das __thermische Rauschen__. Die Leitungselektronen eines Widerstands bewegen sich ungeordnet; in jedem Augenblick überwiegt zufällig eine Richtung, und dieser schwankende Nettostrom erzeugt eine schwankende Spannung an den Klemmen.
 
 **Die Akteure:**
 
-- __$k_B$__: Boltzmann-Konstante, 1,380649·10⁻²³ J/K, im Skript $k$. Sie rechnet eine Temperatur in eine Energie um; im thermischen Gleichgewicht trägt jeder Energieterm, der quadratisch von einer Größe abhängt, im Mittel $k_B T/2$ (__Gleichverteilungssatz__ der kinetischen Gastheorie).
+- __$k_B$__: Boltzmann-Konstante, 1,380649·10⁻²³ J/K. Sie rechnet eine Temperatur in eine Energie um; im thermischen Gleichgewicht trägt jeder Energieterm, der quadratisch von einer Größe abhängt, im Mittel $k_B T/2$ (__Gleichverteilungssatz__ der kinetischen Gastheorie).
 - __$T$__: absolute Temperatur, 300 K; sie treibt die ungeordnete Bewegung.
 - __$R$__: Widerstandswert.
 
@@ -110,14 +110,14 @@ Die wichtigste Quelle ist das __thermische Rauschen__. Die Leitungselektronen ei
 $$|u_{r,R}(f)|^2 = 4\,k_B\,T\,R$$
 :::
 
-**So liest man das:** Die Dichte ist proportional zu Temperatur und Widerstand und hängt nicht von der Frequenz ab; die Rauschspannung wächst mit der Wurzel: 4,07 nV/√Hz bei 1 kΩ, 12,9 nV/√Hz bei 10 kΩ, 129 nV/√Hz bei 1 MΩ. Woran die Elektronen stoßen, bestimmt nur den Wert von $R$; bei gegebenem $R$ zählt allein die Temperatur. Zufällig ist die Wärmebewegung, nicht die ortsfesten Gitterfehler, die das Skript für die Unvorhersagbarkeit mitverantwortlich macht (S. 195).
+**So liest man das:** Die Dichte ist proportional zu Temperatur und Widerstand und hängt nicht von der Frequenz ab; die Rauschspannung wächst mit der Wurzel: 4,07 nV/√Hz bei 1 kΩ, 12,9 nV/√Hz bei 10 kΩ, 129 nV/√Hz bei 1 MΩ. Woran die Elektronen stoßen, bestimmt nur den Wert von $R$; bei gegebenem $R$ zählt allein die Temperatur. Zufällig ist die Wärmebewegung, nicht die ortsfesten Gitterfehler.
 
 Idee der Herleitung: Man schließt einen Kondensator an den Widerstand an; im thermischen Gleichgewicht muss seine Energie im Mittel $k_B T/2$ betragen, und daraus folgt, wie stark der Widerstand rauschen muss.
 
 :::herleitung
 **Ausgangspunkt:** der Gleichverteilungssatz: Im thermischen Gleichgewicht bei der Temperatur $T$ trägt jeder Energieterm, der quadratisch von einer Größe abhängt, im Mittel die Energie $k_B T/2$.
 
-**Annahmen:** (i) Ein Widerstand $R$ und ein Kondensator $C$ sind miteinander verbunden und im thermischen Gleichgewicht bei $T$; sonst ist nichts angeschlossen. (ii) Das Rauschen des Widerstands hat eine von der Frequenz unabhängige Dichte $|u_{r,R}|^2$, die gesucht ist. (iii) Aus der Wechselstromrechnung, die erst nach diesem Kurs folgt, wird ein Ergebnis übernommen: Die RC-Schaltung lässt Rauschen mit konstanter Dichte so durch, als ob sie alle Frequenzen bis $1/(4RC)$ unverändert und alle höheren gar nicht passieren ließe; diese __Rauschbandbreite__ ist das π/2-fache ihrer Grenzfrequenz $1/(2\pi RC)$. Die Rechnung dazu geht über diesen Kurs hinaus; der Kasten zeigt deshalb die Beweisidee.
+**Annahmen:** (i) Ein Widerstand $R$ und ein Kondensator $C$ sind miteinander verbunden und im thermischen Gleichgewicht bei $T$; sonst ist nichts angeschlossen. (ii) Das Rauschen des Widerstands hat eine von der Frequenz unabhängige Dichte $|u_{r,R}|^2$, die gesucht ist. (iii) Aus der Wechselstromrechnung wird ein Ergebnis übernommen: Die RC-Schaltung lässt Rauschen mit konstanter Dichte so durch, als ob sie alle Frequenzen bis $1/(4RC)$ unverändert und alle höheren gar nicht passieren ließe; diese __Rauschbandbreite__ ist das π/2-fache ihrer Grenzfrequenz $1/(2\pi RC)$. Die Rechnung dazu geht über diesen Artikel hinaus; der Kasten zeigt deshalb die Beweisidee.
 
 **Schritt 1**: Die Energie des Kondensators, $\tfrac{1}{2}C u^2$, ist quadratisch in seiner Spannung. Nach dem Gleichverteilungssatz:
 
@@ -125,7 +125,7 @@ $$\frac{1}{2}\,C\,\overline{u^2} = \frac{1}{2}\,k_B T$$
 
 $$\overline{u^2} = \frac{k_B T}{C}$$
 
-**Schritt 2**: Dieselbe Spannung ist das Rauschen des Widerstands, gefiltert durch die RC-Schaltung. Nach Gleichung 12.1, mit der Rauschbandbreite aus (iii):
+**Schritt 2**: Dieselbe Spannung ist das Rauschen des Widerstands, gefiltert durch die RC-Schaltung. Mit dem Integral für $U_r$ und der Rauschbandbreite aus (iii):
 
 $$\overline{u^2} = |u_{r,R}|^2\cdot\frac{1}{4RC}$$
 
@@ -164,7 +164,7 @@ $$\mathrm{SNR}_\mathrm{dB} = 10\,\lg\frac{(1\ \mathrm{mV})^2}{(1{,}82\ \mu\mathr
 **Einordnung:** Ein Signal von 10 µV läge nur 14,8 dB über diesem Rauschen. Hochohmige Quellen rauschen stärker: 1 MΩ bringt im selben Band 18,2 µV.
 ::::
 
-Das Skript nennt drei weitere Arten (S. 195–196). __Weiß__ heißt ein Spektrum mit gleicher Dichte bei allen Frequenzen, wie das thermische; das ist eine Form, keine eigene Ursache, und unendliche Leistung hat nur das Modell. __Schrotrauschen__ entsteht, weil die Zahl der Ladungsträger, die eine Barriere wie den pn-Übergang unabhängig voneinander überqueren, je Zeitabschnitt schwankt. __1/f-Rauschen__, ebenfalls nach seiner Spektralform benannt, stammt unter anderem von langsamen Umladungen in Störstellen und beherrscht tiefe Frequenzen, bei Universal-OPVs unterhalb von etwa 100 Hz.
+Häufig werden drei weitere Arten genannt. __Weiß__ heißt ein Spektrum mit gleicher Dichte bei allen Frequenzen, wie das thermische; das ist eine Form, keine eigene Ursache, und unendliche Leistung hat nur das Modell. __Schrotrauschen__ entsteht, weil die Zahl der Ladungsträger, die eine Barriere wie den pn-Übergang unabhängig voneinander überqueren, je Zeitabschnitt schwankt. __1/f-Rauschen__, ebenfalls nach seiner Spektralform benannt, stammt unter anderem von langsamen Umladungen in Störstellen und beherrscht tiefe Frequenzen, bei Universal-OPVs unterhalb von etwa 100 Hz.
 
 ## Der Differenzverstärker
 
@@ -172,15 +172,15 @@ Das Skript nennt drei weitere Arten (S. 195–196). __Weiß__ heißt ein Spektru
 
 :::grafik
 Szene: get1/operationsverstaerker/01-differenzverstaerker · Vorlage: schaltung-und-kennlinie
-**Abbildung 3:** (a) Differenzverstärker nach Skript Bild 12.1 mit Werten, abweichend vom Skript mit dem Emitter von Q3 an −15 V statt an Masse, damit die Eingänge um 0 V liegen dürfen: zwei gleiche npn-Transistoren Q1 und Q2 (Beispieltransistor, Art BC547C) mit je einem Kollektorwiderstand $R_C$ = 10 kΩ an +15 V; die Emitter verbunden und über eine Stromquelle von 1 mA (Transistor Q3) an −15 V; die Eingänge $U_{e1}$ und $U_{e2}$ an den Basen, der Ausgang $U_A$ zwischen den Kollektoren, Zählpfeil vom Kollektor von Q1 zum Kollektor von Q2. Ruhewerte bei gleichen Eingängen auf 0 V: je 0,499 mA, Kollektoren auf 10,0 V, Emitterknoten auf −0,635 V. (b) Die Kollektorströme $I_{C1}$ und $I_{C2}$ über $U_{e1} - U_{e2}$ von −150 mV bis +150 mV: zwei gegenläufige S-Kurven, die sich bei 0 mV und 0,5 mA kreuzen und zusammen stets 1 mA ergeben; gestrichelt die Tangente im Nullpunkt mit der Steigung 9,67 mS; markiert die Werte bei ±100 mV, 98 % und 2 %. Die Stromquelle hält die Summe fest, die Differenz der Eingänge verteilt sie.
+**Abbildung 3:** (a) Differenzverstärker mit Werten, der Emitter von Q3 an −15 V, damit die Eingänge um 0 V liegen dürfen: zwei gleiche npn-Transistoren Q1 und Q2 (Beispieltransistor, Art BC547C) mit je einem Kollektorwiderstand $R_C$ = 10 kΩ an +15 V; die Emitter verbunden und über eine Stromquelle von 1 mA (Transistor Q3) an −15 V; die Eingänge $U_{e1}$ und $U_{e2}$ an den Basen, der Ausgang $U_A$ zwischen den Kollektoren, Zählpfeil vom Kollektor von Q1 zum Kollektor von Q2. Ruhewerte bei gleichen Eingängen auf 0 V: je 0,499 mA, Kollektoren auf 10,0 V, Emitterknoten auf −0,635 V. (b) Die Kollektorströme $I_{C1}$ und $I_{C2}$ über $U_{e1} - U_{e2}$ von −150 mV bis +150 mV: zwei gegenläufige S-Kurven, die sich bei 0 mV und 0,5 mA kreuzen und zusammen stets 1 mA ergeben; gestrichelt die Tangente im Nullpunkt mit der Steigung 9,67 mS; markiert die Werte bei ±100 mV, 98 % und 2 %. Die Stromquelle hält die Summe fest, die Differenz der Eingänge verteilt sie.
 :::
 
-Stören zwei parallel geführte Leitungen gleich, etwa durch eingestreutes Netzbrummen, steckt die Information im Unterschied der beiden. Der __Differenzverstärker__ (Skript S. 196–197), die Eingangsstufe jedes OPV, verstärkt genau diesen Unterschied; Abbildung 3a zeigt ihn mit den Werten des Beispiels.
+Stören zwei parallel geführte Leitungen gleich, etwa durch eingestreutes Netzbrummen, steckt die Information im Unterschied der beiden. Der __Differenzverstärker__, die Eingangsstufe jedes OPV, verstärkt genau diesen Unterschied; Abbildung 3a zeigt ihn mit den Werten des Beispiels.
 
 **Die Akteure:**
 
 - __$U_{e1}$__, __$U_{e2}$__: Eingangsspannungen an den Basen, gegen Masse.
-- __$I_0$__: Strom der Stromquelle Q3 im gemeinsamen Emitterzweig, dem __Fußpunkt__, im Skript $I_{Q3}$; 1 mA.
+- __$I_0$__: Strom der Stromquelle Q3 im gemeinsamen Emitterzweig, dem __Fußpunkt__; 1 mA.
 - __$\varphi_E$__: Potential des gemeinsamen Emitterknotens; in Ruhe −0,635 V.
 - __$I_{C1}$__, __$I_{C2}$__: Kollektorströme, in Ruhe je 0,499 mA. Die Kollektorwiderstände __$R_C$__ = 10 kΩ an +15 V machen daraus die Kollektorpotentiale $U_{a1}$ und $U_{a2}$.
 - __$U_A$__: Ausgangsspannung zwischen den Kollektoren, die Differenz $U_{a1} - U_{a2}$.
@@ -242,18 +242,18 @@ Für kleine Differenzen genügt die Tangente der Stromaufteilung im Nullpunkt. M
 
 $$g_m = \frac{I_0}{2\,U_T}$$
 
-ergibt sich die __Differenzverstärkung__ der Stufe, im Skript $A$, hier wie in [Der Transistor als Verstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/transistor-als-verstaerker.html) $v_u$:
+ergibt sich die __Differenzverstärkung__ der Stufe, hier wie in [Der Transistor als Verstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/transistor-als-verstaerker.html) $v_u$:
 
 :::formel Formel
 $$v_u = \frac{U_A}{U_{e1} - U_{e2}} = -g_m\,R_C$$
 :::
 
-**So liest man das:** Jeder Transistor bekommt die halbe Differenz, der Ausgang zwischen den Kollektoren sieht beide Änderungen. Der Betrag ist der Spannungsabfall an einem Kollektorwiderstand durch $U_T$, hier 4,99 V durch 25,85 mV, also 193. Das Minuszeichen sagt: Steigt $U_{e1}$, sinkt $U_A$; $U_{e1}$ wirkt invertierend, $U_{e2}$ nichtinvertierend. Das Skript erhält $-2SR$ (S. 197), im Beispiel −387, weil es die ganze Signaländerung an $U_{BE1}$ ansetzt und übersieht, dass der Emitterknoten um die Hälfte mitwandert. Auch seine „Größenordnung 10 000“ erreicht diese Stufe nicht; an 15 V bleibt sie unter 580.
+**So liest man das:** Jeder Transistor bekommt die halbe Differenz, der Ausgang zwischen den Kollektoren sieht beide Änderungen. Der Betrag ist der Spannungsabfall an einem Kollektorwiderstand durch $U_T$, hier 4,99 V durch 25,85 mV, also 193. Das Minuszeichen sagt: Steigt $U_{e1}$, sinkt $U_A$; $U_{e1}$ wirkt invertierend, $U_{e2}$ nichtinvertierend. Ein häufiger Fehler ist das Doppelte, $-2 g_m R_C$, im Beispiel −387; es entsteht, wenn man die ganze Signaländerung an $U_{BE1}$ ansetzt und übersieht, dass der Emitterknoten um die Hälfte mitwandert. Eine Verstärkung in der Größenordnung 10 000 erreicht diese Stufe nicht; an 15 V bleibt sie unter 580.
 
 Idee der Herleitung: Man leitet die Stromaufteilung im Nullpunkt ab und rechnet die Stromänderungen über die Kollektorwiderstände in Spannungen um.
 
 :::herleitung
-**Ausgangspunkt:** die Stromaufteilung (Formel oben) und die Spannungsabfälle an den Kollektorwiderständen, wie im Skript S. 197.
+**Ausgangspunkt:** die Stromaufteilung (Formel oben) und die Spannungsabfälle an den Kollektorwiderständen.
 
 **Annahmen:** (i) bis (iv) wie bei der Stromaufteilung; (v) die Differenz ist klein gegen $2U_T$. Abkürzung: $x$ steht für $U_{e1} - U_{e2}$.
 
@@ -314,7 +314,7 @@ Mit Early-Effekt ergibt das vollständige Modell −182.
 
 *Was tut ein OPV ohne äußere Beschaltung, und warum taugt er so nicht als Verstärker?*
 
-Im OPV folgen auf den Differenzverstärker weitere Verstärkerstufen und ein Emitterfolger als Ausgang; zusammen verstärken sie 10⁵- bis 10⁶-fach (Skript S. 197). Der __nichtinvertierende Eingang__ (+) entspricht $U_{e2}$ des Differenzverstärkers: Steigt seine Spannung, steigt der Ausgang. Der __invertierende Eingang__ (−) entspricht $U_{e1}$: Steigt seine Spannung, sinkt der Ausgang (Abbildung 1a). Als Beispiel dient ein OPV nach Art des 741 an ±15 V.
+Im OPV folgen auf den Differenzverstärker weitere Verstärkerstufen und ein Emitterfolger als Ausgang; zusammen verstärken sie 10⁵- bis 10⁶-fach. Der __nichtinvertierende Eingang__ (+) entspricht $U_{e2}$ des Differenzverstärkers: Steigt seine Spannung, steigt der Ausgang. Der __invertierende Eingang__ (−) entspricht $U_{e1}$: Steigt seine Spannung, sinkt der Ausgang (Abbildung 1a). Als Beispiel dient ein OPV nach Art des 741 an ±15 V.
 
 **Die Akteure:**
 
@@ -330,7 +330,7 @@ $$U_D = U_{e+} - U_{e-}$$
 $$U_A = v_D\,U_D$$
 :::
 
-**So liest man das:** Der Ausgang ist die verstärkte Differenzspannung, solange das Ergebnis zwischen den Grenzen liegt; sonst bleibt er an der Grenze. Die Grenzen liegen etwa 1 V unter den Versorgungsspannungen, weil zwischen Ausgang und Versorgung Transistoren liegen (Skript S. 199). Proportional ist der Ausgang deshalb nur in einem schmalen Fenster:
+**So liest man das:** Der Ausgang ist die verstärkte Differenzspannung, solange das Ergebnis zwischen den Grenzen liegt; sonst bleibt er an der Grenze. Die Grenzen liegen etwa 1 V unter den Versorgungsspannungen, weil zwischen Ausgang und Versorgung Transistoren liegen. Proportional ist der Ausgang deshalb nur in einem schmalen Fenster:
 
 $$|U_D| \le \frac{U_{A,\max}}{v_D} = \frac{14\ \mathrm{V}}{200\,000} = 70\ \mu\mathrm{V}$$
 
@@ -358,9 +358,9 @@ $$|U_D| \le \frac{U_{A,\max}}{v_D}$$
 **Grenzen:** Der reale OPV hat eine Offsetspannung, die das Fenster verschiebt (unten); seine Kennlinie ist zudem nur näherungsweise gerade.
 :::
 
-Wie schmal das ist, zeigt die __Offsetspannung__: Die Eingangstransistoren sind nie ganz gleich, und der Unterschied wirkt wie eine kleine Spannungsquelle am Eingang, beim 741 typisch 1 mV, 14-mal so weit vom Nullpunkt wie der Rand des Fensters. Selbst mit verbundenen Eingängen läge der Ausgang an einer Grenze. Ohne Rückkopplung arbeitet der OPV deshalb nur als __Komparator__ (Vergleicher, Skript Bild 12.3 und 12.4): Liegt der Pluseingang höher, zeigt der Ausgang +14 V, liegt er tiefer, −14 V. Mehrere Komparatoren an den Abgriffen eines Spannungsteilers bilden einen __Flash-Wandler__, einen schnellen Analog-Digital-Umsetzer (Skript Bild 12.5).
+Wie schmal das ist, zeigt die __Offsetspannung__: Die Eingangstransistoren sind nie ganz gleich, und der Unterschied wirkt wie eine kleine Spannungsquelle am Eingang, beim 741 typisch 1 mV, 14-mal so weit vom Nullpunkt wie der Rand des Fensters. Selbst mit verbundenen Eingängen läge der Ausgang an einer Grenze. Ohne Rückkopplung arbeitet der OPV deshalb nur als __Komparator__ (Vergleicher): Liegt der Pluseingang höher, zeigt der Ausgang +14 V, liegt er tiefer, −14 V. Mehrere Komparatoren an den Abgriffen eines Spannungsteilers bilden einen __Flash-Wandler__, einen schnellen Analog-Digital-Umsetzer.
 
-Das Skript (S. 198) idealisiert den OPV mit vier Eigenschaften:
+Man idealisiert den OPV mit vier Eigenschaften:
 
 | Eigenschaft des idealen OPV und Folge | Beispiel-OPV (741 an ±15 V) |
 |---|---|
@@ -375,10 +375,10 @@ Das Skript (S. 198) idealisiert den OPV mit vier Eigenschaften:
 
 :::grafik
 Szene: get1/operationsverstaerker/01-gegen-mit · Vorlage: schaltung-zustaende
-**Abbildung 4:** Zwei Schaltungen aus denselben Bauteilen: Beispiel-OPV, $R_2$ = 90 kΩ vom Ausgang zum Teilerknoten, $R_1$ = 10 kΩ vom Teilerknoten nach Masse. Links Gegenkopplung: Teilerknoten am Minuseingang, Eingangsspannung $U_E$ am Pluseingang; darunter die Wirkungskette „$U_A$ steigt → Minuseingang steigt um ein Zehntel davon → $U_D$ sinkt → $U_A$ steigt langsamer“. Rechts Mitkopplung, der invertierende Schmitt-Trigger nach Skript Bild 12.6: Teilerknoten am Pluseingang, $U_E$ am Minuseingang; Wirkungskette „$U_A$ steigt → Pluseingang steigt → $U_D$ steigt → $U_A$ steigt schneller“. Welcher Eingang das zurückgeführte Signal bekommt, entscheidet, ob die Schaltung regelt oder kippt.
+**Abbildung 4:** Zwei Schaltungen aus denselben Bauteilen: Beispiel-OPV, $R_2$ = 90 kΩ vom Ausgang zum Teilerknoten, $R_1$ = 10 kΩ vom Teilerknoten nach Masse. Links Gegenkopplung: Teilerknoten am Minuseingang, Eingangsspannung $U_E$ am Pluseingang; darunter die Wirkungskette „$U_A$ steigt → Minuseingang steigt um ein Zehntel davon → $U_D$ sinkt → $U_A$ steigt langsamer“. Rechts Mitkopplung, der invertierende Schmitt-Trigger: Teilerknoten am Pluseingang, $U_E$ am Minuseingang; Wirkungskette „$U_A$ steigt → Pluseingang steigt → $U_D$ steigt → $U_A$ steigt schneller“. Welcher Eingang das zurückgeführte Signal bekommt, entscheidet, ob die Schaltung regelt oder kippt.
 :::
 
-Eine __Rückkopplung__ führt einen Teil der Ausgangsgröße auf den Eingang zurück (Skript S. 200). Geht sie beim OPV auf den invertierenden Eingang, wirkt eine Zunahme des Ausgangs der Differenzspannung entgegen, die sie verursacht hat: __Gegenkopplung__. Geht sie auf den nichtinvertierenden Eingang, vergrößert die Zunahme ihre eigene Ursache: __Mitkopplung__. Abbildung 4 zeigt beide mit denselben Bauteilen; links steht der nichtinvertierende Verstärker, rechts der Schmitt-Trigger.
+Eine __Rückkopplung__ führt einen Teil der Ausgangsgröße auf den Eingang zurück. Geht sie beim OPV auf den invertierenden Eingang, wirkt eine Zunahme des Ausgangs der Differenzspannung entgegen, die sie verursacht hat: __Gegenkopplung__. Geht sie auf den nichtinvertierenden Eingang, vergrößert die Zunahme ihre eigene Ursache: __Mitkopplung__. Abbildung 4 zeigt beide mit denselben Bauteilen; links steht der nichtinvertierende Verstärker, rechts der Schmitt-Trigger.
 
 ### Der Ruhezustand
 
@@ -392,7 +392,7 @@ Eine __Rückkopplung__ führt einen Teil der Ausgangsgröße auf den Eingang zur
 $$k = \frac{R_1}{R_1 + R_2}$$
 
 - __$U_E$__: Eingangsspannung der Schaltung, gegen Masse, am Pluseingang.
-- __$A$__: Verstärkung der beschalteten Schaltung, das Verhältnis von $U_A$ zu $U_E$ (so im Skript ab Abschnitt 12.5).
+- __$A$__: Verstärkung der beschalteten Schaltung, das Verhältnis von $U_A$ zu $U_E$.
 
 **Das Zusammenspiel:** Der Minuseingang liegt auf $k U_A$; die Differenzspannung ist der Unterschied zwischen dem, was der Eingang verlangt, und dem, was zurückkommt:
 
@@ -587,13 +587,13 @@ $$\tau = \frac{1}{k\,\omega_T}$$
 **Grenzen:** Bei größeren Sprüngen arbeitet die Eingangsstufe nicht mehr linear; ab 80 mV steigt der Ausgang zunächst mit seiner Höchstgeschwindigkeit, also linear statt exponentiell. Weitere, kleinere Verzögerungen im realen OPV können bei großem $k$ ein leichtes Überschwingen erzeugen ([Der reale Operationsverstärker](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/realer-operationsverstaerker.html)).
 :::
 
-Das Skript erklärt das Einschwingen als Folge von Zyklen, in denen der Ausgang auf $v_D U_D$ springt und $U_D$ das Vorzeichen wechselt (S. 202). Durchgerechnet schaukelt sich dieses Bild auf, statt zur Ruhe zu kommen: Mit $k$ = 0,1 und $v_D$ = 200 000 wächst die Abweichung je Zyklus um den Faktor −20 000. Die Schaltung kommt zur Ruhe, weil sich ihr Ausgang stetig bewegt, ohne dass $U_D$ das Vorzeichen wechselt.
+Oft erklärt man das Einschwingen als Folge von Zyklen, in denen der Ausgang auf $v_D U_D$ springt und $U_D$ das Vorzeichen wechselt. Durchgerechnet schaukelt sich dieses Bild auf, statt zur Ruhe zu kommen: Mit $k$ = 0,1 und $v_D$ = 200 000 wächst die Abweichung je Zyklus um den Faktor −20 000. Die Schaltung kommt zur Ruhe, weil sich ihr Ausgang stetig bewegt, ohne dass $U_D$ das Vorzeichen wechselt.
 
 ### Die goldenen Regeln
 
 *Mit welchen Regeln berechnet man gegengekoppelte Schaltungen?*
 
-Für gegengekoppelte Schaltungen mit idealem OPV folgen daraus die __goldenen Regeln__: Die Differenzspannung ist null, weil die Gegenkopplung den Ausgang so lange verstellt, bis sie es ist; und in die Eingänge fließt kein Strom. Das Skript rechnet ab Abschnitt 12.5 immer so (S. 203). In Abbildung 4 links muss dann $k U_A$ gleich $U_E$ sein, und $A = 1/k$ folgt ohne jede Rechnung mit $v_D$. Den Zustand nennt man auch __virtuellen Kurzschluss__: Die Eingänge liegen auf gleichem Potential, als wären sie verbunden, ohne es zu sein.
+Für gegengekoppelte Schaltungen mit idealem OPV folgen daraus die __goldenen Regeln__: Die Differenzspannung ist null, weil die Gegenkopplung den Ausgang so lange verstellt, bis sie es ist; und in die Eingänge fließt kein Strom. So rechnet der Artikel [Die OPV-Grundschaltungen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/opv-grundschaltungen.html) durchgehend. In Abbildung 4 links muss dann $k U_A$ gleich $U_E$ sein, und $A = 1/k$ folgt ohne jede Rechnung mit $v_D$. Den Zustand nennt man auch __virtuellen Kurzschluss__: Die Eingänge liegen auf gleichem Potential, als wären sie verbunden, ohne es zu sein.
 
 :::merke
 **Die erste goldene Regel gilt nur bei Gegenkopplung und nur, solange der Ausgang nicht an einer Grenze liegt.** Bei Mitkopplung und in der Sättigung ist $U_D$ nicht null.
@@ -612,16 +612,16 @@ Szene: get1/operationsverstaerker/01-schmitt-kennlinie · Vorlage: kennlinie-hys
 **Abbildung 6:** Übertragungskennlinie des invertierenden Schmitt-Triggers aus Abbildung 4 rechts ($k$ = 0,1, Ausgangsgrenzen ±14 V): $U_A$ über $U_E$ von −3 V bis +3 V. Von links kommend liegt der Ausgang auf +14 V und springt bei $U_E$ = +1,4 V senkrecht auf −14 V; von rechts kommend bleibt er auf −14 V und springt erst bei −1,4 V zurück auf +14 V. Pfeile zeigen die Laufrichtung; gestrichelt dazwischen die Gerade der instabilen Ruhezustände mit der Steigung 10. Zwischen −1,4 V und +1,4 V hängt der Ausgang davon ab, von welcher Seite der Eingang kam.
 :::
 
-Beim __invertierenden Schmitt-Trigger__ (Abbildung 4 rechts, Skript S. 201, Bild 12.6) liegt die Eingangsspannung am Minuseingang, und der Teiler führt ein Zehntel der Ausgangsspannung auf den Pluseingang. Wie im vorigen Abschnitt gezeigt, liegt sein Ausgang immer an einer Grenze, bei +14 V oder −14 V. Weil der Pluseingang dem Ausgang folgt, verschiebt jeder Wechsel die Schwelle für den nächsten.
+Beim __invertierenden Schmitt-Trigger__ (Abbildung 4 rechts) liegt die Eingangsspannung am Minuseingang, und der Teiler führt ein Zehntel der Ausgangsspannung auf den Pluseingang. Wie im vorigen Abschnitt gezeigt, liegt sein Ausgang immer an einer Grenze, bei +14 V oder −14 V. Weil der Pluseingang dem Ausgang folgt, verschiebt jeder Wechsel die Schwelle für den nächsten.
 
 :::frage
 „Warum bleibt ein Schmitt-Trigger beim Einschalten nicht bei 0 V stehen, wenn sein Eingang auf 0 V liegt?“
-Rechnerisch ist das ein Ruhezustand, wie das Skript schreibt (S. 201): $U_D$ ist null. Er ist aber instabil, wie das labile Gleichgewicht der Mechanik. Jede Abweichung wächst mit 1,59 µs Zeitkonstante, und Abweichungen gibt es immer: die Offsetspannung von 1 mV oder, ohne sie, das Rauschen der Widerstände, 12,9 µV bei 10 kΩ und 1 MHz. Daraus werden nach 38 µs 13 V; welche Grenze der Ausgang erreicht, entscheidet das Vorzeichen der ersten Abweichung.
+Rechnerisch ist das ein Ruhezustand: $U_D$ ist null. Er ist aber instabil, wie das labile Gleichgewicht der Mechanik. Jede Abweichung wächst mit 1,59 µs Zeitkonstante, und Abweichungen gibt es immer: die Offsetspannung von 1 mV oder, ohne sie, das Rauschen der Widerstände, 12,9 µV bei 10 kΩ und 1 MHz. Daraus werden nach 38 µs 13 V; welche Grenze der Ausgang erreicht, entscheidet das Vorzeichen der ersten Abweichung.
 :::
 
 **Die Akteure:**
 
-- __$U_{R1,\max}$__, __$U_{R1,\min}$__: obere und untere __Schaltschwelle__, die Eingangsspannungen, bei denen der Ausgang kippt; benannt wie im Skript nach der Spannung an $R_1$ bei den beiden Ausgangsgrenzen; +1,4 V und −1,4 V.
+- __$U_{R1,\max}$__, __$U_{R1,\min}$__: obere und untere __Schaltschwelle__, die Eingangsspannungen, bei denen der Ausgang kippt; benannt nach der Spannung an $R_1$ bei den beiden Ausgangsgrenzen; +1,4 V und −1,4 V.
 
 **Das Zusammenspiel in Schritten:**
 
@@ -641,7 +641,7 @@ $$U_{R1,\min} = k\,U_{A,\min}$$
 Idee der Herleitung: Bei festem Ausgang kippt die Schaltung dort, wo $U_D$ das Vorzeichen wechselt.
 
 :::herleitung
-**Ausgangspunkt:** die Masche über die Eingänge des Schmitt-Triggers: Der Pluseingang liegt auf $k U_A$, der Minuseingang auf $U_E$, also ist $U_D = k U_A - U_E$ (Skript S. 201).
+**Ausgangspunkt:** die Masche über die Eingänge des Schmitt-Triggers: Der Pluseingang liegt auf $k U_A$, der Minuseingang auf $U_E$, also ist $U_D = k U_A - U_E$.
 
 **Annahmen:** (i) Der Ausgang liegt an einer seiner Grenzen (Abschnitt *Warum die Schaltung zur Ruhe kommt*). (ii) Der Teiler ist unbelastet. (iii) $U_E$ ändert sich langsam gegen den Kippvorgang, der einige 10 µs dauert.
 
@@ -667,7 +667,7 @@ $$U_{R1,\min} = k\,U_{A,\min}$$
 
 **Woher die Faktoren kommen:** $k$ stammt aus dem Teiler, die Grenzen stammen aus dem OPV.
 
-**Proben:** Einheit V. Zahlenwert: 0,1 · 14 V = 1,4 V. Grenzfall $k$ = 0: Beide Schwellen liegen bei null, die Schaltung ist ein Komparator ohne Hysterese. Das Skript erhält dieselben Schwellen (S. 202).
+**Proben:** Einheit V. Zahlenwert: 0,1 · 14 V = 1,4 V. Grenzfall $k$ = 0: Beide Schwellen liegen bei null, die Schaltung ist ein Komparator ohne Hysterese.
 
 **Grenzen:** Die Schwellen sind nur so genau wie die Ausgangsgrenzen, die mit Last, Temperatur und Exemplar streuen.
 :::

@@ -106,21 +106,21 @@ Für ±10 mV ergibt die Tangente ±38,7 %, genau sind es +47,2 % und −32,1 %.
 
 :::grafik
 Szene: get1/bipolartransistoren/03-reale-kennlinien · Vorlage: kennlinie-ideal-real
-**Abbildung 3:** Idealisierte und reale Kennlinien nach Skript Bild 11.19 und 11.20, mit den Werten des Beispieltransistors. (a) Eingangskennlinie, $I_B$ über $U_{BE}$: idealisiert senkrecht bei 0,6 V, real exponentiell; die Tangente im Arbeitspunkt (0,673 V; 4 µA) schneidet die Spannungsachse bei 0,647 V und hat die Steigung 1/(6,46 kΩ). (b) Ausgangskennlinien, $I_C$ über $U_{CE}$, für $I_B$ = 2, 4, 6 und 8 µA: idealisiert waagrecht ab 0,2 V, real leicht steigend; nach links verlängert treffen sich die realen Geraden bei −70 V. Im Arbeitspunkt 2 mA und 5 V beträgt die Steigung 1/(37,5 kΩ). Die realen Kennlinien haben endliche Steigungen; ihre Kehrwerte sind der Eingangs- und der Ausgangswiderstand.
+**Abbildung 3:** Idealisierte und reale Kennlinien, mit den Werten des Beispieltransistors. (a) Eingangskennlinie, $I_B$ über $U_{BE}$: idealisiert senkrecht bei 0,6 V, real exponentiell; die Tangente im Arbeitspunkt (0,673 V; 4 µA) schneidet die Spannungsachse bei 0,647 V und hat die Steigung 1/(6,46 kΩ). (b) Ausgangskennlinien, $I_C$ über $U_{CE}$, für $I_B$ = 2, 4, 6 und 8 µA: idealisiert waagrecht ab 0,2 V, real leicht steigend; nach links verlängert treffen sich die realen Geraden bei −70 V. Im Arbeitspunkt 2 mA und 5 V beträgt die Steigung 1/(37,5 kΩ). Die realen Kennlinien haben endliche Steigungen; ihre Kehrwerte sind der Eingangs- und der Ausgangswiderstand.
 :::
 
-Für die Arbeitspunkte im vorigen Artikel genügten idealisierte Kennlinien (Skript, S. 188–189, Bilder 11.19 und 11.20): Die Eingangskennlinie steigt bei 0,6 V senkrecht an, die Ausgangskennlinien verlaufen oberhalb von 0,2 V waagrecht. Senkrecht heißt, dass sich der Basisstrom ohne jede Spannungsänderung ändern könnte; das Skript sagt, der Eingangswiderstand $R_{BE}$ sei null. Waagrecht heißt, dass der Kollektorstrom nicht von $U_{CE}$ abhängt; der Ausgangsleitwert $G_{CE}$ ist null, der Transistor eine ideale Stromquelle. Abbildung 3 zeigt, dass beides nur Näherungen sind.
+Für die Arbeitspunkte im vorigen Artikel genügten idealisierte Kennlinien: Die Eingangskennlinie steigt bei 0,6 V senkrecht an, die Ausgangskennlinien verlaufen oberhalb von 0,2 V waagrecht. Senkrecht heißt, dass sich der Basisstrom ohne jede Spannungsänderung ändern könnte; der Eingangswiderstand ist also null. Waagrecht heißt, dass der Kollektorstrom nicht von $U_{CE}$ abhängt; der Ausgangsleitwert ist null, der Transistor eine ideale Stromquelle. Abbildung 3 zeigt, dass beides nur Näherungen sind.
 
 **Die Akteure:**
 
-- __$r_{BE}$__: __differentieller Eingangswiderstand__, Änderung von $U_{BE}$ je Änderung des Basisstroms bei fester $U_{CE}$, der Kehrwert der Steigung in Abbildung 3a; 6,46 kΩ bei 2 mA, 13,7 kΩ in der Verstärkerstufe. Das Skript schreibt $R_{BE}$.
-- __$r_{CE}$__: __differentieller Ausgangswiderstand__, Änderung von $U_{CE}$ je Änderung des Kollektorstroms bei festem Basisstrom, der Kehrwert der Steigung in Abbildung 3b; 37,5 kΩ bei 2 mA und 5 V. Das Skript schreibt seinen Kehrwert $G_{CE}$, den Ausgangsleitwert.
+- __$r_{BE}$__: __differentieller Eingangswiderstand__, Änderung von $U_{BE}$ je Änderung des Basisstroms bei fester $U_{CE}$, der Kehrwert der Steigung in Abbildung 3a; 6,46 kΩ bei 2 mA, 13,7 kΩ in der Verstärkerstufe.
+- __$r_{CE}$__: __differentieller Ausgangswiderstand__, Änderung von $U_{CE}$ je Änderung des Kollektorstroms bei festem Basisstrom, der Kehrwert der Steigung in Abbildung 3b; 37,5 kΩ bei 2 mA und 5 V. Sein Kehrwert heißt Ausgangsleitwert.
 - __$\beta$__: __Kleinsignal-Stromverstärkung__, Änderung des Kollektorstroms je Änderung des Basisstroms; im Modell gleich $B$, 500 bei 5 V. $B$ ist das Verhältnis der Ruheströme, $\beta$ das der Änderungen.
 - __$U_A$__: __Early-Spannung__, die Spannung, bei der sich die verlängerten Ausgangskennlinien auf der negativen Achse treffen; 70 V beim Beispieltransistor.
 
 **Das Zusammenspiel:** Die Eingangskennlinie ist die Transfergleichung, geteilt durch $B$: Der Basisstrom hängt genauso exponentiell von $U_{BE}$ ab wie der Kollektorstrom, ist aber 500-mal kleiner ([Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html), Abschnitt *Der Basisstrom und die Stromverstärkung*). Seine Änderungen sind deshalb ebenfalls 500-mal kleiner: Dasselbe Millivolt, das in der Stufe den Kollektorstrom um 36,6 µA ändert, ändert den Basisstrom um 73 nA. Für Änderungen wirkt der Eingang wie ein Widerstand von 13,7 kΩ.
 
-Die Ausgangskennlinien steigen wegen des Early-Effekts. Mit wachsender $U_{CE}$ wird die Raumladungszone am gesperrten Kollektor-Basis-Übergang breiter, die neutrale Basis dünner, und durch eine dünnere Basis diffundieren bei gleicher $U_{BE}$ mehr Elektronen. Im Modell ist der Kollektorstrom proportional zur Summe aus $U_A$ und $U_{CE}$; deshalb schneiden alle verlängerten Geraden die Spannungsachse bei $-U_A$ (Abbildung 3b). Mit ihrer Steigung hängt auch das Verhältnis von Kollektor- zu Basisstrom von $U_{CE}$ ab; das meint das Skript mit dem Satz, die Verstärkung sei „abhängig von $U_{CE}$“ (S. 188).
+Die Ausgangskennlinien steigen wegen des Early-Effekts. Mit wachsender $U_{CE}$ wird die Raumladungszone am gesperrten Kollektor-Basis-Übergang breiter, die neutrale Basis dünner, und durch eine dünnere Basis diffundieren bei gleicher $U_{BE}$ mehr Elektronen. Im Modell ist der Kollektorstrom proportional zur Summe aus $U_A$ und $U_{CE}$; deshalb schneiden alle verlängerten Geraden die Spannungsachse bei $-U_A$ (Abbildung 3b). Mit ihrer Steigung hängt auch das Verhältnis von Kollektor- zu Basisstrom von $U_{CE}$ ab.
 
 :::formel Formel
 $$r_{BE} = \frac{\partial U_{BE}}{\partial I_B}\Big|_{U_{CE}\ \mathrm{fest}} = \frac{U_T}{I_B} = \frac{\beta}{g_m}$$
@@ -227,12 +227,12 @@ Das liegt nahe, weil Ersatzschaltbilder sie mit demselben Symbol zeichnen wie ec
 
 :::grafik
 Szene: get1/bipolartransistoren/03-ersatzschaltbilder · Vorlage: schaltung-zustaende
-**Abbildung 4:** Zwei Ersatzschaltbilder des npn-Transistors mit den Werten des Beispieltransistors bei 2 mA und 5 V. (a) Erweitertes Ersatzschaltbild nach Skript Bild 11.21: zwischen Basis und Emitter eine Spannungsquelle 0,647 V in Reihe mit $r_{BE}$ = 6,46 kΩ; zwischen Kollektor und Emitter eine gesteuerte Stromquelle, die das 500-Fache des Basisstroms abzüglich 0,133 mA liefert, parallel dazu $r_{CE}$ = 37,5 kΩ. (b) Kleinsignal-Ersatzschaltbild für die Änderungen: zwischen Basis und Emitter nur $r_{BE}$, zwischen Kollektor und Emitter die Stromquelle $g_m u_{be}$, gleichbedeutend mit $\beta i_b$, und $r_{CE}$. Für Änderungen fallen die festen Quellen weg; übrig bleiben der Eingangswiderstand, die gesteuerte Quelle und der Ausgangswiderstand.
+**Abbildung 4:** Zwei Ersatzschaltbilder des npn-Transistors mit den Werten des Beispieltransistors bei 2 mA und 5 V. (a) Erweitertes Ersatzschaltbild: zwischen Basis und Emitter eine Spannungsquelle 0,647 V in Reihe mit $r_{BE}$ = 6,46 kΩ; zwischen Kollektor und Emitter eine gesteuerte Stromquelle, die das 500-Fache des Basisstroms abzüglich 0,133 mA liefert, parallel dazu $r_{CE}$ = 37,5 kΩ. (b) Kleinsignal-Ersatzschaltbild für die Änderungen: zwischen Basis und Emitter nur $r_{BE}$, zwischen Kollektor und Emitter die Stromquelle $g_m u_{be}$, gleichbedeutend mit $\beta i_b$, und $r_{CE}$. Für Änderungen fallen die festen Quellen weg; übrig bleiben der Eingangswiderstand, die gesteuerte Quelle und der Ausgangswiderstand.
 :::
 
 ### Das erweiterte Ersatzschaltbild
 
-Das Skript fasst die realen Kennlinien im erweiterten Ersatzschaltbild zusammen (S. 189, Bild 11.21), das es Großsignal-Ersatzschaltbild nennt: am Eingang eine Spannungsquelle in Reihe mit $R_{BE}$, am Ausgang eine Stromquelle parallel zu $R_{CE}$. Welche Werte die Quellen haben, sagt es nicht; man wählt sie passend zum Arbeitspunkt. Nimmt man die Tangenten an die Kennlinien im Arbeitspunkt, ergeben sich die Werte in Abbildung 4a.
+Die realen Kennlinien fasst das erweiterte Ersatzschaltbild zusammen, auch Großsignal-Ersatzschaltbild genannt: am Eingang eine Spannungsquelle in Reihe mit $r_{BE}$, am Ausgang eine Stromquelle parallel zu $r_{CE}$. Die Werte der Quellen wählt man passend zum Arbeitspunkt. Nimmt man die Tangenten an die Kennlinien im Arbeitspunkt, ergeben sich die Werte in Abbildung 4a.
 
 **Die Akteure:**
 
@@ -306,7 +306,7 @@ Die Gerade liefert bei 8 µA 646,9 mV plus 6,46 kΩ mal 8 µA, also 698,6 mV; di
 ::::
 
 :::frage
-„Warum heißt das Ersatzschaltbild im Skript Großsignal-Ersatzschaltbild, wenn es mit diesen Werten nur nahe am Arbeitspunkt gilt?“
+„Warum heißt das erweiterte Ersatzschaltbild auch Großsignal-Ersatzschaltbild, wenn es mit diesen Werten nur nahe am Arbeitspunkt gilt?“
 Weil es die Gesamtwerte liefert, die Ruhewerte samt Änderungen, und nicht nur die Änderungen. Mit Tangentenwerten gilt es in einem Bereich um den Arbeitspunkt, beim Beispieltransistor am Eingang zwischen etwa halbem und doppeltem Ruhestrom auf 8 mV, am Ausgang bis 10 V auf gut 6 % genau. Man kann die Werte auch so wählen, dass die Geraden einen größeren Bereich im Mittel am besten treffen, wie bei der Knickkennlinie der Diode; dann verteilt sich der Fehler. Für große Aussteuerung, etwa beim Schalten, ist die Exponentialkennlinie selbst nötig oder das einfachere Modell mit festen 0,6 V aus dem vorigen Artikel.
 :::
 
@@ -318,7 +318,7 @@ Weil es die Gesamtwerte liefert, die Ruhewerte samt Änderungen, und nicht nur d
 
 **Das Zusammenspiel:** Jede Größe ist Ruhewert plus Änderung. Setzt man das in das erweiterte Ersatzschaltbild ein, erfüllen die Ruhewerte die Gleichungen schon für sich allein, und für die Änderungen bleibt eine eigene, lineare Schaltung übrig. Das ist das Überlagerungsprinzip ([Das Superpositionsverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/superpositionsverfahren.html)), angewandt auf Ruhewerte und Änderungen. Eine feste Spannungsquelle wie $U_0$ ändert ihre Spannung nie; für Änderungen wirkt sie wie ein Kurzschluss. Ebenso fällt der feste Abzug der Stromquelle weg. Am Eingang bleibt deshalb nur $r_{BE}$, am Ausgang die Quelle mit dem $\beta$-Fachen der Basisstromänderung und $r_{CE}$ parallel (Abbildung 4b).
 
-Die gesteuerte Quelle lässt sich auf zwei Arten schreiben. Als stromgesteuerte Quelle liefert sie das $\beta$-Fache der Basisstromänderung, wie im Ersatzschaltbild des Skripts. Als spannungsgesteuerte Quelle liefert sie $g_m u_{be}$. Beides ist dasselbe, denn die Basisstromänderung ist $u_{be}/r_{BE}$ und das Produkt $g_m r_{BE}$ ist $\beta$. Physikalisch steuert die Spannung: $U_{BE}$ setzt die Barriere und damit den Kollektorstrom, der Basisstrom ist die Folge ([Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html), Abschnitt *Strom- oder Spannungssteuerung*). Die Stromsicht ist bequem, wenn die Basis über einen großen Widerstand angesteuert wird.
+Die gesteuerte Quelle lässt sich auf zwei Arten schreiben. Als stromgesteuerte Quelle liefert sie das $\beta$-Fache der Basisstromänderung, wie im erweiterten Ersatzschaltbild. Als spannungsgesteuerte Quelle liefert sie $g_m u_{be}$. Beides ist dasselbe, denn die Basisstromänderung ist $u_{be}/r_{BE}$ und das Produkt $g_m r_{BE}$ ist $\beta$. Physikalisch steuert die Spannung: $U_{BE}$ setzt die Barriere und damit den Kollektorstrom, der Basisstrom ist die Folge ([Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html), Abschnitt *Strom- oder Spannungssteuerung*). Die Stromsicht ist bequem, wenn die Basis über einen großen Widerstand angesteuert wird.
 
 Dieselbe Regel gilt für die Schaltung um den Transistor. Die Versorgung liegt fest; für Änderungen ist ihr Anschluss mit Masse verbunden. Ein großer Kondensator ändert seine Spannung während einer Signalperiode kaum, wenn seine Zeitkonstante mit der umgebenden Schaltung lang gegen die Periode ist ([Laden und Entladen des Kondensators](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/laden-und-entladen.html)); für Signale wirkt er wie ein Kurzschluss, für Gleichstrom wie eine Unterbrechung.
 
@@ -765,15 +765,15 @@ $$r_\mathrm{ein} = \frac{1}{g_m + 1/r_{BE}} \approx r_e$$
 
 :::grafik
 Szene: get1/bipolartransistoren/03-stabilisierung · Vorlage: schaltung-und-zeitverlauf
-**Abbildung 8:** (a) Spannungsstabilisierung nach Skript Bild 11.28 mit den Werten des Beispiels: Eingangsspannung 12 V mit ±1 V Brummen, $R_1$ = 1 kΩ von der Eingangsspannung zur Basis, Z-Diode 5,6 V von der Basis nach Masse, Kollektor an der Eingangsspannung, Ausgang am Emitter mit 200 Ω Last. (b) Zwei gestapelte Zeitverläufe: oben die Eingangsspannung zwischen 11 und 13 V; unten die Ausgangsspannung zwischen 4,870 und 4,910 V, dazu gestrichelt die Z-Diode allein mit 330 Ω Vorwiderstand an derselben Last, die zwischen 4,15 und 4,91 V dem Eingang folgt. Der Transistor gibt die Spannung der Z-Diode, um $U_{BE}$ vermindert, an die Last weiter; das Brummen wird 50-mal kleiner.
+**Abbildung 8:** (a) Spannungsstabilisierung mit den Werten des Beispiels: Eingangsspannung 12 V mit ±1 V Brummen, $R_1$ = 1 kΩ von der Eingangsspannung zur Basis, Z-Diode 5,6 V von der Basis nach Masse, Kollektor an der Eingangsspannung, Ausgang am Emitter mit 200 Ω Last. (b) Zwei gestapelte Zeitverläufe: oben die Eingangsspannung zwischen 11 und 13 V; unten die Ausgangsspannung zwischen 4,870 und 4,910 V, dazu gestrichelt die Z-Diode allein mit 330 Ω Vorwiderstand an derselben Last, die zwischen 4,15 und 4,91 V dem Eingang folgt. Der Transistor gibt die Spannung der Z-Diode, um $U_{BE}$ vermindert, an die Last weiter; das Brummen wird 50-mal kleiner.
 :::
 
-Hinter einem Gleichrichter mit Glättungskondensator schwankt die Spannung mit 100 Hz, im Takt der gleichgerichteten Halbwellen; diese Restwelligkeit heißt __Brummen__ ([Gleichrichtung und Ladungspumpe](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/gleichrichtung-und-ladungspumpe.html)). Eine Z-Diode mit Vorwiderstand glättet sie, solange die Last wenig Strom braucht ([Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html), Abschnitt *Die Z-Diode*): Eine 5,6-V-Z-Diode mit 330 Ω an 1 kΩ Last ergab dort den Glättungsfaktor 17,8. An 200 Ω versagt dieselbe Schaltung. Der Vorwiderstand kann den Laststrom nicht mehr liefern, die Z-Diode sperrt, und der Ausgang folgt dem Eingang zwischen 4,15 und 4,91 V. Das Skript zeigt die Lösung (S. 192–193, Bild 11.28): einen Transistor als Emitterfolger zwischen Z-Diode und Last (Abbildung 8).
+Hinter einem Gleichrichter mit Glättungskondensator schwankt die Spannung mit 100 Hz, im Takt der gleichgerichteten Halbwellen; diese Restwelligkeit heißt __Brummen__ ([Gleichrichtung und Ladungspumpe](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/gleichrichtung-und-ladungspumpe.html)). Eine Z-Diode mit Vorwiderstand glättet sie, solange die Last wenig Strom braucht ([Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html), Abschnitt *Die Z-Diode*): Eine 5,6-V-Z-Diode mit 330 Ω an 1 kΩ Last ergab dort den Glättungsfaktor 17,8. An 200 Ω versagt dieselbe Schaltung. Der Vorwiderstand kann den Laststrom nicht mehr liefern, die Z-Diode sperrt, und der Ausgang folgt dem Eingang zwischen 4,15 und 4,91 V. Die Lösung ist ein Transistor als Emitterfolger zwischen Z-Diode und Last (Abbildung 8).
 
 **Die Akteure:**
 
-- __$U_\mathrm{ein}$__: Eingangsspannung, 12 V mit ±1 V Brummen; im Skript $U_E$.
-- __$U_\mathrm{aus}$__: stabilisierte Ausgangsspannung am Emitter; 4,89 V; im Skript $U_A$.
+- __$U_\mathrm{ein}$__: Eingangsspannung, 12 V mit ±1 V Brummen.
+- __$U_\mathrm{aus}$__: stabilisierte Ausgangsspannung am Emitter; 4,89 V.
 - __$R_1$__: Vorwiderstand, der Z-Diode und Basis versorgt; 1 kΩ.
 - __$U_Z$__, __$r_Z$__: Spannung der Z-Diode, 5,6 V bei 5 mA, und ihr differentieller Widerstand, 20 Ω.
 - __$R_L$__: Last; 200 Ω, entsprechend 24,5 mA.
@@ -794,12 +794,12 @@ Hinter einem Gleichrichter mit Glättungskondensator schwankt die Spannung mit 1
 $$U_\mathrm{aus} = U_Z - U_{BE}$$
 :::
 
-**So liest man das:** Die Ausgangsspannung liegt um die Basis-Emitter-Spannung unter der Z-Spannung, hier 5,627 V − 0,737 V = 4,890 V. Das Skript schreibt $U_A = U_Z + U_{BE}$ (S. 193). Nach Bild 11.28 zeigt der Zählpfeil von $U_{BE}$ aber von der Basis zum Emitter, und der Ausgang liegt am Emitter; die Masche ergibt ein Minus. Mit dem Plus wären es 6,36 V. So hoch kann der Emitter eines leitenden npn-Transistors nicht liegen, denn die Basis liegt auf 5,63 V.
+**So liest man das:** Die Ausgangsspannung liegt um die Basis-Emitter-Spannung unter der Z-Spannung, hier 5,627 V − 0,737 V = 4,890 V. Ein häufiger Fehler ist ein Plus statt des Minus. Der Zählpfeil von $U_{BE}$ zeigt aber von der Basis zum Emitter, und der Ausgang liegt am Emitter; die Masche ergibt ein Minus. Mit dem Plus wären es 6,36 V. So hoch kann der Emitter eines leitenden npn-Transistors nicht liegen, denn die Basis liegt auf 5,63 V.
 
 Idee der Herleitung: Maschenregel von Masse über die Z-Diode zur Basis, über die Basis-Emitter-Strecke zum Emitter und über den Ausgang zurück.
 
 :::herleitung
-**Ausgangspunkt:** die Maschenregel und die Zählpfeile aus Skript Bild 11.28: $U_Z$ von der Kathode der Z-Diode (Basisknoten) zur Masse, $U_{BE}$ von der Basis zum Emitter, $U_\mathrm{aus}$ vom Emitter zur Masse.
+**Ausgangspunkt:** die Maschenregel und die Zählpfeile: $U_Z$ von der Kathode der Z-Diode (Basisknoten) zur Masse, $U_{BE}$ von der Basis zum Emitter, $U_\mathrm{aus}$ vom Emitter zur Masse.
 
 **Annahmen:** (i) Die Z-Diode arbeitet im Durchbruch; (ii) der Transistor leitet im aktiven Bereich.
 
@@ -889,7 +889,7 @@ Szene: get1/bipolartransistoren/03-lastkennlinie · Vorlage: kennlinie-parameter
 
 Mehr Laststrom verlangt eine größere Basis-Emitter-Spannung, 60 mV je Zehnfaches des Stroms, und um diesen Betrag sinkt die Ausgangsspannung (Abbildung 9): Zwischen 0,5 und 48,7 mA fällt sie um 0,12 V. Für kleine Laständerungen um 24,5 mA wirkt der Regler wie eine Quelle mit 1,1 Ω Innenwiderstand, nach der Formel des Emitterfolgers $r_e$ plus der kleine Anteil der Basisseite. Die Z-Diode allein hat 18,9 Ω und sperrt oberhalb von 19,7 mA ganz. Der Laststrom ist nur durch den Transistor begrenzt: Bei 100 Ω, 48,7 mA, setzt er bei 13 V Eingang schon 396 mW um, gut 60 % der 625 mW nach onsemi und fast 80 % der 500 mW nach Vishay.
 
-Das Skript nennt als Bedingung, dass die Eingangsspannung über $U_Z$ liegen muss (S. 193). Das ist nötig, reicht aber nicht: Die Z-Diode braucht einen Mindeststrom, damit sie im Durchbruch bleibt, und den muss $R_1$ zusammen mit dem Basisstrom liefern. Für 1 mA Z-Strom bei 200 Ω Last muss die Eingangsspannung deshalb mindestens 6,57 V betragen, fast ein Volt über der Z-Spannung.
+Oft liest man als Bedingung, dass die Eingangsspannung über $U_Z$ liegen muss. Das ist nötig, reicht aber nicht: Die Z-Diode braucht einen Mindeststrom, damit sie im Durchbruch bleibt, und den muss $R_1$ zusammen mit dem Basisstrom liefern. Für 1 mA Z-Strom bei 200 Ω Last muss die Eingangsspannung deshalb mindestens 6,57 V betragen, fast ein Volt über der Z-Spannung.
 
 ## Alles hängt an einem Prinzip
 
@@ -907,7 +907,7 @@ Ein Transistor verstärkt, weil eine kleine Änderung der Basis-Emitter-Spannung
 
 ## Bedeutung und Ausblick
 
-Die Emitterschaltung mit Emitterwiderstand im Signalweg ist die Grundform diskreter Vorverstärker. Im Audioverstärker des Praktikums arbeitet der BC547C so, mit einem kleinen, nicht überbrückten Emitterwiderstand; zwei Emitterfolger aus BC337 und BC327 treiben dort als Gegentaktstufe den Lautsprecher. Längsregler stecken in vielen Netzteilen. Integrierte Festspannungsregler wie die Reihe 78xx enthalten denselben Längstransistor, steuern ihn aber über einen Verstärker, der die Ausgangsspannung mit einer Referenz vergleicht; dadurch wird auch der Abfall von 60 mV je Zehnfaches viel kleiner.
+Die Emitterschaltung mit Emitterwiderstand im Signalweg ist die Grundform diskreter Vorverstärker. In einfachen Audioverstärkern arbeitet etwa ein BC547C so, mit einem kleinen, nicht überbrückten Emitterwiderstand; zwei Emitterfolger, etwa aus BC337 und BC327, treiben dort als Gegentaktstufe den Lautsprecher. Längsregler stecken in vielen Netzteilen. Integrierte Festspannungsregler wie die Reihe 78xx enthalten denselben Längstransistor, steuern ihn aber über einen Verstärker, der die Ausgangsspannung mit einer Referenz vergleicht; dadurch wird auch der Abfall von 60 mV je Zehnfaches viel kleiner.
 
 Die Rechnungen gelten für kleine Signale und niedrige Frequenzen. Bei hohen Frequenzen kommen die Kapazitäten der pn-Übergänge hinzu; der BC547 verstärkt Ströme typisch bis 300 MHz (Transitfrequenz), Spannungsverstärkungen wie hier aber nur bis zu deutlich tieferen Frequenzen. Wie sich mit vielen solchen Stufen und konsequenter Gegenkopplung ein nahezu idealer Verstärker bauen lässt, zeigt [Der Operationsverstärker – idealer OPV und Rückkopplung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/idealer-opv-und-rueckkopplung.html).
 
@@ -939,8 +939,8 @@ F: Warum fallen die festen Quellen im Kleinsignal-Ersatzschaltbild weg?
 A: Eine feste Spannung ändert sich nie; für Änderungen wirkt sie wie ein Kurzschluss. Nach dem Überlagerungsprinzip erfüllen die Ruhewerte ihre Gleichungen für sich, und für die Änderungen bleibt eine lineare Schaltung aus $r_{BE}$, der Quelle $g_m u_{be}$ und $r_{CE}$.
 F: Stimmt es, dass $r_{BE}$ ein Widerstand aus Halbleitermaterial ist?
 A: Nein. $r_{BE}$ ist die Steigung der Eingangskennlinie, ein differentieller Widerstand der Basis-Emitter-Barriere. Er hängt vom Arbeitspunkt ab: 6,46 kΩ bei 2 mA, 13,7 kΩ bei 0,947 mA.
-F: Welche Ausgangsspannung liefert der Längsregler mit der 5,6-V-Z-Diode an 200 Ω bei 12 V, und was ergäbe die Formel des Skripts?
-A: $U_Z - U_{BE}$ ergibt 5,627 V − 0,737 V = 4,890 V. Mit dem Plus des Skripts wären es 6,36 V, mehr als die 5,63 V an der Basis; das ist bei leitendem Transistor unmöglich.
+F: Welche Ausgangsspannung liefert der Längsregler mit der 5,6-V-Z-Diode an 200 Ω bei 12 V, und was ergäbe ein Plus statt des Minus?
+A: $U_Z - U_{BE}$ ergibt 5,627 V − 0,737 V = 4,890 V. Mit einem Plus wären es 6,36 V, mehr als die 5,63 V an der Basis; das ist bei leitendem Transistor unmöglich.
 F: Warum glättet der Längsregler besser als die Z-Diode allein?
 A: Über $R_1$ fließt kein Laststrom mehr, außer dem Z-Strom nur der Basisstrom, 48 µA statt 24,5 mA; deshalb darf $R_1$ 1 kΩ groß sein, und die Z-Spannung ändert sich nur um den Bruchteil $r_Z/(R_1 + r_Z)$ des Brummens. Der Glättungsfaktor ist 50 statt 17,8, und an 200 Ω würde die Z-Diode allein gar nicht mehr stabilisieren.
 :::

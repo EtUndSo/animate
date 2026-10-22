@@ -18,14 +18,15 @@ MUSTER = {
     "Tutorium": r"[Tt]utori",
     "Klausur": r"[Kk]lausur",
     "Folie": r"\bFolie",
-    "Seite": r"\(S\.\s?\d|\bS\.\s?\d+(?:\s?[–-]\s?\d+)?\)|\bSeite\s\d",
-    "Bild-Nr": r"\bBilder?\s\d+\.\d+",
+    "Seite": r"\bS\.\s?\d|\bSeite\s\d",
+    "Bild-Nr": r"\bBild(er)?\s\d+\.\d+|\bAbb\.\s?\d+\.\d+",
     "Tabelle-Nr": r"\bTabelle\s\d+\.\d+",
     "Abschnitt-Nr": r"\bAbschnitt\s\d+(\.\d+)+",
     "Kapitel-Nr": r"\bKap(itel|\.)\s\d+(\.\d+)*",
     "Gleichung-Nr": r"\b(Gl\.|Gleichung)\s\(?\d+\.\d+",
     "Kurs": r"GET-?1|\bMiNa\b|RWTH|Lehrstuhl|Formelsammlung|KGÜ|Hilfsfolie|\bProf\.|Dozent",
     "Modulkürzel": r"\bET\s?[1-4]\b|\bGEMB\b|\bHöMa\b|\bHM\s?[1-4]\b",
+    "Veranstaltung": r"\bKurs(es|e)?\b|Schaltungstechnik\s?\d|\bModul\b",
     "Seitenbezug": r"derselben Seite|Seite später|eine Seite (früher|vorher|davor)",
     "intern": r"Zahlenwerk",
 }
@@ -34,6 +35,8 @@ dateien = [Path(a) for a in sys.argv[1:]] or sorted((REPO / "content").rglob("*.
 n = 0
 for p in dateien:
     for nr, zeile in enumerate(p.read_text(encoding="utf-8").split("\n"), 1):
+        if zeile.startswith(("pfad:", "order:")):                # Gliederung der Website, kein Quellenbezug
+            continue
         for name, rx in MUSTER.items():
             for m in re.finditer(rx, zeile):
                 a, b = max(0, m.start() - 50), min(len(zeile), m.end() + 50)

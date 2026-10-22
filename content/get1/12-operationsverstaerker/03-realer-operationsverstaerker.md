@@ -14,7 +14,7 @@ Die goldenen Regeln setzen einen OPV voraus, der unendlich verstärkt, keinen Ei
 
 **Ein realer OPV ist ein idealer mit kleinen Fehlerquellen: Fehler im Verstärker teilt die Gegenkopplung durch die Schleifenverstärkung, Fehler an den Eingängen verstärkt sie wie ein Signal; weil die Schleifenverstärkung mit der Frequenz fällt, wirkt die Gegenkopplung nur bis zu einer Grenzfrequenz, und große Signale begrenzen zusätzlich Aussteuerbereich und Anstiegsgeschwindigkeit.**
 
-Vorausgesetzt werden Rückkopplungsfaktor und Schleifenverstärkung aus [Der Operationsverstärker – idealer OPV und Rückkopplung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/idealer-opv-und-rueckkopplung.html) und die Schaltungen aus [Die OPV-Grundschaltungen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/opv-grundschaltungen.html). Das Skript behandelt den realen OPV in Abschnitt 12.7 (S. 212); Ruheströme, Bandbreite und Anstiegsgeschwindigkeit sind nach dem Datenblatt ergänzt.
+Vorausgesetzt werden Rückkopplungsfaktor und Schleifenverstärkung aus [Der Operationsverstärker – idealer OPV und Rückkopplung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/idealer-opv-und-rueckkopplung.html) und die Schaltungen aus [Die OPV-Grundschaltungen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/opv-grundschaltungen.html).
 
 :::grafik
 Szene: get1/operationsverstaerker/03-ersatzschaltbild · Vorlage: schaltplan
@@ -25,7 +25,7 @@ Szene: get1/operationsverstaerker/03-ersatzschaltbild · Vorlage: schaltplan
 
 *Worin weicht ein realer OPV vom idealen ab, und warum wirken die Abweichungen so verschieden?*
 
-Das Skript schlägt vor, reale Einflüsse wie die endliche Verstärkung zum idealen OPV hinzuzufügen (S. 198); in der Praxis hängt man jede Abweichung als kleine Quelle oder als Widerstand an, wie in Abbildung 1. Die Offsetspannung ist eine kleine Fehlspannung zwischen den Eingängen, der Ruhestrom fließt ständig in jeden Eingang, der Offsetstrom ist der Unterschied der beiden, und die Gleichtaktunterdrückung sagt, wie schwach eine gemeinsame Spannung beider Eingänge wirkt. Die Werte stammen aus den Datenblättern des LM741 und, für Ausgangswiderstand und Transitfrequenz, des µA741:
+Reale Einflüsse wie die endliche Verstärkung fügt man dem idealen OPV hinzu; in der Praxis hängt man jede Abweichung als kleine Quelle oder als Widerstand an, wie in Abbildung 1. Die Offsetspannung ist eine kleine Fehlspannung zwischen den Eingängen, der Ruhestrom fließt ständig in jeden Eingang, der Offsetstrom ist der Unterschied der beiden, und die Gleichtaktunterdrückung sagt, wie schwach eine gemeinsame Spannung beider Eingänge wirkt. Die Werte stammen aus den Datenblättern des LM741 und, für Ausgangswiderstand und Transitfrequenz, des µA741:
 
 | Eigen­schaft | idealer OPV | Beispiel-OPV: typisch; garantiert |
 |---|---|---|
@@ -40,7 +40,7 @@ Das Skript schlägt vor, reale Einflüsse wie die endliche Verstärkung zum idea
 
 Entscheidend ist, wo eine Abweichung sitzt. Die endliche Leerlaufverstärkung und der Ausgangswiderstand wirken im Verstärker selbst: Sie verschieben den Ausgang, die Rückführung meldet die Verschiebung an den Minuseingang, und der OPV regelt sie bis auf einen kleinen Rest aus. Offsetspannung, Ruheströme und Gleichtakteinfluss wirken dagegen an den Eingängen wie eine zusätzliche Eingangsspannung. Die kann der OPV vom Signal nicht unterscheiden, und er verstärkt sie mit. Die goldenen Regeln gelten deshalb weiter, solange die Schleifenverstärkung groß ist und kein Signal an eine Grenze stößt; die Abweichungen rechnet man einzeln aus und überlagert sie.
 
-Dazu kommen Grenzen großer Signale. Zwischen dem Ausgang und jeder Versorgung liegen Transistoren der Ausgangsstufe, an denen Spannung abfällt (Skript S. 199): Der Ausgang bleibt an ±15 V typisch bei ±14 V, mit 2 kΩ Last bei ±13 V, und mehr als seinen Kurzschlussstrom von typisch 25 mA liefert er nicht. Die Eingänge müssen zwischen −12 V und +12 V bleiben, typisch reicht es bis ±13 V; sonst arbeitet die Eingangsstufe nicht mehr richtig.
+Dazu kommen Grenzen großer Signale. Zwischen dem Ausgang und jeder Versorgung liegen Transistoren der Ausgangsstufe, an denen Spannung abfällt: Der Ausgang bleibt an ±15 V typisch bei ±14 V, mit 2 kΩ Last bei ±13 V, und mehr als seinen Kurzschlussstrom von typisch 25 mA liefert er nicht. Die Eingänge müssen zwischen −12 V und +12 V bleiben, typisch reicht es bis ±13 V; sonst arbeitet die Eingangsstufe nicht mehr richtig.
 
 ## Endliche Leerlaufverstärkung
 
@@ -141,11 +141,11 @@ Szene: get1/operationsverstaerker/03-offset · Vorlage: schaltung-und-kennlinie
 
 **Die Akteure:**
 
-- __$U_{os}$__: __Offsetspannung__, die Differenzspannung, die man zwischen die Eingänge legen muss, damit der Ausgang null wird (Skript S. 212); beim Beispiel-OPV typisch 1 mV, höchstens 5 mV, mit zufälligem Vorzeichen. Im Ersatzschaltbild ist sie eine Spannungsquelle vor dem Pluseingang; die außen angelegte Spannung, die den Ausgang auf null bringt, ist gleich groß und hebt sie gerade auf.
+- __$U_{os}$__: __Offsetspannung__, die Differenzspannung, die man zwischen die Eingänge legen muss, damit der Ausgang null wird; beim Beispiel-OPV typisch 1 mV, höchstens 5 mV, mit zufälligem Vorzeichen. Im Ersatzschaltbild ist sie eine Spannungsquelle vor dem Pluseingang; die außen angelegte Spannung, die den Ausgang auf null bringt, ist gleich groß und hebt sie gerade auf.
 - __$1/k$__: __Rauschverstärkung__ (englisch noise gain), der Faktor, mit dem eine Spannung am Pluseingang am Ausgang erscheint, gleich $1 + R_2/R_1$, mit 10 kΩ und 20 kΩ also 3; auch das Eigenrauschen des OPV wird mit ihr verstärkt.
 - __$U_{A,os}$__: der Anteil der Ausgangsspannung, den die Offsetspannung verursacht.
 
-**Das Zusammenspiel:** Die beiden Hälften der Eingangsstufe sind nie genau gleich; das Skript spricht von „Mismatching“. Haben die Eingangstransistoren um 4 % verschiedene Sättigungsströme $I_S$, braucht der eine nach der Transfergleichung ([Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html)) für denselben Strom 1,01 mV mehr Basis-Emitter-Spannung (Abbildung 2a).
+**Das Zusammenspiel:** Die beiden Hälften der Eingangsstufe sind nie genau gleich; üblich ist dafür auch der englische Ausdruck Mismatch. Haben die Eingangstransistoren um 4 % verschiedene Sättigungsströme $I_S$, braucht der eine nach der Transfergleichung ([Der Bipolartransistor – Aufbau und Wirkungsweise](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/bipolartransistoren/aufbau-und-wirkungsweise.html)) für denselben Strom 1,01 mV mehr Basis-Emitter-Spannung (Abbildung 2a).
 
 **Das Zusammenspiel in Schritten** (invertierender Verstärker mit $R_1$ = 10 kΩ und $R_2$ = 20 kΩ, Eingang auf 0 V gelegt, Abbildung 2b):
 
@@ -223,7 +223,7 @@ $$\frac{1\ \mathrm{mV}}{40{,}96\ \mu\mathrm{V/K}} = 24{,}4\ \mathrm{K}$$
 
 :::frage
 „Warum ändert sich die Offsetspannung mit der Temperatur?“
-Ein Offset aus ungleichen Sättigungsströmen ist die Temperaturspannung $U_T$ mal dem Logarithmus des Stromverhältnisses. Das Verhältnis hängt nicht von der Temperatur ab, $U_T$ aber wächst proportional zur absoluten Temperatur; 1 mV bei 300 K wächst deshalb um 3,3 µV/K. Beim Thermoelement-Verstärker verschiebt das die Anzeige um 0,8 K je 10 K Erwärmung der Elektronik. Dazu hängt der Offset von der Versorgungsspannung ab und ändert sich langsam über die Lebensdauer (Skript S. 212).
+Ein Offset aus ungleichen Sättigungsströmen ist die Temperaturspannung $U_T$ mal dem Logarithmus des Stromverhältnisses. Das Verhältnis hängt nicht von der Temperatur ab, $U_T$ aber wächst proportional zur absoluten Temperatur; 1 mV bei 300 K wächst deshalb um 3,3 µV/K. Beim Thermoelement-Verstärker verschiebt das die Anzeige um 0,8 K je 10 K Erwärmung der Elektronik. Dazu hängt der Offset von der Versorgungsspannung ab und ändert sich langsam über die Lebensdauer.
 :::
 
 :::frage
@@ -323,7 +323,7 @@ $$\mathrm{CMRR} = \left|\frac{v_D}{v_{Gl}}\right|$$
 $$\mathrm{CMRR}_\mathrm{dB} = 20\,\lg\left|\frac{v_D}{v_{Gl}}\right|$$
 :::
 
-Das Verhältnis gibt an, wie viel schwächer eine Gleichtaktspannung wirkt als eine gleich große Differenzspannung; in Dezibel rechnet man mit 20 lg wie beim Signal-Rausch-Verhältnis. Das Skript nennt für die Praxis 60 dB bis 120 dB mit b = 10⁻³ bzw. 10⁻⁴ (S. 212); gemeint ist offenbar der Kehrwert $|v_{Gl}/v_D|$, und zu 120 dB gehört 10⁻⁶. Mit der „Instabilität der Eingangsspannung im Gleichtaktbetrieb“ meint es eine Spannung, die an beiden Eingängen gleich anliegt.
+Das Verhältnis gibt an, wie viel schwächer eine Gleichtaktspannung wirkt als eine gleich große Differenzspannung; in Dezibel rechnet man mit 20 lg wie beim Signal-Rausch-Verhältnis. Praktische Werte liegen zwischen 60 dB und 120 dB, der Kehrwert $|v_{Gl}/v_D|$ also zwischen 10⁻³ und 10⁻⁶.
 
 **Das Zusammenspiel:** Am Ausgang addieren sich die verstärkte Differenz- und die verstärkte Gleichtaktspannung. Ob das zählt, hängt davon ab, wo die Eingänge liegen (Abbildung 4): Beim invertierenden Verstärker liegen beide auf 0 V. Beim Spannungsfolger und beim nichtinvertierenden Verstärker laufen sie mit dem Signal mit; 10 V am Folger wirken beim Beispiel-OPV wie 0,18 mV Differenz.
 
@@ -363,7 +363,7 @@ $$U_A = v_D\,\Big(U_D \pm \frac{U_{Gl}}{\mathrm{CMRR}}\Big)$$
 **Grenzen:** Die Unterdrückung nimmt mit der Frequenz ab; die Datenblattwerte gelten für Gleichspannung und tiefe Frequenzen.
 :::
 
-Ähnlich wirkt eine Änderung der Versorgungsspannung, die laut Skript die Offsetspannung verschiebt (S. 212): beim Beispiel-OPV um 16 µV je Volt, die __Betriebsspannungsunterdrückung__ von 96 dB.
+Ähnlich wirkt eine Änderung der Versorgungsspannung, die die Offsetspannung verschiebt: beim Beispiel-OPV um 16 µV je Volt, die __Betriebsspannungsunterdrückung__ von 96 dB.
 
 ## Frequenzgang und Verstärkungs-Bandbreite-Produkt
 
@@ -589,7 +589,7 @@ Ein realer OPV ist ein idealer mit kleinen Fehlerquellen: Fehler im Verstärker 
 
 ## Bedeutung und Ausblick
 
-Welcher Fehler zählt, bestimmt die Wahl des OPV: für kleine Gleichspannungen Präzisions-OPVs mit Offsetspannungen im Mikrovoltbereich oder OPVs mit Feldeffekttransistoren am Eingang, für große und schnelle Signale hohe Transitfrequenz und Anstiegsgeschwindigkeit. Gerechnet wird mit den garantierten Datenblattwerten; die genauere Behandlung der Offsetspannung folgt laut Skript in Schaltungstechnik 1 und 2 (S. 212).
+Welcher Fehler zählt, bestimmt die Wahl des OPV: für kleine Gleichspannungen Präzisions-OPVs mit Offsetspannungen im Mikrovoltbereich oder OPVs mit Feldeffekttransistoren am Eingang, für große und schnelle Signale hohe Transitfrequenz und Anstiegsgeschwindigkeit. Gerechnet wird mit den garantierten Datenblattwerten; die genauere Behandlung der Offsetspannung geht über den Rahmen dieses Artikels hinaus.
 
 **In der ausführlichen Fassung:** alle Datenblattwerte, die zwei Arten von Fehlern im Bild und im Vergleich mit einem Thermostat, Ein- und Ausgangswiderstand unter Gegenkopplung, die Ausgangsstufe, der Ausgleichswiderstand Schritt für Schritt, die Herkunft der endlichen Gleichtaktunterdrückung, die Betriebsspannungsunterdrückung und das Überschwingen des Spannungsfolgers. [Zur ausführlichen Fassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/realer-operationsverstaerker-ausfuehrlich.html)
 
