@@ -458,6 +458,28 @@ $$U_\mathrm{Diff} = U_T \ln\frac{n_{n0}}{n_{p0}} = 25{,}85\ \mathrm{mV}\cdot\ln(
 
 (Zusammenhänge stehen auch hier auf eigener Zeile, Bauplan §2; im Fließtext stehen nur Zahlen und kurze Angaben wie $U = 0{,}6\ \mathrm{V}$.)
 
+### 5.10 Abstrakte Ausdrücke erst anschaulich, dann formal
+Entscheidung des Users vom 22.10.2026: Jeder abstrakte Ausdruck wird zuerst so anschaulich und einfach wie möglich erklärt; erst danach wird er formal eingeführt und benutzt. Abstrakt heißt hier: ein Symbol, das für eine Operation, eine Zuordnung oder ein allgemeines Objekt steht und sich beim ersten Lesen nicht vorstellen lässt.
+
+**Reihenfolge beim ersten Auftreten, in beiden Fassungen:**
+1. **Ein einfacher, konkreter Fall:** Was der Ausdruck tut, zeigt ein Beispiel mit Zahlen oder einem vertrauten Vorgang, noch ohne die allgemeine Schreibweise.
+2. **Die Bedeutung in Worten:** ein Satz, was der Ausdruck allgemein ist, ohne neue Fachwörter.
+3. **Die formale Schreibweise** mit allen Symbolen (Akteure, §5.9); ab hier wird sie benutzt.
+4. **Eigenschaften und Sätze** erst danach, jeweils an den einfachen Fällen aus Schritt 1 geprüft.
+
+**Beispiel (ET3, Signale und Systeme):** In $g(t) = \mathrm{Tr}(s(t))$ wirkt $\mathrm{Tr}(\cdot)$ zunächst leer; man kann sich nicht vorstellen, was gemeint ist.
+- *Erst:* Ein System verändert sein Eingangssignal auf irgendeine Weise. Es multipliziert es etwa mit 3, dann wird aus $s(t) = \sin t$ das Signal $3\sin t$; oder es addiert 5, dann wird aus $s(t)$ das Signal $s(t) + 5$.
+- *Dann:* $\mathrm{Tr}(\cdot)$ ist nichts anderes als der Name für diese Veränderung, die das System am Eingangssignal vornimmt, und $g(t)$ ist das veränderte Signal.
+- *Danach:* Eigenschaften wie Linearität und Zeitinvarianz als Eigenschaften von $\mathrm{Tr}$, an denselben Beispielen geprüft: „mal 3“ ist linear, „plus 5“ nicht, weil die 5 bei einer Summe zweier Signale nur einmal statt zweimal hinzukommt.
+
+**Gilt entsprechend für:**
+- Operatoren und Transformationen: $\nabla$, div, rot, Fourier- und Laplace-Transformation, Faltung, Erwartungswert, Normen;
+- Abbildungen und Mengen: $f: D \to \mathbb{R}$, Kurven, Wahrscheinlichkeitsmaße, Zufallsvariablen;
+- Matrizen und Vektoren als Ganzes, etwa $A\vec x = \vec b$;
+- Kurzschreibweisen der Elektrotechnik, etwa Zeiger, Übertragungsfunktion, Rückkopplungsfaktor.
+
+Ein konkreter Fall ersetzt keine Definition; er geht ihr voraus, damit die Definition etwas beschreibt, das die Leserin schon vor Augen hat.
+
 ## 6. Vorgaben für Herleitungen
 
 Herleitungen stehen weiterhin **im eigenen, ausklappbaren Kasten** `:::herleitung` … `:::`. Ihre Länge belastet den Hauptpfad nicht, aber auch im Kasten steht kein überflüssiger Satz. Die kompakte Fassung übernimmt die Kästen ihrer Kernformeln unverändert aus der ausführlichen; nur ein „Zweiter Weg“, der auf Abschnitte allein der ausführlichen Fassung verweist, entfällt dort. Deshalb stützt sich der erste Weg jedes übernommenen Kastens nur auf Inhalte, die auch die kompakte Fassung erklärt.
@@ -717,6 +739,7 @@ Das Ergebnis kommt in die Zeile in `REVIEW_OPUS55.md`.
 1. **Neuling-Test.** Lies die Fassung als Person, die über das Thema nichts weiß.
    - Markiere jeden Begriff, jedes Symbol und jede Tatsache, die benutzt wird, bevor sie erklärt ist.
    - Markiere jeden Schritt ohne Grund.
+   - Markiere jeden abstrakten Ausdruck (Operator, Abbildung, allgemeines Symbol), der formal dasteht, bevor ein einfacher, konkreter Fall gezeigt hat, was er tut (§5.10).
    - Beantworte jede Frage des Fragenkatalogs, die zur Fassung gehört, aus ihrem Hauptpfad und notiere den Abschnitt.
    - Ergänze, wo nötig.
 2. **Umfang-Test.** Der Hauptpfad liegt in der Spanne aus der Arbeitsnotiz (`tools/artikel_kennzahlen.py`). Liegt er darüber, gilt §3.3.
@@ -762,7 +785,7 @@ Das Ergebnis kommt in die Zeile in `REVIEW_OPUS55.md`.
 
 ## 12. Kalibrierung: schwach gegen gut
 
-Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.2026, (f) und (g) aus den Rückmeldungen des Users zum Lernskript.
+Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.2026, (f) und (g) aus den Rückmeldungen des Users zum Lernskript, (i) aus einer Vorgabe des Users vom 22.10.2026.
 
 **(a) Mechanismus**
 - *Schwach:* „In Sperrrichtung steigt die Barriere, die Diffusion versiegt, es bleibt nur ein winziger, spannungsunabhängiger Sättigungsstrom.“ Das Quiz fragt dann „Warum spannungsunabhängig?“, der Text sagt es nicht.
@@ -830,11 +853,16 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
   - **Frage:** „Warum rekombinieren nicht einfach alle Elektronen mit allen Löchern?“
   - **Antwort:** Sie rekombinieren ständig, aber die Wärmebewegung erzeugt im selben Takt neue Paare. Die Rekombinationsrate wächst mit dem Produkt n·p, denn ein Elektron muss ein Loch treffen. Die Erzeugungsrate hängt nur von der Temperatur ab. Im Gleichgewicht sind beide gleich, und genau das legt n·p = n_i² fest. Im n-Gebiet der Beispieldiode lebt ein Loch im Mittel etwa 1 µs; pro Sekunde und Kubikzentimeter entstehen und verschwinden dort 10¹⁰ Paare.
 
+**(i) Abstrakter Ausdruck**
+- *Schwach:* „Ein System ist eine Abbildung $\mathrm{Tr}$, die jedem Eingangssignal $s(t)$ ein Ausgangssignal $g(t) = \mathrm{Tr}(s(t))$ zuordnet. Es heißt linear, wenn $\mathrm{Tr}(a s_1 + b s_2) = a\,\mathrm{Tr}(s_1) + b\,\mathrm{Tr}(s_2)$ gilt.“ Der Ausdruck steht da, bevor man weiß, wofür er steht.
+- *Gut:* Erst zwei einfache Systeme: Eines verdreifacht das Eingangssignal, aus $\sin t$ wird $3\sin t$; eines addiert 5. Dann der Satz, dass $\mathrm{Tr}$ nur der Name für diese Veränderung durch das System ist. Dann die Schreibweise $g(t) = \mathrm{Tr}(s(t))$ und die Linearität, an beiden Systemen geprüft: Beim Verdreifachen gilt sie, beim Addieren von 5 nicht, denn für die Summe zweier Signale käme die 5 nur einmal hinzu, in der Summe der Einzelergebnisse aber zweimal.
+
 ## 13. Was sich gegenüber den bisherigen Artikeln ändert (Kurzfassung)
 
 - **Zwei Fassungen pro Thema:** kompakt und ausführlich, umschaltbar. Die ausführliche ist etwas kompakter als das Lernskript, die kompakte etwa halb so lang wie die ausführliche.
 - **Aussortieren nach K/H/V/S;** keine Doppelungen; Länge nach Schwierigkeit.
 - **Erklären von null an:** jeder Begriff beim ersten Auftreten erklärt, Fließtext statt Aufzählung.
+- **Abstrakte Ausdrücke erst anschaulich:** ein einfacher, konkreter Fall, dann die Bedeutung in Worten, dann die formale Schreibweise (§5.10).
 - **Sachlicher Ton** statt Leitbild-Erzählung; Analogien knapp im Kasten, mit Grenzen.
 - **„Worum es geht“** als kurzer Sachabschnitt nach dem Inhaltsverzeichnis, mit Einstiegsabbildung.
 - **Akteure** vor jeder Kernformel und jedem Mechanismus, danach „Das Zusammenspiel“.
