@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §19);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §27);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -1797,3 +1797,180 @@ Zahlenwerk: `notizen/get1/zahlen_grundprinzipien.py`, Bericht `bericht()`; Konst
 - §10 Teilbilder.
 
 *Animation:* Ein Koffer wandert die Treppe hinauf; ein Zähler addiert Arbeit nur auf den senkrechten Stücken und erreicht 588,6 J. Gleichzeitig fährt ein zweiter Koffer die Rampe hinauf; sein Zähler wächst gleichmäßig und endet ebenfalls bei 588,6 J.
+
+---
+
+## ST1 Einführung: Von der Röhre zum integrierten Schaltkreis
+Zahlenwerk: `notizen/st1/zahlen_einfuehrung.py` (Ausgabe `.txt`), Abschnitte A bis H; Datenblattwerte ECC83, Transistorzahlen nach Herstellerangaben (Intel).
+
+**st1/einfuehrung/01-drei-ventile**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Oben eine Zeitachse von 1900 bis 2010 mit drei Epochenbalken: Röhre (1906 bis etwa 1960), diskreter Transistor (ab 1947), integrierte Schaltung (ab 1958/59). Marken mit kurzem Text: 1906 Lieben-Patent, 1910 Gittersteuerung, 1913 Hochvakuum und Rückkopplung, 1947 Spitzentransistor, 1948 Flächentransistor, 1958/59 integrierte Schaltung, 1959/60 MOSFET, 1963 CMOS, 1971 Mikroprozessor, 2006 Core 2 Duo (291 Mio. Transistoren). Darunter drei Schaltbilder gleicher Bauart, je mit Arbeitswiderstand an der Versorgung $U_B$:
+- (a) Triode mit Heizfaden, Kathode K, Gitter G, Anode A, Arbeitswiderstand $R_a$;
+- (b) npn-Bipolartransistor mit Basis B, Kollektor C, Emitter E, Widerstand $R_C$;
+- (c) n-Kanal-MOSFET mit Gate G, Drain D, Source S, Widerstand $R_D$.
+
+Steuergröße ($U_g$, $U_{BE}$, $U_{GS}$) als blauer Spannungspfeil, gesteuerter Strom ($I_a$, $I_C$, $I_D$) als orangefarbener Strompfeil. Unter jedem Bild die Steuerart („Feld, kein Gleichstrom“, „Spannung, Basisstrom etwa $I_C$/500“, „Feld, kein Gleichstrom“) und die typische Größe („Glaskolben einige cm“, „Gehäuse einige mm“, „Knoten 65 nm, Gatelänge 35 nm, 2006“).
+
+*Kernaussage:* In allen drei Generationen steuert eine kleine Größe am Steueranschluss einen großen Strom aus der Versorgung; geändert haben sich Größe, Leistungsbedarf und Herstellung.
+
+*Daten:* schematisch; Jahreszahlen aus der Arbeitsnotiz `notizen/st1/notiz_geschichte-der-schaltungstechnik.md`, Basisstromanteil aus Zahlenwerk E.
+
+*Editor:*
+- §1 und §24 Schaltsymbole (Triode und MOSFET neu);
+- §26 Zeitleisten (neu);
+- §10 Teilbilder; §2 Pfeile mit Text.
+
+*Animation:* Eine Marke läuft über die Zeitachse; das jeweils aktuelle Ventil hebt sich hervor, die Größenangabe schrumpft mit.
+
+**st1/einfuehrung/01-triode-aufbau**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* (a) Schnitt durch eine Triode, schematisch: links das Kathodenröhrchen mit Heizfaden (orange glühend), davor eine dichte Wolke von Elektronen (blaue Punkte, Dichte nach rechts abnehmend), dicht davor die Gitterdrähte als kleine Kreise im Schnitt, rechts die Anode; einzelne Elektronenbahnen zwischen den Gitterdrähten hindurch zur Anode. (b) Darunter der Potentialverlauf von der Kathode ($x = 0$) zur Anode, schematisch, für $U_a$ = 250 V und die Gitterspannungen −2 V und −1 V: flaches Potentialminimum knapp unter null direkt vor der Kathode, von der Raumladung selbst erzeugt, Absenkung in der Gitterebene, dann Anstieg bis 250 V an der Anode; die Kurve für −1 V liegt im Bereich vor der Kathode höher. Potentialachse mit Bruch zwischen wenigen Volt und 250 V. Zusatz „schematisch“: Abstände und die Tiefe der Mulde überzeichnet.
+
+*Kernaussage:* Das Gitter steuert das Potential vor der Kathode und damit den Anodenstrom; weil es negativ ist, landet kein Elektron auf ihm.
+
+*Daten:* schematisch; Arbeitspunkt aus Zahlenwerk A.
+
+*Editor:*
+- §27 Querschnitte (neu, hier für eine Röhre);
+- §14 Teilchenwolken;
+- §4 Kurven, §17 Achsenbruch;
+- §10 Teilbilder.
+
+*Animation:* Schieberegler für die Gitterspannung (§15) von −3,1 V bis 0 V: Die Mulde wird flacher, mehr Elektronen fliegen zur Anode, ein Zähler zeigt $I_a$ nach dem Kennlinienmodell aus Zahlenwerk A (0 bis 5,6 mA).
+
+**st1/einfuehrung/01-triodenkennlinien**
+- Fassung: ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Diagramm $I_a$ in mA (0 bis 6) über $U_g$ in V (−4 bis 0). Drei Kurven für $U_a$ = 150, 200 und 250 V aus dem Kennlinienmodell $I_a = K\,(U_g + D\,U_a + U_0)^{3/2}$ mit $K$ = 1,00566 mA/V^1,5, $D$ = 0,01, $U_0$ = 0,625 V; Stützwerte in 0,5-V-Schritten (250 V: 0; 0; 0,044; 0,497; 1,200; 2,083; 3,115; 4,277; 5,556 mA), Sperrpunkte bei −2,125, −2,625 und −3,125 V. Markiert: Arbeitspunkt (−2 V; 1,2 mA) auf der 250-V-Kurve mit Tangente der Steigung 1,6 mA/V; Punkt (−1 V; 1,2 mA) auf der 150-V-Kurve; waagrechter Doppelpfeil zwischen beiden: „100 V weniger an der Anode = 1 V mehr am Gitter“. Kurven direkt beschriftet.
+
+*Kernaussage:* Ein Volt am Gitter wirkt wie hundert Volt an der Anode; die Kennlinien sind verschobene Kopien derselben Kurve.
+
+*Daten:* Zahlenwerk A, Funktion `ia(ug, ua)`.
+
+*Editor:*
+- §4 Kennlinienscharen und Tangente;
+- §11 Datenkurven.
+
+*Animation:* Schieberegler für $U_a$ (100 bis 300 V): Die Kurve gleitet seitlich, je 50 V um 0,5 V.
+
+**st1/einfuehrung/01-rueckkopplung**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* (a) Signalflussbild: $u_1$ → Summierstelle (+) → Verstärker $v_u$ (Dreieck) → $u_2$; Rückführung $k$ von $u_2$ zurück zur Summierstelle; Beschriftung „Schleifenverstärkung $k v_u$“. (b) Graph $A/v_u$ über $k v_u$ von −2 bis 1, Kurve $1/(1 - k v_u)$: Werte 0,33 bei −2, 0,5 bei −1, 1 bei 0, 2 bei 0,5, 10 bei 0,9; senkrechte Asymptote bei 1; y-Achse 0 bis 12; links „Gegenkopplung“ (blau hinterlegt), rechts „Mitkopplung“ (orange hinterlegt). (c) Meißner-Schaltung: Triode, Parallelschwingkreis aus Spule und Kondensator zwischen Anode und $+U_B$, magnetisch gekoppelte Koppelspule zwischen Gitter und Kathode, Wicklungspunkte so gesetzt, dass die Rückführung das Vorzeichen umkehrt.
+
+*Kernaussage:* Bei der Schleifenverstärkung 1 entsteht eine Ausgangsspannung ohne Eingangsspannung, die Anordnung schwingt; Gegenkopplung macht die Verstärkung kleiner.
+
+*Daten:* Zahlenwerk B.
+
+*Editor:*
+- §19 Blockbilder (Summierstelle, Signalfluss);
+- §4 Funktionsgraph mit Asymptote und hinterlegten Bereichen;
+- §1 und §24 Schaltsymbole (Triode, gekoppelte Spulen mit Wicklungspunkten);
+- §10 Teilbilder.
+
+*Animation:* Schieberegler für $k v_u$: Der Punkt auf dem Graphen wandert; bei Werten knapp über 1 läuft im Zeitverlauf (§5) eine Schwingung aus Rauschen an und begrenzt sich.
+
+**st1/einfuehrung/01-ueberlagerung**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* (a) Blockbild: Antenne → Vorfilter (Bandpass 87,5 bis 108 MHz) → Mischer (Kreis mit Kreuz), in den der Lokaloszillator (Kreis mit Sinus, Pfeil „abstimmbar“) einspeist → Zwischenfrequenzfilter 10,7 MHz → Zwischenfrequenzverstärker → Demodulator → Lautsprecher. (b) Spektrum auf einer Frequenzachse von 0 bis 220 MHz: UKW-Band 87,5 bis 108 MHz grau hinterlegt; Linien beim Sender 100 MHz (blau), beim Oszillator 110,7 MHz (orange), bei den Mischprodukten 10,7 MHz (grün, „Zwischenfrequenz“) und 210,7 MHz (grau, „Summe, ausgefiltert“); Spiegelfrequenz 121,4 MHz rot gestrichelt; Doppelpfeile „10,7 MHz“ zwischen 100 und 110,7 sowie zwischen 110,7 und 121,4 MHz. Lupe um 10,7 MHz mit der Durchlasskurve des Zwischenfrequenzfilters, 200 kHz breit.
+
+*Kernaussage:* Das Mischen schiebt den gewünschten Sender auf die feste Zwischenfrequenz; abgestimmt wird nur der Oszillator, und der Spiegel liegt außerhalb des Bandes.
+
+*Daten:* Zahlenwerk C.
+
+*Editor:*
+- §19 Blockbilder; §24 Funkblock-Symbole (neu);
+- §25 Spektren (neu);
+- §22 Ausschnittvergrößerung.
+
+*Animation:* Schieberegler für die Senderfrequenz von 87,5 bis 108 MHz: Der Oszillator folgt im Abstand von 10,7 MHz, die Zwischenfrequenzlinie bleibt stehen, der Spiegel wandert zwischen 108,9 und 129,4 MHz, immer außerhalb des grauen Bandes.
+
+**st1/einfuehrung/01-planartechnik**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Oben fünf kleine Querschnitte nebeneinander: (a) Siliziumscheibe mit Oxidschicht (hellgrau) oben; (b) Fotolack (gelb), darüber die Maske (schwarz mit Öffnung) und Lichtpfeile; (c) Fenster im Oxid geätzt, Lack entfernt; (d) Dotierstoff dringt durch das Fenster ein, dotiertes Gebiet farbig (n blau, p rot), seitlich unter das Oxid etwas verbreitert; (e) Aluminium (dunkelgrau) aufgedampft und zu einer Bahn geätzt. Unten breit der fertige Querschnitt: n-Kollektorgebiet, darin p-Basis und n⁺-Emitter (npn-Transistor), daneben ein p-Widerstandsstreifen; Oxid mit Kontaktfenstern; eine Aluminiumbahn auf dem Oxid verbindet den Emitter mit dem Widerstand. Zusatz „schematisch, nicht maßstäblich“.
+
+*Kernaussage:* Alle Bauelemente und ihre Verbindungen entstehen in denselben Schritten auf derselben Scheibe.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §27 Technologie-Querschnitte (neu);
+- §10 Teilbilder; §7 Labels.
+
+*Animation:* Die Schritte laufen nacheinander ab: Oxid wächst, Licht fällt durch die Maske, das Fenster öffnet sich, Dotierstoffpunkte wandern ein, Metall legt sich auf.
+
+**st1/einfuehrung/01-cmos-inverter**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* (a) Schaltbild: PMOS oben (Source an $U$), NMOS unten (Source an Masse), Gates verbunden als Eingang, Drains verbunden als Ausgang, Kondensator $C$ = 1 fF vom Ausgang nach Masse. (b) Die beiden Ruhezustände als kleine Bilder, leitender Transistor als geschlossener Schalter (grün), sperrender als offener Schalter (grau); der unterbrochene Weg von der Versorgung zur Masse ist markiert. (c) Drei gestapelte Zeitverläufe mit gemeinsamer Zeitachse über zwei Perioden von 333 ps (3 GHz): Eingangsspannung als Rechteck zwischen 0 und 1 V, Ausgangsspannung umgekehrt mit kurzen Flanken, Strom aus der Versorgung mit schmalen Spitzen nur beim Wechsel des Ausgangs von 0 auf 1, sonst null; die Fläche einer Spitze ist mit „$C U$ = 1 fC“ beschriftet.
+
+*Kernaussage:* Strom fließt nur beim Umschalten; je Lade-Entlade-Zyklus kostet ein Knoten $C U^2$ = 1 fJ.
+
+*Daten:* Zahlenwerk G.
+
+*Editor:*
+- §1 und §24 MOSFET-Symbole (neu);
+- §5 Zeitverläufe; §13 gestapelte Diagramme;
+- §10 Teilbilder.
+
+*Animation:* Der Eingang schaltet; Ladungspunkte fließen beim Laden von der Versorgung durch den PMOS auf den Kondensator und beim Entladen durch den NMOS zur Masse; zwei Zähler zeigen je ½ $C U^2$ als Wärme im PMOS und im NMOS.
+
+**st1/einfuehrung/01-moore**
+- Fassung: kompakt Abb. 7, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Halblogarithmisches Diagramm: Transistorzahl je Chip von 1 bis 10¹¹ (logarithmisch) über den Jahren 1959 bis 2010. Zwölf Punkte mit Namen: 4004 (1971, 2300), 8008 (1972, 3500), 8080 (1974, 4500), 8086 (1978, 29 000), 80286 (1982, 134 000), 80386 (1985, 275 000), 80486 (1989, 1 180 235), Pentium (1993, 3,1 Mio.), Pentium II (1997, 7,5 Mio.), Pentium 4 (2000, 42 Mio.), Core 2 Duo (2006, 291 Mio.), Xeon 7500 mit acht Kernen (2010, 2,3 Mrd.). Ausgleichsgerade mit der Verdopplungszeit 2,04 Jahre (3,12·10³ im Jahr 1972, 3,33·10⁸ im Jahr 2006, 1,30·10⁹ im Jahr 2010), beschriftet „Verdopplung alle 2,04 Jahre“. Gestrichelt Moores Gerade von 1965: Verdopplung jedes Jahr von 1 (1959) über 64 (1965) bis 65 536 (1975). Gepunktet die 18-Monate-Gerade ab dem 8008 (3500 im Jahr 1972) bis 2,33·10¹⁰ im Jahr 2006.
+
+*Kernaussage:* Auf der logarithmischen Achse wird exponentielles Wachstum zur Geraden; die Transistorzahl verdoppelte sich rund alle zwei Jahre, nicht alle 18 Monate.
+
+*Daten:* Zahlenwerk F (Datenliste `daten`, Ausgleichsgerade, Gegenproben).
+
+*Editor:*
+- §12 halblogarithmische Achsen;
+- §11 Datenkurven; §7 Labels an Punkten.
+
+*Animation:* Die Punkte erscheinen in zeitlicher Reihenfolge; ein Schieberegler für die Verdopplungszeit dreht eine Gerade um den Punkt des 8008.
+
+**st1/einfuehrung/01-skalierung**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* (a) Querschnitt eines MOSFET: Gate (dunkel), Gateoxid der Dicke $t_\mathrm{ox}$ (hellgrau), Source und Drain (n⁺, blau), Kanal der Länge $L$, Weite $W$ perspektivisch angedeutet; Gatespannung $U$; grüne Feldpfeile senkrecht im Oxid und waagrecht im Kanal. (b) Derselbe Transistor um den Faktor $\kappa$ verkleinert, mit $L/\kappa$, $t_\mathrm{ox}/\kappa$, $U/\kappa$, die Feldpfeile gleich lang wie in (a). (c) Tabelle „Größe | Faktor | für $\kappa = \sqrt2$“: Längen und Spannung $1/\kappa$, 0,71; Dotierung $\kappa$, 1,41; Feldstärke 1, 1; Kapazität $1/\kappa$, 0,71; Strom $1/\kappa$, 0,71; Schaltzeit $1/\kappa$, 0,71; Frequenz $\kappa$, 1,41; Leistung je Transistor $1/\kappa^2$, 0,5; Transistoren je Fläche $\kappa^2$, 2; Leistung je Fläche 1, 1.
+
+*Kernaussage:* Bei gleicher Feldstärke wird der kleinere Transistor schneller und sparsamer, und die Leistung je Fläche bleibt gleich.
+
+*Daten:* Zahlenwerk H.
+
+*Editor:*
+- §27 Technologie-Querschnitte (neu); §2 Pfeile;
+- §7 Tabellen; §10 Teilbilder.
+
+*Animation:* Schieberegler für $\kappa$ von 1 bis 2: Der rechte Transistor schrumpft, die Pfeile bleiben gleich lang, die Tabelle rechnet mit.
+
+**st1/einfuehrung/01-direktumsetzer**
+- Fassung: ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Zwei Blockbilder untereinander, jeweils mit gestricheltem Rahmen für den Chip. (a) Überlagerungsempfänger: rauscharmer Verstärker, Mischer, Oszillator, Zwischenfrequenzverstärker und Demodulator im Rahmen; Spiegelfrequenzfilter und Zwischenfrequenzfilter (keramisch bzw. Oberflächenwellenfilter) außerhalb des Rahmens als eigene Bauteile. (b) Direktumsetzer: Antenne, Bandfilter und Quarz außerhalb, im Rahmen rauscharmer Verstärker, Aufteilung in I- und Q-Zweig mit je einem Mischer, Oszillator bei der Empfangsfrequenz mit Ausgängen 0° und 90°, je ein Tiefpass und ein Analog-Digital-Umsetzer, danach die digitale Verarbeitung im Basisband. Beschriftung zwischen I- und Q-Zweig: „Gleichlauf etwa 1 % und 1°“.
+
+*Kernaussage:* Der Direktumsetzer kommt ohne Zwischenfrequenzfilter aus und passt bis auf Antenne, Bandfilter und Quarz auf den Chip.
+
+*Daten:* schematisch; Gleichlauf aus Zahlenwerk H (Matching, Spiegelunterdrückung 40 dB bei 1 % und 1°).
+
+*Editor:*
+- §19 Blockbilder; §24 Funkblock-Symbole (neu);
+- §7 Rahmen und Container.
+
+*Animation:* Ein Signalspektrum wandert durch die Blöcke; in (a) erscheint es nach dem Mischer bei 10,7 MHz, in (b) direkt um 0 Hz, getrennt in I und Q.

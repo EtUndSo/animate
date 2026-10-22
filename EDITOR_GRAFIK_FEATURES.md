@@ -205,6 +205,32 @@ Gebraucht in: realer OPV (get1/operationsverstaerker/03-gleichtakt, 03-aussteuer
 - Animierbar: Körper entlang eines Wegs bewegen, mit mitlaufendem Zähler.
 Gebraucht in: Arbeit an Treppe, Rampe und Schlitten (get1/grundprinzipien/01-arbeit); absehbar Kraft auf Ladungen im Feld (ET1 Kap. 3) und Lorentzkraft.
 
+## 24. Symbolbibliothek: Röhre, MOSFET und Funkblöcke  — **P1** (neu 2026-10-23, Schaltungstechnik Einführung)
+- Elektronenröhren: Diode und Triode mit Heizfaden, Kathode, Gitter (gestrichelt) und Anode im Kreis bzw. Kolben; optional Schirmgitter (Tetrode).
+- MOS-Feldeffekttransistoren: n- und p-Kanal (Anreicherung) mit Anschlüssen G, D, S, wahlweise mit Substratanschluss; Kreis am Gate für PMOS.
+- Magnetisch gekoppelte Spulen mit Wicklungspunkten (Polung der Rückkopplung).
+- Funkblöcke: Mischer (Kreis mit Kreuz), Oszillator (Kreis mit Sinus, wahlweise mit Pfeil „abstimmbar“), Filter (Kasten mit Tief-, Band- oder Hochpasssymbol), Verstärker (Dreieck), 90°-Phasenschieber, Analog-Digital-Umsetzer, Antenne, Lautsprecher, Summierstelle.
+- Rahmen für eine Chipgrenze (gestrichelt), Bauteile innerhalb und außerhalb.
+Gebraucht in: st1/einfuehrung/01-drei-ventile, 01-rueckkopplung, 01-ueberlagerung, 01-cmos-inverter, 01-direktumsetzer; absehbar in allen MOSFET-Themen der Schaltungstechnik.
+
+## 25. Spektren  — **P2** (neu 2026-10-23, Schaltungstechnik Einführung)
+- Frequenzachse (linear oder logarithmisch) mit Spektrallinien, deren Höhe die Amplitude angibt; Linien einzeln beschriftet und gefärbt.
+- Hinterlegte Bänder (UKW-Band 87,5 bis 108 MHz), Abstandspfeile zwischen Linien mit Wert, gestrichelte Linien für unerwünschte Anteile.
+- Überlagerte Filterkurven (Durchlassbereich) und Lupe auf einen schmalen Bereich (mit §22).
+Gebraucht in: st1/einfuehrung/01-ueberlagerung; absehbar Modulation, Abtastung und Aliasing, Signale und Systeme.
+
+## 26. Zeitleisten  — **P3** (neu 2026-10-23, Schaltungstechnik Einführung)
+- Zeitachse mit Jahresmarken, Ereignissen (Punkt und kurzer Text, automatisch versetzt, damit sich Texte nicht überdecken) und Epochenbalken.
+- Kopplung an darunterliegende Teilbilder (§10), etwa ein Schaltbild je Epoche.
+Gebraucht in: st1/einfuehrung/01-drei-ventile.
+
+## 27. Technologie-Querschnitte  — **P2** (neu 2026-10-23, Schaltungstechnik Einführung)
+- Geschichtete Querschnitte durch Halbleiterbauelemente: Substrat, dotierte Gebiete mit Farbe nach Dotierart (n blau, p rot, n⁺/p⁺ kräftiger), Oxid, Polysilizium, Metall, Fotolack; Masken mit Öffnungen und Lichtpfeile.
+- Prozessschritte als Folge von Teilbildern (Oxidieren, Belichten, Ätzen, Dotieren, Metallisieren), wahlweise als Animation.
+- Maßpfeile für Längen ($L$, $t_\mathrm{ox}$), Feldpfeile, Skalierung eines ganzen Querschnitts mit einem Faktor bei gleich langen Pfeilen.
+- Ebenso einfache Querschnitte von Röhren (Kathode, Gitterdrähte im Schnitt, Anode).
+Gebraucht in: st1/einfuehrung/01-planartechnik, 01-skalierung, 01-triode-aufbau; absehbar MOSFET-Aufbau, Latch-Up und parasitäre Kapazitäten.
+
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten
    Kennlinien- und Profil-Abbildungen frei.

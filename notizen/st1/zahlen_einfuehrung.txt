@@ -1,0 +1,124 @@
+
+====================================================================================================
+A. Triode ECC83: Steuerspannung, Durchgriff, Barkhausen, Verstärkerstufe, Leistungsbilanz
+====================================================================================================
+Arbeitspunkt U_a = 250 V, U_g = -2.0 V, I_a = 1.20 mA; mu = 100, D = 1/mu = 0.010
+S = 1.60 mA/V, R_i = 62.5 kOhm; Barkhausen S*D*R_i = 1.0000; S*R_i = 100.0 = mu
+1 V am Gitter wirkt wie 100 V an der Anode; 50 V mehr an der Anode verschieben die Kennlinie um 0.50 V
+Kennlinienmodell 3/2-Potenz: u_st(AP) = 1,5 I/S = 1.1250 V, U_0 = 0.6250 V (Kontaktspannung/Anlaufeffekt), K = 1.00566 mA/V^1,5
+Kennlinienschar I_a(U_g) in mA (Abbildung Triodenkennlinien):
+  U_a = 150 V, U_g = -4 ... 0 V in 0,5-V-Schritten: 0.000 0.000 0.000 0.000 0.044 0.497 1.200 2.083 3.115; Sperrpunkt U_g = -2.125 V
+  U_a = 200 V, U_g = -4 ... 0 V in 0,5-V-Schritten: 0.000 0.000 0.000 0.044 0.497 1.200 2.083 3.115 4.277; Sperrpunkt U_g = -2.625 V
+  U_a = 250 V, U_g = -4 ... 0 V in 0,5-V-Schritten: 0.000 0.000 0.044 0.497 1.200 2.083 3.115 4.277 5.556; Sperrpunkt U_g = -3.125 V
+Probe numerisch im AP: S = 1.6000 mA/V, R_i = 62.50 kOhm
+Strom bei U_g = -1 V statt -2 V (U_a = 250 V): 3.115 mA; bei U_a = 350 V statt 250 V (U_g = -2 V): 3.115 mA (350 V liegt über der Grenzspannung 300 V, nur Modellprobe)
+Gleicher Strom bei 100 V weniger Anodenspannung: U_a = 150 V, U_g = -1 V -> 1.200 mA (wie 250 V, -2 V: 1.200 mA)
+Konkrete Steilheit: U_g -2,0 -> -1,9 V bei 250 V: Linearisierung S*0,1 V = 0.160 mA (Modell: 0.1635 mA); U_a +6,25 V: 6,25 V/R_i = 0.100 mA (Modell: 0.1014 mA)
+Boltzmann-Faktor exp(-1 eV/kT) bei 300 K: 1.59e-17
+Boltzmann-Faktor exp(-1 eV/kT) bei 1000 K: 9.12e-06
+Verhältnis 1000 K zu 300 K: 5.75e+11; 1000 K = 727 °C
+Richardson-Gleichung J ~ T^2 exp(-W_A/kT): Verhältnis 1000 K zu 300 K = 6.39e+12 (Faktor T^2 = 11.1)
+Heizleistung je System 0,945 W gegen U_a I_a = 0,3 W an der Röhre: Faktor 3.15
+Stufe mit R_a = 100 kOhm: R_i||R_a = 38.46 kOhm, v = -S (R_i||R_a) = -61.54; Kontrolle mu R_a/(R_a+R_i) = 61.54; Leerlauf (R_a -> unendlich): -mu = -100
+Eingang 0,1 V Amplitude -> Anodenstrom-Amplitude 0.160 mA (bei festgehaltener Anodenspannung), Ausgangsamplitude 6.154 V
+Betriebsspannung U_B = U_a + I_a R_a = 370 V; Gleichleistung aus U_B: 444 mW; an der Röhre U_a I_a = 300 mW
+Heizleistung: beide Systeme 1.89 W, je System 0.945 W
+Signalleistung im Arbeitswiderstand (Amplitude 6.15 V): 0.189 mW; Anteil an Heiz- plus Gleichleistung 1.36e-04
+
+====================================================================================================
+B. Rückkopplung: v' = A/(1 - kA) (Mitkopplung), v' = A/(1 + kA) (Gegenkopplung)
+====================================================================================================
+  kA = 0.00: Mitkopplung v'/A =    1.00, v' =     61.5; Gegenkopplung v'/A = 1.0000, v' =  61.54
+  kA = 0.50: Mitkopplung v'/A =    2.00, v' =    123.1; Gegenkopplung v'/A = 0.6667, v' =  41.03
+  kA = 0.90: Mitkopplung v'/A =   10.00, v' =    615.4; Gegenkopplung v'/A = 0.5263, v' =  32.39
+  kA = 0.99: Mitkopplung v'/A =  100.00, v' =   6153.8; Gegenkopplung v'/A = 0.5025, v' =  30.92
+Selbsterregung bei kA = 1: k = 1/A = 0.01625 = 1.62 % des Ausgangs zurückführen
+Gegenkopplung k = 0.1: v' = 8.6022; A um 20 % kleiner (49.23) -> v' = 8.3117 (-3.38 %)
+
+====================================================================================================
+C. Überlagerungsempfänger: Mischprodukte, Zwischenfrequenz, Spiegelfrequenz, Güte
+====================================================================================================
+UKW: f_E = 100.0 MHz, f_LO = 110.7 MHz -> Differenz 10.7 MHz, Summe 210.7 MHz; Spiegelfrequenz f_LO + f_ZF = 121.4 MHz = f_E + 2 f_ZF
+Band 87.5 bis 108.0 MHz, Breite 20.5 MHz < 2 f_ZF = 21.4 MHz; Spiegel des untersten Senders 108.9 MHz, des obersten 129.4 MHz
+Güte für B = 200 kHz: bei f_E 500, bei der ZF 53.5
+Frequenzhub UKW ±75 kHz: Sender 99.925 bis 100.075 MHz -> ZF 10.625 bis 10.775 MHz (Hub bleibt ±75 kHz, Richtung gespiegelt bei LO oberhalb)
+Mittelwelle: f_E = 1000 kHz, f_LO = 1455 kHz, Spiegel 1910 kHz; Güte für 9 kHz: 111 bei f_E, 50.6 bei der ZF
+Probe cos a cos b = 1/2 cos(a-b) + 1/2 cos(a+b) bei t = 1,234 ns: 0.466873 = 0.466873
+
+====================================================================================================
+D. Röhre gegen Transistor: Heizleistung, ENIAC
+====================================================================================================
+291 Mio. Triodensysteme zu 0.945 W Heizleistung: 275 MW; Verhältnis zur Aufnahme des Core 2 Duo (65 W): 4.23e+06
+ENIAC: 17468 Röhren, 150 kW -> 8.6 W je Röhre (ganze Anlage); etwa 5 Millionen Lötstellen -> 286 je Röhre
+
+====================================================================================================
+E. Germanium gegen Silizium
+====================================================================================================
+n_i: Si 1.0e+10, Ge 2.0e+13 cm^-3 -> Verhältnis 2000, Quadrat 4.0e+06
+I_S der ET1-Beispieldiode: Si 1.46e-14 A, Ge 5.83e-08 A -> Verhältnis 3.99e+06
+Sperrstrom bei -1 V mit Generation: Si 1.991e-11 A (Generation 1.99e-11 A, ideal 1.46e-14 A); Ge 9.810e-08 A (Generation 3.98e-08 A, ideal 5.83e-08 A) -> Verhältnis 4926
+Schmelzpunkte: Ge 938 °C, Si 1414 °C; T_j,max AC128 (Ge) 90 bis 100 °C (Angaben schwanken), BC547 (Si) 150 °C
+Beweglichkeiten bei 300 K (schwach dotiert, cm^2/(V s)): Ge Elektronen 3900, Löcher 1900; Si Elektronen 1400, Löcher 450 -> Elektronen Faktor 2.8, Löcher 4.2
+Bipolartransistor wie im ET1-Zahlenwerk: B = 500, Basisstrom = Kollektorstrom/500 = 0.2 % des Kollektorstroms
+
+====================================================================================================
+F. Mooresches Gesetz: Verdopplungszeit, Gegenproben
+====================================================================================================
+Moore 1965: 2^6 = 64 (1965) -> zehn Verdopplungen -> 2^16 = 65536 (1975)
+  1971  4004                            2,300  log2 = 11.167
+  1972  8008                            3,500  log2 = 11.773
+  1974  8080                            4,500  log2 = 12.136
+  1978  8086                           29,000  log2 = 14.824
+  1982  80286                         134,000  log2 = 17.032
+  1985  80386                         275,000  log2 = 18.069
+  1989  80486                       1,180,235  log2 = 20.171
+  1993  Pentium                     3,100,000  log2 = 21.564
+  1997  Pentium II                  7,500,000  log2 = 22.838
+  2000  Pentium 4                  42,000,000  log2 = 25.324
+  2006  Core 2 Duo                291,000,000  log2 = 28.116
+  2010  Xeon 7500 (8 Kerne)     2,300,000,000  log2 = 31.099
+Ausgleichsgerade durch alle 12 Punkte (log2 N über dem Jahr): Steigung 0.4912 je Jahr -> T_2 = 2.04 Jahre; Wachstum je Jahr Faktor 1.406
+  Ausgleichsgerade im Jahr 1971: N = 2.221e+03
+  Ausgleichsgerade im Jahr 1972: N = 3.123e+03
+  Ausgleichsgerade im Jahr 1990: N = 1.433e+06
+  Ausgleichsgerade im Jahr 2006: N = 3.330e+08
+  Ausgleichsgerade im Jahr 2010: N = 1.300e+09
+8008 (1972, 3500) -> Core 2 Duo (2006, 291 Mio.): Faktor 83,143, log2 = 16.343 Verdopplungen in 34 Jahren -> T_2 = 2.080 Jahre
+8008 (1972) -> Xeon 7500 (2010, 2,3 Mrd.): Faktor 657,143, log2 = 19.326 in 38 Jahren -> T_2 = 1.966 Jahre
+Mit genauen Daten April 1972 -> Juli 2006 (34,25 Jahre): T_2 = 2.096 Jahre
+  Gegenprobe 1972 -> 2006 mit T_2 = 1.0 Jahre: 6.013e+13 Transistoren, Faktor 2.07e+05 gegenüber 291 Mio.
+  Gegenprobe 1972 -> 2006 mit T_2 = 1.5 Jahre: 2.330e+10 Transistoren, Faktor 80.1 gegenüber 291 Mio.
+  Gegenprobe 1972 -> 2006 mit T_2 = 2.0 Jahre: 4.588e+08 Transistoren, Faktor 1.58 gegenüber 291 Mio.
+Vorhersage 2010 aus Core 2 Duo mit T_2 = 2,08 Jahre: 1.103e+09
+Verdopplung alle 2 Jahre: Faktor je Jahr 1.4142 (+41.4 %), in 10 Jahren 32, in 20 Jahren 1024
+Dichte Core 2 Duo: 2.035e+06 Transistoren je mm² -> 0.491 µm² je Transistor (Quadrat mit 0.701 µm Kantenlänge, Verdrahtung und Speicher eingerechnet)
+Strukturgröße 10 µm -> 65 nm: Faktor 153.8, Fläche 23,669; Generationen zu 0,7: 14.1 in 34 Jahren -> 2.41 Jahre je Generation
+0,7 linear -> Fläche 0.49; Knotenfolge 180 -> 130 -> 90 -> 65 -> 45 nm, Verhältnisse 0.722, 0.692, 0.722, 0.692
+
+====================================================================================================
+G. CMOS: Energie je Umschaltung, Leistung, Ruhestrom, Skalierung
+====================================================================================================
+Knoten C = 1 fF, U = 1 V: aus der Quelle je Laden Q U = C U^2 = 1.00 fJ, gespeichert 0.50 fJ, im PMOS verheizt 0.50 fJ; beim Entladen im NMOS 0.50 fJ
+P = C U^2 f bei 3 GHz: 3.00 µW je Knoten, der in jeder Periode einmal lädt und entlädt
+Chip: 1e+08 Knoten, Anteil 0.1 lädt je Takt: P = alpha N C U^2 f = 30.0 W
+Hypothetischer Ruhestrom 1 µA je Gatter bei 1 V: 100 W
+Skalieren: doppelte Spannung -> Faktor 4, doppelte Frequenz -> Faktor 2, halbe Kapazität -> Faktor 0,5
+Core 2 Duo E6600: 65 W auf 143 mm² = 45.5 W/cm²; Herdplatte 2 kW auf 18 cm Durchmesser: 7.86 W/cm² -> Verhältnis 5.8
+
+====================================================================================================
+H. Skalierung bei konstanter Feldstärke (Dennard) und Laufzeit
+====================================================================================================
+kappa = 1.414: Länge, Spannung, Kapazität x0.707; Strom x0.707; Schaltzeit x0.707, Frequenz x1.414; Leistung je Transistor x0.500; Transistoren je Fläche x2.000; Leistung je Fläche x1.000
+kappa = 2.000: Länge, Spannung, Kapazität x0.500; Strom x0.500; Schaltzeit x0.500, Frequenz x2.000; Leistung je Transistor x0.250; Transistoren je Fläche x4.000; Leistung je Fläche x1.000
+Beispielgatter 2 fF, 1,4 V, 1 GHz: P = 3.920 µW; nach einem Knoten (kappa = sqrt 2): C = 1.414 fF, U = 0.990 V, f = 1.414 GHz, P = 1.960 µW (Verhältnis 0.500)
+Umladeleistung 5 V statt 1 V: Faktor 25; Chipbeispiel 30 W -> 750 W
+Abstand nächster Nachbarn im Siliziumgitter: 0.235 nm (Gitterkonstante 0,543 nm)
+Laufzeit durch 180 nm bei v_sat = 1e7 cm/s: 1.80 ps -> 1/(2 pi tau) = 88 GHz (obere Schranke, real 50 bis 70 GHz wegen parasitärer Kapazitäten)
+f_T 50 bis 70 GHz gegen 2 GHz Mobilfunk: Faktor 25 bis 35; gegen 2,4 GHz Bluetooth: 21 bis 29
+Unterschwellsteigung ideal U_T ln 10 bei 300 K: 59.5 mV je Dekade
+Takt Desktop-Prozessoren: 1990 rund 33 MHz (i486), 2004 3,8 GHz (Pentium 4): Faktor 115; 2023/24 Spitzentakt etwa 6 GHz: Faktor 1.58 in rund 20 Jahren
+Periode bei 3 GHz: 333 ps
+Matching: absolute Toleranz integrierter Widerstände 10 bis 20 %, Verhältnis benachbarter gleicher etwa 0,1 % -> Faktor 100 bis 200; ganze I/Q-Zweige ohne Abgleich etwa 1 % und 1°
+Spiegelunterdrückung I/Q etwa 4/(eps^2 + theta^2) bei 1 % und 1°: 9886 = 40.0 dB
+Intel 65-nm-Prozess (Core 2 Duo): Gatelänge 35 nm; Prozessorleistung von wenigen W (8086, i486) bis rund 100 W (Pentium 4, 2004, bis 115 W TDP); Versorgungsspannung 5 V bis Anfang der 1990er-Jahre
+Rückkopplungsbeispiel gerundet: -61,5/0,5 = -123.0, -61,5/0,1 = -615.0
