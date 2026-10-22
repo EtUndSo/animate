@@ -4,8 +4,9 @@ Diese Datei ist die **Referenz** für das Neuschreiben der Wissens-Artikel. Vor 
 Stand 2026-10-20. Stil-Vorbild: `C:\Bücher\ET4_Skript_Erklaerung\` (v. a. `ET4_Kap1_Mathe-Grundlagen_Zusammenfassung.md`).
 
 ## 0. Nordstern
-- EtUndSo erklärt das, was im Vorlesungs-Skript **fehlt**. Die Leute haben das Skript; sie kommen nur, wenn sie
-  etwas **nicht verstanden** haben. Eine Nacherzählung des Skripts ist wertlos.
+- EtUndSo erklärt von Grund auf, was Vorlesungen und Lehrbücher oft offenlassen. Die Leserinnen und Leser kennen
+  keine bestimmte Vorlage, und die Website nennt keine: kein Skript, keine Lehrveranstaltung, keine Seiten- oder
+  Bildnummern (User-Vorgabe 2026-10-22, ERKLAER_PROMPT §5.7). Eine Nacherzählung einer Vorlage ist wertlos.
 - Erfolg = „Wer an dieser Stelle hängengeblieben ist, versteht es danach wirklich."
 - Die Skript-Themen sind Pflicht-**Landmarken**; der eigentliche Inhalt ist die tiefe Erklärung dazwischen.
   Eigene Vorbausteine (fehlende Grundlagen) ergänzen, damit der Komplex **chronologisch von Grund auf** steht

@@ -56,7 +56,7 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
 
 ## (B1) Nächstes offenes Thema ermitteln
 
-**Zuerst:** Fehlt die Datei `notizen/nachtrag_5_11.md`, ist der Durchgang der einmalige Nachtrag (B1b), nicht ein neues Thema.
+**Zuerst:** Fehlt die Datei `notizen/nachtrag_5_11.md`, ist der Durchgang der einmalige Nachtrag (B1b), nicht ein neues Thema. Fehlt danach `notizen/quellenbezug_bereinigt.md`, ist der Durchgang die einmalige Bereinigung (B1c).
 
 **Reihenfolge der Module** (Entscheidung vom 22.10.2026): erst ET1, dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa), danach GEMB1. Der User hat angekündigt, dass sich die Reihenfolge noch ändern kann; maßgeblich ist diese Datei.
 
@@ -100,6 +100,15 @@ Vorgabe des Users vom 22.10.2026: Zusammenhänge zusätzlich in einem einfachen 
 4. **Protokoll:** `notizen/nachtrag_5_11.md` mit jeder Fundstelle (Artikel, Abschnitt, Satz, Zahlenprobe) und den geprüften, aber verworfenen Kandidaten mit Grund.
 5. **Bauen und Checks** wie in (B7): KaTeX, widefind, bsp-card gleich bsp-ref, Quizzahl.
 6. **Commit** „Stil 3: Zusammenhänge in einem Satz nachgetragen (§5.11)“ und kurzer Bericht mit der Liste der Sätze; im Loop danach wie in (B8) neu armen.
+
+### (B1c) Einmalig: Quellen- und Veranstaltungsbezüge von der Website entfernen (ERKLAER_PROMPT §5.7)
+
+Vorgabe des Users vom 22.10.2026: Auf der ganzen Website darf kein Hinweis stehen, dass Inhalte aus einem Skript stammen, und keine Lehrveranstaltung genannt werden (Vorlesung, Übung, Praktikum); die Leserinnen und Leser kennen die Vorlage nicht. Gilt, solange `notizen/quellenbezug_bereinigt.md` fehlt.
+1. **Inventar:** `python -I tools/quellen_check.py` listet alle Fundstellen in `content/` (am 22.10.2026: 1424 in 68 Dateien, alle Module).
+2. **Bereinigen, nacheinander, nicht parallel** (Leitfaden §0), in Gruppen: Stil-3-Themen Kap. 2 und 10, dann Kap. 11 und 12, dann die alten ET1-Artikel Kap. 3 bis 9, dann HöMa3, mmet und GEMB1. Jede Stelle wird umformuliert, nicht nur gelöscht: Skriptkorrekturen werden stillschweigend richtig gestellt oder, wenn sie einen typischen Irrtum betreffen, ohne Quelle als Hinweis erklärt; Verweise wie „Kapitel 10“ werden zu Links auf den passenden Artikel; fachlicher Inhalt, Zahlen und Formeln bleiben unverändert. Beide Fassungen eines Themas bleiben gleich.
+3. **Prüfen:** `quellen_check.py` ohne Fundstelle; Build; KaTeX und widefind für alle geänderten Seiten; Stichproben im Diff.
+4. **Protokoll:** `notizen/quellenbezug_bereinigt.md` mit Umfang, Regeln und Besonderheiten.
+5. **Commit** „Website: Quellen- und Veranstaltungsbezüge entfernt (§5.7)“ und kurzer Bericht.
 
 ## (B2) Vorarbeit: Arbeitsnotiz und Zahlen (ERKLAER_PROMPT §10)
 
@@ -177,7 +186,7 @@ In den Artikeln stehen nur Editor-Abbildungen. Im Ablauf wird **keine** Abbildun
 
 ## (B6) Selbstprüfung (vor dem Build)
 
-1. **ERKLAER_PROMPT §11 für jede Fassung**, alle 19 Tests. Was ein Test findet, korrigierst du sofort.
+1. **ERKLAER_PROMPT §11 für jede Fassung**, alle 20 Tests. Was ein Test findet, korrigierst du sofort.
 2. **ARTIKEL_BAUPLAN §8 komplett:** Rechnungen, Vorzeichen und Zählpfeil-Richtungen nachrechnen; keine doppelt belegten Symbole.
 3. **Kennzahlen:** `python -I tools/artikel_kennzahlen.py <beide md>`. Soll:
    - Hauptpfad in der Spanne der Notiz;
@@ -186,7 +195,7 @@ In den Artikeln stehen nur Editor-Abbildungen. Im Ablauf wird **keine** Abbildun
    - jeden Treffer der Verbotsliste prüfen.
 4. **Fließtext-Formeln:** `python -I tools/audit_inline.py <beide md>`, Ziel 0.
 5. **Unabhängige Faktenprüfung (Pflicht):**
-   - Ein zweiter Agent (general-purpose) prüft beide Fassungen gegen Zahlenwerk und Skriptseiten: Physik bzw. Mathematik, jede Zahl selbst nachgerechnet, Vorzeichen, Skriptkorrekturen auf Fairness, Herleitungen, Widersprüche zwischen den Fassungen.
+   - Ein zweiter Agent (general-purpose) prüft beide Fassungen gegen Zahlenwerk und Skriptseiten: Physik bzw. Mathematik, jede Zahl selbst nachgerechnet, Vorzeichen, ob die stillschweigenden Korrekturen der Vorlage stimmen und kein Quellenbezug im Artikel steht (ERKLAER_PROMPT §5.7), Herleitungen, Widersprüche zwischen den Fassungen.
    - Ausgabe: nur echte Probleme, „falsch“ getrennt von „ungenau“.
    - Jeden Befund selbst nachrechnen, bevor er eingearbeitet wird.
    - Beim Piloten fand diese Prüfung sechs echte Fehler.
@@ -205,6 +214,7 @@ python -m http.server 8000 --directory /c/Users/info/PycharmProjects/pythonanima
 - `details class="quiz-item"` kommt 10- bzw. 6-mal vor.
 - `class="bsp-card"` kommt genauso oft vor wie `class="bsp-ref"`, mindestens einmal.
 - **KaTeX:** `python -I tools/katexcheck.py <html-name-ohne-.html>` meldet 0 Fehler.
+- **Quellen:** `python -I tools/quellen_check.py <beide md>` gibt nichts aus (ERKLAER_PROMPT §5.7).
 - **Handy:** `python -I tools/widefind.py <url>`, `python -I tools/widefind_open.py <url>` (Herleitungen offen) und `python -I tools/widefind_bsp.py <url>` (Beispiel-Seite) geben nichts aus.
 - **Geteilte Ansicht:** `python -I tools/splitalign.py <url> <png>` zeigt Karten ab 2 bei 350 und „Fehler: keine“.
 - **Abbildungsliste vollständig:** Der folgende Befehl darf nichts ausgeben. Er meldet jede Szene eines Artikels, die in `ABBILDUNGEN_LISTE.md` fehlt.
@@ -217,7 +227,7 @@ python -m http.server 8000 --directory /c/Users/info/PycharmProjects/pythonanima
 
 **Protokoll:** Eine Zeile in `REVIEW_OPUS55.md` anhängen:
 
-    - [x] <thema> — Stil 3 (kompakt N Wörter, ausführlich M Wörter); Prinzip: …; Kipp-Stellen: …; Fehlvorstellungen: …; Skriptkorrekturen: …; Abbildungen: a/b; Beispielkarten: c/d; Zahlen: notizen/<modul>/zahlen_<oberthema>.txt
+    - [x] <thema> — Stil 3 (kompakt N Wörter, ausführlich M Wörter); Prinzip: …; Kipp-Stellen: …; Fehlvorstellungen: …; stillschweigend korrigiert: …; Abbildungen: a/b; Beispielkarten: c/d; Zahlen: notizen/<modul>/zahlen_<oberthema>.txt
 
 **Committen** (kein Push):
 - **Hinzufügen:**
@@ -236,7 +246,7 @@ python -m http.server 8000 --directory /c/Users/info/PycharmProjects/pythonanima
    - Ein-Satz-Prinzip;
    - Kipp-Stellen und wie sie erklärt sind;
    - aufgelöste Fehlvorstellungen;
-   - Skriptkorrekturen;
+   - stillschweigend korrigierte Fehler der Vorlage (nur im Bericht, nie auf der Website);
    - Profi-Quellen als Links;
    - Wörter und Lesezeit beider Fassungen;
    - Zahl der Abbildungen und Beispiele;

@@ -23,6 +23,8 @@ Diese Datei beschreibt jeden Bestandteil eines Artikels: was hineingehört, wie 
 - Herleitungen bleiben in eigenen, ausklappbaren Kästen.
 - **Fragen an Ort und Stelle,** wie im Lernskript: Die Fragen, die sich Leserinnen und Leser an einer Stelle wahrscheinlich stellen, stehen genau dort als ausklappbare Frage-Kästen. Sichtbar ist die Frage, die Antwort öffnet sich per Klick (§9.3).
 
+**Entscheidung des Users vom 22.10.2026: keine Quellen- und Veranstaltungsbezüge auf der Website.** Kein Artikel und keine Seite nennt ein Skript, eine Vorlesung, Übung, ein Praktikum oder eine andere Lehrveranstaltung, und keine Seiten-, Bild-, Tabellen-, Kapitel-, Abschnitts- oder Gleichungsnummer einer Vorlage. Begründung des Users: Die Leserinnen und Leser kennen die Vorlage nicht; Verweise darauf verwirren sie. Einzelheiten in §5.7.
+
 **Das Vorbild:** `C:\Bücher\Praktikum_Mina\Lernskript\` (gerendert `MiNa_Lernskript.pdf`, Quellen `k0_einstieg.tex` bis `k10_selbsttest.tex`).
 - **Was es vorgibt:** Ton, Erklärtiefe und Hintergründe.
 - **Wie viel Text:** Seine Kapitel haben 1200 bis 2300 Wörter Fließtext; die 57 Seiten entstehen durch Abbildungen, Kästen und Formeln. Die ausführliche Fassung ist für denselben Inhalt etwas kürzer, weil sie nichts doppelt erklärt (§3).
@@ -39,7 +41,7 @@ Alle Änderungen am Bauplan stehen in §14.
 
 **Die Leserin bzw. der Leser:**
 - **weiß über das Thema des Artikels nichts.** Vorausgesetzt werden nur Schulmathematik, Schulphysik und die Themen, die der Artikel ausdrücklich als Voraussetzung verlinkt;
-- hat oft das Vorlesungsskript vor sich, hat es aber nicht verstanden, oder kommt über die Suche direkt auf den Artikel;
+- kennt keine bestimmte Vorlesung oder Vorlage und kommt oft über die Suche direkt auf den Artikel;
 - will das Thema verstehen, nicht auswendig lernen: in der kompakten Fassung den Kern in einer Sitzung, in der ausführlichen das ganze Thema samt Hintergründen;
 - liest genau und folgt jeder Logik; Ungenauigkeit verwirrt, Präzision hilft;
 - bringt die typischen Fehlvorstellungen mit;
@@ -233,7 +235,7 @@ Wo Lehrbücher zwei Bilder benutzen, zeigt die ausführliche Fassung beide. Beis
 - Sie sagt, welches Bild physikalisch primär ist und warum das andere trotzdem benutzt wird.
 - Sie zeigt, am besten in einem Beispiel, dass beide zu denselben Zahlen führen.
 
-Die kompakte Fassung benutzt das primäre Bild und erwähnt das zweite in einem Satz, wenn Skript oder Praxis es verwenden.
+Die kompakte Fassung benutzt das primäre Bild und erwähnt das zweite in einem Satz, wenn es in Lehrbüchern oder in der Praxis verbreitet ist.
 
 ### 4.7 `## Alles hängt an einem Prinzip`
 Pflicht ab fünf Einzelaspekten. Der Abschnitt besteht aus zwei Teilen:
@@ -245,7 +247,7 @@ Länge: in der ausführlichen Fassung höchstens acht Zeilen, in der kompakten h
 ### 4.8 `## Bedeutung und Ausblick`
 In der ausführlichen Fassung ein bis zwei kurze Absätze:
 - die **technische Anwendung** an einem realen Bauteil oder einer realen Schaltung;
-- der **Bezug zum Praktikum** oder zur Messpraxis, wo es passt;
+- der **Bezug zur Messpraxis**, wo es passt, ohne eine Lehrveranstaltung zu nennen (§5.7);
 - die **Grenzen des Modells**, je ein Satz mit Link dorthin, wo sie behandelt werden;
 - der **nächste Artikel** in einem Satz.
 
@@ -430,11 +432,20 @@ ET1 darf das Zwei-Ströme-Bild benutzen und für die vollständige Herleitung au
 - **„Positiv“ und „negativ“** werden erklärt, wenn sie mehr als ein Vorzeichen meinen.
 - **Messbare Aussagen:** Was passiert, steht als messbare Aussage da, mit Größe und Größenordnung, nicht als Stimmungsbild.
 
-### 5.7 Skriptkritik
-Wo das Skript falsch oder ungenau ist, benennst du es mit Seitenzahl und korrigierst es mit Begründung. Das ist ein Kernwert der Seite.
+### 5.7 Keine Quellenbezüge, Fehler der Vorlage stillschweigend korrigieren
+Entscheidung des Users vom 22.10.2026; sie ersetzt die frühere „Skriptkritik“ mit Seitenzahl. Die Leserinnen und Leser kennen die Vorlage nicht, Verweise darauf verwirren sie.
+- **Nirgends auf der Website** (Text, Bildbeschreibungen, Kästen, Beispiele, Quiz, Frontmatter mit `summary` und `tags`) stehen:
+  - Skript, Vorlesung, Übung, Praktikum, Tutorium, Klausur, Folien oder andere Lehrveranstaltungen;
+  - Seiten-, Bild-, Tabellen-, Kapitel-, Abschnitts- oder Gleichungsnummern einer Vorlage;
+  - Namen von Lehrveranstaltungen, Hochschulen, Lehrstühlen oder Dozierenden.
+- **Fehler und Ungenauigkeiten der Vorlage** korrigierst du stillschweigend: Der Artikel ist einfach richtig. Ist der Fehler zugleich ein typischer Irrtum, erklärst du ihn ohne Quelle, als Fehlvorstellung oder als Hinweis („Ein häufiger Fehler ist …“).
+- **Abweichende Schreibweisen** nennst du nur, wenn sie verbreitet sind, und ohne Quelle („üblich ist auch …“).
+- **Erlaubt bleiben:** Sachquellen, die eine Zahl oder Aussage belegen (Datenblatt, Norm, SI-Broschüre), und Links auf andere Artikel der Website.
+- **Intern bleibt alles erhalten:** Die Arbeitsnotiz führt den Abgleich mit der Vorlage samt Seitenzahlen und Fehlern weiter (§10), und der Bericht an den User nennt die stillschweigend korrigierten Fehler.
+- **Prüfung:** `python -I tools/quellen_check.py <md …>` gibt nichts aus (§11, Test 20).
 
 ### 5.8 Konsistenz
-Zahlen, Beispielsysteme und Bezeichnungen derselben Größen sind innerhalb eines Oberthemas, über Module hinweg und zwischen den beiden Fassungen gleich. Wo das Skript anders bezeichnet, sagst du es.
+Zahlen, Beispielsysteme und Bezeichnungen derselben Größen sind innerhalb eines Oberthemas, über Module hinweg und zwischen den beiden Fassungen gleich. Ist eine andere Bezeichnung verbreitet, nennst du sie ohne Quelle (§5.7).
 
 ### 5.9 Die Akteure benennen
 Vor jeder Kernformel und vor jedem Mechanismus steht die Liste **„Die Akteure:“**. Sie nennt jede beteiligte Größe bzw. jedes Objekt mit:
@@ -628,7 +639,7 @@ Wie im Bauplan §3a als `::::beispiel <Titel>` … `::::`, direkt hinter der For
 
 ### 8.2 Aufbau eines Beispiels
 1. **Titel:** sachlich; er sagt, was berechnet oder gezeigt wird, zum Beispiel „Driftgeschwindigkeit in einem Kupferdraht bei 1 A“.
-2. **Gegeben:** alle Größen mit Wert, Einheit und Herkunft (Zahlenwerk, Datenblatt, Skript-Annahme). Jedes Beispiel ist selbsttragend und nennt die Werte selbst.
+2. **Gegeben:** alle Größen mit Wert, Einheit und, wo nötig, Herkunft (Datenblatt, Annahme); nie eine Lehrveranstaltung (§5.7). Jedes Beispiel ist selbsttragend und nennt die Werte selbst.
 3. **Gesucht:** in einem Satz.
 4. **Rechnung:** jeder Schritt auf eigener Zeile (`$$…$$`), davor ein halber Satz Begründung. Einheiten werden mitgeführt, Zwischenwerte auf drei gültige Stellen gerundet.
 5. **Ergebnis:** eine Zeile, fett.
@@ -749,7 +760,7 @@ Lege vor jedem Thema im Repo `notizen/<modul>/notiz_<slug>.md` an und committe s
 9. **Profi-Abgleich.** Ein bis zwei Fachquellen (Lehrbuch, Vorlesung, WebSearch), um Physik bzw. Mathematik zu prüfen und den besten Erklärweg zu finden. Die Quellen nennst du im Bericht an den User.
 10. **Skript-Abgleich.** Zwei Listen mit Seitenzahl:
     - alle Definitionen, Formeln und Aussagen des Quellabschnitts, für die Vollständigkeit;
-    - alle Fehler und Ungenauigkeiten des Skripts.
+    - alle Fehler und Ungenauigkeiten des Skripts. Im Artikel werden sie stillschweigend korrigiert, ohne die Vorlage zu nennen (§5.7); die Liste bleibt intern.
 
 ## 11. Selbstprüfung vor dem Commit (für jede Fassung, zusätzlich zu Bauplan §8)
 
@@ -805,10 +816,11 @@ Das Ergebnis kommt in die Zeile in `REVIEW_OPUS55.md`.
     - Ist jede Formel und Definition darauf geprüft, ob sich ihr Zusammenhang in einem einfachen Satz sagen lässt?
     - Stimmt jeder „Kurz gesagt“-Satz ohne Ausnahme, mit seinen Bedingungen, und ist er an einem Zahlenbeispiel geprüft?
     - Ergänzt er die formale Erklärung, statt sie zu ersetzen?
+20. **Quellen-Test (§5.7).** `python -I tools/quellen_check.py <beide md>` gibt nichts aus: kein Skript, keine Lehrveranstaltung, keine Seiten-, Bild-, Tabellen-, Kapitel- oder Gleichungsnummer einer Vorlage, auch nicht in Bildbeschreibungen, Quiz und Frontmatter.
 
 ## 12. Kalibrierung: schwach gegen gut
 
-Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.2026, (f) und (g) aus den Rückmeldungen des Users zum Lernskript, (i) und (j) aus Vorgaben des Users vom 22.10.2026.
+Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.2026, (f) und (g) aus den Rückmeldungen des Users zum Lernskript, (i) bis (k) aus Vorgaben des Users vom 22.10.2026.
 
 **(a) Mechanismus**
 - *Schwach:* „In Sperrrichtung steigt die Barriere, die Diffusion versiegt, es bleibt nur ein winziger, spannungsunabhängiger Sättigungsstrom.“ Das Quiz fragt dann „Warum spannungsunabhängig?“, der Text sagt es nicht.
@@ -884,12 +896,17 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
 - *Schwach:* Die Linearität steht nur als Formel $\mathrm{Tr}(a s_1 + b s_2) = a\,\mathrm{Tr}(s_1) + b\,\mathrm{Tr}(s_2)$ mit einer Erklärung der Symbole; was sie im Kern sagt, muss die Leserin selbst herauslesen. Ebenso schwach, weil falsch: ein Satz, der nur dem Muster folgt, etwa „die Ableitung des Produkts ist das Produkt der Ableitungen“.
 - *Gut:* Nach Formel und Erklärung zusätzlich die Zeile „**Kurz gesagt:** Die Transformation der Summe ist die Summe der Transformationen, und die Transformation des Vielfachen ist das Vielfache der Transformation.“ Geprüft am System „mal 3“; am System „plus 5“ zeigt dieselbe Zeile, warum es nicht linear ist.
 
+**(k) Fehler der Vorlage**
+- *Schwach:* „Im Skript fehlt im Nenner das Quadrat (Bild 2.2, S. 6); richtig ist d²s/dt².“ Die Leserin kennt weder das Skript noch Bild 2.2 und fragt sich, was gemeint ist.
+- *Gut:* „Die Beschleunigung ist die zweite Ableitung des Orts, d²s/dt²; die Zeit steht zweimal im Nenner, daher die Einheit m/s².“ Der Fehler der Vorlage ist stillschweigend korrigiert. Ist er ein typischer Irrtum, steht er zusätzlich als Fehlvorstellung da, ohne Quelle.
+
 ## 13. Was sich gegenüber den bisherigen Artikeln ändert (Kurzfassung)
 
 - **Zwei Fassungen pro Thema:** kompakt und ausführlich, umschaltbar. Die ausführliche ist etwas kompakter als das Lernskript, die kompakte deutlich kürzer als die ausführliche, aber mit allem Wichtigen (Wortvorgaben seit 22.10.2026 erhöht, §3.3).
 - **Aussortieren nach K/H/V/S;** keine Doppelungen; Länge nach Schwierigkeit.
 - **Erklären von null an:** jeder Begriff beim ersten Auftreten erklärt, Fließtext statt Aufzählung.
 - **Abstrakte Ausdrücke erst anschaulich:** ein einfacher, konkreter Fall, dann die Bedeutung in Worten, dann die formale Schreibweise (§5.10).
+- **Keine Quellenbezüge:** Die Website nennt weder Skript noch Lehrveranstaltungen noch Nummern einer Vorlage; Fehler der Vorlage werden stillschweigend korrigiert (§5.7).
 - **Zusammenhänge zusätzlich in einem Satz:** Wo eine Formel einen Zusammenhang ausdrückt (Vertauschen, Zerlegen, Umkehren, Überlagern), steht zusätzlich die Zeile „Kurz gesagt:“ in einfacher Sprache, nur wenn sie ohne Ausnahme stimmt (§5.11).
 - **Sachlicher Ton** statt Leitbild-Erzählung; Analogien knapp im Kasten, mit Grenzen.
 - **„Worum es geht“** als kurzer Sachabschnitt nach dem Inhaltsverzeichnis, mit Einstiegsabbildung.

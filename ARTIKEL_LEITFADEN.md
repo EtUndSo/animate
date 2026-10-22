@@ -12,6 +12,11 @@ Artikel darf Minuten bis Stunden dauern. **Keine Parallelität** — strikt ein 
 Konzentration. **Keine fremden Beispiel-/Klausuraufgaben 1:1 übernehmen** (eigene erfinden); Standard-Darstellungen
 von Allgemeinwissen (Schaltungen, Graphen) sind dagegen frei nachbildbar — Details in §11.
 
+**Keine Quellen- und Veranstaltungsbezüge (User-Vorgabe 2026-10-22):** Auf der Website steht nirgends Skript,
+Vorlesung, Übung, Praktikum oder eine Seiten-, Bild-, Tabellen- oder Kapitelnummer einer Vorlage; die Leserinnen und
+Leser kennen sie nicht. Fehler der Vorlage werden stillschweigend korrigiert (ERKLAER_PROMPT §5.7). Die folgenden
+Regeln zur Vorlage gelten nur für die Arbeit im Hintergrund.
+
 **Vollständigkeit gegenüber der Quelle (User-Vorgabe 2026-10-19):** Jeder Artikel muss **alle wichtigen
 Inhalte und Formeln** des zugehörigen Quell-Kapitels (Vorlesung/Skript) enthalten — wer den Artikel liest, darf
 nichts Wesentliches verpassen, das in der Quelle steht. Lange Fließtexte dürfen (und sollen) zusammengefasst
