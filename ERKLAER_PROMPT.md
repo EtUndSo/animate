@@ -480,6 +480,23 @@ Entscheidung des Users vom 22.10.2026: Jeder abstrakte Ausdruck wird zuerst so a
 
 Ein konkreter Fall ersetzt keine Definition; er geht ihr voraus, damit die Definition etwas beschreibt, das die Leserin schon vor Augen hat.
 
+### 5.11 Zusammenhänge zusätzlich in einem einfachen Satz
+Entscheidung des Users vom 22.10.2026: Wo eine Formel oder Definition einen Zusammenhang ausdrückt, der sich in einem kurzen Satz in einfacher Sprache sagen lässt, steht dieser Satz zusätzlich da. Vorbild des Users aus ET3:
+- **Linearität:** „Die Transformation der Summe ist gleich der Summe der Transformationen.“
+- **Zeitinvarianz:** „Die Transformation der Verschiebung ist gleich der Verschiebung der Transformation.“
+
+**Regeln:**
+- **Nur, was ohne Ausnahme stimmt.** Der Satz ist bewiesen: im Artikel hergeleitet oder ein gesicherter Standardsatz. Seine Bedingungen nennt er mit („bei gleicher Einheit“, „für Kräfte, die nur vom Ort abhängen“). Gibt es an einer Stelle keinen solchen Satz, steht keiner da; nichts erzwingen.
+- **Ergänzen, nicht ersetzen.** Formel bzw. Definition, Akteure, „So liest man das“ und Herleitung bleiben vollständig; der Satz kommt hinzu.
+- **Ort und Form:** eine eigene Zeile **„Kurz gesagt:“** direkt nach „So liest man das“ bzw. nach der Erklärung einer Definition, ein bis zwei Sätze, in beiden Fassungen gleich. In einer Herleitung steht der Satz an dem Schritt, der ihn benutzt.
+- **Aktiv suchen:** Bei jeder Formel und Definition prüfen, ob sie einen solchen Zusammenhang enthält. Typische Muster:
+  - **Vertauschen zweier Operationen:** „Die Ableitung der Summe ist die Summe der Ableitungen.“ „Die Einheit des Produkts ist das Produkt der Einheiten.“
+  - **Zerlegen:** „Die Arbeit über den ganzen Weg ist die Summe der Arbeiten über seine Stücke.“
+  - **Umkehren:** „Integrieren macht das Ableiten rückgängig.“ „Die Arbeit auf dem Rückweg ist das Negative der Arbeit auf dem Hinweg“ (für Kräfte, die nur vom Ort abhängen).
+  - **Überlagern:** „Die Antwort einer linearen Schaltung auf die Summe zweier Quellen ist die Summe ihrer Antworten.“
+  - **Skalieren:** „Doppelter Abstand, ein Viertel der Kraft“, nur wenn die Proportionalität exakt gilt.
+- **Gegenprobe:** Muster, die richtig klingen, aber falsch sind, gibt es oft; die Ableitung eines Produkts ist zum Beispiel **nicht** das Produkt der Ableitungen. Jeden Satz deshalb an einem Zahlenbeispiel aus dem Zahlenwerk prüfen.
+
 ## 6. Vorgaben für Herleitungen
 
 Herleitungen stehen weiterhin **im eigenen, ausklappbaren Kasten** `:::herleitung` … `:::`. Ihre Länge belastet den Hauptpfad nicht, aber auch im Kasten steht kein überflüssiger Satz. Die kompakte Fassung übernimmt die Kästen ihrer Kernformeln unverändert aus der ausführlichen; nur ein „Zweiter Weg“, der auf Abschnitte allein der ausführlichen Fassung verweist, entfällt dort. Deshalb stützt sich der erste Weg jedes übernommenen Kastens nur auf Inhalte, die auch die kompakte Fassung erklärt.
@@ -782,10 +799,14 @@ Das Ergebnis kommt in die Zeile in `REVIEW_OPUS55.md`.
     - die Formel „nicht X, sondern Y“;
     - Ankündigungssätze.
 18. **Modul-Test.** Ist dasselbe Thema in einem anderen Modul behandelt, ist dieser Artikel mindestens gleich tief und verlinkt dorthin.
+19. **Zusammenhangs-Test (§5.11).**
+    - Ist jede Formel und Definition darauf geprüft, ob sich ihr Zusammenhang in einem einfachen Satz sagen lässt?
+    - Stimmt jeder „Kurz gesagt“-Satz ohne Ausnahme, mit seinen Bedingungen, und ist er an einem Zahlenbeispiel geprüft?
+    - Ergänzt er die formale Erklärung, statt sie zu ersetzen?
 
 ## 12. Kalibrierung: schwach gegen gut
 
-Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.2026, (f) und (g) aus den Rückmeldungen des Users zum Lernskript, (i) aus einer Vorgabe des Users vom 22.10.2026.
+Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.2026, (f) und (g) aus den Rückmeldungen des Users zum Lernskript, (i) und (j) aus Vorgaben des Users vom 22.10.2026.
 
 **(a) Mechanismus**
 - *Schwach:* „In Sperrrichtung steigt die Barriere, die Diffusion versiegt, es bleibt nur ein winziger, spannungsunabhängiger Sättigungsstrom.“ Das Quiz fragt dann „Warum spannungsunabhängig?“, der Text sagt es nicht.
@@ -857,12 +878,17 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
 - *Schwach:* „Ein System ist eine Abbildung $\mathrm{Tr}$, die jedem Eingangssignal $s(t)$ ein Ausgangssignal $g(t) = \mathrm{Tr}(s(t))$ zuordnet. Es heißt linear, wenn $\mathrm{Tr}(a s_1 + b s_2) = a\,\mathrm{Tr}(s_1) + b\,\mathrm{Tr}(s_2)$ gilt.“ Der Ausdruck steht da, bevor man weiß, wofür er steht.
 - *Gut:* Erst zwei einfache Systeme: Eines verdreifacht das Eingangssignal, aus $\sin t$ wird $3\sin t$; eines addiert 5. Dann der Satz, dass $\mathrm{Tr}$ nur der Name für diese Veränderung durch das System ist. Dann die Schreibweise $g(t) = \mathrm{Tr}(s(t))$ und die Linearität, an beiden Systemen geprüft: Beim Verdreifachen gilt sie, beim Addieren von 5 nicht, denn für die Summe zweier Signale käme die 5 nur einmal hinzu, in der Summe der Einzelergebnisse aber zweimal.
 
+**(j) Zusammenhang in einem Satz**
+- *Schwach:* Die Linearität steht nur als Formel $\mathrm{Tr}(a s_1 + b s_2) = a\,\mathrm{Tr}(s_1) + b\,\mathrm{Tr}(s_2)$ mit einer Erklärung der Symbole; was sie im Kern sagt, muss die Leserin selbst herauslesen. Ebenso schwach, weil falsch: ein Satz, der nur dem Muster folgt, etwa „die Ableitung des Produkts ist das Produkt der Ableitungen“.
+- *Gut:* Nach Formel und Erklärung zusätzlich die Zeile „**Kurz gesagt:** Die Transformation der Summe ist die Summe der Transformationen, und die Transformation des Vielfachen ist das Vielfache der Transformation.“ Geprüft am System „mal 3“; am System „plus 5“ zeigt dieselbe Zeile, warum es nicht linear ist.
+
 ## 13. Was sich gegenüber den bisherigen Artikeln ändert (Kurzfassung)
 
 - **Zwei Fassungen pro Thema:** kompakt und ausführlich, umschaltbar. Die ausführliche ist etwas kompakter als das Lernskript, die kompakte etwa halb so lang wie die ausführliche.
 - **Aussortieren nach K/H/V/S;** keine Doppelungen; Länge nach Schwierigkeit.
 - **Erklären von null an:** jeder Begriff beim ersten Auftreten erklärt, Fließtext statt Aufzählung.
 - **Abstrakte Ausdrücke erst anschaulich:** ein einfacher, konkreter Fall, dann die Bedeutung in Worten, dann die formale Schreibweise (§5.10).
+- **Zusammenhänge zusätzlich in einem Satz:** Wo eine Formel einen Zusammenhang ausdrückt (Vertauschen, Zerlegen, Umkehren, Überlagern), steht zusätzlich die Zeile „Kurz gesagt:“ in einfacher Sprache, nur wenn sie ohne Ausnahme stimmt (§5.11).
 - **Sachlicher Ton** statt Leitbild-Erzählung; Analogien knapp im Kasten, mit Grenzen.
 - **„Worum es geht“** als kurzer Sachabschnitt nach dem Inhaltsverzeichnis, mit Einstiegsabbildung.
 - **Akteure** vor jeder Kernformel und jedem Mechanismus, danach „Das Zusammenspiel“.

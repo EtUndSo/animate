@@ -56,6 +56,8 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
 
 ## (B1) Nächstes offenes Thema ermitteln
 
+**Zuerst:** Fehlt die Datei `notizen/nachtrag_5_11.md`, ist der Durchgang der einmalige Nachtrag (B1b), nicht ein neues Thema.
+
 **Reihenfolge der Module** (Entscheidung vom 22.10.2026): erst ET1, dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa), danach GEMB1. Der User hat angekündigt, dass sich die Reihenfolge noch ändern kann; maßgeblich ist diese Datei.
 
 Innerhalb von ET1 kommt zuerst der Halbleiter-Block, Kap. 10 bis 12, danach Kap. 2 bis 9 (Entscheidung vom 21.10.2026). Gründe:
@@ -88,6 +90,16 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
    Die Artikeldateien entstehen erst beim jeweiligen Thema (B5). Weil es keinen alten Artikel gibt, kommen `title`, `pfad`, `order` und `tags` aus dem Themenplan.
 4. **Prüfen:** Der B1-Befehl muss danach das erste Numa-Thema ausgeben.
 5. **Commit** („Numa: Volltext und Themenplan“) und Bericht an den User mit dem Themenplan.
+
+### (B1b) Einmalig: „Kurz gesagt“ in den fertigen Themen nachtragen (ERKLAER_PROMPT §5.11)
+
+Vorgabe des Users vom 22.10.2026: Zusammenhänge zusätzlich in einem einfachen Satz angeben und auch an anderen Stellen danach suchen. Gilt, solange `notizen/nachtrag_5_11.md` fehlt.
+1. **Suchen:** Alle Stil-3-Themen, die vor §5.11 entstanden sind (ET1 Kap. 10 bis 12, zehn Themen, je beide Fassungen), Formel für Formel und Definition für Definition nach Zusammenhängen im Sinn von §5.11 durchsuchen.
+2. **Prüfen:** Nur Sätze, die ohne Ausnahme stimmen, mit ihren Bedingungen und an einer Zahl aus dem Zahlenwerk geprüft. Nichts erzwingen.
+3. **Eintragen:** die Zeile „**Kurz gesagt:**“ in beiden Fassungen an derselben Stelle. Steht der Satz in einem Herleitungskasten, gilt in beiden Fassungen derselbe Text.
+4. **Protokoll:** `notizen/nachtrag_5_11.md` mit jeder Fundstelle (Artikel, Abschnitt, Satz, Zahlenprobe) und den geprüften, aber verworfenen Kandidaten mit Grund.
+5. **Bauen und Checks** wie in (B7): KaTeX, widefind, bsp-card gleich bsp-ref, Quizzahl.
+6. **Commit** „Stil 3: Zusammenhänge in einem Satz nachgetragen (§5.11)“ und kurzer Bericht mit der Liste der Sätze; im Loop danach wie in (B8) neu armen.
 
 ## (B2) Vorarbeit: Arbeitsnotiz und Zahlen (ERKLAER_PROMPT §10)
 
@@ -165,7 +177,7 @@ In den Artikeln stehen nur Editor-Abbildungen. Im Ablauf wird **keine** Abbildun
 
 ## (B6) Selbstprüfung (vor dem Build)
 
-1. **ERKLAER_PROMPT §11 für jede Fassung**, alle 18 Tests. Was ein Test findet, korrigierst du sofort.
+1. **ERKLAER_PROMPT §11 für jede Fassung**, alle 19 Tests. Was ein Test findet, korrigierst du sofort.
 2. **ARTIKEL_BAUPLAN §8 komplett:** Rechnungen, Vorzeichen und Zählpfeil-Richtungen nachrechnen; keine doppelt belegten Symbole.
 3. **Kennzahlen:** `python -I tools/artikel_kennzahlen.py <beide md>`. Soll:
    - Hauptpfad in der Spanne der Notiz;
