@@ -1544,3 +1544,143 @@ Zahlenwerk: `notizen/get1/zahlen_opv.py`, Abschnitt „Thema 02“, Funktionen `
 - §1 Schaltpläne mit Fotodiode und Stromquelle;
 - §2 Strompfeile;
 - §10 Teilbilder.
+
+## ET1 Kap. 12: Der reale Operationsverstärker
+Zahlenwerk: `notizen/get1/zahlen_opv.py`, Abschnitt „Thema 03“, Bericht `bericht_real()`, Funktionen `a_real`, `zweipol_sprung`, `ua_ruhestrom`, Simulation `sim` mit Anstiegsgrenze; Datenblattwerte LM741 (TI SNOSC25D), Ausgangswiderstand µA741 (TI, Ausgabe 2018); Beispieltransistor aus `zahlen_transistor.py`.
+
+**get1/operationsverstaerker/03-ersatzschaltbild**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Schaltplan. In der Mitte das Dreieckssymbol eines OPV, beschriftet „$v_D$ = 200 000, ab 5 Hz fallend, $f_T$ = 1 MHz, 0,5 V/µs“. Vor dem Pluseingang eine Spannungsquelle „$U_{os}$ = 1 mV“; an beiden Eingängen Stromquellen „80 nA“ mit Pfeil in den OPV; zwischen den Eingängen ein Widerstand „$R_e$ = 2 MΩ“; in Reihe zum Ausgang „$R_a$ = 75 Ω“. Links eine hellgraue Umrandung „Quellen an den Eingängen“ um Offsetquelle und Stromquellen, rechts eine zweite „Abweichungen im Verstärker“ um Verstärkungsangabe und $R_a$. Daneben eine kleine Tabelle der Grenzen: Ausgang ±14 V, Eingänge ±13 V, Gleichtaktunterdrückung 95 dB.
+
+*Kernaussage:* Wo eine Abweichung sitzt, entscheidet, was die Gegenkopplung mit ihr macht.
+
+*Daten:* `bericht_real()` (Kopfzeile mit den Datenblattwerten).
+
+*Editor:*
+- §1 Schaltplan mit Strom- und Spannungsquellen;
+- §7 Umrandungen und Labels.
+
+**get1/operationsverstaerker/03-fehlerorte**
+- Fassung: ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder, je ein nichtinvertierender Verstärker mit $R_1$ = 10 kΩ und $R_2$ = 90 kΩ.
+- (a) Abweichungen im Verstärker, orange markiert an OPV und $R_a$: „$v_D$ = 200 000: $A$ = 9,9995“ und „$v_D$ = 50 000: $A$ = 9,998“; „$R_a$ = 75 Ω wirkt wie 3,75 mΩ“; Rückführungspfeil vom Ausgang zum Minuseingang mit „nachgeregelt, geteilt durch 1 + k v_D“.
+- (b) Abweichung am Eingang, rot markiert: Offsetquelle 1 mV vor dem Pluseingang, Eingang auf 0 V; Ausgang 10 mV; Beschriftung „verstärkt wie ein Signal, mal 10“.
+
+*Kernaussage:* Was im Verstärker entsteht, teilt die Gegenkopplung; was am Eingang entsteht, verstärkt sie wie ein Signal.
+
+*Daten:* `bericht_real()` Punkte 1 und 2; Thema 01 `a_geschlossen`.
+
+*Editor:*
+- §1 Schaltplan;
+- §2 Pfeile mit Text;
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/03-aussteuerung**
+- Fassung: ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Vereinfachte Ausgangsstufe, schematisch: npn-Emitterfolger zur positiven, pnp-Emitterfolger zur negativen Versorgung (±15 V), Emitter über 25 Ω bzw. 50 Ω am Ausgang, die Basen von der vorangehenden Stufe getrieben. Rote Klammer vom Ausgang zur positiven Versorgung: „Basis-Emitter-Strecke rund 0,6 V plus Sättigungsspannung des Treibers, zusammen rund 1 V“.
+- (b) Senkrechte Spannungsachse von −15 V bis +15 V mit Balken nebeneinander: Versorgung (grau, ±15 V), Ausgang an 10 kΩ (blau, ±14 V), Ausgang an 2 kΩ (hellblau, ±13 V), Eingangsbereich (orange, ±13 V, gestrichelt die garantierten ±12 V); Abstände zur Versorgung als Maßpfeile (1 V, 2 V).
+
+*Kernaussage:* Zwischen jeder Signalspannung und der Versorgung liegen Transistorstrecken, an denen Spannung abfällt.
+
+*Daten:* `bericht_real()` Punkt 11.
+
+*Editor:*
+- §1 Schaltplan mit npn- und pnp-Transistoren;
+- §22 Bereichsbalken an einer Spannungsachse (neu);
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/03-offset**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) $I_C$ in A, logarithmisch von 1 µA bis 10 mA, über $U_{BE}$ in V, linear von 0,45 V bis 0,75 V; Geraden nach der Transfergleichung mit $U_T$ = 25,85 mV für $I_S$ = 10⁻¹⁴ A (blau) und 1,04·10⁻¹⁴ A (rot). Bei 0,5 mA eine Ausschnittvergrößerung (Lupe, $U_{BE}$ von 0,634 V bis 0,640 V; die Geraden erreichen 0,5 mA bei 0,6359 V und 0,6369 V) mit dem waagrechten Maßpfeil „1,01 mV“, weil der Abstand im ganzen Diagramm nicht sichtbar wäre.
+- (b) Schaltplan: invertierender Verstärker mit $R_1$ = 10 kΩ und $R_2$ = 20 kΩ, Eingang an Masse, Offsetquelle 1 mV vor dem Pluseingang; Knotenwerte 1 mV an beiden Eingängen des inneren OPV, Strompfeil 0,1 µA durch $R_1$ und $R_2$, Ausgang 3 mV. Rechts daneben dieselbe Schaltung umgezeichnet als nichtinvertierender Verstärker mit dem Eingang $U_{os}$ und der Verstärkung 3.
+
+*Kernaussage:* Die Offsetspannung wird mit der Rauschverstärkung verstärkt, nicht mit der Signalverstärkung.
+
+*Daten:* `bericht_real()` Punkt 4; `IS` aus `zahlen_transistor.py`.
+
+*Editor:*
+- §12 halblogarithmische Achse;
+- §22 Ausschnittvergrößerung (neu);
+- §1 Schaltplan, §2 Strompfeile;
+- §10 Teilbilder;
+- §8 optional: Animation des Umzeichnens (Eingang an Masse, Offsetquelle wandert vor den Pluseingang).
+
+**get1/operationsverstaerker/03-ruhestroeme**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder, je ein invertierender Verstärker mit $R_1$ = 100 kΩ und $R_2$ = 1 MΩ, Eingang an Masse, Stromquellen von 80 nA in beide Eingänge (orange Pfeile).
+- (a) Pluseingang direkt an Masse: beide Eingänge 0 V; Strompfeil 80 nA durch $R_2$ vom Ausgang zum Minuseingang; $R_1$ stromlos (grau); Ausgang 80 mV.
+- (b) Mit $R_3$ = 90,9 kΩ vom Pluseingang nach Masse: Pluseingang −7,27 mV (80 nA durch $R_3$), Minuseingang −7,27 mV; Strompfeile 72,7 nA durch $R_1$ aus Masse und 7,27 nA durch $R_2$; Ausgang 0 V. Randnotiz: mit 90 nA und 70 nA statt je 80 nA ±20 mV.
+
+*Kernaussage:* Gleiche Ströme an gleichen Widerständen heben sich auf; übrig bleibt der Unterschied der Ströme.
+
+*Daten:* `bericht_real()` Punkt 5, `ua_ruhestrom`.
+
+*Editor:*
+- §1 Schaltplan mit Stromquellen;
+- §2 Strompfeile mit Wert;
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/03-gleichtakt**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Spannungsfolger mit 10 V am Eingang: beide Eingänge mit „10 V“ beschriftet, Klammer „Gleichtakt 10 V“; Ausgang „10 V ± 0,18 mV“; Hinweis „wirkt wie 0,18 mV Differenzspannung bei 95 dB“.
+- (b) Invertierender Verstärker 10 kΩ/20 kΩ mit Sinus am Eingang: beide OPV-Eingänge fest auf 0 V, „kein Gleichtakt“.
+- (c) Waagrechte Skala von 60 dB bis 120 dB, darunter dieselben Punkte als Verhältnis 10³ bis 10⁶; Marken bei 61 dB „Subtrahierer, 1 % Widerstandsabweichung“ (grau), 80 dB „garantiert, 10 000“ (orange), 95 dB „typisch, 56 000“ (rot); der Skriptbereich 60 bis 120 dB hell hinterlegt.
+
+*Kernaussage:* Eine Gleichtaktspannung wirkt wie eine kleine Differenzspannung, aber nur, wo die Eingänge mit dem Signal mitlaufen.
+
+*Daten:* `bericht_real()` Punkt 6.
+
+*Editor:*
+- §1 Schaltplan;
+- §22 Skala mit Doppelbeschriftung Dezibel und Verhältnis (neu);
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/03-frequenzgang**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Doppeltlogarithmisches Diagramm, x: Frequenz $f$ in Hz von 1 Hz bis 10 MHz, y: Verstärkung (Betrag) von 0,1 bis 10⁶. Kurven aus dem Einpolmodell: Leerlaufverstärkung, 200 000 durch √(1 + (f/5 Hz)²) (blau), mit gerundeter Ecke bei 5 Hz (141 000); Schaltungen mit der Rauschverstärkung 1, 10, 100 und 1000 (rot), berechnet als $(1/k)$ durch den Betrag von $1 + 1/(k v_D)$ mit der frequenzabhängigen Leerlaufverstärkung; Eckpunkte bei 1 MHz, 100 kHz, 10 kHz und 1 kHz mit der Marke „0,707-fach“. Senkrechter Doppelpfeil zwischen der blauen Kurve und der Kurve für 10 bei 1 kHz: „Schleifenverstärkung 100“. Achsen und Gitter grau.
+
+*Kernaussage:* Die Bandbreite endet, wo die Schleifenverstärkung 1 wird; Rauschverstärkung mal Bandbreite ergibt die Transitfrequenz.
+
+*Daten:* `bericht_real()` Punkt 8, `a_real`.
+
+*Editor:*
+- §4 doppeltlogarithmische Achsen;
+- §11 Datenkurven;
+- §2 Maßpfeil mit Text;
+- §15 optional: Schieberegler für die Rauschverstärkung von 1 bis 1000.
+
+**get1/operationsverstaerker/03-anstieg**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Drei Zeitverläufe übereinander, Rauschverstärkung 10, simuliert mit Anstiegsgrenze 0,5 V/µs; je zwei Perioden, y: $U_A$ in V.
+- (a) 20 kHz, Eingang 0,05 V: verlangter Ausgang 0,5 V (grau gestrichelt), tatsächlich Sinus mit 0,490 V (rot); Zeitachse 0 bis 100 µs, eigener Maßstab ±0,6 V.
+- (b) 5 kHz, Eingang 1 V: verlangt 10 V (grau gestrichelt), tatsächlich Sinus mit 9,99 V (rot); Tangente im Nulldurchgang „0,31 V/µs“; Zeitachse 0 bis 400 µs.
+- (c) 20 kHz, Eingang 1 V: verlangt 10 V (grau gestrichelt), tatsächlich Dreieck mit ±6,0 V (rot), an einer Flanke „0,5 V/µs“; Zeitachse 0 bis 100 µs.
+
+*Kernaussage:* Die Bandbreite begrenzt kleine Signale, die Anstiegsgeschwindigkeit große.
+
+*Daten:* `bericht_real()` Punkt 10 (Simulation mit `sim`, $k$ = 0,1).
+
+*Editor:*
+- §5 Zeitverläufe mit begrenzter Steigung;
+- §11 Datenkurven;
+- §10 Teilbilder;
+- §15 optional: Schieberegler für die Eingangsamplitude bei 20 kHz; ab 0,398 V Eingang (3,98 V Ausgang) erreicht der Sinus im Modell die Anstiegsgrenze und wird zum Dreieck.

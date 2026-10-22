@@ -52,14 +52,14 @@ Der Editor kann Funktionsgraphen; es fehlen:
 - **Tangente im Punkt** (differentieller Widerstand / Kleinsignal-Linearisierung).
 - Achsen frei beschriften mit Einheiten; markierte Punkte mit Koordinaten/Labels; Bereiche farbig hinterlegen (Sperr-/aktiver/Sättigungsbereich).
 - **Doppeltlogarithmische Achsen** (OPV: Verstärkung über Frequenz, GBW).
-Gebraucht in: Diode, Arbeitspunkt, Transistor-Kennlinienfeld, OPV-GBW, Energie im Kondensator.
+Gebraucht in: Diode, Arbeitspunkt, Transistor-Kennlinienfeld, OPV-GBW (get1/operationsverstaerker/03-frequenzgang), Energie im Kondensator.
 
 ## 5. Zeitverläufe / Signalformen (Waveforms)  — **P2**
 - Sinus und abgeleitete Formen; **stückweise/abgeschnittene** Signale (Einweg-/Brückengleichrichtung).
 - Überlagerung geglättet + Welligkeit (Brummspannung), Rampe (Slew Rate), Rechteck-Sprungantwort.
 - Lade-/Entladekurven (e-Funktion) mit markierter Zeitkonstante τ.
 - **Signalprojektion über eine Kennlinie** (neu 2026-10-21): Eingangssinus unterhalb der x-Achse, Antwort rechts neben der y-Achse, Hilfslinien zeigen die Abbildung Punkt für Punkt; dazu die Tangente zum Vergleich.
-Gebraucht in: RC-Laden/Entladen, Gleichrichtung, OPV-Slew-Rate; Transistor als Verstärker (get1/bipolartransistoren/03-verstaerkerstufe, 03-tangente, 03-emitterwiderstand, 03-stabilisierung).
+Gebraucht in: RC-Laden/Entladen, Gleichrichtung, OPV-Slew-Rate (get1/operationsverstaerker/03-anstieg); Transistor als Verstärker (get1/bipolartransistoren/03-verstaerkerstufe, 03-tangente, 03-emitterwiderstand, 03-stabilisierung).
 
 ## 6. Mikrostruktur-/Material-Diagramme  — **P2**
 - **Bändermodell**: gefüllte/leere Energiebänder als Balken, Bandlücke, Elektron (Punkt) / Loch (Kreis), Übergang über die Lücke.
@@ -134,7 +134,7 @@ Gebraucht in: Gesamtbild (d), Gleichgewichts-Profile, Gleichrichter, Bänder bei
 - Logarithmische y-Achse mit Zehnerpotenz-Beschriftung (10⁵ … 10¹⁸), x linear; Hilfslinien bei Zehnerpotenzen.
 - Ergänzt §4, das bisher nur doppeltlogarithmische Achsen nennt.
 - Ebenso logarithmische x-Achse bei linearer y-Achse (Widerstand von 50 kΩ bis 2 MΩ).
-Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über U (Teilströme), Spannungsgegenkopplung über $R_B$.
+Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über U (Teilströme), Spannungsgegenkopplung über $R_B$, Transferkennlinien zweier Transistoren beim Offset (get1/operationsverstaerker/03-offset).
 
 ## 13. Gestapelte Diagramme mit gemeinsamer x-Achse  — **P2**
 - Mehrere Größen über demselben Ort übereinander (Dichte, Raumladung, Feld, Potenzial, Bänder), nur unten
@@ -191,6 +191,12 @@ Gebraucht in: Schmitt-Trigger (get1/operationsverstaerker/01-schmitt-kennlinie);
 - Überlagerung mit deterministischen Signalen (Sinus plus Rauschen); Hilfslinien beim Effektivwert.
 - Dazu die Rauschdichte über der Frequenz, doppelt logarithmisch (§4).
 Gebraucht in: Rauschen eines Widerstands (get1/operationsverstaerker/01-rauschen), Komparator gegen Schmitt-Trigger (01-schmitt-rauschen).
+
+## 22. Skalen, Bereichsbalken und Ausschnittvergrößerung  — **P2** (neu 2026-10-22, realer OPV)
+- Eine einzelne Skala (Zahlenstrahl) mit zwei Beschriftungen derselben Größe, etwa Dezibel oben und Verhältnis unten (60 dB = 10³ bis 120 dB = 10⁶), mit Marken und hinterlegten Bereichen.
+- Bereichsbalken an einer gemeinsamen Spannungsachse: mehrere senkrechte Balken nebeneinander (Versorgung, Ausgangsbereich mit und ohne Last, Eingangsbereich), Abstände als Maßpfeile.
+- Ausschnittvergrößerung in einem Diagramm: Rahmen um einen kleinen Bereich, daneben vergrößert dargestellt und mit Linien verbunden, damit sehr kleine Abstände sichtbar werden (1 mV bei 0,6 V).
+Gebraucht in: realer OPV (get1/operationsverstaerker/03-gleichtakt, 03-aussteuerung, 03-offset).
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

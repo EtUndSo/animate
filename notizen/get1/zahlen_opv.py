@@ -583,6 +583,237 @@ def bericht_grundschaltungen():
       f"U_E = 0,3 V -> OP2 bräuchte {A1*A2*0.3:.1f} V, begrenzt auf {UAMAX:.0f} V")
 
 
+# ------------------------------------------------------------------ Thema 03: der reale OPV
+# weitere Datenblattwerte: TI LM741 (SNOSC25D), ±15 V, 25 °C; Ausgangswiderstand aus dem TI-Datenblatt des uA741
+# (Ausgabe 2018, typ. 75 Ohm); Thermoelement Typ K: 4,096 mV bei 100 °C gegen 0 °C (NIST ITS-90)
+UOS_MAX = 5e-3                    # Offsetspannung max.
+UOS_ABGLEICH = 15e-3              # Abgleichbereich ±15 mV (Datenblatt: bei ±20 V)
+IOS, IOS_MAX = 20e-9, 200e-9      # Offsetstrom typ./max.
+IBIAS_MAX = 500e-9                # Eingangsruhestrom max.
+RE_MIN = 0.3e6                    # Eingangswiderstand min.
+RA = 75.0                         # Ausgangswiderstand ohne Rückkopplung
+CMRR_DB, CMRR_DB_MIN = 95.0, 80.0
+SVRR_DB, SVRR_DB_MIN = 96.0, 86.0
+UICR, UICR_MIN = 13.0, 12.0       # Eingangsspannungsbereich (Gleichtakt) typ./min.
+UAMAX_2K = 13.0                   # Ausgangshub an 2 kOhm
+ISC = 25e-3                       # Kurzschlussstrom
+TR_FOLGER, US_FOLGER = 0.3e-6, 0.05   # Spannungsfolger: Anstiegszeit, Überschwingen
+S_TYP_K = 4.096e-3 / 100.0        # Thermoelement Typ K, mittlere Empfindlichkeit 0–100 °C in V/K
+IC_EINGANG = 10e-6                # Kollektorstrom je Eingangstransistor des 741, rund (Sedra/Smith: 9,5 uA)
+
+
+def lin(d):
+    """dB-Wert eines Spannungsverhältnisses in das Verhältnis."""
+    return 10 ** (d / 20)
+
+
+def a_real(a_ideal, k, f=0.0, vD=VD):
+    """Verstärkung mit endlicher, frequenzabhängiger Leerlaufverstärkung (Einpolmodell): A_ideal/(1 + 1/(k v_D(jf)))."""
+    vdj = vD / complex(1, f / (FT / vD))
+    return a_ideal / (1 + 1 / (k * vdj))
+
+
+def zweipol_sprung(k, f2, sprung, t_end=4e-6, dt=1e-10):
+    """Sprungantwort mit zweiter Verzögerung f2 (Modell): tau1 dx/dt = v_D U_D - x, tau2 dU_A/dt = x - U_A."""
+    tau1, tau2 = VD / WT, 1 / (2 * math.pi * f2)
+    x = ua = 0.0
+    werte = []
+    for _ in range(int(round(t_end / dt)) + 1):
+        ud = sprung - k * ua
+        x += (VD * ud - x) / tau1 * dt
+        ua += (x - ua) / tau2 * dt
+        werte.append(ua)
+    return np.array(werte)
+
+
+def ua_ruhestrom(ibp, ibm, R1, R2, R3):
+    """Ausgangsspannung eines Verstärkers mit R_1 (Minuseingang–Masse bzw. –Quelle 0 V), R_2 (Rückkopplung), R_3
+    (Pluseingang–Masse) allein durch die Ruheströme I_B+ und I_B- (in die Eingänge hinein gezählt)."""
+    return R2 * ibm - ibp * R3 * (1 + R2 / R1)
+
+
+def bericht_real():
+    from zahlen_halbleiter import _bisekt
+    from zahlen_transistor import UA as UA_EARLY
+    P("=" * 100)
+    P("THEMA 03 (Kap. 12.7): Der reale Operationsverstärker")
+    P("=" * 100)
+    P(f"Beispiel-OPV (LM741, ±15 V): v_D {VD:.0f} (min {VD_MIN:.0f}); U_os {UOS*1e3:.0f} mV (max {UOS_MAX*1e3:.0f} mV, "
+      f"Abgleich ±{UOS_ABGLEICH*1e3:.0f} mV); I_B {IBIAS*1e9:.0f} nA (max {IBIAS_MAX*1e9:.0f} nA); I_os {IOS*1e9:.0f} nA "
+      f"(max {IOS_MAX*1e9:.0f} nA); R_e {RE_OPV/1e6:.0f} MOhm (min {RE_MIN/1e6:.1f}); R_a {RA:.0f} Ohm; Ausgang ±{UAMAX:.0f} V "
+      f"an 10 kOhm, ±{UAMAX_2K:.0f} V an 2 kOhm; I_K {ISC*1e3:.0f} mA; Eingangsbereich ±{UICR:.0f} V (min ±{UICR_MIN:.0f} V); "
+      f"CMRR {CMRR_DB:.0f} dB (min {CMRR_DB_MIN:.0f}); SVRR {SVRR_DB:.0f} dB (min {SVRR_DB_MIN:.0f}); f_T {FT/1e6:.0f} MHz; "
+      f"SR {SR/1e6:.1f} V/us; Folger: Anstiegszeit {TR_FOLGER*1e6:.1f} us, Überschwingen {US_FOLGER*100:.0f} %")
+
+    P("1) Verstärkungsfehler: A = A_ideal/(1 + 1/(k v_D)), k = R_1/(R_1 + R_2) bei beiden Schaltungen")
+    faelle = (("invertierend 10k/20k", 10e3, 20e3, True), ("nichtinvertierend 10k/90k", 10e3, 90e3, False),
+              ("invertierend 1k/100k", 1e3, 100e3, True), ("nichtinvertierend 1k/100k", 1e3, 100e3, False),
+              ("nichtinvertierend 100 Ohm/100k", 100.0, 100e3, False))
+    for name, R1, R2, inv in faelle:
+        k = R1 / (R1 + R2)
+        aid = -R2 / R1 if inv else 1 + R2 / R1
+        for vd in (VD, VD_MIN):
+            a = a_real(aid, k, vD=vd).real
+            P(f"   {name}: k = {k:.6f} (1/k = {1/k:.0f}), A_ideal = {aid:.0f}, v_D = {vd:.0f}: k v_D = {k*vd:.1f}, "
+              f"A = {a:.5f}, Fehler {(a/aid-1)*100:.4f} %")
+    P(f"   Kontrolle mit Thema 02: a_invertierend(10k, 20k) = {a_invertierend(10e3, 20e3):.6f}")
+    a_typ, a_min = a_real(-100, 1 / 101).real, a_real(-100, 1 / 101, vD=VD_MIN).real
+    P(f"   A = -100: v_D 200 000 -> 50 000 (-75 %) ändert A um {(a_min/a_typ-1)*100:.3f} %; Verhältnis "
+      f"{0.75/(1-a_min/a_typ):.0f}")
+
+    P("2) Ausgangswiderstand mit Gegenkopplung, R_a/(1 + k v_D(jf)):")
+    for k in (1.0, 0.1, 1 / 101):
+        P(f"   k = {k:.4f}: {RA/(1+k*VD)*1e3:.3f} mOhm")
+    il = 5.0 / 1e3
+    P(f"   5 V an 1 kOhm (5 mA): ohne Rückkopplung fielen {il*RA:.3f} V an R_a ab ({RA/(RA+1e3)*100:.1f} %), mit k = 0,1 "
+      f"{il*RA/(1+0.1*VD)*1e6:.1f} uV")
+    for f in (100.0, 1e3, 10e3, 100e3):
+        vdj = VD / complex(1, f / (FT / VD))
+        P(f"   k = 0,1, f = {f/1e3:g} kHz: |Z_a| = {RA/abs(1+0.1*vdj):.4f} Ohm")
+
+    P("3) Eingangswiderstand des nichtinvertierenden Verstärkers, k = 0,1:")
+    rein = RE_OPV * (1 + 0.1 * VD)
+    P(f"   R_e (1 + k v_D) = {rein/1e9:.1f} GOhm; bei 1 V Eingang fließen {1/rein*1e12:.1f} pA durch R_e, "
+      f"der Ruhestrom ist {IBIAS/(1/rein):.0f}-mal größer")
+
+    P("4) Offsetspannung:")
+    for r in (1.01, 1.04):
+        P(f"   I_S-Verhältnis {r:.2f}: Delta U_BE = U_T ln(r) = {UT*math.log(r)*1e3:.3f} mV")
+    P(f"   1 mV verlangt ein I_S-Verhältnis von {math.exp(1e-3/UT):.4f}")
+    ube1, ube2 = UT * math.log(0.5e-3 / IS), UT * math.log(0.5e-3 / (1.04 * IS))
+    P(f"   Lupe für Abbildung 03-offset: bei 0,5 mA U_BE = {ube1:.4f} V (I_S = 1e-14 A) und {ube2:.4f} V (4 % größeres I_S); "
+      f"bei 1 uA {UT*math.log(1e-6/IS):.3f} V, bei 10 mA {UT*math.log(10e-3/IS):.3f} V")
+    P(f"   Drift, wenn der Offset aus ungleichen I_S stammt: U_os/T = {UOS/T*1e6:.2f} uV/K, je 10 K {UOS/T*10*1e6:.1f} uV; "
+      f"LM741A: höchstens 15 uV/K")
+    for name, R1, R2 in (("Umkehrer 10k/10k", 10e3, 10e3), ("invertierend 10k/20k", 10e3, 20e3),
+                         ("invertierend 1k/100k", 1e3, 100e3), ("nichtinvertierend 1k/100k", 1e3, 100e3)):
+        g = 1 + R2 / R1
+        P(f"   {name}: Rauschverstärkung {g:.0f}; U_A = {g*UOS*1e3:.1f} mV (typ), {g*UOS_MAX*1e3:.0f} mV (max)")
+    A = 101
+    P("   Thermoelement Typ K an nichtinvertierendem Verstärker 1 kOhm/100 kOhm (A = 101):")
+    P(f"      Empfindlichkeit {S_TYP_K*1e6:.2f} uV/K; 100 °C: {S_TYP_K*100*1e3:.3f} mV -> U_A {A*S_TYP_K*100*1e3:.1f} mV; "
+      f"am Ausgang {A*S_TYP_K*1e3:.3f} mV/K")
+    P(f"      Offset 1 mV -> {A*UOS*1e3:.0f} mV am Ausgang = {UOS/S_TYP_K:.1f} K; 5 mV -> {UOS_MAX/S_TYP_K:.0f} K")
+    P(f"      Drift {UOS/T*1e6:.2f} uV/K -> {UOS/T/S_TYP_K:.3f} K Messfehler je K Umgebung, {UOS/T/S_TYP_K*10:.2f} K je 10 K")
+    P(f"      Ruhestrom: I_B- R_2 = {IBIAS*100e3*1e3:.1f} mV am Ausgang = {IBIAS*100e3/A*1e6:.1f} uV am Eingang = "
+      f"{IBIAS*100e3/A/S_TYP_K:.2f} K")
+    kk = 1 / 101
+    a = a_real(101, kk).real
+    P(f"      Verstärkungsfehler {(a/101-1)*100:.4f} % -> bei 100 °C {abs(a/101-1)*100:.4f} K")
+    P(f"      Bandbreite k f_T = {kk*FT/1e3:.2f} kHz")
+
+    P("5) Eingangsruheströme:")
+    P(f"   Basisstrom: {IC_EINGANG*1e6:.0f} uA Kollektorstrom / {IBIAS*1e9:.0f} nA -> B = {IC_EINGANG/IBIAS:.0f}")
+    R1, R2 = 100e3, 1e6
+    R3 = R1 * R2 / (R1 + R2)
+    P(f"   invertierend R_1 = 100 kOhm, R_2 = 1 MOhm (A = -10): R_3 = R_1||R_2 = {R3/1e3:.2f} kOhm")
+    P(f"      ohne R_3, I_B- = 80 nA: U_A = {ua_ruhestrom(IBIAS, IBIAS, R1, R2, 0.0)*1e3:.1f} mV")
+    P(f"      mit R_3, beide 80 nA: U_A = {ua_ruhestrom(IBIAS, IBIAS, R1, R2, R3)*1e6:.3f} uV; Pluseingang "
+      f"{-IBIAS*R3*1e3:.3f} mV; Strom durch R_1 {IBIAS*R3/R1*1e9:.2f} nA, durch R_2 {(IBIAS-IBIAS*R3/R1)*1e9:.2f} nA")
+    P(f"      I_B+ = 90 nA, I_B- = 70 nA: ohne R_3 {ua_ruhestrom(90e-9, 70e-9, R1, R2, 0.0)*1e3:.1f} mV, mit R_3 "
+      f"{ua_ruhestrom(90e-9, 70e-9, R1, R2, R3)*1e3:.1f} mV (= -I_os R_2)")
+    P(f"      Höchstwerte: I_B 500 nA -> {IBIAS_MAX*R2:.2f} V; I_os 200 nA -> {IOS_MAX*R2:.2f} V")
+    P(f"      Offset 1 mV mal Rauschverstärkung 11: {11*UOS*1e3:.0f} mV")
+    P(f"   invertierend 10k/20k: I_B R_2 = {IBIAS*20e3*1e3:.2f} mV gegen Offset mal 3 = {3*UOS*1e3:.0f} mV")
+    P(f"   invertierend 10k/100k: ohne R_3 {IBIAS*100e3*1e3:.1f} mV, mit R_3 {IOS*100e3*1e3:.1f} mV")
+    P(f"   Integrator 10 kOhm/100 nF (Thema 02): Ruhestrom lädt C mit {IBIAS/100e-9:.2f} V/s")
+
+    P("6) Gleichtaktunterdrückung:")
+    for d in (60.0, 80.0, CMRR_DB, 120.0):
+        P(f"   {d:.0f} dB: CMRR = {lin(d):.0f}, Kehrwert {1/lin(d):.2e}")
+    P(f"   Skript S. 212: 120 dB entspricht {1/lin(120):.0e}, nicht 1e-4; 1e-4 wären {20*math.log10(1e4):.0f} dB")
+    P(f"   Gleichtaktverstärkung v_Gl = v_D/CMRR = {VD/lin(CMRR_DB):.2f} (typ), {VD/lin(CMRR_DB_MIN):.1f} (80 dB)")
+    for ugl in (1.0, 10.0):
+        P(f"   Gleichtakt {ugl:.0f} V wirkt wie U_D = {ugl/lin(CMRR_DB)*1e6:.1f} uV (typ), {ugl/lin(CMRR_DB_MIN)*1e6:.0f} uV "
+          f"(80 dB)")
+    P(f"   nichtinvertierend A = 10 mit 1 V Eingang: {1/lin(CMRR_DB)*10*1e6:.0f} uV am Ausgang gegen Offset mal 10 = "
+      f"{10*UOS*1e3:.0f} mV; als Verstärkungsfehler {1/lin(CMRR_DB)*1e6:.1f} ppm")
+    uce3 = diffpaar(0.0, 0.0)["uE"] - UEE_D
+    r0 = (UA_EARLY + uce3) / I0_D
+    di = 1.0 / r0
+    du = RC_D * di / 2
+    vgl_d = 0.01 * du
+    P(f"   Differenzverstärker aus Thema 01: Q3 mit U_CE = {uce3:.2f} V, Early-Spannung {UA_EARLY:.0f} V -> "
+      f"r_CE = {r0/1e3:.1f} kOhm; 1 V Gleichtakt: Fußpunktstrom +{di*1e6:.2f} uA, je Kollektor {di/2*1e6:.2f} uA, "
+      f"Kollektorpotentiale je {du*1e3:.1f} mV")
+    P(f"      1 % Unterschied der R_C: {vgl_d*1e3:.3f} mV je V zwischen den Kollektoren; mit v_u = 193: CMRR = "
+      f"{193/vgl_d:.0f} = {20*math.log10(193/vgl_d):.1f} dB")
+    P(f"      Ausgang an einem Kollektor: v_Gl = {du:.4f}, v_u/2 = 96,5 -> CMRR {96.5/du:.0f} = "
+      f"{20*math.log10(96.5/du):.1f} dB")
+    P(f"   Subtrahierer mit 1 % Widerstandsfehler (Thema 02): 61 dB, der OPV selbst {CMRR_DB:.0f} dB")
+
+    P("7) Betriebsspannungsunterdrückung:")
+    P(f"   {SVRR_DB:.0f} dB -> {1/lin(SVRR_DB)*1e6:.1f} uV/V; {SVRR_DB_MIN:.0f} dB -> {1/lin(SVRR_DB_MIN)*1e6:.1f} uV/V")
+    P(f"   Versorgung sinkt langsam um 100 mV (z. B. Batterie): Offset {0.1/lin(SVRR_DB)*1e6:.2f} uV (typ), mal 101 "
+      f"{101*0.1/lin(SVRR_DB)*1e6:.0f} uV am Ausgang")
+    svrr100 = SVRR_DB - 20 * math.log10(math.sqrt(1 + (100 / (FT / VD)) ** 2))
+    P(f"   nur Abschätzung (MT-043: Abfall ab der Eckfrequenz der Leerlaufverstärkung): bei 100 Hz {svrr100:.1f} dB, "
+      f"100 mV Brummen wie {0.1/lin(svrr100)*1e6:.0f} uV am Eingang, mal 101 {101*0.1/lin(svrr100)*1e3:.1f} mV; "
+      "im Artikel nur qualitativ")
+
+    P("8) Frequenzgang (Einpolmodell):")
+    f1 = FT / VD
+    P(f"   erste Eckfrequenz f_T/v_D = {f1:.1f} Hz; |v_D|: " + ", ".join(
+        f"{f:g} Hz {abs(VD/complex(1, f/f1)):.0f}" for f in (1.0, 5.0, 100.0, 1e3, 10e3, 100e3, 1e6)))
+    for k in (1.0, 0.5, 1 / 3, 0.1, 1 / 11, 1 / 101, 1 / 1001):
+        fg = f1 * (1 + k * VD)
+        P(f"   k = {k:.5f} (1/k = {1/k:.0f}): f_g = {fg/1e3:.3f} kHz (k f_T = {k*FT/1e3:.3f} kHz), tau = "
+          f"{1/(2*math.pi*fg)*1e6:.3f} us, Anstiegszeit 2,2 tau = {2.2/(2*math.pi*fg)*1e6:.3f} us")
+    for f in (5e3, 10e3, 20e3, 100e3):
+        a = a_real(10.0, 0.1, f)
+        P(f"   A = 10 (k = 0,1) bei {f/1e3:g} kHz: |A| = {abs(a):.4f}, Phase {math.degrees(math.atan2(a.imag, a.real)):.1f} Grad")
+    a1 = a_real(-100.0, 1 / 101, 20e3)
+    a2 = a_real(-10.0, 1 / 11, 20e3)
+    fg1, fg2 = f1 * (1 + VD / 101), f1 * (1 + VD / 11)
+    P(f"   Audio, A = -100: einstufig f_g = {fg1/1e3:.2f} kHz, bei 20 kHz |A| = {abs(a1):.1f}; zweistufig je -10: f_g je "
+      f"{fg2/1e3:.2f} kHz, gesamt {fg2*math.sqrt(math.sqrt(2)-1)/1e3:.1f} kHz, bei 20 kHz |A| = {abs(a2)**2:.1f}")
+    P(f"      zwei gleiche Stufen: je Stufe auf 2^(-1/4) = {2**-0.25:.4f} gefallen bei f/f_g = sqrt(sqrt(2) - 1) = "
+      f"{math.sqrt(math.sqrt(2)-1):.4f}; Bandbreite je Stufe {fg2/fg1:.2f}-mal so groß wie einstufig")
+    P(f"   Rauschverstärkung 101 mit 23 nV/sqrt(Hz): {EN*101*1e6:.2f} uV/sqrt(Hz) am Ausgang, Rauschbandbreite "
+      f"pi/2 f_g = {math.pi/2*fg1/1e3:.1f} kHz -> {EN*101*math.sqrt(math.pi/2*fg1)*1e3:.2f} mV eff.")
+
+    P("9) Überschwingen als Spannungsfolger (Datenblatt 5 %) mit einer zweiten Verzögerung (Modell):")
+    ln_us = math.log(US_FOLGER)
+    zeta = -ln_us / math.sqrt(math.pi**2 + ln_us**2)
+    f2 = 4 * zeta**2 * FT
+    P(f"   Dämpfungsgrad aus 5 %: {zeta:.3f}; zweite Verzögerung f_2 = 4 zeta^2 f_T = {f2/1e6:.3f} MHz")
+    fc = _bisekt(lambda x: 1 - FT / (x * math.sqrt(1 + (x / f2) ** 2)), 1e4, 1e7)
+    P(f"   k = 1: Schleifenverstärkung 1 bei {fc/1e6:.3f} MHz; Phasenreserve 90 - atan(f_c/f_2) = "
+      f"{90 - math.degrees(math.atan(fc/f2)):.1f} Grad")
+    for k in (1.0, 0.5, 0.1):
+        ua = zweipol_sprung(k, f2, 20e-3 * k, t_end=8e-6 if k < 1 else 4e-6)
+        end = 20e-3 * a_real(1.0, k).real if k == 1.0 else 20e-3 * k * a_real(1 / k, k).real
+        P(f"   k = {k}: zeta = {0.5*math.sqrt(f2/(k*FT)):.3f}, Endwert {end*1e3:.4f} mV, Simulation: Überschwingen "
+          f"{max(0.0, (ua.max()/end-1)*100):.2f} %")
+    ua = zweipol_sprung(1.0, f2, 20e-3)
+    t10 = np.argmax(ua >= 0.1 * 20e-3) * 1e-10
+    t90 = np.argmax(ua >= 0.9 * 20e-3) * 1e-10
+    P(f"   k = 1: Anstiegszeit 10–90 % im Modell {(t90-t10)*1e6:.3f} us (Datenblatt 0,3 us, Einpolmodell "
+      f"{2.2/WT*1e6:.3f} us)")
+
+    P("10) Anstiegsgeschwindigkeit 0,5 V/us:")
+    for u in (1.0, 5.0, 10.0, 14.0):
+        P(f"   Amplitude {u:g} V: Leistungsbandbreite SR/(2 pi U) = {SR/(2*math.pi*u)/1e3:.2f} kHz")
+    P(f"   Übergang Bandbreite/Anstieg bei k = 0,1: U = SR/(2 pi k f_T) = {SR/(2*math.pi*0.1*FT):.3f} V")
+    P(f"   U_D, bei der die Eingangsstufe ganz umschaltet: SR/omega_T = {SR/WT*1e3:.1f} mV")
+    for ue_amp, f in ((1.0, 20e3), (1.0, 5e3), (0.05, 20e3)):
+        def ue_func(t, a=ue_amp, fr=f):
+            return a * math.sin(2 * math.pi * fr * t)
+        _, out = sim("gegen", ue_func, 8 / f, dt=2e-9, k=0.1, sr=True, grenzen=True, aufzeichnen=5)
+        arr = np.array(out)
+        letzte = arr[arr[:, 0] >= 6 / f]
+        P(f"   A = 10, Eingang {ue_amp:g} V bei {f/1e3:g} kHz: verlangt {10*ue_amp:g} V, Steigung bis "
+          f"{2*math.pi*f*10*ue_amp/1e6:.3f} V/us; Ausgang {letzte[:, 2].max():.3f} V / {letzte[:, 2].min():.3f} V")
+    P(f"   Dreieck bei 20 kHz: Amplitude SR/(4 f) = {SR/(4*20e3):.3f} V; Viertelperiode {1/(4*20e3)*1e6:.1f} us")
+    P(f"   bei 20 kHz beginnt die Verzerrung ab U_A = SR/(2 pi 20 kHz) = {SR/(2*math.pi*20e3):.2f} V, also "
+      f"{SR/(2*math.pi*20e3)/10:.3f} V am Eingang (Rauschverstärkung 10)")
+
+    P("11) Aussteuergrenzen:")
+    P(f"   Abstand zur Versorgung: {UB-UAMAX:.0f} V an 10 kOhm, {UB-UAMAX_2K:.0f} V an 2 kOhm (Laststrom "
+      f"{UAMAX_2K/2e3*1e3:.1f} mA); Kurzschlussstrom {ISC*1e3:.0f} mA -> an 200 Ohm höchstens {ISC*200:.1f} V")
+    P(f"   Eingangsbereich ±{UICR:.0f} V: Abstand {UB-UICR:.0f} V (garantiert ±{UICR_MIN:.0f} V, {UB-UICR_MIN:.0f} V)")
+
+
 if __name__ == "__main__":
     bericht_rauschen()
     bericht_differenz()
@@ -590,3 +821,4 @@ if __name__ == "__main__":
     bericht_rueckkopplung()
     bericht_schmitt()
     bericht_grundschaltungen()
+    bericht_real()
