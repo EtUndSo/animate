@@ -140,7 +140,7 @@ Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über
 - Mehrere Größen über demselben Ort übereinander (Dichte, Raumladung, Feld, Potenzial, Bänder), nur unten
   beschriftete x-Achse.
 - **Eine Hinterlegung, die durch alle Teilbilder geht** (Raumladungszone).
-Gebraucht in: Gleichgewichts-Profile am pn-Übergang; später Transistor (Profile in Emitter/Basis/Kollektor); Spannungsgegenkopplung, Strom und $U_{CE}$ über $R_B$ (get1/bipolartransistoren/02-spannungsgk-kompromiss).
+Gebraucht in: Gleichgewichts-Profile am pn-Übergang; später Transistor (Profile in Emitter/Basis/Kollektor); Spannungsgegenkopplung, Strom und $U_{CE}$ über $R_B$ (get1/bipolartransistoren/02-spannungsgk-kompromiss); Ort, Geschwindigkeit und Beschleunigung über der Zeit (get1/grundprinzipien/01-kinematik).
 
 ## 14. Teilchenwolken  — **P2**
 - Viele Punkte/Kreise, zufällig nach einer Verteilung gesetzt (exponentiell in der Energie über einer Bandkante,
@@ -177,7 +177,7 @@ Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und
 - Kästen mit Text und Formeln, verbunden durch Pfeile; Anordnung als Kette oder als geschlossener Kreis, Pfeile folgen der Anordnung automatisch.
 - Vorzeichen oder Symbole an Pfeilen und Kästen (+/−, steigt/sinkt), damit Mit- und Gegenkopplung unterscheidbar sind; Auslöser als Kasten außerhalb des Kreises.
 - Entscheidungsrauten mit beschrifteten Ausgängen (ja/nein), verzweigte und wieder zusammenlaufende Abläufe (Rechenschema für OPV-Schaltungen).
-Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); Rechenschema und Multiplizierer (02-rechenschema, 02-multiplizierer); absehbar Regelkreise.
+Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); Rechenschema und Multiplizierer (02-rechenschema, 02-multiplizierer); Stammbaum der Einheiten und definierende Konstanten (get1/grundprinzipien/01-einheitenbaum, 01-si-konstanten); absehbar Regelkreise.
 
 
 ## 20. Hystereseschleifen  — **P2** (neu 2026-10-22, Operationsverstärker)
@@ -196,7 +196,14 @@ Gebraucht in: Rauschen eines Widerstands (get1/operationsverstaerker/01-rauschen
 - Eine einzelne Skala (Zahlenstrahl) mit zwei Beschriftungen derselben Größe, etwa Dezibel oben und Verhältnis unten (60 dB = 10³ bis 120 dB = 10⁶), mit Marken und hinterlegten Bereichen.
 - Bereichsbalken an einer gemeinsamen Spannungsachse: mehrere senkrechte Balken nebeneinander (Versorgung, Ausgangsbereich mit und ohne Last, Eingangsbereich), Abstände als Maßpfeile.
 - Ausschnittvergrößerung in einem Diagramm: Rahmen um einen kleinen Bereich, daneben vergrößert dargestellt und mit Linien verbunden, damit sehr kleine Abstände sichtbar werden (1 mV bei 0,6 V).
-Gebraucht in: realer OPV (get1/operationsverstaerker/03-gleichtakt, 03-aussteuerung, 03-offset).
+Gebraucht in: realer OPV (get1/operationsverstaerker/03-gleichtakt, 03-aussteuerung, 03-offset); logarithmische Stromskala mit Vorsätzen (get1/grundprinzipien/01-vorsaetze).
+
+## 23. Mechanik-Skizzen  — **P2** (neu 2026-10-22, Größen und Einheiten)
+- Einfache Körper (Kasten, Koffer, Schlitten) auf Unterlagen: waagrechter Boden, Treppe mit wählbarer Stufenzahl und Stufenhöhe, schiefe Ebene mit Winkel; Seil oder Schnur unter einem Winkel.
+- Kraftpfeile am Körper, Länge proportional zum Betrag, mit Zerlegung in Anteile längs und senkrecht zum Weg (gestrichelt) und Winkelbogen mit Gradzahl.
+- Wegstücke mit eigener Beschriftung (etwa „0 J“ waagrecht, „98,1 J“ senkrecht) und Summenzeile.
+- Animierbar: Körper entlang eines Wegs bewegen, mit mitlaufendem Zähler.
+Gebraucht in: Arbeit an Treppe, Rampe und Schlitten (get1/grundprinzipien/01-arbeit); absehbar Kraft auf Ladungen im Feld (ET1 Kap. 3) und Lorentzkraft.
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

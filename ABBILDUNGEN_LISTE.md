@@ -1684,3 +1684,116 @@ Zahlenwerk: `notizen/get1/zahlen_opv.py`, Abschnitt „Thema 03“, Bericht `ber
 - §11 Datenkurven;
 - §10 Teilbilder;
 - §15 optional: Schieberegler für die Eingangsamplitude bei 20 kHz; ab 0,398 V Eingang (3,98 V Ausgang) erreicht der Sinus im Modell die Anstiegsgrenze und wird zum Dreieck.
+
+## ET1 Kap. 2: Physikalische Größen und Einheiten
+Zahlenwerk: `notizen/get1/zahlen_grundprinzipien.py`, Bericht `bericht()`; Konstanten nach SI-Broschüre (BIPM, 9. Auflage 2019, Vorsätze 2022), Gravitationskonstante nach CODATA 2018.
+
+**get1/grundprinzipien/01-einheitenbaum**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Blockbild als Stammbaum, von unten nach oben.
+- Unterste Reihe: sieben graue Kästen mit den Basiseinheiten m, kg, s, A, K, mol, cd und ihren Namen.
+- Darüber die abgeleiteten Einheiten als Kästen mit ihrer Gleichung und Pfeilen zu den Einheiten, aus denen sie entstehen: N („F = m a“; von kg, m, s), J („W = F s“; von N, m), W („P = W/t“; von J, s), C („Q = I t“; von A, s), V („P = U I“; von W, A), Ω („R = U/I“; von V, A), F („C = Q/U“; von C, V), Wb („V s“; von V, s), T („Wb/m²“; von Wb, m).
+- Mechanik links in Blau, Elektrotechnik rechts in Orange; K, mol und cd ohne Abkömmlinge in diesem Bild, schwächer gezeichnet.
+
+*Kernaussage:* Jede SI-Einheit ist ein Produkt von Potenzen der Basiseinheiten.
+
+*Daten:* `bericht()` Punkt 4.
+
+*Editor:*
+- §19 Blockbilder (Kästen in Ebenen, Pfeile);
+- §7 Labels und Farbgruppen.
+
+*Animation:* Die Ebenen erscheinen von unten nach oben. Beim Volt leuchten alle Pfeile bis zu den Basiseinheiten auf, und daneben erscheint kg m² s⁻³ A⁻¹.
+
+**get1/grundprinzipien/01-zahlenwert-einheit**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Schema in drei Zeilen untereinander: „U = 230 · 1 V“, „U = 0,23 · 1 kV“, „U = 230 000 · 1 mV“. Zahlenwert in Blau und Einheit in Orange als getrennte Kästen. Zwischen den Zeilen Pfeile: am Zahlenwert „: 1000“ bzw. „· 1000“, an der Einheit gegenläufig „· 1000“ bzw. „: 1000“. Rechts eine Klammer über alle drei Zeilen: „dieselbe Größe“.
+
+*Kernaussage:* Zahlenwert und Einheit ändern sich gegenläufig, die Größe bleibt dieselbe.
+
+*Daten:* `bericht()` Punkt 3.
+
+*Editor:*
+- §2 Pfeile mit Text;
+- §7 Container und Klammern.
+
+**get1/grundprinzipien/01-si-konstanten**
+- Fassung: ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Blockbild.
+- Links sieben Kästen mit den definierenden Konstanten und ihren exakten Werten: Δν_Cs = 9 192 631 770 Hz; c = 299 792 458 m/s; h = 6,626 070 15·10⁻³⁴ J s; e = 1,602 176 634·10⁻¹⁹ C; k = 1,380 649·10⁻²³ J/K; N_A = 6,022 140 76·10²³ mol⁻¹; K_cd = 683 lm/W (für Licht der Frequenz 540·10¹² Hz).
+- Rechts die sieben Basiseinheiten. Kräftige Pfeile: Δν_Cs → s, c → m, h → kg, e → A, k → K, N_A → mol, K_cd → cd.
+- Dünne graue Hilfspfeile für die Einheiten, die zusätzlich gebraucht werden: s für m und A; m und s für kg; kg, m und s für K und cd.
+- Unten eine Zeitleiste: 1889 Urkilogramm als Definition, 20. Mai 2019 Festlegung über Konstanten.
+
+*Kernaussage:* Seit 2019 hängen alle Einheiten an exakt festgelegten Konstanten, nicht mehr an Gegenständen.
+
+*Daten:* `bericht()` Punkte 1 und 11.
+
+*Editor:*
+- §19 Blockbilder;
+- §7 Labels; Zeitleiste als einfache Skala (§22).
+
+**get1/grundprinzipien/01-vorsaetze**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Waagrechte logarithmische Achse der Stromstärke von 1 pA bis 10 A, Teilstriche je Zehnerpotenz, beschriftet 1 pA, 1 nA, 1 µA, 1 mA, 1 A.
+- Darüber farbige Bänder je drei Zehnerpotenzen: Piko (1 pA bis 1 nA), Nano, Mikro, Milli, ab 1 A ohne Vorsatz.
+- Marken mit Beschriftung: 1 pA „6,24 Millionen Elementarladungen je Sekunde“; 20 pA „Sperrstrom der Beispieldiode bei −1 V“; 80 nA „Eingangsruhestrom eines 741“; 20 mA „Leuchtdiode“; 9,13 A „Föhn, 2100 W an 230 V“.
+- Doppelpfeil über die ganze Achse: „knapp 13 Zehnerpotenzen“.
+
+*Kernaussage:* Vorsätze sind Zehnerpotenzen und machen sehr verschiedene Werte lesbar.
+
+*Daten:* `bericht()` Punkte 2 und 4.
+
+*Editor:*
+- §12 logarithmische Achse;
+- §22 Skala mit hinterlegten Bereichen;
+- §7 Labels.
+
+**get1/grundprinzipien/01-kinematik**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Drei gestapelte Diagramme mit gemeinsamer Zeitachse von 0 bis 6 s, nur unten beschriftet.
+- Oben $s(t)$ in m, 0 bis 90: Parabel $s = \tfrac{1}{2}\cdot 4{,}63\ \mathrm{m/s^2}\cdot t^2$ bis 83,3 m. Punkte bei 3 s (20,8 m) und 5 s (57,9 m), Sekante durch beide (orange, „Steigung 18,52 m/s“), Tangente bei 3 s (blau, „Steigung 13,89 m/s“).
+- Mitte $v(t)$ in m/s, 0 bis 30: Gerade bis 27,8 m/s; das Dreieck darunter schraffiert, „Fläche = 83,3 m“; gestrichelte Hilfslinie bei 3 s und 13,89 m/s.
+- Unten $a(t)$ in m/s², 0 bis 5: waagrechte Linie bei 4,63.
+
+*Kernaussage:* Die Geschwindigkeit ist die Steigung der Ortskurve, der Weg die Fläche unter der Geschwindigkeitskurve.
+
+*Daten:* `bericht()` Punkt 7 (Wertetabelle, Sekanten).
+
+*Editor:*
+- §13 gestapelte Diagramme;
+- §11 Datenkurven;
+- §4 Sekante und Tangente als Hilfsgeraden durch Kurvenpunkte;
+- §7 Schraffur.
+
+*Animation:* Der zweite Punkt der Sekante wandert von 5 s auf 3 s zu; die Steigungsanzeige läuft über 18,52, 16,20, 14,12 und 13,91 m/s und rastet bei der Tangente mit 13,89 m/s ein (§15). Danach füllt sich die Fläche unter $v(t)$ mit der Zeit, gleichzeitig mit dem Punkt auf $s(t)$.
+
+**get1/grundprinzipien/01-arbeit**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Links eine Treppe aus sechs Stufen zu je 0,5 m, zusammen 3 m. Koffer (20 kg) unten und oben; an einem senkrechten Stück die Kraft der Hand nach oben, „196,2 N“, und die Gewichtskraft nach unten. Waagrechte Stücke mit „0 J“, senkrechte mit „98,1 J“, Summe „588,6 J“. Rechts eine Rampe, 12 m lang und 3 m hoch, Winkel 14,5°; Kraftpfeil der Hand längs der Rampe „49,05 N“, Beschriftung „49,05 N · 12 m = 588,6 J“; senkrecht zur Rampe die Kraft der Rampe auf den Koffer, „190,0 N, 0 J“. An beiden Wegen zusätzlich die Schwerkraft „196,2 N“ mit „−588,6 J“.
+- (b) Schlitten auf waagrechtem Boden, Schnur unter 30°. Kraftpfeil 50 N längs der Schnur, gestrichelt zerlegt in 43,3 N längs des Bodens und 25 N senkrecht dazu; Wegpfeil 20 m; „866 J“ am Längsanteil, „0 J“ am senkrechten.
+- (c) Zwei kleine Szenen: Koffer waagrecht getragen (Kraft nach oben, Weg waagrecht, „0 J“); Koffer 3 m abgesetzt (Kraft nach oben, Weg nach unten, „−588,6 J“).
+
+*Kernaussage:* Nur der Kraftanteil längs des Wegs verrichtet Arbeit; im Schwerefeld zählt nur der Höhenunterschied.
+
+*Daten:* `bericht()` Punkt 10.
+
+*Editor:*
+- §23 Mechanik-Skizzen (neu);
+- §2 Kraftpfeile und Zerlegung;
+- §10 Teilbilder.
+
+*Animation:* Ein Koffer wandert die Treppe hinauf; ein Zähler addiert Arbeit nur auf den senkrechten Stücken und erreicht 588,6 J. Gleichzeitig fährt ein zweiter Koffer die Rampe hinauf; sein Zähler wächst gleichmäßig und endet ebenfalls bei 588,6 J.

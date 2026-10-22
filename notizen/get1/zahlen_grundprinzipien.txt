@@ -1,0 +1,81 @@
+====================================================================================================
+ET1 Kap. 2: Physikalische Größen und Einheiten
+====================================================================================================
+1) Definierende Konstanten (exakt):
+   Delta nu_Cs in Hz: 9192631770
+   c in m/s: 299792458
+   h in J s: 6.62607015e-34
+   e in C: 1.602176634e-19
+   k in J/K: 1.380649e-23
+   N_A in 1/mol: 6.02214076e+23
+   K_cd in lm/W: 683
+   1 s = 9192631770 Schwingungen des Cs-Übergangs; Licht legt 1 m in 1/299792458 s = 3.3356 ns zurück
+2) Ampere über die Elementarladung:
+   1 A = 6.241509074e+18 Elementarladungen je Sekunde
+   Sperrstrom der Beispieldiode 20 pA: 1.248e+08 Elementarladungen je Sekunde
+   1 pA: 6.242e+06 Elementarladungen je Sekunde
+   OPV-Ruhestrom 80 nA: 4.993e+11 Elementarladungen je Sekunde
+   LED 20 mA: 1.248e+17 Elementarladungen je Sekunde
+   1 fA (Elektrometer): 6.242e+03 Elementarladungen je Sekunde
+   1 pA in 1 µs: im Mittel 6.24 Ladungen; relative Schwankung 1/sqrt(N) = 0.40 (Poisson, Schrotrauschen)
+3) Zahlenwert mal Einheit, Netzspannung 230 V:
+   230.0 V = 0.23 kV = 230000 mV = 2.3e+05 mV; Zahlenwert und Einheit ändern sich gegenläufig
+4) Abgeleitete Einheiten: Volt aus P = U I, Ohm aus R = U/I (Basiseinheiten):
+   W = J/s = N m/s = kg m^2 s^-3;  V = W/A = kg m^2 s^-3 A^-1;  Ohm = V/A = kg m^2 s^-3 A^-2
+   F = C/V = A s/V = A^2 s^4 kg^-1 m^-2;  H = V s/A = kg m^2 s^-2 A^-2;  Wb = V s;  T = Wb/m^2 = kg s^-2 A^-1
+   Föhn 2100 W an 230 V: I = P/U = 9.130 A; R = U/I = 25.19 Ohm
+5) Vorsätze:
+   1 km^2 = 1e+06 m^2
+   1 mm^2 = 1e-06 m^2
+   1 cm^3 = 1e-06 m^3
+   1 dm^3 (1 Liter) = 1e-03 m^3
+   eigene Beispiele: 1 M * 1 m = 1e+03 (k); 1 m * 1 k = 1; 1 u * 1 u = 1e-12 (p)
+   7 N + 2 kN = 2007 N = 2.007 kN (nicht 9 kN); 2 A * 12 V = 24 V A = 24 W; 6 N m / 3 m = 2 N
+   100 km/h * (1000 m/km) * (1 h/3600 s) = 27.778 m/s
+   Vorsätze 1991 neu: zetta/zepto 1e21/1e-21, yotta/yocto 1e24/1e-24 (19. CGPM); 2022 neu (27. CGPM): ronna R 1e27, quetta Q 1e30, ronto r 1e-27, quecto q 1e-30
+6) Energie eines Smartphone-Akkus, 4000 mAh bei 3,85 V Nennspannung:
+   Ladung 4000.0 mAh = 4.0 Ah = 14400 C; Energie 15.40 Wh = 55440 J = 55.4 kJ
+   zum Vergleich: 1 kWh = 3.6e+06 J; der Akku enthält 0.0154 kWh; ein Föhn mit 2100 W setzt das in 26.4 s um
+   Elementarladungen in 4000 mAh: 8.99e+22
+7) Kinematik: E-Auto von 0 auf 100 km/h in 6,0 s, konstante Beschleunigung:
+   100 km/h = 27.778 m/s; a = 4.630 m/s^2 = 0.472 g
+   t = 0 s: v = 0.00 m/s = 0.0 km/h, s = 0.00 m
+   t = 1 s: v = 4.63 m/s = 16.7 km/h, s = 2.31 m
+   t = 2 s: v = 9.26 m/s = 33.3 km/h, s = 9.26 m
+   t = 3 s: v = 13.89 m/s = 50.0 km/h, s = 20.83 m
+   t = 4 s: v = 18.52 m/s = 66.7 km/h, s = 37.04 m
+   t = 5 s: v = 23.15 m/s = 83.3 km/h, s = 57.87 m
+   t = 6 s: v = 27.78 m/s = 100.0 km/h, s = 83.33 m
+   Weg nach 6 s: 1/2 a t^2 = 83.33 m; mittlere Geschwindigkeit mal Zeit: 83.33 m
+   Sekante [3.0, 5.0] s: (s2 - s1)/dt = 18.519 m/s
+   Sekante [3.0, 4.0] s: (s2 - s1)/dt = 16.204 m/s
+   Sekante [3.0, 3.1] s: (s2 - s1)/dt = 14.120 m/s
+   Sekante [3.0, 3.01] s: (s2 - s1)/dt = 13.912 m/s
+   Tangente bei 3 s: v(3 s) = 13.889 m/s
+   falsche Formel s = a t ergäbe 27.78 'm' – Einheit m/s, kein Weg
+   wörtliches Doppelintegral des Skripts mit innerer Grenze t1: a (t1 - t0)^2 = 166.7 m statt 83.3 m
+8) Freier Fall eines Smartphones aus 1,5 m (ohne Luftwiderstand):
+   t = sqrt(2 h/g) = 0.553 s; v = g t = 5.42 m/s = 19.5 km/h
+9) Kraft und Gravitation:
+   Gewichtskraft 1 kg: 9.81 N; 20 kg: 196.2 N
+   g aus dem Gravitationsgesetz: gamma M/R^2 = 9.820 m/s^2 (Normwert 9.80665; Abweichung durch Erdrotation und Abplattung)
+   zwei Massen je 1 kg im Abstand 1 m: F = 6.674e-11 N; Gewichtskraft von 1 kg ist 1.47e+11-mal größer
+   Einheit von gamma: m^3/(kg s^2) = N m^2/kg^2
+   Normalschwere WGS-84: Äquator 9.780325 m/s^2, Pole 9.832185 m/s^2 (gerundet 9,78 und 9,83); Normwert 9.80665 liegt dazwischen
+   in 6371 km Höhe (doppelter Abstand vom Mittelpunkt): g/4 = 2.455 m/s^2
+10) Arbeit: Koffer 20 kg auf 3 m Höhe, über Treppe oder Rampe (12 m lang):
+   W = m g h = 588.6 J; Rampe: Steigungswinkel 14.48 Grad, Kraft längs der Rampe 49.05 N, mal 12 m = 588.6 J
+   Treppe: senkrechte Anteile zusammen 3 m -> 588.6 J, waagrechte Anteile 0 J; Abbildung mit 6 Stufen zu 0,5 m: je 98.1 J
+   Absenken um 3 m: Arbeit der Hand -588.6 J; waagrecht tragen über 10 m: 0 J
+   Rampe, Kräfte (Faktenprüfung F2): Normalkraft 189.97 N; Handkraft waagrecht 47.49 N, senkrecht 12.26 N; waagrechter Weg 11.62 m; Arbeit der Hand waagrecht 551.8 J + senkrecht 36.8 J = 588.6 J; Schwerkraft -588.6 J auf jedem Weg
+   Schlitten: 50 N unter 30 Grad über 20 m: W = F s cos(alpha) = 866.0 J; Kraftanteil längs des Weges 43.30 N
+   Leistung: Treppe in 5 s: 117.7 W; Rampe in 15 s: 39.2 W
+   Energie in Wattsekunden: 588.6 J = 588.6 W s = 0.1635 Wh
+   Skript-Beispiel Bild 2.4 (nur zur Prüfung der Korrektur): 13 m in Feldrichtung, 1 kg, g = 10 m/s^2 -> Arbeit der Schwerkraft 130 J, potentielle Energie nimmt um 130 J ab
+11) Daten:
+   1798: Cavendish misst mit der Drehwaage die Anziehung von Bleikugeln
+   1889: Urkilogramm in Sèvres wird Definition des Kilogramms
+   1991: Vorsätze zetta, zepto, yotta, yocto (19. CGPM)
+   2019: SI-Reform: sieben definierende Konstanten, in Kraft am 20. Mai
+   2022: Vorsätze ronna, quetta, ronto, quecto (27. CGPM)
+12) Literaturwerte (nicht gerechnet): Kopien des Urkilogramms wichen über rund 100 Jahre um etwa 50 µg ab (Vergleiche des BIPM 1889 bis 1989/1992); Neudefinition der Sekunde über optische Übergänge in Vorbereitung (CIPM-Fahrplan)
