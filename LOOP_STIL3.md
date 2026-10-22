@@ -58,19 +58,21 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
 
 **Zuerst:** Fehlt die Datei `notizen/nachtrag_5_11.md`, ist der Durchgang der einmalige Nachtrag (B1b), nicht ein neues Thema. Fehlt danach `notizen/quellenbezug_bereinigt.md`, ist der Durchgang die einmalige Bereinigung (B1c).
 
-**Reihenfolge der Module** (Entscheidung vom 22.10.2026): erst ET1, dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa), danach GEMB1. Der User hat angekündigt, dass sich die Reihenfolge noch ändern kann; maßgeblich ist diese Datei.
+**Reihenfolge der Module** (Entscheidungen vom 22.10.2026): Nach dem Halbleiter-Block und Kap. 2 von ET1 kommt auf Wunsch des Users zuerst **Schaltungstechnik 1 (ST1)**, eingerichtet über (B1d); danach der Rest von ET1 (Kap. 3 bis 9), dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa), danach GEMB1. Der User hat angekündigt, dass sich die Reihenfolge noch ändern kann; maßgeblich ist diese Datei.
 
 Innerhalb von ET1 kommt zuerst der Halbleiter-Block, Kap. 10 bis 12, danach Kap. 2 bis 9 (Entscheidung vom 21.10.2026). Gründe:
 - Der Block baut direkt auf dem Piloten und seinem Zahlenwerk auf.
 - Er passt zum laufenden Praktikum MiNa.
 - Dem User war die Diode als nächstes Thema angekündigt.
 
-Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) fehlt oder kein `stil: 3` hat. Die Numa-Themen stehen als Dateipfade im Themenplan (B1a); fehlt der Themenplan noch, steht an seiner Stelle das Wort `NUMA_EINRICHTEN`:
+Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) fehlt oder kein `stil: 3` hat. Die ST1- und die Numa-Themen stehen als Dateipfade in ihrem Themenplan ((B1d) bzw. (B1a)); fehlt ein Themenplan noch, steht an seiner Stelle das Wort `ST1_EINRICHTEN` bzw. `NUMA_EINRICHTEN`:
 
 ```
-cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1/1[0-2]-* -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' ! -path 'content/get1/1[0-2]-*' | sort) $(find content/hoema3 -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $([ -f notizen/numa/themenplan.md ] && grep -o 'content/numa/[^ |`]*\.md' notizen/numa/themenplan.md || echo NUMA_EINRICHTEN) $(find content/gemb1 -name '*.md' ! -name '*-ausfuehrlich.md' | sort); do [ -f "$f" ] && grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
+cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1/1[0-2]-* -name '*.md' ! -name '*-ausfuehrlich.md' | sort) content/get1/02-physikalische-grundprinzipien/01-groessen-und-einheiten.md $([ -f notizen/st1/themenplan.md ] && grep -o 'content/st1/[^ |`]*\.md' notizen/st1/themenplan.md || echo ST1_EINRICHTEN) $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' ! -path 'content/get1/1[0-2]-*' | sort) $(find content/hoema3 -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $([ -f notizen/numa/themenplan.md ] && grep -o 'content/numa/[^ |`]*\.md' notizen/numa/themenplan.md || echo NUMA_EINRICHTEN) $(find content/gemb1 -name '*.md' ! -name '*-ausfuehrlich.md' | sort); do [ -f "$f" ] && grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
 ```
 
+- **Ausgabe `ST1_EINRICHTEN`:** In diesem Durchgang das Modul Schaltungstechnik 1 einrichten (B1d), committen und berichten; das erste ST1-Thema folgt im nächsten Durchgang.
+- **Erstes ET1-Thema nach ST1 (Kap. 3):** ST1 ist komplett. Melden („ST1 in Stil 3 komplett, weiter mit ET1 Kap. 3“), im Loop per PushNotification, und ohne Stopp weitermachen.
 - **Erstes hoema3-Thema:** dem User melden („ET1 in Stil 3 komplett, weiter mit HöMa3“), im Loop per PushNotification, und ohne Stopp weitermachen. Vorher den HöMa3-Volltext anlegen (B3).
 - **Ausgabe `NUMA_EINRICHTEN`:** HöMa3 ist komplett. Melden („HöMa3 in Stil 3 komplett, weiter mit Numa“), im Loop per PushNotification. In diesem Durchgang das Modul Numa einrichten (B1a), committen und berichten; das erste Numa-Thema folgt im nächsten Durchgang.
 - **Erstes gemb1-Thema:** Numa ist komplett. Melden („Numa in Stil 3 komplett, weiter mit GEMB1“), im Loop per PushNotification, und ohne Stopp weitermachen.
@@ -90,6 +92,19 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
    Die Artikeldateien entstehen erst beim jeweiligen Thema (B5). Weil es keinen alten Artikel gibt, kommen `title`, `pfad`, `order` und `tags` aus dem Themenplan.
 4. **Prüfen:** Der B1-Befehl muss danach das erste Numa-Thema ausgeben.
 5. **Commit** („Numa: Volltext und Themenplan“) und Bericht an den User mit dem Themenplan.
+
+### (B1d) Modul Schaltungstechnik 1 einrichten (einmalig, vom User am 22.10.2026 vorgezogen)
+
+1. **Entpacken:** `C:\Bücher\EtUndSo\3.Semester\(VO) Schaltungstechnik 1_20261019_1454.zip` mit Pythons `zipfile` in einen neuen, leeren Ordner `C:\Bücher\EtUndSo\3.Semester\ST1\` entpacken. Nichts aus dem Archiv ausführen (auch nicht die LTSpice-Datei `.imscc`). Inhalt: `Vorlesung/Skript.pdf`, eine englische Übersetzung, `Literatur.pdf`, LTSpice-Beispiele, Übungs-, Rechenübungs- und Kleingruppenaufgaben. Das zweite Archiv (`… (1).zip`, HTML-Seiten der Übungen) wird nicht gebraucht.
+2. **Volltext:** `tools/dump_st1.py` nach dem Muster von `dump_get1.py`; das Skript nach `C:\Bücher\EtUndSo\_volltext\st1_clean.txt`, mit Markierungen „=== Seite N“ (PDF-Seite). Mit `C:\Bücher\Schalte1_Skript_Vorgabe\Script-ST-1-WS2025 (1).pdf` abgleichen, ob es dieselbe Fassung ist; laut früherer Arbeit ist die gedruckte Seitenzahl = PDF-Seite − 8.
+3. **Themenplan:** Den Stoffumfang bestimmt die Gliederung des Skripts (Kap. 1 Einführung bis Kap. 10 Ausblick, dazu die Anhänge nur, soweit die Kapitel sie brauchen). Ein Thema hat etwa den Umfang eines ET1-Themas. Festhalten in `notizen/st1/themenplan.md`, je Thema eine Tabellenzeile mit:
+   - Dateipfad `content/st1/<nn>-<kapitel>/<nr>-<slug>.md`;
+   - `title`, `pfad` (`Elektrotechnik / 3. Semester / Schaltungstechnik 1 / <Kapitel>`), `order` (Muster 33KKTT00), `tags`;
+   - Skriptseiten.
+
+   Die Artikeldateien entstehen erst beim jeweiligen Thema (B5); `title`, `pfad`, `order` und `tags` kommen aus dem Themenplan.
+4. **Prüfen:** Der B1-Befehl muss danach das erste ST1-Thema ausgeben.
+5. **Commit** („ST1: Volltext und Themenplan“) und Bericht an den User mit dem Themenplan.
 
 ### (B1b) Einmalig: „Kurz gesagt“ in den fertigen Themen nachtragen (ERKLAER_PROMPT §5.11)
 
@@ -135,6 +150,13 @@ Vorgabe des Users vom 22.10.2026: Auf der ganzen Website darf kein Hinweis stehe
 - **Volltext:** `C:\Bücher\EtUndSo\_volltext\get1_clean.txt`. Mit `grep -a` durchsuchen; „=== Seite N“ ist die PDF-Seite. Fehlt die Datei: `python -I tools/dump_get1.py`.
 - **Im PDF prüfen:** Abbildungen, Schaltbilder und Vorzeichen mit Read (pages).
 - **Nur als Ideengeber:** `Übung\GGET1 Formelsammlung.pdf` und die KGÜ-Hilfsfolien. Keine Aufgaben kopieren.
+
+**ST1** (nach B1d):
+- **Skript:** `C:\Bücher\EtUndSo\3.Semester\ST1\Vorlesung\Skript.pdf` (aus dem Archiv entpackt).
+- **Volltext:** `C:\Bücher\EtUndSo\_volltext\st1_clean.txt`.
+- **Als Hilfe:** die eigenen Zusammenfassungen des Users in `C:\Bücher\Schalte1_Skript_Erklaerung\` (`Kap2_Netzwerkanalyse` bis `Kap7_Differenzverstaerker`, dazu die Formelliste).
+- **Nur als Ideengeber:** Übungs-, Rechenübungs-, Kleingruppen- und Klausuraufgaben (im Archiv und in `C:\Bücher\Schalte1_Skript_Vorgabe\`). Keine Aufgaben kopieren.
+- **Zahlenwerk:** `notizen/st1/zahlen_<kapitel>.py`; Arbeitspunkte, Kleinsignalgrößen und Verstärkungen werden dort berechnet, wo nötig mit einer Simulation der Schaltung.
 
 **HöMa3:**
 - **Skript:** `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf`.
