@@ -51,7 +51,7 @@ $$U_{12} := \varphi_1 - \varphi_2, \qquad U_{21} = -U_{12}.$$
 
 **So liest man das:** $\varphi_1$ und $\varphi_2$ sind die Potenziale der Punkte $1$ und $2$ in Volt, $U_{12}$ ist die Spannung längs des Pfeils von
 $1$ nach $2$, eine Zahl mit Vorzeichen. Positiv ist sie, wenn der Pfeil vom höheren zum niedrigeren Potenzial zeigt, von Plus nach Minus. Dreht man den
-Pfeil um, wechselt nur das Vorzeichen. Der __Doppelindex__ nennt Anfangs- und Endpunkt; das Skript schreibt zum Beispiel $U_{11'}$ für die Spannung
+Pfeil um, wechselt nur das Vorzeichen. Der __Doppelindex__ nennt Anfangs- und Endpunkt, zum Beispiel $U_{11'}$ für die Spannung
 von der Klemme $1$ zur Klemme $1'$. Statt des Pfeils markieren manche Schaltbilder, vor allem englischsprachige, den Pfeilanfang mit $+$ und das
 Pfeilende mit $-$; das sagt dasselbe.
 
@@ -74,7 +74,7 @@ hängen deshalb nicht davon ab, wo die __Masse__ liegt, der Punkt mit dem Potenz
 :::
 
 Ein Spannungspfeil darf zwischen zwei beliebigen Punkten stehen, auch zwischen zwei Klemmen, zwischen denen kein Bauteil liegt. Wo man ihn im Bild
-zeichnet, ob links oder rechts eines Bauteils, ist gleich; es zählen nur sein Anfangs- und sein Endpunkt. Das Skript zeigt das in Bild 5.18: An einem
+zeichnet, ob links oder rechts eines Bauteils, ist gleich; es zählen nur sein Anfangs- und sein Endpunkt. Ein Beispiel: An einem
 Widerstand zwischen $+12\,\text{V}$ und $0\,\text{V}$ ergibt der Pfeil von Plus nach Masse $+12\,\text{V}$, der umgekehrte $-12\,\text{V}$.
 
 ::::beispiel Was der Spannungsmesser zeigt
@@ -121,8 +121,8 @@ $$dQ_\text{Gegenpfeil} = -dQ, \qquad I_\text{Gegenpfeil} = \frac{-dQ}{dt} = -I.$
 $+e$ — wie bei einer positiven Ladung, die in Pfeilrichtung wandert (Artikel über den Strom). Beides zählt positiv.
 :::
 
-In Bild 5.18 des Skripts strömen positive Ladungen vom Pluspol durch den Widerstand zum Minuspol: Ein Pfeil in dieser Richtung ergibt $+10\,\text{mA}$,
-der Gegenpfeil $-10\,\text{mA}$. Das Skript hebt noch hervor: Der tatsächliche __Elektronenfluss__ ist der technischen Stromrichtung entgegengesetzt.
+Strömen positive Ladungen vom Pluspol durch einen Widerstand zum Minuspol, etwa mit $10\,\text{mA}$, ergibt ein Pfeil in dieser Richtung
+$+10\,\text{mA}$, der Gegenpfeil $-10\,\text{mA}$. Dabei gilt: Der tatsächliche __Elektronenfluss__ ist der technischen Stromrichtung entgegengesetzt.
 Ein positiver Strom in Pfeilrichtung heißt in einem Metall also, dass die Elektronen gegen den Pfeil wandern.
 
 ::::beispiel Ein Strom, zwei Pfeile
@@ -143,7 +143,7 @@ Strom.
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/03-pfeile-schaltbild · Vorlage: zaehlpfeil-umschalten
-Ein Stromkreis wie in Bild 5.18 des Skripts, mit eigenen Werten: links eine Spannungsquelle, oben die Leitung auf $+9\,\text{V}$ (rot), unten die Masse
+Ein Stromkreis: links eine Spannungsquelle, oben die Leitung auf $+9\,\text{V}$ (rot), unten die Masse
 mit $0\,\text{V}$ (blau, Massesymbol), rechts ein Widerstand mit $1{,}5\,\text{k}\Omega$. Oben zwei Klemmen beschriftet „Pluspol (höheres Potenzial)" und
 „Minuspol (niedrigeres Potenzial)". Ein Spannungspfeil zwischen den Klemmen lässt sich per Klick umdrehen: von oben nach unten $U=+9\,\text{V}$, von
 unten nach oben $U=-9\,\text{V}$. Darunter derselbe Kreis mit einem gebogenen Pfeil „positive Ladungen" im Uhrzeigersinn und einem umdrehbaren Strompfeil
@@ -170,20 +170,20 @@ den Strom durch den Zweipol. Für ihre gegenseitige Lage gibt es genau zwei Mög
 - Im __Erzeuger-__ oder __Generatorzählpfeilsystem__ (GZS) zeigt der Strompfeil an der Klemme $1$ aus dem Zweipol heraus. Durch den Zweipol läuft er von
   $1'$ nach $1$, dem Spannungspfeil entgegen.
 
-Das Skript zeigt das VZS an einem Widerstand (Bild 5.20) und das GZS an einer Spannungsquelle (Bild 5.19). In der Norm für Richtungsregeln, DIN 5489,
+Die Abbildung unten zeigt das VZS an einem Widerstand und das GZS an einer Spannungsquelle. In der Norm für Richtungsregeln, DIN 5489,
 heißen die beiden auch Verbraucher- und Erzeugerpfeilsystem.
 
 **Im Bild:** Zwei Messgeräte am Zweipol. Im VZS zählt der Strommesser den Strom positiv, der an der Klemme mit der roten Spannungsspitze in den Zweipol
 hineinfließt; im GZS den Strom, der dort herauskommt.
 
-**Eine Vereinbarung, kein Gesetz.** Welches System man an welchem Zweipol nimmt, ist frei; das Skript nennt es eine unverbindliche Vereinbarung. Jede
+**Eine Vereinbarung, kein Gesetz.** Welches System man an welchem Zweipol nimmt, ist frei, eine unverbindliche Vereinbarung. Jede
 Wahl beschreibt dieselbe Physik, nur fallen die Vorzeichen anders aus, und Spannungen und Ströme können negativ werden. Praktisch wählt man die Systeme
 so, dass im Normalfall positive Werte herauskommen: Verbraucher im VZS, Quellen im GZS.
 
 **Warum diese Zuordnung passt.** Durch einen Widerstand fließt der technische Strom vom höheren zum niedrigeren Potenzial — die Ladungen „fallen"
 durch ihn hindurch, wie die Kugeln über das Nagelbrett im Artikel über den Widerstand. Strom und Spannung zeigen dort also in Wirklichkeit in dieselbe
-Richtung, und im VZS sind beide positiv. Das meint der Satz des Skripts, die technische Stromflussrichtung entspreche der des VZS; er gilt für
-Verbraucher. In einer Quelle dagegen fließt der technische Strom im Inneren vom Minus- zum Pluspol, gegen das Potenzialgefälle: Die Quelle hebt die
+Richtung, und im VZS sind beide positiv. Das ist gemeint, wenn es heißt, die technische Stromflussrichtung entspreche der des VZS; der Satz gilt
+für Verbraucher. In einer Quelle dagegen fließt der technische Strom im Inneren vom Minus- zum Pluspol, gegen das Potenzialgefälle: Die Quelle hebt die
 Ladungen mit einer nicht elektrischen Kraft auf das höhere Potenzial, chemisch in einer Batterie, magnetisch in einem Generator. Strom und Spannung
 zeigen dort in Wirklichkeit gegeneinander, und im GZS sind beide positiv.
 
@@ -199,7 +199,7 @@ das nicht, denn es triebe die Ladungen zurück. Eine zusätzliche, nicht elektri
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/03-vzs-gzs · Vorlage: zweipol-pfeilsysteme
-Zwei Schaltbilder nebeneinander nach Bild 5.19 und 5.20 des Skripts. Links eine Spannungsquelle mit den Klemmen $1$ oben und $1'$ unten, der
+Zwei Schaltbilder nebeneinander. Links eine Spannungsquelle mit den Klemmen $1$ oben und $1'$ unten, der
 Quellenspannung $U_\text{q}$ als Pfeil nach unten neben der Quelle, dem Spannungspfeil $U_{11'}$ von $1$ nach $1'$ und dem Strompfeil $I_\text{q}$, der an
 der Klemme $1$ aus der Quelle herauszeigt: GZS, die Pfeile laufen durch den Zweipol gegeneinander. Rechts ein Widerstand $R$ mit dem Strompfeil $I$ in die
 Klemme $1$ hinein, $U_R$ nach unten neben $R$ und $U_{11'}$ von $1$ nach $1'$: VZS, die Pfeile laufen gleichsinnig. Ein Schalter blendet über beide
@@ -314,7 +314,7 @@ $+8{,}8\,\text{mW}$ — ein Widerstand, der Energie liefert, den es nicht gibt.
 
 ## Quelle und Verbraucher im Verbund
 
-Schließt man eine ideale Spannungsquelle und einen Widerstand an dieselben Klemmen $1$ und $1'$ an, wie in Bild 5.21 des Skripts, wählt man für jedes
+Schließt man eine ideale Spannungsquelle und einen Widerstand an dieselben Klemmen $1$ und $1'$ an, wählt man für jedes
 Bauteil sein passendes System: die Quelle im GZS mit dem Strom $I_\text{q}$, den Widerstand im VZS mit dem Strom $I$. Dann sind beide Ströme positiv, und Spannung und
 Strom sind an beiden Bauteilen dieselben:
 
@@ -354,7 +354,7 @@ dasselbe wie $500\,\text{mAh}$ geteilt durch $6\,\text{mA}$.
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/03-verbund · Vorlage: quelle-verbraucher
-Das Schaltbild nach Bild 5.21 des Skripts mit eigenen Werten: links eine Quelle mit $U_\text{q}=9\,\text{V}$ (Pfeil nach unten), oben die Klemme $1$,
+Das Schaltbild: links eine Quelle mit $U_\text{q}=9\,\text{V}$ (Pfeil nach unten), oben die Klemme $1$,
 unten $1'$, rechts ein Widerstand $R=1{,}5\,\text{k}\Omega$ mit $U_R$ nach unten. Auf der oberen Leitung $I_\text{q}$ aus der Quelle heraus und $I$ in den
 Widerstand hinein, beide nach rechts; dazwischen $U_{11'}$ von $1$ nach $1'$. Ein breiter oranger Pfeil zeigt den Energiefluss von der Quelle zum
 Widerstand, beschriftet mit $54\,\text{mW}$; zwei Leistungsmesser zeigen $P_\text{ab,q}$ und $P_\text{auf,R}$, beide $+54\,\text{mW}$. Kernaussage: Mit dem
@@ -460,16 +460,21 @@ tatsächlicher Fluss, grau = Achsen, gestrichelt = Mittelwert.)
 
 ## Bedeutung und Ausblick
 
-Zählpfeile sind die Grammatik der Netzwerkanalyse. Die Kirchhoffschen Regeln, die in diesem Kapitel noch kommen, sind mit ihnen formuliert: An einem
+Zählpfeile sind die Grammatik der Netzwerkanalyse. Die Kirchhoffschen Regeln, die der Artikel
+[Die Kirchhoffschen Gesetze](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/kirchhoffsche-gesetze.html)
+behandelt, sind mit ihnen formuliert: An einem
 Knoten werden die Ströme nach ihren Pfeilen hinein- oder herausgezählt, in einer Masche die Spannungen nach ihren Pfeilen mit oder gegen den
 Umlaufsinn. Das Rezept ist immer dasselbe — erst alle Pfeile festlegen, dann die Gleichungen aufstellen, zu Ende rechnen und am Schluss die Vorzeichen
 deuten.
 
-Auch die Messtechnik in Kapitel 6 folgt ihnen: Ein Messgerät wird so angeschlossen, wie der Pfeil es vorschreibt. Und die Leistungsrechnung in
-Kapitel 7 lebt von den beiden Systemen. Zählt man in einem Netz alle Zweipole im VZS, ist die Summe aller aufgenommenen Leistungen null, weil die
+Auch die
+[Strom- und Spannungsmessung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strom-und-spannungsmessung/strom-und-spannungsmessung.html)
+folgt ihnen: Ein Messgerät wird so angeschlossen, wie der Pfeil es vorschreibt. Und die Leistungsrechnung im Artikel
+[Energieumsetzung und Leistungsanpassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/energieumsetzung-und-leistungsanpassung.html)
+lebt von den beiden Systemen. Zählt man in einem Netz alle Zweipole im VZS, ist die Summe aller aufgenommenen Leistungen null, weil die
 Energie, die die einen abgeben, die anderen aufnehmen — eine nützliche Probe für jede Rechnung, die sich mit den Kirchhoffschen Regeln beweisen lässt.
 
-Bei Wechselstrom, in einem späteren Modul, bleiben die Pfeile fest, und die Vorzeichen wechseln mit der Zeit; die Zählpfeile tragen dort jede Rechnung.
+Bei Wechselstrom bleiben die Pfeile fest, und die Vorzeichen wechseln mit der Zeit; die Zählpfeile tragen dort jede Rechnung.
 
 :::kern
 - Spannung und Strom haben eine Richtung; erst ein __Zählpfeil__ macht eine Zahl vollständig.

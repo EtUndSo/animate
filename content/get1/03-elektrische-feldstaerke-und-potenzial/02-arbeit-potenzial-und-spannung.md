@@ -2,7 +2,7 @@
 title: Arbeit, Potenzial und Spannung
 pfad: Elektrotechnik / 1. Semester / Grundgebiete der Elektrotechnik 1 / Elektrische Feldstärke und Potenzial
 order: 30200
-summary: Von Grund auf – was es kostet, eine Ladung im Feld zu verschieben, und warum daraus eine Höhe wird. Leitbild ist eine Wanderkarte mit Höhenlinien: Das Potenzial ist die Höhe, das Feld das Gefälle, die Spannung der Höhenunterschied, und auf jedem Rundweg kommt man auf derselben Höhe an. Mit der Arbeit als Wegintegral, der echten Begründung der Wegunabhängigkeit, dem Potenzial einer Punktladung, der Spannung samt korrigiertem Vorzeichen, U = E·d im Plattenkondensator, dem Elektronenvolt, Bezugspotenzial und Masse sowie Äquipotentialflächen. Mit Beispiel-Seite.
+summary: Von Grund auf – was es kostet, eine Ladung im Feld zu verschieben, und warum daraus eine Höhe wird. Leitbild ist eine Wanderkarte mit Höhenlinien: Das Potenzial ist die Höhe, das Feld das Gefälle, die Spannung der Höhenunterschied, und auf jedem Rundweg kommt man auf derselben Höhe an. Mit der Arbeit als Wegintegral, der echten Begründung der Wegunabhängigkeit, dem Potenzial einer Punktladung, der Spannung und ihrem Vorzeichen, U = E·d im Plattenkondensator, dem Elektronenvolt, Bezugspotenzial und Masse sowie Äquipotentialflächen. Mit Beispiel-Seite.
 tags: Arbeit, Energie, Potenzial, Spannung, Potenzialdifferenz, Volt, Äquipotentialfläche
 ---
 
@@ -79,7 +79,7 @@ Die Einheit geht auf: Coulomb mal Volt ist Joule, denn das Volt ist ein Joule pr
 
 ## Der geschlossene Umlauf
 
-Was geschieht, wenn die Ladung zum Ausgangspunkt zurückkehrt? Das Skript führt sie von $P_1$ nach $P_2$ und wieder zurück: Die Arbeit
+Was geschieht, wenn die Ladung zum Ausgangspunkt zurückkehrt? Man führt sie von $P_1$ nach $P_2$ und wieder zurück: Die Arbeit
 des Hinwegs wird auf dem Rückweg zurückgewonnen, insgesamt ist sie null. Als Integral über den geschlossenen Weg $L$:
 
 :::formel Satz
@@ -90,7 +90,7 @@ $$\oint_L\vec E\cdot d\vec s = 0.$$
 ist das Integral null; das Feld verrichtet auf keiner Runde Arbeit. Felder mit dieser Eigenschaft heißen __wirbelfrei__.
 Gleichbedeutend ist die __Wegunabhängigkeit__: Die Arbeit von $P_1$ nach $P_2$ ist auf jedem Weg dieselbe.
 
-**Was das Skript nicht zeigt.** Läuft man auf **demselben** Weg zurück, kehrt jedes Wegstück einfach seine Richtung um, und die Summe
+**Was der Hin- und Rückweg nicht zeigt.** Läuft man auf **demselben** Weg zurück, kehrt jedes Wegstück einfach seine Richtung um, und die Summe
 ist null — für jedes beliebige Feld. Der eigentliche Inhalt des Satzes ist, dass auch ein **anderer** Rückweg die Arbeit wieder
 aufhebt. Dass das für elektrostatische Felder stimmt, hat einen Grund im Coulombschen Gesetz.
 
@@ -138,7 +138,7 @@ $$\varphi(P) = -\int_{P_0}^{P}\vec E\cdot d\vec s.$$
 
 **So liest man das:** Eingabe ist ein Punkt, Ausgabe eine Zahl in Volt. Durch das Minuszeichen ist $\varphi(P)$ die Arbeit, die man
 **gegen** das Feld aufbringen muss, um eine Ladung vom Bezugspunkt nach $P$ zu bringen, geteilt durch die Ladung. Am Bezugspunkt ist
-das Potenzial null. Das Skript schreibt $\phi$. Eine Ladung $Q$ hat am Punkt $P$ damit die __potentielle Energie__
+das Potenzial null. Üblich ist auch die Schreibweise $\phi$. Eine Ladung $Q$ hat am Punkt $P$ damit die __potentielle Energie__
 
 $$W_\text{pot}(P) = Q\,\varphi(P).$$
 
@@ -171,13 +171,9 @@ $$\int_{P_1}^{P_2}\vec E\cdot d\vec s = \int_{P_1}^{P_0}\vec E\cdot d\vec s+\int
 Mit dem Minuszeichen und der Arbeit des Felds aus dem ersten Abschnitt folgt die Formel.
 :::
 
-**Ein Vorzeichen im Skript.** Dort steht die Kette
-
-$$\phi = -\int_{P_1}^{P_2}\vec E\,d\vec s = -\big[\phi(P_2)-\phi(P_1)\big] = \frac{W}{Q}.$$
-
-Mit dem Bezugspunkt $P_1$ ist das erste Glied das Potenzial von $P_2$, also die Differenz $\phi(P_2)-\phi(P_1)$ — das mittlere Glied hat
-das falsche Vorzeichen.
-Und $W$ meint dort die Arbeit **gegen** das Feld; die vom Feld freigesetzte Arbeit hat das umgekehrte Vorzeichen.
+**Achtung, Vorzeichen.** Mit dem Bezugspunkt $P_1$ ist $-\int_{P_1}^{P_2}\vec E\cdot d\vec s$ das Potenzial von $P_2$, also die Differenz
+$\varphi(P_2)-\varphi(P_1)$; falsch wäre $-\big[\varphi(P_2)-\varphi(P_1)\big]$. Gleich $\frac{W}{Q}$ ist sie nur, wenn $W$ die Arbeit **gegen**
+das Feld meint; die vom Feld freigesetzte Arbeit hat das umgekehrte Vorzeichen.
 
 **Das Potenzial einer Punktladung.** Mit dem Bezugspunkt im Unendlichen ist das Potenzial einer Punktladung $Q_0$ im Abstand $r$
 
@@ -221,7 +217,7 @@ $$U_{12} = \varphi(P_1)-\varphi(P_2) = \int_{P_1}^{P_2}\vec E\cdot d\vec s.$$
 das Negative von $U_{12}$. Positiv ist $U_{12}$, wenn der erste Punkt höher liegt. Im Schaltbild zeichnet man die Spannung als Pfeil vom
 ersten zum zweiten Punkt, den __Spannungspfeil__.
 
-**Ein Vorzeichenfehler im Skript.** In der Formel (3.1) des Skripts steht ein Minus vor dem Integral. Die Probe am Plattenkondensator zeigt,
+**Kein Minus vor dem Integral.** Ein häufiger Fehler ist, die Spannung mit einem Minus vor dem Integral zu schreiben. Die Probe am Plattenkondensator zeigt,
 dass es nicht hingehört: Vom Plus- zur Minusplatte zeigt das Feld in Wegrichtung, das Integral ist positiv, und die Plusplatte hat das
 höhere Potenzial. Die Spannung von Plus nach Minus ist also positiv — mit dem Minus wäre sie negativ.
 
@@ -235,7 +231,7 @@ Die Arbeit, die das Feld an einer Ladung von $P_1$ nach $P_2$ verrichtet, ist da
 
 $$W_{12} = Q\,U_{12}, \qquad 1\,\text{V} = 1\,\frac{\text{J}}{\text{C}}.$$
 
-**So liest man das:** Die Spannung hängt nicht von der Ladung ab, die man verschiebt. Das Skript nennt sie deshalb das
+**So liest man das:** Die Spannung hängt nicht von der Ladung ab, die man verschiebt. Man nennt sie deshalb das
 körperunabhängige Maß für das Feld zwischen zwei Punkten: Sie gibt das __Arbeitsvermögen__ jeder Ladung an, die diese Strecke
 durchläuft. Ein Volt bedeutet ein Joule pro Coulomb.
 
@@ -302,7 +298,7 @@ gewinnt dabei Energie.
 | zwischen Hand und Herz | etwa $1\,\text{mV}$ |
 | Empfangsspannung an einer Fernsehantenne | $12\,\mu\text{V}$ bis $10\,\text{mV}$ |
 | Autobatterie | etwa $12\,\text{V}$ |
-| Lichtnetz in Europa | $230\,\text{V}$ (das Skript nennt noch den früheren Wert $220\,\text{V}$) |
+| Lichtnetz in Europa | $230\,\text{V}$ (früher $220\,\text{V}$) |
 | Hochspannungsleitung | $120\,\text{kV}$ bis $800\,\text{kV}$ |
 | Van-de-Graaff-Generator | etwa $10\,\text{MV}$ |
 | Blitz | bis $100\,\text{MV}$ |
@@ -403,10 +399,12 @@ Probeladung und Zähler, grau = Platten und rechte Winkel.)
 ## Bedeutung und Ausblick
 
 Die Spannung ist die zentrale Größe jeder Schaltung, und mit dem Potenzial lässt sie sich wie eine Höhe denken. Aus dem geschlossenen
-Umlauf wird in Kapitel 5 die __Maschenregel__ von Kirchhoff: Längs jedes geschlossenen Wegs durch eine Schaltung addieren sich die
-Spannungen zu null — so wie in der Kette der Punkte A bis D.
+Umlauf wird die __Maschenregel__ von Kirchhoff, die der Artikel [Die Kirchhoffschen Gesetze](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/kirchhoffsche-gesetze.html)
+behandelt: Längs jedes geschlossenen Wegs durch eine Schaltung addieren sich die Spannungen zu null — so wie in der Kette der Punkte
+A bis D.
 
-Das nächste Kapitel behandelt den Kondensator. Er speichert Ladung auf zwei Platten, und die Spannung zwischen ihnen hängt über
+Der Artikel [Der Kondensator und seine Kapazität](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/kondensator-und-kapazitaet.html)
+behandelt als Nächstes den Kondensator. Er speichert Ladung auf zwei Platten, und die Spannung zwischen ihnen hängt über
 $U=E\cdot d$ mit dem Feld im Spalt zusammen.
 
 :::kern
@@ -415,7 +413,7 @@ $U=E\cdot d$ mit dem Feld im Spalt zusammen.
 - Der Grund: Das Feld einer Punktladung ist radial, nur Abstandsänderungen zählen; die Überlagerung überträgt das auf alle ruhenden Ladungen.
 - __Potenzial__: $\varphi(P)=-\int_{P_0}^{P}\vec E\cdot d\vec s$, die Arbeit gegen das Feld pro Ladung vom Bezugspunkt aus.
 - Eine Punktladung hat mit dem Bezugspunkt im Unendlichen das Potenzial $\frac{1}{4\pi\varepsilon_0}\frac{Q_0}{r}$.
-- __Spannung__: $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot d\vec s$ — ohne das Minus, das im Skript steht.
+- __Spannung__: $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot d\vec s$, ohne Minus vor dem Integral.
 - Die vom Feld verrichtete Arbeit ist Ladung mal Spannung; ein Volt ist ein Joule pro Coulomb.
 - Ein __Elektronenvolt__ ist die Energie einer Elementarladung nach einem Volt: $1{,}602\cdot10^{-19}\,\text{J}$.
 - Potenziale hängen vom Bezugspunkt ab, Spannungen nicht; die __Masse__ legt den Nullpunkt fest.
@@ -434,8 +432,8 @@ F: Wie ist das Potenzial definiert, und warum steht ein Minuszeichen vor dem Int
 A: $\varphi(P)=-\int_{P_0}^{P}\vec E\cdot d\vec s$ mit einem gewählten Bezugspunkt $P_0$. Durch das Minus ist es die Arbeit, die man gegen das Feld aufbringen muss, um eine Ladung vom Bezugspunkt nach $P$ zu bringen, pro Ladung; die potentielle Energie ist $Q\varphi$. Eindeutig ist die Zahl nur, weil die Arbeit nicht vom Weg abhängt.
 F: Welches Potenzial hat eine Punktladung, und wie passt es zur Arbeit zwischen $1\,\text{cm}$ und $2\,\text{cm}$?
 A: Mit dem Bezugspunkt im Unendlichen ist $\varphi(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q_0}{r}$, bei $1\,\text{nC}$ also etwa $899\,\text{V}$ in $1\,\text{cm}$ und $449\,\text{V}$ in $2\,\text{cm}$. Die Differenz mal der Probeladung von $1\,\text{nC}$ ergibt $4{,}49\cdot10^{-7}\,\text{J}$, genau die Arbeit auf beiden Wegen.
-F: Wie ist die Spannung $U_{12}$ definiert, und warum gehört das Minus aus Formel (3.1) des Skripts nicht hin?
-A: $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot d\vec s$, mit $U_{21}=-U_{12}$. Probe am Plattenkondensator: Von der Plus- zur Minusplatte zeigt das Feld in Wegrichtung, das Integral ist positiv, und die Plusplatte liegt höher — die Spannung ist positiv. Mit dem Minus aus dem Skript wäre sie negativ.
+F: Wie ist die Spannung $U_{12}$ definiert, und warum gehört kein Minus vor das Integral?
+A: $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot d\vec s$, mit $U_{21}=-U_{12}$. Probe am Plattenkondensator: Von der Plus- zur Minusplatte zeigt das Feld in Wegrichtung, das Integral ist positiv, und die Plusplatte liegt höher — die Spannung ist positiv. Mit einem Minus wäre sie negativ.
 F: Warum hängt die Spannung nicht vom Bezugspunkt ab, und was zeigt die Kette der Punkte A bis D?
 A: Ein anderer Bezugspunkt verschiebt alle Potenziale um dieselbe Konstante, die in jeder Differenz herausfällt. Mit Masse an D liegen A, B, C auf $9$, $6$ und $2\,\text{V}$, mit Masse an B auf $3$, $0$ und $-4\,\text{V}$ und D auf $-6\,\text{V}$; die Spannung von A nach D bleibt $9\,\text{V}$, die Summe der Teilspannungen.
 F: Wie hängen Spannung und Feldstärke im Plattenkondensator zusammen, und was ergibt einer mit $12\,\text{V}$ und $1\,\text{mm}$ Abstand?

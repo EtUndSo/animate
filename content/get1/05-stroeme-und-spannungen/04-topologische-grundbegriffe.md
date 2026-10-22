@@ -40,17 +40,15 @@ orange = Rundweg und Baum, grau = Gelände und ungeräumte Wege.)
 
 ## Knoten, Zweige, Maschen
 
-Ein __Netzwerk__ ist nach dem Artikel über den Widerstand eine Zusammenschaltung von Zweipolen. Seine Struktur beschreibt das Skript mit drei Begriffen
-(Bild 5.17 und Abschnitt 5.5):
+Ein __Netzwerk__ ist nach dem Artikel über den Widerstand eine Zusammenschaltung von Zweipolen. Seine Struktur beschreibt man mit drei Begriffen:
 
 - Ein __Knoten__ ist ein Netzwerkpunkt mit Stromverzweigung, ein Punkt, an dem mindestens drei Zweipole angeschlossen sind, so dass sich der Strom
   aufteilen kann.
 - Ein __Zweig__ ist eine Verbindung zwischen zwei Knoten durch einen oder mehrere hintereinanderliegende Zweipole, ohne einen Knoten dazwischen.
 - Eine __Masche__ ist ein geschlossener Weg im Netzwerk, auf dem kein Zweig und kein Knoten mehrfach durchlaufen wird.
 
-Ziel des Ganzen ist, wie das Skript sagt, die Berechnung, Zusammenfassung und Vereinfachung von Netzwerken. In der Bildunterschrift zu Bild 5.17 steht
-„Netzwerk mit linearen Zweitoren"; gemeint sind Zweipole. Ein __Zweitor__ ist etwas anderes, ein Bauteil mit zwei Klemmenpaaren, also vier Anschlüssen,
-wie ein Transformator.
+Ziel des Ganzen ist die Berechnung, Zusammenfassung und Vereinfachung von Netzwerken. Nicht zu verwechseln sind Zweipole mit __Zweitoren__: Ein
+Zweitor ist ein Bauteil mit zwei Klemmenpaaren, also vier Anschlüssen, wie ein Transformator.
 
 **Im Bild:** Kreuzungen, Wegstücke, Rundwege. An einer Kreuzung kann man abbiegen, auf einem Wegstück nicht.
 
@@ -64,8 +62,8 @@ stationären Zustand durch jeden Querschnitt eines unverzweigten Leiters derselb
 :::
 
 **Was als ein Knoten zählt.** Punkte, die nur durch eine ideale Leitung ohne Bauteil verbunden sind, haben dasselbe Potenzial und bilden zusammen
-__einen__ Knoten, auch wenn das Schaltbild mehrere Lötpunkte zeichnet. Ein Punkt, an dem nur zwei Bauteile hintereinander hängen, ist im Sinn des
-Skripts kein Knoten; die beiden Bauteile gehören zu einem Zweig. Manche Bücher zählen solche Punkte trotzdem als Knoten, mit je einem Zweig pro Bauteil.
+__einen__ Knoten, auch wenn das Schaltbild mehrere Lötpunkte zeichnet. Ein Punkt, an dem nur zwei Bauteile hintereinander hängen, ist nach dieser
+Definition kein Knoten; die beiden Bauteile gehören zu einem Zweig. Manche Bücher zählen solche Punkte trotzdem als Knoten, mit je einem Zweig pro Bauteil.
 Wie man sich auch entscheidet, die Zahl der unabhängigen Maschen ändert sich dadurch nicht, wie sich unten zeigt.
 
 **Im Bild:** Eine lange Leitung zwischen zwei Lötpunkten ist wie ein Platz, auf dem mehrere Wege enden: eine einzige Kreuzung, nur breit gezeichnet.
@@ -80,7 +78,7 @@ Eine Schaltung aus einer Quelle und vier Widerständen, als Leiter gezeichnet:
 
 Die untere Schiene ist eine durchgehende Leitung mit drei Lötpunkten, an denen die Quelle, $R_2$ und $R_4$ enden; sie ist ein einziger Knoten D.
 
-**Nach dem Skript** verzweigt sich der Strom nur an B (über $R_1$, $R_2$, $R_3$) und an D (über die Quelle, $R_2$, $R_4$). In A und C hängen nur zwei
+**Nach der Definition oben** verzweigt sich der Strom nur an B (über $R_1$, $R_2$, $R_3$) und an D (über die Quelle, $R_2$, $R_4$). In A und C hängen nur zwei
 Bauteile hintereinander. Also
 
 $$k = 2, \qquad z = 3;$$
@@ -99,7 +97,7 @@ Falsch wäre es, die drei Lötpunkte der unteren Schiene als drei Knoten zu zäh
 :::grafik
 Szene: get1/stroeme-und-spannungen/04-leiter · Vorlage: leiterschaltung-knoten
 Die Leiterschaltung: links die Quelle $U_\text{q}$ (Pluspol oben, Spannungspfeil nach unten), oben $R_1$ von A nach B und $R_3$ von B nach C, senkrecht $R_2$
-unter B und $R_4$ unter C, unten eine durchgehende Schiene mit drei Lötpunkten. Ein Schalter „Knoten nach Skript" markiert B und D als große rote
+unter B und $R_4$ unter C, unten eine durchgehende Schiene mit drei Lötpunkten. Ein Schalter „nur Stromverzweigungen" markiert B und D als große rote
 Punkte und färbt die drei Zweige in drei Farben (Quelle mit $R_1$, $R_2$, $R_3$ mit $R_4$); ein zweiter Schalter „jeder Verbindungspunkt" markiert
 zusätzlich A und C und färbt jedes Bauteil einzeln. Die untere Schiene leuchtet in beiden Fällen als ein einziger Knoten D auf, ihre drei Lötpunkte
 verschmelzen beim Hineinzoomen zu einer Fläche gleichen Potenzials. Kernaussage: Ein Knoten ist alles, was ohne Bauteil verbunden ist. (Rot = Knoten,
@@ -109,17 +107,17 @@ blau = Zweige, orange = Hervorhebung, grau = Bauteilsymbole.)
 ## Der Graph eines Netzwerks
 
 Für die Struktur ist gleichgültig, welche Bauteile in den Zweigen sitzen. Ersetzt man jeden Zweig durch eine Linie, bleibt der __Graph__ des Netzwerks,
-eine vereinfachte symbolische Darstellung seiner topologischen Struktur. Das Skript zeigt das an einer Brückenschaltung (Bild 5.22 und 5.23) mit fünf
+eine vereinfachte symbolische Darstellung seiner topologischen Struktur. Ein Beispiel ist eine Brückenschaltung mit fünf
 Widerständen und einer Quelle, vier Knoten und sechs Zweigen.
 
 - Jeder Zweig bekommt eine __Richtung__, die Richtung des Zählpfeils seines Stroms (Artikel über Zählpfeile). Meist zählt man die Zweigspannung im VZS
   gleichsinnig dazu, dann trägt die eine Richtung beide Pfeile.
 - Knoten und Zweige werden durchnummeriert; $k$ ist die Zahl der Knoten, $z$ die Zahl der Zweige.
-- Nach Satz 1 des Skripts ist ein Graph __zusammenhängend__: Von jedem Knoten führt mindestens ein Weg aus Zweigen und Knoten zu jedem anderen.
+- Der Graph ist __zusammenhängend__: Von jedem Knoten führt mindestens ein Weg aus Zweigen und Knoten zu jedem anderen.
 
 **Im Bild:** Die Übersichtstafel mit einem Zählpfeil an jedem Wegstück: Wer in Pfeilrichtung geht, zählt plus, wer entgegen geht, minus.
 
-Der Zusammenhang gehört im Skript zur Definition. In der Mathematik darf ein Graph auch in getrennte Teile zerfallen; elektrisch kommt das vor, wenn zwei
+Der Zusammenhang gehört hier zur Definition. In der Mathematik darf ein Graph auch in getrennte Teile zerfallen; elektrisch kommt das vor, wenn zwei
 Kreise nur über einen Transformator gekoppelt sind. Darauf kommt der letzte Abschnitt zurück.
 
 :::grafik
@@ -133,9 +131,9 @@ Bauteile.)
 
 ## Maschen und ihre Unabhängigkeit
 
-Nach Satz 2 des Skripts ist eine Masche eine in sich geschlossene Folge von Zweigen und Knoten, in der jeder Knoten mit genau zwei benachbarten Zweigen
+Genauer ist eine Masche eine in sich geschlossene Folge von Zweigen und Knoten, in der jeder Knoten mit genau zwei benachbarten Zweigen
 der Masche verbunden ist — man kommt an jedem Knoten einmal an und verlässt ihn einmal. Jede Masche bekommt einen __Umlaufsinn__, die Richtung, in der man
-sie abläuft (die gebogenen Pfeile $M_1$ bis $M_5$ in Bild 5.24).
+sie abläuft, im Schaltbild ein gebogener Pfeil mit dem Namen der Masche, etwa $M_1$.
 
 **Maschen als Vektoren.** Mit den Richtungen der Zweige lässt sich jede Masche als Liste schreiben, ein Eintrag pro Zweig, der __Maschenvektor__:
 
@@ -156,7 +154,7 @@ bringt keine neue Information.
 **Im Bild:** Zwei benachbarte Rundwege nacheinander: Das gemeinsame Wegstück geht man einmal hin und einmal zurück, es fällt heraus, und übrig bleibt die
 große Runde. Sie ist kein neuer Rundweg.
 
-**Ein Kriterium.** Satz 3 des Skripts nennt eine Folge von Maschen linear unabhängig, wenn es eine Reihenfolge gibt, in der jede Masche mindestens einen
+**Ein Kriterium.** Eine Folge von Maschen ist linear unabhängig, wenn es eine Reihenfolge gibt, in der jede Masche mindestens einen
 Zweig enthält, der in den vorhergehenden nicht vorkommt. Diese Bedingung ist hinreichend: Wer sie erfüllt, ist sicher unabhängig.
 
 :::herleitung
@@ -170,11 +168,10 @@ Das widerspricht dem Nullvektor. Also gibt es keine solche Kombination.
 :::
 
 **Was „vollständig" heißt.** Eine Folge unabhängiger Maschen heißt __vollständig__, wenn keine weitere Masche hinzukommen kann, ohne dass die Folge
-abhängig wird — sie ist dann so lang wie möglich, und Satz 4 sagt, wie lang. Das Skript beschreibt die Vollständigkeit in Satz 3 anders: Jede Masche
-enthalte genau einen Zweig, der in den vorhergehenden nicht enthalten ist. Wörtlich kann das nicht gemeint sein, denn schon die erste Masche einer Folge
-bringt mehrere neue Zweige mit; auch das eigene Beispiel des Skripts in Bild 5.28 erfüllt es nicht ($M_1$ bringt drei neue Zweige, $M_2$ zwei, $M_3$
-einen). Gemeint ist vermutlich die Eigenschaft der Maschen aus einem Baum weiter unten: Jede enthält genau einen eigenen __Verbindungszweig__, der in
-keiner anderen vorkommt.
+abhängig wird — sie ist dann so lang wie möglich, und der Abschnitt *Maschen aus Verbindungszweigen* sagt, wie lang. Falsch wäre es, die
+Vollständigkeit so zu beschreiben, dass jede Masche genau einen Zweig enthält, der in den vorhergehenden nicht vorkommt: Schon die erste Masche einer
+Folge bringt mehrere neue Zweige mit. Richtig ist eine verwandte Eigenschaft der Maschen aus einem Baum weiter unten: Jede enthält genau einen eigenen
+__Verbindungszweig__, der in keiner anderen vorkommt.
 
 ::::beispiel Drei Runden, zwei unabhängig
 Der Graph der Leiterschaltung mit den Zweigen $1$ (Quelle, D nach A), $2$ (A nach B), $3$ (B nach D), $4$ (B nach C) und $5$ (C nach D). Drei Maschen,
@@ -217,10 +214,9 @@ Fenster, orange = Summe, grau = Zweige und Nummern.)
 
 ## Der Baum
 
-Satz 5 des Skripts nennt einen zusammenhängenden Teilgraphen, der alle Knoten enthält, einen __Baum__. Dabei fehlt eine Bedingung: Ein Baum darf
-**keine Masche** enthalten. Ohne sie wäre jeder Graph sein eigener Baum. Bild 5.25 zeigt denn auch nur maschenfreie Teilgraphen. Vollständig lautet die
-Definition: Ein Baum ist ein Teilgraph, der alle Knoten enthält, zusammenhängend ist und keine Masche enthält; oft sagt man __vollständiger Baum__.
-Seine Zweige heißen __Baumzweige__, die übrigen __Verbindungszweige__.
+Ein __Baum__ ist ein Teilgraph, der alle Knoten enthält, zusammenhängend ist und **keine Masche** enthält; oft sagt man __vollständiger Baum__.
+Seine Zweige heißen __Baumzweige__, die übrigen __Verbindungszweige__. Ein häufiger Fehler ist, die letzte Bedingung wegzulassen; ohne sie wäre jeder
+Graph sein eigener Baum.
 
 :::formel Satz
 $$z_\text{Baum} = k - 1;$$
@@ -249,9 +245,9 @@ liefe man den einen hin und den anderen zurück; von der Stelle, an der sie sich
 Masche. Der Baum hat aber keine.
 :::
 
-Wie viele Bäume ein Graph hat, hängt von seiner Struktur ab. Die Brückenschaltung des Skripts hat 16 (Bild 5.25): Jeder ihrer vier Knoten ist mit jedem
+Wie viele Bäume ein Graph hat, hängt von seiner Struktur ab. Die Brückenschaltung hat 16: Jeder ihrer vier Knoten ist mit jedem
 anderen verbunden, und für einen solchen __vollständigen Graphen__ mit $k$ Knoten gibt es nach einem Satz von Cayley genau $k^{k-2}$ Bäume, hier
-$4^2=16$. Bild 5.26 hebt einen davon hervor.
+$4^2=16$.
 
 ::::beispiel Bäume der Leiterschaltung
 Die Leiterschaltung hat mit jedem Verbindungspunkt als Knoten vier Knoten und fünf Zweige; jeder Baum hat also
@@ -273,8 +269,8 @@ rechte Fenster ohne A.
 ## Maschen aus Verbindungszweigen
 
 Ein Baum liefert ein vollständiges System unabhängiger Maschen gleich mit. Nimmt man zum Baum einen einzigen Verbindungszweig hinzu, schließt er mit dem
-einen Weg im Baum zwischen seinen Endpunkten genau eine Masche (Satz 6 des Skripts). Jeder Verbindungszweig ergibt so seine eigene Masche, und zusammen
-zählen sie, was Satz 4 des Skripts sagt:
+einen Weg im Baum zwischen seinen Endpunkten genau eine Masche. Jeder Verbindungszweig ergibt so seine eigene Masche, und ihre Anzahl ist die
+Zahl der unabhängigen Maschen:
 
 :::formel Satz
 $$m = z - k + 1.$$
@@ -318,7 +314,7 @@ Runde D–A–B–C–D. Ein anderes, ebenso gültiges System aus zwei unabhäng
 | Quelle mit einem Widerstand | $2$ | $2$ | $1$ |
 | Quelle mit drei Widerständen parallel | $2$ | $4$ | $3$ |
 | Leiterschaltung | $4$ | $5$ | $2$ |
-| Brückenschaltung des Skripts | $4$ | $6$ | $3$ |
+| Brückenschaltung mit fünf Widerständen und Quelle | $4$ | $6$ | $3$ |
 | Widerstandswürfel, ein Widerstand pro Kante | $8$ | $12$ | $5$ |
 
 Der Würfel hat $384$ verschiedene Bäume mit je sieben Zweigen, und jeder liefert fünf unabhängige Maschen.
@@ -328,17 +324,17 @@ Der Würfel hat $384$ verschiedene Bäume mit je sieben Zweigen, und jeder liefe
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/04-baum-maschen · Vorlage: baum-verbindungszweige
-Der Graph der Brückenschaltung wie Bild 5.26 und 5.28 des Skripts: vier Knoten, sechs gerichtete Zweige. Ein gewählter Baum ist schwarz und dick
+Der Graph der Brückenschaltung: vier Knoten, sechs gerichtete Zweige. Ein gewählter Baum ist schwarz und dick
 gezeichnet (drei Zweige), die drei Verbindungszweige grau. Ein Klick auf einen Verbindungszweig färbt ihn rot und lässt den eindeutigen Baumweg zwischen
-seinen Endpunkten mitleuchten: Es entsteht eine geschlossene Masche mit Umlaufpfeil $M_1$, $M_2$ oder $M_3$. Ein Schalter blättert durch alle 16 Bäume
-wie in Bild 5.25; zu jedem erscheinen seine drei Maschen. Ein Zähler zeigt stets drei Baumzweige und drei Maschen. Kernaussage: Jeder Verbindungszweig
+seinen Endpunkten mitleuchten: Es entsteht eine geschlossene Masche mit Umlaufpfeil $M_1$, $M_2$ oder $M_3$. Ein Schalter blättert durch alle 16 Bäume;
+zu jedem erscheinen seine drei Maschen. Ein Zähler zeigt stets drei Baumzweige und drei Maschen. Kernaussage: Jeder Verbindungszweig
 schließt genau eine Masche; ein Baum mit $k-1$ Zweigen liefert $z-k+1$ unabhängige Maschen. (Rot = Verbindungszweig und seine Masche, schwarz = Baum,
 grau = übrige Verbindungszweige, orange = Umlaufpfeil.)
 :::
 
 ## Warum gerade so viele Gleichungen
 
-Das Skript stellt die Frage, wie man die unbekannten Zweigspannungen und Zweigströme bestimmt. Die Topologie beantwortet, wie viele Gleichungen dafür
+Wie bestimmt man die unbekannten Zweigspannungen und Zweigströme? Die Topologie beantwortet, wie viele Gleichungen dafür
 zur Verfügung stehen. Jeder Zweig hat zwei Unbekannte, Strom und Spannung, zusammen $2z$. Dem stehen drei Sorten von Gleichungen gegenüber:
 
 - $z$ __Zweiggleichungen__, eine pro Zweig: das Ohmsche Gesetz in einem Widerstandszweig, die Quellenspannung in einem Quellenzweig;
@@ -389,7 +385,7 @@ $$5 + (4 - 1) + (5 - 4 + 1) = 5 + 3 + 2 = 10.$$
 Fünf Zweiggleichungen (die Quellenspannung und viermal Ohm), drei Knotengleichungen (an A, B und C, mit D als Bezugsknoten) und zwei Maschengleichungen
 (die beiden Fenster).
 
-**(b) Nach dem Skript gezählt.** Mit den zwei Knoten B und D und drei Zweigen sind es sechs Unbekannte:
+**(b) Nur Verzweigungen als Knoten.** Mit den zwei Knoten B und D und drei Zweigen sind es sechs Unbekannte:
 
 $$3 + (2 - 1) + (3 - 2 + 1) = 3 + 1 + 2 = 6.$$
 
@@ -412,10 +408,13 @@ Jeder Kreis ist eine eigene Masche. Die Formel für zusammenhängende Netze gäb
 Die Topologie ist das Gerüst, an dem die ganze Netzwerkanalyse hängt. Im nächsten Artikel kommen die beiden Kirchhoffschen Regeln: die Knotenregel,
 angewandt auf $k-1$ Knoten, und die Maschenregel, angewandt auf $m$ unabhängige Maschen. Welche Maschen das sind, liefert ein Baum ohne Rätselraten.
 
-Die großen Rechenverfahren der Kapitel 8 und 9 nutzen genau diese Zahlen. Das __Maschenstromverfahren__ führt für jede der $m$ unabhängigen Maschen
-einen Strom als Unbekannte ein, das __Knotenpotentialverfahren__ für jeden der $k-1$ Knoten außer dem Bezugsknoten ein Potenzial. Bei der Brücke des
-Skripts sind das drei Maschenströme oder drei Knotenpotenziale statt zwölf Unbekannten. Schaltungssimulatoren arbeiten mit einer Erweiterung des
-Knotenpotentialverfahrens, der modifizierten Knotenpotentialanalyse, die das Skript in Kapitel 9 vorstellt.
+Die großen Rechenverfahren, das
+[Maschenstromverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/maschenstromverfahren/maschenstromverfahren.html) und das
+[Knotenpotentialverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/knotenpotentialverfahren/knotenpotentialverfahren.html),
+nutzen genau diese Zahlen. Das __Maschenstromverfahren__ führt für jede der $m$ unabhängigen Maschen
+einen Strom als Unbekannte ein, das __Knotenpotentialverfahren__ für jeden der $k-1$ Knoten außer dem Bezugsknoten ein Potenzial. Bei der
+Brückenschaltung sind das drei Maschenströme oder drei Knotenpotenziale statt zwölf Unbekannten. Schaltungssimulatoren arbeiten mit einer Erweiterung des
+Knotenpotentialverfahrens, der modifizierten Knotenpotentialanalyse, die der Artikel zum Knotenpotentialverfahren in einem Exkurs vorstellt.
 
 Weil die Topologie nicht fragt, was in den Zweigen sitzt, gelten alle diese Zahlen ebenso für Wechselstromnetze, für Netze mit Kondensatoren und für
 nichtlineare Bauteile — nur die Zweiggleichungen ändern sich.
@@ -427,7 +426,7 @@ nichtlineare Bauteile — nur die Zweiggleichungen ändern sich.
 - __Masche__: geschlossener Weg, der keinen Zweig und keinen Knoten doppelt durchläuft.
 - Der __Graph__ ersetzt jeden Zweig durch eine gerichtete Linie; $k$ Knoten, $z$ Zweige.
 - Maschen als Vektoren mit Einträgen $-1$, $0$, $+1$; __linear unabhängig__ heißt: keine setzt sich aus den anderen zusammen.
-- __Baum__: alle Knoten, zusammenhängend, **keine Masche** (im Skript fehlt diese Bedingung); er hat genau $k-1$ Zweige.
+- __Baum__: alle Knoten, zusammenhängend, **keine Masche**; er hat genau $k-1$ Zweige.
 - Jeder __Verbindungszweig__ schließt mit dem eindeutigen Baumweg genau eine Masche; zusammen ein vollständiges System.
 - Zahl der unabhängigen Maschen: $m=z-k+1$, bei $p$ getrennten Teilen $z-k+p$.
 - Gleichungsbilanz: $z$ Zweig-, $k-1$ Knoten- und $m$ Maschengleichungen für $2z$ Unbekannte.
@@ -444,7 +443,7 @@ F: Wann sind Maschen linear unabhängig, und warum ist das elektrisch wichtig?
 A: Wenn sich keine aus den anderen zusammensetzen lässt, genauer: wenn keine Kombination ihrer Maschenvektoren mit nicht lauter verschwindenden Faktoren den Nullvektor ergibt. Zu jeder Masche gehört eine Maschengleichung, und die einer abhängigen Masche ist dieselbe Kombination der anderen Gleichungen — sie bringt nichts Neues.
 F: Warum ist in der Leiterschaltung die äußere Runde nicht unabhängig von den beiden Fenstern?
 A: Läuft man beide Fenster im Uhrzeigersinn, wird der gemeinsame Zweig einmal in und einmal gegen seine Richtung durchlaufen und hebt sich heraus: $(1,1,1,0,0)+(0,0,-1,1,1)=(1,1,0,1,1)$, der Vektor der äußeren Runde. Auch die Spannungssummen addieren sich so: Die Gleichung der äußeren Runde ist die Summe der beiden anderen.
-F: Welche Bedingung fehlt in Satz 5 des Skripts, und was folgt aus der vollständigen Definition?
+F: Welche Bedingung darf in der Definition des Baums nicht fehlen, und was folgt aus der vollständigen Definition?
 A: Ein Baum darf keine Masche enthalten; sonst wäre jeder zusammenhängende Graph sein eigener Baum. Mit dieser Bedingung hat jeder Baum genau $k-1$ Zweige: Man nimmt immer wieder ein Blatt samt Zweig weg, bis ein Knoten übrig bleibt. Zwischen zwei Knoten gibt es im Baum genau einen Weg.
 F: Warum liefert jeder Verbindungszweig genau eine Masche, und warum sind diese Maschen unabhängig?
 A: Zusammen mit dem eindeutigen Baumweg zwischen seinen Endpunkten schließt der Verbindungszweig genau eine Masche. Jede dieser Maschen enthält ihren eigenen Verbindungszweig, den keine andere enthält; in einer Kombination, die null ergibt, muss deshalb jeder Faktor null sein.

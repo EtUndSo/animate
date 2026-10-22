@@ -38,7 +38,7 @@ Striche, die Platten im Querschnitt.
 
 **Im Bild:** Die Elektroden sind die beiden Rohrhälften, das Dielektrikum die Membran.
 
-In der Praxis sind die Elektroden aufgewickelte Metallfolien, Schichtstapel oder poröse Körper mit großer Oberfläche. Das Skript nennt
+In der Praxis sind die Elektroden aufgewickelte Metallfolien, Schichtstapel oder poröse Körper mit großer Oberfläche. Die Tabelle nennt
 typische Bauformen:
 
 | Kondensatortyp | Kapazitätsbereich | Größe | Betriebsspannung | selbstheilend | gepolt |
@@ -81,7 +81,7 @@ Verhältnis bleibt fest.
 
 Ein Farad ist sehr viel. Übliche Kondensatoren liegen im Bereich von Femtofarad in integrierten Schaltungen über Pikofarad und Nanofarad
 bis zu Mikrofarad. Ausnahmen sind __Doppelschichtkondensatoren__, Goldcaps oder Supercaps genannt: Sie erreichen viele Farad, große Zellen
-einige tausend Farad; das Skript nennt bis zu $100\,\text{F}$. Dafür haben sie einen vergleichsweise hohen Leckstrom und vertragen nur
+einige tausend Farad. Dafür haben sie einen vergleichsweise hohen Leckstrom und vertragen nur
 wenige Volt.
 
 ::::beispiel Ladung auf einem Elko
@@ -97,8 +97,8 @@ Bei $6\,\text{V}$ wäre es genau die Hälfte. Ein Farad hätte bei $12\,\text{V}
 
 ## Strom und Spannung am Kondensator
 
-Ändert sich die Spannung, ändert sich die Ladung, und dafür muss ein Strom fließen. Strom ist Ladung pro Zeit, wie Kapitel 5 genauer
-zeigt. Mit kleinen Buchstaben für zeitabhängige Größen, dem Strom $i_C(t)$ in den Kondensator und der Spannung $u_C(t)$ an ihm:
+Ändert sich die Spannung, ändert sich die Ladung, und dafür muss ein Strom fließen. Strom ist Ladung pro Zeit, wie der Artikel
+[Der elektrische Strom](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/elektrischer-strom.html) genauer zeigt. Mit kleinen Buchstaben für zeitabhängige Größen, dem Strom $i_C(t)$ in den Kondensator und der Spannung $u_C(t)$ an ihm:
 
 :::formel
 $$i_C(t) = \frac{dq}{dt} = C\,\frac{du_C}{dt}, \qquad u_C(t) = u_C(t_0)+\frac{1}{C}\int_{t_0}^{t}i_C(\tau)\;d\tau.$$
@@ -106,8 +106,7 @@ $$i_C(t) = \frac{dq}{dt} = C\,\frac{du_C}{dt}, \qquad u_C(t) = u_C(t_0)+\frac{1}
 
 **So liest man das:** Der Strom ist proportional zur **Änderung** der Spannung, nicht zur Spannung selbst. Bei konstanter Spannung fließt
 kein Strom: Ein geladener Kondensator sperrt Gleichstrom. Umgekehrt ist die Spannung der aufintegrierte Strom, ausgehend von ihrem Wert
-zur Startzeit $t_0$. Das Skript schreibt die Ladung als $Q(t)$ und lässt beim Integral den Anfangswert weg; ohne ihn ist die Spannung nur bis
-auf eine Konstante bestimmt.
+zur Startzeit $t_0$. Lässt man beim Integral den Anfangswert weg, ist die Spannung nur bis auf eine Konstante bestimmt.
 
 **Im Bild:** Wasser fließt nur, solange sich die Membran weiter wölbt. Steht sie still, steht auch das Wasser — ein ständiger Strom durch
 die Membran ist unmöglich.
@@ -152,7 +151,7 @@ $$C = \varepsilon\,\frac{A}{d}, \qquad \varepsilon = \varepsilon_0\,\varepsilon_
 
 **So liest man das:** Die Kapazität steigt mit größerer Fläche, kleinerem Abstand und größerer Permittivität. Diese ist das Produkt aus der
 elektrischen Feldkonstante $\varepsilon_0$ aus dem Coulombschen Gesetz und der __Permittivitätszahl__ $\varepsilon_\text{r}$ des Materials, im
-Vakuum $1$. Das Skript nennt $\varepsilon$ die Dielektrizitätszahl. Die Formel gilt, solange der Abstand klein gegen die Plattenmaße ist: Dann
+Vakuum $1$. Für $\varepsilon_\text{r}$ ist auch der ältere Name Dielektrizitätszahl üblich. Die Formel gilt, solange der Abstand klein gegen die Plattenmaße ist: Dann
 ist das Feld innen homogen, und das Randfeld fällt nicht ins Gewicht.
 
 **Im Bild:** Eine größere Membran gibt bei gleichem Druck mehr nach, eine dünnere ebenso, und ein weicheres Material auch.
@@ -246,7 +245,7 @@ Plattenkondensator
 $$U = E\cdot d = \frac{Q\,d}{\varepsilon_0\,\varepsilon_\text{r}\,A}, \qquad C = \frac{Q}{U} = \varepsilon_0\,\varepsilon_\text{r}\,\frac{A}{d}.$$
 :::
 
-Einige Permittivitätszahlen aus dem Skript:
+Einige Permittivitätszahlen:
 
 | Isolator | Permittivitätszahl |
 |---|---|
@@ -267,14 +266,13 @@ und der Permittivität:
 
 $$R_\text{I}\,C = \rho\,\varepsilon.$$
 
-Das Skript sagt dazu, die Selbstentladung hänge von $\varepsilon$ ab; genau das steckt in dieser Formel.
-
 **Im Bild:** Eine winzige undichte Stelle in der Membran. Wie schnell das Wasser durchsickert, hängt vom Material ab, nicht von der Größe der
 Membran: Eine größere Membran lässt mehr durch, hält aber auch mehr.
 
 :::herleitung
-Ein Quader aus einem Material mit dem spezifischen Widerstand $\rho$, der Länge $d$ und dem Querschnitt $A$ hat nach Kapitel 5 den Widerstand
-$\rho$ mal Länge durch Querschnitt. Mit der Kapazität des Plattenkondensators kürzen sich Fläche und Abstand:
+Ein Quader aus einem Material mit dem spezifischen Widerstand $\rho$, der Länge $d$ und dem Querschnitt $A$ hat nach dem Artikel über den
+[ohmschen Widerstand](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/ohmscher-widerstand.html)
+den Widerstand $\rho$ mal Länge durch Querschnitt. Mit der Kapazität des Plattenkondensators kürzen sich Fläche und Abstand:
 
 $$R_\text{I}\,C = \rho\,\frac{d}{A}\cdot\varepsilon\,\frac{A}{d} = \rho\,\varepsilon.$$
 
@@ -328,8 +326,8 @@ Plusplatte zu bringen, kostet nach dem Artikel über Spannung Ladung mal Spannun
 $$dW = \frac{q}{C}\;dq, \qquad W = \int_0^Q\frac{q}{C}\;dq = \frac{Q^2}{2C}.$$
 
 Die Integrationsvariable heißt $q$, weil $Q$ schon die Endladung ist. Mit $Q=C\,U$ folgen die anderen beiden Formen. Im
-Ladung-Spannung-Diagramm ist $W$ die Dreiecksfläche unter der Geraden durch den Ursprung, halb so groß wie das Rechteck $Q\,U$. Das Skript
-rechnet dasselbe über Kraft mal Weg: Auf das Ladungsstück wirkt im Spalt die Kraft Ladung mal Feld, und längs des Abstands $d$ verschoben
+Ladung-Spannung-Diagramm ist $W$ die Dreiecksfläche unter der Geraden durch den Ursprung, halb so groß wie das Rechteck $Q\,U$. Dasselbe
+ergibt die Rechnung über Kraft mal Weg: Auf das Ladungsstück wirkt im Spalt die Kraft Ladung mal Feld, und längs des Abstands $d$ verschoben
 ergibt das Ladung mal $E\,d$, also Ladung mal Spannung.
 :::
 
@@ -404,7 +402,7 @@ A: $C=\varepsilon_0\frac Ad\approx885\,\text{pF}$; an $100\,\text{V}$ trägt er 
 F: Wie erhöht ein Dielektrikum die Kapazität, und warum hat Wasser ein so großes $\varepsilon_\text{r}$?
 A: Das Feld polarisiert den Isolator: Hüllen und Kerne verschieben sich, Dipolmoleküle drehen sich. An der Oberfläche entstehen gebundene Ladungen, deren Feld das Plattenfeld schwächt — um den Faktor $\varepsilon_\text{r}$. Bei gleicher Ladung sinkt die Spannung, also steigt die Kapazität. Wasser hat mit etwa $81$ einen großen Wert, weil seine Moleküle schon Dipole sind, die sich drehen.
 F: Warum hängt die Selbstentladung eines Plattenkondensators nur vom Material ab, und warum taugt Wasser trotz $\varepsilon_\text{r}=81$ nicht als Dielektrikum?
-A: Der Isolationswiderstand ist $\rho\frac dA$, die Kapazität $\varepsilon\frac Ad$; im Produkt kürzen sich Fläche und Abstand zu $R_\text{I}C=\rho\varepsilon$, einer Zeit. Bei einer Folie mit $10^{15}\,\Omega\,\text{m}$ sind das rund $1{,}9\cdot10^4\,\text{s}$. Reines Wasser hat nur etwa $1{,}8\cdot10^5\,\Omega\,\text{m}$, also rund $1{,}3\cdot10^{-4}\,\text{s}$ — nach einem Zehntel einer Millisekunde merklich entladen.
+A: Der Isolationswiderstand ist $\rho\frac dA$, die Kapazität $\varepsilon\frac Ad$; im Produkt kürzen sich Fläche und Abstand zu $R_\text{I}C=\rho\varepsilon$, einer Zeit. Bei einer Kunststofffolie mit $10^{15}\,\Omega\,\text{m}$ sind das rund $1{,}9\cdot10^4\,\text{s}$. Reines Wasser hat nur etwa $1{,}8\cdot10^5\,\Omega\,\text{m}$, also rund $1{,}3\cdot10^{-4}\,\text{s}$ — nach einem Zehntel einer Millisekunde merklich entladen.
 F: Warum ist die gespeicherte Energie $\frac12CU^2$ und nicht $QU$?
 A: Bei der Ladung $q$ liegt die Spannung $\frac qC$ an; ein weiteres Stück $dq$ kostet $\frac qC\,dq$. Das Integral von $0$ bis $Q$ gibt $\frac{Q^2}{2C}=\frac12CU^2=\frac12QU$. Die ersten Ladungen wandern bei fast null Volt, die letzten bei voller Spannung, im Mittel bei der halben — im Diagramm die Dreiecksfläche statt des Rechtecks.
 F: Wo sitzt die Energie eines Kondensators, und wie groß ist die Energiedichte bei $10^6\,\frac{\text{V}}{\text{m}}$ in Luft?

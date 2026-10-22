@@ -62,7 +62,8 @@ $$U_{\text{ind}} = -N\,\frac{d\Phi}{dt}.$$
 
 **So liest man das:** Die induzierte Spannung ist umso größer, je schneller sich der Fluss ändert und je mehr Windungen die Spule
 hat. Das Minuszeichen drückt die __Lenzsche Regel__ aus: Die induzierte Spannung treibt einen Strom, dessen Magnetfeld der
-Flussänderung entgegenwirkt. Das Gesetz ist ein Erfahrungssatz; genauer behandelt wird es in späteren Kapiteln und Modulen.
+Flussänderung entgegenwirkt. Das Gesetz ist ein Erfahrungssatz; seine genauere Behandlung geht über den Rahmen dieses Artikels
+hinaus.
 
 ::::beispiel Induktion in Zahlen
 Eine Spule mit $200$ Windungen; der Fluss durch sie steigt in $0{,}1\,\text{s}$ gleichmäßig um $5\,\text{mWb}$. Die Änderung pro Zeit
@@ -84,15 +85,13 @@ sie reicht die Mathematik des ersten Semesters noch nicht; ihre Aussagen in Wort
 - Ein sich zeitlich änderndes Magnetfeld erzeugt ein elektrisches Wirbelfeld — das ist Faradays Induktion.
 - Ströme und sich ändernde elektrische Felder erzeugen Magnetfelder — das ist Ørsteds Beobachtung, von Maxwell ergänzt.
 
-Das Skript nennt die ersten drei.
-
 **Im Bild:** Hier hat das Schwerefeld kein Gegenstück. Bewegte Massen erzeugen kein merkliches zweites Feld, bewegte Ladungen
 dagegen ein Magnetfeld.
 
 **Reibungselektrizität im Versuch.** Reibt man einen Glasstab mit einem Seidentuch und einen Hartgummistab mit einem Fell, so
 ziehen sich die beiden Stäbe an, während zwei geriebene Hartgummistäbe einander abstoßen. Beim Reiben gehen Elektronen von einem
 Körper auf den anderen über. Der Glasstab hat danach einen Mangel an Elektronen, der Hartgummistab einen Überschuss. Welcher Körper
-welche Ladung bekommt, hängt von der Materialpaarung ab; das Skript reibt beide Stäbe mit einem Fell.
+welche Ladung bekommt, hängt von der Materialpaarung ab.
 
 Historisch hieß die Ladung des Glases „glasige", die des Hartgummis „harzige" Elektrizität (Du Fay, 1733). Benjamin Franklin
 führte um 1750 die Namen **positiv** und **negativ** ein: Ein Elektronenmangel ist positive, ein Überschuss negative Ladung.
@@ -111,7 +110,7 @@ daraus entstehen Anziehung und Abstoßung.
 
 ## Die elektrische Feldstärke
 
-Das Skript definiert zuerst den Raum: Das __elektrische Feld__ ist der Raum, in dem auf eine Ladung eine Kraft ausgeübt wird. Um es
+Eine erste Definition betrifft den Raum: Das __elektrische Feld__ ist der Raum, in dem auf eine Ladung eine Kraft ausgeübt wird. Um es
 zu messen, bringt man eine kleine __Probeladung__ $Q$ an einen Punkt und misst die Kraft $\vec F$ auf sie. Die Kraft ist proportional
 zur Probeladung; teilt man durch sie, bleibt eine Größe, die nur noch vom Ort abhängt, die __elektrische Feldstärke__:
 
@@ -180,7 +179,7 @@ als die Erde — nur eben nach oben, weil das Elektron negativ ist.
 
 ## Das Coulombsche Gesetz
 
-Wie groß ist die Kraft zwischen zwei Ladungen? Das Skript beschreibt dazu ein Gedankenexperiment: Eine kleine geladene Kugel mit
+Wie groß ist die Kraft zwischen zwei Ladungen? Das zeigt ein Gedankenexperiment: Eine kleine geladene Kugel mit
 der Ladung $Q_A$ hängt an einem Faden; daneben steht eine zweite mit der Ladung $Q_B$ entgegengesetzten Vorzeichens. Auf $Q_A$ wirken
 die Anziehung zu $Q_B$ hin und die Schwerkraft nach unten, und der Faden schlägt um einen Winkel $\alpha$ aus. Aus dem Winkel liest
 man die Kraft ab:
@@ -221,7 +220,7 @@ Haben die Ladungen gleiches Vorzeichen, ist das Produkt positiv, und die Kraft z
 verschiedenen Vorzeichen ist es negativ, und die Kraft zeigt zu $Q_B$ hin: Anziehung. Die skalare Form mit Vorzeichen liefert den
 Betrag als $|F|$.
 
-**Ein Fallstrick im Skript.** Dort heißt es, $\vec r$ zeige in Richtung der Kraft auf $Q_A$. Das stimmt nur bei Abstoßung. Im
+**Ein Fallstrick.** Oft liest man, $\vec r$ zeige in Richtung der Kraft auf $Q_A$. Das stimmt nur bei Abstoßung. Im
 beschriebenen Versuch ziehen sich die Ladungen an; ließe man $\vec r$ zu $Q_B$ hin zeigen, ergäbe die vektorielle Formel mit dem
 negativen Produkt eine Kraft von $Q_B$ weg — das Gegenteil der Beobachtung.
 
@@ -265,7 +264,7 @@ sich von der Senkrechten weg.
 ::::
 
 **Wie genau gilt das $\frac{1}{r^2}$?** In frühen Versuchen war das nicht sicher. Man schreibt eine mögliche Abweichung als kleinen
-Zusatz $\delta$ im Exponenten — das Skript nennt ihn $\Delta s$ —
+Zusatz $\delta$ im Exponenten,
 
 $$F \sim \frac{1}{r^{2\pm\delta}},$$
 
@@ -471,8 +470,8 @@ F: Was haben Ørsted und Faraday entdeckt, und welche Spannung liefert die Spule
 A: Ørsted fand, dass ein Strom ein Magnetfeld erzeugt, dessen Richtung die Rechte-Faust-Regel gibt. Faraday fand die Umkehrung: Eine Änderung des magnetischen Flusses induziert eine Spannung, $U_{\text{ind}}=-N\frac{d\Phi}{dt}$. Steigt der Fluss in $0{,}1\,\text{s}$ um $5\,\text{mWb}$, sind das bei $200$ Windungen $10\,\text{V}$, mit dem Minuszeichen der Lenzschen Regel.
 F: Wie misst ein Pendel die Kraft zwischen zwei Ladungen, und welche Ladung ergibt das Beispiel?
 A: Im Gleichgewicht gleicht die Fadenkraft Schwerkraft und elektrische Kraft aus; das Verhältnis ihrer Anteile ist der Tangens des Auslenkwinkels, also $F=m\,g\,\tan\alpha$. Eine Kugel von $1\,\text{g}$ mit $\tan\alpha=0{,}1$ erfährt etwa $9{,}8\cdot10^{-4}\,\text{N}$; bei $5\,\text{cm}$ Abstand und gleich großen Ladungen sind das je rund $16{,}5\,\text{nC}$.
-F: In welche Richtung zeigt der Abstandsvektor im Coulombschen Gesetz, und warum ist die Angabe im Skript nur bei Abstoßung richtig?
-A: Er zeigt von der Ladung, die die Kraft ausübt, zu der Ladung, auf die sie wirkt. Dann gibt ein positives Produkt der Ladungen eine Kraft längs $\vec r$, also Abstoßung, ein negatives eine Kraft entgegen $\vec r$, also Anziehung. Das Skript lässt $\vec r$ in Kraftrichtung zeigen; bei der Anziehung im Versuch ergäbe die vektorielle Formel damit eine abstoßende Kraft.
+F: In welche Richtung zeigt der Abstandsvektor im Coulombschen Gesetz, und warum darf man ihn nicht einfach in Kraftrichtung zeigen lassen?
+A: Er zeigt von der Ladung, die die Kraft ausübt, zu der Ladung, auf die sie wirkt. Dann gibt ein positives Produkt der Ladungen eine Kraft längs $\vec r$, also Abstoßung, ein negatives eine Kraft entgegen $\vec r$, also Anziehung. Ließe man $\vec r$ in Kraftrichtung zeigen, ergäbe die vektorielle Formel bei der Anziehung im Versuch eine abstoßende Kraft.
 F: Wie genau gilt das $\frac{1}{r^2}$ im Coulombschen Gesetz, und wie hat man das gemessen?
 A: Eine mögliche Abweichung im Exponenten ist von $0{,}02$ bei Cavendish über $5\cdot10^{-5}$ bei Maxwell bis auf $3\cdot10^{-16}$ im Jahr 1971 eingegrenzt. Gemessen hat man über die Abschirmung: Nur bei exaktem $\frac{1}{r^2}$ verschwindet das Feld im Inneren einer geladenen Metallkugel vollständig, und dort findet man kein Restfeld.
 F: Wie sieht das Feld einer Punktladung aus, und was ergibt die Überlagerung in der Mitte zwischen $+1\,\text{nC}$ und $-1\,\text{nC}$ im Abstand $2\,\text{cm}$?

@@ -50,7 +50,7 @@ Maßstab.)
 
 **Das Zusammenspiel:** *Welcher einzelne Widerstand verhält sich nach außen wie die ganze Kette?*
 
-Das Skript nennt die Bedingung, die die Verschaltung erzwingt, den __Schaltungszwang__: In der Reihe fließt durch alle Widerstände derselbe Strom.
+Die Bedingung, die die Verschaltung erzwingt, heißt __Schaltungszwang__: In der Reihe fließt durch alle Widerstände derselbe Strom.
 
 $$I = I_1 = I_2 = \dots = I_n.$$
 
@@ -92,15 +92,15 @@ zusammen wieder $12\,\text{V}$. Am größten Widerstand fällt die größte Span
 
 ## Der Spannungsteiler
 
-Eine Reihe aus zwei Widerständen, deren Mittelpunkt man abgreift, heißt __Spannungsteiler__. Er macht aus einer Spannung eine kleinere. Im Skript
-(Bild 5.34) liegen $R_1$ oben und $R_2$ unten an $U$; abgegriffen wird $U_2$ über $R_2$, und am Abgriff fließt kein Strom ab, der Laststrom $I_L$ ist null.
+Eine Reihe aus zwei Widerständen, deren Mittelpunkt man abgreift, heißt __Spannungsteiler__. Er macht aus einer Spannung eine kleinere. In der üblichen
+Anordnung liegen $R_1$ oben und $R_2$ unten an $U$; abgegriffen wird $U_2$ über $R_2$, und am Abgriff fließt kein Strom ab, der Laststrom $I_L$ ist null.
 
 :::formel
 $$\frac{U_\nu}{U} = \frac{R_\nu}{\sum_{i=1}^{n} R_i}, \qquad \frac{U_2}{U} = \frac{R_2}{R_1 + R_2}, \qquad \frac{U_1}{U_2} = \frac{R_1}{R_2}.$$
 :::
 
 **So liest man das:** Jede Teilspannung ist der Anteil der Gesamtspannung, den ihr Widerstand am Gesamtwiderstand hat; zwei Teilspannungen stehen im
-Verhältnis ihrer Widerstände. Eingabe sind die Widerstände und die Gesamtspannung, Ausgabe die Teilspannung. Wichtig, wie das Skript betont: Die Regel
+Verhältnis ihrer Widerstände. Eingabe sind die Widerstände und die Gesamtspannung, Ausgabe die Teilspannung. Wichtig: Die Regel
 gilt nur für den __unbelasteten__ Spannungsteiler, durch dessen Widerstände derselbe Strom fließt. Was bei Belastung passiert, zeigt der letzte
 Abschnitt.
 
@@ -135,7 +135,7 @@ Etwas unter der Grenze, wie gewünscht. Der Querstrom durch beide Widerstände i
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/06-spannungsteiler · Vorlage: spannungsteiler
-Das Schaltbild nach Bild 5.34 des Skripts mit eigenen Werten: oben eine Klemme mit $U=12\,\text{V}$ gegen die untere Schiene, darunter $R_1=27\,\text{k}\Omega$
+Das Schaltbild: oben eine Klemme mit $U=12\,\text{V}$ gegen die untere Schiene, darunter $R_1=27\,\text{k}\Omega$
 und $R_2=10\,\text{k}\Omega$ in Reihe; der Strompfeil $I$ in die Kette, $I_1$ und $I_2$ nach unten, am Abgriff ein Pfeil $I_L=0$ zur offenen Ausgangsklemme;
 Spannungspfeile $U_1$ über $R_1$ und $U_2$ über $R_2$ nach unten. Ein Potenzialbalken neben der Kette fällt linear ab, an der Naht steht $3{,}24\,\text{V}$.
 Regler für $R_1$ und $R_2$ verschieben die Naht. Kernaussage: Ohne Last teilt sich die Spannung im Verhältnis der Widerstände. (Rot = Ströme, blau =
@@ -144,16 +144,16 @@ Spannungen und Potenzialbalken, orange = Abgriff, grau = Bauteile.)
 
 ## Widerstandsketten in Wandlern
 
-Eine Kette aus vielen Widerständen ist ein Spannungsteiler mit vielen Abgriffen. Das Skript zeigt zwei Anwendungen.
+Eine Kette aus vielen Widerständen ist ein Spannungsteiler mit vielen Abgriffen. Zwei Anwendungen:
 
 **Digital-Analog-Wandler.** Ein __Digital-Analog-Wandler__ macht aus einer Zahl eine Spannung. Für drei Bit, also die Zahlen $0$ bis $7$, braucht man
-acht Spannungsstufen in gleichen Abständen. Die Kette in Bild 5.36 besteht aus $R/2$ unten, sieben gleichen Widerständen $R$ und $R/2$ oben, zusammen
+acht Spannungsstufen in gleichen Abständen. Die Kette besteht dafür aus $R/2$ unten, sieben gleichen Widerständen $R$ und $R/2$ oben, zusammen
 $8\,R$, zwischen der Referenzspannung $U_\text{ref}$ und Masse. Die Abgriffe liegen dann bei
 
 $$U_Z = \Big(Z + \frac{1}{2}\Big)\,\frac{U_\text{ref}}{8}, \qquad Z \in \{0, 1, \dots, 7\}.$$
 
 Die halben Widerstände an den Enden setzen jede Stufe in die Mitte ihres Intervalls: Die Zahl $0$ bekommt nicht $0\,\text{V}$, sondern eine halbe Stufe.
-Ein Baum aus Schaltern, gesteuert von den drei Bits, verbindet genau einen Abgriff mit dem Ausgang (Bild 5.37). Dort sitzt ein __Puffer__, ein
+Ein Baum aus Schaltern, gesteuert von den drei Bits, verbindet genau einen Abgriff mit dem Ausgang. Dort sitzt ein __Puffer__, ein
 Verstärker, der die Spannung übernimmt, ohne selbst Strom zu ziehen — sonst wäre der Teiler belastet.
 
 :::herleitung
@@ -161,13 +161,13 @@ Durch die ganze Kette fließt derselbe Strom $U_\text{ref}/(8R)$. Vom unteren En
 $(Z+\tfrac12)\,R$. Nach der Spannungsteilerregel ist die Spannung dort dieser Anteil an $8R$, mal $U_\text{ref}$.
 :::
 
-**Flash-Analog-Digital-Wandler.** Umgekehrt macht ein __Analog-Digital-Wandler__ aus einer Spannung eine Zahl. Der __Flash-Wandler__ in Bild 5.39 nutzt
+**Flash-Analog-Digital-Wandler.** Umgekehrt macht ein __Analog-Digital-Wandler__ aus einer Spannung eine Zahl. Der __Flash-Wandler__ nutzt
 dieselbe Kette als Satz von __Schwellen__: An jedem Abgriff vergleicht ein __Komparator__ die Eingangsspannung mit der Abgriffspannung und meldet „darüber"
 oder „darunter". Je höher die Eingangsspannung, desto mehr Komparatoren melden „darüber", von unten nach oben wie die Quecksilbersäule eines
 Thermometers; ein Decoder zählt sie und gibt die Zahl binär aus. Alle Vergleiche laufen gleichzeitig, daher der Name.
 
-Für drei Bit genügen sieben Schwellen, denn acht Zahlen haben sieben Grenzen. Bild 5.39 zeichnet acht Komparatoren an den Abgriffen
-$\tfrac{1}{16}\,U_\text{ref}$ bis $\tfrac{15}{16}\,U_\text{ref}$; der oberste meldet dann, dass die Eingangsspannung über dem Messbereich liegt.
+Für drei Bit genügen sieben Schwellen, denn acht Zahlen haben sieben Grenzen. Setzt man an alle acht Abgriffe,
+$\tfrac{1}{16}\,U_\text{ref}$ bis $\tfrac{15}{16}\,U_\text{ref}$, einen Komparator, meldet der oberste, dass die Eingangsspannung über dem Messbereich liegt.
 
 ::::beispiel Ein 3-Bit-Wandler mit 4 Volt Referenz
 Mit $U_\text{ref}$ gleich $4\,\text{V}$ ist eine Stufe ein Achtel davon:
@@ -224,7 +224,7 @@ Parallelschaltung, wenn $G_\text{ges}$ die Summe ist; sein Widerstand ist der Ke
 Widerstand.
 :::
 
-**Zwei Widerstände.** Für zwei parallele Widerstände wird aus der Kehrwertsumme die Form „Produkt durch Summe" (Bild 5.41 des Skripts):
+**Zwei Widerstände.** Für zwei parallele Widerstände wird aus der Kehrwertsumme die Form „Produkt durch Summe":
 
 $$\frac{1}{R_\text{ges}} = \frac{1}{R_1} + \frac{1}{R_2}, \qquad R_\text{ges} = R_1 \parallel R_2 = \frac{R_1\,R_2}{R_1 + R_2}.$$
 
@@ -233,8 +233,8 @@ Auf den Hauptnenner gebracht ist die Summe der Kehrwerte $\frac{R_2 + R_1}{R_1 R
 $R_1$, denn er ist $R_1$ mal dem Bruch $\frac{R_2}{R_1+R_2}$, und der ist kleiner als eins; ebenso kleiner als $R_2$.
 :::
 
-**Gemischte Schaltungen.** Netze aus Reihen und Parallelen fasst man von innen nach außen zusammen. In Bild 5.42 des Skripts liegt $R_1$ parallel zu
-einer Reihe aus $R_2$ und $R_3$: Erst wird die Reihe zu $R_2+R_3$, dann die Parallele zu $R_1\parallel(R_2+R_3)$. Das Zusammenfassen ist erlaubt, weil
+**Gemischte Schaltungen.** Netze aus Reihen und Parallelen fasst man von innen nach außen zusammen. Ein Beispiel: $R_1$ liegt parallel zu
+einer Reihe aus $R_2$ und $R_3$. Erst wird die Reihe zu $R_2+R_3$, dann die Parallele zu $R_1\parallel(R_2+R_3)$. Das Zusammenfassen ist erlaubt, weil
 jede Gruppe sich nach außen wie ihr Ersatzwiderstand verhält.
 
 **Im Bild:** Ein Brett neben zwei hintereinanderliegenden: Zuerst setzt man die beiden zu einem langen zusammen, dann legt man es neben das erste.
@@ -250,7 +250,7 @@ kleiner als der kleinere der beiden.
 
 $$R_\text{ges} = \frac{330\,\Omega}{3} = 110\,\Omega.$$
 
-**(c) Gemischt wie in Bild 5.42:** $R_1$ mit $1\,\text{k}\Omega$ parallel zu einer Reihe aus $R_2$ mit $470\,\Omega$ und $R_3$ mit $1\,\text{k}\Omega$:
+**(c) Gemischt wie oben:** $R_1$ mit $1\,\text{k}\Omega$ parallel zu einer Reihe aus $R_2$ mit $470\,\Omega$ und $R_3$ mit $1\,\text{k}\Omega$:
 
 $$R_2 + R_3 = 1470\,\Omega, \qquad R_\text{ges} = \frac{1000\,\Omega\cdot1470\,\Omega}{1000\,\Omega + 1470\,\Omega} \approx 595\,\Omega.$$
 
@@ -259,7 +259,7 @@ $$R_2 + R_3 = 1470\,\Omega, \qquad R_\text{ges} = \frac{1000\,\Omega\cdot1470\,\
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/06-parallel · Vorlage: parallelschaltung
-Das Schaltbild nach Bild 5.40 des Skripts: oben eine Klemme mit dem Strompfeil $I$ hinein, darunter drei parallele Widerstände $G_1$, $G_2$, $G_3$ zwischen
+Das Schaltbild: oben eine Klemme mit dem Strompfeil $I$ hinein, darunter drei parallele Widerstände $G_1$, $G_2$, $G_3$ zwischen
 einer oberen und einer unteren Schiene, an jedem ein Spannungspfeil $U_\nu$ nach unten und ein Strompfeil $I_\nu$; links der Spannungspfeil $U$ über die
 ganze Schaltung. Animierte Ladungen verzweigen sich am oberen Knoten, durch den Zweig mit dem größten Leitwert laufen die meisten; am unteren Knoten
 vereinigen sie sich wieder. Ein Zähler zeigt $I$ als Summe der drei Teilströme. Daneben das Ersatzschaltbild mit $G_\text{ges}$. Kernaussage: Nebeneinander
@@ -269,7 +269,7 @@ Bauteile.)
 
 ## Der Stromteiler
 
-Wie die Reihenschaltung eine Spannung teilt, teilt die Parallelschaltung einen Strom (Bild 5.44 des Skripts). Weil an allen Zweigen dieselbe Spannung
+Wie die Reihenschaltung eine Spannung teilt, teilt die Parallelschaltung einen Strom. Weil an allen Zweigen dieselbe Spannung
 liegt, bekommt jeder Zweig so viel Strom, wie es seinem Leitwert entspricht:
 
 :::formel
@@ -304,14 +304,15 @@ das Messwerk fließen:
 
 $$1\,\text{mA} = 100\,\text{mA}\cdot\frac{R_\text{N}}{R_\text{N} + 100\,\Omega}, \qquad R_\text{N} = \frac{100\,\Omega\cdot1\,\text{mA}}{100\,\text{mA} - 1\,\text{mA}} \approx 1{,}01\,\Omega.$$
 
-Wie solche Messgeräte genau gebaut werden, zeigt Kapitel 6.
+Wie solche Messgeräte genau gebaut werden, zeigt der Artikel
+[Strom- und Spannungsmessung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strom-und-spannungsmessung/strom-und-spannungsmessung.html).
 
 **Im Bild:** Neben das schmale Brett des Messwerks legt man ein sehr breites; fast alle Kugeln nehmen den breiten Weg.
 ::::
 
-**Ein Stromteiler als Wandler.** Der strombasierte Digital-Analog-Wandler in Bild 5.45 und 5.47 des Skripts nutzt ein __R-2R-Netzwerk__: Zwischen
+**Ein Stromteiler als Wandler.** Ein strombasierter Digital-Analog-Wandler nutzt ein __R-2R-Netzwerk__: Zwischen
 aufeinanderfolgenden Knoten liegt jeweils ein Widerstand $R$, von jedem Knoten führt ein Zweig mit $2R$ zu einem Umschalter, und am Ende sitzt ein
-Abschluss. Die Knoten sind von $6$ an der Referenzspannung bis $1$ nummeriert; im Text des Skripts steht versehentlich „Knoten 6 bis 5". Jeder Umschalter
+Abschluss. Die Knoten sind von $6$ an der Referenzspannung bis $1$ nummeriert. Jeder Umschalter
 legt seinen Zweig entweder an Masse oder an die Ausgangsleitung, die eine äußere Schaltung ebenfalls auf dem Potenzial der Masse hält. Die Zweigströme
 hängen deshalb nicht von den Schalterstellungen ab — sie halbieren sich von Knoten zu Knoten:
 
@@ -356,7 +357,7 @@ Jede Zahl ergibt so ein Vielfaches von $\frac{I_0}{32}$, rund $7{,}8\,\mu\text{A
 ## Der belastete Spannungsteiler
 
 Ein Spannungsteiler, aus dem niemand Strom entnimmt, kommt in Wirklichkeit kaum vor: Die geteilte Spannung soll ja eine weitere Stufe versorgen, und die
-zieht Strom. Im Skript (Bild 5.43) liegt dazu ein __Lastwiderstand__ $R_L$ parallel zu $R_2$.
+zieht Strom. Diese Last beschreibt ein __Lastwiderstand__ $R_L$ parallel zu $R_2$.
 
 **Die Akteure:** die Teilerwiderstände $R_1$ und $R_2$, der Lastwiderstand $R_L$, die Spannung $U$ am Teiler, die Ausgangsspannung $U_2$ und der Laststrom
 $I_L$.
@@ -370,8 +371,8 @@ $$I_L = \frac{U_2}{R_L} = U\,\frac{R_2}{R_1\,(R_2 + R_L) + R_2\,R_L}.$$
 :::
 
 **So liest man das:** Die Last liegt parallel zum unteren Widerstand und macht ihn kleiner; der Teiler teilt jetzt zwischen $R_1$ und $R_2\parallel R_L$.
-Je kleiner $R_L$, desto tiefer sinkt $U_2$. Ohne Last, für $R_L$ gegen unendlich, wird daraus der unbelastete Teiler. Im Skript fehlt in der Formel für
-$I_L$ der Faktor $U$; ohne ihn hätte der Strom die Einheit eines Leitwerts.
+Je kleiner $R_L$, desto tiefer sinkt $U_2$. Ohne Last, für $R_L$ gegen unendlich, wird daraus der unbelastete Teiler. Achtung: In der Formel für
+$I_L$ darf der Faktor $U$ nicht fehlen; ohne ihn hätte der Strom die Einheit eines Leitwerts.
 
 **Im Bild:** An der Naht zwischen den beiden Brettern zweigt ein drittes ab. Kugeln laufen seitlich weg; damit oben mehr nachkommen, braucht das obere Brett
 mehr Gefälle, und die Naht sinkt.
@@ -386,7 +387,7 @@ $$\frac{U_2}{U} = \frac{\frac{R_2R_L}{R_2+R_L}}{R_1 + \frac{R_2R_L}{R_2+R_L}} = 
 
 **Laststrom.** Ohm an $R_L$ und $U_2$ aus der vorigen Zeile; $R_L$ kürzt sich.
 
-**Last gleich $R_2$.** Dann ist $R_2\parallel R_L$ die Hälfte von $R_2$, und es folgt wie im Skript
+**Last gleich $R_2$.** Dann ist $R_2\parallel R_L$ die Hälfte von $R_2$, und es folgt
 
 $$\frac{U_2}{U} = \frac{R_2/2}{R_1 + R_2/2} = \frac{R_2}{2R_1 + R_2}.$$
 :::
@@ -402,7 +403,7 @@ ist. Der relative Spannungsverlust ist
 $$\frac{U_{2,0} - U_2}{U_{2,0}} = \frac{R_1 \parallel R_2}{R_L + R_1 \parallel R_2}.$$
 
 Soll er unter einem Prozent bleiben, muss $R_L$ mindestens das 99-fache von $R_1\parallel R_2$ sein. Dieses Bild einer __Ersatzspannungsquelle__ baut
-Kapitel 7 aus.
+der Artikel über [Ersatzquellen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ersatzquellen-thevenin-norton.html) aus.
 
 :::herleitung
 Ausgangspunkt ist der ausmultiplizierte Bruch. Der Nenner wird nach $R_L$ sortiert und $R_1+R_2$ ausgeklammert:
@@ -416,8 +417,8 @@ $$\frac{U_2}{U} = \frac{R_2}{R_1+R_2}\cdot\frac{R_L}{R_L + R_1\parallel R_2}.$$
 Der relative Verlust ist eins minus der zweite Faktor.
 :::
 
-**Welcher Fehler?** Das Skript misst die Wirkung der Last am Verhältnis $U_2/U_1$ der beiden Teilspannungen und nennt dessen Abweichung vom unbelasteten Wert
-$F$. Bei $R_L$ gleich dem Zehnfachen von $R_2$ und $R_1$ gleich $R_2$ sind das $9{,}1\,\%$. Die Ausgangsspannung $U_2$ selbst sinkt dabei weniger, nur um
+**Welcher Fehler?** Misst man die Wirkung der Last am Verhältnis $U_2/U_1$ der beiden Teilspannungen und nennt dessen Abweichung vom unbelasteten Wert
+$F$, ergeben sich $9{,}1\,\%$ bei $R_L$ gleich dem Zehnfachen von $R_2$ und $R_1$ gleich $R_2$. Die Ausgangsspannung $U_2$ selbst sinkt dabei weniger, nur um
 $4{,}8\,\%$, denn wenn $U_2$ sinkt, steigt $U_1$ — das Verhältnis ändert sich doppelt.
 
 ::::beispiel Ein Teiler unter Last
@@ -427,7 +428,7 @@ $$R_1 \parallel R_2 = 2{,}35\,\text{k}\Omega, \qquad U_2 = 5\,\text{V}\cdot\frac
 
 Für drei Lasten:
 
-| $R_L$ | $U_2$ | Verlust von $U_2$ | $F$ des Skripts | $I_L$ |
+| $R_L$ | $U_2$ | Verlust von $U_2$ | Abweichung $F$ von $U_2/U_1$ | $I_L$ |
 |---|---|---|---|---|
 | $47\,\text{k}\Omega$ | $4{,}76\,\text{V}$ | $4{,}8\,\%$ | $9{,}1\,\%$ | $0{,}10\,\text{mA}$ |
 | $4{,}7\,\text{k}\Omega$ | $3{,}33\,\text{V}$ | $33\,\%$ | $50\,\%$ | $0{,}71\,\text{mA}$ |
@@ -445,7 +446,7 @@ oder einen Puffer wie im Digital-Analog-Wandler.
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/06-belasteter-teiler · Vorlage: teiler-mit-last
-Das Schaltbild nach Bild 5.43 des Skripts: $U=10\,\text{V}$, $R_1=R_2=4{,}7\,\text{k}\Omega$, am Abgriff ein Lastwiderstand $R_L$ parallel zu $R_2$, mit den
+Das Schaltbild: $U=10\,\text{V}$, $R_1=R_2=4{,}7\,\text{k}\Omega$, am Abgriff ein Lastwiderstand $R_L$ parallel zu $R_2$, mit den
 Strompfeilen $I$, $I_1$, $I_2$, $I_L$ und den Spannungspfeilen $U_1$, $U_2$. Ein logarithmischer Regler für $R_L$ von $100\,\Omega$ bis $1\,\text{M}\Omega$; ein
 Spannungsmesser zeigt $U_2$, daneben eine Kurve $U_2$ über $R_L$, die von fast null auf $5\,\text{V}$ ansteigt, mit markiertem Knick bei
 $R_L=R_1\parallel R_2$. Ein Umschalter blendet die Ersatzquelle ein: $U_{2,0}=5\,\text{V}$ mit Innenwiderstand $2{,}35\,\text{k}\Omega$, an der dieselbe Last
@@ -456,13 +457,18 @@ Spannungen und Kurve, orange = Last und Ersatzquelle, grau = Bauteile.)
 ## Bedeutung und Ausblick
 
 Mit Reihen- und Parallelschaltung, Spannungs- und Stromteiler lassen sich viele Netze ohne großes Gleichungssystem berechnen: von innen nach außen
-zusammenfassen, bis ein Widerstand übrig ist, dann mit Gesamtstrom und Teilerregeln wieder nach innen. Das Skript fasst Kapitel 5 so zusammen: Strom
-ist bewegte Ladung, das Material bestimmt die Leitfähigkeit, ein Leiterstück hat den Widerstand $\frac{l}{\sigma A}$ mit $U=R\,I$, an Knoten und in
+zusammenfassen, bis ein Widerstand übrig ist, dann mit Gesamtstrom und Teilerregeln wieder nach innen. Die Reihe über Ströme und Spannungen in Netzen
+lässt sich so zusammenfassen: Strom ist bewegte Ladung, das Material bestimmt die Leitfähigkeit, ein Leiterstück hat den Widerstand $\frac{l}{\sigma A}$ mit $U=R\,I$, an Knoten und in
 Maschen gelten die Kirchhoffschen Regeln, und hintereinander addieren sich Widerstände, nebeneinander Leitwerte.
 
-Kapitel 6 wendet das sofort an: Ein Strommesser wird mit einem Nebenwiderstand erweitert, ein Spannungsmesser mit einem Vorwiderstand, und die
-__Wheatstonesche Messbrücke__ vergleicht zwei Spannungsteiler. Kapitel 7 behandelt Netze, die sich nicht in Reihen und Parallelen zerlegen lassen, etwa
-mit der Stern-Dreieck-Umwandlung, und baut das Bild des Teilers als Quelle mit Innenwiderstand zu den Ersatzquellen aus. Die Widerstandsketten der
+Die Messtechnik wendet das sofort an: Ein Strommesser wird mit einem Nebenwiderstand erweitert, ein Spannungsmesser mit einem Vorwiderstand (siehe
+[Strom- und Spannungsmessung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strom-und-spannungsmessung/strom-und-spannungsmessung.html)),
+und die __Wheatstonesche Messbrücke__ vergleicht zwei Spannungsteiler (siehe
+[Die Wheatstonesche Messbrücke](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strom-und-spannungsmessung/wheatstone-messbruecke.html)).
+Die Analyse linearer Netzwerke behandelt Netze, die sich nicht in Reihen und Parallelen zerlegen lassen, etwa mit der
+[Stern-Dreieck-Umwandlung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/stern-dreieck-transformation.html),
+und baut das Bild des Teilers als Quelle mit Innenwiderstand zu den
+[Ersatzquellen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ersatzquellen-thevenin-norton.html) aus. Die Widerstandsketten der
 Wandler begegnen einem in jedem Mikrocontroller wieder.
 
 :::kern
@@ -474,7 +480,7 @@ Wandler begegnen einem in jedem Mikrocontroller wieder.
 - __Stromteiler__: Der Strom teilt sich wie die Leitwerte; bei zwei Zweigen steht der andere Widerstand im Zähler.
 - Widerstandsketten liefern die Stufen von Digital-Analog- und Flash-Analog-Digital-Wandlern; das R-2R-Netzwerk halbiert den Strom von Knoten zu Knoten.
 - __Belasteter Teiler__: Die Last liegt parallel zu $R_2$ und senkt $U_2$; der Teiler wirkt wie eine Quelle mit dem Innenwiderstand $R_1\parallel R_2$.
-- Im Skript fehlt in der Formel für den Laststrom der Faktor $U$; sein Fehlermaß $F$ bezieht sich auf $U_2/U_1$, nicht auf $U_2$.
+- In der Formel für den Laststrom darf der Faktor $U$ nicht fehlen; ein Fehlermaß $F$ am Verhältnis $U_2/U_1$ fällt größer aus als der Verlust von $U_2$.
 :::
 
 :::quiz
@@ -487,7 +493,7 @@ A: Nötig ist ein Verhältnis $\frac{R_1}{R_2}$ von etwa $2{,}64$. Mit $27\,\tex
 F: Warum sitzen in der Widerstandskette des 3-Bit-Digital-Analog-Wandlers halbe Widerstände an den Enden?
 A: Die Kette aus $R/2$, sieben mal $R$ und $R/2$ hat zusammen $8R$; der Abgriff $Z$ liegt bei $(Z+\frac12)\,\frac{U_\text{ref}}{8}$, also in der Mitte jeder Stufe. Bei $4\,\text{V}$ Referenz sind das $0{,}25$ bis $3{,}75\,\text{V}$, die Zahl $5$ wird zu $2{,}75\,\text{V}$. Ein Puffer am Ausgang verhindert, dass die Last den Teiler verfälscht.
 F: Wie arbeitet ein Flash-Analog-Digital-Wandler, und wie viele Komparatoren braucht er für drei Bit?
-A: An jedem Abgriff der Kette vergleicht ein Komparator die Eingangsspannung mit der Schwelle; je höher die Spannung, desto mehr melden „darüber", und ein Decoder zählt sie. Acht Zahlen haben sieben Grenzen, also genügen sieben Komparatoren; Bild 5.39 zeigt acht, der oberste meldet die Bereichsüberschreitung. Bei $4\,\text{V}$ Referenz ergibt $2{,}9\,\text{V}$ die Zahl $6$.
+A: An jedem Abgriff der Kette vergleicht ein Komparator die Eingangsspannung mit der Schwelle; je höher die Spannung, desto mehr melden „darüber", und ein Decoder zählt sie. Acht Zahlen haben sieben Grenzen, also genügen sieben Komparatoren; ein achter am obersten Abgriff meldet die Bereichsüberschreitung. Bei $4\,\text{V}$ Referenz ergibt $2{,}9\,\text{V}$ die Zahl $6$.
 F: Warum ist der Ersatzwiderstand einer Parallelschaltung kleiner als der kleinste Einzelwiderstand?
 A: An allen Zweigen liegt dieselbe Spannung, und nach der Knotenregel addieren sich die Ströme: Die Leitwerte addieren sich. Die Summe ist größer als jeder einzelne Leitwert, ihr Kehrwert also kleiner als jeder einzelne Widerstand. $1\,\text{k}\Omega$ parallel zu $1{,}5\,\text{k}\Omega$ ergibt $600\,\Omega$.
 F: Warum steht beim Stromteiler mit zwei Zweigen der andere Widerstand im Zähler?
@@ -496,6 +502,6 @@ F: Warum halbieren sich im R-2R-Netzwerk die Ströme von Knoten zu Knoten?
 A: Von hinten aufgerollt sieht man an jedem Knoten nach rechts, einschließlich seines $2R$-Zweigs, den Widerstand $R$, denn $2R\parallel2R$ ist $R$. Zwischen zwei Knoten bilden der Längswiderstand $R$ und dieses $R$ einen Teiler $1$ zu $1$: Jeder Knoten hat das halbe Potenzial, jeder Zweig den halben Strom. Weil beide Schalterstellungen auf Massepotenzial liegen, ändern die Schalter nichts an den Strömen.
 F: Was passiert beim belasteten Spannungsteiler, und wie sieht man es auf einen Blick?
 A: Die Last liegt parallel zu $R_2$ und verkleinert den unteren Teilerwiderstand; $U_2$ sinkt. Umgestellt ist $U_2=U_{2,0}\,\frac{R_L}{R_L+R_1\parallel R_2}$: Der Teiler verhält sich wie eine Quelle mit der Leerlaufspannung $U_{2,0}$ und dem Innenwiderstand $R_1\parallel R_2$. Bei $2\times4{,}7\,\text{k}\Omega$ an $10\,\text{V}$ sinkt $U_2$ mit $47\,\text{k}\Omega$ Last von $5$ auf $4{,}76\,\text{V}$.
-F: Welche zwei Ungenauigkeiten hat das Skript beim belasteten Teiler?
-A: In der Formel für den Laststrom fehlt der Faktor $U$; richtig ist $I_L=U\,\frac{R_2}{R_1(R_2+R_L)+R_2R_L}$, sonst hätte der Strom die Einheit eines Leitwerts. Und sein Fehlermaß $F$ misst die Abweichung des Verhältnisses $U_2/U_1$; die Ausgangsspannung selbst sinkt weniger, bei $R_L$ gleich $10\,R_2$ um $4{,}8\,\%$ statt $9{,}1\,\%$.
+F: Welche zwei Fehler passieren beim belasteten Teiler leicht?
+A: Lässt man in der Formel für den Laststrom den Faktor $U$ weg, hätte der Strom die Einheit eines Leitwerts; richtig ist $I_L=U\,\frac{R_2}{R_1(R_2+R_L)+R_2R_L}$. Und ein Fehlermaß $F$, das die Abweichung des Verhältnisses $U_2/U_1$ misst, überschätzt den Verlust: Die Ausgangsspannung selbst sinkt weniger, bei $R_L$ gleich $10\,R_2$ um $4{,}8\,\%$ statt $9{,}1\,\%$.
 :::

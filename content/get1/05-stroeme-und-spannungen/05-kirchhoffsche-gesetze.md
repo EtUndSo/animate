@@ -53,9 +53,8 @@ orange = Höhenmesser und Spannungen, grau = Relief.)
 $$\sum_{\nu=1}^{n} I_\nu = 0 \quad \text{(Pfeile zum Knoten)}, \qquad \sum I_\text{zu} = \sum I_\text{ab}.$$
 :::
 
-**So liest man das:** Zeigen alle Zählpfeile zum Knoten hin, ist die Summe der Ströme null, in jedem Augenblick (Satz 7 des Skripts). Zeigen einige
-Pfeile weg, zählt man diese mit Minus — oder, gleichwertig, setzt die Summe der zufließenden gleich der Summe der abfließenden Ströme (Satz A7 und der
-Kasten „Knotenregel" im Skript). Eingabe sind die Zweigströme mit ihren Vorzeichen, Ausgabe eine Gleichung, die sie verbindet.
+**So liest man das:** Zeigen alle Zählpfeile zum Knoten hin, ist die Summe der Ströme null, in jedem Augenblick. Zeigen einige
+Pfeile weg, zählt man diese mit Minus — oder, gleichwertig, setzt die Summe der zufließenden gleich der Summe der abfließenden Ströme. Eingabe sind die Zweigströme mit ihren Vorzeichen, Ausgabe eine Gleichung, die sie verbindet.
 
 **Im Bild:** Die Zählstelle an der Kreuzung. Wer ankommt, geht weiter; pro Stunde gleich viele hin wie weg.
 
@@ -73,10 +72,9 @@ Also bleibt $Q_K$ konstant, die linke Seite ist null, und Zufluss gleich Abfluss
 (Artikel über Zählpfeile). Bringt man so alle Ströme auf die Zuflussseite, steht dort ihre Summe, und sie ist null.
 :::
 
-**Vorzeichen.** Das Skript zeichnet in Bild 5.29 alle fünf Ströme zum Knoten hin. Dann können nicht alle positiv sein, denn ihre Summe ist null: Mindestens
-einer ist negativ und fließt in Wirklichkeit ab. Das ist die Warnung des Skripts in Abschnitt 5.6.1: Man darf alle Ströme als zufließend oder alle als
-abfließend annehmen, muss dann aber mit negativen Zahlenwerten rechnen. Das Skript verwendet in dieser Rechnung $k$ für die Zahl der negativen Ströme;
-mit der Knotenzahl $k$ aus dem vorigen Artikel hat dieses $k$ nichts zu tun.
+**Vorzeichen.** Zeichnet man an einem Knoten mit fünf Zweigen alle fünf Ströme zum Knoten hin, können nicht alle positiv sein, denn ihre Summe ist null:
+Mindestens einer ist negativ und fließt in Wirklichkeit ab. Man darf alle Ströme als zufließend oder alle als abfließend annehmen, muss dann aber mit
+negativen Zahlenwerten rechnen.
 
 **Im Bild:** Zählt man an einer Kreuzung jeden Weg als „ankommend", zeigen die Wege, auf denen in Wirklichkeit Leute weggehen, negative Zahlen.
 
@@ -98,7 +96,7 @@ davon Minuszeichen.
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/05-knoten · Vorlage: knoten-bilanz
-Ein Knoten wie Bild 5.29 des Skripts mit fünf Zweigen, in denen kleine Ladungspunkte strömen. Jeder Zweig hat einen umdrehbaren Zählpfeil und eine Anzeige
+Ein Knoten mit fünf Zweigen, in denen kleine Ladungspunkte strömen. Jeder Zweig hat einen umdrehbaren Zählpfeil und eine Anzeige
 mit Vorzeichen. Anfangs zeigen alle Pfeile zum Knoten hin; die Anzeigen lauten zum Beispiel $+3$, $+1$, $-2$, $-1{,}5$ und $-0{,}5\,\text{A}$, ein Summenbalken
 steht bei null. Dreht man einen Pfeil um, wechselt nur seine Anzeige das Vorzeichen, und die Bilanz „zu = ab" ordnet den Strom auf die andere Seite.
 Eine kleine Hülle um den Knoten zeigt eine Ladungsanzeige, die stets bei null bleibt. Kernaussage: Am Knoten sammelt sich nichts; die Ströme gleichen
@@ -107,8 +105,8 @@ sich in jedem Augenblick aus. (Rot = Knoten und Hülle, blau = Zweige und Ladung
 
 ## Wie viele Knotengleichungen nötig sind
 
-Das Skript stellt für die Brückenschaltung aus Bild 5.30 die vier Knotengleichungen auf und zeigt: Die Summe der Gleichungen an $K_1$, $K_2$ und $K_3$ ist
-die negative Gleichung an $K_4$. Die vierte Gleichung bringt also nichts Neues. Allgemein (Satz 8 des Skripts):
+Stellt man für die Brückenschaltung aus dem vorigen Artikel die vier Knotengleichungen auf, an den Knoten $K_1$ bis $K_4$, zeigt sich: Die Summe der
+Gleichungen an $K_1$, $K_2$ und $K_3$ ist die negative Gleichung an $K_4$. Die vierte Gleichung bringt also nichts Neues. Allgemein gilt:
 
 :::formel Satz
 $$N_\text{K} = k - 1.$$
@@ -165,7 +163,7 @@ $$\sum_{\nu=1}^{n} U_\nu = 0,$$
 jede Spannung mit Plus, wenn ihr Pfeil in Umlaufrichtung zeigt, und mit Minus, wenn er dagegen zeigt.
 :::
 
-**So liest man das:** Die vorzeichenrichtige Summe aller Zweigspannungen einer Masche ist null (Satz 9 des Skripts), gleich in welchem Umlaufsinn man
+**So liest man das:** Die vorzeichenrichtige Summe aller Zweigspannungen einer Masche ist null, gleich in welchem Umlaufsinn man
 läuft; der andere Umlaufsinn dreht nur alle Vorzeichen um. Eingabe sind die Zweigspannungen mit ihren Pfeilen, Ausgabe eine Gleichung zwischen ihnen.
 
 **Im Bild:** Der Höhenmesser auf einem Rundweg. Anstiege zählen plus, Abstiege minus, und am Ende der Runde steht er wieder auf null.
@@ -179,7 +177,7 @@ Pfeil gegen die Umlaufrichtung misst die umgekehrte Differenz; damit die Summe d
 
 $$\sum_{\nu=1}^{n}\big(\varphi(P_\nu)-\varphi(P_{\nu+1})\big) = \varphi(P_1)-\varphi(P_{n+1}) = 0.$$
 
-**Mit dem Feld.** Das Skript schreibt dasselbe über das Feld: Die Spannung zwischen zwei Punkten ist wegunabhängig, und das Wegintegral des Felds um einen
+**Mit dem Feld.** Dasselbe lässt sich über das Feld schreiben: Die Spannung zwischen zwei Punkten ist wegunabhängig, und das Wegintegral des Felds um einen
 geschlossenen Weg ist null,
 
 $$U_{21} = \varphi(P_2)-\varphi(P_1) = -\int_{P_1}^{P_2}\vec E\cdot d\vec s, \qquad \oint_L \vec E\cdot d\vec s = 0.$$
@@ -188,7 +186,7 @@ Als Energie gelesen: Trägt man eine Ladung $Q$ einmal um die Masche, verrichtet
 gewinnt oder verliert sie keine Energie.
 :::
 
-Das Skript zeigt die Regel an Bild 5.31: Zwei Widerstände $R_1$, $R_2$ hintereinander liegen parallel zu $R_3$ zwischen den Potenzialen $\varphi_1$ oben und
+Ein Beispiel: Zwei Widerstände $R_1$, $R_2$ hintereinander liegen parallel zu $R_3$ zwischen den Potenzialen $\varphi_1$ oben und
 $\varphi_2$ unten, alle drei Spannungspfeile zeigen nach unten. Der Umlauf läuft gegen den Uhrzeigersinn, links hinunter und rechts hinauf. $U_1$ und $U_2$
 zeigen in Umlaufrichtung, $U_3$ dagegen, und es folgt
 
@@ -212,7 +210,7 @@ zusammen ebenfalls um $24\,\text{V}$.
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/05-masche · Vorlage: maschenumlauf
-Eine Masche nach Bild 5.31 des Skripts mit eigenen Werten: oben das Potenzial $\varphi_1$, unten $\varphi_2$; links $R_1$ und $R_2$ hintereinander mit
+Eine Masche: oben das Potenzial $\varphi_1$, unten $\varphi_2$; links $R_1$ und $R_2$ hintereinander mit
 Spannungspfeilen $U_1$ und $U_2$ nach unten, rechts $R_3$ mit $U_3$ nach unten. Ein blauer Umlaufpfeil läuft gegen den Uhrzeigersinn. Eine Wanderfigur
 startet oben links, geht hinunter und rechts wieder hinauf; bei jedem Bauteil leuchtet dessen Spannung auf, grün mit Plus, wenn der Pfeil in Laufrichtung
 zeigt, rot mit Minus, wenn dagegen. Ein Balken summiert mit und steht am Ziel bei null. Ein Schalter kehrt den Umlaufsinn um: Alle Vorzeichen wechseln, die
@@ -222,12 +220,12 @@ Zählpfeile, blau = Umlaufsinn, orange = Summenbalken, grau = Bauteile.)
 
 ## Wie viele Maschengleichungen nötig sind
 
-Das Skript stellt für die Brücke in Bild 5.32 vier Maschengleichungen auf, $M_1$ bis $M_4$. Am Bild nachgeprüft stimmen alle vier mit den eingezeichneten
-Pfeilen und Umlaufrichtungen überein. Unabhängig sind aber nur drei; die vierte ist eine Kombination der anderen:
+Für die Brückenschaltung aus dem vorigen Artikel lassen sich vier Maschengleichungen aufstellen, $M_1$ bis $M_4$. Unabhängig sind aber nur drei; die
+vierte ist eine Kombination der anderen:
 
 $$M_4 = M_2 - M_1 - M_3.$$
 
-Das ist Satz 10 des Skripts, mit dem Satz über unabhängige Maschen aus dem vorigen Artikel:
+Allgemein gilt, mit dem Satz über unabhängige Maschen aus dem vorigen Artikel:
 
 :::formel Satz
 $$N_\text{M} = z - k + 1.$$
@@ -250,7 +248,7 @@ $$\sum_{j=1}^{z} c_j\,U_j = 0.$$
 Kombination der anderen Gleichungen, denn die linke Seite hängt linear von $\vec c$ ab. Eine abhängige Masche bringt keine neue Gleichung.
 
 **Die Zahl.** Nach dem vorigen Artikel gibt es genau $z-k+1$ unabhängige Maschen, also ebenso viele unabhängige Maschengleichungen. In der Brücke prüft man
-die Kombination direkt: Die rechte Seite $M_2-M_1-M_3$ ergibt mit den Gleichungen des Skripts
+die Kombination direkt: Die rechte Seite $M_2-M_1-M_3$ ergibt mit den Maschengleichungen der Brücke
 
 $$(U_2+U_4+U_5) - (U_1+U_3+U_5) - (-U_0-U_1+U_2) = U_0 - U_3 + U_4,$$
 
@@ -348,7 +346,7 @@ Die Leiterschaltung aus dem vorigen Artikel, jetzt mit Werten:
 
 $$U_\text{q} = 10\,\text{V}, \qquad R_1 = 1\,\text{k}\Omega, \qquad R_2 = 2\,\text{k}\Omega, \qquad R_3 = R_4 = 1\,\text{k}\Omega.$$
 
-**Schritt 1.** Nach dem Skript gezählt hat das Netz die Knoten B und D und drei Zweige: $I_a$ durch Quelle und $R_1$ von D nach B, $I_b$ durch $R_2$ von B
+**Schritt 1.** Nur mit den Verzweigungen als Knoten gezählt hat das Netz die Knoten B und D und drei Zweige: $I_a$ durch Quelle und $R_1$ von D nach B, $I_b$ durch $R_2$ von B
 nach D, $I_c$ durch $R_3$ und $R_4$ von B über C nach D.
 
 **Schritt 2.** Eine Knotengleichung, an B:
@@ -389,7 +387,7 @@ ergeben genau so viele Gleichungen wie Unbekannte. (Rot = Zählpfeile, blau = St
 ## Wann die Regeln gelten
 
 Beide Regeln sind Bilanzen und fragen nicht, was in den Zweigen sitzt: Sie gelten für Widerstände, Quellen und nichtlineare Bauteile gleichermaßen. Sie
-haben aber Voraussetzungen, die das Skript mit „in jedem Zeitpunkt" stillschweigend macht.
+haben aber Voraussetzungen, die man leicht übersieht, wenn es heißt, sie gälten „in jedem Zeitpunkt".
 
 - **Knotenregel:** Am Knoten darf sich keine Ladung sammeln. Für eine ideale Verbindung stimmt das. Bei sehr schnell wechselnden Strömen hat aber jede
   Leitung eine kleine Kapazität gegen ihre Umgebung; dann rechnet man diese als Kondensator in einem eigenen Zweig mit, und die Regel gilt wieder.
@@ -405,12 +403,17 @@ haben aber Voraussetzungen, die das Skript mit „in jedem Zeitpunkt" stillschwe
 
 Die beiden Kirchhoffschen Regeln sind das Fundament der ganzen Schaltungsanalyse. Der nächste Artikel leitet aus ihnen die Regeln für die Zusammenschaltung
 von Widerständen her: Hintereinander fließt durch alle derselbe Strom, weil an den Verbindungspunkten nichts abzweigt, und die Spannungen addieren sich
-nach der Maschenregel. Nebeneinander liegt an allen dieselbe Spannung, und die Ströme addieren sich nach der Knotenregel. Das Skript nennt das den
+nach der Maschenregel. Nebeneinander liegt an allen dieselbe Spannung, und die Ströme addieren sich nach der Knotenregel. Man nennt das den
 __Schaltungszwang__.
 
-Die Messtechnik in Kapitel 6 folgt ebenfalls aus ihnen: Ein Strommesser wird in den Zweig eingeschleift, damit durch ihn derselbe Strom fließt, ein
-Spannungsmesser parallel angeschlossen, damit an ihm dieselbe Spannung liegt. Die Verfahren der Kapitel 7 bis 9 sparen Unbekannte: Das
-Maschenstromverfahren rechnet mit $z-k+1$ Maschenströmen, das Knotenpotentialverfahren mit $k-1$ Knotenpotenzialen — beide setzen die Kirchhoffschen
+Die
+[Strom- und Spannungsmessung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strom-und-spannungsmessung/strom-und-spannungsmessung.html)
+folgt ebenfalls aus ihnen: Ein Strommesser wird in den Zweig eingeschleift, damit durch ihn derselbe Strom fließt, ein
+Spannungsmesser parallel angeschlossen, damit an ihm dieselbe Spannung liegt. Die Verfahren der Netzwerkanalyse sparen Unbekannte: Das
+[Maschenstromverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/maschenstromverfahren/maschenstromverfahren.html) rechnet mit
+$z-k+1$ Maschenströmen, das
+[Knotenpotentialverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/knotenpotentialverfahren/knotenpotentialverfahren.html) mit
+$k-1$ Knotenpotenzialen — beide setzen die Kirchhoffschen
 Regeln so geschickt ein, dass eine davon von selbst erfüllt ist. Und die Leistungsbilanz aus dem Artikel über Zählpfeile, nach der in jedem Netz die
 Summe aller aufgenommenen Leistungen null ist, folgt aus genau diesen beiden Regeln, wie die Herleitung beim Rechenrezept zeigt.
 
@@ -428,15 +431,15 @@ Summe aller aufgenommenen Leistungen null ist, folgt aus genau diesen beiden Reg
 :::
 
 :::quiz
-F: Warum gilt die Knotenregel, und in welcher Form steht sie im Skript?
-A: Ein Knoten ist eine ideale Verbindung ohne Speichervermögen; die Ladung in einer Hülle um ihn ändert sich um Zufluss minus Abfluss, und weil sie konstant bleiben muss, ist der Zufluss gleich dem Abfluss (Ladungserhaltung). Mit allen Pfeilen zum Knoten ist die Summe der Ströme null (Satz 7), gleichwertig ist die Summe der zufließenden gleich der der abfließenden (Satz A7).
+F: Warum gilt die Knotenregel, und in welchen beiden Formen schreibt man sie?
+A: Ein Knoten ist eine ideale Verbindung ohne Speichervermögen; die Ladung in einer Hülle um ihn ändert sich um Zufluss minus Abfluss, und weil sie konstant bleiben muss, ist der Zufluss gleich dem Abfluss (Ladungserhaltung). Mit allen Pfeilen zum Knoten ist die Summe der Ströme null, gleichwertig ist die Summe der zufließenden gleich der der abfließenden.
 F: Was bedeutet es, wenn alle Ströme an einem Knoten als zufließend eingezeichnet sind?
 A: Ihre Summe ist null, also können nicht alle positiv sein: Mindestens einer ist negativ und fließt in Wirklichkeit ab. An der Abzweigdose mit $10\,\text{A}$ Zuleitung und Abgängen von $4$, $2{,}5$ und $3{,}5\,\text{A}$ stehen bei Pfeilen zur Dose die Werte $10$, $-4$, $-2{,}5$ und $-3{,}5\,\text{A}$.
 F: Warum reichen $k-1$ Knotengleichungen?
-A: Jeder Zweig verbindet zwei Knoten; sein Strom steht in genau zwei Knotengleichungen, einmal mit Plus und einmal mit Minus. Die Summe aller $k$ Gleichungen ist deshalb null gleich null, und eine von ihnen folgt aus den anderen. In der Brücke des Skripts ist die Summe der Gleichungen an $K_1$ bis $K_3$ die negative Gleichung an $K_4$.
+A: Jeder Zweig verbindet zwei Knoten; sein Strom steht in genau zwei Knotengleichungen, einmal mit Plus und einmal mit Minus. Die Summe aller $k$ Gleichungen ist deshalb null gleich null, und eine von ihnen folgt aus den anderen. In der Brückenschaltung ist die Summe der Gleichungen an $K_1$ bis $K_3$ die negative Gleichung an $K_4$.
 F: Wie folgt die Maschenregel aus dem Potenzial?
 A: Jede Spannung mit Pfeil in Umlaufrichtung ist das Potenzial ihres Anfangs- minus das ihres Endpunkts; Pfeile gegen den Umlauf bekommen ein Minus. In der Summe heben sich die Potenziale aller Zwischenpunkte weg, und es bleibt das Potenzial des Ausgangspunkts minus sich selbst, also null. Gleichbedeutend ist das Wegintegral des Felds um die Masche null.
-F: Wie lautet die Maschenregel für Bild 5.31 des Skripts, und warum?
+F: Wie lautet die Maschenregel für zwei Widerstände $R_1$, $R_2$ in Reihe parallel zu $R_3$, und warum?
 A: $U_1+U_2-U_3=0$: Der Umlauf läuft gegen den Uhrzeigersinn, links hinunter und rechts hinauf. $U_1$ und $U_2$ zeigen nach unten, also in Umlaufrichtung, $U_3$ ebenfalls nach unten, also gegen den Umlauf. Dabei ist $U_3=\varphi_1-\varphi_2$ — beide Wege von oben nach unten verlieren dasselbe Potenzial.
 F: Was bedeutet $U_3=-8\,\text{V}$ in einem Umlauf mit $24\,\text{V}$ Quellenspannung und den Widerstandsspannungen $6$ und $10\,\text{V}$?
 A: Der Pfeil von $U_3$ wurde gegen die tatsächliche Richtung gezeichnet. In Umlaufrichtung fallen am dritten Widerstand $8\,\text{V}$ ab, und die Quelle hebt um $24\,\text{V}$ — genau so viel, wie $6$, $10$ und $8\,\text{V}$ zusammen senken.

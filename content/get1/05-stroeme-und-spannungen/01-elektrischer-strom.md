@@ -38,19 +38,20 @@ Elektron $-e$.
 Die Ladungen, die sich bewegen können, heißen __Ladungsträger__. In Metallen sind es die __Leitungselektronen__: Die Atome sitzen als positive
 __Atomrümpfe__ fest in einem regelmäßigen Gitter, dem __Kristallgitter__, und jedes gibt eines oder mehrere Außenelektronen ab, die sich frei durch das
 ganze Metall bewegen. In Salzlösungen und Batterien wandern __Ionen__, geladene Atome oder Moleküle; in Halbleitern zusätzlich __Löcher__, fehlende
-Elektronen, die sich wie positive Ladungen verhalten (Kapitel 10).
+Elektronen, die sich wie positive Ladungen verhalten (siehe
+[Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html)).
 
 **Im Bild:** Die Leitungselektronen sind das Wasser im Rohr, das Gitter der Atomrümpfe ist das Rohr selbst. Anders als beim Wasser ist das Rohr hier
 positiv geladen und gleicht die Ladung des Wassers genau aus: Ein Draht ist im Ganzen neutral, auch wenn Strom fließt.
 
 ## Bewegte Ladung: die Raumladungsdichte
 
-Um den Strom zu berechnen, betrachtet das Skript einen kleinen Quader mit den Kantenlängen $\Delta x$, $\Delta y$ und $\Delta z$, also dem Volumen
+Um den Strom zu berechnen, betrachtet man einen kleinen Quader mit den Kantenlängen $\Delta x$, $\Delta y$ und $\Delta z$, also dem Volumen
 $\Delta V$, in dem die bewegliche Ladung $\Delta Q$ steckt. Wie dicht sie verteilt ist, misst die __Raumladungsdichte__:
 
 $$\rho = \frac{\Delta Q}{\Delta V}, \qquad \Delta V = \Delta x\,\Delta y\,\Delta z.$$
 
-Das Skript nennt sie $q$; hier heißt sie nach DIN $\rho$. Bewegt sich die Ladung mit der Geschwindigkeit $v_z$ in $z$-Richtung, tritt in der Zeit $\Delta t$
+Nach DIN heißt sie $\rho$. Bewegt sich die Ladung mit der Geschwindigkeit $v_z$ in $z$-Richtung, tritt in der Zeit $\Delta t$
 durch die Seitenfläche $\Delta x\,\Delta y$ die Ladung
 
 $$\frac{\Delta Q}{\Delta t} = \rho\,v_z\,\Delta x\,\Delta y$$
@@ -110,7 +111,7 @@ $$I := \lim_{\Delta t\to0}\frac{\Delta Q}{\Delta t} = \frac{dQ}{dt}, \qquad [I] 
 
 **So liest man das:** Die Stromstärke ist die Ladung, die pro Zeit durch einen Querschnitt tritt, im Augenblick betrachtet. Ihre Einheit, das
 __Ampere__, ist eine der sieben Basiseinheiten, und das Coulomb ist daraus abgeleitet, eine Amperesekunde. Ändert sich der Strom mit der Zeit, schreibt
-man nach DIN kleine Buchstaben, $i(t)$ als Ableitung der Ladung $q(t)$; das Skript schreibt durchweg groß. Bei konstantem Strom ist die Ableitung
+man nach DIN kleine Buchstaben, $i(t)$ als Ableitung der Ladung $q(t)$. Bei konstantem Strom ist die Ableitung
 ein einfacher Quotient:
 
 $$Q = I\cdot t.$$
@@ -168,7 +169,7 @@ derselbe Strom. In der Formel des Quaders sind bei Elektronen Dichte und Geschwi
 ## Die Stromdichte
 
 Die Stromstärke sagt, wie viel Ladung pro Zeit durch einen Querschnitt tritt, aber nicht, wie dicht gedrängt sie fließt. Das misst die __Stromdichte__,
-Strom pro Fläche. Im Quader des Skripts, eindimensional in Flussrichtung und als Vektor:
+Strom pro Fläche. Im Quader von oben, eindimensional in Flussrichtung und als Vektor:
 
 :::formel Definition
 $$J_z = \frac{I}{\Delta x\,\Delta y} = \rho\,v_z, \qquad \vec J = \rho\,\vec v.$$
@@ -176,7 +177,7 @@ $$J_z = \frac{I}{\Delta x\,\Delta y} = \rho\,v_z, \qquad \vec J = \rho\,\vec v.$
 
 **So liest man das:** Die Stromdichte zeigt in die Richtung, in die positive Ladung strömt; ihr Betrag ist Strom pro Fläche, in Ampere pro
 Quadratmeter, in der Praxis meist pro Quadratmillimeter. Bei Elektronen ist die Dichte negativ, also zeigt $\vec J$ ihrer Bewegung entgegen — in die
-technische Stromrichtung. Das Skript schreibt die Stromdichte klein, $\vec j$; im Kasten steht dort im Zähler versehentlich ein $l$ statt des Stroms $I$.
+technische Stromrichtung. Üblich ist auch die Schreibweise $\vec j$.
 
 Verteilt sich der Strom gleichmäßig und senkrecht über einen Querschnitt $A$, ist die Stromdichte einfach $\frac IA$. Ist er ungleich verteilt, ist der
 Strom die Summe über kleine Flächenstücke $d\vec A$, jedes mit seiner Normalen als Richtung:
@@ -205,7 +206,8 @@ $$J = \frac{16\,\text{A}}{1{,}5\,\text{mm}^2} \approx 10{,}7\,\frac{\text{A}}{\t
 $$J = \frac{1\,\text{A}}{0{,}14\,\text{mm}^2} \approx 7{,}1\,\frac{\text{A}}{\text{mm}^2}.$$
 
 Beide Leiter sind ähnlich stark belastet, obwohl die Ströme sich um den Faktor $16$ unterscheiden. Wie stark sich ein Leiter erwärmt, hängt an der
-Stromdichte, nicht am Strom allein (Kapitel 7).
+Stromdichte, nicht am Strom allein (zur Wärme im Widerstand siehe
+[Energieumsetzung und Leistungsanpassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/energieumsetzung-und-leistungsanpassung.html)).
 
 **Im Bild:** Ein dickes Rohr mit großem Durchfluss und ein dünnes mit kleinem können gleich „voll" strömen.
 ::::
@@ -259,7 +261,7 @@ gut fünfeinhalb Stunden. Das Signal, mit etwa $2\cdot10^{8}\,\frac{\text{m}}{\t
 
 ## Wann fließt ein Strom?
 
-Das Skript nennt zwei Bedingungen für einen dauerhaften Strom: Es muss eine __Ladungsquelle__ geben, die die Ladungen antreibt, etwa eine Batterie oder
+Für einen dauerhaften Strom gibt es zwei Bedingungen: Es muss eine __Ladungsquelle__ geben, die die Ladungen antreibt, etwa eine Batterie oder
 ein Netzteil, und der __Stromkreis__ muss geschlossen sein. Ein Strom, der sich zeitlich nicht ändert, heißt __stationär__. In einem stationären Strom
 fließt durch jeden Querschnitt eines unverzweigten Leiters derselbe Strom, die __Kontinuität__:
 
@@ -298,7 +300,8 @@ An der engen Stelle müssen die Elektronen sechsmal so schnell wandern, damit pr
 
 Die Stromstärke ist die Grundgröße jeder Schaltung, und das Ampere ist eine Basiseinheit des SI. Die Stromdichte entscheidet, wie stark sich ein Leiter
 erwärmt — sie bestimmt Leitungsquerschnitte und Sicherungen — und im Inneren von Halbleitern, wie die Bauelemente arbeiten. Aus der Kontinuität wird
-später in diesem Kapitel die Knotenregel von Kirchhoff: An einer Verzweigung teilt sich der Strom, und die Summe bleibt erhalten.
+im Artikel über die [Kirchhoffschen Gesetze](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/kirchhoffsche-gesetze.html)
+die Knotenregel von Kirchhoff: An einer Verzweigung teilt sich der Strom, und die Summe bleibt erhalten.
 
 Der nächste Artikel fragt, was die Elektronen antreibt und was sie bremst: das Feld im Leiter und die Stöße mit dem Gitter. Daraus entstehen der
 Widerstand und das Ohmsche Gesetz.

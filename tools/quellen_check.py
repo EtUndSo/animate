@@ -26,7 +26,8 @@ MUSTER = {
     "Gleichung-Nr": r"\b(Gl\.|Gleichung)\s\(?\d+\.\d+",
     "Kurs": r"GET-?1|\bMiNa\b|RWTH|Lehrstuhl|Formelsammlung|KGÜ|Hilfsfolie|\bProf\.|Dozent",
     "Modulkürzel": r"\bET\s?[1-4]\b|\bGEMB\b|\bHöMa\b|\bHM\s?[1-4]\b",
-    "Veranstaltung": r"\bKurs(es|e)?\b|Schaltungstechnik\s?\d|\bModul\b",
+    "Veranstaltung": r"\bKurs(es|e)?\b|Schaltungstechnik\s?\d|\bModul(e|en|s)?\b|\b(späteren|nächsten|vorigen|früheren) Semester",
+    "Satz-Nr": r"\b(Satz|Definition|Lemma|Korollar|Bemerkung|Formel)\s\(?([A-Z]\d+|\d+\.\d+)(\.\d+)*\)?",
     "Seitenbezug": r"derselben Seite|Seite später|eine Seite (früher|vorher|davor)",
     "intern": r"Zahlenwerk",
 }

@@ -44,8 +44,8 @@ __Ersatzkapazität__ der ganzen Anordnung:
 $$C_G = C_1+C_2+\ldots+C_n = \sum_{i=1}^{n}C_i.$$
 :::
 
-**So liest man das:** Parallel geschaltete Kapazitäten addieren sich. Die Gesamtkapazität ist größer als jede einzelne. Der Index $G$ steht wie
-im Skript für „gesamt".
+**So liest man das:** Parallel geschaltete Kapazitäten addieren sich. Die Gesamtkapazität ist größer als jede einzelne. Der Index $G$ steht
+für „gesamt".
 
 **Im Bild:** Membranen nebeneinander am selben Druck. Jede nimmt ihre Menge auf, zusammen nehmen sie die Summe auf.
 
@@ -156,8 +156,8 @@ einer Insel, gehören die Leitung und alle Elektroden, die an ihr hängen. Für 
 
 $$Q_\text{Insel} = \text{konstant}.$$
 
-**So liest man das:** Die Ladung der Insel kann sich innerhalb der Insel verschieben, von einer Elektrode zur anderen, aber nicht ändern. Das
-Skript formuliert es mit der Masse: Ein Knoten, von dem jeder Pfad nach Masse über eine Kapazität führt, ist abgeschlossen.
+**So liest man das:** Die Ladung der Insel kann sich innerhalb der Insel verschieben, von einer Elektrode zur anderen, aber nicht ändern. Oft
+formuliert man es mit der Masse: Ein Knoten, von dem jeder Pfad nach Masse über eine Kapazität führt, ist abgeschlossen.
 
 **Im Bild:** Die Wasserkammer zwischen zwei Membranen. Ihr Inhalt bleibt derselbe, nur seine Verteilung ändert sich, wenn sich die Membranen
 wölben.
@@ -185,7 +185,7 @@ neutralen Inseln erzwingen in der Reihe überall dieselbe Ladung. (Rot = Kondens
 :::
 
 **Die Voraussetzung.** Das gilt nur, wenn die Inseln vorher neutral waren. War ein Kondensator schon geladen, bevor er in die Reihe kam, trägt
-seine Insel Ladung, und die Kondensatoren tragen verschiedene Ladungen. Das Skript nennt die gleiche Ladung einfach den Schaltungszwang der
+seine Insel Ladung, und die Kondensatoren tragen verschiedene Ladungen. Oft nennt man die gleiche Ladung einfach den Schaltungszwang der
 Reihenschaltung; die Bedingung dahinter ist die neutrale Insel.
 
 **Im Bild:** Zwischen zwei Membranen ist eine Kammer eingeschlossen. War sie anfangs gerade gefüllt, wölben sich beide Membranen um dieselbe
@@ -209,7 +209,7 @@ wölben sich verschieden weit.
 
 ## Umladen zwischen zwei Kondensatoren
 
-Mit der Ladungserhaltung lässt sich auch berechnen, was beim Umschalten geschieht. Das Skript zeigt dazu eine Schaltung, die einen Kondensator
+Mit der Ladungserhaltung lässt sich auch berechnen, was beim Umschalten geschieht. Ein Beispiel ist eine Schaltung, die einen Kondensator
 $C_1$ zuerst an einer Quelle mit der Spannung $U_q$ lädt, während ein zweiter, $C_2$, leer ist. Dann trennen zwei Schalter $C_1$ von der Quelle und
 verbinden ihn parallel mit $C_2$. Danach bilden die verbundenen Elektroden einen isolierten Knoten: Die Ladung $C_1U_q$ bleibt erhalten und
 verteilt sich, bis beide Kondensatoren dieselbe Spannung $U$ haben:
@@ -219,7 +219,7 @@ $$U = U_q\,\frac{C_1}{C_1+C_2}.$$
 :::
 
 **So liest man das:** Die Spannung sinkt im Verhältnis der alten zur gesamten Kapazität. Ein großer leerer Kondensator zieht die Spannung weit
-herunter, ein kleiner kaum. Wie im Skript zählt hier nur der Zustand vor und nach dem Umschalten; den Ausgleichsvorgang dazwischen behandelt
+herunter, ein kleiner kaum. Hier zählt nur der Zustand vor und nach dem Umschalten; den Ausgleichsvorgang dazwischen behandelt
 der nächste Artikel.
 
 **Im Bild:** Eine gespannte Membran wird mit einer schlaffen verbunden. Das Wasser verteilt sich, bis über beiden derselbe Druck herrscht, und
@@ -286,9 +286,11 @@ Parallel schaltet man Kondensatoren, um eine größere Kapazität zu erhalten, e
 um eine höhere Spannung zu vertragen: Zwei Doppelschichtkondensatoren von $2{,}7\,\text{V}$ in Reihe halten $5{,}4\,\text{V}$ aus, bei halber
 Kapazität. Weil sich die Spannung umgekehrt zur Kapazität verteilt und reale Kapazitäten streuen, braucht man dann oft Ausgleichswiderstände, damit
 keiner überlastet wird. Kapazitive Spannungsteiler messen hohe Wechselspannungen, und geschaltete Kondensatoren arbeiten in Abtast-Halte-Gliedern,
-Analog-Digital-Wandlern und Ladungspumpen, die Kapitel 10 behandelt.
+Analog-Digital-Wandlern und Ladungspumpen; wie eine Ladungspumpe arbeitet, zeigt der Artikel
+[Gleichrichtung und Ladungspumpe](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/gleichrichtung-und-ladungspumpe.html).
 
-Bei Widerständen ist es übrigens genau umgekehrt: In Reihe addieren sich die Widerstände, parallel ihre Kehrwerte — das zeigt Kapitel 5. Der
+Bei Widerständen ist es übrigens genau umgekehrt: In Reihe addieren sich die Widerstände, parallel ihre Kehrwerte — das zeigt der Artikel
+[Zusammenschaltung von Widerständen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/zusammenschaltung-von-widerstaenden.html). Der
 nächste Artikel verfolgt den Ausgleichsvorgang selbst: Wie schnell lädt sich ein Kondensator über einen Widerstand auf, und wie entlädt er sich?
 
 :::kern
@@ -311,7 +313,7 @@ A: Bei gleicher Ladung $Q_G$ ist jede Teilspannung $\frac{Q_G}{C_i}$, und die Te
 F: Wie teilt sich in Reihe die Spannung auf, und was ergeben $1\,\mu\text{F}$ und $4\,\mu\text{F}$ an $10\,\text{V}$?
 A: Wegen der gleichen Ladung ist $U_i=\frac{C_G}{C_i}U_G$: Der kleinste Kondensator bekommt die größte Spannung. Im Beispiel ist $C_G=0{,}8\,\mu\text{F}$ und $Q_G=8\,\mu\text{C}$; der Kondensator von $1\,\mu\text{F}$ trägt $8\,\text{V}$, der von $4\,\mu\text{F}$ nur $2\,\text{V}$.
 F: Was bedeuten Parallel- und Reihenschaltung für Plattenfläche und Plattenabstand, und warum ändert eine ungeladene Metallfolie im Spalt nichts?
-A: Bei gleichem Abstand und Dielektrikum addieren sich parallel die Flächen, denn die Kapazität ist proportional zur Fläche; bei gleicher Fläche addieren sich in Reihe die Abstände, denn der Kehrwert der Kapazität ist proportional zum Abstand. Eine dünne ungeladene Folie im Spalt macht aus einem Kondensator zwei in Reihe, deren Abstände sich zum alten addieren — die Kapazität bleibt dieselbe.
+A: Bei gleichem Abstand und Dielektrikum addieren sich parallel die Flächen, denn die Kapazität ist proportional zur Fläche; bei gleicher Fläche addieren sich in Reihe die Abstände, denn der Kehrwert der Kapazität ist proportional zum Abstand. Eine dünne ungeladene Metallfolie im Spalt macht aus einem Kondensator zwei in Reihe, deren Abstände sich zum alten addieren — die Kapazität bleibt dieselbe.
 F: Was ist ein isolierter Knoten, und warum bleibt seine Ladung erhalten?
 A: Ein Knoten, von dem jeder Weg über einen Kondensator führt, samt der Elektroden an ihm. Ladung bewegt sich nur durch Leiter, und durch ein ideales Dielektrikum fließt keine; also kann keine Ladung die Insel verlassen, und nach dem Ladungserhaltungssatz bleibt ihre Summe konstant. Verschieben kann sie sich innerhalb der Insel.
 F: Warum tragen in Reihe alle Kondensatoren dieselbe Ladung, und welche Voraussetzung ist dafür nötig?

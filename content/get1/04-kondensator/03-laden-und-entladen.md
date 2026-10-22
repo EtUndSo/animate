@@ -32,14 +32,15 @@ rot = Membran und Kondensator, orange = Diagramme, grau = Rohre und Leitungen.)
 
 ## Die Schaltung und der Einschaltmoment
 
-Das Skript untersucht eine Reihenschaltung aus einem Widerstand $R$ und einem Kondensator $C$, ein __RC-Glied__. Ein Umschalter legt sie entweder an
+Untersucht wird eine Reihenschaltung aus einem Widerstand $R$ und einem Kondensator $C$, ein __RC-Glied__. Ein Umschalter legt sie entweder an
 eine Gleichspannungsquelle mit der Spannung $U_0$, Stellung 1, oder schließt sie über eine Leitung kurz, Stellung 2. Alle Zählpfeile zeigen in dieselbe
 Richtung: der Strom $i(t)$ durch $R$ in den Kondensator, die Spannungen $u_R(t)$ am Widerstand und $u_C(t)$ am Kondensator in Stromrichtung. Kleine
-Buchstaben stehen nach DIN für zeitabhängige Werte; das Skript schreibt sie groß.
+Buchstaben stehen nach DIN für zeitabhängige Werte.
 
 Zwei Gesetze bestimmen alles. Erstens addieren sich längs der geschlossenen Schleife die Spannungen; in Stellung 1 ist die Quellenspannung die Summe der
-beiden anderen. Zweitens ist am Widerstand die Spannung proportional zum Strom, das __Ohmsche Gesetz__ aus Kapitel 5. Mit der Gleichung des Kondensators
-aus dem ersten Artikel dieses Kapitels:
+beiden anderen. Zweitens ist am Widerstand die Spannung proportional zum Strom, das __Ohmsche Gesetz__, das der Artikel über den
+[ohmschen Widerstand](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/ohmscher-widerstand.html)
+ausführlich behandelt. Mit der Gleichung des Kondensators aus dem ersten Artikel über den Kondensator:
 
 $$U_0 = u_R(t)+u_C(t), \qquad u_R(t) = R\,i(t), \qquad i(t) = C\,\frac{du_C}{dt}.$$
 
@@ -49,10 +50,12 @@ Membran wölbt sich in dem Maß, in dem Wasser ankommt.
 :::herleitung
 **Die Schleife.** Im Artikel über Spannung war die Spannung eine Potenzialdifferenz, und längs einer Kette von Punkten addieren sich die
 Teilspannungen. Der Kreis von der Quelle über $R$ und $C$ zurück zur Quelle beginnt und endet am selben Punkt; die Spannung der Quelle in Zählrichtung
-ist deshalb die Summe der Spannungen an $R$ und $C$. Kapitel 5 macht daraus die Maschenregel.
+ist deshalb die Summe der Spannungen an $R$ und $C$. Der Artikel über die
+[Kirchhoffschen Gesetze](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/kirchhoffsche-gesetze.html)
+macht daraus die Maschenregel.
 
 **Der Kondensator.** Ladung pro Zeit ist Strom, und die Ladung ist Kapazität mal Spannung; abgeleitet ergibt das die dritte Gleichung, wie im ersten
-Artikel dieses Kapitels.
+Artikel über den Kondensator.
 :::
 
 **Der Einschaltmoment.** Zu Beginn ist der Kondensator leer, der Schalter steht auf 2. Zur Zeit $t_0$ wird er auf 1 umgelegt; wir zählen die Zeit ab
@@ -104,7 +107,7 @@ Spannungen zu $U_0$.
 **Im Bild:** Das Wasser strömt erst kräftig, dann immer schwächer durch das enge Rohr, und die Membran wölbt sich ihrer Endstellung entgegen.
 
 :::herleitung
-**Schritt 1: eine Gleichung für den Strom.** Das Skript setzt die Kondensatorspannung als Integral des Stroms ein und leitet die Schleifengleichung nach
+**Schritt 1: eine Gleichung für den Strom.** Man setzt die Kondensatorspannung als Integral des Stroms ein und leitet die Schleifengleichung nach
 der Zeit ab; die konstante Quellenspannung fällt dabei weg:
 
 $$U_0 = R\,i(t)+u_C(t), \qquad 0 = R\,\frac{di}{dt}+\frac{1}{C}\,i(t).$$
@@ -114,7 +117,7 @@ integriert von $0$ bis $t$, mit Integrationsvariablen in Strich-Schreibweise:
 
 $$\int_{i(0)}^{i(t)}\frac{di'}{i'} = -\int_0^t\frac{dt'}{R\,C}, \qquad \ln\frac{i(t)}{i(0)} = -\frac{t}{R\,C}.$$
 
-Das Skript schreibt den Logarithmus des Stroms selbst; ein Logarithmus braucht aber eine reine Zahl, deshalb steht hier das Verhältnis zum Anfangswert.
+Falsch wäre der Logarithmus des Stroms selbst: Ein Logarithmus braucht eine reine Zahl, deshalb steht hier das Verhältnis zum Anfangswert.
 
 **Schritt 3: der Anfangswert.** Mit $i(0)=\frac{U_0}{R}$ aus dem Einschaltmoment und der Exponentialfunktion als Umkehrung des Logarithmus folgt der
 Strom. Die Widerstandsspannung ist $R$ mal Strom, die Kondensatorspannung der Rest bis $U_0$.
@@ -162,7 +165,7 @@ und Entladen gehen schneller bei kleinerem Widerstand und kleinerer Kapazität. 
 | $4\,\tau$ | $98{,}2\,\%$ |
 | $5\,\tau$ | $99{,}3\,\%$ |
 
-Als Faustregel gilt der Vorgang nach fünf Zeitkonstanten als abgeschlossen. Das Skript rundet die Werte auf $63$, $86$, $95$, $98$ und $99\,\%$.
+Als Faustregel gilt der Vorgang nach fünf Zeitkonstanten als abgeschlossen. Gerundet merkt man sich $63$, $86$, $95$, $98$ und $99\,\%$.
 
 **Im Bild:** Ein engeres Rohr lässt das Wasser langsamer nachfließen, eine nachgiebigere Membran braucht mehr Wasser bis zum Gegendruck. Beides streckt
 den Vorgang im selben Maß.
@@ -293,7 +296,7 @@ $4{,}7\,\text{s}$ bei $1{,}2\,\text{mA}$. In beiden Fällen werden $33{,}8\,\tex
 
 ## Laden über eine Stromquelle
 
-Das Skript zeigt zum Vergleich eine __Stromquelle__: Sie hält den Strom $I$ fest, gleichgültig, welche Spannung dafür nötig ist. Lädt sie einen leeren
+Zum Vergleich eine __Stromquelle__: Sie hält den Strom $I$ fest, gleichgültig, welche Spannung dafür nötig ist. Lädt sie einen leeren
 Kondensator über einen Widerstand, verläuft der Vorgang ganz anders:
 
 $$u_R(t) = R\,I, \qquad u_C(t) = \frac{I\,t}{C}.$$
@@ -321,7 +324,7 @@ Nach $50\,\text{ms}$ hat der Kondensator $5\,\text{V}$, und die Stromquelle muss
 
 :::grafik
 Szene: get1/kondensator/03-laden-entladen-kurven · Vorlage: rc-verlaeufe
-Oben das Schaltbild nach dem Skript: links die Quelle $U_0$ mit Spannungspfeil nach unten, oben ein Umschalter mit den Stellungen 1 (zur Quelle) und 2 (zur
+Oben das Schaltbild: links die Quelle $U_0$ mit Spannungspfeil nach unten, oben ein Umschalter mit den Stellungen 1 (zur Quelle) und 2 (zur
 rechten Rückleitung), darunter in Reihe $R$ mit dem Pfeil $u_R(t)$ und $C$ mit dem Pfeil $u_C(t)$, beide nach unten, und der Strompfeil $i(t)$ nach unten.
 Darunter zwei Diagramme über der Zeit in Vielfachen von $\tau$: links Laden mit $u_C$ von $0$ auf $U_0$, dazu die Anfangstangente, die $U_0$ bei $\tau$
 erreicht, und Markierungen bei $63$, $86$, $95\,\%$; rechts Entladen mit $u_C$ von $U_0$ auf $0$ und dem negativen Strom. Ein Schalterknopf wechselt
@@ -333,11 +336,12 @@ zwischen Laden und Entladen, ein Regler ändert $R$ und $C$. Kernaussage: Laden 
 
 RC-Glieder sind die einfachsten Zeitgeber der Elektronik. Sie verzögern Signale, entprellen Taster, bestimmen in Oszillatoren den Takt und begrenzen in
 Digitalschaltungen, wie schnell eine Leitung umgeladen werden kann. Als Filter lassen sie langsame Änderungen durch und dämpfen schnelle — ein Thema der
-Wechselstromtechnik. Auch die Selbstentladung aus dem ersten Artikel des Kapitels ist ein solcher Entladevorgang, über den Isolationswiderstand mit der
+Wechselstromtechnik. Auch die Selbstentladung aus dem ersten Artikel über den Kondensator ist ein solcher Entladevorgang, über den Isolationswiderstand mit der
 Zeitkonstante $R_\text{I}C$.
 
-Ohmsches Gesetz und Maschenregel, die hier schon benutzt wurden, führt das nächste Kapitel von Grund auf ein: Was ist Strom, was ist ein Widerstand, und
-wie verteilen sich Ströme und Spannungen in einem Netz?
+Ohmsches Gesetz und Maschenregel, die hier schon benutzt wurden, führen die folgenden Artikel von Grund auf ein, beginnend mit
+[Der elektrische Strom](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/elektrischer-strom.html):
+Was ist Strom, was ist ein Widerstand, und wie verteilen sich Ströme und Spannungen in einem Netz?
 
 :::kern
 - Ein __RC-Glied__ lädt und entlädt sich exponentiell, weil der Strom vom verbleibenden Spannungsunterschied abhängt.
@@ -357,7 +361,7 @@ A: Der Strom durch den Widerstand ist proportional zur Spannung an ihm, und die 
 F: Warum wirkt ein leerer Kondensator im Einschaltmoment wie ein Kurzschluss, und welcher Strom fließt über $1\,\text{k}\Omega$ an $12\,\text{V}$?
 A: Seine Spannung kann nicht springen, denn ein Sprung bräuchte einen unendlichen Strom, und den begrenzt der Widerstand. Im ersten Augenblick ist sie also noch null, die ganze Quellenspannung liegt am Widerstand, und es fließt $\frac{U_0}{R}$, hier $12\,\text{mA}$ — als wäre der Kondensator ein Draht.
 F: Wie folgt die Exponentialfunktion aus den Gleichungen der Schaltung, und warum steht im Logarithmus ein Verhältnis?
-A: Die Schleifengleichung $U_0=R\,i+u_C$ wird nach der Zeit abgeleitet; mit $\frac{du_C}{dt}=\frac iC$ entsteht $0=R\frac{di}{dt}+\frac iC$. Getrennt und von $0$ bis $t$ integriert, ergibt sich $\ln\frac{i(t)}{i(0)}=-\frac{t}{RC}$, also $i=\frac{U_0}{R}\mathrm{e}^{-t/\tau}$. Ein Logarithmus braucht eine reine Zahl; das Skript schreibt den Logarithmus des Stroms selbst, sauber ist das Verhältnis zum Anfangswert.
+A: Die Schleifengleichung $U_0=R\,i+u_C$ wird nach der Zeit abgeleitet; mit $\frac{du_C}{dt}=\frac iC$ entsteht $0=R\frac{di}{dt}+\frac iC$. Getrennt und von $0$ bis $t$ integriert, ergibt sich $\ln\frac{i(t)}{i(0)}=-\frac{t}{RC}$, also $i=\frac{U_0}{R}\mathrm{e}^{-t/\tau}$. Ein Logarithmus braucht eine reine Zahl; deshalb steht darin das Verhältnis zum Anfangswert und nicht der Strom selbst.
 F: Was bedeutet die Zeitkonstante, und welche Werte ergeben sich mit $470\,\mu\text{F}$ und $1\,\text{k}\Omega$ an $12\,\text{V}$?
 A: $\tau=RC$ ist das Zeitmaß des Vorgangs; in jeder Zeitkonstante fällt der Strom auf den Bruchteil $\frac1{\mathrm e}$. Hier ist $\tau=0{,}47\,\text{s}$; nach einer Zeitkonstante fließen $4{,}4\,\text{mA}$ bei $7{,}6\,\text{V}$ am Kondensator, nach drei $0{,}60\,\text{mA}$ bei $11{,}4\,\text{V}$.
 F: Woher kommen die Prozentwerte $63$, $86$, $95$, $98$ und $99$, und was zeigt die Anfangstangente?

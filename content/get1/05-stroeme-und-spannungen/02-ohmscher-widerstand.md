@@ -58,7 +58,7 @@ Ausgleich nie zur Ruhe — im Draht bleibt ein Feld $\vec E$, und das treibt die
 - das __Feld__ $\vec E$ im Draht, ein Vektor in Volt pro Meter.
 
 Auf eine Ladung $Q$ wirkt im Feld die Kraft $Q\vec E$, und eine Kraft beschleunigt eine Masse $m$ nach dem Newtonschen Gesetz. Zusammen ergibt das die
-Beschleunigung, allgemein und für das Elektron (das Skript schreibt die Ladung klein, $q$):
+Beschleunigung, allgemein und für das Elektron (für die Ladung ist auch $q$ üblich):
 
 $$\vec a = \frac{Q}{m}\,\vec E, \qquad \vec a = -\frac{e}{m_\text{e}}\,\vec E.$$
 
@@ -98,7 +98,7 @@ $0{,}05\,\frac{\text{mm}}{\text{s}}$, und zwar dauerhaft.
 **Im Bild:** Das Brett ohne Nägel. Etwas im Draht muss die Elektronen ständig wieder abbremsen.
 ::::
 
-**Die Stöße.** Das Skript beschreibt das Abbremsen mit einem einfachen Modell. Ein Elektron fliegt im Mittel die Strecke $\lambda$, die
+**Die Stöße.** Ein einfaches Modell beschreibt das Abbremsen so: Ein Elektron fliegt im Mittel die Strecke $\lambda$, die
 __mittlere freie Weglänge__, in der Zeit $T$, der __Laufzeit__, und stößt dann mit dem Kristallgitter zusammen. Dabei verliert es nach dem Modell seine
 gesamte Bewegungsenergie und startet danach aus der Ruhe neu. Zwischen zwei Stößen wächst seine Geschwindigkeit also gleichmäßig von null bis zum
 Höchstwert
@@ -111,7 +111,7 @@ Dabei ist $E$ der Betrag des Felds. Über der Zeit aufgetragen, ergibt das einen
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/02-saegezahn · Vorlage: saegezahn-drift
-Oben ein Ausschnitt des Nagelbretts mit einer markierten Kugel, darunter das Diagramm ihrer Geschwindigkeit über der Zeit. Im Modell des Skripts steigt
+Oben ein Ausschnitt des Nagelbretts mit einer markierten Kugel, darunter das Diagramm ihrer Geschwindigkeit über der Zeit. Im Sägezahn-Modell steigt
 die Geschwindigkeit in jedem Flug linear von $0$ auf $v_\text{max}$ und fällt beim Stoß auf $0$ zurück: Sägezähne bei $T$, $2T$, $3T$ … Eine gestrichelte
 Linie auf halber Höhe markiert den Mittelwert $\tfrac12v_\text{max}$; ein Dreieck ist schraffiert, seine Fläche ist der Weg in einem Flug. Regler für das
 Feld $E$ machen alle Zähne gleichmäßig höher oder flacher, die Mittellinie wandert proportional mit. Ein Umschalter „zufällige Flugzeiten" lässt die
@@ -120,7 +120,7 @@ Geschwindigkeit ist proportional zum Feld. (Blau = Geschwindigkeitsverlauf, rot 
 $v_\text{max}$.)
 :::
 
-Gemittelt über einen Zahn ist die Geschwindigkeit die Hälfte des Höchstwerts. Sie ist konstant und zeigt gegen das Feld, und das Skript nennt sie die
+Gemittelt über einen Zahn ist die Geschwindigkeit die Hälfte des Höchstwerts. Sie ist konstant, zeigt gegen das Feld und heißt
 __Driftgeschwindigkeit__ $\vec v_\text{D}$. Im Modell ist die Konstante davor $\frac{eT}{2m_\text{e}}$; allgemein heißt sie __Beweglichkeit__:
 
 :::formel
@@ -200,8 +200,8 @@ Wärmeschwingungen der Atomrümpfe, die mit der Temperatur zunehmen, und an Frem
 der Abstand zweier Atome.
 
 **Im Bild:** Die Nägel sind nicht die Atome selbst, sondern die Störungen: zitternde Atome und eingestreute Fremdkörper. Dass ein perfekt geordnetes,
-ruhendes Gitter gar nicht bremst, hat im Nagelbrett keine Entsprechung — hier ist das Bild schief. Bild 5.3 des Skripts, das Elektron im Zickzack von
-Atom zu Atom, ist in diesem Sinn eine Skizze und keine Momentaufnahme.
+ruhendes Gitter gar nicht bremst, hat im Nagelbrett keine Entsprechung — hier ist das Bild schief. Das verbreitete Bild vom Elektron, das im Zickzack
+von Atom zu Atom prallt, ist in diesem Sinn eine Skizze und keine Momentaufnahme.
 
 :::herleitung
 **Der Mittelwert über viele Flüge.** Ein Elektron fliegt nacheinander die Zeiten $t_1, t_2, \dots, t_M$. Im Flug $k$ startet sein gerichteter Anteil bei
@@ -213,7 +213,7 @@ Die mittlere Driftgeschwindigkeit ist der Gesamtweg geteilt durch die Gesamtzeit
 
 $$v_\text{D} = \frac{\sum_k \frac12\,a\,t_k^2}{\sum_k t_k} = \frac{a}{2}\cdot\frac{\langle t^2\rangle}{\langle t\rangle}.$$
 
-Dabei sind $\langle t\rangle$ und $\langle t^2\rangle$ die Mittelwerte von $t$ und $t^2$ über alle Flüge. Dauern alle Flüge genau $T$ wie im Skript, ist
+Dabei sind $\langle t\rangle$ und $\langle t^2\rangle$ die Mittelwerte von $t$ und $t^2$ über alle Flüge. Dauern alle Flüge genau $T$, ist
 der Quotient $T$, und es bleibt der Sägezahn-Wert $\frac{a}{2}\,T$.
 
 **Zufällige Flugzeiten.** Realistischer ist: In jedem kurzen Zeitstück $dt$ stößt ein Elektron mit derselben Wahrscheinlichkeit $\frac{dt}{T}$, egal wie
@@ -238,7 +238,7 @@ der Flugzeit; darum heben die seltenen langen Flüge den Mittelwert stärker, al
 :::
 
 ::::beispiel Wie weit fliegt ein Elektron?
-Mit der Beweglichkeit von Kupfer, $4{,}1\cdot10^{-3}\,\frac{\text{m}^2}{\text{V}\,\text{s}}$, und der Lehrbuch-Formel mit zufälligen Flugzeiten ist die
+Mit der Beweglichkeit von Kupfer, $4{,}1\cdot10^{-3}\,\frac{\text{m}^2}{\text{V}\,\text{s}}$, und der Formel des Drude-Modells mit zufälligen Flugzeiten ist die
 mittlere Flugzeit
 
 $$T = \frac{m_\text{e}\,\mu_\text{e}}{e} = \frac{9{,}109\cdot10^{-31}\,\text{kg}\cdot4{,}1\cdot10^{-3}\,\frac{\text{m}^2}{\text{V}\,\text{s}}}{1{,}602\cdot10^{-19}\,\text{C}} \approx 2{,}3\cdot10^{-14}\,\text{s},$$
@@ -279,9 +279,9 @@ Aus der Driftgeschwindigkeit folgt die Stromdichte, und zwar ohne neue Annahme.
 - die __Stromdichte__ $\vec J$, ein Vektor in Ampere pro Quadratmeter.
 
 Nach dem Artikel über den Strom ist die Stromdichte Raumladungsdichte mal Geschwindigkeit. Die Raumladungsdichte der Leitungselektronen ist
-Trägerdichte mal Ladung pro Träger, also $-e\,n_\text{e}$; das Skript kürzt sie mit $q_\text{e}$ ab. Ein eigenes Zeichen bekommt sie hier nicht, weil
-$\rho$ in diesem Artikel für den spezifischen Widerstand steht. Das Skript nennt $e_0$ (unser $e$) „Ladung des Elektrons"; gemeint ist die positive
-Elementarladung. Das Vorzeichen kommt allein über $Z_\text{e}$ hinein — wäre $e_0$ selbst schon negativ, hätte $q_\text{e}$ das falsche Vorzeichen.
+Trägerdichte mal Ladung pro Träger, also $e\,Z_\text{e}\,n_\text{e} = -e\,n_\text{e}$. Ein eigenes Zeichen bekommt sie hier nicht, weil
+$\rho$ in diesem Artikel für den spezifischen Widerstand steht. Achtung: $e$ ist die positive Elementarladung, nicht die Ladung des Elektrons; das
+Vorzeichen kommt allein über $Z_\text{e}$ hinein. Wäre $e$ selbst schon negativ, hätte die Raumladungsdichte das falsche Vorzeichen.
 
 **Das Zusammenspiel:** *Welche Stromdichte entsteht, wenn alle Leitungselektronen mit $\vec v_\text{D}$ driften?*
 
@@ -294,7 +294,7 @@ __spezifische Leitfähigkeit__ des Materials, kurz __Leitfähigkeit__. Sie ist d
 ihrer Beweglichkeit ($\mu_\text{e}$). Weil die Formel an jedem einzelnen Punkt des Leiters gilt, heißt sie das __Ohmsche Gesetz in Punktform__.
 
 **Die Einheit.** Ampere pro Quadratmeter geteilt durch Volt pro Meter ergibt Ampere pro Volt und Meter. Ein Ampere pro Volt heißt __Siemens__, kurz
-$\text{S}$; die Leitfähigkeit hat also die Einheit $\frac{\text{S}}{\text{m}}$. Das Skript rechnet in $\frac{\text{S}}{\text{cm}}$.
+$\text{S}$; die Leitfähigkeit hat also die Einheit $\frac{\text{S}}{\text{m}}$. Üblich ist auch die Angabe in $\frac{\text{S}}{\text{cm}}$.
 
 **Im Bild:** Wie viele Kugeln pro Sekunde einen Meter Ziellinie queren: Kugeln pro Fläche mal mittlere Geschwindigkeit. Ein Brett mit vielen Kugeln und
 wenigen Nägeln leitet gut.
@@ -308,9 +308,9 @@ Driftgeschwindigkeit:
 
 $$\vec J = (-e\,n_\text{e})\,\vec v_\text{D} = (-e\,n_\text{e})\,(-\mu_\text{e}\,\vec E) = e\,n_\text{e}\,\mu_\text{e}\,\vec E.$$
 
-Der Vorfaktor ist $\sigma$. In der Schreibweise des Skripts, mit $q_\text{e}$ für die Raumladungsdichte, ist das dasselbe:
+Der Vorfaktor ist $\sigma$. Mit der Ladungszahl geschrieben, ist $\sigma$ minus Beweglichkeit mal Raumladungsdichte:
 
-$$\sigma = -\mu_\text{e}\,q_\text{e}, \qquad q_\text{e} = e\,Z_\text{e}\,n_\text{e} = -e\,n_\text{e}.$$
+$$\sigma = -\mu_\text{e}\,e\,Z_\text{e}\,n_\text{e} = e\,n_\text{e}\,\mu_\text{e}.$$
 
 **Mehrere Trägersorten.** Tragen mehrere Sorten zum Strom bei, etwa Elektronen und Löcher in Halbleitern, addieren sich ihre Stromdichten. Jede Sorte
 liefert dann ihren eigenen Beitrag Ladungsbetrag mal Dichte mal Beweglichkeit, und $\sigma$ ist die Summe.
@@ -331,7 +331,8 @@ $0{,}14\,\frac{\text{m}^2}{\text{V}\,\text{s}}$. Ihr Beitrag zur Leitfähigkeit:
 
 $$\sigma = 1{,}602\cdot10^{-19}\,\text{C}\cdot10^{16}\,\text{m}^{-3}\cdot0{,}14\,\frac{\text{m}^2}{\text{V}\,\text{s}} \approx 2{,}2\cdot10^{-4}\,\frac{\text{S}}{\text{m}}.$$
 
-Die Löcher (Kapitel 10) bringen noch etwa ein Drittel dazu. Obwohl die Elektronen im Silizium $34$-mal so beweglich sind wie im Kupfer, liefern sie rund
+Die Löcher (siehe [Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html))
+bringen noch etwa ein Drittel dazu. Obwohl die Elektronen im Silizium $34$-mal so beweglich sind wie im Kupfer, liefern sie rund
 $2{,}5\cdot10^{11}$-mal weniger Leitfähigkeit: Es gibt $8{,}5\cdot10^{12}$-mal weniger von ihnen.
 
 **Im Bild:** Kupfer ist ein volles Brett mit vielen Nägeln, Silizium ein fast leeres, glattes Brett — die wenigen Kugeln rollen leicht, aber es sind kaum
@@ -343,7 +344,7 @@ Oft ist der Kehrwert praktischer, der __spezifische Widerstand__:
 $$\rho = \frac{1}{\sigma}, \qquad [\rho] = \frac{\text{V}\,\text{m}}{\text{A}} = \Omega\,\text{m}.$$
 
 Ein Volt pro Ampere heißt __Ohm__, $\Omega$; es ist die Einheit des Widerstands im nächsten Abschnitt. Gute Leiter haben ein kleines $\rho$, schlechte ein
-großes. Das Skript gibt im Kasten die Einheit $\Omega\,\text{cm}^{-1}$ an; richtig ist $\Omega\,\text{cm}$, wie im Kopf der Tabelle dort. In der Praxis
+großes. Ein häufiger Fehler ist die Einheit $\Omega\,\text{cm}^{-1}$; richtig ist $\Omega\,\text{cm}$. In der Praxis
 rechnet man meist in $\Omega\,\frac{\text{mm}^2}{\text{m}}$, weil Drähte in Quadratmillimetern und Metern angegeben werden.
 
 **Im Bild:** Der spezifische Widerstand sagt, wie dicht die Nägel stehen — unabhängig davon, wie groß das Brett ist.
@@ -365,7 +366,7 @@ Für die Leitfähigkeit entsprechend:
 $$10^{4}\,\frac{\text{S}}{\text{cm}} = 10^{6}\,\frac{\text{S}}{\text{m}} = 1\,\frac{\text{MS}}{\text{m}} = 1\,\frac{\text{m}}{\Omega\,\text{mm}^2}.$$
 :::
 
-Die Tabelle des Skripts, umgerechnet; eine Spalte in $\frac{\text{MS}}{\text{m}}$ entspricht der Skript-Spalte in $10^4\,\frac{\text{S}}{\text{cm}}$:
+Typische Werte; eine Angabe in $\frac{\text{MS}}{\text{m}}$ entspricht einer in $10^4\,\frac{\text{S}}{\text{cm}}$:
 
 | Leiter | $\sigma$ in $\frac{\text{MS}}{\text{m}}$ | $\rho$ in $\Omega\,\frac{\text{mm}^2}{\text{m}}$ |
 |---|---|---|
@@ -385,8 +386,8 @@ die fast dreißigmal schlechter leitet als reines Kupfer — warum, zeigt der Ab
 
 ## Vom Leiterstück zum Bauteil: das Ohmsche Gesetz
 
-Bisher war alles örtlich: Feld und Stromdichte an einem Punkt. Gemessen werden aber Spannung und Strom an den Enden eines Bauteils. Das Skript betrachtet
-dafür ein Leiterstück wie in seinem Bild: einen Zylinder mit Plus links und Minus rechts, durch den der Strom von links nach rechts fließt.
+Bisher war alles örtlich: Feld und Stromdichte an einem Punkt. Gemessen werden aber Spannung und Strom an den Enden eines Bauteils. Man betrachtet
+dafür ein Leiterstück: einen Zylinder mit Plus links und Minus rechts, durch den der Strom von links nach rechts fließt.
 
 **Die Akteure:**
 
@@ -395,7 +396,7 @@ dafür ein Leiterstück wie in seinem Bild: einen Zylinder mit Plus links und Mi
 - die __Spannung__ $U$ zwischen den beiden Endflächen, in Volt;
 - der __Strom__ $I$ durch den Leiter, in Ampere.
 
-Das Skript schreibt die Länge groß, $L$; hier steht nach DIN das kleine $l$, weil $L$ später die Induktivität bezeichnet.
+Für die Länge steht nach DIN das kleine $l$, weil $L$ später die Induktivität bezeichnet.
 
 **Das Zusammenspiel:** *Wie wird aus der örtlichen Regel $\vec J=\sigma\vec E$ eine Regel für das ganze Leiterstück?*
 
@@ -427,9 +428,7 @@ Felds. Längs der Achse zeigt das Feld überall in Wegrichtung und ist konstant,
 
 $$U = \int_0^l \vec E\cdot d\vec s = E\,l.$$
 
-Das ist das $U=E\cdot L$, auf das das Skript zurückgreift.
-
-**Schritt 4: zusammensetzen.** Nach $I$ aufgelöst ergibt sich zuerst die Form des Skripts, nach $U$ aufgelöst das Ohmsche Gesetz:
+**Schritt 4: zusammensetzen.** Aufgelöst erst nach $I$, dann nach $U$; die zweite Form ist das Ohmsche Gesetz:
 
 $$I = J\,A = \sigma\,E\,A = \frac{\sigma\,A}{l}\,U, \qquad U = \frac{l}{\sigma\,A}\,I.$$
 
@@ -437,7 +436,7 @@ Mit $\rho$ als Kehrwert von $\sigma$ folgt die zweite Form von $R$.
 
 **Warum der Strom sich gleichmäßig verteilt.** Ein gleichmäßiges Feld längs der Achse erfüllt alles, was ein stationäres Strömungsfeld erfüllen muss:
 Es ist quellen- und wirbelfrei, es läuft an den Seitenwänden entlang, ohne Strom hinauszutragen, und es steht senkrecht auf flächigen Kontakten an den Enden. Dass
-es dann auch die einzige mögliche Verteilung ist, zeigt die Feldtheorie in einem späteren Semester (Eindeutigkeitssatz).
+es dann auch die einzige mögliche Verteilung ist, zeigt der Eindeutigkeitssatz der Feldtheorie.
 
 **Im Bild:** Auf einem gleichmäßigen Brett ist die Neigung überall gleich, Höhenunterschied durch Länge, und jede Bahn trägt gleich viel.
 :::
@@ -446,8 +445,8 @@ es dann auch die einzige mögliche Verteilung ist, zeigt die Feldtheorie in eine
 
 - Das Material ist __homogen__, $\sigma$ überall gleich.
 - Der Querschnitt ist überall gleich.
-- Der Strom tritt gleichmäßig über die ganzen Endflächen ein und aus, oder der Leiter ist viel länger als dick. Das meint die Bedingung des Skripts
-  $l\gg\sqrt A$ (dort mit $L$): Die Wurzel aus dem Querschnitt ist ungefähr die Dicke. Wird der Strom an einem Punkt eingespeist, verteilt er sich erst auf einem Stück
+- Der Strom tritt gleichmäßig über die ganzen Endflächen ein und aus, oder der Leiter ist viel länger als dick. Formal heißt das
+  $l\gg\sqrt A$: Die Wurzel aus dem Querschnitt ist ungefähr die Dicke. Wird der Strom an einem Punkt eingespeist, verteilt er sich erst auf einem Stück
   von etwa einer Dicke Länge über den Querschnitt; bei einem langen Draht fällt dieses Stück nicht ins Gewicht.
 - Strom und Temperatur sind konstant. Bei schnell wechselnden Strömen drängt sich der Strom an die Oberfläche (Skin-Effekt), und bei Erwärmung ändert
   sich $\rho$ (unten).
@@ -495,8 +494,8 @@ ein kurzes Stück bremst genauso stark.
 
 ## Leitwert, Schaltsymbol und Kennlinie
 
-Im Schaltplan steht ein ohmscher Widerstand als schmales Rechteck mit zwei Anschlüssen, beschriftet mit $R$ oder $G$ (Bild 5.5 des Skripts); die beiden
-Symbole sind gleich, und die Beschriftungen sind gleichwertig. Das Wort „Widerstand" meint dabei zweierlei: das Bauteil und seine Größe $R$. Manchmal ist
+Im Schaltplan steht ein ohmscher Widerstand als schmales Rechteck mit zwei Anschlüssen, beschriftet mit $R$ oder $G$; das Symbol ist
+in beiden Fällen dasselbe, und die Beschriftungen sind gleichwertig. Das Wort „Widerstand" meint dabei zweierlei: das Bauteil und seine Größe $R$. Manchmal ist
 die umgekehrte Sicht praktischer, der __Leitwert__:
 
 :::formel Definition
@@ -513,8 +512,8 @@ Leitwert und Leitfähigkeit stehen zueinander wie Widerstand und spezifischer Wi
 Einheiten tragen die Namen von Georg Simon Ohm (1789–1854) und Werner von Siemens (1816–1892).
 
 **Die Kennlinie.** Trägt man zusammengehörige Werte von Strom und Spannung eines Bauteils in ein Diagramm ein, entsteht seine __Kennlinie__. Beim
-ohmschen Widerstand ist sie eine Gerade durch den Ursprung. Das Skript zeigt sie zweimal: Spannung über Strom mit der Steigung $R$ (Bild 5.6), Strom über
-Spannung mit der Steigung $G$ (Bild 5.7):
+ohmschen Widerstand ist sie eine Gerade durch den Ursprung. Man kann sie auf zwei Arten auftragen: Spannung über Strom mit der Steigung $R$, Strom über
+Spannung mit der Steigung $G$:
 
 $$R = \frac{\Delta U}{\Delta I}, \qquad G = \frac{\Delta I}{\Delta U}.$$
 
@@ -567,8 +566,8 @@ Feld an ihnen Arbeit verrichtet: Nach dem Artikel über die Spannung verrichtet 
 durchläuft, die Arbeit $Q\,U$. Für Elektronen in Gegenrichtung ist es dasselbe, weil sich beide Vorzeichen umkehren.
 
 Diese Energie bleibt nicht bei den Elektronen. Sie geht bei den Stößen an das Gitter über und lässt die Atomrümpfe stärker schwingen — der Widerstand
-wird warm. Das Skript: Die Energie der Ladungsträger wird durch Streuung im Festkörper in Wärme umgewandelt. Man nennt sie __Stromwärme__ oder
-__Joulesche Wärme__. Pro Zeit ist das die __Leistung__:
+wird warm. Die Energie der Ladungsträger wird also durch Streuung im Festkörper in Wärme umgewandelt, die __Stromwärme__ oder
+__Joulesche Wärme__ heißt. Pro Zeit ist das die __Leistung__:
 
 :::formel
 $$P = U\cdot I = R\,I^2 = \frac{U^2}{R}, \qquad [P] = \text{V}\,\text{A} = \text{W}.$$
@@ -576,7 +575,8 @@ $$P = U\cdot I = R\,I^2 = \frac{U^2}{R}, \qquad [P] = \text{V}\,\text{A} = \text
 
 **So liest man das:** Die Leistung ist Energie pro Zeit, in Watt; dass ein Watt ein Volt mal Ampere ist, steht schon im Artikel über Größen und
 Einheiten. Sie wächst mit dem Quadrat des Stroms: doppelter Strom, vierfache Wärme. Mit welchem Vorzeichen man eine Leistung zählt, klärt der nächste
-Artikel über Zählpfeile; ausführlich kommt die Energieumsetzung im Widerstand in Kapitel 7.
+Artikel über Zählpfeile; ausführlich behandelt die Energieumsetzung im Widerstand der Artikel
+[Energieumsetzung und Leistungsanpassung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/energieumsetzung-und-leistungsanpassung.html).
 
 **Im Bild:** Die Höhenenergie, die die Kugeln beim Hinabrollen verlieren, steckt am Ende in den zitternden Nägeln. Pro Sekunde ist das Höhenunterschied
 mal Kugeln pro Sekunde.
@@ -619,16 +619,15 @@ $16$ statt $10\,\text{A}$, dem $1{,}6$-fachen Strom, wird es gut zweieinhalbmal 
 
 ## Bauformen
 
-Wie ein Widerstand gebaut ist, folgt aus zwei Forderungen: Er soll den gewünschten Wert haben, und er muss seine Stromwärme loswerden. Das Skript nennt
-drei typische Bauformen (Bild 5.8 und 5.9):
+Wie ein Widerstand gebaut ist, folgt aus zwei Forderungen: Er soll den gewünschten Wert haben, und er muss seine Stromwärme loswerden. Drei Bauformen
+sind typisch:
 
 - __Schichtwiderstand__ (Metall- oder Kohleschicht): eine dünne Widerstandsschicht auf einem Keramikröhrchen. Eine eingeschliffene Wendel macht aus der
   Schicht einen langen, schmalen Streifen, der um das Röhrchen läuft — nach $R=\rho\,l/A$ ein großer Widerstand auf kleinem Raum, weil $l$ groß und $A$
   klein wird. Relativ geringe Leistung, etwa $0{,}1$ bis $2\,\text{W}$; der Wert steht im Farbcode auf dem Bauteil. Das ist die „typische" Bauform.
-- __Drahtwiderstand__: Widerstandsdraht, etwa aus Konstantan, auf einen Keramikkörper gewickelt, oft in einem Metallgehäuse mit Kühlfläche (das
-  goldfarbene Bauteil in Bild 5.8). Ein dicker Draht hat einen kleinen Widerstand, und die große Oberfläche führt viel Wärme ab: hohe Leistung, hohe
-  Temperaturbelastbarkeit. Weil der Draht gewickelt ist, bildet er eine kleine Spule, die schnelle Wechselströme behindert (Thema eines späteren
-  Moduls).
+- __Drahtwiderstand__: Widerstandsdraht, etwa aus Konstantan, auf einen Keramikkörper gewickelt, oft in einem Metallgehäuse mit Kühlfläche. Ein dicker Draht hat einen kleinen Widerstand, und die große Oberfläche führt viel Wärme ab: hohe Leistung, hohe
+  Temperaturbelastbarkeit. Weil der Draht gewickelt ist, bildet er eine kleine Spule, die schnelle Wechselströme behindert (ein Thema der
+  Wechselstromtechnik).
 - __SMD-Widerstand__ (surface mounted device, oberflächenmontiertes Bauteil): ein winziger Quader, der direkt auf die Leiterplatte gelötet wird. Die
   geringen Abmessungen erlauben eine hohe Packungsdichte, ohne Anschlussdrähte gibt es kaum störende Spulenwirkung — gut für die Hochfrequenztechnik.
   Die kleine Oberfläche führt aber wenig Wärme ab: geringe Leistung.
@@ -681,8 +680,7 @@ $$w_j = \sqrt[N]{10^{\,j}} = \big(\sqrt[N]{10}\big)^{j}, \qquad j \in \{0, 1, \d
 **So liest man das:** Eingabe ist die Nummer $j$ des Werts in der Dekade, Ausgabe eine Zahl zwischen $1$ und $10$, gerundet auf zwei Stellen (E3 bis
 E24) oder drei Stellen (E48 bis E192). Mit Zehnerpotenzen multipliziert ergibt sie alle Normwerte, etwa $4{,}7\,\Omega$, $47\,\Omega$, $470\,\Omega$ und
 $4{,}7\,\text{k}\Omega$. Benachbarte Werte stehen im festen Verhältnis $\sqrt[N]{10}$, dem __Stufenfaktor__ $q$; auf einer logarithmischen Skala liegen sie
-gleichmäßig verteilt. Das Skript nennt die Werte $k$, die Nummer $m$ und die Anzahl $n$; hier heißen sie $w_j$, $j$ und $N$, weil $m_\text{e}$ und
-$n_\text{e}$ schon vergeben sind.
+gleichmäßig verteilt.
 
 **Im Bild:** Nagelbretter gäbe es dann nicht in jeder Länge, sondern in Stufen, und jede Stufe wäre um denselben Faktor länger als die vorige.
 
@@ -750,9 +748,7 @@ Die exakten Werte $10^{j/12}$, auf zwei Stellen gerundet, und die genormten Wert
 Fünf Normwerte weichen in der letzten Stelle um eins ab: Die Reihen sind älter als ihre Norm und wurden mit den eingebürgerten Werten übernommen. In E48 und E96 stimmen
 dagegen alle Normwerte mit der auf drei Stellen gerundeten Formel überein. Der letzte E48-Wert etwa ist
 
-$$10^{47/48} \approx 9{,}53;$$
-
-in Bild 5.10 des Skripts steht dort versehentlich $963$ statt $953$.
+$$10^{47/48} \approx 9{,}53.$$
 
 **Abdeckung.** Die Grenze für E12 mit $\pm10\,\%$ ist $\frac{1{,}1}{0{,}9}$, rund $1{,}222$, also größer als der Stufenfaktor $1{,}2115$. Zum Beispiel
 überlappen $1{,}0\,\text{k}\Omega$ und $1{,}2\,\text{k}\Omega$:
@@ -783,7 +779,7 @@ $$R = (10\,z_1 + z_2)\cdot10^{x}\,\Omega.$$
 | silber | — | $10^{-2}$ | $\pm10\,\%$ |
 | kein Ring | — | — | $\pm20\,\%$ |
 
-Im Text des Skripts steht, der erste Ring gebe den Faktor $10^n$ an; nach seiner eigenen Tabelle (Bild 5.11) ist es der dritte. Für die feineren
+Für die feineren
 Reihen ab E48 mit drei Ziffern gibt es den Code mit fünf Ringen: drei Ziffernringe, dann Multiplikator und Toleranz. Gelesen wird von der Seite, an der
 die Ringe näher am Rand sitzen; der Toleranzring ist oft etwas abgesetzt, und Gold oder Silber stehen nie vorn.
 
@@ -820,8 +816,8 @@ $$R(\vartheta) = R(\vartheta_0)\,\big(1 + \alpha_{\vartheta_0}\,(\vartheta - \va
 **So liest man das:** Eingabe ist die Temperatur $\vartheta$ in Grad Celsius, Ausgabe der Widerstand bei dieser Temperatur. Der
 __Temperaturkoeffizient__ $\alpha_{\vartheta_0}$ ist die relative Änderung des Widerstands pro Kelvin, bezogen auf den Wert bei $\vartheta_0$; in
 Datenblättern ist das meist $20\,\text{°C}$. Für Kupfer ist $\alpha_{20}$ rund $3{,}9\cdot10^{-3}\,\text{K}^{-1}$: $0{,}39\,\%$ mehr Widerstand pro Kelvin,
-$39\,\%$ mehr bei $100\,\text{K}$ Erwärmung. Temperaturunterschiede misst man in Kelvin; ein Kelvin Unterschied ist ein Grad Celsius Unterschied. Das
-Skript schreibt die Temperatur $t$; hier steht nach DIN $\vartheta$, weil $t$ die Zeit ist. Die Formel ist eine **Näherung**: die Tangente an die
+$39\,\%$ mehr bei $100\,\text{K}$ Erwärmung. Temperaturunterschiede misst man in Kelvin; ein Kelvin Unterschied ist ein Grad Celsius Unterschied. Für
+die Temperatur steht hier nach DIN $\vartheta$, weil $t$ die Zeit ist. Die Formel ist eine **Näherung**: die Tangente an die
 wahre, leicht gekrümmte Kurve.
 
 **Im Bild:** Rüttelt man das Brett, zittern die Nägel stärker und werden öfter getroffen; die Kugeln kommen bei gleicher Neigung langsamer voran.
@@ -882,7 +878,8 @@ __Kaltleiter__: Sie leiten besser, je kälter sie sind. Beispiele sind Kupfer, S
 los: Die Trägerdichte wächst mit der Temperatur sehr stark — viel stärker, als die Beweglichkeit durch die häufigeren Stöße sinkt. Der Widerstand fällt,
 $\alpha$ ist negativ: ein __NTC__ (negative temperature coefficient) oder __Heißleiter__, der besser leitet, je wärmer er ist. Beispiele sind reines
 Silizium und Germanium; technische Heißleiter bestehen meist aus halbleitenden Metalloxiden. Ihr Widerstand fällt etwa exponentiell, die Gerade aus der
-Formel beschreibt sie nur in der Nähe von $\vartheta_0$. Und dotiertes Silizium, in dem eingebaute Fremdatome die Träger schon liefern (Kapitel 10),
+Formel beschreibt sie nur in der Nähe von $\vartheta_0$. Und dotiertes Silizium, in dem eingebaute Fremdatome die Träger schon liefern (siehe
+[Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html)),
 verhält sich im üblichen Temperaturbereich sogar wie ein Kaltleiter.
 
 **Im Bild:** Ein fast leeres Brett, auf dem die meisten Kugeln in Mulden festliegen. Rüttelt man es, springen viele heraus; dass die Nägel dabei stärker
@@ -902,7 +899,7 @@ $R'(\vartheta_0)$ ist negativ.
 
 :::grafik
 Szene: get1/stroeme-und-spannungen/02-temperatur · Vorlage: kalt-heissleiter
-Links ein Diagramm $\rho/\rho_{20}$ über der Temperatur in °C wie Bild 5.12 des Skripts: drei Geraden, die sich bei $20\,\text{°C}$ im Wert $1$ schneiden — eine
+Links ein Diagramm $\rho/\rho_{20}$ über der Temperatur in °C: drei Geraden, die sich bei $20\,\text{°C}$ im Wert $1$ schneiden — eine
 steigende (PTC, Kaltleiter), eine fallende (NTC, Heißleiter) und eine waagrechte (kompensierte Legierung). Rechts drei kleine Nagelbretter. Ein
 Temperaturregler rüttelt alle drei: Beim Metall-Brett zittern die Nägel stärker, die Kugeln werden langsamer; beim Halbleiter-Brett springen Kugeln aus
 Mulden, es kommen viel mehr an; beim Legierungs-Brett mit vielen fest eingeschlagenen, schiefen Nägeln ändert das Zittern kaum etwas. Ein
@@ -999,7 +996,7 @@ $11{,}8\,\%$ gestiegen.
 
 ## Zweipole: linear und nichtlinear
 
-Der Widerstand ist das erste Beispiel einer Sichtweise, mit der die ganze Schaltungstechnik arbeitet. Das Skript führt dazu drei Begriffe ein:
+Der Widerstand ist das erste Beispiel einer Sichtweise, mit der die ganze Schaltungstechnik arbeitet. Zu dieser Sichtweise gehören drei Begriffe:
 
 - Ein __Zweipol__ ist ein Bauelement mit zwei Anschlussklemmen, dessen Verhalten sich vollständig durch den Zusammenhang von Strom und Spannung an
   diesen Klemmen beschreiben lässt.
@@ -1011,37 +1008,39 @@ Das __stationäre__ Klemmenverhalten, wenn sich zeitlich nichts mehr ändert, be
 $$I = f(U).$$
 
 Zu jeder Spannung an den Klemmen gehört der Strom, der sich nach dem Einschwingen einstellt. Strom und Spannung zählt man mit Pfeilen, die beide in
-dieselbe Richtung durch den Zweipol zeigen (Bild 5.14 des Skripts); was diese Vereinbarung bedeutet und wozu sie gut ist, zeigt der nächste Artikel über
+dieselbe Richtung durch den Zweipol zeigen; was diese Vereinbarung bedeutet und wozu sie gut ist, zeigt der nächste Artikel über
 Zählpfeile.
 
 **Im Bild:** Für die Kennlinie ist es gleich, wie das Brett innen aussieht. Man misst nur, wie viele Kugeln pro Sekunde bei welchem Höhenunterschied
 ankommen.
 
-**Lineare Zweipole** haben eine gerade Kennlinie. Das Skript zeigt als Beispiele (Bild 5.13) einen Widerstand, eine ideale Spannungsquelle und eine
-ideale Stromquelle; die Quellen kommen in Kapitel 7 genauer vor. Beim Widerstand geht die Gerade durch den Ursprung, und es gilt das Ohmsche Gesetz:
+**Lineare Zweipole** haben eine gerade Kennlinie. Beispiele sind ein Widerstand, eine ideale Spannungsquelle und eine ideale Stromquelle;
+die Quellen behandelt der Artikel [Ideale und reale Quellen](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/analyse-linearer-netzwerke/ideale-und-reale-quellen.html)
+genauer. Beim Widerstand geht die Gerade durch den Ursprung, und es gilt das Ohmsche Gesetz:
 
 $$G = \frac{I}{U} = \text{const}, \qquad R = \frac{U}{I} = \text{const}.$$
 
-Bild 5.15 zeigt drei Widerstände mit $R_1<R_2<R_3$: Je kleiner der Widerstand, desto steiler die Gerade, denn ihre Steigung im Diagramm Strom über
+Vergleicht man drei Widerstände mit $R_1<R_2<R_3$, gilt: Je kleiner der Widerstand, desto steiler die Gerade, denn ihre Steigung im Diagramm Strom über
 Spannung ist der Leitwert. Die Geraden laufen durch den Ursprung in den dritten Quadranten weiter: Kehrt man die Spannung um, kehrt sich der Strom um, und
 ein Widerstand leitet in beide Richtungen gleich.
 
-Genau genommen gilt der Satz des Skripts „Für lineare Zweipole gilt das ohmsche Gesetz" nur für Geraden durch den Ursprung. Auch eine Quelle hat eine
+Oft liest man „Für lineare Zweipole gilt das ohmsche Gesetz"; genau genommen gilt das nur für Geraden durch den Ursprung. Auch eine Quelle hat eine
 gerade Kennlinie, aber eine, die nicht durch den Ursprung geht: Eine ideale Spannungsquelle hält ihre Spannung bei jedem Strom, eine ideale Stromquelle
 ihren Strom bei jeder Spannung. Das Verhältnis von Spannung zu Strom ist dort nicht konstant.
 
 **Nichtlineare Zweipole** haben eine gekrümmte Kennlinie. Das Verhältnis $U/I$ ist dann in jedem Punkt ein anderes. Man kann es weiterhin ausrechnen,
 als Widerstand im jeweiligen Betriebspunkt, aber es ist keine Konstante des Bauteils mehr. Für kleine Änderungen um einen Punkt zählt stattdessen die
-Steigung der Kennlinie dort, der __differentielle Widerstand__, der bei Dioden wichtig wird (Kapitel 10).
+Steigung der Kennlinie dort, der __differentielle Widerstand__, der bei Dioden wichtig wird (siehe
+[Arbeitspunkt und Ersatzschaltung der Diode](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/arbeitspunkt-und-ersatzschaltung.html)).
 
-**Die Glühlampe.** Das Beispiel des Skripts ist die __Glühlampe__ (Bild 5.16). Ihr Glühfaden besteht meist aus Wolfram, einem Kaltleiter. Fließt Strom,
+**Die Glühlampe.** Ein typisches Beispiel ist die __Glühlampe__. Ihr Glühfaden besteht meist aus Wolfram, einem Kaltleiter. Fließt Strom,
 erzeugt er Wärme, und der Faden heizt sich auf, bis er so viel abstrahlt, wie er erzeugt. Je höher die Spannung, desto heißer der Faden und desto größer
 sein Widerstand: Die Kennlinie beginnt im Ursprung steil — kalter Faden, kleiner Widerstand — und wird mit wachsender Spannung immer flacher. Sie ist
 punktsymmetrisch zum Ursprung, denn die Wärme hängt nicht von der Richtung des Stroms ab.
 
 **Der Einschaltstrom.** Vor dem Einschalten ist der Faden kalt und sein Widerstand klein; im Moment des Einschaltens fließt deshalb ein Vielfaches des
 Nennstroms. Der dünne Faden heizt sich in Sekundenbruchteilen auf, sein Widerstand steigt, und der Strom sinkt, bis er seinen Nennwert erreicht. Die
-Kennlinie aus Bild 5.16 beschreibt nur den eingeschwungenen Zustand. Beim Einschalten liegt der Betriebspunkt zuerst auf der steilen Geraden des kalten
+Kennlinie der Glühlampe beschreibt nur den eingeschwungenen Zustand. Beim Einschalten liegt der Betriebspunkt zuerst auf der steilen Geraden des kalten
 Fadens und wandert dann auf die Kennlinie hinunter.
 
 **Im Bild:** Ein Brett, dessen Nägel sich durch die Stöße selbst erwärmen. Je steiler es steht, desto mehr Stöße pro Sekunde, desto heftiger zittern die
@@ -1110,12 +1109,16 @@ grau = Achsen.)
 
 ## Bedeutung und Ausblick
 
-Das Ohmsche Gesetz ist das Arbeitspferd der Schaltungstechnik. Zusammen mit den Kirchhoffschen Regeln, die in diesem Kapitel noch folgen, lässt sich
-damit jedes Netz aus Widerständen und Quellen berechnen. Fast alles Weitere baut darauf auf: die Zählpfeile im nächsten Artikel, Knoten und Maschen, die
-Zusammenschaltung von Widerständen — hintereinander addieren sich Widerstände, nebeneinander Leitwerte — und die Mess- und Netzwerkverfahren der
-Kapitel 6 bis 9.
+Das Ohmsche Gesetz ist das Arbeitspferd der Schaltungstechnik. Zusammen mit den Kirchhoffschen Regeln aus dem Artikel
+[Die Kirchhoffschen Gesetze](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strome-und-spannungen-in-netzen/kirchhoffsche-gesetze.html)
+lässt sich damit jedes Netz aus Widerständen und Quellen berechnen. Fast alles Weitere baut darauf auf: die Zählpfeile im nächsten Artikel, Knoten und Maschen, die
+Zusammenschaltung von Widerständen — hintereinander addieren sich Widerstände, nebeneinander Leitwerte — und die Mess- und Netzwerkverfahren, von der
+[Strom- und Spannungsmessung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/strom-und-spannungsmessung/strom-und-spannungsmessung.html)
+bis zum [Knotenpotentialverfahren](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/knotenpotentialverfahren/knotenpotentialverfahren.html).
 
-Die mikroskopische Seite kehrt bei den Halbleitern zurück (Kapitel 10). Dort stellt man über eingebaute Fremdatome gezielt die Trägerdichte in
+Die mikroskopische Seite kehrt bei den
+[Halbleitern](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html)
+zurück. Dort stellt man über eingebaute Fremdatome gezielt die Trägerdichte in
 $\sigma=e\,n_\text{e}\,\mu_\text{e}$ ein — der Kern jeder Diode und jedes Transistors.
 
 An seine Grenzen kommt das Ohmsche Gesetz an drei Stellen. Bei schnell wechselnden Strömen drängt sich der Strom an die Oberfläche, der wirksame
