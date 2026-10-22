@@ -133,9 +133,11 @@ Orientierung für den **Hauptpfad**, gemessen in Wörtern. Zum Hauptpfad gehört
 
 | Schwierigkeit | typischer Inhalt | Kompakt | Ausführlich |
 |---|---|---|---|
-| leicht | eine Definition, eine Regel, eine Rechentechnik (Knotenregel, Reihenschaltung, Erwartungswert) | 500 bis 1000 Wörter (3 bis 6 min) | 1200 bis 2000 Wörter (7 bis 12 min) |
-| mittel | ein Mechanismus oder eine zentrale Formel mit Anwendungen (Laden eines Kondensators, Drift im Leiter, Satz von Stokes) | 1000 bis 1800 Wörter (6 bis 11 min) | 2000 bis 3500 Wörter (12 bis 21 min) |
-| schwer | mehrere zusammenwirkende Mechanismen und Kipp-Stellen (pn-Übergang, Bipolartransistor, Integralsätze im Raum) | 1800 bis 2800 Wörter (11 bis 16 min) | 3500 bis 5000 Wörter (21 bis 29 min) |
+| leicht | eine Definition, eine Regel, eine Rechentechnik (Knotenregel, Reihenschaltung, Erwartungswert) | 500 bis 1500 Wörter (3 bis 9 min) | 1200 bis 3000 Wörter (7 bis 18 min) |
+| mittel | ein Mechanismus oder eine zentrale Formel mit Anwendungen (Laden eines Kondensators, Drift im Leiter, Satz von Stokes) | 1000 bis 3000 Wörter (6 bis 18 min) | 2000 bis 5000 Wörter (12 bis 29 min) |
+| schwer | mehrere zusammenwirkende Mechanismen und Kipp-Stellen (pn-Übergang, Bipolartransistor, Integralsätze im Raum) | 1800 bis 4000 Wörter (11 bis 24 min) | 3500 bis 7000 Wörter (21 bis 41 min) |
+
+**Vollständigkeit geht vor der Länge** (Entscheidung des Users vom 22.10.2026, mit der die Spannen erhöht wurden): Es wird alles Wichtige genannt. Die Spannen sind Richtwerte, keine Obergrenzen für Wichtiges.
 
 **Platz innerhalb eines Artikels** richtet sich ebenfalls nach der Schwierigkeit:
 - **Definition:** zwei Sätze und ein Satz dazu, warum man sie so wählt.
@@ -143,9 +145,9 @@ Orientierung für den **Hauptpfad**, gemessen in Wörtern. Zum Hauptpfad gehört
 - **Kipp-Stelle:** eine Schrittfolge (§4.5) mit Abbildung, Zahl, Herleitung und Beispiel. Eine Kipp-Stelle in zwei Sätzen ist ein Fehler, auch in der kompakten Fassung.
 
 **Liegt ein Hauptpfad über der Spanne:**
-1. Streiche zuerst Doppelungen (§3.4).
-2. Verschiebe dann in der ausführlichen Fassung V-Inhalte in `:::vertiefung`-Kästen bzw. nimm in der kompakten Fassung H-Inhalte heraus.
-3. Reicht das nicht, schlag dem User vor, das Thema zu teilen. Teile nicht eigenmächtig.
+1. Streiche Doppelungen (§3.4) und Unwichtiges (Kategorie S, §3.2).
+2. Wichtiges bleibt stehen, auch über der Spanne. In der kompakten Fassung gilt weiter §3.2: H-Inhalte nur, soweit der Kern sie braucht. V-Inhalte der ausführlichen Fassung können in `:::vertiefung`-Kästen stehen.
+3. Eine Teilung schlägst du nur vor, wenn das Thema aus klar getrennten Teilen besteht und trotzdem deutlich über der Spanne liegt. Teile nicht eigenmächtig.
 
 **Unter der Spanne zu bleiben ist kein Fehler**, solange der Neuling-Test (§11) keine Lücke findet. Zu knapp ist ein Artikel, sobald ein Begriff unerklärt bleibt, ein Schritt ohne Grund steht oder eine Formel ohne Deutung.
 
@@ -884,7 +886,7 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
 
 ## 13. Was sich gegenüber den bisherigen Artikeln ändert (Kurzfassung)
 
-- **Zwei Fassungen pro Thema:** kompakt und ausführlich, umschaltbar. Die ausführliche ist etwas kompakter als das Lernskript, die kompakte etwa halb so lang wie die ausführliche.
+- **Zwei Fassungen pro Thema:** kompakt und ausführlich, umschaltbar. Die ausführliche ist etwas kompakter als das Lernskript, die kompakte deutlich kürzer als die ausführliche, aber mit allem Wichtigen (Wortvorgaben seit 22.10.2026 erhöht, §3.3).
 - **Aussortieren nach K/H/V/S;** keine Doppelungen; Länge nach Schwierigkeit.
 - **Erklären von null an:** jeder Begriff beim ersten Auftreten erklärt, Fließtext statt Aufzählung.
 - **Abstrakte Ausdrücke erst anschaulich:** ein einfacher, konkreter Fall, dann die Bedeutung in Worten, dann die formale Schreibweise (§5.10).
