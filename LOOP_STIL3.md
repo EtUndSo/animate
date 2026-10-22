@@ -56,19 +56,35 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
 
 ## (B1) Nächstes offenes Thema ermitteln
 
-Erst ET1, dann GEMB1. Innerhalb von ET1 kommt zuerst der Halbleiter-Block, Kap. 10 bis 12, danach Kap. 2 bis 9 (Entscheidung vom 21.10.2026). Gründe:
+**Reihenfolge der Module** (Entscheidung vom 22.10.2026): erst ET1, dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa). GEMB1 ist damit zurückgestellt; wann es folgt, stimmst du nach Numa mit dem User ab.
+
+Innerhalb von ET1 kommt zuerst der Halbleiter-Block, Kap. 10 bis 12, danach Kap. 2 bis 9 (Entscheidung vom 21.10.2026). Gründe:
 - Der Block baut direkt auf dem Piloten und seinem Zahlenwerk auf.
 - Er passt zum laufenden Praktikum MiNa.
 - Dem User war die Diode als nächstes Thema angekündigt.
 
-Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) kein `stil: 3` hat:
+Ein Thema ist offen, solange seine kompakte Datei (ohne `-ausfuehrlich`) fehlt oder kein `stil: 3` hat. Die Numa-Themen stehen als Dateipfade im Themenplan (B1a):
 
 ```
-cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1/1[0-2]-* -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' ! -path 'content/get1/1[0-2]-*' | sort) $(find content/gemb1 -name '*.md' ! -name '*-ausfuehrlich.md' | sort); do grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
+cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1/1[0-2]-* -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(find content/get1 -name '*.md' ! -name '*-ausfuehrlich.md' ! -path 'content/get1/1[0-2]-*' | sort) $(find content/hoema3 -name '*.md' ! -name '*-ausfuehrlich.md' | sort) $(grep -o 'content/numa/[^ |`]*\.md' notizen/numa/themenplan.md 2>/dev/null); do [ -f "$f" ] && grep -q '^stil: 3' "$f" && continue; echo "$f"; break; done
 ```
 
-- **Erstes gemb1-Thema:** dem User melden („ET1 in Stil 3 komplett, weiter mit GEMB1“), im Loop per PushNotification, und ohne Stopp weitermachen.
-- **Leere Ausgabe:** ET1 und GEMB1 sind komplett. Melden, im Loop ScheduleWakeup mit nur `stop: true`, und mit dem User abstimmen, wie es weitergeht (HöMa3, mmet, ET3, Schaltungstechnik 1). Lege **nicht** eigenmächtig neue Module oder Themen an.
+- **Erstes hoema3-Thema:** dem User melden („ET1 in Stil 3 komplett, weiter mit HöMa3“), im Loop per PushNotification, und ohne Stopp weitermachen. Vorher den HöMa3-Volltext anlegen (B3).
+- **Leere Ausgabe, `notizen/numa/themenplan.md` fehlt:** HöMa3 ist komplett. Melden („HöMa3 in Stil 3 komplett, weiter mit Numa“), im Loop per PushNotification. In diesem Durchgang das Modul Numa einrichten (B1a), committen und berichten; das erste Numa-Thema folgt im nächsten Durchgang.
+- **Leere Ausgabe, Themenplan vorhanden:** ET1, HöMa3 und Numa sind komplett. Melden, im Loop ScheduleWakeup mit nur `stop: true`, und mit dem User abstimmen, wie es weitergeht (GEMB1, mmet, ET3, Schaltungstechnik 1). Lege **nicht** eigenmächtig weitere Module oder Themen an.
+
+### (B1a) Modul Numa einrichten (einmalig, vom User am 22.10.2026 beauftragt)
+
+1. **Entpacken:** `C:\Bücher\EtUndSo\3.Semester\(UE) Numerische Mathematik für Elektrotechnik (Großgruppenübung)_20261019_1452.zip` mit Pythons `zipfile` in einen neuen, leeren Ordner `C:\Bücher\EtUndSo\3.Semester\Numa\` entpacken. Nichts aus dem Archiv ausführen. Inhalt: `Vorlesungsfolien  Skript/Buch zur Vorlesung.pdf`, `Fortschritt der Vorlesung.html`, Foliensätze zu Kap. 2, 3, 4, 5, 6, 8 und 10, Übungsblätter 1 bis 8.
+2. **Volltext:** `tools/dump_numa.py` nach dem Muster von `dump_get1.py`; Quelle ist das Buch, Ausgabe `C:\Bücher\EtUndSo\_volltext\numa_clean.txt` mit Markierungen „=== Seite N“.
+3. **Themenplan:** aus dem Inhaltsverzeichnis des Buchs, abgeglichen mit dem Vorlesungsfortschritt und den Foliensätzen; ein Thema hat etwa den Umfang eines HöMa3-Themas. Festhalten in `notizen/numa/themenplan.md`, je Thema eine Tabellenzeile mit:
+   - Dateipfad `content/numa/<nn>-<kapitel>/<nr>-<slug>.md`;
+   - `title`, `pfad` (`Elektrotechnik / 3. Semester / Numerische Mathematik für Elektrotechnik / <Kapitel>`), `order` (Muster 35KKTT00), `tags`;
+   - Buchseiten und zugehörige Folien.
+
+   Die Artikeldateien entstehen erst beim jeweiligen Thema (B5). Weil es keinen alten Artikel gibt, kommen `title`, `pfad`, `order` und `tags` aus dem Themenplan.
+4. **Prüfen:** Der B1-Befehl muss danach das erste Numa-Thema ausgeben.
+5. **Commit** („Numa: Volltext und Themenplan“) und Bericht an den User mit dem Themenplan.
 
 ## (B2) Vorarbeit: Arbeitsnotiz und Zahlen (ERKLAER_PROMPT §10)
 
@@ -96,7 +112,20 @@ cd /c/Users/info/PycharmProjects/pythonanimation && for f in $(find content/get1
 - **Im PDF prüfen:** Abbildungen, Schaltbilder und Vorzeichen mit Read (pages).
 - **Nur als Ideengeber:** `Übung\GGET1 Formelsammlung.pdf` und die KGÜ-Hilfsfolien. Keine Aufgaben kopieren.
 
-**GEMB1:**
+**HöMa3:**
+- **Skript:** `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf`.
+- **Volltext:** Beim ersten HöMa3-Thema `tools/dump_hoema3.py` nach dem Muster von `dump_get1.py` anlegen. Ausgabe nach `C:\Bücher\EtUndSo\_volltext\hoema3_clean.txt`, mit Markierungen „=== Seite N“.
+- **Als Hilfe:** die eigenen Zusammenfassungen `C:\Bücher\HöMa3\Zusammenfassungen\HM3_Kap*.md` (Kap. 1 bis 4).
+- **Nur als Ideengeber:** das Material in `C:\Bücher\EtUndSo\3.Semester\(VO) Höhere Mathematik 3_20261019_1451.zip`. Keine Aufgaben kopieren.
+- **Zahlenwerk:** `notizen/hoema3/zahlen_<kapitel>.py`; Integrale, Flüsse, Koeffizienten und Wahrscheinlichkeiten der Beispiele werden dort berechnet.
+
+**Numa** (nach B1a):
+- **Buch:** `C:\Bücher\EtUndSo\3.Semester\Numa\Vorlesungsfolien  Skript\Buch zur Vorlesung.pdf`, Folien je Kapitel im selben Ordner.
+- **Volltext:** `C:\Bücher\EtUndSo\_volltext\numa_clean.txt`.
+- **Nur als Ideengeber:** die Übungsblätter 1 bis 8. Keine Aufgaben kopieren.
+- **Zahlenwerk:** `notizen/numa/zahlen_<kapitel>.py`; die Verfahren werden dort tatsächlich ausgeführt (Fehlerverläufe, Konvergenzordnungen, Kondition), und jede Zahl der Artikel stammt daraus.
+
+**GEMB1** (zurückgestellt, Entscheidung vom 22.10.2026):
 - **Folien:** `C:\Bücher\GEMB\(VO) Grundlagen elektronischer Materialien und Bauelemente 1_20260831_1820\Vorlesungsfolien\Vorlesung 1.pdf` bis `Vorlesung 14.pdf`, dazu der Ordner „Vorlesungsfolien mit Anmerkungen“.
 - **Volltext:** Beim ersten GEMB1-Thema `tools/dump_gemb1.py` nach dem Muster von `dump_get1.py` anlegen. Ausgabe nach `C:\Bücher\EtUndSo\_volltext\gemb1_clean.txt`, mit Markierungen „=== Vorlesung V Seite N“.
 - **Nur als Ideengeber:** Frontal-, Kleingruppen- und Selbstrechenübungen. Keine Aufgaben kopieren.
