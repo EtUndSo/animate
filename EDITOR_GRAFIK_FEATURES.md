@@ -176,7 +176,20 @@ Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und
 ## 19. Wirkungsketten und Blockbilder  — **P2** (neu 2026-10-21, Arbeitspunkt)
 - Kästen mit Text und Formeln, verbunden durch Pfeile; Anordnung als Kette oder als geschlossener Kreis, Pfeile folgen der Anordnung automatisch.
 - Vorzeichen oder Symbole an Pfeilen und Kästen (+/−, steigt/sinkt), damit Mit- und Gegenkopplung unterscheidbar sind; Auslöser als Kasten außerhalb des Kreises.
-Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); absehbar Gegenkopplung beim Operationsverstärker und Regelkreise.
+Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); absehbar Regelkreise.
+
+
+## 20. Hystereseschleifen  — **P2** (neu 2026-10-22, Operationsverstärker)
+- Kennlinie mit zwei Ästen, die je nach Laufrichtung gelten; senkrechte Sprünge an den Schwellen; Pfeile auf Ästen und Sprüngen.
+- Instabile Zwischenlösungen gestrichelt; Schwellen und Hysteresebreite als Maßpfeile.
+- Animierbar: ein Punkt folgt einer vorgegebenen Eingangsspannung hin und zurück und springt an den Schwellen.
+Gebraucht in: Schmitt-Trigger (get1/operationsverstaerker/01-schmitt-kennlinie); absehbar Magnetisierungskurven (Ferromagnetismus).
+
+## 21. Rausch- und Zufallssignale  — **P2** (neu 2026-10-22, Operationsverstärker)
+- Zeitverläufe aus Zufallszahlen mit festem Startwert, vorgegebenem Effektivwert und begrenzter Bandbreite (weißes, gefiltertes und 1/f-Rauschen).
+- Überlagerung mit deterministischen Signalen (Sinus plus Rauschen); Hilfslinien beim Effektivwert.
+- Dazu die Rauschdichte über der Frequenz, doppelt logarithmisch (§4).
+Gebraucht in: Rauschen eines Widerstands (get1/operationsverstaerker/01-rauschen), Komparator gegen Schmitt-Trigger (01-schmitt-rauschen).
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

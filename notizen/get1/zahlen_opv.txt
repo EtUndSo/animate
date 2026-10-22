@@ -1,0 +1,165 @@
+====================================================================================================
+THEMA 01 (Kap. 12.1–12.4): Rauschen
+====================================================================================================
+T = 300 K, kT = 4.1419e-21 J, U_T = 25.85 mV
+1) Thermisches Rauschen, Dichte sqrt(4kTR) und Effektivwerte
+   R =       100 Ohm: Dichte    1.29 nV/sqrt(Hz) (|u|^2 = 1.657e-18 V^2/Hz); 20 kHz:   0.182 uV; 1 MHz:    1.29 uV
+   R =      1000 Ohm: Dichte    4.07 nV/sqrt(Hz) (|u|^2 = 1.657e-17 V^2/Hz); 20 kHz:   0.576 uV; 1 MHz:    4.07 uV
+   R =     10000 Ohm: Dichte   12.87 nV/sqrt(Hz) (|u|^2 = 1.657e-16 V^2/Hz); 20 kHz:   1.820 uV; 1 MHz:   12.87 uV
+   R =    100000 Ohm: Dichte   40.70 nV/sqrt(Hz) (|u|^2 = 1.657e-15 V^2/Hz); 20 kHz:   5.756 uV; 1 MHz:   40.70 uV
+   R =   1000000 Ohm: Dichte  128.72 nV/sqrt(Hz) (|u|^2 = 1.657e-14 V^2/Hz); 20 kHz:  18.203 uV; 1 MHz:  128.72 uV
+   Einheitenprobe: kT*R in J*Ohm = V^2*s; 4kTR bei 1 kOhm = 1.6568e-17 V^2/Hz
+   Kühlung auf 77 K: Faktor sqrt(77/300) = 0.5066; 10 kOhm, 20 kHz: 0.922 uV
+   Signal  1000.0 uV gegen 10 kOhm/20 kHz: SNR 54.8 dB
+   Signal    10.0 uV gegen 10 kOhm/20 kHz: SNR 14.8 dB
+2) kT/C-Rauschen und Herleitung von 4kTR über die Rauschbandbreite des RC-Tiefpasses
+   C =     1 pF: sqrt(kT/C) =  64.36 uV (unabhängig von R)
+   C =    10 pF: sqrt(kT/C) =  20.35 uV (unabhängig von R)
+   C =   100 pF: sqrt(kT/C) =   6.44 uV (unabhängig von R)
+   R =    10000 Ohm, C = 10 pF: Grenzfrequenz  1.5915 MHz, Rauschbandbreite numerisch  2.5000 MHz, 1/(4RC) =  2.5000 MHz, Verhältnis 1.5708 (pi/2 = 1.5708); sqrt(4kTR*bw) =  20.35 uV
+   R =     1000 Ohm, C = 10 pF: Grenzfrequenz 15.9155 MHz, Rauschbandbreite numerisch 25.0000 MHz, 1/(4RC) = 25.0000 MHz, Verhältnis 1.5708 (pi/2 = 1.5708); sqrt(4kTR*bw) =  20.35 uV
+   R =  1000000 Ohm, C = 10 pF: Grenzfrequenz  0.0159 MHz, Rauschbandbreite numerisch  0.0250 MHz, 1/(4RC) =  0.0250 MHz, Verhältnis 1.5708 (pi/2 = 1.5708); sqrt(4kTR*bw) =  20.35 uV
+   Thermische Grenzfrequenz, oberhalb der 4kTR nicht mehr gilt: kT/h = 6.25 THz
+3) Schrotrauschen sqrt(2eI)
+   I =    1e-03 A: Dichte   17.9007 pA/sqrt(Hz); 20 kHz: 2.532e-09 A eff, relativ 0.0003 %
+   I =    1e-06 A: Dichte    0.5661 pA/sqrt(Hz); 20 kHz: 8.005e-11 A eff, relativ 0.0080 %
+   I =    1e-09 A: Dichte    0.0179 pA/sqrt(Hz); 20 kHz: 2.532e-12 A eff, relativ 0.2532 %
+   I =    1e-12 A: Dichte    0.0006 pA/sqrt(Hz); 20 kHz: 8.005e-14 A eff, relativ 8.0054 %
+   Zählmodell: 1 mA, Fenster tau = 1/(2*20 kHz) = 25.0 us: N = 1.5604e+11 Ladungen, sqrt(N) = 3.9502e+05, relative Schwankung 0.00025 % (= 0.00025 % aus 2eI)
+4) 1/f-Rauschen: gleiche Leistung je Dekade; OPV mit 23 nV/sqrt(Hz) weiß und angenommener Eckfrequenz 100 Hz
+   1/f-Anteil je Dekade: 349.0 nV eff (Dichte^2 * f_c * ln 10)
+   Dichte bei      1 Hz: 231.1 nV/sqrt(Hz)
+   Dichte bei     10 Hz: 76.3 nV/sqrt(Hz)
+   Dichte bei    100 Hz: 32.5 nV/sqrt(Hz)
+   Dichte bei   1000 Hz: 24.1 nV/sqrt(Hz)
+       0.1 Hz bis       10 Hz: nur weiß     72.4 nV, mit 1/f    498.8 nV
+      10.0 Hz bis     1000 Hz: nur weiß    723.7 nV, mit 1/f    876.0 nV
+    1000.0 Hz bis    20000 Hz: nur weiß   3170.3 nV, mit 1/f   3195.2 nV
+      20.0 Hz bis    20000 Hz: nur weiß   3251.1 nV, mit 1/f   3306.8 nV
+5) Unabhängige Quellen addieren sich quadratisch: OPV-Rauschen 23 nV/sqrt(Hz) + Quelle 10 kOhm
+   sqrt(23.0^2 + 12.87^2) = 26.36 nV/sqrt(Hz) (lineare Summe wäre 35.9)
+6) Signal-Rausch-Verhältnis einer Messkette (20 kHz Bandbreite)
+   Sensor: Signal 1 mV eff, Innenwiderstand 10 kOhm -> Rauschen 1.820 uV, SNR 3.018e+05 = 54.8 dB
+   Verstärker (23 nV/sqrt(Hz) -> 3.253 uV am Eingang): Gesamtrauschen am Eingang 3.727 uV, SNR 7.198e+04 = 48.6 dB (um 6.2 dB schlechter)
+   Verstärkung 100: Ausgang 100 mV, Rauschen 372.7 uV, SNR unverändert 48.6 dB
+   Folgestufe mit 1 mV Eigenrauschen: ohne Vorverstärker SNR 1.000 = -0.0 dB; mit Vorverstärker 8780.1 = 39.4 dB
+   Variation Verstärkung 1000: hinter der Folgestufe 48.3 dB
+   Verhältnis Signal/Rauschen hinter der Folgestufe (mit, Verstärkung 100): 93.7
+   dB-Probe: Faktor 10 in der Spannung = 20 dB, Faktor 2 = 6.02 dB
+7) Effektivwert und Quadrat-Mittel: Sinus 1 V Amplitude -> 1/sqrt(2) = 0.7071 V; Summe zweier Sinus 1 V (50 Hz) + 1 V (150 Hz): 1.0000 V (sqrt(0,5+0,5) = 1)
+====================================================================================================
+THEMA 01: Differenzverstärker (U_CC = +15 V, U_EE = -15 V, R_C = 10 kOhm, Fußstrom I_0 = 1 mA)
+====================================================================================================
+Ruhe (U_e1 = U_e2 = 0): I_C = 0.4991 mA je Zweig, I_B = 0.928 uA, Emitterknoten -0.6349 V, U_BE = 0.6349 V, U_C = 10.0093 V, U_CE = 10.644 V
+   U_RC = 4.9907 V; Steilheit g_m = I_C/U_T = 19.305 mS (mit 0,5 mA: 19.341 mS)
+Kleinsignal (U_e1 um ±0,1 mV, U_e2 fest): dU_A/dU_e1 = -181.80 (Differenzausgang); U_a1 allein -90.90, U_a2 allein 90.90
+   Emitterknoten folgt mit 0.4998 (halbe Eingangsänderung); dI_C1/dU_e1 = 9.090 mS = g_m * 0.4709
+   Formel -g_m R_C = -193.4 (ideal, 0,5 mA); mit r_CE: r_CE = (70 V + U_CE)/I_C = 161.6 kOhm, -g_m (R_C||r_CE) = -181.8
+   Skriptformel -2 S R = -386.8 (Faktor 2 zu groß)
+   Obergrenze mit Widerstandslast: U_RC/U_T = 193; mit der ganzen Versorgung 15 V/U_T = 580
+Großsignal: Stromaufteilung über U_e1 - U_e2 (vollständiges Modell gegen Formel I_0/(1+exp(-U/U_T)))
+      0.00 mV: I_C1/(I_C1+I_C2) = 0.5000 (Formel 0.5000, Gerade 0.5000); I_C1/I_C2 = 1.0000 (exp 1.0000); U_A = 0.000 V; tanh-Fehler gegen lineare Näherung 0.00 %
+      5.00 mV: I_C1/(I_C1+I_C2) = 0.5454 (Formel 0.5482, Gerade 0.5484); I_C1/I_C2 = 1.1998 (exp 1.2134); U_A = -0.907 V; tanh-Fehler gegen lineare Näherung -0.31 %
+     10.00 mV: I_C1/(I_C1+I_C2) = 0.5901 (Formel 0.5955, Gerade 0.5967); I_C1/I_C2 = 1.4398 (exp 1.4723); U_A = -1.799 V; tanh-Fehler gegen lineare Näherung -1.23 %
+     25.85 mV: I_C1/(I_C1+I_C2) = 0.7202 (Formel 0.7311, Gerade 0.7500); I_C1/I_C2 = 2.5740 (exp 2.7183); U_A = -4.396 V; tanh-Fehler gegen lineare Näherung -7.58 %
+     50.00 mV: I_C1/(I_C1+I_C2) = 0.8634 (Formel 0.8737, Gerade 0.9835); I_C1/I_C2 = 6.3220 (exp 6.9177); U_A = -7.255 V; tanh-Fehler gegen lineare Näherung -22.71 %
+    100.00 mV: I_C1/(I_C1+I_C2) = 0.9770 (Formel 0.9795, Gerade 1.4670); I_C1/I_C2 = 42.5146 (exp 47.8549); U_A = -9.522 V; tanh-Fehler gegen lineare Näherung -50.41 %
+    150.00 mV: I_C1/(I_C1+I_C2) = 0.9966 (Formel 0.9970, Gerade 1.9506); I_C1/I_C2 = 292.6543 (exp 331.0466); U_A = -9.912 V; tanh-Fehler gegen lineare Näherung -65.74 %
+Gleichtakt (beide Eingänge gleich verschoben), ideale Stromquelle:
+   U_Gl = -5.0 V: I_C1 = 0.49913 mA, Emitterknoten -5.6334 V, U_a1 = 10.00874 V, U_A = 0.000 uV
+   U_Gl = +0.0 V: I_C1 = 0.49907 mA, Emitterknoten -0.6349 V, U_a1 = 10.00928 V, U_A = 0.000 uV
+   U_Gl = +5.0 V: I_C1 = 0.49901 mA, Emitterknoten 4.3634 V, U_a1 = 10.00989 V, U_A = 0.000 uV
+   Gleichtaktverstärkung am Einzelausgang (±1 V): 1.15e-04 (über die Basisströme/Early)
+Fußpunkt mit Widerstand statt Stromquelle: R_T = 14.365 kOhm für 1 mA, gerundet 14.4 kOhm
+   Ruhe: I_C = 0.4979 mA; Gleichtakt ±1 V: Fußstrom 1.0669 / 0.9283 mA, U_a2-Verstärkung -0.3457 (Formel -R_C/(2R_T) = -0.3472), Differenzausgang U_A 0.000 uV/V
+   Einzelausgang: Differenzverstärkung 90.52, Gleichtakt -0.3457, Verhältnis 262 = 48.4 dB
+Stromspiegel als Last (Abschätzung): g_m (r_CE2 || r_CE4) mit r_CE = (70 V + 10 V)/0,5 mA = 160 kOhm: 1547
+====================================================================================================
+THEMA 01: Beispiel-OPV (Art 741, ±15 V), Komparator, Flash-Wandler
+====================================================================================================
+v_D = 200000 (min 50000); Ausgang ±14 V; linearer Bereich |U_D| <= U_A,max/v_D = 70.0 uV (bei v_D min: 280 uV)
+   Offsetspannung 1 mV = 14.3-fache des linearen Bereichs
+   Eingangswiderstand 2 MOhm; Ruhestrom 80 nA; Strom durch R_e bei 70 uV: 35 pA
+Komparator: Ausgang +14 V für U_D > 70 uV, -14 V für U_D < -70 uV
+Flash-Wandler 2 Bit, U_Ref = 2.0 V, 4 gleiche Widerstände: Schwellen [0.5, 1.0, 1.5] V; U_E = 1.2 V -> Komparatoren (oben nach unten) 011 -> 2 = binär 10, Bereich 1.0 bis 1.5 V; Stufe 0.5 V
+    2 Bit:    3 Komparatoren,    4 Widerstände
+    3 Bit:    7 Komparatoren,    8 Widerstände
+    8 Bit:  255 Komparatoren,  256 Widerstände
+   10 Bit: 1023 Komparatoren, 1024 Widerstände
+====================================================================================================
+THEMA 01: Rückkopplung mit Teiler R_1 = 10 kOhm, R_2 = 90 kOhm, k = 0.1
+====================================================================================================
+   v_D =     50000: A = U_A/U_E = 9.998000, Abweichung von 1/k = -0.02000 %, k v_D = 5000, U_D/U_E = 1/(1+k v_D) = 2.000e-04
+   v_D =    200000: A = U_A/U_E = 9.999500, Abweichung von 1/k = -0.00500 %, k v_D = 20000, U_D/U_E = 1/(1+k v_D) = 5.000e-05
+   v_D =   1000000: A = U_A/U_E = 9.999900, Abweichung von 1/k = -0.00100 %, k v_D = 100000, U_D/U_E = 1/(1+k v_D) = 1.000e-05
+   v_D von 200 000 auf 50 000 (-75 %): A ändert sich um 0.0150 %
+   U_D bei U_A = 5 V: 25.0 uV; bei 14 V: 70.0 uV; Eingangsstrom über R_e bei 25 uV: 12.5 pA
+   Sättigung: U_E = 2 V, A = 10 -> U_A wäre 20 V, begrenzt auf 14 V: U_D = 2 V - 0,1*14 V = 0.60 V
+Dynamik: omega_T = 6.2832e+06 1/s; Leerlauf-Zeitkonstante tau_0 = v_D/omega_T = 31.83 ms (Grenzfrequenz 5.00 Hz)
+   mit Rückkopplung tau = 1/(k omega_T) = 1.5915 us (einpolig exakt tau_0/(1+k v_D) = 1.5915 us); 63 % nach 1.59 us, 0,1 % nach 10.99 us
+   Anstieg zu Beginn = omega_T U_E; linear bis U_E = SR/omega_T = 79.6 mV
+   omega_T * 1 mV = 6.28 V/ms; Sprung 50 mV: Anfangssteigung 0.314 V/us
+   Spannungsfolger k = 1: tau = 0.1592 us; k = 0,1: 1.5915 us
+   Integratormodell: G_m1 = omega_T C_c = 0.1885 mS; größter Ladestrom SR C_c = 15.0 uA
+   Nichtlineare Eingangsstufe (Strom = I_max tanh(G_m1 U_D/I_max), I_max = 15.0 uA, G_m1 = 0.1885 mS):
+      U_D =  10.0 mV: linear  1.885 uA, tanh  1.875 uA (-0.52 %), Anfangssteigung 0.0625 V/us statt 0.0628
+      U_D =  50.0 mV: linear  9.425 uA, tanh  8.353 uA (-11.37 %), Anfangssteigung 0.2784 V/us statt 0.3142
+      U_D =  79.6 mV: linear 15.000 uA, tanh 11.424 uA (-23.84 %), Anfangssteigung 0.3808 V/us statt 0.5000
+   Sprung U_E = 10 mV (Gegenkopplung), Endwert 0.099995 V, End-U_D 0.500 uV, Anfangssteigung 0.0628 V/us:
+      t =  0.00 us: U_A = 0.00000 V, U_D =  10000.000 uV, Integratormodell 0.00000 V
+      t =  1.00 us: U_A = 0.04666 V, U_D =   5333.893 uV, Integratormodell 0.04665 V
+      t =  2.00 us: U_A = 0.07155 V, U_D =   2845.150 uV, Integratormodell 0.07154 V
+      t =  3.00 us: U_A = 0.08482 V, U_D =   1517.740 uV, Integratormodell 0.08482 V
+      t =  4.00 us: U_A = 0.09190 V, U_D =    809.744 uV, Integratormodell 0.09190 V
+      t =  5.00 us: U_A = 0.09568 V, U_D =    432.123 uV, Integratormodell 0.09568 V
+      t =  6.00 us: U_A = 0.09769 V, U_D =    230.713 uV, Integratormodell 0.09769 V
+      t =  7.00 us: U_A = 0.09877 V, U_D =    123.288 uV, Integratormodell 0.09877 V
+      t =  8.00 us: U_A = 0.09934 V, U_D =     65.991 uV, Integratormodell 0.09934 V
+      t =  9.00 us: U_A = 0.09965 V, U_D =     35.431 uV, Integratormodell 0.09965 V
+      t = 10.00 us: U_A = 0.09981 V, U_D =     19.131 uV, Integratormodell 0.09981 V
+      t = 11.00 us: U_A = 0.09990 V, U_D =     10.437 uV, Integratormodell 0.09990 V
+      t = 12.00 us: U_A = 0.09994 V, U_D =      5.800 uV, Integratormodell 0.09995 V
+   Sprung U_E = 50 mV (Gegenkopplung), Endwert 0.499975 V, End-U_D 2.500 uV, Anfangssteigung 0.3142 V/us:
+      t =  0.00 us: U_A = 0.00000 V, U_D =  50000.000 uV, Integratormodell 0.00000 V
+      t =  1.00 us: U_A = 0.23331 V, U_D =  26669.466 uV, Integratormodell 0.23326 V
+      t =  2.00 us: U_A = 0.35774 V, U_D =  14225.752 uV, Integratormodell 0.35770 V
+      t =  3.00 us: U_A = 0.42411 V, U_D =   7588.699 uV, Integratormodell 0.42408 V
+      t =  4.00 us: U_A = 0.45951 V, U_D =   4048.720 uV, Integratormodell 0.45950 V
+      t =  5.00 us: U_A = 0.47839 V, U_D =   2160.616 uV, Integratormodell 0.47839 V
+      t =  6.00 us: U_A = 0.48846 V, U_D =   1153.566 uV, Integratormodell 0.48847 V
+      t =  7.00 us: U_A = 0.49384 V, U_D =    616.439 uV, Integratormodell 0.49385 V
+      t =  8.00 us: U_A = 0.49670 V, U_D =    329.954 uV, Integratormodell 0.49672 V
+      t =  9.00 us: U_A = 0.49823 V, U_D =    177.153 uV, Integratormodell 0.49825 V
+      t = 10.00 us: U_A = 0.49904 V, U_D =     95.654 uV, Integratormodell 0.49907 V
+      t = 11.00 us: U_A = 0.49948 V, U_D =     52.185 uV, Integratormodell 0.49950 V
+      t = 12.00 us: U_A = 0.49971 V, U_D =     29.000 uV, Integratormodell 0.49973 V
+   Mitkopplung (invertierender Schmitt-Trigger, U_E = 0), Start mit kleiner Abweichung von der Ruhelage U_A = 0:
+      U_A(0) = 0.130 mV, Slew-Rate aus: |U_A| erreicht 13 V nach 18.3 us (Exponentialphase allein: tau ln(13 V/U_A0) = 18.3 us)
+      U_A(0) = 0.130 mV, Slew-Rate an: |U_A| erreicht 13 V nach 38.3 us (Exponentialphase allein: tau ln(13 V/U_A0) = 18.3 us)
+      U_A(0) = 10.000 mV, Slew-Rate an: |U_A| erreicht 13 V nach 31.4 us (Exponentialphase allein: tau ln(13 V/U_A0) = 11.4 us)
+   thermisches Rauschen 10 kOhm über 1 MHz: 12.9 uV (am Eingang; U_A0 = U_D/k = 0.129 mV)
+Zyklenbild des Skripts (Ausgang springt je Zyklus auf v_D U_D), Gegenkopplung, U_E = 0,5 V, Start U_A = 0:
+   Zyklus 1: U_A = 1.0000e+05 V
+   Zyklus 2: U_A = -1.9999e+09 V
+   Zyklus 3: U_A = 3.9998e+13 V
+   Zyklus 4: U_A = -7.9996e+17 V
+   Faktor je Zyklus -k v_D = -20000; Ruhelage 4.99975 V
+   invertierender Verstärker (Skript Bild 12.7) mit R_2/R_1 = 9, U_E = 0,5 V: Faktor je Zyklus -v_D R_1/(R_1+R_2) = -20000
+   Zyklus 1: U_A = -9.0000e+04 V
+   Zyklus 2: U_A = 1.7999e+09 V
+   Zyklus 3: U_A = -3.5998e+13 V
+====================================================================================================
+THEMA 01: Invertierender Schmitt-Trigger (R_1 = 10 kOhm nach Masse, R_2 = 90 kOhm vom Ausgang, k = 0,1)
+====================================================================================================
+Schwellen: U_S,o = k U_A,max = 1.40 V (hoch -> tief), U_S,u = k U_A,min = -1.40 V (tief -> hoch); Hysteresebreite 2.80 V
+   Datenblatt-Minimum ±12 V: Schwellen ±1.20 V
+   Ruhelage U_A = U_E/k existiert (z. B. U_E = 0,5 V -> 5.0 V), ist aber instabil
+Verrauschter Eingang: Sinus 3 V, 50 Hz, Rauschen 0,2 V eff. (Abtastung 200 kHz), 40 ms: 4 Nulldurchgänge des Sinus
+   Komparator (Schwelle 0): 210 Umschaltungen; Schmitt-Trigger (±1,4 V): 4 Umschaltungen
+   Umschaltungen je Nulldurchgang (Komparator): [43, 59, 57, 51]; Dauer der Unruhe in ms: [0.64, 0.79, 0.72, 0.75]
+   Ohne Rauschen schaltet der Schmitt-Trigger bei ±1,4 V, also 27.8° nach dem Nulldurchgang (1.55 ms)
+   Schmitt-Wechsel bei t =   5.910 ms: 0.91 ms nach dem Nulldurchgang, Signal ohne Rauschen -0.846 V, mit Rauschen -1.422 V; zum Zurückschalten nötiger Rauschausschlag 2.25 V = 11.2 Effektivwerte
+   Schmitt-Wechsel bei t =  16.090 ms: 1.09 ms nach dem Nulldurchgang, Signal ohne Rauschen +1.007 V, mit Rauschen +1.530 V; zum Zurückschalten nötiger Rauschausschlag 2.41 V = 12.0 Effektivwerte
+   Schmitt-Wechsel bei t =  26.085 ms: 1.09 ms nach dem Nulldurchgang, Signal ohne Rauschen -1.003 V, mit Rauschen -1.520 V; zum Zurückschalten nötiger Rauschausschlag 2.40 V = 12.0 Effektivwerte
+   Schmitt-Wechsel bei t =  36.005 ms: 1.01 ms nach dem Nulldurchgang, Signal ohne Rauschen +0.932 V, mit Rauschen +1.618 V; zum Zurückschalten nötiger Rauschausschlag 2.33 V = 11.7 Effektivwerte
+   Rauschen 0,2 V eff: Hysterese 2,8 V = 14 Effektivwerte

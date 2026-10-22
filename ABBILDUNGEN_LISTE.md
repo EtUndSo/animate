@@ -1229,3 +1229,180 @@ Gemeinsamer Anschluss jeweils farbig hervorgehoben.
 - §4 zwei Kurven;
 - §12 logarithmische x-Achse;
 - §11 Datenkurven.
+
+## ET1 Kap. 12: Der Operationsverstärker – idealer OPV und Rückkopplung
+Zahlenwerk: `notizen/get1/zahlen_opv.py` (neu; Beispiel-OPV nach Art des 741 an ±15 V: $v_D$ = 200 000, mindestens 50 000, $f_T$ = 1 MHz, 0,5 V/µs, ±14 V, 23 nV/√Hz; Differenzverstärker mit dem Beispieltransistor aus `zahlen_transistor.py`), Funktionen `u_therm`, `u_ktc`, `enbw_rc`, `i_schrot`, `u_1f`, `diffpaar`, `a_geschlossen`, `sim`, `schmitt_kette`; Ausgabe `zahlen_opv.txt`.
+
+**get1/operationsverstaerker/01-opv-kennlinie**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltsymbol des OPV (Dreieck): links Pluseingang (nichtinvertierend) und Minuseingang (invertierend), Zählpfeil $U_D$ vom Plus- zum Minuseingang; rechts Ausgang mit $U_A$ gegen Masse; oben +15 V, unten −15 V.
+- (b) $U_A$ über $U_D$ von −200 µV bis +200 µV (x in µV, y in V von −16 bis +16 V): Gerade mit Steigung 200 000 zwischen −70 µV und +70 µV, außerhalb waagrecht bei ±14 V; ±15 V grau gestrichelt; der lineare Bereich ±70 µV hellgrau hinterlegt und beschriftet.
+
+*Kernaussage:* Proportional zur Differenz ist der Ausgang nur in einem Fenster von ±70 µV; außerhalb meldet er nur ihr Vorzeichen.
+
+*Daten:* `bericht_opv()` (linearer Bereich 70 µV, bei $v_D$ min 280 µV).
+
+*Editor:*
+- §1 OPV-Symbol mit Zählpfeilen;
+- §4 Kennlinie mit Sättigung und hinterlegtem Bereich;
+- §10 Teilbilder;
+- §15 optional: Schieberegler für $v_D$ (50 000 bis 1 000 000), das Fenster wird schmaler.
+
+**get1/operationsverstaerker/01-rauschen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Rauschspannung eines 10-kΩ-Widerstands bei 300 K, Bandbreite 1 MHz, über 20 µs (y in µV, etwa ±45 µV): unregelmäßiger Verlauf um null mit festem Zufallsstartwert; waagrechte Linien bei ±12,9 µV (Effektivwert), beschriftet.
+- (b) Rauschdichte in nV/√Hz über der Frequenz 0,1 Hz bis 1 MHz, beide Achsen logarithmisch: Widerstand 10 kΩ waagrecht bei 12,9 nV/√Hz (blau); Beispiel-OPV 23 nV/√Hz mit 1/f-Anstieg unterhalb der Eckfrequenz 100 Hz (rot), Stützwerte 231 nV/√Hz bei 1 Hz, 76 bei 10 Hz, 32,5 bei 100 Hz, 24,1 bei 1 kHz; Eckfrequenz markiert.
+
+*Kernaussage:* Den Verlauf des Rauschens kann man nicht vorhersagen, seine Größe aber genau angeben: als Effektivwert und als Dichte über der Frequenz.
+
+*Daten:* `u_therm`, Dichte des OPV aus `bericht_rauschen()` („Dichte bei …“); Zeitverlauf als gefiltertes Zufallssignal mit 12,9 µV Effektivwert.
+
+*Editor:*
+- §21 Rausch- und Zufallssignale (neu);
+- §4 doppeltlogarithmische Achsen;
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/01-messkette**
+- Fassung: ausführlich Abb. 3 (im Beispiel).
+- Status: offen.
+
+*Inhalt:* Blockschaltbild in zwei Zeilen.
+- Oben: Sensor (1 mV, 10 kΩ, Rauschen 1,82 µV, SNR 54,8 dB) → Vorverstärker (eigenes Rauschen 3,25 µV auf den Eingang bezogen, ×100; dahinter 100 mV, 373 µV, SNR 48,6 dB) → Folgestufe (+1 mV Rauschen; SNR 39,4 dB).
+- Unten: Sensor direkt an die Folgestufe: SNR 0 dB.
+- Unter jedem Block ein kleiner Balken für Signal (blau) und Rauschen (grau) im logarithmischen Maßstab.
+
+*Kernaussage:* Der Verstärker verschlechtert das Verhältnis an seiner Stelle, schützt das Signal aber vor dem Rauschen dahinter.
+
+*Daten:* `bericht_rauschen()` Punkt 6.
+
+*Editor:*
+- §19 Blockbilder mit Werten an Kästen und Pfeilen;
+- §12 logarithmischer Maßstab für die Pegelbalken.
+
+**get1/operationsverstaerker/01-differenzverstaerker**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltplan nach Skript Bild 12.1 mit Werten, abweichend vom Skript mit dem Emitter von Q3 an −15 V statt an Masse: Q1, Q2 (npn) mit je $R_C$ = 10 kΩ an +15 V; Emitter verbunden, Stromquelle 1 mA (Q3) nach −15 V; Eingänge $U_{e1}$, $U_{e2}$ an den Basen; $U_A$ zwischen den Kollektoren, Zählpfeil von Q1 nach Q2. Ruhewerte: je 0,499 mA, Kollektoren 10,0 V, Emitterknoten −0,635 V.
+- (b) $I_{C1}$ (rot) und $I_{C2}$ (blau) in mA über $U_{e1} - U_{e2}$ von −150 bis +150 mV: gegenläufige S-Kurven, Kreuzung bei 0 mV und 0,5 mA; Summe 1 mA als graue Linie; Tangente im Nullpunkt mit 9,67 mS gestrichelt; Punkte bei ±100 mV (98 % und 2 %) und ±25,85 mV (73 %) markiert.
+
+*Kernaussage:* Die Stromquelle hält die Summe fest, die Differenz der Eingänge verteilt sie.
+
+*Daten:* `diffpaar(u, 0)` (vollständiges Modell), Formel $I_0/(1 + \exp(-u/U_T))$ zum Vergleich; Tabelle in `bericht_differenz()`.
+
+*Editor:*
+- §1 Schaltplan mit npn-Transistoren und Stromquelle;
+- §4 zwei Kurven mit Tangente und markierten Punkten;
+- §11 Datenkurven;
+- §10 Teilbilder;
+- §15 optional: Schieberegler für $U_{e1} - U_{e2}$, die Stromstärke in den Zweigen als Pfeilbreite (§18).
+
+**get1/operationsverstaerker/01-gleichtakt**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Die Schaltung aus 01-differenzverstaerker dreimal nebeneinander, beide Eingänge auf −5 V, 0 V und +5 V. An den Knoten: Emitterknoten −5,633 V / −0,635 V / +4,363 V; Kollektorströme je 0,499 mA (Änderung 0,01 %); $U_A$ = 0. Die Basis-Emitter-Spannung (0,635 V) in allen drei Bildern als gleich langer Maßpfeil.
+
+*Kernaussage:* Der Emitterknoten folgt dem Gleichtakt; die Basis-Emitter-Spannungen und damit die Ströme bleiben.
+
+*Daten:* `diffpaar(ug, ug)` für −5, 0, +5 V.
+
+*Editor:*
+- §1 Schaltplan;
+- §10 drei Teilbilder nebeneinander;
+- §2 Maßpfeile;
+- §8 optional: Animation, beide Eingänge wandern gemeinsam, der Emitterknoten folgt.
+
+**get1/operationsverstaerker/01-flash-wandler**
+- Fassung: ausführlich Abb. 6 (im Beispiel).
+- Status: offen.
+
+*Inhalt:* Schaltplan: vier gleiche Widerstände 1 kΩ zwischen $U_{Ref}$ = 2 V und Masse, Abgriffe 1,5 V, 1,0 V, 0,5 V an den Minuseingängen von drei Komparatoren (OPV-Symbole); $U_E$ = 1,2 V an allen Pluseingängen. Ausgänge von oben nach unten −14 V, +14 V, +14 V, beschriftet 0, 1, 1. Daneben eine Skala 0 bis 2 V mit den vier Bereichen und den Binärwerten 00 bis 11, Bereich 1,0–1,5 V (10) markiert.
+
+*Kernaussage:* Die Zahl der Komparatoren, die „hoch“ zeigen, ist der Messwert.
+
+*Daten:* `bericht_opv()` (Flash-Wandler).
+
+*Editor:*
+- §1 Schaltplan mit mehreren OPV-Symbolen;
+- §7 Beschriftungen und Markierung des Bereichs;
+- §15 optional: Schieberegler für $U_E$, die Ausgänge schalten mit.
+
+**get1/operationsverstaerker/01-gegen-mit**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Zwei Schaltpläne nebeneinander aus denselben Bauteilen ($R_2$ = 90 kΩ Ausgang–Teilerknoten, $R_1$ = 10 kΩ Teilerknoten–Masse).
+- Links Gegenkopplung (nichtinvertierender Verstärker): Teilerknoten am Minus-, $U_E$ am Pluseingang. Darunter Wirkungskette: „$U_A$ ↑ → Minuseingang ↑ (ein Zehntel) → $U_D$ ↓ → $U_A$ steigt langsamer“, mit Minuszeichen am Rückweg.
+- Rechts Mitkopplung (invertierender Schmitt-Trigger nach Skript Bild 12.6): Teilerknoten am Plus-, $U_E$ am Minuseingang. Kette: „$U_A$ ↑ → Pluseingang ↑ → $U_D$ ↑ → $U_A$ steigt schneller“, mit Pluszeichen.
+- Der Rückkopplungsweg jeweils orange hervorgehoben.
+
+*Kernaussage:* Welcher Eingang das zurückgeführte Signal bekommt, entscheidet, ob die Schaltung regelt oder kippt.
+
+*Daten:* keine Kurven; Werte aus `bericht_rueckkopplung()`.
+
+*Editor:*
+- §1 Schaltplan mit OPV;
+- §19 Wirkungsketten mit Vorzeichen;
+- §7 Hervorhebung des Rückkopplungswegs;
+- §10 Teilbilder.
+
+**get1/operationsverstaerker/01-einschwingen**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Gegenkopplung, $k$ = 0,1, Eingangssprung 0 → 10 mV bei $t$ = 0 (klein gegen 80 mV, damit die Eingangsstufe linear arbeitet). Oben $U_A$ in mV über $t$ von 0 bis 12 µs: Anstieg auf 0,1 V (99,995 mV), 63 % bei 1,59 µs markiert, 0,1 %-Band ab 11 µs; Anfangstangente 63 mV/µs gestrichelt. Darunter, gemeinsame Zeitachse, $U_D$ logarithmisch von 10 mV bis 5,8 µV bei 12 µs; Endwert 0,5 µV gestrichelt.
+- (b) Mitkopplung (Schmitt-Trigger, $U_E$ = 0), Start 0,13 mV am Ausgang, $t$ von 0 bis 50 µs, $U_A$ logarithmisch oder linear mit Ausschnitt: exponentielles Wachstum mit 1,59 µs, ab etwa 0,8 V linear mit 0,5 V/µs, 13 V nach 38 µs; gestrichelt der rein exponentielle Verlauf (13 V nach 18 µs).
+
+*Kernaussage:* Gegenkopplung lässt jede Abweichung abklingen, Mitkopplung lässt sie mit derselben Zeitkonstante wachsen.
+
+*Daten:* `sim("gegen", lambda t: 0.01, 12e-6, aufzeichnen=…)` und `sim("mit", lambda t: 0.0, 80e-6, ua0=1.3e-4, sr=True/False)`.
+
+*Editor:*
+- §5 Zeitverläufe mit markierter Zeitkonstante;
+- §13 gestapelte Diagramme mit gemeinsamer Zeitachse;
+- §12 logarithmische y-Achse;
+- §11 Datenkurven;
+- §8 optional: Animation, ein Punkt läuft auf der Kurve, daneben der Teilerknoten als Zahl.
+
+**get1/operationsverstaerker/01-schmitt-kennlinie**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* $U_A$ über $U_E$ von −3 V bis +3 V (y von −16 bis +16 V): oberer Ast +14 V von links bis +1,4 V, senkrechter Sprung nach −14 V; unterer Ast −14 V von rechts bis −1,4 V, Sprung nach +14 V; Pfeile auf den Ästen und Sprüngen zeigen die Laufrichtung; Schwellen ±1,4 V beschriftet, Hysterese 2,8 V als Maßpfeil; Schwellen benannt als $U_{R1,\max}$ und $U_{R1,\min}$; gestrichelt die instabile Gerade $U_A = U_E/k$ (Steigung 10) zwischen −1,4 V und +1,4 V.
+
+*Kernaussage:* Zwischen −1,4 V und +1,4 V hängt der Ausgang davon ab, von welcher Seite der Eingang kam.
+
+*Daten:* `bericht_schmitt()` (Schwellen).
+
+*Editor:*
+- §20 Hystereseschleifen (neu);
+- §2 Maßpfeile;
+- §8 optional: Animation, ein Punkt läuft mit $U_E$ hin und zurück.
+
+**get1/operationsverstaerker/01-schmitt-rauschen**
+- Fassung: ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Drei gestapelte Zeitverläufe über 40 ms, gemeinsame Zeitachse.
+- Oben: Eingang 3 V · cos(2π · 50 Hz · t) plus Rauschen 0,2 V eff., gleichmäßig verteilt bis 100 kHz (fester Zufallsstartwert 1, Abtastung 200 kHz); Linien bei 0 V und ±1,4 V.
+- Mitte: idealer invertierender Komparator mit Schwelle 0 V: an jedem der vier Nulldurchgänge (5, 15, 25, 35 ms) ein Bündel von 43 bis 59 Umschaltungen innerhalb von 0,6 bis 0,8 ms; ein Bündel vergrößert als Lupe.
+- Unten: Schmitt-Trigger ±1,4 V: genau ein Wechsel je Nulldurchgang, 0,91 bis 1,09 ms danach; gestrichelt markiert der Zeitpunkt ohne Rauschen, 1,55 ms (27,8°).
+
+*Kernaussage:* Eine Hysterese, die größer ist als das Rauschen, verhindert das Mehrfachschalten.
+
+*Daten:* `bericht_schmitt()` (Simulation, `schmitt_kette`).
+
+*Editor:*
+- §21 Rauschsignale mit festem Startwert;
+- §5 Rechteck- und Zeitverläufe;
+- §13 gestapelt;
+- §7 Lupe auf ein Bündel.
