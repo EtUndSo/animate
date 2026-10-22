@@ -197,6 +197,8 @@ $$A = \frac{U_A}{U_E} = 1 + \frac{R_2}{R_1}$$
 
 **So liest man das:** Die Verstärkung ist positiv und mindestens 1 (Skript Gl. 12.5), hier 3; mit der endlichen Leerlaufverstärkung 2,99996. Je größer $R_2$ gegen $R_1$, desto größer die Verstärkung. Ohne $R_2$, wenn der Ausgang direkt mit dem Minuseingang verbunden ist, wird sie genau 1.
 
+**Kurz gesagt:** Mit idealem OPV macht der nichtinvertierende Verstärker genau rückgängig, was sein Teiler tut: Seine Verstärkung ist der Kehrwert des Anteils, den der Teiler von der Ausgangsspannung an den Minuseingang zurückgibt, solange der Ausgang nicht an einer Grenze liegt.
+
 Idee der Herleitung: Der unbelastete Teiler setzt den Minuseingang auf einen festen Anteil der Ausgangsspannung, und die erste Regel verlangt, dass dieser Anteil gleich $U_E$ ist.
 
 :::herleitung
@@ -275,6 +277,8 @@ $$U_A = -\Big(\frac{R_4}{R_1}\,U_1 + \frac{R_4}{R_2}\,U_2 + \frac{R_4}{R_3}\,U_3
 :::
 
 **So liest man das:** Der Ausgang ist die negative, gewichtete Summe der Eingänge; jedes Gewicht ist ein Widerstandsverhältnis. Mit gleichen Widerständen wird es die einfache Summe, für weitere Eingänge setzt sich das Schema fort. Mit 10, 20 und 40 kΩ an 10 kΩ sind die Gewichte 1, 1/2 und 1/4: Die Schaltung macht aus drei Bits eine Spannung, ein einfacher Digital-Analog-Umsetzer.
+
+**Kurz gesagt:** Mit idealem OPV ist die Antwort des Addierers auf alle Eingänge zusammen die Summe seiner Antworten auf jeden Eingang allein, während die übrigen an Masse liegen; das gilt, solange der Ausgang nicht an einer Grenze liegt.
 
 Idee der Herleitung: Knotenregel an der virtuellen Masse mit drei zufließenden Strömen.
 
@@ -503,6 +507,8 @@ $$u_A(t) = -RC\,\frac{du_E}{dt}$$
 :::
 
 **So liest man das:** Der Ausgang zeigt, wie schnell sich der Eingang ändert, nicht wie groß er ist. Ein Dreieck von ±1 V mit 1 kHz steigt und fällt mit 4 V/ms und wird zu einem Rechteck von ∓4 V.
+
+**Kurz gesagt:** Ein Differenzierer hinter einem Integrator mit demselben $RC$ macht rückgängig, was der Integrator getan hat: Die beiden Minuszeichen heben sich auf, und am Ende steht wieder die Eingangsspannung. Das gilt mit idealen OPVs und Bauteilen, solange kein Ausgang an einer Grenze liegt; in umgekehrter Reihenfolge nur bis auf eine feste Spannung aus den Anfangswerten.
 
 Idee der Herleitung: Der Kondensator sieht die ganze Eingangsspannung; sein Strom ist ihre Ableitung, mal $C$.
 

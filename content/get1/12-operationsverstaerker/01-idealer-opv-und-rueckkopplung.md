@@ -411,6 +411,8 @@ $$A \approx \frac{1}{k} = 1 + \frac{R_2}{R_1}$$
 
 Die riesige, unsichere Leerlaufverstärkung verschwindet aus dem Ergebnis; die Differenzspannung wird winzig.
 
+**Kurz gesagt:** Mit idealem OPV macht der nichtinvertierende Verstärker genau rückgängig, was der Teiler in seiner Rückführung tut: Seine Verstärkung ist der Kehrwert des Rückkopplungsfaktors, solange der Ausgang nicht an einer Grenze liegt.
+
 Idee der Herleitung: Zwei Gleichungen, die des OPV und die Masche über seine Eingänge, werden nach den zwei Unbekannten aufgelöst.
 
 :::herleitung

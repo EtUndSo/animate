@@ -292,6 +292,8 @@ $$I_E = I_B + B\,I_B = (1 + B)\,I_B$$
 
 $$U_q = R_i\,I_B + U_{BE,\mathrm{ein}} + R_E\,(1 + B)\,I_B$$
 
+Durch den Emitterwiderstand fließt im aktiven Bereich der $(B + 1)$-fache Basisstrom; im Basiskreis wirkt er deshalb wie ein $(B + 1)$-mal so großer Widerstand, bei $B$ = 500 wirken 1 kΩ also wie 501 kΩ.
+
 **Schritt 4** (entscheidender Schritt): Nach dem Basisstrom aufgelöst und mit $B$ multipliziert; Zähler und Nenner werden dabei durch $B$ geteilt:
 
 $$I_C = B\,\frac{U_q - U_{BE,\mathrm{ein}}}{R_i + (1 + B)\,R_E} = \frac{U_q - U_{BE,\mathrm{ein}}}{R_E\,(1 + 1/B) + R_i/B}$$

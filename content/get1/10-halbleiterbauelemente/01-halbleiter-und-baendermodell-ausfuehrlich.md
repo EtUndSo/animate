@@ -473,6 +473,8 @@ $$\frac{1}{n_i}\,\frac{\mathrm{d}n_i}{\mathrm{d}T} = \frac{3}{2\,T} + \frac{W_{g
 
 $$= 0{,}0050\ \mathrm{K^{-1}} + 0{,}0778\ \mathrm{K^{-1}} = 0{,}083\ \mathrm{K^{-1}}$$
 
+Der Logarithmus eines Produkts ist die Summe der Logarithmen seiner Faktoren, und die Ableitung einer Summe ist die Summe der Ableitungen. Deshalb addieren sich beim Ableiten die Beiträge von Vorfaktor und Exponentialfunktion: 0,5 % und 7,8 % je Kelvin ergeben 8,3 %.
+
 **Woher die Faktoren kommen:** Die Wurzel stammt aus $n = p$, der Faktor 1/2 im Exponenten ebenfalls; der Vorfaktor $\sqrt{N_L N_V}$ ist das geometrische Mittel der Platzzahlen beider Bänder.
 
 **Proben:** Einheit cm⁻³. Zahlenwert: Die Wurzel aus 3,2·10¹⁹ mal 1,8·10¹⁹ cm⁻⁶ ist 2,4·10¹⁹ cm⁻³, der Exponentialfaktor 3,9·10⁻¹⁰; zusammen 9,4·10⁹ cm⁻³. Grenzfall $T \to 0$: $n_i \to 0$, Silizium wird zum Isolator.
@@ -748,6 +750,8 @@ $$U_T = \frac{k_B T}{e}$$
 Man definiert sie, weil Potenzialstufen genau im Vergleich mit ihr wirken: Eine Stufe von $U_T$ ändert eine Dichte im Gleichgewicht um den Faktor $\exp(1)$, also 2,72, eine Stufe von 59,5 mV um den Faktor 10.
 Das Skript nennt auf S. 162 das Produkt $k_B T$ selbst „thermische Spannung“; das ist eine Energie, erst geteilt durch $e$ wird daraus eine Spannung.
 
+**Kurz gesagt:** Im thermischen Gleichgewicht und solange die Boltzmann-Verteilung gilt, addieren sich die Höhen hintereinanderliegender Potenzialstufen, und die Faktoren, um die sie eine Dichte ändern, multiplizieren sich. Zwei Stufen von je 59,5 mV, zusammen 119 mV, ändern die Dichte um den Faktor 10 mal 10, also 100.
+
 :::analogie
 **Dieselbe Physik wie in der Erdatmosphäre.** Die Luftmoleküle stehen im selben Gleichgewicht wie die Elektronen am pn-Übergang: Die Schwerkraft zieht sie nach unten, das entspricht der Drift; die Wärmebewegung verteilt sie nach oben, das entspricht der Diffusion. Die Luftdichte nimmt deshalb mit der Höhe exponentiell ab, um den Faktor 2,72 je 8,4 km; auf dem Mount Everest ist es noch ein Drittel.
 
@@ -804,6 +808,8 @@ $$U_\mathrm{Diff} = U_T\,\ln\frac{N_D}{n_i^{2}/N_A} = U_T\,\ln\frac{N_A\,N_D}{n_
 $$\frac{n_{n0}}{n_{p0}} = \exp\!\Big(\frac{W_{L,p} - W_{L,n}}{k_B T}\Big)$$
 
 Der Abstand der Bandkanten ist $e\,U_\mathrm{Diff}$, und es folgt dieselbe Formel.
+
+Weil das Fermi-Niveau im Gleichgewicht überall gleich hoch liegt, steigen die Bänder vom n- zum p-Gebiet desselben Kristalls um genau die Summe der beiden Strecken an, um die die Dotierung das Fermi-Niveau auf jeder Seite aus dem Eigenleitungsniveau schiebt. In der Beispieldiode sind das 0,357 eV und 0,357 eV, zusammen 0,714 eV.
 
 **Proben:** Einheit Volt. Dieselbe Rechnung mit den Löchern führt auf dasselbe Dichteverhältnis $N_A N_D/n_i^2$, also auf dieselbe Stufe; beide Sorten verlangen dieselbe Spannung, weil das Massenwirkungsgesetz beide Dichten koppelt. Grenzfall: Ohne Dotierung sind beide Dichten $n_i$, ihr Verhältnis ist 1, und die Stufe ist null.
 

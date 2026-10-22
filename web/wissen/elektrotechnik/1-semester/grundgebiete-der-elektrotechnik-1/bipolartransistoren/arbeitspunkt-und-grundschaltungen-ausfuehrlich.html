@@ -115,6 +115,7 @@ try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")=
 <p>$$\textcolor{#e5383b}{I_E }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ I_B + B\,I_B }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ (1 + B)\,I_B}$$</p>
 <p><strong class="step">Schritt 3</strong>: Maschenregel von der Ersatzquelle über <span class="nobr">$R_i$,</span> die Basis-Emitter-Strecke und $R_E$ nach Masse:</p>
 <p>$$\textcolor{#e5383b}{U_q }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ R_i\,I_B + U_{BE,\mathrm{ein}} + R_E\,(1 + B)\,I_B}$$</p>
+<p>Durch den Emitterwiderstand fließt im aktiven Bereich der <span class="nobr">$(B + 1)$-</span>fache Basisstrom; im Basiskreis wirkt er deshalb wie ein <span class="nobr">$(B + 1)$-</span>mal so großer Widerstand, bei $B$ = 500 wirken 1 kΩ also wie 501 kΩ.</p>
 <p><strong class="step">Schritt 4</strong> (entscheidender Schritt): Nach dem Basisstrom aufgelöst und mit $B$ multipliziert; Zähler und Nenner werden dabei durch $B$ geteilt:</p>
 <p>$$\textcolor{#e5383b}{I_C }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ B\,\frac{U_q - U_{BE,\mathrm{ein}}}{R_i + (1 + B)\,R_E} }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \frac{U_q - U_{BE,\mathrm{ein}}}{R_E\,(1 + 1/B) + R_i/B}}$$</p>
 <p><strong class="step">Schritt 5</strong>: Für $R_i/B$ klein gegen $R_E$ und $B$ groß gegen 1 bleibt nur $R_E$ im Nenner.</p>

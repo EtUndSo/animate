@@ -295,6 +295,8 @@ Bei 300 K sind das 1,0 % plus 15,6 %, zusammen 16,6 % je Kelvin.
 
 $$\frac{\mathrm{d}U}{\mathrm{d}T} = \frac{k_B}{e}\,\big(\ln I - \ln I_S\big) - \frac{k_B\,T}{e}\,\frac{\mathrm{d}\ln I_S}{\mathrm{d}T}$$
 
+Die Ableitung eines Produkts ist die Summe zweier Teile: Im einen wird der erste Faktor abgeleitet und der zweite unverändert mitgenommen, im anderen umgekehrt. Bei 1 mA liefert so im idealen Modell das wachsende $U_T$ plus 2,15 mV/K und das wachsende $I_S$ minus 4,28 mV/K, zusammen minus 2,13 mV/K.
+
 **Schritt 3**: Der erste Summand ist $U/T$. In den zweiten Schritt 1 einsetzen:
 
 $$\frac{\mathrm{d}U}{\mathrm{d}T} = \frac{U}{T} - \frac{k_B\,T}{e}\,\Big(\frac{3}{T} + \frac{W_{g0}}{k_B\,T^2}\Big) = \frac{U - 3\,U_T - W_{g0}/e}{T}$$
@@ -732,6 +734,8 @@ $$\frac{U_E - U_A}{R_V} = \frac{U_A}{R_L} + I_Z$$
 **Schritt 1**: Die Gleichung gilt vor und nach einer Änderung der Eingangsspannung. Die Differenz beider Fassungen:
 
 $$\frac{\Delta U_E - \Delta U_A}{R_V} = \frac{\Delta U_A}{R_L} + \frac{\Delta U_A}{r_Z}$$
+
+Die Änderung einer Summe ist die Summe der Änderungen; deshalb gilt die Knotenregel auch für die Änderungen der Ströme allein.
 
 **Schritt 2** (entscheidender Schritt): Mit $R_V$ malnehmen und alle Terme mit $\Delta U_A$ zusammenfassen:
 

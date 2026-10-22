@@ -121,6 +121,7 @@ try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")=
 <p>Bei 300 K sind das 1,0 % plus 15,6 %, zusammen 16,6 % je Kelvin.</p>
 <p><strong class="step">Schritt 2</strong> (entscheidender Schritt): $U$ bei festem Strom ableiten; $\ln I$ ist dann konstant, und nach der Produktregel entstehen zwei Summanden:</p>
 <p>$$\textcolor{#e5383b}{\frac{\mathrm{d}U}{\mathrm{d}T} }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \frac{k_B}{e}\,\big(\ln I - \ln I_S\big) - \frac{k_B\,T}{e}\,\frac{\mathrm{d}\ln I_S}{\mathrm{d}T}}$$</p>
+<p>Die Ableitung eines Produkts ist die Summe zweier Teile: Im einen wird der erste Faktor abgeleitet und der zweite unverändert mitgenommen, im anderen umgekehrt. Bei 1 mA liefert so im idealen Modell das wachsende $U_T$ plus 2,15 mV/K und das wachsende $I_S$ minus 4,28 mV/K, zusammen minus 2,13 mV/K.</p>
 <p><strong class="step">Schritt 3</strong>: Der erste Summand ist <span class="nobr">$U/T$.</span> In den zweiten Schritt 1 einsetzen:</p>
 <p>$$\textcolor{#e5383b}{\frac{\mathrm{d}U}{\mathrm{d}T} }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \frac{U}{T} - \frac{k_B\,T}{e}\,\Big(\frac{3}{T} + \frac{W_{g0}}{k_B\,T^2}\Big) }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \frac{U - 3\,U_T - W_{g0}/e}{T}}$$</p>
 <p><strong>Ergebnis:</strong></p>
@@ -267,6 +268,7 @@ try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")=
 <p><strong>Annahmen:</strong> (i) Die Z-Diode bleibt im Durchbruch; (ii) dort ist ihr Ast eine Gerade mit der Steigung <span class="nobr">$1/r_Z$,</span> eine Spannungsänderung $\Delta U_A$ ändert ihren Strom also um <span class="nobr">$\Delta U_A/r_Z$;</span> (iii) die Last ist ohmsch.</p>
 <p><strong class="step">Schritt 1</strong>: Die Gleichung gilt vor und nach einer Änderung der Eingangsspannung. Die Differenz beider Fassungen:</p>
 <p>$$\textcolor{#e5383b}{\frac{\Delta U_E - \Delta U_A}{R_V} }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \frac{\Delta U_A}{R_L} + \frac{\Delta U_A}{r_Z}}$$</p>
+<p>Die Änderung einer Summe ist die Summe der Änderungen; deshalb gilt die Knotenregel auch für die Änderungen der Ströme allein.</p>
 <p><strong class="step">Schritt 2</strong> (entscheidender Schritt): Mit $R_V$ malnehmen und alle Terme mit $\Delta U_A$ zusammenfassen:</p>
 <p>$$\textcolor{#e5383b}{\Delta U_E }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{ \Delta U_A\,\Big[1 + R_V\,\Big(\frac{1}{r_Z} + \frac{1}{R_L}\Big)\Big]}$$</p>
 <p><strong>Ergebnis:</strong></p>

@@ -120,6 +120,8 @@ $$I_C = I_S\,\exp\!\Big(\frac{U_{BE}}{U_T}\Big)$$
 
 **So liest man das:** Die Basis-Emitter-Spannung legt den Kollektorstrom fest. Der __Sättigungsstrom__ $I_S$, beim Beispieltransistor 10⁻¹⁴ A, ist der Vorfaktor, anschaulich der Teil des Sperrstroms, den bei $U_{BE}$ = 0 die thermischen Elektronen der Basis tragen; er wächst mit der Emitterfläche und sinkt mit Dotierung und Weite der Basis. Je 17,9 mV mehr verdoppelt sich der Strom, je 59,5 mV verzehnfacht er sich. Die Kollektorspannung kommt nicht vor, solange der Basis-Kollektor-Übergang sperrt.
 
+**Kurz gesagt:** Spannungsschritte an der Basis addieren sich, und die Faktoren, um die sie den Kollektorstrom vergrößern, multiplizieren sich, gleich bei welchem Strom man beginnt: 17,9 mV und 59,5 mV mehr, zusammen 77,4 mV, machen den Kollektorstrom zwanzigmal so groß. Das gilt, soweit die Transfergleichung gilt, bei fester Kollektorspannung und Temperatur.
+
 Idee der Herleitung: Der Boltzmann-Faktor legt die Randdichte am Emitter fest; das geradlinige Profil in der dünnen Basis macht daraus einen Diffusionsstrom.
 
 :::herleitung

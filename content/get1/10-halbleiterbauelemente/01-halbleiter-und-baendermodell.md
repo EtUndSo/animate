@@ -269,6 +269,8 @@ $$U_T = \frac{k_B T}{e}$$
 **So liest man das:** $U_T$ ist die thermische Energie als Spannung ausgedrückt, 25,85 mV bei 300 K.
 Man definiert sie, weil Potenzialstufen im Vergleich mit ihr wirken: Eine Stufe von 59,5 mV ändert eine Dichte im Gleichgewicht um den Faktor 10.
 
+**Kurz gesagt:** Im thermischen Gleichgewicht und solange die Boltzmann-Verteilung gilt, addieren sich die Höhen hintereinanderliegender Potenzialstufen, und die Faktoren, um die sie eine Dichte ändern, multiplizieren sich. Zwei Stufen von je 59,5 mV, zusammen 119 mV, ändern die Dichte um den Faktor 10 mal 10, also 100.
+
 :::analogie
 **Dieselbe Physik wie in der Erdatmosphäre.** Die Schwerkraft zieht die Luftmoleküle nach unten, das entspricht der Drift; die Wärmebewegung verteilt sie nach oben, das entspricht der Diffusion. Deshalb nimmt die Luftdichte mit der Höhe exponentiell ab, um den Faktor 2,72 je 8,4 km. Am pn-Übergang ist es genauso: Die Elektronendichte nimmt mit der Energie exponentiell ab, um den Faktor 2,72 je 25,85 meV.
 

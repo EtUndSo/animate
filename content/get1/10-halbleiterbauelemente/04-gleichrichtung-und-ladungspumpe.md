@@ -46,6 +46,8 @@ $$u_a = |u_e| - 2\,U_{F0} \quad\text{für } |u_e| > 2\,U_{F0}, \qquad u_a = 0 \q
 
 **So liest man das:** Die Spitze am Ausgang ist um zwei Durchlassspannungen kleiner, 8,8 V statt 10 V, wie im Skript (Bild 10.29). Um jeden Nulldurchgang gibt es eine __Totzone__ von 0,77 ms, in der kein Strom fließt.
 
+**Kurz gesagt:** Bei vier gleichen Dioden ändert sich an der Last nichts, wenn man die beiden Anschlüsse der Quelle vertauscht; es zählt nur der Betrag der Eingangsspannung.
+
 Idee der Herleitung: Maschenregel entlang des Strompfads mit zwei leitenden Dioden im Modell mit Durchlassspannung.
 
 :::herleitung

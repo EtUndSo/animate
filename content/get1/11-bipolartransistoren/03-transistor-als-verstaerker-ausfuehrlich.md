@@ -328,6 +328,8 @@ $$i_b = \frac{u_{be}}{r_{BE}}, \qquad i_c = g_m\,u_{be} + \frac{u_{ce}}{r_{CE}} 
 
 **So liest man das:** Für Änderungen ist der Transistor ein lineares Zweitor aus drei Elementen: Der Eingang ist ein Widerstand, der Ausgang eine von $u_{be}$ gesteuerte Stromquelle mit einem Widerstand parallel. Am Datenblattpunkt sind das 6,46 kΩ, 77,4 mS und 37,5 kΩ, in der Verstärkerstufe 13,7 kΩ, 36,6 mS und 79,6 kΩ.
 
+**Kurz gesagt:** Wirken $u_{be}$ und $u_{ce}$ zugleich, ist die Änderung des Kollektorstroms die Summe der Änderungen, die jede der beiden allein bewirkt. Das gilt genau im Kleinsignal-Ersatzschaltbild und am echten Transistor näherungsweise, umso genauer, je kleiner die Änderungen sind.
+
 Idee der Herleitung: Man ersetzt die Kennlinien im Arbeitspunkt durch ihre Tangenten und rechnet nur mit den Änderungen.
 
 :::herleitung

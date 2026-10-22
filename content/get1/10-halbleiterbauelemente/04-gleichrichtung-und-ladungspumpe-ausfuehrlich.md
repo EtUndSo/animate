@@ -48,6 +48,8 @@ $$u_a = |u_e| - 2\,U_{F0} \quad\text{für } |u_e| > 2\,U_{F0}, \qquad u_a = 0 \q
 
 **So liest man das:** Eingabe ist die Eingangsspannung, Ausgabe die Spannung an der Last. Die Spitze am Ausgang ist um zwei Durchlassspannungen kleiner, 8,8 V statt 10 V, wie im Skript (Bild 10.29, S. 173). Um jeden Nulldurchgang gibt es eine __Totzone__, in der kein Strom fließt; bei 10 V Scheitelwert dauert sie 0,77 ms von jeder 10 ms langen Halbperiode.
 
+**Kurz gesagt:** Bei vier gleichen Dioden ändert sich an der Last nichts, wenn man die beiden Anschlüsse der Quelle vertauscht; es zählt nur der Betrag der Eingangsspannung.
+
 Idee der Herleitung: Maschenregel entlang des Strompfads mit zwei leitenden Dioden im Modell mit Durchlassspannung.
 
 :::herleitung
@@ -110,6 +112,8 @@ $$\overline{u}_\mathrm{Doppelweg} = \frac{2}{\pi}\,\hat u, \qquad \overline{u}_\
 :::
 
 **So liest man das:** Eingabe ist der Scheitelwert der Spannung, die gleichgerichtet wird, Ausgabe der Mittelwert der gleichgerichteten Spannung bei idealen Dioden. Der Doppelweggleichrichter liefert bei 10 V Scheitelwert 6,37 V, der Einweggleichrichter die Hälfte, 3,18 V, weil er jede zweite Halbwelle verwirft. Mit zwei Durchlassspannungen von je 0,6 V sinkt der Mittelwert der Brücke auf 5,21 V; wie man ihn ausrechnet, steht am Ende der Herleitung, und Abbildung 2 zeigt ihn als waagrechte Linie.
+
+**Kurz gesagt:** Ohne Ladekondensator senken die beiden Durchlassspannungen den Mittelwert gegenüber idealen Dioden um weniger als $2U_{F0}$: Solange die Dioden leiten, fehlen dem Ausgang genau $2U_{F0}$, in der Totzone aber nur der Betrag der Eingangsspannung, der dort unter $2U_{F0}$ liegt.
 
 Idee der Herleitung: Man berechnet die Fläche unter einer Sinushalbwelle und teilt durch die Dauer.
 
