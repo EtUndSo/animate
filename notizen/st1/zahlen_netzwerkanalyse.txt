@@ -612,3 +612,147 @@ MOS-Diode mit 1 nF, h = 0,1 µs: G_C = C/h = 10.0 mS
     Durchlauf 2: g(U^(1)) = 0.025776 mS, I_eq = -0.013054 mA -> U^(2) = 0.5128721 V
     Durchlauf 3: g(U^(2)) = 0.025744 mS, I_eq = -0.013038 mA -> U^(3) = 0.5128721 V
   rechte Seite I_q + G_C U_n = 5.25710 mA, Leitwert G_q + G_C = 10.25 mS
+
+====================================================================================================
+AH. RC-Glied (Längs 1 kOhm, quer 100 nF) als Zweitor bei ω = 10^4 1/s: Y, Z, A (mS, kOhm)
+====================================================================================================
+Y (Kurzschlussversuche, mS) = [[1.0000, -1.0000], [-1.0000, (1.0000 + 1.0000j)]]
+  Kurzschluss am Ausgang, 1 V am Eingang: I_1 = 1 mA, I_2 = -1 mA (der Strom durch R verlässt Tor 2)
+Z (Leerlaufversuche, kOhm) = [[(1.0000 - 1.0000j), -1.0000j], [-1.0000j, -1.0000j]]; Y^-1 = [[(1.0000 - 1.0000j), -1.0000j], [-1.0000j, -1.0000j]]
+A (aus Y, Einheiten 1, kOhm, mS, 1) = [[(1.0000 + 1.0000j), 1.0000], [1.0000j, 1.0000]]; Produkt Längsglied R mal Querglied C = [[(1.0000 + 1.0000j), 1.0000], [1.0000j, 1.0000]]
+  det Y = 1.0000j mS^2, det Z = -1.0000j kOhm^2, det A = 1.0000
+  Y_12 = -1.0000, Y_21 = -1.0000 (reziprok); Z_12 = -1.0000j, Z_21 = -1.0000j
+  Y_11 = 1.0000 mS (Kurzschluss) gegen 1/Z_11 = (0.5000 + 0.5000j) mS (Leerlauf): Betrag 1.0000 gegen 0.7071 mS
+  Leerlauf-Spannungsübertragung U_2/U_1 = 1/A_11 = +0.5000 - j0.5000  (Betrag 0.7071 , Winkel -45.00°)
+  Probe der Messvorschriften: A_11 = U_1/U_2 bei I_2 = 0: Z_11/Z_21 = (1.0000 + 1.0000j); A_12 = U_1/(-I_2) bei U_2 = 0: -1/Y_21 = 1.0000 kOhm; A_21 = I_1/U_2 bei I_2 = 0: 1/Z_21 = 1.0000j mS; A_22 = I_1/(-I_2) bei U_2 = 0: -Y_11/Y_21 = 1.0000
+Umgekehrte Reihenfolge (erst quer C, dann längs R): A = [[1.0000, 1.0000], [1.0000j, (1.0000 + 1.0000j)]]; Leerlauf U_2/U_1 = 1/A_11 = 1.0000 (gegen (0.5000 - 0.5000j) beim RC-Glied)
+  mit Last 1 kOhm: RC +0.4000 - j0.2000  (Betrag 0.4472 , Winkel -26.57°); CR +0.5000 + j0.0000  (Betrag 0.5000 , Winkel +0.00°)
+  mit Last 10 kOhm: RC +0.4977 - j0.4525  (Betrag 0.6727 , Winkel -42.27°); CR +0.9091 + j0.0000  (Betrag 0.9091 , Winkel +0.00°)
+π-Ersatz aus Y: Y_a = Y_11 + Y_12 = 0.0000, Y_b = -Y_12 = 1.0000, Y_c = Y_22 + Y_12 = 1.0000j mS (genau das RC-Glied: links nichts quer, 1 mS längs, j1 mS quer)
+Passivität: (Y + Y^H)/2 = [[1.0000, -1.0000], [-1.0000, 1.0000]] mS, Eigenwerte [0.0, 2.0] (>= 0)
+  U_1 = 1.0000 V, U_2 = 0.5000 V: I = (0.5000; (-0.5000 + 0.5000j)) mA, aufgenommene Wirkleistung 1/2 Re(U_1 I_1* + U_2 I_2*) = 0.1250 mW
+  U_1 = 1.0000 V, U_2 = -1.0000 V: I = (2.0000; (-2.0000 - 1.0000j)) mA, aufgenommene Wirkleistung 1/2 Re(U_1 I_1* + U_2 I_2*) = 2.0000 mW
+  U_1 = 1.0000 V, U_2 = 1.0000j V: I = ((1.0000 - 1.0000j); (-2.0000 + 1.0000j)) mA, aufgenommene Wirkleistung 1/2 Re(U_1 I_1* + U_2 I_2*) = 1.0000 mW
+  U_1 = 1.0000 V, U_2 = 1.0000 V: I = (0.0000; 1.0000j) mA, aufgenommene Wirkleistung 1/2 Re(U_1 I_1* + U_2 I_2*) = 0.0000 mW
+
+====================================================================================================
+AI. Zweistufiger RC-Tiefpass als Kettenschaltung zweier RC-Glieder (Abschnitte K und AA)
+====================================================================================================
+A_ges = A_RC A_RC = [[3.0000j, (2.0000 + 1.0000j)], [(-1.0000 + 2.0000j), (1.0000 + 1.0000j)]]; det = 1.0000
+Leerlauf U_2/U_1 = 1/A_11 = +0.0000 - j0.3333  (Betrag 0.3333 , Winkel -90.00°) (Abschnitt K: 1/(1 - (ωRC)^2 + 3jωRC) = +0.0000 - j0.3333  (Betrag 0.3333 , Winkel -90.00°))
+Produkt der Einzelübertragungen (1/(1 + j))^2 = +0.0000 - j0.5000  (Betrag 0.5000 , Winkel -90.00°); Betrag 0.5000 statt 0.3333, Fehler +50.0 %
+Eingangsimpedanz bei offenem Ausgang Z_11 = A_11/A_21 = +1.2000 - j0.6000 kOhm (Betrag 1.3416 kOhm, Winkel -26.57°); Y = +0.6667 + j0.3333 mS (Betrag 0.7454 mS, Winkel +26.57°) (Abschnitt AA: (0,667 + 0,333j) mS)
+Ausgangsimpedanz bei kurzgeschlossenem Eingang 1/Y_22 = A_12/A_11 = +0.3333 - j0.6667 kOhm (Betrag 0.7454 kOhm, Winkel -63.43°) (Abschnitt AA)
+Y_ges (aus A) = [[(0.6000 + 0.2000j), (-0.4000 + 0.2000j)], [(-0.4000 + 0.2000j), (0.6000 + 1.2000j)]] mS; Z_ges = [[(1.2000 - 0.6000j), (-0.2000 - 0.4000j)], [(-0.2000 - 0.4000j), (0.2000 - 0.6000j)]] kOhm
+Mit 1 kOhm Last: Y_ein = Y_11 - Y_12 Y_21/(Y_22 + Y_L) = +0.6000 + j0.3000 mS (Betrag 0.6708 mS, Winkel +26.57°); aus A: (A_21 + A_22 Y_L)/(A_11 + A_12 Y_L) = +0.6000 + j0.3000 mS (Betrag 0.6708 mS, Winkel +26.57°); U_2/U_1 = 1/(A_11 + A_12 Y_L) = +0.1000 - j0.2000  (Betrag 0.2236 , Winkel -63.43°) (Abschnitt AA: 0,1 - 0,2j)
+  Y_11 der Kette (Kurzschluss) = +0.6000 + j0.2000 mS (Betrag 0.6325 mS, Winkel +18.43°), offen +0.6667 + j0.3333 mS (Betrag 0.7454 mS, Winkel +26.57°), mit 1 kOhm +0.6000 + j0.3000 mS (Betrag 0.6708 mS, Winkel +26.57°)
+Eingangsimpedanz des zweiten Glieds (offen) = +1.0000 - j1.0000 kOhm (Betrag 1.4142 kOhm, Winkel -45.00°); erstes Glied mit dieser Last: U_m/U_1 = +0.3333 - j0.3333  (Betrag 0.4714 , Winkel -45.00°); zweites: U_2/U_m = +0.5000 - j0.5000  (Betrag 0.7071 , Winkel -45.00°); Produkt +0.0000 - j0.3333  (Betrag 0.3333 , Winkel -90.00°)
+  ω = 1e+03 1/s: Kette |1/A_11| = 0.9667, Produkt der Einzelglieder |1/(1 + jωRC)|^2 = 0.9901
+  ω = 1e+04 1/s: Kette |1/A_11| = 0.3333, Produkt der Einzelglieder |1/(1 + jωRC)|^2 = 0.5000
+  ω = 1e+05 1/s: Kette |1/A_11| = 0.0097, Produkt der Einzelglieder |1/(1 + jωRC)|^2 = 0.0099
+
+====================================================================================================
+AJ. Verstärkerstufe mit R_S als Zweitor (Tor 1 Gate-Masse, Tor 2 Drain-Masse, R_D im Zweitor; mS, kOhm)
+====================================================================================================
+Y = [[-0.00000, -0.00000], [0.49383, 0.11235]] mS; det Y = 0.000e+00 -> keine Z-Form (Y nicht invertierbar)
+  Y_21 = g_m G_S/(g_m + g_o + G_S) = 0.49383 mS; Y_22 = G_D + g_o G_S/(g_m + g_o + G_S) = 0.11235 mS
+A = [[-0.22750, -2.02500], [-0.00000, 0.00000]] (Einheiten 1, kOhm, mS, 1); det A = -0.000e+00
+  1/A_11 = -4.3956 = A_V (Abschnitt Z: -4,3956); 1/Y_22 = 8.9011 kOhm = Z_aus; -Y_21/Y_22 = -4.3956
+  mit Last 10 kOhm: U_2/U_1 = -Y_21/(Y_22 + G_L) = -2.3256; aus A: 1/(A_11 + A_12 G_L) = -2.3256
+  Rückwirkung: Y_12 = -0.0e+00; Eingang bei jeder Last Y_ein = Y_11 = -0.0e+00
+  Ersatzschaltbild: π mit Y_a = Y_11 + Y_12 = 0, Y_b = -Y_12 = 0, Y_c = Y_22 + Y_12 = 0.11235 mS, dazu Quelle (Y_21 - Y_12) U_1 = 0.49383 mS · U_1 von Klemme 2 nach 2'
+Leistung bei 10 mV Amplitude am Gate und 10 kOhm Last: Eingang 0 W; Last 1/2 |U_2|^2/R_L = 27.042 nW (|U_2| = 23.2558 mV)
+  (Y + Y^T)/2 = [[-0.00000, 0.24691], [0.24691, 0.11235]] mS, Eigenwerte [-0.19705, 0.3094] (einer negativ: aktiv)
+Zwei Stufen in Kette: A = [[0.05176, 0.46069], [0.00000, 0.00000]]; Leerlauf 1/A_11 = 19.3213 (= A_V^2 = 19.3213); mit 10 kOhm: 10.2223 (= -4,3956 · -2,3256 = 10.2223)
+  RC-Glied, dann Stufe: A = [[(-0.2275 - 0.2275j), (-2.0250 - 2.0250j)], [-0.2275j, -2.0250j]]; mit 10 kOhm Last U_2/U_1 = -1.1628 + j1.1628  (Betrag 1.6444 , Winkel +135.00°)
+  Stufe, dann RC-Glied: A = [[(-0.2275 - 2.2525j), -2.2525], [0.0000, 0.0000]]; mit 10 kOhm Last U_2/U_1 = -0.0858 + j0.4267  (Betrag 0.4352 , Winkel +101.36°)
+
+====================================================================================================
+AK. Stufe ohne R_S mit C_gs = 100 fF, C_gd = 20 fF bei ω = 10^8 1/s: Parallelschaltung mit dem Längsglied C_gd (µS)
+====================================================================================================
+f = ω/(2π) = 15.915 MHz; jωC_gs = 10.0000j µS, jωC_gd = 2.0000j µS
+Transistor-Zweitor Y_T = [[10.0000j, 0.0000], [1000.0000, 125.0000]] µS; Längsglied C_gd: Y_F = [[2.0000j, -2.0000j], [-2.0000j, 2.0000j]] µS
+Y_T + Y_F = [[12.0000j, -2.0000j], [(1000.0000 - 2.0000j), (125.0000 + 2.0000j)]] µS; direkt (Kurzschlussversuche) = [[12.0000j, -2.0000j], [(1000.0000 - 2.0000j), (125.0000 + 2.0000j)]] µS; gleich: True
+  Y_12 = -2.0000j, Y_21 = (1000.0000 - 2.0000j) µS: nicht reziprok; |Y_12/Y_21| = 0.00200 = |det A|
+  Kurzschluss : Y_ein = 12.0000j µS -> C_ein = Im/ω = 120.00 fF, Re = 0.0000 µS; U_2/U_1 = 0.0000
+  Last 10 kOhm: Y_ein = (0.0968 + 20.8880j) µS -> C_ein = Im/ω = 208.88 fF, Re = 0.0968 µS; U_2/U_1 = (-4.4440 + 0.0484j)
+  offen       : Y_ein = (0.2879 + 27.9954j) µS -> C_ein = Im/ω = 279.95 fF, Re = 0.2879 µS; U_2/U_1 = (-7.9977 + 0.1440j)
+  Näherung C_gs + C_gd (1 + g_m/G) für Last 10 kOhm: 208.89 fF (Faktor 1 + g_m/G = 5.444)
+  Näherung C_gs + C_gd (1 + g_m/G) für offen: 280.00 fF (Faktor 1 + g_m/G = 9.000)
+  A = [[(-0.1250 - 0.0022j), (-0.0010 - 0.0000j)], [(0.0270 - 3.4999j), (0.0000 - 0.0120j)]]; det A = Y_12/Y_21 = (0.000004 - 0.002000j)
+  π-Ersatz: Y_a = Y_11 + Y_12 = 10.0000j, Y_b = -Y_12 = 2.0000j, Y_c = Y_22 + Y_12 = 125.0000 µS, Quelle (Y_21 - Y_12) U_1 = 1000.0000 µS · U_1
+  ω = 1e+07 1/s: C_ein mit 10 kOhm = 208.89 fF, Re Y_ein = 0.0010 µS
+  ω = 1e+08 1/s: C_ein mit 10 kOhm = 208.88 fF, Re Y_ein = 0.0968 µS
+  ω = 1e+09 1/s: C_ein mit 10 kOhm = 208.04 fF, Re Y_ein = 9.6031 µS
+
+====================================================================================================
+AL. Reihenschaltung zweier T-Glieder (je drei 1-kOhm-Widerstände): Torbedingung (kOhm, mA, V)
+====================================================================================================
+Z eines T-Glieds = [[2.0000, 1.0000], [1.0000, 2.0000]] kOhm; Summe zweier = [[4.0000, 2.0000], [2.0000, 4.0000]]
+Beide mit unterer Masseleitung in Reihe: Z = [[3.5000, 2.5000], [2.5000, 3.5000]] kOhm (statt Summe [[4.0000, 2.0000], [2.0000, 4.0000]])
+Zweites Glied umgedreht: Z = [[4.0000, 2.0000], [2.0000, 4.0000]] kOhm (= Summe)
+Falsch, I_1 = 1 mA, I_2 = 0: in Klemme 1b fließen 0.500 mA, in 2b 0.500 mA, aus 1' (= untere Leitung von b) 1.000 mA; Torbedingung von b verletzt (0.500 hinein, 1.000 heraus an Tor 1)
+  Potentiale: U_1 = 3.500 V, U_2 = 2.500 V, M = 1.500 V, cb = 1.000 V
+Brune-Test (Eingänge in Reihe, 1 mA, Ausgänge offen): Spannung zwischen den zu verbindenden Ausgangsklemmen 2'a und 2b = U_M - U_cb = 1.000 V (falsch); umgedreht: 0 V, weil 1b und 2b in b verbunden sind
+
+====================================================================================================
+AM. Bipolarstufe ohne C_E (ET1-Zahlenwerk): Transistor-Zweitor in Reihe mit dem Querglied R_E (kOhm, mS)
+====================================================================================================
+Arbeitspunkt (ET1): I_C = 0.9471 mA, U_CE = 5.357 V; g_m = 36.636 mS, r_BE = 13.713 kOhm, r_CE = 79.57 kOhm, beta = 502.4
+Z_T (Tor 1 Basis-Emitter, Tor 2 Kollektor-Emitter) = [[13.713, 0.000], [-39972.630, 79.566]] kOhm
+Z_E = [[1.000, 1.000], [1.000, 1.000]] kOhm; Z_ges = Z_T + Z_E = [[14.713, 1.000], [-39971.630, 80.566]] kOhm
+  direkt (Leerlaufversuche an der Schaltung) = [[14.713, 1.000], [-39971.630, 80.566]] kOhm; gleich: True
+Mit R_C = 3,9 kOhm als Last: Eingangswiderstand an der Basis Z_11 - Z_12 Z_21/(Z_22 + R_C) = 487.94 kOhm; Spannungsverstärkung R_C Z_21/((Z_22 + R_C) Z_11 - Z_12 Z_21) = -3.7824
+  ET1 numerisch (vollständiges Modell, ohne C_E): -3.7824; Näherungen r_BE + (beta + 1) R_E = 517.10 kOhm, -beta R_C/(r_BE + (beta+1) R_E) = -3.7890
+  Kollektor kurzgeschlossen: 510.85 kOhm; Kollektor offen: Z_11 = 14.713 kOhm; ohne R_E (nur r_BE) 13.713 kOhm
+  Ausgangswiderstand am Kollektor (Basis von idealer Quelle, U_1 = 0): 1/Y_22 = det Z/Z_11 = 2797.3 kOhm (ET1: r_CE (1 + beta R_E/(r_BE + R_E)) = 2796.4 kOhm)
+H-Parameter des Transistors allein: h_11 = r_BE = 13.713 kOhm, h_12 = 0, h_21 = beta = 502.4, h_22 = 1/r_CE = 12.57 µS; Datenblatt BC547C (2 mA): h_ie 8,7 kOhm, h_fe 600, h_oe 60 µS, h_re 3e-4
+  Z aus H: Z_11 = det H/h_22 = 13.713, Z_12 = h_12/h_22 = 0, Z_21 = -h_21/h_22 = -39972.6, Z_22 = 1/h_22 = 79.57 kOhm (= Z_T)
+
+====================================================================================================
+AN. Umrechnungen zwischen Y, Z und A an einer beliebigen Testmatrix, Determinanten
+====================================================================================================
+Y = [[(2.0000 + 1.0000j), (-0.5000 + 0.2000j)], [(3.0000 - 1.0000j), (1.0000 + 0.5000j)]]; Z = Y^-1 = [[(0.3757 + 0.0578j), (0.1410 - 0.1168j)], [(-0.8671 + 0.6358j), (0.7514 + 0.1156j)]]
+  A aus Y = A aus Z: True; Y aus A: True; Z aus A: True
+  Z aus Y elementweise: Z_11 = Y_22/det Y True, Z_12 = -Y_12/det Y True
+  det A = (-0.1700 + 0.0100j); Y_12/Y_21 = (-0.1700 + 0.0100j); Z_12/Z_21 = (-0.1700 + 0.0100j)
+  det Z · det Y = 1.0000
+Existenz: Querglied R (Z = R[[1,1],[1,1]]): det Z = 0 -> keine Y-Form; Längsglied Z (Y = (1/Z)[[1,-1],[-1,1]]): det Y = 0 -> keine Z-Form; beide haben eine Kettenmatrix [[1,0],[1/R,1]] bzw. [[1,Z],[0,1]]
+
+====================================================================================================
+AO. Signalkette: Quelle 10 kOhm, zwei Stufen mit Vorspannungsteiler (100 kOhm), Last 10 kOhm (mS, kOhm)
+====================================================================================================
+Teiler 400 kOhm nach 5 V und 133.3 kOhm nach Masse: U_G = 1.250 V, kleinsignalmäßig R_G = 100.0 kOhm
+Stufe mit Teiler: Y = [[0.01000, -0.00000], [0.49383, 0.11235]] mS; A = [[-0.22750, -2.02500], [-0.00228, -0.02025]]
+Kette A_ges = [[0.05636, 0.50169], [0.00056, 0.00502]]; U_L/U_sig = 1/((A_11 + A_12/R_L) + R_sig (A_21 + A_22/R_L)) = 8.5335
+Stufenweise: Eingangsteiler R_G/(R_G + R_sig) = 0.9091; Stufe 1 an R_G der Stufe 2: -Y_21 (R_aus ∥ R_G) = -4.0363; Stufe 2 an R_L: -2.3256; Produkt 8.5335
+  Zwischenstufe: R_G/(R_G + R_aus) = 0.9183 (Verlust 8.2 %); Ausgang: R_L/(R_L + R_aus) = 0.5291
+Ohne Teiler (Gate nimmt keinen Strom auf): 10.2223
+  1 mV Quelle -> 8.5335 mV an der Last; Spannung am ersten Gate 0.9091 mV, am zweiten -3.6694 mV
+
+====================================================================================================
+AP. Ergänzungen: Kurzschluss über Kondensator, Gyrator, Eingangskapazität über der Last, Eingangsecke
+====================================================================================================
+Kondensator 10 µF bei 1000 Hz: |Z| = 1/(2π f C) = 15.92 Ohm (gegen Z_aus = 8901 Ohm: 0.18 %)
+Kondensator 10 µF bei 20 Hz: |Z| = 1/(2π f C) = 795.77 Ohm (gegen Z_aus = 8901 Ohm: 8.94 %)
+Kondensator 100 µF bei 20 Hz: |Z| = 1/(2π f C) = 79.58 Ohm (gegen Z_aus = 8901 Ohm: 0.89 %)
+Gyrator g = 1 mS, Y = [[0, g], [-g, 0]]: U_1 = 1.0000 V, U_2 = 1.0000j V -> I_1 = 1.0000j mA, I_2 = -1.0000 mA, P = 0.0000 mW (Leistung am Tor 1 +0.0000 mW, Tor 2 +0.0000 mW)
+Gyrator g = 1 mS, Y = [[0, g], [-g, 0]]: U_1 = 1.0000 V, U_2 = 0.5000 V -> I_1 = 0.5000 mA, I_2 = -1.0000 mA, P = 0.0000 mW (Leistung am Tor 1 +0.2500 mW, Tor 2 -0.2500 mW)
+Gyrator g = 1 mS, Y = [[0, g], [-g, 0]]: U_1 = 1.0000 V, U_2 = (1.0000 + 1.0000j) V -> I_1 = (1.0000 + 1.0000j) mA, I_2 = -1.0000 mA, P = 0.0000 mW (Leistung am Tor 1 +0.5000 mW, Tor 2 -0.5000 mW)
+  Gyrator mit Last 1 kOhm an Tor 2: Y_ein = Y_11 - Y_12 Y_21/(Y_22 + G_L) = 1.0000 mS -> Eingang sieht 1 kOhm; mit 100 nF bei 10^4 1/s (j1 mS): Y_ein = -1.0000j mS -> induktiv, L = 100 mH
+Eingangskapazität der Stufe ohne R_S (ω = 10^8 1/s) über dem Lastwiderstand:
+  R_L =   0.1 kOhm: C_ein =  121.98 fF, |U_2/U_1| = 0.0988
+  R_L =     1 kOhm: C_ein =  137.78 fF, |U_2/U_1| = 0.8889
+  R_L =    10 kOhm: C_ein =  208.88 fF, |U_2/U_1| = 4.4443
+  R_L =   100 kOhm: C_ein =  268.11 fF, |U_2/U_1| = 7.4066
+  R_L =  1000 kOhm: C_ein =  278.69 fF, |U_2/U_1| = 7.9355
+  R_L =      offen: C_ein =  279.95 fF, |U_2/U_1| = 7.9990
+Eingangsecke an 10 kOhm Quelle, nur C_gs: C = 100.00 fF, f = 1/(2π R_sig C) = 159.2 MHz
+Eingangsecke an 10 kOhm Quelle, Kurzschluss (C_gs + C_gd): C = 120.00 fF, f = 1/(2π R_sig C) = 132.6 MHz
+Eingangsecke an 10 kOhm Quelle, Last 10 kOhm: C = 208.88 fF, f = 1/(2π R_sig C) = 76.2 MHz
+Eingangsecke an 10 kOhm Quelle, offen: C = 279.95 fF, f = 1/(2π R_sig C) = 56.9 MHz
+Verhältnis Y_12/Y_21 = (0.000004 - 0.002000j); Miller-Anteil C_gd (1 + 4,444) = 108.89 fF
+Exakt umgeordnet: Y_ein = jωC_gs + jωC_gd (1 - U_2/U_1) mit U_2/U_1 = (-4.4440 + 0.0484j): (0.0968 + 20.8880j) µS (Formel: (0.0968 + 20.8880j) µS)
+Faktenprüfung (Variation Reihenfolge): Stufe allein an 10 kOhm -2.3256; RC-Faktor davor 0.7071, dahinter 0.1872 (Verhältnis 3.78); Kondensator sieht dahinter (8.901 + 1) kOhm ∥ 10 kOhm = 4.975 kOhm statt 1 kOhm
+Bipolar mit Text-Ziffern: 502,38 · 79,566 = 39972.4 kOhm; 502,38/12,568 µS = 39972.9 kOhm; C_ein-Verhältnis 208,88/120 = 1.741
+RC-Glied mit 1 kOhm Last: Y_ein = 1 - 1/(2 + j) = (0.6000 + 0.2000j) mS; direkt 1/(R + (Z_C ∥ R_L)) = (0.6000 + 0.2000j) mS, Z = (1.5000 - 0.5000j) kOhm

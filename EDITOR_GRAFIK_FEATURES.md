@@ -177,7 +177,7 @@ Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und
 - Kästen mit Text und Formeln, verbunden durch Pfeile; Anordnung als Kette oder als geschlossener Kreis, Pfeile folgen der Anordnung automatisch.
 - Vorzeichen oder Symbole an Pfeilen und Kästen (+/−, steigt/sinkt), damit Mit- und Gegenkopplung unterscheidbar sind; Auslöser als Kasten außerhalb des Kreises.
 - Entscheidungsrauten mit beschrifteten Ausgängen (ja/nein), verzweigte und wieder zusammenlaufende Abläufe (Rechenschema für OPV-Schaltungen).
-Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); Rechenschema und Multiplizierer (02-rechenschema, 02-multiplizierer); Stammbaum der Einheiten und definierende Konstanten (get1/grundprinzipien/01-einheitenbaum, 01-si-konstanten); Ablauf der Transientenanalyse mit zwei Schleifen (st1/netzwerkanalyse/04-spice-ablauf); absehbar Regelkreise.
+Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); Rechenschema und Multiplizierer (02-rechenschema, 02-multiplizierer); Stammbaum der Einheiten und definierende Konstanten (get1/grundprinzipien/01-einheitenbaum, 01-si-konstanten); Ablauf der Transientenanalyse mit zwei Schleifen (st1/netzwerkanalyse/04-spice-ablauf); Signalkette aus Zweitoren (05-signalkette); absehbar Regelkreise.
 
 
 ## 20. Hystereseschleifen  — **P2** (neu 2026-10-22, Operationsverstärker)
@@ -235,7 +235,7 @@ Gebraucht in: st1/einfuehrung/01-planartechnik, 01-skalierung, 01-triode-aufbau;
 - Gesteuerte Quellen als Raute: spannungs- und stromgesteuerte Strom- und Spannungsquelle; Beschriftung mit dem Steuerausdruck ($g\,u$, $\beta\,i_B$, $v\,u_1$) und gestrichelte Zuordnung zur Steuergröße (Spannungspfeil oder Strompfeil an anderer Stelle der Schaltung).
 - Nichtlinearer Zweipol: Widerstandsrechteck mit schräger, geknickter Linie, beschriftet mit der Kennlinienfunktion; ebenso nichtlineare Kapazität.
 - Gegenüberstellung Großsignal- und Kleinsignal-Ersatzschaltbild: dieselbe Anordnung in zwei Teilbildern (§10), Bauteile paarweise farbig gekoppelt; Gleichspannungsquelle wird zum Kurzschluss, Gleichstromquelle zur Unterbrechung, wahlweise als Animation (§8).
-Gebraucht in: st1/netzwerkanalyse/01-ersatzschaltbilder; absehbar alle Kleinsignal-Ersatzschaltbilder von Diode, Bipolartransistor und MOSFET, modifizierte Knotenanalyse, Vierpole.
+Gebraucht in: st1/netzwerkanalyse/01-ersatzschaltbilder; st1/netzwerkanalyse/05-ersatzschaltbild-y, 05-rueckwirkung-cgd, 05-parallelschaltung, 05-bipolar-re, 05-signalkette; absehbar alle Kleinsignal-Ersatzschaltbilder von Diode, Bipolartransistor und MOSFET, modifizierte Knotenanalyse.
 
 ## 29. Iterationsdarstellungen  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
 - Folge von Tangenten an eine Funktion: Nullstelle jeder Tangente auf der Achse markiert, senkrechte Hilfslinie zurück zur Kurve, nummerierte Schätzwerte $U^{(0)}, U^{(1)}, \ldots$; schrittweise einblendbar (§8).
@@ -256,13 +256,13 @@ Gebraucht in: st1/netzwerkanalyse/02-topologie; absehbar modifizierte Knotenanal
 - Rand mit Zeilen- und Spaltensummen; Durchstreichen einer Zeile und Spalte (Bezugsknoten); Blockmatrix mit angefügter Zusatzzeile und -spalte und grau hinterlegtem Kernblock.
 - Determinanten-Schemata: ersetzte Spalte hervorgehoben, Schachbrettmuster der Vorzeichen als Überlagerung, Streichungsmatrix mit gedimmter Zeile und Spalte, Sarrus-Diagonalen in zwei Farben.
 - Symbole Nullator (Oval) und Norator (zwei überlappende Kreise) für die Symbolbibliothek (§1).
-Gebraucht in: st1/netzwerkanalyse/03-netzliste-matrix, 03-eintragsmuster-knoten, 03-vollstaendige-matrix, 03-cramer-laplace, 03-mna-spannungsquelle, 03-eintragsmuster-mna, 03-nullor-verstaerker; absehbar Vierpole und Transientenanalyse (Begleitmodelle).
+Gebraucht in: st1/netzwerkanalyse/03-netzliste-matrix, 03-eintragsmuster-knoten, 03-vollstaendige-matrix, 03-cramer-laplace, 03-mna-spannungsquelle, 03-eintragsmuster-mna, 03-nullor-verstaerker; Kettenmatrizen von Längs- und Querglied (05-laengs-quer); absehbar Transientenanalyse (Begleitmodelle).
 
 ## 32. Bode-Diagramme  — **P1** für die Frequenzgang-Themen (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
 - Betrag in dB über logarithmischer Frequenzachse, darunter der Winkel in Grad auf derselben Achse (§13).
 - Asymptoten gestrichelt mit Steigungsangabe (0, −20, −40 dB pro Dekade); Eckfrequenzen als senkrechte Hilfslinien mit Beschriftung; −3-dB-Punkt markiert.
 - Mehrere Übertragungsfunktionen in einem Diagramm, direkt an den Kurven beschriftet; Werte aus dem Zahlenwerk (§11).
-Gebraucht in: st1/netzwerkanalyse/03-bode; absehbar Frequenzgang der Transistorgrundschaltungen, Miller-Effekt, OPV-Frequenzgang.
+Gebraucht in: st1/netzwerkanalyse/03-bode, 05-rc-kette (nur Betrag); absehbar Frequenzgang der Transistorgrundschaltungen, Miller-Effekt, OPV-Frequenzgang.
 
 ## 33. Zeitschritte, Integrationsverfahren und Begleitmodelle  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
 - Zeitraster mit Punkten je Zeitschritt über einer exakten Kurve (§11); Steigungsstücke je Schritt, wahlweise am Schrittanfang (explizit) oder am Schrittende (implizit), gestrichelt in der Farbe des Verfahrens.
@@ -275,7 +275,15 @@ Gebraucht in: st1/netzwerkanalyse/04-uebersicht, 04-euler-verfahren, 04-begleitm
 - Quellen mit Zustand „aktiv“ oder „abgeschaltet“: abgeschaltete Quelle grau mit „= 0“, wahlweise ersetzt durch ihren Ersatz (Stromquelle durch Leerlauf, Spannungsquelle durch Kurzschluss, gestrichelt); Testquellen farblich abgesetzt (Teststrom orange, Testspannung blau).
 - Umschalten zwischen Läufen derselben Schaltung als Animation (§8): Die aktive Quelle wechselt, die zugehörige rechte Seite der Matrix wechselt mit (§31), die Matrix bleibt stehen.
 - Markierung „falsch“ (rot umrandet oder durchgestrichen) für Gegenbeispiele wie eine entfernte statt kurzgeschlossene Quelle.
-Gebraucht in: st1/netzwerkanalyse/04-uebersicht, 04-teststrom-ausgang, 04-testspannung-eingang, 04-innerer-knoten, 04-ersatzzweitor; absehbar Vierpole (Parameter aus Leerlauf- und Kurzschlussbedingungen).
+Gebraucht in: st1/netzwerkanalyse/04-uebersicht, 04-teststrom-ausgang, 04-testspannung-eingang, 04-innerer-knoten, 04-ersatzzweitor; st1/netzwerkanalyse/05-kurzschluss-leerlauf (Kurzschluss und Leerlauf an einem Tor), 05-reihenschaltung-t (Markierung „falsch“).
+
+## 35. Zweitore und ihre Zusammenschaltungen  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Zweitor als Kasten mit den Klemmen 1, 1′, 2, 2′ und symmetrischen Zählpfeilen; wahlweise der Ausgangsstrom als $-\underline I_2$ hinaus (Kettenform). Inhalt des Kastens ausblendbar (nur Torverhalten) oder als Schaltbild (§1).
+- Vorlagen für die Zusammenschaltung zweier Kästen a und b: Kette, Parallel, Reihe, Reihen-Parallel; die Verbindungsleitungen werden automatisch geführt, auch gekreuzt; ein Kasten lässt sich umdrehen (obere und untere Leitung tauschen).
+- Messvorlagen an einem Tor: Kurzschlussbügel, offenes Tor, ideale Spannungs- oder Stromquelle (§34), dazu die abgelesenen Größen.
+- Klemmenstrompfeile mit Zahlenwerten an allen vier Klemmen; Markierung, wenn an einem Tor hinein und heraus verschiedene Ströme fließen (Torbedingung verletzt, rot); Spannungsmesser zwischen zwei Klemmen für den Brune-Test.
+- Matrizen unter den Schaltungen mit der Operation dazwischen (Produkt bzw. Summe) und dem Ergebnis; Einträge mit Einheit; Übereinstimmung oder Abweichung gegenüber der direkt berechneten Matrix farbig.
+Gebraucht in: st1/netzwerkanalyse/05-uebersicht, 05-tor-und-vierpol, 05-kurzschluss-leerlauf, 05-rc-kette, 05-laengs-quer, 05-parallelschaltung, 05-reihenschaltung-t, 05-bipolar-re, 05-signalkette; absehbar Transistorgrundschaltungen (Stufen als Zweitore in Ketten) und Leitungen.
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

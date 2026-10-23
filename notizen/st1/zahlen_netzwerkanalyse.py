@@ -1409,3 +1409,427 @@ for nu_ in range(1, 6):
         break
     Uk2 = Un2
 P(f"  rechte Seite I_q + G_C U_n = {(Iq + GCn*U_alt2)*1e3:.5f} mA, Leitwert G_q + G_C = {(Gq+GCn)*1e3:.2f} mS")
+
+
+# ======================================================================================================================
+# Thema 5: Vierpole – Parameterformen und Zusammenschaltung
+# Beispielsysteme wie oben: RC-Glied (Längswiderstand 1 kOhm, Querkondensator 100 nF, ω = 10^4 1/s) und der zweistufige
+# RC-Tiefpass als Kette zweier solcher Glieder (Abschnitte K, AA); Verstärkerstufe mit R_S als Zweitor zwischen Gate und
+# Drain (Abschnitte L, Z) und ohne R_S mit C_gs = 100 fF, C_gd = 20 fF bei ω = 10^8 1/s (Abschnitte T, V). Neu:
+# zwei T-Glieder aus je drei 1-kOhm-Widerständen (Reihenschaltung und Torbedingung); der Beispieltransistor des
+# ET1-Zahlenwerks (notizen/get1/zahlen_transistor.py, Verstärkerstufe 10 V, 330 k/68 k, R_C = 3,9 kOhm, R_E = 1 kOhm,
+# ohne C_E) für die Reihenschaltung mit dem Emitterwiderstand; ein Vorspannungsteiler am Gate (400 kOhm nach 5 V,
+# 133,3 kOhm nach Masse, kleinsignalmäßig 100 kOhm) für die Verstärkerkette mit Signalquelle 10 kOhm und Last 10 kOhm.
+# Zählpfeile: symmetrisch, I_1 und I_2 fließen an den oberen Klemmen hinein; Kettenform mit -I_2.
+# ======================================================================================================================
+def det2(M_):
+    return M_[0, 0] * M_[1, 1] - M_[0, 1] * M_[1, 0]
+
+
+def a_aus_y(Y_):
+    (y11, y12), (y21, y22) = Y_
+    return np.array([[-y22 / y21, -1 / y21], [-det2(Y_) / y21, -y11 / y21]])
+
+
+def y_aus_a(A_):
+    (a11, a12), (a21, a22) = A_
+    return np.array([[a22 / a12, -det2(A_) / a12], [-1 / a12, a11 / a12]])
+
+
+def z_aus_a(A_):
+    (a11, a12), (a21, a22) = A_
+    return np.array([[a11 / a21, det2(A_) / a21], [1 / a21, a22 / a21]])
+
+
+def a_aus_z(Z_):
+    (z11, z12), (z21, z22) = Z_
+    return np.array([[z11 / z21, det2(Z_) / z21], [1 / z21, z22 / z21]])
+
+
+def a_laengs(Zx):
+    return np.array([[1, Zx], [0, 1]], dtype=complex)
+
+
+def a_quer(Yx):
+    return np.array([[1, 0], [Yx, 1]], dtype=complex)
+
+
+def zweitor_y(bauen, knoten, t1, t1s, t2, t2s):
+    """Y-Matrix aus zwei Läufen mit idealen Spannungsquellen an beiden Toren (Kurzschlussversuche).
+    Der Zusatzstrom der Quelle fließt in ihren Pluspol hinein; der Strom in Klemme 1 des Zweitors ist sein Negatives."""
+    Y_ = np.zeros((2, 2), dtype=complex)
+    for sp_, (u1_, u2_) in enumerate(((1.0, 0.0), (0.0, 1.0))):
+        m_ = MNA(knoten, ["Q1", "Q2"])
+        bauen(m_)
+        m_.spannungszweig(t1, t1s, "Q1", uq=u1_)
+        m_.spannungszweig(t2, t2s, "Q2", uq=u2_)
+        x_ = m_.loesen()
+        Y_[0, sp_], Y_[1, sp_] = -x_[m_.zs["Q1"]], -x_[m_.zs["Q2"]]
+    return Y_
+
+
+def zweitor_z(bauen, knoten, t1, t1s, t2, t2s):
+    """Z-Matrix aus zwei Läufen mit idealen Stromquellen an beiden Toren (Leerlaufversuche); der Strom fließt in die
+    obere Klemme hinein und aus der unteren heraus, also Torbedingung von außen erzwungen."""
+    Z_ = np.zeros((2, 2), dtype=complex)
+    for sp_, (i1_, i2_) in enumerate(((1.0, 0.0), (0.0, 1.0))):
+        m_ = MNA(knoten)
+        bauen(m_)
+        m_.stromquelle(t1, t1s, i1_)
+        m_.stromquelle(t2, t2s, i2_)
+        x_ = m_.loesen()
+
+        def pot(a_):
+            return 0.0 if a_ == "0" else x_[m_.kn[a_]]
+        Z_[0, sp_], Z_[1, sp_] = pot(t1) - pot(t1s), pot(t2) - pot(t2s)
+    return Z_
+
+
+# ------------------------------------------------------------------ AH. RC-Glied als Zweitor
+kopf("AH. RC-Glied (Längs 1 kOhm, quer 100 nF) als Zweitor bei ω = 10^4 1/s: Y, Z, A (mS, kOhm)")
+Yc = 1j * w * Ck * 1e3                    # j1 mS
+
+
+def rc_glied(m_):
+    m_.admittanz("1", "2", 1.0)           # mS
+    m_.admittanz("2", "0", Yc)
+
+
+Yrc = zweitor_y(rc_glied, ["1", "2"], "1", "0", "2", "0")
+Zrc_ = zweitor_z(rc_glied, ["1", "2"], "1", "0", "2", "0")
+Arc = a_aus_y(Yrc)
+P("Y (Kurzschlussversuche, mS) = " + mat_str(Yrc))
+P("  Kurzschluss am Ausgang, 1 V am Eingang: I_1 = 1 mA, I_2 = -1 mA (der Strom durch R verlässt Tor 2)")
+P("Z (Leerlaufversuche, kOhm) = " + mat_str(Zrc_) + "; Y^-1 = " + mat_str(np.linalg.inv(Yrc)))
+P("A (aus Y, Einheiten 1, kOhm, mS, 1) = " + mat_str(Arc) + "; Produkt Längsglied R mal Querglied C = "
+  + mat_str(a_laengs(1.0) @ a_quer(Yc)))
+P(f"  det Y = {fz(det2(Yrc))} mS^2, det Z = {fz(det2(Zrc_))} kOhm^2, det A = {fz(det2(Arc))}")
+P(f"  Y_12 = {fz(Yrc[0,1])}, Y_21 = {fz(Yrc[1,0])} (reziprok); Z_12 = {fz(Zrc_[0,1])}, Z_21 = {fz(Zrc_[1,0])}")
+P(f"  Y_11 = {fz(Yrc[0,0])} mS (Kurzschluss) gegen 1/Z_11 = {fz(1/Zrc_[0,0])} mS (Leerlauf): Betrag "
+  f"{abs(Yrc[0,0]):.4f} gegen {abs(1/Zrc_[0,0]):.4f} mS")
+P(f"  Leerlauf-Spannungsübertragung U_2/U_1 = 1/A_11 = {zeiger(1/Arc[0,0])}")
+P(f"  Probe der Messvorschriften: A_11 = U_1/U_2 bei I_2 = 0: Z_11/Z_21 = {fz(Zrc_[0,0]/Zrc_[1,0])}; "
+  f"A_12 = U_1/(-I_2) bei U_2 = 0: -1/Y_21 = {fz(-1/Yrc[1,0])} kOhm; A_21 = I_1/U_2 bei I_2 = 0: 1/Z_21 = "
+  f"{fz(1/Zrc_[1,0])} mS; A_22 = I_1/(-I_2) bei U_2 = 0: -Y_11/Y_21 = {fz(-Yrc[0,0]/Yrc[1,0])}")
+Acr = a_quer(Yc) @ a_laengs(1.0)
+P("Umgekehrte Reihenfolge (erst quer C, dann längs R): A = " + mat_str(Acr) + f"; Leerlauf U_2/U_1 = 1/A_11 = "
+  f"{fz(1/Acr[0,0])} (gegen {fz(1/Arc[0,0])} beim RC-Glied)")
+for GLx_ in (1.0, 0.1):
+    h_rc = 1 / (Arc[0, 0] + Arc[0, 1] * GLx_)
+    h_cr = 1 / (Acr[0, 0] + Acr[0, 1] * GLx_)
+    P(f"  mit Last {1/GLx_:.0f} kOhm: RC {zeiger(h_rc)}; CR {zeiger(h_cr)}")
+# Ersatzschaltbild: π aus Y
+P(f"π-Ersatz aus Y: Y_a = Y_11 + Y_12 = {fz(Yrc[0,0]+Yrc[0,1])}, Y_b = -Y_12 = {fz(-Yrc[0,1])}, Y_c = Y_22 + Y_12 = "
+  f"{fz(Yrc[1,1]+Yrc[0,1])} mS (genau das RC-Glied: links nichts quer, 1 mS längs, j1 mS quer)")
+# Leistung: Hermitescher Teil
+Hrc = (Yrc + Yrc.conj().T) / 2
+P(f"Passivität: (Y + Y^H)/2 = {mat_str(Hrc)} mS, Eigenwerte {np.round(np.linalg.eigvalsh(Hrc), 4).tolist()} (>= 0)")
+for (u1x, u2x) in ((1.0, 0.5), (1.0, -1.0), (1.0, 1j), (1.0, 1.0)):
+    I_ = Yrc @ np.array([u1x, u2x])
+    Pin = 0.5 * (np.array([u1x, u2x]) * I_.conj()).sum().real
+    P(f"  U_1 = {fz(u1x)} V, U_2 = {fz(u2x)} V: I = ({fz(I_[0])}; {fz(I_[1])}) mA, aufgenommene Wirkleistung "
+      f"1/2 Re(U_1 I_1* + U_2 I_2*) = {Pin:.4f} mW")
+
+# ------------------------------------------------------------------ AI. Zweistufiger RC-Tiefpass als Kette
+kopf("AI. Zweistufiger RC-Tiefpass als Kettenschaltung zweier RC-Glieder (Abschnitte K und AA)")
+A2rc = Arc @ Arc
+P("A_ges = A_RC A_RC = " + mat_str(A2rc) + f"; det = {fz(det2(A2rc))}")
+H2 = 1 / A2rc[0, 0]
+Hprod = (1 / Arc[0, 0]) ** 2
+P(f"Leerlauf U_2/U_1 = 1/A_11 = {zeiger(H2)} (Abschnitt K: 1/(1 - (ωRC)^2 + 3jωRC) = {zeiger(1/(1-1+3j))})")
+P(f"Produkt der Einzelübertragungen (1/(1 + j))^2 = {zeiger(Hprod)}; Betrag {abs(Hprod):.4f} statt {abs(H2):.4f}, "
+  f"Fehler {(abs(Hprod)/abs(H2)-1)*100:+.1f} %")
+U1st = 1 / (A2rc[1, 0] / A2rc[0, 0])
+P(f"Eingangsimpedanz bei offenem Ausgang Z_11 = A_11/A_21 = {zeiger(A2rc[0,0]/A2rc[1,0], 'kOhm')}; Y = "
+  f"{zeiger(A2rc[1,0]/A2rc[0,0], 'mS')} (Abschnitt AA: (0,667 + 0,333j) mS)")
+P(f"Ausgangsimpedanz bei kurzgeschlossenem Eingang 1/Y_22 = A_12/A_11 = {zeiger(A2rc[0,1]/A2rc[0,0], 'kOhm')} "
+  f"(Abschnitt AA)")
+Y2rc = y_aus_a(A2rc)
+P("Y_ges (aus A) = " + mat_str(Y2rc) + " mS; Z_ges = " + mat_str(z_aus_a(A2rc)) + " kOhm")
+GLa = 1.0
+Yein_L = Y2rc[0, 0] - Y2rc[0, 1] * Y2rc[1, 0] / (Y2rc[1, 1] + GLa)
+P(f"Mit 1 kOhm Last: Y_ein = Y_11 - Y_12 Y_21/(Y_22 + Y_L) = {zeiger(Yein_L, 'mS')}; aus A: (A_21 + A_22 Y_L)/(A_11 + "
+  f"A_12 Y_L) = {zeiger((A2rc[1,0]+A2rc[1,1]*GLa)/(A2rc[0,0]+A2rc[0,1]*GLa), 'mS')}; U_2/U_1 = 1/(A_11 + A_12 Y_L) "
+  f"= {zeiger(1/(A2rc[0,0]+A2rc[0,1]*GLa))} (Abschnitt AA: 0,1 - 0,2j)")
+P(f"  Y_11 der Kette (Kurzschluss) = {zeiger(Y2rc[0,0], 'mS')}, offen {zeiger(A2rc[1,0]/A2rc[0,0], 'mS')}, "
+  f"mit 1 kOhm {zeiger(Yein_L, 'mS')}")
+# Belastung der ersten Stufe durch die zweite
+Zein2 = Arc[0, 0] / Arc[1, 0]             # Eingangsimpedanz eines RC-Glieds bei offenem Ausgang
+P(f"Eingangsimpedanz des zweiten Glieds (offen) = {zeiger(Zein2, 'kOhm')}; erstes Glied mit dieser Last: "
+  f"U_m/U_1 = {zeiger(1/(Arc[0,0]+Arc[0,1]/Zein2))}; zweites: U_2/U_m = {zeiger(1/Arc[0,0])}; Produkt "
+  f"{zeiger(1/(Arc[0,0]+Arc[0,1]/Zein2)/Arc[0,0])}")
+for wx in (1e3, 1e4, 1e5):
+    xx = wx * Rk * Ck
+    Ax = a_laengs(1.0) @ a_quer(1j * xx)
+    P(f"  ω = {wx:.0e} 1/s: Kette |1/A_11| = {abs(1/(Ax@Ax)[0,0]):.4f}, Produkt der Einzelglieder "
+      f"|1/(1 + jωRC)|^2 = {abs(1/(1+1j*xx))**2:.4f}")
+
+# ------------------------------------------------------------------ AJ. Verstärkerstufe mit R_S als Zweitor
+kopf("AJ. Verstärkerstufe mit R_S als Zweitor (Tor 1 Gate-Masse, Tor 2 Drain-Masse, R_D im Zweitor; mS, kOhm)")
+
+
+def stufe_rs(m_):
+    m_.admittanz("D", "0", GD * 1e3)
+    m_.admittanz("S", "0", GS * 1e3)
+    m_.admittanz("D", "S", go * 1e3)
+    m_.vccs("D", "S", "G", "S", gm * 1e3)
+
+
+Yst = zweitor_y(stufe_rs, ["G", "D", "S"], "G", "0", "D", "0").real
+P("Y = " + mat_str(Yst, 5) + f" mS; det Y = {det2(Yst):.3e} -> keine Z-Form (Y nicht invertierbar)")
+P(f"  Y_21 = g_m G_S/(g_m + g_o + G_S) = {gm*GS/(gm+go+GS)*1e3:.5f} mS; Y_22 = G_D + g_o G_S/(g_m + g_o + G_S) = "
+  f"{(GD + go*GS/(gm+go+GS))*1e3:.5f} mS")
+Ast = a_aus_y(Yst)
+P("A = " + mat_str(Ast, 5) + f" (Einheiten 1, kOhm, mS, 1); det A = {det2(Ast):.3e}")
+P(f"  1/A_11 = {1/Ast[0,0]:.4f} = A_V (Abschnitt Z: -4,3956); 1/Y_22 = {1/Yst[1,1]:.4f} kOhm = Z_aus; -Y_21/Y_22 = "
+  f"{-Yst[1,0]/Yst[1,1]:.4f}")
+P(f"  mit Last 10 kOhm: U_2/U_1 = -Y_21/(Y_22 + G_L) = {-Yst[1,0]/(Yst[1,1]+0.1):.4f}; aus A: 1/(A_11 + A_12 G_L) = "
+  f"{1/(Ast[0,0]+Ast[0,1]*0.1):.4f}")
+P(f"  Rückwirkung: Y_12 = {Yst[0,1]:.1e}; Eingang bei jeder Last Y_ein = Y_11 = {Yst[0,0]:.1e}")
+P(f"  Ersatzschaltbild: π mit Y_a = Y_11 + Y_12 = 0, Y_b = -Y_12 = 0, Y_c = Y_22 + Y_12 = {Yst[1,1]:.5f} mS, dazu "
+  f"Quelle (Y_21 - Y_12) U_1 = {Yst[1,0]:.5f} mS · U_1 von Klemme 2 nach 2'")
+uin_ = 10.0                              # mV
+u2_ = -Yst[1, 0] / (Yst[1, 1] + 0.1) * uin_
+P(f"Leistung bei 10 mV Amplitude am Gate und 10 kOhm Last: Eingang 0 W; Last 1/2 |U_2|^2/R_L = "
+  f"{0.5*(u2_*1e-3)**2/10e3*1e9:.3f} nW (|U_2| = {abs(u2_):.4f} mV)")
+Hst = (Yst + Yst.T) / 2
+P(f"  (Y + Y^T)/2 = {mat_str(Hst, 5)} mS, Eigenwerte {np.round(np.linalg.eigvalsh(Hst), 5).tolist()} (einer negativ: aktiv)")
+# Zwei Stufen in Kette (Gate nimmt keinen Strom auf)
+A2st = Ast @ Ast
+P("Zwei Stufen in Kette: A = " + mat_str(A2st, 5) + f"; Leerlauf 1/A_11 = {1/A2st[0,0]:.4f} "
+  f"(= A_V^2 = {(1/Ast[0,0])**2:.4f}); mit 10 kOhm: {1/(A2st[0,0]+A2st[0,1]*0.1):.4f} "
+  f"(= -4,3956 · -2,3256 = {(1/Ast[0,0])*(1/(Ast[0,0]+Ast[0,1]*0.1)):.4f})")
+# Reihenfolge mit dem RC-Glied (ω = 10^4 1/s)
+Ast_c = Ast.astype(complex)
+A_rc_st = Arc @ Ast_c
+A_st_rc = Ast_c @ Arc
+for name_, AA_ in (("RC-Glied, dann Stufe", A_rc_st), ("Stufe, dann RC-Glied", A_st_rc)):
+    P(f"  {name_}: A = {mat_str(AA_)}; mit 10 kOhm Last U_2/U_1 = {zeiger(1/(AA_[0,0]+AA_[0,1]*0.1))}")
+
+# ------------------------------------------------------------------ AK. Rückwirkung über C_gd: Parallelschaltung
+kopf("AK. Stufe ohne R_S mit C_gs = 100 fF, C_gd = 20 fF bei ω = 10^8 1/s: Parallelschaltung mit dem Längsglied C_gd (µS)")
+wk = 1e8
+yGS, yGD = 1j * wk * Cgs * 1e6, 1j * wk * Cgd * 1e6          # µS
+gmu, Gpu, GLu = gm * 1e6, (GD + go) * 1e6, GL * 1e6           # µS
+YT = np.array([[yGS, 0], [gmu, Gpu]], dtype=complex)
+YF = yGD * np.array([[1, -1], [-1, 1]])
+Ypar = YT + YF
+
+
+def stufe_cgd(m_):
+    m_.admittanz("G", "0", yGS)
+    m_.admittanz("G", "D", yGD)
+    m_.vccs("D", "0", "G", "0", gmu)
+    m_.admittanz("D", "0", Gpu)
+
+
+Ydir = zweitor_y(stufe_cgd, ["G", "D"], "G", "0", "D", "0")
+P(f"f = ω/(2π) = {wk/(2*math.pi)/1e6:.3f} MHz; jωC_gs = {fz(yGS)} µS, jωC_gd = {fz(yGD)} µS")
+P("Transistor-Zweitor Y_T = " + mat_str(YT) + " µS; Längsglied C_gd: Y_F = " + mat_str(YF) + " µS")
+P("Y_T + Y_F = " + mat_str(Ypar) + " µS; direkt (Kurzschlussversuche) = " + mat_str(Ydir) + f" µS; gleich: "
+  f"{np.allclose(Ypar, Ydir)}")
+P(f"  Y_12 = {fz(Ypar[0,1])}, Y_21 = {fz(Ypar[1,0])} µS: nicht reziprok; |Y_12/Y_21| = {abs(Ypar[0,1]/Ypar[1,0]):.5f}"
+  f" = |det A|")
+for nameL, GLx_ in (("Kurzschluss", None), ("Last 10 kOhm", GLu), ("offen", 0.0)):
+    if GLx_ is None:
+        Yein_ = Ypar[0, 0]
+        v_ = 0.0
+    else:
+        Yein_ = Ypar[0, 0] - Ypar[0, 1] * Ypar[1, 0] / (Ypar[1, 1] + GLx_)
+        v_ = -Ypar[1, 0] / (Ypar[1, 1] + GLx_)
+    P(f"  {nameL:12s}: Y_ein = {fz(Yein_)} µS -> C_ein = Im/ω = {Yein_.imag*1e-6/wk*1e15:.2f} fF, Re = "
+      f"{Yein_.real:.4f} µS; U_2/U_1 = {fz(v_, 4)}")
+for nameL, Gx in (("Last 10 kOhm", Gpu + GLu), ("offen", Gpu)):
+    P(f"  Näherung C_gs + C_gd (1 + g_m/G) für {nameL}: {(Cgs + Cgd*(1 + gm*1e6/Gx))*1e15:.2f} fF (Faktor "
+      f"1 + g_m/G = {1 + gmu/Gx:.3f})")
+Aout = a_aus_y(Ypar)
+P(f"  A = {mat_str(Aout)}; det A = Y_12/Y_21 = {fz(det2(Aout), 6)}")
+P(f"  π-Ersatz: Y_a = Y_11 + Y_12 = {fz(Ypar[0,0]+Ypar[0,1])}, Y_b = -Y_12 = {fz(-Ypar[0,1])}, Y_c = Y_22 + Y_12 = "
+  f"{fz(Ypar[1,1]+Ypar[0,1])} µS, Quelle (Y_21 - Y_12) U_1 = {fz(Ypar[1,0]-Ypar[0,1])} µS · U_1")
+for wx in (1e7, 1e8, 1e9):
+    Yx = np.array([[1j*wx*(Cgs+Cgd), -1j*wx*Cgd], [gm - 1j*wx*Cgd, GD + go + 1j*wx*Cgd]])
+    Ye = Yx[0, 0] - Yx[0, 1] * Yx[1, 0] / (Yx[1, 1] + GL)
+    P(f"  ω = {wx:.0e} 1/s: C_ein mit 10 kOhm = {Ye.imag/wx*1e15:.2f} fF, Re Y_ein = {Ye.real*1e6:.4f} µS")
+
+# ------------------------------------------------------------------ AL. Reihenschaltung zweier T-Glieder
+kopf("AL. Reihenschaltung zweier T-Glieder (je drei 1-kOhm-Widerstände): Torbedingung (kOhm, mA, V)")
+ZT1 = np.array([[2.0, 1.0], [1.0, 2.0]])
+P("Z eines T-Glieds = " + mat_str(ZT1) + " kOhm; Summe zweier = " + mat_str(2 * ZT1))
+
+
+def t_falsch(m_):
+    # Glied a: Klemme 1 (Tor 1 oben), Klemme 2 (Tor 2 oben), Mitte ca, durchgehende untere Leitung = Knoten M.
+    # Glied b, ebenfalls mit durchgehender unterer Leitung (= Bezugsknoten 0, die unteren Torklemmen); seine oberen
+    # Klemmen 1b und 2b hängen beide an M, weil die untere Leitung von a sie verbindet.
+    for a_, b_ in (("1", "ca"), ("ca", "M"), ("ca", "2"), ("M", "cb"), ("M", "cb"), ("cb", "0")):
+        m_.admittanz(a_, b_, 1.0)
+
+
+def t_richtig(m_):
+    # Glied b umgedreht: seine durchgehende Leitung liegt oben und ist mit der unteren Leitung von a verbunden (M = 0);
+    # unten hat es zwei getrennte Klemmen P1 (Tor 1 unten) und P2 (Tor 2 unten).
+    for a_, b_ in (("1", "ca"), ("ca", "0"), ("ca", "2"), ("0", "cb"), ("cb", "P1"), ("cb", "P2")):
+        m_.admittanz(a_, b_, 1.0)
+
+
+Zf = zweitor_z(t_falsch, ["1", "2", "ca", "M", "cb"], "1", "0", "2", "0").real
+Zr = zweitor_z(t_richtig, ["1", "2", "ca", "cb", "P1", "P2"], "1", "P1", "2", "P2").real
+P("Beide mit unterer Masseleitung in Reihe: Z = " + mat_str(Zf) + " kOhm (statt Summe " + mat_str(2 * ZT1) + ")")
+P("Zweites Glied umgedreht: Z = " + mat_str(Zr) + " kOhm (= Summe)")
+# Ströme an den Klemmen von Glied b im falschen Fall, I_1 = 1 mA, I_2 = 0
+m_f = MNA(["1", "2", "ca", "M", "cb"])
+t_falsch(m_f)
+m_f.stromquelle("1", "0", 1.0)
+x_f = m_f.loesen().real
+pot_f = dict(zip(["1", "2", "ca", "M", "cb"], x_f))
+i_1b = (pot_f["M"] - pot_f["cb"]) / 1.0     # durch R_b1 von 1b nach cb
+i_2b = i_1b                                  # R_b3 parallel dazu, gleiche Spannung
+i_b2 = (pot_f["cb"] - 0.0) / 1.0             # durch den Querwiderstand von b
+P(f"Falsch, I_1 = 1 mA, I_2 = 0: in Klemme 1b fließen {i_1b:.3f} mA, in 2b {i_2b:.3f} mA, aus 1' (= untere Leitung von b) "
+  f"{i_b2:.3f} mA; Torbedingung von b verletzt ({i_1b:.3f} hinein, {i_b2:.3f} heraus an Tor 1)")
+P(f"  Potentiale: U_1 = {pot_f['1']:.3f} V, U_2 = {pot_f['2']:.3f} V, M = {pot_f['M']:.3f} V, cb = {pot_f['cb']:.3f} V")
+# Brune-Test: Eingänge in Reihe an 1 V, Ausgänge offen und noch nicht verbunden; Spannung zwischen 2'a und 2b
+# falsch: 2'a = M (untere Leitung von a); 2b hängt über R_b3 stromlos an cb.
+mB = MNA(["1", "ca", "M", "cb"])
+for a_, b_ in (("1", "ca"), ("ca", "M"), ("M", "cb"), ("cb", "0")):      # Weg des Stroms; R_a3 und R_b3 stromlos
+    mB.admittanz(a_, b_, 1.0)
+mB.stromquelle("1", "0", 1.0)
+xB = dict(zip(["1", "ca", "M", "cb"], mB.loesen().real))
+P(f"Brune-Test (Eingänge in Reihe, 1 mA, Ausgänge offen): Spannung zwischen den zu verbindenden Ausgangsklemmen "
+  f"2'a und 2b = U_M - U_cb = {xB['M'] - xB['cb']:.3f} V (falsch); umgedreht: 0 V, weil 1b und 2b in b verbunden sind")
+
+# ------------------------------------------------------------------ AM. Bipolarstufe: Transistor in Reihe mit R_E
+kopf("AM. Bipolarstufe ohne C_E (ET1-Zahlenwerk): Transistor-Zweitor in Reihe mit dem Querglied R_E (kOhm, mS)")
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[1] / "get1"))
+import zahlen_transistor as zt  # noqa: E402
+
+ap_b = zt.stufe_ap()
+ub_b, ue_b, uc_b, ic_b, ib_b = ap_b
+gm_b, rbe_b, rce_b, beta_b = zt.kleinsignal(ub_b - ue_b, uc_b - ue_b)
+RE_b, RC_b = zt.RES, zt.RCS
+P(f"Arbeitspunkt (ET1): I_C = {ic_b*1e3:.4f} mA, U_CE = {uc_b-ue_b:.3f} V; g_m = {gm_b*1e3:.3f} mS, r_BE = "
+  f"{rbe_b/1e3:.3f} kOhm, r_CE = {rce_b/1e3:.2f} kOhm, beta = {beta_b:.1f}")
+ZTb = np.array([[rbe_b, 0.0], [-gm_b * rbe_b * rce_b, rce_b]]) / 1e3      # kOhm
+ZEb = RE_b / 1e3 * np.ones((2, 2))
+Zbs = ZTb + ZEb
+P("Z_T (Tor 1 Basis-Emitter, Tor 2 Kollektor-Emitter) = " + mat_str(ZTb, 3) + " kOhm")
+P("Z_E = " + mat_str(ZEb, 3) + " kOhm; Z_ges = Z_T + Z_E = " + mat_str(Zbs, 3) + " kOhm")
+
+
+def bip_re(m_):
+    m_.admittanz("B", "E", 1e3 / rbe_b)       # mS
+    m_.vccs("C", "E", "B", "E", gm_b * 1e3)
+    m_.admittanz("C", "E", 1e3 / rce_b)
+    m_.admittanz("E", "0", 1e3 / RE_b)
+
+
+Zbd = zweitor_z(bip_re, ["B", "C", "E"], "B", "0", "C", "0").real
+P("  direkt (Leerlaufversuche an der Schaltung) = " + mat_str(Zbd, 3) + f" kOhm; gleich: {np.allclose(Zbd, Zbs)}")
+RLb = RC_b / 1e3
+Zein_b = Zbs[0, 0] - Zbs[0, 1] * Zbs[1, 0] / (Zbs[1, 1] + RLb)
+v_b = RLb * Zbs[1, 0] / ((Zbs[1, 1] + RLb) * Zbs[0, 0] - Zbs[0, 1] * Zbs[1, 0])
+P(f"Mit R_C = 3,9 kOhm als Last: Eingangswiderstand an der Basis Z_11 - Z_12 Z_21/(Z_22 + R_C) = {Zein_b:.2f} kOhm; "
+  f"Spannungsverstärkung R_C Z_21/((Z_22 + R_C) Z_11 - Z_12 Z_21) = {v_b:.4f}")
+v_num = (zt.stufe_ohne_ce(1e-4, ap_b) - zt.stufe_ohne_ce(-1e-4, ap_b)) / 2e-4
+P(f"  ET1 numerisch (vollständiges Modell, ohne C_E): {v_num:.4f}; Näherungen r_BE + (beta + 1) R_E = "
+  f"{(rbe_b + (beta_b+1)*RE_b)/1e3:.2f} kOhm, -beta R_C/(r_BE + (beta+1) R_E) = "
+  f"{-beta_b*RC_b/(rbe_b+(beta_b+1)*RE_b):.4f}")
+Zein_ks = Zbs[0, 0] - Zbs[0, 1] * Zbs[1, 0] / Zbs[1, 1]
+P(f"  Kollektor kurzgeschlossen: {Zein_ks:.2f} kOhm; Kollektor offen: Z_11 = {Zbs[0,0]:.3f} kOhm; ohne R_E (nur r_BE) "
+  f"{rbe_b/1e3:.3f} kOhm")
+P(f"  Ausgangswiderstand am Kollektor (Basis von idealer Quelle, U_1 = 0): 1/Y_22 = det Z/Z_11 = "
+  f"{det2(Zbs)/Zbs[0,0]:.1f} kOhm (ET1: r_CE (1 + beta R_E/(r_BE + R_E)) = "
+  f"{rce_b*(1+beta_b*RE_b/(rbe_b+RE_b))/1e3:.1f} kOhm)")
+Hb = np.array([[rbe_b / 1e3, 0.0], [beta_b, 1e3 / rce_b]])
+P(f"H-Parameter des Transistors allein: h_11 = r_BE = {rbe_b/1e3:.3f} kOhm, h_12 = 0, h_21 = beta = {beta_b:.1f}, "
+  f"h_22 = 1/r_CE = {1e6/rce_b:.2f} µS; Datenblatt BC547C (2 mA): h_ie 8,7 kOhm, h_fe 600, h_oe 60 µS, h_re 3e-4")
+P(f"  Z aus H: Z_11 = det H/h_22 = {det2(Hb)/Hb[1,1]:.3f}, Z_12 = h_12/h_22 = 0, Z_21 = -h_21/h_22 = "
+  f"{-Hb[1,0]/Hb[1,1]:.1f}, Z_22 = 1/h_22 = {1/Hb[1,1]:.2f} kOhm (= Z_T)")
+
+# ------------------------------------------------------------------ AN. Umrechnungstabelle, Determinanten
+kopf("AN. Umrechnungen zwischen Y, Z und A an einer beliebigen Testmatrix, Determinanten")
+Ytest = np.array([[2 + 1j, -0.5 + 0.2j], [3 - 1j, 1 + 0.5j]])
+Ztest = np.linalg.inv(Ytest)
+Atest = a_aus_y(Ytest)
+P("Y = " + mat_str(Ytest) + "; Z = Y^-1 = " + mat_str(Ztest))
+P(f"  A aus Y = A aus Z: {np.allclose(Atest, a_aus_z(Ztest))}; Y aus A: {np.allclose(y_aus_a(Atest), Ytest)}; "
+  f"Z aus A: {np.allclose(z_aus_a(Atest), Ztest)}")
+P(f"  Z aus Y elementweise: Z_11 = Y_22/det Y {np.isclose(Ztest[0,0], Ytest[1,1]/det2(Ytest))}, Z_12 = -Y_12/det Y "
+  f"{np.isclose(Ztest[0,1], -Ytest[0,1]/det2(Ytest))}")
+P(f"  det A = {fz(det2(Atest))}; Y_12/Y_21 = {fz(Ytest[0,1]/Ytest[1,0])}; Z_12/Z_21 = {fz(Ztest[0,1]/Ztest[1,0])}")
+P(f"  det Z · det Y = {fz(det2(Ztest)*det2(Ytest))}")
+P("Existenz: Querglied R (Z = R[[1,1],[1,1]]): det Z = 0 -> keine Y-Form; Längsglied Z (Y = (1/Z)[[1,-1],[-1,1]]): "
+  "det Y = 0 -> keine Z-Form; beide haben eine Kettenmatrix [[1,0],[1/R,1]] bzw. [[1,Z],[0,1]]")
+
+# ------------------------------------------------------------------ AO. Verstärkerkette mit Vorspannungsteilern
+kopf("AO. Signalkette: Quelle 10 kOhm, zwei Stufen mit Vorspannungsteiler (100 kOhm), Last 10 kOhm (mS, kOhm)")
+R1t, R2t = 400.0, 400.0 / 3                 # kOhm
+P(f"Teiler {R1t:.0f} kOhm nach 5 V und {R2t:.1f} kOhm nach Masse: U_G = {5*R2t/(R1t+R2t):.3f} V, kleinsignalmäßig "
+  f"R_G = {R1t*R2t/(R1t+R2t):.1f} kOhm")
+RG = R1t * R2t / (R1t + R2t)
+Ysg = Yst.copy()
+Ysg[0, 0] = 1 / RG
+Asg = a_aus_y(Ysg)
+P("Stufe mit Teiler: Y = " + mat_str(Ysg, 5) + " mS; A = " + mat_str(Asg, 5))
+Rsig_, RL_ = 10.0, 10.0
+Akette = Asg @ Asg
+nenner = (Akette[0, 0] + Akette[0, 1] / RL_) + Rsig_ * (Akette[1, 0] + Akette[1, 1] / RL_)
+P("Kette A_ges = " + mat_str(Akette, 5) + f"; U_L/U_sig = 1/((A_11 + A_12/R_L) + R_sig (A_21 + A_22/R_L)) = "
+  f"{1/nenner:.4f}")
+Raus = 1 / Ysg[1, 1]
+t_ein = RG / (RG + Rsig_)
+v1 = -Ysg[1, 0] * (1 / (1 / Raus + 1 / RG))
+v2 = -Ysg[1, 0] * (1 / (1 / Raus + 1 / RL_))
+P(f"Stufenweise: Eingangsteiler R_G/(R_G + R_sig) = {t_ein:.4f}; Stufe 1 an R_G der Stufe 2: -Y_21 (R_aus ∥ R_G) = "
+  f"{v1:.4f}; Stufe 2 an R_L: {v2:.4f}; Produkt {t_ein*v1*v2:.4f}")
+P(f"  Zwischenstufe: R_G/(R_G + R_aus) = {RG/(RG+Raus):.4f} (Verlust {(1-RG/(RG+Raus))*100:.1f} %); Ausgang: "
+  f"R_L/(R_L + R_aus) = {RL_/(RL_+Raus):.4f}")
+P(f"Ohne Teiler (Gate nimmt keinen Strom auf): {1/((Ast@Ast)[0,0] + (Ast@Ast)[0,1]/RL_):.4f}")
+uq_k = 1.0                                     # mV
+P(f"  1 mV Quelle -> {1/nenner*uq_k:.4f} mV an der Last; Spannung am ersten Gate {t_ein*uq_k:.4f} mV, am zweiten "
+  f"{t_ein*v1*uq_k:.4f} mV")
+
+# ------------------------------------------------------------------ AP. Ergänzungen für Text, Fragen und Kästen
+kopf("AP. Ergänzungen: Kurzschluss über Kondensator, Gyrator, Eingangskapazität über der Last, Eingangsecke")
+for Ck_, f_ in ((10e-6, 1e3), (10e-6, 20.0), (100e-6, 20.0)):
+    P(f"Kondensator {Ck_*1e6:.0f} µF bei {f_:.0f} Hz: |Z| = 1/(2π f C) = {1/(2*math.pi*f_*Ck_):.2f} Ohm "
+      f"(gegen Z_aus = 8901 Ohm: {1/(2*math.pi*f_*Ck_)/8901*100:.2f} %)")
+gy = 1.0                                       # mS
+Ygy = np.array([[0, gy], [-gy, 0]], dtype=complex)
+for (u1x, u2x) in ((1.0, 1j), (1.0, 0.5), (1.0, 1.0 + 1.0j)):
+    I_ = Ygy @ np.array([u1x, u2x])
+    Pg = 0.5 * (np.array([u1x, u2x]) * I_.conj()).sum().real
+    P(f"Gyrator g = 1 mS, Y = [[0, g], [-g, 0]]: U_1 = {fz(u1x)} V, U_2 = {fz(u2x)} V -> I_1 = {fz(I_[0])} mA, I_2 = "
+      f"{fz(I_[1])} mA, P = {Pg:.4f} mW (Leistung am Tor 1 {0.5*(u1x*np.conj(I_[0])).real:+.4f} mW, Tor 2 "
+      f"{0.5*(u2x*np.conj(I_[1])).real:+.4f} mW)")
+P(f"  Gyrator mit Last 1 kOhm an Tor 2: Y_ein = Y_11 - Y_12 Y_21/(Y_22 + G_L) = {fz(0 - gy*(-gy)/(0+1.0))} mS -> "
+  f"Eingang sieht 1 kOhm; mit 100 nF bei 10^4 1/s (j1 mS): Y_ein = {fz(0 - gy*(-gy)/(0+1j))} mS -> induktiv, "
+  f"L = {1/(1e4*1e-3)*1e3:.0f} mH")
+P("Eingangskapazität der Stufe ohne R_S (ω = 10^8 1/s) über dem Lastwiderstand:")
+for RLx in (0.1, 1.0, 10.0, 100.0, 1000.0, None):
+    GLx = 0.0 if RLx is None else 1e3 / RLx            # µS
+    Ye = Ypar[0, 0] - Ypar[0, 1] * Ypar[1, 0] / (Ypar[1, 1] + GLx)
+    v_ = -Ypar[1, 0] / (Ypar[1, 1] + GLx)
+    P(f"  R_L = {'offen' if RLx is None else f'{RLx:g} kOhm':>10s}: C_ein = {Ye.imag/wk*1e-6*1e15:7.2f} fF, "
+      f"|U_2/U_1| = {abs(v_):.4f}")
+Rsig_k = 10e3
+for nameC, Cx in (("nur C_gs", Cgs), ("Kurzschluss (C_gs + C_gd)", Cgs + Cgd), ("Last 10 kOhm", 208.88e-15),
+                  ("offen", 279.95e-15)):
+    P(f"Eingangsecke an 10 kOhm Quelle, {nameC}: C = {Cx*1e15:.2f} fF, f = 1/(2π R_sig C) = "
+      f"{1/(2*math.pi*Rsig_k*Cx)/1e6:.1f} MHz")
+P(f"Verhältnis Y_12/Y_21 = {fz(Ypar[0,1]/Ypar[1,0], 6)}; Miller-Anteil C_gd (1 + 4,444) = {20*(1+1000/225):.2f} fF")
+vL = -Ypar[1, 0] / (Ypar[1, 1] + GLu)
+P(f"Exakt umgeordnet: Y_ein = jωC_gs + jωC_gd (1 - U_2/U_1) mit U_2/U_1 = {fz(vL)}: "
+  f"{fz(yGS + yGD*(1 - vL))} µS (Formel: {fz(Ypar[0,0] - Ypar[0,1]*Ypar[1,0]/(Ypar[1,1]+GLu))} µS)")
+g10 = 1 / (Ast[0, 0] + Ast[0, 1] * 0.1)
+f_vor = abs(1 / (A_rc_st[0, 0] + A_rc_st[0, 1] * 0.1)) / abs(g10)
+f_nach = abs(1 / (A_st_rc[0, 0] + A_st_rc[0, 1] * 0.1)) / abs(g10)
+R_th = 1 / (1 / (1 / Yst[1, 1] + 1.0) + 1 / 10.0)
+P(f"Faktenprüfung (Variation Reihenfolge): Stufe allein an 10 kOhm {g10:.4f}; RC-Faktor davor {f_vor:.4f}, dahinter "
+  f"{f_nach:.4f} (Verhältnis {f_vor/f_nach:.2f}); Kondensator sieht dahinter ({1/Yst[1,1]:.3f} + 1) kOhm ∥ 10 kOhm = "
+  f"{R_th:.3f} kOhm statt 1 kOhm")
+P(f"Bipolar mit Text-Ziffern: 502,38 · 79,566 = {502.38*79.566:.1f} kOhm; 502,38/12,568 µS = {502.38/12.568e-3:.1f} kOhm; "
+  f"C_ein-Verhältnis 208,88/120 = {208.88/120:.3f}")
+YeinRC1k = Yrc[0, 0] - Yrc[0, 1] * Yrc[1, 0] / (Yrc[1, 1] + 1.0)
+P(f"RC-Glied mit 1 kOhm Last: Y_ein = 1 - 1/(2 + j) = {fz(YeinRC1k)} mS; direkt 1/(R + (Z_C ∥ R_L)) = "
+  f"{fz(1/(1.0 + 1/(1j + 1.0)))} mS, Z = {fz(1.0 + 1/(1j + 1.0))} kOhm")

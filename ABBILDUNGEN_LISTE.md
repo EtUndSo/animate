@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §34);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §35);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -2720,3 +2720,203 @@ Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte
 
 *Animation:* Ein Marker läuft durch das Ablaufdiagramm, synchron dazu wächst die Kurve um einen Zeitschritt, und die Säule des Schritts zählt die Newton-Durchläufe hoch.
 
+## ST1 Netzwerkanalyse: Vierpole, Parameterformen und Zusammenschaltung
+Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte AH bis AP; Beispielsysteme wie in den Themen 2 bis 4 (RC-Glied 1 kΩ längs, 100 nF quer bei ω = 10⁴ 1/s, zweistufiger RC-Tiefpass als Kette zweier solcher Glieder; Verstärkerstufe mit $g_m$ = 1 mS, $g_o$ = 25 µS, $R_D$ = 10 kΩ, $R_S$ = 1 kΩ; Stufe ohne $R_S$ mit $C_{gs}$ = 100 fF, $C_{gd}$ = 20 fF bei ω = 10⁸ 1/s), dazu zwei T-Glieder aus je drei 1-kΩ-Widerständen, der Bipolar-Beispieltransistor aus ET1 ($r_{BE}$ = 13,71 kΩ, β = 502,4, $r_{CE}$ = 79,57 kΩ, $R_E$ = 1 kΩ, $R_C$ = 3,9 kΩ) und ein Vorspannungsteiler 400 kΩ/133,3 kΩ (100 kΩ) für die Signalkette. Symmetrische Zählpfeile: Torströme in die oberen Klemmen hinein, Torspannungen von oben nach unten; in der Kettenform der Ausgangsstrom als $-\underline I_2$ hinaus. Zweitore als graue Kästen mit Klemmen 1, 1′, 2, 2′; Teilzweitore a und b; Matrizen unter den Schaltungen.
+
+**st1/netzwerkanalyse/05-uebersicht**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Ein Zweitor als grauer Kasten mit Klemmen 1 und 1′ links (Eingangstor, Tor 1) und 2 und 2′ rechts (Ausgangstor, Tor 2). Strompfeile $\underline I_1$ in Klemme 1 hinein und an 1′ heraus, $\underline I_2$ in Klemme 2 hinein und an 2′ heraus; Spannungspfeile $\underline U_1$ und $\underline U_2$ von oben nach unten.
+- (b) Drei kleine Schemata nebeneinander, je zwei Kästen a und b: Kettenschaltung (Ausgang von a an Eingang von b) mit der Beschriftung $\mathbf A = \mathbf A_\mathrm a\mathbf A_\mathrm b$; Parallelschaltung (beide Eingänge parallel, beide Ausgänge parallel, gemeinsame Spannungen hervorgehoben) mit $\mathbf Y = \mathbf Y_\mathrm a + \mathbf Y_\mathrm b$; Reihenschaltung (Eingänge in Reihe, Ausgänge in Reihe, gemeinsame Ströme hervorgehoben) mit $\mathbf Z = \mathbf Z_\mathrm a + \mathbf Z_\mathrm b$.
+
+*Kernaussage:* Jede Zusammenschaltung wird in der Form zur Addition oder Multiplikation der Matrizen, deren vorgegebene Größen allen Teilen gemeinsam sind.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §1, §2 Zählpfeile; §35 Zweitor-Kästen und Zusammenschaltungsvorlagen;
+- §10 Teilbilder.
+
+*Animation:* Umschalten zwischen den drei Zusammenschaltungen; die gemeinsamen Größen (Strom oder Spannung) leuchten jeweils auf, die passende Matrixoperation erscheint darunter.
+
+**st1/netzwerkanalyse/05-tor-und-vierpol**
+- Fassung: ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- Links ein Vierpol als Kasten mit vier Klemmen; an drei Klemmen äußere Leitungen mit beliebig verteilten Strömen (Beispielwerte 2 mA hinein an Klemme 1, 0,5 mA heraus an 1′, 1,5 mA heraus an 2, an 2′ nichts), darunter „Summe der vier Ströme: null“.
+- Rechts derselbe Kasten zwischen einer Signalquelle am Klemmenpaar 1–1′ und einer Last am Klemmenpaar 2–2′; gleich große Strompfeile an 1 hinein und 1′ heraus, an 2 und 2′ ebenso; Beschriftung $\underline I_1 = \underline I_{1'}$, $\underline I_2 = \underline I_{2'}$.
+
+*Kernaussage:* Erst die Torbedingung macht aus vier Klemmen zwei Tore; sie hängt von der äußeren Beschaltung ab.
+
+*Daten:* schematisch (Stromwerte links frei gewählt).
+
+*Editor:*
+- §1, §2; §35 Klemmenstrompfeile mit Werten;
+- §10 Teilbilder.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/05-kurzschluss-leerlauf**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Vier Teilbilder des RC-Glieds (1 kΩ von Klemme 1 nach 2, 100 nF von 2 zur unteren Leitung; ω = 10⁴ 1/s, Kondensator j·1 mS).
+- (a) Ausgang kurzgeschlossen (Kurzschlussbügel an Tor 2), Spannungsquelle 1 V an Tor 1: Kondensator grau als überbrückt; $\underline I_1$ = 1 mA, $\underline I_2$ = −1 mA; Ergebnis $\underline Y_{11}$ = 1 mS, $\underline Y_{21}$ = −1 mS.
+- (b) Eingang kurzgeschlossen, 1 V an Tor 2: $\underline I_1$ = −1 mA, $\underline I_2$ = (1 + j) mA; $\underline Y_{12}$ = −1 mS, $\underline Y_{22}$ = (1 + j) mS.
+- (c) Ausgang offen, Stromquelle 1 mA in Tor 1: $\underline U_1$ = (1 − j) V, $\underline U_2$ = −j V; $\underline Z_{11}$ = (1 − j) kΩ, $\underline Z_{21}$ = −j kΩ.
+- (d) Eingang offen, 1 mA in Tor 2: beide Spannungen −j V; $\underline Z_{12}$ = $\underline Z_{22}$ = −j kΩ.
+- Unter (a) und (c) klein: „Kettenparameter aus (c) und (a): $\underline A_{11}$ = 1 + j, $\underline A_{21}$ = j·1 mS, $\underline A_{12}$ = 1 kΩ, $\underline A_{22}$ = 1“.
+
+*Kernaussage:* Admittanzparameter misst man mit kurzgeschlossenem, Impedanzparameter mit offenem Gegentor.
+
+*Daten:* Zahlenwerk AH.
+
+*Editor:*
+- §1, §2; §34 Kurzschluss und Leerlauf als Zustände eines Tors, Testquellen farbig;
+- §35 Zweitor-Messvorlagen; §10 Teilbilder.
+
+*Animation:* Die vier Versuche nacheinander; die Matrixeinträge füllen sich Spalte für Spalte.
+
+**st1/netzwerkanalyse/05-ersatzschaltbild-y**
+- Fassung: ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Oben das Ersatzschaltbild der Admittanzform: Querzweig $\underline Y_\text{quer1}$ von Klemme 1 zur unteren Leitung, Längszweig $\underline Y_\text{längs}$ von Klemme 1 nach 2, Querzweig $\underline Y_\text{quer2}$ von Klemme 2 zur unteren Leitung, spannungsgesteuerte Stromquelle $\underline Y_\mathrm g\,\underline U_1$ (Raute) von Klemme 2 zur unteren Leitung; gestrichelte Zuordnung zum Spannungspfeil $\underline U_1$; daneben die vier Zuordnungen $\underline Y_\text{quer1} = \underline Y_{11} + \underline Y_{12}$, $\underline Y_\text{längs} = -\underline Y_{12}$, $\underline Y_\text{quer2} = \underline Y_{22} + \underline Y_{12}$, $\underline Y_\mathrm g = \underline Y_{21} - \underline Y_{12}$. Unten drei kleine Fälle mit Werten: RC-Glied (0; 1 mS; j·1 mS; keine Quelle), Verstärkerstufe mit $R_S$ (0; 0; 0,112 mS; Quelle 0,494 mS), Stufe ohne $R_S$ bei ω = 10⁸ 1/s (j·10 µS = $j\omega C_{gs}$; j·2 µS = $j\omega C_{gd}$; 125 µS; Quelle 1 mS).
+
+*Kernaussage:* Jede Admittanzmatrix ist ein π aus drei Admittanzen mit einer gesteuerten Quelle; bei einem umkehrbaren Zweitor entfällt die Quelle.
+
+*Daten:* Zahlenwerk AH, AJ, AK.
+
+*Editor:*
+- §1, §28 gesteuerte Quellen; §2;
+- §10 Teilbilder.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/05-rueckwirkung-cgd**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Kleinsignal-Ersatzschaltbild der Stufe ohne Source-Widerstand als Zweitor mit Tor 1 zwischen Gate und Masse und Tor 2 zwischen Drain und Masse, bei ω = 10⁸ 1/s: $C_{gs}$ = 100 fF vom Gate nach Masse, $C_{gd}$ = 20 fF vom Gate zum Drain (orange hervorgehoben als Rückwirkungspfad), Raute $g_m\underline U_1$ mit $g_m$ = 1 mS vom Drain nach Masse, $G_D + g_o$ = 125 µS am Drain; außerhalb die Last $R_L$ (verstellbar). Daneben die Admittanzmatrix j·12, −j·2, 1000 − j·2 und 125 + j·2 µS.
+- (b) $C_\mathrm{ein}$ in fF (100 bis 300) über $R_L$ in kΩ (0,1 bis 1000, logarithmisch): 121,98 fF bei 0,1 kΩ, 137,78 fF bei 1 kΩ, 208,88 fF bei 10 kΩ, 268,11 fF bei 100 kΩ, 278,69 fF bei 1000 kΩ; waagrechte gestrichelte Grenzlinien 120 fF (Kurzschluss) und 279,95 fF (offen). Marker bei 10 kΩ mit „Verstärkung −4,44; $C_{gd}$ wirkt wie 109 fF“.
+
+*Kernaussage:* Über die Gate-Drain-Kapazität sieht der Eingang die Last; die Eingangskapazität liegt zwischen 120 fF (Kurzschluss) und 280 fF (offen).
+
+*Daten:* Zahlenwerk AK und AP (Eingangskapazität über dem Lastwiderstand).
+
+*Editor:*
+- §1, §28; §11 Datenkurven; §12 logarithmische Achse;
+- §10 Teilbilder; §15 Schieberegler.
+
+*Animation:* Schieberegler für $R_L$: Die Verstärkung und der Strom über $C_{gd}$ wachsen, der Punkt auf der Kurve wandert mit.
+
+**st1/netzwerkanalyse/05-rc-kette**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Zwei RC-Glieder (je 1 kΩ längs, 100 nF quer) als Kette; über jedem Glied seine Kettenmatrix (1 + j; 1 kΩ; j·1 mS; 1), über beiden das Produkt (3j; (2 + j) kΩ; (−1 + 2j) mS; 1 + j). Am Verbindungsknoten der Strompfeil, der das erste Glied als $-\underline I_{2\mathrm a}$ verlässt und als $\underline I_{1\mathrm b}$ in das zweite fließt; ein Hinweispfeil „Last des ersten Glieds: (1 − j) kΩ“.
+- (b) Betrag der Leerlauf-Spannungsübertragung über ω von 10² bis 10⁶ 1/s (logarithmische Achsen): Kette durchgezogen mit 0,9667 bei 10³, 0,3333 bei 10⁴ und 0,0097 bei 10⁵ 1/s; Produkt der Einzelübertragungen gestrichelt mit 0,9901, 0,5000 und 0,0099; senkrechte Hilfslinie bei der Eckkreisfrequenz 10⁴ 1/s mit Beschriftung „1/3 statt 1/2“.
+
+*Kernaussage:* Das zweite Glied belastet das erste; die Kette überträgt nicht das Produkt der Einzelübertragungen, ihre Kettenmatrix ist aber das Produkt der Kettenmatrizen.
+
+*Daten:* Zahlenwerk AI (Werte bei 10³, 10⁴, 10⁵ 1/s; Kurve aus $|1/\underline A_{11}|$ mit $x = \omega RC$: $|1/(1 - x^2 + 3jx)|$ gegen $1/(1 + x^2)$).
+
+*Editor:*
+- §1; §35 Kettenschaltung mit Matrizen; §32 Bode-Diagramm (nur Betrag, ohne Winkel);
+- §11; §10 Teilbilder.
+
+*Animation:* Ein Schalter „zweites Glied anhängen“: Die Übertragung des ersten Glieds sinkt sichtbar von 0,707 auf 0,471 (bei ω = 10⁴ 1/s).
+
+**st1/netzwerkanalyse/05-laengs-quer**
+- Fassung: ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Links ein Längsglied (Impedanz $\underline Z$ in der oberen Leitung, untere durchgehend) mit der Kettenmatrix (1; $\underline Z$; 0; 1) und ein Querglied (Admittanz $\underline Y$ zwischen den durchgehenden Leitungen) mit (1; 0; $\underline Y$; 1). Rechts zwei Anordnungen aus 1 kΩ und 100 nF bei ω = 10⁴ 1/s: das RC-Glied (Längs vor Quer) mit dem Produkt (1 + j; 1 kΩ; j·1 mS; 1) und offen 0,5 − 0,5j; das umgekehrte Glied (Quer vor Längs) mit (1; 1 kΩ; j·1 mS; 1 + j) und offen 1; mit 1 kΩ Last 0,4 − 0,2j gegen 0,5.
+
+*Kernaussage:* Ein Kettenleiter ist das Produkt der Matrizen seiner Längs- und Querglieder in der Reihenfolge der Glieder.
+
+*Daten:* Zahlenwerk AH.
+
+*Editor:*
+- §1; §35 Kettenschaltung mit Matrizen; §31 Matrixdarstellung;
+- §10 Teilbilder.
+
+*Animation:* Die beiden Glieder tauschen die Plätze, die Matrizen und das Produkt wechseln mit.
+
+**st1/netzwerkanalyse/05-parallelschaltung**
+- Fassung: ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Zwei Zweitore a und b mit durchgehender unterer Leitung, Eingänge parallel, Ausgänge parallel; gemeinsame Spannungen $\underline U_1$ und $\underline U_2$ hervorgehoben, Ströme $\underline I_{1\mathrm a}$ und $\underline I_{1\mathrm b}$ addieren sich zu $\underline I_1$, ebenso am Ausgang.
+- (b) Die Stufe ohne Source-Widerstand bei ω = 10⁸ 1/s: oben das Transistor-Zweitor aus $C_{gs}$ (j·10 µS), Raute $g_m\underline U_1$ ($g_m$ = 1 mS) und $G_D + g_o$ (125 µS) mit der Matrix (j·10; 0; 1000; 125) µS; unten das Längsglied $C_{gd}$ mit (j·2; −j·2; −j·2; j·2) µS; rechts die Summe (j·12; −j·2; 1000 − j·2; 125 + j·2) µS.
+
+*Kernaussage:* Ein Längsglied zwischen Eingang und Ausgang ist parallel geschaltet und erzeugt die Rückwirkung.
+
+*Daten:* Zahlenwerk AK.
+
+*Editor:*
+- §1, §28; §35 Parallelschaltung mit Matrixsumme;
+- §10 Teilbilder.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/05-reihenschaltung-t**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder mit zwei T-Gliedern aus je drei Widerständen von 1 kΩ, Eingänge in Reihe, Ausgänge in Reihe.
+- (a) Beide Glieder mit durchgehender unterer Leitung: Die untere Leitung des oberen Glieds verbindet die oberen Klemmen des unteren. Mit 1 mA in Tor 1 und offenem Tor 2 Strompfeile mit Werten: je 0,5 mA in die beiden oberen Klemmen des unteren Glieds, 1 mA aus seiner Klemme 1′ (rot markiert); Potentiale 3,5 V (Klemme 1), 2,5 V (Mitte oben), 1,5 V (untere Leitung oben), 1,0 V (Mitte unten); Matrix (3,5; 2,5; 2,5; 3,5) kΩ mit dem Vermerk „≠ Summe (4; 2; 2; 4) kΩ“.
+- (b) Das untere Glied umgedreht, seine durchgehende Leitung oben an der unteren Leitung des oberen: Matrix (4; 2; 2; 4) kΩ, gleich der Summe.
+- (c) Brune-Test: Eingänge in Reihe mit 1 mA gespeist, Ausgänge offen und unverbunden; Spannungsmesser zwischen den zu verbindenden Ausgangsklemmen: in Anordnung (a) 1 V (Potentiale 2 V und 1 V), in (b) 0 V.
+
+*Kernaussage:* Ob man Impedanzmatrizen addieren darf, entscheidet die Torbedingung jedes Teils, und die hängt von der Anordnung ab.
+
+*Daten:* Zahlenwerk AL.
+
+*Editor:*
+- §1, §2; §35 Reihenschaltung, Umdrehen eines Zweitors, Klemmenstrompfeile mit Werten, Markierung der verletzten Torbedingung;
+- §34 Markierung „falsch“; §10 Teilbilder.
+
+*Animation:* Umschalten zwischen (a) und (b): Das untere Glied klappt um, die Strompfeile und die Matrix ändern sich.
+
+**st1/netzwerkanalyse/05-bipolar-re**
+- Fassung: ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Kleinsignal-Ersatzschaltbild der Bipolarstufe ohne Emitterkondensator als Reihenschaltung: oben das Transistor-Zweitor mit $r_{BE}$ = 13,71 kΩ zwischen Basis und Emitter, stromgesteuerter Stromquelle $\beta\,\underline I_1$ (β = 502,4) vom Kollektor zum Emitter und $r_{CE}$ = 79,57 kΩ; der Emitter als gemeinsame Leitung; darunter das Querglied $R_E$ = 1 kΩ, dessen durchgehende obere Leitung am Emitter liegt; am Kollektor die Last $R_C$ = 3,9 kΩ gegen Masse. Der Basisspannungsteiler ist weggelassen (Vermerk).
+- (b) Die Impedanzmatrizen in kΩ, auf vier Stellen gerundet: Transistor (13,71; 0; −39 970; 79,57) + Querglied (1; 1; 1; 1) = (14,71; 1; −39 970; 80,57); darunter Eingangsimpedanz mit Last 487,9 kΩ (ohne $R_E$ 13,71 kΩ) und Spannungsverstärkung −3,782.
+
+*Kernaussage:* Der Emitterwiderstand liegt in Reihe mit dem Transistor-Zweitor, addiert sich zu allen vier Einträgen und hebt den Eingangswiderstand von 13,7 kΩ auf 488 kΩ.
+
+*Daten:* Zahlenwerk AM (Kleinsignalwerte aus `notizen/get1/zahlen_transistor.py`).
+
+*Editor:*
+- §1, §28 stromgesteuerte Quelle; §35 Reihenschaltung mit Matrixsumme;
+- §10 Teilbilder.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/05-signalkette**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 11.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- Oben ein Blockbild: Sensor oder Antenne als Quelle mit Innenwiderstand, dann Verstärker, Filter, Leitung und ein A/D-Umsetzer als Last; jeder Block als Zweitor-Kasten.
+- Unten zwei Verstärkerstufen als rückwirkungsfreie Zweitore zwischen einer Signalquelle (1 mV, $R_\mathrm{sig}$ = 10 kΩ) und einer Last $R_L$ = 10 kΩ: jede Stufe mit $R_G$ = 100 kΩ am Eingang, Raute 0,494 mS mal Eingangsspannung und $R_\mathrm{aus}$ = 8,90 kΩ am Ausgang; an jeder Schnittstelle ein farbig hervorgehobener Teiler mit seinem Faktor (0,909 am Eingang, 0,918 zwischen den Stufen, 0,529 am Ausgang); Pegelanzeigen 1 mV, 0,909 mV am ersten Gate, −3,67 mV am zweiten, 8,53 mV an der Last.
+
+*Kernaussage:* An jeder Schnittstelle einer Kette geht Signal in einem Teiler verloren; ohne Rückwirkung ist die Gesamtverstärkung das Produkt der belasteten Stufenverstärkungen.
+
+*Daten:* Zahlenwerk AO.
+
+*Editor:*
+- §19 Blockbilder; §1, §28; §35 Kettenschaltung;
+- §10 Teilbilder.
+
+*Animation:* Schieberegler für $R_G$ und $R_L$: Die Teilerfaktoren und die Pegel ändern sich mit.
