@@ -1,6 +1,7 @@
 """Zahlenwerk für Schaltungstechnik, MOS-Feldeffekttransistoren (Stil 3). Thema 1: Aufbau und Funktionsweise des
 MOSFET (Abschnitte A bis K); Thema 2: Kennlinien des NMOS-Transistors (Abschnitte L bis R); Thema 3: PMOS-Transistor,
-Substrateffekt und Latch-Up (Abschnitte S bis V und Nachträge am Ende). Spätere Themen des Kapitels ergänzen dieses Skript.
+Substrateffekt und Latch-Up (Abschnitte S bis V und Nachträge); Thema 4: Parasitäre Kapazitäten des MOSFET (Abschnitte
+W bis AD am Ende). Spätere Themen des Kapitels ergänzen dieses Skript.
 
 Eigenes Beispielsystem (keine Aufgabe aus Skript oder Übung), das Beispiel-Transistorpaar des ganzen Kapitels:
 - Silizium bei T = 300 K mit den Konstanten des ET1-Zahlenwerks (notizen/get1/zahlen_halbleiter.py): U_T = 25,85 mV,
@@ -913,3 +914,340 @@ P(f"Zünden im Modell: Einspeisung ins Substrat ab {I_z_sub*1e3:.3f} mA (0,6 mA 
   f"{(Ube/Rwell)/bn*1e3:.3f} mA Basisstrom für 0,3 mA Kollektorstrom); Entnahme aus der Wanne ab {I_z_well*1e3:.3f} mA")
 P(f"Sättigungsstrom bei U_BS = -1 V relativ zu 0,25 mA: {Kn/2*(1-uth_n_body(1.0))**2/0.25e-3*100:.1f} %")
 P(f"Folger-Probe: sqrt(2 phi_F + 0,783 V) = {math.sqrt(2*pF+0.7828):.4f}")
+
+
+# ====================================================================================================================
+# Thema 4: Parasitäre Kapazitäten des MOSFET (Abschnitte W bis AD)
+# ====================================================================================================================
+CoxT = Cox * Wn * Ln                     # Oxidkapazität über der Kanalfläche in F (69,06 fF)
+fF = 1e-15
+
+
+def bulk_kanal(U):
+    """Gateladung pro Fläche bei U_GB = U, Source = Drain = Bulk, nach der Näherung der Ladungsschicht getrennt in
+    Bulkanteil (Akzeptorrümpfe und Löcher) und Kanalanteil (Elektronen). Beide in C/cm^2. Nur zur Veranschaulichung;
+    die Kapazitäten kommen aus gate_anteile (Definition über die Anschlussspannungen)."""
+    ps = psi_von_UGB(U)
+    qb = -Qs_exakt(ps, mit_elektronen=False)
+    qi = Qinv_stabil(ps) if ps > 0 else 0.0
+    return qb, qi
+
+
+def psi_von_UGB_V(U, V):
+    """Oberflächenpotential bei U_GB = U, wenn Source und Drain auf dem Potential V über dem Bulk liegen."""
+    lo, hi = 1e-6, 2.5
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if UFB + mid - Qs_V(mid, V) / Cox < U:
+            lo = mid
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+def qg_V(U, V):
+    """Gateladung pro Fläche (C/cm^2) bei U_GB = U, Source und Drain auf V über dem Bulk (nur Verarmung/Inversion)."""
+    return -Qs_V(psi_von_UGB_V(U, V), V)
+
+
+def gate_anteile(U, dU=1e-4):
+    """Kapazitäten pro Fläche (F/cm^2) bei U_DS = U_SB = 0 nach der Definition über die Anschlüsse: gesamt C'_GG
+    (Gate bewegt), Kanalanteil C'_GS + C'_GD = -dQ'_G/dV (Source und Drain gemeinsam bewegt, Gate und Bulk fest) und
+    Bulkanteil C'_GB = C'_GG - (C'_GS + C'_GD)."""
+    cg = C_NF(U, dU)
+    if U <= UFB + 0.05:
+        return cg, cg, 0.0
+    ci = -(qg_V(U, dU) - qg_V(U, -dU)) / (2 * dU)
+    return cg, cg - ci, ci
+
+
+kopf("W. Gatekapazität bei U_DS = 0, U_SB = 0: Bulkanteil und Kanalanteil (exakte Rechnung, quasistatisch)")
+P(f"C_ox = W L C'_ox = {CoxT/fF:.2f} fF; halbe: {CoxT/2/fF:.2f} fF; zwei Drittel: {2*CoxT/3/fF:.2f} fF")
+P(f"{'U_GB/V':>7} {'C_GG/C_ox':>10} {'C_GB/C_ox':>10} {'(C_GS+C_GD)/C_ox':>17} {'C_HF/C_ox':>10} {'C_GB/fF':>8} "
+  f"{'C_GS=C_GD/fF':>13}")
+for U in (-2.5, -2.0, -1.5, UFB, -0.5, 0.0, 0.25, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.75, 1.0, 1.5, 2.0, 2.5):
+    cg, cb, ci = gate_anteile(U)
+    P(f"{U:7.3f} {cg/Cox:10.4f} {cb/Cox:10.4f} {ci/Cox:17.4f} {C_HF(U)/Cox:10.4f} {cb*Wn*Ln/fF:8.2f} "
+      f"{ci/2*Wn*Ln/fF:13.2f}")
+for U in (0.0, 0.5, 1.0):
+    cg, cb, ci = gate_anteile(U)
+    P(f"Kontrolle U = {U} V: Summe der Anteile {cg/Cox:.4f}, C_NF aus Abschnitt D {C_NF(U)/Cox:.4f}")
+# Vergleich mit der Aufteilung nach der Näherung der Ladungsschicht (Ableitung der getrennten Ladungen nach U_GB)
+for U in (0.5, 1.0, 1.5):
+    b1, i1 = bulk_kanal(U + 1e-4)
+    b0, i0 = bulk_kanal(U - 1e-4)
+    _, cb, ci = gate_anteile(U)
+    P(f"U_GB = {U} V: Kanalanteil nach Definition {ci/Cox:.4f} C'_ox, nach Ladungsschicht-Näherung "
+      f"{(i1-i0)/2e-4/Cox:.4f} C'_ox; Anteil der Gateladungsänderung aus Source und Drain {ci/(ci+cb)*100:.1f} %")
+for U in (0.5, 1.0, 2.5):
+    ps = psi_von_UGB(U)
+    P(f"U_GB = {U} V: psi_s = {ps*1e3:.1f} mV; Bulkladung {-Qs_exakt(ps, False)*1e7:.4f} fC/µm^2, Kanalladung "
+      f"{Qinv_stabil(ps)*1e7:.4f} fC/µm^2 (Näherung der Ladungsschicht)")
+ps05, ps10 = psi_von_UGB(0.5), psi_von_UGB(1.0)
+P(f"Von 0,5 V auf 1,0 V: psi_s steigt um {(ps10-ps05)*1e3:.1f} mV, die Bulkladung um "
+  f"{(-Qs_exakt(ps10, False)+Qs_exakt(ps05, False))*1e7:.4f} fC/µm^2, die Kanalladung um "
+  f"{(Qinv_stabil(ps10)-Qinv_stabil(ps05))*1e7:.4f} fC/µm^2, die Gateladung um "
+  f"{(-Qs_exakt(ps10)+Qs_exakt(ps05))*1e7:.4f} fC/µm^2")
+UU4 = np.linspace(-2.5, 2.5, 501)
+cgg4 = np.array([gate_anteile(u)[0] for u in UU4]) / Cox
+P(f"Minimum von C_GG/C_ox bei U_DS = 0: {cgg4.min():.4f} bei U_GS = {UU4[int(np.argmin(cgg4))]:.3f} V")
+# Ladezeit der Kanalladung über den Kanalwiderstand und Laufzeit
+P(f"R_on C_ox: U_GS = 1 V: {1/(Kn*0.5)*CoxT*1e12:.1f} ps; U_GS = 1,5 V: {1/(Kn*1.0)*CoxT*1e12:.1f} ps; Laufzeit an der "
+  f"Abschnürgrenze bei 1 V: {tau_sat*1e12:.1f} ps -> 1/(2 pi tau) = {1/(2*math.pi*tau_sat)/1e9:.2f} GHz")
+
+kopf("X. Aufteilung der Kanalladung auf Source und Drain (Modell der Kennlinien, Meyer)")
+
+
+def meyer(UGS, UDS, Uth=Uth_n):
+    """C_GS/C_ox und C_GD/C_ox ohne Überlappung (U_DS >= 0)."""
+    us = UGS - Uth
+    if us <= 0:
+        return 0.0, 0.0
+    ud = max(us - UDS, 0.0)
+    s = us + ud
+    return 2 / 3 * (1 - (ud / s) ** 2), 2 / 3 * (1 - (us / s) ** 2)
+
+
+def q_kanal(us, ud):
+    """Betrag der gesamten Kanalladung in Einheiten von C_ox * V: 2/3 (us^2 + us ud + ud^2)/(us + ud)."""
+    return 2 / 3 * (us ** 2 + us * ud + ud ** 2) / (us + ud)
+
+
+for UGS_ in (1.5, 1.0):
+    P(f"U_GS = {UGS_} V (Übersteuerung {UGS_-Uth_n:.1f} V):")
+    for UDS_ in (0.0, 0.1, 0.25, 0.5, 0.75, 0.9, 1.0, 1.5, 2.0):
+        cs, cd = meyer(UGS_, UDS_)
+        P(f"  U_DS = {UDS_:.2f} V: C_GS = {cs:.4f} C_ox = {cs*CoxT/fF:6.2f} fF, C_GD = {cd:.4f} C_ox = "
+          f"{cd*CoxT/fF:6.2f} fF, Summe {cs+cd:.4f} C_ox")
+# Kontrolle: Ableitungen der Kanalladung
+us_, ud_, hh = 1.0, 0.5, 1e-6
+P(f"Kontrolle 1,5 V/0,5 V: dQ/dus = {(q_kanal(us_+hh, ud_)-q_kanal(us_-hh, ud_))/(2*hh):.4f}, Formel "
+  f"{meyer(1.5, 0.5)[0]:.4f}; dQ/dud = {(q_kanal(us_, ud_+hh)-q_kanal(us_, ud_-hh))/(2*hh):.4f}, Formel "
+  f"{meyer(1.5, 0.5)[1]:.4f}")
+P(f"Kanalladung U_GS = 1 V: kleine U_DS {q_kanal(0.5, 0.5)*CoxT/fF:.2f} fC, Sättigung {q_kanal(0.5, 0.0)*CoxT/fF:.2f} fC "
+  f"(= {q_kanal(0.5, 0.0)*CoxT/q:.0f} Elektronen); U_GS = 1,5 V: {q_kanal(1.0, 1.0)*CoxT/fF:.2f} / "
+  f"{q_kanal(1.0, 0.0)*CoxT/fF:.2f} fC")
+P("Profile der Ladungsänderung, wenn die Source um dU angehoben wird (relativ zu C'_ox dU), x/L = 0; 0,25; 0,5; 0,75; 1:")
+xs4 = np.array([0.0, 0.25, 0.5, 0.75, 1.0])
+P("  ohmscher Bereich, kleine U_DS: " + ", ".join(f"{1-x:.2f}" for x in xs4) + f"; Mittel {np.mean(1-np.linspace(0,1,100001)):.4f}")
+P("  Sättigung: " + ", ".join(f"{math.sqrt(1-x):.3f}" for x in xs4) +
+  f"; Mittel {np.mean(np.sqrt(1-np.linspace(0,1,100001))):.4f}")
+P("  Kanalladung in Sättigung relativ zur Source: " + ", ".join(f"{math.sqrt(1-x):.3f}" for x in xs4))
+dU_ = 0.01
+P(f"Source um 10 mV angehoben (U_GS = 1 V, Sättigung): Gateladung -{2/3*CoxT*dU_/fF:.3f} fC = "
+  f"{2/3*CoxT*dU_/q:.0f} Elektronen; ohmscher Bereich: -{0.5*CoxT*dU_/fF:.3f} fC")
+
+kopf("Y. Überlappung und die Kapazitäten in den drei Bereichen (Beispiel-NMOS, U_SB = 0)")
+L_ov = 50e-7                               # cm, Überlappung des Gates über Source und Drain je Seite (Annahme)
+Cov = Cox * Wn * L_ov
+P(f"Überlappung L_ov = {L_ov*1e7:.0f} nm je Seite: C_ov = C'_ox W L_ov = {Cov/fF:.3f} fF = {Cov/CoxT:.3f} C_ox; "
+  f"pro µm Weite {Cov/fF/10:.3f} fF/µm; Gate {(Ln+2*L_ov)*1e4:.2f} µm lang über {Ln*1e4:.0f} µm Kanal")
+_, cb0, _ = gate_anteile(0.0)
+_, cbm2, _ = gate_anteile(-2.0)
+P(f"Gesperrt (U_GS = 0): C_GB = {cb0/Cox:.4f} C_ox = {cb0*Wn*Ln/fF:.2f} fF; C_GS = C_GD = C_ov = {Cov/fF:.2f} fF; "
+  f"Summe {(cb0*Wn*Ln+2*Cov)/fF:.2f} fF")
+P(f"Gesperrt (U_GS = -2 V, Anreicherung): C_GB = {cbm2/Cox:.4f} C_ox = {cbm2*Wn*Ln/fF:.2f} fF")
+cs, cd = meyer(1.0, 1.0)
+P(f"Sättigung (U_GS = 1 V, U_DS = 1 V): C_GS = {cs*CoxT/fF:.2f} + {Cov/fF:.2f} = {(cs*CoxT+Cov)/fF:.2f} fF, "
+  f"C_GD = {cd*CoxT/fF:.2f} + {Cov/fF:.2f} = {(cd*CoxT+Cov)/fF:.2f} fF, C_GB = 0; Summe {(cs*CoxT+cd*CoxT+2*Cov)/fF:.2f} fF")
+cs, cd = meyer(2.5, 0.1)
+P(f"Ohmscher Bereich (U_GS = 2,5 V, U_DS = 0,1 V): C_GS = {cs:.4f} C_ox -> {(cs*CoxT+Cov)/fF:.2f} fF, C_GD = {cd:.4f} "
+  f"C_ox -> {(cd*CoxT+Cov)/fF:.2f} fF; Summe {(cs*CoxT+cd*CoxT+2*Cov)/fF:.2f} fF")
+cs, cd = meyer(1.5, 0.0)
+P(f"Ohmscher Bereich, U_DS = 0: {(cs*CoxT+Cov)/fF:.2f} fF je Seite")
+cs, cd = meyer(1.5, 0.5)
+P(f"Zwischenpunkt U_GS = 1,5 V, U_DS = 0,5 V: C_GS = {(cs*CoxT+Cov)/fF:.2f} fF, C_GD = {(cd*CoxT+Cov)/fF:.2f} fF "
+  f"(ohne Überlappung {cs*CoxT/fF:.2f} / {cd*CoxT/fF:.2f})")
+P(f"Anteil der Überlappung an C_GD in Sättigung: 100 %; an C_GS: {Cov/(2/3*CoxT+Cov)*100:.1f} %")
+ps0_ = psi_von_UGB(0.0)
+yd0_ = math.sqrt(2 * eps_si * ps0_ / (q * NA))
+Cdep0_ = eps_si / yd0_
+Cser0_ = 1 / (1 / Cox + 1 / Cdep0_)
+P(f"Gesperrt bei U_GS = 0, Verarmungsnäherung: psi_s = {ps0_*1e3:.1f} mV, y_d = {yd0_*1e7:.2f} nm, C'_dep = "
+  f"{Cdep0_*1e7:.3f} fF/µm^2, Reihenschaltung {Cser0_*1e7:.3f} fF/µm^2 = {Cser0_/Cox:.4f} C'_ox -> {Cser0_*Wn*Ln/fF:.2f} fF "
+  f"(vollständige Rechnung {cb0*Wn*Ln/fF:.2f} fF)")
+cs, cd = meyer(1.0, 1.0)
+for nm, C_ in (("Gate (alle drei)", cs * CoxT + cd * CoxT + 2 * Cov), ("Source allein", cs * CoxT + Cov),
+               ("Drain allein", cd * CoxT + Cov)):
+    P(f"Sättigung 1 V/1 V, 10 mV Schritt, {nm}: {C_*0.01/fF:.4f} fC")
+P(f"Gesamte Gatekapazität im ohmschen Bereich bei kleiner U_DS: C_ox + 2 C_ov = {(CoxT+2*Cov)/fF:.2f} fF")
+
+kopf("Z. Gegenrechnung mit dem vollständigen Ladungsmodell (Elektronen mit Quasi-Fermi-Potential längs des Kanals)")
+sA = math.sqrt(2 * eps_si * kB * T * pp0)
+xg, wg = np.polynomial.legendre.leggauss(400)
+
+
+def psi_vec(U, V):
+    lo = np.full_like(V, 1e-6)
+    hi = np.full_like(V, 2.5)
+    for _ in range(90):
+        mid = 0.5 * (lo + hi)
+        b = mid / UT
+        F2 = (np.exp(-b) + b - 1) + (np0 / pp0) * np.exp(-V / UT) * (np.exp(b) - b - 1)
+        m = UFB + mid + sA * np.sqrt(F2) / Cox < U
+        lo = np.where(m, mid, lo)
+        hi = np.where(m, hi, mid)
+    return 0.5 * (lo + hi)
+
+
+def ladung_transistor(UG, VS, VD):
+    """Gateladung, Kanalladung (Betrag), Bulkladung (Betrag) in C und Drainstrom in A; UG, VS, VD gegen den Bulk.
+    Ortsmittel über den Kanal mit dx/dV proportional zur Kanalladung (Drift und Diffusion im Quasi-Fermi-Potential)."""
+    V = 0.5 * (VD - VS) * xg + 0.5 * (VD + VS)
+    w = 0.5 * (VD - VS) * wg
+    ps = psi_vec(UG, V)
+    b = ps / UT
+    Fb2 = np.exp(-b) + b - 1
+    ee = (np0 / pp0) * np.exp(-V / UT) * (np.exp(b) - b - 1)
+    qg = sA * np.sqrt(Fb2 + ee)
+    qi = sA * ee / (np.sqrt(Fb2 + ee) + np.sqrt(Fb2))
+    qb = sA * np.sqrt(Fb2)
+    norm = float(np.sum(w * qi))
+    A_ = Wn * Ln
+    return (A_ * float(np.sum(w * qg * qi)) / norm, A_ * float(np.sum(w * qi * qi)) / norm,
+            A_ * float(np.sum(w * qb * qi)) / norm, mu_n * Wn / Ln * norm)
+
+
+def kap_exakt(UGS, UDS, USB=0.0, h=2e-3):
+    pot = {"G": UGS + USB, "S": USB, "D": UDS + USB, "B": 0.0}
+
+    def QG(p):
+        return ladung_transistor(p["G"] - p["B"], p["S"] - p["B"], p["D"] - p["B"])[0]
+
+    d = {}
+    for k in pot:
+        p1, p0 = dict(pot), dict(pot)
+        p1[k] += h
+        p0[k] -= h
+        d[k] = (QG(p1) - QG(p0)) / (2 * h)
+    return d["G"], -d["S"], -d["D"], -d["B"], d["G"] + d["S"] + d["D"] + d["B"]
+
+
+n_s = 1 + math.sqrt(q * eps_si * NA / (2 * 2 * pF)) / Cox
+P(f"Substratfaktor an der Schwelle n = 1 + C'_dep/C'_ox = {n_s:.4f}; Ladungsmodell mit linear wachsender Verarmungsladung: "
+  f"C_GS = 2/3 C_ox, C_GD = 0, C_GB = (n-1)/(3n) C_ox = {(n_s-1)/(3*n_s):.4f} C_ox = {(n_s-1)/(3*n_s)*CoxT/fF:.2f} fF")
+for UGS_, UDS_ in ((1.0, 1.5), (1.5, 2.5), (1.5, 0.02), (2.5, 0.1), (1.5, 0.5)):
+    cgg, cgs, cgd, cgb, summe = kap_exakt(UGS_, UDS_)
+    QGt, Qit, Qbt, Ix = ladung_transistor(UGS_, 0.0, UDS_)
+    cs, cd = meyer(UGS_, UDS_)
+    P(f"U_GS = {UGS_} V, U_DS = {UDS_} V: C_GG = {cgg/CoxT:.4f}, C_GS = {cgs/CoxT:.4f}, C_GD = {cgd/CoxT:.4f}, "
+      f"C_GB = {cgb/CoxT:.4f} (je C_ox; Summenprobe {summe/CoxT:+.1e}); Modell der Kennlinien {cs:.4f}/{cd:.4f}/0; "
+      f"I_D = {Ix*1e3:.4f} mA (Level 1 {id_l1(UGS_, UDS_)*1e3:.4f} mA)")
+# Sättigungsgrenze im vollständigen Modell: U_DS, ab der C_GD < 1 % C_ox
+for UGS_ in (1.5,):
+    for UDS_ in (0.6, 0.7, 0.75, 0.8, 0.9, 1.0):
+        _, cgs, cgd, cgb, _ = kap_exakt(UGS_, UDS_)
+        P(f"  U_GS = 1,5 V, U_DS = {UDS_} V: C_GS = {cgs/CoxT:.4f}, C_GD = {cgd/CoxT:.4f}, C_GB = {cgb/CoxT:.4f}")
+
+kopf("AA. Sperrschichtkapazitäten von Source und Drain (Beispiel-NMOS, n+-Gebiete wie das Gate entartet)")
+UDiff_j = phi_gate_n + phi_F(NA)          # Fermi-Niveau im n+ an der Leitungsbandkante (wie beim Gate)
+w0_j = math.sqrt(2 * eps_si * UDiff_j / (q * NA))
+CjF0 = eps_si / w0_j                      # F/cm^2
+xj = 0.2e-4                               # cm, Tiefe der Source- und Draingebiete (Annahme)
+CjS0 = CjF0 * xj                          # F/cm (pro Länge des Randes)
+P(f"Diffusionsspannung n+/p (N_A = {NA:.3e}): U_Diff = U_T ln(N_L/n_i) + phi_F = {UDiff_j:.4f} V (= -phi_MS = "
+  f"{-PMS:.4f} V); mit N_D = 1e20 nach Boltzmann wären es {UT*math.log(NA*1e20/ni**2):.4f} V")
+P(f"Zonenweite ohne Spannung w0 = sqrt(2 eps U_Diff/(e N_A)) = {w0_j*1e7:.2f} nm (Verarmungszone unter dem Gate an der "
+  f"Schwelle {xd*1e7:.2f} nm); zweiseitig mit N_D = 1e20 Faktor sqrt(1 + N_A/N_D) = {math.sqrt(1+NA/1e20):.5f}; Anteil "
+  f"der Zone im p-Gebiet bei N_D = 1e20: {1e20/(1e20+NA)*100:.2f} %")
+P(f"C'_jF0 = eps/w0 = {CjF0*1e7:.4f} fF/µm^2 (C'_dep an der Schwelle {math.sqrt(q*eps_si*NA/(2*2*pF))*1e7:.4f}, "
+  f"C'_ox {Cox*1e7:.4f})")
+P(f"Tiefe x_j = {xj*1e4:.1f} µm: C'_jS0 = C'_jF0 x_j = {CjS0*1e11:.4f} fF/µm")
+
+
+def c_diff(Wd, bd, UR, m=0.5):
+    """Sperrschichtkapazität eines rechteckigen n+-Gebiets (Weite Wd, Länge bd in cm) bei Sperrspannung UR >= 0:
+    Fläche, Rand, Summe in F."""
+    f = (1 + UR / UDiff_j) ** (-m)
+    cf = CjF0 * Wd * bd * f
+    cr = CjS0 * 2 * (Wd + bd) * f
+    return cf, cr, cf + cr
+
+
+Wd, bd = 10e-4, 2e-4
+P(f"Draingebiet W = {Wd*1e4:.0f} µm, b = {bd*1e4:.0f} µm: Fläche A_D = {Wd*bd*1e8:.0f} µm^2, Umfang P_D = "
+  f"{2*(Wd+bd)*1e4:.0f} µm")
+for UR in (0.0, 0.5, 1.0, 1.5, 2.0, 2.5):
+    cf, cr, cs_ = c_diff(Wd, bd, UR)
+    P(f"  U_DB = {UR:.1f} V: Faktor (1 + U/U_Diff)^-1/2 = {(1+UR/UDiff_j)**-0.5:.4f}, Zone {w0_j*math.sqrt(1+UR/UDiff_j)*1e7:.1f} nm; "
+      f"Fläche {cf/fF:.2f} fF, Rand {cr/fF:.2f} fF, C_DB = {cs_/fF:.2f} fF (Randanteil {cr/cs_*100:.1f} %)")
+for UR in (1.0, 2.5):
+    P(f"  m = 1/3 statt 1/2 bei {UR} V: Faktor {(1+UR/UDiff_j)**(-1/3):.4f} statt {(1+UR/UDiff_j)**-0.5:.4f}")
+cf, cr, cs_ = c_diff(2.5e-4, 0.5e-4, 0.0)
+P(f"Verkleinert auf ein Viertel (W = 2,5 µm, b = 0,5 µm), 0 V: Fläche {cf/fF:.2f} fF, Rand {cr/fF:.2f} fF, Summe "
+  f"{cs_/fF:.2f} fF, Randanteil {cr/cs_*100:.1f} %")
+cf1, cr1, c1 = c_diff(10e-4, 2e-4, 1.0)
+cf2, cr2, c2 = c_diff(5e-4, 2e-4, 1.0)
+P(f"Ein Finger (W = 10 µm) gegen zwei Finger mit gemeinsamem Drain (je 5 µm, Drain 5 x 2 µm), U_DB = 1 V: {c1/fF:.2f} fF "
+  f"gegen {c2/fF:.2f} fF ({(1-c2/c1)*100:.1f} % weniger); Fläche {cf2/fF:.2f}, Rand {cr2/fF:.2f} fF")
+cf0, cr0, c0 = c_diff(5e-4, 2e-4, 0.0)
+P(f"  zwei Finger bei 0 V: {c0/fF:.2f} fF; Sources dann 2 x (5 x 2 µm): {2*c_diff(5e-4, 2e-4, 0.0)[2]/fF:.2f} fF")
+Cdep_s = math.sqrt(q * eps_si * NA / (2 * 2 * pF))
+P(f"Kanal-Bulk-Kapazität (Verarmungszone unter dem Kanal) an der Schwelle C'_dep W L = {Cdep_s*Wn*Ln/fF:.2f} fF; "
+  f"2/3 davon = {2/3*Cdep_s*Wn*Ln/fF:.2f} fF, 1/2 = {0.5*Cdep_s*Wn*Ln/fF:.2f} fF")
+# lineare Dotierung: Probe des Exponenten 1/3 (Poisson-Lösung mit rho = e a x)
+a_grad = 1e22                              # cm^-4 (Annahme, nur für die Exponentenprobe)
+for U in (0.0, 2.0):
+    wl = (12 * eps_si * (0.9 + U) / (q * a_grad)) ** (1 / 3)
+    P(f"  lineare Dotierung a = 1e22 cm^-4, angenommene Diffusionsspannung 0,9 V, Sperrspannung {U} V: w = {wl*1e7:.1f} nm, "
+      f"C' = {eps_si/wl*1e7:.4f} fF/µm^2")
+P(f"  Verhältnis C'(2 V)/C'(0) linear: {((0.9)/(2.9))**(1/3):.4f} = (0,9/2,9)^(1/3)")
+
+kopf("AB. Verdrahtung: Plattenkondensator und Randfelder (Sakurai-Tamaru, 1983)")
+eps_ox_um = eps_ox * 1e15 * 1e-4           # fF/µm
+P(f"eps_ox = {eps_ox_um:.5f} fF/µm; über 1 µm Oxid: {eps_ox_um/1.0:.5f} fF/µm^2")
+h_iso, t_b, l_b = 1.0, 0.5, 1000.0          # µm
+for wb in (1.0, 2.0, 4.0):
+    platte = eps_ox_um * wb * l_b / h_iso
+    st = eps_ox_um * l_b * (1.15 * wb / h_iso + 2.80 * (t_b / h_iso) ** 0.222)
+    P(f"  Bahn {wb:.0f} µm breit, {t_b} µm dick, 1 mm lang über {h_iso:.0f} µm Oxid: Platte {platte:.2f} fF, mit Randfeldern "
+      f"{st:.1f} fF (Faktor {st/platte:.2f}); pro mm Leitung {st:.1f} fF = {st/(CoxT/fF):.2f} Gates C_ox")
+P(f"Seitenflächen zweier paralleler Bahnen (0,5 µm dick, 1 µm Abstand, 1 mm) als Plattenkondensator: "
+  f"{eps_ox_um*0.5*1000/1.0:.2f} fF (Randfelder vergrößern das)")
+
+kopf("AC. Miller-Effekt in der Source-Schaltung (Beispiel-NMOS im Arbeitspunkt 0,25 mA)")
+gm4, go4, GD4 = 1e-3, 25e-6, 1e-4
+A4 = -gm4 / (GD4 + go4)
+CGS4 = 2 / 3 * CoxT + Cov
+CGD4 = Cov
+CDB4 = c_diff(Wd, bd, 1.0)[2]
+Cein = CGS4 + CGD4 * (1 - A4)
+Caus = CDB4 + CGD4 * (A4 - 1) / A4
+P(f"g_m = 1 mS, g_o = 25 µS, R_D = 10 kOhm: A_V = -g_m/(G_D + g_o) = {A4:.3f}; Arbeitspunkt U_GS = 1 V, U_DS = 1 V "
+  f"(Versorgung {1.0+1e4*0.25e-3:.1f} V über 10 kOhm)")
+P(f"C_GS = {CGS4/fF:.3f} fF, C_GD = {CGD4/fF:.3f} fF, C_DB(1 V) = {CDB4/fF:.2f} fF")
+P(f"Eingang: C_GS + C_GD (1 - A) = {CGS4/fF:.2f} + {CGD4*(1-A4)/fF:.2f} = {Cein/fF:.2f} fF (ohne Verstärkung "
+  f"{(CGS4+CGD4)/fF:.2f} fF); Ausgang: C_DB + C_GD (A-1)/A = {CDB4/fF:.2f} + {CGD4*(A4-1)/A4/fF:.3f} = {Caus/fF:.2f} fF")
+P(f"Schritt: Eingang +10 mV -> Ausgang {A4*10:.0f} mV, Spannung an C_GD ändert sich um {(1-A4)*10:.0f} mV, Ladung "
+  f"{CGD4*(1-A4)*0.01/fF:.4f} fC = {CGD4*(1-A4)/fF:.2f} fF x 10 mV")
+Rsig = 1e4
+for C_, t_ in ((CGS4 + CGD4, "ohne Miller"), (Cein, "A = -8")):
+    P(f"  Signalquelle 10 kOhm: {t_}: tau = {Rsig*C_*1e9:.4f} ns, Eckfrequenz {1/(2*math.pi*Rsig*C_)/1e6:.1f} MHz")
+Rout = 1 / (GD4 + go4)
+P(f"  Ausgang: R_aus = {Rout/1e3:.1f} kOhm, tau_aus = {Rout*Caus*1e9:.4f} ns, Eckfrequenz {1/(2*math.pi*Rout*Caus)/1e6:.1f} MHz")
+A40 = -gm4 / go4
+Cein40 = CGS4 + CGD4 * (1 - A40)
+Caus40 = CDB4 + CGD4 * (A40 - 1) / A40
+P(f"Ideale Stromquelle als Last: A_V = -g_m/g_o = {A40:.1f}; C_ein = {CGS4/fF:.2f} + {CGD4*(1-A40)/fF:.2f} = {Cein40/fF:.2f} fF; "
+  f"10 kOhm: {1/(2*math.pi*Rsig*Cein40)/1e6:.1f} MHz; Ausgang 40 kOhm x {Caus40/fF:.2f} fF -> "
+  f"{1/(2*math.pi*(1/go4)*Caus40)/1e6:.1f} MHz")
+P(f"Verhältnis Miller-Anteil zu C_GS bei A = -40: {CGD4*(1-A40)/CGS4:.2f}")
+A_f = 0.80
+P(f"Sourcefolger A_V = {A_f}: C_GS wirkt am Eingang als {CGS4*(1-A_f)/fF:.2f} fF, dazu C_GD (Drain fest) {CGD4/fF:.2f} fF: "
+  f"{(CGS4*(1-A_f)+CGD4)/fF:.2f} fF statt {(CGS4+CGD4)/fF:.2f} fF")
+P(f"Umladen: Drainknoten {Caus/fF:.1f} fF mit 0,25 mA um 1 V: {Caus*1.0/0.25e-3*1e9:.3f} ns; Eingang {Cein/fF:.1f} fF mit "
+  f"0,25 mA um 1 V: {Cein/0.25e-3*1e9:.3f} ns; Gate im Abschnürbereich {(CGS4+CGD4)/fF:.2f} fF mit 0,25 mA um 1 V: "
+  f"{(CGS4+CGD4)/0.25e-3*1e9:.3f} ns, über 10 kOhm tau = {1e4*(CGS4+CGD4)*1e9:.3f} ns")
+P(f"Miller-Anteil an C_ein bei A = -40: {CGD4*(1-A40)/Cein40*100:.1f} %; Verlängerung von tau_ein bei A = -8: "
+  f"{(Cein/(CGS4+CGD4)-1)*100:.1f} %")
+P("Literaturwerte: Ausheilen der Source-/Drain-Implantation bei rund 1000 °C; Kondensatoren zwischen zwei Metallebenen "
+  "rund 1 fF/µm^2; Kompensationskondensator des 741: 30 pF (wie im ET1-Artikel zum OPV)")
+
+kopf("AD. Miller-Kompensation (angenommene Werte)")
+A2, CM = -50.0, 1e-12
+P(f"Zweite Stufe A_2 = {A2:.0f}, C_M = 1 pF zwischen ihrem Ein- und Ausgang: am Eingang wirksam {CM*(1-A2)*1e12:.0f} pF")
+for belag, txt in ((1e-15, "1 fF/µm^2 (Kondensator zwischen zwei Metallebenen)"), (Cox * 1e-8, "C'_ox = 6,91 fF/µm^2")):
+    P(f"  Fläche mit {txt}: C_M {CM/belag:.0f} µm^2, gleiche Wirkung ohne Miller {CM*(1-A2)/belag:.0f} µm^2 "
+      f"(Seitenlänge {math.sqrt(CM/belag):.0f} bzw. {math.sqrt(CM*(1-A2)/belag):.0f} µm)")
+R1 = 1e6
+P(f"Mit 1 MOhm am Ausgang der ersten Stufe: Eckfrequenz 1/(2 pi R C_M (1 - A_2)) = {1/(2*math.pi*R1*CM*(1-A2))/1e3:.2f} kHz")

@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §38);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §39);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -3416,5 +3416,185 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 
 *Editor:*
 - §27; §38; §10 Einsatzbild.
+
+*Animation:* keine.
+
+## ST1 MOS-Feldeffekttransistoren: Parasitäre Kapazitäten des MOSFET
+Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD; Beispiel-NMOS aus Thema 1 ($W/L$ = 10/1 µm, $t_\mathrm{ox}$ = 5 nm, $C'_\mathrm{ox}$ = 6,91 fF/µm², $C_\mathrm{ox}$ = 69,1 fF, $U_{th}$ = 0,5 V, $N_A$ = 5,68·10¹⁷ cm⁻³), Überlappung 50 nm je Seite ($C_\mathrm{ov}$ = 3,45 fF), Draingebiet 10 × 2 µm, 0,2 µm tief. Farben wie in Thema 1: p-Gebiete gelb, n-Gebiete grün, Verarmungszonen grau, Elektronen blau, Löcher rot; Kapazitätssymbole dunkelgrau, Werte daneben.
+
+**st1/mos-feldeffekttransistoren/04-kapazitaeten-uebersicht**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Querschnitt des Beispiel-NMOS, schematisch, nicht maßstäblich: n⁺-Polysilizium-Gate über 5 nm Oxid, 1,1 µm lang über einem 1 µm langen Kanal, sodass es Source und Drain je 50 nm überlappt; n⁺-Source und -Drain 0,2 µm tief im p-Gebiet; Bulkkontakt. Arbeitspunkt $U_{GS}$ = 1 V, $U_{DS}$ = 1 V, $U_{SB}$ = 0 (Abschnürbereich): Kanal als Keil, der vor dem Drain endet. Kapazitätssymbole an den Orten der Ladung: zwei feste Überlappungskapazitäten an den Gatekanten (je 3,45 fF), spannungsabhängige $C_{GS}$ (46,0 fF) und $C_{GD}$ (0) vom Gate zum Kanal, $C_{GB}$ (praktisch 0) durch die Verarmungszone zum Bulk, $C_{SB}$ (53,1 fF bei 0 V) und $C_{DB}$ (37,8 fF bei 1 V) an Boden und Rand der n⁺-Gebiete. Jede Kapazität mit einer dünnen Linie zu dem Anschluss, aus dem ihre Gegenladung kommt.
+- (b) Schaltzeichen des NMOS mit den fünf Kapazitäten zwischen den Anschlüssen: $C_{GS}$ = 49,5 fF (mit Überlappung), $C_{GD}$ = 3,45 fF, $C_{GB}$ ≈ 0, $C_{SB}$ = 53,1 fF, $C_{DB}$ = 37,8 fF.
+
+*Kernaussage:* Zwischen allen vier Anschlüssen liegen Kapazitäten; ihr Wert hängt davon ab, wo die Ladung sitzt, und ändert sich mit dem Betriebsbereich.
+
+*Daten:* Zahlenwerk Y ($C_\mathrm{ov}$, Bereiche), AA ($C_{SB}$, $C_{DB}$).
+
+*Editor:*
+- §27 Technologie-Querschnitte; §36 Kanalprofil; §39 Kondensatorsymbole im Querschnitt mit Anschlusszuordnung;
+- §24, §1 Schaltzeichen mit Bauteilen zwischen den Anschlüssen; §10 Teilbilder.
+
+*Animation:* Umschalten zwischen gesperrt ($U_{GS}$ = 0: $C_{GB}$ 20,7 fF, $C_{GS}$ = $C_{GD}$ = 3,45 fF), Abschnürbereich (Werte oben) und ohmschem Bereich (je 38,0 fF); die Symbole wachsen und schrumpfen mit ihrem Wert.
+
+**st1/mos-feldeffekttransistoren/04-gatekapazitaet**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Kapazität des Gates bezogen auf $C_\mathrm{ox}$ (0 bis 1,05; rechts angeschrieben: 1 entspricht 69,1 fF) über $U_{GS}$ in V (−2,5 bis 2,5) bei $U_{DS}$ = 0 und $U_{SB}$ = 0. Obere Kante: gesamte Gatekapazität $C_G$: 0,964 / 0,946 / 0,901 / 0,734 / 0,406 / 0,300 / 0,264 (Minimum) / 0,396 / 0,545 / 0,675 / 0,849 / 0,922 / 0,959 / 0,978 bei −2,5 / −2 / −1,5 / −1,03 / −0,5 / 0 / 0,35 / 0,5 / 0,55 / 0,6 / 0,75 / 1 / 1,5 / 2,5 V. Darunter als gestapelte Flächen der Bulkanteil $C_{GB}$ (grau): bis 0 V gleich der Gesamtkurve, dann 0,198 bei 0,5 V, 0,098 bei 0,6 V, 0,039 bei 0,75 V, 0,015 bei 1 V, 0,002 bei 2,5 V; und der Kanalanteil $C_{GS} + C_{GD}$ (blau, je zur Hälfte Source und Drain, durch eine Mittellinie geteilt): 0,198 bei 0,5 V, 0,577 bei 0,6 V, 0,811 bei 0,75 V, 0,907 bei 1 V, 0,953 bei 1,5 V, 0,976 bei 2,5 V. Gestrichelt grau der MOS-Kondensator ohne Source und Drain bei hoher Frequenz: 0,249 bei 0,5 V, 0,239 bei 1 V, 0,234 bei 2,5 V. Senkrechte Marken bei der Flachbandspannung −1,03 V und der Schwelle 0,5 V, darüber die Bereichsnamen Anreicherung, Verarmung, Inversion.
+
+*Kernaussage:* Unterhalb der Schwelle liegt die Gegenladung im Bulk, oberhalb liefern Source und Drain die Elektronen; im Transistor kehrt die Gatekapazität deshalb auch bei hoher Frequenz auf $C_\mathrm{ox}$ zurück, und der Bulkanteil verschwindet.
+
+*Daten:* Zahlenwerk W (gate_anteile, C_HF).
+
+*Editor:*
+- §4, §11 Datenkurven; §39 gestapelte Anteile; §10 Bereichsmarken.
+
+*Animation:* Schieberegler $U_{GS}$; darüber ein kleiner Querschnitt, in dem die Gegenladung an der richtigen Stelle pendelt: Löcher an der Oberfläche, Rand der Verarmungszone, Kanalelektronen mit Pfeilen aus Source und Drain.
+
+**st1/mos-feldeffekttransistoren/04-kanalladung-aufteilung**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Zwei Zeilen, Ladung pro Fläche in fC/µm² über $x/L$ von 0 (Source) bis 1 (Drain).
+- (a) Ohmscher Bereich, $U_{GS}$ = 1,5 V, $U_{DS}$ nahe 0: Kanalladung gleichmäßig 6,91 fC/µm². Links: Source um 10 mV angehoben, Gate, Drain und Bulk fest: Die Ladung sinkt an der Source um 0,069 fC/µm², linear auf null am Drain; die Differenzfläche ist ein Dreieck, ihr Mittelwert 1/2 als waagerechte Linie. Rechts: Drain angehoben, das gespiegelte Dreieck, ebenfalls 1/2.
+- (b) Abschnürbereich, $U_{GS}$ = 1 V, $U_{DS}$ = 1 V: Kanalladung 3,45 fC/µm² mal $\sqrt{1 - x/L}$, also 3,45 / 2,99 / 2,44 / 1,73 / 0 fC/µm² bei 0 / 0,25 / 0,5 / 0,75 / 1. Links: Source 10 mV höher, die Ladung sinkt überall um 0,069 fC/µm² mal $\sqrt{1 - x/L}$, Mittelwert 2/3. Rechts: Drain höher, keine Änderung; die verarmte Zone am Drain nimmt die Spannung auf.
+
+*Kernaussage:* Eine Anschlussspannung ändert die Kanalladung nur dort, wo das Kanalpotential ihr folgt; daraus folgen die Anteile 1/2 und 1/2 im ohmschen Bereich und 2/3 und 0 im Abschnürbereich.
+
+*Daten:* Zahlenwerk X (Profile der Ladungsänderung).
+
+*Editor:*
+- §36 Kanalprofil aus Daten; §39 Profil mit Änderung, Differenzfläche und Mittelwertlinie; §10 Teilbilder.
+
+*Animation:* Ein Anschluss wird angehoben, das Profil sinkt, die Differenzfläche füllt sich, und der Mittelwert erscheint als Balken.
+
+**st1/mos-feldeffekttransistoren/04-cgs-cgd-uds**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* $C_{GS}$, $C_{GD}$ und ihre Summe in fF (0 bis 80) über $U_{DS}$ in V (0 bis 2) bei $U_{GS}$ = 1,5 V, nach dem Modell der Kennlinien ohne Überlappung: $C_{GS}$ 34,5 / 35,7 / 37,6 / 40,9 / 44,2 / 45,7 / 46,0 fF und $C_{GD}$ 34,5 / 33,3 / 31,0 / 25,6 / 16,6 / 8,0 / 0 fF bei 0 / 0,1 / 0,25 / 0,5 / 0,75 / 0,9 / 1 V, danach konstant 46,0 und 0 fF; Summe von 69,1 auf 46,0 fF. Gestrichelt dieselben Kurven mit je 3,45 fF Überlappung, $C_{GD}$ endet dann bei 3,45 fF. Senkrechte Marke an der Abschnürgrenze 1 V, links „ohmscher Bereich“, rechts „Abschnürbereich“; über dem Diagramm drei kleine Kanalbilder bei 0, 0,5 und 1 V.
+
+*Kernaussage:* Mit wachsender Drain-Source-Spannung wandert die Gatekapazität vom Drain zur Source; ab der Abschnürgrenze gehört zum Drain nur noch die Überlappung.
+
+*Daten:* Zahlenwerk X (Funktion meyer), Y ($C_\mathrm{ov}$).
+
+*Editor:*
+- §4, §11; §37 Bereichsgrenze; §36 kleine Kanalbilder; §10.
+
+*Animation:* Schieberegler $U_{DS}$; der Abschnürpunkt wandert zum Drain und bleibt dort stehen, die Kurvenpunkte laufen mit.
+
+**st1/mos-feldeffekttransistoren/04-ueberlappung**
+- Fassung: ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Ausschnitt um die drainseitige Gatekante, in der Höhe gestreckt: Gate über 5 nm Oxid; das n⁺-Draingebiet reicht 50 nm unter die Gatekante (seitliche Diffusion beim Ausheilen). Feldlinien vom Gate in das n⁺-Gebiet: unter der Überlappung dicht und parallel (Plattenkondensator, $C_\mathrm{ov}$ = 3,45 fF bei 10 µm Weite), dazu gebogene Linien von der Gateflanke zur Drainoberfläche, beschriftet „Randfeld“. Links davon der Kanal mit abgeschnürtem Ende, damit sichtbar ist, dass die Überlappung unabhängig von der Abschnürung besteht.
+
+*Kernaussage:* Die Überlappung ist ein kleiner Plattenkondensator zwischen Gate und Drain, den keine Abschnürung abschaltet.
+
+*Daten:* Zahlenwerk Y.
+
+*Editor:*
+- §27; §3 Feldlinien; §39 Kondensatorsymbol.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/04-sperrschicht-geometrie**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Aufsicht auf das Draingebiet: Rechteck $W$ = 10 µm entlang der Gatekante mal $b$ = 2 µm, Gatekante an einer Längsseite; Fläche $A_D$ = 20 µm² schraffiert, Umfang $P_D$ = 24 µm als dicke Randlinie, Maßpfeile.
+- (b) Querschnitt quer zur Gatekante: n⁺-Gebiet 0,2 µm tief, umgeben von der Verarmungszone (grau, 48,4 nm ohne Spannung, 67,9 nm bei 1 V); Kondensatorsymbole am Boden ($C'_{jF}$ = 2,14 fF/µm²) und an den Seitenwänden ($C'_{jS}$ = 0,428 fF/µm); an der Gatekante grenzt die Seitenwand an das p-Gebiet unter dem nur wenige Nanometer dicken Kanal. Werte ohne Spannung: Boden 42,9 fF, Rand 10,3 fF.
+
+*Kernaussage:* Die Kapazität eines Source- oder Draingebiets besteht aus Boden und Rand; der Boden zählt mit seiner Fläche, der Rand mit seiner Länge.
+
+*Daten:* Zahlenwerk AA.
+
+*Editor:*
+- §27; §36 Layout-Aufsicht mit Maßpfeilen und Schnittlinie; §39 Kondensatorsymbole; §10.
+
+*Animation:* Umschalten auf ein Gebiet von einem Viertel der Kantenlänge (2,5 × 0,5 µm): Boden 2,68 fF, Rand 2,57 fF; der Randanteil steigt von 19 % auf 49 %.
+
+**st1/mos-feldeffekttransistoren/04-sperrschicht-spannung**
+- Fassung: ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Zwei gestapelte Diagramme mit gemeinsamer x-Achse $U_{DB}$ in V (0 bis 2,5).
+- Oben: $C_{DB}$ in fF (0 bis 60), als gestapelte Flächen Boden (42,9 / 35,1 / 30,5 / 27,3 / 25,0 / 23,1 fF) und Rand (10,3 / 8,4 / 7,3 / 6,6 / 6,0 / 5,5 fF), Summe 53,1 / 43,6 / 37,8 / 33,9 / 31,0 / 28,7 fF bei 0 / 0,5 / 1 / 1,5 / 2 / 2,5 V. Gestrichelt die Summe mit $m_j$ = 1/3 bei gleichem Wert ohne Spannung (Faktor 0,797 statt 0,712 bei 1 V, 0,663 statt 0,540 bei 2,5 V).
+- Unten: Breite der Zone in nm: 48,4 / 59,0 / 67,9 / 75,8 / 83,0 / 89,6.
+
+*Kernaussage:* Mit der Sperrspannung wird die Zone breiter und die Kapazität kleiner, beim abrupten Übergang mit der Wurzel der Spannung über der Zone.
+
+*Daten:* Zahlenwerk AA (Funktion c_diff).
+
+*Editor:*
+- §4, §11; §13 gestapelte Diagramme; §39 gestapelte Anteile.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/04-finger-layout**
+- Fassung: ausführlich Abb. 8 (im Beispiel zur Sperrschichtkapazität).
+- Status: offen.
+
+*Inhalt:* Zwei Layout-Aufsichten bei gleicher Gesamtweite 10 µm. (a) Ein Finger: Source 10 × 2 µm, Gate 10 µm breit, Drain 10 × 2 µm. (b) Zwei Finger zu je 5 µm in der Folge Source, Gate, Drain, Gate, Source: Der Drain in der Mitte (5 × 2 µm) gehört zu beiden Gates, die beiden Sources liegen außen und sind verbunden. Werte bei $U_{DB}$ = 1 V: $C_{DB}$ = 37,8 fF gegen 19,5 fF.
+
+*Kernaussage:* Teilen sich zwei Gates einen Drain, halbiert sich fast die Drainkapazität bei unverändertem Strom.
+
+*Daten:* Zahlenwerk AA.
+
+*Editor:*
+- §36 Layout-Aufsicht; §10.
+
+*Animation:* Der eine Finger klappt in zwei Hälften um den Drain; der Wert läuft von 37,8 auf 19,5 fF.
+
+**st1/mos-feldeffekttransistoren/04-leitung-randfeld**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Querschnitt einer Metallbahn, $b_M$ = 2 µm breit, $t_M$ = 0,5 µm dick, $h$ = 1 µm über dem Substrat, Oxid dazwischen; das Substrat als leitende Ebene. Feldlinien unter der Bahn senkrecht und gleichmäßig (Plattenanteil), von den Flanken und der Oberseite in Bögen zur Ebene (Randfeld). Je Millimeter Länge: Plattenkondensator 69,1 fF, mit Randfeld 162 fF (Faktor 2,35). Kleine Tabelle daneben für 1 / 2 / 4 µm Breite: Faktor 3,55 / 2,35 / 1,75.
+
+*Kernaussage:* Je schmaler eine Bahn im Verhältnis zu ihrem Abstand vom Substrat, desto mehr trägt das Randfeld zu ihrer Kapazität bei.
+
+*Daten:* Zahlenwerk AB (Formel von Sakurai und Tamaru).
+
+*Editor:*
+- §3 Feldlinien; §27; §39.
+
+*Animation:* Schieberegler für die Breite von 1 bis 4 µm; Plattenanteil und Randanteil als Balken.
+
+**st1/mos-feldeffekttransistoren/04-miller**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Source-Schaltung: NMOS mit Source und Bulk an Masse, $R_D$ = 10 kΩ zur Versorgung, Signalquelle mit 10 kΩ Innenwiderstand am Gate; eingezeichnet $C_{GS}$ = 49,5 fF (Gate nach Masse), $C_{GD}$ = 3,45 fF (Gate zum Drain), $C_{DB}$ = 37,8 fF (Drain nach Masse); Kleinsignalwerte $g_m$ = 1 mS, $g_o$ = 25 µS, $A_V$ = −8. Spannungsbalken: Gate +10 mV, Drain −80 mV, über $C_{GD}$ 90 mV.
+- (b) Miller-Ersatz: $C_{GD}$ aufgeteilt in $C_{GD}(1 - A_V)$ = 31,1 fF vom Gate nach Masse und $C_{GD}(A_V - 1)/A_V$ = 3,88 fF vom Drain nach Masse; am Eingang zusammen 80,6 fF statt 52,9 fF, am Ausgang 41,7 fF.
+- (c) Balken der Eingangskapazität für $A_V$ = 0 (52,9 fF), −8 (80,6 fF) und −40 (191,1 fF), der Anteil aus $C_{GD}$ farbig (3,45 / 31,1 / 141,6 fF).
+
+*Kernaussage:* Weil sich die Spannung über $C_{GD}$ neunmal so stark ändert wie am Gate, wirkt sie am Eingang neunmal so groß.
+
+*Daten:* Zahlenwerk AC.
+
+*Editor:*
+- §1 Schaltplan; §28 Kleinsignalgrößen; §39 Miller-Umformung mit Spannungsbalken; §18 Balken; §10.
+
+*Animation:* Das Gate steigt um 10 mV, der Drain fällt um 80 mV, ein Ladungspfeil durch $C_{GD}$ wächst auf 0,311 fC; dann die Umformung von (a) nach (b).
+
+**st1/mos-feldeffekttransistoren/04-miller-kompensation**
+- Fassung: ausführlich Abb. 11.
+- Status: offen.
+
+*Inhalt:* Zweistufiger Verstärker als Blockbild: erste Stufe mit Ausgangswiderstand 1 MΩ, zweite Stufe invertierend mit $A_2$ = −50; $C_M$ = 1 pF zwischen Ein- und Ausgang der zweiten Stufe. Darunter der Ersatz: 51 pF vom Ausgang der ersten Stufe nach Masse. Rechts maßstäblich zwei Quadrate für die Kondensatorfläche bei 1 fF/µm²: 32 µm Seitenlänge für 1 pF, 226 µm für 51 pF.
+
+*Kernaussage:* Über den Miller-Effekt wirkt ein kleiner Kondensator wie ein 51-mal größerer; das spart Chipfläche.
+
+*Daten:* Zahlenwerk AD (angenommene Werte).
+
+*Editor:*
+- §19 Blockbilder; §1; §39 Miller-Umformung, Flächenvergleich.
 
 *Animation:* keine.

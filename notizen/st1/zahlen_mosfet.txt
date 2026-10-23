@@ -439,3 +439,161 @@ NMOS zieht den Ausgang bei Gate und Drain an 2,5 V höchstens auf 1.604 V (Schwe
 Zünden im Modell: Einspeisung ins Substrat ab 0.660 mA (0,6 mA bis der npn leitet, dazu 0.060 mA Basisstrom für 0,3 mA Kollektorstrom); Entnahme aus der Wanne ab 0.312 mA
 Sättigungsstrom bei U_BS = -1 V relativ zu 0,25 mA: 21.6 %
 Folger-Probe: sqrt(2 phi_F + 0,783 V) = 1.3061
+
+====================================================================================================
+W. Gatekapazität bei U_DS = 0, U_SB = 0: Bulkanteil und Kanalanteil (exakte Rechnung, quasistatisch)
+====================================================================================================
+C_ox = W L C'_ox = 69.06 fF; halbe: 34.53 fF; zwei Drittel: 46.04 fF
+ U_GB/V  C_GG/C_ox  C_GB/C_ox  (C_GS+C_GD)/C_ox  C_HF/C_ox  C_GB/fF  C_GS=C_GD/fF
+ -2.500     0.9638     0.9638            0.0000     0.9638    66.56          0.00
+ -2.000     0.9463     0.9463            0.0000     0.9463    65.36          0.00
+ -1.500     0.9014     0.9014            0.0000     0.9014    62.25          0.00
+ -1.027     0.7344     0.7344            0.0000     0.7344    50.72          0.00
+ -0.500     0.4058     0.4058            0.0000     0.4058    28.02          0.00
+  0.000     0.2997     0.2997            0.0000     0.2997    20.70          0.00
+  0.250     0.2708     0.2705            0.0003     0.2706    18.68          0.01
+  0.350     0.2643     0.2599            0.0044     0.2611    17.95          0.15
+  0.400     0.2696     0.2520            0.0176     0.2567    17.41          0.61
+  0.450     0.3012     0.2353            0.0659     0.2527    16.25          2.28
+  0.500     0.3956     0.1978            0.1978     0.2492    13.66          6.83
+  0.550     0.5445     0.1435            0.4010     0.2465     9.91         13.85
+  0.600     0.6747     0.0977            0.5770     0.2446     6.75         19.92
+  0.750     0.8491     0.0385            0.8106     0.2414     2.66         27.99
+  1.000     0.9221     0.0154            0.9067     0.2390     1.06         31.31
+  1.500     0.9587     0.0055            0.9532     0.2365     0.38         32.91
+  2.000     0.9713     0.0029            0.9684     0.2350     0.20         33.44
+  2.500     0.9778     0.0018            0.9760     0.2339     0.12         33.70
+Kontrolle U = 0.0 V: Summe der Anteile 0.2997, C_NF aus Abschnitt D 0.2997
+Kontrolle U = 0.5 V: Summe der Anteile 0.3956, C_NF aus Abschnitt D 0.3956
+Kontrolle U = 1.0 V: Summe der Anteile 0.9221, C_NF aus Abschnitt D 0.9221
+U_GB = 0.5 V: Kanalanteil nach Definition 0.1978 C'_ox, nach Ladungsschicht-Näherung 0.1950 C'_ox; Anteil der Gateladungsänderung aus Source und Drain 50.0 %
+U_GB = 1.0 V: Kanalanteil nach Definition 0.9067 C'_ox, nach Ladungsschicht-Näherung 0.8977 C'_ox; Anteil der Gateladungsänderung aus Source und Drain 98.3 %
+U_GB = 1.5 V: Kanalanteil nach Definition 0.9532 C'_ox, nach Ladungsschicht-Näherung 0.9459 C'_ox; Anteil der Gateladungsänderung aus Source und Drain 99.4 %
+U_GB = 0.5 V: psi_s = 923.2 mV; Bulkladung 4.1140 fC/µm^2, Kanalladung 0.0588 fC/µm^2 (Näherung der Ladungsschicht)
+U_GB = 1.0 V: psi_s = 1028.5 mV; Bulkladung 4.3488 fC/µm^2, Kanalladung 2.5498 fC/µm^2 (Näherung der Ladungsschicht)
+U_GB = 2.5 V: psi_s = 1085.9 mV; Bulkladung 4.4715 fC/µm^2, Kanalladung 12.3899 fC/µm^2 (Näherung der Ladungsschicht)
+Von 0,5 V auf 1,0 V: psi_s steigt um 105.3 mV, die Bulkladung um 0.2348 fC/µm^2, die Kanalladung um 2.4909 fC/µm^2, die Gateladung um 2.7257 fC/µm^2
+Minimum von C_GG/C_ox bei U_DS = 0: 0.2643 bei U_GS = 0.350 V
+R_on C_ox: U_GS = 1 V: 69.1 ps; U_GS = 1,5 V: 34.5 ps; Laufzeit an der Abschnürgrenze bei 1 V: 92.1 ps -> 1/(2 pi tau) = 1.73 GHz
+
+====================================================================================================
+X. Aufteilung der Kanalladung auf Source und Drain (Modell der Kennlinien, Meyer)
+====================================================================================================
+U_GS = 1.5 V (Übersteuerung 1.0 V):
+  U_DS = 0.00 V: C_GS = 0.5000 C_ox =  34.53 fF, C_GD = 0.5000 C_ox =  34.53 fF, Summe 1.0000 C_ox
+  U_DS = 0.10 V: C_GS = 0.5171 C_ox =  35.71 fF, C_GD = 0.4820 C_ox =  33.29 fF, Summe 0.9991 C_ox
+  U_DS = 0.25 V: C_GS = 0.5442 C_ox =  37.59 fF, C_GD = 0.4490 C_ox =  31.01 fF, Summe 0.9932 C_ox
+  U_DS = 0.50 V: C_GS = 0.5926 C_ox =  40.93 fF, C_GD = 0.3704 C_ox =  25.58 fF, Summe 0.9630 C_ox
+  U_DS = 0.75 V: C_GS = 0.6400 C_ox =  44.20 fF, C_GD = 0.2400 C_ox =  16.58 fF, Summe 0.8800 C_ox
+  U_DS = 0.90 V: C_GS = 0.6612 C_ox =  45.66 fF, C_GD = 0.1157 C_ox =   7.99 fF, Summe 0.7769 C_ox
+  U_DS = 1.00 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+  U_DS = 1.50 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+  U_DS = 2.00 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+U_GS = 1.0 V (Übersteuerung 0.5 V):
+  U_DS = 0.00 V: C_GS = 0.5000 C_ox =  34.53 fF, C_GD = 0.5000 C_ox =  34.53 fF, Summe 1.0000 C_ox
+  U_DS = 0.10 V: C_GS = 0.5350 C_ox =  36.95 fF, C_GD = 0.4609 C_ox =  31.83 fF, Summe 0.9959 C_ox
+  U_DS = 0.25 V: C_GS = 0.5926 C_ox =  40.93 fF, C_GD = 0.3704 C_ox =  25.58 fF, Summe 0.9630 C_ox
+  U_DS = 0.50 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+  U_DS = 0.75 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+  U_DS = 0.90 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+  U_DS = 1.00 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+  U_DS = 1.50 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+  U_DS = 2.00 V: C_GS = 0.6667 C_ox =  46.04 fF, C_GD = 0.0000 C_ox =   0.00 fF, Summe 0.6667 C_ox
+Kontrolle 1,5 V/0,5 V: dQ/dus = 0.5926, Formel 0.5926; dQ/dud = 0.3704, Formel 0.3704
+Kanalladung U_GS = 1 V: kleine U_DS 34.53 fC, Sättigung 23.02 fC (= 143685 Elektronen); U_GS = 1,5 V: 69.06 / 46.04 fC
+Profile der Ladungsänderung, wenn die Source um dU angehoben wird (relativ zu C'_ox dU), x/L = 0; 0,25; 0,5; 0,75; 1:
+  ohmscher Bereich, kleine U_DS: 1.00, 0.75, 0.50, 0.25, 0.00; Mittel 0.5000
+  Sättigung: 1.000, 0.866, 0.707, 0.500, 0.000; Mittel 0.6667
+  Kanalladung in Sättigung relativ zur Source: 1.000, 0.866, 0.707, 0.500, 0.000
+Source um 10 mV angehoben (U_GS = 1 V, Sättigung): Gateladung -0.460 fC = 2874 Elektronen; ohmscher Bereich: -0.345 fC
+
+====================================================================================================
+Y. Überlappung und die Kapazitäten in den drei Bereichen (Beispiel-NMOS, U_SB = 0)
+====================================================================================================
+Überlappung L_ov = 50 nm je Seite: C_ov = C'_ox W L_ov = 3.453 fF = 0.050 C_ox; pro µm Weite 0.345 fF/µm; Gate 1.10 µm lang über 1 µm Kanal
+Gesperrt (U_GS = 0): C_GB = 0.2997 C_ox = 20.70 fF; C_GS = C_GD = C_ov = 3.45 fF; Summe 27.61 fF
+Gesperrt (U_GS = -2 V, Anreicherung): C_GB = 0.9463 C_ox = 65.36 fF
+Sättigung (U_GS = 1 V, U_DS = 1 V): C_GS = 46.04 + 3.45 = 49.49 fF, C_GD = 0.00 + 3.45 = 3.45 fF, C_GB = 0; Summe 52.95 fF
+Ohmscher Bereich (U_GS = 2,5 V, U_DS = 0,1 V): C_GS = 0.5084 C_ox -> 38.57 fF, C_GD = 0.4913 C_ox -> 37.39 fF; Summe 75.95 fF
+Ohmscher Bereich, U_DS = 0: 37.98 fF je Seite
+Zwischenpunkt U_GS = 1,5 V, U_DS = 0,5 V: C_GS = 44.38 fF, C_GD = 29.03 fF (ohne Überlappung 40.93 / 25.58)
+Anteil der Überlappung an C_GD in Sättigung: 100 %; an C_GS: 7.0 %
+Gesperrt bei U_GS = 0, Verarmungsnäherung: psi_s = 565.5 mV, y_d = 35.87 nm, C'_dep = 2.888 fF/µm^2, Reihenschaltung 2.036 fF/µm^2 = 0.2948 C'_ox -> 20.36 fF (vollständige Rechnung 20.70 fF)
+Sättigung 1 V/1 V, 10 mV Schritt, Gate (alle drei): 0.5295 fC
+Sättigung 1 V/1 V, 10 mV Schritt, Source allein: 0.4949 fC
+Sättigung 1 V/1 V, 10 mV Schritt, Drain allein: 0.0345 fC
+Gesamte Gatekapazität im ohmschen Bereich bei kleiner U_DS: C_ox + 2 C_ov = 75.97 fF
+
+====================================================================================================
+Z. Gegenrechnung mit dem vollständigen Ladungsmodell (Elektronen mit Quasi-Fermi-Potential längs des Kanals)
+====================================================================================================
+Substratfaktor an der Schwelle n = 1 + C'_dep/C'_ox = 1.3272; Ladungsmodell mit linear wachsender Verarmungsladung: C_GS = 2/3 C_ox, C_GD = 0, C_GB = (n-1)/(3n) C_ox = 0.0822 C_ox = 5.68 fF
+U_GS = 1.0 V, U_DS = 1.5 V: C_GG = 0.6852, C_GS = 0.6024, C_GD = -0.0000, C_GB = 0.0828 (je C_ox; Summenprobe +3.6e-07); Modell der Kennlinien 0.6667/0.0000/0; I_D = 0.1251 mA (Level 1 0.2500 mA)
+U_GS = 1.5 V, U_DS = 2.5 V: C_GG = 0.7050, C_GS = 0.6374, C_GD = -0.0000, C_GB = 0.0676 (je C_ox; Summenprobe +3.2e-08); Modell der Kennlinien 0.6667/0.0000/0; I_D = 0.5888 mA (Level 1 1.0000 mA)
+U_GS = 1.5 V, U_DS = 0.02 V: C_GG = 0.9582, C_GS = 0.4812, C_GD = 0.4714, C_GB = 0.0057 (je C_ox; Summenprobe +6.2e-07); Modell der Kennlinien 0.5033/0.4966/0; I_D = 0.0328 mA (Level 1 0.0396 mA)
+U_GS = 2.5 V, U_DS = 0.1 V: C_GG = 0.9769, C_GS = 0.4995, C_GD = 0.4754, C_GB = 0.0019 (je C_ox; Summenprobe +1.4e-07); Modell der Kennlinien 0.5084/0.4913/0; I_D = 0.3461 mA (Level 1 0.3900 mA)
+U_GS = 1.5 V, U_DS = 0.5 V: C_GG = 0.8724, C_GS = 0.6008, C_GD = 0.2456, C_GB = 0.0261 (je C_ox; Summenprobe +7.2e-07); Modell der Kennlinien 0.5926/0.3704/0; I_D = 0.5302 mA (Level 1 0.7500 mA)
+  U_GS = 1,5 V, U_DS = 0.6 V: C_GS = 0.6212, C_GD = 0.1585, C_GB = 0.0392
+  U_GS = 1,5 V, U_DS = 0.7 V: C_GS = 0.6338, C_GD = 0.0612, C_GB = 0.0561
+  U_GS = 1,5 V, U_DS = 0.75 V: C_GS = 0.6364, C_GD = 0.0231, C_GB = 0.0632
+  U_GS = 1,5 V, U_DS = 0.8 V: C_GS = 0.6373, C_GD = 0.0051, C_GB = 0.0666
+  U_GS = 1,5 V, U_DS = 0.9 V: C_GS = 0.6374, C_GD = 0.0001, C_GB = 0.0675
+  U_GS = 1,5 V, U_DS = 1.0 V: C_GS = 0.6374, C_GD = 0.0000, C_GB = 0.0676
+
+====================================================================================================
+AA. Sperrschichtkapazitäten von Source und Drain (Beispiel-NMOS, n+-Gebiete wie das Gate entartet)
+====================================================================================================
+Diffusionsspannung n+/p (N_A = 5.682e+17): U_Diff = U_T ln(N_L/n_i) + phi_F = 1.0274 V (= -phi_MS = 1.0274 V); mit N_D = 1e20 nach Boltzmann wären es 1.0569 V
+Zonenweite ohne Spannung w0 = sqrt(2 eps U_Diff/(e N_A)) = 48.36 nm (Verarmungszone unter dem Gate an der Schwelle 45.84 nm); zweiseitig mit N_D = 1e20 Faktor sqrt(1 + N_A/N_D) = 1.00284; Anteil der Zone im p-Gebiet bei N_D = 1e20: 99.44 %
+C'_jF0 = eps/w0 = 2.1423 fF/µm^2 (C'_dep an der Schwelle 2.2600, C'_ox 6.9063)
+Tiefe x_j = 0.2 µm: C'_jS0 = C'_jF0 x_j = 0.4285 fF/µm
+Draingebiet W = 10 µm, b = 2 µm: Fläche A_D = 20 µm^2, Umfang P_D = 24 µm
+  U_DB = 0.0 V: Faktor (1 + U/U_Diff)^-1/2 = 1.0000, Zone 48.4 nm; Fläche 42.85 fF, Rand 10.28 fF, C_DB = 53.13 fF (Randanteil 19.4 %)
+  U_DB = 0.5 V: Faktor (1 + U/U_Diff)^-1/2 = 0.8202, Zone 59.0 nm; Fläche 35.14 fF, Rand 8.43 fF, C_DB = 43.57 fF (Randanteil 19.4 %)
+  U_DB = 1.0 V: Faktor (1 + U/U_Diff)^-1/2 = 0.7119, Zone 67.9 nm; Fläche 30.50 fF, Rand 7.32 fF, C_DB = 37.82 fF (Randanteil 19.4 %)
+  U_DB = 1.5 V: Faktor (1 + U/U_Diff)^-1/2 = 0.6376, Zone 75.8 nm; Fläche 27.32 fF, Rand 6.56 fF, C_DB = 33.87 fF (Randanteil 19.4 %)
+  U_DB = 2.0 V: Faktor (1 + U/U_Diff)^-1/2 = 0.5826, Zone 83.0 nm; Fläche 24.96 fF, Rand 5.99 fF, C_DB = 30.95 fF (Randanteil 19.4 %)
+  U_DB = 2.5 V: Faktor (1 + U/U_Diff)^-1/2 = 0.5397, Zone 89.6 nm; Fläche 23.12 fF, Rand 5.55 fF, C_DB = 28.67 fF (Randanteil 19.4 %)
+  m = 1/3 statt 1/2 bei 1.0 V: Faktor 0.7973 statt 0.7119
+  m = 1/3 statt 1/2 bei 2.5 V: Faktor 0.6629 statt 0.5397
+Verkleinert auf ein Viertel (W = 2,5 µm, b = 0,5 µm), 0 V: Fläche 2.68 fF, Rand 2.57 fF, Summe 5.25 fF, Randanteil 49.0 %
+Ein Finger (W = 10 µm) gegen zwei Finger mit gemeinsamem Drain (je 5 µm, Drain 5 x 2 µm), U_DB = 1 V: 37.82 fF gegen 19.52 fF (48.4 % weniger); Fläche 15.25, Rand 4.27 fF
+  zwei Finger bei 0 V: 27.42 fF; Sources dann 2 x (5 x 2 µm): 54.84 fF
+Kanal-Bulk-Kapazität (Verarmungszone unter dem Kanal) an der Schwelle C'_dep W L = 22.60 fF; 2/3 davon = 15.07 fF, 1/2 = 11.30 fF
+  lineare Dotierung a = 1e22 cm^-4, angenommene Diffusionsspannung 0,9 V, Sperrspannung 0.0 V: w = 191.1 nm, C' = 0.5420 fF/µm^2
+  lineare Dotierung a = 1e22 cm^-4, angenommene Diffusionsspannung 0,9 V, Sperrspannung 2.0 V: w = 282.3 nm, C' = 0.3669 fF/µm^2
+  Verhältnis C'(2 V)/C'(0) linear: 0.6770 = (0,9/2,9)^(1/3)
+
+====================================================================================================
+AB. Verdrahtung: Plattenkondensator und Randfelder (Sakurai-Tamaru, 1983)
+====================================================================================================
+eps_ox = 0.03453 fF/µm; über 1 µm Oxid: 0.03453 fF/µm^2
+  Bahn 1 µm breit, 0.5 µm dick, 1 mm lang über 1 µm Oxid: Platte 34.53 fF, mit Randfeldern 122.6 fF (Faktor 3.55); pro mm Leitung 122.6 fF = 1.78 Gates C_ox
+  Bahn 2 µm breit, 0.5 µm dick, 1 mm lang über 1 µm Oxid: Platte 69.06 fF, mit Randfeldern 162.3 fF (Faktor 2.35); pro mm Leitung 162.3 fF = 2.35 Gates C_ox
+  Bahn 4 µm breit, 0.5 µm dick, 1 mm lang über 1 µm Oxid: Platte 138.13 fF, mit Randfeldern 241.7 fF (Faktor 1.75); pro mm Leitung 241.7 fF = 3.50 Gates C_ox
+Seitenflächen zweier paralleler Bahnen (0,5 µm dick, 1 µm Abstand, 1 mm) als Plattenkondensator: 17.27 fF (Randfelder vergrößern das)
+
+====================================================================================================
+AC. Miller-Effekt in der Source-Schaltung (Beispiel-NMOS im Arbeitspunkt 0,25 mA)
+====================================================================================================
+g_m = 1 mS, g_o = 25 µS, R_D = 10 kOhm: A_V = -g_m/(G_D + g_o) = -8.000; Arbeitspunkt U_GS = 1 V, U_DS = 1 V (Versorgung 3.5 V über 10 kOhm)
+C_GS = 49.495 fF, C_GD = 3.453 fF, C_DB(1 V) = 37.82 fF
+Eingang: C_GS + C_GD (1 - A) = 49.49 + 31.08 = 80.57 fF (ohne Verstärkung 52.95 fF); Ausgang: C_DB + C_GD (A-1)/A = 37.82 + 3.885 = 41.71 fF
+Schritt: Eingang +10 mV -> Ausgang -80 mV, Spannung an C_GD ändert sich um 90 mV, Ladung 0.3108 fC = 31.08 fF x 10 mV
+  Signalquelle 10 kOhm: ohne Miller: tau = 0.5295 ns, Eckfrequenz 300.6 MHz
+  Signalquelle 10 kOhm: A = -8: tau = 0.8057 ns, Eckfrequenz 197.5 MHz
+  Ausgang: R_aus = 8.0 kOhm, tau_aus = 0.3336 ns, Eckfrequenz 477.0 MHz
+Ideale Stromquelle als Last: A_V = -g_m/g_o = -40.0; C_ein = 49.49 + 141.58 = 191.07 fF; 10 kOhm: 83.3 MHz; Ausgang 40 kOhm x 41.36 fF -> 96.2 MHz
+Verhältnis Miller-Anteil zu C_GS bei A = -40: 2.86
+Sourcefolger A_V = 0.8: C_GS wirkt am Eingang als 9.90 fF, dazu C_GD (Drain fest) 3.45 fF: 13.35 fF statt 52.95 fF
+Umladen: Drainknoten 41.7 fF mit 0,25 mA um 1 V: 0.167 ns; Eingang 80.6 fF mit 0,25 mA um 1 V: 0.322 ns; Gate im Abschnürbereich 52.95 fF mit 0,25 mA um 1 V: 0.212 ns, über 10 kOhm tau = 0.529 ns
+Miller-Anteil an C_ein bei A = -40: 74.1 %; Verlängerung von tau_ein bei A = -8: 52.2 %
+Literaturwerte: Ausheilen der Source-/Drain-Implantation bei rund 1000 °C; Kondensatoren zwischen zwei Metallebenen rund 1 fF/µm^2; Kompensationskondensator des 741: 30 pF (wie im ET1-Artikel zum OPV)
+
+====================================================================================================
+AD. Miller-Kompensation (angenommene Werte)
+====================================================================================================
+Zweite Stufe A_2 = -50, C_M = 1 pF zwischen ihrem Ein- und Ausgang: am Eingang wirksam 51 pF
+  Fläche mit 1 fF/µm^2 (Kondensator zwischen zwei Metallebenen): C_M 1000 µm^2, gleiche Wirkung ohne Miller 51000 µm^2 (Seitenlänge 32 bzw. 226 µm)
+  Fläche mit C'_ox = 6,91 fF/µm^2: C_M 145 µm^2, gleiche Wirkung ohne Miller 7385 µm^2 (Seitenlänge 12 bzw. 86 µm)
+Mit 1 MOhm am Ausgang der ersten Stufe: Eckfrequenz 1/(2 pi R C_M (1 - A_2)) = 3.12 kHz

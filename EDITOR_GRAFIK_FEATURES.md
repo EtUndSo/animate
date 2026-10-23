@@ -292,7 +292,7 @@ Gebraucht in: st1/netzwerkanalyse/05-uebersicht, 05-tor-und-vierpol, 05-kurzschl
 - pn-Übergänge als Diodensymbole im Querschnitt, je nach Spannung als gesperrt oder leitend eingefärbt.
 - Schaltzeichenvarianten des MOSFET als Tabelle: bipolarähnlich (Pfeil an der Source), Digitaltechnik (Kreis am Gate), DIN (unterbrochene Kanallinie, Bulkpfeil), selbstleitend (durchgezogene Kanallinie), jeweils mit Zählpfeilen (§24, §2).
 - Spannungsbilanz als Treppendiagramm: Balken, die von einem Startwert aus nach oben oder unten addieren, mit Wert und Bedeutung je Balken und einem Ergebnisbalken.
-Gebraucht in: st1/mos-feldeffekttransistoren/01-querschnitt, 01-cmos-wanne, 01-schaltzeichen, 01-mos-zustaende, 01-schwellenspannung, 01-betriebsbereiche, 01-abschnuerung; absehbar Kennlinien und Kanallängenmodulation, Substrateffekt, Latch-Up, parasitäre Kapazitäten, Stromspiegel; st1/mos-feldeffekttransistoren/02-kanal-geschwindigkeit, 02-kanallaengenmodulation; st1/mos-feldeffekttransistoren/03-cmos-ueberblick, 03-substrateffekt-querschnitt, 03-wannen-varianten.
+Gebraucht in: st1/mos-feldeffekttransistoren/01-querschnitt, 01-cmos-wanne, 01-schaltzeichen, 01-mos-zustaende, 01-schwellenspannung, 01-betriebsbereiche, 01-abschnuerung; absehbar Kennlinien und Kanallängenmodulation, Substrateffekt, Latch-Up, parasitäre Kapazitäten, Stromspiegel; st1/mos-feldeffekttransistoren/02-kanal-geschwindigkeit, 02-kanallaengenmodulation; st1/mos-feldeffekttransistoren/03-cmos-ueberblick, 03-substrateffekt-querschnitt, 03-wannen-varianten; st1/mos-feldeffekttransistoren/04-kapazitaeten-uebersicht, 04-kanalladung-aufteilung, 04-cgs-cgd-uds, 04-sperrschicht-geometrie, 04-finger-layout.
 
 ## 37. Kennlinienfelder: Bereichsgrenzen, Fortsetzungen, Extrapolation und transformierte Achsen  — **P2** (neu 2026-10-23, Schaltungstechnik MOSFET)
 - Grenzkurve, die durch die Übergangspunkte einer Kennlinienschar läuft (gestrichelt), und Bereiche, die entlang dieser Kurve statt entlang einer senkrechten Linie hinterlegt werden (§4).
@@ -302,7 +302,7 @@ Gebraucht in: st1/mos-feldeffekttransistoren/01-querschnitt, 01-cmos-wanne, 01-s
 - Transformierte y-Achse: Wurzel oder Logarithmus der Größe, sodass eine Parabel bzw. Exponentialfunktion zur Geraden wird; Achsenschnittpunkt markiert.
 - Gekoppelte Punkte in zwei Diagrammen (Ausgangs- und Übertragungskennlinie): Ein Punkt im einen Diagramm wandert mit dem im anderen (§10, §15).
 - Kennlinien im dritten Quadranten (beide Achsen negativ, Beschriftung mit Vorzeichen) und daneben dieselbe Schar gespiegelt in Betragsdarstellung; Umschalten als Spiegelung an beiden Achsen.
-Gebraucht in: st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-flaeche-uebersteuerung, 02-triode-parabel, 02-schwellenbestimmung, 02-kanallaengenmodulation, 02-arbeitspunkt, 02-unterschwelle; absehbar Kennlinien des Bipolartransistors und der Diode, Substrateffekt, PMOS-Kennlinien, Transistorgrundschaltungen; PMOS-Kennlinien im dritten Quadranten (st1/mos-feldeffekttransistoren/03-pmos-kennlinien).
+Gebraucht in: st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-flaeche-uebersteuerung, 02-triode-parabel, 02-schwellenbestimmung, 02-kanallaengenmodulation, 02-arbeitspunkt, 02-unterschwelle; absehbar Kennlinien des Bipolartransistors und der Diode, Substrateffekt, PMOS-Kennlinien, Transistorgrundschaltungen; PMOS-Kennlinien im dritten Quadranten (st1/mos-feldeffekttransistoren/03-pmos-kennlinien); Bereichsgrenze in st1/mos-feldeffekttransistoren/04-cgs-cgd-uds.
 
 ## 38. Parasitäre Strukturen, Mitkopplung und Kennlinien mit Rücksprung  — **P2** (neu 2026-10-23, Schaltungstechnik MOSFET)
 - Parasitäre Bauelemente in einen Technologie-Querschnitt einzeichnen (§27): Bipolartransistor-, Dioden- und Widerstandssymbole über den Gebieten, die sie bilden, mit Verbindungen zu den Kontakten; in eigener Farbe (violett gestrichelt), ein- und ausblendbar.
@@ -310,6 +310,14 @@ Gebraucht in: st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-flaeche-ueber
 - Mitkopplungsring: umlaufender Pfeil durch eine Schleife aus Bauelementen mit Beschriftung der Schleifenverstärkung; als Animation Stromflüsse, die mit jedem Umlauf wachsen (§8).
 - Kennlinie mit Rücksprung (S-förmig): gesperrter Ast, Zündpunkt, Bereich negativer Steigung gestrichelt, leitender Ast, Haltepunkt; Schnitt mit einer Arbeitsgeraden (§4) und Achsenbruch zwischen mA und A (§17).
 Gebraucht in: st1/mos-feldeffekttransistoren/03-cmos-ueberblick, 03-latchup-struktur, 03-latchup-kennlinie, 03-latchup-gegenmassnahmen; absehbar Thyristor, ESD-Schutzstrukturen, parasitäre Bipolartransistoren in BiCMOS.
+
+## 39. Kapazitäten im Bauelement, Ladungsanteile und Miller-Umformung  — **P2** (neu 2026-10-23, Schaltungstechnik MOSFET)
+- Kondensatorsymbole im Technologie-Querschnitt (§27): fest oder spannungsabhängig (Schrägpfeil), an den Ort gesetzt, an dem die Ladung sitzt, mit einer dünnen Linie zu dem Anschluss, aus dem die Gegenladung kommt; Wertbeschriftung. Mehrere Wertesätze je Betriebsbereich, umschaltbar (§15), die Symbolgröße folgt dem Wert.
+- Gestapelte Anteile einer Kurve: die Gesamtkurve als obere Kante, darunter farbige Flächen der Anteile (etwa Bulk und Kanal, Boden und Rand), eine Teilfläche wahlweise durch eine Mittellinie halbiert (je zur Hälfte Source und Drain).
+- Profil mit Änderung: ursprüngliches und verschobenes Profil über dem Ort, Differenzfläche schraffiert, ihr Mittelwert als waagerechte Linie mit Beschriftung („Mittel 2/3“).
+- Miller-Umformung: ein Bauteil zwischen zwei Knoten wird animiert in zwei Bauteile gegen Masse aufgeteilt, deren Größe mit (1 − A) bzw. (A − 1)/A wächst; Spannungsbalken an beiden Enden und am Bauteil selbst zeigen, warum.
+- Flächenvergleich als maßstäbliche Quadrate mit Seitenlänge (Kondensatorfläche).
+Gebraucht in: st1/mos-feldeffekttransistoren/04-kapazitaeten-uebersicht, 04-gatekapazitaet, 04-kanalladung-aufteilung, 04-ueberlappung, 04-sperrschicht-geometrie, 04-sperrschicht-spannung, 04-leitung-randfeld, 04-miller, 04-miller-kompensation; absehbar Kleinsignalmodell mit Kapazitäten, Frequenzgang der Transistorgrundschaltungen, Lastkapazität des CMOS-Inverters.
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten
