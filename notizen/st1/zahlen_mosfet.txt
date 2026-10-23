@@ -1,0 +1,208 @@
+
+====================================================================================================
+A. Beispieltechnologie und Beispiel-Transistorpaar (gilt für alle Themen des Kapitels)
+====================================================================================================
+U_T = 25.852 mV, n_i = 1.00e+10 cm^-3, eps_Si = 11,7 eps0 = 1.0359e-12 F/cm, eps_ox = 3,9 eps0 = 3.4531e-13 F/cm
+t_ox = 5.0 nm -> C'_ox = eps_ox/t_ox = 6.9063e-07 F/cm^2 = 6.906 fF/µm^2 (1 fF/µm^2 = 1e-7 F/cm^2)
+NMOS: W = 10 µm, L = 1 µm, W/L = 10, K'_n = 200 µA/V^2 -> K_n = 2.00 mA/V^2; mu_n,eff = K'_n/C'_ox = 289.6 cm^2/(V s)
+      U_th0 = 0.50 V, lambda_n = 0.1 1/V; Gate-Oxid-Kapazität C_ox = W L C'_ox = 69.06 fF
+PMOS: W = 40 µm, L = 1 µm, W/L = 40, K'_p = 50 µA/V^2 -> K_p = 2.00 mA/V^2; mu_p,eff = 72.4 cm^2/(V s)
+      U_th0,p = -0.50 V, lambda_p = 0.1 1/V; C_ox = 276.3 fF
+Verhältnis K'_n/K'_p = 4.0 (Beweglichkeitsverhältnis im Kanal); gleiches K bei W_p = 4 W_n
+Kontrolle Netzwerkanalyse: Sättigung bei U_GS = 1 V: I_D = K_n/2 (0,5 V)^2 = 0.250 mA, g_m = K_n (U_GS - U_th) = 1.000 mS, g_o ~ lambda I_D = 25.0 µS
+
+====================================================================================================
+B. Kanaldotierung und Schwellenspannung des NMOS (n+-Poly-Gate, keine Oxidladung)
+====================================================================================================
+Kanaldotierung so gewählt, dass U_th0 = 0,500 V: N_A = 5.6819e+17 cm^-3 (gerundet 5.7e+17)
+Fermi-Potential phi_F = U_T ln(N_A/n_i) = 461.60 mV; 2 phi_F = 923.19 mV
+Fermi-Niveau im n+-Poly: U_T ln(N_C/n_i) = 565.81 mV über W_i (an der Leitungsbandkante)
+Kontaktspannung phi_MS = -(U_T ln(N_C/n_i) + phi_F) = -U_T ln(N_C N_A/n_i^2) = -1027.41 mV (Kontrolle -1027.41 mV)
+Verarmungsweite an der Schwelle x_d,max = sqrt(2 eps 2phi_F/(q N_A)) = 45.84 nm
+Verarmungsladung |Q'_dep| = q N_A x_d = sqrt(2 q eps N_A 2 phi_F) = 4.1728e-07 C/cm^2 = 4.173 fC/µm^2 (Kontrolle q N_A x_d = 4.1728e-07); Akzeptorionen pro µm^2: 26045
+|Q'_dep|/C'_ox = 604.21 mV
+U_th0 = phi_MS + 2 phi_F + |Q'_dep|/C'_ox = -1.0274 + 0.9232 + 0.6042 = 0.5000 V
+Feld an der Oberfläche an der Schwelle E_s = |Q'_dep|/eps_Si = 4.028e+05 V/cm; im Oxid E_ox = |Q'_dep|/eps_ox = 1.208e+06 V/cm (Verhältnis eps_Si/eps_ox = 3.00)
+Spannungsaufteilung an der Schwelle zwischen Oxid und Halbleiter: U_ox = 0.6042 V, psi_s = 0.9232 V, Summe = U_th0 - U_FB = 1.5274 V
+Substratsteuerfaktor gamma_n = sqrt(2 q eps N_A)/C'_ox = 0.6288 sqrt(V) (für Thema 3)
+Varianten:
+  N_A = 1.00e+16: phi_F =  357.2 mV, phi_MS =  -923.0 mV, |Q'_dep|/C'_ox =   70.5 mV, x_d,max =  303.9 nm, U_th0 =  -138.1 mV
+  N_A = 4.00e+16: phi_F =  393.0 mV, phi_MS =  -958.8 mV, |Q'_dep|/C'_ox =  147.9 mV, x_d,max =  159.4 nm, U_th0 =   -24.9 mV
+  N_A = 1.00e+17: phi_F =  416.7 mV, phi_MS =  -982.5 mV, |Q'_dep|/C'_ox =  240.8 mV, x_d,max =  103.8 nm, U_th0 =    91.7 mV
+  N_A = 3.00e+17: phi_F =  445.1 mV, phi_MS = -1010.9 mV, |Q'_dep|/C'_ox =  431.1 mV, x_d,max =   61.9 nm, U_th0 =   310.4 mV
+  N_A = 5.68e+17: phi_F =  461.6 mV, phi_MS = -1027.4 mV, |Q'_dep|/C'_ox =  604.2 mV, x_d,max =   45.8 nm, U_th0 =   500.0 mV
+  N_A = 1.00e+18: phi_F =  476.2 mV, phi_MS = -1042.0 mV, |Q'_dep|/C'_ox =  814.2 mV, x_d,max =   35.1 nm, U_th0 =   724.6 mV
+  Skript-Typwert N_sub = 4e16: phi_F = 393.0 mV (mit n_i = 1,4e10 aus dem Skript: 384.3 mV; angegebene 0,33 V passen zu keinem der beiden)
+Gegenprobe Lehrbuchbeispiel t_ox = 20 nm, N_A = 5e16, Gate 550 mV: U_FB = -0.949 V, U_th = 0.515 V
+Empfindlichkeit: N_A x 0.9: U_th0 = 464.6 mV
+Empfindlichkeit: N_A x 1.1: U_th0 = 533.6 mV
+Empfindlichkeit: t_ox = 4.5 nm: U_th0 = 439.6 mV
+Empfindlichkeit: t_ox = 5.5 nm: U_th0 = 560.4 mV
+Positive Oxidladung 5e10 q/cm^2: Verschiebung -Q'_ox/C'_ox = -11.60 mV; 1e11: -23.20 mV
+Flachbandspannung U_FB = phi_MS = -1.0274 V (ohne Oxidladung)
+
+====================================================================================================
+C. MOS-Kondensator exakt (Poisson-Gleichung mit Boltzmann-Dichten), NMOS-Gatestapel, Bulk als Bezug
+====================================================================================================
+Debye-Länge im Substrat L_D = sqrt(eps U_T/(q N_A)) = 5.42 nm; n_p0 = n_i^2/N_A = 176.0 cm^-3
+Exakt: U_GB bei psi_s = 2 phi_F: 0.5000 V (Formel U_th0 = 0,5000 V)
+Exakt: U_GB bei psi_s = phi_F (Oberfläche eigenleitend, n_s = n_i): -0.1507 V
+Exakt: psi_s bei U_GB = 0: 565.5 mV; Verarmungsnäherung: Lösung von psi + gamma sqrt(psi) = -U_FB:
+  sqrt(psi) = 0.7468 -> psi = 557.8 mV
+ U_GB/V  psi_s/mV   n_s/cm^-3   p_s/cm^-3  Q_s/(fC/µm^2)  Q_inv/(fC/µm^2)  Cox(U-Uth)      Zustand
+ -2.000    -112.5   2.265e+00   4.415e+19         5.9398           0.0000      0.0000 Anreicherung
+ -1.500     -76.5   9.117e+00   1.097e+19         2.7353           0.0000      0.0000 Anreicherung
+ -1.027      -0.0   1.760e+02   5.682e+17         0.0000           0.0000      0.0000    Flachband
+ -0.500     237.9   1.743e+06   5.737e+13        -1.9997          -0.0000      0.0000    Verarmung
+  0.000     565.5   5.558e+11   1.799e+08        -3.1903          -0.0000      0.0000    Verarmung
+  0.250     744.4   5.626e+14   1.778e+05        -3.6814          -0.0001      0.0000    Verarmung
+  0.400     854.4   3.968e+16   2.520e+03        -3.9574          -0.0043      0.0000    Verarmung
+  0.500     923.2   5.682e+17   1.760e+02        -4.1728          -0.0588      0.0000    Inversion
+  0.600     969.1   3.355e+18   2.981e+01        -4.5464          -0.3285     -0.6906    Inversion
+  0.750    1002.0   1.197e+19   8.357e+00        -5.3553          -1.0645     -1.7266    Inversion
+  1.000    1028.5   3.342e+19   2.992e+00        -6.8985          -2.5498     -3.4531    Inversion
+  1.500    1056.2   9.765e+19   1.024e+00       -10.1602          -5.7518     -6.9063    Inversion
+  2.000    1073.3   1.892e+20   5.285e-01       -13.4953          -9.0504    -10.3594    Inversion
+  2.500    1085.9   3.080e+20   3.247e-01       -16.8614         -12.3899    -13.8125    Inversion
+Oberflächendichte n_s = n_p0 exp(psi_s/U_T) (Boltzmann):
+  psi_s =    0.0 mV: n_s = 1.760e+02 cm^-3, p_s = 5.682e+17 cm^-3
+  psi_s =  250.0 mV: n_s = 2.788e+06 cm^-3, p_s = 3.587e+13 cm^-3
+  psi_s =  500.0 mV: n_s = 4.417e+10 cm^-3, p_s = 2.264e+09 cm^-3
+  psi_s =  461.6 mV: n_s = 1.000e+10 cm^-3, p_s = 1.000e+10 cm^-3
+  psi_s =  600.0 mV: n_s = 2.114e+12 cm^-3, p_s = 4.731e+07 cm^-3
+  psi_s =  800.0 mV: n_s = 4.841e+15 cm^-3, p_s = 2.066e+04 cm^-3
+  psi_s =  923.2 mV: n_s = 5.682e+17 cm^-3, p_s = 1.760e+02 cm^-3
+Bei U_GB = 1 V: psi_s = 1028.5 mV (= 2 phi_F + 105.3 mV = 2 phi_F + 4.07 U_T); Q_inv exakt = -2.5498 fC/µm^2 gegen C'_ox (U - U_th) = 3.4531 fC/µm^2 (-26.2 %)
+Bei U_GB = 1,5 V: psi_s = 1056.2 mV, Q_inv exakt = -5.7518, linear 6.9063 fC/µm^2 (-16.7 %)
+Extrapolation von Q_inv(U) zwischen 1,0 und 1,5 V auf null: U = 0.6018 V; Steigung = 0.9273 C'_ox
+psi_s-Anstieg von der Schwelle (U = 0,5 V) bis 1,0 V: 105.3 mV; bis 1,5 V: 133.1 mV
+Verarmungsladung bei 1,0 V: -4.3488 fC/µm^2 (an der Schwelle exakt -4.1140, Näherung -4.1728)
+  U_GB = 0.5 V: psi_s - 2 phi_F =    0.0 mV = 0.00 U_T, Verarmungsweite (Ladung/(q N_A)) = 45.2 nm, Elektronen/Ionen pro µm^2 = 367/25678
+  U_GB = 1.0 V: psi_s - 2 phi_F =  105.3 mV = 4.07 U_T, Verarmungsweite (Ladung/(q N_A)) = 47.8 nm, Elektronen/Ionen pro µm^2 = 15914/27143
+  U_GB = 1.5 V: psi_s - 2 phi_F =  133.1 mV = 5.15 U_T, Verarmungsweite (Ladung/(q N_A)) = 48.4 nm, Elektronen/Ionen pro µm^2 = 35900/27515
+  U_GB = 2.5 V: psi_s - 2 phi_F =  162.7 mV = 6.30 U_T, Verarmungsweite (Ladung/(q N_A)) = 49.1 nm, Elektronen/Ionen pro µm^2 = 77331/27909
+Verarmungsweite bei U_GB = 0 (Näherung) x_d = sqrt(2 eps psi/(q N_A)) mit psi = 0,5655 V: 35.9 nm
+
+====================================================================================================
+D. Kapazität des MOS-Kondensators: niederfrequent (NF) und hochfrequent (HF)
+====================================================================================================
+C'_ox = 6.906 fF/µm^2; C'_dep,min = eps/x_d,max = 2.260 fF/µm^2; Reihenschaltung = 1.703 fF/µm^2 = 0.247 C'_ox
+Flachbandkapazität: C'_FB = C'_ox eps/(eps + C'_ox L_D) mit L_D = 5.42 nm: 5.072 fF/µm^2 = 0.734 C'_ox
+ U_GB/V  C_NF/C_ox  C_HF/C_ox
+ -2.500     0.9638     0.9638
+ -2.000     0.9463     0.9463
+ -1.500     0.9014     0.9014
+ -1.250     0.8436     0.8436
+ -1.027     0.7344     0.7344
+ -0.750     0.5260     0.5308
+ -0.500     0.4058     0.4058
+ -0.250     0.3410     0.3410
+  0.000     0.2997     0.2997
+  0.250     0.2708     0.2706
+  0.400     0.2696     0.2567
+  0.450     0.3012     0.2527
+  0.500     0.3956     0.2492
+  0.550     0.5445     0.2465
+  0.600     0.6747     0.2446
+  0.750     0.8491     0.2414
+  1.000     0.9221     0.2390
+  1.500     0.9587     0.2365
+  2.000     0.9713     0.2350
+  2.500     0.9778     0.2339
+Minimum der NF-Kurve: 0.2643 C'_ox bei U_GB = 0.350 V
+
+====================================================================================================
+E. Woher die Kanalelektronen kommen: MOS-Kondensator ohne Source gegen Transistor
+====================================================================================================
+Inversionsladung bei U_GS - U_th = 0,5 V: 3.4531e-07 C/cm^2 = 2.155e+12 Elektronen/cm^2 = 21553 pro µm^2; im Kanal W L = 10 µm^2: 2.1553e+05 Elektronen
+ohne Source nur thermische Generation in der Verarmungszone: J_gen = q n_i x_d/(2 tau) = 3.672e-09 A/cm^2 (tau = 1 µs) -> Aufbauzeit ~ Q_inv/J_gen = 94.0 s
+Elektronen im n+-Gebiet (Source, 1e20 cm^-3) gegen Kanalbedarf: Volumen mit gleich vielen Elektronen = 0.002 µm^3
+
+====================================================================================================
+F. Der Kanal im Transistor: Ladung an Source und Drain, Abschnürgrenze, Kanalwiderstand
+====================================================================================================
+U_GS = 1.0 V, Gate-Übersteuerung U_GS - U_th = 0.5 V; Source-Ende: |Q'_n(0)| = C'_ox (U_GS - U_th) = 3.4531 fC/µm^2
+  U_DS = 0.0 V: Gate-Drain-Spannung U_GD = +1.00 V, Drain-Ende Q'(L)/Q'(0) = 1.00 
+  U_DS = 0.1 V: Gate-Drain-Spannung U_GD = +0.90 V, Drain-Ende Q'(L)/Q'(0) = 0.80 
+  U_DS = 0.2 V: Gate-Drain-Spannung U_GD = +0.80 V, Drain-Ende Q'(L)/Q'(0) = 0.60 
+  U_DS = 0.3 V: Gate-Drain-Spannung U_GD = +0.70 V, Drain-Ende Q'(L)/Q'(0) = 0.40 
+  U_DS = 0.4 V: Gate-Drain-Spannung U_GD = +0.60 V, Drain-Ende Q'(L)/Q'(0) = 0.20 
+  U_DS = 0.5 V: Gate-Drain-Spannung U_GD = +0.50 V, Drain-Ende Q'(L)/Q'(0) = 0.00 (abgeschnürt)
+  U_DS = 1.0 V: Gate-Drain-Spannung U_GD = +0.00 V, Drain-Ende Q'(L)/Q'(0) = 0.00 (abgeschnürt)
+  U_DS = 2.0 V: Gate-Drain-Spannung U_GD = -1.00 V, Drain-Ende Q'(L)/Q'(0) = 0.00 (abgeschnürt)
+Abschnürgrenze U_DS,ab = U_GS - U_th: U_GS = 0,75 / 1,0 / 1,5 / 2,5 V -> 0,25 / 0,5 / 1,0 / 2,0 V
+Kanalwiderstand für kleine U_DS: R_on = L/(W mu_n |Q'_n|) = 1/(K_n (U_GS - U_th)):
+  U_GS = 0.75 V: |Q'_n| = 1.7266 fC/µm^2, Schichtwiderstand R_sq = 20.000 kOhm, R_on = R_sq L/W = 2000.0 Ohm = 1/(K_n U_ov) = 2000.0 Ohm
+  U_GS = 1.00 V: |Q'_n| = 3.4531 fC/µm^2, Schichtwiderstand R_sq = 10.000 kOhm, R_on = R_sq L/W = 1000.0 Ohm = 1/(K_n U_ov) = 1000.0 Ohm
+  U_GS = 1.50 V: |Q'_n| = 6.9063 fC/µm^2, Schichtwiderstand R_sq = 5.000 kOhm, R_on = R_sq L/W = 500.0 Ohm = 1/(K_n U_ov) = 500.0 Ohm
+  U_GS = 2.50 V: |Q'_n| = 13.8125 fC/µm^2, Schichtwiderstand R_sq = 2.500 kOhm, R_on = R_sq L/W = 250.0 Ohm = 1/(K_n U_ov) = 250.0 Ohm
+  U_GS = 3.30 V: |Q'_n| = 19.3375 fC/µm^2, Schichtwiderstand R_sq = 1.786 kOhm, R_on = R_sq L/W = 178.6 Ohm = 1/(K_n U_ov) = 178.6 Ohm
+Kontrolle Leitwert: G = W mu_n |Q'_n|/L -> Einheit: cm * cm^2/(V s) * C/cm^2 / cm = C/(V s) = S
+  Profil U_DS = 0.1 V: x/L = 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+     U(x)/V    = 0.000, 0.018, 0.037, 0.057, 0.078, 0.100
+     Q'(x)/Q'(0) = 1.000, 0.963, 0.925, 0.885, 0.844, 0.800
+  Profil U_DS = 0.3 V: x/L = 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+     U(x)/V    = 0.000, 0.044, 0.093, 0.148, 0.214, 0.300
+     Q'(x)/Q'(0) = 1.000, 0.912, 0.815, 0.704, 0.573, 0.400
+  Profil U_DS = 0.5 V: x/L = 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
+     U(x)/V    = 0.000, 0.053, 0.113, 0.184, 0.276, 0.500
+     Q'(x)/Q'(0) = 1.000, 0.894, 0.775, 0.632, 0.447, 0.000
+
+====================================================================================================
+G. Sperrbereich, Oxidfeld, Durchbruch, Leitungen
+====================================================================================================
+U_GS = 0.00 V (U_SB = 0): psi_s = 565.5 mV, n_s = 5.558e+11 cm^-3 (Faktor 1.022e+06 unter N_A)
+U_GS = 0.25 V (U_SB = 0): psi_s = 744.4 mV, n_s = 5.626e+14 cm^-3 (Faktor 1.010e+03 unter N_A)
+U_GS = 0.40 V (U_SB = 0): psi_s = 854.4 mV, n_s = 3.968e+16 cm^-3 (Faktor 1.432e+01 unter N_A)
+U_GB = 1.0 V: Spannung über dem Oxid U_ox = U - U_FB - psi_s = 0.999 V, E_ox = 2.00 MV/cm
+U_GB = 2.5 V: Spannung über dem Oxid U_ox = U - U_FB - psi_s = 2.441 V, E_ox = 4.88 MV/cm
+U_GB = 3.3 V: Spannung über dem Oxid U_ox = U - U_FB - psi_s = 3.226 V, E_ox = 6.45 MV/cm
+Durchbruch SiO2 bei etwa 10 MV/cm: über 5 nm Oxid 5.0 V
+Aluminiumbahn 0.5 µm dick: R_sq = rho/d = 54.0 mOhm
+Aluminiumbahn 1.0 µm dick: R_sq = rho/d = 27.0 mOhm
+Polysilizium (Literatur): ohne Silizid etwa 100-300 Ohm/sq, mit Silizid etwa 1-10 Ohm/sq
+Gate-Leitung W = 10 µm lang, 1 µm breit = 10 Quadrate: 8 Ohm/sq -> 80 Ohm; 200 Ohm/sq -> 2000 Ohm
+
+====================================================================================================
+H. Abgeschnürte Zone, Gateladung, elektrostatische Entladung
+====================================================================================================
+U_GS = 1 V, U_DS = 1.0 V: Restspannung 0.50 V über der Zone, Länge (einseitige Verarmungsnäherung) Delta L = 33.7 nm (3.4 % von L), mittleres Feld 1.482e+05 V/cm, Laufzeit bei v_sat = 0.34 ps
+U_GS = 1 V, U_DS = 2.0 V: Restspannung 1.50 V über der Zone, Länge (einseitige Verarmungsnäherung) Delta L = 58.4 nm (5.8 % von L), mittleres Feld 2.567e+05 V/cm, Laufzeit bei v_sat = 0.58 ps
+U_GS = 1 V, U_DS = 3.3 V: Restspannung 2.80 V über der Zone, Länge (einseitige Verarmungsnäherung) Delta L = 79.8 nm (8.0 % von L), mittleres Feld 3.508e+05 V/cm, Laufzeit bei v_sat = 0.80 ps
+Gateladung bei U_GB = 1 V: 6.899 fC/µm^2 -> 69.0 fC am Beispieltransistor (= 4.306e+05 Elementarladungen)
+Prüfmodell menschlicher Körper: 100 pF auf 2 kV -> 200 nC, Energie 0.20 mJ, Spitzenstrom über 1,5 kOhm 1.33 A
+Gate des Beispieltransistors bis 5 V (Durchbruch): Q = C_ox 5 V = 0.345 pC; Verhältnis 5.79e+05
+
+====================================================================================================
+J. Weitere Zahlen aus den Artikeln
+====================================================================================================
+Anreicherung bei -2 V: Löcherdichte an der Oberfläche 4.415e+19 cm^-3 = 77.7-mal N_A
+U_GB = 0: W_i an der Oberfläche um e(psi_s - phi_F) = 103.9 meV unter W_F; psi_s(2 phi_F) - psi_s(0) = 357.7 mV; n_s(Schwelle)/n_s(0) = 1.022e+06
+Verarmungsnäherung bei U_GB = 0: y_d = 35.87 nm, |Q'_dep| = 3.266 fC/µm^2, Rümpfe pro µm^2 = 20383; Verhältnis psi(2phi_F)/psi(0) = 1.633, Wurzel = 1.278
+Phi_MS bei 4e16 gegen 5,68e17: Differenz 68.6 mV (Faktor N_A 14.2)
+Grunddotierung 4e16: |Q'_dep,max| = 1.022e-07 C/cm^2, /C'_ox = 0.1479 V, 2 phi_F = 0.7860 V
+Produkt 4 e eps N_A phi_F = 1.7413e-13 C^2/cm^4
+Schalter: R_on(2,5 V) mal 1 pF = 250 ps; R_on C_ox = 69 ps
+Schichtwiderstand Kanal bei 1 V gegen Polysilizium ohne Silizid (200 Ohm/sq): Faktor 50
+Empfindlichkeit Oxid: (560,4 - 500)/5 = 12.1 mV pro 0,1 nm
+
+====================================================================================================
+K. Gegenrechnung mit Fermi-Dirac-Statistik (Gültigkeit der Boltzmann-Werte an der Oberfläche)
+====================================================================================================
+Bandlücke konsistent mit n_i = 1e10: 1.1167 eV; W_F - W_V im Inneren: Boltzmann 89.34 meV, Fermi-Dirac 89.05 meV
+U_GB = -2.0 V: psi_s Boltzmann  -112.5 mV / Fermi-Dirac  -121.2 mV; n_s 2.265e+00 / 1.603e+00 cm^-3; p_s 4.415e+19 / 3.309e+19 cm^-3; |Q_s| 5.940 / 5.878 fC/µm^2
+   Löcherdichte an der Oberfläche / N_A: Boltzmann 77.7, Fermi-Dirac 58.2
+U_GB = +1.0 V: psi_s Boltzmann  1028.5 mV / Fermi-Dirac  1032.7 mV; n_s 3.342e+19 / 2.848e+19 cm^-3; p_s 2.992e+00 / 2.573e+00 cm^-3; |Q_s| 6.899 / 6.872 fC/µm^2
+   n_s / N_A: Boltzmann 58.8, Fermi-Dirac 50.1; Fermi-Dirac an der Schwelle psi = 2 phi_F: 5.584e+17 cm^-3
+U_GB = +1.5 V: psi_s Boltzmann  1056.2 mV / Fermi-Dirac  1067.2 mV; n_s 9.765e+19 / 6.978e+19 cm^-3; p_s 1.024e+00 / 6.776e-01 cm^-3; |Q_s| 10.160 / 10.086 fC/µm^2
+   n_s / N_A: Boltzmann 171.9, Fermi-Dirac 122.8; Fermi-Dirac an der Schwelle psi = 2 phi_F: 5.584e+17 cm^-3
+Abgeschnürte Zone bei U_GS = 1 V, U_DS = 2,5 V: Delta L = 67.5 nm (6.7 % von L)
+
+====================================================================================================
+I. PMOS (n-Wanne, p+-Poly-Gate)
+====================================================================================================
+Wannendotierung so gewählt, dass U_th0,p = -0,500 V: N_D = 5.4396e+17 cm^-3
+phi_F,n = U_T ln(N_D/n_i) = 460.47 mV; Fermi-Niveau im p+-Poly U_T ln(N_V/n_i) = 550.93 mV unter W_i
+phi_MS,p = +(U_T ln(N_V/n_i) + phi_F,n) = 1011.40 mV; |Q'_dep|/C'_ox = 590.46 mV; x_d,max = 46.79 nm
+U_th0,p = phi_MS - 2 phi_F,n - |Q'_dep|/C'_ox = -0.5000 V
+gamma_p = 0.6153 sqrt(V)

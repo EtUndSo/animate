@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §35);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §36);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -2920,3 +2920,207 @@ Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte
 - §10 Teilbilder.
 
 *Animation:* Schieberegler für $R_G$ und $R_L$: Die Teilerfaktoren und die Pegel ändern sich mit.
+
+## ST1 MOS-Feldeffekttransistoren: Aufbau und Funktionsweise des MOSFET
+Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte A bis I. Beispiel-Transistorpaar des Kapitels: Gateoxid 5 nm ($C'_\mathrm{ox}$ = 6,91 fF/µm²); NMOS mit $W$ = 10 µm, $L$ = 1 µm, $K_n$ = 2 mA/V², $U_{th0}$ = 0,50 V, Gate aus n⁺-Polysilizium, Kanaldotierung $N_A$ = 5,7·10¹⁷ cm⁻³; PMOS in n-Wanne mit $W$ = 40 µm, $L$ = 1 µm, $K_p$ = 2 mA/V², $U_{th0}$ = −0,50 V, Gate aus p⁺-Polysilizium. Kennwerte: $\Phi_F$ = 0,462 V, $U_\mathrm{FB}$ = −1,027 V, $x_{d,\max}$ = 45,8 nm. Farben nach ERKLAER_PROMPT §7.4: Elektronen blau, Löcher rot, Verarmungszonen grau, Feldpfeile grün; n-Gebiete blau, p-Gebiete rot (n⁺/p⁺ kräftiger), Oxid hellgrau, Polysilizium dunkelrot schraffiert, Metall dunkelgrau.
+
+**st1/mos-feldeffekttransistoren/01-querschnitt**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Querschnitt des NMOS, schematisch (Oxid stark vergrößert): p-Substrat, unter dem Gate Kanaldotierung $N_A$ = 5,7·10¹⁷ cm⁻³; links und rechts je ein n⁺-Gebiet (10²⁰ cm⁻³), links Source, rechts Drain, Abstand $L$ = 1 µm; Gateoxid mit Maßpfeil $t_\mathrm{ox}$ = 5 nm; darüber das Gate aus n⁺-Polysilizium; ganz links ein p⁺-Bulkkontakt; Anschlüsse B, S, G, D mit Metallkontakten. Eingeschalteter Zustand mit $U_{GS}$ = 1 V, $U_{DS}$ = 0,1 V, Source und Bulk an Masse: dünne Elektronenschicht (blau) unter dem Oxid von Source bis Drain, darunter die graue Verarmungszone (rund 48 nm) mit festen Akzeptorionen (−). Pfeil „Elektronen“ von Source nach Drain, Zählpfeil $I_D$ in den Drainanschluss hinein.
+- (b) Draufsicht (Layout): aktives n-Gebiet (grün) als Rechteck, Polysilizium-Streifen (rot) quer darüber; der Kreuzungsbereich ist der Transistor mit Maßpfeil $W$ = 10 µm quer und $L$ = 1 µm in Stromrichtung; Kontaktlöcher (kleine Quadrate) auf Source, Drain und Gate-Ende; p⁺-Bulkkontakt (gelb) daneben. Gestrichelte Linie A–A′ zeigt die Schnittebene von (a).
+
+*Kernaussage:* Das Gate liegt isoliert über dem Bereich zwischen Source und Drain und steuert ihn nur über sein Feld; der Transistor entsteht dort, wo sich Polysilizium und aktives Gebiet kreuzen.
+
+*Daten:* Zahlenwerk A und B (Abmessungen, Dotierung, Verarmungsweite); sonst schematisch.
+
+*Editor:*
+- §27 Technologie-Querschnitte mit Maßpfeilen; §36 Ladungsschichten, Layout-Draufsicht;
+- §2 Pfeile; §10 Teilbilder.
+
+*Animation:* Schieberegler $U_{GS}$ von 0 bis 1,5 V: unter 0,5 V nur die Verarmungszone, darüber wächst die Elektronenschicht; Umschalten Querschnitt/Draufsicht mit gemeinsamer Markierung des Kanalbereichs.
+
+**st1/mos-feldeffekttransistoren/01-cmos-wanne**
+- Fassung: ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Querschnitt eines CMOS-Prozesses. Links der NMOS im p-Substrat (n⁺-Source und -Drain, Gate aus n⁺-Polysilizium, p⁺-Bulkkontakt an Masse), rechts der PMOS in einer n-Wanne (p⁺-Source und -Drain, Gate aus p⁺-Polysilizium, n⁺-Wannenkontakt an $U_B$ = 2,5 V). In den Querschnitt eingezeichnet die pn-Übergänge als Diodensymbole: n⁺-Source und n⁺-Drain gegen das p-Substrat (Anode im Substrat), p⁺-Source und p⁺-Drain gegen die n-Wanne (Kathode in der Wanne), Wanne gegen Substrat. Beschriftung: alle Dioden gesperrt oder ohne Spannung, solange alle Knoten zwischen 0 und $U_B$ liegen.
+
+*Kernaussage:* Weil das Substrat an der niedrigsten und die Wanne an der höchsten Spannung liegt, bleibt jeder pn-Übergang gesperrt, und die Transistoren sind voneinander isoliert.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §27; §36 pn-Dioden im Querschnitt;
+- §1 Diodensymbol; §2.
+
+*Animation:* Bulk testweise auf +1 V: Die Dioden von Source und Drain des NMOS leuchten als leitend auf, ein Strompfeil ins Substrat erscheint.
+
+**st1/mos-feldeffekttransistoren/01-schaltzeichen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Tabelle mit zwei Zeilen (NMOS oben, PMOS unten) und drei Spalten:
+- (a) bipolarähnlich: Pfeil an der Source wie am Emitter, beim NMOS nach außen, beim PMOS nach innen;
+- (b) Digitaltechnik: ohne Pfeil, beim PMOS ein Kreis am Gate;
+- (c) DIN: senkrechte Kanallinie aus drei Stücken (unterbrochen = selbstsperrend), eigener Bulkanschluss B mit Pfeil, beim NMOS zum Kanal hin (p-Bulk, n-Kanal), beim PMOS vom Kanal weg.
+In jedem Symbol die Zählpfeile: $U_{GS}$ von G nach S, $U_{DS}$ von D nach S, $I_D$ in den Drain hinein; NMOS mit Drain oben, PMOS mit Source oben. Rechts daneben klein ein selbstleitender NMOS in DIN-Form (durchgezogene Kanallinie).
+
+*Kernaussage:* Alle Schreibweisen bezeichnen dasselbe Bauteil; Spannungen zählen vom ersten zum zweiten Index, Ströme in den Anschluss hinein, und beim PMOS steht die Source oben, weil sie das höhere Potential hat.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §24 MOSFET-Symbole; §36 Symbolvarianten;
+- §2 Zählpfeile; §10 Tabelle aus Teilbildern.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/01-mos-zustaende**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Vier Querschnitte des MOS-Kondensators nebeneinander (Gate n⁺-Polysilizium, Oxid 5 nm, p-Silizium mit 5,7·10¹⁷ cm⁻³, Bulk an Masse), darunter jeweils $U_{GB}$, Oberflächenpotential $\psi_s$ und die Flächenladung im Silizium:
+- (a) Anreicherung, $U_{GB}$ = −2 V: Gate negativ geladen, dichte Löcherschicht (rot) an der Oberfläche, 5,94 fC/µm², $\psi_s$ = −0,11 V;
+- (b) Flachband, $U_{GB}$ = $U_\mathrm{FB}$ = −1,03 V: keine Ladung, $\psi_s$ = 0;
+- (c) Verarmung, $U_{GB}$ = 0: Gate positiv, Löcher in die Tiefe verdrängt, graue Zone mit festen Akzeptorionen (−), 35 nm tief, 3,19 fC/µm², $\psi_s$ = 0,57 V;
+- (d) Inversion, $U_{GB}$ = 1 V: Gate stärker positiv, dünne Elektronenschicht (blau) direkt unter dem Oxid (2,55 fC/µm²), darunter die Zone mit Ionen, 48 nm, 4,35 fC/µm²; $\psi_s$ = 1,03 V.
+Feldpfeile (grün) im Oxid vom Gate zur Gegenladung bzw. umgekehrt.
+
+*Kernaussage:* Zur Ladung des Gates gehört immer eine gleich große Gegenladung im Silizium; mit wachsender Spannung besteht sie erst aus Löchern, dann aus festen Akzeptorionen, und oberhalb der Schwelle kommen bewegliche Elektronen hinzu; schon bei 0 V ist die Oberfläche verarmt.
+
+*Daten:* Zahlenwerk C (psi_von_UGB, Qs_exakt, Qinv_exakt; Verarmungsweite aus der Ladung; Poisson-Gleichung mit Boltzmann-Verteilung, Fermi-Dirac-Gegenrechnung in Abschnitt K); schematische Teilchendarstellung.
+
+*Editor:*
+- §27; §36 Ladungsschichten aus Daten; §14 Teilchen;
+- §2 Feldpfeile; §10 Teilbilder.
+
+*Animation:* Schieberegler $U_{GB}$ von −2,5 bis 2,5 V: Schichten und Zone folgen dem Zahlenwerk, $\psi_s$ läuft als Zahl mit.
+
+**st1/mos-feldeffekttransistoren/01-oberflaechenpotential**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Drei gestapelte Diagramme über $U_{GB}$ von −2 bis 1,5 V (Poisson-Gleichung mit Boltzmann-Verteilung gelöst), senkrechte Marken bei $U_\mathrm{FB}$ = −1,03 V und $U_{th0}$ = 0,50 V:
+- (a) Oberflächenpotential $\psi_s$ in V: −0,11 V bei −2 V, 0 bei −1,03 V, 0,57 V bei 0, 0,92 V bei 0,50 V, danach fast waagerecht: 1,03 V bei 1 V, 1,06 V bei 1,5 V; gestrichelte Waagerechten bei $\Phi_F$ = 0,46 V und $2\Phi_F$ = 0,92 V.
+- (b) Elektronendichte $n_s$ (blau) und Löcherdichte $p_s$ (rot) an der Oberfläche, logarithmisch 10⁰ bis 10²⁰ cm⁻³: $n_s$ = 176 cm⁻³ im Flachband, Kreuzung mit $p_s$ bei 10¹⁰ cm⁻³ (−0,15 V), 5,6·10¹¹ cm⁻³ bei 0, 5,7·10¹⁷ cm⁻³ = $N_A$ bei 0,50 V (Waagerechte $N_A$), 3,3·10¹⁹ cm⁻³ bei 1 V (mit Fermi-Dirac 2,8·10¹⁹ cm⁻³, Zahlenwerk K); Bereich über 10¹⁹ cm⁻³ schraffiert („Boltzmann-Näherung ungenau“).
+- (c) Beträge der Flächenladungen in fC/µm²: Löcher (rot) links des Flachbands, Verarmungsladung (grau) bis 4,11 bei 0,50 V, danach fast konstant (4,35 bei 1 V, 4,41 bei 1,5 V); Elektronen (blau) ab 0,50 V fast linear (2,55 bei 1 V, 5,75 bei 1,5 V); gestrichelt das Ladungsmodell $C'_\mathrm{ox}(U_{GB}-U_{th0})$ (3,45 bei 1 V, 6,91 bei 1,5 V).
+
+*Kernaussage:* Bis zur Schwelle wächst das Oberflächenpotential mit der Gatespannung; danach steigt die Elektronendichte so steil, dass das Potential fast stehen bleibt und jede weitere Gateladung als Elektronenschicht erscheint.
+
+*Daten:* Zahlenwerk C (psi_von_UGB, Qs_exakt, Qinv_exakt).
+
+*Editor:*
+- §13 gestapelte Diagramme; §11 Datenkurven; §12 halblogarithmisch;
+- §15 Schieberegler.
+
+*Animation:* senkrechter Cursor bei $U_{GB}$, gekoppelt an die Zustandsquerschnitte (01-mos-zustaende).
+
+**st1/mos-feldeffekttransistoren/01-baender**
+- Fassung: ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Drei Banddiagramme über der Tiefe $x$ von 0 bis 100 nm unter dem Oxid (Oxid und Gate links als Kästen): $W_L$, $W_V$, $W_i$ (gepunktet), $W_F$ (gestrichelt, waagerecht, Bezug ist das Substrat):
+- (a) Verarmung, $U_{GB}$ = 0: Bänder an der Oberfläche um 0,57 eV nach unten gebogen, Biegung reicht 35 nm tief; $W_i$ an der Oberfläche 0,10 eV unter $W_F$;
+- (b) Schwelle, $U_{GB}$ = 0,50 V: Biegung 0,92 eV über 45 nm; Maßpfeile: im Substrat liegt $W_i$ um 0,46 eV über $W_F$, an der Oberfläche um 0,46 eV darunter;
+- (c) starke Inversion, $U_{GB}$ = 1 V: Biegung 1,03 eV, Leitungsbandkante an der Oberfläche nahe $W_F$, Elektronen (blau) als dünne Schicht im Knick.
+
+*Kernaussage:* Inversion heißt im Banddiagramm: Das Eigenleitungsniveau taucht an der Oberfläche unter das Fermi-Niveau; die Schwelle ist erreicht, wenn es dort so weit darunter liegt wie im Substrat darüber.
+
+*Daten:* Zahlenwerk B und C ($\psi_s$, $\Phi_F$, Verarmungsweiten); Bandverlauf in Verarmungsnäherung parabolisch.
+
+*Editor:*
+- §16 Bänderschema über dem Ort; §11;
+- §10 Teilbilder.
+
+*Animation:* Schieberegler $U_{GB}$; die Biegung wächst bis zur Schwelle und danach kaum noch.
+
+**st1/mos-feldeffekttransistoren/01-schwellenspannung**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Spannungsbilanz als Treppendiagramm: Start bei 0 V; Balken Flachbandspannung $U_\mathrm{FB} = \Phi_\mathrm{MS}$ = −1,027 V nach unten (hebt die Kontaktspannung von 1,027 V auf); Balken $2\Phi_F$ = +0,923 V nach oben („Oberflächenpotential bis zur starken Inversion“); Balken $|Q'_\mathrm{dep}|/C'_\mathrm{ox}$ = +0,604 V nach oben („Spannung über dem Oxid“); Ergebnisbalken $U_{th0}$ = 0,500 V.
+- (b) $U_{th0}$ über der Kanaldotierung $N_A$, logarithmisch 10¹⁶ bis 10¹⁸ cm⁻³: −0,14 V bei 10¹⁶, −0,025 V bei 4·10¹⁶, 0,09 V bei 10¹⁷, 0,31 V bei 3·10¹⁷, 0,50 V bei 5,7·10¹⁷ (Punkt markiert), 0,72 V bei 10¹⁸; Bereich unter der Nulllinie hinterlegt („selbstleitend“); dünn zwei weitere Kurven für $t_\mathrm{ox}$ = 4,5 und 5,5 nm (beim Beispielwert 0,44 bzw. 0,56 V).
+
+*Kernaussage:* Die Schwellenspannung ist eine Spannungsbilanz aus Flachbandspannung, Oberflächenpotential und Oxidspannung; über die Kanaldotierung lässt sie sich um mehr als 0,8 V verschieben.
+
+*Daten:* Zahlenwerk B (Funktion Uth0_n, auch mit anderem $C'_\mathrm{ox}$).
+
+*Editor:*
+- §36 Spannungsbilanz als Treppendiagramm; §11; §12 logarithmische x-Achse;
+- §10 Teilbilder; §15 Schieberegler.
+
+*Animation:* Schieberegler $N_A$ und $t_\mathrm{ox}$: Balken und Kurvenpunkt bewegen sich gemeinsam.
+
+**st1/mos-feldeffekttransistoren/01-cv-kurve**
+- Fassung: ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* $C/C'_\mathrm{ox}$ über $U_{GB}$ von −2,5 bis 2,5 V, niederfrequent (durchgezogen) und hochfrequent (gestrichelt): 0,96 bei −2,5 V, 0,73 im Flachband (−1,03 V), 0,30 bei 0; niederfrequent Minimum 0,26 bei 0,35 V (schwache Inversion), danach 0,40 bei 0,5 V, 0,92 bei 1 V, 0,98 bei 2,5 V; hochfrequent weiter sinkend, 0,25 an der Schwelle, 0,23 bei 2,5 V. Waagerechte Hilfslinien bei 1 ($C'_\mathrm{ox}$ = 6,91 fF/µm²) und 0,247 (Reihenschaltung mit der Verarmungszone an der Schwelle nach der Verarmungsnäherung, 2,26 fF/µm²). Senkrechte Marken bei $U_\mathrm{FB}$ und $U_{th0}$. Über der Kurve kleine Ersatzschaltbilder: Anreicherung $C_\mathrm{ox}$; Verarmung $C_\mathrm{ox}$ in Reihe mit $C_\mathrm{dep}$; Inversion niederfrequent $C_\mathrm{ox}$; Inversion hochfrequent $C_\mathrm{ox}$ in Reihe mit $C_\mathrm{dep}$ der kaum noch wachsenden Zone.
+
+*Kernaussage:* In der Verarmung liegt die Kapazität der Zone in Reihe mit dem Oxid; in der Inversion kehrt die Kapazität nur dann auf $C'_\mathrm{ox}$ zurück, wenn die Elektronen der Messspannung folgen können.
+
+*Daten:* Zahlenwerk D (C_NF, C_HF).
+
+*Editor:*
+- §4, §11 Kennlinien aus Daten;
+- §1 kleine Kondensator-Schaltbilder; §10.
+
+*Animation:* Umschalten niederfrequent/hochfrequent; ein Cursor zeigt das Ersatzschaltbild des jeweiligen Zustands.
+
+**st1/mos-feldeffekttransistoren/01-betriebsbereiche**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Zwei Zeilen.
+- Oben drei Querschnitte des Beispieltransistors, Source und Bulk an Masse: (a) Sperrbereich, $U_{GS}$ = 0,3 V, $U_{DS}$ = 1 V: kein Kanal, graue Verarmungszonen um Source, Drain (breiter, gesperrt) und unter dem Gate; (b) ohmscher Bereich, $U_{GS}$ = 1 V, $U_{DS}$ = 0,3 V: durchgehender Kanal, zum Drain hin keilförmig auf 40 % verdünnt; (c) Abschnürung, $U_{GS}$ = 1 V, $U_{DS}$ = 2 V: Kanal endet vor dem Drain am Abschnürpunkt, dahinter eine kurze graue Zone (58 nm), Elektronenpfeile durch die Zone.
+- Unten die relative Kanalladung $Q'_n(x)/Q'_n(0)$ über $x/L$ von 0 bis 1 bei $U_{GS}$ = 1 V für $U_{DS}$ = 0,1 V (am Drain 0,80), 0,3 V (0,40) und 0,5 V (0, Abschnürung); Werte bei $x/L$ = 0; 0,2; 0,4; 0,6; 0,8; 1: 1; 0,96; 0,93; 0,89; 0,84; 0,80 bzw. 1; 0,91; 0,81; 0,70; 0,57; 0,40 bzw. 1; 0,89; 0,77; 0,63; 0,45; 0.
+
+*Kernaussage:* Die Drainspannung hebt das Kanalpotential zum Drain hin an und verdünnt dort den Kanal; bei $U_{DS} = U_{GS}-U_{th}$ verschwindet er am Drain-Ende, und der Rest der Spannung fällt über einer kurzen Zone ab.
+
+*Daten:* Zahlenwerk F (kanal_profil) und H (Länge der abgeschnürten Zone).
+
+*Editor:*
+- §27; §36 Kanal mit veränderlicher Dicke und Abschnürpunkt;
+- §11; §10.
+
+*Animation:* Schieberegler $U_{DS}$ von 0 bis 2 V bei $U_{GS}$ = 1 V: Der Keil wird spitzer, ab 0,5 V löst sich das Kanalende vom Drain, und die Zone wächst.
+
+**st1/mos-feldeffekttransistoren/01-kanalwiderstand**
+- Fassung: ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) $I_D$ über $U_{DS}$ von 0 bis 20 mV als nahezu gerade Linien durch den Ursprung für $U_{GS}$ = 0,75 / 1 / 1,5 / 2,5 V mit den Steigungen 0,5 / 1 / 2 / 4 mS (bei 20 mV: 10 / 20 / 40 / 80 µA; bei 0,75 V weicht der Strom am Bereichsende um höchstens 4 % von der Geraden ab); für $U_{GS}$ ≤ 0,5 V die Nulllinie.
+- (b) $R_\mathrm{on}$ über $U_{GS}$ von 0,6 bis 2,5 V: Hyperbel $1/(K_n(U_{GS}-0{,}5\ \mathrm V))$ mit den Punkten 2000 Ω (0,75 V), 1000 Ω (1 V), 500 Ω (1,5 V), 250 Ω (2,5 V).
+
+*Kernaussage:* Für kleine Drain-Source-Spannungen ist der Kanal ein Widerstand, dessen Leitwert proportional zur Gate-Übersteuerung wächst.
+
+*Daten:* Zahlenwerk F.
+
+*Editor:*
+- §4, §11;
+- §10.
+
+*Animation:* Schieberegler $U_{GS}$: Die Gerade dreht sich um den Ursprung, der Punkt in (b) läuft mit.
+
+**st1/mos-feldeffekttransistoren/01-abschnuerung**
+- Fassung: ausführlich Abb. 11.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder für $U_{GS}$ = 1 V und $U_{DS}$ = 2 V.
+- (a) Vergrößerter Querschnitt am Drain-Ende: Die Elektronenschicht (blau) wird zum Abschnürpunkt hin dünn und endet 58 nm vor dem Drain; dazwischen die graue Zone mit Feldpfeilen (grün) vom Drain zum Abschnürpunkt; Elektronen als Punkte, die die Zone zum Drain hin durchqueren.
+- (b) Potential $U(x)$ längs des Weges von der Source (0 V) zum Drain (2 V): im Kanal von 0 auf 0,5 V am Abschnürpunkt, dann auf 58 nm steil auf 2 V; gestrichelt zum Vergleich der Verlauf an der Abschnürgrenze $U_{DS}$ = 0,5 V.
+
+*Kernaussage:* Was über $U_{GS}-U_{th}$ hinausgeht, fällt über der kurzen abgeschnürten Zone ab; der Kanal selbst sieht weiter nur 0,5 V, und das starke Feld der Zone zieht jedes ankommende Elektron zum Drain.
+
+*Daten:* Zahlenwerk F (kanal_profil) und H (Delta L = 58,4 nm, mittleres Feld 2,6·10⁵ V/cm).
+
+*Editor:*
+- §27; §36 Kanal mit Abschnürpunkt; §2 Feldpfeile;
+- §11; §22 Ausschnittvergrößerung; §10.
+
+*Animation:* Schieberegler $U_{DS}$ von 0,5 bis 2,5 V: Die Zone wächst von 0 auf 68 nm, das Potential am Abschnürpunkt bleibt bei 0,5 V.
