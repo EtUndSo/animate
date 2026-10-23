@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §29);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §30);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -2142,3 +2142,182 @@ Lupe um 1,0 V für die letzten beiden Schritte. Daneben die Tabelle des Beispiel
 - §10 Teilbilder, §7 Container.
 
 *Animation:* Übergang von (a) nach (b): Die Gleichstromquelle verblasst zur Unterbrechung, das Bauelementsymbol wird zum Leitwert $g$, die Zahlenwerte wechseln von Gleich- zu Kleinsignalgrößen.
+
+## ST1 Netzwerkanalyse: Ersatzquellen, Maschenstrom- und Knotenpotentialanalyse
+Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte K bis N; Beispielsysteme: zweistufiger RC-Tiefpass (R = 1 kΩ, C = 100 nF, ω = 10⁴ 1/s) und Source-Schaltung mit Source-Widerstand (derselbe Transistor wie die MOS-Diode aus Thema 1, g_m = 1 mS, g_o = 25 µS). Komplexe Größen unterstrichen.
+
+**st1/netzwerkanalyse/02-verstaerker-kleinsignal**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder nebeneinander bzw. auf dem Handy untereinander.
+- (a) Source-Schaltung: n-Kanal-MOSFET, Drain über $R_D$ = 10 kΩ an $V_{DD}$ = 5 V, Source über $R_S$ = 1 kΩ an Masse; am Gate in Reihe gegen Masse die Gleichspannungsquelle 1,25 V, die Signalquelle $u_\mathrm{sig}$ (Sinus, 10 mV Amplitude) und $R_\mathrm{sig}$ = 10 kΩ; am Drain über einen Koppelkondensator die Last $R_L$ = 10 kΩ. Arbeitspunkt klein annotiert: $I_D$ = 0,25 mA, $U_S$ = 0,25 V, $U_D$ = 2,5 V.
+- (b) Kleinsignal-Ersatzschaltbild: Knoten G, D, S und Masse (Punkte, beschriftet); $u_\mathrm{sig}$ mit $R_\mathrm{sig}$ zwischen Masse und G; spannungsgesteuerte Stromquelle $g_m u_{GS}$ (Raute, 1 mS) von D nach S; $g_o$ = 25 µS (40 kΩ) zwischen D und S; $R_D$ und $R_L$ von D nach Masse ($V_{DD}$ ist im Kleinsignalbild Masse, der Koppelkondensator ein Kurzschluss); $R_S$ von S nach Masse. An den Knoten die Zeiger der Knotenpotentiale: 10 mV, −23,26 mV, 4,65 mV; der Drain schwingt mit 23,26 mV Amplitude gegenphasig zum Signal.
+- (c) Ersatzquelle am Ausgang: Spannungsquelle $U_{LL}$ = −43,96 mV in Reihe mit $Z_i$ = 8,90 kΩ, daran $R_L$ = 10 kΩ mit −23,26 mV.
+
+*Kernaussage:* Eine lineare Schaltung ist durch ihre Knotenpotentiale bestimmt, und vom Ausgang aus gesehen genügen zwei Zahlen.
+
+*Daten:* Zahlenwerk L.
+
+*Editor:*
+- §1 Schaltplan, §24 MOSFET, §28 gesteuerte Quelle (Raute);
+- §10 Teilbilder; §2 Zählpfeile.
+
+*Animation:* Übergang (a) → (b) → (c): Gleichquellen werden zu Kurzschlüssen, der Transistor zu Raute und $g_o$, dann schrumpft alles links von D zur Ersatzquelle.
+
+**st1/netzwerkanalyse/02-quellensymbole**
+- Fassung: ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Tabelle mit drei Spalten (Symbol, Gleichung, im Kleinsignalbild):
+- Gleichspannungsquelle (Kreis, Strich in Leitungsrichtung, Pfeil der Quellenspannung) – $U = U_q$ – Kurzschluss;
+- Gleichstromquelle (Kreis, Strich quer, Strompfeil) – $I = I_q$ – Unterbrechung;
+- Kleinsignal-Spannungs- und Stromquelle (Kreis mit Sinus) – $u = u_q(t)$ bzw. $i = i_q(t)$ – bleiben;
+- vier gesteuerte Quellen als Rauten: spannungsgesteuerte Spannungsquelle $u_2 = v\,u_1$, spannungsgesteuerte Stromquelle $i_2 = g_m u_1$, stromgesteuerte Spannungsquelle $u_2 = r_m i_1$, stromgesteuerte Stromquelle $i_2 = \beta\,i_1$ – bleiben, mit ihrer Steuergröße an anderer Stelle der Schaltung (gestrichelte Zuordnung).
+
+*Kernaussage:* Gleichquellen legen den Arbeitspunkt fest und verschwinden im Kleinsignalbild; Kleinsignalquellen regen an; gesteuerte Quellen beschreiben die Verstärkung.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §1, §24, §28 Symbolbibliothek;
+- §7 Tabellen-Darstellung.
+
+*Animation:* keine.
+**st1/netzwerkanalyse/02-impedanzen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Zwei gestapelte Diagramme mit gemeinsamer, logarithmischer ω-Achse von 10² bis 10⁶ 1/s.
+- Oben, doppeltlogarithmisch: Betrag der Impedanz in Ω (10 bis 10⁶) für $R$ = 1 kΩ (waagrecht), $L$ = 100 mH (Steigung +1, 10 Ω bei 10² 1/s bis 100 kΩ bei 10⁶ 1/s) und $C$ = 100 nF (Steigung −1, 100 kΩ bis 10 Ω). Alle drei schneiden sich bei 10⁴ 1/s und 1 kΩ (markiert, $f$ = 1,59 kHz).
+- Unten: Winkel der Impedanz in Grad, 0° für $R$, +90° für $L$, −90° für $C$.
+- Beschriftung am Schnittpunkt: $\underline Z_R$ = 1 kΩ, $\underline Z_L$ = +j·1 kΩ, $\underline Z_C$ = −j·1 kΩ.
+
+*Kernaussage:* Spule und Kondensator verhalten sich bei Sinusgrößen wie Widerstände, deren Betrag mit der Frequenz steigt bzw. fällt, mit +90° bzw. −90° Phasenverschiebung.
+
+*Daten:* Zahlenwerk K.
+
+*Editor:*
+- §4 doppeltlogarithmische Achsen, mehrere Kurven, direkte Beschriftung;
+- §13 gestapelte Diagramme.
+
+*Animation:* Schieberegler für ω (§15): Ein Punkt läuft auf jeder Kurve mit, eine Anzeige zeigt die drei komplexen Impedanzen.
+
+**st1/netzwerkanalyse/02-topologie**
+- Fassung: ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Links das Kleinsignal-Ersatzschaltbild der Verstärkerstufe (wie 02-verstaerker-kleinsignal b), rechts sein Graph: Knoten G, D, S, 0 als Punkte, die sechs Zweige als beschriftete Linien (Quelle G–0, $g_m$ D–S, $g_o$ D–S, $R_D$ D–0, $R_L$ D–0, $R_S$ S–0). Ein Baum aus drei Zweigen (Quelle, $R_D$, $R_S$) kräftig hervorgehoben; die drei Verbindungszweige ($g_m$, $g_o$, $R_L$) dünn, jeder mit dem gebogenen Pfeil der Masche, die er zusammen mit Baumzweigen schließt. Darunter die Zählung: 2z = 12 Unbekannte; 6 Zweiggleichungen, k − 1 = 3 Knotengleichungen, z − k + 1 = 3 Maschengleichungen.
+
+*Kernaussage:* Von den Knotengleichungen ist eine überzählig, und jeder Verbindungszweig schließt genau eine neue Masche; zusammen sind es genau so viele unabhängige Gleichungen wie Unbekannte.
+
+*Daten:* Zahlenwerk L und M (Zählung).
+
+*Editor:*
+- §30 Netzwerkgraphen (neu);
+- §2 gebogene Umlaufpfeile; §10 Teilbilder.
+
+*Animation:* Der Baum wird Zweig für Zweig aufgebaut, dann schließt jeder Verbindungszweig mit einem Aufleuchten seine Masche.
+
+**st1/netzwerkanalyse/02-ersatzquelle-ueberlagerung**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Vier Teilbilder.
+- (a) Ein lineares Netz als Kasten mit Klemmen A und B, darin symbolisch unabhängige Quellen, eine gesteuerte Quelle (Raute) und Impedanzen; die Last ist durch eine Stromquelle $I_A$ ersetzt; Klemmenspannung $U_{AB}$.
+- (b) Teil 1: $I_A$ = 0 (Klemmen offen), innere unabhängige Quellen aktiv; Ergebnis $U_{LL}$.
+- (c) Teil 2: innere unabhängige Quellen null (Spannungsquelle als Kurzschluss, Stromquelle als Unterbrechung gezeichnet), die gesteuerte Quelle farbig hervorgehoben aktiv, nur $I_A$ wirkt; Ergebnis $-Z_i I_A$.
+- (d) Die zwei gleichwertigen Ersatzschaltungen mit den Zahlen der Verstärkerstufe: Thévenin ($U_{LL}$ = −43,96 mV in Reihe mit $Z_i$ = 8,90 kΩ) und Norton ($I_{KS}$ = −4,94 µA parallel zu $Y_i$ = 0,112 mS).
+
+*Kernaussage:* Die Klemmenspannung ist die Summe zweier Beiträge, einer unabhängig vom Klemmenstrom, einer ihm proportional; deshalb beschreiben zwei Zahlen das Netz von außen vollständig.
+
+*Daten:* Zahlenwerk L (Ersatzquelle).
+
+*Editor:*
+- §1 Schaltplan, §28 gesteuerte Quellen und Gegenüberstellung;
+- §7 Rahmen (Netz als Kasten); §10 Teilbilder.
+
+*Animation:* (b) und (c) überlagern sich zu (a); Schieberegler für $I_A$ (§15) zeigt, wie $U_{AB}$ linear fällt.
+
+**st1/netzwerkanalyse/02-innenwiderstand**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder nebeneinander, jeweils das Kleinsignal-Ersatzschaltbild der Verstärkerstufe ohne $R_L$, mit $u_\mathrm{sig}$ = 0 ($u_\mathrm{sig}$ durch Kurzschluss ersetzt, $R_\mathrm{sig}$ bleibt, $U_G$ = 0) und einer Testspannung $U_T$ am Drain.
+- (a) Richtig: gesteuerte Quelle aktiv; $U_S$ = 0,0123 $U_T$; Ströme: durch $R_D$ 0,1 mS·$U_T$, in den Zweig aus Transistor und $R_S$ 0,0123 mS·$U_T$; $Z_i = U_T/I_T$ = 8,90 kΩ; dieser Zweig allein 81 kΩ, seine Drain-Source-Strecke 80 kΩ.
+- (b) Falsch: gesteuerte Quelle entfernt (Unterbrechung, rot durchgestrichen): Zweig aus Transistor und $R_S$ nur $r_o + R_S$ = 41 kΩ, die Drain-Source-Strecke $r_o$ = 40 kΩ; zusammen 8,04 kΩ (9,7 % zu klein).
+
+*Kernaussage:* Gesteuerte Quellen bleiben beim Bestimmen der Innenimpedanz aktiv; der Source-Widerstand macht die Drain-Source-Strecke doppelt so hochohmig.
+
+*Daten:* Zahlenwerk L (Testquelle, falsch) und N (Testquelle je Volt, Drain-Source-Strecke).
+
+*Editor:*
+- §1, §28 (gesteuerte Quelle, Gegenüberstellung);
+- §2 Strompfeile mit Werten; §10 Teilbilder.
+
+*Animation:* Schieberegler für $R_S$ (0 bis 5 kΩ, §15): Der Zweig aus Transistor und $R_S$ wächst als $r_o(1 + g_m R_S) + R_S$, die falsche Rechnung nur als $r_o + R_S$.
+
+**st1/netzwerkanalyse/02-maschenstroeme**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Zweistufiger RC-Tiefpass: Quelle $\underline U_q$ = 1 V (Zeiger 0°) gegen Masse, $R_1$ = 1 kΩ, $C_1$ = 100 nF gegen Masse, $R_2$ = 1 kΩ, $C_2$ = 100 nF gegen Masse, Ausgang $\underline U_2$ an $C_2$. Maschenströme $\underline I_\mathrm{I}$ (Quelle, $R_1$, $C_1$) und $\underline I_\mathrm{II}$ ($C_1$, $R_2$, $C_2$), beide im Uhrzeigersinn als gebogene Pfeile; im gemeinsamen Zweig $C_1$ der Zweigstrom $\underline I_\mathrm{I} - \underline I_\mathrm{II}$. An den Bauteilen die Impedanzen bei ω = 10⁴ 1/s: 1 kΩ bzw. −j·1 kΩ. Daneben die Matrixgleichung mit $\begin{pmatrix} 1 - j & j \\ j & 1 - 2j \end{pmatrix}$ kΩ und rechter Seite (1 V, 0).
+
+*Kernaussage:* Zwei Maschenströme beschreiben alle Zweigströme; die Knotenregel ist von selbst erfüllt.
+
+*Daten:* Zahlenwerk K.
+
+*Editor:*
+- §1 Schaltplan; §2 gebogene Umlaufpfeile;
+- §7 Matrix-Darstellung mit hervorgehobenen Einträgen.
+
+*Animation:* Die Maschenströme laufen als Punkte um; im Zweig $C_1$ heben sie sich teilweise auf, eine Anzeige zeigt die Differenz.
+
+**st1/netzwerkanalyse/02-knotenpotentiale**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Derselbe Tiefpass nach Umwandlung von $\underline U_q$ und $R_1$ in eine Stromquelle $\underline I_q$ = 1 mA parallel zu $G_1$ = 1 mS. Knoten 1 (zwischen $R_1$, $C_1$, $R_2$) und Knoten 2 (Ausgang), Bezugsknoten Masse mit Erdsymbol; an den Kondensatoren die Admittanzen j·1 mS. Daneben die Matrixgleichung mit $\begin{pmatrix} 2 + j & -1 \\ -1 & 1 + j \end{pmatrix}$ mS und rechter Seite (1 mA, 0), darunter das Ergebnis $\underline U_1 = (1 - j)/3$ V, $\underline U_2 = -j/3$ V.
+
+*Kernaussage:* Zwei Knotenpotentiale beschreiben alle Spannungen; die Maschenregel ist von selbst erfüllt.
+
+*Daten:* Zahlenwerk K.
+
+*Editor:*
+- §1 Schaltplan (Quellenumwandlung als Vorher/Nachher);
+- §7 Matrix-Darstellung; §10 Teilbilder.
+
+*Animation:* Umwandlung der Spannungsquelle in die Stromquelle als Übergang; danach füllt sich die Matrix Eintrag für Eintrag, jeweils mit Aufleuchten des zugehörigen Bauteils.
+
+**st1/netzwerkanalyse/02-zeigerbild**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Zwei komplexe Ebenen nebeneinander. Links Spannungen (Maßstab 1 V): $\underline U_q$ = 1 V bei 0°, $\underline U_1$ = 0,471 V bei −45° (= (1 − j)/3 V), $\underline U_2$ = 0,333 V bei −90°; gestrichelt $R_1 \underline I_\mathrm{I}$ von der Spitze von $\underline U_1$ zur Spitze von $\underline U_q$. Rechts Ströme (Maßstab 1 mA): $\underline I_\mathrm{I}$ = 0,745 mA bei +26,6°, $\underline I_\mathrm{II}$ = 0,333 mA bei 0°, Strom durch $C_1$ 0,471 mA bei +45° als Differenz, gestrichelt konstruiert.
+
+*Kernaussage:* Beide Verfahren liefern dieselben Zeiger; bei ω = 1/(RC) eilt der Ausgang dem Eingang um 90° nach und hat ein Drittel der Amplitude.
+
+*Daten:* Zahlenwerk K.
+
+*Editor:*
+- §8 Zeiger in der komplexen Ebene (statisch, mehrere Zeiger, zwei Maßstäbe);
+- §2 Pfeile mit Text; §10 Teilbilder.
+
+*Animation:* Die Zeiger rotieren gemeinsam mit ω; die Projektionen zeichnen die drei Zeitverläufe daneben.
+
+**st1/netzwerkanalyse/02-gesteuerte-quelle-matrix**
+- Fassung: kompakt Abb. 7, ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Links das Kleinsignal-Ersatzschaltbild der Verstärkerstufe mit Knoten G, D, S (wie 02-verstaerker-kleinsignal b). Rechts die Leitwertmatrix (Zeilen und Spalten G, D, S) in mS: Zeile G (0,1; 0; 0), Zeile D (1; 0,225; −1,025), Zeile S (−1; −0,025; 2,025). Einträge der passiven Leitwerte blau (sie sind symmetrisch), die vier Anteile der gesteuerten Quelle orange: +1 (Zeile D, Spalte G), −1 (Zeile D, Spalte S), −1 (Zeile S, Spalte G), +1 (Zeile S, Spalte S). Pfeile: von der Steuerspannung $u_{GS}$ zu den Spalten G und S, vom Quellenstrom zu den Zeilen D und S. Darunter das Ergebnis 10 mV, −23,26 mV, 4,65 mV und die Verstärkung −2,33.
+
+*Kernaussage:* Eine gesteuerte Quelle steht in den Zeilen der Knoten, zwischen denen ihr Strom fließt, und in den Spalten der Knoten, deren Spannung sie steuert; deshalb ist die Matrix nicht mehr symmetrisch.
+
+*Daten:* Zahlenwerk L.
+
+*Editor:*
+- §1, §28 gesteuerte Quelle;
+- §7 Matrix-Darstellung mit farbig hervorgehobenen Einträgen; §2 Pfeile.
+
+*Animation:* Die vier orangefarbenen Einträge erscheinen nacheinander, während die Raute und die Knoten G, S (Steuerung) bzw. D, S (Strom) aufleuchten.
+

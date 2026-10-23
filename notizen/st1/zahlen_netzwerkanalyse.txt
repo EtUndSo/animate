@@ -195,3 +195,83 @@ Fixpunktiteration ab 0 V, Fehler nach 1 ... 8 Schritten: +2.071e-01, -5.478e-02,
   Quotienten aufeinanderfolgender Fehler: -0.264, -0.247, -0.251, -0.250, -0.250, -0.250, -0.250 (Grenzwert -G_q/g = -0.250)
 Statischer Leitwert im Arbeitspunkt I/U = 0.250 mS (Kehrwert 4.0 kOhm), differentieller Leitwert 1.000 mS (Kehrwert 1.0 kOhm)
 Gleichanteil bei 400 mV: +32 %; ±160 mV / 0,5 V = 0.32
+
+====================================================================================================
+K. Impedanzen bei ω = 10^4 1/s und zweistufiger RC-Tiefpass (Maschen- und Knotenanalyse)
+====================================================================================================
+ω = 10000 1/s, f = ω/(2π) = 1591.55 Hz
+Z_R = +1000.0000 + j0.0000 Ohm (Betrag 1000.0000 Ohm, Winkel +0.00°)
+Z_C (100 nF) = +0.0000 - j1000.0000 Ohm (Betrag 1000.0000 Ohm, Winkel -90.00°); Y_C = -0.0000 + j1.0000 mS (Betrag 1.0000 mS, Winkel +90.00°)
+Z_L (100 mH) = +0.0000 + j1000.0000 Ohm (Betrag 1000.0000 Ohm, Winkel +90.00°); Y_L = +0.0000 - j1.0000 mS (Betrag 1.0000 mS, Winkel -90.00°)
+  ω =      100 1/s: |Z_R| =  1000.0 Ohm, |Z_L| =       10.0 Ohm, |Z_C| =   100000.0 Ohm
+  ω =     1000 1/s: |Z_R| =  1000.0 Ohm, |Z_L| =      100.0 Ohm, |Z_C| =    10000.0 Ohm
+  ω =    10000 1/s: |Z_R| =  1000.0 Ohm, |Z_L| =     1000.0 Ohm, |Z_C| =     1000.0 Ohm
+  ω =   100000 1/s: |Z_R| =  1000.0 Ohm, |Z_L| =    10000.0 Ohm, |Z_C| =      100.0 Ohm
+  ω =  1000000 1/s: |Z_R| =  1000.0 Ohm, |Z_L| =   100000.0 Ohm, |Z_C| =       10.0 Ohm
+Maschenanalyse: Z-Matrix in kOhm: [[(1-1j), 1j], [1j, (1-2j)]]
+  det Z = +0.0000 - j3000000.0000 Ohm^2 (Betrag 3000000.0000 Ohm^2, Winkel -90.00°)
+  I_I  = +0.6667 + j0.3333 mA (Betrag 0.7454 mA, Winkel +26.57°)
+  I_II = +0.3333 + j0.0000 mA (Betrag 0.3333 mA, Winkel +0.00°)
+  Strom durch C1 (I_I - I_II) = +0.3333 + j0.3333 mA (Betrag 0.4714 mA, Winkel +45.00°)
+  U_1 = Z_C (I_I - I_II) = +0.3333 - j0.3333 V (Betrag 0.4714 V, Winkel -45.00°); U_2 = Z_C I_II = +0.0000 - j0.3333 V (Betrag 0.3333 V, Winkel -90.00°)
+Knotenanalyse: I_q = U_q/R_1 = +1.0000 + j0.0000 mA (Betrag 1.0000 mA, Winkel +0.00°); Y-Matrix in mS: [[(2+1j), (-1+0j)], [(-1+0j), (1+1j)]]
+  det Y = +0.0000 + j3.0000 mS^2 (Betrag 3.0000 mS^2, Winkel +90.00°)
+  U_1 = +0.3333 - j0.3333 V (Betrag 0.4714 V, Winkel -45.00°); U_2 = +0.0000 - j0.3333 V (Betrag 0.3333 V, Winkel -90.00°)
+  Probe: U_1 - U_1(Maschen) = 5.55e-17 V, U_2 - U_2(Maschen) = 0.00e+00 V
+  Übertragung U_2/U_q bei ω = 1/(RC) = +0.0000 - j0.3333  (Betrag 0.3333 , Winkel -90.00°); allgemein 1/(1 - (ωRC)^2 + 3jωRC)
+    ω = 1000: |H| = 0.9667, Winkel -16.86°
+    ω = 10000: |H| = 0.3333, Winkel -90.00°
+    ω = 100000: |H| = 0.0097, Winkel -163.14°
+  Strom durch R_1 aus den Knotenpotentialen: (U_q - U_1)/R_1 = +0.6667 + j0.3333 mA (Betrag 0.7454 mA, Winkel +26.57°) (= I_I)
+  Zählung: Quelle als eigener Zweig: k = 4, z = 5 -> k-1 = 3, z-k+1 = 2; Quelle mit R_1 als reale Quelle: k = 3, z = 4 -> k-1 = 2, z-k+1 = 2; Unbekannte 2z = 10 bzw. 8
+
+====================================================================================================
+L. Source-Schaltung mit Source-Widerstand: Arbeitspunkt, Kleinsignal, Knotenanalyse, Ersatzquelle
+====================================================================================================
+Arbeitspunkt: U_GS = 1.0 V, I_D = k (U_GS - U_th)^2 = 0.250 mA, U_S = 0.250 V, U_G = 1.250 V, U_D = 2.500 V, U_DS = 2.250 V (Sättigung, da > U_GS - U_th = 0.50 V)
+Kleinsignal: g_m = 2k(U_GS - U_th) = 1.000 mS, g_o = 25.0 µS (angenommen, r_o = 40.0 kOhm)
+Y-Matrix (Zeilen G, D, S) in mS: [[0.1, 0.0, 0.0], [1.0, 0.225, -1.025], [-1.0, -0.025, 2.025]]
+  symmetrisch? False; ohne g_m-Anteile symmetrisch? True
+  det Y = 0.043000 mS^3
+  mit R_L = 10 kOhm, u_q = 10 mV: U_G = 10.0000 mV, U_D = -23.2558 mV, U_S = 4.6512 mV; Verstärkung U_D/u_q = -2.3256
+  Näherung ohne g_o: -g_m (R_D||R_L)/(1 + g_m R_S) = -2.5000
+Ohne Last: Leerlaufspannung U_LL = U_D = -43.9560 mV (Verstärkung -4.3956), U_S = 4.3956 mV
+Kurzschluss D-Masse: U_G = 10.0000 mV, U_S = 4.9383 mV, I_KS (aus D heraus) = -4.9383 µA
+Innenwiderstand Z_i = U_LL/I_KS = 8.9011 kOhm, Y_i = 0.11235 mS
+Testquelle (u_q = 0, U_T = 1 V): U_S = 0.012346 V, I_T = 0.112346 mA, Z_i = U_T/I_T = 8.9011 kOhm
+Transistor mit R_S allein: r_o (1 + g_m R_S) + R_S = 81.000 kOhm; parallel R_D: 8.9011 kOhm
+Falsch (gesteuerte Quelle mit abgeschaltet): r_o + R_S = 41.0 kOhm; parallel R_D: 8.0392 kOhm (Fehler -9.68 %)
+Mit Last 10 kOhm über die Ersatzquelle: U = U_LL R_L/(R_L + Z_i) = -23.2558 mV (Knotenanalyse -23.2558 mV); mit falschem Z_i -24.3669 mV (+4.78 %)
+  Klemmenstrom I_A = U/R_L = -2.3256 µA; Probe U_LL - Z_i I_A = -23.2558 mV
+  Norton: I_KS = -4.9383 µA, Y_i = 0.11235 mS; I_A = I_KS - Y_i U = -2.3256 µA
+  Zählung Kleinsignalschaltung (reale Signalquelle als ein Zweig): Knoten G, D, S, Masse -> k = 4; Zweige Quelle, g_m, g_o, R_D, R_L, R_S -> z = 6; k-1 = 3, z-k+1 = 3
+Quelle am Gate ideal (R_q = 0): U_G = u_q bekannt, es bleiben 2 Unbekannte; Ergebnis U_D gleich, da der Gate-Strom null ist
+
+====================================================================================================
+M. Zählung: Knoten- gegen Maschengleichungen
+====================================================================================================
+  RC-Tiefpass, reale Quelle: k = 3, z = 4: Knotengleichungen k-1 = 2, Maschengleichungen z-k+1 = 2, Unbekannte insgesamt 2z = 8
+  Verstärkerstufe: k = 4, z = 6: Knotengleichungen k-1 = 3, Maschengleichungen z-k+1 = 3, Unbekannte insgesamt 2z = 12
+  drei reale Quellen und eine Last parallel: k = 2, z = 4: Knotengleichungen k-1 = 1, Maschengleichungen z-k+1 = 3, Unbekannte insgesamt 2z = 8
+  Brücke mit Quelle (Wheatstone): k = 4, z = 6: Knotengleichungen k-1 = 3, Maschengleichungen z-k+1 = 3, Unbekannte insgesamt 2z = 12
+  Parallelschaltung: eine Knotengleichung, U = Summe(U_q/R_q)/(Summe(1/R_q) + 1/R_L) = 10.8108 V
+
+====================================================================================================
+N. Ergänzungen: Überlagerung, ideale Stromquelle, Reziprozität, Verlustleistung, Testquelle je Volt
+====================================================================================================
+Verstärkerstufe mit 20 mV statt 10 mV: U_D = -46.5116 mV (doppelt: -46.5116 mV)
+Überlagerung: 10 mV und -5 mV einzeln -23.2558 + 11.6279 = -11.6279 mV, Summe 5 mV direkt: -11.6279 mV
+RC-Tiefpass mit idealer Stromquelle 1 mA an Knoten 1: Masche I hat I_I = 1 mA; Masche II: -Z_C I_I + (R + 2 Z_C) I_II = 0 -> I_II = +0.4000 - j0.2000 mA (Betrag 0.4472 mA, Winkel -26.57°)
+  U_2 = Z_C I_II = -0.2000 - j0.4000 V (Betrag 0.4472 V, Winkel -116.57°); Spannung an der Stromquelle U_1 = Z_C (I_I - I_II) = +0.2000 - j0.6000 V (Betrag 0.6325 V, Winkel -71.57°)
+  Probe Knotenanalyse: U_1 = +0.2000 - j0.6000 V (Betrag 0.6325 V, Winkel -71.57°), U_2 = -0.2000 - j0.4000 V (Betrag 0.4472 V, Winkel -116.57°)
+RC-Tiefpass: Y^-1 in kOhm: [[(0.3333-0.3333j), -0.3333j], [-0.3333j, (0.3333-0.6667j)]]; Z_12 = +0.0000 - j333.3333 Ohm (Betrag 333.3333 Ohm, Winkel -90.00°), Z_21 = +0.0000 - j333.3333 Ohm (Betrag 333.3333 Ohm, Winkel -90.00°)
+Verstärkerstufe: Y^-1 in kOhm (Zeilen/Spalten G, D, S): [[10.0, 0.0, -0.0], [-23.2558, 4.7093, 2.3837], [4.6512, 0.0581, 0.5233]]
+  1 µA in G eingespeist -> U_D = -23.2558 mV; 1 µA in D eingespeist -> U_G = 0.0000 mV
+Quellenumwandlung RC-Quelle (1 V, 1 kOhm <-> 1 mA, 1 mS), Leerlauf: Spannungsform 0 W im Innenwiderstand, Stromform (1 V)^2/(2 kOhm) = 0.50 mW im Innenleitwert; Kurzschluss: Spannungsform 0.50 mW, Stromform 0 W
+Testquelle je Volt am Drain: Strom durch R_D 0.1000 mA, in den Transistorzweig 12.3457 µA; darin g_m u_GS = -12.3457 µA und g_o-Anteil 24.6914 µA; ohne gesteuerte Quelle 24.3902 µA
+  Probe Summe: 100 - 12.3457 + 24.6914 = 112.3457 µA; Drain-Source-Strecke allein (U_T - U_S)/I = 80.000 kOhm gegen r_o = 40.0 kOhm ohne gesteuerte Quelle (Faktor 2.000)
+Summe der Zeilen D und S: (G_D + G_L) U_D + G_S U_S = 8.470e-13 (null): U_S = -0.20 U_D
+Leerlauf: G_D U_D + G_S U_S = 0 -> U_S = -0.10 U_D
+Ersatzquelle an 100 kOhm: -40.3633 mV (Verlust gegen Leerlauf 8.2 %)
+Verstärkung ohne g_o mit R_S: -2.5000; ohne g_o und ohne R_S: -5.0000; mit g_o ohne R_S: -4.4444
+Drei Quellen parallel: Strom in die 10-V-Quelle (10.8108 V - 10 V)/4 Ohm = 0.2027 A

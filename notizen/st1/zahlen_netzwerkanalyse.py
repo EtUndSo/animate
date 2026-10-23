@@ -355,3 +355,187 @@ P("  Quotienten aufeinanderfolgender Fehler: " + ", ".join(f"{fehler[j+1]/fehler
 P(f"Statischer Leitwert im Arbeitspunkt I/U = {i_mos(UA)/UA*1e3:.3f} mS (Kehrwert {UA/i_mos(UA)/1e3:.1f} kOhm), "
   f"differentieller Leitwert {gA*1e3:.3f} mS (Kehrwert {1/gA/1e3:.1f} kOhm)")
 P(f"Gleichanteil bei 400 mV: +{0.5*k*0.4**2/i_mos(UA)*100:.0f} %; ±160 mV / 0,5 V = {0.16/0.5:.2f}")
+
+# ====================================================================================================================
+# Thema 2: Ersatzquellen, Maschenstrom- und Knotenpotentialanalyse
+# ====================================================================================================================
+import cmath  # noqa: E402
+
+
+def zeiger(z, einheit="", faktor=1.0):
+    """Komplexe Zahl als 'a + jb (Betrag ∠ Winkel)'."""
+    z = z * faktor
+    return (f"{z.real:+.4f} {'+' if z.imag >= 0 else '-'} j{abs(z.imag):.4f} {einheit} "
+            f"(Betrag {abs(z):.4f} {einheit}, Winkel {math.degrees(cmath.phase(z)):+.2f}°)")
+
+
+# ------------------------------------------------------------------ K. Impedanzen und zweistufiger RC-Tiefpass
+kopf("K. Impedanzen bei ω = 10^4 1/s und zweistufiger RC-Tiefpass (Maschen- und Knotenanalyse)")
+w = 1e4
+Rk, Ck, Lk = 1e3, 100e-9, 100e-3
+ZR, ZC, ZL = Rk + 0j, 1 / (1j * w * Ck), 1j * w * Lk
+P(f"ω = {w:.0f} 1/s, f = ω/(2π) = {w/(2*math.pi):.2f} Hz")
+P(f"Z_R = {zeiger(ZR, 'Ohm')}")
+P(f"Z_C (100 nF) = {zeiger(ZC, 'Ohm')}; Y_C = {zeiger(1/ZC, 'mS', 1e3)}")
+P(f"Z_L (100 mH) = {zeiger(ZL, 'Ohm')}; Y_L = {zeiger(1/ZL, 'mS', 1e3)}")
+for wx in (1e2, 1e3, 1e4, 1e5, 1e6):
+    P(f"  ω = {wx:8.0f} 1/s: |Z_R| = {Rk:7.1f} Ohm, |Z_L| = {wx*Lk:10.1f} Ohm, |Z_C| = {1/(wx*Ck):10.1f} Ohm")
+
+Uq = 1.0 + 0j
+# Maschen I (Quelle, R1, C1) und II (C1, R2, C2), beide im Uhrzeigersinn
+Zm = np.array([[Rk + ZC, -ZC], [-ZC, Rk + 2 * ZC]])
+Um = np.array([Uq, 0])
+detZ = np.linalg.det(Zm)
+Im = np.linalg.solve(Zm, Um)
+P("Maschenanalyse: Z-Matrix in kOhm: " + str(np.round(Zm / 1e3, 4).tolist()))
+P(f"  det Z = {zeiger(detZ, 'Ohm^2')}")
+P(f"  I_I  = {zeiger(Im[0], 'mA', 1e3)}")
+P(f"  I_II = {zeiger(Im[1], 'mA', 1e3)}")
+P(f"  Strom durch C1 (I_I - I_II) = {zeiger(Im[0]-Im[1], 'mA', 1e3)}")
+U1m, U2m = ZC * (Im[0] - Im[1]), ZC * Im[1]
+P(f"  U_1 = Z_C (I_I - I_II) = {zeiger(U1m, 'V')}; U_2 = Z_C I_II = {zeiger(U2m, 'V')}")
+# Knotenanalyse nach Umwandlung von Quelle und R1 in eine Stromquelle
+Gk = 1 / Rk
+Iqk = Uq / Rk
+Yk = np.array([[Gk + 1j * w * Ck + Gk, -Gk], [-Gk, Gk + 1j * w * Ck]])
+Ik = np.array([Iqk, 0])
+detY = np.linalg.det(Yk)
+Uk = np.linalg.solve(Yk, Ik)
+P(f"Knotenanalyse: I_q = U_q/R_1 = {zeiger(Iqk, 'mA', 1e3)}; Y-Matrix in mS: " + str(np.round(Yk * 1e3, 4).tolist()))
+P(f"  det Y = {zeiger(detY, 'mS^2', 1e6)}")
+P(f"  U_1 = {zeiger(Uk[0], 'V')}; U_2 = {zeiger(Uk[1], 'V')}")
+P(f"  Probe: U_1 - U_1(Maschen) = {abs(Uk[0]-U1m):.2e} V, U_2 - U_2(Maschen) = {abs(Uk[1]-U2m):.2e} V")
+P(f"  Übertragung U_2/U_q bei ω = 1/(RC) = {zeiger(Uk[1]/Uq)}; allgemein 1/(1 - (ωRC)^2 + 3jωRC)")
+for wx in (1e3, 1e4, 1e5):
+    x = wx * Rk * Ck
+    H = 1 / (1 - x**2 + 3j * x)
+    P(f"    ω = {wx:.0f}: |H| = {abs(H):.4f}, Winkel {math.degrees(cmath.phase(H)):+.2f}°")
+# Ströme der Originalschaltung aus den Knotenpotentialen
+IR1 = (Uq - Uk[0]) / Rk
+P(f"  Strom durch R_1 aus den Knotenpotentialen: (U_q - U_1)/R_1 = {zeiger(IR1, 'mA', 1e3)} (= I_I)")
+P("  Zählung: Quelle als eigener Zweig: k = 4, z = 5 -> k-1 = 3, z-k+1 = 2; Quelle mit R_1 als reale Quelle: "
+  "k = 3, z = 4 -> k-1 = 2, z-k+1 = 2; Unbekannte 2z = 10 bzw. 8")
+
+# ------------------------------------------------------------------ L. Verstärkerstufe mit Source-Widerstand
+kopf("L. Source-Schaltung mit Source-Widerstand: Arbeitspunkt, Kleinsignal, Knotenanalyse, Ersatzquelle")
+VDD, RD, RS, RL, Rq = 5.0, 10e3, 1e3, 10e3, 10e3
+UGS = 1.0
+ID = k * (UGS - Uth) ** 2
+gm = 2 * k * (UGS - Uth)
+go = 25e-6
+US0 = ID * RS
+UG0 = UGS + US0
+UD0 = VDD - ID * RD
+UDS = UD0 - US0
+P(f"Arbeitspunkt: U_GS = {UGS} V, I_D = k (U_GS - U_th)^2 = {ID*1e3:.3f} mA, U_S = {US0:.3f} V, "
+  f"U_G = {UG0:.3f} V, U_D = {UD0:.3f} V, U_DS = {UDS:.3f} V (Sättigung, da > U_GS - U_th = {UGS-Uth:.2f} V)")
+P(f"Kleinsignal: g_m = 2k(U_GS - U_th) = {gm*1e3:.3f} mS, g_o = {go*1e6:.1f} µS (angenommen, r_o = {1/go/1e3:.1f} kOhm)")
+GD, GS, GL, Gqv = 1 / RD, 1 / RS, 1 / RL, 1 / Rq
+uq = 10e-3
+
+
+def verstaerker(GLx, uqx=uq):
+    """Knotenanalyse G, D, S; Quelle uq mit Rq als Norton-Quelle am Gate."""
+    Y = np.array([[Gqv, 0, 0],
+                  [gm, GD + GLx + go, -(gm + go)],
+                  [-gm, -go, gm + go + GS]])
+    I = np.array([uqx * Gqv, 0, 0])
+    return Y, I, np.linalg.solve(Y, I)
+
+
+Yv, Iv, Uv = verstaerker(GL)
+P("Y-Matrix (Zeilen G, D, S) in mS: " + str(np.round(Yv * 1e3, 4).tolist()))
+P(f"  symmetrisch? {np.allclose(Yv, Yv.T)}; ohne g_m-Anteile symmetrisch? "
+  f"{np.allclose(Yv - gm*np.array([[0,0,0],[1,0,-1],[-1,0,1]]), (Yv - gm*np.array([[0,0,0],[1,0,-1],[-1,0,1]])).T)}")
+P(f"  det Y = {np.linalg.det(Yv)*1e9:.6f} mS^3")
+P(f"  mit R_L = 10 kOhm, u_q = 10 mV: U_G = {Uv[0]*1e3:.4f} mV, U_D = {Uv[1]*1e3:.4f} mV, U_S = {Uv[2]*1e3:.4f} mV; "
+  f"Verstärkung U_D/u_q = {Uv[1]/uq:.4f}")
+P(f"  Näherung ohne g_o: -g_m (R_D||R_L)/(1 + g_m R_S) = {-gm*(RD*RL/(RD+RL))/(1+gm*RS):.4f}")
+Y0, I0, U0v = verstaerker(0.0)
+ULL = U0v[1]
+P(f"Ohne Last: Leerlaufspannung U_LL = U_D = {ULL*1e3:.4f} mV (Verstärkung {ULL/uq:.4f}), U_S = {U0v[2]*1e3:.4f} mV")
+# Kurzschluss am Ausgang: U_D = 0 -> nur G und S unbekannt
+YKS = np.array([[Gqv, 0], [-gm, gm + go + GS]])
+UKS = np.linalg.solve(YKS, np.array([uq * Gqv, 0]))
+IKS = -(gm * (UKS[0] - UKS[1]) + go * (0 - UKS[1]))   # Strom aus Klemme D in den Kurzschluss
+P(f"Kurzschluss D-Masse: U_G = {UKS[0]*1e3:.4f} mV, U_S = {UKS[1]*1e3:.4f} mV, I_KS (aus D heraus) = {IKS*1e6:.4f} µA")
+Zi = ULL / IKS
+P(f"Innenwiderstand Z_i = U_LL/I_KS = {Zi/1e3:.4f} kOhm, Y_i = {1/Zi*1e3:.5f} mS")
+# Testquelle: u_q = 0, U_T am Drain, Strom I_T in den Drain-Knoten
+UT_ = 1.0
+US_T = go * UT_ / (GS + gm + go)
+IT = GD * UT_ + gm * (0 - US_T) + go * (UT_ - US_T)
+P(f"Testquelle (u_q = 0, U_T = 1 V): U_S = {US_T:.6f} V, I_T = {IT*1e3:.6f} mA, Z_i = U_T/I_T = {UT_/IT/1e3:.4f} kOhm")
+rT = 1 / go + 1 / GS + gm / go / GS
+P(f"Transistor mit R_S allein: r_o (1 + g_m R_S) + R_S = {rT/1e3:.3f} kOhm; parallel R_D: "
+  f"{1/(GD + 1/rT)/1e3:.4f} kOhm")
+rfalsch = 1 / go + 1 / GS
+P(f"Falsch (gesteuerte Quelle mit abgeschaltet): r_o + R_S = {rfalsch/1e3:.1f} kOhm; parallel R_D: "
+  f"{1/(GD + 1/rfalsch)/1e3:.4f} kOhm (Fehler {(1/(GD+1/rfalsch)-Zi)/Zi*100:+.2f} %)")
+Ulast = ULL * RL / (RL + Zi)
+Ulast_f = ULL * RL / (RL + 1 / (GD + 1 / rfalsch))
+P(f"Mit Last 10 kOhm über die Ersatzquelle: U = U_LL R_L/(R_L + Z_i) = {Ulast*1e3:.4f} mV (Knotenanalyse "
+  f"{Uv[1]*1e3:.4f} mV); mit falschem Z_i {Ulast_f*1e3:.4f} mV ({(Ulast_f-Ulast)/Ulast*100:+.2f} %)")
+IA = Uv[1] / RL
+P(f"  Klemmenstrom I_A = U/R_L = {IA*1e6:.4f} µA; Probe U_LL - Z_i I_A = {(ULL - Zi*IA)*1e3:.4f} mV")
+P(f"  Norton: I_KS = {IKS*1e6:.4f} µA, Y_i = {1/Zi*1e3:.5f} mS; I_A = I_KS - Y_i U = {(IKS - Uv[1]/Zi)*1e6:.4f} µA")
+P("  Zählung Kleinsignalschaltung (reale Signalquelle als ein Zweig): Knoten G, D, S, Masse -> k = 4; Zweige "
+  "Quelle, g_m, g_o, R_D, R_L, R_S -> z = 6; k-1 = 3, z-k+1 = 3")
+P(f"Quelle am Gate ideal (R_q = 0): U_G = u_q bekannt, es bleiben 2 Unbekannte; Ergebnis U_D gleich, da der Gate-Strom "
+  f"null ist")
+
+# ------------------------------------------------------------------ M. Zählung und Wahl des Verfahrens
+kopf("M. Zählung: Knoten- gegen Maschengleichungen")
+for name, kk, zz in (("RC-Tiefpass, reale Quelle", 3, 4), ("Verstärkerstufe", 4, 6),
+                     ("drei reale Quellen und eine Last parallel", 2, 4), ("Brücke mit Quelle (Wheatstone)", 4, 6)):
+    P(f"  {name}: k = {kk}, z = {zz}: Knotengleichungen k-1 = {kk-1}, Maschengleichungen z-k+1 = {zz-kk+1}, "
+      f"Unbekannte insgesamt 2z = {2*zz}")
+# Parallelschaltung: drei reale Spannungsquellen (Leerlaufspannungen 12, 11, 10 V; Innenwiderstände 1, 2, 4 Ohm) an 10 Ohm
+Uqs, Rqs, Rlast = (12.0, 11.0, 10.0), (1.0, 2.0, 4.0), 10.0
+Uknoten = sum(u / r for u, r in zip(Uqs, Rqs)) / (sum(1 / r for r in Rqs) + 1 / Rlast)
+P(f"  Parallelschaltung: eine Knotengleichung, U = Summe(U_q/R_q)/(Summe(1/R_q) + 1/R_L) = {Uknoten:.4f} V")
+
+# ------------------------------------------------------------------ N. Ergänzungen für Text, Fragen und Vertiefung
+kopf("N. Ergänzungen: Überlagerung, ideale Stromquelle, Reziprozität, Verlustleistung, Testquelle je Volt")
+_, _, U20 = verstaerker(GL, 20e-3)
+P(f"Verstärkerstufe mit 20 mV statt 10 mV: U_D = {U20[1]*1e3:.4f} mV (doppelt: {2*Uv[1]*1e3:.4f} mV)")
+_, _, Um5 = verstaerker(GL, -5e-3)
+_, _, Usum = verstaerker(GL, 15e-3)
+P(f"Überlagerung: 10 mV und -5 mV einzeln {Uv[1]*1e3:.4f} + {Um5[1]*1e3:.4f} = {(Uv[1]+Um5[1])*1e3:.4f} mV, "
+  f"Summe 5 mV direkt: {verstaerker(GL, 5e-3)[2][1]*1e3:.4f} mV")
+# RC-Tiefpass mit idealer Stromquelle 1 mA in Knoten 1 (statt U_q mit R_1)
+Iideal = 1e-3
+I_II_ideal = ZC * Iideal / (Rk + 2 * ZC)
+P(f"RC-Tiefpass mit idealer Stromquelle 1 mA an Knoten 1: Masche I hat I_I = 1 mA; Masche II: "
+  f"-Z_C I_I + (R + 2 Z_C) I_II = 0 -> I_II = {zeiger(I_II_ideal, 'mA', 1e3)}")
+P(f"  U_2 = Z_C I_II = {zeiger(ZC*I_II_ideal, 'V')}; Spannung an der Stromquelle U_1 = Z_C (I_I - I_II) = "
+  f"{zeiger(ZC*(Iideal-I_II_ideal), 'V')}")
+# Probe über Knotenanalyse
+Yid = np.array([[1j * w * Ck + Gk, -Gk], [-Gk, Gk + 1j * w * Ck]])
+Uid = np.linalg.solve(Yid, np.array([Iideal, 0]))
+P(f"  Probe Knotenanalyse: U_1 = {zeiger(Uid[0], 'V')}, U_2 = {zeiger(Uid[1], 'V')}")
+# Reziprozität
+Zrc = np.linalg.inv(Yk)
+P("RC-Tiefpass: Y^-1 in kOhm: " + str(np.round(Zrc / 1e3, 4).tolist())
+  + f"; Z_12 = {zeiger(Zrc[0,1], 'Ohm')}, Z_21 = {zeiger(Zrc[1,0], 'Ohm')}")
+Zv = np.linalg.inv(Yv)
+P("Verstärkerstufe: Y^-1 in kOhm (Zeilen/Spalten G, D, S): " + str(np.round(Zv / 1e3, 4).tolist()))
+P(f"  1 µA in G eingespeist -> U_D = {Zv[1,0]*1e-6*1e3:.4f} mV; 1 µA in D eingespeist -> U_G = {Zv[0,1]*1e-6*1e3:.4f} mV")
+# Verlustleistung bei der Quellenumwandlung (Amplitude 1 V, Effektivleistung Û²/(2R))
+P(f"Quellenumwandlung RC-Quelle (1 V, 1 kOhm <-> 1 mA, 1 mS), Leerlauf: Spannungsform 0 W im Innenwiderstand, "
+  f"Stromform (1 V)^2/(2 kOhm) = {1.0**2/(2*Rk)*1e3:.2f} mW im Innenleitwert; Kurzschluss: Spannungsform "
+  f"{(1e-3)**2*Rk/2*1e3:.2f} mW, Stromform 0 W")
+P(f"Testquelle je Volt am Drain: Strom durch R_D {GD*1e3:.4f} mA, in den Transistorzweig {(IT-GD)*1e6:.4f} µA; "
+  f"darin g_m u_GS = {gm*(0-US_T)*1e6:.4f} µA und g_o-Anteil {go*(UT_-US_T)*1e6:.4f} µA; "
+  f"ohne gesteuerte Quelle {UT_/rfalsch*1e6:.4f} µA")
+P(f"  Probe Summe: 100 - {gm*US_T*1e6:.4f} + {go*(UT_-US_T)*1e6:.4f} = {(GD - gm*US_T + go*(UT_-US_T))*1e6:.4f} µA; "
+  f"Drain-Source-Strecke allein (U_T - U_S)/I = {(UT_-US_T)/(IT-GD)/1e3:.3f} kOhm gegen r_o = {1/go/1e3:.1f} kOhm "
+  f"ohne gesteuerte Quelle (Faktor {(UT_-US_T)/(IT-GD)*go:.3f})")
+P(f"Summe der Zeilen D und S: (G_D + G_L) U_D + G_S U_S = {((GD+GL)*Uv[1] + GS*Uv[2])*1e9:.3e} (null): U_S = "
+  f"{-(GD+GL)/GS:.2f} U_D")
+P(f"Leerlauf: G_D U_D + G_S U_S = 0 -> U_S = {-GD/GS:.2f} U_D")
+UL100 = ULL * 100e3 / (100e3 + Zi)
+P(f"Ersatzquelle an 100 kOhm: {UL100*1e3:.4f} mV (Verlust gegen Leerlauf {(1-UL100/ULL)*100:.1f} %)")
+P(f"Verstärkung ohne g_o mit R_S: {-gm*(RD*RL/(RD+RL))/(1+gm*RS):.4f}; ohne g_o und ohne R_S: {-gm*(RD*RL/(RD+RL)):.4f}; "
+  f"mit g_o ohne R_S: {-gm/(GD+GL+go)*1e-3*1e3:.4f}")
+P(f"Drei Quellen parallel: Strom in die 10-V-Quelle ({Uknoten:.4f} V - 10 V)/4 Ohm = {(Uknoten-10)/4:.4f} A")

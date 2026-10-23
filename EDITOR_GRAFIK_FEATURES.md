@@ -243,6 +243,12 @@ Gebraucht in: st1/netzwerkanalyse/01-ersatzschaltbilder; absehbar alle Kleinsign
 - Synchron dazu eine Wertetabelle, deren Zeile beim jeweiligen Schritt hervorgehoben wird; Startwert per Schieberegler (§15).
 Gebraucht in: st1/netzwerkanalyse/01-newton; absehbar numerische Verfahren (Numerik), transiente Analyse.
 
+## 30. Netzwerkgraphen  — **P3** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Eine Schaltung auf ihren Graphen reduziert: Knoten als Punkte, Zweige als beschriftete Linien (Bauteilname statt Symbol), Bezugsknoten hervorgehoben.
+- Baum und Verbindungszweige farbig getrennt; zu jedem Verbindungszweig der gebogene Umlaufpfeil seiner Masche (§2).
+- Kopplung an das Schaltbild daneben (§10): Auswahl eines Zweigs hebt ihn in beiden Darstellungen hervor.
+Gebraucht in: st1/netzwerkanalyse/02-topologie; absehbar modifizierte Knotenanalyse und Topologie in ET1.
+
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten
    Kennlinien- und Profil-Abbildungen frei.
