@@ -52,7 +52,7 @@ Der Editor kann Funktionsgraphen; es fehlen:
 - **Tangente im Punkt** (differentieller Widerstand / Kleinsignal-Linearisierung).
 - Achsen frei beschriften mit Einheiten; markierte Punkte mit Koordinaten/Labels; Bereiche farbig hinterlegen (Sperr-/aktiver/Sättigungsbereich).
 - **Doppeltlogarithmische Achsen** (OPV: Verstärkung über Frequenz, GBW).
-Gebraucht in: Diode, Arbeitspunkt, Transistor-Kennlinienfeld, OPV-GBW (get1/operationsverstaerker/03-frequenzgang), Energie im Kondensator.
+Gebraucht in: Diode, Arbeitspunkt, Transistor-Kennlinienfeld, OPV-GBW (get1/operationsverstaerker/03-frequenzgang), Energie im Kondensator; MOSFET-Kennlinienfeld, Triodenparabel, Schwellenbestimmung, Kanallängenmodulation (st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-triode-parabel, 02-schwellenbestimmung, 02-kanallaengenmodulation); Fläche unter der Übersteuerung über dem Kanalpotential (st1/mos-feldeffekttransistoren/02-flaeche-uebersteuerung); Arbeitsgerade mit zwei Arbeitspunkten (st1/mos-feldeffekttransistoren/02-arbeitspunkt).
 
 ## 5. Zeitverläufe / Signalformen (Waveforms)  — **P2**
 - Sinus und abgeleitete Formen; **stückweise/abgeschnittene** Signale (Einweg-/Brückengleichrichtung).
@@ -121,39 +121,39 @@ Halbleiter-Pilot zusätzlich braucht.
   (drei kleine oben, eines breit darunter).
 - Gemeinsame Bildunterschrift; Teilbild-Buchstaben automatisch; Achsen optional gekoppelt.
 Gebraucht in: fast jeder Stil-3-Abbildung (Halbleiter-Pilot: Gesamtbild, Kristallgitter, Fermi-Verteilung,
-Bänder bei Spannung, Gleichrichter); st1/mos-feldeffekttransistoren/01-querschnitt, 01-schaltzeichen, 01-mos-zustaende, 01-baender, 01-schwellenspannung, 01-cv-kurve, 01-betriebsbereiche, 01-kanalwiderstand, 01-abschnuerung.
+Bänder bei Spannung, Gleichrichter); st1/mos-feldeffekttransistoren/01-querschnitt, 01-schaltzeichen, 01-mos-zustaende, 01-baender, 01-schwellenspannung, 01-cv-kurve, 01-betriebsbereiche, 01-kanalwiderstand, 01-abschnuerung; st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-flaeche-uebersteuerung, 02-ersatzschaltbild.
 
 ## 11. Datenkurven aus dem Zahlenwerk  — **P1**
 - Kurven aus einer **Datentabelle** (CSV/JSON) statt nur aus einer Formel: numerisch gelöste Profile
   (Poisson-Lösung am pn-Übergang), implizit gelöste Größen (Gleichrichter-Ausgang über die Shockley-Gleichung).
 - Die Tabelle wird vom Zahlenwerk des Oberthemas erzeugt (`notizen/<modul>/zahlen_<oberthema>.py`), damit
   Abbildung und Text dieselben Zahlen zeigen.
-Gebraucht in: Gesamtbild (d), Gleichgewichts-Profile, Gleichrichter, Bänder bei Spannung; MOS-Kondensator und MOSFET (st1/mos-feldeffekttransistoren/01-oberflaechenpotential, 01-baender, 01-schwellenspannung, 01-cv-kurve, 01-betriebsbereiche, 01-kanalwiderstand, 01-abschnuerung).
+Gebraucht in: Gesamtbild (d), Gleichgewichts-Profile, Gleichrichter, Bänder bei Spannung; MOS-Kondensator und MOSFET (st1/mos-feldeffekttransistoren/01-oberflaechenpotential, 01-baender, 01-schwellenspannung, 01-cv-kurve, 01-betriebsbereiche, 01-kanalwiderstand, 01-abschnuerung); Kennlinien des NMOS (st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-kanal-geschwindigkeit, 02-triode-parabel, 02-schwellenbestimmung, 02-kanallaengenmodulation, 02-unterschwelle).
 
 ## 12. Halblogarithmische Achsen  — **P1**
 - Logarithmische y-Achse mit Zehnerpotenz-Beschriftung (10⁵ … 10¹⁸), x linear; Hilfslinien bei Zehnerpotenzen.
 - Ergänzt §4, das bisher nur doppeltlogarithmische Achsen nennt.
 - Ebenso logarithmische x-Achse bei linearer y-Achse (Widerstand von 50 kΩ bis 2 MΩ).
-Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über U (Teilströme), Spannungsgegenkopplung über $R_B$, Transferkennlinien zweier Transistoren beim Offset (get1/operationsverstaerker/03-offset); Elektronendichte an der MOS-Oberfläche und Schwellenspannung über der Dotierung (st1/mos-feldeffekttransistoren/01-oberflaechenpotential, 01-schwellenspannung).
+Gebraucht in: Dichten über dem Ort, n_i(T), Fermi-Ausläufer, Diodenstrom über U (Teilströme), Spannungsgegenkopplung über $R_B$, Transferkennlinien zweier Transistoren beim Offset (get1/operationsverstaerker/03-offset); Elektronendichte an der MOS-Oberfläche und Schwellenspannung über der Dotierung (st1/mos-feldeffekttransistoren/01-oberflaechenpotential, 01-schwellenspannung); Unterschwellenstrom des MOSFET (st1/mos-feldeffekttransistoren/02-unterschwelle).
 
 ## 13. Gestapelte Diagramme mit gemeinsamer x-Achse  — **P2**
 - Mehrere Größen über demselben Ort übereinander (Dichte, Raumladung, Feld, Potenzial, Bänder), nur unten
   beschriftete x-Achse.
 - **Eine Hinterlegung, die durch alle Teilbilder geht** (Raumladungszone).
-Gebraucht in: Gleichgewichts-Profile am pn-Übergang; später Transistor (Profile in Emitter/Basis/Kollektor); Spannungsgegenkopplung, Strom und $U_{CE}$ über $R_B$ (get1/bipolartransistoren/02-spannungsgk-kompromiss); Ort, Geschwindigkeit und Beschleunigung über der Zeit (get1/grundprinzipien/01-kinematik); Oberflächenpotential, Dichten und Ladungen über der Gatespannung (st1/mos-feldeffekttransistoren/01-oberflaechenpotential).
+Gebraucht in: Gleichgewichts-Profile am pn-Übergang; später Transistor (Profile in Emitter/Basis/Kollektor); Spannungsgegenkopplung, Strom und $U_{CE}$ über $R_B$ (get1/bipolartransistoren/02-spannungsgk-kompromiss); Ort, Geschwindigkeit und Beschleunigung über der Zeit (get1/grundprinzipien/01-kinematik); Oberflächenpotential, Dichten und Ladungen über der Gatespannung (st1/mos-feldeffekttransistoren/01-oberflaechenpotential); Potential, Ladung und Geschwindigkeit längs des Kanals, Strom und Wurzel des Stroms über der Gatespannung (st1/mos-feldeffekttransistoren/02-kanal-geschwindigkeit, 02-schwellenbestimmung).
 
 ## 14. Teilchenwolken  — **P2**
 - Viele Punkte/Kreise, zufällig nach einer Verteilung gesetzt (exponentiell in der Energie über einer Bandkante,
   gleichverteilt im Ort); fester Zufallsstartwert, damit die Abbildung reproduzierbar ist.
 - Hervorhebung nach Bedingung („Energie über der Barriere“) in eigener Farbe.
 - Animierbar: Zufallsbewegung, Zähler für übergewechselte Teilchen.
-Gebraucht in: „hinauf und hinunter“ (Diffusion gegen Drift), später Diodenstrom, Transistor-Basis.
+Gebraucht in: „hinauf und hinunter“ (Diffusion gegen Drift), später Diodenstrom, Transistor-Basis; Elektronen im MOS-Kanal (st1/mos-feldeffekttransistoren/02-kanal-geschwindigkeit).
 
 ## 15. Parameter-Schieberegler  — **P2**
 - Ein Parameter (Diodenspannung U, Temperatur T) wird live verändert; abhängige Kurven, Maßpfeile und
   Beschriftungen (Barrierenhöhe, Faktoren wie ×2,5·10⁸) werden neu berechnet.
 - Für die statische Abbildung: feste Stützwerte als Teilbilder (§10).
-Gebraucht in: Bänder bei Spannung, Fermi-Verteilung (T), später Kennlinie und Arbeitspunkt; MOS-Zustände, Schwellenspannung, Kanal und Abschnürung (st1/mos-feldeffekttransistoren/01-querschnitt, 01-mos-zustaende, 01-oberflaechenpotential, 01-baender, 01-schwellenspannung, 01-betriebsbereiche, 01-kanalwiderstand, 01-abschnuerung).
+Gebraucht in: Bänder bei Spannung, Fermi-Verteilung (T), später Kennlinie und Arbeitspunkt; MOS-Zustände, Schwellenspannung, Kanal und Abschnürung (st1/mos-feldeffekttransistoren/01-querschnitt, 01-mos-zustaende, 01-oberflaechenpotential, 01-baender, 01-schwellenspannung, 01-betriebsbereiche, 01-kanalwiderstand, 01-abschnuerung); Kennlinien des NMOS (st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-kanal-geschwindigkeit, 02-flaeche-uebersteuerung, 02-kanallaengenmodulation).
 
 ## 16. Bänderschema mit Zusatzniveaus  — **P2** (Ausbau von §6)
 - Kurze Strichniveaus für Donator/Akzeptor ($W_D$, $W_A$), gepunktetes Eigenleitungsniveau $W_i$,
@@ -166,7 +166,7 @@ Gebraucht in: Gesamtbild, Leiter/Halbleiter/Isolator, dotierte Bänder, Kristall
 ## 17. Achsenbruch und abschnittsweiser Maßstab  — **P2** (neu 2026-10-21, Diode)
 - Eine Achse mit sichtbarem Bruch bzw. getrennten Maßstäben je Abschnitt, z. B. Strom in mA oberhalb und in pA unterhalb der Nulllinie, Spannung in 0,1 V rechts und in 10 V links.
 - Die Beschriftung macht die Maßstabswechsel unübersehbar.
-Gebraucht in: Gesamtkennlinie der Diode (Durchlass, Sperr, Durchbruch); später Transistor-Kennlinienfelder mit Sperrbereich; Ausgangskennlinien bis zur Early-Spannung −70 V (get1/bipolartransistoren/03-reale-kennlinien).
+Gebraucht in: Gesamtkennlinie der Diode (Durchlass, Sperr, Durchbruch); später Transistor-Kennlinienfelder mit Sperrbereich; Ausgangskennlinien bis zur Early-Spannung −70 V (get1/bipolartransistoren/03-reale-kennlinien); Early-Spannung des MOSFET bei −10 V (st1/mos-feldeffekttransistoren/02-kanallaengenmodulation).
 
 ## 18. Mengenpfeile und Bilanzdiagramme  — **P2** (neu 2026-10-21, Bipolartransistor)
 - Pfeile, deren Breite proportional zu einem Wert ist (Ströme, Teilchenflüsse), mit der Zahl am Pfeil; Verzweigen und Zusammenführen wie in einem Sankey-Diagramm.
@@ -211,7 +211,7 @@ Gebraucht in: Arbeit an Treppe, Rampe und Schlitten (get1/grundprinzipien/01-arb
 - Magnetisch gekoppelte Spulen mit Wicklungspunkten (Polung der Rückkopplung).
 - Funkblöcke: Mischer (Kreis mit Kreuz), Oszillator (Kreis mit Sinus, wahlweise mit Pfeil „abstimmbar“), Filter (Kasten mit Tief-, Band- oder Hochpasssymbol), Verstärker (Dreieck), 90°-Phasenschieber, Analog-Digital-Umsetzer, Antenne, Lautsprecher, Summierstelle.
 - Rahmen für eine Chipgrenze (gestrichelt), Bauteile innerhalb und außerhalb.
-Gebraucht in: st1/einfuehrung/01-drei-ventile, 01-rueckkopplung, 01-ueberlagerung, 01-cmos-inverter, 01-direktumsetzer; absehbar in allen MOSFET-Themen der Schaltungstechnik; st1/mos-feldeffekttransistoren/01-schaltzeichen (drei Schreibweisen, §36).
+Gebraucht in: st1/einfuehrung/01-drei-ventile, 01-rueckkopplung, 01-ueberlagerung, 01-cmos-inverter, 01-direktumsetzer; absehbar in allen MOSFET-Themen der Schaltungstechnik; st1/mos-feldeffekttransistoren/01-schaltzeichen (drei Schreibweisen, §36); st1/mos-feldeffekttransistoren/02-ersatzschaltbild.
 
 ## 25. Spektren  — **P2** (neu 2026-10-23, Schaltungstechnik Einführung)
 - Frequenzachse (linear oder logarithmisch) mit Spektrallinien, deren Höhe die Amplitude angibt; Linien einzeln beschriftet und gefärbt.
@@ -235,7 +235,7 @@ Gebraucht in: st1/einfuehrung/01-planartechnik, 01-skalierung, 01-triode-aufbau;
 - Gesteuerte Quellen als Raute: spannungs- und stromgesteuerte Strom- und Spannungsquelle; Beschriftung mit dem Steuerausdruck ($g\,u$, $\beta\,i_B$, $v\,u_1$) und gestrichelte Zuordnung zur Steuergröße (Spannungspfeil oder Strompfeil an anderer Stelle der Schaltung).
 - Nichtlinearer Zweipol: Widerstandsrechteck mit schräger, geknickter Linie, beschriftet mit der Kennlinienfunktion; ebenso nichtlineare Kapazität.
 - Gegenüberstellung Großsignal- und Kleinsignal-Ersatzschaltbild: dieselbe Anordnung in zwei Teilbildern (§10), Bauteile paarweise farbig gekoppelt; Gleichspannungsquelle wird zum Kurzschluss, Gleichstromquelle zur Unterbrechung, wahlweise als Animation (§8).
-Gebraucht in: st1/netzwerkanalyse/01-ersatzschaltbilder; st1/netzwerkanalyse/05-ersatzschaltbild-y, 05-rueckwirkung-cgd, 05-parallelschaltung, 05-bipolar-re, 05-signalkette; absehbar alle Kleinsignal-Ersatzschaltbilder von Diode, Bipolartransistor und MOSFET, modifizierte Knotenanalyse.
+Gebraucht in: st1/netzwerkanalyse/01-ersatzschaltbilder; st1/netzwerkanalyse/05-ersatzschaltbild-y, 05-rueckwirkung-cgd, 05-parallelschaltung, 05-bipolar-re, 05-signalkette; absehbar alle Kleinsignal-Ersatzschaltbilder von Diode, Bipolartransistor und MOSFET, modifizierte Knotenanalyse; Großsignal-Ersatzschaltbild des MOSFET (st1/mos-feldeffekttransistoren/02-ersatzschaltbild).
 
 ## 29. Iterationsdarstellungen  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
 - Folge von Tangenten an eine Funktion: Nullstelle jeder Tangente auf der Achse markiert, senkrechte Hilfslinie zurück zur Kurve, nummerierte Schätzwerte $U^{(0)}, U^{(1)}, \ldots$; schrittweise einblendbar (§8).
@@ -292,7 +292,16 @@ Gebraucht in: st1/netzwerkanalyse/05-uebersicht, 05-tor-und-vierpol, 05-kurzschl
 - pn-Übergänge als Diodensymbole im Querschnitt, je nach Spannung als gesperrt oder leitend eingefärbt.
 - Schaltzeichenvarianten des MOSFET als Tabelle: bipolarähnlich (Pfeil an der Source), Digitaltechnik (Kreis am Gate), DIN (unterbrochene Kanallinie, Bulkpfeil), selbstleitend (durchgezogene Kanallinie), jeweils mit Zählpfeilen (§24, §2).
 - Spannungsbilanz als Treppendiagramm: Balken, die von einem Startwert aus nach oben oder unten addieren, mit Wert und Bedeutung je Balken und einem Ergebnisbalken.
-Gebraucht in: st1/mos-feldeffekttransistoren/01-querschnitt, 01-cmos-wanne, 01-schaltzeichen, 01-mos-zustaende, 01-schwellenspannung, 01-betriebsbereiche, 01-abschnuerung; absehbar Kennlinien und Kanallängenmodulation, Substrateffekt, Latch-Up, parasitäre Kapazitäten, Stromspiegel.
+Gebraucht in: st1/mos-feldeffekttransistoren/01-querschnitt, 01-cmos-wanne, 01-schaltzeichen, 01-mos-zustaende, 01-schwellenspannung, 01-betriebsbereiche, 01-abschnuerung; absehbar Kennlinien und Kanallängenmodulation, Substrateffekt, Latch-Up, parasitäre Kapazitäten, Stromspiegel; st1/mos-feldeffekttransistoren/02-kanal-geschwindigkeit, 02-kanallaengenmodulation.
+
+## 37. Kennlinienfelder: Bereichsgrenzen, Fortsetzungen, Extrapolation und transformierte Achsen  — **P2** (neu 2026-10-23, Schaltungstechnik MOSFET)
+- Grenzkurve, die durch die Übergangspunkte einer Kennlinienschar läuft (gestrichelt), und Bereiche, die entlang dieser Kurve statt entlang einer senkrechten Linie hinterlegt werden (§4).
+- Gültigkeitsbereich einer Formel: Kurve bis zu einem Punkt durchgezogen, ihre Fortsetzung gestrichelt, blass und auf Wunsch rot durchgestrichen; daneben der wirkliche Verlauf.
+- Gerade Kurvenstücke nach links verlängern bis zu einem gemeinsamen Schnittpunkt außerhalb des gezeigten Bereichs, mit Achsenbruch (§17) und Beschriftung des Schnittpunkts; Steigung je Kurve als Beschriftung.
+- Steigungsdreieck mit Beschriftung, auch auf logarithmischer Achse („eine Dekade je 83 mV“, §12).
+- Transformierte y-Achse: Wurzel oder Logarithmus der Größe, sodass eine Parabel bzw. Exponentialfunktion zur Geraden wird; Achsenschnittpunkt markiert.
+- Gekoppelte Punkte in zwei Diagrammen (Ausgangs- und Übertragungskennlinie): Ein Punkt im einen Diagramm wandert mit dem im anderen (§10, §15).
+Gebraucht in: st1/mos-feldeffekttransistoren/02-kennlinienfeld, 02-flaeche-uebersteuerung, 02-triode-parabel, 02-schwellenbestimmung, 02-kanallaengenmodulation, 02-arbeitspunkt, 02-unterschwelle; absehbar Kennlinien des Bipolartransistors und der Diode, Substrateffekt, PMOS-Kennlinien, Transistorgrundschaltungen.
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

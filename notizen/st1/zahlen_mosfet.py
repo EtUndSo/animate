@@ -1,5 +1,6 @@
 """Zahlenwerk für Schaltungstechnik, MOS-Feldeffekttransistoren (Stil 3). Thema 1: Aufbau und Funktionsweise des
-MOSFET. Spätere Themen des Kapitels ergänzen dieses Skript.
+MOSFET (Abschnitte A bis K); Thema 2: Kennlinien des NMOS-Transistors (Abschnitte L bis Q). Spätere Themen des
+Kapitels ergänzen dieses Skript.
 
 Eigenes Beispielsystem (keine Aufgabe aus Skript oder Übung), das Beispiel-Transistorpaar des ganzen Kapitels:
 - Silizium bei T = 300 K mit den Konstanten des ET1-Zahlenwerks (notizen/get1/zahlen_halbleiter.py): U_T = 25,85 mV,
@@ -478,3 +479,249 @@ P(f"phi_MS,p = +(U_T ln(N_V/n_i) + phi_F,n) = {phi_MS_p(ND)*1e3:.2f} mV; |Q'_dep
   f"x_d,max = {xd_max(ND)*1e7:.2f} nm")
 P(f"U_th0,p = phi_MS - 2 phi_F,n - |Q'_dep|/C'_ox = {Uth0_p(ND):.4f} V")
 P(f"gamma_p = {math.sqrt(2*q*eps_si*ND)/Cox:.4f} sqrt(V)")
+
+
+# ====================================================================================================================
+# Thema 2: Kennlinien des NMOS-Transistors (Abschnitte L bis P)
+# ====================================================================================================================
+
+
+def id_l1(UGS, UDS, lam=0.0, K=Kn, Uth=Uth_n):
+    """Level-1-Modell (Shichman-Hodges) des NMOS mit Source als Bezug, U_DS >= 0."""
+    uov = UGS - Uth
+    if uov <= 0:
+        return 0.0
+    if UDS < uov:
+        return K * (uov * UDS - UDS ** 2 / 2) * (1 + lam * UDS)
+    return K / 2 * uov ** 2 * (1 + lam * UDS)
+
+
+kopf("L. Triodengleichung, Abschnürung und Quadratgesetz (Beispiel-NMOS, K_n = 2 mA/V^2, U_th = 0,5 V)")
+P("Ohmscher Bereich bei U_GS = 1 V (Übersteuerung 0,5 V):")
+for UDS in (0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5):
+    i = id_l1(1.0, UDS)
+    ilin = Kn * 0.5 * UDS
+    P(f"  U_DS = {UDS:.2f} V: I_D = {i*1e3:.4f} mA; lineare Näherung U_DS/R_on = {ilin*1e3:.4f} mA; Verhältnis "
+      f"{i/ilin:.3f} (= 1 - U_DS/(2 U_ov))")
+P("Gleiche Rechnung bei U_GS = 0,75 V (Übersteuerung 0,25 V): Verhältnis bei 20 mV "
+  f"{id_l1(0.75, 0.02)/(Kn*0.25*0.02):.3f}, bei 50 mV {id_l1(0.75, 0.05)/(Kn*0.25*0.05):.3f}")
+P("Triodenformel über ihr Maximum hinaus fortgesetzt (nur zur Warnung, physikalisch falsch):")
+for UDS in (0.5, 0.75, 1.0):
+    P(f"  U_DS = {UDS:.2f} V: K_n (U_ov U_DS - U_DS^2/2) = {Kn*(0.5*UDS-UDS**2/2)*1e3:.4f} mA")
+P("Sättigungsströme I_D = K_n/2 (U_GS - U_th)^2:")
+for UGS in (0.6, 0.75, 1.0, 1.25, 1.5, 2.0, 2.5):
+    P(f"  U_GS = {UGS:.2f} V: Übersteuerung {UGS-Uth_n:.2f} V, I_D = {Kn/2*(UGS-Uth_n)**2*1e3:.4f} mA, Abschnürgrenze "
+      f"{UGS-Uth_n:.2f} V")
+P(f"Doppelte Gatespannung 1 V -> 2 V: Faktor {id_l1(2.0, 3.0)/id_l1(1.0, 3.0):.2f}; doppelte Übersteuerung "
+  f"(1 V -> 1,5 V): Faktor {id_l1(1.5, 3.0)/id_l1(1.0, 3.0):.2f}")
+P("Grenzkurve I_D = K_n/2 U_DS^2:")
+for UDS in (0.25, 0.5, 0.75, 1.0, 1.5, 2.0):
+    P(f"  U_DS = {UDS:.2f} V: {Kn/2*UDS**2*1e3:.4f} mA")
+P(f"Kontrolle Abschnürgrenze ist Maximum der Triodenparabel: dI/dU_DS = K_n (U_ov - U_DS) = 0 bei U_DS = U_ov")
+P(f"MOS-Diode (Gate an Drain): U = 1 V -> I = {id_l1(1.0, 1.0)*1e3:.4f} mA = k (U - U_th)^2 mit k = K_n/2 = "
+  f"{Kn/2*1e3:.1f} mA/V^2 (Arbeitspunkt der Netzwerkanalyse 1,000 V / 0,2500 mA)")
+
+kopf("M. Kanalpotential, Feld und Geschwindigkeit längs des Kanals")
+for UGS_, UDS_ in ((1.0, 0.1), (1.0, 0.3), (1.0, 0.45)):
+    uov = UGS_ - Uth_n
+    I = id_l1(UGS_, UDS_)
+    a_ = 2 * uov * UDS_ - UDS_ ** 2
+    P(f"U_GS = {UGS_} V, U_DS = {UDS_} V: I_D = {I*1e3:.4f} mA")
+    for xr in (0.0, 0.25, 0.5, 0.75, 1.0):
+        U = uov - math.sqrt(uov ** 2 - xr * a_)
+        dUdx = a_ / (2 * Ln * math.sqrt(uov ** 2 - xr * a_))       # V/cm
+        Qlen = Cox * (uov - U) * Wn                                   # C/cm
+        v = mu_n * dUdx                                               # cm/s
+        P(f"  x/L = {xr:.2f}: U = {U*1e3:7.2f} mV, Ladung {(uov-U)/uov*100:5.1f} %, Feld {dUdx/1e3:6.3f} kV/cm, "
+          f"v = {v:.3e} cm/s, Kontrolle I = W mu |Q'| E = {mu_n*Qlen*dUdx*1e3:.4f} mA")
+    # Laufzeit: Integral dx/v
+    xs = np.linspace(0, 1, 20001)
+    vv = mu_n * a_ / (2 * Ln * np.sqrt(uov ** 2 - xs * a_))
+    t_ = float(np.sum((1 / vv[1:] + 1 / vv[:-1]) / 2 * np.diff(xs) * Ln))
+    P(f"  Laufzeit Source -> Drain = {t_*1e12:.1f} ps")
+tau_sat = 4 / 3 * Ln ** 2 / (mu_n * 0.5)
+P(f"Laufzeit an der Abschnürgrenze (U_GS = 1 V) 4/3 L^2/(mu U_ov) = {tau_sat*1e12:.0f} ps")
+v_src = mu_n * 0.5 / (2 * Ln)
+P(f"Geschwindigkeit an der Source an der Abschnürgrenze: mu U_ov/(2L) = {v_src:.3e} cm/s (Sättigungsgeschw. 1e7 cm/s)")
+
+kopf("N. Kanallängenmodulation (lambda = 0,1 1/V) und Early-Spannung")
+lam = lam_n
+for UDS in (0.5, 1.0, 1.5, 2.0, 2.5):
+    P(f"U_GS = 1 V, U_DS = {UDS:.1f} V: ohne KLM {id_l1(1.0, UDS)*1e3:.4f} mA, mit KLM {id_l1(1.0, UDS, lam)*1e3:.4f} mA")
+P(f"Steigung im Abschnürbereich lambda K_n/2 U_ov^2 = {lam*Kn/2*0.25*1e6:.1f} µA/V; Early-Spannung -1/lambda = "
+  f"{-1/lam:.1f} V; |U_Early| des ET1-Bipolartransistors 70 V")
+for UGS in (0.75, 1.0, 1.25, 1.5):
+    P(f"  U_GS = {UGS:.2f} V: Steigung {lam*Kn/2*(UGS-Uth_n)**2*1e6:.2f} µA/V, I_D(2,5 V) = {id_l1(UGS, 2.5, lam)*1e3:.4f} mA")
+# eindimensionale Abschätzung aus der Verkürzung des Kanals
+for UDS in (1.0, 2.0, 2.5):
+    dL = math.sqrt(2 * eps_si * (UDS - 0.5) / (q * NA))
+    P(f"  1D-Abschätzung U_DS = {UDS:.1f} V: Delta L = {dL*1e7:.1f} nm, Faktor L/(L - Delta L) = {Ln/(Ln-dL):.4f}")
+dL1 = math.sqrt(2 * eps_si * 0.5 / (q * NA))
+dL2 = math.sqrt(2 * eps_si * 1.5 / (q * NA))
+lam_1d = (Ln / (Ln - dL2) - Ln / (Ln - dL1)) / 1.0     # Anstieg je Volt, bezogen auf den Strom des Quadratgesetzes
+P(f"  daraus lambda_1D zwischen 1 und 2 V = {lam_1d:.4f} 1/V (Modell 0,1 1/V, Faktor {0.1/lam_1d:.1f})")
+P(f"Stetigkeit an der Abschnürgrenze mit KLM: Triode {id_l1(1.0, 0.4999999, lam)*1e3:.5f}, Sättigung "
+  f"{id_l1(1.0, 0.5, lam)*1e3:.5f} mA")
+
+kopf("O. Strom unterhalb der Schwelle (Diffusion, aus der vollständigen Rechnung)")
+
+
+def Qinv_stabil(psi):
+    b = psi / UT
+    Fb2 = math.exp(-b) + b - 1
+    ee = (np0 / pp0) * (math.exp(b) - b - 1)
+    sA = math.sqrt(2 * eps_si * kB * T * pp0)
+    return sA * ee / (math.sqrt(Fb2 + ee) + math.sqrt(Fb2))      # C/cm^2, Betrag
+
+
+def id_unter(UGS, UDS=1.0):
+    ps = psi_von_UGB(UGS)
+    return mu_n * (Wn / Ln) * UT * Qinv_stabil(ps) * (1 - math.exp(-UDS / UT))
+
+
+werte = {}
+for UGS in (0.0, 0.1, 0.2, 0.3, 0.4, 0.45):
+    werte[UGS] = id_unter(UGS)
+    ps = psi_von_UGB(UGS)
+    P(f"U_GS = {UGS:.2f} V: psi_s = {ps*1e3:.1f} mV, |Q_inv| = {Qinv_stabil(ps):.3e} C/cm^2, I_D = {werte[UGS]:.3e} A")
+S_ = 0.2 / math.log10(werte[0.4] / werte[0.2])
+ps3 = psi_von_UGB(0.3)
+Cdep3 = math.sqrt(q * eps_si * NA / (2 * ps3))
+n_ = 1 + Cdep3 / Cox
+P(f"Unterschwellensteigung zwischen 0,2 und 0,4 V: S = {S_*1e3:.1f} mV/Dekade; n = 1 + C'_dep/C'_ox bei 0,3 V = {n_:.3f}, "
+  f"n U_T ln 10 = {n_*UT*math.log(10)*1e3:.1f} mV/Dekade; ideale Grenze U_T ln 10 = {UT*math.log(10)*1e3:.1f} mV")
+P(f"Ein-Aus-Verhältnis: I_D(U_GS = 2,5 V, Sättigung) / I_D(U_GS = 0) = {id_l1(2.5, 2.5)/werte[0.0]:.2e}")
+P(f"Strom bei U_GS = 0 in einem Chip mit 1e9 solchen Transistoren: {werte[0.0]*1e9*1e3:.3f} mA")
+
+kopf("P. SPICE-Parameter des Beispiel-NMOS (Level 1)")
+P(f".model NMOS_BSP NMOS (LEVEL=1 VTO=0.5 KP=200u LAMBDA=0.1 TOX=5n GAMMA={gam_n:.2f} PHI={2*pF:.2f}); "
+  f"UO = {mu_n:.0f} cm^2/(V s) wäre gleichwertig zu KP")
+
+
+kopf("Q. Ergänzungen zu Thema 2: Fläche, Steigung, Arbeitspunkt, negative U_DS, Schwelle, Kurzkanal, lambda")
+# Triodengleichung als Fläche unter der Übersteuerung über dem Kanalpotential
+uov = 0.5
+for UDS in (0.3, 0.5):
+    flaeche = uov * UDS - UDS ** 2 / 2
+    P(f"Fläche unter U_ov - U von 0 bis U_DS = {UDS} V: {flaeche:.4f} V^2; K_n * Fläche = {Kn*flaeche*1e3:.4f} mA")
+streifen = [uov - (k + 0.5) * 0.1 for k in range(3)]
+P(f"Drei Streifen à 0,1 V bei U_DS = 0,3 V, Höhen in der Streifenmitte {', '.join(f'{s:.2f}' for s in streifen)} V, "
+  f"Summe 0,1 V * ({' + '.join(f'{s:.2f}' for s in streifen)}) = {0.1*sum(streifen):.4f} V^2")
+P(f"Mittlere Übersteuerung (Source 0,5 V, Drain-Ende 0,2 V): {(0.5+0.2)/2:.2f} V; I = K_n * 0,35 V * 0,3 V = "
+  f"{Kn*0.35*0.3*1e3:.4f} mA; R_on bei 0,35 V Übersteuerung = {1/(Kn*0.35):.1f} Ohm")
+# örtlicher Mittelwert der Ladung (zum Vergleich mit dem Mittel über das Potential)
+Ud = uov - 0.3
+m_ort = 2 * (uov ** 2 + uov * Ud + Ud ** 2) / (3 * (uov + Ud))
+P(f"Örtlicher Mittelwert der Ladung bei 1 V/0,3 V: {m_ort/uov*100:.1f} % der Source-Ladung (Mittel über das Potential "
+  f"{(uov+Ud)/2/uov*100:.1f} %)")
+# Steigung der Ausgangskennlinie im ohmschen Bereich = Leitwert mit der Drain-End-Ladung
+for UDS in (0.0, 0.1, 0.3, 0.5):
+    P(f"  dI_D/dU_DS bei U_GS = 1 V, U_DS = {UDS:.1f} V: K_n (U_ov - U_DS) = {Kn*(uov-UDS)*1e3:.2f} mS")
+# negative U_DS (Rollen von Source und Drain vertauscht), Triodengleichung gilt weiter
+for UDS in (-0.1, 0.1, -0.02, 0.02):
+    P(f"  Triodengleichung U_GS = 1 V, U_DS = {UDS:+.2f} V: I_D = {Kn*(uov*UDS-UDS**2/2)*1e3:+.4f} mA")
+# Schwellenbestimmung
+for U0 in (1.0, 1.5):
+    I0 = Kn / 2 * (U0 - Uth_n) ** 2
+    s = Kn * (U0 - Uth_n)
+    P(f"Tangente an die Übertragungskennlinie bei {U0} V: Steigung {s*1e3:.2f} mS, Achsenschnitt bei "
+      f"{U0 - I0/s:.3f} V (= (U0 + U_th)/2); sqrt(I_D) = {math.sqrt(I0*1e3):.4f} sqrt(mA)")
+P(f"sqrt-Gerade: Steigung sqrt(K_n/2) = {math.sqrt(Kn/2*1e3):.3f} sqrt(mA)/V; aus (1 V; 0,25 mA) und (1,5 V; 1 mA): "
+  f"U_th = 1 - 0,5/1 = {1 - 0.5/((1.0-0.5)/0.5):.3f} V")
+# Ausgangswiderstand im Abschnürbereich
+P(f"Kehrwert der Steigung lambda * K_n/2 * U_ov^2 bei U_GS = 1 V: {1/(lam_n*Kn/2*0.25)/1e3:.1f} kOhm")
+# lambda aus Lehrbuchwerten und 1D-Abschätzung bei kürzerem Kanal
+for VAs, txt in ((5.0, "Prozesse mit 4-6 nm Oxid (Lehrbuch, NMOS)"), (10.0, "Beispielmodell")):
+    P(f"  |U_Early| pro Kanallänge {VAs:.0f} V/µm ({txt}): bei L = 1 µm |U_Early| = {VAs:.0f} V, lambda = {1/VAs:.2f} 1/V")
+for Lk in (1e-4, 0.5e-4, 0.25e-4):
+    d1 = math.sqrt(2 * eps_si * 0.5 / (q * NA))
+    d2 = math.sqrt(2 * eps_si * 1.5 / (q * NA))
+    l1 = (Lk / (Lk - d2) - Lk / (Lk - d1))
+    P(f"  1D-lambda zwischen 1 und 2 V bei L = {Lk*1e4:.2f} µm: {l1:.4f} 1/V")
+# Geschwindigkeitssättigung
+vsat = 1e7
+Ekrit = vsat / mu_n
+P(f"Kritisches Feld v_sat/mu_n = {Ekrit/1e3:.1f} kV/cm")
+for Lk in (1e-4, 0.25e-4, 0.1e-4):
+    P(f"  L = {Lk*1e4:.2f} µm, U_ov = 0,5 V: mittleres Feld U_ov/L = {0.5/Lk/1e3:.1f} kV/cm, Geschwindigkeit an der "
+      f"Source mu U_ov/(2L) = {mu_n*0.5/(2*Lk):.2e} cm/s ({mu_n*0.5/(2*Lk)/vsat*100:.0f} % von v_sat)")
+P(f"Grenzstrom bei voller Geschwindigkeitssättigung W C'_ox v_sat U_ov (W = 10 µm, U_ov = 0,5 V): "
+  f"{Wn*Cox*vsat*0.5*1e3:.2f} mA, linear in U_ov")
+# Arbeitspunkt mit Lastwiderstand
+UB, RD = 2.5, 4e3
+
+
+def ap(UGS, lam):
+    lo, hi = 0.0, UB
+    for _ in range(200):
+        m = (lo + hi) / 2
+        if id_l1(UGS, m, lam) - (UB - m) / RD > 0:
+            hi = m
+        else:
+            lo = m
+    return m, id_l1(UGS, m, lam)
+
+
+for UGS in (1.0, 1.5):
+    for lam in (0.0, lam_n):
+        U, I = ap(UGS, lam)
+        ber = "Abschnürbereich" if U >= UGS - Uth_n else "ohmscher Bereich"
+        P(f"Arbeitspunkt U_B = 2,5 V, R_D = 4 kOhm, U_GS = {UGS} V, lambda = {lam}: U_DS = {U:.4f} V, I_D = {I*1e3:.4f} mA "
+          f"({ber}, Grenze {UGS-Uth_n:.2f} V)")
+U_ann = UB - RD * Kn / 2 * 1.0 ** 2
+P(f"  Annahme Abschnürbereich bei U_GS = 1,5 V ohne lambda: U_DS = 2,5 V - 4 kOhm * 1 mA = {U_ann:.2f} V -> Widerspruch")
+U_ann2 = (UB - RD * Kn / 2 * 1.0) / (1 + RD * Kn / 2 * 1.0 * lam_n)
+P(f"  Annahme Abschnürbereich bei U_GS = 1,5 V mit lambda: U_DS = (2,5 - 4) / (1 + 0,4) = {U_ann2:.3f} V -> Widerspruch")
+P(f"  Annahme Abschnürbereich bei U_GS = 1 V mit lambda: U_DS = (2,5 - 1) / (1 + 0,1) = {(UB-RD*Kn/2*0.25)/(1+RD*Kn/2*0.25*lam_n):.4f} V")
+# Unterschwelle: C'_dep und Verschiebung der Schwelle
+Cdep3_ = math.sqrt(q * eps_si * NA / (2 * psi_von_UGB(0.3)))
+P(f"C'_dep bei U_GS = 0,3 V: {Cdep3_*1e7:.3f} fF/µm^2 (C'_ox {Cox*1e15/1e8:.3f} fF/µm^2), n = {1+Cdep3_/Cox:.3f}")
+P(f"Leckstrom-Faktor bei 0,25 V kleinerer Schwelle und S = 82,8 mV/Dekade: 10^(0,25/0,0828) = {10**(0.25/0.0828):.0f}")
+P(f"Exponent-Probe: I(0,4 V)/I(0,3 V) = {werte[0.4]/werte[0.3]:.2f}, 10^(0,1/0,0828) = {10**(0.1/0.0828):.2f}")
+# Vergleich mit einem Kupferdraht und Zahl der Elektronen im Kanal
+n_cu = 8.5e22                  # freie Elektronen pro cm^3 in Kupfer
+v_cu = 1.0 / (n_cu * q * 1e-2)  # 1 A durch 1 mm^2 = 1e-2 cm^2, in cm/s
+P(f"Kupferdraht 1 A/mm^2: v = {v_cu:.3e} cm/s = {v_cu*10:.3f} mm/s; Verhältnis Kanal/Kupfer {6.08e5/v_cu:.2e} bis "
+  f"{1.52e6/v_cu:.2e}")
+N_klein = Cox * 0.5 * Wn * Ln / q
+N_03 = m_ort / uov * N_klein
+P(f"Elektronen im Kanal bei U_GS = 1 V: {N_klein:.3e} bei kleiner U_DS, {N_03:.3e} bei U_DS = 0,3 V "
+  f"(Laufzeit Ladung/Strom = {N_03*q/2.1e-4*1e12:.1f} ps)")
+# Unterschwelle: Elektronen bei U_GS = 0, Drain-Ende, Temperatur; Widerstand im Arbeitspunkt (b)
+N0 = Qinv_stabil(psi_von_UGB(0.0)) / q
+P(f"Elektronen bei U_GS = 0: {N0:.3e} pro cm^2, im ganzen Kanal (W L = 1e-7 cm^2) im Mittel {N0*Wn*Ln:.4f}; "
+  f"Strom 0,56 pA = {werte[0.0]/q:.2e} Elektronen pro Sekunde")
+P(f"Dichte am Drain-Ende relativ zur Source bei U_DS = 0,1 V: exp(-0,1/U_T) = {math.exp(-0.1/UT):.4f}")
+P(f"Temperaturfaktor von S zwischen 300 K und 373,15 K: {373.15/300:.4f}")
+Ub_, Ib_ = ap(1.5, lam_n)
+P(f"Arbeitspunkt (b) mit lambda: U_DS/I_D = {Ub_/Ib_:.0f} Ohm; R_on bei 1,5 V = {1/(Kn*1.0):.0f} Ohm; "
+  f"Arbeitsgerade I(0) = U_B/R_D = {UB/RD*1e3:.3f} mA")
+
+
+kopf("R. Nachträge aus der Faktenprüfung (Thema 2)")
+# Diffusionsanteil im treibenden Feld (Ladungsmodell linear): U_T / (U_ov - U)
+for U_, ort in ((0.0, "Source"), (0.3, "Drain-Ende")):
+    anteil = UT / (0.5 - U_)
+    E_treib = 0.21e-3 / (mu_n * Wn * Cox * (0.5 - U_))
+    P(f"1 V/0,3 V, {ort}: Diffusionsanteil U_T/(U_ov - U) = {anteil*100:.1f} %, treibendes Feld {E_treib/1e3:.3f} kV/cm, "
+      f"elektrostatisches Feld {E_treib*(1-anteil)/1e3:.3f} kV/cm")
+# Geschwindigkeitssättigung am Drain-Ende (5,25 kV/cm) nach zwei verbreiteten Modellen
+E_d = 0.21e-3 / (mu_n * Wn * Cox * 0.2)
+r = E_d / Ekrit
+P(f"E_Drain/E_krit = {r:.3f}: v/(mu E) = {1/math.sqrt(1+r**2):.4f} (Wurzelmodell), {1/(1+r):.4f} (Modell 1/(1+E/E_krit))")
+# Verteilung eines zusätzlichen Millivolts am Drain über den Kanal (1 V/0,3 V)
+for xr in (0.5, 0.75, 1.0):
+    U_ = 0.5 - math.sqrt((1 - xr) * 0.25 + xr * 0.04)
+    P(f"  dU(x)/dU_DS bei x/L = {xr}: {xr * 0.2 / (0.5 - U_):.3f}")
+# Schwellenbestimmung im ohmschen Bereich: Achsenschnitt bei U_th + U_DS/2
+for UDS_ in (0.05, 0.1):
+    P(f"Ohmscher Bereich, U_DS = {UDS_} V: Gerade I_D(U_GS) schneidet die Achse bei {Uth_n + UDS_/2:.3f} V")
+# Einschaltstrom mit lambda und Ein-Aus-Verhältnis; Abbildung Unterschwelle bei U_DS = 1 V mit lambda
+I_ein = id_l1(2.5, 2.5, lam_n)
+P(f"Einschaltstrom U_GS = U_DS = 2,5 V mit lambda: {I_ein*1e3:.3f} mA; Ein-Aus-Verhältnis {I_ein/werte[0.0]:.3e}")
+P(f"Unterschwellenabbildung, U_DS = 1 V, mit lambda: {id_l1(1.0, 1.0, lam_n)*1e3:.4f} mA bei 1 V, "
+  f"{id_l1(1.5, 1.0, lam_n)*1e3:.4f} mA bei 1,5 V")
+# negative U_DS mit Substrateffekt (nur zur Kontrolle der Aussage „vernachlässigt“)
+dUth = gam_n * (math.sqrt(2 * pF - 0.1) - math.sqrt(2 * pF))
+I_neg = Kn * ((1.1 - (Uth_n + dUth)) * 0.1 - 0.1 ** 2 / 2)
+P(f"U_DS = -0,1 V mit Substrateffekt: Schwelle der neuen Source {Uth_n + dUth:.4f} V, I_D = {-I_neg*1e3:.4f} mA")

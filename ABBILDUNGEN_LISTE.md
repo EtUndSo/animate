@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §36);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §37);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -3124,3 +3124,148 @@ Feldpfeile (grün) im Oxid vom Gate zur Gegenladung bzw. umgekehrt.
 - §11; §22 Ausschnittvergrößerung; §10.
 
 *Animation:* Schieberegler $U_{DS}$ von 0,5 bis 2,5 V: Die Zone wächst von 0 auf 68 nm, das Potential am Abschnürpunkt bleibt bei 0,5 V.
+
+## ST1 MOS-Feldeffekttransistoren: Kennlinien des NMOS-Transistors
+Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte L bis Q; Beispiel-NMOS aus Thema 1 ($K_n$ = 2 mA/V², $U_{th}$ = 0,5 V, $W$ = 10 µm, $L$ = 1 µm, λ = 0,1 1/V). Kennlinien mit dem Modell der Abschnitte L und N (Funktion id_l1); Bereiche: Sperrbereich grau, ohmscher Bereich hellblau, Abschnürbereich hellorange; Grenzparabel gestrichelt; Elektronen blau.
+
+**st1/mos-feldeffekttransistoren/02-kennlinienfeld**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Ausgangskennlinienfeld ohne Kanallängenmodulation: $I_D$ in mA über $U_{DS}$ von 0 bis 2,5 V für $U_{GS}$ = 0,75 / 1 / 1,25 / 1,5 V; Sättigungsströme 0,0625 / 0,25 / 0,5625 / 1 mA, erreicht bei 0,25 / 0,5 / 0,75 / 1 V; die Grenzparabel $I_D = K_n U_{DS}^2/2$ gestrichelt durch die Übergangspunkte, an denen die Kurven waagerecht werden; links davon der ohmsche Bereich (hellblau), rechts der Abschnürbereich (hellorange); Beschriftung jeder Kurve mit $U_{GS}$.
+- (b) Übertragungskennlinie im Abschnürbereich: $I_D$ über $U_{GS}$ von 0 bis 1,5 V, null bis 0,5 V, dann die Parabel bis 1 mA; markiert 0,25 mA bei 1 V.
+
+*Kernaussage:* Jede Kennlinie steigt im ohmschen Bereich bis zur Grenzparabel an und bleibt dann waagerecht; der Sättigungsstrom wächst quadratisch mit der Gate-Übersteuerung.
+
+*Daten:* Zahlenwerk L (id_l1, Grenzkurve).
+
+*Editor:*
+- §4 Kennlinienscharen, Bereiche hinterlegen; §11 Datenkurven; §37 Grenzkurve durch die Knickpunkte, Bereiche entlang einer Kurve;
+- §10 Teilbilder; §15 Schieberegler; §37 gekoppelte Punkte in zwei Diagrammen.
+
+*Animation:* Schieberegler $U_{GS}$: eine hervorgehobene Kennlinie wandert, ihr Übergangspunkt läuft auf der Grenzparabel, der Punkt in (b) läuft mit.
+
+**st1/mos-feldeffekttransistoren/02-kanal-geschwindigkeit**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Drei gestapelte Diagramme über $x/L$ von 0 bis 1 für $U_{GS}$ = 1 V und $U_{DS}$ = 0,3 V ($I_D$ = 0,21 mA): (a) Kanalpotential $U(x)$ in mV: 0 / 56 / 119 / 196 / 300 bei $x/L$ = 0 / 0,25 / 0,5 / 0,75 / 1, nach rechts immer steiler; (b) Elektronenladung in Prozent des Werts an der Source: 100 / 89 / 76 / 61 / 40; (c) mittlere Geschwindigkeit der Elektronen in 10⁵ cm/s: 6,1 / 6,8 / 8,0 / 10,0 / 15,2. Darüber als Band der Kanal, dessen Dicke der Ladung folgt, mit Elektronen als Punkte, die nach rechts dichter laufen. Beschriftung „Strom überall 0,21 mA“.
+
+*Kernaussage:* Wo der Kanal dünner ist, laufen die Elektronen schneller; das Produkt aus Ladung und Geschwindigkeit, der Strom, ist überall gleich.
+
+*Daten:* Zahlenwerk M (Profil, Feld, Geschwindigkeit).
+
+*Editor:*
+- §13 gestapelte Diagramme; §11; §36 Kanalband mit veränderlicher Dicke;
+- §14 Teilchen (bewegte Punkte).
+
+*Animation:* Elektronen laufen als Punkte durch den Kanal, mit der berechneten Geschwindigkeit; Schieberegler $U_{DS}$ von 0 bis 0,5 V.
+
+**st1/mos-feldeffekttransistoren/02-flaeche-uebersteuerung**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder nebeneinander, jeweils für $U_{GS}$ = 1 V: x-Achse Kanalpotential $U$ von 0 bis 0,8 V, y-Achse örtliche Übersteuerung $U_{GS} - U_{th} - U$ in V (proportional zur Elektronenladung pro Fläche, $|Q'_n|/C'_\mathrm{ox}$), eine fallende Gerade von 0,5 V bei $U$ = 0 auf null bei $U$ = 0,5 V, rechts davon gestrichelt und grau ins Negative fortgesetzt mit dem Vermerk „keine Elektronen“. (a) $U_{DS}$ = 0,3 V: Fläche von 0 bis 0,3 V hellblau, in drei Streifen von je 0,1 V mit den Höhen 0,45 / 0,35 / 0,25 V in der Streifenmitte; Fläche 0,105 V², $I_D = K_n \cdot$ Fläche = 0,21 mA. (b) $U_{DS}$ = 0,5 V: das volle Dreieck, 0,125 V², 0,25 mA. (c) $U_{DS}$ = 0,75 V: dasselbe Dreieck; zwischen 0,5 und 0,75 V keine Fläche, weil dort kein Kanal ist (Abschnürzone), Strom weiter 0,25 mA.
+
+*Kernaussage:* Der Drainstrom ist $K_n$ mal der Fläche unter der Übersteuerung über dem Kanalpotential; diese Fläche wächst nur, bis die Übersteuerung am Drain-Ende null wird, und bleibt danach gleich.
+
+*Daten:* Zahlenwerk Q (Fläche, Streifen) und L.
+
+*Editor:*
+- §4 Fläche unter einer Kurve schraffieren, Gerade mit gestrichelter Fortsetzung; §10 Teilbilder;
+- §15 Schieberegler; §37 ungültige Fortsetzung.
+
+*Animation:* Schieberegler $U_{DS}$ von 0 bis 1 V: Die Fläche wächst als Trapez, wird zum Dreieck und wächst dann nicht mehr; daneben ein Zeiger auf der Ausgangskennlinie, der mitläuft.
+
+**st1/mos-feldeffekttransistoren/02-triode-parabel**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* $I_D$ in mA über $U_{DS}$ von 0 bis 1,2 V bei $U_{GS}$ = 1 V: die Triodenparabel durchgezogen bis zum Maximum 0,25 mA bei 0,5 V; ihre Fortsetzung gestrichelt und rot durchgestrichen bis 0 bei 1 V (0,1875 mA bei 0,75 V); der tatsächliche Verlauf ab 0,5 V waagerecht bei 0,25 mA (ohne Kanallängenmodulation); die Tangente im Ursprung mit 1 mS ($R_\mathrm{on}$ = 1 kΩ), die bei 0,1 V 0,1 mA statt 0,09 mA anzeigt. Senkrechte Marke „Abschnürgrenze 0,5 V“.
+
+*Kernaussage:* Die Triodengleichung erreicht ihr Maximum genau an der Abschnürgrenze; dahinter gilt sie nicht mehr, und der Strom bleibt beim Maximum stehen.
+
+*Daten:* Zahlenwerk L.
+
+*Editor:*
+- §4 Tangente, Markierungen; §11; §37 ungültige Fortsetzung gestrichelt und durchgestrichen.
+
+*Animation:* Ein Punkt läuft mit wachsendem $U_{DS}$ die Kurve entlang; am Maximum verzweigt die gestrichelte Fortsetzung und wird ausgeblendet.
+
+**st1/mos-feldeffekttransistoren/02-schwellenbestimmung**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Zwei gestapelte Diagramme über $U_{GS}$ von 0 bis 1,5 V im Abschnürbereich: (a) $I_D$ in mA, Parabel bis 1 mA, dazu gestrichelt die Tangente bei 1 V (Steigung 1 mS), die die Achse bei 0,75 V statt bei 0,5 V trifft; (b) $\sqrt{I_D}$ in $\sqrt{\mathrm{mA}}$: Gerade mit der Steigung $\sqrt{K_n/2}$ = 1 √(mA)/V, die die Achse bei 0,5 V schneidet.
+
+*Kernaussage:* Die Wurzel des Sättigungsstroms ist eine Gerade, die die Spannungsachse genau bei der Schwellenspannung schneidet; eine Tangente an die Parabel selbst trifft sie nicht.
+
+*Daten:* Zahlenwerk L.
+
+*Editor:*
+- §13; §4 Tangente; §11; §37 Wurzel-Achse.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/02-kanallaengenmodulation**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Ausgangskennlinien mit λ = 0,1 1/V für $U_{GS}$ = 0,75 / 1 / 1,25 / 1,5 V, $U_{DS}$ von 0 bis 2,5 V (bei 2,5 V: 0,078 / 0,3125 / 0,703 / 1,25 mA); die Geraden des Abschnürbereichs gestrichelt nach links verlängert bis zum gemeinsamen Schnittpunkt bei $U_{DS}$ = −10 V (Early-Spannung), mit gebrochener Achse zwischen −10 und 0 V; Steigungen 6,25 / 25 / 56,25 / 100 µA/V an den Kurven. Kleines Einsatzbild: Kanal mit Abschnürpunkt, Verkürzung Δ$L$ = 34 nm bei 1 V und 58 nm bei 2 V.
+
+*Kernaussage:* Weil der Kanal mit wachsender Drainspannung kürzer wird, steigen die Kennlinien im Abschnürbereich leicht an; im Modell treffen sie sich verlängert bei −1/λ.
+
+*Daten:* Zahlenwerk N.
+
+*Editor:*
+- §4 Geraden ins Kennlinienfeld; §17 Achsenbruch; §11; §36 Einsatzbild Kanal; §37 Extrapolation auf den gemeinsamen Schnittpunkt.
+
+*Animation:* Schieberegler λ: Die Steigungen und der Schnittpunkt wandern.
+
+**st1/mos-feldeffekttransistoren/02-arbeitspunkt**
+- Fassung: kompakt Abb. 7, ausführlich Abb. 8 (jeweils im Beispiel zum Großsignalmodell).
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Schaltbild: Versorgungsspannung $U_B$ = 2,5 V, Widerstand $R_D$ = 4 kΩ von $U_B$ zum Drain, NMOS mit Source an Masse und Bulk an Masse, Gate an einer Spannungsquelle $U_{GS}$; Zählpfeile $I_D$ (in den Drain) und $U_{DS}$.
+- (b) $I_D$ in mA (0 bis 0,7) über $U_{DS}$ in V (0 bis 2,5): Ausgangskennlinien mit λ = 0,1 1/V für $U_{GS}$ = 1 V und 1,5 V, die Arbeitsgerade $I_D = (2{,}5\ \mathrm V - U_{DS})/4\ \mathrm{k\Omega}$ von 0,625 mA bei 0 V nach null bei 2,5 V, gestrichelt die Grenzparabel $K_n U_{DS}^2/2 \cdot (1 + \lambda U_{DS})$; Arbeitspunkte A₁ (1,364 V; 0,284 mA) im Abschnürbereich und A₂ (0,314 V; 0,546 mA) im ohmschen Bereich, beschriftet.
+
+*Kernaussage:* Der Arbeitspunkt liegt im Schnitt von Kennlinie und Arbeitsgerade; auf welcher Seite der Grenzparabel er liegt, entscheidet über den Bereich.
+
+*Daten:* Zahlenwerk Q (Arbeitspunkt, Funktion ap) und L/N (id_l1).
+
+*Editor:*
+- §1 Schaltplan; §4 Arbeitsgerade und Schnittpunkte; §10 Teilbilder; §11; §37 Grenzkurve.
+
+*Animation:* Schieberegler $U_{GS}$ von 0,5 bis 2 V: Der Arbeitspunkt wandert auf der Arbeitsgeraden und wechselt beim Überqueren der Grenzparabel den Bereich (Farbwechsel des Punkts).
+
+**st1/mos-feldeffekttransistoren/02-unterschwelle**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* $I_D$ halblogarithmisch von 10⁻¹³ bis 10⁻² A über $U_{GS}$ von 0 bis 1,5 V bei $U_{DS}$ = 1 V: unterhalb der Schwelle eine Gerade (0,56 pA bei 0 V, 8,1 pA bei 0,1 V, 0,12 nA bei 0,2 V, 2,0 nA bei 0,3 V, 32 nA bei 0,4 V; Steigung 83 mV pro Dekade, Steigungsdreieck), oberhalb der Übergang in das Großsignalmodell mit Kanallängenmodulation (0,275 mA bei 1 V, 1,1 mA bei 1,5 V); gestrichelte Vergleichsgerade mit 59,5 mV pro Dekade; senkrechte Marke $U_{th}$ = 0,5 V.
+
+*Kernaussage:* Unterhalb der Schwelle sinkt der Strom nicht auf null, sondern exponentiell um eine Zehnerpotenz je 83 mV.
+
+*Daten:* Zahlenwerk O (Diffusionsstrom aus der vollständigen Rechnung), L und N (Großsignalmodell mit λ, Nachtrag R).
+
+*Editor:*
+- §12 halblogarithmisch; §11; §37 Steigungsdreieck in Dekaden.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/02-ersatzschaltbild**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Links das Schaltzeichen des NMOS mit $U_{GS}$, $U_{DS}$, $U_{BS}$ und $I_D$; rechts das Großsignal-Ersatzschaltbild: Gate offen (kein Strom), zwischen Drain und Source eine gesteuerte Stromquelle $I_D(U_{GS}, U_{DS})$, Bulk getrennt. Darunter die drei Bereichsformeln mit dem Faktor $(1 + \lambda U_{DS})$ als Tabelle.
+
+*Kernaussage:* Für große Signale ist der MOSFET eine Stromquelle zwischen Drain und Source, deren Strom Gate-Source- und Drain-Source-Spannung festlegen, bei stromlosem Gate.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §1, §24 Schaltzeichen; §28 gesteuerte Quelle; §10.
+
+*Animation:* keine.

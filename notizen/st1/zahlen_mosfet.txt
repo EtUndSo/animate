@@ -206,3 +206,164 @@ phi_F,n = U_T ln(N_D/n_i) = 460.47 mV; Fermi-Niveau im p+-Poly U_T ln(N_V/n_i) =
 phi_MS,p = +(U_T ln(N_V/n_i) + phi_F,n) = 1011.40 mV; |Q'_dep|/C'_ox = 590.46 mV; x_d,max = 46.79 nm
 U_th0,p = phi_MS - 2 phi_F,n - |Q'_dep|/C'_ox = -0.5000 V
 gamma_p = 0.6153 sqrt(V)
+
+====================================================================================================
+L. Triodengleichung, Abschnürung und Quadratgesetz (Beispiel-NMOS, K_n = 2 mA/V^2, U_th = 0,5 V)
+====================================================================================================
+Ohmscher Bereich bei U_GS = 1 V (Übersteuerung 0,5 V):
+  U_DS = 0.02 V: I_D = 0.0196 mA; lineare Näherung U_DS/R_on = 0.0200 mA; Verhältnis 0.980 (= 1 - U_DS/(2 U_ov))
+  U_DS = 0.05 V: I_D = 0.0475 mA; lineare Näherung U_DS/R_on = 0.0500 mA; Verhältnis 0.950 (= 1 - U_DS/(2 U_ov))
+  U_DS = 0.10 V: I_D = 0.0900 mA; lineare Näherung U_DS/R_on = 0.1000 mA; Verhältnis 0.900 (= 1 - U_DS/(2 U_ov))
+  U_DS = 0.20 V: I_D = 0.1600 mA; lineare Näherung U_DS/R_on = 0.2000 mA; Verhältnis 0.800 (= 1 - U_DS/(2 U_ov))
+  U_DS = 0.30 V: I_D = 0.2100 mA; lineare Näherung U_DS/R_on = 0.3000 mA; Verhältnis 0.700 (= 1 - U_DS/(2 U_ov))
+  U_DS = 0.40 V: I_D = 0.2400 mA; lineare Näherung U_DS/R_on = 0.4000 mA; Verhältnis 0.600 (= 1 - U_DS/(2 U_ov))
+  U_DS = 0.50 V: I_D = 0.2500 mA; lineare Näherung U_DS/R_on = 0.5000 mA; Verhältnis 0.500 (= 1 - U_DS/(2 U_ov))
+Gleiche Rechnung bei U_GS = 0,75 V (Übersteuerung 0,25 V): Verhältnis bei 20 mV 0.960, bei 50 mV 0.900
+Triodenformel über ihr Maximum hinaus fortgesetzt (nur zur Warnung, physikalisch falsch):
+  U_DS = 0.50 V: K_n (U_ov U_DS - U_DS^2/2) = 0.2500 mA
+  U_DS = 0.75 V: K_n (U_ov U_DS - U_DS^2/2) = 0.1875 mA
+  U_DS = 1.00 V: K_n (U_ov U_DS - U_DS^2/2) = 0.0000 mA
+Sättigungsströme I_D = K_n/2 (U_GS - U_th)^2:
+  U_GS = 0.60 V: Übersteuerung 0.10 V, I_D = 0.0100 mA, Abschnürgrenze 0.10 V
+  U_GS = 0.75 V: Übersteuerung 0.25 V, I_D = 0.0625 mA, Abschnürgrenze 0.25 V
+  U_GS = 1.00 V: Übersteuerung 0.50 V, I_D = 0.2500 mA, Abschnürgrenze 0.50 V
+  U_GS = 1.25 V: Übersteuerung 0.75 V, I_D = 0.5625 mA, Abschnürgrenze 0.75 V
+  U_GS = 1.50 V: Übersteuerung 1.00 V, I_D = 1.0000 mA, Abschnürgrenze 1.00 V
+  U_GS = 2.00 V: Übersteuerung 1.50 V, I_D = 2.2500 mA, Abschnürgrenze 1.50 V
+  U_GS = 2.50 V: Übersteuerung 2.00 V, I_D = 4.0000 mA, Abschnürgrenze 2.00 V
+Doppelte Gatespannung 1 V -> 2 V: Faktor 9.00; doppelte Übersteuerung (1 V -> 1,5 V): Faktor 4.00
+Grenzkurve I_D = K_n/2 U_DS^2:
+  U_DS = 0.25 V: 0.0625 mA
+  U_DS = 0.50 V: 0.2500 mA
+  U_DS = 0.75 V: 0.5625 mA
+  U_DS = 1.00 V: 1.0000 mA
+  U_DS = 1.50 V: 2.2500 mA
+  U_DS = 2.00 V: 4.0000 mA
+Kontrolle Abschnürgrenze ist Maximum der Triodenparabel: dI/dU_DS = K_n (U_ov - U_DS) = 0 bei U_DS = U_ov
+MOS-Diode (Gate an Drain): U = 1 V -> I = 0.2500 mA = k (U - U_th)^2 mit k = K_n/2 = 1.0 mA/V^2 (Arbeitspunkt der Netzwerkanalyse 1,000 V / 0,2500 mA)
+
+====================================================================================================
+M. Kanalpotential, Feld und Geschwindigkeit längs des Kanals
+====================================================================================================
+U_GS = 1.0 V, U_DS = 0.1 V: I_D = 0.0900 mA
+  x/L = 0.00: U =    0.00 mV, Ladung 100.0 %, Feld  0.900 kV/cm, v = 2.606e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.0900 mA
+  x/L = 0.25: U =   23.03 mV, Ladung  95.4 %, Feld  0.943 kV/cm, v = 2.732e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.0900 mA
+  x/L = 0.50: U =   47.23 mV, Ladung  90.6 %, Feld  0.994 kV/cm, v = 2.878e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.0900 mA
+  x/L = 0.75: U =   72.80 mV, Ladung  85.4 %, Feld  1.053 kV/cm, v = 3.050e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.0900 mA
+  x/L = 1.00: U =  100.00 mV, Ladung  80.0 %, Feld  1.125 kV/cm, v = 3.258e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.0900 mA
+  Laufzeit Source -> Drain = 346.7 ps
+U_GS = 1.0 V, U_DS = 0.3 V: I_D = 0.2100 mA
+  x/L = 0.00: U =    0.00 mV, Ladung 100.0 %, Feld  2.100 kV/cm, v = 6.081e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.2100 mA
+  x/L = 0.25: U =   55.59 mV, Ladung  88.9 %, Feld  2.363 kV/cm, v = 6.842e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.2100 mA
+  x/L = 0.50: U =  119.21 mV, Ladung  76.2 %, Feld  2.757 kV/cm, v = 7.985e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.2100 mA
+  x/L = 0.75: U =  195.86 mV, Ladung  60.8 %, Feld  3.452 kV/cm, v = 9.998e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.2100 mA
+  x/L = 1.00: U =  300.00 mV, Ladung  40.0 %, Feld  5.250 kV/cm, v = 1.520e+06 cm/s, Kontrolle I = W mu |Q'| E = 0.2100 mA
+  Laufzeit Source -> Drain = 122.2 ps
+U_GS = 1.0 V, U_DS = 0.45 V: I_D = 0.2475 mA
+  x/L = 0.00: U =    0.00 mV, Ladung 100.0 %, Feld  2.475 kV/cm, v = 7.167e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.2475 mA
+  x/L = 0.25: U =   66.27 mV, Ladung  86.7 %, Feld  2.853 kV/cm, v = 8.262e+05 cm/s, Kontrolle I = W mu |Q'| E = 0.2475 mA
+  x/L = 0.50: U =  144.68 mV, Ladung  71.1 %, Feld  3.483 kV/cm, v = 1.009e+06 cm/s, Kontrolle I = W mu |Q'| E = 0.2475 mA
+  x/L = 0.75: U =  246.28 mV, Ladung  50.7 %, Feld  4.877 kV/cm, v = 1.412e+06 cm/s, Kontrolle I = W mu |Q'| E = 0.2475 mA
+  x/L = 1.00: U =  450.00 mV, Ladung  10.0 %, Feld 24.750 kV/cm, v = 7.167e+06 cm/s, Kontrolle I = W mu |Q'| E = 0.2475 mA
+  Laufzeit Source -> Drain = 93.9 ps
+Laufzeit an der Abschnürgrenze (U_GS = 1 V) 4/3 L^2/(mu U_ov) = 92 ps
+Geschwindigkeit an der Source an der Abschnürgrenze: mu U_ov/(2L) = 7.240e+05 cm/s (Sättigungsgeschw. 1e7 cm/s)
+
+====================================================================================================
+N. Kanallängenmodulation (lambda = 0,1 1/V) und Early-Spannung
+====================================================================================================
+U_GS = 1 V, U_DS = 0.5 V: ohne KLM 0.2500 mA, mit KLM 0.2625 mA
+U_GS = 1 V, U_DS = 1.0 V: ohne KLM 0.2500 mA, mit KLM 0.2750 mA
+U_GS = 1 V, U_DS = 1.5 V: ohne KLM 0.2500 mA, mit KLM 0.2875 mA
+U_GS = 1 V, U_DS = 2.0 V: ohne KLM 0.2500 mA, mit KLM 0.3000 mA
+U_GS = 1 V, U_DS = 2.5 V: ohne KLM 0.2500 mA, mit KLM 0.3125 mA
+Steigung im Abschnürbereich lambda K_n/2 U_ov^2 = 25.0 µA/V; Early-Spannung -1/lambda = -10.0 V; |U_Early| des ET1-Bipolartransistors 70 V
+  U_GS = 0.75 V: Steigung 6.25 µA/V, I_D(2,5 V) = 0.0781 mA
+  U_GS = 1.00 V: Steigung 25.00 µA/V, I_D(2,5 V) = 0.3125 mA
+  U_GS = 1.25 V: Steigung 56.25 µA/V, I_D(2,5 V) = 0.7031 mA
+  U_GS = 1.50 V: Steigung 100.00 µA/V, I_D(2,5 V) = 1.2500 mA
+  1D-Abschätzung U_DS = 1.0 V: Delta L = 33.7 nm, Faktor L/(L - Delta L) = 1.0349
+  1D-Abschätzung U_DS = 2.0 V: Delta L = 58.4 nm, Faktor L/(L - Delta L) = 1.0621
+  1D-Abschätzung U_DS = 2.5 V: Delta L = 67.5 nm, Faktor L/(L - Delta L) = 1.0723
+  daraus lambda_1D zwischen 1 und 2 V = 0.0271 1/V (Modell 0,1 1/V, Faktor 3.7)
+Stetigkeit an der Abschnürgrenze mit KLM: Triode 0.26250, Sättigung 0.26250 mA
+
+====================================================================================================
+O. Strom unterhalb der Schwelle (Diffusion, aus der vollständigen Rechnung)
+====================================================================================================
+U_GS = 0.00 V: psi_s = 565.5 mV, |Q_inv| = 7.476e-15 C/cm^2, I_D = 5.597e-13 A
+U_GS = 0.10 V: psi_s = 636.1 mV, |Q_inv| = 1.082e-13 C/cm^2, I_D = 8.101e-12 A
+U_GS = 0.20 V: psi_s = 708.0 mV, |Q_inv| = 1.650e-12 C/cm^2, I_D = 1.235e-10 A
+U_GS = 0.30 V: psi_s = 780.9 mV, |Q_inv| = 2.632e-11 C/cm^2, I_D = 1.971e-09 A
+U_GS = 0.40 V: psi_s = 854.4 mV, |Q_inv| = 4.304e-10 C/cm^2, I_D = 3.223e-08 A
+U_GS = 0.45 V: psi_s = 890.3 mV, |Q_inv| = 1.688e-09 C/cm^2, I_D = 1.263e-07 A
+Unterschwellensteigung zwischen 0,2 und 0,4 V: S = 82.8 mV/Dekade; n = 1 + C'_dep/C'_ox bei 0,3 V = 1.356, n U_T ln 10 = 80.7 mV/Dekade; ideale Grenze U_T ln 10 = 59.5 mV
+Ein-Aus-Verhältnis: I_D(U_GS = 2,5 V, Sättigung) / I_D(U_GS = 0) = 7.15e+09
+Strom bei U_GS = 0 in einem Chip mit 1e9 solchen Transistoren: 0.560 mA
+
+====================================================================================================
+P. SPICE-Parameter des Beispiel-NMOS (Level 1)
+====================================================================================================
+.model NMOS_BSP NMOS (LEVEL=1 VTO=0.5 KP=200u LAMBDA=0.1 TOX=5n GAMMA=0.63 PHI=0.92); UO = 290 cm^2/(V s) wäre gleichwertig zu KP
+
+====================================================================================================
+Q. Ergänzungen zu Thema 2: Fläche, Steigung, Arbeitspunkt, negative U_DS, Schwelle, Kurzkanal, lambda
+====================================================================================================
+Fläche unter U_ov - U von 0 bis U_DS = 0.3 V: 0.1050 V^2; K_n * Fläche = 0.2100 mA
+Fläche unter U_ov - U von 0 bis U_DS = 0.5 V: 0.1250 V^2; K_n * Fläche = 0.2500 mA
+Drei Streifen à 0,1 V bei U_DS = 0,3 V, Höhen in der Streifenmitte 0.45, 0.35, 0.25 V, Summe 0,1 V * (0.45 + 0.35 + 0.25) = 0.1050 V^2
+Mittlere Übersteuerung (Source 0,5 V, Drain-Ende 0,2 V): 0.35 V; I = K_n * 0,35 V * 0,3 V = 0.2100 mA; R_on bei 0,35 V Übersteuerung = 1428.6 Ohm
+Örtlicher Mittelwert der Ladung bei 1 V/0,3 V: 74.3 % der Source-Ladung (Mittel über das Potential 70.0 %)
+  dI_D/dU_DS bei U_GS = 1 V, U_DS = 0.0 V: K_n (U_ov - U_DS) = 1.00 mS
+  dI_D/dU_DS bei U_GS = 1 V, U_DS = 0.1 V: K_n (U_ov - U_DS) = 0.80 mS
+  dI_D/dU_DS bei U_GS = 1 V, U_DS = 0.3 V: K_n (U_ov - U_DS) = 0.40 mS
+  dI_D/dU_DS bei U_GS = 1 V, U_DS = 0.5 V: K_n (U_ov - U_DS) = 0.00 mS
+  Triodengleichung U_GS = 1 V, U_DS = -0.10 V: I_D = -0.1100 mA
+  Triodengleichung U_GS = 1 V, U_DS = +0.10 V: I_D = +0.0900 mA
+  Triodengleichung U_GS = 1 V, U_DS = -0.02 V: I_D = -0.0204 mA
+  Triodengleichung U_GS = 1 V, U_DS = +0.02 V: I_D = +0.0196 mA
+Tangente an die Übertragungskennlinie bei 1.0 V: Steigung 1.00 mS, Achsenschnitt bei 0.750 V (= (U0 + U_th)/2); sqrt(I_D) = 0.5000 sqrt(mA)
+Tangente an die Übertragungskennlinie bei 1.5 V: Steigung 2.00 mS, Achsenschnitt bei 1.000 V (= (U0 + U_th)/2); sqrt(I_D) = 1.0000 sqrt(mA)
+sqrt-Gerade: Steigung sqrt(K_n/2) = 1.000 sqrt(mA)/V; aus (1 V; 0,25 mA) und (1,5 V; 1 mA): U_th = 1 - 0,5/1 = 0.500 V
+Kehrwert der Steigung lambda * K_n/2 * U_ov^2 bei U_GS = 1 V: 40.0 kOhm
+  |U_Early| pro Kanallänge 5 V/µm (Prozesse mit 4-6 nm Oxid (Lehrbuch, NMOS)): bei L = 1 µm |U_Early| = 5 V, lambda = 0.20 1/V
+  |U_Early| pro Kanallänge 10 V/µm (Beispielmodell): bei L = 1 µm |U_Early| = 10 V, lambda = 0.10 1/V
+  1D-lambda zwischen 1 und 2 V bei L = 1.00 µm: 0.0271 1/V
+  1D-lambda zwischen 1 und 2 V bei L = 0.50 µm: 0.0600 1/V
+  1D-lambda zwischen 1 und 2 V bei L = 0.25 µm: 0.1490 1/V
+Kritisches Feld v_sat/mu_n = 34.5 kV/cm
+  L = 1.00 µm, U_ov = 0,5 V: mittleres Feld U_ov/L = 5.0 kV/cm, Geschwindigkeit an der Source mu U_ov/(2L) = 7.24e+05 cm/s (7 % von v_sat)
+  L = 0.25 µm, U_ov = 0,5 V: mittleres Feld U_ov/L = 20.0 kV/cm, Geschwindigkeit an der Source mu U_ov/(2L) = 2.90e+06 cm/s (29 % von v_sat)
+  L = 0.10 µm, U_ov = 0,5 V: mittleres Feld U_ov/L = 50.0 kV/cm, Geschwindigkeit an der Source mu U_ov/(2L) = 7.24e+06 cm/s (72 % von v_sat)
+Grenzstrom bei voller Geschwindigkeitssättigung W C'_ox v_sat U_ov (W = 10 µm, U_ov = 0,5 V): 3.45 mA, linear in U_ov
+Arbeitspunkt U_B = 2,5 V, R_D = 4 kOhm, U_GS = 1.0 V, lambda = 0.0: U_DS = 1.5000 V, I_D = 0.2500 mA (Abschnürbereich, Grenze 0.50 V)
+Arbeitspunkt U_B = 2,5 V, R_D = 4 kOhm, U_GS = 1.0 V, lambda = 0.1: U_DS = 1.3636 V, I_D = 0.2841 mA (Abschnürbereich, Grenze 0.50 V)
+Arbeitspunkt U_B = 2,5 V, R_D = 4 kOhm, U_GS = 1.5 V, lambda = 0.0: U_DS = 0.3246 V, I_D = 0.5438 mA (ohmscher Bereich, Grenze 1.00 V)
+Arbeitspunkt U_B = 2,5 V, R_D = 4 kOhm, U_GS = 1.5 V, lambda = 0.1: U_DS = 0.3143 V, I_D = 0.5464 mA (ohmscher Bereich, Grenze 1.00 V)
+  Annahme Abschnürbereich bei U_GS = 1,5 V ohne lambda: U_DS = 2,5 V - 4 kOhm * 1 mA = -1.50 V -> Widerspruch
+  Annahme Abschnürbereich bei U_GS = 1,5 V mit lambda: U_DS = (2,5 - 4) / (1 + 0,4) = -1.071 V -> Widerspruch
+  Annahme Abschnürbereich bei U_GS = 1 V mit lambda: U_DS = (2,5 - 1) / (1 + 0,1) = 1.3636 V
+C'_dep bei U_GS = 0,3 V: 2.457 fF/µm^2 (C'_ox 6.906 fF/µm^2), n = 1.356
+Leckstrom-Faktor bei 0,25 V kleinerer Schwelle und S = 82,8 mV/Dekade: 10^(0,25/0,0828) = 1045
+Exponent-Probe: I(0,4 V)/I(0,3 V) = 16.35, 10^(0,1/0,0828) = 16.13
+Kupferdraht 1 A/mm^2: v = 7.343e-03 cm/s = 0.073 mm/s; Verhältnis Kanal/Kupfer 8.28e+07 bis 2.07e+08
+Elektronen im Kanal bei U_GS = 1 V: 2.155e+05 bei kleiner U_DS, 1.601e+05 bei U_DS = 0,3 V (Laufzeit Ladung/Strom = 122.2 ps)
+Elektronen bei U_GS = 0: 4.666e+04 pro cm^2, im ganzen Kanal (W L = 1e-7 cm^2) im Mittel 0.0047; Strom 0,56 pA = 3.49e+06 Elektronen pro Sekunde
+Dichte am Drain-Ende relativ zur Source bei U_DS = 0,1 V: exp(-0,1/U_T) = 0.0209
+Temperaturfaktor von S zwischen 300 K und 373,15 K: 1.2438
+Arbeitspunkt (b) mit lambda: U_DS/I_D = 575 Ohm; R_on bei 1,5 V = 500 Ohm; Arbeitsgerade I(0) = U_B/R_D = 0.625 mA
+
+====================================================================================================
+R. Nachträge aus der Faktenprüfung (Thema 2)
+====================================================================================================
+1 V/0,3 V, Source: Diffusionsanteil U_T/(U_ov - U) = 5.2 %, treibendes Feld 2.100 kV/cm, elektrostatisches Feld 1.991 kV/cm
+1 V/0,3 V, Drain-Ende: Diffusionsanteil U_T/(U_ov - U) = 12.9 %, treibendes Feld 5.250 kV/cm, elektrostatisches Feld 4.571 kV/cm
+E_Drain/E_krit = 0.152: v/(mu E) = 0.9886 (Wurzelmodell), 0.8680 (Modell 1/(1+E/E_krit))
+  dU(x)/dU_DS bei x/L = 0.5: 0.263
+  dU(x)/dU_DS bei x/L = 0.75: 0.493
+  dU(x)/dU_DS bei x/L = 1.0: 1.000
+Ohmscher Bereich, U_DS = 0.05 V: Gerade I_D(U_GS) schneidet die Achse bei 0.525 V
+Ohmscher Bereich, U_DS = 0.1 V: Gerade I_D(U_GS) schneidet die Achse bei 0.550 V
+Einschaltstrom U_GS = U_DS = 2,5 V mit lambda: 5.000 mA; Ein-Aus-Verhältnis 8.934e+09
+Unterschwellenabbildung, U_DS = 1 V, mit lambda: 0.2750 mA bei 1 V, 1.1000 mA bei 1,5 V
+U_DS = -0,1 V mit Substrateffekt: Schwelle der neuen Source 0.4663 V, I_D = -0.1167 mA
