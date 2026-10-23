@@ -539,3 +539,548 @@ P(f"Ersatzquelle an 100 kOhm: {UL100*1e3:.4f} mV (Verlust gegen Leerlauf {(1-UL1
 P(f"Verstärkung ohne g_o mit R_S: {-gm*(RD*RL/(RD+RL))/(1+gm*RS):.4f}; ohne g_o und ohne R_S: {-gm*(RD*RL/(RD+RL)):.4f}; "
   f"mit g_o ohne R_S: {-gm/(GD+GL+go)*1e-3*1e3:.4f}")
 P(f"Drei Quellen parallel: Strom in die 10-V-Quelle ({Uknoten:.4f} V - 10 V)/4 Ohm = {(Uknoten-10)/4:.4f} A")
+
+
+# ======================================================================================================================
+# Thema 3: Netzwerkgleichungen systematisch aufstellen (Eintragsmuster, Cramersche Regel, modifizierte Knotenanalyse)
+# Beispielsysteme wie oben (Verstärkerstufe, RC-Tiefpass), dazu: Schwingkreis 100 mH ∥ 100 nF an 1 mA;
+# Gate-Source-Kapazität 100 fF und Gate-Drain-Kapazität 20 fF (angenommen); Lastkapazität 10 pF (Tastkopf bzw.
+# nächste Stufe); invertierender Verstärker R_1 = 10 kOhm, R_2 = 100 kOhm, Leerlaufverstärkung 200 000 (741 typisch).
+# ======================================================================================================================
+def fz(z, nk=4):
+    """Komplexe Zahl kurz als a + jb."""
+    z = complex(z)
+    if abs(z.imag) < 10 ** (-nk - 2):
+        return f"{z.real:.{nk}f}"
+    if abs(z.real) < 10 ** (-nk - 2):
+        return f"{z.imag:.{nk}f}j"
+    return f"({z.real:.{nk}f} {'+' if z.imag >= 0 else '-'} {abs(z.imag):.{nk}f}j)"
+
+
+def mat_str(A, nk=4):
+    return "[" + ", ".join("[" + ", ".join(fz(x, nk) for x in row) + "]" for row in np.asarray(A)) + "]"
+
+
+class MNA:
+    """Modifizierte Knotenanalyse mit Eintragsmustern. Knoten '0' ist der Bezugsknoten (Zeile und Spalte entfallen).
+    Zusatzströme fließen von i durch das Element nach k (in den Pluspol hinein)."""
+
+    def __init__(self, knoten, zusatz=()):
+        self.kn = {k: j for j, k in enumerate(knoten)}
+        self.n = len(knoten)
+        self.zs = {z: self.n + j for j, z in enumerate(zusatz)}
+        N = self.n + len(zusatz)
+        self.M = np.zeros((N, N), dtype=complex)
+        self.r = np.zeros(N, dtype=complex)
+
+    def _k(self, k):
+        return None if k == "0" else self.kn[k]
+
+    def _add(self, a, b, w):
+        if a is not None and b is not None:
+            self.M[a, b] += w
+
+    def admittanz(self, i, k, y):
+        a, b = self._k(i), self._k(k)
+        self._add(a, a, y), self._add(b, b, y), self._add(a, b, -y), self._add(b, a, -y)
+
+    def vccs(self, i, k, p, q, g):
+        """Strom g (U_p - U_q) fließt von i durch die Quelle nach k."""
+        a, b, c, d = self._k(i), self._k(k), self._k(p), self._k(q)
+        self._add(a, c, g), self._add(a, d, -g), self._add(b, c, -g), self._add(b, d, g)
+
+    def stromquelle(self, i, k, iq):
+        """Quellenstrom iq fließt durch die Quelle von k nach i, also in Knoten i hinein."""
+        a, b = self._k(i), self._k(k)
+        if a is not None:
+            self.r[a] += iq
+        if b is not None:
+            self.r[b] -= iq
+
+    def _spalte(self, i, k, name):
+        z = self.zs[name]
+        self._add(self._k(i), z, 1.0), self._add(self._k(k), z, -1.0)
+        return z
+
+    def spannungszweig(self, i, k, name, uq=0.0, zq=0.0):
+        """Ideale Spannungsquelle (zq = 0), Impedanz (uq = 0) oder Tor: U_i - U_k - zq I = uq."""
+        z = self._spalte(i, k, name)
+        self._add(z, self._k(i), 1.0), self._add(z, self._k(k), -1.0)
+        self.M[z, z] -= zq
+        self.r[z] += uq
+
+    def vcvs(self, i, k, p, q, name, v):
+        """U_i - U_k - v (U_p - U_q) = 0."""
+        z = self._spalte(i, k, name)
+        self._add(z, self._k(i), 1.0), self._add(z, self._k(k), -1.0)
+        self._add(z, self._k(p), -v), self._add(z, self._k(q), v)
+
+    def cccs(self, i, k, steuer, beta):
+        """Strom beta I_steuer fließt von i durch die Quelle nach k."""
+        s = self.zs[steuer]
+        self._add(self._k(i), s, beta), self._add(self._k(k), s, -beta)
+
+    def ccvs(self, i, k, steuer, name, rm):
+        """U_i - U_k - rm I_steuer = 0."""
+        z = self._spalte(i, k, name)
+        self._add(z, self._k(i), 1.0), self._add(z, self._k(k), -1.0)
+        self.M[z, self.zs[steuer]] -= rm
+
+    def nullor(self, p, q, i, k, name):
+        """Nullator zwischen p (+) und q (-): U_p - U_q = 0, kein Strom; Norator zwischen i und k: Strom 'name'."""
+        z = self._spalte(i, k, name)
+        self._add(z, self._k(p), 1.0), self._add(z, self._k(q), -1.0)
+
+    def loesen(self):
+        return np.linalg.solve(self.M, self.r)
+
+
+def laplace(A, zaehler):
+    """Determinante durch Entwicklung nach der ersten Zeile; zaehler[0] zählt die Multiplikationen."""
+    A = np.asarray(A, dtype=complex)
+    n = A.shape[0]
+    if n == 1:
+        return A[0, 0]
+    if n == 2:
+        zaehler[0] += 2
+        return A[0, 0] * A[1, 1] - A[0, 1] * A[1, 0]
+    s = 0
+    for j in range(n):
+        minor = np.delete(np.delete(A, 0, axis=0), j, axis=1)
+        zaehler[0] += 1
+        s += (-1) ** j * A[0, j] * laplace(minor, zaehler)
+    return s
+
+
+def entwicklung(A, zeile=None, spalte=None):
+    """Summanden der Laplace-Entwicklung nach einer Zeile oder Spalte (Index ab 0)."""
+    A = np.asarray(A, dtype=complex)
+    terme = []
+    n = A.shape[0]
+    for t in range(n):
+        mu, nu = (zeile, t) if zeile is not None else (t, spalte)
+        minor = np.delete(np.delete(A, mu, axis=0), nu, axis=1)
+        terme.append((-1) ** (mu + nu) * A[mu, nu] * np.linalg.det(minor))
+    return terme
+
+
+def cramer(A, b):
+    A = np.asarray(A, dtype=complex)
+    D = np.linalg.det(A)
+    Ds = []
+    for nu in range(A.shape[0]):
+        An = A.copy()
+        An[:, nu] = b
+        Ds.append(np.linalg.det(An))
+    return D, Ds
+
+
+# ------------------------------------------------------------------ O. Eintragsmuster
+kopf("O. Eintragsmuster: vollständige Leitwertmatrix der Verstärkerstufe (Knoten 0, G, D, S), Streichen des Bezugs")
+# Einheiten: mS, mV, µA
+kn4 = ["0", "G", "D", "S"]
+idx4 = {k_: j for j, k_ in enumerate(kn4)}
+Yf = np.zeros((4, 4))
+If = np.zeros(4)
+
+
+def f_adm(i, k_, y):
+    a, b = idx4[i], idx4[k_]
+    Yf[a, a] += y
+    Yf[b, b] += y
+    Yf[a, b] -= y
+    Yf[b, a] -= y
+
+
+def f_vccs(i, k_, p, q, g):
+    a, b, c, d = idx4[i], idx4[k_], idx4[p], idx4[q]
+    Yf[a, c] += g
+    Yf[a, d] -= g
+    Yf[b, c] -= g
+    Yf[b, d] += g
+
+
+schritte = [("Signalquelle (Norton): 1 µA in G, G_sig = 0,1 mS zwischen G und 0", lambda: (f_adm("G", "0", 0.1),
+                                                                                          If.__setitem__(1, If[1] + 1),
+                                                                                          If.__setitem__(0, If[0] - 1))),
+            ("R_D: 0,1 mS zwischen D und 0", lambda: f_adm("D", "0", 0.1)),
+            ("R_L: 0,1 mS zwischen D und 0", lambda: f_adm("D", "0", 0.1)),
+            ("R_S: 1 mS zwischen S und 0", lambda: f_adm("S", "0", 1.0)),
+            ("g_o: 0,025 mS zwischen D und S", lambda: f_adm("D", "S", 0.025)),
+            ("g_m (U_G - U_S) von D nach S, 1 mS", lambda: f_vccs("D", "S", "G", "S", 1.0))]
+for txt, fn in schritte:
+    fn()
+    P(f"  nach {txt}:")
+    P(f"    Y (Zeilen/Spalten 0, G, D, S) = {np.round(Yf, 4).tolist()}, I_q = {np.round(If, 4).tolist()}")
+P(f"Zeilensummen {np.round(Yf.sum(axis=1), 12).tolist()}, Spaltensummen {np.round(Yf.sum(axis=0), 12).tolist()}, "
+  f"Summe I_q = {If.sum():.1f}")
+P(f"det (vollständig, 4x4) = {np.linalg.det(Yf):.3e} (singulär); Y·(1,1,1,1) = {np.round(Yf @ np.ones(4), 12).tolist()}")
+Yred = Yf[1:, 1:]
+P(f"nach Streichen von Zeile und Spalte 0: {np.round(Yred, 4).tolist()} = Matrix aus L? "
+  f"{np.allclose(Yred * 1e-3, Yv)}")
+P(f"  Zeile 0 = -(Summe der Zeilen G, D, S)? {np.allclose(Yf[0], -Yf[1:].sum(axis=0))}")
+Uf = np.linalg.solve(Yred, If[1:])
+P(f"  Lösung U_G, U_D, U_S = {np.round(Uf, 4).tolist()} mV")
+P(f"  Probe Zeile 0 mit der Lösung: Summe = {Yf[0, 1:] @ Uf:.4f} µA = I_q(0) = {If[0]:.1f} µA")
+P(f"  Potentiale alle um 1 V angehoben: Ströme unverändert, da Y·(1,1,1,1) = 0")
+# Strom durch R_S und Zählrichtung
+P(f"  Strom durch R_S von S nach 0: G_S U_S = {1.0*Uf[2]:.4f} µA; von 0 nach S gezählt {-1.0*Uf[2]:.4f} µA")
+P(f"  Strom durch R_D von D nach 0: {0.1*Uf[1]:.4f} µA (negativ: fließt von Masse in den Drain)")
+
+# ------------------------------------------------------------------ P. Determinanten und Cramersche Regel
+kopf("P. Determinanten, Cramersche Regel, Rechenaufwand, Transponierte und Adjunkte")
+Ym = Yred.astype(complex)   # mS
+bm = If[1:].astype(complex)  # µA
+for z_ in range(3):
+    t_ = entwicklung(Ym, zeile=z_)
+    P(f"  Entwicklung nach Zeile {['G','D','S'][z_]}: Summanden {[round(x.real, 6) for x in t_]} -> {sum(t_).real:.6f} mS^3")
+for s_ in range(3):
+    t_ = entwicklung(Ym, spalte=s_)
+    P(f"  Entwicklung nach Spalte {['G','D','S'][s_]}: Summanden {[round(x.real, 6) for x in t_]} -> {sum(t_).real:.6f} mS^3")
+a = Ym.real
+sar = [a[0, 0]*a[1, 1]*a[2, 2], a[0, 1]*a[1, 2]*a[2, 0], a[0, 2]*a[1, 0]*a[2, 1],
+       -a[2, 0]*a[1, 1]*a[0, 2], -a[2, 1]*a[1, 2]*a[0, 0], -a[2, 2]*a[1, 0]*a[0, 1]]
+P(f"  Sarrus: Summanden {[round(x, 7) for x in sar]} -> {sum(sar):.6f} mS^3")
+D_, Ds_ = cramer(Ym, bm)
+P(f"Cramer: D = {D_.real:.6f} mS^3; D_G = {Ds_[0].real:.6f}, D_D = {Ds_[1].real:.6f}, D_S = {Ds_[2].real:.6f} mS^2 µA")
+P(f"  U_G = {Ds_[0].real/D_.real:.4f} mV, U_D = {Ds_[1].real/D_.real:.4f} mV, U_S = {Ds_[2].real/D_.real:.4f} mV")
+for nu, name in enumerate(["G", "D", "S"]):
+    An = Ym.copy()
+    An[:, nu] = bm
+    P(f"  Y_{name} (Spalte {name} durch I_q ersetzt) = {np.round(An.real, 4).tolist()}")
+P(f"  Kofaktoren D_D: Spalte D enthält nur oben 1 µA -> (-1)^(1+2)·1·det[[1, -1,025], [-1, 2,025]] = "
+  f"{-(1*2.025 - (-1.025)*(-1)):.4f}")
+P(f"  Kofaktoren D_S: Spalte S enthält nur oben 1 µA -> (+1)·det[[1, 0,225], [-1, -0,025]] = "
+  f"{(1*(-0.025) - 0.225*(-1)):.4f}")
+# 2x2: RC-Tiefpass aus K (Einheiten mS, mA, V)
+Y2 = Yk * 1e3
+D2_, Ds2_ = cramer(Y2, np.array([1.0, 0.0]))
+P(f"RC-Tiefpass 2x2: Y = {mat_str(Y2)} mS; D = (2+j)(1+j) - (-1)(-1) = {fz(D2_)} mS^2")
+P(f"  D_1 = det[[1, -1], [0, 1+j]] = {fz(Ds2_[0])}; D_2 = det[[2+j, 1], [-1, 0]] = {fz(Ds2_[1])}")
+P(f"  U_1 = {fz(Ds2_[0]/D2_)} V, U_2 = {fz(Ds2_[1]/D2_)} V")
+# Elimination 2x2 allgemein: x1 = (b1 a22 - a12 b2)/(a11 a22 - a12 a21)
+P("  2x2 allgemein: x_1 = (b_1 a_22 - a_12 b_2)/(a_11 a_22 - a_12 a_21), x_2 = (a_11 b_2 - a_21 b_1)/(a_11 a_22 - a_12 a_21)")
+# Rechenaufwand
+P("Rechenaufwand (Multiplikationen und Divisionen):")
+P("   n | Laplace eine Det. | Cramer (n+1 Det. + n Div.) | Gauß (n^3 - n)/3 + n^2 | Zeit Cramer bei 1e9/s")
+for n_ in (2, 3, 4, 5, 10, 15, 20, 25):
+    Mn = 0
+    for m_ in range(2, n_ + 1):
+        Mn = 2 if m_ == 2 else m_ * (Mn + 1)
+    cr = (n_ + 1) * Mn + n_
+    ga = (n_ ** 3 - n_) // 3 + n_ ** 2
+    sek = cr / 1e9
+    zeit = (f"{sek:.2e} s" if sek < 3600 else f"{sek/3600:.2e} h" if sek < 3.15e7 else f"{sek/3.156e7:.2e} Jahre")
+    P(f"  {n_:3d} | {Mn:.3e} | {cr:.3e} | {ga} | {zeit}")
+cnt = [0]
+laplace(Ym, cnt)
+P(f"  Probe Zähler laplace(3x3) = {cnt[0]} Multiplikationen")
+P(f"  1e6 Knoten, vollbesetzt: Gauß ≈ {(1e6**3)/3:.2e} Multiplikationen = {(1e18/3)/1e9/3.156e7:.1f} Jahre bei 1e9/s")
+# Transponierte und Adjunkte
+P(f"det(Y^T) = {np.linalg.det(Ym.T).real:.6f} = det(Y) = {np.linalg.det(Ym).real:.6f} mS^3")
+adj2 = np.array([[Y2[1, 1], -Y2[0, 1]], [-Y2[1, 0], Y2[0, 0]]])
+P(f"Tiefpass: adj(Y) = {mat_str(adj2)}; Y^-1 = adj/det = {mat_str(adj2/D2_)} kOhm; "
+  f"numpy: {mat_str(np.linalg.inv(Y2))}")
+cof = np.zeros((3, 3), dtype=complex)
+for mu in range(3):
+    for nu in range(3):
+        cof[mu, nu] = (-1) ** (mu + nu) * np.linalg.det(np.delete(np.delete(Ym, mu, 0), nu, 1))
+adj3 = cof.T
+P(f"Verstärkerstufe: adj(Y) = {np.round(adj3.real, 6).tolist()} (mS^2)")
+P(f"  Y^-1 = adj/det = {np.round((adj3/D_).real, 4).tolist()} kOhm; numpy {np.round(np.linalg.inv(Ym).real, 4).tolist()}")
+P(f"  Spalte G von Y^-1 = Spannungen je µA in G: U_D = {(adj3/D_)[1,0].real:.4f} mV; Spalte D, Zeile G: "
+  f"{(adj3/D_)[0,1].real:.4f} mV")
+# Transponiertes System: Y^T x = b, Zähler über Zeilenersatz in Y
+xT = np.linalg.solve(Ym.T, bm)
+P(f"Transponiertes System Y^T x = (1, 0, 0) µA: x = {np.round(xT.real, 4).tolist()}")
+for z_ in range(3):
+    Az = Ym.copy()
+    Az[z_, :] = bm
+    P(f"  Zeile {z_+1} von Y durch b^T ersetzt: det = {np.linalg.det(Az).real:.6f} -> x_{z_+1} = "
+      f"{np.linalg.det(Az).real/D_.real:.4f}")
+
+# ------------------------------------------------------------------ Q. MNA: RC-Tiefpass mit idealer Spannungsquelle
+kopf("Q. Modifizierte Knotenanalyse: RC-Tiefpass mit idealer Spannungsquelle (Einheiten mS, kOhm, V, mA)")
+yc = 1j * w * Ck * 1e3     # j·1 mS
+q = MNA(["1", "2", "3"], ["I_q"])
+q.spannungszweig("1", "0", "I_q", uq=1.0)
+q.admittanz("1", "2", 1.0)       # R_1
+q.admittanz("2", "0", yc)        # C_1
+q.admittanz("2", "3", 1.0)       # R_2
+q.admittanz("3", "0", yc)        # C_2
+P(f"M (Spalten U_1, U_2, U_3, I_q) = {mat_str(q.M)}; rechte Seite {mat_str([q.r])}")
+xq = q.loesen()
+Dq, Dsq = cramer(q.M, q.r)
+P(f"  det M = {fz(Dq)}; Zähler D_1..D_4 = {[fz(d) for d in Dsq]}")
+P(f"  U_1 = {zeiger(xq[0], 'V')}; U_2 = {zeiger(xq[1], 'V')}; U_3 = {zeiger(xq[2], 'V')}")
+P(f"  I_q (in den Pluspol hinein) = {zeiger(xq[3], 'mA')}; abgegebener Strom -I_q = {zeiger(-xq[3], 'mA')}")
+P(f"  Probe gegen K: U_2 = Knoten 1 dort {zeiger(Uk[0], 'V')}, U_3 = Ausgang dort {zeiger(Uk[1], 'V')}, "
+  f"I_I = {zeiger(Im[0], 'mA', 1e3)}")
+t_ = entwicklung(q.M, zeile=3)
+P(f"  Entwicklung von det M nach der Quellenzeile: Summanden {[fz(x) for x in t_]}")
+minor41 = np.delete(np.delete(q.M, 3, 0), 0, 1)
+P(f"  Streichungsmatrix (Zeile 4, Spalte 1) = {mat_str(minor41)}, det = {fz(np.linalg.det(minor41))}")
+# Variante: Quelle mit R_1 als Tor zwischen Knoten 2 und 0
+qt = MNA(["2", "3"], ["I_q"])
+qt.spannungszweig("2", "0", "I_q", uq=1.0, zq=1.0)
+qt.admittanz("2", "0", yc)
+qt.admittanz("2", "3", 1.0)
+qt.admittanz("3", "0", yc)
+xqt = qt.loesen()
+Dqt, Dsqt = cramer(qt.M, qt.r)
+P(f"Tor-Variante (Quelle mit R_1): M = {mat_str(qt.M)}, rechte Seite {mat_str([qt.r])}")
+P(f"  det = {fz(Dqt)}; D_U2 = {fz(Dsqt[0])}, D_U3 = {fz(Dsqt[1])}, D_Iq = {fz(Dsqt[2])}")
+P(f"  U_2 = {zeiger(xqt[0], 'V')}, U_3 = {zeiger(xqt[1], 'V')}, I_q = {zeiger(xqt[2], 'mA')}")
+# Leistung der Quelle (Amplituden: P = 1/2 Re{U I*})
+Pq = 0.5 * (1.0 * np.conj(-xq[3])).real
+P(f"  Wirkleistung der Quelle 1/2 Re(U_q (-I_q)*) = {Pq:.4f} mW; in R_1: 1/2 |I|^2 R_1 = {0.5*abs(xq[3])**2*1.0:.4f} mW, "
+  f"in R_2: {0.5*abs(xq[1]-xq[2])**2*1.0:.4f} mW")
+
+# ------------------------------------------------------------------ R. MNA: Verstärkerstufe mit Signalquelle als Tor
+kopf("R. Modifizierte Knotenanalyse: Verstärkerstufe, Signalquelle 10 mV mit 10 kOhm als Tor (mS, kOhm, mV, µA)")
+r_ = MNA(["G", "D", "S"], ["I_sig"])
+r_.spannungszweig("G", "0", "I_sig", uq=10.0, zq=10.0)
+r_.admittanz("D", "0", 0.1)
+r_.admittanz("D", "0", 0.1)
+r_.admittanz("S", "0", 1.0)
+r_.admittanz("D", "S", 0.025)
+r_.vccs("D", "S", "G", "S", 1.0)
+xr = r_.loesen()
+Dr, Dsr = cramer(r_.M, r_.r)
+P(f"M (Spalten U_G, U_D, U_S, I_sig) = {np.round(r_.M.real, 4).tolist()}; rechte Seite {np.round(r_.r.real, 4).tolist()}")
+P(f"  det M = {Dr.real:.6f}; D_D = {Dsr[1].real:.6f}; U_D = {Dsr[1].real/Dr.real:.4f} mV")
+P(f"  Lösung U_G = {xr[0].real:.4f} mV, U_D = {xr[1].real:.4f} mV, U_S = {xr[2].real:.4f} mV, I_sig = {xr[3].real:.4f} µA")
+
+# ------------------------------------------------------------------ S. MNA: Spule als Impedanz, Gleichstrom und Resonanz
+kopf("S. Spule in der modifizierten Knotenanalyse: Schwingkreis 100 mH ∥ 100 nF an 1 mA (mS, kOhm, V, mA)")
+for wx in (0.0, 5e3, 1e4, 2e4):
+    s_ = MNA(["1"], ["I_L"])
+    s_.stromquelle("1", "0", 1.0)
+    s_.admittanz("1", "0", 1j * wx * Ck * 1e3)
+    s_.spannungszweig("1", "0", "I_L", zq=1j * wx * Lk / 1e3)
+    Ds_ = np.linalg.det(s_.M)
+    if abs(Ds_) < 1e-12:
+        P(f"  ω = {wx:7.0f} 1/s: M = {mat_str(s_.M)}, det = {fz(Ds_)} -> keine eindeutige Lösung (Resonanz)")
+        continue
+    xs_ = s_.loesen()
+    P(f"  ω = {wx:7.0f} 1/s: M = {mat_str(s_.M)}, det = ω²LC - 1 = {fz(Ds_)}; U_1 = {fz(xs_[0])} V, I_L = {fz(xs_[1])} mA, "
+      f"I_C = {fz(1j*wx*Ck*1e3*xs_[0])} mA")
+P(f"  ω_0 = 1/sqrt(LC) = {1/math.sqrt(Lk*Ck):.1f} 1/s; Knotenanalyse: Y = jωC + 1/(jωL) wird bei ω -> 0 unendlich")
+for wx in (1.0, 10.0, 100.0):
+    P(f"    ω = {wx:5.0f} 1/s: |1/(jωL)| = {1/(wx*Lk)*1e3:.1f} mS")
+
+# ------------------------------------------------------------------ T. Strommesser als 0-V-Quelle, Transitfrequenz
+kopf("T. Strommesser als Spannungsquelle 0 V: Stromverstärkung und Transitfrequenz (SI-Einheiten)")
+Cgs, Cgd = 100e-15, 20e-15
+
+
+def beta_mna(wx, cgd=0.0):
+    t = MNA(["G", "D"], ["I_out"])
+    t.stromquelle("G", "0", 1.0)                 # I_in = 1 A (Bezug)
+    t.admittanz("G", "0", 1j * wx * Cgs)
+    if cgd:
+        t.admittanz("G", "D", 1j * wx * cgd)
+    t.vccs("D", "0", "G", "0", gm)
+    t.admittanz("D", "0", go)
+    t.spannungszweig("D", "0", "I_out", uq=0.0)   # Strommesser
+    return t, t.loesen()
+
+
+t1, xt1 = beta_mna(2 * math.pi * 100e6)
+P(f"M bei 100 MHz (Spalten U_G, U_D, I_out) = {mat_str(t1.M, 6)}")
+Dt, Dst = cramer(t1.M, t1.r)
+P(f"  det = {fz(Dt, 9)} (= -jωC_gs = {fz(-1j*2*math.pi*100e6*Cgs, 9)}); D_Iout = {fz(Dst[2], 6)} (= g_m I_in)")
+P(f"  β = I_out/I_in = {fz(xt1[2])} (Betrag {abs(xt1[2]):.3f}); Formel -g_m/(jωC_gs) = {fz(-gm/(1j*2*math.pi*100e6*Cgs))}")
+wT = gm / Cgs
+P(f"ω_T = g_m/C_gs = {wT:.3e} 1/s, f_T = {wT/(2*math.pi)/1e9:.4f} GHz")
+for fx in (10e6, 100e6, 1e9, wT / (2 * math.pi), 10e9):
+    _, x_ = beta_mna(2 * math.pi * fx)
+    P(f"  f = {fx/1e6:9.1f} MHz: |β| = {abs(x_[2]):8.3f}, Winkel {math.degrees(cmath.phase(x_[2])):+.1f}°")
+wT2 = gm / math.sqrt(Cgs ** 2 + 2 * Cgs * Cgd)
+P(f"mit C_gd = 20 fF: β = -(g_m - jωC_gd)/(jω(C_gs + C_gd)); |β| = 1 bei ω_T = g_m/sqrt(C_gs(C_gs + 2C_gd)) = "
+  f"{wT2:.4e} 1/s, f_T = {wT2/(2*math.pi)/1e9:.4f} GHz; Näherung g_m/(2π(C_gs+C_gd)) = "
+  f"{gm/(2*math.pi*(Cgs+Cgd))/1e9:.4f} GHz ({(gm/(Cgs+Cgd)-wT2)/wT2*100:+.2f} %)")
+_, x_ = beta_mna(wT2, Cgd)
+P(f"  Probe MNA bei ω_T: |β| = {abs(x_[2]):.6f}")
+for fx in (10e6, 100e6, 1e9, 10e9):
+    _, x_ = beta_mna(2 * math.pi * fx, Cgd)
+    P(f"  mit C_gd: f = {fx/1e6:8.1f} MHz: |β| = {abs(x_[2]):.4f}")
+P(f"  mit C_gd: Grenzwert für hohe Frequenzen C_gd/(C_gs + C_gd) = {Cgd/(Cgs+Cgd):.4f}")
+# ohne Strommesser wäre der Drain offen: U_D = -g_m U_G/g_o
+P(f"  ohne Strommesser (Drain offen, nur g_o): U_D = -g_m/g_o · U_G = {-gm/go:.1f} · U_G; mit Strommesser U_D = 0")
+
+# ------------------------------------------------------------------ U. Nullor: invertierender Verstärker
+kopf("U. Nullor: invertierender Verstärker R_1 = 10 kOhm, R_2 = 100 kOhm, U_E = 0,1 V (mS, kOhm, V, mA)")
+u_ = MNA(["1", "2"], ["I_E", "I_o"])
+u_.spannungszweig("1", "0", "I_E", uq=0.1, zq=10.0)     # Quelle mit R_1 als Tor
+u_.admittanz("1", "2", 0.01)                           # R_2
+u_.nullor("0", "1", "2", "0", "I_o")                    # Pluseingang an Masse, Minuseingang Knoten 1, Ausgang Knoten 2
+xu = u_.loesen()
+Du, Dsu = cramer(u_.M, u_.r)
+P(f"M (Spalten U_1, U_2, I_E, I_o) = {np.round(u_.M.real, 4).tolist()}; rechte Seite {np.round(u_.r.real, 4).tolist()}")
+P(f"  det M = {Du.real:.6f} (= -R_1 G_2 = {-10*0.01:.4f}); D_2 = {Dsu[1].real:.6f} (= U_E)")
+P(f"  U_1 = {xu[0].real:.6f} V, U_2 = {xu[1].real:.6f} V, I_E = {xu[2].real*1e3:.4f} µA, I_o = {xu[3].real*1e3:.4f} µA; "
+  f"Verstärkung {xu[1].real/0.1:.4f}")
+t_ = entwicklung(u_.M, zeile=3)
+P(f"  Entwicklung nach der Nullor-Zeile: {np.round(np.real(t_), 6).tolist()}")
+M2 = u_.M.copy()
+M2[:, 1] = u_.r
+P(f"  M_2 = {np.round(M2.real, 4).tolist()}, Entwicklung nach Zeile 4: {np.round(np.real(entwicklung(M2, zeile=3)), 6).tolist()}")
+for vD in (1e3, 2e5, 1e6):
+    uv = MNA(["1", "2"], ["I_E", "I_o"])
+    uv.spannungszweig("1", "0", "I_E", uq=0.1, zq=10.0)
+    uv.admittanz("1", "2", 0.01)
+    uv.vcvs("2", "0", "0", "1", "I_o", vD)              # U_2 = v_D (U_+ - U_-) mit U_+ = 0, U_- = U_1
+    xv = uv.loesen()
+    formel = -10 / (1 + 11 / vD)
+    P(f"  endliche Leerlaufverstärkung v_D = {vD:.0e}: U_2/U_E = {xv[1].real/0.1:.6f} (Formel -10/(1 + 11/v_D) = "
+      f"{formel:.6f}), U_1 = {xv[0].real*1e6:.3f} µV, Abweichung {(xv[1].real/0.1+10)/10*100:+.4f} %")
+uv = MNA(["1", "2"], ["I_E", "I_o"])
+uv.spannungszweig("1", "0", "I_E", uq=0.1, zq=10.0)
+uv.admittanz("1", "2", 0.01)
+uv.vcvs("2", "0", "0", "1", "I_o", 2e5)
+P(f"  M mit VCVS v_D = 2e5: Zeile 4 = {np.round(uv.M[3].real, 4).tolist()}; geteilt durch v_D: "
+  f"{np.round(uv.M[3].real/2e5, 6).tolist()}")
+# Mitkopplung: Eingänge vertauscht (Plus an Knoten 1, Minus an Masse)
+um = MNA(["1", "2"], ["I_E", "I_o"])
+um.spannungszweig("1", "0", "I_E", uq=0.1, zq=10.0)
+um.admittanz("1", "2", 0.01)
+um.nullor("1", "0", "2", "0", "I_o")
+xm = um.loesen()
+P(f"  Eingänge vertauscht (mitgekoppelt), Nullor: det = {np.linalg.det(um.M).real:.4f}, U_2 = {xm[1].real:.6f} V, "
+  f"I_E = {xm[2].real*1e3:.4f} µA (statische Lösung wie gegengekoppelt)")
+for vD in (2e5, 1e6):
+    um2 = MNA(["1", "2"], ["I_E", "I_o"])
+    um2.spannungszweig("1", "0", "I_E", uq=0.1, zq=10.0)
+    um2.admittanz("1", "2", 0.01)
+    um2.vcvs("2", "0", "1", "0", "I_o", vD)
+    xm2 = um2.loesen()
+    P(f"  Eingänge vertauscht, VCVS v_D = {vD:.0e}: U_2/U_E = {xm2[1].real/0.1:.6f} (endlich)")
+
+# ------------------------------------------------------------------ V. Frequenzgang: Determinante im Nenner
+kopf("V. Frequenzgang der Verstärkerstufe: Pole als Nullstellen der Determinante (SI-Einheiten)")
+CL = 10e-12
+Gout = GD + GL + go
+wi, wo = Gqv / Cgs, Gout / CL
+A0 = -gm / Gout
+P(f"ohne R_S (Source an Masse): G_sig = {Gqv*1e3:.1f} mS, C_gs = 100 fF, G_out = G_D + G_L + g_o = {Gout*1e3:.3f} mS, "
+  f"C_L = 10 pF")
+P(f"  D = (G_sig + jωC_gs)(G_out + jωC_L); U_G = I_sig/(G_sig + jωC_gs); U_D = -g_m I_sig/D")
+P(f"  ω_i = G_sig/C_gs = {wi:.4e} 1/s (f_i = {wi/2/math.pi/1e6:.3f} MHz); ω_o = G_out/C_L = {wo:.4e} 1/s "
+  f"(f_o = {wo/2/math.pi/1e6:.4f} MHz)")
+P(f"  Gleichspannungsverstärkung -g_m/G_out = {A0:.4f} = {20*math.log10(abs(A0)):.3f} dB")
+
+
+def H_ohneRS(wx):
+    return A0 / ((1 + 1j * wx / wi) * (1 + 1j * wx / wo))
+
+
+def H_mna(wx):
+    v_ = MNA(["G", "D"], [])
+    v_.stromquelle("G", "0", 10e-3 * Gqv)
+    v_.admittanz("G", "0", Gqv + 1j * wx * Cgs)
+    v_.vccs("D", "0", "G", "0", gm)
+    v_.admittanz("D", "0", Gout + 1j * wx * CL)
+    x_ = v_.loesen()
+    return x_[1] / 10e-3, x_[0] / 10e-3, np.linalg.det(v_.M)
+
+
+for fx in (100e3, 1e6, wo / 2 / math.pi, 10e6, 100e6, wi / 2 / math.pi, 1e9, 10e9):
+    wx = 2 * math.pi * fx
+    H, HG, Dv = H_mna(wx)
+    P(f"  f = {fx/1e6:10.4f} MHz: |U_D/u_sig| = {abs(H):.5f} ({20*math.log10(abs(H)):+7.2f} dB), Winkel "
+      f"{math.degrees(cmath.phase(H)):+8.2f}°; Formel {abs(H_ohneRS(wx)):.5f}; |U_G/u_sig| = {abs(HG):.5f}")
+# Einsfrequenz
+lo, hi = 1e6, 1e9
+for _ in range(200):
+    mid = math.sqrt(lo * hi)
+    if abs(H_ohneRS(2 * math.pi * mid)) > 1:
+        lo = mid
+    else:
+        hi = mid
+P(f"  |U_D/u_sig| = 1 bei f = {lo/1e6:.3f} MHz; Verstärkungs-Bandbreite-Produkt |A_0| f_o = {abs(A0)*wo/2/math.pi/1e6:.3f} MHz "
+  f"= g_m/(2π C_L) = {gm/(2*math.pi*CL)/1e6:.3f} MHz")
+P(f"  Asymptoten: oberhalb f_o fällt |H| um 20 dB/Dekade: f = 35,81 MHz -> {20*math.log10(abs(H_ohneRS(2*math.pi*wo/2/math.pi*10))):.2f} dB, "
+  f"bei f_o selbst {20*math.log10(abs(H_ohneRS(wo))):.2f} dB (Asymptote {20*math.log10(abs(A0)):.2f} dB, Differenz "
+  f"{20*math.log10(abs(H_ohneRS(wo)))-20*math.log10(abs(A0)):.3f} dB)")
+P(f"  Einzelpol: |1/(1 + j)| = {1/math.sqrt(2):.5f} = {20*math.log10(1/math.sqrt(2)):.4f} dB, Winkel -45°")
+P(f"  Gatespannung bei ω_G: 10 mV · |1/(1 + j)| = {10*abs(1/(1+1j)):.3f} mV")
+# nur G_L verdoppelt
+Gout2 = GD + 2 * GL + go
+P(f"  nur G_L verdoppelt: G_out = {Gout2*1e3:.3f} mS, Verstärkung {gm/Gout2:.4f}, f_D = {Gout2/CL/2/math.pi/1e6:.4f} MHz, "
+  f"Produkt {gm/Gout2*Gout2/CL/2/math.pi/1e6:.3f} MHz; ganzer Leitwert am Drain verdoppelt: Verstärkung "
+  f"{gm/(2*Gout):.4f}, f_D = {2*Gout/CL/2/math.pi/1e6:.4f} MHz")
+# Bode-Datenreihe für die Abbildung
+P("  Datenreihe (f in Hz, |H| in dB, Winkel in Grad, |U_G/u_sig| in dB):")
+for ex in np.arange(5, 10.01, 0.5):
+    fx = 10 ** ex
+    H, HG, _ = H_mna(2 * math.pi * fx)
+    P(f"    {fx:9.3e} {20*math.log10(abs(H)):+8.2f} {math.degrees(cmath.phase(H)):+8.2f} {20*math.log10(abs(HG)):+8.2f}")
+# mit R_S: drei Knoten, C_gs zwischen G und S
+P("mit R_S = 1 kOhm (C_gs zwischen G und S, C_L an D):")
+
+
+def Y_mitRS(s):
+    Y = np.array([[Gqv + s * Cgs, 0, -s * Cgs],
+                  [gm, GD + GL + go + s * CL, -(gm + go)],
+                  [-gm - s * Cgs, -go, gm + go + GS + s * Cgs]], dtype=complex)
+    return Y
+
+
+# det als Polynom in s (Grad 2): an drei Stellen auswerten und anpassen
+ss = np.array([0.0, 1e8, 2e8])
+dets = np.array([np.linalg.det(Y_mitRS(s)) for s in ss])
+koeff = np.polyfit(ss, dets.real, 2)
+wurzeln = np.roots(koeff)
+P(f"  det Y(s) = {koeff[0]:.4e} s^2 + {koeff[1]:.4e} s + {koeff[2]:.4e} (S^3); Nullstellen s = "
+  f"{[f'{x.real:.4e}' for x in wurzeln]} 1/s -> Eckfrequenzen {[f'{-x.real/2/math.pi/1e6:.3f} MHz' for x in wurzeln]}")
+for fx in (100e3, 1e6, 10e6, 100e6):
+    s = 2j * math.pi * fx
+    U = np.linalg.solve(Y_mitRS(s), np.array([10e-3 * Gqv, 0, 0]))
+    P(f"  f = {fx/1e6:7.2f} MHz: |U_D/u_sig| = {abs(U[1])/10e-3:.4f}")
+
+# ------------------------------------------------------------------ W. Singuläre Fälle
+kopf("W. Singuläre Fälle")
+w_ = MNA(["1"], ["I_a", "I_b"])
+w_.spannungszweig("1", "0", "I_a", uq=1.0)
+w_.spannungszweig("1", "0", "I_b", uq=2.0)
+P(f"Zwei ideale Spannungsquellen 1 V und 2 V parallel: M = {np.round(w_.M.real, 1).tolist()}, det = {np.linalg.det(w_.M).real:.1f}")
+w_ = MNA(["1"], ["I_a", "I_b"])
+w_.spannungszweig("1", "0", "I_a", uq=1.0)
+w_.spannungszweig("1", "0", "I_b", uq=1.0)
+P(f"  zwei gleiche (1 V und 1 V): det = {np.linalg.det(w_.M).real:.1f}, Gleichungen widerspruchsfrei, Aufteilung des Stroms "
+  f"unbestimmt")
+P("Vollständige Leitwertmatrix (mit Bezugsknoten): det = 0, weil Y·(1,…,1) = 0 (Abschnitt O)")
+# Zusatz: Strom-gesteuerte Quellen (Probe der Muster)
+kopf("X. Probe der Muster für stromgesteuerte Quellen")
+x_ = MNA(["1", "2"], ["I_m"])
+x_.stromquelle("1", "0", 0.001)               # 1 µA in Knoten 1
+x_.spannungszweig("1", "0", "I_m", uq=0.0, zq=1.0)   # 1 kOhm als Impedanz mit Strom I_m (Steuerstrom)
+x_.cccs("2", "0", "I_m", 100.0)               # 100 I_m von Knoten 2 nach Masse
+x_.admittanz("2", "0", 0.1)                   # 10 kOhm Last
+xx = x_.loesen()
+P(f"CCCS β = 100: Steuerstrom I_m = {xx[2].real*1e3:.4f} µA durch 1 kOhm, Strom der Quelle {100*xx[2].real*1e3:.1f} µA, "
+  f"U_2 = {xx[1].real:.4f} V (Formel -100·1 µA·10 kOhm = -1 V)")
+y_ = MNA(["1", "2"], ["I_m", "I_h"])
+y_.stromquelle("1", "0", 0.001)
+y_.spannungszweig("1", "0", "I_m", uq=0.0, zq=1.0)
+y_.ccvs("2", "0", "I_m", "I_h", 5.0)          # U_2 = 5 kOhm · I_m
+y_.admittanz("2", "0", 0.1)
+xy = y_.loesen()
+P(f"CCVS r_m = 5 kOhm: U_2 = {xy[1].real*1e3:.4f} mV (Formel 5 kOhm · 1 µA = 5 mV), Strom der CCVS I_h = "
+  f"{xy[3].real*1e3:.4f} µA")
+
+# ------------------------------------------------------------------ Y. Begleitmodell als Eintragsmuster (Abschnitt D)
+kopf("Y. Newton-Schritt der MOS-Diode als Eintragsmuster: Leitwert g und Stromquelle I_eq (mS, V, mA)")
+Uk_ = 2.0                                   # Schätzung U^(1) aus Abschnitt D
+g_ = g_mos(Uk_) * 1e3
+Ieq_ = i_mos(Uk_) * 1e3 - g_ * Uk_
+P(f"Schätzung U = {Uk_:.4f} V: I = {i_mos(Uk_)*1e3:.4f} mA, g = {g_:.4f} mS, I_eq = I - g U = {Ieq_:.4f} mA")
+yb = MNA(["1"], [])
+yb.stromquelle("1", "0", Iq * 1e3)          # 0,5 mA in den Knoten
+yb.admittanz("1", "0", Gq * 1e3)            # 0,25 mS
+yb.admittanz("1", "0", g_)                  # Begleitmodell: Leitwert ...
+yb.stromquelle("0", "1", Ieq_)              # ... und Strom I_eq von Knoten 1 nach 0 durch das Bauelement
+xb = yb.loesen()
+P(f"  Muster: Y = {fz(yb.M[0,0])} mS, rechte Seite = {fz(yb.r[0])} mA -> neue Schätzung U = {fz(xb[0])} V "
+  f"(Abschnitt D: 1,3077 V)")

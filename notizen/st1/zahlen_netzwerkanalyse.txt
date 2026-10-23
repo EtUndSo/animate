@@ -275,3 +275,200 @@ Leerlauf: G_D U_D + G_S U_S = 0 -> U_S = -0.10 U_D
 Ersatzquelle an 100 kOhm: -40.3633 mV (Verlust gegen Leerlauf 8.2 %)
 Verstärkung ohne g_o mit R_S: -2.5000; ohne g_o und ohne R_S: -5.0000; mit g_o ohne R_S: -4.4444
 Drei Quellen parallel: Strom in die 10-V-Quelle (10.8108 V - 10 V)/4 Ohm = 0.2027 A
+
+====================================================================================================
+O. Eintragsmuster: vollständige Leitwertmatrix der Verstärkerstufe (Knoten 0, G, D, S), Streichen des Bezugs
+====================================================================================================
+  nach Signalquelle (Norton): 1 µA in G, G_sig = 0,1 mS zwischen G und 0:
+    Y (Zeilen/Spalten 0, G, D, S) = [[0.1, -0.1, 0.0, 0.0], [-0.1, 0.1, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0]], I_q = [-1.0, 1.0, 0.0, 0.0]
+  nach R_D: 0,1 mS zwischen D und 0:
+    Y (Zeilen/Spalten 0, G, D, S) = [[0.2, -0.1, -0.1, 0.0], [-0.1, 0.1, 0.0, 0.0], [-0.1, 0.0, 0.1, 0.0], [0.0, 0.0, 0.0, 0.0]], I_q = [-1.0, 1.0, 0.0, 0.0]
+  nach R_L: 0,1 mS zwischen D und 0:
+    Y (Zeilen/Spalten 0, G, D, S) = [[0.3, -0.1, -0.2, 0.0], [-0.1, 0.1, 0.0, 0.0], [-0.2, 0.0, 0.2, 0.0], [0.0, 0.0, 0.0, 0.0]], I_q = [-1.0, 1.0, 0.0, 0.0]
+  nach R_S: 1 mS zwischen S und 0:
+    Y (Zeilen/Spalten 0, G, D, S) = [[1.3, -0.1, -0.2, -1.0], [-0.1, 0.1, 0.0, 0.0], [-0.2, 0.0, 0.2, 0.0], [-1.0, 0.0, 0.0, 1.0]], I_q = [-1.0, 1.0, 0.0, 0.0]
+  nach g_o: 0,025 mS zwischen D und S:
+    Y (Zeilen/Spalten 0, G, D, S) = [[1.3, -0.1, -0.2, -1.0], [-0.1, 0.1, 0.0, 0.0], [-0.2, 0.0, 0.225, -0.025], [-1.0, 0.0, -0.025, 1.025]], I_q = [-1.0, 1.0, 0.0, 0.0]
+  nach g_m (U_G - U_S) von D nach S, 1 mS:
+    Y (Zeilen/Spalten 0, G, D, S) = [[1.3, -0.1, -0.2, -1.0], [-0.1, 0.1, 0.0, 0.0], [-0.2, 1.0, 0.225, -1.025], [-1.0, -1.0, -0.025, 2.025]], I_q = [-1.0, 1.0, 0.0, 0.0]
+Zeilensummen [0.0, 0.0, 0.0, 0.0], Spaltensummen [0.0, 0.0, -0.0, 0.0], Summe I_q = 0.0
+det (vollständig, 4x4) = 0.000e+00 (singulär); Y·(1,1,1,1) = [0.0, 0.0, 0.0, 0.0]
+nach Streichen von Zeile und Spalte 0: [[0.1, 0.0, 0.0], [1.0, 0.225, -1.025], [-1.0, -0.025, 2.025]] = Matrix aus L? True
+  Zeile 0 = -(Summe der Zeilen G, D, S)? True
+  Lösung U_G, U_D, U_S = [10.0, -23.2558, 4.6512] mV
+  Probe Zeile 0 mit der Lösung: Summe = -1.0000 µA = I_q(0) = -1.0 µA
+  Potentiale alle um 1 V angehoben: Ströme unverändert, da Y·(1,1,1,1) = 0
+  Strom durch R_S von S nach 0: G_S U_S = 4.6512 µA; von 0 nach S gezählt -4.6512 µA
+  Strom durch R_D von D nach 0: -2.3256 µA (negativ: fließt von Masse in den Drain)
+
+====================================================================================================
+P. Determinanten, Cramersche Regel, Rechenaufwand, Transponierte und Adjunkte
+====================================================================================================
+  Entwicklung nach Zeile G: Summanden [np.float64(0.043), np.float64(-0.0), np.float64(0.0)] -> 0.043000 mS^3
+  Entwicklung nach Zeile D: Summanden [np.float64(-0.0), np.float64(0.045562), np.float64(-0.002562)] -> 0.043000 mS^3
+  Entwicklung nach Zeile S: Summanden [np.float64(-0.0), np.float64(-0.002562), np.float64(0.045562)] -> 0.043000 mS^3
+  Entwicklung nach Spalte G: Summanden [np.float64(0.043), np.float64(-0.0), np.float64(-0.0)] -> 0.043000 mS^3
+  Entwicklung nach Spalte D: Summanden [np.float64(-0.0), np.float64(0.045562), np.float64(-0.002562)] -> 0.043000 mS^3
+  Entwicklung nach Spalte S: Summanden [np.float64(0.0), np.float64(-0.002562), np.float64(0.045562)] -> 0.043000 mS^3
+  Sarrus: Summanden [np.float64(0.0455625), np.float64(0.0), np.float64(-0.0), np.float64(0.0), np.float64(-0.0025625), np.float64(-0.0)] -> 0.043000 mS^3
+Cramer: D = 0.043000 mS^3; D_G = 0.430000, D_D = -1.000000, D_S = 0.200000 mS^2 µA
+  U_G = 10.0000 mV, U_D = -23.2558 mV, U_S = 4.6512 mV
+  Y_G (Spalte G durch I_q ersetzt) = [[1.0, 0.0, 0.0], [0.0, 0.225, -1.025], [0.0, -0.025, 2.025]]
+  Y_D (Spalte D durch I_q ersetzt) = [[0.1, 1.0, 0.0], [1.0, 0.0, -1.025], [-1.0, 0.0, 2.025]]
+  Y_S (Spalte S durch I_q ersetzt) = [[0.1, 0.0, 1.0], [1.0, 0.225, 0.0], [-1.0, -0.025, 0.0]]
+  Kofaktoren D_D: Spalte D enthält nur oben 1 µA -> (-1)^(1+2)·1·det[[1, -1,025], [-1, 2,025]] = -1.0000
+  Kofaktoren D_S: Spalte S enthält nur oben 1 µA -> (+1)·det[[1, 0,225], [-1, -0,025]] = 0.2000
+RC-Tiefpass 2x2: Y = [[(2.0000 + 1.0000j), -1.0000], [-1.0000, (1.0000 + 1.0000j)]] mS; D = (2+j)(1+j) - (-1)(-1) = 3.0000j mS^2
+  D_1 = det[[1, -1], [0, 1+j]] = (1.0000 + 1.0000j); D_2 = det[[2+j, 1], [-1, 0]] = 1.0000
+  U_1 = (0.3333 - 0.3333j) V, U_2 = -0.3333j V
+  2x2 allgemein: x_1 = (b_1 a_22 - a_12 b_2)/(a_11 a_22 - a_12 a_21), x_2 = (a_11 b_2 - a_21 b_1)/(a_11 a_22 - a_12 a_21)
+Rechenaufwand (Multiplikationen und Divisionen):
+   n | Laplace eine Det. | Cramer (n+1 Det. + n Div.) | Gauß (n^3 - n)/3 + n^2 | Zeit Cramer bei 1e9/s
+    2 | 2.000e+00 | 8.000e+00 | 6 | 8.00e-09 s
+    3 | 9.000e+00 | 3.900e+01 | 17 | 3.90e-08 s
+    4 | 4.000e+01 | 2.040e+02 | 36 | 2.04e-07 s
+    5 | 2.050e+02 | 1.235e+03 | 65 | 1.24e-06 s
+   10 | 6.235e+06 | 6.859e+07 | 430 | 6.86e-02 s
+   15 | 2.247e+12 | 3.595e+13 | 1345 | 9.99e+00 h
+   20 | 4.180e+18 | 8.779e+19 | 3060 | 2.78e+03 Jahre
+   25 | 2.665e+25 | 6.930e+26 | 5825 | 2.20e+10 Jahre
+  Probe Zähler laplace(3x3) = 9 Multiplikationen
+  1e6 Knoten, vollbesetzt: Gauß ≈ 3.33e+17 Multiplikationen = 10.6 Jahre bei 1e9/s
+det(Y^T) = 0.043000 = det(Y) = 0.043000 mS^3
+Tiefpass: adj(Y) = [[(1.0000 + 1.0000j), 1.0000], [1.0000, (2.0000 + 1.0000j)]]; Y^-1 = adj/det = [[(0.3333 - 0.3333j), -0.3333j], [-0.3333j, (0.3333 - 0.6667j)]] kOhm; numpy: [[(0.3333 - 0.3333j), -0.3333j], [-0.3333j, (0.3333 - 0.6667j)]]
+Verstärkerstufe: adj(Y) = [[0.43, -0.0, 0.0], [-1.0, 0.2025, 0.1025], [0.2, 0.0025, 0.0225]] (mS^2)
+  Y^-1 = adj/det = [[10.0, 0.0, 0.0], [-23.2558, 4.7093, 2.3837], [4.6512, 0.0581, 0.5233]] kOhm; numpy [[10.0, -0.0, 0.0], [-23.2558, 4.7093, 2.3837], [4.6512, 0.0581, 0.5233]]
+  Spalte G von Y^-1 = Spannungen je µA in G: U_D = -23.2558 mV; Spalte D, Zeile G: 0.0000 mV
+Transponiertes System Y^T x = (1, 0, 0) µA: x = [10.0, -0.0, 0.0]
+  Zeile 1 von Y durch b^T ersetzt: det = 0.430000 -> x_1 = 10.0000
+  Zeile 2 von Y durch b^T ersetzt: det = 0.000000 -> x_2 = 0.0000
+  Zeile 3 von Y durch b^T ersetzt: det = 0.000000 -> x_3 = 0.0000
+
+====================================================================================================
+Q. Modifizierte Knotenanalyse: RC-Tiefpass mit idealer Spannungsquelle (Einheiten mS, kOhm, V, mA)
+====================================================================================================
+M (Spalten U_1, U_2, U_3, I_q) = [[1.0000, -1.0000, 0.0000, 1.0000], [-1.0000, (2.0000 + 1.0000j), -1.0000, 0.0000], [0.0000, -1.0000, (1.0000 + 1.0000j), 0.0000], [1.0000, 0.0000, 0.0000, 0.0000]]; rechte Seite [[0.0000, 0.0000, 0.0000, 1.0000]]
+  det M = -3.0000j; Zähler D_1..D_4 = ['-3.0000j', '(-1.0000 - 1.0000j)', '-1.0000', '(-1.0000 + 2.0000j)']
+  U_1 = +1.0000 + j0.0000 V (Betrag 1.0000 V, Winkel +0.00°); U_2 = +0.3333 - j0.3333 V (Betrag 0.4714 V, Winkel -45.00°); U_3 = +0.0000 - j0.3333 V (Betrag 0.3333 V, Winkel -90.00°)
+  I_q (in den Pluspol hinein) = -0.6667 - j0.3333 mA (Betrag 0.7454 mA, Winkel -153.43°); abgegebener Strom -I_q = +0.6667 + j0.3333 mA (Betrag 0.7454 mA, Winkel +26.57°)
+  Probe gegen K: U_2 = Knoten 1 dort +0.3333 - j0.3333 V (Betrag 0.4714 V, Winkel -45.00°), U_3 = Ausgang dort +0.0000 - j0.3333 V (Betrag 0.3333 V, Winkel -90.00°), I_I = +0.6667 + j0.3333 mA (Betrag 0.7454 mA, Winkel +26.57°)
+  Entwicklung von det M nach der Quellenzeile: Summanden ['-3.0000j', '0.0000', '-0.0000', '-0.0000']
+  Streichungsmatrix (Zeile 4, Spalte 1) = [[-1.0000, 0.0000, 1.0000], [(2.0000 + 1.0000j), -1.0000, 0.0000], [-1.0000, (1.0000 + 1.0000j), 0.0000]], det = 3.0000j
+Tor-Variante (Quelle mit R_1): M = [[(1.0000 + 1.0000j), -1.0000, 1.0000], [-1.0000, (1.0000 + 1.0000j), 0.0000], [1.0000, 0.0000, -1.0000]], rechte Seite [[0.0000, 0.0000, 1.0000]]
+  det = -3.0000j; D_U2 = (-1.0000 - 1.0000j), D_U3 = -1.0000, D_Iq = (-1.0000 + 2.0000j)
+  U_2 = +0.3333 - j0.3333 V (Betrag 0.4714 V, Winkel -45.00°), U_3 = +0.0000 - j0.3333 V (Betrag 0.3333 V, Winkel -90.00°), I_q = -0.6667 - j0.3333 mA (Betrag 0.7454 mA, Winkel -153.43°)
+  Wirkleistung der Quelle 1/2 Re(U_q (-I_q)*) = 0.3333 mW; in R_1: 1/2 |I|^2 R_1 = 0.2778 mW, in R_2: 0.0556 mW
+
+====================================================================================================
+R. Modifizierte Knotenanalyse: Verstärkerstufe, Signalquelle 10 mV mit 10 kOhm als Tor (mS, kOhm, mV, µA)
+====================================================================================================
+M (Spalten U_G, U_D, U_S, I_sig) = [[0.0, 0.0, 0.0, 1.0], [1.0, 0.225, -1.025, 0.0], [-1.0, -0.025, 2.025, 0.0], [1.0, 0.0, 0.0, -10.0]]; rechte Seite [0.0, 0.0, 0.0, 10.0]
+  det M = -0.430000; D_D = 10.000000; U_D = -23.2558 mV
+  Lösung U_G = 10.0000 mV, U_D = -23.2558 mV, U_S = 4.6512 mV, I_sig = 0.0000 µA
+
+====================================================================================================
+S. Spule in der modifizierten Knotenanalyse: Schwingkreis 100 mH ∥ 100 nF an 1 mA (mS, kOhm, V, mA)
+====================================================================================================
+  ω =       0 1/s: M = [[0.0000, 1.0000], [1.0000, 0.0000]], det = ω²LC - 1 = -1.0000; U_1 = 0.0000 V, I_L = 1.0000 mA, I_C = 0.0000 mA
+  ω =    5000 1/s: M = [[0.5000j, 1.0000], [1.0000, -0.5000j]], det = ω²LC - 1 = -0.7500; U_1 = 0.6667j V, I_L = 1.3333 mA, I_C = -0.3333 mA
+  ω =   10000 1/s: M = [[1.0000j, 1.0000], [1.0000, -1.0000j]], det = 0.0000 -> keine eindeutige Lösung (Resonanz)
+  ω =   20000 1/s: M = [[2.0000j, 1.0000], [1.0000, -2.0000j]], det = ω²LC - 1 = 3.0000; U_1 = -0.6667j V, I_L = -0.3333 mA, I_C = 1.3333 mA
+  ω_0 = 1/sqrt(LC) = 10000.0 1/s; Knotenanalyse: Y = jωC + 1/(jωL) wird bei ω -> 0 unendlich
+    ω =     1 1/s: |1/(jωL)| = 10000.0 mS
+    ω =    10 1/s: |1/(jωL)| = 1000.0 mS
+    ω =   100 1/s: |1/(jωL)| = 100.0 mS
+
+====================================================================================================
+T. Strommesser als Spannungsquelle 0 V: Stromverstärkung und Transitfrequenz (SI-Einheiten)
+====================================================================================================
+M bei 100 MHz (Spalten U_G, U_D, I_out) = [[0.000063j, 0.000000, 0.000000], [0.001000, 0.000025, 1.000000], [0.000000, 1.000000, 0.000000]]
+  det = -0.000062832j (= -jωC_gs = -0.000062832j); D_Iout = 0.001000 (= g_m I_in)
+  β = I_out/I_in = 15.9155j (Betrag 15.915); Formel -g_m/(jωC_gs) = 15.9155j
+ω_T = g_m/C_gs = 1.000e+10 1/s, f_T = 1.5915 GHz
+  f =      10.0 MHz: |β| =  159.155, Winkel +90.0°
+  f =     100.0 MHz: |β| =   15.915, Winkel +90.0°
+  f =    1000.0 MHz: |β| =    1.592, Winkel +90.0°
+  f =    1591.5 MHz: |β| =    1.000, Winkel +90.0°
+  f =   10000.0 MHz: |β| =    0.159, Winkel +90.0°
+mit C_gd = 20 fF: β = -(g_m - jωC_gd)/(jω(C_gs + C_gd)); |β| = 1 bei ω_T = g_m/sqrt(C_gs(C_gs + 2C_gd)) = 8.4515e+09 1/s, f_T = 1.3451 GHz; Näherung g_m/(2π(C_gs+C_gd)) = 1.3263 GHz (-1.40 %)
+  Probe MNA bei ω_T: |β| = 1.000000
+  mit C_gd: f =     10.0 MHz: |β| = 132.6292
+  mit C_gd: f =    100.0 MHz: |β| = 13.2640
+  mit C_gd: f =   1000.0 MHz: |β| = 1.3367
+  mit C_gd: f =  10000.0 MHz: |β| = 0.2130
+  mit C_gd: Grenzwert für hohe Frequenzen C_gd/(C_gs + C_gd) = 0.1667
+  ohne Strommesser (Drain offen, nur g_o): U_D = -g_m/g_o · U_G = -40.0 · U_G; mit Strommesser U_D = 0
+
+====================================================================================================
+U. Nullor: invertierender Verstärker R_1 = 10 kOhm, R_2 = 100 kOhm, U_E = 0,1 V (mS, kOhm, V, mA)
+====================================================================================================
+M (Spalten U_1, U_2, I_E, I_o) = [[0.01, -0.01, 1.0, 0.0], [-0.01, 0.01, 0.0, 1.0], [1.0, 0.0, -10.0, 0.0], [-1.0, 0.0, 0.0, 0.0]]; rechte Seite [0.0, 0.0, 0.1, 0.0]
+  det M = -0.100000 (= -R_1 G_2 = -0.1000); D_2 = 0.100000 (= U_E)
+  U_1 = -0.000000 V, U_2 = -1.000000 V, I_E = -10.0000 µA, I_o = 10.0000 µA; Verstärkung -10.0000
+  Entwicklung nach der Nullor-Zeile: [-0.1, 0.0, 0.0, -0.0]
+  M_2 = [[0.01, 0.0, 1.0, 0.0], [-0.01, 0.0, 0.0, 1.0], [1.0, 0.1, -10.0, 0.0], [-1.0, 0.0, 0.0, 0.0]], Entwicklung nach Zeile 4: [0.1, 0.0, 0.0, -0.0]
+  endliche Leerlaufverstärkung v_D = 1e+03: U_2/U_E = -9.891197 (Formel -10/(1 + 11/v_D) = -9.891197), U_1 = 989.120 µV, Abweichung +1.0880 %
+  endliche Leerlaufverstärkung v_D = 2e+05: U_2/U_E = -9.999450 (Formel -10/(1 + 11/v_D) = -9.999450), U_1 = 5.000 µV, Abweichung +0.0055 %
+  endliche Leerlaufverstärkung v_D = 1e+06: U_2/U_E = -9.999890 (Formel -10/(1 + 11/v_D) = -9.999890), U_1 = 1.000 µV, Abweichung +0.0011 %
+  M mit VCVS v_D = 2e5: Zeile 4 = [200000.0, 1.0, 0.0, 0.0]; geteilt durch v_D: [1.0, 5e-06, 0.0, 0.0]
+  Eingänge vertauscht (mitgekoppelt), Nullor: det = 0.1000, U_2 = -1.000000 V, I_E = -10.0000 µA (statische Lösung wie gegengekoppelt)
+  Eingänge vertauscht, VCVS v_D = 2e+05: U_2/U_E = -10.000550 (endlich)
+  Eingänge vertauscht, VCVS v_D = 1e+06: U_2/U_E = -10.000110 (endlich)
+
+====================================================================================================
+V. Frequenzgang der Verstärkerstufe: Pole als Nullstellen der Determinante (SI-Einheiten)
+====================================================================================================
+ohne R_S (Source an Masse): G_sig = 0.1 mS, C_gs = 100 fF, G_out = G_D + G_L + g_o = 0.225 mS, C_L = 10 pF
+  D = (G_sig + jωC_gs)(G_out + jωC_L); U_G = I_sig/(G_sig + jωC_gs); U_D = -g_m I_sig/D
+  ω_i = G_sig/C_gs = 1.0000e+09 1/s (f_i = 159.155 MHz); ω_o = G_out/C_L = 2.2500e+07 1/s (f_o = 3.5810 MHz)
+  Gleichspannungsverstärkung -g_m/G_out = -4.4444 = 12.956 dB
+  f =     0.1000 MHz: |U_D/u_sig| = 4.44271 ( +12.95 dB), Winkel  +178.36°; Formel 4.44271; |U_G/u_sig| = 1.00000
+  f =     1.0000 MHz: |U_D/u_sig| = 4.28059 ( +12.63 dB), Winkel  +164.04°; Formel 4.28059; |U_G/u_sig| = 0.99998
+  f =     3.5810 MHz: |U_D/u_sig| = 3.14190 (  +9.94 dB), Winkel  +133.71°; Formel 3.14190; |U_G/u_sig| = 0.99975
+  f =    10.0000 MHz: |U_D/u_sig| = 1.49543 (  +3.50 dB), Winkel  +106.11°; Formel 1.49543; |U_G/u_sig| = 0.99803
+  f =   100.0000 MHz: |U_D/u_sig| = 0.13468 ( -17.41 dB), Winkel   +59.91°; Formel 0.13468; |U_G/u_sig| = 0.84673
+  f =   159.1549 MHz: |U_D/u_sig| = 0.07069 ( -23.01 dB), Winkel   +46.29°; Formel 0.07069; |U_G/u_sig| = 0.70711
+  f =  1000.0000 MHz: |U_D/u_sig| = 0.00250 ( -52.04 dB), Winkel    +9.25°; Formel 0.00250; |U_G/u_sig| = 0.15718
+  f = 10000.0000 MHz: |U_D/u_sig| = 0.00003 ( -91.93 dB), Winkel    +0.93°; Formel 0.00003; |U_G/u_sig| = 0.01591
+  |U_D/u_sig| = 1 bei f = 15.431 MHz; Verstärkungs-Bandbreite-Produkt |A_0| f_o = 15.915 MHz = g_m/(2π C_L) = 15.915 MHz
+  Asymptoten: oberhalb f_o fällt |H| um 20 dB/Dekade: f = 35,81 MHz -> -7.30 dB, bei f_o selbst 9.94 dB (Asymptote 12.96 dB, Differenz -3.012 dB)
+  Einzelpol: |1/(1 + j)| = 0.70711 = -3.0103 dB, Winkel -45°
+  Gatespannung bei ω_G: 10 mV · |1/(1 + j)| = 7.071 mV
+  nur G_L verdoppelt: G_out = 0.325 mS, Verstärkung 3.0769, f_D = 5.1725 MHz, Produkt 15.915 MHz; ganzer Leitwert am Drain verdoppelt: Verstärkung 2.2222, f_D = 7.1620 MHz
+  Datenreihe (f in Hz, |H| in dB, Winkel in Grad, |U_G/u_sig| in dB):
+    1.000e+05   +12.95  +178.36    -0.00
+    3.162e+05   +12.92  +174.84    -0.00
+    1.000e+06   +12.63  +164.04    -0.00
+    3.162e+06   +10.45  +137.41    -0.00
+    1.000e+07    +3.50  +106.11    -0.02
+    3.162e+07    -6.19   +85.22    -0.17
+    1.000e+08   -17.41   +59.91    -1.45
+    3.162e+08   -32.91   +27.36    -6.94
+    1.000e+09   -52.04    +9.25   -16.07
+    3.162e+09   -71.94    +2.95   -25.97
+    1.000e+10   -91.93    +0.93   -35.96
+mit R_S = 1 kOhm (C_gs zwischen G und S, C_L an D):
+  det Y(s) = 1.1250e-27 s^2 + 2.0503e-18 s + 4.3000e-11 (S^3); Nullstellen s = ['-1.8012e+09', '-2.1220e+07'] 1/s -> Eckfrequenzen ['286.674 MHz', '3.377 MHz']
+  f =    0.10 MHz: |U_D/u_sig| = 2.3246
+  f =    1.00 MHz: |U_D/u_sig| = 2.2299
+  f =   10.00 MHz: |U_D/u_sig| = 0.7437
+  f =  100.00 MHz: |U_D/u_sig| = 0.0741
+
+====================================================================================================
+W. Singuläre Fälle
+====================================================================================================
+Zwei ideale Spannungsquellen 1 V und 2 V parallel: M = [[0.0, 1.0, 1.0], [1.0, 0.0, 0.0], [1.0, 0.0, 0.0]], det = 0.0
+  zwei gleiche (1 V und 1 V): det = 0.0, Gleichungen widerspruchsfrei, Aufteilung des Stroms unbestimmt
+Vollständige Leitwertmatrix (mit Bezugsknoten): det = 0, weil Y·(1,…,1) = 0 (Abschnitt O)
+
+====================================================================================================
+X. Probe der Muster für stromgesteuerte Quellen
+====================================================================================================
+CCCS β = 100: Steuerstrom I_m = 1.0000 µA durch 1 kOhm, Strom der Quelle 100.0 µA, U_2 = -1.0000 V (Formel -100·1 µA·10 kOhm = -1 V)
+CCVS r_m = 5 kOhm: U_2 = 5.0000 mV (Formel 5 kOhm · 1 µA = 5 mV), Strom der CCVS I_h = -0.5000 µA
+
+====================================================================================================
+Y. Newton-Schritt der MOS-Diode als Eintragsmuster: Leitwert g und Stromquelle I_eq (mS, V, mA)
+====================================================================================================
+Schätzung U = 2.0000 V: I = 2.2500 mA, g = 3.0000 mS, I_eq = I - g U = -3.7500 mA
+  Muster: Y = 3.2500 mS, rechte Seite = 4.2500 mA -> neue Schätzung U = 1.3077 V (Abschnitt D: 1,3077 V)

@@ -249,6 +249,21 @@ Gebraucht in: st1/netzwerkanalyse/01-newton; absehbar numerische Verfahren (Nume
 - Kopplung an das Schaltbild daneben (§10): Auswahl eines Zweigs hebt ihn in beiden Darstellungen hervor.
 Gebraucht in: st1/netzwerkanalyse/02-topologie; absehbar modifizierte Knotenanalyse und Topologie in ET1.
 
+## 31. Netzlisten, Eintragsmuster und Matrix-Aufbau  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Netzliste als Tabelle (Name, Knoten, Wert), zeilenweise mit dem Schaltbild gekoppelt: Auswahl einer Zeile hebt das Bauteil hervor (§1, §10).
+- Matrix mit Zeilen- und Spaltenbeschriftung (Knotennamen, Zusatzströme); Einträge als Summe farbiger Beiträge je Bauteil (gestapelte Teilfelder); Aufbau Bauteil für Bauteil als Animation (§8).
+- Musterkarten: Schaltsymbol, Zählpfeile, Zweiggleichung und Matrixausschnitt nebeneinander; Vorzeichenfaktoren am Zeilen- und Spaltenrand, ihr Produkt im Feld.
+- Rand mit Zeilen- und Spaltensummen; Durchstreichen einer Zeile und Spalte (Bezugsknoten); Blockmatrix mit angefügter Zusatzzeile und -spalte und grau hinterlegtem Kernblock.
+- Determinanten-Schemata: ersetzte Spalte hervorgehoben, Schachbrettmuster der Vorzeichen als Überlagerung, Streichungsmatrix mit gedimmter Zeile und Spalte, Sarrus-Diagonalen in zwei Farben.
+- Symbole Nullator (Oval) und Norator (zwei überlappende Kreise) für die Symbolbibliothek (§1).
+Gebraucht in: st1/netzwerkanalyse/03-netzliste-matrix, 03-eintragsmuster-knoten, 03-vollstaendige-matrix, 03-cramer-laplace, 03-mna-spannungsquelle, 03-eintragsmuster-mna, 03-nullor-verstaerker; absehbar Vierpole und Transientenanalyse (Begleitmodelle).
+
+## 32. Bode-Diagramme  — **P1** für die Frequenzgang-Themen (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Betrag in dB über logarithmischer Frequenzachse, darunter der Winkel in Grad auf derselben Achse (§13).
+- Asymptoten gestrichelt mit Steigungsangabe (0, −20, −40 dB pro Dekade); Eckfrequenzen als senkrechte Hilfslinien mit Beschriftung; −3-dB-Punkt markiert.
+- Mehrere Übertragungsfunktionen in einem Diagramm, direkt an den Kurven beschriftet; Werte aus dem Zahlenwerk (§11).
+Gebraucht in: st1/netzwerkanalyse/03-bode; absehbar Frequenzgang der Transistorgrundschaltungen, Miller-Effekt, OPV-Frequenzgang.
+
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten
    Kennlinien- und Profil-Abbildungen frei.

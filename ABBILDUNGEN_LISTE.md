@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §30);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §32);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -2320,4 +2320,211 @@ Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte
 - §7 Matrix-Darstellung mit farbig hervorgehobenen Einträgen; §2 Pfeile.
 
 *Animation:* Die vier orangefarbenen Einträge erscheinen nacheinander, während die Raute und die Knoten G, S (Steuerung) bzw. D, S (Strom) aufleuchten.
+
+---
+
+## ST1 Netzwerkanalyse: Netzwerkgleichungen systematisch aufstellen, modifizierte Knotenanalyse
+Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte O bis Y; Beispielsysteme wie im vorigen Thema (RC-Tiefpass mit R = 1 kΩ, C = 100 nF, ω = 10⁴ 1/s; Verstärkerstufe mit g_m = 1 mS, g_o = 25 µS), dazu Schwingkreis 100 mH ∥ 100 nF, Gate-Source-Kapazität 100 fF, Gate-Drain-Kapazität 20 fF, Lastkapazität 10 pF und ein invertierender Verstärker mit 10 kΩ und 100 kΩ. Einheitensystem der Matrizen: mS, kΩ, V, mA bzw. mS, kΩ, mV, µA. Komplexe Größen unterstrichen.
+
+**st1/netzwerkanalyse/03-netzliste-matrix**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Drei Teile nebeneinander bzw. auf dem Handy untereinander.
+- (a) Schaltbild des RC-Tiefpasses: ideale Spannungsquelle $\underline U_q$ = 1 V (Zeiger 0°) zwischen Knoten 1 (+) und Masse 0; $R_1$ = 1 kΩ von 1 nach 2, $C_1$ = 100 nF von 2 nach 0, $R_2$ = 1 kΩ von 2 nach 3, $C_2$ = 100 nF von 3 nach 0; Knotennummern an den Knotenpunkten; Vermerk ω = 10⁴ 1/s.
+- (b) Netzliste als Tabelle mit den Spalten Name, Knoten (+), Knoten (−), Wert: U_q 1 0 1 V; R_1 1 2 1 kΩ; C_1 2 0 100 nF; R_2 2 3 1 kΩ; C_2 3 0 100 nF.
+- (c) Die 4×4-Matrix (Zeilen: Knotengleichungen 1, 2, 3 und Zweiggleichung der Quelle; Spalten $\underline U_1$, $\underline U_2$, $\underline U_3$, $\underline I_z$; Einheiten mS, kΩ, V, mA): (1; −1; 0; 1), (−1; 2 + j; −1; 0), (0; −1; 1 + j; 0), (1; 0; 0; 0); rechte Seite (0; 0; 0; 1 V). Jeder Eintrag in der Farbe des Bauteils, das ihn liefert; zusammengesetzte Einträge (2 + j aus $R_1$, $R_2$ und $C_1$; 1 + j aus $R_2$ und $C_2$) als gestapelte Farbfelder. Farben: $R_1$ blau, $C_1$ orange, $R_2$ grün, $C_2$ violett, $\underline U_q$ rot.
+
+*Kernaussage:* Jedes Bauteil schreibt ein festes Muster in die Zeilen und Spalten seiner Knoten; die Matrix ist die Summe dieser Muster.
+
+*Daten:* Zahlenwerk Q.
+
+*Editor:*
+- §1 Schaltplan; §31 Netzliste und Matrix-Aufbau;
+- §7 Matrix-Darstellung; §10 Teilbilder.
+
+*Animation:* Die Netzliste wird Zeile für Zeile abgearbeitet: Die Zeile und das Bauteil leuchten auf, seine Einträge fliegen in die Matrix und addieren sich zu den vorhandenen.
+
+**st1/netzwerkanalyse/03-eintragsmuster-knoten**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Drei Musterkarten nebeneinander, jede mit Schaltsymbol links und Matrixausschnitt rechts.
+- Admittanz $\underline Y$ zwischen den Knoten a und b, Zählpfeil $\underline I$ von a nach b: Zeilen a, b und Spalten a, b mit (+Y; −Y) und (−Y; +Y).
+- Spannungsgesteuerte Stromquelle (Raute) zwischen a und b, Strom $g\,(\underline U_c - \underline U_d)$ von a durch die Quelle nach b; Steuerspannung zwischen c (+) und d (−), gestrichelt zugeordnet: Zeilen a, b und Spalten c, d mit (+g; −g) und (−g; +g).
+- Unabhängige Stromquelle $\underline I_q$, Strompfeil durch die Quelle von b nach a: kein Matrixeintrag, rechte Seite +$\underline I_q$ in Zeile a und −$\underline I_q$ in Zeile b.
+- Unter jeder Karte die Vorzeichenregel: am Zeilenrand + für den Knoten, den der Zählstrom verlässt, − für den, an dem er ankommt; am Spaltenrand + für den Knoten am Pluspol der steuernden Spannung, − für den am Minuspol; im Feld das Produkt.
+
+*Kernaussage:* Ein Bauelement erscheint nur in den Zeilen der Knoten, zwischen denen sein Strom fließt, und in den Spalten der Knoten, deren Spannung diesen Strom bestimmt.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §1, §28 (Raute); §2 Zählpfeile;
+- §31 Musterkarten mit Vorzeichenrand.
+
+*Animation:* Die Vorzeichen am Zeilen- und Spaltenrand werden eingeblendet, danach erscheint ihr Produkt in jedem Feld.
+
+**st1/netzwerkanalyse/03-vollstaendige-matrix**
+- Fassung: ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Links das Kleinsignal-Ersatzschaltbild der Verstärkerstufe mit Norton-Signalquelle (1 µA parallel zu 0,1 mS zwischen G und Masse), $G_D$ und $G_L$ (je 0,1 mS) von D nach Masse, $G_S$ (1 mS) von S nach Masse, $g_o$ (0,025 mS) zwischen D und S, Raute $g_m u_{GS}$ (1 mS) von D nach S; Knoten 0 (Masse), G, D, S. Rechts die vollständige Matrix mit Zeilen und Spalten 0, G, D, S in mS: Zeile 0 (1,3; −0,1; −0,2; −1), Zeile G (−0,1; 0,1; 0; 0), Zeile D (−0,2; 1; 0,225; −1,025), Zeile S (−1; −1; −0,025; 2,025); rechte Seite in µA (−1; 1; 0; 0). Am rechten Rand die Zeilensummen, am unteren Rand die Spaltensummen, alle 0. Zeile 0 und Spalte 0 grau durchgestrichen, die verbleibende 3×3-Matrix umrahmt; daneben die Lösung 10 mV, −23,26 mV, 4,65 mV.
+
+*Kernaussage:* In der vollständigen Matrix ist jede Zeilen- und Spaltensumme null; streicht man Zeile und Spalte des Bezugsknotens, bleibt die lösbare Leitwertmatrix.
+
+*Daten:* Zahlenwerk O.
+
+*Editor:*
+- §1, §28; §7 Matrix;
+- §31 Summenrand und Durchstreichen; §10 Teilbilder.
+
+*Animation:* Die sechs Bauteile werden nacheinander eingetragen (Reihenfolge wie im Zahlenwerk O), dann laufen die Summen ein, zuletzt werden Zeile und Spalte 0 gestrichen.
+
+**st1/netzwerkanalyse/03-cramer-laplace**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Drei Teile.
+- (a) Leitwertmatrix der Verstärkerstufe (3×3, mS; Zeilen und Spalten G, D, S): (0,1; 0; 0), (1; 0,225; −1,025), (−1; −0,025; 2,025); daneben dieselbe Matrix mit Spalte D durch die rechte Seite (1; 0; 0) µA ersetzt, die ersetzte Spalte orange.
+- (b) Entwicklung nach der ersetzten Spalte: Schachbrettmuster der Vorzeichen (+ − + / − + − / + − +) halbtransparent über der Matrix; der einzige Eintrag ungleich null, 1 µA oben in Spalte D, trägt das Vorzeichen −; Zeile G und Spalte D gedimmt, die Streichungsmatrix (1; −1,025 / −1; 2,025) mit der Determinante 1 hervorgehoben; Ergebnis −1. Ebenso die Determinante der Matrix selbst nach Zeile G: 0,1 · 0,43 = 0,043.
+- (c) Sarrus-Schema für dieselbe Determinante: Spalten G und D rechts wiederholt, drei absteigende Diagonalen blau (Produkte 0,04556; 0; 0), drei aufsteigende rot (Produkte 0; −0,00256; 0, mit Minus gezählt); Summe 0,043.
+- Unten die Zeile: Spannung am Drain = −1/0,043 mV = −23,26 mV.
+
+*Kernaussage:* Jede Unbekannte ist ein Quotient zweier Determinanten mit demselben Nenner; man entwickelt nach der Zeile oder Spalte mit den meisten Nullen.
+
+*Daten:* Zahlenwerk P.
+
+*Editor:*
+- §7 Matrix; §31 Spaltenersatz, Schachbrett, Streichungsmatrix, Sarrus-Diagonalen;
+- §10 Teilbilder.
+
+*Animation:* Die rechte Seite wandert in Spalte D, danach werden Zeile und Spalte gestrichen und die Teildeterminanten Schritt für Schritt ausgerechnet.
+
+**st1/netzwerkanalyse/03-rechenaufwand**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Halblogarithmisches Diagramm. x-Achse: Zahl der Unbekannten n von 2 bis 25, linear. y-Achse: Zahl der Multiplikationen und Divisionen, logarithmisch von 1 bis 10²⁸.
+- Rote Kurve: Cramersche Regel mit Laplace-Entwicklung, (n + 1)·M(n) + n mit M(2) = 2 und M(n) = n·(M(n − 1) + 1); Werte bei n = 3, 5, 10, 15, 20, 25: 39; 1235; 6,9·10⁷; 3,6·10¹³; 8,8·10¹⁹; 6,9·10²⁶.
+- Blaue Kurve: Gauß-Elimination, (n³ − n)/3 + n²; Werte 17; 65; 430; 1345; 3060; 5825.
+- Waagrechte gestrichelte Bezugslinien für die Rechenzeit bei 10⁹ Operationen pro Sekunde: 1 s (10⁹), 1 h (3,6·10¹²), 1 Jahr (3,2·10¹⁶). Markiert: n = 20 mit 2800 Jahren gegen 3 µs.
+
+*Kernaussage:* Determinanten durch Entwicklung kosten rund n! Rechenschritte, die Elimination rund n³/3; die Cramersche Regel lohnt sich nur für kleine Systeme und für Formeln.
+
+*Daten:* Zahlenwerk P (Tabelle Rechenaufwand).
+
+*Editor:*
+- §12 halblogarithmische Achsen; §11 Datenkurven; §4 Beschriftung und Bezugslinien.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/03-mna-spannungsquelle**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Drei Teile.
+- (a) Kennlinien im I-U-Diagramm (I in mA waagrecht von −2 bis 2, U in V senkrecht von 0 bis 2): Leitwert 1 mS als Gerade durch den Ursprung; ideale Spannungsquelle 1 V als waagrechte Linie bei U = 1 V, die jeden Strom zulässt. Beschriftung: „Strom aus der Spannung: I = G U“ bzw. „Strom nicht aus der Spannung bestimmbar“.
+- (b) Ideale Spannungsquelle $\underline U_q$ zwischen den Knoten a (+) und b (−) an einem Kasten „übriges Netz“; Spannungspfeil $\underline U_q$ von a nach b; Strompfeil $\underline I_z$ von a in die Quelle hinein.
+- (c) Die Leitwertmatrix als grauer Block, rechts angefügt die Spalte für $\underline I_z$ mit +1 in Zeile a und −1 in Zeile b, unten angefügt die Zeile mit +1 in Spalte a, −1 in Spalte b und 0 in der Ecke; rechte Seite $\underline U_q$ in der neuen Zeile.
+
+*Kernaussage:* Der Strom der Quelle wird zur Unbekannten und bekommt eine Spalte, ihre Zweiggleichung wird zur neuen Zeile.
+
+*Daten:* schematisch; Kennlinien mit 1 mS und 1 V.
+
+*Editor:*
+- §1, §2; §4 Kennlinien; §7, §31 Blockmatrix mit Zusatzzeile und -spalte;
+- §10 Teilbilder.
+
+*Animation:* Die Spalte schiebt sich von rechts, die Zeile von unten an den grauen Block.
+
+**st1/netzwerkanalyse/03-eintragsmuster-mna**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Musterkarten wie in 03-eintragsmuster-knoten, je Symbol, Zweiggleichung und Matrixausschnitt (Zeilen a, b und Zusatzzeile; Spalten a, b, c, d und Zusatzspalte).
+- Impedanz $\underline Z$ zwischen a und b: Zusatzspalte +1/−1, Zusatzzeile +1/−1, in der Ecke −Z, rechte Seite 0; daneben der Sonderfall Z = 0 (Kurzschluss, Strommesser, Spule bei Gleichstrom).
+- Tor (Spannungsquelle $\underline U_q$ in Reihe mit $\underline Z_q$): wie die Impedanz, Ecke −Z_q, rechte Seite $\underline U_q$.
+- Spannungsgesteuerte Spannungsquelle mit Faktor v: Zusatzzeile +1, −1 in den Spalten a, b und −v, +v in den Spalten c, d.
+- Stromgesteuerte Stromquelle mit Faktor β, Steuerstrom $\underline I_\mathrm{St}$ als Zusatzunbekannte eines anderen Zweigs (etwa einer 0-V-Quelle): +β in Zeile a und −β in Zeile b in der Spalte von $\underline I_\mathrm{St}$; keine eigene Zeile.
+- Stromgesteuerte Spannungsquelle mit Faktor $r_m$: Zusatzspalte ±1, Zusatzzeile +1/−1 und −$r_m$ in der Spalte von $\underline I_\mathrm{St}$.
+- Nullor: Nullator (Oval) zwischen c und d, Norator (zwei überlappende Kreise) zwischen a und b; Zusatzspalte +1/−1 in den Zeilen a, b; Zusatzzeile +1, −1 in den Spalten c, d.
+
+*Kernaussage:* Alle Elemente, deren Strom sich weder aus den Knotenpotentialen noch aus einem schon geführten Strom ergibt, haben dasselbe Gerüst: eine Spalte für ihren Strom und eine Zeile für ihre Zweiggleichung.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §1, §28; §31 Musterkarten und Nullor-Symbole; §7.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/03-schwingkreis**
+- Fassung: ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Zwei Teile.
+- (a) Schaltbild: Stromquelle 1 mA in Knoten 1, parallel dazu $C$ = 100 nF und $L$ = 100 mH gegen Masse; Strompfeil $\underline I_L$ durch die Spule nach unten.
+- (b) Zwei gestapelte Diagramme mit gemeinsamer x-Achse ω in 1/s von 0 bis 2·10⁴, linear. Oben die Determinante der 2×2-Matrix, ω²LC − 1 (einheitenlos im System mS, kΩ), von −1 bis 3: Parabel durch (0; −1), (5000; −0,75), (10⁴; 0), (2·10⁴; 3); Nullstelle bei 10⁴ 1/s markiert und mit „Resonanz“ beschriftet. Unten der Betrag $|\underline U_1|$ in V von 0 bis 3: 0 bei ω = 0, 0,667 V bei 5000 und bei 2·10⁴ 1/s, Pol bei 10⁴ 1/s (Achse oben abgeschnitten).
+
+*Kernaussage:* Mit der Spule als Impedanz bleibt die Determinante bei Gleichstrom endlich; bei der Resonanzfrequenz wird sie null, und die verlustlose Schaltung hat keine eindeutige Lösung.
+
+*Daten:* Zahlenwerk S.
+
+*Editor:*
+- §1; §11 Datenkurven; §13 gestapelte Diagramme; §10 Teilbilder.
+
+*Animation:* Schieberegler für ω (§15): Ein Punkt läuft auf beiden Kurven, eine Anzeige zeigt die Matrix mit den aktuellen Einträgen.
+
+**st1/netzwerkanalyse/03-strommesser-transitfrequenz**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Zwei Teile.
+- (a) Ersatzschaltbild: Stromquelle $\underline I_\mathrm{ein}$ in den Gate-Knoten G; $C_{gs}$ = 100 fF von G nach Masse (Source); gestrichelt $C_{gd}$ = 20 fF von G nach D; Raute $g_m u_{GS}$ = 1 mS von D nach Masse; $g_o$ = 25 µS von D nach Masse; zwischen D und Masse eine Spannungsquelle 0 V als Strommesser, Strompfeil $\underline I_\mathrm{aus}$ von D in die Quelle.
+- (b) Doppeltlogarithmisches Diagramm: x-Achse f in Hz von 10⁷ bis 10¹⁰; y-Achse $|\underline I_\mathrm{aus}/\underline I_\mathrm{ein}|$ von 0,1 bis 1000. Durchgezogen die Gerade $g_m/(2\pi f C_{gs})$: 159 bei 10 MHz, 15,9 bei 100 MHz, 1,59 bei 1 GHz, 1 bei 1,59 GHz; gestrichelt die Kurve mit $C_{gd}$ aus Zahlenwerk T: 132,6 bei 10 MHz, 13,26 bei 100 MHz, 1,337 bei 1 GHz, 1 bei 1,345 GHz, oberhalb einiger GHz flacher, 0,213 bei 10 GHz, Grenzwert 0,1667 als waagrechte gepunktete Hilfslinie; waagrechte Linie bei 1; beide Transitfrequenzen markiert.
+
+*Kernaussage:* Die Spannungsquelle von 0 V schließt den Ausgang kurz, wie es die Definition der Transitfrequenz verlangt, und liefert den Kurzschlussstrom als Unbekannte; ohne $C_{gd}$ fällt die Stromverstärkung mit 1/f und erreicht 1 bei der Transitfrequenz.
+
+*Daten:* Zahlenwerk T.
+
+*Editor:*
+- §1, §28; §4 doppeltlogarithmische Achsen; §11; §10.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/03-nullor-verstaerker**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Zwei Teile.
+- (a) Invertierender Verstärker: Quelle $U_E$ = 0,1 V mit $R_1$ = 10 kΩ an Knoten 1 (Minuseingang), $R_2$ = 100 kΩ von Knoten 1 zum Ausgang A, Pluseingang an Masse. Der OPV als Nullor: Nullator (Oval) zwischen Plus- und Minuseingang, Norator (zwei überlappende Kreise) zwischen Ausgang und Masse; Strompfeile $I_E$ (von Knoten 1 in das Tor aus Quelle und $R_1$) und $I_A$ (vom Ausgang A in den Norator).
+- (b) 4×4-Matrix (Spalten $U_1$, $U_A$, $I_E$, $I_A$; Einheiten mS, kΩ, V, mA): Zeile Knoten 1 (0,01; −0,01; 1; 0), Zeile Ausgang (−0,01; 0,01; 0; 1), Tor-Zeile (1; 0; −10; 0) mit rechter Seite 0,1 V, Nullator-Zeile (−1; 0; 0; 0) mit rechter Seite 0. Nullator-Zeile orange, Norator-Spalte grün. Darunter: Determinante −0,1, Zähler 0,1, $U_A$ = −1 V, Verstärkung −10; $U_1$ = 0, $I_E$ = −10 µA, $I_A$ = 10 µA.
+
+*Kernaussage:* Ein Nullor bringt eine Zeile für die Bedingung an seinem Eingang und eine Spalte für den Strom an seinem Ausgang mit; die Ausgangsspannung ergibt sich aus der übrigen Schaltung.
+
+*Daten:* Zahlenwerk U.
+
+*Editor:*
+- §1; §31 Nullor-Symbole; §7 Matrix; §10.
+
+*Animation:* Schieberegler (§15) für die Leerlaufverstärkung von 10³ bis 10⁶, wobei der Nullor durch eine gesteuerte Spannungsquelle ersetzt ist: Verstärkung −9,891, −9,99945 (bei 200 000), −9,99989 nähert sich −10, die Spannung am Minuseingang 989 µV, 5 µV, 1 µV.
+
+**st1/netzwerkanalyse/03-bode**
+- Fassung: ausführlich Abb. 11.
+- Status: offen.
+
+*Inhalt:* Zwei Teile.
+- (a) Ersatzschaltbild der Verstärkerstufe ohne Source-Widerstand: Norton-Signalquelle 1 µA parallel zu 0,1 mS am Gate, $C_{gs}$ = 100 fF von G nach Masse, Raute $g_m u_{GS}$ = 1 mS von D nach Masse, am Drain der Leitwert 0,225 mS ($G_D$ + $G_L$ + $g_o$) und $C_L$ = 10 pF nach Masse.
+- (b) Bode-Diagramm, zwei gestapelte Diagramme mit gemeinsamer logarithmischer Frequenzachse von 10⁵ bis 10¹⁰ Hz. Oben der Betrag in dB von −100 bis +20: Kurve $|\underline U_D/\underline U_\mathrm{sig}|$ aus der Datenreihe im Zahlenwerk V (12,95 dB bei 100 kHz, 9,94 dB bei 3,58 MHz, 3,50 dB bei 10 MHz, −17,41 dB bei 100 MHz, −52,04 dB bei 1 GHz, −91,93 dB bei 10 GHz); Asymptoten gestrichelt: waagrecht bei 12,96 dB bis 3,58 MHz, dann −20 dB/Dekade bis 159 MHz, dann −40 dB/Dekade; Eckfrequenzen 3,58 MHz und 159 MHz als senkrechte Hilfslinien; −3-dB-Punkt markiert. In zweiter Farbe $|\underline U_G/\underline U_\mathrm{sig}|$: 0 dB bis 159 MHz, dann −20 dB/Dekade (−16,07 dB bei 1 GHz). Unten der Winkel von $\underline U_D/\underline U_\mathrm{sig}$ in Grad von 0 bis 180: 178,4° bei 100 kHz, 133,7° bei 3,58 MHz, 106,1° bei 10 MHz, 59,9° bei 100 MHz, 46,3° bei 159 MHz, 9,3° bei 1 GHz.
+
+*Kernaussage:* Die Eckfrequenzen gehören zu den Polen, den Nullstellen der Determinante; oberhalb jeder fällt der Betrag um weitere 20 dB pro Dekade.
+
+*Daten:* Zahlenwerk V (Datenreihe).
+
+*Editor:*
+- §32 Bode-Diagramm; §13 gestapelte Diagramme; §11 Datenkurven;
+- §1, §28; §10 Teilbilder.
+
+*Animation:* Schieberegler für $C_L$ (§15) von 1 pF bis 100 pF: Die untere Eckfrequenz wandert, die Verstärkung bei tiefen Frequenzen bleibt, die Frequenz mit Betrag 1 wandert mit.
 
