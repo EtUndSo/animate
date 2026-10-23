@@ -472,3 +472,143 @@ Y. Newton-Schritt der MOS-Diode als Eintragsmuster: Leitwert g und Stromquelle I
 ====================================================================================================
 Schätzung U = 2.0000 V: I = 2.2500 mA, g = 3.0000 mS, I_eq = I - g U = -3.7500 mA
   Muster: Y = 3.2500 mS, rechte Seite = 4.2500 mA -> neue Schätzung U = 1.3077 V (Abschnitt D: 1,3077 V)
+
+====================================================================================================
+Z. Testquellen an der Verstärkerstufe: eine Matrix, verschiedene rechte Seiten (mS, mV, µA, kOhm)
+====================================================================================================
+Leitwertmatrix ohne Last (mS): [[0.1000, 0.0000, 0.0000], [1.0000, 0.1250, -1.0250], [-1.0000, -0.0250, 2.0250]]
+Teststrom 1 µA in D (u_q = 0): U_G = 0.0000 mV, U_D = 8.9011 mV, U_S = 0.1099 mV -> Z_D = U_D/I_T = 8.9011 kOhm
+  Cramer: det Y = 0.022750 mS^3, Unterdeterminante (D, D) = 0.202500 mS^2, Quotient 8.9011 kOhm; (Y^-1)_DD = 8.9011 kOhm
+  Simulator mit 1 A: U_D = 8901.1 V (Zahl = Impedanz in Ohm)
+  Spalte D der Inversen (kOhm, Zeilen G, D, S): [0.0, 8.9011, 0.1099]
+Mit R_L: Teststrom 1 µA in D: U_D = 4.7093 mV -> 4.7093 kOhm (= Z_D ∥ R_L = 4.7093 kOhm)
+Teststrom 1 µA ins Gate (u_q = 0, R_q bleibt, mit R_L): U_G = 10.0000 mV -> 10.0000 kOhm (= R_q, das Gate nimmt keinen Strom auf); U_D/U_G = -2.3256, U_S/U_G = 0.4651
+  mit der Signalquelle (10 mV): U_D/U_G = -2.3256, U_S/U_G = 0.4651 (gleich)
+MNA mit idealer Testspannungsquelle am Gate (Spalten U_G, U_D, U_S, I_z; mS, mV, µA): [[0.000, 0.000, 0.000, 1.000], [1.000, 0.125, -1.025, 0.000], [-1.000, -0.025, 2.025, 0.000], [1.000, 0.000, 0.000, 0.000]]
+  U_q aktiv (1 mV), I_T = 0: U_D = -4.3956 mV -> A_V = U_D/U_q = -4.3956; I_z = 0.0000 µA -> Y_1 = -I_z/U_q = -0.0000 mS
+  U_q = 0, I_T = 1 µA in D: U_D = 8.9011 mV -> Z_2 = 8.9011 kOhm; I_z = 0.000000 µA
+  dieselbe Matrix in beiden Fällen: True
+Ersatzzweitor: Y_1 = -0.0000 mS, A_V = -4.3956, Z_2 = 8.9011 kOhm; Norton: A_V/Z_2 = -0.49383 mS, Y_2 = 1/Z_2 = 0.11235 mS
+  Vergleich g_m G_S/(g_m + g_o + G_S) = 0.49383 mS; Näherung g_m/(1 + g_m R_S) = 0.5000 mS
+  mit Last 10 kOhm: A_V R_L/(R_L + Z_2) = -2.3256; 10 mV -> -23.2558 mV (Knotenanalyse Abschnitt L: -23.2558 mV); MNA mit Last: A_V = -2.3256
+  Norton mit Last: I = (A_V/Z_2) U_1 parallel Z_2 ∥ R_L = 4.7093 kOhm -> -2.3256
+
+====================================================================================================
+AA. Testquellen am RC-Tiefpass (MNA mit idealer Quelle; mS, kOhm, V, mA; ω = 10^4 1/s)
+====================================================================================================
+MNA-Matrix (Spalten U_1, U_2, U_3, I_z): [[1.000, -1.000, 0.000, 1.000], [-1.000, (2.000 + 1.000j), -1.000, 0.000], [0.000, -1.000, (1.000 + 1.000j), 0.000], [1.000, 0.000, 0.000, 0.000]]
+U_q = 1 V, I_T = 0: U_2 = (0.3333 - 0.3333j) V, U_3 = -0.3333j V, I_z = (-0.6667 - 0.3333j) mA
+  Y_1 = -I_z/U_q = +0.6667 + j0.3333 mS (Betrag 0.7454 mS, Winkel +26.57°); Z_1 = 1/Y_1 = +1.2000 - j0.6000 kOhm (Betrag 1.3416 kOhm, Winkel -26.57°)
+  A_V = U_3/U_q = +0.0000 - j0.3333  (Betrag 0.3333 , Winkel -90.00°); U_2/U_q = +0.3333 - j0.3333  (Betrag 0.4714 , Winkel -45.00°)
+U_q = 0, I_T = 1 mA in Knoten 3: U_3 = (0.3333 - 0.6667j) V -> Z_2 = +0.3333 - j0.6667 kOhm (Betrag 0.7454 kOhm, Winkel -63.43°); U_2 = -0.3333j V; Strom in der kurzgeschlossenen Quelle I_z = -0.3333j mA
+  dieselbe Matrix: True
+Falsch, Quelle entfernt statt kurzgeschlossen: Z_2' = C_2 ∥ (R_2 + Z_C1) = +0.2000 - j0.6000 kOhm (Betrag 0.6325 kOhm, Winkel -71.57°)
+Mit Last 1 kOhm an Knoten 3: Y_1 = +0.6000 + j0.3000 mS (Betrag 0.6708 mS, Winkel +26.57°) (ohne Last +0.6667 + j0.3333 mS (Betrag 0.7454 mS, Winkel +26.57°), Abweichung 10.0 %); U_3 = +0.1000 - j0.2000 V (Betrag 0.2236 V, Winkel -63.43°); Modell A_V U_q R_L/(R_L + Z_2) = +0.1000 - j0.2000 V (Betrag 0.2236 V, Winkel -63.43°)
+Teststrom 1 mA in Knoten 2 (U_q = 0): U_2 = (0.3333 - 0.3333j) V, U_3 = -0.3333j V, U_3/U_2 = +0.5000 - j0.5000  (Betrag 0.7071 , Winkel -45.00°); bei Spannungsanregung U_3/U_2 = +0.5000 - j0.5000  (Betrag 0.7071 , Winkel -45.00°)
+  Z_2 aus der 2x2-Leitwertmatrix (Thema 3, Knoten 2 und 3): (Y^-1)_33 = +0.3333 - j0.6667 kOhm (Betrag 0.7454 kOhm, Winkel -63.43°)
+
+====================================================================================================
+AB. Arbeitspunkt der Verstärkerstufe und was ein Kurzschluss bzw. eine Spannungsquelle daraus macht
+====================================================================================================
+Arbeitspunkt: U_G = 1.250 V, U_S = 0.250 V, U_D = 2.500 V, I_D = 0.250 mA, g_m = 1.000 mS, Sättigung
+Drain gleichstrommäßig an Masse: U_D = 0, kein Strom durch R_S, U_S = 0, U_DS = 0 -> I_D = 0; Triodenbereich: g_m = 2k U_DS = 0, g_ds = 2k (U_GS - U_th - U_DS) = 1.500 mS
+Source gleichstrommäßig an Masse (Spannungsquelle ohne Gleichanteil an S): Sättigung hieße I_D = 0.5625 mA und U_D = -0.625 V, unmöglich -> Triodenbereich: U_D = 0.4258 V, I_D = 0.4574 mA, g_m = 2k U_DS = 0.8517 mS, g_ds = 0.6483 mS (vorher 25 µS, Faktor 25.9)
+Gate an einer Spannungsquelle ohne Gleichanteil: U_G = 0, U_GS = 0 < U_th -> I_D = 0, g_m = 0
+
+====================================================================================================
+AC. Numerische Integration am RC-Glied: R = 1 kOhm, C = 100 nF, τ = 0,1 ms, Sprung 0 -> 1 V bei t = 0
+====================================================================================================
+τ = RC = 0.100 ms; exakt U(t) = 1 V (1 - exp(-t/τ)); U(τ) = 0.63212 V
+h = 0.10 τ, nach 10 Schritten (t = 1.0 τ): exakt 0.63212 V; explizit 0.65132 V (Fehler +0.01920); implizit 0.61446 V (-0.01766); Trapez 0.63243 V (+0.000307)
+h = 0.05 τ, nach 20 Schritten (t = 1.0 τ): exakt 0.63212 V; explizit 0.64151 V (Fehler +0.00939); implizit 0.62311 V (-0.00901); Trapez 0.63220 V (+0.000077)
+h = 0.50 τ, nach 2 Schritten (t = 1.0 τ): exakt 0.63212 V; explizit 0.75000 V (Fehler +0.11788); implizit 0.55556 V (-0.07657); Trapez 0.64000 V (+0.007879)
+h = 1.00 τ, nach 1 Schritten (t = 1.0 τ): exakt 0.63212 V; explizit 1.00000 V (Fehler +0.36788); implizit 0.50000 V (-0.13212); Trapez 0.66667 V (+0.034546)
+Ein Schritt ab 0 mit h = 0.1 τ: exakt 0.095163, explizit 0.100000 (Fehler +0.004837), implizit 0.090909 (-0.004253); Näherung h²/(2τ²) = 0.005000
+Ein Schritt ab 0 mit h = 0.05 τ: exakt 0.048771, explizit 0.050000 (Fehler +0.001229), implizit 0.047619 (-0.001152); Näherung h²/(2τ²) = 0.001250
+Faktor je Schritt, mit dem die Abweichung vom Endwert multipliziert wird:
+  h =  0.1 τ: explizit 1 - h/τ = +0.9000; implizit 1/(1 + h/τ) = 0.9091; Trapez (1 - h/2τ)/(1 + h/2τ) = +0.9048; exakt exp(-h/τ) = 0.9048
+  h =  0.5 τ: explizit 1 - h/τ = +0.5000; implizit 1/(1 + h/τ) = 0.6667; Trapez (1 - h/2τ)/(1 + h/2τ) = +0.6000; exakt exp(-h/τ) = 0.6065
+  h =  1.0 τ: explizit 1 - h/τ = +0.0000; implizit 1/(1 + h/τ) = 0.5000; Trapez (1 - h/2τ)/(1 + h/2τ) = +0.3333; exakt exp(-h/τ) = 0.3679
+  h =  1.5 τ: explizit 1 - h/τ = -0.5000; implizit 1/(1 + h/τ) = 0.4000; Trapez (1 - h/2τ)/(1 + h/2τ) = +0.1429; exakt exp(-h/τ) = 0.2231
+  h =  2.0 τ: explizit 1 - h/τ = -1.0000; implizit 1/(1 + h/τ) = 0.3333; Trapez (1 - h/2τ)/(1 + h/2τ) = +0.0000; exakt exp(-h/τ) = 0.1353
+  h =  2.5 τ: explizit 1 - h/τ = -1.5000; implizit 1/(1 + h/τ) = 0.2857; Trapez (1 - h/2τ)/(1 + h/2τ) = -0.1111; exakt exp(-h/τ) = 0.0821
+  h =  3.0 τ: explizit 1 - h/τ = -2.0000; implizit 1/(1 + h/τ) = 0.2500; Trapez (1 - h/2τ)/(1 + h/2τ) = -0.2000; exakt exp(-h/τ) = 0.0498
+  h = 10.0 τ: explizit 1 - h/τ = -9.0000; implizit 1/(1 + h/τ) = 0.0909; Trapez (1 - h/2τ)/(1 + h/2τ) = -0.6667; exakt exp(-h/τ) = 0.0000
+h = 3τ, Folgen U_0 .. U_5 in V:
+  FE: 0.0000, 3.0000, -3.0000, 9.0000, -15.0000, 33.0000
+  BE: 0.0000, 0.7500, 0.9375, 0.9844, 0.9961, 0.9990
+  TR: 0.0000, 1.2000, 0.9600, 1.0080, 0.9984, 1.0003
+h = 2τ, explizit: 0.000, 2.000, 0.000, 2.000, 0.000, 2.000, 0.000
+Datenreihe h = τ/2 (Abbildung), t in τ: 0.0: exakt 0.0000, FE 0.0000, BE 0.0000; 0.5: exakt 0.3935, FE 0.5000, BE 0.3333; 1.0: exakt 0.6321, FE 0.7500, BE 0.5556; 1.5: exakt 0.7769, FE 0.8750, BE 0.7037; 2.0: exakt 0.8647, FE 0.9375, BE 0.8025; 2.5: exakt 0.9179, FE 0.9688, BE 0.8683; 3.0: exakt 0.9502, FE 0.9844, BE 0.9122; 3.5: exakt 0.9698, FE 0.9922, BE 0.9415; 4.0: exakt 0.9817, FE 0.9961, BE 0.9610
+
+====================================================================================================
+AD. Begleitmodelle: Kondensator und Spule (implizites Euler-Verfahren), RC- und RL-Glied mit h = 10 µs
+====================================================================================================
+Kondensator 100 nF, h = 10 µs: G_eq = C/h = 10.000 mS (R_eq = 100.0 Ohm); I_eq = G_eq U_n
+  RC-Glied (Quelle 1 V über 1 kOhm): (G + G_eq) U_(n+1) = G·1 V + G_eq U_n -> U_1 .. U_5 = 0.09091, 0.17355, 0.24869, 0.31699, 0.37908 V; U_10 = 0.61446 V (exakt bei 0,1 ms 0.63212 V)
+  I_eq im zweiten Schritt = G_eq U_1 = 0.9091 mA; Strom in den Kondensator im ersten Schritt G_eq (U_1 - U_0) = 0.9091 mA = (1 V - U_1)/R = 0.9091 mA
+  Ohne Stromquelle I_eq (nur Leitwert): U = G·1 V/(G + G_eq) = 0.09091 V in jedem Schritt
+  Wechselstrom zum Vergleich: jωC bei ω = 10^4 1/s = j1.0 mS an denselben Plätzen wie C/h = 10.0 mS
+Trapezregel: G_eq = 2C/h = 20.0 mS, I_eq = G_eq U_n + I_n; RC: U_10 = 0.632427 V (Folge Abschnitt AC: 0.632427 V, exakt 0.632121 V)
+Spule 100 mH, h = 10 µs: G_eq = h/L = 0.100 mS; I_eq = I_n (Strom des vorigen Schritts)
+  RL-Glied (1 V über 1 kOhm an 100 mH, τ = L/R = 0,1 ms): U_1 = 0.90909 V, I_1 = 0.09091 mA; U_2 = 0.82645 V, I_2 = 0.17355 mA; U_3 = 0.75131 V, I_3 = 0.24869 mA; I_10 = 0.61446 mA (exakt 0.63212 mA)
+
+====================================================================================================
+AE. Transiente der Verstärkerstufe ohne R_S mit C_gs = 100 fF und C_L = 10 pF (Sprung u_sig 0 -> 10 mV)
+====================================================================================================
+τ_G = C_gs/G_sig = 1.0000 ns (= 1/ω_G), τ_D = C_L/G_out = 44.4444 ns (= 1/ω_D); Endwert U_D = -44.4444 mV
+  t =   1.00 ns: U_G =   6.3212 mV, U_D =   -0.3649 mV
+  t =   5.00 ns: U_G =   9.9326 mV, U_D =   -3.8217 mV
+  t =  10.00 ns: U_G =   9.9995 mV, U_D =   -8.1380 mV
+  t =  20.00 ns: U_G =  10.0000 mV, U_D =  -15.4531 mV
+  t =  44.44 ns: U_G =  10.0000 mV, U_D =  -27.7162 mV
+  t =  50.00 ns: U_G =  10.0000 mV, U_D =  -29.6833 mV
+  t = 100.00 ns: U_G =  10.0000 mV, U_D =  -39.6522 mV
+  t = 200.00 ns: U_G =  10.0000 mV, U_D =  -43.9393 mV
+  t = 300.00 ns: U_G =  10.0000 mV, U_D =  -44.3912 mV
+  Anstiegszeit 10 % -> 90 %: 97.66 ns (ln 9 · τ_D = 97.65 ns)
+Implizit, h = 5 ns: Matrix (mS) = [[0.1200, 0.0000], [1.0000, 2.2250]], in jedem Schritt dieselbe; rechte Seite (µA) (1 + C_gs/h U_G,n; C_L/h U_D,n) mit C_gs/h = 0.020 mS, C_L/h = 2.000 mS
+  n =  1, t =     5 ns: U_G =   8.3333 mV (exakt   9.9326), U_D =   -3.7453 mV (exakt   -3.8217, Fehler +0.0764 mV)
+  n =  2, t =    10 ns: U_G =   9.7222 mV (exakt   9.9995), U_D =   -7.7361 mV (exakt   -8.1380, Fehler +0.4019 mV)
+  n =  3, t =    15 ns: U_G =   9.9537 mV (exakt  10.0000), U_D =  -11.4274 mV (exakt  -12.0010, Fehler +0.5737 mV)
+  n =  4, t =    20 ns: U_G =   9.9923 mV (exakt  10.0000), U_D =  -14.7627 mV (exakt  -15.4531, Fehler +0.6904 mV)
+  n = 10, t =    50 ns: U_G =  10.0000 mV (exakt  10.0000), U_D =  -28.7877 mV (exakt  -29.6833, Fehler +0.8956 mV)
+  n = 20, t =   100 ns: U_G =  10.0000 mV (exakt  10.0000), U_D =  -39.0531 mV (exakt  -39.6522, Fehler +0.5991 mV)
+  n = 40, t =   200 ns: U_G =  10.0000 mV (exakt  10.0000), U_D =  -43.8052 mV (exakt  -43.9393, Fehler +0.1342 mV)
+  n = 60, t =   300 ns: U_G =  10.0000 mV (exakt  10.0000), U_D =  -44.3686 mV (exakt  -44.3912, Fehler +0.0226 mV)
+  h = 1 ns, t =   20 ns: U_D =  -15.3081 mV (Fehler +0.1450 mV)
+  h = 1 ns, t =   50 ns: U_D =  -29.4981 mV (Fehler +0.1852 mV)
+  h = 1 ns, t =  100 ns: U_D =  -39.5312 mV (Fehler +0.1210 mV)
+Explizit, h = 5 ns: U_G = 0.0, 50.0, -150.0, 650.0, -2550.0, 10250.0, -40950.0, 163850.0, -655350.0 mV (Faktor 1 - h/τ_G = -4)
+  U_D = 0.0, 0.0, -25.0, 52.8, -278.1, 1028.2, -4212.5, 16736.4, -67071.4 mV
+Explizit, h = 0,5 ns: U_D bei 100 ns = -39.7129 mV (exakt -39.6522 mV)
+Schrittzahlen bis 300 ns: implizit mit 5 ns: 60; explizit stabil erst unter 2 τ_G = 2 ns, also mehr als 150 Schritte
+
+====================================================================================================
+AF. Nichtlineare Transiente: MOS-Diode an der realen Stromquelle (0,5 mA, 0,25 mS) mit 1 nF parallel, ab 0 V
+====================================================================================================
+  t =  0.1 µs: U = 0.04878 V, Newton-Durchläufe 2
+  t =  0.2 µs: U = 0.09637 V, Newton-Durchläufe 2
+  t =  0.5 µs: U = 0.23229 V, Newton-Durchläufe 2
+  t =  1.0 µs: U = 0.43760 V, Newton-Durchläufe 2
+  t =  1.1 µs: U = 0.47571 V, Newton-Durchläufe 2
+  t =  1.2 µs: U = 0.51287 V, Newton-Durchläufe 3
+  t =  1.3 µs: U = 0.54891 V, Newton-Durchläufe 4
+  t =  1.5 µs: U = 0.61683 V, Newton-Durchläufe 4
+  t =  2.0 µs: U = 0.75710 V, Newton-Durchläufe 3
+  t =  3.0 µs: U = 0.91488 V, Newton-Durchläufe 3
+  t =  4.0 µs: U = 0.97264 V, Newton-Durchläufe 3
+  t =  5.0 µs: U = 0.99146 V, Newton-Durchläufe 3
+  insgesamt 142 Durchläufe in 50 Zeitschritten; Endwert gegen den Arbeitspunkt U_A = 1.0000 V; Zeitkonstante unterhalb der Schwelle C/G_q = 4.0 µs, am Arbeitspunkt C/(G_q + g) = 0.800 µs; Schwelle 0,5 V erreicht nach 1.151 µs
+
+====================================================================================================
+AG. Ergänzungen: größter Fehler der Zeitschrittrechnung, Newton-Durchläufe eines Zeitschritts
+====================================================================================================
+Stufe implizit, h = 5 ns: größter Fehler von u_D 0.8993 mV bei t = 45 ns
+Stufe implizit, h = 1 ns: größter Fehler von u_D 0.1864 mV bei t = 45 ns
+MOS-Diode mit 1 nF, h = 0,1 µs: G_C = C/h = 10.0 mS
+  Zeitschritt 1,1 µs -> 1,2 µs, U_n = 0.475710 V, Startschätzung U^(0) = U_n:
+    Durchlauf 1: g(U^(0)) = 0.000000 mS, I_eq = 0.000000 mA -> U^(1) = 0.5128882 V
+    Durchlauf 2: g(U^(1)) = 0.025776 mS, I_eq = -0.013054 mA -> U^(2) = 0.5128721 V
+    Durchlauf 3: g(U^(2)) = 0.025744 mS, I_eq = -0.013038 mA -> U^(3) = 0.5128721 V
+  rechte Seite I_q + G_C U_n = 5.25710 mA, Leitwert G_q + G_C = 10.25 mS

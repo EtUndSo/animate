@@ -1084,3 +1084,328 @@ yb.stromquelle("0", "1", Ieq_)              # ... und Strom I_eq von Knoten 1 na
 xb = yb.loesen()
 P(f"  Muster: Y = {fz(yb.M[0,0])} mS, rechte Seite = {fz(yb.r[0])} mA -> neue Schätzung U = {fz(xb[0])} V "
   f"(Abschnitt D: 1,3077 V)")
+
+
+# ======================================================================================================================
+# Thema 4: Testquellen und Transientenanalyse linearer Schaltungen
+# Beispielsysteme wie oben: Verstärkerstufe (Arbeitspunkt Abschnitt L, Kleinsignal g_m = 1 mS, g_o = 25 µS),
+# zweistufiger RC-Tiefpass (R = 1 kOhm, C = 100 nF, ω = 10^4 1/s), Verstärkerstufe ohne R_S mit C_gs = 100 fF und
+# C_L = 10 pF (Abschnitt V); dazu RC- und RL-Glied (1 kOhm mit 100 nF bzw. 100 mH, beide τ = 0,1 ms) und die MOS-Diode
+# aus Abschnitt A an ihrer realen Stromquelle mit 1 nF parallel.
+# ======================================================================================================================
+kopf("Z. Testquellen an der Verstärkerstufe: eine Matrix, verschiedene rechte Seiten (mS, mV, µA, kOhm)")
+Y0s = verstaerker(0.0)[0] * 1e3          # Zeilen/Spalten G, D, S, ohne Last; Signalquelle als G_q = 0,1 mS
+YLs = verstaerker(GL)[0] * 1e3           # mit R_L = 10 kOhm
+P("Leitwertmatrix ohne Last (mS): " + mat_str(Y0s, 4))
+xT = np.linalg.solve(Y0s, np.array([0.0, 1.0, 0.0]))       # 1 µA in den Drain, u_q = 0
+P(f"Teststrom 1 µA in D (u_q = 0): U_G = {xT[0]:.4f} mV, U_D = {xT[1]:.4f} mV, U_S = {xT[2]:.4f} mV -> "
+  f"Z_D = U_D/I_T = {xT[1]:.4f} kOhm")
+d0 = np.linalg.det(Y0s)
+cof_DD = np.linalg.det(np.delete(np.delete(Y0s, 1, 0), 1, 1))
+P(f"  Cramer: det Y = {d0:.6f} mS^3, Unterdeterminante (D, D) = {cof_DD:.6f} mS^2, Quotient {cof_DD/d0:.4f} kOhm; "
+  f"(Y^-1)_DD = {np.linalg.inv(Y0s)[1,1]:.4f} kOhm")
+P(f"  Simulator mit 1 A: U_D = {xT[1]*1e3:.1f} V (Zahl = Impedanz in Ohm)")
+P(f"  Spalte D der Inversen (kOhm, Zeilen G, D, S): {np.round(np.linalg.inv(Y0s)[:, 1], 4).tolist()}")
+xTL = np.linalg.solve(YLs, np.array([0.0, 1.0, 0.0]))
+P(f"Mit R_L: Teststrom 1 µA in D: U_D = {xTL[1]:.4f} mV -> {xTL[1]:.4f} kOhm (= Z_D ∥ R_L = "
+  f"{1/(1/xT[1] + 1/10):.4f} kOhm)")
+xG = np.linalg.solve(YLs, np.array([1.0, 0.0, 0.0]))       # 1 µA in das Gate, u_q = 0 (R_q bleibt)
+P(f"Teststrom 1 µA ins Gate (u_q = 0, R_q bleibt, mit R_L): U_G = {xG[0]:.4f} mV -> {xG[0]:.4f} kOhm (= R_q, das Gate "
+  f"nimmt keinen Strom auf); U_D/U_G = {xG[1]/xG[0]:.4f}, U_S/U_G = {xG[2]/xG[0]:.4f}")
+P(f"  mit der Signalquelle (10 mV): U_D/U_G = {Uv[1]/Uv[0]:.4f}, U_S/U_G = {Uv[2]/Uv[0]:.4f} (gleich)")
+
+
+def stufe_mna(GLx, uqx, itx):
+    """Verstärkerstufe mit idealer Testspannungsquelle am Gate (ohne R_q) und Teststromquelle in D; mS, mV, µA."""
+    m_ = MNA(["G", "D", "S"], ["Iz"])
+    m_.spannungszweig("G", "0", "Iz", uq=uqx)
+    m_.admittanz("D", "0", (GD + GLx) * 1e3)
+    m_.admittanz("S", "0", GS * 1e3)
+    m_.admittanz("D", "S", go * 1e3)
+    m_.vccs("D", "S", "G", "S", gm * 1e3)
+    m_.stromquelle("D", "0", itx)
+    return m_
+
+
+ma = stufe_mna(0.0, 1.0, 0.0)            # U_q = 1 mV, I_T = 0
+xa = ma.loesen().real
+P("MNA mit idealer Testspannungsquelle am Gate (Spalten U_G, U_D, U_S, I_z; mS, mV, µA): " + mat_str(ma.M.real, 3))
+P(f"  U_q aktiv (1 mV), I_T = 0: U_D = {xa[1]:.4f} mV -> A_V = U_D/U_q = {xa[1]:.4f}; I_z = {xa[3]:.4f} µA -> "
+  f"Y_1 = -I_z/U_q = {-xa[3]:.4f} mS")
+mb = stufe_mna(0.0, 0.0, 1.0)            # U_q = 0, I_T = 1 µA in D
+xb_ = mb.loesen().real
+P(f"  U_q = 0, I_T = 1 µA in D: U_D = {xb_[1]:.4f} mV -> Z_2 = {xb_[1]:.4f} kOhm; I_z = {xb_[3]:.6f} µA")
+P(f"  dieselbe Matrix in beiden Fällen: {np.allclose(ma.M, mb.M)}")
+AV, Z2 = xa[1], xb_[1]
+gn = AV / Z2
+P(f"Ersatzzweitor: Y_1 = {-xa[3]:.4f} mS, A_V = {AV:.4f}, Z_2 = {Z2:.4f} kOhm; Norton: A_V/Z_2 = {gn:.5f} mS, "
+  f"Y_2 = 1/Z_2 = {1/Z2:.5f} mS")
+P(f"  Vergleich g_m G_S/(g_m + g_o + G_S) = {gm*GS/(gm+go+GS)*1e3:.5f} mS; Näherung g_m/(1 + g_m R_S) = "
+  f"{gm/(1+gm*RS)*1e3:.4f} mS")
+P(f"  mit Last 10 kOhm: A_V R_L/(R_L + Z_2) = {AV*10/(10+Z2):.4f}; 10 mV -> {AV*10/(10+Z2)*10:.4f} mV "
+  f"(Knotenanalyse Abschnitt L: {Uv[1]*1e3:.4f} mV); MNA mit Last: A_V = {stufe_mna(GL, 1.0, 0.0).loesen().real[1]:.4f}")
+P(f"  Norton mit Last: I = (A_V/Z_2) U_1 parallel Z_2 ∥ R_L = {1/(1/Z2+0.1):.4f} kOhm -> {gn*1/(1/Z2+0.1):.4f}")
+
+# ------------------------------------------------------------------ AA. Testquellen am RC-Tiefpass
+kopf("AA. Testquellen am RC-Tiefpass (MNA mit idealer Quelle; mS, kOhm, V, mA; ω = 10^4 1/s)")
+
+
+def rc_mna(uqx, it3, it2=0.0, GLast=0.0):
+    m_ = MNA(["1", "2", "3"], ["Iz"])
+    m_.spannungszweig("1", "0", "Iz", uq=uqx)
+    m_.admittanz("1", "2", 1.0)
+    m_.admittanz("2", "0", 1j)
+    m_.admittanz("2", "3", 1.0)
+    m_.admittanz("3", "0", 1j + GLast)
+    m_.stromquelle("3", "0", it3)
+    m_.stromquelle("2", "0", it2)
+    return m_
+
+
+ra = rc_mna(1.0, 0.0)
+xra = ra.loesen()
+Y1rc = -xra[3] / 1.0
+P("MNA-Matrix (Spalten U_1, U_2, U_3, I_z): " + mat_str(ra.M, 3))
+P(f"U_q = 1 V, I_T = 0: U_2 = {fz(xra[1])} V, U_3 = {fz(xra[2])} V, I_z = {fz(xra[3])} mA")
+P(f"  Y_1 = -I_z/U_q = {zeiger(Y1rc, 'mS')}; Z_1 = 1/Y_1 = {zeiger(1/Y1rc, 'kOhm')}")
+P(f"  A_V = U_3/U_q = {zeiger(xra[2])}; U_2/U_q = {zeiger(xra[1])}")
+rb = rc_mna(0.0, 1.0)
+xrb = rb.loesen()
+P(f"U_q = 0, I_T = 1 mA in Knoten 3: U_3 = {fz(xrb[2])} V -> Z_2 = {zeiger(xrb[2], 'kOhm')}; U_2 = {fz(xrb[1])} V; "
+  f"Strom in der kurzgeschlossenen Quelle I_z = {fz(xrb[3])} mA")
+P(f"  dieselbe Matrix: {np.allclose(ra.M, rb.M)}")
+Zfalsch = 1 / (1j + 1 / (1.0 - 1j))
+P(f"Falsch, Quelle entfernt statt kurzgeschlossen: Z_2' = C_2 ∥ (R_2 + Z_C1) = {zeiger(Zfalsch, 'kOhm')}")
+rL = rc_mna(1.0, 0.0, GLast=1.0)
+xrL = rL.loesen()
+Y1L = -xrL[3]
+U3model = xra[2] * 1.0 / (1.0 + xrb[2])
+P(f"Mit Last 1 kOhm an Knoten 3: Y_1 = {zeiger(Y1L, 'mS')} (ohne Last {zeiger(Y1rc, 'mS')}, Abweichung "
+  f"{abs(Y1L-Y1rc)/abs(Y1rc)*100:.1f} %); U_3 = {zeiger(xrL[2], 'V')}; Modell A_V U_q R_L/(R_L + Z_2) = "
+  f"{zeiger(U3model, 'V')}")
+rc2 = rc_mna(0.0, 0.0, it2=1.0)
+x2 = rc2.loesen()
+P(f"Teststrom 1 mA in Knoten 2 (U_q = 0): U_2 = {fz(x2[1])} V, U_3 = {fz(x2[2])} V, U_3/U_2 = {zeiger(x2[2]/x2[1])}; "
+  f"bei Spannungsanregung U_3/U_2 = {zeiger(xra[2]/xra[1])}")
+P(f"  Z_2 aus der 2x2-Leitwertmatrix (Thema 3, Knoten 2 und 3): (Y^-1)_33 = "
+  f"{zeiger(np.linalg.inv(np.array([[2+1j, -1], [-1, 1+1j]]))[1, 1], 'kOhm')}")
+
+# ------------------------------------------------------------------ AB. Arbeitspunkt bei Kurzschluss bzw. Spannungsquelle
+kopf("AB. Arbeitspunkt der Verstärkerstufe und was ein Kurzschluss bzw. eine Spannungsquelle daraus macht")
+P(f"Arbeitspunkt: U_G = {UG0:.3f} V, U_S = {US0:.3f} V, U_D = {UD0:.3f} V, I_D = {ID*1e3:.3f} mA, g_m = {gm*1e3:.3f} mS, "
+  f"Sättigung")
+P(f"Drain gleichstrommäßig an Masse: U_D = 0, kein Strom durch R_S, U_S = 0, U_DS = 0 -> I_D = 0; Triodenbereich: "
+  f"g_m = 2k U_DS = 0, g_ds = 2k (U_GS - U_th - U_DS) = {2*k*(UG0-Uth)*1e3:.3f} mS")
+aa_ = UG0 - Uth
+wur_ = np.roots([RD * k, -(1 + 2 * aa_ * RD * k), VDD])
+UDt = min(x_.real for x_ in wur_ if 0 < x_.real < aa_)
+IDt = (VDD - UDt) / RD
+P(f"Source gleichstrommäßig an Masse (Spannungsquelle ohne Gleichanteil an S): Sättigung hieße I_D = "
+  f"{k*aa_**2*1e3:.4f} mA und U_D = {VDD - RD*k*aa_**2:.3f} V, unmöglich -> Triodenbereich: U_D = {UDt:.4f} V, "
+  f"I_D = {IDt*1e3:.4f} mA, g_m = 2k U_DS = {2*k*UDt*1e3:.4f} mS, g_ds = {2*k*(aa_-UDt)*1e3:.4f} mS "
+  f"(vorher {go*1e6:.0f} µS, Faktor {2*k*(aa_-UDt)/go:.1f})")
+P("Gate an einer Spannungsquelle ohne Gleichanteil: U_G = 0, U_GS = 0 < U_th -> I_D = 0, g_m = 0")
+
+# ------------------------------------------------------------------ AC. Numerische Integration am RC-Glied
+kopf("AC. Numerische Integration am RC-Glied: R = 1 kOhm, C = 100 nF, τ = 0,1 ms, Sprung 0 -> 1 V bei t = 0")
+tau = Rk * Ck
+P(f"τ = RC = {tau*1e3:.3f} ms; exakt U(t) = 1 V (1 - exp(-t/τ)); U(τ) = {1-math.exp(-1):.5f} V")
+
+
+def euler_folge(r, n, art):
+    """r = h/τ; Folge U_0 .. U_n in V für den Sprung auf 1 V."""
+    U_ = [0.0]
+    for _ in range(n):
+        u_ = U_[-1]
+        if art == "FE":
+            U_.append(u_ + r * (1 - u_))
+        elif art == "BE":
+            U_.append((u_ + r) / (1 + r))
+        else:
+            U_.append((u_ * (1 - r / 2) + r) / (1 + r / 2))
+    return U_
+
+
+for r_, n_ in ((0.1, 10), (0.05, 20), (0.5, 2), (1.0, 1)):
+    ex_ = 1 - math.exp(-r_ * n_)
+    fe_, be_, tr_ = euler_folge(r_, n_, "FE")[-1], euler_folge(r_, n_, "BE")[-1], euler_folge(r_, n_, "TR")[-1]
+    P(f"h = {r_:.2f} τ, nach {n_} Schritten (t = {r_*n_:.1f} τ): exakt {ex_:.5f} V; explizit {fe_:.5f} V "
+      f"(Fehler {fe_-ex_:+.5f}); implizit {be_:.5f} V ({be_-ex_:+.5f}); Trapez {tr_:.5f} V ({tr_-ex_:+.6f})")
+for r_ in (0.1, 0.05):
+    ex_ = 1 - math.exp(-r_)
+    P(f"Ein Schritt ab 0 mit h = {r_} τ: exakt {ex_:.6f}, explizit {r_:.6f} (Fehler {r_-ex_:+.6f}), implizit "
+      f"{r_/(1+r_):.6f} ({r_/(1+r_)-ex_:+.6f}); Näherung h²/(2τ²) = {r_*r_/2:.6f}")
+P("Faktor je Schritt, mit dem die Abweichung vom Endwert multipliziert wird:")
+for r_ in (0.1, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 10.0):
+    P(f"  h = {r_:4.1f} τ: explizit 1 - h/τ = {1-r_:+.4f}; implizit 1/(1 + h/τ) = {1/(1+r_):.4f}; Trapez "
+      f"(1 - h/2τ)/(1 + h/2τ) = {(1-r_/2)/(1+r_/2):+.4f}; exakt exp(-h/τ) = {math.exp(-r_):.4f}")
+P("h = 3τ, Folgen U_0 .. U_5 in V:")
+for art_ in ("FE", "BE", "TR"):
+    P(f"  {art_}: " + ", ".join(f"{u_:.4f}" for u_ in euler_folge(3.0, 5, art_)))
+P("h = 2τ, explizit: " + ", ".join(f"{u_:.3f}" for u_ in euler_folge(2.0, 6, "FE")))
+P("Datenreihe h = τ/2 (Abbildung), t in τ: " + "; ".join(
+    f"{0.5*j_:.1f}: exakt {1-math.exp(-0.5*j_):.4f}, FE {euler_folge(0.5, 8, 'FE')[j_]:.4f}, BE "
+    f"{euler_folge(0.5, 8, 'BE')[j_]:.4f}" for j_ in range(9)))
+
+# ------------------------------------------------------------------ AD. Begleitmodelle
+kopf("AD. Begleitmodelle: Kondensator und Spule (implizites Euler-Verfahren), RC- und RL-Glied mit h = 10 µs")
+hk = 10e-6
+Geq = Ck / hk
+P(f"Kondensator 100 nF, h = 10 µs: G_eq = C/h = {Geq*1e3:.3f} mS (R_eq = {1/Geq:.1f} Ohm); I_eq = G_eq U_n")
+U_ = 0.0
+fol = []
+for n_ in range(1, 11):
+    U_ = (1 / Rk * 1.0 + Geq * U_) / (1 / Rk + Geq)
+    fol.append(U_)
+P("  RC-Glied (Quelle 1 V über 1 kOhm): (G + G_eq) U_(n+1) = G·1 V + G_eq U_n -> U_1 .. U_5 = "
+  + ", ".join(f"{u_:.5f}" for u_ in fol[:5]) + f" V; U_10 = {fol[9]:.5f} V (exakt bei 0,1 ms {1-math.exp(-1):.5f} V)")
+P(f"  I_eq im zweiten Schritt = G_eq U_1 = {Geq*fol[0]*1e3:.4f} mA; Strom in den Kondensator im ersten Schritt "
+  f"G_eq (U_1 - U_0) = {Geq*fol[0]*1e3:.4f} mA = (1 V - U_1)/R = {(1-fol[0])/Rk*1e3:.4f} mA")
+P(f"  Ohne Stromquelle I_eq (nur Leitwert): U = G·1 V/(G + G_eq) = {1/Rk/(1/Rk+Geq):.5f} V in jedem Schritt")
+P(f"  Wechselstrom zum Vergleich: jωC bei ω = 10^4 1/s = j{w*Ck*1e3:.1f} mS an denselben Plätzen wie C/h = "
+  f"{Geq*1e3:.1f} mS")
+Geq_tr = 2 * Ck / hk
+Ut_, It_ = 0.0, 1.0 / Rk            # Strom unmittelbar nach dem Sprung: 1 mA
+for n_ in range(1, 11):
+    Ieq_t = Geq_tr * Ut_ + It_
+    Un_ = (1 / Rk + Ieq_t) / (1 / Rk + Geq_tr)
+    It_ = Geq_tr * Un_ - Ieq_t
+    Ut_ = Un_
+P(f"Trapezregel: G_eq = 2C/h = {Geq_tr*1e3:.1f} mS, I_eq = G_eq U_n + I_n; RC: U_10 = {Ut_:.6f} V (Folge Abschnitt AC: "
+  f"{euler_folge(0.1, 10, 'TR')[-1]:.6f} V, exakt {1-math.exp(-1):.6f} V)")
+GeqL = hk / Lk
+P(f"Spule 100 mH, h = 10 µs: G_eq = h/L = {GeqL*1e3:.3f} mS; I_eq = I_n (Strom des vorigen Schritts)")
+IL_, fl_ = 0.0, []
+for n_ in range(1, 11):
+    UL_ = (1 / Rk * 1.0 - IL_) / (1 / Rk + GeqL)
+    IL_ = IL_ + GeqL * UL_
+    fl_.append((UL_, IL_))
+P("  RL-Glied (1 V über 1 kOhm an 100 mH, τ = L/R = 0,1 ms): " + "; ".join(
+    f"U_{n_+1} = {u_:.5f} V, I_{n_+1} = {i_*1e3:.5f} mA" for n_, (u_, i_) in enumerate(fl_[:3]))
+  + f"; I_10 = {fl_[9][1]*1e3:.5f} mA (exakt {1-math.exp(-1):.5f} mA)")
+
+# ------------------------------------------------------------------ AE. Transiente der Verstärkerstufe
+kopf("AE. Transiente der Verstärkerstufe ohne R_S mit C_gs = 100 fF und C_L = 10 pF (Sprung u_sig 0 -> 10 mV)")
+tauG, tauD = Cgs / Gqv, CL / Gout
+UDinf = A0 * 10e-3
+P(f"τ_G = C_gs/G_sig = {tauG*1e9:.4f} ns (= 1/ω_G), τ_D = C_L/G_out = {tauD*1e9:.4f} ns (= 1/ω_D); Endwert "
+  f"U_D = {UDinf*1e3:.4f} mV")
+
+
+def UD_exakt(t_):
+    return UDinf * (1 - (tauD * math.exp(-t_ / tauD) - tauG * math.exp(-t_ / tauG)) / (tauD - tauG))
+
+
+def UG_exakt(t_):
+    return 10e-3 * (1 - math.exp(-t_ / tauG))
+
+
+for t_ in (1e-9, 5e-9, 10e-9, 20e-9, 44.44e-9, 50e-9, 100e-9, 200e-9, 300e-9):
+    P(f"  t = {t_*1e9:6.2f} ns: U_G = {UG_exakt(t_)*1e3:8.4f} mV, U_D = {UD_exakt(t_)*1e3:9.4f} mV")
+
+
+def t_bei(frac):
+    lo_, hi_ = 0.0, 1e-6
+    for _ in range(200):
+        mid_ = (lo_ + hi_) / 2
+        if UD_exakt(mid_) / UDinf < frac:
+            lo_ = mid_
+        else:
+            hi_ = mid_
+    return lo_
+
+
+P(f"  Anstiegszeit 10 % -> 90 %: {(t_bei(0.9)-t_bei(0.1))*1e9:.2f} ns (ln 9 · τ_D = {math.log(9)*tauD*1e9:.2f} ns)")
+
+
+def stufe_be(h_, n):
+    """Implizites Euler-Verfahren mit Begleitmodellen der Kondensatoren; SI-Einheiten."""
+    M_ = np.array([[Gqv + Cgs / h_, 0.0], [gm, Gout + CL / h_]])
+    UG_, UD_ = 0.0, 0.0
+    out = [(0.0, 0.0, 0.0)]
+    for j_ in range(1, n + 1):
+        r__ = np.array([10e-3 * Gqv + Cgs / h_ * UG_, CL / h_ * UD_])
+        UG_, UD_ = np.linalg.solve(M_, r__)
+        out.append((j_ * h_, UG_, UD_))
+    return M_, out
+
+
+M5, be5 = stufe_be(5e-9, 60)
+P(f"Implizit, h = 5 ns: Matrix (mS) = {mat_str(M5*1e3, 4)}, in jedem Schritt dieselbe; rechte Seite (µA) "
+  f"(1 + C_gs/h U_G,n; C_L/h U_D,n) mit C_gs/h = {Cgs/5e-9*1e3:.3f} mS, C_L/h = {CL/5e-9*1e3:.3f} mS")
+for j_ in (1, 2, 3, 4, 10, 20, 40, 60):
+    t_, ug_, ud_ = be5[j_]
+    P(f"  n = {j_:2d}, t = {t_*1e9:5.0f} ns: U_G = {ug_*1e3:8.4f} mV (exakt {UG_exakt(t_)*1e3:8.4f}), U_D = "
+      f"{ud_*1e3:9.4f} mV (exakt {UD_exakt(t_)*1e3:9.4f}, Fehler {(ud_-UD_exakt(t_))*1e3:+.4f} mV)")
+M1_, be1 = stufe_be(1e-9, 300)
+for j_ in (20, 50, 100):
+    t_, ug_, ud_ = be1[j_]
+    P(f"  h = 1 ns, t = {t_*1e9:4.0f} ns: U_D = {ud_*1e3:9.4f} mV (Fehler {(ud_-UD_exakt(t_))*1e3:+.4f} mV)")
+
+
+def stufe_fe(h_, n):
+    UG_, UD_ = 0.0, 0.0
+    out = [(0.0, 0.0, 0.0)]
+    for j_ in range(1, n + 1):
+        dUG = (10e-3 * Gqv - Gqv * UG_) / Cgs
+        dUD = (-gm * UG_ - Gout * UD_) / CL
+        UG_, UD_ = UG_ + h_ * dUG, UD_ + h_ * dUD
+        out.append((j_ * h_, UG_, UD_))
+    return out
+
+
+fe5 = stufe_fe(5e-9, 8)
+P("Explizit, h = 5 ns: U_G = " + ", ".join(f"{x_[1]*1e3:.1f}" for x_ in fe5) + f" mV (Faktor 1 - h/τ_G = "
+  f"{1-5e-9/tauG:.0f})")
+P("  U_D = " + ", ".join(f"{x_[2]*1e3:.1f}" for x_ in fe5) + " mV")
+fe05 = stufe_fe(0.5e-9, 600)
+P(f"Explizit, h = 0,5 ns: U_D bei 100 ns = {fe05[200][2]*1e3:.4f} mV (exakt {UD_exakt(100e-9)*1e3:.4f} mV)")
+P(f"Schrittzahlen bis 300 ns: implizit mit 5 ns: 60; explizit stabil erst unter 2 τ_G = {2*tauG*1e9:.0f} ns, also mehr "
+  f"als {300e-9/(2*tauG):.0f} Schritte")
+
+# ------------------------------------------------------------------ AF. Nichtlineare Transiente
+kopf("AF. Nichtlineare Transiente: MOS-Diode an der realen Stromquelle (0,5 mA, 0,25 mS) mit 1 nF parallel, ab 0 V")
+Cn, hn = 1e-9, 0.1e-6
+Pn = []
+U_alt = 0.0
+iter_ges = 0
+for j_ in range(1, 51):
+    Uk_n = U_alt
+    for it_ in range(1, 50):
+        gk_ = g_mos(Uk_n)
+        Ieqk_ = i_mos(Uk_n) - gk_ * Uk_n
+        Unew_ = (Iq + Cn / hn * U_alt - Ieqk_) / (Gq + Cn / hn + gk_)
+        fertig = abs(Unew_ - Uk_n) < 1e-9
+        Uk_n = Unew_
+        if fertig:
+            break
+    iter_ges += it_
+    Pn.append((j_ * hn, Uk_n, it_))
+    U_alt = Uk_n
+for j_ in (1, 2, 5, 10, 11, 12, 13, 15, 20, 30, 40, 50):
+    t_, u_, n_ = Pn[j_ - 1]
+    P(f"  t = {t_*1e6:4.1f} µs: U = {u_:.5f} V, Newton-Durchläufe {n_}")
+P(f"  insgesamt {iter_ges} Durchläufe in 50 Zeitschritten; Endwert gegen den Arbeitspunkt U_A = {UA:.4f} V; "
+  f"Zeitkonstante unterhalb der Schwelle C/G_q = {Cn/Gq*1e6:.1f} µs, am Arbeitspunkt C/(G_q + g) = "
+  f"{Cn/(Gq+g_mos(UA))*1e6:.3f} µs; Schwelle 0,5 V erreicht nach {-Cn/Gq*math.log(1-0.5/(Iq/Gq))*1e6:.3f} µs")
+
+# ------------------------------------------------------------------ AG. Ergänzungen für Text und Beispiele
+kopf("AG. Ergänzungen: größter Fehler der Zeitschrittrechnung, Newton-Durchläufe eines Zeitschritts")
+for h_, liste in ((5e-9, be5), (1e-9, be1)):
+    fehler = [(abs(ud_ - UD_exakt(t_)), t_) for t_, ug_, ud_ in liste]
+    fmax, tmax = max(fehler)
+    P(f"Stufe implizit, h = {h_*1e9:.0f} ns: größter Fehler von u_D {fmax*1e3:.4f} mV bei t = {tmax*1e9:.0f} ns")
+GCn = Cn / hn
+P(f"MOS-Diode mit 1 nF, h = 0,1 µs: G_C = C/h = {GCn*1e3:.1f} mS")
+U_alt2 = Pn[10][1]                       # Wert bei 1,1 µs
+P(f"  Zeitschritt 1,1 µs -> 1,2 µs, U_n = {U_alt2:.6f} V, Startschätzung U^(0) = U_n:")
+Uk2 = U_alt2
+for nu_ in range(1, 6):
+    gk2 = g_mos(Uk2)
+    Ieq2 = i_mos(Uk2) - gk2 * Uk2
+    Un2 = (Iq + GCn * U_alt2 - Ieq2) / (Gq + GCn + gk2)
+    P(f"    Durchlauf {nu_}: g(U^({nu_-1})) = {gk2*1e3:.6f} mS, I_eq = {Ieq2*1e3:.6f} mA -> U^({nu_}) = {Un2:.7f} V")
+    if abs(Un2 - Uk2) < 1e-9:
+        break
+    Uk2 = Un2
+P(f"  rechte Seite I_q + G_C U_n = {(Iq + GCn*U_alt2)*1e3:.5f} mA, Leitwert G_q + G_C = {(Gq+GCn)*1e3:.2f} mS")

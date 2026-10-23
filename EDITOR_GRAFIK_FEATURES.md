@@ -177,7 +177,7 @@ Gebraucht in: Stromaufteilung und Trägerflüsse im Bipolartransistor, aktiv und
 - Kästen mit Text und Formeln, verbunden durch Pfeile; Anordnung als Kette oder als geschlossener Kreis, Pfeile folgen der Anordnung automatisch.
 - Vorzeichen oder Symbole an Pfeilen und Kästen (+/−, steigt/sinkt), damit Mit- und Gegenkopplung unterscheidbar sind; Auslöser als Kasten außerhalb des Kreises.
 - Entscheidungsrauten mit beschrifteten Ausgängen (ja/nein), verzweigte und wieder zusammenlaufende Abläufe (Rechenschema für OPV-Schaltungen).
-Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); Rechenschema und Multiplizierer (02-rechenschema, 02-multiplizierer); Stammbaum der Einheiten und definierende Konstanten (get1/grundprinzipien/01-einheitenbaum, 01-si-konstanten); absehbar Regelkreise.
+Gebraucht in: Stromgegenkopplung (get1/bipolartransistoren/02-gegenkopplung-kette); Signalweg der Verstärkerstufe (03-signalweg); Gegen- und Mitkopplung beim Operationsverstärker (get1/operationsverstaerker/01-gegen-mit); Messkette mit Pegeln (01-messkette); Rechenschema und Multiplizierer (02-rechenschema, 02-multiplizierer); Stammbaum der Einheiten und definierende Konstanten (get1/grundprinzipien/01-einheitenbaum, 01-si-konstanten); Ablauf der Transientenanalyse mit zwei Schleifen (st1/netzwerkanalyse/04-spice-ablauf); absehbar Regelkreise.
 
 
 ## 20. Hystereseschleifen  — **P2** (neu 2026-10-22, Operationsverstärker)
@@ -241,7 +241,7 @@ Gebraucht in: st1/netzwerkanalyse/01-ersatzschaltbilder; absehbar alle Kleinsign
 - Folge von Tangenten an eine Funktion: Nullstelle jeder Tangente auf der Achse markiert, senkrechte Hilfslinie zurück zur Kurve, nummerierte Schätzwerte $U^{(0)}, U^{(1)}, \ldots$; schrittweise einblendbar (§8).
 - Ebenso die einfache Iteration als Treppen- oder Spinnwebdiagramm zwischen Funktion und Winkelhalbierender.
 - Synchron dazu eine Wertetabelle, deren Zeile beim jeweiligen Schritt hervorgehoben wird; Startwert per Schieberegler (§15).
-Gebraucht in: st1/netzwerkanalyse/01-newton; absehbar numerische Verfahren (Numerik), transiente Analyse.
+Gebraucht in: st1/netzwerkanalyse/01-newton, 04-euler-verfahren (Steigungsstücke der Euler-Verfahren); absehbar numerische Verfahren (Numerik).
 
 ## 30. Netzwerkgraphen  — **P3** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
 - Eine Schaltung auf ihren Graphen reduziert: Knoten als Punkte, Zweige als beschriftete Linien (Bauteilname statt Symbol), Bezugsknoten hervorgehoben.
@@ -263,6 +263,19 @@ Gebraucht in: st1/netzwerkanalyse/03-netzliste-matrix, 03-eintragsmuster-knoten,
 - Asymptoten gestrichelt mit Steigungsangabe (0, −20, −40 dB pro Dekade); Eckfrequenzen als senkrechte Hilfslinien mit Beschriftung; −3-dB-Punkt markiert.
 - Mehrere Übertragungsfunktionen in einem Diagramm, direkt an den Kurven beschriftet; Werte aus dem Zahlenwerk (§11).
 Gebraucht in: st1/netzwerkanalyse/03-bode; absehbar Frequenzgang der Transistorgrundschaltungen, Miller-Effekt, OPV-Frequenzgang.
+
+## 33. Zeitschritte, Integrationsverfahren und Begleitmodelle  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Zeitraster mit Punkten je Zeitschritt über einer exakten Kurve (§11); Steigungsstücke je Schritt, wahlweise am Schrittanfang (explizit) oder am Schrittende (implizit), gestrichelt in der Farbe des Verfahrens.
+- Folgen mit wachsenden Ausschlägen: Achse automatisch abschneiden und Werte am Rand angeben oder Betrag logarithmisch; Faktor je Schritt als Beschriftung.
+- Ersetzungsdarstellung „Bauteil = Ersatzschaltung“: zwei Schaltungsteile mit Gleichheitszeichen dazwischen (Kondensator gleich Leitwert parallel Stromquelle), gemeinsame Knotennamen; dazu der Matrixausschnitt (§31) mit dem Vergleich zur Wechselstromanalyse in Grau.
+- Wertetabelle synchron zu den Punkten; Zeitachse mit Schrittmarken $t_0, t_1, \ldots$ und Pfeil vom Ergebnis eines Schritts zur Quelle des nächsten.
+Gebraucht in: st1/netzwerkanalyse/04-uebersicht, 04-euler-verfahren, 04-begleitmodell-kondensator, 04-begleitmodell-spule, 04-verstaerker-transiente; absehbar numerische Verfahren (Numerik für Elektrotechnik).
+
+## 34. Testquellen und Schaltzustände  — **P2** (neu 2026-10-23, Schaltungstechnik Netzwerkanalyse)
+- Quellen mit Zustand „aktiv“ oder „abgeschaltet“: abgeschaltete Quelle grau mit „= 0“, wahlweise ersetzt durch ihren Ersatz (Stromquelle durch Leerlauf, Spannungsquelle durch Kurzschluss, gestrichelt); Testquellen farblich abgesetzt (Teststrom orange, Testspannung blau).
+- Umschalten zwischen Läufen derselben Schaltung als Animation (§8): Die aktive Quelle wechselt, die zugehörige rechte Seite der Matrix wechselt mit (§31), die Matrix bleibt stehen.
+- Markierung „falsch“ (rot umrandet oder durchgestrichen) für Gegenbeispiele wie eine entfernte statt kurzgeschlossene Quelle.
+Gebraucht in: st1/netzwerkanalyse/04-uebersicht, 04-teststrom-ausgang, 04-testspannung-eingang, 04-innerer-knoten, 04-ersatzzweitor; absehbar Vierpole (Parameter aus Leerlauf- und Kurzschlussbedingungen).
 
 ## Vorgehensvorschlag nach den Artikeln (Stand 2026-10-21)
 1. Teilbild-Layout, Datenkurven, halblogarithmische Achsen (§10–§12) zusammen mit §4: schalten die meisten

@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §32);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §34);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -2527,4 +2527,196 @@ Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte
 - §1, §28; §10 Teilbilder.
 
 *Animation:* Schieberegler für $C_L$ (§15) von 1 pF bis 100 pF: Die untere Eckfrequenz wandert, die Verstärkung bei tiefen Frequenzen bleibt, die Frequenz mit Betrag 1 wandert mit.
+
+---
+
+## ST1 Netzwerkanalyse: Testquellen und Transientenanalyse linearer Schaltungen
+Zahlenwerk: `notizen/st1/zahlen_netzwerkanalyse.py` (Ausgabe `.txt`), Abschnitte Z bis AF; Beispielsysteme wie in den Themen 2 und 3 (Verstärkerstufe mit g_m = 1 mS, g_o = 25 µS, R_D = R_L = 10 kΩ, R_S = 1 kΩ, Signalquelle mit 10 kΩ; zweistufiger RC-Tiefpass mit 1 kΩ und 100 nF bei ω = 10⁴ 1/s; Stufe ohne R_S mit C_gs = 100 fF und C_L = 10 pF), dazu RC-Glied 1 kΩ/100 nF und RL-Glied 1 kΩ/100 mH (beide τ = 0,1 ms) und die MOS-Diode an 0,5 mA mit 0,25 mS und 1 nF parallel. Testquellen: Teststrom orange, Testspannung blau; abgeschaltete Quellen grau mit „= 0“. Kleinsignalgrößen klein geschrieben.
+
+**st1/netzwerkanalyse/04-uebersicht**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) Grauer Block „Schaltung“ mit Eingangsknoten 1 links und Ausgangsknoten 2 rechts. Am Eingang eine Spannungsquelle $\underline U_q$ als Testspannungsquelle (blau), am Ausgang eine Stromquelle $\underline I_T$ vom Bezugsknoten in Knoten 2 als Teststromquelle (orange). Darunter das Gleichungssystem: grau hinterlegte Matrix mit dem Vermerk „bleibt“, rechts daneben drei rechte Seiten nebeneinander: „Lauf A: $\underline U_q$ = 1 V, $\underline I_T$ = 0 → Eingangsadmittanz und Übertragung“, „Lauf B: $\underline U_q$ = 0, $\underline I_T$ = 1 A → Ausgangsimpedanz“, „Betrieb: Signal am Eingang, $\underline I_T$ = 0“.
+- (b) Kondensator $C$ zwischen den Knoten a und b, Gleichheitszeichen, daneben sein Begleitmodell: Leitwert $G_C = C/h$ parallel zu einer Stromquelle $G_C\,U_n$, die in a einspeist. Darunter eine Zeitachse mit $t_0, t_1, t_2, t_3$ im Abstand $h$; ein Pfeil vom gelösten Wert $U_n$ zur Stromquelle des nächsten Schritts.
+
+*Kernaussage:* Testquellen und Zeitschritte mit fester Schrittweite ändern nur die rechte Seite des Gleichungssystems; die Schaltung bleibt dieselbe.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §1, §28; §31 Blockmatrix mit mehreren rechten Seiten;
+- §33 Ersetzungsdarstellung und Zeitachse; §34 Testquellen; §10 Teilbilder.
+
+*Animation:* Umschalten zwischen den drei rechten Seiten: aktive Quelle farbig, abgeschaltete grau mit „= 0“; in (b) läuft die Zeitachse Schritt für Schritt, und der Wert der Stromquelle wird nach jedem Schritt aktualisiert.
+
+**st1/netzwerkanalyse/04-teststrom-ausgang**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Kleinsignal-Ersatzschaltbild der Verstärkerstufe ohne Last, Knoten G, D, S und Masse: am Gate der Innenleitwert $G_\mathrm{sig}$ = 0,1 mS der abgeschalteten Signalquelle (Quelle grau, „0 V“); Raute $g_m u_{GS}$ = 1 mS von D nach S; $g_o$ = 25 µS zwischen D und S; $R_D$ = 10 kΩ von D nach Masse; $R_S$ = 1 kΩ von S nach Masse; Teststromquelle $\underline I_T$ = 1 µA von Masse in D (orange).
+- (b) Leitwertmatrix in mS (Zeilen und Spalten G, D, S): (0,1; 0; 0), (1; 0,125; −1,025), (−1; −0,025; 2,025); rechte Seite (0; 1; 0) µA mit der 1 in Orange; Lösung (0; 8,901; 0,110) mV, als Spalte D der Inversen in kΩ gekennzeichnet; daneben die Cramersche Regel: Determinante 0,02275 mS³, Unterdeterminante ohne Zeile und Spalte D 0,2025 mS², Quotient 8,90 kΩ.
+- (c) Kleine Zeile: „Im Simulator mit 1 A: 8901 V, zahlenmäßig die Impedanz in Ω“.
+
+*Kernaussage:* Eine Teststromquelle erscheint nur auf der rechten Seite; die Antwort auf den Teststrom ist eine Spalte der Inversen, ihr Diagonaleintrag die Impedanz.
+
+*Daten:* Zahlenwerk Z.
+
+*Editor:*
+- §1, §28; §7 Matrix; §31 Spalten- und Eintragshervorhebung;
+- §34 Testquellen; §10 Teilbilder.
+
+*Animation:* Teststrom einschalten: Der Eintrag erscheint rechts, die Lösung füllt die Spalte. Danach dieselbe Quelle ans Gate setzen: 10 mV je µA, also 10 kΩ, der Innenwiderstand der abgeschalteten Signalquelle.
+
+**st1/netzwerkanalyse/04-testspannung-eingang**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) RC-Tiefpass: ideale Spannungsquelle $\underline U_q$ zwischen Knoten 1 (+) und Masse als Testspannungsquelle (blau); $R_1$ = 1 kΩ von 1 nach 2, $C_1$ = 100 nF von 2 nach Masse, $R_2$ = 1 kΩ von 2 nach 3, $C_2$ = 100 nF von 3 nach Masse; Teststromquelle $\underline I_T$ von Masse in Knoten 3 (orange); Vermerk ω = 10⁴ 1/s. Strompfeil $\underline I_\mathrm{ein}$ aus der Quelle in Knoten 1, gestrichelt der Zusatzstrom $\underline I_z$ in den Pluspol (entgegengesetzt).
+- (b) Matrix der modifizierten Knotenanalyse in mS, kΩ, V und mA (Spalten $\underline U_1$, $\underline U_2$, $\underline U_3$, $\underline I_z$): (1; −1; 0; 1), (−1; 2 + j; −1; 0), (0; −1; 1 + j; 0), (1; 0; 0; 0). Zwei rechte Seiten: Lauf A (0; 0; 0; 1 V) mit dem Ergebnis $\underline I_z$ = −(0,667 + 0,333j) mA, also $\underline Y_\mathrm{ein}$ = (0,667 + 0,333j) mS, und $\underline U_3$ = −j/3 V, also $\underline A_V$ = −j/3; Lauf B (0; 0; 1 mA; 0) mit $\underline U_3$ = (0,333 − 0,667j) V, also $\underline Z_\mathrm{aus}$ = (0,333 − 0,667j) kΩ.
+- (c) Falsch, rot markiert: Quelle entfernt statt kurzgeschlossen, Knoten 1 offen, $R_1$ hängt frei; $\underline Z_\mathrm{aus}$ wäre (0,2 − 0,6j) kΩ.
+
+*Kernaussage:* Zwei Läufe an derselben Matrix ergeben Eingangsadmittanz, Übertragung und Ausgangsimpedanz; abgeschaltet ist die Spannungsquelle ein Kurzschluss, kein Leerlauf.
+
+*Daten:* Zahlenwerk AA.
+
+*Editor:*
+- §1, §2 Zählpfeile; §31 Blockmatrix mit zwei rechten Seiten;
+- §34 Testquellen und Ersatz durch Kurzschluss; §10 Teilbilder.
+
+*Animation:* Wechsel zwischen Lauf A und Lauf B; im Lauf B wird die Spannungsquelle grau und zeigt „0 V = Kurzschluss“.
+
+**st1/netzwerkanalyse/04-innerer-knoten**
+- Fassung: ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder der Verstärkerstufe mit Gleichgrößen: Versorgung 5 V, $R_D$ = 10 kΩ, $R_S$ = 1 kΩ, n-Kanal-MOSFET, Gate auf 1,25 V.
+- Links: Teststromquelle am Source-Knoten mit Gleichanteil null (orange): Arbeitspunkt unverändert, $U_S$ = 0,25 V, $U_D$ = 2,5 V, $I_D$ = 0,25 mA, Sättigung; Kleinsignalwerte $g_m$ = 1 mS, Ausgangsleitwert 25 µS.
+- Rechts: Spannungsquelle am Source-Knoten ohne Gleichanteil (blau, rot umrandet): $U_S$ = 0 V, Triodenbereich, $U_D$ = 0,426 V, $I_D$ = 0,457 mA; Kleinsignalwerte $g_m$ = 0,852 mS, Ausgangsleitwert 0,648 mS.
+- Optional unter beiden: Ausgangskennlinienfeld mit dem jeweiligen Arbeitspunkt.
+
+*Kernaussage:* Eine Spannungsquelle an einem inneren Knoten legt auch dessen Gleichspannung fest und verschiebt den Arbeitspunkt; eine Stromquelle ohne Gleichanteil ist für Gleichstrom ein Leerlauf.
+
+*Daten:* Zahlenwerk AB.
+
+*Editor:*
+- §1, §24 MOSFET-Symbol; §4 Kennlinienfeld;
+- §34 Testquellen; §10 Teilbilder.
+
+*Animation:* Umschalten der Testquelle zwischen Strom- und Spannungsquelle; die Arbeitspunktwerte wechseln mit.
+
+**st1/netzwerkanalyse/04-ersatzzweitor**
+- Fassung: ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Ersatzzweitor in Thévenin-Form: am Eingangstor die Admittanz $\underline Y_\mathrm{ein}$ zwischen Eingangsklemme und Masse; am Ausgangstor eine spannungsgesteuerte Spannungsquelle $\underline A_V \underline U_\mathrm{ein}$ (Raute) in Reihe mit $\underline Z_\mathrm{aus}$. Zählpfeile $\underline U_\mathrm{ein}$, $\underline I_\mathrm{ein}$ (in den Eingang), $\underline U_\mathrm{aus}$, $\underline I_\mathrm{aus}$ (aus dem Ausgang in die Last). Links grau die Testspannungsquelle, rechts grau die Teststromquelle.
+- (b) Norton-Form: gesteuerte Stromquelle $(\underline A_V/\underline Z_\mathrm{aus})\,\underline U_\mathrm{ein}$ in den Ausgangsknoten parallel zu $\underline Z_\mathrm{aus}$.
+- (c) Werte der Verstärkerstufe: $\underline Y_\mathrm{ein}$ = 0, $\underline A_V$ = −4,40, $\underline Z_\mathrm{aus}$ = 8,90 kΩ, $\underline A_V/\underline Z_\mathrm{aus}$ = −0,494 mS; mit Last 10 kΩ $\underline U_\mathrm{aus}/\underline U_\mathrm{ein}$ = −2,33, bei 10 mV −23,26 mV.
+
+*Kernaussage:* Drei Kenngrößen aus zwei Läufen derselben Matrix beschreiben eine rückwirkungsfreie Stufe vollständig.
+
+*Daten:* Zahlenwerk Z.
+
+*Editor:*
+- §1, §28 gesteuerte Quellen; §2 Zählpfeile;
+- §34; §10 Teilbilder.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/04-euler-verfahren**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei Teilbilder.
+- (a) $U$ in V (0 bis 1,1) über $t$ in Vielfachen von τ (0 bis 4), τ = 0,1 ms. Exakte Ladekurve 1 V (1 − exp(−t/τ)) blau: 0; 0,393; 0,632; 0,777; 0,865; 0,918; 0,950; 0,970; 0,982 V bei 0; 0,5τ; …; 4τ. Explizites Verfahren mit $h$ = τ/2 als orange Punkte: 0; 0,500; 0,750; 0,875; 0,938; 0,969; 0,984; 0,992; 0,996 V. Implizites als grüne Punkte: 0; 0,333; 0,556; 0,704; 0,802; 0,868; 0,912; 0,941; 0,961 V. Am ersten Schritt die Tangente im Startpunkt mit der Steigung $U_q/\tau$ = 10 V/ms (gestrichelt, orange) bis 0,5 V bei 0,5τ und die Gerade durch den Startpunkt mit der Steigung, die zum Endwert 0,333 V gehört (gestrichelt, grün).
+- (b) $U_n$ in V über $n$ = 0 bis 5 für $h$ = 3τ: explizit 0; 3; −3; 9; −15; 33 V (orange, Zickzack, Achse oben und unten abgeschnitten mit Wertangabe); implizit 0; 0,750; 0,938; 0,984; 0,996; 0,999 V (grün); Endwert 1 V gestrichelt.
+
+*Kernaussage:* Das explizite Verfahren nimmt die Steigung am Anfang des Schritts, das implizite die am Ende; bei großen Schritten schaukelt sich das explizite auf, das implizite bleibt stabil.
+
+*Daten:* Zahlenwerk AC (Datenreihe $h$ = τ/2, Folgen $h$ = 3τ).
+
+*Editor:*
+- §11 Datenkurven; §29 Tangenten; §33 Zeitschritte;
+- §10 Teilbilder.
+
+*Animation:* Schieberegler für $h$/τ (§15) von 0,1 bis 3: Punkte und Steigungsstücke folgen; ab $h$ = 2τ wächst die explizite Folge.
+
+**st1/netzwerkanalyse/04-begleitmodell-kondensator**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Vier Teilbilder.
+- (a) Kondensator $C$ zwischen den Knoten a (oben) und b, Spannungspfeil $U_{n+1}$ von a nach b, Strompfeil $I_{n+1}$ von a nach b.
+- (b) Gleichheitszeichen, daneben das Begleitmodell: Leitwert $G_C = C/h$ zwischen a und b, parallel eine Stromquelle mit dem Wert $G_C U_n$, Pfeil durch die Quelle von b nach a (speist in a ein).
+- (c) Matrixausschnitt mit Zeilen und Spalten a, b: +$G_C$ auf (a, a) und (b, b), −$G_C$ auf (a, b) und (b, a); daneben grau dieselben Plätze mit $j\omega C$ aus der Wechselstromanalyse; rechte Seite +$G_C U_n$ in Zeile a, −$G_C U_n$ in Zeile b.
+- (d) RC-Glied: Quelle 1 V über $R$ = 1 kΩ an $C$ = 100 nF; im Zeitschritt $h$ = 10 µs wird $C$ zu 10 mS parallel zur Stromquelle. Wertetabelle $n$ und $U_n$: 0; 0,0909; 0,1736; 0,2487; 0,3170; 0,3791 V, … , $U_{10}$ = 0,614 V gegen exakt 0,632 V.
+
+*Kernaussage:* Im Zeitschritt wird der Kondensator zu einem Leitwert, und seine Vorgeschichte steht als Stromquelle auf der rechten Seite.
+
+*Daten:* Zahlenwerk AD.
+
+*Editor:*
+- §1; §31 Musterkarten und Matrixausschnitt;
+- §33 Ersetzungsdarstellung; §10 Teilbilder.
+
+*Animation:* Zeitschritte nacheinander: Die Stromquelle wächst mit $U_n$, die Tabelle füllt sich.
+
+**st1/netzwerkanalyse/04-begleitmodell-spule**
+- Fassung: ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Vier Teilbilder.
+- (a) Spule $L$ zwischen a und b mit $U_{n+1}$ und $I_{n+1}$ von a nach b.
+- (b) Begleitmodell: Leitwert $h/L$ zwischen a und b parallel zu einer Stromquelle $I_n$, Pfeil durch die Quelle von a nach b (in Richtung des Spulenstroms).
+- (c) Matrixausschnitt: $h/L$ an den Plätzen eines Leitwerts; rechte Seite −$I_n$ in Zeile a, +$I_n$ in Zeile b.
+- (d) RL-Glied: Quelle 1 V über $R$ = 1 kΩ an $L$ = 100 mH, τ = 0,1 ms; im Zeitschritt $h$ = 10 µs wird $L$ zu 0,1 mS parallel zur Stromquelle; $U_1$ = 0,909 V, $I_1$ = 0,0909 mA, $I_2$ = 0,1736 mA, $I_{10}$ = 0,614 mA gegen exakt 0,632 mA.
+
+*Kernaussage:* Die Spule wird zu einem kleinen Leitwert, und eine Stromquelle führt ihren bisherigen Strom weiter.
+
+*Daten:* Zahlenwerk AD.
+
+*Editor:*
+- §1; §31; §33 Ersetzungsdarstellung; §10.
+
+*Animation:* keine.
+
+**st1/netzwerkanalyse/04-verstaerker-transiente**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Kleinsignal-Ersatzschaltbild der Stufe ohne Source-Widerstand: am Gate eine Stromquelle 1 µA, die bei $t$ = 0 einschaltet (Sprung der Signalspannung auf 10 mV), parallel 0,1 mS und $C_{gs}$ = 100 fF; Raute $g_m u_{GS}$ = 1 mS von D nach Masse; am Drain 0,225 mS und $C_L$ = 10 pF. Darunter dieselbe Schaltung im Zeitschritt $h$ = 5 ns: $C_{gs}$ wird zu 0,02 mS parallel zu einer Stromquelle 0,02 mS · $u_{G,n}$, $C_L$ zu 2 mS parallel zu 2 mS · $u_{D,n}$; Matrix (0,12; 0 / 1; 2,225) mS mit dem Vermerk „in jedem Schritt dieselbe“.
+- (b) Zwei gestapelte Diagramme über $t$ von 0 bis 300 ns. Oben $u_G$ in mV (0 bis 12): exakt 6,32 mV bei 1 ns, 9,93 mV bei 5 ns, danach 10 mV (blau); implizite Werte als Punkte 8,33; 9,72; 9,95; 9,99 mV bei 5, 10, 15, 20 ns. Unten $u_D$ in mV (0 bis −50): exakt −3,82; −8,14; −15,45; −29,68; −39,65; −43,94; −44,39 mV bei 5, 10, 20, 50, 100, 200, 300 ns (blau); implizit −3,75; −7,74; −14,76; −28,79; −39,05; −43,81; −44,37 mV (Punkte); Endwert −44,44 mV gestrichelt; Anstiegszeit 10 % bis 90 % von 97,7 ns als Maßpfeil.
+- (c) Kleines Diagramm: explizites Verfahren mit derselben Schrittweite am Gate, 0; 50; −150; 650; −2550 mV nach 0 bis 4 Schritten (Betragsachse logarithmisch oder abgeschnitten, Faktor −4 je Schritt beschriftet).
+
+*Kernaussage:* Die Matrix ist in jedem Schritt dieselbe; die schnelle Zeitkonstante von 1 ns macht das explizite Verfahren bei 5 ns instabil, das implizite rechnet stabil weiter.
+
+*Daten:* Zahlenwerk AE.
+
+*Editor:*
+- §1, §28; §11 Datenkurven; §13 gestapelte Diagramme;
+- §33 Zeitschritte; §10 Teilbilder.
+
+*Animation:* Schieberegler für $h$ (§15) von 0,5 bis 10 ns: Die impliziten Punkte folgen der Kurve mit wachsendem Fehler, die explizite Folge wächst ab 2 ns.
+
+**st1/netzwerkanalyse/04-spice-ablauf**
+- Fassung: ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* Ablaufdiagramm mit neun Kästen und zwei Rauten:
+- (1) „Arbeitspunkt als Startzustand“; (2) „Begleitmodelle der nichtlinearen Bauelemente aus der aktuellen Schätzung“; (3) „Leitwerte und Ströme ins Gleichungssystem eintragen“; (4) „lineares System lösen“; (5) Raute „konvergiert?“: nein → (6) „neue Schätzung“ → zurück zu (2), innere Schleife orange beschriftet „Newton-Verfahren“; ja → (7) „Zeitschritt h wählen, $t_{n+1} = t_n + h$“; (8) Raute „Endzeit erreicht?“: ja → „Ende“; nein → (9) „Begleitmodelle der Kondensatoren und Spulen aus dem neuen Zustand“ → zurück zu (2), äußere Schleife blau beschriftet „Zeit“.
+- Daneben zwei kleine gestapelte Diagramme für die MOS-Diode an 0,5 mA und 0,25 mS mit 1 nF parallel, $h$ = 0,1 µs, $t$ von 0 bis 5 µs: oben $U$ in V von 0 auf 0,991 V (Schwelle 0,5 V bei 1,15 µs markiert, Endwert 1 V gestrichelt); unten Newton-Durchläufe je Zeitschritt als Säulen: 2 bis 1,1 µs, danach 3 bis 4, ab etwa 2 µs 3.
+
+*Kernaussage:* Außen läuft die Zeit, innen das Newton-Verfahren; beide führen jede Rechnung auf ein lineares Gleichungssystem zurück.
+
+*Daten:* Zahlenwerk AF.
+
+*Editor:*
+- §19 Blockbilder mit Rauten; §11 Datenkurven; §13 gestapelte Diagramme; §10 Teilbilder.
+
+*Animation:* Ein Marker läuft durch das Ablaufdiagramm, synchron dazu wächst die Kurve um einen Zeitschritt, und die Säule des Schritts zählt die Newton-Durchläufe hoch.
 
