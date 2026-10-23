@@ -12,7 +12,7 @@
 - Inhalt mit allen Zahlen;
 - Kernaussage;
 - Datenquelle;
-- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §37);
+- benötigte Editor-Funktionen mit Verweis auf die Abschnitte in `EDITOR_GRAFIK_FEATURES.md` (§1 bis §38);
 - Status.
 
 **Datenquellen:** Berechnete Kurven stammen aus dem Zahlenwerk des Oberthemas (`notizen/<modul>/zahlen_<oberthema>.py`). Für den Piloten gibt es zusätzlich Entwürfe in `notizen/get1/abb_referenz/` (Dateinummer wie in der ausführlichen Fassung) und Animationsideen in `notizen/get1/grafiken_halbleiter-und-baendermodell.md`. Für spätere Themen werden keine Entwürfe mehr gezeichnet; Animationsideen stehen dann direkt im Eintrag.
@@ -3267,5 +3267,154 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte L bis Q;
 
 *Editor:*
 - §1, §24 Schaltzeichen; §28 gesteuerte Quelle; §10.
+
+*Animation:* keine.
+
+## ST1 MOS-Feldeffekttransistoren: PMOS-Transistor, Substrateffekt und Latch-Up
+Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V; Beispiel-Transistorpaar aus Thema 1 (NMOS $K_n$ = 2 mA/V², $U_{th0}$ = 0,5 V, γ_n = 0,629 √V; PMOS $W$ = 40 µm, $K_p$ = 2 mA/V², $U_{th0,p}$ = −0,5 V, γ_p = 0,615 √V; λ = 0,1 1/V). Farben wie in Thema 1: p-Gebiete gelb, n-Gebiete grün, Verarmungszonen grau, Elektronen blau, Löcher rot; parasitäre Bauelemente violett gestrichelt.
+
+**st1/mos-feldeffekttransistoren/03-cmos-ueberblick**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* CMOS-Querschnitt, schematisch: links ein NMOS im p-Substrat mit p⁺-Substratkontakt an Masse, rechts ein PMOS in der n-Wanne mit n⁺-Wannenkontakt an $U_B$ = 2,5 V. Alle pn-Übergänge als kleine Diodensymbole (n⁺ gegen Substrat, p⁺ gegen Wanne, Wanne gegen Substrat), gesperrt grau. Drei nummerierte Hervorhebungen: (1) PMOS als Spiegelbild: Löcherkanal, Spannungen negativ gegen die Source; (2) NMOS mit Source 1 V über dem Substrat: Verarmungszone unter dem Gate breiter (66 statt 46 nm); (3) gestrichelter Pfad p⁺ (PMOS-Source) → n-Wanne → p-Substrat → n⁺ (NMOS-Source) als pnpn-Schichtfolge.
+
+*Kernaussage:* Die Transistoren einer CMOS-Schaltung sind nur durch gesperrte pn-Übergänge voneinander getrennt, und das Potential von Substrat und Wanne wirkt auf jeden Transistor mit.
+
+*Daten:* Zahlenwerk T (Verarmungsweiten), schematisch sonst.
+
+*Editor:*
+- §27 Technologie-Querschnitte; §36 Ladungsschichten, pn-Übergänge als Dioden; §38 parasitärer Pfad;
+- §10 nummerierte Hervorhebungen.
+
+*Animation:* Die drei Hervorhebungen erscheinen nacheinander; bei (2) wächst die Verarmungszone mit einem Schieberegler für $U_{SB}$ von 0 bis 2,5 V.
+
+**st1/mos-feldeffekttransistoren/03-pmos-kennlinien**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Schaltzeichen des PMOS mit Gate, Drain, Source und Bulk, Zählpfeile wie beim NMOS: $U_{GS}$ und $U_{DS}$ von Gate bzw. Drain zur Source, $U_{BS}$ vom Bulk zur Source, $I_D$ in den Drain hinein; daneben das Großsignal-Ersatzschaltbild mit gesteuerter Stromquelle zwischen Source und Drain und offenem Gate. Dazu klein die Betragsgrößen $U_{SG}$, $U_{SD}$ und $I_{SD}$ = −$I_D$ mit ihren Pfeilen.
+- (b) Ausgangskennlinien mit Vorzeichen im dritten Quadranten: $I_D$ von 0 bis −1,3 mA über $U_{DS}$ von 0 bis −2,5 V für $U_{GS}$ = −0,75 / −1 / −1,25 / −1,5 V, mit λ = 0,1 1/V (bei −2,5 V: −0,078 / −0,3125 / −0,703 / −1,25 mA); gestrichelt die Grenze $U_{DS} = U_{GS} - U_{th,p}$ bei −0,25 / −0,5 / −0,75 / −1 V.
+- (c) dieselben Kennlinien in Betragsdarstellung, $I_{SD}$ über $U_{SD}$ im ersten Quadranten, gleich den NMOS-Kennlinien.
+
+*Kernaussage:* Der PMOS verhält sich wie ein NMOS mit umgekehrten Vorzeichen aller Spannungen und Ströme.
+
+*Daten:* Zahlenwerk S (Funktion id_p).
+
+*Editor:*
+- §24 Schaltzeichen; §28 gesteuerte Quelle; §2 Zählpfeile; §4, §11 Kennlinienschar;
+- §37 dritter Quadrant und gespiegelte Darstellung; §10 Teilbilder.
+
+*Animation:* Umschalten zwischen (b) und (c) als Spiegelung an beiden Achsen.
+
+**st1/mos-feldeffekttransistoren/03-substrateffekt-querschnitt**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* Zwei Querschnitte des Beispiel-NMOS unter dem Gate, jeweils genau an der Schwelle, maßstäblich in der Tiefe. (a) $U_{SB}$ = 0: Oberfläche 0,923 V über dem Inneren, Verarmungszone 45,8 nm, 4,17 fC/µm² feste Ladung, Schwelle 0,500 V. (b) $U_{SB}$ = 1 V (Source und Kanal 1 V über dem Bulk): Oberfläche 1,923 V über dem Inneren, Verarmungszone 66,2 nm, 6,02 fC/µm², Schwelle 0,768 V gegen die Source. Rechts je ein Balken der Gateladung, in (b) um 1,85 fC/µm² höher. Darunter klein der Potentialverlauf über der Tiefe für beide Fälle.
+
+*Kernaussage:* Liegt die Source über dem Bulk, muss die Oberfläche höher angehoben werden; die breitere Verarmungszone bindet mehr Gateladung, und die Schwelle steigt.
+
+*Daten:* Zahlenwerk T (x_d, |Q'_dep|).
+
+*Editor:*
+- §36 Ladungsschichten mit Daten; §27; §10 Teilbilder; §15 Schieberegler $U_{SB}$.
+
+*Animation:* Schieberegler $U_{SB}$ von 0 bis 2,5 V: Die Zone wächst bis 88 nm, die Gateladung mit ihr, eine Anzeige zeigt die Schwelle.
+
+**st1/mos-feldeffekttransistoren/03-schwelle-ubs**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Schwellenspannung in V (0,3 bis 1,1) über der Sperrspannung zwischen Source und Bulk in V (−0,4 bis 2,5): NMOS $U_{th}$ über $U_{SB}$: 0,351 / 0,392 / 0,431 / 0,500 / 0,646 / 0,768 / 0,875 / 0,971 / 1,059 V bei −0,4 / −0,3 / −0,2 / 0 / 0,5 / 1 / 1,5 / 2 / 2,5 V; PMOS $|U_{th,p}|$ über $U_{BS}$ (0 bis 2,5 V): 0,500 / 0,643 / 0,762 / 0,867 / 0,961 / 1,048 V. Gestrichelt die Tangente bei 0 mit der Steigung η = 0,327; Bereich links von 0 grau hinterlegt mit „Bulk über Source, Diode leitet zunehmend“.
+
+*Kernaussage:* Die Schwelle wächst mit der Wurzel der Sperrspannung zwischen Source und Bulk; jedes weitere Volt hebt sie weniger.
+
+*Daten:* Zahlenwerk T (uth_n_body, uthp_betrag).
+
+*Editor:*
+- §4, §11 Datenkurven; §4 Tangente; §4 Bereich hinterlegen.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/03-sourcefolger**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) NMOS-Sourcefolger: T2 mit Drain an $U_B$ = 2,5 V, Gate an $U_\mathrm{ein}$, Source am Ausgang, Bulk an Masse; darunter die Stromquelle 0,25 mA (T1).
+- (b) PMOS-Sourcefolger: T3 mit Drain an Masse, Gate an $U_\mathrm{ein}$, Source am Ausgang, Bulk wahlweise an der Source (eigene Wanne) oder an $U_B$ (gemeinsame Wanne); darüber die Stromquelle 0,25 mA (T4).
+- (c) Übertragungskennlinien $U_\mathrm{aus}$ über $U_\mathrm{ein}$: NMOS ohne Substrateffekt Gerade $U_\mathrm{ein}$ − 1 V (0,5 / 1,0 / 1,5 V bei 1,5 / 2 / 2,5 V), mit Substrateffekt 0,385 / 0,783 / 1,190 V, Steigung um 0,8; PMOS in eigener Wanne $U_\mathrm{ein}$ + 1 V, in gemeinsamer Wanne 1,305 / 1,714 V bei 0 / 0,5 V.
+
+*Kernaussage:* Der Substrateffekt lässt den Ausgang des Folgers nur mit etwa 0,8 statt 1 folgen; eine eigene Wanne beseitigt ihn beim PMOS.
+
+*Daten:* Zahlenwerk U (folger_n, folger_p).
+
+*Editor:*
+- §1 Schaltplan; §10 Teilbilder; §11 Datenkurven; §15 Schieberegler $U_\mathrm{ein}$.
+
+*Animation:* Schieberegler $U_\mathrm{ein}$: Punkte auf den Kennlinien wandern, die Schwellenspannung von T2 wird angezeigt.
+
+**st1/mos-feldeffekttransistoren/03-wannen-varianten**
+- Fassung: ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Vier Querschnitte, schematisch: (a) NMOS T1 und T2 im gemeinsamen p-Substrat an Masse, Source von T2 am Ausgang: Substrateffekt bei T2; (b) PMOS T3 und T4 in einer gemeinsamen n-Wanne an $U_B$: Substrateffekt bei T3; (c) T3 in eigener n-Wanne, Wannenkontakt an seiner Source: kein Substrateffekt, dafür mehr Fläche und eine zusätzliche Kapazität zwischen Wanne und Substrat am Ausgang; (d) NMOS in einer isolierten p-Wanne in einer tiefen n-Wanne (Triple-Well), p-Wanne an der Source.
+
+*Kernaussage:* Den Substrateffekt vermeidet nur ein eigenes, mit der Source verbundenes Gebiet; beim PMOS ist das eine eigene Wanne, beim NMOS braucht es eine tiefe n-Wanne.
+
+*Daten:* schematisch.
+
+*Editor:*
+- §27 Technologie-Querschnitte; §10 Teilbilder; §36.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/03-latchup-struktur**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder.
+- (a) Querschnitt: p⁺-Substratkontakt an Masse, NMOS-Source n⁺ an Masse, n-Wanne mit n⁺-Kontakt an $U_B$ und PMOS-Source p⁺ an $U_B$; eingezeichnet der laterale npn (Emitter NMOS-Source, Basis Substrat, Kollektor Wanne), der vertikale pnp (Emitter PMOS-Source, Basis Wanne, Kollektor Substrat), $R_\mathrm{sub}$ zwischen Basis des npn und Substratkontakt, $R_\mathrm{well}$ zwischen Basis des pnp und Wannenkontakt.
+- (b) Ersatzschaltbild: npn und pnp über Kreuz verbunden zwischen $U_B$ und Masse, $R_\mathrm{well}$ von $U_B$ an die Basis des pnp, $R_\mathrm{sub}$ von der Basis des npn nach Masse; der Mitkopplungsring als umlaufender Pfeil mit „β_npn · β_pnp“.
+- (c) die Schichtfolge p⁺–n–p–n⁺ als Thyristor.
+
+*Kernaussage:* Die Gebiete einer CMOS-Schaltung bilden zwei parasitäre Bipolartransistoren, von denen jeder den anderen ansteuert: einen Thyristor zwischen Versorgung und Masse.
+
+*Daten:* schematisch; Werte des Beispiels (1 kΩ, 2 kΩ, β 5 und 50) als Beschriftung, Zahlenwerk V.
+
+*Editor:*
+- §27; §38 parasitäre Bauelemente im Querschnitt, Mitkopplungsring; §1 Schaltplan mit Bipolarsymbolen; §10.
+
+*Animation:* Stromfluss nacheinander: Störstrom ins Substrat, npn leitet, Strom durch $R_\mathrm{well}$, pnp leitet, Strom zurück ins Substrat; die Pfeile werden mit jedem Umlauf dicker.
+
+**st1/mos-feldeffekttransistoren/03-latchup-kennlinie**
+- Fassung: ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* Schematisch: Strom zwischen $U_B$ und Masse über der Spannung zwischen beiden (0 bis 3 V): gesperrter Ast mit sehr kleinem Strom, Zündpunkt (gestrichelt markiert), Rücksprung, leitender Ast im einfachen Modell ab rund 0,8 V steil ansteigend; Haltepunkt bei rund 1 mA; die Arbeitsgerade einer 2,5-V-Versorgung mit 1 Ω Innenwiderstand schneidet den leitenden Ast bei 1,7 A. Achsen mit Bruch zwischen mA und A.
+
+*Kernaussage:* Nach dem Zünden hält sich der Thyristor mit rund 1 V selbst (im einfachen Modell 0,8 V); nur Abschalten oder ein Strom unter dem Haltestrom beendet den Zustand.
+
+*Daten:* Zahlenwerk V (Haltepunkt, 0,8 V, 1,7 A), sonst schematisch.
+
+*Editor:*
+- §38 Kennlinie mit Rücksprung; §4 Arbeitsgerade, Schnittpunkt; §17 Achsenbruch.
+
+*Animation:* Der Arbeitspunkt springt beim Zünden vom gesperrten auf den leitenden Ast und bleibt dort, wenn der Störstrom endet.
+
+**st1/mos-feldeffekttransistoren/03-latchup-gegenmassnahmen**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* Querschnitt wie in 03-latchup-struktur, ergänzt um: p⁺-Ring um den NMOS an Masse und n⁺-Ring um den PMOS an $U_B$ (Schutzringe), viele Substrat- und Wannenkontakte dicht an den Transistoren, eine dünne, schwach dotierte Epitaxieschicht auf hoch dotiertem p⁺-Substrat, größerer Abstand zwischen n⁺ und Wanne; Beschriftung der Wirkung: kleinere $R_\mathrm{sub}$ und $R_\mathrm{well}$, kleinere Stromverstärkungen, Abfangen der Ladungsträger. Kleines Einsatzbild: SOI-Querschnitt ohne gemeinsames Substrat.
+
+*Kernaussage:* Gegen Latch-Up senkt man die Widerstände, damit kein Störstrom 0,6 V erzeugt, und die Stromverstärkungen, damit die Schleife unter 1 bleibt.
+
+*Daten:* schematisch; Beschriftung 6 Ω für 100 mA (Zahlenwerk V).
+
+*Editor:*
+- §27; §38; §10 Einsatzbild.
 
 *Animation:* keine.

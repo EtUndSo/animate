@@ -367,3 +367,75 @@ Ohmscher Bereich, U_DS = 0.1 V: Gerade I_D(U_GS) schneidet die Achse bei 0.550 V
 Einschaltstrom U_GS = U_DS = 2,5 V mit lambda: 5.000 mA; Ein-Aus-Verhältnis 8.934e+09
 Unterschwellenabbildung, U_DS = 1 V, mit lambda: 0.2750 mA bei 1 V, 1.1000 mA bei 1,5 V
 U_DS = -0,1 V mit Substrateffekt: Schwelle der neuen Source 0.4663 V, I_D = -0.1167 mA
+
+====================================================================================================
+S. PMOS-Transistor: Vorzeichenform und Betragsform (Beispiel-PMOS W/L = 40/1 µm, K_p = 2 mA/V^2, U_th0,p = -0,5 V)
+====================================================================================================
+Beweglichkeit der Löcher im Kanal mu_p = K'_p/C'_ox = 72.4 cm^2/(V s), der Elektronen 289.6; Verhältnis 4.00; K_p = K'_p W_p/L_p = 2.00 mA/V^2 mit W_p = 40 µm
+Gleicher PMOS mit W = 10 µm: K = 0.50 mA/V^2; R_on bei |U_GS| = 2,5 V: 1000 Ohm (mit W = 40 µm: 250 Ohm)
+  U_GS = -1.0 V, U_DS = -0.3 V: I_D = -0.2163 mA (ohne lambda -0.2100 mA); Betragsform I_SD = 0.2163 mA
+  U_GS = -1.0 V, U_DS = -2.0 V: I_D = -0.3000 mA (ohne lambda -0.2500 mA); Betragsform I_SD = 0.3000 mA
+  U_GS = -1.5 V, U_DS = -2.5 V: I_D = -1.2500 mA (ohne lambda -1.0000 mA); Betragsform I_SD = 1.2500 mA
+  U_GS = -0.4 V, U_DS = -1.0 V: I_D = +0.0000 mA (ohne lambda +0.0000 mA); Betragsform I_SD = 0.0000 mA
+Kennlinienfeld (mit lambda) bei U_DS = -2,5 V:
+  U_GS = -0.75 V: I_D = -0.0781 mA, Grenze U_DS = U_GS - U_thp = -0.25 V
+  U_GS = -1.0 V: I_D = -0.3125 mA, Grenze U_DS = U_GS - U_thp = -0.50 V
+  U_GS = -1.25 V: I_D = -0.7031 mA, Grenze U_DS = U_GS - U_thp = -0.75 V
+  U_GS = -1.5 V: I_D = -1.2500 mA, Grenze U_DS = U_GS - U_thp = -1.00 V
+Falsch gerechnet: NMOS-Formel mit U_GS = -1 V und U_th = +0,5 V: K/2 (U_GS - U_th)^2 = 2.250 mA statt 0.250 mA
+PMOS-Schalter Source an 2,5 V: Gate 0 V -> U_GS = -2,5 V, R_on = 1/(K_p (2,5 - 0,5) V) = 250 Ohm; Gate 2,5 V -> U_GS = 0 > U_thp: gesperrt
+
+====================================================================================================
+T. Substrateffekt (Body-Effekt): Schwellenspannung über U_SB = -U_BS
+====================================================================================================
+NMOS: gamma_n = 0.6288 sqrt(V), 2 phi_F = 0.9232 V; PMOS: gamma_p = sqrt(2 q eps N_D)/C'_ox = 0.6153 sqrt(V), 2 phi_F,n = 0.9209 V (N_D = 5.440e+17 cm^-3)
+Kontrolle: exakte Schwelle bei U_SB = 0: 0.5000 V (Abschnitt C: 0.5000 V)
+ U_SB/V  U_th Formel/V  U_th exakt/V  dU_th/V  x_d/nm  |Q_dep|/(fC/µm2)    eta  Cdep/Cox  |U_thp|(U_BS)/V
+   0.00         0.5000        0.5000   0.0000    45.8             4.173  0.327     0.327           0.5000
+   0.50         0.6460        0.6460   0.1460    56.9             5.181  0.264     0.264           0.6430
+   1.00         0.7679        0.7679   0.2679    66.2             6.023  0.227     0.227           0.7623
+   1.50         0.8747        0.8747   0.3747    74.3             6.761  0.202     0.202           0.8669
+   2.00         0.9709        0.9709   0.4709    81.6             7.425  0.184     0.184           0.9611
+   2.50         1.0593        1.0593   0.5593    88.3             8.035  0.170     0.170           1.0476
+Zusätzliche Verarmungsladung bei U_SB = 1 V: 1.850 fC/µm^2, geteilt durch C'_ox = 0.2679 V
+Bulk über der Source (U_SB = -0.2 V, U_BS = 0.2 V): U_th = 0.4306 V, exakt 0.4306 V
+Bulk über der Source (U_SB = -0.3 V, U_BS = 0.3 V): U_th = 0.3922 V, exakt 0.3922 V
+Bulk über der Source (U_SB = -0.4 V, U_BS = 0.4 V): U_th = 0.3506 V, exakt 0.3506 V
+gamma aus zwei Schwellen: (U_th(2 V) - U_th(1 V)) / (0.7489 - 0.4260) = 0.6288 sqrt(V)
+  gamma bei N_A = 1.00e+16 cm^-3 und 5 nm Oxid: 0.0834 sqrt(V)
+  gamma bei N_A = 1.00e+17 cm^-3 und 5 nm Oxid: 0.2638 sqrt(V)
+  gamma bei N_A = 5.68e+17 cm^-3 und 5 nm Oxid: 0.6288 sqrt(V)
+
+====================================================================================================
+U. Sourcefolger mit Stromquelle 0,25 mA (lambda = 0), U_B = 2,5 V
+====================================================================================================
+Übersteuerung bei 0,25 mA: sqrt(2 I/K) = 0.5000 V (NMOS und PMOS, K = 2 mA/V^2)
+  NMOS-Folger, Bulk an Masse: U_ein = 1.0 V -> U_aus = -0.0000 V (ohne Substrateffekt -0.0000 V); U_th = 0.5000 V, Steigung 1/(1+eta) = 0.7534; Sättigung T2: U_DS = 2.500 V
+  NMOS-Folger, Bulk an Masse: U_ein = 1.5 V -> U_aus = 0.3850 V (ohne Substrateffekt 0.5000 V); U_th = 0.6150 V, Steigung 1/(1+eta) = 0.7844; Sättigung T2: U_DS = 2.115 V
+  NMOS-Folger, Bulk an Masse: U_ein = 2.0 V -> U_aus = 0.7828 V (ohne Substrateffekt 1.0000 V); U_th = 0.7172 V, Steigung 1/(1+eta) = 0.8060; Sättigung T2: U_DS = 1.717 V
+  NMOS-Folger, Bulk an Masse: U_ein = 2.5 V -> U_aus = 1.1901 V (ohne Substrateffekt 1.5000 V); U_th = 0.8099 V, Steigung 1/(1+eta) = 0.8222; Sättigung T2: U_DS = 1.310 V
+  Differenzenquotient zwischen 1,5 V und 2,0 V: 0.7957
+  PMOS-Folger: U_ein = 0.0 V -> eigene Wanne U_aus = 1.0000 V; gemeinsame Wanne an 2,5 V: U_aus = 1.3046 V, |U_thp| = 0.8046 V, Steigung 1/(1+eta) = 0.8254
+  PMOS-Folger: U_ein = 0.5 V -> eigene Wanne U_aus = 1.5000 V; gemeinsame Wanne an 2,5 V: U_aus = 1.7135 V, |U_thp| = 0.7135 V, Steigung 1/(1+eta) = 0.8094
+  PMOS-Folger: U_ein = 1.0 V -> eigene Wanne U_aus = 2.0000 V; gemeinsame Wanne an 2,5 V: U_aus = 2.1132 V, |U_thp| = 0.6132 V, Steigung 1/(1+eta) = 0.7880
+
+====================================================================================================
+V. Latch-Up: einfaches Modell des parasitären Thyristors (angenommene Werte)
+====================================================================================================
+Annahmen: R_sub = 1000 Ohm, R_well = 2000 Ohm, Einsatz der Basis-Emitter-Übergänge 0.6 V, beta_npn (lateral) = 5.0, beta_pnp (vertikal) = 50.0, U_CE,sat = 0.2 V, U_B = 2,5 V
+Strom, ab dem ein Übergang leitet: durch das Substrat 0.60 mA, durch die Wanne 0.30 mA (Zünden erst bei beiden, siehe Nachtrag); Schleifenverstärkung beta_npn beta_pnp = 250
+Haltepunkt (beide Übergänge auf 0.6 V): I_C,npn = 0.313 mA, I_C,pnp = 0.663 mA, Strom aus U_B = 0.976 mA
+Spannung über dem gezündeten Thyristor ~ U_EB,pnp + U_CE,sat,npn = 0.8 V
+  Versorgung 2,5 V mit 1 Ohm Innen- und Leitungswiderstand: I = 1.70 A, Leistung im Thyristor 1.36 W
+  Versorgung 2,5 V mit 10 Ohm Innen- und Leitungswiderstand: I = 0.17 A, Leistung im Thyristor 0.14 W
+Gegenmaßnahmen: beta_npn = 0,01 -> Schleifenverstärkung 0.50 < 1; R_sub für 100 mA Zündstrom: 6 Ohm
+Wanne/Substrat (N_sub = 1e+15, N_Wanne = 1e+17): U_bi = 0.714 V, C' bei 0 V = 0.108 fF/µm^2
+  Ladung beim Einschalten auf 2,5 V für 10 mm^2 Wannenfläche: 1.73 nC; mittlerer Strom bei 1 µs Anstieg: 1.73 mA, bei 10 ns: 0.17 A
+Übersteuerung bei U_GS = 1 V und U_BS = -1 V: 0.2321 V, Sättigungsstrom 0.0539 mA (ohne Substrateffekt 0,25 mA)
+C'_dep an der Schwelle bei U_BS = 0: 2.260 fF/µm^2
+Leckstrom 1 nA an R_sub = 1 kOhm: 1.0 µV
+Zweites Volt Sperrspannung: U_th(2 V) - U_th(1 V) = 0.2031 V
+NMOS zieht den Ausgang bei Gate und Drain an 2,5 V höchstens auf 1.604 V (Schwelle dort 0.896 V); ohne Substrateffekt auf 2.000 V; PMOS erreicht 2,5 V
+Zünden im Modell: Einspeisung ins Substrat ab 0.660 mA (0,6 mA bis der npn leitet, dazu 0.060 mA Basisstrom für 0,3 mA Kollektorstrom); Entnahme aus der Wanne ab 0.312 mA
+Sättigungsstrom bei U_BS = -1 V relativ zu 0,25 mA: 21.6 %
+Folger-Probe: sqrt(2 phi_F + 0,783 V) = 1.3061

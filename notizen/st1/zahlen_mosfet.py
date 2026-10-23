@@ -1,6 +1,6 @@
 """Zahlenwerk für Schaltungstechnik, MOS-Feldeffekttransistoren (Stil 3). Thema 1: Aufbau und Funktionsweise des
-MOSFET (Abschnitte A bis K); Thema 2: Kennlinien des NMOS-Transistors (Abschnitte L bis Q). Spätere Themen des
-Kapitels ergänzen dieses Skript.
+MOSFET (Abschnitte A bis K); Thema 2: Kennlinien des NMOS-Transistors (Abschnitte L bis R); Thema 3: PMOS-Transistor,
+Substrateffekt und Latch-Up (Abschnitte S bis V und Nachträge am Ende). Spätere Themen des Kapitels ergänzen dieses Skript.
 
 Eigenes Beispielsystem (keine Aufgabe aus Skript oder Übung), das Beispiel-Transistorpaar des ganzen Kapitels:
 - Silizium bei T = 300 K mit den Konstanten des ET1-Zahlenwerks (notizen/get1/zahlen_halbleiter.py): U_T = 25,85 mV,
@@ -725,3 +725,191 @@ P(f"Unterschwellenabbildung, U_DS = 1 V, mit lambda: {id_l1(1.0, 1.0, lam_n)*1e3
 dUth = gam_n * (math.sqrt(2 * pF - 0.1) - math.sqrt(2 * pF))
 I_neg = Kn * ((1.1 - (Uth_n + dUth)) * 0.1 - 0.1 ** 2 / 2)
 P(f"U_DS = -0,1 V mit Substrateffekt: Schwelle der neuen Source {Uth_n + dUth:.4f} V, I_D = {-I_neg*1e3:.4f} mA")
+
+
+# ====================================================================================================================
+# Thema 3: PMOS-Transistor, Substrateffekt und Latch-Up (Abschnitte S bis V)
+# ====================================================================================================================
+
+kopf("S. PMOS-Transistor: Vorzeichenform und Betragsform (Beispiel-PMOS W/L = 40/1 µm, K_p = 2 mA/V^2, U_th0,p = -0,5 V)")
+
+
+def id_p(UGS, UDS, lam=lam_p, K=Kp, Uthp=Uth_p):
+    """PMOS, Level 1 in Vorzeichenform: I_D in den Drain hinein gezählt (negativ), U_GS, U_DS, U_thp negativ,
+    lambda als positiver Betrag, Faktor (1 - lambda U_DS)."""
+    uov = UGS - Uthp                     # negativ, wenn der PMOS leitet
+    if uov >= 0:
+        return 0.0
+    if UDS > uov:                        # ohmscher Bereich (U_DS zwischen U_GS - U_thp und 0)
+        return -K * (uov * UDS - UDS ** 2 / 2) * (1 - lam * UDS)
+    return -K / 2 * uov ** 2 * (1 - lam * UDS)
+
+
+P(f"Beweglichkeit der Löcher im Kanal mu_p = K'_p/C'_ox = {mu_p:.1f} cm^2/(V s), der Elektronen {mu_n:.1f}; "
+  f"Verhältnis {mu_n/mu_p:.2f}; K_p = K'_p W_p/L_p = {Kp*1e3:.2f} mA/V^2 mit W_p = {Wp*1e4:.0f} µm")
+P(f"Gleicher PMOS mit W = 10 µm: K = {Kp_s*10*1e3:.2f} mA/V^2; R_on bei |U_GS| = 2,5 V: {1/(Kp_s*10*2.0):.0f} Ohm "
+  f"(mit W = 40 µm: {1/(Kp*2.0):.0f} Ohm)")
+for UGS_, UDS_ in ((-1.0, -0.3), (-1.0, -2.0), (-1.5, -2.5), (-0.4, -1.0)):
+    I_v = id_p(UGS_, UDS_)
+    I_b = id_l1(-UGS_, -UDS_, lam_p, K=Kp, Uth=-Uth_p)
+    I_v0 = id_p(UGS_, UDS_, lam=0.0)
+    P(f"  U_GS = {UGS_} V, U_DS = {UDS_} V: I_D = {I_v*1e3:+.4f} mA (ohne lambda {I_v0*1e3:+.4f} mA); "
+      f"Betragsform I_SD = {I_b*1e3:.4f} mA")
+P("Kennlinienfeld (mit lambda) bei U_DS = -2,5 V:")
+for UGS_ in (-0.75, -1.0, -1.25, -1.5):
+    P(f"  U_GS = {UGS_} V: I_D = {id_p(UGS_, -2.5)*1e3:+.4f} mA, Grenze U_DS = U_GS - U_thp = {UGS_-Uth_p:+.2f} V")
+P(f"Falsch gerechnet: NMOS-Formel mit U_GS = -1 V und U_th = +0,5 V: K/2 (U_GS - U_th)^2 = "
+  f"{Kp/2*(-1.0-0.5)**2*1e3:.3f} mA statt {Kp/2*0.25*1e3:.3f} mA")
+P(f"PMOS-Schalter Source an 2,5 V: Gate 0 V -> U_GS = -2,5 V, R_on = 1/(K_p (2,5 - 0,5) V) = {1/(Kp*2.0):.0f} Ohm; "
+  f"Gate 2,5 V -> U_GS = 0 > U_thp: gesperrt")
+
+kopf("T. Substrateffekt (Body-Effekt): Schwellenspannung über U_SB = -U_BS")
+gam_p = math.sqrt(2 * q * eps_si * ND) / Cox
+P(f"NMOS: gamma_n = {gam_n:.4f} sqrt(V), 2 phi_F = {2*pF:.4f} V; PMOS: gamma_p = sqrt(2 q eps N_D)/C'_ox = {gam_p:.4f} "
+  f"sqrt(V), 2 phi_F,n = {2*pFn:.4f} V (N_D = {ND:.3e} cm^-3)")
+
+
+def uth_n_body(USB):
+    return Uth_n + gam_n * (math.sqrt(2 * pF + USB) - math.sqrt(2 * pF))
+
+
+def uthp_betrag(UBS):
+    return -Uth_p + gam_p * (math.sqrt(2 * pFn + UBS) - math.sqrt(2 * pFn))
+
+
+def Qs_V(psi, V):
+    """Flächenladung im Halbleiter (C/cm^2) wie Qs_exakt, aber mit um V verschobenem Quasi-Fermi-Niveau der
+    Elektronen (Kanal auf dem Potential V über dem Bulk)."""
+    b, bv = psi / UT, V / UT
+    F2 = (math.exp(-b) + b - 1) + (np0 / pp0) * math.exp(-bv) * (math.exp(b) - b - 1)
+    return -math.sqrt(2 * eps_si * kB * T * pp0) * math.sqrt(max(F2, 0.0))
+
+
+def uth_exakt(USB):
+    psi = 2 * pF + USB                      # Elektronendichte an der Oberfläche = N_A, bezogen auf den Kanal
+    UGB = UFB + psi - Qs_V(psi, USB) / Cox
+    return UGB - USB
+
+
+P(f"Kontrolle: exakte Schwelle bei U_SB = 0: {uth_exakt(0.0):.4f} V (Abschnitt C: {UGB_von_psi(2*pF):.4f} V)")
+P(f"{'U_SB/V':>7} {'U_th Formel/V':>14} {'U_th exakt/V':>13} {'dU_th/V':>8} {'x_d/nm':>7} {'|Q_dep|/(fC/µm2)':>17} "
+  f"{'eta':>6} {'Cdep/Cox':>9} {'|U_thp|(U_BS)/V':>16}")
+for USB in (0.0, 0.5, 1.0, 1.5, 2.0, 2.5):
+    xdv = math.sqrt(2 * eps_si * (2 * pF + USB) / (q * NA))
+    Qdv = math.sqrt(2 * q * eps_si * NA * (2 * pF + USB))
+    eta = gam_n / (2 * math.sqrt(2 * pF + USB))
+    Cdepv = math.sqrt(q * eps_si * NA / (2 * (2 * pF + USB)))
+    P(f"{USB:7.2f} {uth_n_body(USB):14.4f} {uth_exakt(USB):13.4f} {uth_n_body(USB)-Uth_n:8.4f} {xdv*1e7:7.1f} "
+      f"{Qdv*1e7:17.3f} {eta:6.3f} {Cdepv/Cox:9.3f} {uthp_betrag(USB):16.4f}")
+P(f"Zusätzliche Verarmungsladung bei U_SB = 1 V: {(math.sqrt(2*q*eps_si*NA*(2*pF+1))-Qdep_max(NA))*1e7:.3f} fC/µm^2, "
+  f"geteilt durch C'_ox = {(math.sqrt(2*q*eps_si*NA*(2*pF+1))-Qdep_max(NA))/Cox:.4f} V")
+for USB in (-0.2, -0.3, -0.4):
+    P(f"Bulk über der Source (U_SB = {USB} V, U_BS = {-USB} V): U_th = {uth_n_body(USB):.4f} V, "
+      f"exakt {uth_exakt(USB):.4f} V")
+# gamma aus zwei Messpunkten
+x1 = math.sqrt(2 * pF + 1.0) - math.sqrt(2 * pF)
+x2 = math.sqrt(2 * pF + 2.0) - math.sqrt(2 * pF)
+P(f"gamma aus zwei Schwellen: (U_th(2 V) - U_th(1 V)) / ({x2:.4f} - {x1:.4f}) = "
+  f"{(uth_n_body(2.0)-uth_n_body(1.0))/(x2-x1):.4f} sqrt(V)")
+for N in (1e16, 1e17, NA):
+    P(f"  gamma bei N_A = {N:.2e} cm^-3 und 5 nm Oxid: {math.sqrt(2*q*eps_si*N)/Cox:.4f} sqrt(V)")
+
+kopf("U. Sourcefolger mit Stromquelle 0,25 mA (lambda = 0), U_B = 2,5 V")
+I_f = 0.25e-3
+U_ov_f = math.sqrt(2 * I_f / Kn)
+P(f"Übersteuerung bei 0,25 mA: sqrt(2 I/K) = {U_ov_f:.4f} V (NMOS und PMOS, K = 2 mA/V^2)")
+
+
+def folger_n(Uein, body=True):
+    lo, hi = -1.0, Uein
+    for _ in range(200):
+        m = 0.5 * (lo + hi)
+        uth = uth_n_body(max(m, 0.0)) if body else Uth_n
+        f = Uein - m - (uth + U_ov_f)
+        if f > 0:
+            lo = m
+        else:
+            hi = m
+    return 0.5 * (lo + hi)
+
+
+for Uein in (1.0, 1.5, 2.0, 2.5):
+    Ua = folger_n(Uein)
+    eta = gam_n / (2 * math.sqrt(2 * pF + Ua))
+    P(f"  NMOS-Folger, Bulk an Masse: U_ein = {Uein} V -> U_aus = {Ua:.4f} V (ohne Substrateffekt {folger_n(Uein, False):.4f} V); "
+      f"U_th = {uth_n_body(Ua):.4f} V, Steigung 1/(1+eta) = {1/(1+eta):.4f}; Sättigung T2: U_DS = {2.5-Ua:.3f} V")
+d = (folger_n(2.0) - folger_n(1.5)) / 0.5
+P(f"  Differenzenquotient zwischen 1,5 V und 2,0 V: {d:.4f}")
+
+
+def folger_p(Uein, eigene_wanne=True):
+    lo, hi = Uein, 2.5
+    for _ in range(200):
+        m = 0.5 * (lo + hi)
+        uth = -Uth_p if eigene_wanne else uthp_betrag(2.5 - m)
+        f = (m - Uein) - (uth + U_ov_f)
+        if f < 0:
+            lo = m
+        else:
+            hi = m
+    return 0.5 * (lo + hi)
+
+
+for Uein in (0.0, 0.5, 1.0):
+    Ua = folger_p(Uein, False)
+    eta_p = gam_p / (2 * math.sqrt(2 * pFn + 2.5 - Ua))
+    P(f"  PMOS-Folger: U_ein = {Uein} V -> eigene Wanne U_aus = {folger_p(Uein):.4f} V; gemeinsame Wanne an 2,5 V: "
+      f"U_aus = {Ua:.4f} V, |U_thp| = {uthp_betrag(2.5-Ua):.4f} V, Steigung 1/(1+eta) = {1/(1+eta_p):.4f}")
+
+kopf("V. Latch-Up: einfaches Modell des parasitären Thyristors (angenommene Werte)")
+Rsub, Rwell, Ube, bn, bp, Usat = 1e3, 2e3, 0.6, 5.0, 50.0, 0.2
+P(f"Annahmen: R_sub = {Rsub:.0f} Ohm, R_well = {Rwell:.0f} Ohm, Einsatz der Basis-Emitter-Übergänge {Ube} V, "
+  f"beta_npn (lateral) = {bn}, beta_pnp (vertikal) = {bp}, U_CE,sat = {Usat} V, U_B = 2,5 V")
+P(f"Strom, ab dem ein Übergang leitet: durch das Substrat {Ube/Rsub*1e3:.2f} mA, durch die Wanne {Ube/Rwell*1e3:.2f} mA "
+  f"(Zünden erst bei beiden, siehe Nachtrag); Schleifenverstärkung "
+  f"beta_npn beta_pnp = {bn*bp:.0f}")
+ICn = (Ube / Rwell + Ube / (bp * Rsub)) / (1 - 1 / (bn * bp))
+ICp = Ube / Rsub + ICn / bn
+IEp = ICp * (1 + 1 / bp)
+Iges = IEp + Ube / Rwell
+P(f"Haltepunkt (beide Übergänge auf {Ube} V): I_C,npn = {ICn*1e3:.3f} mA, I_C,pnp = {ICp*1e3:.3f} mA, "
+  f"Strom aus U_B = {Iges*1e3:.3f} mA")
+P(f"Spannung über dem gezündeten Thyristor ~ U_EB,pnp + U_CE,sat,npn = {Ube+Usat:.1f} V")
+for Rq in (1.0, 10.0):
+    I_l = (2.5 - (Ube + Usat)) / Rq
+    P(f"  Versorgung 2,5 V mit {Rq:.0f} Ohm Innen- und Leitungswiderstand: I = {I_l:.2f} A, Leistung im Thyristor "
+      f"{I_l*(Ube+Usat):.2f} W")
+P(f"Gegenmaßnahmen: beta_npn = 0,01 -> Schleifenverstärkung {0.01*bp:.2f} < 1; R_sub für 100 mA Zündstrom: "
+  f"{Ube/0.1:.0f} Ohm")
+# Einschalten: Ladestrom der Wannen-Substrat-Kapazität (angenommene Werte)
+Nsub, Nwell, A_w, t_r = 1e15, 1e17, 10e-2, 1e-6          # cm^-3, cm^-3, cm^2 (10 mm^2), s
+Ubi_w = UT * math.log(Nsub * Nwell / ni ** 2)
+Q0 = math.sqrt(2 * q * eps_si * Nsub * Ubi_w)
+Q1 = math.sqrt(2 * q * eps_si * Nsub * (Ubi_w + 2.5))
+C0 = math.sqrt(q * eps_si * Nsub / (2 * Ubi_w))
+P(f"Wanne/Substrat (N_sub = {Nsub:.0e}, N_Wanne = {Nwell:.0e}): U_bi = {Ubi_w:.3f} V, C' bei 0 V = {C0*1e7:.3f} fF/µm^2")
+P(f"  Ladung beim Einschalten auf 2,5 V für {A_w*100:.0f} mm^2 Wannenfläche: {(Q1-Q0)*A_w*1e9:.2f} nC; "
+  f"mittlerer Strom bei {t_r*1e6:.0f} µs Anstieg: {(Q1-Q0)*A_w/t_r*1e3:.2f} mA, bei 10 ns: {(Q1-Q0)*A_w/1e-8:.2f} A")
+# Nachträge Thema 3 beim Schreiben
+P(f"Übersteuerung bei U_GS = 1 V und U_BS = -1 V: {1-uth_n_body(1.0):.4f} V, Sättigungsstrom {Kn/2*(1-uth_n_body(1.0))**2*1e3:.4f} mA "
+  f"(ohne Substrateffekt 0,25 mA)")
+P(f"C'_dep an der Schwelle bei U_BS = 0: {math.sqrt(q*eps_si*NA/(2*2*pF))*1e7:.3f} fF/µm^2")
+P(f"Leckstrom 1 nA an R_sub = 1 kOhm: {1e-9*1e3*1e6:.1f} µV")
+P(f"Zweites Volt Sperrspannung: U_th(2 V) - U_th(1 V) = {uth_n_body(2.0)-uth_n_body(1.0):.4f} V")
+# NMOS als Verbindung zur Versorgung (Gate an 2,5 V, Drain an 2,5 V): Ausgang steigt, bis U_GS = U_th(U_aus)
+lo, hi = 0.0, 2.5
+for _ in range(200):
+    m = 0.5 * (lo + hi)
+    if 2.5 - m - uth_n_body(m) > 0:
+        lo = m
+    else:
+        hi = m
+P(f"NMOS zieht den Ausgang bei Gate und Drain an 2,5 V höchstens auf {m:.3f} V (Schwelle dort {uth_n_body(m):.3f} V); "
+  f"ohne Substrateffekt auf {2.5-Uth_n:.3f} V; PMOS erreicht 2,5 V")
+# Nachtrag Faktenprüfung Thema 3: Zündstrom (beide Übergänge leitend) statt Strom für einen Übergang
+I_z_sub = Ube / Rsub + (Ube / Rwell) / bn
+I_z_well = Ube / Rwell + (Ube / Rsub) / bp
+P(f"Zünden im Modell: Einspeisung ins Substrat ab {I_z_sub*1e3:.3f} mA (0,6 mA bis der npn leitet, dazu "
+  f"{(Ube/Rwell)/bn*1e3:.3f} mA Basisstrom für 0,3 mA Kollektorstrom); Entnahme aus der Wanne ab {I_z_well*1e3:.3f} mA")
+P(f"Sättigungsstrom bei U_BS = -1 V relativ zu 0,25 mA: {Kn/2*(1-uth_n_body(1.0))**2/0.25e-3*100:.1f} %")
+P(f"Folger-Probe: sqrt(2 phi_F + 0,783 V) = {math.sqrt(2*pF+0.7828):.4f}")
