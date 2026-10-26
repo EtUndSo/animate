@@ -29,3 +29,32 @@ You should see "Hello Sine" rendered by the Python engine via Canvas instead of 
 
 Deployed with **Cloudflare Pages** — set the project's *Root directory* to `web`; every push to
 `main` on GitHub auto-deploys.
+
+## Eigene Artikel von Hand (Umschalter „KI | Mensch“ im Wissensbereich)
+Neben jeder KI-Fassung kann eine von Hand geschriebene Fassung desselben Themas stehen. Dateien liegen im
+selben Ordner wie die KI-Fassung, mit demselben `pfad:` und `order:`, nur der Dateiname bekommt den Suffix
+`-mensch` (optional dazu `autor: mensch` im Kopf; der Suffix allein genügt):
+
+```
+content/st1/03-mos-feldeffekttransistoren/05-kleinsignalmodell.md                     KI, kompakt (steht im Baum)
+content/st1/03-mos-feldeffekttransistoren/05-kleinsignalmodell-ausfuehrlich.md        KI, ausführlich
+content/st1/03-mos-feldeffekttransistoren/05-kleinsignalmodell-mensch.md              von Hand
+content/st1/03-mos-feldeffekttransistoren/05-kleinsignalmodell-mensch-ausfuehrlich.md von Hand, ausführlich (optional)
+```
+
+Kopf einer Hand-Fassung (Beispiel):
+```
+---
+title: Kleinsignalmodell des MOSFET
+pfad: Elektrotechnik / 3. Semester / Schaltungstechnik 1 / MOS-Feldeffekttransistoren
+order: 33030500
+summary: Ein Satz für Übersicht und Suche.
+tags: Steilheit, Ausgangsleitwert
+autor: mensch
+---
+```
+Danach `python build_wissen.py`. Der Umschalter sitzt in der Kopfleiste neben dem Logo (auf dem Handy unter dem
+Titel und oben im Themenbaum): Er wechselt zwischen KI- und Hand-Fassung desselben Themas; ohne Gegenstück ist
+der Knopf grau. Die Wahl wird im Browser gemerkt, Themen-Links im Baum und in der Übersicht folgen ihr. Eine
+Hand-Fassung ohne KI-Gegenstück erscheint als eigener Eintrag im Baum. Dieselbe Markdown-Syntax wie die
+KI-Artikel (Kästen `:::formel`, `:::herleitung`, `::::beispiel`, `:::quiz` usw., Formeln in `$…$`/`$$…$$`).

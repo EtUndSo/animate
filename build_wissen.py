@@ -22,6 +22,14 @@ Artikel-Kopf (zwischen zwei '---'-Zeilen):
     tags: Ohm, Widerstand, Spannung
     ---
 Reihenfolge der Fächer/Themen: über das kleinste `order` ihrer Artikel; Dateiname-Präfix NN- sortiert innerhalb.
+
+Fassungen eines Themas (alle mit demselben `pfad:`, im selben Ordner):
+    NN-slug.md                      kompakte KI-Fassung (steht im Baum)
+    NN-slug-ausfuehrlich.md         ausführliche KI-Fassung      (fassung: ausfuehrlich)
+    NN-slug-mensch.md               von Hand geschriebene Fassung (autor: mensch; der Suffix -mensch genügt)
+    NN-slug-mensch-ausfuehrlich.md  von Hand, ausführlich
+Der Umschalter „KI | Mensch“ in der Kopfleiste wechselt zwischen den Fassungen desselben Themas; fehlt das
+Gegenstück, ist der Knopf grau. Die Wahl wird gemerkt (localStorage), Themen-Links folgen ihr.
 """
 import datetime, json, re, html, unicodedata
 from pathlib import Path
@@ -379,10 +387,14 @@ def collect():
             chain.append(nd); container = nd["children"]
         a_slug = re.sub(r"^\d+-", "", md_file.stem) or slugify(title)
         path = "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html"
+        autor = (meta.get("autor") or "").strip().lower()
+        if re.search(r"-mensch(-ausfuehrlich)?$", a_slug):   # Dateiname-Suffix genügt
+            autor = autor or "mensch"
         art = {"title": title, "slug": a_slug, "order": order, "path": path,
                "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body,
                "crumbs": [(nd["name"], nd["slug"]) for nd in chain],
-               "fassung": (meta.get("fassung") or "").strip().lower()}
+               "fassung": (meta.get("fassung") or "").strip().lower(),
+               "autor": "mensch" if autor in ("mensch", "hand", "human") else "ki"}
         if art["fassung"] == "ausfuehrlich":           # zweite Fassung eines Themas: kein eigener Eintrag im Baum
             ausf.append((art, chain[-1], re.sub(r"-ausfuehrlich$", "", a_slug)))
             continue
@@ -396,9 +408,20 @@ def collect():
             partner["fassung"] = partner["fassung"] or "kompakt"
         else:                                          # (noch) ohne kompakte Fassung: normal im Baum führen
             node["articles"].append(art)
+    def pair_humans(nd):
+        """Von Hand geschriebene Fassung (slug-mensch) an die KI-Fassung desselben Themas hängen;
+        ohne KI-Gegenstück bleibt sie als eigener Eintrag im Baum."""
+        for art in list(nd["articles"]):
+            if art["autor"] != "mensch" or not art["slug"].endswith("-mensch"):
+                continue
+            partner = next((a for a in nd["articles"] if a["slug"] == art["slug"][:-7] and a["autor"] == "ki"), None)
+            if partner:
+                partner["human"], art["human_of"] = art, partner
+                nd["articles"].remove(art)
     def to_list(container):
         nodes = sorted(container.values(), key=lambda x: (x["order"], x["name"]))
         for nd in nodes:
+            pair_humans(nd)
             nd["articles"].sort(key=lambda a: (a["order"], a["title"]))
             nd["children"] = to_list(nd["children"])
         return nodes
@@ -419,7 +442,7 @@ def _has_active(nd, active_path):
 def _node_label(nd, depth):
     return html.escape(nd["name"])
 
-def sidebar_html(tree, active_path=None):
+def sidebar_html(tree, active_path=None, art=None):
     # Standard: bis zur Modul-Ebene offen, Module selbst ZUgeklappt (Oberthemen erst auf Klick);
     # der Ast des aktuell geöffneten Artikels wird automatisch aufgeklappt.
     def render(nodes, depth):
@@ -437,8 +460,8 @@ def sidebar_html(tree, active_path=None):
                 rows.append(render(nd["children"], depth + 1))
             rows.append("</details>")
         return "".join(rows)
-    return ('<nav class="side" aria-label="Wissensbaum"><a class="side-home" href="/wissen/">Alle Module</a>'
-            + render(tree, 0) + "</nav>")
+    return ('<nav class="side" aria-label="Wissensbaum">' + autor_switch(art, "side")
+            + '<a class="side-home" href="/wissen/">Alle Module</a>' + render(tree, 0) + "</nav>")
 
 def page_shell(title, desc, body, depth):
     up = "../" * depth
@@ -459,8 +482,60 @@ try{{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")
 </body></html>"""
 
 def alt_attr(a):
-    """data-alt an Links auf die kompakte Fassung eines Themas: wer „Ausführlich“ gewählt hat, wird per JS dorthin gelenkt."""
-    return f' data-alt="/wissen/{a["alt"]["path"]}"' if a and a.get("alt") and a.get("fassung") == "kompakt" else ""
+    """Daten-Attribute an Links auf die kompakte KI-Fassung eines Themas: wer „Ausführlich“ bzw. „Mensch“ gewählt hat,
+    wird per JS zur passenden Fassung gelenkt (data-alt, data-mensch, data-mensch-alt)."""
+    if not a:
+        return ""
+    s = f' data-alt="/wissen/{a["alt"]["path"]}"' if a.get("alt") and a.get("fassung") == "kompakt" else ""
+    h = a.get("human")
+    if h:
+        s += f' data-mensch="/wissen/{h["path"]}"'
+        if h.get("alt"):
+            s += f' data-mensch-alt="/wissen/{h["alt"]["path"]}"'
+    return s
+
+def tree_art(art):
+    """Der Eintrag im Baum, zu dem eine Seite gehört: die kompakte KI-Fassung des Themas."""
+    a = art["alt"] if art.get("fassung") == "ausfuehrlich" and art.get("alt") else art
+    return a.get("human_of") or a
+
+def counterpart(art, kind):
+    """Gegenstück desselben Themas mit autor=kind, möglichst in derselben Fassung; None, wenn es keins gibt."""
+    if art.get("autor") == kind:
+        return art
+    base = art["alt"] if art.get("fassung") == "ausfuehrlich" and art.get("alt") else art   # kompakte Fassung
+    other = base.get("human") if kind == "mensch" else base.get("human_of")
+    if not other:
+        return None
+    return other["alt"] if base is not art and other.get("alt") else other
+
+def autor_switch(art=None, where="top"):
+    # Umschalter KI | Mensch in der Kopfleiste (User 2026-10-26: eigene, von Hand geschriebene Artikel neben den
+    # KI-Fassungen). Auf Artikelseiten: Links zum Gegenstück desselben Themas, grau ohne Gegenstück; auf der
+    # Übersicht: Knöpfe, die nur die Vorliebe setzen. Die Wahl wird gemerkt, Themen-Links folgen ihr (wissen.js).
+    icons = {"ki": '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+                   'stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/>'
+                   '<path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>',
+             "mensch": '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+                       'stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg>'}
+    fehlt = {"ki": "Zu diesem Thema gibt es noch keine KI-Fassung",
+             "mensch": "Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung"}
+    btns = ""
+    for kind, label in (("ki", "KI"), ("mensch", "Mensch")):
+        inner = icons[kind] + f'<span class="lbl">{label}</span>'
+        if art is None:
+            btns += f'<button type="button" class="a-btn" data-autor="{kind}" title="{label}-Fassungen bevorzugen">{inner}</button>'
+            continue
+        tgt = counterpart(art, kind)
+        if tgt is art:
+            btns += f'<a class="a-btn on" href="/wissen/{art["path"]}" data-autor="{kind}" aria-current="page" title="{label}-Fassung (diese Seite)">{inner}</a>'
+        elif tgt:
+            btns += f'<a class="a-btn" href="/wissen/{tgt["path"]}" data-autor="{kind}" title="Zur {label}-Fassung dieses Themas">{inner}</a>'
+        else:
+            btns += f'<span class="a-btn off" title="{fehlt[kind]}" aria-disabled="true">{inner}</span>'
+    # where: "top" = Kopfleiste (ab Tablet-Breite); auf dem Handy passt er dort nicht mehr neben Pfeile, Suche und
+    # Hell/Dunkel, deshalb steht er dann unter dem Titel ("art", neben Kompakt | Ausführlich) und oben im Themenbaum ("side").
+    return f'<nav class="autor autor-{where}" aria-label="KI- oder von Hand geschriebene Fassung">{btns}</nav>'
 
 def lesezeit(body):
     """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
@@ -484,7 +559,7 @@ def nav_arrow(a, prev):
         return f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
     return f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="Kein {word.lower()} Artikel">{svg}</span>'
 
-def topbar(panels=False, bsp=False, prev_a=None, next_a=None):
+def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
     # Panel-Buttons (nur Artikelseiten, mittig): links=Themenbaum, rechts=Gliederung, dritter=geteilte Ansicht
     # mit der Beispiel-Seite (Theorie links, Beispiele rechts) – ausgegraut, solange der Artikel keine Beispiele hat.
     # Davor und dahinter je ein Pfeil zum vorherigen/nächsten Artikel. Farbe: offen = blau, zu = grau.
@@ -503,7 +578,7 @@ def topbar(panels=False, bsp=False, prev_a=None, next_a=None):
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>'
              + bsp_btn + nav_arrow(next_a, False) + '</div>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
-            + pbtns
+            + autor_switch(art) + pbtns
             + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'   # ohne Lupen-Symbol (User 2026-10-21)
             '<span class="lbl">Suchen</span><kbd>/</kbd></button>'
             # Hell/Dunkel-Umschalter — immer oben rechts, auf allen Wissensseiten an gleicher Stelle.
@@ -538,8 +613,10 @@ def render_article(art, tree, prev_a, next_a):
         pane = ('<aside class="bsp-pane" id="bspPane" aria-label="Beispiele zu diesem Artikel">'
                 '<div class="bsp-pane-h">Beispiele <span>– die Aussagen des Artikels, an konkreten Fällen durchgerechnet</span></div>'
                 + cards + "</aside>")
+    pill = ('<span class="apill apill-mensch">von Hand geschrieben</span>' if art["autor"] == "mensch"
+            else '<span class="apill">KI-generiert</span>')
     crumb = '<nav class="crumbs"><a href="/wissen/">Wissen</a>' + \
-            "".join(f' › <span>{html.escape(nm)}</span>' for nm, sl in art["crumbs"]) + "</nav>"
+            "".join(f' › <span>{html.escape(nm)}</span>' for nm, sl in art["crumbs"]) + " " + pill + "</nav>"
     toc_html = ""
     arttoc = ""
     if toc:
@@ -570,12 +647,12 @@ def render_article(art, tree, prev_a, next_a):
         nav += '<div class="nb empty"></div>'
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
-            + switch + arttoc
+            + autor_switch(art, "art") + switch + arttoc
             + body_html + nav + quiz_html + legal_footer() + "</article>" + toc_html + pane + "</main>")
-    nav_path = art["alt"]["path"] if art.get("fassung") == "ausfuehrlich" and art.get("alt") else art["path"]
-    body = (topbar(panels=True, bsp=bool(examples), prev_a=prev_a, next_a=next_a)
+    nav_path = tree_art(art)["path"]
+    body = (topbar(panels=True, bsp=bool(examples), prev_a=prev_a, next_a=next_a, art=art)
             + f'<div class="layout{" has-bsp" if examples else ""}">'
-            + sidebar_html(tree, nav_path) + main + "</div>")
+            + sidebar_html(tree, nav_path, art) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth)
 
@@ -626,11 +703,15 @@ def main():
         dest = OUT / Path(art["path"])
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(render_article(art, tree, prev_a, nxt), encoding="utf-8")
-        if art.get("alt"):                             # ausführliche Fassung: Nachbarn möglichst ebenfalls ausführlich
-            p2 = (prev_a.get("alt") or prev_a) if prev_a else None
-            n2 = (nxt.get("alt") or nxt) if nxt else None
-            dest2 = OUT / Path(art["alt"]["path"])
-            dest2.write_text(render_article(art["alt"], tree, p2, n2), encoding="utf-8")
+        p2 = (prev_a.get("alt") or prev_a) if prev_a else None   # Nachbarn der ausführlichen Fassung möglichst ebenfalls ausführlich
+        n2 = (nxt.get("alt") or nxt) if nxt else None
+        if art.get("alt"):
+            (OUT / Path(art["alt"]["path"])).write_text(render_article(art["alt"], tree, p2, n2), encoding="utf-8")
+        h = art.get("human")                           # von Hand geschriebene Fassung(en) desselben Themas
+        if h:
+            (OUT / Path(h["path"])).write_text(render_article(h, tree, prev_a, nxt), encoding="utf-8")
+            if h.get("alt"):
+                (OUT / Path(h["alt"]["path"])).write_text(render_article(h["alt"], tree, p2, n2), encoding="utf-8")
 
     (OUT / "index.html").write_text(render_index(tree), encoding="utf-8")
 
@@ -638,17 +719,21 @@ def main():
     def jnode(nd):
         return {"name": nd["name"], "slug": nd["slug"],
                 "articles": [{"title": a["title"], "path": a["path"], "summary": a["summary"],
-                              **({"alt": a["alt"]["path"]} if a.get("alt") else {})} for a in nd["articles"]],
+                              **({"alt": a["alt"]["path"]} if a.get("alt") else {}),
+                              **({"mensch": a["human"]["path"]} if a.get("human") else {})} for a in nd["articles"]],
                 "children": [jnode(c) for c in nd["children"]]}
     tree_json = [jnode(n) for n in tree]
     (OUT / "data" / "tree.json").write_text(json.dumps(tree_json, ensure_ascii=False), encoding="utf-8")
 
     search = []
     alts = [a["alt"] for a in flat if a.get("alt")]
-    for a in flat + alts:
+    humans = [a["human"] for a in flat if a.get("human")]
+    humans += [h["alt"] for h in humans if h.get("alt")]
+    for a in flat + alts + humans:
         plain = to_plain(a["body"])
         crumb = " › ".join(nm for nm, sl in a["crumbs"])
-        title = a["title"] + (" (ausführlich)" if a.get("fassung") == "ausfuehrlich" and a.get("alt") else "")
+        title = a["title"] + (" (ausführlich)" if a.get("fassung") == "ausfuehrlich" and a.get("alt") else "") \
+            + (" (von Hand)" if a["autor"] == "mensch" else "")
         search.append({"title": title, "crumb": crumb, "path": a["path"],
                        "summary": a["summary"], "tags": a["tags"],
                        # pre-folded fields for fast infix matching; 'text' kept (original) for snippets
@@ -661,7 +746,7 @@ def main():
     day = write_version()
 
     n_mod = sum(1 for _ in flat)
-    print(f"✓ {n_mod} Artikel (+{len(alts)} ausführliche Fassungen), {len(tree)} Studiengänge -> {OUT} · Stand {day}")
+    print(f"✓ {n_mod} Artikel (+{len(alts)} ausführliche Fassungen, +{len(humans)} von Hand), {len(tree)} Studiengänge -> {OUT} · Stand {day}")
 
 def write_version():
     """web/version.json für die Meldung „Letztes Update“ der Startseite (User 2026-10-21: blieb nach dem Push stehen).
@@ -709,6 +794,17 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 12%,var(--soft));}
 .topbar .navBtn.disabled{color:var(--muted);border-color:var(--border);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
+/* Umschalter KI | Mensch (neben dem Logo): aktive Fassung blau unterstrichen wie der Fassungs-Umschalter; ohne Gegenstück grau.
+   Auf dem Handy (≤720 px) verschwindet er aus der Leiste und erscheint unter dem Titel (.autor-art) und oben im Themenbaum (.autor-side). */
+.autor{display:inline-flex;height:36px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);flex:none;vertical-align:middle;}
+.autor .a-btn{display:inline-flex;align-items:center;gap:6px;padding:0 11px;font:inherit;font-size:13.5px;font-weight:600;color:var(--muted);background:none;border:0;cursor:pointer;}
+.autor .a-btn:hover{color:var(--ink);text-decoration:none;}
+.autor .a-btn.on{background:var(--panel);color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);}
+.autor .a-btn.off{opacity:.4;cursor:default;} .autor .a-btn.off:hover{color:var(--muted);}
+.autor-art,.autor-side{display:none;}
+.article .autor-art{margin:.1em 10px 1.2em 0;}
+.apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
+.apill-mensch{color:var(--accent3);border-color:var(--accent3);}
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
 /* hide-left: EINE Spalte (nicht 0+1fr) - sonst rutscht der einzige verbleibende Grid-Child (main) in die
    0-breite erste Spalte, der Text wird links gequetscht und die Gliederung überlappt ihn. */
@@ -914,6 +1010,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
   .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
   .topbar .searchBtn kbd{display:none;}   /* Suchknopf nur mit dem Wort, ohne Tastenhinweis */
+  .topbar .autor-top{display:none;} .autor-art{display:inline-flex;} .side .autor-side{display:inline-flex;margin-bottom:12px;}   /* Handy: Umschalter unter dem Titel und im Themenbaum statt in der Leiste */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
   .article .katex{font-size:1.14em;}                              /* Inline-Formeln auf dem Handy nicht zu klein */
@@ -1120,18 +1217,30 @@ WISSEN_JS = r"""
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
   document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
 })();
-/* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links mit data-alt führen dann zur ausführlichen Fassung */
+/* Fassung (kompakt | ausführlich) und Autor (KI | Mensch): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht)
+   führen dann zur gewählten Fassung desselben Themas, soweit es sie gibt (data-alt, data-mensch, data-mensch-alt). */
 (function(){
-  function pref(){ try{ return localStorage.getItem("wissen-fassung"); }catch(e){ return null; } }
+  function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   document.addEventListener("click",function(ev){
-    var b=ev.target.closest&&ev.target.closest(".fassung .f-btn");
-    if(b){ try{ localStorage.setItem("wissen-fassung",b.getAttribute("data-fassung")); }catch(e){} }
+    var f=ev.target.closest&&ev.target.closest(".fassung .f-btn");
+    if(f) set("wissen-fassung",f.getAttribute("data-fassung"));
+    var b=ev.target.closest&&ev.target.closest(".autor .a-btn[data-autor]");
+    if(b){ set("wissen-autor",b.getAttribute("data-autor")); if(b.tagName==="BUTTON"){ paint(); apply(); } }   // Übersicht: nur umschalten
   });
+  function paint(){ var p=get("wissen-autor")||"ki";                 // Knöpfe der Übersicht zeigen die gemerkte Wahl
+    document.querySelectorAll(".autor button.a-btn[data-autor]").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-autor")===p); }); }
   function apply(){
-    if(pref()!=="ausfuehrlich") return;
-    document.querySelectorAll("a[data-alt]").forEach(function(a){ a.setAttribute("href",a.getAttribute("data-alt")); });
+    var m=get("wissen-autor")==="mensch", f=get("wissen-fassung")==="ausfuehrlich";
+    document.querySelectorAll("a[data-alt],a[data-mensch]").forEach(function(a){
+      var h=a.getAttribute("data-href0"); if(!h){ h=a.getAttribute("href"); a.setAttribute("data-href0",h); }
+      if(m&&a.getAttribute("data-mensch")) h=(f&&a.getAttribute("data-mensch-alt"))||a.getAttribute("data-mensch");
+      else if(f&&a.getAttribute("data-alt")) h=a.getAttribute("data-alt");
+      a.setAttribute("href",h);
+    });
   }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
+  function init(){ paint(); apply(); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
 """
 
