@@ -32,6 +32,17 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 12%,var(--soft));}
 .topbar .navBtn.disabled{color:var(--muted);border-color:var(--border);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
+/* Umschalter KI | Mensch (neben dem Logo): aktive Fassung blau unterstrichen wie der Fassungs-Umschalter; ohne Gegenstück grau.
+   Auf dem Handy (≤720 px) verschwindet er aus der Leiste und erscheint unter dem Titel (.autor-art) und oben im Themenbaum (.autor-side). */
+.autor{display:inline-flex;height:36px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);flex:none;vertical-align:middle;}
+.autor .a-btn{display:inline-flex;align-items:center;gap:6px;padding:0 11px;font:inherit;font-size:13.5px;font-weight:600;color:var(--muted);background:none;border:0;cursor:pointer;}
+.autor .a-btn:hover{color:var(--ink);text-decoration:none;}
+.autor .a-btn.on{background:var(--panel);color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);}
+.autor .a-btn.off{opacity:.4;cursor:default;} .autor .a-btn.off:hover{color:var(--muted);}
+.autor-art,.autor-side{display:none;}
+.article .autor-art{margin:.1em 10px 1.2em 0;}
+.apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
+.apill-mensch{color:var(--accent3);border-color:var(--accent3);}
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
 /* hide-left: EINE Spalte (nicht 0+1fr) - sonst rutscht der einzige verbleibende Grid-Child (main) in die
    0-breite erste Spalte, der Text wird links gequetscht und die Gliederung überlappt ihn. */
@@ -237,6 +248,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
   .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
   .topbar .searchBtn kbd{display:none;}   /* Suchknopf nur mit dem Wort, ohne Tastenhinweis */
+  .topbar .autor-top{display:none;} .autor-art{display:inline-flex;} .side .autor-side{display:inline-flex;margin-bottom:12px;}   /* Handy: Umschalter unter dem Titel und im Themenbaum statt in der Leiste */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
   .article .katex{font-size:1.14em;}                              /* Inline-Formeln auf dem Handy nicht zu klein */

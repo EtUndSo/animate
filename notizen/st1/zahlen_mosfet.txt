@@ -597,3 +597,107 @@ Zweite Stufe A_2 = -50, C_M = 1 pF zwischen ihrem Ein- und Ausgang: am Eingang w
   Fläche mit 1 fF/µm^2 (Kondensator zwischen zwei Metallebenen): C_M 1000 µm^2, gleiche Wirkung ohne Miller 51000 µm^2 (Seitenlänge 32 bzw. 226 µm)
   Fläche mit C'_ox = 6,91 fF/µm^2: C_M 145 µm^2, gleiche Wirkung ohne Miller 7385 µm^2 (Seitenlänge 12 bzw. 86 µm)
 Mit 1 MOhm am Ausgang der ersten Stufe: Eckfrequenz 1/(2 pi R C_M (1 - A_2)) = 3.12 kHz
+
+====================================================================================================
+AE. Kleinsignalparameter im Abschnürbereich (Beispiel-NMOS, U_SB = 0)
+====================================================================================================
+U_GS = 1.0 V, U_DS = 1.0 V: I_D = 0.2750 mA; g_m = K U_ov (1 + lam U_DS) = 1.1000 mS (Differenzenquotient 1.1000), Näherung K U_ov = 1.0000 mS, 2 I_D/U_ov = 1.1000 mS, sqrt(2 K I_D) = 1.0488 mS
+     g_o = lam K/2 U_ov^2 = 25.000 µS (Differenzenquotient 25.000), I_D/(1/lam + U_DS) = 25.000 µS, Näherung lam I_D = 27.500 µS; r_o = 40.00 kOhm; g_m/g_o = 44.00 (Näherung 2/(lam U_ov) = 40.00)
+     g_mB = eta g_m = 0.3600 mS (Differenzenquotient 0.3600), eta = 0.3272
+U_GS = 1.0 V, U_DS = 0.5 V: I_D = 0.2625 mA; g_m = K U_ov (1 + lam U_DS) = 1.0500 mS (Differenzenquotient 1.0500), Näherung K U_ov = 1.0000 mS, 2 I_D/U_ov = 1.0500 mS, sqrt(2 K I_D) = 1.0247 mS
+     g_o = lam K/2 U_ov^2 = 25.000 µS (Differenzenquotient 25.005), I_D/(1/lam + U_DS) = 25.000 µS, Näherung lam I_D = 26.250 µS; r_o = 40.00 kOhm; g_m/g_o = 42.00 (Näherung 2/(lam U_ov) = 40.00)
+     g_mB = eta g_m = 0.3436 mS (Differenzenquotient 0.3436), eta = 0.3272
+U_GS = 1.5 V, U_DS = 1.0 V: I_D = 1.1000 mA; g_m = K U_ov (1 + lam U_DS) = 2.2000 mS (Differenzenquotient 2.2000), Näherung K U_ov = 2.0000 mS, 2 I_D/U_ov = 2.2000 mS, sqrt(2 K I_D) = 2.0976 mS
+     g_o = lam K/2 U_ov^2 = 100.000 µS (Differenzenquotient 100.005), I_D/(1/lam + U_DS) = 100.000 µS, Näherung lam I_D = 110.000 µS; r_o = 10.00 kOhm; g_m/g_o = 22.00 (Näherung 2/(lam U_ov) = 20.00)
+     g_mB = eta g_m = 0.7199 mS (Differenzenquotient 0.7199), eta = 0.3272
+U_GS = 1.0 V, U_DS = 2.0 V: I_D = 0.3000 mA; g_m = K U_ov (1 + lam U_DS) = 1.2000 mS (Differenzenquotient 1.2000), Näherung K U_ov = 1.0000 mS, 2 I_D/U_ov = 1.2000 mS, sqrt(2 K I_D) = 1.0954 mS
+     g_o = lam K/2 U_ov^2 = 25.000 µS (Differenzenquotient 25.000), I_D/(1/lam + U_DS) = 25.000 µS, Näherung lam I_D = 30.000 µS; r_o = 40.00 kOhm; g_m/g_o = 48.00 (Näherung 2/(lam U_ov) = 40.00)
+     g_mB = eta g_m = 0.3927 mS (Differenzenquotient 0.3927), eta = 0.3272
+Konkreter Fall: U_GS 1,00 -> 1,01 V bei U_DS = 1 V: Delta I_D = 11.110 µA, g_m u = 11.000 µA; U_DS 1,00 -> 1,10 V: Delta I_D = 2.500 µA; U_BS 0 -> -0,1 V: Delta I_D = -33.953 µA (g_mB u = -35.996 µA)
+
+====================================================================================================
+AF. Kleinsignalparameter im ohmschen Bereich und an der Grenze (U_GS = 1 V)
+====================================================================================================
+  U_DS = 0.05 V: I_D = 0.0477 mA, g_m = 0.1005 mS (0.1005), g_o = 0.9092 mS (0.9092), Näherung K(U_ov - U_DS) = 0.9000 mS, g_m/g_o = 0.111, g_mB = 0.0329 (0.0329) mS
+  U_DS = 0.1 V: I_D = 0.0909 mA, g_m = 0.2020 mS (0.2020), g_o = 0.8170 mS (0.8170), Näherung K(U_ov - U_DS) = 0.8000 mS, g_m/g_o = 0.247, g_mB = 0.0661 (0.0661) mS
+  U_DS = 0.2 V: I_D = 0.1632 mA, g_m = 0.4080 mS (0.4080), g_o = 0.6280 mS (0.6280), Näherung K(U_ov - U_DS) = 0.6000 mS, g_m/g_o = 0.650, g_mB = 0.1335 (0.1335) mS
+  U_DS = 0.3 V: I_D = 0.2163 mA, g_m = 0.6180 mS (0.6180), g_o = 0.4330 mS (0.4330), Näherung K(U_ov - U_DS) = 0.4000 mS, g_m/g_o = 1.427, g_mB = 0.2022 (0.2022) mS
+  U_DS = 0.4 V: I_D = 0.2496 mA, g_m = 0.8320 mS (0.8320), g_o = 0.2320 mS (0.2320), Näherung K(U_ov - U_DS) = 0.2000 mS, g_m/g_o = 3.586, g_mB = 0.2723 (0.2723) mS
+  U_DS = 0.4999 V: I_D = 0.2625 mA, g_m = 1.0498 mS (1.0498), g_o = 0.0252 mS (0.0252), Näherung K(U_ov - U_DS) = 0.0002 mS, g_m/g_o = 41.641, g_mB = 0.3435 (0.3435) mS
+  U_DS = 0.5001 V: I_D = 0.2625 mA, g_m = 1.0500 mS (1.0500), g_o = 0.0250 mS (0.0250), Näherung K(U_ov - U_DS) = -0.0002 mS, g_m/g_o = 42.000, g_mB = 0.3436 (0.3436) mS
+
+====================================================================================================
+AG. Wie klein ist klein? Linearisierungsfehler im Abschnürbereich (U_GS = 1 V, U_DS = 1 V)
+====================================================================================================
+  u_GS =     +1 mV: Delta I_D =     1.101 µA, g_m u =     1.100 µA, Abweichung +0.10 % (u/(2 U_ov) = +0.10 %)
+  u_GS =    +10 mV: Delta I_D =    11.110 µA, g_m u =    11.000 µA, Abweichung +1.00 % (u/(2 U_ov) = +1.00 %)
+  u_GS =    +50 mV: Delta I_D =    57.750 µA, g_m u =    55.000 µA, Abweichung +5.00 % (u/(2 U_ov) = +5.00 %)
+  u_GS =   +100 mV: Delta I_D =   121.000 µA, g_m u =   110.000 µA, Abweichung +10.00 % (u/(2 U_ov) = +10.00 %)
+  u_GS =   -100 mV: Delta I_D =   -99.000 µA, g_m u =  -110.000 µA, Abweichung -10.00 % (u/(2 U_ov) = -10.00 %)
+  u_GS =   +250 mV: Delta I_D =   343.750 µA, g_m u =   275.000 µA, Abweichung +25.00 % (u/(2 U_ov) = +25.00 %)
+  Sinus mit 10 mV Amplitude: zweite Harmonische / Grundwelle = u/(4 U_ov) = 0.50 %, Gleichanteil K/4 u^2 (1 + lam U_DS) = 0.055 µA
+  Sinus mit 50 mV Amplitude: zweite Harmonische / Grundwelle = u/(4 U_ov) = 2.50 %, Gleichanteil K/4 u^2 (1 + lam U_DS) = 1.375 µA
+
+====================================================================================================
+AH. Substratsteilheit über U_SB und Kennlinie I_D(U_BS)
+====================================================================================================
+  U_SB = 0.0 V: U_th = 0.5000 V, eta = gamma/(2 sqrt(2 phi_F + U_SB)) = 0.3272, C'_dep/C'_ox = 0.3272; bei U_ov = 0,5 V, U_DS = 1 V: g_m = 1.1000 mS, g_mB = 0.3600 mS (eta g_m = 0.3600)
+  U_SB = 0.5 V: U_th = 0.6460 V, eta = gamma/(2 sqrt(2 phi_F + U_SB)) = 0.2636, C'_dep/C'_ox = 0.2636; bei U_ov = 0,5 V, U_DS = 1 V: g_m = 1.1000 mS, g_mB = 0.2899 mS (eta g_m = 0.2899)
+  U_SB = 1.0 V: U_th = 0.7679 V, eta = gamma/(2 sqrt(2 phi_F + U_SB)) = 0.2267, C'_dep/C'_ox = 0.2267; bei U_ov = 0,5 V, U_DS = 1 V: g_m = 1.1000 mS, g_mB = 0.2494 mS (eta g_m = 0.2494)
+  U_SB = 1.5 V: U_th = 0.8747 V, eta = gamma/(2 sqrt(2 phi_F + U_SB)) = 0.2020, C'_dep/C'_ox = 0.2020; bei U_ov = 0,5 V, U_DS = 1 V: g_m = 1.1000 mS, g_mB = 0.2222 mS (eta g_m = 0.2222)
+  U_SB = 2.0 V: U_th = 0.9709 V, eta = gamma/(2 sqrt(2 phi_F + U_SB)) = 0.1839, C'_dep/C'_ox = 0.1839; bei U_ov = 0,5 V, U_DS = 1 V: g_m = 1.1000 mS, g_mB = 0.2023 mS (eta g_m = 0.2023)
+I_D(U_BS) bei U_GS = 1 V, U_DS = 1 V (für die Abbildung):
+  U_BS = -2.50 V: U_th = 1.0593 V, I_D = 0.0000 mA
+  U_BS = -2.00 V: U_th = 0.9709 V, I_D = 0.0009 mA
+  U_BS = -1.50 V: U_th = 0.8747 V, I_D = 0.0173 mA
+  U_BS = -1.00 V: U_th = 0.7679 V, I_D = 0.0593 mA
+  U_BS = -0.50 V: U_th = 0.6460 V, I_D = 0.1379 mA
+  U_BS = -0.25 V: U_th = 0.5769 V, I_D = 0.1969 mA
+  U_BS = +0.00 V: U_th = 0.5000 V, I_D = 0.2750 mA
+  U_BS = +0.10 V: U_th = 0.4663 V, I_D = 0.3133 mA
+  U_BS = +0.20 V: U_th = 0.4306 V, I_D = 0.3567 mA
+  U_BS = +0.30 V: U_th = 0.3922 V, I_D = 0.4063 mA
+Tangente bei U_BS = 0: Steigung 0.3600 mS
+
+====================================================================================================
+AI. Sourcefolger im Kleinsignalmodell (Arbeitspunkt aus Abschnitt U: U_ein = 2 V, lambda = 0, Stromquelle ideal)
+====================================================================================================
+U_aus = 0.7828 V, U_SB = U_aus, eta = 0.2407; g_m = 1.000 mS, g_mB = 0.2407 mS
+Verstärkung g_m/(g_m + g_mB) = 1/(1 + eta) = 0.8060; Ausgangswiderstand 1/(g_m + g_mB) = 806.0 Ohm (ohne Substrateffekt 1000 Ohm, Verstärkung 1)
+Großsignal-Differenzenquotient zwischen 1,99 und 2,01 V: 0.8060
+Mit Last 10 kOhm am Ausgang (zusätzlich zur Stromquelle): g_m/(g_m + g_mB + 0,1 mS) = 0.7459
+
+====================================================================================================
+AJ. PMOS im Kleinsignalmodell (U_GS = -1 V, U_DS = -1 V, U_BS = 0)
+====================================================================================================
+I_D = -0.2750 mA; g_m = dI_D/dU_GS = 1.1000 mS (positiv); g_o = dI_D/dU_DS = 25.000 µS (positiv); eta_p = 0.3206, g_mB = 0.3526 mS
+Kontrolle Vorzeichen: U_GS um +10 mV (weniger negativ) -> I_D = -0.2641 mA (Betrag sinkt, I_D steigt, also g_m > 0)
+
+====================================================================================================
+AK. Dynamisches Kleinsignalmodell: Kapazitäten, Transitfrequenz, Bahnwiderstände
+====================================================================================================
+Abschnürbereich 1 V/1 V: C_GS = 49.49 fF, C_GD = 3.453 fF, C_GB ~ 0, C_SB(0) = 53.13 fF (+ Kanal-Bulk 15.1 fF), C_DB(1 V) = 37.82 fF
+f_T = g_m/(2 pi (C_GS + C_GD)) mit g_m = 1,1 mS: 3.306 GHz
+f_T = g_m/(2 pi (C_GS + C_GD)) mit g_m = 1,0 mS: 3.006 GHz
+ohne Überlappung, Langkanal: 3 mu U_ov/(4 pi L^2) = 3.457 GHz; 1/(2 pi Laufzeit 92 ps) = 1.728 GHz
+R_G Polysilizium ohne Silizid, 200 Ohm/Quadrat, Gate 10 µm x 1 µm = 10 Quadrate: 2000 Ohm von Ende zu Ende; R_G (C_GS + C_GD) = 105.9 ps, mit Miller-Eingang 80,6 fF 161.1 ps
+R_G mit Silizid, 8 Ohm/Quadrat, Gate 10 µm x 1 µm = 10 Quadrate: 80 Ohm von Ende zu Ende; R_G (C_GS + C_GD) = 4.2 ps, mit Miller-Eingang 80,6 fF 6.4 ps
+Bahnwiderstand Source (n+ 100 Ohm/Quadrat, Literaturwert ohne Silizid; 2 µm/10 µm = 0,2 Quadrate): 20 Ohm; 1/g_m = 909 Ohm; wirksame Steilheit g_m/(1 + g_m R_S) = 1.0763 mS (-2.2 %)
+Stromverstärkung bei 1 GHz: g_m/(omega (C_GS + C_GD)) = 3.31
+
+====================================================================================================
+AL. Steilheit je Strom g_m/I_D
+====================================================================================================
+  Abschnürbereich, U_ov = 0.1 V: g_m/I_D = 2/U_ov = 20.0 1/V; Strom für 1 mS: 0.050 mA
+  Abschnürbereich, U_ov = 0.25 V: g_m/I_D = 2/U_ov = 8.0 1/V; Strom für 1 mS: 0.125 mA
+  Abschnürbereich, U_ov = 0.5 V: g_m/I_D = 2/U_ov = 4.0 1/V; Strom für 1 mS: 0.250 mA
+  Abschnürbereich, U_ov = 1.0 V: g_m/I_D = 2/U_ov = 2.0 1/V; Strom für 1 mS: 0.500 mA
+Unterhalb der Schwelle (0,3 bis 0,4 V, vollständige Rechnung): g_m/I_D = 27.9 1/V; ln 10/S mit S = 82.8 mV/Dek: 27.8 1/V; Grenze 1/U_T = 38.7 1/V
+Strom für 1 mS unterhalb der Schwelle: 35.8 µA
+
+====================================================================================================
+AM. SPICE-Modellkarte des Beispiel-NMOS (Level 1) mit den Werten aus Thema 1 bis 4
+====================================================================================================
+.model NMOS_BSP NMOS (LEVEL=1 VTO=0.5 KP=200u GAMMA=0.63 PHI=0.92 LAMBDA=0.1 TOX=5n LD=50n CGSO=3.45e-10 CGDO=3.45e-10 CJ=0.00214 MJ=0.5 CJSW=4.28e-10 MJSW=0.5 PB=1.027)
+  Einheiten: CGSO in F/m (3.453e-10), CJ in F/m^2 (2.142e-03), CJSW in F/m (4.285e-10); UO = KP/C'ox = 290 cm^2/(V s)
+  Instanz: M1 D G S B NMOS_BSP W=10u L=1.1u AD=20p PD=24u AS=20p PS=24u; L_eff = L - 2 LD = 1.00 µm; K_n = KP W/L_eff = 2.0 mA/V^2

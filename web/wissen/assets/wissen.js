@@ -187,16 +187,28 @@
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
   document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
 })();
-/* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links mit data-alt führen dann zur ausführlichen Fassung */
+/* Fassung (kompakt | ausführlich) und Autor (KI | Mensch): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht)
+   führen dann zur gewählten Fassung desselben Themas, soweit es sie gibt (data-alt, data-mensch, data-mensch-alt). */
 (function(){
-  function pref(){ try{ return localStorage.getItem("wissen-fassung"); }catch(e){ return null; } }
+  function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   document.addEventListener("click",function(ev){
-    var b=ev.target.closest&&ev.target.closest(".fassung .f-btn");
-    if(b){ try{ localStorage.setItem("wissen-fassung",b.getAttribute("data-fassung")); }catch(e){} }
+    var f=ev.target.closest&&ev.target.closest(".fassung .f-btn");
+    if(f) set("wissen-fassung",f.getAttribute("data-fassung"));
+    var b=ev.target.closest&&ev.target.closest(".autor .a-btn[data-autor]");
+    if(b){ set("wissen-autor",b.getAttribute("data-autor")); if(b.tagName==="BUTTON"){ paint(); apply(); } }   // Übersicht: nur umschalten
   });
+  function paint(){ var p=get("wissen-autor")||"ki";                 // Knöpfe der Übersicht zeigen die gemerkte Wahl
+    document.querySelectorAll(".autor button.a-btn[data-autor]").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-autor")===p); }); }
   function apply(){
-    if(pref()!=="ausfuehrlich") return;
-    document.querySelectorAll("a[data-alt]").forEach(function(a){ a.setAttribute("href",a.getAttribute("data-alt")); });
+    var m=get("wissen-autor")==="mensch", f=get("wissen-fassung")==="ausfuehrlich";
+    document.querySelectorAll("a[data-alt],a[data-mensch]").forEach(function(a){
+      var h=a.getAttribute("data-href0"); if(!h){ h=a.getAttribute("href"); a.setAttribute("data-href0",h); }
+      if(m&&a.getAttribute("data-mensch")) h=(f&&a.getAttribute("data-mensch-alt"))||a.getAttribute("data-mensch");
+      else if(f&&a.getAttribute("data-alt")) h=a.getAttribute("data-alt");
+      a.setAttribute("href",h);
+    });
   }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
+  function init(){ paint(); apply(); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();

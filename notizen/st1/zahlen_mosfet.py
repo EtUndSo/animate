@@ -1,7 +1,7 @@
 """Zahlenwerk für Schaltungstechnik, MOS-Feldeffekttransistoren (Stil 3). Thema 1: Aufbau und Funktionsweise des
 MOSFET (Abschnitte A bis K); Thema 2: Kennlinien des NMOS-Transistors (Abschnitte L bis R); Thema 3: PMOS-Transistor,
 Substrateffekt und Latch-Up (Abschnitte S bis V und Nachträge); Thema 4: Parasitäre Kapazitäten des MOSFET (Abschnitte
-W bis AD am Ende). Spätere Themen des Kapitels ergänzen dieses Skript.
+W bis AD); Thema 5: Kleinsignalmodell des MOSFET (Abschnitte AE bis AM am Ende).
 
 Eigenes Beispielsystem (keine Aufgabe aus Skript oder Übung), das Beispiel-Transistorpaar des ganzen Kapitels:
 - Silizium bei T = 300 K mit den Konstanten des ET1-Zahlenwerks (notizen/get1/zahlen_halbleiter.py): U_T = 25,85 mV,
@@ -1251,3 +1251,142 @@ for belag, txt in ((1e-15, "1 fF/µm^2 (Kondensator zwischen zwei Metallebenen)"
       f"(Seitenlänge {math.sqrt(CM/belag):.0f} bzw. {math.sqrt(CM*(1-A2)/belag):.0f} µm)")
 R1 = 1e6
 P(f"Mit 1 MOhm am Ausgang der ersten Stufe: Eckfrequenz 1/(2 pi R C_M (1 - A_2)) = {1/(2*math.pi*R1*CM*(1-A2))/1e3:.2f} kHz")
+
+
+# ====================================================================================================================
+# Thema 5: Kleinsignalmodell des MOSFET (Abschnitte AE bis AM)
+# ====================================================================================================================
+
+
+def id_body(UGS, UDS, UBS, lam=lam_n):
+    """NMOS-Drainstrom (Level 1) mit Substrateffekt: Schwelle aus uth_n_body(U_SB = -U_BS)."""
+    return id_l1(UGS, UDS, lam, Uth=uth_n_body(-UBS))
+
+
+def kleinsignal(UGS, UDS, UBS=0.0, h=1e-5, lam=lam_n):
+    """Steilheit, Ausgangsleitwert, Substratsteilheit als Differenzenquotienten der Großsignalgleichung (in S)."""
+    gm = (id_body(UGS + h, UDS, UBS, lam) - id_body(UGS - h, UDS, UBS, lam)) / (2 * h)
+    go = (id_body(UGS, UDS + h, UBS, lam) - id_body(UGS, UDS - h, UBS, lam)) / (2 * h)
+    gmb = (id_body(UGS, UDS, UBS + h, lam) - id_body(UGS, UDS, UBS - h, lam)) / (2 * h)
+    return gm, go, gmb
+
+
+def eta_n(USB):
+    return gam_n / (2 * math.sqrt(2 * pF + USB))
+
+
+kopf("AE. Kleinsignalparameter im Abschnürbereich (Beispiel-NMOS, U_SB = 0)")
+for UGS_, UDS_ in ((1.0, 1.0), (1.0, 0.5), (1.5, 1.0), (1.0, 2.0)):
+    uov_ = UGS_ - Uth_n
+    I_ = id_l1(UGS_, UDS_, lam_n)
+    gm_f = Kn * uov_ * (1 + lam_n * UDS_)
+    go_f = lam_n * Kn / 2 * uov_ ** 2
+    gm_d, go_d, gmb_d = kleinsignal(UGS_, UDS_)
+    P(f"U_GS = {UGS_} V, U_DS = {UDS_} V: I_D = {I_*1e3:.4f} mA; g_m = K U_ov (1 + lam U_DS) = {gm_f*1e3:.4f} mS "
+      f"(Differenzenquotient {gm_d*1e3:.4f}), Näherung K U_ov = {Kn*uov_*1e3:.4f} mS, 2 I_D/U_ov = {2*I_/uov_*1e3:.4f} mS, "
+      f"sqrt(2 K I_D) = {math.sqrt(2*Kn*I_)*1e3:.4f} mS")
+    P(f"     g_o = lam K/2 U_ov^2 = {go_f*1e6:.3f} µS (Differenzenquotient {go_d*1e6:.3f}), I_D/(1/lam + U_DS) = "
+      f"{I_/(1/lam_n+UDS_)*1e6:.3f} µS, Näherung lam I_D = {lam_n*I_*1e6:.3f} µS; r_o = {1/go_f/1e3:.2f} kOhm; "
+      f"g_m/g_o = {gm_f/go_f:.2f} (Näherung 2/(lam U_ov) = {2/(lam_n*uov_):.2f})")
+    P(f"     g_mB = eta g_m = {eta_n(0)*gm_f*1e3:.4f} mS (Differenzenquotient {gmb_d*1e3:.4f}), eta = {eta_n(0):.4f}")
+du = 0.01
+P(f"Konkreter Fall: U_GS 1,00 -> 1,01 V bei U_DS = 1 V: Delta I_D = {(id_l1(1.01, 1.0, lam_n)-id_l1(1.0, 1.0, lam_n))*1e6:.3f} µA, "
+  f"g_m u = {Kn*0.5*1.1*du*1e6:.3f} µA; U_DS 1,00 -> 1,10 V: Delta I_D = "
+  f"{(id_l1(1.0, 1.1, lam_n)-id_l1(1.0, 1.0, lam_n))*1e6:.3f} µA; U_BS 0 -> -0,1 V: Delta I_D = "
+  f"{(id_body(1.0, 1.0, -0.1)-id_body(1.0, 1.0, 0.0))*1e6:.3f} µA (g_mB u = {-eta_n(0)*Kn*0.5*1.1*0.1*1e6:.3f} µA)")
+
+kopf("AF. Kleinsignalparameter im ohmschen Bereich und an der Grenze (U_GS = 1 V)")
+for UDS_ in (0.05, 0.1, 0.2, 0.3, 0.4, 0.4999, 0.5001):
+    uov_ = 0.5
+    gm_f = Kn * UDS_ * (1 + lam_n * UDS_) if UDS_ < uov_ else Kn * uov_ * (1 + lam_n * UDS_)
+    if UDS_ < uov_:
+        go_f = Kn * ((uov_ - UDS_ / 2) * (1 + 2 * lam_n * UDS_) - UDS_ / 2 * (1 + lam_n * UDS_))
+    else:
+        go_f = lam_n * Kn / 2 * uov_ ** 2
+    gm_d, go_d, gmb_d = kleinsignal(1.0, UDS_)
+    P(f"  U_DS = {UDS_} V: I_D = {id_l1(1.0, UDS_, lam_n)*1e3:.4f} mA, g_m = {gm_f*1e3:.4f} mS ({gm_d*1e3:.4f}), "
+      f"g_o = {go_f*1e3:.4f} mS ({go_d*1e3:.4f}), Näherung K(U_ov - U_DS) = {Kn*(uov_-UDS_)*1e3:.4f} mS, g_m/g_o = "
+      f"{gm_f/go_f:.3f}, g_mB = {eta_n(0)*gm_f*1e3:.4f} ({gmb_d*1e3:.4f}) mS")
+
+kopf("AG. Wie klein ist klein? Linearisierungsfehler im Abschnürbereich (U_GS = 1 V, U_DS = 1 V)")
+gmA = Kn * 0.5 * 1.1
+for u in (0.001, 0.01, 0.05, 0.1, -0.1, 0.25):
+    dI = id_l1(1.0 + u, 1.0, lam_n) - id_l1(1.0, 1.0, lam_n)
+    P(f"  u_GS = {u*1e3:+6.0f} mV: Delta I_D = {dI*1e6:9.3f} µA, g_m u = {gmA*u*1e6:9.3f} µA, Abweichung "
+      f"{(dI/(gmA*u)-1)*100:+.2f} % (u/(2 U_ov) = {u/(2*0.5)*100:+.2f} %)")
+# Sinus 10 mV: Oberwelle zweiter Ordnung relativ zur Grundwelle u/(4 U_ov)
+for uh in (0.01, 0.05):
+    P(f"  Sinus mit {uh*1e3:.0f} mV Amplitude: zweite Harmonische / Grundwelle = u/(4 U_ov) = {uh/(4*0.5)*100:.2f} %, "
+      f"Gleichanteil K/4 u^2 (1 + lam U_DS) = {Kn/4*uh**2*1.1*1e6:.3f} µA")
+
+kopf("AH. Substratsteilheit über U_SB und Kennlinie I_D(U_BS)")
+for USB in (0.0, 0.5, 1.0, 1.5, 2.0):
+    uth_ = uth_n_body(USB)
+    UGS_ = uth_ + 0.5                      # gleiche Übersteuerung 0,5 V
+    gm_d, go_d, gmb_d = kleinsignal(UGS_, 1.0, -USB)
+    P(f"  U_SB = {USB} V: U_th = {uth_:.4f} V, eta = gamma/(2 sqrt(2 phi_F + U_SB)) = {eta_n(USB):.4f}, C'_dep/C'_ox = "
+      f"{math.sqrt(q*eps_si*NA/(2*(2*pF+USB)))/Cox:.4f}; bei U_ov = 0,5 V, U_DS = 1 V: g_m = {gm_d*1e3:.4f} mS, g_mB = "
+      f"{gmb_d*1e3:.4f} mS (eta g_m = {eta_n(USB)*gm_d*1e3:.4f})")
+P("I_D(U_BS) bei U_GS = 1 V, U_DS = 1 V (für die Abbildung):")
+for UBS_ in (-2.5, -2.0, -1.5, -1.0, -0.5, -0.25, 0.0, 0.1, 0.2, 0.3):
+    P(f"  U_BS = {UBS_:+.2f} V: U_th = {uth_n_body(-UBS_):.4f} V, I_D = {id_body(1.0, 1.0, UBS_)*1e3:.4f} mA")
+P(f"Tangente bei U_BS = 0: Steigung {kleinsignal(1.0, 1.0, 0.0)[2]*1e3:.4f} mS")
+
+kopf("AI. Sourcefolger im Kleinsignalmodell (Arbeitspunkt aus Abschnitt U: U_ein = 2 V, lambda = 0, Stromquelle ideal)")
+Ua_f = folger_n(2.0)
+eta_f = eta_n(Ua_f)
+gm_f0 = Kn * U_ov_f
+A_f0 = gm_f0 / (gm_f0 * (1 + eta_f))
+P(f"U_aus = {Ua_f:.4f} V, U_SB = U_aus, eta = {eta_f:.4f}; g_m = {gm_f0*1e3:.3f} mS, g_mB = {eta_f*gm_f0*1e3:.4f} mS")
+P(f"Verstärkung g_m/(g_m + g_mB) = 1/(1 + eta) = {A_f0:.4f}; Ausgangswiderstand 1/(g_m + g_mB) = {1/(gm_f0*(1+eta_f)):.1f} Ohm "
+  f"(ohne Substrateffekt {1/gm_f0:.0f} Ohm, Verstärkung 1)")
+P(f"Großsignal-Differenzenquotient zwischen 1,99 und 2,01 V: {(folger_n(2.01)-folger_n(1.99))/0.02:.4f}")
+P(f"Mit Last 10 kOhm am Ausgang (zusätzlich zur Stromquelle): g_m/(g_m + g_mB + 0,1 mS) = "
+  f"{gm_f0/(gm_f0*(1+eta_f)+1e-4):.4f}")
+
+kopf("AJ. PMOS im Kleinsignalmodell (U_GS = -1 V, U_DS = -1 V, U_BS = 0)")
+Ip = id_p(-1.0, -1.0)
+gmp = (id_p(-1.0 + 1e-5, -1.0) - id_p(-1.0 - 1e-5, -1.0)) / 2e-5
+gop = (id_p(-1.0, -1.0 + 1e-5) - id_p(-1.0, -1.0 - 1e-5)) / 2e-5
+eta_p = gam_p / (2 * math.sqrt(2 * pFn))
+P(f"I_D = {Ip*1e3:.4f} mA; g_m = dI_D/dU_GS = {gmp*1e3:.4f} mS (positiv); g_o = dI_D/dU_DS = {gop*1e6:.3f} µS (positiv); "
+  f"eta_p = {eta_p:.4f}, g_mB = {eta_p*gmp*1e3:.4f} mS")
+P("Kontrolle Vorzeichen: U_GS um +10 mV (weniger negativ) -> I_D = "
+  f"{id_p(-0.99, -1.0)*1e3:.4f} mA (Betrag sinkt, I_D steigt, also g_m > 0)")
+
+kopf("AK. Dynamisches Kleinsignalmodell: Kapazitäten, Transitfrequenz, Bahnwiderstände")
+CGS5, CGD5, CDB5 = CGS4, CGD4, CDB4
+CSB5 = c_diff(Wd, bd, 0.0)[2]
+gm11 = Kn * 0.5 * 1.1
+P(f"Abschnürbereich 1 V/1 V: C_GS = {CGS5/fF:.2f} fF, C_GD = {CGD5/fF:.3f} fF, C_GB ~ 0, C_SB(0) = {CSB5/fF:.2f} fF "
+  f"(+ Kanal-Bulk {2/3*Cdep_s*Wn*Ln/fF:.1f} fF), C_DB(1 V) = {CDB5/fF:.2f} fF")
+for gmv, t_ in ((gm11, "g_m = 1,1 mS"), (1e-3, "g_m = 1,0 mS")):
+    P(f"f_T = g_m/(2 pi (C_GS + C_GD)) mit {t_}: {gmv/(2*math.pi*(CGS5+CGD5))/1e9:.3f} GHz")
+P(f"ohne Überlappung, Langkanal: 3 mu U_ov/(4 pi L^2) = {3*mu_n*0.5/(4*math.pi*Ln**2)/1e9:.3f} GHz; "
+  f"1/(2 pi Laufzeit 92 ps) = {1/(2*math.pi*tau_sat)/1e9:.3f} GHz")
+for Rsq, txt in ((200.0, "Polysilizium ohne Silizid"), (8.0, "mit Silizid")):
+    RG = Rsq * Wn / Ln
+    P(f"R_G {txt}, {Rsq:.0f} Ohm/Quadrat, Gate 10 µm x 1 µm = {Wn/Ln:.0f} Quadrate: {RG:.0f} Ohm von Ende zu Ende; "
+      f"R_G (C_GS + C_GD) = {RG*(CGS5+CGD5)*1e12:.1f} ps, mit Miller-Eingang 80,6 fF {RG*80.57e-15*1e12:.1f} ps")
+Rsq_n = 100.0
+RS5 = Rsq_n * bd / Wd
+P(f"Bahnwiderstand Source (n+ 100 Ohm/Quadrat, Literaturwert ohne Silizid; 2 µm/10 µm = 0,2 Quadrate): {RS5:.0f} Ohm; "
+  f"1/g_m = {1/gm11:.0f} Ohm; wirksame Steilheit g_m/(1 + g_m R_S) = {gm11/(1+gm11*RS5)*1e3:.4f} mS "
+  f"({(1/(1+gm11*RS5)-1)*100:.1f} %)")
+P(f"Stromverstärkung bei 1 GHz: g_m/(omega (C_GS + C_GD)) = {gm11/(2*math.pi*1e9*(CGS5+CGD5)):.2f}")
+
+kopf("AL. Steilheit je Strom g_m/I_D")
+for uov_ in (0.1, 0.25, 0.5, 1.0):
+    P(f"  Abschnürbereich, U_ov = {uov_} V: g_m/I_D = 2/U_ov = {2/uov_:.1f} 1/V; Strom für 1 mS: {1e-3*uov_/2*1e3:.3f} mA")
+gi_unter = math.log(werte[0.4] / werte[0.3]) / 0.1
+P(f"Unterhalb der Schwelle (0,3 bis 0,4 V, vollständige Rechnung): g_m/I_D = {gi_unter:.1f} 1/V; ln 10/S mit S = "
+  f"{S_*1e3:.1f} mV/Dek: {math.log(10)/S_:.1f} 1/V; Grenze 1/U_T = {1/UT:.1f} 1/V")
+P(f"Strom für 1 mS unterhalb der Schwelle: {1e-3/gi_unter*1e6:.1f} µA")
+
+kopf("AM. SPICE-Modellkarte des Beispiel-NMOS (Level 1) mit den Werten aus Thema 1 bis 4")
+P(f".model NMOS_BSP NMOS (LEVEL=1 VTO=0.5 KP=200u GAMMA={gam_n:.2f} PHI={2*pF:.2f} LAMBDA=0.1 TOX=5n LD={L_ov*1e7:.0f}n "
+  f"CGSO={Cov/Wn*1e2:.3g} CGDO={Cov/Wn*1e2:.3g} CJ={CjF0*1e4:.3g} MJ=0.5 CJSW={CjS0*1e2:.3g} MJSW=0.5 PB={UDiff_j:.3f})")
+P(f"  Einheiten: CGSO in F/m ({Cov/Wn*1e2:.3e}), CJ in F/m^2 ({CjF0*1e4:.3e}), CJSW in F/m ({CjS0*1e2:.3e}); "
+  f"UO = KP/C'ox = {mu_n:.0f} cm^2/(V s)")
+P(f"  Instanz: M1 D G S B NMOS_BSP W=10u L=1.1u AD=20p PD=24u AS=20p PS=24u; L_eff = L - 2 LD = "
+  f"{(1.1e-4-2*L_ov)*1e4:.2f} µm; K_n = KP W/L_eff = {Kn_s*10/1.0*1e3:.1f} mA/V^2")

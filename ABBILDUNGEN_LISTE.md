@@ -3598,3 +3598,126 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 - §19 Blockbilder; §1; §39 Miller-Umformung, Flächenvergleich.
 
 *Animation:* keine.
+
+## ST1 MOS-Feldeffekttransistoren: Kleinsignalmodell des MOSFET
+Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis AM; Beispiel-NMOS aus Thema 1 ($K_n$ = 2 mA/V², $U_{th0}$ = 0,5 V, λ = 0,1 1/V, γ = 0,629 √V), Arbeitspunkt $U_{GS}$ = 1 V, $U_{DS}$ = 1 V, $U_{SB}$ = 0 mit 0,275 mA. Farben: Kennlinien dunkelblau, Tangenten orange gestrichelt, Arbeitspunkt rot; gesteuerte Quellen wie in §28.
+
+**st1/mos-feldeffekttransistoren/05-tangenten-uebersicht**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Drei kleine Diagramme nebeneinander bzw. auf dem Handy untereinander, jeweils mit rotem Arbeitspunkt und oranger Tangente: (a) $I_D$ über $U_{GS}$ bei $U_{DS}$ = 1 V, Tangente mit 1,1 mS; (b) $I_D$ über $U_{DS}$ bei $U_{GS}$ = 1 V, Tangente mit 25 µS; (c) $I_D$ über $U_{BS}$ bei $U_{GS}$ = $U_{DS}$ = 1 V, Tangente mit 0,36 mS. Daneben das statische Kleinsignal-Ersatzschaltbild: offenes Gate, zwischen Drain und Source die Quellen $g_m u_{GS}$ und $g_{mB} u_{BS}$ und der Leitwert $g_o$, jede Steigung mit Pfeil zu ihrem Bauelement.
+
+*Kernaussage:* Jede Steigung im Arbeitspunkt wird ein Bauelement des Ersatzschaltbilds.
+
+*Daten:* Zahlenwerk AE, AH.
+
+*Editor:*
+- §4, §11 Kennlinien; §37 Steigungsdreieck; §28 Kleinsignal-Ersatzschaltbild; §10 Teilbilder.
+
+*Animation:* Der Arbeitspunkt wandert auf (a); die Tangente und der Wert $g_m$ im Ersatzschaltbild ändern sich mit.
+
+**st1/mos-feldeffekttransistoren/05-steilheit**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* Zwei gestapelte Diagramme über $U_{GS}$ von 0 bis 2 V bei $U_{DS}$ = 1 V. Oben $I_D$ in mA: 0 bis 0,5 V null, 0,275 mA bei 1 V, 1,1 mA bei 1,5 V; Tangente in 1 V mit 1,1 mS, sie trifft die Achse bei 0,75 V; schattiert der Abstand zwischen Kurve und Tangente bei ±100 mV (+10 % bzw. −10 %) und ±10 mV (±1 %). Unten $g_m$ in mS: null bis 0,5 V, dann linear bis 2,2 mS bei 1,5 V (Abschnürbereich bis 1,5 V, weil $U_{DS}$ = 1 V); darüber gestrichelt die Näherung $K(U_{GS} - U_{th})$ ohne den Faktor 1,1.
+
+*Kernaussage:* Die Steilheit ist die Steigung der Übertragungskennlinie im Arbeitspunkt und wächst mit der Übersteuerung.
+
+*Daten:* Zahlenwerk AE, AG.
+
+*Editor:*
+- §4, §11; §13 gestapelte Diagramme; §37 Steigungsdreieck; §39 Flächenanteile (Abweichung).
+
+*Animation:* Schieberegler für die Signalamplitude: Der Bereich um den Arbeitspunkt wächst, die Abweichung wird angezeigt.
+
+**st1/mos-feldeffekttransistoren/05-gm-id**
+- Fassung: ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* $g_m/I_D$ in 1/V über $U_{GS}$ von 0,2 bis 1,5 V bei $U_{DS}$ = 1 V, halblogarithmisch oder linear: unterhalb der Schwelle waagerecht bei 27,9 1/V (Grenze $1/U_T$ = 38,7 1/V gestrichelt), oberhalb $2/(U_{GS} - U_{th})$: 20 1/V bei 0,6 V, 8 bei 0,75 V, 4 bei 1 V, 2 bei 1,5 V. Übergangsbereich um die Schwelle als „im Modell nicht beschrieben“ markiert.
+
+*Kernaussage:* Je kleiner die Übersteuerung, desto mehr Steilheit gibt ein Milliampere Strom; unterhalb der Schwelle ist das Verhältnis am größten.
+
+*Daten:* Zahlenwerk AL.
+
+*Editor:*
+- §4, §11; §12 halblogarithmische Achse; §37.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/05-ausgangsleitwert**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Oben $I_D$ in mA über $U_{DS}$ von −10 V bis 2,5 V (Achsenbruch zwischen −10 und 0 V) bei $U_{GS}$ = 1 V: ohmscher Bereich bis 0,5 V (0,0909 mA bei 0,1 V), Abschnürbereich mit Steigung 25 µS (0,275 mA bei 1 V, 0,3 mA bei 2 V); Tangente bei 1 V, verlängert bis zur Achse bei −10 V (Early-Spannung). Unten $g_m$ und $g_o$ in mS über $U_{DS}$ von 0 bis 2,5 V: $g_o$ fällt von 1 mS bei 0 V über 0,817 bei 0,1 V und 0,433 bei 0,3 V auf 0,025 mS ab 0,5 V; $g_m$ steigt von 0 über 0,202 und 0,618 auf 1,05 mS bei 0,5 V und 1,1 mS bei 1 V. Marke an der Abschnürgrenze, beide Kurven stetig.
+
+*Kernaussage:* Im Abschnürbereich ist der Ausgangsleitwert klein und die Steilheit groß, im ohmschen Bereich umgekehrt.
+
+*Daten:* Zahlenwerk AE, AF.
+
+*Editor:*
+- §4, §11; §13; §17 Achsenbruch; §37 Extrapolation bis zum Schnittpunkt.
+
+*Animation:* Schieberegler $U_{DS}$; der Arbeitspunkt wandert, beide Werte laufen mit.
+
+**st1/mos-feldeffekttransistoren/05-substratsteilheit**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* Oben $I_D$ in mA über $U_{BS}$ von −2,5 bis +0,3 V bei $U_{GS}$ = 1 V und $U_{DS}$ = 1 V: 0 bei −2,5 V, 0,0593 mA bei −1 V, 0,138 bei −0,5 V, 0,275 bei 0, 0,406 bei +0,3 V; Tangente bei 0 mit 0,36 mS; Bereich $U_{BS}$ > 0 grau, „Diode in Durchlassrichtung“. Unten η über $U_{SB}$ von 0 bis 2 V: 0,327 / 0,264 / 0,227 / 0,202 / 0,184.
+
+*Kernaussage:* Der Bulk steuert den Strom wie ein zweites, schwächeres Gate; sein Anteil η sinkt mit der Sperrspannung.
+
+*Daten:* Zahlenwerk AH.
+
+*Editor:*
+- §4, §11; §13; §37.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/05-esb-statisch**
+- Fassung: ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* Zwei Ersatzschaltbilder nebeneinander. (a) NMOS: Gate offen, zwischen Drain und Source die Quellen $g_m u_{GS}$ und $g_{mB} u_{BS}$, beide vom Drain zur Source gerichtet, parallel $g_o$; Kleinsignalspannungen $u_{GS}$, $u_{DS}$, $u_{BS}$ mit Zählpfeilen zur Source, $i_D$ in den Drain. Werte 1,1 mS, 0,36 mS, 25 µS. (b) PMOS: dasselbe Bild, der Drain liegt unten (niedrigeres Potential); Werte 1,1 mS, 0,353 mS, 25 µS, alle positiv.
+
+*Kernaussage:* NMOS und PMOS haben dasselbe Kleinsignal-Ersatzschaltbild mit positiven Parametern.
+
+*Daten:* Zahlenwerk AE, AJ.
+
+*Editor:*
+- §1, §28; §2 Zählpfeile; §10.
+
+*Animation:* keine.
+
+**st1/mos-feldeffekttransistoren/05-sourcefolger-kleinsignal**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* (a) NMOS-Sourcefolger: Drain an $U_B$ = 2,5 V, Source über eine ideale Stromquelle 0,25 mA an Masse, Bulk an Masse; $U_\mathrm{ein}$ = 2 V, $U_\mathrm{aus}$ = 0,783 V. (b) Kleinsignal-Ersatzschaltbild: Drain an Masse (Versorgung fest), Quelle $g_m u_{GS}$ mit $u_{GS} = u_\mathrm{ein} - u_\mathrm{aus}$, Quelle $g_{mB} u_{BS}$ mit $u_{BS} = -u_\mathrm{aus}$; daneben umgezeichnet als Leitwert $g_{mB}$ = 0,241 mS von der Source nach Masse. (c) Ergebnis: Verstärkung 0,806, Ausgangswiderstand 806 Ω statt 1 kΩ.
+
+*Kernaussage:* Weil der Bulk festliegt, wirkt die Substratsteilheit im Folger wie ein zusätzlicher Leitwert am Ausgang.
+
+*Daten:* Zahlenwerk AI.
+
+*Editor:*
+- §1, §28; §10; §39 Umformung (Quelle → Leitwert).
+
+*Animation:* Umformung der gesteuerten Quelle in einen Leitwert.
+
+**st1/mos-feldeffekttransistoren/05-esb-dynamisch**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* (a) Vollständiges dynamisches Kleinsignal-Ersatzschaltbild: inneres statisches Ersatzschaltbild zwischen inneren Knoten G′, D′, S′, B′; außen die Bahnwiderstände $R_G$, $R_D$, $R_S$, $R_B$; Kapazitäten $C_{GS}$ = 49,5 fF, $C_{GD}$ = 3,45 fF, $C_{GB}$ ≈ 0, $C_{SB}$ = 53,1 fF (dazu rund 15 fF Kanal–Bulk), $C_{DB}$ = 37,8 fF. (b) Vereinfacht für Bulk an Source: $C_{GS}$, $C_{GD}$, $g_m u_{GS}$, $g_o$ und $C_{DB}$ zwischen Drain und Source.
+
+*Kernaussage:* Für schnelle Änderungen kommen zum statischen Modell die Kapazitäten hinzu; die meisten Bahnwiderstände sind vernachlässigbar, der Gatewiderstand nicht immer.
+
+*Daten:* Zahlenwerk AK und Thema 4 (Y, AA).
+
+*Editor:*
+- §1, §28; §39 Kondensatorsymbole; §10.
+
+*Animation:* Umschalten zwischen vollständig und vereinfacht.
