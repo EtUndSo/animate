@@ -21,6 +21,28 @@ Szene: st1/mos-feldeffekttransistoren/05-tangenten-uebersicht · Vorlage: kennli
 **Abbildung 1:** Drei kleine Diagramme des Beispiel-NMOS im Arbeitspunkt $U_{GS}$ = 1 V, $U_{DS}$ = 1 V, $U_{BS}$ = 0 mit 0,275 mA, jeweils mit Tangente: (a) Drainstrom über $U_{GS}$, Steigung 1,1 mS; (b) über $U_{DS}$, Steigung 25 µS; (c) über $U_{BS}$, Steigung 0,36 mS. Daneben das Kleinsignal-Ersatzschaltbild: Gate offen, zwischen Drain und Source die gesteuerten Quellen $g_m u_{GS}$ und $g_{mB} u_{BS}$ und der Leitwert $g_o$; jede Steigung führt mit einem Pfeil zu ihrem Bauelement. Jede Steigung im Arbeitspunkt wird ein Bauelement des Ersatzschaltbilds.
 :::
 
+## Von Grund auf: Arbeitspunkt, Tangente und gesteuerte Quelle
+
+*Welche drei Vorstellungen braucht man, bevor man den Transistor linearisieren kann?*
+
+:::grafik
+Szene: st1/mos-feldeffekttransistoren/05-grundlagen-tangente · Vorlage: kennlinie-tangente-zoom
+**Abbildung 2:** (a) Übertragungskennlinie des Beispiel-NMOS bei $U_{DS}$ = 1 V, Drainstrom über $U_{GS}$ von 0,5 bis 1,5 V, mit dem Arbeitspunkt bei 1 V und 0,275 mA (rot) und der Tangente dort (orange), Steigung 1,1 mS. (b) Ausschnitt um den Arbeitspunkt, ±100 mV: Kurve und Tangente liegen fast aufeinander; bei +10 mV gibt die Kurve 11,11 µA mehr Strom, die Tangente 11,00 µA, bei +100 mV 121 gegen 110 µA. (c) Das Schaltzeichen der spannungsgesteuerten Stromquelle: eine Raute mit dem Strom $g_m u_{GS}$ und einer gestrichelten Zuordnung zur Spannung $u_{GS}$ an anderer Stelle. Nahe am Arbeitspunkt ist die Kennlinie ihre Tangente, und die Steigung wird zum Strom einer gesteuerten Quelle.
+:::
+
+### Der Arbeitspunkt: ein fester Betriebszustand
+
+Feste Gleichspannungen am Transistor ergeben einen festen Gleichstrom: den __Arbeitspunkt__, beim Beispiel-NMOS $U_{GS}$ = 1 V, $U_{DS}$ = 1 V und 0,275 mA (Abbildung 2a), geschrieben mit Großbuchstaben. Ein Signal ändert die Spannungen nur um wenige Millivolt um diesen Punkt; er selbst bleibt fest ([Nichtlineare Bauelemente, Arbeitspunkt und Linearisierung](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/netzwerkanalyse/arbeitspunkt-und-linearisierung.html)).
+
+### Die Tangente: die Steigung einer Kennlinie an einem Punkt
+
+In einem kleinen Ausschnitt sieht jede glatte Kurve wie eine Gerade aus, die __Tangente__ im Arbeitspunkt (Abbildung 2b). Ihre Steigung ist eine Leitwertgröße, beim Beispiel 1,1 mS: 10 mV mehr am Gate geben nach der Tangente 11,00 µA, nach der Kennlinie 11,11 µA mehr Strom, 1 % Unterschied; bei 100 mV sind es 10 %, und in einem anderen Arbeitspunkt ist die Steigung eine andere. Die Tangente gilt nur nahe an ihrem Punkt.
+
+### Die gesteuerte Stromquelle
+
+Eine __gesteuerte Stromquelle__ ist ein Netzwerkelement, dessen Strom eine Spannung an anderer Stelle festlegt, gezeichnet als Raute mit gestrichelter Zuordnung zur Steuerspannung (Abbildung 2c). Die Tangentensteigung wird genau zu einer solchen Quelle: Der Strom zwischen Drain und Source ändert sich um 1,1 mS mal der Änderung der Gate-Source-Spannung, und das Gate führt keinen Strom. Der Rest des Artikels wendet das auf alle drei Spannungen an, die den Drainstrom steuern, bis das vollständige Ersatzschaltbild steht.
+
+
 ## Linearisierung im Arbeitspunkt
 
 *Wie wird aus den nichtlinearen Kennlinien ein lineares Modell für kleine Änderungen?*
@@ -153,10 +175,10 @@ Für ±100 mV ergibt dieselbe Rechnung 121 µA bzw. −99 µA gegen ±110 µA, a
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/05-steilheit · Vorlage: kennlinie-tangente-gestapelt
-**Abbildung 2:** Zwei gestapelte Diagramme über $U_{GS}$ von 0 bis 2 V bei $U_{DS}$ = 1 V. Oben der Drainstrom: null bis zur Schwelle 0,5 V, 0,275 mA bei 1 V, 1,1 mA bei 1,5 V; die Tangente in 1 V mit 1,1 mS trifft die Spannungsachse bei 0,75 V; schattiert die Abweichung der Kurve von der Tangente bei ±10 mV (±1 %) und ±100 mV (±10 %). Unten die Steilheit: null unterhalb der Schwelle, dann linear auf 1,1 mS bei 1 V und 2,2 mS bei 1,5 V, gestrichelt die Näherung ohne den Faktor 1,1. Die Steilheit ist die Steigung der Übertragungskennlinie im Arbeitspunkt und wächst mit der Übersteuerung.
+**Abbildung 3:** Zwei gestapelte Diagramme über $U_{GS}$ von 0 bis 2 V bei $U_{DS}$ = 1 V. Oben der Drainstrom: null bis zur Schwelle 0,5 V, 0,275 mA bei 1 V, 1,1 mA bei 1,5 V; die Tangente in 1 V mit 1,1 mS trifft die Spannungsachse bei 0,75 V; schattiert die Abweichung der Kurve von der Tangente bei ±10 mV (±1 %) und ±100 mV (±10 %). Unten die Steilheit: null unterhalb der Schwelle, dann linear auf 1,1 mS bei 1 V und 2,2 mS bei 1,5 V, gestrichelt die Näherung ohne den Faktor 1,1. Die Steilheit ist die Steigung der Übertragungskennlinie im Arbeitspunkt und wächst mit der Übersteuerung.
 :::
 
-Im Abschnürbereich wächst der Strom mit dem Quadrat der Übersteuerung, weil die Ladung an der Source und die Spannung längs des Kanals beide mit ihr wachsen ([Kennlinien des NMOS-Transistors](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/kennlinien.html)). Die Steigung dieser Parabel wächst linear: 1,1 mS bei 0,5 V Übersteuerung, 2,2 mS bei 1 V (Abbildung 2). Im ohmschen Bereich legt $U_{DS}$ die Spannung längs des Kanals fest, nur die Ladung wächst mit dem Gate, und die Steilheit ist bei 0,1 V nur 0,202 mS.
+Im Abschnürbereich wächst der Strom mit dem Quadrat der Übersteuerung, weil die Ladung an der Source und die Spannung längs des Kanals beide mit ihr wachsen ([Kennlinien des NMOS-Transistors](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/kennlinien.html)). Die Steigung dieser Parabel wächst linear: 1,1 mS bei 0,5 V Übersteuerung, 2,2 mS bei 1 V (Abbildung 3). Im ohmschen Bereich legt $U_{DS}$ die Spannung längs des Kanals fest, nur die Ladung wächst mit dem Gate, und die Steilheit ist bei 0,1 V nur 0,202 mS.
 
 **Die Akteure:**
 
@@ -248,10 +270,10 @@ $$g_m = 2\ \mathrm{mA/V^2}\cdot0{,}1\ \mathrm V\cdot1{,}01 = 0{,}202\ \mathrm{mS
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/05-ausgangsleitwert · Vorlage: kennlinie-tangente-gestapelt
-**Abbildung 3:** Oben der Drainstrom über $U_{DS}$ bei $U_{GS}$ = 1 V, von −10 V bis 2,5 V mit Achsenbruch zwischen −10 V und 0: ohmscher Bereich bis 0,5 V, danach Abschnürbereich mit der Steigung 25 µS, 0,275 mA bei 1 V und 0,3 mA bei 2 V; die Tangente bei 1 V trifft die Spannungsachse bei −10 V. Unten Steilheit und Ausgangsleitwert über $U_{DS}$ von 0 bis 2,5 V: $g_o$ fällt von 1 mS bei 0 über 0,817 mS bei 0,1 V und 0,433 mS bei 0,3 V auf 25 µS ab 0,5 V, $g_m$ steigt von 0 über 0,202 mS und 0,618 mS auf 1,05 mS bei 0,5 V und 1,1 mS bei 1 V; beide Kurven ohne Sprung an der Abschnürgrenze. Im Abschnürbereich ist der Ausgangsleitwert klein und die Steilheit groß, im ohmschen Bereich umgekehrt.
+**Abbildung 4:** Oben der Drainstrom über $U_{DS}$ bei $U_{GS}$ = 1 V, von −10 V bis 2,5 V mit Achsenbruch zwischen −10 V und 0: ohmscher Bereich bis 0,5 V, danach Abschnürbereich mit der Steigung 25 µS, 0,275 mA bei 1 V und 0,3 mA bei 2 V; die Tangente bei 1 V trifft die Spannungsachse bei −10 V. Unten Steilheit und Ausgangsleitwert über $U_{DS}$ von 0 bis 2,5 V: $g_o$ fällt von 1 mS bei 0 über 0,817 mS bei 0,1 V und 0,433 mS bei 0,3 V auf 25 µS ab 0,5 V, $g_m$ steigt von 0 über 0,202 mS und 0,618 mS auf 1,05 mS bei 0,5 V und 1,1 mS bei 1 V; beide Kurven ohne Sprung an der Abschnürgrenze. Im Abschnürbereich ist der Ausgangsleitwert klein und die Steilheit groß, im ohmschen Bereich umgekehrt.
 :::
 
-Im Abschnürbereich fällt der Teil der Drainspannung, der über die Übersteuerung hinausgeht, über der kurzen verarmten Zone vor dem Drain ab und erreicht den Kanal nicht. Nur die __Kanallängenmodulation__, die Verkürzung des Kanals, weil der Abschnürpunkt mit wachsender Drainspannung zur Source wandert, lässt den Strom leicht steigen: 25 µS beim Beispiel, ein Ausgangswiderstand von 40 kΩ (Abbildung 3). Im ohmschen Bereich ist der Kanal ein Widerstand, und die Drainspannung treibt den Strom unmittelbar: bei 0,1 V 0,817 mS.
+Im Abschnürbereich fällt der Teil der Drainspannung, der über die Übersteuerung hinausgeht, über der kurzen verarmten Zone vor dem Drain ab und erreicht den Kanal nicht. Nur die __Kanallängenmodulation__, die Verkürzung des Kanals, weil der Abschnürpunkt mit wachsender Drainspannung zur Source wandert, lässt den Strom leicht steigen: 25 µS beim Beispiel, ein Ausgangswiderstand von 40 kΩ (Abbildung 4). Im ohmschen Bereich ist der Kanal ein Widerstand, und die Drainspannung treibt den Strom unmittelbar: bei 0,1 V 0,817 mS.
 
 **Die Akteure:**
 
@@ -331,7 +353,7 @@ $$g_o = 2\ \mathrm{mA/V^2}\cdot\big[0{,}45\cdot1{,}02 - 0{,}05\cdot1{,}01\big]\ 
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/05-substratsteilheit · Vorlage: kennlinie-tangente-gestapelt
-**Abbildung 4:** Oben der Drainstrom über $U_{BS}$ von −2,5 V bis +0,3 V bei $U_{GS}$ = 1 V und $U_{DS}$ = 1 V: praktisch null bei −2,5 V, 0,059 mA bei −1 V, 0,138 mA bei −0,5 V, 0,275 mA bei 0 und 0,406 mA bei +0,3 V; die Tangente bei 0 hat die Steigung 0,36 mS; der Bereich über 0 ist grau hinterlegt, dort beginnt die Diode zwischen Bulk und Source zu leiten. Unten η über $U_{SB}$ von 0 bis 2 V: 0,327, 0,264, 0,227, 0,202 und 0,184. Der Bulk steuert den Strom wie ein zweites, schwächeres Gate; sein Anteil η sinkt mit der Sperrspannung.
+**Abbildung 5:** Oben der Drainstrom über $U_{BS}$ von −2,5 V bis +0,3 V bei $U_{GS}$ = 1 V und $U_{DS}$ = 1 V: praktisch null bei −2,5 V, 0,059 mA bei −1 V, 0,138 mA bei −0,5 V, 0,275 mA bei 0 und 0,406 mA bei +0,3 V; die Tangente bei 0 hat die Steigung 0,36 mS; der Bereich über 0 ist grau hinterlegt, dort beginnt die Diode zwischen Bulk und Source zu leiten. Unten η über $U_{SB}$ von 0 bis 2 V: 0,327, 0,264, 0,227, 0,202 und 0,184. Der Bulk steuert den Strom wie ein zweites, schwächeres Gate; sein Anteil η sinkt mit der Sperrspannung.
 :::
 
 **Die Akteure:**
@@ -342,13 +364,13 @@ Szene: st1/mos-feldeffekttransistoren/05-substratsteilheit · Vorlage: kennlinie
 
 **Das Zusammenspiel:**
 
-**Schritt 1**: Der Bulk wirkt über die Verarmungszone unter dem Kanal wie ein zweites Gate: Liegt er tiefer als die Source, wird die Zone breiter, und die Schwelle steigt (Abbildung 4, oben).
+**Schritt 1**: Der Bulk wirkt über die Verarmungszone unter dem Kanal wie ein zweites Gate: Liegt er tiefer als die Source, wird die Zone breiter, und die Schwelle steigt (Abbildung 5, oben).
 
 **Schritt 2**: Hebt man den Bulk um $u_{BS}$ an, sinkt die Schwelle um $\eta\,u_{BS}$, beim Beispiel um 3,3 mV je 10 mV.
 
 **Schritt 3** (entscheidender Schritt): Eine tiefere Schwelle wirkt wie eine höhere Gatespannung, denn beide gehen nur über die Übersteuerung ein. Die Substratsteilheit ist deshalb η-mal die Steilheit, 0,36 mS, in beiden Bereichen und mit demselben Vorzeichen.
 
-**Schritt 4**: Mit wachsender Sperrspannung wird die Zone tiefer, und η sinkt, auf 0,227 bei 1 V (Abbildung 4, unten).
+**Schritt 4**: Mit wachsender Sperrspannung wird die Zone tiefer, und η sinkt, auf 0,227 bei 1 V (Abbildung 5, unten).
 
 :::formel Formel
 $$g_{mB} = \eta\,g_m, \qquad \eta = \frac{\gamma}{2\,\sqrt{2\Phi_F + U_{SB}}}$$
@@ -415,16 +437,16 @@ Ja, mit denselben Richtungen und positiven Parametern. Zählt man den Drainstrom
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/05-sourcefolger-kleinsignal · Vorlage: schaltung-mit-ersatz
-**Abbildung 5:** (a) NMOS-Sourcefolger: Drain an 2,5 V, Source über eine ideale Stromquelle von 0,25 mA an Masse, Bulk an Masse; bei 2 V am Gate liegt der Ausgang bei 0,783 V. (b) Sein Kleinsignal-Ersatzschaltbild: Der Drain liegt an der festen Versorgung und wird zur Masse, die Stromquelle wird eine Unterbrechung; $u_{GS}$ ist $u_\mathrm{ein} - u_\mathrm{aus}$ und $u_{BS}$ ist $-u_\mathrm{aus}$. Daneben umgezeichnet: Die Quelle $g_{mB} u_{BS}$ wirkt wie ein Leitwert von 0,241 mS von der Source nach Masse. (c) Ergebnis: Verstärkung 0,806 und Ausgangswiderstand 806 Ω statt 1 und 1 kΩ. Weil der Bulk festliegt, wirkt die Substratsteilheit im Folger wie ein zusätzlicher Leitwert am Ausgang.
+**Abbildung 6:** (a) NMOS-Sourcefolger: Drain an 2,5 V, Source über eine ideale Stromquelle von 0,25 mA an Masse, Bulk an Masse; bei 2 V am Gate liegt der Ausgang bei 0,783 V. (b) Sein Kleinsignal-Ersatzschaltbild: Der Drain liegt an der festen Versorgung und wird zur Masse, die Stromquelle wird eine Unterbrechung; $u_{GS}$ ist $u_\mathrm{ein} - u_\mathrm{aus}$ und $u_{BS}$ ist $-u_\mathrm{aus}$. Daneben umgezeichnet: Die Quelle $g_{mB} u_{BS}$ wirkt wie ein Leitwert von 0,241 mS von der Source nach Masse. (c) Ergebnis: Verstärkung 0,806 und Ausgangswiderstand 806 Ω statt 1 und 1 kΩ. Weil der Bulk festliegt, wirkt die Substratsteilheit im Folger wie ein zusätzlicher Leitwert am Ausgang.
 :::
 
 **Das Zusammenspiel:**
 
-**Schritt 1**: Im __Sourcefolger__ ist das Gate der Eingang und die Source der Ausgang (Abbildung 5a); der Bulk liegt an Masse, der Drain an der Versorgung.
+**Schritt 1**: Im __Sourcefolger__ ist das Gate der Eingang und die Source der Ausgang (Abbildung 6a); der Bulk liegt an Masse, der Drain an der Versorgung.
 
 **Schritt 2**: Steigt der Ausgang um $u_\mathrm{aus}$, sinkt $u_{BS}$ um denselben Betrag, weil der Bulk liegen bleibt.
 
-**Schritt 3** (entscheidender Schritt): Die Quelle $g_{mB} u_{BS}$ liefert dann $-g_{mB} u_\mathrm{aus}$ in den Ausgang: ein Strom, der mit der eigenen Knotenspannung abfließt, also ein Leitwert von der Source nach Masse (Abbildung 5b).
+**Schritt 3** (entscheidender Schritt): Die Quelle $g_{mB} u_{BS}$ liefert dann $-g_{mB} u_\mathrm{aus}$ in den Ausgang: ein Strom, der mit der eigenen Knotenspannung abfließt, also ein Leitwert von der Source nach Masse (Abbildung 6b).
 
 **Schritt 4**: Er belastet den Ausgang, und die Verstärkung sinkt unter 1, beim Beispiel mit η = 0,241 auf 0,806, genau die Steigung der Großsignalrechnung des Folgers.
 
@@ -505,10 +527,10 @@ $$A_V = 1, \qquad r_\mathrm{aus} = \frac{1}{1\ \mathrm{mS}} = 1\ \mathrm{k\Omega
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/05-esb-dynamisch · Vorlage: ersatzschaltbild-paar
-**Abbildung 6:** (a) Vollständiges dynamisches Kleinsignal-Ersatzschaltbild: das statische Ersatzschaltbild zwischen inneren Knoten, außen die Bahnwiderstände $R_G$, $R_D$, $R_S$ und $R_B$; dazu die Kapazitäten $C_{GS}$ = 49,5 fF, $C_{GD}$ = 3,45 fF, $C_{GB}$ ≈ 0, $C_{SB}$ = 53,1 fF (dazu rund 15 fF zwischen Kanal und Bulk) und $C_{DB}$ = 37,8 fF, Werte im Abschnürbereich bei 1 V/1 V. (b) Vereinfacht für Bulk an Source: $C_{GS}$ und $C_{GD}$ am Gate, $g_m u_{GS}$ und $g_o$ zwischen Drain und Source, $C_{DB}$ zwischen Drain und Source. Für schnelle Änderungen kommen zum statischen Modell die Kapazitäten hinzu; die meisten Bahnwiderstände sind vernachlässigbar, der Gatewiderstand nicht immer.
+**Abbildung 7:** (a) Vollständiges dynamisches Kleinsignal-Ersatzschaltbild: das statische Ersatzschaltbild zwischen inneren Knoten, außen die Bahnwiderstände $R_G$, $R_D$, $R_S$ und $R_B$; dazu die Kapazitäten $C_{GS}$ = 49,5 fF, $C_{GD}$ = 3,45 fF, $C_{GB}$ ≈ 0, $C_{SB}$ = 53,1 fF (dazu rund 15 fF zwischen Kanal und Bulk) und $C_{DB}$ = 37,8 fF, Werte im Abschnürbereich bei 1 V/1 V. (b) Vereinfacht für Bulk an Source: $C_{GS}$ und $C_{GD}$ am Gate, $g_m u_{GS}$ und $g_o$ zwischen Drain und Source, $C_{DB}$ zwischen Drain und Source. Für schnelle Änderungen kommen zum statischen Modell die Kapazitäten hinzu; die meisten Bahnwiderstände sind vernachlässigbar, der Gatewiderstand nicht immer.
 :::
 
-Für schnelle Änderungen bekommt das Ersatzschaltbild die Kapazitäten aus [Parasitäre Kapazitäten des MOSFET](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/parasitaere-kapazitaeten.html) (Abbildung 6): $C_{GS}$ und $C_{GD}$, im Abschnürbereich 49,5 fF und 3,45 fF; $C_{GB}$, oberhalb der Schwelle praktisch null; $C_{SB}$ und $C_{DB}$, 53,1 fF und 37,8 fF. Dazu kommen die __Bahnwiderstände__ der Zuleitungen in den Transistor. Der Widerstand des Source-Gebiets, rund 20 Ω, ist klein gegen $1/g_m$ = 909 Ω und kostet 2 % Steilheit; ihn und die Widerstände von Drain und Bulk lässt man weg. Der Gatewiderstand bildet dagegen mit der Eingangskapazität einen Tiefpass: 2 kΩ eines Gates aus Polysilizium ohne Silizid mit 53 fF ergeben 106 ps.
+Für schnelle Änderungen bekommt das Ersatzschaltbild die Kapazitäten aus [Parasitäre Kapazitäten des MOSFET](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/parasitaere-kapazitaeten.html) (Abbildung 7): $C_{GS}$ und $C_{GD}$, im Abschnürbereich 49,5 fF und 3,45 fF; $C_{GB}$, oberhalb der Schwelle praktisch null; $C_{SB}$ und $C_{DB}$, 53,1 fF und 37,8 fF. Dazu kommen die __Bahnwiderstände__ der Zuleitungen in den Transistor. Der Widerstand des Source-Gebiets, rund 20 Ω, ist klein gegen $1/g_m$ = 909 Ω und kostet 2 % Steilheit; ihn und die Widerstände von Drain und Bulk lässt man weg. Der Gatewiderstand bildet dagegen mit der Eingangskapazität einen Tiefpass: 2 kΩ eines Gates aus Polysilizium ohne Silizid mit 53 fF ergeben 106 ps.
 
 Schaltungssimulatoren wie SPICE rechnen mit genau diesem Modell: Aus einer Modellkarte mit Schwelle, Prozessparameter, Substratsteuerfaktor, Kanallängenmodulation, Oxiddicke und den Kapazitätsbelägen bestimmen sie den Arbeitspunkt und linearisieren an ihm.
 

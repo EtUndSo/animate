@@ -152,3 +152,12 @@ Bahnwiderständen, R_G nicht vernachlässigt, Eingangskapazität mit Miller, ver
    für C_DB bei Bulk an Source.
 10. S. 271, Anhang B: Modellkarten ohne Einheiten und ohne Bezug zu den Formeln (CJ in F/m², CJSW und CGSO in F/m); hier
     eigene Karte mit Bedeutung jedes Parameters.
+
+## 3a. Aufbau-Leiter (§5.12, nachgerüstet 27.10.2026)
+
+Grundlagen (`## Von Grund auf: Arbeitspunkt, Tangente und gesteuerte Quelle`): Arbeitspunkt als fester Betriebszustand
+(1 V/1 V, 0,275 mA); Tangente als Steigung einer Kennlinie an einem Punkt, eine Kennlinie, eine Steilheit (1,1 mS, 10 mV →
+11,00 gegen 11,11 µA, 100 mV → 10 %); gesteuerte Stromquelle. Szene 05-grundlagen-tangente = Abbildung 2 in beiden
+Fassungen, alle folgenden Abbildungen um eins verschoben (Abbildungsplan in §7 ist um eins zu erhöhen).
+Sprossen: drei Steuerspannungen, Summe der Steigungen → Steilheit → Ausgangsleitwert → Substratsteilheit → statisches
+Ersatzschaltbild → Substratsteilheit in einer Schaltung (Folger) → dynamisches Ersatzschaltbild → Simulator.

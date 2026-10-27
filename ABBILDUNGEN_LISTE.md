@@ -3618,7 +3618,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 *Animation:* Der Arbeitspunkt wandert auf (a); die Tangente und der Wert $g_m$ im Ersatzschaltbild ändern sich mit.
 
 **st1/mos-feldeffekttransistoren/05-steilheit**
-- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
 - Status: offen.
 
 *Inhalt:* Zwei gestapelte Diagramme über $U_{GS}$ von 0 bis 2 V bei $U_{DS}$ = 1 V. Oben $I_D$ in mA: 0 bis 0,5 V null, 0,275 mA bei 1 V, 1,1 mA bei 1,5 V; Tangente in 1 V mit 1,1 mS, sie trifft die Achse bei 0,75 V; schattiert der Abstand zwischen Kurve und Tangente bei ±100 mV (+10 % bzw. −10 %) und ±10 mV (±1 %). Unten $g_m$ in mS: null bis 0,5 V, dann linear bis 2,2 mS bei 1,5 V (Abschnürbereich bis 1,5 V, weil $U_{DS}$ = 1 V); darüber gestrichelt die Näherung $K(U_{GS} - U_{th})$ ohne den Faktor 1,1.
@@ -3633,7 +3633,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 *Animation:* Schieberegler für die Signalamplitude: Der Bereich um den Arbeitspunkt wächst, die Abweichung wird angezeigt.
 
 **st1/mos-feldeffekttransistoren/05-gm-id**
-- Fassung: ausführlich Abb. 3.
+- Fassung: ausführlich Abb. 4.
 - Status: offen.
 
 *Inhalt:* $g_m/I_D$ in 1/V über $U_{GS}$ von 0,2 bis 1,5 V bei $U_{DS}$ = 1 V, halblogarithmisch oder linear: unterhalb der Schwelle waagerecht bei 27,9 1/V (Grenze $1/U_T$ = 38,7 1/V gestrichelt), oberhalb $2/(U_{GS} - U_{th})$: 20 1/V bei 0,6 V, 8 bei 0,75 V, 4 bei 1 V, 2 bei 1,5 V. Übergangsbereich um die Schwelle als „im Modell nicht beschrieben“ markiert.
@@ -3648,7 +3648,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 *Animation:* keine.
 
 **st1/mos-feldeffekttransistoren/05-ausgangsleitwert**
-- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
 - Status: offen.
 
 *Inhalt:* Oben $I_D$ in mA über $U_{DS}$ von −10 V bis 2,5 V (Achsenbruch zwischen −10 und 0 V) bei $U_{GS}$ = 1 V: ohmscher Bereich bis 0,5 V (0,0909 mA bei 0,1 V), Abschnürbereich mit Steigung 25 µS (0,275 mA bei 1 V, 0,3 mA bei 2 V); Tangente bei 1 V, verlängert bis zur Achse bei −10 V (Early-Spannung). Unten $g_m$ und $g_o$ in mS über $U_{DS}$ von 0 bis 2,5 V: $g_o$ fällt von 1 mS bei 0 V über 0,817 bei 0,1 V und 0,433 bei 0,3 V auf 0,025 mS ab 0,5 V; $g_m$ steigt von 0 über 0,202 und 0,618 auf 1,05 mS bei 0,5 V und 1,1 mS bei 1 V. Marke an der Abschnürgrenze, beide Kurven stetig.
@@ -3663,7 +3663,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 *Animation:* Schieberegler $U_{DS}$; der Arbeitspunkt wandert, beide Werte laufen mit.
 
 **st1/mos-feldeffekttransistoren/05-substratsteilheit**
-- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
 - Status: offen.
 
 *Inhalt:* Oben $I_D$ in mA über $U_{BS}$ von −2,5 bis +0,3 V bei $U_{GS}$ = 1 V und $U_{DS}$ = 1 V: 0 bei −2,5 V, 0,0593 mA bei −1 V, 0,138 bei −0,5 V, 0,275 bei 0, 0,406 bei +0,3 V; Tangente bei 0 mit 0,36 mS; Bereich $U_{BS}$ > 0 grau, „Diode in Durchlassrichtung“. Unten η über $U_{SB}$ von 0 bis 2 V: 0,327 / 0,264 / 0,227 / 0,202 / 0,184.
@@ -3678,7 +3678,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 *Animation:* keine.
 
 **st1/mos-feldeffekttransistoren/05-esb-statisch**
-- Fassung: ausführlich Abb. 6.
+- Fassung: ausführlich Abb. 7.
 - Status: offen.
 
 *Inhalt:* Zwei Ersatzschaltbilder nebeneinander. (a) NMOS: Gate offen, zwischen Drain und Source die Quellen $g_m u_{GS}$ und $g_{mB} u_{BS}$, beide vom Drain zur Source gerichtet, parallel $g_o$; Kleinsignalspannungen $u_{GS}$, $u_{DS}$, $u_{BS}$ mit Zählpfeilen zur Source, $i_D$ in den Drain. Werte 1,1 mS, 0,36 mS, 25 µS. (b) PMOS: dasselbe Bild, der Drain liegt unten (niedrigeres Potential); Werte 1,1 mS, 0,353 mS, 25 µS, alle positiv.
@@ -3693,7 +3693,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 *Animation:* keine.
 
 **st1/mos-feldeffekttransistoren/05-sourcefolger-kleinsignal**
-- Fassung: kompakt Abb. 5, ausführlich Abb. 7.
+- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
 - Status: offen.
 
 *Inhalt:* (a) NMOS-Sourcefolger: Drain an $U_B$ = 2,5 V, Source über eine ideale Stromquelle 0,25 mA an Masse, Bulk an Masse; $U_\mathrm{ein}$ = 2 V, $U_\mathrm{aus}$ = 0,783 V. (b) Kleinsignal-Ersatzschaltbild: Drain an Masse (Versorgung fest), Quelle $g_m u_{GS}$ mit $u_{GS} = u_\mathrm{ein} - u_\mathrm{aus}$, Quelle $g_{mB} u_{BS}$ mit $u_{BS} = -u_\mathrm{aus}$; daneben umgezeichnet als Leitwert $g_{mB}$ = 0,241 mS von der Source nach Masse. (c) Ergebnis: Verstärkung 0,806, Ausgangswiderstand 806 Ω statt 1 kΩ.
@@ -3708,7 +3708,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 *Animation:* Umformung der gesteuerten Quelle in einen Leitwert.
 
 **st1/mos-feldeffekttransistoren/05-esb-dynamisch**
-- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
+- Fassung: kompakt Abb. 7, ausführlich Abb. 9.
 - Status: offen.
 
 *Inhalt:* (a) Vollständiges dynamisches Kleinsignal-Ersatzschaltbild: inneres statisches Ersatzschaltbild zwischen inneren Knoten G′, D′, S′, B′; außen die Bahnwiderstände $R_G$, $R_D$, $R_S$, $R_B$; Kapazitäten $C_{GS}$ = 49,5 fF, $C_{GD}$ = 3,45 fF, $C_{GB}$ ≈ 0, $C_{SB}$ = 53,1 fF (dazu rund 15 fF Kanal–Bulk), $C_{DB}$ = 37,8 fF. (b) Vereinfacht für Bulk an Source: $C_{GS}$, $C_{GD}$, $g_m u_{GS}$, $g_o$ und $C_{DB}$ zwischen Drain und Source.
@@ -3741,7 +3741,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* Schieberegler $U_{BE}$ (0,70 bis 0,80 V): Elektronendichte in der Basis, beide Mengenpfeile und die Zahlen im Modell laufen mit (57,6 µA bis 2,76 mA).
 
 **st1/bipolartransistor/01-aufbau-diskret-integriert**
-- Fassung: ausführlich Abb. 2.
+- Fassung: ausführlich Abb. 3.
 - Status: offen.
 
 *Inhalt:* (a) Diskreter npn: n⁺-Substrat als Kollektorkontakt auf der Rückseite (C), darüber n-Epitaxie (Kollektor), p-Basis, n⁺-Emitter; Kontakte E und B oben. (b) Integrierter npn: p-Substrat, darin n-Wanne (Kollektor) mit vergrabener n⁺-Schicht („buried layer“) und n⁺-Kollektorkontakt oben, p-Basisgebiet, n⁺-Emitter darin; p⁺-Substratkontakte S links und rechts; Diodensymbol zwischen Substrat und Kollektor, als gesperrt eingefärbt, Substrat an der negativsten Versorgung (−2,5 V oder Masse). (c) Layout-Draufsicht von (b): Emitterfläche 2 µm × 10 µm hervorgehoben, Basis- und Kollektorkontakte daneben, Substratring; Maßpfeile.
@@ -3756,7 +3756,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* Umschalten zwischen Querschnitt und Draufsicht mit Schnittlinie.
 
 **st1/bipolartransistor/01-symbole-zaehlpfeile**
-- Fassung: kompakt Abb. 2, ausführlich Abb. 3.
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
 - Status: offen.
 
 *Inhalt:* (a) npn: Schichtfolge n (C), p (B), n (E) als drei Balken mit zwei Diodensymbolen (Kollektordiode zeigt von B nach C, Emitterdiode von B nach E), daneben das Schaltsymbol mit Emitterpfeil nach außen; Zählpfeile $I_B$ und $I_C$ in den Transistor, $I_E$ aus dem Emitter heraus gezählt als negativ (Pfeil hinein, Wert −1,01 mA), Spannungspfeile $U_{BE}$ von B nach E, $U_{CE}$ von C nach E, $U_{BC}$ von B nach C; Werte im Normalbetrieb $U_{BE}$ = 0,774 V, $U_{CE}$ = 2,5 V, $U_{BC}$ = −1,73 V, $I_B$ = 10 µA, $I_C$ = 1,05 mA. (b) pnp: Schichtfolge p, n, p, Emitterpfeil nach innen, dieselben Zählpfeile (alle Ströme hinein gezählt), Werte mit umgekehrten Vorzeichen: $U_{BE}$ = −0,774 V, $U_{CE}$ = −2,5 V, $I_B$ = −10 µA, $I_C$ = −1,05 mA, $I_E$ = +1,06 mA.
@@ -3771,7 +3771,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* keine.
 
 **st1/bipolartransistor/01-kennlinien**
-- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
 - Status: offen.
 
 *Inhalt:* Drei Diagramme über $U_{BE}$ von 0,5 bis 0,9 V. (a) $I_C$ in mA linear: 0,058 mA bei 0,70 V, 0,40 mA bei 0,75 V, 1,0 mA bei 0,774 V, 2,76 mA bei 0,80 V, 19 mA bei 0,85 V (Achse bis 5 mA, Kurve verlässt das Bild); Arbeitspunkt rot. (b) $I_C$ halblogarithmisch von 10 nA bis 100 mA: Gerade mit 59,5 mV je Dekade, Steigungsdreieck. (c) $I_B$ in µA linear, dieselbe Form wie (a) mit 1/100 der Werte: 10 µA bei 0,774 V, 27,6 µA bei 0,80 V. Keine Early-Abhängigkeit (U_CE fest 2,5 V, oder Werte ohne Early-Faktor; im Bild ohne Early).
@@ -3786,7 +3786,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* Punkt auf (a) wandert, der zugehörige Punkt auf (b) und (c) läuft mit (§37 gekoppelte Punkte).
 
 **st1/bipolartransistor/01-arbeitsbereiche**
-- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
 - Status: offen.
 
 *Inhalt:* (a) Ebene mit $U_{BE}$ waagerecht und $U_{BC}$ senkrecht, je −1 bis +1 V: vier Quadranten farbig hinterlegt und beschriftet: gesperrt (beide negativ), aktiv normal ($U_{BE}$ > 0, $U_{BC}$ < 0), Sättigung (beide positiv), invers ($U_{BE}$ < 0, $U_{BC}$ > 0); der Ursprung als „stromlos“; die Diagonale $U_{BC}$ = $U_{BE}$ als Linie $U_{CE}$ = 0; der Arbeitspunkt (0,774 V, −1,73 V) als roter Punkt im aktiven Quadranten, der Sättigungspunkt (0,797 V, 0,697 V) als zweiter Punkt. (b) Ausgangskennlinienfeld $I_C$ über $U_{CE}$ von 0 bis 3 V für $U_{BE}$ = 0,70, 0,75, 0,774 und 0,80 V: steiler Anstieg bis etwa 0,1 V (0,784 mA bei 0,05 V, 0,971 mA bei 0,1 V, 1,003 mA bei 0,2 V für 0,774 V), dann flach mit Early-Steigung (1,02 mA bei 1 V, 1,05 mA bei 2,5 V); Sättigungsbereich links der gestrichelten Grenze $U_{CE}$ ≈ 0,1 bis 0,3 V grau hinterlegt, aktiver Bereich rechts; Kurven beschriftet mit $U_{BE}$.
@@ -3801,7 +3801,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* Ein Punkt in (a) lässt sich ziehen; in (b) erscheint der zugehörige Punkt ($I_C$, $U_{CE}$), und das Transportmodell (Szene 01-transportmodell) zeigt die Ströme.
 
 **st1/bipolartransistor/01-transportmodell**
-- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
 - Status: offen.
 
 *Inhalt:* (a) Vollständiges Transportmodell: Knoten B links, C oben, E unten; von B nach C die Kollektordiode mit Strom $I_{B,I}$ (Pfeil von B nach C), von B nach E die Emitterdiode mit $I_{B,N}$; zwischen C und E die gesteuerte Stromquelle $I_T$ = $B_N I_{B,N}$ − $B_I I_{B,I}$, Pfeil von C nach E, gestrichelte Zuordnung zu beiden Diodenspannungen; Spannungspfeile $U_{BE}$ und $U_{BC}$; Zählpfeile $I_B$, $I_C$ hinein, $I_E$; Werte im Arbeitspunkt (1 mA, 2,5 V): $I_{B,N}$ = 10 µA, $I_{B,I}$ ≈ 0 (−5·10⁻¹⁷ A), $I_T$ = 1,05 mA. (b) Vereinfachtes Transportmodell für den Normalbetrieb: nur Emitterdiode mit $I_B$ und Quelle $I_C$ = $B_N I_B$; $I_E$ = −(1 + $B_N$) $I_B$ = −1,01 mA ohne Early-Faktor.
@@ -3816,7 +3816,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* Beim Übergang zu (b) blasst die Kollektordiode aus (Strom 10⁻¹⁷ A) und der Steuerausdruck vereinfacht sich.
 
 **st1/bipolartransistor/01-saettigung-stroeme**
-- Fassung: ausführlich Abb. 7.
+- Fassung: ausführlich Abb. 8.
 - Status: offen.
 
 *Inhalt:* Schaltung: Basis aus Stromquelle $I_B$ = 50 µA, Kollektor über $R_C$ = 1 kΩ an 2,5 V, Emitter an Masse; der Transistor als vollständiges Transportmodell gezeichnet. Mengenpfeile mit Zahlen: $I_{B,N}$ = 24,7 µA in die Emitterdiode, $I_{B,I}$ = 25,3 µA in die Kollektordiode, $I_T$ = 2,42 mA (100 · 24,7 µA − 2 · 25,3 µA mit Early-Faktor), $I_C$ = 2,40 mA, $I_E$ = −2,45 mA; Spannungen $U_{BE}$ = 797 mV, $U_{BC}$ = 697 mV, $U_{CE}$ = 100 mV; am Widerstand 2,40 V. Daneben klein derselbe Transistor bei $I_B$ = 10 µA (aktiv: $I_{B,I}$ ≈ 0, $U_{CE}$ = 1,47 V, $I_C$ = 1,03 mA).
@@ -3831,7 +3831,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* Schieberegler $I_B$ von 5 bis 100 µA: Aufteilung, $U_{CE}$ und $I_C$ laufen mit (Tabelle E).
 
 **st1/bipolartransistor/01-early-effekt**
-- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
+- Fassung: kompakt Abb. 7, ausführlich Abb. 9.
 - Status: offen.
 
 *Inhalt:* (a) Ausgangskennlinien $I_C$ über $U_{CE}$ für $U_{BE}$ = 0,75, 0,774 und 0,80 V von −50 V bis 5 V mit Achsenbruch zwischen −50 und 0 V; im aktiven Bereich Geraden mit Steigung $I_C$/($U_A$ + $U_{CE}$) (20 µS bei 1 mA), nach links verlängert bis zum gemeinsamen Schnittpunkt −$U_A$ = −50 V; Werte 1,00 mA bei 0 V (extrapoliert), 1,02 bei 1 V, 1,05 bei 2,5 V, 1,10 bei 5 V. (b) Querschnitt der Basis, schematisch: p-Basis zwischen den beiden Raumladungszonen; bei $U_{CB}$ = 1 V und 5 V dringt die Kollektor-Raumladungszone tiefer in die Basis, die neutrale Basisweite schrumpft (beschriftet $W_B$); daneben der Minoritätsverlauf in der Basis als Gerade, die bei kürzerer Basis steiler wird.
@@ -3846,7 +3846,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* Schieberegler $U_{CB}$: die Zone wächst, $W_B$ schrumpft, der Punkt auf der Kennlinie wandert.
 
 **st1/bipolartransistor/01-gummel-plot**
-- Fassung: ausführlich Abb. 9.
+- Fassung: ausführlich Abb. 10.
 - Status: offen.
 
 *Inhalt:* (a) Gummel-Plot: $I_C$ und $I_B$ in A, logarithmisch von 10⁻¹² bis 10⁻¹, über $U_{BE}$ von 0,4 bis 1,0 V; $I_C$ als Gerade mit 59,5 mV je Dekade bis etwa 0,8 V, darüber abknickend (2,62 mA bei 0,80 V ideal 2,76; 14,7 mA bei 0,85 V ideal 19,1; 60,0 mA bei 0,90 V ideal 132); $I_B$ mit zwei Teilen: unten flacher (119 mV je Dekade, Rekombinationsstrom mit $n$ = 2, $I_{SE}$ = 10⁻¹³ A), oben parallel zu $I_C$ im Abstand Faktor 100; der Abstand zwischen beiden Kurven als Pfeil „B“. (b) $B$ über $I_C$ (logarithmisch 1 nA bis 100 mA): 3 bei 1 nA, 9 bei 10 nA, 24 bei 100 nA, 50 bei 1 µA, 76 bei 10 µA, 91 bei 100 µA, Maximum 95 bei 0,85 mA, 83 bei 10 mA, 62 bei 30 mA, 33 bei 100 mA; gestrichelt der Modellwert 100.
@@ -3861,7 +3861,7 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 *Animation:* keine.
 
 **st1/bipolartransistor/01-grossignalmodell**
-- Fassung: ausführlich Abb. 10.
+- Fassung: ausführlich Abb. 11.
 - Status: offen.
 
 *Inhalt:* (a) Vollständiges statisches Großsignalmodell: äußere Anschlüsse B′, E′, C′ über Bahnwiderstände $R_B$ = 100 Ω, $R_E$ = 5 Ω, $R_C$ = 20 Ω an die inneren Knoten B, E, C; innen die Emitterdiode $I_{B,N}$, parallel dazu die Rekombinationsdiode $I_{B,E}$ ($n$ = 2), die Kollektordiode $I_{B,I}$ und die Quelle $I_T$; dazu die Substratdiode vom Substrat S zum Kollektor, gesperrt. Werte bei 1 mA: Abfälle 1 mV an $R_B$, 5 mV an $R_E$, 20 mV an $R_C$. (b) Vereinfachtes Großsignalmodell: nur $R_B$ bleibt, Emitter und Kollektor direkt; Substratdiode bleibt.
@@ -3874,3 +3874,33 @@ Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K
 - §1 Dioden und Widerstände; §28 gesteuerte Quelle, Gegenüberstellung vollständig/vereinfacht; §10 Teilbilder.
 
 *Animation:* Umschalten zwischen (a) und (b); Schieberegler $I_C$ zeigt die Spannungsabfälle (5 mV bei 1 mA, 50 mV bei 10 mA).
+
+**st1/bipolartransistor/01-grundlagen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2 (Grundlagen-Abschnitt nach §5.12, nachgerüstet 27.10.2026).
+- Status: offen.
+
+*Inhalt:* (a) pn-Übergang: Querschnitt p (rot) | Raumladungszone (grau) | n (blau), daneben die Diodenkennlinie mit $I_S$ = 10⁻¹⁶ A linear (0 bis 2 mA über 0,6 bis 0,8 V, 1 mA bei 774 mV) und halblogarithmisch (10 nA bis 10 mA, 59,5 mV je Dekade), Sperrbereich mit −10⁻¹⁶ A. (b) Elektronendichte in einer 0,1 µm dünnen p-Schicht: Gerade von einem hohen Wert links auf null rechts, blaue Pfeile bergab, Beschriftung „Strom ∝ Gefälle“. (c) Schaltzeichen der spannungsgesteuerten Stromquelle (Raute) mit Strompfeil $I$ und gestrichelter Zuordnung zu einer Spannung an anderer Stelle.
+
+*Kernaussage:* Diode, Diffusion durch eine dünne Schicht und gesteuerte Quelle sind die drei Bausteine des Transistormodells.
+
+*Daten:* Zahlenwerk A, B.
+
+*Editor:*
+- §27 Querschnitt; §4, §11, §12 Kennlinie linear und halblogarithmisch; §14 Teilchen, §2 Pfeile; §28 gesteuerte Quelle; §10 Teilbilder.
+
+*Animation:* Schieberegler $U$ an der Diode: Kennlinienpunkt und Dichtegefälle in (b) laufen mit.
+
+**st1/mos-feldeffekttransistoren/05-grundlagen-tangente**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2 (Grundlagen-Abschnitt nach §5.12, nachgerüstet 27.10.2026).
+- Status: offen.
+
+*Inhalt:* (a) $I_D$ über $U_{GS}$ von 0,5 bis 1,5 V bei $U_{DS}$ = 1 V (0 bis 1,1 mA), Arbeitspunkt (1 V, 0,275 mA) rot, Tangente orange mit Steigungsdreieck 1,1 mS. (b) Ausschnitt 0,9 bis 1,1 V, 0,17 bis 0,40 mA: Kurve und Tangente fast deckungsgleich; Marken bei +10 mV (11,11 gegen 11,00 µA) und +100 mV (121 gegen 110 µA). (c) Raute der spannungsgesteuerten Stromquelle mit $g_m u_{GS}$, gestrichelte Zuordnung zu $u_{GS}$.
+
+*Kernaussage:* Nahe am Arbeitspunkt ist die Kennlinie ihre Tangente, und die Steigung wird zum Strom einer gesteuerten Quelle.
+
+*Daten:* Zahlenwerk AE, AG.
+
+*Editor:*
+- §4, §11; §37 Steigungsdreieck; §22 Ausschnittvergrößerung; §28 gesteuerte Quelle; §10 Teilbilder.
+
+*Animation:* Zoomfaktor als Schieberegler: Je näher heran, desto gerader die Kurve.

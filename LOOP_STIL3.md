@@ -56,7 +56,7 @@ Ist die Ausgabe **leer**, gibt es noch kein Stil-3-Thema. Dann gilt:
 
 ## (B1) Nächstes offenes Thema ermitteln
 
-**Zuerst:** Fehlt die Datei `notizen/nachtrag_5_11.md`, ist der Durchgang der einmalige Nachtrag (B1b), nicht ein neues Thema. Fehlt danach `notizen/quellenbezug_bereinigt.md`, ist der Durchgang die einmalige Bereinigung (B1c).
+**Zuerst:** Fehlt die Datei `notizen/nachtrag_5_11.md`, ist der Durchgang der einmalige Nachtrag (B1b), nicht ein neues Thema. Fehlt danach `notizen/quellenbezug_bereinigt.md`, ist der Durchgang die einmalige Bereinigung (B1c). Steht danach in `notizen/grundlagen_aufbau.md` noch ein Thema mit Status „offen“, ist der Durchgang eine Runde der Nachrüstung „Von Grund auf“ (B1e), kein neues Thema.
 
 **Reihenfolge der Module** (Entscheidungen vom 22.10.2026): Nach dem Halbleiter-Block und Kap. 2 von ET1 kommt auf Wunsch des Users zuerst **Schaltungstechnik 1 (ST1)**, eingerichtet über (B1d); danach der Rest von ET1 (Kap. 3 bis 9), dann HöMa3, dann Numerische Mathematik für Elektrotechnik (Numa), danach GEMB1. Der User hat angekündigt, dass sich die Reihenfolge noch ändern kann; maßgeblich ist diese Datei.
 
@@ -124,6 +124,16 @@ Vorgabe des Users vom 22.10.2026: Auf der ganzen Website darf kein Hinweis stehe
 3. **Prüfen:** `quellen_check.py` ohne Fundstelle; Build; KaTeX und widefind für alle geänderten Seiten; Stichproben im Diff.
 4. **Protokoll:** `notizen/quellenbezug_bereinigt.md` mit Umfang, Regeln und Besonderheiten.
 5. **Commit** „Website: Quellen- und Veranstaltungsbezüge entfernt (§5.7)“ und kurzer Bericht.
+
+### (B1e) Einmalig: fertige Stil-3-Themen nach ERKLAER_PROMPT §5.12 nachrüsten („Von Grund auf, Stufe für Stufe“)
+
+Vorgabe des Users vom 27.10.2026: Artikel beginnen bei den Grundlagen (nicht zu weit ausschweifen) und nähern sich dem Thema schrittweise; das gilt für alle Artikel, nötigenfalls neu schreiben. Gilt, solange `notizen/grundlagen_aufbau.md` ein Thema mit Status „offen“ führt. Die alten Artikel (ohne `stil: 3`) bekommen den Aufbau, wenn sie im normalen Ablauf neu geschrieben werden; nachgerüstet werden nur die fertigen Stil-3-Themen.
+1. **Runde:** je Durchgang die nächsten **zwei** offenen Themen der Liste in `notizen/grundlagen_aufbau.md` (Reihenfolge der Liste), beide Fassungen.
+2. **Prüfen** gegen §5.12 und §11 Test 21: Fehlt `## Von Grund auf: …`? Setzt ein Abschnitt etwas voraus, das erst später oder nur per Link erklärt wird? Fängt der erste Sach-Abschnitt mit dem allgemeinen Fall statt dem einfachsten an?
+3. **Umbauen:** Aufbau-Leiter in die Arbeitsnotiz (§10 Nr. 3a) eintragen; den Grundlagen-Abschnitt neu schreiben (Grundbegriffe konkret, mit Abbildung: neue Szenen in `ABBILDUNGEN_LISTE.md` und Platzhalter nach (B4); die Einstiegsabbildung bleibt Abbildung 1); Abschnitte umordnen und, wo eine Sprosse fehlt, den einfachsten Fall als eigenen Abschnitt davor setzen; Abbildungsnummern, Abschnittsverweise, „Alles hängt an einem Prinzip“ und das Quiz anpassen. Zahlen, Formeln, Herleitungskästen, Beispiele und „Kurz gesagt“-Sätze bleiben erhalten; geteilte Kästen bleiben in beiden Fassungen gleich. Reicht Umordnen nicht, wird die Fassung neu geschrieben (B5).
+4. **Checks** wie in (B6) Nr. 3 und 4 und (B7) für beide Seiten; der Hauptpfad darf durch den Grundlagen-Abschnitt um 10 bis 20 % wachsen.
+5. **Protokoll:** in `notizen/grundlagen_aufbau.md` je Thema Status „fertig“ mit Datum, den neuen Grundlagen-Abschnitt (Begriffe) und die Leiter in einer Zeile.
+6. **Commit** „Stil 3: Von Grund auf nachgerüstet: <Thema 1>, <Thema 2>“ und kurzer Bericht; im Chat auf „weiter“ warten, im Loop wie in (B8) neu armen.
 
 ## (B2) Vorarbeit: Arbeitsnotiz und Zahlen (ERKLAER_PROMPT §10)
 

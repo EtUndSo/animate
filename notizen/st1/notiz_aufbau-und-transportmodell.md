@@ -202,3 +202,13 @@ Großsignalmodell mit Bahnwiderständen.
    Hier 5 Ω → 5 mV → Faktor 0,82 bei 1 mA.
 10. S. 95: Bild 4.3(b) zeigt I_B als Zufluss zur Basis, aber die Elektronen in der Basis als Punkte ohne Richtung;
     die Rollen von Elektronen (Transport) und Löchern (Basisstrom) werden nicht getrennt. Hier mit Farben.
+
+## 3a. Aufbau-Leiter (§5.12, nachgerüstet 27.10.2026)
+
+Grundlagen (`## Von Grund auf: Diode, Diffusion und gesteuerte Quelle`): pn-Übergang als Diode mit Diodengleichung (1 mA bei
+774 mV, 59,5 mV je Dekade, Sperrstrom 10⁻¹⁶ A); Minoritätsträger und Diffusion durch eine 0,1 µm dünne Schicht (Strom ∝
+Gefälle, Diffusionslänge); gesteuerte Stromquelle als Netzwerkelement. Szene 01-grundlagen = Abbildung 2 in beiden
+Fassungen, alle folgenden Abbildungen um eins verschoben (Abbildungsplan in §7 ist um eins zu erhöhen).
+Sprossen: Aufbau (drei Gebiete, zwei Übergänge) → Zählpfeile und Symbole → eine leitende Diode, deren Elektronen die
+zweite, gesperrte einsammelt (Normalbetrieb, eine Steuerspannung) → fünf Zustände (beide Dioden) → Transportmodell (beide
+Richtungen) → Sättigung quantitativ → Early-Effekt → Gummel-Plot → Großsignalmodell.

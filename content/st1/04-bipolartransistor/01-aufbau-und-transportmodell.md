@@ -21,6 +21,32 @@ Szene: st1/bipolartransistor/01-einstieg · Vorlage: querschnitt-mit-modell
 **Abbildung 1:** Links der npn-Transistor im Normalbetrieb, schematisch: Emitter, dünne Basis, Kollektor, beide Raumladungszonen, die ladungsträgerarmen Zonen der Übergänge, grau. Elektronen (blau) laufen vom Emitter durch die Basis in den Kollektor, 1 mA; über den Basisanschluss kommen Löcher (rot) nach, 10 µA. Rechts das vereinfachte Transportmodell: eine Diode zwischen Basis und Emitter mit 10 µA und eine gesteuerte Stromquelle vom Kollektor zum Emitter mit 1 mA, gesteuert von $U_{BE}$ = 774 mV. Die Basis-Emitter-Spannung legt den Kollektorstrom fest; die Basis liefert nur ein Hundertstel davon.
 :::
 
+## Von Grund auf: Diode, Diffusion und gesteuerte Quelle
+
+*Welche drei Dinge muss man kennen, bevor der Transistor verständlich wird?*
+
+:::grafik
+Szene: st1/bipolartransistor/01-grundlagen · Vorlage: grundlagen-dreiteilig
+**Abbildung 2:** Die drei Grundbausteine. (a) Ein pn-Übergang als Diode mit $I_S$ = 10⁻¹⁶ A: links der Querschnitt mit p-Gebiet, n-Gebiet und grauer Raumladungszone, rechts die Kennlinie linear und halblogarithmisch, 1 mA bei 774 mV, zehnmal so viel je 59,5 mV mehr, in Sperrrichtung nur −10⁻¹⁶ A. (b) Diffusion: Elektronendichte (blau) in einer 0,1 µm dünnen p-Schicht, die von links hoch bis rechts null geradlinig abfällt; Pfeile zeigen den Teilchenstrom bergab, seine Stärke ist dem Gefälle proportional. (c) Das Schaltzeichen der spannungsgesteuerten Stromquelle als Raute mit dem Strom $I$ und einer gestrichelten Zuordnung zur Steuerspannung an anderer Stelle. Eine Diode, die Diffusion durch eine dünne Schicht und eine gesteuerte Quelle: Aus diesen drei Bausteinen besteht das ganze Modell des Bipolartransistors.
+:::
+
+### Die Diode: ein pn-Übergang leitet oder sperrt
+
+Ein __pn-Übergang__ ist die Grenze zwischen einem p-dotierten Gebiet mit beweglichen Löchern und einem n-dotierten Gebiet mit beweglichen Elektronen; dazwischen liegt die __Raumladungszone__, ein Streifen ohne bewegliche Ladungsträger mit einer Spannungsstufe (Abbildung 2a, [Halbleiter und das Bändermodell](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/halbleiter-und-baendermodell.html)). Liegt die p-Seite einige Zehntel Volt über der n-Seite, sinkt die Stufe, und der Strom wächst exponentiell nach der __Diodengleichung__ mit dem __Sättigungsstrom__ $I_S$ als Vorfaktor und der Temperaturspannung $U_T$ = 25,85 mV als Maßstab:
+
+$$I = I_S\,\Big(\exp\!\Big(\frac{U}{U_T}\Big) - 1\Big)$$
+
+Mit $I_S$ = 10⁻¹⁶ A fließen bei 774 mV genau 1 mA, je 59,5 mV mehr verzehnfachen den Strom; in Sperrrichtung bleibt nur 10⁻¹⁶ A ([Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html)). Der Transistor besteht aus zwei solchen Übergängen.
+
+### Minoritätsträger und Diffusion
+
+Im p-Gebiet sind Löcher die __Majoritätsträger__, die seltenen Elektronen dort die __Minoritätsträger__. Ein leitender Übergang hebt ihre Dichte am Rand um den Faktor $\exp(U/U_T)$; von dort wandern sie durch __Diffusion__, die Bewegung von hoher zu niedriger Dichte, weiter ins Gebiet hinein, und der Diffusionsstrom ist dem Dichtegefälle proportional (Abbildung 2b). In einer 0,1 µm dünnen Schicht fällt die Dichte geradlinig ab, und fast alle Elektronen erreichen die andere Seite, bevor sie rekombinieren; die mittlere Strecke bis dahin, die __Diffusionslänge__, misst einige Mikrometer. Dieser Strom durch eine dünne Schicht ist der Kollektorstrom.
+
+### Die gesteuerte Stromquelle
+
+Eine __gesteuerte Stromquelle__ ist ein Netzwerkelement, dessen Strom eine Spannung an anderer Stelle der Schaltung festlegt, gezeichnet als Raute mit gestrichelter Zuordnung zur Steuergröße (Abbildung 2c, [Nichtlineare Bauelemente, Arbeitspunkt und Linearisierung](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/netzwerkanalyse/arbeitspunkt-und-linearisierung.html)). Beim Bipolartransistor fließt der Strom zwischen Kollektor und Emitter, gesteuert von der Spannung zwischen Basis und Emitter nach der Diodengleichung. Zwei Dioden, die Diffusion durch eine dünne Schicht und eine gesteuerte Quelle: Die folgenden Abschnitte setzen daraus den Transistor zusammen.
+
+
 ## Aufbau und Zählpfeile
 
 *Woraus besteht der Transistor, und wie zählt man seine Ströme und Spannungen?*
@@ -34,17 +60,17 @@ Die Substratdiode liegt zwischen dem p-Substrat und jeder n-Wanne; sie sperrt nu
 
 :::grafik
 Szene: st1/bipolartransistor/01-symbole-zaehlpfeile · Vorlage: aufbau-und-symbol
-**Abbildung 2:** (a) npn-Transistor: Schichtfolge n, p, n mit den beiden pn-Übergängen als Dioden, die Emitterdiode von der Basis zum Emitter, die Kollektordiode von der Basis zum Kollektor; daneben das Schaltsymbol mit dem Emitterpfeil nach außen. Zählpfeile: $I_B$ und $I_C$ in den Transistor hinein, $I_E$ ebenfalls hinein gezählt und deshalb negativ; Spannungen $U_{BE}$, $U_{CE}$ und $U_{BC}$. Werte im Normalbetrieb: $U_{BE}$ = 0,774 V, $U_{CE}$ = 2,5 V, $U_{BC}$ = −1,73 V, $I_B$ = 10 µA, $I_C$ = 1,05 mA, $I_E$ = −1,06 mA. (b) pnp-Transistor: Schichtfolge p, n, p, Emitterpfeil nach innen, dieselben Zählpfeile; alle Werte mit umgekehrtem Vorzeichen. Alle Ströme werden in den Transistor hinein gezählt, deshalb ist der Emitterstrom des npn negativ; der pnp ist derselbe Transistor mit umgekehrten Vorzeichen.
+**Abbildung 3:** (a) npn-Transistor: Schichtfolge n, p, n mit den beiden pn-Übergängen als Dioden, die Emitterdiode von der Basis zum Emitter, die Kollektordiode von der Basis zum Kollektor; daneben das Schaltsymbol mit dem Emitterpfeil nach außen. Zählpfeile: $I_B$ und $I_C$ in den Transistor hinein, $I_E$ ebenfalls hinein gezählt und deshalb negativ; Spannungen $U_{BE}$, $U_{CE}$ und $U_{BC}$. Werte im Normalbetrieb: $U_{BE}$ = 0,774 V, $U_{CE}$ = 2,5 V, $U_{BC}$ = −1,73 V, $I_B$ = 10 µA, $I_C$ = 1,05 mA, $I_E$ = −1,06 mA. (b) pnp-Transistor: Schichtfolge p, n, p, Emitterpfeil nach innen, dieselben Zählpfeile; alle Werte mit umgekehrtem Vorzeichen. Alle Ströme werden in den Transistor hinein gezählt, deshalb ist der Emitterstrom des npn negativ; der pnp ist derselbe Transistor mit umgekehrten Vorzeichen.
 :::
 
-Abbildung 2a zeigt die beiden Übergänge als Dioden: die __Emitterdiode__ zwischen Basis und Emitter, die __Kollektordiode__ zwischen Basis und Kollektor, beide mit der Anode an der Basis. Im Schaltsymbol trägt nur der Emitter einen Pfeil, in der Richtung, in der der Emitterstrom im Normalbetrieb wirklich fließt.
+Abbildung 3a zeigt die beiden Übergänge als Dioden: die __Emitterdiode__ zwischen Basis und Emitter, die __Kollektordiode__ zwischen Basis und Kollektor, beide mit der Anode an der Basis. Im Schaltsymbol trägt nur der Emitter einen Pfeil, in der Richtung, in der der Emitterstrom im Normalbetrieb wirklich fließt.
 
 **Die Akteure:**
 
 - __$I_B$__, __$I_C$__, __$I_E$__: Basis-, Kollektor- und Emitterstrom, alle in den Transistor hinein gezählt; beim npn im Normalbetrieb 10 µA, 1 mA und −1,01 mA.
 - __$U_{BE}$__, __$U_{BC}$__, __$U_{CE}$__: Spannung von der Basis zum Emitter, von der Basis zum Kollektor und vom Kollektor zum Emitter, $U_{CE} = U_{BE} - U_{BC}$; beim npn im Normalbetrieb ist $U_{BE}$ positiv und $U_{BC}$ negativ.
 
-Dass auch der Emitterstrom hinein gezählt wird, obwohl er heraus fließt, hat einen Grund: So gilt die Knotenregel in ihrer knappsten Form, und dieselben Gleichungen gelten für den __pnp-Transistor__ in Abbildung 2b, bei dem im Normalbetrieb alle Spannungen und Ströme negativ sind. Alles Weitere ist für den npn formuliert; für den pnp dreht man jedes Vorzeichen um.
+Dass auch der Emitterstrom hinein gezählt wird, obwohl er heraus fließt, hat einen Grund: So gilt die Knotenregel in ihrer knappsten Form, und dieselben Gleichungen gelten für den __pnp-Transistor__ in Abbildung 3b, bei dem im Normalbetrieb alle Spannungen und Ströme negativ sind. Alles Weitere ist für den npn formuliert; für den pnp dreht man jedes Vorzeichen um.
 
 :::formel Knotengleichung
 $$I_E = -\big(I_B + I_C\big)$$
@@ -62,7 +88,7 @@ Die Gleichung ist die Knotenregel für den Transistor als Ganzes: Im stationäre
 
 :::grafik
 Szene: st1/bipolartransistor/01-kennlinien · Vorlage: kennlinie-semilog-paar
-**Abbildung 3:** Kennlinien des Beispieltransistors über $U_{BE}$ von 0,5 bis 0,9 V. (a) Übertragungskennlinie $I_C$ linear: 0,058 mA bei 0,70 V, 0,40 mA bei 0,75 V, 1,0 mA bei 0,774 V, 2,76 mA bei 0,80 V, 19 mA bei 0,85 V; Arbeitspunkt bei 1 mA. (b) Dieselbe Kennlinie halblogarithmisch von 10 nA bis 100 mA: eine Gerade mit 59,5 mV je Dekade. (c) Eingangskennlinie $I_B$: dieselbe Form mit einem Hundertstel der Werte, 10 µA bei 0,774 V und 27,6 µA bei 0,80 V. Übertragungs- und Eingangskennlinie sind dieselbe Exponentialfunktion, um den Faktor 100 verschoben; 60 mV mehr geben zehnmal so viel Strom.
+**Abbildung 4:** Kennlinien des Beispieltransistors über $U_{BE}$ von 0,5 bis 0,9 V. (a) Übertragungskennlinie $I_C$ linear: 0,058 mA bei 0,70 V, 0,40 mA bei 0,75 V, 1,0 mA bei 0,774 V, 2,76 mA bei 0,80 V, 19 mA bei 0,85 V; Arbeitspunkt bei 1 mA. (b) Dieselbe Kennlinie halblogarithmisch von 10 nA bis 100 mA: eine Gerade mit 59,5 mV je Dekade. (c) Eingangskennlinie $I_B$: dieselbe Form mit einem Hundertstel der Werte, 10 µA bei 0,774 V und 27,6 µA bei 0,80 V. Übertragungs- und Eingangskennlinie sind dieselbe Exponentialfunktion, um den Faktor 100 verschoben; 60 mV mehr geben zehnmal so viel Strom.
 :::
 
 **Die Akteure:**
@@ -80,7 +106,7 @@ Szene: st1/bipolartransistor/01-kennlinien · Vorlage: kennlinie-semilog-paar
 
 **Schritt 3** (entscheidender Schritt): Die Basis ist dünner als der Weg, den ein Elektron im Mittel vor der Rekombination zurücklegt. Fast alle Elektronen erreichen die Raumladungszone der gesperrten Kollektordiode, deren Feld sie in den Kollektor zieht. Der Kollektorstrom ist dieser Diffusionsstrom durch die Basis; er folgt der Diodengleichung mit $U_{BE}$, und $U_{CE}$ kommt darin nicht vor, solange die Kollektordiode sperrt.
 
-**Schritt 4**: Die Basis ersetzt nur die Verluste, die wenigen Elektronen, die in der Basis rekombinieren, und die Löcher, die in den Emitter injiziert werden. Beide wachsen mit demselben Faktor $\exp(U_{BE}/U_T)$ wie der Kollektorstrom, also ist ihr Verhältnis fest: $1/B_N$, beim Beispiel 10 µA zu 1 mA. Abbildung 3c ist darum Abbildung 3a mit einem Hundertstel der Werte.
+**Schritt 4**: Die Basis ersetzt nur die Verluste, die wenigen Elektronen, die in der Basis rekombinieren, und die Löcher, die in den Emitter injiziert werden. Beide wachsen mit demselben Faktor $\exp(U_{BE}/U_T)$ wie der Kollektorstrom, also ist ihr Verhältnis fest: $1/B_N$, beim Beispiel 10 µA zu 1 mA. Abbildung 4c ist darum Abbildung 4a mit einem Hundertstel der Werte.
 
 :::formel Normalbetrieb
 $$I_C = I_S\,\Big(\exp\!\Big(\frac{U_{BE}}{U_T}\Big) - 1\Big)$$
@@ -157,10 +183,10 @@ Vertauscht man die Rollen, leitet also die Kollektordiode und sperrt die Emitter
 
 :::grafik
 Szene: st1/bipolartransistor/01-arbeitsbereiche · Vorlage: zustandsebene-und-kennlinienfeld
-**Abbildung 4:** (a) Die Ebene aus $U_{BE}$ und $U_{BC}$, je von −1 bis 1 V, in vier farbige Quadranten geteilt: gesperrt (beide negativ), aktiv normal ($U_{BE}$ > 0, $U_{BC}$ < 0), Sättigung (beide positiv), invers ($U_{BE}$ < 0, $U_{BC}$ > 0); der Ursprung ist der stromlose Zustand, die Diagonale $U_{BC}$ = $U_{BE}$ die Linie $U_{CE}$ = 0. Der Arbeitspunkt (0,774 V, −1,73 V) liegt im aktiven Quadranten, der Sättigungspunkt (0,797 V, 0,697 V) nahe der Diagonale. (b) Ausgangskennlinienfeld $I_C$ über $U_{CE}$ von 0 bis 3 V für $U_{BE}$ = 0,70, 0,75, 0,774 und 0,80 V: steiler Anstieg bis etwa 0,1 V, danach fast waagerechte Geraden mit schwacher Steigung; der Sättigungsbereich links der Grenze bei 0,1 bis 0,3 V ist grau hinterlegt. Welche der beiden Dioden leitet, legt den Betriebszustand fest; im Kennlinienfeld ist die Sättigung der schmale Streifen links, der aktive Bereich sind die flachen Geraden.
+**Abbildung 5:** (a) Die Ebene aus $U_{BE}$ und $U_{BC}$, je von −1 bis 1 V, in vier farbige Quadranten geteilt: gesperrt (beide negativ), aktiv normal ($U_{BE}$ > 0, $U_{BC}$ < 0), Sättigung (beide positiv), invers ($U_{BE}$ < 0, $U_{BC}$ > 0); der Ursprung ist der stromlose Zustand, die Diagonale $U_{BC}$ = $U_{BE}$ die Linie $U_{CE}$ = 0. Der Arbeitspunkt (0,774 V, −1,73 V) liegt im aktiven Quadranten, der Sättigungspunkt (0,797 V, 0,697 V) nahe der Diagonale. (b) Ausgangskennlinienfeld $I_C$ über $U_{CE}$ von 0 bis 3 V für $U_{BE}$ = 0,70, 0,75, 0,774 und 0,80 V: steiler Anstieg bis etwa 0,1 V, danach fast waagerechte Geraden mit schwacher Steigung; der Sättigungsbereich links der Grenze bei 0,1 bis 0,3 V ist grau hinterlegt. Welche der beiden Dioden leitet, legt den Betriebszustand fest; im Kennlinienfeld ist die Sättigung der schmale Streifen links, der aktive Bereich sind die flachen Geraden.
 :::
 
-Jede der beiden Dioden kann leiten oder sperren; das gibt vier Zustände und den Sonderfall ohne Spannung (Abbildung 4a):
+Jede der beiden Dioden kann leiten oder sperren; das gibt vier Zustände und den Sonderfall ohne Spannung (Abbildung 5a):
 
 | Zustand | Dioden (Emitter, Kollektor) | Verhalten |
 |---|---|---|
@@ -170,7 +196,7 @@ Jede der beiden Dioden kann leiten oder sperren; das gibt vier Zustände und den
 | Sättigung | leitet, leitet | $U_{CE}$ um 0,1 V, Strom vom äußeren Kreis begrenzt; Schalter ein |
 | invers | sperrt, leitet | Emitter und Kollektor vertauscht, $B_I$ = 2 |
 
-Der aktive Zustand ist der Zustand aller Verstärkerschaltungen; die Formeln des vorigen Abschnitts gelten genau dort. Im Ausgangskennlinienfeld (Abbildung 4b) erkennt man ihn an den fast waagerechten Kennlinien: $U_{CE}$ ändert den Strom kaum, weil die Kollektordiode sperrt, solange der Kollektor nicht mehr als etwa 0,5 V unter der Basis liegt. Links davon, unter etwa 0,3 V, leitet die Kollektordiode, und die Kennlinien brechen steil ein: der __Sättigungsbereich__, in dem der äußere Kreis den Strom bestimmt und der Transistor ein geschlossener Schalter mit rund 0,1 V Restspannung ist.
+Der aktive Zustand ist der Zustand aller Verstärkerschaltungen; die Formeln des vorigen Abschnitts gelten genau dort. Im Ausgangskennlinienfeld (Abbildung 5b) erkennt man ihn an den fast waagerechten Kennlinien: $U_{CE}$ ändert den Strom kaum, weil die Kollektordiode sperrt, solange der Kollektor nicht mehr als etwa 0,5 V unter der Basis liegt. Links davon, unter etwa 0,3 V, leitet die Kollektordiode, und die Kennlinien brechen steil ein: der __Sättigungsbereich__, in dem der äußere Kreis den Strom bestimmt und der Transistor ein geschlossener Schalter mit rund 0,1 V Restspannung ist.
 
 :::fehlvorstellung
 „Sättigung heißt beim Bipolartransistor dasselbe wie beim MOSFET: der flache Teil der Kennlinie.“ Das liegt nahe, weil beide Kennlinienfelder einen steilen und einen flachen Teil haben. Die Wörter sind aber vertauscht: Beim MOSFET ist der Sättigungsbereich der flache Verstärkerbereich ([Kennlinien des NMOS-Transistors](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/kennlinien.html)); beim Bipolartransistor heißt der flache Teil aktiver Bereich, und Sättigung ist der steile Teil links, in dem beide Dioden leiten und der Transistor als Schalter mit 0,1 V Restspannung arbeitet.
@@ -187,10 +213,10 @@ Für die Kollektordiode zählt $U_{BC}$, die Spannung von der Basis zum Kollekto
 
 :::grafik
 Szene: st1/bipolartransistor/01-transportmodell · Vorlage: ersatzschaltbild-paar
-**Abbildung 5:** (a) Das Transportmodell: Von der Basis zum Kollektor die Kollektordiode mit dem Strom $I_{B,I}$, von der Basis zum Emitter die Emitterdiode mit $I_{B,N}$, zwischen Kollektor und Emitter die gesteuerte Stromquelle mit dem Transportstrom $I_T = B_N I_{B,N} - B_I I_{B,I}$, vom Kollektor zum Emitter gerichtet. Werte im Arbeitspunkt bei $U_{CE}$ = 2,5 V: $I_{B,N}$ = 10 µA, $I_{B,I}$ praktisch null, $I_T$ = 1,05 mA. (b) Das vereinfachte Transportmodell für den Normalbetrieb: nur die Emitterdiode mit $I_B$ und die Quelle $I_C = B_N I_B$; $I_E = -(1 + B_N)\,I_B$ = −1,01 mA ohne Early-Faktor. Zwei Dioden beschreiben die Basis, eine gesteuerte Quelle den Transportstrom durch sie; im Normalbetrieb bleiben eine Diode und eine Quelle übrig.
+**Abbildung 6:** (a) Das Transportmodell: Von der Basis zum Kollektor die Kollektordiode mit dem Strom $I_{B,I}$, von der Basis zum Emitter die Emitterdiode mit $I_{B,N}$, zwischen Kollektor und Emitter die gesteuerte Stromquelle mit dem Transportstrom $I_T = B_N I_{B,N} - B_I I_{B,I}$, vom Kollektor zum Emitter gerichtet. Werte im Arbeitspunkt bei $U_{CE}$ = 2,5 V: $I_{B,N}$ = 10 µA, $I_{B,I}$ praktisch null, $I_T$ = 1,05 mA. (b) Das vereinfachte Transportmodell für den Normalbetrieb: nur die Emitterdiode mit $I_B$ und die Quelle $I_C = B_N I_B$; $I_E = -(1 + B_N)\,I_B$ = −1,01 mA ohne Early-Faktor. Zwei Dioden beschreiben die Basis, eine gesteuerte Quelle den Transportstrom durch sie; im Normalbetrieb bleiben eine Diode und eine Quelle übrig.
 :::
 
-In der Sättigung und im Inversbetrieb injiziert auch der Kollektor, und der Strom durch die Basis hat zwei Anteile mit entgegengesetzter Richtung. Das __Transportmodell__ in Abbildung 5a beschreibt beide Fälle zugleich; es ist die Form des __Ebers-Moll-Modells__, mit der Schaltungssimulatoren rechnen.
+In der Sättigung und im Inversbetrieb injiziert auch der Kollektor, und der Strom durch die Basis hat zwei Anteile mit entgegengesetzter Richtung. Das __Transportmodell__ in Abbildung 6a beschreibt beide Fälle zugleich; es ist die Form des __Ebers-Moll-Modells__, mit der Schaltungssimulatoren rechnen.
 
 **Die Akteure:**
 
@@ -213,7 +239,7 @@ $$I_C = I_T - I_{B,I}$$
 $$I_E = -I_T - I_{B,N}$$
 :::
 
-**So liest man das:** Eingabe sind die beiden Diodenspannungen, Ausgabe alle drei Anschlussströme. Der Transportstrom ist die Differenz zweier Exponentialfunktionen und hängt nur von den Spannungen ab; die Stromverstärkungen legen nur fest, wie viel Basisstrom jede Injektion kostet. Im Normalbetrieb ist $\exp(U_{BC}/U_T)$ winzig, $I_{B,I}$ wird −5·10⁻¹⁷ A, und das Modell schrumpft auf Abbildung 5b. Die Schreibweise des Transportstroms über die beiden Basisströme sieht wie eine stromgesteuerte Quelle aus; sie ist nur eine Umformung, die Quelle bleibt spannungsgesteuert.
+**So liest man das:** Eingabe sind die beiden Diodenspannungen, Ausgabe alle drei Anschlussströme. Der Transportstrom ist die Differenz zweier Exponentialfunktionen und hängt nur von den Spannungen ab; die Stromverstärkungen legen nur fest, wie viel Basisstrom jede Injektion kostet. Im Normalbetrieb ist $\exp(U_{BC}/U_T)$ winzig, $I_{B,I}$ wird −5·10⁻¹⁷ A, und das Modell schrumpft auf Abbildung 6b. Die Schreibweise des Transportstroms über die beiden Basisströme sieht wie eine stromgesteuerte Quelle aus; sie ist nur eine Umformung, die Quelle bleibt spannungsgesteuert.
 
 **Kurz gesagt:** Der Basisstrom ist die Summe der Ströme beider Dioden, der Transportstrom die Differenz ihrer verstärkten Ströme.
 
@@ -262,7 +288,7 @@ $$I_E = -I_T - I_{B,N}$$
 
 **Schritt 2**: Mehr Basisstrom hebt $U_{BE}$ und den Transportstrom, und $U_{CE}$ sinkt. Bei 10 µA liegen noch 1,47 V am Transistor, die Kollektordiode ist mit −0,70 V gesperrt; bei 23 µA sind es 217 mV, und die Kollektordiode hat mit 578 mV zu leiten begonnen.
 
-**Schritt 3** (entscheidender Schritt): Ab jetzt teilt sich der Basisstrom. Was über die Kollektordiode abfließt, treibt den Transportstrom nicht, sondern senkt ihn um $B_I I_{B,I}$. Bei 50 µA gehen 24,7 µA in die Emitterdiode und 25,3 µA in die Kollektordiode (Abbildung 5a mit diesen Werten); der Transportstrom ist 2,42 mA, der Kollektorstrom 2,40 mA statt 5 mA.
+**Schritt 3** (entscheidender Schritt): Ab jetzt teilt sich der Basisstrom. Was über die Kollektordiode abfließt, treibt den Transportstrom nicht, sondern senkt ihn um $B_I I_{B,I}$. Bei 50 µA gehen 24,7 µA in die Emitterdiode und 25,3 µA in die Kollektordiode (Abbildung 6a mit diesen Werten); der Transportstrom ist 2,42 mA, der Kollektorstrom 2,40 mA statt 5 mA.
 
 **Schritt 4**: Die Dioden stellen sich so ein, dass genau der Strom fließt, den der Widerstand zulässt: Emitterdiode 797 mV, Kollektordiode 697 mV, Differenz 100 mV. Das ist die Sättigungsspannung. Mehr Basisstrom drückt sie nur noch logarithmisch, auf 75 mV bei 100 µA.
 
@@ -324,7 +350,7 @@ $$U_\mathrm{CE,sat} = 25{,}85\ \mathrm{mV}\cdot\ln 49{,}0 = 100{,}6\ \mathrm{mV}
 
 :::grafik
 Szene: st1/bipolartransistor/01-early-effekt · Vorlage: kennlinienfeld-extrapolation
-**Abbildung 6:** (a) Ausgangskennlinien für $U_{BE}$ = 0,75, 0,774 und 0,80 V über $U_{CE}$ von −50 V bis 5 V mit Achsenbruch: Im aktiven Bereich sind sie Geraden, für 1 mA mit der Steigung 20 µS, also 1,00 mA bei 0 V, 1,02 mA bei 1 V, 1,05 mA bei 2,5 V und 1,10 mA bei 5 V; nach links verlängert treffen sich alle bei −$U_A$ = −50 V. (b) Die Basis im Querschnitt: Zwischen den beiden Raumladungszonen liegt die neutrale Basis der Weite $W_B$; bei $U_{CB}$ = 5 V dringt die Kollektor-Raumladungszone tiefer in die Basis als bei 1 V, und die neutrale Basis wird schmaler. Daneben der Elektronenverlauf in der Basis als Gerade, die bei kürzerer Basis steiler wird. Mehr Kollektorspannung verbreitert die Kollektor-Raumladungszone, verkürzt die Basis und steigert den Strom; alle Tangenten treffen sich bei −$U_A$.
+**Abbildung 7:** (a) Ausgangskennlinien für $U_{BE}$ = 0,75, 0,774 und 0,80 V über $U_{CE}$ von −50 V bis 5 V mit Achsenbruch: Im aktiven Bereich sind sie Geraden, für 1 mA mit der Steigung 20 µS, also 1,00 mA bei 0 V, 1,02 mA bei 1 V, 1,05 mA bei 2,5 V und 1,10 mA bei 5 V; nach links verlängert treffen sich alle bei −$U_A$ = −50 V. (b) Die Basis im Querschnitt: Zwischen den beiden Raumladungszonen liegt die neutrale Basis der Weite $W_B$; bei $U_{CB}$ = 5 V dringt die Kollektor-Raumladungszone tiefer in die Basis als bei 1 V, und die neutrale Basis wird schmaler. Daneben der Elektronenverlauf in der Basis als Gerade, die bei kürzerer Basis steiler wird. Mehr Kollektorspannung verbreitert die Kollektor-Raumladungszone, verkürzt die Basis und steigert den Strom; alle Tangenten treffen sich bei −$U_A$.
 :::
 
 **Die Akteure:**
@@ -332,7 +358,7 @@ Szene: st1/bipolartransistor/01-early-effekt · Vorlage: kennlinienfeld-extrapol
 - __$W_B$__: neutrale Basisweite zwischen den beiden Raumladungszonen; um 0,1 µm. Sie steht im Nenner von $I_S$.
 - __$U_A$__: __Early-Spannung__, die Spannung, bei der die verlängerten Ausgangskennlinien die Spannungsachse schneiden; 50 V beim Beispiel. Sie entspricht $1/\lambda$ beim MOSFET, dessen Beispieltransistor mit λ = 0,1 1/V nur 10 V erreicht.
 
-**Das Zusammenspiel:** Die Raumladungszone der gesperrten Kollektordiode wird mit der Sperrspannung breiter, wie bei jeder Diode, und wächst auch in die Basis hinein (Abbildung 6b). Die neutrale Basis wird schmaler, das Dichtegefälle der Elektronen steiler, und $I_S$ ist umgekehrt proportional zu $W_B$. Mehr Kollektorspannung heißt also mehr Strom bei gleicher $U_{BE}$: 10 % zwischen 0 und 5 V beim Beispiel. Die Basisströme ändern sich dabei nicht, weil die Rückinjektion in den Emitter nur von $U_{BE}$ abhängt und die Rekombination in der kürzeren Basis sogar abnimmt; mit $U_{CE}$ wächst deshalb auch das Verhältnis $I_C/I_B$, von 100 auf 105 bei 2,5 V.
+**Das Zusammenspiel:** Die Raumladungszone der gesperrten Kollektordiode wird mit der Sperrspannung breiter, wie bei jeder Diode, und wächst auch in die Basis hinein (Abbildung 7b). Die neutrale Basis wird schmaler, das Dichtegefälle der Elektronen steiler, und $I_S$ ist umgekehrt proportional zu $W_B$. Mehr Kollektorspannung heißt also mehr Strom bei gleicher $U_{BE}$: 10 % zwischen 0 und 5 V beim Beispiel. Die Basisströme ändern sich dabei nicht, weil die Rückinjektion in den Emitter nur von $U_{BE}$ abhängt und die Rekombination in der kürzeren Basis sogar abnimmt; mit $U_{CE}$ wächst deshalb auch das Verhältnis $I_C/I_B$, von 100 auf 105 bei 2,5 V.
 
 :::formel Early-Effekt
 $$I_C = I_S\,\Big(\exp\!\Big(\frac{U_{BE}}{U_T}\Big) - 1\Big)\,\Big(1 + \frac{U_{CE}}{U_A}\Big)$$

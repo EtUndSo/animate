@@ -201,6 +201,9 @@ Das Inhaltsverzeichnis steht weiterhin am Seitenanfang (Entscheidung vom 20.10.2
 
 Danach folgt die **Einstiegsabbildung** (§7). Sie zeigt das zentrale Objekt oder den zentralen Mechanismus.
 
+### 4.2a `## Von Grund auf: …` (Pflicht, beide Fassungen; §5.12)
+Direkt nach der Einstiegsabbildung kommt der Grundlagen-Abschnitt. Er holt die elementaren Begriffe und Vorstellungen, auf denen das Thema steht, in der Reihenfolge der Aufbau-Leiter (§10 Nr. 3a) noch einmal von vorn: je Grundbegriff ein bis drei kurze Absätze, ein konkreter Fall und, wo es ein Bild gibt, eine Abbildung; bei mehreren Grundbegriffen je ein `###`. Danach steigen die Sach-Abschnitte Stufe für Stufe zum eigentlichen Thema auf.
+
 ### 4.3 Optional: `## Das Bild` (nur ausführlich)
 Nur, wenn ein Modell oder eine Analogie das ganze Thema ordnet, zum Beispiel Potential als Höhe, mit dem Hinweis, dass Elektronen das Bild umgekehrt sehen. Dazu ein Kasten `:::analogie` (§9.1) und eine Abbildung, wenn sie die Zuordnung zeigt. Danach kommt sofort die Physik bzw. Mathematik.
 
@@ -510,6 +513,23 @@ Entscheidung des Users vom 22.10.2026: Wo eine Formel oder Definition einen Zusa
   - **Skalieren:** „Doppelter Abstand, ein Viertel der Kraft“, nur wenn die Proportionalität exakt gilt.
 - **Gegenprobe:** Muster, die richtig klingen, aber falsch sind, gibt es oft; die Ableitung eines Produkts ist zum Beispiel **nicht** das Produkt der Ableitungen. Jeden Satz deshalb an einem Zahlenbeispiel aus dem Zahlenwerk prüfen.
 
+### 5.12 Von Grund auf, Stufe für Stufe (Entscheidung des Users vom 27.10.2026)
+Ein Artikel fängt nie mit dem eigentlichen Inhalt an. Er beginnt bei den Grundlagen, auf denen das Thema steht, und nähert sich dem Thema in Stufen, bei denen jede genau eine neue Idee auf die vorige setzt. Begründung des Users: Das hilft enorm beim Verstehen, besonders zusammen mit Abbildungen und anschaulichen Erklärungen. Beispiel Kurvenintegral: Erst wird erklärt, was eine Kurve ist (ein Punkt, der sich bewegt, seine Bahn), dann ihre Parametrisierung, dann der Tangentenvektor und das Wegstück, dann die Arbeit einer Kraft längs eines Stücks, und erst dann das Integral.
+
+**Regeln:**
+1. **Grundlagen-Abschnitt** (§4.2a): Nach der Einstiegsabbildung kommt `## Von Grund auf: <was gebraucht wird>`. Er erklärt die elementaren Begriffe des Themas so, als hörte die Person sie zum ersten Mal: was es ist, an einem konkreten Fall, mit Bild; keine Herleitungen, keine Formeln außer der Definition in ihrer einfachsten Form. Auch Begriffe, die ein anderer Artikel ausführlich behandelt, werden hier in ein bis drei Absätzen von vorn erklärt und verlinkt (das ersetzt die bloße Erinnerung in einem Satz aus §3.4 nur für diese Grundbegriffe; alles andere bleibt bei einem Satz mit Link).
+2. **Nicht ausschweifen:** Nur, was das Thema unmittelbar braucht, und nur so tief, wie es das Thema braucht. Richtwert: 10 bis 20 % des Hauptpfads; jeder Grundbegriff wird später im Artikel tatsächlich benutzt, sonst entfällt er. Die Grundlagen beginnen bei Schulwissen, nicht davor: Für das Kurvenintegral erklärt man die Kurve, nicht die reelle Zahl.
+3. **Aufbau-Leiter:** Die Sach-Abschnitte folgen aufeinander wie Sprossen: Jeder Abschnitt setzt genau eine neue Idee auf den vorigen, vom einfachsten Spezialfall zum allgemeinen Fall, vom Konkreten zum Abstrakten (§5.10). Die erste Sprosse ist der einfachste Fall, den man mit den Grundlagen schon versteht (ein gerades Wegstück mit konstanter Kraft, eine Diode statt zweier, ein Widerstand statt eines Netzwerks). Kein Abschnitt braucht etwas, das erst später kommt.
+4. **In beiden Fassungen:** Die kompakte Fassung hat denselben Grundlagen-Abschnitt und dieselbe Leiter, nur kürzer: je Grundbegriff ein Absatz, je Sprosse weniger Text.
+5. **Abbildungen tragen die Stufen:** Der Grundlagen-Abschnitt und jede Sprosse haben, wo es ein Bild gibt, ihre Abbildung (§7); die Bilder einer Leiter bauen aufeinander auf, etwa dieselbe Kurve, erst allein, dann mit Parametrisierung, dann mit Tangentenvektoren, dann mit dem Kraftfeld.
+6. **Planung:** Die Aufbau-Leiter steht in der Arbeitsnotiz (§10 Nr. 3a), die Abschnittsfolge des Artikels ist diese Leiter.
+
+**Kalibrierung:**
+- *Schwach:* Der Artikel „Kurvenintegral“ beginnt mit der Definition des Integrals über eine parametrisierte Kurve und setzt Kurve, Parametrisierung und Tangentenvektor voraus.
+- *Gut:* `## Von Grund auf: Kurven` (ein bewegter Punkt und seine Bahn; Beispiel Kreis, der in 2 s einmal durchlaufen wird; Abbildung), dann `## Die Parametrisierung` (dieselbe Bahn, verschieden schnell durchlaufen), `## Tangentenvektor und Wegstück`, `## Arbeit längs eines geraden Stücks`, `## Das Kurvenintegral`, `## Umparametrisierung und Orientierung`.
+- *Schwach:* Der Artikel „Kleinsignalmodell des MOSFET“ beginnt mit der Linearisierung des Drainstroms nach drei Spannungen.
+- *Gut:* `## Von Grund auf: Arbeitspunkt, Tangente und gesteuerte Quelle` (ein fester Betriebszustand; die Steigung einer Kennlinie als Tangente an einem Punkt; ein Bauelement, dessen Strom eine Spannung an anderer Stelle festlegt), dann die Tangente an eine einzige Kennlinie (eine Steilheit), dann drei Steuergrößen, dann das Ersatzschaltbild.
+
 ## 6. Vorgaben für Herleitungen
 
 Herleitungen stehen weiterhin **im eigenen, ausklappbaren Kasten** `:::herleitung` … `:::`. Ihre Länge belastet den Hauptpfad nicht, aber auch im Kasten steht kein überflüssiger Satz. Die kompakte Fassung übernimmt die Kästen ihrer Kernformeln unverändert aus der ausführlichen; nur ein „Zweiter Weg“, der auf Abschnitte allein der ausführlichen Fassung verweist, entfällt dort. Deshalb stützt sich der erste Weg jedes übernommenen Kastens nur auf Inhalte, die auch die kompakte Fassung erklärt.
@@ -725,6 +745,7 @@ Lege vor jedem Thema im Repo `notizen/<modul>/notiz_<slug>.md` an und committe s
 1. **Ein-Satz-Prinzip.** Beispiel pn-Übergang: „Ein Gleichgewicht zweier Teilchenströme über eine Barriere; die Spannung verändert nur die Höhe der Barriere, und die beiden Ströme reagieren völlig verschieden darauf.“
 2. **Schwierigkeit und Längenspannen** beider Fassungen (§3.3), mit einem Satz Begründung.
 3. **Vorwissen-Kette.** Was muss die Person können, bevor sie den Kern versteht? Zu jedem Punkt notierst du entweder „erklärt in Artikel X“ (nur erinnern und verlinken) oder „hier aufbauen“.
+3a. **Aufbau-Leiter (§5.12).** Die Grundbegriffe für den Abschnitt `## Von Grund auf: …` (je Begriff: was, konkreter Fall, Bild) und danach die Sprossen bis zum Thema, je Sprosse genau eine neue Idee, mit dem einfachsten Fall zuerst. Die Abschnittsfolge beider Fassungen ist diese Leiter.
 4. **Fragenkatalog.** 10 bis 15 Fragen in den Worten einer Person, die vom Thema nichts weiß. Mindestens drei davon sind Fehlvorstellungen. Zu jeder Frage notierst du drei Dinge:
    - die Stelle, an der sie entsteht;
    - den Antwortort: im Text, wenn die Antwort Kernstoff ist; sonst Frage-Kasten oder Fehlvorstellungs-Kasten;
@@ -817,6 +838,7 @@ Das Ergebnis kommt in die Zeile in `REVIEW_OPUS55.md`.
     - Stimmt jeder „Kurz gesagt“-Satz ohne Ausnahme, mit seinen Bedingungen, und ist er an einem Zahlenbeispiel geprüft?
     - Ergänzt er die formale Erklärung, statt sie zu ersetzen?
 20. **Quellen-Test (§5.7).** `python -I tools/quellen_check.py <beide md>` gibt nichts aus: kein Skript, keine Lehrveranstaltung, keine Seiten-, Bild-, Tabellen-, Kapitel- oder Gleichungsnummer einer Vorlage, auch nicht in Bildbeschreibungen, Quiz und Frontmatter.
+21. **Aufbau-Test (§5.12).** Der Artikel beginnt nach der Einstiegsabbildung mit `## Von Grund auf: …`, und dieser Abschnitt erklärt jeden Grundbegriff des Themas von vorn, konkret und mit Bild, ohne auszuschweifen (10 bis 20 % des Hauptpfads, jeder Begriff wird später gebraucht). Jeder weitere Abschnitt setzt genau eine neue Idee auf den vorigen, der einfachste Fall kommt zuerst, und kein Abschnitt braucht etwas Späteres. Eine Person mit Schulwissen kann ab dem ersten Abschnitt folgen.
 
 ## 12. Kalibrierung: schwach gegen gut
 
@@ -908,6 +930,7 @@ Die Fälle (a) bis (e) stammen aus einer Prüfung der Live-Artikel vom 21.10.202
 - **Abstrakte Ausdrücke erst anschaulich:** ein einfacher, konkreter Fall, dann die Bedeutung in Worten, dann die formale Schreibweise (§5.10).
 - **Keine Quellenbezüge:** Die Website nennt weder Skript noch Lehrveranstaltungen noch Nummern einer Vorlage; Fehler der Vorlage werden stillschweigend korrigiert (§5.7).
 - **Zusammenhänge zusätzlich in einem Satz:** Wo eine Formel einen Zusammenhang ausdrückt (Vertauschen, Zerlegen, Umkehren, Überlagern), steht zusätzlich die Zeile „Kurz gesagt:“ in einfacher Sprache, nur wenn sie ohne Ausnahme stimmt (§5.11).
+- **Von Grund auf, Stufe für Stufe:** Jeder Artikel beginnt mit `## Von Grund auf: …`, das die Grundbegriffe des Themas konkret und mit Bild von vorn erklärt, ohne auszuschweifen, und steigt dann über Abschnitte, die je genau eine neue Idee hinzufügen, zum Thema auf (§5.12, seit 27.10.2026; alle fertigen Stil-3-Artikel werden nachgerüstet, LOOP (B1e)).
 - **Sachlicher Ton** statt Leitbild-Erzählung; Analogien knapp im Kasten, mit Grenzen.
 - **„Worum es geht“** als kurzer Sachabschnitt nach dem Inhaltsverzeichnis, mit Einstiegsabbildung.
 - **Akteure** vor jeder Kernformel und jedem Mechanismus, danach „Das Zusammenspiel“.
