@@ -38,6 +38,32 @@ class Polygon(AnimObject):
             self.points = line_points(verts)
 
 
+class ArrowHead(Polygon):
+    """A flat, filled 2D arrowhead (triangle) with its TIP at `tip`, pointing along `direction`.
+    `size` = length in world units; `width` = base width relative to the length. Cheap (one polygon)
+    compared with Vector's 3D cone, so circuits/annotations can carry many of them."""
+    def __init__(self, tip, direction, size=0.25, width=0.8):
+        tip = np.asarray(tip, dtype=float)
+        d = np.asarray(direction, dtype=float)
+        n = float(np.linalg.norm(d))
+        d = d / n if n > 1e-12 else RIGHT
+        perp = np.array([-d[1], d[0], 0.0])
+        back = tip - size * d
+        super().__init__([tip, back + 0.5 * width * size * perp, back - 0.5 * width * size * perp])
+        self.fill_opacity = 1.0
+        self.stroke_width = 1.0
+        self._no_dash = True
+
+
+class Ellipse(AnimObject):
+    """An axis-aligned ellipse: `width` along x, `height` along y (four Bézier arcs)."""
+    def __init__(self, center=ORIGIN, width=2.0, height=1.0):
+        super().__init__()
+        c = np.asarray(center, dtype=float)
+        self.points = circle_points(c, 1.0, RIGHT, UP)
+        self.points = (self.points - c) * np.array([width / 2.0, height / 2.0, 1.0]) + c
+
+
 class Triangle(Polygon):
     def __init__(self, vertices):
         if len(vertices) != 3:

@@ -12,8 +12,10 @@ import numpy as np
 from .scene import Scene
 from .camera import Camera
 from .axes import Axes
-from .simpleShape import (Circle, Dot, Line, Polygon, Triangle, Rectangle, Square, FunctionGraph)
+from .simpleShape import (Circle, Dot, Line, Polygon, Triangle, Rectangle, Square, FunctionGraph, Ellipse, ArrowHead)
 from .text import Text, DecimalNumber
+from . import figures as _fig
+from . import circuit as _circ
 from .value_tracker import ValueTracker
 from .threed import ThreeDAxes, Box, Cube, Sphere, Pyramid, Vector
 from .svg import MathTex, SVGMobject
@@ -156,7 +158,7 @@ def _gl_solid_mesh(obj, smooth=False, center=(0.0, 0.0, 0.0)):
 # --- registries: add a class here to expose it to the editor + code + interpreter ---
 OBJECT_TYPES = {
     "Axes": Axes, "Circle": Circle, "Dot": Dot, "Line": Line, "Polygon": Polygon,
-    "Triangle": Triangle, "Rectangle": Rectangle, "Square": Square,
+    "Triangle": Triangle, "Rectangle": Rectangle, "Square": Square, "Ellipse": Ellipse,
     "FunctionGraph": FunctionGraph, "Text": Text, "Legend": Legend,
     "ValueTracker": ValueTracker, "DecimalNumber": DecimalNumber,
     # 3D
@@ -226,8 +228,24 @@ _GL = False                                          # JS reports WebGL availabi
 _SHADOWS = True
 
 
+# Scene PARAMETERS (editor object `Parameter`: name + value with a slider). Every expression in the
+# scene (functions, areas, families, ...) may use the parameter's name like a constant; moving the
+# slider rebuilds the scene with the new value. Filled by ModelScene.construct() before any build.
+_PARAMS = {}
+# Extra expression helpers for piecewise / clipped signals (rectifier, saturation, ramps).
+_SAFE_NAMES.update({
+    "max": np.maximum, "min": np.minimum, "clip": np.clip, "floor": np.floor, "ceil": np.ceil,
+    "mod": np.mod, "where": np.where, "log10": np.log10, "log2": np.log2, "ln": np.log,
+    "heaviside": lambda t: np.where(np.asarray(t, dtype=float) >= 0.0, 1.0, 0.0),
+})
+_RESERVED_PARAM_NAMES = {"x", "y", "t", "i", "e", "pi", "j", "theta"}
+
+
 def _safe_names():
     names = dict(_SAFE_NAMES)
+    for k, v in _PARAMS.items():                        # scene parameters act as constants
+        if k and k not in _RESERVED_PARAM_NAMES and k not in _SAFE_NAMES:   # never shadow x/t or a function name
+            names[k] = v
     if _ANGLE_UNIT == "deg":                            # interpret trig arguments in degrees
         names["sin"] = lambda a: np.sin(np.radians(a))
         names["cos"] = lambda a: np.cos(np.radians(a))
@@ -251,9 +269,14 @@ def normalize_expr(s):
     Function names stay calls (sin( is not sin*( ). A '*' is inserted between a VALUE-END token
     (number, ')', or a non-function name) and a VALUE-START token (number, '(', or any name)."""
     s = str(s).replace("^", "**")
-    tokens = re.findall(r"\s+|\d+\.?\d*|[A-Za-z_]\w*|\*\*|[-+*/(),]|.", s)
-    val_end = lambda t: bool(t) and (t[-1].isdigit() or t == ")" or (t[0].isalpha() and t not in _FUNC_NAMES))
-    val_start = lambda t: bool(t) and (t[0].isdigit() or t == "(" or t[0].isalpha())
+    # numbers incl. scientific notation (1e-15, 2.5E3, .5) are ONE token, so 1e-15 is not read as 1*e-15
+    tokens = re.findall(r"\s+|(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?|[A-Za-z_]\w*|\*\*|[-+*/(),]|.", s)
+    is_num = lambda t: t[0].isdigit() or (t[0] == "." and len(t) > 1)
+    is_name = lambda t: t[0].isalpha() or t[0] == "_"
+    # a VALUE ends with a number, ')' or a non-function name ('log10' is a function although it ends in a digit)
+    val_end = lambda t: bool(t) and (is_num(t) or t == ")" or (is_name(t) and t not in _FUNC_NAMES))
+    val_start = lambda t: bool(t) and (t[0].isdigit() or t == "(" or t[0].isalpha()
+                                       or (t[0] == "." and len(t) > 1 and t[1].isdigit()))
     out, prev = [], None
     for tok in tokens:
         if tok.strip() == "":
@@ -297,17 +320,47 @@ def term_from_expr_ix(expr):
     return lambda i, x: eval(code, {"__builtins__": {}}, {"i": i, "x": x, "t": x, **names})
 
 
+def _as_func(v):
+    """A callable from a model `func` value: already compiled by _resolve_arg, or an expression string."""
+    return v if callable(v) else func_from_expr(str(v))
+
+
+# Free-text props: never interpreted as constant names (a label "UP" must stay the text "UP").
+_TEXT_KEYS = {"text", "label", "labels", "value", "title", "x_label", "y_label", "z_label", "current", "voltage",
+              "name", "cells", "row_labels", "col_labels", "dx_label", "dy_label", "tex", "prefix", "suffix",
+              "data", "points", "x", "y", "values", "kind", "material", "shape"}
+
+
 def _resolve_arg(key, value):
     """Turn a model arg value into a real Python value."""
     if isinstance(value, str):
-        if value.isupper() and hasattr(_const, value):     # BLUE, RIGHT, ORIGIN, ...
+        if key not in _TEXT_KEYS and value.isupper() and hasattr(_const, value):   # BLUE, RIGHT, ORIGIN, ...
             return getattr(_const, value)
         if key == "func":
-            return func_from_expr(value)
+            return func_from_expr(value) if value.strip() else ""   # empty = "no function" (e.g. a Marker)
     return value
 
 
-_STYLE_ATTRS = ("color", "fill_color", "fill_opacity", "stroke_width", "stroke_opacity", "show_center")
+_STYLE_ATTRS = ("color", "fill_color", "fill_opacity", "stroke_width", "stroke_opacity", "show_center", "dash")
+
+
+def _parse_dash(value):
+    """'8,6' / '8 6' / [8, 6] -> [8.0, 6.0]; empty / 'solid' / None -> None (solid stroke)."""
+    if value is None or value is False:
+        return None
+    if isinstance(value, (list, tuple)):
+        vals = [float(v) for v in value if str(v).strip() != ""]
+    else:
+        s = str(value).strip().lower()
+        if s in ("", "solid", "none", "0", "false"):
+            return None
+        if s in ("dashed", "dash"):
+            return [10.0, 7.0]
+        if s in ("dotted", "dot"):
+            return [2.0, 5.0]
+        vals = [float(p) for p in re.split(r"[,\s;]+", s) if p]
+    vals = [v for v in vals if v >= 0]
+    return vals if vals and any(v > 0 for v in vals) else None
 # Types that live in WORLD (3D) coordinates, NOT in the axes' data coordinates: they must not be
 # re-mapped by axes.place (which would distort a solid by the x/y data scaling).
 _WORLD_TYPES = {"Axes", "ThreeDAxes", "Box", "Cube", "Sphere", "Pyramid", "Vector",
@@ -335,18 +388,116 @@ def _xyz(p):
     return float(p[0]), float(p[1]), float(p[2])
 
 
+def _eval_const(expr):
+    """A number from an expression that may use scene parameters ('U0/2', '2*pi*f')."""
+    code = compile(normalize_expr(str(expr)), "<const>", "eval")
+    return float(eval(code, {"__builtins__": {}}, dict(_safe_names())))
+
+
+def _axis_ref(axes):
+    """(x, y) data position of the axis lines - guide lines end there (not at 0, which a log axis or
+    a range without 0 does not contain)."""
+    if axes is None:
+        return 0.0, 0.0
+    return float(getattr(axes, "_x0", 0.0)), float(getattr(axes, "_y0", 0.0))
+
+
+def _nearest_root(h, x_guess, axes):
+    """Root of h(x) = 0 nearest to x_guess: scan the axes' x-range (log-spaced on a log axis) for sign
+    changes and refine each by bisection. Returns x_guess when h has no root there."""
+    if axes is not None:
+        lo, hi = float(axes.x_min), float(axes.x_max)
+    else:
+        lo, hi = x_guess - 10.0, x_guess + 10.0
+    logx = axes is not None and getattr(axes, "x_log", False)
+    xs = np.logspace(np.log10(lo), np.log10(hi), 2001) if logx else np.linspace(lo, hi, 2001)
+
+    def hv(x):
+        try:
+            v = float(h(x))
+        except Exception:
+            return float("nan")
+        return v
+
+    try:                                                        # vectorised when the expression allows it
+        vals = np.asarray(h(xs), dtype=float)
+        if vals.shape != xs.shape:
+            raise ValueError
+    except Exception:
+        vals = np.array([hv(x) for x in xs])
+    roots = []
+    for k in range(len(xs) - 1):
+        a, b, fa, fb = xs[k], xs[k + 1], vals[k], vals[k + 1]
+        if not (np.isfinite(fa) and np.isfinite(fb)):
+            continue
+        if fa == 0.0:
+            roots.append(float(a))
+            continue
+        if fa * fb < 0:
+            for _ in range(60):
+                m = 0.5 * (a + b)
+                fm = hv(m)
+                if not np.isfinite(fm):
+                    break
+                if fa * fm <= 0:
+                    b, fb = m, fm
+                else:
+                    a, fa = m, fm
+            roots.append(float(0.5 * (a + b)))
+    if not roots:
+        return x_guess
+    return min(roots, key=lambda r: abs(r - x_guess))
+
+
+_LABEL_DIRS = {"ne": (1, 1), "nw": (-1, 1), "se": (1, -1), "sw": (-1, -1),
+               "n": (0, 1), "s": (0, -1), "e": (1, 0), "w": (-1, 0)}
+
+
 def _build_marker(args, style, axes):
     """A point marker in DATA coords: a dot at (x,y), an optional label, and optional thin guide
-    lines down to the x-axis and across to the y-axis. General: works for any marked point."""
+    lines to the axis lines. General: works for any marked point.
+    The point may also be COMPUTED: x_expr (expression, may use scene parameters) replaces x; with
+    `func` the marker sits ON that curve (y = f(x)); with `func` AND `func2` it sits at their
+    intersection nearest to x (operating point = characteristic ∩ load line); y_expr sets y directly."""
     c2p = _c2p_fn(axes)
     x, y, z = _xyz(args.get("point", [0.0, 0.0, 0.0]))
+    xe = str(args.get("x_expr", "")).strip()
+    if xe:
+        try:
+            x = _eval_const(xe)
+        except Exception:
+            pass
+    f = args.get("func", "")
+    if isinstance(f, str):
+        f = func_from_expr(f) if f.strip() else None
+    g_raw = str(args.get("func2", "")).strip()
+    if f is not None:
+        if g_raw:
+            gf = func_from_expr(g_raw)
+            x = _nearest_root(lambda t: f(t) - gf(t), x, axes)
+        try:
+            yv = float(f(x))
+            if np.isfinite(yv):
+                y = yv
+        except Exception:
+            pass
+    else:
+        ye = str(args.get("y_expr", "")).strip()
+        if ye:
+            try:
+                y = _eval_const(ye)
+            except Exception:
+                pass
     col = style.get("color", (0.0, 0.0, 0.0))
     obj = AnimObject()
     if args.get("show_guides", False):
-        for end in ((x, 0.0, z), (0.0, y, z)):                      # to x-axis (y=0), to y-axis (x=0)
+        xr, yr = _axis_ref(axes)
+        gd = _parse_dash(args.get("guide_dash", "5,5"))
+        for end in ((x, yr, z), (xr, y, z)):                      # down/up to the x-axis, across to the y-axis
             g = Line(c2p(x, y, z), c2p(*end))
-            g.color = (0.6, 0.6, 0.6)
+            g.color = (0.55, 0.55, 0.55)
             g.stroke_width = 1.5
+            g.dash = gd
             obj.add(g)
     wc = c2p(x, y, z)
     dot = OBJECT_TYPES["Dot"](center=wc, radius=float(args.get("radius", 0.08)))
@@ -356,9 +507,11 @@ def _build_marker(args, style, axes):
     obj.add(dot)
     label = str(args.get("label", "")).strip()
     if label:
-        lab = Text(label, position=wc + np.array([0.22, 0.22, 0.0]),
-                   font_size=float(args.get("font_size", 28)), color=col)
-        obj.add(lab)
+        fs = float(args.get("font_size", 28))
+        dx, dy = _LABEL_DIRS.get(str(args.get("label_pos", "ne")), (1, 1))
+        off = np.array([dx * 0.2, dy * (0.12 + 0.5 * fs * _fig.UPP), 0.0])
+        align = "left" if dx > 0 else ("right" if dx < 0 else "center")
+        obj.add(Text(label, position=wc + off, font_size=fs, color=col, align=align))
     return obj
 
 
@@ -381,8 +534,10 @@ def _build_measure(args, style, axes):
             Vector(end=A2, start=B2, color=col, stroke_width=sw))
     label = str(args.get("label", "")).strip()
     if label:
-        lab = Text(label, position=0.5 * (A2 + B2) + 0.3 * perp,
-                   font_size=float(args.get("font_size", 28)), color=col)
+        fs = float(args.get("font_size", 28))
+        align = "left" if perp[0] > 0.3 else ("right" if perp[0] < -0.3 else "center")
+        off = 0.2 if align != "center" else 0.15 + 0.5 * fs * _fig.UPP
+        lab = Text(label, position=0.5 * (A2 + B2) + off * perp, font_size=fs, color=col, align=align)
         obj.add(lab)
     return obj
 
@@ -391,7 +546,7 @@ def _build_area(args, style, axes):
     """Filled area UNDER a curve y=f(x) over [x_min,x_max], or BETWEEN two curves f and g (g = `func2`;
     empty -> baseline y=0). A closed polygon sampled along the top (a->b) and bottom (b->a), filled with
     the style colour/opacity. General: any function(s) via expression, any interval."""
-    f = func_from_expr(str(args.get("func", "0")))
+    f = _as_func(args.get("func", "0"))
     g_raw = str(args.get("func2", "")).strip()
     g = func_from_expr(g_raw) if g_raw else None
     a, b = float(args.get("x_min", 0.0)), float(args.get("x_max", 1.0))
@@ -399,6 +554,7 @@ def _build_area(args, style, axes):
         a, b = b, a
     n = max(2, int(args.get("samples", 64)))
     lo, hi = (axes.y_min, axes.y_max) if axes is not None else (-1e9, 1e9)
+    base_y = float(axes.y_min) if (axes is not None and getattr(axes, "y_log", False)) else 0.0   # log axis has no 0
 
     def ev(fn, x):                                            # safe eval, clamped into the y-range (tames poles)
         try:
@@ -409,10 +565,13 @@ def _build_area(args, style, axes):
             v = lo
         return min(hi, max(lo, v))
 
-    xs = np.linspace(a, b, n + 1)
+    if axes is not None and getattr(axes, "x_log", False) and a > 0:
+        xs = np.logspace(np.log10(a), np.log10(b), n + 1)     # log axis: even density per decade
+    else:
+        xs = np.linspace(a, b, n + 1)
     top = [(float(x), ev(f, x), 0.0) for x in xs]
     bot = ([(float(x), ev(g, x), 0.0) for x in xs[::-1]] if g is not None
-           else [(b, 0.0, 0.0), (a, 0.0, 0.0)])
+           else [(b, base_y, 0.0), (a, base_y, 0.0)])
     poly = Polygon([np.asarray(p, dtype=float) for p in top + bot], closed=True)
     col = style.get("color", (0.35, 0.60, 0.92))
     poly.color = col
@@ -643,8 +802,16 @@ def _build_curve_family(args, style, axes):
     base = np.array(style.get("color", (0.35, 0.60, 0.92)), dtype=float)
     white = np.array([1.0, 1.0, 1.0])
     sw = float(style.get("stroke_width", 3.0))
-    xs = np.linspace(x0, x1, n)
-    ps = np.linspace(p0, p1, count)
+    if axes is not None and getattr(axes, "x_log", False) and x0 > 0 and x1 > 0:
+        xs = np.logspace(np.log10(x0), np.log10(x1), n)
+    else:
+        xs = np.linspace(x0, x1, n)
+    # explicit parameter values ("1;1.5;2;2.5") win over the p_min..p_max sweep (characteristic fields)
+    vals = [float(v) for v in re.findall(r"[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?", str(args.get("values", "")))]
+    ps = np.array(vals) if vals else np.linspace(p0, p1, count)
+    count = len(ps)
+    labels = [t.strip() for t in str(args.get("labels", "")).split(";")] if str(args.get("labels", "")).strip() else []
+    fs = float(args.get("font_size", 24))
 
     def clamp(v):
         if not np.isfinite(v):
@@ -652,6 +819,7 @@ def _build_curve_family(args, style, axes):
         return min(yhi, max(ylo, v))
 
     obj = AnimObject()
+    label_objs = []
     for i, p in enumerate(ps):
         pts = [np.array([float(x), clamp(fval(x, p)), 0.0]) for x in xs]
         poly = Polygon(pts, closed=False)
@@ -662,6 +830,8 @@ def _build_curve_family(args, style, axes):
             poly.color = tuple(base)
         poly.stroke_width = sw
         obj.add(poly)
+        if i < len(labels) and labels[i]:                   # label at the right end of curve i
+            label_objs.append((labels[i], pts[-1], poly.color))
     lim = str(args.get("limit_func", "")).strip()
     if bool(args.get("show_limit", False)) and lim:
         g = func_from_expr(lim)
@@ -678,6 +848,9 @@ def _build_curve_family(args, style, axes):
         obj.add(lp)
     if axes is not None:
         axes.place(obj)
+    for text, end, colr in label_objs:                      # labels in world units (no data scaling of the offset)
+        obj.add(Text(text, position=c2p(end[0], end[1]) + np.array([0.15, 0.0, 0.0]), font_size=fs,
+                     color=colr, align="left"))
     return obj
 
 
@@ -837,15 +1010,65 @@ def _build_labeled_arrow(args, style, axes):
     A = c2p(*_xyz(args.get("start", [0.0, 0.0, 0.0])))
     B = c2p(*_xyz(args.get("end", [2.0, 1.0, 0.0])))
     obj = AnimObject()
-    obj.add(Vector(end=B, start=A, color=col, stroke_width=sw))
+    head = float(args.get("head_size", 0.3))
+    thick = float(args.get("thick", 0.0))
+    elbow = str(args.get("elbow", "none"))
+    # route: straight, or right-angled (hv = horizontal first, vh = vertical first) through a corner
+    pts = [A, B]
+    if elbow in ("hv", "vh") and abs(B[0] - A[0]) > 1e-9 and abs(B[1] - A[1]) > 1e-9:
+        corner = np.array([B[0], A[1], 0.0]) if elbow == "hv" else np.array([A[0], B[1], 0.0])
+        pts = [A, corner, B]
+    if thick > 0:                                       # filled quantity/flow arrow of width `thick`
+        last_d = pts[-1] - pts[-2]
+        Ld = float(np.linalg.norm(last_d))
+        u = last_d / Ld if Ld > 1e-9 else np.array([1.0, 0.0, 0.0])
+        hl = min(1.6 * thick, 0.5 * Ld)                 # head length
+        base = pts[-1] - hl * u
+        perp = np.array([-u[1], u[0], 0.0])
+        # polygon along the (possibly bent) spine with half-width thick/2 (straight segments only)
+        left, right = [], []
+        for i in range(len(pts) - 1):
+            a, b = pts[i], (base if i == len(pts) - 2 else pts[i + 1])
+            dd = b - a; n = float(np.linalg.norm(dd)); dd = dd / n if n > 1e-9 else u
+            pp = np.array([-dd[1], dd[0], 0.0]) * (thick / 2)
+            left += [a + pp, b + pp]; right += [a - pp, b - pp]
+        outline = left + [base + perp * thick, pts[-1], base - perp * thick] + right[::-1]
+        poly = Polygon(outline, closed=True)
+        poly.color = col; poly.fill_color = col; poly.fill_opacity = 0.9; poly.stroke_width = 0.0
+        poly._no_dash = True
+        obj.add(poly)
+    else:
+        for i in range(len(pts) - 1):
+            seg = Line(pts[i], pts[i + 1]); seg.color = col; seg.stroke_width = sw
+            obj.add(seg)
+        d_end = pts[-1] - pts[-2]
+        obj.add(_ah(pts[-1], d_end, col, head))
+        if args.get("double", False):
+            obj.add(_ah(pts[0], pts[0] - pts[1], col, head))
     label = str(args.get("label", "")).strip()
     if label:
-        d = B - A
+        fs = float(args.get("font_size", 28))
+        # label beside the longest straight segment, on its left-hand side; text reads AWAY from the line
+        segs = [(pts[i], pts[i + 1]) for i in range(len(pts) - 1)]
+        P, Q = max(segs, key=lambda s: float(np.linalg.norm(s[1] - s[0])))
+        d = Q - P
         L = float(np.linalg.norm(d))
         perp = np.array([0.0, 0.0, 0.0]) if L < 1e-9 else np.array([-d[1], d[0], 0.0]) / L
-        anchor = B + 0.25 * perp if str(args.get("label_at", "mid")) == "end" else 0.5 * (A + B) + 0.3 * perp
-        obj.add(Text(label, position=anchor, font_size=float(args.get("font_size", 28)), color=col))
+        align = "left" if perp[0] > 0.3 else ("right" if perp[0] < -0.3 else "center")
+        off = thick / 2 + (0.18 if align != "center" else 0.15 + 0.5 * fs * _fig.UPP)
+        if str(args.get("label_at", "mid")) == "end":
+            anchor = B + (0.18 + 0.5 * fs * _fig.UPP) * perp
+        else:
+            anchor = 0.5 * (P + Q) + off * perp
+        obj.add(Text(label, position=anchor, font_size=fs, color=col, align=align))
     return obj
+
+
+def _ah(tip, direction, col, size):
+    h = ArrowHead(tip, direction, size=size)
+    h.color = col
+    h.fill_color = col
+    return h
 
 
 def _build_loop_arrow(args, style, axes):
@@ -866,18 +1089,10 @@ def _build_loop_arrow(args, style, axes):
     arc.color = col
     arc.stroke_width = sw
     obj.add(arc)
-    s = 1.0 if a1 >= a0 else -1.0                               # sweep direction -> tangent at the end
-    tan = s * np.array([-np.sin(a1), np.cos(a1), 0.0])
-    tip = pts[-1]
-    head = max(0.12, 0.22 * r)
-    back = tip - head * tan
-    perp = np.array([-tan[1], tan[0], 0.0])
-    ah = Polygon([tip, back + 0.5 * head * perp, back - 0.5 * head * perp], closed=True)
-    ah.color = col
-    ah.fill_color = col
-    ah.fill_opacity = 1.0
-    ah.stroke_width = sw
-    obj.add(ah)
+    if args.get("head", True):                                  # head:false -> a plain arc (angle mark, arc)
+        s = 1.0 if a1 >= a0 else -1.0                           # sweep direction -> tangent at the end
+        tan = s * np.array([-np.sin(a1), np.cos(a1), 0.0])
+        obj.add(_ah(pts[-1], tan, col, max(0.12, 0.3 * r)))
     label = str(args.get("label", "")).strip()
     if label:
         obj.add(Text(label, position=c, font_size=float(args.get("font_size", 28)), color=col))
@@ -889,55 +1104,96 @@ def _build_tangent(args, style, axes):
     slope via (f(x1)-f(x0))/(x1-x0). The line runs ±half_len in x; optional touch-point dot(s) and a
     slope label. General: any function/expression, any point(s). Built in world coords (no distortion)."""
     c2p = _c2p_fn(axes)
-    f = func_from_expr(str(args.get("func", "0")))
+    f = _as_func(args.get("func", "0"))
+    # Work in PLOT space (u, w): u = x or log10 x, w = y or log10 y, so on a (semi)logarithmic axes the
+    # tangent is the straight line the reader sees (an exponential on a log-y axis has a constant slope
+    # in decades per unit x). On linear axes this is exactly the data-space tangent.
+    xl = axes is not None and getattr(axes, "x_log", False)
+    yl = axes is not None and getattr(axes, "y_log", False)
+    X = (lambda x: float(np.log10(x))) if xl else (lambda x: float(x))
+    Xi = (lambda u: 10.0 ** u) if xl else (lambda u: u)
+    Yi = (lambda w: 10.0 ** w) if yl else (lambda w: w)
 
-    def fx(x):
+    def F(u):
         try:
-            v = float(f(x))
+            v = float(f(Xi(u)))
+            if yl:
+                v = float(np.log10(v)) if v > 0 else float("nan")
             return v if np.isfinite(v) else 0.0
         except Exception:
             return 0.0
 
+    def P(u, w):
+        return c2p(Xi(u), Yi(w))
+
     x0 = float(args.get("x0", 0.0))
-    y0 = fx(x0)
+    if xl and x0 <= 0:
+        x0 = float(axes.x_min)
+    u0 = X(x0)
+    w0 = F(u0)
     half = float(args.get("half_len", 2.0))
     secant = bool(args.get("secant", False))
-    pts = [(x0, y0)]
+    pts = [(u0, w0)]
     if secant:
         x1 = float(args.get("x1", x0 + 1.0))
-        y1 = fx(x1)
-        m = (y1 - y0) / (x1 - x0) if abs(x1 - x0) > 1e-12 else 0.0
-        xa, xb = min(x0, x1) - half, max(x0, x1) + half
-        pts.append((x1, y1))
+        if xl and x1 <= 0:
+            x1 = float(axes.x_max)
+        u1 = X(x1)
+        w1 = F(u1)
+        m = (w1 - w0) / (u1 - u0) if abs(u1 - u0) > 1e-12 else 0.0
+        ua, ub = min(u0, u1) - half, max(u0, u1) + half
+        pts.append((u1, w1))
     else:
-        h = 1e-4 * max(1.0, abs(x0))
-        m = (fx(x0 + h) - fx(x0 - h)) / (2.0 * h)
-        xa, xb = x0 - half, x0 + half
+        h = 1e-4 * max(1.0, abs(u0))
+        m = (F(u0 + h) - F(u0 - h)) / (2.0 * h)
+        ua, ub = u0 - half, u0 + half
     col = style.get("color", (0.0, 0.0, 0.0))
     obj = AnimObject()
-    ln = Line(c2p(xa, y0 + m * (xa - x0)), c2p(xb, y0 + m * (xb - x0)))
+    ln = Line(P(ua, w0 + m * (ua - u0)), P(ub, w0 + m * (ub - u0)))
     ln.color = col
     ln.stroke_width = float(style.get("stroke_width", 3.0))
     obj.add(ln)
     if args.get("show_point", True):
-        for (px, py) in pts:
-            d = OBJECT_TYPES["Dot"](center=c2p(px, py), radius=0.08)
+        for (pu, pw) in pts:
+            d = OBJECT_TYPES["Dot"](center=P(pu, pw), radius=0.08)
             d.color = col
             d.fill_color = col
             d.fill_opacity = 1.0
+            d._no_dash = True
             obj.add(d)
     if args.get("show_slope", False):
-        lab = Text(f"m = {m:.2f}", position=c2p(x0, y0) + np.array([0.25, 0.25, 0.0]),
-                   font_size=float(args.get("font_size", 26)), color=col)
+        lab = Text(f"m = {m:.3g}", position=P(u0, w0) + np.array([0.25, 0.25, 0.0]),
+                   font_size=float(args.get("font_size", 26)), color=col, align="left")
         obj.add(lab)
+    tdx = float(args.get("triangle_dx", 0.0))
+    if tdx > 0:                                             # slope triangle: Δx along, Δy up, both labelled
+        Pa, Pb, Pc = P(u0, w0), P(u0 + tdx, w0), P(u0 + tdx, w0 + m * tdx)
+        tri = Polygon([Pa, Pb, Pc], closed=True)
+        tri.color = col; tri.fill_color = col; tri.fill_opacity = 0.12; tri.stroke_width = 0.6 * float(style.get("stroke_width", 3.0))
+        tri._no_dash = True
+        obj.add(tri)
+        fs = float(args.get("font_size", 26))
+        dxl = str(args.get("dx_label", "\\Delta x")).strip()
+        dyl = str(args.get("dy_label", "\\Delta y")).strip()
+        sgn = 1.0 if m >= 0 else -1.0
+        if dxl:
+            obj.add(Text(dxl, position=0.5 * (Pa + Pb) + np.array([0.0, -sgn * 0.75 * fs * _fig.UPP, 0.0]), font_size=fs, color=col))
+        if dyl:
+            obj.add(Text(dyl, position=0.5 * (Pb + Pc) + np.array([0.3, 0.0, 0.0]), font_size=fs, color=col, align="left"))
     return obj
 
 
+# Builders that compile `func` themselves with extra variables (theta, a family parameter, x AND y):
+# they must receive the expression TEXT, not the one-variable function _resolve_arg would make of it.
+_RAW_FUNC_TYPES = {"PolarCurve", "CurveFamily", "ScalarField"}
+
+
 def _build_object(spec, objects, axes=None):
-    args = {k: _resolve_arg(k, v) for k, v in spec.get("args", {}).items()}
+    t = spec["type"]
+    args = {k: (v if (k == "func" and t in _RAW_FUNC_TYPES) else _resolve_arg(k, v))
+            for k, v in spec.get("args", {}).items()}
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
     style = {k: args.pop(k) for k in list(args) if k in _STYLE_ATTRS}
-    t = spec["type"]
     if t == "plot":                                         # a graph on an explicit axes
         obj = objects[spec["on"]].plot(**args)
     elif t == "FunctionGraph" and axes is not None:         # follow the scene's axes (range + scale)
@@ -1020,6 +1276,12 @@ def _build_object(spec, objects, axes=None):
         obj = _build_polar_curve(args, style, axes)
     elif t == "NumberLine":                                 # standalone 1D axis with ticks + labels
         obj = _build_number_line(args, style, axes)
+    elif t == "Parameter":                                  # a scene parameter: no geometry (value lives in _PARAMS)
+        obj = AnimObject()
+    elif t in _fig.BUILDERS:                                # data curves, bands, stems, clouds, boxes, braces, marks, shapes, tables
+        obj = _fig.BUILDERS[t](args, style, axes)
+    elif t in _circ.BUILDERS:                               # circuit symbols: components, devices, wires, nodes
+        obj = _circ.BUILDERS[t](args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
@@ -1050,8 +1312,11 @@ def _build_object(spec, objects, axes=None):
                     obj._gl = True
             except Exception:
                 obj._gl = False
+    dash = _parse_dash(style.pop("dash", None))
     for k, v in style.items():
         setattr(obj, k, v)
+    if dash is not None:                                    # dashed stroke: the object and its strokable parts
+        obj.set_dash(dash)
     if hasattr(obj, "_cx_parts"):                           # complex graph: Re takes the chosen style
         re_g, im_g = obj._cx_parts
         re_g.color = obj.color
@@ -1326,22 +1591,39 @@ class ModelScene(Scene):
         specs = self.model.get("objects", [])
         appearing = {a["target"] for a in self.model.get("animations", [])
                      if a["type"] in _APPEARANCE}
-        # Build the first Axes first (if any) so FunctionGraphs can be plotted onto it (and thus
-        # follow its value range + scaling), regardless of the order objects were added.
+        # Scene parameters first: their names must be known before any expression is compiled.
+        _PARAMS.clear()
+        for spec in specs:
+            if spec["type"] == "Parameter":
+                a = spec.get("args", {})
+                name = str(a.get("name", "")).strip()
+                if name:
+                    try:
+                        _PARAMS[name] = float(a.get("value", 0.0))
+                    except (TypeError, ValueError):
+                        pass
+        # Build ALL Axes first so FunctionGraphs can be plotted onto them (and thus follow their value
+        # range + scaling), regardless of the order objects were added. Several Axes = sub-figures: an
+        # object names its panel with `on` (an Axes id); without it, the first Axes is used.
         axes = None
+        axes_by_id = {}
         for spec in specs:
             if spec["type"] == "Axes":
-                axes = _build_object(spec, objects)
+                ax = _build_object(spec, objects)
                 if spec.get("id") is not None:
-                    objects[spec["id"]] = axes
-                break
+                    objects[spec["id"]] = ax
+                    axes_by_id[spec["id"]] = ax
+                if axes is None:
+                    axes = ax
+        self.axes_by_id = axes_by_id
         built = []
         for spec in specs:
             oid = spec.get("id")
             if oid is not None and oid in objects:          # the axes we already built above
                 obj = objects[oid]
             else:
-                obj = _build_object(spec, objects, axes=axes)
+                on = axes_by_id.get(spec.get("on"), axes)
+                obj = _build_object(spec, objects, axes=on)
                 if oid is not None:
                     objects[oid] = obj
             # Hidden objects are still BUILT (so operations can use them as operands - a Convolution/

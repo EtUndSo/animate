@@ -1,6 +1,6 @@
 import numpy as np
 from .AnimObject import AnimObject
-from .simpleShape import Line, Polygon
+from .simpleShape import Line, Polygon, ArrowHead
 from .text import Text
 from .bezier import line_points
 from .plotting import plot_graph, build_graph
@@ -27,6 +27,24 @@ def _nice_step(lo, hi, target=10):
     return 10.0 * mag
 
 
+def _log_ticks(lo, hi):
+    """Decade ticks 10^k inside [lo, hi] (lo, hi > 0) and the minor ticks 2..9 x 10^k."""
+    lo, hi = max(float(lo), 1e-300), max(float(hi), 1e-300)
+    k0, k1 = int(np.floor(np.log10(lo))), int(np.ceil(np.log10(hi)))
+    major = [10.0 ** k for k in range(k0, k1 + 1) if lo * (1 - 1e-9) <= 10.0 ** k <= hi * (1 + 1e-9)]
+    minor = [m * 10.0 ** k for k in range(k0 - 1, k1 + 1) for m in range(2, 10)
+             if lo * (1 - 1e-9) <= m * 10.0 ** k <= hi * (1 + 1e-9)]
+    return major, minor
+
+
+def _pow_label(v):
+    """10^k as a rich label (richtext renders the exponent raised): 1, 10, 100 stay plain."""
+    k = int(round(np.log10(v)))
+    if 0 <= k <= 2:
+        return _fmt(10.0 ** k)
+    return "10^{%d}" % k
+
+
 class Axes(AnimObject):
     """A 2D coordinate system.
 
@@ -40,6 +58,11 @@ class Axes(AnimObject):
     third range entry; if omitted, it is chosen automatically (see _nice_step) so the subdivision
     stays readable at any range.
 
+    Several axes in one scene = sub-figures: `origin` places the centre of this axes anywhere on the
+    canvas (world units) and `title` ("(a)") names the panel. `x_log` / `y_log` make an axis
+    logarithmic (decade ticks 10^k, minor ticks, log-uniform sampling of plotted functions).
+    `arrows` puts arrowheads on the positive ends (textbook style).
+
     Which parts are built is controlled by flags: show_ticks, show_numbers, show_labels
     (and the label strings x_label / y_label). That is the general pattern - a composite
     object exposes a setting for each element it contains.
@@ -52,16 +75,29 @@ class Axes(AnimObject):
                  grid_color=(0.0, 0.0, 0.0), grid_width=1.0,
                  x_color=(0.0, 0.0, 0.0), y_color=(0.0, 0.0, 0.0), z_color=(0.0, 0.0, 0.0),
                  x_label="x", y_label="y", z_label="z",
-                 number_size=24, label_size=34, zoom=1.0, dynamic_ticks=False):
+                 number_size=24, label_size=34, zoom=1.0, dynamic_ticks=False,
+                 origin=(0.0, 0.0, 0.0), title="", x_log=False, y_log=False, arrows=False,
+                 minor_ticks=True, axis_width=4.0, show_axes=True, x_numbers=True, y_numbers=True,
+                 x_axis_at="auto", y_axis_at="auto"):
         super().__init__()
         self._is_axis = True                                 # renderer draws axes on TOP of everything
         self.x_min, self.x_max = x_range[0], x_range[1]
         self.y_min, self.y_max = y_range[0], y_range[1]
         self.z_min, self.z_max = z_range[0], z_range[1]
+        self.x_log, self.y_log = bool(x_log), bool(y_log)
+        if self.x_log:                                       # a log axis needs a positive range
+            self.x_min = max(float(self.x_min), 1e-300)
+            self.x_max = max(float(self.x_max), self.x_min * 10.0)
+        if self.y_log:
+            self.y_min = max(float(self.y_min), 1e-300)
+            self.y_max = max(float(self.y_max), self.y_min * 10.0)
         self.x_length = x_length
         self.y_length = y_length
         self.z_length = z_length
+        o = list(origin) + [0.0, 0.0, 0.0]
+        self.origin = np.array([float(o[0]), float(o[1]), float(o[2])])
         number_offset = tick_size + 0.22
+        aw = float(axis_width)
 
         # Tick step + the tick WINDOW per axis. Normally ticks span the whole range at a nice step.
         # With dynamic_ticks (2D) and zoom>1 the step REFINES and the ticks are limited to the visible
@@ -83,87 +119,138 @@ class Axes(AnimObject):
         self.y_step, self._y_tlo, self._y_thi = _axis_ticks(self.y_min, self.y_max, y_length, FRAME_HEIGHT, y_range[2] if len(y_range) > 2 and y_range[2] else None)
         self.z_step, self._z_tlo, self._z_thi = _axis_ticks(self.z_min, self.z_max, z_length, FRAME_HEIGHT, z_range[2] if len(z_range) > 2 and z_range[2] else None)
 
+        # Major / minor tick VALUES per axis (log axes: decades + 2..9 subdivisions; the subdivisions are
+        # dropped when a decade is shorter than 0.6 world units, where they would merge into a ladder).
+        if self.x_log:
+            xt, xm = _log_ticks(self.x_min, self.x_max)
+            if x_length / max(1e-9, np.log10(self.x_max / self.x_min)) < 0.6:
+                xm = []
+        else:
+            xt, xm = self._ticks(self._x_tlo, self._x_thi, self.x_step), []
+        if self.y_log:
+            yt, ym = _log_ticks(self.y_min, self.y_max)
+            if y_length / max(1e-9, np.log10(self.y_max / self.y_min)) < 0.6:
+                ym = []
+        else:
+            yt, ym = self._ticks(self._y_tlo, self._y_thi, self.y_step), []
+        zt = self._ticks(self._z_tlo, self._z_thi, self.z_step)
+        self._xticks, self._yticks = xt, yt
+
         # Background coordinate grid, TOGGLEABLE PER AXIS (grid_x / grid_y / grid_z, all off by default).
         # It rebuilds from the ticks on every (re)build, so it grows/shrinks with the range. Tagged
         # `_is_grid` so the renderer depth-sorts it (it sits in the plane, not on top of objects).
-        def _grid_group(lines, only_3d=False):
+        def _grid_group(lines, only_3d=False, width=None):
             g = AnimObject()
             for p0, p1 in lines:
-                ln = Line(p0, p1); ln.color = tuple(grid_color); ln.stroke_width = float(grid_width)
+                ln = Line(p0, p1); ln.color = tuple(grid_color); ln.stroke_width = float(width if width is not None else grid_width)
                 g.add(ln)
             g._is_grid = True
             if only_3d:
                 g._only_3d = True
             return g
         if grid_x:                                          # lines at each x value (parallel to the y-axis)
-            self.add(_grid_group([(self.coords_to_point(x, self.y_min), self.coords_to_point(x, self.y_max))
-                                  for x in self._ticks(self._x_tlo, self._x_thi, self.x_step)]))
+            self.add(_grid_group([(self.coords_to_point(x, self.y_min), self.coords_to_point(x, self.y_max)) for x in xt]))
+            if xm:
+                self.add(_grid_group([(self.coords_to_point(x, self.y_min), self.coords_to_point(x, self.y_max)) for x in xm],
+                                     width=0.4 * float(grid_width)))
         if grid_y:                                          # lines at each y value (parallel to the x-axis)
-            self.add(_grid_group([(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y))
-                                  for y in self._ticks(self._y_tlo, self._y_thi, self.y_step)]))
+            self.add(_grid_group([(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y)) for y in yt]))
+            if ym:
+                self.add(_grid_group([(self.coords_to_point(self.x_min, y), self.coords_to_point(self.x_max, y)) for y in ym],
+                                     width=0.4 * float(grid_width)))
         if grid_z:                                          # 3D only: z grid on the back wall (y = y_min)
             yw = self.y_min
-            lines = [(self.coords_to_point(self.x_min, yw, z), self.coords_to_point(self.x_max, yw, z))
-                     for z in self._ticks(self._z_tlo, self._z_thi, self.z_step)]            # per z (parallel x)
-            lines += [(self.coords_to_point(x, yw, self.z_min), self.coords_to_point(x, yw, self.z_max))
-                      for x in self._ticks(self._x_tlo, self._x_thi, self.x_step)]           # per x (parallel z)
+            lines = [(self.coords_to_point(self.x_min, yw, z), self.coords_to_point(self.x_max, yw, z)) for z in zt]   # per z (parallel x)
+            lines += [(self.coords_to_point(x, yw, self.z_min), self.coords_to_point(x, yw, self.z_max)) for x in xt]  # per x (parallel z)
             self.add(_grid_group(lines, only_3d=True))
 
-        # Axis lines run through the data origin (clamped into the visible range). Each axis gets its
-        # classic colour (x=red, y=green, z=blue), so orientation is readable at a glance.
-        x0 = min(max(0.0, self.x_min), self.x_max)
-        y0 = min(max(0.0, self.y_min), self.y_max)
-        xax = Line(self.coords_to_point(self.x_min, y0), self.coords_to_point(self.x_max, y0)); xax.color = tuple(x_color)
-        yax = Line(self.coords_to_point(x0, self.y_min), self.coords_to_point(x0, self.y_max)); yax.color = tuple(y_color)
-        self.add(xax); self.add(yax)
+        # Axis lines run through the data origin (clamped into the visible range); a log axis has no
+        # zero, so its partner axis sits at the lower edge.
+        x0 = self.x_min if self.x_log else min(max(0.0, self.x_min), self.x_max)
+        y0 = self.y_min if self.y_log else min(max(0.0, self.y_min), self.y_max)
+        if str(y_axis_at) == "left":                        # y-axis at the left edge instead of x = 0
+            x0 = self.x_min
+        if str(x_axis_at) == "bottom":                      # x-axis at the bottom edge (stacked plots, phase)
+            y0 = self.y_min
+        self._x0, self._y0 = x0, y0
+        if not show_axes:                                   # a bare panel: placement frame (+ optional grid/title) only
+            show_ticks = show_numbers = show_labels = False
+        ext = 0.32 if arrows else 0.0                       # arrowed axes stick out a little past the range
+        if show_axes:
+            xax = Line(self.coords_to_point(self.x_min, y0), self.coords_to_point(self.x_max, y0) + RIGHT * ext)
+            xax.color = tuple(x_color); xax.stroke_width = aw
+            yax = Line(self.coords_to_point(x0, self.y_min), self.coords_to_point(x0, self.y_max) + UP * ext)
+            yax.color = tuple(y_color); yax.stroke_width = aw
+            self.add(xax); self.add(yax)
+        if arrows and show_axes:
+            hx = ArrowHead(self.coords_to_point(self.x_max, y0) + RIGHT * ext, RIGHT, size=0.3)
+            hx.color = tuple(x_color); hx.fill_color = tuple(x_color)
+            hy = ArrowHead(self.coords_to_point(x0, self.y_max) + UP * ext, UP, size=0.3)
+            hy.color = tuple(y_color); hy.fill_color = tuple(y_color)
+            self.add(hx); self.add(hy)
 
-        # Tick marks (coloured to match their axis).
+        # Tick marks (coloured to match their axis); minor ticks of a log axis are shorter.
         if show_ticks:
-            for x in self._ticks(self._x_tlo, self._x_thi, self.x_step):
+            for x in xt:
                 p = self.coords_to_point(x, y0)
-                t = Line(p - tick_size * UP, p + tick_size * UP); t.color = tuple(x_color); self.add(t)
-            for y in self._ticks(self._y_tlo, self._y_thi, self.y_step):
+                t = Line(p - tick_size * UP, p + tick_size * UP); t.color = tuple(x_color); t.stroke_width = aw; self.add(t)
+            for y in yt:
                 p = self.coords_to_point(x0, y)
-                t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(y_color); self.add(t)
+                t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(y_color); t.stroke_width = aw; self.add(t)
+            if minor_ticks:
+                for x in xm:
+                    p = self.coords_to_point(x, y0)
+                    t = Line(p - 0.5 * tick_size * UP, p + 0.5 * tick_size * UP); t.color = tuple(x_color); t.stroke_width = 0.6 * aw; self.add(t)
+                for y in ym:
+                    p = self.coords_to_point(x0, y)
+                    t = Line(p - 0.5 * tick_size * RIGHT, p + 0.5 * tick_size * RIGHT); t.color = tuple(y_color); t.stroke_width = 0.6 * aw; self.add(t)
 
         # Numbers at the ticks (as Text). Shown by default; hide them all with show_numbers=False.
         if show_numbers:
-            for x in self._ticks(self._x_tlo, self._x_thi, self.x_step):
-                if x == 0:
-                    continue                                   # the origin gets a single "0" below
-                pos = self.coords_to_point(x, y0) + DOWN * number_offset
-                self.add(Text(_fmt(x), pos, font_size=number_size))
-            for y in self._ticks(self._y_tlo, self._y_thi, self.y_step):
-                if y == 0:
+            # axes crossing at the data origin share ONE "0" (placed diagonally below-left)
+            shared0 = (x_numbers and y_numbers and not self.x_log and not self.y_log and x0 == 0 and y0 == 0)
+            for x in (xt if x_numbers else []):
+                if x == 0 and shared0:
                     continue
-                pos = self.coords_to_point(x0, y) + LEFT * number_offset
-                self.add(Text(_fmt(y), pos, font_size=number_size))
-            # a single "0" at the origin (offset diagonally so it clears both axes)
-            if self.x_min <= 0 <= self.x_max and self.y_min <= 0 <= self.y_max:
+                pos = self.coords_to_point(x, y0) + DOWN * number_offset
+                self.add(Text(_pow_label(x) if self.x_log else _fmt(x), pos, font_size=number_size))
+            for y in (yt if y_numbers else []):
+                if y == 0 and shared0:
+                    continue
+                pos = self.coords_to_point(x0, y) + LEFT * (tick_size + 0.12)
+                self.add(Text(_pow_label(y) if self.y_log else _fmt(y), pos, font_size=number_size, align="right"))
+            if shared0:
                 pos = self.coords_to_point(0, 0) + (DOWN + LEFT) * number_offset
                 self.add(Text("0", pos, font_size=number_size))
 
         # Axis labels (e.g. "x" and "y") at the ends of the axes.
         if show_labels:
             if x_label:
-                lx = Text(x_label, self.coords_to_point(self.x_max, y0) + RIGHT * 0.35, font_size=label_size)
+                lx = Text(x_label, self.coords_to_point(self.x_max, y0) + RIGHT * (0.2 + ext), font_size=label_size, align="left")
                 lx.color = tuple(x_color); self.add(lx)
             if y_label:
-                ly = Text(y_label, self.coords_to_point(x0, self.y_max) + UP * 0.35, font_size=label_size)
+                ly = Text(y_label, self.coords_to_point(x0, self.y_max) + UP * (0.35 + ext), font_size=label_size)
                 ly.color = tuple(y_color); self.add(ly)
+        if title:                                           # panel title "(a)" at the top-left corner, above the y label
+            above = 0.35 + ext + (0.5 if (show_labels and y_label) else 0.0)
+            tt = Text(title, self.coords_to_point(self.x_min, self.y_max) + UP * above + LEFT * 0.1,
+                      font_size=label_size, align="left")
+            self.add(tt)
 
         # z-axis: built the same way, but grouped and tagged _only_3d so it is HIDDEN in the 2D view
         # (looking at the x-y plane) and appears, fully labelled, as soon as you orbit into 3D.
+        if not show_axes:
+            return
         z0 = min(max(0.0, self.z_min), self.z_max)
         zg = AnimObject()
         zln = Line(self.coords_to_point(x0, y0, self.z_min), self.coords_to_point(x0, y0, self.z_max))
         zln.color = tuple(z_color); zg.add(zln)
         if show_ticks:
-            for z in self._ticks(self._z_tlo, self._z_thi, self.z_step):
+            for z in zt:
                 p = self.coords_to_point(x0, y0, z)
                 t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(z_color); zg.add(t)
         if show_numbers:
-            for z in self._ticks(self._z_tlo, self._z_thi, self.z_step):
+            for z in zt:
                 if z == 0:
                     continue
                 zg.add(Text(_fmt(z), self.coords_to_point(x0, y0, z) + LEFT * number_offset, font_size=number_size))
@@ -180,26 +267,37 @@ class Axes(AnimObject):
         last = int(np.floor(hi / step))
         return [k * step for k in range(first, last + 1)]
 
+    # --- data -> world mapping (linear or logarithmic per axis, plus the panel origin) ---
+    def _fx(self, x):
+        if self.x_log:
+            lo, hi = np.log10(self.x_min), np.log10(self.x_max)
+            return (np.log10(np.maximum(x, 1e-300)) - lo) / (hi - lo)
+        return (x - self.x_min) / (self.x_max - self.x_min)
+
+    def _fy(self, y):
+        if self.y_log:
+            lo, hi = np.log10(self.y_min), np.log10(self.y_max)
+            return (np.log10(np.maximum(y, 1e-300)) - lo) / (hi - lo)
+        return (y - self.y_min) / (self.y_max - self.y_min)
+
     def coords_to_point(self, x, y, z=0.0):
         """Map a data coordinate (x, y, z) to a world point (the core data->world mapping). z scales
         from the x-y plane (data z=0 -> world z=0), so 2D graphs stay on the plane and surfaces rise."""
-        px = (x - self.x_min) / (self.x_max - self.x_min) * self.x_length - self.x_length / 2.0
-        py = (y - self.y_min) / (self.y_max - self.y_min) * self.y_length - self.y_length / 2.0
+        px = float(self._fx(float(x))) * self.x_length - self.x_length / 2.0
+        py = float(self._fy(float(y))) * self.y_length - self.y_length / 2.0
         pz = z * (self.z_length / (self.z_max - self.z_min))
-        return px * RIGHT + py * UP + pz * TOWARDS
+        return px * RIGHT + py * UP + pz * TOWARDS + self.origin
 
     c2p = coords_to_point                                # Manim-style short alias
 
     def data_to_world(self, points):
         """Vectorised coords_to_point: map an (N,3) array of DATA coordinates to WORLD points
-        with this axes' affine scale + offset. The depth (z) component is passed through."""
+        with this axes' scale + offset (log axes map through log10). The depth (z) is passed through."""
         pts = np.asarray(points, dtype=float).reshape(-1, 3)
-        ax = self.x_length / (self.x_max - self.x_min)
-        ay = self.y_length / (self.y_max - self.y_min)
         out = np.empty_like(pts)
-        out[:, 0] = pts[:, 0] * ax - self.x_min * ax - self.x_length / 2.0
-        out[:, 1] = pts[:, 1] * ay - self.y_min * ay - self.y_length / 2.0
-        out[:, 2] = pts[:, 2]
+        out[:, 0] = self._fx(pts[:, 0]) * self.x_length - self.x_length / 2.0 + self.origin[0]
+        out[:, 1] = self._fy(pts[:, 1]) * self.y_length - self.y_length / 2.0 + self.origin[1]
+        out[:, 2] = pts[:, 2] + self.origin[2]
         return out
 
     def place(self, obj):
@@ -217,7 +315,9 @@ class Axes(AnimObject):
         """Graph of y = func(x) on this coordinate system, sampled with GeoGebra-style combined
         sampling (plotting.plot_graph): adaptive, anti-aliased-looking, split at discontinuities.
         `x_range` limits the plotted DOMAIN (clamped to the axes); `y_range` clips VERTICALLY - values
-        outside it are dropped (the curve splits there), which tames poles/steep parts."""
+        outside it are dropped (the curve splits there), which tames poles/steep parts. On a
+        logarithmic x-axis the samples are spread log-uniformly; on a logarithmic y-axis values <= 0
+        become gaps."""
         xlo, xhi = self.x_min, self.x_max
         if x_range:
             xlo = max(self.x_min, float(x_range[0]))
@@ -225,12 +325,19 @@ class Axes(AnimObject):
             if xhi <= xlo:
                 xlo, xhi = self.x_min, self.x_max           # nonsensical range -> fall back to the full axis
         f = func
-        if y_range:
-            ylo, yhi = float(y_range[0]), float(y_range[1])
+        if y_range or self.y_log:
+            ylo, yhi = (float(y_range[0]), float(y_range[1])) if y_range else (-float("inf"), float("inf"))
+            if self.y_log:
+                ylo = max(ylo, 1e-300)
             def f(x, _g=func, _lo=ylo, _hi=yhi):
                 v = _g(x)
                 return v if (v == v and _lo <= v <= _hi) else float("nan")   # NaN -> plot_graph splits (clip)
-        segments = plot_graph(f, xlo, xhi, self.coords_to_point, self.x_length)
+        if self.x_log:                                      # sample in u = log10(x): even density per decade
+            ulo, uhi = np.log10(max(xlo, 1e-300)), np.log10(max(xhi, 1e-300))
+            segments = plot_graph(lambda u: f(10.0 ** u), ulo, uhi,
+                                  lambda u, y: self.coords_to_point(10.0 ** u, y), self.x_length)
+        else:
+            segments = plot_graph(f, xlo, xhi, self.coords_to_point, self.x_length)
         return build_graph(segments, color)
 
     def plot_surface(self, func, resolution=18, color=(0.35, 0.60, 0.92), fill_opacity=1.0, shade=True,

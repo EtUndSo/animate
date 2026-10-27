@@ -141,9 +141,11 @@ class Create(Animation):
             Ln = partial_bezier(self._left_rev, a)[::-1]    # left half, back in normal order
             Rp = partial_bezier(self._right, a)             # right half
             self.target.points = np.vstack([Ln, Rp[1:]]) if len(Rp) > 1 else Ln
-        elif len(self.target.points) >= 2:
-            self.target.points = partial_bezier(self.start.points, a)
         else:
+            # Every path leaf (the object's own path AND its children's) is traced from its begin()
+            # snapshot. The leaf set is fixed in begin(): deciding per frame from the CURRENT point
+            # count broke seek purity (at a=0 the own path shrinks to one point, so the next frame
+            # took a different branch - e.g. a data curve with marker dots).
             for leaf, start in zip(self._leaves, self._start):
                 leaf.points = partial_bezier(start.points, a)
 

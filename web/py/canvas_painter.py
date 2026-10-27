@@ -1,6 +1,15 @@
 # Web rendering backend: the same three painter methods as CairoPainter, but on an HTML5
 # Canvas 2D context (passed in from JavaScript via Pyodide). Cubic Béziers map 1:1 to Canvas'
-# bezierCurveTo, so there is no quality loss.
+# bezierCurveTo, so there is no quality loss. Labels go through engine.richtext, so every label
+# may carry subscripts, superscripts, Greek letters and line breaks (U_{GS}, 10^{-16}, \alpha).
+from engine.richtext import parse as _parse_rich, is_plain as _is_plain, layout as _layout
+
+try:                                                # Pyodide: a JS method wants a real JS array
+    from pyodide.ffi import to_js as _to_js
+except Exception:                                   # plain CPython (tests): pass the list through
+    def _to_js(x):
+        return x
+
 
 def _rgb(color):
     r, g, b = (int(round(c * 255)) for c in color)
@@ -9,6 +18,9 @@ def _rgb(color):
 def _rgba(color, alpha):
     r, g, b = (int(round(c * 255)) for c in color)
     return f"rgba({r},{g},{b},{alpha})"
+
+
+_LINE_H = 1.25                                      # line height for multi-line labels
 
 
 class CanvasPainter:
@@ -32,7 +44,8 @@ class CanvasPainter:
                               pts[i + 1][0], pts[i + 1][1],
                               pts[i + 2][0], pts[i + 2][1])
 
-    def draw_path(self, pts, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity, contours=None):
+    def draw_path(self, pts, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity,
+                  contours=None, dash=None):
         ctx = self.ctx
         ctx.beginPath()
         if contours:                                    # several contours (e.g. a glyph with a hole)
@@ -49,12 +62,43 @@ class CanvasPainter:
         if stroke_width > 0:
             ctx.strokeStyle = _rgba(stroke_color, stroke_opacity)
             ctx.lineWidth = stroke_width
-            ctx.stroke()
+            if dash:
+                ctx.setLineDash(_to_js([float(d) for d in dash]))
+                ctx.stroke()
+                ctx.setLineDash(_to_js([]))
+            else:
+                ctx.stroke()
 
-    def draw_text(self, text, px, py, font_size, color, opacity):
+    def _measure(self, s):
+        try:
+            return float(self.ctx.measureText(s).width)
+        except Exception:                               # stub contexts (tests): rough estimate
+            return 0.55 * self._size * len(s)
+
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center"):
         ctx = self.ctx
-        ctx.font = f"{font_size}px sans-serif"
         ctx.fillStyle = _rgba(color, opacity)
-        ctx.textAlign = "center"
         ctx.textBaseline = "middle"
-        ctx.fillText(text, px, py)
+        if _is_plain(text):                             # fast path: exactly the classic single-run label
+            ctx.font = f"{font_size}px sans-serif"
+            ctx.textAlign = align if align in ("left", "right", "center") else "center"
+            ctx.fillText(text, px, py)
+            return
+        self._size = float(font_size)
+        lines = _parse_rich(text)
+        lh = _LINE_H * float(font_size)
+        n = len(lines)
+        ctx.textAlign = "left"
+        for i, runs in enumerate(lines):
+            y = py + (i - (n - 1) / 2.0) * lh
+            laid = []
+            for s_, lvl in runs:
+                size, dy = _layout(lvl, font_size)
+                ctx.font = f"{size}px sans-serif"
+                laid.append((s_, size, dy, self._measure(s_)))
+            W = sum(w for *_r, w in laid)
+            x = px - W / 2.0 if align == "center" else (px if align == "left" else px - W)
+            for s_, size, dy, w in laid:
+                ctx.font = f"{size}px sans-serif"
+                ctx.fillText(s_, x, y + dy)
+                x += w

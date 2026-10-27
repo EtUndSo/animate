@@ -44,7 +44,7 @@ print("data-coord size OK: world radius x", rx)
 class Stub:
     def __init__(self): self.paths=[]; self.texts=0
     def background(self, c): pass
-    def draw_path(self, pts, fill, fo, sc, sw, so, contours=None): self.paths.append((tuple(fill), fo, tuple(sc), sw))
+    def draw_path(self, pts, fill, fo, sc, sw, so, contours=None, dash=None): self.paths.append((tuple(fill), fo, tuple(sc), sw))
     def draw_text(self, *a): self.texts+=1
 
 p = Stub()

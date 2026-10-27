@@ -8,11 +8,12 @@ class Text(AnimObject):
     Bézier points. Its position is stored as the single 'point', so shift/scale/rotate move
     the label exactly like any other object.
     """
-    def __init__(self, text, position=ORIGIN, font_size=28, color=(0.0, 0.0, 0.0)):
+    def __init__(self, text, position=ORIGIN, font_size=28, color=(0.0, 0.0, 0.0), align="center"):
         super().__init__()
-        self.text = text
+        self.text = text                                           # may be rich: U_{GS}, 10^{-3}, \alpha (richtext.py)
         self.font_size = font_size                                 # in pixels
         self.color = color
+        self.align = align                                         # "center" | "left" | "right" (relative to the anchor)
         self.points = np.array([np.asarray(position, dtype=float)])  # (1,3): the anchor
 
 

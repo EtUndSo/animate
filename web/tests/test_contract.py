@@ -123,6 +123,37 @@ cases.append(("Summation choreo (op)", model_scene({"objects": [], "computations
     "props": {"sum_mode": "number", "run_time": 6, "size": 0.9, "choreo": _choreo}}],
     "animations": [], "background": [1, 1, 1]})))
 
+# Article-figure primitives (figures.py, circuit.py, panels, log axes, parameters): every type animated
+# (Create / FadeIn / Shift / Write / GrowFromCenter), several panels, dashed strokes, rich labels.
+_PANEL = {"id": "p2", "type": "Axes", "args": {"x_range": [1, 1000], "y_range": [1e-3, 1], "x_length": 4, "y_length": 3,
+                                              "origin": [3, 0, 0], "x_log": True, "y_log": True, "title": "(b)"}}
+_FIG_OBJS = [AX, _PANEL, {"id": "par", "type": "Parameter", "args": {"name": "k", "value": 1.5}},
+    {"id": "dc", "type": "DataCurve", "args": {"data": "1 0.001\n10 0.01\n100 0.1", "markers": True, "dash": "8,6"}, "on": "p2"},
+    {"id": "bd", "type": "Band", "args": {"x_min": -1, "x_max": 1, "full_height": True, "label": "B", "fill_opacity": 0.2}},
+    {"id": "st", "type": "Stem", "args": {"x": "1;2;3", "y": "1;0.5;0.25", "labels": "a;b;c"}},
+    {"id": "pc", "type": "PointCloud", "args": {"n": 12, "seed": 2}},
+    {"id": "tb", "type": "TextBox", "args": {"text": "U_{BE}\\\\steigt", "center": [-3, 2, 0], "shape": "diamond"}},
+    {"id": "br", "type": "Brace", "args": {"start": [-2, -2, 0], "end": [2, -2, 0], "label": "T"}},
+    {"id": "mk", "type": "Mark", "args": {"center": [4, -2, 0], "kind": "check"}},
+    {"id": "sh", "type": "Shape", "args": {"points": "-4,-1;-3,-1;-3,0", "material": "p+", "label": "p^+"}},
+    {"id": "tbl", "type": "Table", "args": {"cells": "1,2;3,4", "highlight": "0,0", "brackets": True}},
+    {"id": "cp", "type": "Component", "args": {"kind": "vccs", "start": [-4, 1, 0], "end": [-4, 3, 0], "label": "g_m u", "current": "i", "voltage": "u"}},
+    {"id": "dv", "type": "Device", "args": {"kind": "nmos4", "center": [2, 2, 0], "rotation": 90}},
+    {"id": "wr", "type": "Wire", "args": {"points": "0,0;1,1;2,0", "route": "hv", "dots": "all"}},
+    {"id": "nd", "type": "Node", "args": {"center": [1, 1, 0], "label": "K"}},
+    {"id": "el", "type": "Ellipse", "args": {"center": [0, 1, 0], "width": 2, "height": 1, "dash": "4,4"}},
+    {"id": "la", "type": "LabeledArrow", "args": {"start": [0, -1, 0], "end": [2, 0, 0], "label": "I", "elbow": "vh", "thick": 0.2}},
+    {"id": "fam", "type": "CurveFamily", "args": {"func": "k*x*p", "param": "p", "values": "0.5;1", "labels": "a;b", "x_min": 0, "x_max": 2}},
+    {"id": "mr", "type": "Marker", "args": {"point": [1, 0, 0], "func": "x^2", "func2": "k*2 - x", "label": "AP"}}]
+_FIG_ANIMS = [{"type": "Create", "target": "dc", "run_time": 1, "step": 0}, {"type": "FadeIn", "target": "bd", "run_time": 1, "step": 0},
+              {"type": "Create", "target": "st", "run_time": 1, "step": 1}, {"type": "GrowFromCenter", "target": "tb", "run_time": 1, "step": 1},
+              {"type": "Shift", "target": "cp", "run_time": 1, "step": 2, "args": {"vector": [1, 0, 0]}},
+              {"type": "Write", "target": "tbl", "run_time": 1, "step": 2}, {"type": "Create", "target": "wr", "run_time": 1, "step": 3},
+              {"type": "FadeIn", "target": "dv", "run_time": 1, "step": 3}, {"type": "Create", "target": "fam", "run_time": 1, "step": 4},
+              {"type": "Indicate", "target": "mr", "run_time": 1, "step": 4}]
+cases.append(("article figures (panels, log, circuit, figures)", model_scene({"objects": _FIG_OBJS, "animations": _FIG_ANIMS,
+                                                                               "background": [1, 1, 1]})))
+
 if __name__ == "__main__":
     print("=== ENGINE CONTRACT PROBE ===")
     ok = all(probe(n, s) for n, s in cases)

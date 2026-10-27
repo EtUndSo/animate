@@ -3,7 +3,8 @@
 
 const ENGINE_FILES = [
   "__init__.py", "constants.py", "camera.py", "renderer.py", "AnimObject.py",
-  "bezier.py", "plotting.py", "simpleShape.py", "text.py", "svg.py", "axes.py", "threed.py", "legend.py", "value_tracker.py",
+  "bezier.py", "plotting.py", "simpleShape.py", "text.py", "richtext.py", "svg.py", "svg_painter.py", "axes.py", "threed.py", "legend.py", "value_tracker.py",
+  "figures.py", "circuit.py",
   "results.py", "calc.py", "geometry.py", "processes.py", "arithmetic.py", "animation.py", "rate_functions.py", "scene.py", "scene_model.py",
 ];
 
@@ -50,33 +51,55 @@ const BUILD = Date.now();
 // Objects, sorted by SUBJECT (Fach) -> TOPIC (Themenbereich).
 const CATALOG = {
   "Mathematik · Geometrie": {
-    Circle:    { center:[0,0,0], radius:1.0, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.5, stroke_width:4, show_center:false },
+    Circle:    { center:[0,0,0], radius:1.0, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.5, stroke_width:4, dash:"", show_center:false },
     Dot:       { center:[0,0,0], radius:0.08, color:"#111111", stroke_width:4, show_center:false },
-    Line:      { start:[-1,0,0], end:[1,0,0], color:"#111111", stroke_width:4, show_center:false },
-    Rectangle: { center:[0,0,0], width:2.0, height:1.0, color:"#111111", fill_color:"#111111", fill_opacity:0.5, stroke_width:4, show_center:false },
-    Square:    { center:[0,0,0], side:1.0, color:"#111111", fill_color:"#111111", fill_opacity:0.5, stroke_width:4, show_center:false },
-    Vector:    { end:[2,1,0], start:[0,0,0], color:"#111111", stroke_width:4 },   // 2D & 3D
+    Line:      { start:[-1,0,0], end:[1,0,0], color:"#111111", stroke_width:4, dash:"", show_center:false },
+    Rectangle: { center:[0,0,0], width:2.0, height:1.0, color:"#111111", fill_color:"#111111", fill_opacity:0.5, stroke_width:4, dash:"", show_center:false },
+    Square:    { center:[0,0,0], side:1.0, color:"#111111", fill_color:"#111111", fill_opacity:0.5, stroke_width:4, dash:"", show_center:false },
+    // Axis-aligned ellipse (width along x, height along y, data coords).
+    Ellipse:   { center:[0,0,0], width:2.0, height:1.0, color:"#111111", fill_color:"#111111", fill_opacity:0.2, stroke_width:3, dash:"", show_center:false },
+    Vector:    { end:[2,1,0], start:[0,0,0], color:"#111111", stroke_width:4, dash:"" },   // 2D & 3D
   },
   "Mathematik · Funktionen & Achsen": {
     // One coordinate system, always 3D-capable: the z-axis is hidden in 2D view and appears when
     // you orbit into 3D. Fixed on-screen size (x/y/z_length); the range only rescales.
-    Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, x_color:"#000000", y_color:"#000000", z_color:"#000000", grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
+    // SEVERAL Axes in one scene = sub-figures (panels): `origin` places this axes on the canvas (world
+    // units), `title` names the panel ("(a)"); every other object chooses its axes in the properties.
+    // x_log / y_log = logarithmic axis (decade ticks 10^k); arrows = arrowheads on the positive ends;
+    // show_axes:false = a bare panel (placement frame for schematics, cross-sections, block diagrams).
+    Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, origin:[0,0,0], title:"",
+                     x_label:"x", y_label:"y", x_log:false, y_log:false, arrows:false, x_axis_at:"auto", y_axis_at:"auto", show_axes:true, show_ticks:true, show_numbers:true, x_numbers:true, y_numbers:true, show_labels:true, minor_ticks:true,
+                     number_size:24, label_size:34, axis_width:4, x_color:"#000000", y_color:"#000000", z_color:"#000000", grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
     // A FunctionGraph is 1D (y=f(x)) for a term in x only, and a 3D SURFACE when the term also uses y
     // (z=f(x,y)) — the surface-only props (fill_opacity, height_color, grid_*) are ignored for a 1D curve.
-    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.2 },
+    FunctionGraph: { func:"sin(x)", x_range:[-10,10], adaptive:false, res_max:64, res_min:15, color:"#59a0eb", stroke_width:4, stroke_opacity:1.0, dash:"", fill_opacity:1.0, height_color:false, grid_color:"#ffffff", grid_width:0.2 },
     // Filled area under y=f(x) over [x_min,x_max], or BETWEEN f and `func2` (empty -> baseline y=0).
-    Area:          { func:"sin(x)", func2:"", x_min:0, x_max:3.14159, samples:64, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.4, stroke_width:0 },
+    Area:          { func:"sin(x)", func2:"", x_min:0, x_max:3.14159, samples:64, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.4, stroke_width:0, dash:"" },
     // Tangent at x0 (slope via central difference), or secant through x0 & x1 (secant:true). half_len
     // = line half-length in x. show_point: dot(s) at the touch point(s); show_slope: "m = ..." label.
-    TangentLine:   { func:"sin(x)", x0:1.0, secant:false, x1:2.0, half_len:2.0, show_point:true, show_slope:false, font_size:26, color:"#111111", stroke_width:3 },
-    // Family of curves f(x; p): parameter `param` sweeps count values p_min..p_max; fade = lighten low p.
-    // show_limit + limit_func (expr in x) draws a thick limit/envelope curve. For harmonics, Fermi-Dirac, kernels.
-    CurveFamily:   { func:"sin(k*x)/k", param:"k", p_min:1, p_max:5, count:5, x_min:-6, x_max:6, samples:120, fade:true, show_limit:false, limit_func:"", color:"#59a0eb", stroke_width:3 },
+    // triangle_dx > 0 draws the slope triangle (Δx along the tangent, Δy up) with the labels dx_label / dy_label.
+    TangentLine:   { func:"sin(x)", x0:1.0, secant:false, x1:2.0, half_len:2.0, show_point:true, show_slope:false, triangle_dx:0, dx_label:"\\Delta x", dy_label:"\\Delta y", font_size:26, color:"#111111", stroke_width:3, dash:"" },
+    // Family of curves f(x; p): parameter `param` sweeps count values p_min..p_max, or the explicit `values`
+    // ("1;1.5;2"); labels ("U_{GS} = 1 V;…") sit at the right end of each curve; fade = lighten low p.
+    // show_limit + limit_func (expr in x) draws a thick limit/envelope curve. Characteristic fields, harmonics, kernels.
+    CurveFamily:   { func:"sin(k*x)/k", param:"k", p_min:1, p_max:5, count:5, values:"", labels:"", x_min:-6, x_max:6, samples:120, fade:true, show_limit:false, limit_func:"", font_size:24, color:"#59a0eb", stroke_width:3, dash:"" },
     // Parametric curve (x(t),y(t)): polyline + orientation arrowhead. point_at="t" adds a running dot;
     // show_tangent/show_normal add vectors there. For circles, ellipses, Lissajous, spirals, paths.
-    ParametricCurve: { fx:"cos(t)", fy:"sin(t)", t_min:0, t_max:6.283185, samples:160, show_arrow:true, point_at:"", show_tangent:false, show_normal:false, color:"#59a0eb", stroke_width:4 },
+    ParametricCurve: { fx:"cos(t)", fy:"sin(t)", t_min:0, t_max:6.283185, samples:160, show_arrow:true, point_at:"", show_tangent:false, show_normal:false, color:"#59a0eb", stroke_width:4, dash:"" },
     // Polar curve r(theta) -> (r·cosθ, r·sinθ). For cardioids, roses, spirals. var `theta` (alias t).
-    PolarCurve:    { func:"1+cos(theta)", theta_min:0, theta_max:6.283185, samples:200, show_arrow:true, color:"#59a0eb", stroke_width:4 },
+    PolarCurve:    { func:"1+cos(theta)", theta_min:0, theta_max:6.283185, samples:200, show_arrow:true, color:"#59a0eb", stroke_width:4, dash:"" },
+    // Curve from a pasted table of numbers (one "x y" pair per line, or "x,y;x,y;…"): the article's
+    // Zahlenwerk feeds it directly. markers = a dot at every data point; smooth = Bézier through the points.
+    DataCurve:     { data:"0 0\n1 1\n2 0.5\n3 1.5", markers:false, marker_radius:0.06, smooth:false, color:"#59a0eb", stroke_width:4, dash:"" },
+    // Shaded region in data coords (operating region, depletion zone, band): a rectangle x_min..x_max ×
+    // y_min..y_max; full_height / full_width stretch it over the whole axes; label at top/center/bottom.
+    Band:          { x_min:1, x_max:2, y_min:0, y_max:1, full_height:true, full_width:false, label:"", label_at:"top", font_size:26, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.18, stroke_width:0, dash:"" },
+    // Stem plot (discrete values / line spectrum): x and y lists ("1;2;3"), optional label per stem.
+    Stem:          { x:"1;2;3;4", y:"1;0.5;0.25;0.125", labels:"", baseline:0, markers:true, marker_radius:0.07, font_size:24, color:"#59a0eb", stroke_width:3, dash:"" },
+    // Random point cloud (carriers, particles): n points in x_min..x_max × y_min..y_max, `seed` makes it
+    // reproducible. distribution: uniform | exp_y (density decays upward with scale `decay`) | exp_x.
+    // hollow = ring markers (holes) instead of filled dots (electrons).
+    PointCloud:    { n:60, x_min:-2, x_max:2, y_min:0, y_max:2, seed:1, distribution:"uniform", decay:0.5, radius:0.05, hollow:false, color:"#59a0eb", stroke_width:2 },
     // Standalone 1D number line (own scale): length (world) centred at `center`, ticks every `step`.
     NumberLine:    { x_min:-5, x_max:5, step:1, length:10, center:[0,0,0], tick_labels:true, decimals:0, font_size:24, color:"#111111", stroke_width:3 },
     // Legend/key for several curves on the SAME axes: one row per entry (swatch + label). `labels` is
@@ -107,20 +130,63 @@ const CATALOG = {
     "ramp(t)":        { _type:"FunctionGraph", func:"ramp(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
   },
   "Allgemein · Text & LaTeX": {
-    Text:   { text:"Text", position:[0,0,0], font_size:40, color:"#111111" },
+    // Every label understands formula shorthand: U_{GS}, I_D, 10^{-16}, \alpha, \Omega, \mu, \cdot, line break \\.
+    Text:   { text:"Text", position:[0,0,0], font_size:40, align:"center", color:"#111111" },
     MathTex:{ tex:"\\frac{a}{b}", height:1.2, position:[0,0,0], color:"#111111" },   // real LaTeX via MathJax -> VMobjects
+    // Text in a box (block diagrams, chains of effect, callouts). shape: rect | round | diamond | ellipse;
+    // width/height 0 = fit the text. Several lines with \\.
+    TextBox: { text:"Block", center:[0,0,0], width:0, height:0, shape:"rect", padding:0.25, font_size:28, color:"#111111", fill_color:"#ffffff", fill_opacity:1.0, stroke_width:3, dash:"" },
   },
   "Allgemein · Annotation": {
-    // Point marker: dot at (x,y) + label, optional thin guide lines to the x- and y-axis.
-    Marker:  { point:[1,1,0], label:"P", show_guides:true, radius:0.08, font_size:28, color:"#111111" },
+    // Point marker: dot at (x,y) + label (label_pos ne/nw/se/sw/n/s/e/w), optional dashed guide lines to the
+    // axes. Computed points: x_expr (may use Parameters) replaces x; func = sit ON that curve (y = f(x));
+    // func + func2 = their intersection nearest to x (operating point = characteristic ∩ load line); y_expr sets y.
+    Marker:  { point:[1,1,0], label:"P", label_pos:"ne", show_guides:true, guide_dash:"5,5", x_expr:"", func:"", func2:"", y_expr:"", radius:0.08, font_size:28, color:"#111111" },
     // Dimension double-arrow start->end with a centred label (amplitude, period T, distance d, ...).
     // `offset` shifts the arrow perpendicular to the span so it sits beside the measured section.
-    Measure: { start:[0,0,0], end:[2,0,0], label:"d", offset:0.0, font_size:28, color:"#111111", stroke_width:4 },
-    // Straight labelled arrow (current/voltage/force/field). label_at: "mid" or "end".
-    LabeledArrow: { start:[0,0,0], end:[2,1,0], label:"F", label_at:"mid", font_size:28, color:"#111111", stroke_width:4 },
+    Measure: { start:[0,0,0], end:[2,0,0], label:"d", offset:0.0, font_size:28, color:"#111111", stroke_width:4, dash:"" },
+    // Straight labelled arrow (current/voltage/force/field). label_at: "mid" or "end"; double = heads at both
+    // ends; elbow = right-angled route (hv: horizontal then vertical, vh); thick > 0 = filled flow arrow of
+    // that width (world units) for quantity/Sankey arrows.
+    LabeledArrow: { start:[0,0,0], end:[2,1,0], label:"F", label_at:"mid", double:false, elbow:"none", thick:0, head_size:0.3, font_size:28, color:"#111111", stroke_width:4, dash:"" },
     // Curved circulation / mesh-loop / feedback arrow: arc around `center`, world-unit `radius`, from
-    // start_angle to end_angle (degrees, CCW if end>start), arrowhead at the end, optional centre label.
-    LoopArrow: { center:[0,0,0], radius:0.8, start_angle:30, end_angle:320, label:"", font_size:28, color:"#111111", stroke_width:4 },
+    // start_angle to end_angle (degrees, CCW if end>start), arrowhead at the end (head:false = plain arc,
+    // e.g. an angle mark), optional centre label.
+    LoopArrow: { center:[0,0,0], radius:0.8, start_angle:30, end_angle:320, head:true, label:"", font_size:28, color:"#111111", stroke_width:4, dash:"" },
+    // Curly brace from start to end; the label sits on the outer side (flip = other side).
+    Brace:   { start:[-1,0,0], end:[1,0,0], label:"", flip:false, size:0.3, font_size:26, color:"#111111", stroke_width:3 },
+    // Check mark (right) or cross (wrong); kind "strike" draws a diagonal strike-through of width×height.
+    Mark:    { center:[0,0,0], kind:"check", size:0.5, width:1.0, height:1.0, color:"#2ca02c", stroke_width:5 },
+    // Free polygon from a point list "x,y;x,y;…" (data coords) with optional label; `material` presets the
+    // fill colour for device cross-sections (n, p, n+, p+, oxide, poly, metal, depletion) — "custom" keeps fill_color.
+    Shape:   { points:"-1,0;1,0;1,1;-1,1", closed:true, label:"", material:"custom", font_size:24, color:"#111111", fill_color:"#59a0eb", fill_opacity:0.5, stroke_width:2, dash:"" },
+    // Table / matrix: cells "a,b;c,d" (rows by ;, cells by ,), optional row/column headers, highlighted
+    // cells "r,c;r,c" (0-based), brackets = matrix parentheses. Formula shorthand works in cells.
+    Table:   { cells:"1,2;3,4", row_labels:"", col_labels:"", highlight:"", brackets:false, cell_w:1.2, cell_h:0.6, position:[0,0,0], font_size:24, color:"#111111", fill_color:"#f5c542", fill_opacity:0.35, stroke_width:1.5 },
+  },
+  "Allgemein · Parameter": {
+    // A scene parameter: its `name` can be used in EVERY expression (functions, areas, families, …) like a
+    // constant; the slider in the properties changes the value and rebuilds the scene (e.g. U, T, k).
+    Parameter: { name:"p", value:1.0, min:0.0, max:5.0, step:0.1 },
+  },
+  "Elektrotechnik · Schaltplan": {
+    // Two-terminal component from `start` to `end` (data coords; leads fill the rest of the span). kind:
+    // resistor, resistor_nl, resistor_var, capacitor, capacitor_var, inductor, diode, zener, led, vsource,
+    // vsource_dc, isource, ac_source, vcvs, vccs, cccs, ccvs (controlled = diamond), switch, lamp, ammeter,
+    // voltmeter, fuse, nullator, norator, wire. label (name) and value stack on one side (label_flip = other
+    // side); current = label of a current arrow on a lead (current_at start|end, current_reverse); voltage =
+    // label of a voltage arrow on the opposite side (voltage_reverse). size scales the symbol (world units).
+    Component: { kind:"resistor", start:[-1,0,0], end:[1,0,0], label:"R_1", value:"", label_flip:false, current:"", current_at:"start", current_reverse:false, voltage:"", voltage_reverse:false, size:1.0, font_size:26, color:"#111111", stroke_width:3 },
+    // Multi-terminal device at `center`. Pins at size 1, rotation 0: transistors B/G (-1,0), C/D (0.5,1),
+    // E/S (0.5,-1), bulk (1,0); opamp − (-1.5,0.5), + (-1.5,-0.5), out (1.5,0); twoport (±1.5, ±0.5);
+    // amp/filter/adc in (-1.5,0) out (1.5,0); mixer/sum/oscillator (±1,0), (0,-1); vtube A (0,1.5) G (-1.5,0)
+    // K (0,-1.5); ground/terminal/node/antenna at the centre. rotation in degrees, flip = mirror.
+    Device:    { kind:"npn", center:[0,0,0], rotation:0, flip:false, label:"T_1", pins:true, size:1.0, font_size:24, color:"#111111", stroke_width:3 },
+    // Wire through the points "x,y;x,y;…" (data coords). route: direct | hv | vh (right-angled between
+    // consecutive points). dots = indices of points that get a junction dot ("0;2"), or "all".
+    Wire:      { points:"-2,0;0,0;0,1", route:"direct", dots:"", dot_radius:0.07, color:"#111111", stroke_width:3, dash:"" },
+    // Named node / junction with a label (potential name); offset of the label in world units; dot:false = label only.
+    Node:      { center:[0,0,0], label:"K_1", offset:[0.25,0.25,0], dot:true, radius:0.08, font_size:26, color:"#111111" },
   },
 };
 
@@ -198,6 +264,15 @@ const TEMPLATES = {
         children:[ { type:"DecimalNumber", props:{ position:[0,1.9,0], font_size:32, color:"#111111", decimals:3, prefix:"Intersection area = " }, result:{ key:"area" }, visible:true } ] },
     ],
   },
+  // >>> ET-Vorlagen (generiert)
+  "Kennlinienfeld mit Arbeitspunkt": {"objects": [{"key": "ax", "type": "Axes", "props": {"x_range": [0, 6], "y_range": [0, 10], "x_length": 9.6, "y_length": 5.8, "origin": [-0.6, -0.2], "x_label": "U_{DS} / V", "y_label": "I_D / mA", "arrows": true, "axis_width": 2.5, "number_size": 22, "label_size": 26, "grid_x": true, "grid_y": true, "grid_color": "#e2e2e2"}}, {"key": "ub", "type": "Parameter", "props": {"name": "UB", "value": 5.0, "min": 2.0, "max": 6.0, "step": 0.1}}, {"key": "fam", "type": "CurveFamily", "props": {"func": "where(x < k-1, 2*((k-1)*x - x^2/2), (k-1)^2)", "param": "k", "values": "2;2.5;3;3.5;4", "labels": "U_{GS} = 2 V;2,5 V;3 V;3,5 V;4 V", "x_min": 0, "x_max": 6, "samples": 200, "fade": false, "font_size": 20, "color": "#2ca02c", "stroke_width": 3}, "on": "ax"}, {"key": "gr", "type": "FunctionGraph", "props": {"func": "x^2", "x_range": [0, 3.2], "color": "#888888", "stroke_width": 2, "dash": "6,5"}, "on": "ax"}, {"key": "ll", "type": "FunctionGraph", "props": {"func": "2*(UB - x)", "x_range": [0, 6], "color": "#9467bd", "stroke_width": 3}, "on": "ax"}, {"key": "ap", "type": "Marker", "props": {"point": [3, 0, 0], "func": "where(x < 2, 2*(2*x - x^2/2), 4)", "func2": "2*(UB - x)", "label": "AP", "label_pos": "ne", "show_guides": true, "radius": 0.09, "font_size": 24, "color": "#d62728"}, "on": "ax"}, {"key": "t1", "type": "Text", "props": {"text": "Arbeitsgerade", "position": [0.15, 9.3, 0], "font_size": 22, "align": "left", "color": "#9467bd"}, "on": "ax"}, {"key": "t2", "type": "Text", "props": {"text": "Sättigungsgrenze", "position": [3.15, 9.6, 0], "font_size": 20, "align": "left", "color": "#888888"}, "on": "ax"}]},
+  "Diodenkennlinie halblogarithmisch": {"objects": [{"key": "ax", "type": "Axes", "props": {"x_range": [0, 0.9], "y_range": [1e-12, 0.01], "x_length": 9.6, "y_length": 5.8, "origin": [-0.6, -0.2], "x_label": "U / V", "y_label": "I / A", "y_log": true, "arrows": true, "axis_width": 2.5, "number_size": 22, "label_size": 26, "grid_x": true, "grid_y": true, "grid_color": "#e2e2e2"}}, {"key": "g", "type": "FunctionGraph", "props": {"func": "1e-16*(exp(x/0.02585)-1)", "x_range": [0, 0.9], "color": "#1f77b4", "stroke_width": 3}, "on": "ax"}, {"key": "tg", "type": "TangentLine", "props": {"func": "1e-16*(exp(x/0.02585)-1)", "x0": 0.55, "half_len": 0.12, "show_point": false, "triangle_dx": 0.0595, "dx_label": "59,5 mV", "dy_label": "×10", "font_size": 20, "color": "#d62728", "stroke_width": 2, "dash": "7,5"}, "on": "ax"}, {"key": "m", "type": "Marker", "props": {"point": [0.7738, 0, 0], "func": "1e-16*(exp(x/0.02585)-1)", "label": "1 mA bei 774 mV", "label_pos": "nw", "show_guides": true, "radius": 0.08, "font_size": 20, "color": "#111111"}, "on": "ax"}]},
+  "Bode-Diagramm Tiefpass": {"objects": [{"key": "a1", "type": "Axes", "props": {"x_range": [10, 100000], "y_range": [-60, 10], "x_length": 10, "y_length": 3.0, "origin": [-0.3, 1.95], "x_label": "", "y_label": "|H| / dB", "x_log": true, "x_numbers": false, "axis_width": 2.5, "number_size": 20, "label_size": 24, "grid_x": true, "grid_y": true, "grid_color": "#e2e2e2"}}, {"key": "a2", "type": "Axes", "props": {"x_range": [10, 100000], "y_range": [-90, 0], "x_length": 10, "y_length": 3.0, "origin": [-0.3, -1.85], "x_label": "f / Hz", "y_label": "φ / °", "x_log": true, "x_axis_at": "bottom", "axis_width": 2.5, "number_size": 20, "label_size": 24, "grid_x": true, "grid_y": true, "grid_color": "#e2e2e2"}}, {"key": "fg", "type": "Parameter", "props": {"name": "fg", "value": 1000.0, "min": 100.0, "max": 10000.0, "step": 100.0}}, {"key": "h", "type": "FunctionGraph", "props": {"func": "-10*log10(1+(x/fg)^2)", "x_range": [10, 100000], "color": "#1f77b4", "stroke_width": 3}, "on": "a1"}, {"key": "as", "type": "FunctionGraph", "props": {"func": "where(x < fg, 0, -20*log10(x/fg))", "x_range": [10, 100000], "color": "#888888", "stroke_width": 2, "dash": "7,5"}, "on": "a1"}, {"key": "m3", "type": "Marker", "props": {"point": [1000, 0, 0], "x_expr": "fg", "func": "-10*log10(1+(x/fg)^2)", "label": "−3 dB", "label_pos": "sw", "show_guides": false, "radius": 0.08, "font_size": 20, "color": "#d62728"}, "on": "a1"}, {"key": "sl", "type": "Text", "props": {"text": "−20 dB/Dekade", "position": [15000, -13, 0], "font_size": 20, "align": "left", "color": "#888888"}, "on": "a1"}, {"key": "p", "type": "FunctionGraph", "props": {"func": "-arctan(x/fg)*180/pi", "x_range": [10, 100000], "color": "#1f77b4", "stroke_width": 3}, "on": "a2"}, {"key": "m4", "type": "Marker", "props": {"point": [1000, 0, 0], "x_expr": "fg", "func": "-arctan(x/fg)*180/pi", "label": "−45°", "label_pos": "ne", "show_guides": false, "radius": 0.08, "font_size": 20, "color": "#d62728"}, "on": "a2"}]},
+  "Schaltplan Emitterschaltung": {"objects": [{"key": "pa", "type": "Axes", "props": {"x_range": [-7, 7], "y_range": [-4, 4], "x_length": 14, "y_length": 8, "show_axes": false}}, {"key": "t", "type": "Device", "props": {"kind": "npn", "center": [1, 0, 0], "label": "T_1", "size": 1.0, "font_size": 24}, "on": "pa"}, {"key": "r1", "type": "Component", "props": {"kind": "resistor", "start": [-1, 3, 0], "end": [-1, 0, 0], "label": "R_1", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "r2", "type": "Component", "props": {"kind": "resistor", "start": [-1, 0, 0], "end": [-1, -3, 0], "label": "R_2", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "rc", "type": "Component", "props": {"kind": "resistor", "start": [1.5, 3, 0], "end": [1.5, 1, 0], "label": "R_C", "current": "I_C", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "re", "type": "Component", "props": {"kind": "resistor", "start": [1.5, -1, 0], "end": [1.5, -3, 0], "label": "R_E", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "c1", "type": "Component", "props": {"kind": "capacitor", "start": [-3.5, 0, 0], "end": [-1, 0, 0], "label": "C_1", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "c2", "type": "Component", "props": {"kind": "capacitor", "start": [1.5, 1, 0], "end": [4, 1, 0], "label": "C_2", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "wb", "type": "Wire", "props": {"points": "-1,0;0,0", "dots": "0"}, "on": "pa"}, {"key": "wv", "type": "Wire", "props": {"points": "-1,3;4,3", "dots": "1"}, "on": "pa"}, {"key": "wg", "type": "Wire", "props": {"points": "-1,-3;1.5,-3", "dots": ""}, "on": "pa"}, {"key": "wc", "type": "Wire", "props": {"points": "1.5,1;1.5,1", "dots": "0"}, "on": "pa"}, {"key": "gnd", "type": "Device", "props": {"kind": "ground", "center": [0.25, -3, 0], "label": "", "size": 1.0}, "on": "pa"}, {"key": "dg", "type": "Node", "props": {"center": [0.25, -3, 0], "label": "", "dot": true}, "on": "pa"}, {"key": "ti", "type": "Device", "props": {"kind": "terminal", "center": [-3.5, 0, 0], "label": "u_e", "size": 1.0, "font_size": 24}, "on": "pa"}, {"key": "to", "type": "Device", "props": {"kind": "terminal", "center": [4, 1, 0], "label": "u_a", "size": 1.0, "font_size": 24}, "on": "pa"}, {"key": "tv", "type": "Device", "props": {"kind": "terminal", "center": [4, 3, 0], "label": "+U_B", "size": 1.0, "font_size": 24}, "on": "pa"}]},
+  "Kleinsignal-Ersatzschaltbild": {"objects": [{"key": "pa", "type": "Axes", "props": {"x_range": [-7, 7], "y_range": [-4, 4], "x_length": 14, "y_length": 8, "show_axes": false}}, {"key": "rbe", "type": "Component", "props": {"kind": "resistor", "start": [-3, 1.2, 0], "end": [-3, -1.6, 0], "label": "r_{BE}", "voltage": "u_{BE}", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "gm", "type": "Component", "props": {"kind": "vccs", "start": [0.5, 1.2, 0], "end": [0.5, -1.6, 0], "label": "g_m u_{BE}", "size": 1.0, "font_size": 24}, "on": "pa"}, {"key": "rce", "type": "Component", "props": {"kind": "resistor", "start": [2.8, 1.2, 0], "end": [2.8, -1.6, 0], "label": "r_{CE}", "size": 0.9, "font_size": 24}, "on": "pa"}, {"key": "w1", "type": "Wire", "props": {"points": "-5,1.2;-3,1.2"}, "on": "pa"}, {"key": "w2", "type": "Wire", "props": {"points": "0.5,1.2;5,1.2", "dots": ""}, "on": "pa"}, {"key": "w2b", "type": "Wire", "props": {"points": "2.8,1.2;2.8,1.2", "dots": "0"}, "on": "pa"}, {"key": "w3", "type": "Wire", "props": {"points": "-5,-1.6;5,-1.6", "dots": ""}, "on": "pa"}, {"key": "d1", "type": "Node", "props": {"center": [-3, -1.6, 0], "label": "", "dot": true}, "on": "pa"}, {"key": "d2", "type": "Node", "props": {"center": [0.5, -1.6, 0], "label": "", "dot": true}, "on": "pa"}, {"key": "d3", "type": "Node", "props": {"center": [2.8, -1.6, 0], "label": "", "dot": true}, "on": "pa"}, {"key": "tb", "type": "Device", "props": {"kind": "terminal", "center": [-5, 1.2, 0], "label": "B", "font_size": 24}, "on": "pa"}, {"key": "te", "type": "Device", "props": {"kind": "terminal", "center": [-5, -1.6, 0], "label": "E", "font_size": 24}, "on": "pa"}, {"key": "tc", "type": "Device", "props": {"kind": "terminal", "center": [5, 1.2, 0], "label": "C", "font_size": 24}, "on": "pa"}, {"key": "te2", "type": "Device", "props": {"kind": "terminal", "center": [5, -1.6, 0], "label": "E", "font_size": 24}, "on": "pa"}, {"key": "uce", "type": "LabeledArrow", "props": {"start": [5.5, 1.0, 0], "end": [5.5, -1.4, 0], "label": "u_{CE}", "head_size": 0.25, "font_size": 24, "color": "#111111", "stroke_width": 2}, "on": "pa"}, {"key": "ib", "type": "LabeledArrow", "props": {"start": [-4.6, 1.6, 0], "end": [-3.6, 1.6, 0], "label": "i_B", "head_size": 0.22, "font_size": 22, "color": "#111111", "stroke_width": 2}, "on": "pa"}]},
+  "Querschnitt NMOS": {"objects": [{"key": "pa", "type": "Axes", "props": {"x_range": [-7, 7], "y_range": [-4, 4], "x_length": 14, "y_length": 8, "show_axes": false}}, {"key": "sub", "type": "Shape", "props": {"points": "-5,-3;5,-3;5,0;-5,0", "material": "p", "label": "", "color": "#666666", "stroke_width": 1.5}, "on": "pa"}, {"key": "ns", "type": "Shape", "props": {"points": "-4,-0.9;-1.6,-0.9;-1.6,0;-4,0", "material": "n+", "label": "n^+", "font_size": 24, "color": "#666666", "stroke_width": 1.5}, "on": "pa"}, {"key": "nd", "type": "Shape", "props": {"points": "1.6,-0.9;4,-0.9;4,0;1.6,0", "material": "n+", "label": "n^+", "font_size": 24, "color": "#666666", "stroke_width": 1.5}, "on": "pa"}, {"key": "ox", "type": "Shape", "props": {"points": "-1.8,0;1.8,0;1.8,0.18;-1.8,0.18", "material": "oxide", "label": "", "color": "#666666", "stroke_width": 1.0}, "on": "pa"}, {"key": "gp", "type": "Shape", "props": {"points": "-1.8,0.18;1.8,0.18;1.8,0.9;-1.8,0.9", "material": "poly", "label": "Poly-Si", "font_size": 22, "color": "#666666", "stroke_width": 1.5}, "on": "pa"}, {"key": "ms", "type": "Shape", "props": {"points": "-3.4,0;-2.2,0;-2.2,0.6;-3.4,0.6", "material": "metal", "label": "", "color": "#666666", "stroke_width": 1.5}, "on": "pa"}, {"key": "md", "type": "Shape", "props": {"points": "2.2,0;3.4,0;3.4,0.6;2.2,0.6", "material": "metal", "label": "", "color": "#666666", "stroke_width": 1.5}, "on": "pa"}, {"key": "ch", "type": "PointCloud", "props": {"n": 40, "x_min": -1.55, "x_max": 1.55, "y_min": -0.16, "y_max": -0.04, "seed": 7, "radius": 0.04, "color": "#1f77b4", "stroke_width": 1}, "on": "pa"}, {"key": "ls", "type": "Text", "props": {"text": "S", "position": [-2.8, 1.0, 0], "font_size": 28, "color": "#111111"}, "on": "pa"}, {"key": "lg", "type": "Text", "props": {"text": "G", "position": [0, 1.3, 0], "font_size": 28, "color": "#111111"}, "on": "pa"}, {"key": "ld", "type": "Text", "props": {"text": "D", "position": [2.8, 1.0, 0], "font_size": 28, "color": "#111111"}, "on": "pa"}, {"key": "lb", "type": "Text", "props": {"text": "p-Substrat (Bulk)", "position": [0, -2.3, 0], "font_size": 24, "color": "#444444"}, "on": "pa"}, {"key": "lk", "type": "Text", "props": {"text": "Kanal", "position": [0, -0.55, 0], "font_size": 20, "color": "#1f77b4"}, "on": "pa"}, {"key": "lL", "type": "LabeledArrow", "props": {"start": [-1.6, -1.35, 0], "end": [1.6, -1.35, 0], "label": "L", "double": true, "head_size": 0.22, "font_size": 24, "color": "#111111", "stroke_width": 2}, "on": "pa"}]},
+  "Wirkungskette Gegenkopplung": {"objects": [{"key": "pa", "type": "Axes", "props": {"x_range": [-7, 7], "y_range": [-4, 4], "x_length": 14, "y_length": 8, "show_axes": false}}, {"key": "b0", "type": "TextBox", "props": {"text": "Temperatur\\\\steigt", "center": [-5, 1.6, 0], "shape": "round", "font_size": 24, "fill_color": "#fff1d6"}, "on": "pa"}, {"key": "b1", "type": "TextBox", "props": {"text": "I_C steigt", "center": [-1, 1.6, 0], "font_size": 24, "fill_color": "#e8f1fb"}, "on": "pa"}, {"key": "b2", "type": "TextBox", "props": {"text": "U_{RE} = R_E I_C\\\\steigt", "center": [3.6, 1.6, 0], "font_size": 24, "fill_color": "#e8f1fb"}, "on": "pa"}, {"key": "b3", "type": "TextBox", "props": {"text": "U_{BE} sinkt", "center": [3.6, -1.6, 0], "font_size": 24, "fill_color": "#e8f1fb"}, "on": "pa"}, {"key": "b4", "type": "TextBox", "props": {"text": "I_C sinkt", "center": [-1, -1.6, 0], "font_size": 24, "fill_color": "#e8f1fb"}, "on": "pa"}, {"key": "a0", "type": "LabeledArrow", "props": {"start": [-3.75, 1.6, 0], "end": [-2.05, 1.6, 0], "label": "", "head_size": 0.25, "color": "#111111", "stroke_width": 2.5}, "on": "pa"}, {"key": "a1", "type": "LabeledArrow", "props": {"start": [0.05, 1.6, 0], "end": [1.85, 1.6, 0], "label": "", "head_size": 0.25, "color": "#111111", "stroke_width": 2.5}, "on": "pa"}, {"key": "a2", "type": "LabeledArrow", "props": {"start": [3.6, 0.9, 0], "end": [3.6, -1.15, 0], "label": "", "head_size": 0.25, "color": "#111111", "stroke_width": 2.5}, "on": "pa"}, {"key": "a3", "type": "LabeledArrow", "props": {"start": [2.35, -1.6, 0], "end": [0.05, -1.6, 0], "label": "", "head_size": 0.25, "color": "#111111", "stroke_width": 2.5}, "on": "pa"}, {"key": "a4", "type": "LabeledArrow", "props": {"start": [-1, -1.15, 0], "end": [-1, 1.15, 0], "label": "Gegenkopplung", "head_size": 0.25, "font_size": 22, "color": "#d62728", "stroke_width": 2.5, "dash": "7,5"}, "on": "pa"}, {"key": "lp", "type": "LoopArrow", "props": {"center": [1.3, 0, 0], "radius": 0.7, "start_angle": 200, "end_angle": 500, "label": "−", "font_size": 34, "color": "#d62728", "stroke_width": 2.5}, "on": "pa"}]},
+  // <<< ET-Vorlagen
 };
 
 // Shown once when the editor opens with no saved scene, so the user starts from a concrete 3D example
@@ -400,6 +475,7 @@ function objToSpec(o){                                 // editor node -> interpr
   if(o.result) spec.result = o.result;
   if(o.a) spec.a = o.a;                                // object references (e.g. Intersection)
   if(o.b) spec.b = o.b;
+  if(o.on) spec.on = o.on;                             // the Axes (panel) this object is drawn on
   if(o.children && o.children.length) spec.children = o.children.map(objToSpec);
   return spec;
 }
@@ -741,6 +817,7 @@ function cloneSpec(o){                                         // deep copy with
   if(o.result) c.result = structuredClone(o.result);
   if(o.a) c.a = o.a;                                  // keep references to the original objects
   if(o.b) c.b = o.b;
+  if(o.on) c.on = o.on;
   if(o.children) c.children = o.children.map(cloneSpec);
   return c;
 }
@@ -774,13 +851,24 @@ function addObject(type, defaults){
     props.color = c;
     if("fill_color" in props) props.fill_color = c;       // keep fill in step with the outline
   }
-  model.objects.push({ id, type, props });
+  const node = { id, type, props };
+  // Panels: a new data object joins the Axes that is selected (or the selected object's Axes), so
+  // "select panel (b), add a graph" lands the graph in panel (b).
+  const cur = selected();
+  if(type!=="Axes" && !WORLD_TYPES.has(type) && cur){
+    const on = cur.type==="Axes" ? cur.id : cur.on;
+    if(on && axesList().some(a=>a.id===on)) node.on = on;
+  }
+  model.objects.push(node);
   model.selectedId = id;
   renderSceneObjs(); renderProps(); renderPreview();
 }
+function axesList(){ return model.objects.filter(o=>o.type==="Axes"); }
 function deleteObject(id){
   const list = parentListOf(id); if(!list) return;
   list.splice(list.findIndex(o=>o.id===id), 1);
+  const clearOn=(arr)=>{ for(const o of arr){ if(o.on===id) delete o.on; if(o.children) clearOn(o.children); } };
+  clearOn(model.objects);                                               // objects on a deleted Axes fall back to the first
   model.animations = model.animations.filter(a=>a.target!==id);        // drop animations targeting it
   for(const c of model.computations) for(const k in c.inputs){ if(c.inputs[k]===id) c.inputs[k]=undefined; }  // clear operand refs
   if(model.selectedId===id) model.selectedId = null;
@@ -827,6 +915,7 @@ function instantiate(spec, keyToId){                           // template spec 
   if(spec.result) node.result = structuredClone(spec.result);
   if(spec.a) node.a = keyToId[spec.a];                // remap object references (defined earlier)
   if(spec.b) node.b = keyToId[spec.b];
+  if(spec.on && keyToId[spec.on]) node.on = keyToId[spec.on];   // the panel (Axes) this object sits on
   if(spec.children) node.children = spec.children.map(c=>instantiate(c, keyToId));
   return node;
 }
@@ -1042,6 +1131,9 @@ const TEMPLATE_GROUPS = {
   "Mathematik · Analysis": ["Empty axes","Sine (drawn)","Function f(x) (2D)","Parabola + point","Riemann approximation","Convolution f∗g (animated)"],
   "Mathematik · Geometrie": ["Unit circle","Intersection of two circles"],
   "Mathematik · 3D": ["3D solids"],
+  // >>> ET-Vorlagen-Gruppe
+  "Elektrotechnik · Vorlagen": ["Kennlinienfeld mit Arbeitspunkt", "Diodenkennlinie halblogarithmisch", "Bode-Diagramm Tiefpass", "Schaltplan Emitterschaltung", "Kleinsignal-Ersatzschaltbild", "Querschnitt NMOS", "Wirkungskette Gegenkopplung"],
+  // <<< ET-Vorlagen-Gruppe
 };
 function buildTemplates(){
   const sel=$("templates"); sel.innerHTML="";
@@ -1177,7 +1269,10 @@ function renderSceneObjs(){
       car.onclick=(e)=>{ e.stopPropagation(); o.expanded = (o.expanded===false); renderSceneObjs(); };
       left.appendChild(car);
     } else { const sp=document.createElement("span"); sp.className="caret"; left.appendChild(sp); }  // align
-    const name=document.createElement("span"); name.className="nm"; name.textContent=`${o.type} · ${o.id}`;
+    const name=document.createElement("span"); name.className="nm";
+    name.textContent = o.type==="Parameter" ? `${o.props.name} = ${o.props.value} · ${o.id}`
+                     : o.type==="Axes" && o.props.title ? `Axes ${o.props.title} · ${o.id}`
+                     : `${o.type} · ${o.id}`;
     if(o.visible===false) name.style.opacity="0.45";                                 // hidden -> dimmed
     left.appendChild(name);
     const ops=document.createElement("div"); ops.className="ops";
@@ -1243,8 +1338,29 @@ function propRow(key, inputEl){ const w=document.createElement("div"); w.classNa
 // Enumerated string props -> a dropdown (so the user sees the allowed values). Key = "<Type>.<prop>".
 const ENUMS = {
   "LabeledArrow.label_at": ["mid", "end"],
+  "LabeledArrow.elbow":    ["none", "hv", "vh"],
   "VectorField.preset":    ["custom", "radial", "source", "sink", "vortex", "uniform"],
+  "Text.align":            ["center", "left", "right"],
+  "TextBox.shape":         ["rect", "round", "diamond", "ellipse"],
+  "Band.label_at":         ["top", "center", "bottom"],
+  "PointCloud.distribution": ["uniform", "exp_y", "exp_x"],
+  "Mark.kind":             ["check", "cross", "strike"],
+  "Shape.material":        ["custom", "n", "p", "n+", "p+", "oxide", "poly", "metal", "depletion", "substrate"],
+  "Component.kind":        ["resistor", "resistor_nl", "resistor_var", "capacitor", "capacitor_var", "inductor", "diode", "zener", "led",
+                            "vsource", "vsource_dc", "isource", "ac_source", "vcvs", "vccs", "cccs", "ccvs",
+                            "switch", "lamp", "ammeter", "voltmeter", "fuse", "nullator", "norator", "wire"],
+  "Component.current_at":  ["start", "end"],
+  "Device.kind":           ["npn", "pnp", "nmos", "pmos", "nmos4", "pmos4", "nmos_dep", "nmos_dig", "pmos_dig", "jfet_n",
+                            "opamp", "amp", "twoport", "ground", "terminal", "node", "vtube",
+                            "mixer", "sum", "oscillator", "filter_lp", "filter_bp", "filter_hp", "adc", "antenna"],
+  "Marker.label_pos":      ["ne", "nw", "se", "sw", "n", "s", "e", "w"],
+  "Axes.x_axis_at":        ["auto", "bottom"],
+  "Axes.y_axis_at":        ["auto", "left"],
+  "Wire.route":            ["direct", "hv", "vh"],
 };
+// Dash presets offered in the `dash` field (free "on,off" pixel patterns also work).
+const DASH_PRESETS = ["", "10,7", "4,4", "2,5", "14,6,3,6"];
+const MULTILINE_KEYS = new Set(["data", "cells", "points", "text"]);   // shown as a textarea
 function propInput(obj,key,val){
   const enumOpts = ENUMS[obj.type + "." + key];
   if(enumOpts){
@@ -1252,6 +1368,33 @@ function propInput(obj,key,val){
     enumOpts.forEach(o=>{ const op=document.createElement("option"); op.value=o; op.textContent=o; if(o===val) op.selected=true; s.appendChild(op); });
     s.onchange=()=>{ obj.props[key]=s.value; renderPreview(); };
     return propRow(key, s);
+  }
+  if(obj.type==="Parameter" && key==="value"){            // slider + number, live rebuild while sliding
+    const wrap=document.createElement("div"); wrap.className="vec";
+    const r=document.createElement("input"); r.type="range"; r.min=obj.props.min; r.max=obj.props.max; r.step=obj.props.step||0.1; r.value=val; r.style.flex="2";
+    const n=document.createElement("input"); n.type="number"; n.step=obj.props.step||0.1; n.value=val; n.style.flex="1"; n.style.minWidth="0";
+    r.oninput=()=>{ obj.props.value=parseFloat(r.value); n.value=r.value; renderPreview(); };
+    n.onchange=()=>{ obj.props.value=parseFloat(n.value); r.value=n.value; renderPreview(); renderSceneObjs(); };
+    r.onchange=()=>renderSceneObjs();
+    commitOnEnter(n); wrap.appendChild(r); wrap.appendChild(n);
+    return propRow(key, wrap);
+  }
+  if(key==="dash"){                                       // dash pattern: presets + free text
+    const wrap=document.createElement("div"); wrap.className="vec";
+    const s=document.createElement("select"); s.style.flex="1";
+    [["","solid"],["10,7","dashed"],["4,4","short"],["2,5","dotted"],["14,6,3,6","dash-dot"]].forEach(([v,l])=>{ const op=document.createElement("option"); op.value=v; op.textContent=l; if(v===val) op.selected=true; s.appendChild(op); });
+    if(!DASH_PRESETS.includes(val)){ const op=document.createElement("option"); op.value=val; op.textContent=val; op.selected=true; s.appendChild(op); }
+    const i=document.createElement("input"); i.type="text"; i.value=val; i.placeholder="on,off px"; i.style.flex="1"; i.style.minWidth="0";
+    s.onchange=()=>{ obj.props[key]=s.value; i.value=s.value; renderPreview(); };
+    i.onchange=()=>{ obj.props[key]=i.value; renderPreview(); };
+    commitOnEnter(i); wrap.appendChild(s); wrap.appendChild(i);
+    return propRow(key, wrap);
+  }
+  if(typeof val==="string" && MULTILINE_KEYS.has(key) && !val.startsWith("#")){
+    const t=document.createElement("textarea"); t.value=val; t.rows=Math.min(8, Math.max(2, val.split("\n").length));
+    t.style="flex:1 1 0;min-width:0;padding:4px 6px;border:1px solid var(--border);border-radius:6px;font:inherit;font-family:ui-monospace,Consolas,monospace;font-size:12px;background:var(--field);resize:vertical;";
+    t.onchange=()=>{ obj.props[key]=t.value; renderPreview(); };
+    return propRow(key, t);
   }
   if(Array.isArray(val)){
     const vec=document.createElement("div"); vec.className="vec";
@@ -1296,6 +1439,14 @@ function renderObjectProps(){
   const o=selected();
   if(!o){ el.innerHTML='<span class="hint">No object selected.</span>'; return; }
   const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent=o.type; el.appendChild(h);
+  // Panel choice: with several Axes in the scene, a data object says which one it is drawn on.
+  const axs=axesList();
+  if(o.type!=="Axes" && o.type!=="Parameter" && !WORLD_TYPES.has(o.type) && axs.length>1){
+    const s=document.createElement("select");
+    axs.forEach((a,i)=>{ const op=document.createElement("option"); op.value=a.id; op.textContent=(a.props.title?a.props.title+" · ":"")+a.id+(i===0?" (default)":""); if((o.on||axs[0].id)===a.id) op.selected=true; s.appendChild(op); });
+    s.onchange=()=>{ o.on = (s.value===axs[0].id) ? undefined : s.value; if(!o.on) delete o.on; renderPreview(); };
+    el.appendChild(propRow("axes", s));
+  }
   const skip=new Set();
   const put=(k)=>{ if(k in o.props && !skip.has(k)){ el.appendChild(propInput(o,k,o.props[k])); skip.add(k); } };
   if(o.type==="FunctionGraph" && ("adaptive" in o.props)){
@@ -1342,12 +1493,17 @@ function movablePosKeys(o){
   if(Array.isArray(p.start) && Array.isArray(p.end)) return ["start","end"];
   return [];                                          // FunctionGraph / Axes / Riemann: not point-positioned
 }
-function axesScale(){
-  const ax=(model.objects||[]).find(o=>o.type==="Axes"); if(!ax) return {x:1,y:1,z:1};
+function axesOf(o){                                  // the Axes (panel) an object is drawn on
+  const axs=axesList(); if(!axs.length) return null;
+  return (o && o.on && axs.find(a=>a.id===o.on)) || axs[0];
+}
+function axesScale(o){                                // world units per data unit (per DECADE on a log axis)
+  const ax=axesOf(o); if(!ax) return {x:1,y:1,z:1,xlog:false,ylog:false};
   const p=ax.props||{}, xr=p.x_range||[-6,6], yr=p.y_range||[-3,3], zr=p.z_range||[-3,3];
   const xl=p.x_length!=null?p.x_length:12, yl=p.y_length!=null?p.y_length:6, zl=p.z_length!=null?p.z_length:6;
-  const d=(r)=>((r[1]-r[0])||1);
-  return { x:xl/d(xr), y:yl/d(yr), z:zl/d(zr) };
+  const xlog=!!p.x_log, ylog=!!p.y_log;
+  const span=(r,lg)=> lg ? ((Math.log10(Math.max(r[1],1e-300))-Math.log10(Math.max(r[0],1e-300)))||1) : ((r[1]-r[0])||1);
+  return { x:xl/span(xr,xlog), y:yl/span(yr,ylog), z:zl/span(zr,false), xlog, ylog };
 }
 function _moveHandles(){                              // screen geometry of the arrows for the SELECTED object, or null
   const o=selected();
@@ -1406,10 +1562,14 @@ function _startAxisMove(h,e,spx,spy){
 function _applyAxisMove(cpx,cpy){
   const md=moveDrag; const dpx=cpx-md.s0[0], dpy=cpy-md.s0[1];
   const along=(dpx*md.u[0]+dpy*md.u[1])*md.worldPerPx;    // world units along the dragged axis
-  const k=md.axis.k, s=axesScale();
-  const comp = md.isWorld ? along : along/(k==="x"?s.x:k==="y"?s.y:s.z);   // -> data units for on-axes objects
-  const d=[0,0,0]; d[k==="x"?0:k==="y"?1:2]=comp;
-  for(const key of md.keys){ const sv=md.startVals[key]; md.o.props[key]=[ sv[0]+d[0], sv[1]+d[1], (sv[2]!=null?sv[2]:0)+d[2] ]; }
+  const k=md.axis.k, s=axesScale(md.o), idx=(k==="x"?0:k==="y"?1:2);
+  const comp = md.isWorld ? along : along/(k==="x"?s.x:k==="y"?s.y:s.z);   // -> data units (decades on a log axis)
+  const lg = !md.isWorld && ((k==="x" && s.xlog) || (k==="y" && s.ylog));
+  for(const key of md.keys){
+    const sv=md.startVals[key]; const nv=[sv[0], sv[1], (sv[2]!=null?sv[2]:0)];
+    nv[idx] = lg ? nv[idx]*Math.pow(10, comp) : nv[idx]+comp;            // log axis: a drag multiplies
+    md.o.props[key]=nv;
+  }
   md.along=along;                                     // world distance since press (for the fast nudge)
 }
 // Re-render during a drag: translate the ALREADY-BUILT object by the incremental world delta (no scene
@@ -1773,6 +1933,7 @@ async function boot(){
   glMeshesFn = pyodide.globals.get("gl_meshes");
   glConstFn = pyodide.globals.get("gl_constants");
   setGlEnabledFn = pyodide.globals.get("set_gl_enabled");
+  svgFn = pyodide.globals.get("export_svg");
   // Start the WebGL 3D layer. If it fails (no WebGL), tell Python so it keeps the flat CPU surface.
   let _glok=false; try{ _glok=gl3d.init(); if(_glok && glConstFn){ try{ gl3d.setConstants(JSON.parse(glConstFn())); }catch(e){} } }catch(e){ console.error(e); }
   if(setGlEnabledFn){ try{ setGlEnabledFn(!!_glok); }catch(e){} }
@@ -1846,8 +2007,13 @@ async function boot(){
   };
   initViewCube(); initCamGizmo();
   setStatus("Ready ✓ — add an element on the left, or click in the view.");
-  let restored=false;                  // restore the autosaved scene, else show the start example
-  try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}
+  let restored=false;                  // ?scene=<url> (article links) > autosaved scene > start example
+  const sceneUrl = new URLSearchParams(location.search).get("scene");
+  if(sceneUrl){
+    try{ const r=await fetch(sceneUrl, {cache:"no-cache"}); if(!r.ok) throw new Error("HTTP "+r.status); applyScene(await r.json()); restored=true; setStatus("Szene geladen ✓ "+sceneUrl); }
+    catch(e){ console.error(e); setStatus("⚠ Szene konnte nicht geladen werden: "+e.message); }
+  }
+  if(!restored) try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}
   if(!restored) loadTemplate(START_EXAMPLE);        // greet with a 3D surface (not an empty editor)
   syncThemeBg(); renderPreview();                   // canvas bg follows the theme: grey by night, white by day
 }
@@ -1889,11 +2055,13 @@ document.addEventListener("keydown", (e)=>{
 // unlike captureStream(fps), which drops frames when rendering can't keep up (that was the stutter).
 const IMG_FORMATS = [
   { label:"PNG",  mime:"image/png",  ext:"png" },
+  { label:"SVG (Vektor)", mime:"image/svg+xml", ext:"svg", svg:true },   // vector export via the engine's SVG painter
   { label:"JPEG", mime:"image/jpeg", ext:"jpg" },
   { label:"WebP", mime:"image/webp", ext:"webp" },
   { label:"AVIF", mime:"image/avif", ext:"avif" },
   { label:"BMP",  mime:"image/bmp",  ext:"bmp" },
 ];
+let svgFn = null;                                     // engine export_svg (set after Pyodide boot)
 const VID_FORMATS = [
   { label:"MP4 (H.264)", mime:"video/mp4;codecs=avc1.42E01E",   ext:"mp4" },
   { label:"WebM (VP9)",  mime:"video/webm;codecs=vp9",          ext:"webm" },
@@ -1901,11 +2069,19 @@ const VID_FORMATS = [
   { label:"WebM (AV1)",  mime:"video/webm;codecs=av01.0.04M.08", ext:"webm" },
   { label:"MP4 (AV1)",   mime:"video/mp4;codecs=av01.0.04M.08",  ext:"mp4" },
 ];
-function _imgSupported(mime){ try{ return document.createElement("canvas").toDataURL(mime).indexOf("data:"+mime)===0; }catch(e){ return false; } }
+function _imgSupported(mime){ if(mime==="image/svg+xml") return true; try{ return document.createElement("canvas").toDataURL(mime).indexOf("data:"+mime)===0; }catch(e){ return false; } }
 function _vidSupported(mime){ try{ return typeof MediaRecorder!=="undefined" && MediaRecorder.isTypeSupported(mime); }catch(e){ return false; } }
 
 function exportPng(f){
   f = f || IMG_FORMATS[0];
+  if(f.svg){                                            // vector: the engine paints the scene as SVG
+    if(!svgFn){ setStatus("⚠ SVG-Export noch nicht bereit."); return; }
+    let s=""; try{ s=String(svgFn()||""); }catch(e){ setStatus("⚠ SVG: "+e.message); return; }
+    if(!s){ setStatus("⚠ Nichts zu exportieren."); return; }
+    const blob=new Blob([s],{type:"image/svg+xml"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="scene.svg"; a.click(); URL.revokeObjectURL(a.href);
+    setStatus("SVG gespeichert ✓ (scene.svg)"); return;
+  }
   _compositeSource($("view")).toBlob((blob)=>{          // flatten GPU surface + 2D canvas in GL mode
     if(!blob){ setStatus("⚠ Export fehlgeschlagen"); return; }
     const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="scene."+f.ext; a.click(); URL.revokeObjectURL(a.href);

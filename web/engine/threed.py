@@ -149,5 +149,8 @@ class Vector(AnimObject):
                     for a in np.linspace(0, 2 * np.pi, 9)[:-1]]
             for i in range(len(ring)):
                 tri = _face([ring[i], ring[(i + 1) % len(ring)], e], color, 1.0)   # cone side
+                tri._no_dash = True                                                # a dashed arrow keeps a solid head
                 self.add(tri)
-            self.add(_face(ring, color, 1.0))                                      # cone base cap
+            cap = _face(ring, color, 1.0)                                          # cone base cap
+            cap._no_dash = True
+            self.add(cap)

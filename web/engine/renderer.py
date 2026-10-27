@@ -8,8 +8,9 @@ from .constants import RIGHT, UP
 # path / text. Swapping the camera (2D -> 3D) or the painter (Cairo -> Canvas) needs no change
 # here. A painter implements three methods:
 #     background(color)
-#     draw_path(pixel_points, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity)
-#     draw_text(text, px, py, font_size, color, opacity)
+#     draw_path(pixel_points, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity,
+#               contours=None, dash=None)
+#     draw_text(text, px, py, font_size, color, opacity, align="center")   # text may be rich (richtext.py)
 
 _DEFAULT_CAMERA = Camera()
 _CENTER_COLOR = (0.90, 0.25, 0.20)       # the little "this is where it's measured from" dot
@@ -30,12 +31,13 @@ def _paint_leaf(painter, obj, camera):
     text = getattr(obj, "text", None)
     if text is not None:                                          # a Text object
         px, py = camera.project(obj.points[0])
-        painter.draw_text(text, px, py, obj.font_size, obj.color, obj.stroke_opacity)
+        painter.draw_text(text, px, py, obj.font_size, obj.color, obj.stroke_opacity,
+                          getattr(obj, "align", "center"))
     elif len(obj.points) >= 4:                                    # a Bézier-based object
         pixel_points = [camera.project(p) for p in obj.points]
         painter.draw_path(pixel_points, _fill_of(obj), obj.fill_opacity,
                           obj.color, obj.stroke_width, obj.stroke_opacity,
-                          getattr(obj, "_contours", None))
+                          getattr(obj, "_contours", None), getattr(obj, "dash", None))
     _paint_center(painter, obj, camera)
 
 
@@ -105,11 +107,12 @@ def _paint_3d(painter, objectList, camera, axes_on_top=True):
         for _d, _a, o, pix in group:
             if getattr(o, "text", None) is not None:
                 px0, py0 = camera.project(o.points[0])
-                painter.draw_text(o.text, px0, py0, o.font_size, o.color, o.stroke_opacity)
+                painter.draw_text(o.text, px0, py0, o.font_size, o.color, o.stroke_opacity,
+                                  getattr(o, "align", "center"))
             else:
                 painter.draw_path(pix.tolist(), _fill_of(o), o.fill_opacity,
                                   o.color, o.stroke_width, o.stroke_opacity,
-                                  getattr(o, "_contours", None))
+                                  getattr(o, "_contours", None), getattr(o, "dash", None))
                 _paint_center(painter, o, camera)
 
 

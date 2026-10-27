@@ -10,6 +10,8 @@ Ergänzt — **ersetzt nicht** — die bestehenden Planungsdokumente:
 - `web/FEATURES_ROADMAP.md` (Phasen P0–P7, Engine-Sicht)
 - `EDITOR_GRAFIK_FEATURES.md` (Grafik-Bedarf; **Schaltplan-Editor = eigener Worktree, hier NICHT dupliziert**)
 - `EDITOR_FIXES.md` (offene WebGL-Bugs #2/#3/#4)
+- `EDITOR_WERKZEUGE.md` (Stand 27.10.2026: Werkzeuge für die Artikel-Abbildungen, gebaut und im Browser geprüft;
+  deckt u. a. F24 Klammer/Ellipse/Bogen, F25 Teilbilder und den Schaltplan ab, F28 teilweise über Formel-Labels)
 
 ## So wird jedes Feature „allgemeingültig" eingebaut (Muster)
 Der Editor hat eine zentrale Registry — neue Primitive hängen sich überall an **derselben** Stelle ein:

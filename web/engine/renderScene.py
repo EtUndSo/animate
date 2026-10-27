@@ -20,8 +20,9 @@ class CairoPainter:
         for i in range(1, len(pts) - 2, 3):                # one cubic segment at a time
             ctx.curve_to(*pts[i], *pts[i + 1], *pts[i + 2])
 
-    def draw_path(self, pixel_points, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity, contours=None):
+    def draw_path(self, pixel_points, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity, contours=None, dash=None):
         ctx = self.ctx
+        ctx.set_dash(list(dash) if dash else [])
         if contours:                                       # several contours (glyph with a hole) -> even-odd
             off = 0
             for n in contours:
@@ -40,13 +41,16 @@ class CairoPainter:
         else:
             ctx.new_path()                                 # clear the kept path
 
-    def draw_text(self, text, px, py, font_size, color, opacity):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center"):
+        from .richtext import plain
+        text = plain(text)                                 # Cairo path: sub/superscripts flattened to plain text
         ctx = self.ctx
         ctx.select_font_face("sans-serif")
         ctx.set_font_size(font_size)
         ctx.set_source_rgba(*color, opacity)
         xb, yb, w, h, xa, ya = ctx.text_extents(text)
-        ctx.move_to(px - w / 2 - xb, py - h / 2 - yb)      # center the text box at (px, py)
+        x0 = px - xb - (0.0 if align == "left" else (w if align == "right" else w / 2))
+        ctx.move_to(x0, py - h / 2 - yb)                   # anchor the text box at (px, py)
         ctx.show_text(text)
 
 

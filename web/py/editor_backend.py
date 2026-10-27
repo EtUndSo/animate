@@ -3,7 +3,19 @@ import numpy as np
 from engine.scene_model import ModelScene
 from engine.renderer import paint_scene
 from engine.constants import PIXEL_WIDTH, PIXEL_HEIGHT, FRAME_HEIGHT
+from engine.svg_painter import SvgPainter
 from canvas_painter import CanvasPainter
+
+
+def export_svg():
+    """The current (edit-view) scene as an SVG document string (vector export for the website).
+    3D surfaces are drawn by the flat CPU painter here (the WebGL layer has no vector form)."""
+    sc = _active()
+    if sc is None:
+        return ""
+    sp = SvgPainter(PIXEL_WIDTH, PIXEL_HEIGHT)
+    paint_scene(sp, sc.objectList, sc.camera, background=_last_bg, axes_on_top=_last_axtop)
+    return sp.to_svg()
 
 # js_ctx / js_w / js_h come from JavaScript (pyodide.globals.set in editor.js).
 painter = CanvasPainter(js_ctx, js_w, js_h)
@@ -168,6 +180,8 @@ def pick(px, py):
     best, best_area = "", None
     for oid, obj in _last_scene.objects_by_id.items():
         if getattr(obj, "_is_axis", False):       # don't grab the axes by clicking the canvas
+            continue
+        if not len(obj.all_points()):             # invisible helpers (Parameter) are picked from the sidebar
             continue
         lo, hi = obj.get_bounding_box()
         if lo[0] - m <= world[0] <= hi[0] + m and lo[1] - m <= world[1] <= hi[1] + m:

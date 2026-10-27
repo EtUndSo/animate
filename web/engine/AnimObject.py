@@ -33,6 +33,7 @@ class Mobject:
         self.fill_opacity = 0.0
         self.stroke_opacity = 1.0                # outline opacity (used by FadeIn)
         self.show_center = False                 # draw a small dot at the centre (positioning aid)
+        self.dash = None                         # stroke dash pattern in pixels, e.g. [8, 6]; None = solid
 
     # ---------- structure ----------
     def add(self, *objects):
@@ -119,6 +120,15 @@ class Mobject:
         point = np.asarray(point, dtype=float)
         return self.shift(point - self.get_center())
 
+    def set_dash(self, dash):
+        """Set the stroke dash pattern on this object and every descendant that may be dashed
+        (leaves flagged `_no_dash`, e.g. arrowheads and dots, keep a solid outline)."""
+        if not getattr(self, "_no_dash", False):
+            self.dash = dash
+        for sub in self.subObjects:
+            sub.set_dash(dash)
+        return self
+
     # ---------- animation support ----------
     def copy(self):
         """A full, independent deep copy (used to snapshot the start state of an animation)."""
@@ -134,6 +144,7 @@ class Mobject:
         self.fill_opacity = other.fill_opacity
         self.stroke_opacity = other.stroke_opacity
         self.show_center = other.show_center
+        self.dash = other.dash
         for mine, theirs in zip(self.subObjects, other.subObjects):
             mine.become(theirs)
         return self

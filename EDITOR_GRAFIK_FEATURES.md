@@ -6,6 +6,12 @@ Animationen) erzeugen lassen? Entstanden beim Schreiben der GET1-Artikel; wird m
 
 Legende Priorität: **P1** = ohne das geht fast keine ET-Grafik · **P2** = häufig gebraucht · **P3** = punktuell.
 
+**Stand 27.10.2026:** Die daraus abgeleitete, nach Häufigkeit geordnete Werkzeugliste mit Bauzustand steht in
+`EDITOR_WERKZEUGE.md`. Gebaut sind Teilbilder (§10, §13), Datenkurven (§11), Log-Achsen (§12), Kennlinien-
+Werkzeuge (§4, §37), Pfeile (§2, §18), Blockbilder (§19), Parameter-Regler (§15), Schaltplan-Symbole (§1, §24,
+§28, §35), Querschnitte (§27, §36), Tabellen (§31), Spektren (§25), Teilchenwolken (§14) und Formel-Labels (§7).
+Offen sind vor allem Achsenbruch (§17) und Animationen eines Parameters (§8).
+
 ---
 
 ## 1. Schaltplan-Editor / Schaltsymbol-Bibliothek  — **P1 (wichtigstes fehlendes Feature)** — IN ARBEIT
@@ -30,7 +36,7 @@ ET1-Skript — **Rechteck für Widerstand, Dreieck mit Strich für Diode**, usw.
 
 Referenz: circuitikz-Umfang, ET1-Skript-Optik. Umsetzung als neues Objekt-/Werkzeug-Set (SVG-Symbole +
 Verdrahtungs-/Snap-Logik). Gebraucht in: praktisch allen Kapiteln 4–12; Sourcefolger und Latch-Up-Ersatzschaltbild (st1/mos-feldeffekttransistoren/03-sourcefolger, 03-latchup-struktur).
-**→ Wird aktuell parallel in einem eigenen Worktree gebaut.**
+**→ Umgesetzt am 27.10.2026 als `Component`, `Device`, `Wire`, `Node` (EDITOR_WERKZEUGE.md, D1 bis D3); Linien-Winkelraster und Gitter-Fang für das Zeichnen mit der Maus stehen noch aus.**
 
 ## 2. Beschriftete Pfeile / Vektoren (Zählpfeile, Kräfte, Felder)  — **P1**
 - Gerade **Pfeile mit Label** (Strom-, Spannungs-, Kraft-, Feldstärkepfeile) frei platzierbar.
