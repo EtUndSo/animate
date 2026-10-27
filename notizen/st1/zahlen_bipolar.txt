@@ -1,0 +1,133 @@
+== A. Modellparameter des integrierten Beispiel-npn ==
+I_S = 1e-16 A, B_N = 100, B_I = 2, U_A = 50 V, U_T = 25.85 mV, A_E = 20 µm² (2 µm x 10 µm)
+I_S je Fläche: 5.00e-18 A/µm²; ET1-Transistor 1e-14 A / 15000 µm² = 6.67e-19 A/µm² (Verhältnis 7.5)
+A = B_N/(1+B_N) = 0.9901; 1/A - 1 = 1/B_N = 0.0100
+Spannung je Dekade Strom: U_T ln 10 = 59.5 mV; Verdopplung: U_T ln 2 = 17.9 mV
+
+== B. Normalbetrieb ohne Early (U_BC stark negativ): Übertragungs- und Eingangskennlinie ==
+U_BE = 0.600 V: I_C =  0.001203 mA, I_B =   0.01203 µA, I_E = -0.001215 mA
+U_BE = 0.650 V: I_C =  0.008325 mA, I_B =   0.08325 µA, I_E = -0.008408 mA
+U_BE = 0.700 V: I_C =    0.0576 mA, I_B =     0.576 µA, I_E = -0.05817 mA
+U_BE = 0.750 V: I_C =    0.3985 mA, I_B =     3.985 µA, I_E = -0.4025 mA
+U_BE = 0.774 V: I_C =     1.008 mA, I_B =     10.08 µA, I_E = -1.018 mA
+U_BE = 0.800 V: I_C =     2.757 mA, I_B =     27.57 µA, I_E = -2.785 mA
+U_BE = 0.833 V: I_C =     9.882 mA, I_B =     98.82 µA, I_E = -9.981 mA
+U_BE = 0.850 V: I_C =     19.08 mA, I_B =     190.8 µA, I_E = -19.27 mA
+I_C = 0.001 mA: U_BE = 595.2 mV, I_B = 0.01 µA
+I_C =  0.01 mA: U_BE = 654.7 mV, I_B = 0.1 µA
+I_C =   0.1 mA: U_BE = 714.3 mV, I_B = 1 µA
+I_C =     1 mA: U_BE = 773.8 mV, I_B = 10 µA
+I_C =    10 mA: U_BE = 833.3 mV, I_B = 100 µA
+Arbeitspunkt des Kapitels: I_C = 1 mA bei U_BE = 773.8 mV (U_T ln(1e13) = 773.8 mV), I_B = 10 µA, I_E = -1,01 mA
++10 mV am Gate der Basis: Faktor exp(10/25,85) = 1.472; +60 mV: 10.19; +18 mV: 2.006
+Diodengleichung mit -1: bei U_BE = 0,3 V I_C = 1.097e-11 A (gegen I_S = 1e-16 A); bei U_BE = -1 V I_C = -1.000e-16 A
+
+== C. Early-Effekt: I_C(U_BE, U_CE) = I_S (exp(U_BE/U_T) - 1)(1 + U_CE/U_A) ==
+U_BE = 773.8 mV, U_CE =  0.5 V: I_C = 1.0100 mA, I_B = 10.000 µA, I_C/I_B = 101.0 (Faktor 1.010)
+U_BE = 773.8 mV, U_CE =  1.0 V: I_C = 1.0200 mA, I_B = 10.000 µA, I_C/I_B = 102.0 (Faktor 1.020)
+U_BE = 773.8 mV, U_CE =  2.5 V: I_C = 1.0500 mA, I_B = 10.000 µA, I_C/I_B = 105.0 (Faktor 1.050)
+U_BE = 773.8 mV, U_CE =  5.0 V: I_C = 1.1000 mA, I_B = 10.000 µA, I_C/I_B = 110.0 (Faktor 1.100)
+U_BE = 773.8 mV, U_CE = 10.0 V: I_C = 1.2000 mA, I_B = 10.000 µA, I_C/I_B = 120.0 (Faktor 1.200)
+Steigung der Ausgangskennlinie bei U_BE = 773.8 mV: I_S exp(U_BE/U_T)/U_A = 20.0 µA/V = 20 µS; Tangente schneidet die Spannungsachse bei -U_A = -50 V
+Zum Vergleich MOSFET-Kapitel: lambda = 0,1 1/V entspricht U_A = 10 V; hier 1/U_A = 0.020 1/V
+Basisweitenmodulation (Herleitung): I_S ∝ 1/W_B; W_B(U_CB) = W_B0 (1 - U_CB/U_A) linearisiert -> I_C ∝ 1/(1 - U_CB/U_A) ≈ 1 + U_CB/U_A ≈ 1 + U_CE/U_A
+   U_CB =  1.0 V: 1/(1 - U_CB/U_A) = 1.0204, Näherung 1 + U_CB/U_A = 1.0200
+   U_CB =  5.0 V: 1/(1 - U_CB/U_A) = 1.1111, Näherung 1 + U_CB/U_A = 1.1000
+   U_CB = 10.0 V: 1/(1 - U_CB/U_A) = 1.2500, Näherung 1 + U_CB/U_A = 1.2000
+
+== D. Transportmodell: alle Ströme in den fünf Betriebszuständen (mit Early) ==
+stromlos         U_BE =  0.0000 V, U_BC =  0.0000 V, U_CE =  0.0000 V: I_BN = 0.0000e+00, I_BI = 0.0000e+00, I_T = 0.0000e+00, I_C = 0.0000e+00, I_B = 0.0000e+00, I_E = -0.0000e+00 A; I_C/I_B = nan
+gesperrt         U_BE = -1.0000 V, U_BC = -2.0000 V, U_CE =  1.0000 V: I_BN = -1.0000e-18, I_BI = -5.0000e-17, I_T = -1.2572e-32, I_C = 5.0000e-17, I_B = -5.1000e-17, I_E = 1.0000e-18 A; I_C/I_B = -0.98
+aktiv (normal)   U_BE =  0.7738 V, U_BC = -1.7262 V, U_CE =  2.5000 V: I_BN = 1.0000e-05, I_BI = -5.0000e-17, I_T = 1.0500e-03, I_C = 1.0500e-03, I_B = 1.0000e-05, I_E = -1.0600e-03 A; I_C/I_B = 105.00
+Sättigung        U_BE =  0.8000 V, U_BC =  0.5500 V, U_CE =  0.2500 V: I_BN = 2.7571e-05, I_BI = 8.6952e-08, I_T = 2.7707e-03, I_C = 2.7706e-03, I_B = 2.7658e-05, I_E = -2.7983e-03 A; I_C/I_B = 100.17
+Sättigung tief   U_BE =  0.8000 V, U_BC =  0.7000 V, U_CE =  0.1000 V: I_BN = 2.7571e-05, I_BI = 2.8798e-05, I_T = 2.7049e-03, I_C = 2.6761e-03, I_B = 5.6369e-05, I_E = -2.7324e-03 A; I_C/I_B = 47.47
+invers           U_BE = -1.0000 V, U_BC =  0.7738 V, U_CE = -1.7738 V: I_BN = -1.0000e-18, I_BI = 5.0000e-04, I_T = -9.6452e-04, I_C = -1.4645e-03, I_B = 5.0000e-04, I_E = 9.6452e-04 A; I_C/I_B = -2.93
+
+== E. Sättigung quantitativ: Basisstrom fest, Kollektorwiderstand begrenzt den Strom ==
+Schaltung: U_CC = 2.5 V, R_C = 1000 Ω, Basis aus Stromquelle I_B
+I_B =     5 µA: U_BE = 755.9 mV, U_BC = -1224.3 mV, U_CE =  1980.2 mV, I_C = 0.5198 mA (B_N I_B wäre 0.50 mA), I_BN = 5 µA, I_BI = -5e-11 µA, I_C/I_B = 104.0
+I_B =    10 µA: U_BE = 773.8 mV, U_BC =  -696.8 mV, U_CE =  1470.6 mV, I_C = 1.0294 mA (B_N I_B wäre 1.00 mA), I_BN = 10 µA, I_BI = -5e-11 µA, I_C/I_B = 102.9
+I_B =    20 µA: U_BE = 791.7 mV, U_BC =   310.9 mV, U_CE =   480.8 mV, I_C = 2.0192 mA (B_N I_B wäre 2.00 mA), I_BN = 20 µA, I_BI = 8.371e-06 µA, I_C/I_B = 101.0
+I_B =    23 µA: U_BE = 795.0 mV, U_BC =   578.2 mV, U_CE =   216.8 mV, I_C = 2.2832 mA (B_N I_B wäre 2.30 mA), I_BN = 22.74 µA, I_BI = 0.2589 µA, I_C/I_B = 99.3
+I_B =    30 µA: U_BE = 796.2 mV, U_BC =   660.4 mV, U_CE =   135.7 mV, I_C = 2.3643 mA (B_N I_B wäre 3.00 mA), I_BN = 23.77 µA, I_BI = 6.234 µA, I_C/I_B = 78.8
+I_B =    50 µA: U_BE = 797.2 mV, U_BC =   696.6 mV, U_CE =   100.5 mV, I_C = 2.3995 mA (B_N I_B wäre 5.00 mA), I_BN = 24.71 µA, I_BI = 25.29 µA, I_C/I_B = 48.0
+I_B =   100 µA: U_BE = 798.9 mV, U_BC =   724.2 mV, U_CE =    74.7 mV, I_C = 2.4253 mA (B_N I_B wäre 10.00 mA), I_BN = 26.42 µA, I_BI = 73.58 µA, I_C/I_B = 24.3
+Grenze: I_C,sat ≈ (U_CC - U_CE,sat)/R_C = (2,5 - 0,1)/1 kΩ = 2.40 mA, erreicht ab I_B ≈ I_C,sat/B_N = 24 µA
+U_CE in der Sättigung ist die Differenz zweier Durchlassspannungen:
+   I_B = 50 µA: U_CE,sat = 797.2 - 696.6 = 100.5 mV; Übersteuerungsfaktor B_N I_B / I_C = 2.08
+   I_B = 100 µA: U_CE,sat = 798.9 - 724.2 = 74.7 mV; Übersteuerungsfaktor B_N I_B / I_C = 4.12
+Geschlossene Form aus dem Transportmodell (ohne Early) gegen die numerische Lösung mit Early:
+   I_B = 50 µA: k = I_C/I_B = 47.99; U_CE,sat = U_T ln[(1 + (1+k)/B_I)/(1 - k/B_N)] (ohne Early) = 100.6 mV; numerisch mit Early 100.5 mV
+   I_B = 100 µA: k = I_C/I_B = 24.25; U_CE,sat = U_T ln[(1 + (1+k)/B_I)/(1 - k/B_N)] (ohne Early) = 74.7 mV; numerisch mit Early 74.7 mV
+Grenzfall offener Kollektor (k = 0): U_CE,sat = U_T ln(1 + 1/B_I) = 10.5 mV; Grenze der Sättigung k -> B_N: U_CE,sat -> unendlich (aktiver Bereich)
+
+== F. Inversbetrieb ==
+U_BC = 773.8 mV, U_BE = -1 V (ohne Early): I_T = -1.0000 mA (vom Kollektor zum Emitter, negativ = Emitter->Kollektor), I_E = 1.0000 mA, I_B = 0.5000 mA, I_C = -1.5000 mA; |I_E|/I_B = 2.00 = B_I
+
+== G. Gummel-Plot und Stromverstärkung (nur ausführlich): I_B = I_C/B_N + I_SE (exp(U_BE/(n_E U_T)) - 1), I_C mit Knickstrom I_KF ==
+U_BE [V] | I_C ideal | I_C mit I_KF | I_B ideal | I_B mit I_SE | B
+ 0.40 | 5.251e-10 | 5.251e-10 | 5.251e-12 | 2.343e-10 |     2.2
+ 0.45 | 3.633e-09 | 3.633e-09 | 3.633e-11 | 6.390e-10 |     5.7
+ 0.50 | 2.514e-08 | 2.514e-08 | 2.514e-10 | 1.837e-09 |    13.7
+ 0.55 | 1.739e-07 | 1.739e-07 | 1.739e-09 | 5.909e-09 |    29.4
+ 0.60 | 1.203e-06 | 1.203e-06 | 1.203e-08 | 2.300e-08 |    52.3
+ 0.65 | 8.325e-06 | 8.323e-06 | 8.325e-08 | 1.121e-07 |    74.2
+ 0.70 | 5.760e-05 | 5.753e-05 | 5.760e-07 | 6.519e-07 |    88.3
+ 0.75 | 3.985e-04 | 3.954e-04 | 3.985e-06 | 4.185e-06 |    94.5
+ 0.80 | 2.757e-03 | 2.620e-03 | 2.757e-05 | 2.810e-05 |    93.2
+ 0.85 | 1.908e-02 | 1.473e-02 | 1.908e-04 | 1.921e-04 |    76.7
+ 0.90 | 1.320e-01 | 5.999e-02 | 1.320e-03 | 1.323e-03 |    45.3
+ 0.95 | 9.131e-01 | 1.901e-01 | 9.131e-03 | 9.141e-03 |    20.8
+ 1.00 | 6.318e+00 | 5.376e-01 | 6.318e-02 | 6.320e-02 |     8.5
+B über I_C:
+   I_C = 1e-09 A: U_BE = 416.7 mV, I_B = 3.261e-10 A, B = 3.1, Anteil I_SE-Strom am Basisstrom 96.9 %
+   I_C = 1e-08 A: U_BE = 476.2 mV, I_B = 1.100e-09 A, B = 9.1, Anteil I_SE-Strom am Basisstrom 90.9 %
+   I_C = 1e-07 A: U_BE = 535.7 mV, I_B = 4.162e-09 A, B = 24.0, Anteil I_SE-Strom am Basisstrom 76.0 %
+   I_C = 1e-06 A: U_BE = 595.2 mV, I_B = 2.000e-08 A, B = 50.0, Anteil I_SE-Strom am Basisstrom 50.0 %
+   I_C = 1e-05 A: U_BE = 654.7 mV, I_B = 1.316e-07 A, B = 76.0, Anteil I_SE-Strom am Basisstrom 24.0 %
+   I_C = 1e-04 A: U_BE = 714.3 mV, I_B = 1.102e-06 A, B = 90.7, Anteil I_SE-Strom am Basisstrom 9.1 %
+   I_C = 1e-03 A: U_BE = 774.3 mV, I_B = 1.052e-05 A, B = 95.1, Anteil I_SE-Strom am Basisstrom 3.0 %
+   I_C = 3e-03 A: U_BE = 803.7 mV, I_B = 3.236e-05 A, B = 92.7, Anteil I_SE-Strom am Basisstrom 1.7 %
+   I_C = 1e-02 A: U_BE = 838.0 mV, I_B = 1.211e-04 A, B = 82.6, Anteil I_SE-Strom am Basisstrom 0.9 %
+   I_C = 3e-02 A: U_BE = 873.9 mV, I_B = 4.822e-04 A, B = 62.2, Anteil I_SE-Strom am Basisstrom 0.5 %
+   I_C = 1e-01 A: U_BE = 921.2 mV, I_B = 3.005e-03 A, B = 33.3, Anteil I_SE-Strom am Basisstrom 0.2 %
+Maximum von B: 95.1 bei I_C = 0.849 mA (U_BE = 770 mV)
+Steigung im Gummel-Plot: I_C 60 mV je Dekade (n = 1), I_SE-Strom 119 mV je Dekade (n = 2)
+
+== H. Bahnwiderstände und Stromgegenkopplung durch R_E (nur ausführlich) ==
+R_B = 100 Ω, R_E = 5 Ω, R_C = 20 Ω
+I_C = 1 mA: innere U_BE = 773.8 mV; Abfall an R_E = 5.0 mV, an R_B = 1.00 mV, an R_C = 20 mV; äußere U_BE für denselben Strom 779.8 mV. Bei fester äußerer Spannung 773.8 mV fließen mit Widerständen nur 0.8256 mA (82.6 %)
+I_C = 10 mA: innere U_BE = 833.3 mV; Abfall an R_E = 50.0 mV, an R_B = 10.00 mV, an R_C = 200 mV; äußere U_BE für denselben Strom 893.3 mV. Bei fester äußerer Spannung 833.3 mV fließen mit Widerständen nur 3.975 mA (39.7 %)
+5 mV an R_E bei 1 mA: Faktor exp(-5/25,85) = 0.824 (ohne die kleine Rückwirkung über R_B)
+
+== I. Vergleich mit dem MOSFET des Kapitels 3 (Arbeitspunkt 1 mA) ==
+Bipolar: g_m = I_C/U_T = 38.7 mS bei 1 mA, g_m/I_C = 1/U_T = 38.7 1/V; Basisstrom 10 µA
+MOSFET (K = 2 mA/V², Übersteuerung für 1 mA: sqrt(2 I/K) = 1 V): g_m = 2I/U_ü = 2.0 mS, g_m/I_D = 2 1/V; Gatestrom 0
+Verhältnis g_m bipolar/MOS bei 1 mA: 19.3
+Stromverhältnis für Faktor 10: Bipolar 59.5 mV; MOSFET sqrt(10) in der Übersteuerung: 1 V -> 3.16 V, also 2162 mV
+
+== J. Substratdiode und Isolation (integrierter Transistor) ==
+Substrat an der negativsten Versorgung (z. B. -2,5 V oder Masse); Kollektor-Potential stets höher -> Substratdiode (p-Substrat/n-Kollektor) gesperrt.
+Sperrstrom-Größenordnung: Diode mit I_S,sub = 1e-15 A bei -2,5 V: -1.00e-15 A (praktisch null gegen 1 mA)
+
+== K. Zahlen für die Abbildungen ==
+Übertragungskennlinie I_C(U_BE) 0,5 bis 0,9 V, linear und halblog (ohne Early):
+   0.50 V: I_C = 2.514e-05 mA, I_B = 0.0002514 µA
+   0.55 V: I_C = 0.0001739 mA, I_B = 0.001739 µA
+   0.60 V: I_C = 0.001203 mA, I_B = 0.01203 µA
+   0.65 V: I_C = 0.008325 mA, I_B = 0.08325 µA
+   0.70 V: I_C = 0.0576 mA, I_B = 0.576 µA
+   0.75 V: I_C = 0.3985 mA, I_B = 3.985 µA
+   0.80 V: I_C = 2.757 mA, I_B = 27.57 µA
+   0.85 V: I_C = 19.08 mA, I_B = 190.8 µA
+   0.90 V: I_C = 132 mA, I_B = 1320 µA
+Ausgangskennlinienfeld I_C(U_CE) für U_BE = 0,70 / 0,75 / 0,774 / 0,80 V, U_CE 0 bis 5 V (Transportmodell mit Early):
+   U_BE = 700 mV -> 0.05 V: 0.045, 0.1 V: 0.056, 0.2 V: 0.058, 0.3 V: 0.058, 0.5 V: 0.058, 1 V: 0.059, 2.5 V: 0.060, 5 V: 0.063 mA
+   U_BE = 750 mV -> 0.05 V: 0.312, 0.1 V: 0.387, 0.2 V: 0.400, 0.3 V: 0.401, 0.5 V: 0.402, 1 V: 0.406, 2.5 V: 0.418, 5 V: 0.438 mA
+   U_BE = 774 mV -> 0.05 V: 0.784, 0.1 V: 0.971, 0.2 V: 1.003, 0.3 V: 1.006, 0.5 V: 1.010, 1 V: 1.020, 2.5 V: 1.050, 5 V: 1.100 mA
+   U_BE = 800 mV -> 0.05 V: 2.162, 0.1 V: 2.676, 0.2 V: 2.766, 0.3 V: 2.774, 0.5 V: 2.785, 1 V: 2.812, 2.5 V: 2.895, 5 V: 3.033 mA
+Sättigungsgrenze U_CE,sat (I_C 90 % des aktiven Werts) je Kurve:
+   U_BE = 700 mV: U_CE,sat(90 %) = 70 mV
+   U_BE = 750 mV: U_CE,sat(90 %) = 70 mV
+   U_BE = 774 mV: U_CE,sat(90 %) = 70 mV
+   U_BE = 800 mV: U_CE,sat(90 %) = 70 mV

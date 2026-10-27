@@ -3721,3 +3721,156 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte AE bis A
 - §1, §28; §39 Kondensatorsymbole; §10.
 
 *Animation:* Umschalten zwischen vollständig und vereinfacht.
+
+## ST1 Bipolartransistor: Arbeitsbereiche und Transportmodell
+Zahlenwerk: `notizen/st1/zahlen_bipolar.py` (Ausgabe `.txt`), Abschnitte A bis K; integrierter Beispiel-npn mit $I_S$ = 10⁻¹⁶ A, $B_N$ = 100, $B_I$ = 2, $U_A$ = 50 V, Emitterfläche 20 µm², Arbeitspunkt 1 mA bei $U_{BE}$ = 773,8 mV. Farben nach ERKLAER_PROMPT §7.4: Elektronen blau, Löcher rot, Raumladungszonen grau; n-Gebiete blau, p-Gebiete rot hinterlegt (§27); Kennlinien dunkelblau, Tangenten orange gestrichelt, Arbeitspunkt rot.
+
+**st1/bipolartransistor/01-einstieg**
+- Fassung: kompakt Abb. 1, ausführlich Abb. 1.
+- Status: offen.
+
+*Inhalt:* Links der npn-Querschnitt im Normalbetrieb, schematisch (Basis 0,1 µm nicht maßstäblich): Emitter n⁺ unten, Basis p, Kollektor n oben, beide Raumladungszonen grau; Elektronen (blau) laufen vom Emitter durch die Basis in den Kollektor, Mengenpfeil 1 mA; Löcher (rot) kommen über den Basisanschluss nach, Mengenpfeil 10 µA mit eigenem Maßstab; äußere Zählpfeile $I_C$ = 1 mA hinein, $I_B$ = 10 µA hinein, $I_E$ = −1,01 mA. Rechts das vereinfachte Transportmodell: Diode zwischen Basis und Emitter mit $I_B$ = 10 µA, gesteuerte Quelle $I_C$ = $B_N I_B$ = 1 mA vom Kollektor zum Emitter, $U_{BE}$ = 773,8 mV; gestrichelte Zuordnung der Quelle zu $U_{BE}$.
+
+*Kernaussage:* Die Basis-Emitter-Spannung legt den Kollektorstrom fest; die Basis liefert nur ein Hundertstel davon.
+
+*Daten:* Zahlenwerk A, B.
+
+*Editor:*
+- §27 Querschnitt mit Dotierfarben; §14 Teilchen; §18 Mengenpfeile mit zwei Maßstäben; §28 gesteuerte Quelle mit Steuerzuordnung; §2 Zählpfeile; §10 Teilbilder.
+
+*Animation:* Schieberegler $U_{BE}$ (0,70 bis 0,80 V): Elektronendichte in der Basis, beide Mengenpfeile und die Zahlen im Modell laufen mit (57,6 µA bis 2,76 mA).
+
+**st1/bipolartransistor/01-aufbau-diskret-integriert**
+- Fassung: ausführlich Abb. 2.
+- Status: offen.
+
+*Inhalt:* (a) Diskreter npn: n⁺-Substrat als Kollektorkontakt auf der Rückseite (C), darüber n-Epitaxie (Kollektor), p-Basis, n⁺-Emitter; Kontakte E und B oben. (b) Integrierter npn: p-Substrat, darin n-Wanne (Kollektor) mit vergrabener n⁺-Schicht („buried layer“) und n⁺-Kollektorkontakt oben, p-Basisgebiet, n⁺-Emitter darin; p⁺-Substratkontakte S links und rechts; Diodensymbol zwischen Substrat und Kollektor, als gesperrt eingefärbt, Substrat an der negativsten Versorgung (−2,5 V oder Masse). (c) Layout-Draufsicht von (b): Emitterfläche 2 µm × 10 µm hervorgehoben, Basis- und Kollektorkontakte daneben, Substratring; Maßpfeile.
+
+*Kernaussage:* Der buried layer bringt den Kollektor nach oben, die gesperrte Substratdiode trennt die Transistoren; die Emitterfläche ist der Skalierungsparameter.
+
+*Daten:* Zahlenwerk A, J.
+
+*Editor:*
+- §27 Technologie-Querschnitte (n⁺ vergraben); §36 pn-Übergang als Diodensymbol im Querschnitt, Layout-Draufsicht mit Schnittlinie; §10 Teilbilder.
+
+*Animation:* Umschalten zwischen Querschnitt und Draufsicht mit Schnittlinie.
+
+**st1/bipolartransistor/01-symbole-zaehlpfeile**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 3.
+- Status: offen.
+
+*Inhalt:* (a) npn: Schichtfolge n (C), p (B), n (E) als drei Balken mit zwei Diodensymbolen (Kollektordiode zeigt von B nach C, Emitterdiode von B nach E), daneben das Schaltsymbol mit Emitterpfeil nach außen; Zählpfeile $I_B$ und $I_C$ in den Transistor, $I_E$ aus dem Emitter heraus gezählt als negativ (Pfeil hinein, Wert −1,01 mA), Spannungspfeile $U_{BE}$ von B nach E, $U_{CE}$ von C nach E, $U_{BC}$ von B nach C; Werte im Normalbetrieb $U_{BE}$ = 0,774 V, $U_{CE}$ = 2,5 V, $U_{BC}$ = −1,73 V, $I_B$ = 10 µA, $I_C$ = 1,05 mA. (b) pnp: Schichtfolge p, n, p, Emitterpfeil nach innen, dieselben Zählpfeile (alle Ströme hinein gezählt), Werte mit umgekehrten Vorzeichen: $U_{BE}$ = −0,774 V, $U_{CE}$ = −2,5 V, $I_B$ = −10 µA, $I_C$ = −1,05 mA, $I_E$ = +1,06 mA.
+
+*Kernaussage:* Alle Ströme werden in den Transistor hinein gezählt, deshalb ist der Emitterstrom des npn negativ; der pnp ist derselbe Transistor mit umgekehrten Vorzeichen.
+
+*Daten:* Zahlenwerk B, D (aktiv 2,5 V).
+
+*Editor:*
+- §1 Symbole npn und pnp; §2 Zählpfeile; §6 Schichtfolge; §36 Diodensymbole im Querschnitt; §10 Teilbilder.
+
+*Animation:* keine.
+
+**st1/bipolartransistor/01-kennlinien**
+- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Status: offen.
+
+*Inhalt:* Drei Diagramme über $U_{BE}$ von 0,5 bis 0,9 V. (a) $I_C$ in mA linear: 0,058 mA bei 0,70 V, 0,40 mA bei 0,75 V, 1,0 mA bei 0,774 V, 2,76 mA bei 0,80 V, 19 mA bei 0,85 V (Achse bis 5 mA, Kurve verlässt das Bild); Arbeitspunkt rot. (b) $I_C$ halblogarithmisch von 10 nA bis 100 mA: Gerade mit 59,5 mV je Dekade, Steigungsdreieck. (c) $I_B$ in µA linear, dieselbe Form wie (a) mit 1/100 der Werte: 10 µA bei 0,774 V, 27,6 µA bei 0,80 V. Keine Early-Abhängigkeit (U_CE fest 2,5 V, oder Werte ohne Early-Faktor; im Bild ohne Early).
+
+*Kernaussage:* Übertragungs- und Eingangskennlinie sind dieselbe Exponentialfunktion, um den Faktor $B_N$ = 100 verschoben; 60 mV mehr geben zehnmal so viel Strom.
+
+*Daten:* Zahlenwerk B, K.
+
+*Editor:*
+- §4, §11 Datenkurven; §12 halblogarithmische Achse; §37 Steigungsdreieck („eine Dekade je 60 mV“); §10 Teilbilder.
+
+*Animation:* Punkt auf (a) wandert, der zugehörige Punkt auf (b) und (c) läuft mit (§37 gekoppelte Punkte).
+
+**st1/bipolartransistor/01-arbeitsbereiche**
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Status: offen.
+
+*Inhalt:* (a) Ebene mit $U_{BE}$ waagerecht und $U_{BC}$ senkrecht, je −1 bis +1 V: vier Quadranten farbig hinterlegt und beschriftet: gesperrt (beide negativ), aktiv normal ($U_{BE}$ > 0, $U_{BC}$ < 0), Sättigung (beide positiv), invers ($U_{BE}$ < 0, $U_{BC}$ > 0); der Ursprung als „stromlos“; die Diagonale $U_{BC}$ = $U_{BE}$ als Linie $U_{CE}$ = 0; der Arbeitspunkt (0,774 V, −1,73 V) als roter Punkt im aktiven Quadranten, der Sättigungspunkt (0,797 V, 0,697 V) als zweiter Punkt. (b) Ausgangskennlinienfeld $I_C$ über $U_{CE}$ von 0 bis 3 V für $U_{BE}$ = 0,70, 0,75, 0,774 und 0,80 V: steiler Anstieg bis etwa 0,1 V (0,784 mA bei 0,05 V, 0,971 mA bei 0,1 V, 1,003 mA bei 0,2 V für 0,774 V), dann flach mit Early-Steigung (1,02 mA bei 1 V, 1,05 mA bei 2,5 V); Sättigungsbereich links der gestrichelten Grenze $U_{CE}$ ≈ 0,1 bis 0,3 V grau hinterlegt, aktiver Bereich rechts; Kurven beschriftet mit $U_{BE}$.
+
+*Kernaussage:* Welche der beiden Dioden leitet, legt den Betriebszustand fest; im Kennlinienfeld ist die Sättigung der schmale Streifen links, der aktive Bereich die flachen Geraden.
+
+*Daten:* Zahlenwerk D, K.
+
+*Editor:*
+- §4 Bereiche in einer Ebene (farbige Quadranten mit Beschriftung); §11 Datenkurven; §37 Bereichsgrenze entlang einer Kurve, Kennlinienschar mit benanntem Parameter; §10 Teilbilder.
+
+*Animation:* Ein Punkt in (a) lässt sich ziehen; in (b) erscheint der zugehörige Punkt ($I_C$, $U_{CE}$), und das Transportmodell (Szene 01-transportmodell) zeigt die Ströme.
+
+**st1/bipolartransistor/01-transportmodell**
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Status: offen.
+
+*Inhalt:* (a) Vollständiges Transportmodell: Knoten B links, C oben, E unten; von B nach C die Kollektordiode mit Strom $I_{B,I}$ (Pfeil von B nach C), von B nach E die Emitterdiode mit $I_{B,N}$; zwischen C und E die gesteuerte Stromquelle $I_T$ = $B_N I_{B,N}$ − $B_I I_{B,I}$, Pfeil von C nach E, gestrichelte Zuordnung zu beiden Diodenspannungen; Spannungspfeile $U_{BE}$ und $U_{BC}$; Zählpfeile $I_B$, $I_C$ hinein, $I_E$; Werte im Arbeitspunkt (1 mA, 2,5 V): $I_{B,N}$ = 10 µA, $I_{B,I}$ ≈ 0 (−5·10⁻¹⁷ A), $I_T$ = 1,05 mA. (b) Vereinfachtes Transportmodell für den Normalbetrieb: nur Emitterdiode mit $I_B$ und Quelle $I_C$ = $B_N I_B$; $I_E$ = −(1 + $B_N$) $I_B$ = −1,01 mA ohne Early-Faktor.
+
+*Kernaussage:* Zwei Dioden beschreiben die Basis, eine gesteuerte Quelle den Transportstrom durch sie; im Normalbetrieb bleibt eine Diode und eine Quelle übrig.
+
+*Daten:* Zahlenwerk D.
+
+*Editor:*
+- §1 Dioden; §28 gesteuerte Quelle mit Steuerausdruck und gestrichelter Zuordnung, Gegenüberstellung vollständig/vereinfacht; §2 Zählpfeile; §10 Teilbilder.
+
+*Animation:* Beim Übergang zu (b) blasst die Kollektordiode aus (Strom 10⁻¹⁷ A) und der Steuerausdruck vereinfacht sich.
+
+**st1/bipolartransistor/01-saettigung-stroeme**
+- Fassung: ausführlich Abb. 7.
+- Status: offen.
+
+*Inhalt:* Schaltung: Basis aus Stromquelle $I_B$ = 50 µA, Kollektor über $R_C$ = 1 kΩ an 2,5 V, Emitter an Masse; der Transistor als vollständiges Transportmodell gezeichnet. Mengenpfeile mit Zahlen: $I_{B,N}$ = 24,7 µA in die Emitterdiode, $I_{B,I}$ = 25,3 µA in die Kollektordiode, $I_T$ = 2,42 mA (100 · 24,7 µA − 2 · 25,3 µA mit Early-Faktor), $I_C$ = 2,40 mA, $I_E$ = −2,45 mA; Spannungen $U_{BE}$ = 797 mV, $U_{BC}$ = 697 mV, $U_{CE}$ = 100 mV; am Widerstand 2,40 V. Daneben klein derselbe Transistor bei $I_B$ = 10 µA (aktiv: $I_{B,I}$ ≈ 0, $U_{CE}$ = 1,47 V, $I_C$ = 1,03 mA).
+
+*Kernaussage:* In der Sättigung teilt sich der Basisstrom auf beide Dioden; der Kollektorstrom bleibt bei dem Wert, den der Widerstand zulässt, und $U_{CE}$ ist die Differenz zweier Durchlassspannungen.
+
+*Daten:* Zahlenwerk E.
+
+*Editor:*
+- §1 Schaltbild mit Transportmodell; §28 gesteuerte Quelle; §18 Mengenpfeile mit zwei Maßstäben (µA und mA); §10 Teilbilder.
+
+*Animation:* Schieberegler $I_B$ von 5 bis 100 µA: Aufteilung, $U_{CE}$ und $I_C$ laufen mit (Tabelle E).
+
+**st1/bipolartransistor/01-early-effekt**
+- Fassung: kompakt Abb. 6, ausführlich Abb. 8.
+- Status: offen.
+
+*Inhalt:* (a) Ausgangskennlinien $I_C$ über $U_{CE}$ für $U_{BE}$ = 0,75, 0,774 und 0,80 V von −50 V bis 5 V mit Achsenbruch zwischen −50 und 0 V; im aktiven Bereich Geraden mit Steigung $I_C$/($U_A$ + $U_{CE}$) (20 µS bei 1 mA), nach links verlängert bis zum gemeinsamen Schnittpunkt −$U_A$ = −50 V; Werte 1,00 mA bei 0 V (extrapoliert), 1,02 bei 1 V, 1,05 bei 2,5 V, 1,10 bei 5 V. (b) Querschnitt der Basis, schematisch: p-Basis zwischen den beiden Raumladungszonen; bei $U_{CB}$ = 1 V und 5 V dringt die Kollektor-Raumladungszone tiefer in die Basis, die neutrale Basisweite schrumpft (beschriftet $W_B$); daneben der Minoritätsverlauf in der Basis als Gerade, die bei kürzerer Basis steiler wird.
+
+*Kernaussage:* Mehr Kollektorspannung verbreitert die Kollektor-Raumladungszone, verkürzt die Basis und steigert den Strom; alle Tangenten treffen sich bei −$U_A$.
+
+*Daten:* Zahlenwerk C, K.
+
+*Editor:*
+- §4, §11; §17 Achsenbruch; §37 Extrapolation zum gemeinsamen Schnittpunkt, Steigung je Kurve; §27 Querschnitt mit Raumladungszonen, an $U_{CB}$ gekoppelt (§15); §10 Teilbilder.
+
+*Animation:* Schieberegler $U_{CB}$: die Zone wächst, $W_B$ schrumpft, der Punkt auf der Kennlinie wandert.
+
+**st1/bipolartransistor/01-gummel-plot**
+- Fassung: ausführlich Abb. 9.
+- Status: offen.
+
+*Inhalt:* (a) Gummel-Plot: $I_C$ und $I_B$ in A, logarithmisch von 10⁻¹² bis 10⁻¹, über $U_{BE}$ von 0,4 bis 1,0 V; $I_C$ als Gerade mit 59,5 mV je Dekade bis etwa 0,8 V, darüber abknickend (2,62 mA bei 0,80 V ideal 2,76; 14,7 mA bei 0,85 V ideal 19,1; 60,0 mA bei 0,90 V ideal 132); $I_B$ mit zwei Teilen: unten flacher (119 mV je Dekade, Rekombinationsstrom mit $n$ = 2, $I_{SE}$ = 10⁻¹³ A), oben parallel zu $I_C$ im Abstand Faktor 100; der Abstand zwischen beiden Kurven als Pfeil „B“. (b) $B$ über $I_C$ (logarithmisch 1 nA bis 100 mA): 3 bei 1 nA, 9 bei 10 nA, 24 bei 100 nA, 50 bei 1 µA, 76 bei 10 µA, 91 bei 100 µA, Maximum 95 bei 0,85 mA, 83 bei 10 mA, 62 bei 30 mA, 33 bei 100 mA; gestrichelt der Modellwert 100.
+
+*Kernaussage:* Die Stromverstärkung ist nur in der Mitte konstant: Bei kleinen Strömen frisst der Rekombinationsstrom der Raumladungszone den Basisstrom, bei großen die starke Injektion den Kollektorstrom.
+
+*Daten:* Zahlenwerk G.
+
+*Editor:*
+- §4, §11; §12 halblogarithmisch (zwei Kurven, Abstand als Pfeil); §37 Steigungsdreieck auf logarithmischer Achse; §13 bzw. §10 Teilbilder.
+
+*Animation:* keine.
+
+**st1/bipolartransistor/01-grossignalmodell**
+- Fassung: ausführlich Abb. 10.
+- Status: offen.
+
+*Inhalt:* (a) Vollständiges statisches Großsignalmodell: äußere Anschlüsse B′, E′, C′ über Bahnwiderstände $R_B$ = 100 Ω, $R_E$ = 5 Ω, $R_C$ = 20 Ω an die inneren Knoten B, E, C; innen die Emitterdiode $I_{B,N}$, parallel dazu die Rekombinationsdiode $I_{B,E}$ ($n$ = 2), die Kollektordiode $I_{B,I}$ und die Quelle $I_T$; dazu die Substratdiode vom Substrat S zum Kollektor, gesperrt. Werte bei 1 mA: Abfälle 1 mV an $R_B$, 5 mV an $R_E$, 20 mV an $R_C$. (b) Vereinfachtes Großsignalmodell: nur $R_B$ bleibt, Emitter und Kollektor direkt; Substratdiode bleibt.
+
+*Kernaussage:* Zwischen den Anschlüssen und dem inneren Transistor liegen Bahnwiderstände; der Emitterwiderstand wirkt als Stromgegenkopplung, deshalb wird er technologisch klein gemacht, und nur der Basiswiderstand bleibt im Modell.
+
+*Daten:* Zahlenwerk H.
+
+*Editor:*
+- §1 Dioden und Widerstände; §28 gesteuerte Quelle, Gegenüberstellung vollständig/vereinfacht; §10 Teilbilder.
+
+*Animation:* Umschalten zwischen (a) und (b); Schieberegler $I_C$ zeigt die Spannungsabfälle (5 mV bei 1 mA, 50 mV bei 10 mA).
