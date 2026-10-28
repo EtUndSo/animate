@@ -4,7 +4,75 @@ from engine.scene_model import ModelScene
 from engine.renderer import paint_scene
 from engine.constants import PIXEL_WIDTH, PIXEL_HEIGHT, FRAME_HEIGHT
 from engine.svg_painter import SvgPainter
+from engine import circuit as _circ
 from canvas_painter import CanvasPainter
+
+_CIRCUIT_TYPES = ("Component", "Device", "Wire", "Node")
+
+
+def _axes_for(sc, spec):
+    """The panel an object is drawn on: its `on` Axes, else the first Axes (as in ModelScene.construct)."""
+    abi = getattr(sc, "axes_by_id", None) or {}
+    return abi.get(spec.get("on")) or next(iter(abi.values()), None)
+
+
+def _world_to_data(ax, w):
+    """Inverse of Axes.coords_to_point in x and y (linear or log axes)."""
+    if ax is None:
+        return float(w[0]), float(w[1])
+    fx = (w[0] - ax.origin[0] + ax.x_length / 2.0) / ax.x_length
+    fy = (w[1] - ax.origin[1] + ax.y_length / 2.0) / ax.y_length
+    if ax.x_log:
+        lo, hi = np.log10(ax.x_min), np.log10(ax.x_max); x = 10.0 ** (lo + fx * (hi - lo))
+    else:
+        x = ax.x_min + fx * (ax.x_max - ax.x_min)
+    if ax.y_log:
+        lo, hi = np.log10(ax.y_min), np.log10(ax.y_max); y = 10.0 ** (lo + fy * (hi - lo))
+    else:
+        y = ax.y_min + fy * (ax.y_max - ax.y_min)
+    return float(x), float(y)
+
+
+def circuit_pins():
+    """Connection points of every circuit element (component pins, device pins, wire ends, nodes) as JSON
+    [{id, type, pin, x, y, px, py}]: data coordinates of its panel and canvas pixels. The editor draws
+    them, snaps wires to them and moves attached wire ends along when a part is dragged."""
+    sc = _last_scene
+    if sc is None:
+        return "[]"
+    out = []
+    for spec in sc.model.get("objects", []):
+        t = spec.get("type")
+        if t not in _CIRCUIT_TYPES:
+            continue
+        ax = _axes_for(sc, spec)
+        try:
+            pins = _circ.pins_world(t, spec.get("args", {}), ax)
+        except Exception:
+            continue
+        for name, w in pins:
+            px, py = sc.camera.project(np.asarray(w, dtype=float))
+            x, y = _world_to_data(ax, w)
+            out.append({"id": spec.get("id"), "type": t, "pin": name, "x": round(x, 9), "y": round(y, 9),
+                        "px": float(px), "py": float(py)})
+    return json.dumps(out)
+
+
+def panel_affine(axes_id):
+    """Data -> canvas-pixel mapping of a (linear 2D) panel as JSON {ox, oy, xx, xy, yx, yy, x_range, y_range}:
+    px = ox + xx*x + yx*y, py = oy + xy*x + yy*y. The editor uses it to draw the schematic grid and to turn
+    pointer positions into snapped data coordinates without a Python call per mouse move."""
+    sc = _active()
+    ax = getattr(sc, "axes_by_id", {}).get(axes_id) if sc is not None else None
+    if ax is None:
+        return "null"
+    def P(x, y):
+        return sc.camera.project(np.asarray(ax.coords_to_point(x, y, 0.0), dtype=float))
+    p0, px_, py_ = P(0.0, 0.0), P(1.0, 0.0), P(0.0, 1.0)
+    return json.dumps({"ox": float(p0[0]), "oy": float(p0[1]),
+                       "xx": float(px_[0] - p0[0]), "xy": float(px_[1] - p0[1]),
+                       "yx": float(py_[0] - p0[0]), "yy": float(py_[1] - p0[1]),
+                       "x_range": [float(ax.x_min), float(ax.x_max)], "y_range": [float(ax.y_min), float(ax.y_max)]})
 
 
 def export_svg():

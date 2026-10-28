@@ -99,4 +99,44 @@ Abhilfe: `?scene=` nur für relative Pfade unter `szenen/`. `evalExprJS` durch e
   - `?scene=` nimmt nur `szenen/…/name.json`. Eine per Link geöffnete Vorlage sichert unter `animate.scene.v1:link` und überschreibt die eigene Szene nicht. Annahme und Ablehnung stehen in der Statuszeile.
   - Tests: `web/tests/test_security.py`, `web/tests/test_exprjs.mjs` (Node), Browser-Probe (Link-Regeln), `editor_ui_test.py` 18/18, alle Engine-Tests grün.
 
+- **28.10. Paket 1, weitere Punkte:**
+  - `data_to_world` skaliert z (D2).
+  - Unbekannte Props werden übersprungen, belegte Parameternamen gemeldet (G5).
+  - Katalogfarben bleiben erhalten, und die Welt-Typen von Oberfläche und Engine stimmen überein (G6).
+- **28.10. Schaltplan-Bearbeitung wie in KiCad und LTspice (Wunsch des Users):**
+  - **Platzierungsmodell:**
+    - `Component` hat jetzt `center`, `rotation` (0/90/180/270) und `length` (Pin-Abstand, Standard 2 = 4 Rasterschritte). Liegt die Mitte auf dem Raster 0,5, liegen beide Pins darauf.
+    - Alte `start`/`end`-Szenen funktionieren weiter. Der Editor rechnet sie beim Laden um, die Engine liest beide Formen.
+    - Die Symbolgrößen sind fest. Der Widerstand ist ein IEC-Kasten 3:1, unabhängig vom Pin-Abstand.
+  - **Darstellung je Element** (`symbol_style` europäisch/amerikanisch):
+    - Widerstand: Kasten oder Zickzack mit 3 Perioden, auch bei einstellbarem und nichtlinearem Widerstand.
+    - Induktivität: gefüllter Balken oder Windungen.
+    - Spannungsquelle: Strich in Leitungsrichtung oder ±.
+    - Stromquelle: Querstrich oder Pfeil.
+    - Gesteuerte Spannungsquelle: Strich oder ±.
+    - Sicherung: Kasten mit Strich oder S-Kurve.
+    - Operationsverstärker und Verstärker: IEC-Kasten mit ▷ (und ∞) oder Dreieck.
+  - **Schaltplanfeld:** Das erste Schaltplan-Element legt ein 1:1-Feld (`schematic:true`) an und schaltet auf 2D.
+  - **Bearbeitungshilfen** auf dem Overlay, nie exportiert:
+    - Punktraster 0,5, ein- und ausschaltbar (Taste G, Häkchen „Raster“),
+    - offene Pins als rote Ringe,
+    - Auswahlrahmen.
+  - **Bedienung:**
+    - Ein neues Bauteil hängt am Cursor und wird per Klick eingerastet abgesetzt.
+    - R dreht, M spiegelt, Esc bricht ab, Entf löscht.
+    - Bauteile werden am Körper gezogen und rasten ein. Leitungsenden an ihren Pins folgen.
+  - **Verdrahten:**
+    - Ziehen von einem Pin oder Leitungsende erzeugt ein `Wire`-Element. Es endet am Pin unter dem Cursor oder rastet sonst auf das Raster.
+    - Die Führung ist rechtwinklig, hv oder vh je nach erster Zugrichtung.
+    - Umschalt-Ziehen beginnt überall, etwa mitten auf einer Leitung.
+    - An T-Verbindungen und bei 3 oder mehr Anschlüssen setzt der Editor automatisch einen Lötpunkt.
+  - **Weiteres:**
+    - Neue Bauteile werden fortlaufend benannt (R_1, R_2, …).
+    - Schaltplan-Elemente sind standardmäßig schwarz (#000000).
+  - **Engine und Backend:** `circuit.component_ends`, `device_pin_offsets`, `pins_world`, Backend `circuit_pins()` und `panel_affine()`.
+  - **Tests:**
+    - `web/tests/test_circuit_place.py` (Pins, Drehung, alte Szenen, alle 25 Arten in beiden Normen, 3:1, Device-Pins),
+    - `tools/editor_schematic_test.py` (Browser: Platzieren, Drehen, Verdrahten, Mitziehen, T-Verbindung mit Lötpunkt, Spiegeln, Stilwechsel),
+    - `editor_ui_test.py` 18/18.
+
 Jedes Paket hält `web/ENGINE_CONTRACT.md` ein. Es kommt mit Tests in `web/tests`, wird im Browser fotografiert (`tools/editor_shot.py`) und mit `tools/editor_ui_test.py` geprüft. Abgeschlossene Punkte werden hier abgehakt.

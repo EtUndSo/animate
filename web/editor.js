@@ -170,23 +170,27 @@ const CATALOG = {
     Parameter: { name:"p", value:1.0, min:0.0, max:5.0, step:0.1 },
   },
   "Elektrotechnik · Schaltplan": {
-    // Two-terminal component from `start` to `end` (data coords; leads fill the rest of the span). kind:
+    // Two-terminal component placed like in KiCad/LTspice: fixed-size symbol at `center`, `rotation` 0/90/180/270
+    // (key R), pins `length` apart (2 = 4 grid steps, so both pins sit on the 0.5 grid). symbol_style: europäisch
+    // (IEC/DIN: box resistor, bar inductor) | amerikanisch (ANSI: zigzag, humps, +/- sources). kind:
     // resistor, resistor_nl, resistor_var, capacitor, capacitor_var, inductor, diode, zener, led, vsource,
     // vsource_dc, isource, ac_source, vcvs, vccs, cccs, ccvs (controlled = diamond), switch, lamp, ammeter,
     // voltmeter, fuse, nullator, norator, wire. label (name) and value stack on one side (label_flip = other
-    // side); current = label of a current arrow on a lead (current_at start|end, current_reverse); voltage =
-    // label of a voltage arrow on the opposite side (voltage_reverse). size scales the symbol (world units).
-    Component: { kind:"resistor", start:[-1,0,0], end:[1,0,0], label:"R_1", value:"", label_flip:false, current:"", current_at:"start", current_reverse:false, voltage:"", voltage_reverse:false, size:1.0, font_size:26, color:"#111111", stroke_width:3 },
+    // side, key M); current = label of a current arrow on a lead (current_at start = pin 1 | end = pin 2,
+    // current_reverse); voltage = label of a voltage arrow on the opposite side (voltage_reverse).
+    Component: { kind:"resistor", center:[0,0,0], rotation:0, length:2, symbol_style:"europäisch", label:"R_1", value:"", label_flip:false, current:"", current_at:"start", current_reverse:false, voltage:"", voltage_reverse:false, size:1.0, font_size:26, color:"#000000", stroke_width:3 },
     // Multi-terminal device at `center`. Pins at size 1, rotation 0: transistors B/G (-1,0), C/D (0.5,1),
     // E/S (0.5,-1), bulk (1,0); opamp − (-1.5,0.5), + (-1.5,-0.5), out (1.5,0); twoport (±1.5, ±0.5);
     // amp/filter/adc in (-1.5,0) out (1.5,0); mixer/sum/oscillator (±1,0), (0,-1); vtube A (0,1.5) G (-1.5,0)
-    // K (0,-1.5); ground/terminal/node/antenna at the centre. rotation in degrees, flip = mirror.
-    Device:    { kind:"npn", center:[0,0,0], rotation:0, flip:false, label:"T_1", pins:true, size:1.0, font_size:24, color:"#111111", stroke_width:3 },
+    // K (0,-1.5); ground/terminal/node/antenna at the centre. rotation in degrees (key R), flip = mirror (key M).
+    // symbol_style: europäisch (opamp as IEC box) | amerikanisch (triangle).
+    Device:    { kind:"npn", center:[0,0,0], rotation:0, flip:false, symbol_style:"europäisch", label:"T_1", pins:true, size:1.0, font_size:24, color:"#000000", stroke_width:3 },
     // Wire through the points "x,y;x,y;…" (data coords). route: direct | hv | vh (right-angled between
     // consecutive points). dots = indices of points that get a junction dot ("0;2"), or "all".
-    Wire:      { points:"-2,0;0,0;0,1", route:"direct", dots:"", dot_radius:0.07, color:"#111111", stroke_width:3, dash:"" },
+    // Usually created by dragging from a pin to another pin (see "Schematic editing").
+    Wire:      { points:"-2,0;0,0;0,1", route:"direct", dots:"", dot_radius:0.07, color:"#000000", stroke_width:3, dash:"" },
     // Named node / junction with a label (potential name); offset of the label in world units; dot:false = label only.
-    Node:      { center:[0,0,0], label:"K_1", offset:[0.25,0.25,0], dot:true, radius:0.08, font_size:26, color:"#111111" },
+    Node:      { center:[0,0,0], label:"K_1", offset:[0.25,0.25,0], dot:true, radius:0.08, font_size:26, color:"#000000" },
   },
 };
 
@@ -328,6 +332,16 @@ for (const grp of Object.values(CATALOG)) for (const [name, def] of Object.entri
   if (!(type in OBJ_DEFAULTS)) { const d = { ...def }; delete d._type; OBJ_DEFAULTS[type] = d; }
 }
 function ensureDefaults(o){
+  // Older components were placed by start/end. Convert to centre/rotation/length BEFORE the defaults are
+  // backfilled (otherwise the default centre [0,0,0] would win and the part would jump to the origin).
+  if (o.type === "Component" && o.props && Array.isArray(o.props.start) && Array.isArray(o.props.end) && !Array.isArray(o.props.center)) {
+    const [x0,y0]=o.props.start, [x1,y1]=o.props.end;
+    let rot = Math.round(Math.atan2(y1-y0, x1-x0)*180/Math.PI*100)/100; if(rot<0) rot+=360;
+    o.props.center = [(x0+x1)/2, (y0+y1)/2, 0];
+    o.props.length = Math.round(Math.hypot(x1-x0, y1-y0)*1e6)/1e6;
+    o.props.rotation = rot;
+    delete o.props.start; delete o.props.end;
+  }
   if (o.type === "Surface") o.type = "FunctionGraph";   // Surface removed: it's a 2-variable FunctionGraph (z=f(x,y));
   //                                                       its props (func/adaptive/res/fill_opacity/height_color/grid_*) are all valid FunctionGraph props
   const d = OBJ_DEFAULTS[o.type];
@@ -336,7 +350,14 @@ function ensureDefaults(o){
   if (o.type === "FunctionGraph" && o.props) delete o.props.y_range;  // obsolete: y range now comes from the Axes
   if (o.children) for (const c of o.children) ensureDefaults(c);
 }
-function migrateModel(){ for (const o of (model.objects || [])) ensureDefaults(o); }
+const CIRCUIT_TYPES = new Set(["Component","Device","Wire","Node"]);   // schematic elements (grid, snap, wiring)
+function migrateModel(){
+  for (const o of (model.objects || [])) ensureDefaults(o);
+  // A panel without axes that carries circuit elements is a schematic panel (grid, snapping, wiring).
+  const axs = (model.objects || []).filter(o=>o.type==="Axes");
+  for (const a of axs) if (!a.schematic && a.props && a.props.show_axes===false &&
+      model.objects.some(o=>CIRCUIT_TYPES.has(o.type) && (o.on===a.id || (!o.on && axs[0]===a)))) a.schematic = true;
+}
 
 const BG_ID = "__bg__";
 const $ = (id) => document.getElementById(id);
@@ -795,6 +816,7 @@ function _doRender(){
   syncGL(res);                         // WebGL surface layer: upload + draw, or hide (2D-only scenes)
   if(typeof drawViewCube==="function") drawViewCube();   // keep the nav-cube in sync with the camera
   if(typeof drawCamGizmo==="function") drawCamGizmo();   // and the rotation gizmo
+  if(typeof schRefresh==="function") schRefresh();   // schematic: panel mapping + pins for grid/snap/wiring
   if(typeof refreshMoveGizmo==="function") refreshMoveGizmo();   // and the selected object's move arrows
   if(typeof updateSumOverlay==="function") updateSumOverlay(null);   // Σ overlay: full (static) view
   saveLocal();                         // autosave so a scene survives closing the page
@@ -863,9 +885,17 @@ function addObject(type, defaults){
   }
   const node = { id, type, props };
   // Panels: a new data object joins the Axes that is selected (or the selected object's Axes), so
-  // "select panel (b), add a graph" lands the graph in panel (b).
+  // "select panel (b), add a graph" lands the graph in panel (b). Circuit elements always go onto the
+  // 1:1 schematic panel (created with the first one), and a part then hangs at the cursor until placed.
   const cur = selected();
-  if(type!=="Axes" && !WORLD_TYPES.has(type) && cur){
+  if(CIRCUIT_TYPES.has(type)){
+    if(model.camera.mode==="3d"){ model.camera.mode="2d"; const vm=$("view-mode"); if(vm) vm.value="2d"; }   // schematics are 2D
+    node.on = ensureSchematicPanel().id;
+    if(props.label) props.label = nextLabel(props.label);            // R_1, R_2, … like KiCad's annotation
+    if(placing) cancelPlacing();
+    if(type!=="Wire") startPlacing(node);
+  }
+  else if(type!=="Axes" && !WORLD_TYPES.has(type) && cur){
     const on = cur.type==="Axes" ? cur.id : cur.on;
     if(on && axesList().some(a=>a.id===on)) node.on = on;
   }
@@ -1361,6 +1391,10 @@ const ENUMS = {
                             "vsource", "vsource_dc", "isource", "ac_source", "vcvs", "vccs", "cccs", "ccvs",
                             "switch", "lamp", "ammeter", "voltmeter", "fuse", "nullator", "norator", "wire"],
   "Component.current_at":  ["start", "end"],
+  "Component.rotation":    [0, 90, 180, 270],
+  "Component.symbol_style": ["europäisch", "amerikanisch"],
+  "Device.rotation":       [0, 90, 180, 270],
+  "Device.symbol_style":   ["europäisch", "amerikanisch"],
   "Device.kind":           ["npn", "pnp", "nmos", "pmos", "nmos4", "pmos4", "nmos_dep", "nmos_dig", "pmos_dig", "jfet_n",
                             "opamp", "amp", "twoport", "ground", "terminal", "node", "vtube",
                             "mixer", "sum", "oscillator", "filter_lp", "filter_bp", "filter_hp", "adc", "antenna"],
@@ -1376,8 +1410,10 @@ function propInput(obj,key,val){
   const enumOpts = ENUMS[obj.type + "." + key];
   if(enumOpts){
     const s=document.createElement("select");
-    enumOpts.forEach(o=>{ const op=document.createElement("option"); op.value=o; op.textContent=o; if(o===val) op.selected=true; s.appendChild(op); });
-    s.onchange=()=>{ obj.props[key]=s.value; renderPreview(); };
+    const numeric = typeof enumOpts[0]==="number";           // e.g. rotation 0/90/180/270 stays a number
+    if(!enumOpts.some(o=>String(o)===String(val))){ const op=document.createElement("option"); op.value=val; op.textContent=val; op.selected=true; s.appendChild(op); }
+    enumOpts.forEach(o=>{ const op=document.createElement("option"); op.value=o; op.textContent=o; if(String(o)===String(val)) op.selected=true; s.appendChild(op); });
+    s.onchange=()=>{ obj.props[key]= numeric ? Number(s.value) : s.value; renderPreview(); };
     return propRow(key, s);
   }
   if(obj.type==="Parameter" && key==="value"){            // slider + number, live rebuild while sliding
@@ -1521,6 +1557,7 @@ function axesScale(o){                                // world units per data un
 function _moveHandles(){                              // screen geometry of the arrows for the SELECTED object, or null
   const o=selected();
   if(!o || !movablePosKeys(o).length || !bboxFn || !projFn || !unprojFn) return null;
+  if(CIRCUIT_TYPES.has(o.type) && schAffine) return null;   // schematic parts are dragged by the body (snapped)
   let bb; try{ bb=bboxFn(o.id); }catch(e){ bb=null; } if(!bb) return null;
   const ax=bb[0], ay=bb[3];                           // lower-left screen corner (min x, max y)
   const aw=unprojFn(ax,ay);                           // its world point = the arrows' anchor
@@ -1559,13 +1596,15 @@ function _drawArrow(ctx,a,t,col,hl){
 function clearMoveGizmo(){ const cv=$("editgizmo"); if(cv){ cv.getContext("2d").clearRect(0,0,cv.width,cv.height); } }
 function drawMoveGizmoFromCache(){
   const cv=$("editgizmo"); if(!cv) return; const ctx=cv.getContext("2d"); ctx.clearRect(0,0,cv.width,cv.height);
-  if(playing || !_moveGizmoCache) return;
+  if(playing) return;
+  drawSchematicOverlay(ctx);                          // grid, open pins, selection frame, wire preview
+  if(!_moveGizmoCache) return;
   const g=_moveGizmoCache, [x0,y0,x1,y1]=g.bb, pad=10;
   ctx.strokeStyle="rgba(90,150,240,0.9)"; ctx.lineWidth=2.5; ctx.setLineDash([12,8]);
   ctx.strokeRect(x0-pad,y0-pad,(x1-x0)+2*pad,(y1-y0)+2*pad); ctx.setLineDash([]);
   for(const h of g.handles) _drawArrow(ctx,h.a,h.tip,h.axis.col, moveHover===h.axis.k);
 }
-function refreshMoveGizmo(){ _moveGizmoCache=_moveHandles(); drawMoveGizmoFromCache(); }   // recompute (Pyodide) + draw
+function refreshMoveGizmo(){ schUpdateSel(); _moveGizmoCache=_moveHandles(); drawMoveGizmoFromCache(); }   // recompute (Pyodide) + draw
 function _startAxisMove(h,e,spx,spy){
   const o=selected(); const keys=movablePosKeys(o); if(!keys.length) return;
   const startVals={}; for(const k of keys) startVals[k]=(o.props[k]||[0,0,0]).slice();
@@ -1597,6 +1636,200 @@ function _moveRerender(){ if(_moveRAF) return; _moveRAF=requestAnimationFrame(()
     try{ renderModel(JSON.stringify(toPythonModel())); }catch(e){}
   }
   refreshMoveGizmo(); }); }
+
+// ---------- Schematic editing (like KiCad / LTspice) ----------
+// Circuit elements live on a 1:1 schematic panel (an Axes node with `schematic:true`, no axes drawn), created
+// with the first circuit element. Grid, pins, selection frame and the wire preview are drawn on the
+// #editgizmo overlay, so they are editing aids only and never exported.
+// - A new part hangs at the cursor until a click places it; R rotates, M mirrors, Esc cancels, Del deletes.
+// - A part is dragged by its body and snaps to the 0.5 grid; wire ends sitting on its pins follow.
+// - Dragging from a pin (or a wire end) draws a right-angled wire; with Shift it starts anywhere on the grid,
+//   e.g. in the middle of a wire. Releasing on another pin or anywhere on the grid adds a Wire element, with
+//   a junction dot where it ends on another wire or where 3+ connections meet.
+const SCH_GRID = 0.5, PIN_HIT = 16;                  // grid step (data units), pin catch radius (canvas px)
+let schGridOn = true, schPins = [], schAffine = null, schSelBox = null;
+let placing = null, partDrag = null, wireDrag = null, pinHover = null, _schRAF = 0;
+let circuitPinsFn = null, panelAffineFn = null;     // engine helpers, set after Pyodide boot
+
+function schematicPanel(){ return model.objects.find(o=>o.type==="Axes" && o.schematic) || null; }
+function ensureSchematicPanel(){
+  let p = schematicPanel();
+  if(p) return p;
+  p = { id:"o"+(nextId++), type:"Axes", schematic:true,
+        props:{ ...structuredClone(OBJ_DEFAULTS.Axes), x_range:[-7,7], y_range:[-4,4], x_length:14, y_length:8,
+                origin:[0,0,0], show_axes:false, title:"" } };
+  model.objects.push(p);
+  return p;
+}
+const _onGrid = v => Math.round(v/SCH_GRID)*SCH_GRID;
+const _num = v => String(Math.round(v*1e4)/1e4);
+const _pkey = (x,y) => Math.round(x*1000)+","+Math.round(y*1000);
+function schToPx(x,y){ const A=schAffine; return [A.ox+A.xx*x+A.yx*y, A.oy+A.xy*x+A.yy*y]; }
+function schToData(px,py){ const A=schAffine, det=A.xx*A.yy-A.yx*A.xy, dx=px-A.ox, dy=py-A.oy;
+  return [(A.yy*dx-A.yx*dy)/det, (A.xx*dy-A.xy*dx)/det]; }
+function schRefresh(){                                // after every render: panel mapping, pins, selection frame
+  schAffine=null; schPins=[]; schSelBox=null;
+  const p=schematicPanel();
+  if(!p || model.camera.mode==="3d" || !panelAffineFn || !circuitPinsFn) return;
+  try{ schAffine=JSON.parse(panelAffineFn(p.id)); schPins=JSON.parse(circuitPinsFn()); }catch(e){ schAffine=null; schPins=[]; }
+  schUpdateSel();
+}
+function schUpdateSel(){                              // selection frame of a circuit element (no axis arrows for them)
+  schSelBox=null;
+  const o=selected();
+  if(schAffine && o && CIRCUIT_TYPES.has(o.type) && bboxFn){ try{ schSelBox=bboxFn(o.id); }catch(e){} }
+}
+function _onAnyWire(pt){                              // pt lies on some wire's drawn path (end, corner or inside)
+  for(const w of model.objects) if(w.type==="Wire"){
+    const path=wirePath(parseWirePts(w.props.points), w.props.route);
+    for(let i=0;i<path.length;i++){
+      if(Math.hypot(path[i][0]-pt[0], path[i][1]-pt[1])<1e-6) return w.id;
+      if(i && _onSegmentInterior(pt, path[i-1], path[i])) return w.id;
+    }
+  }
+  return null;
+}
+// Next free name like KiCad's annotation: "R_1" taken -> "R_2" (only for the default "<letter>_<n>" form).
+function nextLabel(label){
+  const m=/^(.*_)(\d+)$/.exec(String(label||"")); if(!m) return label;
+  let n=0; for(const o of model.objects){ const l=o.props && o.props.label; const k=l && l.startsWith(m[1]) && /^\d+$/.test(l.slice(m[1].length)) ? +l.slice(m[1].length) : 0; if(k>n) n=k; }
+  return n ? m[1]+(n+1) : label;
+}
+function pinAt(px,py){
+  let best=null, bd=PIN_HIT;
+  for(const p of schPins){ const d=Math.hypot(p.px-px, p.py-py); if(d<bd){ bd=d; best=p; } }
+  return best;
+}
+function parseWirePts(s){ return String(s||"").split(";").map(t=>t.split(",").map(Number)).filter(p=>p.length>=2 && p.every(isFinite)); }
+function wirePath(pts, route){                        // the drawn polyline (as the engine routes it)
+  const out=[pts[0]];
+  for(let i=1;i<pts.length;i++){ const [x0,y0]=pts[i-1], [x1,y1]=pts[i];
+    if(x0!==x1 && y0!==y1){ if(route==="hv") out.push([x1,y0]); else if(route==="vh") out.push([x0,y1]); }
+    out.push([x1,y1]); }
+  return out;
+}
+function _onSegmentInterior(p,a,b){
+  const vx=b[0]-a[0], vy=b[1]-a[1], L2=vx*vx+vy*vy; if(L2<1e-12) return false;
+  const t=((p[0]-a[0])*vx+(p[1]-a[1])*vy)/L2;
+  if(t<=1e-6 || t>=1-1e-6) return false;
+  return Math.hypot(a[0]+t*vx-p[0], a[1]+t*vy-p[1]) < 1e-6;
+}
+function needsJunction(pt){                           // T into a wire, or 3+ connections at one point
+  for(const w of model.objects) if(w.type==="Wire"){
+    const path=wirePath(parseWirePts(w.props.points), w.props.route);
+    for(let i=1;i<path.length;i++) if(_onSegmentInterior(pt, path[i-1], path[i])) return true;
+    for(let i=1;i<path.length-1;i++) if(Math.hypot(path[i][0]-pt[0], path[i][1]-pt[1])<1e-6) return true;   // on a corner
+  }
+  return schPins.filter(p=>_pkey(p.x,p.y)===_pkey(pt[0],pt[1])).length >= 2;
+}
+function addWire(a, b, route){
+  const dots=[]; if(needsJunction(a)) dots.push(0); if(needsJunction(b)) dots.push(1);
+  const node={ id:"o"+(nextId++), type:"Wire", on:ensureSchematicPanel().id,
+               props:{ ...structuredClone(OBJ_DEFAULTS.Wire), points:_num(a[0])+","+_num(a[1])+";"+_num(b[0])+","+_num(b[1]),
+                       route: (a[0]===b[0]||a[1]===b[1]) ? "direct" : route, dots:dots.join(";") } };
+  model.objects.push(node);
+  renderSceneObjs(); renderPreview();
+  setStatus("Leitung hinzugefügt ✓"+(dots.length?" (mit Lötpunkt)":""));
+}
+function _schRender(){ if(_schRAF) return; _schRAF=requestAnimationFrame(()=>{ _schRAF=0; _doRender(); }); }
+function _pointPos(o){ return Array.isArray(o.props.center) ? o.props.center : null; }
+
+// Placing: the new part follows the cursor (snapped) until a click.
+function startPlacing(node){ placing={ id:node.id }; setStatus("Klicke in das Bild, um das Bauteil zu platzieren (R drehen, M spiegeln, Esc abbrechen)"); }
+function movePlacing(px,py){
+  const o=findNode(placing.id); if(!o || !schAffine){ return; }
+  const d=schToData(px,py), c=[_onGrid(d[0]), _onGrid(d[1]), 0];
+  const cur=_pointPos(o); if(cur && cur[0]===c[0] && cur[1]===c[1]) return;
+  o.props.center=c; _schRender();
+}
+function finishPlacing(){ const id=placing.id; placing=null; selectObject(id); renderPreview(); setStatus("Bauteil platziert ✓ — ziehe von einem Anschluss aus, um eine Leitung zu legen"); }
+function cancelPlacing(){ const id=placing.id; placing=null; deleteObject(id); setStatus("Platzieren abgebrochen"); }
+
+// Dragging a part by its body: snapped move; wire ends on its pins follow (rubber band, like KiCad's drag).
+function startPartDrag(o, px, py){
+  const d=schToData(px,py);
+  const mine=new Set(schPins.filter(p=>p.id===o.id).map(p=>_pkey(p.x,p.y)));
+  const attached=[];
+  if(o.type!=="Wire") for(const w of model.objects) if(w.type==="Wire" && w.id!==o.id){
+    const pts=parseWirePts(w.props.points);
+    [0, pts.length-1].forEach(i=>{ if(pts.length>=2 && mine.has(_pkey(pts[i][0],pts[i][1]))) attached.push({ w, i, p0:pts[i].slice() }); });
+  }
+  partDrag={ o, start:d, moved:false, last:[0,0], c0:_pointPos(o) ? _pointPos(o).slice() : null,
+             pts0: o.type==="Wire" ? parseWirePts(o.props.points) : null, attached };
+}
+function movePartDrag(px,py){
+  const pd=partDrag, d=schToData(px,py), del=[_onGrid(d[0]-pd.start[0]), _onGrid(d[1]-pd.start[1])];
+  if(del[0]===pd.last[0] && del[1]===pd.last[1]) return;
+  pd.last=del; pd.moved=true;
+  if(pd.c0) pd.o.props.center=[pd.c0[0]+del[0], pd.c0[1]+del[1], pd.c0[2]||0];
+  if(pd.pts0) pd.o.props.points=pd.pts0.map(p=>_num(p[0]+del[0])+","+_num(p[1]+del[1])).join(";");
+  for(const at of pd.attached){
+    const pts=parseWirePts(at.w.props.points); pts[at.i]=[at.p0[0]+del[0], at.p0[1]+del[1]];
+    at.w.props.points=pts.map(p=>_num(p[0])+","+_num(p[1])).join(";");
+  }
+  _schRender();
+}
+
+// Wiring: drag from a pin; the end snaps to a pin under the cursor, else to the grid.
+function startWire(pin){ wireDrag={ a:[pin.x, pin.y], end:null, route:null }; }
+function moveWire(px,py){
+  const wd=wireDrag, hit=pinAt(px,py), d=schToData(px,py);
+  const end = (hit && _pkey(hit.x,hit.y)!==_pkey(wd.a[0],wd.a[1])) ? [hit.x, hit.y] : [_onGrid(d[0]), _onGrid(d[1])];
+  pinHover = hit;
+  if(!wd.route){ const dx=Math.abs(end[0]-wd.a[0]), dy=Math.abs(end[1]-wd.a[1]); if(dx+dy>=SCH_GRID) wd.route = dx>=dy ? "hv" : "vh"; }
+  wd.end=end; drawMoveGizmoFromCache();
+}
+function finishWire(){
+  const wd=wireDrag; wireDrag=null; pinHover=null;
+  if(wd.end && _pkey(wd.end[0],wd.end[1])!==_pkey(wd.a[0],wd.a[1])) addWire(wd.a, wd.end, wd.route||"hv");
+  else drawMoveGizmoFromCache();
+}
+
+function rotateSelected(){
+  const o = placing ? findNode(placing.id) : selected();
+  if(!o || (o.type!=="Component" && o.type!=="Device")) return false;
+  o.props.rotation = (((Number(o.props.rotation)||0) + 90) % 360 + 360) % 360;
+  renderProps(); _schRender(); return true;
+}
+function mirrorSelected(){
+  const o = placing ? findNode(placing.id) : selected();
+  if(!o) return false;
+  if(o.type==="Component") o.props.label_flip = !o.props.label_flip;
+  else if(o.type==="Device") o.props.flip = !o.props.flip;
+  else return false;
+  renderProps(); _schRender(); return true;
+}
+
+function drawSchematicOverlay(ctx){
+  if(!schAffine) return;
+  const A=schAffine, [x0,x1]=A.x_range, [y0,y1]=A.y_range;
+  if(schGridOn && Math.hypot(A.xx,A.xy)*SCH_GRID >= 6){              // dot grid (too dense when zoomed far out)
+    ctx.fillStyle="rgba(110,120,140,0.55)";
+    for(let x=Math.ceil(x0/SCH_GRID-1e-9)*SCH_GRID; x<=x1+1e-9; x+=SCH_GRID)
+      for(let y=Math.ceil(y0/SCH_GRID-1e-9)*SCH_GRID; y<=y1+1e-9; y+=SCH_GRID){
+        const [px,py]=schToPx(x,y), major=Math.abs(x-Math.round(x))<1e-9 && Math.abs(y-Math.round(y))<1e-9, r=major?2.4:1.4;
+        ctx.fillRect(px-r,py-r,2*r,2*r);
+      }
+  }
+  const count={}; for(const p of schPins){ const k=_pkey(p.x,p.y); count[k]=(count[k]||0)+1; }
+  ctx.lineWidth=2.5; ctx.strokeStyle="rgba(214,39,40,0.8)";
+  for(const p of schPins){                                           // open pin = small red ring
+    if(p.type==="Node" || count[_pkey(p.x,p.y)]>1) continue;
+    const w=_onAnyWire([p.x,p.y]); if(w && w!==p.id) continue;      // ends on another wire (T) = connected
+    ctx.beginPath(); ctx.arc(p.px,p.py,7,0,2*Math.PI); ctx.stroke();
+  }
+  if(schSelBox){ const [bx0,by0,bx1,by1]=schSelBox, pad=10;
+    ctx.strokeStyle="rgba(90,150,240,0.9)"; ctx.lineWidth=2.5; ctx.setLineDash([12,8]);
+    ctx.strokeRect(bx0-pad,by0-pad,(bx1-bx0)+2*pad,(by1-by0)+2*pad); ctx.setLineDash([]); }
+  if(wireDrag && wireDrag.end){                                      // preview of the new wire
+    const path=wirePath([wireDrag.a, wireDrag.end], wireDrag.route||"hv");
+    ctx.strokeStyle="rgba(40,140,255,0.95)"; ctx.lineWidth=4; ctx.setLineDash([14,8]);
+    ctx.beginPath(); path.forEach((p,i)=>{ const [px,py]=schToPx(p[0],p[1]); if(i) ctx.lineTo(px,py); else ctx.moveTo(px,py); }); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+  if(pinHover){ ctx.fillStyle="rgba(40,140,255,0.3)"; ctx.strokeStyle="rgba(40,140,255,0.95)"; ctx.lineWidth=3;
+    ctx.beginPath(); ctx.arc(pinHover.px,pinHover.py,11,0,2*Math.PI); ctx.fill(); ctx.stroke(); }
+}
 // "Ergebnisse" section: checkboxes for the results this object type offers (see RESULT_CATALOG).
 // Checking one adds a configurable DecimalNumber child placed near the object; the interpreter
 // fills in the computed value after the "symbol = formula = " prefix.
@@ -1986,6 +2219,8 @@ async function boot(){
   glConstFn = pyodide.globals.get("gl_constants");
   setGlEnabledFn = pyodide.globals.get("set_gl_enabled");
   svgFn = pyodide.globals.get("export_svg");
+  circuitPinsFn = pyodide.globals.get("circuit_pins");
+  panelAffineFn = pyodide.globals.get("panel_affine");
   // Start the WebGL 3D layer. If it fails (no WebGL), tell Python so it keeps the flat CPU surface.
   let _glok=false; try{ _glok=gl3d.init(); if(_glok && glConstFn){ try{ gl3d.setConstants(JSON.parse(glConstFn())); }catch(e){} } }catch(e){ console.error(e); }
   if(setGlEnabledFn){ try{ setGlEnabledFn(!!_glok); }catch(e){} }
@@ -2007,9 +2242,21 @@ async function boot(){
       _holdTimer=setTimeout(()=>{ if(dragging) enterLowDetail(); }, HOLD_MS);
       return;
     }
+    if(schAffine && !playing){                    // schematic: place / wire from a pin / drag a part by its body
+      if(placing){ finishPlacing(); return; }
+      const pin=pinAt(mpx,mpy);
+      if(pin){ startWire(pin); canvas.setPointerCapture(e.pointerId); return; }
+      if(e.shiftKey){                             // Shift = wire tool: start anywhere on the grid (e.g. a T off a wire)
+        const d=schToData(mpx,mpy); startWire({ x:_onGrid(d[0]), y:_onGrid(d[1]) }); canvas.setPointerCapture(e.pointerId); return; }
+      const id=pickFn ? String(pickFn(mpx,mpy)) : "", o=id ? findNode(id) : null;
+      if(o && CIRCUIT_TYPES.has(o.type)){ selectObject(o.id); startPartDrag(o, mpx, mpy); canvas.setPointerCapture(e.pointerId); canvas.style.cursor="move"; return; }
+    }
     if(pickFn){ const id=String(pickFn(mpx,mpy)); if(id) selectObject(id); }   // 2D: select on press -> gizmo appears
   };
   canvas.onpointermove = (e)=>{
+    if(placing && schAffine){ const [qx,qy]=pxy(e); movePlacing(qx,qy); return; }
+    if(wireDrag){ const [qx,qy]=pxy(e); moveWire(qx,qy); return; }
+    if(partDrag){ const [qx,qy]=pxy(e); movePartDrag(qx,qy); return; }
     if(moveDrag){                                 // dragging an axis arrow -> move the object along that axis
       const [cpx,cpy]=pxy(e);
       if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>2) moved=true;
@@ -2031,10 +2278,17 @@ async function boot(){
     if(!playing){                                 // hover: highlight an axis arrow under the cursor
       const [hpx,hpy]=pxy(e); const h=_moveHandleAt(hpx,hpy); const k=h?h.axis.k:null;
       if(k!==moveHover){ moveHover=k; canvas.style.cursor=k?"grab":"default"; drawMoveGizmoFromCache(); }
+      if(schAffine && !k){                        // a pin under the cursor -> highlight, crosshair (start a wire)
+        const p=pinAt(hpx,hpy);
+        if(p!==pinHover){ pinHover=p; canvas.style.cursor=p?"crosshair":"default"; drawMoveGizmoFromCache(); }
+      }
     }
   };
   canvas.onpointerup = (e)=>{
     clearTimeout(_holdTimer);
+    if(wireDrag){ finishWire(); canvas.style.cursor="default"; return; }
+    if(partDrag){ const pd=partDrag; partDrag=null; canvas.style.cursor="default";
+      if(pd.moved){ renderProps(); renderPreview(); setStatus("Verschoben ✓ (Raster "+SCH_GRID+")"); } return; }
     if(moveDrag){ moveDrag=null; canvas.style.cursor=moveHover?"grab":"default"; if(moved){ renderProps(); renderPreview(); } return; }   // one authoritative rebuild reconciles the live nudges
     if(dragging){
       dragging=false;
@@ -2044,7 +2298,7 @@ async function boot(){
     if(!pickFn) return;                                                      // otherwise it was a click -> pick
     const [px,py]=pxy(e); const id=String(pickFn(px,py)); if(id) selectObject(id); else deselect();   // empty click -> deselect
   };
-  canvas.onpointercancel = ()=>{ clearTimeout(_holdTimer); dragging=false; moveDrag=null; if(_lowDetail) exitLowDetail(); };
+  canvas.onpointercancel = ()=>{ clearTimeout(_holdTimer); dragging=false; moveDrag=null; wireDrag=null; partDrag=null; if(_lowDetail) exitLowDetail(); };
   // Mouse-wheel zoom: scale camera.zoom about 1.0, low-detail + fast-repaint while scrolling, full on settle.
   let _zoomTimer=null;
   canvas.onwheel = (e)=>{
@@ -2095,6 +2349,8 @@ $("angle-unit").onchange = (e) => { model.angleUnit = e.target.value; stopPlay()
 $("domain-mode").value = model.domain;
 $("domain-mode").onchange = (e) => { model.domain = e.target.value; stopPlay(); renderPreview(); };
 
+$("grid-toggle").onchange = (e) => { schGridOn = e.target.checked; drawMoveGizmoFromCache(); };
+
 $("view-mode").value = model.camera.mode;
 $("view-mode").onchange = (e) => { model.camera.mode = e.target.value; stopPlay(); renderPreview(); };
 
@@ -2103,6 +2359,15 @@ document.addEventListener("keydown", (e)=>{
   const tag = document.activeElement && document.activeElement.tagName;
   if(tag==="INPUT" || tag==="SELECT" || tag==="TEXTAREA") return;      // don't hijack typing
   const mod = e.ctrlKey || e.metaKey;
+  // Schematic keys as in KiCad/LTspice: R rotate 90°, M mirror, Esc cancel, Del delete, G grid on/off.
+  if(!mod && !e.altKey){
+    const k=e.key.toLowerCase();
+    if(k==="r" && rotateSelected()){ e.preventDefault(); return; }
+    if(k==="m" && mirrorSelected()){ e.preventDefault(); return; }
+    if(k==="g" && schematicPanel()){ schGridOn=!schGridOn; const gt=$("grid-toggle"); if(gt) gt.checked=schGridOn; drawMoveGizmoFromCache(); return; }
+    if(e.key==="Escape"){ if(placing){ cancelPlacing(); return; } if(wireDrag){ wireDrag=null; pinHover=null; drawMoveGizmoFromCache(); return; } }
+    if((e.key==="Delete" || e.key==="Backspace") && selected()){ e.preventDefault(); deleteObject(selected().id); return; }
+  }
   if(mod && e.key==="c"){ const o=selected(); if(o){ clipboard=cloneSpec(o); setStatus("Kopiert: "+o.type); } }
   else if(mod && e.key==="v"){ if(clipboard){ const copy=recolorFresh(cloneSpec(clipboard)); model.objects.push(copy); model.selectedId=copy.id; renderSceneObjs(); renderProps(); renderPreview(); } }
 });

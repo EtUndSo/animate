@@ -356,7 +356,7 @@ def _as_func(v):
 # Free-text props: never interpreted as constant names (a label "UP" must stay the text "UP").
 _TEXT_KEYS = {"text", "label", "labels", "value", "title", "x_label", "y_label", "z_label", "current", "voltage",
               "name", "cells", "row_labels", "col_labels", "dx_label", "dy_label", "tex", "prefix", "suffix",
-              "data", "points", "x", "y", "values", "kind", "material", "shape"}
+              "data", "points", "x", "y", "values", "kind", "material", "shape", "symbol_style"}
 
 
 def _resolve_arg(key, value):
