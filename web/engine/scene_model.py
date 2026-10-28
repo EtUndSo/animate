@@ -402,6 +402,14 @@ def _init_params(cls):
         return set()
 
 
+def _init_takes_any(cls):
+    """True if the constructor has **kwargs (or cannot be inspected): then every prop is passed on."""
+    try:
+        return any(p.kind is inspect.Parameter.VAR_KEYWORD for p in inspect.signature(cls).parameters.values())
+    except (ValueError, TypeError):
+        return True
+
+
 def _c2p_fn(axes):
     """Data->world mapper that also works WITHOUT an axes (then data == world).
     Lets annotation objects (Marker/Measure) be built in world coordinates so arrow cones/dots
@@ -1321,6 +1329,12 @@ def _build_object(spec, objects, axes=None):
         for k in ("color", "fill_opacity", "stroke_width"):
             if k in style and k in accepted:
                 kwargs[k] = style[k]
+        if not _init_takes_any(OBJECT_TYPES[t]):         # a prop the class does not know (older file, typo):
+            unknown = [k for k in kwargs if k not in accepted]   # skip it instead of failing the whole scene
+            for k in unknown:
+                kwargs.pop(k)
+            if unknown:
+                print(f"[scene] {spec.get('id', t)} ({t}): ignored unknown prop(s) {', '.join(unknown)}")
         obj = OBJECT_TYPES[t](**kwargs)
         # A 2D/data object's coordinates are DATA coordinates: map them onto the axes so e.g.
         # center=(1,0) sits on the tick '1'. WORLD/3D objects (solids) are left in world coordinates.
@@ -1626,6 +1640,14 @@ class ModelScene(Scene):
                 a = spec.get("args", {})
                 name = str(a.get("name", "")).strip()
                 if name:
+                    # A name that is a built-in variable/function (x, e, u = step, max, ln, ...) would be
+                    # ignored by _safe_names and the curve silently wrong -> say so instead.
+                    if not re.fullmatch(r"[A-Za-z]\w*", name):
+                        raise ValueError(f"Parametername „{name}“ ist ungültig: nur Buchstaben, Ziffern und _, "
+                                         "beginnend mit einem Buchstaben")
+                    if name in _RESERVED_PARAM_NAMES or name in _SAFE_NAMES:
+                        raise ValueError(f"Parametername „{name}“ ist schon vergeben (eingebaute Variable "
+                                         f"oder Funktion), bitte umbenennen, z. B. „{name}1“")
                     try:
                         _PARAMS[name] = float(a.get("value", 0.0))
                     except (TypeError, ValueError):
