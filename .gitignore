@@ -25,3 +25,6 @@ id_*
 animate
 animate.pub
 *.key
+
+# Lokale Sicherung der alten Artikel (Inhalt steht in der git-Historie)
+archiv/

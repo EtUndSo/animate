@@ -21,9 +21,51 @@ Szene: st1/mos-feldeffekttransistoren/04-kapazitaeten-uebersicht · Vorlage: que
 **Abbildung 1:** (a) Querschnitt des Beispiel-NMOS, schematisch: Das Gate liegt über 5 nm Oxid und ist 1,1 µm lang, der Kanal darunter 1 µm, sodass es Source und Drain je 50 nm überlappt. Arbeitspunkt $U_{GS}$ = 1 V, $U_{DS}$ = 1 V, Source und Bulk an Masse: Der Kanal endet als Keil vor dem Drain. Kapazitätssymbole an den Orten der Ladung, jeweils mit einer Linie zu dem Anschluss, aus dem die Gegenladung kommt: zwei Überlappungskapazitäten an den Gatekanten (je 3,45 fF), vom Gate zum Kanal $C_{GS}$ (46,0 fF) und $C_{GD}$ (0), durch die Verarmungszone zum Bulk $C_{GB}$ (praktisch 0), an Boden und Rand der n⁺-Gebiete $C_{SB}$ (53,1 fF) und $C_{DB}$ (37,8 fF). (b) Schaltzeichen mit den fünf Kapazitäten zwischen den Anschlüssen: $C_{GS}$ = 49,5 fF mit Überlappung, $C_{GD}$ = 3,45 fF, $C_{GB}$ ≈ 0, $C_{SB}$ = 53,1 fF, $C_{DB}$ = 37,8 fF. Zwischen allen vier Anschlüssen liegen Kapazitäten; ihr Wert hängt davon ab, wo die Ladung sitzt, und ändert sich mit dem Betriebsbereich.
 :::
 
+## Von Grund auf: Kondensator, Ladungen im NMOS und Kapazität als Steigung
+
+*Was muss man über Kondensatoren und über den Aufbau des NMOS wissen, bevor man seine Kapazitäten bestimmen kann?*
+
+:::grafik
+Szene: st1/mos-feldeffekttransistoren/04-grundlagen · Vorlage: grundlagen-dreiteilig
+**Abbildung 2:** Die drei Grundbausteine. (a) Das Gate des Beispieltransistors als Plattenkondensator: eine Platte von 10 µm mal 1 µm über 5 nm Oxid und einer leitenden Gegenplatte, bei 1 V +69,1 fC auf dem Gate und −69,1 fC auf der Gegenplatte, jede Ladung mit einem Pfeil durch ihren eigenen Anschluss; daneben die Spannung über der Zeit beim Laden mit festen 0,25 mA, eine Gerade, die nach 0,28 ns 1 V erreicht, und beim Laden über 10 kΩ, eine Kurve, die nach 0,69 ns 63 % ihres Endwerts erreicht. (b) Querschnitt des Beispiel-NMOS, schematisch: p-Bulk mit ortsfesten negativen Akzeptorrümpfen und beweglichen Löchern (rot), n⁺-Source und n⁺-Drain mit Elektronen (blau), Gate über dem Oxid, grau die Verarmungszonen unter dem Gate und um Source und Drain; oben bei $U_{GS}$ = 1,5 V und kleiner Drain-Source-Spannung mit gleichmäßigem Kanal bis zum Drain, unten bei $U_{GS}$ = $U_{DS}$ = 1 V mit einem Kanal, der als Keil vor dem Drain endet. (c) Ladung, die ins Gate fließt, wenn man es von 0 V an hebt, Source, Drain und Bulk an Masse, über $U_{GS}$ von 0 bis 1,5 V: 9,8 fC bis 0,5 V, 37,1 fC bis 1 V, 69,7 fC bis 1,5 V; orange die Tangenten bei 0 V mit der Steigung 20,7 fF und bei 1 V mit 63,7 fF, grau gestrichelt die Gerade eines Plattenkondensators mit 69,1 fF. Ladung und Gegenladung fließen durch verschiedene Anschlüsse, im Transistor sitzen sie an mehreren Orten, und seine Kapazität ist die Steigung einer gekrümmten Ladungskurve.
+:::
+
+### Der Kondensator: Ladung, Gegenladung und Umladezeit
+
+Ein __Kondensator__ besteht aus zwei Leitern, die ein Isolator trennt. Legt man eine Spannung an, fließt über den Anschluss des einen Leiters positive Ladung zu, und über den Anschluss des anderen fließt ebenso viel ab; auf ihm bleibt die __Gegenladung__ zurück, gleich groß und mit umgekehrtem Vorzeichen. Durch den Isolator selbst fließt keine Ladung. Die Ladung wächst proportional zur Spannung, und der Faktor ist die __Kapazität__ in Farad, Coulomb je Volt ([Der Kondensator und seine Kapazität](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/kondensator-und-kapazitaet.html)):
+
+$$Q = C\,U$$
+
+Bei zwei parallelen Platten ist die Kapazität umso größer, je größer die Fläche und je dünner der Isolator ist: Permittivität mal Fläche durch Abstand. Das Gate des Beispieltransistors ist eine solche Platte (Abbildung 2a), 10 µm breit und 1 µm lang über 5 nm Siliziumdioxid. Läge darunter eine leitende Gegenplatte, hätte dieser Kondensator 69,1 fF, die __Oxidkapazität__ $C_\mathrm{ox}$; bei 1 V trüge das Gate 69,1 fC, so viel wie 431 000 Elementarladungen.
+
+Ladung fließt nur, solange sich die Spannung ändert, und das kostet Zeit. Liefert eine Quelle einen festen Strom, steigt die Spannung gleichmäßig, umso schneller, je größer der Strom und je kleiner die Kapazität ist: Mit 0,25 mA braucht die Oxidkapazität für 1 V 0,28 ns. Lädt man über einen Widerstand, sinkt der Strom, je näher die Spannung ihrem Endwert kommt; nach der __Zeitkonstante__, Widerstand mal Kapazität, sind 63 % erreicht, mit 10 kΩ und 69,1 fF nach 0,69 ns ([Laden und Entladen des Kondensators](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/laden-und-entladen.html)). So verlangsamt jede Kapazität den Knoten einer Schaltung, an dem sie hängt.
+
+:::frage
+„Fließt beim Umladen ein Strom durch das Oxid?“
+Nein, kein Elektron durchquert das Oxid. In den einen Anschluss fließt Ladung hinein, aus dem anderen gleich viel heraus, und dazwischen ändert sich nur das elektrische Feld im Isolator. Von außen sieht es trotzdem aus, als flösse der Strom hindurch, weil in jedem Augenblick beide Ströme gleich sind: Lädt man die Oxidkapazität mit 0,25 mA in 0,28 ns um 1 V, fließen 0,25 mA ins Gate, und dieselben 0,25 mA fließen über einen anderen Anschluss aus dem Silizium ab. Durch das Gate fließt deshalb nur während einer Änderung Strom, bei festen Spannungen keiner.
+:::
+
+### Der NMOS: wo im Transistor Ladung sitzt
+
+Der Beispieltransistor ist ein __NMOS__-Transistor (Abbildung 2b). Sein Grundkörper, der __Bulk__, ist p-dotiertes Silizium: Jedes eingebaute Dotieratom, ein __Akzeptor__, hat ein zusätzliches Elektron gebunden und ist damit ortsfest negativ geladen, und ebenso viele bewegliche __Löcher__, Fehlstellen mit positiver Ladung, halten das Gebiet neutral. Im Bulk liegen zwei stark n-dotierte Gebiete, __Source__ und __Drain__, mit rund 10²⁰ beweglichen Elektronen pro Kubikzentimeter, und zwischen ihnen auf dem 5 nm dünnen Oxid das __Gate__. Über die vier Anschlüsse Gate, Source, Drain und Bulk fließt jede Ladung zu oder ab ([Aufbau und Funktionsweise des MOSFET](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/aufbau-und-funktionsweise-ausfuehrlich.html)).
+
+Wo die Löcher fehlen, bleiben nur die negativen Akzeptorrümpfe: eine __Verarmungszone__, frei von beweglichen Ladungsträgern und deshalb für Gleichstrom isolierend; an pn-Übergängen heißt sie auch __Raumladungszone__. Solche Zonen liegen um Source und Drain, an ihren pn-Übergängen zum Bulk, und unter dem Gate, sobald es die Löcher von der Oberfläche verdrängt, beim Beispieltransistor schon bei 0 V. Liegt das Gate mehr als die __Schwellenspannung__ $U_{th}$ = 0,5 V über der Source, sammeln sich unter dem Oxid außerdem Elektronen aus Source und Drain und bilden den __Kanal__, eine dünne leitende Schicht zwischen beiden.
+
+Wie weit der Kanal reicht, hängt von der Drain-Source-Spannung ab. Ist sie klein, reicht er gleichmäßig von der Source bis zum Drain, im __ohmschen Bereich__. Übersteigt sie die __Übersteuerung__ $U_{GS} - U_{th}$, um die das Gate die Schwelle übersteigt, endet er vor dem Drain, er ist __abgeschnürt__: der __Abschnürbereich__, in dem Verstärker arbeiten, beim Beispieltransistor zum Beispiel bei $U_{GS}$ = $U_{DS}$ = 1 V ([Kennlinien des NMOS-Transistors](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/kennlinien-ausfuehrlich.html)). Ladung ändert sich im Transistor also an mehreren Stellen: auf dem Gate, im Kanal, in den Verarmungszonen und in Source und Drain, und jede Änderung fließt über einen der vier Anschlüsse zu oder ab.
+
+### Kapazität als Steigung
+
+Bei einem Kondensator aus Metallplatten sitzen Ladung und Gegenladung auf festen Flächen. Im Halbleiter nicht: Mit der Spannung wird eine Verarmungszone breiter, oder ein Kanal entsteht und füllt sich, und die Ladung wächst nicht mehr proportional zur Spannung. Abbildung 2c zeigt das am Gate des Beispieltransistors, wenn Source, Drain und Bulk an Masse liegen. Hebt man das Gate von 0 auf 0,5 V, fließen nur 9,8 fC zu, von 0,5 auf 1 V dagegen 27,3 fC und von 1 auf 1,5 V 32,6 fC.
+
+Für eine kleine Änderung um einen festen Betriebszustand, den __Arbeitspunkt__, sieht jede glatte Kurve wie eine Gerade aus, ihre __Tangente__. Deren Steigung ist die Kapazität für diese kleine Änderung, die __Kleinsignalkapazität__:
+
+$$C = \frac{\mathrm dQ}{\mathrm dU}$$
+
+Beim Beispieltransistor sind es bei 0 V 20,7 fF und bei 1 V 63,7 fF: Ein Signal von 10 mV schiebt bei 0 V 0,207 fC ins Gate, bei 1 V 0,637 fC, dreimal so viel. Man definiert die Kapazität so, weil ein kleines Signal genau diese Steigung als gewöhnlichen Kondensator erlebt. Alle Kapazitäten dieses Artikels sind in diesem Sinn Steigungen in einem Arbeitspunkt.
+
 ## Kapazitäten zwischen den Anschlüssen
 
-*Was bedeutet Kapazität bei einem Bauelement mit vier Anschlüssen, dessen Ladungen nicht proportional zu den Spannungen wachsen?*
+*Was bedeutet Kapazität bei einem Bauelement mit vier Anschlüssen?*
 
 Am Beispieltransistor lässt sich das an einem Versuch ablesen. Er arbeitet mit $U_{GS}$ = 1 V und $U_{DS}$ = 1 V im Abschnürbereich, Source und Bulk liegen an Masse. Hebt man das Gate um 10 mV an, während Source, Drain und Bulk fest bleiben, fließen 0,53 fC in das Gate; es verhält sich für diese kleine Änderung wie ein Kondensator von 0,53 fC je 10 mV, also 53 fF. Hält man stattdessen das Gate fest und senkt die Source um 10 mV, fließen 0,495 fC in das Gate, senkt man den Drain, nur 0,035 fC, und senkt man den Bulk, praktisch nichts. Die 53 fF des Gates verteilen sich also auf die drei anderen Anschlüsse: 49,5 fF zur Source, 3,45 fF zum Drain, nichts zum Bulk.
 
@@ -31,7 +73,7 @@ In Worten: Die Kapazität zwischen dem Gate und einem anderen Anschluss ist die 
 
 **Die Akteure:**
 
-- __$Q_G$__: Ladung auf dem Gate; in fC. Beim NMOS ist sie oberhalb der Flachbandspannung positiv; ihre Gegenladung liegt im Silizium darunter oder in den n⁺-Gebieten.
+- __$Q_G$__: Ladung auf dem Gate; in fC; im Betrieb positiv. Ihre Gegenladung liegt im Silizium darunter oder in den n⁺-Gebieten.
 - __$U_{GD}$__, __$U_{GB}$__: Spannung vom Gate zum Drain bzw. zum Bulk, neben $U_{GS}$ die beiden anderen Spannungen am Gate; $U_{GD}$ ist $U_{GS} - U_{DS}$, im Arbeitspunkt oben 0 V, $U_{GB}$ ist dort 1 V.
 - __$C_{GS}$__, __$C_{GD}$__, __$C_{GB}$__: Gate-Source-, Gate-Drain- und Gate-Bulk-Kapazität; in fF; im Arbeitspunkt oben 49,5 fF, 3,45 fF und praktisch 0. In Kleinsignal-Ersatzschaltbildern schreibt man sie auch mit kleinen Indizes, $C_{gs}$.
 - __$C_G$__: Kapazität des ganzen Gates, die Änderung der Gateladung, wenn sich nur das Gatepotential ändert; 53 fF im Arbeitspunkt oben.
@@ -40,7 +82,7 @@ In Worten: Die Kapazität zwischen dem Gate und einem anderen Anschluss ist die 
 $$C_{GS} = \frac{\partial Q_G}{\partial U_{GS}}, \qquad C_{GD} = \frac{\partial Q_G}{\partial U_{GD}}, \qquad C_{GB} = \frac{\partial Q_G}{\partial U_{GB}}$$
 :::
 
-**So liest man das:** Jede der drei Kapazitäten ist eine partielle Ableitung, die Ableitung nach einer der drei Spannungen, während die beiden anderen fest bleiben; das Zeichen ∂ statt d erinnert daran, dass $Q_G$ von mehreren Spannungen abhängt. Die Kapazitäten gelten für kleine Änderungen um einen Arbeitspunkt und hängen von ihm ab, deshalb nennt man sie auch Kleinsignalkapazitäten. Ändert sich nur das Gatepotential, ändern sich alle drei Spannungen um denselben Betrag, und die Kapazität des ganzen Gates ist die Summe:
+**So liest man das:** Jede der drei Kapazitäten ist eine partielle Ableitung, die Ableitung nach einer der drei Spannungen, während die beiden anderen fest bleiben; das Zeichen ∂ statt d erinnert daran, dass $Q_G$ von mehreren Spannungen abhängt. Wie jede Kleinsignalkapazität (Abschnitt *Von Grund auf*) gelten sie für kleine Änderungen um einen Arbeitspunkt und hängen von ihm ab. Ändert sich nur das Gatepotential, ändern sich alle drei Spannungen um denselben Betrag, und die Kapazität des ganzen Gates ist die Summe:
 
 $$C_G = C_{GS} + C_{GD} + C_{GB}$$
 
@@ -78,11 +120,6 @@ $$C_G = \frac{\mathrm dQ_G}{\mathrm dU} = C_{GS} + C_{GD} + C_{GB}$$
 **Grenzen:** Bei großen Spannungssprüngen ändern sich die Kapazitäten unterwegs; dann rechnet man mit den Ladungen selbst statt mit den Kapazitäten.
 :::
 
-:::frage
-„Warum spricht man von einer Kapazität, obwohl die Ladung gar nicht proportional zur Spannung wächst?“
-Für kleine Änderungen um einen Arbeitspunkt ist jede glatte Kurve fast eine Gerade, und ihre Steigung ist die Kapazität. Ein Signal von wenigen Millivolt sieht deshalb einen gewöhnlichen Kondensator, dessen Wert allerdings vom Arbeitspunkt abhängt. Über größere Bereiche ändert er sich stark: Die Gatekapazität des Beispieltransistors mit verbundener Source, Drain und Bulk beträgt bei 0 V das 0,30-Fache der Oxidkapazität, bei 0,35 V das 0,26-Fache und bei 1 V das 0,92-Fache (Abschnitt *Die Gatekapazität vom gesperrten Zustand bis zur Inversion*).
-:::
-
 Für die beiden pn-Übergänge gilt dasselbe mit der Ladung in ihren Raumladungszonen: $C_{SB}$ und $C_{DB}$ sind die Änderungen dieser Ladungen je Änderung von $U_{SB}$ bzw. $U_{DB}$. Insgesamt liegen zwischen den vier Anschlüssen sieben Kapazitäten:
 
 | Kapazität | Ladung, Gegenladung und Abhängigkeit |
@@ -100,10 +137,10 @@ Die beiden Überlappungskapazitäten $C_\mathrm{ov}$, an den Kanten, wo das Gate
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-gatekapazitaet · Vorlage: kennlinie-anteile
-**Abbildung 2:** Gatekapazität des Beispieltransistors bezogen auf $C_\mathrm{ox}$ = 69,1 fF über $U_{GS}$ von −2,5 V bis 2,5 V, Drain und Bulk auf dem Potential der Source. Obere Kante: gesamte Gatekapazität, 0,96 bei −2,5 V, 0,73 bei der Flachbandspannung −1,03 V, 0,30 bei 0 V, Minimum 0,26 bei 0,35 V, 0,40 an der Schwelle 0,5 V, 0,92 bei 1 V und 0,98 bei 2,5 V. Darunter als gestapelte Flächen der Bulkanteil $C_{GB}$ (grau), bis 0 V gleich der ganzen Kapazität, an der Schwelle 0,198 und bei 1 V 0,015, und der Kanalanteil $C_{GS} + C_{GD}$ (blau, je zur Hälfte Source und Drain), an der Schwelle ebenfalls 0,198, bei 1 V 0,907 und bei 2,5 V 0,976. Gestrichelt der MOS-Kondensator ohne Source und Drain bei hoher Frequenz, 0,25 an der Schwelle und 0,23 bei 2,5 V. Unterhalb der Schwelle liegt die Gegenladung im Bulk, oberhalb liefern Source und Drain die Elektronen; im Transistor kehrt die Gatekapazität deshalb auch bei hoher Frequenz auf $C_\mathrm{ox}$ zurück, und der Bulkanteil verschwindet.
+**Abbildung 3:** Gatekapazität des Beispieltransistors bezogen auf $C_\mathrm{ox}$ = 69,1 fF über $U_{GS}$ von −2,5 V bis 2,5 V, Drain und Bulk auf dem Potential der Source. Obere Kante: gesamte Gatekapazität, 0,96 bei −2,5 V, 0,73 bei der Flachbandspannung −1,03 V, 0,30 bei 0 V, Minimum 0,26 bei 0,35 V, 0,40 an der Schwelle 0,5 V, 0,92 bei 1 V und 0,98 bei 2,5 V. Darunter als gestapelte Flächen der Bulkanteil $C_{GB}$ (grau), bis 0 V gleich der ganzen Kapazität, an der Schwelle 0,198 und bei 1 V 0,015, und der Kanalanteil $C_{GS} + C_{GD}$ (blau, je zur Hälfte Source und Drain), an der Schwelle ebenfalls 0,198, bei 1 V 0,907 und bei 2,5 V 0,976. Gestrichelt der MOS-Kondensator ohne Source und Drain bei hoher Frequenz, 0,25 an der Schwelle und 0,23 bei 2,5 V. Unterhalb der Schwelle liegt die Gegenladung im Bulk, oberhalb liefern Source und Drain die Elektronen; im Transistor kehrt die Gatekapazität deshalb auch bei hoher Frequenz auf $C_\mathrm{ox}$ zurück, und der Bulkanteil verschwindet.
 :::
 
-Liegen Source, Drain und Bulk auf demselben Potential, ist der Transistor ein MOS-Kondensator mit zwei n⁺-Gebieten am Rand. Seine Zustände sind aus [Aufbau und Funktionsweise des MOSFET](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/aufbau-und-funktionsweise-ausfuehrlich.html) bekannt: __Anreicherung__, wenn Löcher an der Oberfläche angereichert sind, __Verarmung__, wenn sie von dort verdrängt sind und nur die ortsfesten, negativ geladenen Akzeptorrümpfe zurückbleiben, und __Inversion__, wenn sich Elektronen an der Oberfläche sammeln. Für die Kapazität zählt in jedem Zustand nur eines: wo die Gegenladung zu- und abfließt, wenn sich die Gatespannung ein wenig ändert.
+Abbildung 3 trägt die Steigung der Ladungskurve aus Abbildung 2c über einem größeren Spannungsbereich auf, aufgeteilt nach dem Anschluss, aus dem die Gegenladung kommt. Liegen Source, Drain und Bulk auf demselben Potential, ist der Transistor ein MOS-Kondensator mit zwei n⁺-Gebieten am Rand. Seine Zustände sind aus [Aufbau und Funktionsweise des MOSFET](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/aufbau-und-funktionsweise-ausfuehrlich.html) bekannt: __Anreicherung__, wenn Löcher an der Oberfläche angereichert sind, __Verarmung__, wenn sie von dort verdrängt sind und unter dem Gate eine Verarmungszone liegt, und __Inversion__, wenn sich Elektronen an der Oberfläche sammeln und einen Kanal bilden. Für die Kapazität zählt in jedem Zustand nur eines: wo die Gegenladung zu- und abfließt, wenn sich die Gatespannung ein wenig ändert.
 
 **Die Akteure:**
 
@@ -112,7 +149,7 @@ Liegen Source, Drain und Bulk auf demselben Potential, ist der Transistor ein MO
 - __$y_d$__: Tiefe der Verarmungszone unter dem Gate; 35,9 nm bei $U_{GS}$ = 0 und 45,8 nm an der Schwelle nach der Verarmungsnäherung, die die Zone als scharf begrenzt und frei von Löchern annimmt.
 - __$C_\mathrm{dep}$__: Kapazität der Verarmungszone unter dem Gate, $\varepsilon_\mathrm{Si} W L/y_d$; 28,9 fF bei $U_{GS}$ = 0.
 
-**Das Zusammenspiel:** Unterhalb der Flachbandspannung sitzt die Gegenladung als Löcherschicht direkt unter dem Oxid, und die Löcher kommen über den Bulkanschluss. Die Kapazität ist dann fast die des Oxids, bei −2 V das 0,95-Fache, 65,4 fF; sie gehört ganz zu $C_{GB}$ (Abbildung 2, links).
+**Das Zusammenspiel:** Unterhalb der Flachbandspannung sitzt die Gegenladung als Löcherschicht direkt unter dem Oxid, und die Löcher kommen über den Bulkanschluss. Die Kapazität ist dann fast die des Oxids, bei −2 V das 0,95-Fache, 65,4 fF; sie gehört ganz zu $C_{GB}$ (Abbildung 3, links).
 
 In der Verarmung ändert eine kleine Gatespannung die Breite der Verarmungszone: Ladung kommt und geht an ihrem unteren Rand, $y_d$ tief im Silizium, wo der Bulk Löcher zuführt oder abzieht. Zwischen Gate und dieser Stelle liegen hintereinander das Oxid und die Zone, zwei Kondensatoren in Reihe, und die Kapazität sinkt. Bei $U_{GS}$ = 0 sind es nur noch 0,30 $C_\mathrm{ox}$, 20,7 fF. Ein gesperrter Transistor, dessen Gate auf 0 V liegt, belastet die treibende Stufe also mit knapp einem Drittel seiner Oxidkapazität.
 
@@ -185,7 +222,7 @@ $$C_{GB} = \frac{69{,}06\ \mathrm{fF}\cdot28{,}9\ \mathrm{fF}}{69{,}06\ \mathrm{
 **Einordnung:** Die Verarmungszone ist mit 36 nm siebenmal so dick wie das Oxid, hat aber die dreifache Permittivität; deshalb ist ihre Kapazität nur 2,4-mal kleiner als die des Oxids, und die Reihenschaltung landet bei knapp einem Drittel. Die volle Oxidkapazität erreicht ein gesperrter NMOS mit n⁺-Gate erst bei Gatespannungen deutlich unter −1 V, die in normalen Schaltungen nicht vorkommen.
 ::::
 
-An der Schwelle beginnen sich Elektronen an der Oberfläche zu sammeln, und hier unterscheidet sich der Transistor vom MOS-Kondensator ohne Source und Drain. Beim Kondensator können die Elektronen nur durch Wärme entstehen, als Elektron-Loch-Paare in der Verarmungszone; beim Beispiel dauert der Aufbau der Inversionsschicht rund 90 s. Schon bei langsamen Messsignalen folgt ihre Zahl der Spannung nicht mehr, die Ladung pendelt weiter am Rand der Verarmungszone, und die Kapazität bleibt bei 0,23 bis 0,25 $C_\mathrm{ox}$ (Abbildung 2, gestrichelt). Im Transistor grenzen die n⁺-Gebiete von Source und Drain, die 10²⁰ Elektronen pro Kubikzentimeter enthalten, unmittelbar an den Kanal. Sie liefern die Elektronen über den Kanal nach, mit der Zeitkonstante aus Kanalwiderstand und Oxidkapazität: Bei $U_{GS}$ = 1 V hat der Kanal 1 kΩ, und 1 kΩ mal 69 fF ergibt 69 ps. Die Kapazität des Transistors kehrt deshalb oberhalb der Schwelle auf $C_\mathrm{ox}$ zurück, 0,92 $C_\mathrm{ox}$ bei 1 V und 0,98 $C_\mathrm{ox}$ bei 2,5 V, und das bis zu Frequenzen im Gigahertzbereich.
+An der Schwelle beginnen sich Elektronen an der Oberfläche zu sammeln, und hier unterscheidet sich der Transistor vom MOS-Kondensator ohne Source und Drain. Beim Kondensator können die Elektronen nur durch Wärme entstehen, als Elektron-Loch-Paare in der Verarmungszone; beim Beispiel dauert der Aufbau der Inversionsschicht rund 90 s. Schon bei langsamen Messsignalen folgt ihre Zahl der Spannung nicht mehr, die Ladung pendelt weiter am Rand der Verarmungszone, und die Kapazität bleibt bei 0,23 bis 0,25 $C_\mathrm{ox}$ (Abbildung 3, gestrichelt). Im Transistor grenzen die n⁺-Gebiete von Source und Drain, die 10²⁰ Elektronen pro Kubikzentimeter enthalten, unmittelbar an den Kanal. Sie liefern die Elektronen über den Kanal nach, mit der Zeitkonstante aus Kanalwiderstand und Oxidkapazität: Bei $U_{GS}$ = 1 V hat der Kanal 1 kΩ, und 1 kΩ mal 69 fF ergibt 69 ps. Die Kapazität des Transistors kehrt deshalb oberhalb der Schwelle auf $C_\mathrm{ox}$ zurück, 0,92 $C_\mathrm{ox}$ bei 1 V und 0,98 $C_\mathrm{ox}$ bei 2,5 V, und das bis zu Frequenzen im Gigahertzbereich.
 
 Zugleich wechselt der Ort der Gegenladung. Genau an der Schwelle teilt sich eine zusätzliche Gateladung je zur Hälfte auf die Verarmungszone und die Kanalelektronen auf, je 0,198 $C_\mathrm{ox}$. Darüber ist die Oberfläche an ihr Potential gebunden: Von 0,5 V auf 1 V Gatespannung steigt es nur um 105 mV, die Verarmungsladung wächst um 0,23 fC/µm², die Elektronenladung um 2,49 fC/µm². Bei 1 V kommen 98,3 % jeder zusätzlichen Gateladung aus Source und Drain, bei 1,5 V 99,4 %. Der Kanal schirmt den Bulk ab: $C_{GB}$ fällt praktisch auf null, und die Kapazität des Gates gehört nun zu Source und Drain.
 
@@ -195,10 +232,10 @@ Zugleich wechselt der Ort der Gegenladung. Genau an der Schwelle teilt sich eine
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-ueberlappung · Vorlage: querschnitt-detail
-**Abbildung 3:** Ausschnitt um die drainseitige Gatekante, in der Höhe gestreckt. Das n⁺-Draingebiet reicht 50 nm unter das Gate; dort laufen die Feldlinien dicht und parallel vom Gate durch das 5 nm dicke Oxid ins n⁺-Gebiet, ein Plattenkondensator von 3,45 fF bei 10 µm Weite. Dazu gebogene Feldlinien von der Flanke des Gates zur Oberfläche des Drains, das Randfeld. Links davon endet der Kanal abgeschnürt vor dem Drain. Die Überlappung ist ein kleiner Plattenkondensator zwischen Gate und Drain, den keine Abschnürung abschaltet.
+**Abbildung 4:** Ausschnitt um die drainseitige Gatekante, in der Höhe gestreckt. Das n⁺-Draingebiet reicht 50 nm unter das Gate; dort laufen die Feldlinien dicht und parallel vom Gate durch das 5 nm dicke Oxid ins n⁺-Gebiet, ein Plattenkondensator von 3,45 fF bei 10 µm Weite. Dazu gebogene Feldlinien von der Flanke des Gates zur Oberfläche des Drains, das Randfeld. Links davon endet der Kanal abgeschnürt vor dem Drain. Die Überlappung ist ein kleiner Plattenkondensator zwischen Gate und Drain, den keine Abschnürung abschaltet.
 :::
 
-Das Gate ist etwas länger als der Kanal darunter und reicht auf beiden Seiten ein kleines Stück über Source und Drain, beim Beispieltransistor je 50 nm: 1,1 µm Gate über 1 µm Kanal. Über diesen Streifen liegt das Gate dem leitenden n⁺-Gebiet gegenüber, getrennt durch das Gateoxid, und bildet mit ihm einen Plattenkondensator. Seine Gegenladung sitzt an der Oberfläche des n⁺-Gebiets und kommt aus Source bzw. Drain, gleichgültig, ob unter dem Gate ein Kanal besteht und ob er abgeschnürt ist (Abbildung 3).
+Das Gate ist etwas länger als der Kanal darunter und reicht auf beiden Seiten ein kleines Stück über Source und Drain, beim Beispieltransistor je 50 nm: 1,1 µm Gate über 1 µm Kanal. Über diesen Streifen liegt das Gate dem leitenden n⁺-Gebiet gegenüber, getrennt durch das Gateoxid, und bildet mit ihm einen Plattenkondensator. Seine Gegenladung sitzt an der Oberfläche des n⁺-Gebiets und kommt aus Source bzw. Drain, gleichgültig, ob unter dem Gate ein Kanal besteht und ob er abgeschnürt ist (Abbildung 4).
 
 :::frage
 „Warum überlappt das Gate Source und Drain überhaupt, wenn das nur Kapazität kostet?“
@@ -248,7 +285,7 @@ $$C_\mathrm{ov} = C'_\mathrm{ox}\,W\,L_\mathrm{ov}$$
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-kanalladung-aufteilung · Vorlage: profil-folge
-**Abbildung 4:** Elektronenladung pro Fläche im Kanal über dem Ort $x/L$ von der Source (0) zum Drain (1). (a) Ohmscher Bereich bei $U_{GS}$ = 1,5 V und kleiner Drain-Source-Spannung: gleichmäßig 6,91 fC/µm². Wird die Source um 10 mV angehoben, während Gate, Drain und Bulk fest bleiben, sinkt die Ladung an der Source um 0,069 fC/µm² und am Drain gar nicht, dazwischen linear; die Änderung beträgt im Mittel die Hälfte. Wird der Drain angehoben, gilt dasselbe gespiegelt. (b) Abschnürbereich bei $U_{GS}$ = 1 V und $U_{DS}$ = 1 V: Die Ladung fällt wie die Wurzel aus $1 - x/L$, 3,45 fC/µm² an der Source, 2,44 fC/µm² auf halber Länge und null am Ende des Kanals. Wird die Source um 10 mV angehoben, schrumpft das ganze Profil im selben Verhältnis, im Mittel um zwei Drittel des Werts an der Source; wird der Drain angehoben, ändert sich nichts. Eine Anschlussspannung ändert die Kanalladung nur dort, wo das Kanalpotential ihr folgt.
+**Abbildung 5:** Elektronenladung pro Fläche im Kanal über dem Ort $x/L$ von der Source (0) zum Drain (1). (a) Ohmscher Bereich bei $U_{GS}$ = 1,5 V und kleiner Drain-Source-Spannung: gleichmäßig 6,91 fC/µm². Wird die Source um 10 mV angehoben, während Gate, Drain und Bulk fest bleiben, sinkt die Ladung an der Source um 0,069 fC/µm² und am Drain gar nicht, dazwischen linear; die Änderung beträgt im Mittel die Hälfte. Wird der Drain angehoben, gilt dasselbe gespiegelt. (b) Abschnürbereich bei $U_{GS}$ = 1 V und $U_{DS}$ = 1 V: Die Ladung fällt wie die Wurzel aus $1 - x/L$, 3,45 fC/µm² an der Source, 2,44 fC/µm² auf halber Länge und null am Ende des Kanals. Wird die Source um 10 mV angehoben, schrumpft das ganze Profil im selben Verhältnis, im Mittel um zwei Drittel des Werts an der Source; wird der Drain angehoben, ändert sich nichts. Eine Anschlussspannung ändert die Kanalladung nur dort, wo das Kanalpotential ihr folgt.
 :::
 
 **Die Akteure:**
@@ -263,11 +300,11 @@ Szene: st1/mos-feldeffekttransistoren/04-kanalladung-aufteilung · Vorlage: prof
 
 **Schritt 2**: Die Ladung an der Stelle $x$ folgt der örtlichen Übersteuerung. Eine Spannung an der Source oder am Drain ändert sie deshalb nur dort, wo sich das Kanalpotential mit dieser Spannung ändert.
 
-**Schritt 3**: Im ohmschen Bereich bei kleiner Drain-Source-Spannung ist der Kanal überall gleich dick (Abbildung 4a). Hebt man die Source um 10 mV an, sinkt die Übersteuerung an der Source um 10 mV, am Drain gar nicht, und dazwischen geht die Änderung gleichmäßig auf null zurück. Im Mittel ändert sich die Ladung um die Hälfte: $C_{GS}$ ist die halbe Oxidkapazität, 34,5 fF. Vom Drain aus gesehen gilt dasselbe, und $C_{GD}$ ist ebenfalls 34,5 fF.
+**Schritt 3**: Im ohmschen Bereich bei kleiner Drain-Source-Spannung ist der Kanal überall gleich dick (Abbildung 5a). Hebt man die Source um 10 mV an, sinkt die Übersteuerung an der Source um 10 mV, am Drain gar nicht, und dazwischen geht die Änderung gleichmäßig auf null zurück. Im Mittel ändert sich die Ladung um die Hälfte: $C_{GS}$ ist die halbe Oxidkapazität, 34,5 fF. Vom Drain aus gesehen gilt dasselbe, und $C_{GD}$ ist ebenfalls 34,5 fF.
 
 **Schritt 4** (entscheidender Schritt): Im Abschnürbereich endet der Kanal vor dem Drain am Abschnürpunkt, dessen Potential $U_{GS} - U_{th}$ über der Source liegt; den Rest der Drain-Source-Spannung nimmt die kurze verarmte Zone zwischen Abschnürpunkt und Drain auf ([Kennlinien des NMOS-Transistors](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/kennlinien-ausfuehrlich.html)). Hebt man den Drain an, wächst nur die Spannung über dieser Zone; im Kanal ändert sich nichts. $C_{GD}$ ist null.
 
-**Schritt 5**: Die Ladung fällt jetzt wie die Wurzel aus $1 - x/L$ von 3,45 fC/µm² an der Source auf null (Abbildung 4b). Hebt man die Source um 10 mV an, sinkt die Übersteuerung um 10 mV, und das ganze Profil schrumpft im selben Verhältnis. Der Mittelwert der Wurzel über den Kanal ist zwei Drittel: $C_{GS}$ ist $\tfrac23 C_\mathrm{ox}$, 46,0 fF. Bei 10 mV verlassen 0,46 fC den Kanal, 2874 Elektronen, die in die Source zurückfließen.
+**Schritt 5**: Die Ladung fällt jetzt wie die Wurzel aus $1 - x/L$ von 3,45 fC/µm² an der Source auf null (Abbildung 5b). Hebt man die Source um 10 mV an, sinkt die Übersteuerung um 10 mV, und das ganze Profil schrumpft im selben Verhältnis. Der Mittelwert der Wurzel über den Kanal ist zwei Drittel: $C_{GS}$ ist $\tfrac23 C_\mathrm{ox}$, 46,0 fF. Bei 10 mV verlassen 0,46 fC den Kanal, 2874 Elektronen, die in die Source zurückfließen.
 
 :::formel Formel
 Ohmscher Bereich, kleine $U_{DS}$:
@@ -379,10 +416,10 @@ $$C_{GS} = C_{GD} = \frac{1}{2}\cdot69{,}06\ \mathrm{fF} + 3{,}45\ \mathrm{fF} =
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-cgs-cgd-uds · Vorlage: kennlinie
-**Abbildung 5:** $C_{GS}$ und $C_{GD}$ des Beispieltransistors über $U_{DS}$ von 0 bis 2 V bei $U_{GS}$ = 1,5 V, ohne Überlappung. $C_{GS}$ steigt von 34,5 fF über 40,9 fF bei 0,5 V auf 46,0 fF an der Abschnürgrenze bei 1 V, $C_{GD}$ fällt von 34,5 fF über 25,6 fF auf null; die Summe sinkt von 69,1 fF auf 46,0 fF und bleibt danach konstant. Gestrichelt dieselben Kurven mit je 3,45 fF Überlappung. Darüber kleine Bilder des Kanals bei 0, 0,5 V und 1 V. Mit wachsender Drain-Source-Spannung wandert die Gatekapazität vom Drain zur Source; ab der Abschnürgrenze gehört zum Drain nur noch die Überlappung.
+**Abbildung 6:** $C_{GS}$ und $C_{GD}$ des Beispieltransistors über $U_{DS}$ von 0 bis 2 V bei $U_{GS}$ = 1,5 V, ohne Überlappung. $C_{GS}$ steigt von 34,5 fF über 40,9 fF bei 0,5 V auf 46,0 fF an der Abschnürgrenze bei 1 V, $C_{GD}$ fällt von 34,5 fF über 25,6 fF auf null; die Summe sinkt von 69,1 fF auf 46,0 fF und bleibt danach konstant. Gestrichelt dieselben Kurven mit je 3,45 fF Überlappung. Darüber kleine Bilder des Kanals bei 0, 0,5 V und 1 V. Mit wachsender Drain-Source-Spannung wandert die Gatekapazität vom Drain zur Source; ab der Abschnürgrenze gehört zum Drain nur noch die Überlappung.
 :::
 
-Zwischen beiden Grenzfällen geht die Aufteilung stetig über (Abbildung 5). Mit wachsender Drain-Source-Spannung wird der Kanal zum Drain hin dünner, der Drain erreicht weniger Ladung, und eine Änderung an der Source verschiebt mehr. Bei $U_{GS}$ = 1,5 V und $U_{DS}$ = 0,5 V gehören 40,9 fF zur Source und 25,6 fF zum Drain, an der Abschnürgrenze bei 1 V 46,0 fF und null. Die Ableitung der Kanalladung aus Schritt 5 der vorigen Herleitung ergibt den ganzen Verlauf; nach seinem Urheber heißt er __Meyer-Modell__:
+Zwischen beiden Grenzfällen geht die Aufteilung stetig über (Abbildung 6). Mit wachsender Drain-Source-Spannung wird der Kanal zum Drain hin dünner, der Drain erreicht weniger Ladung, und eine Änderung an der Source verschiebt mehr. Bei $U_{GS}$ = 1,5 V und $U_{DS}$ = 0,5 V gehören 40,9 fF zur Source und 25,6 fF zum Drain, an der Abschnürgrenze bei 1 V 46,0 fF und null. Die Ableitung der Kanalladung aus Schritt 5 der vorigen Herleitung ergibt den ganzen Verlauf; nach seinem Urheber heißt er __Meyer-Modell__:
 
 $$\begin{aligned} C_{GS} &= \frac{2}{3}\,C_\mathrm{ox}\,\Big[1 - \Big(\frac{U_{GD} - U_{th}}{U_{GS} + U_{GD} - 2\,U_{th}}\Big)^2\Big] \\ C_{GD} &= \frac{2}{3}\,C_\mathrm{ox}\,\Big[1 - \Big(\frac{U_{GS} - U_{th}}{U_{GS} + U_{GD} - 2\,U_{th}}\Big)^2\Big] \end{aligned}$$
 
@@ -476,7 +513,7 @@ Vom gesperrten Zustand bis in den ohmschen Bereich wächst die Gatekapazität au
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-sperrschicht-geometrie · Vorlage: querschnitt-und-aufsicht
-**Abbildung 6:** (a) Aufsicht auf das Draingebiet des Beispieltransistors: 10 µm entlang der Gatekante, 2 µm vom Gate bis zum Ende des Gebiets; Fläche 20 µm² schraffiert, Umfang 24 µm als dicke Randlinie. (b) Querschnitt quer zur Gatekante: n⁺-Gebiet 0,2 µm tief, umgeben von der Raumladungszone, ohne Spannung 48,4 nm und bei 1 V 67,9 nm breit; Kondensatorsymbole am Boden, 2,14 fF/µm², und an den Seitenwänden, 0,428 fF pro µm Rand. An der Gatekante grenzt die Wand an das p-Gebiet unter dem nur wenige Nanometer dicken Kanal. Ohne Spannung entfallen 42,9 fF auf den Boden und 10,3 fF auf den Rand. Die Kapazität eines Source- oder Draingebiets besteht aus Boden und Rand; der Boden zählt mit seiner Fläche, der Rand mit seiner Länge.
+**Abbildung 7:** (a) Aufsicht auf das Draingebiet des Beispieltransistors: 10 µm entlang der Gatekante, 2 µm vom Gate bis zum Ende des Gebiets; Fläche 20 µm² schraffiert, Umfang 24 µm als dicke Randlinie. (b) Querschnitt quer zur Gatekante: n⁺-Gebiet 0,2 µm tief, umgeben von der Raumladungszone, ohne Spannung 48,4 nm und bei 1 V 67,9 nm breit; Kondensatorsymbole am Boden, 2,14 fF/µm², und an den Seitenwänden, 0,428 fF pro µm Rand. An der Gatekante grenzt die Wand an das p-Gebiet unter dem nur wenige Nanometer dicken Kanal. Ohne Spannung entfallen 42,9 fF auf den Boden und 10,3 fF auf den Rand. Die Kapazität eines Source- oder Draingebiets besteht aus Boden und Rand; der Boden zählt mit seiner Fläche, der Rand mit seiner Länge.
 :::
 
 Source und Drain bilden mit dem p-Gebiet je einen pn-Übergang. Im Betrieb sind beide gesperrt, weil der Bulk an der niedrigsten Spannung der Schaltung liegt, und zwischen n⁺-Gebiet und p-Gebiet liegt eine Raumladungszone, beim Beispieltransistor ohne Spannung 48,4 nm breit. Weil das n⁺-Gebiet mit 10²⁰ cm⁻³ rund 180-mal so stark dotiert ist wie das p-Gebiet, liegt die Zone zu 99,4 % im p-Gebiet. Wächst die Spannung zwischen Drain und Bulk, wird die Zone breiter: An ihrem Rand im p-Gebiet verlieren weitere Akzeptorrümpfe ihre Löcher, die über den Bulk abfließen, und auf der n⁺-Seite fließen ebenso viele Elektronen über den Drain ab. Diese Ladung je Spannungsänderung ist die __Sperrschichtkapazität__. Die Zone wirkt wie ein Plattenkondensator mit Silizium als Dielektrikum, dessen Plattenabstand mit der Spannung wächst; deshalb sinkt die Kapazität mit steigender Sperrspannung. Source und Drain heißen nach ihrer Herstellung auch Diffusionsgebiete; mit der Diffusionskapazität einer Diode in Durchlassrichtung, die von gespeicherten Minoritätsträgern herrührt, hat ihre Sperrschichtkapazität nichts zu tun.
@@ -552,7 +589,7 @@ $$C_j = C_{j0}\,\Big(1 - \frac{U_j}{U_\mathrm{Diff}}\Big)^{-m_j}, \qquad m_j = \
 **Grenzen:** In Durchlassrichtung wird die Zone schmal, die Verarmungsnäherung ungenau, und die Ladung der Minoritätsträger überwiegt; Source und Drain bleiben im Betrieb aber gesperrt.
 :::
 
-Die Zone umgibt das n⁺-Gebiet am Boden und an allen vier Seitenwänden (Abbildung 6). Weil die Tiefe der Gebiete in einem Herstellungsprozess fest ist, lässt sich die Kapazität jedes Gebiets aus zwei Technologiewerten berechnen, einem pro Fläche für den Boden und einem pro Länge für den Rand.
+Die Zone umgibt das n⁺-Gebiet am Boden und an allen vier Seitenwänden (Abbildung 7). Weil die Tiefe der Gebiete in einem Herstellungsprozess fest ist, lässt sich die Kapazität jedes Gebiets aus zwei Technologiewerten berechnen, einem pro Fläche für den Boden und einem pro Länge für den Rand.
 
 **Die Akteure:**
 
@@ -603,10 +640,10 @@ $$C_{DB} = C'_{jF}\,A_D + C'_{jS}\,P_D, \qquad A_D = W\,b, \qquad P_D = 2\,\big(
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-sperrschicht-spannung · Vorlage: kennlinie-anteile
-**Abbildung 7:** Oben $C_{DB}$ des Beispieltransistors in fF über $U_{DB}$ von 0 bis 2,5 V, als gestapelte Flächen aus Boden und Rand: zusammen 53,1 fF ohne Spannung, 43,6 fF bei 0,5 V, 37,8 fF bei 1 V, 33,9 fF bei 1,5 V, 31,0 fF bei 2 V und 28,7 fF bei 2,5 V; der Boden fällt von 42,9 auf 23,1 fF, der Rand von 10,3 auf 5,5 fF. Gestrichelt der Verlauf mit $m_j$ = 1/3 bei gleichem Wert ohne Spannung, das 0,797-Fache statt 0,712 bei 1 V. Unten die Breite der Zone über derselben Achse, von 48,4 nm auf 89,6 nm. Mit der Sperrspannung wird die Zone breiter und die Kapazität kleiner, beim abrupten Übergang mit der Wurzel der Spannung über der Zone.
+**Abbildung 8:** Oben $C_{DB}$ des Beispieltransistors in fF über $U_{DB}$ von 0 bis 2,5 V, als gestapelte Flächen aus Boden und Rand: zusammen 53,1 fF ohne Spannung, 43,6 fF bei 0,5 V, 37,8 fF bei 1 V, 33,9 fF bei 1,5 V, 31,0 fF bei 2 V und 28,7 fF bei 2,5 V; der Boden fällt von 42,9 auf 23,1 fF, der Rand von 10,3 auf 5,5 fF. Gestrichelt der Verlauf mit $m_j$ = 1/3 bei gleichem Wert ohne Spannung, das 0,797-Fache statt 0,712 bei 1 V. Unten die Breite der Zone über derselben Achse, von 48,4 nm auf 89,6 nm. Mit der Sperrspannung wird die Zone breiter und die Kapazität kleiner, beim abrupten Übergang mit der Wurzel der Spannung über der Zone.
 :::
 
-Abbildung 7 zeigt beide Anteile über der Sperrspannung: Sie sinken im selben Verhältnis, weil im Beispiel Boden und Rand an dieselbe Dotierung grenzen. Zwischen 0 und 2,5 V halbiert sich die Kapazität fast, von 53,1 fF auf 28,7 fF.
+Abbildung 8 zeigt beide Anteile über der Sperrspannung: Sie sinken im selben Verhältnis, weil im Beispiel Boden und Rand an dieselbe Dotierung grenzen. Zwischen 0 und 2,5 V halbiert sich die Kapazität fast, von 53,1 fF auf 28,7 fF.
 
 ::::beispiel Sperrschichtkapazität des Draingebiets
 **Gegeben:** p-Gebiet mit $N_A$ = 5,68·10¹⁷ cm⁻³, n⁺-Gebiete so stark dotiert, dass nur $N_A$ zählt; $U_\mathrm{Diff}$ = 1,027 V, $\varepsilon_\mathrm{Si}$ = 1,036·10⁻¹² F/cm, $e$ = 1,602·10⁻¹⁹ C, Tiefe $x_j$ = 0,2 µm, $m_j$ = 1/2. Draingebiet $W$ = 10 µm, $b$ = 2 µm; $U_{DB}$ = 1 V. (b) Alle Abmessungen des Gebiets geviertelt. (c) Derselbe Transistor mit zwei Fingern.
@@ -635,7 +672,7 @@ $$2{,}14\ \mathrm{fF/\mu m^2}\cdot1{,}25\ \mathrm{\mu m^2} = 2{,}68\ \mathrm{fF}
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-finger-layout · Vorlage: layout-aufsicht
-**Abbildung 8:** Zwei Layouts mit derselben Gesamtweite von 10 µm. (a) Ein Finger: Source 10 µm mal 2 µm, Gate 10 µm breit, Drain 10 µm mal 2 µm. (b) Zwei Finger zu je 5 µm in der Folge Source, Gate, Drain, Gate, Source: Der Drain in der Mitte, 5 µm mal 2 µm, gehört zu beiden Gates, die beiden äußeren Sources sind verbunden. Bei $U_{DB}$ = 1 V hat der Drain in (a) 37,8 fF, in (b) 19,5 fF. Teilen sich zwei Gates einen Drain, halbiert sich fast die Drainkapazität bei unverändertem Strom.
+**Abbildung 9:** Zwei Layouts mit derselben Gesamtweite von 10 µm. (a) Ein Finger: Source 10 µm mal 2 µm, Gate 10 µm breit, Drain 10 µm mal 2 µm. (b) Zwei Finger zu je 5 µm in der Folge Source, Gate, Drain, Gate, Source: Der Drain in der Mitte, 5 µm mal 2 µm, gehört zu beiden Gates, die beiden äußeren Sources sind verbunden. Bei $U_{DB}$ = 1 V hat der Drain in (a) 37,8 fF, in (b) 19,5 fF. Teilen sich zwei Gates einen Drain, halbiert sich fast die Drainkapazität bei unverändertem Strom.
 :::
 
 $$C_{DB} = \big(2{,}14\cdot10 + 0{,}428\cdot14\big)\ \mathrm{fF}\cdot0{,}712 = 27{,}4\ \mathrm{fF}\cdot0{,}712 = 19{,}5\ \mathrm{fF}$$
@@ -655,12 +692,12 @@ $$C_{DB} = \big(2{,}14\cdot10 + 0{,}428\cdot14\big)\ \mathrm{fF}\cdot0{,}712 = 2
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-leitung-randfeld · Vorlage: feldbild-querschnitt
-**Abbildung 9:** Querschnitt einer Metallbahn, 2 µm breit und 0,5 µm dick, 1 µm über dem Substrat, das als leitende Ebene gezeichnet ist; dazwischen Oxid. Unter der Bahn laufen die Feldlinien senkrecht und gleichmäßig, von den Flanken und der Oberseite in Bögen zum Substrat. Je Millimeter Länge ergibt der Plattenkondensator 69,1 fF, mit dem Randfeld 162 fF, das 2,35-Fache; daneben eine kleine Tabelle mit dem Faktor 3,55 bei 1 µm, 2,35 bei 2 µm und 1,75 bei 4 µm Breite. Je schmaler eine Bahn im Verhältnis zu ihrem Abstand vom Substrat, desto mehr trägt das Randfeld zu ihrer Kapazität bei.
+**Abbildung 10:** Querschnitt einer Metallbahn, 2 µm breit und 0,5 µm dick, 1 µm über dem Substrat, das als leitende Ebene gezeichnet ist; dazwischen Oxid. Unter der Bahn laufen die Feldlinien senkrecht und gleichmäßig, von den Flanken und der Oberseite in Bögen zum Substrat. Je Millimeter Länge ergibt der Plattenkondensator 69,1 fF, mit dem Randfeld 162 fF, das 2,35-Fache; daneben eine kleine Tabelle mit dem Faktor 3,55 bei 1 µm, 2,35 bei 2 µm und 1,75 bei 4 µm Breite. Je schmaler eine Bahn im Verhältnis zu ihrem Abstand vom Substrat, desto mehr trägt das Randfeld zu ihrer Kapazität bei.
 :::
 
 Die Transistoren sind über Bahnen aus Metall oder Polysilizium verbunden, die ein dickes Oxid vom Substrat trennt. Das leitende Substrat liegt auf dem Potential des Bulk und bildet die Gegenelektrode; jede Bahn ist deshalb ein Kondensator gegen Masse. Als Plattenkondensator gerechnet hat 1 µm Oxid 0,0345 fF/µm², zweihundertmal weniger als das 5 nm dicke Gateoxid. Bahnen sind aber lang: Eine 2 µm breite und 1 mm lange Bahn bedeckt 2000 µm² und hat so 69,1 fF, genau so viel wie das Gate des Beispieltransistors.
 
-Dazu kommt das __Randfeld__: Die Feldlinien verlassen nicht nur die Unterseite der Bahn, sondern auch ihre Flanken und ihre Oberseite und biegen zum Substrat (Abbildung 9). Bei Bahnen, die nicht viel breiter sind als ihr Abstand zum Substrat, trägt es einen großen Teil der Kapazität. Für eine Bahn über einer leitenden Ebene ist folgende Näherung aus numerischen Feldrechnungen verbreitet.
+Dazu kommt das __Randfeld__: Die Feldlinien verlassen nicht nur die Unterseite der Bahn, sondern auch ihre Flanken und ihre Oberseite und biegen zum Substrat (Abbildung 10). Bei Bahnen, die nicht viel breiter sind als ihr Abstand zum Substrat, trägt es einen großen Teil der Kapazität. Für eine Bahn über einer leitenden Ebene ist folgende Näherung aus numerischen Feldrechnungen verbreitet.
 
 **Die Akteure:**
 
@@ -724,13 +761,13 @@ $$\begin{aligned} C_\mathrm{Bahn} &= 0{,}03453\ \mathrm{fF/\mu m}\cdot1000\ \mat
 
 *Was bewirken die Kapazitäten in einer Schaltung, und warum wiegt gerade die kleine Gate-Drain-Kapazität am schwersten?*
 
-Jede Kapazität an einem Knoten muss Ladung aufnehmen oder abgeben, wenn sich seine Spannung ändert, und das braucht Zeit. Ein Knoten mit 53 fF, so viel wie das Gate des Beispieltransistors im Abschnürbereich, ändert sich mit einem Strom von 0,25 mA in 0,21 ns um 1 V; lädt man ihn über einen Widerstand von 10 kΩ, ist die Zeitkonstante Widerstand mal Kapazität, 0,53 ns ([Laden und Entladen des Kondensators](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/kondensator/laden-und-entladen.html)). In einer Verstärkerstufe kommt eine Wirkung hinzu, die eine einzelne Kapazität weit über ihren Wert hinaus wachsen lässt.
+Wie im Abschnitt *Von Grund auf* gezeigt, verlangsamt jede Kapazität den Knoten, an dem sie hängt: Das Gate des Beispieltransistors im Abschnürbereich, 53 fF, braucht mit 0,25 mA für 1 V 0,21 ns, und über 10 kΩ geladen ist seine Zeitkonstante 0,53 ns. In einer Verstärkerstufe kommt eine Wirkung hinzu, die eine einzelne Kapazität weit über ihren Wert hinaus wachsen lässt.
 
 Betrachtet wird die __Source-Schaltung__: Source und Bulk liegen an Masse, das Signal kommt ans Gate, und der Drain hängt über den Widerstand $R_D$ an der Versorgung und ist der Ausgang. Im Arbeitspunkt $U_{GS}$ = 1 V, $I_D$ = 0,25 mA und $U_{DS}$ = 1 V hat der Beispieltransistor die __Steilheit__ $g_m$ = 1 mS, die Änderung des Drainstroms je Volt Gate-Source-Spannung, und den __Ausgangsleitwert__ $g_o$ = 25 µS, die Änderung je Volt Drain-Source-Spannung. Mit $R_D$ = 10 kΩ verstärkt die Stufe kleine Änderungen achtfach und invertiert sie.
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-miller · Vorlage: schaltung-mit-ersatz
-**Abbildung 10:** (a) Source-Schaltung mit dem Beispiel-NMOS, Source und Bulk an Masse, $R_D$ = 10 kΩ zur Versorgung, am Gate eine Signalquelle mit 10 kΩ Innenwiderstand; eingezeichnet $C_{GS}$ = 49,5 fF vom Gate nach Masse, $C_{GD}$ = 3,45 fF vom Gate zum Drain und $C_{DB}$ = 37,8 fF vom Drain nach Masse; $g_m$ = 1 mS, $g_o$ = 25 µS, Verstärkung −8. Spannungsbalken: Gate +10 mV, Drain −80 mV, über $C_{GD}$ 90 mV. (b) Ersatz: $C_{GD}$ aufgeteilt in 31,1 fF vom Gate nach Masse und 3,88 fF vom Drain nach Masse; am Eingang zusammen 80,6 fF statt 52,9 fF, am Ausgang 41,7 fF. (c) Eingangskapazität für die Verstärkungen 0, −8 und −40: 52,9 fF, 80,6 fF und 191,1 fF, davon aus $C_{GD}$ 3,45 fF, 31,1 fF und 141,6 fF. Weil sich die Spannung über $C_{GD}$ neunmal so stark ändert wie am Gate, wirkt sie am Eingang neunmal so groß.
+**Abbildung 11:** (a) Source-Schaltung mit dem Beispiel-NMOS, Source und Bulk an Masse, $R_D$ = 10 kΩ zur Versorgung, am Gate eine Signalquelle mit 10 kΩ Innenwiderstand; eingezeichnet $C_{GS}$ = 49,5 fF vom Gate nach Masse, $C_{GD}$ = 3,45 fF vom Gate zum Drain und $C_{DB}$ = 37,8 fF vom Drain nach Masse; $g_m$ = 1 mS, $g_o$ = 25 µS, Verstärkung −8. Spannungsbalken: Gate +10 mV, Drain −80 mV, über $C_{GD}$ 90 mV. (b) Ersatz: $C_{GD}$ aufgeteilt in 31,1 fF vom Gate nach Masse und 3,88 fF vom Drain nach Masse; am Eingang zusammen 80,6 fF statt 52,9 fF, am Ausgang 41,7 fF. (c) Eingangskapazität für die Verstärkungen 0, −8 und −40: 52,9 fF, 80,6 fF und 191,1 fF, davon aus $C_{GD}$ 3,45 fF, 31,1 fF und 141,6 fF. Weil sich die Spannung über $C_{GD}$ neunmal so stark ändert wie am Gate, wirkt sie am Eingang neunmal so groß.
 :::
 
 **Die Akteure:**
@@ -741,7 +778,7 @@ Szene: st1/mos-feldeffekttransistoren/04-miller · Vorlage: schaltung-mit-ersatz
 
 **Das Zusammenspiel:**
 
-**Schritt 1**: In der Source-Schaltung liegt $C_{GS}$ zwischen Gate und Masse und $C_{DB}$ zwischen Drain und Masse; nur $C_{GD}$ verbindet den Eingang mit dem Ausgang (Abbildung 10a). Im Abschnürbereich ist sie allein die Überlappung, 3,45 fF.
+**Schritt 1**: In der Source-Schaltung liegt $C_{GS}$ zwischen Gate und Masse und $C_{DB}$ zwischen Drain und Masse; nur $C_{GD}$ verbindet den Eingang mit dem Ausgang (Abbildung 11a). Im Abschnürbereich ist sie allein die Überlappung, 3,45 fF.
 
 **Schritt 2**: Steigt das Gate um 10 mV, sinkt der Drain um 80 mV.
 
@@ -749,9 +786,9 @@ Szene: st1/mos-feldeffekttransistoren/04-miller · Vorlage: schaltung-mit-ersatz
 
 **Schritt 4** (entscheidender Schritt): Die Ladung, die dafür durch $C_{GD}$ fließt, 0,311 fC, muss die Signalquelle liefern. So viel Ladung nähme bei 10 mV ein Kondensator von 31,1 fF gegen Masse auf: Für die Quelle wirkt $C_{GD}$ neunmal so groß.
 
-**Schritt 5**: Am Eingang liegen damit 80,6 fF statt 52,9 fF, 49,5 fF aus $C_{GS}$ und 31,1 fF aus $C_{GD}$ (Abbildung 10b). Am Ausgang ändert sich die Spannung über $C_{GD}$ um 90 mV, wenn sich der Drain um 80 mV ändert; dort wirkt sie nur 9/8-mal so groß, 3,88 fF zu den 37,8 fF von $C_{DB}$.
+**Schritt 5**: Am Eingang liegen damit 80,6 fF statt 52,9 fF, 49,5 fF aus $C_{GS}$ und 31,1 fF aus $C_{GD}$ (Abbildung 11b). Am Ausgang ändert sich die Spannung über $C_{GD}$ um 90 mV, wenn sich der Drain um 80 mV ändert; dort wirkt sie nur 9/8-mal so groß, 3,88 fF zu den 37,8 fF von $C_{DB}$.
 
-**Schritt 6**: Je größer die Verstärkung, desto stärker die Wirkung. Mit einer idealen Stromquelle statt $R_D$ verstärkt die Stufe 40-fach, und die 3,45 fF der Überlappung wirken am Eingang wie 141,6 fF, fast dreimal so viel wie $C_{GS}$ (Abbildung 10c).
+**Schritt 6**: Je größer die Verstärkung, desto stärker die Wirkung. Mit einer idealen Stromquelle statt $R_D$ verstärkt die Stufe 40-fach, und die 3,45 fF der Überlappung wirken am Eingang wie 141,6 fF, fast dreimal so viel wie $C_{GS}$ (Abbildung 11c).
 
 Diese Vervielfachung heißt __Miller-Effekt__, nach John M. Miller, der sie 1920 an der Elektronenröhre beschrieb.
 
@@ -860,10 +897,10 @@ Ja, mit der Kapazität, die dort zwischen Eingang und Ausgang liegt. Beim Source
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/04-miller-kompensation · Vorlage: schaltung
-**Abbildung 11:** Zweistufiger Verstärker als Blockbild: erste Stufe mit 1 MΩ Ausgangswiderstand, zweite Stufe invertierend mit der Verstärkung −50 und einer Kapazität $C_M$ = 1 pF zwischen ihrem Eingang und ihrem Ausgang. Darunter der Ersatz: 51 pF vom Ausgang der ersten Stufe nach Masse. Rechts maßstäblich zwei Quadrate für die Kondensatorfläche bei 1 fF/µm², 32 µm Kantenlänge für 1 pF und 226 µm für 51 pF. Über den Miller-Effekt wirkt ein kleiner Kondensator wie ein 51-mal größerer; das spart Chipfläche.
+**Abbildung 12:** Zweistufiger Verstärker als Blockbild: erste Stufe mit 1 MΩ Ausgangswiderstand, zweite Stufe invertierend mit der Verstärkung −50 und einer Kapazität $C_M$ = 1 pF zwischen ihrem Eingang und ihrem Ausgang. Darunter der Ersatz: 51 pF vom Ausgang der ersten Stufe nach Masse. Rechts maßstäblich zwei Quadrate für die Kondensatorfläche bei 1 fF/µm², 32 µm Kantenlänge für 1 pF und 226 µm für 51 pF. Über den Miller-Effekt wirkt ein kleiner Kondensator wie ein 51-mal größerer; das spart Chipfläche.
 :::
 
-Ein Operationsverstärker braucht für den Betrieb mit Gegenkopplung einen Knoten, der viel langsamer ist als alle anderen; sonst kommt die Korrektur der Gegenkopplung zu spät, und die Schaltung kann schwingen ([Idealer Operationsverstärker und Rückkopplung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/idealer-opv-und-rueckkopplung-ausfuehrlich.html)). Man erzeugt ihn mit einer Kapazität $C_M$ zwischen Ein- und Ausgang einer invertierenden Stufe, meist der zweiten; sie verbindet dann den Ausgang der ersten Stufe mit dem Ausgang der letzten. Nach dem Miller-Effekt wirkt sie am Ausgang der ersten Stufe mit dem Faktor $1 - A_2$, bei der Verstärkung $A_2$ = −50 der zweiten Stufe 51-fach (Abbildung 11).
+Ein Operationsverstärker braucht für den Betrieb mit Gegenkopplung einen Knoten, der viel langsamer ist als alle anderen; sonst kommt die Korrektur der Gegenkopplung zu spät, und die Schaltung kann schwingen ([Idealer Operationsverstärker und Rückkopplung](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/operationsverstarker/idealer-opv-und-rueckkopplung-ausfuehrlich.html)). Man erzeugt ihn mit einer Kapazität $C_M$ zwischen Ein- und Ausgang einer invertierenden Stufe, meist der zweiten; sie verbindet dann den Ausgang der ersten Stufe mit dem Ausgang der letzten. Nach dem Miller-Effekt wirkt sie am Ausgang der ersten Stufe mit dem Faktor $1 - A_2$, bei der Verstärkung $A_2$ = −50 der zweiten Stufe 51-fach (Abbildung 12).
 
 Der Gewinn ist Fläche. Kondensatoren zwischen zwei Metallebenen eines Chips haben rund 1 fF/µm²; 51 pF bräuchten 51 000 µm², ein Quadrat von 226 µm Kantenlänge. Mit dem Miller-Effekt genügen 1 pF auf 1000 µm². Im Operationsverstärker 741 sitzt auf diese Weise ein Kondensator von 30 pF über der zweiten Stufe.
 

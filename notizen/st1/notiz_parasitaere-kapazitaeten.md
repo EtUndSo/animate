@@ -212,3 +212,21 @@ Bild 3.22 Miller, (1 − A) und (A − 1)/A, Miller-Kompensation mit C_M.
 13. S. 86: Miller mit statischer Verstärkung ohne Gültigkeitsgrenze – gilt nur, solange die Verstärkung bei der
     betrachteten Frequenz noch etwa ihren Gleichstromwert hat.
 14. Bild 3.19: C_GB ohne Pfeil (fest) gezeichnet, obwohl stark spannungsabhängig.
+
+## 3a. Aufbau-Leiter (§5.12, nachgerüstet 28.10.2026)
+
+Grundlagen (`## Von Grund auf: Kondensator, Ladungen im NMOS und Kapazität als Steigung`): Kondensator mit Ladung und
+Gegenladung durch verschiedene Anschlüsse, Q = C U, Gate als Plattenkondensator (69,1 fF; 69,1 fC = 431 000
+Elementarladungen bei 1 V), Umladezeit (0,25 mA: 0,28 ns; 10 kΩ: τ = 0,69 ns), Frage-Kasten „Fließt beim Umladen ein Strom
+durch das Oxid?“; NMOS mit Bulk, Akzeptorrümpfen, Löchern, n⁺-Source und -Drain, Verarmungszonen (Raumladungszone),
+Schwelle 0,5 V, Kanal, ohmscher Bereich und Abschnürbereich; Kapazität als Steigung der gekrümmten Ladungskurve Q_G(U_GS)
+bei Source, Drain und Bulk an Masse (Zuwachs seit 0 V 9,8/37,1/69,7 fC bei 0,5/1/1,5 V; Tangenten 20,7 fF bei 0 V und
+63,7 fF bei 1 V), Definition C = dQ/dU. Szene 04-grundlagen = Abbildung 2 in beiden Fassungen, alle folgenden Abbildungen um
+eins verschoben (Abbildungsplan in §7 ist um eins zu erhöhen). Zahlen: Zahlenwerk AN.
+Sprossen: vier Anschlüsse, partielle Ableitungen, Summe C_G → Gatekapazität nach dem Ort der Gegenladung (Steigung der
+Ladungskurve über einem größeren Bereich) → Überlappung → Aufteilung der Kanalladung (ohmsch, abgeschnürt, Übergang, drei
+Bereiche) → Sperrschichtkapazitäten aus Fläche und Rand → Leitungen → Umladen und Miller-Effekt → Miller-Kompensation
+(ausführlich).
+Dabei geändert: Frage-Kasten „Warum spricht man von einer Kapazität …?“ in beiden Fassungen entfernt (Inhalt jetzt im
+Grundlagen-Abschnitt); Akteur Q_G ohne Vorgriff auf die Flachbandspannung; Umlade-Absatz am Anfang des Miller-Abschnitts auf
+einen Rückverweis gekürzt; Gatekapazitäts-Abschnitt knüpft an Abbildung 2c an.

@@ -21,18 +21,39 @@ Szene: st1/mos-feldeffekttransistoren/03-cmos-ueberblick · Vorlage: querschnitt
 **Abbildung 1:** CMOS-Querschnitt, schematisch: links ein NMOS im p-Substrat mit Substratkontakt an Masse, rechts ein PMOS in der n-Wanne mit Wannenkontakt an der Versorgung $U_B$ = 2,5 V; alle pn-Übergänge als kleine, gesperrte Dioden. Drei Hervorhebungen: (1) der PMOS als Spiegelbild mit Löcherkanal und negativen Spannungen gegen die Source; (2) ein NMOS, dessen Source 1 V über dem Substrat liegt, mit einer Verarmungszone von 66 statt 46 nm unter dem Gate; (3) gestrichelt der Pfad von der PMOS-Source durch Wanne und Substrat zur NMOS-Source, die Schichtfolge p⁺–n–p–n⁺. Die Transistoren sind nur durch gesperrte pn-Übergänge voneinander getrennt, und das Potential von Substrat und Wanne wirkt auf jeden Transistor mit.
 :::
 
+## Von Grund auf: pn-Übergang, Schwellenspannung und Bipolartransistor
+
+*Welche drei Bausteine braucht man, bevor PMOS, Substrateffekt und Latch-Up verständlich werden?*
+
+:::grafik
+Szene: st1/mos-feldeffekttransistoren/03-grundlagen · Vorlage: grundlagen-dreiteilig
+**Abbildung 2:** Die drei Grundbausteine. (a) pn-Übergang zwischen einem n⁺-Gebiet und dem p-Substrat des Beispieltransistors: Querschnitt mit der grauen Raumladungszone, ohne Spannung 48,4 nm breit, bei 1 V Sperrspannung 67,9 nm und bei 2,5 V 89,6 nm, maßstäblich übereinander; daneben die Kennlinie eines Übergangs mit dem Sättigungsstrom 10⁻¹⁶ A, in Sperrrichtung praktisch null, in Durchlassrichtung 1,2 µA bei 0,6 V, 57 µA bei 0,7 V und 1 mA bei 0,774 V, zehnmal so viel je 59,5 mV mehr. (b) Beispiel-NMOS genau an der Schwelle, Source und Bulk an Masse: Gate über 5 nm Oxid, darunter die 45,8 nm tiefe Verarmungszone mit 4,17 fC/µm² aus Akzeptorrümpfen; an der Oberfläche 5,7·10¹⁷ Elektronen pro cm³ statt 176 im Inneren, weil sie 0,923 V über dem Inneren liegt; daneben ein Balken mit der Spannungsbilanz der Schwelle: −1,03 V Flachbandspannung, +0,923 V Anhebung der Oberfläche, +0,604 V über dem Oxid, zusammen 0,500 V. (c) npn-Bipolartransistor: Emitter n, dünne Basis p, Kollektor n; Elektronen (blau) laufen vom Emitter durch die Basis in den Kollektor, 1 mA, über den Basisanschluss fließen 10 µA, bei 0,774 V zwischen Basis und Emitter; daneben der pnp mit umgekehrten Schichten und Strömen. Gesperrte pn-Übergänge trennen Gebiete, und ihre Zonen wachsen mit der Wurzel der Spannung; die Schwelle ist eine Spannungsbilanz, in der die Ladung der Verarmungszone steckt; und im Bipolartransistor ist der Kollektorstrom ein festes Vielfaches des Basisstroms.
+:::
+
+### Der pn-Übergang: sperren und leiten
+
+An der Grenze zwischen einem p- und einem n-dotierten Gebiet, einem __pn-Übergang__, liegt die __Raumladungszone__, ein Streifen ohne bewegliche Ladungsträger, in dem nur die ortsfest geladenen Dotieratome zurückbleiben ([Die Diode und ihre Kennlinie](/wissen/elektrotechnik/1-semester/grundgebiete-der-elektrotechnik-1/halbleiterbauelemente/diode-und-kennlinie.html)). In __Sperrrichtung__, mit der n-Seite höher, fließt praktisch kein Strom, und die Zone wird breiter, mit der Wurzel der Spannung über ihr: zwischen einem n⁺-Gebiet und dem p-Substrat des Beispieltransistors 48,4 nm ohne Spannung und 67,9 nm bei 1 V (Abbildung 2a). In __Durchlassrichtung__ fließt ab rund 0,6 V merklich Strom, zehnmal so viel je 59,5 mV mehr. Damit alle Übergänge sperren und die Transistoren voneinander getrennt bleiben, liegt das p-Substrat, in dem die NMOS-Transistoren sitzen, an der niedrigsten Spannung der Schaltung.
+
+### Der NMOS-Transistor und seine Schwellenspannung
+
+Im __NMOS__-Transistor liegen zwei stark n-dotierte Gebiete, __Source__ und __Drain__, im p-dotierten __Bulk__, dazwischen auf 5 nm Oxid das __Gate__ (Abbildung 2b). Hebt das Gate die Oberfläche gegenüber dem Inneren an, verdrängt es die Löcher, und eine __Verarmungszone__ aus Akzeptorrümpfen entsteht; zugleich verzehnfacht nach der __Boltzmann-Verteilung__ jede 59,5 mV Anhebung die Elektronendichte an der Oberfläche. Bei 0,923 V Anhebung, geschrieben $2\Phi_F$, sind es statt 176 so viele Elektronen wie Dotieratome, 5,7·10¹⁷ pro Kubikzentimeter, und Elektronen aus der Source bilden den __Kanal__. Die Gatespannung dafür, die __Schwellenspannung__ $U_{th}$ = 0,5 V, ist eine Bilanz: 0,923 V Anhebung, dazu 0,604 V über dem Oxid, damit das Gate die Gegenladung zur 45,8 nm tiefen Verarmungszone trägt, und −1,03 V __Flachbandspannung__, weil das n⁺-Gate gegenüber dem p-Bulk wie an einem pn-Übergang schon ohne äußere Spannung 1,03 V höher liegt. Bei kleiner Drain-Source-Spannung wirkt der Kanal wie ein Widerstand, im __ohmschen Bereich__; übersteigt sie die __Übersteuerung__ $U_{GS} - U_{th}$, endet er vor dem Drain, im __Abschnürbereich__, und der Strom wächst mit dem Quadrat der Übersteuerung, 0,25 mA bei 1 V Gatespannung, und je Volt Drain-Source-Spannung um ein Zehntel davon ([Kennlinien des NMOS-Transistors](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/kennlinien.html)). In allen diesen Zahlen liegt der Bulk auf dem Potential der Source.
+
+### Der Bipolartransistor: Kollektorstrom und Basisstrom
+
+Ein __Bipolartransistor__ besteht aus drei abwechselnd dotierten Schichten, beim __npn__-Transistor n, p und n: __Emitter__, dünne __Basis__ und __Kollektor__. Leitet der Übergang zwischen Basis und Emitter, ab rund 0,6 V, durchqueren Elektronen aus dem Emitter die dünne Basis und gelangen in den Kollektor; über die Basis fließt nur ein kleiner Strom, der die Verluste unterwegs ersetzt. Das Verhältnis von Kollektor- zu Basisstrom ist die __Stromverstärkung__ $B$: Beim Beispieltransistor aus [Bipolartransistor: Arbeitsbereiche und Transportmodell](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/bipolartransistor/aufbau-und-transportmodell.html) fließen 1 mA in den Kollektor und 10 µA in die Basis, $B$ = 100 (Abbildung 2c). Der __pnp__-Transistor ist dasselbe mit vertauschten Schichten und Vorzeichen.
+
 ## Der PMOS-Transistor
 
 *Wie arbeitet der p-Kanal-MOSFET, und warum sind bei ihm Spannungen und Strom negativ?*
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/03-pmos-kennlinien · Vorlage: schaltzeichen-kennlinienfeld
-**Abbildung 2:** (a) Schaltzeichen des PMOS mit denselben Zählpfeilen wie beim NMOS: $U_{GS}$ und $U_{DS}$ vom Gate bzw. Drain zur Source, $U_{BS}$ vom Bulk zur Source, $I_D$ in den Drain hinein; daneben das Großsignal-Ersatzschaltbild mit offenem Gate und gesteuerter Stromquelle zwischen Source und Drain, dazu die Betragsgrößen $U_{SG}$, $U_{SD}$ und $I_{SD}$. (b) Ausgangskennlinien des Beispiel-PMOS mit Vorzeichen im dritten Quadranten: $I_D$ über $U_{DS}$ von 0 bis −2,5 V für $U_{GS}$ = −0,75 V, −1 V, −1,25 V und −1,5 V, bei −2,5 V −0,078 mA, −0,3125 mA, −0,703 mA und −1,25 mA; gestrichelt die Bereichsgrenze bei $U_{DS} = U_{GS} - U_{th,p}$. (c) Dieselben Kennlinien in Betragsdarstellung, $I_{SD}$ über $U_{SD}$. Der PMOS verhält sich wie ein NMOS mit umgekehrten Vorzeichen aller Spannungen und Ströme.
+**Abbildung 3:** (a) Schaltzeichen des PMOS mit denselben Zählpfeilen wie beim NMOS: $U_{GS}$ und $U_{DS}$ vom Gate bzw. Drain zur Source, $U_{BS}$ vom Bulk zur Source, $I_D$ in den Drain hinein; daneben das Großsignal-Ersatzschaltbild mit offenem Gate und gesteuerter Stromquelle zwischen Source und Drain, dazu die Betragsgrößen $U_{SG}$, $U_{SD}$ und $I_{SD}$. (b) Ausgangskennlinien des Beispiel-PMOS mit Vorzeichen im dritten Quadranten: $I_D$ über $U_{DS}$ von 0 bis −2,5 V für $U_{GS}$ = −0,75 V, −1 V, −1,25 V und −1,5 V, bei −2,5 V −0,078 mA, −0,3125 mA, −0,703 mA und −1,25 mA; gestrichelt die Bereichsgrenze bei $U_{DS} = U_{GS} - U_{th,p}$. (c) Dieselben Kennlinien in Betragsdarstellung, $I_{SD}$ über $U_{SD}$. Der PMOS verhält sich wie ein NMOS mit umgekehrten Vorzeichen aller Spannungen und Ströme.
 :::
 
-Der PMOS ist das Spiegelbild des NMOS: Source und Drain sind p⁺-Gebiete in einer n-dotierten __Wanne__, einem in das p-Substrat eingebrachten Gebiet, das an der höchsten Spannung der Schaltung liegt. Liegt das Gate weit genug unter der Source, bildet sich an der Oberfläche eine Schicht aus Löchern. Die positiv geladenen Löcher laufen zum niedrigeren Potential; die Source ist deshalb das p⁺-Gebiet mit dem höheren Potential, und der Strom fließt aus dem Drain heraus.
+Der PMOS ist das Spiegelbild des NMOS aus dem Abschnitt *Von Grund auf*: Source und Drain sind p⁺-Gebiete in einer n-dotierten __Wanne__, einem in das p-Substrat eingebrachten Gebiet, das an der höchsten Spannung der Schaltung liegt. Liegt das Gate weit genug unter der Source, bildet sich an der Oberfläche eine Schicht aus Löchern. Die positiv geladenen Löcher laufen zum niedrigeren Potential; die Source ist deshalb das p⁺-Gebiet mit dem höheren Potential, und der Strom fließt aus dem Drain heraus.
 
-Mit denselben Zählpfeilen wie beim NMOS (Abbildung 2a) sind deshalb im Betrieb alle Größen negativ: $U_{GS}$, weil das Gate unter der Source liegt, $U_{DS}$, weil der Drain tiefer liegt, $I_D$, weil der Strom herausfließt, und die Schwelle, beim Beispiel-PMOS −0,5 V. Die Kennlinien liegen im dritten Quadranten (Abbildung 2b) und gleichen gespiegelt denen des NMOS (Abbildung 2c).
+Mit denselben Zählpfeilen wie beim NMOS (Abbildung 3a) sind deshalb im Betrieb alle Größen negativ: $U_{GS}$, weil das Gate unter der Source liegt, $U_{DS}$, weil der Drain tiefer liegt, $I_D$, weil der Strom herausfließt, und die Schwelle, beim Beispiel-PMOS −0,5 V. Die Kennlinien liegen im dritten Quadranten (Abbildung 3b) und gleichen gespiegelt denen des NMOS (Abbildung 3c).
 
 **Die Akteure:**
 
@@ -150,7 +171,7 @@ Löcher sind in Silizium langsamer als Elektronen: In reinem Silizium beträgt i
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/03-substrateffekt-querschnitt · Vorlage: querschnitt-vergleich
-**Abbildung 3:** Zwei Querschnitte des Beispiel-NMOS unter dem Gate, jeweils genau an der Schwelle, maßstäblich in der Tiefe. (a) $U_{BS}$ = 0: Die Oberfläche liegt 0,923 V über dem Inneren des Substrats, die Verarmungszone ist 45,8 nm tief und trägt 4,17 fC/µm² feste negative Ladung; Schwelle 0,500 V. (b) $U_{BS}$ = −1 V, Source und Kanal also 1 V über dem Substrat: Die Oberfläche muss 1,923 V über dem Inneren liegen, die Zone ist 66,2 nm tief und trägt 6,02 fC/µm²; Schwelle 0,768 V gegen die Source. Daneben je ein Balken für die Ladung auf dem Gate, in (b) um 1,85 fC/µm² höher. Liegt die Source über dem Bulk, muss die Oberfläche höher angehoben werden; die breitere Verarmungszone bindet mehr Gateladung, und die Schwelle steigt.
+**Abbildung 4:** Zwei Querschnitte des Beispiel-NMOS unter dem Gate, jeweils genau an der Schwelle, maßstäblich in der Tiefe. (a) $U_{BS}$ = 0: Die Oberfläche liegt 0,923 V über dem Inneren des Substrats, die Verarmungszone ist 45,8 nm tief und trägt 4,17 fC/µm² feste negative Ladung; Schwelle 0,500 V. (b) $U_{BS}$ = −1 V, Source und Kanal also 1 V über dem Substrat: Die Oberfläche muss 1,923 V über dem Inneren liegen, die Zone ist 66,2 nm tief und trägt 6,02 fC/µm²; Schwelle 0,768 V gegen die Source. Daneben je ein Balken für die Ladung auf dem Gate, in (b) um 1,85 fC/µm² höher. Liegt die Source über dem Bulk, muss die Oberfläche höher angehoben werden; die breitere Verarmungszone bindet mehr Gateladung, und die Schwelle steigt.
 :::
 
 Alle NMOS-Transistoren einer integrierten Schaltung teilen sich dasselbe p-Substrat an Masse. Liegt die Source eines NMOS 1 V über Masse, hat er zwischen Bulk und Source −1 V, und seine Schwelle steigt von 0,5 V auf 0,768 V. Diese Verschiebung heißt __Substrateffekt__, englisch body effect.
@@ -158,14 +179,14 @@ Alle NMOS-Transistoren einer integrierten Schaltung teilen sich dasselbe p-Subst
 **Die Akteure:**
 
 - __$U_{BS}$__: Spannung vom Bulk zur Source; beim NMOS im Betrieb null oder negativ, das heißt in Sperrrichtung; −1 V, wenn die Source 1 V über dem Substrat liegt.
-- __$2\Phi_F$__: Oberflächenpotential an der Schwelle bei $U_{BS}$ = 0 ([Aufbau und Funktionsweise des MOSFET](/wissen/elektrotechnik/3-semester/schaltungstechnik-1/mos-feldeffekttransistoren/aufbau-und-funktionsweise.html)); 0,923 V.
+- __$2\Phi_F$__: Anhebung der Oberfläche über das Innere, das __Oberflächenpotential__, an der Schwelle bei $U_{BS}$ = 0 (Abschnitt *Von Grund auf*); 0,923 V.
 - __$\gamma$__: __Substratsteuerfaktor__, auch Body-Effekt-Faktor, in √V; 0,63 √V beim Beispiel-NMOS.
 
 **Das Zusammenspiel:**
 
-**Schritt 1**: Die Elektronen des Kanals stammen aus der Source und liegen auf ihrem Potential. Für starke Inversion zählt deshalb, wie hoch die Oberfläche über dem Potential der Source liegt.
+**Schritt 1**: Die Elektronen des Kanals stammen aus der Source und liegen auf ihrem Potential. Damit sich der Kanal bildet, zählt deshalb nach der Boltzmann-Verteilung (Abschnitt *Von Grund auf*), wie hoch die Oberfläche über dem Potential der Source liegt.
 
-**Schritt 2**: Liegt die Source 1 V über dem Bulk, muss die Oberfläche um $2\Phi_F$ über die Source hinaus angehoben werden, gegenüber dem Substrat also um 1,923 V statt 0,923 V (Abbildung 3b).
+**Schritt 2**: Liegt die Source 1 V über dem Bulk, muss die Oberfläche um $2\Phi_F$ über die Source hinaus angehoben werden, gegenüber dem Substrat also um 1,923 V statt 0,923 V (Abbildung 4b).
 
 **Schritt 3** (entscheidender Schritt): Dafür muss die Verarmungszone breiter werden. Ihre Tiefe wächst mit der Wurzel der Spannung über ihr, von 45,8 auf 66,2 nm, ihre feste Ladung von 4,17 auf 6,02 fC/µm².
 
@@ -175,7 +196,7 @@ Alle NMOS-Transistoren einer integrierten Schaltung teilen sich dasselbe p-Subst
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/03-schwelle-ubs · Vorlage: kennlinie
-**Abbildung 4:** Schwellenspannung über der Sperrspannung zwischen Source und Bulk (beim NMOS −$U_{BS}$, beim PMOS +$U_{BS}$) von −0,4 V bis 2,5 V. NMOS: 0,500 V bei 0, 0,646 V bei 0,5 V, 0,768 V bei 1 V, 0,971 V bei 2 V und 1,059 V bei 2,5 V; links von null, wo der Bulk über der Source liegt, sinkt sie auf 0,431 V, 0,392 V und 0,351 V bei 0,2 V, 0,3 V und 0,4 V Durchlassspannung (grau hinterlegt: Die Diode zwischen Bulk und Source beginnt zu leiten). PMOS, Betrag der Schwelle: 0,500 V bei 0, 0,762 V bei 1 V, 1,048 V bei 2,5 V. Gestrichelt die Tangente im Nullpunkt mit der Steigung 0,327. Die Schwelle wächst mit der Wurzel der Sperrspannung zwischen Source und Bulk; jedes weitere Volt hebt sie weniger.
+**Abbildung 5:** Schwellenspannung über der Sperrspannung zwischen Source und Bulk (beim NMOS −$U_{BS}$, beim PMOS +$U_{BS}$) von −0,4 V bis 2,5 V. NMOS: 0,500 V bei 0, 0,646 V bei 0,5 V, 0,768 V bei 1 V, 0,971 V bei 2 V und 1,059 V bei 2,5 V; links von null, wo der Bulk über der Source liegt, sinkt sie auf 0,431 V, 0,392 V und 0,351 V bei 0,2 V, 0,3 V und 0,4 V Durchlassspannung (grau hinterlegt: Die Diode zwischen Bulk und Source beginnt zu leiten). PMOS, Betrag der Schwelle: 0,500 V bei 0, 0,762 V bei 1 V, 1,048 V bei 2,5 V. Gestrichelt die Tangente im Nullpunkt mit der Steigung 0,327. Die Schwelle wächst mit der Wurzel der Sperrspannung zwischen Source und Bulk; jedes weitere Volt hebt sie weniger.
 :::
 
 :::formel Formel
@@ -257,7 +278,7 @@ $$I_D = 1\ \mathrm{mA/V^2}\cdot\big(1\ \mathrm V - 0{,}768\ \mathrm V\big)^2 = 0
 **Einordnung:** Schon 1 V Sperrspannung hebt die Schwelle um mehr als die Hälfte, und weil der Strom quadratisch von der Übersteuerung abhängt, fällt er auf gut ein Fünftel, 22 %. Eine Schwellenspannung im Datenblatt gilt deshalb immer für eine bestimmte Bulk-Source-Spannung, meist null.
 ::::
 
-Für kleine Änderungen wirkt der Bulk wie ein zweites, schwächeres Gate, das über die Verarmungszone an den Kanal koppelt: Ein Millivolt am Bulk verschiebt die Übersteuerung beim Beispiel-NMOS um 0,33 mV bei $U_{BS}$ = 0 und um 0,23 mV bei −1 V. Das ist die Steigung der Kurve in Abbildung 4.
+Für kleine Änderungen wirkt der Bulk wie ein zweites, schwächeres Gate, das über die Verarmungszone an den Kanal koppelt: Ein Millivolt am Bulk verschiebt die Übersteuerung beim Beispiel-NMOS um 0,33 mV bei $U_{BS}$ = 0 und um 0,23 mV bei −1 V. Das ist die Steigung der Kurve in Abbildung 5.
 
 ## Der Substrateffekt in Schaltungen
 
@@ -265,12 +286,12 @@ Für kleine Änderungen wirkt der Bulk wie ein zweites, schwächeres Gate, das �
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/03-sourcefolger · Vorlage: schaltung-kennlinie
-**Abbildung 5:** (a) NMOS-Sourcefolger: T2 mit Drain an $U_B$ = 2,5 V, Gate am Eingang, Source am Ausgang, Bulk am Substrat auf Masse; darunter eine Stromquelle mit 0,25 mA, etwa ein NMOS T1 mit fester Gatespannung. (b) PMOS-Sourcefolger: T3 mit Drain an Masse, Gate am Eingang, Source am Ausgang, Bulk wahlweise an der eigenen Source oder an $U_B$; darüber eine Stromquelle mit 0,25 mA, etwa ein PMOS T4 mit fester Gatespannung. (c) Ausgangs- über Eingangsspannung: NMOS ohne Substrateffekt die Gerade $U_\mathrm{ein}$ − 1 V (0,5 V, 1,0 V und 1,5 V bei 1,5 V, 2 V und 2,5 V Eingangsspannung), mit Substrateffekt 0,385 V, 0,783 V und 1,190 V; PMOS in eigener Wanne $U_\mathrm{ein}$ + 1 V, in der gemeinsamen Wanne an 2,5 V 1,305 V und 1,714 V bei 0 V und 0,5 V. Der Substrateffekt lässt den Ausgang nur mit etwa 0,8 statt 1 folgen; eine eigene Wanne beseitigt ihn beim PMOS.
+**Abbildung 6:** (a) NMOS-Sourcefolger: T2 mit Drain an $U_B$ = 2,5 V, Gate am Eingang, Source am Ausgang, Bulk am Substrat auf Masse; darunter eine Stromquelle mit 0,25 mA, etwa ein NMOS T1 mit fester Gatespannung. (b) PMOS-Sourcefolger: T3 mit Drain an Masse, Gate am Eingang, Source am Ausgang, Bulk wahlweise an der eigenen Source oder an $U_B$; darüber eine Stromquelle mit 0,25 mA, etwa ein PMOS T4 mit fester Gatespannung. (c) Ausgangs- über Eingangsspannung: NMOS ohne Substrateffekt die Gerade $U_\mathrm{ein}$ − 1 V (0,5 V, 1,0 V und 1,5 V bei 1,5 V, 2 V und 2,5 V Eingangsspannung), mit Substrateffekt 0,385 V, 0,783 V und 1,190 V; PMOS in eigener Wanne $U_\mathrm{ein}$ + 1 V, in der gemeinsamen Wanne an 2,5 V 1,305 V und 1,714 V bei 0 V und 0,5 V. Der Substrateffekt lässt den Ausgang nur mit etwa 0,8 statt 1 folgen; eine eigene Wanne beseitigt ihn beim PMOS.
 :::
 
-Jeder NMOS, dessen Source nicht auf Masse liegt, hat einen Substrateffekt: der obere von zwei Transistoren in Reihe und besonders der __Sourcefolger__ (Abbildung 5a). In ihm liegt der Eingang am Gate, der Ausgang an der Source, und eine Stromquelle hält den Strom und damit die Übersteuerung $U_{GS} - U_{th}$ fest; ohne Substrateffekt folgt der Ausgang dem Eingang mit 1 V Abstand. Mit Substrateffekt steigt die Schwelle mit dem Ausgang, und er folgt nur mit etwa 0,8 (Abbildung 5c).
+Jeder NMOS, dessen Source nicht auf Masse liegt, hat einen Substrateffekt: der obere von zwei Transistoren in Reihe und besonders der __Sourcefolger__ (Abbildung 6a). In ihm liegt der Eingang am Gate, der Ausgang an der Source, und eine Stromquelle hält den Strom und damit die Übersteuerung $U_{GS} - U_{th}$ fest; ohne Substrateffekt folgt der Ausgang dem Eingang mit 1 V Abstand. Mit Substrateffekt steigt die Schwelle mit dem Ausgang, und er folgt nur mit etwa 0,8 (Abbildung 6c).
 
-Vermeiden lässt sich der Substrateffekt nur, wenn der Transistor ein eigenes, mit seiner Source verbundenes Gebiet hat. Bei den meisten Einzeltransistoren ist der Bulk schon im Gehäuse mit der Source verbunden; der Preis ist die Diode zwischen Bulk und Drain, die nun als __Inversdiode__ zwischen Source und Drain liegt. Beim PMOS kann man jedem Transistor eine eigene Wanne geben und sie mit seiner Source verbinden (Abbildung 5b); das kostet Fläche und eine zusätzliche Kapazität am Ausgang und wird deshalb nur für genau arbeitende Folger und Eingangsstufen getan. NMOS liegen in einem einfachen n-Wannen-Prozess alle im selben Substrat; eine eigene p-Wanne erhalten sie dort nur mit einer zusätzlichen tiefen n-Wanne.
+Vermeiden lässt sich der Substrateffekt nur, wenn der Transistor ein eigenes, mit seiner Source verbundenes Gebiet hat. Bei den meisten Einzeltransistoren ist der Bulk schon im Gehäuse mit der Source verbunden; der Preis ist die Diode zwischen Bulk und Drain, die nun als __Inversdiode__ zwischen Source und Drain liegt. Beim PMOS kann man jedem Transistor eine eigene Wanne geben und sie mit seiner Source verbinden (Abbildung 6b); das kostet Fläche und eine zusätzliche Kapazität am Ausgang und wird deshalb nur für genau arbeitende Folger und Eingangsstufen getan. NMOS liegen in einem einfachen n-Wannen-Prozess alle im selben Substrat; eine eigene p-Wanne erhalten sie dort nur mit einer zusätzlichen tiefen n-Wanne.
 
 ::::beispiel Sourcefolger mit und ohne Substrateffekt
 **Gegeben:** Beispiel-NMOS ($U_{th0}$ = 0,5 V, $K_n$ = 2 mA/V², $\gamma$ = 0,629 √V, $2\Phi_F$ = 0,923 V) als Folger mit 0,25 mA, Bulk an Masse; Beispiel-PMOS ($\gamma_p$ = 0,615 √V, $2\Phi_{F,p}$ = 0,921 V) als Folger mit 0,25 mA bei 0,5 V Eingangsspannung; Kanallängenmodulation vernachlässigt.
@@ -307,16 +328,16 @@ Ein NMOS, dessen Drain und Gate an 2,5 V liegen, ist ein Sourcefolger: Er hebt d
 
 :::grafik
 Szene: st1/mos-feldeffekttransistoren/03-latchup-struktur · Vorlage: querschnitt-ersatzschaltbild
-**Abbildung 6:** (a) Querschnitt mit Substratkontakt und NMOS-Source an Masse, n-Wanne mit Wannenkontakt und PMOS-Source an $U_B$; eingezeichnet der laterale npn-Transistor (Emitter: NMOS-Source, Basis: Substrat, Kollektor: Wanne), der vertikale pnp-Transistor (Emitter: PMOS-Source, Basis: Wanne, Kollektor: Substrat), der Substratwiderstand $R_\mathrm{sub}$ von der Basis des npn zum Substratkontakt und der Wannenwiderstand $R_\mathrm{well}$ von der Basis des pnp zum Wannenkontakt. (b) Ersatzschaltbild: beide Transistoren über Kreuz verbunden zwischen $U_B$ und Masse, der Kollektor des einen an der Basis des anderen; ein umlaufender Pfeil zeigt die Mitkopplung mit der Schleifenverstärkung $B_\mathrm{npn}B_\mathrm{pnp}$. (c) Die Schichtfolge p⁺–n–p–n⁺ als Thyristor. Die Gebiete einer CMOS-Schaltung bilden zwei parasitäre Bipolartransistoren, von denen jeder den anderen ansteuert: einen Thyristor zwischen Versorgung und Masse.
+**Abbildung 7:** (a) Querschnitt mit Substratkontakt und NMOS-Source an Masse, n-Wanne mit Wannenkontakt und PMOS-Source an $U_B$; eingezeichnet der laterale npn-Transistor (Emitter: NMOS-Source, Basis: Substrat, Kollektor: Wanne), der vertikale pnp-Transistor (Emitter: PMOS-Source, Basis: Wanne, Kollektor: Substrat), der Substratwiderstand $R_\mathrm{sub}$ von der Basis des npn zum Substratkontakt und der Wannenwiderstand $R_\mathrm{well}$ von der Basis des pnp zum Wannenkontakt. (b) Ersatzschaltbild: beide Transistoren über Kreuz verbunden zwischen $U_B$ und Masse, der Kollektor des einen an der Basis des anderen; ein umlaufender Pfeil zeigt die Mitkopplung mit der Schleifenverstärkung $B_\mathrm{npn}B_\mathrm{pnp}$. (c) Die Schichtfolge p⁺–n–p–n⁺ als Thyristor. Die Gebiete einer CMOS-Schaltung bilden zwei parasitäre Bipolartransistoren, von denen jeder den anderen ansteuert: einen Thyristor zwischen Versorgung und Masse.
 :::
 
-Folgt man in Abbildung 6a dem Weg von der PMOS-Source an der Versorgung durch Wanne und Substrat zur NMOS-Source an Masse, durchquert man p⁺, n, p und n⁺: die Schichtfolge eines __Thyristors__, eines Bauelements aus vier abwechselnd dotierten Schichten, das nach dem Zünden von selbst leitend bleibt. Die beiden mittleren Schichten gehören zu zwei Bipolartransistoren zugleich: Die n-Wanne ist Basis des pnp und Kollektor des npn, das Substrat Basis des npn und Kollektor des pnp. Rastet dieser ungewollte Thyristor ein, heißt das __Latch-Up__.
+Folgt man in Abbildung 7a dem Weg von der PMOS-Source an der Versorgung durch Wanne und Substrat zur NMOS-Source an Masse, durchquert man p⁺, n, p und n⁺: die Schichtfolge eines __Thyristors__, eines Bauelements aus vier abwechselnd dotierten Schichten, das nach dem Zünden von selbst leitend bleibt. Die beiden mittleren Schichten gehören zu zwei Bipolartransistoren zugleich: Die n-Wanne ist Basis des pnp und Kollektor des npn, das Substrat Basis des npn und Kollektor des pnp. Rastet dieser ungewollte Thyristor ein, heißt das __Latch-Up__.
 
 **Die Akteure:**
 
 - __npn__, __pnp__: die parasitären Transistoren, lateral aus NMOS-Source, Substrat und Wanne bzw. vertikal aus PMOS-Source, Wanne und Substrat.
 - __$R_\mathrm{sub}$__, __$R_\mathrm{well}$__: Widerstand des Substrats bis zum Substratkontakt und der Wanne bis zum Wannenkontakt; angenommen 1 kΩ und 2 kΩ.
-- __$B_\mathrm{npn}$__, __$B_\mathrm{pnp}$__: Stromverstärkungen der parasitären Transistoren, Kollektor- durch Basisstrom; angenommen 5 und 50. Dieses $B$ hat nichts mit dem Index $B$ für Bulk zu tun.
+- __$B_\mathrm{npn}$__, __$B_\mathrm{pnp}$__: Stromverstärkungen der parasitären Transistoren, Kollektor- durch Basisstrom (Abschnitt *Von Grund auf*); angenommen 5 und 50. Dieses $B$ hat nichts mit dem Index $B$ für Bulk zu tun.
 
 **Das Zusammenspiel:**
 
@@ -330,7 +351,7 @@ Folgt man in Abbildung 6a dem Weg von der PMOS-Source an der Versorgung durch Wa
 
 **Schritt 5** (entscheidender Schritt): Sein Kollektorstrom fließt ins Substrat und durch $R_\mathrm{sub}$, denselben Weg wie der Störstrom, und verstärkt Schritt 2: eine __Mitkopplung__. Kommt ein Strom nach einem Umlauf größer zurück, wachsen beide Ströme von selbst.
 
-**Schritt 6**: Begrenzt wird das Wachstum erst von den Widerständen von Wanne und Substrat und von der äußeren Schaltung. Zwischen $U_B$ und Masse liegt nun ein Pfad mit nur rund 1 V, ein Kurzschluss, und er bleibt bestehen, auch wenn der Störstrom vorbei ist. Nur Abschalten beendet ihn, oder ein Versorgungsstrom unter dem __Haltestrom__, dem kleinsten Strom, mit dem sich der Pfad selbst erhält.
+**Schritt 6**: Begrenzt wird das Wachstum erst von den Widerständen von Wanne und Substrat und von der äußeren Schaltung. Zwischen $U_B$ und Masse liegt nun ein Pfad mit nur rund 0,8 V, ein Kurzschluss, und er bleibt bestehen, auch wenn der Störstrom vorbei ist. Nur Abschalten beendet ihn, oder ein Versorgungsstrom unter dem __Haltestrom__, dem kleinsten Strom, mit dem sich der Pfad selbst erhält.
 
 :::formel Formel
 $$B_\mathrm{npn}\,B_\mathrm{pnp} > 1$$
@@ -406,7 +427,7 @@ Im Ruhezustand sind alle Übergänge des Pfads gesperrt, und durch Substrat und 
 
 *Wie verhindert man, dass der parasitäre Thyristor zündet?*
 
-Gegen Latch-Up senkt man die Widerstände und die Stromverstärkungen aus Abbildung 6. Viele Substrat- und Wannenkontakte dicht neben den Transistoren senken $R_\mathrm{sub}$ und $R_\mathrm{well}$; Wafer mit einer dünnen, schwach dotierten __Epitaxieschicht__, einer aufgewachsenen Kristallschicht für die Transistoren, auf einem hoch dotierten Substrat senken $R_\mathrm{sub}$ zusätzlich: Soll ein Störstrom von 100 mA nicht zünden, darf der Weg zum Substratkontakt höchstens 6 Ω haben. Ein größerer Abstand zwischen NMOS und Wanne und __Schutzringe__, stark dotierte Ringe an Masse oder Versorgung um die Transistoren, die injizierte Ladungsträger abfangen, senken die Stromverstärkungen; liegt ihr Produkt unter 1, kann sich der Pfad nicht halten. Ganz beseitigt ist die Gefahr nur ohne gemeinsames Substrat, bei Transistoren auf einer isolierenden Oxidschicht (SOI). Welche Abstände und Kontakte nötig sind, schreiben die Entwurfsregeln jedes Prozesses vor.
+Gegen Latch-Up senkt man die Widerstände und die Stromverstärkungen aus Abbildung 7. Viele Substrat- und Wannenkontakte dicht neben den Transistoren senken $R_\mathrm{sub}$ und $R_\mathrm{well}$; Wafer mit einer dünnen, schwach dotierten __Epitaxieschicht__, einer aufgewachsenen Kristallschicht für die Transistoren, auf einem hoch dotierten Substrat senken $R_\mathrm{sub}$ zusätzlich: Soll ein Störstrom von 100 mA nicht zünden, darf der Weg zum Substratkontakt höchstens 6 Ω haben. Ein größerer Abstand zwischen NMOS und Wanne und __Schutzringe__, stark dotierte Ringe an Masse oder Versorgung um die Transistoren, die injizierte Ladungsträger abfangen, senken die Stromverstärkungen; liegt ihr Produkt unter 1, kann sich der Pfad nicht halten. Ganz beseitigt ist die Gefahr nur ohne gemeinsames Substrat, bei Transistoren auf einer isolierenden Oxidschicht (SOI). Welche Abstände und Kontakte nötig sind, schreiben die Entwurfsregeln jedes Prozesses vor.
 
 ## Alles hängt an einem Prinzip
 

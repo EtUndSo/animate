@@ -3289,8 +3289,23 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 
 *Animation:* Die drei Hervorhebungen erscheinen nacheinander; bei (2) wächst die Verarmungszone mit einem Schieberegler für $U_{SB}$ von 0 bis 2,5 V.
 
+**st1/mos-feldeffekttransistoren/03-grundlagen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2 (Grundlagen-Abschnitt nach §5.12, nachgerüstet 28.10.2026).
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder nebeneinander. (a) pn-Übergang n⁺ (blau) | Raumladungszone (grau) | p (rot), drei Breiten maßstäblich übereinander: 48,4 nm ohne Spannung, 67,9 nm bei 1 V und 89,6 nm bei 2,5 V Sperrspannung; daneben die Kennlinie eines Übergangs mit $I_S$ = 10⁻¹⁶ A, linear von −1 V bis 0,8 V und 0 bis 1 mA: in Sperrrichtung null, 1,2 µA bei 0,6 V, 57,5 µA bei 0,7 V, 1 mA bei 0,774 V; Vermerk „zehnmal so viel je 59,5 mV“. (b) NMOS an der Schwelle, Source und Bulk an Masse: Gate, 5 nm Oxid, Verarmungszone 45,8 nm (grau) mit Akzeptorrümpfen und 4,17 fC/µm², an der Oberfläche eine dünne Elektronenschicht (blau); daneben eine logarithmische Skala der Elektronendichte, 176 cm⁻³ im Inneren bis 5,7·10¹⁷ cm⁻³ an der Oberfläche, 15,5 Zehnerpotenzen über 0,923 V; dazu ein gestapelter Balken der Spannungsbilanz: −1,03 V Flachbandspannung, +0,923 V Anhebung $2\Phi_F$, +0,604 V über dem Oxid, Summe 0,500 V. (c) npn-Transistor: Emitter n, dünne Basis p, Kollektor n; Elektronenpfeile (blau) vom Emitter in den Kollektor, 1 mA; Basisstrom 10 µA; $U_{BE}$ = 0,774 V; daneben der pnp mit umgekehrten Schichten und Pfeilen.
+
+*Kernaussage:* Gesperrte pn-Übergänge trennen, und ihre Zonen wachsen mit der Wurzel der Spannung; die Schwelle ist eine Spannungsbilanz, in der die Ladung der Verarmungszone steckt; im Bipolartransistor ist der Kollektorstrom ein festes Vielfaches des Basisstroms.
+
+*Daten:* Zahlenwerk AO (Zonenbreiten, Diodenströme, Elektronendichten, Spannungsbilanz, Bipolarwerte), B.
+
+*Editor:*
+- §10 Teilbilder; §27 Querschnitt; §4, §11 Kennlinie; §12 logarithmische Skala; §18 Bilanzdiagramm als gestapelter Balken; §14 Teilchen, §2 Pfeile; §36 MOS-Strukturen.
+
+*Animation:* Schieberegler Sperrspannung in (a): Die Zone wird breiter. Schieberegler $U_{GS}$ in (b): Die Elektronendichte an der Oberfläche steigt, bis sie bei 0,5 V die Dotierung erreicht.
+
 **st1/mos-feldeffekttransistoren/03-pmos-kennlinien**
-- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
 - Status: offen.
 
 *Inhalt:* Drei Teilbilder.
@@ -3309,7 +3324,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 *Animation:* Umschalten zwischen (b) und (c) als Spiegelung an beiden Achsen.
 
 **st1/mos-feldeffekttransistoren/03-substrateffekt-querschnitt**
-- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
+- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
 - Status: offen.
 
 *Inhalt:* Zwei Querschnitte des Beispiel-NMOS unter dem Gate, jeweils genau an der Schwelle, maßstäblich in der Tiefe. (a) $U_{SB}$ = 0: Oberfläche 0,923 V über dem Inneren, Verarmungszone 45,8 nm, 4,17 fC/µm² feste Ladung, Schwelle 0,500 V. (b) $U_{SB}$ = 1 V (Source und Kanal 1 V über dem Bulk): Oberfläche 1,923 V über dem Inneren, Verarmungszone 66,2 nm, 6,02 fC/µm², Schwelle 0,768 V gegen die Source. Rechts je ein Balken der Gateladung, in (b) um 1,85 fC/µm² höher. Darunter klein der Potentialverlauf über der Tiefe für beide Fälle.
@@ -3324,7 +3339,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 *Animation:* Schieberegler $U_{SB}$ von 0 bis 2,5 V: Die Zone wächst bis 88 nm, die Gateladung mit ihr, eine Anzeige zeigt die Schwelle.
 
 **st1/mos-feldeffekttransistoren/03-schwelle-ubs**
-- Fassung: kompakt Abb. 4, ausführlich Abb. 4.
+- Fassung: kompakt Abb. 5, ausführlich Abb. 5.
 - Status: offen.
 
 *Inhalt:* Schwellenspannung in V (0,3 bis 1,1) über der Sperrspannung zwischen Source und Bulk in V (−0,4 bis 2,5): NMOS $U_{th}$ über $U_{SB}$: 0,351 / 0,392 / 0,431 / 0,500 / 0,646 / 0,768 / 0,875 / 0,971 / 1,059 V bei −0,4 / −0,3 / −0,2 / 0 / 0,5 / 1 / 1,5 / 2 / 2,5 V; PMOS $|U_{th,p}|$ über $U_{BS}$ (0 bis 2,5 V): 0,500 / 0,643 / 0,762 / 0,867 / 0,961 / 1,048 V. Gestrichelt die Tangente bei 0 mit der Steigung η = 0,327; Bereich links von 0 grau hinterlegt mit „Bulk über Source, Diode leitet zunehmend“.
@@ -3339,7 +3354,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 *Animation:* keine.
 
 **st1/mos-feldeffekttransistoren/03-sourcefolger**
-- Fassung: kompakt Abb. 5, ausführlich Abb. 5.
+- Fassung: kompakt Abb. 6, ausführlich Abb. 6.
 - Status: offen.
 
 *Inhalt:* Drei Teilbilder.
@@ -3357,7 +3372,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 *Animation:* Schieberegler $U_\mathrm{ein}$: Punkte auf den Kennlinien wandern, die Schwellenspannung von T2 wird angezeigt.
 
 **st1/mos-feldeffekttransistoren/03-wannen-varianten**
-- Fassung: ausführlich Abb. 6.
+- Fassung: ausführlich Abb. 7.
 - Status: offen.
 
 *Inhalt:* Vier Querschnitte, schematisch: (a) NMOS T1 und T2 im gemeinsamen p-Substrat an Masse, Source von T2 am Ausgang: Substrateffekt bei T2; (b) PMOS T3 und T4 in einer gemeinsamen n-Wanne an $U_B$: Substrateffekt bei T3; (c) T3 in eigener n-Wanne, Wannenkontakt an seiner Source: kein Substrateffekt, dafür mehr Fläche und eine zusätzliche Kapazität zwischen Wanne und Substrat am Ausgang; (d) NMOS in einer isolierten p-Wanne in einer tiefen n-Wanne (Triple-Well), p-Wanne an der Source.
@@ -3372,7 +3387,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 *Animation:* keine.
 
 **st1/mos-feldeffekttransistoren/03-latchup-struktur**
-- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
+- Fassung: kompakt Abb. 7, ausführlich Abb. 8.
 - Status: offen.
 
 *Inhalt:* Drei Teilbilder.
@@ -3390,7 +3405,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 *Animation:* Stromfluss nacheinander: Störstrom ins Substrat, npn leitet, Strom durch $R_\mathrm{well}$, pnp leitet, Strom zurück ins Substrat; die Pfeile werden mit jedem Umlauf dicker.
 
 **st1/mos-feldeffekttransistoren/03-latchup-kennlinie**
-- Fassung: ausführlich Abb. 8.
+- Fassung: ausführlich Abb. 9.
 - Status: offen.
 
 *Inhalt:* Schematisch: Strom zwischen $U_B$ und Masse über der Spannung zwischen beiden (0 bis 3 V): gesperrter Ast mit sehr kleinem Strom, Zündpunkt (gestrichelt markiert), Rücksprung, leitender Ast im einfachen Modell ab rund 0,8 V steil ansteigend; Haltepunkt bei rund 1 mA; die Arbeitsgerade einer 2,5-V-Versorgung mit 1 Ω Innenwiderstand schneidet den leitenden Ast bei 1,7 A. Achsen mit Bruch zwischen mA und A.
@@ -3405,7 +3420,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte S bis V;
 *Animation:* Der Arbeitspunkt springt beim Zünden vom gesperrten auf den leitenden Ast und bleibt dort, wenn der Störstrom endet.
 
 **st1/mos-feldeffekttransistoren/03-latchup-gegenmassnahmen**
-- Fassung: ausführlich Abb. 9.
+- Fassung: ausführlich Abb. 10.
 - Status: offen.
 
 *Inhalt:* Querschnitt wie in 03-latchup-struktur, ergänzt um: p⁺-Ring um den NMOS an Masse und n⁺-Ring um den PMOS an $U_B$ (Schutzringe), viele Substrat- und Wannenkontakte dicht an den Transistoren, eine dünne, schwach dotierte Epitaxieschicht auf hoch dotiertem p⁺-Substrat, größerer Abstand zwischen n⁺ und Wanne; Beschriftung der Wirkung: kleinere $R_\mathrm{sub}$ und $R_\mathrm{well}$, kleinere Stromverstärkungen, Abfangen der Ladungsträger. Kleines Einsatzbild: SOI-Querschnitt ohne gemeinsames Substrat.
@@ -3440,8 +3455,23 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 
 *Animation:* Umschalten zwischen gesperrt ($U_{GS}$ = 0: $C_{GB}$ 20,7 fF, $C_{GS}$ = $C_{GD}$ = 3,45 fF), Abschnürbereich (Werte oben) und ohmschem Bereich (je 38,0 fF); die Symbole wachsen und schrumpfen mit ihrem Wert.
 
+**st1/mos-feldeffekttransistoren/04-grundlagen**
+- Fassung: kompakt Abb. 2, ausführlich Abb. 2 (Grundlagen-Abschnitt nach §5.12, nachgerüstet 28.10.2026).
+- Status: offen.
+
+*Inhalt:* Drei Teilbilder nebeneinander. (a) Plattenkondensator: Gate (dunkelgrau, 10 µm mal 1 µm, in der Höhe gestreckt) über 5 nm Oxid (hellgrau) und einer leitenden Gegenplatte; bei 1 V +69,1 fC oben und −69,1 fC unten, je ein Strompfeil durch den eigenen Anschluss; rechts daneben zwei kleine Zeitverläufe der Spannung: Laden mit 0,25 mA als Gerade von 0 auf 1 V in 0,28 ns, Laden über 10 kΩ als Exponentialkurve mit der Zeitkonstante 0,69 ns, 63 % markiert. (b) NMOS-Querschnitt, schematisch: p-Bulk mit Akzeptorrümpfen (Kreise mit Minus) und Löchern (rot), n⁺-Source und n⁺-Drain mit Elektronen (blau), Gate über dem Oxid, Verarmungszonen grau; zwei Zustände übereinander: $U_{GS}$ = 1,5 V und kleine $U_{DS}$ mit gleichmäßigem Kanal (blau) bis zum Drain, $U_{GS}$ = $U_{DS}$ = 1 V mit einem Kanal als Keil, der vor dem Drain endet; Anschlüsse G, S, D, B beschriftet. (c) Zugeflossene Gateladung in fC über $U_{GS}$ von 0 bis 1,5 V, Source, Drain und Bulk an Masse: 4,9 bei 0,25 V, 9,8 bei 0,5 V, 21,7 bei 0,75 V, 37,1 bei 1 V, 53,2 bei 1,25 V, 69,7 bei 1,5 V; Tangenten (orange) bei 0 V (20,7 fF) und bei 1 V (63,7 fF) mit Steigungsdreieck; grau gestrichelt die Gerade eines Plattenkondensators mit 69,1 fF.
+
+*Kernaussage:* Ladung und Gegenladung fließen durch verschiedene Anschlüsse; im Transistor sitzen sie an mehreren Orten, und die Kapazität ist die Steigung der Ladungskurve im Arbeitspunkt.
+
+*Daten:* Zahlenwerk AN (Ladungskurve, Steigungen, Umladezeiten), A ($C_\mathrm{ox}$).
+
+*Editor:*
+- §10 Teilbilder; §27 Technologie-Querschnitt, §36 MOS-Strukturen (Ladungsschichten, Kanal als Keil); §14 Teilchen; §2 Pfeile; §5 Zeitverläufe; §4, §11 Datenkurve mit Tangenten, §37 Steigungsdreieck.
+
+*Animation:* Schieberegler $U_{GS}$ in (c): Der Arbeitspunkt läuft auf der Kurve, die Tangente dreht sich mit, und in (b) füllt sich der Kanal.
+
 **st1/mos-feldeffekttransistoren/04-gatekapazitaet**
-- Fassung: kompakt Abb. 2, ausführlich Abb. 2.
+- Fassung: kompakt Abb. 3, ausführlich Abb. 3.
 - Status: offen.
 
 *Inhalt:* Kapazität des Gates bezogen auf $C_\mathrm{ox}$ (0 bis 1,05; rechts angeschrieben: 1 entspricht 69,1 fF) über $U_{GS}$ in V (−2,5 bis 2,5) bei $U_{DS}$ = 0 und $U_{SB}$ = 0. Obere Kante: gesamte Gatekapazität $C_G$: 0,964 / 0,946 / 0,901 / 0,734 / 0,406 / 0,300 / 0,264 (Minimum) / 0,396 / 0,545 / 0,675 / 0,849 / 0,922 / 0,959 / 0,978 bei −2,5 / −2 / −1,5 / −1,03 / −0,5 / 0 / 0,35 / 0,5 / 0,55 / 0,6 / 0,75 / 1 / 1,5 / 2,5 V. Darunter als gestapelte Flächen der Bulkanteil $C_{GB}$ (grau): bis 0 V gleich der Gesamtkurve, dann 0,198 bei 0,5 V, 0,098 bei 0,6 V, 0,039 bei 0,75 V, 0,015 bei 1 V, 0,002 bei 2,5 V; und der Kanalanteil $C_{GS} + C_{GD}$ (blau, je zur Hälfte Source und Drain, durch eine Mittellinie geteilt): 0,198 bei 0,5 V, 0,577 bei 0,6 V, 0,811 bei 0,75 V, 0,907 bei 1 V, 0,953 bei 1,5 V, 0,976 bei 2,5 V. Gestrichelt grau der MOS-Kondensator ohne Source und Drain bei hoher Frequenz: 0,249 bei 0,5 V, 0,239 bei 1 V, 0,234 bei 2,5 V. Senkrechte Marken bei der Flachbandspannung −1,03 V und der Schwelle 0,5 V, darüber die Bereichsnamen Anreicherung, Verarmung, Inversion.
@@ -3456,7 +3486,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* Schieberegler $U_{GS}$; darüber ein kleiner Querschnitt, in dem die Gegenladung an der richtigen Stelle pendelt: Löcher an der Oberfläche, Rand der Verarmungszone, Kanalelektronen mit Pfeilen aus Source und Drain.
 
 **st1/mos-feldeffekttransistoren/04-kanalladung-aufteilung**
-- Fassung: kompakt Abb. 3, ausführlich Abb. 4.
+- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
 - Status: offen.
 
 *Inhalt:* Zwei Zeilen, Ladung pro Fläche in fC/µm² über $x/L$ von 0 (Source) bis 1 (Drain).
@@ -3473,7 +3503,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* Ein Anschluss wird angehoben, das Profil sinkt, die Differenzfläche füllt sich, und der Mittelwert erscheint als Balken.
 
 **st1/mos-feldeffekttransistoren/04-cgs-cgd-uds**
-- Fassung: kompakt Abb. 4, ausführlich Abb. 5.
+- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
 - Status: offen.
 
 *Inhalt:* $C_{GS}$, $C_{GD}$ und ihre Summe in fF (0 bis 80) über $U_{DS}$ in V (0 bis 2) bei $U_{GS}$ = 1,5 V, nach dem Modell der Kennlinien ohne Überlappung: $C_{GS}$ 34,5 / 35,7 / 37,6 / 40,9 / 44,2 / 45,7 / 46,0 fF und $C_{GD}$ 34,5 / 33,3 / 31,0 / 25,6 / 16,6 / 8,0 / 0 fF bei 0 / 0,1 / 0,25 / 0,5 / 0,75 / 0,9 / 1 V, danach konstant 46,0 und 0 fF; Summe von 69,1 auf 46,0 fF. Gestrichelt dieselben Kurven mit je 3,45 fF Überlappung, $C_{GD}$ endet dann bei 3,45 fF. Senkrechte Marke an der Abschnürgrenze 1 V, links „ohmscher Bereich“, rechts „Abschnürbereich“; über dem Diagramm drei kleine Kanalbilder bei 0, 0,5 und 1 V.
@@ -3488,7 +3518,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* Schieberegler $U_{DS}$; der Abschnürpunkt wandert zum Drain und bleibt dort stehen, die Kurvenpunkte laufen mit.
 
 **st1/mos-feldeffekttransistoren/04-ueberlappung**
-- Fassung: ausführlich Abb. 3.
+- Fassung: ausführlich Abb. 4.
 - Status: offen.
 
 *Inhalt:* Ausschnitt um die drainseitige Gatekante, in der Höhe gestreckt: Gate über 5 nm Oxid; das n⁺-Draingebiet reicht 50 nm unter die Gatekante (seitliche Diffusion beim Ausheilen). Feldlinien vom Gate in das n⁺-Gebiet: unter der Überlappung dicht und parallel (Plattenkondensator, $C_\mathrm{ov}$ = 3,45 fF bei 10 µm Weite), dazu gebogene Linien von der Gateflanke zur Drainoberfläche, beschriftet „Randfeld“. Links davon der Kanal mit abgeschnürtem Ende, damit sichtbar ist, dass die Überlappung unabhängig von der Abschnürung besteht.
@@ -3503,7 +3533,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* keine.
 
 **st1/mos-feldeffekttransistoren/04-sperrschicht-geometrie**
-- Fassung: kompakt Abb. 5, ausführlich Abb. 6.
+- Fassung: kompakt Abb. 6, ausführlich Abb. 7.
 - Status: offen.
 
 *Inhalt:* Zwei Teilbilder.
@@ -3520,7 +3550,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* Umschalten auf ein Gebiet von einem Viertel der Kantenlänge (2,5 × 0,5 µm): Boden 2,68 fF, Rand 2,57 fF; der Randanteil steigt von 19 % auf 49 %.
 
 **st1/mos-feldeffekttransistoren/04-sperrschicht-spannung**
-- Fassung: ausführlich Abb. 7.
+- Fassung: ausführlich Abb. 8.
 - Status: offen.
 
 *Inhalt:* Zwei gestapelte Diagramme mit gemeinsamer x-Achse $U_{DB}$ in V (0 bis 2,5).
@@ -3537,7 +3567,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* keine.
 
 **st1/mos-feldeffekttransistoren/04-finger-layout**
-- Fassung: ausführlich Abb. 8 (im Beispiel zur Sperrschichtkapazität).
+- Fassung: ausführlich Abb. 9 (im Beispiel zur Sperrschichtkapazität).
 - Status: offen.
 
 *Inhalt:* Zwei Layout-Aufsichten bei gleicher Gesamtweite 10 µm. (a) Ein Finger: Source 10 × 2 µm, Gate 10 µm breit, Drain 10 × 2 µm. (b) Zwei Finger zu je 5 µm in der Folge Source, Gate, Drain, Gate, Source: Der Drain in der Mitte (5 × 2 µm) gehört zu beiden Gates, die beiden Sources liegen außen und sind verbunden. Werte bei $U_{DB}$ = 1 V: $C_{DB}$ = 37,8 fF gegen 19,5 fF.
@@ -3552,7 +3582,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* Der eine Finger klappt in zwei Hälften um den Drain; der Wert läuft von 37,8 auf 19,5 fF.
 
 **st1/mos-feldeffekttransistoren/04-leitung-randfeld**
-- Fassung: ausführlich Abb. 9.
+- Fassung: ausführlich Abb. 10.
 - Status: offen.
 
 *Inhalt:* Querschnitt einer Metallbahn, $b_M$ = 2 µm breit, $t_M$ = 0,5 µm dick, $h$ = 1 µm über dem Substrat, Oxid dazwischen; das Substrat als leitende Ebene. Feldlinien unter der Bahn senkrecht und gleichmäßig (Plattenanteil), von den Flanken und der Oberseite in Bögen zur Ebene (Randfeld). Je Millimeter Länge: Plattenkondensator 69,1 fF, mit Randfeld 162 fF (Faktor 2,35). Kleine Tabelle daneben für 1 / 2 / 4 µm Breite: Faktor 3,55 / 2,35 / 1,75.
@@ -3567,7 +3597,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* Schieberegler für die Breite von 1 bis 4 µm; Plattenanteil und Randanteil als Balken.
 
 **st1/mos-feldeffekttransistoren/04-miller**
-- Fassung: kompakt Abb. 6, ausführlich Abb. 10.
+- Fassung: kompakt Abb. 7, ausführlich Abb. 11.
 - Status: offen.
 
 *Inhalt:* Drei Teilbilder.
@@ -3585,7 +3615,7 @@ Zahlenwerk: `notizen/st1/zahlen_mosfet.py` (Ausgabe `.txt`), Abschnitte W bis AD
 *Animation:* Das Gate steigt um 10 mV, der Drain fällt um 80 mV, ein Ladungspfeil durch $C_{GD}$ wächst auf 0,311 fC; dann die Umformung von (a) nach (b).
 
 **st1/mos-feldeffekttransistoren/04-miller-kompensation**
-- Fassung: ausführlich Abb. 11.
+- Fassung: ausführlich Abb. 12.
 - Status: offen.
 
 *Inhalt:* Zweistufiger Verstärker als Blockbild: erste Stufe mit Ausgangswiderstand 1 MΩ, zweite Stufe invertierend mit $A_2$ = −50; $C_M$ = 1 pF zwischen Ein- und Ausgang der zweiten Stufe. Darunter der Ersatz: 51 pF vom Ausgang der ersten Stufe nach Masse. Rechts maßstäblich zwei Quadrate für die Kondensatorfläche bei 1 fF/µm²: 32 µm Seitenlänge für 1 pF, 226 µm für 51 pF.

@@ -172,3 +172,20 @@ Design Rules mit großen Abständen.
 9. S. 87: „durch die Design Rules ein Latch-Up verhindert … nicht möglich“ – Abstände allein genügen nicht; Kontakte,
    Schutzringe und Epitaxie senken Widerstände und Stromverstärkungen; bei Strominjektion an Anschlüssen bleibt ein Risiko,
    das geprüft wird (JESD78).
+
+## 3a. Aufbau-Leiter (§5.12, nachgerüstet 28.10.2026)
+
+Grundlagen (`## Von Grund auf: pn-Übergang, Schwellenspannung und Bipolartransistor`): pn-Übergang mit Raumladungszone,
+Sperr- und Durchlassrichtung (Breite 48,4/67,9/89,6 nm bei 0/1/2,5 V Sperrspannung, ab rund 0,6 V merklich leitend,
+59,5 mV je Zehnerpotenz), Substrat an der niedrigsten Spannung; NMOS mit Verarmungszone (Wurzelgesetz) und
+Boltzmann-Verteilung (176 cm⁻³ im Inneren, 5,7·10¹⁷ cm⁻³ an der Oberfläche bei 0,923 V = 2Φ_F, 15,5 Zehnerpotenzen),
+Schwelle als Spannungsbilanz −1,027 + 0,923 + 0,604 = 0,500 V, ohmscher Bereich, Abschnürbereich (0,25 mA, je Volt ein
+Zehntel mehr), Bulk an der Source; Bipolartransistor npn und pnp mit Basisstrom und Stromverstärkung (ST1-Beispiel 1 mA
+und 10 µA bei 0,774 V, B = 100). Szene 03-grundlagen = Abbildung 2 in beiden Fassungen, alle folgenden Abbildungen um eins
+verschoben (Abbildungsplan in §7 ist um eins zu erhöhen). Zahlen: Zahlenwerk AO.
+Sprossen: PMOS als Spiegelbild → Substrateffekt (Oberfläche gegen die Source gemessen, breitere Zone, mehr Ladung) → Bulk
+als zweites Gate (ausführlich) → Substrateffekt in Schaltungen (Folger, Wannen) → Latch-Up (Thyristor aus zwei
+Bipolartransistoren, Mitkopplung) → Gegenmaßnahmen.
+Dabei geändert: Akteur 2Φ_F als Oberflächenpotential mit Rückverweis; „starke Inversion“ im kompakten Text durch „damit
+sich der Kanal bildet“ ersetzt; Akteure B mit Rückverweis auf die Grundlagen; kompakt die Spannung des gezündeten Pfads an
+das eigene Beispiel angeglichen (rund 0,8 V statt rund 1 V).

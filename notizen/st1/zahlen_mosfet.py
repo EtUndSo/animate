@@ -1390,3 +1390,44 @@ P(f"  Einheiten: CGSO in F/m ({Cov/Wn*1e2:.3e}), CJ in F/m^2 ({CjF0*1e4:.3e}), C
   f"UO = KP/C'ox = {mu_n:.0f} cm^2/(V s)")
 P(f"  Instanz: M1 D G S B NMOS_BSP W=10u L=1.1u AD=20p PD=24u AS=20p PS=24u; L_eff = L - 2 LD = "
   f"{(1.1e-4-2*L_ov)*1e4:.2f} µm; K_n = KP W/L_eff = {Kn_s*10/1.0*1e3:.1f} mA/V^2")
+
+# ====================================================================================================================
+# Nachrüstung „Von Grund auf“ (ERKLAER_PROMPT §5.12), 28.10.2026: Grundbegriffe für Thema 4 und Thema 3
+# ====================================================================================================================
+kopf("AN. Von Grund auf, Thema 4 (Kapazitäten): Plattenkondensator, Umladen, Gateladung als Kurve")
+Q1_an = CoxT * 1.0
+P(f"Gate über 5 nm Oxid als Plattenkondensator: C_ox = eps_ox W L/t_ox = {CoxT/fF:.2f} fF; bei 1 V {Q1_an/fF:.2f} fC "
+  f"= {Q1_an/q:.0f} Elementarladungen")
+P(f"Umladen von C_ox mit 0,25 mA um 1 V: Delta t = C Delta U/I = {CoxT*1.0/0.25e-3*1e9:.3f} ns")
+P(f"Laden über 10 kOhm: tau = R C = {1e4*CoxT*1e9:.3f} ns; nach tau 63,2 %, nach 5 tau 99,3 % der Endspannung")
+qg0_an = -Qs_exakt(psi_von_UGB(0.0)) * Wn * Ln
+P(f"Gateladung bei U_GS = 0, Source, Drain und Bulk an Masse: {qg0_an/fF:.2f} fC (Ladung der Verarmungszone)")
+P("Ladung, die beim Anheben des Gates von 0 V an zufließt (Source, Drain, Bulk an Masse), und Steigung:")
+for U in (0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0):
+    dq_an = -Qs_exakt(psi_von_UGB(U)) * Wn * Ln - qg0_an
+    P(f"  U_GS = {U:.2f} V: Zuwachs seit 0 V = {dq_an/fF:7.2f} fC; Steigung = {C_NF(U)*Wn*Ln/fF:6.2f} fF")
+for U in (0.0, 1.0):
+    c_an = C_NF(U) * Wn * Ln
+    dq10 = (-Qs_exakt(psi_von_UGB(U + 0.01)) + Qs_exakt(psi_von_UGB(U))) * Wn * Ln
+    P(f"Tangente bei {U:.1f} V: {c_an/fF:.2f} fF = {c_an/CoxT:.3f} C_ox; 10 mV mehr: nach der Tangente {c_an*0.01/fF:.3f} fC, "
+      f"nach der Kurve {dq10/fF:.3f} fC")
+P(f"Kontrolle Abschnitt W: C_GG(0)/C_ox = {C_NF(0.0)/Cox:.4f}, C_GG(1 V)/C_ox = {C_NF(1.0)/Cox:.4f}")
+
+kopf("AO. Von Grund auf, Thema 3 (PMOS, Substrateffekt, Latch-Up): pn-Übergang, Schwelle als Spannungsbilanz, Bipolartransistor")
+P(f"pn-Übergang n+-Gebiet/p-Substrat (N_A = {NA:.3e} cm^-3): U_Diff = {UDiff_j:.4f} V; Breite der Zone ohne Spannung "
+  f"{w0_j*1e7:.1f} nm")
+for UR in (0.5, 1.0, 2.5, 3 * UDiff_j):
+    P(f"  Sperrspannung {UR:.3f} V: Spannung über der Zone {UDiff_j+UR:.3f} V, Breite {w0_j*math.sqrt(1+UR/UDiff_j)*1e7:.1f} nm")
+P(f"Durchlassrichtung: U_T ln 10 = {UT*math.log(10)*1e3:.1f} mV je Zehnerpotenz Strom; Beispiel I_S = 1e-16 A: "
+  f"0,6 V -> {1e-16*math.exp(0.6/UT)*1e6:.2f} µA, 0,7 V -> {1e-16*math.exp(0.7/UT)*1e6:.1f} µA, 0,774 V -> "
+  f"{1e-16*math.exp(0.774/UT)*1e3:.3f} mA")
+P(f"Elektronen im Inneren des p-Substrats: n_p0 = n_i^2/N_A = {np0:.0f} cm^-3, Löcher {NA:.3e} cm^-3")
+P(f"Oberfläche 2 phi_F = {2*pF:.4f} V über dem Inneren: n_s = {np0*math.exp(2*pF/UT):.3e} cm^-3 (= N_A); "
+  f"{2*pF/(UT*math.log(10)):.2f} Zehnerpotenzen")
+P(f"Verarmungszone an der Schwelle: {xd*1e7:.1f} nm tief, {Qd*1e7:.3f} fC/µm^2; Spannung über dem Oxid "
+  f"{Qd/Cox:.4f} V; Flachbandspannung {UFB:.4f} V")
+P(f"Spannungsbilanz der Schwelle: {UFB:.4f} + {2*pF:.4f} + {Qd/Cox:.4f} = {UFB+2*pF+Qd/Cox:.4f} V")
+P(f"NMOS im Abschnürbereich bei U_GS = 1 V: K_n/2 (0,5 V)^2 = {Kn/2*0.25*1e3:.3f} mA; mit lambda = 0,1 1/V bei "
+  f"U_DS = 1 V: {Kn/2*0.25*1.1*1e3:.4f} mA (+10 % je Volt)")
+P(f"Bipolartransistor (ST1-Beispiel aus zahlen_bipolar.py): I_S = 1e-16 A, B_N = 100: 1 mA Kollektorstrom bei "
+  f"U_BE = {UT*math.log(1e-3/1e-16+1)*1e3:.1f} mV, Basisstrom {1e-3/100*1e6:.0f} µA")

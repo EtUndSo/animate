@@ -701,3 +701,38 @@ AM. SPICE-Modellkarte des Beispiel-NMOS (Level 1) mit den Werten aus Thema 1 bis
 .model NMOS_BSP NMOS (LEVEL=1 VTO=0.5 KP=200u GAMMA=0.63 PHI=0.92 LAMBDA=0.1 TOX=5n LD=50n CGSO=3.45e-10 CGDO=3.45e-10 CJ=0.00214 MJ=0.5 CJSW=4.28e-10 MJSW=0.5 PB=1.027)
   Einheiten: CGSO in F/m (3.453e-10), CJ in F/m^2 (2.142e-03), CJSW in F/m (4.285e-10); UO = KP/C'ox = 290 cm^2/(V s)
   Instanz: M1 D G S B NMOS_BSP W=10u L=1.1u AD=20p PD=24u AS=20p PS=24u; L_eff = L - 2 LD = 1.00 µm; K_n = KP W/L_eff = 2.0 mA/V^2
+
+====================================================================================================
+AN. Von Grund auf, Thema 4 (Kapazitäten): Plattenkondensator, Umladen, Gateladung als Kurve
+====================================================================================================
+Gate über 5 nm Oxid als Plattenkondensator: C_ox = eps_ox W L/t_ox = 69.06 fF; bei 1 V 69.06 fC = 431055 Elementarladungen
+Umladen von C_ox mit 0,25 mA um 1 V: Delta t = C Delta U/I = 0.276 ns
+Laden über 10 kOhm: tau = R C = 0.691 ns; nach tau 63,2 %, nach 5 tau 99,3 % der Endspannung
+Gateladung bei U_GS = 0, Source, Drain und Bulk an Masse: 31.90 fC (Ladung der Verarmungszone)
+Ladung, die beim Anheben des Gates von 0 V an zufließt (Source, Drain, Bulk an Masse), und Steigung:
+  U_GS = 0.25 V: Zuwachs seit 0 V =    4.91 fC; Steigung =  18.70 fF
+  U_GS = 0.50 V: Zuwachs seit 0 V =    9.83 fC; Steigung =  27.32 fF
+  U_GS = 0.75 V: Zuwachs seit 0 V =   21.65 fC; Steigung =  58.64 fF
+  U_GS = 1.00 V: Zuwachs seit 0 V =   37.08 fC; Steigung =  63.68 fF
+  U_GS = 1.25 V: Zuwachs seit 0 V =   53.24 fC; Steigung =  65.37 fF
+  U_GS = 1.50 V: Zuwachs seit 0 V =   69.70 fC; Steigung =  66.21 fF
+  U_GS = 2.00 V: Zuwachs seit 0 V =  103.05 fC; Steigung =  67.08 fF
+Tangente bei 0.0 V: 20.70 fF = 0.300 C_ox; 10 mV mehr: nach der Tangente 0.207 fC, nach der Kurve 0.207 fC
+Tangente bei 1.0 V: 63.68 fF = 0.922 C_ox; 10 mV mehr: nach der Tangente 0.637 fC, nach der Kurve 0.637 fC
+Kontrolle Abschnitt W: C_GG(0)/C_ox = 0.2997, C_GG(1 V)/C_ox = 0.9221
+
+====================================================================================================
+AO. Von Grund auf, Thema 3 (PMOS, Substrateffekt, Latch-Up): pn-Übergang, Schwelle als Spannungsbilanz, Bipolartransistor
+====================================================================================================
+pn-Übergang n+-Gebiet/p-Substrat (N_A = 5.682e+17 cm^-3): U_Diff = 1.0274 V; Breite der Zone ohne Spannung 48.4 nm
+  Sperrspannung 0.500 V: Spannung über der Zone 1.527 V, Breite 59.0 nm
+  Sperrspannung 1.000 V: Spannung über der Zone 2.027 V, Breite 67.9 nm
+  Sperrspannung 2.500 V: Spannung über der Zone 3.527 V, Breite 89.6 nm
+  Sperrspannung 3.082 V: Spannung über der Zone 4.110 V, Breite 96.7 nm
+Durchlassrichtung: U_T ln 10 = 59.5 mV je Zehnerpotenz Strom; Beispiel I_S = 1e-16 A: 0,6 V -> 1.20 µA, 0,7 V -> 57.5 µA, 0,774 V -> 1.006 mA
+Elektronen im Inneren des p-Substrats: n_p0 = n_i^2/N_A = 176 cm^-3, Löcher 5.682e+17 cm^-3
+Oberfläche 2 phi_F = 0.9232 V über dem Inneren: n_s = 5.682e+17 cm^-3 (= N_A); 15.51 Zehnerpotenzen
+Verarmungszone an der Schwelle: 45.8 nm tief, 4.173 fC/µm^2; Spannung über dem Oxid 0.6042 V; Flachbandspannung -1.0274 V
+Spannungsbilanz der Schwelle: -1.0274 + 0.9232 + 0.6042 = 0.5000 V
+NMOS im Abschnürbereich bei U_GS = 1 V: K_n/2 (0,5 V)^2 = 0.250 mA; mit lambda = 0,1 1/V bei U_DS = 1 V: 0.2750 mA (+10 % je Volt)
+Bipolartransistor (ST1-Beispiel aus zahlen_bipolar.py): I_S = 1e-16 A, B_N = 100: 1 mA Kollektorstrom bei U_BE = 773.8 mV, Basisstrom 10 µA
