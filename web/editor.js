@@ -838,9 +838,16 @@ function freshColor(){
   const used = usedColors();
   return AUTO_COLORS.find(c=>!used.has(c.toLowerCase())) || AUTO_COLORS[autoColorIdx++ % AUTO_COLORS.length];   // all taken -> cycle
 }
-// Give a copied spec a colour no other element has (mirrors addObject's auto-colour). Text/LaTeX keep black.
+// Auto-colour only what the catalog draws in colour (graphs, curves, bands, ...). Black elements keep
+// their colour: circuit symbols, text boxes, tables, arrows, braces; Text/LaTeX and the green/red Mark too.
+// (Recolouring a TextBox also set fill = text colour -> invisible text.)
+function wantsAutoColor(type, props){
+  return type!=="Text" && type!=="MathTex" && type!=="Mark" && props && typeof props.color==="string"
+         && !/^#(?:000000|111111|000|111)$/i.test(props.color);
+}
+// Give a copied spec a colour no other element has (mirrors addObject's auto-colour).
 function recolorFresh(spec){
-  if(spec.type!=="Text" && spec.type!=="MathTex" && spec.props && typeof spec.props.color==="string"){
+  if(wantsAutoColor(spec.type, spec.props)){
     const c = freshColor(); spec.props.color = c;
     if("fill_color" in spec.props) spec.props.fill_color = c;      // keep fill in step with the outline
   }
@@ -849,7 +856,7 @@ function recolorFresh(spec){
 function addObject(type, defaults){
   const id = "o"+(nextId++);
   const props = structuredClone(defaults);
-  if(props.color && type!=="Text" && type!=="MathTex"){
+  if(wantsAutoColor(type, props)){
     const c = AUTO_COLORS[autoColorIdx++ % AUTO_COLORS.length];
     props.color = c;
     if("fill_color" in props) props.fill_color = c;       // keep fill in step with the outline
@@ -1481,7 +1488,9 @@ function objAnchor(o){
 // its lower-left corner. In 2D the z-arrow is edge-on, so only two show. Each arrow moves the object ONLY
 // along that world axis (like the rotation gizmo) and lights up on hover. Drawn on the #editgizmo overlay
 // (so hover highlight is cheap and the Python render underneath is untouched).
-const WORLD_TYPES = new Set(["Sphere","Box","Cube","Pyramid"]);   // centre is world units, not axes data
+// Types whose position is in WORLD units, not axes data. Must match the engine's _WORLD_TYPES
+// (scene_model.py), otherwise a drag converts data<->world wrongly and the object jumps.
+const WORLD_TYPES = new Set(["Sphere","Box","Cube","Pyramid","Vector","MathTex","SVGMobject","ThreeDAxes"]);
 const MOVE_AXES = [
   { k:"x", v:[1,0,0], col:[226,96,84]  },
   { k:"y", v:[0,1,0], col:[104,174,100]},
