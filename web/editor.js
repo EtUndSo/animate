@@ -341,6 +341,7 @@ function migrateModel(){ for (const o of (model.objects || [])) ensureDefaults(o
 const BG_ID = "__bg__";
 const $ = (id) => document.getElementById(id);
 const setStatus = (m) => { $("status").textContent = m; };
+let statusNote = "";                  // one-shot note shown with the next "Ready ✓" (e.g. after a scene link)
 
 let renderModel = null, pickFn = null, preparePlay = null, playFrame = null;
 let playing = false, playStart = 0, playDuration = 0, rafId = null;
@@ -788,7 +789,9 @@ function _doRender(){
   let res;
   try { res = renderModel(JSON.stringify(toPythonModel())); }
   catch(e){ console.error(e); setStatus("Render error: " + e.message); return; }
-  setStatus(String(res).startsWith("error") ? "⚠ " + res + " (last frame kept)" : "Ready ✓");
+  const failed = String(res).startsWith("error");
+  setStatus(failed ? "⚠ " + res + " (last frame kept)" : (statusNote ? "Ready ✓ — " + statusNote : "Ready ✓"));
+  if(!failed) statusNote = "";
   syncGL(res);                         // WebGL surface layer: upload + draw, or hide (2D-only scenes)
   if(typeof drawViewCube==="function") drawViewCube();   // keep the nav-cube in sync with the camera
   if(typeof drawCamGizmo==="function") drawCamGizmo();   // and the rotation gizmo
@@ -1109,7 +1112,8 @@ function loadSceneFile(file){
   r.onload=()=>{ try{ applyScene(JSON.parse(r.result)); setStatus("Scene loaded ✓"); } catch(e){ setStatus("Load failed: "+e.message); } };
   r.readAsText(file);
 }
-function saveLocal(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(sceneData())); } catch(e){} }
+let lsActive = LS_KEY;                // autosave key; a scene opened via ?scene= saves under LS_KEY+":link"
+function saveLocal(){ try{ localStorage.setItem(lsActive, JSON.stringify(sceneData())); } catch(e){} }
 
 // ---------- UI ----------
 function buildPalette(){
@@ -1696,9 +1700,48 @@ function exprToLatex(src){                 // our expression syntax -> LaTeX ( /
   try { return expr()||s; } catch(e){ return s; }
 }
 
-function evalExprJS(src){                   // our syntax -> f(i) numeric (for the computed values)
-  let js=String(src||"0").replace(/\^/g,"**").replace(/\bpi\b/g,"PI").replace(/\be\b/g,"E");
-  let fn; try { fn=new Function("i","with(Math){return ("+js+");}"); } catch(e){ fn=()=>NaN; }
+// Our expression syntax -> f(i) numeric (for the computed values). NO eval/new Function: the term comes
+// from the scene file, which can arrive via a ?scene= link, so it must never run as code. A small
+// recursive-descent parser over numbers, i, pi, e, + - * / % ^ (also **), parentheses, implicit
+// multiplication (2i, i(i+1)) and the Math functions below; anything else makes the term NaN.
+const _JS_FUNCS = { sin:Math.sin, cos:Math.cos, tan:Math.tan, asin:Math.asin, acos:Math.acos, atan:Math.atan,
+  arcsin:Math.asin, arccos:Math.acos, arctan:Math.atan, sinh:Math.sinh, cosh:Math.cosh, tanh:Math.tanh,
+  exp:Math.exp, log:Math.log, ln:Math.log, log10:Math.log10, log2:Math.log2, sqrt:Math.sqrt, abs:Math.abs,
+  sign:Math.sign, floor:Math.floor, ceil:Math.ceil, round:Math.round, min:Math.min, max:Math.max, pow:Math.pow };
+function evalExprJS(src){
+  const s=String(src||"0"); let p=0;
+  const peek=()=>{ while(p<s.length && /\s/.test(s[p])) p++; return s[p]; };
+  const startsAtom=c=> c!==undefined && (c==="(" || /[0-9.A-Za-z_]/.test(c));
+  function expr(){ let l=term(); for(;;){ const c=peek(); if(c!=="+" && c!=="-") return l;
+      p++; const a=l, b=term(); l = c==="+" ? (i=>a(i)+b(i)) : (i=>a(i)-b(i)); } }
+  function term(){ let l=unary(); for(;;){ const c=peek(), a=l;
+      if(c==="*" && s[p+1]!=="*"){ p++; const b=unary(); l=i=>a(i)*b(i); }
+      else if(c==="/"){ p++; const b=unary(); l=i=>a(i)/b(i); }
+      else if(c==="%"){ p++; const b=unary(); l=i=>a(i)%b(i); }
+      else if(startsAtom(c)){ const b=power(); l=i=>a(i)*b(i); }          // implicit multiplication
+      else return l; } }
+  function unary(){ const c=peek(); if(c==="-"){ p++; const a=unary(); return i=>-a(i); }
+    if(c==="+"){ p++; return unary(); } return power(); }
+  function power(){ const b=atom(), c=peek();                            // right-associative, -2^2 = -(2^2)
+    if(c==="^" || (c==="*" && s[p+1]==="*")){ p+=(c==="^"?1:2); const x=unary(); return i=>Math.pow(b(i),x(i)); }
+    return b; }
+  function atom(){ const c=peek();
+    if(c==="("){ p++; const e=expr(); if(peek()!==")") throw new Error("')' expected"); p++; return e; }
+    let m=/^(?:[0-9]+\.?[0-9]*|\.[0-9]+)(?:[eE][-+]?[0-9]+)?/.exec(s.slice(p));
+    if(m){ p+=m[0].length; const v=parseFloat(m[0]); return ()=>v; }
+    m=/^[A-Za-z_][A-Za-z0-9_]*/.exec(s.slice(p));
+    if(!m) throw new Error("unexpected "+c);
+    p+=m[0].length; const nm=m[0];
+    if(peek()==="(" && Object.prototype.hasOwnProperty.call(_JS_FUNCS,nm)){
+      p++; const args=[];
+      if(peek()!==")") for(;;){ args.push(expr()); if(peek()===","){ p++; continue; } break; }
+      if(peek()!==")") throw new Error("')' expected"); p++;
+      const f=_JS_FUNCS[nm]; return i=>f(...args.map(g=>g(i))); }
+    if(nm==="i") return i=>i;
+    if(nm==="pi") return ()=>Math.PI;
+    if(nm==="e") return ()=>Math.E;
+    throw new Error("unknown name "+nm); }
+  let fn; try { fn=expr(); if(peek()!==undefined) throw new Error("trailing input"); } catch(e){ fn=()=>NaN; }
   return (i)=>{ try{ const v=fn(i); return (typeof v==="number"&&isFinite(v))?v:NaN; }catch(e){ return NaN; } };
 }
 // Prefer an exact-looking FRACTION over a decimal (reads far better under a Σ: 1/4 shows where it came
@@ -2008,10 +2051,16 @@ async function boot(){
   initViewCube(); initCamGizmo();
   setStatus("Ready ✓ — add an element on the left, or click in the view.");
   let restored=false;                  // ?scene=<url> (article links) > autosaved scene > start example
-  const sceneUrl = new URLSearchParams(location.search).get("scene");
+  // A link may only open scenes shipped with the site: a relative path below szenen/ ending in .json
+  // (no other host, no "..", no query). The linked scene autosaves under its own key, so opening a
+  // template from an article never overwrites the user's own autosaved scene.
+  const sceneParam = new URLSearchParams(location.search).get("scene");
+  const sceneUrl = (sceneParam && /^(?:\.\/)?szenen\/(?:[\w-]+\/)*[\w-]+\.json$/.test(sceneParam)) ? sceneParam : null;
+  if(sceneParam && !sceneUrl) statusNote = "⚠ Szenen-Link abgelehnt: erlaubt sind nur Dateien unter szenen/ (…/name.json)";
   if(sceneUrl){
-    try{ const r=await fetch(sceneUrl, {cache:"no-cache"}); if(!r.ok) throw new Error("HTTP "+r.status); applyScene(await r.json()); restored=true; setStatus("Szene geladen ✓ "+sceneUrl); }
-    catch(e){ console.error(e); setStatus("⚠ Szene konnte nicht geladen werden: "+e.message); }
+    lsActive = LS_KEY + ":link";
+    try{ const r=await fetch(sceneUrl, {cache:"no-cache"}); if(!r.ok) throw new Error("HTTP "+r.status); applyScene(await r.json()); restored=true; statusNote = "Vorlage geladen: "+sceneUrl+" (deine eigene Szene bleibt gespeichert)"; }
+    catch(e){ console.error(e); lsActive = LS_KEY; statusNote = "⚠ Szene konnte nicht geladen werden: "+e.message; }
   }
   if(!restored) try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}
   if(!restored) loadTemplate(START_EXAMPLE);        // greet with a 3D surface (not an empty editor)

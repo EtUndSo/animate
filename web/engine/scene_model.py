@@ -5,6 +5,7 @@ bridge for the web app: the visual editor edits it, we generate code from it (fo
 page), and the interpreter builds a renderable Scene from it (for the live preview / export).
 So editor, code page, preview and export always stay in sync.
 """
+import ast
 import inspect
 import re
 import numpy as np
@@ -288,10 +289,37 @@ def normalize_expr(s):
     return "".join(out)
 
 
+# Expressions come from scene files, also from links (?scene=), so they are untrusted. An eval namespace
+# without builtins is NOT a sandbox: attribute access like f.__globals__ reaches __import__ (and under
+# Pyodide the page via `import js`). Hence every expression is checked against this whitelist first:
+# numbers, names, arithmetic/comparison operators and calls of plain names - nothing else.
+_ALLOWED_NODES = (ast.Expression, ast.BinOp, ast.UnaryOp, ast.Compare, ast.BoolOp, ast.IfExp,
+                  ast.Call, ast.Name, ast.Load, ast.Constant,
+                  ast.Add, ast.Sub, ast.Mult, ast.Div, ast.Pow, ast.Mod, ast.FloorDiv,
+                  ast.UAdd, ast.USub, ast.Not, ast.And, ast.Or,
+                  ast.Lt, ast.LtE, ast.Gt, ast.GtE, ast.Eq, ast.NotEq)
+
+
+def _safe_compile(expr, tag):
+    """Normalise a user expression, check it against the whitelist and compile it (mode 'eval').
+    Raises ValueError for anything but numbers, names, operators and plain function calls."""
+    tree = ast.parse(normalize_expr(expr), mode="eval")
+    for node in ast.walk(tree):
+        if not isinstance(node, _ALLOWED_NODES):
+            raise ValueError(f"not allowed in an expression: {type(node).__name__}")
+        if isinstance(node, ast.Name) and node.id.startswith("_"):
+            raise ValueError(f"not allowed in an expression: name {node.id!r}")
+        if isinstance(node, ast.Call) and (not isinstance(node.func, ast.Name) or node.keywords):
+            raise ValueError("not allowed in an expression: only plain calls like sin(x)")
+        if isinstance(node, ast.Constant) and not isinstance(node.value, (int, float, complex)):
+            raise ValueError("not allowed in an expression: only numbers as constants")
+    return compile(tree, tag, "eval")
+
+
 def func_from_expr(expr):
-    """'sin(x)' / '3x^2' -> f(x), evaluated in a restricted namespace (no builtins): safe. Input is
-    normalised (GeoGebra style) first; trig respects the current angle unit (_ANGLE_UNIT)."""
-    code = compile(normalize_expr(expr), "<func>", "eval")
+    """'sin(x)' / '3x^2' -> f(x), evaluated in a restricted namespace (no builtins) after the whitelist
+    check of _safe_compile. Input is normalised (GeoGebra style) first; trig respects _ANGLE_UNIT."""
+    code = _safe_compile(expr, "<func>")
     names = _safe_names()
     # x, t and y all alias the single independent variable, so a 1-var curve works whichever letter it
     # uses (sin(x), si(t), cos(y)). A SURFACE (both x and y) goes through func2_from_expr instead.
@@ -301,21 +329,21 @@ def func_from_expr(expr):
 def func2_from_expr(expr):
     """Two-variable version: 'sin(x)*cos(y)' -> f(x, y) (for Surface). Same safe namespace + input
     normalisation + angle unit as func_from_expr."""
-    code = compile(normalize_expr(expr), "<func2>", "eval")
+    code = _safe_compile(expr, "<func2>")
     names = _safe_names()
     return lambda x, y: eval(code, {"__builtins__": {}}, {"x": x, "y": y, **names})
 
 
 def term_from_expr_i(expr):
     """Summation term aᵢ: a NUMBER expression in the running index i (e.g. '1/i^2')."""
-    code = compile(normalize_expr(expr), "<sum_i>", "eval")
+    code = _safe_compile(expr, "<sum_i>")
     names = _safe_names()
     return lambda i: eval(code, {"__builtins__": {}}, {"i": i, **names})
 
 
 def term_from_expr_ix(expr):
     """Summation term as a FUNCTION of x for each index i (function partial sums / Fourier)."""
-    code = compile(normalize_expr(expr), "<sum_ix>", "eval")
+    code = _safe_compile(expr, "<sum_ix>")
     names = _safe_names()
     return lambda i, x: eval(code, {"__builtins__": {}}, {"i": i, "x": x, "t": x, **names})
 
@@ -390,7 +418,7 @@ def _xyz(p):
 
 def _eval_const(expr):
     """A number from an expression that may use scene parameters ('U0/2', '2*pi*f')."""
-    code = compile(normalize_expr(str(expr)), "<const>", "eval")
+    code = _safe_compile(str(expr), "<const>")
     return float(eval(code, {"__builtins__": {}}, dict(_safe_names())))
 
 
@@ -602,7 +630,7 @@ def _build_polar_curve(args, style, axes):
     Variable `theta` (alias `t`). General: cardioids, roses, spirals, ..."""
     c2p = _c2p_fn(axes)
     names = _safe_names()
-    code = compile(normalize_expr(str(args.get("func", "1+cos(theta)"))), "<polar>", "eval")
+    code = _safe_compile(str(args.get("func", "1+cos(theta)")), "<polar>")
 
     def rval(a):
         try:
@@ -695,8 +723,8 @@ def _build_parametric_curve(args, style, axes):
     an optional running point with tangent/normal vectors. General: any expressions in t."""
     c2p = _c2p_fn(axes)
     names = _safe_names()
-    cx = compile(normalize_expr(str(args.get("fx", "cos(t)"))), "<px>", "eval")
-    cy = compile(normalize_expr(str(args.get("fy", "sin(t)"))), "<py>", "eval")
+    cx = _safe_compile(str(args.get("fx", "cos(t)")), "<px>")
+    cy = _safe_compile(str(args.get("fy", "sin(t)")), "<py>")
 
     def ev(code, t):
         try:
@@ -779,7 +807,7 @@ def _build_curve_family(args, style, axes):
     kernels over r/ε, ...)."""
     c2p = _c2p_fn(axes)
     param = str(args.get("param", "k")).strip() or "k"
-    code = compile(normalize_expr(str(args.get("func", "0"))), "<fam>", "eval")
+    code = _safe_compile(str(args.get("func", "0")), "<fam>")
     names = _safe_names()
 
     def fval(x, p):

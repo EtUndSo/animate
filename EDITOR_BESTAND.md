@@ -91,4 +91,12 @@ Abhilfe: `?scene=` nur für relative Pfade unter `szenen/`. `evalExprJS` durch e
 6. **Beschriftung:** B1 (Brüche und Akzente in Formel-Labels oder MathTex in Datenkoordinaten), K4, K5.
 7. **Animation:** A1 (Parameter animieren), A4 (Zeitleiste mit Startzeiten) nach Bedarf.
 
+## 6. Erledigt
+
+- **28.10. Sicherheit (§2):** Die Lücke war größer als gemeldet. Auch die Python-Engine ließ sich verlassen: `eval` ohne Builtins ist kein Schutz, `heaviside.__globals__['__builtins__']` erreichte `len` (Probe ergab 3), unter Pyodide also auch `import js`. Behoben:
+  - `scene_model._safe_compile` prüft jeden Ausdruck gegen eine Positivliste der AST-Knoten. Erlaubt sind Zahlen, Namen, Operatoren und einfache Aufrufe, verboten sind Attribute, Indizes, `_`-Namen, Schlüsselwortargumente und Zeichenketten. Alle 9 Übersetzungsstellen nutzen sie.
+  - `evalExprJS` ist ein eigener Parser ohne `new Function`.
+  - `?scene=` nimmt nur `szenen/…/name.json`. Eine per Link geöffnete Vorlage sichert unter `animate.scene.v1:link` und überschreibt die eigene Szene nicht. Annahme und Ablehnung stehen in der Statuszeile.
+  - Tests: `web/tests/test_security.py`, `web/tests/test_exprjs.mjs` (Node), Browser-Probe (Link-Regeln), `editor_ui_test.py` 18/18, alle Engine-Tests grün.
+
 Jedes Paket hält `web/ENGINE_CONTRACT.md` ein. Es kommt mit Tests in `web/tests`, wird im Browser fotografiert (`tools/editor_shot.py`) und mit `tools/editor_ui_test.py` geprüft. Abgeschlossene Punkte werden hier abgehakt.
