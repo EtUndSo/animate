@@ -292,12 +292,14 @@ class Axes(AnimObject):
 
     def data_to_world(self, points):
         """Vectorised coords_to_point: map an (N,3) array of DATA coordinates to WORLD points
-        with this axes' scale + offset (log axes map through log10). The depth (z) is passed through."""
+        with this axes' scale + offset (log axes map through log10). z scales exactly like in
+        coords_to_point (data z=0 stays on the x-y plane), so text, lines and polygons placed at a data
+        height sit on a surface drawn through c2p instead of at the unscaled number."""
         pts = np.asarray(points, dtype=float).reshape(-1, 3)
         out = np.empty_like(pts)
         out[:, 0] = self._fx(pts[:, 0]) * self.x_length - self.x_length / 2.0 + self.origin[0]
         out[:, 1] = self._fy(pts[:, 1]) * self.y_length - self.y_length / 2.0 + self.origin[1]
-        out[:, 2] = pts[:, 2] + self.origin[2]
+        out[:, 2] = pts[:, 2] * (self.z_length / (self.z_max - self.z_min)) + self.origin[2]
         return out
 
     def place(self, obj):

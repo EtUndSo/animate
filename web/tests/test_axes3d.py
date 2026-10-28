@@ -51,4 +51,14 @@ model = {"camera": {"mode": "3d", "theta": 0.6, "phi": 1.0},
 sc = ModelScene(model); sc.construct()
 assert len(sc.objects_by_id["s"].subObjects) > 16
 print("model 2-var FunctionGraph on axes OK (renders as a surface)")
+
+# data_to_world (used by place() for Text/Line/Polygon) must scale z exactly like coords_to_point,
+# otherwise objects placed at a data height float above/below a surface drawn through c2p.
+ax = Axes(x_range=[0.6, 0.68], y_range=[0, 3], z_range=[0, 3], x_length=6, y_length=6, z_length=4)
+for pt in ([0.66, 2.5, 2.0], [0.6, 0.0, 0.0], [0.68, 3.0, 3.0]):
+    a = ax.coords_to_point(*pt)
+    b = ax.data_to_world(np.array([pt]))[0]
+    assert np.allclose(a, b), (pt, a, b)
+assert abs(ax.data_to_world(np.array([[0.66, 2.5, 2.0]]))[0][2] - 2.0 * 4 / 3) < 1e-12
+print("data_to_world scales z like coords_to_point OK")
 print("\nUNIFIED AXES / SURFACE TESTS PASSED")
