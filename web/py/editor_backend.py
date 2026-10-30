@@ -3,7 +3,7 @@ import numpy as np
 from engine.scene_model import ModelScene
 from engine.renderer import paint_scene
 from engine.constants import PIXEL_WIDTH, PIXEL_HEIGHT, FRAME_HEIGHT
-from engine.svg_painter import SvgPainter
+from engine import export as _export
 from engine import circuit as _circ
 from canvas_painter import CanvasPainter
 
@@ -76,21 +76,41 @@ def panel_affine(axes_id):
 
 
 def export_svg():
-    """The current (edit-view) scene as an SVG document string (vector export for the website).
-    3D surfaces are drawn by the flat CPU painter here (the WebGL layer has no vector form)."""
+    """The current (edit-view) scene as an article SVG: cropped and sized by the scene's `export` settings
+    (engine/export.py), exactly like tools/export_szenen.py writes it. 3D surfaces are drawn by the flat
+    CPU painter here (the WebGL layer has no vector form)."""
     sc = _active()
     if sc is None:
         return ""
-    sp = SvgPainter(PIXEL_WIDTH, PIXEL_HEIGHT)
-    paint_scene(sp, sc.objectList, sc.camera, background=_last_bg, axes_on_top=_last_axtop)
-    return sp.to_svg()
+    svg, _info = _export.render(sc.objectList, sc.camera, background=_last_bg, axes_on_top=_last_axtop,
+                                raw_settings=_last_export)
+    return svg
+
+
+def export_info(settings_json=None):
+    """JSON of what export_svg would produce: crop rectangle (canvas px), displayed size, scale, the text size
+    in the article column and whether it fits. The editor draws the rectangle while Settings is selected.
+    settings_json overrides the scene's settings (e.g. mode "content" for "Rahmen = jetziger Zuschnitt")."""
+    sc = _active()
+    if sc is None:
+        return "null"
+    raw = _last_export
+    if settings_json:
+        try:
+            raw = json.loads(settings_json)
+        except Exception:
+            pass
+    st = _export.settings(raw)
+    rect, size = _export.export_rect(sc.objectList, sc.camera, st, _last_axtop)
+    return json.dumps(_export.info(rect, size, st, sc.camera))
 
 # js_ctx / js_w / js_h come from JavaScript (pyodide.globals.set in editor.js).
 painter = CanvasPainter(js_ctx, js_w, js_h)
 _last_scene = None
 _last_bg = [1.0, 1.0, 1.0]
 _last_axtop = True                               # axes drawn on top of objects (vs realistic occlusion)
-_play = None                                     # {"scene":..., "bg":..., "axtop":...} while playing
+_last_export = None                              # the scene's export settings (crop mode, margin, scale, frame)
+_play = None                                    # {"scene":..., "bg":..., "axtop":...} while playing
 _GL_ENABLED = False                              # set by JS once WebGL inits; gates the hybrid 3D path
 
 
@@ -98,7 +118,7 @@ def render_model(json_str):
     """Build the scene described by the editor's model (JSON) and paint it to the canvas.
     If the model is (temporarily) invalid — e.g. a half-typed function like 'exp(x' — we keep
     the last good frame and report the error, instead of crashing. Objects only for now."""
-    global _last_scene, _last_bg, _last_axtop, _lod_scene
+    global _last_scene, _last_bg, _last_axtop, _last_export, _lod_scene
     try:
         model = json.loads(json_str)
         scene = ModelScene(model)
@@ -111,7 +131,8 @@ def render_model(json_str):
     _last_scene = scene
     _last_bg = bg
     _last_axtop = axtop
-    _lod_scene = None                           # any edit invalidates a stale low-detail copy
+    _last_export = model.get("export")
+    _lod_scene = None                          # any edit invalidates a stale low-detail copy
     _paint(scene, bg, axtop)
     return "ok:gl" if _gl_on(scene) else "ok"   # ':gl' tells JS to draw the WebGL surface layer
 

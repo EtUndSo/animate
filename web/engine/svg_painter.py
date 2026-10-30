@@ -1,7 +1,15 @@
 """SVG painter: the same three painter methods as the Canvas painter, but writing an SVG document.
 Used for the editor's "Photo -> SVG" export (vector graphics for the website) and for tests.
-Labels go through richtext (sub/superscripts as <tspan>, several lines as several <text> rows)."""
+Labels go through richtext (sub/superscripts as <tspan>, several lines as several <text> rows).
+Geometry stays in the scene's pixel space (1920x1080); to_svg(view, size) crops it with the viewBox
+and sets the displayed size (engine/export.py decides both for article figures)."""
 from .richtext import parse as _parse_rich, is_plain as _is_plain, layout as _layout
+
+# A FIXED, metric-compatible font family: Arial, Helvetica, Liberation Sans and Nimbus Sans share the same
+# advance widths, so on Windows, macOS/iOS and most Linux systems the text is exactly as wide as
+# export.text_box estimates (the crop is computed from those widths). The editor canvas draws
+# "sans-serif", which is Arial in Chrome/Edge/Firefox on Windows. Android falls back to Roboto.
+SVG_FONT = "Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', sans-serif"
 
 
 def _hex(color):
@@ -21,15 +29,15 @@ _LINE_H = 1.25
 
 
 class SvgPainter:
-    def __init__(self, width, height, font_family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"):
+    def __init__(self, width, height, font_family=SVG_FONT):
         self.w, self.h = int(width), int(height)
         self.font = font_family
         self.parts = []
+        self.bg = None
 
     def background(self, color):
         self.parts = []
-        if color is not None:
-            self.parts.append('<rect width="100%%" height="100%%" fill="%s"/>' % _hex(color))
+        self.bg = color                                  # drawn by to_svg over exactly the visible view
 
     def _d(self, pts):
         out = ["M%s %s" % (_num(pts[0][0]), _num(pts[0][1]))]
@@ -92,6 +100,16 @@ class SvgPainter:
                               'dominant-baseline="central"%s>%s</text>'
                               % (_num(px), _num(y), _num(font_size), self.font, _hex(color), anchor, op, "".join(spans)))
 
-    def to_svg(self):
-        return ('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d">\n%s\n</svg>\n'
-                % (self.w, self.h, self.w, self.h, "\n".join(self.parts)))
+    def to_svg(self, view=None, size=None):
+        """The SVG document. view = (x0, y0, x1, y1) in scene pixels shown through the viewBox (default: the
+        whole frame); size = (width, height) the document is displayed at (default: the view's size). The
+        background rectangle covers exactly the view."""
+        x0, y0, x1, y1 = view if view is not None else (0, 0, self.w, self.h)
+        vw, vh = x1 - x0, y1 - y0
+        dw, dh = size if size is not None else (vw, vh)
+        def f4(v):
+            return ("%.4f" % float(v)).rstrip("0").rstrip(".")
+        bg = ('<rect x="%s" y="%s" width="%s" height="%s" fill="%s"/>\n' % (f4(x0), f4(y0), f4(vw), f4(vh), _hex(self.bg))
+              if self.bg is not None else "")
+        return ('<svg xmlns="http://www.w3.org/2000/svg" width="%s" height="%s" viewBox="%s %s %s %s">\n%s%s\n</svg>\n'
+                % (f4(dw), f4(dh), f4(x0), f4(y0), f4(vw), f4(vh), bg, "\n".join(self.parts)))

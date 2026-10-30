@@ -109,7 +109,9 @@ def plot_graph(value_at, x0, x1, to_world, world_width,
 
 def build_graph(segments, color):
     """Turn plot_graph's segments into one AnimObject: a single open curve when continuous, or a
-    group of pieces when the function has discontinuities (so Create still works in the common case)."""
+    group of pieces when the function has discontinuities (so Create still works in the common case).
+    The pieces are flagged `_graph_piece`: they carry no style of their own but mirror the graph's
+    (see sync_pieces), so a split graph looks exactly like an unsplit one."""
     from .AnimObject import AnimObject
     obj = AnimObject()
     obj.color = color
@@ -120,5 +122,20 @@ def build_graph(segments, color):
             child = AnimObject()
             child.points = seg
             child.color = color
+            child._graph_piece = True
             obj.add(child)
     return obj
+
+
+_PIECE_STYLE = ("color", "stroke_width", "stroke_opacity", "fill_color", "fill_opacity", "dash")
+
+
+def sync_pieces(graph):
+    """Copy the graph's stroke/fill style onto its pieces (Fehler F1). Whoever styles a graph after
+    build_graph (scene_model, operations, processes) calls this, otherwise the pieces of a split curve keep
+    the default blue 4 px. Only the `_graph_piece` children are touched, never result children."""
+    for sub in graph.subObjects:
+        if getattr(sub, "_graph_piece", False):
+            for attr in _PIECE_STYLE:
+                setattr(sub, attr, getattr(graph, attr))
+    return graph

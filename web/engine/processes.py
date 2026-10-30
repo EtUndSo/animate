@@ -13,6 +13,7 @@ from .text import DecimalNumber
 from .value_tracker import ValueTracker, always_redraw
 from .animation import ChangeValue, FadeIn, FadeOut, Pulse, PulseColor, AppearPulseColor
 from .bezier import line_points, partial_bezier
+from .plotting import sync_pieces
 from .calc import make_convolution
 from .svg import MathTex
 from .constants import BLUE, GREEN, UP, FRAME_HEIGHT, PIXEL_WIDTH, PIXEL_HEIGHT
@@ -25,7 +26,7 @@ def _styled(graph, color, stroke_width=4, fill=0.0):
     graph.stroke_width = stroke_width
     if fill:
         graph.fill_opacity = fill
-    return graph
+    return sync_pieces(graph)                            # a graph split at a gap: every piece takes the style
 
 
 def convolution(scene, f, g, axes, run_time=6.0, tau_range=None, color=(0.89, 0.29, 0.20),

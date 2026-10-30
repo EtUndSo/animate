@@ -7,7 +7,8 @@ Syntax (a small, forgiving subset of LaTeX, usable in EVERY label of the editor)
     \\cdot \\times \\pm \\approx \\infty \\rightarrow \\le \\ge \\neq \\sqrt \\deg \\ohm \\prime ...
     \\, \\; \\quad                            thin / normal / wide space
     \\\\ or a real newline                     line break (several lines are stacked, centred on the anchor)
-    \\mathrm{...} \\text{...}                 the group as plain text
+    \\mathrm{...} \\text{...}                 the group as plain text; without braces the next token
+                                             (\\mathrm A), also as a script: f_\\mathrm{A}, f_\\mathrm A
 Unknown macros fall back to their name as text. `\\n` directly followed by letters that are not a
 known macro also breaks the line, so "I_D\\nmax" reads as two lines.
 
@@ -77,6 +78,28 @@ def _group(s, i):
     return s[i + 1:], len(s)
 
 
+def _macro_arg(s, j):
+    """The argument of a one-argument macro (\\mathrm, \\text, ...) that starts at s[j], as TeX reads it:
+    a {...} group, else the next token after optional spaces (one character or one \\macro). So
+    `\\mathrm{AB}` -> "AB" and `\\mathrm A` -> "A" (the form used in the LaTeX sources: f_\\mathrm A).
+    Returns (argument source, index after it)."""
+    n = len(s)
+    if j < n and s[j] == "{":
+        return _group(s, j)
+    while j < n and s[j] == " ":
+        j += 1
+    if j >= n:
+        return "", j
+    if s[j] == "\\":
+        k = j + 1
+        while k < n and s[k].isalpha():
+            k += 1
+        if k == j + 1:                                       # \, \{ ... : a one-character macro
+            k = min(n, j + 2)
+        return s[j:k], k
+    return s[j], j + 1
+
+
 def _parse_line(s, level, out):
     """Append (text, level) runs of s to out (one line, no newlines inside)."""
     i, n = 0, len(s)
@@ -108,8 +131,12 @@ def _parse_line(s, level, out):
                     name, j = (s[i + 1] if i + 1 < n else ""), i + 2
                 else:
                     name = s[i + 1:j]
-                t = _macro_text(name)
-                _parse_line(name if t is None else t, lvl, out)
+                if name in PLAIN_GROUPS:                     # f_\mathrm{A}, f_\mathrm A: the ARGUMENT is the script
+                    arg, j = _macro_arg(s, j)
+                    _parse_line(arg, lvl, out)
+                else:
+                    t = _macro_text(name)
+                    _parse_line(name if t is None else t, lvl, out)
                 i = j
             elif i < n:
                 _parse_line(s[i], lvl, out)
@@ -126,8 +153,8 @@ def _parse_line(s, level, out):
                 i += 2
                 continue
             name = s[i + 1:j]
-            if name in PLAIN_GROUPS and j < n and s[j] == "{":
-                inner, j = _group(s, j)
+            if name in PLAIN_GROUPS:                         # \mathrm{d}, also \mathrm d (TeX: next token)
+                inner, j = _macro_arg(s, j)
                 flush()
                 _parse_line(inner, level, out)
                 i = j

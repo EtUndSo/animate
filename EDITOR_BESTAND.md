@@ -1,4 +1,4 @@
-# Editor: Bestand und Ausbauplan (Stand 28.10.2026)
+# Editor: Bestand und Ausbauplan (Stand 30.10.2026)
 
 Ziel: Alle Abbildungen der Website entstehen im EtUndSo-Editor. Im Artikel steht ein festes Bild oder eine vorher gerenderte Animation, jeweils mit einem Link zur Vorlage im Editor. Keine Engine läuft live auf der Artikelseite (Entscheidung des Users am 28.10.2026).
 
@@ -16,27 +16,34 @@ Die älteren Dokumente (`EDITOR_WERKZEUGE.md`, `EDITOR_GRAFIK_FEATURES.md`, `web
 - **Schemazeichnungen:** Gebiete mit Materialfüllung, Teilchenwolken, Bänderdiagramme mit `where()`, Profile als `DataCurve` plus `Band`.
 - **3D:** Fläche z = f(x,y) mit beliebigen Datenbereichen und ungleicher Skalierung, Transparenz, Blickwinkel.
 - **Oberfläche:** 42 Typen in der Palette, Eigenschaftenfeld deckt fast alle Engine-Props ab. Speichern als JSON, automatische Sicherung, Szene per `?scene=`, Vorlagen über `tools/editor_vorlagen.py`.
-- **Export:** PNG immer, SVG in 2D, MP4/WebM als Echtzeit-Aufnahme.
-- **Tests:** `editor_ui_test.py` 18/18, `test_figures`, `test_contract`, `test_3d`, `test_axes`, `test_axes3d`, `test_canvas`, `test_steps` grün.
+- **Export:** PNG immer (fest 1920×1080), SVG in 2D als zugeschnittenes Artikelbild, MP4/WebM als Echtzeit-Aufnahme. Stapel-Export der SVGs ohne Browser mit `tools/export_szenen.py`.
+- **Artikel:** Block `:::abbildung <szene>` in `build_wissen.py` (§6, 30.10.).
+- **Tests:** `editor_ui_test.py`, `editor_schematic_test.py` und alle Tests in `web/tests` grün. `test_children` und `test_process` brauchen auf der Windows-Konsole `PYTHONIOENCODING=utf-8`, sonst brechen sie beim Ausgeben von „≈“ ab.
 
-## 2. Sicherheitsbefund (zuerst beheben)
+## 2. Sicherheitsbefund (behoben am 28.10., siehe §6)
 
-`editor.html?scene=<url>` lädt eine beliebige Adresse (`editor.js:2011`). Σ/∏-Terme aus der Szene werden mit `new Function` ausgeführt (`editor.js:1699–1703`). Ein präparierter Link kann deshalb beliebiges JavaScript auf der Website starten. Außerdem überschreibt jeder Link die automatisch gesicherte Szene.
-Abhilfe: `?scene=` nur für relative Pfade unter `szenen/`. `evalExprJS` durch einen kleinen Ausdrucksparser ohne `new Function` ersetzen. Vor dem Überschreiben der Sicherung fragen oder sie getrennt halten.
+So war es: `editor.html?scene=<url>` lud eine beliebige Adresse, und Σ/∏-Terme aus der Szene wurden mit `new Function` ausgeführt. Ein präparierter Link konnte deshalb beliebiges JavaScript auf der Website starten. Außerdem überschrieb jeder Link die automatisch gesicherte Szene.
+
+Heute:
+- `?scene=` nimmt nur relative Pfade `szenen/…/name.json` (`SCENE_LINK_RE`, `editor.js:14`, Prüfung `:2397–2398`). Alles andere wird abgelehnt und nicht geladen.
+- Der `new Function`-Pfad ist entfernt, `evalExprJS` ist ein eigener Parser (`editor.js:2029`).
+- Eine per Link geöffnete Szene sichert unter einem eigenen Schlüssel.
 
 ## 3. Lücken und Fehler, die unsere Abbildungen betreffen
 
 **Grundlagen (für fast alle Abbildungen):**
-- G1 Dezimalkomma fehlt an Achsenzahlen (`axes.py:10`, „0.5“, „2e-06“), in Wertelisten (`values` „2;2,5;3“ → vier Kurven, `scene_model.py:810`) und in Tabellen (Komma trennt Zellen, `figures.py:375`).
-- G2 Export fest 1920×1080, kein Zuschnitt auf den Inhalt (`editor_backend.py:16`).
+- G1 Dezimalkomma fehlt an Achsenzahlen (`axes.py:10`, „0.5“, „2e-06“), in Wertelisten (`values` „2;2,5;3“ → vier Kurven, `scene_model.py:851`) und in Tabellen (Komma trennt Zellen, `figures.py:375`).
+- G2 **Erledigt am 30.10.** (§6). Früher war der Export fest 1920×1080 ohne Zuschnitt; in der Artikelspalte wurden Tick-Zahlen dadurch nur etwa 8 px groß.
 - G3 Kein Abschneiden am Teilbild außer bei FunctionGraph (F19). CurveFamily und Area klemmen am Rand und erzeugen waagerechte Linien (F2).
-- G4 Mehrteilige Graphen verlieren Farbe und Stärke (F1). Stil-Attribute wirken nur am obersten Objekt (F13).
-- G5 Unbekannte Prop bricht die ganze Szene ab (F14). Parameternamen wie `u`, `e`, `max` werden still verworfen (F11).
-- G6 Oberfläche: Automatikfarben überschreiben Katalogfarben, neue Schaltplan-Bauteile werden farbig, TextBox-Text unsichtbar (C §1). MathTex und Vector: Oberfläche und Engine behandeln Koordinaten verschieden, Objekte springen beim Ziehen (F12).
-- G7 Schrift im Editor ≠ Schrift im SVG (F17).
+- G4 Mehrteilige Graphen verlieren Farbe und Stärke (F1): **erledigt am 30.10.** (§6). Offen: Stil-Attribute wirken bei anderen zusammengesetzten Objekten nur am obersten Objekt (F13).
+- G5 **Erledigt am 28.10.** (§6). Unbekannte Props werden übersprungen und gemeldet (`scene_model.py:1342`), belegte Parameternamen ergeben eine klare Fehlermeldung (`:1662`).
+- G6 **Erledigt am 28.10.** (§6). Katalogfarben bleiben erhalten. `WORLD_TYPES` der Oberfläche (`editor.js:1604`) ist gleich `_WORLD_TYPES` der Engine, und die Teilbildwahl wird für diese Typen nicht mehr angeboten (`editor.js:1504`).
+- G7 Schrift im Editor ≠ Schrift im SVG (F17): teilweise behoben. Das SVG nutzt fest Arial und metrisch gleiche Schriften (`svg_painter.SVG_FONT`). Der Editor zeichnet `sans-serif`; das ist in Chrome unter Windows Arial (gemessen), auf anderen Systemen nicht zwingend.
+- G8 Keine Mehrsprachigkeit. Szenen speichern Texte wörtlich, die Website ist fest deutsch, auch das Zahlformat hängt an der Sprache. Weg und Aufwand: `C:\Bücher\ET3\Arbeitshefte\ABBILDUNGEN_INVENTAR.md` Abschnitt 3 (Paket P2). Vorbereitet sind Ausgabepfad und `--lang` im Stapel-Export.
 
 **Beschriftung:**
 - B1 Formel-Labels ohne Brüche, Akzente, Kursiv, Drehung (F10). MathTex kann Brüche, ist aber nur in Weltkoordinaten setzbar und als Bauteil- oder Achsenlabel nicht nutzbar.
+- B2 `f_\mathrm{A}` wurde zu „fmathrmA“: **erledigt am 30.10.** (§6).
 
 **3D (Fläche I_C(U_BE, U_CE) mit Schnitten):**
 - D1 Kein 3D-Kurvenobjekt. Schnittkurven nur per Hand als Polygon in der JSON.
@@ -48,9 +55,11 @@ Abhilfe: `?scene=` nur für relative Pfade unter `szenen/`. `evalExprJS` durch e
 **Diagramm-Bausteine:**
 - K1 Gerade durch zwei Punkte mit Verlängerung (Early-Konstruktion) fehlt. `Line` wird auf Log-Achsen krumm (F8).
 - K2 CurveFamily: eine Farbe für alle Kurven, Labels überlappen.
-- K3 Legende auf Log- oder ungleich skalierten Achsen unbrauchbar (F4). Wir beschriften ohnehin direkt an den Kurven.
+- K3 Legende auf Log- oder ungleich skalierten Achsen unbrauchbar (F4): **erledigt am 30.10.** (§6). Offen: nur durchgezogene Einträge, keine gestrichelten oder Marker-Einträge.
 - K4 Senkrechte Klammer: Label überdeckt die Klammer (F6), wichtig für die Potentialleiter.
 - K5 Tabellen: gleich breite Spalten, keine Ausrichtung je Spalte.
+- K6 Keine Tick-Listen im Konstruktor, `show_ticks` gilt für beide Achsen gemeinsam (`axes.py:73`, `:193`). Stand bisher nur in der Detailnotiz A.
+- K7 Summation und Convolution zeichnen nur auf dem ersten Teilbild: Sie bekommen immer den ersten `Axes` (`scene_model.py:1679`, `:1718`).
 
 **Animation und gerenderte Filme:**
 - A1 Parameter über die Zeit animieren geht nicht (Parameter hängt an keinem ValueTracker). `ChangeValue` und `MoveAlongPath` sind registriert, brechen aber die Szene, weil die Argumente nicht durchgereicht werden.
@@ -84,7 +93,7 @@ Abhilfe: `?scene=` nur für relative Pfade unter `szenen/`. `evalExprJS` durch e
 ## 5. Ausbaupakete in dieser Reihenfolge
 
 1. **Sicherheit und Fundament:** §2; D2; G5; G6; G4.
-2. **Abbildungen auf die Website:** Hook `window.__anim` in `editor.js`. Ein Skript rendert alle Szenen unter `web/szenen/` headless (Playwright) als zugeschnittenes SVG/PNG und Bild für Bild als MP4/WebM (ffmpeg). Block `:::abbildung` in `build_wissen.py` mit Bild oder Film und dem Link „In der Vorlage öffnen“. Dazu G2, G7 und D3.
+2. **Abbildungen auf die Website:** Für feste 2D-Bilder erledigt (§6, 30.10.): Der Stapel-Export läuft in CPython, Playwright ist dafür nicht nötig. Offen bleiben nur die Fälle, die den Browser brauchen: MathTex und Σ/∏ im Zahlenmodus (MathJax) und Filme (Hook `window.__anim`, Bild für Bild als MP4/WebM mit ffmpeg). Dazu D3.
 3. **Deutsche Zahlen:** G1 als Szeneneinstellung (Standard: Dezimalkomma).
 4. **3D-Fläche mit Schnitten:** D1 (Kurve auf Fläche bzw. 3D-Parameterkurve, Punkte und Text in 3D), D4, D5; A2 (Kamerafahrt) für den Film.
 5. **Kennlinien-Werkzeuge:** G3 (Abschneiden statt Klemmen), K2 (Farbe je Kurve, Labelabstand), K1 (verlängerte Gerade, gerade auch auf Log-Achsen).
@@ -138,5 +147,34 @@ Abhilfe: `?scene=` nur für relative Pfade unter `szenen/`. `evalExprJS` durch e
     - `web/tests/test_circuit_place.py` (Pins, Drehung, alte Szenen, alle 25 Arten in beiden Normen, 3:1, Device-Pins),
     - `tools/editor_schematic_test.py` (Browser: Platzieren, Drehen, Verdrahten, Mitziehen, T-Verbindung mit Lötpunkt, Spiegeln, Stilwechsel),
     - `editor_ui_test.py` 18/18.
+
+- **30.10. Von der Szene zum Artikelbild (Paket P1 aus `ABBILDUNGEN_INVENTAR.md`):**
+  - **Ausschnitt** (`engine/export.py`, Einstellung `export` in der Szene): wie `bbox_inches="tight"` in matplotlib, „Zeichnung exportieren“ in Inkscape und der Exportbereich in GeoGebra.
+    - `content` (Standard): alles Gezeichnete mit halber Strichbreite und geschätzter Textbreite plus Rand 24 px, begrenzt auf die 1920×1080-Fläche.
+    - `frame`: fester Rahmen `[x0, y0, x1, y1]` in Welt-Einheiten der 2D-Ansicht.
+    - `canvas`: die ganze Fläche wie bisher.
+  - **Größe:** Das SVG behält die Szenen-Pixel im `viewBox` und wird mit Maßstab 0,55 angezeigt. Beschriftungen mit 24/26/28 px erscheinen dadurch mit 13,2/14,3/15,4 px.
+  - **Spaltenbreite (gemessen in Chrome):** Der Artikel ist 616 px breit, eine Abschnittskarte innen 570 px, das Bild im Abbildungskasten höchstens 548 px (`export.COLUMN_PX`). Die 680 px im CSS von `figure.fig` werden nie erreicht. Ein breiteres Bild verkleinert der Browser samt Text; Editor und Stapel-Export melden das mit der entstehenden Textgröße. Abhilfe ist eine schmalere Zeichnung, denn Textgrößen sind fest. Auf dem Handy (308 px) schrumpft jedes breite Bild.
+  - **Textbreite:** Sie kommt aus den Laufweiten von Helvetica/Arial. Das SVG nutzt dazu fest Arial und metrisch gleiche Schriften. Chrome misst an der Demo-Szene Ränder von 24,0–24,6 px bei 24 px Soll.
+  - **Hintergrund:** Das Nachtmodus-Grau #d4d7dc wird weiß. Transparenz und eigene Farben bleiben.
+  - **Oberfläche:** Settings zeigt den Abschnitt „Artikelbild (SVG-Export)“ mit Ausschnitt, Rand, Maßstab, Rahmen und dem Knopf „Rahmen = jetziger Zuschnitt“. Solange Settings gewählt ist, steht der Ausschnitt als orangefarbener Rahmen mit Größe und Textgröße auf dem Overlay (zu breit: rot). Er wird nie exportiert.
+  - **Stapel-Export ohne Browser:** `python tools/export_szenen.py [namen…] [--out DIR] [--lang de] [--check]` schreibt `web/abbildungen/<sprache>/<szene>.svg`. Ohne Namen nimmt es alle Szenen unter `web/szenen/`. Es setzt die Szene um wie der Editor beim Laden (`ensureDefaults`, `toPythonModel`, Katalog über node). Das Ergebnis ist byteweise gleich dem SVG-Export im Browser (geprüft an `beispiel-zwei-felder`). MathTex und Σ/∏ im Zahlenmodus fehlen im Bild und werden gemeldet.
+  - **Artikel-Block:**
+    ```
+    :::abbildung et3/k1-bode
+    Bildunterschrift, auch mit $f_\mathrm{A}$ und **Markdown**, über mehrere Zeilen.
+    :::
+    ```
+    - Name = Pfad unter `web/szenen/` ohne `.json`.
+    - Ergebnis: `<figure class="abb">` mit dem SVG in natürlicher Größe (höchstens spaltenbreit), Alternativtext aus der Bildunterschrift, „Abbildung N“ je Artikel fortlaufend und Link „In Editor öffnen“.
+    - Fehlt das SVG oder ist der Name ungültig, erscheint ein Platzhalter wie bei `:::grafik`, die Nummer bleibt reserviert, und der Build meldet es. `:::grafik` funktioniert unverändert.
+    - Nach einer Änderung an CSS oder Abbildungen `python build_wissen.py` laufen lassen.
+  - **Sicherheit des Links:** Der Link nutzt den vorhandenen Pfad `editor.html?scene=szenen/<szene>.json`. Der war bereits sicher (§2), ein zweiter Ladepfad wäre nur mehr Angriffsfläche. Die Regel steht jetzt als `SCENE_LINK_RE` an einer Stelle; `test_abbildung` prüft, dass sie genau die Namen annimmt, die der Build erzeugt. In der Browser-Probe wurden fremde Hosts, `..`, Query und `javascript:` abgelehnt, ohne dass etwas geladen wurde.
+- **30.10. Darstellungsfehler (Paket P3, teilweise):**
+  - **F1:** Teilstücke eines Graphen übernehmen Farbe, Stärke, Deckkraft und Strichelung (`plotting.sync_pieces`), auch bei Operationen, Faltung und den Animationen in `processes.py`.
+  - **Rich-Text:** `f_\mathrm{A}`, `f_\mathrm A`, `x^\text{max}` und `\mathrm A` werden richtig gesetzt (`richtext._macro_arg`).
+  - **Legende:** Nur `position` ist eine Datenkoordinate. `row_gap`, `swatch_len` und `gap` sind Szenen-Einheiten, Labels sind linksbündig (`scene_model._ANCHORED_TYPES`). Neue Standardwerte 0,35/0,4/0,15 entsprechen bei 26 px ungefähr matplotlib. Gespeicherte Szenen behalten ihre Werte und sehen auf 1:1-Achsen aus wie bisher, aber die Labels stehen jetzt linksbündig; auf anderen Achsen ändern sich die Abstände wie gewollt.
+  - **Noch offen aus P3:** `label_side` für LabeledArrow, gestrichelte und Marker-Einträge in der Legende.
+  - **Tests:** `web/tests/test_render_fixes.py`, `test_export.py`, `test_abbildung.py`, neuer Fall in `test_contract.py`, Ergänzungen in `tools/editor_ui_test.py`.
 
 Jedes Paket hält `web/ENGINE_CONTRACT.md` ein. Es kommt mit Tests in `web/tests`, wird im Browser fotografiert (`tools/editor_shot.py`) und mit `tools/editor_ui_test.py` geprüft. Abgeschlossene Punkte werden hier abgehakt.

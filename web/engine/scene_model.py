@@ -22,6 +22,7 @@ from .threed import ThreeDAxes, Box, Cube, Sphere, Pyramid, Vector
 from .svg import MathTex, SVGMobject
 from .legend import Legend
 from .AnimObject import AnimObject
+from .plotting import sync_pieces as _sync_pieces
 from .results import result_value
 from . import calc as _calc
 from . import geometry as _geom
@@ -393,6 +394,10 @@ def _parse_dash(value):
 # re-mapped by axes.place (which would distort a solid by the x/y data scaling).
 _WORLD_TYPES = {"Axes", "ThreeDAxes", "Box", "Cube", "Sphere", "Pyramid", "Vector",
                 "MathTex", "SVGMobject"}
+# Types whose `position` is a DATA anchor while their own extent is in SCENE units (like a Dot's radius):
+# the axes maps only the anchor, the object is shifted there unscaled. A legend's row gap must not
+# stretch with the data range (Fehler KU10 in ABBILDUNGEN_INVENTAR.md).
+_ANCHORED_TYPES = {"Legend"}
 
 
 def _init_params(cls):
@@ -1338,7 +1343,10 @@ def _build_object(spec, objects, axes=None):
         obj = OBJECT_TYPES[t](**kwargs)
         # A 2D/data object's coordinates are DATA coordinates: map them onto the axes so e.g.
         # center=(1,0) sits on the tick '1'. WORLD/3D objects (solids) are left in world coordinates.
-        if axes is not None and t not in _WORLD_TYPES:
+        if axes is not None and t in _ANCHORED_TYPES:     # anchor in data, extent in scene units
+            p0 = np.array(_xyz(kwargs.get("position", (0.0, 0.0, 0.0))))
+            obj.shift(np.asarray(axes.coords_to_point(*p0), dtype=float) - p0)
+        elif axes is not None and t not in _WORLD_TYPES:
             axes.place(obj)
         # 3D SOLIDS on the GPU (smooth/opaque). The cheap 2D faces stay (bbox/pick/fallback); flag `_gl`
         # so the 2D painter skips drawing them and the GPU draws a clean mesh instead. Sphere = smooth.
@@ -1359,10 +1367,13 @@ def _build_object(spec, objects, axes=None):
         setattr(obj, k, v)
     if dash is not None:                                    # dashed stroke: the object and its strokable parts
         obj.set_dash(dash)
+    _sync_pieces(obj)                                       # a split graph: every piece takes the style (F1)
     if hasattr(obj, "_cx_parts"):                           # complex graph: Re takes the chosen style
         re_g, im_g = obj._cx_parts
         re_g.color = obj.color
         re_g.stroke_width = im_g.stroke_width = obj.stroke_width
+        re_g.stroke_opacity = im_g.stroke_opacity = obj.stroke_opacity
+        _sync_pieces(re_g); _sync_pieces(im_g)
     if t == "FunctionGraph":                                # remember the expression so computations
         obj._func_expr = str(spec.get("args", {}).get("func", "0"))   # (e.g. Convolution) can read it
     # Child / result objects: build them as sub-objects so the editor can expand the parent and
@@ -1545,6 +1556,7 @@ def _run_computation(scene, cspec, objects, types, axes, results=None, comps_by_
                               tau_range=props.get("tau_range"), color=color, f_color=A.color, g_color=B.color)
         else:                                               # EDIT view / result operand: finished result curve
             obj = axes.plot(conv); obj.color = color; obj.stroke_width = style.get("stroke_width", 5)
+            _sync_pieces(obj)
             scene.add(obj)
         if cid:
             results[cid] = {"kind": "function", "func": conv}   # reusable: convolution is a function
@@ -1577,6 +1589,7 @@ def _run_computation(scene, cspec, objects, types, axes, results=None, comps_by_
 
     for k, v in style.items():
         setattr(obj, k, v)
+    _sync_pieces(obj)                                       # a split result graph: every piece takes the style (F1)
     for child_spec in cspec.get("children", []):            # result children (e.g. area)
         if not child_spec.get("visible", True):
             continue

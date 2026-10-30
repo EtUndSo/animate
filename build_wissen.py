@@ -37,6 +37,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SRC  = ROOT / "content"
 OUT  = ROOT / "web" / "wissen"
+# Abbildungen aus dem Editor (:::abbildung <szene>): tools/export_szenen.py schreibt aus web/szenen/<szene>.json
+# das Artikelbild web/abbildungen/<sprache>/<szene>.svg. Szenenname = Pfad unter web/szenen/ ohne .json, Teile aus
+# A-Z a-z 0-9 _ - (dieselbe Regel wie der Szenen-Link im Editor, editor.js SCENE_LINK_RE).
+SZENEN   = ROOT / "web" / "szenen"
+ABB_DIR  = ROOT / "web" / "abbildungen"
+ABB_URL  = "/abbildungen"
+ABB_LANG = "de"                       # Sprache der Artikelbilder; Paket P2 (Mehrsprachigkeit) wählt sie je Artikel
+SZENE_NAME_RE = re.compile(r"[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*")
 
 # ---------------------------------------------------------------- helpers ----
 def slugify(s):
@@ -67,6 +75,7 @@ def parse_frontmatter(text):
 # Supported: # ## ### headings (with ids), paragraphs, **bold** *italic* `code`, [t](u),
 # ![alt](src), - / 1. lists, ``` fenced code ```, > blockquote, --- rule, raw <html> lines,
 # callouts ':::konzept' / ':::kern' / ':::merke ... :::', and $…$ / $$…$$ left intact for KaTeX.
+# Editor figures: ':::abbildung <szene>' + caption lines + ':::' (see abbildung_html; placeholder: ':::grafik').
 _PROTECT = []
 # Beispiel-Seite: render_article setzt hier eine Liste; md_to_html legt jedes ::::beispiel dort ab und lässt im
 # Artikel nur einen Verweis stehen. None = Beispiele verwerfen (z. B. beim Lesen der Nachbar-Stichpunkte).
@@ -177,6 +186,59 @@ def split_display(txt):
     parts = [p.strip() for p in parts if p.strip()]
     return parts if len(parts) >= 2 else None
 
+ABB_N = [0]                                               # laufende Abbildungsnummer im Artikel (render_article setzt 0)
+_ABB_GEMELDET = set()                                     # jede fehlende Szene/SVG nur einmal melden
+
+def svg_size(path):
+    """(Breite, Höhe) aus dem <svg>-Kopf einer exportierten Abbildung, None wenn sie fehlt."""
+    try:
+        head = path.read_text(encoding="utf-8")[:800]
+    except OSError:
+        return None
+    m = re.search(r'<svg\b[^>]*?\swidth="([\d.]+)"[^>]*?\sheight="([\d.]+)"', head)
+    return (round(float(m.group(1))), round(float(m.group(2)))) if m else None
+
+def caption_alt(md):
+    """Bildunterschrift als Alternativtext: ohne Markdown und $; \\mathrm{A}, \\text{..} -> Inhalt, \\omega -> omega."""
+    t = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", md)
+    t = re.sub(r"\\(?:mathrm|text|textrm|operatorname|mathit|mathbf)\s*\{([^{}]*)\}", r"\1", t)
+    t = re.sub(r"\\([A-Za-z]+)", r"\1", t)
+    t = re.sub(r"[$*`{}_^]", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+def _abb_melden(key, text):
+    if key not in _ABB_GEMELDET:
+        _ABB_GEMELDET.add(key); print("  Abbildung:", text)
+
+def abbildung_html(name, inner):
+    """:::abbildung <szene> mit der Bildunterschrift als Inhalt -> nummerierte <figure> mit dem exportierten SVG
+    (natürliche Größe, höchstens spaltenbreit), Alternativtext aus der Bildunterschrift und dem Link
+    „In Editor öffnen“. Der Link nutzt nur den Namen (editor.html?scene=szenen/<szene>.json); der Editor lädt
+    damit ausschließlich Dateien unter szenen/ und führt aus der Adresse nichts aus. Fehlt das SVG, steht wie
+    bei :::grafik ein Platzhalter da (Nummer bleibt reserviert)."""
+    ABB_N[0] += 1
+    k = ABB_N[0]
+    cap_md = " ".join(l.strip() for l in inner if l.strip())
+    cap = inline(cap_md) if cap_md else ""
+    name = (name or "").strip()
+    gueltig = bool(SZENE_NAME_RE.fullmatch(name))
+    size = svg_size(ABB_DIR / ABB_LANG / (name + ".svg")) if gueltig else None
+    if size is None:
+        _abb_melden(("svg", name), (f"ungültiger Szenenname „{name}“ (erlaubt: a-z A-Z 0-9 _ - und /)" if not gueltig else
+                    f"{ABB_URL}/{ABB_LANG}/{name}.svg fehlt — python tools/export_szenen.py {name}") + " -> Platzhalter")
+        return (f'<aside class="callout cx-grafik" data-szene="{html.escape(name)}"><div class="callout-h">Abbildung {k} in Vorbereitung</div>'
+                + (f"<p>{cap}</p>" if cap else "") + f'<div class="gr-szene">Editor-Szene: {html.escape(name)}</div></aside>')
+    edit = ""
+    if (SZENEN / (name + ".json")).is_file():
+        edit = (f'<a class="abb-edit" href="/editor.html?scene=szenen/{name}.json" target="_blank" rel="noopener" '
+                'title="Die Szene dieser Abbildung im Editor öffnen">In Editor öffnen</a>')
+    else:
+        _abb_melden(("json", name), f"web/szenen/{name}.json fehlt -> ohne Editor-Link")
+    alt = caption_alt(cap_md) or f"Abbildung {k}"
+    return (f'<figure class="abb" id="abb-{k}"><img src="{ABB_URL}/{ABB_LANG}/{name}.svg" width="{size[0]}" height="{size[1]}" '
+            f'alt="{html.escape(alt, quote=True)}" loading="lazy" decoding="async"/>'
+            f'<figcaption><span class="abb-n">Abbildung {k}</span>{(" " + cap) if cap else ""}{edit}</figcaption></figure>')
+
 CALLOUTS = {"konzept": ("", "Zur Idee"), "kern": ("", "Das Wichtigste"), "merke": ("", "Merke"),
             "grafik": ("", "Abbildung"), "satz": ("", "Satz"), "definition": ("", "Definition"),
             "lemma": ("", "Lemma")}
@@ -279,6 +341,11 @@ def md_to_html(md):
                 out.append('<details class="herleitung"><summary>Herleitung</summary>'
                            '<div class="hl-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
                 continue
+            if kind == "ltspice":                         # LTspice-Hinweis (nachbauen und messen): standardmaessig geschlossen
+                out.append('<details class="ltspice"><summary><span class="lt-k">LTspice</span>'
+                           + inline(label_arg) + '</summary>'
+                           '<div class="lt-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                continue
             if kind == "frage":                           # Frage-Kasten (wie im Lernskript): Frage sichtbar, Antwort ausklappbar
                 if label_arg:
                     frage, rest = label_arg, inner
@@ -287,6 +354,9 @@ def md_to_html(md):
                     frage, rest = (inner[k0].strip() if k0 < len(inner) else ""), inner[k0 + 1:]
                 out.append('<details class="frage"><summary><span class="fr-k">Frage</span>' + inline(frage) + '</summary>'
                            '<div class="fr-body">' + md_to_html("\n".join(rest))[0] + '</div></details>')
+                continue
+            if kind == "abbildung":                       # Editor-Abbildung: exportiertes SVG, nummerierte Bildunterschrift, Link in den Editor
+                out.append(abbildung_html(label_arg, inner))
                 continue
             if kind == "grafik":                          # Platzhalter einer Editor-Abbildung: Beschreibung als Text, Szene-Zeile klein darunter
                 k0 = next((j for j, l in enumerate(inner) if l.strip()), len(inner))
@@ -540,8 +610,8 @@ def autor_switch(art=None, where="top"):
 def lesezeit(body):
     """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
     t = re.sub(r"^::::\s*beispiel.*?^::::\s*$", " ", body, flags=re.S | re.M)
-    t = re.sub(r"^:::\s*(?:herleitung|quiz|frage)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # eingeklappte Kästen
-    t = re.sub(r"^:::\s*grafik\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # Abbildungen zählen nicht (wie früher die Bildunterschriften)
+    t = re.sub(r"^:::\s*(?:herleitung|quiz|frage|ltspice)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # eingeklappte Kästen
+    t = re.sub(r"^:::\s*(?:grafik|abbildung)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # Abbildungen zählen nicht (wie früher die Bildunterschriften)
     t = re.sub(r"\$\$.+?\$\$", " ", t, flags=re.S)
     t = re.sub(r"^\s*<.*$", " ", t, flags=re.M)
     return max(1, round(len([w for w in t.split() if re.search(r"[A-Za-zÄÖÜäöüß0-9]", w)]) / 170))
@@ -596,6 +666,7 @@ def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
 def render_article(art, tree, prev_a, next_a):
     global BSP_SINK
     BSP_SINK = []
+    ABB_N[0] = 0                                       # Abbildungen je Artikel ab 1 nummerieren
     body_html, toc = md_to_html(art["body"])
     examples, BSP_SINK = BSP_SINK, None
     quiz_html = ""                                     # Quiz ganz unten, unter den Nachbar-Spalten (User 2026-10-21)
@@ -875,6 +946,14 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article figure.fig svg{width:min(560px,100%);height:auto;}
 .article figure.fig figcaption{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.5;max-width:52ch;margin-inline:auto;}
 .article figure.fig img{width:min(680px,100%);height:auto;border-radius:8px;background:#fff;}   /* berechnete Abbildung (SVG, weißer Grund) */
+/* Editor-Abbildung (:::abbildung): das SVG in seiner natürlichen Größe (Beschriftung 13–15 px), höchstens so breit wie
+   die Spalte; darunter die nummerierte Bildunterschrift und der Link in den Editor. Kasten wie die übrigen Boxen. */
+.article figure.abb{margin:1.7em 0;padding:10px 10px 9px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
+.article figure.abb img{display:block;margin:0 auto;max-width:100%;height:auto;border-radius:8px;background:#fff;}
+.article figure.abb figcaption{margin:9px 4px 0;font-size:14.5px;line-height:1.5;color:var(--muted);}
+.article figure.abb .abb-n{font-family:var(--fdisp);font-weight:700;color:var(--accent);margin-right:4px;}
+.article figure.abb .abb-edit{margin-left:8px;font-size:12.5px;font-weight:600;white-space:nowrap;}
+.article figure.abb .abb-edit::after{content:" ↗";}
 /* Fassung wählen: kompakt | ausführlich, jeweils mit Lesezeit */
 .fassung{display:inline-flex;margin:.1em 0 1.2em;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);}
 .fassung .f-btn{display:flex;align-items:baseline;gap:8px;padding:7px 15px;color:var(--muted);font-weight:600;font-size:14.5px;}
@@ -927,6 +1006,15 @@ details.herleitung[open]>summary::before{transform:rotate(90deg);}
 details.herleitung>summary:hover{text-decoration:underline;}
 .hl-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .hl-body>p:first-child{margin-top:12px;}
+/* LTspice-Hinweis: nachbauen und messen, standardmaessig geschlossen */
+details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid #c9581f;border-radius:10px;background:color-mix(in srgb,#eb6834 5%,var(--panel));}
+details.ltspice>summary{cursor:pointer;font-weight:600;padding:10px 14px;list-style:none;line-height:1.45;}
+details.ltspice>summary::-webkit-details-marker{display:none;}
+details.ltspice>summary::before{content:"▸";display:inline-block;margin-right:9px;color:#c9581f;transition:transform .15s;}
+details.ltspice[open]>summary::before{transform:rotate(90deg);}
+details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#c9581f;margin-right:9px;}
+.lt-body{padding:0 16px 10px;border-top:1px solid var(--border);}
+.lt-body>p:first-child{margin-top:12px;}
 .prevnext{display:flex;justify-content:space-between;gap:14px;margin:36px 0 10px;flex-wrap:wrap;}
 .pn{flex:1 1 200px;border:1px solid var(--border);border-radius:12px;padding:12px 15px;font-weight:600;background:var(--panel);}
 .pn span{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-bottom:2px;} .pn.next{text-align:right;}

@@ -6,7 +6,15 @@ const ENGINE_FILES = [
   "bezier.py", "plotting.py", "simpleShape.py", "text.py", "richtext.py", "svg.py", "svg_painter.py", "axes.py", "threed.py", "legend.py", "value_tracker.py",
   "figures.py", "circuit.py",
   "results.py", "calc.py", "geometry.py", "processes.py", "arithmetic.py", "animation.py", "rate_functions.py", "scene.py", "scene_model.py",
+  "export.py",
 ];
+// A scene link (editor.html?scene=…) may only open a scene shipped with the site: a relative path below
+// szenen/ ending in .json, parts of [A-Za-z0-9_-] (no other host, no "..", no query). The article block
+// :::abbildung builds its "In Editor öffnen" link with the same rule (build_wissen.py SZENE_NAME_RE).
+const SCENE_LINK_RE = /^(?:\.\/)?szenen\/(?:[\w-]+\/)*[\w-]+\.json$/;
+// Article-figure export (engine/export.py): crop to the drawing (or a stored frame) and scale 0.55, so the
+// usual 24–28 px labels appear at 13–15 px in the article. frame = [x0,y0,x1,y1] in world units of the 2D view.
+const EXPORT_DEFAULTS = { mode:"content", margin:24, scale:0.55, frame:null };
 
 // Mirror of engine/results.py: which results each object type offers (static scalar ones for now).
 // prefix is the "symbol = formula = " text; the interpreter fills the number after it.
@@ -104,7 +112,8 @@ const CATALOG = {
     NumberLine:    { x_min:-5, x_max:5, step:1, length:10, center:[0,0,0], tick_labels:true, decimals:0, font_size:24, color:"#111111", stroke_width:3 },
     // Legend/key for several curves on the SAME axes: one row per entry (swatch + label). `labels` is
     // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
-    Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.8, swatch_len:0.9, gap:0.35, color:"#111111", stroke_width:6 },
+    // position = data anchor (left end of the first swatch); row_gap/swatch_len/gap in scene units (not data).
+    Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.35, swatch_len:0.4, gap:0.15, color:"#111111", stroke_width:6 },
   },
   "Mathematik · Felder": {
     // 2D vector field (arrow grid). preset: radial/source/sink/vortex/uniform (sets fx,fy) or "custom"
@@ -474,7 +483,7 @@ const ANIM_GROUPS = {
   "Betonen":    ["Indicate"],
 };
 const ANIM_TYPES = Object.values(ANIM_GROUPS).flat();     // flat list (used where grouping isn't needed)
-const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 } };
+const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 }, export: { ...EXPORT_DEFAULTS } };
 let nextId = 1, nextAnimId = 1, nextCompId = 1;
 let clipboard = null;                 // last copied object spec {type, props}, for paste/duplicate
 let orbitFn = null;                   // fast 3D re-aim (set after Pyodide boot)
@@ -537,6 +546,7 @@ function toPythonModel(){
   return { objects, animations, computations, background: bg, shadows: !!model.background.shadows,
            axes_on_top: model.background.axes_on_top === true,
            angle_unit: model.angleUnit, domain: model.domain, camera: model.camera,
+           export: model.export,                     // article-figure export: crop mode, margin, scale, frame
            gl: (gl3d.ok && !_glFailed) };          // WebGL available -> engine builds only the GPU surface mesh
 }
 
@@ -1118,7 +1128,8 @@ const LS_KEY = "animate.scene.v1";
 function sceneData(){
   return { v:1, counters:{ nextId, nextAnimId, nextCompId },
     model:{ objects:model.objects, animations:model.animations, computations:model.computations,
-            background:model.background, playMode:model.playMode, angleUnit:model.angleUnit, domain:model.domain, camera:model.camera } };
+            background:model.background, playMode:model.playMode, angleUnit:model.angleUnit, domain:model.domain, camera:model.camera,
+            export:model.export } };
 }
 function applyScene(data){
   const m = (data && data.model) || data || {};
@@ -1130,7 +1141,8 @@ function applyScene(data){
   model.angleUnit = m.angleUnit || "rad";
   model.domain = m.domain || "real";
   model.camera = m.camera || { mode:"2d", theta:0.6, phi:1.0 };
-  migrateModel();                                   // backfill any props added since the scene was saved
+  model.export = Object.assign({ ...EXPORT_DEFAULTS }, m.export || {});   // older scenes: default crop/scale
+  migrateModel();                                  // backfill any props added since the scene was saved
   model.selectedId = model.objects.length ? model.objects[0].id : null;
   model.selectedComp = null;
   const cc = data && data.counters;
@@ -1481,6 +1493,7 @@ function renderObjectProps(){
     el.appendChild(propRow("transparent", ti));
     el.appendChild(propRow("shadows (3D surface shading)", si));
     el.appendChild(propRow("axes on top (off = realistic depth)", ax));
+    renderExportSettings(el);
     return;
   }
   const o=selected();
@@ -1507,6 +1520,68 @@ function renderObjectProps(){
   for(const [k,v] of Object.entries(o.props)){ if(skip.has(k)) continue; el.appendChild(propInput(o,k,v)); }
   renderResults(el, o);
   renderAnimations(el, o);
+}
+
+// ---------- Article figure (SVG export): crop + size, shown as an orange frame while Settings is selected ----------
+// Like matplotlib bbox_inches="tight" / Inkscape "export drawing" (Inhalt), Inkscape custom area / GeoGebra export
+// corners (fester Rahmen) or the whole canvas. The engine (engine/export.py) computes the rectangle; the batch
+// tool tools/export_szenen.py writes the same SVG for the articles.
+const EXPORT_MODES = [["content","Inhalt (zugeschnitten)"], ["frame","fester Rahmen"], ["canvas","ganze Bildfläche"]];
+let exportInfoFn = null, _exportInfo = null;          // engine export_info (set after boot) + its last result
+const _de1 = v => (Math.round(v*10)/10).toFixed(1).replace(".", ",");
+function fetchExportInfo(override){                   // {rect, width, height, scale, column, fits, text_px, frame}
+  if(!exportInfoFn) return null;
+  try{ const r=exportInfoFn(override ? JSON.stringify(override) : null); return JSON.parse(String(r)); }catch(e){ return null; }
+}
+function exportInfoLabel(I){
+  return I.fits ? `Artikelbild ${I.width} × ${I.height} px · Text ${I.ref_text} px → ${_de1(I.text_px)} px`
+                : `Breiter als die Spalte (${I.column} px): ${I.width} px · Text ${I.ref_text} px → nur ${_de1(I.text_px)} px`;
+}
+function updateExportInfoText(){
+  const t=$("export-info"); if(!t) return;
+  const I=_exportInfo; t.textContent = I ? exportInfoLabel(I) : "";
+  t.style.color = (I && !I.fits) ? "#d62728" : "";
+}
+function renderExportSettings(el){
+  const ex = model.export;
+  const wrap=document.createElement("div"); wrap.style="margin-top:10px;border-top:1px solid var(--border);padding-top:8px;";
+  const title=document.createElement("div"); title.style="font-weight:600;margin-bottom:6px;font-size:13px"; title.textContent="Artikelbild (SVG-Export)"; wrap.appendChild(title);
+  const s=document.createElement("select");
+  EXPORT_MODES.forEach(([v,l])=>{ const op=document.createElement("option"); op.value=v; op.textContent=l; if(ex.mode===v) op.selected=true; s.appendChild(op); });
+  s.onchange=()=>{
+    ex.mode=s.value;
+    if(ex.mode==="frame" && !(Array.isArray(ex.frame) && ex.frame.length===4)){   // start from the current crop
+      const I=fetchExportInfo({ ...ex, mode:"content" }); ex.frame = I ? I.frame.slice() : [-7.11,-4,7.11,4]; }
+    renderProps(); renderPreview();
+  };
+  wrap.appendChild(propRow("Ausschnitt", s));
+  if(ex.mode==="content")
+    wrap.appendChild(propRow("Rand (px)", numberInput(ex.margin, (x)=>{ ex.margin=(isFinite(x) && x>=0) ? x : EXPORT_DEFAULTS.margin; renderPreview(); })));
+  if(ex.mode==="frame"){
+    const vec=document.createElement("div"); vec.className="vec"; vec.title="x0, y0, x1, y1 in Welt-Einheiten der 2D-Ansicht";
+    ex.frame.forEach((c,i)=> vec.appendChild(numberInput(c, (x)=>{ if(isFinite(x)){ ex.frame[i]=x; renderPreview(); } })));
+    wrap.appendChild(propRow("Rahmen", vec));
+  }
+  wrap.appendChild(propRow("Maßstab", numberInput(ex.scale, (x)=>{ ex.scale=(isFinite(x) && x>0) ? x : EXPORT_DEFAULTS.scale; renderPreview(); })));
+  const b=document.createElement("span"); b.className="palette-item"; b.textContent="Rahmen = jetziger Zuschnitt";
+  b.title="Den zugeschnittenen Ausschnitt als festen Rahmen speichern (bleibt gleich, wenn sich die Zeichnung ändert)";
+  b.onclick=()=>{ const I=fetchExportInfo({ ...ex, mode:"content" }); if(!I) return; ex.frame=I.frame.slice(); ex.mode="frame"; renderProps(); renderPreview(); };
+  wrap.appendChild(b);
+  const info=document.createElement("div"); info.className="hint"; info.id="export-info"; info.style.marginTop="6px"; wrap.appendChild(info);
+  el.appendChild(wrap);
+  updateExportInfoText();
+}
+function refreshExportInfo(){ _exportInfo = (model.selectedId===BG_ID && !playing) ? fetchExportInfo() : null; updateExportInfoText(); }
+function drawExportFrame(ctx){                         // editing aid on the overlay, never exported
+  const I=_exportInfo; if(!I || model.selectedId!==BG_ID) return;
+  const [x0,y0,x1,y1]=I.rect, col = I.fits ? "rgba(232,130,12,0.95)" : "rgba(214,39,40,0.95)";
+  ctx.save();
+  ctx.strokeStyle=col; ctx.lineWidth=3; ctx.setLineDash([16,10]); ctx.strokeRect(x0,y0,x1-x0,y1-y0); ctx.setLineDash([]);
+  const label=exportInfoLabel(I); ctx.font="600 22px sans-serif"; const tw=ctx.measureText(label).width;
+  const ly = y0>40 ? y0-10 : Math.min(y1+32, 1072);   // above the frame, else below it
+  ctx.fillStyle="rgba(255,255,255,0.9)"; ctx.fillRect(Math.max(0,x0), ly-24, tw+16, 32);
+  ctx.fillStyle=col; ctx.fillText(label, Math.max(0,x0)+8, ly);
+  ctx.restore();
 }
 
 // A rough anchor (data coords) for auto-placing a result near its object.
@@ -1598,13 +1673,14 @@ function drawMoveGizmoFromCache(){
   const cv=$("editgizmo"); if(!cv) return; const ctx=cv.getContext("2d"); ctx.clearRect(0,0,cv.width,cv.height);
   if(playing) return;
   drawSchematicOverlay(ctx);                          // grid, open pins, selection frame, wire preview
+  drawExportFrame(ctx);                               // article-figure crop while Settings is selected
   if(!_moveGizmoCache) return;
   const g=_moveGizmoCache, [x0,y0,x1,y1]=g.bb, pad=10;
   ctx.strokeStyle="rgba(90,150,240,0.9)"; ctx.lineWidth=2.5; ctx.setLineDash([12,8]);
   ctx.strokeRect(x0-pad,y0-pad,(x1-x0)+2*pad,(y1-y0)+2*pad); ctx.setLineDash([]);
   for(const h of g.handles) _drawArrow(ctx,h.a,h.tip,h.axis.col, moveHover===h.axis.k);
 }
-function refreshMoveGizmo(){ schUpdateSel(); _moveGizmoCache=_moveHandles(); drawMoveGizmoFromCache(); }   // recompute (Pyodide) + draw
+function refreshMoveGizmo(){ schUpdateSel(); _moveGizmoCache=_moveHandles(); refreshExportInfo(); drawMoveGizmoFromCache(); }   // recompute (Pyodide) + draw
 function _startAxisMove(h,e,spx,spy){
   const o=selected(); const keys=movablePosKeys(o); if(!keys.length) return;
   const startVals={}; for(const k of keys) startVals[k]=(o.props[k]||[0,0,0]).slice();
@@ -2219,6 +2295,7 @@ async function boot(){
   glConstFn = pyodide.globals.get("gl_constants");
   setGlEnabledFn = pyodide.globals.get("set_gl_enabled");
   svgFn = pyodide.globals.get("export_svg");
+  exportInfoFn = pyodide.globals.get("export_info");
   circuitPinsFn = pyodide.globals.get("circuit_pins");
   panelAffineFn = pyodide.globals.get("panel_affine");
   // Start the WebGL 3D layer. If it fails (no WebGL), tell Python so it keeps the flat CPU surface.
@@ -2318,7 +2395,7 @@ async function boot(){
   // (no other host, no "..", no query). The linked scene autosaves under its own key, so opening a
   // template from an article never overwrites the user's own autosaved scene.
   const sceneParam = new URLSearchParams(location.search).get("scene");
-  const sceneUrl = (sceneParam && /^(?:\.\/)?szenen\/(?:[\w-]+\/)*[\w-]+\.json$/.test(sceneParam)) ? sceneParam : null;
+  const sceneUrl = (sceneParam && SCENE_LINK_RE.test(sceneParam)) ? sceneParam : null;
   if(sceneParam && !sceneUrl) statusNote = "⚠ Szenen-Link abgelehnt: erlaubt sind nur Dateien unter szenen/ (…/name.json)";
   if(sceneUrl){
     lsActive = LS_KEY + ":link";
@@ -2403,7 +2480,8 @@ function exportPng(f){
     if(!s){ setStatus("⚠ Nichts zu exportieren."); return; }
     const blob=new Blob([s],{type:"image/svg+xml"});
     const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="scene.svg"; a.click(); URL.revokeObjectURL(a.href);
-    setStatus("SVG gespeichert ✓ (scene.svg)"); return;
+    const I=fetchExportInfo();                          // cropped + scaled like the article figure (engine/export.py)
+    setStatus("SVG gespeichert ✓ (scene.svg" + (I ? ", " + exportInfoLabel(I) : "") + ")"); return;
   }
   _compositeSource($("view")).toBlob((blob)=>{          // flatten GPU surface + 2D canvas in GL mode
     if(!blob){ setStatus("⚠ Export fehlgeschlagen"); return; }

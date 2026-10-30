@@ -153,6 +153,15 @@ _FIG_ANIMS = [{"type": "Create", "target": "dc", "run_time": 1, "step": 0}, {"ty
               {"type": "Indicate", "target": "mr", "run_time": 1, "step": 4}]
 cases.append(("article figures (panels, log, circuit, figures)", model_scene({"objects": _FIG_OBJS, "animations": _FIG_ANIMS,
                                                                                "background": [1, 1, 1]})))
+# P3: a graph split into styled pieces (F1) and a legend anchored in data with scene-unit spacing,
+# animated like any other object (the piece styles are build-time state, the timeline stays pure).
+_AXN = {"id": "ax", "type": "Axes", "args": {"x_range": [-6, 6], "y_range": [-1.2, 1.2], "x_length": 10, "y_length": 4}}
+cases.append(("split graph + legend (P3)", model_scene({"objects": [_AXN,
+    {"id": "g", "type": "FunctionGraph", "args": {"func": "1.5*sin(3x)", "color": [1, 0, 0], "stroke_width": 9, "dash": "8,4"}},
+    {"id": "lg", "type": "Legend", "args": {"labels": "f_\\mathrm{A};g", "position": [-5, 1, 0]}}],
+    "animations": [{"type": "Create", "target": "g", "run_time": 1, "step": 0}, {"type": "FadeIn", "target": "lg", "run_time": 1, "step": 1},
+                   {"type": "Shift", "target": "lg", "run_time": 1, "step": 2, "args": {"vector": [1, 0, 0]}}],
+    "background": [1, 1, 1]})))
 
 if __name__ == "__main__":
     print("=== ENGINE CONTRACT PROBE ===")

@@ -96,6 +96,21 @@ with sync_playwright() as pw:
     (OUT / "ui_export.svg").write_text(svg, encoding="utf-8")
     check("SVG-Export liefert ein SVG-Dokument", svg.startswith("<svg") and "<path" in svg and "<text" in svg,
           f"{len(svg)} Zeichen")
+    check("SVG-Export ist zugeschnitten, nicht die ganze Fläche", 'viewBox="0 0 1920 1080"' not in svg, svg[:120])
+
+    # 4b. Settings: export section with crop mode, info line and the frame on the overlay
+    pg.locator("#scene-objs .obj-row").first.click()
+    pg.wait_for_timeout(800)
+    info0 = pg.locator("#export-info").text_content() or ""
+    check("Settings zeigt das Artikelbild (Größe, Textgröße)", "Text 26 px" in info0, info0)
+    frame_hash = hashlib.md5(pg.locator("#editgizmo").screenshot()).hexdigest()
+    pg.locator("#props select").first.select_option("canvas")
+    pg.wait_for_timeout(1200)
+    info1 = pg.locator("#export-info").text_content() or ""
+    check("Ausschnitt 'ganze Bildfläche' ergibt 1056 × 594 px", "1056" in info1, info1)
+    check("Rahmen auf dem Overlay folgt dem Ausschnitt", hashlib.md5(pg.locator("#editgizmo").screenshot()).hexdigest() != frame_hash)
+    pg.locator("#props select").first.select_option("content")
+    pg.wait_for_timeout(800)
 
     # 5. scene link: ?scene=szenen/<file> loads that scene
     pg2 = ctx.new_page()

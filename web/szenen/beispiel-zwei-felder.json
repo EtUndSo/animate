@@ -1,0 +1,29 @@
+{
+  "v": 1,
+  "counters": { "nextId": 12, "nextAnimId": 1, "nextCompId": 1 },
+  "model": {
+    "objects": [
+      { "id": "o1", "type": "Axes", "props": { "x_range": [0, 2, 0.5], "y_range": [-1.2, 1.2, 0.6], "x_length": 2.2, "y_length": 2.2,
+        "origin": [-1.7, -0.2, 0], "title": "(a) Zeitbereich", "x_label": "t in s", "y_label": "x(t)", "x_axis_at": "bottom",
+        "number_size": 24, "label_size": 28, "axis_width": 3 } },
+      { "id": "o2", "type": "Axes", "props": { "x_range": [0, 4, 1], "y_range": [0, 1.2, 0.5], "x_length": 2.2, "y_length": 2.2,
+        "origin": [1.7, -0.2, 0], "title": "(b) Spektrum", "x_label": "f in kHz", "y_label": "|X(f)|",
+        "number_size": 24, "label_size": 28, "axis_width": 3 } },
+      { "id": "o3", "type": "FunctionGraph", "props": { "func": "1.6*exp(-0.5x)", "x_range": [0, 2], "color": "#7f7f7f", "stroke_width": 3, "dash": "10,7" }, "on": "o1" },
+      { "id": "o4", "type": "FunctionGraph", "props": { "func": "1.6*sin(2*pi*x)*exp(-0.5x)", "x_range": [0, 2], "color": "#d62728", "stroke_width": 5 }, "on": "o1" },
+      { "id": "o5", "type": "Legend", "props": { "labels": "x(t);Hüllkurve", "colors": "d62728;7f7f7f", "position": [1.0, 1.55, 0],
+        "font_size": 24, "row_gap": 0.3, "swatch_len": 0.35, "gap": 0.12, "color": "#111111", "stroke_width": 5 }, "on": "o1" },
+      { "id": "o6", "type": "FunctionGraph", "props": { "func": "1/sqrt(1+(x/1.2)^4)", "x_range": [0, 4], "color": "#1f77b4", "stroke_width": 5 }, "on": "o2" },
+      { "id": "o7", "type": "Line", "props": { "start": [2, 0, 0], "end": [2, 1.1, 0], "color": "#2ca02c", "stroke_width": 3, "dash": "8,6" }, "on": "o2" },
+      { "id": "o8", "type": "Text", "props": { "text": "f_\\mathrm{A}/2", "position": [2.15, 1.05, 0], "font_size": 26, "align": "left", "color": "#2ca02c" }, "on": "o2" }
+    ],
+    "animations": [],
+    "computations": [],
+    "background": { "color": "#ffffff", "transparent": false, "shadows": true, "axes_on_top": false },
+    "playMode": "sequential",
+    "angleUnit": "rad",
+    "domain": "real",
+    "camera": { "mode": "2d", "theta": 0.6, "phi": 1.0, "zoom": 1.0 },
+    "export": { "mode": "content", "margin": 24, "scale": 0.55, "frame": null }
+  }
+}
