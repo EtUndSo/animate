@@ -1,0 +1,158 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 6,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -5,
+      5,
+      1
+     ],
+     "y_range": [
+      -0.3,
+      1.1
+     ],
+     "x_length": 6.0,
+     "y_length": 2.4,
+     "origin": [
+      0.35,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t/T",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "si(pi*x)",
+     "color": "#7f7f7f",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -5,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "(si(pi*x)+0.5*si(pi*(x+1))+0.5*si(pi*(x-1)))/2",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -5,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@ideal",
+     "position": [
+      0.75,
+      0.78,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@rolloff",
+     "position": [
+      1.35,
+      0.32,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ideal": {
+    "de": "idealer Tiefpass",
+    "en": "ideal lowpass",
+    "es": "paso bajo ideal",
+    "zh": "理想低通"
+   },
+   "rolloff": {
+    "de": "Cosine-Rolloff, a = ½",
+    "en": "raised cosine, a = ½",
+    "es": "coseno alzado, a = ½",
+    "zh": "升余弦，a = ½"
+   }
+  }
+ }
+}

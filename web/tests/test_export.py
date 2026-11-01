@@ -92,7 +92,7 @@ m = re.match(r'<svg xmlns="http://www.w3.org/2000/svg" width="(\d+)" height="(\d
 vb = [float(v) for v in m.group(3).split()] if m else []
 check("SVG width/height = displayed size, viewBox = crop", m and (int(m.group(1)), int(m.group(2))) == size
       and np.allclose(vb, [rect[0], rect[1], rect[2] - rect[0], rect[3] - rect[1]], atol=1e-3), (m and m.groups(), rect))
-check("SVG uses the fixed Arial-compatible font", "font-family=\"Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', sans-serif\"" in svg)
+check("SVG uses the fixed Arial-compatible font", "font-family=\"Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', " in svg)
 check("white background rectangle covers exactly the crop", re.search(r'<rect x="%s" y="%s" ' % (
     ("%.4f" % rect[0]).rstrip("0").rstrip("."), ("%.4f" % rect[1]).rstrip("0").rstrip(".")), svg) and 'fill="#ffffff"' in svg)
 check("info: narrow figure -> 26 px text appears at 26 x 0.55 = 14.3 px", info["fits"] and abs(info["text_px"] - 14.3) < 1e-9, info)

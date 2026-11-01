@@ -1,6 +1,31 @@
+import re
 import numpy as np
 from .AnimObject import AnimObject
 from .constants import ORIGIN
+
+# Number language of the current scene (ModelScene.construct sets it from model["lang"]). "" = neutral, as in
+# scenes without a language: 0.5 and -1. de/es write the decimal comma, en/zh the point; every language with
+# a set language gets the typographic minus.
+_NUM_LANG = [""]
+COMMA_LANGS = ("de", "es")
+
+
+def set_number_lang(lang):
+    _NUM_LANG[0] = str(lang or "")
+
+
+def fmt_number(s):
+    """A formatted number string in the scene's language: 0.5 -> 0,5 (de, es), -1 -> \u22121."""
+    if not _NUM_LANG[0]:
+        return s
+    if _NUM_LANG[0] in COMMA_LANGS:
+        s = s.replace(".", ",")
+    return s.replace("-", "\u2212")
+
+
+def localize_digits(s):
+    """Decimal points between digits inside a label follow the language: "t = 0.5 s" -> "t = 0,5 s" (de, es)."""
+    return re.sub(r"(?<=\d)\.(?=\d)", ",", s) if _NUM_LANG[0] in COMMA_LANGS else s
 
 
 class Text(AnimObject):
@@ -31,7 +56,7 @@ class DecimalNumber(Text):
         super().__init__(self._fmt(value), position, font_size=font_size, color=color)
 
     def _fmt(self, v):
-        return f"{self.prefix}{v:.{self.decimals}f}{self.suffix}"
+        return f"{self.prefix}{fmt_number(f'{v:.{self.decimals}f}')}{self.suffix}"
 
     def set_value(self, v):
         self.value = float(v)

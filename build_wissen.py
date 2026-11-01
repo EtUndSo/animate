@@ -30,6 +30,10 @@ Fassungen eines Themas (alle mit demselben `pfad:`, im selben Ordner):
     NN-slug-mensch-ausfuehrlich.md  von Hand, ausführlich
 Der Umschalter „KI | Mensch“ in der Kopfleiste wechselt zwischen den Fassungen desselben Themas; fehlt das
 Gegenstück, ist der Knopf grau. Die Wahl wird gemerkt (localStorage), Themen-Links folgen ihr.
+
+Sprachen (de, en, es, zh): NN-slug.en.md neben NN-slug.md ist die Übersetzung, mit übersetztem `pfad:`. Sie landet
+unter web/wissen/en/<dieselbe Adresse wie der deutsche Artikel>, jede Sprache hat ihren eigenen Baum, ihre Übersicht
+und ihren Suchindex. Der Umschalter DE | EN | ES | 中文 führt zur selben Seite in der anderen Sprache.
 """
 import datetime, json, re, html, unicodedata
 from pathlib import Path
@@ -43,8 +47,73 @@ OUT  = ROOT / "web" / "wissen"
 SZENEN   = ROOT / "web" / "szenen"
 ABB_DIR  = ROOT / "web" / "abbildungen"
 ABB_URL  = "/abbildungen"
-ABB_LANG = "de"                       # Sprache der Artikelbilder; Paket P2 (Mehrsprachigkeit) wählt sie je Artikel
 SZENE_NAME_RE = re.compile(r"[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*")
+SITE = "https://etundso.de"           # für hreflang
+
+LANGS = ("de", "en", "es", "zh")
+LANG_NAME = {"de": "DE", "en": "EN", "es": "ES", "zh": "中文"}
+LANG_FILE = re.compile(r"\.(en|es|zh)$")   # NN-slug.en.md
+LANG_NOW = ["de"]                     # Sprache der gerade gebauten Seite (main setzt sie)
+
+# Oberfläche je Sprache. Deutsch ist die Quelle; fehlt ein Wort, steht das deutsche da.
+UI = {
+    "de": {"wissen": "Wissen", "alle_module": "Alle Module", "abbildung": "Abbildung", "abb_vorb": "in Vorbereitung",
+           "editor_offen": "In Editor öffnen", "editor_title": "Die Szene dieser Abbildung im Editor öffnen",
+           "herleitung": "Herleitung", "frage": "Frage", "loesung": "Lösung", "zweck": "Worum es geht:",
+           "zusatz": "Vertiefung, für den Rest nicht nötig", "analogie": "Analogie (ein Bild zur Orientierung, keine Mathematik)",
+           "kern": "Das Wichtigste", "merke": "Merke", "satz": "Satz", "definition": "Definition", "lemma": "Lemma",
+           "suchen": "Suchen", "suche_ph": "Thema, Begriff, Formel …", "nichts": "Nichts gefunden für",
+           "suche_hint": 'Teilwörter erlaubt (z. B. „teiler" findet „Spannungsteiler"). <kbd>Esc</kbd> schließt.',
+           "auf_seite": "Auf dieser Seite", "im_artikel": "In diesem Artikel", "vorher": "Vorheriger Artikel", "weiter": "Nächster Artikel",
+           "lede": "Verständliche, animierte Erklärungen — von Grund auf und in kleinen Schritten. Wähle ein Modul oder nutze die Suche.",
+           "leer": "Hier entstehen nach und nach die Artikel.", "beispiel": "Beispiel", "beispiele": "Beispiele",
+           "bsp_unter": "– die Aussagen des Artikels, an konkreten Fällen durchgerechnet", "ki_pill": "KI-generiert",
+           "hand_pill": "von Hand geschrieben", "quiz": "Quiz — teste dein Verständnis", "impressum": "Impressum", "datenschutz": "Datenschutz",
+           "fremd": "Rechtliche Seiten sind auf Deutsch."},
+    "en": {"wissen": "Knowledge", "alle_module": "All modules", "abbildung": "Figure", "abb_vorb": "in preparation",
+           "editor_offen": "Open in editor", "editor_title": "Open this figure's scene in the editor",
+           "herleitung": "Derivation", "frage": "Question", "loesung": "Solution", "zweck": "What this stage is about:",
+           "zusatz": "Going deeper, not needed for the rest", "analogie": "Analogy (a picture for orientation, not mathematics)",
+           "kern": "Key points", "merke": "Note", "satz": "Theorem", "definition": "Definition", "lemma": "Lemma",
+           "suchen": "Search", "suche_ph": "Topic, term, formula …", "nichts": "Nothing found for",
+           "suche_hint": 'Parts of words work (“divider” finds “voltage divider”). <kbd>Esc</kbd> closes.',
+           "auf_seite": "On this page", "im_artikel": "In this article", "vorher": "Previous article", "weiter": "Next article",
+           "lede": "Clear, illustrated explanations, from the ground up and in small steps. Pick a module or use the search.",
+           "leer": "Articles are on their way.", "beispiel": "Example", "beispiele": "Examples",
+           "bsp_unter": "– the article's statements, worked through on concrete cases", "ki_pill": "AI-generated",
+           "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy"},
+    "es": {"wissen": "Conocimiento", "alle_module": "Todos los módulos", "abbildung": "Figura", "abb_vorb": "en preparación",
+           "editor_offen": "Abrir en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
+           "herleitung": "Deducción", "frage": "Pregunta", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
+           "zusatz": "Ampliación, no necesaria para el resto", "analogie": "Analogía (una imagen para orientarse, no matemática)",
+           "kern": "Lo esencial", "merke": "Nota", "satz": "Teorema", "definition": "Definición", "lemma": "Lema",
+           "suchen": "Buscar", "suche_ph": "Tema, término, fórmula …", "nichts": "Nada encontrado para",
+           "suche_hint": 'Se admiten partes de palabras. <kbd>Esc</kbd> cierra.',
+           "auf_seite": "En esta página", "im_artikel": "En este artículo", "vorher": "Artículo anterior", "weiter": "Artículo siguiente",
+           "lede": "Explicaciones claras e ilustradas, desde la base y en pasos pequeños. Elige un módulo o usa la búsqueda.",
+           "leer": "Los artículos están en camino.", "beispiel": "Ejemplo", "beispiele": "Ejemplos",
+           "bsp_unter": "– las afirmaciones del artículo, calculadas en casos concretos", "ki_pill": "generado por IA",
+           "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad"},
+    "zh": {"wissen": "知识库", "alle_module": "全部模块", "abbildung": "图", "abb_vorb": "准备中",
+           "editor_offen": "在编辑器中打开", "editor_title": "在编辑器中打开此图的场景",
+           "herleitung": "推导", "frage": "问题", "loesung": "解答", "zweck": "本阶段内容：",
+           "zusatz": "拓展阅读（后续内容不需要）", "analogie": "类比（帮助理解的图景，不是数学）",
+           "kern": "要点", "merke": "注意", "satz": "定理", "definition": "定义", "lemma": "引理",
+           "suchen": "搜索", "suche_ph": "主题、术语、公式 …", "nichts": "未找到",
+           "suche_hint": '可以输入词的一部分。<kbd>Esc</kbd> 关闭。',
+           "auf_seite": "本页内容", "im_artikel": "本文目录", "vorher": "上一篇", "weiter": "下一篇",
+           "lede": "清晰、配图的讲解，从基础出发，循序渐进。请选择模块或使用搜索。",
+           "leer": "文章正在陆续添加。", "beispiel": "例", "beispiele": "例题",
+           "bsp_unter": "– 用具体例子演算文章中的结论", "ki_pill": "AI 生成",
+           "hand_pill": "人工撰写", "quiz": "测验：检验你的理解", "impressum": "法律声明", "datenschutz": "隐私"},
+}
+
+def T(key):
+    """Wort der Oberfläche in der Sprache der gerade gebauten Seite."""
+    return UI[LANG_NOW[0]].get(key) or UI["de"][key]
+
+def home():
+    return "/wissen/" if LANG_NOW[0] == "de" else f"/wissen/{LANG_NOW[0]}/"
 
 # ---------------------------------------------------------------- helpers ----
 def slugify(s):
@@ -88,7 +157,11 @@ def colorize_math(s):
     """Colour an (in)equation: left-hand side RED, every relation ('=' or '\\approx') BLUE, the
     part after it GOLD (via KaTeX \\textcolor). Splits only on a *top-level* relation (brace depth 0),
     so \\frac{..}{..}, \\text{..} and units stay intact. An expression without any relation (a lone
-    symbol) is left in the normal colour — it then follows the surrounding text colour."""
+    symbol) is left in the normal colour — it then follows the surrounding text colour. A trailing
+    equation number \\tag{..} stays outside the colours."""
+    mt = re.search(r"\s*\\tag\{[^{}]*\}\s*$", s)
+    if mt:
+        return colorize_math(s[:mt.start()]) + mt.group(0)
     segs, rels, depth, last, i = [], [], 0, 0, 0
     while i < len(s):
         c = s[i]
@@ -222,26 +295,26 @@ def abbildung_html(name, inner):
     cap = inline(cap_md) if cap_md else ""
     name = (name or "").strip()
     gueltig = bool(SZENE_NAME_RE.fullmatch(name))
-    size = svg_size(ABB_DIR / ABB_LANG / (name + ".svg")) if gueltig else None
+    lang = LANG_NOW[0]
+    size = svg_size(ABB_DIR / lang / (name + ".svg")) if gueltig else None
     if size is None:
         _abb_melden(("svg", name), (f"ungültiger Szenenname „{name}“ (erlaubt: a-z A-Z 0-9 _ - und /)" if not gueltig else
-                    f"{ABB_URL}/{ABB_LANG}/{name}.svg fehlt — python tools/export_szenen.py {name}") + " -> Platzhalter")
-        return (f'<aside class="callout cx-grafik" data-szene="{html.escape(name)}"><div class="callout-h">Abbildung {k} in Vorbereitung</div>'
+                    f"{ABB_URL}/{lang}/{name}.svg fehlt — python tools/export_szenen.py {name}") + " -> Platzhalter")
+        return (f'<aside class="callout cx-grafik" data-szene="{html.escape(name)}" id="abb-{k}"><div class="callout-h">{T("abbildung")} {k} {T("abb_vorb")}</div>'
                 + (f"<p>{cap}</p>" if cap else "") + f'<div class="gr-szene">Editor-Szene: {html.escape(name)}</div></aside>')
     edit = ""
     if (SZENEN / (name + ".json")).is_file():
-        edit = (f'<a class="abb-edit" href="/editor.html?scene=szenen/{name}.json" target="_blank" rel="noopener" '
-                'title="Die Szene dieser Abbildung im Editor öffnen">In Editor öffnen</a>')
+        edit = (f'<a class="abb-edit" href="/editor.html?scene=szenen/{name}.json{"" if lang == "de" else "&amp;lang=" + lang}" target="_blank" rel="noopener" '
+                f'title="{T("editor_title")}">{T("editor_offen")}</a>')
     else:
         _abb_melden(("json", name), f"web/szenen/{name}.json fehlt -> ohne Editor-Link")
-    alt = caption_alt(cap_md) or f"Abbildung {k}"
-    return (f'<figure class="abb" id="abb-{k}"><img src="{ABB_URL}/{ABB_LANG}/{name}.svg" width="{size[0]}" height="{size[1]}" '
+    alt = caption_alt(cap_md) or f"{T('abbildung')} {k}"
+    return (f'<figure class="abb" id="abb-{k}"><img src="{ABB_URL}/{lang}/{name}.svg" width="{size[0]}" height="{size[1]}" '
             f'alt="{html.escape(alt, quote=True)}" loading="lazy" decoding="async"/>'
-            f'<figcaption><span class="abb-n">Abbildung {k}</span>{(" " + cap) if cap else ""}{edit}</figcaption></figure>')
+            f'<figcaption><span class="abb-n">{T("abbildung")} {k}</span>{(" " + cap) if cap else ""}{edit}</figcaption></figure>')
 
-CALLOUTS = {"konzept": ("", "Zur Idee"), "kern": ("", "Das Wichtigste"), "merke": ("", "Merke"),
-            "grafik": ("", "Abbildung"), "satz": ("", "Satz"), "definition": ("", "Definition"),
-            "lemma": ("", "Lemma")}
+CALLOUTS = {"konzept": "Zur Idee", "kern": "kern", "merke": "merke", "grafik": "abbildung", "satz": "satz",
+            "definition": "definition", "lemma": "lemma", "analogie": "analogie"}   # Schlüssel in UI
 
 def md_to_html(md):
     lines = md.replace("\r\n", "\n").split("\n")
@@ -250,24 +323,33 @@ def md_to_html(md):
     formel_n = 0                                          # fortlaufende Nummer der :::formel-Boxen (zum Referenzieren, wie im Skript)
     cur_sect = ""                                         # Titel des aktuellen ##-Abschnitts (Bezug der Beispiele)
     para = []
+    h_ids = set()
     def beispiel(title, inner):                           # Beispiel -> Beispiel-Seite; im Artikel bleibt nur der Verweis
         if BSP_SINK is None:
             return
         k = len(BSP_SINK) + 1
         BSP_SINK.append({"k": k, "title": title, "sect": cur_sect, "html": md_to_html("\n".join(inner))[0]})
         out.append(f'<div class="bsp-ref" id="bspref-{k}" data-bsp="{k}"><a href="#bsp-{k}">'
-                   f'<span class="bsp-n">Beispiel {k}</span><span class="bsp-tt">{inline(title)}</span>'
+                   f'<span class="bsp-n">{T("beispiel")} {k}</span><span class="bsp-tt">{inline(title)}</span>'
                    '<span class="bsp-arr" aria-hidden="true">→</span></a></div>')
     def flush():
         if para:
             txt = " ".join(para).strip()
             if not txt.startswith("**Worum es geht"):   # Einstiegs-Absatz entfällt – Artikel startet mit dem Inhaltsverzeichnis
+                # Gleichungsnummer \\tag{2.3} (mehrere: 2.3|2.4): eigene Spalte neben der Formel. KaTeX legte sie über
+                # die Formel, sobald der Platz knapp wird; so bleibt sie frei und die Formel verkleinert sich (fitMath).
+                mt = re.fullmatch(r"(\$\$.*?)\s*\\tag\{([^{}]*)\}\$\$", txt, flags=re.S)
+                nummer = ""
+                if mt:
+                    txt = mt.group(1) + "$$"
+                    nummer = "".join(f"<span>({n})</span>" for n in mt.group(2).split("|"))
                 parts = split_display(txt)
                 if parts:                                # mehrteilige Formelzeile: Teile dürfen umbrechen
-                    out.append('<div class="mrow">' + "".join('<div class="mcell">' + inline("$$" + p + "$$") + "</div>"
-                                                              for p in parts) + "</div>")
+                    inhalt = ('<div class="mrow">' + "".join('<div class="mcell">' + inline("$$" + p + "$$") + "</div>"
+                                                             for p in parts) + "</div>")
                 else:
-                    out.append("<p>" + inline(txt) + "</p>")
+                    inhalt = inline(txt) if nummer else "<p>" + inline(txt) + "</p>"
+                out.append(f'<div class="gl-zeile"><div class="gl-f">{inhalt}</div><div class="gl-nr">{nummer}</div></div>' if nummer else inhalt)
             para.clear()
     while i < n:
         ln = lines[i]
@@ -314,13 +396,21 @@ def md_to_html(md):
                 a_html = md_to_html(it["a"].strip())[0]
                 body.append(f'<details class="quiz-item"><summary><span class="quiz-n">{k}.</span> {q_html}</summary>'
                             f'<div class="quiz-a">{a_html}</div></details>')
-            out.append('<aside class="callout cx-quiz"><div class="callout-h">Quiz — teste dein Verständnis</div>'
+            out.append(f'<aside class="callout cx-quiz"><div class="callout-h">{T("quiz")}</div>'
                        + "".join(body) + "</aside>")
             continue
         m = re.match(r":::(\w+)(?:\s+(.+?))?\s*$", s)  # callout block  :::konzept / :::formel Definition ... :::
         if m:
             flush(); kind = m.group(1).lower(); label_arg = (m.group(2) or "").strip(); i += 1; inner = []
-            while i < n and lines[i].strip() != ":::":
+            tiefe = 1                                 # Blöcke dürfen verschachtelt sein (Lösung in Aufgabe, Abbildung in Vertiefung)
+            while i < n:
+                t = lines[i].strip()
+                if t == ":::":
+                    tiefe -= 1
+                    if tiefe == 0:
+                        break
+                elif re.match(r":::\w", t):
+                    tiefe += 1
                 inner.append(lines[i]); i += 1
             i += 1
             if kind == "konzept":                         # „Zur Idee"-Einstiegskasten entfällt – Start ist das Inhaltsverzeichnis
@@ -338,8 +428,23 @@ def md_to_html(md):
                            + md_to_html("\n".join(inner))[0] + '</div>')
                 continue
             if kind == "herleitung":                      # Herleitung als ausklappbare Box an der Formel
-                out.append('<details class="herleitung"><summary>Herleitung</summary>'
+                out.append(f'<details class="herleitung"><summary>{T("herleitung")}' + (": " + inline(label_arg) if label_arg else "") + '</summary>'
                            '<div class="hl-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                continue
+            if kind == "zweck":                           # Einstieg einer Stufe: wozu sie da ist
+                out.append(f'<div class="zweck"><span class="zw-k">{T("zweck")}</span> ' + md_to_html("\n".join(inner))[0] + '</div>')
+                continue
+            if kind == "aufgabe":                         # Aufgabe mit Nummer und Sternen, Lösung als Ausklappblock darin
+                out.append('<div class="aufg"><div class="aufg-h">' + inline(label_arg) + '</div>'
+                           '<div class="aufg-b">' + md_to_html("\n".join(inner))[0] + '</div></div>')
+                continue
+            if kind == "loesung":
+                out.append(f'<details class="loesung"><summary>{T("loesung")}</summary>'
+                           '<div class="lo-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                continue
+            if kind == "zusatz":                          # Vertiefung: darf übersprungen werden
+                out.append(f'<aside class="callout cx-zusatz"><div class="callout-h">{T("zusatz")}'
+                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + md_to_html("\n".join(inner))[0] + "</aside>")
                 continue
             if kind == "ltspice":                         # LTspice-Hinweis (nachbauen und messen): standardmaessig geschlossen
                 out.append('<details class="ltspice"><summary><span class="lt-k">LTspice</span>'
@@ -352,7 +457,7 @@ def md_to_html(md):
                 else:
                     k0 = next((j for j, l in enumerate(inner) if l.strip()), len(inner))
                     frage, rest = (inner[k0].strip() if k0 < len(inner) else ""), inner[k0 + 1:]
-                out.append('<details class="frage"><summary><span class="fr-k">Frage</span>' + inline(frage) + '</summary>'
+                out.append(f'<details class="frage"><summary><span class="fr-k">{T("frage")}</span>' + inline(frage) + '</summary>'
                            '<div class="fr-body">' + md_to_html("\n".join(rest))[0] + '</div></details>')
                 continue
             if kind == "abbildung":                       # Editor-Abbildung: exportiertes SVG, nummerierte Bildunterschrift, Link in den Editor
@@ -367,8 +472,9 @@ def md_to_html(md):
                            + '><div class="callout-h">Abbildung in Vorbereitung</div>' + md_to_html("\n".join(inner))[0]
                            + (f'<div class="gr-szene">Editor-Szene: {html.escape(szene)}</div>' if szene else "") + "</aside>")
                 continue
-            icon, label = CALLOUTS.get(kind, ("", kind.title()))
-            out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{(icon + " " if icon else "") + html.escape(label)}</div>'
+            key = CALLOUTS.get(kind, kind.title())
+            label = inline(label_arg) if label_arg else html.escape(UI["de"].get(key) and T(key) or key)
+            out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{label}</div>'
                        + md_to_html("\n".join(inner))[0] + "</aside>")
             continue
         if re.match(r"(---|\*\*\*|___)\s*$", s):      # horizontal rule
@@ -377,6 +483,9 @@ def md_to_html(md):
         if hm:
             flush(); lvl = len(hm.group(1)); txt = hm.group(2).strip()
             hid = slugify(txt)
+            if hid == "x" or hid in h_ids:                 # chinesische Überschrift oder gleicher Titel: Nummer anhängen
+                hid = f"{hid}-{len(h_ids)}"
+            h_ids.add(hid)
             if lvl == 2:                                   # neuer ##-Abschnitt -> alte Karte schließen, neue öffnen
                 toc.append((hid, txt)); cur_sect = txt
                 if section_open:
@@ -428,6 +537,8 @@ def md_to_html(md):
 def to_plain(md):
     txt = re.sub(r"```.*?```", " ", md, flags=re.S)
     txt = re.sub(r"\$\$?.+?\$\$?", " ", txt, flags=re.S)        # drop math
+    txt = re.sub(r"</?[a-z][^>]*>", " ", txt)                  # Listen und Anker aus den Heften
+    txt = re.sub(r"^:::.*$", " ", txt, flags=re.M)
     txt = re.sub(r"[#>*`_:\-\[\]()!]", " ", txt)
     txt = re.sub(r"https?://\S+", " ", txt)
     return re.sub(r"\s+", " ", txt).strip()
@@ -441,28 +552,40 @@ def _new_node(name):
     return {"name": name, "slug": slugify(name), "order": 10**9, "children": {}, "articles": []}
 
 def collect():
-    roots, ausf = {}, []
-    for md_file in sorted(SRC.rglob("*.md")):
+    """{Sprache: Baum}. Eine Übersetzung NN-slug.en.md übernimmt die Adresse des deutschen Artikels neben ihr."""
+    roots, ausf = {l: {} for l in LANGS}, []
+    de_pfad = {}
+    def deutsch_zuerst(p):
+        return (bool(LANG_FILE.search(p.stem)), p)
+    for md_file in sorted(SRC.rglob("*.md"), key=deutsch_zuerst):
         meta, body = parse_frontmatter(md_file.read_text(encoding="utf-8"))
+        ml = LANG_FILE.search(md_file.stem)
+        lang = ml.group(1) if ml else "de"
+        stem = md_file.stem[:ml.start()] if ml else md_file.stem
         pfad = (meta.get("pfad") or "").strip()
         if not pfad:
             print("  übersprungen (kein pfad:):", md_file.relative_to(SRC)); continue
         parts = [p.strip() for p in pfad.split("/") if p.strip()]
         title = meta.get("title") or md_file.stem
         ov = (meta.get("order") or "").strip()
-        order = int(ov) if ov.isdigit() else (int(re.match(r"(\d+)", md_file.stem).group(1)) if re.match(r"\d+", md_file.stem) else 999999)
-        container, chain = roots, []
+        order = int(ov) if ov.isdigit() else (int(re.match(r"(\d+)", stem).group(1)) if re.match(r"\d+", stem) else 999999)
+        container, chain = roots[lang], []
         for part in parts:
-            nd = container.setdefault(slugify(part), _new_node(part))
+            nd = container.setdefault(slugify(part) if lang == "de" else part, _new_node(part))
             chain.append(nd); container = nd["children"]
-        a_slug = re.sub(r"^\d+-", "", md_file.stem) or slugify(title)
-        path = "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html"
+        a_slug = re.sub(r"^\d+-", "", stem) or slugify(title)
+        key = (str(md_file.parent), stem)
+        if lang == "de":
+            path = "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html"
+            de_pfad[key] = path
+        else:
+            path = lang + "/" + de_pfad.get(key, "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html")
         autor = (meta.get("autor") or "").strip().lower()
         if re.search(r"-mensch(-ausfuehrlich)?$", a_slug):   # Dateiname-Suffix genügt
             autor = autor or "mensch"
         art = {"title": title, "slug": a_slug, "order": order, "path": path,
                "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body,
-               "crumbs": [(nd["name"], nd["slug"]) for nd in chain],
+               "crumbs": [(nd["name"], nd["slug"]) for nd in chain], "lang": lang, "key": key,
                "fassung": (meta.get("fassung") or "").strip().lower(),
                "autor": "mensch" if autor in ("mensch", "hand", "human") else "ki"}
         if art["fassung"] == "ausfuehrlich":           # zweite Fassung eines Themas: kein eigener Eintrag im Baum
@@ -495,7 +618,7 @@ def collect():
             nd["articles"].sort(key=lambda a: (a["order"], a["title"]))
             nd["children"] = to_list(nd["children"])
         return nodes
-    return to_list(roots)
+    return {l: to_list(roots[l]) for l in LANGS if roots[l] or l == "de"}
 
 def flatten(nodes):
     """Articles in reading order (a node's own Themen first, then its sub-levels)."""
@@ -531,20 +654,21 @@ def sidebar_html(tree, active_path=None, art=None):
             rows.append("</details>")
         return "".join(rows)
     return ('<nav class="side" aria-label="Wissensbaum">' + autor_switch(art, "side")
-            + '<a class="side-home" href="/wissen/">Alle Module</a>' + render(tree, 0) + "</nav>")
+            + f'<a class="side-home" href="{home()}">{T("alle_module")}</a>' + render(tree, 0) + "</nav>")
 
-def page_shell(title, desc, body, depth):
+def page_shell(title, desc, body, depth, alternates=None):
     up = "../" * depth
+    links = "".join(f'<link rel="alternate" hreflang="{l}" href="{SITE}{u}"/>' for l, u in (alternates or {}).items())
     return f"""<!doctype html>
-<html lang="de"><head>
+<html lang="{LANG_NOW[0]}"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{html.escape(title)} — EtUndSo</title>
-<meta name="description" content="{html.escape(desc)}"/>
+<meta name="description" content="{html.escape(desc)}"/>{links}
 <script>try{{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}
 try{{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")==="1"&&matchMedia("(min-width:1180px)").matches))document.documentElement.classList.add("bsp-on");}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
 <link rel="stylesheet" href="/wissen/assets/wissen.css"/>
-</head><body data-root="/wissen/">
+</head><body data-root="{home()}">
 {body}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
@@ -607,6 +731,26 @@ def autor_switch(art=None, where="top"):
     # Hell/Dunkel, deshalb steht er dann unter dem Titel ("art", neben Kompakt | Ausführlich) und oben im Themenbaum ("side").
     return f'<nav class="autor autor-{where}" aria-label="KI- oder von Hand geschriebene Fassung">{btns}</nav>'
 
+def sprachen(art):
+    """{Sprache: Adresse} derselben Seite; art = None: die Übersichten."""
+    if art is None:
+        return {l: ("/wissen/" if l == "de" else f"/wissen/{l}/") for l in TREES}
+    base = art.get("human_of") or art
+    return {l: "/wissen/" + a["path"] for l, a in ART_LANG.get(base["key"], {}).items()}
+
+def lang_switch(art=None, where="top"):
+    # where: "top" = Kopfleiste; auf dem Handy passt er dort nicht mehr und steht unter dem Titel ("art"), wie KI | Mensch
+    ziele = sprachen(art)
+    btn = ""
+    for l in LANGS:
+        if l == LANG_NOW[0]:
+            btn += f'<a class="l-btn on" aria-current="true" href="{ziele.get(l, home())}" hreflang="{l}">{LANG_NAME[l]}</a>'
+        elif l in ziele:
+            btn += f'<a class="l-btn" href="{ziele[l]}" hreflang="{l}">{LANG_NAME[l]}</a>'
+        else:
+            btn += f'<span class="l-btn off" aria-disabled="true">{LANG_NAME[l]}</span>'
+    return f'<nav class="langs langs-{where}" aria-label="Sprache">{btn}</nav>'
+
 def lesezeit(body):
     """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
     t = re.sub(r"^::::\s*beispiel.*?^::::\s*$", " ", body, flags=re.S | re.M)
@@ -619,15 +763,15 @@ def lesezeit(body):
 def nav_arrow(a, prev):
     # Pfeil neben den Panel-Buttons zum vorherigen/nächsten Artikel (dieselbe Reihenfolge wie unten
     # „Vorheriger/Nächster Artikel"); am Anfang bzw. Ende grau und ohne Funktion.
-    bid, word = ("navPrev", "Vorheriger") if prev else ("navNext", "Nächster")
+    bid, word = ("navPrev", T("vorher")) if prev else ("navNext", T("weiter"))
     svg = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" '
            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
            + ('<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>' if prev else
               '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>') + '</svg>')
     if a:
-        t = html.escape(f'{word} Artikel: {a["title"]}')
+        t = html.escape(f'{word}: {a["title"]}')
         return f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
-    return f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="Kein {word.lower()} Artikel">{svg}</span>'
+    return f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="{word}">{svg}</span>'
 
 def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
     # Panel-Buttons (nur Artikelseiten, mittig): links=Themenbaum, rechts=Gliederung, dritter=geteilte Ansicht
@@ -648,9 +792,9 @@ def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>'
              + bsp_btn + nav_arrow(next_a, False) + '</div>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
-            + autor_switch(art) + pbtns
-            + '<button id="searchBtn" class="searchBtn" aria-label="Suche">'   # ohne Lupen-Symbol (User 2026-10-21)
-            '<span class="lbl">Suchen</span><kbd>/</kbd></button>'
+            + autor_switch(art) + pbtns + lang_switch(art)
+            + f'<button id="searchBtn" class="searchBtn" aria-label="{T("suchen")}">'   # ohne Lupen-Symbol (User 2026-10-21)
+            f'<span class="lbl">{T("suchen")}</span><kbd>/</kbd></button>'
             # Hell/Dunkel-Umschalter — immer oben rechts, auf allen Wissensseiten an gleicher Stelle.
             '<button id="themeBtn" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten">'
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
@@ -658,10 +802,9 @@ def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
             '<path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button>'
             + '<a class="editorlink" href="/editor.html">Editor</a></div>'
             '<div id="searchOverlay" class="searchOverlay" hidden><div class="searchBox">'
-            '<input id="searchInput" type="search" placeholder="Thema, Begriff, Formel …" autocomplete="off"/>'
+            f'<input id="searchInput" type="search" placeholder="{T("suche_ph")}" autocomplete="off"/>'
             '<div id="searchResults" class="searchResults"></div>'
-            '<div class="searchHint">Teilwörter erlaubt (z. B. „teiler" findet „Spannungsteiler"). '
-            '<kbd>Esc</kbd> schließt.</div></div></div>')
+            f'<div class="searchHint">{T("suche_hint")}</div></div></div>')
 
 def render_article(art, tree, prev_a, next_a):
     global BSP_SINK
@@ -677,23 +820,23 @@ def render_article(art, tree, prev_a, next_a):
     pane = ""
     if examples:                                       # Beispiel-Seite (rechts in der geteilten Ansicht)
         cards = "".join(
-            f'<section class="bsp-card" id="bsp-{e["k"]}"><div class="bsp-card-h"><span class="bsp-card-n">Beispiel {e["k"]}</span>'
+            f'<section class="bsp-card" id="bsp-{e["k"]}"><div class="bsp-card-h"><span class="bsp-card-n">{T("beispiel")} {e["k"]}</span>'
             f'<a class="bsp-back" href="#bspref-{e["k"]}" data-bsp="{e["k"]}" title="Zur Stelle im Artikel">↖ {html.escape(e["sect"])}</a></div>'
             + (f'<div class="bsp-card-t">{inline(e["title"])}</div>' if e["title"] else "")
             + e["html"] + "</section>" for e in examples)
         pane = ('<aside class="bsp-pane" id="bspPane" aria-label="Beispiele zu diesem Artikel">'
-                '<div class="bsp-pane-h">Beispiele <span>– die Aussagen des Artikels, an konkreten Fällen durchgerechnet</span></div>'
+                f'<div class="bsp-pane-h">{T("beispiele")} <span>{T("bsp_unter")}</span></div>'
                 + cards + "</aside>")
-    pill = ('<span class="apill apill-mensch">von Hand geschrieben</span>' if art["autor"] == "mensch"
-            else '<span class="apill">KI-generiert</span>')
-    crumb = '<nav class="crumbs"><a href="/wissen/">Wissen</a>' + \
+    pill = (f'<span class="apill apill-mensch">{T("hand_pill")}</span>' if art["autor"] == "mensch"
+            else f'<span class="apill">{T("ki_pill")}</span>')
+    crumb = f'<nav class="crumbs"><a href="{home()}">{T("wissen")}</a>' + \
             "".join(f' › <span>{html.escape(nm)}</span>' for nm, sl in art["crumbs"]) + " " + pill + "</nav>"
     toc_html = ""
     arttoc = ""
     if toc:
-        toc_html = '<aside class="toc"><div class="toc-h">Auf dieser Seite</div><ul>' + \
+        toc_html = f'<aside class="toc"><div class="toc-h">{T("auf_seite")}</div><ul>' + \
             "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></aside>"
-        arttoc = '<nav class="arttoc" aria-label="Inhalt dieses Artikels"><div class="arttoc-h">In diesem Artikel</div><ul>' + \
+        arttoc = f'<nav class="arttoc" aria-label="{T("im_artikel")}"><div class="arttoc-h">{T("im_artikel")}</div><ul>' + \
             "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></nav>"
     def _topics(a):                                    # Themen-Stichpunkte (##-Überschriften) eines Nachbarartikels
         return "".join(f"<li>{html.escape(t)}</li>" for _, t in md_to_html(a["body"])[1])
@@ -707,36 +850,34 @@ def render_article(art, tree, prev_a, next_a):
         switch = '<nav class="fassung" aria-label="Fassung wählen">' + _fbtn(kompakt, "Kompakt") + _fbtn(ausf, "Ausführlich") + "</nav>"
     nav = '<div class="neighbors">'
     if prev_a:
-        nav += (f'<a class="nb" href="/wissen/{prev_a["path"]}"{alt_attr(prev_a)}><div class="nb-dir">← Vorheriger Artikel</div>'
+        nav += (f'<a class="nb" href="/wissen/{prev_a["path"]}"{alt_attr(prev_a)}><div class="nb-dir">← {T("vorher")}</div>'
                 f'<div class="nb-t">{html.escape(prev_a["title"])}</div><ul>{_topics(prev_a)}</ul></a>')
     else:
         nav += '<div class="nb empty"></div>'
     if next_a:
-        nav += (f'<a class="nb" href="/wissen/{next_a["path"]}"{alt_attr(next_a)}><div class="nb-dir next">Nächster Artikel →</div>'
+        nav += (f'<a class="nb" href="/wissen/{next_a["path"]}"{alt_attr(next_a)}><div class="nb-dir next">{T("weiter")} →</div>'
                 f'<div class="nb-t">{html.escape(next_a["title"])}</div><ul>{_topics(next_a)}</ul></a>')
     else:
         nav += '<div class="nb empty"></div>'
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
-            + autor_switch(art, "art") + switch + arttoc
+            + autor_switch(art, "art") + lang_switch(art, "art") + switch + arttoc
             + body_html + nav + quiz_html + legal_footer() + "</article>" + toc_html + pane + "</main>")
     nav_path = tree_art(art)["path"]
     body = (topbar(panels=True, bsp=bool(examples), prev_a=prev_a, next_a=next_a, art=art)
             + f'<div class="layout{" has-bsp" if examples else ""}">'
             + sidebar_html(tree, nav_path, art) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
-    return page_shell(art["title"], art["summary"] or art["title"], body, depth)
+    return page_shell(art["title"], art["summary"] or art["title"], body, depth, sprachen(art))
 
 def legal_footer():
-    return ('<footer class="wfoot">EtUndSo.de · <a href="/impressum.html">Impressum</a> · '
-            '<a href="/datenschutz.html">Datenschutz</a></footer>')
+    return (f'<footer class="wfoot">EtUndSo.de · <a href="/impressum.html">{T("impressum")}</a> · '
+            f'<a href="/datenschutz.html">{T("datenschutz")}</a></footer>')
 
 def render_index(tree):
-    cards = ['<main class="article"><article><h1>Wissen</h1>'
-             '<p class="lede">Verständliche, animierte Erklärungen — von Grund auf und in kleinen Schritten. '
-             'Wähle ein Modul oder nutze die Suche.</p>']
+    cards = [f'<main class="article"><article><h1>{T("wissen")}</h1>{lang_switch(None, "art")}<p class="lede">{T("lede")}</p>']
     if not tree:
-        cards.append('<p class="empty">Hier entstehen nach und nach die Artikel.</p>')
+        cards.append(f'<p class="empty">{T("leer")}</p>')
     # Übersicht: oberste Ebene(n) als Abschnitt, darunter der Baum rekursiv; Themen als verlinkte Karten.
     def block(nodes, depth):
         rows = []
@@ -761,12 +902,11 @@ def render_index(tree):
     return page_shell("Wissen", "Verständliche Erklärungen zu Elektrotechnik, Mathematik und mehr.", body, 1)
 
 # --------------------------------------------------------------------- main ----
-def main():
-    tree = collect()
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "data").mkdir(exist_ok=True)
-    (OUT / "assets").mkdir(exist_ok=True)
+TREES = {}                                             # {Sprache: Baum}, von main gesetzt
+ART_LANG = {}                                          # (Ordner, Stamm) -> {Sprache: Artikel}: der Sprachumschalter
 
+def build_lang(lang, tree):
+    LANG_NOW[0] = lang
     flat = flatten(tree)
     for idx, art in enumerate(flat):
         prev_a = flat[idx - 1] if idx > 0 else None
@@ -784,7 +924,9 @@ def main():
             if h.get("alt"):
                 (OUT / Path(h["alt"]["path"])).write_text(render_article(h["alt"], tree, p2, n2), encoding="utf-8")
 
-    (OUT / "index.html").write_text(render_index(tree), encoding="utf-8")
+    start = OUT if lang == "de" else OUT / lang
+    start.mkdir(parents=True, exist_ok=True)
+    (start / "index.html").write_text(render_index(tree), encoding="utf-8")
 
     # navigation tree (ohne bodies, beliebig tief) + search index
     def jnode(nd):
@@ -794,7 +936,8 @@ def main():
                               **({"mensch": a["human"]["path"]} if a.get("human") else {})} for a in nd["articles"]],
                 "children": [jnode(c) for c in nd["children"]]}
     tree_json = [jnode(n) for n in tree]
-    (OUT / "data" / "tree.json").write_text(json.dumps(tree_json, ensure_ascii=False), encoding="utf-8")
+    suffix = "" if lang == "de" else "." + lang
+    (OUT / "data" / f"tree{suffix}.json").write_text(json.dumps(tree_json, ensure_ascii=False), encoding="utf-8")
 
     search = []
     alts = [a["alt"] for a in flat if a.get("alt")]
@@ -810,14 +953,26 @@ def main():
                        # pre-folded fields for fast infix matching; 'text' kept (original) for snippets
                        "ft_title": fold(title), "ft_tags": fold(a["tags"]),
                        "ft_text": fold(a["summary"] + " " + plain), "text": plain})
-    (OUT / "data" / "search.json").write_text(json.dumps(search, ensure_ascii=False), encoding="utf-8")
+    (OUT / "data" / f"search{suffix}.json").write_text(json.dumps(search, ensure_ascii=False), encoding="utf-8")
+    return len(flat), len(alts), len(humans)
 
+def main():
+    TREES.update(collect())
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "data").mkdir(exist_ok=True)
+    (OUT / "assets").mkdir(exist_ok=True)
+    for lang, tree in TREES.items():
+        for a in flatten(tree):
+            ART_LANG.setdefault(a["key"], {})[lang] = a
+    counts = {lang: build_lang(lang, tree) for lang, tree in TREES.items()}
+    LANG_NOW[0] = "de"
     (OUT / "assets" / "wissen.css").write_text(WISSEN_CSS, encoding="utf-8")
     (OUT / "assets" / "wissen.js").write_text(WISSEN_JS, encoding="utf-8")
     day = write_version()
-
-    n_mod = sum(1 for _ in flat)
-    print(f"✓ {n_mod} Artikel (+{len(alts)} ausführliche Fassungen, +{len(humans)} von Hand), {len(tree)} Studiengänge -> {OUT} · Stand {day}")
+    n_mod, n_alt, n_hand = counts["de"]
+    andere = ", ".join(f"{l}: {c[0]}" for l, c in counts.items() if l != "de")
+    print(f"✓ {n_mod} Artikel (+{n_alt} ausführliche Fassungen, +{n_hand} von Hand)"
+          + (f", übersetzt {andere}" if andere else "") + f" -> {OUT} · Stand {day}")
 
 def write_version():
     """web/version.json für die Meldung „Letztes Update“ der Startseite (User 2026-10-21: blieb nach dem Push stehen).
@@ -1007,6 +1162,41 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .hl-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .hl-body>p:first-child{margin-top:12px;}
 /* LTspice-Hinweis: nachbauen und messen, standardmaessig geschlossen */
+.anker{display:block;height:0;scroll-margin-top:72px;}
+.gl-zeile{display:flex;align-items:center;gap:10px;margin:1.1em 0;}
+.gl-f{flex:1 1 auto;min-width:0;} .gl-f .katex-display{margin:0;} .gl-f .mrow{margin:0;}
+.gl-nr{flex:none;display:flex;flex-direction:column;justify-content:space-around;align-self:stretch;font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.zweck{margin:.4em 0 1.5em;padding:12px 16px;border-radius:10px;background:var(--soft);}
+.zweck .zw-k{font-weight:700;font-family:var(--fdisp);}
+.zweck p{display:inline;margin:0;} .zweck p+p{display:block;margin-top:.7em;}
+.aufg{margin:1.5em 0;border:1px solid color-mix(in srgb,#00823c 50%,var(--border));border-radius:12px;overflow:hidden;background:var(--panel);}
+.aufg-h{padding:9px 16px;font-weight:700;font-family:var(--fdisp);font-size:16px;color:#fff;background:#1d7a4a;}
+.aufg-h .katex{color:#fff;}
+:root[data-theme="dark"] .aufg-h{background:#1a6a41;}
+.aufg-b{padding:13px 16px 12px;}
+.aufg-b>p:last-of-type{margin-bottom:.7em;}
+details.loesung{margin:.7em 0 .2em;border-top:1px dashed var(--border);padding-top:8px;}
+details.loesung>summary{cursor:pointer;list-style:none;font-weight:600;color:#1d7a4a;}
+:root[data-theme="dark"] details.loesung>summary{color:#5ec88f;}
+details.loesung>summary::-webkit-details-marker{display:none;}
+details.loesung>summary::before{content:"▸";display:inline-block;margin-right:9px;transition:transform .15s;}
+details.loesung[open]>summary::before{transform:rotate(90deg);}
+.lo-body{padding-top:9px;}
+.callout.cx-zusatz{border-left:4px solid var(--muted);}
+.callout.cx-zusatz .callout-h{color:var(--muted);}
+.callout.cx-analogie{border-left:4px solid var(--muted);}
+.callout.cx-analogie .callout-h{color:var(--muted);font-size:14.5px;}
+.article ol.al{list-style:none;counter-reset:al;padding-left:2em;}
+.article ol.al>li{counter-increment:al;position:relative;}
+.article ol.al>li::before{content:"(" counter(al,lower-alpha) ")";position:absolute;left:-2em;font-weight:600;font-size:16px;line-height:1.75;}
+.article li>p{margin:0 0 .5em;} .article li>p:last-child{margin-bottom:0;}
+.langs{display:inline-flex;margin-left:10px;border:1px solid var(--border);border-radius:9px;overflow:hidden;background:var(--soft);}
+.langs .l-btn{padding:6px 8px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;}
+.langs .l-btn.on{background:var(--accent);color:#fff;}
+.langs .l-btn.off{opacity:.4;cursor:default;}
+html[lang="zh"] body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;}
+.langs-art{display:none;margin:0 0 10px 8px;}
+@media (max-width:900px){.langs-top{display:none;}.langs-art{display:inline-flex;}}
 details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid #c9581f;border-radius:10px;background:color-mix(in srgb,#eb6834 5%,var(--panel));}
 details.ltspice>summary{cursor:pointer;font-weight:600;padding:10px 14px;list-style:none;line-height:1.45;}
 details.ltspice>summary::-webkit-details-marker{display:none;}
@@ -1117,6 +1307,7 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 """
 
 WISSEN_JS = r"""
+var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado para",zh:"未找到"};
 // Suche: vorab gebauter Index (search.json), Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben.
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
@@ -1124,7 +1315,8 @@ WISSEN_JS = r"""
   var DOCS=null, sel=-1, rows=[];
   function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,""); }
   function load(){ if(DOCS) return Promise.resolve(DOCS);
-    return fetch("/wissen/data/search.json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
+    var L=document.documentElement.lang; L=(L&&L!=="de")?"."+L:"";
+    return fetch("/wissen/data/search"+L+".json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
   function esc(s){ return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
   function safeSnippet(doc,q){
     var t=doc.text||doc.summary||"", ft=fold(t), i=ft.indexOf(q);
@@ -1150,7 +1342,7 @@ WISSEN_JS = r"""
                   '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
       results.appendChild(a); rows.push(a);
     });
-    if(!rows.length) results.innerHTML='<div class="searchHint">Nichts gefunden für „'+esc(raw.trim())+'".</div>';
+    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de)+' „'+esc(raw.trim())+'".</div>';
   }
   function open(){ if(!overlay) return; overlay.hidden=false; load().then(function(){ input.value=""; results.innerHTML=""; input.focus(); }); }
   function close(){ if(overlay) overlay.hidden=true; }
@@ -1297,7 +1489,7 @@ WISSEN_JS = r"""
   var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
   window.addEventListener("DOMContentLoaded",function(){
     if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
-      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}]});
+      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false});
     fitMath();
   });
   window.addEventListener("resize",later);

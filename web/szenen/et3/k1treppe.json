@@ -1,0 +1,300 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 11,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.5,
+      5,
+      0.5
+     ],
+     "y_range": [
+      -0.05,
+      1.15
+     ],
+     "x_length": 6.05,
+     "y_length": 1.55,
+     "origin": [
+      0.2,
+      1.42,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "@eingang",
+     "number_size": 22,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "tri(x-1)",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -0.5,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "tri(0.5*floor(x/0.5)-1)",
+     "color": "#94bbea",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -0.5,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "s(t)",
+     "position": [
+      0.33,
+      0.8,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@treppe",
+     "position": [
+      1.62,
+      0.85,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#5a94dc"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.5,
+      5,
+      0.5
+     ],
+     "y_range": [
+      -0.02,
+      0.62
+     ],
+     "x_length": 6.05,
+     "y_length": 1.55,
+     "origin": [
+      0.2,
+      -1.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@t_in_s",
+     "y_label": "@ausgang",
+     "number_size": 22,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;0.2;0.4;0.6",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o7",
+    "type": "DataCurve",
+    "props": {
+     "data": "-0.5 0\n0.005 1e-05\n0.025 0.00031\n0.05 0.00123\n0.08 0.00311\n0.11 0.00583\n0.14 0.00937\n0.17 0.01367\n0.205 0.01964\n0.235 0.02556\n0.3 0.04083\n0.34 0.05175\n0.385 0.06547\n0.43 0.08053\n0.475 0.09686\n0.565 0.13333\n0.66 0.17682\n0.745 0.21977\n0.835 0.26883\n0.91 0.31248\n1.05 0.39753\n1.105 0.42561\n1.155 0.44727\n1.195 0.46207\n1.235 0.47473\n1.28 0.48651\n1.32 0.49487\n1.36 0.50134\n1.38 0.50389\n1.405 0.50644\n1.425 0.508\n1.445 0.50913\n1.47 0.50995\n1.49 0.51015\n1.52 0.50969\n1.555 0.50807\n1.58 0.5062\n1.62 0.50203\n1.655 0.49723\n1.685 0.49228\n1.72 0.48558\n1.76 0.47672\n1.83 0.45832\n1.905 0.43474\n1.96 0.41507\n2.095 0.36336\n2.205 0.32551\n2.31 0.29307\n2.425 0.26123\n2.495 0.24357\n2.575 0.22484\n2.645 0.20964\n2.725 0.19352\n2.81 0.17775\n2.885 0.16491\n2.97 0.15147\n3.055 0.13913\n3.145 0.12715\n3.23 0.11679\n3.335 0.10515\n3.43 0.09562\n3.53 0.08652\n3.645 0.07712\n3.745 0.06978\n3.87 0.06158\n3.985 0.05489\n4.11 0.04844\n4.255 0.0419\n4.39 0.03661\n4.54 0.03151\n4.675 0.02753\n4.835 0.02346\n5 0.01989",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o8",
+    "type": "DataCurve",
+    "props": {
+     "data": "-0.5 0\n0.5 0\n0.615 0.05432\n0.675 0.08027\n0.74 0.10669\n0.805 0.13144\n0.865 0.1529\n0.93 0.17475\n1 0.19673\n1.115 0.284\n1.18 0.32906\n1.24 0.36813\n1.3 0.40493\n1.365 0.44238\n1.43 0.47747\n1.5 0.51279\n1.74 0.51006\n2 0.50776\n2.07 0.47343\n2.135 0.44364\n2.21 0.41158\n2.275 0.38568\n2.35 0.35781\n2.42 0.33362\n2.5 0.30797\n2.58 0.28429\n2.655 0.26375\n2.745 0.24105\n2.835 0.2203\n2.92 0.20235\n3.005 0.18586\n3.1 0.16902\n3.2 0.15293\n3.295 0.13907\n3.385 0.1271\n3.465 0.11733\n3.555 0.10723\n3.645 0.098\n3.74 0.08912\n3.83 0.08145\n3.935 0.07333\n4.035 0.06635\n4.145 0.05944\n4.255 0.05325\n4.365 0.0477\n4.475 0.04273\n4.6 0.03771\n4.725 0.03328\n4.855 0.02922\n5 0.02528",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o9",
+    "type": "DataCurve",
+    "props": {
+     "data": "-0.5 0\n0.1 0\n0.2 0.00952\n0.3 0.02764\n0.4 0.05356\n0.5 0.08653\n0.6 0.12588\n0.7 0.171\n0.8 0.22134\n0.9 0.2764\n1 0.33575\n1.1 0.39896\n1.2 0.44664\n1.3 0.48027\n1.33 0.48676\n1.4 0.50118\n1.5 0.51058\n1.6 0.50957\n1.7 0.49915\n1.8 0.4802\n1.9 0.45353\n2 0.41989\n2.065 0.39346\n2.125 0.37055\n2.19 0.34723\n2.255 0.32538\n2.365 0.29148\n2.475 0.26112\n2.55 0.24225\n2.625 0.22475\n2.7 0.20851\n2.775 0.19344\n2.855 0.17857\n2.935 0.16484\n3.025 0.15065\n3.105 0.13907\n3.195 0.1271\n3.29 0.11558\n3.38 0.10563\n3.48 0.09558\n3.565 0.08779\n3.67 0.07904\n3.79 0.0701\n3.9 0.0628\n4.025 0.05542\n4.14 0.0494\n4.275 0.04316\n4.39 0.03847\n4.52 0.03378\n4.675 0.02893\n4.825 0.0249\n5 0.0209",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#005b2a",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o10",
+    "type": "Legend",
+    "props": {
+     "labels": "@{g_exakt};@{ga05};@{ga01}",
+     "colors": "c82828;eb6834;005b2a",
+     "styles": "-;--;--",
+     "position": [
+      3.05,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "row_gap": 0.31,
+     "swatch_len": 0.4,
+     "gap": 0.12,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o6"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "eingang": {
+    "de": "Eingang",
+    "en": "Input",
+    "es": "Entrada",
+    "zh": "输入"
+   },
+   "treppe": {
+    "de": "Treppe, T_0 = 0.5 s",
+    "en": "staircase, T_0 = 0.5 s",
+    "es": "escalera, T_0 = 0.5 s",
+    "zh": "阶梯近似，T_0 = 0.5 s"
+   },
+   "ausgang": {
+    "de": "Ausgang",
+    "en": "Output",
+    "es": "Salida",
+    "zh": "输出"
+   },
+   "t_in_s": {
+    "de": "t in s",
+    "en": "t in s",
+    "es": "t en s",
+    "zh": "t / s"
+   },
+   "g_exakt": {
+    "de": "g(t) exakt",
+    "en": "g(t) exact",
+    "es": "g(t) exacta",
+    "zh": "g(t)（精确）"
+   },
+   "ga05": {
+    "de": "g_a, T_0 = 0.5 s",
+    "en": "g_a, T_0 = 0.5 s",
+    "es": "g_a, T_0 = 0.5 s",
+    "zh": "g_a，T_0 = 0.5 s"
+   },
+   "ga01": {
+    "de": "g_a, T_0 = 0.1 s",
+    "en": "g_a, T_0 = 0.1 s",
+    "es": "g_a, T_0 = 0.1 s",
+    "zh": "g_a，T_0 = 0.1 s"
+   }
+  }
+ }
+}

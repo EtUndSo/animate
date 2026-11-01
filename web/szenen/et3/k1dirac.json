@@ -1,0 +1,330 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.2,
+      1.2
+     ],
+     "y_range": [
+      0,
+      4.6
+     ],
+     "x_length": 3.2,
+     "y_length": 2.7,
+     "origin": [
+      -1.7,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-0.5;0.5",
+     "y_ticks": "1;2;4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "rect(x)",
+     "color": "#aac9ef",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.2,
+      1.2
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "2*rect(2*x)",
+     "color": "#6aa1e2",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -0.2501,
+      0.2501
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "4*rect(4*x)",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -0.1251,
+      0.1251
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -0.54,
+      1,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -0.29,
+      2,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      -0.165,
+      4,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "T_0 = 1",
+     "position": [
+      0.53,
+      1.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "T_0 = 0.5",
+     "position": [
+      0.29,
+      2.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "T_0 = 0.25",
+     "position": [
+      0.16,
+      4.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.2,
+      2.2
+     ],
+     "y_range": [
+      0,
+      2.4
+     ],
+     "x_length": 2.2,
+     "y_length": 2.7,
+     "origin": [
+      1.8,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1.5",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": false,
+     "x_numbers": true,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Stem",
+    "props": {
+     "x": "0",
+     "func": "",
+     "baseline": 0,
+     "arrows": true,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "1"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "δ(t)",
+     "position": [
+      0.1,
+      1.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o14",
+    "type": "Stem",
+    "props": {
+     "x": "1.5",
+     "func": "",
+     "baseline": 0,
+     "arrows": true,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "2"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "2δ(t − 1.5)",
+     "position": [
+      1.6,
+      2.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o11"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

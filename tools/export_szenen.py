@@ -5,8 +5,8 @@ Aufruf (vom Repo-Root):
     python tools/export_szenen.py et3/k1-bode demo    nur diese (Name = Pfad unter web/szenen/ ohne .json)
 Optionen:
     --out DIR     Zielordner, Standard web/abbildungen (die Artikelseiten laden /abbildungen/<sprache>/<szene>.svg)
-    --lang de     Sprache der Beschriftung; heute gibt es nur de. Paket P2 (mehrsprachige Texte, Dezimalkomma je
-                  Sprache) ergänzt weitere Werte; die Szene bekommt die Sprache schon jetzt als model["lang"].
+    --lang de     nur diese Sprache der Beschriftung; Standard: alle vier (de, en, es, zh). Texte kommen aus der
+                  Tabelle `strings` der Szene (@schluessel im Label), das Zahlformat folgt der Sprache.
     --check       nur bauen und prüfen, nichts schreiben
 Ausgabe: <out>/<lang>/<szene>.svg, je Szene eine Zeile mit Größe und Schriftgröße in der Artikelspalte.
 
@@ -36,7 +36,7 @@ from build_wissen import SZENEN, ABB_DIR, SZENE_NAME_RE  # noqa: E402  (eine Que
 from engine import export as _export  # noqa: E402
 from engine.scene_model import ModelScene  # noqa: E402
 
-LANGS = ("de",)                                   # P2 ergänzt "en", "es", "zh"
+LANGS = ("de", "en", "es", "zh")
 
 _NODE_JS = r"""
 const fs = require("fs");
@@ -177,7 +177,7 @@ def python_model(data, defaults, kinds, lang, notes):
             "shadows": bool(bgm.get("shadows")), "axes_on_top": bgm.get("axes_on_top") is True,
             "angle_unit": m.get("angleUnit") or "rad", "domain": m.get("domain") or "real",
             "camera": m.get("camera") or {"mode": "2d", "theta": 0.6, "phi": 1.0},
-            "gl": False, "export": m.get("export"), "lang": lang}
+            "gl": False, "export": m.get("export"), "lang": lang, "strings": m.get("strings") or {}}
 
 
 def export_scene(name, out_dir, lang, defaults, kinds, write=True):
@@ -209,7 +209,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="Editor-Szenen als Artikelbilder (SVG) exportieren, ohne Browser.")
     ap.add_argument("szenen", nargs="*", help="Szenennamen (Pfad unter web/szenen/ ohne .json); leer = alle")
     ap.add_argument("--out", default=str(ABB_DIR), help="Zielordner (Standard: web/abbildungen)")
-    ap.add_argument("--lang", default="de", choices=LANGS, help="Sprache der Beschriftung (heute nur de)")
+    ap.add_argument("--lang", default="", choices=LANGS + ("",), help="nur diese Sprache (Standard: alle vier)")
     ap.add_argument("--check", action="store_true", help="nur prüfen, nichts schreiben")
     a = ap.parse_args(argv)
     names = a.szenen or all_names()
@@ -218,27 +218,29 @@ def main(argv=None):
     if defaults is None:
         print("⚠ node nicht gefunden: fehlende Props werden nicht aus dem Editor-Katalog ergänzt")
     fails = 0
+    langs = (a.lang,) if a.lang else LANGS
     for name in names:
         name = name[:-5] if name.endswith(".json") else name
         if not SZENE_NAME_RE.fullmatch(name):
             print(f"✗ {name}: ungültiger Name (erlaubt: a-z A-Z 0-9 _ - und / als Ordnertrenner)"); fails += 1; continue
         if not (SZENEN / (name + ".json")).is_file():
             print(f"✗ {name}: web/szenen/{name}.json fehlt"); fails += 1; continue
-        try:
-            info, notes = export_scene(name, out_dir, a.lang, defaults, kinds, write=not a.check)
-        except Exception as e:  # noqa: BLE001  (eine kaputte Szene soll die anderen nicht aufhalten)
-            print(f"✗ {name}: {type(e).__name__}: {e}"); fails += 1; continue
-        size = f"{info['width']}×{info['height']} px"
-        txt = f"Text {info['ref_text']} px → {_de(info['text_px'])} px"
-        if info["fits"]:
-            print(f"✓ {name}: {size}, {txt} ({info['mode']})")
-        else:
-            print(f"⚠ {name}: {size} ist breiter als die Spalte ({info['column']} px), {txt}; "
-                  f"Zeichnung schmaler machen ({info['mode']})")
-        for n in notes:
-            print(f"    ⚠ {n}")
-    where = "geprüft" if a.check else f"→ {out_dir / a.lang}"
-    print(f"{len(names) - fails} von {len(names)} Szenen {where}")
+        for lang in langs:
+            try:
+                info, notes = export_scene(name, out_dir, lang, defaults, kinds, write=not a.check)
+            except Exception as e:  # noqa: BLE001  (eine kaputte Szene soll die anderen nicht aufhalten)
+                print(f"✗ {name} [{lang}]: {type(e).__name__}: {e}"); fails += 1; continue
+            size = f"{info['width']}×{info['height']} px"
+            txt = f"Text {info['ref_text']} px → {_de(info['text_px'])} px"
+            if info["fits"]:
+                print(f"✓ {name} [{lang}]: {size}, {txt} ({info['mode']})")
+            else:
+                print(f"⚠ {name} [{lang}]: {size} ist breiter als die Spalte ({info['column']} px), {txt}; "
+                      f"Zeichnung schmaler machen ({info['mode']})")
+            for n in notes:
+                print(f"    ⚠ {n}")
+    where = "geprüft" if a.check else f"→ {out_dir}"
+    print(f"{len(names) * len(langs) - fails} von {len(names) * len(langs)} Bildern {where}")
     return 1 if fails else 0
 
 

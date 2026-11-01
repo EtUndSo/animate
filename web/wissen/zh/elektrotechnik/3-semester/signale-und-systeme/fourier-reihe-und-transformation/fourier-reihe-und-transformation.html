@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>傅里叶级数与傅里叶变换 — EtUndSo</title>
+<meta name="description" content="每个信号都是振荡的叠加"/><link rel="alternate" hreflang="de" href="https://etundso.de/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html"/><link rel="alternate" hreflang="en" href="https://etundso.de/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html"/><link rel="alternate" hreflang="es" href="https://etundso.de/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html"/><link rel="alternate" hreflang="zh" href="https://etundso.de/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html"/>
+<script>try{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")==="1"&&matchMedia("(min-width:1180px)").matches))document.documentElement.classList.add("bsp-on");}catch(e){}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
+<link rel="stylesheet" href="/wissen/assets/wissen.css"/>
+</head><body data-root="/wissen/zh/">
+<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a><nav class="autor autor-top" aria-label="KI- oder von Hand geschriebene Fassung"><a class="a-btn on" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" data-autor="ki" aria-current="page" title="KI-Fassung (diese Seite)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="lbl">KI</span></a><span class="a-btn off" title="Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg><span class="lbl">Mensch</span></span></nav><div class="panelCenter"><a id="navPrev" class="navBtn" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" title="上一篇: 拉普拉斯变换" aria-label="上一篇: 拉普拉斯变换"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></a><button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button><button id="toggleRight" class="panelBtn is-open" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button><button id="toggleBsp" class="panelBtn" aria-pressed="false" aria-label="Beispiel-Seite" title="Für diesen Artikel gibt es noch keine Beispiel-Seite" disabled><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="14.5" y1="9" x2="19" y2="9"/><line x1="14.5" y1="12.5" x2="19" y2="12.5"/><line x1="14.5" y1="16" x2="17.5" y2="16"/></svg></button><a id="navNext" class="navBtn" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html" title="下一篇: 采样与离散时间系统" aria-label="下一篇: 采样与离散时间系统"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div><nav class="langs langs-top" aria-label="Sprache"><a class="l-btn" href="/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="de">DE</a><a class="l-btn" href="/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="en">EN</a><a class="l-btn" href="/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="es">ES</a><a class="l-btn on" aria-current="true" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="zh">中文</a></nav><button id="searchBtn" class="searchBtn" aria-label="搜索"><span class="lbl">搜索</span><kbd>/</kbd></button><button id="themeBtn" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button><a class="editorlink" href="/editor.html">Editor</a></div><div id="searchOverlay" class="searchOverlay" hidden><div class="searchBox"><input id="searchInput" type="search" placeholder="主题、术语、公式 …" autocomplete="off"/><div id="searchResults" class="searchResults"></div><div class="searchHint">可以输入词的一部分。<kbd>Esc</kbd> 关闭。</div></div></div><div class="layout"><nav class="side" aria-label="Wissensbaum"><nav class="autor autor-side" aria-label="KI- oder von Hand geschriebene Fassung"><a class="a-btn on" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" data-autor="ki" aria-current="page" title="KI-Fassung (diese Seite)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="lbl">KI</span></a><span class="a-btn off" title="Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg><span class="lbl">Mensch</span></span></nav><a class="side-home" href="/wissen/zh/">全部模块</a><details class="lvl lvl0" open><summary>电气工程</summary><details class="lvl lvl1" open><summary>第 3 学期</summary><details class="lvl lvl2" open><summary>信号与系统</summary><details class="lvl lvl3"><summary>LTI 系统与卷积</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html">信号、LTI 系统与卷积</a></li></ul></details><details class="lvl lvl3"><summary>拉普拉斯变换</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html">拉普拉斯变换</a></li></ul></details><details class="lvl lvl3" open><summary>傅里叶级数与变换</summary><ul><li><a class="active" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html">傅里叶级数与傅里叶变换</a></li></ul></details><details class="lvl lvl3"><summary>采样与离散时间系统</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html">采样与离散时间系统</a></li></ul></details><details class="lvl lvl3"><summary>低通与带通系统</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html">低通与带通系统</a></li></ul></details><details class="lvl lvl3"><summary>相关函数</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html">相关函数</a></li></ul></details><details class="lvl lvl3"><summary>随机信号</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html">随机信号</a></li></ul></details><details class="lvl lvl3"><summary>正交展开与传输线</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen/orthogonalentwicklung-und-leitungen.html">正交展开与传输线</a></li></ul></details></details></details></details></nav><main class="article"><article><nav class="crumbs"><a href="/wissen/zh/">知识库</a> › <span>电气工程</span> › <span>第 3 学期</span> › <span>信号与系统</span> › <span>傅里叶级数与变换</span> <span class="apill">AI 生成</span></nav><h1>傅里叶级数与傅里叶变换</h1><nav class="autor autor-art" aria-label="KI- oder von Hand geschriebene Fassung"><a class="a-btn on" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" data-autor="ki" aria-current="page" title="KI-Fassung (diese Seite)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="lbl">KI</span></a><span class="a-btn off" title="Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg><span class="lbl">Mensch</span></span></nav><nav class="langs langs-art" aria-label="Sprache"><a class="l-btn" href="/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="de">DE</a><a class="l-btn" href="/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="en">EN</a><a class="l-btn" href="/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="es">ES</a><a class="l-btn on" aria-current="true" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" hreflang="zh">中文</a></nav><nav class="arttoc" aria-label="本文目录"><div class="arttoc-h">本文目录</div><ul><li><a href="#x-0">本文内容</a></li><li><a href="#1">第 1 阶段：作为特征函数的振荡</a></li><li><a href="#2">第 2 阶段：周期信号——傅里叶级数</a></li><li><a href="#3-lti">第 3 阶段：功率、收敛性与 LTI 系统</a></li><li><a href="#4">第 4 阶段：从周期信号到非周期信号</a></li><li><a href="#5">第 5 阶段：信号与频谱中的对称性</a></li><li><a href="#6">第 6 阶段：运算规则（定理）</a></li><li><a href="#7-si">第 7 阶段：矩形、si 函数与三角形</a></li><li><a href="#8">第 8 阶段：奇异信号与线谱</a></li><li><a href="#9">第 9 阶段：希尔伯特变换与解析信号</a></li><li><a href="#10">第 10 阶段：短时傅里叶变换</a></li><li><a href="#11">第 11 阶段：傅里叶变换与拉普拉斯变换——存在性的界限</a></li></ul></nav><section class="sect">
+<h2 id="x-0">本文内容</h2>
+<p><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html">第 2 部分</a>表明，每个信号都是基本单元 $\mathrm{e}^{pt}$ 的叠加，而 LTI 系统只是把每个基本单元乘以一个数。傅里叶描述只使用虚轴上的基本单元 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}2\pi f}$：既不增长也不衰减的纯振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$。这有一个很大的优点：振荡具有频率，而频率可以听到、测量和滤波。<strong class="nm">频谱</strong> $S(f)$ 表明信号中各个频率分别以怎样的幅度和相位存在。</p>
+<aside class="callout cx-merke"><div class="callout-h">三句话的答案（读完本文后应觉得理所当然）</div><ol>
+<li>
+<p>周期信号是位于基频整数倍处的各个振荡之和（傅里叶级数）；非周期信号是对所有频率的积分（傅里叶积分）。</p>
+</li>
+<li>
+<p>每个振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$ 都是特征函数：LTI 系统把它乘以 $H(f)$，因此卷积变成了乘积 $\textcolor{#e5383b}{G(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(f)\,H(f)}$。</p>
+</li>
+<li>
+<p>所有运算规则（时移、展缩、调制、对偶性）都可以由相应运算对单个振荡的作用推出。</p>
+</li>
+</ol></aside>
+<p><strong>所有结论背后的同一个原理。</strong></p>
+<div class="table-wrap"><table class="md-table"><thead><tr><th>结论</th><th>来源</th></tr></thead><tbody><tr><td>频率响应 $H(f)$</td><td>振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$ 的特征值（第 <a href="#stufe-1">1</a> 阶段）</td></tr><tr><td>傅里叶级数，只含 $F$ 的整数倍</td><td>只有这些振荡具有周期 $T$（第 <a href="#stufe-2">2</a> 阶段）</td></tr><tr><td>级数的分析公式</td><td>不同频率的振荡相互正交（第 <a href="#stufe-2">2</a> 阶段）</td></tr><tr><td>帕塞瓦尔定理、吉布斯现象、周期输入下的 LTI 系统</td><td>每个谐波单独考虑（第 <a href="#stufe-3">3</a> 阶段）</td></tr><tr><td>傅里叶积分</td><td>周期 $\to\infty$，谱线相互靠拢（第 <a href="#stufe-4">4</a> 阶段）</td></tr><tr><td>实信号的 $\textcolor{#e5383b}{S(-f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S^*(f)}$</td><td>振荡以共轭对的形式出现（第 <a href="#stufe-5">5</a> 阶段）</td></tr><tr><td>时移、展缩、微分、调制</td><td>该运算对 $\mathrm{e}^{\mathrm{j}2\pi ft}$ 的作用（第 <a href="#stufe-6">6</a> 阶段）</td></tr><tr><td>对偶性</td><td>正变换与逆变换只差一个符号（第 <a href="#stufe-6">6</a> 阶段）</td></tr><tr><td>线谱、狄拉克梳状函数、阶跃</td><td>含狄拉克冲激的极限情况（第 <a href="#stufe-8">8</a> 阶段）</td></tr><tr><td>希尔伯特变换</td><td>因果信号由一半即可确定（第 <a href="#stufe-9">9</a> 阶段）</td></tr><tr><td>短时傅里叶变换</td><td>一个片段的频谱（第 <a href="#stufe-10">10</a> 阶段）</td></tr></tbody></table></div>
+<p><strong>如何使用本文。</strong>每个阶段包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。</p>
+<aside class="callout cx-merke"><div class="callout-h">本文的参考模型</div><ul>
+<li>
+<p>⁠<strong>方波</strong>：在 0 与 1 之间变化，周期 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\pi}$ s，占空比为 $\frac12$：$|t|\le T/4$ 时为 1，$T/4&lt;|t|\le T/2$ 时为 0，并作周期延拓。基频 $\textcolor{#e5383b}{F}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.159}$ Hz，因此 $\textcolor{#e5383b}{2\pi F}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/\mathrm s}$。</p>
+</li>
+<li>
+<p>⁠<strong>RC 低通滤波器</strong>，$\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s，$\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(1+\mathrm{j}2\pi f\,RC)}$。在方波的第 $k$ 次谐波处，$\textcolor{#e5383b}{2\pi kF\cdot RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{k}$，因此 $\textcolor{#e5383b}{H(kF)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(1+\mathrm{j} k)}$。</p>
+</li>
+<li>
+<p>⁠<strong>矩形脉冲</strong> $\operatorname{rect}(t)$ 与 $\textcolor{#e5383b}{\operatorname{si}(x)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sin(x)/x}$。</p>
+</li>
+</ul>
+<p>脚本 <code>rechnung_kap3.py</code> 可重新计算这些数值和曲线。</p></aside>
+</section>
+<section class="sect">
+<h2 id="1">第 1 阶段：作为特征函数的振荡</h2>
+<span class="anker" id="stufe-1"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>在基本单元 $\mathrm{e}^{pt}$ 中，从现在起只使用纯振荡。本阶段说明 LTI 系统对它们起什么作用。</p></div>
+<p>当 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}2\pi f}$ 为纯虚数时，基本单元变成幅度恒定的振荡：</p>
+<p>$$\textcolor{#e5383b}{\mathrm{e}^{\mathrm{j}2\pi ft}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\cos(2\pi ft)+\mathrm{j}\sin(2\pi ft).}$$</p>
+<p>与每个基本单元一样，它是每个 LTI 系统的特征函数（延迟就是乘以 $\mathrm{e}^{-\mathrm{j}2\pi f\tau}$）：</p>
+<span class="anker" id="gl-1-1"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{\mathrm{e}^{\mathrm{j}2\pi ft}*h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(f)\,\mathrm{e}^{\mathrm{j}2\pi ft},}$$</div><div class="mcell">$$\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}h(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t.}$$</div></div></div><div class="gl-nr"><span>(1.1)</span></div></div>
+<p>$H(f)$ 称为<strong class="nm">频率响应</strong>或传递函数。它的模表示频率为 $f$ 的振荡被放大或衰减的程度，它的相位表示该振荡被移动了多少。两个系统级联时，依次相乘：$\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H_1(f)H_2(f)}$。若拉普拉斯变换 $H(p)$ 在虚轴上存在，则 $\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(p)|_{p=\mathrm{j}2\pi f}}$。</p>
+<p>⁠<strong>简而言之：</strong>频率响应就是 LTI 系统乘到纯振荡上的那个数。</p>
+</section>
+<section class="sect">
+<h2 id="2">第 2 阶段：周期信号——傅里叶级数</h2>
+<span class="anker" id="stufe-2"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>周期信号每经过 $T$ 就重复一次。它可以由振荡构成，但只能由非常特定的振荡构成。本阶段说明是哪些振荡，以及如何求出它们的权重。</p></div>
+<p><strong>思路。</strong> 振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$ 经过 $T$ 后重复，当且仅当 $fT$ 为整数。因此，周期为 $T$ 的信号只包含频率 $\textcolor{#e5383b}{f_k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{kF}$（其中 $\textcolor{#e5383b}{F}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/T}$ 为<strong class="nm">基频</strong>），即<strong class="nm">谐波</strong>：</p>
+<span class="anker" id="gl-2-1"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{s_p(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{k=-\infty}^{\infty}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}.}$$</div><div class="gl-nr"><span>(2.1)</span></div></div>
+<p>这就是<strong class="nm">傅里叶级数</strong>（综合）。$S_p(k)$ 是第 $k$ 次谐波的复权重。</p>
+<p><strong>实信号。</strong> 对实信号有 $\textcolor{#e5383b}{s_p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s_p^*}$。对式 <a href="#gl-2-1">(2.1)</a> 取共轭，$\mathrm{e}^{\mathrm{j}2\pi kFt}$ 就变成 $-k$ 对应的振荡。比较系数得</p>
+<p>$$\textcolor{#e5383b}{S_p(-k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p^*(k).}$$</p>
+<p>于是每一对 $k,-k$ 给出 $2\operatorname{Re}\{S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}\}$，即一个实的余弦振荡。令 $\textcolor{#e5383b}{S_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{|S_p(k)|\,\mathrm{e}^{\mathrm{j}\varphi_p(k)}}$，得：</p>
+<span class="anker" id="gl-2-2"></span>
+<span class="anker" id="gl-2-3"></span>
+<div class="gl-zeile"><div class="gl-f">$$\begin{aligned} s_p(t)&amp;=S_p(0)+2\sum_{k=1}^{\infty}|S_p(k)|\cos\bigl(2\pi kFt+\varphi_p(k)\bigr)\\ &amp;=S_p(0)+2\sum_{k=1}^{\infty}\Bigl[\operatorname{Re}\{S_p(k)\}\cos(2\pi kFt)-\operatorname{Im}\{S_p(k)\}\sin(2\pi kFt)\Bigr]. \end{aligned}$$</div><div class="gl-nr"><span>(2.2)</span><span>(2.3)</span></div></div>
+<p>相位 $\varphi_p(k)$ 的求法与任何复数相同：用 $\arctan$ 并作象限修正（实部为负时加 $\pi$）。$S_p(0)$ 是<strong class="nm">直流分量</strong>，即信号的平均值。</p>
+<p><strong>求权重：正交性。</strong> 如何从和式中提取出单个 $S_p(n)$？乘以 $\mathrm{e}^{-\mathrm{j}2\pi nFt}$，并在一个周期内取平均。在此过程中，其他所有谐波都消失了：</p>
+<span class="anker" id="gl-2-4"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{\frac1T\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\,\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\begin{cases}1&amp;k=n\\0&amp;k\neq n\end{cases}.}$$</div><div class="gl-nr"><span>(2.4)</span></div></div>
+<p>当 $k\neq n$ 时，相量 $\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}$ 在一个周期内恰好转 $|k-n|$ 整圈，其平均值为零。当 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{n}$ 时，它静止不动。因此，不同频率的振荡称为<strong class="nm">正交</strong>的。剩下的是：</p>
+<aside class="callout cx-satz"><div class="callout-h">定理 2.1 (傅里叶级数)</div><span class="anker" id="satz-2-1"></span>
+<p>周期为 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/F}$、功率有限的信号可以表示为式 <a href="#gl-2-1">(2.1)</a>，其中</p>
+<span class="anker" id="gl-2-5"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{S_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t,}$$</div><div class="gl-nr"><span>(2.5)</span></div></div>
+<p>$t_1$ 可任意选取（分析）。</p></aside>
+<p>⁠<strong>如何理解：</strong>$S_p(k)$ 是信号用第 $k$ 次谐波“反向旋转”之后的平均值。若信号中含有该谐波，则相量在此处不再旋转，其份额在取平均后保留下来。$S_p(0)$ 就是平均值。</p>
+<details class="herleitung"><summary>推导: 分析公式</summary><div class="hl-body"><p>将式 <a href="#gl-2-1">(2.1)</a> 乘以 $\mathrm{e}^{-\mathrm{j}2\pi nFt}$，在一个周期内积分，并交换求和与积分的次序：</p>
+<p>$$\textcolor{#e5383b}{\int_0^Ts_p(t)\mathrm{e}^{-\mathrm{j}2\pi nFt}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_kS_p(k)\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p(n)\,T.}$$</p>
+<p>当 $k\neq n$ 时，积分为 $\textcolor{#e5383b}{\frac{\mathrm{e}^{\mathrm{j}2\pi(k-n)FT}-1}{\mathrm{j}2\pi(k-n)F}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，因为 $\textcolor{#e5383b}{\mathrm{e}^{\mathrm{j}2\pi(k-n)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。由于被积函数的周期为 $T$，可以在任意长度为 $T$ 的区间上积分。</p></div></details>
+<p><strong>例：有限级数。</strong> $\textcolor{#e5383b}{s_p(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1+2\cos(2\pi Ft)+\sin(4\pi Ft)}$。利用欧拉公式，无需积分即可读出系数：</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{2\cos(2\pi Ft)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{\mathrm{j}2\pi Ft}+\mathrm{e}^{-\mathrm{j}2\pi Ft},}$$</div><div class="mcell">$$\textcolor{#e5383b}{\sin(4\pi Ft)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\mathrm{j}}\mathrm{e}^{\mathrm{j}4\pi Ft}-\frac{1}{2\mathrm{j}}\mathrm{e}^{-\mathrm{j}4\pi Ft},}$$</div></div>
+<p>所以 $\textcolor{#e5383b}{S_p(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，$\textcolor{#e5383b}{S_p(\pm1)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，$\textcolor{#e5383b}{S_p(2)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\tfrac{\mathrm{j}}{2}}$，$\textcolor{#e5383b}{S_p(-2)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac{\mathrm{j}}{2}}$，其余均为零。验证：$\textcolor{#e5383b}{S_p(-2)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p^*(2)}$。</p>
+<p><strong>例：方波。</strong> 对参考模型（$|t|\le T_1/2$ 时为 1，$\textcolor{#e5383b}{T_1}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T/2}$）：</p>
+<span class="anker" id="gl-2-6"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{S_p(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{T_1}{T},}$$</div><div class="mcell">$$\textcolor{#e5383b}{S_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0).}$$</div></div></div><div class="gl-nr"><span>(2.6)</span></div></div>
+<p>当 $\textcolor{#e5383b}{T_1}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T/2}$ 时：$\textcolor{#e5383b}{S_p(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5}$，$\textcolor{#e5383b}{S_p(\pm1)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/\pi}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.318}$，$\textcolor{#e5383b}{S_p(\pm2)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，$\textcolor{#e5383b}{S_p(\pm3)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-0.106}$，$\textcolor{#e5383b}{S_p(\pm5)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.064}$。缺少偶次谐波，因为对偶数 $k$ 有 $\textcolor{#e5383b}{\sin(\pi k/2)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$。所有系数都是实数，因为信号是偶函数（第 <a href="#stufe-5">5</a> 阶段）。图 <a href="#abb-1">1</a> 给出了两种占空比下的系数：脉冲越窄，系数衰减越慢。</p>
+<figure class="abb" id="abb-1"><img src="/abbildungen/zh/et3/k3koeff.svg" width="534" height="269" alt="方波（0/1）在两种脉冲宽度下的傅里叶系数。虚线：包络 frac T 1 T si(pi kT 1/T) 。 T 1=T/2 时缺少偶次谐波， T 1=T/4 时缺少 4 的倍数次谐波。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 1</span> 方波（0/1）在两种脉冲宽度下的傅里叶系数。虚线：包络 $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$。$\textcolor{#e5383b}{T_1}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T/2}$ 时缺少偶次谐波，$\textcolor{#e5383b}{T_1}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T/4}$ 时缺少 4 的倍数次谐波。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3koeff.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<details class="frage"><summary><span class="fr-k">问题</span>为什么周期信号在谐波之间没有频率？</summary><div class="fr-body"><p>因为和式中的每个振荡本身都必须具有周期 $T$，否则和就不是周期的。频率为 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1.5F}$ 的振荡在经过 $T$ 之后只转了一圈半，所处位置与开始时不同。无论权重选得多么巧妙，都无法弥补这一点，因为不同的频率相互正交，不能彼此抵消。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 1 ★ 读出系数</div><div class="aufg-b"><span class="anker" id="aufg-1"></span>
+<p>$\textcolor{#e5383b}{s_p(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12+\cos\bigl(2\pi Ft+\frac\pi3\bigr)+\frac12\sin(6\pi Ft)}$。</p>
+<ol class="al">
+<li>
+<p>利用欧拉公式求出所有 $S_p(k)$。验证 $\textcolor{#e5383b}{S_p(-k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p^*(k)}$。</p>
+</li>
+<li>
+<p>给出 $|S_p(1)|$ 和 $\varphi_p(1)$，并与式 <a href="#gl-2-2">(2.2)</a> 比较。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{\cos(x+\frac\pi3)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12\mathrm{e}^{\mathrm{j}\pi/3}\mathrm{e}^{\mathrm{j} x}+\frac12\mathrm{e}^{-\mathrm{j}\pi/3}\mathrm{e}^{-\mathrm{j} x}}$，$\textcolor{#e5383b}{\frac12\sin(3x)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{4\mathrm{j}}\mathrm{e}^{\mathrm{j}3x}-\frac{1}{4\mathrm{j}}\mathrm{e}^{-\mathrm{j}3x}}$，其中 $\textcolor{#e5383b}{x}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\pi Ft}$：</p>
+<p>$$\textcolor{#e5383b}{S_p(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12,\quad S_p(\pm1)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12\mathrm{e}^{\pm\mathrm{j}\pi/3}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.25\pm0.433\mathrm{j},\quad S_p(3)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\tfrac{\mathrm{j}}{4},\quad S_p(-3)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac{\mathrm{j}}{4},}$$</p>
+<p>其余均为零。$\textcolor{#e5383b}{S_p(-1)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p^*(1)}$ 与 $\textcolor{#e5383b}{S_p(-3)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p^*(3)}$ 成立。</p>
+<p>(b) $\textcolor{#e5383b}{|S_p(1)|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12}$，$\textcolor{#e5383b}{\varphi_p(1)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{60^\circ}$。代入式 <a href="#gl-2-2">(2.2)</a>：$2\cdot\frac12\cos(2\pi Ft+60^\circ)$，正是信号中的余弦项。（由帕塞瓦尔定理求功率：$\textcolor{#e5383b}{\frac14+2\cdot\frac14+2\cdot\frac1{16}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.875}$。）</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 2 ★★ 窄方波</div><div class="aufg-b"><span class="anker" id="aufg-2"></span>
+<p>$\textcolor{#e5383b}{T_1}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T/4}$ 的方波。</p>
+<ol class="al">
+<li>
+<p>由式 <a href="#gl-2-6">(2.6)</a> 计算 $S_p(0)$、$S_p(1)$、$S_p(2)$ 和 $S_p(4)$。</p>
+</li>
+<li>
+<p>为什么 $\textcolor{#e5383b}{S_p(4)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$？请用正交性解释：脉冲中能容纳第四次谐波的多少个周期？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{S_p(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac14}$，$\textcolor{#e5383b}{S_p(1)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{\sin(\pi/4)}{\pi}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.225}$，$\textcolor{#e5383b}{S_p(2)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{\sin(\pi/2)}{2\pi}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.159}$，$\textcolor{#e5383b}{S_p(4)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{\sin\pi}{4\pi}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$。</p>
+<p>(b) 第四次谐波的周期为 $T/4$，恰好等于脉冲宽度。分析公式在脉冲上对 $\mathrm{e}^{-\mathrm{j}2\pi4Ft}$ 积分，也就是对相量恰好一整圈积分。平均值为零。一般地，若脉冲中恰好能容纳第 $k$ 次谐波的整数个周期，则 $S_p(k)$ 为零。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="3-lti">第 3 阶段：功率、收敛性与 LTI 系统</h2>
+<span class="anker" id="stufe-3"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>每个谐波对信号的贡献有多大？截断的级数对信号的近似有多好？LTI 系统对周期输入起什么作用？</p></div>
+<aside class="callout cx-satz"><div class="callout-h">定理 3.1 (傅里叶级数的帕塞瓦尔定理)</div><span class="anker" id="satz-3-1"></span>
+<span class="anker" id="gl-3-1"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{L_s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{k=-\infty}^{\infty}|S_p(k)|^2.}$$</div><div class="gl-nr"><span>(3.1)</span></div></div></aside>
+<p>⁠<strong>如何理解：</strong>信号的平均<strong class="nm">功率</strong>等于各个谐波的功率之和。由于不同的谐波相互正交，交叉项消失。对方波有 $\textcolor{#e5383b}{L_s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12}$。直流分量贡献 $0.25$，即 50 %。加上 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\pm1}$ 为 90.5 %，$|k|\le3$ 时为 95.0 %，$|k|\le9$ 时为 98.0 %。</p>
+<details class="herleitung"><summary>推导: 帕塞瓦尔定理</summary><div class="hl-body"><p>$\textcolor{#e5383b}{|s_p|^2}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s_ps_p^*}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_k\sum_lS_p(k)S_p^*(l)\,\mathrm{e}^{\mathrm{j}2\pi(k-l)Ft}}$。在一个周期内取平均，由式 <a href="#gl-2-4">(2.4)</a>，只剩下 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{l}$ 的项：$\sum_k|S_p(k)|^2$。</p></div></details>
+<p><strong>截断级数与吉布斯现象。</strong> 若只取 $|k|\le N$ 的谐波，得到<strong class="nm">部分和</strong> $\textcolor{#e5383b}{s_{p,N}(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{k=-N}^{N}S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}}$。误差 $s_p-s_{p,N}$ 的功率等于被略去的各项 $|S_p(k)|^2$ 之和；若信号的功率有限，则当 $N\to\infty$ 时它趋于零。然而在跳变处会残留一个过冲（图 <a href="#abb-2">2</a>）：随着 $N$ 增大，它变得越来越窄，但其高度趋于跳变高度的约 9 %（$\textcolor{#e5383b}{N}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{3}$ 时为 10.0 %，$\textcolor{#e5383b}{N}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{9}$ 时为 9.1 %，$\textcolor{#e5383b}{N}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{27}$ 时为 9.0 %，极限为 8.95 %）。这就是<strong class="nm">吉布斯现象</strong>。它与收敛并不矛盾：过冲下方的面积，从而误差功率，仍然趋于零。</p>
+<figure class="abb" id="abb-2"><img src="/abbildungen/zh/et3/k3gibbs.svg" width="515" height="276" alt="方波（ T=2pi s）的部分和，包含 |k|le N 的谐波。在边沿处残留约为跳变高度 9 % 的过冲，随着 N 增大，它只是变窄。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 2</span> 方波（$\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\pi}$ s）的部分和，包含 $|k|\le N$ 的谐波。在边沿处残留约为跳变高度 9 % 的过冲，随着 $N$ 增大，它只是变窄。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3gibbs.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<p><strong>LTI 系统的周期输入。</strong> 每个谐波都是特征函数，被乘以 $H(kF)$。因此输出具有相同的周期，其系数为</p>
+<span class="anker" id="gl-3-2"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{G_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p(k)\,H(kF).}$$</div><div class="gl-nr"><span>(3.2)</span></div></div>
+<p>在参考模型中，$\textcolor{#e5383b}{H(kF)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(1+\mathrm{j} k)}$。基波以 $\textcolor{#e5383b}{|H|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.707}$ 和 $-45^\circ$ 传输，三次谐波以 $0.316$ 和 $-71.6^\circ$ 传输，五次谐波以 $0.196$ 和 $-78.7^\circ$ 传输。在输出端，三次谐波的大小只有基波的 15 %，而在输入端为 33 %。RC 电路把边沿变圆（图 <a href="#abb-3">3</a>）。输出在 0.041 与 0.959 之间摆动。</p>
+<figure class="abb" id="abb-3"><img src="/abbildungen/zh/et3/k3rc.svg" width="516" height="261" alt="方波通过 RC=1 s 的 RC 低通滤波器，按谐波之和计算， G p(k)=S p(k)/(1+j k) 。输出在 0.041 与 0.959 之间按指数规律充电和放电。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 3</span> 方波通过 $\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 的 RC 低通滤波器，按谐波之和计算，$\textcolor{#e5383b}{G_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p(k)/(1+\mathrm{j} k)}$。输出在 0.041 与 0.959 之间按指数规律充电和放电。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3rc.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<details class="frage"><summary><span class="fr-k">问题</span>对无穷多个谐波进行计算，难道不比微分方程麻烦得多吗？</summary><div class="fr-body"><p>对于单个方波通过 RC 电路的情况，确实如此：充放电曲线可以直接写出来。但级数的长处在于，它说明了输出<em>为什么</em>是这个样子。边沿由高次谐波构成，而 RC 电路衰减的恰恰是这些谐波。此外，式 <a href="#gl-3-2">(3.2)</a> 适用于每一个 LTI 系统，甚至适用于那些根本不知道其微分方程、只知道其实测频率响应的系统。</p></div></details>
+<details class="ltspice"><summary><span class="lt-k">LTspice</span>方波通过 RC 电路</summary><div class="lt-body"><p>⁠<strong>绘制：</strong>RC 电路（<code>res</code> 取 <code>1Meg</code>，<code>cap</code> 取 <code>1u</code>），信号源取 <code>PULSE(0 1 0 1u 1u {pi} {2*pi})</code>：周期为 $2\pi$ s，占空比为 $\frac12$。</p>
+<p>⁠<strong>指令：</strong><code>.tran 0 {20*pi} 0 1m</code>，<code>.four {1/(2*pi)} 5 V(in) V(out)</code>，以及用来关闭数据压缩的 <code>.options plotwinsize=0</code>；没有这条指令，<code>.four</code> 就不准确。<code>.four</code> 把最后一个周期分解为各次谐波，并把结果写入 SPICE Error Log。</p>
+<p>⁠<strong>你会看到：</strong>在稳态下，<code>V(out)</code> 在 0.041 与 0.959 之间摆动。对 $k\ge1$，<code>.four</code> 给出式 <a href="#gl-2-2">(2.2)</a> 中余弦振荡的幅度 $2|S_p(k)|$。在输入端，它们依次是 0.637、0、0.212、0、0.127：偶次谐波不存在。在输出端，三次谐波只有基波的 15 %，而不是 33 %。输出端的相位比输入端分别大 $45^\circ$、$71.6^\circ$ 和 $78.7^\circ$，因为 <code>.four</code> 把滞后计为正值。把输出幅度减半，与你在练习 <a href="#aufg-3">3</a>(b) 中的结果比较。FFT 视图（在绘图窗口中单击右键，View，FFT）在 0.159 Hz 的奇数倍处显示同样的谱线。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 3 ★★ 功率与高次谐波</div><div class="aufg-b"><span class="anker" id="aufg-3"></span>
+<ol class="al">
+<li>
+<p>用式 <a href="#gl-3-1">(3.1)</a> 验证：方波的谐波 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0,\pm1}$ 携带了 90.5 % 的功率。</p>
+</li>
+<li>
+<p>计算 RC 输出的 $|G_p(1)|$、$|G_p(3)|$、$|G_p(5)|$。若只考虑 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\pm1,\pm3,\pm5}$，输出的交流功率（不含 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$）中有多大比例在基波上？</p>
+</li>
+<li>
+<p>为什么输出看起来已经比输入“更像正弦”？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{|S_p(0)|^2+2|S_p(1)|^2}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.25+2/\pi^2}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.25+0.2026}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.4526}$，即 $0.5$ 的 90.5 %。</p>
+<p>(b) $\textcolor{#e5383b}{|G_p(k)|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{|S_p(k)|/\sqrt{1+k^2}}$：$\textcolor{#e5383b}{|G_p(1)|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.2251}$，$\textcolor{#e5383b}{|G_p(3)|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.0336}$，$\textcolor{#e5383b}{|G_p(5)|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.0125}$。这些谐波的交流功率：$\textcolor{#e5383b}{2(0.0507+0.0011+0.0002)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.1039}$。基波所占比例为 $\textcolor{#e5383b}{0.0507/0.0519}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{97.5\,\%}$。在输入端，对相同的谐波，这一比例仅为 86.9 %。</p>
+<p>(c) $\textcolor{#e5383b}{|H(kF)|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/\sqrt{1+k^2}}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{1/k}$：谐波次数越高，衰减就越强。剩下的主要是基波，而几乎只由基波构成的信号就几乎是正弦信号。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="4">第 4 阶段：从周期信号到非周期信号</h2>
+<span class="anker" id="stufe-4"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>单个脉冲不是周期的，但可以把它看作周期无限长的周期信号。在此过程中，求和变成了积分。</p></div>
+<p><strong>思路。</strong> 把持续时间小于 $T$ 的脉冲 $s(t)$ 作周期延拓。这时级数的系数是一个固定函数的取值：</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{S_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1T\int_{-\infty}^{\infty}s(t)\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{F\cdot S(kF),}$$</div><div class="mcell">$$\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}s(t)\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t.}$$</div></div>
+<p>若把周期加倍，谱线间隔 $F$ 减半，谱线以两倍的密度对同一包络 $S(f)$ 进行采样（图 <a href="#abb-4">4</a>）。在极限 $T\to\infty$ 下，间隔 $F$ 变为微分 $\mathrm{d} f$，和式 $\sum_kS(kF)\mathrm{e}^{\mathrm{j}2\pi kFt}F$ 变为积分。</p>
+<figure class="abb" id="abb-4"><img src="/abbildungen/zh/et3/k3grenz.svg" width="508" height="309" alt="矩形脉冲 rect(t) 分别以 T=2 s 和 T=4 s 作周期延拓。乘以 T 后的傅里叶系数位于同一包络 S(f)=si(pi f) 上，间隔为 1/T 。当 Ttoinfty 时，它们无间隙地填满整条曲线。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 4</span> 矩形脉冲 $\operatorname{rect}(t)$ 分别以 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$ s 和 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{4}$ s 作周期延拓。乘以 $T$ 后的傅里叶系数位于同一包络 $\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{si}(\pi f)}$ 上，间隔为 $1/T$。当 $T\to\infty$ 时，它们无间隙地填满整条曲线。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3grenz.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<aside class="callout cx-satz"><div class="callout-h">定理 4.1 (傅里叶变换)</div><span class="anker" id="satz-4-1"></span>
+<span class="anker" id="gl-4-1"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t,}$$</div><div class="mcell">$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}S(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f.}$$</div></div></div><div class="gl-nr"><span>(4.1)</span></div></div>
+<p>简记：$s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ 或 $\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\{s(t)\}}$。</p></aside>
+<p>⁠<strong>如何理解：</strong>$S(f)$ 是<strong class="nm">频谱密度</strong>：单位频率区间上的权重。若 $s$ 是以 V 为单位的电压，则 $S$ 的单位为 V/Hz。逆变换由所有振荡合成信号，每个振荡的权重为 $S(f)\,\mathrm{d} f$。存在的一个充分条件是 $\int|s(t)|\mathrm{d} t&lt;\infty$。傅里叶变换就是虚轴上的拉普拉斯变换，$\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_{\mathcal{L}}(\mathrm{j}2\pi f)}$，前提是虚轴位于收敛域内（<a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html">第 2 部分</a>）。</p>
+<p>⁠<strong>卷积变成乘积。</strong>与<a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html">第 2 部分</a>一样：$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$。由 $\textcolor{#e5383b}{s*\delta}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s}$ 得 $\textcolor{#e5383b}{S(f)\cdot\mathcal{F}\{\delta\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(f)}$，因此 $\delta(t)\;\circ\!\!-\!\!\bullet\;1$：狄拉克冲激以相同的权重包含所有频率。</p>
+<p><strong>例：指数脉冲。</strong> RC 电路的冲激响应 $\textcolor{#e5383b}{h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}}$：</p>
+<p>$$\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{1+\mathrm{j}2\pi f\,RC}.}$$</p>
+<p>这与交流分析（<a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html">第 1 部分</a>）得到的频率响应相同。因此，冲激响应包含了关于频率特性的全部信息。</p>
+<details class="frage"><summary><span class="fr-k">问题</span>$S_p(k)$ 与 $S(f)$ 除了一个是离散的之外，还有什么区别？</summary><div class="fr-body"><p>单位。$S_p(k)$ 是幅度（V）：第 $k$ 次谐波确实具有这样的强度。$S(f)$ 是密度（V/Hz）：在非周期信号中，没有哪个单独的频率具有有限的幅度；只有一个频带 $\Delta f$ 大约携带 $S(f)\,\Delta f$。这就是 $\textcolor{#e5383b}{S_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{F\cdot S(kF)}$ 的原因：每条谱线代表宽度为 $F$ 的一个频带。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 4 ★ 双边指数脉冲</div><div class="aufg-b"><span class="anker" id="aufg-4"></span>
+<p>对 $a&gt;0$，把积分分成 $t&lt;0$ 和 $t&gt;0$ 两部分，计算 $\mathcal{F}\{\mathrm{e}^{-a|t|}\}$。证明结果是实的偶函数，并用信号的对称性解释这一点。</p>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>$$\textcolor{#e5383b}{\int_{-\infty}^0\mathrm{e}^{at}\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t+\int_0^\infty\mathrm{e}^{-at}\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{a-\mathrm{j}2\pi f}+\frac{1}{a+\mathrm{j}2\pi f}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{2a}{a^2+(2\pi f)^2}.}$$</p>
+<p>结果是 $f$ 的实偶函数。必然如此：信号是实的偶函数，所以其奇部为零，因而 $\operatorname{Im} S$ 也为零（第 <a href="#stufe-5">5</a> 阶段）。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="5">第 5 阶段：信号与频谱中的对称性</h2>
+<span class="anker" id="stufe-5"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>信号是实的、偶的还是奇的，可以直接从其频谱看出。本阶段推导相应的规则。</p></div>
+<p><strong>偶部与奇部。</strong> 若复函数满足 $\textcolor{#e5383b}{x(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{x^*(-t)}$，则称它为<strong class="nm">偶</strong>函数；若满足 $\textcolor{#e5383b}{x(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-x^*(-t)}$，则称它为<strong class="nm">奇</strong>函数。（对实函数而言，这就是通常的镜像对称和关于原点的点对称。）每个信号都可以唯一地分解为这两部分：</p>
+<span class="anker" id="gl-5-1"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s_g(t)+s_u(t),}$$</div><div class="mcell">$$\textcolor{#e5383b}{s_g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12\bigl[s(t)+s^*(-t)\bigr],}$$</div><div class="mcell">$$\textcolor{#e5383b}{s_u(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12\bigl[s(t)-s^*(-t)\bigr].}$$</div></div></div><div class="gl-nr"><span>(5.1)</span></div></div>
+<aside class="callout cx-satz"><div class="callout-h">定理 5.1 (对称性)</div><span class="anker" id="satz-5-1"></span>
+<span class="anker" id="gl-5-2"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$s_g(t)\;\circ\!\!-\!\!\bullet\;\operatorname{Re}\{S(f)\},$$</div><div class="mcell">$$s_u(t)\;\circ\!\!-\!\!\bullet\;\mathrm{j}\operatorname{Im}\{S(f)\}.$$</div></div></div><div class="gl-nr"><span>(5.2)</span></div></div>
+<p>对<strong>实</strong>信号有 $\textcolor{#e5383b}{S(-f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S^*(f)}$：实部和模 $|S|$ 是 $f$ 的偶函数，虚部和相位是奇函数。实的偶信号具有实的偶频谱。实的奇信号具有纯虚的奇频谱。</p></aside>
+<details class="herleitung"><summary>推导: 对称性</summary><div class="hl-body"><p>首先：$\textcolor{#e5383b}{\mathcal{F}\{s^*(-t)\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s^*(-t)\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$。令 $\textcolor{#e5383b}{\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-t}$，则该式等于 $\textcolor{#e5383b}{\int s^*(\tau)\mathrm{e}^{\mathrm{j}2\pi f\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\bigl(\int s(\tau)\mathrm{e}^{-\mathrm{j}2\pi f\tau}\mathrm{d}\tau\bigr)^*}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S^*(f)}$。因此</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{\mathcal{F}\{s_g\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12\bigl[S(f)+S^*(f)\bigr]}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{Re}\{S(f)\},}$$</div><div class="mcell">$$\textcolor{#e5383b}{\mathcal{F}\{s_u\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12\bigl[S(f)-S^*(f)\bigr]}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}\operatorname{Im}\{S(f)\}.}$$</div></div>
+<p>对实信号 $s$ 有 $\textcolor{#e5383b}{\mathcal{F}\{s^*(t)\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\{s(t)\}}$。一般地，$\textcolor{#e5383b}{\mathcal{F}\{s^*(t)\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s^*\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\bigl(\int s\,\mathrm{e}^{\mathrm{j}2\pi ft}\mathrm{d} t\bigr)^*}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S^*(-f)}$。所以 $\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S^*(-f)}$。</p></div></details>
+<p>⁠<strong>简而言之：</strong>对实信号而言，频谱的负半部分是正半部分的共轭镜像，不包含任何新的信息。</p>
+<p><strong>例。</strong> 指数脉冲 $\varepsilon(t)\mathrm{e}^{-t}$（实信号）的偶部为 $\frac12\mathrm{e}^{-|t|}$，奇部为 $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$。其频谱 $\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{1+\mathrm{j}2\pi f}}$ 的实部 $\frac{1}{1+(2\pi f)^2}$ 是偶函数，正是 $\frac12\mathrm{e}^{-|t|}$ 的变换；虚部 $\frac{-2\pi f}{1+(2\pi f)^2}$ 是奇函数（图 <a href="#abb-5">5</a>）。</p>
+<figure class="abb" id="abb-5"><img src="/abbildungen/zh/et3/k3gerade.svg" width="535" height="280" alt="指数脉冲（ RC=1 s）分解为偶部（蓝）和奇部（红）。右图：频谱。偶部给出实部（ f 的偶函数），奇部给出虚部（ f 的奇函数）。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 5</span> 指数脉冲（$\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s）分解为偶部（蓝）和奇部（红）。右图：频谱。偶部给出实部（$f$ 的偶函数），奇部给出虚部（$f$ 的奇函数）。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3gerade.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<div class="aufg"><div class="aufg-h">练习 5 ★ 由对称性判断</div><div class="aufg-b"><span class="anker" id="aufg-5"></span>
+<p>无需计算，关于频谱可以得出什么结论？(a) $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{rect}(t)}$，(b) $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{sgn}(t)\operatorname{rect}(t/2)}$，(c) $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{\mathrm{j}2\pi t}\operatorname{rect}(t)}$，(d) 一个实信号满足 $\textcolor{#e5383b}{S(1\,\mathrm{Hz})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2-3\mathrm{j}}$：$S(-1\,\mathrm{Hz})$ 是多少？</p>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 实且偶：频谱为实偶函数（$\operatorname{si}(\pi f)$）。 (b) 实且奇：频谱为纯虚奇函数。 (c) 复信号，但 $\textcolor{#e5383b}{x^*(-t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-\mathrm{j}2\pi(-t)}\operatorname{rect}(-t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{x(t)}$：按定义的意义，该信号是偶的，因此其频谱是实的。由调制定理，频谱为 $\operatorname{si}(\pi(f-1))$，是实的，但不关于 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 对称，因为信号不是实的。 (d) $\textcolor{#e5383b}{S(-1\,\mathrm{Hz})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S^*(1\,\mathrm{Hz})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2+3\mathrm{j}}$。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="6">第 6 阶段：运算规则（定理）</h2>
+<span class="anker" id="stufe-6"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>不必每次都重新计算积分，而是使用规则：信号被平移、压缩、求导或调制时，频谱会怎样变化？每条规则都可以由该运算对单个振荡的作用推出。</p></div>
+<aside class="callout cx-satz"><div class="callout-h">定理 6.1 (傅里叶变换的定理)</div><span class="anker" id="satz-6-1"></span>
+<span class="anker" id="gl-6-1"></span>
+<span class="anker" id="gl-6-2"></span>
+<span class="anker" id="gl-6-3"></span>
+<span class="anker" id="gl-6-4"></span>
+<span class="anker" id="gl-6-5"></span>
+<span class="anker" id="gl-6-6"></span>
+<span class="anker" id="gl-6-7"></span>
+<span class="anker" id="gl-6-8"></span>
+<span class="anker" id="gl-6-9"></span>
+<span class="anker" id="gl-6-10"></span>
+<span class="anker" id="gl-6-11"></span>
+<div class="gl-zeile"><div class="gl-f">$$\begin{aligned} &amp;\text{叠加：} &amp;&amp; \textstyle\sum_ia_is_i(t)\;\circ\!\!-\!\!\bullet\;\sum_ia_iS_i(f)\\ &amp;\text{共轭：} &amp;&amp; s^*(t)\;\circ\!\!-\!\!\bullet\;S^*(-f)\\ &amp;\text{尺度变换：} &amp;&amp; s(bt)\;\circ\!\!-\!\!\bullet\;\frac{1}{|b|}S\Bigl(\frac fb\Bigr),\quad b\neq0;\qquad s(-t)\;\circ\!\!-\!\!\bullet\;S(-f)\\ &amp;\text{时移：} &amp;&amp; s(t-t_0)\;\circ\!\!-\!\!\bullet\;S(f)\,\mathrm{e}^{-\mathrm{j}2\pi ft_0},\qquad\delta(t-t_0)\;\circ\!\!-\!\!\bullet\;\mathrm{e}^{-\mathrm{j}2\pi ft_0}\\ &amp;\text{微分：} &amp;&amp; \frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\;\circ\!\!-\!\!\bullet\;(\mathrm{j}2\pi f)^nS(f)\\ &amp;\text{对偶性：} &amp;&amp; S(t)\;\circ\!\!-\!\!\bullet\;s(-f)\\ &amp;\text{调制：} &amp;&amp; \mathrm{e}^{\mathrm{j}2\pi Ft}s(t)\;\circ\!\!-\!\!\bullet\;S(f-F)\\ &amp;\text{频域微分：} &amp;&amp; -\mathrm{j}2\pi t\,s(t)\;\circ\!\!-\!\!\bullet\;\frac{\mathrm{d}}{\mathrm{d} f}S(f)\\ &amp;\text{卷积、相乘：} &amp;&amp; s_1*s_2\;\circ\!\!-\!\!\bullet\;S_1S_2,\qquad s_1s_2\;\circ\!\!-\!\!\bullet\;S_1*S_2\\ &amp;\text{面积：} &amp;&amp; \int s(t)\mathrm{d} t=S(0),\qquad\int S(f)\mathrm{d} f=s(0)\\ &amp;\text{帕塞瓦尔定理：} &amp;&amp; \int|s(t)|^2\mathrm{d} t=\int|S(f)|^2\mathrm{d} f \end{aligned}$$</div><div class="gl-nr"><span>(6.1)</span><span>(6.2)</span><span>(6.3)</span><span>(6.4)</span><span>(6.5)</span><span>(6.6)</span><span>(6.7)</span><span>(6.8)</span><span>(6.9)</span><span>(6.10)</span><span>(6.11)</span></div></div></aside>
+<p>⁠<strong>如何理解其中最重要的几条：</strong></p>
+<ul>
+<li>
+<p>⁠<strong>尺度变换：</strong>在时间上压缩的信号（$|b|&gt;1$）具有更宽的频谱。短信号需要许多频率。持续时间与带宽成反比关系。</p>
+</li>
+<li>
+<p>⁠<strong>时移：</strong>延迟不改变模，只改变相位，而且相位随 $f$ 线性变化：每个振荡都被移动相同的时间，而频率越高，这段时间对应的角度就越大。</p>
+</li>
+<li>
+<p>⁠<strong>微分：</strong>$\textcolor{#e5383b}{\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi ft}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}2\pi f\,\mathrm{e}^{\mathrm{j}2\pi ft}}$。微分会放大高频。</p>
+</li>
+<li>
+<p>⁠<strong>对偶性：</strong>正变换与逆变换只在指数的符号上不同。因此，每个变换对都会给出另一个角色互换的变换对。</p>
+</li>
+<li>
+<p>⁠<strong>调制：</strong>乘以 $\mathrm{e}^{\mathrm{j}2\pi Ft}$ 使整个频谱移动 $F$。每台无线电发射机都是这样工作的。</p>
+</li>
+<li>
+<p>⁠<strong>相乘：</strong>两个信号乘积的频谱是两者频谱的卷积，这是卷积定理的对应形式。</p>
+</li>
+<li>
+<p>⁠<strong>帕塞瓦尔定理：</strong>能量在两个域中相同。$|S(f)|^2$ 是按频率分布的<strong class="nm">能量谱密度</strong>。</p>
+</li>
+</ul>
+<details class="herleitung"><summary>推导: 尺度变换、时移、微分、对偶性、调制、相乘、帕塞瓦尔定理</summary><div class="hl-body"><p>⁠<strong>尺度变换</strong>（$b&gt;0$，$\textcolor{#e5383b}{\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{bt}$）：$\textcolor{#e5383b}{\int s(bt)\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1b\int s(\tau)\mathrm{e}^{-\mathrm{j}2\pi(f/b)\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1bS(f/b)}$。当 $b&lt;0$ 时积分上下限互换，因此为 $1/|b|$。</p>
+<p>⁠<strong>时移</strong>（$\textcolor{#e5383b}{\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{t-t_0}$）：$\textcolor{#e5383b}{\int s(\tau)\mathrm{e}^{-\mathrm{j}2\pi f(\tau+t_0)}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-\mathrm{j}2\pi ft_0}S(f)}$。令 $\textcolor{#e5383b}{s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\delta}$，即得 $\delta(t-t_0)$ 的变换对。</p>
+<p>⁠<strong>微分：</strong>将逆变换对 $t$ 求导：$\textcolor{#e5383b}{\frac{\mathrm{d}}{\mathrm{d} t}\int S\mathrm{e}^{\mathrm{j}2\pi ft}\mathrm{d} f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int\mathrm{j}2\pi f\,S\,\mathrm{e}^{\mathrm{j}2\pi ft}\mathrm{d} f}$。</p>
+<p>⁠<strong>对偶性：</strong>在逆变换中用 $-t$ 代替 $t$：$\textcolor{#e5383b}{s(-t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int S(f)\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} f}$。再把变量名 $t$ 和 $f$ 互换：$\textcolor{#e5383b}{s(-f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int S(t)\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$，这正是 $S(t)$ 的正变换。</p>
+<p>⁠<strong>调制：</strong>$\textcolor{#e5383b}{\int\mathrm{e}^{\mathrm{j}2\pi Ft}s(t)\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s(t)\mathrm{e}^{-\mathrm{j}2\pi(f-F)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(f-F)}$。频域微分可用同样的方法，将正变换对 $f$ 求导得到。</p>
+<p>⁠<strong>相乘：</strong>对信号 $s_1(t)$ 和 $s_2(t)$ 应用卷积定理，即 $s_1*s_2\;\circ\!\!-\!\!\bullet\;S_1S_2$，再对这个变换对应用对偶性：$S_1(t)S_2(t)\;\circ\!\!-\!\!\bullet\;s_1(-f)*s_2(-f)$。重新命名即得式 <a href="#gl-6-9">(6.9)</a>。</p>
+<p>⁠<strong>面积：</strong>在正变换中令 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，在逆变换中令 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$。</p>
+<p>⁠<strong>帕塞瓦尔定理：</strong>$\textcolor{#e5383b}{\int|s|^2\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s\,s^*\mathrm{d} t}$ 是乘积 $s(t)s^*(t)$ 的积分，因此由相乘、共轭和面积定理，它等于 $\textcolor{#e5383b}{\bigl[S(f)*S^*(-f)\bigr]_{f=0}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int S(\nu)S^*(\nu)\mathrm{d}\nu}$。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>为什么延迟不改变频谱的模？</summary><div class="fr-body"><p>因为延迟既不衰减也不放大任何振荡，只是把每个振荡平移。每个振荡都被平移相同的时间 $t_0$，在频率 $f$ 处，这对应于角度 $2\pi ft_0$。因此，相位是 $f$ 的一条直线，斜率为 $-2\pi t_0$。$\textcolor{#e5383b}{|H|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ 且相位为线性的系统，会使信号延迟而不改变其形状。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 6 ★★ 应用定理</div><div class="aufg-b"><span class="anker" id="aufg-6"></span>
+<p>利用 $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$（第 <a href="#stufe-7">7</a> 阶段）和上述定理。</p>
+<ol class="al">
+<li>
+<p>求从 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 到 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$ s、高度为 1 的矩形脉冲的频谱。它在 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处的模是多少？第一个零点在哪里？</p>
+</li>
+<li>
+<p>求 $\textcolor{#e5383b}{F_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{5}$ Hz 时 $\cos(2\pi F_0t)\operatorname{rect}(t)$ 的频谱，并画出草图。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 该脉冲为 $\operatorname{rect}\bigl(\frac{t-1}{2}\bigr)$。由尺度变换（$\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$）和时移（$\textcolor{#e5383b}{t_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s）得：$2\operatorname{si}(2\pi f)\,\mathrm{e}^{-\mathrm{j}2\pi f}$。$\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处的模为 2（即面积）。第一个零点在 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5}$ Hz。时移只改变相位。</p>
+<p>(b) $\textcolor{#e5383b}{\cos(2\pi F_0t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12\mathrm{e}^{\mathrm{j}2\pi F_0t}+\frac12\mathrm{e}^{-\mathrm{j}2\pi F_0t}}$，由调制定理得：$\frac12\operatorname{si}(\pi(f-5))+\frac12\operatorname{si}(\pi(f+5))$。即位于 $\pm5$ Hz 处的两个高度为 $\frac12$ 的 si 主瓣，第一个零点分别在其两侧 1 Hz 处。</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 7 ★★ 以对偶性为工具</div><div class="aufg-b"><span class="anker" id="aufg-7"></span>
+<p>由练习 <a href="#aufg-4">4</a> 可知 $\mathrm{e}^{-|t|}\;\circ\!\!-\!\!\bullet\;\frac{2}{1+(2\pi f)^2}$。不用积分，利用这一结果求 $\frac{1}{1+t^2}$ 的频谱。</p>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>对该变换对应用对偶性：$\frac{2}{1+(2\pi t)^2}\;\circ\!\!-\!\!\bullet\;\mathrm{e}^{-|f|}$。再对时间轴进行展缩。令 $\textcolor{#e5383b}{x(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{2}{1+(2\pi t)^2}}$，则 $\textcolor{#e5383b}{x\bigl(\frac{t}{2\pi}\bigr)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{2}{1+t^2}}$，因此由尺度变换定理（$\textcolor{#e5383b}{b}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1{2\pi}}$）得 $\frac{2}{1+t^2}\;\circ\!\!-\!\!\bullet\;2\pi\,\mathrm{e}^{-2\pi|f|}$。两边除以 2 得</p>
+<p>$$\frac{1}{1+t^2}\;\circ\!\!-\!\!\bullet\;\pi\,\mathrm{e}^{-2\pi|f|}.$$</p>
+<p>用面积定理验证：$\textcolor{#e5383b}{\int\frac{\mathrm{d} t}{1+t^2}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\pi}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(0)}$。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="7-si">第 7 阶段：矩形、si 函数与三角形</h2>
+<span class="anker" id="stufe-7"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>有三个变换对经常出现。借助上述定理，它们都可以由一次计算得到。</p></div>
+<p><strong>矩形。</strong> 利用 $\textcolor{#e5383b}{\operatorname{si}(x)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sin(x)/x}$：</p>
+<p>$$\textcolor{#e5383b}{\int_{-1/2}^{1/2}\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{\mathrm{e}^{-\mathrm{j}\pi f}-\mathrm{e}^{\mathrm{j}\pi f}}{-\mathrm{j}2\pi f}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{\sin(\pi f)}{\pi f}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{si}(\pi f).}$$</p>
+<aside class="callout cx-satz"><div class="callout-h">定理 7.1 (矩形、si 函数与三角形)</div><span class="anker" id="satz-7-1"></span>
+<span class="anker" id="gl-7-1"></span>
+<span class="anker" id="gl-7-2"></span>
+<span class="anker" id="gl-7-3"></span>
+<span class="anker" id="gl-7-4"></span>
+<div class="gl-zeile"><div class="gl-f">$$\begin{aligned} \operatorname{rect}\Bigl(\frac tT\Bigr)&amp;\;\circ\!\!-\!\!\bullet\;|T|\operatorname{si}(\pi Tf),\\ \operatorname{si}\Bigl(\frac{\pi t}{T}\Bigr)&amp;\;\circ\!\!-\!\!\bullet\;|T|\operatorname{rect}(Tf),\\ \Lambda(t)=\operatorname{rect}(t)*\operatorname{rect}(t)&amp;\;\circ\!\!-\!\!\bullet\;\operatorname{si}^2(\pi f),\\ \operatorname{si}(\pi t)*\operatorname{si}(\pi t)&amp;=\operatorname{si}(\pi t). \end{aligned}$$</div><div class="gl-nr"><span>(7.1)</span><span>(7.2)</span><span>(7.3)</span><span>(7.4)</span></div></div></aside>
+<p>⁠<strong>如何理解：</strong>持续时间为 $T$ 的矩形，其频谱的高度为 $T$（即矩形的面积），零点位于 $1/T$ 的所有非零整数倍处。时长加倍，频谱宽度就减半（图 <a href="#abb-6">6</a>）。式 <a href="#gl-7-2">(7.2)</a> 由对偶性得到，式 <a href="#gl-7-3">(7.3)</a> 由卷积定理得到；式 <a href="#gl-7-4">(7.4)</a> 成立，是因为在频域中 $\textcolor{#e5383b}{\operatorname{rect}(f)\cdot\operatorname{rect}(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{rect}(f)}$：理想低通滤波器不会改变已经限制在其通带内的信号。</p>
+<figure class="abb" id="abb-6"><img src="/abbildungen/zh/et3/k3rectsi.svg" width="534" height="280" alt="rect(t/T) 及其频谱 |T|si(pi Tf) ， T=1 s 和 T=2 s。持续时间加倍：高度加倍（ = 面积），宽度减半，第一个零点位于 1/T 。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 6</span> $\operatorname{rect}(t/T)$ 及其频谱 $|T|\operatorname{si}(\pi Tf)$，$\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 和 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$ s。持续时间加倍：高度加倍（$=$ 面积），宽度减半，第一个零点位于 $1/T$。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3rectsi.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<details class="ltspice"><summary><span class="lt-k">LTspice</span>矩形脉冲的频谱</summary><div class="lt-body"><p>⁠<strong>绘制：</strong>只需一个电压源 <code>voltage</code>，取 <code>PULSE(0 1 0 1u 1u {T0} 16)</code>：持续时间为 $T_0$ 的矩形，每 16 s 重复一次。</p>
+<p>⁠<strong>指令：</strong><code>.param T0=1</code>，<code>.step param T0 list 1 2</code>，<code>.tran 0 16 0 1m</code>，再加上用来关闭数据压缩的 <code>.options plotwinsize=0</code> 和 <code>.four 0.0625 40 V(in)</code>。</p>
+<p>⁠<strong>你会看到：</strong>每 16 s 重复一次，使频谱变成间隔为 $1/16$ Hz 的谱线（第 <a href="#stufe-4">4</a> 阶段）。<code>.four</code> 给出它们的幅度 $\frac{2}{16}\,|T_0\operatorname{si}(\pi T_0f)|$，即 si 包络的采样值。$\textcolor{#e5383b}{T_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 时，1 Hz 和 2 Hz 处的谱线为零；$\textcolor{#e5383b}{T_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$ s 时，0.5 Hz、1 Hz、1.5 Hz 和 2 Hz 处的谱线都已为零。直流分量从 0.0625 加倍到 0.125。因此，持续时间加倍意味着宽度减半、高度加倍，与图 <a href="#abb-6">6</a> 相同。在 FFT 视图中可以直接看到包络及其零点。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 8 ★ si 函数的面积与能量</div><div class="aufg-b"><span class="anker" id="aufg-8"></span>
+<p>不用积分，计算 $\int_{-\infty}^\infty\operatorname{si}(\pi t)\mathrm{d} t$ 和 $\int_{-\infty}^\infty\operatorname{si}^2(\pi t)\mathrm{d} t$。利用面积定理和帕塞瓦尔定理。</p>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>面积定理：$\textcolor{#e5383b}{\int\operatorname{si}(\pi t)\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\{\operatorname{si}(\pi t)\}(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{rect}(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。帕塞瓦尔定理：$\textcolor{#e5383b}{\int\operatorname{si}^2(\pi t)\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int\operatorname{rect}^2(f)\mathrm{d} f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 9 ★★ 三角形与多次卷积</div><div class="aufg-b"><span class="anker" id="aufg-9"></span>
+<ol class="al">
+<li>
+<p>求 $\Lambda(t/2)$（半宽为 2 s 的三角形）的频谱。零点在哪里？</p>
+</li>
+<li>
+<p>$\operatorname{rect}*\operatorname{rect}*\operatorname{rect}$ 的频谱是什么？为什么卷积的次数越多，旁瓣衰减得越快？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\Lambda(t)\circ\!\!-\!\!\bullet\operatorname{si}^2(\pi f)$，再由 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$ 的尺度变换得：$\Lambda(t/2)\circ\!\!-\!\!\bullet\,2\operatorname{si}^2(2\pi f)$。零点位于 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{k/2}$，$k\neq0$。</p>
+<p>(b) $\operatorname{si}^3(\pi f)$。每多卷积一次，频谱就多乘一个 $\operatorname{si}(\pi f)$，而它在旁瓣中按 $1/(\pi f)$ 衰减。对 $M$ 重卷积，旁瓣按 $1/f^M$ 衰减。在时域中：矩形有跳变（按 $1/f$ 衰减），三角形有折点（$1/f^2$），三重卷积的导数是连续的（$1/f^3$）。信号越光滑，其频谱衰减越快。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="8">第 8 阶段：奇异信号与线谱</h2>
+<span class="anker" id="stufe-8"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>常数、振荡、阶跃和周期信号都不是绝对可积的。借助频谱中的狄拉克冲激，它们仍然可以进行变换。这样，傅里叶级数与傅里叶积分就统一起来了。</p></div>
+<aside class="callout cx-satz"><div class="callout-h">定理 8.1 (奇异变换对)</div><span class="anker" id="satz-8-1"></span>
+<span class="anker" id="gl-8-1"></span>
+<span class="anker" id="gl-8-2"></span>
+<span class="anker" id="gl-8-3"></span>
+<span class="anker" id="gl-8-4"></span>
+<span class="anker" id="gl-8-5"></span>
+<span class="anker" id="gl-8-6"></span>
+<span class="anker" id="gl-8-7"></span>
+<div class="gl-zeile"><div class="gl-f">$$\begin{aligned} \delta(t)&amp;\;\circ\!\!-\!\!\bullet\;1, &amp; c&amp;\;\circ\!\!-\!\!\bullet\;c\,\delta(f),\\ \mathrm{e}^{\mathrm{j}2\pi Ft}&amp;\;\circ\!\!-\!\!\bullet\;\delta(f-F), &amp; \cos(2\pi Ft)&amp;\;\circ\!\!-\!\!\bullet\;\tfrac12\delta(f+F)+\tfrac12\delta(f-F),\\ &amp; &amp; \sin(2\pi Ft)&amp;\;\circ\!\!-\!\!\bullet\;\tfrac{\mathrm{j}}{2}\delta(f+F)-\tfrac{\mathrm{j}}{2}\delta(f-F),\\ \textstyle\sum_kS_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}&amp;\;\circ\!\!-\!\!\bullet\;\textstyle\sum_kS_p(k)\,\delta(f-kF),\\ \textstyle\sum_n\delta(t-nT)&amp;\;\circ\!\!-\!\!\bullet\;\frac{1}{|T|}\textstyle\sum_k\delta\Bigl(f-\frac kT\Bigr),\\ \varepsilon(t)&amp;\;\circ\!\!-\!\!\bullet\;\tfrac12\delta(f)+\frac{1}{\mathrm{j}2\pi f}, &amp; \operatorname{sgn}(t)&amp;\;\circ\!\!-\!\!\bullet\;\frac{1}{\mathrm{j}\pi f},\\ \int_{-\infty}^ts(\tau)\mathrm{d}\tau&amp;\;\circ\!\!-\!\!\bullet\;\frac{S(f)}{\mathrm{j}2\pi f}+\tfrac12S(0)\,\delta(f). \end{aligned}$$</div><div class="gl-nr"><span>(8.1)</span><span>(8.2)</span><span>(8.3)</span><span>(8.4)</span><span>(8.5)</span><span>(8.6)</span><span>(8.7)</span></div></div></aside>
+<p>⁠<strong>如何理解：</strong></p>
+<ul>
+<li>
+<p>常数是频率为 0 的振荡，它的频谱是 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处的一条谱线。振荡 $\mathrm{e}^{\mathrm{j}2\pi Ft}$ 是 $F$ 处的一条谱线。实余弦在 $\pm F$ 处有两条权重减半的谱线。</p>
+</li>
+<li>
+<p>周期信号具有<strong class="nm">线谱</strong>：位于各次谐波处的狄拉克冲激，以傅里叶系数为权重。因此，傅里叶级数是傅里叶积分的一个特例。</p>
+</li>
+<li>
+<p><strong class="nm">狄拉克梳状函数（冲激串）</strong>，即间隔为 $T$ 的一串冲激，其频谱仍是狄拉克梳状函数，间隔为 $1/T$，权重为 $1/|T|$（图 <a href="#abb-7">7</a>）。这个变换对在采样中（<a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html">第 4 部分</a>）将起决定性作用。</p>
+</li>
+<li>
+<p>阶跃具有直流分量 $\frac12$（谱线 $\frac12\delta(f)$）和交流分量 $\frac12\operatorname{sgn}(t)$，后者的频谱按 $1/f$ 衰减。</p>
+</li>
+</ul>
+<details class="herleitung"><summary>推导: 奇异变换对</summary><div class="hl-body"><p>⁠<strong>常数、振荡：</strong>对 $\delta(t)\circ\!\!-\!\!\bullet\,1$ 应用对偶性：$\textcolor{#e5383b}{1\circ\!\!-\!\!\bullet\,\delta(-f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\delta(f)}$。调制使谱线移动：$\mathrm{e}^{\mathrm{j}2\pi Ft}\cdot1\circ\!\!-\!\!\bullet\,\delta(f-F)$。余弦和正弦由欧拉公式得到。</p>
+<p>⁠<strong>线谱：</strong>对所有谐波叠加。</p>
+<p>⁠<strong>狄拉克梳状函数：</strong>它以 $T$ 为周期。其傅里叶系数为 $\textcolor{#e5383b}{S_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1T\int_{-T/2}^{T/2}\delta(t)\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1T}$，对所有 $k$ 均成立。结合线谱即得式 <a href="#gl-8-5">(8.5)</a>。</p>
+<p>⁠<strong>符号函数：</strong>$\operatorname{sgn}(t)$ 是 $\operatorname{sgn}(t)\mathrm{e}^{-a|t|}$ 在 $a\to0$ 时的极限情况：</p>
+<p>$$\textcolor{#e5383b}{\int_0^\infty\mathrm{e}^{-(a+\mathrm{j}2\pi f)t}\mathrm{d} t-\int_{-\infty}^0\mathrm{e}^{(a-\mathrm{j}2\pi f)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{a+\mathrm{j}2\pi f}-\frac{1}{a-\mathrm{j}2\pi f}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{-\mathrm{j}4\pi f}{a^2+(2\pi f)^2}\;\xrightarrow{a\to0}\;\frac{1}{\mathrm{j}\pi f}.}$$</p>
+<p>⁠<strong>阶跃：</strong>$\textcolor{#e5383b}{\varepsilon(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12+\frac12\operatorname{sgn}(t)}$，因此为 $\frac12\delta(f)+\frac{1}{\mathrm{j}2\pi f}$。</p>
+<p>⁠<strong>积分：</strong>$\textcolor{#e5383b}{\int_{-\infty}^ts\,\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s*\varepsilon}$，再利用卷积定理和筛选性质 $\textcolor{#e5383b}{S(f)\delta(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(0)\delta(f)}$。</p></div></details>
+<figure class="abb" id="abb-7"><img src="/abbildungen/zh/et3/k3kamm.svg" width="533" height="246" alt="T=0.5 s 的狄拉克梳状函数及其频谱：仍是梳状函数，间隔为 1/T=2 Hz，权重为 1/T=2 。时域中冲激越密，谱线相距越远。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 7</span> $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5}$ s 的狄拉克梳状函数及其频谱：仍是梳状函数，间隔为 $\textcolor{#e5383b}{1/T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$ Hz，权重为 $\textcolor{#e5383b}{1/T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$。时域中冲激越密，谱线相距越远。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3kamm.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<details class="frage"><summary><span class="fr-k">问题</span>可是由 $\textcolor{#e5383b}{\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\delta}$ 可得 $\textcolor{#e5383b}{\mathrm{j}2\pi f\,S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，所以 $\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\mathrm{j}2\pi f}}$。那么 $\frac12\delta(f)$ 是从哪里来的？</summary><div class="fr-body"><p>方程 $\textcolor{#e5383b}{\mathrm{j}2\pi f\,S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ 只在 $f\neq0$ 处确定 $S$。在 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处，左边为 $0\cdot S(0)$；$S$ 中若含有一项 $c\,\delta(f)$，它会因 $\textcolor{#e5383b}{f\delta(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 而被消去。这与求导会“遗忘”常数相对应：$\varepsilon(t)$ 与 $\varepsilon(t)+b$ 具有相同的导数。哪个常数是正确的，由偶部决定：$\varepsilon$ 的平均值为 $\frac12$，所以 $\textcolor{#e5383b}{c}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12}$。</p></div></details>
+<p><strong>例：接通的余弦。</strong> $\varepsilon(t)\cos(2\pi Ft)$。相乘变为卷积，而与狄拉克冲激卷积就是平移：</p>
+<p>$$\textcolor{#e5383b}{\Bigl[\tfrac12\delta(f)+\tfrac{1}{\mathrm{j}2\pi f}\Bigr]*\tfrac12\bigl[\delta(f+F)+\delta(f-F)\bigr] }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac14\bigl[\delta(f+F)+\delta(f-F)\bigr]-\frac{\mathrm{j}}{4\pi}\Bigl[\frac{1}{f+F}+\frac{1}{f-F}\Bigr].}$$</p>
+<p>除了 $\pm F$ 处减半的谱线外，还出现了一个宽的频谱：接通过程本身包含 $\pm F$ 附近的频率。</p>
+<div class="aufg"><div class="aufg-h">练习 10 ★ 线谱</div><div class="aufg-b"><span class="anker" id="aufg-10"></span>
+<ol class="al">
+<li>
+<p>给出 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{3+2\cos(2\pi\cdot50\,\mathrm{Hz}\cdot t)}$ 的频谱，并画出草图。</p>
+</li>
+<li>
+<p>给出参考模型中方波在 $|f|\le0.5$ Hz 范围内的频谱。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $3\,\delta(f)+\delta(f-50\,\mathrm{Hz})+\delta(f+50\,\mathrm{Hz})$：零频处一条权重为 3 的谱线，$\pm50$ Hz 处两条权重为 1 的谱线。</p>
+<p>(b) $\textcolor{#e5383b}{F}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.159}$ Hz。0.5 Hz 以内有 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0,\pm1,\pm2,\pm3}$，但 $\textcolor{#e5383b}{k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\pm2}$ 不存在：</p>
+<p>$$0.5\,\delta(f)+0.318\bigl[\delta(f-0.159)+\delta(f+0.159)\bigr]-0.106\bigl[\delta(f-0.477)+\delta(f+0.477)\bigr].$$</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 11 ★★ 符号函数与积分</div><div class="aufg-b"><span class="anker" id="aufg-11"></span>
+<ol class="al">
+<li>
+<p>用式 <a href="#gl-5-2">(5.2)</a> 验证：$\operatorname{sgn}(t)$ 的频谱必定是纯虚的奇函数。</p>
+</li>
+<li>
+<p>用式 <a href="#gl-8-7">(8.7)</a> 计算 $\int_{-\infty}^t\operatorname{rect}(\tau)\mathrm{d}\tau$ 的频谱。这是什么信号？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{\frac{1}{\mathrm{j}\pi f}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\frac{\mathrm{j}}{\pi f}}$：纯虚；且 $\textcolor{#e5383b}{-\frac{\mathrm{j}}{\pi(-f)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{+\frac{\mathrm{j}}{\pi f}}$，所以是奇函数。这与实的奇信号相符。</p>
+<p>(b) $\frac{\operatorname{si}(\pi f)}{\mathrm{j}2\pi f}+\frac12\delta(f)$。该信号是矩形的变上限积分：$t\le-\frac12$ 时为 0，然后是一段斜坡，在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12}$ 处升到 1，此后恒为 1。它在全部时间上的平均值为 $\frac12$，因此有 $\frac12\delta(f)$。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="9">第 9 阶段：希尔伯特变换与解析信号</h2>
+<span class="anker" id="stufe-9"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>对于因果信号，频谱的实部与虚部相互关联：一个决定另一个。同样的计算还能得到一个只含正频率的信号。</p></div>
+<p><strong>因果信号。</strong> 若 $t&lt;0$ 时 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，则偶部和奇部在 $t&gt;0$ 时相等（均为 $\frac12s$），在 $t&lt;0$ 时互为相反数。因此 $\textcolor{#e5383b}{s_u(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s_g(t)\operatorname{sgn}(t)}$，$\textcolor{#e5383b}{s_g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s_u(t)\operatorname{sgn}(t)}$。在频域中，乘以 $\operatorname{sgn}$ 变为与 $\frac{1}{\mathrm{j}\pi f}$ 卷积：</p>
+<aside class="callout cx-satz"><div class="callout-h">定理 9.1 (因果信号的希尔伯特关系)</div><span class="anker" id="satz-9-1"></span>
+<p>对因果信号，</p>
+<span class="anker" id="gl-9-1"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{\operatorname{Re}\{S(f)\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{Im}\{S(f)\}*\frac{1}{\pi f},}$$</div><div class="mcell">$$\textcolor{#e5383b}{\operatorname{Im}\{S(f)\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\operatorname{Re}\{S(f)\}*\frac{1}{\pi f}.}$$</div></div></div><div class="gl-nr"><span>(9.1)</span></div></div></aside>
+<p>⁠<strong>如何理解：</strong>与 $\frac{1}{\pi f}$ 的卷积称为<strong class="nm">希尔伯特变换</strong>。对于因果系统，只要知道频率响应的实部就够了，虚部可由它求出。因此，因果性是对频谱的一个很强的约束。</p>
+<p><strong>解析分量。</strong> 利用<em>频域</em>中的阶跃，可以截去负频率：$\textcolor{#e5383b}{S_+(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(f)\,\varepsilon(f)}$。由对偶性得 $\varepsilon(f)\;\bullet\!\!-\!\!\circ\;\frac12\delta(t)+\frac{\mathrm{j}}{2\pi t}$，因此</p>
+<span class="anker" id="gl-9-2"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{s_+(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12s(t)+\frac{\mathrm{j}}{2}\,\hat s(t),}$$</div><div class="mcell">$$\textcolor{#e5383b}{\hat s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s(t)*\frac{1}{\pi t}\;\circ\!\!-\!\!\bullet\;-\mathrm{j}\operatorname{sgn}(f)\,S(f).}$$</div></div></div><div class="gl-nr"><span>(9.2)</span></div></div>
+<p>$s_+$ 称为<strong class="nm">解析分量</strong>，$\hat s$ 称为 $s$ 的希尔伯特变换。对实信号有 $\textcolor{#e5383b}{S_-(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_+^*(-f)}$，因此 $\textcolor{#e5383b}{s_-}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s_+^*}$，且 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s_++s_-}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\operatorname{Re}\{s_+(t)\}}$。$s_+$ 的实部与虚部同样互为希尔伯特变换。</p>
+<p><strong>希尔伯特变换器。</strong> $\textcolor{#e5383b}{h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\pi t}}$ 的 LTI 系统具有 $\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\mathrm{j}\operatorname{sgn}(f)}$：在所有频率上模均为 1（<strong class="nm">全通</strong>系统），$f&gt;0$ 时相位为 $-90^\circ$，$f&lt;0$ 时为 $+90^\circ$。它把 $\cos(2\pi Ft)$ 变为</p>
+<p>$$\textcolor{#e5383b}{\tfrac12\bigl[\delta(f+F)+\delta(f-F)\bigr]\cdot\bigl(-\mathrm{j}\operatorname{sgn}(f)\bigr)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac{\mathrm{j}}{2}\delta(f+F)-\tfrac{\mathrm{j}}{2}\delta(f-F)\;\bullet\!\!-\!\!\circ\;\sin(2\pi Ft).}$$</p>
+<p>⁠<strong>简而言之：</strong>希尔伯特变换器把每个振荡的相位移动 $90^\circ$，而不改变其幅度。</p>
+<div class="aufg"><div class="aufg-h">练习 12 ★★ 希尔伯特变换器</div><div class="aufg-b"><span class="anker" id="aufg-12"></span>
+<ol class="al">
+<li>
+<p>希尔伯特变换器把 $\sin(2\pi Ft)$ 变成什么？应用两次得到什么？</p>
+</li>
+<li>
+<p>求 $\cos(2\pi Ft)$ 的解析分量 $s_+(t)$，并验证 $\textcolor{#e5383b}{s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\operatorname{Re}\{s_+\}}$。</p>
+</li>
+<li>
+<p>为什么希尔伯特变换器不是因果的？请看 $h(t)$。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\sin(2\pi Ft)\circ\!\!-\!\!\bullet\frac{\mathrm{j}}{2}\delta(f+F)-\frac{\mathrm{j}}{2}\delta(f-F)$。乘以 $-\mathrm{j}\operatorname{sgn}(f)$：在 $-F$ 处乘以 $+\mathrm{j}$，在 $+F$ 处乘以 $-\mathrm{j}$。结果：$-\frac12\delta(f+F)-\frac12\delta(f-F)$，即 $-\cos(2\pi Ft)$。应用两次：$\textcolor{#e5383b}{(-\mathrm{j}\operatorname{sgn}f)^2}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-1}$，因此信号被反相。</p>
+<p>(b) $\textcolor{#e5383b}{S_+(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(f)\varepsilon(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12\delta(f-F)}$，所以 $\textcolor{#e5383b}{s_+(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12\mathrm{e}^{\mathrm{j}2\pi Ft}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12\bigl[\cos(2\pi Ft)+\mathrm{j}\sin(2\pi Ft)\bigr]}$。这与 $\frac12(s+\mathrm{j}\hat s)$（其中 $\textcolor{#e5383b}{\hat s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sin}$）一致。$\textcolor{#e5383b}{2\operatorname{Re}\{s_+\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\cos(2\pi Ft)}$。</p>
+<p>(c) $\textcolor{#e5383b}{h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\pi t}}$ 在 $t&lt;0$ 时也不为零。因此，时刻 $t$ 的输出取决于未来的输入值。实际中，用截断的冲激响应来近似希尔伯特变换器，代价是引入一段延迟。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="10">第 10 阶段：短时傅里叶变换</h2>
+<span class="anker" id="stufe-10"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>频谱 $S(f)$ 描述的是信号在全部时间上的情况。然而，语音或音乐的频率在不断变化。短时傅里叶变换（STFT）要回答的问题是：信号<em>在时刻 $t$ 附近</em>包含哪些频率？</p></div>
+<p><strong>思路。</strong> 截取 $t$ 附近的一个片段，只对这一片段进行变换。采用宽度为 $T_0$ 的矩形窗：</p>
+<p>$$\textcolor{#e5383b}{s_T(\tau,t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s(\tau)\operatorname{rect}\Bigl(\frac{\tau-t}{T_0}\Bigr)\;\circ\!\!-\!\!\bullet\;S_T(f,t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(f)*\bigl[T_0\operatorname{si}(\pi T_0f)\,\mathrm{e}^{-\mathrm{j}2\pi tf}\bigr].}$$</p>
+<p>片段的频谱是真实频谱被窗的 si 频谱模糊之后的结果。短窗在时间上定位准确，但在频率上模糊严重（尺度变换定理）。矩形的硬边沿还会产生衰减缓慢的旁瓣。因此，平滑的窗更好，例如<strong class="nm">汉宁窗</strong></p>
+<span class="anker" id="gl-10-1"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{w(\tau)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12\Bigl[1+\cos\Bigl(\frac{2\pi\tau}{T_0}\Bigr)\Bigr]\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\cos^2\Bigl(\frac{\pi\tau}{T_0}\Bigr)\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr).}$$</div><div class="gl-nr"><span>(10.1)</span></div></div>
+<aside class="callout cx-satz"><div class="callout-h">定理 10.1 (短时傅里叶变换)</div><span class="anker" id="satz-10-1"></span>
+<span class="anker" id="gl-10-2"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{S_T(f,t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}s(\tau)\,w(\tau-t)\,\mathrm{e}^{-\mathrm{j}2\pi f\tau}\,\mathrm{d}\tau.}$$</div><div class="gl-nr"><span>(10.2)</span></div></div>
+<p>若依次平移 $T$ 的各个窗相加为常数，即 $\textcolor{#e5383b}{\sum_nw(\tau-nT)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{c}$，则</p>
+<span class="anker" id="gl-10-3"></span>
+<div class="gl-zeile"><div class="gl-f"><div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{s(\tau)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1c\sum_ns(\tau)\,w(\tau-nT),}$$</div><div class="mcell">$$\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1c\sum_nS_T(f,nT).}$$</div></div></div><div class="gl-nr"><span>(10.3)</span></div></div></aside>
+<p>⁠<strong>如何理解：</strong>$S_T(f,t)$ 是一个随时间变化的频谱。把 $|S_T|$ 作为 $t$ 和 $f$ 的函数画出来，就得到<strong class="nm">语谱图（时频图）</strong>。对于偏移量 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T_0/2}$ 的汉宁窗，$\textcolor{#e5383b}{c}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，因为 $\textcolor{#e5383b}{\cos^2x+\sin^2x}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$（图 <a href="#abb-8">8</a>）：各片段无缝地拼合成整个信号，它们的频谱之和就是整个频谱。</p>
+<figure class="abb" id="abb-8"><img src="/abbildungen/zh/et3/k3hann.svg" width="524" height="232" alt="宽度为 T 0=2 s 的汉宁窗，依次偏移 T=1 s（蓝）。它们的和处处恰好为 1（红）。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 8</span> 宽度为 $\textcolor{#e5383b}{T_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$ s 的汉宁窗，依次偏移 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s（蓝）。它们的和处处恰好为 1（红）。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k3hann.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<div class="aufg"><div class="aufg-h">练习 13 ★ 汉宁窗</div><div class="aufg-b"><span class="anker" id="aufg-13"></span>
+<p>证明当 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T_0/2}$ 时 $\textcolor{#e5383b}{\sum_nw(\tau-nT)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。提示：每一点上恰好有两个窗重叠。把第二个窗用 $\cos^2(x-\frac\pi2)$ 表示。</p>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>对于 $\textcolor{#e5383b}{T}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{T_0/2}$，当 $\tau$ 位于 $nT$ 与 $(n+1)T$ 之间时，恰好只有第 $n$ 个和第 $n+1$ 个窗不为零。令 $\textcolor{#e5383b}{x}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\pi(\tau-nT)/T_0}$：</p>
+<p>$$\textcolor{#e5383b}{w(\tau-nT)+w(\tau-(n+1)T)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\cos^2x+\cos^2\Bigl(x-\frac\pi2\Bigr)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\cos^2x+\sin^2x}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1.}$$</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="11">第 11 阶段：傅里叶变换与拉普拉斯变换——存在性的界限</h2>
+<span class="anker" id="stufe-11"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>傅里叶积分在什么情况下存在？它与拉普拉斯变换有什么关系？</p></div>
+<p>存在的一个充分条件是绝对可积，即 $\int|s(t)|\mathrm{d} t&lt;\infty$。拉普拉斯变换先用 $\mathrm{e}^{-\sigma t}$ 加权，从而扩大了可变换信号的范围（<a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html">第 2 部分</a>）：</p>
+<p>$$\textcolor{#e5383b}{S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f).}$$</p>
+<p>因此，它从两个方面考察信号：像傅里叶变换一样考察频率分量，同时考察指数增长或衰减。若 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 位于收敛域内，傅里叶变换就是虚轴上的拉普拉斯变换。但借助狄拉克冲激（第 <a href="#stufe-8">8</a> 阶段），傅里叶变换还能处理拉普拉斯变换处理不了的信号：在全部时间上存在的常数和振荡。一般而言，只要对每个 $c&gt;0$ 都有 $\int|s(t)|\mathrm{e}^{-c|t|}\mathrm{d} t&lt;\infty$ 就足够了。这时信号可以像幂函数 $t^n$ 那样增长，但不能按指数增长。</p>
+<aside class="callout cx-zusatz"><div class="callout-h">拓展阅读（后续内容不需要）: 为什么多次卷积会趋于高斯曲线</div><p>把 $\operatorname{rect}(t)$ 与自身作 $M$ 重卷积，其频谱为 $\operatorname{si}^M(\pi f)$。对小的 $f$，$\textcolor{#e5383b}{\operatorname{si}(\pi f)}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{1-\frac{(\pi f)^2}{6}}$，且 $\textcolor{#e5383b}{\ln(1+w)}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{ w}$，因此</p>
+<p>$$\textcolor{#e5383b}{\operatorname{si}^M(\pi f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{M\ln\operatorname{si}(\pi f)}}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{\mathrm{e}^{-M(\pi f)^2/6}\;\bullet\!\!-\!\!\circ\;\sqrt{\frac{6}{\pi M}}\,\mathrm{e}^{-6t^2/M}.}$$</p>
+<p>对大的 $M$，只有小 $f$ 的区域有贡献，近似也就越来越好。$\textcolor{#e5383b}{M}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{4}$ 时，$\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处的精确值为 $0.667$，高斯曲线给出 $0.691$。这是<strong class="nm">中心极限定理</strong>（见统计部分）的一个实例：许多面积有限的正脉冲的卷积趋近于高斯曲线。一个例子是由许多短时积分器级联而成的系统的冲激响应。</p></aside>
+<div class="aufg"><div class="aufg-h">练习 14 ★★★ （拓展）检验高斯近似</div><div class="aufg-b"><span class="anker" id="aufg-14"></span>
+<ol class="al">
+<li>
+<p>对 $\textcolor{#e5383b}{M}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$，比较精确值 $\textcolor{#e5383b}{\Lambda(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ 与高斯近似。</p>
+</li>
+<li>
+<p>证明高斯曲线 $\sqrt{6/(\pi M)}\,\mathrm{e}^{-6t^2/M}$ 的面积为 1。为什么必然如此？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{M}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$：$\textcolor{#e5383b}{\sqrt{6/(2\pi)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.977}$，而不是 $\textcolor{#e5383b}{\Lambda(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，即偏低 2.3 %。$\textcolor{#e5383b}{M}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{4}$ 时：0.691，而不是 0.667，即偏高 3.6 %。因此，即使只卷积几次，高斯曲线就已经接近精确结果。只有对大的 $M$，近似才能任意好，因为只有在这种情况下，频谱中才仅有小的 $f$ 起作用。</p>
+<p>(b) $\textcolor{#e5383b}{\int\mathrm{e}^{-6t^2/M}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sqrt{\pi M/6}}$；乘以 $\sqrt{6/(\pi M)}$ 得 1。必然如此：卷积的面积等于各面积之积，这里为 $\textcolor{#e5383b}{1^M}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。在频谱中，这就是 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处的值 $\textcolor{#e5383b}{\operatorname{si}^M(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，而近似式 $\mathrm{e}^{-M(\pi f)^2/6}$ 在该处的值也为 1。</p></div></details></div></div>
+</section>
+<aside class="callout cx-kern"><div class="callout-h">要点</div><ul>
+<li>
+<p>$\textcolor{#e5383b}{\mathrm{e}^{\mathrm{j}2\pi ft}*h}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(f)\mathrm{e}^{\mathrm{j}2\pi ft}}$；$\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int h\,\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$。</p>
+</li>
+<li>
+<p>级数：$\textcolor{#e5383b}{s_p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}}$，$\textcolor{#e5383b}{S_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1T\int_Ts_p\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t}$；实信号：$\textcolor{#e5383b}{S_p(-k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p^*(k)}$。</p>
+</li>
+<li>
+<p>帕塞瓦尔定理：$\textcolor{#e5383b}{\frac1T\int_T|s_p|^2}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum|S_p(k)|^2}$；吉布斯现象：跳变处约 9 % 的过冲；LTI：$\textcolor{#e5383b}{G_p(k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S_p(k)H(kF)}$。</p>
+</li>
+<li>
+<p>$\textcolor{#e5383b}{S(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s\,\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$，$\textcolor{#e5383b}{s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int S\mathrm{e}^{\mathrm{j}2\pi ft}\mathrm{d} f}$；$s*h\leftrightarrow SH$，$s_1s_2\leftrightarrow S_1*S_2$。</p>
+</li>
+<li>
+<p>实信号：$\textcolor{#e5383b}{S(-f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S^*(f)}$；偶部 $\leftrightarrow\operatorname{Re} S$，奇部 $\leftrightarrow\mathrm{j}\operatorname{Im} S$。</p>
+</li>
+<li>
+<p>$s(bt)\leftrightarrow\frac1{|b|}S(f/b)$；$s(t-t_0)\leftrightarrow S\mathrm{e}^{-\mathrm{j}2\pi ft_0}$；$\frac{\mathrm{d}}{\mathrm{d} t}\leftrightarrow\mathrm{j}2\pi f$；$\mathrm{e}^{\mathrm{j}2\pi Ft}s\leftrightarrow S(f-F)$；$S(t)\leftrightarrow s(-f)$。</p>
+</li>
+<li>
+<p>$\operatorname{rect}(t/T)\leftrightarrow|T|\operatorname{si}(\pi Tf)$；$\Lambda\leftrightarrow\operatorname{si}^2$；$\delta\leftrightarrow1$；$1\leftrightarrow\delta(f)$；$\cos\leftrightarrow\frac12[\delta(f+F)+\delta(f-F)]$。</p>
+</li>
+<li>
+<p>梳状函数 $\leftrightarrow$ 梳状函数：$\sum\delta(t-nT)\leftrightarrow\frac1{|T|}\sum\delta(f-k/T)$；$\varepsilon\leftrightarrow\frac12\delta(f)+\frac{1}{\mathrm{j}2\pi f}$。</p>
+</li>
+<li>
+<p>希尔伯特变换：$\textcolor{#e5383b}{h}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\pi t}}$，$\textcolor{#e5383b}{H}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\mathrm{j}\operatorname{sgn}(f)}$；$\textcolor{#e5383b}{s_+}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac12(s+\mathrm{j}\hat s)}$，$\textcolor{#e5383b}{s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\operatorname{Re} s_+}$。</p>
+</li>
+</ul></aside><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">拉普拉斯变换</div><ul><li>本文内容</li><li>第 1 阶段：为什么偏偏是 $\mathrm{e}^{pt}$</li><li>第 2 阶段：完全由基本分量构成的信号</li><li>第 3 阶段：卷积变成乘法</li><li>第 4 阶段：积分变成求和</li><li>第 5 阶段：为什么输入也要变换</li></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">采样与离散时间系统</div><ul><li>本文内容</li><li>第 1 阶段：信号类别与理想采样</li><li>第 2 阶段：采样信号的频谱</li><li>第 3 阶段：采样定理与信号恢复</li><li>第 4 阶段：频域采样</li><li>第 5 阶段：离散时间信号与离散卷积</li><li>第 6 阶段：一个递归系统</li><li>第 7 阶段：离散时间傅里叶变换</li><li>第 8 阶段：离散傅里叶变换（DFT）</li><li>第 9 阶段：FFT 与快速卷积</li><li>第 10 阶段：改变采样率——抽取与内插</li><li>第 11 阶段：z 变换</li></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article><aside class="toc"><div class="toc-h">本页内容</div><ul><li><a href="#x-0">本文内容</a></li><li><a href="#1">第 1 阶段：作为特征函数的振荡</a></li><li><a href="#2">第 2 阶段：周期信号——傅里叶级数</a></li><li><a href="#3-lti">第 3 阶段：功率、收敛性与 LTI 系统</a></li><li><a href="#4">第 4 阶段：从周期信号到非周期信号</a></li><li><a href="#5">第 5 阶段：信号与频谱中的对称性</a></li><li><a href="#6">第 6 阶段：运算规则（定理）</a></li><li><a href="#7-si">第 7 阶段：矩形、si 函数与三角形</a></li><li><a href="#8">第 8 阶段：奇异信号与线谱</a></li><li><a href="#9">第 9 阶段：希尔伯特变换与解析信号</a></li><li><a href="#10">第 10 阶段：短时傅里叶变换</a></li><li><a href="#11">第 11 阶段：傅里叶变换与拉普拉斯变换——存在性的界限</a></li></ul></aside></main></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<script src="/wissen/assets/wissen.js"></script>
+</body></html>

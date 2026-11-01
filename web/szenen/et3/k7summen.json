@@ -1,0 +1,195 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 7,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.6,
+      1.6,
+      0.5
+     ],
+     "y_range": [
+      0,
+      1.15
+     ],
+     "x_length": 6.0,
+     "y_length": 2.6,
+     "origin": [
+      0.35,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "@dichte",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "DataCurve",
+    "props": {
+     "data": "-2 0\n-0.51 0\n-0.5 1\n0.5 1\n0.51 0\n2 0",
+     "clip": true,
+     "step": "post",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "tri(x)",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.6,
+      1.6
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "where(abs(x)<=0.5,0.75-x^2,where(abs(x)<=1.5,0.5*(1.5-abs(x))^2,0))",
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.6,
+      1.6
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-2*x^2)/sqrt(pi/2)",
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "10,7",
+     "x_range": [
+      -1.6,
+      1.6
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Legend",
+    "props": {
+     "labels": "@{eine};@{zwei};@{drei};@{gauss}",
+     "colors": "2a78d6;c82828;00823c;111111",
+     "styles": "-;-;-;--",
+     "position": [
+      0.62,
+      1.05,
+      0
+     ],
+     "font_size": 24,
+     "row_gap": 0.34,
+     "swatch_len": 0.4,
+     "gap": 0.12,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "dichte": {
+    "de": "Dichte",
+    "en": "Density",
+    "es": "densidad",
+    "zh": "概率密度"
+   },
+   "eine": {
+    "de": "eine Größe",
+    "en": "one variable",
+    "es": "una variable",
+    "zh": "一个变量"
+   },
+   "zwei": {
+    "de": "Summe von zwei",
+    "en": "sum of two",
+    "es": "suma de dos",
+    "zh": "两个变量之和"
+   },
+   "drei": {
+    "de": "Summe von drei",
+    "en": "sum of three",
+    "es": "suma de tres",
+    "zh": "三个变量之和"
+   },
+   "gauss": {
+    "de": "Gauß, σ^2 = 3/12",
+    "en": "Gaussian, σ^2 = 3/12",
+    "es": "Gauss, σ^2 = 3/12",
+    "zh": "高斯分布，σ^2 = 3/12"
+   }
+  }
+ }
+}

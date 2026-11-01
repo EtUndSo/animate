@@ -9,7 +9,9 @@ from .richtext import parse as _parse_rich, is_plain as _is_plain, layout as _la
 # advance widths, so on Windows, macOS/iOS and most Linux systems the text is exactly as wide as
 # export.text_box estimates (the crop is computed from those widths). The editor canvas draws
 # "sans-serif", which is Arial in Chrome/Edge/Firefox on Windows. Android falls back to Roboto.
-SVG_FONT = "Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', sans-serif"
+# An SVG shown through <img> cannot load web fonts, so Chinese labels use the reader's system CJK font.
+SVG_FONT = ("Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', "
+            "'PingFang SC', sans-serif")
 
 
 def _hex(color):

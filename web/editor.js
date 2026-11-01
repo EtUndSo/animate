@@ -76,7 +76,7 @@ const CATALOG = {
     // x_log / y_log = logarithmic axis (decade ticks 10^k); arrows = arrowheads on the positive ends;
     // show_axes:false = a bare panel (placement frame for schematics, cross-sections, block diagrams).
     Axes:          { x_range:[-10,10], y_range:[-10,10], z_range:[-10,10], x_length:7, y_length:7, z_length:7, origin:[0,0,0], title:"",
-                     x_label:"x", y_label:"y", x_log:false, y_log:false, arrows:false, x_axis_at:"auto", y_axis_at:"auto", show_axes:true, show_ticks:true, show_numbers:true, x_numbers:true, y_numbers:true, show_labels:true, minor_ticks:true,
+                     x_label:"x", y_label:"y", x_log:false, y_log:false, arrows:false, x_axis_at:"auto", y_axis_at:"auto", x_ticks:"", y_ticks:"", x_tick_marks:true, y_tick_marks:true, x_label_at:"end", frame:false, title_at:"left", arrow_size:0.3, show_axes:true, show_ticks:true, show_numbers:true, x_numbers:true, y_numbers:true, show_labels:true, minor_ticks:true,
                      number_size:24, label_size:34, axis_width:4, x_color:"#000000", y_color:"#000000", z_color:"#000000", grid_x:false, grid_y:false, grid_z:false, grid_color:"#000000", grid_width:1 },
     // A FunctionGraph is 1D (y=f(x)) for a term in x only, and a 3D SURFACE when the term also uses y
     // (z=f(x,y)) — the surface-only props (fill_opacity, height_color, grid_*) are ignored for a 1D curve.
@@ -93,17 +93,17 @@ const CATALOG = {
     CurveFamily:   { func:"sin(k*x)/k", param:"k", p_min:1, p_max:5, count:5, values:"", labels:"", x_min:-6, x_max:6, samples:120, fade:true, show_limit:false, limit_func:"", font_size:24, color:"#59a0eb", stroke_width:3, dash:"" },
     // Parametric curve (x(t),y(t)): polyline + orientation arrowhead. point_at="t" adds a running dot;
     // show_tangent/show_normal add vectors there. For circles, ellipses, Lissajous, spirals, paths.
-    ParametricCurve: { fx:"cos(t)", fy:"sin(t)", t_min:0, t_max:6.283185, samples:160, show_arrow:true, point_at:"", show_tangent:false, show_normal:false, color:"#59a0eb", stroke_width:4, dash:"" },
+    ParametricCurve: { fx:"cos(t)", fy:"sin(t)", t_min:0, t_max:6.283185, samples:160, show_arrow:true, arrow_at:"", point_at:"", show_tangent:false, show_normal:false, color:"#59a0eb", stroke_width:4, dash:"" },
     // Polar curve r(theta) -> (r·cosθ, r·sinθ). For cardioids, roses, spirals. var `theta` (alias t).
     PolarCurve:    { func:"1+cos(theta)", theta_min:0, theta_max:6.283185, samples:200, show_arrow:true, color:"#59a0eb", stroke_width:4, dash:"" },
     // Curve from a pasted table of numbers (one "x y" pair per line, or "x,y;x,y;…"): the article's
     // Zahlenwerk feeds it directly. markers = a dot at every data point; smooth = Bézier through the points.
-    DataCurve:     { data:"0 0\n1 1\n2 0.5\n3 1.5", markers:false, marker_radius:0.06, smooth:false, color:"#59a0eb", stroke_width:4, dash:"" },
+    DataCurve:     { data:"0 0\n1 1\n2 0.5\n3 1.5", columns:"", x_factor:1, y_factor:1, step:"", clip:true, markers:false, marker_radius:0.06, smooth:false, color:"#59a0eb", stroke_width:4, dash:"" },
     // Shaded region in data coords (operating region, depletion zone, band): a rectangle x_min..x_max ×
     // y_min..y_max; full_height / full_width stretch it over the whole axes; label at top/center/bottom.
     Band:          { x_min:1, x_max:2, y_min:0, y_max:1, full_height:true, full_width:false, label:"", label_at:"top", font_size:26, color:"#59a0eb", fill_color:"#59a0eb", fill_opacity:0.18, stroke_width:0, dash:"" },
     // Stem plot (discrete values / line spectrum): x and y lists ("1;2;3"), optional label per stem.
-    Stem:          { x:"1;2;3;4", y:"1;0.5;0.25;0.125", labels:"", baseline:0, markers:true, marker_radius:0.07, font_size:24, color:"#59a0eb", stroke_width:3, dash:"" },
+    Stem:          { x:"1;2;3;4", y:"1;0.5;0.25;0.125", func:"", labels:"", baseline:0, arrows:false, width:0, marker:"circle", markers:true, marker_radius:0.07, font_size:24, color:"#59a0eb", stroke_width:3, dash:"" },
     // Random point cloud (carriers, particles): n points in x_min..x_max × y_min..y_max, `seed` makes it
     // reproducible. distribution: uniform | exp_y (density decays upward with scale `decay`) | exp_x.
     // hollow = ring markers (holes) instead of filled dots (electrons).
@@ -113,7 +113,7 @@ const CATALOG = {
     // Legend/key for several curves on the SAME axes: one row per entry (swatch + label). `labels` is
     // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
     // position = data anchor (left end of the first swatch); row_gap/swatch_len/gap in scene units (not data).
-    Legend:        { labels:"f(x);g(x)", colors:"", position:[-5,4,0], font_size:26, row_gap:0.35, swatch_len:0.4, gap:0.15, color:"#111111", stroke_width:6 },
+    Legend:        { labels:"f(x);g(x)", colors:"", styles:"", position:[-5,4,0], font_size:26, row_gap:0.35, swatch_len:0.4, gap:0.15, color:"#111111", stroke_width:6 },
   },
   "Mathematik · Felder": {
     // 2D vector field (arrow grid). preset: radial/source/sink/vortex/uniform (sets fx,fy) or "custom"
@@ -157,7 +157,7 @@ const CATALOG = {
     // Straight labelled arrow (current/voltage/force/field). label_at: "mid" or "end"; double = heads at both
     // ends; elbow = right-angled route (hv: horizontal then vertical, vh); thick > 0 = filled flow arrow of
     // that width (world units) for quantity/Sankey arrows.
-    LabeledArrow: { start:[0,0,0], end:[2,1,0], label:"F", label_at:"mid", double:false, elbow:"none", thick:0, head_size:0.3, font_size:28, color:"#111111", stroke_width:4, dash:"" },
+    LabeledArrow: { start:[0,0,0], end:[2,1,0], label:"F", label_at:"mid", label_side:"left", double:false, elbow:"none", thick:0, head_size:0.3, font_size:28, color:"#111111", stroke_width:4, dash:"" },
     // Curved circulation / mesh-loop / feedback arrow: arc around `center`, world-unit `radius`, from
     // start_angle to end_angle (degrees, CCW if end>start), arrowhead at the end (head:false = plain arc,
     // e.g. an angle mark), optional centre label.
@@ -547,6 +547,7 @@ function toPythonModel(){
            axes_on_top: model.background.axes_on_top === true,
            angle_unit: model.angleUnit, domain: model.domain, camera: model.camera,
            export: model.export,                     // article-figure export: crop mode, margin, scale, frame
+           lang: model.lang, strings: model.strings, // labels via @key, number format of the language
            gl: (gl3d.ok && !_glFailed) };          // WebGL available -> engine builds only the GPU surface mesh
 }
 
@@ -1129,7 +1130,7 @@ function sceneData(){
   return { v:1, counters:{ nextId, nextAnimId, nextCompId },
     model:{ objects:model.objects, animations:model.animations, computations:model.computations,
             background:model.background, playMode:model.playMode, angleUnit:model.angleUnit, domain:model.domain, camera:model.camera,
-            export:model.export } };
+            export:model.export, lang:model.lang, strings:model.strings } };
 }
 function applyScene(data){
   const m = (data && data.model) || data || {};
@@ -1142,13 +1143,15 @@ function applyScene(data){
   model.domain = m.domain || "real";
   model.camera = m.camera || { mode:"2d", theta:0.6, phi:1.0 };
   model.export = Object.assign({ ...EXPORT_DEFAULTS }, m.export || {});   // older scenes: default crop/scale
+  model.lang = m.lang || "de";                     // language of labels and numbers; the batch export renders all four
+  model.strings = m.strings || {};                 // translation table {key:{de,en,es,zh}}, used as @key in labels
   migrateModel();                                  // backfill any props added since the scene was saved
   model.selectedId = model.objects.length ? model.objects[0].id : null;
   model.selectedComp = null;
   const cc = data && data.counters;
   if(cc){ nextId=Math.max(nextId, cc.nextId||1); nextAnimId=Math.max(nextAnimId, cc.nextAnimId||1); nextCompId=Math.max(nextCompId, cc.nextCompId||1); }
   const set=(id,v)=>{ const e=$(id); if(e) e.value=v; };
-  set("play-mode",model.playMode); set("angle-unit",model.angleUnit); set("domain-mode",model.domain); set("view-mode",model.camera.mode);
+  set("play-mode",model.playMode); set("angle-unit",model.angleUnit); set("scene-lang",model.lang); set("domain-mode",model.domain); set("view-mode",model.camera.mode);
   renderSceneObjs(); renderComputations(); renderProps(); renderPreview();
 }
 function saveScene(){
@@ -1542,6 +1545,22 @@ function updateExportInfoText(){
   const I=_exportInfo; t.textContent = I ? exportInfoLabel(I) : "";
   t.style.color = (I && !I.fits) ? "#d62728" : "";
 }
+// Translation table of the scene (model.strings = {key:{de,en,es,zh}}). A label "@key" (or "@{key}" inside a
+// label) takes its text from here in the language chosen in the toolbar; plain labels stay as typed.
+function renderStringsTable(el){
+  const wrap=document.createElement("div"); wrap.style="margin-top:10px;border-top:1px solid var(--border);padding-top:8px;";
+  const title=document.createElement("div"); title.style="font-weight:600;margin-bottom:6px;font-size:13px"; title.textContent="Übersetzungen (@Schlüssel)"; wrap.appendChild(title);
+  const ta=document.createElement("textarea"); ta.rows=6; ta.style="width:100%;font-family:monospace;font-size:11px";
+  ta.spellcheck=false; ta.value=JSON.stringify(model.strings||{},null,1);
+  ta.title='{"eingang":{"de":"Eingang","en":"Input","es":"Entrada","zh":"输入"}}; im Label: @eingang';
+  ta.onchange=()=>{
+    try{ const v=JSON.parse(ta.value||"{}"); if(!v || typeof v!=="object" || Array.isArray(v)) throw 0;
+      model.strings=v; ta.style.outline=""; renderPreview(); }
+    catch(e){ ta.style.outline="2px solid #d62728"; }
+  };
+  wrap.appendChild(ta);
+  el.appendChild(wrap);
+}
 function renderExportSettings(el){
   const ex = model.export;
   const wrap=document.createElement("div"); wrap.style="margin-top:10px;border-top:1px solid var(--border);padding-top:8px;";
@@ -1570,6 +1589,7 @@ function renderExportSettings(el){
   const info=document.createElement("div"); info.className="hint"; info.id="export-info"; info.style.marginTop="6px"; wrap.appendChild(info);
   el.appendChild(wrap);
   updateExportInfoText();
+  renderStringsTable(el);
 }
 function refreshExportInfo(){ _exportInfo = (model.selectedId===BG_ID && !playing) ? fetchExportInfo() : null; updateExportInfoText(); }
 function drawExportFrame(ctx){                         // editing aid on the overlay, never exported
@@ -2399,7 +2419,10 @@ async function boot(){
   if(sceneParam && !sceneUrl) statusNote = "⚠ Szenen-Link abgelehnt: erlaubt sind nur Dateien unter szenen/ (…/name.json)";
   if(sceneUrl){
     lsActive = LS_KEY + ":link";
-    try{ const r=await fetch(sceneUrl, {cache:"no-cache"}); if(!r.ok) throw new Error("HTTP "+r.status); applyScene(await r.json()); restored=true; statusNote = "Vorlage geladen: "+sceneUrl+" (deine eigene Szene bleibt gespeichert)"; }
+    try{ const r=await fetch(sceneUrl, {cache:"no-cache"}); if(!r.ok) throw new Error("HTTP "+r.status); applyScene(await r.json()); restored=true;
+      const linkLang=new URLSearchParams(location.search).get("lang");   // article link: the figure in the reader's language
+      if(/^(de|en|es|zh)$/.test(linkLang||"")){ model.lang=linkLang; $("scene-lang").value=linkLang; renderPreview(); }
+      statusNote = "Vorlage geladen: "+sceneUrl+" (deine eigene Szene bleibt gespeichert)"; }
     catch(e){ console.error(e); lsActive = LS_KEY; statusNote = "⚠ Szene konnte nicht geladen werden: "+e.message; }
   }
   if(!restored) try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}
@@ -2422,6 +2445,9 @@ $("play-mode").onchange = (e) => { model.playMode = e.target.value; if(playing) 
 
 $("angle-unit").value = model.angleUnit;
 $("angle-unit").onchange = (e) => { model.angleUnit = e.target.value; stopPlay(); renderPreview(); };
+
+$("scene-lang").value = model.lang;
+$("scene-lang").onchange = (e) => { model.lang = e.target.value; stopPlay(); renderPreview(); };
 
 $("domain-mode").value = model.domain;
 $("domain-mode").onchange = (e) => { model.domain = e.target.value; stopPlay(); renderPreview(); };

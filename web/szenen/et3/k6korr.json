@@ -1,0 +1,313 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 13,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.6,
+      1.6
+     ],
+     "y_range": [
+      -0.05,
+      1.2
+     ],
+     "x_length": 2.75,
+     "y_length": 2.2,
+     "origin": [
+      -1.82,
+      0,
+      0
+     ],
+     "title": "@t1",
+     "x_label": "@x",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-1;0;1",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "center",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "rect(x)",
+     "color": "#7f7f7f",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.6,
+      1.6
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "tri(x)",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.6,
+      1.6
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "rect(t)",
+     "position": [
+      -0.6,
+      1.08,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#7f7f7f"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "\\varphi^E_{ss}(\\tau)\\\\= \\Lambda(\\tau)",
+     "position": [
+      0.6,
+      0.76,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.5,
+      4.5
+     ],
+     "y_range": [
+      -0.05,
+      1.2
+     ],
+     "x_length": 2.75,
+     "y_length": 2.2,
+     "origin": [
+      1.82,
+      0,
+      0
+     ],
+     "title": "@t2",
+     "x_label": "@x",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;2;4",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "center",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o7",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "rect(x)",
+     "color": "#7f7f7f",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.5,
+      4.5
+     ]
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o8",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.5*rect(x-3)",
+     "color": "#eb6834",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.5,
+      4.5
+     ]
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o9",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.5*tri(x-3)",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.5,
+      4.5
+     ]
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@ge",
+     "position": [
+      0.65,
+      0.85,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@ec",
+     "position": [
+      3.0,
+      0.68,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#eb6834"
+    },
+    "on": "o6"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "\\varphi^E_{sg}(\\tau)",
+     "position": [
+      2.15,
+      0.28,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#c82828"
+    },
+    "on": "o6"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "x": {
+    "de": "t bzw. τ",
+    "en": "t or τ",
+    "es": "t o τ",
+    "zh": "t 或 τ"
+   },
+   "t1": {
+    "de": "AKF des Rechtecks",
+    "en": "ACF of the rectangle",
+    "es": "FAC del rectángulo",
+    "zh": "矩形的自相关函数"
+   },
+   "t2": {
+    "de": "KKF mit einem Echo",
+    "en": "CCF with an echo",
+    "es": "FCC con un eco",
+    "zh": "与回波的互相关函数"
+   },
+   "ge": {
+    "de": "gesendet",
+    "en": "sent",
+    "es": "emitido",
+    "zh": "发送"
+   },
+   "ec": {
+    "de": "Echo",
+    "en": "echo",
+    "es": "eco",
+    "zh": "回波"
+   }
+  }
+ }
+}

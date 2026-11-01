@@ -14,7 +14,7 @@ from .scene import Scene
 from .camera import Camera
 from .axes import Axes
 from .simpleShape import (Circle, Dot, Line, Polygon, Triangle, Rectangle, Square, FunctionGraph, Ellipse, ArrowHead)
-from .text import Text, DecimalNumber
+from .text import Text, DecimalNumber, set_number_lang, fmt_number, localize_digits
 from . import figures as _fig
 from . import circuit as _circ
 from .value_tracker import ValueTracker
@@ -357,7 +357,35 @@ def _as_func(v):
 # Free-text props: never interpreted as constant names (a label "UP" must stay the text "UP").
 _TEXT_KEYS = {"text", "label", "labels", "value", "title", "x_label", "y_label", "z_label", "current", "voltage",
               "name", "cells", "row_labels", "col_labels", "dx_label", "dy_label", "tex", "prefix", "suffix",
-              "data", "points", "x", "y", "values", "kind", "material", "shape", "symbol_style"}
+              "data", "points", "x", "y", "values", "kind", "material", "shape", "symbol_style", "x_ticks", "y_ticks",
+              "styles", "arrow_at", "columns", "step", "marker"}
+# Props a reader sees: their text follows the scene language (model["lang"], model["strings"]).
+_LABEL_KEYS = {"text", "label", "labels", "title", "x_label", "y_label", "z_label", "current", "voltage", "cells",
+               "row_labels", "col_labels", "dx_label", "dy_label", "prefix", "suffix"}
+_LANG = ""                                              # scene language ("de", "en", "es", "zh"; "" = none)
+_STRINGS = {}                                           # {key: {lang: text}} of the scene
+_STRING_REF = re.compile(r"@\{([\w.-]+)\}")
+
+
+def _lookup(key):
+    """Text of `key` in the scene language; falls back to German, then any language. An unknown key stays
+    visible as @key, so a typo shows up in the figure instead of vanishing."""
+    entry = _STRINGS.get(key)
+    if entry is None:
+        return "@" + key
+    if isinstance(entry, str):
+        return entry
+    return entry.get(_LANG) or entry.get("de") or next(iter(entry.values()), key)
+
+
+def _label_text(s):
+    """A label in the scene language. "@key" (the whole label) or "@{key}" (part of it) comes from the scene's
+    translation table, and decimal points between digits follow the language: 0.5 -> 0,5 in de and es."""
+    if re.fullmatch(r"@[\w.-]+", s):
+        s = _lookup(s[1:])
+    elif "@{" in s:
+        s = _STRING_REF.sub(lambda m: _lookup(m.group(1)), s)
+    return localize_digits(s)
 
 
 def _resolve_arg(key, value):
@@ -367,6 +395,8 @@ def _resolve_arg(key, value):
             return getattr(_const, value)
         if key == "func":
             return func_from_expr(value) if value.strip() else ""   # empty = "no function" (e.g. a Marker)
+        if key in _LABEL_KEYS:
+            return _label_text(value)
     return value
 
 
@@ -727,7 +757,7 @@ def _build_number_line(args, style, axes):
         tick.stroke_width = sw
         obj.add(tick)
         if labels:
-            obj.add(Text(f"{val:.{dec}f}", position=p - 0.38 * UP, font_size=fs, color=col))
+            obj.add(Text(fmt_number(f"{val:.{dec}f}"), position=p - 0.38 * UP, font_size=fs, color=col))
     return obj
 
 
@@ -768,8 +798,10 @@ def _build_parametric_curve(args, style, axes):
         x, y = P(t)
         return c2p(x, y)
 
-    if args.get("show_arrow", True) and n >= 3:
-        i = max(1, min(n - 2, int(0.55 * (n - 1))))
+    # Direction marks: one at 55 % of the sweep, or at the fractions listed in arrow_at ("0.25;0.75").
+    marks = [float(v) for v in re.split(r"[;,\s]+", str(args.get("arrow_at", "") or "").strip()) if v]
+    for frac in (marks or [0.55]) if args.get("show_arrow", True) and n >= 3 else []:
+        i = max(1, min(n - 2, int(frac * (n - 1))))
         a, b = world(ts[i - 1]), world(ts[i + 1])
         d = b - a
         L = float(np.linalg.norm(d))
@@ -784,6 +816,7 @@ def _build_parametric_curve(args, style, axes):
             tri.fill_color = col
             tri.fill_opacity = 1.0
             tri.stroke_width = sw
+            tri._no_dash = True
             obj.add(tri)
     pa = str(args.get("point_at", "")).strip()
     if pa:
@@ -1095,6 +1128,8 @@ def _build_labeled_arrow(args, style, axes):
         d = Q - P
         L = float(np.linalg.norm(d))
         perp = np.array([0.0, 0.0, 0.0]) if L < 1e-9 else np.array([-d[1], d[0], 0.0]) / L
+        if str(args.get("label_side", "left")) == "right":   # other side of the arrow (seen along its direction)
+            perp = -perp
         align = "left" if perp[0] > 0.3 else ("right" if perp[0] < -0.3 else "center")
         off = thick / 2 + (0.18 if align != "center" else 0.15 + 0.5 * fs * _fig.UPP)
         if str(args.get("label_at", "mid")) == "end":
@@ -1203,7 +1238,7 @@ def _build_tangent(args, style, axes):
             d._no_dash = True
             obj.add(d)
     if args.get("show_slope", False):
-        lab = Text(f"m = {m:.3g}", position=P(u0, w0) + np.array([0.25, 0.25, 0.0]),
+        lab = Text("m = " + fmt_number(f"{m:.3g}"), position=P(u0, w0) + np.array([0.25, 0.25, 0.0]),
                    font_size=float(args.get("font_size", 26)), color=col, align="left")
         obj.add(lab)
     tdx = float(args.get("triangle_dx", 0.0))
@@ -1628,8 +1663,11 @@ class ModelScene(Scene):
         #                             then animated operators take over their operands' display.
 
     def construct(self):
-        global _ANGLE_UNIT, _DOMAIN, _SHADOWS, _CAM_ZOOM, _CAM_MODE, _GL
+        global _ANGLE_UNIT, _DOMAIN, _SHADOWS, _CAM_ZOOM, _CAM_MODE, _GL, _LANG, _STRINGS
         _ANGLE_UNIT = self.model.get("angle_unit", "rad")   # set before any func is compiled
+        _LANG = str(self.model.get("lang") or "")           # labels and number format of this scene
+        _STRINGS = self.model.get("strings") or {}
+        set_number_lang(_LANG)
         _DOMAIN = self.model.get("domain", "real")
         _SHADOWS = bool(self.model.get("shadows", True))    # surface shading on/off
         cam = self.model.get("camera") or {}

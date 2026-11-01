@@ -1,0 +1,197 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 6,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -2.5,
+      13.5
+     ],
+     "y_range": [
+      0,
+      1.15
+     ],
+     "x_length": 2.75,
+     "y_length": 2.2,
+     "origin": [
+      -1.82,
+      0,
+      0
+     ],
+     "title": "@t1",
+     "x_label": "n",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;5;10",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "center",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Stem",
+    "props": {
+     "x": "-2;-1;0;1;2;3;4;5;6;7;8;9;10;11;12;13",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.05,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "y": "0;0;1;0.6;0.36;0.216;0.1296;0.07776;0.04666;0.02799;0.0168;0.01008;0.00605;0.00363;0.00218;0.00131"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -2.5,
+      13.5
+     ],
+     "y_range": [
+      0,
+      2.4
+     ],
+     "x_length": 2.75,
+     "y_length": 2.2,
+     "origin": [
+      1.82,
+      0,
+      0
+     ],
+     "title": "@t2",
+     "x_label": "n",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;5;10",
+     "y_ticks": "0;1;2",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "center",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Stem",
+    "props": {
+     "x": "-2;-1;0;1;2;3;4;5;6;7;8;9;10;11;12;13",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "square",
+     "markers": true,
+     "marker_radius": 0.06,
+     "color": "#b5b5b5",
+     "stroke_width": 3,
+     "dash": "",
+     "y": "0;0;1;1;1;1;0;0;0;0;0;0;0;0;0;0"
+    },
+    "on": "o3"
+   },
+   {
+    "id": "o5",
+    "type": "Stem",
+    "props": {
+     "x": "-2;-1;0;1;2;3;4;5;6;7;8;9;10;11;12;13",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.05,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "y": "0;0;1;1.6;1.96;2.176;1.3056;0.78336;0.47002;0.28201;0.16921;0.10152;0.06091;0.03655;0.02193;0.01316"
+    },
+    "on": "o3"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "t1": {
+    "de": "Impulsantwort\\\\h(n) = 0.6^n ε(n)",
+    "en": "Impulse response\\\\h(n) = 0.6^n ε(n)",
+    "es": "Respuesta al impulso\\\\h(n) = 0.6^n ε(n)",
+    "zh": "单位脉冲响应\\\\h(n) = 0.6^n ε(n)"
+   },
+   "t2": {
+    "de": "Rechteck mit M = 4 (grau)\\\\und Antwort",
+    "en": "Rectangle with M = 4 (gray)\\\\and response",
+    "es": "Rectángulo con M = 4 (gris)\\\\y respuesta",
+    "zh": "M = 4 的矩形（灰色）\\\\及其响应"
+   }
+  }
+ }
+}

@@ -1,6 +1,6 @@
 import numpy as np
 from .AnimObject import AnimObject
-from .simpleShape import Line
+from .simpleShape import Line, Dot, Polygon
 from .text import Text
 from .constants import ORIGIN
 
@@ -46,26 +46,46 @@ class Legend(AnimObject):
     swatch_len  length of the colour swatch line (scene units).
     gap         space between swatch and the start of the label (scene units); labels are left-aligned.
     color       label text colour. stroke_width = swatch line thickness (px).
+    styles      optional ';'-separated look per entry, as in matplotlib format strings: "-" line (default),
+                "--" dashed, ":" dotted, "o" dot only, "s" square only, "-o" line with dot.
     Defaults at 26 px text: row pitch 0.35 = 1.8 em, swatch 0.4 = 2.1 em, gap 0.15 = 0.8 em (matplotlib:
     labelspacing 0.5 em plus the text height, handlelength 2 em, handletextpad 0.8 em).
     """
 
     def __init__(self, labels="f(x);g(x)", colors="", position=ORIGIN, font_size=26,
-                 row_gap=0.35, swatch_len=0.4, gap=0.15, color=(0.0, 0.0, 0.0), stroke_width=6.0):
+                 row_gap=0.35, swatch_len=0.4, gap=0.15, color=(0.0, 0.0, 0.0), stroke_width=6.0, styles=""):
         super().__init__()
         self.color = color
         p0 = np.asarray(position, dtype=float).reshape(-1)
         x0, y0 = float(p0[0]), float(p0[1])
         items = [s.strip() for s in str(labels).split(";") if s.strip() != ""]
         cols_raw = [c.strip() for c in str(colors).split(";")] if str(colors).strip() else []
+        looks = [s.strip() for s in str(styles).split(";")] if str(styles).strip() else []
         for i, text in enumerate(items):
             y = y0 - i * float(row_gap)
             rgb = _hex_to_rgb(cols_raw[i]) if i < len(cols_raw) and cols_raw[i] else None
             if rgb is None:
                 rgb = _PALETTE[i % len(_PALETTE)]
-            sw = Line([x0, y, 0.0], [x0 + float(swatch_len), y, 0.0])
-            sw.color = rgb
-            sw.stroke_width = float(stroke_width)
+            look = (looks[i] if i < len(looks) else "") or "-"
+            mx = x0 + 0.5 * float(swatch_len)
+            if look not in ("o", "s"):                 # the swatch line, solid or broken
+                sw = Line([x0, y, 0.0], [x0 + float(swatch_len), y, 0.0])
+                sw.color = rgb
+                sw.stroke_width = float(stroke_width)
+                if look.startswith("--"):
+                    sw.set_dash([10.0, 7.0])
+                elif look.startswith(":"):
+                    sw.set_dash([2.0, 5.0])
+                self.add(sw)
+            if look.endswith("o"):
+                mk = Dot(center=[mx, y, 0.0], radius=0.07)
+            elif look.endswith("s"):
+                mk = Polygon([[mx + a * 0.07, y + b * 0.07, 0.0] for a, b in ((-1, -1), (1, -1), (1, 1), (-1, 1))])
+            else:
+                mk = None
+            if mk is not None:
+                mk.color = rgb; mk.fill_color = rgb; mk.fill_opacity = 1.0; mk.stroke_width = 0.0
+                self.add(mk)
             lab = Text(text, position=[x0 + float(swatch_len) + float(gap), y, 0.0],   # starts `gap` after the swatch
                        font_size=float(font_size), color=color, align="left")
-            self.add(sw, lab)
+            self.add(lab)

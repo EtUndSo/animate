@@ -90,7 +90,7 @@ f6 = figs[2][1] if len(figs) > 2 else ""
 check("scene file missing -> figure without editor link", "abb-edit" not in f6 and "ohnejson.svg" in f6)
 check(":::grafik placeholder unchanged", '<div class="callout-h">Abbildung in Vorbereitung</div>' in out
       and "Editor-Szene: alt/platzhalter" in out)
-ph = dict(re.findall(r'<aside class="callout cx-grafik" data-szene="([^"]*)"><div class="callout-h">([^<]*)</div>', out))
+ph = dict(re.findall(r'<aside class="callout cx-grafik" data-szene="([^"]*)"[^>]*><div class="callout-h">([^<]*)</div>', out))
 check("missing SVG -> placeholder, its number 3 stays reserved", ph.get("et3/fehlt") == "Abbildung 3 in Vorbereitung", ph)
 check("invalid name -> placeholder 4, never an <img> or link for it",
       ph.get("../geheim") == "Abbildung 4 in Vorbereitung" and "geheim.svg" not in out and "szenen/../" not in out, ph)

@@ -1,4 +1,5 @@
 
+var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado para",zh:"未找到"};
 // Suche: vorab gebauter Index (search.json), Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben.
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
@@ -6,7 +7,8 @@
   var DOCS=null, sel=-1, rows=[];
   function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,""); }
   function load(){ if(DOCS) return Promise.resolve(DOCS);
-    return fetch("/wissen/data/search.json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
+    var L=document.documentElement.lang; L=(L&&L!=="de")?"."+L:"";
+    return fetch("/wissen/data/search"+L+".json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
   function esc(s){ return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
   function safeSnippet(doc,q){
     var t=doc.text||doc.summary||"", ft=fold(t), i=ft.indexOf(q);
@@ -32,7 +34,7 @@
                   '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
       results.appendChild(a); rows.push(a);
     });
-    if(!rows.length) results.innerHTML='<div class="searchHint">Nichts gefunden für „'+esc(raw.trim())+'".</div>';
+    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de)+' „'+esc(raw.trim())+'".</div>';
   }
   function open(){ if(!overlay) return; overlay.hidden=false; load().then(function(){ input.value=""; results.innerHTML=""; input.focus(); }); }
   function close(){ if(overlay) overlay.hidden=true; }
@@ -179,7 +181,7 @@
   var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
   window.addEventListener("DOMContentLoaded",function(){
     if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
-      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}]});
+      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false});
     fitMath();
   });
   window.addEventListener("resize",later);

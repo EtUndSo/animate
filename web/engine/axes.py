@@ -1,15 +1,28 @@
 import numpy as np
 from .AnimObject import AnimObject
 from .simpleShape import Line, Polygon, ArrowHead
-from .text import Text
+from .text import Text, fmt_number, localize_digits
 from .bezier import line_points
 from .plotting import plot_graph, build_graph
 from .constants import RIGHT, UP, DOWN, LEFT, TOWARDS, FRAME_HEIGHT, PIXEL_WIDTH, PIXEL_HEIGHT
 
 
 def _fmt(value):
-    """Format a tick value compactly: 6, -1.5, 0.5 (no trailing zeros)."""
-    return f"{value:g}"
+    """Format a tick value compactly: 6, -1.5, 0.5 (no trailing zeros), in the scene's number language."""
+    return fmt_number(f"{value:g}")
+
+
+def _tick_list(spec):
+    """Explicit ticks from a text prop: "0;0.5;1" or, with own labels, "3.14159=\\pi;6.28319=2\\pi".
+    -> [(value, label or None)]; an empty prop means automatic ticks. Entries without a number are skipped."""
+    out = []
+    for part in str(spec or "").split(";"):
+        val, _, lab = part.partition("=")
+        try:
+            out.append((float(val), localize_digits(lab.strip()) or None))
+        except ValueError:
+            pass
+    return out
 
 
 def _nice_step(lo, hi, target=10):
@@ -63,6 +76,11 @@ class Axes(AnimObject):
     logarithmic (decade ticks 10^k, minor ticks, log-uniform sampling of plotted functions).
     `arrows` puts arrowheads on the positive ends (textbook style).
 
+    Publication layout (pgfplots-like), all optional: x_ticks / y_ticks replace the automatic ticks by a list
+    ("1;2;4", or "3.14159=\\pi" with an own label), x_tick_marks / y_tick_marks switch the tick marks of one axis,
+    x_label_at="center" puts the x title centred below the numbers instead of at the axis end, frame=True closes
+    the plot area to a box, title_at="center" centres the panel title.
+
     Which parts are built is controlled by flags: show_ticks, show_numbers, show_labels
     (and the label strings x_label / y_label). That is the general pattern - a composite
     object exposes a setting for each element it contains.
@@ -78,7 +96,8 @@ class Axes(AnimObject):
                  number_size=24, label_size=34, zoom=1.0, dynamic_ticks=False,
                  origin=(0.0, 0.0, 0.0), title="", x_log=False, y_log=False, arrows=False,
                  minor_ticks=True, axis_width=4.0, show_axes=True, x_numbers=True, y_numbers=True,
-                 x_axis_at="auto", y_axis_at="auto"):
+                 x_axis_at="auto", y_axis_at="auto", x_ticks="", y_ticks="", x_tick_marks=True, y_tick_marks=True,
+                 x_label_at="end", frame=False, title_at="left", arrow_size=0.3):
         super().__init__()
         self._is_axis = True                                 # renderer draws axes on TOP of everything
         self.x_min, self.x_max = x_range[0], x_range[1]
@@ -134,6 +153,12 @@ class Axes(AnimObject):
         else:
             yt, ym = self._ticks(self._y_tlo, self._y_thi, self.y_step), []
         zt = self._ticks(self._z_tlo, self._z_thi, self.z_step)
+        own_x, own_y = _tick_list(x_ticks), _tick_list(y_ticks)      # explicit tick lists win over the step
+        if own_x:
+            xt, xm = [v for v, _ in own_x], []
+        if own_y:
+            yt, ym = [v for v, _ in own_y], []
+        xlab, ylab = {v: l for v, l in own_x if l}, {v: l for v, l in own_y if l}
         self._xticks, self._yticks = xt, yt
 
         # Background coordinate grid, TOGGLEABLE PER AXIS (grid_x / grid_y / grid_z, all off by default).
@@ -183,42 +208,48 @@ class Axes(AnimObject):
             yax.color = tuple(y_color); yax.stroke_width = aw
             self.add(xax); self.add(yax)
         if arrows and show_axes:
-            hx = ArrowHead(self.coords_to_point(self.x_max, y0) + RIGHT * ext, RIGHT, size=0.3)
+            hx = ArrowHead(self.coords_to_point(self.x_max, y0) + RIGHT * ext, RIGHT, size=float(arrow_size))
             hx.color = tuple(x_color); hx.fill_color = tuple(x_color)
-            hy = ArrowHead(self.coords_to_point(x0, self.y_max) + UP * ext, UP, size=0.3)
+            hy = ArrowHead(self.coords_to_point(x0, self.y_max) + UP * ext, UP, size=float(arrow_size))
             hy.color = tuple(y_color); hy.fill_color = tuple(y_color)
             self.add(hx); self.add(hy)
 
+        if frame and show_axes:                             # closed plot area, like the pgfplots default
+            corners = [self.coords_to_point(self.x_min, self.y_min), self.coords_to_point(self.x_max, self.y_min),
+                       self.coords_to_point(self.x_max, self.y_max), self.coords_to_point(self.x_min, self.y_max)]
+            for i in range(4):
+                fl = Line(corners[i], corners[(i + 1) % 4]); fl.color = tuple(x_color); fl.stroke_width = aw; self.add(fl)
         # Tick marks (coloured to match their axis); minor ticks of a log axis are shorter.
         if show_ticks:
-            for x in xt:
+            for x in (xt if x_tick_marks else []):
                 p = self.coords_to_point(x, y0)
                 t = Line(p - tick_size * UP, p + tick_size * UP); t.color = tuple(x_color); t.stroke_width = aw; self.add(t)
-            for y in yt:
+            for y in (yt if y_tick_marks else []):
                 p = self.coords_to_point(x0, y)
                 t = Line(p - tick_size * RIGHT, p + tick_size * RIGHT); t.color = tuple(y_color); t.stroke_width = aw; self.add(t)
             if minor_ticks:
-                for x in xm:
+                for x in (xm if x_tick_marks else []):
                     p = self.coords_to_point(x, y0)
                     t = Line(p - 0.5 * tick_size * UP, p + 0.5 * tick_size * UP); t.color = tuple(x_color); t.stroke_width = 0.6 * aw; self.add(t)
-                for y in ym:
+                for y in (ym if y_tick_marks else []):
                     p = self.coords_to_point(x0, y)
                     t = Line(p - 0.5 * tick_size * RIGHT, p + 0.5 * tick_size * RIGHT); t.color = tuple(y_color); t.stroke_width = 0.6 * aw; self.add(t)
 
         # Numbers at the ticks (as Text). Shown by default; hide them all with show_numbers=False.
         if show_numbers:
             # axes crossing at the data origin share ONE "0" (placed diagonally below-left)
-            shared0 = (x_numbers and y_numbers and not self.x_log and not self.y_log and x0 == 0 and y0 == 0)
+            shared0 = (x_numbers and y_numbers and not self.x_log and not self.y_log and x0 == 0 and y0 == 0
+                       and 0 in xt and 0 in yt)
             for x in (xt if x_numbers else []):
                 if x == 0 and shared0:
                     continue
                 pos = self.coords_to_point(x, y0) + DOWN * number_offset
-                self.add(Text(_pow_label(x) if self.x_log else _fmt(x), pos, font_size=number_size))
+                self.add(Text(xlab.get(x) or (_pow_label(x) if self.x_log else _fmt(x)), pos, font_size=number_size))
             for y in (yt if y_numbers else []):
                 if y == 0 and shared0:
                     continue
                 pos = self.coords_to_point(x0, y) + LEFT * (tick_size + 0.12)
-                self.add(Text(_pow_label(y) if self.y_log else _fmt(y), pos, font_size=number_size, align="right"))
+                self.add(Text(ylab.get(y) or (_pow_label(y) if self.y_log else _fmt(y)), pos, font_size=number_size, align="right"))
             if shared0:
                 pos = self.coords_to_point(0, 0) + (DOWN + LEFT) * number_offset
                 self.add(Text("0", pos, font_size=number_size))
@@ -226,15 +257,22 @@ class Axes(AnimObject):
         # Axis labels (e.g. "x" and "y") at the ends of the axes.
         if show_labels:
             if x_label:
-                lx = Text(x_label, self.coords_to_point(self.x_max, y0) + RIGHT * (0.2 + ext), font_size=label_size, align="left")
+                if str(x_label_at) == "center":             # below the numbers, centred under the plot area
+                    below = number_offset + 0.42 if y0 == self.y_min else 0.34
+                    lx = Text(x_label, self.origin + DOWN * (0.5 * y_length + below), font_size=label_size)
+                else:
+                    lx = Text(x_label, self.coords_to_point(self.x_max, y0) + RIGHT * (0.2 + ext), font_size=label_size, align="left")
                 lx.color = tuple(x_color); self.add(lx)
             if y_label:
                 ly = Text(y_label, self.coords_to_point(x0, self.y_max) + UP * (0.35 + ext), font_size=label_size)
                 ly.color = tuple(y_color); self.add(ly)
         if title:                                           # panel title "(a)" at the top-left corner, above the y label
             above = 0.35 + ext + (0.5 if (show_labels and y_label) else 0.0)
-            tt = Text(title, self.coords_to_point(self.x_min, self.y_max) + UP * above + LEFT * 0.1,
-                      font_size=label_size, align="left")
+            if str(title_at) == "center":
+                tt = Text(title, self.origin + UP * (0.5 * y_length + above), font_size=label_size)
+            else:
+                tt = Text(title, self.coords_to_point(self.x_min, self.y_max) + UP * above + LEFT * 0.1,
+                          font_size=label_size, align="left")
             self.add(tt)
 
         # z-axis: built the same way, but grouped and tagged _only_3d so it is HIDDEN in the 2D view

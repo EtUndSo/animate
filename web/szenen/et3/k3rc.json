@@ -1,0 +1,163 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 6,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -6.3,
+      12.6
+     ],
+     "y_range": [
+      -0.1,
+      1.15
+     ],
+     "x_length": 6.1,
+     "y_length": 2.3,
+     "origin": [
+      0.1,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "@t",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-6;-4;-2;0;2;4;6;8;10;12",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "where(mod(x+pi/2,2*pi)<pi,1,0)",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": "",
+     "x_range": [
+      -6.3,
+      12.6
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "where(mod(x+pi/2,2*pi)<pi,1-(1-1/(1+exp(pi)))*exp(-mod(x+pi/2,2*pi)),(1-1/(1+exp(pi)))*exp(pi-mod(x+pi/2,2*pi)))",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -6.3,
+      12.6
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@ein",
+     "position": [
+      0,
+      1.08,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#7f7f7f"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@aus",
+     "position": [
+      8.25,
+      0.92,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "t": {
+    "de": "t in s",
+    "en": "t in s",
+    "es": "t en s",
+    "zh": "t / s"
+   },
+   "ein": {
+    "de": "Eingang",
+    "en": "Input",
+    "es": "Entrada",
+    "zh": "输入"
+   },
+   "aus": {
+    "de": "Ausgang",
+    "en": "Output",
+    "es": "Salida",
+    "zh": "输出"
+   }
+  }
+ }
+}

@@ -58,3 +58,15 @@ Titel und oben im Themenbaum): Er wechselt zwischen KI- und Hand-Fassung desselb
 der Knopf grau. Die Wahl wird im Browser gemerkt, Themen-Links im Baum und in der Übersicht folgen ihr. Eine
 Hand-Fassung ohne KI-Gegenstück erscheint als eigener Eintrag im Baum. Dieselbe Markdown-Syntax wie die
 KI-Artikel (Kästen `:::formel`, `:::herleitung`, `::::beispiel`, `:::quiz` usw., Formeln in `$…$`/`$$…$$`).
+
+## Artikel aus den Arbeitsheften (vier Sprachen)
+
+Die Lernhefte in LaTeX sind die Quelle. Artikel und Bilder werden daraus erzeugt und nie von Hand geändert:
+
+1. `python tools/szenen/et3_teil<N>.py` schreibt die Editor-Szenen nach `web/szenen/et3/`. Danach sind es gewöhnliche Szenen, die sich im Editor öffnen lassen.
+2. `python tools/export_szenen.py` macht aus jeder Szene vier SVGs in `web/abbildungen/<sprache>/`. Wörter stehen in der Tabelle `strings` der Szene (`@schluessel` im Label), das Zahlformat folgt der Sprache.
+3. `python tools/heft_zu_artikel.py et3` wandelt die Hefte in `content/et3/.../*.md` um (`x.md` deutsch, `x.en.md`, `x.es.md`, `x.zh.md`). `--aux DIR` vergleicht die Nummern mit einem LaTeX-Lauf.
+4. `python build_wissen.py` baut die Seiten: Deutsch unter `/wissen/`, die anderen Sprachen unter `/wissen/en/` usw., mit derselben Adresse dahinter.
+5. `python tools/artikel_pruefen.py` prüft die gebauten Seiten im Browser (Vorschau-Server auf Port 8000): ungesetzte Formeln, tote Anker, zu breite Formeln, Reste aus den PDF-Heften.
+
+Neue Hefte: Modul in `MODULE` in `tools/heft_zu_artikel.py` eintragen. `tools/szenen_ansehen.py` zeigt Szenen als Kontaktblatt, `tools/szenen_pdf.py` macht aus den SVGs PDFs für die Prüf-PDFs der Hefte.

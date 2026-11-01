@@ -69,26 +69,102 @@ def _styled(obj, style, fill=None, default_color=(0.0, 0.0, 0.0)):
 
 
 # ---------------------------------------------------------------------------------------------
+def table_columns(s, cols):
+    """Two columns of a pasted table: `cols` = "1;3" (counted from 1). Lines that are not all numbers
+    (a header, a comment) are skipped; "nan" stays a number and later splits the curve."""
+    ci, cj = [int(c) - 1 for c in number_list(cols)[:2]]
+    out = []
+    for line in str(s).splitlines():
+        try:
+            row = [float(v) for v in re.split(r"[,;\s]+", line.strip()) if v]
+        except ValueError:
+            continue
+        if len(row) > max(ci, cj):
+            out.append((row[ci], row[cj]))
+    return out
+
+
+def stair_points(pts, where):
+    """Staircase through the points: "post" holds y until the next x (pgfplots const plot), "pre" jumps first."""
+    out = []
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        out += [(x0, y0), (x1, y0)] if where == "post" else [(x0, y0), (x0, y1)]
+    return out + pts[-1:]
+
+
+def clip_segment(a, b, box):
+    """Liang-Barsky: the part of segment a-b inside box = (x0, y0, x1, y1), or None."""
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    t0, t1 = 0.0, 1.0
+    for p, q in ((-dx, a[0] - box[0]), (dx, box[2] - a[0]), (-dy, a[1] - box[1]), (dy, box[3] - a[1])):
+        if p == 0:
+            if q < 0:
+                return None
+            continue
+        r = q / p
+        if p < 0:
+            if r > t1:
+                return None
+            t0 = max(t0, r)
+        else:
+            if r < t0:
+                return None
+            t1 = min(t1, r)
+    return (a[0] + t0 * dx, a[1] + t0 * dy), (a[0] + t1 * dx, a[1] + t1 * dy)
+
+
+def clip_run(run, box):
+    """A polyline cut to the panel: the runs of it that lie inside box (the curve splits at the edge)."""
+    out, cur = [], []
+    for a, b in zip(run, run[1:]):
+        seg = clip_segment(a, b, box)
+        if seg is None:
+            if cur:
+                out.append(cur); cur = []
+            continue
+        if cur and cur[-1] == seg[0]:
+            cur.append(seg[1])
+        else:
+            if cur:
+                out.append(cur)
+            cur = [seg[0], seg[1]]
+    if cur:
+        out.append(cur)
+    return out
+
+
 def build_data_curve(args, style, axes):
     """Curve through pasted data points (from the article's Zahlenwerk): a polyline (or a smooth
     Bézier spline) in data coords, optional dot markers. Non-finite values and values that a log
-    axis cannot show are dropped (the curve splits there)."""
+    axis cannot show are dropped (the curve splits there). `columns` ("1;3") picks two columns of a
+    pasted table, `x_factor` / `y_factor` scale them (-1 mirrors an envelope), `step` ("post", "pre")
+    draws a staircase, `clip` cuts the curve at the panel edge like a graph."""
     c2p = c2p_fn(axes)
-    pts = pairs(args.get("data", ""))
+    cols = str(args.get("columns", "") or "").strip()
+    pts = table_columns(args.get("data", ""), cols) if cols else pairs(args.get("data", ""))
+    fx, fy = float(args.get("x_factor", 1.0)), float(args.get("y_factor", 1.0))
+    pts = [(fx * x, fy * y) for x, y in pts]
+    where = str(args.get("step", "") or "")
+    if where in ("post", "pre") and len(pts) >= 2:
+        pts = stair_points(pts, where)
     obj = AnimObject()
     col = style.get("color", (0.35, 0.60, 0.92))
-    runs, cur = [], []
+    druns, cur = [], []
     for x, y in pts:
         ok = np.isfinite(x) and np.isfinite(y)
         if ok and axes is not None:
             if (getattr(axes, "x_log", False) and x <= 0) or (getattr(axes, "y_log", False) and y <= 0):
                 ok = False
         if ok:
-            cur.append(c2p(x, y))
+            cur.append((x, y))
         elif cur:
-            runs.append(cur); cur = []
+            druns.append(cur); cur = []
     if cur:
-        runs.append(cur)
+        druns.append(cur)
+    if axes is not None and args.get("clip", False):
+        box = (axes.x_min, axes.y_min, axes.x_max, axes.y_max)
+        druns = [r for run in druns for r in clip_run(run, box)]
+    runs = [[c2p(x, y) for x, y in run] for run in druns]
     smooth = bool(args.get("smooth", False))
     leaves = []
     for run in runs:
@@ -154,10 +230,15 @@ def build_band(args, style, axes):
 
 def build_stem(args, style, axes):
     """Stem plot / line spectrum: vertical stems from `baseline` to y_k at x_k, optional markers and
-    one label per stem (";"-separated, formula shorthand allowed)."""
+    one label per stem (";"-separated, formula shorthand allowed). `func` computes y_k from x_k instead of the
+    list `y`. `arrows` ends each stem in an arrowhead (Dirac impulses), `width` > 0 draws bars of that width in
+    data units, `marker` = "circle" or "square"."""
     c2p = c2p_fn(axes)
     xs = number_list(args.get("x", ""))
     ys = number_list(args.get("y", ""))
+    func = args.get("func")
+    if callable(func):
+        ys = [float(func(x)) for x in xs]
     labels = str_list(args.get("labels", ""))
     base = float(args.get("baseline", 0.0))
     if axes is not None and getattr(axes, "y_log", False) and base <= 0:
@@ -166,13 +247,39 @@ def build_stem(args, style, axes):
     sw = float(style.get("stroke_width", 3.0))
     fs = float(args.get("font_size", 24))
     r = float(args.get("marker_radius", 0.07))
+    arrows = bool(args.get("arrows", False))
+    width = float(args.get("width", 0.0) or 0.0)
+    square = str(args.get("marker", "circle")) == "square"
     obj = AnimObject()
     for i, (x, y) in enumerate(zip(xs, ys)):
         p0, p1 = c2p(x, base), c2p(x, y)
-        ln = Line(p0, p1); ln.color = col; ln.stroke_width = sw
-        obj.add(ln)
-        if args.get("markers", True):
-            d = Dot(center=p1, radius=r); d.color = col; d.fill_color = col; d.fill_opacity = 1.0; d.stroke_width = 0.0
+        if width > 0:                                  # a bar: its width lives in data units
+            bar = Polygon([c2p(x - width / 2, base), c2p(x + width / 2, base), c2p(x + width / 2, y), c2p(x - width / 2, y)])
+            bar.color = col; bar.stroke_width = 0.0
+            bar.fill_color = style.get("fill_color", col); bar.fill_opacity = float(style.get("fill_opacity", 1.0))
+            obj.add(bar)
+        elif arrows:                                   # the stem stops at the head so the tip stays sharp
+            d = p1 - p0
+            L = float(np.linalg.norm(d))
+            if L > 1e-9:
+                u = d / L
+                head = min(0.22, 0.6 * L)
+                perp = np.array([-u[1], u[0], 0.0])
+                back = p1 - head * u
+                ln = Line(p0, back); ln.color = col; ln.stroke_width = sw
+                tri = Polygon([p1, back + 0.42 * head * perp, back - 0.42 * head * perp])
+                tri.color = col; tri.fill_color = col; tri.fill_opacity = 1.0; tri.stroke_width = 0.0
+                tri._no_dash = True
+                obj.add(ln); obj.add(tri)
+        else:
+            ln = Line(p0, p1); ln.color = col; ln.stroke_width = sw
+            obj.add(ln)
+        if args.get("markers", True) and not arrows and width <= 0:
+            if square:
+                d = Polygon([p1 + np.array([sx * r, sy * r, 0.0]) for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))])
+            else:
+                d = Dot(center=p1, radius=r)
+            d.color = col; d.fill_color = col; d.fill_opacity = 1.0; d.stroke_width = 0.0
             d._no_dash = True
             obj.add(d)
         if i < len(labels) and labels[i]:

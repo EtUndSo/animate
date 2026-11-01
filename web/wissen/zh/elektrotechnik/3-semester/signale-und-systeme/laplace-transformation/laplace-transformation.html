@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>拉普拉斯变换 — EtUndSo</title>
+<meta name="description" content="每个信号都是 $\ee^{pt}$ 的叠加， 以及为什么 LTI 系统的作用因此变成乘法"/><link rel="alternate" hreflang="de" href="https://etundso.de/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html"/><link rel="alternate" hreflang="en" href="https://etundso.de/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html"/><link rel="alternate" hreflang="es" href="https://etundso.de/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html"/><link rel="alternate" hreflang="zh" href="https://etundso.de/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html"/>
+<script>try{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+try{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")==="1"&&matchMedia("(min-width:1180px)").matches))document.documentElement.classList.add("bsp-on");}catch(e){}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
+<link rel="stylesheet" href="/wissen/assets/wissen.css"/>
+</head><body data-root="/wissen/zh/">
+<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a><nav class="autor autor-top" aria-label="KI- oder von Hand geschriebene Fassung"><a class="a-btn on" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" data-autor="ki" aria-current="page" title="KI-Fassung (diese Seite)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="lbl">KI</span></a><span class="a-btn off" title="Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg><span class="lbl">Mensch</span></span></nav><div class="panelCenter"><a id="navPrev" class="navBtn" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html" title="上一篇: 信号、LTI 系统与卷积" aria-label="上一篇: 信号、LTI 系统与卷积"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></a><button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button><button id="toggleRight" class="panelBtn is-open" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button><button id="toggleBsp" class="panelBtn" aria-pressed="false" aria-label="Beispiel-Seite" title="Für diesen Artikel gibt es noch keine Beispiel-Seite" disabled><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="14.5" y1="9" x2="19" y2="9"/><line x1="14.5" y1="12.5" x2="19" y2="12.5"/><line x1="14.5" y1="16" x2="17.5" y2="16"/></svg></button><a id="navNext" class="navBtn" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html" title="下一篇: 傅里叶级数与傅里叶变换" aria-label="下一篇: 傅里叶级数与傅里叶变换"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div><nav class="langs langs-top" aria-label="Sprache"><a class="l-btn" href="/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="de">DE</a><a class="l-btn" href="/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="en">EN</a><a class="l-btn" href="/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="es">ES</a><a class="l-btn on" aria-current="true" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="zh">中文</a></nav><button id="searchBtn" class="searchBtn" aria-label="搜索"><span class="lbl">搜索</span><kbd>/</kbd></button><button id="themeBtn" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button><a class="editorlink" href="/editor.html">Editor</a></div><div id="searchOverlay" class="searchOverlay" hidden><div class="searchBox"><input id="searchInput" type="search" placeholder="主题、术语、公式 …" autocomplete="off"/><div id="searchResults" class="searchResults"></div><div class="searchHint">可以输入词的一部分。<kbd>Esc</kbd> 关闭。</div></div></div><div class="layout"><nav class="side" aria-label="Wissensbaum"><nav class="autor autor-side" aria-label="KI- oder von Hand geschriebene Fassung"><a class="a-btn on" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" data-autor="ki" aria-current="page" title="KI-Fassung (diese Seite)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="lbl">KI</span></a><span class="a-btn off" title="Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg><span class="lbl">Mensch</span></span></nav><a class="side-home" href="/wissen/zh/">全部模块</a><details class="lvl lvl0" open><summary>电气工程</summary><details class="lvl lvl1" open><summary>第 3 学期</summary><details class="lvl lvl2" open><summary>信号与系统</summary><details class="lvl lvl3"><summary>LTI 系统与卷积</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html">信号、LTI 系统与卷积</a></li></ul></details><details class="lvl lvl3" open><summary>拉普拉斯变换</summary><ul><li><a class="active" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html">拉普拉斯变换</a></li></ul></details><details class="lvl lvl3"><summary>傅里叶级数与变换</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html">傅里叶级数与傅里叶变换</a></li></ul></details><details class="lvl lvl3"><summary>采样与离散时间系统</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html">采样与离散时间系统</a></li></ul></details><details class="lvl lvl3"><summary>低通与带通系统</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html">低通与带通系统</a></li></ul></details><details class="lvl lvl3"><summary>相关函数</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html">相关函数</a></li></ul></details><details class="lvl lvl3"><summary>随机信号</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html">随机信号</a></li></ul></details><details class="lvl lvl3"><summary>正交展开与传输线</summary><ul><li><a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen/orthogonalentwicklung-und-leitungen.html">正交展开与传输线</a></li></ul></details></details></details></details></nav><main class="article"><article><nav class="crumbs"><a href="/wissen/zh/">知识库</a> › <span>电气工程</span> › <span>第 3 学期</span> › <span>信号与系统</span> › <span>拉普拉斯变换</span> <span class="apill">AI 生成</span></nav><h1>拉普拉斯变换</h1><nav class="autor autor-art" aria-label="KI- oder von Hand geschriebene Fassung"><a class="a-btn on" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" data-autor="ki" aria-current="page" title="KI-Fassung (diese Seite)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="lbl">KI</span></a><span class="a-btn off" title="Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung" aria-disabled="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg><span class="lbl">Mensch</span></span></nav><nav class="langs langs-art" aria-label="Sprache"><a class="l-btn" href="/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="de">DE</a><a class="l-btn" href="/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="en">EN</a><a class="l-btn" href="/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="es">ES</a><a class="l-btn on" aria-current="true" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html" hreflang="zh">中文</a></nav><nav class="arttoc" aria-label="本文目录"><div class="arttoc-h">本文目录</div><ul><li><a href="#x-0">本文内容</a></li><li><a href="#1-mathrm-e-pt">第 1 阶段：为什么偏偏是 $\mathrm{e}^{pt}$</a></li><li><a href="#2">第 2 阶段：完全由基本分量构成的信号</a></li><li><a href="#3">第 3 阶段：卷积变成乘法</a></li><li><a href="#4">第 4 阶段：积分变成求和</a></li><li><a href="#5">第 5 阶段：为什么输入也要变换</a></li></ul></nav><section class="sect">
+<h2 id="x-0">本文内容</h2>
+<details class="frage"><summary><span class="fr-k">问题</span>从代入特征函数的卷积积分得到 $H(p)$ 的这段计算，我已经理解了。但我觉得拉普拉斯变换背后远不止这条计算规则：任意函数都可以写成复指数函数之和。</summary><div class="fr-body"><p>这个猜想抓住了问题的核心。没有它，特征函数的那段计算只不过是个奇特的结论，因为它本身只对 $\mathrm{e}^{pt}$ 这一个信号成立。正是因为（几乎）每个信号都能由这样的基本分量（构件）组合而成，它才能对<em>每个</em>输入信号给出结论。以下三点细化使这个猜想变得精确：</p>
+<ol>
+<li>
+<p>一般来说，它不是求和，而是<em>积分</em>：无穷多个基本分量 $\mathrm{e}^{pt}$，每个都带有无穷小的权重。这些基本分量位于 $p$ 平面中的一条竖直线 $\textcolor{#e5383b}{\operatorname{Re} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma}$ 上（第 <a href="#stufe-2">2</a> 阶段）。</p>
+</li>
+<li>
+<p>并非任意函数都可以，而是存在收敛域的函数：它在时间轴每一侧至多按指数增长，并且必须有同一个衰减因子能同时抑制两侧（第 <a href="#stufe-2-3">2.3</a> 节）。</p>
+</li>
+<li>
+<p>若 $S(p)$ 是多项式之比，积分确实会变成<em>有限和</em> $\sum_r A_r\,\mathrm{e}^{p_r t}$。指数 $p_r$ 就是 $S(p)$ 的极点（第 <a href="#stufe-4">4</a> 阶段）。</p>
+</li>
+</ol></div></details>
+<aside class="callout cx-merke"><div class="callout-h">三句话的答案（读完本文后应觉得理所当然）</div><ol>
+<li>
+<p>LTI 系统对基本分量 $\mathrm{e}^{pt}$ 只能乘以一个数 $H(p)$，因为对 $\mathrm{e}^{pt}$ 而言，平移就等同于相乘。</p>
+</li>
+<li>
+<p>每个存在收敛域的信号都是这类基本分量的叠加。$S(p)$ 给出基本分量 $\mathrm{e}^{pt}$ 以多大的权重包含在信号中。</p>
+</li>
+<li>
+<p>正因如此，卷积变成了乘法：$\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(p)\,S(p)}$。若 $S(p)$ 是有理函数，信号就是以极点为指数的有限和 $\sum_r A_r\mathrm{e}^{p_r t}$。</p>
+</li>
+</ol></aside>
+<p><strong>所有结果背后的同一个原理。</strong> 关于拉普拉斯变换的几乎每一个结果都由这三句话推出。下表给出每个结果的来源，各阶段对其加以解释。</p>
+<div class="table-wrap"><table class="md-table"><thead><tr><th>结果</th><th>来源</th></tr></thead><tbody><tr><td>特征函数 $\mathrm{e}^{pt}$，传递函数 $H(p)$</td><td>平移 $\mathrm{e}^{pt}$ 就是乘以 $\mathrm{e}^{-p\tau}$（第 <a href="#stufe-1">1</a> 阶段）</td></tr><tr><td>拉普拉斯变换 $S(p)$</td><td>基本分量 $\mathrm{e}^{pt}$ 在信号中的权重（第 <a href="#stufe-2">2</a> 阶段）</td></tr><tr><td>收敛域</td><td>使 $s(t)\mathrm{e}^{-\sigma t}$ 绝对可积的所有衰减率 $\sigma$（第 <a href="#stufe-2-3">2.3</a> 节）</td></tr><tr><td>卷积 $\to$ 乘积，级联</td><td>每个基本分量都乘以 $H(p)$（第 <a href="#stufe-3">3</a> 阶段）</td></tr><tr><td>求导 $\to p$，积分 $\to 1/p$</td><td>$\textcolor{#e5383b}{\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{pt}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{p\,\mathrm{e}^{pt}}$ 和 $\textcolor{#e5383b}{\int_{-\infty}^t\mathrm{e}^{p\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{pt}/p}$（第 <a href="#stufe-3">3</a> 阶段）</td></tr><tr><td>微分方程 $\to$ 多项式之比</td><td>每次求导变成一个因子 $p$（第 <a href="#stufe-3">3</a> 阶段）</td></tr><tr><td>极点，部分分式</td><td>有限个基本分量的指数和权重（第 <a href="#stufe-4">4</a> 阶段）</td></tr><tr><td>稳定性</td><td>因果基本分量 $\mathrm{e}^{p_r t}$ 仅当 $\operatorname{Re} p_r&lt;0$ 时才衰减（第 <a href="#stufe-4">4</a> 阶段）</td></tr><tr><td>傅里叶变换</td><td>直线 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 上的同一种叠加（第 <a href="#stufe-2">2</a> 阶段）</td></tr></tbody></table></div>
+<p><strong>如何使用本文。</strong>每个阶段包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。</p>
+<aside class="callout cx-merke"><div class="callout-h">本文的参考模型</div><p>所有例子都使用同样的两个要素：</p>
+<ul>
+<li>
+<p>一个 $\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 的 <strong>RC 低通滤波器</strong>（例如 $\textcolor{#e5383b}{R}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1\,\mathrm{M\Omega}}$，$\textcolor{#e5383b}{C}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1\,\mu\text{F}}$）。它的冲激响应和传递函数为</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-t}\varepsilon(t),}$$</div><div class="mcell">$$\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{1+pRC}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p+1},\quad \operatorname{Re} p&gt;-1,}$$</div></div>
+<p>其中 $t$ 的单位为 s，$p$ 的单位为 $1/\mathrm{s}$；</p>
+</li>
+<li>
+<p>⁠<strong>单位阶跃</strong> $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\varepsilon(t)}$，其 $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$，$\operatorname{Re} p&gt;0$。</p>
+</li>
+</ul>
+<p>脚本 <code>rechnung_kap2.py</code> 可重新计算文中的数值和曲线。</p></aside>
+</section>
+<section class="sect">
+<h2 id="1-mathrm-e-pt">第 1 阶段：为什么偏偏是 $\mathrm{e}^{pt}$</h2>
+<span class="anker" id="stufe-1"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>把 $\mathrm{e}^{pt}$ 代入卷积积分，结果是 $H(p)\,\mathrm{e}^{pt}$：$\mathrm{e}^{pt}$ 是一个特征函数。本阶段探讨 $\mathrm{e}^{pt}$ 的哪种性质导致了这一点，以及为什么基本分量必须取复数形式。</p></div>
+<p><strong>思路。</strong> 卷积积分</p>
+<p>$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}h(\tau)\,s(t-\tau)\,\mathrm{d}\tau}$$</p>
+<p>可以这样理解：输出是输入的<em>延迟副本</em>之和。延迟为 $\tau$ 的副本以权重 $h(\tau)\,\mathrm{d}\tau$ 计入。对于任意形状的信号，每个延迟副本看起来都与原信号不同，求和后得到新的形状。$\mathrm{e}^{pt}$ 则不然：</p>
+<p>$$\textcolor{#e5383b}{\mathrm{e}^{p(t-\tau)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-p\tau}\cdot\mathrm{e}^{pt}.}$$</p>
+<p>延迟 $\tau$ 的作用相当于乘以<em>常数</em> $\mathrm{e}^{-p\tau}$。所有副本都是同一个函数 $\mathrm{e}^{pt}$ 的倍数，它们的和也是如此：</p>
+<span class="anker" id="gl-1-1"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{\mathrm{e}^{pt}*h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{pt}\underbrace{\int_{-\infty}^{\infty}h(\tau)\,\mathrm{e}^{-p\tau}\,\mathrm{d}\tau}_{H(p)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(p)\,\mathrm{e}^{pt}.}$$</div><div class="gl-nr"><span>(1.1)</span></div></div>
+<p>⁠<strong>简而言之：</strong>$\mathrm{e}^{pt}$ 之所以是特征函数，是因为对 $\mathrm{e}^{pt}$ 而言，平移就等同于相乘。</p>
+<p><strong>$p$ 的含义。</strong> 令 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma+\mathrm{j}2\pi f}$，基本分量分解为两个因子：</p>
+<p>$$\textcolor{#e5383b}{\mathrm{e}^{pt}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{\sigma t}\cdot\mathrm{e}^{\mathrm{j}2\pi ft}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{\sigma t}\bigl[\cos(2\pi ft)+\mathrm{j}\sin(2\pi ft)\bigr].}$$</p>
+<p>实部 $\sigma$（单位 $1/\mathrm s$）是<strong class="nm">增长率</strong>：$\sigma&lt;0$ 时基本分量衰减，$\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 时以恒定幅度振荡，$\sigma&gt;0$ 时增长。虚部 $2\pi f$ 决定振荡的<strong class="nm">频率</strong>。因此 $p$ 平面上的每一点都是一个基本分量，点的位置告诉你它是什么样子（图 <a href="#abb-1">1</a>）。</p>
+<figure class="abb" id="abb-1"><img src="/abbildungen/zh/et3/k2bausteine.svg" width="514" height="393" alt="p 平面：基本分量的地图。左：四个点 p 。右：每个点对应的实部 Re\ e pt \ =e sigma t cos(2pi ft) 及包络 pme sigma t （虚线）。点 b、c、d 的 2pi f=pi/mathrm s ，即 f=0.5 Hz。到虚轴的距离决定衰减还是增长，高度决定频率。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 1</span> $p$ 平面：基本分量的地图。左：四个点 $p$。右：每个点对应的实部 $\textcolor{#e5383b}{\operatorname{Re}\{\mathrm{e}^{pt}\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{\sigma t}\cos(2\pi ft)}$ 及包络 $\pm\mathrm{e}^{\sigma t}$（虚线）。点 b、c、d 的 $\textcolor{#e5383b}{2\pi f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\pi/\mathrm s}$，即 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5}$ Hz。到虚轴的距离决定衰减还是增长，高度决定频率。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k2bausteine.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<details class="frage"><summary><span class="fr-k">问题</span>为什么要用复数？正弦也是一种简单的信号啊。</summary><div class="fr-body"><p>正弦平移后不只是被缩放。令 $\textcolor{#e5383b}{\omega_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\pi f_0}$，有</p>
+<p>$$\textcolor{#e5383b}{\sin\bigl(\omega_0(t-\tau)\bigr)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\cos(\omega_0\tau)\,\sin(\omega_0t)-\sin(\omega_0\tau)\,\cos(\omega_0t).}$$</p>
+<p>这里出现了余弦分量，因此延迟副本的形状不同。这就是为什么系统对 $\sin(\omega_0t)$ 的响应是 $|H|\sin(\omega_0t+\varphi)$：幅度<em>和相位</em>都发生变化。相移无法写成乘以一个实数，但可以写成乘以复数 $\mathrm{e}^{\mathrm{j}\varphi}$。这就是基本分量取复数形式的原因：单个数 $H(p)$ 同时携带幅度和相位。一个实正弦由两个基本分量组成，$\textcolor{#e5383b}{\sin(\omega_0t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\bigl(\mathrm{e}^{\mathrm{j}\omega_0t}-\mathrm{e}^{-\mathrm{j}\omega_0t}\bigr)/(2\mathrm{j})}$，二者各自乘以自己的那个数（练习 <a href="#aufg-1">1</a>d）。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>为什么 $\mathrm{e}^{pt}$ 是<em>每个</em> LTI 系统的特征函数，尽管这些系统千差万别？</summary><div class="fr-body"><p>特征函数的形式仅由时不变性（平移 = 相乘）决定，而所有 LTI 系统都具有这一性质。只有因子 $H(p)$ 与系统有关，因为它包含了权重 $h(\tau)$。因此，<em>同一组</em>基本分量同时适用于所有 LTI 系统。正是这一点使拉普拉斯变换具有普适性。</p></div></details>
+<aside class="callout cx-zusatz"><div class="callout-h">拓展阅读（后续内容不需要）: 只有指数函数具有这一性质</div><p>寻找一个满足 $\textcolor{#e5383b}{x(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ 的可微函数 $x(t)$，使它的平移副本都是它自身的倍数：对所有 $t,u$ 有 $\textcolor{#e5383b}{x(t+u)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{c(u)\,x(t)}$。令 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 得 $\textcolor{#e5383b}{c(u)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{x(u)}$，于是 $\textcolor{#e5383b}{x(t+u)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{x(t)\,x(u)}$。在 $\textcolor{#e5383b}{u}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处对 $u$ 求导，得 $\textcolor{#e5383b}{x'(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{x'(0)\,x(t)}$。这是微分方程 $\textcolor{#e5383b}{x'}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{p\,x}$，其中 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{x'(0)}$，它满足 $\textcolor{#e5383b}{x(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ 的解为 $\textcolor{#e5383b}{x(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{pt}}$。因此，不存在其他具有这一性质的基本分量。</p></aside>
+<details class="frage"><summary><span class="fr-k">问题</span>指数函数是 LTI 系统唯一可能的特征函数吗？</summary><div class="fr-body"><p>这里必须区分两个问题。</p>
+<p>⁠**同时作为<em>所有</em> LTI 系统的特征函数：是的，只有 $c\,\mathrm{e}^{pt}$。**理想延时单元 $\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s(t-u)}$ 本身就是一个 LTI 系统，而且对任意延时 $u$ 都是。因此，一个对每个 LTI 系统都是特征函数的函数，在任意平移下都必须变成它自身的倍数。根据上面的方框，只有 $\mathrm{e}^{pt}$ 满足这一点。</p>
+<p>⁠**作为某个<em>特定</em>系统的特征函数：不止这些。**系统把每个基本分量 $\mathrm{e}^{p_kt}$ 乘以它自己的数 $H(p_k)$。和式 $\sum_kc_k\mathrm{e}^{p_kt}$ 仍是它自身的倍数，当且仅当所有这些因子都相等，即 $\textcolor{#e5383b}{H(p_k)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\lambda}$。这个公共因子 $\lambda$ 就是特征值。两个例子：</p>
+<ul>
+<li>
+<p>延时 $T$ 的理想延时单元：$\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-pT}}$ 在所有点 $\textcolor{#e5383b}{p_k}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}2\pi k/T}$ 处取相同的值 1。每个周期为 $T$ 的信号都是特征值为 1 的特征函数，因为 $\textcolor{#e5383b}{s(t-T)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s(t)}$。</p>
+</li>
+<li>
+<p>无时延的理想低通，在整个通带内 $\textcolor{#e5383b}{H(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$：频谱完全位于通带内的每个信号都原样输出，是特征值为 1 的特征函数。</p>
+</li>
+</ul>
+<p>而对 RC 电路，$\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(1+pRC)}$ 的每个值只取一次。在那里，单个的 $c\,\mathrm{e}^{pt}$（$p$ 在收敛域内）是能由基本分量组成的唯一特征函数。</p>
+<p>⁠<strong>简而言之：</strong>$\mathrm{e}^{pt}$ 是<em>每个</em> LTI 系统都具有的唯一特征函数。单个系统如果把若干基本分量都乘以同一个数，那么这些基本分量的混合也是它的特征函数。</p></div></details>
+<details class="ltspice"><summary><span class="lt-k">LTspice</span>实验中的特征函数</summary><div class="lt-body"><p>⁠<strong>绘制：</strong>RC 电路（<code>res</code> 取 <code>1Meg</code>，从 <code>in</code> 接到 <code>out</code>；<code>cap</code> 取 <code>1u</code>，接地）。信号源用行为源 <code>bv</code>，取 <code>V=exp(-time/2)</code>，即 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-0.5/\mathrm s}$ 的基本分量。</p>
+<p>⁠<strong>指令：</strong><code>.tran 0 10 0 1m</code> 和 <code>.ic V(out)=X</code>，其中 $X$ 取一个数：电容从 $X$ 伏开始。用“Add Traces”画出表达式 <code>V(out)/V(in)</code>。</p>
+<p>⁠<strong>你会看到：</strong>如果把 $X$ 设为你在练习 <a href="#aufg-1">1</a>(b) 中所得结果在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 时的值，这个比值从一开始就是常数：输出等于一个数乘以输入。若 $\textcolor{#e5383b}{X}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，它要经过几秒钟才趋于同一个数。原因在于：一个一直存在的输入，会在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 时恰好把电容充电到这个值。RC 电路以 $\mathrm{e}^{-t}$ 消除任何其他的初始电压，这比输入按 $\mathrm{e}^{-t/2}$ 衰减更快。</p>
+<p>⁠<strong>对于 (d)：</strong>电压源 <code>voltage</code> 取 <code>SINE(0 1 {1/(2*pi)} 0 0 90)</code>，即 $\cos t$。把暂态过程结束后 <code>V(out)</code> 的幅度和滞后与你在练习 <a href="#aufg-1">1</a>(d) 中的结果比较。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 1 ★ 是不是特征函数？</div><div class="aufg-b"><span class="anker" id="aufg-1"></span>
+<p>使用参考模型中的 RC 低通滤波器，$\textcolor{#e5383b}{h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-t}\varepsilon(t)}$。</p>
+<ol class="al">
+<li>
+<p>计算 $\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int h(t)\,\mathrm{e}^{-pt}\mathrm{d} t}$。积分对哪些 $p$ 收敛？为什么这只取决于 $\operatorname{Re} p$？</p>
+</li>
+<li>
+<p>输入 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-t/2}}$（对所有 $t$）。分别直接用卷积积分和用 $H(p)$ 计算输出。这个基本分量的 $p$ 是多少？</p>
+</li>
+<li>
+<p>输入 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{t}$（对所有 $t$）。用卷积积分证明输出为 $\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{t-1}$。尽管输出看起来相似，为什么 $t$ 不是特征函数？$-1$ 对电容意味着什么？</p>
+</li>
+<li>
+<p>输入 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\cos t}$（即 $\textcolor{#e5383b}{\omega_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/\mathrm s}$）。把余弦分解为两个基本分量，各自乘以对应的 $H(p)$，再合成起来。证明 $\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{A\cos(t+\varphi)}$，并求 $A$ 和 $\varphi$。$\cos t$ 是特征函数吗？</p>
+</li>
+</ol>
+<p>⁠<em>(c) 的提示：</em>$\textcolor{#e5383b}{\int_0^\infty\mathrm{e}^{-\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，$\textcolor{#e5383b}{\int_0^\infty\tau\,\mathrm{e}^{-\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。</p>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_0^\infty\mathrm{e}^{-\tau}\mathrm{e}^{-p\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_0^\infty\mathrm{e}^{-(p+1)\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1}{p+1}}$。积分当且仅当 $\textcolor{#e5383b}{|\mathrm{e}^{-(p+1)\tau}|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-(\sigma+1)\tau}}$ 衰减时收敛，即 $\operatorname{Re} p&gt;-1$。模只取决于 $\sigma$，因为 $\textcolor{#e5383b}{|\mathrm{e}^{-\mathrm{j}2\pi f\tau}|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。</p>
+<p>(b) 直接计算：</p>
+<p>$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_0^\infty\mathrm{e}^{-\tau}\,\mathrm{e}^{-(t-\tau)/2}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-t/2}\int_0^\infty\mathrm{e}^{-\tau/2}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\,\mathrm{e}^{-t/2}.}$$</p>
+<p>用 $H(p)$：该基本分量的 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\tfrac12}$（实数，无振荡）。这个值位于收敛域内，$\textcolor{#e5383b}{H(-\tfrac12)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(\tfrac12)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$，因此 $\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\,\mathrm{e}^{-t/2}}$。两种途径结果一致（数值：$\textcolor{#e5383b}{g(1\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1.2131}$）。</p>
+<p>(c) $\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_0^\infty\mathrm{e}^{-\tau}(t-\tau)\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{t\int_0^\infty\mathrm{e}^{-\tau}\mathrm{d}\tau-\int_0^\infty\tau\mathrm{e}^{-\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{t-1}$。 这不是 $t$ 的倍数：延迟副本 $t-\tau$ 不是 $t$ 的倍数（因子 $1-\tau/t$ 依赖于 $t$ 本身）。输出是<em>平移后</em>的斜坡：电容电压以 $\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 的延迟跟随输入斜坡。形状相同，但被平移而非被缩放，因此不是特征函数。</p>
+<p>(d) $\textcolor{#e5383b}{\cos t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12\mathrm{e}^{\mathrm{j} t}+\tfrac12\mathrm{e}^{-\mathrm{j} t}}$，基本分量位于 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\pm\mathrm{j}}$，两者都在收敛域内（$\textcolor{#e5383b}{\operatorname{Re} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0&gt;-1}$）。</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{H(\mathrm{j})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{1+\mathrm{j}}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\sqrt2}\,\mathrm{e}^{-\mathrm{j}\pi/4},}$$</div><div class="mcell">$$\textcolor{#e5383b}{H(-\mathrm{j})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(\mathrm{j})^*}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\sqrt2}\,\mathrm{e}^{+\mathrm{j}\pi/4}.}$$</div></div>
+<p>$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\tfrac12H(\mathrm{j})\mathrm{e}^{\mathrm{j} t}+\tfrac12H(-\mathrm{j})\mathrm{e}^{-\mathrm{j} t}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\operatorname{Re}\bigl\{H(\mathrm{j})\mathrm{e}^{\mathrm{j} t}\bigr\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\sqrt2}\cos\Bigl(t-\frac\pi4\Bigr).}$$</p>
+<p>所以 $\textcolor{#e5383b}{A}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/\sqrt2}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{0.707}$，$\textcolor{#e5383b}{\varphi}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-45^\circ}$（数值：$\textcolor{#e5383b}{g(1\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.6909}$）。两个复基本分量各自都是特征函数，但它们的和 $\cos t$ 不是：两个基本分量被乘以<em>不同的</em>数，$H(\mathrm{j})\neq H(-\mathrm{j})$。这使相位发生了移动。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="2">第 2 阶段：完全由基本分量构成的信号</h2>
+<span class="anker" id="stufe-2"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>第 <a href="#stufe-1">1</a> 阶段的结论适用于单个基本分量。只有当每个信号都能由基本分量 $\mathrm{e}^{pt}$ 构成时，它才真正有用。本阶段说明这确实可行、权重叫什么，以及其局限在哪里。</p></div>
+<h3 id="sigma-0">出发点 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$：纯振荡</h3>
+<span class="anker" id="stufe-2-1"></span>
+<p>在虚轴上（$\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$），基本分量是纯振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$。<strong class="nm">绝对可积</strong>的信号（$\int|s(t)|\,\mathrm{d} t&lt;\infty$，即在两侧都衰减得足够快）可以由它们构成。这就是傅里叶表示，将在关于傅里叶变换的部分中详细讨论：</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}\mathcal{F}\{s\}(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f,}$$</div><div class="mcell">$$\textcolor{#e5383b}{\mathcal{F}\{s\}(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t.}$$</div></div>
+<p>对于系统理论中的许多信号，这还不够。阶跃 $\varepsilon(t)$ 不衰减，而 $\mathrm{e}^{2t}\varepsilon(t)$（一个不稳定系统的冲激响应）甚至会增长。无界增长的信号无法由恒定幅度的振荡构成。</p>
+<h3 id="x-4">技巧：衰减、分解、再乘回</h3>
+<span class="anker" id="stufe-2-2"></span>
+<p><strong>思路。</strong> 先使信号变得可分解，之后再撤销这一改动：</p>
+<ol>
+<li>
+<p>⁠<strong>衰减。</strong>乘以 $\mathrm{e}^{-\sigma t}$。若右边信号至多按 $\mathrm{e}^{\alpha t}$ 增长，则对每个 $\sigma&gt;\alpha$，$s(t)\,\mathrm{e}^{-\sigma t}$ 都衰减且绝对可积。</p>
+</li>
+<li>
+<p>⁠<strong>分解。</strong>衰减后的信号是纯振荡的叠加。它的傅里叶频谱恰好就是拉普拉斯变换 $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s(t)\,\mathrm{e}^{-pt}\mathrm{d} t}$ 在直线 $\textcolor{#e5383b}{\operatorname{Re} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma}$ 上的取值（练习 <a href="#aufg-2">2</a>）：</p>
+<p>$$\textcolor{#e5383b}{\mathcal{F}\bigl\{s(t)\,\mathrm{e}^{-\sigma t}\bigr\}(f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(\sigma+\mathrm{j}2\pi f).}$$</p>
+</li>
+<li>
+<p>⁠<strong>再乘回。</strong>把分解式乘以 $\mathrm{e}^{\sigma t}$。该因子与 $f$ 无关，可以移入积分号内。在那里，它把每个振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$ 变成基本分量 $\textcolor{#e5383b}{\mathrm{e}^{(\sigma+\mathrm{j}2\pi f)t}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{pt}}$。</p>
+</li>
+</ol>
+<p>结果正是所猜想的叠加。</p>
+<aside class="callout cx-satz"><div class="callout-h">定理 2.1 (拉普拉斯变换的反演公式)</div><span class="anker" id="satz-2-1"></span>
+<p>若 $\sigma$ 位于 $S(p)$ 的收敛域内，则</p>
+<span class="anker" id="gl-2-1"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p }\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}S(\sigma+\mathrm{j}2\pi f)\,\mathrm{e}^{(\sigma+\mathrm{j}2\pi f)t}\,\mathrm{d} f.}$$</div><div class="gl-nr"><span>(2.1)</span></div></div></aside>
+<p>⁠<strong>如何理解：</strong></p>
+<ul>
+<li>
+<p>积分路径是 $p$ 平面中的竖直线 $\textcolor{#e5383b}{\operatorname{Re} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma}$，方向自下而上（$f$ 从 $-\infty$ 到 $+\infty$，图 <a href="#abb-2">2</a>）。</p>
+</li>
+<li>
+<p>$\mathrm{e}^{pt}$ 是基本分量，$\textcolor{#e5383b}{S(p)\,\mathrm{d} p/(2\pi\mathrm{j})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(\sigma+\mathrm{j}2\pi f)\,\mathrm{d} f}$ 是它的复权重。$S(p)$ 本身是一个<strong class="nm">密度</strong>：单位频率区间上的权重。若 $s$ 是以 V 为单位的电压，则 $S$ 的单位为 V s。</p>
+</li>
+<li>
+<p>该积分理解为极限 $\lim_{F\to\infty}\int_{-F}^{F}\dots\mathrm{d} f$。在 $s$ 连续的每一点，它给出 $s(t)$；在跳变点，它给出左极限与右极限的平均值。</p>
+</li>
+</ul>
+<p>⁠<strong>极限情形 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$：</strong>若虚轴位于收敛域内，可以选取 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$。此时 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}2\pi f}$，式 <a href="#gl-2-1">(2.1)</a> 就变成傅里叶反演公式。拉普拉斯变换把傅里叶变换作为特例包含在内。</p>
+<details class="herleitung"><summary>推导: 由傅里叶反演公式得到反演公式</summary><div class="hl-body"><p>由第 2 步，$S(\sigma+\mathrm{j}2\pi f)$ 是 $s(t)\mathrm{e}^{-\sigma t}$ 的傅里叶频谱。傅里叶反演公式给出</p>
+<p>$$\textcolor{#e5383b}{s(t)\,\mathrm{e}^{-\sigma t}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}S(\sigma+\mathrm{j}2\pi f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f.}$$</p>
+<p>乘以与 $f$ 无关的 $\mathrm{e}^{\sigma t}$：</p>
+<p>$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-\infty}^{\infty}S(\sigma+\mathrm{j}2\pi f)\,\mathrm{e}^{(\sigma+\mathrm{j}2\pi f)t}\,\mathrm{d} f.}$$</p>
+<p>在 $\sigma$ 固定的情况下作代换 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma+\mathrm{j}2\pi f}$：$\textcolor{#e5383b}{\mathrm{d} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}2\pi\,\mathrm{d} f}$，即 $\textcolor{#e5383b}{\mathrm{d} f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{d} p/(2\pi\mathrm{j})}$。积分限 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mp\infty}$ 变为 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma\mp\mathrm{j}\infty}$：</p>
+<p>$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p.}$$</p></div></details>
+<p><strong>例：由基本分量合成阶跃。</strong> 对于 $\varepsilon(t)$，$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$，$\operatorname{Re} p&gt;0$。我们选取 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5/\mathrm s}$（图 <a href="#abb-2">2</a>）。图 <a href="#abb-3">3</a> 显示了只叠加 $|f|\le F$ 的基本分量所得的结果。在 $\textcolor{#e5383b}{F}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.25}$ Hz 时就已能认出阶跃的形状。随着 $F$ 增大，边沿变得更陡；在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处曲线趋于平均值 $\tfrac12$（0.40、0.47、0.49），在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-1}$ s 处趋于零（0.053、0.029、0.008）。</p>
+<figure class="abb" id="abb-2"><img src="/abbildungen/zh/et3/k2linie.svg" width="386" height="434" alt="阶跃 varepsilon(t) 的 p 平面， S(p)=1/p 。收敛域（蓝色阴影）位于极点 p=0 的右侧。其中任何一条竖直线都可以作为积分路径；这里取 sigma=0.5/mathrm s 。直线上的每一点都是一个基本分量 e pt ，其权重为 S(p) 。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 2</span> 阶跃 $\varepsilon(t)$ 的 $p$ 平面，$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$。收敛域（蓝色阴影）位于极点 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 的右侧。其中任何一条竖直线都可以作为积分路径；这里取 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5/\mathrm s}$。直线上的每一点都是一个基本分量 $\mathrm{e}^{pt}$，其权重为 $S(p)$。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k2linie.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<figure class="abb" id="abb-3"><img src="/abbildungen/zh/et3/k2sprung.svg" width="503" height="347" alt="由直线 Re p=0.5/mathrm s 上的基本分量 e pt 叠加而成的阶跃，只保留 |f|le F 的基本分量： s F(t)=int -F F S(sigma+j2pi f)\,e (sigma+j2pi f)t d f ，其中 S(p)=1/p 。基本分量越多，阶跃越精确；在 t=0 处曲线趋于 tfrac12 。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 3</span> 由直线 $\textcolor{#e5383b}{\operatorname{Re} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5/\mathrm s}$ 上的基本分量 $\mathrm{e}^{pt}$ 叠加而成的阶跃，只保留 $|f|\le F$ 的基本分量：$\textcolor{#e5383b}{s_F(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_{-F}^{F}S(\sigma+\mathrm{j}2\pi f)\,\mathrm{e}^{(\sigma+\mathrm{j}2\pi f)t}\mathrm{d} f}$，其中 $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$。基本分量越多，阶跃越精确；在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 处曲线趋于 $\tfrac12$。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k2sprung.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<details class="frage"><summary><span class="fr-k">问题</span>所有基本分量都是复的。为什么得到的是一条实曲线？</summary><div class="fr-body"><p>基本分量成对出现：$f$ 与 $-f$ 配对，因而 $p$ 与共轭点 $p^*$ 配对。对于实信号，该处的权重是复共轭，$\textcolor{#e5383b}{S(p^*)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(p)^*}$（对实的 $s$ 计算 $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s(t)\mathrm{e}^{-pt}\mathrm{d} t}$ 即可看出）。每一对给出 $\textcolor{#e5383b}{S\mathrm{e}^{pt}+(S\mathrm{e}^{pt})^*}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\operatorname{Re}\{S(p)\mathrm{e}^{pt}\}}$，即一个实的衰减或增长振荡。虚部成对抵消。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>那么它到底是求和还是积分？</summary><div class="fr-body"><p>一般是积分：直线上分布着连续的基本分量，每个的权重都是无穷小量 $S\,\mathrm{d} f$。在一种重要情形下会出现真正的有限项求和：$S(p)$ 是多项式之比时。此时信号是位于各极点处的基本分量之和（第 <a href="#stufe-4">4</a> 阶段）。无穷多项之和则是周期信号的傅里叶级数。</p></div></details>
+<h3 id="x-5">收敛域：哪些衰减率可行</h3>
+<span class="anker" id="stufe-2-3"></span>
+<p><strong>思路。</strong> 因子 $\mathrm{e}^{-\sigma t}$ 作用于时间轴的两侧，但作用相反。对 $t\to+\infty$，$\sigma$ 越大，衰减越强。对 $t\to-\infty$，$\textcolor{#e5383b}{\mathrm{e}^{-\sigma t}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{\sigma|t|}}$，因此在这一侧大的 $\sigma$ 起放大作用。由此得到收敛域的三种形状：</p>
+<ul>
+<li>
+<p>⁠<strong>右边信号</strong>，$t&lt;0$ 时 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，至多按 $\mathrm{e}^{\alpha t}$ 增长：每个 $\sigma&gt;\alpha$ 都可行。收敛域：某条边界<em>右侧</em>的半平面。</p>
+</li>
+<li>
+<p>⁠<strong>左边信号</strong>：只有 $t\to-\infty$ 这一侧起作用，小的 $\sigma$ 有利。收敛域：某条边界<em>左侧</em>的半平面。</p>
+</li>
+<li>
+<p>⁠<strong>双边信号</strong>：两个条件必须同时满足。收敛域：一个<em>带状区域</em>，也可能为空。</p>
+</li>
+</ul>
+<p>为什么边界总是竖直的？因为 $\textcolor{#e5383b}{|\mathrm{e}^{-pt}|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-\sigma t}}$。$\int|s(t)\mathrm{e}^{-pt}|\mathrm{d} t$ 是否有限只取决于 $\sigma$，与 $f$ 无关。</p>
+<p>⁠<strong>简而言之：</strong>收敛域是使 $s(t)\,\mathrm{e}^{-\sigma t}$ 绝对可积的所有衰减率 $\sigma$ 的集合。</p>
+<aside class="callout cx-merke"><div class="callout-h">基本变换对（全册通用）</div><p>对任意复数 $p_0$：</p>
+<span class="anker" id="gl-2-2"></span>
+<span class="anker" id="gl-2-3"></span>
+<span class="anker" id="gl-2-4"></span>
+<span class="anker" id="gl-2-5"></span>
+<div class="gl-zeile"><div class="gl-f">$$\begin{aligned} \mathrm{e}^{p_0t}\,\varepsilon(t)\quad&amp;\longleftrightarrow\quad\frac{1}{p-p_0},&amp;&amp;\operatorname{Re} p&gt;\operatorname{Re} p_0,\\ -\mathrm{e}^{p_0t}\,\varepsilon(-t)\quad&amp;\longleftrightarrow\quad\frac{1}{p-p_0},&amp;&amp;\operatorname{Re} p&lt;\operatorname{Re} p_0,\\ \delta(t)\quad&amp;\longleftrightarrow\quad1,&amp;&amp;\text{所有 $p$},\\ t\,\varepsilon(t)\quad&amp;\longleftrightarrow\quad\frac{1}{p^2},&amp;&amp;\operatorname{Re} p&gt;0. \end{aligned}$$</div><div class="gl-nr"><span>(2.2)</span><span>(2.3)</span><span>(2.4)</span><span>(2.5)</span></div></div>
+<p>取 $\textcolor{#e5383b}{p_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，由式 <a href="#gl-2-2">(2.2)</a> 得到阶跃：$\varepsilon(t)\leftrightarrow1/p$，$\operatorname{Re} p&gt;0$。前两行的表达式<em>相同</em>，收敛域却不同：只有表达式和收敛域一起才能确定信号。</p></aside>
+<details class="herleitung"><summary>推导: 基本变换对</summary><div class="hl-body"><p><a href="#gl-2-2">(2.2)</a>：$\textcolor{#e5383b}{\int_0^\infty\mathrm{e}^{-(p-p_0)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\Bigl[\frac{-\mathrm{e}^{-(p-p_0)t}}{p-p_0}\Bigr]_0^\infty}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p-p_0}}$。上限处的值当且仅当 $\operatorname{Re}(p-p_0)&gt;0$ 时为零。</p>
+<p><a href="#gl-2-3">(2.3)</a>：$\textcolor{#e5383b}{-\int_{-\infty}^0\mathrm{e}^{-(p-p_0)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\Bigl[\frac{-\mathrm{e}^{-(p-p_0)t}}{p-p_0}\Bigr]_{-\infty}^0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p-p_0}}$。$t\to-\infty$ 时的值当且仅当 $\operatorname{Re}(p-p_0)&lt;0$ 时为零。</p>
+<p><a href="#gl-2-4">(2.4)</a>：筛选性质，$\textcolor{#e5383b}{\int\delta(t)\mathrm{e}^{-pt}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{0}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$。</p>
+<p><a href="#gl-2-5">(2.5)</a>：分部积分，$\textcolor{#e5383b}{\int_0^\infty t\,\mathrm{e}^{-pt}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\Bigl[\frac{-t\,\mathrm{e}^{-pt}}{p}\Bigr]_0^\infty+\frac1p\int_0^\infty\mathrm{e}^{-pt}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0+\frac{1}{p^2}}$，$\operatorname{Re} p&gt;0$。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>计算 $\int_0^\infty\mathrm{e}^{-bt}\mathrm{e}^{-pt}\mathrm{d} t$ 时，为什么指数项消失了？为什么结果是 $\frac{1}{b+p}$ 而不是 $\frac{1}{-(b+p)}$？</summary><div class="fr-body"><p>两者都源于代入积分限。$\mathrm{e}^{-(b+p)t}$ 的原函数是 $-\frac{\mathrm{e}^{-(b+p)t}}{b+p}$，带负号是因为求导会产生因子 $-(b+p)$。然后计算“上限值减下限值”：</p>
+<p>$$\textcolor{#e5383b}{\int_0^\infty\mathrm{e}^{-(b+p)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\underbrace{\lim_{t\to\infty}\Bigl(-\frac{\mathrm{e}^{-(b+p)t}}{b+p}\Bigr)}_{=\,0}-\Bigl(-\frac{\mathrm{e}^{0}}{b+p}\Bigr)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{b+p}.}$$</p>
+<ul>
+<li>
+<p>⁠<strong>上限：</strong>$\textcolor{#e5383b}{|\mathrm{e}^{-(b+p)t}|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-(\operatorname{Re} b+\sigma)t}}$ 当且仅当 $\operatorname{Re} p&gt;-\operatorname{Re} b$ 时趋于零。这个条件<em>就是</em>收敛域。在收敛域之外，指数项会保留下来并无界增长。</p>
+</li>
+<li>
+<p>⁠<strong>下限：</strong>$\textcolor{#e5383b}{\mathrm{e}^0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，因此那里不留下指数项。</p>
+</li>
+<li>
+<p>⁠<strong>符号：</strong>原函数的负号与减去下限值时的负号相遇。负负得正。</p>
+</li>
+</ul>
+<p>对于左边脉冲 $\mathrm{e}^{-bt}\varepsilon(-t)$，情况正好相反。积分从 $-\infty$ 到 $0$，所以现在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 是<em>上</em>限。它的贡献 $-\frac{1}{b+p}$ 不被减去，因此负号保留。下限 $t\to-\infty$ 处的项仅当 $\operatorname{Re}(b+p)&lt;0$ 时才为零，所以这个收敛域位于左侧。令 $\textcolor{#e5383b}{p_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-b}$，这两者就是基本变换对 <a href="#gl-2-2">(2.2)</a> 和 <a href="#gl-2-3">(2.3)</a>。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>我们看 $b$ 和 $p$ 的实部，是因为被积函数的衰减决定了可积性吗？对某些 $b$，信号衰减；对另一些 $b$，信号增长、不会降到零，积分就不收敛，因为总有东西不断加进来。</summary><div class="fr-body"><p>是的，正是如此。被积函数的模为</p>
+<p>$$\textcolor{#e5383b}{\bigl|\mathrm{e}^{-(b+p)t}\bigr|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-\operatorname{Re}(b+p)\,t}\cdot\underbrace{\bigl|\mathrm{e}^{-\mathrm{j}\operatorname{Im}(b+p)\,t}\bigr|}_{=\,1}.}$$</p>
+<p>虚部只让被积函数在复平面上旋转，并不改变其模。增长还是衰减仅由实部决定。三点细化：</p>
+<ul>
+<li>
+<p>起决定作用的是<em>和</em> $\operatorname{Re} b+\sigma$。只要衰减 $\sigma$ 更强，信号本身可以增长（$\operatorname{Re} b&lt;0$）。这就是第 2.2 节中的“衰减”技巧。</p>
+</li>
+<li>
+<p>仅仅“趋于零”是不够的。$1/t$ 也趋于零，但 $\textcolor{#e5383b}{\int_1^\infty\frac{\mathrm{d} t}{t}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\infty}$，因为各部分贡献减小得太慢。指数衰减足够快：$\textcolor{#e5383b}{\int_0^\infty\mathrm{e}^{-\operatorname{Re}(b+p)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{\operatorname{Re}(b+p)}}$ 是有限的。</p>
+</li>
+<li>
+<p>在边界 $\textcolor{#e5383b}{\operatorname{Re}(b+p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 上，被积函数的模恒为 1，只是在旋转。此时积分来回摆动而不趋于某个值；恰好在极点处，它甚至线性增长（练习 <a href="#aufg-3a">3a</a>）。这就是边界线不属于收敛域的原因。</p>
+</li>
+</ul></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>那么这对任意函数都成立吗？</summary><div class="fr-body"><p>不，只对收敛域非空的函数成立。三个反例：</p>
+<ul>
+<li>
+<p>$\mathrm{e}^{t^2}\varepsilon(t)$ 比任何指数函数增长得都快。对每个 $\sigma$ 都有 $\mathrm{e}^{t^2-\sigma t}\to\infty$，因此任何衰减都不够。</p>
+</li>
+<li>
+<p>$\mathrm{e}^{|t|}$：右半部分要求 $\sigma&gt;1$，左半部分要求 $\sigma&lt;-1$。两者不可能同时满足。</p>
+</li>
+<li>
+<p>甚至常数 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$（对所有 $t$）也不行：右侧要求 $\sigma&gt;0$，左侧要求 $\sigma&lt;0$。傅里叶变换仍能处理这类信号，其频谱中含有狄拉克冲激。</p>
+</li>
+</ul>
+<p>对于至多按指数增长的右边信号，这总是可行的。在电路中于 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 时刻接入的每个信号都属于此类。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>$p$ 平面是二维的，为什么一条直线就够了？</summary><div class="fr-body"><p>收敛域中的每条直线都给出同一个 $s(t)$：$\sigma$ 越大，第 1 步中衰减得越强，第 3 步中乘回的也越多，两者相互抵消。数值验证：取 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.2}$ 和 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/\mathrm s}$，阶跃两次都给出 $\textcolor{#e5383b}{s(1\,\mathrm{s})}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{1.00}$ 和 $\textcolor{#e5383b}{s(-1\,\mathrm{s})}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{0.00}$。因此，这个平面包含的东西多于叠加所需。它的用处在别处：在平面上，$S(p)$ 可以用少数几个数来描述，即极点和零点。（附注：$S(p)$ 在收敛域内复可微，因此它在一条直线上的值决定了它在整个区域内的取值。）</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 2 ★ 拉普拉斯变换即衰减信号的傅里叶变换</div><div class="aufg-b"><span class="anker" id="aufg-2"></span>
+<ol class="al">
+<li>
+<p>把 $\mathrm{e}^{-pt}$ 拆成两个因子，证明 $\textcolor{#e5383b}{S(\sigma+\mathrm{j}2\pi f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\{s(t)\,\mathrm{e}^{-\sigma t}\}(f)}$。</p>
+</li>
+<li>
+<p>以阶跃为例验证：对 $\sigma&gt;0$ 直接计算 $\mathcal{F}\{\mathrm{e}^{-\sigma t}\varepsilon(t)\}$，并与 $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$ 比较。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{S(\sigma+\mathrm{j}2\pi f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s(t)\,\mathrm{e}^{-(\sigma+\mathrm{j}2\pi f)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int\bigl[s(t)\mathrm{e}^{-\sigma t}\bigr]\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\{s(t)\mathrm{e}^{-\sigma t}\}(f)}$。</p>
+<p>(b) $\textcolor{#e5383b}{\mathcal{F}\{\mathrm{e}^{-\sigma t}\varepsilon(t)\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_0^\infty\mathrm{e}^{-(\sigma+\mathrm{j}2\pi f)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1}{\sigma+\mathrm{j}2\pi f}}$，$\sigma&gt;0$。这正是 $1/p$ 在 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma+\mathrm{j}2\pi f}$ 处的值。</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 3 ★★ 一个增长的信号</div><div class="aufg-b"><span class="anker" id="aufg-3"></span>
+<p>$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{2t}\varepsilon(t)}$，例如一个不稳定系统的冲激响应（$t$ 的单位为 s）。</p>
+<ol class="al">
+<li>
+<p>为什么不存在经典意义下的傅里叶变换？</p>
+</li>
+<li>
+<p>对哪些 $\sigma$，$s(t)\,\mathrm{e}^{-\sigma t}$ 绝对可积？</p>
+</li>
+<li>
+<p>直接由积分计算 $S(p)$。在 $p$ 平面中画出极点和收敛域。</p>
+</li>
+<li>
+<p>在反演公式中可以使用哪些 $\sigma$？表达式 $S(\mathrm{j}2\pi f)$ 是有限的。为什么仍然不能选 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$？选 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 会得到哪个信号？（提示：<a href="#gl-2-3">(2.3)</a>。）</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{\int_0^\infty\mathrm{e}^{2t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\infty}$：该信号不是绝对可积的。直观地说：由恒定幅度的振荡无法构成任何增长的东西。</p>
+<p>(b) $t&gt;0$ 时 $\textcolor{#e5383b}{|s(t)\mathrm{e}^{-\sigma t}|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{(2-\sigma)t}}$，当且仅当 $\sigma&gt;2/\mathrm s$ 时可积。</p>
+<p>(c) $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_0^\infty\mathrm{e}^{-(p-2)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1}{p-2}}$，$\operatorname{Re} p&gt;2$。极点在 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$，收敛域在其右侧，所有右边信号都是如此。数值检验：$\textcolor{#e5383b}{S(3)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$，$\textcolor{#e5383b}{S(2.5+\mathrm{j})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.4-0.8\mathrm{j}}$。</p>
+<p>(d) 任何 $\sigma&gt;2/\mathrm s$ 均可，例如 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{3/\mathrm s}$。$\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 位于极点左侧，因此在收敛域之外。表达式 $1/(\mathrm{j}2\pi f-2)$ 虽然有限，但它属于一个<em>不同的</em>信号：由 <a href="#gl-2-3">(2.3)</a>，$-\mathrm{e}^{2t}\varepsilon(-t)$ 的变换同样是 $1/(p-2)$，收敛域为 $\operatorname{Re} p&lt;2$。若取 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，得到的就是这个左边的、衰减的信号。它的傅里叶变换才真正是 $1/(\mathrm{j}2\pi f-2)$。</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 3a ★★ 边界上会发生什么</div><div class="aufg-b"><span class="anker" id="aufg-3a"></span>
+<p>$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{(1+3\mathrm{j})t}\varepsilon(t)}$，即 $\textcolor{#e5383b}{b}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-1-3\mathrm{j}}$（$t$ 的单位为 s）。</p>
+<ol class="al">
+<li>
+<p>对哪些 $\sigma$，$\int_0^\infty s(t)\,\mathrm{e}^{-pt}\mathrm{d} t$ 收敛？其中的 3 起什么作用？</p>
+</li>
+<li>
+<p>令 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1+\mathrm{j}\omega}$，即恰好位于边界上，计算 $\int_0^T s(t)\,\mathrm{e}^{-pt}\mathrm{d} t$。$T\to\infty$ 时会怎样？分 $\omega\neq3$ 和 $\textcolor{#e5383b}{\omega}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{3}$ 两种情况讨论。极点在哪里？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 令 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma+\mathrm{j}\omega}$，则 $\textcolor{#e5383b}{b+p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{(\sigma-1)+\mathrm{j}(\omega-3)}$。被积函数的模为 $\mathrm{e}^{-(\sigma-1)t}$，因此积分当且仅当 $\sigma&gt;1$ 时收敛。3（信号的角频率）不出现在模中。它只决定极点位于边界线上的什么位置：$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p-(1+3\mathrm{j})}}$，极点在 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1+3\mathrm{j}}$。</p>
+<p>(b) 取 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1+\mathrm{j}\omega}$，则 $\textcolor{#e5383b}{b+p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}(\omega-3)}$。</p>
+<ul>
+<li>
+<p>$\omega\neq3$：$\textcolor{#e5383b}{\displaystyle\int_0^T\mathrm{e}^{-\mathrm{j}(\omega-3)t}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1-\mathrm{e}^{-\mathrm{j}(\omega-3)T}}{\mathrm{j}(\omega-3)}}$。随着 $T$ 增大，分子在以 1 为圆心的圆上转动，不趋于任何值。积分保持有界，但没有极限。</p>
+</li>
+<li>
+<p>$\textcolor{#e5383b}{\omega}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{3}$，即恰好位于极点 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1+3\mathrm{j}}$：被积函数恒为 1，积分等于 $T$，无界增长。</p>
+</li>
+</ul>
+<p>因此，积分在边界线上处处不收敛。收敛域是开半平面 $\operatorname{Re} p&gt;1$。</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 4 ★ 判断对错并说明理由</div><div class="aufg-b"><span class="anker" id="aufg-4"></span>
+<ol class="al">
+<li>
+<p>每个函数都有拉普拉斯变换。</p>
+</li>
+<li>
+<p>$p$ 是否位于收敛域内只取决于 $\operatorname{Re} p$。</p>
+</li>
+<li>
+<p>若虚轴位于收敛域内，则 $S(\mathrm{j}2\pi f)$ 是 $s(t)$ 的傅里叶变换。</p>
+</li>
+<li>
+<p>在反演公式中，若 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/\mathrm s}$ 和 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2/\mathrm s}$ 都位于收敛域内，则二者给出不同的信号。</p>
+</li>
+<li>
+<p>$\cos(2\pi f_0t)$ 是每个 LTI 系统的特征函数。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 错。反例：$\mathrm{e}^{t^2}\varepsilon(t)$、$\mathrm{e}^{|t|}$、双边常数。</p>
+<p>(b) 对。$\textcolor{#e5383b}{|s(t)\mathrm{e}^{-pt}|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{|s(t)|\mathrm{e}^{-\sigma t}}$；频率 $f$ 不出现在模中。这就是收敛域由完整的竖直线构成的原因。</p>
+<p>(c) 对。取 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，$\textcolor{#e5383b}{S(\mathrm{j}2\pi f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int s(t)\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\{s\}(f)}$。</p>
+<p>(d) 错。收敛域中的每条直线都给出同一个信号，因为用 $\mathrm{e}^{-\sigma t}$ 的衰减与用 $\mathrm{e}^{\sigma t}$ 的再乘回相互抵消。</p>
+<p>(e) 错。输出为 $|H|\cos(2\pi f_0t+\varphi)$，其中 $\textcolor{#e5383b}{H}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(\mathrm{j}2\pi f_0)}$。只有当 $\textcolor{#e5383b}{\varphi}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 或 $\textcolor{#e5383b}{\varphi}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{180^\circ}$，即 $H(\mathrm{j}2\pi f_0)$ 为实数时，它才是 $\cos(2\pi f_0t)$ 的倍数。对于 RC 低通滤波器，在任何频率 $f_0&gt;0$ 下都不是这种情况。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="3">第 3 阶段：卷积变成乘法</h2>
+<span class="anker" id="stufe-3"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>第 <a href="#stufe-1">1</a> 阶段说明系统对单个基本分量做了什么。第 <a href="#stufe-2">2</a> 阶段说明每个信号都由基本分量组成。两者结合，就得到拉普拉斯变换最重要的定理。</p></div>
+<p><strong>思路。</strong> LTI 系统是线性的：它分别处理输入的每个基本分量，再把结果相加。它把每个基本分量 $\mathrm{e}^{pt}$ 乘以 $H(p)$。因此输出由与输入<em>相同</em>的基本分量组成，只是每个权重都乘上了 $H(p)$。图 <a href="#abb-4">4</a> 给出了得到输出的两条途径。</p>
+<figure class="abb" id="abb-4"><img src="/abbildungen/zh/et3/k2wege.svg" width="464" height="233" alt="从输入到输出的两条途径。上：直接用卷积积分。下：把输入分解为基本分量，每个权重乘以 H(p) ，再重新合成。下面这条途径之所以可行，是因为每个基本分量都是特征函数。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 4</span> 从输入到输出的两条途径。上：直接用卷积积分。下：把输入分解为基本分量，每个权重乘以 $H(p)$，再重新合成。下面这条途径之所以可行，是因为每个基本分量都是特征函数。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k2wege.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure>
+<aside class="callout cx-satz"><div class="callout-h">定理 3.1 (卷积定理)</div><span class="anker" id="satz-3-1"></span>
+<span class="anker" id="gl-3-1"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s(t)*h(t)\quad\Longleftrightarrow\quad G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(p)\,H(p),}$$</div><div class="gl-nr"><span>(3.1)</span></div></div>
+<p>对同时位于 $S$ 和 $H$ 的收敛域内的所有 $p$ 成立。</p></aside>
+<p>⁠<strong>如何理解：</strong>$S(p)$ 是基本分量 $\mathrm{e}^{pt}$ 在输入中的权重，$H(p)$ 是系统乘到该基本分量上的因子，$G(p)$ 是它在输出中的权重。对 $p$ 的条件之所以出现，是因为反演公式的直线必须穿过两个收敛域：输入必须能分解为基本分量，而系统必须能处理其中的每一个。</p>
+<details class="herleitung"><summary>推导: 由叠加与特征函数推出卷积定理</summary><div class="hl-body"><p>把输入写成叠加 <a href="#gl-2-1">(2.1)</a> 代入卷积，所取直线 $\textcolor{#e5383b}{\operatorname{Re} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma}$ 同时位于两个收敛域内：</p>
+<p>$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{s(t)*h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\left[\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p\right]*h(t).}$$</p>
+<p>线性：卷积可以移入积分号内，在那里分别作用于每个基本分量：</p>
+<p>$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}S(p)\,\bigl[\mathrm{e}^{pt}*h(t)\bigr]\,\mathrm{d} p.}$$</p>
+<p>特征函数 <a href="#gl-1-1">(1.1)</a>：$\textcolor{#e5383b}{\mathrm{e}^{pt}*h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(p)\,\mathrm{e}^{pt}}$。</p>
+<p>$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}\bigl[S(p)H(p)\bigr]\,\mathrm{e}^{pt}\,\mathrm{d} p.}$$</p>
+<p>这就是 $g$ 的反演公式，权重为 $S(p)H(p)$。由于信号的权重是唯一的，所以 $\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(p)H(p)}$。</p></div></details>
+<p>⁠<strong>简而言之：</strong>卷积变成乘法，是因为系统只是把每个基本分量 $\mathrm{e}^{pt}$ 乘以数 $H(p)$。</p>
+<aside class="callout cx-analogie"><div class="callout-h">类比（帮助理解的图景，不是数学）</div><p>图示均衡器把音乐分成若干频段，把每个频段乘以其推子的设定值，再把各频段重新合在一起。LTI 系统对基本分量 $\mathrm{e}^{pt}$ 做的是同样的事，推子设定值就是 $H(p)$。这个类比在两处不成立：均衡器的频段数有限，推子设定值是实数。而这里的基本分量连续分布，还可以增长或衰减，并且每个“推子”都是一个复数，还会额外移动相位。</p></aside>
+<p><strong>同一机制也解释了求导、积分和微分方程。</strong></p>
+<ul>
+<li>
+<p>⁠<strong>求导。</strong>$\textcolor{#e5383b}{\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{pt}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{p\,\mathrm{e}^{pt}}$。微分器是一个 LTI 系统，每个基本分量都是它的特征函数，特征值为 $p$。因此每个权重都乘以 $p$：$\textcolor{#e5383b}{\mathcal{L}\{\dot s\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{p\,S(p)}$。</p>
+</li>
+<li>
+<p>⁠<strong>积分。</strong>$\textcolor{#e5383b}{\int_{-\infty}^{t}\mathrm{e}^{p\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{pt}/p}$，但仅当 $\operatorname{Re} p&gt;0$ 时成立；否则积分在 $-\infty$ 处发散。因此 $\textcolor{#e5383b}{\mathcal{L}\{\int_{-\infty}^t s\,\mathrm{d}\tau\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(p)/p}$，附加条件为 $\operatorname{Re} p&gt;0$。</p>
+</li>
+<li>
+<p>⁠<strong>级联。</strong>两个串联的系统先乘以 $H_1(p)$，再乘以 $H_2(p)$，合起来乘以 $H_1H_2$。顺序无关紧要，因为数的乘法满足交换律。</p>
+</li>
+<li>
+<p>⁠<strong>微分方程。</strong>每次求导都变成一个因子 $p$。常系数线性微分方程</p>
+<p>$$\textcolor{#e5383b}{\sum_{r=0}^{R}\alpha_r\frac{\mathrm{d}^r g}{\mathrm{d} t^r}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{q=0}^{Q}\beta_q\frac{\mathrm{d}^q s}{\mathrm{d} t^q} \quad\text{变为}\quad \Bigl(\sum_{r}\alpha_rp^r\Bigr)G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\Bigl(\sum_q\beta_qp^q\Bigr)S(p),}$$</p>
+<p>即一个代数方程，而 $\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{G/S}$ 是多项式之比。</p>
+</li>
+</ul>
+<p><strong>例：RC 低通滤波器的阶跃响应。</strong> 输入 $\varepsilon(t)$，$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$（$\operatorname{Re} p&gt;0$）；系统 $\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(p+1)}$（$\operatorname{Re} p&gt;-1$）。公共区域为 $\operatorname{Re} p&gt;0$：</p>
+<p>$$\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p}\cdot\frac{1}{p+1}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac1p-\frac{1}{p+1}\quad\Longrightarrow\quad g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\bigl(1-\mathrm{e}^{-t}\bigr)\varepsilon(t).}$$</p>
+<p>两项的反变换由 <a href="#gl-2-2">(2.2)</a> 取 $\textcolor{#e5383b}{p_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 和 $\textcolor{#e5383b}{p_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-1}$ 得到。直接验算：$t&gt;0$ 时 $\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int_0^t\mathrm{e}^{-\tau}\mathrm{d}\tau}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1-\mathrm{e}^{-t}}$。在直线 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5/\mathrm s}$ 上对反演公式 <a href="#gl-2-1">(2.1)</a> 作数值计算，同样得到 $\textcolor{#e5383b}{g(0.5\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.3935}$、$\textcolor{#e5383b}{g(1\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.6321}$、$\textcolor{#e5383b}{g(3\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.9502}$ 和 $\textcolor{#e5383b}{g(-1\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$，与 $\bigl(1-\mathrm{e}^{-t}\bigr)\varepsilon(t)$ 完全一致。</p>
+<details class="ltspice"><summary><span class="lt-k">LTspice</span>直接输入传递函数</summary><div class="lt-body"><p>⁠<strong>绘制：</strong>RC 电路（<code>1Meg</code>，<code>1u</code>），从 <code>in</code> 接到 <code>rc</code>。旁边放一个压控电压源 <code>e</code>：控制输入接 <code>in</code> 和地，输出接节点 <code>lap</code>，值为 <code>Laplace=1/(1+s)</code>。这个源是一个仅由 $H$ 给定的 LTI 系统：LTspice 由它算出冲激响应，并把输入与冲激响应做卷积。LTspice 用 $s$ 代替 $p$。</p>
+<p>⁠<strong>信号源与指令：</strong><code>PULSE(0 1 0 1u 1u 100)</code>，<code>.tran 0 5 0 1m</code>。</p>
+<p>⁠<strong>你会看到：</strong><code>V(rc)</code> 和 <code>V(lap)</code> 重合在一起（差值小于 0.001），在 0.5 s 时达到 0.3935，1 s 时达到 0.6321，3 s 时达到 0.9502。若信号源的值取 <code>AC 1</code> 并使用 <code>.ac dec 100 0.01 100</code>，LTspice 显示 $\textcolor{#e5383b}{s}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{j}2\pi f}$ 时的 $H(s)$，即只显示虚轴上的值：在 0.159 Hz 处为 $-3.0$ dB 和 $-45^\circ$。</p>
+<p>⁠<strong>对于练习 <a href="#aufg-6">6</a>：</strong>信号源取 <code>PWL(0 0 10 10)</code>，即到 10 s 为止的斜坡 $t\,\varepsilon(t)$，以及 <code>.tran 0 10 0 1m</code>。把 <code>V(rc)</code> 与你在练习 <a href="#aufg-6">6</a>(b) 中的结果比较。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 5 ★★ 用基本分量理解级联与求导</div><div class="aufg-b"><span class="anker" id="aufg-5"></span>
+<ol class="al">
+<li>
+<p>用基本分量的图景（不用卷积积分）解释：为什么两个级联的 LTI 系统的传递函数为 $H_1(p)H_2(p)$？为什么由此可推出卷积满足交换律？</p>
+</li>
+<li>
+<p>将反演公式对 $t$ 求导，由此推导 $\textcolor{#e5383b}{\mathcal{L}\{\dot s(t)\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{p\,S(p)}$。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 输入由权重为 $S(p)$ 的基本分量 $\mathrm{e}^{pt}$ 组成。第一个系统把每个基本分量乘以 $H_1(p)$，于是权重变为 $H_1S$。第二个系统再乘以 $H_2(p)$：$\textcolor{#e5383b}{G}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H_2H_1S}$。所以级联系统的 $\textcolor{#e5383b}{H}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H_1H_2}$。由于 $\textcolor{#e5383b}{H_1H_2}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H_2H_1}$，结果与顺序无关；又因为 $h_1*h_2$ 是级联系统的冲激响应，所以 $\textcolor{#e5383b}{h_1*h_2}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{h_2*h_1}$。</p>
+<p>(b) 在积分号下求导只作用于 $\mathrm{e}^{pt}$：</p>
+<p>$$\textcolor{#e5383b}{\dot s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}S(p)\,\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{pt}\,\mathrm{d} p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}\bigl[p\,S(p)\bigr]\mathrm{e}^{pt}\,\mathrm{d} p.}$$</p>
+<p>这就是权重为 $pS(p)$ 的反演公式，所以 $\textcolor{#e5383b}{\mathcal{L}\{\dot s\}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{pS(p)}$。</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 6 ★★ RC 低通滤波器的斜坡响应</div><div class="aufg-b"><span class="anker" id="aufg-6"></span>
+<p>输入 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{t\,\varepsilon(t)}$，$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p^2}$，$\operatorname{Re} p&gt;0$，即基本变换对 <a href="#gl-2-5">(2.5)</a>。</p>
+<ol class="al">
+<li>
+<p>求 $G(p)$ 及其收敛域。</p>
+</li>
+<li>
+<p>验证分解式 $\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p^2}-\frac1p+\frac{1}{p+1}}$，并求 $g(t)$。</p>
+</li>
+<li>
+<p>检验：$g(0)$ 等于多少？为什么必须如此？$\dot g(t)$ 是什么？</p>
+</li>
+<li>
+<p>$t\gg1$ s 时 $g(t)$ 的行为如何？与练习 <a href="#aufg-1">1</a>c 比较。</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1}{p^2}\cdot\dfrac{1}{p+1}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1}{p^2(p+1)}}$，$\operatorname{Re} p&gt;0$（$\operatorname{Re} p&gt;0$ 与 $\operatorname{Re} p&gt;-1$ 的交集）。</p>
+<p>(b) 通分：$\textcolor{#e5383b}{\frac{1}{p^2}-\frac1p+\frac{1}{p+1}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{(p+1)-p(p+1)+p^2}{p^2(p+1)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p^2(p+1)}}$。用 <a href="#gl-2-5">(2.5)</a> 和 <a href="#gl-2-2">(2.2)</a> 作反变换：</p>
+<p>$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\bigl(t-1+\mathrm{e}^{-t}\bigr)\varepsilon(t).}$$</p>
+<p>(c) $\textcolor{#e5383b}{g(0)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0-1+1}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$：电容电压不能跳变，而输入从零开始。$\textcolor{#e5383b}{\dot g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{(1-\mathrm{e}^{-t})\varepsilon(t)}$，恰好就是阶跃响应。这是吻合的：斜坡是阶跃的积分，所以斜坡响应是阶跃响应的积分。</p>
+<p>(d) 当 $t\gg1$ s 时，$\textcolor{#e5383b}{\mathrm{e}^{-t}}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{0}$，$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{ t-1}$：输出以 $\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 的延迟跟随斜坡，与练习 <a href="#aufg-1">1</a>c 中的双边斜坡完全一样。区别在于基本分量 $\mathrm{e}^{-t}$（系统的极点 $-1$）：这是暂态过程，它的出现是因为这里的斜坡从 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 才开始。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="4">第 4 阶段：积分变成求和</h2>
+<span class="anker" id="stufe-4"></span>
+<div class="zweck"><span class="zw-k">本阶段内容：</span> <p>按字面意义理解那个猜想：对于系统理论几乎总在处理的那些信号，信号是复指数函数的<em>有限和</em>。极点就是指数。</p></div>
+<p><strong>思路。</strong> 对于由 $R$、$L$、$C$ 构成的网络，以及所有由微分方程描述的系统，$S(p)$ 是多项式之比。在单极点的情况下，<strong class="nm">部分分式展开</strong>把它写成</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{A_0+\sum_{r=1}^{R}\frac{A_r}{p-p_r},}$$</div><div class="mcell">$$\textcolor{#e5383b}{A_r}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\lim_{p\to p_r}(p-p_r)\,S(p).}$$</div></div>
+<p>每一项都是<em>单个基本分量</em>的变换：若收敛域位于极点右侧，由 <a href="#gl-2-2">(2.2)</a>，$A_r/(p-p_r)$ 对应 $A_r\,\mathrm{e}^{p_r t}\varepsilon(t)$；由 <a href="#gl-2-4">(2.4)</a>，常数项 $A_0$ 对应 $A_0\,\delta(t)$。因此，对于右边信号，</p>
+<span class="anker" id="gl-4-1"></span>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{A_0\,\delta(t)+\sum_{r=1}^{R}A_r\,\mathrm{e}^{p_r t}\,\varepsilon(t).}$$</div><div class="gl-nr"><span>(4.1)</span></div></div>
+<p>⁠<strong>简而言之：</strong>拉普拉斯变换为有理函数的右边信号，是基本分量 $\mathrm{e}^{p_r t}$ 的有限和。极点就是指数，部分分式系数就是权重。</p>
+<p>这意味着，借助图 <a href="#abb-1">1</a> 的地图，可以从极点读出任何这类信号：$\operatorname{Re} p_r$ 告诉你基本分量是衰减还是增长，$\operatorname{Im} p_r$ 告诉你它振荡得多快。一对共轭极点 $p_r,p_r^*$ 合起来给出一个实的衰减振荡。这也是<strong class="nm">稳定性</strong>的核心：因果基本分量 $\mathrm{e}^{p_r t}\varepsilon(t)$ 当且仅当 $\operatorname{Re} p_r&lt;0$ 时衰减。因此，若 $H(p)$ 的所有极点都位于左半平面，因果系统就是稳定的。</p>
+<p><strong>例。</strong> 第 <a href="#stufe-3">3</a> 阶段中的阶跃响应有极点 $0$ 和 $-1$：</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\underbrace{1\cdot\mathrm{e}^{0\cdot t}}_{\text{极点 $0$（来自 $S$）}}\;\underbrace{-\;1\cdot\mathrm{e}^{-t}}_{\text{极点 $-1$（来自 $H$）}}}$$</div><div class="mcell">$$(t&gt;0).$$</div></div>
+<p>输入的极点给出由输入强制产生的部分（终值电压 1）。系统的极点给出 RC 电路的<strong class="nm">自然响应</strong>，即时间常数为 $\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 的衰减。这一点普遍成立：输出 $\textcolor{#e5383b}{G}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{SH}$ 既包含输入的极点，也包含系统的极点。</p>
+<aside class="callout cx-zusatz"><div class="callout-h">拓展阅读（后续内容不需要）: 积分为什么会坍缩成求和：留数定理</div><p>本节需要用到复变函数中的留数定理。它解释了为什么 <a href="#gl-2-1">(2.1)</a> 与 <a href="#gl-4-1">(4.1)</a> 是一回事，以及为什么收敛域决定信号。</p>
+<p>设 $S(p)$ 是分子次数低于分母次数、且只有单极点的多项式之比。</p>
+<ul>
+<li>
+<p>⁠<strong>$t&gt;0$：</strong>用一个向<em>左</em>的大半圆把积分直线闭合。在那里 $\operatorname{Re} p\to-\infty$，因此 $\textcolor{#e5383b}{|\mathrm{e}^{pt}|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{\operatorname{Re} p\,t}\to0}$，且 $S(p)\to0$。在极限下，半圆没有贡献（约当引理）。闭合路径沿逆时针方向，由留数定理得</p>
+<p>$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{\text{直线左侧的极点}}\operatorname*{Res}_{p=p_r}\bigl[S(p)\,\mathrm{e}^{pt}\bigr]}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sum_{\text{左侧}}A_r\,\mathrm{e}^{p_r t}.}$$</p>
+<p>单极点处的留数为 $\textcolor{#e5383b}{\lim_{p\to p_r}(p-p_r)S(p)\mathrm{e}^{pt}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{A_r\mathrm{e}^{p_rt}}$：恰好就是部分分式系数。</p>
+</li>
+<li>
+<p>⁠<strong>$t&lt;0$：</strong>此时 $\mathrm{e}^{pt}$ 在 $\operatorname{Re} p\to+\infty$ 时趋于零。向<em>右</em>闭合；路径沿顺时针方向，因而出现一个负号：</p>
+<p>$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\sum_{\text{直线右侧的极点}}A_r\,\mathrm{e}^{p_r t}.}$$</p>
+</li>
+</ul>
+<p>⁠<strong>结论：</strong>直线的位置，也就是收敛域，决定了哪些极点给出因果基本分量（直线左侧），哪些给出反因果基本分量（直线右侧）。例：$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{(p+1)(p+2)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{p+1}-\frac{1}{p+2}}$（图 <a href="#abb-5">5</a>）。若直线位于两极点之间，$-2&lt;\sigma&lt;-1$，则 $-2$ 对 $t&gt;0$ 起作用，$-1$ 对 $t&lt;0$ 起作用：</p>
+<p>$$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\mathrm{e}^{-2t}\varepsilon(t)-\mathrm{e}^{-t}\varepsilon(-t).}$$</p>
+<p>在直线 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-1.5/\mathrm s}$ 上数值计算得：$\textcolor{#e5383b}{s(1\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-0.1353}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\mathrm{e}^{-2}}$，$\textcolor{#e5383b}{s(-1\,\mathrm{s})}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-2.7183}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\mathrm{e}^{1}}$。若直线位于两个极点的右侧，同一公式给出因果信号 $(\mathrm{e}^{-t}-\mathrm{e}^{-2t})\varepsilon(t)$；若位于两个极点的左侧，则给出反因果信号 $-(\mathrm{e}^{-t}-\mathrm{e}^{-2t})\varepsilon(-t)$。</p>
+<figure class="abb" id="abb-5"><img src="/abbildungen/zh/et3/k2residuen.svg" width="523" height="354" alt="带状区域 -2&lt;Re p&lt;-1 （蓝色）中的积分直线 sigma=-1.5/mathrm s ，以及将其闭合的半圆（红色）。" loading="lazy" decoding="async"/><figcaption><span class="abb-n">图 5</span> 带状区域 $-2&lt;\operatorname{Re} p&lt;-1$（蓝色）中的积分直线 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-1.5/\mathrm s}$，以及将其闭合的半圆（红色）。<a class="abb-edit" href="/editor.html?scene=szenen/et3/k2residuen.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景">在编辑器中打开</a></figcaption></figure></aside>
+<div class="aufg"><div class="aufg-h">练习 7 ★★★ （拓展阅读）同一公式，两个信号</div><div class="aufg-b"><span class="anker" id="aufg-7"></span>
+<p>$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1}{p+1}}$。</p>
+<ol class="al">
+<li>
+<p>收敛域为 $\operatorname{Re} p&gt;-1$。用留数定理计算反演公式，分 $t&gt;0$ 和 $t&lt;0$ 两种情况。</p>
+</li>
+<li>
+<p>对收敛域 $\operatorname{Re} p&lt;-1$ 做同样的计算。</p>
+</li>
+<li>
+<p>与基本变换对 <a href="#gl-2-2">(2.2)</a> 和 <a href="#gl-2-3">(2.3)</a> 比较。对于不给出收敛域的说法“<span class="nobr">$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(p+1)}$”</span>，你从中得到什么启示？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 直线位于极点右侧，例如 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$。$t&gt;0$ 时向左闭合：极点 $-1$ 在内部，$\textcolor{#e5383b}{\operatorname*{Res}_{p=-1}\frac{\mathrm{e}^{pt}}{p+1}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-t}}$，因此 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-t}}$。$t&lt;0$ 时向右闭合：直线右侧没有极点，因此 $\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$。合起来，$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-t}\varepsilon(t)}$。</p>
+<p>(b) 直线位于极点左侧，例如 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-2}$。$t&gt;0$ 时向左闭合：没有极点，$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$。$t&lt;0$ 时向右闭合：极点在内部，路径为顺时针，$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\mathrm{e}^{-t}}$。合起来，$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-\mathrm{e}^{-t}\varepsilon(-t)}$。</p>
+<p>(c) 这恰好是 $\textcolor{#e5383b}{p_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-1}$ 时的基本变换对 <a href="#gl-2-2">(2.2)</a> 和 <a href="#gl-2-3">(2.3)</a>。仅凭“<span class="nobr">$\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(p+1)}$”</span>这一说法无法确定信号。只有给出收敛域，才能明确极点位于直线的哪一侧，以及它给出的是因果还是反因果基本分量。</p></div></details></div></div>
+</section>
+<section class="sect">
+<h2 id="5">第 5 阶段：为什么输入也要变换</h2>
+<span class="anker" id="stufe-5"></span>
+<details class="frage"><summary><span class="fr-k">问题</span>对 $h(t)$ 作变换是有道理的，这样我就能把特征函数乘以 $H(p)$，求出输出。但对 $s(t)$ 作变换，乍看之下似乎没有意义；从系统理论的角度，我拿它做不了什么。当然，$\textcolor{#e5383b}{s*h}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{h*s}$，但 $h(t)$ 通常不是特征函数，所以我不能写 $h(t)\cdot S(p)$。从系统的角度看，对一个任意信号作变换意味着什么？</summary><div class="fr-body"><p>⁠<strong>问题中正确的部分：</strong>$H(p)$ 说明系统对基本分量 $\mathrm{e}^{pt}$ 做了什么。而 $h(t)\cdot S(p)$ 确实没有意义。</p>
+<p>⁠<strong>推理错在哪里：</strong>输入几乎也从来不是特征函数。阶跃、语音信号或矩形脉冲都不是单个基本分量 $\mathrm{e}^{pt}$。因此 $H(p)\cdot s(t)$ 和 $h(t)\cdot S(p)$ 一样没有意义：$H(p)$ 只能作用于一个基本分量，而对任意的 $s(t)$，甚至不清楚指的是哪个 $p$。在 $H(p)$ 能起任何作用之前，必须先把输入分解为基本分量。这正是 $S(p)$ 所做的事。</p>
+<p>⁠<strong>正确的看法：</strong>在卷积定理 $\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(p)\,S(p)}$ 中，每个因子都有其自身的系统含义：</p>
+<ul>
+<li>
+<p>$S(p)$ 是<em>输入的“配方”</em>：输入中含有多少基本分量 $\mathrm{e}^{pt}$；</p>
+</li>
+<li>
+<p>$H(p)$ 是<em>系统的作用</em>：系统把这个基本分量乘以的那个数；</p>
+</li>
+<li>
+<p>$G(p)$ 是输出的“配方”。</p>
+</li>
+</ul>
+<p>没有 $S(p)$，你只知道系统对各个基本分量的作用，却不知道到达的是哪些基本分量。$H(p)$ 单独只能在一种特殊情况下回答“输出端会发生什么？”这个问题：输入本身就是单个基本分量。</p>
+<p>⁠<strong>例：阶跃与 RC 低通滤波器。</strong>阶跃的配方是 $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$。在直线 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5/\mathrm s}$ 上，$\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 时 $\textcolor{#e5383b}{|S|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2}$，1 Hz 时为 $0.16$，10 Hz 时为 $0.016$。快速基本分量很弱，但确实存在，正是它们构成了陡峭的边沿（图 <a href="#abb-3">3</a>：快速基本分量越多，边沿越陡）。RC 低通滤波器把它们分别乘以 $\textcolor{#e5383b}{|H|}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.67}$、$0.15$ 和 $0.016$。因此在输出中，快速基本分量又被削弱了大约 $2\pi f\cdot RC$ 倍（对于 $\textcolor{#e5383b}{f\gg1/(2\pi RC)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.16}$ Hz），边沿也就消失了：$\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1-\mathrm{e}^{-t}}$ 连续上升。这一解释需要两个变换。$H$ 单独只能说明“快速基本分量被削弱”；只有 $S$ 才说明边沿由快速基本分量构成。</p>
+<p>⁠<strong>那么对称性 $\textcolor{#e5383b}{s*h}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{h*s}$ 呢？</strong>在数学上，两个信号地位平等：也可以把 $h$ 看作输入、把 $s$ 看作“系统”，这时 $H(p)$ 是配方，$S(p)$ 是作用。系统理论只是根据物理意义来分配角色：一个信号来自外部，另一个描述电路。在变换域中，<em>两者</em>总是都要被变换。</p></div></details>
+<p><strong>单独变换一个信号的其他理由。</strong></p>
+<ul>
+<li>
+<p>⁠<strong>测量一个系统。</strong>若测出一个未知系统的输入和输出，$\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{G(p)/S(p)}$ 就给出了这个系统。为此要对两个信号分别作变换（练习 <a href="#aufg-9">9</a>）。</p>
+</li>
+<li>
+<p>⁠<strong>理解信号本身。</strong>敲钟发出的声音是若干衰减振荡之和，每个振荡对应一对共轭极点。$\operatorname{Im} p_r$ 是某个分音的音高，$-\operatorname{Re} p_r$ 是它的衰减率。少数几个极点就描述了整个声音。显示频谱的仪器在直线 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 上做的是同样的事。</p>
+</li>
+<li>
+<p>⁠<strong>没有系统的卷积。</strong>卷积把一个信号经过平移和加权的副本叠加起来。系统只是这种运算的一种解释，而不是唯一的解释。一个完全不涉及系统的例子是两个骰子的点数之和，见关于卷积的练习册（<a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html">第 1 部分</a>）。</p>
+</li>
+</ul>
+<details class="ltspice"><summary><span class="lt-k">LTspice</span>符合两次测量的网络</summary><div class="lt-body"><p>⁠<strong>绘制：</strong>你在练习 <a href="#aufg-9">9</a>(c) 中找到的网络，输入端接信号源 <code>PULSE(0 1 0 1u 1u 100)</code>，输出接节点 <code>out</code>。旁边放一个不与电路相连的行为源 <code>bv</code>，接在节点 <code>mess</code> 上，取 <code>V=1-exp(-2*time)</code>。它充当测得的输出曲线。</p>
+<p>⁠<strong>指令：</strong><code>.tran 0 3 0 1m</code>，<code>.meas tran dev MAX abs(V(out)-V(mess))</code>。</p>
+<p>⁠<strong>你会看到：</strong>如果网络和元件值都正确，<code>V(out)</code> 和 <code>V(mess)</code> 就重合在一起，最大偏差 <code>dev</code> 实际上为零（小于 $10^{-5}$）。用这种方法，把这些曲线与你在练习 <a href="#aufg-9">9</a>(c) 中的结果比较。</p></div></details>
+<div class="aufg"><div class="aufg-h">练习 8 ★★ 哪些基本分量构成了边沿？</div><div class="aufg-b"><span class="anker" id="aufg-8"></span>
+<p>输入 $\varepsilon(t)$，系统：$\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ s 的 RC 低通滤波器。考虑直线 $\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5/\mathrm s}$ 上的基本分量。</p>
+<ol class="al">
+<li>
+<p>对 $\textcolor{#e5383b}{f}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$、$1$ Hz 和 $10$ Hz，计算 $|S(p)|$、$|H(p)|$ 和 $|G(p)|$。</p>
+</li>
+<li>
+<p>与 1 Hz 处的基本分量相比，系统对 10 Hz 处的基本分量多削弱了多少倍？</p>
+</li>
+<li>
+<p>利用 (a) 和图 <a href="#abb-3">3</a> 解释为什么输出没有边沿。为什么仅凭 $H(p)$ 不足以作出这一解释？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 令 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5+\mathrm{j}2\pi f}$（单位 $1/\mathrm s$），$\textcolor{#e5383b}{S}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/p}$，$\textcolor{#e5383b}{H}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1/(p+1)}$，$\textcolor{#e5383b}{G}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{SH}$：</p>
+<div class="table-wrap"><table class="md-table"><thead><tr><th>$f$</th><th>$\vert S(p)\vert $</th><th>$\vert H(p)\vert $</th><th>$\vert G(p)\vert $</th></tr></thead><tbody><tr><td>0</td><td>2</td><td>0.667</td><td>1.33</td></tr><tr><td>1 Hz</td><td>0.159</td><td>0.155</td><td>0.0246</td></tr><tr><td>10 Hz</td><td>0.0159</td><td>0.0159</td><td>0.000253</td></tr></tbody></table></div>
+<p>(b) $\textcolor{#e5383b}{0.155/0.0159}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{9.7}$，即差不多是 10 倍，与频率之比一样。对于大的 $|p|$，$\textcolor{#e5383b}{|H|}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{1/|p|}\textcolor{#2b6def}{\approx}\textcolor{#ff9f1c}{1/(2\pi f)}$。</p>
+<p>(c) 阶跃的边沿由快速基本分量构成：在图 <a href="#abb-3">3</a> 中，包含的快速基本分量越多，边沿越陡。在输入中，它们的权重按 $1/f$ 下降，在输出中按 $1/f^2$ 下降。在输出中，快速基本分量弱到不再形成边沿，$g(t)$ 连续上升。$H(p)$ 单独只说明快速基本分量被削弱。边沿恰恰由这些基本分量构成，这是关于输入的结论，而这一结论包含在 $S(p)$ 中。</p></div></details></div></div>
+<div class="aufg"><div class="aufg-h">练习 9 ★★ 由两次测量确定未知系统</div><div class="aufg-b"><span class="anker" id="aufg-9"></span>
+<p>在 $\textcolor{#e5383b}{t}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 时刻，向一个未知的因果 LTI 系统施加 1 V 电压，$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\varepsilon(t)}$（单位 V）。在输出端测得 $\textcolor{#e5383b}{g(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\bigl(1-\mathrm{e}^{-2t}\bigr)\varepsilon(t)}$（单位 V，$t$ 的单位为 s）。</p>
+<ol class="al">
+<li>
+<p>对两个信号分别作变换。</p>
+</li>
+<li>
+<p>求 $H(p)$，并由此求 $h(t)$。</p>
+</li>
+<li>
+<p>它可能是什么网络？得到什么参数值？</p>
+</li>
+<li>
+<p>$G(p)$ 中哪个极点来自输入，哪个来自系统？</p>
+</li>
+</ol>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) $\textcolor{#e5383b}{S(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac1p}$，$\operatorname{Re} p&gt;0$。$\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac1p-\dfrac{1}{p+2}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{2}{p(p+2)}}$，$\operatorname{Re} p&gt;0$（基本变换对 <a href="#gl-2-2">(2.2)</a>，取 $\textcolor{#e5383b}{p_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 和 $\textcolor{#e5383b}{p_0}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-2}$）。</p>
+<p>(b) $\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{G(p)}{S(p)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{2}{p+2}}$。由于系统是因果的，收敛域位于极点右侧：$\operatorname{Re} p&gt;-2$。由 <a href="#gl-2-2">(2.2)</a>：$\textcolor{#e5383b}{h(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{2\,\mathrm{e}^{-2t}\varepsilon(t)}$，单位为 $1/\mathrm s$。</p>
+<p>(c) RC 低通滤波器的 $\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1}{1+pRC}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\dfrac{1/RC}{p+1/RC}}$。与 $\dfrac{2}{p+2}$ 比较得 $\textcolor{#e5383b}{RC}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0.5}$ s，例如 $\textcolor{#e5383b}{R}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{500\,\mathrm{k\Omega}}$，$\textcolor{#e5383b}{C}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{1}$ µ F。（任何具有相同传递函数的其他网络，在端口处的表现都完全相同。输入端和输出端的测量只能揭示 $H$，而不能揭示元件。）</p>
+<p>(d) 极点 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 来自输入（阶跃），极点 $\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{-2}$ 来自系统。在除法 $G/S$ 中，被约去的恰好是输入的极点。</p></div></details></div></div>
+</section>
+<aside class="callout cx-kern"><div class="callout-h">本文要点</div><ul>
+<li>
+<p>$\textcolor{#e5383b}{\mathrm{e}^{p(t-\tau)}}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathrm{e}^{-p\tau}\mathrm{e}^{pt}}$，因此 $\textcolor{#e5383b}{\mathrm{e}^{pt}*h}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{H(p)\,\mathrm{e}^{pt}}$，其中 $\textcolor{#e5383b}{H(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\int h(t)\mathrm{e}^{-pt}\mathrm{d} t}$。</p>
+</li>
+<li>
+<p>$\textcolor{#e5383b}{p}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\sigma+\mathrm{j}2\pi f}$：$\sigma$ 是基本分量的增长率，$f$ 是其频率。</p>
+</li>
+<li>
+<p>$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}\infty}S(p)\mathrm{e}^{pt}\mathrm{d} p}$，$\sigma$ 位于收敛域内；每条这样的直线都给出同一个 $s(t)$。</p>
+</li>
+<li>
+<p>$\textcolor{#e5383b}{S(\sigma+\mathrm{j}2\pi f)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{\mathcal{F}\{s(t)\mathrm{e}^{-\sigma t}\}}$；$\textcolor{#e5383b}{\sigma}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{0}$ 时即为傅里叶变换。</p>
+</li>
+<li>
+<p>收敛域：只取决于 $\sigma$；右边信号为右半平面，左边信号为左半平面，双边信号为带状区域。</p>
+</li>
+<li>
+<p>$\mathrm{e}^{p_0t}\varepsilon(t)\leftrightarrow\frac{1}{p-p_0}$，$\operatorname{Re} p&gt;\operatorname{Re} p_0$；$-\mathrm{e}^{p_0t}\varepsilon(-t)\leftrightarrow\frac{1}{p-p_0}$，$\operatorname{Re} p&lt;\operatorname{Re} p_0$。</p>
+</li>
+<li>
+<p>$\textcolor{#e5383b}{G(p)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{S(p)H(p)}$；求导 $\to p$，积分 $\to1/p$。</p>
+</li>
+<li>
+<p>有理且右边：$\textcolor{#e5383b}{s(t)}\textcolor{#2b6def}{=}\textcolor{#ff9f1c}{A_0\delta(t)+\sum_rA_r\mathrm{e}^{p_rt}\varepsilon(t)}$，极点 = 指数。因果且稳定：所有极点都在左侧。</p>
+</li>
+</ul></aside><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">信号、LTI 系统与卷积</div><ul><li>本文内容</li><li>第 1 阶段：信号的描述</li><li>第 2 阶段：第一个系统——RC 电路</li><li>第 3 阶段：什么是 LTI 系统</li><li>第 4 阶段：卷积积分</li><li>第 5 阶段：卷积的计算</li><li>第 6 阶段：卷积的运算规则</li><li>第 7 阶段：狄拉克冲激</li><li>第 8 阶段：积分与微分</li><li>第 9 阶段：因果与稳定</li><li>第 10 阶段：没有系统的卷积</li></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">傅里叶级数与傅里叶变换</div><ul><li>本文内容</li><li>第 1 阶段：作为特征函数的振荡</li><li>第 2 阶段：周期信号——傅里叶级数</li><li>第 3 阶段：功率、收敛性与 LTI 系统</li><li>第 4 阶段：从周期信号到非周期信号</li><li>第 5 阶段：信号与频谱中的对称性</li><li>第 6 阶段：运算规则（定理）</li><li>第 7 阶段：矩形、si 函数与三角形</li><li>第 8 阶段：奇异信号与线谱</li><li>第 9 阶段：希尔伯特变换与解析信号</li><li>第 10 阶段：短时傅里叶变换</li><li>第 11 阶段：傅里叶变换与拉普拉斯变换——存在性的界限</li></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article><aside class="toc"><div class="toc-h">本页内容</div><ul><li><a href="#x-0">本文内容</a></li><li><a href="#1-mathrm-e-pt">第 1 阶段：为什么偏偏是 $\mathrm{e}^{pt}$</a></li><li><a href="#2">第 2 阶段：完全由基本分量构成的信号</a></li><li><a href="#3">第 3 阶段：卷积变成乘法</a></li><li><a href="#4">第 4 阶段：积分变成求和</a></li><li><a href="#5">第 5 阶段：为什么输入也要变换</a></li></ul></aside></main></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<script src="/wissen/assets/wissen.js"></script>
+</body></html>

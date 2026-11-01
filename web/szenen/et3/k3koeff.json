@@ -1,0 +1,211 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 8,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -12.5,
+      12.5
+     ],
+     "y_range": [
+      -0.15,
+      0.55
+     ],
+     "x_length": 2.85,
+     "y_length": 1.95,
+     "origin": [
+      -1.78,
+      0,
+      0
+     ],
+     "title": "T_1 = T/2",
+     "x_label": "k",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-10;-5;0;5;10",
+     "y_ticks": "0;0.2;0.4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "center",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Stem",
+    "props": {
+     "x": "-12;-11;-10;-9;-8;-7;-6;-5;-4;-3;-2;-1;0;1;2;3;4;5;6;7;8;9;10;11;12",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.055,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "y": "-0;-0.02894;0;0.03537;-0;-0.04547;0;0.06366;-0;-0.1061;0;0.31831;0.5;0.31831;0;-0.1061;-0;0.06366;0;-0.04547;-0;0.03537;0;-0.02894;-0"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.5*si(pi*x/2)",
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7",
+     "x_range": [
+      -12.5,
+      12.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "S_p(k)",
+     "position": [
+      -12.5,
+      0.645,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -12.5,
+      12.5
+     ],
+     "y_range": [
+      -0.15,
+      0.55
+     ],
+     "x_length": 2.85,
+     "y_length": 1.95,
+     "origin": [
+      1.72,
+      0,
+      0
+     ],
+     "title": "T_1 = T/4",
+     "x_label": "k",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-10;-5;0;5;10",
+     "y_ticks": "0;0.2;0.4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "center",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Stem",
+    "props": {
+     "x": "-12;-11;-10;-9;-8;-7;-6;-5;-4;-3;-2;-1;0;1;2;3;4;5;6;7;8;9;10;11;12",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.055,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "y": "0;0.02046;0.03183;0.02501;-0;-0.03215;-0.05305;-0.04502;0;0.07503;0.15915;0.22508;0.25;0.22508;0.15915;0.07503;0;-0.04502;-0.05305;-0.03215;-0;0.02501;0.03183;0.02046;0"
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o7",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.25*si(pi*x/4)",
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7",
+     "x_range": [
+      -12.5,
+      12.5
+     ]
+    },
+    "on": "o5"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}
