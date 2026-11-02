@@ -1,0 +1,383 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 15,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      5,
+      1
+     ],
+     "y_range": [
+      0,
+      5,
+      1
+     ],
+     "x_length": 3.7,
+     "y_length": 2.0,
+     "origin": [
+      -1.25,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t / T",
+     "y_label": "W / W_1",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o3",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n0.0416667 0.00173611\n0.0833333 0.00694444\n0.125 0.015625\n0.166667 0.0277778\n0.208333 0.0434028\n0.25 0.0625\n0.291667 0.0850694\n0.333333 0.111111\n0.375 0.140625\n0.416667 0.173611\n0.458333 0.210069\n0.5 0.25\n0.541667 0.293403\n0.583333 0.340278\n0.625 0.390625\n0.666667 0.444444\n0.708333 0.501736\n0.75 0.5625\n0.791667 0.626736\n0.833333 0.694444\n0.875 0.765625\n0.916667 0.840278\n0.958333 0.918403\n1 1\n1 1\n1.04167 1.00174\n1.08333 1.00694\n1.125 1.01562\n1.16667 1.02778\n1.20833 1.0434\n1.25 1.0625\n1.29167 1.08507\n1.33333 1.11111\n1.375 1.14062\n1.41667 1.17361\n1.45833 1.21007\n1.5 1.25\n1.54167 1.2934\n1.58333 1.34028\n1.625 1.39062\n1.66667 1.44444\n1.70833 1.50174\n1.75 1.5625\n1.79167 1.62674\n1.83333 1.69444\n1.875 1.76562\n1.91667 1.84028\n1.95833 1.9184\n2 2\n2 2\n2.04167 2.00174\n2.08333 2.00694\n2.125 2.01562\n2.16667 2.02778\n2.20833 2.0434\n2.25 2.0625\n2.29167 2.08507\n2.33333 2.11111\n2.375 2.14062\n2.41667 2.17361\n2.45833 2.21007\n2.5 2.25\n2.54167 2.2934\n2.58333 2.34028\n2.625 2.39062\n2.66667 2.44444\n2.70833 2.50174\n2.75 2.5625\n2.79167 2.62674\n2.83333 2.69444\n2.875 2.76562\n2.91667 2.84028\n2.95833 2.9184\n3 3\n3 3\n3.04167 3.00174\n3.08333 3.00694\n3.125 3.01562\n3.16667 3.02778\n3.20833 3.0434\n3.25 3.0625\n3.29167 3.08507\n3.33333 3.11111\n3.375 3.14062\n3.41667 3.17361\n3.45833 3.21007\n3.5 3.25\n3.54167 3.2934\n3.58333 3.34028\n3.625 3.39062\n3.66667 3.44444\n3.70833 3.50174\n3.75 3.5625\n3.79167 3.62674\n3.83333 3.69444\n3.875 3.76562\n3.91667 3.84028\n3.95833 3.9184\n4 4\n4 4\n4.04167 4.00174\n4.08333 4.00694\n4.125 4.01562\n4.16667 4.02778\n4.20833 4.0434\n4.25 4.0625\n4.29167 4.08507\n4.33333 4.11111\n4.375 4.14062\n4.41667 4.17361\n4.45833 4.21007\n4.5 4.25\n4.54167 4.2934\n4.58333 4.34028\n4.625 4.39062\n4.66667 4.44444\n4.70833 4.50174\n4.75 4.5625\n4.79167 4.62674\n4.83333 4.69444\n4.875 4.76562\n4.91667 4.84028\n4.95833 4.9184\n5 5",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n1 0\n1 1\n1 1\n2 1\n2 2\n2 2\n3 2\n3 3\n3 3\n4 3\n4 4\n4 4\n5 4\n5 5",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@feldarb",
+     "position": [
+      0.2,
+      4.45,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.6,
+      3.85,
+      0
+     ],
+     "end": [
+      3.72,
+      3.72,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@gitterw",
+     "position": [
+      2.75,
+      0.75,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      3.3,
+      1.1,
+      0
+     ],
+     "end": [
+      2.55,
+      1.95,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@flug",
+     "position": [
+      0.95,
+      0.72,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@flug2",
+     "position": [
+      0.95,
+      0.4,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@flug3",
+     "position": [
+      0.95,
+      0.1,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@stoss",
+     "position": [
+      0.95,
+      -0.32,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@stoss2",
+     "position": [
+      0.95,
+      -0.64,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@stoss3",
+     "position": [
+      0.95,
+      -0.94,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "feldarb": {
+    "de": "Arbeit des Felds",
+    "en": "work done by the field",
+    "es": "trabajo del campo",
+    "zh": "电场做的功"
+   },
+   "gitterw": {
+    "de": "Wärme im Gitter",
+    "en": "heat in the lattice",
+    "es": "calor en la red",
+    "zh": "晶格中的热量"
+   },
+   "flug": {
+    "de": "Flug:",
+    "en": "flight:",
+    "es": "vuelo:",
+    "zh": "飞行："
+   },
+   "flug2": {
+    "de": "Feld gibt Energie",
+    "en": "field gives energy",
+    "es": "el campo aporta",
+    "zh": "电场供给能量"
+   },
+   "flug3": {
+    "de": "ans Elektron",
+    "en": "to the electron",
+    "es": "energía al electrón",
+    "zh": "给电子"
+   },
+   "stoss": {
+    "de": "Stoß:",
+    "en": "collision:",
+    "es": "choque:",
+    "zh": "碰撞："
+   },
+   "stoss2": {
+    "de": "Elektron gibt W_1",
+    "en": "electron gives W_1",
+    "es": "el electrón cede W_1",
+    "zh": "电子将 W_1"
+   },
+   "stoss3": {
+    "de": "ans Gitter ab",
+    "en": "to the lattice",
+    "es": "a la red",
+    "zh": "交给晶格"
+   }
+  }
+ }
+}

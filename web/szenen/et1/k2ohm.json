@@ -1,0 +1,648 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 31,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      0.7000000000000001,
+      0
+     ],
+     "end": [
+      -0.6,
+      0.7000000000000001,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      -0.4,
+      0
+     ],
+     "end": [
+      -0.6,
+      -0.4,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-3.0+0.2*cos(t)",
+     "fy": "0.15+0.55*sin(t)",
+     "t_min": 0.0,
+     "t_max": 6.283185307179586,
+     "samples": 61,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.6+0.2*cos(t)",
+     "fy": "0.15+0.55*sin(t)",
+     "t_min": -1.5707963267948966,
+     "t_max": 1.5707963267948966,
+     "samples": 61,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.6+0.2*cos(t)",
+     "fy": "0.15+0.55*sin(t)",
+     "t_min": 1.5707963267948966,
+     "t_max": 4.71238898038469,
+     "samples": 61,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#111111",
+     "stroke_width": 2,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-1.8+0.2*cos(t)",
+     "fy": "0.15+0.55*sin(t)",
+     "t_min": 0.0,
+     "t_max": 6.283185307179586,
+     "samples": 61,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "A",
+     "position": [
+      -1.8,
+      0.97,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.65,
+      0.15,
+      0
+     ],
+     "end": [
+      -2.05,
+      0.15,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.5,
+      0.15,
+      0
+     ],
+     "end": [
+      -0.9,
+      0.15,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "E",
+     "position": [
+      -2.4,
+      0.39,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "j",
+     "position": [
+      -1.2,
+      0.39,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.65,
+      0.15,
+      0
+     ],
+     "end": [
+      -3.2,
+      0.15,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.38,
+      0.15,
+      0
+     ],
+     "end": [
+      0.07,
+      0.15,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "I",
+     "position": [
+      -3.45,
+      0.43000000000000005,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "I",
+     "position": [
+      -0.15,
+      0.43000000000000005,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "+",
+     "position": [
+      -3.0,
+      0.97,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "−",
+     "position": [
+      -0.6,
+      0.97,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.0,
+      -0.7,
+      0
+     ],
+     "end": [
+      -0.6,
+      -0.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": true,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "L",
+     "position": [
+      -1.8,
+      -0.9199999999999999,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.0,
+      -1.27,
+      0
+     ],
+     "end": [
+      -0.6,
+      -1.27,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "U = E L",
+     "position": [
+      -1.8,
+      -1.52,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      9,
+      3
+     ],
+     "y_range": [
+      0,
+      9,
+      3
+     ],
+     "x_length": 2.4,
+     "y_length": 2.5,
+     "origin": [
+      2.0,
+      0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@ein_UV",
+     "y_label": "@ein_ImA",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o24",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x/1",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      9
+     ]
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o25",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x/2",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      9
+     ]
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o26",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x/3",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      9
+     ]
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "R = 1 kΩ",
+     "position": [
+      4.3,
+      7.9,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "2 kΩ",
+     "position": [
+      8.8,
+      5.25,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "3 kΩ",
+     "position": [
+      8.8,
+      1.7,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#c82828"
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o30",
+    "type": "Dot",
+    "props": {
+     "center": [
+      9,
+      3,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o23"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ein_UV": {
+    "de": "U in V",
+    "en": "U in V",
+    "es": "U en V",
+    "zh": "U / V"
+   },
+   "ein_ImA": {
+    "de": "I in mA",
+    "en": "I in mA",
+    "es": "I en mA",
+    "zh": "I / mA"
+   }
+  }
+ }
+}

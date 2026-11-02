@@ -1,0 +1,2086 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 122,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      0.14500000000000002,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      0.255,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.1550000000000002,
+      0.56,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.045,
+      0.56,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -3.1,
+      0.2,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -3.1,
+      0.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      0.8649999999999999,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      0.975,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.1550000000000002,
+      1.2799999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.045,
+      1.2799999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -3.1,
+      0.9199999999999999,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -3.1,
+      0.9199999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      1.585,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      1.6949999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -3.1,
+      1.64,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -3.1,
+      1.64,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      0.14500000000000002,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      0.255,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.435,
+      0.56,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.3249999999999997,
+      0.56,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -2.38,
+      0.2,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -2.38,
+      0.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      0.8649999999999999,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      0.975,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.435,
+      1.2799999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.3249999999999997,
+      1.2799999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -2.38,
+      0.9199999999999999,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -2.38,
+      0.9199999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      1.585,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      1.6949999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -2.38,
+      1.64,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -2.38,
+      1.64,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.715,
+      0.56,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.6050000000000002,
+      0.56,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -1.6600000000000001,
+      0.2,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -1.6600000000000001,
+      0.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.715,
+      1.2799999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.6050000000000002,
+      1.2799999999999998,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -1.6600000000000001,
+      0.9199999999999999,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -1.6600000000000001,
+      0.9199999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -1.6600000000000001,
+      1.64,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -1.6600000000000001,
+      1.64,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o44",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      -2.055,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o45",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      -1.945,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o46",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.1550000000000002,
+      -1.6400000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o47",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.045,
+      -1.6400000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o48",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -3.1,
+      -2.0,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o49",
+    "type": "Text",
+    "props": {
+     "text": "Ga",
+     "position": [
+      -3.1,
+      -2.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o50",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      -1.335,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o51",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      -1.225,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o52",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.1550000000000002,
+      -0.92,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o53",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.045,
+      -0.92,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o54",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -3.1,
+      -1.28,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o55",
+    "type": "Text",
+    "props": {
+     "text": "As",
+     "position": [
+      -3.1,
+      -1.28,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o56",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      -0.6150000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o57",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.74,
+      -0.505,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o58",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -3.1,
+      -0.56,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o59",
+    "type": "Text",
+    "props": {
+     "text": "Ga",
+     "position": [
+      -3.1,
+      -0.56,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o60",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      -2.055,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o61",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      -1.945,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o62",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.435,
+      -1.6400000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o63",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.3249999999999997,
+      -1.6400000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o64",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -2.38,
+      -2.0,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o65",
+    "type": "Text",
+    "props": {
+     "text": "As",
+     "position": [
+      -2.38,
+      -2.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o66",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      -1.335,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o67",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      -1.225,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o68",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.435,
+      -0.92,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o69",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.3249999999999997,
+      -0.92,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o70",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -2.38,
+      -1.28,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o71",
+    "type": "Text",
+    "props": {
+     "text": "Ga",
+     "position": [
+      -2.38,
+      -1.28,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o72",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      -0.6150000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o73",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.02,
+      -0.505,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o74",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -2.38,
+      -0.56,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o75",
+    "type": "Text",
+    "props": {
+     "text": "As",
+     "position": [
+      -2.38,
+      -0.56,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o76",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.715,
+      -1.6400000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o77",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.6050000000000002,
+      -1.6400000000000001,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o78",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -1.6600000000000001,
+      -2.0,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o79",
+    "type": "Text",
+    "props": {
+     "text": "Ga",
+     "position": [
+      -1.6600000000000001,
+      -2.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o80",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.715,
+      -0.92,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o81",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.6050000000000002,
+      -0.92,
+      0
+     ],
+     "radius": 0.03,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o82",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -1.6600000000000001,
+      -1.28,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o83",
+    "type": "Text",
+    "props": {
+     "text": "As",
+     "position": [
+      -1.6600000000000001,
+      -1.28,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o84",
+    "type": "Circle",
+    "props": {
+     "radius": 0.23,
+     "center": [
+      -1.6600000000000001,
+      -0.56,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o85",
+    "type": "Text",
+    "props": {
+     "text": "Ga",
+     "position": [
+      -1.6600000000000001,
+      -0.56,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o86",
+    "type": "Text",
+    "props": {
+     "text": "@sik",
+     "position": [
+      -2.38,
+      2.03,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o87",
+    "type": "Text",
+    "props": {
+     "text": "@gaask",
+     "position": [
+      -2.38,
+      -0.17,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o88",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      6
+     ],
+     "y_range": [
+      0,
+      10
+     ],
+     "x_length": 3.05,
+     "y_length": 3.7,
+     "origin": [
+      1.95,
+      -0.05,
+      0
+     ],
+     "title": "",
+     "x_label": "@a_E_geV",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;1;2;3;4;5;6",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": false,
+     "x_numbers": true,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o89",
+    "type": "Band",
+    "props": {
+     "x_min": 0.1,
+     "x_max": 3.0,
+     "y_min": 0,
+     "y_max": 10,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.1,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o90",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 0.18,
+     "y_min": 9.2,
+     "y_max": 9.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o91",
+    "type": "Text",
+    "props": {
+     "text": "InSb",
+     "position": [
+      -0.15,
+      9.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o92",
+    "type": "Text",
+    "props": {
+     "text": "0.18",
+     "position": [
+      0.3,
+      9.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o93",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 0.35,
+     "y_min": 8.2,
+     "y_max": 8.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o94",
+    "type": "Text",
+    "props": {
+     "text": "InAs",
+     "position": [
+      -0.15,
+      8.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o95",
+    "type": "Text",
+    "props": {
+     "text": "0.35",
+     "position": [
+      0.47,
+      8.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o96",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 0.67,
+     "y_min": 7.2,
+     "y_max": 7.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o97",
+    "type": "Text",
+    "props": {
+     "text": "Ge",
+     "position": [
+      -0.15,
+      7.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o98",
+    "type": "Text",
+    "props": {
+     "text": "0.67",
+     "position": [
+      0.79,
+      7.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o99",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1.12,
+     "y_min": 6.2,
+     "y_max": 6.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o100",
+    "type": "Text",
+    "props": {
+     "text": "Si",
+     "position": [
+      -0.15,
+      6.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o101",
+    "type": "Text",
+    "props": {
+     "text": "1.12",
+     "position": [
+      1.2400000000000002,
+      6.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o102",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1.42,
+     "y_min": 5.2,
+     "y_max": 5.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o103",
+    "type": "Text",
+    "props": {
+     "text": "GaAs",
+     "position": [
+      -0.15,
+      5.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o104",
+    "type": "Text",
+    "props": {
+     "text": "1.42",
+     "position": [
+      1.54,
+      5.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o105",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1.45,
+     "y_min": 4.2,
+     "y_max": 4.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o106",
+    "type": "Text",
+    "props": {
+     "text": "CdTe",
+     "position": [
+      -0.15,
+      4.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o107",
+    "type": "Text",
+    "props": {
+     "text": "1.45",
+     "position": [
+      1.5699999999999998,
+      4.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o108",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 2.42,
+     "y_min": 3.2,
+     "y_max": 3.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o109",
+    "type": "Text",
+    "props": {
+     "text": "CdS",
+     "position": [
+      -0.15,
+      3.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o110",
+    "type": "Text",
+    "props": {
+     "text": "2.42",
+     "position": [
+      2.54,
+      3.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o111",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 2.8,
+     "y_min": 2.2,
+     "y_max": 2.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o112",
+    "type": "Text",
+    "props": {
+     "text": "AgI",
+     "position": [
+      -0.15,
+      2.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o113",
+    "type": "Text",
+    "props": {
+     "text": "2.8",
+     "position": [
+      2.92,
+      2.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o114",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 3.2,
+     "y_min": 1.2,
+     "y_max": 1.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o115",
+    "type": "Text",
+    "props": {
+     "text": "ZnO",
+     "position": [
+      -0.15,
+      1.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o116",
+    "type": "Text",
+    "props": {
+     "text": "3.2",
+     "position": [
+      3.3200000000000003,
+      1.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o117",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 5.5,
+     "y_min": 0.2,
+     "y_max": 0.8,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.85,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o118",
+    "type": "Text",
+    "props": {
+     "text": "C",
+     "position": [
+      -0.15,
+      0.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o119",
+    "type": "Text",
+    "props": {
+     "text": "5.5",
+     "position": [
+      5.62,
+      0.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o120",
+    "type": "Text",
+    "props": {
+     "text": "@hlber",
+     "position": [
+      4.6,
+      7.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#00823c"
+    },
+    "on": "o88"
+   },
+   {
+    "id": "o121",
+    "type": "Text",
+    "props": {
+     "text": "@isol",
+     "position": [
+      4.75,
+      1.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    },
+    "on": "o88"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "sik": {
+    "de": "Silizium: 8 Elektronen je Atom",
+    "en": "silicon: 8 electrons per atom",
+    "es": "silicio: 8 electrones por átomo",
+    "zh": "硅：每原子 8 个电子"
+   },
+   "gaask": {
+    "de": "GaAs: 3 + 5 = 8",
+    "en": "GaAs: 3 + 5 = 8",
+    "es": "GaAs: 3 + 5 = 8",
+    "zh": "GaAs：3 + 5 = 8"
+   },
+   "a_E_geV": {
+    "de": "E_g in eV",
+    "en": "E_g in eV",
+    "es": "E_g en eV",
+    "zh": "E_g / eV"
+   },
+   "hlber": {
+    "de": "Halbleiter",
+    "en": "semiconductors",
+    "es": "semiconductores",
+    "zh": "半导体"
+   },
+   "isol": {
+    "de": "Isolator",
+    "en": "insulator",
+    "es": "aislante",
+    "zh": "绝缘体"
+   }
+  }
+ }
+}

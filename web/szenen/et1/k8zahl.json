@@ -1,0 +1,402 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      1,
+      7,
+      1
+     ],
+     "y_range": [
+      0,
+      14,
+      2
+     ],
+     "x_length": 5.0,
+     "y_length": 2.7,
+     "origin": [
+      0.15,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "k",
+     "y_label": "z",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Area",
+    "props": {
+     "func": "2*x-2",
+     "func2": "14",
+     "x_min": 1,
+     "x_max": 7,
+     "samples": 120,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.08,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "2*x-2",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      1,
+      7
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x-1",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": "10,7",
+     "x_range": [
+      1,
+      7
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "z = 2k − 2",
+     "position": [
+      6.1,
+      12.1,
+      0
+     ],
+     "font_size": 25,
+     "align": "right",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "z = k − 1",
+     "position": [
+      6.95,
+      3.9,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#7f7f7f"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@obenk",
+     "position": [
+      1.2,
+      12.6,
+      0
+     ],
+     "font_size": 25,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@untenm",
+     "position": [
+      6.95,
+      8.0,
+      0
+     ],
+     "font_size": 25,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2,
+      4,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@par",
+     "position": [
+      2.14,
+      4.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      5,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@rm",
+     "position": [
+      2.9,
+      6.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4,
+      6,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@br",
+     "position": [
+      4.12,
+      5.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Dot",
+    "props": {
+     "center": [
+      5,
+      10,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@vo",
+     "position": [
+      4.86,
+      10.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o17",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6,
+      6,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@ri",
+     "position": [
+      6.14,
+      6.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "obenk": {
+    "de": "Knoten kürzer",
+    "en": "nodes shorter",
+    "es": "nudos más corto",
+    "zh": "节点法更短"
+   },
+   "untenm": {
+    "de": "Maschen kürzer",
+    "en": "meshes shorter",
+    "es": "mallas más corto",
+    "zh": "网孔法更短"
+   },
+   "par": {
+    "de": "parallel",
+    "en": "parallel",
+    "es": "paralelo",
+    "zh": "并联"
+   },
+   "rm": {
+    "de": "Rechenmodell",
+    "en": "model network",
+    "es": "red modelo",
+    "zh": "模型电路"
+   },
+   "br": {
+    "de": "Brücke",
+    "en": "bridge",
+    "es": "puente",
+    "zh": "电桥"
+   },
+   "vo": {
+    "de": "jeder mit jedem",
+    "en": "all connected",
+    "es": "todos unidos",
+    "zh": "全连接"
+   },
+   "ri": {
+    "de": "Ring",
+    "en": "ring",
+    "es": "anillo",
+    "zh": "环"
+   }
+  }
+ }
+}

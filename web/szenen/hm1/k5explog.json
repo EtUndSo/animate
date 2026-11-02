@@ -1,0 +1,301 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -2.5,
+      4.5
+     ],
+     "y_range": [
+      -2.5,
+      4.5
+     ],
+     "x_length": 2.6,
+     "y_length": 2.6,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "y",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-2;1;2;3;4",
+     "y_ticks": "-2;1;2;3;4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x",
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "x_range": [
+      -2.5,
+      4.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x+1",
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "2,5",
+     "x_range": [
+      -2.5,
+      3.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x-1",
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "2,5",
+     "x_range": [
+      -1.5,
+      4.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(x)",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      -2.5,
+      1.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "ln(x)",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.09,
+      4.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0,
+      1,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      2.71828,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      0,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.71828,
+      1,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "e^x",
+     "position": [
+      1.1,
+      3.9,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "log x",
+     "position": [
+      4.5,
+      1.05,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "y = x",
+     "position": [
+      4.55,
+      4.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "y = x + 1",
+     "position": [
+      3.4,
+      4.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "y = x − 1",
+     "position": [
+      4.55,
+      3.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#a84a22"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

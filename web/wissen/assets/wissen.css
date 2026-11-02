@@ -1,46 +1,41 @@
 
-/* Palette „Signal & Ink" — Tag Standard, Nacht via data-theme=dark (folgt dem Editor-Theme). */
-:root{ --bg:#f4f6fa; --panel:#ffffff; --ink:#10161f; --muted:#56617a; --border:#e0e5ee; --soft:#eef1f7;
-  --accent:#2b6def; --accent2:#e5383b; --accent3:#ff9f1c; --radius:14px;
+/* Vorlage „Kopfleiste“ (User 2026-11-02): dunkelgrüne Leiste, lila Überschriften, grüne Links, orange Akzente.
+   Tag Standard, Nacht via data-theme=dark (folgt dem Editor-Theme). Alle Textfarben mindestens 4,5 : 1 auf Karte und Grund. */
+:root{ --bg:#f5f5f1; --panel:#ffffff; --ink:#191c1a; --muted:#59605b; --border:#e0e2dc; --soft:#eeefe9;
+  --accent:#15633a; --accent2:#3f1a78; --accent3:#c2410c; --on-accent:#ffffff; --aufg:#3f1a78;
+  --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-soft:#1a4d35; --bar-hl:#ff9650; --radius:14px;
   --fdisp:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif; --fbody:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --fmono:ui-monospace,"Cascadia Code",Consolas,monospace; }
-/* Nacht (User 2026-10-21): Flächen aus der verbreiteten Slate-Skala (Dunkelblau-Grau, kein Schwarz; Tiefe durch hellere
-   Karten wie bei Material Design), Hauptfarben bleiben Rot, Orange und Hellblau, alle mit mindestens 4,5 : 1 auf den Karten. */
-:root[data-theme="dark"]{ --bg:#0f172a; --panel:#1e293b; --ink:#f1f5f9; --muted:#94a3b8; --border:#334155; --soft:#162032;
-  --accent:#5c94ff; --accent2:#ff5e60; --accent3:#ffb54d; }
-/* Formelfarben (\textcolor der Build-Färbung) nachts in den hellen Varianten, sonst nur gut 3 : 1 Kontrast.
+:root[data-theme="dark"]{ --bg:#101412; --panel:#1a201c; --ink:#eff2ef; --muted:#a6afa8; --border:#2f3831; --soft:#141a16;
+  --accent:#6ad19b; --accent2:#c9a9ff; --accent3:#ff9650; --on-accent:#0d1f15; --aufg:#55299a;
+  --bar:#0b2a1c; --bar-ink:#dcebe1; --bar-rand:#174630; --bar-soft:#123a27; }
+/* Formelfarben (\textcolor der Build-Färbung) nachts in den hellen Varianten, die dunklen wären kaum zu lesen.
    KaTeX setzt die Farbe per Skript, der Browser schreibt sie dann als rgb(…) ins style-Attribut. */
-:root[data-theme="dark"] .katex [style*="rgb(229, 56, 59)"],:root[data-theme="dark"] .katex [style*="#e5383b"]{color:var(--accent2)!important;}
-:root[data-theme="dark"] .katex [style*="rgb(43, 109, 239)"],:root[data-theme="dark"] .katex [style*="#2b6def"]{color:var(--accent)!important;}
-:root[data-theme="dark"] .katex [style*="rgb(255, 159, 28)"],:root[data-theme="dark"] .katex [style*="#ff9f1c"]{color:var(--accent3)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(63, 26, 120)"],:root[data-theme="dark"] .katex [style*="#3f1a78"]{color:var(--accent2)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(21, 99, 58)"],:root[data-theme="dark"] .katex [style*="#15633a"]{color:var(--accent)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(194, 65, 12)"],:root[data-theme="dark"] .katex [style*="#c2410c"]{color:var(--accent3)!important;}
 *{box-sizing:border-box;} html{scroll-behavior:smooth;}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.68;-webkit-font-smoothing:antialiased;}
 a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
-.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--panel);border-bottom:1px solid var(--border);}
-.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--accent2);}
-.brand span{color:var(--accent);} .brand span.so{color:var(--accent3);}
-.topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);color:var(--muted);
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--bar);border-bottom:1px solid var(--bar-rand);}
+.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--bar-ink);}
+.brand span{color:var(--bar-ink);} .brand span.so{color:var(--bar-hl);}
+.topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
-.topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
-.topbar .editorlink{font-weight:600;color:var(--muted);} .topbar .editorlink:hover{color:var(--ink);}
-.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
-.topbar .iconBtn:hover{border-color:var(--accent);color:var(--ink);}
-.topbar .panelBtn:hover{background:color-mix(in srgb,var(--accent) 12%,var(--soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
-.topbar .panelBtn.is-open{color:var(--accent);border-color:var(--accent);}   /* Panel offen = blau, zu = grau (Grundfarbe) */
-.topbar .navBtn{color:var(--accent);border-color:var(--accent);}             /* Pfeile zum vorherigen/nächsten Artikel */
-.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 12%,var(--soft));}
-.topbar .navBtn.disabled{color:var(--muted);border-color:var(--border);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
+.topbar .searchBtn:hover{border-color:var(--bar-hl);}
+.topbar kbd{background:transparent;border-color:var(--bar-rand);color:var(--bar-ink);}
+.topbar .langs{background:var(--bar-soft);border-color:var(--bar-rand);}
+.topbar .langs .l-btn{color:var(--bar-ink);} .topbar .langs .l-btn.on{background:var(--bar-hl);color:#2a1205;}
+.topbar .editorlink{font-weight:600;color:var(--bar-ink);} .topbar .editorlink:hover{color:var(--bar-hl);}
+.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);border-radius:10px;cursor:pointer;}
+.topbar .iconBtn:hover{border-color:var(--bar-hl);}
+.topbar .panelBtn:hover{background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
+.topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
+.topbar .navBtn{color:var(--bar-hl);border-color:var(--bar-hl);}             /* Pfeile zum vorherigen/nächsten Artikel */
+.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}
+.topbar .navBtn.disabled{color:var(--bar-ink);border-color:var(--bar-rand);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
-/* Umschalter KI | Mensch (neben dem Logo): aktive Fassung blau unterstrichen wie der Fassungs-Umschalter; ohne Gegenstück grau.
-   Auf dem Handy (≤720 px) verschwindet er aus der Leiste und erscheint unter dem Titel (.autor-art) und oben im Themenbaum (.autor-side). */
-.autor{display:inline-flex;height:36px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);flex:none;vertical-align:middle;}
-.autor .a-btn{display:inline-flex;align-items:center;gap:6px;padding:0 11px;font:inherit;font-size:13.5px;font-weight:600;color:var(--muted);background:none;border:0;cursor:pointer;}
-.autor .a-btn:hover{color:var(--ink);text-decoration:none;}
-.autor .a-btn.on{background:var(--panel);color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);}
-.autor .a-btn.off{opacity:.4;cursor:default;} .autor .a-btn.off:hover{color:var(--muted);}
-.autor-art,.autor-side{display:none;}
-.article .autor-art{margin:.1em 10px 1.2em 0;}
 .apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
 .apill-mensch{color:var(--accent3);border-color:var(--accent3);}
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
@@ -56,22 +51,22 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
 .side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
-.side .lvl0>summary{font-weight:700;color:var(--accent2);}  /* Fach/Studiengang: rot */
+.side .lvl0>summary{font-weight:700;color:var(--accent2);}  /* Fach/Studiengang: lila */
 .side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
-.side .lvl2>summary{color:var(--accent);}                 /* Modul: blau */
+.side .lvl2>summary{color:var(--accent);}                 /* Modul: grün */
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
 .side li a{display:block;color:var(--ink);padding:3px 7px;border-radius:7px;}   /* Unterthemen/Themen: schwarz (im Dunkelmodus hell) */
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
-.side li a.active{color:#fff;background:var(--accent);font-weight:600;}
+.side li a.active{color:var(--on-accent);background:var(--accent);font-weight:600;}
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
 .article>article{min-width:0;width:100%;max-width:72ch;margin-inline:auto;}   /* zentriert -> bleibt beim Einklappen der Panels gleich breit; width:100%: sonst zieht die breiteste Formel den Artikel (auto-Ränder = fit-content) über die Spalte hinaus -> Text läuft auf Handy/Tablet rechts raus */
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
-.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
-.article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
+.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: lila */
+.article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: lila, mehr Luft davor */
 .article h3{font-family:var(--fdisp);font-size:19px;margin:1.9em 0 .7em;scroll-margin-top:66px;color:var(--accent2);}
 .article p,.article li{font-size:17.5px;} .article p{margin:0 0 1.35em;} .article li{margin:.3em 0;} .article ul,.article ol{margin:0 0 1.35em;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.3em;}
-/* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = blau, Schritt-Marken = rot --- */
+/* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = grün, Schritt-Marken = lila --- */
 .article strong{color:var(--accent3);}             /* wichtige Ausdrücke/Wörter */
 .article strong.nm{color:var(--accent);}           /* Namen (Größen, Begriffe, Einheiten) */
 .article strong.step{color:var(--accent2);}        /* „Schritt N" */
@@ -98,7 +93,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .md-table thead th{background:var(--soft);font-family:var(--fdisp);color:var(--accent);font-weight:700;}
 .md-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 55%,transparent);}
 .callout{margin:1.7em 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
-.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: UndSo-blau */
+.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: grün */
 .callout.cx-konzept{border-left:4px solid var(--accent);} .callout.cx-kern{border-left:4px solid var(--accent2);background:color-mix(in srgb,var(--accent2) 7%,var(--panel));}
 .callout.cx-kern .callout-h{color:var(--accent2);}  /* Kernbox: Titel in Rot, passend zum roten Rand */
 .callout.cx-merke{border-left:4px solid var(--accent3);}
@@ -181,15 +176,13 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .zweck{margin:.4em 0 1.5em;padding:12px 16px;border-radius:10px;background:var(--soft);}
 .zweck .zw-k{font-weight:700;font-family:var(--fdisp);}
 .zweck p{display:inline;margin:0;} .zweck p+p{display:block;margin-top:.7em;}
-.aufg{margin:1.5em 0;border:1px solid color-mix(in srgb,#00823c 50%,var(--border));border-radius:12px;overflow:hidden;background:var(--panel);}
-.aufg-h{padding:9px 16px;font-weight:700;font-family:var(--fdisp);font-size:16px;color:#fff;background:#1d7a4a;}
+.aufg{margin:1.5em 0;border:1px solid color-mix(in srgb,var(--aufg) 50%,var(--border));border-radius:12px;overflow:hidden;background:var(--panel);}
+.aufg-h{padding:9px 16px;font-weight:700;font-family:var(--fdisp);font-size:16px;color:#fff;background:var(--aufg);}
 .aufg-h .katex{color:#fff;}
-:root[data-theme="dark"] .aufg-h{background:#1a6a41;}
 .aufg-b{padding:13px 16px 12px;}
 .aufg-b>p:last-of-type{margin-bottom:.7em;}
 details.loesung{margin:.7em 0 .2em;border-top:1px dashed var(--border);padding-top:8px;}
-details.loesung>summary{cursor:pointer;list-style:none;font-weight:600;color:#1d7a4a;}
-:root[data-theme="dark"] details.loesung>summary{color:#5ec88f;}
+details.loesung>summary{cursor:pointer;list-style:none;font-weight:600;color:var(--accent2);}
 details.loesung>summary::-webkit-details-marker{display:none;}
 details.loesung>summary::before{content:"▸";display:inline-block;margin-right:9px;transition:transform .15s;}
 details.loesung[open]>summary::before{transform:rotate(90deg);}
@@ -201,20 +194,23 @@ details.loesung[open]>summary::before{transform:rotate(90deg);}
 .article ol.al{list-style:none;counter-reset:al;padding-left:2em;}
 .article ol.al>li{counter-increment:al;position:relative;}
 .article ol.al>li::before{content:"(" counter(al,lower-alpha) ")";position:absolute;left:-2em;font-weight:600;font-size:16px;line-height:1.75;}
+.article ol.rm{list-style:none;counter-reset:rm;padding-left:2.3em;}
+.article ol.rm>li{counter-increment:rm;position:relative;}
+.article ol.rm>li::before{content:"(" counter(rm,lower-roman) ")";position:absolute;left:-2.3em;font-weight:600;font-size:16px;line-height:1.75;}
 .article li>p{margin:0 0 .5em;} .article li>p:last-child{margin-bottom:0;}
 .langs{display:inline-flex;margin-left:10px;border:1px solid var(--border);border-radius:9px;overflow:hidden;background:var(--soft);}
 .langs .l-btn{padding:6px 8px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;}
-.langs .l-btn.on{background:var(--accent);color:#fff;}
+.langs .l-btn.on{background:var(--accent);color:var(--on-accent);}
 .langs .l-btn.off{opacity:.4;cursor:default;}
 html[lang="zh"] body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;}
 .langs-art{display:none;margin:0 0 10px 8px;}
 @media (max-width:900px){.langs-top{display:none;}.langs-art{display:inline-flex;}}
-details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid #c9581f;border-radius:10px;background:color-mix(in srgb,#eb6834 5%,var(--panel));}
+details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent3);border-radius:10px;background:color-mix(in srgb,var(--accent3) 5%,var(--panel));}
 details.ltspice>summary{cursor:pointer;font-weight:600;padding:10px 14px;list-style:none;line-height:1.45;}
 details.ltspice>summary::-webkit-details-marker{display:none;}
-details.ltspice>summary::before{content:"▸";display:inline-block;margin-right:9px;color:#c9581f;transition:transform .15s;}
+details.ltspice>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent3);transition:transform .15s;}
 details.ltspice[open]>summary::before{transform:rotate(90deg);}
-details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#c9581f;margin-right:9px;}
+details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
 .lt-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .lt-body>p:first-child{margin-top:12px;}
 .prevnext{display:flex;justify-content:space-between;gap:14px;margin:36px 0 10px;flex-wrap:wrap;}
@@ -226,11 +222,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .field-block{margin:26px 0;} .field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
 .idx-node{margin:10px 0 10px 4px;padding-left:14px;border-left:2px solid var(--border);}
 .idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--accent3);font-weight:700;letter-spacing:.01em;}  /* Semester: orange */
-.idx-node h3.idx-lvl2{color:var(--accent);}              /* Modul: blau (Oberthemen bleiben Standard-Ink/schwarz) */
+.idx-node h3.idx-lvl2{color:var(--accent);}              /* Modul: grün (Oberthemen bleiben Standard-Ink/schwarz) */
 .theme-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
 .theme-card h3{font-family:var(--fdisp);margin:0 0 6px;font-size:16px;} .theme-card ul{list-style:none;margin:0;padding:0;} .theme-card li{margin:4px 0;}
-.theme-card a{color:var(--ink);} .theme-card a:hover{color:var(--accent);}   /* Unterthemen schwarz, Hover blau */
-.field-block>h2{color:var(--accent2);}   /* Fach/Studiengang: rot (wie Sidebar lvl0) */
+.theme-card a{color:var(--ink);} .theme-card a:hover{color:var(--accent);}   /* Unterthemen schwarz, Hover grün */
+.field-block>h2{color:var(--accent2);}   /* Fach/Studiengang: lila (wie Sidebar lvl0) */
 .empty{color:var(--muted);}
 .wfoot{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13.5px;}
 .searchOverlay{position:fixed;inset:0;z-index:50;background:rgba(10,14,22,.5);backdrop-filter:blur(2px);display:flex;justify-content:center;padding:10vh 16px 16px;}
@@ -251,46 +247,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .arttoc a{display:block;padding:5px 0;color:var(--ink);font-weight:500;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
-/* ---------- Beispiel-Seite: geteilte Ansicht (Theorie links | Beispiele rechts, Farbe Orange = Praxis) ---------- */
-.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}   /* Beispiel-Knopf: offen = blau wie die anderen Panels (is-open) */
-.topbar .panelBtn:disabled:hover{border-color:var(--border);color:var(--muted);}
-.bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;position:relative;z-index:1;}  /* Verweis im Artikel, wo das Beispiel hingehört; über den KaTeX-Hilfsboxen des Folgetexts */
-.bsp-ref a{display:inline-flex;align-items:baseline;gap:8px;max-width:100%;font-size:14.5px;line-height:1.4;color:var(--ink);
-  border:1px solid color-mix(in srgb,var(--accent3) 55%,var(--border));background:color-mix(in srgb,var(--accent3) 8%,var(--panel));
-  border-radius:999px;padding:4px 14px;}
-.bsp-ref a:hover{text-decoration:none;border-color:var(--accent3);}
-.bsp-ref .bsp-n{font-family:var(--fdisp);font-weight:700;color:var(--accent3);white-space:nowrap;}
-.bsp-ref .bsp-tt{color:var(--muted);min-width:0;}
-.bsp-ref .bsp-arr{color:var(--accent3);font-weight:700;}
-.bsp-pane{display:none;}
-.bsp-pane-h{font-family:var(--fdisp);font-weight:800;color:var(--accent3);font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:4px 2px 14px;}
-.bsp-pane-h span{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:13.5px;}
+/* ---------- Beispiel-Karte im Artikel (Farbe Orange = Praxis) ---------- */
 .bsp-card{border:1px solid var(--border);border-top:4px solid var(--accent3);border-radius:14px;background:var(--panel);padding:4px 20px 14px;margin:0 0 18px;transition:box-shadow .35s;}
-.bsp-card.flash{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent3) 40%,transparent);}
-.bsp-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:9px 0 2px;}
 .bsp-card-n{font-family:var(--fdisp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);white-space:nowrap;}
-.bsp-back{font-size:13px;color:var(--muted);text-align:right;}
 .bsp-card-t{font-family:var(--fdisp);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:2px 0 .7em;}
-/* geteilt: Baum-Spalte entfällt, Artikel rückt nach links, rechts die Beispiel-Seite in gleicher Breite (eigene Scroll-Spalte) */
-.bsp-on .layout.has-bsp{grid-template-columns:minmax(0,1fr);max-width:none;}
-.bsp-on .layout.has-bsp>.side{display:none;}
-.bsp-on .layout.has-bsp>main{grid-column:1;}
-.bsp-on .layout.has-bsp .toc,.bsp-on #toggleRight{display:none;}
-.bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,72ch) minmax(0,72ch);justify-content:center;gap:30px;}
-.bsp-on .layout.has-bsp .article>article{margin-inline:0;}
-.bsp-on .layout.has-bsp .bsp-pane{display:block;position:sticky;top:59px;align-self:start;height:calc(100vh - 59px);overflow:auto;
-  overscroll-behavior:contain;padding:18px 6px 45vh 2px;scrollbar-width:thin;}
-.bsp-on .layout.has-bsp .bsp-ref a{border-color:var(--accent3);}
-.bsp-on .layout.has-bsp .article .katex-display{font-size:1.16em;}   /* schmalere Spalten: lange Formeln passen eher */
-.bsp-pane .katex-display{font-size:1.16em;}
-.bsp-on .layout.has-bsp>.side.open{display:block;position:fixed;top:59px;left:0;bottom:0;width:min(320px,88vw);z-index:30;
-  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);align-self:stretch;}   /* Themenbaum als Overlay (stretch: zwischen Leiste und Unterkante) */
-@media(max-width:1179px){   /* zu schmal für zwei Spalten: Beispiel-Seite legt sich über den Artikel */
-  .bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,1fr);}
-  .bsp-on .layout.has-bsp .bsp-pane{position:fixed;inset:59px 0 0;z-index:25;height:auto;align-self:stretch;background:var(--bg);
-    padding:16px max(14px,calc((100vw - 76ch) / 2)) 64px;}   /* stretch: sonst hängt die Ebene in voller Inhaltshöhe am oberen Rand */
-}
-@media(max-width:720px){ .bsp-on .layout.has-bsp .bsp-pane{top:57px;} .bsp-card{padding:4px 15px 12px;} }
+@media(max-width:720px){ .bsp-card{padding:4px 15px 12px;} }
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
@@ -300,7 +261,6 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
   .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
   .topbar .searchBtn kbd{display:none;}   /* Suchknopf nur mit dem Wort, ohne Tastenhinweis */
-  .topbar .autor-top{display:none;} .autor-art{display:inline-flex;} .side .autor-side{display:inline-flex;margin-bottom:12px;}   /* Handy: Umschalter unter dem Titel und im Themenbaum statt in der Leiste */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
   .article .katex{font-size:1.14em;}                              /* Inline-Formeln auf dem Handy nicht zu klein */

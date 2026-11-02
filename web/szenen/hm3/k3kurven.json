@@ -1,0 +1,456 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 22,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-2.75+0.7*cos(t)",
+     "fy": "0.7*sin(t)",
+     "t_min": 0,
+     "t_max": 6.283185307179586,
+     "samples": 161,
+     "show_arrow": true,
+     "arrow_at": "0.2",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.05,
+      0,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@kr",
+     "position": [
+      -2.75,
+      1.12,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "t = 0, 2π",
+     "position": [
+      -2.75,
+      -0.98,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@ei",
+     "position": [
+      -2.75,
+      -1.36,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.9+0.7*cos(t)",
+     "fy": "0.7*sin(t)",
+     "t_min": 0,
+     "t_max": 6.283185307179586,
+     "samples": 161,
+     "show_arrow": true,
+     "arrow_at": "0.2;0.7",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.20000000000000007,
+      0,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@kz",
+     "position": [
+      -0.9,
+      1.12,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "t = 0, 2π, 4π",
+     "position": [
+      -0.9,
+      -0.98,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@ne",
+     "position": [
+      -0.9,
+      -1.36,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "0.95+0.72*sin(t)",
+     "fy": "0.72*sin(2*t)",
+     "t_min": 0,
+     "t_max": 6.283185307179586,
+     "samples": 241,
+     "show_arrow": true,
+     "arrow_at": "0.1;0.62",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.95,
+      0,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@ac",
+     "position": [
+      0.95,
+      1.12,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "t = 0, π, 2π",
+     "position": [
+      0.95,
+      -0.98,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@ne",
+     "position": [
+      0.95,
+      -1.36,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o17",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "2.8-0.35+0.9*t*t",
+     "fy": "0.75*t*t*t",
+     "t_min": -1,
+     "t_max": 1,
+     "samples": 161,
+     "show_arrow": true,
+     "arrow_at": "0.1;0.9",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o18",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.4499999999999997,
+      0,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@sp",
+     "position": [
+      2.8,
+      1.12,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@st",
+     "position": [
+      2.8,
+      -0.98,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@nr",
+     "position": [
+      2.8,
+      -1.36,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "kr": {
+    "de": "Kreis",
+    "en": "circle",
+    "es": "círculo",
+    "zh": "圆"
+   },
+   "ei": {
+    "de": "einfach",
+    "en": "simple",
+    "es": "simple",
+    "zh": "简单"
+   },
+   "kz": {
+    "de": "Kreis, zweimal",
+    "en": "circle, twice",
+    "es": "círculo, dos veces",
+    "zh": "圆，两圈"
+   },
+   "ne": {
+    "de": "nicht einfach",
+    "en": "not simple",
+    "es": "no simple",
+    "zh": "不简单"
+   },
+   "ac": {
+    "de": "Acht",
+    "en": "figure eight",
+    "es": "ocho",
+    "zh": "八字形"
+   },
+   "sp": {
+    "de": "Spitze",
+    "en": "cusp",
+    "es": "cúspide",
+    "zh": "尖点"
+   },
+   "st": {
+    "de": "steht still",
+    "en": "stops",
+    "es": "se detiene",
+    "zh": "停住"
+   },
+   "nr": {
+    "de": "nicht regulär",
+    "en": "not regular",
+    "es": "no regular",
+    "zh": "非正则"
+   }
+  }
+ }
+}

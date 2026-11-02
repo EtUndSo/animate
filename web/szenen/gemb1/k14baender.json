@@ -1,0 +1,662 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 28,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      400
+     ],
+     "y_range": [
+      -2,
+      2
+     ],
+     "x_length": 4.5,
+     "y_length": 0.85,
+     "origin": [
+      0.15,
+      2.15,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "@rho_l",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;100;200;300;400",
+     "y_ticks": "-1.6;0;1.6",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": false,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 200.0,
+     "y_min": -2,
+     "y_max": 2,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.12,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      400,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 1.602\n200 1.602\n200 0\n400 0",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.0,
+      0,
+      0
+     ],
+     "end": [
+      0.0,
+      -1.9,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "-Q'",
+     "position": [
+      22,
+      -1.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "+Q'",
+     "position": [
+      100,
+      0.72,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      400
+     ],
+     "y_range": [
+      -3.6,
+      0.6
+     ],
+     "x_length": 4.5,
+     "y_length": 0.85,
+     "origin": [
+      0.15,
+      0.7,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "@feld_l",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;100;200;300;400",
+     "y_ticks": "-3;0",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": false,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 200.0,
+     "y_min": -3.6,
+     "y_max": 0.6,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.12,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      400,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": ""
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o12",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 -3.093\n200 0\n400 0",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#00823c",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "-3.09",
+     "position": [
+      52,
+      -2.9,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o14",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      400
+     ],
+     "y_range": [
+      -1.05,
+      0.65
+     ],
+     "x_length": 4.5,
+     "y_length": 1.65,
+     "origin": [
+      0.15,
+      -1.15,
+      0
+     ],
+     "title": "",
+     "x_label": "@a_xnm",
+     "y_label": "@a_EE_FeV",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;100;200;300;400",
+     "y_ticks": "-1;-0.5;0;0.5",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 200.0,
+     "y_min": -1.05,
+     "y_max": 0.65,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.12,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o16",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0.514381\n3.36134 0.504082\n6.72269 0.493957\n10.084 0.484007\n13.4454 0.474231\n16.8067 0.46463\n20.1681 0.455204\n23.5294 0.445952\n26.8908 0.436875\n30.2521 0.427972\n33.6134 0.419244\n36.9748 0.41069\n40.3361 0.402311\n43.6975 0.394106\n47.0588 0.386077\n50.4202 0.378221\n53.7815 0.37054\n57.1429 0.363034\n60.5042 0.355702\n63.8655 0.348545\n67.2269 0.341563\n70.5882 0.334755\n73.9496 0.328121\n77.3109 0.321662\n80.6723 0.315378\n84.0336 0.309268\n87.395 0.303333\n90.7563 0.297573\n94.1176 0.291987\n97.479 0.286575\n100.84 0.281338\n104.202 0.276276\n107.563 0.271388\n110.924 0.266675\n114.286 0.262136\n117.647 0.257772\n121.008 0.253582\n124.37 0.249568\n127.731 0.245727\n131.092 0.242061\n134.454 0.23857\n137.815 0.235253\n141.176 0.232111\n144.538 0.229144\n147.899 0.22635\n151.261 0.223732\n154.622 0.221288\n157.983 0.219019\n161.345 0.216924\n164.706 0.215004\n168.067 0.213258\n171.429 0.211687\n174.79 0.210291\n178.151 0.209069\n181.513 0.208021\n184.874 0.207148\n188.235 0.20645\n191.597 0.205927\n194.958 0.205577\n198.319 0.205403\n201.681 0.205381\n205.042 0.205381\n208.403 0.205381\n211.765 0.205381\n215.126 0.205381\n218.487 0.205381\n221.849 0.205381\n225.21 0.205381\n228.571 0.205381\n231.933 0.205381\n235.294 0.205381\n238.655 0.205381\n242.017 0.205381\n245.378 0.205381\n248.739 0.205381\n252.101 0.205381\n255.462 0.205381\n258.824 0.205381\n262.185 0.205381\n265.546 0.205381\n268.908 0.205381\n272.269 0.205381\n275.63 0.205381\n278.992 0.205381\n282.353 0.205381\n285.714 0.205381\n289.076 0.205381\n292.437 0.205381\n295.798 0.205381\n299.16 0.205381\n302.521 0.205381\n305.882 0.205381\n309.244 0.205381\n312.605 0.205381\n315.966 0.205381\n319.328 0.205381\n322.689 0.205381\n326.05 0.205381\n329.412 0.205381\n332.773 0.205381\n336.134 0.205381\n339.496 0.205381\n342.857 0.205381\n346.218 0.205381\n349.58 0.205381\n352.941 0.205381\n356.303 0.205381\n359.664 0.205381\n363.025 0.205381\n366.387 0.205381\n369.748 0.205381\n373.109 0.205381\n376.471 0.205381\n379.832 0.205381\n383.193 0.205381\n386.555 0.205381\n389.916 0.205381\n393.277 0.205381\n396.639 0.205381\n400 0.205381",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#111111",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o17",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 -0.605619\n3.36134 -0.615918\n6.72269 -0.626043\n10.084 -0.635993\n13.4454 -0.645769\n16.8067 -0.65537\n20.1681 -0.664796\n23.5294 -0.674048\n26.8908 -0.683125\n30.2521 -0.692028\n33.6134 -0.700756\n36.9748 -0.70931\n40.3361 -0.717689\n43.6975 -0.725894\n47.0588 -0.733923\n50.4202 -0.741779\n53.7815 -0.74946\n57.1429 -0.756966\n60.5042 -0.764298\n63.8655 -0.771455\n67.2269 -0.778437\n70.5882 -0.785245\n73.9496 -0.791879\n77.3109 -0.798338\n80.6723 -0.804622\n84.0336 -0.810732\n87.395 -0.816667\n90.7563 -0.822427\n94.1176 -0.828013\n97.479 -0.833425\n100.84 -0.838662\n104.202 -0.843724\n107.563 -0.848612\n110.924 -0.853325\n114.286 -0.857864\n117.647 -0.862228\n121.008 -0.866418\n124.37 -0.870432\n127.731 -0.874273\n131.092 -0.877939\n134.454 -0.88143\n137.815 -0.884747\n141.176 -0.887889\n144.538 -0.890856\n147.899 -0.89365\n151.261 -0.896268\n154.622 -0.898712\n157.983 -0.900981\n161.345 -0.903076\n164.706 -0.904996\n168.067 -0.906742\n171.429 -0.908313\n174.79 -0.909709\n178.151 -0.910931\n181.513 -0.911979\n184.874 -0.912852\n188.235 -0.91355\n191.597 -0.914073\n194.958 -0.914423\n198.319 -0.914597\n201.681 -0.914619\n205.042 -0.914619\n208.403 -0.914619\n211.765 -0.914619\n215.126 -0.914619\n218.487 -0.914619\n221.849 -0.914619\n225.21 -0.914619\n228.571 -0.914619\n231.933 -0.914619\n235.294 -0.914619\n238.655 -0.914619\n242.017 -0.914619\n245.378 -0.914619\n248.739 -0.914619\n252.101 -0.914619\n255.462 -0.914619\n258.824 -0.914619\n262.185 -0.914619\n265.546 -0.914619\n268.908 -0.914619\n272.269 -0.914619\n275.63 -0.914619\n278.992 -0.914619\n282.353 -0.914619\n285.714 -0.914619\n289.076 -0.914619\n292.437 -0.914619\n295.798 -0.914619\n299.16 -0.914619\n302.521 -0.914619\n305.882 -0.914619\n309.244 -0.914619\n312.605 -0.914619\n315.966 -0.914619\n319.328 -0.914619\n322.689 -0.914619\n326.05 -0.914619\n329.412 -0.914619\n332.773 -0.914619\n336.134 -0.914619\n339.496 -0.914619\n342.857 -0.914619\n346.218 -0.914619\n349.58 -0.914619\n352.941 -0.914619\n356.303 -0.914619\n359.664 -0.914619\n363.025 -0.914619\n366.387 -0.914619\n369.748 -0.914619\n373.109 -0.914619\n376.471 -0.914619\n379.832 -0.914619\n383.193 -0.914619\n386.555 -0.914619\n389.916 -0.914619\n393.277 -0.914619\n396.639 -0.914619\n400 -0.914619",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#111111",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o18",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      400,
+      0,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "E_C",
+     "position": [
+      415,
+      0.205381003477482,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "E_V",
+     "position": [
+      415,
+      -0.9146189965225181,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "E_F",
+     "position": [
+      415,
+      0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#eb6834"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o22",
+    "type": "Dot",
+    "props": {
+     "center": [
+      70.0,
+      0.405933503477482,
+      0
+     ],
+     "radius": 0.085,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      86.0,
+      0.43593350347748205,
+      0
+     ],
+     "end": [
+      140.0,
+      0.333191003477482,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o24",
+    "type": "Dot",
+    "props": {
+     "center": [
+      130.0,
+      -0.9567664965225181,
+      0
+     ],
+     "radius": 0.075,
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      114.0,
+      -1.006766496522518,
+      0
+     ],
+     "end": [
+      58.0,
+      -0.8888520965225181,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@rollt",
+     "position": [
+      205,
+      0.46,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@steigt",
+     "position": [
+      205,
+      -0.72,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o14"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "rho_l": {
+    "de": "\\rho in 10^3\\,C/m^3",
+    "en": "\\rho in 10^3\\,C/m^3",
+    "es": "\\rho en 10^3\\,C/m^3",
+    "zh": "\\rho / 10^3\\,C/m^3"
+   },
+   "feld_l": {
+    "de": "ℰ in MV/m",
+    "en": "ℰ in MV/m",
+    "es": "ℰ en MV/m",
+    "zh": "ℰ / (MV/m)"
+   },
+   "a_xnm": {
+    "de": "x in nm",
+    "en": "x in nm",
+    "es": "x en nm",
+    "zh": "x / nm"
+   },
+   "a_EE_FeV": {
+    "de": "E-E_F in eV",
+    "en": "E-E_F in eV",
+    "es": "E-E_F en eV",
+    "zh": "E-E_F / eV"
+   },
+   "rollt": {
+    "de": "Elektron rollt bergab",
+    "en": "electron rolls downhill",
+    "es": "el electrón baja",
+    "zh": "电子向下滚"
+   },
+   "steigt": {
+    "de": "Loch steigt auf",
+    "en": "hole rises",
+    "es": "el hueco sube",
+    "zh": "空穴上浮"
+   }
+  }
+ }
+}

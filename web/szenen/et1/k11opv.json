@@ -1,0 +1,536 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 26,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Device",
+    "props": {
+     "kind": "opamp",
+     "center": [
+      -2.1,
+      0.1,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.65,
+     "color": "#111111",
+     "stroke_width": 3,
+     "symbol_style": "amerikanisch"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.375,
+      0.42500000000000004,
+      0
+     ],
+     "end": [
+      -3.075,
+      0.42500000000000004,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.375,
+      -0.225,
+      0
+     ],
+     "end": [
+      -3.075,
+      -0.225,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.125,
+      0.1,
+      0
+     ],
+     "end": [
+      -0.825,
+      0.1,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -3.435,
+      0.42500000000000004,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "φ_−",
+     "position": [
+      -3.535,
+      0.42500000000000004,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -3.435,
+      -0.225,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "φ_+",
+     "position": [
+      -3.535,
+      -0.225,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -0.765,
+      0.1,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "U_A",
+     "position": [
+      -0.765,
+      0.38,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.1,
+      0.42500000000000004,
+      0
+     ],
+     "end": [
+      -2.1,
+      1.0,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.1,
+      -0.225,
+      0
+     ],
+     "end": [
+      -2.1,
+      -0.8,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -2.1,
+      1.06,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "U_{B+} = +12 V",
+     "position": [
+      -2.1,
+      1.32,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -2.1,
+      -0.86,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "U_{B−} = −12 V",
+     "position": [
+      -2.1,
+      -1.12,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "U_D = φ_+ − φ_−",
+     "position": [
+      -2.15,
+      -1.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -300,
+      300
+     ],
+     "y_range": [
+      -14,
+      14
+     ],
+     "x_length": 2.7,
+     "y_length": 2.3,
+     "origin": [
+      1.85,
+      0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@ax_UDμV",
+     "y_label": "@ax_UAV",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-110;0;110",
+     "y_ticks": "-11;0;11",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o20",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "max(-11,min(11,0.1*x))",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -300,
+      300
+     ]
+    },
+    "on": "o19"
+   },
+   {
+    "id": "o21",
+    "type": "Dot",
+    "props": {
+     "center": [
+      110,
+      11,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o19"
+   },
+   {
+    "id": "o22",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -110,
+      -11,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o19"
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@sat",
+     "position": [
+      205,
+      8.2,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#7f7f7f"
+    },
+    "on": "o19"
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@sat2",
+     "position": [
+      -205,
+      -8.2,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#7f7f7f"
+    },
+    "on": "o19"
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "A",
+     "position": [
+      28,
+      2.2,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o19"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ax_UDμV": {
+    "de": "U_D in μV",
+    "en": "U_D in μV",
+    "es": "U_D en μV",
+    "zh": "U_D / μV"
+   },
+   "ax_UAV": {
+    "de": "U_A in V",
+    "en": "U_A in V",
+    "es": "U_A en V",
+    "zh": "U_A / V"
+   },
+   "sat": {
+    "de": "Sättigung",
+    "en": "saturation",
+    "es": "saturación",
+    "zh": "饱和"
+   },
+   "sat2": {
+    "de": "Sättigung",
+    "en": "saturation",
+    "es": "saturación",
+    "zh": "饱和"
+   }
+  }
+ }
+}

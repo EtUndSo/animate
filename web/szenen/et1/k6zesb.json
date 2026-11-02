@@ -1,0 +1,1131 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 58,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.5,
+      0.9,
+      0
+     ],
+     "end": [
+      -2.95,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.5,
+      -0.9,
+      0
+     ],
+     "end": [
+      -2.95,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -2.95,
+      0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Component",
+    "props": {
+     "kind": "ccvs",
+     "center": [
+      -2.95,
+      -0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.55
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.88,
+      0.9,
+      0
+     ],
+     "end": [
+      -0.8799999999999999,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.88,
+      -0.9,
+      0
+     ],
+     "end": [
+      -0.8799999999999999,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -1.88,
+      0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Component",
+    "props": {
+     "kind": "ccvs",
+     "center": [
+      -1.88,
+      -0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.55
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      -3.5,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      -3.5,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      -0.8799999999999999,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      -0.8799999999999999,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.41,
+      0.9,
+      0
+     ],
+     "end": [
+      -3.08,
+      0.9,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "I_1",
+     "position": [
+      -3.23,
+      1.1600000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "Z_{11}",
+     "position": [
+      -2.81,
+      0.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.71,
+      -0.12,
+      0
+     ],
+     "end": [
+      -2.71,
+      -0.78,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#a84a22",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "Z_{12} I_2",
+     "position": [
+      -2.6500000000000004,
+      -0.45,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#a84a22"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "Z_{22}",
+     "position": [
+      -1.7399999999999998,
+      0.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.64,
+      -0.12,
+      0
+     ],
+     "end": [
+      -1.64,
+      -0.78,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#a84a22",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "Z_{21} I_1",
+     "position": [
+      -1.5799999999999998,
+      -0.45,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#a84a22"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.5,
+      0.7,
+      0
+     ],
+     "end": [
+      -3.5,
+      -0.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "U_1",
+     "position": [
+      -3.43,
+      0.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.9699999999999999,
+      0.9,
+      0
+     ],
+     "end": [
+      -1.2799999999999998,
+      0.9,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "I_2",
+     "position": [
+      -1.15,
+      1.1600000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.8799999999999999,
+      0.7,
+      0
+     ],
+     "end": [
+      -0.8799999999999999,
+      -0.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "U_2",
+     "position": [
+      -0.8099999999999998,
+      0.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Component",
+    "props": {
+     "kind": "isource",
+     "center": [
+      0.0,
+      0.0,
+      0
+     ],
+     "rotation": 90.0,
+     "length": 1.8,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.55
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.0,
+      0.9,
+      0
+     ],
+     "end": [
+      0.45,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.0,
+      -0.9,
+      0
+     ],
+     "end": [
+      0.45,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.0,
+      0.72,
+      0
+     ],
+     "end": [
+      0.0,
+      0.86,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "I_q",
+     "position": [
+      -0.03,
+      1.1600000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.45,
+      0.9,
+      0
+     ],
+     "end": [
+      1.0,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.45,
+      -0.9,
+      0
+     ],
+     "end": [
+      1.0,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      1.0,
+      0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Component",
+    "props": {
+     "kind": "ccvs",
+     "center": [
+      1.0,
+      -0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#b5b5b5",
+     "stroke_width": 3,
+     "size": 0.55
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.0700000000000003,
+      0.9,
+      0
+     ],
+     "end": [
+      3.0700000000000003,
+      0.9,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.0700000000000003,
+      -0.9,
+      0
+     ],
+     "end": [
+      3.0700000000000003,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      2.0700000000000003,
+      0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#b5b5b5",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Component",
+    "props": {
+     "kind": "ccvs",
+     "center": [
+      2.0700000000000003,
+      -0.45,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.55
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      0.45,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      0.45,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      3.0700000000000003,
+      0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Circle",
+    "props": {
+     "radius": 0.07,
+     "center": [
+      3.0700000000000003,
+      -0.9,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o44",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.54,
+      0.9,
+      0
+     ],
+     "end": [
+      0.87,
+      0.9,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o45",
+    "type": "Text",
+    "props": {
+     "text": "I_1",
+     "position": [
+      0.72,
+      1.1600000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o46",
+    "type": "Text",
+    "props": {
+     "text": "Z_{11}",
+     "position": [
+      1.1400000000000001,
+      0.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o47",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.24,
+      -0.12,
+      0
+     ],
+     "end": [
+      1.24,
+      -0.78,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o48",
+    "type": "Text",
+    "props": {
+     "text": "0 V",
+     "position": [
+      1.3,
+      -0.45,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#b5b5b5"
+    }
+   },
+   {
+    "id": "o49",
+    "type": "Text",
+    "props": {
+     "text": "Z_{22}",
+     "position": [
+      2.2100000000000004,
+      0.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#b5b5b5"
+    }
+   },
+   {
+    "id": "o50",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.3100000000000005,
+      -0.12,
+      0
+     ],
+     "end": [
+      2.3100000000000005,
+      -0.78,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#a84a22",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o51",
+    "type": "Text",
+    "props": {
+     "text": "Z_{21} I_1",
+     "position": [
+      2.37,
+      -0.45,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#a84a22"
+    }
+   },
+   {
+    "id": "o52",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.45,
+      0.7,
+      0
+     ],
+     "end": [
+      0.45,
+      -0.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o53",
+    "type": "Text",
+    "props": {
+     "text": "U_1",
+     "position": [
+      0.52,
+      0.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o54",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.9800000000000004,
+      0.9,
+      0
+     ],
+     "end": [
+      2.6700000000000004,
+      0.9,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o55",
+    "type": "Text",
+    "props": {
+     "text": "I_2 = 0",
+     "position": [
+      2.8000000000000003,
+      1.1600000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o56",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      3.0700000000000003,
+      0.7,
+      0
+     ],
+     "end": [
+      3.0700000000000003,
+      -0.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o57",
+    "type": "Text",
+    "props": {
+     "text": "U_2",
+     "position": [
+      3.14,
+      0.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

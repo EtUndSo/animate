@@ -1,0 +1,362 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 15,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -6,
+      6,
+      3
+     ],
+     "y_range": [
+      0,
+      3,
+      1
+     ],
+     "x_length": 3.15,
+     "y_length": 2.0,
+     "origin": [
+      -1.75,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "@k_achse",
+     "y_label": "@e_achse",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.0381*x^2",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      -6,
+      6
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.1905*x^2",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      -3.97,
+      3.97
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      3.1,
+      0.291465,
+      0
+     ],
+     "end": [
+      5.9,
+      1.251585,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4.5,
+      0.771525,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "m₀",
+     "position": [
+      -5.1,
+      1.7,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "0.2 m₀",
+     "position": [
+      -1.0,
+      2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -6,
+      6,
+      3
+     ],
+     "y_range": [
+      -2,
+      2,
+      1
+     ],
+     "x_length": 2.8,
+     "y_length": 2.0,
+     "origin": [
+      1.85,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "@k_achse",
+     "y_label": "@v_achse",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.11577*x",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      -6,
+      6
+     ]
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o11",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.11577*x/0.2",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      -3.4,
+      3.4
+     ]
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o12",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4.5,
+      0.520965,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "m₀",
+     "position": [
+      4.8,
+      0.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "0.2 m₀",
+     "position": [
+      -3.1,
+      1.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o9"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "k_achse": {
+    "de": "k in 1/nm",
+    "en": "k in 1/nm",
+    "es": "k en 1/nm",
+    "zh": "k / nm⁻¹"
+   },
+   "e_achse": {
+    "de": "E in eV",
+    "en": "E in eV",
+    "es": "E en eV",
+    "zh": "E / eV"
+   },
+   "v_achse": {
+    "de": "v in 10⁶ m/s",
+    "en": "v in 10⁶ m/s",
+    "es": "v en 10⁶ m/s",
+    "zh": "v / (10⁶ m/s)"
+   }
+  }
+ }
+}

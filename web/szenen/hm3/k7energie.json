@@ -1,0 +1,236 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 10,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      12
+     ],
+     "y_range": [
+      0,
+      1.25
+     ],
+     "x_length": 2.45,
+     "y_length": 2.1,
+     "origin": [
+      -1.85,
+      0,
+      0
+     ],
+     "title": "‖T_N q‖²",
+     "x_label": "N",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1;3;5;7;9;11",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Stem",
+    "props": {
+     "x": "1;3;5;7;9;11",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 1.1,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": "",
+     "y": "0.810569;0.900633;0.933056;0.949598;0.959605;0.966304"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      1,
+      0
+     ],
+     "end": [
+      12,
+      1,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "‖q‖² = 1",
+     "position": [
+      11.8,
+      1.12,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      16
+     ],
+     "y_range": [
+      1e-05,
+      1
+     ],
+     "x_length": 2.45,
+     "y_length": 2.1,
+     "origin": [
+      1.8,
+      0,
+      0
+     ],
+     "title": "‖f − T_N f‖² / ‖f‖²",
+     "x_label": "N",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1;5;9;13",
+     "y_ticks": "0.00001;0.001;0.1;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": true,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 0.189431\n3 0.0993673\n5 0.0669445\n7 0.0504022\n9 0.0403952\n11 0.0336963\n13 0.0289\n15 0.0252975",
+     "clip": true,
+     "step": "",
+     "markers": true,
+     "marker_radius": 0.06,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o7",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 0.00361643\n3 0.000574653\n5 0.00018044\n7 7.78226e-05\n9 4.02698e-05\n11 2.34415e-05\n13 1.48149e-05\n15 9.9481e-06",
+     "clip": true,
+     "step": "",
+     "markers": true,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "f = q",
+     "position": [
+      6.0,
+      0.13,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "f = w",
+     "position": [
+      7.0,
+      0.002,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o5"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="314" height="216" viewBox="670.8724 390.9667 570.9091 392.7273">
+<rect x="670.8724" y="390.9667" width="570.9091" height="392.7273" fill="#ffffff"/>
+<path d="M841.79 613.8C879.98 595.49 918.17 577.19 956.36 558.89" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="933.84" y="605.29" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">3 f<tspan dy="6.6" font-size="15.4">1</tspan></text>
+<path d="M732.94 665.96C824.6 622.03 916.26 578.11 1007.92 534.18" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1179.69 666C1088.07 622.06 996.45 578.11 904.82 534.17" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M956.36 558.89C1013.62 586.35 1070.89 613.82 1128.15 641.28" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1098.96" y="589.28" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">− 3 f<tspan dy="6.6" font-size="15.4">2</tspan></text>
+<path d="M727.24 613.79C733.72 621.09 740.2 628.39 746.68 635.69C749.95 628.87 753.21 622.05 756.48 615.24C746.73 614.75 736.99 614.27 727.24 613.79" fill="#00823c" stroke="#00823c" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="720.49" y="586.79" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#00823c" text-anchor="middle" dominant-baseline="central">f<tspan dy="7.2" font-size="16.8">2</tspan></text>
+<path d="M841.79 613.8C832.04 614.28 822.29 614.76 812.54 615.24C815.8 622.06 819.07 628.87 822.34 635.69C828.82 628.39 835.3 621.09 841.79 613.8" fill="#00823c" stroke="#00823c" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="857.99" y="592.2" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#00823c" text-anchor="middle" dominant-baseline="central">f<tspan dy="7.2" font-size="16.8">1</tspan></text>
+<path d="M784.5 641.25C773.53 635.99 762.55 630.72 751.58 625.46" fill="none" stroke="#00823c" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M784.5 641.25C795.48 635.99 806.46 630.73 817.44 625.46" fill="none" stroke="#00823c" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M790.21 693.42C881.87 649.5 973.52 605.57 1065.18 561.64" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1122.41 693.45C1030.78 649.51 939.16 605.57 847.54 561.62" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M790.23 638.5C787.07 636.99 781.94 636.99 778.77 638.5C775.61 640.02 775.61 642.48 778.77 644C781.93 645.51 787.06 645.51 790.23 644C793.39 642.48 793.39 640.02 790.23 638.5" fill="#111111"/>
+<path d="M1133.88 638.54C1130.72 637.02 1125.59 637.02 1122.43 638.54C1119.26 640.05 1119.26 642.51 1122.43 644.03C1125.59 645.54 1130.72 645.54 1133.88 644.03C1137.04 642.51 1137.05 640.05 1133.88 638.54" fill="#2a78d6"/>
+<text x="757.5" y="652.05" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">O</text>
+<path d="M681.4 641.24C773.06 597.31 864.72 553.39 956.38 509.46C1048 553.4 1139.63 597.35 1231.25 641.29C1139.59 685.22 1047.93 729.14 956.27 773.07C864.65 729.13 773.03 685.18 681.4 641.24" fill="#2a78d6" fill-opacity="0.13" stroke="#2a78d6" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="956.33" y="665.57" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">q</text>
+<path d="M784.5 641.25C890.05 641.26 995.6 641.27 1101.15 641.28" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1128.15" y="670.98" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">Q</text>
+<path d="M1128.15 641.28C1119.15 637.5 1110.15 633.72 1101.15 629.94C1101.15 637.5 1101.15 645.06 1101.15 652.62C1110.15 648.84 1119.15 645.06 1128.15 641.28" fill="#2a78d6" stroke="#2a78d6" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1106.55 641.28C1106.55 634.96 1106.55 628.64 1106.55 622.32" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1128.15 622.33C1120.95 622.33 1113.75 622.32 1106.55 622.32" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1065.12 720.91C973.5 676.96 881.87 633.02 790.25 589.08" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M847.47 720.89C939.13 676.96 1030.79 633.04 1122.45 589.11" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M784.5 641.25C891.4 574.92 998.31 508.59 1105.21 442.26" fill="none" stroke="#111111" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1184.85" y="534.66" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">p − q</text>
+<path d="M1128.15 641.28C1128.15 579.2 1128.15 517.11 1128.15 455.03" fill="none" stroke="#c82828" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1007.83 748.36C916.21 704.42 824.59 660.48 732.96 616.53" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M904.74 748.35C996.39 704.43 1088.05 660.5 1179.71 616.57" fill="none" stroke="#c6d8ef" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1010.33" y="466.13" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">p</text>
+<path d="M1133.88 425.28C1130.72 423.77 1125.59 423.77 1122.43 425.28C1119.26 426.8 1119.26 429.26 1122.43 430.77C1125.59 432.29 1130.72 432.29 1133.88 430.78C1137.04 429.26 1137.05 426.8 1133.88 425.28" fill="#111111"/>
+<path d="M1128.15 428.03C1118.51 429.56 1108.87 431.1 1099.23 432.63C1103.22 439.05 1107.2 445.48 1111.19 451.9C1116.84 443.94 1122.5 435.99 1128.15 428.03" fill="#111111" stroke="#111111" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1128.15 428.03C1124.37 437.03 1120.59 446.03 1116.81 455.03C1124.37 455.03 1131.93 455.03 1139.49 455.03C1135.71 446.03 1131.93 437.03 1128.15 428.03" fill="#c82828" stroke="#c82828" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1155.15" y="414.53" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">P</text>
+<text x="956.29" y="740.12" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">U</text>
+</svg>

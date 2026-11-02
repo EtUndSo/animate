@@ -1,0 +1,790 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 42,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@anI",
+     "position": [
+      -1.75,
+      1.33,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Component",
+    "props": {
+     "kind": "isource",
+     "center": [
+      -3.25,
+      0,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.5,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.7
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -2.15,
+      0,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.5,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.5
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -1.0,
+      0,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.5,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.5
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Component",
+    "props": {
+     "kind": "voltmeter",
+     "center": [
+      -0.2,
+      0,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.5,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.62,
+     "font_size": 24
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.25,
+      0.75,
+      0
+     ],
+     "end": [
+      -0.2,
+      0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.25,
+      -0.75,
+      0
+     ],
+     "end": [
+      -0.2,
+      -0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.15,
+      0.75,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.0,
+      0.75,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.15,
+      -0.75,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.0,
+      -0.75,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.57,
+      0.0,
+      0
+     ],
+     "width": 1.62,
+     "height": 1.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "20 kΩ",
+     "position": [
+      -1.95,
+      0,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "200",
+     "position": [
+      -0.8,
+      0.14,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "kΩ",
+     "position": [
+      -0.8,
+      -0.14,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "150 µA",
+     "position": [
+      -3.25,
+      -1.02,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "136.4 µA",
+     "position": [
+      -2.15,
+      -1.02,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "13.6 µA",
+     "position": [
+      -1.0,
+      -1.02,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.15,
+      0.75,
+      0
+     ],
+     "end": [
+      -2.15,
+      0.47,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.0,
+      0.75,
+      0
+     ],
+     "end": [
+      -1.0,
+      0.47,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.15,
+      0.75,
+      0
+     ],
+     "end": [
+      -2.75,
+      0.75,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@anz",
+     "position": [
+      -1.75,
+      -1.36,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@anT",
+     "position": [
+      2.1,
+      1.33,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Component",
+    "props": {
+     "kind": "vsource",
+     "center": [
+      0.85,
+      0,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.5,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.7
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      2.15,
+      0.375,
+      0
+     ],
+     "rotation": 270,
+     "length": 0.75,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.42
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      2.15,
+      -0.375,
+      0
+     ],
+     "rotation": 270,
+     "length": 0.75,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.42
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Component",
+    "props": {
+     "kind": "voltmeter",
+     "center": [
+      3.1,
+      -0.375,
+      0
+     ],
+     "rotation": 270,
+     "length": 0.75,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.56,
+     "font_size": 24
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.85,
+      0.75,
+      0
+     ],
+     "end": [
+      2.15,
+      0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.85,
+      -0.75,
+      0
+     ],
+     "end": [
+      3.1,
+      -0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.15,
+      0,
+      0
+     ],
+     "end": [
+      3.1,
+      0,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.15,
+      0,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.15,
+      -0.75,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "9 V",
+     "position": [
+      1.17,
+      0,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Text",
+    "props": {
+     "text": "60 kΩ",
+     "position": [
+      1.99,
+      0.375,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "30 kΩ",
+     "position": [
+      1.99,
+      -0.375,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Text",
+    "props": {
+     "text": "104.5 µA",
+     "position": [
+      1.65,
+      1.01,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.45,
+      0.75,
+      0
+     ],
+     "end": [
+      1.85,
+      0.75,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.4,
+      0,
+      0
+     ],
+     "end": [
+      2.77,
+      0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Text",
+    "props": {
+     "text": "90.9 µA",
+     "position": [
+      2.15,
+      -1.02,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Text",
+    "props": {
+     "text": "13.6 µA",
+     "position": [
+      3.1,
+      -1.02,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Text",
+    "props": {
+     "text": "@anz",
+     "position": [
+      2.1,
+      -1.36,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "anI": {
+    "de": "an einer Stromquelle",
+    "en": "on a current source",
+    "es": "en una fuente de corriente",
+    "zh": "接在电流源上"
+   },
+   "anz": {
+    "de": "Anzeige 2.727 V statt 3 V",
+    "en": "reading 2.727 V instead of 3 V",
+    "es": "lectura 2.727 V en vez de 3 V",
+    "zh": "读数 2.727 V，而非 3 V"
+   },
+   "anT": {
+    "de": "am Spannungsteiler",
+    "en": "on a voltage divider",
+    "es": "en un divisor de tensión",
+    "zh": "接在分压器上"
+   }
+  }
+ }
+}

@@ -1,0 +1,892 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 38,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.3,
+       -1.55,
+       0
+      ],
+      [
+       -0.75,
+       -1.55,
+       0
+      ],
+      [
+       -0.75,
+       -1.05,
+       0
+      ],
+      [
+       -3.3,
+       -1.05,
+       0
+      ]
+     ],
+     "color": "#8f8f8f",
+     "fill_color": "#8f8f8f",
+     "fill_opacity": 0.75,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.3,
+       -1.05,
+       0
+      ],
+      [
+       -0.75,
+       -1.05,
+       0
+      ],
+      [
+       -0.75,
+       -0.4,
+       0
+      ],
+      [
+       -3.3,
+       -0.4,
+       0
+      ]
+     ],
+     "color": "#e0483a",
+     "fill_color": "#e0483a",
+     "fill_opacity": 0.85,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.3,
+       -0.4,
+       0
+      ],
+      [
+       -0.75,
+       -0.4,
+       0
+      ],
+      [
+       -0.75,
+       0.12,
+       0
+      ],
+      [
+       -3.3,
+       0.12,
+       0
+      ]
+     ],
+     "color": "#ef8a3c",
+     "fill_color": "#ef8a3c",
+     "fill_opacity": 0.85,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.3,
+       0.12,
+       0
+      ],
+      [
+       -0.75,
+       0.12,
+       0
+      ],
+      [
+       -0.75,
+       0.62,
+       0
+      ],
+      [
+       -3.3,
+       0.62,
+       0
+      ]
+     ],
+     "color": "#f6bb5e",
+     "fill_color": "#f6bb5e",
+     "fill_opacity": 0.85,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.3,
+       0.62,
+       0
+      ],
+      [
+       -0.75,
+       0.62,
+       0
+      ],
+      [
+       -0.75,
+       1.12,
+       0
+      ],
+      [
+       -3.3,
+       1.12,
+       0
+      ]
+     ],
+     "color": "#f8e3a8",
+     "fill_color": "#f8e3a8",
+     "fill_opacity": 0.85,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.44,
+       -1.69,
+       0
+      ],
+      [
+       -3.3,
+       -1.69,
+       0
+      ],
+      [
+       -3.3,
+       1.12,
+       0
+      ],
+      [
+       -3.44,
+       1.12,
+       0
+      ]
+     ],
+     "color": "#555555",
+     "fill_color": "#555555",
+     "fill_opacity": 1.0,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.75,
+       -1.69,
+       0
+      ],
+      [
+       -0.61,
+       -1.69,
+       0
+      ],
+      [
+       -0.61,
+       1.12,
+       0
+      ],
+      [
+       -0.75,
+       1.12,
+       0
+      ]
+     ],
+     "color": "#555555",
+     "fill_color": "#555555",
+     "fill_opacity": 1.0,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.44,
+       -1.69,
+       0
+      ],
+      [
+       -0.61,
+       -1.69,
+       0
+      ],
+      [
+       -0.61,
+       -1.55,
+       0
+      ],
+      [
+       -3.44,
+       -1.55,
+       0
+      ]
+     ],
+     "color": "#555555",
+     "fill_color": "#555555",
+     "fill_opacity": 1.0,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.225,
+       -0.5,
+       0
+      ],
+      [
+       -1.825,
+       -0.5,
+       0
+      ],
+      [
+       -1.825,
+       1.6,
+       0
+      ],
+      [
+       -2.225,
+       1.6,
+       0
+      ]
+     ],
+     "color": "#3a3a3a",
+     "fill_color": "#3a3a3a",
+     "fill_opacity": 1.0,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@elek",
+     "position": [
+      -2.025,
+      1.77,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "DataCurve",
+    "props": {
+     "data": "-2.025 -0.5\n-2.125 -0.6\n-1.945 -0.7\n-2.105 -0.8\n-1.965 -0.9\n-2.025 -1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#ffffff",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@bogen",
+     "position": [
+      -1.805,
+      -0.78,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#ffffff"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.07,
+      -0.7,
+      0
+     ],
+     "end": [
+      -1.07,
+      0.98,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "SiO, CO",
+     "position": [
+      -1.17,
+      0.8,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.0,
+      0.98,
+      0
+     ],
+     "end": [
+      -3.0,
+      -0.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@sinkt1",
+     "position": [
+      -2.88,
+      0.86,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@sinkt2",
+     "position": [
+      -2.88,
+      0.64,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@schm",
+     "position": [
+      -2.025,
+      -1.3,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#ffffff"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.88,
+      1.75,
+      0
+     ],
+     "end": [
+      -2.88,
+      1.17,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@zufuhr",
+     "position": [
+      -3.4,
+      1.93,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.17,
+      1.17,
+      0
+     ],
+     "end": [
+      -1.17,
+      1.75,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "CO",
+     "position": [
+      -1.17,
+      1.93,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "< 1500 °C",
+     "position": [
+      -0.3,
+      1.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "SiO + CO → SiO₂ + C",
+     "position": [
+      -0.3,
+      0.74,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.58,
+      0.87,
+      0
+     ],
+     "end": [
+      -0.35,
+      0.87,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": "2,5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "1500–1700 °C",
+     "position": [
+      -0.3,
+      0.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "SiO + 2C → SiC + CO",
+     "position": [
+      -0.3,
+      0.24,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.58,
+      0.37,
+      0
+     ],
+     "end": [
+      -0.35,
+      0.37,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": "2,5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "1700–1900 °C",
+     "position": [
+      -0.3,
+      -0.010000000000000009,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "SiO₂ + C → SiO + CO",
+     "position": [
+      -0.3,
+      -0.27,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.58,
+      -0.14,
+      0
+     ],
+     "end": [
+      -0.35,
+      -0.14,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": "2,5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "> 2000 °C",
+     "position": [
+      -0.3,
+      -0.59,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Text",
+    "props": {
+     "text": "SiO₂ + SiC → Si + SiO + CO",
+     "position": [
+      -0.3,
+      -0.85,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.58,
+      -0.72,
+      0
+     ],
+     "end": [
+      -0.35,
+      -0.72,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": "2,5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o36",
+    "type": "Text",
+    "props": {
+     "text": "@gesamt",
+     "position": [
+      -0.3,
+      -1.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Text",
+    "props": {
+     "text": "SiO₂ + 2C → Si + 2CO",
+     "position": [
+      -0.3,
+      -1.46,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "elek": {
+    "de": "Elektrode",
+    "en": "electrode",
+    "es": "electrodo",
+    "zh": "电极"
+   },
+   "bogen": {
+    "de": "Lichtbogen",
+    "en": "arc",
+    "es": "arco",
+    "zh": "电弧"
+   },
+   "sinkt1": {
+    "de": "Festes",
+    "en": "solids",
+    "es": "sólido",
+    "zh": "固体"
+   },
+   "sinkt2": {
+    "de": "sinkt",
+    "en": "sink",
+    "es": "baja",
+    "zh": "下沉"
+   },
+   "schm": {
+    "de": "flüssiges Si",
+    "en": "liquid Si",
+    "es": "Si líquido",
+    "zh": "液态硅"
+   },
+   "zufuhr": {
+    "de": "Quarz + Koks",
+    "en": "quartz + coke",
+    "es": "cuarzo + coque",
+    "zh": "石英 + 焦炭"
+   },
+   "gesamt": {
+    "de": "Gesamt:",
+    "en": "Overall:",
+    "es": "Total:",
+    "zh": "总反应："
+   }
+  }
+ }
+}

@@ -1,0 +1,382 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      1,
+      0.5
+     ],
+     "y_range": [
+      0,
+      1.25,
+      0.5
+     ],
+     "x_length": 2.6,
+     "y_length": 1.9,
+     "origin": [
+      -1.95,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t",
+     "y_label": "f(x, t)",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Area",
+    "props": {
+     "func": "exp(-x)",
+     "func2": "",
+     "x_min": 0,
+     "x_max": 1,
+     "samples": 120,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.18,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Area",
+    "props": {
+     "func": "exp(-3*x)",
+     "func2": "",
+     "x_min": 0,
+     "x_max": 1,
+     "samples": 120,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 0.22,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1",
+     "color": "#7f7f7f",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x)",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-3*x)",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "x = 0",
+     "position": [
+      0.68,
+      1.09,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "x = 1",
+     "position": [
+      0.68,
+      0.61,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "x = 3",
+     "position": [
+      0.68,
+      0.22,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      4,
+      1
+     ],
+     "y_range": [
+      0,
+      1.25,
+      0.5
+     ],
+     "x_length": 2.6,
+     "y_length": 1.9,
+     "origin": [
+      1.95,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "F(x)",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "(1-exp(-x))/x",
+     "color": "#111111",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      0.001,
+      4
+     ]
+    },
+    "on": "o10"
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.0,
+      0.896361676485673,
+      0
+     ],
+     "end": [
+      2.9,
+      0.13006243528003858,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o10"
+   },
+   {
+    "id": "o13",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0,
+      1,
+      0
+     ],
+     "radius": 0.085,
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o10"
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      0.6321205588285577,
+      0
+     ],
+     "radius": 0.085,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o10"
+   },
+   {
+    "id": "o15",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      0.3167376438773787,
+      0
+     ],
+     "radius": 0.085,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o10"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "F(0) = 1",
+     "position": [
+      0.28,
+      1.1,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o10"
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "F(1) = 0.632",
+     "position": [
+      1.1,
+      0.82,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o10"
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "F(3) = 0.317",
+     "position": [
+      2.3,
+      0.47,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o10"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

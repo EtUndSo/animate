@@ -30,7 +30,7 @@ You should see "Hello Sine" rendered by the Python engine via Canvas instead of 
 Deployed with **Cloudflare Pages** — set the project's *Root directory* to `web`; every push to
 `main` on GitHub auto-deploys.
 
-## Eigene Artikel von Hand (Umschalter „KI | Mensch“ im Wissensbereich)
+## Eigene Artikel von Hand
 Neben jeder KI-Fassung kann eine von Hand geschriebene Fassung desselben Themas stehen. Dateien liegen im
 selben Ordner wie die KI-Fassung, mit demselben `pfad:` und `order:`, nur der Dateiname bekommt den Suffix
 `-mensch` (optional dazu `autor: mensch` im Kopf; der Suffix allein genügt):
@@ -53,11 +53,10 @@ tags: Steilheit, Ausgangsleitwert
 autor: mensch
 ---
 ```
-Danach `python build_wissen.py`. Der Umschalter sitzt in der Kopfleiste neben dem Logo (auf dem Handy unter dem
-Titel und oben im Themenbaum): Er wechselt zwischen KI- und Hand-Fassung desselben Themas; ohne Gegenstück ist
-der Knopf grau. Die Wahl wird im Browser gemerkt, Themen-Links im Baum und in der Übersicht folgen ihr. Eine
-Hand-Fassung ohne KI-Gegenstück erscheint als eigener Eintrag im Baum. Dieselbe Markdown-Syntax wie die
-KI-Artikel (Kästen `:::formel`, `:::herleitung`, `::::beispiel`, `:::quiz` usw., Formeln in `$…$`/`$$…$$`).
+Danach `python build_wissen.py`. Eine Hand-Fassung mit KI-Gegenstück wird gebaut, aber nicht verlinkt und nicht
+durchsucht, sie ist nur über ihre Adresse erreichbar. Eine Hand-Fassung ohne KI-Gegenstück erscheint als eigener
+Eintrag im Baum. Dieselbe Markdown-Syntax wie die KI-Artikel (Kästen `:::formel`, `:::herleitung`, `::::beispiel`,
+`:::quiz` usw., Formeln in `$…$`/`$$…$$`).
 
 ## Artikel aus den Arbeitsheften (vier Sprachen)
 

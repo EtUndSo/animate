@@ -7,15 +7,18 @@
   <meta name="description" content="Impressum von EtUndSo.de"/>
   <script>try{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
   <style>
-    :root{ --bg:#f4f6fa; --panel:#ffffff; --ink:#10161f; --muted:#56617a; --border:#e0e5ee;
-           --accent:#2b6def; --accent2:#e5383b; --accent3:#ff9f1c; }
-    :root[data-theme="dark"]{ --bg:#0f172a; --panel:#1e293b; --ink:#f1f5f9; --muted:#94a3b8; --border:#334155; --accent:#5c94ff; --accent2:#ff5e60; --accent3:#ffb54d; }
+    :root{ --bg:#f5f5f1; --panel:#ffffff; --ink:#191c1a; --muted:#59605b; --border:#e0e2dc;
+           --accent:#15633a; --accent2:#3f1a78; --accent3:#c2410c;
+           --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-hl:#ff9650; }
+    :root[data-theme="dark"]{ --bg:#101412; --panel:#1a201c; --ink:#eff2ef; --muted:#a6afa8; --border:#2f3831; --accent:#6ad19b; --accent2:#c9a9ff; --accent3:#ff9650;
+           --bar:#0b2a1c; --bar-ink:#dcebe1; --bar-rand:#174630; }
     *{box-sizing:border-box;}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
     a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
-    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--border);background:var(--panel);}
-    .brand{font-weight:800;font-size:20px;letter-spacing:-0.02em;color:var(--accent2);}
-    .brand span{color:var(--accent);} .brand span.so{color:var(--accent3);}
+    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--bar-rand);background:var(--bar);}
+    header.site nav a{color:var(--bar-ink);}
+    .brand{font-weight:800;font-size:20px;letter-spacing:-0.02em;color:var(--bar-ink);}
+    .brand span{color:var(--bar-ink);} .brand span.so{color:var(--bar-hl);}
     main{max-width:760px;margin:0 auto;padding:32px 24px 64px;}
     h1{font-size:clamp(26px,4vw,38px);margin:0 0 8px;letter-spacing:-0.02em;}
     h2{font-size:20px;margin:32px 0 8px;}

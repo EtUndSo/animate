@@ -1,0 +1,266 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 12,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      8
+     ],
+     "y_range": [
+      0,
+      0.6
+     ],
+     "x_length": 2.6,
+     "y_length": 1.4,
+     "origin": [
+      -1.9,
+      0,
+      0
+     ],
+     "title": "f_X(x)",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;1;3;5;7",
+     "y_ticks": "0;0.25;0.5",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Area",
+    "props": {
+     "func": "0.5*exp(-x/2)",
+     "func2": "",
+     "x_min": 1,
+     "x_max": 3,
+     "samples": 120,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.35,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.5*exp(-x/2)",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      0,
+      8
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "0.383",
+     "position": [
+      2.0,
+      0.09,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -5,
+      5
+     ],
+     "y_range": [
+      0,
+      0.9
+     ],
+     "x_length": 2.6,
+     "y_length": 1.4,
+     "origin": [
+      1.8,
+      0,
+      0
+     ],
+     "title": "@no",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-4;-2;0;2;4",
+     "y_ticks": "0;0.4;0.8",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-0.5*((x-(0))/1)^2)/(1*sqrt(2*pi))",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -5,
+      5
+     ]
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o7",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-0.5*((x-(0))/2)^2)/(2*sqrt(2*pi))",
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -5,
+      5
+     ]
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o8",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-0.5*((x-(2))/0.5)^2)/(0.5*sqrt(2*pi))",
+     "color": "#eb6834",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -5,
+      5
+     ]
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "σ = 1",
+     "position": [
+      -1.0,
+      0.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "σ = 2",
+     "position": [
+      -2.4,
+      0.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "σ = 0.5",
+     "position": [
+      1.2,
+      0.72,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#eb6834"
+    },
+    "on": "o5"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "no": {
+    "de": "Normalverteilungen",
+    "en": "normal distributions",
+    "es": "distribuciones normales",
+    "zh": "正态分布"
+   }
+  }
+ }
+}

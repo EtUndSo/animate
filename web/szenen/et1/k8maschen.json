@@ -1,0 +1,746 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 42,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.85,
+      1.1,
+      0
+     ],
+     "end": [
+      -2.45,
+      1.1,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.45,
+      1.1,
+      0
+     ],
+     "end": [
+      -0.6,
+      1.1,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      1.1,
+      0
+     ],
+     "end": [
+      2.55,
+      1.1,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.85,
+      -1.1,
+      0
+     ],
+     "end": [
+      2.55,
+      -1.1,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.55,
+      -0.15,
+      0
+     ],
+     "end": [
+      2.55,
+      0.0,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Component",
+    "props": {
+     "kind": "vsource",
+     "center": [
+      -2.85,
+      0.0,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 2.2,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.62
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -1.9500000000000002,
+      1.1,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 1.0000000000000002,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -0.09999999999999998,
+      1.1,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 1.0,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -1.0,
+      0.0,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 2.2,
+     "label": "",
+     "color": "#c82828",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      0.75,
+      0.0,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 2.2,
+     "label": "",
+     "color": "#c82828",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      2.55,
+      0.55,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 1.1,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.46
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Component",
+    "props": {
+     "kind": "vsource",
+     "center": [
+      2.55,
+      -0.625,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.9500000000000001,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.54
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "+",
+     "position": [
+      -3.19,
+      0.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "+",
+     "position": [
+      2.8699999999999997,
+      -0.32,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "U_q",
+     "position": [
+      -3.27,
+      0.17,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "9 V",
+     "position": [
+      -3.27,
+      -0.17,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "R_1 = 1 kΩ",
+     "position": [
+      -1.95,
+      1.4300000000000002,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "R_3 = 2 kΩ",
+     "position": [
+      -0.1,
+      1.4300000000000002,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "R_5",
+     "position": [
+      2.77,
+      0.72,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "5 kΩ",
+     "position": [
+      2.77,
+      0.4,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "U_{q5}",
+     "position": [
+      2.9699999999999998,
+      -0.6,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "20 V",
+     "position": [
+      2.9699999999999998,
+      -0.92,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "R_2",
+     "position": [
+      -1.2,
+      0.17,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "4 kΩ",
+     "position": [
+      -1.2,
+      -0.17,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "R_4",
+     "position": [
+      0.95,
+      0.17,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "10 kΩ",
+     "position": [
+      0.95,
+      -0.17,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.0,
+      1.1,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.0,
+      -1.1,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.75,
+      1.1,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.75,
+      -1.1,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o31",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-2.08+0.36*cos(t)",
+     "fy": "-0.1+0.36*sin(t)",
+     "t_min": 1.319468914507713,
+     "t_max": 7.162831250184728,
+     "samples": 61,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o32",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.1304716406206525,
+      0.28868993800630716,
+      0
+     ],
+     "end": [
+      -1.8904716406206523,
+      0.24868993800630715,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "I",
+     "position": [
+      -2.08,
+      -0.1,
+      0
+     ],
+     "font_size": 28,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.12+0.46*cos(t)",
+     "fy": "-0.1+0.46*sin(t)",
+     "t_min": 1.319468914507713,
+     "t_max": 7.162831250184728,
+     "samples": 61,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.1456026519041667,
+      0.3855482541191703,
+      0
+     ],
+     "end": [
+      0.09439734809583329,
+      0.34554825411917034,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Text",
+    "props": {
+     "text": "II",
+     "position": [
+      -0.12,
+      -0.1,
+      0
+     ],
+     "font_size": 28,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "1.98+0.36*cos(t)",
+     "fy": "-0.1+0.36*sin(t)",
+     "t_min": 1.319468914507713,
+     "t_max": 7.162831250184728,
+     "samples": 61,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o38",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.9295283593793475,
+      0.28868993800630716,
+      0
+     ],
+     "end": [
+      2.1695283593793477,
+      0.24868993800630715,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Text",
+    "props": {
+     "text": "III",
+     "position": [
+      1.98,
+      -0.1,
+      0
+     ],
+     "font_size": 28,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.0,
+      -1.1,
+      0
+     ],
+     "end": [
+      0.0,
+      -1.27,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Device",
+    "props": {
+     "kind": "ground",
+     "center": [
+      0.0,
+      -1.4200000000000002,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.6,
+     "font_size": 22,
+     "color": "#111111",
+     "stroke_width": 3,
+     "symbol_style": "europäisch"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

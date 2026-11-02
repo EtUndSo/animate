@@ -1,0 +1,307 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 13,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      40,
+      10
+     ],
+     "y_range": [
+      -10,
+      10,
+      5
+     ],
+     "x_length": 2.35,
+     "y_length": 1.75,
+     "origin": [
+      -2.05,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "@t_ms",
+     "y_label": "@ui",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "-10;-5;0;5;10",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      40,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "10*cos(2*pi*x/20)",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      40
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "2*cos(2*pi*x/20)",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      40
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "u",
+     "position": [
+      5.0,
+      8.3,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "i",
+     "position": [
+      22.0,
+      3.1,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      40,
+      10
+     ],
+     "y_range": [
+      0,
+      20,
+      5
+     ],
+     "x_length": 2.35,
+     "y_length": 1.75,
+     "origin": [
+      1.25,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "@t_ms",
+     "y_label": "@p_w",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;5;10;15;20",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Area",
+    "props": {
+     "func": "20*cos(2*pi*x/20)^2",
+     "func2": "0",
+     "x_min": 0,
+     "x_max": 40,
+     "samples": 120,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 0.12,
+     "stroke_width": 0
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o9",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "20*cos(2*pi*x/20)^2",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      40
+     ]
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      10,
+      0
+     ],
+     "end": [
+      40,
+      10,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "p(t)",
+     "position": [
+      15.0,
+      17.2,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "P = 10 W",
+     "position": [
+      41.5,
+      10,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o7"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "t_ms": {
+    "de": "t in ms",
+    "en": "t in ms",
+    "es": "t en ms",
+    "zh": "t / ms"
+   },
+   "ui": {
+    "de": "u in V, i in A",
+    "en": "u in V, i in A",
+    "es": "u en V, i en A",
+    "zh": "u / V，i / A"
+   },
+   "p_w": {
+    "de": "p in W",
+    "en": "p in W",
+    "es": "p en W",
+    "zh": "p / W"
+   }
+  }
+ }
+}

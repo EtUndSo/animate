@@ -1,0 +1,503 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 24,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.5,
+      8
+     ],
+     "y_range": [
+      0,
+      1.15
+     ],
+     "x_length": 2.6,
+     "y_length": 1.75,
+     "origin": [
+      -1.75,
+      0,
+      0
+     ],
+     "title": "@a1",
+     "x_label": "k",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;2;4;6",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.5,
+      1,
+      0
+     ],
+     "end": [
+      8,
+      1,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.5,
+      0.5,
+      0
+     ],
+     "end": [
+      8,
+      0.5,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0,
+      1.0,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      0.8333333333333333,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2,
+      0.7595238095238095,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      0.7253718503718504,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4,
+      0.7090162022075268,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Dot",
+    "props": {
+     "center": [
+      5,
+      0.7010207082692489,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6,
+      0.6970686888834033,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      7,
+      0.695104120228108,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@bleibt",
+     "position": [
+      0.3,
+      0.26,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.5,
+      8
+     ],
+     "y_range": [
+      0,
+      1.15
+     ],
+     "x_length": 2.6,
+     "y_length": 1.75,
+     "origin": [
+      1.75,
+      0,
+      0
+     ],
+     "title": "@a2",
+     "x_label": "k",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;2;4;6",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 1\n1 0.5\n2 0.25\n3 0.125\n4 0.0625\n5 0.03125\n6 0.015625\n7 0.0078125",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o15",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0,
+      1.0,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o16",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      0.3611111111111111,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o17",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2,
+      0.1506859410430839,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o18",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      0.06864323129079206,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o19",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4,
+      0.03275041688293727,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o20",
+    "type": "Dot",
+    "props": {
+     "center": [
+      5,
+      0.01599566045596316,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o21",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6,
+      0.007904609014324314,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o22",
+    "type": "Dot",
+    "props": {
+     "center": [
+      7,
+      0.003929207721406219,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@halb",
+     "position": [
+      2.2,
+      0.76,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o13"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "a1": {
+    "de": "s = 1: Schranke 1, q = 1",
+    "en": "s = 1: bound 1, q = 1",
+    "es": "s = 1: cota 1, q = 1",
+    "zh": "s = 1：上界 1，q = 1"
+   },
+   "a2": {
+    "de": "s = 2: Schranke (1/2)^k, q = 1/2",
+    "en": "s = 2: bound (1/2)^k, q = 1/2",
+    "es": "s = 2: cota (1/2)^k, q = 1/2",
+    "zh": "s = 2：上界 (1/2)^k，q = 1/2"
+   },
+   "bleibt": {
+    "de": "Blöcke bleiben groß",
+    "en": "blocks stay large",
+    "es": "los bloques siguen grandes",
+    "zh": "各块始终较大"
+   },
+   "halb": {
+    "de": "Blöcke halbieren sich",
+    "en": "blocks halve",
+    "es": "se reducen a la mitad",
+    "zh": "各块逐次减半"
+   }
+  }
+ }
+}

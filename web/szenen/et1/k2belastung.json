@@ -1,0 +1,640 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 31,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.4,
+      1.35,
+      0
+     ],
+     "end": [
+      -2.25,
+      1.35,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.25,
+      1.35,
+      0
+     ],
+     "end": [
+      -2.25,
+      1.05,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.4,
+      -1.35,
+      0
+     ],
+     "end": [
+      -1.35,
+      -1.35,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.35,
+      -1.35,
+      0
+     ],
+     "end": [
+      -1.35,
+      -1.3,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.4,
+      1.35,
+      0
+     ],
+     "end": [
+      -3.4,
+      0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.4,
+      -1.35,
+      0
+     ],
+     "end": [
+      -3.4,
+      -0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Component",
+    "props": {
+     "kind": "vsource_dc",
+     "center": [
+      -3.4,
+      0,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.5,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -2.25,
+      0.45,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.2,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.6
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -2.25,
+      -0.75,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.2,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.6
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.25,
+      -0.15,
+      0
+     ],
+     "end": [
+      -1.35,
+      -0.15,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -1.35,
+      -0.75,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.2,
+     "label": "",
+     "color": "#c82828",
+     "stroke_width": 3,
+     "size": 0.6
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.25,
+      -0.15,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.25,
+      -1.35,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "9 V",
+     "position": [
+      -3.1399999999999997,
+      0.0,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "R_1",
+     "position": [
+      -2.51,
+      0.45,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "R_2",
+     "position": [
+      -2.51,
+      -0.75,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "R_L",
+     "position": [
+      -1.6,
+      -0.75,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.03,
+      -0.16999999999999998,
+      0
+     ],
+     "end": [
+      -1.03,
+      -1.33,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "U_2",
+     "position": [
+      -0.9500000000000001,
+      -0.75,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.0,
+      0.05000000000000002,
+      0
+     ],
+     "end": [
+      -1.5,
+      0.05000000000000002,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "I_L",
+     "position": [
+      -1.75,
+      0.28,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      100,
+      1000000
+     ],
+     "y_range": [
+      0,
+      3.5
+     ],
+     "x_length": 2.55,
+     "y_length": 2.5,
+     "origin": [
+      1.8,
+      0.05,
+      0
+     ],
+     "title": "",
+     "x_label": "@ein_R_LΩ",
+     "y_label": "@ein_U_2V",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;1;2;3",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": true,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o24",
+    "type": "DataCurve",
+    "props": {
+     "data": "100 0.391304\n105.925 0.411312\n112.202 0.432172\n118.85 0.453906\n125.893 0.476529\n133.352 0.500059\n141.254 0.524509\n149.624 0.549891\n158.489 0.576216\n167.88 0.60349\n177.828 0.63172\n188.365 0.660905\n199.526 0.691045\n211.349 0.722136\n223.872 0.754169\n237.137 0.787131\n251.189 0.821007\n266.073 0.855778\n281.838 0.891419\n298.538 0.927901\n316.228 0.965193\n334.965 1.00326\n354.813 1.04206\n375.837 1.08154\n398.107 1.12167\n421.697 1.16238\n446.684 1.20362\n473.151 1.24533\n501.187 1.28746\n530.884 1.32993\n562.341 1.37267\n595.662 1.41563\n630.957 1.45872\n668.344 1.50188\n707.946 1.54504\n749.894 1.58813\n794.328 1.63107\n841.395 1.67379\n891.251 1.71624\n944.061 1.75833\n1000 1.8\n1059.25 1.8412\n1122.02 1.88186\n1188.5 1.92193\n1258.93 1.96136\n1333.52 2.00009\n1412.54 2.03809\n1496.24 2.07532\n1584.89 2.11173\n1678.8 2.14729\n1778.28 2.18199\n1883.65 2.21578\n1995.26 2.24867\n2113.49 2.28062\n2238.72 2.31162\n2371.37 2.34168\n2511.89 2.37078\n2660.73 2.39893\n2818.38 2.42612\n2985.38 2.45236\n3162.28 2.47766\n3349.65 2.50203\n3548.13 2.52548\n3758.37 2.54803\n3981.07 2.56968\n4216.97 2.59047\n4466.84 2.6104\n4731.51 2.6295\n5011.87 2.6478\n5308.84 2.6653\n5623.41 2.68204\n5956.62 2.69804\n6309.57 2.71331\n6683.44 2.7279\n7079.46 2.74181\n7498.94 2.75507\n7943.28 2.76771\n8413.95 2.77975\n8912.51 2.79121\n9440.61 2.80212\n10000 2.8125\n10592.5 2.82237\n11220.2 2.83175\n11885 2.84066\n12589.3 2.84912\n13335.2 2.85716\n14125.4 2.86479\n14962.4 2.87203\n15848.9 2.8789\n16788 2.88542\n17782.8 2.8916\n18836.5 2.89745\n19952.6 2.903\n21134.9 2.90826\n22387.2 2.91325\n23713.7 2.91797\n25118.9 2.92244\n26607.3 2.92667\n28183.8 2.93068\n29853.8 2.93447\n31622.8 2.93806\n33496.5 2.94146\n35481.3 2.94467\n37583.7 2.94771\n39810.7 2.95059\n42169.7 2.95331\n44668.4 2.95588\n47315.1 2.95832\n50118.7 2.96062\n53088.4 2.96279\n56234.1 2.96485\n59566.2 2.9668\n63095.7 2.96863\n66834.4 2.97037\n70794.6 2.97201\n74989.4 2.97356\n79432.8 2.97503\n84139.5 2.97642\n89125.1 2.97773\n94406.1 2.97896\n100000 2.98013\n105925 2.98124\n112202 2.98228\n118850 2.98327\n125893 2.9842\n133352 2.98508\n141254 2.98591\n149624 2.98669\n158489 2.98743\n167880 2.98813\n177828 2.9888\n188365 2.98942\n199526 2.99001\n211349 2.99057\n223872 2.99109\n237137 2.99159\n251189 2.99206\n266073 2.9925\n281838 2.99292\n298538 2.99332\n316228 2.99369\n334965 2.99404\n354813 2.99437\n375837 2.99469\n398107 2.99498\n421697 2.99526\n446684 2.99553\n473151 2.99578\n501187 2.99601\n530884 2.99624\n562341 2.99645\n595662 2.99665\n630957 2.99683\n668344 2.99701\n707946 2.99718\n749894 2.99734\n794328 2.99748\n841395 2.99762\n891251 2.99776\n944061 2.99788\n1e+06 2.998",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o25",
+    "type": "Line",
+    "props": {
+     "start": [
+      100,
+      3,
+      0
+     ],
+     "end": [
+      1000000,
+      3,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@leer",
+     "position": [
+      150,
+      3.2,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o27",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1000.0,
+      1.8,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o28",
+    "type": "Dot",
+    "props": {
+     "center": [
+      10000.0,
+      2.8125,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "1.8 V",
+     "position": [
+      1400,
+      1.62,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o23"
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "2.81 V",
+     "position": [
+      12000,
+      2.42,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o23"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ein_R_LΩ": {
+    "de": "R_L in Ω",
+    "en": "R_L in Ω",
+    "es": "R_L en Ω",
+    "zh": "R_L / Ω"
+   },
+   "ein_U_2V": {
+    "de": "U_2 in V",
+    "en": "U_2 in V",
+    "es": "U_2 en V",
+    "zh": "U_2 / V"
+   },
+   "leer": {
+    "de": "ohne Last: 3 V",
+    "en": "no load: 3 V",
+    "es": "sin carga: 3 V",
+    "zh": "空载：3 V"
+   }
+  }
+ }
+}

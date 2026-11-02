@@ -73,13 +73,13 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   if(!layout) return;
   var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
   var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
-  // Knopffarbe: Panel offen = blau (Klasse is-open), zu = grau; aria-pressed folgt „offen".
+  // Knopffarbe: Panel offen = orange (Klasse is-open), zu = Grundfarbe; aria-pressed folgt „offen".
   function mark(btn,open){ if(btn){ btn.classList.toggle("is-open",!!open); btn.setAttribute("aria-pressed",open?"true":"false"); } }
   function L(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
   function S(k,v){ try{ localStorage.setItem(k,v?"1":"0"); }catch(e){} }
-  // Ist der Themenbaum sichtbar? Mobil und in der geteilten Ansicht ist er ein Overlay, sonst eine Spalte.
-  function leftOpen(){ var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");
-    return (mq.matches||split) ? !!(side&&side.classList.contains("open")) : !layout.classList.contains("hide-left"); }
+  // Ist der Themenbaum sichtbar? Mobil ist er ein Overlay, sonst eine Spalte.
+  function leftOpen(){
+    return mq.matches ? !!(side&&side.classList.contains("open")) : !layout.classList.contains("hide-left"); }
   // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
   if(bR){ if(L("wissen-hide-right")) layout.classList.add("hide-right");
     mark(bR,!layout.classList.contains("hide-right"));
@@ -88,12 +88,10 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   if(bL){ if(!mq.matches) layout.classList.add("hide-left");
     mark(bL,leftOpen());
     bL.addEventListener("click",function(){
-      var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");   // geteilte Ansicht: Baum als Overlay
-      if(mq.matches||split){ if(side) side.classList.toggle("open"); }
+      if(mq.matches){ if(side) side.classList.toggle("open"); }
       else layout.classList.toggle("hide-left");
       mark(bL,leftOpen());
     });
-    document.addEventListener("wissen:layout",function(){ mark(bL,leftOpen()); });   // geteilte Ansicht an/aus
   }
   // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
   (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
@@ -102,71 +100,8 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
     mark(bL,leftOpen());
   });
 })();
-// Beispiel-Seite (geteilte Ansicht): Theorie links, Beispiele rechts. Beide Spalten laufen synchron – jedes Beispiel
-// steht auf Höhe der Formel, zu der es gehört (Bezugslinie bei 35 % der Fensterhöhe, dazwischen linear überblendet).
-// Zu schmale Fenster: Die Beispiel-Seite legt sich als Ebene über den Artikel.
-(function(){
-  var root=document.documentElement, btn=document.getElementById("toggleBsp"),
-      layout=document.querySelector(".layout.has-bsp"), pane=document.getElementById("bspPane");
-  if(!btn) return;
-  if(!layout||!pane){ root.classList.remove("bsp-on"); return; }
-  var wide=window.matchMedia("(min-width:1180px)"), REF=0.35;
-  var refs=[].slice.call(document.querySelectorAll(".bsp-ref[data-bsp]"));
-  var cards=refs.map(function(r){ return document.getElementById("bsp-"+r.getAttribute("data-bsp")); });
-  function isOn(){ return root.classList.contains("bsp-on"); }
-  function paint(){ var v=isOn(); btn.classList.toggle("is-open",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
-  function set(v,remember){
-    root.classList.toggle("bsp-on",v); paint();
-    var sd=layout.querySelector(".side");                         // Overlay-Baum schließen; seine Knopffarbe folgt über wissen:layout
-    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")) sd.classList.remove("open");
-    if(remember && wide.matches){ try{ localStorage.setItem("wissen-split",v?"1":"0"); }catch(e){} }
-    try{ document.dispatchEvent(new Event("wissen:layout")); }catch(e){}   // Spaltenbreite geändert -> Formeln neu einpassen
-    if(v) requestAnimationFrame(sync);
-  }
-  function anchorEl(r){ return r.previousElementSibling || r; }     // Formel/Aussage direkt vor dem Verweis
-  function sync(){
-    if(!isOn() || !wide.matches || !refs.length) return;
-    var ref=window.innerHeight*REF, k=-1, A=[], P=[];
-    for(var i=0;i<refs.length;i++){ A.push(anchorEl(refs[i]).getBoundingClientRect().top); P.push(cards[i].offsetTop); if(A[i]<=ref) k=i; }
-    var p;                                                       // Stelle der Beispiel-Seite, die auf die Bezugslinie gehört
-    if(k<0) p=P[0]-(A[0]-ref);
-    else if(k===refs.length-1) p=P[k]+(ref-A[k]);
-    else { var t=(ref-A[k])/Math.max(1,A[k+1]-A[k]); p=P[k]+t*(P[k+1]-P[k]); }
-    pane.scrollTop=p-(ref-pane.getBoundingClientRect().top);
-  }
-  var tick=false;
-  function later(){ if(tick) return; tick=true; requestAnimationFrame(function(){ tick=false; sync(); }); }
-  window.addEventListener("scroll",later,{passive:true});
-  window.addEventListener("resize",later);
-  window.addEventListener("load",later);                          // nach Schriften/KaTeX noch einmal ausrichten
-  document.addEventListener("toggle",later,true);                 // Herleitung auf-/zugeklappt -> Höhen ändern sich
-  document.addEventListener("wissen:fitted",later);               // Formeln eingepasst -> Höhen ändern sich
-  function flash(c){ if(!c) return; c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash");
-    setTimeout(function(){ c.classList.remove("flash"); },1600); }
-  function toAnchor(i){                                          // Artikel so scrollen, dass die Formel auf der Bezugslinie steht
-    var y=window.scrollY+anchorEl(refs[i]).getBoundingClientRect().top-window.innerHeight*REF;
-    window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
-  }
-  refs.forEach(function(r,i){ var a=r.querySelector("a"); if(!a) return;
-    a.addEventListener("click",function(e){ e.preventDefault(); if(!isOn()) set(true,true);
-      requestAnimationFrame(function(){ if(wide.matches){ toAnchor(i); sync(); } else { pane.scrollTop=cards[i].offsetTop-12; } flash(cards[i]); });
-    }); });
-  [].slice.call(pane.querySelectorAll(".bsp-back")).forEach(function(a){
-    a.addEventListener("click",function(e){ e.preventDefault();
-      var i=refs.indexOf(document.getElementById("bspref-"+a.getAttribute("data-bsp"))); if(i<0) return;
-      if(!wide.matches) set(false,false);
-      requestAnimationFrame(function(){ toAnchor(i); });
-    }); });
-  btn.addEventListener("click",function(){ set(!isOn(),true); });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && isOn() && !wide.matches) set(false,false); });
-  (wide.addEventListener?wide.addEventListener.bind(wide,"change"):wide.addListener.bind(wide))(function(e){
-    if(!e.matches){ set(false,false); }
-    else { var st=false; try{ st=localStorage.getItem("wissen-split")==="1"; }catch(x){} set(st,false); }
-  });
-  paint(); if(isOn()) requestAnimationFrame(sync);
-})();
 // KaTeX automatisch rendern; zu breite abgesetzte Formeln danach passend verkleinern (höchstens auf 70 %),
-// statt sie abzuschneiden – wichtig in der geteilten Ansicht und auf dem Handy.
+// statt sie abzuschneiden – wichtig auf dem Handy.
 (function(){
   function fitMath(){
     var ds=[].slice.call(document.querySelectorAll(".katex-display"));
@@ -176,7 +111,6 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
       ds.forEach(function(d,i){ var w=m[i][0],s=m[i][1];          // w=0: eingeklappte Herleitung -> beim Aufklappen
         if(w && s>w+1) d.style.fontSize=(m[i][2]*Math.max(0.7,w/s))+"px"; });
     }
-    try{ document.dispatchEvent(new Event("wissen:fitted")); }catch(e){}   // Höhen haben sich geändert -> Beispiele neu ausrichten
   }
   var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
   window.addEventListener("DOMContentLoaded",function(){
@@ -187,30 +121,19 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   window.addEventListener("resize",later);
   window.addEventListener("load",fitMath);
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
-  document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
 })();
-/* Fassung (kompakt | ausführlich) und Autor (KI | Mensch): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht)
-   führen dann zur gewählten Fassung desselben Themas, soweit es sie gibt (data-alt, data-mensch, data-mensch-alt). */
+/* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht) führen dann zur gewählten
+   Fassung desselben Themas, soweit es sie gibt (data-alt). */
 (function(){
   function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   document.addEventListener("click",function(ev){
     var f=ev.target.closest&&ev.target.closest(".fassung .f-btn");
     if(f) set("wissen-fassung",f.getAttribute("data-fassung"));
-    var b=ev.target.closest&&ev.target.closest(".autor .a-btn[data-autor]");
-    if(b){ set("wissen-autor",b.getAttribute("data-autor")); if(b.tagName==="BUTTON"){ paint(); apply(); } }   // Übersicht: nur umschalten
   });
-  function paint(){ var p=get("wissen-autor")||"ki";                 // Knöpfe der Übersicht zeigen die gemerkte Wahl
-    document.querySelectorAll(".autor button.a-btn[data-autor]").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-autor")===p); }); }
   function apply(){
-    var m=get("wissen-autor")==="mensch", f=get("wissen-fassung")==="ausfuehrlich";
-    document.querySelectorAll("a[data-alt],a[data-mensch]").forEach(function(a){
-      var h=a.getAttribute("data-href0"); if(!h){ h=a.getAttribute("href"); a.setAttribute("data-href0",h); }
-      if(m&&a.getAttribute("data-mensch")) h=(f&&a.getAttribute("data-mensch-alt"))||a.getAttribute("data-mensch");
-      else if(f&&a.getAttribute("data-alt")) h=a.getAttribute("data-alt");
-      a.setAttribute("href",h);
-    });
+    if(get("wissen-fassung")!=="ausfuehrlich") return;
+    document.querySelectorAll("a[data-alt]").forEach(function(a){ a.setAttribute("href",a.getAttribute("data-alt")); });
   }
-  function init(){ paint(); apply(); }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
 })();

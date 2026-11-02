@@ -1,0 +1,494 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 22,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.15,
+      1.15
+     ],
+     "y_range": [
+      0,
+      2.2
+     ],
+     "x_length": 2.7,
+     "y_length": 2.3,
+     "origin": [
+      -1.95,
+      0.0,
+      0
+     ],
+     "title": "",
+     "x_label": "k",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@zk",
+     "position": [
+      -1.95,
+      1.72,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "E",
+     "position": [
+      0.08,
+      2.15,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1.6*x*x",
+     "color": "#00823c",
+     "stroke_width": 3.5,
+     "dash": "",
+     "x_range": [
+      -1.1,
+      1.1
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.55,
+      0.4840000000000001,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.82,
+      1.07584,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.72,
+      1.2058399999999998,
+      0
+     ],
+     "end": [
+      0.47000000000000003,
+      0.6240000000000001,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.45000000000000007,
+      0.3640000000000001,
+      0
+     ],
+     "end": [
+      -0.7,
+      0.9458399999999999,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "k",
+     "position": [
+      0.65,
+      0.32400000000000007,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "k'",
+     "position": [
+      -0.94,
+      0.9158399999999999,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@hinein",
+     "position": [
+      -0.42,
+      1.38,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@heraus",
+     "position": [
+      0.98,
+      0.32,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o14",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      1.5
+     ],
+     "y_range": [
+      0,
+      1.05
+     ],
+     "x_length": 2.8,
+     "y_length": 2.3,
+     "origin": [
+      1.85,
+      0.0,
+      0
+     ],
+     "title": "",
+     "x_label": "@a_tps",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;0.5;1;1.5",
+     "y_ticks": "0;0.25;0.5;0.75;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "\\delta f(t)/\\delta f(0)",
+     "position": [
+      1.85,
+      1.72,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x/1.242)",
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      0,
+      1.5
+     ]
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o17",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x/0.207)",
+     "color": "#eb6834",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      0,
+      1.5
+     ]
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o18",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x/0.177)",
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": "",
+     "x_range": [
+      0,
+      1.5
+     ]
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "\\tau_{ion}=1.24\\,ps",
+     "position": [
+      1.05,
+      0.56,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#00823c"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "\\tau_{ph}=0.21\\,ps",
+     "position": [
+      0.98,
+      0.25,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#eb6834"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "\\tau_{scat}=0.18\\,ps",
+     "position": [
+      0.98,
+      0.13,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o14"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "zk": {
+    "de": "ein Zustand k",
+    "en": "one state k",
+    "es": "un estado k",
+    "zh": "一个状态 k"
+   },
+   "hinein": {
+    "de": "hinein",
+    "en": "in",
+    "es": "entrada",
+    "zh": "入"
+   },
+   "heraus": {
+    "de": "heraus",
+    "en": "out",
+    "es": "salida",
+    "zh": "出"
+   },
+   "a_tps": {
+    "de": "t in ps",
+    "en": "t in ps",
+    "es": "t en ps",
+    "zh": "t / ps"
+   }
+  }
+ }
+}

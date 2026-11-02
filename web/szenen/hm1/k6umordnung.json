@@ -1,0 +1,1449 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 82,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      37
+     ],
+     "y_range": [
+      0.4,
+      1.4
+     ],
+     "x_length": 4.8,
+     "y_length": 2.4,
+     "origin": [
+      -1.0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "N",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1;6;12;18;24;30;36",
+     "y_ticks": "0.5;0.75;1;1.25",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0.6931471805599453,
+      0
+     ],
+     "end": [
+      37,
+      0.6931471805599453,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      1.0397207708399179,
+      0
+     ],
+     "end": [
+      37,
+      1.0397207708399179,
+      0
+     ],
+     "color": "#a84a22",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 1\n2 0.5\n3 0.833333\n4 0.583333\n5 0.783333\n6 0.616667\n7 0.759524\n8 0.634524\n9 0.745635\n10 0.645635\n11 0.736544\n12 0.653211\n13 0.730134\n14 0.658705\n15 0.725372\n16 0.662872\n17 0.721695\n18 0.66614\n19 0.718771\n20 0.668771\n21 0.71639\n22 0.670936\n23 0.714414\n24 0.672747\n25 0.712747\n26 0.674286\n27 0.711323\n28 0.675609\n29 0.710091\n30 0.676758\n31 0.709016\n32 0.677766\n33 0.708069\n34 0.678657\n35 0.707229\n36 0.679451",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#dceafa",
+     "stroke_width": 2.5,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 1\n2 1.33333\n3 0.833333\n4 1.03333\n5 1.17619\n6 0.92619\n7 1.0373\n8 1.12821\n9 0.961544\n10 1.03847\n11 1.10513\n12 0.980134\n13 1.03896\n14 1.09159\n15 0.991589\n16 1.03921\n17 1.08269\n18 0.999353\n19 1.03935\n20 1.07639\n21 1.00496\n22 1.03944\n23 1.0717\n24 1.0092\n25 1.03951\n26 1.06808\n27 1.01252\n28 1.03955\n29 1.06519\n30 1.01519\n31 1.03958\n32 1.06284\n33 1.01738\n34 1.0396\n35 1.06088\n36 1.01921",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#fbe3d9",
+     "stroke_width": 2.5,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      1.0,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2,
+      0.5,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      0.8333333333333333,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4,
+      0.5833333333333333,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      5,
+      0.7833333333333333,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6,
+      0.6166666666666667,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Dot",
+    "props": {
+     "center": [
+      7,
+      0.7595238095238095,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Dot",
+    "props": {
+     "center": [
+      8,
+      0.6345238095238095,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      9,
+      0.7456349206349207,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Dot",
+    "props": {
+     "center": [
+      10,
+      0.6456349206349206,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o16",
+    "type": "Dot",
+    "props": {
+     "center": [
+      11,
+      0.7365440115440115,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o17",
+    "type": "Dot",
+    "props": {
+     "center": [
+      12,
+      0.6532106782106782,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o18",
+    "type": "Dot",
+    "props": {
+     "center": [
+      13,
+      0.7301337551337551,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o19",
+    "type": "Dot",
+    "props": {
+     "center": [
+      14,
+      0.6587051837051837,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o20",
+    "type": "Dot",
+    "props": {
+     "center": [
+      15,
+      0.7253718503718504,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o21",
+    "type": "Dot",
+    "props": {
+     "center": [
+      16,
+      0.6628718503718504,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o22",
+    "type": "Dot",
+    "props": {
+     "center": [
+      17,
+      0.7216953797836151,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o23",
+    "type": "Dot",
+    "props": {
+     "center": [
+      18,
+      0.6661398242280595,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o24",
+    "type": "Dot",
+    "props": {
+     "center": [
+      19,
+      0.718771403175428,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o25",
+    "type": "Dot",
+    "props": {
+     "center": [
+      20,
+      0.6687714031754279,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o26",
+    "type": "Dot",
+    "props": {
+     "center": [
+      21,
+      0.7163904507944756,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o27",
+    "type": "Dot",
+    "props": {
+     "center": [
+      22,
+      0.6709359053399301,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o28",
+    "type": "Dot",
+    "props": {
+     "center": [
+      23,
+      0.7144141662094953,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o29",
+    "type": "Dot",
+    "props": {
+     "center": [
+      24,
+      0.6727474995428286,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o30",
+    "type": "Dot",
+    "props": {
+     "center": [
+      25,
+      0.7127474995428287,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o31",
+    "type": "Dot",
+    "props": {
+     "center": [
+      26,
+      0.6742859610812901,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o32",
+    "type": "Dot",
+    "props": {
+     "center": [
+      27,
+      0.7113229981183272,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o33",
+    "type": "Dot",
+    "props": {
+     "center": [
+      28,
+      0.6756087124040415,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o34",
+    "type": "Dot",
+    "props": {
+     "center": [
+      29,
+      0.7100914710247311,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o35",
+    "type": "Dot",
+    "props": {
+     "center": [
+      30,
+      0.6767581376913978,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o36",
+    "type": "Dot",
+    "props": {
+     "center": [
+      31,
+      0.7090162022075268,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o37",
+    "type": "Dot",
+    "props": {
+     "center": [
+      32,
+      0.6777662022075268,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o38",
+    "type": "Dot",
+    "props": {
+     "center": [
+      33,
+      0.7080692325105572,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o39",
+    "type": "Dot",
+    "props": {
+     "center": [
+      34,
+      0.6786574678046748,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o40",
+    "type": "Dot",
+    "props": {
+     "center": [
+      35,
+      0.7072288963761034,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o41",
+    "type": "Dot",
+    "props": {
+     "center": [
+      36,
+      0.6794511185983256,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o42",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      1.0,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o43",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2,
+      1.3333333333333333,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o44",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      0.8333333333333333,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o45",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4,
+      1.0333333333333332,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o46",
+    "type": "Dot",
+    "props": {
+     "center": [
+      5,
+      1.176190476190476,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o47",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6,
+      0.926190476190476,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o48",
+    "type": "Dot",
+    "props": {
+     "center": [
+      7,
+      1.0373015873015872,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o49",
+    "type": "Dot",
+    "props": {
+     "center": [
+      8,
+      1.128210678210678,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o50",
+    "type": "Dot",
+    "props": {
+     "center": [
+      9,
+      0.9615440115440114,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o51",
+    "type": "Dot",
+    "props": {
+     "center": [
+      10,
+      1.0384670884670884,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o52",
+    "type": "Dot",
+    "props": {
+     "center": [
+      11,
+      1.105133755133755,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o53",
+    "type": "Dot",
+    "props": {
+     "center": [
+      12,
+      0.980133755133755,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o54",
+    "type": "Dot",
+    "props": {
+     "center": [
+      13,
+      1.0389572845455197,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o55",
+    "type": "Dot",
+    "props": {
+     "center": [
+      14,
+      1.091588863492888,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o56",
+    "type": "Dot",
+    "props": {
+     "center": [
+      15,
+      0.9915888634928881,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o57",
+    "type": "Dot",
+    "props": {
+     "center": [
+      16,
+      1.0392079111119357,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o58",
+    "type": "Dot",
+    "props": {
+     "center": [
+      17,
+      1.0826861719815009,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o59",
+    "type": "Dot",
+    "props": {
+     "center": [
+      18,
+      0.9993528386481675,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o60",
+    "type": "Dot",
+    "props": {
+     "center": [
+      19,
+      1.0393528386481674,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o61",
+    "type": "Dot",
+    "props": {
+     "center": [
+      20,
+      1.0763898756852044,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o62",
+    "type": "Dot",
+    "props": {
+     "center": [
+      21,
+      1.004961304256633,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o63",
+    "type": "Dot",
+    "props": {
+     "center": [
+      22,
+      1.0394440628773227,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o64",
+    "type": "Dot",
+    "props": {
+     "center": [
+      23,
+      1.0717021273934517,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o65",
+    "type": "Dot",
+    "props": {
+     "center": [
+      24,
+      1.0092021273934517,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o66",
+    "type": "Dot",
+    "props": {
+     "center": [
+      25,
+      1.039505157696482,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o67",
+    "type": "Dot",
+    "props": {
+     "center": [
+      26,
+      1.0680765862679105,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o68",
+    "type": "Dot",
+    "props": {
+     "center": [
+      27,
+      1.0125210307123549,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o69",
+    "type": "Dot",
+    "props": {
+     "center": [
+      28,
+      1.0395480577393819,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o70",
+    "type": "Dot",
+    "props": {
+     "center": [
+      29,
+      1.0651890833804074,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o71",
+    "type": "Dot",
+    "props": {
+     "center": [
+      30,
+      1.0151890833804074,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o72",
+    "type": "Dot",
+    "props": {
+     "center": [
+      31,
+      1.0395793272828464,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o73",
+    "type": "Dot",
+    "props": {
+     "center": [
+      32,
+      1.0628351412363348,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o74",
+    "type": "Dot",
+    "props": {
+     "center": [
+      33,
+      1.0173805957817894,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o75",
+    "type": "Dot",
+    "props": {
+     "center": [
+      34,
+      1.0396028180040116,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o76",
+    "type": "Dot",
+    "props": {
+     "center": [
+      35,
+      1.0608794137486923,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o77",
+    "type": "Dot",
+    "props": {
+     "center": [
+      36,
+      1.0192127470820256,
+      0
+     ],
+     "radius": 0.045,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o78",
+    "type": "Text",
+    "props": {
+     "text": "log 2 ≈ 0.693",
+     "position": [
+      37.6,
+      0.6931471805599453,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o79",
+    "type": "Text",
+    "props": {
+     "text": "(3/2) log 2 ≈ 1.040",
+     "position": [
+      37.6,
+      1.0397207708399179,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#a84a22"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o80",
+    "type": "Text",
+    "props": {
+     "text": "@alt",
+     "position": [
+      9,
+      0.48,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o81",
+    "type": "Text",
+    "props": {
+     "text": "@neu",
+     "position": [
+      3,
+      1.33,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#a84a22"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "alt": {
+    "de": "L_N: Reihenfolge 1, 2, 3, 4, …",
+    "en": "L_N: order 1, 2, 3, 4, …",
+    "es": "L_N: orden 1, 2, 3, 4, …",
+    "zh": "L_N：顺序 1, 2, 3, 4, …"
+   },
+   "neu": {
+    "de": "T_N: je zwei positive, ein negatives Glied",
+    "en": "T_N: two positive terms, then one negative",
+    "es": "T_N: dos términos positivos, uno negativo",
+    "zh": "T_N：每两个正项后接一个负项"
+   }
+  }
+ }
+}

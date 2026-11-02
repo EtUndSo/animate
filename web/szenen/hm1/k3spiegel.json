@@ -1,0 +1,400 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 18,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "x = 5",
+     "center": [
+      -2.9,
+      0,
+      0
+     ],
+     "width": 1.0,
+     "height": 0.6,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "y = 8",
+     "center": [
+      -1.35,
+      0,
+      0
+     ],
+     "width": 1.0,
+     "height": 0.6,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.6,
+      0.32,
+      0
+     ],
+     "end": [
+      -1.6500000000000001,
+      0.32,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.6500000000000001,
+      -0.32,
+      0
+     ],
+     "end": [
+      -2.6,
+      -0.32,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "h",
+     "position": [
+      -2.125,
+      0.56,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "h^{−1}",
+     "position": [
+      -2.125,
+      -0.58,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.8,
+      6.4
+     ],
+     "y_range": [
+      -1.8,
+      6.4
+     ],
+     "x_length": 2.75,
+     "y_length": 2.75,
+     "origin": [
+      1.45,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "y",
+     "number_size": 22,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1;2;3;4;5;6",
+     "y_ticks": "1;2;3;4;5;6",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8,
+      -1.8,
+      0
+     ],
+     "end": [
+      6.3,
+      6.3,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o10",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x^2-4*x+3",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      2,
+      4.65
+     ]
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o11",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "2+sqrt(x+1)",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      -1,
+      6.2
+     ]
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      4,
+      3,
+      0
+     ],
+     "end": [
+      3,
+      4,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "2,5"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o13",
+    "type": "Dot",
+    "props": {
+     "center": [
+      4,
+      3,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      4,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "h",
+     "position": [
+      4.3,
+      1.5,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "h^{−1}",
+     "position": [
+      1.25,
+      4.6,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "y = x",
+     "position": [
+      6.35,
+      5.1,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#7f7f7f"
+    },
+    "on": "o8"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

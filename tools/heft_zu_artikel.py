@@ -6,13 +6,14 @@ Aufruf (vom Repo-Root):
     python tools/heft_zu_artikel.py et3 --pruefen       nichts schreiben, nur Meldungen
     python tools/heft_zu_artikel.py et3 --aux DIR       Nummern gegen die .aux-Dateien in DIR prüfen
 
-Das Heft bleibt die Quelle: Kap<N>_<Name>[_en|_es|_zh].tex mit den \\input-Dateien. Der Artikel wird daraus erzeugt und
-nie von Hand geändert. Nummern (Gleichungen, Sätze, Abbildungen, Aufgaben) entstehen wie in LaTeX, Verweise werden zu
+Das Heft bleibt die Quelle: Kap<N>_<Name>[_en|_es|_zh].tex mit den \\input-Dateien. Die Artikel werden daraus erzeugt und
+nie von Hand geändert. Ein Heft wird zu einem Kapitel aus mehreren kurzen Artikeln: Überblick, je Stufe ein Artikel, zum
+Schluss „Das Wichtigste“. Man soll einen Abschnitt abschließen können, bevor der nächste beginnt. Nummern (Gleichungen, Sätze, Abbildungen, Aufgaben) entstehen wie in LaTeX, Verweise werden zu
 Links. Aufgaben bekommen ihre Lösung direkt als aufklappbaren Block, nicht am Ende. Abbildungen werden zu
 :::abbildung <szene>, die Szene heißt wie das \\label (fig:k1bode -> et3/k1bode). Texte, die nur im PDF stimmen
 („Lösungen am Ende“, „dieses Heft“), werden je Sprache angepasst (WEBTEXT).
 
-Ziel: content/<modul>/<NN-slug>/<NN-slug>[.en|.es|.zh].md
+Ziel: content/<modul>/<NN-kapitel>/<NN-stufe>[.en|.es|.zh].md (die Dateinamen kommen immer aus der deutschen Fassung).
 """
 import argparse
 import re
@@ -22,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")
-from build_wissen import slugify  # noqa: E402
+from build_wissen import slugify, caption_alt  # noqa: E402
 
 LANGS = ("de", "en", "es", "zh")
 NBSP, THIN = "\u00a0", "\u202f"
@@ -111,6 +112,179 @@ MODULE["et1"] = {
     },
 }
 
+MODULE["hm1"] = {
+    "quelle": Path(r"C:\Bücher\HöMa1\Arbeitshefte"),
+    "ziel": "hm1",
+    "szenen": "hm1",
+    "pfad": {"de": "Elektrotechnik / 1. Semester / Höhere Mathematik 1",
+             "en": "Electrical Engineering / 1st Semester / Higher Mathematics 1",
+             "es": "Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1",
+             "zh": "电气工程 / 第 1 学期 / 高等数学 1"},
+    "basis": "elektrotechnik/1-semester/hohere-mathematik-1",
+    "order": 1200000,
+    "hefte": {
+        1: ("Kap1_Zahlen", "mengen-logik-und-reelle-zahlen",
+            {"de": "Mengen, Logik und reelle Zahlen", "en": "Sets, Logic and Real Numbers",
+             "es": "Conjuntos, lógica y números reales", "zh": "集合、逻辑与实数"}),
+        2: ("Kap2_Komplex", "komplexe-zahlen",
+            {"de": "Komplexe Zahlen", "en": "Complex Numbers", "es": "Números complejos", "zh": "复数"}),
+        3: ("Kap3_Funktionen", "funktionen-und-polynome",
+            {"de": "Funktionen und Polynome", "en": "Functions and Polynomials",
+             "es": "Funciones y polinomios", "zh": "函数与多项式"}),
+        4: ("Kap4_Folgen", "folgen-und-grenzwerte",
+            {"de": "Folgen und Grenzwerte", "en": "Sequences and Limits", "es": "Sucesiones y límites", "zh": "数列与极限"}),
+        5: ("Kap5_Stetigkeit", "exponentialfunktion-und-stetigkeit",
+            {"de": "Exponentialfunktion und Stetigkeit", "en": "Exponential Function and Continuity",
+             "es": "Función exponencial y continuidad", "zh": "指数函数与连续性"}),
+        6: ("Kap6_Reihen", "unendliche-reihen",
+            {"de": "Unendliche Reihen", "en": "Infinite Series", "es": "Series infinitas", "zh": "无穷级数"}),
+        7: ("Kap7_Potenzreihen", "potenzreihen-und-eulersche-formel",
+            {"de": "Potenzreihen und Eulersche Formel", "en": "Power Series and Euler's Formula",
+             "es": "Series de potencias y fórmula de Euler", "zh": "幂级数与欧拉公式"}),
+        8: ("Kap8_Vektoren", "vektoren-und-skalarprodukt",
+            {"de": "Vektoren und Skalarprodukt", "en": "Vectors and the Dot Product",
+             "es": "Vectores y producto escalar", "zh": "向量与内积"}),
+        9: ("Kap9_Basen", "vektorprodukt-und-basen",
+            {"de": "Vektorprodukt und Basen", "en": "Cross Product and Bases",
+             "es": "Producto vectorial y bases", "zh": "向量积与基"}),
+        10: ("Kap10_Matrizen", "matrizen-und-gleichungssysteme",
+             {"de": "Matrizen und lineare Gleichungssysteme", "en": "Matrices and Linear Systems",
+              "es": "Matrices y sistemas lineales", "zh": "矩阵与线性方程组"}),
+    },
+}
+
+MODULE["gemb1"] = {
+    "quelle": Path(r"C:\Bücher\GEMB\Arbeitshefte"),
+    "ziel": "gemb1",
+    "szenen": "gemb1",
+    "pfad": {"de": "Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1",
+             "en": "Electrical Engineering / 4th Semester / Electronic Materials and Devices 1",
+             "es": "Ingeniería eléctrica / 4.º semestre / Materiales y dispositivos electrónicos 1",
+             "zh": "电气工程 / 第 4 学期 / 电子材料与器件 1"},
+    "basis": "elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1",
+    "order": 4100000,
+    "hefte": {
+        1: ("Kap1_Schroedinger", "welle-teilchen-und-schroedinger-gleichung",
+            {"de": "Welle, Teilchen und Schrödinger-Gleichung", "en": "Waves, Particles and the Schrödinger Equation",
+             "es": "Ondas, partículas y ecuación de Schrödinger", "zh": "波、粒子与薛定谔方程"}),
+        2: ("Kap2_Box", "das-teilchen-in-der-box",
+            {"de": "Das Teilchen in der Box", "en": "The Particle in a Box",
+             "es": "La partícula en una caja", "zh": "箱中粒子"}),
+        3: ("Kap3_Tunnel", "stufe-barriere-und-tunneleffekt",
+            {"de": "Stufe, Barriere und Tunneleffekt", "en": "Step, Barrier and Tunnelling",
+             "es": "Escalón, barrera y efecto túnel", "zh": "势阶、势垒与隧穿效应"}),
+        4: ("Kap4_Atome", "atome-und-orbitale",
+            {"de": "Atome und Orbitale", "en": "Atoms and Orbitals",
+             "es": "Átomos y orbitales", "zh": "原子与轨道"}),
+        5: ("Kap5_Bindung", "chemische-bindung",
+            {"de": "Chemische Bindung", "en": "Chemical Bonding",
+             "es": "Enlace químico", "zh": "化学键"}),
+        6: ("Kap6_Kristall", "kristallgitter",
+            {"de": "Kristallgitter", "en": "Crystal Lattices",
+             "es": "Redes cristalinas", "zh": "晶格"}),
+        7: ("Kap7_Reziprok", "kristallwachstum-und-reziprokes-gitter",
+            {"de": "Kristallwachstum und reziprokes Gitter", "en": "Crystal Growth and the Reciprocal Lattice",
+             "es": "Crecimiento cristalino y red recíproca", "zh": "晶体生长与倒易点阵"}),
+        8: ("Kap8_TightBinding", "vom-atom-zum-band",
+            {"de": "Vom Atom zum Band", "en": "From Atom to Band",
+             "es": "Del átomo a la banda", "zh": "从原子到能带"}),
+        9: ("Kap9_Bandstruktur", "bandstrukturen-lesen",
+            {"de": "Bandstrukturen lesen", "en": "Reading Band Structures",
+             "es": "Leer estructuras de bandas", "zh": "读懂能带结构"}),
+        10: ("Kap10_Fermi", "zustandsdichte-und-fermi-verteilung",
+            {"de": "Zustandsdichte und Fermi-Verteilung", "en": "Density of States and Fermi Distribution",
+             "es": "Densidad de estados y distribución de Fermi", "zh": "态密度与费米分布"}),
+        11: ("Kap11_Halbleiter", "eigenhalbleiter-und-dotierung",
+            {"de": "Eigenhalbleiter und Dotierung", "en": "Intrinsic Semiconductors and Doping",
+             "es": "Semiconductores intrínsecos y dopado", "zh": "本征半导体与掺杂"}),
+        12: ("Kap12_Transport", "strom-im-halbleiter",
+            {"de": "Strom im Halbleiter", "en": "Current in Semiconductors",
+             "es": "Corriente en el semiconductor", "zh": "半导体中的电流"}),
+        13: ("Kap13_Diffusion", "diffusion-rekombination-grundgleichungen",
+            {"de": "Diffusion, Rekombination und Grundgleichungen", "en": "Diffusion, Recombination and Basic Equations",
+             "es": "Difusión, recombinación y ecuaciones básicas", "zh": "扩散、复合与基本方程"}),
+        14: ("Kap14_pn", "der-p-n-uebergang",
+            {"de": "Der p-n-Übergang", "en": "The p-n Junction",
+             "es": "La unión p-n", "zh": "p-n 结"}),
+        15: ("Kap15_MOS", "die-mos-kapazitaet",
+            {"de": "Die MOS-Kapazität", "en": "The MOS Capacitor",
+             "es": "El condensador MOS", "zh": "MOS 电容"}),
+        16: ("Kap16_MOSreal", "realer-mos-kondensator",
+            {"de": "Der reale MOS-Kondensator", "en": "The Real MOS Capacitor",
+             "es": "El condensador MOS real", "zh": "实际 MOS 电容"}),
+        17: ("Kap17_MOSFET", "der-mosfet",
+            {"de": "Der MOSFET", "en": "The MOSFET",
+             "es": "El MOSFET", "zh": "MOSFET"}),
+        18: ("Kap18_Kurzkanal", "skalierung-und-kurzkanaleffekte",
+            {"de": "Skalierung und Kurzkanaleffekte", "en": "Scaling and Short-Channel Effects",
+             "es": "Escalado y efectos de canal corto", "zh": "按比例缩小与短沟道效应"}),
+        19: ("Kap19_Licht", "ergaenzung-licht-und-laser",
+            {"de": "Ergänzung: Licht und Laser", "en": "Supplement: Light and Lasers",
+             "es": "Complemento: luz y láser", "zh": "补充：光与激光"}),
+        20: ("Kap20_Realkristall", "ergaenzung-reale-kristalle",
+            {"de": "Ergänzung: Reale Kristalle und amorphe Stoffe", "en": "Supplement: Real Crystals and Amorphous Solids",
+             "es": "Complemento: cristales reales y sólidos amorfos", "zh": "补充：实际晶体与非晶固体"}),
+        21: ("Kap21_Zustandsdiagramme", "ergaenzung-zustandsdiagramme",
+            {"de": "Ergänzung: Zustandsdiagramme", "en": "Supplement: Phase Diagrams",
+             "es": "Complemento: diagramas de fases", "zh": "补充：相图"}),
+        22: ("Kap22_Vielteilchen", "ergaenzung-vielteilchensysteme",
+            {"de": "Ergänzung: Vielteilchensysteme", "en": "Supplement: Many-Particle Systems",
+             "es": "Complemento: sistemas de muchas partículas", "zh": "补充：多粒子系统"}),
+        23: ("Kap23_Entropie", "ergaenzung-entropie-und-gleichgewicht",
+            {"de": "Ergänzung: Entropie und Gleichgewicht", "en": "Supplement: Entropy and Equilibrium",
+             "es": "Complemento: entropía y equilibrio", "zh": "补充：熵与平衡"}),
+        24: ("Kap24_Gitterschwingungen", "ergaenzung-gitterschwingungen",
+            {"de": "Ergänzung: Gitterschwingungen", "en": "Supplement: Lattice Vibrations",
+             "es": "Complemento: vibraciones de la red", "zh": "补充：晶格振动"}),
+        25: ("Kap25_Metalle", "ergaenzung-metalle",
+            {"de": "Ergänzung: Metalle", "en": "Supplement: Metals",
+             "es": "Complemento: metales", "zh": "补充：金属"}),
+        26: ("Kap26_Schottky", "ergaenzung-metall-halbleiter-uebergang",
+            {"de": "Ergänzung: Metall-Halbleiter-Übergang", "en": "Supplement: Metal-Semiconductor Junction",
+             "es": "Complemento: unión metal-semiconductor", "zh": "补充：金属-半导体结"}),
+        27: ("Kap27_Feldeffekt", "ergaenzung-weitere-feldeffekt-bauelemente",
+            {"de": "Ergänzung: Weitere Feldeffekt-Bauelemente", "en": "Supplement: Other Field-Effect Devices",
+             "es": "Complemento: otros dispositivos de efecto de campo", "zh": "补充：其他场效应器件"}),
+        28: ("Kap28_Prozess", "ergaenzung-halbleitertechnologie",
+            {"de": "Ergänzung: Halbleitertechnologie", "en": "Supplement: Semiconductor Technology",
+             "es": "Complemento: tecnología de semiconductores", "zh": "补充：半导体工艺"}),
+    },
+}
+
+MODULE["hm3"] = {
+    "quelle": Path(r"C:\Bücher\HöMa3\Arbeitshefte"),
+    "ziel": "hm3",
+    "szenen": "hm3",
+    "pfad": {"de": "Elektrotechnik / 3. Semester / Höhere Mathematik 3",
+             "en": "Electrical Engineering / 3rd Semester / Higher Mathematics 3",
+             "es": "Ingeniería eléctrica / 3.er semestre / Matemáticas superiores 3",
+             "zh": "电气工程 / 第 3 学期 / 高等数学 3"},
+    "basis": "elektrotechnik/3-semester/hohere-mathematik-3",
+    "order": 3100000,
+    "hefte": {
+        1: ("Kap1_Vektorfelder", "differentialrechnung-fuer-vektorfelder",
+            {"de": "Differentialrechnung für Vektorfelder", "en": "Differential Calculus for Vector Fields",
+             "es": "Cálculo diferencial de campos vectoriales", "zh": "矢量场的微分学"}),
+        2: ("Kap2_Integrale", "integralrechnung-im-rn",
+            {"de": "Integralrechnung im Rⁿ", "en": "Integration in Rⁿ", "es": "Cálculo integral en Rⁿ", "zh": "Rⁿ 中的积分"}),
+        3: ("Kap3_Kurvenintegrale", "kurvenintegrale",
+            {"de": "Kurvenintegrale", "en": "Line Integrals", "es": "Integrales de línea", "zh": "曲线积分"}),
+        4: ("Kap4_Koordinaten", "koordinatentransformationen",
+            {"de": "Koordinatentransformationen", "en": "Coordinate Transformations",
+             "es": "Transformaciones de coordenadas", "zh": "坐标变换"}),
+        5: ("Kap5_Integralsaetze", "integralsaetze-im-raum",
+            {"de": "Integralsätze im Raum", "en": "Integral Theorems in Space",
+             "es": "Teoremas integrales en el espacio", "zh": "空间中的积分定理"}),
+        6: ("Kap6_Funktionenfolgen", "konvergenz-von-funktionenfolgen",
+            {"de": "Konvergenz von Funktionenfolgen", "en": "Convergence of Sequences of Functions",
+             "es": "Convergencia de sucesiones de funciones", "zh": "函数序列的收敛"}),
+        7: ("Kap7_Fourier", "fourier-reihen",
+            {"de": "Fourier-Reihen", "en": "Fourier Series", "es": "Series de Fourier", "zh": "傅里叶级数"}),
+        8: ("Kap8_Wahrscheinlichkeit", "wahrscheinlichkeitsrechnung",
+            {"de": "Wahrscheinlichkeitsrechnung", "en": "Probability Theory", "es": "Cálculo de probabilidades", "zh": "概率论"}),
+    },
+}
+
 # Wörter, die in den Präambeln der Hefte stehen
 WORT = {
     "de": {"aufgabe": "Aufgabe", "satz": "Satz", "definition": "Definition"},
@@ -118,30 +292,30 @@ WORT = {
     "es": {"aufgabe": "Ejercicio", "satz": "Teorema", "definition": "Definición"},
     "zh": {"aufgabe": "练习", "satz": "定理", "definition": "定义"},
 }
-KERN_TITEL = ("Das Wichtigste", "Key points", "Lo esencial", "要点", "本册要点")
+KERN_TITEL = ("Das Wichtigste", "Das Wichtigste bis hier", "Key points", "Key points so far", "Lo esencial", "Lo esencial hasta aquí", "要点", "本册要点")
 SO_ARBEITEST = re.compile(r"^(So arbeitest du|How to work with|Cómo trabajar con|如何使用)")
 HINWEIS = {
-    "de": "**So arbeitest du mit dem Artikel.** Jede Stufe hat die Idee, typische Fragen mit aufklappbaren Antworten und "
-          "Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.",
-    "en": "**How to work with this article.** Each stage has the idea, typical questions with answers you can expand, and "
-          "exercises (★ to ★★★). Try the exercises yourself first; the solution expands right below each exercise.",
-    "es": "**Cómo trabajar con este artículo.** Cada etapa tiene la idea, preguntas típicas con respuestas desplegables y "
-          "ejercicios (de ★ a ★★★). Intenta resolverlos primero por tu cuenta; la solución se despliega justo debajo de cada ejercicio.",
-    "zh": "**如何使用本文。**每个阶段包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。",
+    "de": "**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen "
+          "und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine "
+          "Stufe ab, bevor du zur nächsten gehst.",
+    "en": "**How to work with this chapter.** Each stage is a short article of its own with the idea, typical questions you can expand, and "
+          "exercises (★ to ★★★). Try the exercises yourself first; the solution expands right below each exercise. Finish one stage before "
+          "you move on to the next.",
+    "es": "**Cómo trabajar con este capítulo.** Cada etapa es un artículo breve con la idea, preguntas típicas desplegables y ejercicios "
+          "(de ★ a ★★★). Intenta resolverlos primero por tu cuenta; la solución se despliega justo debajo de cada ejercicio. Termina una "
+          "etapa antes de pasar a la siguiente.",
+    "zh": "**如何使用本章。**每个阶段都是一篇简短的文章，包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。"
+          "完成一个阶段后再进入下一个。",
 }
 # Was nur im PDF stimmt. Reihenfolge: längere Wendungen zuerst.
 WEBTEXT = {
-    "de": [("Dieses Heft", "Dieser Artikel"), ("für dieses Heft", "für diesen Artikel"), ("für dieses Hefts", "für diesen Artikel"),
-           ("dieses Hefts", "dieses Artikels"), ("dieses Heft", "dieser Artikel"), ("diesem Heft", "diesem Artikel"),
-           ("des Hefts", "des Artikels"), ("im Heft", "im Artikel"), ("dem Heft", "dem Artikel"), ("das Heft", "der Artikel"),
-           ("Das Heft", "Der Artikel"), ("Heft ", "Artikel "), ("Heft:", "Artikel:"), ("Heft.", "Artikel."), ("Heft,", "Artikel,"),
-           ("Hefte", "Artikel")],
-    "en": [("this workbook", "this article"), ("This workbook", "This article"), ("the workbook", "the article"),
-           ("The workbook", "The article"), ("workbook", "article")],
-    "es": [("este cuaderno", "este artículo"), ("Este cuaderno", "Este artículo"), ("del cuaderno", "del artículo"),
-           ("el cuaderno", "el artículo"), ("El cuaderno", "El artículo"), ("cuaderno", "artículo")],
-    "zh": [("本册", "本文")],
+    "de": [("Hefts", "Kapitels"), ("Hefte", "Kapitel"), ("Heft", "Kapitel")],
+    "en": [("workbook", "chapter"), ("Workbook", "Chapter")],
+    "es": [("cuaderno", "capítulo"), ("Cuaderno", "Capítulo")],
+    "zh": [("本册", "本章")],
 }
+UEBERBLICK = {"de": "Überblick", "en": "Overview", "es": "Visión general", "zh": "概览"}
+ZU_GROSS = 12000                                         # Zeichen: längere Stufen werden an ihren Unterabschnitten geteilt
 TEIL_RE = {"de": r"\bTeil(?:e|en)?[ \u00a0](\d+)\b", "en": r"\bPart[ \u00a0](\d+)\b", "es": r"\b[Pp]arte[ \u00a0](\d+)\b",
            "zh": r"第[ \u00a0]?(\d+)[ \u00a0]?部分"}
 
@@ -253,7 +427,12 @@ class Heft:
         m = re.sub(r"\\text\{\\textmu\s*([^{}]*)\}", r"\\mu\\text{\1}", m)
         for a, b in ((r"\dd", r"\mathrm{d}"), (r"\ee", r"\mathrm{e}"), (r"\jj", r"\mathrm{j}"), (r"\Lap", r"\mathcal{L}"),
                      (r"\Four", r"\mathcal{F}"), (r"\Re", r"\operatorname{Re}"), (r"\Im", r"\operatorname{Im}"),
-                     (r"\Res", r"\operatorname*{Res}"), (r"\eps", r"\varepsilon"), (r"\textmu", r"\mu ")):
+                     (r"\Res", r"\operatorname*{Res}"), (r"\eps", r"\varepsilon"), (r"\textmu", r"\mu "),
+                     (r"\R", r"\mathbb{R}"), (r"\C", r"\mathbb{C}"), (r"\N", r"\mathbb{N}"), (r"\Z", r"\mathbb{Z}"), (r"\Q", r"\mathbb{Q}"),
+                     (r"\vx", r"\boldsymbol{x}"), (r"\vy", r"\boldsymbol{y}"), (r"\vF", r"\boldsymbol{F}"), (r"\vE", r"\boldsymbol{E}"),
+                     (r"\vH", r"\boldsymbol{H}"), (r"\vA", r"\boldsymbol{A}"), (r"\vn", r"\boldsymbol{n}"), (r"\vt", r"\boldsymbol{t}"),
+                     (r"\vg", r"\boldsymbol{g}"), (r"\ver", r"\hat{\boldsymbol{e}}"), (r"\rot", r"\operatorname{rot}"),
+                     (r"\divg", r"\operatorname{div}"), (r"\dS", r"\mathrm{d}\boldsymbol{S}"), (r"\dsg", r"\mathrm{d}\sigma")):
             m = re.sub(re.escape(a) + r"(?![a-zA-Z])", lambda _: b, m)
         return re.sub(r" {2,}", " ", m).strip()
 
@@ -495,7 +674,7 @@ class Heft:
         n = re.sub(r"^fig:", "", label)
         if not re.match(r"k\d", n):
             n = "k%d%s" % (self.kap, n)
-        return ":::abbildung %s/%s\n%s\n:::" % (self.szenen, n, self.text(cap))
+        return ":::abbildung %s/%s %d\n%s\n:::" % (self.szenen, n, self.fig, self.text(cap))
 
     def environment(self, name, body):
         if name == "equation":
@@ -520,11 +699,11 @@ class Heft:
             return ":::zweck\n%s\n:::" % self.block(body)
         if name == "analogie":
             return ":::analogie\n%s\n:::" % self.block(body)
-        if name in ("merkbox", "kernbox", "herleitung", "vertiefung", "frage", "qa", "ltspice"):
+        if name in ("merkbox", "kernbox", "herleitung", "beweis", "vertiefung", "frage", "qa", "ltspice"):
             t, j = group(body, body.index("{"))
             title = self.text(t)
             inner = self.block(body[j:])
-            kind = {"merkbox": "merke", "kernbox": "kern" if title in KERN_TITEL else "merke", "herleitung": "herleitung",
+            kind = {"merkbox": "merke", "kernbox": "kern" if title in KERN_TITEL else "merke", "herleitung": "herleitung", "beweis": "beweis",
                     "vertiefung": "zusatz", "frage": "frage", "qa": "frage", "ltspice": "ltspice"}[name]
             return ":::%s %s\n%s\n:::" % (kind, title, inner)
         if name in ("satz", "definition"):
@@ -574,7 +753,9 @@ class Heft:
 
     def lst(self, name, body):
         opt, st = bracket(body, 0)
-        cls = ' class="al"' if name == "enumerate" and opt and "alph" in opt else ""
+        cls = ""
+        if name == "enumerate" and opt:                  # (a), (b) oder (i), (ii)
+            cls = ' class="al"' if "alph" in opt else ' class="rm"' if "roman" in opt else ""
         tag = "ol" if name == "enumerate" else "ul"
         pos, d = [], 0
         for m in re.finditer(r"\\begin\{(itemize|enumerate)\}|\\end\{(itemize|enumerate)\}|\\item\b", body):
@@ -672,6 +853,8 @@ def webtext(md, lang, cfg, teile):
         k = int(m.group(1))
         if k not in cfg["hefte"]:
             return m.group(0)
+        if lang != "de" and not list(cfg["quelle"].glob("kap%d_stufen*_%s.tex" % (k, lang))):
+            return m.group(0)                            # noch nicht übersetzt: Text ohne Link, sonst läuft er ins Leere
         _, slug, thema = cfg["hefte"][k]
         return "[%s](%s/%s/%s.html)" % (m.group(0), teile, slugify(thema["de"]), slug)
     out = []
@@ -686,22 +869,121 @@ def webtext(md, lang, cfg, teile):
     return "\n".join(out)
 
 
-def tags(h):
+def abschnitte(md, teilen=None):
+    """Heft-Text -> Artikel [{titel, art, md}]: Überblick, je Abschnitt einer, zum Schluss das letzte :::kern mit allem danach.
+    teilen = Nummern der Abschnitte, die an ### geteilt werden. Das entscheidet die deutsche Fassung (None), damit jede
+    Sprache dieselben Artikel hat."""
+    teile = [t for t in re.split(r"(?m)^(?=## )", md) if t.strip()]
+    out = [{"titel": "", "art": "ueberblick", "md": teile[0]}]
+    for nr, t in enumerate(teile[1:]):
+        kopf, _, rumpf = t.partition("\n")
+        titel = kopf[3:].strip()
+        stuecke = re.split(r"(?m)^(?=### )", rumpf)
+        gross = len(t) > ZU_GROSS and len(stuecke) > 1 if teilen is None else nr in teilen
+        if gross:                                        # große Stufe: an den Unterabschnitten teilen
+            GETEILT.add(nr)
+            out.append({"titel": titel, "art": "stufe", "md": stuecke[0] + stuecke[1]})
+            for st in stuecke[2:]:
+                k, _, r = st.partition("\n")
+                out.append({"titel": k[4:].strip(), "art": "stufe", "md": r})
+        else:
+            out.append({"titel": titel, "art": "stufe", "md": rumpf})
+    letzter = out[-1]["md"]
+    m = list(re.finditer(r"(?m)^:::kern\b(.*)$", letzter))
+    if m:
+        k = m[-1]
+        out[-1]["md"] = letzter[:k.start()]
+        ende = {"titel": k.group(1).strip(), "art": "kern", "md": letzter[k.start():]}
+        if not out[-1]["md"].strip():
+            out.pop()
+        a = re.search(r"(?ms)^:::merke ((?:Die Antwort in|The answer in|La respuesta en|三句话)[^\n(（]*)[^\n]*\n(.*?)^:::\n", out[0]["md"])
+        if a:                                            # nennt Ergebnisse, die man am Anfang nicht kennt
+            out[0]["md"] = out[0]["md"][:a.start()] + out[0]["md"][a.end():]
+            ende["md"] = ":::merke " + a.group(1).strip() + "\n" + a.group(2) + ":::\n\n" + ende["md"]
+        p = re.search(r"(?ms)^\u2060?\*\*(?:Ein Prinzip|One principle|Un principio|一个原理|同一原理)[^\n]*\n\n(?:\|[^\n]*\n)+", out[0]["md"])
+        if p:
+            out[0]["md"] = out[0]["md"][:p.start()] + out[0]["md"][p.end():]
+            ende["md"] = ende["md"].rstrip() + "\n\n" + p.group(0)
+        out.append(ende)
+    return out
+
+
+GETEILT = set()                                          # von abschnitte() gefüllt: geteilte Abschnitte der deutschen Fassung
+
+
+def datei_stamm(cfg, kap, stuecke):
+    """Dateinamen aus den deutschen Titeln: 01-<kapitel>, 02-<stufe>, ... (der erste bleibt der Name des Kapitels)."""
+    _, slug, _ = cfg["hefte"][kap]
+    namen = ["01-" + slug]
+    for i, a in enumerate(stuecke[1:], 2):
+        t = re.sub(r"^Stufe\s+\d+:\s*", "", a["titel"])
+        t = re.sub(r"\$[^$]*\$", " ", t)
+        namen.append("%02d-%s" % (i, slugify(t)))
+    return namen
+
+
+def verweise(stuecke, namen):
+    """#anker, die auf einem anderen Artikel des Kapitels liegen, werden zu datei.html#anker. Liefert die Anker ohne Ziel."""
+    wo = {}
+    for a, n in zip(stuecke, namen):
+        for i in re.findall(r'id="([^"]+)"', a["md"]):
+            wo[i] = n
+        for i in re.findall(r"(?m)^:::abbildung \S+ (\d+)", a["md"]):
+            wo["abb-" + i] = n
+    fehlt = set()
+    for a, n in zip(stuecke, namen):
+        def ersetze(m, eigen=n):
+            ziel = wo.get(m.group(1))
+            if ziel is None:
+                fehlt.add(m.group(1))
+                return m.group(0)
+            if ziel == eigen:
+                return m.group(0)
+            return "](%s.html#%s)" % (re.sub(r"^\d+-", "", ziel), m.group(1))
+        a["md"] = re.sub(r"\]\(#([^)]+)\)", ersetze, a["md"])
+    return fehlt
+
+
+def begriffe(md):
     seen = []
-    for t in h.fb:
-        t = re.sub(r"[*_`]", "", t)
+    for t in re.findall(r"__([^_\n]+)__", md):
+        t = re.sub(r"[*`$]", "", t).strip()
         if t and t not in seen and "," not in t:
             seen.append(t)
     return ", ".join(seen[:8])
 
 
+def kurztext(md, ersatz):
+    m = re.search(r":::zweck\n(.*?)\n:::", md, re.S)
+    if not m:
+        return ersatz
+    t = caption_alt(m.group(1))
+    return re.split(r"(?<=[.!?。])\s", t)[0]
+
+
 def artikel(cfg, kap, lang):
+    """Liste [(Dateiname, Text)] der Artikel eines Hefts, dazu Heft, offene Lösungen, Anker ohne Ziel."""
     stem, slug, thema = cfg["hefte"][kap]
     h, md, tt, sub, rest, teile = convert(cfg, kap, lang)
     md = webtext(md, lang, cfg, teile)
-    kopf = ["---", "title: " + tt, "pfad: %s / %s" % (cfg["pfad"][lang], thema[lang]), "order: %d" % (cfg["order"] + kap * 10000 + 100),
-            "summary: " + sub, "tags: " + tags(h), "lang: " + lang, "---", ""]
-    return "\n".join(kopf) + "\n" + md + "\n", h, rest
+    _, de, *_ = convert(cfg, kap, "de")
+    GETEILT.clear()
+    namen = datei_stamm(cfg, kap, abschnitte(webtext(de, "de", cfg, "")))
+    stuecke = abschnitte(md, set(GETEILT))
+    if len(namen) != len(stuecke):
+        raise ValueError("Teil %d %s: %d Artikel, deutsch %d" % (kap, lang, len(stuecke), len(namen)))
+    fehlt = verweise(stuecke, namen)
+    aus = []
+    for i, (a, n) in enumerate(zip(stuecke, namen), 1):
+        if a["art"] == "ueberblick":
+            titel, kurz, info = "%s: %s" % (UEBERBLICK[lang], tt), UEBERBLICK[lang], sub
+        else:
+            titel, kurz, info = a["titel"], "", kurztext(a["md"], sub)
+        kopf = ["---", "title: " + titel] + (["kurz: " + kurz] if kurz else []) + [
+            "pfad: %s / %s" % (cfg["pfad"][lang], thema[lang]), "order: %d" % (cfg["order"] + kap * 10000 + 100 * i),
+            "summary: " + info, "tags: " + begriffe(a["md"]), "lang: " + lang, "---", ""]
+        aus.append((n, "\n".join(kopf) + "\n" + a["md"].strip() + "\n"))
+    return aus, h, rest, fehlt
 
 
 def main():
@@ -719,11 +1001,13 @@ def main():
     for kap in a.kap or sorted(cfg["hefte"]):
         stem, slug, thema = cfg["hefte"][kap]
         for lang in a.lang:
-            txt, h, rest = artikel(cfg, kap, lang)
+            arts, h, rest, fehlt = artikel(cfg, kap, lang)
+            txt = "\n".join(t for _, t in arts)
             alle.append(txt)
             ordner = ROOT / "content" / cfg["ziel"] / ("%02d-%s" % (kap, slug))
-            datei = ordner / ("01-%s%s.md" % (slug, "" if lang == "de" else "." + lang))
             msg = []
+            if fehlt:
+                msg.append("Anker ohne Ziel: " + ", ".join(sorted(fehlt)))
             if h.fehlt:
                 msg.append("Verweise ohne Ziel: " + ", ".join(sorted(h.fehlt)))
             if h.unbekannt:
@@ -737,8 +1021,14 @@ def main():
                 msg += aux_vergleich(Path(a.aux) / ((stem + ("" if lang == "de" else "_" + lang)) + ".aux"), h)
             if not a.pruefen:
                 ordner.mkdir(parents=True, exist_ok=True)
-                datei.write_text(txt, encoding="utf-8", newline="\n")
-            print(("⚠ " if msg else "✓ ") + "Teil %d %s: %d Zeichen, %d Abb., %d Aufg." % (kap, lang, len(txt), h.fig, h.aufg))
+                endung = "" if lang == "de" else "." + lang
+                for alt in ordner.glob("*.md"):                  # nur die alte Fassung dieser Sprache weg, Hand-Artikel bleiben
+                    m = re.search(r"\.(en|es|zh)$", alt.stem)
+                    if "-mensch" not in alt.name and (m.group(1) if m else "de") == lang:
+                        alt.unlink()
+                for n, t in arts:
+                    (ordner / (n + endung + ".md")).write_text(t, encoding="utf-8", newline="\n")
+            print(("⚠ " if msg else "✓ ") + "Teil %d %s: %d Artikel, %d Zeichen, %d Abb., %d Aufg." % (kap, lang, len(arts), len(txt), h.fig, h.aufg))
             for x in msg:
                 print("    " + x)
                 fehler += 1

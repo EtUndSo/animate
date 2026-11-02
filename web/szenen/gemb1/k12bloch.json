@@ -1,0 +1,437 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      2
+     ],
+     "y_range": [
+      -1.2,
+      1.2
+     ],
+     "x_length": 2.75,
+     "y_length": 2.3,
+     "origin": [
+      -1.75,
+      0.05,
+      0
+     ],
+     "title": "",
+     "x_label": "t/T_B",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;0.5;1;1.5;2",
+     "y_ticks": "-1;0;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@ohne",
+     "position": [
+      -1.75,
+      1.55,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n0.5 1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "DataCurve",
+    "props": {
+     "data": "0.5 -1\n1.5 1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "DataCurve",
+    "props": {
+     "data": "1.5 1\n2 2",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.5,
+      1,
+      0
+     ],
+     "end": [
+      0.5,
+      -1,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 1.5,
+     "dash": "2,5"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.5,
+      1,
+      0
+     ],
+     "end": [
+      1.5,
+      -1,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 1.5,
+     "dash": "2,5"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "sin(2*pi*x)",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      0,
+      2
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "ka/\\pi",
+     "position": [
+      0.25,
+      -0.62,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "v/v_{max}",
+     "position": [
+      1.75,
+      0.8,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o12",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      12
+     ],
+     "y_range": [
+      0,
+      3
+     ],
+     "x_length": 2.75,
+     "y_length": 2.3,
+     "origin": [
+      1.95,
+      0.05,
+      0
+     ],
+     "title": "",
+     "x_label": "t/\\tau",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;3;6;9;12",
+     "y_ticks": "0;1;2;3",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@mit",
+     "position": [
+      1.95,
+      1.55,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "\\hbar k/(F\\tau)",
+     "position": [
+      0.4,
+      2.8,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o15",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n1.3 1.3\n1.3 0\n1.7 0.4\n1.7 0\n3.8 2.1\n3.8 0\n4.6 0.8\n4.6 0\n4.8 0.2\n4.8 0\n6.4 1.6\n6.4 0\n7.3 0.9\n7.3 0\n7.8 0.5\n7.8 0\n9 1.2\n9 0\n11.2 2.2\n11.2 0\n11.9 0.7\n11.9 0\n12 0.1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      1,
+      0
+     ],
+     "end": [
+      12,
+      1,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@mittel",
+     "position": [
+      6.2,
+      2.1,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o18",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      6.2,
+      1.9,
+      0
+     ],
+     "end": [
+      6.2,
+      1.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o12"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ohne": {
+    "de": "ohne Stöße",
+    "en": "without collisions",
+    "es": "sin colisiones",
+    "zh": "无碰撞"
+   },
+   "mit": {
+    "de": "mit Stößen",
+    "en": "with collisions",
+    "es": "con colisiones",
+    "zh": "有碰撞"
+   },
+   "mittel": {
+    "de": "Mittelwert",
+    "en": "mean",
+    "es": "media",
+    "zh": "平均"
+   }
+  }
+ }
+}

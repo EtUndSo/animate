@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="479" height="170" viewBox="465.6065 384.8945 870.9091 309.0909">
+<rect x="465.6065" y="384.8945" width="870.9091" height="309.0909" fill="#ffffff"/>
+<path d="M491.55 456.3C686.85 456.3 882.15 456.3 1077.45 456.3" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1077.45 456.3C1070.25 453.42 1063.05 450.54 1055.85 447.66C1055.85 453.42 1055.85 459.18 1055.85 464.94C1063.05 462.06 1070.25 459.18 1077.45 456.3" fill="#7f7f7f" stroke="#7f7f7f" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M784.5 467.1C784.5 459.9 784.5 452.7 784.5 445.5" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="784.5" y="490.05" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">0</text>
+<path d="M671.1 456.3C671.1 449.59 665.66 444.15 658.95 444.15C652.24 444.15 646.8 449.59 646.8 456.3C646.8 463.01 652.24 468.45 658.95 468.45C665.66 468.45 671.1 463.01 671.1 456.3" fill="#2a78d6"/>
+<path d="M880.35 456.3C880.35 449.59 874.91 444.15 868.2 444.15C861.49 444.15 856.05 449.59 856.05 456.3C856.05 463.01 861.49 468.45 868.2 468.45C874.91 468.45 880.35 463.01 880.35 456.3" fill="#c82828"/>
+<text x="658.95" y="422.55" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">−3</text>
+<text x="868.2" y="422.55" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">2</text>
+<text x="1101.75" y="453.6" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">x = −3 &lt; y = 2</text>
+<path d="M491.55 540C686.85 540 882.15 540 1077.45 540" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1077.45 540C1070.25 537.12 1063.05 534.24 1055.85 531.36C1055.85 537.12 1055.85 542.88 1055.85 548.64C1063.05 545.76 1070.25 542.88 1077.45 540" fill="#7f7f7f" stroke="#7f7f7f" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M784.5 550.8C784.5 543.6 784.5 536.4 784.5 529.2" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="784.5" y="573.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">0</text>
+<path d="M545.55 540C545.55 533.29 540.11 527.85 533.4 527.85C526.69 527.85 521.25 533.29 521.25 540C521.25 546.71 526.69 552.15 533.4 552.15C540.11 552.15 545.55 546.71 545.55 540" fill="#2a78d6"/>
+<path d="M964.05 540C964.05 533.29 958.61 527.85 951.9 527.85C945.19 527.85 939.75 533.29 939.75 540C939.75 546.71 945.19 552.15 951.9 552.15C958.61 552.15 964.05 546.71 964.05 540" fill="#c82828"/>
+<text x="533.4" y="506.25" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">−6</text>
+<text x="951.9" y="506.25" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">4</text>
+<text x="1101.75" y="537.3" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">times 2: order stays</text>
+<path d="M491.55 623.7C686.85 623.7 882.15 623.7 1077.45 623.7" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1077.45 623.7C1070.25 620.82 1063.05 617.94 1055.85 615.06C1055.85 620.82 1055.85 626.58 1055.85 632.34C1063.05 629.46 1070.25 626.58 1077.45 623.7" fill="#7f7f7f" stroke="#7f7f7f" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M784.5 634.5C784.5 627.3 784.5 620.1 784.5 612.9" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="784.5" y="657.45" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">0</text>
+<path d="M922.2 623.7C922.2 616.99 916.76 611.55 910.05 611.55C903.34 611.55 897.9 616.99 897.9 623.7C897.9 630.41 903.34 635.85 910.05 635.85C916.76 635.85 922.2 630.41 922.2 623.7" fill="#2a78d6"/>
+<path d="M712.95 623.7C712.95 616.99 707.51 611.55 700.8 611.55C694.09 611.55 688.65 616.99 688.65 623.7C688.65 630.41 694.09 635.85 700.8 635.85C707.51 635.85 712.95 630.41 712.95 623.7" fill="#c82828"/>
+<text x="910.05" y="589.95" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="700.8" y="589.95" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">−2</text>
+<text x="1101.75" y="621" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">times −1: order flips</text>
+</svg>

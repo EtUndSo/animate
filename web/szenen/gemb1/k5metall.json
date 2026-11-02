@@ -1,0 +1,751 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 32,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      0.5,
+      0.1
+     ],
+     "y_range": [
+      -40,
+      0,
+      10
+     ],
+     "x_length": 2.75,
+     "y_length": 2.5,
+     "origin": [
+      -1.85,
+      0.0,
+      0
+     ],
+     "title": "",
+     "x_label": "@x",
+     "y_label": "@v",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;0.1;0.2;0.3;0.4;0.5",
+     "y_ticks": "-40;-30;-20;-10;0",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-4.32/x",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.10800000000000001,
+      0.5
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-1.44/x*(1+2*exp(-x/0.02))",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.04398415166967955,
+      0.5
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      -5.39,
+      0
+     ],
+     "end": [
+      0.26716141001855287,
+      -5.39,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      -30.6,
+      0
+     ],
+     "end": [
+      0.1411764705882353,
+      -30.6,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "−5.39 eV",
+     "position": [
+      0.21,
+      -8.6,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "−30.6 eV",
+     "position": [
+      0.165,
+      -30.6,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@ohne",
+     "position": [
+      0.5,
+      -21.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@mit",
+     "position": [
+      0.5,
+      -1.4,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o11",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       0.3700000000000001,
+       -0.9500000000000001,
+       0
+      ],
+      [
+       3.27,
+       -0.9500000000000001,
+       0
+      ],
+      [
+       3.27,
+       1.1500000000000001,
+       0
+      ],
+      [
+       0.3700000000000001,
+       1.1500000000000001,
+       0
+      ]
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.16,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      0.6200000000000001,
+      0.85,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      1.2200000000000002,
+      0.85,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      1.82,
+      0.85,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      2.42,
+      0.85,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      3.02,
+      0.85,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      0.9200000000000002,
+      0.35,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      1.5200000000000002,
+      0.35,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      2.12,
+      0.35,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      2.7199999999999998,
+      0.35,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      0.6200000000000001,
+      -0.15000000000000002,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      1.2200000000000002,
+      -0.15000000000000002,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      1.82,
+      -0.15000000000000002,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      2.42,
+      -0.15000000000000002,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      3.02,
+      -0.15000000000000002,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      0.9200000000000002,
+      -0.65,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      1.5200000000000002,
+      -0.65,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      2.12,
+      -0.65,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "TextBox",
+    "props": {
+     "text": "+",
+     "center": [
+      2.7199999999999998,
+      -0.65,
+      0
+     ],
+     "width": 0.36,
+     "height": 0.36,
+     "shape": "ellipse",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "@rumpf",
+     "position": [
+      1.82,
+      1.35,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "@see",
+     "position": [
+      1.82,
+      -1.1700000000000002,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "x": {
+    "de": "r in nm",
+    "en": "r in nm",
+    "es": "r en nm",
+    "zh": "r / nm"
+   },
+   "v": {
+    "de": "V in eV",
+    "en": "V in eV",
+    "es": "V en eV",
+    "zh": "V / eV"
+   },
+   "ohne": {
+    "de": "ohne Abschirmung",
+    "en": "without screening",
+    "es": "sin apantallar",
+    "zh": "无屏蔽"
+   },
+   "mit": {
+    "de": "mit Abschirmung",
+    "en": "with screening",
+    "es": "con apantallar",
+    "zh": "有屏蔽"
+   },
+   "rumpf": {
+    "de": "Atomrümpfe (positiv)",
+    "en": "ion cores (positive)",
+    "es": "núcleos iónicos (positivos)",
+    "zh": "原子实（正）"
+   },
+   "see": {
+    "de": "Elektronengas (negativ)",
+    "en": "electron gas (negative)",
+    "es": "gas de electrones (negativo)",
+    "zh": "电子气（负）"
+   }
+  }
+ }
+}

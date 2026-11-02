@@ -1,0 +1,274 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 13,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.5,
+      1.5
+     ],
+     "y_range": [
+      0,
+      3.6
+     ],
+     "x_length": 2.65,
+     "y_length": 2.1,
+     "origin": [
+      -1.95,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-1;0;1",
+     "y_ticks": "0;1;2;3",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "where(abs(x/1)<0.9999,exp(1/((x/1)^2-1))/0.443994/1,0)",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.5,
+      1.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "where(abs(x/0.5)<0.9999,exp(1/((x/0.5)^2-1))/0.443994/0.5,0)",
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.5,
+      1.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "where(abs(x/0.25)<0.9999,exp(1/((x/0.25)^2-1))/0.443994/0.25,0)",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "x_range": [
+      -1.5,
+      1.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "ε = 1",
+     "position": [
+      0.62,
+      1.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "ε = 1/2",
+     "position": [
+      0.45,
+      1.7,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "ε = 1/4",
+     "position": [
+      0.3,
+      3.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -2,
+      2
+     ],
+     "y_range": [
+      0,
+      2
+     ],
+     "x_length": 2.65,
+     "y_length": 2.1,
+     "origin": [
+      1.75,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-2;-1;0;1;2",
+     "y_ticks": "0;1;2",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "DataCurve",
+    "props": {
+     "data": "-2 2\n0 0\n2 2",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o10",
+    "type": "DataCurve",
+    "props": {
+     "data": "-2 2\n-1.96667 1.96667\n-1.93333 1.93333\n-1.9 1.9\n-1.86667 1.86667\n-1.83333 1.83333\n-1.8 1.8\n-1.76667 1.76667\n-1.73333 1.73333\n-1.7 1.7\n-1.66667 1.66667\n-1.63333 1.63333\n-1.6 1.6\n-1.56667 1.56667\n-1.53333 1.53333\n-1.5 1.5\n-1.46667 1.46667\n-1.43333 1.43333\n-1.4 1.4\n-1.36667 1.36667\n-1.33333 1.33333\n-1.3 1.3\n-1.26667 1.26667\n-1.23333 1.23333\n-1.2 1.2\n-1.16667 1.16667\n-1.13333 1.13333\n-1.1 1.1\n-1.06667 1.06667\n-1.03333 1.03333\n-1 1\n-0.966667 0.966666\n-0.933333 0.933333\n-0.9 0.9\n-0.866667 0.866666\n-0.833333 0.833333\n-0.8 0.8\n-0.766667 0.766666\n-0.733333 0.733334\n-0.7 0.700019\n-0.666667 0.666798\n-0.633333 0.633817\n-0.6 0.601268\n-0.566667 0.569354\n-0.533333 0.53828\n-0.5 0.50824\n-0.466667 0.479409\n-0.433333 0.451951\n-0.4 0.426013\n-0.366667 0.401721\n-0.333333 0.379193\n-0.3 0.358531\n-0.266667 0.339818\n-0.233333 0.323138\n-0.2 0.308556\n-0.166667 0.296122\n-0.133333 0.28589\n-0.1 0.277894\n-0.0666667 0.27216\n-0.0333333 0.268713\n0 0.267564\n0.0333333 0.268713\n0.0666667 0.27216\n0.1 0.277894\n0.133333 0.28589\n0.166667 0.296122\n0.2 0.308556\n0.233333 0.323138\n0.266667 0.339818\n0.3 0.358531\n0.333333 0.379193\n0.366667 0.401721\n0.4 0.426013\n0.433333 0.451951\n0.466667 0.479409\n0.5 0.50824\n0.533333 0.53828\n0.566667 0.569354\n0.6 0.601268\n0.633333 0.633817\n0.666667 0.666798\n0.7 0.700019\n0.733333 0.733334\n0.766667 0.766666\n0.8 0.8\n0.833333 0.833333\n0.866667 0.866666\n0.9 0.9\n0.933333 0.933333\n0.966667 0.966666\n1 1\n1.03333 1.03333\n1.06667 1.06667\n1.1 1.1\n1.13333 1.13333\n1.16667 1.16667\n1.2 1.2\n1.23333 1.23333\n1.26667 1.26667\n1.3 1.3\n1.33333 1.33333\n1.36667 1.36667\n1.4 1.4\n1.43333 1.43333\n1.46667 1.46667\n1.5 1.5\n1.53333 1.53333\n1.56667 1.56667\n1.6 1.6\n1.63333 1.63333\n1.66667 1.66667\n1.7 1.7\n1.73333 1.73333\n1.76667 1.76667\n1.8 1.8\n1.83333 1.83333\n1.86667 1.86667\n1.9 1.9\n1.93333 1.93333\n1.96667 1.96667\n2 2",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "w",
+     "position": [
+      -1.1,
+      1.5,
+      0
+     ],
+     "font_size": 26,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "w_{0.8}",
+     "position": [
+      0.42,
+      0.28,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o8"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

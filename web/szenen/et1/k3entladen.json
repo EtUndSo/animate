@@ -1,0 +1,512 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 24,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      10,
+      1
+     ],
+     "y_range": [
+      0,
+      9,
+      3
+     ],
+     "x_length": 5.6,
+     "y_length": 1.45,
+     "origin": [
+      0,
+      1.1,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "@uc_in_v",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": false,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "9*(1-exp(-x))",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "8.93936*exp(-(x-5))",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      5,
+      10
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      5.6890850294570185,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "63 %",
+     "position": [
+      1.05,
+      4.289085029457018,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2,
+      7.781982450870486,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "86 %",
+     "position": [
+      2.05,
+      6.3819824508704865,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3,
+      8.551916384689225,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "95 %",
+     "position": [
+      3.05,
+      7.151916384689224,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6,
+      3.2886062009529837,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "37 %",
+     "position": [
+      6.05,
+      4.388606200952983,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Dot",
+    "props": {
+     "center": [
+      7,
+      1.2098106114395237,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "14 %",
+     "position": [
+      7.05,
+      2.3098106114395236,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      8,
+      0.44506445165965286,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "5 %",
+     "position": [
+      8.05,
+      1.545064451659653,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o16",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      10,
+      1
+     ],
+     "y_range": [
+      -0.9,
+      0.9,
+      0.9
+     ],
+     "x_length": 5.6,
+     "y_length": 1.45,
+     "origin": [
+      0,
+      -1.0,
+      0
+     ],
+     "title": "",
+     "x_label": "@t_in_s",
+     "y_label": "@i_in_ma",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      10,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o18",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.9*exp(-x)",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      5
+     ]
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o19",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-0.89394*exp(-(x-5))",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      5,
+      10
+     ]
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o20",
+    "type": "Line",
+    "props": {
+     "start": [
+      5,
+      0.006064152299176921,
+      0
+     ],
+     "end": [
+      5,
+      -0.893935847700823,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o21",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      0.9,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@laden_t",
+     "position": [
+      2.4,
+      0.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@entladen_t",
+     "position": [
+      7.0,
+      -0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o16"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "uc_in_v": {
+    "de": "u_C in V",
+    "en": "u_C in V",
+    "es": "u_C en V",
+    "zh": "u_C / V"
+   },
+   "t_in_s": {
+    "de": "t in s",
+    "en": "t in s",
+    "es": "t en s",
+    "zh": "t / s"
+   },
+   "i_in_ma": {
+    "de": "i in mA",
+    "en": "i in mA",
+    "es": "i en mA",
+    "zh": "i / mA"
+   },
+   "laden_t": {
+    "de": "Laden",
+    "en": "charging",
+    "es": "carga",
+    "zh": "充电"
+   },
+   "entladen_t": {
+    "de": "Entladen",
+    "en": "discharging",
+    "es": "descarga",
+    "zh": "放电"
+   }
+  }
+ }
+}

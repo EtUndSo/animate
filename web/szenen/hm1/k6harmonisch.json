@@ -1,0 +1,340 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      17
+     ],
+     "y_range": [
+      0,
+      1.1
+     ],
+     "x_length": 5.9,
+     "y_length": 2.35,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "n",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1;2;4;8;16",
+     "y_ticks": "0;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "end"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Stem",
+    "props": {
+     "x": "1",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.7,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#7f7f7f",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "1"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Stem",
+    "props": {
+     "x": "2",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.7,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "0.5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.5,
+      0.5,
+      0
+     ],
+     "end": [
+      2.5,
+      0.5,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "1 · 1/2",
+     "position": [
+      1.7,
+      0.6,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Stem",
+    "props": {
+     "x": "3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.7,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "0.333333;0.25"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.5,
+      0.25,
+      0
+     ],
+     "end": [
+      4.5,
+      0.25,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "2 · 1/4",
+     "position": [
+      3.0,
+      0.42,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Stem",
+    "props": {
+     "x": "5;6;7;8",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.7,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#a84a22",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "0.2;0.166667;0.142857;0.125"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      4.5,
+      0.125,
+      0
+     ],
+     "end": [
+      8.5,
+      0.125,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "4 · 1/8",
+     "position": [
+      5.2,
+      0.28,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#a84a22"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Stem",
+    "props": {
+     "x": "9;10;11;12;13;14;15;16",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.7,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "0.111111;0.1;0.0909091;0.0833333;0.0769231;0.0714286;0.0666667;0.0625"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      8.5,
+      0.0625,
+      0
+     ],
+     "end": [
+      16.5,
+      0.0625,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "8 · 1/16",
+     "position": [
+      10.8,
+      0.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@je",
+     "position": [
+      7.0,
+      0.88,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "je": {
+    "de": "Jede Gruppe ist mindestens 1/2:\ndoppelt so viele Glieder,\nhalb so hoch.",
+    "en": "Each group is at least 1/2:\ntwice as many terms,\nhalf as high.",
+    "es": "Cada grupo vale al menos 1/2:\nel doble de términos,\nla mitad de altura.",
+    "zh": "每组至少为 1/2：\n项数加倍，\n高度减半。"
+   }
+  }
+ }
+}

@@ -1,0 +1,496 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@sp1",
+     "position": [
+      -2.25,
+      2.0,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@sp2",
+     "position": [
+      2.4,
+      2.0,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "@b0",
+     "center": [
+      -2.25,
+      1.58,
+      0
+     ],
+     "width": 2.45,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#2a78d6",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "@b1",
+     "center": [
+      -2.25,
+      0.8,
+      0
+     ],
+     "width": 2.45,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#2a78d6",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "@b2",
+     "center": [
+      -2.25,
+      0.0,
+      0
+     ],
+     "width": 2.45,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#2a78d6",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "@b3",
+     "center": [
+      -2.25,
+      -0.75,
+      0
+     ],
+     "width": 2.45,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#2a78d6",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "@b4",
+     "center": [
+      -2.25,
+      -1.5,
+      0
+     ],
+     "width": 2.45,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#2a78d6",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "@c2",
+     "center": [
+      2.4,
+      0.0,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#00823c",
+     "fill_color": "#ddf0e4",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "@c3",
+     "center": [
+      2.4,
+      -0.75,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#00823c",
+     "fill_color": "#ddf0e4",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "@c4",
+     "center": [
+      2.4,
+      -1.5,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 22,
+     "color": "#00823c",
+     "fill_color": "#ddf0e4",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.25,
+      1.32,
+      0
+     ],
+     "end": [
+      -2.25,
+      1.06,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.25,
+      0.54,
+      0
+     ],
+     "end": [
+      -2.25,
+      0.26,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.005,
+      0.0,
+      0
+     ],
+     "end": [
+      1.3299999999999998,
+      0.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": true,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.005,
+      -0.75,
+      0
+     ],
+     "end": [
+      1.3299999999999998,
+      -0.75,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": true,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.005,
+      -1.5,
+      0
+     ],
+     "end": [
+      1.3299999999999998,
+      -1.5,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": true,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "a_i · b_j = 2π δ_{ij}",
+     "position": [
+      0.16249999999999998,
+      0.17,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@gleich",
+     "position": [
+      0.16249999999999998,
+      -0.58,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@senk",
+     "position": [
+      0.16249999999999998,
+      -1.33,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "sp1": {
+    "de": "Ortsraum",
+    "en": "real space",
+    "es": "espacio real",
+    "zh": "实空间"
+   },
+   "sp2": {
+    "de": "k-Raum",
+    "en": "k-space",
+    "es": "espacio k",
+    "zh": "k 空间"
+   },
+   "b0": {
+    "de": "Bindungstyp",
+    "en": "bond type",
+    "es": "tipo de enlace",
+    "zh": "键型"
+   },
+   "b1": {
+    "de": "Kristall = Gitter + Basis",
+    "en": "crystal = lattice + basis",
+    "es": "cristal = red + base",
+    "zh": "晶体 = 点阵 + 基元"
+   },
+   "b2": {
+    "de": "Bravais-Gitter: R",
+    "en": "Bravais lattice: R",
+    "es": "red de Bravais: R",
+    "zh": "布拉维点阵：R"
+   },
+   "b3": {
+    "de": "Wigner-Seitz-Zelle",
+    "en": "Wigner-Seitz cell",
+    "es": "celda de Wigner-Seitz",
+    "zh": "维格纳-塞茨原胞"
+   },
+   "b4": {
+    "de": "Ebenenschar mit d",
+    "en": "plane family with d",
+    "es": "familia de planos, d",
+    "zh": "晶面族，间距 d"
+   },
+   "c2": {
+    "de": "reziprokes Gitter: G",
+    "en": "reciprocal lattice: G",
+    "es": "red recíproca: G",
+    "zh": "倒易点阵：G"
+   },
+   "c3": {
+    "de": "1. Brillouin-Zone",
+    "en": "1st Brillouin zone",
+    "es": "1.ª zona de Brillouin",
+    "zh": "第一布里渊区"
+   },
+   "c4": {
+    "de": "ein Punkt G",
+    "en": "one point G",
+    "es": "un punto G",
+    "zh": "一个点 G"
+   },
+   "gleich": {
+    "de": "gleiche Konstruktion",
+    "en": "same construction",
+    "es": "misma construcción",
+    "zh": "相同作法"
+   },
+   "senk": {
+    "de": "G ⟂ Ebene, |G| = 2π/d",
+    "en": "G ⟂ plane, |G| = 2π/d",
+    "es": "G ⟂ plano, |G| = 2π/d",
+    "zh": "G ⟂ 晶面，|G| = 2π/d"
+   }
+  }
+ }
+}

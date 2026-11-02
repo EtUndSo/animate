@@ -1,0 +1,250 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 10,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      5,
+      1
+     ],
+     "y_range": [
+      0,
+      10,
+      2
+     ],
+     "x_length": 5.0,
+     "y_length": 2.2,
+     "origin": [
+      0.0,
+      0.0,
+      0
+     ],
+     "title": "",
+     "x_label": "@i_in_a",
+     "y_label": "@u_in_v",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "3-2*x",
+     "color": "#eb6834",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      1.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "6-2*x",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      3
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "9-2*x",
+     "color": "#2a78d6",
+     "stroke_width": 6,
+     "dash": "",
+     "x_range": [
+      0,
+      4.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0.56,
+      9,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.5,
+      8,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "(0.5 A; 8 V)",
+     "position": [
+      0.68,
+      8.2,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Legend",
+    "props": {
+     "labels": "@{beide};@{nur_u};@{nur_i}",
+     "colors": "2a78d6;00823c;eb6834",
+     "styles": "-;-;-",
+     "position": [
+      2.3,
+      9.3,
+      0
+     ],
+     "font_size": 24,
+     "row_gap": 0.34,
+     "swatch_len": 0.4,
+     "gap": 0.12,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "R_L = 16 Ω",
+     "position": [
+      0.72,
+      5.0,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "i_in_a": {
+    "de": "I_A in A",
+    "en": "I_A in A",
+    "es": "I_A en A",
+    "zh": "I_A / A"
+   },
+   "u_in_v": {
+    "de": "U_{AB} in V",
+    "en": "U_{AB} in V",
+    "es": "U_{AB} en V",
+    "zh": "U_{AB} / V"
+   },
+   "beide": {
+    "de": "beide Quellen: 9 V, 4.5 A",
+    "en": "both sources: 9 V, 4.5 A",
+    "es": "ambas fuentes: 9 V, 4.5 A",
+    "zh": "两个电源：9 V，4.5 A"
+   },
+   "nur_u": {
+    "de": "nur 18 V: 6 V, 3 A",
+    "en": "18 V only: 6 V, 3 A",
+    "es": "solo 18 V: 6 V, 3 A",
+    "zh": "仅 18 V：6 V，3 A"
+   },
+   "nur_i": {
+    "de": "nur 1.5 A: 3 V, 1.5 A",
+    "en": "1.5 A only: 3 V, 1.5 A",
+    "es": "solo 1.5 A: 3 V, 1.5 A",
+    "zh": "仅 1.5 A：3 V，1.5 A"
+   }
+  }
+ }
+}

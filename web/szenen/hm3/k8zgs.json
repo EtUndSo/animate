@@ -1,0 +1,262 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 10,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.5,
+      3.5
+     ],
+     "y_range": [
+      0,
+      0.5
+     ],
+     "x_length": 1.9,
+     "y_length": 1.05,
+     "origin": [
+      -2.3,
+      0,
+      0
+     ],
+     "title": "n = 1",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-2;0;2",
+     "y_ticks": "0;0.4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Stem",
+    "props": {
+     "x": "-1.34164;-0.447214;0.447214;1.34164",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.7692073842599276,
+     "marker": "none",
+     "markers": true,
+     "marker_radius": 0.0,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "0.279508;0.279508;0.279508;0.279508"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x^2/2)/sqrt(2*pi)",
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "x_range": [
+      -3.5,
+      3.5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.5,
+      3.5
+     ],
+     "y_range": [
+      0,
+      0.5
+     ],
+     "x_length": 1.9,
+     "y_length": 1.05,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "n = 4",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-2;0;2",
+     "y_ticks": "0;0.4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Stem",
+    "props": {
+     "x": "-2.68328;-2.23607;-1.78885;-1.34164;-0.894427;-0.447214;0;0.447214;0.894427;1.34164;1.78885;2.23607;2.68328",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.3846036921299638,
+     "marker": "none",
+     "markers": true,
+     "marker_radius": 0.0,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "0.00873464;0.0349386;0.0873464;0.174693;0.270774;0.349386;0.384324;0.349386;0.270774;0.174693;0.0873464;0.0349386;0.00873464"
+    },
+    "on": "o4"
+   },
+   {
+    "id": "o6",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x^2/2)/sqrt(2*pi)",
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "x_range": [
+      -3.5,
+      3.5
+     ]
+    },
+    "on": "o4"
+   },
+   {
+    "id": "o7",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.5,
+      3.5
+     ],
+     "y_range": [
+      0,
+      0.5
+     ],
+     "x_length": 1.9,
+     "y_length": 1.05,
+     "origin": [
+      2.3,
+      0,
+      0
+     ],
+     "title": "n = 16",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-2;0;2",
+     "y_ticks": "0;0.4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Stem",
+    "props": {
+     "x": "-3.3541;-3.1305;-2.90689;-2.68328;-2.45967;-2.23607;-2.01246;-1.78885;-1.56525;-1.34164;-1.11803;-0.894427;-0.67082;-0.447214;-0.223607;0;0.223607;0.447214;0.67082;0.894427;1.11803;1.34164;1.56525;1.78885;2.01246;2.23607;2.45967;2.68328;2.90689;3.1305;3.3541",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.1923018460649819,
+     "marker": "none",
+     "markers": true,
+     "marker_radius": 0.0,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "0.00110514;0.00251655;0.00530556;0.010416;0.0191315;0.0330015;0.053632;0.0823289;0.119635;0.16486;0.215754;0.268473;0.317939;0.358584;0.385351;0.394697;0.385351;0.358584;0.317939;0.268473;0.215754;0.16486;0.119635;0.0823289;0.053632;0.0330015;0.0191315;0.010416;0.00530556;0.00251655;0.00110514"
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o9",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x^2/2)/sqrt(2*pi)",
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "x_range": [
+      -3.5,
+      3.5
+     ]
+    },
+    "on": "o7"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

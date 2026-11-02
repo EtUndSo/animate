@@ -1,0 +1,332 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 12,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      1,
+      0.2
+     ],
+     "y_range": [
+      0,
+      6,
+      2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.95,
+     "origin": [
+      -1.72,
+      0.0,
+      0
+     ],
+     "title": "@par",
+     "x_label": "@x2",
+     "y_label": "L^2 |Φ|^2",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "2*(0.809017*sin(2*pi*x)-0.951057*sin(pi*x))*(0.809017*sin(2*pi*x)-0.951057*sin(pi*x))",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.3,
+      0,
+      0
+     ],
+     "end": [
+      0.3,
+      6,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.3,
+      0,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@null",
+     "position": [
+      0.33,
+      5.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      1,
+      0.2
+     ],
+     "y_range": [
+      0,
+      6,
+      2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.95,
+     "origin": [
+      2.0,
+      0.0,
+      0
+     ],
+     "title": "@anti",
+     "x_label": "@x2",
+     "y_label": "L^2 |Φ|^2",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "2*(0.809017*sin(2*pi*x)+0.951057*sin(pi*x))*(0.809017*sin(2*pi*x)+0.951057*sin(pi*x))",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.3,
+      0,
+      0
+     ],
+     "end": [
+      0.3,
+      6,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.3,
+      4.736,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o7"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@nn",
+     "position": [
+      0.72,
+      5.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o7"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "x2": {
+    "de": "x_2 / L",
+    "en": "x_2 / L",
+    "es": "x_2 / L",
+    "zh": "x_2 / L"
+   },
+   "par": {
+    "de": "Spins parallel",
+    "en": "parallel spins",
+    "es": "espines paralelos",
+    "zh": "自旋平行"
+   },
+   "null": {
+    "de": "null bei x_2 = x_1",
+    "en": "zero at x_2 = x_1",
+    "es": "cero en x_2 = x_1",
+    "zh": "在 x_2 = x_1 处为零"
+   },
+   "anti": {
+    "de": "Spins antiparallel",
+    "en": "antiparallel spins",
+    "es": "espines antiparalelos",
+    "zh": "自旋反平行"
+   },
+   "nn": {
+    "de": "bei x_2 = x_1\\\\nicht null",
+    "en": "not zero\\\\at x_2 = x_1",
+    "es": "no es cero\\\\en x_2 = x_1",
+    "zh": "在 x_2 = x_1\\\\处不为零"
+   }
+  }
+ }
+}

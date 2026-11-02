@@ -1,0 +1,1045 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 59,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Device",
+    "props": {
+     "kind": "opamp",
+     "center": [
+      -1.85,
+      0.5,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.55,
+     "color": "#111111",
+     "stroke_width": 3,
+     "symbol_style": "amerikanisch"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.8750000000000004,
+      0.775,
+      0
+     ],
+     "end": [
+      -2.6750000000000003,
+      0.775,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.8750000000000004,
+      1.475,
+      0
+     ],
+     "end": [
+      -2.8750000000000004,
+      0.07500000000000007,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.8750000000000004,
+      0.775,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -3.42,
+      1.475,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "U_{E1}",
+     "position": [
+      -3.52,
+      1.475,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.36,
+      1.475,
+      0
+     ],
+     "end": [
+      -3.25,
+      1.475,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -3.0625,
+      1.475,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 0.37499999999999956,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "R_{E1}",
+     "position": [
+      -3.1,
+      1.735,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -3.42,
+      0.775,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "U_{E2}",
+     "position": [
+      -3.52,
+      0.775,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.36,
+      0.775,
+      0
+     ],
+     "end": [
+      -3.25,
+      0.775,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -3.0625,
+      0.775,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 0.37499999999999956,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "R_{E2}",
+     "position": [
+      -3.1,
+      1.0350000000000001,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -3.42,
+      0.07500000000000007,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "U_{E3}",
+     "position": [
+      -3.52,
+      0.07500000000000007,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.36,
+      0.07500000000000007,
+      0
+     ],
+     "end": [
+      -3.25,
+      0.07500000000000007,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -3.0625,
+      0.07500000000000007,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 0.37499999999999956,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "R_{E3}",
+     "position": [
+      -3.1,
+      0.3350000000000001,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.8750000000000004,
+      1.475,
+      0
+     ],
+     "end": [
+      -2.8750000000000004,
+      2.175,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -1.85,
+      2.175,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 2.0500000000000007,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.825,
+      2.175,
+      0
+     ],
+     "end": [
+      -0.825,
+      0.5,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.025,
+      0.5,
+      0
+     ],
+     "end": [
+      -0.575,
+      0.5,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.825,
+      0.5,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -0.5149999999999999,
+      0.5,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "U_A",
+     "position": [
+      -0.5349999999999999,
+      0.77,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "R_F",
+     "position": [
+      -1.85,
+      2.445,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.6750000000000003,
+      0.22499999999999998,
+      0
+     ],
+     "end": [
+      -2.6750000000000003,
+      -0.22500000000000003,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Device",
+    "props": {
+     "kind": "ground",
+     "center": [
+      -2.6750000000000003,
+      -0.22500000000000003,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.42,
+     "color": "#111111",
+     "stroke_width": 3
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "@add",
+     "position": [
+      -2.0,
+      -1.5,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Device",
+    "props": {
+     "kind": "opamp",
+     "center": [
+      1.78,
+      0.5,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.55,
+     "color": "#111111",
+     "stroke_width": 3,
+     "symbol_style": "amerikanisch"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.8049999999999999,
+      0.775,
+      0
+     ],
+     "end": [
+      0.955,
+      0.775,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.8049999999999999,
+      0.22499999999999998,
+      0
+     ],
+     "end": [
+      0.955,
+      0.22499999999999998,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      0.12,
+      0.775,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "U_{E1}",
+     "position": [
+      0.13999999999999999,
+      1.045,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.18,
+      0.775,
+      0
+     ],
+     "end": [
+      0.3,
+      0.775,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      0.5525,
+      0.775,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 0.5049999999999999,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Text",
+    "props": {
+     "text": "R_1",
+     "position": [
+      0.6,
+      1.0350000000000001,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      0.12,
+      0.22499999999999998,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Text",
+    "props": {
+     "text": "U_{E2}",
+     "position": [
+      0.13999999999999999,
+      -0.04500000000000004,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.18,
+      0.22499999999999998,
+      0
+     ],
+     "end": [
+      0.3,
+      0.22499999999999998,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      0.5525,
+      0.22499999999999998,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 0.5049999999999999,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Text",
+    "props": {
+     "text": "R_3",
+     "position": [
+      0.6,
+      -0.03500000000000003,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o44",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.8049999999999999,
+      0.775,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o45",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.8049999999999999,
+      0.22499999999999998,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o46",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.8049999999999999,
+      0.775,
+      0
+     ],
+     "end": [
+      0.8049999999999999,
+      1.675,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o47",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      1.8050000000000002,
+      1.675,
+      0
+     ],
+     "rotation": 0.0,
+     "length": 2.0,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o48",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.805,
+      1.675,
+      0
+     ],
+     "end": [
+      2.805,
+      0.5,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o49",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.605,
+      0.5,
+      0
+     ],
+     "end": [
+      3.055,
+      0.5,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o50",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.805,
+      0.5,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o51",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      3.115,
+      0.5,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o52",
+    "type": "Text",
+    "props": {
+     "text": "U_A",
+     "position": [
+      3.095,
+      0.77,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o53",
+    "type": "Text",
+    "props": {
+     "text": "R_2",
+     "position": [
+      1.8050000000000002,
+      1.945,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o54",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      0.8049999999999999,
+      -0.25,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 0.95,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.36
+    }
+   },
+   {
+    "id": "o55",
+    "type": "Device",
+    "props": {
+     "kind": "ground",
+     "center": [
+      0.8049999999999999,
+      -0.725,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.42,
+     "color": "#111111",
+     "stroke_width": 3
+    }
+   },
+   {
+    "id": "o56",
+    "type": "Text",
+    "props": {
+     "text": "R_4",
+     "position": [
+      1.075,
+      -0.275,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o57",
+    "type": "Text",
+    "props": {
+     "text": "1.64 V",
+     "position": [
+      1.68,
+      1.335,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o58",
+    "type": "Text",
+    "props": {
+     "text": "@sub",
+     "position": [
+      1.65,
+      -1.5,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "add": {
+    "de": "Addierer",
+    "en": "summing amplifier",
+    "es": "sumador",
+    "zh": "加法器"
+   },
+   "sub": {
+    "de": "Subtrahierer",
+    "en": "difference amplifier",
+    "es": "restador",
+    "zh": "减法器"
+   }
+  }
+ }
+}

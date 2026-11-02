@@ -1,0 +1,542 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 23,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      10,
+      5
+     ],
+     "y_range": [
+      -200,
+      400,
+      200
+     ],
+     "x_length": 1.25,
+     "y_length": 1.55,
+     "origin": [
+      -2.42,
+      0,
+      0
+     ],
+     "title": "@ein",
+     "x_label": "@u1v",
+     "y_label": "@i1ma",
+     "number_size": 22,
+     "label_size": 23,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "40*x-20*0",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "40*x-20*5",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "40*x-20*10",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "U_2 = 0",
+     "position": [
+      0.4,
+      330,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "5 V",
+     "position": [
+      10.5,
+      300,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "10 V",
+     "position": [
+      10.5,
+      200,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      10,
+      5
+     ],
+     "y_range": [
+      -200,
+      400,
+      200
+     ],
+     "x_length": 1.25,
+     "y_length": 1.55,
+     "origin": [
+      -0.05,
+      0,
+      0
+     ],
+     "title": "@ueb",
+     "x_label": "@u1v",
+     "y_label": "@i2ma",
+     "number_size": 22,
+     "label_size": 23,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o10",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-20*x+35*0",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o11",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-20*x+35*5",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o12",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-20*x+35*10",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "U_2 = 0",
+     "position": [
+      0.4,
+      -145,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "5 V",
+     "position": [
+      10.5,
+      -25,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "10 V",
+     "position": [
+      10.5,
+      150,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o9"
+   },
+   {
+    "id": "o16",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      10,
+      5
+     ],
+     "y_range": [
+      -200,
+      400,
+      200
+     ],
+     "x_length": 1.25,
+     "y_length": 1.55,
+     "origin": [
+      2.32,
+      0,
+      0
+     ],
+     "title": "@aus",
+     "x_label": "@u2v",
+     "y_label": "@i2ma",
+     "number_size": 22,
+     "label_size": 23,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o17",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "35*x-20*0",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o18",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "35*x-20*5",
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o19",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "35*x-20*10",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      10
+     ]
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "U_1 = 0",
+     "position": [
+      0.4,
+      330,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "5 V",
+     "position": [
+      10.5,
+      250,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o16"
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "10 V",
+     "position": [
+      10.5,
+      150,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o16"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "u1v": {
+    "de": "U_1 in V",
+    "en": "U_1 in V",
+    "es": "U_1 en V",
+    "zh": "U_1 / V"
+   },
+   "u2v": {
+    "de": "U_2 in V",
+    "en": "U_2 in V",
+    "es": "U_2 en V",
+    "zh": "U_2 / V"
+   },
+   "i1ma": {
+    "de": "I_1 in mA",
+    "en": "I_1 in mA",
+    "es": "I_1 en mA",
+    "zh": "I_1 / mA"
+   },
+   "i2ma": {
+    "de": "I_2 in mA",
+    "en": "I_2 in mA",
+    "es": "I_2 en mA",
+    "zh": "I_2 / mA"
+   },
+   "ein": {
+    "de": "Eingang",
+    "en": "input",
+    "es": "entrada",
+    "zh": "输入"
+   },
+   "ueb": {
+    "de": "Übertragung",
+    "en": "transfer",
+    "es": "transferencia",
+    "zh": "转移"
+   },
+   "aus": {
+    "de": "Ausgang",
+    "en": "output",
+    "es": "salida",
+    "zh": "输出"
+   }
+  }
+ }
+}

@@ -1,0 +1,1749 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 65,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@gruppen",
+     "position": [
+      -2.55,
+      1.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "E_1",
+     "position": [
+      -3.2,
+      -0.67,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.1,
+       -0.8,
+       0
+      ],
+      [
+       -2.83,
+       -0.8,
+       0
+      ],
+      [
+       -2.83,
+       -0.53,
+       0
+      ],
+      [
+       -3.1,
+       -0.53,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.83,
+       -0.8,
+       0
+      ],
+      [
+       -2.56,
+       -0.8,
+       0
+      ],
+      [
+       -2.56,
+       -0.53,
+       0
+      ],
+      [
+       -2.83,
+       -0.53,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.56,
+       -0.8,
+       0
+      ],
+      [
+       -2.29,
+       -0.8,
+       0
+      ],
+      [
+       -2.29,
+       -0.53,
+       0
+      ],
+      [
+       -2.56,
+       -0.53,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.29,
+       -0.8,
+       0
+      ],
+      [
+       -2.02,
+       -0.8,
+       0
+      ],
+      [
+       -2.02,
+       -0.53,
+       0
+      ],
+      [
+       -2.29,
+       -0.53,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.02,
+       -0.8,
+       0
+      ],
+      [
+       -1.75,
+       -0.8,
+       0
+      ],
+      [
+       -1.75,
+       -0.53,
+       0
+      ],
+      [
+       -2.02,
+       -0.53,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "g=5",
+     "position": [
+      -1.63,
+      -0.67,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "E_2",
+     "position": [
+      -3.2,
+      -0.09000000000000008,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.1,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.83,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.83,
+       0.04999999999999993,
+       0
+      ],
+      [
+       -3.1,
+       0.04999999999999993,
+       0
+      ]
+     ],
+     "color": "#c82828",
+     "fill_color": "#f6dede",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.83,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.56,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.56,
+       0.04999999999999993,
+       0
+      ],
+      [
+       -2.83,
+       0.04999999999999993,
+       0
+      ]
+     ],
+     "color": "#c82828",
+     "fill_color": "#f6dede",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.56,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.29,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.29,
+       0.04999999999999993,
+       0
+      ],
+      [
+       -2.56,
+       0.04999999999999993,
+       0
+      ]
+     ],
+     "color": "#c82828",
+     "fill_color": "#f6dede",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.29,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.02,
+       -0.22000000000000008,
+       0
+      ],
+      [
+       -2.02,
+       0.04999999999999993,
+       0
+      ],
+      [
+       -2.29,
+       0.04999999999999993,
+       0
+      ]
+     ],
+     "color": "#c82828",
+     "fill_color": "#f6dede",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "g=4",
+     "position": [
+      -1.9,
+      -0.09000000000000008,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "E_3",
+     "position": [
+      -3.2,
+      0.4899999999999999,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.1,
+       0.3599999999999999,
+       0
+      ],
+      [
+       -2.83,
+       0.3599999999999999,
+       0
+      ],
+      [
+       -2.83,
+       0.6299999999999999,
+       0
+      ],
+      [
+       -3.1,
+       0.6299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.83,
+       0.3599999999999999,
+       0
+      ],
+      [
+       -2.56,
+       0.3599999999999999,
+       0
+      ],
+      [
+       -2.56,
+       0.6299999999999999,
+       0
+      ],
+      [
+       -2.83,
+       0.6299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.56,
+       0.3599999999999999,
+       0
+      ],
+      [
+       -2.29,
+       0.3599999999999999,
+       0
+      ],
+      [
+       -2.29,
+       0.6299999999999999,
+       0
+      ],
+      [
+       -2.56,
+       0.6299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "g=3",
+     "position": [
+      -2.17,
+      0.4899999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "E_4",
+     "position": [
+      -3.2,
+      1.0699999999999998,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -3.1,
+       0.9399999999999997,
+       0
+      ],
+      [
+       -2.83,
+       0.9399999999999997,
+       0
+      ],
+      [
+       -2.83,
+       1.2099999999999997,
+       0
+      ],
+      [
+       -3.1,
+       1.2099999999999997,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -2.83,
+       0.9399999999999997,
+       0
+      ],
+      [
+       -2.56,
+       0.9399999999999997,
+       0
+      ],
+      [
+       -2.56,
+       1.2099999999999997,
+       0
+      ],
+      [
+       -2.83,
+       1.2099999999999997,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "g=2",
+     "position": [
+      -2.44,
+      1.0699999999999998,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.3,
+      0.0,
+      0
+     ],
+     "end": [
+      -0.9,
+      0.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@sechs",
+     "position": [
+      -0.15,
+      1.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.7,
+       1.0,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       1.0,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       1.27,
+       0
+      ],
+      [
+       -0.7,
+       1.27,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.565,
+      1.135,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.42999999999999994,
+       1.0,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       1.0,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       1.27,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       1.27,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.29499999999999993,
+      1.135,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.15999999999999992,
+       1.0,
+       0
+      ],
+      [
+       0.1100000000000001,
+       1.0,
+       0
+      ],
+      [
+       0.1100000000000001,
+       1.27,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       1.27,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       0.1100000000000001,
+       1.0,
+       0
+      ],
+      [
+       0.3800000000000001,
+       1.0,
+       0
+      ],
+      [
+       0.3800000000000001,
+       1.27,
+       0
+      ],
+      [
+       0.1100000000000001,
+       1.27,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.7,
+       0.62,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.62,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.89,
+       0
+      ],
+      [
+       -0.7,
+       0.89,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.42999999999999994,
+       0.62,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.62,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.89,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.89,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.15999999999999992,
+       0.62,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.62,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.89,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.89,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.02499999999999991,
+      0.755,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       0.1100000000000001,
+       0.62,
+       0
+      ],
+      [
+       0.3800000000000001,
+       0.62,
+       0
+      ],
+      [
+       0.3800000000000001,
+       0.89,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.89,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      0.2450000000000001,
+      0.755,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.7,
+       0.24,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.24,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.51,
+       0
+      ],
+      [
+       -0.7,
+       0.51,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.565,
+      0.375,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.42999999999999994,
+       0.24,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.24,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.51,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.51,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.15999999999999992,
+       0.24,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.24,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.51,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.51,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.02499999999999991,
+      0.375,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o44",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       0.1100000000000001,
+       0.24,
+       0
+      ],
+      [
+       0.3800000000000001,
+       0.24,
+       0
+      ],
+      [
+       0.3800000000000001,
+       0.51,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.51,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o45",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.7,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.1299999999999999,
+       0
+      ],
+      [
+       -0.7,
+       0.1299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o46",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.42999999999999994,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.1299999999999999,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       0.1299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o47",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.29499999999999993,
+      -0.0050000000000001155,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o48",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.15999999999999992,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       0.1100000000000001,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.1299999999999999,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       0.1299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o49",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       0.1100000000000001,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       0.3800000000000001,
+       -0.14000000000000012,
+       0
+      ],
+      [
+       0.3800000000000001,
+       0.1299999999999999,
+       0
+      ],
+      [
+       0.1100000000000001,
+       0.1299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o50",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      0.2450000000000001,
+      -0.0050000000000001155,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o51",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.7,
+       -0.52,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       -0.52,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       -0.25,
+       0
+      ],
+      [
+       -0.7,
+       -0.25,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o52",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.565,
+      -0.385,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o53",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.42999999999999994,
+       -0.52,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       -0.52,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       -0.25,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       -0.25,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o54",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.15999999999999992,
+       -0.52,
+       0
+      ],
+      [
+       0.1100000000000001,
+       -0.52,
+       0
+      ],
+      [
+       0.1100000000000001,
+       -0.25,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       -0.25,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o55",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       0.1100000000000001,
+       -0.52,
+       0
+      ],
+      [
+       0.3800000000000001,
+       -0.52,
+       0
+      ],
+      [
+       0.3800000000000001,
+       -0.25,
+       0
+      ],
+      [
+       0.1100000000000001,
+       -0.25,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o56",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      0.2450000000000001,
+      -0.385,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o57",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.7,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       -0.6299999999999999,
+       0
+      ],
+      [
+       -0.7,
+       -0.6299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o58",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.42999999999999994,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       -0.6299999999999999,
+       0
+      ],
+      [
+       -0.42999999999999994,
+       -0.6299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o59",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.29499999999999993,
+      -0.7649999999999999,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o60",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       -0.15999999999999992,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       0.1100000000000001,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       0.1100000000000001,
+       -0.6299999999999999,
+       0
+      ],
+      [
+       -0.15999999999999992,
+       -0.6299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o61",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -0.02499999999999991,
+      -0.7649999999999999,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o62",
+    "type": "Polygon",
+    "props": {
+     "vertices": [
+      [
+       0.1100000000000001,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       0.3800000000000001,
+       -0.8999999999999999,
+       0
+      ],
+      [
+       0.3800000000000001,
+       -0.6299999999999999,
+       0
+      ],
+      [
+       0.1100000000000001,
+       -0.6299999999999999,
+       0
+      ]
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2
+    }
+   },
+   {
+    "id": "o63",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.6,
+      4.6
+     ],
+     "y_range": [
+      0,
+      40
+     ],
+     "x_length": 1.75,
+     "y_length": 2.0,
+     "origin": [
+      2.55,
+      -0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "N_1",
+     "y_label": "W",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;1;2;3;4",
+     "y_ticks": "0;16;36",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o64",
+    "type": "Stem",
+    "props": {
+     "x": "0;1;2;3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0.62,
+     "marker": "none",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "1;16;36;16;1"
+    },
+    "on": "o63"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "gruppen": {
+    "de": "Gruppen",
+    "en": "groups",
+    "es": "grupos",
+    "zh": "能量组"
+   },
+   "sechs": {
+    "de": "6 Mikrozustände",
+    "en": "6 microstates",
+    "es": "6 microestados",
+    "zh": "6 个微观状态"
+   }
+  }
+ }
+}

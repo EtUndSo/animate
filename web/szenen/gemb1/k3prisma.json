@@ -1,0 +1,332 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 15,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "DataCurve",
+    "props": {
+     "data": "-2.85 0.85\n-1.25 0.85\n-2.85 -0.75\n-2.85 0.85",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.5,
+      0.05,
+      0
+     ],
+     "end": [
+      -2.05,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.05,
+      0.05,
+      0
+     ],
+     "end": [
+      -2.05,
+      1.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "DataCurve",
+    "props": {
+     "data": "-1.92979 0.170208\n-1.92812 0.15562\n-1.92936 0.138112\n-1.93302 0.11819\n-1.93855 0.0963964\n-1.9454 0.0732864\n-1.95301 0.0494121\n-1.96085 0.0253062\n-1.96843 0.00146667\n-1.97528 -0.0216546\n-1.98103 -0.0436626\n-1.98533 -0.0642261\n-1.98792 -0.0830831\n-1.98862 -0.100043\n-1.9873 -0.114987\n-1.98391 -0.127867\n-1.97848 -0.138699\n-1.97108 -0.14756\n-1.96184 -0.154581\n-1.95093 -0.159938\n-1.93857 -0.163842\n-1.925 -0.166534\n-1.91047 -0.168271\n-1.89526 -0.169318\n-1.87962 -0.169942\n-1.86382 -0.170402\n-1.84809 -0.170941\n-1.83267 -0.171781\n-1.81774 -0.173118\n-1.80348 -0.175118\n-1.79001 -0.177914\n-1.77744 -0.181605\n-1.76582 -0.186255\n-1.7552 -0.191895\n-1.74557 -0.198523\n-1.73689 -0.206108\n-1.72911 -0.214592\n-1.72215 -0.223896\n-1.71591 -0.233919\n-1.71028 -0.244551\n-1.70513 -0.255669\n-1.70034 -0.267145\n-1.69579 -0.278851\n-1.69133 -0.290662\n-1.68687 -0.302459\n-1.68228 -0.314133\n-1.67747 -0.325587\n-1.67236 -0.336738\n-1.66687 -0.347519\n-1.66097 -0.357879\n-1.65461 -0.367782\n-1.64778 -0.377213\n-1.64047 -0.386167\n-1.63269 -0.394657\n-1.62448 -0.402708\n-1.61587 -0.410357\n-1.60689 -0.417649\n-1.59762 -0.424636\n-1.5881 -0.431378\n-1.57839 -0.437934\n-1.56856 -0.444367",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@t_tot",
+     "position": [
+      -2.25,
+      -1.05,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@evan",
+     "position": [
+      -1.35,
+      -0.55,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "DataCurve",
+    "props": {
+     "data": "0.7 0.85\n2.3 0.85\n0.7 -0.75\n0.7 0.85",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "DataCurve",
+    "props": {
+     "data": "2.44142 0.708579\n0.841421 -0.891421\n2.44142 -0.891421\n2.44142 0.708579",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.04999999999999993,
+      0.05,
+      0
+     ],
+     "end": [
+      1.5,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.5,
+      0.05,
+      0
+     ],
+     "end": [
+      1.5,
+      1.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.6414213562373094,
+      0.05,
+      0
+     ],
+     "end": [
+      3.0999999999999996,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#dd8888",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@t_verh",
+     "position": [
+      1.65,
+      -1.05,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@spalt",
+     "position": [
+      2.55,
+      1.18,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.5300000000000002,
+      1.02,
+      0
+     ],
+     "end": [
+      2.37,
+      0.8,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "t_tot": {
+    "de": "Totalreflexion",
+    "en": "total reflection",
+    "es": "reflexión total",
+    "zh": "全反射"
+   },
+   "evan": {
+    "de": "abklingende Welle",
+    "en": "decaying wave",
+    "es": "onda evanescente",
+    "zh": "衰减波"
+   },
+   "t_verh": {
+    "de": "verhinderte Totalreflexion",
+    "en": "frustrated total reflection",
+    "es": "reflexión total frustrada",
+    "zh": "受抑全反射"
+   },
+   "spalt": {
+    "de": "Spalt",
+    "en": "gap",
+    "es": "hueco",
+    "zh": "间隙"
+   }
+  }
+ }
+}

@@ -1,0 +1,458 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 23,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      4.6
+     ],
+     "y_range": [
+      0,
+      10
+     ],
+     "x_length": 2.85,
+     "y_length": 2.2,
+     "origin": [
+      -1.8,
+      0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@weg",
+     "y_label": "@ein_φV",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;3;5;9",
+     "x_tick_marks": false,
+     "y_tick_marks": true,
+     "x_numbers": false,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 9\n0.4 9\n1.4 5\n1.8 5\n2.8 0\n3.2 0\n4.2 9\n4.6 9",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      9,
+      0
+     ],
+     "end": [
+      4.6,
+      9,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "K_1",
+     "position": [
+      0.4,
+      9.85,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "K_2",
+     "position": [
+      1.6,
+      6.0,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "K_4",
+     "position": [
+      3.0,
+      0.95,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "K_1",
+     "position": [
+      4.25,
+      9.85,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "−U_a",
+     "position": [
+      0.75,
+      6.0,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "−U_b",
+     "position": [
+      2.15,
+      1.6,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "+U_0",
+     "position": [
+      3.8,
+      3.9,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "M_1",
+     "position": [
+      2.3,
+      7.6,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      4.6
+     ],
+     "y_range": [
+      0,
+      10
+     ],
+     "x_length": 2.85,
+     "y_length": 2.2,
+     "origin": [
+      1.75,
+      0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@weg",
+     "y_label": "@ein_φV",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "0;3;5;9",
+     "x_tick_marks": false,
+     "y_tick_marks": true,
+     "x_numbers": false,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 5\n0.4 5\n1.4 3\n1.8 3\n2.8 0\n3.2 0\n4.2 5\n4.6 5",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      5,
+      0
+     ],
+     "end": [
+      4.6,
+      5,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "K_2",
+     "position": [
+      0.4,
+      5.9,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "K_3",
+     "position": [
+      1.6,
+      3.95,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "K_4",
+     "position": [
+      3.0,
+      0.95,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "K_2",
+     "position": [
+      4.25,
+      5.9,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "−U_e",
+     "position": [
+      0.75,
+      2.9,
+      0
+     ],
+     "font_size": 23,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "−U_d",
+     "position": [
+      2.1,
+      0.75,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "+U_b",
+     "position": [
+      3.8,
+      2.0,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "M_3",
+     "position": [
+      2.3,
+      7.6,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o12"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "weg": {
+    "de": "Weg im Umlauf",
+    "en": "path around the mesh",
+    "es": "recorrido de la malla",
+    "zh": "沿网孔的路径"
+   },
+   "ein_φV": {
+    "de": "φ in V",
+    "en": "φ in V",
+    "es": "φ en V",
+    "zh": "φ / V"
+   }
+  }
+ }
+}

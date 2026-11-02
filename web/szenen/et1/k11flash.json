@@ -1,0 +1,770 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 44,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -2.0,
+      2.1,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "U_{Ref} = 6 V",
+     "position": [
+      -2.14,
+      2.1,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.0,
+      2.04,
+      0
+     ],
+     "end": [
+      -2.0,
+      1.6,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -2.0,
+      1.0,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 1.2000000000000002,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.42
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -2.0,
+      -0.2,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 1.2000000000000002,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.42
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Component",
+    "props": {
+     "kind": "resistor",
+     "center": [
+      -2.0,
+      -1.375,
+      0
+     ],
+     "rotation": -90.0,
+     "length": 1.15,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3,
+     "size": 0.42
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Device",
+    "props": {
+     "kind": "ground",
+     "center": [
+      -2.0,
+      -1.95,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.5,
+     "color": "#111111",
+     "stroke_width": 3
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      -0.75,
+      2.1,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "U_E = 3.2 V",
+     "position": [
+      -0.61,
+      2.1,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.75,
+      2.04,
+      0
+     ],
+     "end": [
+      -0.75,
+      -1.22,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Device",
+    "props": {
+     "kind": "opamp",
+     "center": [
+      1.1,
+      1.3900000000000001,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.42,
+     "color": "#111111",
+     "stroke_width": 3,
+     "symbol_style": "amerikanisch"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.0,
+      1.6,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.0,
+      1.6,
+      0
+     ],
+     "end": [
+      0.4700000000000001,
+      1.6,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.75,
+      1.1800000000000002,
+      0
+     ],
+     "end": [
+      0.4700000000000001,
+      1.1800000000000002,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.75,
+      1.1800000000000002,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "6 V",
+     "position": [
+      -2.14,
+      1.62,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "K1",
+     "position": [
+      1.0,
+      1.3900000000000001,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.73,
+      1.3900000000000001,
+      0
+     ],
+     "end": [
+      2.18,
+      1.3900000000000001,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      2.24,
+      1.3900000000000001,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "−11 V",
+     "position": [
+      2.3800000000000003,
+      1.3900000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Device",
+    "props": {
+     "kind": "opamp",
+     "center": [
+      1.1,
+      0.19000000000000003,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.42,
+     "color": "#111111",
+     "stroke_width": 3,
+     "symbol_style": "amerikanisch"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.0,
+      0.4,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.0,
+      0.4,
+      0
+     ],
+     "end": [
+      0.4700000000000001,
+      0.4,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.75,
+      -0.019999999999999962,
+      0
+     ],
+     "end": [
+      0.4700000000000001,
+      -0.019999999999999962,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.75,
+      -0.019999999999999962,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "4 V",
+     "position": [
+      -2.14,
+      0.42000000000000004,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "K2",
+     "position": [
+      1.0,
+      0.19000000000000003,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.73,
+      0.19000000000000003,
+      0
+     ],
+     "end": [
+      2.18,
+      0.19000000000000003,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      2.24,
+      0.19000000000000003,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "−11 V",
+     "position": [
+      2.3800000000000003,
+      0.19000000000000003,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Device",
+    "props": {
+     "kind": "opamp",
+     "center": [
+      1.1,
+      -1.01,
+      0
+     ],
+     "rotation": 0,
+     "flip": false,
+     "label": "",
+     "pins": false,
+     "size": 0.42,
+     "color": "#111111",
+     "stroke_width": 3,
+     "symbol_style": "amerikanisch"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.0,
+      -0.8,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.0,
+      -0.8,
+      0
+     ],
+     "end": [
+      0.4700000000000001,
+      -0.8,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.75,
+      -1.22,
+      0
+     ],
+     "end": [
+      0.4700000000000001,
+      -1.22,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.75,
+      -1.22,
+      0
+     ],
+     "radius": 0.055,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Text",
+    "props": {
+     "text": "2 V",
+     "position": [
+      -2.14,
+      -0.78,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Text",
+    "props": {
+     "text": "K3",
+     "position": [
+      1.0,
+      -1.01,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.73,
+      -1.01,
+      0
+     ],
+     "end": [
+      2.18,
+      -1.01,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Circle",
+    "props": {
+     "radius": 0.06,
+     "center": [
+      2.24,
+      -1.01,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Text",
+    "props": {
+     "text": "+11 V",
+     "position": [
+      2.3800000000000003,
+      -1.01,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Text",
+    "props": {
+     "text": "R",
+     "position": [
+      -1.7,
+      1.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Text",
+    "props": {
+     "text": "R",
+     "position": [
+      -1.7,
+      -0.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Text",
+    "props": {
+     "text": "R",
+     "position": [
+      -1.7,
+      -1.375,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

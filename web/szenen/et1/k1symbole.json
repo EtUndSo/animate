@@ -1,0 +1,393 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 20,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Component",
+    "props": {
+     "kind": "vsource_dc",
+     "center": [
+      -2.75,
+      0.25,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.6,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "+",
+     "position": [
+      -3.07,
+      0.61,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "−",
+     "position": [
+      -3.07,
+      -0.10999999999999999,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.3,
+      0.85,
+      0
+     ],
+     "end": [
+      -2.3,
+      -0.35,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "U",
+     "position": [
+      -2.13,
+      0.25,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@batterie",
+     "position": [
+      -2.65,
+      -0.8500000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Component",
+    "props": {
+     "kind": "vsource",
+     "center": [
+      -0.15,
+      0.25,
+      0
+     ],
+     "rotation": 270,
+     "length": 1.6,
+     "label": "",
+     "color": "#111111",
+     "stroke_width": 3
+    }
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.5,
+      0.85,
+      0
+     ],
+     "end": [
+      0.5,
+      -0.35,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "U",
+     "position": [
+      0.6699999999999999,
+      0.25,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@quelle",
+     "position": [
+      -0.04999999999999999,
+      -0.8500000000000001,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.75,
+      0.95,
+      0
+     ],
+     "end": [
+      2.75,
+      -0.44999999999999996,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.75,
+      0.95,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.75,
+      -0.44999999999999996,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "φ_1 = 9 V",
+     "position": [
+      2.75,
+      1.27,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "φ_2 = 0 V",
+     "position": [
+      2.75,
+      -0.77,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.5,
+      0.83,
+      0
+     ],
+     "end": [
+      2.5,
+      -0.32999999999999996,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "U_{12} = 9 V",
+     "position": [
+      2.4,
+      0.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      3.0,
+      -0.32999999999999996,
+      0
+     ],
+     "end": [
+      3.0,
+      0.83,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "U_{21} = −9 V",
+     "position": [
+      2.4,
+      0.04999999999999999,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "batterie": {
+    "de": "Batterie",
+    "en": "battery",
+    "es": "batería",
+    "zh": "电池"
+   },
+   "quelle": {
+    "de": "Gleichspannungsquelle",
+    "en": "DC voltage source",
+    "es": "fuente de tensión continua",
+    "zh": "直流电压源"
+   }
+  }
+ }
+}

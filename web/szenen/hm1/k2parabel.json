@@ -1,0 +1,334 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -2.4,
+      2.4
+     ],
+     "y_range": [
+      -1.5,
+      4.2
+     ],
+     "x_length": 3.7,
+     "y_length": 2.6,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "y",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-2;-1;1;2",
+     "y_ticks": "1;3;4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "x^2",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      -2.0,
+      2.0
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "y = x²",
+     "position": [
+      1.5,
+      3.8,
+      0
+     ],
+     "font_size": 26,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.3,
+      2,
+      0
+     ],
+     "end": [
+      2.3,
+      2,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.3,
+      -1,
+      0
+     ],
+     "end": [
+      2.3,
+      -1,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.4142135623730951,
+      2,
+      0
+     ],
+     "end": [
+      -1.4142135623730951,
+      0,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.4142135623730951,
+      2,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.4142135623730951,
+      0,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.4142135623730951,
+      2,
+      0
+     ],
+     "end": [
+      1.4142135623730951,
+      0,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1.4142135623730951,
+      2,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1.4142135623730951,
+      0,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "−√2",
+     "position": [
+      -1.5142135623730952,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "√2",
+     "position": [
+      1.5142135623730952,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@zwei",
+     "position": [
+      2.5,
+      2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@kein",
+     "position": [
+      2.5,
+      -1,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "zwei": {
+    "de": "y = 2: zwei Lösungen",
+    "en": "y = 2: two solutions",
+    "es": "y = 2: dos soluciones",
+    "zh": "y = 2：两个解"
+   },
+   "kein": {
+    "de": "y = −1: keine Lösung",
+    "en": "y = −1: no solution",
+    "es": "y = −1: sin solución",
+    "zh": "y = −1：无解"
+   }
+  }
+ }
+}

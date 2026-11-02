@@ -6,18 +6,20 @@
   <title>EtUndSo — Erklärungen & Tools für Elektrotechnik</title>
   <meta name="description" content="EtUndSo: verständliche, animierte Erklärungen und Werkzeuge zu Elektrotechnik- und Mathematik-Modulen — und so. Mit dem Browser-Editor zum selbst Nachbauen."/>
   <style>
-    /* Palette „Signal & Ink": Primär/CTA = Blau, Marke/„Et" = Rot, Akzent = Orange. Tag = hell (Default),
-       Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften
+    /* Vorlage „Kopfleiste“ wie im Wissensbereich: dunkelgrüne Leiste, Primär = Grün, Marke und Überschriften = Lila, Akzent = Orange.
+       Tag = hell (Default), Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften
        später per @font-face auf --font-display/--font-body legen. */
     :root{
-      --bg:#f4f6fa; --panel:#ffffff; --ink:#10161f; --muted:#56617a; --border:#e0e5ee; --soft:#eef1f7;
-      --accent:#2b6def; --accent2:#e5383b; --accent3:#ff9f1c; --green:#16a34a;
+      --bg:#f5f5f1; --panel:#ffffff; --ink:#191c1a; --muted:#59605b; --border:#e0e2dc; --soft:#eeefe9;
+      --accent:#15633a; --accent2:#3f1a78; --accent3:#c2410c; --green:#15633a; --on-accent:#ffffff;
+      --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-hl:#ff9650;
       --font-display:"Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
       --font-body:system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
     :root[data-theme="dark"]{
-      --bg:#0f172a; --panel:#1e293b; --ink:#f1f5f9; --muted:#94a3b8; --border:#334155; --soft:#162032;
-      --accent:#5c94ff; --accent2:#ff5e60; --accent3:#ffb54d; --green:#3fb950;
+      --bg:#101412; --panel:#1a201c; --ink:#eff2ef; --muted:#a6afa8; --border:#2f3831; --soft:#141a16;
+      --accent:#6ad19b; --accent2:#c9a9ff; --accent3:#ff9650; --green:#6ad19b; --on-accent:#0d1f15;
+      --bar:#0b2a1c; --bar-ink:#dcebe1; --bar-rand:#174630;
     }
     *{box-sizing:border-box;}
     body{margin:0;font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
@@ -26,13 +28,13 @@
     .build-banner b{color:var(--accent2);font-weight:700;}
     .build-banner a{margin:0 6px;}
 
-    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:5;}
-    .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--accent2);}
-    .brand span{color:var(--accent);} .brand span.so{color:var(--accent3);}
+    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--bar-rand);background:var(--bar);position:sticky;top:0;z-index:5;}
+    .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--bar-ink);}
+    .brand span{color:var(--bar-ink);} .brand span.so{color:var(--bar-hl);}
     nav{display:flex;align-items:center;gap:20px;}
-    nav a.lnk{color:var(--muted);font-weight:600;font-size:15px;}
-    nav a.lnk:hover{color:var(--ink);}
-    nav a.navcta{background:var(--accent);color:#fff;padding:8px 15px;border-radius:9px;font-weight:700;font-size:14px;}
+    nav a.lnk{color:var(--bar-ink);font-weight:600;font-size:15px;}
+    nav a.lnk:hover{color:var(--bar-hl);}
+    nav a.navcta{background:var(--bar-hl);color:#2a1205;padding:8px 15px;border-radius:9px;font-weight:700;font-size:14px;}
 
     main{max-width:1040px;margin:0 auto;padding:16px 24px 72px;}
     .eyebrow{display:inline-block;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;}
@@ -43,7 +45,7 @@
     .hero h1 .u{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent3) 55%, transparent) 62%);}
     .hero p{font-size:clamp(16px,2.1vw,19px);color:var(--muted);max-width:52ch;margin:0 0 26px;}
     .row{display:flex;gap:12px;flex-wrap:wrap;}
-    .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;background:var(--accent);color:#fff;border:1.5px solid var(--accent);}
+    .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;background:var(--accent);color:var(--on-accent);border:1.5px solid var(--accent);}
     .btn:hover{filter:brightness(1.06);}
     .btn.alt{background:transparent;color:var(--accent);}
     .hero-art{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(16,22,31,.06);}

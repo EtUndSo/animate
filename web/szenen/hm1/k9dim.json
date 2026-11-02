@@ -1,0 +1,528 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 20,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.9,
+      2.9
+     ],
+     "y_range": [
+      -0.35,
+      3.1
+     ],
+     "x_length": 3.168,
+     "y_length": 2.277,
+     "origin": [
+      -1.75,
+      0,
+      0
+     ],
+     "title": "@drei",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "center",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      2,
+      1,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      1,
+      2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      -1,
+      2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "a_1",
+     "position": [
+      2.15,
+      0.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "a_2",
+     "position": [
+      1.0,
+      2.3,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "a_3",
+     "position": [
+      -1.25,
+      2.3,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#a84a22"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.9,
+      2.9
+     ],
+     "y_range": [
+      -0.35,
+      3.1
+     ],
+     "x_length": 3.168,
+     "y_length": 2.277,
+     "origin": [
+      1.75,
+      0,
+      0
+     ],
+     "title": "@weg",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "center",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      -0.35,
+      0
+     ],
+     "end": [
+      0,
+      3.1,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      2,
+      1,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      1,
+      2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#9fcfb4",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      -1,
+      2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#f2b89e",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1,
+      2,
+      0
+     ],
+     "end": [
+      0,
+      1.5,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1,
+      2,
+      0
+     ],
+     "end": [
+      0,
+      2.5,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      2.5,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#a84a22",
+     "stroke_width": 5,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      1.5,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "c_2",
+     "position": [
+      -0.5,
+      1.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "c_3",
+     "position": [
+      -0.5,
+      2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#a84a22"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "a_1",
+     "position": [
+      2.15,
+      0.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o8"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "drei": {
+    "de": "Drei Vektoren",
+    "en": "Three vectors",
+    "es": "Tres vectores",
+    "zh": "三个向量"
+   },
+   "weg": {
+    "de": "Anteil längs e_1 weggerechnet",
+    "en": "Part along e_1 removed",
+    "es": "Parte según e_1 eliminada",
+    "zh": "消去沿 e_1 的分量"
+   }
+  }
+ }
+}

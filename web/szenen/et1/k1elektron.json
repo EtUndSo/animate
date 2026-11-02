@@ -1,0 +1,500 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 22,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.27,
+      0.0,
+      0
+     ],
+     "width": 0.14,
+     "height": 1.8,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#8c8c8c",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.2800000000000005,
+      0.0,
+      0
+     ],
+     "width": 0.14,
+     "height": 1.8,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#8c8c8c",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "A (+)",
+     "position": [
+      -3.27,
+      -1.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "B (−)",
+     "position": [
+      -0.2800000000000005,
+      -1.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.9000000000000004,
+      0.6,
+      0
+     ],
+     "end": [
+      -0.6500000000000006,
+      0.6,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "E",
+     "position": [
+      -1.7750000000000004,
+      0.8,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -0.5500000000000005,
+      -0.2,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#dceafa",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "−",
+     "position": [
+      -0.5500000000000005,
+      -0.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.7300000000000005,
+      -0.2,
+      0
+     ],
+     "end": [
+      -2.9000000000000004,
+      -0.2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@flug",
+     "position": [
+      -1.7750000000000004,
+      -0.52,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "F = −e E",
+     "position": [
+      -1.7750000000000004,
+      0.1,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      3,
+      1
+     ],
+     "y_range": [
+      -1.6,
+      1.6,
+      0.8
+     ],
+     "x_length": 2.7,
+     "y_length": 1.8,
+     "origin": [
+      1.75,
+      0.0,
+      0
+     ],
+     "title": "",
+     "x_label": "@x_in_mm",
+     "y_label": "@w_18",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      3,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o15",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1.442*(3-x)/3",
+     "color": "#eb6834",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      3
+     ]
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o16",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-1.442*(3-x)/3",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      3
+     ]
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o17",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0,
+      1.442,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o18",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0,
+      -1.442,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@kin",
+     "position": [
+      0.85,
+      1.36,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#a84a22"
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@pot",
+     "position": [
+      0.85,
+      -1.36,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o13"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@summe",
+     "position": [
+      0.08,
+      0.24,
+      0
+     ],
+     "font_size": 23,
+     "align": "left",
+     "color": "#7f7f7f"
+    },
+    "on": "o13"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "flug": {
+    "de": "Flugrichtung",
+    "en": "direction of flight",
+    "es": "dirección de vuelo",
+    "zh": "飞行方向"
+   },
+   "x_in_mm": {
+    "de": "x in mm",
+    "en": "x in mm",
+    "es": "x en mm",
+    "zh": "x / mm"
+   },
+   "w_18": {
+    "de": "W in 10^{−18} J",
+    "en": "W in 10^{−18} J",
+    "es": "W en 10^{−18} J",
+    "zh": "W / (10^{−18} J)"
+   },
+   "kin": {
+    "de": "Bewegungsenergie",
+    "en": "kinetic energy",
+    "es": "energía cinética",
+    "zh": "动能"
+   },
+   "pot": {
+    "de": "potenzielle Energie",
+    "en": "potential energy",
+    "es": "energía potencial",
+    "zh": "势能"
+   },
+   "summe": {
+    "de": "Summe = 0",
+    "en": "sum = 0",
+    "es": "suma = 0",
+    "zh": "总和 = 0"
+   }
+  }
+ }
+}

@@ -1,0 +1,221 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 9,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.4,
+      3.4
+     ],
+     "y_range": [
+      -3.4,
+      3.4
+     ],
+     "x_length": 1.7,
+     "y_length": 1.7,
+     "origin": [
+      -1.7,
+      0,
+      0
+     ],
+     "title": "ρ = 0",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-3;0;3",
+     "y_ticks": "-3;0;3",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "1*cos(t)",
+     "fy": "1*(0*cos(t)+1*sin(t))",
+     "t_min": 0,
+     "t_max": 6.2832,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "2*cos(t)",
+     "fy": "2*(0*cos(t)+1*sin(t))",
+     "t_min": 0,
+     "t_max": 6.2832,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "3*cos(t)",
+     "fy": "3*(0*cos(t)+1*sin(t))",
+     "t_min": 0,
+     "t_max": 6.2832,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.4,
+      3.4
+     ],
+     "y_range": [
+      -3.4,
+      3.4
+     ],
+     "x_length": 1.7,
+     "y_length": 1.7,
+     "origin": [
+      1.7,
+      0,
+      0
+     ],
+     "title": "ρ = 0.7",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "-3;0;3",
+     "y_ticks": "-3;0;3",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "1*cos(t)",
+     "fy": "1*(0.7*cos(t)+0.714143*sin(t))",
+     "t_min": 0,
+     "t_max": 6.2832,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o7",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "2*cos(t)",
+     "fy": "2*(0.7*cos(t)+0.714143*sin(t))",
+     "t_min": 0,
+     "t_max": 6.2832,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o8",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "3*cos(t)",
+     "fy": "3*(0.7*cos(t)+0.714143*sin(t))",
+     "t_min": 0,
+     "t_max": 6.2832,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o5"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

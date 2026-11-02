@@ -1,0 +1,724 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 35,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.6,
+      2.6,
+      0.4
+     ],
+     "y_range": [
+      -3,
+      3,
+      1.5
+     ],
+     "x_length": 2.7,
+     "y_length": 1.25,
+     "origin": [
+      -1.75,
+      1.08,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "F r_0 / E_B",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "-3;0;3",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": false,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.6,
+      0,
+      0
+     ],
+     "end": [
+      2.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      1,
+      -3,
+      0
+     ],
+     "end": [
+      1,
+      3,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1.125/x^10",
+     "color": "#eb6834",
+     "stroke_width": 3.5,
+     "dash": "",
+     "x_range": [
+      0.9096523639157297,
+      2.6
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-1.125/x^2",
+     "color": "#00823c",
+     "stroke_width": 3.5,
+     "dash": "",
+     "x_range": [
+      0.6228410989030497,
+      2.6
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1.125/x^10-1.125/x^2",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.8729827691696699,
+      2.6
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "F_{ab}",
+     "position": [
+      1.13,
+      2.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#eb6834"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "F_{an}",
+     "position": [
+      1.45,
+      -1.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "F",
+     "position": [
+      1.75,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o11",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.6,
+      2.6,
+      0.4
+     ],
+     "y_range": [
+      -2,
+      2,
+      1
+     ],
+     "x_length": 2.7,
+     "y_length": 1.45,
+     "origin": [
+      -1.75,
+      -0.8,
+      0
+     ],
+     "title": "",
+     "x_label": "r / r_0",
+     "y_label": "E / E_B",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "-2;-1;0;1;2",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.6,
+      0,
+      0
+     ],
+     "end": [
+      2.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      1,
+      -2,
+      0
+     ],
+     "end": [
+      1,
+      2,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o14",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.125/x^9",
+     "color": "#eb6834",
+     "stroke_width": 3.5,
+     "dash": "",
+     "x_range": [
+      0.7369374040795427,
+      2.6
+     ]
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o15",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-1.125/x",
+     "color": "#00823c",
+     "stroke_width": 3.5,
+     "dash": "",
+     "x_range": [
+      0.5769230769230769,
+      2.6
+     ]
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o16",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.125/x^9-1.125/x",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.6887613159095891,
+      2.6
+     ]
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o17",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      -1,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "E_{ab}",
+     "position": [
+      1.12,
+      0.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#eb6834"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "E_{an}",
+     "position": [
+      1.5,
+      -1.25,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "E_{pot}",
+     "position": [
+      2.0,
+      -0.2,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "r_0",
+     "position": [
+      1.06,
+      1.6,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o11"
+   },
+   {
+    "id": "o22",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.24,
+      0.32,
+      0.02
+     ],
+     "y_range": [
+      0,
+      200,
+      50
+     ],
+     "x_length": 2.6,
+     "y_length": 2.4,
+     "origin": [
+      2.0,
+      0.12,
+      0
+     ],
+     "title": "",
+     "x_label": "@rnm",
+     "y_label": "E_{pot} + E_B  in meV",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0.24;0.28;0.32",
+     "y_ticks": "0;100;200",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1000*(-1.44/x+4.132e-06/x^9+4.794)",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.24567463196222028,
+      0.32
+     ]
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o24",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.267,
+      0,
+      0
+     ],
+     "end": [
+      0.267,
+      200,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o25",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.25838385796615904,
+      25.851999,
+      0
+     ],
+     "end": [
+      0.27700784809178225,
+      25.851999,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o26",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.26769585302897064,
+      25.851999,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o27",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.2521329334692015,
+      86.17332999999999,
+      0
+     ],
+     "end": [
+      0.286583943432273,
+      86.17332999999999,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o28",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.26935843845073726,
+      86.17332999999999,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o29",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.24696061339963737,
+      172.34665999999999,
+      0
+     ],
+     "end": [
+      0.29668209038274507,
+      172.34665999999999,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o30",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.2718213518911912,
+      172.34665999999999,
+      0
+     ],
+     "radius": 0.065,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "300 K",
+     "position": [
+      0.2895,
+      10,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "1000 K",
+     "position": [
+      0.3005,
+      84,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "2000 K",
+     "position": [
+      0.3095,
+      154,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o22"
+   },
+   {
+    "id": "o34",
+    "type": "Text",
+    "props": {
+     "text": "r_0",
+     "position": [
+      0.2685,
+      192,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o22"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "rnm": {
+    "de": "r in nm",
+    "en": "r in nm",
+    "es": "r en nm",
+    "zh": "r / nm"
+   }
+  }
+ }
+}

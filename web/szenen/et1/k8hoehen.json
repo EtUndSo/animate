@@ -1,0 +1,368 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      7.5
+     ],
+     "y_range": [
+      0,
+      12,
+      2
+     ],
+     "x_length": 5.6,
+     "y_length": 2.2,
+     "origin": [
+      0.2,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "@pot",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": true,
+     "x_numbers": false,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      1.6,
+      0,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 7,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@{kn} 0",
+     "position": [
+      1.0,
+      1.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.4,
+      8,
+      0
+     ],
+     "end": [
+      3.6,
+      8,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 7,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@{kn} 1",
+     "position": [
+      3.0,
+      9.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      4.2,
+      10,
+      0
+     ],
+     "end": [
+      5.4,
+      10,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 7,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@{kn} 2",
+     "position": [
+      4.800000000000001,
+      11.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      6.2,
+      0,
+      0
+     ],
+     "end": [
+      7.4,
+      0,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 7,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@{kn} 0",
+     "position": [
+      6.800000000000001,
+      1.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.6,
+      0.0,
+      0
+     ],
+     "end": [
+      2.4,
+      8.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "+8 V",
+     "position": [
+      1.85,
+      5.2,
+      0
+     ],
+     "font_size": 25,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      3.6,
+      8.0,
+      0
+     ],
+     "end": [
+      4.2,
+      10.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.17,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "+2 V",
+     "position": [
+      3.8,
+      10.6,
+      0
+     ],
+     "font_size": 25,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      5.4,
+      10.0,
+      0
+     ],
+     "end": [
+      6.2,
+      0.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "−10 V",
+     "position": [
+      6.0,
+      5.6,
+      0
+     ],
+     "font_size": 25,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "pot": {
+    "de": "Potenzial in V",
+    "en": "potential in V",
+    "es": "potencial en V",
+    "zh": "电位 / V"
+   },
+   "kn": {
+    "de": "Knoten",
+    "en": "node",
+    "es": "nudo",
+    "zh": "节点"
+   }
+  }
+ }
+}

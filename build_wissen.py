@@ -28,8 +28,7 @@ Fassungen eines Themas (alle mit demselben `pfad:`, im selben Ordner):
     NN-slug-ausfuehrlich.md         ausführliche KI-Fassung      (fassung: ausfuehrlich)
     NN-slug-mensch.md               von Hand geschriebene Fassung (autor: mensch; der Suffix -mensch genügt)
     NN-slug-mensch-ausfuehrlich.md  von Hand, ausführlich
-Der Umschalter „KI | Mensch“ in der Kopfleiste wechselt zwischen den Fassungen desselben Themas; fehlt das
-Gegenstück, ist der Knopf grau. Die Wahl wird gemerkt (localStorage), Themen-Links folgen ihr.
+Eine Hand-Fassung mit KI-Gegenstück wird gebaut, aber nicht verlinkt und nicht durchsucht; ohne Gegenstück steht sie im Baum.
 
 Sprachen (de, en, es, zh): NN-slug.en.md neben NN-slug.md ist die Übersetzung, mit übersetztem `pfad:`. Sie landet
 unter web/wissen/en/<dieselbe Adresse wie der deutsche Artikel>, jede Sprache hat ihren eigenen Baum, ihre Übersicht
@@ -59,52 +58,48 @@ LANG_NOW = ["de"]                     # Sprache der gerade gebauten Seite (main 
 UI = {
     "de": {"wissen": "Wissen", "alle_module": "Alle Module", "abbildung": "Abbildung", "abb_vorb": "in Vorbereitung",
            "editor_offen": "In Editor öffnen", "editor_title": "Die Szene dieser Abbildung im Editor öffnen",
-           "herleitung": "Herleitung", "frage": "Frage", "loesung": "Lösung", "zweck": "Worum es geht:",
+           "herleitung": "Herleitung", "beweis": "Beweis", "frage": "Frage", "loesung": "Lösung", "zweck": "Worum es geht:",
            "zusatz": "Vertiefung, für den Rest nicht nötig", "analogie": "Analogie (ein Bild zur Orientierung, keine Mathematik)",
            "kern": "Das Wichtigste", "merke": "Merke", "satz": "Satz", "definition": "Definition", "lemma": "Lemma",
            "suchen": "Suchen", "suche_ph": "Thema, Begriff, Formel …", "nichts": "Nichts gefunden für",
            "suche_hint": 'Teilwörter erlaubt (z. B. „teiler" findet „Spannungsteiler"). <kbd>Esc</kbd> schließt.',
            "auf_seite": "Auf dieser Seite", "im_artikel": "In diesem Artikel", "vorher": "Vorheriger Artikel", "weiter": "Nächster Artikel",
            "lede": "Verständliche, animierte Erklärungen — von Grund auf und in kleinen Schritten. Wähle ein Modul oder nutze die Suche.",
-           "leer": "Hier entstehen nach und nach die Artikel.", "beispiel": "Beispiel", "beispiele": "Beispiele",
-           "bsp_unter": "– die Aussagen des Artikels, an konkreten Fällen durchgerechnet", "ki_pill": "KI-generiert",
+           "leer": "Hier entstehen nach und nach die Artikel.", "beispiel": "Beispiel", "ki_pill": "KI-generiert",
            "hand_pill": "von Hand geschrieben", "quiz": "Quiz — teste dein Verständnis", "impressum": "Impressum", "datenschutz": "Datenschutz",
            "fremd": "Rechtliche Seiten sind auf Deutsch."},
     "en": {"wissen": "Knowledge", "alle_module": "All modules", "abbildung": "Figure", "abb_vorb": "in preparation",
            "editor_offen": "Open in editor", "editor_title": "Open this figure's scene in the editor",
-           "herleitung": "Derivation", "frage": "Question", "loesung": "Solution", "zweck": "What this stage is about:",
+           "herleitung": "Derivation", "beweis": "Proof", "frage": "Question", "loesung": "Solution", "zweck": "What this stage is about:",
            "zusatz": "Going deeper, not needed for the rest", "analogie": "Analogy (a picture for orientation, not mathematics)",
            "kern": "Key points", "merke": "Note", "satz": "Theorem", "definition": "Definition", "lemma": "Lemma",
            "suchen": "Search", "suche_ph": "Topic, term, formula …", "nichts": "Nothing found for",
            "suche_hint": 'Parts of words work (“divider” finds “voltage divider”). <kbd>Esc</kbd> closes.',
            "auf_seite": "On this page", "im_artikel": "In this article", "vorher": "Previous article", "weiter": "Next article",
            "lede": "Clear, illustrated explanations, from the ground up and in small steps. Pick a module or use the search.",
-           "leer": "Articles are on their way.", "beispiel": "Example", "beispiele": "Examples",
-           "bsp_unter": "– the article's statements, worked through on concrete cases", "ki_pill": "AI-generated",
+           "leer": "Articles are on their way.", "beispiel": "Example", "ki_pill": "AI-generated",
            "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy"},
     "es": {"wissen": "Conocimiento", "alle_module": "Todos los módulos", "abbildung": "Figura", "abb_vorb": "en preparación",
            "editor_offen": "Abrir en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
-           "herleitung": "Deducción", "frage": "Pregunta", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
+           "herleitung": "Deducción", "beweis": "Demostración", "frage": "Pregunta", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
            "zusatz": "Ampliación, no necesaria para el resto", "analogie": "Analogía (una imagen para orientarse, no matemática)",
            "kern": "Lo esencial", "merke": "Nota", "satz": "Teorema", "definition": "Definición", "lemma": "Lema",
            "suchen": "Buscar", "suche_ph": "Tema, término, fórmula …", "nichts": "Nada encontrado para",
            "suche_hint": 'Se admiten partes de palabras. <kbd>Esc</kbd> cierra.',
            "auf_seite": "En esta página", "im_artikel": "En este artículo", "vorher": "Artículo anterior", "weiter": "Artículo siguiente",
            "lede": "Explicaciones claras e ilustradas, desde la base y en pasos pequeños. Elige un módulo o usa la búsqueda.",
-           "leer": "Los artículos están en camino.", "beispiel": "Ejemplo", "beispiele": "Ejemplos",
-           "bsp_unter": "– las afirmaciones del artículo, calculadas en casos concretos", "ki_pill": "generado por IA",
+           "leer": "Los artículos están en camino.", "beispiel": "Ejemplo", "ki_pill": "generado por IA",
            "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad"},
     "zh": {"wissen": "知识库", "alle_module": "全部模块", "abbildung": "图", "abb_vorb": "准备中",
            "editor_offen": "在编辑器中打开", "editor_title": "在编辑器中打开此图的场景",
-           "herleitung": "推导", "frage": "问题", "loesung": "解答", "zweck": "本阶段内容：",
+           "herleitung": "推导", "beweis": "证明", "frage": "问题", "loesung": "解答", "zweck": "本阶段内容：",
            "zusatz": "拓展阅读（后续内容不需要）", "analogie": "类比（帮助理解的图景，不是数学）",
            "kern": "要点", "merke": "注意", "satz": "定理", "definition": "定义", "lemma": "引理",
            "suchen": "搜索", "suche_ph": "主题、术语、公式 …", "nichts": "未找到",
            "suche_hint": '可以输入词的一部分。<kbd>Esc</kbd> 关闭。',
            "auf_seite": "本页内容", "im_artikel": "本文目录", "vorher": "上一篇", "weiter": "下一篇",
            "lede": "清晰、配图的讲解，从基础出发，循序渐进。请选择模块或使用搜索。",
-           "leer": "文章正在陆续添加。", "beispiel": "例", "beispiele": "例题",
-           "bsp_unter": "– 用具体例子演算文章中的结论", "ki_pill": "AI 生成",
+           "leer": "文章正在陆续添加。", "beispiel": "例", "ki_pill": "AI 生成",
            "hand_pill": "人工撰写", "quiz": "测验：检验你的理解", "impressum": "法律声明", "datenschutz": "隐私"},
 }
 
@@ -146,13 +141,10 @@ def parse_frontmatter(text):
 # callouts ':::konzept' / ':::kern' / ':::merke ... :::', and $…$ / $$…$$ left intact for KaTeX.
 # Editor figures: ':::abbildung <szene>' + caption lines + ':::' (see abbildung_html; placeholder: ':::grafik').
 _PROTECT = []
-# Beispiel-Seite: render_article setzt hier eine Liste; md_to_html legt jedes ::::beispiel dort ab und lässt im
-# Artikel nur einen Verweis stehen. None = Beispiele verwerfen (z. B. beim Lesen der Nachbar-Stichpunkte).
-BSP_SINK = None
 def _protect(m):
     _PROTECT.append(m.group(0)); return f"\x00{len(_PROTECT)-1}\x00"
 
-_MC_RED, _MC_BLUE, _MC_GOLD = "#e5383b", "#2b6def", "#ff9f1c"   # Et-rot / UndSo-blau / Palette-gelb
+_MC_LINKS, _MC_REL, _MC_RECHTS = "#3f1a78", "#15633a", "#c2410c"   # linke Seite lila, Relation grün, rechte Seite orange
 def colorize_math(s):
     """Colour an (in)equation: left-hand side RED, every relation ('=' or '\\approx') BLUE, the
     part after it GOLD (via KaTeX \\textcolor). Splits only on a *top-level* relation (brace depth 0),
@@ -186,9 +178,9 @@ def colorize_math(s):
     segs.append(s[last:])
     if not rels:
         return s
-    out = r"\textcolor{%s}{%s}" % (_MC_RED, segs[0])
+    out = r"\textcolor{%s}{%s}" % (_MC_LINKS, segs[0])
     for rel, seg in zip(rels, segs[1:]):
-        out += r"\textcolor{%s}{%s}\textcolor{%s}{%s}" % (_MC_BLUE, rel, _MC_GOLD, seg)
+        out += r"\textcolor{%s}{%s}\textcolor{%s}{%s}" % (_MC_REL, rel, _MC_RECHTS, seg)
     return out
 
 def inline(text):
@@ -289,6 +281,10 @@ def abbildung_html(name, inner):
     „In Editor öffnen“. Der Link nutzt nur den Namen (editor.html?scene=szenen/<szene>.json); der Editor lädt
     damit ausschließlich Dateien unter szenen/ und führt aus der Adresse nichts aus. Fehlt das SVG, steht wie
     bei :::grafik ein Platzhalter da (Nummer bleibt reserviert)."""
+    teile = (name or "").split()                      # :::abbildung <szene> <nr>: Nummer läuft über ein ganzes Kapitel
+    name = teile[0] if teile else ""
+    if len(teile) > 1 and teile[1].isdigit():
+        ABB_N[0] = int(teile[1]) - 1
     ABB_N[0] += 1
     k = ABB_N[0]
     cap_md = " ".join(l.strip() for l in inner if l.strip())
@@ -321,17 +317,14 @@ def md_to_html(md):
     out, toc, i, n = [], [], 0, len(lines)
     section_open = False                                  # jeder ##-Abschnitt wird als Karte <section class="sect"> eingefasst
     formel_n = 0                                          # fortlaufende Nummer der :::formel-Boxen (zum Referenzieren, wie im Skript)
-    cur_sect = ""                                         # Titel des aktuellen ##-Abschnitts (Bezug der Beispiele)
     para = []
     h_ids = set()
-    def beispiel(title, inner):                           # Beispiel -> Beispiel-Seite; im Artikel bleibt nur der Verweis
-        if BSP_SINK is None:
-            return
-        k = len(BSP_SINK) + 1
-        BSP_SINK.append({"k": k, "title": title, "sect": cur_sect, "html": md_to_html("\n".join(inner))[0]})
-        out.append(f'<div class="bsp-ref" id="bspref-{k}" data-bsp="{k}"><a href="#bsp-{k}">'
-                   f'<span class="bsp-n">{T("beispiel")} {k}</span><span class="bsp-tt">{inline(title)}</span>'
-                   '<span class="bsp-arr" aria-hidden="true">→</span></a></div>')
+    bsp_n = [0]
+    def beispiel(title, inner):                           # Beispiel: eigene Karte an der Stelle, an der es steht
+        bsp_n[0] += 1
+        out.append(f'<section class="bsp-card"><div class="bsp-card-n">{T("beispiel")} {bsp_n[0]}</div>'
+                   + (f'<div class="bsp-card-t">{inline(title)}</div>' if title else "")
+                   + md_to_html("\n".join(inner))[0] + "</section>")
     def flush():
         if para:
             txt = " ".join(para).strip()
@@ -427,8 +420,8 @@ def md_to_html(md):
                            f'<span class="fbox-n">({formel_n})</span></div>'
                            + md_to_html("\n".join(inner))[0] + '</div>')
                 continue
-            if kind == "herleitung":                      # Herleitung als ausklappbare Box an der Formel
-                out.append(f'<details class="herleitung"><summary>{T("herleitung")}' + (": " + inline(label_arg) if label_arg else "") + '</summary>'
+            if kind in ("herleitung", "beweis"):          # Herleitung oder Beweis als ausklappbare Box an der Formel
+                out.append(f'<details class="herleitung"><summary>{T(kind)}' + (": " + inline(label_arg) if label_arg else "") + '</summary>'
                            '<div class="hl-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
                 continue
             if kind == "zweck":                           # Einstieg einer Stufe: wozu sie da ist
@@ -487,7 +480,7 @@ def md_to_html(md):
                 hid = f"{hid}-{len(h_ids)}"
             h_ids.add(hid)
             if lvl == 2:                                   # neuer ##-Abschnitt -> alte Karte schließen, neue öffnen
-                toc.append((hid, txt)); cur_sect = txt
+                toc.append((hid, txt))
                 if section_open:
                     out.append("</section>")
                 out.append('<section class="sect">')
@@ -583,7 +576,7 @@ def collect():
         autor = (meta.get("autor") or "").strip().lower()
         if re.search(r"-mensch(-ausfuehrlich)?$", a_slug):   # Dateiname-Suffix genügt
             autor = autor or "mensch"
-        art = {"title": title, "slug": a_slug, "order": order, "path": path,
+        art = {"title": title, "kurz": meta.get("kurz", ""), "slug": a_slug, "order": order, "path": path,
                "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body,
                "crumbs": [(nd["name"], nd["slug"]) for nd in chain], "lang": lang, "key": key,
                "fassung": (meta.get("fassung") or "").strip().lower(),
@@ -647,13 +640,13 @@ def sidebar_html(tree, active_path=None, art=None):
                 rows.append("<ul>")
                 for a in nd["articles"]:
                     cls = ' class="active"' if a["path"] == active_path else ""
-                    rows.append(f'<li><a{cls} href="/wissen/{a["path"]}"{alt_attr(a)}>{html.escape(a["title"])}</a></li>')
+                    rows.append(f'<li><a{cls} href="/wissen/{a["path"]}"{alt_attr(a)}>{html.escape(a["kurz"] or a["title"])}</a></li>')
                 rows.append("</ul>")
             if nd["children"]:
                 rows.append(render(nd["children"], depth + 1))
             rows.append("</details>")
         return "".join(rows)
-    return ('<nav class="side" aria-label="Wissensbaum">' + autor_switch(art, "side")
+    return ('<nav class="side" aria-label="Wissensbaum">'
             + f'<a class="side-home" href="{home()}">{T("alle_module")}</a>' + render(tree, 0) + "</nav>")
 
 def page_shell(title, desc, body, depth, alternates=None):
@@ -664,8 +657,7 @@ def page_shell(title, desc, body, depth, alternates=None):
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{html.escape(title)} — EtUndSo</title>
 <meta name="description" content="{html.escape(desc)}"/>{links}
-<script>try{{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}
-try{{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")==="1"&&matchMedia("(min-width:1180px)").matches))document.documentElement.classList.add("bsp-on");}}catch(e){{}}</script>
+<script>try{{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
 <link rel="stylesheet" href="/wissen/assets/wissen.css"/>
 </head><body data-root="{home()}">
@@ -676,60 +668,16 @@ try{{if(/[?&]bsp=1/.test(location.search)||(localStorage.getItem("wissen-split")
 </body></html>"""
 
 def alt_attr(a):
-    """Daten-Attribute an Links auf die kompakte KI-Fassung eines Themas: wer „Ausführlich“ bzw. „Mensch“ gewählt hat,
-    wird per JS zur passenden Fassung gelenkt (data-alt, data-mensch, data-mensch-alt)."""
+    """Daten-Attribut an Links auf die kompakte Fassung eines Themas: wer „Ausführlich“ gewählt hat, wird per JS
+    dorthin gelenkt (data-alt)."""
     if not a:
         return ""
-    s = f' data-alt="/wissen/{a["alt"]["path"]}"' if a.get("alt") and a.get("fassung") == "kompakt" else ""
-    h = a.get("human")
-    if h:
-        s += f' data-mensch="/wissen/{h["path"]}"'
-        if h.get("alt"):
-            s += f' data-mensch-alt="/wissen/{h["alt"]["path"]}"'
-    return s
+    return f' data-alt="/wissen/{a["alt"]["path"]}"' if a.get("alt") and a.get("fassung") == "kompakt" else ""
 
 def tree_art(art):
     """Der Eintrag im Baum, zu dem eine Seite gehört: die kompakte KI-Fassung des Themas."""
     a = art["alt"] if art.get("fassung") == "ausfuehrlich" and art.get("alt") else art
     return a.get("human_of") or a
-
-def counterpart(art, kind):
-    """Gegenstück desselben Themas mit autor=kind, möglichst in derselben Fassung; None, wenn es keins gibt."""
-    if art.get("autor") == kind:
-        return art
-    base = art["alt"] if art.get("fassung") == "ausfuehrlich" and art.get("alt") else art   # kompakte Fassung
-    other = base.get("human") if kind == "mensch" else base.get("human_of")
-    if not other:
-        return None
-    return other["alt"] if base is not art and other.get("alt") else other
-
-def autor_switch(art=None, where="top"):
-    # Umschalter KI | Mensch in der Kopfleiste (User 2026-10-26: eigene, von Hand geschriebene Artikel neben den
-    # KI-Fassungen). Auf Artikelseiten: Links zum Gegenstück desselben Themas, grau ohne Gegenstück; auf der
-    # Übersicht: Knöpfe, die nur die Vorliebe setzen. Die Wahl wird gemerkt, Themen-Links folgen ihr (wissen.js).
-    icons = {"ki": '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
-                   'stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/>'
-                   '<path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>',
-             "mensch": '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
-                       'stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"/></svg>'}
-    fehlt = {"ki": "Zu diesem Thema gibt es noch keine KI-Fassung",
-             "mensch": "Zu diesem Thema gibt es noch keine von Hand geschriebene Fassung"}
-    btns = ""
-    for kind, label in (("ki", "KI"), ("mensch", "Mensch")):
-        inner = icons[kind] + f'<span class="lbl">{label}</span>'
-        if art is None:
-            btns += f'<button type="button" class="a-btn" data-autor="{kind}" title="{label}-Fassungen bevorzugen">{inner}</button>'
-            continue
-        tgt = counterpart(art, kind)
-        if tgt is art:
-            btns += f'<a class="a-btn on" href="/wissen/{art["path"]}" data-autor="{kind}" aria-current="page" title="{label}-Fassung (diese Seite)">{inner}</a>'
-        elif tgt:
-            btns += f'<a class="a-btn" href="/wissen/{tgt["path"]}" data-autor="{kind}" title="Zur {label}-Fassung dieses Themas">{inner}</a>'
-        else:
-            btns += f'<span class="a-btn off" title="{fehlt[kind]}" aria-disabled="true">{inner}</span>'
-    # where: "top" = Kopfleiste (ab Tablet-Breite); auf dem Handy passt er dort nicht mehr neben Pfeile, Suche und
-    # Hell/Dunkel, deshalb steht er dann unter dem Titel ("art", neben Kompakt | Ausführlich) und oben im Themenbaum ("side").
-    return f'<nav class="autor autor-{where}" aria-label="KI- oder von Hand geschriebene Fassung">{btns}</nav>'
 
 def sprachen(art):
     """{Sprache: Adresse} derselben Seite; art = None: die Übersichten."""
@@ -739,7 +687,7 @@ def sprachen(art):
     return {l: "/wissen/" + a["path"] for l, a in ART_LANG.get(base["key"], {}).items()}
 
 def lang_switch(art=None, where="top"):
-    # where: "top" = Kopfleiste; auf dem Handy passt er dort nicht mehr und steht unter dem Titel ("art"), wie KI | Mensch
+    # where: "top" = Kopfleiste; auf dem Handy passt er dort nicht mehr und steht unter dem Titel ("art")
     ziele = sprachen(art)
     btn = ""
     for l in LANGS:
@@ -754,7 +702,7 @@ def lang_switch(art=None, where="top"):
 def lesezeit(body):
     """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
     t = re.sub(r"^::::\s*beispiel.*?^::::\s*$", " ", body, flags=re.S | re.M)
-    t = re.sub(r"^:::\s*(?:herleitung|quiz|frage|ltspice)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # eingeklappte Kästen
+    t = re.sub(r"^:::\s*(?:herleitung|beweis|quiz|frage|ltspice)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # eingeklappte Kästen
     t = re.sub(r"^:::\s*(?:grafik|abbildung)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # Abbildungen zählen nicht (wie früher die Bildunterschriften)
     t = re.sub(r"\$\$.+?\$\$", " ", t, flags=re.S)
     t = re.sub(r"^\s*<.*$", " ", t, flags=re.M)
@@ -773,16 +721,9 @@ def nav_arrow(a, prev):
         return f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
     return f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="{word}">{svg}</span>'
 
-def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
-    # Panel-Buttons (nur Artikelseiten, mittig): links=Themenbaum, rechts=Gliederung, dritter=geteilte Ansicht
-    # mit der Beispiel-Seite (Theorie links, Beispiele rechts) – ausgegraut, solange der Artikel keine Beispiele hat.
-    # Davor und dahinter je ein Pfeil zum vorherigen/nächsten Artikel. Farbe: offen = blau, zu = grau.
-    bsp_btn = ('<button id="toggleBsp" class="panelBtn" aria-pressed="false" '
-               + ('aria-label="Beispiel-Seite ein-/ausblenden" title="Beispiel-Seite: Theorie links, Beispiele rechts"'
-                  if bsp else 'aria-label="Beispiel-Seite" title="Für diesen Artikel gibt es noch keine Beispiel-Seite" disabled')
-               + '><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
-               '<rect x="2.5" y="4" width="19" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/>'
-               '<line x1="14.5" y1="9" x2="19" y2="9"/><line x1="14.5" y1="12.5" x2="19" y2="12.5"/><line x1="14.5" y1="16" x2="17.5" y2="16"/></svg></button>')
+def topbar(panels=False, prev_a=None, next_a=None, art=None):
+    # Panel-Buttons (nur Artikelseiten, mittig): links=Themenbaum, rechts=Gliederung.
+    # Davor und dahinter je ein Pfeil zum vorherigen/nächsten Artikel. Farbe: offen = orange, zu = Grundfarbe.
     pbtns = ('<div class="panelCenter">' + nav_arrow(prev_a, True)
              + '<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
@@ -790,9 +731,9 @@ def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
              '<button id="toggleRight" class="panelBtn is-open" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="true">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>'
-             + bsp_btn + nav_arrow(next_a, False) + '</div>') if panels else ''
+             + nav_arrow(next_a, False) + '</div>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
-            + autor_switch(art) + pbtns + lang_switch(art)
+            + pbtns + lang_switch(art)
             + f'<button id="searchBtn" class="searchBtn" aria-label="{T("suchen")}">'   # ohne Lupen-Symbol (User 2026-10-21)
             f'<span class="lbl">{T("suchen")}</span><kbd>/</kbd></button>'
             # Hell/Dunkel-Umschalter — immer oben rechts, auf allen Wissensseiten an gleicher Stelle.
@@ -807,26 +748,15 @@ def topbar(panels=False, bsp=False, prev_a=None, next_a=None, art=None):
             f'<div class="searchHint">{T("suche_hint")}</div></div></div>')
 
 def render_article(art, tree, prev_a, next_a):
-    global BSP_SINK
-    BSP_SINK = []
     ABB_N[0] = 0                                       # Abbildungen je Artikel ab 1 nummerieren
     body_html, toc = md_to_html(art["body"])
-    examples, BSP_SINK = BSP_SINK, None
     quiz_html = ""                                     # Quiz ganz unten, unter den Nachbar-Spalten (User 2026-10-21)
     qa = body_html.find('<aside class="callout cx-quiz">')
     if qa >= 0:
         qe = body_html.index("</aside>", qa) + len("</aside>")
         quiz_html, body_html = body_html[qa:qe], body_html[:qa] + body_html[qe:]
-    pane = ""
-    if examples:                                       # Beispiel-Seite (rechts in der geteilten Ansicht)
-        cards = "".join(
-            f'<section class="bsp-card" id="bsp-{e["k"]}"><div class="bsp-card-h"><span class="bsp-card-n">{T("beispiel")} {e["k"]}</span>'
-            f'<a class="bsp-back" href="#bspref-{e["k"]}" data-bsp="{e["k"]}" title="Zur Stelle im Artikel">↖ {html.escape(e["sect"])}</a></div>'
-            + (f'<div class="bsp-card-t">{inline(e["title"])}</div>' if e["title"] else "")
-            + e["html"] + "</section>" for e in examples)
-        pane = ('<aside class="bsp-pane" id="bspPane" aria-label="Beispiele zu diesem Artikel">'
-                f'<div class="bsp-pane-h">{T("beispiele")} <span>{T("bsp_unter")}</span></div>'
-                + cards + "</aside>")
+    if not toc:                                        # kurzer Artikel ohne Abschnitte: eine einzige Karte
+        body_html = f'<section class="sect">{body_html}</section>'
     pill = (f'<span class="apill apill-mensch">{T("hand_pill")}</span>' if art["autor"] == "mensch"
             else f'<span class="apill">{T("ki_pill")}</span>')
     crumb = f'<nav class="crumbs"><a href="{home()}">{T("wissen")}</a>' + \
@@ -861,11 +791,11 @@ def render_article(art, tree, prev_a, next_a):
         nav += '<div class="nb empty"></div>'
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
-            + autor_switch(art, "art") + lang_switch(art, "art") + switch + arttoc
-            + body_html + nav + quiz_html + legal_footer() + "</article>" + toc_html + pane + "</main>")
+            + lang_switch(art, "art") + switch + arttoc
+            + body_html + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
     nav_path = tree_art(art)["path"]
-    body = (topbar(panels=True, bsp=bool(examples), prev_a=prev_a, next_a=next_a, art=art)
-            + f'<div class="layout{" has-bsp" if examples else ""}">'
+    body = (topbar(panels=True, prev_a=prev_a, next_a=next_a, art=art)
+            + '<div class="layout">'
             + sidebar_html(tree, nav_path, art) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth, sprachen(art))
@@ -884,7 +814,7 @@ def render_index(tree):
         for nd in nodes:
             leaf_cards = ""
             if nd["articles"]:
-                links = "".join(f'<li><a href="/wissen/{a["path"]}">{html.escape(a["title"])}</a></li>' for a in nd["articles"])
+                links = "".join(f'<li><a href="/wissen/{a["path"]}">{html.escape(a["kurz"] or a["title"])}</a></li>' for a in nd["articles"])
                 leaf_cards = f'<div class="theme-card"><ul>{links}</ul></div>'
             if depth == 0:
                 rows.append(f'<section class="field-block"><h2 id="{nd["slug"]}">{html.escape(nd["name"])}</h2>')
@@ -932,8 +862,7 @@ def build_lang(lang, tree):
     def jnode(nd):
         return {"name": nd["name"], "slug": nd["slug"],
                 "articles": [{"title": a["title"], "path": a["path"], "summary": a["summary"],
-                              **({"alt": a["alt"]["path"]} if a.get("alt") else {}),
-                              **({"mensch": a["human"]["path"]} if a.get("human") else {})} for a in nd["articles"]],
+                              **({"alt": a["alt"]["path"]} if a.get("alt") else {})} for a in nd["articles"]],
                 "children": [jnode(c) for c in nd["children"]]}
     tree_json = [jnode(n) for n in tree]
     suffix = "" if lang == "de" else "." + lang
@@ -943,7 +872,7 @@ def build_lang(lang, tree):
     alts = [a["alt"] for a in flat if a.get("alt")]
     humans = [a["human"] for a in flat if a.get("human")]
     humans += [h["alt"] for h in humans if h.get("alt")]
-    for a in flat + alts + humans:
+    for a in flat + alts:
         plain = to_plain(a["body"])
         crumb = " › ".join(nm for nm, sl in a["crumbs"])
         title = a["title"] + (" (ausführlich)" if a.get("fassung") == "ausfuehrlich" and a.get("alt") else "") \
@@ -987,48 +916,43 @@ def write_version():
 
 # --------------------------------------------------------- shared CSS / JS ----
 WISSEN_CSS = r"""
-/* Palette „Signal & Ink" — Tag Standard, Nacht via data-theme=dark (folgt dem Editor-Theme). */
-:root{ --bg:#f4f6fa; --panel:#ffffff; --ink:#10161f; --muted:#56617a; --border:#e0e5ee; --soft:#eef1f7;
-  --accent:#2b6def; --accent2:#e5383b; --accent3:#ff9f1c; --radius:14px;
+/* Vorlage „Kopfleiste“ (User 2026-11-02): dunkelgrüne Leiste, lila Überschriften, grüne Links, orange Akzente.
+   Tag Standard, Nacht via data-theme=dark (folgt dem Editor-Theme). Alle Textfarben mindestens 4,5 : 1 auf Karte und Grund. */
+:root{ --bg:#f5f5f1; --panel:#ffffff; --ink:#191c1a; --muted:#59605b; --border:#e0e2dc; --soft:#eeefe9;
+  --accent:#15633a; --accent2:#3f1a78; --accent3:#c2410c; --on-accent:#ffffff; --aufg:#3f1a78;
+  --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-soft:#1a4d35; --bar-hl:#ff9650; --radius:14px;
   --fdisp:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif; --fbody:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --fmono:ui-monospace,"Cascadia Code",Consolas,monospace; }
-/* Nacht (User 2026-10-21): Flächen aus der verbreiteten Slate-Skala (Dunkelblau-Grau, kein Schwarz; Tiefe durch hellere
-   Karten wie bei Material Design), Hauptfarben bleiben Rot, Orange und Hellblau, alle mit mindestens 4,5 : 1 auf den Karten. */
-:root[data-theme="dark"]{ --bg:#0f172a; --panel:#1e293b; --ink:#f1f5f9; --muted:#94a3b8; --border:#334155; --soft:#162032;
-  --accent:#5c94ff; --accent2:#ff5e60; --accent3:#ffb54d; }
-/* Formelfarben (\textcolor der Build-Färbung) nachts in den hellen Varianten, sonst nur gut 3 : 1 Kontrast.
+:root[data-theme="dark"]{ --bg:#101412; --panel:#1a201c; --ink:#eff2ef; --muted:#a6afa8; --border:#2f3831; --soft:#141a16;
+  --accent:#6ad19b; --accent2:#c9a9ff; --accent3:#ff9650; --on-accent:#0d1f15; --aufg:#55299a;
+  --bar:#0b2a1c; --bar-ink:#dcebe1; --bar-rand:#174630; --bar-soft:#123a27; }
+/* Formelfarben (\textcolor der Build-Färbung) nachts in den hellen Varianten, die dunklen wären kaum zu lesen.
    KaTeX setzt die Farbe per Skript, der Browser schreibt sie dann als rgb(…) ins style-Attribut. */
-:root[data-theme="dark"] .katex [style*="rgb(229, 56, 59)"],:root[data-theme="dark"] .katex [style*="#e5383b"]{color:var(--accent2)!important;}
-:root[data-theme="dark"] .katex [style*="rgb(43, 109, 239)"],:root[data-theme="dark"] .katex [style*="#2b6def"]{color:var(--accent)!important;}
-:root[data-theme="dark"] .katex [style*="rgb(255, 159, 28)"],:root[data-theme="dark"] .katex [style*="#ff9f1c"]{color:var(--accent3)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(63, 26, 120)"],:root[data-theme="dark"] .katex [style*="#3f1a78"]{color:var(--accent2)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(21, 99, 58)"],:root[data-theme="dark"] .katex [style*="#15633a"]{color:var(--accent)!important;}
+:root[data-theme="dark"] .katex [style*="rgb(194, 65, 12)"],:root[data-theme="dark"] .katex [style*="#c2410c"]{color:var(--accent3)!important;}
 *{box-sizing:border-box;} html{scroll-behavior:smooth;}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.68;-webkit-font-smoothing:antialiased;}
 a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
-.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--panel);border-bottom:1px solid var(--border);}
-.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--accent2);}
-.brand span{color:var(--accent);} .brand span.so{color:var(--accent3);}
-.topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--border);color:var(--muted);
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--bar);border-bottom:1px solid var(--bar-rand);}
+.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--bar-ink);}
+.brand span{color:var(--bar-ink);} .brand span.so{color:var(--bar-hl);}
+.topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
-.topbar .searchBtn:hover{border-color:var(--accent);color:var(--ink);}
-.topbar .editorlink{font-weight:600;color:var(--muted);} .topbar .editorlink:hover{color:var(--ink);}
-.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--soft);border:1px solid var(--border);color:var(--muted);border-radius:10px;cursor:pointer;}
-.topbar .iconBtn:hover{border-color:var(--accent);color:var(--ink);}
-.topbar .panelBtn:hover{background:color-mix(in srgb,var(--accent) 12%,var(--soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
-.topbar .panelBtn.is-open{color:var(--accent);border-color:var(--accent);}   /* Panel offen = blau, zu = grau (Grundfarbe) */
-.topbar .navBtn{color:var(--accent);border-color:var(--accent);}             /* Pfeile zum vorherigen/nächsten Artikel */
-.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 12%,var(--soft));}
-.topbar .navBtn.disabled{color:var(--muted);border-color:var(--border);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
+.topbar .searchBtn:hover{border-color:var(--bar-hl);}
+.topbar kbd{background:transparent;border-color:var(--bar-rand);color:var(--bar-ink);}
+.topbar .langs{background:var(--bar-soft);border-color:var(--bar-rand);}
+.topbar .langs .l-btn{color:var(--bar-ink);} .topbar .langs .l-btn.on{background:var(--bar-hl);color:#2a1205;}
+.topbar .editorlink{font-weight:600;color:var(--bar-ink);} .topbar .editorlink:hover{color:var(--bar-hl);}
+.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);border-radius:10px;cursor:pointer;}
+.topbar .iconBtn:hover{border-color:var(--bar-hl);}
+.topbar .panelBtn:hover{background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
+.topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
+.topbar .navBtn{color:var(--bar-hl);border-color:var(--bar-hl);}             /* Pfeile zum vorherigen/nächsten Artikel */
+.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}
+.topbar .navBtn.disabled{color:var(--bar-ink);border-color:var(--bar-rand);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
-/* Umschalter KI | Mensch (neben dem Logo): aktive Fassung blau unterstrichen wie der Fassungs-Umschalter; ohne Gegenstück grau.
-   Auf dem Handy (≤720 px) verschwindet er aus der Leiste und erscheint unter dem Titel (.autor-art) und oben im Themenbaum (.autor-side). */
-.autor{display:inline-flex;height:36px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);flex:none;vertical-align:middle;}
-.autor .a-btn{display:inline-flex;align-items:center;gap:6px;padding:0 11px;font:inherit;font-size:13.5px;font-weight:600;color:var(--muted);background:none;border:0;cursor:pointer;}
-.autor .a-btn:hover{color:var(--ink);text-decoration:none;}
-.autor .a-btn.on{background:var(--panel);color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);}
-.autor .a-btn.off{opacity:.4;cursor:default;} .autor .a-btn.off:hover{color:var(--muted);}
-.autor-art,.autor-side{display:none;}
-.article .autor-art{margin:.1em 10px 1.2em 0;}
 .apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
 .apill-mensch{color:var(--accent3);border-color:var(--accent3);}
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
@@ -1044,22 +968,22 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
 .side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
-.side .lvl0>summary{font-weight:700;color:var(--accent2);}  /* Fach/Studiengang: rot */
+.side .lvl0>summary{font-weight:700;color:var(--accent2);}  /* Fach/Studiengang: lila */
 .side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
-.side .lvl2>summary{color:var(--accent);}                 /* Modul: blau */
+.side .lvl2>summary{color:var(--accent);}                 /* Modul: grün */
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
 .side li a{display:block;color:var(--ink);padding:3px 7px;border-radius:7px;}   /* Unterthemen/Themen: schwarz (im Dunkelmodus hell) */
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
-.side li a.active{color:#fff;background:var(--accent);font-weight:600;}
+.side li a.active{color:var(--on-accent);background:var(--accent);font-weight:600;}
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}
 .article>article{min-width:0;width:100%;max-width:72ch;margin-inline:auto;}   /* zentriert -> bleibt beim Einklappen der Panels gleich breit; width:100%: sonst zieht die breiteste Formel den Artikel (auto-Ränder = fit-content) über die Spalte hinaus -> Text läuft auf Handy/Tablet rechts raus */
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:10px;} .crumbs a{color:var(--muted);}
-.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: Et-rot */
-.article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: Et-rot, mehr Luft davor */
+.article h1{font-family:var(--fdisp);font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:.1em 0 .3em;text-wrap:balance;color:var(--accent2);}  /* Titel: lila */
+.article h2{font-family:var(--fdisp);font-size:24px;margin:2.5em 0 .5em;letter-spacing:-.01em;scroll-margin-top:66px;color:var(--accent2);}   /* Zwischenüberschrift: lila, mehr Luft davor */
 .article h3{font-family:var(--fdisp);font-size:19px;margin:1.9em 0 .7em;scroll-margin-top:66px;color:var(--accent2);}
 .article p,.article li{font-size:17.5px;} .article p{margin:0 0 1.35em;} .article li{margin:.3em 0;} .article ul,.article ol{margin:0 0 1.35em;} .article .lede{font-size:18.5px;color:var(--muted);margin:.2em 0 1.3em;}
-/* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = blau, Schritt-Marken = rot --- */
+/* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = grün, Schritt-Marken = lila --- */
 .article strong{color:var(--accent3);}             /* wichtige Ausdrücke/Wörter */
 .article strong.nm{color:var(--accent);}           /* Namen (Größen, Begriffe, Einheiten) */
 .article strong.step{color:var(--accent2);}        /* „Schritt N" */
@@ -1086,7 +1010,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .md-table thead th{background:var(--soft);font-family:var(--fdisp);color:var(--accent);font-weight:700;}
 .md-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 55%,transparent);}
 .callout{margin:1.7em 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
-.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: UndSo-blau */
+.callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: grün */
 .callout.cx-konzept{border-left:4px solid var(--accent);} .callout.cx-kern{border-left:4px solid var(--accent2);background:color-mix(in srgb,var(--accent2) 7%,var(--panel));}
 .callout.cx-kern .callout-h{color:var(--accent2);}  /* Kernbox: Titel in Rot, passend zum roten Rand */
 .callout.cx-merke{border-left:4px solid var(--accent3);}
@@ -1169,15 +1093,13 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .zweck{margin:.4em 0 1.5em;padding:12px 16px;border-radius:10px;background:var(--soft);}
 .zweck .zw-k{font-weight:700;font-family:var(--fdisp);}
 .zweck p{display:inline;margin:0;} .zweck p+p{display:block;margin-top:.7em;}
-.aufg{margin:1.5em 0;border:1px solid color-mix(in srgb,#00823c 50%,var(--border));border-radius:12px;overflow:hidden;background:var(--panel);}
-.aufg-h{padding:9px 16px;font-weight:700;font-family:var(--fdisp);font-size:16px;color:#fff;background:#1d7a4a;}
+.aufg{margin:1.5em 0;border:1px solid color-mix(in srgb,var(--aufg) 50%,var(--border));border-radius:12px;overflow:hidden;background:var(--panel);}
+.aufg-h{padding:9px 16px;font-weight:700;font-family:var(--fdisp);font-size:16px;color:#fff;background:var(--aufg);}
 .aufg-h .katex{color:#fff;}
-:root[data-theme="dark"] .aufg-h{background:#1a6a41;}
 .aufg-b{padding:13px 16px 12px;}
 .aufg-b>p:last-of-type{margin-bottom:.7em;}
 details.loesung{margin:.7em 0 .2em;border-top:1px dashed var(--border);padding-top:8px;}
-details.loesung>summary{cursor:pointer;list-style:none;font-weight:600;color:#1d7a4a;}
-:root[data-theme="dark"] details.loesung>summary{color:#5ec88f;}
+details.loesung>summary{cursor:pointer;list-style:none;font-weight:600;color:var(--accent2);}
 details.loesung>summary::-webkit-details-marker{display:none;}
 details.loesung>summary::before{content:"▸";display:inline-block;margin-right:9px;transition:transform .15s;}
 details.loesung[open]>summary::before{transform:rotate(90deg);}
@@ -1189,20 +1111,23 @@ details.loesung[open]>summary::before{transform:rotate(90deg);}
 .article ol.al{list-style:none;counter-reset:al;padding-left:2em;}
 .article ol.al>li{counter-increment:al;position:relative;}
 .article ol.al>li::before{content:"(" counter(al,lower-alpha) ")";position:absolute;left:-2em;font-weight:600;font-size:16px;line-height:1.75;}
+.article ol.rm{list-style:none;counter-reset:rm;padding-left:2.3em;}
+.article ol.rm>li{counter-increment:rm;position:relative;}
+.article ol.rm>li::before{content:"(" counter(rm,lower-roman) ")";position:absolute;left:-2.3em;font-weight:600;font-size:16px;line-height:1.75;}
 .article li>p{margin:0 0 .5em;} .article li>p:last-child{margin-bottom:0;}
 .langs{display:inline-flex;margin-left:10px;border:1px solid var(--border);border-radius:9px;overflow:hidden;background:var(--soft);}
 .langs .l-btn{padding:6px 8px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;}
-.langs .l-btn.on{background:var(--accent);color:#fff;}
+.langs .l-btn.on{background:var(--accent);color:var(--on-accent);}
 .langs .l-btn.off{opacity:.4;cursor:default;}
 html[lang="zh"] body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;}
 .langs-art{display:none;margin:0 0 10px 8px;}
 @media (max-width:900px){.langs-top{display:none;}.langs-art{display:inline-flex;}}
-details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid #c9581f;border-radius:10px;background:color-mix(in srgb,#eb6834 5%,var(--panel));}
+details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent3);border-radius:10px;background:color-mix(in srgb,var(--accent3) 5%,var(--panel));}
 details.ltspice>summary{cursor:pointer;font-weight:600;padding:10px 14px;list-style:none;line-height:1.45;}
 details.ltspice>summary::-webkit-details-marker{display:none;}
-details.ltspice>summary::before{content:"▸";display:inline-block;margin-right:9px;color:#c9581f;transition:transform .15s;}
+details.ltspice>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent3);transition:transform .15s;}
 details.ltspice[open]>summary::before{transform:rotate(90deg);}
-details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#c9581f;margin-right:9px;}
+details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
 .lt-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .lt-body>p:first-child{margin-top:12px;}
 .prevnext{display:flex;justify-content:space-between;gap:14px;margin:36px 0 10px;flex-wrap:wrap;}
@@ -1214,11 +1139,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .field-block{margin:26px 0;} .field-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
 .idx-node{margin:10px 0 10px 4px;padding-left:14px;border-left:2px solid var(--border);}
 .idx-node h3{font-size:16px;margin:.4em 0 .3em;color:var(--ink);} .lvl-h{font-size:14.5px;margin:.5em 0 .2em;color:var(--accent3);font-weight:700;letter-spacing:.01em;}  /* Semester: orange */
-.idx-node h3.idx-lvl2{color:var(--accent);}              /* Modul: blau (Oberthemen bleiben Standard-Ink/schwarz) */
+.idx-node h3.idx-lvl2{color:var(--accent);}              /* Modul: grün (Oberthemen bleiben Standard-Ink/schwarz) */
 .theme-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
 .theme-card h3{font-family:var(--fdisp);margin:0 0 6px;font-size:16px;} .theme-card ul{list-style:none;margin:0;padding:0;} .theme-card li{margin:4px 0;}
-.theme-card a{color:var(--ink);} .theme-card a:hover{color:var(--accent);}   /* Unterthemen schwarz, Hover blau */
-.field-block>h2{color:var(--accent2);}   /* Fach/Studiengang: rot (wie Sidebar lvl0) */
+.theme-card a{color:var(--ink);} .theme-card a:hover{color:var(--accent);}   /* Unterthemen schwarz, Hover grün */
+.field-block>h2{color:var(--accent2);}   /* Fach/Studiengang: lila (wie Sidebar lvl0) */
 .empty{color:var(--muted);}
 .wfoot{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13.5px;}
 .searchOverlay{position:fixed;inset:0;z-index:50;background:rgba(10,14,22,.5);backdrop-filter:blur(2px);display:flex;justify-content:center;padding:10vh 16px 16px;}
@@ -1239,46 +1164,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .arttoc a{display:block;padding:5px 0;color:var(--ink);font-weight:500;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
-/* ---------- Beispiel-Seite: geteilte Ansicht (Theorie links | Beispiele rechts, Farbe Orange = Praxis) ---------- */
-.topbar .panelBtn:disabled{opacity:.35;cursor:not-allowed;}   /* Beispiel-Knopf: offen = blau wie die anderen Panels (is-open) */
-.topbar .panelBtn:disabled:hover{border-color:var(--border);color:var(--muted);}
-.bsp-ref{margin:-.4em 0 1.4em;display:flex;justify-content:flex-end;position:relative;z-index:1;}  /* Verweis im Artikel, wo das Beispiel hingehört; über den KaTeX-Hilfsboxen des Folgetexts */
-.bsp-ref a{display:inline-flex;align-items:baseline;gap:8px;max-width:100%;font-size:14.5px;line-height:1.4;color:var(--ink);
-  border:1px solid color-mix(in srgb,var(--accent3) 55%,var(--border));background:color-mix(in srgb,var(--accent3) 8%,var(--panel));
-  border-radius:999px;padding:4px 14px;}
-.bsp-ref a:hover{text-decoration:none;border-color:var(--accent3);}
-.bsp-ref .bsp-n{font-family:var(--fdisp);font-weight:700;color:var(--accent3);white-space:nowrap;}
-.bsp-ref .bsp-tt{color:var(--muted);min-width:0;}
-.bsp-ref .bsp-arr{color:var(--accent3);font-weight:700;}
-.bsp-pane{display:none;}
-.bsp-pane-h{font-family:var(--fdisp);font-weight:800;color:var(--accent3);font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:4px 2px 14px;}
-.bsp-pane-h span{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:13.5px;}
+/* ---------- Beispiel-Karte im Artikel (Farbe Orange = Praxis) ---------- */
 .bsp-card{border:1px solid var(--border);border-top:4px solid var(--accent3);border-radius:14px;background:var(--panel);padding:4px 20px 14px;margin:0 0 18px;transition:box-shadow .35s;}
-.bsp-card.flash{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent3) 40%,transparent);}
-.bsp-card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:9px 0 2px;}
 .bsp-card-n{font-family:var(--fdisp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);white-space:nowrap;}
-.bsp-back{font-size:13px;color:var(--muted);text-align:right;}
 .bsp-card-t{font-family:var(--fdisp);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:2px 0 .7em;}
-/* geteilt: Baum-Spalte entfällt, Artikel rückt nach links, rechts die Beispiel-Seite in gleicher Breite (eigene Scroll-Spalte) */
-.bsp-on .layout.has-bsp{grid-template-columns:minmax(0,1fr);max-width:none;}
-.bsp-on .layout.has-bsp>.side{display:none;}
-.bsp-on .layout.has-bsp>main{grid-column:1;}
-.bsp-on .layout.has-bsp .toc,.bsp-on #toggleRight{display:none;}
-.bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,72ch) minmax(0,72ch);justify-content:center;gap:30px;}
-.bsp-on .layout.has-bsp .article>article{margin-inline:0;}
-.bsp-on .layout.has-bsp .bsp-pane{display:block;position:sticky;top:59px;align-self:start;height:calc(100vh - 59px);overflow:auto;
-  overscroll-behavior:contain;padding:18px 6px 45vh 2px;scrollbar-width:thin;}
-.bsp-on .layout.has-bsp .bsp-ref a{border-color:var(--accent3);}
-.bsp-on .layout.has-bsp .article .katex-display{font-size:1.16em;}   /* schmalere Spalten: lange Formeln passen eher */
-.bsp-pane .katex-display{font-size:1.16em;}
-.bsp-on .layout.has-bsp>.side.open{display:block;position:fixed;top:59px;left:0;bottom:0;width:min(320px,88vw);z-index:30;
-  background:var(--panel);max-height:none;box-shadow:8px 0 30px rgba(0,0,0,.18);align-self:stretch;}   /* Themenbaum als Overlay (stretch: zwischen Leiste und Unterkante) */
-@media(max-width:1179px){   /* zu schmal für zwei Spalten: Beispiel-Seite legt sich über den Artikel */
-  .bsp-on .layout.has-bsp .article{grid-template-columns:minmax(0,1fr);}
-  .bsp-on .layout.has-bsp .bsp-pane{position:fixed;inset:59px 0 0;z-index:25;height:auto;align-self:stretch;background:var(--bg);
-    padding:16px max(14px,calc((100vw - 76ch) / 2)) 64px;}   /* stretch: sonst hängt die Ebene in voller Inhaltshöhe am oberen Rand */
-}
-@media(max-width:720px){ .bsp-on .layout.has-bsp .bsp-pane{top:57px;} .bsp-card{padding:4px 15px 12px;} }
+@media(max-width:720px){ .bsp-card{padding:4px 15px 12px;} }
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
@@ -1288,7 +1178,6 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
   .topbar{gap:8px;padding:10px 12px;} .topbar .searchBtn{padding:8px;}
   .topbar .panelCenter{position:static;transform:none;margin-left:auto;gap:4px;}   /* im Fluss: zwischen Logo und Suche, nichts überlappt */
   .topbar .searchBtn kbd{display:none;}   /* Suchknopf nur mit dem Wort, ohne Tastenhinweis */
-  .topbar .autor-top{display:none;} .autor-art{display:inline-flex;} .side .autor-side{display:inline-flex;margin-bottom:12px;}   /* Handy: Umschalter unter dem Titel und im Themenbaum statt in der Leiste */
   .article{padding:22px 14px 64px;}                               /* etwas Luft an den Rändern auf dem Handy */
   .article p,.article li{font-size:17px;}                         /* Fließtext auf dem Handy nicht verkleinern */
   .article .katex{font-size:1.14em;}                              /* Inline-Formeln auf dem Handy nicht zu klein */
@@ -1381,13 +1270,13 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   if(!layout) return;
   var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
   var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
-  // Knopffarbe: Panel offen = blau (Klasse is-open), zu = grau; aria-pressed folgt „offen".
+  // Knopffarbe: Panel offen = orange (Klasse is-open), zu = Grundfarbe; aria-pressed folgt „offen".
   function mark(btn,open){ if(btn){ btn.classList.toggle("is-open",!!open); btn.setAttribute("aria-pressed",open?"true":"false"); } }
   function L(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
   function S(k,v){ try{ localStorage.setItem(k,v?"1":"0"); }catch(e){} }
-  // Ist der Themenbaum sichtbar? Mobil und in der geteilten Ansicht ist er ein Overlay, sonst eine Spalte.
-  function leftOpen(){ var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");
-    return (mq.matches||split) ? !!(side&&side.classList.contains("open")) : !layout.classList.contains("hide-left"); }
+  // Ist der Themenbaum sichtbar? Mobil ist er ein Overlay, sonst eine Spalte.
+  function leftOpen(){
+    return mq.matches ? !!(side&&side.classList.contains("open")) : !layout.classList.contains("hide-left"); }
   // Rechts (Gliederung): nur am Desktop sinnvoll, Zustand merken.
   if(bR){ if(L("wissen-hide-right")) layout.classList.add("hide-right");
     mark(bR,!layout.classList.contains("hide-right"));
@@ -1396,12 +1285,10 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   if(bL){ if(!mq.matches) layout.classList.add("hide-left");
     mark(bL,leftOpen());
     bL.addEventListener("click",function(){
-      var split=root.classList.contains("bsp-on")&&layout.classList.contains("has-bsp");   // geteilte Ansicht: Baum als Overlay
-      if(mq.matches||split){ if(side) side.classList.toggle("open"); }
+      if(mq.matches){ if(side) side.classList.toggle("open"); }
       else layout.classList.toggle("hide-left");
       mark(bL,leftOpen());
     });
-    document.addEventListener("wissen:layout",function(){ mark(bL,leftOpen()); });   // geteilte Ansicht an/aus
   }
   // Breitenwechsel aufräumen: Overlay nur mobil, am Desktop wieder eingeklappt.
   (mq.addEventListener?mq.addEventListener.bind(mq,"change"):mq.addListener.bind(mq))(function(e){
@@ -1410,71 +1297,8 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
     mark(bL,leftOpen());
   });
 })();
-// Beispiel-Seite (geteilte Ansicht): Theorie links, Beispiele rechts. Beide Spalten laufen synchron – jedes Beispiel
-// steht auf Höhe der Formel, zu der es gehört (Bezugslinie bei 35 % der Fensterhöhe, dazwischen linear überblendet).
-// Zu schmale Fenster: Die Beispiel-Seite legt sich als Ebene über den Artikel.
-(function(){
-  var root=document.documentElement, btn=document.getElementById("toggleBsp"),
-      layout=document.querySelector(".layout.has-bsp"), pane=document.getElementById("bspPane");
-  if(!btn) return;
-  if(!layout||!pane){ root.classList.remove("bsp-on"); return; }
-  var wide=window.matchMedia("(min-width:1180px)"), REF=0.35;
-  var refs=[].slice.call(document.querySelectorAll(".bsp-ref[data-bsp]"));
-  var cards=refs.map(function(r){ return document.getElementById("bsp-"+r.getAttribute("data-bsp")); });
-  function isOn(){ return root.classList.contains("bsp-on"); }
-  function paint(){ var v=isOn(); btn.classList.toggle("is-open",v); btn.setAttribute("aria-pressed",v?"true":"false"); }
-  function set(v,remember){
-    root.classList.toggle("bsp-on",v); paint();
-    var sd=layout.querySelector(".side");                         // Overlay-Baum schließen; seine Knopffarbe folgt über wissen:layout
-    if(sd && !window.matchMedia("(max-width:720px)").matches && sd.classList.contains("open")) sd.classList.remove("open");
-    if(remember && wide.matches){ try{ localStorage.setItem("wissen-split",v?"1":"0"); }catch(e){} }
-    try{ document.dispatchEvent(new Event("wissen:layout")); }catch(e){}   // Spaltenbreite geändert -> Formeln neu einpassen
-    if(v) requestAnimationFrame(sync);
-  }
-  function anchorEl(r){ return r.previousElementSibling || r; }     // Formel/Aussage direkt vor dem Verweis
-  function sync(){
-    if(!isOn() || !wide.matches || !refs.length) return;
-    var ref=window.innerHeight*REF, k=-1, A=[], P=[];
-    for(var i=0;i<refs.length;i++){ A.push(anchorEl(refs[i]).getBoundingClientRect().top); P.push(cards[i].offsetTop); if(A[i]<=ref) k=i; }
-    var p;                                                       // Stelle der Beispiel-Seite, die auf die Bezugslinie gehört
-    if(k<0) p=P[0]-(A[0]-ref);
-    else if(k===refs.length-1) p=P[k]+(ref-A[k]);
-    else { var t=(ref-A[k])/Math.max(1,A[k+1]-A[k]); p=P[k]+t*(P[k+1]-P[k]); }
-    pane.scrollTop=p-(ref-pane.getBoundingClientRect().top);
-  }
-  var tick=false;
-  function later(){ if(tick) return; tick=true; requestAnimationFrame(function(){ tick=false; sync(); }); }
-  window.addEventListener("scroll",later,{passive:true});
-  window.addEventListener("resize",later);
-  window.addEventListener("load",later);                          // nach Schriften/KaTeX noch einmal ausrichten
-  document.addEventListener("toggle",later,true);                 // Herleitung auf-/zugeklappt -> Höhen ändern sich
-  document.addEventListener("wissen:fitted",later);               // Formeln eingepasst -> Höhen ändern sich
-  function flash(c){ if(!c) return; c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash");
-    setTimeout(function(){ c.classList.remove("flash"); },1600); }
-  function toAnchor(i){                                          // Artikel so scrollen, dass die Formel auf der Bezugslinie steht
-    var y=window.scrollY+anchorEl(refs[i]).getBoundingClientRect().top-window.innerHeight*REF;
-    window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
-  }
-  refs.forEach(function(r,i){ var a=r.querySelector("a"); if(!a) return;
-    a.addEventListener("click",function(e){ e.preventDefault(); if(!isOn()) set(true,true);
-      requestAnimationFrame(function(){ if(wide.matches){ toAnchor(i); sync(); } else { pane.scrollTop=cards[i].offsetTop-12; } flash(cards[i]); });
-    }); });
-  [].slice.call(pane.querySelectorAll(".bsp-back")).forEach(function(a){
-    a.addEventListener("click",function(e){ e.preventDefault();
-      var i=refs.indexOf(document.getElementById("bspref-"+a.getAttribute("data-bsp"))); if(i<0) return;
-      if(!wide.matches) set(false,false);
-      requestAnimationFrame(function(){ toAnchor(i); });
-    }); });
-  btn.addEventListener("click",function(){ set(!isOn(),true); });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && isOn() && !wide.matches) set(false,false); });
-  (wide.addEventListener?wide.addEventListener.bind(wide,"change"):wide.addListener.bind(wide))(function(e){
-    if(!e.matches){ set(false,false); }
-    else { var st=false; try{ st=localStorage.getItem("wissen-split")==="1"; }catch(x){} set(st,false); }
-  });
-  paint(); if(isOn()) requestAnimationFrame(sync);
-})();
 // KaTeX automatisch rendern; zu breite abgesetzte Formeln danach passend verkleinern (höchstens auf 70 %),
-// statt sie abzuschneiden – wichtig in der geteilten Ansicht und auf dem Handy.
+// statt sie abzuschneiden – wichtig auf dem Handy.
 (function(){
   function fitMath(){
     var ds=[].slice.call(document.querySelectorAll(".katex-display"));
@@ -1484,7 +1308,6 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
       ds.forEach(function(d,i){ var w=m[i][0],s=m[i][1];          // w=0: eingeklappte Herleitung -> beim Aufklappen
         if(w && s>w+1) d.style.fontSize=(m[i][2]*Math.max(0.7,w/s))+"px"; });
     }
-    try{ document.dispatchEvent(new Event("wissen:fitted")); }catch(e){}   // Höhen haben sich geändert -> Beispiele neu ausrichten
   }
   var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
   window.addEventListener("DOMContentLoaded",function(){
@@ -1495,32 +1318,21 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   window.addEventListener("resize",later);
   window.addEventListener("load",fitMath);
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
-  document.addEventListener("wissen:layout",later);               // geteilte Ansicht an/aus
 })();
-/* Fassung (kompakt | ausführlich) und Autor (KI | Mensch): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht)
-   führen dann zur gewählten Fassung desselben Themas, soweit es sie gibt (data-alt, data-mensch, data-mensch-alt). */
+/* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht) führen dann zur gewählten
+   Fassung desselben Themas, soweit es sie gibt (data-alt). */
 (function(){
   function get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
   function set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   document.addEventListener("click",function(ev){
     var f=ev.target.closest&&ev.target.closest(".fassung .f-btn");
     if(f) set("wissen-fassung",f.getAttribute("data-fassung"));
-    var b=ev.target.closest&&ev.target.closest(".autor .a-btn[data-autor]");
-    if(b){ set("wissen-autor",b.getAttribute("data-autor")); if(b.tagName==="BUTTON"){ paint(); apply(); } }   // Übersicht: nur umschalten
   });
-  function paint(){ var p=get("wissen-autor")||"ki";                 // Knöpfe der Übersicht zeigen die gemerkte Wahl
-    document.querySelectorAll(".autor button.a-btn[data-autor]").forEach(function(b){ b.classList.toggle("on",b.getAttribute("data-autor")===p); }); }
   function apply(){
-    var m=get("wissen-autor")==="mensch", f=get("wissen-fassung")==="ausfuehrlich";
-    document.querySelectorAll("a[data-alt],a[data-mensch]").forEach(function(a){
-      var h=a.getAttribute("data-href0"); if(!h){ h=a.getAttribute("href"); a.setAttribute("data-href0",h); }
-      if(m&&a.getAttribute("data-mensch")) h=(f&&a.getAttribute("data-mensch-alt"))||a.getAttribute("data-mensch");
-      else if(f&&a.getAttribute("data-alt")) h=a.getAttribute("data-alt");
-      a.setAttribute("href",h);
-    });
+    if(get("wissen-fassung")!=="ausfuehrlich") return;
+    document.querySelectorAll("a[data-alt]").forEach(function(a){ a.setAttribute("href",a.getAttribute("data-alt")); });
   }
-  function init(){ paint(); apply(); }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
 })();
 """
 
