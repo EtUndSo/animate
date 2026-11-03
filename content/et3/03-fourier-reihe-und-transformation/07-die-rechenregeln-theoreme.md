@@ -103,7 +103,7 @@ Weil eine Verzögerung keine Schwingung schwächt oder verstärkt, sie verschieb
 :::aufgabe Aufgabe 6 ★★ Theoreme anwenden
 <span class="anker" id="aufg-6"></span>
 
-Benutze $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$ (Stufe [7](rechteck-si-funktion-und-dreieck.html#stufe-7)) und die Theoreme.
+Benutze $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$ (direkt aus der Definition: $\int_{-1/2}^{1/2}\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t=\operatorname{si}(\pi f)$) und die Theoreme.
 
 <ol class="al">
 

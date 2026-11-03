@@ -103,7 +103,7 @@ Porque un retardo no atenúa ni amplifica ninguna oscilación; solo desplaza cad
 :::aufgabe Ejercicio 6 ★★ Aplicar los teoremas
 <span class="anker" id="aufg-6"></span>
 
-Usa $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$ (etapa [7](rechteck-si-funktion-und-dreieck.html#stufe-7)) y los teoremas.
+Usa $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$ (directamente de la definición: $\int_{-1/2}^{1/2}\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t=\operatorname{si}(\pi f)$) y los teoremas.
 
 <ol class="al">
 

@@ -3,7 +3,7 @@ title: Etapa 2: Un primer sistema, el circuito RC
 pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas LTI y convolución
 order: 3210300
 summary: Con el paso bajo RC (fig.
-tags: 
+tags: respuesta en frecuencia
 lang: es
 ---
 
@@ -22,7 +22,7 @@ $$RC\,\frac{\mathrm{d} u_2}{\mathrm{d} t}+u_2=u_1. \tag{2.1}$$
 Paso bajo RC: entrada $u_1$, salida $u_2$ en el condensador. En el modelo de referencia, $RC=1$ s.
 :::
 
-**Entrada $\mathrm{e}^{\mathrm{j}2\pi Ft}$: la salida es un número por la entrada.** Si se aplica $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$, la salida en régimen permanente tiene la misma forma, solo con otra amplitud y otra fase: $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. La razón es que derivar no cambia la forma, $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Sustituyendo en [(2.1)](#gl-2-1):
+**Entrada $\mathrm{e}^{\mathrm{j}2\pi Ft}$: la salida es un número por la entrada.** Si se aplica $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$, la salida en régimen permanente tiene la misma forma, solo con otra amplitud y otra fase: $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. El número $H(F)$ depende de la frecuencia y por eso se llama __respuesta en frecuencia__. La razón es que derivar no cambia la forma, $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Sustituyendo en [(2.1)](#gl-2-1):
 
 $$H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}\,(1+\mathrm{j}2\pi FRC)=\mathrm{e}^{\mathrm{j}2\pi Ft}\quad\Longrightarrow\quad H(F)=\frac{1}{1+\mathrm{j}2\pi FRC}.$$
 

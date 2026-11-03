@@ -42,7 +42,7 @@ Para $k\neq n$, el fasor $\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}$ da exactamente $|k
 :::satz Teorema 2.1 (Serie de Fourier)
 <span class="anker" id="satz-2-1"></span>
 
-Una señal de periodo $T=1/F$ y potencia finita tiene la representación [(2.1)](#gl-2-1) con
+Una señal de periodo $T=1/F$ y potencia finita (la media de $|s(t)|^2$ en un periodo es finita) tiene la representación [(2.1)](#gl-2-1) con
 
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
@@ -71,7 +71,7 @@ es decir, $S_p(0)=1$, $S_p(\pm1)=1$, $S_p(2)=-\tfrac{\mathrm{j}}{2}$, $S_p(-2)=\
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
 
-Con $T_1=T/2$: $S_p(0)=0{,}5$, $S_p(\pm1)=1/\pi=0{,}318$, $S_p(\pm2)=0$, $S_p(\pm3)=-0{,}106$, $S_p(\pm5)=0{,}064$. Faltan los armónicos pares, porque $\sin(\pi k/2)=0$ para $k$ par. Todos los coeficientes son reales porque la señal es par (etapa [5](symmetrien-im-signal-und-im-spektrum.html#stufe-5)). La figura [1](#abb-1) los muestra para dos ciclos de trabajo: cuanto más estrecho es el pulso, más lentamente decrecen los coeficientes.
+Con $T_1=T/2$: $S_p(0)=0{,}5$, $S_p(\pm1)=1/\pi=0{,}318$, $S_p(\pm2)=0$, $S_p(\pm3)=-0{,}106$, $S_p(\pm5)=0{,}064$. Faltan los armónicos pares, porque $\sin(\pi k/2)=0$ para $k$ par. Todos los coeficientes son reales porque la señal es par, $s(-t)=s(t)$: la parte imaginaria de $S_p(k)$ es $-\frac1T\int_{-T/2}^{T/2}s(t)\sin(2\pi kFt)\,\mathrm{d} t$ y se anula porque el integrando es impar: cambia de signo con $t\to-t$, y las contribuciones a la izquierda y a la derecha de cero se cancelan. La figura [1](#abb-1) los muestra para dos ciclos de trabajo: cuanto más estrecho es el pulso, más lentamente decrecen los coeficientes.
 
 :::abbildung et3/k3koeff 1
 Coeficientes de Fourier de la onda cuadrada (0/1) para dos anchuras de pulso. En trazo discontinuo, la envolvente $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$. Con $T_1=T/2$ faltan los armónicos pares; con $T_1=T/4$, uno de cada cuatro.

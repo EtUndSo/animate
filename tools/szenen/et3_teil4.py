@@ -34,8 +34,8 @@ def k4spektrum():
         s.linie(a, (x, 0), (x, 1.3), farbe=ROT, dicke=2, dash=DASH)
     s.text(a, "f_{A}/2", (0.56, 1.17), farbe=ROT, groesse=24)
     b = s.achsen((-2.2, 2.2), (0, 1.35), breite=6.4, hoehe=1.5, mitte=(0, -1.55), xl=xl, xticks=ticks, ymarks=False, yzahlen=False, titel_mitte=True,
-                 titel=s.tr("t2", "f_{A} = 0.5 kHz: Kopien überlappen (Aliasing)", "f_{A} = 0.5 kHz: copies overlap (aliasing)",
-                            "f_{A} = 0.5 kHz: las copias se solapan (aliasing)", "f_{A} = 0.5 kHz：副本相互重叠（混叠）"))
+                 titel=s.tr("t2", "f_{A} = 0.5 kHz: Kopien überlappen", "f_{A} = 0.5 kHz: copies overlap",
+                            "f_{A} = 0.5 kHz: las copias se solapan", "f_{A} = 0.5 kHz：副本相互重叠"))
     achsen_pfeile(s)
     s.kurve(b, summe((2, 1.5, 1, 0.5, -0.5, -1, -1.5, -2), 0.3), farbe=HELLGRAU, dicke=2)
     s.kurve(b, "tri(x/0.3)", x=(-0.3, 0.3), farbe=BLAU, dicke=4)

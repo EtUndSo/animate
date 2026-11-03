@@ -44,7 +44,7 @@ Una señal periódica tiene un __espectro de líneas__: impulsos de Dirac en los
 
 <li>
 
-El __peine de Dirac__ (impulsos con separación $T$) tiene de nuevo un peine de Dirac como espectro, con separación $1/T$ y peso $1/|T|$ (fig. [7](#abb-7)). Este par será decisivo en el muestreo ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
+El __peine de Dirac__ (impulsos con separación $T$) tiene de nuevo un peine de Dirac como espectro, con separación $1/T$ y peso $1/|T|$ (fig. [7](#abb-7)).
 
 </li>
 

@@ -103,7 +103,7 @@ $$\begin{aligned} &\text{叠加：} && \textstyle\sum_ia_is_i(t)\;\circ\!\!-\!\!
 :::aufgabe 练习 6 ★★ 应用定理
 <span class="anker" id="aufg-6"></span>
 
-利用 $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$（第 [7](rechteck-si-funktion-und-dreieck.html#stufe-7) 阶段）和上述定理。
+利用 $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$（直接由定义得到：$\int_{-1/2}^{1/2}\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t=\operatorname{si}(\pi f)$）和上述定理。
 
 <ol class="al">
 

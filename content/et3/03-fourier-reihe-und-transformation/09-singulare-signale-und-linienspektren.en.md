@@ -44,7 +44,7 @@ A periodic signal has a __line spectrum__: Dirac impulses at the harmonics, with
 
 <li>
 
-The __Dirac comb__ (impulses spaced $T$ apart) again has a Dirac comb as its spectrum, with the spacing $1/T$ and the weight $1/|T|$ (Fig. [7](#abb-7)). This pair becomes crucial for sampling ([Part 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
+The __Dirac comb__ (impulses spaced $T$ apart) again has a Dirac comb as its spectrum, with the spacing $1/T$ and the weight $1/|T|$ (Fig. [7](#abb-7)).
 
 </li>
 

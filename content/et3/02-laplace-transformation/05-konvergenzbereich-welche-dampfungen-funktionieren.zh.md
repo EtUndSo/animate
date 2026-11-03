@@ -2,7 +2,7 @@
 title: 收敛域：哪些衰减率可行
 pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
 order: 3220500
-summary: 每个信号都是 $\ee^{pt}$ 的叠加， 以及为什么 LTI 系统的作用因此变成乘法
+summary: 每个信号都是 $\mathrm{e}^{pt}$ 的叠加， 以及为什么 LTI 系统的作用因此变成乘法
 tags: 
 lang: zh
 ---

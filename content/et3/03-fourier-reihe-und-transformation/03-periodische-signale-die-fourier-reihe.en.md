@@ -42,7 +42,7 @@ For $k\neq n$, the phasor $\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}$ makes exactly $|k
 :::satz Theorem 2.1 (Fourier series)
 <span class="anker" id="satz-2-1"></span>
 
-A signal with the period $T=1/F$ and finite power has the representation [(2.1)](#gl-2-1) with
+A signal with the period $T=1/F$ and finite power (the mean of $|s(t)|^2$ over one period is finite) has the representation [(2.1)](#gl-2-1) with
 
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
@@ -71,7 +71,7 @@ so $S_p(0)=1$, $S_p(\pm1)=1$, $S_p(2)=-\tfrac{\mathrm{j}}{2}$, $S_p(-2)=\tfrac{\
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
 
-With $T_1=T/2$: $S_p(0)=0.5$, $S_p(\pm1)=1/\pi=0.318$, $S_p(\pm2)=0$, $S_p(\pm3)=-0.106$, $S_p(\pm5)=0.064$. The even harmonics are missing because $\sin(\pi k/2)=0$ for even $k$. All coefficients are real because the signal is even (Stage [5](symmetrien-im-signal-und-im-spektrum.html#stufe-5)). Figure [1](#abb-1) shows them for two duty cycles: the narrower the pulse, the more slowly the coefficients decay.
+With $T_1=T/2$: $S_p(0)=0.5$, $S_p(\pm1)=1/\pi=0.318$, $S_p(\pm2)=0$, $S_p(\pm3)=-0.106$, $S_p(\pm5)=0.064$. The even harmonics are missing because $\sin(\pi k/2)=0$ for even $k$. All coefficients are real because the signal is even, $s(-t)=s(t)$: the imaginary part of $S_p(k)$ is $-\frac1T\int_{-T/2}^{T/2}s(t)\sin(2\pi kFt)\,\mathrm{d} t$ and vanishes because the integrand is odd: it changes sign under $t\to-t$, so the contributions left and right of zero cancel. Figure [1](#abb-1) shows them for two duty cycles: the narrower the pulse, the more slowly the coefficients decay.
 
 :::abbildung et3/k3koeff 1
 Fourier coefficients of the square wave (0/1) for two pulse widths. Dashed: the envelope $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$. For $T_1=T/2$ the even harmonics are missing, for $T_1=T/4$ every fourth one.

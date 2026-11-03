@@ -44,7 +44,7 @@ $$\begin{aligned} \delta(t)&\;\circ\!\!-\!\!\bullet\;1, & c&\;\circ\!\!-\!\!\bul
 
 <li>
 
-__狄拉克梳状函数（冲激串）__，即间隔为 $T$ 的一串冲激，其频谱仍是狄拉克梳状函数，间隔为 $1/T$，权重为 $1/|T|$（图 [7](#abb-7)）。这个变换对在采样中（[第 4 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)）将起决定性作用。
+__狄拉克梳状函数（冲激串）__，即间隔为 $T$ 的一串冲激，其频谱仍是狄拉克梳状函数，间隔为 $1/T$，权重为 $1/|T|$（图 [7](#abb-7)）。
 
 </li>
 

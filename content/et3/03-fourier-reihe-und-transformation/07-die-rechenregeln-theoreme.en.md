@@ -103,7 +103,7 @@ Because a delay neither attenuates nor amplifies any oscillation; it only shifts
 :::aufgabe Exercise 6 ★★ Applying the theorems
 <span class="anker" id="aufg-6"></span>
 
-Use $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$ (Stage [7](rechteck-si-funktion-und-dreieck.html#stufe-7)) and the theorems.
+Use $\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$ (directly from the definition: $\int_{-1/2}^{1/2}\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t=\operatorname{si}(\pi f)$) and the theorems.
 
 <ol class="al">
 

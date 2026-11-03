@@ -2,7 +2,7 @@
 title: El truco: amortiguar, descomponer, compensar
 pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
 order: 3220400
-summary: Toda señal como superposición de $\ee^{pt}$, y por qué un sistema LTI convierte esto en una multiplicación
+summary: Toda señal como superposición de $\mathrm{e}^{pt}$, y por qué un sistema LTI convierte esto en una multiplicación
 tags: densidad
 lang: es
 ---
@@ -101,5 +101,5 @@ Los bloques aparecen por parejas: a $f$ le corresponde $-f$, es decir, a $p$ el 
 :::
 
 :::frage Entonces, ¿es una suma o una integral?
-En general, una integral: sobre la recta hay un continuo de bloques elementales, cada uno con un peso infinitesimal $S\,\mathrm{d} f$. Una suma propiamente dicha, con un número finito de términos, aparece en un caso importante: cuando $S(p)$ es un cociente de polinomios. Entonces la señal es una suma de bloques situados en los polos (etapa [4](aus-dem-integral-wird-eine-summe.html#stufe-4)). Una suma con infinitos términos es la serie de Fourier de una señal periódica.
+En general, una integral: sobre la recta hay un continuo de bloques elementales, cada uno con un peso infinitesimal $S\,\mathrm{d} f$.
 :::

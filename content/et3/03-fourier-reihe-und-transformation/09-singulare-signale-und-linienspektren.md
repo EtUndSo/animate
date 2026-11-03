@@ -44,7 +44,7 @@ Ein periodisches Signal hat ein __Linienspektrum__: Dirac-Impulse bei den Harmon
 
 <li>
 
-Der __Dirac-Kamm__ (Impulse im Abstand $T$) hat wieder einen Dirac-Kamm als Spektrum, mit dem Abstand $1/T$ und dem Gewicht $1/|T|$ (Abb. [7](#abb-7)). Dieses Paar wird bei der Abtastung ([Teil 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) entscheidend.
+Der __Dirac-Kamm__ (Impulse im Abstand $T$) hat wieder einen Dirac-Kamm als Spektrum, mit dem Abstand $1/T$ und dem Gewicht $1/|T|$ (Abb. [7](#abb-7)).
 
 </li>
 

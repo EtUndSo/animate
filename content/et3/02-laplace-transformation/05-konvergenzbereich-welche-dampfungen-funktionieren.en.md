@@ -2,7 +2,7 @@
 title: Region of convergence: which damping rates work
 pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
 order: 3220500
-summary: Every signal as a superposition of $\ee^{pt}$, and why an LTI system turns this into a multiplication
+summary: Every signal as a superposition of $\mathrm{e}^{pt}$, and why an LTI system turns this into a multiplication
 tags: 
 lang: en
 ---

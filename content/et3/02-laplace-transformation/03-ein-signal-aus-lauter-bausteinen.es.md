@@ -3,7 +3,7 @@ title: Etapa 2: Una señal hecha solo de bloques elementales
 pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
 order: 3220300
 summary: La etapa 1 vale para un solo bloque elemental.
-tags: absolutamente integrable
+tags: absolutamente integrable, representación de Fourier, espectro
 lang: es
 ---
 
@@ -17,7 +17,7 @@ La etapa [1](warum-gerade.html#stufe-1) vale para un solo bloque elemental. Sol
 
 <span class="anker" id="stufe-2-1"></span>
 
-Sobre el eje imaginario ($\sigma=0$), los bloques elementales son oscilaciones puras $\mathrm{e}^{\mathrm{j}2\pi ft}$. Una señal __absolutamente integrable__ ($\int|s(t)|\,\mathrm{d} t<\infty$, es decir, que decae con suficiente rapidez hacia ambos lados) puede componerse a partir de ellas. Es la representación de Fourier, que se trata en detalle en la parte dedicada a la transformada de Fourier:
+Sobre el eje imaginario ($\sigma=0$), los bloques elementales son oscilaciones puras $\mathrm{e}^{\mathrm{j}2\pi ft}$. Una señal __absolutamente integrable__ ($\int|s(t)|\,\mathrm{d} t<\infty$, es decir, que decae con suficiente rapidez hacia ambos lados) puede componerse a partir de ellas. Es la __representación de Fourier__. Aquí basta con su fórmula. La función $\mathcal{F}\{s\}(f)$ se llama __espectro__ e indica el peso de la oscilación de frecuencia $f$:
 
 $$s(t)=\int_{-\infty}^{\infty}\mathcal{F}\{s\}(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f,\qquad \mathcal{F}\{s\}(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t.$$
 

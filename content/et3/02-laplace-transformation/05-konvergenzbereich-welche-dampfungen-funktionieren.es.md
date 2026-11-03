@@ -2,7 +2,7 @@
 title: Región de convergencia: qué amortiguamientos funcionan
 pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
 order: 3220500
-summary: Toda señal como superposición de $\ee^{pt}$, y por qué un sistema LTI convierte esto en una multiplicación
+summary: Toda señal como superposición de $\mathrm{e}^{pt}$, y por qué un sistema LTI convierte esto en una multiplicación
 tags: 
 lang: es
 ---

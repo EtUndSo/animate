@@ -27,7 +27,7 @@ lang: de
 
 <li>
 
-⁠**RC-Tiefpass** mit $RC=1$ s, $H(f)=1/(1+\mathrm{j}2\pi f\,RC)$. Bei der $k$-ten Harmonischen der Rechteckschwingung ist $2\pi kF\cdot RC=k$, also $H(kF)=1/(1+\mathrm{j} k)$.
+⁠**RC-Tiefpass** mit $RC=1$ s, $H(f)=1/(1+\mathrm{j}2\pi f\,RC)$. Bei der $k$-ten Harmonischen der Rechteckschwingung (ihrem Anteil mit der Frequenz $kF$) ist $2\pi kF\cdot RC=k$, also $H(kF)=1/(1+\mathrm{j} k)$.
 
 </li>
 

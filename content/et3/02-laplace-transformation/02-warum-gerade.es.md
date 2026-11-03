@@ -71,7 +71,7 @@ Elemento de retardo ideal de $T$: $H(p)=\mathrm{e}^{-pT}$ tiene el mismo valor 1
 
 <li>
 
-Paso bajo ideal sin retardo, $H(f)=1$ en toda la banda de paso: toda señal cuyo espectro esté por completo dentro de la banda de paso sale sin cambios y es una función propia con valor propio 1.
+Paso bajo ideal sin retardo, $H(f)=1$ en toda la banda de paso: toda señal formada solo por oscilaciones con frecuencias dentro de la banda de paso sale sin cambios y es una función propia con valor propio 1.
 
 </li>
 

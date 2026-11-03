@@ -9,7 +9,7 @@ lang: es
 
 <span class="anker" id="stufe-10"></span>
 
-:::frage La convolución tiene sentido cuando una señal pasa de verdad por un sistema. ¿Qué significa cuando no hay ningún sistema en juego?
+:::frage La convolución suele explicarse con un sistema por el que pasa una señal. ¿Qué significa cuando no hay ningún sistema en juego?
 La convolución es una operación de cálculo con un significado propio y general: *para cada forma de repartir un resultado en dos partes, se multiplican los pesos de ambas partes y se suma sobre todos los repartos.* El sistema es una interpretación de esto (primera parte: cuándo llegó el impulso; segunda parte: qué edad tiene), no la única.
 
 ⁠**Ejemplo sin sistema y sin tiempo: dos dados.** ¿Con qué probabilidad la suma de los dados es $k$? Cada reparto $k=i+(k-i)$ contribuye con la probabilidad $P_1(i)\,P_2(k-i)$:

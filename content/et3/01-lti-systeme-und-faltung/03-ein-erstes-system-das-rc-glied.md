@@ -3,7 +3,7 @@ title: Stufe 2: Ein erstes System, das RC-Glied
 pfad: Elektrotechnik / 3. Semester / Signale und Systeme / LTI-Systeme und Faltung
 order: 3210300
 summary: Am RC-Tiefpass (Abb.
-tags: 
+tags: Frequenzgang
 lang: de
 ---
 
@@ -22,7 +22,7 @@ $$RC\,\frac{\mathrm{d} u_2}{\mathrm{d} t}+u_2=u_1. \tag{2.1}$$
 RC-Tiefpass: Eingang $u_1$, Ausgang $u_2$ am Kondensator. Im Rechenmodell ist $RC=1$ s.
 :::
 
-**Eingang $\mathrm{e}^{\mathrm{j}2\pi Ft}$: der Ausgang ist eine Zahl mal der Eingang.** Legt man $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$ an, hat der Ausgang im eingeschwungenen Zustand dieselbe Form, nur mit anderer Amplitude und Phase: $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Der Grund ist, dass Ableiten die Form nicht ändert, $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Eingesetzt in [(2.1)](#gl-2-1):
+**Eingang $\mathrm{e}^{\mathrm{j}2\pi Ft}$: der Ausgang ist eine Zahl mal der Eingang.** Legt man $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$ an, hat der Ausgang im eingeschwungenen Zustand dieselbe Form, nur mit anderer Amplitude und Phase: $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Die Zahl $H(F)$ hängt von der Frequenz ab und heißt deshalb __Frequenzgang__. Der Grund ist, dass Ableiten die Form nicht ändert, $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Eingesetzt in [(2.1)](#gl-2-1):
 
 $$H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}\,(1+\mathrm{j}2\pi FRC)=\mathrm{e}^{\mathrm{j}2\pi Ft}\quad\Longrightarrow\quad H(F)=\frac{1}{1+\mathrm{j}2\pi FRC}.$$
 

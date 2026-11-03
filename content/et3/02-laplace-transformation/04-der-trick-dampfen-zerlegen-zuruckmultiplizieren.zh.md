@@ -2,7 +2,7 @@
 title: 技巧：衰减、分解、再乘回
 pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
 order: 3220400
-summary: 每个信号都是 $\ee^{pt}$ 的叠加， 以及为什么 LTI 系统的作用因此变成乘法
+summary: 每个信号都是 $\mathrm{e}^{pt}$ 的叠加， 以及为什么 LTI 系统的作用因此变成乘法
 tags: 密度
 lang: zh
 ---
@@ -101,5 +101,5 @@ $$s(t)=\frac{1}{2\pi\mathrm{j}}\int_{\sigma-\mathrm{j}\infty}^{\sigma+\mathrm{j}
 :::
 
 :::frage 那么它到底是求和还是积分？
-一般是积分：直线上分布着连续的基本分量，每个的权重都是无穷小量 $S\,\mathrm{d} f$。在一种重要情形下会出现真正的有限项求和：$S(p)$ 是多项式之比时。此时信号是位于各极点处的基本分量之和（第 [4](aus-dem-integral-wird-eine-summe.html#stufe-4) 阶段）。无穷多项之和则是周期信号的傅里叶级数。
+一般是积分：直线上分布着连续的基本分量，每个的权重都是无穷小量 $S\,\mathrm{d} f$。
 :::

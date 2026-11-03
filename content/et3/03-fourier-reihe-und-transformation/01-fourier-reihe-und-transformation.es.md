@@ -27,7 +27,7 @@ La [parte 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-t
 
 <li>
 
-⁠**Paso bajo RC** con $RC=1$ s, $H(f)=1/(1+\mathrm{j}2\pi f\,RC)$. En el $k$-ésimo armónico de la onda cuadrada, $2\pi kF\cdot RC=k$, es decir, $H(kF)=1/(1+\mathrm{j} k)$.
+⁠**Paso bajo RC** con $RC=1$ s, $H(f)=1/(1+\mathrm{j}2\pi f\,RC)$. En el $k$-ésimo armónico de la onda cuadrada (su componente de frecuencia $kF$), $2\pi kF\cdot RC=k$, es decir, $H(kF)=1/(1+\mathrm{j} k)$.
 
 </li>
 

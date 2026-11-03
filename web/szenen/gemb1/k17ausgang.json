@@ -1,0 +1,1025 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 49,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      5
+     ],
+     "y_range": [
+      0,
+      7
+     ],
+     "x_length": 4.0,
+     "y_length": 3.3,
+     "origin": [
+      -1.42,
+      -0.05,
+      0
+     ],
+     "title": "",
+     "x_label": "@a_V_DSV",
+     "y_label": "@a_I_DmA",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;1;2;3;4;5",
+     "y_ticks": "0;2;4;6",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Area",
+    "props": {
+     "func": "0.863283/2*x*x",
+     "func2": "7",
+     "x_min": 0,
+     "x_max": 3.81,
+     "samples": 120,
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.13,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.863283/2*x*x",
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "2,5",
+     "x_range": [
+      0,
+      3.81
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n0.0114691 0.00664302\n0.0229381 0.0131725\n0.0344072 0.0195884\n0.0458763 0.0258907\n0.0573453 0.0320795\n0.0688144 0.0381548\n0.0802835 0.0441164\n0.0917525 0.0499646\n0.103222 0.0556991\n0.114691 0.0613201\n0.12616 0.0668276\n0.137629 0.0722215\n0.149098 0.0775019\n0.160567 0.0826686\n0.172036 0.0877219\n0.183505 0.0926616\n0.194974 0.0974877\n0.206443 0.1022\n0.217912 0.106799\n0.229381 0.111285\n0.24085 0.115657\n0.252319 0.119915\n0.263789 0.12406\n0.275258 0.128091\n0.286727 0.132009\n0.298196 0.135813\n0.309665 0.139503\n0.321134 0.14308\n0.332603 0.146544\n0.344072 0.149894\n0.355541 0.15313\n0.36701 0.156253\n0.378479 0.159262\n0.389948 0.162158\n0.401417 0.16494\n0.412886 0.167608\n0.424355 0.170163\n0.435824 0.172605\n0.447294 0.174933\n0.458763 0.177147\n0.470232 0.179248\n0.481701 0.181235\n0.49317 0.183109\n0.504639 0.184869\n0.516108 0.186515\n0.527577 0.188048\n0.539046 0.189468\n0.550515 0.190774\n0.561984 0.191966\n0.573453 0.193045\n0.584922 0.19401\n0.596391 0.194862\n0.60786 0.1956\n0.61933 0.196224\n0.630799 0.196735\n0.642268 0.197133\n0.653737 0.197417\n0.665206 0.197587\n0.676675 0.197644\n5 0.197644",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "DataCurve",
+    "props": {
+     "data": "0.676675 0.197644\n0.688342 0.197585\n0.700008 0.197409\n0.711675 0.197115\n0.723342 0.196704\n0.735009 0.196175\n0.746676 0.195529\n0.758343 0.194765\n0.770009 0.193884\n0.781676 0.192885\n0.793343 0.191769\n0.80501 0.190535\n0.816677 0.189184\n0.828343 0.187715\n0.84001 0.186128\n0.851677 0.184425\n0.863344 0.182603\n0.875011 0.180664\n0.886677 0.178608\n0.898344 0.176434\n0.910011 0.174143\n0.921678 0.171734\n0.933345 0.169208\n0.945011 0.166564\n0.956678 0.163802\n0.968345 0.160924\n0.980012 0.157927\n0.991679 0.154813\n1.00335 0.151582\n1.01501 0.148233",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.6766748788928384,
+      0.19764391914461057,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "V_{GS} = 1 V",
+     "position": [
+      4.95,
+      0.4976439191446106,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n0.0284182 0.0407852\n0.0568364 0.0808733\n0.0852547 0.120264\n0.113673 0.158958\n0.142091 0.196954\n0.170509 0.234254\n0.198928 0.270856\n0.227346 0.306761\n0.255764 0.341968\n0.284182 0.376479\n0.3126 0.410292\n0.341019 0.443409\n0.369437 0.475828\n0.397855 0.50755\n0.426273 0.538574\n0.454691 0.568902\n0.48311 0.598532\n0.511528 0.627465\n0.539946 0.655701\n0.568364 0.68324\n0.596783 0.710081\n0.625201 0.736226\n0.653619 0.761673\n0.682037 0.786423\n0.710455 0.810476\n0.738874 0.833831\n0.767292 0.85649\n0.79571 0.878451\n0.824128 0.899715\n0.852547 0.920282\n0.880965 0.940152\n0.909383 0.959324\n0.937801 0.9778\n0.966219 0.995578\n0.994638 1.01266\n1.02306 1.02904\n1.05147 1.04473\n1.07989 1.05972\n1.10831 1.07401\n1.13673 1.08761\n1.16515 1.1005\n1.19357 1.1127\n1.22198 1.12421\n1.2504 1.13501\n1.27882 1.14512\n1.30724 1.15454\n1.33566 1.16325\n1.36407 1.17127\n1.39249 1.17859\n1.42091 1.18521\n1.44933 1.19114\n1.47775 1.19637\n1.50617 1.2009\n1.53458 1.20473\n1.563 1.20787\n1.59142 1.21031\n1.61984 1.21205\n1.64826 1.2131\n1.67667 1.21345\n5 1.21345",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o10",
+    "type": "DataCurve",
+    "props": {
+     "data": "1.67667 1.21345\n1.70558 1.21309\n1.73449 1.212\n1.7634 1.2102\n1.79231 1.20768\n1.82122 1.20443\n1.85012 1.20046\n1.87903 1.19577\n1.90794 1.19036\n1.93685 1.18423\n1.96576 1.17738\n1.99466 1.1698\n2.02357 1.1615\n2.05248 1.15249\n2.08139 1.14275\n2.1103 1.13229\n2.13921 1.1211\n2.16811 1.1092\n2.19702 1.09658\n2.22593 1.08323\n2.25484 1.06916\n2.28375 1.05437\n2.31266 1.03886\n2.34156 1.02263\n2.37047 1.00568\n2.39938 0.988\n2.42829 0.969604\n2.4572 0.950486\n2.4861 0.930647\n2.51501 0.910086",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1.6766748788928383,
+      1.2134477039774065,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "V_{GS} = 2 V",
+     "position": [
+      4.95,
+      1.5134477039774066,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o13",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n0.0453674 0.103943\n0.0907347 0.20611\n0.136102 0.306499\n0.181469 0.405112\n0.226837 0.501948\n0.272204 0.597008\n0.317572 0.69029\n0.362939 0.781796\n0.408306 0.871524\n0.453674 0.959476\n0.499041 1.04565\n0.544408 1.13005\n0.589776 1.21267\n0.635143 1.29352\n0.680511 1.37258\n0.725878 1.44988\n0.771245 1.52539\n0.816613 1.59913\n0.86198 1.67109\n0.907347 1.74127\n0.952715 1.80968\n0.998082 1.87631\n1.04345 1.94116\n1.08882 2.00424\n1.13418 2.06554\n1.17955 2.12506\n1.22492 2.18281\n1.27029 2.23878\n1.31565 2.29297\n1.36102 2.34539\n1.40639 2.39603\n1.45176 2.44489\n1.49712 2.49197\n1.54249 2.53728\n1.58786 2.58081\n1.63323 2.62257\n1.67859 2.66255\n1.72396 2.70075\n1.76933 2.73717\n1.81469 2.77182\n1.86006 2.80469\n1.90543 2.83579\n1.9508 2.8651\n1.99616 2.89264\n2.04153 2.91841\n2.0869 2.94239\n2.13227 2.9646\n2.17763 2.98504\n2.223 3.00369\n2.26837 3.02057\n2.31374 3.03568\n2.3591 3.049\n2.40447 3.06055\n2.44984 3.07032\n2.49521 3.07832\n2.54057 3.08454\n2.58594 3.08898\n2.63131 3.09165\n2.67667 3.09253\n5 3.09253",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o14",
+    "type": "DataCurve",
+    "props": {
+     "data": "2.67667 3.09253\n2.72282 3.09162\n2.76897 3.08886\n2.81512 3.08426\n2.86127 3.07783\n2.90742 3.06955\n2.95357 3.05944\n2.99972 3.04749\n3.04587 3.0337\n3.09202 3.01807\n3.13817 3.0006\n3.18432 2.9813\n3.23047 2.96016\n3.27662 2.93717\n3.32277 2.91235\n3.36892 2.88569\n3.41507 2.85719\n3.46122 2.82686\n3.50737 2.79468\n3.55352 2.76067\n3.59967 2.72481\n3.64582 2.68712\n3.69197 2.64759\n3.73811 2.60622\n3.78426 2.56302\n3.83041 2.51797\n3.87656 2.47109\n3.92271 2.42236\n3.96886 2.3718\n4.01501 2.3194",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o15",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.6766748788928383,
+      3.092534799310203,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "V_{GS} = 3 V",
+     "position": [
+      4.95,
+      3.392534799310203,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o17",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0\n0.0623165 0.196117\n0.124633 0.388882\n0.18695 0.578294\n0.249266 0.764354\n0.311583 0.947062\n0.373899 1.12642\n0.436216 1.30242\n0.498532 1.47507\n0.560849 1.64437\n0.623165 1.81031\n0.685482 1.97291\n0.747798 2.13215\n0.810115 2.28803\n0.872431 2.44057\n0.934748 2.58975\n0.997064 2.73558\n1.05938 2.87806\n1.1217 3.01719\n1.18401 3.15296\n1.24633 3.28538\n1.30865 3.41445\n1.37096 3.54017\n1.43328 3.66253\n1.4956 3.78154\n1.55791 3.8972\n1.62023 4.00951\n1.68255 4.11846\n1.74486 4.22406\n1.80718 4.32631\n1.8695 4.42521\n1.93181 4.52075\n1.99413 4.61294\n2.05645 4.70178\n2.11876 4.78727\n2.18108 4.86941\n2.24339 4.94819\n2.30571 5.02362\n2.36803 5.09569\n2.43034 5.16442\n2.49266 5.22979\n2.55498 5.29181\n2.61729 5.35048\n2.67961 5.40579\n2.74193 5.45776\n2.80424 5.50637\n2.86656 5.55162\n2.92888 5.59353\n2.99119 5.63208\n3.05351 5.66728\n3.11583 5.69913\n3.17814 5.72763\n3.24046 5.75277\n3.30278 5.77456\n3.36509 5.793\n3.42741 5.80809\n3.48973 5.81982\n3.55204 5.8282\n3.61436 5.83323\n3.67667 5.83491\n5 5.83491",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o18",
+    "type": "DataCurve",
+    "props": {
+     "data": "3.67667 5.83491\n3.72231 5.83401\n3.76794 5.83131\n3.81357 5.82682\n3.8592 5.82052\n3.90483 5.81244\n3.95047 5.80255\n3.9961 5.79086\n4.04173 5.77738\n4.08736 5.7621\n4.13299 5.74503\n4.17863 5.72615\n4.22426 5.70548\n4.26989 5.68301\n4.31552 5.65874\n4.36115 5.63268\n4.40679 5.60481\n4.45242 5.57515\n4.49805 5.5437\n4.54368 5.51044\n4.58931 5.47539\n4.63494 5.43854\n4.68058 5.39989\n4.72621 5.35944\n4.77184 5.3172\n4.81747 5.27316\n4.8631 5.22732\n4.90874 5.17968\n4.95437 5.13025\n5 5.07902",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o19",
+    "type": "Dot",
+    "props": {
+     "center": [
+      3.6766748788928383,
+      5.834905205142999,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "V_{GS} = 4 V",
+     "position": [
+      4.95,
+      6.134905205142998,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o21",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      1.384676310381263,
+      3.2,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o22",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      1.2601232264382105,
+      4.0,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@unges",
+     "position": [
+      0.08,
+      6.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@satt",
+     "position": [
+      4.95,
+      6.72,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o25",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.35,
+      1.35
+     ],
+     "y_range": [
+      -0.55,
+      0.3
+     ],
+     "x_length": 2.0,
+     "y_length": 0.72,
+     "origin": [
+      2.2,
+      1.35,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Band",
+    "props": {
+     "x_min": -0.35,
+     "x_max": 1.35,
+     "y_min": -0.55,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.2,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o25"
+   },
+   {
+    "id": "o27",
+    "type": "Band",
+    "props": {
+     "x_min": -0.35,
+     "x_max": 0,
+     "y_min": -0.26,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o25"
+   },
+   {
+    "id": "o28",
+    "type": "Band",
+    "props": {
+     "x_min": 1,
+     "x_max": 1.35,
+     "y_min": -0.26,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o25"
+   },
+   {
+    "id": "o29",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1,
+     "y_min": 0,
+     "y_max": 0.09,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o25"
+   },
+   {
+    "id": "o30",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1,
+     "y_min": 0.09,
+     "y_max": 0.26,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 0.65,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o25"
+   },
+   {
+    "id": "o31",
+    "type": "Area",
+    "props": {
+     "func": "-0.17*sqrt(1-0.60762*x)",
+     "func2": "0",
+     "x_min": 0,
+     "x_max": 1,
+     "samples": 120,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0
+    },
+    "on": "o25"
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "@s1",
+     "position": [
+      0.5,
+      0.42,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o25"
+   },
+   {
+    "id": "o33",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.35,
+      1.35
+     ],
+     "y_range": [
+      -0.55,
+      0.3
+     ],
+     "x_length": 2.0,
+     "y_length": 0.72,
+     "origin": [
+      2.2,
+      0.05,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Band",
+    "props": {
+     "x_min": -0.35,
+     "x_max": 1.35,
+     "y_min": -0.55,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.2,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o33"
+   },
+   {
+    "id": "o35",
+    "type": "Band",
+    "props": {
+     "x_min": -0.35,
+     "x_max": 0,
+     "y_min": -0.26,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o33"
+   },
+   {
+    "id": "o36",
+    "type": "Band",
+    "props": {
+     "x_min": 1,
+     "x_max": 1.35,
+     "y_min": -0.26,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o33"
+   },
+   {
+    "id": "o37",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1,
+     "y_min": 0,
+     "y_max": 0.09,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o33"
+   },
+   {
+    "id": "o38",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1,
+     "y_min": 0.09,
+     "y_max": 0.26,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 0.65,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o33"
+   },
+   {
+    "id": "o39",
+    "type": "Area",
+    "props": {
+     "func": "-0.17*sqrt(max(1-x/0.86,0))",
+     "func2": "0",
+     "x_min": 0,
+     "x_max": 0.86,
+     "samples": 120,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0
+    },
+    "on": "o33"
+   },
+   {
+    "id": "o40",
+    "type": "Text",
+    "props": {
+     "text": "@s2",
+     "position": [
+      0.5,
+      0.42,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o33"
+   },
+   {
+    "id": "o41",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.35,
+      1.35
+     ],
+     "y_range": [
+      -0.55,
+      0.3
+     ],
+     "x_length": 2.0,
+     "y_length": 0.72,
+     "origin": [
+      2.2,
+      -1.25,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Band",
+    "props": {
+     "x_min": -0.35,
+     "x_max": 1.35,
+     "y_min": -0.55,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.2,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o41"
+   },
+   {
+    "id": "o43",
+    "type": "Band",
+    "props": {
+     "x_min": -0.35,
+     "x_max": 0,
+     "y_min": -0.26,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o41"
+   },
+   {
+    "id": "o44",
+    "type": "Band",
+    "props": {
+     "x_min": 1,
+     "x_max": 1.35,
+     "y_min": -0.26,
+     "y_max": 0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o41"
+   },
+   {
+    "id": "o45",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1,
+     "y_min": 0,
+     "y_max": 0.09,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o41"
+   },
+   {
+    "id": "o46",
+    "type": "Band",
+    "props": {
+     "x_min": 0,
+     "x_max": 1,
+     "y_min": 0.09,
+     "y_max": 0.26,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 0.65,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o41"
+   },
+   {
+    "id": "o47",
+    "type": "Area",
+    "props": {
+     "func": "-0.17*sqrt(max(1-x/0.86,0))",
+     "func2": "0",
+     "x_min": 0,
+     "x_max": 0.86,
+     "samples": 120,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "stroke_width": 0
+    },
+    "on": "o41"
+   },
+   {
+    "id": "o48",
+    "type": "Text",
+    "props": {
+     "text": "@s3",
+     "position": [
+      0.5,
+      0.42,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o41"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "a_V_DSV": {
+    "de": "V_{DS} in V",
+    "en": "V_{DS} in V",
+    "es": "V_{DS} en V",
+    "zh": "V_{DS} / V"
+   },
+   "a_I_DmA": {
+    "de": "I_D in mA",
+    "en": "I_D in mA",
+    "es": "I_D en mA",
+    "zh": "I_D / mA"
+   },
+   "unges": {
+    "de": "ungesättigt",
+    "en": "unsaturated",
+    "es": "no saturada",
+    "zh": "非饱和"
+   },
+   "satt": {
+    "de": "Sättigung",
+    "en": "saturation",
+    "es": "saturación",
+    "zh": "饱和"
+   },
+   "s1": {
+    "de": "V_{DS} < V_{DS,sat}",
+    "en": "V_{DS} < V_{DS,sat}",
+    "es": "V_{DS} < V_{DS,sat}",
+    "zh": "V_{DS} < V_{DS,sat}"
+   },
+   "s2": {
+    "de": "V_{DS} = V_{DS,sat}",
+    "en": "V_{DS} = V_{DS,sat}",
+    "es": "V_{DS} = V_{DS,sat}",
+    "zh": "V_{DS} = V_{DS,sat}"
+   },
+   "s3": {
+    "de": "V_{DS} > V_{DS,sat}",
+    "en": "V_{DS} > V_{DS,sat}",
+    "es": "V_{DS} > V_{DS,sat}",
+    "zh": "V_{DS} > V_{DS,sat}"
+   }
+  }
+ }
+}

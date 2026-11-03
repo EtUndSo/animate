@@ -2,14 +2,14 @@
 title: Stufe 5: Warum man auch den Eingang transformiert
 pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
 order: 3220800
-summary: Jedes Signal als Überlagerung von $\ee^{pt}$, und warum ein LTI-System daraus eine Multiplikation macht
+summary: Jedes Signal als Überlagerung von $\mathrm{e}^{pt}$, und warum ein LTI-System daraus eine Multiplikation macht
 tags: 
 lang: de
 ---
 
 <span class="anker" id="stufe-5"></span>
 
-:::frage Es ergibt Sinn, $h(t)$ zu transformieren, damit man $H(p)$ mit Eigenfunktionen multiplizieren und den Ausgang bestimmen kann. Aber $s(t)$ zu transformieren, ergibt doch erst mal keinen Sinn, damit kann man systemtheoretisch nichts anfangen. Klar, $s*h=h*s$, aber $h(t)$ ist meistens keine Eigenfunktion, man kann also nicht $h(t)\cdot S(p)$ schreiben. Welche systembezogene Bedeutung hat es, ein beliebiges Signal zu transformieren?
+:::frage Die Transformation von $h(t)$ ist nützlich: $H(p)$ multipliziert die Eigenfunktionen, und daraus folgt der Ausgang. Wozu aber das Eingangssignal $s(t)$ transformieren? Zwar ist $s*h=h*s$, doch $h(t)$ ist meist keine Eigenfunktion, $h(t)\cdot S(p)$ ergibt also keinen Sinn. Welche Bedeutung für das System hat es, ein beliebiges Signal zu transformieren?
 ⁠**Was an der Frage stimmt:** $H(p)$ sagt, was das System mit einem Baustein $\mathrm{e}^{pt}$ macht. Und $h(t)\cdot S(p)$ ergibt tatsächlich keinen Sinn.
 
 ⁠**Wo der Denkfehler liegt:** Auch der Eingang ist fast nie eine Eigenfunktion. Ein Sprung, ein Sprachsignal, ein Rechteckimpuls sind keine einzelnen Bausteine $\mathrm{e}^{pt}$. Deshalb ergibt $H(p)\cdot s(t)$ genauso wenig Sinn wie $h(t)\cdot S(p)$: $H(p)$ darf nur auf einen Baustein angewandt werden, und für ein beliebiges $s(t)$ ist gar nicht klar, welches $p$ gemeint sein soll. Bevor $H(p)$ irgendetwas tun kann, muss der Eingang in Bausteine zerlegt sein. Genau das leistet $S(p)$.

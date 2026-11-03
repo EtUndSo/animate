@@ -3,7 +3,7 @@ title: Stage 2: A first system, the RC circuit
 pfad: Electrical Engineering / 3rd Semester / Signals and Systems / LTI Systems and Convolution
 order: 3210300
 summary: With the RC low-pass (Fig.
-tags: 
+tags: frequency response
 lang: en
 ---
 
@@ -22,7 +22,7 @@ $$RC\,\frac{\mathrm{d} u_2}{\mathrm{d} t}+u_2=u_1. \tag{2.1}$$
 RC low-pass: input $u_1$, output $u_2$ across the capacitor. In the reference model $RC=1$ s.
 :::
 
-**Input $\mathrm{e}^{\mathrm{j}2\pi Ft}$: the output is a number times the input.** If $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$ is applied, the output in the steady state has the same form, only with a different amplitude and phase: $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. The reason is that differentiation does not change the form, $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Substituting into [(2.1)](#gl-2-1):
+**Input $\mathrm{e}^{\mathrm{j}2\pi Ft}$: the output is a number times the input.** If $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$ is applied, the output in the steady state has the same form, only with a different amplitude and phase: $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. The number $H(F)$ depends on the frequency and is therefore called the __frequency response__. The reason is that differentiation does not change the form, $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Substituting into [(2.1)](#gl-2-1):
 
 $$H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}\,(1+\mathrm{j}2\pi FRC)=\mathrm{e}^{\mathrm{j}2\pi Ft}\quad\Longrightarrow\quad H(F)=\frac{1}{1+\mathrm{j}2\pi FRC}.$$
 

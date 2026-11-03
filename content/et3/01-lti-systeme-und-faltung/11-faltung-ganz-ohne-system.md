@@ -9,7 +9,7 @@ lang: de
 
 <span class="anker" id="stufe-10"></span>
 
-:::frage Die Faltung ergibt Sinn, wenn ein Signal wirklich durch ein System geht. Was bedeutet sie, wenn kein System im Spiel ist?
+:::frage Die Faltung wird meist an einem System erklärt, durch das ein Signal läuft. Was bedeutet sie, wenn gar kein System im Spiel ist?
 Die Faltung ist eine Rechenoperation mit einer eigenen, allgemeinen Bedeutung: *Für jede Art, ein Ergebnis in zwei Anteile aufzuteilen, multipliziert man die Gewichte der beiden Anteile und summiert über alle Aufteilungen.* Das System ist eine Deutung davon (Anteil 1: wann kam der Stoß, Anteil 2: wie alt ist er), nicht die einzige.
 
 ⁠**Beispiel ohne System und ohne Zeit: zwei Würfel.** Mit welcher Wahrscheinlichkeit ist die Augensumme $k$? Jede Aufteilung $k=i+(k-i)$ trägt bei, mit der Wahrscheinlichkeit $P_1(i)\,P_2(k-i)$:

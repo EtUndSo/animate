@@ -114,8 +114,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article figure.abb img{display:block;margin:0 auto;max-width:100%;height:auto;border-radius:8px;background:#fff;}
 .article figure.abb figcaption{margin:9px 4px 0;font-size:14.5px;line-height:1.5;color:var(--muted);}
 .article figure.abb .abb-n{font-family:var(--fdisp);font-weight:700;color:var(--accent);margin-right:4px;}
-.article figure.abb .abb-edit{margin-left:8px;font-size:12.5px;font-weight:600;white-space:nowrap;}
-.article figure.abb .abb-edit::after{content:" ↗";}
+/* Knopf unter dem Bild: öffnet genau die Szene, aus der das Bild exportiert wurde (web/szenen/<name>.json) */
+.article figure.abb .abb-knopf{display:flex;justify-content:flex-end;margin:8px 2px 0;}
+.article figure.abb .abb-edit{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--accent);border-radius:8px;
+  background:var(--panel);color:var(--accent);font-size:13px;font-weight:600;line-height:1.3;white-space:nowrap;}
+.article figure.abb .abb-edit:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 10%,var(--panel));}
 /* Fassung wählen: kompakt | ausführlich, jeweils mit Lesezeit */
 .fassung{display:inline-flex;margin:.1em 0 1.2em;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);}
 .fassung .f-btn{display:flex;align-items:baseline;gap:8px;padding:7px 15px;color:var(--muted);font-weight:600;font-size:14.5px;}

@@ -71,7 +71,7 @@ Ideales Laufzeitglied um $T$: $H(p)=\mathrm{e}^{-pT}$ hat an allen Stellen $p_k=
 
 <li>
 
-Idealer Tiefpass ohne Laufzeit, $H(f)=1$ im ganzen Durchlassbereich: Jedes Signal, dessen Spektrum ganz im Durchlassbereich liegt, kommt unverändert heraus und ist eine Eigenfunktion mit dem Eigenwert 1.
+Idealer Tiefpass ohne Laufzeit, $H(f)=1$ im ganzen Durchlassbereich: Jedes Signal, das nur aus Schwingungen mit Frequenzen im Durchlassbereich besteht, kommt unverändert heraus und ist eine Eigenfunktion mit dem Eigenwert 1.
 
 </li>
 

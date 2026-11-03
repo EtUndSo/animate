@@ -57,7 +57,7 @@ LANG_NOW = ["de"]                     # Sprache der gerade gebauten Seite (main 
 # Oberfläche je Sprache. Deutsch ist die Quelle; fehlt ein Wort, steht das deutsche da.
 UI = {
     "de": {"wissen": "Wissen", "alle_module": "Alle Module", "abbildung": "Abbildung", "abb_vorb": "in Vorbereitung",
-           "editor_offen": "In Editor öffnen", "editor_title": "Die Szene dieser Abbildung im Editor öffnen",
+           "editor_offen": "Szene im Editor öffnen", "editor_title": "Die Szene dieser Abbildung im Editor öffnen",
            "herleitung": "Herleitung", "beweis": "Beweis", "frage": "Frage", "loesung": "Lösung", "zweck": "Worum es geht:",
            "zusatz": "Vertiefung, für den Rest nicht nötig", "analogie": "Analogie (ein Bild zur Orientierung, keine Mathematik)",
            "kern": "Das Wichtigste", "merke": "Merke", "satz": "Satz", "definition": "Definition", "lemma": "Lemma",
@@ -69,7 +69,7 @@ UI = {
            "hand_pill": "von Hand geschrieben", "quiz": "Quiz — teste dein Verständnis", "impressum": "Impressum", "datenschutz": "Datenschutz",
            "fremd": "Rechtliche Seiten sind auf Deutsch."},
     "en": {"wissen": "Knowledge", "alle_module": "All modules", "abbildung": "Figure", "abb_vorb": "in preparation",
-           "editor_offen": "Open in editor", "editor_title": "Open this figure's scene in the editor",
+           "editor_offen": "Open scene in editor", "editor_title": "Open this figure's scene in the editor",
            "herleitung": "Derivation", "beweis": "Proof", "frage": "Question", "loesung": "Solution", "zweck": "What this stage is about:",
            "zusatz": "Going deeper, not needed for the rest", "analogie": "Analogy (a picture for orientation, not mathematics)",
            "kern": "Key points", "merke": "Note", "satz": "Theorem", "definition": "Definition", "lemma": "Lemma",
@@ -80,7 +80,7 @@ UI = {
            "leer": "Articles are on their way.", "beispiel": "Example", "ki_pill": "AI-generated",
            "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy"},
     "es": {"wissen": "Conocimiento", "alle_module": "Todos los módulos", "abbildung": "Figura", "abb_vorb": "en preparación",
-           "editor_offen": "Abrir en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
+           "editor_offen": "Abrir la escena en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
            "herleitung": "Deducción", "beweis": "Demostración", "frage": "Pregunta", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
            "zusatz": "Ampliación, no necesaria para el resto", "analogie": "Analogía (una imagen para orientarse, no matemática)",
            "kern": "Lo esencial", "merke": "Nota", "satz": "Teorema", "definition": "Definición", "lemma": "Lema",
@@ -91,7 +91,7 @@ UI = {
            "leer": "Los artículos están en camino.", "beispiel": "Ejemplo", "ki_pill": "generado por IA",
            "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad"},
     "zh": {"wissen": "知识库", "alle_module": "全部模块", "abbildung": "图", "abb_vorb": "准备中",
-           "editor_offen": "在编辑器中打开", "editor_title": "在编辑器中打开此图的场景",
+           "editor_offen": "在编辑器中打开场景", "editor_title": "在编辑器中打开此图的场景",
            "herleitung": "推导", "beweis": "证明", "frage": "问题", "loesung": "解答", "zweck": "本阶段内容：",
            "zusatz": "拓展阅读（后续内容不需要）", "analogie": "类比（帮助理解的图景，不是数学）",
            "kern": "要点", "merke": "注意", "satz": "定理", "definition": "定义", "lemma": "引理",
@@ -198,7 +198,7 @@ def inline(text):
         if re.match(r"^\s*Schritt\s+\d+\s*$", t):
             return '<strong class="step">' + t + "</strong>"
         return "<strong>" + t + "</strong>"
-    text = re.sub(r"\*\*([^*]+)\*\*", _bold, text)
+    text = re.sub(r"\*\*((?:[^*]|\*(?!\*))+?)\*\*", _bold, text)   # darf ein *kursives* Wort enthalten
     text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", text)
     def restore(m):
         lead, raw, tail = m.group(1), _PROTECT[int(m.group(2))], m.group(3)
@@ -301,13 +301,16 @@ def abbildung_html(name, inner):
     edit = ""
     if (SZENEN / (name + ".json")).is_file():
         edit = (f'<a class="abb-edit" href="/editor.html?scene=szenen/{name}.json{"" if lang == "de" else "&amp;lang=" + lang}" target="_blank" rel="noopener" '
-                f'title="{T("editor_title")}">{T("editor_offen")}</a>')
+                f'title="{T("editor_title")}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+                f'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/>'
+                f'<path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>{T("editor_offen")}</a>')
     else:
         _abb_melden(("json", name), f"web/szenen/{name}.json fehlt -> ohne Editor-Link")
     alt = caption_alt(cap_md) or f"{T('abbildung')} {k}"
     return (f'<figure class="abb" id="abb-{k}"><img src="{ABB_URL}/{lang}/{name}.svg" width="{size[0]}" height="{size[1]}" '
             f'alt="{html.escape(alt, quote=True)}" loading="lazy" decoding="async"/>'
-            f'<figcaption><span class="abb-n">{T("abbildung")} {k}</span>{(" " + cap) if cap else ""}{edit}</figcaption></figure>')
+            + (f'<div class="abb-knopf">{edit}</div>' if edit else "")
+            + f'<figcaption><span class="abb-n">{T("abbildung")} {k}</span>{(" " + cap) if cap else ""}</figcaption></figure>')
 
 CALLOUTS = {"konzept": "Zur Idee", "kern": "kern", "merke": "merke", "grafik": "abbildung", "satz": "satz",
             "definition": "definition", "lemma": "lemma", "analogie": "analogie"}   # Schlüssel in UI
@@ -1031,8 +1034,11 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article figure.abb img{display:block;margin:0 auto;max-width:100%;height:auto;border-radius:8px;background:#fff;}
 .article figure.abb figcaption{margin:9px 4px 0;font-size:14.5px;line-height:1.5;color:var(--muted);}
 .article figure.abb .abb-n{font-family:var(--fdisp);font-weight:700;color:var(--accent);margin-right:4px;}
-.article figure.abb .abb-edit{margin-left:8px;font-size:12.5px;font-weight:600;white-space:nowrap;}
-.article figure.abb .abb-edit::after{content:" ↗";}
+/* Knopf unter dem Bild: öffnet genau die Szene, aus der das Bild exportiert wurde (web/szenen/<name>.json) */
+.article figure.abb .abb-knopf{display:flex;justify-content:flex-end;margin:8px 2px 0;}
+.article figure.abb .abb-edit{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--accent);border-radius:8px;
+  background:var(--panel);color:var(--accent);font-size:13px;font-weight:600;line-height:1.3;white-space:nowrap;}
+.article figure.abb .abb-edit:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 10%,var(--panel));}
 /* Fassung wählen: kompakt | ausführlich, jeweils mit Lesezeit */
 .fassung{display:inline-flex;margin:.1em 0 1.2em;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);}
 .fassung .f-btn{display:flex;align-items:baseline;gap:8px;padding:7px 15px;color:var(--muted);font-weight:600;font-size:14.5px;}

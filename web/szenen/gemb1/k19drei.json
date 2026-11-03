@@ -1,0 +1,733 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 37,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.32,
+      0.75,
+      0
+     ],
+     "end": [
+      -1.2799999999999998,
+      0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.32,
+      -0.65,
+      0
+     ],
+     "end": [
+      -1.2799999999999998,
+      -0.65,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@t1",
+     "position": [
+      -2.3,
+      1.3,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@{ph}: 1 \\to 0",
+     "position": [
+      -2.3,
+      -1.13,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.02,
+      0.75,
+      0
+     ],
+     "end": [
+      1.02,
+      0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.02,
+      -0.65,
+      0
+     ],
+     "end": [
+      1.02,
+      -0.65,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@t2",
+     "position": [
+      0.0,
+      1.3,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@{ph}: 0 \\to 1",
+     "position": [
+      0.0,
+      -1.13,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.2799999999999998,
+      0.75,
+      0
+     ],
+     "end": [
+      3.32,
+      0.75,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.2799999999999998,
+      -0.65,
+      0
+     ],
+     "end": [
+      3.32,
+      -0.65,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@t3",
+     "position": [
+      2.3,
+      1.3,
+      0
+     ],
+     "font_size": 25,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@{ph}: 1 \\to 2",
+     "position": [
+      2.3,
+      -1.13,
+      0
+     ],
+     "font_size": 23,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "E_2",
+     "position": [
+      -3.5199999999999996,
+      0.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "E_1",
+     "position": [
+      -3.5199999999999996,
+      -0.65,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.3,
+      -0.56,
+      0
+     ],
+     "end": [
+      -2.3,
+      0.65,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.3,
+      -0.65,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -2.3,
+      0.75,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5
+    }
+   },
+   {
+    "id": "o18",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-3.25000+0.74000*t+-0.00000*sin(31.4159*t)",
+     "fy": "0.05000+0.00000*t+0.07000*sin(31.4159*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 121,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.55,
+      0.05,
+      0
+     ],
+     "end": [
+      -2.38,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "\\hbar\\omega_{21}",
+     "position": [
+      -2.8499999999999996,
+      0.36,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.0,
+      0.66,
+      0
+     ],
+     "end": [
+      0.0,
+      -0.55,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.0,
+      0.75,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.0,
+      -0.65,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5
+    }
+   },
+   {
+    "id": "o24",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "0.10000+0.71509*t+-0.04134*sin(31.4159*t)",
+     "fy": "-0.10000+0.52323*t+0.05649*sin(31.4159*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 121,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.7828048446380669,
+      0.39961330095468295,
+      0
+     ],
+     "end": [
+      0.92,
+      0.5,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "\\hbar\\omega_{21}",
+     "position": [
+      0.6,
+      -0.25,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.3,
+      0.66,
+      0
+     ],
+     "end": [
+      2.3,
+      -0.55,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.18,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.3,
+      0.75,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.3,
+      -0.65,
+      0
+     ],
+     "radius": 0.1,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5
+    }
+   },
+   {
+    "id": "o30",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "1.35000+0.74000*t+-0.00000*sin(31.4159*t)",
+     "fy": "0.05000+0.00000*t+0.07000*sin(31.4159*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 121,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.05,
+      0.05,
+      0
+     ],
+     "end": [
+      2.2199999999999998,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "\\hbar\\omega_{21}",
+     "position": [
+      1.7499999999999998,
+      0.36,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "2.40000+0.74000*t+-0.00000*sin(31.4159*t)",
+     "fy": "0.27000+0.00000*t+0.07000*sin(31.4159*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 121,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      3.0999999999999996,
+      0.27,
+      0
+     ],
+     "end": [
+      3.2699999999999996,
+      0.27,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "2.40000+0.74000*t+-0.00000*sin(31.4159*t)",
+     "fy": "-0.17000+0.00000*t+0.07000*sin(31.4159*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 121,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o36",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      3.0999999999999996,
+      -0.17,
+      0
+     ],
+     "end": [
+      3.2699999999999996,
+      -0.17,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "t1": {
+    "de": "Absorption",
+    "en": "absorption",
+    "es": "absorción",
+    "zh": "吸收"
+   },
+   "t2": {
+    "de": "spontane Emission",
+    "en": "spontaneous emission",
+    "es": "emisión espontánea",
+    "zh": "自发发射"
+   },
+   "t3": {
+    "de": "stimulierte Emission",
+    "en": "stimulated emission",
+    "es": "emisión estimulada",
+    "zh": "受激发射"
+   },
+   "ph": {
+    "de": "Photonen",
+    "en": "photons",
+    "es": "fotones",
+    "zh": "光子数"
+   }
+  }
+ }
+}

@@ -2,7 +2,7 @@
 title: Das Wichtigste bis hier
 pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
 order: 3220900
-summary: Jedes Signal als Überlagerung von $\ee^{pt}$, und warum ein LTI-System daraus eine Multiplikation macht
+summary: Jedes Signal als Überlagerung von $\mathrm{e}^{pt}$, und warum ein LTI-System daraus eine Multiplikation macht
 tags: 
 lang: de
 ---

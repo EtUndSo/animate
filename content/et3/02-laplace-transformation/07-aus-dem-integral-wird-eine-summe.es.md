@@ -105,3 +105,29 @@ Compara con los pares básicos [(2.2)](konvergenzbereich-welche-dampfungen-funkt
 (c) Son exactamente los pares básicos [(2.2)](konvergenzbereich-welche-dampfungen-funktionieren.html#gl-2-2) y [(2.3)](konvergenzbereich-welche-dampfungen-funktionieren.html#gl-2-3) con $p_0=-1$. El dato «$S(p)=1/(p+1)$» por sí solo no determina la señal. Solo con la región de convergencia está claro a qué lado de la recta está el polo y si da un bloque elemental causal o uno anticausal.
 :::
 :::
+
+:::frage ¿Hay detrás de la transformada de Laplace algo más que el cálculo que lleva de la integral de convolución con una función propia a $H(p)$, a saber, que cualquier función puede representarse como suma de exponenciales complejas?
+Sí, y eso es justamente lo esencial. Sin ella, el cálculo con la función propia sería solo una curiosidad, porque en principio vale únicamente para la señal $\mathrm{e}^{pt}$. Solo porque (casi) toda señal puede componerse de tales bloques elementales se deduce de él una afirmación sobre *cualquier* señal de entrada. Tres precisiones hacen exacta la afirmación:
+
+<ol>
+
+<li>
+
+En general no es una suma, sino una *integral*: infinitos bloques elementales $\mathrm{e}^{pt}$, cada uno con un peso infinitesimal. Los bloques están sobre una recta vertical $\operatorname{Re} p=\sigma$ del plano $p$ (etapa [2](ein-signal-aus-lauter-bausteinen.html#stufe-2)).
+
+</li>
+
+<li>
+
+No cualquier función, sino toda función para la que exista una región de convergencia: puede crecer como mucho exponencialmente a cada lado del eje temporal, y un único amortiguamiento debe dominar ambos lados a la vez (apartado [2.3](konvergenzbereich-welche-dampfungen-funktionieren.html#stufe-2-3)).
+
+</li>
+
+<li>
+
+Si $S(p)$ es un cociente de polinomios, la integral se convierte realmente en una *suma finita* $\sum_r A_r\,\mathrm{e}^{p_r t}$. Los exponentes $p_r$ son los polos de $S(p)$ (etapa [4](#stufe-4)).
+
+</li>
+
+</ol>
+:::

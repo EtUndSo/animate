@@ -2,14 +2,14 @@
 title: Etapa 5: Por qué se transforma también la entrada
 pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
 order: 3220800
-summary: Toda señal como superposición de $\ee^{pt}$, y por qué un sistema LTI convierte esto en una multiplicación
+summary: Toda señal como superposición de $\mathrm{e}^{pt}$, y por qué un sistema LTI convierte esto en una multiplicación
 tags: 
 lang: es
 ---
 
 <span class="anker" id="stufe-5"></span>
 
-:::frage Tiene sentido transformar $h(t)$ para poder multiplicar $H(p)$ por funciones propias y determinar la salida. Pero transformar $s(t)$, en principio, no tiene sentido: desde la teoría de sistemas no se puede hacer nada con ello. Claro, $s*h=h*s$, pero $h(t)$ la mayoría de las veces no es una función propia, así que no se puede escribir $h(t)\cdot S(p)$. ¿Qué significado tiene, en relación con el sistema, transformar una señal cualquiera?
+:::frage Transformar $h(t)$ es útil: $H(p)$ multiplica las funciones propias y de ahí sale la salida. Pero ¿para qué transformar la señal de entrada $s(t)$? Es cierto que $s*h=h*s$, pero $h(t)$ casi nunca es una función propia, así que $h(t)\cdot S(p)$ no tiene sentido. ¿Qué significado tiene para el sistema transformar una señal cualquiera?
 ⁠**Qué es correcto en la pregunta:** $H(p)$ dice qué hace el sistema con un bloque elemental $\mathrm{e}^{pt}$. Y $h(t)\cdot S(p)$, efectivamente, no tiene sentido.
 
 ⁠**Dónde está el error de razonamiento:** la entrada tampoco es casi nunca una función propia. Un escalón, una señal de voz o un pulso rectangular no son bloques elementales $\mathrm{e}^{pt}$ aislados. Por eso $H(p)\cdot s(t)$ tiene tan poco sentido como $h(t)\cdot S(p)$: $H(p)$ solo puede aplicarse a un bloque elemental, y para una $s(t)$ cualquiera ni siquiera está claro a qué $p$ se refiere. Antes de que $H(p)$ pueda hacer algo, la entrada tiene que estar descompuesta en bloques elementales. Eso es exactamente lo que hace $S(p)$.

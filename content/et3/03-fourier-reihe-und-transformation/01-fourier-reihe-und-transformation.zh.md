@@ -42,7 +42,7 @@ lang: zh
 
 <li>
 
-⁠**RC 低通滤波器**，$RC=1$ s，$H(f)=1/(1+\mathrm{j}2\pi f\,RC)$。在方波的第 $k$ 次谐波处，$2\pi kF\cdot RC=k$，因此 $H(kF)=1/(1+\mathrm{j} k)$。
+⁠**RC 低通滤波器**，$RC=1$ s，$H(f)=1/(1+\mathrm{j}2\pi f\,RC)$。在方波的第 $k$ 次谐波（频率为 $kF$ 的分量）处，$2\pi kF\cdot RC=k$，因此 $H(kF)=1/(1+\mathrm{j} k)$。
 
 </li>
 

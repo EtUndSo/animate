@@ -105,3 +105,29 @@ Vergleiche mit den Grundpaaren [(2.2)](konvergenzbereich-welche-dampfungen-funkt
 (c) Das sind genau die Grundpaare [(2.2)](konvergenzbereich-welche-dampfungen-funktionieren.html#gl-2-2) und [(2.3)](konvergenzbereich-welche-dampfungen-funktionieren.html#gl-2-3) mit $p_0=-1$. Die Angabe „$S(p)=1/(p+1)$“ allein legt das Signal nicht fest. Erst mit dem Konvergenzbereich ist klar, auf welcher Seite der Linie der Pol liegt und ob er einen kausalen oder einen antikausalen Baustein liefert.
 :::
 :::
+
+:::frage Steckt hinter der Laplace-Transformation mehr als die Rechnung, die vom Faltungsintegral mit einer Eigenfunktion zu $H(p)$ führt, nämlich dass sich jede beliebige Funktion als Summe komplexer e-Funktionen darstellen lässt?
+Ja, und genau das ist der Kern. Ohne sie wäre die Eigenfunktions-Rechnung nur eine Kuriosität, denn sie gilt zunächst nur für das eine Signal $\mathrm{e}^{pt}$. Erst weil sich (fast) jedes Signal aus solchen Bausteinen zusammensetzen lässt, folgt aus ihr eine Aussage über *jedes* Eingangssignal. Exakt wird die Aussage mit drei Präzisierungen:
+
+<ol>
+
+<li>
+
+Im Allgemeinen ist es keine Summe, sondern ein *Integral*: unendlich viele Bausteine $\mathrm{e}^{pt}$, jeder mit einem infinitesimalen Gewicht. Die Bausteine liegen auf einer senkrechten Linie $\operatorname{Re} p=\sigma$ der $p$-Ebene (Stufe [2](ein-signal-aus-lauter-bausteinen.html#stufe-2)).
+
+</li>
+
+<li>
+
+Nicht jede Funktion, sondern jede, für die ein Konvergenzbereich existiert: Sie darf auf jeder Seite der Zeitachse höchstens exponentiell wachsen, und eine einzige Dämpfung muss beide Seiten zugleich bändigen (Abschnitt [2.3](konvergenzbereich-welche-dampfungen-funktionieren.html#stufe-2-3)).
+
+</li>
+
+<li>
+
+Ist $S(p)$ ein Bruch aus Polynomen, wird aus dem Integral tatsächlich eine *endliche Summe* $\sum_r A_r\,\mathrm{e}^{p_r t}$. Die Exponenten $p_r$ sind die Pole von $S(p)$ (Stufe [4](#stufe-4)).
+
+</li>
+
+</ol>
+:::

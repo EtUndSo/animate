@@ -330,6 +330,22 @@ SIMPLE_TEXT = {"ldots": "…", "dots": "…", "textmu": "µ", "S": "§", "texten
                "degree": "°", "textdegree": "°", "stern": "★"}
 
 
+# Makros der Präambel und ihre KaTeX-Form
+MAKROS = ((r"\dd", r"\mathrm{d}"), (r"\ee", r"\mathrm{e}"), (r"\jj", r"\mathrm{j}"), (r"\Lap", r"\mathcal{L}"),
+          (r"\Four", r"\mathcal{F}"), (r"\Re", r"\operatorname{Re}"), (r"\Im", r"\operatorname{Im}"),
+          (r"\Res", r"\operatorname*{Res}"), (r"\eps", r"\varepsilon"), (r"\textmu", r"\mu "),
+          (r"\R", r"\mathbb{R}"), (r"\C", r"\mathbb{C}"), (r"\N", r"\mathbb{N}"), (r"\Z", r"\mathbb{Z}"), (r"\Q", r"\mathbb{Q}"),
+          (r"\vx", r"\boldsymbol{x}"), (r"\vy", r"\boldsymbol{y}"), (r"\vF", r"\boldsymbol{F}"), (r"\vE", r"\boldsymbol{E}"),
+          (r"\vH", r"\boldsymbol{H}"), (r"\vA", r"\boldsymbol{A}"), (r"\vn", r"\boldsymbol{n}"), (r"\vt", r"\boldsymbol{t}"),
+          (r"\vg", r"\boldsymbol{g}"), (r"\ver", r"\hat{\boldsymbol{e}}"), (r"\rot", r"\operatorname{rot}"),
+          (r"\divg", r"\operatorname{div}"), (r"\dS", r"\mathrm{d}\boldsymbol{S}"), (r"\dsg", r"\mathrm{d}\sigma"))
+
+
+def makros(m):
+    for a, b in MAKROS:
+        m = re.sub(re.escape(a) + r"(?![a-zA-Z])", lambda _: b, m)
+    return m
+
 def strip_comments(s):
     return re.sub(r"(?<!\\)%.*", "", s)
 
@@ -425,14 +441,7 @@ class Heft:
             m = m[:k.start()] + r"\,\mathrm{" + inner + "}" + m[e:]
         m = re.sub(r"\\un\s+(\\?[A-Za-z]+)", r"\\,\\mathrm{\1}", m)
         m = re.sub(r"\\text\{\\textmu\s*([^{}]*)\}", r"\\mu\\text{\1}", m)
-        for a, b in ((r"\dd", r"\mathrm{d}"), (r"\ee", r"\mathrm{e}"), (r"\jj", r"\mathrm{j}"), (r"\Lap", r"\mathcal{L}"),
-                     (r"\Four", r"\mathcal{F}"), (r"\Re", r"\operatorname{Re}"), (r"\Im", r"\operatorname{Im}"),
-                     (r"\Res", r"\operatorname*{Res}"), (r"\eps", r"\varepsilon"), (r"\textmu", r"\mu "),
-                     (r"\R", r"\mathbb{R}"), (r"\C", r"\mathbb{C}"), (r"\N", r"\mathbb{N}"), (r"\Z", r"\mathbb{Z}"), (r"\Q", r"\mathbb{Q}"),
-                     (r"\vx", r"\boldsymbol{x}"), (r"\vy", r"\boldsymbol{y}"), (r"\vF", r"\boldsymbol{F}"), (r"\vE", r"\boldsymbol{E}"),
-                     (r"\vH", r"\boldsymbol{H}"), (r"\vA", r"\boldsymbol{A}"), (r"\vn", r"\boldsymbol{n}"), (r"\vt", r"\boldsymbol{t}"),
-                     (r"\vg", r"\boldsymbol{g}"), (r"\ver", r"\hat{\boldsymbol{e}}"), (r"\rot", r"\operatorname{rot}"),
-                     (r"\divg", r"\operatorname{div}"), (r"\dS", r"\mathrm{d}\boldsymbol{S}"), (r"\dsg", r"\mathrm{d}\sigma")):
+        for a, b in MAKROS:
             m = re.sub(re.escape(a) + r"(?![a-zA-Z])", lambda _: b, m)
         return re.sub(r" {2,}", " ", m).strip()
 
@@ -979,6 +988,7 @@ def artikel(cfg, kap, lang):
             titel, kurz, info = "%s: %s" % (UEBERBLICK[lang], tt), UEBERBLICK[lang], sub
         else:
             titel, kurz, info = a["titel"], "", kurztext(a["md"], sub)
+        info = re.sub(r"\$([^$]+)\$", lambda mm: "$" + makros(mm.group(1)) + "$", info)   # Präambel-Makros wie \ee
         kopf = ["---", "title: " + titel] + (["kurz: " + kurz] if kurz else []) + [
             "pfad: %s / %s" % (cfg["pfad"][lang], thema[lang]), "order: %d" % (cfg["order"] + kap * 10000 + 100 * i),
             "summary: " + info, "tags: " + begriffe(a["md"]), "lang: " + lang, "---", ""]

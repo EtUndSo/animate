@@ -2,7 +2,7 @@
 title: Der Trick: dämpfen, zerlegen, zurückmultiplizieren
 pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
 order: 3220400
-summary: Jedes Signal als Überlagerung von $\ee^{pt}$, und warum ein LTI-System daraus eine Multiplikation macht
+summary: Jedes Signal als Überlagerung von $\mathrm{e}^{pt}$, und warum ein LTI-System daraus eine Multiplikation macht
 tags: Dichte
 lang: de
 ---
@@ -101,5 +101,5 @@ Die Bausteine treten paarweise auf: zu $f$ gehört $-f$, also zu $p$ der konjugi
 :::
 
 :::frage Ist es nun eine Summe oder ein Integral?
-Im Allgemeinen ein Integral: Auf der Linie liegen kontinuierlich viele Bausteine, jeder mit einem infinitesimalen Gewicht $S\,\mathrm{d} f$. Eine echte Summe mit endlich vielen Gliedern entsteht in einem wichtigen Fall: wenn $S(p)$ ein Polynombruch ist. Dann ist das Signal eine Summe von Bausteinen an den Polen (Stufe [4](aus-dem-integral-wird-eine-summe.html#stufe-4)). Eine Summe mit unendlich vielen Gliedern ist die Fourier-Reihe eines periodischen Signals.
+Im Allgemeinen ein Integral: Auf der Linie liegen kontinuierlich viele Bausteine, jeder mit einem infinitesimalen Gewicht $S\,\mathrm{d} f$.
 :::

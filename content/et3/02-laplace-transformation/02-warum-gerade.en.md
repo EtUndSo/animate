@@ -71,7 +71,7 @@ Ideal delay element by $T$: $H(p)=\mathrm{e}^{-pT}$ has the same value 1 at all 
 
 <li>
 
-Ideal low-pass filter without delay, $H(f)=1$ in the whole passband: every signal whose spectrum lies entirely in the passband comes out unchanged and is an eigenfunction with eigenvalue 1.
+Ideal low-pass filter without delay, $H(f)=1$ in the whole passband: every signal made up only of oscillations with frequencies in the passband comes out unchanged and is an eigenfunction with eigenvalue 1.
 
 </li>
 

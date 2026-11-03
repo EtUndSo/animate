@@ -105,3 +105,29 @@ $S(p)=\dfrac{1}{p+1}$。
 (c) 这恰好是 $p_0=-1$ 时的基本变换对 [(2.2)](konvergenzbereich-welche-dampfungen-funktionieren.html#gl-2-2) 和 [(2.3)](konvergenzbereich-welche-dampfungen-funktionieren.html#gl-2-3)。仅凭“$S(p)=1/(p+1)$”这一说法无法确定信号。只有给出收敛域，才能明确极点位于直线的哪一侧，以及它给出的是因果还是反因果基本分量。
 :::
 :::
+
+:::frage 拉普拉斯变换背后是否不止“从代入特征函数的卷积积分得到 $H(p)$”这段计算，而是任意函数都可以写成复指数函数之和？
+是的，这正是问题的核心。没有它，特征函数的那段计算只不过是个奇特的结论，因为它本身只对 $\mathrm{e}^{pt}$ 这一个信号成立。正是因为（几乎）每个信号都能由这样的基本分量（构件）组合而成，它才能对*每个*输入信号给出结论。以下三点细化使这一说法变得精确：
+
+<ol>
+
+<li>
+
+一般来说，它不是求和，而是*积分*：无穷多个基本分量 $\mathrm{e}^{pt}$，每个都带有无穷小的权重。这些基本分量位于 $p$ 平面中的一条竖直线 $\operatorname{Re} p=\sigma$ 上（第 [2](ein-signal-aus-lauter-bausteinen.html#stufe-2) 阶段）。
+
+</li>
+
+<li>
+
+并非任意函数都可以，而是存在收敛域的函数：它在时间轴每一侧至多按指数增长，并且必须有同一个衰减因子能同时抑制两侧（第 [2.3](konvergenzbereich-welche-dampfungen-funktionieren.html#stufe-2-3) 节）。
+
+</li>
+
+<li>
+
+若 $S(p)$ 是多项式之比，积分确实会变成*有限和* $\sum_r A_r\,\mathrm{e}^{p_r t}$。指数 $p_r$ 就是 $S(p)$ 的极点（第 [4](#stufe-4) 阶段）。
+
+</li>
+
+</ol>
+:::

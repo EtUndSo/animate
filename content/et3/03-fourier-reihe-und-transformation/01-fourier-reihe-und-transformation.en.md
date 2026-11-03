@@ -27,7 +27,7 @@ lang: en
 
 <li>
 
-⁠**RC low-pass filter** with $RC=1$ s, $H(f)=1/(1+\mathrm{j}2\pi f\,RC)$. At the $k$th harmonic of the square wave, $2\pi kF\cdot RC=k$, so $H(kF)=1/(1+\mathrm{j} k)$.
+⁠**RC low-pass filter** with $RC=1$ s, $H(f)=1/(1+\mathrm{j}2\pi f\,RC)$. At the $k$th harmonic of the square wave (its component at the frequency $kF$), $2\pi kF\cdot RC=k$, so $H(kF)=1/(1+\mathrm{j} k)$.
 
 </li>
 

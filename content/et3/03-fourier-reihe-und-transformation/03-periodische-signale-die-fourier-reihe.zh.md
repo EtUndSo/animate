@@ -42,7 +42,7 @@ $$\frac1T\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\,\mathrm{d} t=\begin{cases}1
 :::satz 定理 2.1 (傅里叶级数)
 <span class="anker" id="satz-2-1"></span>
 
-周期为 $T=1/F$、功率有限的信号可以表示为式 [(2.1)](#gl-2-1)，其中
+周期为 $T=1/F$、功率有限（$|s(t)|^2$ 在一个周期内的平均值有限）的信号可以表示为式 [(2.1)](#gl-2-1)，其中
 
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
@@ -71,7 +71,7 @@ $$2\cos(2\pi Ft)=\mathrm{e}^{\mathrm{j}2\pi Ft}+\mathrm{e}^{-\mathrm{j}2\pi Ft},
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
 
-当 $T_1=T/2$ 时：$S_p(0)=0.5$，$S_p(\pm1)=1/\pi=0.318$，$S_p(\pm2)=0$，$S_p(\pm3)=-0.106$，$S_p(\pm5)=0.064$。缺少偶次谐波，因为对偶数 $k$ 有 $\sin(\pi k/2)=0$。所有系数都是实数，因为信号是偶函数（第 [5](symmetrien-im-signal-und-im-spektrum.html#stufe-5) 阶段）。图 [1](#abb-1) 给出了两种占空比下的系数：脉冲越窄，系数衰减越慢。
+当 $T_1=T/2$ 时：$S_p(0)=0.5$，$S_p(\pm1)=1/\pi=0.318$，$S_p(\pm2)=0$，$S_p(\pm3)=-0.106$，$S_p(\pm5)=0.064$。缺少偶次谐波，因为对偶数 $k$ 有 $\sin(\pi k/2)=0$。所有系数都是实数，因为信号是偶函数，$s(-t)=s(t)$：$S_p(k)$ 的虚部为 $-\frac1T\int_{-T/2}^{T/2}s(t)\sin(2\pi kFt)\,\mathrm{d} t$，被积函数是奇函数：$t\to-t$ 时变号，零点两侧的贡献相互抵消，所以它为零。图 [1](#abb-1) 给出了两种占空比下的系数：脉冲越窄，系数衰减越慢。
 
 :::abbildung et3/k3koeff 1
 方波（0/1）在两种脉冲宽度下的傅里叶系数。虚线：包络 $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$。$T_1=T/2$ 时缺少偶次谐波，$T_1=T/4$ 时缺少 4 的倍数次谐波。

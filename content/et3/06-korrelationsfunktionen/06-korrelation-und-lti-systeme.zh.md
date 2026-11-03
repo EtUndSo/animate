@@ -29,7 +29,7 @@ $$\varphi^E_{sg}(\tau)=\varphi^E_{ss}(\tau)*h(\tau)\;\circ\!\!-\!\!\bullet\;|S(f
 $\varphi^E_{gg}=g^*(-\tau)*g(\tau)=[s^*(-\tau)*h^*(-\tau)]*[s(\tau)*h(\tau)]$。利用交换律和结合律重新排列：$[s^*(-\tau)*s(\tau)]*[h^*(-\tau)*h(\tau)]=\varphi^E_{ss}*\varphi^E_{hh}$。同理，$\varphi^E_{sg}=s^*(-\tau)*s(\tau)*h(\tau)$。
 :::
 
-⁠**如何理解：**系统把每个频率上的能量乘以 $|H|^2$。系统的相位对能量没有影响。式 [(5.2)](#gl-5-2) 是一种测量方法：若输入的自相关函数几乎是一个加权狄拉克冲激 $c\,\delta(\tau)$（非常短的脉冲或宽带噪声，[第 7 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)），则输入与输出之间的互相关函数几乎就是 $c\,h(\tau)$，即除因子 $c$ 外就是冲激响应。与 $|H|^2$ 不同，它还包含相位。
+⁠**如何理解：**系统把每个频率上的能量乘以 $|H|^2$。系统的相位对能量没有影响。式 [(5.2)](#gl-5-2) 是一种测量方法：若输入的自相关函数几乎是一个加权狄拉克冲激 $c\,\delta(\tau)$（例如非常短的脉冲），则输入与输出之间的互相关函数几乎就是 $c\,h(\tau)$，即除因子 $c$ 外就是冲激响应。与 $|H|^2$ 不同，它还包含相位。
 
 :::ltspice RC 电路前后的能量
 ⁠**绘制：**行为源 `bv` 接在节点 `s` 上，取 `V=exp(-time)*(time>0)`，即指数脉冲 $\varepsilon(t)\mathrm{e}^{-t}$。因子 `(time>0)` 使 LTspice 以 0 V 计算 $t=0$ 时的初始状态，因此电容从未充电的状态开始。其后接 RC 电路（`res` 取 `1Meg`，`cap` 取 `1u`），输出接节点 `g`。

@@ -279,10 +279,10 @@
     "zh": "f_{A} = 1 kHz：副本相互分开"
    },
    "t2": {
-    "de": "f_{A} = 0.5 kHz: Kopien überlappen (Aliasing)",
-    "en": "f_{A} = 0.5 kHz: copies overlap (aliasing)",
-    "es": "f_{A} = 0.5 kHz: las copias se solapan (aliasing)",
-    "zh": "f_{A} = 0.5 kHz：副本相互重叠（混叠）"
+    "de": "f_{A} = 0.5 kHz: Kopien überlappen",
+    "en": "f_{A} = 0.5 kHz: copies overlap",
+    "es": "f_{A} = 0.5 kHz: las copias se solapan",
+    "zh": "f_{A} = 0.5 kHz：副本相互重叠"
    }
   }
  }

@@ -3,7 +3,7 @@ title: Stage 2: A signal made entirely of building blocks
 pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
 order: 3220300
 summary: Stage 1 applies to a single building block.
-tags: absolutely integrable
+tags: absolutely integrable, Fourier representation, spectrum
 lang: en
 ---
 
@@ -17,7 +17,7 @@ Stage [1](warum-gerade.html#stufe-1) applies to a single building block. It bec
 
 <span class="anker" id="stufe-2-1"></span>
 
-On the imaginary axis ($\sigma=0$) the building blocks are pure oscillations $\mathrm{e}^{\mathrm{j}2\pi ft}$. An __absolutely integrable__ signal ($\int|s(t)|\,\mathrm{d} t<\infty$, so it decays fast enough on both sides) can be built from them. This is the Fourier representation, which is treated in detail in the part on the Fourier transform:
+On the imaginary axis ($\sigma=0$) the building blocks are pure oscillations $\mathrm{e}^{\mathrm{j}2\pi ft}$. An __absolutely integrable__ signal ($\int|s(t)|\,\mathrm{d} t<\infty$, so it decays fast enough on both sides) can be built from them. This is the __Fourier representation__. Its formula is all that is needed here. The function $\mathcal{F}\{s\}(f)$ is called the __spectrum__; it gives the weight of the oscillation with frequency $f$:
 
 $$s(t)=\int_{-\infty}^{\infty}\mathcal{F}\{s\}(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f,\qquad \mathcal{F}\{s\}(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t.$$
 

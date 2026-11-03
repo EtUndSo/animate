@@ -9,7 +9,7 @@ lang: en
 
 <span class="anker" id="stufe-10"></span>
 
-:::frage Convolution makes sense to me when a signal really passes through a system. What does it mean when no system is involved?
+:::frage Convolution is usually explained with a system that a signal passes through. What does it mean when no system is involved at all?
 Convolution is a mathematical operation with a general meaning of its own: *for every way of splitting a result into two parts, multiply the weights of the two parts, and sum over all splittings.* The system is one interpretation of this (part 1: when did the impulse arrive; part 2: how old is it), not the only one.
 
 ⁠**An example with neither a system nor time: two dice.** What is the probability that the sum of the dice is $k$? Every splitting $k=i+(k-i)$ contributes, with the probability $P_1(i)\,P_2(k-i)$:

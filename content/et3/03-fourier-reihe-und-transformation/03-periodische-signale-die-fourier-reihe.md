@@ -42,7 +42,7 @@ Für $k\neq n$ dreht sich der Zeiger $\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}$ in der
 :::satz Satz 2.1 (Fourier-Reihe)
 <span class="anker" id="satz-2-1"></span>
 
-Ein Signal mit der Periode $T=1/F$ und endlicher Leistung hat die Darstellung [(2.1)](#gl-2-1) mit
+Ein Signal mit der Periode $T=1/F$ und endlicher Leistung (der Mittelwert von $|s(t)|^2$ über eine Periode ist endlich) hat die Darstellung [(2.1)](#gl-2-1) mit
 
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
@@ -71,7 +71,7 @@ also $S_p(0)=1$, $S_p(\pm1)=1$, $S_p(2)=-\tfrac{\mathrm{j}}{2}$, $S_p(-2)=\tfrac
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
 
-Mit $T_1=T/2$: $S_p(0)=0{,}5$, $S_p(\pm1)=1/\pi=0{,}318$, $S_p(\pm2)=0$, $S_p(\pm3)=-0{,}106$, $S_p(\pm5)=0{,}064$. Die geraden Harmonischen fehlen, weil $\sin(\pi k/2)=0$ für gerade $k$. Alle Koeffizienten sind reell, weil das Signal gerade ist (Stufe [5](symmetrien-im-signal-und-im-spektrum.html#stufe-5)). Abbildung [1](#abb-1) zeigt sie für zwei Tastgrade: Je schmaler der Impuls, desto langsamer fallen die Koeffizienten ab.
+Mit $T_1=T/2$: $S_p(0)=0{,}5$, $S_p(\pm1)=1/\pi=0{,}318$, $S_p(\pm2)=0$, $S_p(\pm3)=-0{,}106$, $S_p(\pm5)=0{,}064$. Die geraden Harmonischen fehlen, weil $\sin(\pi k/2)=0$ für gerade $k$. Alle Koeffizienten sind reell, weil das Signal gerade ist, $s(-t)=s(t)$: Der Imaginärteil von $S_p(k)$ ist $-\frac1T\int_{-T/2}^{T/2}s(t)\sin(2\pi kFt)\,\mathrm{d} t$ und verschwindet, denn der Integrand ist ungerade: Er wechselt bei $t\to-t$ das Vorzeichen, und die Beiträge links und rechts von null heben sich auf. Abbildung [1](#abb-1) zeigt sie für zwei Tastgrade: Je schmaler der Impuls, desto langsamer fallen die Koeffizienten ab.
 
 :::abbildung et3/k3koeff 1
 Fourier-Koeffizienten der Rechteckschwingung (0/1) für zwei Impulsbreiten. Gestrichelt die Hüllkurve $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$. Bei $T_1=T/2$ fehlen die geraden Harmonischen, bei $T_1=T/4$ jede vierte.

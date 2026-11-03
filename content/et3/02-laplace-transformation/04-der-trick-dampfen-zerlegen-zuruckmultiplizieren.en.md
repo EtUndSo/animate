@@ -2,7 +2,7 @@
 title: The trick: damp, decompose, multiply back
 pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
 order: 3220400
-summary: Every signal as a superposition of $\ee^{pt}$, and why an LTI system turns this into a multiplication
+summary: Every signal as a superposition of $\mathrm{e}^{pt}$, and why an LTI system turns this into a multiplication
 tags: density
 lang: en
 ---
@@ -101,5 +101,5 @@ The building blocks come in pairs: $f$ goes with $-f$, so $p$ goes with the conj
 :::
 
 :::frage So is it a sum or an integral?
-In general an integral: the line carries a continuum of building blocks, each with an infinitesimal weight $S\,\mathrm{d} f$. A true sum with finitely many terms arises in one important case: when $S(p)$ is a ratio of polynomials. Then the signal is a sum of building blocks at the poles (Stage [4](aus-dem-integral-wird-eine-summe.html#stufe-4)). A sum with infinitely many terms is the Fourier series of a periodic signal.
+In general an integral: the line carries a continuum of building blocks, each with an infinitesimal weight $S\,\mathrm{d} f$.
 :::

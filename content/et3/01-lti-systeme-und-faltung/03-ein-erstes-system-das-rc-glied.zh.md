@@ -3,7 +3,7 @@ title: 第 2 阶段：第一个系统——RC 电路
 pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
 order: 3210300
 summary: 借助 RC 低通滤波器（图 2），可以算出系统对两种典型输入的响应：复指数函数和阶跃。
-tags: 
+tags: 频率响应
 lang: zh
 ---
 
@@ -22,7 +22,7 @@ $$RC\,\frac{\mathrm{d} u_2}{\mathrm{d} t}+u_2=u_1. \tag{2.1}$$
 RC 低通滤波器：输入为 $u_1$，输出为电容两端的电压 $u_2$。参考模型中 $RC=1$ s。
 :::
 
-**输入 $\mathrm{e}^{\mathrm{j}2\pi Ft}$：输出等于一个数乘以输入。** 若施加 $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$，则稳态时输出具有相同的形式，只是幅度和相位不同：$u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$。原因在于求导不改变函数的形式，$\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$。代入式 [(2.1)](#gl-2-1)：
+**输入 $\mathrm{e}^{\mathrm{j}2\pi Ft}$：输出等于一个数乘以输入。** 若施加 $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$，则稳态时输出具有相同的形式，只是幅度和相位不同：$u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$。数 $H(F)$ 随频率变化，因此称为__频率响应__。原因在于求导不改变函数的形式，$\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$。代入式 [(2.1)](#gl-2-1)：
 
 $$H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}\,(1+\mathrm{j}2\pi FRC)=\mathrm{e}^{\mathrm{j}2\pi Ft}\quad\Longrightarrow\quad H(F)=\frac{1}{1+\mathrm{j}2\pi FRC}.$$
 

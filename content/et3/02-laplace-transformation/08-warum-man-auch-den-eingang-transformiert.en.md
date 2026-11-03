@@ -2,14 +2,14 @@
 title: Stage 5: Why the input is transformed too
 pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
 order: 3220800
-summary: Every signal as a superposition of $\ee^{pt}$, and why an LTI system turns this into a multiplication
+summary: Every signal as a superposition of $\mathrm{e}^{pt}$, and why an LTI system turns this into a multiplication
 tags: 
 lang: en
 ---
 
 <span class="anker" id="stufe-5"></span>
 
-:::frage It makes sense to transform $h(t)$, so that I can multiply eigenfunctions by $H(p)$ and find the output. But transforming $s(t)$ doesn't seem to make sense at first; from a system-theory point of view I can't do anything with it. Sure, $s*h=h*s$, but $h(t)$ is usually not an eigenfunction, so I can't write $h(t)\cdot S(p)$. What does it mean, in terms of the system, to transform an arbitrary signal?
+:::frage Transforming $h(t)$ is useful: $H(p)$ multiplies the eigenfunctions, and the output follows. But why transform the input signal $s(t)$? True, $s*h=h*s$, but $h(t)$ is usually not an eigenfunction, so $h(t)\cdot S(p)$ makes no sense. What does transforming an arbitrary signal mean for the system?
 ⁠**What is right about the question:** $H(p)$ says what the system does to a building block $\mathrm{e}^{pt}$. And $h(t)\cdot S(p)$ indeed makes no sense.
 
 ⁠**Where the reasoning goes wrong:** The input is almost never an eigenfunction either. A step, a speech signal or a rectangular pulse is not a single building block $\mathrm{e}^{pt}$. So $H(p)\cdot s(t)$ makes just as little sense as $h(t)\cdot S(p)$: $H(p)$ may only be applied to a building block, and for an arbitrary $s(t)$ it is not even clear which $p$ is meant. Before $H(p)$ can do anything, the input must be decomposed into building blocks. That is exactly what $S(p)$ does.
