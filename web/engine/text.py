@@ -4,10 +4,10 @@ from .AnimObject import AnimObject
 from .constants import ORIGIN
 
 # Number language of the current scene (ModelScene.construct sets it from model["lang"]). "" = neutral, as in
-# scenes without a language: 0.5 and -1. de/es write the decimal comma, en/zh the point; every language with
-# a set language gets the typographic minus.
+# scenes without a language: 0.5 and -1. de/es/fr/tr write the decimal comma, en/zh the point; every language
+# with a set language gets the typographic minus.
 _NUM_LANG = [""]
-COMMA_LANGS = ("de", "es")
+COMMA_LANGS = ("de", "es", "fr", "tr")
 
 
 def set_number_lang(lang):
@@ -15,7 +15,7 @@ def set_number_lang(lang):
 
 
 def fmt_number(s):
-    """A formatted number string in the scene's language: 0.5 -> 0,5 (de, es), -1 -> \u22121."""
+    """A formatted number string in the scene's language: 0.5 -> 0,5 (de, es, fr, tr), -1 -> \u22121."""
     if not _NUM_LANG[0]:
         return s
     if _NUM_LANG[0] in COMMA_LANGS:
@@ -24,7 +24,7 @@ def fmt_number(s):
 
 
 def localize_digits(s):
-    """Decimal points between digits inside a label follow the language: "t = 0.5 s" -> "t = 0,5 s" (de, es)."""
+    """Decimal points between digits inside a label follow the language: "t = 0.5 s" -> "t = 0,5 s" (de, es, fr, tr)."""
     return re.sub(r"(?<=\d)\.(?=\d)", ",", s) if _NUM_LANG[0] in COMMA_LANGS else s
 
 

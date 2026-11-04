@@ -1,0 +1,273 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 13,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.3,
+      2.6
+     ],
+     "y_range": [
+      -0.3,
+      4.9
+     ],
+     "x_length": 3.6,
+     "y_length": 3.4,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t",
+     "y_label": "y",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1;2",
+     "y_ticks": "1;2;3;4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.2,
+      0.5333333333333334,
+      0
+     ],
+     "end": [
+      2.4,
+      4.433333333333334,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      1,
+      0
+     ],
+     "end": [
+      0,
+      0.8333333333333334,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 8,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0,
+      1,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      1,
+      2,
+      0
+     ],
+     "end": [
+      1,
+      2.3333333333333335,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 8,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1,
+      2,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      2,
+      4,
+      0
+     ],
+     "end": [
+      2,
+      3.8333333333333335,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 8,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2,
+      4,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "y = 5/6 + 3/2 · t",
+     "position": [
+      1.3,
+      3.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "r₁ = 1/6",
+     "position": [
+      0.12,
+      0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "r₂ = −1/3",
+     "position": [
+      1.08,
+      1.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "r₃ = 1/6",
+     "position": [
+      1.92,
+      4.3,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

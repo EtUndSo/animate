@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}(\\mathbf A\\mathbf v_1)^\\top(\\mathbf A\\mathbf v_2)&=\\tfrac15\\,\\left(8\\cdot(-1)+4\\cdot2\\right)=\\tfrac15\\,(-8+8)=0\\\\\\lVert\\mathbf A\\mathbf v_1\\rVert^2&=\\tfrac15\\,(8\\cdot8+4\\cdot4)=\\tfrac15\\,(64+16)=16\\\\\\lVert\\mathbf A\\mathbf v_2\\rVert^2&=\\tfrac15\\,\\left((-1)\\cdot(-1)+2\\cdot2\\right)=\\tfrac15\\,(1+4)=1\\end{aligned}",
+     "height": 1.25,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

@@ -115,6 +115,7 @@ Das ist der Teil, der die Hefte über das Skript hinaushebt: von „Formel auswe
     - Beispiele stehen in `tools/szenen/beispiel_summen.py`.
   - **Im Heft:** Die Abbildung steht direkt nach der Rechnung. Wie jede Abbildung ist sie eine `abb`-Umgebung mit Bildunterschrift und Label `fig:k<N><name>`. Statt TikZ enthält sie dieselben Schritte als `align*`: Kopf = Summanden = eingesetzte Zahlen = Werte = Ergebnis, bei Skalarprodukten vorweg die beiden Vektoren als Spalten. Die Szene trägt denselben Namen. Auf der Website erscheint das Editor-Bild mit dem Knopf „Szene im Editor öffnen“, dort läuft die Rechnung animiert ab.
   - **Grenze:** Allgemeine Formeln ohne Zahlen (Definitionen wie $\sum_j w_j x_j$) bleiben Formeln.
+  - **Auslegung, vom User bestätigt am 04.11.2026:** Ein Rechenbild bekommt jedes Rechenbeispiel im Haupttext, in dem eine Summe oder ein Skalarprodukt mit Zahlen das Kernstück ist. Keins bekommen kleine Proben, Wiederholungen derselben Rechnung, Beweise und Herleitungen, Hintergrund-Kästen und Lösungen. Der User: „bei Beweisen, Rechnungen, etc. brauchen wir die Animationen nicht“.
 - Am Ende des Hefts in dieser Reihenfolge, die Website verschiebt sie selbst:
   1. kernbox „Das Wichtigste bis hier“;
   2. kernbox „Die Antwort in drei Sätzen“;

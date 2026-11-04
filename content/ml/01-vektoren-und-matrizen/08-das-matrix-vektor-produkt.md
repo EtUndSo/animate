@@ -30,11 +30,15 @@ $$(\mathbf{A}\mathbf{x})_i=\sum_{j=1}^{n}a_{ij}\,x_j=a_{i1}x_1+a_{i2}x_2+\dots+a
 
 Das Produkt gibt es nur, wenn $\mathbf{x}$ so viele Komponenten hat, wie $\mathbf{A}$ Spalten hat. Das Ergebnis hat so viele Komponenten, wie $\mathbf{A}$ Zeilen hat. Aus den Rechenregeln für Summen folgt: $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ und $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$.
 
-⁠**Rechenbeispiel:**
+⁠**Rechenbeispiel:** Für
 
-$$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=\begin{pmatrix}1\cdot2+2\cdot1\\0\cdot2+(-1)\cdot1\\3\cdot2+1\cdot1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
+$$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{und}\quad \mathbf{x}=\begin{pmatrix}2\\1\end{pmatrix}\qquad\text{ist}\qquad \mathbf{A}\mathbf{x}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
-Eine $3\times2$-Matrix mal ein Vektor mit $2$ Komponenten ergibt einen Vektor mit $3$ Komponenten.
+Jede Komponente ist eine Summe nach [(7.1)](#gl-7-1) (Abb. [28](#abb-28)). Eine $3\times2$-Matrix mal ein Vektor mit $2$ Komponenten ergibt einen Vektor mit $3$ Komponenten.
+
+:::abbildung ml/k1rmv 28
+Das Matrix-Vektor-Produkt Komponente für Komponente: Für jede Zeile $i$ werden die Einträge $a_{ij}$ mit den passenden $x_j$ multipliziert und addiert.
+:::
 
 ⁠**Kurz gesagt:** $\mathbf{A}\mathbf{x}$ ist der Vektor, dessen Komponente $i$ die Summe $\sum_ja_{ij}x_j$ ist; eine $m\times n$-Matrix macht aus einem Vektor im $\mathbb{R}^n$ einen Vektor im $\mathbb{R}^m$.
 
@@ -42,7 +46,7 @@ Eine $3\times2$-Matrix mal ein Vektor mit $2$ Komponenten ergibt einen Vektor mi
 
 <span class="anker" id="stufe-7-2"></span>
 
-Die Formel [(7.1)](#gl-7-1) sagt für jede Komponente: Zeile $i$ der Matrix, Eintrag für Eintrag mit $\mathbf{x}$ multipliziert und aufsummiert. Das ist das Skalarprodukt der Zeile $i$ mit $\mathbf{x}$ (Abb. [8](#abb-8), links).
+Die Formel [(7.1)](#gl-7-1) sagt für jede Komponente: Zeile $i$ der Matrix, Eintrag für Eintrag mit $\mathbf{x}$ multipliziert und aufsummiert. Das ist das Skalarprodukt der Zeile $i$ mit $\mathbf{x}$ (Abb. [30](#abb-30), links).
 
 :::satz Satz 7.2 (Zeilensicht)
 <span class="anker" id="satz-7-2"></span>
@@ -57,9 +61,13 @@ Das Matrix-Vektor-Produkt wendet also die gewichtete Summe mit den Gewichten $\m
 
 ⁠**Rechenbeispiel:** Für den Wohnungsdatensatz und $\mathbf{w}=(3,\,10,\,-4)^{\top}$ ist
 
-$$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}180+20-12\\120+10-4\\270+40-24\\210+30-8\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
+$$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
 
-die vier Vorhersagen der Maklerin in Tausend Euro.
+die vier Vorhersagen der Maklerin in Tausend Euro. Jede Komponente ist das Skalarprodukt einer Zeile mit $\mathbf{w}$ (Abb. [29](#abb-29)).
+
+:::abbildung ml/k1rzeilen 29
+Die Zeilensicht für die Maklerin: jede Wohnung, also jede Zeile von $\mathbf{X}$, mal die Gewichte $\mathbf{w}$.
+:::
 
 ⁠**Kurz gesagt:** In der Zeilensicht ist $\mathbf{A}\mathbf{x}$ eine Liste von Skalarprodukten, eines je Zeile; $\mathbf{X}\mathbf{w}$ sind die Vorhersagen für alle Beispiele.
 
@@ -71,9 +79,9 @@ Jede der $m$ Komponenten braucht $n$ Multiplikationen und $n-1$ Additionen. Zusa
 
 <span class="anker" id="stufe-7-3"></span>
 
-Man kann dieselbe Summe auch anders ordnen. Statt Zeile für Zeile vorzugehen, sammelt man alle Beiträge, die zu $x_1$ gehören, dann alle, die zu $x_2$ gehören, und so weiter. Die Beiträge zu $x_j$ stehen alle in Spalte $j$ der Matrix. Dann wird aus dem Produkt eine Linearkombination der Spalten (Abb. [8](#abb-8), rechts).
+Man kann dieselbe Summe auch anders ordnen. Statt Zeile für Zeile vorzugehen, sammelt man alle Beiträge, die zu $x_1$ gehören, dann alle, die zu $x_2$ gehören, und so weiter. Die Beiträge zu $x_j$ stehen alle in Spalte $j$ der Matrix. Dann wird aus dem Produkt eine Linearkombination der Spalten (Abb. [30](#abb-30), rechts).
 
-:::abbildung ml/k1zeilenspalten 8
+:::abbildung ml/k1zeilenspalten 30
 Zwei Arten, $\mathbf{A}\mathbf{x}$ für $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ und $\mathbf{x}=(2,\,1)^{\top}$ zu lesen. Links die Zeilensicht: Komponente $1$ des Ergebnisses ist das Skalarprodukt der ersten Zeile mit $\mathbf{x}$. Rechts die Spaltensicht: $\mathbf{A}\mathbf{x}$ ist $2$-mal die erste Spalte $\mathbf{a}_1=(2,1)^{\top}$ plus $1$-mal die zweite Spalte $\mathbf{a}_2=(1,1)^{\top}$.
 :::
 
@@ -92,15 +100,15 @@ Das Matrix-Vektor-Produkt ist die Linearkombination der Spalten von $\mathbf{A}$
 Komponente $i$ der rechten Seite ist $\sum_jx_j\,(\mathbf{a}_j)_i=\sum_jx_j\,a_{ij}$, denn die $i$-te Komponente der Spalte $\mathbf{a}_j$ ist der Eintrag $a_{ij}$. Das ist genau Komponente $i$ von $\mathbf{A}\mathbf{x}$ nach [(7.1)](#gl-7-1).
 :::
 
-⁠**Rechenbeispiel 1:** Für das Produkt aus dem vorigen Unterabschnitt ist
+⁠**Rechenbeispiel 1:** Für das Produkt $\mathbf{A}\mathbf{x}$ aus Unterabschnitt [7.1](#stufe-7-1) ist
 
 $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\begin{pmatrix}1\\0\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\\1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
-⁠**Rechenbeispiel 2:** Die Vorhersagen der Maklerin sind $3$-mal die Spalte der Flächen plus $10$-mal die Spalte der Zimmer minus $4$-mal die Spalte der Entfernungen:
+⁠**Rechenbeispiel 2:** Die Vorhersagen der Maklerin sind $3$-mal die Spalte der Flächen plus $10$-mal die Spalte der Zimmer plus $(-4)$-mal die Spalte der Entfernungen (Abb. [31](#abb-31)). Die Spalten von $\mathbf{X}$ heißen dabei wie in Unterabschnitt [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1) $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. In dieser Form sieht man, welcher Teil jeder Vorhersage von welchem Merkmal stammt: Der erste Summand enthält die Beiträge der Fläche, der zweite die der Zimmer, der dritte die der Entfernung.
 
-$$\mathbf{X}\mathbf{w}=3\begin{pmatrix}60\\40\\90\\70\end{pmatrix}+10\begin{pmatrix}2\\1\\4\\3\end{pmatrix}-4\begin{pmatrix}3\\1\\6\\2\end{pmatrix}=\begin{pmatrix}180\\120\\270\\210\end{pmatrix}+\begin{pmatrix}20\\10\\40\\30\end{pmatrix}-\begin{pmatrix}12\\4\\24\\8\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix}.$$
-
-In dieser Form sieht man, welcher Teil jeder Vorhersage von welchem Merkmal stammt.
+:::abbildung ml/k1rspalten 31
+Die Spaltensicht für die Maklerin: Jede Spalte $\mathbf{a}_j$ von $\mathbf{X}$ wird mit ihrem Gewicht $w_j$ multipliziert, dann werden die drei Vektoren addiert.
+:::
 
 ⁠**Kurz gesagt:** In der Spaltensicht ist $\mathbf{A}\mathbf{x}$ eine Linearkombination der Spalten von $\mathbf{A}$; die Komponenten von $\mathbf{x}$ sagen, wie viel von jeder Spalte genommen wird.
 

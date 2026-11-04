@@ -29,8 +29,6 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--bar-hl);}
 .topbar kbd{background:transparent;border-color:var(--bar-rand);color:var(--bar-ink);}
-.topbar .langs{background:var(--bar-soft);border-color:var(--bar-rand);}
-.topbar .langs .l-btn{color:var(--bar-ink);} .topbar .langs .l-btn.on{background:var(--bar-hl);color:#2a1205;}
 .topbar .editorlink{font-weight:600;color:var(--bar-ink);} .topbar .editorlink:hover{color:var(--bar-hl);}
 .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);border-radius:10px;cursor:pointer;}
 .topbar .iconBtn:hover{border-color:var(--bar-hl);}
@@ -42,9 +40,9 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
 /* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben */
 .topbar .navTitel{width:min(280px,calc(50vw - 350px));overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
-  color:var(--bar-ink);opacity:.82;line-height:1.3;}
+  color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
 .topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
-.topbar a.navTitel:hover{opacity:1;color:var(--bar-hl);text-decoration:none;}
+.topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
 @media(max-width:1000px){ .topbar .navTitel{display:none;} }
 .apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
 .apill-mensch{color:var(--accent3);border-color:var(--accent3);}
@@ -257,12 +255,33 @@ details.loesung[open]>summary::before{transform:rotate(90deg);}
 .article ol.rm>li{counter-increment:rm;position:relative;}
 .article ol.rm>li::before{content:"(" counter(rm,lower-roman) ")";position:absolute;left:-2.3em;font-weight:600;font-size:16px;line-height:1.75;}
 .article li>p{margin:0 0 .5em;} .article li>p:last-child{margin-bottom:0;}
-.langs{display:inline-flex;margin-left:10px;border:1px solid var(--border);border-radius:9px;overflow:hidden;background:var(--soft);}
-.langs .l-btn{padding:6px 8px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;}
-.langs .l-btn.on{background:var(--accent);color:var(--on-accent);}
-.langs .l-btn.off{opacity:.4;cursor:default;}
+/* Sprachmenü (User 2026-11-04: sechs Sprachen, ein Auswahlknopf): runder Knopf mit der aktuellen Sprache, darunter die
+   Liste aller Sprachen in eigener Schreibweise; offen = orange wie die übrigen Knöpfe der Leiste. Ohne Übersetzung
+   ausgegraut. Breit in der Kopfleiste, schmal (bis 900 px) unter dem Titel, wo vorher die Sprachknöpfe standen. */
+.langs{position:relative;display:inline-flex;margin-left:10px;}
+.langs .l-toggle{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 11px 0 14px;border-radius:999px;border:1px solid var(--border);
+  background:var(--soft);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;letter-spacing:.03em;line-height:1;cursor:pointer;}
+.langs .l-toggle:hover{border-color:var(--accent3);}
+.langs .l-toggle[aria-expanded="true"]{border-color:var(--accent3);color:var(--accent3);}
+.langs .l-pfeil{opacity:.85;transition:transform .15s;}
+.langs .l-toggle[aria-expanded="true"] .l-pfeil{transform:rotate(180deg);}
+.topbar .langs .l-toggle{background:var(--bar-soft);border-color:var(--bar-rand);color:var(--bar-ink);}
+.topbar .langs .l-toggle:hover{border-color:var(--bar-hl);}
+.topbar .langs .l-toggle[aria-expanded="true"]{border-color:var(--bar-hl);color:var(--bar-hl);}
+.langs .l-toggle:focus-visible,.langs .l-item:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.topbar .langs .l-toggle:focus-visible{outline-color:var(--bar-hl);}
+.langs .l-menu{position:absolute;top:calc(100% + 6px);left:0;z-index:40;min-width:180px;margin:0;padding:6px;list-style:none;background:var(--panel);
+  border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(10,20,15,.16),0 2px 6px rgba(10,20,15,.08);}
+.langs .l-menu[hidden]{display:none;}
+.langs .l-menu li{margin:0;padding:0;font-size:14.5px;line-height:1.3;}
+.langs .l-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 12px;border-radius:8px;color:var(--ink);
+  font-weight:500;text-decoration:none;}
+.langs a.l-item:hover,.langs a.l-item:focus{background:var(--soft);text-decoration:none;}
+.langs .l-item.on{color:var(--accent3);font-weight:700;background:color-mix(in srgb,var(--accent3) 9%,var(--panel));}
+.langs .l-item.off{color:var(--muted);opacity:.55;cursor:not-allowed;}
+:root[data-theme="dark"] .langs .l-menu{border-color:var(--rahmen);box-shadow:0 12px 32px rgba(0,0,0,.55);}
 html[lang="zh"] body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;}
-.langs-art{display:none;margin:0 0 10px 8px;}
+.langs-art{display:none;margin:0 0 12px;}
 @media (max-width:900px){.langs-top{display:none;}.langs-art{display:inline-flex;}}
 details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent3);border-radius:10px;background:color-mix(in srgb,var(--accent3) 5%,var(--panel));}
 details.ltspice>summary{cursor:pointer;font-weight:600;padding:10px 14px;list-style:none;line-height:1.45;}
@@ -314,11 +333,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
 .article h2{font-weight:700;letter-spacing:-.022em;} .article h3{font-weight:700;letter-spacing:-.015em;}
 .article p,.article li{line-height:1.72;}
-.topbar .searchBtn,.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .langs{border-radius:999px;}
+.topbar .searchBtn,.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .l-toggle{border-radius:999px;}
 .article .sect{border-radius:16px;box-shadow:0 1px 2px rgba(16,24,20,.04),0 4px 14px rgba(16,24,20,.04);}
 .callout{border-radius:12px;}
 .aufg{border-color:var(--border);border-radius:14px;}
-.side li a.active{border-radius:999px;}
+.side li a.active{border-radius:8px;}   /* rechteckig mit leicht runden Ecken (User 2026-11-04: keine Ellipse) */
 /* Nacht: Karten ohne Schatten, dafür helle Rahmen um alle Kästen (Wunsch des Users); farbige Randstreifen links bleiben */
 :root[data-theme="dark"] .article .sect{box-shadow:none;}
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,

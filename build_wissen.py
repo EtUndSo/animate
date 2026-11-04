@@ -30,9 +30,10 @@ Fassungen eines Themas (alle mit demselben `pfad:`, im selben Ordner):
     NN-slug-mensch-ausfuehrlich.md  von Hand, ausführlich
 Eine Hand-Fassung mit KI-Gegenstück wird gebaut, aber nicht verlinkt und nicht durchsucht; ohne Gegenstück steht sie im Baum.
 
-Sprachen (de, en, es, zh): NN-slug.en.md neben NN-slug.md ist die Übersetzung, mit übersetztem `pfad:`. Sie landet
-unter web/wissen/en/<dieselbe Adresse wie der deutsche Artikel>, jede Sprache hat ihren eigenen Baum, ihre Übersicht
-und ihren Suchindex. Der Umschalter DE | EN | ES | 中文 führt zur selben Seite in der anderen Sprache.
+Sprachen (de, en, es, zh, fr, tr): NN-slug.en.md neben NN-slug.md ist die Übersetzung, mit übersetztem `pfad:`. Sie
+landet unter web/wissen/en/<dieselbe Adresse wie der deutsche Artikel>, jede Sprache hat ihren eigenen Baum, ihre
+Übersicht und ihren Suchindex. Das Sprachmenü (Knopf „DE ▾“ in der Kopfleiste, auf schmalen Bildschirmen unter dem
+Titel) führt zur selben Seite in der anderen Sprache; Sprachen ohne Übersetzung dieser Seite sind ausgegraut.
 """
 import datetime, json, re, html, unicodedata
 from pathlib import Path
@@ -49,9 +50,11 @@ ABB_URL  = "/abbildungen"
 SZENE_NAME_RE = re.compile(r"[A-Za-z0-9_-]+(?:/[A-Za-z0-9_-]+)*")
 SITE = "https://etundso.de"           # für hreflang
 
-LANGS = ("de", "en", "es", "zh")
-LANG_NAME = {"de": "DE", "en": "EN", "es": "ES", "zh": "中文"}
-LANG_FILE = re.compile(r"\.(en|es|zh)$")   # NN-slug.en.md
+LANGS = ("de", "en", "es", "zh", "fr", "tr")
+LANG_NAME = {"de": "DE", "en": "EN", "es": "ES", "zh": "中文", "fr": "FR", "tr": "TR"}   # Aufschrift des Sprachknopfs
+LANG_VOLL = {"de": "Deutsch", "en": "English", "es": "Español", "fr": "Français", "tr": "Türkçe", "zh": "中文"}   # im Menü, in eigener Schreibweise
+LANG_MENU = ("de", "en", "es", "fr", "tr", "zh")   # Reihenfolge im Menü
+LANG_FILE = re.compile(r"\.(%s)$" % "|".join(l for l in LANGS if l != "de"))   # NN-slug.en.md
 LANG_NOW = ["de"]                     # Sprache der gerade gebauten Seite (main setzt sie)
 
 # Oberfläche je Sprache. Deutsch ist die Quelle; fehlt ein Wort, steht das deutsche da.
@@ -67,7 +70,7 @@ UI = {
            "lede": "Verständliche, animierte Erklärungen — von Grund auf und in kleinen Schritten. Wähle ein Modul oder nutze die Suche.",
            "leer": "Hier entstehen nach und nach die Artikel.", "beispiel": "Beispiel", "ki_pill": "KI-generiert",
            "hand_pill": "von Hand geschrieben", "quiz": "Quiz — teste dein Verständnis", "impressum": "Impressum", "datenschutz": "Datenschutz",
-           "warnung": "Achtung", "konsole": "Konsole",
+           "warnung": "Achtung", "konsole": "Konsole", "sprache": "Sprache", "nicht_uebersetzt": "noch nicht übersetzt",
            "fremd": "Rechtliche Seiten sind auf Deutsch."},
     "en": {"wissen": "Knowledge", "alle_module": "All modules", "abbildung": "Figure", "abb_vorb": "in preparation",
            "editor_offen": "Open scene in editor", "editor_title": "Open this figure's scene in the editor",
@@ -80,7 +83,7 @@ UI = {
            "lede": "Clear, illustrated explanations, from the ground up and in small steps. Pick a module or use the search.",
            "leer": "Articles are on their way.", "beispiel": "Example", "ki_pill": "AI-generated",
            "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy",
-           "warnung": "Caution", "konsole": "Terminal"},
+           "warnung": "Caution", "konsole": "Terminal", "sprache": "Language", "nicht_uebersetzt": "not translated yet"},
     "es": {"wissen": "Conocimiento", "alle_module": "Todos los módulos", "abbildung": "Figura", "abb_vorb": "en preparación",
            "editor_offen": "Abrir la escena en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
            "herleitung": "Deducción", "beweis": "Demostración", "frage": "Pregunta", "hintergrund": "Contexto", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
@@ -92,7 +95,7 @@ UI = {
            "lede": "Explicaciones claras e ilustradas, desde la base y en pasos pequeños. Elige un módulo o usa la búsqueda.",
            "leer": "Los artículos están en camino.", "beispiel": "Ejemplo", "ki_pill": "generado por IA",
            "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad",
-           "warnung": "Atención", "konsole": "Terminal"},
+           "warnung": "Atención", "konsole": "Terminal", "sprache": "Idioma", "nicht_uebersetzt": "aún sin traducir"},
     "zh": {"wissen": "知识库", "alle_module": "全部模块", "abbildung": "图", "abb_vorb": "准备中",
            "editor_offen": "在编辑器中打开场景", "editor_title": "在编辑器中打开此图的场景",
            "herleitung": "推导", "beweis": "证明", "frage": "问题", "hintergrund": "背景", "loesung": "解答", "zweck": "本阶段内容：",
@@ -104,7 +107,35 @@ UI = {
            "lede": "清晰、配图的讲解，从基础出发，循序渐进。请选择模块或使用搜索。",
            "leer": "文章正在陆续添加。", "beispiel": "例", "ki_pill": "AI 生成",
            "hand_pill": "人工撰写", "quiz": "测验：检验你的理解", "impressum": "法律声明", "datenschutz": "隐私",
-           "warnung": "注意", "konsole": "终端"},
+           "warnung": "注意", "konsole": "终端", "sprache": "语言", "nicht_uebersetzt": "尚未翻译"},
+    # Französisch: Leser wird gesiezt (vous), Leerzeichen vor : ; ! ? und in « » sind geschützt (\u00a0, \u202f)
+    "fr": {"wissen": "Connaissances", "alle_module": "Tous les modules", "abbildung": "Figure", "abb_vorb": "en préparation",
+           "editor_offen": "Ouvrir la scène dans l’éditeur", "editor_title": "Ouvrir la scène de cette figure dans l’éditeur",
+           "herleitung": "Démonstration", "beweis": "Preuve", "frage": "Question", "hintergrund": "Contexte", "loesung": "Solution",
+           "zweck": "De quoi traite cette étape\u00a0:",
+           "zusatz": "Pour aller plus loin, pas nécessaire pour la suite", "analogie": "Analogie (une image pour s’orienter, pas des mathématiques)",
+           "kern": "L’essentiel", "merke": "À retenir", "satz": "Théorème", "definition": "Définition", "lemma": "Lemme",
+           "suchen": "Rechercher", "suche_ph": "Sujet, notion, formule …", "nichts": "Aucun résultat pour",
+           "suche_hint": 'Un fragment de mot suffit («\u00a0diviseur\u00a0» trouve «\u00a0diviseur de tension\u00a0»). <kbd>Échap</kbd> pour fermer.',
+           "auf_seite": "Sur cette page", "im_artikel": "Dans cet article", "vorher": "Article précédent", "weiter": "Article suivant",
+           "lede": "Des explications claires et illustrées, en partant des bases et par petites étapes. Choisissez un module ou utilisez la recherche.",
+           "leer": "Les articles arrivent peu à peu.", "beispiel": "Exemple", "ki_pill": "généré par IA",
+           "hand_pill": "écrit à la main", "quiz": "Quiz — testez votre compréhension", "impressum": "Mentions légales", "datenschutz": "Confidentialité",
+           "warnung": "Attention", "konsole": "Terminal", "sprache": "Langue", "nicht_uebersetzt": "pas encore traduit"},
+    # Türkisch: Leser wird gesiezt (siz)
+    "tr": {"wissen": "Bilgi", "alle_module": "Tüm modüller", "abbildung": "Şekil", "abb_vorb": "hazırlanıyor",
+           "editor_offen": "Sahneyi düzenleyicide aç", "editor_title": "Bu şeklin sahnesini düzenleyicide aç",
+           "herleitung": "Türetme", "beweis": "İspat", "frage": "Soru", "hintergrund": "Arka plan", "loesung": "Çözüm",
+           "zweck": "Bu aşamanın konusu:",
+           "zusatz": "Ek okuma, devamı için gerekli değil", "analogie": "Benzetme (yol gösteren bir imge, matematik değil)",
+           "kern": "Temel noktalar", "merke": "Not", "satz": "Teorem", "definition": "Tanım", "lemma": "Lemma",
+           "suchen": "Ara", "suche_ph": "Konu, kavram, formül …", "nichts": "Sonuç bulunamadı",
+           "suche_hint": 'Kelimenin bir parçası da yeterli (“bölücü”, “gerilim bölücü”yü de bulur). <kbd>Esc</kbd> ile kapanır.',
+           "auf_seite": "Bu sayfada", "im_artikel": "Bu makalede", "vorher": "Önceki makale", "weiter": "Sonraki makale",
+           "lede": "Temelden başlayan, küçük adımlarla ilerleyen, anlaşılır ve görsellerle desteklenen açıklamalar. Bir modül seçin ya da aramayı kullanın.",
+           "leer": "Makaleler yavaş yavaş ekleniyor.", "beispiel": "Örnek", "ki_pill": "yapay zekâ ile üretildi",
+           "hand_pill": "elle yazıldı", "quiz": "Test — anladıklarınızı sınayın", "impressum": "Künye", "datenschutz": "Gizlilik",
+           "warnung": "Dikkat", "konsole": "Terminal", "sprache": "Dil", "nicht_uebersetzt": "henüz çevrilmedi"},
 }
 
 def T(key):
@@ -115,14 +146,16 @@ def home():
     return "/wissen/" if LANG_NOW[0] == "de" else f"/wissen/{LANG_NOW[0]}/"
 
 # ---------------------------------------------------------------- helpers ----
+_ZERLEGT = str.maketrans({"ı": "i", "œ": "oe", "Œ": "OE", "æ": "ae", "Æ": "AE"})   # zerfallen nicht per NFKD
+
 def slugify(s):
-    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+    s = unicodedata.normalize("NFKD", s.translate(_ZERLEGT)).encode("ascii", "ignore").decode()
     s = re.sub(r"[^a-zA-Z0-9]+", "-", s).strip("-").lower()
     return s or "x"
 
 def fold(s):
-    """Normalise for search: lowercase, strip diacritics, ß->ss — so 'Übertragung' matches 'ubertragung'."""
-    s = s.lower().replace("ß", "ss")
+    """Normalise for search: lowercase, strip diacritics, ß->ss, ı->i, œ->oe — so 'Übertragung' matches 'ubertragung'."""
+    s = s.lower().replace("ß", "ss").translate(_ZERLEGT)
     s = unicodedata.normalize("NFKD", s)
     return "".join(c for c in s if not unicodedata.combining(c))
 
@@ -728,18 +761,34 @@ def sprachen(art):
     base = art.get("human_of") or art
     return {l: "/wissen/" + a["path"] for l, a in ART_LANG.get(base["key"], {}).items()}
 
+_L_PFEIL = ('<svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" '
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>')
+_L_HAKEN = ('<svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" '
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg>')
+
 def lang_switch(art=None, where="top"):
-    # where: "top" = Kopfleiste; auf dem Handy passt er dort nicht mehr und steht unter dem Titel ("art")
-    ziele = sprachen(art)
-    btn = ""
-    for l in LANGS:
-        if l == LANG_NOW[0]:
-            btn += f'<a class="l-btn on" aria-current="true" href="{ziele.get(l, home())}" hreflang="{l}">{LANG_NAME[l]}</a>'
+    """Sprachmenü: ein Knopf mit der aktuellen Sprache („DE ▾“), darunter die Liste aller Sprachen in eigener
+    Schreibweise. Sprachen ohne Übersetzung dieser Seite sind ausgegraut und kein Link. where: "top" = Kopfleiste;
+    auf schmalen Bildschirmen passt der Knopf dort nicht mehr und steht unter dem Titel ("art"). wissen.js öffnet und
+    schließt das Menü (Esc, Klick daneben, Pfeiltasten, aria-expanded)."""
+    ziele, jetzt = sprachen(art), LANG_NOW[0]
+    mid = f"lmenu-{where}"
+    rows = ""
+    for l in LANG_MENU:
+        name = html.escape(LANG_VOLL[l])
+        if l == jetzt:
+            rows += (f'<li><a class="l-item on" href="{ziele.get(l, home())}" hreflang="{l}" lang="{l}" aria-current="true">'
+                     f'<span class="l-name">{name}</span>{_L_HAKEN}</a></li>')
         elif l in ziele:
-            btn += f'<a class="l-btn" href="{ziele[l]}" hreflang="{l}">{LANG_NAME[l]}</a>'
+            rows += f'<li><a class="l-item" href="{ziele[l]}" hreflang="{l}" lang="{l}"><span class="l-name">{name}</span></a></li>'
         else:
-            btn += f'<span class="l-btn off" aria-disabled="true">{LANG_NAME[l]}</span>'
-    return f'<nav class="langs langs-{where}" aria-label="Sprache">{btn}</nav>'
+            rows += (f'<li><span class="l-item off" lang="{l}" aria-disabled="true" title="{html.escape(T("nicht_uebersetzt"))}">'
+                     f'<span class="l-name">{name}</span></span></li>')
+    knopf = (f'<button type="button" class="l-toggle" aria-expanded="false" aria-controls="{mid}" '
+             f'aria-label="{html.escape(T("sprache"))}: {html.escape(LANG_VOLL[jetzt])}" title="{html.escape(T("sprache"))}">'
+             f'<span class="l-cur">{LANG_NAME[jetzt]}</span>{_L_PFEIL}</button>')
+    return (f'<nav class="langs langs-{where}" aria-label="{html.escape(T("sprache"))}" data-langmenu>{knopf}'
+            f'<ul class="l-menu" id="{mid}" hidden>{rows}</ul></nav>')
 
 def lesezeit(body):
     """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
@@ -992,8 +1041,6 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--bar-hl);}
 .topbar kbd{background:transparent;border-color:var(--bar-rand);color:var(--bar-ink);}
-.topbar .langs{background:var(--bar-soft);border-color:var(--bar-rand);}
-.topbar .langs .l-btn{color:var(--bar-ink);} .topbar .langs .l-btn.on{background:var(--bar-hl);color:#2a1205;}
 .topbar .editorlink{font-weight:600;color:var(--bar-ink);} .topbar .editorlink:hover{color:var(--bar-hl);}
 .topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);border-radius:10px;cursor:pointer;}
 .topbar .iconBtn:hover{border-color:var(--bar-hl);}
@@ -1005,9 +1052,9 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
 /* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben */
 .topbar .navTitel{width:min(280px,calc(50vw - 350px));overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
-  color:var(--bar-ink);opacity:.82;line-height:1.3;}
+  color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
 .topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
-.topbar a.navTitel:hover{opacity:1;color:var(--bar-hl);text-decoration:none;}
+.topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
 @media(max-width:1000px){ .topbar .navTitel{display:none;} }
 .apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
 .apill-mensch{color:var(--accent3);border-color:var(--accent3);}
@@ -1220,12 +1267,33 @@ details.loesung[open]>summary::before{transform:rotate(90deg);}
 .article ol.rm>li{counter-increment:rm;position:relative;}
 .article ol.rm>li::before{content:"(" counter(rm,lower-roman) ")";position:absolute;left:-2.3em;font-weight:600;font-size:16px;line-height:1.75;}
 .article li>p{margin:0 0 .5em;} .article li>p:last-child{margin-bottom:0;}
-.langs{display:inline-flex;margin-left:10px;border:1px solid var(--border);border-radius:9px;overflow:hidden;background:var(--soft);}
-.langs .l-btn{padding:6px 8px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;}
-.langs .l-btn.on{background:var(--accent);color:var(--on-accent);}
-.langs .l-btn.off{opacity:.4;cursor:default;}
+/* Sprachmenü (User 2026-11-04: sechs Sprachen, ein Auswahlknopf): runder Knopf mit der aktuellen Sprache, darunter die
+   Liste aller Sprachen in eigener Schreibweise; offen = orange wie die übrigen Knöpfe der Leiste. Ohne Übersetzung
+   ausgegraut. Breit in der Kopfleiste, schmal (bis 900 px) unter dem Titel, wo vorher die Sprachknöpfe standen. */
+.langs{position:relative;display:inline-flex;margin-left:10px;}
+.langs .l-toggle{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 11px 0 14px;border-radius:999px;border:1px solid var(--border);
+  background:var(--soft);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;letter-spacing:.03em;line-height:1;cursor:pointer;}
+.langs .l-toggle:hover{border-color:var(--accent3);}
+.langs .l-toggle[aria-expanded="true"]{border-color:var(--accent3);color:var(--accent3);}
+.langs .l-pfeil{opacity:.85;transition:transform .15s;}
+.langs .l-toggle[aria-expanded="true"] .l-pfeil{transform:rotate(180deg);}
+.topbar .langs .l-toggle{background:var(--bar-soft);border-color:var(--bar-rand);color:var(--bar-ink);}
+.topbar .langs .l-toggle:hover{border-color:var(--bar-hl);}
+.topbar .langs .l-toggle[aria-expanded="true"]{border-color:var(--bar-hl);color:var(--bar-hl);}
+.langs .l-toggle:focus-visible,.langs .l-item:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.topbar .langs .l-toggle:focus-visible{outline-color:var(--bar-hl);}
+.langs .l-menu{position:absolute;top:calc(100% + 6px);left:0;z-index:40;min-width:180px;margin:0;padding:6px;list-style:none;background:var(--panel);
+  border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(10,20,15,.16),0 2px 6px rgba(10,20,15,.08);}
+.langs .l-menu[hidden]{display:none;}
+.langs .l-menu li{margin:0;padding:0;font-size:14.5px;line-height:1.3;}
+.langs .l-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 12px;border-radius:8px;color:var(--ink);
+  font-weight:500;text-decoration:none;}
+.langs a.l-item:hover,.langs a.l-item:focus{background:var(--soft);text-decoration:none;}
+.langs .l-item.on{color:var(--accent3);font-weight:700;background:color-mix(in srgb,var(--accent3) 9%,var(--panel));}
+.langs .l-item.off{color:var(--muted);opacity:.55;cursor:not-allowed;}
+:root[data-theme="dark"] .langs .l-menu{border-color:var(--rahmen);box-shadow:0 12px 32px rgba(0,0,0,.55);}
 html[lang="zh"] body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;}
-.langs-art{display:none;margin:0 0 10px 8px;}
+.langs-art{display:none;margin:0 0 12px;}
 @media (max-width:900px){.langs-top{display:none;}.langs-art{display:inline-flex;}}
 details.ltspice{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent3);border-radius:10px;background:color-mix(in srgb,var(--accent3) 5%,var(--panel));}
 details.ltspice>summary{cursor:pointer;font-weight:600;padding:10px 14px;list-style:none;line-height:1.45;}
@@ -1277,11 +1345,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
 .article h2{font-weight:700;letter-spacing:-.022em;} .article h3{font-weight:700;letter-spacing:-.015em;}
 .article p,.article li{line-height:1.72;}
-.topbar .searchBtn,.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .langs{border-radius:999px;}
+.topbar .searchBtn,.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .l-toggle{border-radius:999px;}
 .article .sect{border-radius:16px;box-shadow:0 1px 2px rgba(16,24,20,.04),0 4px 14px rgba(16,24,20,.04);}
 .callout{border-radius:12px;}
 .aufg{border-color:var(--border);border-radius:14px;}
-.side li a.active{border-radius:999px;}
+.side li a.active{border-radius:8px;}   /* rechteckig mit leicht runden Ecken (User 2026-11-04: keine Ellipse) */
 /* Nacht: Karten ohne Schatten, dafür helle Rahmen um alle Kästen (Wunsch des Users); farbige Randstreifen links bleiben */
 :root[data-theme="dark"] .article .sect{box-shadow:none;}
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
@@ -1318,13 +1386,15 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 """
 
 WISSEN_JS = r"""
-var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado para",zh:"未找到"};
+var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\".",es:"Nada encontrado para „{q}\".",zh:"未找到 „{q}\".",
+            fr:"Aucun résultat pour «\u00a0{q}\u00a0».",tr:"“{q}” için sonuç bulunamadı."};
 // Suche: vorab gebauter Index (search.json), Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben.
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
       results=document.getElementById("searchResults"), btn=document.getElementById("searchBtn");
   var DOCS=null, sel=-1, rows=[];
-  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,""); }
+  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
+    .normalize("NFKD").replace(/[̀-ͯ]/g,""); }                // wie fold() in build_wissen.py
   function load(){ if(DOCS) return Promise.resolve(DOCS);
     var L=document.documentElement.lang; L=(L&&L!=="de")?"."+L:"";
     return fetch("/wissen/data/search"+L+".json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
@@ -1353,7 +1423,7 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
                   '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
       results.appendChild(a); rows.push(a);
     });
-    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de)+' „'+esc(raw.trim())+'".</div>';
+    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de).split("{q}").join(esc(raw.trim()))+'</div>';
   }
   function open(){ if(!overlay) return; overlay.hidden=false; load().then(function(){ input.value=""; results.innerHTML=""; input.focus(); }); }
   function close(){ if(overlay) overlay.hidden=true; }
@@ -1369,6 +1439,44 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   function paintSel(){ rows.forEach(function(r,i){ r.classList.toggle("sel",i===sel); }); if(rows[sel]) rows[sel].scrollIntoView({block:"nearest"}); }
   if(input) input.addEventListener("input",function(){ search(input.value); });
   if(overlay) overlay.addEventListener("click",function(e){ if(e.target===overlay) close(); });
+})();
+// Sprachmenü (build_wissen.lang_switch): Der Knopf öffnet und schließt die Liste. Esc, ein Klick daneben oder Tab aus dem
+// Menü schließen sie; Esc bringt den Fokus zurück auf den Knopf. Mit der Tastatur geöffnet (Enter, Leertaste, Pfeil)
+// steht der Fokus auf der aktuellen Sprache, Pfeiltasten, Pos1 und Ende wandern durch die übersetzten Sprachen.
+(function(){
+  var menus=[].slice.call(document.querySelectorAll("[data-langmenu]"));
+  function btn(m){ return m.querySelector(".l-toggle"); }
+  function list(m){ return m.querySelector(".l-menu"); }
+  function links(m){ return [].slice.call(m.querySelectorAll("a.l-item")); }
+  function isOpen(m){ var l=list(m); return !!(l && !l.hidden); }
+  function close(m, focusBtn){ if(!isOpen(m)) return; list(m).hidden=true; btn(m).setAttribute("aria-expanded","false"); if(focusBtn) btn(m).focus(); }
+  function open(m, focus){
+    menus.forEach(function(o){ if(o!==m) close(o,false); });
+    list(m).hidden=false; btn(m).setAttribute("aria-expanded","true");
+    if(focus){ var ls=links(m), t=(focus==="last") ? ls[ls.length-1] : (m.querySelector("a.l-item.on")||ls[0]); if(t) t.focus(); }
+  }
+  function move(m, d){ var ls=links(m); if(!ls.length) return; var i=ls.indexOf(document.activeElement);
+    i=(i<0) ? (d>0 ? 0 : ls.length-1) : (i+d+ls.length)%ls.length; ls[i].focus(); }
+  menus.forEach(function(m){
+    var b=btn(m), l=list(m); if(!b || !l) return;
+    b.addEventListener("click",function(e){ if(isOpen(m)) close(m,false); else open(m, e.detail===0); });   // detail 0: Tastatur
+    b.addEventListener("keydown",function(e){
+      if(e.key==="ArrowDown"){ e.preventDefault(); open(m,true); }
+      else if(e.key==="ArrowUp"){ e.preventDefault(); open(m,"last"); }
+    });
+    l.addEventListener("keydown",function(e){
+      var ls=links(m);
+      if(e.key==="ArrowDown"){ e.preventDefault(); move(m,1); }
+      else if(e.key==="ArrowUp"){ e.preventDefault(); move(m,-1); }
+      else if(e.key==="Home" && ls.length){ e.preventDefault(); ls[0].focus(); }
+      else if(e.key==="End" && ls.length){ e.preventDefault(); ls[ls.length-1].focus(); }
+    });
+    m.addEventListener("focusout",function(e){ if(e.relatedTarget && !m.contains(e.relatedTarget)) close(m,false); });   // Tab hinaus
+  });
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape") menus.forEach(function(m){ if(isOpen(m)) close(m, m.contains(document.activeElement)); });
+  });
+  document.addEventListener("click",function(e){ menus.forEach(function(m){ if(isOpen(m) && !m.contains(e.target)) close(m,false); }); });
 })();
 // Inhaltsverzeichnis: aktuellen Abschnitt beim Scrollen markieren.
 (function(){

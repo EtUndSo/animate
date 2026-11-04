@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="534" height="304" viewBox="474.5455 287.2614 970.9091 552.7273">
+<rect x="474.5455" y="287.2614" width="970.9091" height="552.7273" fill="#ffffff"/>
+<path d="M501 756C636 756 771 756 906 756" fill="none" stroke="#b5b5b5" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M906 756C906 621 906 486 906 351C771 351 636 351 501 351C501 486 501 621 501 756" fill="none" stroke="#b5b5b5" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M501 351C636 486 771 621 906 756" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M528 756C654 630 780 504 906 378" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M501 744.82C632.27 613.55 763.55 482.27 894.82 351" fill="none" stroke="#c82828" stroke-width="4" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M726.45 567C726.45 561.78 722.22 557.55 717 557.55C711.78 557.55 707.55 561.78 707.55 567C707.55 572.22 711.78 576.45 717 576.45C722.22 576.45 726.45 572.22 726.45 567" fill="#111111"/>
+<path d="M707.36 547.91C707.36 542.69 703.13 538.46 697.91 538.46C692.69 538.46 688.46 542.69 688.46 547.91C688.46 553.13 692.69 557.36 697.91 557.36C703.13 557.36 707.36 553.13 707.36 547.91" fill="#111111"/>
+<path d="M717 567C710.64 560.64 704.27 554.27 697.91 547.91" fill="none" stroke="#111111" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M697.91 547.91C700.39 553.7 702.87 559.49 705.36 565.28C708.67 561.98 711.98 558.67 715.28 555.36C709.49 552.87 703.7 550.39 697.91 547.91" fill="#111111" stroke="#111111" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="703.5" y="324" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">droites perpendiculaires</text>
+<text x="703.5" y="803.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">l’intersection se déplace de 0,2</text>
+<path d="M1014 756C1149 756 1284 756 1419 756C1419 621 1419 486 1419 351C1284 351 1149 351 1014 351" fill="none" stroke="#b5b5b5" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1014 351C1014 486 1014 621 1014 756" fill="none" stroke="#b5b5b5" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1014 351C1149 486 1284 621 1419 756" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1014 404.23C1149 505.96 1284 607.69 1419 709.42" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1014 370.42C1149 472.15 1284 573.88 1419 675.61" fill="none" stroke="#c82828" stroke-width="4" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1239.45 567C1239.45 561.78 1235.22 557.55 1230 557.55C1224.78 557.55 1220.55 561.78 1220.55 567C1220.55 572.22 1224.78 576.45 1230 576.45C1235.22 576.45 1239.45 572.22 1239.45 567" fill="#111111"/>
+<path d="M1102.26 429.81C1102.26 424.59 1098.03 420.36 1092.81 420.36C1087.59 420.36 1083.36 424.59 1083.36 429.81C1083.36 435.03 1087.59 439.26 1092.81 439.26C1098.03 439.26 1102.26 435.03 1102.26 429.81" fill="#111111"/>
+<path d="M1230 567C1184.27 521.27 1138.54 475.54 1092.81 429.81" fill="none" stroke="#111111" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1092.81 429.81C1095.29 435.6 1097.78 441.4 1100.26 447.19C1103.57 443.88 1106.88 440.57 1110.19 437.26C1104.4 434.78 1098.6 432.29 1092.81 429.81" fill="#111111" stroke="#111111" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1216.5" y="324" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">droites à 8°</text>
+<text x="1216.5" y="803.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">l’intersection se déplace de 1,44</text>
+</svg>

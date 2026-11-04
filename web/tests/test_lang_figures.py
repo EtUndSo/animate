@@ -33,7 +33,7 @@ def axes_spec(**kw):
 
 def test_number_language():
     for lang, tick, minus in (("de", "0,5", "−1"), ("es", "0,5", "−1"), ("en", "0.5", "−1"), ("zh", "0.5", "−1"),
-                              ("", "0.5", "-1")):
+                              ("fr", "0,5", "−1"), ("tr", "0,5", "−1"), ("", "0.5", "-1")):
         sc = scene([axes_spec()], lang)
         t = texts(sc.axes_by_id["a"])
         assert tick in t and minus in t, (lang, t)
@@ -50,6 +50,13 @@ def test_strings_and_digits():
     assert scene(objs, "en", st).objects_by_id["t2"].text == "Input: t = 0.5 s"
     assert scene(objs, "zh", st).objects_by_id["t1"].text == "输入"
     assert scene(objs, "es", st).objects_by_id["t1"].text == "Eingang"          # missing language -> German
+    assert scene(objs, "fr", st).objects_by_id["t2"].text == "Input: t = 0,5 s"  # fr, tr not translated yet -> English
+    assert scene(objs, "tr", st).objects_by_id["t1"].text == "Input"
+    st2 = {"ein": {"de": "Eingang", "en": "Input", "fr": "Entrée", "tr": "Giriş"}, "nur": {"de": "Ausgang"}}
+    assert scene(objs, "fr", st2).objects_by_id["t1"].text == "Entrée"
+    assert scene(objs, "tr", st2).objects_by_id["t1"].text == "Giriş"
+    assert scene([axes_spec(), {"id": "t4", "type": "Text", "on": "a", "args": {"text": "@nur", "position": [0, 0, 0]}}],
+                 "tr", st2).objects_by_id["t4"].text == "Ausgang"               # no English either -> German
     assert scene(objs, "de", st).objects_by_id["t3"].text == "@fehlt"           # typo stays visible
     T.set_number_lang("")
 

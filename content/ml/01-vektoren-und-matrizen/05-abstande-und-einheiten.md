@@ -34,7 +34,13 @@ $$\lVert\mathbf{u}-\mathbf{v}\rVert^2=(\mathbf{u}-\mathbf{v})^{\top}(\mathbf{u}-
 
 Bei festen Längen gilt also: Je größer das Skalarprodukt, desto kleiner der Abstand. Beide messen Ähnlichkeit, nur in entgegengesetzter Richtung.
 
-⁠**Rechenbeispiel:** Die Wohnungen 1 und 2 unterscheiden sich um $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Ihr euklidischer Abstand ist $\sqrt{400+1+4}=\sqrt{405}\approx20{,}12$, in der Betragssummennorm $23$, in der Maximumnorm $20$. Zur Probe von [(4.1)](#gl-4-1) mit $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$: links $\lVert(-1,\,2,\,1)^{\top}\rVert^2=6$, rechts $9+5-2\cdot4=6$.
+⁠**Rechenbeispiel:** Die Wohnungen 1 und 2 unterscheiden sich um $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Ihr euklidischer Abstand ist $\sqrt{405}\approx20{,}12$ (Abb. [18](#abb-18)), in der Betragssummennorm $20+1+2=23$, in der Maximumnorm $20$.
+
+:::abbildung ml/k1rabstand 18
+Der euklidische Abstand der Wohnungen 1 und 2: zuerst die Differenz, dann ihre Länge.
+:::
+
+Zur Probe von [(4.1)](#gl-4-1) mit $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$: links $\lVert(-1,\,2,\,1)^{\top}\rVert^2=6$, rechts $9+5-2\cdot4=6$.
 
 ⁠**Kurz gesagt:** Der Abstand zweier Datenpunkte ist die Norm ihrer Differenz; nah beieinander heißt ähnlich.
 
@@ -48,9 +54,9 @@ Drei andere Wohnungen zeigen, was daraus folgt. Gefragt ist, welche der Wohnunge
 
 $$\text{A}=(60,\,2)^{\top},\qquad \text{B}=(63,\,4)^{\top},\qquad \text{C}=(54,\,2)^{\top}\qquad(\text{Fläche in m}^2,\ \text{Zimmer}).$$
 
-In Quadratmetern ist $\lVert\text{A}-\text{B}\rVert=\sqrt{9+4}\approx3{,}61$ und $\lVert\text{A}-\text{C}\rVert=\sqrt{36+0}=6$: B ist näher. Misst man die Fläche in Einheiten von $10\,\mathrm m^2$, so ist $\text{A}=(6,\,2)^{\top}$, $\text{B}=(6{,}3,\,4)^{\top}$, $\text{C}=(5{,}4,\,2)^{\top}$ und $\lVert\text{A}-\text{B}\rVert=\sqrt{0{,}09+4}\approx2{,}02$, $\lVert\text{A}-\text{C}\rVert=0{,}6$: Jetzt ist C näher. Abbildung [5](#abb-5) zeigt beide Bilder.
+In Quadratmetern ist $\lVert\text{A}-\text{B}\rVert=\sqrt{9+4}\approx3{,}61$ und $\lVert\text{A}-\text{C}\rVert=\sqrt{36+0}=6$: B ist näher. Misst man die Fläche in Einheiten von $10\,\mathrm m^2$, so ist $\text{A}=(6,\,2)^{\top}$, $\text{B}=(6{,}3;\ 4)^{\top}$, $\text{C}=(5{,}4;\ 2)^{\top}$ und $\lVert\text{A}-\text{B}\rVert=\sqrt{0{,}09+4}\approx2{,}02$, $\lVert\text{A}-\text{C}\rVert=0{,}6$: Jetzt ist C näher. Abbildung [19](#abb-19) zeigt beide Bilder.
 
-:::abbildung ml/k1einheiten 5
+:::abbildung ml/k1einheiten 19
 Dieselben drei Wohnungen, links mit der Fläche in $\mathrm m^2$, rechts in Einheiten von $10\,\mathrm m^2$. Beide Achsen eines Bildes sind gleich skaliert, sodass die Länge einer Strecke der euklidische Abstand ist. Links liegt B näher an A (gestrichelt der Kreis durch B um A), rechts C.
 :::
 
@@ -83,7 +89,11 @@ der __zentrierte__ Vektor. Seine Komponenten sind die Abweichungen vom Mittelwer
 
 Die Abweichungen heben sich immer gegenseitig auf: $\mathbf 1^{\top}\tilde{\mathbf{v}}=\mathbf 1^{\top}\mathbf{v}-\bar v\,\mathbf 1^{\top}\mathbf 1=N\bar v-\bar v\,N=0$. Der zentrierte Vektor hat also den Mittelwert null.
 
-⁠**Rechenbeispiel:** Die Flächen $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ haben den Mittelwert $\bar v=260/4=65$. Zentriert ist $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, und tatsächlich ist $-5-25+25+5=0$. Die Zimmerzahlen $(2,1,4,3)^{\top}$ haben den Mittelwert $2{,}5$ und zentriert $(-0{,}5,\,-1{,}5,\,1{,}5,\,0{,}5)^{\top}$, die Entfernungen $(3,1,6,2)^{\top}$ den Mittelwert $3$ und zentriert $(0,\,-2,\,3,\,-1)^{\top}$.
+⁠**Rechenbeispiel:** Die Flächen $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ haben den Mittelwert $\bar v=65$. Zentriert ist $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, und die Abweichungen addieren sich tatsächlich zu null (Abb. [20](#abb-20)). Die Zimmerzahlen $(2,\,1,\,4,\,3)^{\top}$ haben den Mittelwert $2{,}5$ und zentriert $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$, die Entfernungen $(3,\,1,\,6,\,2)^{\top}$ den Mittelwert $3$ und zentriert $(0,\,-2,\,3,\,-1)^{\top}$.
+
+:::abbildung ml/k1rzentriert 20
+Der Mittelwert der Flächen und die Summe der Abweichungen vom Mittelwert, in $\mathrm m^2$.
+:::
 
 ⁠**Kurz gesagt:** Zentrieren zieht von jeder Komponente den Mittelwert ab; übrig bleiben die Abweichungen, die sich zu null addieren.
 
@@ -104,7 +114,11 @@ $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\l
 
 Die Standardabweichung hat dieselbe Einheit wie das Merkmal. Sie ist genau dann null, wenn alle Komponenten gleich sind. Viele Texte teilen in [(4.3)](#gl-4-3) durch $N-1$ statt durch $N$. Bei vielen Beispielen ist der Unterschied klein. Diese Reihe teilt durch $N$ und sagt es dazu, wenn es einmal anders sein soll.
 
-⁠**Rechenbeispiel:** Die zentrierten Flächen $(-5,-25,25,5)^{\top}$ haben die Quadratsumme $25+625+625+25=1300$, also ist $\operatorname{std}=\sqrt{1300/4}=\sqrt{325}\approx18{,}03\,\mathrm m^2$. Ebenso erhält man für die Zimmer $\sqrt{5/4}\approx1{,}118$ und für die Entfernungen $\sqrt{14/4}\approx1{,}871$ km.
+⁠**Rechenbeispiel:** Die zentrierten Flächen $(-5,\,-25,\,25,\,5)^{\top}$ haben die Quadratsumme $1\,300$, also ist $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ (Abb. [21](#abb-21)). Ebenso erhält man für die Zimmer $\sqrt{5/4}\approx1{,}118$ und für die Entfernungen $\sqrt{14/4}\approx1{,}871$ km.
+
+:::abbildung ml/k1rstd 21
+Die Standardabweichung der Flächen: Abweichungen quadrieren, mitteln, Wurzel ziehen. Das Ergebnis $\sqrt{325}\approx18{,}03$ hat die Einheit $\mathrm m^2$.
+:::
 
 ⁠**Kurz gesagt:** Die Standardabweichung ist der Effektivwert der Abweichungen vom Mittelwert, die typische Schwankung eines Merkmals.
 
@@ -161,6 +175,12 @@ Der Summand $\beta$ deckt auch Umrechnungen mit verschobenem Nullpunkt ab, etwa 
 
 :::hintergrund Warum gerade die Standardabweichung als Maßstab?
 Man braucht für jedes Merkmal einen Maßstab, der sich bei einem Einheitenwechsel genauso ändert wie die Zahlen selbst. Dann kürzt er sich heraus. Jede Größe, die aus den Daten des Merkmals berechnet wird und die Einheit des Merkmals hat, leistet das: die Standardabweichung, aber auch die Spannweite vom kleinsten zum größten Wert. Die Standardabweichung ist die übliche Wahl, weil sie alle Werte berücksichtigt und nicht nur die beiden äußersten.
+
+Was das Standardisieren mit einem Abstand macht, sieht man, wenn man zwei standardisierte Beispiele $\mathbf{z}_a$ und $\mathbf{z}_b$ voneinander abzieht. Der Mittelwert fällt heraus, $z_{aj}-z_{bj}=(x_{aj}-x_{bj})/s_j$, und es bleibt
+
+$$\lVert\mathbf{z}_a-\mathbf{z}_b\rVert^2=\sum_{j=1}^d\frac{(x_{aj}-x_{bj})^2}{s_j^2} .$$
+
+Der Abstand der standardisierten Werte ist also der gewöhnliche Abstand, in dem der quadrierte Unterschied in Merkmal $j$ mit dem Gewicht $1/s_j^2$ zählt. Für die Wohnungen A und B ist das $3^2/14+2^2/(8/9)=9/14+9/2\approx5{,}14$, die Wurzel daraus $2{,}27$ wie oben.
 
 Das Standardisieren ist aber selbst eine Entscheidung. Es gibt jedem Merkmal dasselbe Gewicht im Abstand, auch einem Merkmal, das für die Frage gar keine Rolle spielt. Und ein Merkmal, das in allen Beispielen denselben Wert hat, hat die Standardabweichung null und lässt sich nicht standardisieren; es unterscheidet die Beispiele aber auch nicht und trägt zu keinem Abstand etwas bei.
 :::

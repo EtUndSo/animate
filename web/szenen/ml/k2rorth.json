@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}&\\mathbf q_1=\\begin{pmatrix}3/5\\\\4/5\\end{pmatrix},\\quad \\mathbf q_2=\\begin{pmatrix}-4/5\\\\3/5\\end{pmatrix}\\\\\\mathbf q_1^\\top\\mathbf q_2&=\\tfrac35\\cdot\\left(-\\tfrac45\\right)+\\tfrac45\\cdot\\tfrac35\\\\&=-\\tfrac{12}{25}+\\tfrac{12}{25}\\\\&=0\\end{aligned}",
+     "height": 1.75,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

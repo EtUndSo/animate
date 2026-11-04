@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\mathbf x^\\top\\mathbf A\\mathbf x&=5\\cdot1\\cdot1+2\\cdot1\\cdot1+2\\cdot1\\cdot1+2\\cdot1\\cdot1=5+2+2+2=11\\\\\\mathbf x^\\top\\mathbf x&=1\\cdot1+1\\cdot1=1+1=2\\\\\\frac{\\mathbf x^\\top\\mathbf A\\mathbf x}{\\mathbf x^\\top\\mathbf x}&=\\frac{11}2\\end{aligned}",
+     "height": 1.2,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

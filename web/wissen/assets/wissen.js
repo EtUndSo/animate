@@ -1,11 +1,13 @@
 
-var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado para",zh:"未找到"};
+var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\".",es:"Nada encontrado para „{q}\".",zh:"未找到 „{q}\".",
+            fr:"Aucun résultat pour «\u00a0{q}\u00a0».",tr:"“{q}” için sonuç bulunamadı."};
 // Suche: vorab gebauter Index (search.json), Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben.
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
       results=document.getElementById("searchResults"), btn=document.getElementById("searchBtn");
   var DOCS=null, sel=-1, rows=[];
-  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,""); }
+  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
+    .normalize("NFKD").replace(/[̀-ͯ]/g,""); }                // wie fold() in build_wissen.py
   function load(){ if(DOCS) return Promise.resolve(DOCS);
     var L=document.documentElement.lang; L=(L&&L!=="de")?"."+L:"";
     return fetch("/wissen/data/search"+L+".json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
@@ -34,7 +36,7 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
                   '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
       results.appendChild(a); rows.push(a);
     });
-    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de)+' „'+esc(raw.trim())+'".</div>';
+    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de).split("{q}").join(esc(raw.trim()))+'</div>';
   }
   function open(){ if(!overlay) return; overlay.hidden=false; load().then(function(){ input.value=""; results.innerHTML=""; input.focus(); }); }
   function close(){ if(overlay) overlay.hidden=true; }
@@ -50,6 +52,44 @@ var NICHTS={de:"Nichts gefunden für",en:"Nothing found for",es:"Nada encontrado
   function paintSel(){ rows.forEach(function(r,i){ r.classList.toggle("sel",i===sel); }); if(rows[sel]) rows[sel].scrollIntoView({block:"nearest"}); }
   if(input) input.addEventListener("input",function(){ search(input.value); });
   if(overlay) overlay.addEventListener("click",function(e){ if(e.target===overlay) close(); });
+})();
+// Sprachmenü (build_wissen.lang_switch): Der Knopf öffnet und schließt die Liste. Esc, ein Klick daneben oder Tab aus dem
+// Menü schließen sie; Esc bringt den Fokus zurück auf den Knopf. Mit der Tastatur geöffnet (Enter, Leertaste, Pfeil)
+// steht der Fokus auf der aktuellen Sprache, Pfeiltasten, Pos1 und Ende wandern durch die übersetzten Sprachen.
+(function(){
+  var menus=[].slice.call(document.querySelectorAll("[data-langmenu]"));
+  function btn(m){ return m.querySelector(".l-toggle"); }
+  function list(m){ return m.querySelector(".l-menu"); }
+  function links(m){ return [].slice.call(m.querySelectorAll("a.l-item")); }
+  function isOpen(m){ var l=list(m); return !!(l && !l.hidden); }
+  function close(m, focusBtn){ if(!isOpen(m)) return; list(m).hidden=true; btn(m).setAttribute("aria-expanded","false"); if(focusBtn) btn(m).focus(); }
+  function open(m, focus){
+    menus.forEach(function(o){ if(o!==m) close(o,false); });
+    list(m).hidden=false; btn(m).setAttribute("aria-expanded","true");
+    if(focus){ var ls=links(m), t=(focus==="last") ? ls[ls.length-1] : (m.querySelector("a.l-item.on")||ls[0]); if(t) t.focus(); }
+  }
+  function move(m, d){ var ls=links(m); if(!ls.length) return; var i=ls.indexOf(document.activeElement);
+    i=(i<0) ? (d>0 ? 0 : ls.length-1) : (i+d+ls.length)%ls.length; ls[i].focus(); }
+  menus.forEach(function(m){
+    var b=btn(m), l=list(m); if(!b || !l) return;
+    b.addEventListener("click",function(e){ if(isOpen(m)) close(m,false); else open(m, e.detail===0); });   // detail 0: Tastatur
+    b.addEventListener("keydown",function(e){
+      if(e.key==="ArrowDown"){ e.preventDefault(); open(m,true); }
+      else if(e.key==="ArrowUp"){ e.preventDefault(); open(m,"last"); }
+    });
+    l.addEventListener("keydown",function(e){
+      var ls=links(m);
+      if(e.key==="ArrowDown"){ e.preventDefault(); move(m,1); }
+      else if(e.key==="ArrowUp"){ e.preventDefault(); move(m,-1); }
+      else if(e.key==="Home" && ls.length){ e.preventDefault(); ls[0].focus(); }
+      else if(e.key==="End" && ls.length){ e.preventDefault(); ls[ls.length-1].focus(); }
+    });
+    m.addEventListener("focusout",function(e){ if(e.relatedTarget && !m.contains(e.relatedTarget)) close(m,false); });   // Tab hinaus
+  });
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape") menus.forEach(function(m){ if(isOpen(m)) close(m, m.contains(document.activeElement)); });
+  });
+  document.addEventListener("click",function(e){ menus.forEach(function(m){ if(isOpen(m) && !m.contains(e.target)) close(m,false); }); });
 })();
 // Inhaltsverzeichnis: aktuellen Abschnitt beim Scrollen markieren.
 (function(){

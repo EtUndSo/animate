@@ -11,8 +11,8 @@
     "id": "o1",
     "type": "MathTex",
     "props": {
-     "tex": "\\hat y = \\sigma\\!\\left(\\mathbf w^\\top \\mathbf x + b\\right), \\quad \\sigma(z) = \\frac{1}{1 + e^{-z}}",
-     "height": 0.42,
+     "tex": "\\hat y = \\sigma\\!\\left(\\mathbf w^\\top \\mathbf x + b\\right), \\quad \\sigma(0.5) \\approx 0.622",
+     "height": 0.3,
      "position": [
       0,
       0,

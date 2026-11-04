@@ -362,25 +362,27 @@ _TEXT_KEYS = {"text", "label", "labels", "value", "title", "x_label", "y_label",
 # Props a reader sees: their text follows the scene language (model["lang"], model["strings"]).
 _LABEL_KEYS = {"text", "label", "labels", "title", "x_label", "y_label", "z_label", "current", "voltage", "cells",
                "row_labels", "col_labels", "dx_label", "dy_label", "prefix", "suffix"}
-_LANG = ""                                              # scene language ("de", "en", "es", "zh"; "" = none)
+_LANG = ""                                              # scene language ("de", "en", "es", "zh", "fr", "tr"; "" = none)
 _STRINGS = {}                                           # {key: {lang: text}} of the scene
 _STRING_REF = re.compile(r"@\{([\w.-]+)\}")
+_VIA_EN = ("fr", "tr")                                  # newer languages: English until the scene is translated
 
 
 def _lookup(key):
-    """Text of `key` in the scene language; falls back to German, then any language. An unknown key stays
-    visible as @key, so a typo shows up in the figure instead of vanishing."""
+    """Text of `key` in the scene language; fr and tr fall back to English first, then every language to German,
+    then any language. An unknown key stays visible as @key, so a typo shows up in the figure instead of vanishing."""
     entry = _STRINGS.get(key)
     if entry is None:
         return "@" + key
     if isinstance(entry, str):
         return entry
-    return entry.get(_LANG) or entry.get("de") or next(iter(entry.values()), key)
+    return (entry.get(_LANG) or (entry.get("en") if _LANG in _VIA_EN else None) or entry.get("de")
+            or next(iter(entry.values()), key))
 
 
 def _label_text(s):
     """A label in the scene language. "@key" (the whole label) or "@{key}" (part of it) comes from the scene's
-    translation table, and decimal points between digits follow the language: 0.5 -> 0,5 in de and es."""
+    translation table, and decimal points between digits follow the language: 0.5 -> 0,5 in de, es, fr and tr."""
     if re.fullmatch(r"@[\w.-]+", s):
         s = _lookup(s[1:])
     elif "@{" in s:

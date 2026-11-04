@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.stdout.reconfigure(encoding="utf-8")
-LANGS = ("de", "en", "es", "zh")
+LANGS = ("de", "en", "es", "zh", "fr", "tr")
 
 
 async def main(modul, ziel, namen):

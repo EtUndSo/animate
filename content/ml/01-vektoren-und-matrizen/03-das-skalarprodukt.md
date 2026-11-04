@@ -66,7 +66,11 @@ $\mathbf{u}^{\top}\mathbf{u}=\sum_ju_j^2\ge0$, und $\mathbf{u}^{\top}\mathbf{u}=
 (i) folgt aus $u_jv_j=v_ju_j$ für jede Komponente. (ii) ist die Summenregel [(1.2)](vektoren-daten-als-zahlenlisten.html#gl-1-2): $\sum_j(c\,u_j)v_j=c\sum_ju_jv_j$ und $\sum_j(u_j+q_j)v_j=\sum_ju_jv_j+\sum_jq_jv_j$. (iii) Jeder Summand $u_j^2$ ist nicht negativ. Die Summe ist nur dann null, wenn jeder Summand null ist, also jedes $u_j=0$.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{u}=(1,\,2,\,3)^{\top}$ und $\mathbf{v}=(4,\,-1,\,2)^{\top}$ ist $\mathbf{u}^{\top}\mathbf{v}=4-2+6=8$ und $\mathbf{v}^{\top}\mathbf{u}=4-2+6=8$. Außerdem ist $\mathbf{u}^{\top}\mathbf{u}=1+4+9=14$.
+⁠**Rechenbeispiel:** Für $\mathbf{u}=(1,\,2,\,3)^{\top}$ und $\mathbf{v}=(4,\,-1,\,2)^{\top}$ ist $\mathbf{u}^{\top}\mathbf{v}=8$ und $\mathbf{u}^{\top}\mathbf{u}=14$ (Abb. [6](#abb-6)). In umgekehrter Reihenfolge ergibt sich dieselbe Zahl, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$, wie es die Symmetrie verlangt.
+
+:::abbildung ml/k1rskp 6
+Zwei Skalarprodukte Schritt für Schritt: Komponente mal Komponente, dann die Summe der Produkte. Das Skalarprodukt eines Vektors mit sich selbst ist die Summe der Quadrate seiner Komponenten.
+:::
 
 ⁠**Kurz gesagt:** Das Skalarprodukt multipliziert zwei Vektoren Komponente für Komponente und addiert die Produkte; es ist eine Zahl.
 
@@ -93,11 +97,13 @@ $$\hat y=\mathbf{w}^{\top}\mathbf{x}=\sum_{j=1}^{d}w_j\,x_j . \tag{2.2}$$
 
 Eine feste Rechenvorschrift, die aus den Merkmalen eines Beispiels eine Zahl berechnet, heißt ein __Modell__. Die Zahl, die das Modell für ein Beispiel liefert, heißt seine __Vorhersage__. Das Dach über dem $y$ in $\hat y$ zeigt an, dass es sich um einen berechneten Schätzwert handelt und nicht um einen gemessenen Wert. In diesem Kapitel sind die Gewichte immer vorgegeben; woher gute Gewichte kommen, ist eine eigene Frage.
 
-⁠**Rechenbeispiel:** Die Maklerin benutzt die Gewichte $\mathbf{w}=(3,\,10,\,-4)^{\top}$ in Tausend Euro pro Quadratmeter, pro Zimmer und pro Kilometer. Für Wohnung 1 ist
+⁠**Rechenbeispiel:** Die Maklerin benutzt die Gewichte $\mathbf{w}=(3,\,10,\,-4)^{\top}$ in Tausend Euro pro Quadratmeter, pro Zimmer und pro Kilometer. Für Wohnung 1 ist $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ (Abb. [7](#abb-7)), also $188$ Tausend Euro.
 
-$$\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=3\cdot60+10\cdot2+(-4)\cdot3=180+20-12=188 ,$$
+:::abbildung ml/k1rgewicht 7
+Die Schätzung der Maklerin für Wohnung 1: jedes Merkmal mal sein Gewicht, dann die Summe. Die Beiträge der drei Merkmale sind $180$, $20$ und $-12$ Tausend Euro.
+:::
 
-also $188$ Tausend Euro. Für die übrigen Wohnungen ergibt sich ebenso $\hat y_2=126$, $\hat y_3=286$ und $\hat y_4=232$. Jedes Produkt $w_jx_j$ hat die Einheit Tausend Euro, weil sich die Einheit des Merkmals gegen die Einheit im Nenner des Gewichts kürzt. Nur deshalb darf man die drei Produkte addieren.
+Für die übrigen Wohnungen ergibt sich ebenso $\hat y_2=126$, $\hat y_3=286$ und $\hat y_4=232$. Jedes Produkt $w_jx_j$ hat die Einheit Tausend Euro, weil sich die Einheit des Merkmals gegen die Einheit im Nenner des Gewichts kürzt. Nur deshalb darf man die drei Produkte addieren.
 
 ⁠**Kurz gesagt:** Eine gewichtete Summe ist das Skalarprodukt $\mathbf{w}^{\top}\mathbf{x}$ aus Gewichten und Merkmalen; sie ist das einfachste Modell, das aus Merkmalen eine Vorhersage macht.
 
@@ -122,15 +128,19 @@ Der __Mittelwert__ der Komponenten eines Vektors $\mathbf{v}\in\mathbb{R}^n$ ist
 $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$$
 :::
 
-Drei weitere Rechnungen dieser Art: Das Skalarprodukt mit einem Einheitsvektor wählt eine Komponente aus, $\mathbf{e}_j^{\top}\mathbf{v}=v_j$. Das Skalarprodukt eines Vektors mit sich selbst ist die Summe der Quadrate, $\mathbf{v}^{\top}\mathbf{v}=\sum_iv_i^2$. Und Mengen mal Preise, aufsummiert, sind der Rechnungsbetrag.
+Weitere Rechnungen dieser Art: Das Skalarprodukt mit einem Einheitsvektor wählt eine Komponente aus, $\mathbf{e}_j^{\top}\mathbf{v}=v_j$, denn alle anderen Produkte enthalten eine Null. Das Skalarprodukt eines Vektors mit sich selbst ist die Summe der Quadrate, $\mathbf{v}^{\top}\mathbf{v}=\sum_iv_i^2$. Mengen mal Preise, aufsummiert, sind der Rechnungsbetrag. Und ein Polynom $p(t)=c_1+c_2t+\dots+c_nt^{n-1}$ an einer Stelle $t$ auszuwerten heißt, das Skalarprodukt $\mathbf{c}^{\top}\mathbf{z}$ seiner Koeffizienten $\mathbf{c}=(c_1,\dots,c_n)^{\top}$ mit den Potenzen $\mathbf{z}=(1,\,t,\,t^2,\dots,t^{n-1})^{\top}$ zu bilden. Für $p(t)=1+2t+3t^2$ an der Stelle $t=2$ ist das $(1,\,2,\,3)\,(1,\,2,\,4)^{\top}=1+4+12=17$.
 
-⁠**Rechenbeispiel:** Für den Stromverbrauch $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh von Wohnung 1 ist
+⁠**Rechenbeispiel:** Wohnung 1 hat von Januar bis März $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh Strom verbraucht (Unterabschnitt [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). Zusammen sind das $\mathbf 1^{\top}\mathbf{u}=750$ kWh, im Mittel $\bar u=250$ kWh pro Monat (Abb. [8](#abb-8)). Der Verbrauch im Februar ist $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh.
 
-$$\mathbf 1^{\top}\mathbf{u}=750\ \text{kWh},\qquad \bar u=\tfrac13\cdot750=250\ \text{kWh},\qquad \mathbf{e}_2^{\top}\mathbf{u}=250\ \text{kWh}.$$
+:::abbildung ml/k1rmittel 8
+Summe und Mittelwert des Stromverbrauchs als Skalarprodukt mit dem Einsvektor, in kWh.
+:::
 
-Die zweite Zahl ist der durchschnittliche Monatsverbrauch, die dritte der Verbrauch im Februar. Kostet die Kilowattstunde in den drei Monaten $0{,}32$, $0{,}30$ und $0{,}28$ Euro, so ist die Stromrechnung das Skalarprodukt aus Preisen und Mengen:
+Kostet die Kilowattstunde in den drei Monaten $\mathbf{p}=(0{,}32;\ 0{,}34;\ 0{,}28)^{\top}$ Euro, so ist die Stromrechnung das Skalarprodukt aus Preisen und Mengen: $\mathbf{p}^{\top}\mathbf{u}=233$ Euro (Abb. [9](#abb-9)). Jedes Produkt $p_ju_j$ ist der Betrag für einen Monat, in Euro pro kWh mal kWh, also in Euro.
 
-$$\begin{pmatrix}0{,}32&0{,}30&0{,}28\end{pmatrix}\begin{pmatrix}200\\250\\300\end{pmatrix}=64+75+84=223\ \text{Euro}.$$
+:::abbildung ml/k1rstrom 9
+Die Stromrechnung als Skalarprodukt: Preis mal Menge für jeden Monat, dann die Summe, in Euro.
+:::
 
 ⁠**Kurz gesagt:** Summe, Mittelwert, Auswahl einer Komponente und Quadratsumme sind Skalarprodukte mit $\mathbf 1$, $\tfrac1n\mathbf 1$, $\mathbf{e}_j$ und dem Vektor selbst.
 
@@ -140,17 +150,21 @@ $$\begin{pmatrix}0{,}32&0{,}30&0{,}28\end{pmatrix}\begin{pmatrix}200\\250\\300\e
 
 Ein Messsignal soll darauf geprüft werden, ob es von Abtastwert zu Abtastwert hin und her springt. Dafür schreibt man das gesuchte Muster als Vektor auf, hier $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, und bildet das Skalarprodukt mit dem Signal.
 
-Was dabei passiert, zeigt Abb. [3](#abb-3). Jeder Abtastwert wird mit dem Musterwert an derselben Stelle multipliziert. Hat das Signal an einer Stelle dasselbe Vorzeichen wie das Muster, ist das Produkt positiv; hat es das entgegengesetzte Vorzeichen, ist es negativ. Folgt das Signal dem Muster überall, sammeln sich lauter positive Beiträge zu einer großen Summe. Hat das Signal mit dem Muster nichts zu tun, heben sich positive und negative Beiträge gegenseitig auf.
+Was dabei passiert, zeigt Abb. [10](#abb-10). Jeder Abtastwert wird mit dem Musterwert an derselben Stelle multipliziert. Hat das Signal an einer Stelle dasselbe Vorzeichen wie das Muster, ist das Produkt positiv; hat es das entgegengesetzte Vorzeichen, ist es negativ. Folgt das Signal dem Muster überall, sammeln sich lauter positive Beiträge zu einer großen Summe. Hat das Signal mit dem Muster nichts zu tun, heben sich positive und negative Beiträge gegenseitig auf.
 
-:::abbildung ml/k1muster 3
-Mustervergleich mit dem Skalarprodukt. Oben das Muster $\mathbf{w}=(1,-1,1,-1)^{\top}$, in der Mitte zwei Signale, unten die Produkte an jeder Stelle. Links springt das Signal $\mathbf{x}=(2,-1,3,-2)^{\top}$ im Takt des Musters: Alle Produkte sind positiv, die Summe ist $8$. Rechts steigt $\mathbf{x}'=(2,2,3,3)^{\top}$ gleichmäßig: Die Produkte heben sich auf, die Summe ist $0$.
+:::abbildung ml/k1muster 10
+Mustervergleich mit dem Skalarprodukt. Oben das Muster $\mathbf{w}=(1,-1,1,-1)^{\top}$, in der Mitte zwei Signale, unten die Produkte $w_j\,x_j$ an jeder Stelle $j$. Links springt das Signal $\mathbf{x}=(2,-1,3,-2)^{\top}$ im Takt des Musters: Alle Produkte sind positiv, die Summe ist $8$. Rechts steigt $\mathbf{x}'=(2,2,3,3)^{\top}$ gleichmäßig: Die Produkte heben sich auf, die Summe ist $0$.
 :::
 
 Genau gesagt: Der Beitrag der Stelle $j$ zum Skalarprodukt $\mathbf{w}^{\top}\mathbf{x}$ ist $w_jx_j$. Er ist positiv, wenn $w_j$ und $x_j$ dasselbe Vorzeichen haben, und negativ, wenn sie entgegengesetzte Vorzeichen haben. Je größer die Beträge an Stellen mit übereinstimmendem Vorzeichen, desto größer das Skalarprodukt.
 
 Aus der Signalverarbeitung kennt man diese Rechnung als Korrelation. Die Kreuzkorrelation zweier reeller Folgen $x[n]$ und $y[n]$ an der Verschiebung null ist $\sum_nx[n]\,y[n]$. Schreibt man die Abtastwerte zweier Signale endlicher Länge als Vektoren $\mathbf{x}$ und $\mathbf{y}$, ist das genau das Skalarprodukt $\mathbf{x}^{\top}\mathbf{y}$. Die Energie eines Signals, $\sum_nx[n]^2$, ist ebenso $\mathbf{x}^{\top}\mathbf{x}$. Der Mustervergleich ist also kein neues Werkzeug, sondern dasselbe, mit dem ein Korrelator ein bekanntes Muster in einem Signal sucht.
 
-⁠**Rechenbeispiel:** Mit dem Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ist $\mathbf{w}^{\top}\mathbf{x}=2+1+3+2=8$ für $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ und $\mathbf{w}^{\top}\mathbf{x}'=2-2+3-3=0$ für $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$. Mit dem Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ist es umgekehrt: $\mathbf 1^{\top}\mathbf{x}=2$, aber $\mathbf 1^{\top}\mathbf{x}'=10$. Das Signal $\mathbf{x}$ wechselt also vor allem, $\mathbf{x}'$ ist vor allem gleichbleibend.
+⁠**Rechenbeispiel:** Mit dem Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ist $\mathbf{w}^{\top}\mathbf{x}=8$ für $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ und $\mathbf{w}^{\top}\mathbf{x}'=0$ für $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Abb. [11](#abb-11)). Mit dem Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ist es umgekehrt: $\mathbf 1^{\top}\mathbf{x}=2$, aber $\mathbf 1^{\top}\mathbf{x}'=10$. Das Signal $\mathbf{x}$ wechselt also vor allem, $\mathbf{x}'$ ist vor allem gleichbleibend.
+
+:::abbildung ml/k1rmuster 11
+Das Wechselmuster $\mathbf{w}$ mit zwei Signalen. Oben folgt $\mathbf{x}$ dem Muster: Alle vier Produkte sind positiv. Unten steigt $\mathbf{x}'$ gleichmäßig: Die Produkte heben sich paarweise auf.
+:::
 
 Auch die gewichtete Summe der Maklerin ist ein Mustervergleich. Ihr Muster $\mathbf{w}=(3,\,10,\,-4)^{\top}$ beschreibt, was eine Wohnung wertvoll macht: viel Fläche, viele Zimmer, wenig Entfernung. Je besser eine Wohnung zu diesem Muster passt, desto höher ihre Vorhersage.
 

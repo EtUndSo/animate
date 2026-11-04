@@ -28,12 +28,10 @@ $$\sum_{i=1}^{n} a_i = a_1+a_2+\dots+a_n , \tag{1.1}$$
 
 gelesen „Summe über $a_i$ für $i$ von $1$ bis $n$“. Das große griechische Sigma heißt __Summenzeichen__. Der Buchstabe $i$ darunter ist der __Laufindex__: Er nimmt nacheinander die Werte $1,2,\dots,n$ an, und für jeden Wert kommt ein Summand dazu. Der Laufindex ist ein Platzhalter. Ob man ihn $i$, $j$ oder $k$ nennt, ändert die Summe nicht: $\sum_{i=1}^n a_i=\sum_{j=1}^n a_j$.
 
-**Zwei Rechenregeln.** Weil Addition und Multiplikation für jeden einzelnen Summanden gelten, darf man einen gemeinsamen Faktor vor die Summe ziehen und eine Summe von Summen aufteilen:
+**Zwei Rechenregeln.** Eine Summe mit Summenzeichen ist nur eine abgekürzt geschriebene gewöhnliche Summe endlich vieler Zahlen. Deshalb gelten für sie die bekannten Regeln: Man darf einen gemeinsamen Faktor ausklammern (Distributivgesetz) und Summanden beliebig umordnen und zusammenfassen (Kommutativ- und Assoziativgesetz). Mit dem Summenzeichen geschrieben heißt das: Ein gemeinsamer Faktor darf vor die Summe, und eine Summe von Summen darf man aufteilen:
 
 <span class="anker" id="gl-1-2"></span>
 $$\sum_{i=1}^n c\,a_i=c\sum_{i=1}^n a_i ,\qquad \sum_{i=1}^n (a_i+b_i)=\sum_{i=1}^n a_i+\sum_{i=1}^n b_i . \tag{1.2}$$
-
-Die erste Regel ist das Ausklammern, die zweite das Umsortieren der Summanden.
 
 **Doppelsummen.** Zahlen, die in einer Tabelle stehen, bekommen zwei Indizes: $a_{ij}$ ist die Zahl in Zeile $i$ und Spalte $j$. Die Summe aller Einträge einer Tabelle mit $m$ Zeilen und $n$ Spalten schreibt man als __Doppelsumme__
 
@@ -41,11 +39,17 @@ $$\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij} .$$
 
 Man liest sie von innen nach außen: Für jede Zeile $i$ addiert die innere Summe die Zahlen dieser Zeile, die äußere Summe addiert die Zeilensummen. Weil es bei endlich vielen Summanden auf die Reihenfolge nicht ankommt, darf man die beiden Summenzeichen vertauschen und zuerst spaltenweise addieren.
 
-⁠**Rechenbeispiel:** Für $a_1=2$, $a_2=5$, $a_3=1$ ist
+⁠**Rechenbeispiel 1:** Für $a_1=2$, $a_2=5$, $a_3=1$ schreibt man jede Summe zuerst aus, setzt dann die Zahlen ein und addiert (Abb. [1](#abb-1)). So ist $\sum_{i=1}^3 a_i=8$ und $\sum_{i=1}^3 a_i^2=30$. In der dritten Summe ist der Laufindex selbst der Summand: $\sum_{j=1}^{3}j=6$.
 
-$$\sum_{i=1}^3 a_i=2+5+1=8,\qquad \sum_{i=1}^3 a_i^2=4+25+1=30,\qquad \sum_{j=1}^{3}j=1+2+3=6 .$$
+:::abbildung ml/k1rsumme 1
+Drei Summen Schritt für Schritt: das Summenzeichen ausschreiben, die Zahlen einsetzen, addieren.
+:::
 
-Die Tabelle mit den Zeilen $(1,\,2)$ und $(3,\,4)$ hat die Einträge $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Zeilenweise ist $\sum_{i=1}^2\sum_{j=1}^2a_{ij}=(1+2)+(3+4)=10$, spaltenweise $(1+3)+(2+4)=10$.
+⁠**Rechenbeispiel 2:** Die Tabelle mit den Zeilen $(1,\,2)$ und $(3,\,4)$ hat die Einträge $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Zeilenweise addiert ergibt die Doppelsumme $(1+2)+(3+4)=10$, spaltenweise $(1+3)+(2+4)=10$ (Abb. [2](#abb-2)).
+
+:::abbildung ml/k1rdoppel 2
+Die Doppelsumme über die Tabelle mit den Zeilen $(1,\,2)$ und $(3,\,4)$, oben zuerst zeilenweise, unten zuerst spaltenweise. Beide Reihenfolgen ergeben dieselbe Summe.
+:::
 
 ⁠**Kurz gesagt:** $\sum_{i=1}^n a_i$ ist die Summe von $a_1$ bis $a_n$; der Laufindex $i$ ist nur ein Platzhalter.
 
@@ -98,9 +102,9 @@ In englischsprachigen Texten heißt ein Beispiel *example*, *sample*, *instance*
 
 Eine Wohnung ist für den Rechner nichts anderes als ihre drei Zahlen. Damit man mit diesen drei Zahlen wie mit einem einzigen Gegenstand rechnen kann, fasst man sie zu einer Liste zusammen. Die Reihenfolge ist dabei fest: zuerst die Fläche, dann die Zimmer, dann die Entfernung.
 
-Eine solche Liste kann man auch zeichnen, wenn sie nur zwei Zahlen enthält. Nimmt man von Wohnung 4 nur die Zimmerzahl $3$ und die Entfernung $2$, so ist das der Punkt mit den Koordinaten $(3,\,2)$ in einer Ebene, deren waagerechte Achse die Zimmer und deren senkrechte Achse die Kilometer zählt. Man kann sich dieselbe Liste auch als Pfeil vorstellen, der vom Nullpunkt zu diesem Punkt führt (Abb. [1](#abb-1)). Beide Bilder beschreiben dieselben zwei Zahlen.
+Eine solche Liste kann man auch zeichnen, wenn sie nur zwei Zahlen enthält. Nimmt man von Wohnung 4 nur die Zimmerzahl $3$ und die Entfernung $2$, so ist das der Punkt mit den Koordinaten $(3,\,2)$ in einer Ebene, deren waagerechte Achse die Zimmer und deren senkrechte Achse die Kilometer zählt. Man kann sich dieselbe Liste auch als Pfeil vorstellen, der vom Nullpunkt zu diesem Punkt führt (Abb. [3](#abb-3)). Beide Bilder beschreiben dieselben zwei Zahlen.
 
-:::abbildung ml/k1punktpfeil 1
+:::abbildung ml/k1punktpfeil 3
 Der Vektor $\mathbf{x}=(3,\,2)^{\top}$, links als Punkt, rechts als Pfeil vom Nullpunkt zu diesem Punkt. Hier steht $x_1$ für die Zimmerzahl und $x_2$ für die Entfernung zum Zentrum in km von Wohnung 4.
 :::
 
@@ -116,7 +120,7 @@ Die Zahl $x_j$ heißt die $j$-te __Komponente__ von $\mathbf{x}$. Die Menge alle
 
 Vektoren werden fett und klein geschrieben, ihre Komponenten mager. Eine einzelne reelle Zahl nennt man im Unterschied zum Vektor einen __Skalar__.
 
-**Spalte und Zeile.** In dieser Reihe ist ein Vektor immer eine Spalte. Im Fließtext kostet eine Spalte viel Platz. Man schreibt deshalb die Zahlen nebeneinander und setzt ein hochgestelltes $\top$ dahinter: $(x_1,\dots,x_d)^{\top}$ bedeutet dieselben Zahlen als Spalte. Das Zeichen heißt __transponiert__. Es macht aus einer Zeile eine Spalte und aus einer Spalte eine Zeile. Umgekehrt ist $\mathbf{x}^{\top}=(x_1,\,\dots,\,x_d)$ der Vektor $\mathbf{x}$ als Zeile geschrieben.
+**Spalte und Zeile.** In dieser Reihe ist ein Vektor immer eine Spalte. Im Fließtext kostet eine Spalte viel Platz. Man schreibt deshalb die Zahlen nebeneinander und setzt ein hochgestelltes $\top$ dahinter: $(x_1,\dots,x_d)^{\top}$ bedeutet dieselben Zahlen als Spalte. Das Zeichen heißt __transponiert__. Es macht aus einer Zeile eine Spalte und aus einer Spalte eine Zeile. Umgekehrt ist $\mathbf{x}^{\top}=(x_1,\,\dots,\,x_d)$ der Vektor $\mathbf{x}$ als Zeile geschrieben. Enthält ein Vektor Dezimalzahlen, trennt man die Komponenten durch Semikolons, damit man das Dezimalkomma nicht mit dem trennenden Komma verwechselt: $(0{,}2;\ 0{,}25;\ 0{,}3)^{\top}$ hat drei Komponenten.
 
 **Die Beispiele eines Datensatzes.** Das Beispiel Nummer $i$ ist der Vektor $\mathbf{x}_i\in\mathbb{R}^d$. Den Vektor eines Beispiels nennt man auch seinen __Merkmalsvektor__. Seine Komponenten bekommen zwei Indizes: $x_{ij}$ ist der Wert von Merkmal $j$ bei Beispiel $i$. Ein fetter Buchstabe mit einem Index ist also ein ganzer Vektor aus einer Liste von Vektoren, ein magerer Buchstabe mit zwei Indizes eine einzelne Zahl.
 
@@ -136,9 +140,9 @@ Auch ein Bild ist ein Vektor. Ein Graustufenbild mit $28\times28$ Bildpunkten be
 
 Mit Listen von Messwerten will man rechnen: den Stromverbrauch zweier Wohnungen zusammenzählen, Kilowattstunden in Megawattstunden umrechnen oder nachsehen, um wie viel sich zwei Wohnungen unterscheiden. All das geschieht Komponente für Komponente.
 
-Im Bild der Pfeile heißt Addieren: Man hängt den zweiten Pfeil an die Spitze des ersten. Der Pfeil vom Nullpunkt zur neuen Spitze ist die Summe (Abb. [2](#abb-2), links). Mit einer Zahl multiplizieren heißt, den Pfeil zu strecken oder zu stauchen; ein negativer Faktor dreht ihn zusätzlich um (Abb. [2](#abb-2), rechts).
+Im Bild der Pfeile heißt Addieren: Man hängt den zweiten Pfeil an die Spitze des ersten. Der Pfeil vom Nullpunkt zur neuen Spitze ist die Summe (Abb. [4](#abb-4), links). Mit einer Zahl multiplizieren heißt, den Pfeil zu strecken oder zu stauchen; ein negativer Faktor dreht ihn zusätzlich um (Abb. [4](#abb-4), rechts).
 
-:::abbildung ml/k1addition 2
+:::abbildung ml/k1addition 4
 Links: $\mathbf{u}=(3,\,1)^{\top}$ plus $\mathbf{v}=(1,\,2)^{\top}$. Hängt man $\mathbf{v}$ an die Spitze von $\mathbf{u}$ (oder $\mathbf{u}$ an die Spitze von $\mathbf{v}$, gestrichelt), endet man bei $\mathbf{u}+\mathbf{v}=(4,\,3)^{\top}$. Rechts: $\mathbf{u}=(2,\,1)^{\top}$, das Doppelte $2\mathbf{u}=(4,\,2)^{\top}$ (grau) und $-\mathbf{u}=(-2,\,-1)^{\top}$.
 :::
 
@@ -163,7 +167,7 @@ Die Differenz $\mathbf{u}-\mathbf{v}$ hat eine eigene Anschauung. Sie ist der Pf
 
 $$\mathbf{u}+\mathbf{v}=(350,\,350,\,420)^{\top}\ \text{kWh}.$$
 
-Den Verbrauch von Wohnung 1 in Megawattstunden liefert das Vielfache $0{,}001\,\mathbf{u}=(0{,}2,\,0{,}25,\,0{,}3)^{\top}$. Die Differenz $\mathbf{u}-\mathbf{v}=(50,\,150,\,180)^{\top}$ sagt, wie viele Kilowattstunden Wohnung 1 in jedem Monat mehr verbraucht als Wohnung 2. Im Wohnungsdatensatz ist $\mathbf{x}_3-\mathbf{x}_1=(30,\,2,\,3)^{\top}$: Wohnung 3 ist $30\,\mathrm m^2$ größer, hat zwei Zimmer mehr und liegt $3$ km weiter draußen als Wohnung 1.
+Den Verbrauch von Wohnung 1 in Megawattstunden liefert das Vielfache $0{,}001\,\mathbf{u}=(0{,}2;\ 0{,}25;\ 0{,}3)^{\top}$. Die Differenz $\mathbf{u}-\mathbf{v}=(50,\,150,\,180)^{\top}$ sagt, wie viele Kilowattstunden Wohnung 1 in jedem Monat mehr verbraucht als Wohnung 2. Im Wohnungsdatensatz ist $\mathbf{x}_3-\mathbf{x}_1=(30,\,2,\,3)^{\top}$: Wohnung 3 ist $30\,\mathrm m^2$ größer, hat zwei Zimmer mehr und liegt $3$ km weiter draußen als Wohnung 1.
 
 ⁠**Kurz gesagt:** Vektoren addiert man und multipliziert sie mit einer Zahl, indem man es Komponente für Komponente tut.
 
@@ -192,7 +196,7 @@ Achtung beim Lesen: $\mathbf{v}_l$ ist fett, also der $l$-te Vektor der Liste, n
 
 ⁠**Rechenbeispiel 2: der Mittelpunkt.** Die Linearkombination $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ der Wohnungen 1 und 2 ist
 
-$$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50,\,1{,}5,\,2)^{\top}.$$
+$$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{\top}.$$
 
 Das ist eine gedachte Wohnung, die in jedem Merkmal genau zwischen den beiden liegt. Der Punkt liegt in der Mitte der Verbindungsstrecke.
 
@@ -201,7 +205,11 @@ Das ist eine gedachte Wohnung, die in jedem Merkmal genau zwischen den beiden li
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
 
-Für den Wohnungsdatensatz ist $\bar{\mathbf{x}}=\tfrac14\bigl[(60,2,3)^{\top}+(40,1,1)^{\top}+(90,4,6)^{\top}+(70,3,2)^{\top}\bigr]=(65,\,2{,}5,\,3)^{\top}$, die „Durchschnittswohnung“.
+Für den Wohnungsdatensatz ist $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ (Abb. [5](#abb-5)), die „Durchschnittswohnung“: im Mittel $65\,\mathrm m^2$, $2{,}5$ Zimmer und $3$ km zum Zentrum.
+
+:::abbildung ml/k1rmittelvektor 5
+Der Mittelwert der vier Wohnungen: Die Summe der Vektoren wird Komponente für Komponente gebildet und dann durch $4$ geteilt; $5/2=2{,}5$.
+:::
 
 ⁠**Kurz gesagt:** Eine Linearkombination multipliziert jeden Vektor mit einer eigenen Zahl und addiert alles.
 
@@ -346,7 +354,7 @@ Berechne den Mittelwert der Beispiele $\bar{\mathbf{x}}$. Gibt es ein Ding, das 
 :::loesung
 Eine mögliche Lösung: vier Äpfel mit den Merkmalen Masse in g, Durchmesser in cm und Preis in Cent.
 
-(a) Die Tabelle habe die Zeilen $(180,\,7{,}5,\,45)$, $(150,\,7{,}0,\,40)$, $(210,\,8{,}0,\,55)$ und $(165,\,7{,}2,\,40)$. Dann ist $N=4$ und $d=3$, und $\mathbf{x}_2=(150;\ 7{,}0;\ 40)^{\top}$. Wichtig ist nur, dass jedes Ding durch dieselben drei Merkmale in derselben Reihenfolge beschrieben ist.
+(a) Die Tabelle habe die Zeilen $(180;\ 7{,}5;\ 45)$, $(150;\ 7{,}0;\ 40)$, $(210;\ 8{,}0;\ 55)$ und $(165;\ 7{,}2;\ 40)$. Dann ist $N=4$ und $d=3$, und $\mathbf{x}_2=(150;\ 7{,}0;\ 40)^{\top}$. Wichtig ist nur, dass jedes Ding durch dieselben drei Merkmale in derselben Reihenfolge beschrieben ist.
 
 (b) Die Sorte ist ein Name, keine Zahl. Man kann sie übersetzen, indem man für jede Sorte ein eigenes Merkmal einführt, das $1$ ist, wenn der Apfel zu dieser Sorte gehört, und sonst $0$. Einfach die Sorten durchzunummerieren ist dagegen meist keine gute Idee: Die Nummern täuschen eine Reihenfolge und Abstände vor, die es zwischen Sorten nicht gibt.
 

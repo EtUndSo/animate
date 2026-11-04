@@ -13,6 +13,7 @@
     "id": "k1",
     "type": "DotProduct",
     "props": {
+     "display": "rechnung",
      "u": "3, 10, -4",
      "v": "120, 3, 25",
      "u_name": "w",

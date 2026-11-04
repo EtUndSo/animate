@@ -691,10 +691,10 @@
     "zh": "信号"
    },
    "prod": {
-    "de": "Produkte\nwₙ xₙ",
-    "en": "products\nwₙ xₙ",
-    "es": "productos\nwₙ xₙ",
-    "zh": "乘积\nwₙ xₙ"
+    "de": "Produkte",
+    "en": "products",
+    "es": "productos",
+    "zh": "乘积"
    }
   }
  }

@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\operatorname{std}(\\mathbf v)&=\\sqrt{\\tfrac14\\sum_{i=1}^4(v_i-\\bar v)^2}\\\\&=\\sqrt{\\tfrac14\\,\\bigl((-5)^2+(-25)^2+25^2+5^2\\bigr)}\\\\&=\\sqrt{\\tfrac14\\,(25+625+625+25)}=\\sqrt{\\tfrac{1\\,300}4}=\\sqrt{325}\\end{aligned}",
+     "height": 2.056,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

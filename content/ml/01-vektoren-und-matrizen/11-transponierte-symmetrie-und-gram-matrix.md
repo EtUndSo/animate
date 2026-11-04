@@ -85,6 +85,14 @@ symmetrisch, wie [(10.2)](#gl-10-2) verlangt.
 
 ⁠**Kurz gesagt:** Eine symmetrische Matrix ist gleich ihrer Transponierten; $\mathbf{A}^{\top}\mathbf{A}$ und $\mathbf{A}\mathbf{A}^{\top}$ sind immer symmetrisch.
 
+:::hintergrund Skalarprodukte mit Gewichten
+Im Skalarprodukt $\mathbf{u}^{\top}\mathbf{v}=\sum_ju_jv_j$ zählt jede Stelle gleich viel. Will man die Stellen verschieden stark zählen, nimmt man positive Gewichte $d_1,\dots,d_n$ und bildet $\sum_jd_j\,u_jv_j$. Mit der Diagonalmatrix $\mathbf{D}=\operatorname{diag}(d_1,\dots,d_n)$ ist das $\mathbf{u}^{\top}\mathbf{D}\mathbf{v}$, denn $\mathbf{D}\mathbf{v}=(d_1v_1,\dots,d_nv_n)^{\top}$.
+
+Diese Zahl hat dieselben Rechenregeln wie das gewöhnliche Skalarprodukt. Sie ist linear in jedem der beiden Vektoren, und $\mathbf{u}^{\top}\mathbf{D}\mathbf{u}=\sum_jd_ju_j^2$ ist positiv für jedes $\mathbf{u}\ne\mathbf{0}$. Symmetrisch ist sie, weil $\mathbf{D}$ symmetrisch ist: Eine Zahl ist ihre eigene Transponierte, und mit der Regel für die Transponierte eines Produkts, zweimal angewandt, ist $\mathbf{u}^{\top}\mathbf{D}\mathbf{v}=(\mathbf{u}^{\top}\mathbf{D}\mathbf{v})^{\top}=\mathbf{v}^{\top}\mathbf{D}^{\top}\mathbf{u}=\mathbf{v}^{\top}\mathbf{D}\mathbf{u}$. Weil der Beweis der Cauchy-Schwarz-Ungleichung nur diese Regeln benutzt hat, kann man mit $\mathbf{u}^{\top}\mathbf{D}\mathbf{v}$ ebenso Längen, Abstände und Winkel messen. Sie fallen nur anders aus. Zum Beispiel sind $(1,\,1)^{\top}$ und $(-1,\,1)^{\top}$ im gewöhnlichen Sinn orthogonal, mit $\mathbf{D}=\operatorname{diag}(2,\,1)$ aber nicht: $(1,\,1)\,\mathbf{D}\,(-1,\,1)^{\top}=2\cdot1\cdot(-1)+1\cdot1\cdot1=-1$.
+
+Das Standardisieren aus Unterabschnitt [4.5](abstande-und-einheiten.html#stufe-4-5) ist genau eine solche Gewichtung. Der Abstand zweier standardisierter Beispiele ist $\sqrt{(\mathbf{x}_a-\mathbf{x}_b)^{\top}\mathbf{D}\,(\mathbf{x}_a-\mathbf{x}_b)}$ mit $\mathbf{D}=\operatorname{diag}(1/s_1^2,\dots,1/s_d^2)$. Umgekehrt wirkt jede solche Gewichtung wie ein Wechsel der Einheiten: Multipliziert man Merkmal $j$ mit $\sqrt{d_j}$, so ist das gewöhnliche Skalarprodukt der umgerechneten Vektoren $\sum_j(\sqrt{d_j}\,u_j)(\sqrt{d_j}\,v_j)=\mathbf{u}^{\top}\mathbf{D}\mathbf{v}$. Die Wahl der Einheiten und die Wahl der Gewichte in $\mathbf{D}$ sind also dieselbe Entscheidung.
+:::
+
 ### Die Gram-Matrix der Beispiele
 
 <span class="anker" id="stufe-10-3"></span>
@@ -146,6 +154,12 @@ Der Eintrag $(j,l)$ der rechten Seite ist $\sum_ix_{ij}\,x_{il}$, derselbe wie i
 ⁠**Rechenbeispiel:** Für die Texte ist
 
 $$\mathbf{X}^{\top}\mathbf{X}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
+
+Die Einträge der ersten Zeile sind die Skalarprodukte der Spalte „Tor“ mit den drei Merkmalsspalten (Abb. [37](#abb-37)).
+
+:::abbildung ml/k1rgrammerk 37
+Die erste Zeile der Gram-Matrix der Merkmale: Die Spalte „Tor“ $(3,\,6,\,0)^{\top}$ mal sich selbst, mal der Spalte „Ball“ $(2,\,4,\,1)^{\top}$ und mal der Spalte „Wahl“ $(0,\,0,\,3)^{\top}$.
+:::
 
 Die $0$ an der Stelle $(1,3)$ sagt: Die Wörter „Tor“ und „Wahl“ kommen in keinem Text gemeinsam vor. Als Summe der drei äußeren Produkte:
 

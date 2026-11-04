@@ -5,8 +5,9 @@ Aufruf (vom Repo-Root):
     python tools/export_szenen.py et3/k1-bode demo    nur diese (Name = Pfad unter web/szenen/ ohne .json)
 Optionen:
     --out DIR     Zielordner, Standard web/abbildungen (die Artikelseiten laden /abbildungen/<sprache>/<szene>.svg)
-    --lang de     nur diese Sprache der Beschriftung; Standard: alle vier (de, en, es, zh). Texte kommen aus der
-                  Tabelle `strings` der Szene (@schluessel im Label), das Zahlformat folgt der Sprache.
+    --lang de     nur diese Sprache der Beschriftung; Standard: alle sechs (de, en, es, zh, fr, tr). Texte kommen aus
+                  der Tabelle `strings` der Szene (@schluessel im Label), das Zahlformat folgt der Sprache (Komma in de,
+                  es, fr, tr). Fehlt fr oder tr in der Tabelle, steht dort der englische Text.
     --check       nur bauen und prüfen, nichts schreiben
 Ausgabe: <out>/<lang>/<szene>.svg, je Szene eine Zeile mit Größe und Schriftgröße in der Artikelspalte.
 
@@ -42,7 +43,7 @@ from build_wissen import SZENEN, ABB_DIR, SZENE_NAME_RE  # noqa: E402  (eine Que
 from engine import export as _export  # noqa: E402
 from engine.scene_model import ModelScene  # noqa: E402
 
-LANGS = ("de", "en", "es", "zh")
+LANGS = ("de", "en", "es", "zh", "fr", "tr")
 TEX_CACHE = ROOT / "tools" / "tex_glyphen_cache.json"
 
 _NODE_JS = r"""
@@ -54,16 +55,19 @@ const COMPUTATIONS = new Function(slice("const SHAPE_TYPES", "\nconst COMP_DEFS"
 process.stdout.write(JSON.stringify({ CATALOG, COMPUTATIONS }));
 """
 
-# The LaTeX pieces of Σ / ∏ / scalar product, built by the editor's own block "series-spec" (pure JS, no DOM).
-# stdin: [{c: <editor operation>, lang}], stdout: [spec | null].
+# The LaTeX of Σ / ∏ / scalar product and of MathTex formulas, built by the editor's own block "series-spec" (pure
+# JS, no DOM): stdin {ops: [<editor operation>], texs: [<MathTex tex>], lang}, stdout {specs: [spec | null],
+# needs: [[LaTeX pieces of each spec]], texs: [tex with the decimal sign of the language]}.
 _SPEC_JS = r"""
 const fs = require("fs");
 const src = fs.readFileSync(process.argv[1], "utf8");
 const a = src.indexOf("// >>> series-spec"), b = src.indexOf("// <<< series-spec");
 if(a < 0 || b < 0) throw new Error("block series-spec not found in editor.js");
-const api = new Function(src.slice(a, b) + "\nreturn { seriesSpec };")();
+const api = new Function(src.slice(a, b) + "\nreturn { seriesSpec, specLatex, localizeTex };")();
 const req = JSON.parse(fs.readFileSync(0, "utf8"));
-process.stdout.write(JSON.stringify(req.map(r => api.seriesSpec(r.c, r.lang))));
+const specs = req.ops.map(c => api.seriesSpec(c, req.lang));
+process.stdout.write(JSON.stringify({ specs, needs: specs.map(s => s ? api.specLatex(s) : []),
+                                      texs: req.texs.map(t => api.localizeTex(t, req.lang)) }));
 """
 
 # Operation kinds of editor.js COMPUTATIONS, used only when node is missing (otherwise read from editor.js).
@@ -156,17 +160,6 @@ def _visible_mathtex(specs, out):
 
 
 # ---------------------------------------------------------------------------- formulas (LaTeX -> glyphs)
-def _spec_latex(spec):
-    """Every LaTeX piece of a series spec (editor.js buildChoreo `need`)."""
-    need = [spec["head"]] + ([spec["vectors"]] if spec.get("vectors") else [])
-    for col in spec["cols"]:
-        if col["t"] == "term":
-            need += [col[k] for k in ("abstract", "index", "subst", "value") if col.get(k) is not None]
-        else:
-            need.append(col["g"])
-    return need
-
-
 def choreo_from_spec(spec, g):
     """editor.js choreoFromSpec: the LaTeX spec -> the engine's choreography (glyph data per piece)."""
     out = {"head": g(spec["head"]), "var": spec.get("var"), "stages": spec.get("stages"), "cols": []}
@@ -184,6 +177,10 @@ def choreo_from_spec(spec, g):
     if spec.get("vectors"):
         out["vectors"] = g(spec["vectors"])
         out["rows"] = spec.get("rows")
+    d = spec.get("dot")
+    if d:                                                    # scalar product as 'komponenten' / 'matrix'
+        out["dot"] = {"mode": d["mode"], "m": d["m"], "ell": d["ell"], "g": {k: g(x) for k, x in d["tex"].items()},
+                      "vals": [g(x) if x is not None else None for x in d["vals"]]}
     return out
 
 
@@ -241,23 +238,25 @@ class TexGlyphen:
         self.used += len(want)
         return {x: self.cache[x] for x in want}
 
-    def series_specs(self, comps, lang):
+    def editor_latex(self, comps, texs, lang):
+        """editor.js series-spec in node: (specs, LaTeX pieces per spec, MathTex strings in the language)."""
         node = shutil.which("node")
         if not node:
             raise RuntimeError("node fehlt (baut die LaTeX-Teile wie der Editor)")
-        r = subprocess.run([node, "-e", _SPEC_JS, str(WEB / "editor.js")], input=json.dumps([{"c": c, "lang": lang} for c in comps]),
+        r = subprocess.run([node, "-e", _SPEC_JS, str(WEB / "editor.js")],
+                           input=json.dumps({"ops": comps, "texs": texs, "lang": lang}),
                            capture_output=True, text=True, encoding="utf-8")
         if r.returncode != 0:
             raise RuntimeError("series-spec: " + r.stderr.strip()[-400:])
-        return json.loads(r.stdout)
+        d = json.loads(r.stdout)
+        return d["specs"], d["needs"], d["texs"]
 
     def fill(self, series, texs, lang):
         """Put the glyphs in: series = [(engine spec, editor operation)] gets props.choreo (editor toPythonModel),
-        texs = MathTex specs get args.glyphs instead of args.tex (editor injectTexGlyphs). Returns the operations
-        that have nothing to draw (scalar product with lists of different length)."""
-        specs = self.series_specs([c for _, c in series], lang) if series else []
-        need = [x for sp in specs if sp for x in _spec_latex(sp)] + [str(s["args"].get("tex") or "") for s in texs]
-        got = self.glyphs(need)
+        texs = MathTex specs get args.glyphs instead of args.tex (editor injectTexGlyphs, decimals in the
+        language). Returns the operations that have nothing to draw (scalar product, lists of different length)."""
+        specs, needs, tex_l = self.editor_latex([c for _, c in series], [str(s["args"].get("tex") or "") for s in texs], lang)
+        got = self.glyphs([x for n in needs for x in n] + tex_l)
         g = lambda x: got.get(str(x)) or []
         empty = []
         for (spec, c), sp in zip(series, specs):
@@ -265,8 +264,9 @@ class TexGlyphen:
                 spec["props"]["choreo"] = choreo_from_spec(sp, g)
             else:
                 empty.append(c)
-        for s in texs:
-            s["args"]["glyphs"] = g(s["args"].pop("tex", "") or "")
+        for s, t in zip(texs, tex_l):
+            s["args"].pop("tex", None)
+            s["args"]["glyphs"] = g(t)
         return empty
 
     def close(self):
@@ -377,7 +377,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="Editor-Szenen als Artikelbilder (SVG) exportieren.")
     ap.add_argument("szenen", nargs="*", help="Szenennamen (Pfad unter web/szenen/ ohne .json); leer = alle")
     ap.add_argument("--out", default=str(ABB_DIR), help="Zielordner (Standard: web/abbildungen)")
-    ap.add_argument("--lang", default="", choices=LANGS + ("",), help="nur diese Sprache (Standard: alle vier)")
+    ap.add_argument("--lang", default="", choices=LANGS + ("",), help="nur diese Sprache (Standard: alle sechs)")
     ap.add_argument("--check", action="store_true", help="nur prüfen, nichts schreiben")
     a = ap.parse_args(argv)
     names = a.szenen or all_names()

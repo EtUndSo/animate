@@ -13,6 +13,7 @@
     "id": "k1",
     "type": "DotProduct",
     "props": {
+     "display": "rechnung",
      "u": "0.5, 1.25, -2, 3, 4, 5, 6",
      "v": "0.4, 2, 3, 1, 1, 1, 2",
      "u_name": "theta",

@@ -7,7 +7,7 @@ nur Schreibarbeit, wenn viele Abbildungen dasselbe Aussehen haben sollen (Größ
     s = Szene("et3/k8beispiel")
     a = s.achsen(x=(0, 2, 0.5), y=(-1, 1, 0.5), breite=3, hoehe=2, mitte=(-2, 0), xl="t in s", yl="y(t)")
     s.kurve(a, "exp(-x)*sin(2*pi*x)", farbe=BLAU)
-    s.text(a, s.tr("anf", de="Anfang", en="Start", es="Inicio", zh="起点"), (0.2, 0.8), farbe=ROT)
+    s.text(a, s.tr("anf", de="Anfang", en="Start", es="Inicio", zh="起点", fr="Début", tr="Başlangıç"), (0.2, 0.8), farbe=ROT)
     s.speichern()
 
 Regeln für Artikelbilder (engine/export.py):
@@ -15,8 +15,9 @@ Regeln für Artikelbilder (engine/export.py):
   darf mit allen Beschriftungen höchstens 7,4 Einheiten breit sein. Der sichtbare Rahmen geht von x = -7,11 bis 7,11
   und y = -4 bis 4, alles außerhalb wird abgeschnitten.
 - Texte in Szenenpixeln: 24-28 ergibt 13-15 px im Artikel. Kleiner als 22 nicht.
-- Dezimalzahlen in Labels immer mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es).
-- Wörter stehen in der Tabelle der Szene (s.tr), je Sprache ein Text. Formelzeichen sind sprachfrei.
+- Dezimalzahlen in Labels immer mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es, fr, tr).
+- Wörter stehen in der Tabelle der Szene (s.tr), je Sprache ein Text. Formelzeichen sind sprachfrei. fr und tr
+  dürfen fehlen (dann englischer Text im Bild).
 - Winkel im Bogenmaß: pgfplots rechnet sin(360*x) in Grad, hier heißt das sin(2*pi*x).
 - on=None heißt Weltkoordinaten nur in Szenen ohne Achsen. Gibt es Achsen, landet das Objekt auf den ersten: Dann entweder
   s.welt() als erstes Objekt aufrufen oder Texte und Legenden mit on=<achsen> in Datenkoordinaten setzen.
@@ -98,9 +99,15 @@ class Szene:
         self.objects.append(o)
         return oid
 
-    def tr(self, key, de, en, es, zh):
-        """Text in vier Sprachen; das Ergebnis steht im Label. "@{key}" darf auch Teil eines längeren Labels sein."""
+    def tr(self, key, de, en, es, zh, fr=None, tr=None):
+        """Text je Sprache; das Ergebnis steht im Label. "@{key}" darf auch Teil eines längeren Labels sein.
+        fr und tr sind freiwillig: Fehlen sie, zeigt das Bild in diesen Sprachen den englischen Text
+        (engine/scene_model._lookup), bis die Szene übersetzt ist. Ohne fr/tr bleibt die Szenendatei wie bisher."""
         self.strings[key] = {"de": de, "en": en, "es": es, "zh": zh}
+        if fr is not None:
+            self.strings[key]["fr"] = fr
+        if tr is not None:
+            self.strings[key]["tr"] = tr
         return "@" + key
 
     # ---------------------------------------------------------------------------- Achsen
@@ -227,7 +234,7 @@ class Szene:
     # mit Achsen (eine Rechnung sitzt nie auf Achsen). groesse = Schriftgröße der Formel in Szenenpixeln wie bei
     # Texten (FORMEL = 30 passt zu 24er bis 28er Beschriftung). breite = höchste Breite in Szeneneinheiten:
     # 7.0 füllt die Artikelspalte (548 px), längere Zeilen brechen vor einem "+" oder "=" um.
-    # Zahlen mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es).
+    # Zahlen mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es, fr, tr).
     def _operation(self, typ, props):
         """Eine Operation (computations) anlegen. model() bleibt unverändert: Mit der ersten Operation bekommt diese
         Szene ein eigenes model(), das die Operationen einträgt. Ergebnis: die id ("k1", "k2", …)."""
@@ -272,14 +279,21 @@ class Szene:
         return self._operation("BigProduct", p)
 
     def skalarprodukt(self, u, v, namen=("w", "x"), index="j", obere="", mitte=(0, 0), groesse=None, breite=7.0, summanden=3,
-                      vektoren=True, alle_schritte=True, farbe=SCHWARZ, laufzeit=6, **props):
+                      vektoren=True, alle_schritte=True, farbe=SCHWARZ, laufzeit=6, darstellung="rechnung", **props):
         """uᵀv = Σ_j u_j v_j zweier Zahlenlisten gleicher Länge, z. B. u=[3, 10, -4], v=[120, 3, 25].
-        namen = (Name von u, Name von v), fett gesetzt ("w", "x"; griechisch als "theta"); index = Laufindex;
-        obere = obere Grenze am Σ ("" = die Länge, oder z. B. "d"). vektoren=True zeigt beide Vektoren als Spalten
-        über der Rechnung (bei langen Vektoren mit ⋮ an der Stelle des ⋯). Bild: wᵀx = Σ w_j x_j = w_1 x_1 + …
-        = 3·120 + … = 360 + … = Summe; negative Zahlen in Klammern. Dezimalzahlen bleiben exakt (0.5·0.4 = 0.2)."""
+        namen = (Name von u, Name von v), fett gesetzt ("w", "x"; griechisch als "theta"; mit Index "q_1" oder
+        r"\\mathbf q_1": Kopf q₁ᵀx, Komponenten q_{1,j}); index = Laufindex; obere = obere Grenze am Σ ("" = die Länge,
+        oder z. B. "d"). Dezimalzahlen bleiben exakt (0.5·0.4 = 0.2), negative Zahlen stehen in Klammern.
+        darstellung (das Bild ist der Endzustand, im Editor läuft es Schritt für Schritt ab):
+          "rechnung"    wᵀx = Σ w_j x_j = w_1 x_1 + … = 3·120 + … = 360 + … = Summe; vektoren=True zeigt beide
+                        Vektoren als Spalten darüber (bei langen Vektoren ⋮ an der Stelle des ⋯)
+          "komponenten" beide Vektoren als Spalten nebeneinander, je Zeile · dazwischen und = Produkt dahinter,
+                        darunter wᵀx = 360 + … = Summe
+          "matrix"      Zeilenvektor wᵀ, x daruntergelegt (x_j unter w_j, · dazwischen), dahinter = 360 + … = Summe"""
         if len(u) != len(v) or not len(u):
             raise ValueError("skalarprodukt: u und v brauchen gleich viele Zahlen (mindestens eine)")
+        if darstellung not in ("rechnung", "komponenten", "matrix"):
+            raise ValueError('skalarprodukt: darstellung ist "rechnung", "komponenten" oder "matrix"')
 
         def liste(xs):
             def z(x):
@@ -288,15 +302,16 @@ class Szene:
                 s = "%.12g" % x
                 return format(x, "f").rstrip("0").rstrip(".") if "e" in s else s
             return ", ".join(z(x) for x in xs)
-        p = {"u": liste(u), "v": liste(v), "u_name": namen[0], "v_name": namen[1], "index": index, "upper": str(obere),
-             "show_vectors": bool(vektoren)}
+        p = {"display": darstellung, "u": liste(u), "v": liste(v), "u_name": namen[0], "v_name": namen[1], "index": index,
+             "upper": str(obere), "show_vectors": bool(vektoren)}
         p.update(self._rechnung(mitte, FORMEL if groesse is None else groesse, breite, summanden, alle_schritte, farbe, laufzeit, props))
         return self._operation("DotProduct", p)
 
     def formel(self, tex, mitte=(0, 0), hoehe=0.25, farbe=SCHWARZ):
         """Eine LaTeX-Formel als Bild (MathTex, gesetzt von MathJax), z. B. s.formel(r"\\hat y = \\sigma(\\mathbf w^\\top \\mathbf x)").
         hoehe = Höhe der GANZEN Formel in Szeneneinheiten (eine Zeile ohne Bruch: 0.25 passt zu FORMEL = 30, mit
-        Bruch oder Σ entsprechend mehr). mitte in Szeneneinheiten, auch in Szenen mit Achsen."""
+        Bruch oder Σ entsprechend mehr). mitte in Szeneneinheiten, auch in Szenen mit Achsen.
+        Dezimalzahlen mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es, fr, tr); Längen wie 0.5em bleiben."""
         return self._add("MathTex", {"tex": tex, "height": hoehe, "position": [mitte[0], mitte[1], 0], "color": farbe})
 
     # ---------------------------------------------------------------------------- Ablegen

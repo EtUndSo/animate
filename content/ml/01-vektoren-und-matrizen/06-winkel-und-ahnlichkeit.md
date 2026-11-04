@@ -93,7 +93,11 @@ $$\cos\varphi=\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\
 
 Diese Definition ist nur möglich, weil die rechte Seite nach der Cauchy-Schwarz-Ungleichung immer zwischen $-1$ und $1$ liegt. Zu jeder solchen Zahl gibt es genau einen Winkel zwischen $0^\circ$ und $180^\circ$. Am Vorzeichen des Skalarprodukts sieht man, ob der Winkel spitz ($\mathbf{u}^{\top}\mathbf{v}>0$), recht ($\mathbf{u}^{\top}\mathbf{v}=0$) oder stumpf ($\mathbf{u}^{\top}\mathbf{v}<0$) ist.
 
-⁠**Rechenbeispiel:** Für $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ ist $\cos\varphi=1/\sqrt2$, also $\varphi=45^\circ$. Für $(1,\,0,\,1)^{\top}$ und $(1,\,1,\,0)^{\top}$ ist $\cos\varphi=1/(\sqrt2\cdot\sqrt2)=\tfrac12$, also $\varphi=60^\circ$. Für $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$ ist $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, also $\varphi\approx53{,}4^\circ$.
+⁠**Rechenbeispiel:** Für $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ ist $\cos\varphi=1/\sqrt2$, also $\varphi=45^\circ$. Für $(1,\,0,\,1)^{\top}$ und $(1,\,1,\,0)^{\top}$ ist $\cos\varphi=\tfrac12$, also $\varphi=60^\circ$ (Abb. [22](#abb-22)). Für $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$ ist $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, also $\varphi\approx53{,}4^\circ$.
+
+:::abbildung ml/k1rwinkel 22
+Der Winkel zwischen $(1,\,0,\,1)^{\top}$ und $(1,\,1,\,0)^{\top}$: im Zähler das Skalarprodukt, im Nenner die beiden Längen.
+:::
 
 ⁠**Kurz gesagt:** Der Kosinus des Winkels zwischen zwei Vektoren ist ihr Skalarprodukt geteilt durch das Produkt ihrer Längen.
 
@@ -121,7 +125,11 @@ Das folgt sofort aus $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert
 
 ⁠**Rechenbeispiel 1:** $(1,\,2,\,2)^{\top}$ und $(2,\,0,\,-1)^{\top}$ sind orthogonal, denn $2+0-2=0$. Ihre Summe $(3,\,2,\,1)^{\top}$ hat das Längenquadrat $14=9+5$.
 
-⁠**Rechenbeispiel 2: zwei Muster, die sich nicht stören.** Das Gleichmuster $\mathbf 1=(1,1,1,1)^{\top}$ und das Wechselmuster $\mathbf{w}=(1,-1,1,-1)^{\top}$ aus Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) sind orthogonal: $1-1+1-1=0$. Ein Signal, das aus $2$-mal dem Gleichmuster und $1$-mal dem Wechselmuster besteht, ist $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. Der Vergleich mit dem Gleichmuster ergibt $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, der Vergleich mit dem Wechselmuster $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$. Jeder Vergleich findet genau seinen eigenen Anteil, mal $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; der andere Anteil stört ihn nicht.
+⁠**Rechenbeispiel 2: zwei Muster, die sich nicht stören.** Das Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ und das Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ aus Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) sind orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. Ein Signal, das aus $2$-mal dem Gleichmuster und $1$-mal dem Wechselmuster besteht, ist $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. Der Vergleich mit dem Gleichmuster ergibt $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, der Vergleich mit dem Wechselmuster $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Abb. [23](#abb-23)). Jeder Vergleich findet genau seinen eigenen Anteil, mal $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; der andere Anteil stört ihn nicht.
+
+:::abbildung ml/k1rortho 23
+Die beiden Muster sind orthogonal (oben). Der Vergleich des Signals $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ mit jedem Muster liefert dessen Anteil mal $4$.
+:::
 
 ⁠**Kurz gesagt:** Orthogonal heißt Skalarprodukt null; orthogonale Pfeile stehen senkrecht aufeinander, und für sie gilt der Satz des Pythagoras.
 
@@ -162,9 +170,11 @@ Sie ist $1$, wenn die Vektoren in dieselbe Richtung zeigen, $0$, wenn sie orthog
 
 $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad \mathbf{x}_3=(0,\,1,\,3)^{\top} .$$
 
-Text 2 ist ein doppelt so langer Bericht über dasselbe Spiel, Text 3 handelt vor allem von einer Wahl. Mit $\lVert\mathbf{x}_1\rVert^2=13$, $\lVert\mathbf{x}_2\rVert^2=52$, $\lVert\mathbf{x}_3\rVert^2=10$ ergeben sich die Kosinus-Ähnlichkeiten
+Text 2 ist ein doppelt so langer Bericht über dasselbe Spiel, Text 3 handelt vor allem von einer Wahl. Die Kosinus-Ähnlichkeit von Text 1 und Text 2 ist $1$, die von Text 1 und Text 3 ist $2/\sqrt{130}\approx0{,}175$ (Abb. [24](#abb-24)). Ebenso ist die von Text 2 und Text 3 gleich $4/(\sqrt{52}\,\sqrt{10})=4/\sqrt{520}\approx0{,}175$.
 
-$$\frac{\mathbf{x}_1^{\top}\mathbf{x}_2}{\sqrt{13}\sqrt{52}}=\frac{26}{26}=1,\qquad \frac{\mathbf{x}_1^{\top}\mathbf{x}_3}{\sqrt{13}\sqrt{10}}=\frac{2}{\sqrt{130}}\approx0{,}175,\qquad \frac{\mathbf{x}_2^{\top}\mathbf{x}_3}{\sqrt{52}\sqrt{10}}=\frac{4}{\sqrt{520}}\approx0{,}175 .$$
+:::abbildung ml/k1rkosinus 24
+Zwei Kosinus-Ähnlichkeiten der Wortzählungen: jeweils ein Skalarprodukt im Zähler und zwei Längen im Nenner.
+:::
 
 Die Abstände dagegen sind $\lVert\mathbf{x}_1-\mathbf{x}_2\rVert=\sqrt{13}\approx3{,}61$, $\lVert\mathbf{x}_1-\mathbf{x}_3\rVert=\sqrt{19}\approx4{,}36$ und $\lVert\mathbf{x}_2-\mathbf{x}_3\rVert=\sqrt{54}\approx7{,}35$. Nach dem Abstand liegt Text 1 von Text 3 kaum weiter entfernt als von Text 2, obwohl Text 2 genau dasselbe Thema hat. Die Kosinus-Ähnlichkeit erkennt das sofort: Sie ist $1$, und der Winkel zu Text 3 ist mit etwa $79{,}9^\circ$ fast ein rechter.
 
@@ -178,9 +188,9 @@ Zentriert man zwei Vektoren gleicher Länge vorher (Unterabschnitt [4.3](abstan
 
 <span class="anker" id="stufe-5-5"></span>
 
-Das Skalarprodukt mit einem normierten Vektor hat eine einfache geometrische Bedeutung. Man stelle sich eine Gerade durch den Nullpunkt in Richtung des normierten Vektors $\mathbf{u}$ vor und lasse Licht senkrecht auf diese Gerade fallen. Der Pfeil $\mathbf{x}$ wirft dann einen Schatten auf die Gerade (Abb. [6](#abb-6)). Wie lang ist er?
+Das Skalarprodukt mit einem normierten Vektor hat eine einfache geometrische Bedeutung. Man stelle sich eine Gerade durch den Nullpunkt in Richtung des normierten Vektors $\mathbf{u}$ vor und lasse Licht senkrecht auf diese Gerade fallen. Der Pfeil $\mathbf{x}$ wirft dann einen Schatten auf die Gerade (Abb. [25](#abb-25)). Wie lang ist er?
 
-:::abbildung ml/k1schatten 6
+:::abbildung ml/k1schatten 25
 Der Schatten des Pfeils $\mathbf{x}=(3,1)^{\top}$ auf der Geraden in Richtung des normierten Vektors $\mathbf{u}=(0{,}6;\,0{,}8)^{\top}$. Das Licht fällt senkrecht auf die Gerade (gestrichelt). Der Schatten (hellblau) hat die Länge $\mathbf{u}^{\top}\mathbf{x}=\lVert\mathbf{x}\rVert\cos\varphi=2{,}6$ und endet im Punkt $(\mathbf{u}^{\top}\mathbf{x})\,\mathbf{u}=(1{,}56;\,2{,}08)^{\top}$.
 :::
 
@@ -196,7 +206,11 @@ Mit $\mathbf{u}^{\top}\mathbf{u}=\lVert\mathbf{u}\rVert^2=1$ ist $\mathbf{u}^{\t
 
 Ist $\mathbf{u}$ nicht normiert, so ist $\mathbf{u}^{\top}\mathbf{x}$ die Schattenlänge von $\mathbf{x}$ in Richtung $\mathbf{u}$, multipliziert mit $\lVert\mathbf{u}\rVert$.
 
-⁠**Rechenbeispiel:** $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ ist normiert, denn $0{,}36+0{,}64=1$. Für $\mathbf{x}=(3,\,1)^{\top}$ ist $\mathbf{u}^{\top}\mathbf{x}=1{,}8+0{,}8=2{,}6$, der Schattenpunkt $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ und der Verbindungspfeil $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Er ist orthogonal zu $\mathbf{u}$: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Mit $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ ist $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, also $\varphi\approx34{,}7^\circ$.
+⁠**Rechenbeispiel:** $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ ist normiert, denn $0{,}36+0{,}64=1$. Für $\mathbf{x}=(3,\,1)^{\top}$ ist die Schattenlänge $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (Abb. [26](#abb-26)), der Schattenpunkt $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ und der Verbindungspfeil $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Er ist orthogonal zu $\mathbf{u}$: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Mit $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ ist $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, also $\varphi\approx34{,}7^\circ$.
+
+:::abbildung ml/k1rschatten 26
+Die Schattenlänge von $\mathbf{x}$ in Richtung des normierten Vektors $\mathbf{u}$ als Skalarprodukt.
+:::
 
 Für eine gewichtete Summe heißt das: Sind die Gewichte normiert, so gibt $\mathbf{w}^{\top}\mathbf{x}$ an, wie weit das Beispiel $\mathbf{x}$ in Richtung von $\mathbf{w}$ reicht. Alle Punkte, die denselben Wert $\mathbf{w}^{\top}\mathbf{x}$ liefern, werfen denselben Schatten. In der Ebene liegen sie deshalb auf einer Geraden senkrecht zu $\mathbf{w}$, im Raum auf einer Ebene senkrecht zu $\mathbf{w}$.
 

@@ -125,7 +125,7 @@ Wer morgens zuerst einen Pullover und dann eine Jacke anzieht, zieht abends zuer
 
 <span class="anker" id="stufe-11-5"></span>
 
-Die Matrix $\operatorname{diag}(1;\,0)$ drückt die Ebene auf die $x_1$-Achse platt (Abb. [9](lineare-abbildungen.html#abb-9)). Die Punkte $(1,\,5)^{\top}$ und $(1,\,-2)^{\top}$ landen beide in $(1,\,0)^{\top}$. Wer nur das Ergebnis $(1,\,0)^{\top}$ sieht, kann nicht wissen, von welchem Punkt es kam. Die zweite Komponente ist verloren, und keine Rechnung bringt sie zurück.
+Die Matrix $\operatorname{diag}(1;\,0)$ drückt die Ebene auf die $x_1$-Achse platt (Abb. [32](lineare-abbildungen.html#abb-32)). Die Punkte $(1,\,5)^{\top}$ und $(1,\,-2)^{\top}$ landen beide in $(1,\,0)^{\top}$. Wer nur das Ergebnis $(1,\,0)^{\top}$ sieht, kann nicht wissen, von welchem Punkt es kam. Die zweite Komponente ist verloren, und keine Rechnung bringt sie zurück.
 
 :::satz Satz 11.5 (Ohne Inverse)
 <span class="anker" id="satz-11-5"></span>

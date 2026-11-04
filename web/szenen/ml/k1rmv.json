@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}(\\mathbf A\\mathbf x)_i=\\sum_{j=1}^2a_{ij}\\,x_j&=a_{i1}x_1+a_{i2}x_2\\\\(\\mathbf A\\mathbf x)_1&=1\\cdot2+2\\cdot1=2+2=4\\\\(\\mathbf A\\mathbf x)_2&=0\\cdot2+(-1)\\cdot1=0-1=-1\\\\(\\mathbf A\\mathbf x)_3&=3\\cdot2+1\\cdot1=6+1=7\\end{aligned}",
+     "height": 1.679,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

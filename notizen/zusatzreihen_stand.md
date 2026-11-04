@@ -19,7 +19,15 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
 | cyber | 1 | Sicherheit, Schutzziele und Spielregeln | fertig 04.11. (68 S., 10 Abschnitte, 20 Aufgaben, 8 Abb.; Website de gebaut), wartet auf Abnahme |
 | ml | 1 | Vektoren und Matrizen | fertig 04.11. (82 S., 15 Abschnitte, 37 Aufgaben, 15 Abb.; Website de gebaut), wartet auf Abnahme |
 
-| ml | 2 | Projektion, Eigenwerte und Zerlegungen | in Arbeit (04.11. abends; User: „weiter mit den Themen zu ML“). Der Agent bekam zuerst einen Auftrag mit gekürztem Lesen, die Korrektur auf „alles ganz lesen“ kam während der Arbeit. Im Bericht prüfen, ob er alles ganz gelesen hat, sonst nacharbeiten. |
+| ml | 2 | Projektion, Eigenwerte und Zerlegungen | fertig 04.11. (85 S., 12 Abschnitte, 38 Aufgaben, 11 Abb. + 18 Rechenbilder; Website de gebaut). Laut Protokoll alles vollständig gelesen (Muster, Teil 1, Lernpfad, Aufgaben, Quellen, Notizen). Endgültig, kann übersetzt werden (en/es/zh/fr/tr), sobald die fr/tr-Infrastruktur steht. |
+| ml | 1 | Überarbeitung mit vollständigem Lesen + Rechenbilder | fertig 04.11. (91 S., 37 Aufgaben, 15 Abb. + 27 Rechenbilder; Website de gebaut). Endgültig, Übersetzung nach ml 2 einreihen. Offen: Rechenbild k1rmittelvektor zeigt 5/2 statt 2,5 (damals konnte s.formel noch keine Dezimalzahlen je Sprache; jetzt möglich, beim Übersetzen anpassen). Neue Regel im Heft: Vektoren mit Dezimalzahlen mit Semikolon (0,2; 0,25)ᵀ. |
+| ml | 2 | Übersetzung en/es/zh/fr/tr | in Arbeit (04.11. nachts, parallel zum Schreib-Agenten; Anrede fr vous, tr siz) |
+| cyber | 1 | Überarbeitung mit vollständigem Lesen + Rechenbilder | in Arbeit (04.11. nachts) |
+
+Hinweise ml 2:
+- SVD als A = UDVᵀ mit d_j; Residuum r = y − Ax̂; ŷ, x̂, P; Drehungen heißen Q (R ist das R der QR-Zerlegung); λ_i, Λ, S mit s_i; Cholesky L; Links-/Rechtsinverse F/G; A⁺; κ = d₁/d_n; ‖·‖₂ Spektralnorm, ‖·‖_F Frobenius; z*; imaginäre Einheit j.
+- Rechenbilder (Regel umgesetzt): je Rechenbeispiel im Haupttext, in dem Summe oder Skalarprodukt Kernstück ist; nicht für Proben, Wiederholungen, Beweise, Hintergrund und Lösungen. Vom User bestätigt am 04.11.2026: „bei Beweisen, Rechnungen, etc. brauchen wir die Animationen nicht“.
+- Präambel ergänzt: `\vs \vh \vd \vi \vbeta \mF \mG \mL \mM`.
 
 **Überarbeiten wegen gekürzten Lesens** (User 04.11.2026: „Bereits erstellte Artikel überarbeiten, falls sie noch das alte Prinzip für das Durchlesen genutzt haben“):
 - **Befund aus den Agentenprotokollen:**

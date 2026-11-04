@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\bar{\\mathbf x}=\\tfrac14\\sum_{i=1}^4\\mathbf x_i&=\\tfrac14\\,(\\mathbf x_1+\\mathbf x_2+\\mathbf x_3+\\mathbf x_4)\\\\&=\\tfrac14\\left[\\begin{pmatrix}60\\\\2\\\\3\\end{pmatrix}+\\begin{pmatrix}40\\\\1\\\\1\\end{pmatrix}+\\begin{pmatrix}90\\\\4\\\\6\\end{pmatrix}+\\begin{pmatrix}70\\\\3\\\\2\\end{pmatrix}\\right]\\\\&=\\tfrac14\\begin{pmatrix}260\\\\10\\\\12\\end{pmatrix}=\\begin{pmatrix}65\\\\5/2\\\\3\\end{pmatrix}\\end{aligned}",
+     "height": 2.713,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

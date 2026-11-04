@@ -17,9 +17,9 @@ Manche Vektoren einer Liste bringen nichts Neues, weil sie sich aus den anderen 
 
 <span class="anker" id="stufe-13-1"></span>
 
-Der Spaltenraum einer Matrix ist die Menge aller Linearkombinationen ihrer Spalten. Dieselbe Bildung ergibt für jede Liste von Vektoren eine Menge, und sie bekommt einen eigenen Namen (Abb. [13](#abb-13)).
+Der Spaltenraum einer Matrix ist die Menge aller Linearkombinationen ihrer Spalten. Dieselbe Bildung ergibt für jede Liste von Vektoren eine Menge, und sie bekommt einen eigenen Namen (Abb. [39](#abb-39)).
 
-:::abbildung ml/k1spann 13
+:::abbildung ml/k1spann 39
 Der Spann (blau) dreier Listen von Vektoren in der Ebene, im Maßstab $1:2$. (a) Ein Vektor spannt eine Gerade durch den Nullpunkt auf. (b) Ein zweiter Vektor auf derselben Geraden ändert nichts. (c) Zwei Vektoren in verschiedenen Richtungen spannen die ganze Ebene auf.
 :::
 
@@ -42,7 +42,7 @@ Der Spaltenraum einer Matrix ist also der Spann ihrer Spalten. Mit zwei Vektoren
 
 <span class="anker" id="stufe-13-2"></span>
 
-In Abb. [13](#abb-13) (b) bringt der zweite Vektor nichts Neues: Er liegt schon im Spann des ersten. Ein Datensatz kann dieselbe Schwäche haben. Enthält er die Zahl der Schlafzimmer, die Zahl der Wohnzimmer und die Zahl aller Zimmer, so ist die dritte Spalte die Summe der ersten beiden und trägt keine eigene Information. Man braucht ein Wort dafür, dass in einer Liste von Vektoren nichts überflüssig ist.
+In Abb. [39](#abb-39) (b) bringt der zweite Vektor nichts Neues: Er liegt schon im Spann des ersten. Ein Datensatz kann dieselbe Schwäche haben. Enthält er die Zahl der Schlafzimmer, die Zahl der Wohnzimmer und die Zahl aller Zimmer, so ist die dritte Spalte die Summe der ersten beiden und trägt keine eigene Information. Man braucht ein Wort dafür, dass in einer Liste von Vektoren nichts überflüssig ist.
 
 :::definition Definition 13.2 (Lineare Unabhängigkeit)
 <span class="anker" id="satz-13-2"></span>
@@ -161,7 +161,49 @@ Aus (i) folgt (ii) nach Unterabschnitt [11.5](einheitsmatrix-und-inverse.html#s
 
 ⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat den Kern $\operatorname{span}\{(2,\,-1)^{\top}\}$ der Dimension $1$ und den Rang $1$: $1+1=2$. Die Matrix $\mathbf K$ von oben hat den Kern $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, denn ihre dritte Spalte ist die Summe der ersten beiden; mit $\operatorname{rang}\mathbf K=2$ ist $1+2=3$.
 
-⁠**Kurz gesagt:** Der Kern sammelt die Richtungen, die eine Matrix auf null abbildet; Kern und Rang teilen sich die $n$ Eingangsrichtungen, und eine quadratische Matrix ist genau dann invertierbar, wenn ihr Kern nur den Nullvektor enthält.
+**Rang und Lösbarkeit.** Mit Rang und Kern lassen sich die Fragen aus Abschnitt [12](lineare-gleichungssysteme.html#stufe-12) an Zahlen ablesen, auch für Matrizen, die nicht quadratisch sind. Gibt es eine Lösung? Ist sie eindeutig? Gibt es für jede rechte Seite eine?
+
+:::satz Satz 13.10 (Lösbarkeit und Rang)
+<span class="anker" id="satz-13-10"></span>
+
+Für $\mathbf{A}\in\mathbb{R}^{m\times n}$ und $\mathbf{y}\in\mathbb{R}^m$ gilt:
+
+<ol class="rm">
+
+<li>
+
+$\mathbf{A}\mathbf{x}=\mathbf{y}$ ist genau dann lösbar, wenn $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=\operatorname{rang}\mathbf{A}$ ist;
+
+</li>
+
+<li>
+
+ist das System lösbar, so ist die Lösung genau dann eindeutig, wenn $\operatorname{rang}\mathbf{A}=n$ ist;
+
+</li>
+
+<li>
+
+$\mathbf{A}\mathbf{x}=\mathbf{y}$ ist genau dann für jedes $\mathbf{y}\in\mathbb{R}^m$ lösbar, wenn $\operatorname{rang}\mathbf{A}=m$ ist.
+
+</li>
+
+</ol>
+:::
+
+:::beweis Lösbarkeit und Rang
+(i) Nach Unterabschnitt [12.2](lineare-gleichungssysteme.html#stufe-12-2) ist das System genau dann lösbar, wenn $\mathbf{y}$ im Spaltenraum von $\mathbf{A}$ liegt. Liegt $\mathbf{y}$ darin, so bringt die zusätzliche Spalte keine neue Richtung: Die Spalten von $(\mathbf{A}\,|\,\mathbf{y})$ spannen denselben Raum auf wie die von $\mathbf{A}$, und beide Ränge sind dessen Dimension. Liegt $\mathbf{y}$ nicht darin, so nimmt man $r=\operatorname{rang}\mathbf{A}$ linear unabhängige Spalten $\mathbf g_1,\dots,\mathbf g_r$ von $\mathbf{A}$ und dazu $\mathbf{y}$. Aus $c_1\mathbf g_1+\dots+c_r\mathbf g_r+c\,\mathbf{y}=\mathbf{0}$ folgt $c=0$, denn sonst wäre $\mathbf{y}$ eine Linearkombination der $\mathbf g_l$ und läge im Spaltenraum; dann sind auch alle $c_l=0$. Also hat $(\mathbf{A}\,|\,\mathbf{y})$ mindestens $r+1$ linear unabhängige Spalten, und $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})>\operatorname{rang}\mathbf{A}$.
+
+(ii) Nach Unterabschnitt [12.4](lineare-gleichungssysteme.html#stufe-12-4) sind alle Lösungen eine Lösung plus die Vektoren des Kerns. Die Lösung ist also genau dann eindeutig, wenn $\ker\mathbf{A}=\{\mathbf{0}\}$ ist, und nach dem Rangsatz heißt das $\operatorname{rang}\mathbf{A}=n$.
+
+(iii) Jedes $\mathbf{y}$ liegt genau dann im Spaltenraum, wenn der Spaltenraum der ganze $\mathbb{R}^m$ ist. Das ist genau dann der Fall, wenn er die Dimension $m$ hat, also $\operatorname{rang}\mathbf{A}=m$.
+:::
+
+Für eine quadratische Matrix mit $\operatorname{rang}\mathbf{A}=n=m$ treffen (ii) und (iii) zusammen: genau eine Lösung für jede rechte Seite, passend zum Satz über die Invertierbarkeit.
+
+⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist $\operatorname{rang}\mathbf{A}=1$. Mit $\mathbf{y}=(1,\,1)^{\top}$ hat die erweiterte Matrix die Zeilen $(1,\,2\,|\,1)$ und $(2,\,4\,|\,1)$; zieht man die erste zweimal von der zweiten ab, bleibt $(0,\,0\,|\,-1)$, keine Nullzeile. Also ist $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, und das System ist unlösbar, wie in Unterabschnitt [12.2](lineare-gleichungssysteme.html#stufe-12-2). Mit $\mathbf{y}=(3,\,6)^{\top}$ bleibt dagegen $(0,\,0\,|\,0)$, die Ränge sind gleich, und das System ist lösbar. Wegen $\operatorname{rang}\mathbf{A}=1<2=n$ ist die Lösung nicht eindeutig: Alle Lösungen sind $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. Und wegen $\operatorname{rang}\mathbf{A}=1<2=m$ gibt es rechte Seiten ohne Lösung. Im überbestimmten System aus Unterabschnitt [12.5](lineare-gleichungssysteme.html#stufe-12-5) ist $\operatorname{rang}\mathbf{A}=2=n$: Gäbe es eine Lösung, wäre sie eindeutig. Es gibt aber keine, also ist dort nach (i) $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=3$.
+
+⁠**Kurz gesagt:** Der Kern sammelt die Richtungen, die eine Matrix auf null abbildet; Kern und Rang teilen sich die $n$ Eingangsrichtungen. Ein System $\mathbf{A}\mathbf{x}=\mathbf{y}$ ist genau dann lösbar, wenn die rechte Seite den Rang nicht erhöht, und die Lösung ist genau dann eindeutig, wenn der Kern nur den Nullvektor enthält.
 
 ### Abhängige Merkmale
 

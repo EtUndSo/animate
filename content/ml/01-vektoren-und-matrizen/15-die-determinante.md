@@ -17,14 +17,14 @@ Eine lineare Abbildung verformt das Gitter der Ebene, und dabei werden Flächen 
 
 <span class="anker" id="stufe-14-1"></span>
 
-Das Einheitsquadrat hat die Fläche $1$. Eine Matrix $\mathbf{A}$ bildet es auf das Parallelogramm ab, das ihre beiden Spalten aufspannen (Unterabschnitt [8.3](lineare-abbildungen.html#stufe-8-3)). Wie groß ist dessen Fläche? Abbildung [14](#abb-14) zeigt es für $\mathbf{A}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$.
+Das Einheitsquadrat hat die Fläche $1$. Eine Matrix $\mathbf{A}$ bildet es auf das Parallelogramm ab, das ihre beiden Spalten aufspannen (Unterabschnitt [8.3](lineare-abbildungen.html#stufe-8-3)). Wie groß ist dessen Fläche? Abbildung [40](#abb-40) zeigt es für $\mathbf{A}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$.
 
-:::abbildung ml/k1det 14
+:::abbildung ml/k1det 40
 Links das Einheitsquadrat mit der Fläche $1$, rechts sein Bild unter $\mathbf{A}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$: das Parallelogramm aus den Spalten $\mathbf{a}_1$ und $\mathbf{a}_2$. Es hat die Fläche $5=3\cdot2-1\cdot1$. Gestrichelt das umschließende Rechteck, aus dem sich die Fläche berechnen lässt.
 :::
 
 :::herleitung Die Fläche des Parallelogramms
-Die Spalten seien $\mathbf{a}_1=(a,\,c)^{\top}$ und $\mathbf{a}_2=(b,\,d)^{\top}$ mit lauter positiven Zahlen, und $\mathbf{a}_2$ liege links oberhalb von $\mathbf{a}_1$ wie in Abb. [14](#abb-14). Das Parallelogramm mit den Ecken $\mathbf{0}$, $\mathbf{a}_1$, $\mathbf{a}_1+\mathbf{a}_2$, $\mathbf{a}_2$ passt in das Rechteck mit den Seiten $a+b$ und $c+d$. Um es übrig zu lassen, schneidet man aus dem Rechteck zwei Dreiecke mit den Katheten $a$ und $c$ heraus, zwei Dreiecke mit den Katheten $b$ und $d$ und zwei Rechtecke mit den Seiten $b$ und $c$:
+Die Spalten seien $\mathbf{a}_1=(a,\,c)^{\top}$ und $\mathbf{a}_2=(b,\,d)^{\top}$ mit lauter positiven Zahlen, und $\mathbf{a}_2$ liege links oberhalb von $\mathbf{a}_1$ wie in Abb. [40](#abb-40). Das Parallelogramm mit den Ecken $\mathbf{0}$, $\mathbf{a}_1$, $\mathbf{a}_1+\mathbf{a}_2$, $\mathbf{a}_2$ passt in das Rechteck mit den Seiten $a+b$ und $c+d$. Um es übrig zu lassen, schneidet man aus dem Rechteck zwei Dreiecke mit den Katheten $a$ und $c$ heraus, zwei Dreiecke mit den Katheten $b$ und $d$ und zwei Rechtecke mit den Seiten $b$ und $c$:
 
 $$(a+b)(c+d)-2\cdot\tfrac12ac-2\cdot\tfrac12bd-2\,bc=ac+ad+bc+bd-ac-bd-2bc=ad-bc .$$
 
@@ -97,9 +97,15 @@ wobei $\mathbf{A}_{1j}$ die $(n-1)\times(n-1)$-Matrix ist, die aus $\mathbf{A}$ 
 
 Für $n=2$ ergibt [(14.2)](#gl-14-2) wieder $a_{11}a_{22}-a_{12}a_{21}$. Man darf ebenso nach jeder anderen Zeile oder Spalte entwickeln, mit dem Vorzeichen $(-1)^{i+j}$ für den Eintrag $a_{ij}$; das Ergebnis ist immer dasselbe. Für $n=3$ ist $|\det\mathbf{A}|$ das Volumen des Spats aus den drei Spalten, und das Vorzeichen sagt, ob die Spalten in derselben Drehrichtung angeordnet sind wie $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ (Rechte-Hand-Regel) oder gespiegelt.
 
-⁠**Rechenbeispiel:** Für die Koeffizientenmatrix aus Unterabschnitt [12.3](lineare-gleichungssysteme.html#stufe-12-3) ist
+⁠**Rechenbeispiel:** Für die Koeffizientenmatrix aus Unterabschnitt [12.3](lineare-gleichungssysteme.html#stufe-12-3),
 
-$$\det\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix}=1\cdot\det\begin{pmatrix}1&1\\1&2\end{pmatrix}-2\cdot\det\begin{pmatrix}2&1\\1&2\end{pmatrix}+1\cdot\det\begin{pmatrix}2&1\\1&1\end{pmatrix}=1\cdot1-2\cdot3+1\cdot1=-4 .$$
+$$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
+
+ergibt die Laplace-Entwicklung nach der ersten Zeile $\det\mathbf{A}=-4$ (Abb. [41](#abb-41)).
+
+:::abbildung ml/k1rlaplace 41
+Die Laplace-Entwicklung nach der ersten Zeile: Jeder Eintrag der ersten Zeile mal die Determinante der Restmatrix ohne seine Zeile und Spalte, mit abwechselndem Vorzeichen.
+:::
 
 Für eine obere Dreiecksmatrix, unter deren Diagonale nur Nullen stehen, entwickelt man immer wieder nach der ersten Spalte und erhält das Produkt der Diagonaleinträge, etwa $\det\Bigl(\begin{smallmatrix}2&1&3\\0&3&1\\0&0&4\end{smallmatrix}\Bigr)=2\cdot3\cdot4=24$.
 
@@ -158,6 +164,12 @@ Regel (iii) folgt aus (i) mit $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$ und $\det\m
 ⁠**Rechenbeispiel 2:** Im Gauß-Verfahren aus Unterabschnitt [12.3](lineare-gleichungssysteme.html#stufe-12-3) wurde die Koeffizientenmatrix mit Additionen von Vielfachen und einer Vertauschung auf die Stufenform mit der Diagonale $1$, $-1$, $-4$ gebracht. Also ist ihre Determinante $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, wie mit der Laplace-Entwicklung.
 
 ⁠**Kurz gesagt:** Die Determinante eines Produkts ist das Produkt der Determinanten, weil sich die Volumenfaktoren hintereinander multiplizieren; praktisch berechnet man sie mit dem Gauß-Verfahren.
+
+:::hintergrund Warum Zeilenumformungen die Determinante gerade so ändern
+Nach Regel (ii) darf man statt der Zeilen ebenso die Spalten umformen, und die Spalten spannen das Parallelogramm oder den Spat auf. Addiert man zu einer Spalte ein Vielfaches einer anderen, etwa $\mathbf{a}_2\to\mathbf{a}_2+t\,\mathbf{a}_1$, so rutscht die Seite gegenüber von $\mathbf{a}_1$ parallel zu $\mathbf{a}_1$ weiter. Das Parallelogramm wird geschert wie ein Kartenstapel, den man seitlich verschiebt. Grundseite und Höhe bleiben dabei gleich, also auch die Fläche. Im Raum gilt dasselbe für den Spat: Jeder Schnitt parallel zur Grundfläche wird nur verschoben, nicht verändert, und Körper mit gleich großen Schnitten in jeder Höhe haben dasselbe Volumen (Prinzip von Cavalieri). Vertauscht man zwei Spalten, bleibt die Fläche gleich, aber die Drehrichtung von der ersten zur zweiten Spalte kehrt sich um, und mit ihr das Vorzeichen. Multipliziert man eine Spalte mit $c$, wird eine Kante $c$-mal so lang und das Volumen $c$-mal so groß. Für $2\times2$-Matrizen bestätigt die Formel $ad-bc$ das direkt, zum Beispiel für die Scherung: $a\,(d+t\,c)-(b+t\,a)\,c=ad-bc$.
+
+Umgekehrt legen schon drei Eigenschaften die Determinante vollständig fest: $\det\mathbf{I}=1$; vertauscht man zwei Zeilen, wechselt das Vorzeichen; und hält man alle Zeilen bis auf eine fest, so ist die Determinante linear in dieser einen Zeile. Jede Funktion der Matrix mit diesen drei Eigenschaften ist die Determinante. Der Grund ist das Gauß-Verfahren: Es führt jede quadratische Matrix mit Zeilenumformungen auf $\mathbf{I}$ oder auf eine Matrix mit einer Nullzeile zurück, und die Wirkung jeder Umformung ist durch die drei Eigenschaften festgelegt. Viele Lehrbücher definieren die Determinante deshalb über diese Eigenschaften und leiten die Laplace-Entwicklung daraus her.
+:::
 
 :::hintergrund Warum man Determinanten nicht mit der Laplace-Entwicklung berechnet
 Die Laplace-Entwicklung einer $n\times n$-Matrix ruft $n$ Determinanten der Größe $n-1$ auf, jede von ihnen $n-1$ der Größe $n-2$ und so weiter. Ausgeschrieben entstehen $n!$ Produkte. Für $n=20$ sind das mehr als $2\cdot10^{18}$, für einen Rechner unbezahlbar. Das Gauß-Verfahren braucht dagegen nur etwa $\tfrac23n^3$ Grundrechenarten, für $n=20$ also wenige Tausend. Die Laplace-Entwicklung ist deshalb eine Definition und ein Werkzeug für kleine Matrizen und für Herleitungen, kein Rechenverfahren.

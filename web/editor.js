@@ -318,8 +318,10 @@ const COMPUTATIONS = {
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
     // uᵀv = Σ_j u_j v_j of two typed-in number lists of equal length; u_name/v_name = bold vector names, index =
     // running index, upper = upper limit shown under/over the Σ ("" = the length, or e.g. "d").
+    // display: rechnung = Σ-style calculation | komponenten = rows marked, '·', '= product', then the sum |
+    // matrix = u turns into the row vector uᵀ, v is laid onto it, products after '=', then the sum.
     "Skalarprodukt  (uᵀv)": { type:"DotProduct", kind:"dotproduct",
-      props:{ u:"3, 10, -4", v:"120, 3, 25", u_name:"w", v_name:"x", index:"j", upper:"", show_terms:3, show_vectors:true,
+      props:{ display:"rechnung", u:"3, 10, -4", v:"120, 3, 25", u_name:"w", v_name:"x", index:"j", upper:"", show_terms:3, show_vectors:true,
               all_steps:true, max_width:0, run_time:6, size:1.4, position:[0,0,0],
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
   },
@@ -1219,8 +1221,8 @@ function applyScene(data){
   model.domain = m.domain || "real";
   model.camera = m.camera || { mode:"2d", theta:0.6, phi:1.0 };
   model.export = Object.assign({ ...EXPORT_DEFAULTS }, m.export || {});   // older scenes: default crop/scale
-  model.lang = m.lang || "de";                     // language of labels and numbers; the batch export renders all four
-  model.strings = m.strings || {};                 // translation table {key:{de,en,es,zh}}, used as @key in labels
+  model.lang = m.lang || "de";                     // language of labels and numbers; the batch export renders all six
+  model.strings = m.strings || {};                 // translation table {key:{de,en,es,zh,fr,tr}}, used as @key in labels
   migrateModel();                                  // backfill any props added since the scene was saved
   model.selectedId = model.objects.length ? model.objects[0].id : null;
   model.selectedComp = null;
@@ -1332,7 +1334,9 @@ function renderCompProps(container, c){
   if(def.kind==="dotproduct"){
     const hint=document.createElement("div"); hint.className="hint";
     hint.textContent="u, v: Zahlen gleicher Länge, getrennt durch Komma oder Leerzeichen (mit ; getrennt gilt das Komma als Dezimalkomma). "
-      +"u_name, v_name: Namen der Vektoren (fett), index: Laufindex, upper: obere Grenze (leer = Länge, z. B. d). show_vectors: beide Vektoren als Spalten zeigen."+STEPS_HINT;
+      +"u_name, v_name: Namen der Vektoren (fett, mit Index: q_1), index: Laufindex, upper: obere Grenze (leer = Länge, z. B. d). "
+      +"display: rechnung (wie Σ), komponenten (Zeile für Zeile · und = Produkt, dann die Summe) oder matrix (u dreht sich zum Zeilenvektor, "
+      +"v wird darauf gelegt). show_vectors (nur rechnung): beide Vektoren als Spalten zeigen."+STEPS_HINT;
     container.appendChild(hint);
     const warn=document.createElement("div"); warn.className="hint"; warn.style.color="#d62728";
     const check=()=>{ warn.textContent = seriesSpec(c, model.lang) ? "" : "⚠ u und v brauchen gleich viele Zahlen (mindestens eine)."; };
@@ -1594,6 +1598,7 @@ const ENUMS = {
   "Axes.x_axis_at":        ["auto", "bottom"],
   "Axes.y_axis_at":        ["auto", "left"],
   "Wire.route":            ["direct", "hv", "vh"],
+  "DotProduct.display":    ["rechnung", "komponenten", "matrix"],
 };
 // Dash presets offered in the `dash` field (free "on,off" pixel patterns also work).
 const DASH_PRESETS = ["", "10,7", "4,4", "2,5", "14,6,3,6"];
@@ -1741,14 +1746,15 @@ function updateExportInfoText(){
   const I=_exportInfo; t.textContent = I ? exportInfoLabel(I) : "";
   t.style.color = (I && !I.fits) ? "#d62728" : "";
 }
-// Translation table of the scene (model.strings = {key:{de,en,es,zh}}). A label "@key" (or "@{key}" inside a
-// label) takes its text from here in the language chosen in the toolbar; plain labels stay as typed.
+// Translation table of the scene (model.strings = {key:{de,en,es,zh,fr,tr}}). A label "@key" (or "@{key}" inside a
+// label) takes its text from here in the language chosen in the toolbar; plain labels stay as typed. A missing fr or tr
+// shows the English text (engine/scene_model._lookup), every other missing language the German one.
 function renderStringsTable(el){
   const wrap=document.createElement("div"); wrap.style="margin-top:10px;border-top:1px solid var(--border);padding-top:8px;";
   const title=document.createElement("div"); title.style="font-weight:600;margin-bottom:6px;font-size:13px"; title.textContent="Übersetzungen (@Schlüssel)"; wrap.appendChild(title);
   const ta=document.createElement("textarea"); ta.rows=6; ta.style="width:100%;font-family:monospace;font-size:11px";
   ta.spellcheck=false; ta.value=JSON.stringify(model.strings||{},null,1);
-  ta.title='{"eingang":{"de":"Eingang","en":"Input","es":"Entrada","zh":"输入"}}; im Label: @eingang';
+  ta.title='{"eingang":{"de":"Eingang","en":"Input","es":"Entrada","zh":"输入","fr":"Entrée","tr":"Giriş"}}; im Label: @eingang (fehlt fr/tr: englischer Text)';
   ta.onchange=()=>{
     try{ const v=JSON.parse(ta.value||"{}"); if(!v || typeof v!=="object" || Array.isArray(v)) throw 0;
       model.strings=v; ta.style.outline=""; renderPreview(); }
@@ -2299,7 +2305,7 @@ function _approxFrac(x, maxDen=10000, tol=1e-9){
   return (k1>0 && Math.abs(h1/k1 - x) < tol) ? [sign*h1, k1] : null;
 }
 // Numbers in the formulas follow the scene language like the labels (engine/text.py COMMA_LANGS): 0.5 -> 0{,}5.
-function _locDec(s, lang){ return (lang==="de" || lang==="es") ? String(s).replace(/\./g, "{,}") : String(s); }
+function _locDec(s, lang){ return (lang==="de" || lang==="es" || lang==="fr" || lang==="tr") ? String(s).replace(/\./g, "{,}") : String(s); }
 function _fmtNum(v, lang){
   if(!isFinite(v)) return "?";
   const f=_approxFrac(v);
@@ -2307,6 +2313,13 @@ function _fmtNum(v, lang){
   return _locDec(String(+v.toPrecision(5)), lang);
 }
 function _decStr(v, lang){ return isFinite(v) ? _locDec(String(+v.toPrecision(6)), lang) : "?"; }   // decimal form of the total
+// A typed LaTeX formula (MathTex) gets the same decimal sign: 0.5 -> 0{,}5 in de/es/fr/tr. Lengths such as
+// \hspace{0.5em} keep their point (TeX needs it).
+function localizeTex(tex, lang){
+  const s=String(tex==null?"":tex);
+  if(_locDec("1.5", lang)==="1.5") return s;
+  return s.replace(/(\d)\.(\d+)(?!\d)(?!\s*(?:em|ex|pt|cm|mm|in|mu|px|pc|bp|dd|cc|sp)\b)/g, "$1{,}$2");
+}
 function _isProperFrac(v){ const f=_approxFrac(v); return !!(f && f[1]!==1); }   // true -> show "fraction = decimal"
 
 // Series operator differences (everything else is shared): Σ joins with '+' and reduces by addition;
@@ -2379,12 +2392,16 @@ const _GREEK=new Set(["alpha","beta","gamma","delta","epsilon","zeta","eta","the
   "pi","rho","sigma","tau","upsilon","phi","chi","psi","omega"]);
 const _GREEK_CHAR={alpha:"α",beta:"β",gamma:"γ",delta:"δ",epsilon:"ϵ",zeta:"ζ",eta:"η",theta:"θ",iota:"ι",kappa:"κ",lambda:"λ",mu:"μ",
   nu:"ν",xi:"ξ",pi:"π",rho:"ρ",sigma:"σ",tau:"τ",upsilon:"υ",phi:"ϕ",chi:"χ",psi:"ψ",omega:"ω"};
-// A symbol typed as letters ("w", "theta" or "\theta"): its LaTeX (bold = vector), and the glyph character MathJax
-// gives it (the engine tints the running index by it). Anything else than letters is dropped.
+// A symbol typed as letters ("w", "theta" or "\theta"), optionally with an index ("q_1", "q_{12}", "\mathbf q_1"): its
+// LaTeX (bold = vector, with the index), the plain letter, the index, and the glyph character MathJax gives the letter
+// (the engine tints the running index by it). Anything else is dropped.
 function _symbol(s, fallback){
-  const n=String(s==null?"":s).replace(/[^A-Za-z]/g,"") || fallback;
-  if(_GREEK.has(n)) return { bold:"\\boldsymbol{\\"+n+"}", plain:"\\"+n, ch:_GREEK_CHAR[n] };
-  return { bold:"\\mathbf{"+n+"}", plain:(n.length>1 ? "{"+n+"}" : n), ch:n };
+  let t=String(s==null?"":s).replace(/\\(?:mathbf|boldsymbol|bm|vec)\b/g,"").replace(/[{}\s]/g,"").split("^")[0];
+  let sub="";
+  const k=t.indexOf("_"); if(k>=0){ sub=t.slice(k+1).replace(/[^A-Za-z0-9]/g,""); t=t.slice(0,k); }
+  const n=t.replace(/[^A-Za-z]/g,"") || fallback, s_=sub ? "_{"+sub+"}" : "";
+  if(_GREEK.has(n)) return { bold:"\\boldsymbol{\\"+n+"}"+s_, plain:"\\"+n, sub, ch:_GREEK_CHAR[n] };
+  return { bold:"\\mathbf{"+n+"}"+s_, plain:(n.length>1 ? "{"+n+"}" : n), sub, ch:n };
 }
 function _dotTerms(c, lang){
   const p=c.props||{}, U=_numList(p.u), V=_numList(p.v);
@@ -2393,7 +2410,8 @@ function _dotTerms(c, lang){
   const u=_symbol(p.u_name,"u"), v=_symbol(p.v_name,"v"), j=_symbol(p.index,"j");
   const upRaw=String(p.upper==null?"":p.upper).trim();
   const B=upRaw ? (/^\d+$/.test(upRaw) ? upRaw : _symbol(upRaw,"d").plain) : String(n);
-  const comp=(sym, idx)=> sym.plain+"_{"+idx+"}";
+  // component j of a vector: w_j; of an indexed vector q_1 the usual double index q_{1,j}
+  const comp=(sym, idx)=> sym.plain+"_{"+(sym.sub ? sym.sub+","+idx : idx)+"}";
   const pairL=(idx)=> comp(u,idx)+"\\,"+comp(v,idx);                 // w_j x_j
   const fmt=(x)=> _fmtDec(x.v, x.nd, lang);
   const factor=(x)=> x.v<0 ? "\\left("+fmt(x)+"\\right)" : fmt(x);  // (−4)·25: a negative factor in parentheses
@@ -2409,9 +2427,26 @@ function _dotTerms(c, lang){
   // both vectors as columns; their rows are the shown entries (⋮ where the terms show ⋯), so term `row`
   // is table cell `row` of the first vector and cell rows+`row` of the second
   const col=(L)=> "\\begin{pmatrix}"+entries.map(e=> e.t==="ell" ? "\\vdots" : fmt(L[e.i-1])).join("\\\\")+"\\end{pmatrix}";
-  const vectors = p.show_vectors===false ? null : u.bold+"="+col(U)+",\\quad "+v.bold+"="+col(V);
+  const mode=["komponenten","matrix"].includes(p.display) ? p.display : "rechnung";
+  const vectors = (mode!=="rechnung" || p.show_vectors===false) ? null : u.bold+"="+col(U)+",\\quad "+v.bold+"="+col(V);
+  // the other two forms (engine dot_display): both vectors as columns (cells = rows), names, '·', '=', '⋮', the
+  // product of each row; matrix: a 3-row array (uᵀ entries, '·', v entries; ⋯ in a long vector) for the places
+  // after the turn and the lay-down, and the brackets of the row vector uᵀ
+  let dot=null;
+  if(mode!=="rechnung"){
+    const row=(L)=> entries.map(e=> e.t==="ell" ? "\\cdots" : fmt(L[e.i-1])).join(" & ");
+    const tex={ nameU:u.bold, nameV:v.bold, nameUT:u.bold+"^\\top", lhs:u.bold+"^\\top "+v.bold, colU:col(U), colV:col(V),
+                cdot:"\\cdot", eq:"=", vdots:"\\vdots" };
+    if(mode==="matrix"){
+      tex.grid="\\begin{array}{"+"c".repeat(entries.length)+"}"+row(U)+"\\\\"+entries.map(e=> e.t==="ell" ? "" : "\\cdot").join(" & ")
+               +"\\\\"+row(V)+"\\end{array}";
+      tex.rowU="\\begin{pmatrix}"+row(U)+"\\end{pmatrix}";
+    }
+    dot={ mode, m:entries.length, ell:entries.map(e=>e.t==="ell"), tex,
+          vals:entries.map(e=> e.t==="ell" ? null : _fmtDec(U[e.i-1].v*V[e.i-1].v, U[e.i-1].nd+V[e.i-1].nd, lang)) };
+  }
   return { O:_seriesOps(c), head:u.bold+"^\\top "+v.bold+"=\\sum_{"+j.plain+"=1}^{"+B+"} "+pairL(j.plain), var:j.ch,
-           terms, total:[_fmtDec(total, ndt, lang)], vectors, rows:entries.length };
+           terms, total:[_fmtDec(total, ndt, lang)], vectors, rows:entries.length, dot };
 }
 
 // The step-by-step spec (LaTeX per piece) of Σ, ∏ and uᵀv, or null (scalar product with invalid lists):
@@ -2443,7 +2478,18 @@ function seriesSpec(c, lang){
   }
   const out={ head:T.head, var:T.var, cols, stages };
   if(T.vectors){ out.vectors=T.vectors; out.rows=T.rows; }
+  if(T.dot) out.dot=T.dot;                         // scalar product as 'komponenten' / 'matrix'
   return out;
+}
+// Every LaTeX piece of a spec (what MathJax has to set); tools/export_szenen.py has the same list (_spec_latex).
+function specLatex(spec){
+  const need=[spec.head]; if(spec.vectors) need.push(spec.vectors);
+  for(const col of spec.cols){
+    if(col.t==="term"){ for(const k of ["abstract","index","subst","value"]) if(col[k]!=null) need.push(col[k]); }
+    else need.push(col.g);
+  }
+  if(spec.dot){ need.push(...Object.values(spec.dot.tex)); for(const v of spec.dot.vals) if(v!=null) need.push(v); }
+  return need;
 }
 // KaTeX fallback (while MathJax loads): the head, and head = substituted terms = total.
 function sumStages(c, lang){
@@ -2462,17 +2508,15 @@ function choreoFromSpec(spec, g){
     if(col.row!=null) o.row=col.row;
     return o; }) };
   if(spec.vectors){ out.vectors=g(spec.vectors); out.rows=spec.rows; }
+  if(spec.dot){ const d=spec.dot, gg={};
+    for(const [k,lx] of Object.entries(d.tex)) gg[k]=g(lx);
+    out.dot={ mode:d.mode, m:d.m, ell:d.ell, g:gg, vals:d.vals.map(v=> v!=null ? g(v) : null) }; }
   return out;
 }
 function buildChoreo(c){                    // resolve every piece's glyphs; null until ALL are ready
   const spec=seriesSpec(c, model.lang); if(!spec) return null;
-  const need=[spec.head]; if(spec.vectors) need.push(spec.vectors);
-  for(const col of spec.cols){
-    if(col.t==="term"){ for(const k of ["abstract","index","subst","value"]) if(col[k]!=null) need.push(col[k]); }
-    else need.push(col.g);
-  }
   let ready=true;
-  for(const lx of need){ if(ensureGlyphs(lx)===null) ready=false; }   // kicks off async for any missing
+  for(const lx of specLatex(spec)){ if(ensureGlyphs(lx)===null) ready=false; }   // kicks off async for any missing
   if(!ready) return null;
   return choreoFromSpec(spec, (lx)=>_texCache[lx]||[]);
 }
@@ -2589,8 +2633,8 @@ function ensureGlyphs(latex){                 // cached glyphs, or null while Ma
   return null;
 }
 function injectTexGlyphs(specs){              // turn each MathTex spec's `tex` into resolved glyph data
-  for(const s of specs||[]){
-    if(s.type==="MathTex"){ const g=ensureGlyphs(s.args && s.args.tex); if(s.args){ s.args.glyphs=g||[]; delete s.args.tex; } }
+  for(const s of specs||[]){                   // (decimals in the scene language: 0.5 -> 0{,}5 in de/es/fr/tr)
+    if(s.type==="MathTex"){ const g=ensureGlyphs(localizeTex(s.args && s.args.tex, model.lang)); if(s.args){ s.args.glyphs=g||[]; delete s.args.tex; } }
     if(s.children) injectTexGlyphs(s.children);
   }
 }
@@ -2735,7 +2779,7 @@ async function boot(){
     try{ const r=await fetch(sceneUrl, {cache:"no-cache"}); if(!r.ok) throw new Error("HTTP "+r.status); applyScene(await r.json()); restored=true;
       collapseSceneSections();                                         // article figure: only the three headings
       const linkLang=new URLSearchParams(location.search).get("lang");   // article link: the figure in the reader's language
-      if(/^(de|en|es|zh)$/.test(linkLang||"")){ model.lang=linkLang; $("scene-lang").value=linkLang; renderPreview(); }
+      if(/^(de|en|es|zh|fr|tr)$/.test(linkLang||"")){ model.lang=linkLang; $("scene-lang").value=linkLang; renderPreview(); }
       statusNote = "Vorlage geladen: "+sceneUrl+" (deine eigene Szene bleibt gespeichert)"; }
     catch(e){ console.error(e); lsActive = LS_KEY; statusNote = "⚠ Szene konnte nicht geladen werden: "+e.message; }
   }

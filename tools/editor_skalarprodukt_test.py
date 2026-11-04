@@ -127,6 +127,43 @@ with sync_playwright() as pw:
     pg.locator("#view").screenshot(path=str(OUT / "dot_ende.png"))
     pg.click("#reset-btn"); pg.wait_for_timeout(1500)
 
+    # 3b. the other two forms (property display): own static view, playable to the end; then back to the calculation
+    disp = pg.locator("#comp-props .prop").filter(has=pg.locator("label", has_text=re.compile("^display$"))).locator("select")
+    check("Property 'display' mit drei Darstellungen", disp.count() == 1
+          and disp.evaluate("s => Array.from(s.options).map(o => o.value).join(',')") == "rechnung,komponenten,matrix")
+    statics = {"rechnung": h1}
+    for form in ("komponenten", "matrix"):
+        disp.select_option(form)
+        wait_formula(pg)
+        statics[form] = canvas_hash(pg)
+        pg.locator("#view").screenshot(path=str(OUT / f"dot_{form}_static.png"))
+        pg.click("#play-btn")
+        seen = set()
+        for _ in range(400):
+            st = pg.locator("#status").text_content() or ""
+            if st.startswith("Playing"):
+                seen.add(canvas_hash(pg))
+            if "Ended" in st:
+                break
+            pg.wait_for_timeout(150)
+        check(f"Darstellung {form}: spielt bis zum Ende, verschiedene Schritte", "Ended" in st and len(seen) >= 3,
+              f"{st} / {len(seen)} Bilder")
+        pg.locator("#view").screenshot(path=str(OUT / f"dot_{form}_ende.png"))
+        pg.click("#reset-btn"); pg.wait_for_timeout(1500)
+        disp = pg.locator("#comp-props .prop").filter(has=pg.locator("label", has_text=re.compile("^display$"))).locator("select")
+    check("Drei Darstellungen, drei verschiedene Standbilder", len(set(statics.values())) == 3)
+    disp.select_option("rechnung")
+    wait_formula(pg)
+    check("Zurück zur Rechnung: dasselbe Standbild wie vorher", canvas_hash(pg) == h1)
+
+    # 3c. a vector name with an index: q_1 -> head q₁ᵀx, components q_{1,j}
+    set_prop(pg, "u_name", "q_1")
+    wait_formula(pg)
+    check("Vektorname mit Index (q_1) wird gesetzt", not any("incomplete" in r for r in op_rows(pg)) and canvas_hash(pg) != h1)
+    pg.locator("#view").screenshot(path=str(OUT / "dot_index.png"))
+    set_prop(pg, "u_name", "w")
+    wait_formula(pg)
+
     # 4. Σ and ∏ from the same menu still render (all steps as rows in the edit view)
     for lab in ("Summation", "Product  (∏)"):
         add_operation(pg, lab)

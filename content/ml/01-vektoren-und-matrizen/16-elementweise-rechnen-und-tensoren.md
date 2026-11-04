@@ -69,7 +69,7 @@ $$\tilde{\mathbf{X}}=\mathbf{X}-\mathbf 1\,\bar{\mathbf{x}}^{\top} , \tag{15.2}$
 
 deren Zeile $i$ der Vektor $(\mathbf{x}_i-\bar{\mathbf{x}})^{\top}$ ist. Viele Texte schreiben dafür kurz $\mathbf{X}-\bar{\mathbf{x}}^{\top}$ und meinen damit: den Zeilenvektor von jeder Zeile abziehen. Streng genommen ist die Differenz einer $N\times d$-Matrix und einer $1\times d$-Matrix nicht erklärt; die Kurzschrift steht immer für [(15.2)](#gl-15-2).
 
-⁠**Rechenbeispiel:** Für die Wohnungen ist $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65,\,2{,}5,\,3)^{\top}$ und
+⁠**Rechenbeispiel:** Für die Wohnungen ist $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ und
 
 $$\tilde{\mathbf{X}}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}-\begin{pmatrix}65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\end{pmatrix}=\begin{pmatrix}-5&-0{,}5&0\\-25&-1{,}5&-2\\25&1{,}5&3\\5&0{,}5&-1\end{pmatrix}.$$
 
@@ -89,9 +89,9 @@ Ein Skalar ist eine einzelne Zahl, ein Vektor eine Liste mit einem Index, eine M
 Ein __Tensor__ ist im maschinellen Lernen ein Zahlenfeld, dessen Einträge durch $k$ Indizes nummeriert werden. Jeder Index läuft entlang einer __Achse__. Die Liste der Achsenlängen heißt die __Form__ des Tensors.
 :::
 
-Ein Skalar ist ein Tensor mit $0$ Achsen, ein Vektor im $\mathbb{R}^d$ einer mit einer Achse der Länge $d$, eine Matrix im $\mathbb{R}^{m\times n}$ einer mit der Form $m\times n$. Ein Tensor der Form $n_1\times n_2\times\dots\times n_k$ hat $n_1\cdot n_2\cdots n_k$ Einträge. Abbildung [15](#abb-15) zeigt die ersten Stufen.
+Ein Skalar ist ein Tensor mit $0$ Achsen, ein Vektor im $\mathbb{R}^d$ einer mit einer Achse der Länge $d$, eine Matrix im $\mathbb{R}^{m\times n}$ einer mit der Form $m\times n$. Ein Tensor der Form $n_1\times n_2\times\dots\times n_k$ hat $n_1\cdot n_2\cdots n_k$ Einträge. Abbildung [42](#abb-42) zeigt die ersten Stufen.
 
-:::abbildung ml/k1tensor 15
+:::abbildung ml/k1tensor 42
 Tensoren mit $0$ bis $4$ Achsen: ein Skalar, ein Vektor mit $4$ Einträgen, eine $4\times4$-Matrix (etwa ein Graustufenbild), ein Farbbild aus drei $4\times4$-Kanälen für Rot, Grün und Blau und ein Stapel aus $N$ solchen Farbbildern (angedeutet mit drei Bildern).
 :::
 

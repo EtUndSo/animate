@@ -1,0 +1,68 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 1,
+  "nextAnimId": 1,
+  "nextCompId": 2
+ },
+ "model": {
+  "objects": [],
+  "animations": [],
+  "computations": [
+   {
+    "id": "k1",
+    "type": "DotProduct",
+    "props": {
+     "display": "rechnung",
+     "u": "0.32, 0.34, 0.28",
+     "v": "200, 250, 300",
+     "u_name": "p",
+     "v_name": "u",
+     "index": "j",
+     "upper": "",
+     "show_vectors": true,
+     "show_terms": 3,
+     "all_steps": true,
+     "max_width": 7.0,
+     "font_size": 30,
+     "run_time": 6,
+     "size": 1.4,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111",
+     "var_color": "#eb6834",
+     "value_color": "#00823c",
+     "end_color": "#2a78d6",
+     "pulse_color": "#66b3ff",
+     "bound_color": "#c82828"
+    }
+   }
+  ],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

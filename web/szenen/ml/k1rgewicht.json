@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}&\\mathbf w=\\begin{pmatrix}3\\\\10\\\\-4\\end{pmatrix},\\qquad \\mathbf x_1=\\begin{pmatrix}60\\\\2\\\\3\\end{pmatrix}\\\\\\hat y_1=\\mathbf w^\\top\\mathbf x_1&=\\sum_{j=1}^3w_j\\,x_{1j}=w_1x_{11}+w_2x_{12}+w_3x_{13}\\\\&=3\\cdot60+10\\cdot2+(-4)\\cdot3\\\\&=180+20-12=188\\end{aligned}",
+     "height": 2.348,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

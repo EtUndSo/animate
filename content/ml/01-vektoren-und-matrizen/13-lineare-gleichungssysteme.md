@@ -46,11 +46,11 @@ hat die Lösung $\mathbf{x}=(2,\,1)^{\top}$: $2\cdot2+1=5$ und $2+1=3$. Die Koef
 
 Wie beim Matrix-Vektor-Produkt gibt es zwei Arten, ein Gleichungssystem zu lesen.
 
-**Zeilenbild.** Jede Gleichung für sich beschreibt eine Menge von Punkten. Bei zwei Unbekannten ist $2x_1+x_2=5$ eine Gerade in der Ebene, ebenso $x_1+x_2=3$. Eine Lösung muss beide Gleichungen erfüllen, also auf beiden Geraden liegen: Sie ist ihr Schnittpunkt (Abb. [12](#abb-12), links). Bei drei Unbekannten ist jede Gleichung eine Ebene im Raum.
+**Zeilenbild.** Jede Gleichung für sich beschreibt eine Menge von Punkten. Bei zwei Unbekannten ist $2x_1+x_2=5$ eine Gerade in der Ebene, ebenso $x_1+x_2=3$. Eine Lösung muss beide Gleichungen erfüllen, also auf beiden Geraden liegen: Sie ist ihr Schnittpunkt (Abb. [38](#abb-38), links). Bei drei Unbekannten ist jede Gleichung eine Ebene im Raum.
 
-**Spaltenbild.** Nach der Spaltensicht [(7.3)](das-matrix-vektor-produkt.html#gl-7-3) ist $\mathbf{A}\mathbf{x}=x_1\mathbf{a}_1+\dots+x_n\mathbf{a}_n$. Die Gleichung fragt also: Mit welchen Koeffizienten ergibt die Linearkombination der Spalten die rechte Seite? Im Beispiel: $x_1\,(2,\,1)^{\top}+x_2\,(1,\,1)^{\top}=(5,\,3)^{\top}$, gelöst von $x_1=2$ und $x_2=1$. Das ist genau das Bild rechts in Abb. [8](das-matrix-vektor-produkt.html#abb-8).
+**Spaltenbild.** Nach der Spaltensicht [(7.3)](das-matrix-vektor-produkt.html#gl-7-3) ist $\mathbf{A}\mathbf{x}=x_1\mathbf{a}_1+\dots+x_n\mathbf{a}_n$. Die Gleichung fragt also: Mit welchen Koeffizienten ergibt die Linearkombination der Spalten die rechte Seite? Im Beispiel: $x_1\,(2,\,1)^{\top}+x_2\,(1,\,1)^{\top}=(5,\,3)^{\top}$, gelöst von $x_1=2$ und $x_2=1$. Das ist genau das Bild rechts in Abb. [30](das-matrix-vektor-produkt.html#abb-30).
 
-:::abbildung ml/k1lgs 12
+:::abbildung ml/k1lgs 38
 Das Zeilenbild dreier Gleichungssysteme mit zwei Unbekannten. Jede Gleichung ist eine Gerade, eine Lösung liegt auf allen Geraden. (a) Die Geraden schneiden sich in einem Punkt. (b) Die Geraden sind parallel und haben keinen gemeinsamen Punkt. (c) Beide Gleichungen beschreiben dieselbe Gerade, und jeder ihrer Punkte ist eine Lösung.
 :::
 
@@ -134,7 +134,7 @@ Ist $\mathbf{A}$ invertierbar, so ist die Lösung $\mathbf{x}=\mathbf{A}^{-1}\ma
 
 <span class="anker" id="stufe-12-4"></span>
 
-Zwei Geraden in der Ebene schneiden sich in einem Punkt, sind parallel oder fallen zusammen (Abb. [12](#abb-12)). Genau zwei Schnittpunkte gibt es nicht. Dasselbe gilt für jedes lineare Gleichungssystem, gleichgültig wie groß.
+Zwei Geraden in der Ebene schneiden sich in einem Punkt, sind parallel oder fallen zusammen (Abb. [38](#abb-38)). Genau zwei Schnittpunkte gibt es nicht. Dasselbe gilt für jedes lineare Gleichungssystem, gleichgültig wie groß.
 
 :::satz Satz 12.5 (Anzahl der Lösungen)
 <span class="anker" id="satz-12-5"></span>
@@ -152,7 +152,7 @@ also ist jeder Punkt $\mathbf{x}+t\,(\mathbf{x}'-\mathbf{x})$ der Geraden durch 
 
 Das System $\mathbf{A}\mathbf{x}=\mathbf{0}$ mit der rechten Seite null heißt __homogen__. Es hat immer die Lösung $\mathbf{x}=\mathbf{0}$. Kennt man eine einzige Lösung $\mathbf{x}_{\mathrm s}$ des Systems $\mathbf{A}\mathbf{x}=\mathbf{y}$, so erhält man alle anderen, indem man die Lösungen des homogenen Systems dazuaddiert: $\mathbf{A}\mathbf{x}=\mathbf{y}$ gilt genau dann, wenn $\mathbf{A}(\mathbf{x}-\mathbf{x}_{\mathrm s})=\mathbf{y}-\mathbf{y}=\mathbf{0}$ ist.
 
-⁠**Rechenbeispiel:** Die drei Systeme in Abb. [12](#abb-12):
+⁠**Rechenbeispiel:** Die drei Systeme in Abb. [38](#abb-38):
 
 <ol class="al">
 

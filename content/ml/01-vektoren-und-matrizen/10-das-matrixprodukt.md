@@ -17,9 +17,9 @@ Zwei lineare Abbildungen hintereinander ergeben wieder eine lineare Abbildung, a
 
 <span class="anker" id="stufe-9-1"></span>
 
-Zuerst wird ein Vektor $\mathbf{x}\in\mathbb{R}^k$ mit einer Matrix $\mathbf{B}\in\mathbb{R}^{n\times k}$ abgebildet, das Ergebnis $\mathbf{B}\mathbf{x}\in\mathbb{R}^n$ dann mit einer Matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$ (Abb. [10](#abb-10)). Die Hintereinanderausführung $\mathbf{x}\mapsto\mathbf{A}(\mathbf{B}\mathbf{x})$ ist linear, denn jede der beiden Stufen erhält Summen und Vielfache. Nach dem Satz in Unterabschnitt [8.2](lineare-abbildungen.html#stufe-8-2) hat sie also eine Matrix. Ihre Spalte $l$ ist das Bild von $\mathbf{e}_l$: Die erste Stufe macht daraus die Spalte $\mathbf{B}\mathbf{e}_l$ von $\mathbf{B}$, die zweite Stufe multipliziert diese mit $\mathbf{A}$.
+Zuerst wird ein Vektor $\mathbf{x}\in\mathbb{R}^k$ mit einer Matrix $\mathbf{B}\in\mathbb{R}^{n\times k}$ abgebildet, das Ergebnis $\mathbf{B}\mathbf{x}\in\mathbb{R}^n$ dann mit einer Matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$ (Abb. [33](#abb-33)). Die Hintereinanderausführung $\mathbf{x}\mapsto\mathbf{A}(\mathbf{B}\mathbf{x})$ ist linear, denn jede der beiden Stufen erhält Summen und Vielfache. Nach dem Satz in Unterabschnitt [8.2](lineare-abbildungen.html#stufe-8-2) hat sie also eine Matrix. Ihre Spalte $l$ ist das Bild von $\mathbf{e}_l$: Die erste Stufe macht daraus die Spalte $\mathbf{B}\mathbf{e}_l$ von $\mathbf{B}$, die zweite Stufe multipliziert diese mit $\mathbf{A}$.
 
-:::abbildung ml/k1hinter 10
+:::abbildung ml/k1hinter 33
 Oben zwei lineare Abbildungen hintereinander: erst $\mathbf{B}$, dann $\mathbf{A}$. Unten dieselbe Abbildung in einem Schritt, mit der einen Matrix $\mathbf{A}\mathbf{B}$. Das Matrixprodukt ist genau so definiert, dass beide Wege dasselbe Ergebnis liefern.
 :::
 
@@ -50,7 +50,13 @@ und das ist Komponente $i$ von $\mathbf{A}(\mathbf{B}\mathbf{x})$. Im mittleren 
 
 ⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ und $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ ist
 
-$$\mathbf{A}\mathbf{B}=\begin{pmatrix}1\cdot0+2\cdot1&1\cdot1+2\cdot0\\0\cdot0+1\cdot1&0\cdot1+1\cdot0\end{pmatrix}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
+$$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
+
+Jeder der vier Einträge ist eine Summe nach [(9.1)](#gl-9-1) (Abb. [34](#abb-34)).
+
+:::abbildung ml/k1rprodukt 34
+Das Matrixprodukt Eintrag für Eintrag: Eintrag $(i,l)$ ist Zeile $i$ von $\mathbf{A}$ mal Spalte $l$ von $\mathbf{B}$.
+:::
 
 Probe mit $\mathbf{x}=(1,\,2)^{\top}$: $\mathbf{B}\mathbf{x}=(2,\,1)^{\top}$, dann $\mathbf{A}(\mathbf{B}\mathbf{x})=(4,\,1)^{\top}$; und direkt $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+2,\ 1+0)^{\top}=(4,\,1)^{\top}$.
 
@@ -85,9 +91,9 @@ Zeile $i$ enthält beide Schätzungen für Wohnung $i$, Spalte $1$ alle Kaufprei
 
 <span class="anker" id="stufe-9-3"></span>
 
-Für Zahlen ist $2\cdot3=3\cdot2$. Für Matrizen gilt das nicht, und der Grund ist anschaulich: Erst drehen und dann strecken ist etwas anderes als erst strecken und dann drehen (Abb. [11](#abb-11)).
+Für Zahlen ist $2\cdot3=3\cdot2$. Für Matrizen gilt das nicht, und der Grund ist anschaulich: Erst drehen und dann strecken ist etwas anderes als erst strecken und dann drehen (Abb. [35](#abb-35)).
 
-:::abbildung ml/k1reihenfolge 11
+:::abbildung ml/k1reihenfolge 35
 Das Einheitsquadrat mit $\mathbf{e}_1$ (rot) und $\mathbf{e}_2$ (grün), daneben seine Bilder unter $\mathbf{S}\mathbf R$ und $\mathbf R\mathbf{S}$. Dabei ist $\mathbf R$ die Drehung um $90^\circ$ und $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$ die Streckung. Die Reihenfolge entscheidet, ob das Rechteck waagerecht oder senkrecht lang wird.
 :::
 
@@ -185,9 +191,11 @@ Mit dem äußeren Produkt lässt sich jedes Matrixprodukt als Summe schreiben: �
 <span class="anker" id="gl-9-4"></span>
 $$\mathbf{A}\mathbf{B}=\sum_{j=1}^n\mathbf{a}_j\,\bigl(\text{Zeile $j$ von }\mathbf{B}\bigr) . \tag{9.4}$$
 
-Eintrag $(i,l)$ der rechten Seite ist $\sum_ja_{ij}\,b_{jl}$, genau wie in [(9.1)](#gl-9-1). Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ und $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ ist das
+Eintrag $(i,l)$ der rechten Seite ist $\sum_ja_{ij}\,b_{jl}$, genau wie in [(9.1)](#gl-9-1). Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ und $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ aus Unterabschnitt [9.1](#stufe-9-1) ergibt die Summe zweier äußerer Produkte wieder $\mathbf{A}\mathbf{B}$ (Abb. [36](#abb-36)).
 
-$$\begin{pmatrix}1\\0\end{pmatrix}\begin{pmatrix}0&1\end{pmatrix}+\begin{pmatrix}2\\1\end{pmatrix}\begin{pmatrix}1&0\end{pmatrix}=\begin{pmatrix}0&1\\0&0\end{pmatrix}+\begin{pmatrix}2&0\\1&0\end{pmatrix}=\begin{pmatrix}2&1\\1&0\end{pmatrix}=\mathbf{A}\mathbf{B} .$$
+:::abbildung ml/k1raeusser 36
+Das Matrixprodukt als Summe äußerer Produkte: Spalte $j$ von $\mathbf{A}$ mal Zeile $j$ von $\mathbf{B}$, summiert über $j=1,2$.
+:::
 
 ⁠**Kurz gesagt:** Das äußere Produkt $\mathbf{u}\mathbf{v}^{\top}$ ist die Tabelle aller Produkte $u_iv_j$; jedes Matrixprodukt ist eine Summe solcher Tabellen.
 

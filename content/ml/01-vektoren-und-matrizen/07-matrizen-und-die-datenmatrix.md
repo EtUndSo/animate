@@ -65,9 +65,9 @@ Die Matrix, deren Einträge alle null sind, heißt __Nullmatrix__ und wird $\mat
 
 ⁠**Rechenbeispiel:**
 
-$$\operatorname{diag}\bigl((2,\ 0{,}5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0{,}5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
+$$\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0{,}5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
 
-Die zweite Matrix hat einen Diagonaleintrag null und ist trotzdem eine Diagonalmatrix; verlangt wird nur, dass außerhalb der Diagonale Nullen stehen. Statt $\operatorname{diag}\bigl((2,\,0{,}5)^{\top}\bigr)$ schreibt man kurz $\operatorname{diag}(2;\,0{,}5)$.
+Die zweite Matrix hat einen Diagonaleintrag null und ist trotzdem eine Diagonalmatrix; verlangt wird nur, dass außerhalb der Diagonale Nullen stehen. Statt $\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)$ schreibt man kurz $\operatorname{diag}(2;\,0{,}5)$.
 
 ⁠**Kurz gesagt:** Eine quadratische Matrix hat gleich viele Zeilen wie Spalten; eine Diagonalmatrix hat nur auf der Diagonale Einträge ungleich null.
 
@@ -75,9 +75,9 @@ Die zweite Matrix hat einen Diagonaleintrag null und ist trotzdem eine Diagonalm
 
 <span class="anker" id="stufe-6-3"></span>
 
-Die Wohnungstabelle aus Unterabschnitt [1.2](vektoren-daten-als-zahlenlisten.html#stufe-1-2) ist eine Matrix: vier Zeilen, eine je Wohnung, und drei Spalten, eine je Merkmal. Diese Anordnung, ein Beispiel pro Zeile, ist die Standardform eines Datensatzes (Abb. [7](#abb-7)).
+Die Wohnungstabelle aus Unterabschnitt [1.2](vektoren-daten-als-zahlenlisten.html#stufe-1-2) ist eine Matrix: vier Zeilen, eine je Wohnung, und drei Spalten, eine je Merkmal. Diese Anordnung, ein Beispiel pro Zeile, ist die Standardform eines Datensatzes (Abb. [27](#abb-27)).
 
-:::abbildung ml/k1datenmatrix 7
+:::abbildung ml/k1datenmatrix 27
 Die Datenmatrix $\mathbf{X}$ des Wohnungsdatensatzes. Jede Zeile ist ein Beispiel, als Zeile geschriebener Vektor $\mathbf{x}_i^{\top}$ (blau: Wohnung 2). Jede Spalte ist die Merkmalsspalte eines Merkmals über alle Beispiele (orange: die Flächen). Der Eintrag $x_{21}=40$ steht in beiden.
 :::
 
@@ -96,7 +96,7 @@ Der Eintrag $x_{ij}$ ist der Wert von Merkmal $j$ bei Beispiel $i$, genau wie in
 
 $$\mathbf{X}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\in\mathbb{R}^{4\times3}.$$
 
-Der Eintrag $x_{32}=4$ ist die Zimmerzahl von Wohnung 3, die erste Spalte $(60,\,40,\,90,\,70)^{\top}$ enthält alle Flächen, und ihr Mittelwert $65$ ist die erste Komponente von $\bar{\mathbf{x}}=(65,\,2{,}5,\,3)^{\top}$.
+Der Eintrag $x_{32}=4$ ist die Zimmerzahl von Wohnung 3, die erste Spalte $(60,\,40,\,90,\,70)^{\top}$ enthält alle Flächen, und ihr Mittelwert $65$ ist die erste Komponente von $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$.
 
 ⁠**Kurz gesagt:** Die Datenmatrix $\mathbf{X}\in\mathbb{R}^{N\times d}$ enthält ein Beispiel pro Zeile und ein Merkmal pro Spalte.
 

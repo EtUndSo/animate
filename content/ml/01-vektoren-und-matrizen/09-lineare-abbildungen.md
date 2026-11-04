@@ -85,9 +85,9 @@ Eine Matrix kann eine Sammlung von Daten sein, wie die Datenmatrix $\mathbf{X}$,
 
 <span class="anker" id="stufe-8-3"></span>
 
-In der Ebene kann man sehen, was eine Matrix tut. Man zeichnet das Einheitsquadrat mit den Ecken $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_1+\mathbf{e}_2$ und $\mathbf{e}_2$ und sein Bild. Weil die Abbildung Geraden auf Geraden abbildet, wird das Quadrat zu einem Parallelogramm mit den Ecken $\mathbf{0}$, $\mathbf{a}_1$, $\mathbf{a}_1+\mathbf{a}_2$ und $\mathbf{a}_2$. Seine beiden Kanten am Nullpunkt sind die Spalten der Matrix (Abb. [9](#abb-9)). Das ganze Gitter der Ebene wird ebenso verformt: Jedes Kästchen wird zu einer verschobenen Kopie dieses Parallelogramms.
+In der Ebene kann man sehen, was eine Matrix tut. Man zeichnet das Einheitsquadrat mit den Ecken $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_1+\mathbf{e}_2$ und $\mathbf{e}_2$ und sein Bild. Weil die Abbildung Geraden auf Geraden abbildet, wird das Quadrat zu einem Parallelogramm mit den Ecken $\mathbf{0}$, $\mathbf{a}_1$, $\mathbf{a}_1+\mathbf{a}_2$ und $\mathbf{a}_2$. Seine beiden Kanten am Nullpunkt sind die Spalten der Matrix (Abb. [32](#abb-32)). Das ganze Gitter der Ebene wird ebenso verformt: Jedes Kästchen wird zu einer verschobenen Kopie dieses Parallelogramms.
 
-:::abbildung ml/k1ebene 9
+:::abbildung ml/k1ebene 32
 Vier lineare Abbildungen der Ebene. Grau gestrichelt das Einheitsquadrat, blau sein Bild. Der rote Pfeil ist das Bild $\mathbf{a}_1$ von $\mathbf{e}_1$, der grüne das Bild $\mathbf{a}_2$ von $\mathbf{e}_2$; das sind die beiden Spalten der Matrix. Beim Plattdrücken ist $\mathbf{a}_2=\mathbf{0}$, und das Quadrat wird zur Strecke von $\mathbf{0}$ bis $\mathbf{e}_1$.
 :::
 
@@ -124,7 +124,7 @@ Die Matrix $\operatorname{diag}(1;\,0)$ behält die erste Komponente und setzt d
 <span class="anker" id="gl-8-3"></span>
 $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}. \tag{8.3}$$
 
-Für $\alpha=90^\circ$ ergibt sich die Matrix aus Abb. [9](#abb-9). Den Punkt $(1,\,1)^{\top}$ dreht sie nach $(-1,\,1)^{\top}$, die Streckung bildet ihn auf $(2;\ 0{,}5)^{\top}$ ab, die Scherung auf $(2,\,1)^{\top}$ und das Plattdrücken auf $(1,\,0)^{\top}$.
+Für $\alpha=90^\circ$ ergibt sich die Matrix aus Abb. [32](#abb-32). Den Punkt $(1,\,1)^{\top}$ dreht sie nach $(-1,\,1)^{\top}$, die Streckung bildet ihn auf $(2;\ 0{,}5)^{\top}$ ab, die Scherung auf $(2,\,1)^{\top}$ und das Plattdrücken auf $(1,\,0)^{\top}$.
 
 ⁠**Kurz gesagt:** Eine $2\times2$-Matrix verformt das Gitter der Ebene; aus dem Einheitsquadrat wird das Parallelogramm, das ihre beiden Spalten aufspannen.
 

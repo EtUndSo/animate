@@ -146,6 +146,19 @@ cases.append(("DotProduct choreo (op)", model_scene({"objects": [], "computation
 cases.append(("DotProduct choreo wrapped (op)", model_scene({"objects": [], "computations": [{"id": "k", "type": "DotProduct",
     "props": {"run_time": 6, "max_width": 1.0, "font_size": 30, "choreo": _dot}}],
     "animations": [], "background": [1, 1, 1]})))
+# the other two forms (dot_display): marks, '·', '= product' per row ('komponenten'); u turns into the row vector
+# (Rotate + MoveAlongPath on arcs), v is laid onto it, products after '=' ('matrix'). Row 1 is a ⋮ / ⋯ row.
+_col = lambda x0: [{"d": sq, "m": [1, 0, 0, 3, x0 - 8, -24], "c": "("}] + [_Gc(str(r), r, x0, -12 * r) for r in range(3)]
+_grid = ([_Gc("u", c, 20 * c, 0) for c in range(3)] + [_Gc(".", 3 + c, 20 * c, -12) for c in (0, 2)]
+         + [_Gc("v", 6 + c, 20 * c, -24) for c in range(3)])
+_dot_g = {"nameU": _G("w"), "nameV": _G("x"), "nameUT": _G("W"), "lhs": _G("L"), "colU": _col(0), "colV": _col(0),
+          "cdot": _G("."), "eq": _G("="), "vdots": _G(":"), "grid": _grid,
+          "rowU": [{"d": sq, "m": [1, 0, 0, 1, -12, 0], "c": "("}, {"d": sq, "m": [1, 0, 0, 1, 60, 0], "c": ")"}]
+                  + [_Gc("u", c, 20 * c, 0) for c in range(3)]}
+for _mode in ("komponenten", "matrix"):
+    _dm = dict(_dot, dot={"mode": _mode, "m": 3, "ell": [False, True, False], "g": _dot_g, "vals": [_G("1"), None, _G("3")]})
+    cases.append((f"DotProduct {_mode} (op)", model_scene({"objects": [], "computations": [{"id": "k", "type": "DotProduct",
+        "props": {"run_time": 6, "size": 0.9, "choreo": _dm}}], "animations": [], "background": [1, 1, 1]})))
 
 # Article-figure primitives (figures.py, circuit.py, panels, log axes, parameters): every type animated
 # (Create / FadeIn / Shift / Write / GrowFromCenter), several panels, dashed strokes, rich labels.

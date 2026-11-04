@@ -66,7 +66,7 @@ $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$; $\mathbf{A}\mathbf
 
 <li>
 
-$\dim\ker\mathbf{A}+\operatorname{rang}\mathbf{A}=n$; abhängige Merkmale senken den Rang und machen die Gewichte mehrdeutig.
+$\dim\ker\mathbf{A}+\operatorname{rang}\mathbf{A}=n$; $\mathbf{A}\mathbf{x}=\mathbf{y}$ ist genau dann lösbar, wenn $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=\operatorname{rang}\mathbf{A}$, und dann genau dann eindeutig, wenn $\operatorname{rang}\mathbf{A}=n$; abhängige Merkmale senken den Rang und machen die Gewichte mehrdeutig.
 
 </li>
 

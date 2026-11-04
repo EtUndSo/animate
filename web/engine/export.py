@@ -51,6 +51,13 @@ _W = dict(zip(
      556, 500, 722, 500, 500, 500, 334, 260, 334, 584]))
 _W.update({"ä": 556, "ö": 556, "ü": 556, "Ä": 667, "Ö": 778, "Ü": 722, "ß": 611, "°": 400, "·": 278,
            "×": 584, "±": 584, "−": 584, "µ": 556, "…": 1000, "→": 1000, "≈": 584, "≤": 584, "≥": 584})
+# French and Turkish letters (same AFM). é and ê are left out on purpose: older figures already contain them and keep
+# the estimate 600 (a little wider than 556), so their crop stays exactly as it was. Arial has all these glyphs.
+_W.update({"à": 556, "â": 556, "æ": 889, "ç": 500, "è": 556, "ë": 556, "î": 278, "ï": 278, "ô": 556, "ù": 556,
+           "û": 556, "ÿ": 500, "œ": 944, "À": 667, "Â": 667, "Æ": 1000, "Ç": 722, "È": 667, "É": 667, "Ê": 667,
+           "Ë": 667, "Î": 278, "Ï": 278, "Ô": 778, "Ù": 722, "Û": 722, "Ÿ": 667, "Œ": 1000, "«": 556, "»": 556,
+           "‹": 333, "›": 333, "’": 222, " ": 278,
+           "ğ": 556, "Ğ": 778, "ş": 500, "Ş": 667, "ı": 278, "İ": 278})
 _ASCENT = 0.56            # glyph extent above/below the "central" baseline in em (Arial: ascent 0.905,
 #                           descent 0.212, central = their middle -> +-0.5585 em)
 _LINE_H = 1.25            # line pitch of multi-line labels (svg_painter._LINE_H)
