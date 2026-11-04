@@ -134,6 +134,16 @@ details.frage[open]>summary::before{transform:rotate(90deg);}
 details.frage .fr-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
 .fr-body{padding:0 16px 8px;border-top:1px solid var(--border);}
 .fr-body>p:first-child{margin-top:12px;}
+/* Hintergrund-Kasten: Warum und Woher zum Haupttext, zugeklappt, lila wie die Überschriften */
+details.hintergrund{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent2);border-radius:10px;
+  background:color-mix(in srgb,var(--accent2) 4%,var(--panel));}
+details.hintergrund>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.hintergrund>summary::-webkit-details-marker{display:none;}
+details.hintergrund>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent2);transition:transform .15s;}
+details.hintergrund[open]>summary::before{transform:rotate(90deg);}
+details.hintergrund .hg-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent2);margin-right:9px;}
+.hg-body{padding:0 16px 8px;border-top:1px solid var(--border);}
+.hg-body>p:first-child{margin-top:12px;}
 .callout.cx-fehlvorstellung{border-left:4px solid var(--accent2);} .callout.cx-fehlvorstellung .callout-h{color:var(--accent2);}
 .callout.cx-analogie{border-left:4px solid var(--muted);} .callout.cx-analogie .callout-h{color:var(--muted);}
 .callout.cx-vertiefung{border-left:4px solid var(--border);} .callout.cx-vertiefung .callout-h{color:var(--muted);}

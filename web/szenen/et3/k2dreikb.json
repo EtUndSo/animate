@@ -1,0 +1,729 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 36,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.6,
+      1.4
+     ],
+     "y_range": [
+      -2.1,
+      2.3
+     ],
+     "x_length": 2.4,
+     "y_length": 2.1,
+     "origin": [
+      -1.95,
+      1.55,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "Im p",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "Re p",
+     "position": [
+      1.2999999999999998,
+      -0.35200000000000004,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -1,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "−1",
+     "position": [
+      -1,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -2,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "−2",
+     "position": [
+      -2,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@pole",
+     "position": [
+      -1.1,
+      -2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.6,
+      1.4
+     ],
+     "y_range": [
+      -2.1,
+      2.3
+     ],
+     "x_length": 2.4,
+     "y_length": 2.1,
+     "origin": [
+      1.95,
+      1.55,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "Im p",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "Re p",
+     "position": [
+      1.2999999999999998,
+      -0.35200000000000004,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o10",
+    "type": "Band",
+    "props": {
+     "x_min": -1,
+     "x_max": 1.3,
+     "y_min": -2.0,
+     "y_max": 2.0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.12,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1,
+      -2.0,
+      0
+     ],
+     "end": [
+      -1,
+      2.0,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o12",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -1,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "−1",
+     "position": [
+      -1,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o14",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -2,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "−2",
+     "position": [
+      -2,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "(b) Re p > −1",
+     "position": [
+      -1.1,
+      -2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o17",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.6,
+      1.4
+     ],
+     "y_range": [
+      -2.1,
+      2.3
+     ],
+     "x_length": 2.4,
+     "y_length": 2.1,
+     "origin": [
+      -1.95,
+      -1.9000000000000001,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "Im p",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "Re p",
+     "position": [
+      1.2999999999999998,
+      -0.35200000000000004,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o19",
+    "type": "Band",
+    "props": {
+     "x_min": -3.5,
+     "x_max": -2,
+     "y_min": -2.0,
+     "y_max": 2.0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.12,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o20",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2,
+      -2.0,
+      0
+     ],
+     "end": [
+      -2,
+      2.0,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o21",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -1,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "−1",
+     "position": [
+      -1,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o23",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -2,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "−2",
+     "position": [
+      -2,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "(c) Re p < −2",
+     "position": [
+      -1.1,
+      -2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o17"
+   },
+   {
+    "id": "o26",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3.6,
+      1.4
+     ],
+     "y_range": [
+      -2.1,
+      2.3
+     ],
+     "x_length": 2.4,
+     "y_length": 2.1,
+     "origin": [
+      1.95,
+      -1.9000000000000001,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "Im p",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "Re p",
+     "position": [
+      1.2999999999999998,
+      -0.35200000000000004,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o28",
+    "type": "Band",
+    "props": {
+     "x_min": -2,
+     "x_max": -1,
+     "y_min": -2.0,
+     "y_max": 2.0,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.12,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o29",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1,
+      -2.0,
+      0
+     ],
+     "end": [
+      -1,
+      2.0,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o30",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2,
+      -2.0,
+      0
+     ],
+     "end": [
+      -2,
+      2.0,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o31",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -1,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "−1",
+     "position": [
+      -1,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o33",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -2,
+      0,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o34",
+    "type": "Text",
+    "props": {
+     "text": "−2",
+     "position": [
+      -2,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o26"
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "(d) −2 < Re p < −1",
+     "position": [
+      -1.1,
+      -2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o26"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "pole": {
+    "de": "(a) Pole",
+    "en": "(a) poles",
+    "es": "(a) polos",
+    "zh": "(a) 极点"
+   }
+  }
+ }
+}

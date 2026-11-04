@@ -295,17 +295,20 @@ WORT = {
 KERN_TITEL = ("Das Wichtigste", "Das Wichtigste bis hier", "Key points", "Key points so far", "Lo esencial", "Lo esencial hasta aquí", "要点", "本册要点")
 SO_ARBEITEST = re.compile(r"^(So arbeitest du|How to work with|Cómo trabajar con|如何使用)")
 HINWEIS = {
-    "de": "**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen "
-          "und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine "
-          "Stufe ab, bevor du zur nächsten gehst.",
-    "en": "**How to work with this chapter.** Each stage is a short article of its own with the idea, typical questions you can expand, and "
-          "exercises (★ to ★★★). Try the exercises yourself first; the solution expands right below each exercise. Finish one stage before "
-          "you move on to the next.",
-    "es": "**Cómo trabajar con este capítulo.** Cada etapa es un artículo breve con la idea, preguntas típicas desplegables y ejercicios "
-          "(de ★ a ★★★). Intenta resolverlos primero por tu cuenta; la solución se despliega justo debajo de cada ejercicio. Termina una "
-          "etapa antes de pasar a la siguiente.",
-    "zh": "**如何使用本章。**每个阶段都是一篇简短的文章，包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。"
-          "完成一个阶段后再进入下一个。",
+    "de": "**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen "
+          "Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen "
+          "und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung "
+          "klappst du direkt unter der Aufgabe auf.",
+    "en": "**How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an "
+          "example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and "
+          "simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right "
+          "below each exercise.",
+    "es": "**Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con "
+          "un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones "
+          "para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución "
+          "se despliega justo debajo de cada ejercicio.",
+    "zh": "**如何使用本章。**各节循序渐进，每个新术语都有单独的小节和例子。可展开的方框包含背景（为什么如此、从何而来）、推导和仿真提示；"
+          "不看它们也可以继续阅读。请先自己尝试练习（★ 到 ★★★），解答可在每道练习下方展开。",
 }
 # Was nur im PDF stimmt. Reihenfolge: längere Wendungen zuerst.
 WEBTEXT = {
@@ -316,6 +319,7 @@ WEBTEXT = {
 }
 UEBERBLICK = {"de": "Überblick", "en": "Overview", "es": "Visión general", "zh": "概览"}
 ZU_GROSS = 12000                                         # Zeichen: längere Stufen werden an ihren Unterabschnitten geteilt
+ZU_GROSS_NEU = 10 ** 9                                   # überarbeitete Hefte (Gliederung wie das Skript): immer ein Artikel je Abschnitt
 TEIL_RE = {"de": r"\bTeil(?:e|en)?[ \u00a0](\d+)\b", "en": r"\bPart[ \u00a0](\d+)\b", "es": r"\b[Pp]arte[ \u00a0](\d+)\b",
            "zh": r"第[ \u00a0]?(\d+)[ \u00a0]?部分"}
 
@@ -410,6 +414,7 @@ class Heft:
         self.unbekannt = {}
         self.basis = basis or {}
         self.sec = self.eq = self.thm = self.sub = self.fig = self.aufg = 0
+        self.tab = 0
         self.last = ("", "")
         self.sol = {}
         self.fb = []
@@ -439,7 +444,7 @@ class Heft:
                 break
             inner, e = group(m, k.end() - 1)
             m = m[:k.start()] + r"\,\mathrm{" + inner + "}" + m[e:]
-        m = re.sub(r"\\un\s+(\\?[A-Za-z]+)", r"\\,\\mathrm{\1}", m)
+        m = re.sub(r"\\un(?![A-Za-z])\s*(\\?[A-Za-z]+)", r"\\,\\mathrm{\1}", m)   # \un s, \un\Omega
         m = re.sub(r"\\text\{\\textmu\s*([^{}]*)\}", r"\\mu\\text{\1}", m)
         for a, b in MAKROS:
             m = re.sub(re.escape(a) + r"(?![a-zA-Z])", lambda _: b, m)
@@ -704,16 +709,34 @@ class Heft:
             return self.table(name, body)
         if name == "abb":
             return self.abb(body)
+        if name == "table":                              # Tabelle: Überschrift mit Nummer und Anker, darunter die tabular
+            cap, lab = "", None
+            body = re.sub(r"^\s*\[[^\]]*\]", "", body)      # Platzierung [!htbp]
+            mc = re.search(r"\\caption\{", body)
+            if mc:
+                cap, j = group(body, mc.end() - 1)
+                body = body[:mc.start()] + body[j:]
+            ml = re.search(r"\\label\{([^{}]*)\}", body)
+            if ml:
+                lab = ml.group(1)
+                body = body[:ml.start()] + body[ml.end():]
+            self.tab += 1
+            self.last = (str(self.tab), "tab-%d" % self.tab)
+            if lab:
+                self.setlabel(lab)
+            wort = {"de": "Tabelle", "en": "Table", "es": "Tabla", "zh": "表"}.get(self.lang, "Tabelle")
+            kopf = '<span class="anker" id="tab-%d"></span>\n\n**%s %d:** %s' % (self.tab, wort, self.tab, self.text(cap))
+            return kopf + "\n\n" + self.block(body)
         if name == "zweck":
             return ":::zweck\n%s\n:::" % self.block(body)
         if name == "analogie":
             return ":::analogie\n%s\n:::" % self.block(body)
-        if name in ("merkbox", "kernbox", "herleitung", "beweis", "vertiefung", "frage", "qa", "ltspice"):
+        if name in ("merkbox", "kernbox", "herleitung", "beweis", "vertiefung", "frage", "qa", "ltspice", "hintergrund"):
             t, j = group(body, body.index("{"))
             title = self.text(t)
             inner = self.block(body[j:])
             kind = {"merkbox": "merke", "kernbox": "kern" if title in KERN_TITEL else "merke", "herleitung": "herleitung", "beweis": "beweis",
-                    "vertiefung": "zusatz", "frage": "frage", "qa": "frage", "ltspice": "ltspice"}[name]
+                    "vertiefung": "zusatz", "frage": "frage", "qa": "frage", "ltspice": "ltspice", "hintergrund": "hintergrund"}[name]
             return ":::%s %s\n%s\n:::" % (kind, title, inner)
         if name in ("satz", "definition"):
             opt, j = bracket(body, 0)
@@ -883,12 +906,13 @@ def abschnitte(md, teilen=None):
     teilen = Nummern der Abschnitte, die an ### geteilt werden. Das entscheidet die deutsche Fassung (None), damit jede
     Sprache dieselben Artikel hat."""
     teile = [t for t in re.split(r"(?m)^(?=## )", md) if t.strip()]
+    grenze = ZU_GROSS_NEU if re.search(r"(?m)^:::hintergrund\b", md) else ZU_GROSS
     out = [{"titel": "", "art": "ueberblick", "md": teile[0]}]
     for nr, t in enumerate(teile[1:]):
         kopf, _, rumpf = t.partition("\n")
         titel = kopf[3:].strip()
         stuecke = re.split(r"(?m)^(?=### )", rumpf)
-        gross = len(t) > ZU_GROSS and len(stuecke) > 1 if teilen is None else nr in teilen
+        gross = len(t) > grenze and len(stuecke) > 1 if teilen is None else nr in teilen
         if gross:                                        # große Stufe: an den Unterabschnitten teilen
             GETEILT.add(nr)
             out.append({"titel": titel, "art": "stufe", "md": stuecke[0] + stuecke[1]})

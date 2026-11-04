@@ -13,20 +13,19 @@
 <script>try{if(localStorage.getItem("animate-theme")!=="dark")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <style>
   /* DAY is the default (applied as data-theme="light" unless the user saved "dark"). The dark tokens
-     live on :root so the light overrides stay a small, explicit set. Palette follows dark-mode
-     best practice: stepped, slightly blue-grey surfaces (not pure black), off-white text, one shared
-     blue accent across both modes (Material/Radix/Tailwind-slate inspired). */
-  /* Shared EtUndSo brand palette (science/tech): deep navy surfaces + a blue accent. Same tokens
-     as the landing page so editor and site match. Day = default. */
+     live on :root so the light overrides stay a small, explicit set. */
   /* --s1/--s2/--s3 = stepped ELEVATION surfaces: deeper nesting = lighter (in dark mode). */
-  /* brand: red #E11D48, dark blue #322d58, lighter blue = the CTA/accent. Night = blue surfaces with
-     WHITE text (high contrast); boxes have a background, selected lighter, subboxes slightly lighter. */
-  :root{--bg:#171430;--panel:#322d58;--field:#4a4480;--sel:#554d90;--border:#4d477e;
-        --s1:#322d58;--s2:#3d3768;--s3:#484178;
-        --ink:#ffffff;--muted:#d3d7ea;--hint:#a7adcb;--accent:#4f9cff;--accent2:#E11D48;--accent3:#f59e42;--green:#3fb950;}
-  :root[data-theme="light"]{--bg:#f4f7fb;--panel:#ffffff;--field:#ffffff;--sel:#e4eefb;--border:#dde4ec;
-        --s1:#ffffff;--s2:#f1f5fb;--s3:#e8f0f9;
-        --ink:#0f2033;--muted:#5a6b7b;--hint:#94a3b2;--accent:#1d6fe0;--accent2:#E11D48;--accent3:#e07b10;--green:#16a34a;}
+  /* 2026-11-03: Farben wie die Wissensseiten (Vorlage „Kopfleiste“): dunkelgrüne Leiste, Grün/Lila/Orange als Akzente.
+     --bar* = Kopfleiste, --btn-* = die drei Aktionsknöpfe darin (weißer Text, auf der Leiste gut unterscheidbar). */
+  :root{--bg:#101412;--panel:#1a201c;--field:#232b25;--sel:#2a3d31;--border:#2f3831;
+        --s1:#1a201c;--s2:#20271f;--s3:#273028;
+        --ink:#eff2ef;--muted:#a6afa8;--hint:#7f8981;--accent:#6ad19b;--accent2:#c9a9ff;--accent3:#ff9650;--green:#1f7a4a;
+        --bar:#0b2a1c;--bar-ink:#dcebe1;--bar-rand:#174630;--bar-soft:#123a27;--bar-hl:#ff9650;
+        --btn-save:#1f7a4a;--btn-load:#55299a;--btn-export:#c2410c;--btn-export2:#a8380a;}
+  :root[data-theme="light"]{--bg:#f5f5f1;--panel:#ffffff;--field:#ffffff;--sel:#e2efe6;--border:#e0e2dc;
+        --s1:#ffffff;--s2:#f6f6f2;--s3:#eeefe9;
+        --ink:#191c1a;--muted:#59605b;--hint:#8a918b;--accent:#15633a;--accent2:#3f1a78;--accent3:#c2410c;--green:#15633a;
+        --bar:#123d29;--bar-ink:#eaf3ec;--bar-rand:#1f5a3d;--bar-soft:#1a4d35;--bar-hl:#ff9650;}
   *{box-sizing:border-box;}
   body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);}
   /* Native form controls DON'T inherit colour — without this they render BLACK text (invisible on the
@@ -34,24 +33,25 @@
      own colour (the white header/accent buttons) override this via higher specificity and stay white. */
   select,input,button,textarea{color:var(--ink);}
   option{color:var(--ink);background:var(--panel);}
-  header{padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;gap:16px;}
-  header .brand{flex:none;}
+  header{padding:12px 20px;background:var(--bar);color:var(--bar-ink);border-bottom:1px solid var(--bar-rand);font-weight:600;display:flex;align-items:center;gap:16px;}
+  header .brand{flex:none;color:var(--bar-ink);}
   header .header-center{flex:1;display:flex;justify-content:center;gap:8px;}
   header .header-center button,header .header-center #load-lbl{color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font:inherit;display:inline-block;}
-  header .header-center #save-btn{background:var(--green);}                 /* Save = green  */
-  header .header-center #load-lbl{background:#2f74d8;}                      /* Load = blue   */
-  header .header-center #dl-png,header .header-center #dl-video{background:#e8820c;}  /* Photo + Video = orange */
+  header .header-center #save-btn{background:var(--btn-save);}              /* Save = grün   */
+  header .header-center #load-lbl{background:var(--btn-load);}              /* Load = lila   */
+  header .header-center #dl-png,header .header-center #dl-video{background:var(--btn-export);}  /* Photo + Video = orange */
   header .header-center button:hover,header .header-center #load-lbl:hover{filter:brightness(1.07);}
   header .header-center .export-split{position:relative;display:inline-flex;}
   header .header-center .export-split #dl-png,header .header-center .export-split #dl-video{border-radius:8px 0 0 8px;}
-  header .header-center .export-caret{background:#d9760a;border-radius:0 8px 8px 0;padding:8px 9px;font-size:12px;}
+  header .header-center .export-caret{background:var(--btn-export2);border-radius:0 8px 8px 0;padding:8px 9px;font-size:12px;}
   .export-menu{position:absolute;top:calc(100% + 4px);left:0;min-width:150px;background:var(--field);border:1px solid var(--border);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.16);display:none;z-index:60;overflow:hidden;}
   .export-menu.open{display:block;}
   .export-item{padding:9px 13px;cursor:pointer;color:var(--ink);font-weight:600;font-size:14px;}
   .export-item:hover{background:rgba(127,127,127,.2);}
   header .tabs{display:flex;gap:4px;flex:none;}
-  header .tabs button{border:1px solid var(--border);background:var(--field);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
-  header .tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  header .tabs button{border:1px solid var(--bar-rand);background:var(--bar-soft);color:var(--bar-ink);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
+  header .tabs button:disabled{opacity:.55;cursor:default;}
+  header .tabs button.active{background:var(--bar-hl);color:#2a1205;border-color:var(--bar-hl);}
   main{display:flex;flex-direction:column;gap:16px;padding:16px;}
   .preview{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;}
   .view-wrap{position:relative;width:min(100%,161vh);margin:0 auto;aspect-ratio:16/9;}
@@ -69,7 +69,7 @@
      up front, so playback from the cache is perfectly smooth (the gear animates on the compositor, so it
      keeps spinning even while Pyodide is busy rendering frames). */
   #prerender-overlay{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-    border-radius:8px;z-index:6;color:#fff;font-weight:600;background:rgba(23,20,48,0.55);backdrop-filter:blur(2px);}
+    border-radius:8px;z-index:6;color:#fff;font-weight:600;background:rgba(16,20,18,0.55);backdrop-filter:blur(2px);}
   :root[data-theme="light"] #prerender-overlay{background:rgba(255,255,255,0.62);color:var(--ink);}
   #prerender-overlay .gear{font-size:46px;line-height:1;animation:prspin 1.6s linear infinite;}
   #prerender-overlay .pct{font-size:14px;letter-spacing:.02em;}
@@ -128,13 +128,13 @@
   .build-banner{background:var(--sel);color:var(--ink);border-bottom:1px solid var(--border);padding:6px 16px;font-size:13px;text-align:center;}
   .build-banner b{color:var(--accent);font-weight:700;}
   /* day/night SLIDE switch: a box slides left<->right; the exposed half is white (day) / black (night) */
-  .theme-switch{position:relative;flex:none;width:56px;height:28px;border-radius:14px;border:1px solid var(--border);
+  .theme-switch{position:relative;flex:none;width:56px;height:28px;border-radius:14px;border:1px solid var(--bar-rand);
                 background:#000;cursor:pointer;padding:0;transition:background .18s;}
-  .theme-switch .knob{position:absolute;top:2px;left:2px;width:25px;height:22px;border-radius:11px;background:var(--accent);
+  .theme-switch .knob{position:absolute;top:2px;left:2px;width:25px;height:22px;border-radius:11px;background:var(--bar-hl);
                       transform:translateX(26px);transition:transform .18s;}
   :root[data-theme="light"] .theme-switch{background:#fff;}
   :root[data-theme="light"] .theme-switch .knob{transform:translateX(0);}
-  .theme-switch:hover{border-color:var(--accent);}
+  .theme-switch:hover{border-color:var(--bar-hl);}
 </style>
 </head>
 <body>

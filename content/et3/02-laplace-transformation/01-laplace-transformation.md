@@ -3,39 +3,15 @@ title: Überblick: Die Laplace-Transformation
 kurz: Überblick
 pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
 order: 3220100
-summary: Jedes Signal als Überlagerung von $\mathrm{e}^{pt}$, und warum ein LTI-System daraus eine Multiplikation macht
+summary: Eigenfunktionen, Pole und Nullstellen, Differentialgleichungen, Stabilität und Systemaufbau
 tags: 
 lang: de
 ---
 
 ## Worum es geht
 
+Ein LTI-System antwortet auf ein Eingangssignal $s(t)$ mit der Faltung $g(t)=s(t)*h(t)$. Für jeden einzelnen Zeitpunkt $t$ ist dafür ein eigenes Integral auszurechnen. Wird das System durch eine Differentialgleichung beschrieben, muss man außerdem diese Gleichung lösen.
 
+Dieses Kapitel geht der Frage nach, ob es eine andere Darstellung der Signale gibt, in der beides einfacher wird: eine Darstellung, in der ein LTI-System nur noch mit Zahlen multipliziert und in der aus einer Differentialgleichung eine gewöhnliche algebraische Gleichung wird. Diese Darstellung heißt Laplace-Transformation.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
-
-:::merke Das Rechenmodell für dieses Kapitel
-Alle Beispiele benutzen dieselben zwei Bausteine:
-
-<ul>
-
-<li>
-
-einen **RC-Tiefpass** mit $RC=1$ s (zum Beispiel $R=1\,\mathrm{M\Omega}$, $C=1\,\mu\text{F}$). Seine Impulsantwort und seine Übertragungsfunktion sind
-
-$$h(t)=\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)=\mathrm{e}^{-t}\varepsilon(t),\qquad H(p)=\frac{1}{1+pRC}=\frac{1}{p+1},\quad \operatorname{Re} p>-1,$$
-
-mit $t$ in s und $p$ in $1/\mathrm{s}$;
-
-</li>
-
-<li>
-
-den **Einheitssprung** $s(t)=\varepsilon(t)$ mit $S(p)=1/p$ für $\operatorname{Re} p>0$.
-
-</li>
-
-</ul>
-
-Die Zahlen und Kurven rechnet `rechnung_kap2.py` nach.
-:::
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.

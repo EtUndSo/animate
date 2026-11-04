@@ -1,0 +1,402 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 18,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.6,
+      -0.15,
+      0
+     ],
+     "end": [
+      2.0,
+      -0.15,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.9,
+      -2.05,
+      0
+     ],
+     "end": [
+      -0.9,
+      2.25,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "x",
+     "position": [
+      1.95,
+      -0.43000000000000005,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "y",
+     "position": [
+      -1.02,
+      2.13,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.9+1*cos(t)",
+     "fy": "-0.15+0.707107*sin(t)",
+     "t_min": 0,
+     "t_max": 6.28319,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#8fb4e3",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.9+1.73205*cos(t)",
+     "fy": "-0.15+1.22474*sin(t)",
+     "t_min": 0,
+     "t_max": 6.28319,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#8fb4e3",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.9+2.44949*cos(t)",
+     "fy": "-0.15+1.73205*sin(t)",
+     "t_min": 0,
+     "t_max": 6.28319,
+     "samples": 161,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#8fb4e3",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.6,
+      0.85,
+      0
+     ],
+     "end": [
+      0.6,
+      1.85,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.6,
+      1.85,
+      0
+     ],
+     "end": [
+      0.09999999999999998,
+      1.85,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.09999999999999998,
+      0.85,
+      0
+     ],
+     "end": [
+      0.6,
+      0.85,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.09999999999999998,
+      0.85,
+      0
+     ],
+     "end": [
+      0.09999999999999998,
+      1.85,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.09999999999999998,
+      0.85,
+      0
+     ],
+     "end": [
+      0.6,
+      1.85,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.09999999999999998,
+      0.85,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "∂φ/∂x = 2",
+     "position": [
+      0.15000000000000002,
+      0.65,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "∂φ/∂y = 4",
+     "position": [
+      0.030000000000000027,
+      1.6,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "∇φ(1, 1) = (2, 4)",
+     "position": [
+      0.7000000000000001,
+      1.9,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

@@ -195,7 +195,7 @@
     "id": "o8",
     "type": "Text",
     "props": {
-     "text": "P",
+     "text": "P_0",
      "position": [
       -1.55,
       -1.15,
@@ -228,7 +228,7 @@
     "id": "o10",
     "type": "Text",
     "props": {
-     "text": "Q",
+     "text": "P_1",
      "position": [
       1.55,
       -1.15,
@@ -261,7 +261,7 @@
     "id": "o12",
     "type": "Text",
     "props": {
-     "text": "R",
+     "text": "P_2",
      "position": [
       1.55,
       1.05,
@@ -294,7 +294,7 @@
     "id": "o14",
     "type": "Text",
     "props": {
-     "text": "S",
+     "text": "P_3",
      "position": [
       -1.55,
       1.05,
@@ -310,7 +310,7 @@
     "id": "o15",
     "type": "Text",
     "props": {
-     "text": "a F_j(P)",
+     "text": "a F_j(P_0)",
      "position": [
       0,
       -1.2,
@@ -326,7 +326,7 @@
     "id": "o16",
     "type": "Text",
     "props": {
-     "text": "b F_k(Q)",
+     "text": "b F_k(P_1)",
      "position": [
       1.65,
       0.0,
@@ -342,7 +342,7 @@
     "id": "o17",
     "type": "Text",
     "props": {
-     "text": "−a F_j(S)",
+     "text": "−a F_j(P_3)",
      "position": [
       0,
       1.05,
@@ -358,7 +358,7 @@
     "id": "o18",
     "type": "Text",
     "props": {
-     "text": "−b F_k(P)",
+     "text": "−b F_k(P_0)",
      "position": [
       -1.65,
       0.0,

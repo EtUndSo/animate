@@ -58,7 +58,7 @@ LANG_NOW = ["de"]                     # Sprache der gerade gebauten Seite (main 
 UI = {
     "de": {"wissen": "Wissen", "alle_module": "Alle Module", "abbildung": "Abbildung", "abb_vorb": "in Vorbereitung",
            "editor_offen": "Szene im Editor öffnen", "editor_title": "Die Szene dieser Abbildung im Editor öffnen",
-           "herleitung": "Herleitung", "beweis": "Beweis", "frage": "Frage", "loesung": "Lösung", "zweck": "Worum es geht:",
+           "herleitung": "Herleitung", "beweis": "Beweis", "frage": "Frage", "hintergrund": "Hintergrund", "loesung": "Lösung", "zweck": "Worum es geht:",
            "zusatz": "Vertiefung, für den Rest nicht nötig", "analogie": "Analogie (ein Bild zur Orientierung, keine Mathematik)",
            "kern": "Das Wichtigste", "merke": "Merke", "satz": "Satz", "definition": "Definition", "lemma": "Lemma",
            "suchen": "Suchen", "suche_ph": "Thema, Begriff, Formel …", "nichts": "Nichts gefunden für",
@@ -70,7 +70,7 @@ UI = {
            "fremd": "Rechtliche Seiten sind auf Deutsch."},
     "en": {"wissen": "Knowledge", "alle_module": "All modules", "abbildung": "Figure", "abb_vorb": "in preparation",
            "editor_offen": "Open scene in editor", "editor_title": "Open this figure's scene in the editor",
-           "herleitung": "Derivation", "beweis": "Proof", "frage": "Question", "loesung": "Solution", "zweck": "What this stage is about:",
+           "herleitung": "Derivation", "beweis": "Proof", "frage": "Question", "hintergrund": "Background", "loesung": "Solution", "zweck": "What this stage is about:",
            "zusatz": "Going deeper, not needed for the rest", "analogie": "Analogy (a picture for orientation, not mathematics)",
            "kern": "Key points", "merke": "Note", "satz": "Theorem", "definition": "Definition", "lemma": "Lemma",
            "suchen": "Search", "suche_ph": "Topic, term, formula …", "nichts": "Nothing found for",
@@ -81,7 +81,7 @@ UI = {
            "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy"},
     "es": {"wissen": "Conocimiento", "alle_module": "Todos los módulos", "abbildung": "Figura", "abb_vorb": "en preparación",
            "editor_offen": "Abrir la escena en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
-           "herleitung": "Deducción", "beweis": "Demostración", "frage": "Pregunta", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
+           "herleitung": "Deducción", "beweis": "Demostración", "frage": "Pregunta", "hintergrund": "Contexto", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
            "zusatz": "Ampliación, no necesaria para el resto", "analogie": "Analogía (una imagen para orientarse, no matemática)",
            "kern": "Lo esencial", "merke": "Nota", "satz": "Teorema", "definition": "Definición", "lemma": "Lema",
            "suchen": "Buscar", "suche_ph": "Tema, término, fórmula …", "nichts": "Nada encontrado para",
@@ -92,7 +92,7 @@ UI = {
            "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad"},
     "zh": {"wissen": "知识库", "alle_module": "全部模块", "abbildung": "图", "abb_vorb": "准备中",
            "editor_offen": "在编辑器中打开场景", "editor_title": "在编辑器中打开此图的场景",
-           "herleitung": "推导", "beweis": "证明", "frage": "问题", "loesung": "解答", "zweck": "本阶段内容：",
+           "herleitung": "推导", "beweis": "证明", "frage": "问题", "hintergrund": "背景", "loesung": "解答", "zweck": "本阶段内容：",
            "zusatz": "拓展阅读（后续内容不需要）", "analogie": "类比（帮助理解的图景，不是数学）",
            "kern": "要点", "merke": "注意", "satz": "定理", "definition": "定义", "lemma": "引理",
            "suchen": "搜索", "suche_ph": "主题、术语、公式 …", "nichts": "未找到",
@@ -446,6 +446,10 @@ def md_to_html(md):
                 out.append('<details class="ltspice"><summary><span class="lt-k">LTspice</span>'
                            + inline(label_arg) + '</summary>'
                            '<div class="lt-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                continue
+            if kind == "hintergrund":                     # Hintergrundwissen: Titel sichtbar, Inhalt zugeklappt (Haupttext bleibt skriptgeordnet)
+                out.append(f'<details class="hintergrund"><summary><span class="hg-k">{T("hintergrund")}</span>' + inline(label_arg) + '</summary>'
+                           '<div class="hg-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
                 continue
             if kind == "frage":                           # Frage-Kasten (wie im Lernskript): Frage sichtbar, Antwort ausklappbar
                 if label_arg:
@@ -1054,6 +1058,16 @@ details.frage[open]>summary::before{transform:rotate(90deg);}
 details.frage .fr-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
 .fr-body{padding:0 16px 8px;border-top:1px solid var(--border);}
 .fr-body>p:first-child{margin-top:12px;}
+/* Hintergrund-Kasten: Warum und Woher zum Haupttext, zugeklappt, lila wie die Überschriften */
+details.hintergrund{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent2);border-radius:10px;
+  background:color-mix(in srgb,var(--accent2) 4%,var(--panel));}
+details.hintergrund>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.hintergrund>summary::-webkit-details-marker{display:none;}
+details.hintergrund>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent2);transition:transform .15s;}
+details.hintergrund[open]>summary::before{transform:rotate(90deg);}
+details.hintergrund .hg-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent2);margin-right:9px;}
+.hg-body{padding:0 16px 8px;border-top:1px solid var(--border);}
+.hg-body>p:first-child{margin-top:12px;}
 .callout.cx-fehlvorstellung{border-left:4px solid var(--accent2);} .callout.cx-fehlvorstellung .callout-h{color:var(--accent2);}
 .callout.cx-analogie{border-left:4px solid var(--muted);} .callout.cx-analogie .callout-h{color:var(--muted);}
 .callout.cx-vertiefung{border-left:4px solid var(--border);} .callout.cx-vertiefung .callout-h{color:var(--muted);}

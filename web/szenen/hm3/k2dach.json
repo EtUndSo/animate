@@ -1,0 +1,217 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 11,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      5.3
+     ],
+     "y_range": [
+      -1.1,
+      1.15
+     ],
+     "x_length": 5.6,
+     "y_length": 3.0,
+     "origin": [
+      -0.2,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t",
+     "y_label": "",
+     "number_size": 22,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1;2;3;4;5",
+     "y_ticks": "-1;-0.5;0.5;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x)",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": "",
+     "x_range": [
+      0,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x)*cos(2*x)",
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": "",
+     "x_range": [
+      0,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x)*cos(5*x)",
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "",
+     "x_range": [
+      0,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(-x)",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "10,7",
+     "x_range": [
+      0,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-exp(-x)",
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "10,7",
+     "x_range": [
+      0,
+      5
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "g(t) = e^{−t}",
+     "position": [
+      0.55,
+      0.85,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "−g(t)",
+     "position": [
+      0.55,
+      -0.85,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "x = 2",
+     "position": [
+      2.2,
+      0.3,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "x = 5",
+     "position": [
+      3.25,
+      -0.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}
