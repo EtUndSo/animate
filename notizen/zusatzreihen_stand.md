@@ -17,7 +17,23 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
 | Reihe | Teil | Thema | Stand |
 |---|---|---|---|
 | cyber | 1 | Sicherheit, Schutzziele und Spielregeln | fertig 04.11. (68 S., 10 Abschnitte, 20 Aufgaben, 8 Abb.; Website de gebaut), wartet auf Abnahme |
-| ml | 1 | Vektoren und Matrizen | Pilot in Arbeit |
+| ml | 1 | Vektoren und Matrizen | fertig 04.11. (82 S., 15 Abschnitte, 37 Aufgaben, 15 Abb.; Website de gebaut), wartet auf Abnahme |
+
+| ml | 2 | Projektion, Eigenwerte und Zerlegungen | in Arbeit (04.11. abends; User: „weiter mit den Themen zu ML“). Der Agent bekam zuerst einen Auftrag mit gekürztem Lesen, die Korrektur auf „alles ganz lesen“ kam während der Arbeit. Im Bericht prüfen, ob er alles ganz gelesen hat, sonst nacharbeiten. |
+
+**Überarbeiten wegen gekürzten Lesens** (User 04.11.2026: „Bereits erstellte Artikel überarbeiten, falls sie noch das alte Prinzip für das Durchlesen genutzt haben“):
+- **Befund aus den Agentenprotokollen:**
+  - cyber 1 und ml 1 haben die Musterhefte nur in Teilen gelesen (ET3 `kap2_stufen.tex` bis etwa Zeile 760, `kap2_stufen_b.tex` gar nicht, HöMa3 `kap1_stufen.tex` 200–420 Zeilen, Lösungen 40–60 Zeilen), Lernpfad und Notizen nur in Ausschnitten.
+  - Die WISSEN-Dateien und den Leitfaden haben sie ganz gelesen.
+- **Reihenfolge,** je ein Schreib-Agent nacheinander, mit dem neuen Abschnitt „Zuerst lesen“: nach ml 2 zuerst ml 1 überarbeiten, dann cyber 1. Dabei auch die Summen- und Skalarprodukt-Abbildungen einbauen, sobald der Editor sie kann.
+- **Uni-Module:** Ihre Hefte haben das Skript nur kapitelweise und die Muster teilweise gelesen. Sie stehen ohnehin auf der Überarbeitungsliste in `ueberarbeitung_stand.md` (HöMa pausiert); `ueberarbeitung_auftrag.md` verlangt jetzt ebenfalls vollständiges Lesen, auch des ganzen Skripts.
+
+Hinweise ml 1:
+- Festgelegte Bezeichnungen für alle späteren ML-Hefte stehen im Bericht des Agenten. Kern: N Beispiele (i), d Merkmale (j), x_i Spaltenvektor, X ∈ ℝ^{N×d} mit Zeilen x_iᵀ, Gewichte w, Vorhersage ŷ = Xw, rechte Seite y, Achsenabschnitt b, λ unbenutzt, std mit Nenner N, Einsvektor `\veins`, Tensorform N×C×H×W. Wiederverwendbarer Wohnungs-Datensatz X ∈ ℝ^{4×3}, w = (3, 10, −4), b = 20, y = (200, 130, 290, 240).
+- Standardisieren ist schon in ml 1 eingeführt; T07/T08 verweisen nur zurück.
+- Präambel ergänzt: `\vk \vp \veins \mK \mR`. Akzente auf Makros nur mit Klammern (`\bar{\vx}`), sonst KaTeX-Fehler.
+- Szenen k1lgs und k1spann vom Haupt-Agenten nachgebessert (Titel über x₂, Abstände, ohne Zahlen bei spann).
+- Der Agent hatte fast 800k Tokens Kontext, weil er das PDF zehnmal als Bilder gelesen hat. Deshalb gibt es jetzt `tools/pdf_pruefen.py`: Es prüft maschinell auf fehlende Verweise, Überstand über den Satzspiegel, überlappende und aneinanderstoßende Beschriftungen in Abbildungen und schreibt Ausschnitte und Übersichtsblätter. Steht im Auftrag. Getestet an fünf abgenommenen Heften (0 Fehlalarme) und an einem Fehlerbeispiel.
 
 Hinweis cyber 1: Die Sitzung, die den Schreib-Agenten gestartet hatte, wurde kurz vor seinem Bericht beendet. Schlussprüfung deshalb vom Haupt-Agenten: PDF 0 Fehler, keine Overfull-Boxen, Konverter 0 KaTeX-Fehler, Szenen neu exportiert und angesehen, Rechtsteil gegen die Recherche-Notizen geprüft (Wortlaute, Strafrahmen, §§ 205/303c, BVerfG 2009, Reformstand). Recherche-Notizen des Agenten: `C:\Bücher\EtUndSo\Cybersecurity\Recherche\Notizen\L_heft1_recherche.md`.
 

@@ -22,3 +22,7 @@ Reihenfolge:
 | et1 | 1–11 | offen |
 | hm1 | 1–10 | offen |
 | gemb1 | 1–15 | offen |
+
+**Seit 04.11.2026 abends gilt: alles vollständig lesen.** Die Hefte et3 2, hm3 1, hm3 2 und der begonnene hm3 3 entstanden mit gekürztem Lesen. Belegt ist das durch die Agentenprotokolle: Muster und Skript nur in Ausschnitten bzw. nur das eigene Kapitel.
+
+Der User verlangt: „Bereits erstellte Artikel überarbeiten, falls sie noch das alte Prinzip für das Durchlesen genutzt haben“. Wenn die Modul-Überarbeitung weitergeht (HöMa pausiert), kommen deshalb auch diese vier noch einmal dran, nach `ueberarbeitung_auftrag.md` mit vollständigem Lesen, auch des ganzen Skripts.

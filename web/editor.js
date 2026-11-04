@@ -305,13 +305,22 @@ const START_EXAMPLE = {
 const SHAPE_TYPES = ["Circle", "Rectangle", "Square", "Triangle", "Polygon"];
 // Operations, sorted: first whether they need OTHER objects as operands (standalone first), then by the
 // kind of mathematical object they work on (numbers/series vs functions vs geometry).
+// Σ, ∏ and the scalar product share one step-by-step choreography (series-spec below, engine summation_choreo).
+// all_steps: the static view / article figure shows every step as its own row (head = substituted = values =
+// result); max_width > 0 wraps long rows at that width (world units; 0 = one row across the whole frame).
 const COMPUTATIONS = {
-  "Eigenständig · Reihen (Σ ∏)": {   // no operands; over an index i, from i=start to i=end (number or symbolic 'n')
+  "Eigenständig · Reihen (Σ ∏ uᵀv)": {   // no operands; over an index i, from i=start to i=end (number or symbolic 'n')
     "Summation  (Σ)": { type:"Summation", kind:"summation",
-      props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,0,0],
+      props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, all_steps:true, max_width:0, run_time:5, size:1.4, position:[0,0,0],
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
     "Product  (∏)": { type:"BigProduct", kind:"product",
-      props:{ sum_mode:"number", term:"i", from:1, to:"n", show_terms:3, run_time:5, size:1.4, position:[0,0,0],
+      props:{ sum_mode:"number", term:"i", from:1, to:"n", show_terms:3, all_steps:true, max_width:0, run_time:5, size:1.4, position:[0,0,0],
+              color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
+    // uᵀv = Σ_j u_j v_j of two typed-in number lists of equal length; u_name/v_name = bold vector names, index =
+    // running index, upper = upper limit shown under/over the Σ ("" = the length, or e.g. "d").
+    "Skalarprodukt  (uᵀv)": { type:"DotProduct", kind:"dotproduct",
+      props:{ u:"3, 10, -4", v:"120, 3, 25", u_name:"w", v_name:"x", index:"j", upper:"", show_terms:3, show_vectors:true,
+              all_steps:true, max_width:0, run_time:6, size:1.4, position:[0,0,0],
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
   },
   "Eigenständig · Zahlen (Arithmetik)": {   // typed-in numbers; shown as squares or on a number line
@@ -332,6 +341,7 @@ const COMPUTATIONS = {
 };
 const COMP_DEFS = {};
 for (const grp of Object.values(COMPUTATIONS)) for (const [name, def] of Object.entries(grp)) COMP_DEFS[def.type] = { ...def, name };
+const SERIES_KINDS = new Set(["summation", "product", "dotproduct"]);   // the step-by-step Σ-type operations
 
 // Default props per OBJECT type (from the catalog). Used to BACKFILL older/saved/template objects that
 // predate newer props (e.g. an Axes saved before show_grid/grid_color/grid_width existed) so the
@@ -363,6 +373,13 @@ function ensureDefaults(o){
 const CIRCUIT_TYPES = new Set(["Component","Device","Wire","Node"]);   // schematic elements (grid, snap, wiring)
 function migrateModel(){
   for (const o of (model.objects || [])) ensureDefaults(o);
+  // Σ/∏ saved before the all-steps figure and line wrapping existed: show both settings, keep the old look.
+  for (const c of (model.computations || [])){
+    const def = COMP_DEFS[c.type];
+    if(!def || !SERIES_KINDS.has(def.kind) || !c.props) continue;
+    if(!("all_steps" in c.props)) c.props.all_steps = false;
+    if(!("max_width" in c.props)) c.props.max_width = 0;
+  }
   // A panel without axes that carries circuit elements is a schematic panel (grid, snapping, wiring).
   const axs = (model.objects || []).filter(o=>o.type==="Axes");
   for (const a of axs) if (!a.schematic && a.props && a.props.show_axes===false &&
@@ -540,9 +557,9 @@ function toPythonModel(){
     if(c.visible===false) spec.visible = false;
     if(def && def.kind==="numbers"){
       spec.numbers = c.numbers;
-    } else if(def && (def.kind==="summation" || def.kind==="product")){
+    } else if(def && SERIES_KINDS.has(def.kind)){
       // number mode: resolve the step-by-step choreography pieces (abstract -> substitute -> compute)
-      if((c.props.sum_mode||"number")!=="function"){
+      if(def.kind==="dotproduct" || (c.props.sum_mode||"number")!=="function"){
         const ch = buildChoreo(c);
         if(ch) spec.props = { ...spec.props, choreo: ch };   // not ready -> omit; KaTeX overlay shows meanwhile
       }
@@ -990,8 +1007,8 @@ function addComputation(def){
   const c = { id:"k"+(nextCompId++), type:def.type, props:structuredClone(def.props||{}) };
   if(def.kind==="numbers"){
     c.numbers = (def.numbers||[2,2]).slice();           // number operands (typed in), not object refs
-  } else if(def.kind==="summation" || def.kind==="product"){
-    /* nothing extra: term / bounds live in props */
+  } else if(SERIES_KINDS.has(def.kind)){
+    /* nothing extra: term / bounds / number lists live in props */
   } else {
     c.inputs = {};
     if(def.result) c.children = def.result.map(r=>({ id:"o"+(nextId++), type:"DecimalNumber", result:{ key:r.key }, visible:true,
@@ -1280,7 +1297,8 @@ function buildCompPalette(){
 function compConfigured(c){
   const def=COMP_DEFS[c.type];
   if(def.kind==="numbers") return (c.numbers||[]).length>=1;
-  if(def.kind==="summation" || def.kind==="product") return true;   // no object operands; always runnable
+  if(def.kind==="dotproduct") return !!seriesSpec(c, model.lang);    // two number lists of equal length
+  if(SERIES_KINDS.has(def.kind)) return true;                        // no object operands; always runnable
   return def.inputs.every(inp=>{ const o=c.inputs[inp.role] && findNode(c.inputs[inp.role]); return o && inp.accept.includes(o.type); });
 }
 function renderComputations(){

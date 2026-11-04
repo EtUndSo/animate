@@ -4,19 +4,24 @@ Du schreibst **ein** deutsches Arbeitsheft von Grund auf neu; Reihe und Teil nen
 
 Dieser Auftrag ersetzt für die Zusatzreihen `ueberarbeitung_auftrag.md`. `UEBERARBEITUNG.md` gilt vollständig; wo dort „Skript“ steht, lies „Lernpfad-Eintrag und WISSEN-Datei des Hefts“.
 
-## Zuerst lesen (Pflicht, ganz)
+## Zuerst lesen (Pflicht, jede Datei vollständig)
+Der User hat ausdrücklich verlangt, dass alles ganz gelesen wird: „Nein, der Agent soll alles lesen!“ und „Ein Abschnitt aus einem ganzen Buch zu lesen ist wie ein Wassertropfen aus einem See, das macht keinen Sinn“.
+- Lies jede Datei dieser Liste **von der ersten bis zur letzten Zeile**. Große Dateien liest du in aufeinanderfolgenden Teilen (offset/limit), bis das Ende erreicht ist. Meldet Read eine Teilansicht („PARTIAL view“), liest du weiter, bis alles gelesen ist.
+- Gespart wird nur beim PDF (siehe „Bauen und prüfen“).
+
 1. `C:\Users\info\PycharmProjects\pythonanimation\notizen\UEBERARBEITUNG.md`: der maßgebliche Leitfaden, besonders §2 (ein Begriff nach dem anderen, Theorie vor Praxis), §3 und §3a (Hintergrund-Kästen mit recherchiertem Warum) und §4 (keine Vorgriffe).
-2. Die beiden Muster, so weit, dass du ihren Aufbau verinnerlicht hast:
+2. Die beiden Muster, **alle Dateien ganz**:
    - ET3 Teil 2: `C:\Bücher\ET3\Arbeitshefte\Kap2_Laplace.tex`, `kap2_stufen.tex`, `kap2_stufen_b.tex`, `kap2_loesungen.tex`.
-   - HöMa3 Teil 1: `C:\Bücher\HöMa3\Arbeitshefte\kap1_stufen.tex`, `kap1_loesungen.tex`.
+   - HöMa3 Teil 1: `C:\Bücher\HöMa3\Arbeitshefte\Kap1_Vektorfelder.tex`, `kap1_stufen.tex`, `kap1_loesungen.tex`.
 3. Die Präambel deiner Reihe (`praeambel.tex` im Heftordner, siehe unten): Kästen, Code-Umgebungen, Makros. Benutze nur, was dort steht.
-4. Aus `C:\Bücher\EtUndSo\<Reihe>\Recherche\`:
-   - `LERNPFAD.md`: Kopf, „Begründung der Reihenfolge“, roter Faden und **den Eintrag deines Hefts** (Lernziele, Begriffe in Einführungsreihenfolge, Voraussetzungen, Hauptquellen, Warum-Ideen, Aufgaben, Abbildungen). ML zusätzlich „Notationsentscheidungen“.
-   - `WISSEN_T<NN>_*.md` deines Hefts: **vollständig**. Das ist die Inhaltsgrundlage.
-   - `AUFGABEN.md`: Vorbemerkung und der Abschnitt deines Hefts (Lösungsideen sind für dich, nicht wörtlich fürs Heft).
+4. Aus `C:\Bücher\EtUndSo\<Reihe>\Recherche\`, jeweils ganz:
+   - `LERNPFAD.md`: darin **der Eintrag deines Hefts** (Lernziele, Begriffe in Einführungsreihenfolge, Voraussetzungen, Hauptquellen, Warum-Ideen, Aufgaben, Abbildungen); bei ML die „Notationsentscheidungen“.
+   - `WISSEN_T<NN>_*.md` deines Hefts. Das ist die Inhaltsgrundlage.
+   - `AUFGABEN.md` (Lösungsideen sind für dich, nicht wörtlich fürs Heft).
    - `ZUSAMMENFASSUNG.md`: die Entscheidungen des Users.
-   - `QUELLEN.md` und `Notizen\` nur bei Bedarf (Belegstellen, Prüfprotokolle).
-5. Die fertigen früheren Hefte der Reihe im Heftordner, falls es welche gibt: Ihre Begriffe, Bezeichnungen und Beispiele übernimmst du.
+   - `QUELLEN.md`.
+   - die Dateien in `Notizen\`, die dein Heft betreffen (Belegstellen, Prüfprotokolle, Hauptquellen-Exzerpte deiner Teile).
+5. Die fertigen früheren Hefte der Reihe im Heftordner, alle Dateien ganz: Ihre Begriffe, Bezeichnungen und Beispiele übernimmst du.
 
 | Reihe | Heftordner | Recherche | Szenen |
 |---|---|---|---|
@@ -65,7 +70,24 @@ Teil N ist Stamm-Heft T<NN> des Lernpfads (Teil 1 = T01). Der Dateiname `Kap<N>_
 `Kap<N>_<Name>.tex` (Hauptdatei wie `C:\Bücher\ET3\Arbeitshefte\Kap2_Laplace.tex`: `\input{praeambel}`, Titelblock mit `\LARGE` und `\large`, Zeile „Arbeitsheft Cybersecurity, Teil N. Stand: <heutiges Datum>“ bzw. „Arbeitsheft Machine Learning, Teil N. …“, Inhaltsverzeichnis, `\input` der Teile), `kap<N>_stufen.tex` (bei Bedarf `kap<N>_stufen_b.tex`), `kap<N>_loesungen.tex`, optional `rechnung_kap<N>.py` und `code\kap<N>\`.
 
 ## Bauen und prüfen
-- **PDF:** im Heftordner `pdflatex -interaction=nonstopmode Kap<N>_<Name>.tex` dreimal. `grep -c '^!'` muss 0 sein, keine Overfull-hbox-Meldungen. Danach aux/log/out/toc löschen. Sieh dir das PDF mit Read an (höchstens 20 Seiten je Aufruf), besonders Code, Tabellen und Abbildungen.
+- **PDF:** im Heftordner `pdflatex -interaction=nonstopmode Kap<N>_<Name>.tex` dreimal. `grep -c '^!'` muss 0 sein, keine Overfull-hbox-Meldungen. Danach aux/log/out/toc löschen.
+- **PDF maschinell prüfen statt als Bild lesen (Token-Kosten!):** im Repo `python tools/pdf_pruefen.py <heft.pdf> <scratchpad>/pdf --blatt`. Das Skript meldet ohne Modell-Tokens:
+  - fehlende Verweise (`??`);
+  - Text und Zeichnungen, die über den Satzspiegel ragen;
+  - Beschriftungen, die einander überlappen, typisch in TikZ-Abbildungen.
+
+  Zu jeder Meldung schreibt es einen kleinen Ausschnitt `stelle_<n>.png`, außerdem `text.txt` mit dem Text aller Seiten (für Grep) und mit `--blatt` Übersichtsblätter der Abbildungsseiten, sechs Seiten je Bild.
+  - Sieh dir nur die gemeldeten Ausschnitte an und jedes Übersichtsblatt höchstens einmal.
+  - Das PDF selbst liest du **nie** ganz oder in großen Blöcken als Bild ein. Jede Seite geht als Bild in deinen Kontext und wird bei jeder weiteren Anfrage mitgeschickt; ein Pilotheft kam so auf fast 800k Tokens Kontext. Einzelne Seiten (`pages: "12"`) nur, wenn ein Übersichtsblatt eine Frage offen lässt.
+  - Den Text prüfst du im LaTeX-Quelltext, nicht im PDF.
+  - Die Editor-Szenen prüfst du über das Kontaktblatt von `szenen_ansehen.py`, mehrere Szenen auf einem Bild.
+- **Alle Dateien vollständig lesen** (Wunsch des Users, 04.11.2026: „Er soll die Dateien schon durchlesen“, „der Agent soll alles lesen!“):
+  - die Pflichtlektüre;
+  - die früheren Hefte der Reihe;
+  - die Musterhefte;
+  - zur Selbstprüfung dein eigenes Heft ganz, Satz für Satz.
+
+  Gespart wird **nur** beim PDF: keine Seitenbilder, sondern `pdf_pruefen.py` wie oben.
 - **Konverter:** im Repo `python tools/heft_zu_artikel.py <reihe> --kap <N> --lang de --pruefen --katex`: 0 KaTeX-Fehler, keine „unbekannt“-Meldungen, keine Verweise ohne Ziel, keine Aufgaben ohne Lösung. Danach dasselbe ohne `--pruefen --katex`, um die Artikel zu schreiben.
 - **Selbstprüfung Satz für Satz (UEBERARBEITUNG §7):** kein Satz mit zwei neuen Begriffen; nichts benutzt, bevor es erklärt ist; kein Haupttext, der sich auf einen Hintergrund-Kasten stützt; nichts Wichtiges aus der WISSEN-Datei fehlt; jedes zentrale Verfahren hat seinen Warum-Kasten; kein Vorgriff; jede Aussage zu Recht, Standards und Zahlen stimmt mit dem Stand von heute.
 

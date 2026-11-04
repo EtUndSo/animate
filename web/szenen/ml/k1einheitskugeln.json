@@ -1,0 +1,439 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 20,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.45,
+      1.45
+     ],
+     "y_range": [
+      -1.45,
+      1.45
+     ],
+     "x_length": 1.75,
+     "y_length": 1.75,
+     "origin": [
+      -2.2,
+      0.2,
+      0
+     ],
+     "title": "",
+     "x_label": "x₁",
+     "y_label": "x₂",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1",
+     "y_ticks": "1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o3",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 0\n0 1\n-1 0\n0 -1\n1 0",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Circle",
+    "props": {
+     "radius": 1,
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "color": "#b5b5b5",
+     "fill_color": "#b5b5b5",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 1\n-1 1\n-1 -1\n1 -1\n1 1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 0\n0 1\n-1 0\n0 -1\n1 0",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#eb6834",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "L₁: |x₁| + |x₂| = 1",
+     "position": [
+      -2.2,
+      -1.25,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.45,
+      1.45
+     ],
+     "y_range": [
+      -1.45,
+      1.45
+     ],
+     "x_length": 1.75,
+     "y_length": 1.75,
+     "origin": [
+      0,
+      0.2,
+      0
+     ],
+     "title": "",
+     "x_label": "x₁",
+     "y_label": "x₂",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1",
+     "y_ticks": "1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o9",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 0\n0 1\n-1 0\n0 -1\n1 0",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o10",
+    "type": "Circle",
+    "props": {
+     "radius": 1,
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "color": "#b5b5b5",
+     "fill_color": "#b5b5b5",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o11",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 1\n-1 1\n-1 -1\n1 -1\n1 1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o12",
+    "type": "Circle",
+    "props": {
+     "radius": 1,
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "L₂: x₁² + x₂² = 1",
+     "position": [
+      0,
+      -1.25,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -1.45,
+      1.45
+     ],
+     "y_range": [
+      -1.45,
+      1.45
+     ],
+     "x_length": 1.75,
+     "y_length": 1.75,
+     "origin": [
+      2.2,
+      0.2,
+      0
+     ],
+     "title": "",
+     "x_label": "x₁",
+     "y_label": "x₂",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "1",
+     "y_ticks": "1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o15",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 0\n0 1\n-1 0\n0 -1\n1 0",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o16",
+    "type": "Circle",
+    "props": {
+     "radius": 1,
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "color": "#b5b5b5",
+     "fill_color": "#b5b5b5",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o17",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 1\n-1 1\n-1 -1\n1 -1\n1 1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o18",
+    "type": "DataCurve",
+    "props": {
+     "data": "1 1\n-1 1\n-1 -1\n1 -1\n1 1",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#00823c",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "L∞: max(|x₁|, |x₂|) = 1",
+     "position": [
+      2.2,
+      -1.25,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

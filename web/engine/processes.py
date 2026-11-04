@@ -5,6 +5,8 @@ ValueTracker (so it scrubs/plays on the timeline). run_time = the animation spee
 v1: convolution (slide g(t-τ) across f, show the overlap product + the result curve being traced).
 Summation, Riemann, derivative-as-tangent-slide, etc. follow the same pattern.
 """
+import math
+
 import numpy as np
 
 from .AnimObject import AnimObject
@@ -19,6 +21,7 @@ from .svg import MathTex
 from .constants import BLUE, GREEN, UP, FRAME_HEIGHT, PIXEL_WIDTH, PIXEL_HEIGHT
 
 _FRAME_W = FRAME_HEIGHT * PIXEL_WIDTH / PIXEL_HEIGHT     # world width of the frame
+_PX_PER_UNIT = PIXEL_HEIGHT / FRAME_HEIGHT              # canvas pixels per world unit (135)
 
 
 def _styled(graph, color, stroke_width=4, fill=0.0):
@@ -169,12 +172,13 @@ def summation_tex(scene, glyphs, run_time=5.0, color=(0.1, 0.1, 0.1), animating=
     scene.play(ChangeValue(rev, 1.0), run_time=run_time)
 
 
-def _color_head_bounds(head, bound_color, var_color, color):
+def _color_head_bounds(head, bound_color, var_color, color, var="i"):
     """Tint the Σ/∏ BOUNDS (lower 'i=a', upper 'n'/number) with bound_color. The bounds sit stacked
-    OVER/UNDER the big operator (x-centre within the operator's column); the summand sits to its RIGHT.
-    So: biggest glyph = the operator; any other glyph whose x-centre is left of the operator's right
-    edge is a bound -> running variable 'i' keeps var_color, '='/'-' stay `color` (black), the rest
-    (the actual limit numbers/letters) become bound_color. Robust even for fraction summands."""
+    OVER/UNDER the big operator (x-centre within the operator's column, y-centre above or below it); the
+    summand sits to its RIGHT, a left-hand side such as 'wᵀx =' to its LEFT. So: biggest glyph = the
+    operator; a glyph in its column and above/below it is a bound -> the running variable `var` keeps
+    var_color, '='/'-' stay `color` (black), the rest (the actual limit numbers/letters) become bound_color.
+    Robust even for fraction summands."""
     subs = list(head.subObjects)
     if not subs or bound_color is None:
         return
@@ -186,16 +190,19 @@ def _color_head_bounds(head, bound_color, var_color, color):
     sp = pts(subs[si])
     if sp is None:
         return
-    sx1 = float(sp[:, 0].max())
+    sx0, sx1 = float(sp[:, 0].min()), float(sp[:, 0].max())
+    sy0, sy1 = float(sp[:, 1].min()), float(sp[:, 1].max())
+    pad = 0.5 * (sx1 - sx0)                                  # a wide lower limit ('i=10') may reach past the left edge
     for j, s in enumerate(subs):
         if j == si:
             continue
         p = pts(s)
         if p is None:
             continue
-        if float(p[:, 0].mean()) <= sx1:                     # stacked on the operator -> a bound
+        xc, yc = float(p[:, 0].mean()), float(p[:, 1].mean())
+        if sx0 - pad <= xc <= sx1 and (yc > sy1 or yc < sy0):   # stacked on the operator -> a bound
             tex = getattr(s, "_tex", "")
-            col = var_color if tex == "i" else (color if tex in ("=", "-", "−") else bound_color)
+            col = var_color if tex == var else (color if tex in ("=", "-", "−") else bound_color)
             stack = [s]
             while stack:
                 o = stack.pop()
@@ -205,80 +212,251 @@ def _color_head_bounds(head, bound_color, var_color, color):
                 stack.extend(o.subObjects)
 
 
+_FORM_KEYS = ("abstract", "index", "subst", "value")   # the forms a term column passes through, in order
+
+
+def _tex_em(glyphs):
+    """The em of a glyph list in its own units. MathJax places normal-size glyphs with scale 1 (scripts 0.707)
+    in font units of 1000 per em, so em = 1000 x the largest glyph scale (0 = unknown)."""
+    s = 0.0
+    for g in glyphs or []:
+        m = g.get("m")
+        if m and len(m) >= 2:
+            s = max(s, math.hypot(float(m[0]), float(m[1])))
+    return 1000.0 * s
+
+
+def _form_at(col, key):
+    """(key, glyphs) a term column shows in the row `key` of the all-steps figure: that form, or the last one
+    before it (a symbolic term has no value -> its substituted form stays)."""
+    best = None
+    for k in _FORM_KEYS:
+        if col.get(k):
+            best = (k, col[k])
+        if k == key:
+            break
+    return best
+
+
 def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_color=(0.17, 0.63, 0.17),
                      var_color=(1.0, 0.50, 0.05), end_color=(0.58, 0.40, 0.74),
                      flash_color=(0.40, 0.70, 1.0), bound_color=(0.84, 0.15, 0.16),
-                     animating=False, position=(-6.2, 2.4, 0.0), height=0.9):
-    """Step-by-step Σ (number mode): the Σ expression appears, then for each term the ABSTRACT summand
-    appears, its i is SUBSTITUTED (crossfade), then it is COMPUTED to a value (crossfade); a '+' fades
-    in with a short Σ pulse (the '+' springs from the sum). All via FadeIn/FadeOut/Pulse (contract-safe,
-    scrubbable). `choreo` = {head: glyphs, cols: [ {t:'op'|'plus'|'ell'|'total', g} |
-    {t:'term', abstract, subst, value|null} ]}. Layout is left-to-right by measured width."""
+                     animating=False, position=(-6.2, 2.4, 0.0), height=0.9,
+                     all_steps=False, max_width=0.0, font_size=0.0):
+    """Step-by-step Σ / ∏ / scalar product uᵀv (number mode). PLAY: the head (Σ expression) appears, then for
+    each term the ABSTRACT summand appears, its index is SUBSTITUTED (crossfade), then it is COMPUTED to a
+    value (crossfade); a '+' fades in with a short Σ pulse (the '+' springs from the sum). The scalar
+    product also shows its two vectors first; each term passes through one more form (w_j x_j -> w_1 x_1 ->
+    3·120 -> 360) and its pair of components lights up while the index and the numbers are put in. All via
+    FadeIn/FadeOut/Pulse (contract-safe, scrubbable).
+
+    `choreo` = {head, cols: [ {t:'op'|'plus'|'ell'|'total', g} | {t:'term', abstract, index?, subst,
+    value|null, row?} ], var?, vectors?, rows?, stages?} (glyph lists from MathJax; var = running index,
+    default 'i'; vectors = both column vectors, glyphs tagged with their table `cell`; rows = rows per vector;
+    stages = the forms of the rows of the all-steps figure).
+
+    Layout: one shared scale, the head is `height` tall (or the formula has the em `font_size` canvas px).
+    STATIC (edit view / article figure): all_steps=False -> head = final forms = total in one row (as the
+    animation ends); all_steps=True -> every step as its own row, '=' under '=' (head = substituted =
+    values = total). max_width > 0 (world units) wraps long rows before a '+' or '=' (continuation indented
+    after the '='); without it one row is shrunk to the frame width."""
     gap = 0.14
-    y = float(position[1])
+    var = str(choreo.get("var") or "i")
 
-    def raw(glyphs, col, var_i=False):
-        # var_i: tint the running-variable glyph 'i' with var_color (per-glyph col; the rest stay `col`).
+    def raw(glyphs, col, tint=False, keep=False):
+        # tint: the running-variable glyph (`var`) gets var_color (per-glyph col; the rest stay `col`).
+        # keep: leave it in MathJax's frame (the parts of the vectors must stay where they are relative to
+        # each other); otherwise centred at the origin.
         gl = glyphs or []
-        if var_i and var_color is not None:
-            gl = [dict(g, col=var_color) if g.get("c") == "i" else g for g in gl]
-        return MathTex(gl, scale=1.0, color=col)             # RAW MathJax units (no per-piece height fit)
+        if tint and var_color is not None:
+            gl = [dict(g, col=var_color) if g.get("c") == var else g for g in gl]
+        return MathTex(gl, scale=1.0, color=col, position=None if keep else (0.0, 0.0, 0.0))   # RAW MathJax units
 
-    def dims(mt):
-        p = mt.all_points()
+    def dims(objs):
+        p = [o.all_points() for o in objs]
+        p = np.vstack([q for q in p if len(q)]) if any(len(q) for q in p) else np.zeros((0, 3))
         return (float(np.ptp(p[:, 0])), float(np.ptp(p[:, 1]))) if len(p) else (0.0, 0.0)
 
-    # --- build every piece at raw scale, so we can pick ONE shared scale (consistent sizes) ---
-    head = raw(choreo.get("head", []), color, var_i=True)    # i under the Σ is the running variable
-    _color_head_bounds(head, bound_color, var_color, color)  # lower/upper limits -> bound_color
-    hw, hh = dims(head)
-    built = []                                             # per column: {t, forms:[(mt, is_value)], w}
-    for col in choreo.get("cols", []):
+    def form(key, glyphs):
+        return (key, raw(glyphs, value_color if key == "value" else color, tint=(key == "abstract")))
+
+    def slot(col):
+        # one column: a term passes through its forms (abstract -> index -> subst -> value), the rest is one piece
         t = col.get("t")
         if t == "term":
-            forms = []
-            for key in ("abstract", "subst", "value"):
-                if col.get(key):
-                    is_val = (key == "value")               # abstract still contains i -> tint it var_color
-                    forms.append((raw(col[key], value_color if is_val else color, var_i=(key == "abstract")), is_val))
-            w = max((dims(m)[0] for m, _ in forms), default=0.0)
-            built.append({"t": "term", "forms": forms, "w": w})
+            forms = [form(k, col[k]) for k in _FORM_KEYS if col.get(k)]
         else:
-            m = raw(col.get("g", []), end_color if t == "total" else color)   # the total is the end result
-            built.append({"t": t, "forms": [(m, False)], "w": dims(m)[0]})
+            forms = [("g", raw(col.get("g"), end_color if t == "total" else color))]   # the total is the end result
+        return {"t": t, "forms": forms, "row": col.get("row")}
 
-    # --- one shared scale K: tall enough (head = `height`) but small enough to FIT the frame width ---
-    total_w = hw + sum(b["w"] for b in built)
-    ncol = 1 + len(built)
-    avail = _FRAME_W * 0.94
-    K = (height / hh) if hh > 1e-9 else 1.0
-    if total_w > 1e-9:
-        K = min(K, max(1e-3, (avail - ncol * gap) / total_w))
-    for mt in [head] + [m for b in built for (m, _) in b["forms"]]:
-        mt.scale(K, around=np.zeros(3))
+    head = raw(choreo.get("head"), color, tint=True)        # the running variable under the Σ is tinted
+    _color_head_bounds(head, bound_color, var_color, color, var)   # lower/upper limits -> bound_color
+    hw, hh = dims([head])
+    cols = choreo.get("cols", [])
+    head_slot = {"t": "head", "forms": [("g", head)], "row": None}
 
-    # --- layout left-to-right, centred on position x ---
-    def W(mt):
-        return dims(mt)[0]
-    widths = [W(head)] + [max((W(m) for m, _ in b["forms"]), default=0.0) for b in built]
-    total = sum(widths) + ncol * gap
-    x = [float(position[0]) - total / 2.0]
+    # the two column vectors (scalar product): names/brackets as one part, every table cell as its own part
+    vparts, vcells = [], {}
+    vg = choreo.get("vectors") or []
+    if vg:
+        rest = [g for g in vg if g.get("cell") is None]
+        if rest:
+            vparts.append(raw(rest, color, keep=True))
+        for c in sorted({g["cell"] for g in vg if g.get("cell") is not None}):
+            vcells[c] = raw([g for g in vg if g.get("cell") == c], color, keep=True)
+            vparts.append(vcells[c])
+    nrows = int(choreo.get("rows") or 0)
 
-    def place(mt, slotw):
-        mt.move_to(np.array([x[0] + slotw / 2.0, y, 0.0]))
+    def pair(row):                                           # the two components w_j, x_j of a term
+        if row is None or not nrows:
+            return []
+        return [vcells[c] for c in (row, nrows + row) if c in vcells]
 
-    place(head, widths[0]); x[0] += widths[0] + gap
+    steps = all_steps and not animating
+    if steps:                                                # rows "= …" per step, the total after the last one
+        eq = cols[0] if cols and cols[0].get("t") == "op" else None
+        k0 = 1 if eq is not None else 0
+        k1 = next((i for i in range(k0, len(cols)) if cols[i].get("t") == "op"), len(cols))
+        body, tail = cols[k0:k1], cols[k1:]
+        terms = [c for c in body if c.get("t") == "term"]
+        keys = [k for k in (choreo.get("stages") or ["subst", "value"]) if k in _FORM_KEYS]
+        keys = [k for k in keys if any(c.get(k) for c in terms)]
+        lines = []
+        for n, key in enumerate(keys):
+            items = [head_slot] if n == 0 else []
+            if eq is not None:
+                items.append(slot(eq))
+            for c in body:
+                if c.get("t") == "term":
+                    f = _form_at(c, key)
+                    items.append({"t": "term", "forms": [form(*f)] if f else [], "row": c.get("row")})
+                else:
+                    items.append(slot(c))
+            lines.append(items)
+        if not lines:
+            lines = [[head_slot]]
+        lines[-1].extend(slot(c) for c in tail)
+    else:                                                    # the column choreography, one logical row
+        lines = [[head_slot] + [slot(c) for c in cols]]
 
-    if not animating:                                       # EDIT view: final forms, static
-        scene.add(head)
-        for b, sw in zip(built, widths[1:]):
-            if b["t"] == "term":
-                m = (b["forms"][-1][0] if b["forms"] else None)   # the computed value (or last available)
-            else:
-                m = b["forms"][0][0]
-            if m is not None:
-                place(m, sw); scene.add(m)
-            x[0] += sw + gap
+    items_all = [it for ln in lines for it in ln]
+    objs = [m for it in items_all for _, m in it["forms"]] + vparts
+    rawdim = {id(it): dims([m for _, m in it["forms"]]) for it in items_all}
+    vw, vh = dims(vparts) if vparts else (0.0, 0.0)
+
+    # --- one shared scale K: the head `height` tall, or the em = font_size canvas px ---
+    em = _tex_em(choreo.get("head"))
+    if font_size and font_size > 0 and em > 0:
+        K0 = (float(font_size) / _PX_PER_UNIT) / em
+    else:
+        K0 = (height / hh) if hh > 1e-9 else 1.0
+    wrap = steps or (max_width and max_width > 0)
+    avail = float(max_width) if (max_width and max_width > 0) else _FRAME_W * 0.94
+
+    def chunks(items):                                       # break only before '+' / '=' (an '=' after the head stays)
+        out, cur = [], []
+        for it in items:
+            if it["t"] in ("plus", "op") and cur and not (len(cur) == 1 and cur[0]["t"] == "head"):
+                out.append(cur); cur = []
+            cur.append(it)
+        if cur:
+            out.append(cur)
+        return out
+
+    def layout(K):
+        """Rows [(item, x)] (x = left edge relative to the block's left) at scale K, and whether it fits."""
+        w = lambda it: K * rawdim[id(it)][0]
+        eqw = next((w(it) for ln in lines for it in ln if it["t"] == "op"), 0.0)
+        x_eq = K * hw + gap                                  # the column of the first '='
+        cont = x_eq + eqw + gap                              # a continuation row starts after the '='
+        rows = []
+        for li, items in enumerate(lines):
+            row, x = [], (0.0 if li == 0 else x_eq)
+            for ch in chunks(items):
+                cw = sum(w(it) for it in ch) + gap * (len(ch) - 1)
+                if row and x + gap + cw > avail + 1e-9:
+                    rows.append(row); row, x = [], cont
+                for it in ch:
+                    if row:
+                        x += gap
+                    row.append((it, x)); x += w(it)
+            rows.append(row)
+        right = max((x + w(it) for row in rows for it, x in row[-1:]), default=0.0)
+        hts = [K * max((rawdim[id(it)][1] for it, _ in row), default=0.0) for row in rows]
+        vgap = 0.45 * K * (em if em > 0 else hh / 3.0)
+        tall = sum(hts) + vgap * (len(rows) - 1) + ((K * vh + vgap) if vparts else 0.0)
+        fits = max(right, K * vw) <= avail + 1e-9 and tall <= FRAME_HEIGHT * 0.94
+        return rows, fits, hts, vgap
+
+    if wrap:
+        K = K0
+        if not layout(K)[1]:                                 # too wide or too tall -> largest scale that fits
+            lo, hi = 1e-3, K0
+            for _ in range(40):
+                mid = 0.5 * (lo + hi)
+                lo, hi = (mid, hi) if layout(mid)[1] else (lo, mid)
+            K = lo
+    else:                                                    # one row, shrunk to the frame width (as before)
+        total_w = sum(rawdim[id(it)][0] for it in lines[0])
+        ncol = len(lines[0])
+        K = K0
+        if total_w > 1e-9:
+            K = min(K, max(1e-3, (avail - ncol * gap) / total_w))
+        if vw > 1e-9:
+            K = min(K, max(1e-3, avail / vw))
+    for m in objs:
+        m.scale(K, around=np.zeros(3))
+
+    def W(it):
+        return dims([m for _, m in it["forms"]])[0]
+
+    def place(it, left, yc):
+        for _, m in it["forms"]:
+            m.move_to(np.array([left + W(it) / 2.0, yc, 0.0]))
+
+    def place_vectors(left, yc):
+        if vparts:
+            p = np.vstack([q.all_points() for q in vparts if len(q.all_points())])
+            d = np.array([left - p[:, 0].min(), yc - (p[:, 1].min() + p[:, 1].max()) / 2.0, 0.0])
+            for q in vparts:
+                q.shift(d)
+
+    if wrap:
+        rows, _fits, hts, vgap = layout(K)
+        bw = max((x + W(it) for row in rows for it, x in row[-1:]), default=0.0)
+        bw = max(bw, dims(vparts)[0] if vparts else 0.0)
+        vh2 = dims(vparts)[1] if vparts else 0.0
+        tall = sum(hts) + vgap * (len(rows) - 1) + ((vh2 + vgap) if vparts else 0.0)
+        left = float(position[0]) - bw / 2.0
+        top = float(position[1]) + tall / 2.0
+        if vparts:
+            place_vectors(left, top - vh2 / 2.0); top -= vh2 + vgap
+        for row, h in zip(rows, hts):
+            for it, x in row:
+                place(it, left + x, top - h / 2.0)
+            top -= h + vgap
+        order = [it for row in rows for it, _ in row]
+    else:                                                    # left to right, centred on position x
+        widths = [W(it) for it in lines[0]]
+        total = sum(widths) + len(widths) * gap
+        x = float(position[0]) - total / 2.0
+        y = float(position[1])
+        for it, sw in zip(lines[0], widths):
+            for _, m in it["forms"]:
+                m.move_to(np.array([x + sw / 2.0, y, 0.0]))  # centred in its slot (the forms differ in width)
+            x += sw + gap
+        if vparts:                                           # the vectors above the row, flush left
+            rh = max((dims([m for _, m in it["forms"]])[1] for it in lines[0]), default=0.0)
+            vh2 = dims(vparts)[1]
+            vgap = 0.45 * K * (em if em > 0 else hh / 3.0)
+            place_vectors(float(position[0]) - total / 2.0, y + rh / 2.0 + vgap + vh2 / 2.0)
+        order = lines[0]
+
+    if not animating:                                       # EDIT view / article figure: static
+        scene.add(*vparts)
+        for it in order:
+            if it["forms"]:
+                scene.add(it["forms"][-1][1])              # a term shows its last form (the computed value)
         return
 
     # the big Σ glyph = the tallest sub-group of the head; only IT pulses + flashes light blue on a '+'
@@ -293,24 +471,26 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
         return best
     sigma = _biggest(head)
 
-    plays = [[FadeIn(head)]]                                 # 1) the Σ expression appears
-    for b, sw in zip(built, widths[1:]):
-        if b["t"] in ("op", "plus", "ell", "total"):
-            m = b["forms"][0][0]; place(m, sw)
-            if b["t"] == "plus":
+    plays = [[FadeIn(q) for q in vparts]] if vparts else []  # 0) the two vectors (scalar product)
+    plays.append([FadeIn(head)])                             # 1) the Σ expression appears
+    for it in order[1:]:
+        t = it["t"]
+        if t in ("op", "plus", "ell", "total"):
+            m = it["forms"][0][1]
+            if t == "plus":
                 # the '+' springs in (grows + flashes flash_color) AND the big Σ pulses the same colour
                 sig = PulseColor(sigma, color=flash_color) if sigma is not None else Pulse(head)
                 plays.append([AppearPulseColor(m, color=flash_color), sig])
             else:
                 plays.append([FadeIn(m)])
-        else:                                                # term: abstract -> substitute -> compute
-            for m, _ in b["forms"]:
-                place(m, sw)
+        else:                                                # term: abstract -> (index ->) substitute -> compute
             prev = None
-            for m, _ in b["forms"]:
-                plays.append([FadeOut(prev), FadeIn(m)] if prev is not None else [FadeIn(m)])
+            for key, m in it["forms"]:
+                anims = [FadeOut(prev), FadeIn(m)] if prev is not None else [FadeIn(m)]
+                if key in ("index", "subst"):                # the pair w_j, x_j lights up while it is put in
+                    anims += [PulseColor(q, factor=1.15, color=var_color) for q in pair(it["row"])]
+                plays.append(anims)
                 prev = m
-        x[0] += sw + gap
 
     per = run_time / max(1, len(plays))
     for anims in plays:

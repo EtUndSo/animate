@@ -148,7 +148,7 @@ _PROTECT = []
 def _protect(m):
     _PROTECT.append(m.group(0)); return f"\x00{len(_PROTECT)-1}\x00"
 
-_MC_LINKS, _MC_REL, _MC_RECHTS = "#123d29", "#15633a", "#c2410c"   # linke Seite dunkelgrün, Relation grün, rechte Seite orange
+_MC_LINKS, _MC_REL, _MC_RECHTS = "#1b7f4a", "#15633a", "#c2410c"   # linke Seite grün (heller), Relation grün, rechte Seite orange
 def colorize_math(s):
     """Colour an (in)equation: left-hand side RED, every relation ('=' or '\\approx') BLUE, the
     part after it GOLD (via KaTeX \\textcolor). Splits only on a *top-level* relation (brace depth 0),
@@ -760,19 +760,23 @@ def nav_arrow(a, prev):
               '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>') + '</svg>')
     if a:
         t = html.escape(f'{word}: {a["title"]}')
-        return f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
-    return f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="{word}">{svg}</span>'
+        knopf = f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
+        # Titel des Nachbarartikels neben dem Pfeil (User 2026-11-04: „sonst weiß man gar nicht was kommt“);
+        # links vom Zurück-Pfeil, rechts vom Weiter-Pfeil; lange Titel enden mit …
+        name = (f'<a class="navTitel {"vor" if prev else "nach"}" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" '
+                f'tabindex="-1" aria-hidden="true">{html.escape(a["title"])}</a>')
+        return name + knopf if prev else knopf + name
+    knopf = f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="{word}">{svg}</span>'
+    leer = f'<span class="navTitel {"vor" if prev else "nach"}"></span>'   # Platzhalter: die Knöpfe bleiben mittig
+    return leer + knopf if prev else knopf + leer
 
 def topbar(panels=False, prev_a=None, next_a=None, art=None):
-    # Panel-Buttons (nur Artikelseiten, mittig): links=Themenbaum, rechts=Gliederung.
-    # Davor und dahinter je ein Pfeil zum vorherigen/nächsten Artikel. Farbe: offen = orange, zu = Grundfarbe.
+    # Nur Artikelseiten, mittig: Knopf für den Themenbaum, davor und dahinter je ein Pfeil zum vorherigen/nächsten
+    # Artikel mit dessen Titel. (Der Knopf für die rechte Gliederung ist weg: rechts steht nichts mehr, User 2026-11-04.)
     pbtns = ('<div class="panelCenter">' + nav_arrow(prev_a, True)
              + '<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
-             '<button id="toggleRight" class="panelBtn is-open" aria-label="Gliederung ein-/ausblenden" title="Gliederung ein-/ausblenden" aria-pressed="true">'
-             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
-             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg></button>'
              + nav_arrow(next_a, False) + '</div>') if panels else ''
     return ('<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
             + pbtns + lang_switch(art)
@@ -963,7 +967,7 @@ WISSEN_CSS = r"""
    Tag Standard, Nacht via data-theme=dark (folgt dem Editor-Theme); nachts helle Rahmen um alle Kästen.
    Alle Textfarben mindestens 4,5 : 1 auf Karte und Grund. --accent2 = Überschriftfarbe (früher Lila). */
 :root{ --bg:#ffffff; --panel:#ffffff; --ink:#16191a; --muted:#5b6360; --border:#e6e8e6; --soft:#f6f7f6;
-  --accent:#15633a; --accent2:#123d29; --accent3:#c2410c; --on-accent:#ffffff; --aufg:#15633a; --rahmen:var(--border);
+  --accent:#15633a; --accent2:#1b7f4a; --accent3:#c2410c; --on-accent:#ffffff; --aufg:#15633a; --rahmen:var(--border);
   --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-soft:#1a4d35; --bar-hl:#ff9650; --radius:14px;
   --fdisp:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif; --fbody:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --fmono:ui-monospace,"Cascadia Code",Consolas,monospace; }
@@ -972,8 +976,8 @@ WISSEN_CSS = r"""
   --bar:#0b2a1c; --bar-ink:#dcebe1; --bar-rand:#174630; --bar-soft:#123a27; }
 /* Formelfarben (\textcolor der Build-Färbung) nachts in den hellen Varianten, die dunklen wären kaum zu lesen.
    KaTeX setzt die Farbe per Skript, der Browser schreibt sie dann als rgb(…) ins style-Attribut.
-   Linke Seite dunkelgrün (#123d29), Relation grün, rechte Seite orange; #3f1a78 = Lila aus Artikeln vor dem 04.11.2026. */
-:root[data-theme="dark"] .katex [style*="rgb(18, 61, 41)"],:root[data-theme="dark"] .katex [style*="#123d29"]{color:var(--accent2)!important;}
+   Linke Seite grün (#1b7f4a; bis 04.11. abends #123d29, zu dunkel), Relation grün, rechte Seite orange; #3f1a78 = Lila aus Artikeln vor dem 04.11.2026. */
+:root[data-theme="dark"] .katex [style*="rgb(27, 127, 74)"],:root[data-theme="dark"] .katex [style*="#1b7f4a"]{color:var(--accent2)!important;}
 .katex [style*="rgb(63, 26, 120)"],.katex [style*="#3f1a78"]{color:var(--accent2)!important;}
 :root[data-theme="dark"] .katex [style*="rgb(21, 99, 58)"],:root[data-theme="dark"] .katex [style*="#15633a"]{color:var(--accent)!important;}
 :root[data-theme="dark"] .katex [style*="rgb(194, 65, 12)"],:root[data-theme="dark"] .katex [style*="#c2410c"]{color:var(--accent3)!important;}
@@ -998,7 +1002,13 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .navBtn{color:var(--bar-hl);border-color:var(--bar-hl);}             /* Pfeile zum vorherigen/nächsten Artikel */
 .topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}
 .topbar .navBtn.disabled{color:var(--bar-ink);border-color:var(--bar-rand);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
-.topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
+.topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
+/* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben */
+.topbar .navTitel{width:min(280px,calc(50vw - 350px));overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
+  color:var(--bar-ink);opacity:.82;line-height:1.3;}
+.topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
+.topbar a.navTitel:hover{opacity:1;color:var(--bar-hl);text-decoration:none;}
+@media(max-width:1000px){ .topbar .navTitel{display:none;} }
 .apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
 .apill-mensch{color:var(--accent3);border-color:var(--accent3);}
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
@@ -1020,6 +1030,12 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side .lvl2>summary{color:var(--accent);}                 /* Modul: grün */
 .side ul{list-style:none;margin:0 0 4px;padding-left:22px;} .side li{margin:1px 0;}
 .side li a{display:block;color:var(--ink);padding:3px 7px;border-radius:7px;}   /* Unterthemen/Themen: schwarz (im Dunkelmodus hell) */
+/* kleiner Punkt vor jedem Unterthema, damit man sieht, wo ein Titel endet und der nächste beginnt (User 2026-11-04);
+   Folgezeilen langer Titel rücken unter den Text ein, nicht unter den Punkt */
+/* absolut gesetzt statt Flexbox: Flex würde Titel mit Formel (KaTeX) in einzelne Stücke zerreißen */
+.side li a{position:relative;padding-left:20px;}
+.side li a::before{content:"";position:absolute;left:8px;top:calc(3px + .84em - 2.5px);width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.5;}
+.side li a.active::before{opacity:.9;}
 .side li a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
 .side li a.active{color:var(--on-accent);background:var(--accent);font-weight:600;}
 .article{min-width:0;padding:26px 30px 70px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:34px;align-items:start;}

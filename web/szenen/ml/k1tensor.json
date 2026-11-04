@@ -1,0 +1,4829 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 219,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.3,
+      0.2,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.58,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.41,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.24,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.58,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.41,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.24,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.58,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.41,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.24,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.58,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.41,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.24,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.26,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.09,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.08000000000000002,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.26,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.09,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.08000000000000002,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.26,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.09,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o32",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.08000000000000002,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.26,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.09,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o36",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.08000000000000002,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o38",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.38,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o39",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.21,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o40",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.03999999999999998,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.13,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o42",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.38,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o43",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.21,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o44",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.03999999999999998,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o45",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.13,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o46",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.38,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o47",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.21,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o48",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.03999999999999998,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o49",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.13,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o50",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.38,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o51",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.21,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o52",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.03999999999999998,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o53",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.13,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o54",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.5,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o55",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.32999999999999996,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o56",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.15999999999999998,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o57",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.010000000000000009,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o58",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.5,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o59",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.32999999999999996,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o60",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.15999999999999998,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o61",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.010000000000000009,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o62",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.5,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o63",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.32999999999999996,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o64",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.15999999999999998,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o65",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.010000000000000009,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o66",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.5,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o67",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.32999999999999996,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o68",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.15999999999999998,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o69",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.010000000000000009,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o70",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.01,
+      0.66,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o71",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.18,
+      0.66,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o72",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.35,
+      0.66,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o73",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.52,
+      0.66,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o74",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.01,
+      0.49,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o75",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.18,
+      0.49,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o76",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.35,
+      0.49,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o77",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.52,
+      0.49,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o78",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.01,
+      0.32,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o79",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.18,
+      0.32,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o80",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.35,
+      0.32,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o81",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.52,
+      0.32,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o82",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.01,
+      0.15000000000000002,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o83",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.18,
+      0.15000000000000002,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o84",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.35,
+      0.15000000000000002,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o85",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.52,
+      0.15000000000000002,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o86",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.9299999999999999,
+      0.58,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o87",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.0999999999999999,
+      0.58,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o88",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.27,
+      0.58,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o89",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.44,
+      0.58,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o90",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.9299999999999999,
+      0.4099999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o91",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.0999999999999999,
+      0.4099999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o92",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.27,
+      0.4099999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o93",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.44,
+      0.4099999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o94",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.9299999999999999,
+      0.23999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o95",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.0999999999999999,
+      0.23999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o96",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.27,
+      0.23999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o97",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.44,
+      0.23999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o98",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.9299999999999999,
+      0.06999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o99",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.0999999999999999,
+      0.06999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o100",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.27,
+      0.06999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o101",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.44,
+      0.06999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o102",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.85,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o103",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.02,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o104",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.19,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o105",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3599999999999999,
+      0.5,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o106",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.85,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o107",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.02,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o108",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.19,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o109",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3599999999999999,
+      0.32999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o110",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.85,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o111",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.02,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o112",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.19,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o113",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3599999999999999,
+      0.15999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o114",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.85,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o115",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.02,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o116",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.19,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o117",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3599999999999999,
+      -0.010000000000000009,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o118",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8299999999999998,
+      0.78,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o119",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.9999999999999998,
+      0.78,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o120",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.17,
+      0.78,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o121",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.34,
+      0.78,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o122",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8299999999999998,
+      0.61,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o123",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.9999999999999998,
+      0.61,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o124",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.17,
+      0.61,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o125",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.34,
+      0.61,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o126",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8299999999999998,
+      0.44,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o127",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.9999999999999998,
+      0.44,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o128",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.17,
+      0.44,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o129",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.34,
+      0.44,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o130",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8299999999999998,
+      0.27,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o131",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.9999999999999998,
+      0.27,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o132",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.17,
+      0.27,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o133",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.34,
+      0.27,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o134",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      0.7,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o135",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.92,
+      0.7,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o136",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.09,
+      0.7,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o137",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.26,
+      0.7,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o138",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      0.5299999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o139",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.92,
+      0.5299999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o140",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.09,
+      0.5299999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o141",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.26,
+      0.5299999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o142",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      0.35999999999999993,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o143",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.92,
+      0.35999999999999993,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o144",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.09,
+      0.35999999999999993,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o145",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.26,
+      0.35999999999999993,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o146",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      0.18999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o147",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.92,
+      0.18999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o148",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.09,
+      0.18999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o149",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.26,
+      0.18999999999999995,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o150",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.67,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o151",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8399999999999999,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o152",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.01,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o153",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.1799999999999997,
+      0.62,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o154",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.67,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o155",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8399999999999999,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o156",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.01,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o157",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.1799999999999997,
+      0.44999999999999996,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o158",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.67,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o159",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8399999999999999,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o160",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.01,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o161",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.1799999999999997,
+      0.27999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o162",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.67,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o163",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8399999999999999,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o164",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.01,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o165",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.1799999999999997,
+      0.10999999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o166",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      0.9,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o167",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.82,
+      0.9,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o168",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9899999999999998,
+      0.9,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o169",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.16,
+      0.9,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o170",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      0.73,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o171",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.82,
+      0.73,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o172",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9899999999999998,
+      0.73,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o173",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.16,
+      0.73,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o174",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      0.56,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o175",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.82,
+      0.56,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o176",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9899999999999998,
+      0.56,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o177",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.16,
+      0.56,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o178",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      0.39,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o179",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.82,
+      0.39,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o180",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9899999999999998,
+      0.39,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o181",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.16,
+      0.39,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f4c7c7",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o182",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.57,
+      0.82,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o183",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.7399999999999998,
+      0.82,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o184",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9099999999999997,
+      0.82,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o185",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.08,
+      0.82,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o186",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.57,
+      0.6499999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o187",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.7399999999999998,
+      0.6499999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o188",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9099999999999997,
+      0.6499999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o189",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.08,
+      0.6499999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o190",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.57,
+      0.4799999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o191",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.7399999999999998,
+      0.4799999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o192",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9099999999999997,
+      0.4799999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o193",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.08,
+      0.4799999999999999,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o194",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.57,
+      0.30999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o195",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.7399999999999998,
+      0.30999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o196",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.9099999999999997,
+      0.30999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o197",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.08,
+      0.30999999999999994,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#c4e3cf",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o198",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.4899999999999998,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o199",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.6599999999999997,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o200",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.8299999999999996,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o201",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.0,
+      0.74,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o202",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.4899999999999998,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o203",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.6599999999999997,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o204",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.8299999999999996,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o205",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.0,
+      0.57,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o206",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.4899999999999998,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o207",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.6599999999999997,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o208",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.8299999999999996,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o209",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.0,
+      0.39999999999999997,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o210",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.4899999999999998,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o211",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.6599999999999997,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o212",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.8299999999999996,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o213",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.0,
+      0.22999999999999998,
+      0
+     ],
+     "width": 0.17,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#cfe0f5",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o214",
+    "type": "Text",
+    "props": {
+     "text": "@sk",
+     "position": [
+      -3.3,
+      -0.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o215",
+    "type": "Text",
+    "props": {
+     "text": "@ve",
+     "position": [
+      -2.45,
+      -0.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o216",
+    "type": "Text",
+    "props": {
+     "text": "@ma",
+     "position": [
+      -1.47,
+      -0.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o217",
+    "type": "Text",
+    "props": {
+     "text": "@fb",
+     "position": [
+      -0.1,
+      -0.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o218",
+    "type": "Text",
+    "props": {
+     "text": "@st",
+     "position": [
+      2.05,
+      -0.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "sk": {
+    "de": "Skalar\nForm: keine",
+    "en": "scalar\nshape: none",
+    "es": "escalar\nsin forma",
+    "zh": "标量\n形状：无"
+   },
+   "ve": {
+    "de": "Vektor\nForm 4",
+    "en": "vector\nshape 4",
+    "es": "vector\nforma 4",
+    "zh": "向量\n形状 4"
+   },
+   "ma": {
+    "de": "Matrix\nForm 4×4",
+    "en": "matrix\nshape 4×4",
+    "es": "matriz\nforma 4×4",
+    "zh": "矩阵\n形状 4×4"
+   },
+   "fb": {
+    "de": "Farbbild\nForm 3×4×4",
+    "en": "colour image\nshape 3×4×4",
+    "es": "imagen en color\nforma 3×4×4",
+    "zh": "彩色图像\n形状 3×4×4"
+   },
+   "st": {
+    "de": "Bildstapel\nForm N×3×4×4",
+    "en": "image stack\nshape N×3×4×4",
+    "es": "pila de\nimágenes\nforma N×3×4×4",
+    "zh": "图像堆叠\n形状 N×3×4×4"
+   }
+  }
+ }
+}

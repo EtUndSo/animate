@@ -1,0 +1,701 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 27,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.4,
+      4.6
+     ],
+     "y_range": [
+      -3.2,
+      3.2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.15,
+     "origin": [
+      -0.6,
+      1.75,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      4.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Stem",
+    "props": {
+     "x": "1;2;3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "1;-1;1;-1"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.4,
+      4.6
+     ],
+     "y_range": [
+      -3.2,
+      3.2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.15,
+     "origin": [
+      -0.6,
+      0.3500000000000001,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      4.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o7",
+    "type": "Stem",
+    "props": {
+     "x": "1;2;3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "2;-1;3;-2"
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o8",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.4,
+      4.6
+     ],
+     "y_range": [
+      -3.2,
+      3.2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.15,
+     "origin": [
+      -0.6,
+      -1.0499999999999998,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      4.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o10",
+    "type": "Stem",
+    "props": {
+     "x": "1;2;3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "2;1;3;2"
+    },
+    "on": "o8"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "wᵀx = 2 + 1 + 3 + 2 = 8",
+     "position": [
+      -0.6,
+      -2.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.4,
+      4.6
+     ],
+     "y_range": [
+      -3.2,
+      3.2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.15,
+     "origin": [
+      2.6,
+      1.75,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      4.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o14",
+    "type": "Stem",
+    "props": {
+     "x": "1;2;3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "1;-1;1;-1"
+    },
+    "on": "o12"
+   },
+   {
+    "id": "o15",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.4,
+      4.6
+     ],
+     "y_range": [
+      -3.2,
+      3.2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.15,
+     "origin": [
+      2.6,
+      0.3500000000000001,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      4.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o15"
+   },
+   {
+    "id": "o17",
+    "type": "Stem",
+    "props": {
+     "x": "1;2;3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "2;2;3;3"
+    },
+    "on": "o15"
+   },
+   {
+    "id": "o18",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.4,
+      4.6
+     ],
+     "y_range": [
+      -3.2,
+      3.2
+     ],
+     "x_length": 2.6,
+     "y_length": 1.15,
+     "origin": [
+      2.6,
+      -1.0499999999999998,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      4.6,
+      0,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    },
+    "on": "o18"
+   },
+   {
+    "id": "o20",
+    "type": "Stem",
+    "props": {
+     "x": "1;2;3;4",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.07,
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": "",
+     "y": "2;-2;3;-3"
+    },
+    "on": "o18"
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "wᵀx' = 2 − 2 + 3 − 3 = 0",
+     "position": [
+      2.6,
+      -2.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@tl",
+     "position": [
+      -0.6,
+      2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@tr",
+     "position": [
+      2.6,
+      2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@m",
+     "position": [
+      -2.05,
+      1.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@sig",
+     "position": [
+      -2.05,
+      0.35,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@prod",
+     "position": [
+      -2.05,
+      -1.05,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "tl": {
+    "de": "x wechselt im Takt",
+    "en": "x alternates",
+    "es": "x alterna",
+    "zh": "x 交替变化"
+   },
+   "tr": {
+    "de": "x' steigt gleichmäßig",
+    "en": "x' rises steadily",
+    "es": "x' sube de forma regular",
+    "zh": "x' 平稳上升"
+   },
+   "m": {
+    "de": "Muster w",
+    "en": "pattern w",
+    "es": "patrón w",
+    "zh": "模式 w"
+   },
+   "sig": {
+    "de": "Signal",
+    "en": "signal",
+    "es": "señal",
+    "zh": "信号"
+   },
+   "prod": {
+    "de": "Produkte\nwₙ xₙ",
+    "en": "products\nwₙ xₙ",
+    "es": "productos\nwₙ xₙ",
+    "zh": "乘积\nwₙ xₙ"
+   }
+  }
+ }
+}

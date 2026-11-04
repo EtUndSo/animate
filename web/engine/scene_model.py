@@ -1529,8 +1529,8 @@ def _run_computation(scene, cspec, objects, types, axes, results=None, comps_by_
         if len(nums) >= 1:
             _arith.run(t, scene, nums, float(p.get("run_time", 4.0)), scene.animating, p.get("mode", "squares"))
         return
-    if t in ("Summation", "BigProduct"):                    # Σ sum / ∏ product over an index i (no object operands)
-        p = cspec.get("props", {})
+    if t in ("Summation", "BigProduct", "DotProduct"):      # Σ sum / ∏ product over an index i, scalar product uᵀv
+        p = cspec.get("props", {})                          # (no object operands)
         i0 = int(p.get("from", 1))
         end_raw = str(p.get("to", "n")).strip()
         try:                                                # numeric limit, or symbolic ('n')
@@ -1540,7 +1540,14 @@ def _run_computation(scene, cspec, objects, types, axes, results=None, comps_by_
         expr = str(p.get("term", "1/i^2"))
         color = p.get("color", (0.89, 0.29, 0.20))
         rt, st = float(p.get("run_time", 5.0)), int(p.get("show_terms", 3))
-        if p.get("sum_mode", "number") == "function":
+
+        def num(key):                                       # optional layout numbers (absent/invalid -> 0 = off)
+            try:
+                v = float(p.get(key) or 0.0)
+                return v if np.isfinite(v) and v > 0 else 0.0
+            except (TypeError, ValueError):
+                return 0.0
+        if t != "DotProduct" and p.get("sum_mode", "number") == "function":
             if axes is not None:
                 _proc.summation_function(scene, term_from_expr_ix(expr), i0, i1, axes, symbolic=symbolic,
                                          end_label=end_label, run_time=rt, color=color, show_terms=st,
@@ -1558,7 +1565,13 @@ def _run_computation(scene, cspec, objects, types, axes, results=None, comps_by_
             if choreo:
                 _proc.summation_choreo(scene, choreo, run_time=rt, color=color, value_color=vc,
                                        var_color=varc, end_color=endc, flash_color=flc, bound_color=bdc,
-                                       animating=scene.animating, position=pos, height=sz)
+                                       animating=scene.animating, position=pos, height=sz,
+                                       all_steps=bool(p.get("all_steps", False)),   # static: every step as a row
+                                       max_width=num("max_width"),                 # wrap width (world units)
+                                       font_size=num("font_size"))                 # em in canvas px (else `size`)
+            elif t == "DotProduct":                          # glyphs not ready / invalid lists -> keep the time only
+                if scene.animating:
+                    scene.wait(rt)
             elif glyphs:                                     # fallback: real LaTeX vector Σ (ground state)
                 _proc.summation_tex(scene, glyphs, run_time=rt, color=color, animating=scene.animating,
                                     position=pos, height=float(p.get("size", 1.4)))

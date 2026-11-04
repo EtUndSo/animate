@@ -1,0 +1,540 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 25,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      51,
+      66.5
+     ],
+     "y_range": [
+      0.5,
+      5.4
+     ],
+     "x_length": 4.0,
+     "y_length": 1.27,
+     "origin": [
+      -1.25,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "@fl",
+     "y_label": "@zi",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "52;56;60;64",
+     "y_ticks": "2;4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Circle",
+    "props": {
+     "radius": 3.606,
+     "center": [
+      60,
+      2,
+      0
+     ],
+     "color": "#9ec3ec",
+     "fill_color": "#9ec3ec",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      60,
+      2,
+      0
+     ],
+     "end": [
+      63,
+      4,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      60,
+      2,
+      0
+     ],
+     "end": [
+      54,
+      2,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      60,
+      2,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "A",
+     "position": [
+      60.4,
+      1.1,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      63,
+      4,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "B",
+     "position": [
+      63.4,
+      3.1,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      54,
+      2,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "C",
+     "position": [
+      54.4,
+      1.1,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "3.61",
+     "position": [
+      63.3,
+      2.6,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "6",
+     "position": [
+      57,
+      2.7,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o14",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      5.1,
+      6.75
+     ],
+     "y_range": [
+      0.5,
+      5.4
+     ],
+     "x_length": 0.88,
+     "y_length": 2.6,
+     "origin": [
+      2.75,
+      0.4,
+      0
+     ],
+     "title": "",
+     "x_label": "@fl10",
+     "y_label": "@zi",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "5.4;6;6.6",
+     "y_ticks": "2;4",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Line",
+    "props": {
+     "start": [
+      6,
+      2,
+      0
+     ],
+     "end": [
+      6.3,
+      4,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      6,
+      2,
+      0
+     ],
+     "end": [
+      5.4,
+      2,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o17",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6,
+      2,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "A",
+     "position": [
+      6.08,
+      1.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o19",
+    "type": "Dot",
+    "props": {
+     "center": [
+      6.3,
+      4,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "B",
+     "position": [
+      6.38,
+      3.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#2a78d6"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o21",
+    "type": "Dot",
+    "props": {
+     "center": [
+      5.4,
+      2,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "C",
+     "position": [
+      5.48,
+      1.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "2.02",
+     "position": [
+      6.35,
+      3.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#2a78d6"
+    },
+    "on": "o14"
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "0.6",
+     "position": [
+      5.7,
+      2.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    },
+    "on": "o14"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "fl": {
+    "de": "Fläche in m²",
+    "en": "area in m²",
+    "es": "área en m²",
+    "zh": "面积 m²"
+   },
+   "fl10": {
+    "de": "Fläche in 10 m²",
+    "en": "area in 10 m²",
+    "es": "área en 10 m²",
+    "zh": "面积 10 m²"
+   },
+   "zi": {
+    "de": "Zimmer",
+    "en": "rooms",
+    "es": "cuartos",
+    "zh": "房间数"
+   }
+  }
+ }
+}

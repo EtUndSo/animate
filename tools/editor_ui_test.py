@@ -30,6 +30,14 @@ def wait_ready(pg):
     pg.wait_for_timeout(1500)
 
 
+def objects_aufklappen(pg):
+    """Nach dem Laden einer Vorlage oder Szene sind die Scene-Bereiche zugeklappt; Objects öffnen."""
+    btn = pg.locator('.sub-toggle[data-sec="objs"]')
+    if btn.get_attribute("aria-expanded") == "false":
+        btn.click()
+        pg.wait_for_timeout(300)
+
+
 with sync_playwright() as pw:
     b = pw.chromium.launch(channel="chrome")
     ctx = b.new_context(viewport={"width": 1500, "height": 1100}, accept_downloads=True)
@@ -58,6 +66,9 @@ with sync_playwright() as pw:
     # 2. Parameter slider: load the characteristic-field template, move U_B, the picture changes
     pg.select_option("#templates", "Kennlinienfeld mit Arbeitspunkt")
     pg.wait_for_timeout(2500)
+    check("Nach Vorlagenwahl sind die Scene-Bereiche zugeklappt",
+          pg.locator(".sub-toggle[aria-expanded=false]").count() == 3)
+    objects_aufklappen(pg)
     h0 = canvas_hash(pg)
     row = pg.locator("#scene-objs .obj-row", has_text="UB = 5")
     check("Parameter in der Szenenliste (Name = Wert)", row.count() == 1)
@@ -75,6 +86,7 @@ with sync_playwright() as pw:
     # 3. Panel choice: Bode template has 2 Axes -> a FunctionGraph shows the 'axes' dropdown; moving it changes the picture
     pg.select_option("#templates", "Bode-Diagramm Tiefpass")
     pg.wait_for_timeout(2500)
+    objects_aufklappen(pg)
     h0 = canvas_hash(pg)
     fg_rows = pg.locator("#scene-objs .obj-row", has_text="FunctionGraph")
     fg_rows.first.click()
@@ -118,6 +130,7 @@ with sync_playwright() as pw:
     pg2.goto(BASE + "?scene=szenen/beispiel-emitterschaltung.json", wait_until="domcontentloaded")
     wait_ready(pg2)
     st = pg2.locator("#status").text_content() or ""
+    objects_aufklappen(pg2)
     n_objs = pg2.locator("#scene-objs .obj-row").count()
     check("Szene per Link geladen", "Szene geladen" in st or n_objs > 5, f"{st} | {n_objs} Zeilen")
     pg2.locator("#view").screenshot(path=str(OUT / "ui_link.png"))
