@@ -13,50 +13,50 @@
 <ol>
 <li>
 <p>⁠<strong>分解。</strong>用宽度为 $T_0$ 的窄矩形组成的阶梯来近似输入信号。基本单元是持续时间为 $T_0$、高度为 $1/T_0$，即面积为 1 的矩形 $s_0(t)$。位于 $nT_0$ 处的台阶，就是把这个基本单元平移 $nT_0$，再乘以权重 $s(nT_0)\,T_0$（即该窄条的面积）：</p>
-<p>$$\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ s_a(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=-\infty}^{\infty}s(nT_0)\,s_0(t-nT_0)\,T_0.}$$</p>
+<p>$$\textcolor{#123d29}{s(t)}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ s_a(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=-\infty}^{\infty}s(nT_0)\,s_0(t-nT_0)\,T_0.}$$</p>
 </li>
 <li>
 <p>⁠<strong>让一个基本单元通过系统。</strong>系统对 $s_0$ 的响应为 $g_0(t)$。这个响应需要知道，但只需知道一次。</p>
 </li>
 <li>
 <p>⁠<strong>再合成。</strong>时不变性：平移后的基本单元产生平移后的响应。线性：权重和求和都原样传递到输出。因此</p>
-<p>$$\textcolor{#3f1a78}{g_a(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=-\infty}^{\infty}s(nT_0)\,g_0(t-nT_0)\,T_0}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ g(t).}$$</p>
+<p>$$\textcolor{#123d29}{g_a(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=-\infty}^{\infty}s(nT_0)\,g_0(t-nT_0)\,T_0}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ g(t).}$$</p>
 </li>
 <li>
 <p>⁠<strong>取极限 $T_0\to0$。</strong>阶梯变成信号本身。面积为 1 的矩形变成<strong class="nm">狄拉克冲激</strong>（$\delta$ 函数）$\delta(t)$，即面积为 1 的无限短冲激。系统对它的响应称为<strong class="nm">冲激响应</strong> $h(t)$。$nT_0$ 变为连续变量 $\tau$，$T_0$ 变为微分 $\mathrm{d}\tau$，求和变为积分。</p>
 </li>
 </ol>
-<figure class="abb" id="abb-5"><img src="/abbildungen/zh/et3/k1treppe.svg" width="513" height="426" alt="上：三角脉冲 s(t)=Lambda(t-1) 及其 T 0=0.5 s 的阶梯近似。下：RC 电路的精确响应，以及平移后的各矩形响应之和。最大偏差从 0.17（ T 0=0.5 s）降到 0.08（ 0.25 s）和 0.03（ 0.1 s）。" loading="lazy" decoding="async"/><div class="abb-knopf"><a class="abb-edit" href="/editor.html?scene=szenen/et3/k1treppe.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>在编辑器中打开场景</a></div><figcaption><span class="abb-n">图 5</span> 上：三角脉冲 $\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\Lambda(t-1)}$ 及其 $\textcolor{#3f1a78}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.5}$ s 的阶梯近似。下：RC 电路的精确响应，以及平移后的各矩形响应之和。最大偏差从 0.17（$\textcolor{#3f1a78}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.5}$ s）降到 0.08（$0.25$ s）和 0.03（$0.1$ s）。</figcaption></figure>
+<figure class="abb" id="abb-5"><img src="/abbildungen/zh/et3/k1treppe.svg" width="513" height="426" alt="上：三角脉冲 s(t)=Lambda(t-1) 及其 T 0=0.5 s 的阶梯近似。下：RC 电路的精确响应，以及平移后的各矩形响应之和。最大偏差从 0.17（ T 0=0.5 s）降到 0.08（ 0.25 s）和 0.03（ 0.1 s）。" loading="lazy" decoding="async"/><div class="abb-knopf"><a class="abb-edit" href="/editor.html?scene=szenen/et3/k1treppe.json&amp;lang=zh" target="_blank" rel="noopener" title="在编辑器中打开此图的场景"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>在编辑器中打开场景</a></div><figcaption><span class="abb-n">图 5</span> 上：三角脉冲 $\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\Lambda(t-1)}$ 及其 $\textcolor{#123d29}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.5}$ s 的阶梯近似。下：RC 电路的精确响应，以及平移后的各矩形响应之和。最大偏差从 0.17（$\textcolor{#123d29}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.5}$ s）降到 0.08（$0.25$ s）和 0.03（$0.1$ s）。</figcaption></figure>
 <aside class="callout cx-satz"><div class="callout-h">定理 4.1 (卷积积分)</div><span class="anker" id="satz-4-1"></span>
 <p>每个信号 $s(t)$ 都满足</p>
 <span class="anker" id="gl-4-1"></span>
-<div class="gl-zeile"><div class="gl-f">$$\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-\infty}^{\infty}s(\tau)\,\delta(t-\tau)\,\mathrm{d}\tau,}$$</div><div class="gl-nr"><span>(4.1)</span></div></div>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-\infty}^{\infty}s(\tau)\,\delta(t-\tau)\,\mathrm{d}\tau,}$$</div><div class="gl-nr"><span>(4.1)</span></div></div>
 <p>冲激响应为 $h(t)$ 的 LTI 系统对它的响应为</p>
 <span class="anker" id="gl-4-2"></span>
-<div class="gl-zeile"><div class="gl-f">$$\textcolor{#3f1a78}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau.}$$</div><div class="gl-nr"><span>(4.2)</span></div></div></aside>
+<div class="gl-zeile"><div class="gl-f">$$\textcolor{#123d29}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau.}$$</div><div class="gl-nr"><span>(4.2)</span></div></div></aside>
 <p>⁠<strong>如何理解：</strong>$\tau$ 是某个输入冲激出现的时刻，$s(\tau)\,\mathrm{d}\tau$ 是它的权重（窄条的面积）。$h(t-\tau)$ 是系统在时刻 $t$ 对一个在时刻 $\tau$、即 $t-\tau$ 秒之前到达的冲激的响应。输出汇集了过去所有的冲激，每个冲激的权重取决于系统在经过这段时间之后对它还“记得”多少。该式是精确的，对每个 LTI 系统都成立。</p>
 <p>⁠<strong>简而言之：</strong>LTI 系统的输出是其冲激响应的叠加：冲激响应被平移到输入的每一个时刻，并以该时刻的输入值加权。</p>
-<details class="frage"><summary><span class="fr-k">问题</span>为什么矩形基本单元的面积必须为 1？</summary><div class="fr-body"><p>这样，基本单元的响应在取极限时才能保持确定的形状。高度固定为 1 的矩形，在 $T_0\to0$ 时面积趋于零，它的响应也会消失。高度取 $1/T_0$ 时，面积保持为 1，响应趋于 $h(t)$。对于 RC 电路，响应的峰值为 $(1-\mathrm{e}^{-T_0})/T_0$：$\textcolor{#3f1a78}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s 时为 0.632，0.5 s 时为 0.787，0.1 s 时为 0.952；当 $T_0\to0$ 时，它变为 $\textcolor{#3f1a78}{1}\textcolor{#15633a}{=}\textcolor{#c2410c}{h(0^+)}$。在这一过程中，响应的面积始终为 1。</p></div></details>
-<details class="frage"><summary><span class="fr-k">问题</span>冲激 $\delta(t)$ 在现实中存在吗？如果不存在，我该怎样测量 $h(t)$？</summary><div class="fr-body"><p>无限短的冲激并不存在。但任何远短于系统时间常数的脉冲都可以胜任。此时系统只感受到它的面积，响应实际上就是 $(\text{面积})\cdot h(t)$。对于 $\textcolor{#3f1a78}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s 的 RC 电路，它对 1 ms 脉冲的响应峰值与 $h(0^+)$ 只相差 0.05 %。冲激响应实际上也是这样测量的：在房间里拍一下手，录下混响。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>为什么矩形基本单元的面积必须为 1？</summary><div class="fr-body"><p>这样，基本单元的响应在取极限时才能保持确定的形状。高度固定为 1 的矩形，在 $T_0\to0$ 时面积趋于零，它的响应也会消失。高度取 $1/T_0$ 时，面积保持为 1，响应趋于 $h(t)$。对于 RC 电路，响应的峰值为 $(1-\mathrm{e}^{-T_0})/T_0$：$\textcolor{#123d29}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s 时为 0.632，0.5 s 时为 0.787，0.1 s 时为 0.952；当 $T_0\to0$ 时，它变为 $\textcolor{#123d29}{1}\textcolor{#15633a}{=}\textcolor{#c2410c}{h(0^+)}$。在这一过程中，响应的面积始终为 1。</p></div></details>
+<details class="frage"><summary><span class="fr-k">问题</span>冲激 $\delta(t)$ 在现实中存在吗？如果不存在，我该怎样测量 $h(t)$？</summary><div class="fr-body"><p>无限短的冲激并不存在。但任何远短于系统时间常数的脉冲都可以胜任。此时系统只感受到它的面积，响应实际上就是 $(\text{面积})\cdot h(t)$。对于 $\textcolor{#123d29}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s 的 RC 电路，它对 1 ms 脉冲的响应峰值与 $h(0^+)$ 只相差 0.05 %。冲激响应实际上也是这样测量的：在房间里拍一下手，录下混响。</p></div></details>
 <details class="ltspice"><summary><span class="lt-k">LTspice</span>用短矩形近似冲激响应</summary><div class="lt-body"><p>⁠<strong>绘制：</strong>第 <a href="ein-erstes-system-das-rc-glied.html#stufe-2">2</a> 阶段中的 RC 电路，信号源取 <code>PULSE(0 {1/T0} 0 1n 1n {T0})</code>：宽度为 $T_0$、高度为 $1/T_0$ 的矩形，因此面积为 1。</p>
 <p>⁠<strong>指令：</strong><code>.param T0=1</code>，<code>.step param T0 list 1 0.5 0.1 1m</code>，<code>.tran 0 10 0 1m</code>，<code>.meas tran peak MAX V(out)</code>，<code>.meas tran area INTEG V(out)</code>。</p>
-<p>⁠<strong>你会看到：</strong>峰值依次为 0.632、0.787、0.952 和 0.9995，与 $(1-\mathrm{e}^{-T_0})/T_0$ 给出的一致。对 1 ms 的脉冲，响应实际上已经就是 $\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{e}^{-t}}$。四次运行的面积都是 1.000：远短于 $RC$ 的脉冲只通过它的面积起作用。</p></div></details>
+<p>⁠<strong>你会看到：</strong>峰值依次为 0.632、0.787、0.952 和 0.9995，与 $(1-\mathrm{e}^{-T_0})/T_0$ 给出的一致。对 1 ms 的脉冲，响应实际上已经就是 $\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{e}^{-t}}$。四次运行的面积都是 1.000：远短于 $RC$ 的脉冲只通过它的面积起作用。</p></div></details>
 <div class="aufg"><div class="aufg-h">练习 4 ★★ 细看阶梯近似</div><div class="aufg-b"><span class="anker" id="aufg-4"></span>
 <ol class="al">
 <li>
-<p>计算 RC 电路（$\textcolor{#3f1a78}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s）对从 $0$ 到 $T_0$、高度为 $1/T_0$ 的矩形的响应 $g_0(t)$。为此，利用式 <a href="ein-erstes-system-das-rc-glied.html#gl-2-5">(2.5)</a>，并把矩形写成两个阶跃之差。</p>
+<p>计算 RC 电路（$\textcolor{#123d29}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s）对从 $0$ 到 $T_0$、高度为 $1/T_0$ 的矩形的响应 $g_0(t)$。为此，利用式 <a href="ein-erstes-system-das-rc-glied.html#gl-2-5">(2.5)</a>，并把矩形写成两个阶跃之差。</p>
 </li>
 <li>
-<p>证明 $\textcolor{#3f1a78}{g_0(T_0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1-\mathrm{e}^{-T_0})/T_0}$，并证明当 $T_0\to0$ 时它趋于 1。</p>
+<p>证明 $\textcolor{#123d29}{g_0(T_0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1-\mathrm{e}^{-T_0})/T_0}$，并证明当 $T_0\to0$ 时它趋于 1。</p>
 </li>
 <li>
 <p>为什么图 <a href="#abb-5">5</a> 中的近似 $g_a$ 来得太晚？（提示：在上升沿和下降沿上，台阶分别位于三角形的什么位置？）</p>
 </li>
 </ol>
 <details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 该矩形为 $\frac{1}{T_0}[\varepsilon(t)-\varepsilon(t-T_0)]$。由线性和时不变性，结合阶跃响应 <a href="ein-erstes-system-das-rc-glied.html#gl-2-5">(2.5)</a>，得</p>
-<p>$$\textcolor{#3f1a78}{g_0(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{T_0}\Bigl[\bigl(1-\mathrm{e}^{-t}\bigr)\varepsilon(t)-\bigl(1-\mathrm{e}^{-(t-T_0)}\bigr)\varepsilon(t-T_0)\Bigr].}$$</p>
-<p>(b) 在 $\textcolor{#3f1a78}{t}\textcolor{#15633a}{=}\textcolor{#c2410c}{T_0}$ 处第二项为零：$\textcolor{#3f1a78}{g_0(T_0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1-\mathrm{e}^{-T_0})/T_0}$。对于小的 $T_0$，利用 $\textcolor{#3f1a78}{\mathrm{e}^{-T_0}}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{1-T_0+T_0^2/2}$，得到 $\textcolor{#3f1a78}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{1-T_0/2\to1}\textcolor{#15633a}{=}\textcolor{#c2410c}{h(0^+)}$。数值：$\textcolor{#3f1a78}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$、0.5 和 0.1 s 时分别为 0.632、0.787 和 0.952。</p>
-<p>(c) 每个台阶从其区间的<em>起点</em>到终点都保持值 $s(nT_0)$。因此，在上升沿上阶梯位于三角形下方，在下降沿上则位于其上方：平均而言，阶梯延迟了 $T_0/2$。输出继承了这一延迟；在下降段，$g_a$ 位于 $g$ 的上方（$\textcolor{#3f1a78}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.5}$ s 时，$\textcolor{#3f1a78}{g_a(2)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.508}$，而不是 $0.400$）。$T_0$ 越小，延迟越小，误差也随之减小。</p></div></details></div></div></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/was-ein-lti-system-ist.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">第 3 阶段：什么是 LTI 系统</div><ul></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/die-faltung-ausrechnen.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">第 5 阶段：卷积的计算</div><ul></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
+<p>$$\textcolor{#123d29}{g_0(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{T_0}\Bigl[\bigl(1-\mathrm{e}^{-t}\bigr)\varepsilon(t)-\bigl(1-\mathrm{e}^{-(t-T_0)}\bigr)\varepsilon(t-T_0)\Bigr].}$$</p>
+<p>(b) 在 $\textcolor{#123d29}{t}\textcolor{#15633a}{=}\textcolor{#c2410c}{T_0}$ 处第二项为零：$\textcolor{#123d29}{g_0(T_0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1-\mathrm{e}^{-T_0})/T_0}$。对于小的 $T_0$，利用 $\textcolor{#123d29}{\mathrm{e}^{-T_0}}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{1-T_0+T_0^2/2}$，得到 $\textcolor{#123d29}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{1-T_0/2\to1}\textcolor{#15633a}{=}\textcolor{#c2410c}{h(0^+)}$。数值：$\textcolor{#123d29}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$、0.5 和 0.1 s 时分别为 0.632、0.787 和 0.952。</p>
+<p>(c) 每个台阶从其区间的<em>起点</em>到终点都保持值 $s(nT_0)$。因此，在上升沿上阶梯位于三角形下方，在下降沿上则位于其上方：平均而言，阶梯延迟了 $T_0/2$。输出继承了这一延迟；在下降段，$g_a$ 位于 $g$ 的上方（$\textcolor{#123d29}{T_0}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.5}$ s 时，$\textcolor{#123d29}{g_a(2)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.508}$，而不是 $0.400$）。$T_0$ 越小，延迟越小，误差也随之减小。</p></div></details></div></div></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/was-ein-lti-system-ist.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">第 3 阶段：什么是 LTI 系统</div><ul></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/die-faltung-ausrechnen.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">第 5 阶段：卷积的计算</div><ul></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
 <script src="/wissen/assets/wissen.js"></script>

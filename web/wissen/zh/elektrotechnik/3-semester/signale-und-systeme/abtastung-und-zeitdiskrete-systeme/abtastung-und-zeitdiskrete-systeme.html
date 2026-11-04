@@ -15,16 +15,16 @@
 <p><strong>如何使用本章。</strong>每个阶段都是一篇简短的文章，包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。完成一个阶段后再进入下一个。</p>
 <aside class="callout cx-merke"><div class="callout-h">本章的参考模型</div><ul>
 <li>
-<p>⁠<strong>采样率</strong> $\textcolor{#3f1a78}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz（$\textcolor{#3f1a78}{T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ ms）。测试信号：300 Hz 和 700 Hz 的余弦振荡。</p>
+<p>⁠<strong>采样率</strong> $\textcolor{#123d29}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz（$\textcolor{#123d29}{T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ ms）。测试信号：300 Hz 和 700 Hz 的余弦振荡。</p>
 </li>
 <li>
-<p>对于序列，频率对采样率归一化：$\textcolor{#3f1a78}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ 对应于 $f_\mathrm A$。因此，在 $\textcolor{#3f1a78}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz 时，$\textcolor{#3f1a78}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.3}$ 表示 300 Hz。</p>
+<p>对于序列，频率对采样率归一化：$\textcolor{#123d29}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ 对应于 $f_\mathrm A$。因此，在 $\textcolor{#123d29}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz 时，$\textcolor{#123d29}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.3}$ 表示 300 Hz。</p>
 </li>
 <li>
-<p>⁠<strong>递归系统</strong> $\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+0.6\,g(n-1)}$。</p>
+<p>⁠<strong>递归系统</strong> $\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+0.6\,g(n-1)}$。</p>
 </li>
 <li>
-<p>⁠<strong>DFT 示例</strong> $\textcolor{#3f1a78}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1,\,2,\,0,\,-1)}$。</p>
+<p>⁠<strong>DFT 示例</strong> $\textcolor{#123d29}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1,\,2,\,0,\,-1)}$。</p>
 </li>
 </ul>
 <p>脚本 <code>rechnung_kap4.py</code> 可复算这些数值和曲线。</p></aside>

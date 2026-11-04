@@ -15,7 +15,7 @@
 <p>Un sistema LTI responde a un impulso desplazado con la respuesta al impulso desplazada $h(t-\tau)$ (invariancia en el tiempo), y a una suma de impulsos con la suma de las respuestas (linealidad).</p>
 </li>
 <li>
-<p>Por eso la salida es la convolución <span class="nobr">$\textcolor{#3f1a78}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\,h(t-\tau)\,\mathrm{d}\tau}$,</span> y $h(t)$ describe el sistema por completo.</p>
+<p>Por eso la salida es la convolución <span class="nobr">$\textcolor{#123d29}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\,h(t-\tau)\,\mathrm{d}\tau}$,</span> y $h(t)$ describe el sistema por completo.</p>
 </li>
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Lo esencial</div><ul>
@@ -23,28 +23,28 @@
 <p>Desplazar $t\to t-t_0$ retrasa, escalar $t\to t/T$ ensancha; <span class="nobr">$a\operatorname{rect}\bigl(\frac{t-t_0}{T}\bigr)$:</span> centro <span class="nobr">$t_0$,</span> duración <span class="nobr">$|T|$,</span> altura <span class="nobr">$a$.</span></p>
 </li>
 <li>
-<p>Paso bajo RC: <span class="nobr">$\textcolor{#3f1a78}{H(F)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{1+\mathrm{j}2\pi FRC}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{|H|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{\sqrt{1+(2\pi FRC)^2}}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\arctan(2\pi FRC)}$;</span> respuesta al escalón <span class="nobr">$1-\mathrm{e}^{-t/RC}$.</span></p>
+<p>Paso bajo RC: <span class="nobr">$\textcolor{#123d29}{H(F)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{1+\mathrm{j}2\pi FRC}}$,</span> <span class="nobr">$\textcolor{#123d29}{|H|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{\sqrt{1+(2\pi FRC)^2}}}$,</span> <span class="nobr">$\textcolor{#123d29}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\arctan(2\pi FRC)}$;</span> respuesta al escalón <span class="nobr">$1-\mathrm{e}^{-t/RC}$.</span></p>
 </li>
 <li>
-<p>LTI: principio de superposición y <span class="nobr">$\textcolor{#3f1a78}{\operatorname{Tr}\{s(t-t_0)\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{g(t-t_0)}$.</span></p>
+<p>LTI: principio de superposición y <span class="nobr">$\textcolor{#123d29}{\operatorname{Tr}\{s(t-t_0)\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{g(t-t_0)}$.</span></p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\delta(t-\tau)\mathrm{d}\tau}$ y <span class="nobr">$\textcolor{#3f1a78}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)h(t-\tau)\mathrm{d}\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{s*h}$.</span></p>
+<p>$\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\delta(t-\tau)\mathrm{d}\tau}$ y <span class="nobr">$\textcolor{#123d29}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)h(t-\tau)\mathrm{d}\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{s*h}$.</span></p>
 </li>
 <li>
 <p>Calcular: reflejar, desplazar, multiplicar, integrar.</p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{s*\delta}\textcolor{#15633a}{=}\textcolor{#c2410c}{s}$;</span> conmutativa, asociativa (cascada: <span class="nobr">$h_1*h_2$)</span>, distributiva (paralelo: <span class="nobr">$h_1+h_2$)</span>.</p>
+<p><span class="nobr">$\textcolor{#123d29}{s*\delta}\textcolor{#15633a}{=}\textcolor{#c2410c}{s}$;</span> conmutativa, asociativa (cascada: <span class="nobr">$h_1*h_2$)</span>, distributiva (paralelo: <span class="nobr">$h_1+h_2$)</span>.</p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{s(t)\delta(t-T)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T)\delta(t-T)}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\delta(bt)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta(t)/|b|}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\delta(t-t_0)*s}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(t-t_0)}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta}$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{s(t)\delta(t-T)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T)\delta(t-T)}$;</span> <span class="nobr">$\textcolor{#123d29}{\delta(bt)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta(t)/|b|}$;</span> <span class="nobr">$\textcolor{#123d29}{\delta(t-t_0)*s}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(t-t_0)}$;</span> <span class="nobr">$\textcolor{#123d29}{\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta}$.</span></p>
 </li>
 <li>
 <p>Respuesta al escalón <span class="nobr">$=\int h$,</span> respuesta al impulso $=\frac{\mathrm{d}}{\mathrm{d} t}$(respuesta al escalón).</p>
 </li>
 <li>
-<p>Causal: $\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ para <span class="nobr">$t&lt;0$.</span> Estable: <span class="nobr">$\int|h|\mathrm{d} t&lt;\infty$.</span></p>
+<p>Causal: $\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ para <span class="nobr">$t&lt;0$.</span> Estable: <span class="nobr">$\int|h|\mathrm{d} t&lt;\infty$.</span></p>
 </li>
 </ul></aside>
 <p><strong>Qué sigue.</strong> La convolución da mucho trabajo: cada instante $t$ necesita su propia integral. La parte siguiente descompone las señales de modo que la integral se convierte en una simple multiplicación.</p>

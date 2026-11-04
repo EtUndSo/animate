@@ -12,7 +12,7 @@
 <p>两个信号的相似程度用它们乘积的积分来度量。相关函数对每个时移 $\tau$ 都这样做；它是与反转信号的卷积。</p>
 </li>
 <li>
-<p>自相关函数的傅里叶变换是能量谱密度 $|S(f)|^2$。自相关函数在 $\textcolor{#3f1a78}{\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ 处的值就是能量（帕塞瓦尔定理）。</p>
+<p>自相关函数的傅里叶变换是能量谱密度 $|S(f)|^2$。自相关函数在 $\textcolor{#123d29}{\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ 处的值就是能量（帕塞瓦尔定理）。</p>
 </li>
 <li>
 <p>LTI 系统把能量谱密度乘以 $|H(f)|^2$，并把自相关函数与 $h$ 的自相关函数做卷积。</p>
@@ -20,28 +20,28 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">要点</div><ul>
 <li>
-<p>$\textcolor{#3f1a78}{E_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|s|^2\mathrm{d} t}$；$\textcolor{#3f1a78}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\lim\frac{1}{2T}\int_{-T}^T|s|^2\mathrm{d} t}$。</p>
+<p>$\textcolor{#123d29}{E_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|s|^2\mathrm{d} t}$；$\textcolor{#123d29}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\lim\frac{1}{2T}\int_{-T}^T|s|^2\mathrm{d} t}$。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{p_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\int s^*g\,\mathrm{d} t}{\sqrt{E_sE_g}}}$，$|p|\le1$，$\textcolor{#3f1a78}{p}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$：正交。</p>
+<p>$\textcolor{#123d29}{p_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\int s^*g\,\mathrm{d} t}{\sqrt{E_sE_g}}}$，$|p|\le1$，$\textcolor{#123d29}{p}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$：正交。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{\varphi^E_{sg}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s^*(t)g(t+\tau)\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{s^*(-\tau)*g(\tau)}$；$\textcolor{#3f1a78}{\varphi^E_{gs}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^{E*}_{sg}(-\tau)}$。</p>
+<p>$\textcolor{#123d29}{\varphi^E_{sg}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s^*(t)g(t+\tau)\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{s^*(-\tau)*g(\tau)}$；$\textcolor{#123d29}{\varphi^E_{gs}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^{E*}_{sg}(-\tau)}$。</p>
 </li>
 <li>
-<p>自相关函数：偶函数（对实信号），最大值 $\textcolor{#3f1a78}{\varphi^E_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s}$，持续时间加倍。</p>
+<p>自相关函数：偶函数（对实信号），最大值 $\textcolor{#123d29}{\varphi^E_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s}$，持续时间加倍。</p>
 </li>
 <li>
-<p>$\varphi^E_{ss}\leftrightarrow|S|^2$，$\varphi^E_{sg}\leftrightarrow S^*G$；帕塞瓦尔定理 $\textcolor{#3f1a78}{\int|s|^2\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|S|^2\mathrm{d} f}$。</p>
+<p>$\varphi^E_{ss}\leftrightarrow|S|^2$，$\varphi^E_{sg}\leftrightarrow S^*G$；帕塞瓦尔定理 $\textcolor{#123d29}{\int|s|^2\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|S|^2\mathrm{d} f}$。</p>
 </li>
 <li>
-<p>维纳–李关系：$\textcolor{#3f1a78}{\varphi^E_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*\varphi^E_{hh}}$，$\textcolor{#3f1a78}{|G|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{|S|^2|H|^2}$；$\textcolor{#3f1a78}{\varphi^E_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*h}$。</p>
+<p>维纳–李关系：$\textcolor{#123d29}{\varphi^E_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*\varphi^E_{hh}}$，$\textcolor{#123d29}{|G|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{|S|^2|H|^2}$；$\textcolor{#123d29}{\varphi^E_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*h}$。</p>
 </li>
 <li>
-<p>带通：$\textcolor{#3f1a78}{\varphi^E_{sgT}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T^*(-\tau)*g_T(\tau)}$。</p>
+<p>带通：$\textcolor{#123d29}{\varphi^E_{sgT}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T^*(-\tau)*g_T(\tau)}$。</p>
 </li>
 <li>
-<p>离散：$\textcolor{#3f1a78}{\varphi(m)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s^*(n)g(n+m)}$，$\leftrightarrow|S_\mathrm a|^2$；周期：$S_d^*G_d$。</p>
+<p>离散：$\textcolor{#123d29}{\varphi(m)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s^*(n)g(n+m)}$，$\leftrightarrow|S_\mathrm a|^2$；周期：$S_d^*G_d$。</p>
 </li>
 </ul></aside></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/zeitdiskrete-und-periodische-korrelation.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">第 7 阶段：离散时间相关与周期相关</div><ul></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">概览: 随机信号</div><ul><li>本章内容</li></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>

@@ -15,7 +15,7 @@
 <p>LTI 系统对平移后的冲激的响应是平移后的冲激响应 $h(t-\tau)$（时不变性），对冲激之和的响应是各响应之和（线性）。</p>
 </li>
 <li>
-<p>因此，输出就是卷积 $\textcolor{#3f1a78}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\,h(t-\tau)\,\mathrm{d}\tau}$，而 $h(t)$ 完整地描述了该系统。</p>
+<p>因此，输出就是卷积 $\textcolor{#123d29}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\,h(t-\tau)\,\mathrm{d}\tau}$，而 $h(t)$ 完整地描述了该系统。</p>
 </li>
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">要点</div><ul>
@@ -23,28 +23,28 @@
 <p>平移 $t\to t-t_0$ 产生延迟，展缩 $t\to t/T$ 使信号变宽；$a\operatorname{rect}\bigl(\frac{t-t_0}{T}\bigr)$：中心 $t_0$，持续时间 $|T|$，高度 $a$。</p>
 </li>
 <li>
-<p>RC 低通滤波器：$\textcolor{#3f1a78}{H(F)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{1+\mathrm{j}2\pi FRC}}$，$\textcolor{#3f1a78}{|H|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{\sqrt{1+(2\pi FRC)^2}}}$， $\textcolor{#3f1a78}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\arctan(2\pi FRC)}$；阶跃响应为 $1-\mathrm{e}^{-t/RC}$。</p>
+<p>RC 低通滤波器：$\textcolor{#123d29}{H(F)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{1+\mathrm{j}2\pi FRC}}$，$\textcolor{#123d29}{|H|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{\sqrt{1+(2\pi FRC)^2}}}$， $\textcolor{#123d29}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\arctan(2\pi FRC)}$；阶跃响应为 $1-\mathrm{e}^{-t/RC}$。</p>
 </li>
 <li>
-<p>LTI：叠加原理，以及 $\textcolor{#3f1a78}{\operatorname{Tr}\{s(t-t_0)\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{g(t-t_0)}$。</p>
+<p>LTI：叠加原理，以及 $\textcolor{#123d29}{\operatorname{Tr}\{s(t-t_0)\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{g(t-t_0)}$。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\delta(t-\tau)\mathrm{d}\tau}$，以及 $\textcolor{#3f1a78}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)h(t-\tau)\mathrm{d}\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{s*h}$。</p>
+<p>$\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\delta(t-\tau)\mathrm{d}\tau}$，以及 $\textcolor{#123d29}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)h(t-\tau)\mathrm{d}\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{s*h}$。</p>
 </li>
 <li>
 <p>计算方法：反转、平移、相乘、积分。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{s*\delta}\textcolor{#15633a}{=}\textcolor{#c2410c}{s}$；交换律、结合律（级联：$h_1*h_2$）、分配律（并联：$h_1+h_2$）。</p>
+<p>$\textcolor{#123d29}{s*\delta}\textcolor{#15633a}{=}\textcolor{#c2410c}{s}$；交换律、结合律（级联：$h_1*h_2$）、分配律（并联：$h_1+h_2$）。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{s(t)\delta(t-T)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T)\delta(t-T)}$；$\textcolor{#3f1a78}{\delta(bt)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta(t)/|b|}$；$\textcolor{#3f1a78}{\delta(t-t_0)*s}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(t-t_0)}$；$\textcolor{#3f1a78}{\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta}$。</p>
+<p>$\textcolor{#123d29}{s(t)\delta(t-T)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T)\delta(t-T)}$；$\textcolor{#123d29}{\delta(bt)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta(t)/|b|}$；$\textcolor{#123d29}{\delta(t-t_0)*s}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(t-t_0)}$；$\textcolor{#123d29}{\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta}$。</p>
 </li>
 <li>
 <p>阶跃响应 $=\int h$，冲激响应 $=\frac{\mathrm{d}}{\mathrm{d} t}$ 阶跃响应。</p>
 </li>
 <li>
-<p>因果：$t&lt;0$ 时 $\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$。稳定：$\int|h|\mathrm{d} t&lt;\infty$。</p>
+<p>因果：$t&lt;0$ 时 $\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$。稳定：$\int|h|\mathrm{d} t&lt;\infty$。</p>
 </li>
 </ul></aside>
 <p><strong>下一步。</strong> 卷积的计算量很大：每个时刻 $t$ 都要单独算一个积分。下一部分换一种方式分解信号，使积分变成简单的乘法。</p></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/faltung-ganz-ohne-system.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">第 10 阶段：没有系统的卷积</div><ul></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">概览: 拉普拉斯变换</div><ul><li>本章内容</li></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>

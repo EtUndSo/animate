@@ -13,12 +13,12 @@
 <aside class="callout cx-merke"><div class="callout-h">El modelo de cálculo de este capítulo</div><p>Todos los ejemplos usan los mismos dos componentes:</p>
 <ul>
 <li>
-<p>un <strong>filtro paso bajo RC</strong> con $\textcolor{#3f1a78}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s (por ejemplo, <span class="nobr">$\textcolor{#3f1a78}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mathrm{M\Omega}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{C}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mu\text{F}}$)</span>. Su respuesta al impulso y su función de transferencia son</p>
-<div class="mrow"><div class="mcell">$$\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{e}^{-t}\varepsilon(t),}$$</div><div class="mcell">$$\textcolor{#3f1a78}{H(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1+pRC}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{p+1},\quad \operatorname{Re} p&gt;-1,}$$</div></div>
+<p>un <strong>filtro paso bajo RC</strong> con $\textcolor{#123d29}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s (por ejemplo, <span class="nobr">$\textcolor{#123d29}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mathrm{M\Omega}}$,</span> <span class="nobr">$\textcolor{#123d29}{C}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mu\text{F}}$)</span>. Su respuesta al impulso y su función de transferencia son</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{e}^{-t}\varepsilon(t),}$$</div><div class="mcell">$$\textcolor{#123d29}{H(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1+pRC}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{p+1},\quad \operatorname{Re} p&gt;-1,}$$</div></div>
 <p>con $t$ en s y $p$ en <span class="nobr">$1/\mathrm{s}$;</span></p>
 </li>
 <li>
-<p>el <strong>escalón unitario</strong> $\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varepsilon(t)}$ con $\textcolor{#3f1a78}{S(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/p}$ para <span class="nobr">$\operatorname{Re} p&gt;0$.</span></p>
+<p>el <strong>escalón unitario</strong> $\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varepsilon(t)}$ con $\textcolor{#123d29}{S(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/p}$ para <span class="nobr">$\operatorname{Re} p&gt;0$.</span></p>
 </li>
 </ul>
 <p>Los números y las curvas se comprueban con <code>rechnung_kap2.py</code>.</p></aside>

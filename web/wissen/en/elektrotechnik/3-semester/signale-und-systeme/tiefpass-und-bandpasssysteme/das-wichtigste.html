@@ -20,16 +20,16 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Key points</div><ul>
 <li>
-<p>Distortionless: <span class="nobr">$\textcolor{#3f1a78}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{h_0\delta(t-t_0)}$,</span> <span class="nobr">$\textcolor{#3f1a78}{H}\textcolor{#15633a}{=}\textcolor{#c2410c}{h_0\mathrm{e}^{-\mathrm{j}2\pi t_0f}}$:</span> constant magnitude, linear phase.</p>
+<p>Distortionless: <span class="nobr">$\textcolor{#123d29}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{h_0\delta(t-t_0)}$,</span> <span class="nobr">$\textcolor{#123d29}{H}\textcolor{#15633a}{=}\textcolor{#c2410c}{h_0\mathrm{e}^{-\mathrm{j}2\pi t_0f}}$:</span> constant magnitude, linear phase.</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{a}\textcolor{#15633a}{=}\textcolor{#c2410c}{-20\lg|H|}$ dB; <span class="nobr">$\textcolor{#3f1a78}{t_\mathrm p}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\frac{\varphi}{2\pi f}}$;</span> <span class="nobr">$\textcolor{#3f1a78}{t_\mathrm g}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\frac{1}{2\pi}\frac{\mathrm{d}\varphi}{\mathrm{d} f}}$.</span></p>
+<p>$\textcolor{#123d29}{a}\textcolor{#15633a}{=}\textcolor{#c2410c}{-20\lg|H|}$ dB; <span class="nobr">$\textcolor{#123d29}{t_\mathrm p}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\frac{\varphi}{2\pi f}}$;</span> <span class="nobr">$\textcolor{#123d29}{t_\mathrm g}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\frac{1}{2\pi}\frac{\mathrm{d}\varphi}{\mathrm{d} f}}$.</span></p>
 </li>
 <li>
-<p>Ideal lowpass: $\operatorname{rect}(f/2f_\mathrm g)\leftrightarrow2f_\mathrm g\operatorname{si}(2\pi f_\mathrm gt)$, not causal; <span class="nobr">$\textcolor{#3f1a78}{f_\mathrm g t_m}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12}$;</span> overshoot 21.7 % (impulse), 8.95 % (step).</p>
+<p>Ideal lowpass: $\operatorname{rect}(f/2f_\mathrm g)\leftrightarrow2f_\mathrm g\operatorname{si}(2\pi f_\mathrm gt)$, not causal; <span class="nobr">$\textcolor{#123d29}{f_\mathrm g t_m}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12}$;</span> overshoot 21.7 % (impulse), 8.95 % (step).</p>
 </li>
 <li>
-<p>Step response <span class="nobr">$\frac12+\frac1\pi\operatorname{Si}(2\pi f_\mathrm gt)$,</span> <span class="nobr">$\textcolor{#3f1a78}{\operatorname{Si}(\infty)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac\pi2}$,</span> rise time <span class="nobr">$\frac{1}{2f_\mathrm g}$.</span></p>
+<p>Step response <span class="nobr">$\frac12+\frac1\pi\operatorname{Si}(2\pi f_\mathrm gt)$,</span> <span class="nobr">$\textcolor{#123d29}{\operatorname{Si}(\infty)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac\pi2}$,</span> rise time <span class="nobr">$\frac{1}{2f_\mathrm g}$.</span></p>
 </li>
 <li>
 <p>Truncating the impulse response $=$ convolution in the spectrum; smooth windows: deeper stopband, shallower edge.</p>
@@ -38,10 +38,10 @@
 <p>Pulse-shaping filter: <span class="nobr">$T\operatorname{rect}(Tf)[1+\cos(2\pi Tf)]$,</span> little overshoot.</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{H(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12H_T(f-f_0)+\frac12H_T^*(-f-f_0)}$; $\textcolor{#3f1a78}{s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Re}\{s_T\mathrm{e}^{\mathrm{j}2\pi f_0t}\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{s_{Tr}\cos-s_{Ti}\sin}$; <span class="nobr">$\textcolor{#3f1a78}{s_T}\textcolor{#15633a}{=}\textcolor{#c2410c}{2s_+\mathrm{e}^{-\mathrm{j}2\pi f_0t}}$.</span></p>
+<p>$\textcolor{#123d29}{H(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12H_T(f-f_0)+\frac12H_T^*(-f-f_0)}$; $\textcolor{#123d29}{s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Re}\{s_T\mathrm{e}^{\mathrm{j}2\pi f_0t}\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{s_{Tr}\cos-s_{Ti}\sin}$; <span class="nobr">$\textcolor{#123d29}{s_T}\textcolor{#15633a}{=}\textcolor{#c2410c}{2s_+\mathrm{e}^{-\mathrm{j}2\pi f_0t}}$.</span></p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{g_T}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T*h_T}$;</span> envelope delayed by <span class="nobr">$t_\mathrm g$,</span> carrier by <span class="nobr">$t_\mathrm p$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{g_T}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T*h_T}$;</span> envelope delayed by <span class="nobr">$t_\mathrm g$,</span> carrier by <span class="nobr">$t_\mathrm p$.</span></p>
 </li>
 <li>
 <p>Bandpass sampling: $2\Delta f$ values per second; digital highpass: <span class="nobr">$(-1)^nh_{\mathrm{TP}}(n)$.</span></p>

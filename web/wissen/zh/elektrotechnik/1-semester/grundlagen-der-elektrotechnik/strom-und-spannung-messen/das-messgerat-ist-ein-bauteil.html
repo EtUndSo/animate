@@ -15,20 +15,20 @@
 <p>量程一直到<strong class="nm">满量程值</strong>，即可显示的最大值（对指针来说就是满偏）。内阻 $R_\mathrm i$ 是接线端之间的电阻。</p>
 <ul>
 <li>
-<p>电流表串联接入。理想情况下 $\textcolor{#3f1a78}{R_\mathrm i}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$，实际约为 $\textcolor{#3f1a78}{R_\mathrm i}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{1\,\Omega}$。</p>
+<p>电流表串联接入。理想情况下 $\textcolor{#123d29}{R_\mathrm i}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$，实际约为 $\textcolor{#123d29}{R_\mathrm i}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{1\,\Omega}$。</p>
 </li>
 <li>
-<p>电压表并联接入。理想情况下 $R_\mathrm i\to\infty$，实际约为 $\textcolor{#3f1a78}{R_\mathrm i}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{10\,\mathrm{M\Omega}}$。</p>
+<p>电压表并联接入。理想情况下 $R_\mathrm i\to\infty$，实际约为 $\textcolor{#123d29}{R_\mathrm i}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{10\,\mathrm{M\Omega}}$。</p>
 </li>
 </ul></aside>
 <p>⁠<strong>如何理解：</strong>电流是通过某一横截面的电荷。因此要断开电路，让全部电流流过电流表。电流表上不应有电压降，所以 $R_\mathrm i$ 应当小。电压是两点之间的差。因此把电压表接到这两点上，不必断开电路。电压表中不应有电流流过，所以 $R_\mathrm i$ 应当大。这些数值是数字万用表的典型值。<strong>适用条件：</strong>$R_\mathrm i$ 只对一个量程有效，切换量程时会改变（第 <a href="den-messbereich-erweitern.html#stufe-2">2</a> 阶段）。</p>
-<p><strong>例。</strong> 参考模型的表头本身已经兼具两者。满偏时 50 µ A 流过 2 k$\Omega$，所以其两端电压为 $\textcolor{#3f1a78}{U_\mathrm M}\textcolor{#15633a}{=}\textcolor{#c2410c}{R_\mathrm MI_\mathrm M}\textcolor{#15633a}{=}\textcolor{#c2410c}{100}$ mV。刻度既可以标 50 µ A，也可以标 100 mV：同一偏转的两个名称。</p>
-<p>⁠<strong>极限情况：</strong>$\textcolor{#3f1a78}{R_\mathrm i}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ 时电流表就像一段导线，$R_\mathrm i\to\infty$ 时电压表就像一个断开处。理想仪表对电路来说并不存在。</p>
+<p><strong>例。</strong> 参考模型的表头本身已经兼具两者。满偏时 50 µ A 流过 2 k$\Omega$，所以其两端电压为 $\textcolor{#123d29}{U_\mathrm M}\textcolor{#15633a}{=}\textcolor{#c2410c}{R_\mathrm MI_\mathrm M}\textcolor{#15633a}{=}\textcolor{#c2410c}{100}$ mV。刻度既可以标 50 µ A，也可以标 100 mV：同一偏转的两个名称。</p>
+<p>⁠<strong>极限情况：</strong>$\textcolor{#123d29}{R_\mathrm i}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ 时电流表就像一段导线，$R_\mathrm i\to\infty$ 时电压表就像一个断开处。理想仪表对电路来说并不存在。</p>
 <details class="frage"><summary><span class="fr-k">问题</span>如果理想电压表中没有电流流过，它怎么能显示数值呢？</summary><div class="fr-body"><p>指针做不到，因为没有电流就没有偏转。理想情况是一个极限，不是一台设备。大内阻使电流变小，但不为零。数字仪表只需要极小的电流，因为显示所需的能量来自它自身的电池，而不是来自被测电路。</p></div></details>
 <div class="aufg"><div class="aufg-h">练习 1 ★ 接错了</div><div class="aufg-b"><span class="anker" id="aufg-1"></span>
 <p>先预测哪台仪表有危险。(a) 参考模型的电流表被误接到 9 V 电源的两端。流过多大的电流？(b) 电压表被误与 $R$ 串联后接到电源上。它显示多少，流过多大的电流？</p>
-<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 有危险的是电流表，因为它的小电阻几乎不限制电流：$\textcolor{#3f1a78}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{9\,\mathrm{V}/10\,\Omega}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.9}$ A，是量程的九十倍。流过表头的是 4.5 mA，而不是 50 µ A，分流电阻上释放 8.06 W。</p>
-<p>(b) $\textcolor{#3f1a78}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{9\,\mathrm{V}/201.8\,\mathrm{k\Omega}}\textcolor{#15633a}{=}\textcolor{#c2410c}{44.6}$ µ A。电压表显示 $\textcolor{#3f1a78}{44.6\,\mu\text{A}\cdot200\,\mathrm{k\Omega}}\textcolor{#15633a}{=}\textcolor{#c2410c}{8.92}$ V，$R$ 上只剩 80 mV。什么也不会损坏，但电路不再工作。</p></div></details></div></div></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">概览: 电流与电压的测量</div><ul><li>本章内容</li></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/den-messbereich-erweitern.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">第 2 阶段：扩展量程</div><ul></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
+<details class="loesung"><summary>解答</summary><div class="lo-body"><p>(a) 有危险的是电流表，因为它的小电阻几乎不限制电流：$\textcolor{#123d29}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{9\,\mathrm{V}/10\,\Omega}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.9}$ A，是量程的九十倍。流过表头的是 4.5 mA，而不是 50 µ A，分流电阻上释放 8.06 W。</p>
+<p>(b) $\textcolor{#123d29}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{9\,\mathrm{V}/201.8\,\mathrm{k\Omega}}\textcolor{#15633a}{=}\textcolor{#c2410c}{44.6}$ µ A。电压表显示 $\textcolor{#123d29}{44.6\,\mu\text{A}\cdot200\,\mathrm{k\Omega}}\textcolor{#15633a}{=}\textcolor{#c2410c}{8.92}$ V，$R$ 上只剩 80 mV。什么也不会损坏，但电路不再工作。</p></div></details></div></div></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">概览: 电流与电压的测量</div><ul><li>本章内容</li></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/den-messbereich-erweitern.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">第 2 阶段：扩展量程</div><ul></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
 <script src="/wissen/assets/wissen.js"></script>

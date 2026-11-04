@@ -12,7 +12,7 @@
 <p>周期信号是位于基频整数倍处的各个振荡之和（傅里叶级数）；非周期信号是对所有频率的积分（傅里叶积分）。</p>
 </li>
 <li>
-<p>每个振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$ 都是特征函数：LTI 系统把它乘以 $H(f)$，因此卷积变成了乘积 $\textcolor{#3f1a78}{G(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S(f)\,H(f)}$。</p>
+<p>每个振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$ 都是特征函数：LTI 系统把它乘以 $H(f)$，因此卷积变成了乘积 $\textcolor{#123d29}{G(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S(f)\,H(f)}$。</p>
 </li>
 <li>
 <p>所有运算规则（时移、展缩、调制、对偶性）都可以由相应运算对单个振荡的作用推出。</p>
@@ -20,19 +20,19 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">要点</div><ul>
 <li>
-<p>$\textcolor{#3f1a78}{\mathrm{e}^{\mathrm{j}2\pi ft}*h}\textcolor{#15633a}{=}\textcolor{#c2410c}{H(f)\mathrm{e}^{\mathrm{j}2\pi ft}}$；$\textcolor{#3f1a78}{H(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int h\,\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$。</p>
+<p>$\textcolor{#123d29}{\mathrm{e}^{\mathrm{j}2\pi ft}*h}\textcolor{#15633a}{=}\textcolor{#c2410c}{H(f)\mathrm{e}^{\mathrm{j}2\pi ft}}$；$\textcolor{#123d29}{H(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int h\,\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$。</p>
 </li>
 <li>
-<p>级数：$\textcolor{#3f1a78}{s_p}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}}$，$\textcolor{#3f1a78}{S_p(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1T\int_Ts_p\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t}$；实信号：$\textcolor{#3f1a78}{S_p(-k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S_p^*(k)}$。</p>
+<p>级数：$\textcolor{#123d29}{s_p}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}}$，$\textcolor{#123d29}{S_p(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1T\int_Ts_p\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t}$；实信号：$\textcolor{#123d29}{S_p(-k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S_p^*(k)}$。</p>
 </li>
 <li>
-<p>帕塞瓦尔定理：$\textcolor{#3f1a78}{\frac1T\int_T|s_p|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum|S_p(k)|^2}$；吉布斯现象：跳变处约 9 % 的过冲；LTI：$\textcolor{#3f1a78}{G_p(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S_p(k)H(kF)}$。</p>
+<p>帕塞瓦尔定理：$\textcolor{#123d29}{\frac1T\int_T|s_p|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum|S_p(k)|^2}$；吉布斯现象：跳变处约 9 % 的过冲；LTI：$\textcolor{#123d29}{G_p(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S_p(k)H(kF)}$。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{S(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s\,\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$，$\textcolor{#3f1a78}{s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int S\mathrm{e}^{\mathrm{j}2\pi ft}\mathrm{d} f}$；$s*h\leftrightarrow SH$，$s_1s_2\leftrightarrow S_1*S_2$。</p>
+<p>$\textcolor{#123d29}{S(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s\,\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t}$，$\textcolor{#123d29}{s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int S\mathrm{e}^{\mathrm{j}2\pi ft}\mathrm{d} f}$；$s*h\leftrightarrow SH$，$s_1s_2\leftrightarrow S_1*S_2$。</p>
 </li>
 <li>
-<p>实信号：$\textcolor{#3f1a78}{S(-f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S^*(f)}$；偶部 $\leftrightarrow\operatorname{Re} S$，奇部 $\leftrightarrow\mathrm{j}\operatorname{Im} S$。</p>
+<p>实信号：$\textcolor{#123d29}{S(-f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{S^*(f)}$；偶部 $\leftrightarrow\operatorname{Re} S$，奇部 $\leftrightarrow\mathrm{j}\operatorname{Im} S$。</p>
 </li>
 <li>
 <p>$s(bt)\leftrightarrow\frac1{|b|}S(f/b)$；$s(t-t_0)\leftrightarrow S\mathrm{e}^{-\mathrm{j}2\pi ft_0}$；$\frac{\mathrm{d}}{\mathrm{d} t}\leftrightarrow\mathrm{j}2\pi f$；$\mathrm{e}^{\mathrm{j}2\pi Ft}s\leftrightarrow S(f-F)$；$S(t)\leftrightarrow s(-f)$。</p>
@@ -44,7 +44,7 @@
 <p>梳状函数 $\leftrightarrow$ 梳状函数：$\sum\delta(t-nT)\leftrightarrow\frac1{|T|}\sum\delta(f-k/T)$；$\varepsilon\leftrightarrow\frac12\delta(f)+\frac{1}{\mathrm{j}2\pi f}$。</p>
 </li>
 <li>
-<p>希尔伯特变换：$\textcolor{#3f1a78}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{\pi t}}$，$\textcolor{#3f1a78}{H}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\mathrm{j}\operatorname{sgn}(f)}$；$\textcolor{#3f1a78}{s_+}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12(s+\mathrm{j}\hat s)}$，$\textcolor{#3f1a78}{s}\textcolor{#15633a}{=}\textcolor{#c2410c}{2\operatorname{Re} s_+}$。</p>
+<p>希尔伯特变换：$\textcolor{#123d29}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{\pi t}}$，$\textcolor{#123d29}{H}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\mathrm{j}\operatorname{sgn}(f)}$；$\textcolor{#123d29}{s_+}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12(s+\mathrm{j}\hat s)}$，$\textcolor{#123d29}{s}\textcolor{#15633a}{=}\textcolor{#c2410c}{2\operatorname{Re} s_+}$。</p>
 </li>
 </ul></aside></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-und-laplace-grenzen-der-existenz.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">第 11 阶段：傅里叶变换与拉普拉斯变换——存在性的界限</div><ul></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">概览: 采样与离散时间系统</div><ul><li>本章内容</li></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>

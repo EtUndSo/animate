@@ -13,12 +13,12 @@
 <aside class="callout cx-merke"><div class="callout-h">The reference model for this chapter</div><p>All examples use the same two ingredients:</p>
 <ul>
 <li>
-<p>an <strong>RC low-pass filter</strong> with $\textcolor{#3f1a78}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s (for example <span class="nobr">$\textcolor{#3f1a78}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mathrm{M\Omega}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{C}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mu\text{F}}$)</span>. Its impulse response and its transfer function are</p>
-<div class="mrow"><div class="mcell">$$\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{e}^{-t}\varepsilon(t),}$$</div><div class="mcell">$$\textcolor{#3f1a78}{H(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1+pRC}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{p+1},\quad \operatorname{Re} p&gt;-1,}$$</div></div>
+<p>an <strong>RC low-pass filter</strong> with $\textcolor{#123d29}{RC}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ s (for example <span class="nobr">$\textcolor{#123d29}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mathrm{M\Omega}}$,</span> <span class="nobr">$\textcolor{#123d29}{C}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,\mu\text{F}}$)</span>. Its impulse response and its transfer function are</p>
+<div class="mrow"><div class="mcell">$$\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{e}^{-t}\varepsilon(t),}$$</div><div class="mcell">$$\textcolor{#123d29}{H(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1+pRC}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{p+1},\quad \operatorname{Re} p&gt;-1,}$$</div></div>
 <p>with $t$ in s and $p$ in <span class="nobr">$1/\mathrm{s}$;</span></p>
 </li>
 <li>
-<p>the <strong>unit step</strong> $\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varepsilon(t)}$ with $\textcolor{#3f1a78}{S(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/p}$ for <span class="nobr">$\operatorname{Re} p&gt;0$.</span></p>
+<p>the <strong>unit step</strong> $\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varepsilon(t)}$ with $\textcolor{#123d29}{S(p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/p}$ for <span class="nobr">$\operatorname{Re} p&gt;0$.</span></p>
 </li>
 </ul>
 <p>The script <code>rechnung_kap2.py</code> recomputes the numbers and curves.</p></aside>

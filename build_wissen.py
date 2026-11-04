@@ -148,7 +148,7 @@ _PROTECT = []
 def _protect(m):
     _PROTECT.append(m.group(0)); return f"\x00{len(_PROTECT)-1}\x00"
 
-_MC_LINKS, _MC_REL, _MC_RECHTS = "#3f1a78", "#15633a", "#c2410c"   # linke Seite lila, Relation grün, rechte Seite orange
+_MC_LINKS, _MC_REL, _MC_RECHTS = "#123d29", "#15633a", "#c2410c"   # linke Seite dunkelgrün, Relation grün, rechte Seite orange
 def colorize_math(s):
     """Colour an (in)equation: left-hand side RED, every relation ('=' or '\\approx') BLUE, the
     part after it GOLD (via KaTeX \\textcolor). Splits only on a *top-level* relation (brace depth 0),
@@ -958,19 +958,23 @@ def write_version():
 
 # --------------------------------------------------------- shared CSS / JS ----
 WISSEN_CSS = r"""
-/* Vorlage „Kopfleiste“ (User 2026-11-02): dunkelgrüne Leiste, lila Überschriften, grüne Links, orange Akzente.
-   Tag Standard, Nacht via data-theme=dark (folgt dem Editor-Theme). Alle Textfarben mindestens 4,5 : 1 auf Karte und Grund. */
-:root{ --bg:#f5f5f1; --panel:#ffffff; --ink:#191c1a; --muted:#59605b; --border:#e0e2dc; --soft:#eeefe9;
-  --accent:#15633a; --accent2:#3f1a78; --accent3:#c2410c; --on-accent:#ffffff; --aufg:#3f1a78;
+/* Vorlage „Grüne Leiste“ (User 2026-11-04, Variante B des Design-Tests): nur Grün und Orange plus Neutraltöne,
+   kein Lila, kein Rot; reinweißer Grund; dunkelgrüne Leiste, dunkelgrüne Überschriften, Abschnitte als weiße Karten.
+   Tag Standard, Nacht via data-theme=dark (folgt dem Editor-Theme); nachts helle Rahmen um alle Kästen.
+   Alle Textfarben mindestens 4,5 : 1 auf Karte und Grund. --accent2 = Überschriftfarbe (früher Lila). */
+:root{ --bg:#ffffff; --panel:#ffffff; --ink:#16191a; --muted:#5b6360; --border:#e6e8e6; --soft:#f6f7f6;
+  --accent:#15633a; --accent2:#123d29; --accent3:#c2410c; --on-accent:#ffffff; --aufg:#15633a; --rahmen:var(--border);
   --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-soft:#1a4d35; --bar-hl:#ff9650; --radius:14px;
   --fdisp:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif; --fbody:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --fmono:ui-monospace,"Cascadia Code",Consolas,monospace; }
-:root[data-theme="dark"]{ --bg:#101412; --panel:#1a201c; --ink:#eff2ef; --muted:#a6afa8; --border:#2f3831; --soft:#141a16;
-  --accent:#6ad19b; --accent2:#c9a9ff; --accent3:#ff9650; --on-accent:#0d1f15; --aufg:#55299a;
+:root[data-theme="dark"]{ --bg:#0e1110; --panel:#141816; --ink:#eef1ef; --muted:#a3aca6; --border:#262c29; --soft:#181d1a;
+  --accent:#6ad19b; --accent2:#8fdcb2; --accent3:#ff9650; --on-accent:#0d1f15; --aufg:#1d5c3b; --rahmen:rgba(255,255,255,.32);
   --bar:#0b2a1c; --bar-ink:#dcebe1; --bar-rand:#174630; --bar-soft:#123a27; }
 /* Formelfarben (\textcolor der Build-Färbung) nachts in den hellen Varianten, die dunklen wären kaum zu lesen.
-   KaTeX setzt die Farbe per Skript, der Browser schreibt sie dann als rgb(…) ins style-Attribut. */
-:root[data-theme="dark"] .katex [style*="rgb(63, 26, 120)"],:root[data-theme="dark"] .katex [style*="#3f1a78"]{color:var(--accent2)!important;}
+   KaTeX setzt die Farbe per Skript, der Browser schreibt sie dann als rgb(…) ins style-Attribut.
+   Linke Seite dunkelgrün (#123d29), Relation grün, rechte Seite orange; #3f1a78 = Lila aus Artikeln vor dem 04.11.2026. */
+:root[data-theme="dark"] .katex [style*="rgb(18, 61, 41)"],:root[data-theme="dark"] .katex [style*="#123d29"]{color:var(--accent2)!important;}
+.katex [style*="rgb(63, 26, 120)"],.katex [style*="#3f1a78"]{color:var(--accent2)!important;}
 :root[data-theme="dark"] .katex [style*="rgb(21, 99, 58)"],:root[data-theme="dark"] .katex [style*="#15633a"]{color:var(--accent)!important;}
 :root[data-theme="dark"] .katex [style*="rgb(194, 65, 12)"],:root[data-theme="dark"] .katex [style*="#c2410c"]{color:var(--accent3)!important;}
 *{box-sizing:border-box;} html{scroll-behavior:smooth;}
@@ -1010,7 +1014,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .side summary::before{content:"▸";color:var(--muted);display:inline-block;width:1em;transition:transform .15s;}
 .side details[open]>summary::before{transform:rotate(90deg);}
 .side details details{margin-left:11px;}                 /* jede tiefere Ebene etwas eingerückt */
-.side .lvl0>summary{font-weight:700;color:var(--accent2);}  /* Fach/Studiengang: lila */
+.side .lvl0>summary{font-weight:700;color:var(--ink);}  /* Fach/Studiengang: schwarz */
 .side .lvl1>summary{font-weight:600;color:var(--accent3);}  /* Semester: orange */
 .side .lvl2>summary,.side .lvl3>summary,.side .lvl4>summary{font-weight:500;}
 .side .lvl2>summary{color:var(--accent);}                 /* Modul: grün */
@@ -1028,7 +1032,7 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 /* --- Farbkategorien (je eine Zeile): wichtige Wörter = orange, Namen = grün, Schritt-Marken = lila --- */
 .article strong{color:var(--accent3);}             /* wichtige Ausdrücke/Wörter */
 .article strong.nm{color:var(--accent);}           /* Namen (Größen, Begriffe, Einheiten) */
-.article strong.step{color:var(--accent2);}        /* „Schritt N" */
+.article strong.step{color:var(--accent);}         /* „Schritt N" */
 /* Formeln/Gleichungen hervorheben: eigene Box mit blauer Border, deutlich größer */
 .article .katex-display{font-size:1.3em;margin:1.3em 0;overflow-x:auto;overflow-y:hidden;}   /* Formel auf eigener Zeile, NICHT geboxt */
 .article .fbox{margin:1.5em 0;padding:9px 18px 14px;border:1.5px solid var(--accent);border-radius:12px;background:color-mix(in srgb,var(--accent) 6%,var(--panel));}  /* nur die wichtigsten Formeln */
@@ -1048,34 +1052,33 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 /* Code-Blöcke der Zusatzreihen: Kopfzeile (Titel links, Sprache rechts), Farben aus den Pygments-Klassen, Tag und Nacht */
 .code-block{margin:1.2em 0;} .code-block pre{margin:0;}
 .code-kopf{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 14px;border:1px solid var(--border);border-bottom:none;
-  border-radius:10px 10px 0 0;background:color-mix(in srgb,var(--accent2) 6%,var(--soft));font-family:var(--fmono);font-size:13px;}
+  border-radius:10px 10px 0 0;background:var(--soft);font-family:var(--fmono);font-size:13px;}
 .code-kopf+pre{border-top-left-radius:0;border-top-right-radius:0;}
 .code-t{color:var(--ink);overflow-wrap:anywhere;}
 .code-l{margin-left:auto;color:var(--muted);font-family:var(--fdisp);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
 .article pre.hl{font-size:14px;line-height:1.5;tab-size:4;} .article pre.hl code{font-size:1em;}
-.hl .k,.hl .kc,.hl .kd,.hl .kn,.hl .kp,.hl .kr,.hl .ow,.hl .cp{color:#3f1a78;font-weight:600;}
-.hl .kt,.hl .nb,.hl .bp,.hl .nf,.hl .fm,.hl .nc,.hl .nn{color:#1f5fa8;}
+/* nur Grün, Orange und Grautöne: Schlüsselwörter grün, Namen schwarz, Zeichenketten braun-orange, Zahlen orange */
+.hl .k,.hl .kc,.hl .kd,.hl .kn,.hl .kp,.hl .kr,.hl .ow,.hl .cp{color:#15633a;font-weight:600;}
+.hl .kt,.hl .nb,.hl .bp,.hl .nf,.hl .fm,.hl .nc,.hl .nn{color:#16191a;}
 .hl .nf,.hl .fm,.hl .nc{font-weight:600;}
-.hl .s,.hl .s1,.hl .s2,.hl .sa,.hl .sb,.hl .sc,.hl .sd,.hl .se,.hl .sh,.hl .si,.hl .sx,.hl .sr,.hl .ss,.hl .dl{color:#15633a;}
+.hl .s,.hl .s1,.hl .s2,.hl .sa,.hl .sb,.hl .sc,.hl .sd,.hl .se,.hl .sh,.hl .si,.hl .sx,.hl .sr,.hl .ss,.hl .dl{color:#9a3412;}
 .hl .c,.hl .c1,.hl .cm,.hl .cs,.hl .ch,.hl .cpf{color:#5f6662;font-style:italic;}
 .hl .m,.hl .mi,.hl .mf,.hl .mh,.hl .mo,.hl .mb,.hl .il{color:#b33a0b;}
-.hl .nv,.hl .vc,.hl .vg,.hl .vi,.hl .nd,.hl .na{color:#7a2f80;}
+.hl .nv,.hl .vc,.hl .vg,.hl .vi,.hl .nd,.hl .na{color:#3d4542;}
 .hl .gp{color:#b33a0b;font-weight:700;user-select:none;}           /* Prompt: beim Kopieren nicht mit markieren */
 .hl .go{color:var(--muted);} .hl .err{color:inherit;border:none;background:none;}
 :root[data-theme="dark"] .hl .k,:root[data-theme="dark"] .hl .kc,:root[data-theme="dark"] .hl .kd,:root[data-theme="dark"] .hl .kn,
-:root[data-theme="dark"] .hl .kp,:root[data-theme="dark"] .hl .kr,:root[data-theme="dark"] .hl .ow,:root[data-theme="dark"] .hl .cp{color:#c9a9ff;}
+:root[data-theme="dark"] .hl .kp,:root[data-theme="dark"] .hl .kr,:root[data-theme="dark"] .hl .ow,:root[data-theme="dark"] .hl .cp{color:#6ad19b;}
 :root[data-theme="dark"] .hl .kt,:root[data-theme="dark"] .hl .nb,:root[data-theme="dark"] .hl .bp,:root[data-theme="dark"] .hl .nf,
-:root[data-theme="dark"] .hl .fm,:root[data-theme="dark"] .hl .nc,:root[data-theme="dark"] .hl .nn{color:#8cbcff;}
-:root[data-theme="dark"] .hl [class^="s"],:root[data-theme="dark"] .hl .dl{color:#6ad19b;}
+:root[data-theme="dark"] .hl .fm,:root[data-theme="dark"] .hl .nc,:root[data-theme="dark"] .hl .nn{color:#eef1ef;}
+:root[data-theme="dark"] .hl [class^="s"],:root[data-theme="dark"] .hl .dl{color:#ffb27a;}
 :root[data-theme="dark"] .hl [class^="c"]:not(.cp){color:#98a29b;}
 :root[data-theme="dark"] .hl [class^="m"],:root[data-theme="dark"] .hl .il,:root[data-theme="dark"] .hl .gp{color:#ff9650;}
 :root[data-theme="dark"] .hl .nv,:root[data-theme="dark"] .hl .vc,:root[data-theme="dark"] .hl .vg,:root[data-theme="dark"] .hl .vi,
-:root[data-theme="dark"] .hl .nd,:root[data-theme="dark"] .hl .na{color:#e8a8ec;}
-/* Achtung-Kasten (Recht, Datenverlust, Sicherheit): immer offen, rot */
-.callout.cx-warnung{border-left:4px solid #b42318;background:color-mix(in srgb,#b42318 5%,var(--panel));}
-.callout.cx-warnung .callout-h{color:#b42318;}
-:root[data-theme="dark"] .callout.cx-warnung{border-left-color:#ff8a7a;background:color-mix(in srgb,#ff8a7a 7%,var(--panel));}
-:root[data-theme="dark"] .callout.cx-warnung .callout-h{color:#ff8a7a;}
+:root[data-theme="dark"] .hl .nd,:root[data-theme="dark"] .hl .na{color:#c9d1cc;}
+/* Achtung-Kasten (Recht, Datenverlust, Sicherheit): immer offen, orange */
+.callout.cx-warnung{border-left:4px solid var(--accent3);background:color-mix(in srgb,var(--accent3) 7%,var(--panel));}
+.callout.cx-warnung .callout-h{color:var(--accent3);}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
 .table-wrap{overflow-x:auto;margin:1.2em 0;}
 .md-table{border-collapse:collapse;width:100%;font-size:15.5px;}
@@ -1084,8 +1087,8 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .md-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 55%,transparent);}
 .callout{margin:1.7em 0;padding:16px 18px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
 .callout-h{font-weight:700;font-family:var(--fdisp);margin-bottom:4px;color:var(--accent);}   /* Box-Überschrift: grün */
-.callout.cx-konzept{border-left:4px solid var(--accent);} .callout.cx-kern{border-left:4px solid var(--accent2);background:color-mix(in srgb,var(--accent2) 7%,var(--panel));}
-.callout.cx-kern .callout-h{color:var(--accent2);}  /* Kernbox: Titel in Rot, passend zum roten Rand */
+.callout.cx-konzept{border-left:4px solid var(--accent);} .callout.cx-kern{border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,var(--panel));}
+.callout.cx-kern .callout-h{color:var(--accent);}  /* Kernbox: grün wie ihr Rand */
 .callout.cx-merke{border-left:4px solid var(--accent3);}
 .callout.cx-satz,.callout.cx-lemma,.callout.cx-definition{border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,var(--panel));}
 /* Abbildungs-Platzhalter: gestrichelte Box mit Beschreibung, bis echte Editor-Grafik eingesetzt wird */
@@ -1124,17 +1127,17 @@ details.frage[open]>summary::before{transform:rotate(90deg);}
 details.frage .fr-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
 .fr-body{padding:0 16px 8px;border-top:1px solid var(--border);}
 .fr-body>p:first-child{margin-top:12px;}
-/* Hintergrund-Kasten: Warum und Woher zum Haupttext, zugeklappt, lila wie die Überschriften */
-details.hintergrund{margin:1.1em 0;border:1px solid var(--border);border-left:4px solid var(--accent2);border-radius:10px;
-  background:color-mix(in srgb,var(--accent2) 4%,var(--panel));}
+/* Hintergrund-Kasten: Warum und Woher zum Haupttext, zugeklappt, neutral grau mit grüner Linie */
+details.hintergrund{margin:1.1em 0;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;
+  background:var(--soft);}
 details.hintergrund>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
 details.hintergrund>summary::-webkit-details-marker{display:none;}
-details.hintergrund>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent2);transition:transform .15s;}
+details.hintergrund>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent);transition:transform .15s;}
 details.hintergrund[open]>summary::before{transform:rotate(90deg);}
-details.hintergrund .hg-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent2);margin-right:9px;}
+details.hintergrund .hg-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
 .hg-body{padding:0 16px 8px;border-top:1px solid var(--border);}
 .hg-body>p:first-child{margin-top:12px;}
-.callout.cx-fehlvorstellung{border-left:4px solid var(--accent2);} .callout.cx-fehlvorstellung .callout-h{color:var(--accent2);}
+.callout.cx-fehlvorstellung{border-left:4px solid var(--accent3);} .callout.cx-fehlvorstellung .callout-h{color:var(--accent3);}
 .callout.cx-analogie{border-left:4px solid var(--muted);} .callout.cx-analogie .callout-h{color:var(--muted);}
 .callout.cx-vertiefung{border-left:4px solid var(--border);} .callout.cx-vertiefung .callout-h{color:var(--muted);}
 /* Abschnitte als Karten: klar getrennt, in Stücken lernen */
@@ -1148,7 +1151,7 @@ details.hintergrund .hg-k{font-family:var(--fdisp);font-size:12px;text-transform
 .neighbors .nb{display:block;border:1px solid var(--border);border-radius:12px;padding:13px 16px;background:var(--panel);color:inherit;}
 .neighbors .nb:hover{border-color:var(--accent);text-decoration:none;}
 .nb-dir{font-size:12px;color:var(--muted);font-weight:600;} .nb-dir.next{text-align:right;}
-.nb-t{font-weight:700;color:var(--accent2);margin:3px 0 8px;font-family:var(--fdisp);}
+.nb-t{font-weight:700;color:var(--ink);margin:3px 0 8px;font-family:var(--fdisp);}
 .nb ul{list-style:none;margin:0;padding:0;} .nb li{font-size:13.5px;color:var(--muted);margin:3px 0;padding-left:14px;position:relative;}
 .nb li::before{content:"▸";position:absolute;left:0;top:1px;color:var(--accent);font-size:.8em;}
 .nb.empty{border:none;background:none;}
@@ -1185,7 +1188,7 @@ details.herleitung>summary:hover{text-decoration:underline;}
 .aufg-b{padding:13px 16px 12px;}
 .aufg-b>p:last-of-type{margin-bottom:.7em;}
 details.loesung{margin:.7em 0 .2em;border-top:1px dashed var(--border);padding-top:8px;}
-details.loesung>summary{cursor:pointer;list-style:none;font-weight:600;color:var(--accent2);}
+details.loesung>summary{cursor:pointer;list-style:none;font-weight:600;color:var(--accent);}
 details.loesung>summary::-webkit-details-marker{display:none;}
 details.loesung>summary::before{content:"▸";display:inline-block;margin-right:9px;transition:transform .15s;}
 details.loesung[open]>summary::before{transform:rotate(90deg);}
@@ -1254,6 +1257,23 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .bsp-card{border:1px solid var(--border);border-top:4px solid var(--accent3);border-radius:14px;background:var(--panel);padding:4px 20px 14px;margin:0 0 18px;transition:box-shadow .35s;}
 .bsp-card-n{font-family:var(--fdisp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);white-space:nowrap;}
 .bsp-card-t{font-family:var(--fdisp);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:2px 0 .7em;}
+/* ---------- Grüne Leiste, modern (Variante B, 04.11.2026) ---------- */
+.article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
+.article h2{font-weight:700;letter-spacing:-.022em;} .article h3{font-weight:700;letter-spacing:-.015em;}
+.article p,.article li{line-height:1.72;}
+.topbar .searchBtn,.topbar .iconBtn,.topbar .panelBtn,.topbar .navBtn,.topbar .langs{border-radius:999px;}
+.article .sect{border-radius:16px;box-shadow:0 1px 2px rgba(16,24,20,.04),0 4px 14px rgba(16,24,20,.04);}
+.callout{border-radius:12px;}
+.aufg{border-color:var(--border);border-radius:14px;}
+.side li a.active{border-radius:999px;}
+/* Nacht: Karten ohne Schatten, dafür helle Rahmen um alle Kästen (Wunsch des Users); farbige Randstreifen links bleiben */
+:root[data-theme="dark"] .article .sect{box-shadow:none;}
+:root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung){
+  border-top:1px solid var(--rahmen);border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
+:root[data-theme="dark"] .bsp-card{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
+:root[data-theme="dark"] :is(.article .sect,.callout:not([class*="cx-"]),.callout.cx-zusatz,details.frage,details.quiz-item,
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.bsp-card,.fassung){border-left:1px solid var(--rahmen);}
 @media(max-width:720px){ .bsp-card{padding:4px 15px 12px;} }
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */

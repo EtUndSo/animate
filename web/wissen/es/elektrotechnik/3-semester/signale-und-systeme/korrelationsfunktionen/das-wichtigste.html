@@ -12,7 +12,7 @@
 <p>La semejanza de dos señales se mide con la integral de su producto. La función de correlación lo hace para cada desplazamiento <span class="nobr">$\tau$;</span> es una convolución con la señal reflejada.</p>
 </li>
 <li>
-<p>La transformada de Fourier de la función de autocorrelación (FAC) es la densidad espectral de energía <span class="nobr">$|S(f)|^2$.</span> En $\textcolor{#3f1a78}{\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ se obtiene la energía (Parseval).</p>
+<p>La transformada de Fourier de la función de autocorrelación (FAC) es la densidad espectral de energía <span class="nobr">$|S(f)|^2$.</span> En $\textcolor{#123d29}{\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ se obtiene la energía (Parseval).</p>
 </li>
 <li>
 <p>Al pasar por un sistema LTI, las densidades espectrales de energía se multiplican por <span class="nobr">$|H(f)|^2$,</span> y las funciones de autocorrelación se convolucionan con la función de autocorrelación de <span class="nobr">$h$.</span></p>
@@ -20,28 +20,28 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Lo esencial</div><ul>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{E_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|s|^2\mathrm{d} t}$;</span> <span class="nobr">$\textcolor{#3f1a78}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\lim\frac{1}{2T}\int_{-T}^T|s|^2\mathrm{d} t}$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{E_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|s|^2\mathrm{d} t}$;</span> <span class="nobr">$\textcolor{#123d29}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\lim\frac{1}{2T}\int_{-T}^T|s|^2\mathrm{d} t}$.</span></p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{p_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\int s^*g\,\mathrm{d} t}{\sqrt{E_sE_g}}}$,</span> <span class="nobr">$|p|\le1$,</span> <span class="nobr">$\textcolor{#3f1a78}{p}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$:</span> ortogonales.</p>
+<p><span class="nobr">$\textcolor{#123d29}{p_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\int s^*g\,\mathrm{d} t}{\sqrt{E_sE_g}}}$,</span> <span class="nobr">$|p|\le1$,</span> <span class="nobr">$\textcolor{#123d29}{p}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$:</span> ortogonales.</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{\varphi^E_{sg}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s^*(t)g(t+\tau)\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{s^*(-\tau)*g(\tau)}$; <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{gs}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^{E*}_{sg}(-\tau)}$.</span></p>
+<p>$\textcolor{#123d29}{\varphi^E_{sg}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s^*(t)g(t+\tau)\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{s^*(-\tau)*g(\tau)}$; <span class="nobr">$\textcolor{#123d29}{\varphi^E_{gs}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^{E*}_{sg}(-\tau)}$.</span></p>
 </li>
 <li>
-<p>FAC: par (señal real), máximo <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s}$,</span> duración doble.</p>
+<p>FAC: par (señal real), máximo <span class="nobr">$\textcolor{#123d29}{\varphi^E_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s}$,</span> duración doble.</p>
 </li>
 <li>
-<p><span class="nobr">$\varphi^E_{ss}\leftrightarrow|S|^2$,</span> <span class="nobr">$\varphi^E_{sg}\leftrightarrow S^*G$;</span> Parseval <span class="nobr">$\textcolor{#3f1a78}{\int|s|^2\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|S|^2\mathrm{d} f}$.</span></p>
+<p><span class="nobr">$\varphi^E_{ss}\leftrightarrow|S|^2$,</span> <span class="nobr">$\varphi^E_{sg}\leftrightarrow S^*G$;</span> Parseval <span class="nobr">$\textcolor{#123d29}{\int|s|^2\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|S|^2\mathrm{d} f}$.</span></p>
 </li>
 <li>
-<p>Wiener-Lee: <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*\varphi^E_{hh}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{|G|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{|S|^2|H|^2}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*h}$.</span></p>
+<p>Wiener-Lee: <span class="nobr">$\textcolor{#123d29}{\varphi^E_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*\varphi^E_{hh}}$,</span> <span class="nobr">$\textcolor{#123d29}{|G|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{|S|^2|H|^2}$;</span> <span class="nobr">$\textcolor{#123d29}{\varphi^E_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*h}$.</span></p>
 </li>
 <li>
-<p>Paso banda: $\textcolor{#3f1a78}{\varphi^E_{sgT}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T^*(-\tau)*g_T(\tau)}$.</p>
+<p>Paso banda: $\textcolor{#123d29}{\varphi^E_{sgT}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T^*(-\tau)*g_T(\tau)}$.</p>
 </li>
 <li>
-<p>Discreto: <span class="nobr">$\textcolor{#3f1a78}{\varphi(m)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s^*(n)g(n+m)}$,</span> <span class="nobr">$\leftrightarrow|S_\mathrm a|^2$;</span> periódico: <span class="nobr">$S_d^*G_d$.</span></p>
+<p>Discreto: <span class="nobr">$\textcolor{#123d29}{\varphi(m)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s^*(n)g(n+m)}$,</span> <span class="nobr">$\leftrightarrow|S_\mathrm a|^2$;</span> periódico: <span class="nobr">$S_d^*G_d$.</span></p>
 </li>
 </ul></aside>
 <p><strong>Un principio detrás de todos los resultados.</strong> La correlación es una convolución con una señal reflejada. Por eso valen todas las herramientas de la convolución:</p>

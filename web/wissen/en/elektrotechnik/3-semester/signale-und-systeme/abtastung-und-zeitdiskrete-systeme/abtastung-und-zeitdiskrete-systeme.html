@@ -13,16 +13,16 @@
 <p><strong>How to work with this chapter.</strong> Each stage is a short article of its own with the idea, typical questions you can expand, and exercises (★ to ★★★). Try the exercises yourself first; the solution expands right below each exercise. Finish one stage before you move on to the next.</p>
 <aside class="callout cx-merke"><div class="callout-h">The reference model for this chapter</div><ul>
 <li>
-<p>⁠<strong>Sampling rate</strong> $\textcolor{#3f1a78}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz <span class="nobr">($\textcolor{#3f1a78}{T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$</span> ms). Test signals: cosine oscillations at 300 Hz and 700 Hz.</p>
+<p>⁠<strong>Sampling rate</strong> $\textcolor{#123d29}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1/T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz <span class="nobr">($\textcolor{#123d29}{T}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$</span> ms). Test signals: cosine oscillations at 300 Hz and 700 Hz.</p>
 </li>
 <li>
-<p>For sequences, the frequency is normalized to the sampling rate: $\textcolor{#3f1a78}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ corresponds to <span class="nobr">$f_\mathrm A$.</span> With $\textcolor{#3f1a78}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz, $\textcolor{#3f1a78}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.3}$ therefore means 300 Hz.</p>
+<p>For sequences, the frequency is normalized to the sampling rate: $\textcolor{#123d29}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ corresponds to <span class="nobr">$f_\mathrm A$.</span> With $\textcolor{#123d29}{f_\mathrm A}\textcolor{#15633a}{=}\textcolor{#c2410c}{1}$ kHz, $\textcolor{#123d29}{f}\textcolor{#15633a}{=}\textcolor{#c2410c}{0.3}$ therefore means 300 Hz.</p>
 </li>
 <li>
-<p>⁠<strong>Recursive system</strong> <span class="nobr">$\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+0.6\,g(n-1)}$.</span></p>
+<p>⁠<strong>Recursive system</strong> <span class="nobr">$\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+0.6\,g(n-1)}$.</span></p>
 </li>
 <li>
-<p>⁠<strong>DFT example</strong> <span class="nobr">$\textcolor{#3f1a78}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1,\,2,\,0,\,-1)}$.</span></p>
+<p>⁠<strong>DFT example</strong> <span class="nobr">$\textcolor{#123d29}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{(1,\,2,\,0,\,-1)}$.</span></p>
 </li>
 </ul>
 <p>The script <code>rechnung_kap4.py</code> recomputes the numbers and curves.</p></aside>

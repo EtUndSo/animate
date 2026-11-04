@@ -204,7 +204,8 @@ const CATALOG = {
 };
 
 // Ready-made scenes. Each is an editor model (objects + animations) the user can load and then
-// tweak. `key` links an object to animations that target it (ids are assigned fresh on load).
+// tweak. `key` links an object to animations that target it (ids are assigned fresh on load);
+// an optional `name` is the display name in the editor lists.
 // Only scenes buildable with today's engine are here; Faltung (convolution) etc. follow once
 // ValueTracker/updaters land (see ROADMAP).
 const TEMPLATES = {
@@ -366,6 +367,15 @@ function migrateModel(){
   const axs = (model.objects || []).filter(o=>o.type==="Axes");
   for (const a of axs) if (!a.schematic && a.props && a.props.show_axes===false &&
       model.objects.some(o=>CIRCUIT_TYPES.has(o.type) && (o.on===a.id || (!o.on && axs[0]===a)))) a.schematic = true;
+  // Names (display labels): trimmed, never empty, unique — a hand-edited or older file is put right here.
+  const seen = new Set();
+  for(const o of allNodes()){
+    if(o.name===undefined) continue;
+    const n = typeof o.name==="string" ? cleanName(o.name) : "";
+    if(!n || n===autoName(o)){ delete o.name; continue; }
+    o.name = seen.has(_nameKey(n)) ? uniqueName(n, o.id) : n;
+    seen.add(_nameKey(o.name));
+  }
 }
 
 const BG_ID = "__bg__";
@@ -848,6 +858,7 @@ function parentListOf(id, list=model.objects){                 // the array that
 }
 function cloneSpec(o){                                         // deep copy with fresh ids (incl. children)
   const c = { id:"o"+(nextId++), type:o.type, props:structuredClone(o.props) };
+  if(o.name) c.name = o.name;                         // made unique after insertion (dedupeNames)
   if(o.visible!==undefined) c.visible = o.visible;
   if(o.expanded!==undefined) c.expanded = o.expanded;
   if(o.result) c.result = structuredClone(o.result);
@@ -858,6 +869,52 @@ function cloneSpec(o){                                         // deep copy with
   return c;
 }
 const selected = () => (model.selectedId===BG_ID ? null : findNode(model.selectedId));
+
+// ---------- object names ----------
+// Objects reference each other ONLY by id: animation `target`, operation `inputs`, panel `on`, `a`/`b`; a
+// template's `key` is turned into an id by instantiate() and then dropped. So the name is a pure DISPLAY label:
+// o.name (optional, unique, case-insensitive); without one the lists show the automatic label "Typ · id".
+// Renaming therefore never touches a reference. (A Parameter's props.name is something else: the formula
+// symbol that expressions use; it is shown as "symbol" in the properties and is not changed by renaming.)
+const NAME_MAX = 60;
+function autoName(o){
+  return o.type==="Parameter" ? `${o.props.name} = ${o.props.value} · ${o.id}`
+       : o.type==="Axes" && o.props.title ? `Axes ${o.props.title} · ${o.id}`
+       : `${o.type} · ${o.id}`;
+}
+function displayName(o){ return o.name || autoName(o); }
+function cleanName(s){ return String(s==null?"":s).replace(/[\u0000-\u001f\u007f]+/g," ").replace(/\s+/g," ").trim().slice(0, NAME_MAX); }
+const _nameKey = (s) => cleanName(s).toLocaleLowerCase();
+function allNodes(list=model.objects, acc=[]){ for(const o of list){ acc.push(o); if(o.children) allNodes(o.children, acc); } return acc; }
+function nameTaken(name, exceptId){ const k=_nameKey(name); return allNodes().some(o=>o.id!==exceptId && _nameKey(displayName(o))===k); }
+function uniqueName(name, exceptId){                            // "Sinus" taken -> "Sinus 2", "Sinus 3", …
+  if(!nameTaken(name, exceptId)) return name;
+  const base = name.replace(/\s+\d+$/, "").slice(0, NAME_MAX-4);
+  let n = 2; while(nameTaken(base+" "+n, exceptId)) n++;
+  return base+" "+n;
+}
+function dedupeNames(node){ for(const n of allNodes([node])) if(n.name) n.name = uniqueName(n.name, n.id); }   // after inserting a copy
+// Why a new name is refused ("" = fine). Empty or the automatic label = back to the automatic label.
+function nameError(o, raw){
+  const name = cleanName(raw);
+  if(!name || name===autoName(o) || name===o.name) return "";
+  return nameTaken(name, o.id) ? `Den Namen „${name}“ trägt schon ein anderes Objekt` : "";
+}
+// Set (or clear) an object's name. Returns "" on success, else the reason. No rebuild of the drawing needed:
+// the name does not reach the engine, so only the lists are redrawn and the autosave is written.
+function renameObject(id, raw){
+  const o = findNode(id); if(!o) return "Objekt nicht gefunden";
+  const err = nameError(o, raw); if(err) return err;
+  const name = cleanName(raw), old = displayName(o);
+  if(!name || name===autoName(o)){ if(!o.name) return ""; delete o.name; }
+  else { if(name===o.name) return ""; o.name = name; }
+  renderSceneObjs();                                     // Objects + Animations lists
+  if(model.selectedComp) renderOperationProps();         // operand dropdowns show names
+  const f = $("prop-name"); if(f && model.selectedId===id && document.activeElement!==f) f.value = o.name || "";
+  saveLocal();
+  setStatus(o.name ? `Umbenannt: „${old}“ → „${o.name}“ ✓` : `Name entfernt — automatischer Name „${autoName(o)}“`);
+  return "";
+}
 // GeoGebra-style: each new coloured object cycles to the next palette colour, so two objects of the
 // same kind (e.g. two function graphs) are automatically distinct. Text/LaTeX keep their colour (black).
 const AUTO_COLORS = ["#1f77b4","#e8820c","#2ca02c","#d62728","#9467bd","#17becf","#8c564b","#e377c2"];
@@ -955,13 +1012,15 @@ function duplicateObject(id){
   const i = list.findIndex(o=>o.id===id);
   const copy = recolorFresh(cloneSpec(list[i]));               // all properties + children come along; fresh colour
   list.splice(i+1, 0, copy);                                  // insert right after the original
+  dedupeNames(copy);                                          // a named copy gets "Name 2"
   model.selectedId = copy.id;
   renderSceneObjs(); renderProps(); renderPreview();
 }
 
 function instantiate(spec, keyToId){                           // template spec -> live node (recursive)
   const node = { id:"o"+(nextId++), type:spec.type, props:structuredClone(spec.props) };
-  if(spec.key) keyToId[spec.key] = node.id;
+  if(spec.key) keyToId[spec.key] = node.id;                    // the key only resolves references -> ids
+  if(typeof spec.name==="string" && cleanName(spec.name)) node.name = cleanName(spec.name);   // optional display name
   if(spec.visible!==undefined) node.visible = spec.visible;
   if(spec.result) node.result = structuredClone(spec.result);
   if(spec.a) node.a = keyToId[spec.a];                // remap object references (defined earlier)
@@ -1161,7 +1220,7 @@ function saveScene(){
 }
 function loadSceneFile(file){
   const r=new FileReader();
-  r.onload=()=>{ try{ applyScene(JSON.parse(r.result)); setStatus("Scene loaded ✓"); } catch(e){ setStatus("Load failed: "+e.message); } };
+  r.onload=()=>{ try{ applyScene(JSON.parse(r.result)); collapseSceneSections(); setStatus("Scene loaded ✓"); } catch(e){ setStatus("Load failed: "+e.message); } };
   r.readAsText(file);
 }
 let lsActive = LS_KEY;                // autosave key; a scene opened via ?scene= saves under LS_KEY+":link"
@@ -1203,7 +1262,7 @@ function buildTemplates(){
   }
   const rest=Object.keys(TEMPLATES).filter(n=>!seen.has(n));   // any uncategorised template
   if(rest.length){ const og=document.createElement("optgroup"); og.label="Weitere"; for(const name of rest) addOpt(og,name); sel.appendChild(og); }
-  sel.onchange=()=>{ const t=TEMPLATES[sel.value]; if(t) loadTemplate(t); sel.value=""; };
+  sel.onchange=()=>{ const t=TEMPLATES[sel.value]; if(t){ loadTemplate(t); collapseSceneSections(); } sel.value=""; };   // opened scene: lists folded
 }
 // Categorised "add computation" palette (subject -> topic). Click adds a skeleton (no operands yet).
 function buildCompPalette(){
@@ -1226,6 +1285,7 @@ function compConfigured(c){
 }
 function renderComputations(){
   const el=$("computations"); el.innerHTML="";
+  setSecCount("comps", model.computations.length);
   if(model.computations.length===0){ el.innerHTML='<div class="hint">No operations yet.</div>'; return; }
   for(const c of model.computations){
     const def=COMP_DEFS[c.type]; const ok=compConfigured(c);
@@ -1274,7 +1334,7 @@ function renderCompProps(container, c){
       const candidates=model.objects.filter(o=>inp.accept.includes(o.type));
       const sel=document.createElement("select");
       const ph=document.createElement("option"); ph.value=""; ph.textContent="— choose object —"; sel.appendChild(ph);
-      for(const o of candidates){ const op=document.createElement("option"); op.value=o.id; op.textContent=`${o.type} · ${o.id}`; sel.appendChild(op); }
+      for(const o of candidates){ const op=document.createElement("option"); op.value=o.id; op.textContent=displayName(o); sel.appendChild(op); }
       sel.value=c.inputs[inp.role]||"";
       sel.onchange=()=>{ c.inputs[inp.role]=sel.value||undefined; renderComputations(); renderPreview(); };
       container.appendChild(propRow(inp.label, sel));
@@ -1308,16 +1368,97 @@ function eyeIcon(visible){
     ? s + '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>'
     : s + '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
 }
+// ---------- Scene box: Objects / Animations / Operations collapsible ----------
+// Click (or Enter/Space) on a heading toggles its list. Opening a scene (template menu, article link
+// ?scene=…, scene file) collapses all three, so long object lists don't push Animations/Operations out of
+// sight. The state lives in localStorage, so the start example and the autosave restore keep the last one.
+const SEC_KEY = "animate.sceneSections";
+const SECTIONS = { objs:"scene-objs", anims:"scene-anims", comps:"computations" };
+const secCollapsed = { objs:false, anims:false, comps:false };
+try{ const s=JSON.parse(localStorage.getItem(SEC_KEY)||"null"); if(s && typeof s==="object") for(const k in secCollapsed) if(typeof s[k]==="boolean") secCollapsed[k]=s[k]; }catch(e){}
+function applySection(k){
+  const body=$(SECTIONS[k]), btn=document.querySelector(`.sub-toggle[data-sec="${k}"]`); if(!body || !btn) return;
+  const c=secCollapsed[k];
+  body.hidden=c; btn.setAttribute("aria-expanded", String(!c));
+  const arr=btn.querySelector(".arr"); if(arr) arr.textContent = c ? "▸" : "▾";
+  const sub=btn.closest(".sub"); if(sub) sub.classList.toggle("collapsed", c);
+}
+function setSection(k, collapsed){
+  secCollapsed[k]=!!collapsed; applySection(k);
+  try{ localStorage.setItem(SEC_KEY, JSON.stringify(secCollapsed)); }catch(e){}
+}
+function collapseSceneSections(){ for(const k in SECTIONS) setSection(k, true); }
+function setSecCount(k, n){ const e=$("cnt-"+k); if(e) e.textContent="("+n+")"; }
+(function initSections(){
+  for(const k in SECTIONS){
+    const btn=document.querySelector(`.sub-toggle[data-sec="${k}"]`);
+    if(btn) btn.addEventListener("click", ()=>setSection(k, !secCollapsed[k]));   // a <button>: Enter/Space for free
+    applySection(k);
+  }
+  // Double-click on an entry in Objects = rename it in place. Delegated to the list container, because the
+  // first click of the double-click selects the object and redraws the rows.
+  const list=$("scene-objs"); if(!list) return;
+  list.addEventListener("mousedown", (e)=>{ if(e.detail>1 && !e.target.closest("input")) e.preventDefault(); });   // no word selection
+  list.addEventListener("dblclick", (e)=>{
+    if(e.target.closest("button, input")) return;                  // eye / duplicate / delete / caret
+    let row=e.target.closest(".obj-row[data-id]");
+    if(!row){ const t=document.elementFromPoint(e.clientX, e.clientY); row=t && t.closest ? t.closest(".obj-row[data-id]") : null; }
+    if(!row) return;
+    e.preventDefault(); startInlineRename(row.dataset.id);
+  });
+})();
+// The entry's name becomes a text field: Enter = take it, Esc = cancel, leaving the field = take it if valid.
+// Empty = back to the automatic name. A name another object already has is refused (field turns red).
+function startInlineRename(id){
+  const o=findNode(id); const row=document.querySelector(`#scene-objs .obj-row[data-id="${CSS.escape(id)}"]`);
+  if(!o || !row) return;
+  const label=row.querySelector(".label"), nm=row.querySelector(".nm"); if(!label || !nm) return;
+  const inp=document.createElement("input"); inp.type="text"; inp.className="rename"; inp.maxLength=NAME_MAX;
+  inp.value=displayName(o); inp.placeholder=autoName(o);
+  inp.setAttribute("aria-label", "Neuer Name für "+displayName(o));
+  inp.title="Enter = übernehmen · Esc = abbrechen · leer = automatischer Name";
+  row.querySelectorAll(".kind").forEach(k=>k.remove());
+  label.classList.add("editing"); nm.replaceWith(inp);
+  let done=false;
+  const cancel=()=>{ if(done) return; done=true; renderSceneObjs(); };
+  const commit=()=>{
+    if(done) return; done=true;
+    const err=renameObject(id, inp.value);                    // success redraws the list (removes this field)
+    if(err){ done=false; inp.classList.add("invalid"); inp.title=err; setStatus("⚠ "+err); inp.focus(); inp.select(); }
+  };
+  inp.addEventListener("keydown", (e)=>{
+    e.stopPropagation();                                      // no editor shortcuts (Del, R, M, G) while typing
+    if(e.key==="Enter"){ e.preventDefault(); commit(); }
+    else if(e.key==="Escape"){ e.preventDefault(); cancel(); }
+  });
+  inp.addEventListener("blur", ()=>{
+    // Deferred: Chrome also fires blur while a redraw removes the field — never re-render inside a render.
+    if(done) return;
+    setTimeout(()=>{
+      if(done) return;
+      if(!findNode(id)){ done=true; return; }                 // object deleted meanwhile
+      const err=nameError(o, inp.value);
+      if(err){ cancel(); setStatus("⚠ "+err+" — Name nicht geändert"); } else commit();
+    }, 0);
+  });
+  inp.addEventListener("input", ()=>{ inp.classList.remove("invalid"); inp.title="Enter = übernehmen · Esc = abbrechen · leer = automatischer Name"; });
+  for(const t of ["click","mousedown","pointerdown","dblclick"]) inp.addEventListener(t, (e)=>e.stopPropagation());   // don't re-select the row
+  inp.focus(); inp.select();
+}
 function renderSceneObjs(){
   const el=$("scene-objs"); el.innerHTML="";
+  setSecCount("objs", allNodes().length);
   const bgRow=document.createElement("div"); bgRow.className="obj-row"+(model.selectedId===BG_ID?" sel":"");
   bgRow.textContent="Settings"; bgRow.onclick=()=>selectObject(BG_ID);              // whole row
   el.appendChild(bgRow);
   if(model.objects.length===0){ const h=document.createElement("div"); h.className="hint"; h.textContent="No objects yet."; el.appendChild(h); }
   const renderNode=(o, depth)=>{
     const row=document.createElement("div"); row.className="obj-row"+(o.id===model.selectedId?" sel":"");
+    row.dataset.id=o.id;                                                             // double-click -> rename
     row.style.paddingLeft=(8+depth*16)+"px";                                          // indent children
-    row.onclick=()=>selectObject(o.id);                                              // whole row selects
+    // whole row selects; the 2nd click of a double-click must not redraw the list, or the dblclick (rename)
+    // would land on a removed row
+    row.onclick=(e)=>{ if(e.detail>1 && model.selectedId===o.id && !model.selectedComp) return; selectObject(o.id); };
     const left=document.createElement("span"); left.className="label";
     const kids = o.children && o.children.length;
     if(kids){                                                                        // expand/collapse caret
@@ -1326,11 +1467,16 @@ function renderSceneObjs(){
       left.appendChild(car);
     } else { const sp=document.createElement("span"); sp.className="caret"; left.appendChild(sp); }  // align
     const name=document.createElement("span"); name.className="nm";
-    name.textContent = o.type==="Parameter" ? `${o.props.name} = ${o.props.value} · ${o.id}`
-                     : o.type==="Axes" && o.props.title ? `Axes ${o.props.title} · ${o.id}`
-                     : `${o.type} · ${o.id}`;
+    name.textContent = displayName(o);                                               // own name, else "Typ · id"
+    name.title = "Doppelklick: umbenennen";
     if(o.visible===false) name.style.opacity="0.45";                                 // hidden -> dimmed
     left.appendChild(name);
+    if(o.name){                                                                      // named: type (or symbol = value) as a quiet hint
+      const k=document.createElement("span"); k.className="kind";
+      k.textContent = o.type==="Parameter" ? `${o.props.name} = ${o.props.value}` : o.type;
+      if(o.visible===false) k.style.opacity="0.45";
+      left.appendChild(k);
+    }
     const ops=document.createElement("div"); ops.className="ops";
     const eye=document.createElement("button"); eye.className="eye"; eye.innerHTML=eyeIcon(o.visible!==false);
     eye.title = o.visible!==false ? "Visible (click to hide)" : "Hidden (click to show)";
@@ -1351,6 +1497,7 @@ function renderSceneObjs(){
 function renderSceneAnims(){
   const el=$("scene-anims"); if(!el) return; el.innerHTML="";
   const anims=model.animations||[];
+  setSecCount("anims", anims.length);
   if(anims.length===0){ el.innerHTML='<div class="hint">Noch keine Animationen — Objekt wählen und in dessen Properties eine hinzufügen.</div>'; return; }
   if(model.playMode!=="parallel"){ const h=document.createElement("div"); h.className="hint"; h.style.marginBottom="4px";
     h.textContent="Reihenfolge = Abspielreihenfolge · ziehen zum Umsortieren"; el.appendChild(h); }
@@ -1365,7 +1512,7 @@ function renderSceneAnims(){
     row.ondrop=(e)=>{ e.preventDefault(); row.classList.remove("drop-target"); const from=parseInt(e.dataTransfer.getData("text/plain"),10); if(!isNaN(from)&&from!==idx) reorderAnimation(from, idx); };
     const left=document.createElement("span"); left.className="label";
     const grip=document.createElement("span"); grip.textContent="⠿"; grip.style.cssText="cursor:grab;color:var(--muted);margin-right:6px"; left.appendChild(grip);
-    const nm=document.createElement("span"); nm.className="nm"; nm.textContent = a.type + " · " + (o?`${o.type} · ${o.id}`:"(deleted)");
+    const nm=document.createElement("span"); nm.className="nm"; nm.textContent = a.type + " · " + (o?displayName(o):"(deleted)");
     if(a.visible===false) nm.style.opacity="0.45";
     left.appendChild(nm);
     if(a.run_time!=null){ const t=document.createElement("span"); t.className="hint"; t.style.marginLeft="6px"; t.textContent=a.run_time+"s"; left.appendChild(t); }
@@ -1502,11 +1649,24 @@ function renderObjectProps(){
   const o=selected();
   if(!o){ el.innerHTML='<span class="hint">No object selected.</span>'; return; }
   const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent=o.type; el.appendChild(h);
+  // Name = display label in the lists (references use the id, so renaming breaks nothing). Empty = automatic name.
+  const ni=document.createElement("input"); ni.type="text"; ni.id="prop-name"; ni.maxLength=NAME_MAX;
+  ni.value=o.name||""; ni.placeholder=autoName(o);
+  ni.title="Name in der Szene-Liste (auch per Doppelklick dort änderbar). Leer = automatischer Name. Animationen und Operationen verweisen über die id und bleiben verbunden.";
+  ni.onchange=()=>{
+    const err=renameObject(o.id, ni.value);
+    ni.value=o.name||"";                                  // cleaned value, or the old one if refused
+    if(err){ ni.classList.add("invalid"); setStatus("⚠ "+err+" — Name nicht geändert"); setTimeout(()=>ni.classList.remove("invalid"), 2500); }
+  };
+  ni.addEventListener("keydown", (e)=>{ if(e.key==="Escape"){ e.preventDefault(); ni.value=o.name||""; ni.blur(); } });
+  ni.addEventListener("input", ()=>ni.classList.remove("invalid"));
+  commitOnEnter(ni);
+  el.appendChild(propRow("Name", ni));
   // Panel choice: with several Axes in the scene, a data object says which one it is drawn on.
   const axs=axesList();
   if(o.type!=="Axes" && o.type!=="Parameter" && !WORLD_TYPES.has(o.type) && axs.length>1){
     const s=document.createElement("select");
-    axs.forEach((a,i)=>{ const op=document.createElement("option"); op.value=a.id; op.textContent=(a.props.title?a.props.title+" · ":"")+a.id+(i===0?" (default)":""); if((o.on||axs[0].id)===a.id) op.selected=true; s.appendChild(op); });
+    axs.forEach((a,i)=>{ const op=document.createElement("option"); op.value=a.id; op.textContent=(a.name ? a.name : (a.props.title?a.props.title+" · ":"")+a.id)+(i===0?" (default)":""); if((o.on||axs[0].id)===a.id) op.selected=true; s.appendChild(op); });
     s.onchange=()=>{ o.on = (s.value===axs[0].id) ? undefined : s.value; if(!o.on) delete o.on; renderPreview(); };
     el.appendChild(propRow("axes", s));
   }
@@ -1520,7 +1680,13 @@ function renderObjectProps(){
     skip.add("adaptive"); skip.add("res_max"); skip.add("res_min");
     ["color","grid_color","grid_width","stroke_width","stroke_opacity","fill_opacity","height_color"].forEach(put);   // colours / line look (height_color: surface depth shading)
   }
-  for(const [k,v] of Object.entries(o.props)){ if(skip.has(k)) continue; el.appendChild(propInput(o,k,v)); }
+  for(const [k,v] of Object.entries(o.props)){
+    if(skip.has(k)) continue;
+    const r=propInput(o,k,v);
+    if(o.type==="Parameter" && k==="name"){                // not the display Name: the formula symbol (UB, k, …)
+      r.firstChild.textContent="symbol"; r.title="Formelzeichen, unter dem Ausdrücke diesen Parameter verwenden (z. B. 2*(UB - x))"; }
+    el.appendChild(r);
+  }
   renderResults(el, o);
   renderAnimations(el, o);
 }
@@ -2420,6 +2586,7 @@ async function boot(){
   if(sceneUrl){
     lsActive = LS_KEY + ":link";
     try{ const r=await fetch(sceneUrl, {cache:"no-cache"}); if(!r.ok) throw new Error("HTTP "+r.status); applyScene(await r.json()); restored=true;
+      collapseSceneSections();                                         // article figure: only the three headings
       const linkLang=new URLSearchParams(location.search).get("lang");   // article link: the figure in the reader's language
       if(/^(de|en|es|zh)$/.test(linkLang||"")){ model.lang=linkLang; $("scene-lang").value=linkLang; renderPreview(); }
       statusNote = "Vorlage geladen: "+sceneUrl+" (deine eigene Szene bleibt gespeichert)"; }
@@ -2471,8 +2638,8 @@ document.addEventListener("keydown", (e)=>{
     if(e.key==="Escape"){ if(placing){ cancelPlacing(); return; } if(wireDrag){ wireDrag=null; pinHover=null; drawMoveGizmoFromCache(); return; } }
     if((e.key==="Delete" || e.key==="Backspace") && selected()){ e.preventDefault(); deleteObject(selected().id); return; }
   }
-  if(mod && e.key==="c"){ const o=selected(); if(o){ clipboard=cloneSpec(o); setStatus("Kopiert: "+o.type); } }
-  else if(mod && e.key==="v"){ if(clipboard){ const copy=recolorFresh(cloneSpec(clipboard)); model.objects.push(copy); model.selectedId=copy.id; renderSceneObjs(); renderProps(); renderPreview(); } }
+  if(mod && e.key==="c"){ const o=selected(); if(o){ clipboard=cloneSpec(o); setStatus("Kopiert: "+displayName(o)); } }
+  else if(mod && e.key==="v"){ if(clipboard){ const copy=recolorFresh(cloneSpec(clipboard)); model.objects.push(copy); dedupeNames(copy); model.selectedId=copy.id; renderSceneObjs(); renderProps(); renderPreview(); } }
 });
 
 // ---------- Export: Photo (image) + Animation (video), each with a format dropdown (▾) ----------

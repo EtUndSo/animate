@@ -15,7 +15,7 @@
 <p>The Fourier transform of the autocorrelation function is the power spectral density. An LTI system multiplies it by <span class="nobr">$|H(f)|^2$,</span> exactly as for energy signals (<a href="/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html">Part 6</a>).</p>
 </li>
 <li>
-<p>Against white noise, the matched filter $\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T-t)}$ is optimal. It achieves the signal-to-noise ratio <span class="nobr">$E_s/N_0$,</span> regardless of the signal shape.</p>
+<p>Against white noise, the matched filter $\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T-t)}$ is optimal. It achieves the signal-to-noise ratio <span class="nobr">$E_s/N_0$,</span> regardless of the signal shape.</p>
 </li>
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Key points</div><ul>
@@ -23,28 +23,28 @@
 <p>Ensemble average <span class="nobr">$\mathrm E\{\cdot\}$;</span> stationary: independent of shifts; ergodic: time average $=$ ensemble average.</p>
 </li>
 <li>
-<p>$m_s$ (DC component), $\textcolor{#3f1a78}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm E\{s^2\}}$ (power), $\textcolor{#3f1a78}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s-m_s^2}$ (AC power).</p>
+<p>$m_s$ (DC component), $\textcolor{#123d29}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm E\{s^2\}}$ (power), $\textcolor{#123d29}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s-m_s^2}$ (AC power).</p>
 </li>
 <li>
-<p>ACF: <span class="nobr">$\textcolor{#3f1a78}{\varphi_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s}$,</span> even, maximum at 0; covariance <span class="nobr">$\textcolor{#3f1a78}{\mu}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi-m^2}$;</span> sum: $\textcolor{#3f1a78}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sigma_u^2+\sigma_v^2+2\mu_{uv}(0)}$.</p>
+<p>ACF: <span class="nobr">$\textcolor{#123d29}{\varphi_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s}$,</span> even, maximum at 0; covariance <span class="nobr">$\textcolor{#123d29}{\mu}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi-m^2}$;</span> sum: $\textcolor{#123d29}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sigma_u^2+\sigma_v^2+2\mu_{uv}(0)}$.</p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{P_s(x)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{Prob}[s\le x]}$,</span> <span class="nobr">$\textcolor{#3f1a78}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{P_s'}$;</span> <span class="nobr">$\textcolor{#3f1a78}{m_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int xp_s}$,</span> <span class="nobr">$\textcolor{#3f1a78}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int x^2p_s}$;</span> uniform distribution <span class="nobr">$\textcolor{#3f1a78}{\sigma^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{a^2/12}$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{P_s(x)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{Prob}[s\le x]}$,</span> <span class="nobr">$\textcolor{#123d29}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{P_s'}$;</span> <span class="nobr">$\textcolor{#123d29}{m_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int xp_s}$,</span> <span class="nobr">$\textcolor{#123d29}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int x^2p_s}$;</span> uniform distribution <span class="nobr">$\textcolor{#123d29}{\sigma^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{a^2/12}$.</span></p>
 </li>
 <li>
-<p>Characteristic curve: <span class="nobr">$\textcolor{#3f1a78}{p_g(y)|\mathrm{d} y|}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_s(x)|\mathrm{d} x|}$;</span> quantization error <span class="nobr">$\Delta^2/12$,</span> 6 dB per bit.</p>
+<p>Characteristic curve: <span class="nobr">$\textcolor{#123d29}{p_g(y)|\mathrm{d} y|}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_s(x)|\mathrm{d} x|}$;</span> quantization error <span class="nobr">$\Delta^2/12$,</span> 6 dB per bit.</p>
 </li>
 <li>
-<p>Independent $\Rightarrow$ uncorrelated; sum of independent variables: <span class="nobr">$\textcolor{#3f1a78}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_f*p_g}$;</span> Gaussian: <span class="nobr">$\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-(x-m)^2/2\sigma^2}$.</span></p>
+<p>Independent $\Rightarrow$ uncorrelated; sum of independent variables: <span class="nobr">$\textcolor{#123d29}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_f*p_g}$;</span> Gaussian: <span class="nobr">$\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-(x-m)^2/2\sigma^2}$.</span></p>
 </li>
 <li>
-<p>LTI: <span class="nobr">$\textcolor{#3f1a78}{m_g}\textcolor{#15633a}{=}\textcolor{#c2410c}{m_sH(0)}$,</span> <span class="nobr">$\textcolor{#3f1a78}{\varphi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi_{ss}*\varphi^E_{hh}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{\Phi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\Phi_{ss}|H|^2}$,</span> <span class="nobr">$\textcolor{#3f1a78}{L}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int\Phi\,\mathrm{d} f}$.</span></p>
+<p>LTI: <span class="nobr">$\textcolor{#123d29}{m_g}\textcolor{#15633a}{=}\textcolor{#c2410c}{m_sH(0)}$,</span> <span class="nobr">$\textcolor{#123d29}{\varphi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi_{ss}*\varphi^E_{hh}}$,</span> <span class="nobr">$\textcolor{#123d29}{\Phi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\Phi_{ss}|H|^2}$,</span> <span class="nobr">$\textcolor{#123d29}{L}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int\Phi\,\mathrm{d} f}$.</span></p>
 </li>
 <li>
-<p>White: <span class="nobr">$\textcolor{#3f1a78}{\Phi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0}$,</span> <span class="nobr">$\textcolor{#3f1a78}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0\delta}$;</span> thermal <span class="nobr">$\textcolor{#3f1a78}{\mathrm E\{u^2\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{4kTRf_\mathrm g}$,</span> $\textcolor{#3f1a78}{kT}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{4}$ pW/GHz.</p>
+<p>White: <span class="nobr">$\textcolor{#123d29}{\Phi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0}$,</span> <span class="nobr">$\textcolor{#123d29}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0\delta}$;</span> thermal <span class="nobr">$\textcolor{#123d29}{\mathrm E\{u^2\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{4kTRf_\mathrm g}$,</span> $\textcolor{#123d29}{kT}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{4}$ pW/GHz.</p>
 </li>
 <li>
-<p>Matched filter: <span class="nobr">$\textcolor{#3f1a78}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{a\,s(T-t)}$,</span> <span class="nobr">$\textcolor{#3f1a78}{(S_a/N)_{\max}}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s/N_0}$;</span> $\textcolor{#3f1a78}{P_{e,\min}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12\operatorname{erfc}\sqrt{E_s/(8N_0)}}$.</p>
+<p>Matched filter: <span class="nobr">$\textcolor{#123d29}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{a\,s(T-t)}$,</span> <span class="nobr">$\textcolor{#123d29}{(S_a/N)_{\max}}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s/N_0}$;</span> $\textcolor{#123d29}{P_{e,\min}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12\operatorname{erfc}\sqrt{E_s/(8N_0)}}$.</p>
 </li>
 </ul></aside>
 <p><strong>One principle behind all the results.</strong> You replace the unknown signal by its averages, and averages are linear:</p>

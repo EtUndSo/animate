@@ -15,7 +15,7 @@
 <p>自相关函数的傅里叶变换就是功率谱密度。LTI 系统把它乘以 $|H(f)|^2$，与能量信号的情形（<a href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html">第 6 部分</a>）完全一样。</p>
 </li>
 <li>
-<p>在白噪声背景下，匹配滤波器 $\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T-t)}$ 是最佳的。它达到的信噪比为 $E_s/N_0$，与信号形状无关。</p>
+<p>在白噪声背景下，匹配滤波器 $\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T-t)}$ 是最佳的。它达到的信噪比为 $E_s/N_0$，与信号形状无关。</p>
 </li>
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">要点</div><ul>
@@ -23,28 +23,28 @@
 <p>集平均 $\mathrm E\{\cdot\}$；平稳：与平移无关；各态历经：时间平均 $=$ 集平均。</p>
 </li>
 <li>
-<p>$m_s$（直流分量），$\textcolor{#3f1a78}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm E\{s^2\}}$（功率），$\textcolor{#3f1a78}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s-m_s^2}$（交流功率）。</p>
+<p>$m_s$（直流分量），$\textcolor{#123d29}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm E\{s^2\}}$（功率），$\textcolor{#123d29}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s-m_s^2}$（交流功率）。</p>
 </li>
 <li>
-<p>自相关函数：$\textcolor{#3f1a78}{\varphi_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s}$，偶函数，最大值在 0 处；协方差 $\textcolor{#3f1a78}{\mu}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi-m^2}$；和：$\textcolor{#3f1a78}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sigma_u^2+\sigma_v^2+2\mu_{uv}(0)}$。</p>
+<p>自相关函数：$\textcolor{#123d29}{\varphi_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{L_s}$，偶函数，最大值在 0 处；协方差 $\textcolor{#123d29}{\mu}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi-m^2}$；和：$\textcolor{#123d29}{\sigma_s^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sigma_u^2+\sigma_v^2+2\mu_{uv}(0)}$。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{P_s(x)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{Prob}[s\le x]}$，$\textcolor{#3f1a78}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{P_s'}$；$\textcolor{#3f1a78}{m_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int xp_s}$，$\textcolor{#3f1a78}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int x^2p_s}$；均匀分布 $\textcolor{#3f1a78}{\sigma^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{a^2/12}$。</p>
+<p>$\textcolor{#123d29}{P_s(x)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\mathrm{Prob}[s\le x]}$，$\textcolor{#123d29}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{P_s'}$；$\textcolor{#123d29}{m_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int xp_s}$，$\textcolor{#123d29}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int x^2p_s}$；均匀分布 $\textcolor{#123d29}{\sigma^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{a^2/12}$。</p>
 </li>
 <li>
-<p>特性曲线：$\textcolor{#3f1a78}{p_g(y)|\mathrm{d} y|}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_s(x)|\mathrm{d} x|}$；量化误差（量化噪声）$\Delta^2/12$，每比特 6 dB。</p>
+<p>特性曲线：$\textcolor{#123d29}{p_g(y)|\mathrm{d} y|}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_s(x)|\mathrm{d} x|}$；量化误差（量化噪声）$\Delta^2/12$，每比特 6 dB。</p>
 </li>
 <li>
-<p>独立 $\Rightarrow$ 不相关；独立变量之和：$\textcolor{#3f1a78}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_f*p_g}$；高斯分布：$\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-(x-m)^2/2\sigma^2}$。</p>
+<p>独立 $\Rightarrow$ 不相关；独立变量之和：$\textcolor{#123d29}{p_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{p_f*p_g}$；高斯分布：$\frac{1}{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-(x-m)^2/2\sigma^2}$。</p>
 </li>
 <li>
-<p>LTI：$\textcolor{#3f1a78}{m_g}\textcolor{#15633a}{=}\textcolor{#c2410c}{m_sH(0)}$，$\textcolor{#3f1a78}{\varphi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi_{ss}*\varphi^E_{hh}}$，$\textcolor{#3f1a78}{\Phi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\Phi_{ss}|H|^2}$，$\textcolor{#3f1a78}{L}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int\Phi\,\mathrm{d} f}$。</p>
+<p>LTI：$\textcolor{#123d29}{m_g}\textcolor{#15633a}{=}\textcolor{#c2410c}{m_sH(0)}$，$\textcolor{#123d29}{\varphi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi_{ss}*\varphi^E_{hh}}$，$\textcolor{#123d29}{\Phi_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\Phi_{ss}|H|^2}$，$\textcolor{#123d29}{L}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int\Phi\,\mathrm{d} f}$。</p>
 </li>
 <li>
-<p>白噪声：$\textcolor{#3f1a78}{\Phi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0}$，$\textcolor{#3f1a78}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0\delta}$；热噪声 $\textcolor{#3f1a78}{\mathrm E\{u^2\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{4kTRf_\mathrm g}$，$\textcolor{#3f1a78}{kT}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{4}$ pW/GHz。</p>
+<p>白噪声：$\textcolor{#123d29}{\Phi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0}$，$\textcolor{#123d29}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{N_0\delta}$；热噪声 $\textcolor{#123d29}{\mathrm E\{u^2\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{4kTRf_\mathrm g}$，$\textcolor{#123d29}{kT}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{4}$ pW/GHz。</p>
 </li>
 <li>
-<p>匹配滤波器：$\textcolor{#3f1a78}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{a\,s(T-t)}$，$\textcolor{#3f1a78}{(S_a/N)_{\max}}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s/N_0}$；$\textcolor{#3f1a78}{P_{e,\min}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12\operatorname{erfc}\sqrt{E_s/(8N_0)}}$。</p>
+<p>匹配滤波器：$\textcolor{#123d29}{h}\textcolor{#15633a}{=}\textcolor{#c2410c}{a\,s(T-t)}$，$\textcolor{#123d29}{(S_a/N)_{\max}}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s/N_0}$；$\textcolor{#123d29}{P_{e,\min}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12\operatorname{erfc}\sqrt{E_s/(8N_0)}}$。</p>
 </li>
 </ul></aside></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zeitdiskrete-zufallssignale.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">第 12 阶段：离散时间随机信号</div><ul></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen/orthogonalentwicklung-und-leitungen.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">概览: 正交展开与传输线</div><ul><li>本章内容</li></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>

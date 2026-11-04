@@ -20,31 +20,31 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Lo esencial</div><ul>
 <li>
-<p>Muestreo ideal: <span class="nobr">$\textcolor{#3f1a78}{s_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\delta(t-nT)}$;</span> espectro <span class="nobr">$\frac1T\sum_kS(f-k/T)$,</span> periódico con periodo <span class="nobr">$1/T$.</span></p>
+<p>Muestreo ideal: <span class="nobr">$\textcolor{#123d29}{s_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\delta(t-nT)}$;</span> espectro <span class="nobr">$\frac1T\sum_kS(f-k/T)$,</span> periódico con periodo <span class="nobr">$1/T$.</span></p>
 </li>
 <li>
-<p>Teorema de muestreo: <span class="nobr">$f_\mathrm A\ge2f_\mathrm g$;</span> reconstrucción $\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\operatorname{si}(\pi(t-nT)/T)}$; si no, aliasing.</p>
+<p>Teorema de muestreo: <span class="nobr">$f_\mathrm A\ge2f_\mathrm g$;</span> reconstrucción $\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\operatorname{si}(\pi(t-nT)/T)}$; si no, aliasing.</p>
 </li>
 <li>
 <p>Discreto en un dominio significa periódico en el otro.</p>
 </li>
 <li>
-<p>Convolución discreta <span class="nobr">$\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_ms(m)h(n-m)}$;</span> <span class="nobr">$\textcolor{#3f1a78}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Tr}\{\delta(n)\}}$;</span> estable: <span class="nobr">$\sum|h(n)|&lt;\infty$.</span></p>
+<p>Convolución discreta <span class="nobr">$\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_ms(m)h(n-m)}$;</span> <span class="nobr">$\textcolor{#123d29}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Tr}\{\delta(n)\}}$;</span> estable: <span class="nobr">$\sum|h(n)|&lt;\infty$.</span></p>
 </li>
 <li>
-<p>Recursivo <span class="nobr">$\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+bg(n-1)}$:</span> <span class="nobr">$\textcolor{#3f1a78}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{b^n\varepsilon(n)}$,</span> <span class="nobr">$\textcolor{#3f1a78}{H_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1-b\mathrm{e}^{-\mathrm{j}2\pi f}}}$.</span></p>
+<p>Recursivo <span class="nobr">$\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+bg(n-1)}$:</span> <span class="nobr">$\textcolor{#123d29}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{b^n\varepsilon(n)}$,</span> <span class="nobr">$\textcolor{#123d29}{H_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1-b\mathrm{e}^{-\mathrm{j}2\pi f}}}$.</span></p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{S_\mathrm a(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)\mathrm{e}^{-\mathrm{j}2\pi nf}}$,</span> periodo 1; $\textcolor{#3f1a78}{s(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-1/2}^{1/2}S_\mathrm a\mathrm{e}^{\mathrm{j}2\pi nf}\mathrm{d} f}$.</p>
+<p><span class="nobr">$\textcolor{#123d29}{S_\mathrm a(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)\mathrm{e}^{-\mathrm{j}2\pi nf}}$,</span> periodo 1; $\textcolor{#123d29}{s(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-1/2}^{1/2}S_\mathrm a\mathrm{e}^{\mathrm{j}2\pi nf}\mathrm{d} f}$.</p>
 </li>
 <li>
-<p>DFT: $\textcolor{#3f1a78}{S_d(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=0}^{M-1}s_d(n)\mathrm{e}^{-\mathrm{j}2\pi kn/M}}$, <span class="nobr">$\textcolor{#3f1a78}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1M\sum S_d\mathrm{e}^{\mathrm{j}2\pi kn/M}}$;</span> FFT <span class="nobr">$\textcolor{#3f1a78}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ M\,\mathrm{lb}\,M}$;</span> convolución circular <span class="nobr">$\leftrightarrow S_dH_d$.</span></p>
+<p>DFT: $\textcolor{#123d29}{S_d(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=0}^{M-1}s_d(n)\mathrm{e}^{-\mathrm{j}2\pi kn/M}}$, <span class="nobr">$\textcolor{#123d29}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1M\sum S_d\mathrm{e}^{\mathrm{j}2\pi kn/M}}$;</span> FFT <span class="nobr">$\textcolor{#123d29}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ M\,\mathrm{lb}\,M}$;</span> convolución circular <span class="nobr">$\leftrightarrow S_dH_d$.</span></p>
 </li>
 <li>
 <p>El submuestreo dilata la banda (aliasing si <span class="nobr">$cf_\mathrm g&gt;\frac12$)</span>; el sobremuestreo genera réplicas espectrales.</p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{S(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)z^{-n}}$;</span> $z^{-n_0}$ = retardo; <span class="nobr">$\textcolor{#3f1a78}{H(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\sum a_qz^{-q}}{1-\sum b_pz^{-p}}}$;</span> causal y estable: todos los polos en <span class="nobr">$|z|&lt;1$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{S(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)z^{-n}}$;</span> $z^{-n_0}$ = retardo; <span class="nobr">$\textcolor{#123d29}{H(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\sum a_qz^{-q}}{1-\sum b_pz^{-p}}}$;</span> causal y estable: todos los polos en <span class="nobr">$|z|&lt;1$.</span></p>
 </li>
 </ul></aside>
 <p><strong>Un principio detrás de todos los resultados: discreto en un dominio significa periódico en el otro.</strong></p>

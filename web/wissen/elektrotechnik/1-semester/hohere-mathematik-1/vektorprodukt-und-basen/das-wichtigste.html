@@ -12,7 +12,7 @@
 <p>Eine Basis ist ein Koordinatensystem: Jeder Vektor hat darin genau eine Darstellung, und alle Basen eines Vektorraums sind gleich lang.</p>
 </li>
 <li>
-<p>In einer Orthonormalbasis liest man die Koordinaten über das Skalarprodukt ab: <span class="nobr">$\textcolor{#3f1a78}{\vec x}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_i\langle\vec x,\vec v_i\rangle\vec v_i}$.</span> Gram-Schmidt baut sie, indem es von jedem Vektor die Projektionen auf die fertigen Richtungen abzieht.</p>
+<p>In einer Orthonormalbasis liest man die Koordinaten über das Skalarprodukt ab: <span class="nobr">$\textcolor{#123d29}{\vec x}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_i\langle\vec x,\vec v_i\rangle\vec v_i}$.</span> Gram-Schmidt baut sie, indem es von jedem Vektor die Projektionen auf die fertigen Richtungen abzieht.</p>
 </li>
 <li>
 <p>Im $\mathbb{R}^3$ liefert $\vec u\times\vec v$ die dritte Richtung: Der Vektor steht senkrecht auf $\vec u$ und <span class="nobr">$\vec v$,</span> sein Betrag ist die Fläche des Parallelogramms.</p>
@@ -20,19 +20,19 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Das Wichtigste</div><ul>
 <li>
-<p>$\textcolor{#3f1a78}{\vec u\times\vec v}\textcolor{#15633a}{=}\textcolor{#c2410c}{(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1)}$. Bilinear, <span class="nobr">$\textcolor{#3f1a78}{\vec u\times\vec v}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\vec v\times\vec u}$,</span> senkrecht auf <span class="nobr">$\vec u,\vec v$,</span> <span class="nobr">$\textcolor{#3f1a78}{\|\vec u\times\vec v\|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\|\vec u\|\|\vec v\|\sin\alpha}$,</span> Rechtssystem. Null genau bei Abhängigkeit. Lagrange: $\textcolor{#3f1a78}{\|\vec u\times\vec v\|^2+\langle\vec u,\vec v\rangle^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\|\vec u\|^2\|\vec v\|^2}$. Graßmann: $\textcolor{#3f1a78}{\vec u\times(\vec v\times\vec w)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\langle\vec u,\vec w\rangle\vec v-\langle\vec u,\vec v\rangle\vec w}$.</p>
+<p>$\textcolor{#123d29}{\vec u\times\vec v}\textcolor{#15633a}{=}\textcolor{#c2410c}{(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1)}$. Bilinear, <span class="nobr">$\textcolor{#123d29}{\vec u\times\vec v}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\vec v\times\vec u}$,</span> senkrecht auf <span class="nobr">$\vec u,\vec v$,</span> <span class="nobr">$\textcolor{#123d29}{\|\vec u\times\vec v\|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\|\vec u\|\|\vec v\|\sin\alpha}$,</span> Rechtssystem. Null genau bei Abhängigkeit. Lagrange: $\textcolor{#123d29}{\|\vec u\times\vec v\|^2+\langle\vec u,\vec v\rangle^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{\|\vec u\|^2\|\vec v\|^2}$. Graßmann: $\textcolor{#123d29}{\vec u\times(\vec v\times\vec w)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\langle\vec u,\vec w\rangle\vec v-\langle\vec u,\vec v\rangle\vec w}$.</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{\operatorname{spat}(\vec a,\vec b,\vec c)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\langle\vec a,\vec b\times\vec c\rangle}$, <span class="nobr">$\textcolor{#3f1a78}{\operatorname{Vol}(P)}\textcolor{#15633a}{=}\textcolor{#c2410c}{|\operatorname{spat}|}$.</span> Zyklisch vertauschbar, $&gt;0$ bei Rechtssystem, $\ne0$ genau bei Unabhängigkeit.</p>
+<p>$\textcolor{#123d29}{\operatorname{spat}(\vec a,\vec b,\vec c)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\langle\vec a,\vec b\times\vec c\rangle}$, <span class="nobr">$\textcolor{#123d29}{\operatorname{Vol}(P)}\textcolor{#15633a}{=}\textcolor{#c2410c}{|\operatorname{spat}|}$.</span> Zyklisch vertauschbar, $&gt;0$ bei Rechtssystem, $\ne0$ genau bei Unabhängigkeit.</p>
 </li>
 <li>
-<p>ONS: <span class="nobr">$\textcolor{#3f1a78}{\langle\vec v_i,\vec v_j\rangle}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta_{ij}}$.</span> $\textcolor{#3f1a78}{\operatorname{Proj}_U(\vec p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_i\langle\vec p,\vec v_i\rangle\vec v_i}$ ist der nächste Punkt, der Rest steht senkrecht auf <span class="nobr">$U$.</span></p>
+<p>ONS: <span class="nobr">$\textcolor{#123d29}{\langle\vec v_i,\vec v_j\rangle}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta_{ij}}$.</span> $\textcolor{#123d29}{\operatorname{Proj}_U(\vec p)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_i\langle\vec p,\vec v_i\rangle\vec v_i}$ ist der nächste Punkt, der Rest steht senkrecht auf <span class="nobr">$U$.</span></p>
 </li>
 <li>
 <p>Basis: jedes $\vec a$ hat genau eine Darstellung <span class="nobr">$\sum_i\alpha_i\vec b_i$.</span> Gleichbedeutend: erzeugend und linear unabhängig. Mehr als $n$ Vektoren sind abhängig, alle Basen haben dieselbe Länge <span class="nobr">$\dim V$.</span> Basisergänzung, Basisauswahl.</p>
 </li>
 <li>
-<p>ONB: <span class="nobr">$\textcolor{#3f1a78}{\vec x}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_i\langle\vec x,\vec v_i\rangle\vec v_i}$.</span> Gram-Schmidt: $\textcolor{#3f1a78}{\vec d_k}\textcolor{#15633a}{=}\textcolor{#c2410c}{\vec b_k-\sum_{i&lt;k}\langle\vec b_k,\vec c_i\rangle\vec c_i}$, <span class="nobr">$\textcolor{#3f1a78}{\vec c_k}\textcolor{#15633a}{=}\textcolor{#c2410c}{\vec d_k/\|\vec d_k\|}$.</span></p>
+<p>ONB: <span class="nobr">$\textcolor{#123d29}{\vec x}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_i\langle\vec x,\vec v_i\rangle\vec v_i}$.</span> Gram-Schmidt: $\textcolor{#123d29}{\vec d_k}\textcolor{#15633a}{=}\textcolor{#c2410c}{\vec b_k-\sum_{i&lt;k}\langle\vec b_k,\vec c_i\rangle\vec c_i}$, <span class="nobr">$\textcolor{#123d29}{\vec c_k}\textcolor{#15633a}{=}\textcolor{#c2410c}{\vec d_k/\|\vec d_k\|}$.</span></p>
 </li>
 <li>
 <p>Skalarproduktraum: (S1) linear im ersten Eingang, (S2) symmetrisch oder hermitesch, (S3) positiv. Polynome: <span class="nobr">$\int_{-1}^1pq\,\mathrm{d} x$.</span> <span class="nobr">$\mathbb{C}^n$:</span> <span class="nobr">$\sum_iu_i\overline{v_i}$.</span></p>

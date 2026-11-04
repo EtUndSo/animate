@@ -12,7 +12,7 @@
 <p>Die Ähnlichkeit zweier Signale misst man am Integral ihres Produkts. Die Korrelationsfunktion tut das für jede Verschiebung <span class="nobr">$\tau$,</span> sie ist eine Faltung mit dem gespiegelten Signal.</p>
 </li>
 <li>
-<p>Die Fourier-Transformierte der Autokorrelationsfunktion ist das Energiedichtespektrum <span class="nobr">$|S(f)|^2$.</span> Bei $\textcolor{#3f1a78}{\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ steht die Energie (Parseval).</p>
+<p>Die Fourier-Transformierte der Autokorrelationsfunktion ist das Energiedichtespektrum <span class="nobr">$|S(f)|^2$.</span> Bei $\textcolor{#123d29}{\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ steht die Energie (Parseval).</p>
 </li>
 <li>
 <p>Durch ein LTI-System werden Energiedichtespektren mit $|H(f)|^2$ multipliziert und Autokorrelationsfunktionen mit der Autokorrelationsfunktion von $h$ gefaltet.</p>
@@ -20,28 +20,28 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Das Wichtigste</div><ul>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{E_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|s|^2\mathrm{d} t}$;</span> <span class="nobr">$\textcolor{#3f1a78}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\lim\frac{1}{2T}\int_{-T}^T|s|^2\mathrm{d} t}$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{E_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|s|^2\mathrm{d} t}$;</span> <span class="nobr">$\textcolor{#123d29}{L_s}\textcolor{#15633a}{=}\textcolor{#c2410c}{\lim\frac{1}{2T}\int_{-T}^T|s|^2\mathrm{d} t}$.</span></p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{p_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\int s^*g\,\mathrm{d} t}{\sqrt{E_sE_g}}}$,</span> <span class="nobr">$|p|\le1$,</span> <span class="nobr">$\textcolor{#3f1a78}{p}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$:</span> orthogonal.</p>
+<p><span class="nobr">$\textcolor{#123d29}{p_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\int s^*g\,\mathrm{d} t}{\sqrt{E_sE_g}}}$,</span> <span class="nobr">$|p|\le1$,</span> <span class="nobr">$\textcolor{#123d29}{p}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$:</span> orthogonal.</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{\varphi^E_{sg}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s^*(t)g(t+\tau)\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{s^*(-\tau)*g(\tau)}$; <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{gs}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^{E*}_{sg}(-\tau)}$.</span></p>
+<p>$\textcolor{#123d29}{\varphi^E_{sg}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s^*(t)g(t+\tau)\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{s^*(-\tau)*g(\tau)}$; <span class="nobr">$\textcolor{#123d29}{\varphi^E_{gs}(\tau)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^{E*}_{sg}(-\tau)}$.</span></p>
 </li>
 <li>
-<p>AKF: gerade (reell), Maximum <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s}$,</span> doppelte Dauer.</p>
+<p>AKF: gerade (reell), Maximum <span class="nobr">$\textcolor{#123d29}{\varphi^E_{ss}(0)}\textcolor{#15633a}{=}\textcolor{#c2410c}{E_s}$,</span> doppelte Dauer.</p>
 </li>
 <li>
-<p><span class="nobr">$\varphi^E_{ss}\leftrightarrow|S|^2$,</span> <span class="nobr">$\varphi^E_{sg}\leftrightarrow S^*G$;</span> Parseval <span class="nobr">$\textcolor{#3f1a78}{\int|s|^2\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|S|^2\mathrm{d} f}$.</span></p>
+<p><span class="nobr">$\varphi^E_{ss}\leftrightarrow|S|^2$,</span> <span class="nobr">$\varphi^E_{sg}\leftrightarrow S^*G$;</span> Parseval <span class="nobr">$\textcolor{#123d29}{\int|s|^2\mathrm{d} t}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int|S|^2\mathrm{d} f}$.</span></p>
 </li>
 <li>
-<p>Wiener-Lee: <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*\varphi^E_{hh}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{|G|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{|S|^2|H|^2}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\varphi^E_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*h}$.</span></p>
+<p>Wiener-Lee: <span class="nobr">$\textcolor{#123d29}{\varphi^E_{gg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*\varphi^E_{hh}}$,</span> <span class="nobr">$\textcolor{#123d29}{|G|^2}\textcolor{#15633a}{=}\textcolor{#c2410c}{|S|^2|H|^2}$;</span> <span class="nobr">$\textcolor{#123d29}{\varphi^E_{sg}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\varphi^E_{ss}*h}$.</span></p>
 </li>
 <li>
-<p>Bandpass: $\textcolor{#3f1a78}{\varphi^E_{sgT}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T^*(-\tau)*g_T(\tau)}$.</p>
+<p>Bandpass: $\textcolor{#123d29}{\varphi^E_{sgT}}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac12s_T^*(-\tau)*g_T(\tau)}$.</p>
 </li>
 <li>
-<p>Diskret: <span class="nobr">$\textcolor{#3f1a78}{\varphi(m)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s^*(n)g(n+m)}$,</span> <span class="nobr">$\leftrightarrow|S_\mathrm a|^2$;</span> periodisch: <span class="nobr">$S_d^*G_d$.</span></p>
+<p>Diskret: <span class="nobr">$\textcolor{#123d29}{\varphi(m)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s^*(n)g(n+m)}$,</span> <span class="nobr">$\leftrightarrow|S_\mathrm a|^2$;</span> periodisch: <span class="nobr">$S_d^*G_d$.</span></p>
 </li>
 </ul></aside>
 <p><strong>Ein Prinzip hinter allen Ergebnissen.</strong> Korrelation ist Faltung mit einem gespiegelten Signal. Deshalb gelten alle Werkzeuge der Faltung:</p>

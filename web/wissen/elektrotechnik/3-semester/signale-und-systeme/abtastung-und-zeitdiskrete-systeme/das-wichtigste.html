@@ -20,31 +20,31 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Das Wichtigste</div><ul>
 <li>
-<p>Ideale Abtastung: <span class="nobr">$\textcolor{#3f1a78}{s_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\delta(t-nT)}$;</span> Spektrum <span class="nobr">$\frac1T\sum_kS(f-k/T)$,</span> periodisch mit <span class="nobr">$1/T$.</span></p>
+<p>Ideale Abtastung: <span class="nobr">$\textcolor{#123d29}{s_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\delta(t-nT)}$;</span> Spektrum <span class="nobr">$\frac1T\sum_kS(f-k/T)$,</span> periodisch mit <span class="nobr">$1/T$.</span></p>
 </li>
 <li>
-<p>Abtasttheorem: <span class="nobr">$f_\mathrm A\ge2f_\mathrm g$;</span> Rückgewinnung $\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\operatorname{si}(\pi(t-nT)/T)}$; sonst Aliasing.</p>
+<p>Abtasttheorem: <span class="nobr">$f_\mathrm A\ge2f_\mathrm g$;</span> Rückgewinnung $\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\operatorname{si}(\pi(t-nT)/T)}$; sonst Aliasing.</p>
 </li>
 <li>
 <p>Diskret im einen Bereich heißt periodisch im anderen.</p>
 </li>
 <li>
-<p>Diskrete Faltung <span class="nobr">$\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_ms(m)h(n-m)}$;</span> <span class="nobr">$\textcolor{#3f1a78}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Tr}\{\delta(n)\}}$;</span> stabil: <span class="nobr">$\sum|h(n)|&lt;\infty$.</span></p>
+<p>Diskrete Faltung <span class="nobr">$\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_ms(m)h(n-m)}$;</span> <span class="nobr">$\textcolor{#123d29}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Tr}\{\delta(n)\}}$;</span> stabil: <span class="nobr">$\sum|h(n)|&lt;\infty$.</span></p>
 </li>
 <li>
-<p>Rekursiv <span class="nobr">$\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+bg(n-1)}$:</span> <span class="nobr">$\textcolor{#3f1a78}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{b^n\varepsilon(n)}$,</span> <span class="nobr">$\textcolor{#3f1a78}{H_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1-b\mathrm{e}^{-\mathrm{j}2\pi f}}}$.</span></p>
+<p>Rekursiv <span class="nobr">$\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+bg(n-1)}$:</span> <span class="nobr">$\textcolor{#123d29}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{b^n\varepsilon(n)}$,</span> <span class="nobr">$\textcolor{#123d29}{H_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1-b\mathrm{e}^{-\mathrm{j}2\pi f}}}$.</span></p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{S_\mathrm a(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)\mathrm{e}^{-\mathrm{j}2\pi nf}}$,</span> Periode 1; $\textcolor{#3f1a78}{s(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-1/2}^{1/2}S_\mathrm a\mathrm{e}^{\mathrm{j}2\pi nf}\mathrm{d} f}$.</p>
+<p><span class="nobr">$\textcolor{#123d29}{S_\mathrm a(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)\mathrm{e}^{-\mathrm{j}2\pi nf}}$,</span> Periode 1; $\textcolor{#123d29}{s(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-1/2}^{1/2}S_\mathrm a\mathrm{e}^{\mathrm{j}2\pi nf}\mathrm{d} f}$.</p>
 </li>
 <li>
-<p>DFT: $\textcolor{#3f1a78}{S_d(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=0}^{M-1}s_d(n)\mathrm{e}^{-\mathrm{j}2\pi kn/M}}$, <span class="nobr">$\textcolor{#3f1a78}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1M\sum S_d\mathrm{e}^{\mathrm{j}2\pi kn/M}}$;</span> FFT <span class="nobr">$\textcolor{#3f1a78}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ M\,\mathrm{lb}\,M}$;</span> zyklische Faltung <span class="nobr">$\leftrightarrow S_dH_d$.</span></p>
+<p>DFT: $\textcolor{#123d29}{S_d(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=0}^{M-1}s_d(n)\mathrm{e}^{-\mathrm{j}2\pi kn/M}}$, <span class="nobr">$\textcolor{#123d29}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1M\sum S_d\mathrm{e}^{\mathrm{j}2\pi kn/M}}$;</span> FFT <span class="nobr">$\textcolor{#123d29}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ M\,\mathrm{lb}\,M}$;</span> zyklische Faltung <span class="nobr">$\leftrightarrow S_dH_d$.</span></p>
 </li>
 <li>
 <p>Herabtasten dehnt das Band (Aliasing, wenn <span class="nobr">$cf_\mathrm g&gt;\frac12$)</span>, Hochtasten erzeugt Spiegelspektren.</p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{S(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)z^{-n}}$;</span> $z^{-n_0}$ = Verzögerung; <span class="nobr">$\textcolor{#3f1a78}{H(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\sum a_qz^{-q}}{1-\sum b_pz^{-p}}}$;</span> kausal und stabil: alle Pole in <span class="nobr">$|z|&lt;1$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{S(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)z^{-n}}$;</span> $z^{-n_0}$ = Verzögerung; <span class="nobr">$\textcolor{#123d29}{H(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\sum a_qz^{-q}}{1-\sum b_pz^{-p}}}$;</span> kausal und stabil: alle Pole in <span class="nobr">$|z|&lt;1$.</span></p>
 </li>
 </ul></aside>
 <p><strong>Ein Prinzip hinter allen Ergebnissen: Diskret in einem Bereich heißt periodisch im anderen.</strong></p>

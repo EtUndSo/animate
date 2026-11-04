@@ -20,31 +20,31 @@
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">要点</div><ul>
 <li>
-<p>理想采样：$\textcolor{#3f1a78}{s_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\delta(t-nT)}$；频谱为 $\frac1T\sum_kS(f-k/T)$，以 $1/T$ 为周期。</p>
+<p>理想采样：$\textcolor{#123d29}{s_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\delta(t-nT)}$；频谱为 $\frac1T\sum_kS(f-k/T)$，以 $1/T$ 为周期。</p>
 </li>
 <li>
-<p>采样定理：$f_\mathrm A\ge2f_\mathrm g$；恢复：$\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\operatorname{si}(\pi(t-nT)/T)}$；否则产生混叠。</p>
+<p>采样定理：$f_\mathrm A\ge2f_\mathrm g$；恢复：$\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(nT)\operatorname{si}(\pi(t-nT)/T)}$；否则产生混叠。</p>
 </li>
 <li>
 <p>一个域中离散，意味着另一个域中周期。</p>
 </li>
 <li>
-<p>离散卷积 $\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_ms(m)h(n-m)}$；$\textcolor{#3f1a78}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Tr}\{\delta(n)\}}$；稳定：$\sum|h(n)|&lt;\infty$。</p>
+<p>离散卷积 $\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_ms(m)h(n-m)}$；$\textcolor{#123d29}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\operatorname{Tr}\{\delta(n)\}}$；稳定：$\sum|h(n)|&lt;\infty$。</p>
 </li>
 <li>
-<p>递归系统 $\textcolor{#3f1a78}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+bg(n-1)}$：$\textcolor{#3f1a78}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{b^n\varepsilon(n)}$，$\textcolor{#3f1a78}{H_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1-b\mathrm{e}^{-\mathrm{j}2\pi f}}}$。</p>
+<p>递归系统 $\textcolor{#123d29}{g(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(n)+bg(n-1)}$：$\textcolor{#123d29}{h(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{b^n\varepsilon(n)}$，$\textcolor{#123d29}{H_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{1}{1-b\mathrm{e}^{-\mathrm{j}2\pi f}}}$。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{S_\mathrm a(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)\mathrm{e}^{-\mathrm{j}2\pi nf}}$，周期为 1；$\textcolor{#3f1a78}{s(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-1/2}^{1/2}S_\mathrm a\mathrm{e}^{\mathrm{j}2\pi nf}\mathrm{d} f}$。</p>
+<p>$\textcolor{#123d29}{S_\mathrm a(f)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)\mathrm{e}^{-\mathrm{j}2\pi nf}}$，周期为 1；$\textcolor{#123d29}{s(n)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int_{-1/2}^{1/2}S_\mathrm a\mathrm{e}^{\mathrm{j}2\pi nf}\mathrm{d} f}$。</p>
 </li>
 <li>
-<p>DFT：$\textcolor{#3f1a78}{S_d(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=0}^{M-1}s_d(n)\mathrm{e}^{-\mathrm{j}2\pi kn/M}}$，$\textcolor{#3f1a78}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1M\sum S_d\mathrm{e}^{\mathrm{j}2\pi kn/M}}$；FFT $\textcolor{#3f1a78}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ M\,\mathrm{lb}\,M}$；循环卷积 $\leftrightarrow S_dH_d$。</p>
+<p>DFT：$\textcolor{#123d29}{S_d(k)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum_{n=0}^{M-1}s_d(n)\mathrm{e}^{-\mathrm{j}2\pi kn/M}}$，$\textcolor{#123d29}{s_d}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac1M\sum S_d\mathrm{e}^{\mathrm{j}2\pi kn/M}}$；FFT $\textcolor{#123d29}{}\textcolor{#15633a}{\approx}\textcolor{#c2410c}{ M\,\mathrm{lb}\,M}$；循环卷积 $\leftrightarrow S_dH_d$。</p>
 </li>
 <li>
 <p>降采样使频带伸展（若 $cf_\mathrm g&gt;\frac12$ 则产生混叠），升采样产生频谱镜像。</p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{S(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)z^{-n}}$；$z^{-n_0}$ $=$ 延时；$\textcolor{#3f1a78}{H(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\sum a_qz^{-q}}{1-\sum b_pz^{-p}}}$；因果且稳定：所有极点都在 $|z|&lt;1$ 内。</p>
+<p>$\textcolor{#123d29}{S(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\sum s(n)z^{-n}}$；$z^{-n_0}$ $=$ 延时；$\textcolor{#123d29}{H(z)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\frac{\sum a_qz^{-q}}{1-\sum b_pz^{-p}}}$；因果且稳定：所有极点都在 $|z|&lt;1$ 内。</p>
 </li>
 </ul></aside></section><div class="neighbors"><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/die-z-transformation.html"><div class="nb-dir">← 上一篇</div><div class="nb-t">第 11 阶段：z 变换</div><ul></ul></a><a class="nb" href="/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html"><div class="nb-dir next">下一篇 →</div><div class="nb-t">概览: 低通与带通系统</div><ul><li>本章内容</li></ul></a></div><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">法律声明</a> · <a href="/datenschutz.html">隐私</a></footer></article></main></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>

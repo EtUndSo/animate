@@ -120,6 +120,19 @@
   .sub .sub{background:var(--s3);}   /* deeper nesting -> lighter */
   .sub:last-child{margin-bottom:0;}
   .sub>h3{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+  /* Scene: Objects / Animations / Operations einklappbar. Die Überschrift ist ein Knopf (Tab, Enter/Leertaste,
+     aria-expanded) und sieht aus wie die übrigen Unterüberschriften; ▸/▾ zeigt den Zustand, (n) die Anzahl. */
+  .sub>h3 .sub-toggle{display:flex;align-items:center;gap:6px;width:100%;margin:0;padding:1px 0;border:none;border-radius:4px;background:none;
+    cursor:pointer;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-align:left;}
+  .sub>h3 .sub-toggle:hover{color:var(--accent2);}
+  .sub>h3 .sub-toggle:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;}
+  .sub-toggle .arr{flex:none;width:10px;font-size:10px;line-height:1;}
+  .sub.collapsed>h3{margin-bottom:0;}
+  /* Objekt-Namen: eigener Name + Typ als leiser Zusatz; Doppelklick öffnet das Umbenennen-Feld in der Zeile */
+  .obj-row .kind{flex:0 100 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--hint);font-size:12px;margin-left:4px;}
+  .obj-row .label.editing{flex:1 1 auto;}
+  .obj-row input.rename{flex:1 1 auto;width:100%;min-width:0;padding:2px 6px;border:1px solid var(--accent2);border-radius:6px;font:inherit;background:var(--field);}
+  .obj-row input.rename.invalid,.prop input.invalid{border-color:#ef4444;outline-color:#ef4444;}
   .sub>select{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--field);cursor:pointer;}
   .add-areas{display:flex;flex-wrap:wrap;gap:10px;}
   .add-areas>.sub{flex:1 1 220px;margin-bottom:0;}
@@ -211,9 +224,9 @@
     </section>
     <section class="bigbox box-scene">
       <h2>Scene</h2>
-      <div class="sub"><h3>Objects</h3><div id="scene-objs"></div></div>
-      <div class="sub"><h3>Animations</h3><div id="scene-anims"></div></div>
-      <div class="sub"><h3>Operations</h3><div id="computations"></div></div>
+      <div class="sub"><h3><button type="button" class="sub-toggle" data-sec="objs" aria-controls="scene-objs" aria-expanded="true"><span class="arr" aria-hidden="true">▾</span><span>Objects</span><span class="cnt" id="cnt-objs"></span></button></h3><div id="scene-objs"></div></div>
+      <div class="sub"><h3><button type="button" class="sub-toggle" data-sec="anims" aria-controls="scene-anims" aria-expanded="true"><span class="arr" aria-hidden="true">▾</span><span>Animations</span><span class="cnt" id="cnt-anims"></span></button></h3><div id="scene-anims"></div></div>
+      <div class="sub"><h3><button type="button" class="sub-toggle" data-sec="comps" aria-controls="computations" aria-expanded="true"><span class="arr" aria-hidden="true">▾</span><span>Operations</span><span class="cnt" id="cnt-comps"></span></button></h3><div id="computations"></div></div>
     </section>
     <section class="bigbox box-props">
       <h2>Properties</h2>

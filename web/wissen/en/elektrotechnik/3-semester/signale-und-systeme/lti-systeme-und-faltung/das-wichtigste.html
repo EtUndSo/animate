@@ -15,7 +15,7 @@
 <p>An LTI system responds to a shifted impulse with the shifted impulse response $h(t-\tau)$ (time invariance), and to a sum of impulses with the sum of the responses (linearity).</p>
 </li>
 <li>
-<p>Therefore the output is the convolution <span class="nobr">$\textcolor{#3f1a78}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\,h(t-\tau)\,\mathrm{d}\tau}$,</span> and $h(t)$ describes the system completely.</p>
+<p>Therefore the output is the convolution <span class="nobr">$\textcolor{#123d29}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\,h(t-\tau)\,\mathrm{d}\tau}$,</span> and $h(t)$ describes the system completely.</p>
 </li>
 </ol></aside>
 <aside class="callout cx-kern"><div class="callout-h">Key points</div><ul>
@@ -23,28 +23,28 @@
 <p>Shifting $t\to t-t_0$ delays, stretching $t\to t/T$ widens; <span class="nobr">$a\operatorname{rect}\bigl(\frac{t-t_0}{T}\bigr)$:</span> center <span class="nobr">$t_0$,</span> duration <span class="nobr">$|T|$,</span> height <span class="nobr">$a$.</span></p>
 </li>
 <li>
-<p>RC low-pass: <span class="nobr">$\textcolor{#3f1a78}{H(F)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{1+\mathrm{j}2\pi FRC}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{|H|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{\sqrt{1+(2\pi FRC)^2}}}$,</span> <span class="nobr">$\textcolor{#3f1a78}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\arctan(2\pi FRC)}$;</span> step response <span class="nobr">$1-\mathrm{e}^{-t/RC}$.</span></p>
+<p>RC low-pass: <span class="nobr">$\textcolor{#123d29}{H(F)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{1+\mathrm{j}2\pi FRC}}$,</span> <span class="nobr">$\textcolor{#123d29}{|H|}\textcolor{#15633a}{=}\textcolor{#c2410c}{\dfrac{1}{\sqrt{1+(2\pi FRC)^2}}}$,</span> <span class="nobr">$\textcolor{#123d29}{\varphi}\textcolor{#15633a}{=}\textcolor{#c2410c}{-\arctan(2\pi FRC)}$;</span> step response <span class="nobr">$1-\mathrm{e}^{-t/RC}$.</span></p>
 </li>
 <li>
-<p>LTI: superposition principle and <span class="nobr">$\textcolor{#3f1a78}{\operatorname{Tr}\{s(t-t_0)\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{g(t-t_0)}$.</span></p>
+<p>LTI: superposition principle and <span class="nobr">$\textcolor{#123d29}{\operatorname{Tr}\{s(t-t_0)\}}\textcolor{#15633a}{=}\textcolor{#c2410c}{g(t-t_0)}$.</span></p>
 </li>
 <li>
-<p>$\textcolor{#3f1a78}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\delta(t-\tau)\mathrm{d}\tau}$ and <span class="nobr">$\textcolor{#3f1a78}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)h(t-\tau)\mathrm{d}\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{s*h}$.</span></p>
+<p>$\textcolor{#123d29}{s(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)\delta(t-\tau)\mathrm{d}\tau}$ and <span class="nobr">$\textcolor{#123d29}{g(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\int s(\tau)h(t-\tau)\mathrm{d}\tau}\textcolor{#15633a}{=}\textcolor{#c2410c}{s*h}$.</span></p>
 </li>
 <li>
 <p>Evaluating: flip, shift, multiply, integrate.</p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{s*\delta}\textcolor{#15633a}{=}\textcolor{#c2410c}{s}$;</span> commutative, associative (cascade: <span class="nobr">$h_1*h_2$)</span>, distributive (parallel: <span class="nobr">$h_1+h_2$)</span>.</p>
+<p><span class="nobr">$\textcolor{#123d29}{s*\delta}\textcolor{#15633a}{=}\textcolor{#c2410c}{s}$;</span> commutative, associative (cascade: <span class="nobr">$h_1*h_2$)</span>, distributive (parallel: <span class="nobr">$h_1+h_2$)</span>.</p>
 </li>
 <li>
-<p><span class="nobr">$\textcolor{#3f1a78}{s(t)\delta(t-T)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T)\delta(t-T)}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\delta(bt)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta(t)/|b|}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\delta(t-t_0)*s}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(t-t_0)}$;</span> <span class="nobr">$\textcolor{#3f1a78}{\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta}$.</span></p>
+<p><span class="nobr">$\textcolor{#123d29}{s(t)\delta(t-T)}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(T)\delta(t-T)}$;</span> <span class="nobr">$\textcolor{#123d29}{\delta(bt)}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta(t)/|b|}$;</span> <span class="nobr">$\textcolor{#123d29}{\delta(t-t_0)*s}\textcolor{#15633a}{=}\textcolor{#c2410c}{s(t-t_0)}$;</span> <span class="nobr">$\textcolor{#123d29}{\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon}\textcolor{#15633a}{=}\textcolor{#c2410c}{\delta}$.</span></p>
 </li>
 <li>
 <p>Step response <span class="nobr">$=\int h$,</span> impulse response $=\frac{\mathrm{d}}{\mathrm{d} t}$ step response.</p>
 </li>
 <li>
-<p>Causal: $\textcolor{#3f1a78}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ for <span class="nobr">$t&lt;0$.</span> Stable: <span class="nobr">$\int|h|\mathrm{d} t&lt;\infty$.</span></p>
+<p>Causal: $\textcolor{#123d29}{h(t)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ for <span class="nobr">$t&lt;0$.</span> Stable: <span class="nobr">$\int|h|\mathrm{d} t&lt;\infty$.</span></p>
 </li>
 </ul></aside>
 <p><strong>What comes next.</strong> Convolution takes a lot of work: every time $t$ needs an integral of its own. The next part decomposes signals in such a way that the integral becomes a simple multiplication.</p>
