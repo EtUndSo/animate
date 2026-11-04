@@ -353,6 +353,9 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
     wrap = steps or (max_width and max_width > 0)
     avail = float(max_width) if (max_width and max_width > 0) else _FRAME_W * 0.94
 
+    def row_gap(K):                                          # between rows: ~0.45 em (a Σ head with limits is ~2.9 em)
+        return 0.16 * K * hh
+
     def chunks(items):                                       # break only before '+' / '=' (an '=' after the head stays)
         out, cur = [], []
         for it in items:
@@ -374,8 +377,8 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
             row, x = [], (0.0 if li == 0 else x_eq)
             for ch in chunks(items):
                 cw = sum(w(it) for it in ch) + gap * (len(ch) - 1)
-                if row and x + gap + cw > avail + 1e-9:
-                    rows.append(row); row, x = [], cont
+                if row and x + gap + cw > avail + 1e-9:     # '= total' stays under the '=', '+ term' moves in
+                    rows.append(row); row, x = [], (x_eq if ch[0]["t"] == "op" else cont)
                 for it in ch:
                     if row:
                         x += gap
@@ -383,7 +386,7 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
             rows.append(row)
         right = max((x + w(it) for row in rows for it, x in row[-1:]), default=0.0)
         hts = [K * max((rawdim[id(it)][1] for it, _ in row), default=0.0) for row in rows]
-        vgap = 0.45 * K * (em if em > 0 else hh / 3.0)
+        vgap = row_gap(K)
         tall = sum(hts) + vgap * (len(rows) - 1) + ((K * vh + vgap) if vparts else 0.0)
         fits = max(right, K * vw) <= avail + 1e-9 and tall <= FRAME_HEIGHT * 0.94
         return rows, fits, hts, vgap
@@ -448,7 +451,7 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
         if vparts:                                           # the vectors above the row, flush left
             rh = max((dims([m for _, m in it["forms"]])[1] for it in lines[0]), default=0.0)
             vh2 = dims(vparts)[1]
-            vgap = 0.45 * K * (em if em > 0 else hh / 3.0)
+            vgap = row_gap(K)
             place_vectors(float(position[0]) - total / 2.0, y + rh / 2.0 + vgap + vh2 / 2.0)
         order = lines[0]
 
@@ -488,7 +491,7 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
             for key, m in it["forms"]:
                 anims = [FadeOut(prev), FadeIn(m)] if prev is not None else [FadeIn(m)]
                 if key in ("index", "subst"):                # the pair w_j, x_j lights up while it is put in
-                    anims += [PulseColor(q, factor=1.15, color=var_color) for q in pair(it["row"])]
+                    anims += [PulseColor(q, factor=1.08, color=var_color) for q in pair(it["row"])]
                 plays.append(anims)
                 prev = m
 

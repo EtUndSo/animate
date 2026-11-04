@@ -122,6 +122,30 @@ _choreo = {"head": _G("S"), "cols": [
 cases.append(("Summation choreo (op)", model_scene({"objects": [], "computations": [{"id": "k", "type": "Summation",
     "props": {"sum_mode": "number", "run_time": 6, "size": 0.9, "choreo": _choreo}}],
     "animations": [], "background": [1, 1, 1]})))
+# the same, wrapped into several rows (max_width) and sized by font_size
+cases.append(("Summation choreo wrapped (op)", model_scene({"objects": [], "computations": [{"id": "k", "type": "Summation",
+    "props": {"sum_mode": "number", "run_time": 6, "max_width": 0.6, "font_size": 30, "choreo": _choreo}}],
+    "animations": [], "background": [1, 1, 1]})))
+# scalar product: two column vectors (glyphs tagged with their table cell), terms abstract -> index -> subst -> value,
+# the component pair of each term pulses while it is put in
+_Gc = lambda ch, cell, x, y: {"d": sq, "m": [1, 0, 0, 1, x, y], "c": ch, "cell": cell}
+_dot = {"head": _G("S") + [{"d": sq, "m": [1, 0, 0, 1, 20, 0], "c": "j"}], "var": "j", "rows": 3,
+        "vectors": [{"d": sq, "m": [1, 0, 0, 1, 0, 0], "c": "w"}] + [_Gc(str(r), r, 20, -12 * r) for r in range(3)]
+                   + [_Gc(str(r), 3 + r, 60, -12 * r) for r in range(3)],
+        "stages": ["index", "subst", "value"], "cols": [
+    {"t": "op", "g": _G("=")},
+    {"t": "term", "abstract": _G("a"), "index": _G("b"), "subst": _G("c"), "value": _G("1"), "row": 0},
+    {"t": "plus", "g": _G("+")},
+    {"t": "term", "abstract": _G("a"), "index": _G("b"), "subst": _G("c"), "value": _G("2"), "row": 1},
+    {"t": "plus", "g": _G("+")}, {"t": "ell", "g": _G(".")}, {"t": "plus", "g": _G("+")},
+    {"t": "term", "abstract": _G("a"), "index": _G("b"), "subst": _G("c"), "value": _G("3"), "row": 2},
+    {"t": "op", "g": _G("=")}, {"t": "total", "g": _G("6")}]}
+cases.append(("DotProduct choreo (op)", model_scene({"objects": [], "computations": [{"id": "k", "type": "DotProduct",
+    "props": {"run_time": 6, "size": 0.9, "all_steps": True, "choreo": _dot}}],
+    "animations": [], "background": [1, 1, 1]})))
+cases.append(("DotProduct choreo wrapped (op)", model_scene({"objects": [], "computations": [{"id": "k", "type": "DotProduct",
+    "props": {"run_time": 6, "max_width": 1.0, "font_size": 30, "choreo": _dot}}],
+    "animations": [], "background": [1, 1, 1]})))
 
 # Article-figure primitives (figures.py, circuit.py, panels, log axes, parameters): every type animated
 # (Create / FadeIn / Shift / Write / GrowFromCenter), several panels, dashed strokes, rich labels.

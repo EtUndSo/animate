@@ -1327,7 +1327,18 @@ function renderComputations(){
 function renderCompProps(container, c){
   const def=COMP_DEFS[c.type];
   const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent=def.name; container.appendChild(h);
-  if(def.kind==="numbers"){
+  let afterChange=null;                                    // run after every field change (scalar product: re-check lists)
+  const STEPS_HINT=" all_steps: Standbild und Artikelbild zeigen jeden Schritt als eigene Zeile. max_width > 0: lange Rechnungen bei dieser Breite (Welt-Einheiten) umbrechen.";
+  if(def.kind==="dotproduct"){
+    const hint=document.createElement("div"); hint.className="hint";
+    hint.textContent="u, v: Zahlen gleicher Länge, getrennt durch Komma oder Leerzeichen (mit ; getrennt gilt das Komma als Dezimalkomma). "
+      +"u_name, v_name: Namen der Vektoren (fett), index: Laufindex, upper: obere Grenze (leer = Länge, z. B. d). show_vectors: beide Vektoren als Spalten zeigen."+STEPS_HINT;
+    container.appendChild(hint);
+    const warn=document.createElement("div"); warn.className="hint"; warn.style.color="#d62728";
+    const check=()=>{ warn.textContent = seriesSpec(c, model.lang) ? "" : "⚠ u und v brauchen gleich viele Zahlen (mindestens eine)."; };
+    check(); container.appendChild(warn);
+    afterChange=()=>{ check(); renderComputations(); };
+  } else if(def.kind==="numbers"){
     if("mode" in c.props){                                // representation: squares or number line
       const sel=document.createElement("select");
       for(const [val,txt] of [["squares","Squares"],["numberline","Number line"]]){ const o=document.createElement("option"); o.value=val; o.textContent=txt; sel.appendChild(o); }
@@ -1343,9 +1354,9 @@ function renderCompProps(container, c){
       container.appendChild(propRow("Mode", sel));
     }
     const hint=document.createElement("div"); hint.className="hint";
-    hint.textContent = (def.kind==="product")
+    hint.textContent = ((def.kind==="product")
       ? "Index i; upper limit 'to' may be a number or 'n'. ∏ multiplies the term over i (e.g. term i → factorial)."
-      : "Index i; upper limit 'to' may be a number or 'n' (symbolic). Term uses i (function mode: i and x).";
+      : "Index i; upper limit 'to' may be a number or 'n' (symbolic). Term uses i (function mode: i and x).") + STEPS_HINT;
     container.appendChild(hint);
   } else {
     for(const inp of def.inputs){
@@ -1360,6 +1371,7 @@ function renderCompProps(container, c){
     }
   }
   for(const [k,v] of Object.entries(c.props)){ if(k==="mode"||k==="sum_mode") continue; container.appendChild(propInput(c,k,v)); }
+  if(afterChange) container.querySelectorAll("input,select,textarea").forEach(i=>i.addEventListener("change", afterChange));
 }
 // Number operands (Arithmetic): up to ten typed-in numbers, each shown as coloured squares on play.
 function renderNumberList(container, c){
@@ -2182,10 +2194,12 @@ function renderAnimations(container, o){
   wrap.appendChild(adder); container.appendChild(wrap);
 }
 
-// ---------- Σ summation: real LaTeX via KaTeX, revealed step by step over the play clock ----------
-// A canvas cannot match LaTeX typesetting, so the summation's typography is rendered by KaTeX as an
-// overlay above the canvas (the Python engine only reserves the play duration for number mode, and
-// draws the partial-sum curve for function mode).
+// ---------- Σ summation / ∏ product / scalar product uᵀv: LaTeX pieces, revealed step by step ----------
+// The pieces (head, per term abstract -> substituted -> value, '+', total) are LaTeX strings; MathJax turns
+// them into glyphs (texToGlyphs) and the engine draws and animates them (summation_choreo). While MathJax is
+// still loading, a KaTeX overlay shows the formula. Function mode (Fourier partial sums) draws a curve.
+// >>> series-spec  (pure: no document/window/MathJax. tools/export_szenen.py runs this block in node to build
+//                   the same pieces for the article figures, so the editor and the batch export always agree.)
 // Substitute the running variable i with `rep`. i counts as the running variable when it is not part
 // of a longer name (sin, pi, min keep their i) EXCEPT right after '_' , so an index like a_i IS hit
 // (a_i -> a_1). The '_' is deliberately absent from the lookbehind set for exactly this reason.
@@ -2284,84 +2298,185 @@ function _approxFrac(x, maxDen=10000, tol=1e-9){
   // irrationals (sqrt2, pi, ...) fall through to a decimal instead of an ugly near-fraction.
   return (k1>0 && Math.abs(h1/k1 - x) < tol) ? [sign*h1, k1] : null;
 }
-function _fmtNum(v){
+// Numbers in the formulas follow the scene language like the labels (engine/text.py COMMA_LANGS): 0.5 -> 0{,}5.
+function _locDec(s, lang){ return (lang==="de" || lang==="es") ? String(s).replace(/\./g, "{,}") : String(s); }
+function _fmtNum(v, lang){
   if(!isFinite(v)) return "?";
   const f=_approxFrac(v);
   if(f){ const [p,q]=f; if(q===1) return String(p); return (p<0?"-":"")+"\\frac{"+Math.abs(p)+"}{"+q+"}"; }
-  return String(+v.toPrecision(5));
+  return _locDec(String(+v.toPrecision(5)), lang);
 }
-function _decStr(v){ return isFinite(v) ? String(+v.toPrecision(6)) : "?"; }   // decimal form of the total
+function _decStr(v, lang){ return isFinite(v) ? _locDec(String(+v.toPrecision(6)), lang) : "?"; }   // decimal form of the total
 function _isProperFrac(v){ const f=_approxFrac(v); return !!(f && f[1]!==1); }   // true -> show "fraction = decimal"
 
 // Series operator differences (everything else is shared): Σ joins with '+' and reduces by addition;
-// ∏ (BigProduct) joins with '·' and reduces by multiplication. The SAME step-by-step choreography and
-// the SAME engine code (summation_choreo) render both - only the head symbol and the join/reduce differ.
+// ∏ (BigProduct) joins with '·' and reduces by multiplication; the scalar product (DotProduct) is a Σ of
+// products. The SAME step-by-step choreography and the SAME engine code (summation_choreo) render all three.
 function _seriesOps(c){
   return (c && c.type==="BigProduct")
     ? { opHead:"\\prod", join:"\\cdot", reduce:(a,b)=>a*b, init:1 }
     : { opHead:"\\sum",  join:"+",      reduce:(a,b)=>a+b, init:0 };
 }
-
-function sumStages(c){
-  const p=c.props||{}, a=parseInt(p.from)||0, endRaw=String(p.to==null?"n":p.to).trim();
-  const endNum=/^-?\d+$/.test(endRaw)?parseInt(endRaw):null, symbolic=endNum===null;
-  const B=symbolic?(endRaw||"n"):String(endNum), k=Math.min(5,Math.max(1,parseInt(p.show_terms)||3)), term=p.term||"";
-  const O=_seriesOps(c);
-  const head=O.opHead+"_{i="+a+"}^{"+B+"} "+exprToLatex(term);  // no \color (MathJax-reliable); colours come later via per-piece stages
-  let entries=[];
-  if(symbolic){ for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"sym",lab:B+"-1"}); entries.push({t:"sym",lab:B}); }
-  else { const b=endNum; if(b-a+1<=k+2){ for(let i=a;i<=b;i++) entries.push({t:"num",i}); }
-    else { for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"num",i:b-1}); entries.push({t:"num",i:b}); } }
-  const ev=evalExprJS(term), resolved=[];
-  for(const e of entries){                                    // SUBSTITUTED expressions, not raw numbers
-    if(e.t==="ell"){ resolved.push("\\cdots"); continue; }
-    if(e.t==="sym"){ resolved.push(exprToLatex(_substI(term,"("+e.lab+")"))); continue; }
-    resolved.push(exprToLatex(_substI(term,String(e.i))));
-  }
-  let ground=head + (resolved.length ? " = "+resolved.join(" "+O.join+" ") : "");
-  if(!symbolic && !_termHasFreeSymbol(term)){ let tot=O.init; for(let i=a;i<=endNum;i++){ const vv=ev(i); if(isFinite(vv)) tot=O.reduce(tot,vv); }
-    ground += " = "+_fmtNum(tot) + (_isProperFrac(tot) ? " = "+_decStr(tot) : ""); }   // fraction, then = decimal
-  return { stages:[head, ground], head, ground, color:p.color||"#111111", mode:p.sum_mode||"number" };
+// Which indices are shown (Σ, ∏ and the rows of the vectors alike): all when there are at most k+2, else the
+// first k, ⋯, the last two; a symbolic end n shows the first k, ⋯, n−1, n.
+function _seriesEntries(a, endNum, endLab, k){
+  const out=[];
+  if(endNum===null){ for(let i=a;i<a+k;i++) out.push({t:"num",i}); out.push({t:"ell"}); out.push({t:"sym",lab:endLab+"-1"}); out.push({t:"sym",lab:endLab}); }
+  else if(endNum-a+1<=k+2){ for(let i=a;i<=endNum;i++) out.push({t:"num",i}); }
+  else { for(let i=a;i<a+k;i++) out.push({t:"num",i}); out.push({t:"ell"}); out.push({t:"num",i:endNum-1}); out.push({t:"num",i:endNum}); }
+  return out;
 }
-// Step-by-step choreography spec (LaTeX per piece): Σ head, then columns = terms (abstract summand ->
-// i substituted -> computed value) joined by '+', with ⋯ and a final '= total'.
-function sumChoreoSpec(c){
+const _parenNeg = (lx)=> /^-/.test(lx) ? "\\left("+lx+"\\right)" : lx;   // 3 + (−4): a negative term after '+' / '·'
+// A term that is itself a sum (1 + 1/i) needs parentheses after Σ/∏ and between '·': ∏ (1 + 1/i), not ∏ 1 + 1/i.
+// True for a binary + or − outside parentheses (not for -i, 2^-i, i*-1 or 1e-3).
+function _topSum(src){
+  const s=String(src||""); let depth=0, prev="", prev2="";
+  for(const ch of s){
+    if(ch===" ") continue;
+    if(ch==="(") depth++;
+    else if(ch===")") depth--;
+    else if((ch==="+" || ch==="-") && depth===0 && prev && !"(^*/+-".includes(prev) && !(/[eE]/.test(prev) && /[0-9.]/.test(prev2))) return true;
+    prev2=prev; prev=ch;
+  }
+  return false;
+}
+
+// Σ / ∏ over i: head Σ_{i=a}^{b} f(i); per shown index the abstract term f(i), the substituted f(3) and its value.
+// A term with a free symbol (e.g. 1/a_i) can't be computed to a number: it keeps the substituted expression as
+// the final form (value null) and gets no total - instead of a meaningless "?".
+function _sumTerms(c, lang){
   const p=c.props||{}, a=parseInt(p.from)||0, endRaw=String(p.to==null?"n":p.to).trim();
-  const endNum=/^-?\d+$/.test(endRaw)?parseInt(endRaw):null, symbolic=endNum===null;
-  const B=symbolic?(endRaw||"n"):String(endNum), k=Math.min(5,Math.max(1,parseInt(p.show_terms)||3)), term=p.term||"";
-  const O=_seriesOps(c), Lt=exprToLatex(term), head=O.opHead+"_{i="+a+"}^{"+B+"} "+Lt;
-  let entries=[];
-  if(symbolic){ for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"sym",lab:B+"-1"}); entries.push({t:"sym",lab:B}); }
-  else { const b=endNum; if(b-a+1<=k+2){ for(let i=a;i<=b;i++) entries.push({t:"num",i}); }
-    else { for(let i=a;i<a+k;i++) entries.push({t:"num",i}); entries.push({t:"ell"}); entries.push({t:"num",i:b-1}); entries.push({t:"num",i:b}); } }
-  // A term with a free symbol (e.g. 1/a_i) can't be computed to a number: keep the substituted
-  // expression as the final form (value=null) and print no total - instead of a meaningless "?".
-  const symTerm=_termHasFreeSymbol(term);
-  const ev=evalExprJS(term), cols=[{t:"op",g:"="}]; let first=true;
-  for(const e of entries){
-    if(e.t==="ell"){ if(!first) cols.push({t:"plus",g:O.join}); cols.push({t:"ell",g:"\\cdots"}); continue; }
-    if(!first) cols.push({t:"plus",g:O.join}); first=false;
-    if(e.t==="sym"||symTerm) cols.push({t:"term", abstract:Lt, subst:exprToLatex(_substI(term, e.t==="sym"?"("+e.lab+")":String(e.i))), value:null});
-    else cols.push({t:"term", abstract:Lt, subst:exprToLatex(_substI(term,String(e.i))), value:_fmtNum(ev(e.i))});
+  const endNum=/^-?\d+$/.test(endRaw)?parseInt(endRaw):null;
+  const B=endNum===null?(endRaw||"n"):String(endNum), k=Math.min(5,Math.max(1,parseInt(p.show_terms)||3)), term=p.term||"";
+  const O=_seriesOps(c), symTerm=_termHasFreeSymbol(term), ev=evalExprJS(term);
+  const par=_topSum(term) ? (lx=>"\\left("+lx+"\\right)") : (lx=>lx), Lt=par(exprToLatex(term));
+  const terms=_seriesEntries(a, endNum, B, k).map(e=> e.t==="ell" ? { ell:true } : {
+    abstract:Lt, subst:par(exprToLatex(_substI(term, e.t==="sym" ? "("+e.lab+")" : String(e.i)))),
+    value:(e.t==="sym" || symTerm) ? null : _fmtNum(ev(e.i), lang) });
+  let total=null;
+  if(endNum!==null && !symTerm){ let tot=O.init; for(let i=a;i<=endNum;i++){ const v=ev(i); if(isFinite(v)) tot=O.reduce(tot,v); }
+    total=[_fmtNum(tot, lang)].concat(_isProperFrac(tot) ? [_decStr(tot, lang)] : []); }   // fraction, then = decimal
+  // no \color in the LaTeX (MathJax-reliable); the engine colours the pieces
+  return { O, head:O.opHead+"_{i="+a+"}^{"+B+"} "+Lt, var:"i", terms, total };
+}
+
+// Scalar product: the typed-in lists u, v ("3, 10, -4"; with ';' between the numbers a comma is the decimal
+// comma: "0,5; 1,5"). Each number keeps how many decimals it was typed with, so products and the sum are exact
+// decimals (0.5 · 0.4 = 0.2, not 1/5 and not 0.20000000000000004).
+function _numList(s){
+  const t=String(s==null?"":s).replace(/−/g,"-").trim(); if(!t) return [];
+  const parts = t.includes(";") ? t.split(";").map(x=>x.trim().replace(",", ".")) : t.split(/[\s,]+/);
+  return parts.filter(x=>x!=="").map(x=>{
+    const m=/^([-+]?)(\d*)(?:\.(\d*))?$/.exec(x);
+    return (m && (m[2]+(m[3]||"")).length) ? { v:parseFloat(x), nd:(m[3]||"").length } : { v:NaN, nd:0 }; });
+}
+function _fmtDec(v, nd, lang){                     // exact decimal with at most nd places, trailing zeros dropped
+  let s=v.toFixed(Math.min(20, nd)); if(s.includes(".")) s=s.replace(/0+$/,"").replace(/\.$/,"");
+  if(/^-0$/.test(s)) s="0";
+  return _locDec(s, lang);
+}
+const _GREEK=new Set(["alpha","beta","gamma","delta","epsilon","zeta","eta","theta","iota","kappa","lambda","mu","nu","xi",
+  "pi","rho","sigma","tau","upsilon","phi","chi","psi","omega"]);
+const _GREEK_CHAR={alpha:"α",beta:"β",gamma:"γ",delta:"δ",epsilon:"ϵ",zeta:"ζ",eta:"η",theta:"θ",iota:"ι",kappa:"κ",lambda:"λ",mu:"μ",
+  nu:"ν",xi:"ξ",pi:"π",rho:"ρ",sigma:"σ",tau:"τ",upsilon:"υ",phi:"ϕ",chi:"χ",psi:"ψ",omega:"ω"};
+// A symbol typed as letters ("w", "theta" or "\theta"): its LaTeX (bold = vector), and the glyph character MathJax
+// gives it (the engine tints the running index by it). Anything else than letters is dropped.
+function _symbol(s, fallback){
+  const n=String(s==null?"":s).replace(/[^A-Za-z]/g,"") || fallback;
+  if(_GREEK.has(n)) return { bold:"\\boldsymbol{\\"+n+"}", plain:"\\"+n, ch:_GREEK_CHAR[n] };
+  return { bold:"\\mathbf{"+n+"}", plain:(n.length>1 ? "{"+n+"}" : n), ch:n };
+}
+function _dotTerms(c, lang){
+  const p=c.props||{}, U=_numList(p.u), V=_numList(p.v);
+  if(!U.length || U.length!==V.length || U.concat(V).some(x=>!isFinite(x.v))) return null;   // invalid -> nothing to draw
+  const n=U.length, k=Math.min(5,Math.max(1,parseInt(p.show_terms)||3));
+  const u=_symbol(p.u_name,"u"), v=_symbol(p.v_name,"v"), j=_symbol(p.index,"j");
+  const upRaw=String(p.upper==null?"":p.upper).trim();
+  const B=upRaw ? (/^\d+$/.test(upRaw) ? upRaw : _symbol(upRaw,"d").plain) : String(n);
+  const comp=(sym, idx)=> sym.plain+"_{"+idx+"}";
+  const pairL=(idx)=> comp(u,idx)+"\\,"+comp(v,idx);                 // w_j x_j
+  const fmt=(x)=> _fmtDec(x.v, x.nd, lang);
+  const factor=(x)=> x.v<0 ? "\\left("+fmt(x)+"\\right)" : fmt(x);  // (−4)·25: a negative factor in parentheses
+  const entries=_seriesEntries(1, n, String(n), k);
+  let row=0, total=0, ndt=0;
+  for(let i=0;i<n;i++){ total+=U[i].v*V[i].v; ndt=Math.max(ndt, U[i].nd+V[i].nd); }
+  const terms=entries.map(e=>{
+    if(e.t==="ell"){ row++; return { ell:true }; }
+    const a=U[e.i-1], b=V[e.i-1];
+    return { abstract:pairL(j.plain), index:pairL(e.i), subst:factor(a)+"\\cdot "+factor(b),
+             value:_fmtDec(a.v*b.v, a.nd+b.nd, lang), row:row++ };
+  });
+  // both vectors as columns; their rows are the shown entries (⋮ where the terms show ⋯), so term `row`
+  // is table cell `row` of the first vector and cell rows+`row` of the second
+  const col=(L)=> "\\begin{pmatrix}"+entries.map(e=> e.t==="ell" ? "\\vdots" : fmt(L[e.i-1])).join("\\\\")+"\\end{pmatrix}";
+  const vectors = p.show_vectors===false ? null : u.bold+"="+col(U)+",\\quad "+v.bold+"="+col(V);
+  return { O:_seriesOps(c), head:u.bold+"^\\top "+v.bold+"=\\sum_{"+j.plain+"=1}^{"+B+"} "+pairL(j.plain), var:j.ch,
+           terms, total:[_fmtDec(total, ndt, lang)], vectors, rows:entries.length };
+}
+
+// The step-by-step spec (LaTeX per piece) of Σ, ∏ and uᵀv, or null (scalar product with invalid lists):
+//   head; cols = '=' then the terms (abstract -> [index ->] substituted -> value) joined by '+'/'·', with ⋯,
+//   then '= total' (Σ/∏ with a fraction: '= decimal' as well); var = running index; vectors/rows (uᵀv);
+//   stages = the forms of the rows "= …" in the all-steps figure (a row that would repeat the one before is
+//   left out: Σ i has no separate value row).
+function seriesSpec(c, lang){
+  const T = (c && c.type==="DotProduct") ? _dotTerms(c, lang) : _sumTerms(c, lang);
+  if(!T) return null;
+  const cols=[{t:"op",g:"="}]; let first=true;
+  for(const tm of T.terms){
+    if(tm.ell){ if(!first) cols.push({t:"plus",g:T.O.join}); cols.push({t:"ell",g:"\\cdots"}); continue; }
+    if(!first) cols.push({t:"plus",g:T.O.join});
+    const par = first ? (x=>x) : _parenNeg; first=false;
+    const col={ t:"term", abstract:tm.abstract, subst:par(tm.subst), value:(tm.value==null ? null : par(tm.value)) };
+    if(tm.index!=null) col.index=tm.index;
+    if(tm.row!=null) col.row=tm.row;
+    cols.push(col);
   }
-  if(!symbolic && !symTerm){ let tot=O.init; for(let i=a;i<=endNum;i++){const v=ev(i); if(isFinite(v)) tot=O.reduce(tot,v);}
-    cols.push({t:"op",g:"="}); cols.push({t:"total",g:_fmtNum(tot)});
-    if(_isProperFrac(tot)){ cols.push({t:"op",g:"="}); cols.push({t:"total",g:_decStr(tot)}); }   // fraction, then = decimal
+  for(const g of (T.total||[])){ cols.push({t:"op",g:"="}); cols.push({t:"total",g}); }
+  const terms=cols.filter(x=>x.t==="term"), KEYS=["abstract","index","subst","value"];
+  const at=(x,key)=>{ let f=null; for(const k of KEYS){ if(x[k]!=null) f=x[k]; if(k===key) break; } return f; };
+  const stages=[];
+  for(const key of ["index","subst","value"]){
+    if(!terms.some(x=>x[key]!=null)) continue;
+    const row=terms.map(x=>at(x,key)).join("|");
+    if(!stages.length || row!==terms.map(x=>at(x,stages[stages.length-1])).join("|")) stages.push(key);
   }
-  return {head, cols};
+  const out={ head:T.head, var:T.var, cols, stages };
+  if(T.vectors){ out.vectors=T.vectors; out.rows=T.rows; }
+  return out;
+}
+// KaTeX fallback (while MathJax loads): the head, and head = substituted terms = total.
+function sumStages(c, lang){
+  const p=c.props||{}, S=seriesSpec(c, lang);
+  const head=S ? S.head : "", ground=S ? S.head+" "+S.cols.map(x=>x.t==="term" ? x.subst : x.g).join(" ") : "";
+  return { stages:[head, ground], head, ground, color:p.color||"#111111", mode:(c.type==="DotProduct" ? "number" : (p.sum_mode||"number")) };
+}
+// <<< series-spec
+
+// LaTeX spec -> the engine's choreography (glyph data per piece); tools/export_szenen.py does the same in Python.
+function choreoFromSpec(spec, g){
+  const out={ head:g(spec.head), var:spec.var, stages:spec.stages, cols:spec.cols.map(col=>{
+    if(col.t!=="term") return { t:col.t, g:g(col.g) };
+    const o={ t:"term", abstract:g(col.abstract), subst:g(col.subst), value:(col.value!=null ? g(col.value) : null) };
+    if(col.index!=null) o.index=g(col.index);
+    if(col.row!=null) o.row=col.row;
+    return o; }) };
+  if(spec.vectors){ out.vectors=g(spec.vectors); out.rows=spec.rows; }
+  return out;
 }
 function buildChoreo(c){                    // resolve every piece's glyphs; null until ALL are ready
-  const spec=sumChoreoSpec(c), need=[spec.head];
-  for(const col of spec.cols){ if(col.t==="term"){ need.push(col.abstract, col.subst); if(col.value!=null) need.push(col.value); } else need.push(col.g); }
+  const spec=seriesSpec(c, model.lang); if(!spec) return null;
+  const need=[spec.head]; if(spec.vectors) need.push(spec.vectors);
+  for(const col of spec.cols){
+    if(col.t==="term"){ for(const k of ["abstract","index","subst","value"]) if(col[k]!=null) need.push(col[k]); }
+    else need.push(col.g);
+  }
   let ready=true;
   for(const lx of need){ if(ensureGlyphs(lx)===null) ready=false; }   // kicks off async for any missing
   if(!ready) return null;
-  const g=(lx)=>_texCache[lx]||[];
-  return {head:g(spec.head), cols:spec.cols.map(col=> col.t==="term"
-    ? {t:"term", abstract:g(col.abstract), subst:g(col.subst), value: col.value!=null? g(col.value): null}
-    : {t:col.t, g:g(col.g)})};
+  return choreoFromSpec(spec, (lx)=>_texCache[lx]||[]);
 }
-function activeSum(){ return (model.computations||[]).find(c=>(c.type==="Summation"||c.type==="BigProduct") && c.visible!==false) || null; }
+function activeSum(){ return (model.computations||[]).find(c=>COMP_DEFS[c.type] && SERIES_KINDS.has(COMP_DEFS[c.type].kind) && c.visible!==false) || null; }
 function _cssColor(x){ return Array.isArray(x) ? "rgb("+x.map(v=>Math.round(v*255)).join(",")+")" : x; }
 function _groundLatex(st){ return st.mode==="function" ? st.head : st.stages[st.stages.length-1]; }
 
@@ -2372,8 +2487,8 @@ function _groundLatex(st){ return st.mode==="function" ? st.head : st.stages[st.
 function updateSumOverlay(frac){
   const el=$("sum-overlay"); if(!el) return;
   const c=activeSum();
-  if(!c){ el.style.display="none"; el.innerHTML=""; el.dataset.key=""; return; }
-  const st=sumStages(c);
+  const st=c ? sumStages(c, model.lang) : null;
+  if(!c || !st.head){ el.style.display="none"; el.innerHTML=""; el.dataset.key=""; return; }   // none, or invalid lists
   const isFn=(st.mode==="function");
   const latex=isFn ? st.head : _groundLatex(st);
   // number mode: hide the fallback once the choreography glyphs are ready -> the engine draws/animates
@@ -2394,6 +2509,10 @@ function updateSumOverlay(frac){
 // Alphanumeric Symbols (italic i = U+1D456, italic h = U+210E, ...), NOT plain ASCII. NFKD folds them
 // back ("𝑖"->"i"), so the engine can tell which glyph is the running variable i (and TransformMatchingTex
 // matches 'i' across contexts). Non-letters (=, +, Σ, digits) are unaffected.
+// Coordinates are MathJax's own font units (1000 per em, y down): each glyph's transform is taken relative to
+// the <svg> itself, so the data does not depend on the page font (the batch export renders the same glyphs in
+// a headless browser). A glyph inside a table cell (matrix entry) carries `cell` = index of that cell.
+// >>> tex-glyphs  (tools/export_szenen.py loads this block into a headless browser page)
 function _glyphChar(dc){
   if(!dc) return "";
   const cp=parseInt(dc,16);
@@ -2409,13 +2528,19 @@ function _tex2glyphs(latex){            // one MathJax render -> glyph list (syn
   const holder = document.createElement("div");
   holder.style.cssText = "position:absolute;left:-99999px;top:0;visibility:hidden";
   holder.appendChild(svg); document.body.appendChild(holder);   // must be in the DOM for getCTM()
-  const arr = (m)=> m ? [m.a,m.b,m.c,m.d,m.e,m.f] : [1,0,0,1,0,0];
+  const r6 = (x)=> Math.round(x*1e6)/1e6;
+  const arr = (m)=> m ? [r6(m.a),r6(m.b),r6(m.c),r6(m.d),r6(m.e),r6(m.f)] : [1,0,0,1,0,0];
   const rectD = (el)=>{ const x=+el.getAttribute("x")||0,y=+el.getAttribute("y")||0,w=+el.getAttribute("width")||0,h=+el.getAttribute("height")||0;
     return (w>0&&h>0) ? `M${x} ${y} h${w} v${h} h${-w} Z` : null; };
+  const cells = Array.from(svg.querySelectorAll('[data-mml-node="mtd"]'));
+  const push = (o, el)=>{ const td=el.closest('[data-mml-node="mtd"]'); if(td) o.cell=cells.indexOf(td); glyphs.push(o); };
   try {
+    // element -> <svg> user units (MathJax font units), independent of the ex size the page font gives the <svg>
+    const root = svg.getScreenCTM(), inv = root ? root.inverse() : null;
+    const rel = (el)=>{ const s=el.getScreenCTM(); return (s && inv) ? inv.multiply(s) : el.getCTM(); };
     // Walk the RENDERED drawables in document order; resolve <use> (big operators like Σ are a <use> of
     // a glyph in <defs>); SKIP <defs> (unplaced definitions). This gives every glyph its real position
-    // AND size (so Σ is not tiny), consistently - via each element's getCTM to the SVG viewport.
+    // AND size (so Σ is not tiny), consistently - via each element's transform relative to the <svg>.
     svg.querySelectorAll("path, rect, use").forEach(el=>{
       if(el.closest("defs")) return;
       const tag = el.tagName.toLowerCase();
@@ -2423,16 +2548,16 @@ function _tex2glyphs(latex){            // one MathJax render -> glyph list (syn
         const href = el.getAttribute("href") || el.getAttribute("xlink:href") || "";
         const ref = href ? svg.querySelector(href) : null;
         if(!ref) return;
-        let m = el.getCTM(); if(!m) return;
+        let m = rel(el); if(!m) return;
         const ux = parseFloat(el.getAttribute("x")||"0")||0, uy = parseFloat(el.getAttribute("y")||"0")||0;
         if(ux || uy) m = m.translate(ux, uy);            // <use> x/y shift the referenced content
         const rt = ref.tagName.toLowerCase();
-        if(rt === "path"){ const d=ref.getAttribute("d"); if(d) glyphs.push({d, m:arr(m), c:_glyphChar(ref.getAttribute("data-c")||el.getAttribute("data-c")||"")}); }
-        else if(rt === "rect"){ const d=rectD(ref); if(d) glyphs.push({d, m:arr(m), c:""}); }
+        if(rt === "path"){ const d=ref.getAttribute("d"); if(d) push({d, m:arr(m), c:_glyphChar(ref.getAttribute("data-c")||el.getAttribute("data-c")||"")}, el); }
+        else if(rt === "rect"){ const d=rectD(ref); if(d) push({d, m:arr(m), c:""}, el); }
       } else if(tag === "rect"){
-        const d=rectD(el); if(d) glyphs.push({d, m:arr(el.getCTM()), c:""});
+        const d=rectD(el); if(d) push({d, m:arr(rel(el)), c:""}, el);
       } else {                                           // inline <path>
-        const d=el.getAttribute("d"); if(d) glyphs.push({d, m:arr(el.getCTM()), c:_glyphChar(el.getAttribute("data-c")||"")});
+        const d=el.getAttribute("d"); if(d) push({d, m:arr(rel(el)), c:_glyphChar(el.getAttribute("data-c")||"")}, el);
       }
     });
   } catch(e){}
@@ -2442,12 +2567,16 @@ function _tex2glyphs(latex){            // one MathJax render -> glyph list (syn
 async function texToGlyphs(latex){
   if(!window.MathJax || !MathJax.tex2svg) return [];
   try { await MathJax.startup.promise; } catch(e){}
+  // the async render loads extensions MathJax only fetches on first use (\boldsymbol, \cancel, …); the
+  // synchronous tex2svg below would print such a macro's name instead
+  try { if(MathJax.tex2svgPromise) await MathJax.tex2svgPromise(String(latex || ""), {display:true}); } catch(e){}
   let g = _tex2glyphs(latex);
   if(g.length === 0){                  // MathJax choked (e.g. on \color) -> retry WITHOUT colour so it still renders
     g = _tex2glyphs(String(latex || "").replace(/\\color\{[^}]*\}/g, ""));
   }
   return g;
 }
+// <<< tex-glyphs
 const _texCache={}, _texPending={};
 function ensureGlyphs(latex){                 // cached glyphs, or null while MathJax resolves (then re-render)
   const key=String(latex||"");

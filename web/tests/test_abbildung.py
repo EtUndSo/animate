@@ -81,11 +81,12 @@ check("alt text = caption without markup (f_\\mathrm{A} -> f A)",
       alt and alt.group(1) == "Spektrum bei f A = 1 kHz: getrennt und ohne Überlappung.", alt and alt.group(1))
 check("caption numbered per article, inline markdown + math kept for KaTeX",
       '<figcaption><span class="abb-n">Abbildung 1</span> Spektrum bei $' in f1 and "<strong>getrennt</strong>" in f1, f1)
-check("link 'In Editor öffnen' with the scene name only",
-      '<a class="abb-edit" href="/editor.html?scene=szenen/et3/demo.json" target="_blank" rel="noopener"' in f1
-      and ">In Editor öffnen</a>" in f1, f1)
+# Der Editor-Knopf steht unter dem Bild (div.abb-knopf) mit Stift-Symbol und dem Text „Szene im Editor öffnen“
+check("editor button under the image, scene name only",
+      '<div class="abb-knopf"><a class="abb-edit" href="/editor.html?scene=szenen/et3/demo.json" target="_blank" rel="noopener"' in f1
+      and ">Szene im Editor öffnen</a></div>" in f1, f1)
 f2 = figs[1][1] if len(figs) > 1 else ""
-check("empty caption: number only, alt 'Abbildung 2'", 'alt="Abbildung 2"' in f2 and '<span class="abb-n">Abbildung 2</span><a' in f2, f2)
+check("empty caption: number only, alt 'Abbildung 2'", 'alt="Abbildung 2"' in f2 and '<span class="abb-n">Abbildung 2</span></figcaption>' in f2, f2)
 f6 = figs[2][1] if len(figs) > 2 else ""
 check("scene file missing -> figure without editor link", "abb-edit" not in f6 and "ohnejson.svg" in f6)
 check(":::grafik placeholder unchanged", '<div class="callout-h">Abbildung in Vorbereitung</div>' in out

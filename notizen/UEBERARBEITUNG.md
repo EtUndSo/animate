@@ -105,6 +105,16 @@ Das ist der Teil, der die Hefte über das Skript hinaushebt: von „Formel auswe
 - Bestehende Abbildungen werden wiederverwendet. Für jede neue Abbildung gilt:
   - TikZ im Heft, Label `fig:<name>`;
   - eine Editor-Szene mit demselben Namen (`<modul>/k<N><name>` in `tools/szenen/<modul>_teil<N>.py`), dann `python tools/export_szenen.py <namen>`.
+- **Summen, Produkte und Skalarprodukte als Editor-Abbildung** (Wunsch des Users, 04.11.2026). Der User: „Summen und Skalarprodukte … nicht als Formeln ausgeschrieben, sondern durch eine, durch den Editor erzeugte Abbildung repräsentiert“, „genau so dargestellt und detailliert ausgeführt … wie die Operationen bei Summenzeichen und Produktzeichen“.
+  - **Was:** Jede Summe Σ, jedes Produkt ∏ und jedes Skalarprodukt, das mit konkreten Zahlen ausgerechnet wird, bekommt zusätzlich zur Formel eine Abbildung. Darin steht die Rechnung Schritt für Schritt: Kopf, ausgeschriebene Summanden, eingesetzte Zahlen, Werte, Ergebnis.
+  - **Bausteine in `tools/szenen_lib.py`:**
+    - `s.summe(term, von, bis, …)`, z. B. `s.summe("1/i^2", von=1, bis=4)`;
+    - `s.produkt(term, von, bis, …)`;
+    - `s.skalarprodukt(u, v, namen=("w", "x"), index="j", obere="", vektoren=True, …)`, z. B. `s.skalarprodukt([3, 10, -4], [120, 3, 25])`;
+    - für jede andere Formel `s.formel(tex, …)`.
+    - Beispiele stehen in `tools/szenen/beispiel_summen.py`.
+  - **Im Heft:** Die Abbildung steht direkt nach der Rechnung. Wie jede Abbildung ist sie eine `abb`-Umgebung mit Bildunterschrift und Label `fig:k<N><name>`. Statt TikZ enthält sie dieselben Schritte als `align*`: Kopf = Summanden = eingesetzte Zahlen = Werte = Ergebnis, bei Skalarprodukten vorweg die beiden Vektoren als Spalten. Die Szene trägt denselben Namen. Auf der Website erscheint das Editor-Bild mit dem Knopf „Szene im Editor öffnen“, dort läuft die Rechnung animiert ab.
+  - **Grenze:** Allgemeine Formeln ohne Zahlen (Definitionen wie $\sum_j w_j x_j$) bleiben Formeln.
 - Am Ende des Hefts in dieser Reihenfolge, die Website verschiebt sie selbst:
   1. kernbox „Das Wichtigste bis hier“;
   2. kernbox „Die Antwort in drei Sätzen“;

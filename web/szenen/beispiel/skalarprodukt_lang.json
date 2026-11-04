@@ -1,0 +1,67 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 1,
+  "nextAnimId": 1,
+  "nextCompId": 2
+ },
+ "model": {
+  "objects": [],
+  "animations": [],
+  "computations": [
+   {
+    "id": "k1",
+    "type": "DotProduct",
+    "props": {
+     "u": "0.5, 1.25, -2, 3, 4, 5, 6",
+     "v": "0.4, 2, 3, 1, 1, 1, 2",
+     "u_name": "theta",
+     "v_name": "x",
+     "index": "k",
+     "upper": "d",
+     "show_vectors": true,
+     "show_terms": 3,
+     "all_steps": true,
+     "max_width": 7.0,
+     "font_size": 30,
+     "run_time": 6,
+     "size": 1.4,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111",
+     "var_color": "#eb6834",
+     "value_color": "#00823c",
+     "end_color": "#2a78d6",
+     "pulse_color": "#66b3ff",
+     "bound_color": "#c82828"
+    }
+   }
+  ],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

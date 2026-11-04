@@ -35,6 +35,7 @@ DASH, DOT = "10,7", "2,5"
 TEXT = 26                  # normale Beschriftung
 ZAHL = 24                  # Achsenzahlen
 ACHSTITEL = 26             # Achsen- und Teilbildtitel
+FORMEL = 30                # Formeln von summe(), produkt(), skalarprodukt() (LaTeX wirkt bei gleicher Größe kleiner)
 
 
 def daten(pfad, x=1, y=2):
@@ -218,6 +219,85 @@ class Szene:
         for a, b in zip(pkte, pkte[1:]):
             ids.append(self._add("Line", {"start": [a[0], a[1], 0], "end": [b[0], b[1], 0], "color": farbe, "stroke_width": dicke, "dash": ""}))
         return ids
+
+    # ---------------------------------------------------------------------------- Rechnungen: Σ, ∏, Skalarprodukt
+    # Operationen des Editors. Im Artikelbild vollständig ausgerechnet, jeder Schritt eine Zeile, "=" unter "="
+    # (Kopf = eingesetzt = Werte = Ergebnis); im Editor lassen sie sich Schritt für Schritt abspielen. Die Formeln
+    # setzt MathJax beim Export (export_szenen.py). mitte = Mitte der Rechnung in Szeneneinheiten, auch in Szenen
+    # mit Achsen (eine Rechnung sitzt nie auf Achsen). groesse = Schriftgröße der Formel in Szenenpixeln wie bei
+    # Texten (FORMEL = 30 passt zu 24er bis 28er Beschriftung). breite = höchste Breite in Szeneneinheiten:
+    # 7.0 füllt die Artikelspalte (548 px), längere Zeilen brechen vor einem "+" oder "=" um.
+    # Zahlen mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es).
+    def _operation(self, typ, props):
+        """Eine Operation (computations) anlegen. model() bleibt unverändert: Mit der ersten Operation bekommt diese
+        Szene ein eigenes model(), das die Operationen einträgt. Ergebnis: die id ("k1", "k2", …)."""
+        ops = self.__dict__.setdefault("_ops", [])
+        if not ops:
+            basis = self.model                                 # die Methode der Klasse
+
+            def model_mit_operationen():
+                m = basis()
+                m["model"]["computations"] = json.loads(json.dumps(self._ops))
+                m["counters"]["nextCompId"] = len(self._ops) + 1
+                return m
+            self.model = model_mit_operationen
+        cid = "k%d" % (len(ops) + 1)
+        ops.append({"id": cid, "type": typ, "props": props})
+        return cid
+
+    @staticmethod
+    def _rechnung(mitte, groesse, breite, summanden, alle_schritte, farbe, laufzeit, props):
+        p = {"show_terms": summanden, "all_steps": alle_schritte, "max_width": breite, "font_size": groesse, "run_time": laufzeit,
+             "size": 1.4, "position": [mitte[0], mitte[1], 0], "color": farbe, "var_color": ORANGE, "value_color": GRUEN,
+             "end_color": BLAU, "pulse_color": "#66b3ff", "bound_color": ROT}
+        p.update(props)
+        return p
+
+    def summe(self, term, von=1, bis="n", mitte=(0, 0), groesse=None, breite=7.0, summanden=3, alle_schritte=True,
+              farbe=SCHWARZ, laufzeit=5, **props):
+        """Σ_{i=von}^{bis} term. term in der Ausdruckssprache des Editors mit dem Laufindex i ("1/i^2", "(-1)^i/i",
+        "2^(-i)"); bis = Zahl oder Buchstabe ("n": symbolisch, dann bleiben die Summanden Ausdrücke, ohne Summe).
+        summanden: so viele Summanden vorn, dann ⋯ und die letzten zwei (sind es höchstens summanden + 2, alle).
+        Brüche bleiben exakt (1/4), eine Summe mit Bruch bekommt zusätzlich ihren Dezimalwert.
+        **props: weitere Props der Editor-Operation (z. B. value_color="#…")."""
+        p = {"sum_mode": "number", "term": term, "from": von, "to": str(bis)}
+        p.update(self._rechnung(mitte, FORMEL if groesse is None else groesse, breite, summanden, alle_schritte, farbe, laufzeit, props))
+        return self._operation("Summation", p)
+
+    def produkt(self, term, von=1, bis="n", mitte=(0, 0), groesse=None, breite=7.0, summanden=3, alle_schritte=True,
+                farbe=SCHWARZ, laufzeit=5, **props):
+        """∏_{i=von}^{bis} term, sonst wie summe() (Faktoren statt Summanden, verbunden mit ·)."""
+        p = {"sum_mode": "number", "term": term, "from": von, "to": str(bis)}
+        p.update(self._rechnung(mitte, FORMEL if groesse is None else groesse, breite, summanden, alle_schritte, farbe, laufzeit, props))
+        return self._operation("BigProduct", p)
+
+    def skalarprodukt(self, u, v, namen=("w", "x"), index="j", obere="", mitte=(0, 0), groesse=None, breite=7.0, summanden=3,
+                      vektoren=True, alle_schritte=True, farbe=SCHWARZ, laufzeit=6, **props):
+        """uᵀv = Σ_j u_j v_j zweier Zahlenlisten gleicher Länge, z. B. u=[3, 10, -4], v=[120, 3, 25].
+        namen = (Name von u, Name von v), fett gesetzt ("w", "x"; griechisch als "theta"); index = Laufindex;
+        obere = obere Grenze am Σ ("" = die Länge, oder z. B. "d"). vektoren=True zeigt beide Vektoren als Spalten
+        über der Rechnung (bei langen Vektoren mit ⋮ an der Stelle des ⋯). Bild: wᵀx = Σ w_j x_j = w_1 x_1 + …
+        = 3·120 + … = 360 + … = Summe; negative Zahlen in Klammern. Dezimalzahlen bleiben exakt (0.5·0.4 = 0.2)."""
+        if len(u) != len(v) or not len(u):
+            raise ValueError("skalarprodukt: u und v brauchen gleich viele Zahlen (mindestens eine)")
+
+        def liste(xs):
+            def z(x):
+                if isinstance(x, str):
+                    return x.strip()
+                s = "%.12g" % x
+                return format(x, "f").rstrip("0").rstrip(".") if "e" in s else s
+            return ", ".join(z(x) for x in xs)
+        p = {"u": liste(u), "v": liste(v), "u_name": namen[0], "v_name": namen[1], "index": index, "upper": str(obere),
+             "show_vectors": bool(vektoren)}
+        p.update(self._rechnung(mitte, FORMEL if groesse is None else groesse, breite, summanden, alle_schritte, farbe, laufzeit, props))
+        return self._operation("DotProduct", p)
+
+    def formel(self, tex, mitte=(0, 0), hoehe=0.25, farbe=SCHWARZ):
+        """Eine LaTeX-Formel als Bild (MathTex, gesetzt von MathJax), z. B. s.formel(r"\\hat y = \\sigma(\\mathbf w^\\top \\mathbf x)").
+        hoehe = Höhe der GANZEN Formel in Szeneneinheiten (eine Zeile ohne Bruch: 0.25 passt zu FORMEL = 30, mit
+        Bruch oder Σ entsprechend mehr). mitte in Szeneneinheiten, auch in Szenen mit Achsen."""
+        return self._add("MathTex", {"tex": tex, "height": hoehe, "position": [mitte[0], mitte[1], 0], "color": farbe})
 
     # ---------------------------------------------------------------------------- Ablegen
     def model(self):
