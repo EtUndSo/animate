@@ -16,7 +16,7 @@ Reihenfolge:
 | et3 | 2 Laplace | fertig 03.11. (Pilot, abgenommen) |
 | hm3 | 1 Vektorfelder | fertig 03.11. (Pilot, abgenommen) |
 | hm3 | 2 Integrale | fertig 04.11. (49 S., 16 Aufg., 15 Abb.) |
-| hm3 | 3 Kurvenintegrale | in Arbeit |
+| hm3 | 3 Kurvenintegrale | ANGEHALTEN 04.11. (User: erst Cybersecurity/ML). kap3_stufen.tex enthält bereits die NEUEN Abschnitte 1–2, der Rest fehlt; kap3_loesungen.tex und PDF sind noch alt. Den Agenten fortsetzen oder neu starten, die Website noch nicht neu bauen. |
 | hm3 | 4–8 | offen |
 | et3 | 1, 3–8 | offen |
 | et1 | 1–11 | offen |

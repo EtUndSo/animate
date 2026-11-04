@@ -1,0 +1,423 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 18,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.55,
+      0.55,
+      0
+     ],
+     "width": 1.4,
+     "height": 0.6,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@finder",
+     "position": [
+      -2.55,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      0.55,
+      0
+     ],
+     "width": 1.6,
+     "height": 0.6,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@hersteller",
+     "position": [
+      0.25,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.85,
+      0.55,
+      0
+     ],
+     "width": 1.7,
+     "height": 0.8,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@oeff",
+     "position": [
+      2.85,
+      0.55,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -1.3,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.75,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@koord",
+     "position": [
+      -1.05,
+      -1.3,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.85,
+      0.55,
+      0
+     ],
+     "end": [
+      -0.55,
+      0.55,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.05,
+      0.55,
+      0
+     ],
+     "end": [
+      2.0,
+      0.55,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@s1",
+     "position": [
+      -1.22,
+      1.1,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@s3",
+     "position": [
+      1.52,
+      1.1,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@s2",
+     "position": [
+      0.25,
+      1.75,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.55,
+      0.25000000000000006,
+      0
+     ],
+     "end": [
+      -2.1,
+      -1.3,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "vh",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@keine",
+     "position": [
+      -2.45,
+      -0.45,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.0,
+      -1.3,
+      0
+     ],
+     "end": [
+      0.25,
+      0.25000000000000006,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "hv",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@verm",
+     "position": [
+      0.35,
+      -0.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "finder": {
+    "de": "Finder",
+    "en": "Finder",
+    "es": "Descubridor",
+    "zh": "发现者"
+   },
+   "hersteller": {
+    "de": "Hersteller",
+    "en": "Vendor",
+    "es": "Fabricante",
+    "zh": "厂商"
+   },
+   "oeff": {
+    "de": "Betreiber und\nÖffentlichkeit",
+    "en": "operators and\nthe public",
+    "es": "operadores y\nel público",
+    "zh": "运营者与\n公众"
+   },
+   "koord": {
+    "de": "Koordinator\n(z. B. BSI, CERT)",
+    "en": "coordinator\n(e.g. BSI, CERT)",
+    "es": "coordinador\n(p. ej. BSI, CERT)",
+    "zh": "协调方\n（如 BSI、CERT）"
+   },
+   "s1": {
+    "de": "1. vertrauliche\nMeldung",
+    "en": "1. confidential\nreport",
+    "es": "1. aviso\nconfidencial",
+    "zh": "1. 保密\n报告"
+   },
+   "s3": {
+    "de": "3. Patch, danach\nVeröffentlichung",
+    "en": "3. patch, then\ndisclosure",
+    "es": "3. parche, luego\npublicación",
+    "zh": "3. 补丁，\n然后公开"
+   },
+   "s2": {
+    "de": "2. entwickelt einen Patch",
+    "en": "2. develops a patch",
+    "es": "2. desarrolla un parche",
+    "zh": "2. 开发补丁"
+   },
+   "keine": {
+    "de": "wenn keine\nReaktion",
+    "en": "if no\nresponse",
+    "es": "si no hay\nrespuesta",
+    "zh": "若无\n回应"
+   },
+   "verm": {
+    "de": "vermittelt",
+    "en": "mediates",
+    "es": "media",
+    "zh": "居中协调"
+   }
+  }
+ }
+}

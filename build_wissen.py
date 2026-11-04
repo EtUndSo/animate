@@ -67,6 +67,7 @@ UI = {
            "lede": "Verständliche, animierte Erklärungen — von Grund auf und in kleinen Schritten. Wähle ein Modul oder nutze die Suche.",
            "leer": "Hier entstehen nach und nach die Artikel.", "beispiel": "Beispiel", "ki_pill": "KI-generiert",
            "hand_pill": "von Hand geschrieben", "quiz": "Quiz — teste dein Verständnis", "impressum": "Impressum", "datenschutz": "Datenschutz",
+           "warnung": "Achtung", "konsole": "Konsole",
            "fremd": "Rechtliche Seiten sind auf Deutsch."},
     "en": {"wissen": "Knowledge", "alle_module": "All modules", "abbildung": "Figure", "abb_vorb": "in preparation",
            "editor_offen": "Open scene in editor", "editor_title": "Open this figure's scene in the editor",
@@ -78,7 +79,8 @@ UI = {
            "auf_seite": "On this page", "im_artikel": "In this article", "vorher": "Previous article", "weiter": "Next article",
            "lede": "Clear, illustrated explanations, from the ground up and in small steps. Pick a module or use the search.",
            "leer": "Articles are on their way.", "beispiel": "Example", "ki_pill": "AI-generated",
-           "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy"},
+           "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy",
+           "warnung": "Caution", "konsole": "Terminal"},
     "es": {"wissen": "Conocimiento", "alle_module": "Todos los módulos", "abbildung": "Figura", "abb_vorb": "en preparación",
            "editor_offen": "Abrir la escena en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
            "herleitung": "Deducción", "beweis": "Demostración", "frage": "Pregunta", "hintergrund": "Contexto", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
@@ -89,7 +91,8 @@ UI = {
            "auf_seite": "En esta página", "im_artikel": "En este artículo", "vorher": "Artículo anterior", "weiter": "Artículo siguiente",
            "lede": "Explicaciones claras e ilustradas, desde la base y en pasos pequeños. Elige un módulo o usa la búsqueda.",
            "leer": "Los artículos están en camino.", "beispiel": "Ejemplo", "ki_pill": "generado por IA",
-           "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad"},
+           "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad",
+           "warnung": "Atención", "konsole": "Terminal"},
     "zh": {"wissen": "知识库", "alle_module": "全部模块", "abbildung": "图", "abb_vorb": "准备中",
            "editor_offen": "在编辑器中打开场景", "editor_title": "在编辑器中打开此图的场景",
            "herleitung": "推导", "beweis": "证明", "frage": "问题", "hintergrund": "背景", "loesung": "解答", "zweck": "本阶段内容：",
@@ -100,7 +103,8 @@ UI = {
            "auf_seite": "本页内容", "im_artikel": "本文目录", "vorher": "上一篇", "weiter": "下一篇",
            "lede": "清晰、配图的讲解，从基础出发，循序渐进。请选择模块或使用搜索。",
            "leer": "文章正在陆续添加。", "beispiel": "例", "ki_pill": "AI 生成",
-           "hand_pill": "人工撰写", "quiz": "测验：检验你的理解", "impressum": "法律声明", "datenschutz": "隐私"},
+           "hand_pill": "人工撰写", "quiz": "测验：检验你的理解", "impressum": "法律声明", "datenschutz": "隐私",
+           "warnung": "注意", "konsole": "终端"},
 }
 
 def T(key):
@@ -312,6 +316,33 @@ def abbildung_html(name, inner):
             + (f'<div class="abb-knopf">{edit}</div>' if edit else "")
             + f'<figcaption><span class="abb-n">{T("abbildung")} {k}</span>{(" " + cap) if cap else ""}</figcaption></figure>')
 
+# Code-Blöcke (Hefte der Zusatzreihen): ```<sprache> <titel>. Farben per Pygments als CSS-Klassen (.hl …), damit Tag- und
+# Nachtmodus dieselben Seiten nutzen; ohne Pygments bleibt der Code einfarbig. console = Sitzung im Terminal ($/# am
+# Zeilenanfang = Eingabe), mit „>>> " wird daraus die Python-Konsole.
+CODE_NAME = {"python": "Python", "bash": "Bash", "c": "C", "cpp": "C++", "nasm": "x86-64", "gas": "x86-64 (AT&T)"}
+
+def code_html(info, code):
+    lang, _, titel = info.partition(" ")
+    lang = lang.lower()
+    lexer_name = {"console": "pycon" if re.search(r"(?m)^>>> ", code) else "console", "text": "", "": ""}.get(lang, lang)
+    body = html.escape(code, quote=False)
+    if lexer_name:
+        try:
+            from pygments import highlight
+            from pygments.lexers import get_lexer_by_name
+            from pygments.formatters import HtmlFormatter
+            # Zeilenende anhängen: Die Sitzungs-Lexer (console, pycon) lassen eine letzte Zeile ohne \n sonst fallen
+            body = highlight(code + "\n", get_lexer_by_name(lexer_name, stripnl=False, ensurenl=True), HtmlFormatter(nowrap=True))
+            body = re.sub(r"\n(</span>)*$", lambda m: m.group(0)[1:], body)
+        except Exception:                                 # Pygments fehlt oder kennt die Sprache nicht: einfarbig
+            pass
+    name = T("konsole") if lang == "console" else CODE_NAME.get(lang, "")
+    kopf = ""
+    if titel or name:
+        kopf = ('<div class="code-kopf"><span class="code-t">' + html.escape(titel) + '</span>'
+                + (f'<span class="code-l">{html.escape(name)}</span>' if name else "") + "</div>")
+    return f'<div class="code-block code-{html.escape(lang or "text")}">{kopf}<pre class="hl"><code>{body}</code></pre></div>'
+
 CALLOUTS = {"konzept": "Zur Idee", "kern": "kern", "merke": "merke", "grafik": "abbildung", "satz": "satz",
             "definition": "definition", "lemma": "lemma", "analogie": "analogie"}   # Schlüssel in UI
 
@@ -352,12 +383,12 @@ def md_to_html(md):
         s = ln.strip()
         if not s:                                     # blank -> paragraph break
             flush(); i += 1; continue
-        if s.startswith("```"):                       # fenced code
-            flush(); i += 1; code = []
+        if s.startswith("```"):                       # fenced code: ```<sprache> <titel>
+            flush(); info = s[3:].strip(); i += 1; code = []
             while i < n and not lines[i].strip().startswith("```"):
                 code.append(lines[i]); i += 1
             i += 1
-            out.append("<pre><code>" + html.escape("\n".join(code), quote=False) + "</code></pre>")
+            out.append(code_html(info, "\n".join(code)))
             continue
         mb = re.match(r"::::beispiel(?:\s+(.+?))?\s*$", s)   # ::::beispiel … :::: (vier Doppelpunkte, darf :::-Blöcke enthalten)
         if mb:
@@ -440,6 +471,10 @@ def md_to_html(md):
                 continue
             if kind == "zusatz":                          # Vertiefung: darf übersprungen werden
                 out.append(f'<aside class="callout cx-zusatz"><div class="callout-h">{T("zusatz")}'
+                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + md_to_html("\n".join(inner))[0] + "</aside>")
+                continue
+            if kind == "warnung":                         # Achtung (Recht, Datenverlust, Sicherheit): immer offen
+                out.append(f'<aside class="callout cx-warnung"><div class="callout-h">{T("warnung")}'
                            + (": " + inline(label_arg) if label_arg else "") + '</div>' + md_to_html("\n".join(inner))[0] + "</aside>")
                 continue
             if kind == "ltspice":                         # LTspice-Hinweis (nachbauen und messen): standardmaessig geschlossen
@@ -1010,6 +1045,37 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article .fbox .mrow{margin:.3em 0;}
 .article img{max-width:100%;border-radius:10px;} .article code{font-family:var(--fmono);font-size:.9em;background:var(--soft);padding:1px 5px;border-radius:5px;}
 .article pre{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px 16px;overflow:auto;} .article pre code{background:none;padding:0;}
+/* Code-Blöcke der Zusatzreihen: Kopfzeile (Titel links, Sprache rechts), Farben aus den Pygments-Klassen, Tag und Nacht */
+.code-block{margin:1.2em 0;} .code-block pre{margin:0;}
+.code-kopf{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 14px;border:1px solid var(--border);border-bottom:none;
+  border-radius:10px 10px 0 0;background:color-mix(in srgb,var(--accent2) 6%,var(--soft));font-family:var(--fmono);font-size:13px;}
+.code-kopf+pre{border-top-left-radius:0;border-top-right-radius:0;}
+.code-t{color:var(--ink);overflow-wrap:anywhere;}
+.code-l{margin-left:auto;color:var(--muted);font-family:var(--fdisp);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
+.article pre.hl{font-size:14px;line-height:1.5;tab-size:4;} .article pre.hl code{font-size:1em;}
+.hl .k,.hl .kc,.hl .kd,.hl .kn,.hl .kp,.hl .kr,.hl .ow,.hl .cp{color:#3f1a78;font-weight:600;}
+.hl .kt,.hl .nb,.hl .bp,.hl .nf,.hl .fm,.hl .nc,.hl .nn{color:#1f5fa8;}
+.hl .nf,.hl .fm,.hl .nc{font-weight:600;}
+.hl .s,.hl .s1,.hl .s2,.hl .sa,.hl .sb,.hl .sc,.hl .sd,.hl .se,.hl .sh,.hl .si,.hl .sx,.hl .sr,.hl .ss,.hl .dl{color:#15633a;}
+.hl .c,.hl .c1,.hl .cm,.hl .cs,.hl .ch,.hl .cpf{color:#5f6662;font-style:italic;}
+.hl .m,.hl .mi,.hl .mf,.hl .mh,.hl .mo,.hl .mb,.hl .il{color:#b33a0b;}
+.hl .nv,.hl .vc,.hl .vg,.hl .vi,.hl .nd,.hl .na{color:#7a2f80;}
+.hl .gp{color:#b33a0b;font-weight:700;user-select:none;}           /* Prompt: beim Kopieren nicht mit markieren */
+.hl .go{color:var(--muted);} .hl .err{color:inherit;border:none;background:none;}
+:root[data-theme="dark"] .hl .k,:root[data-theme="dark"] .hl .kc,:root[data-theme="dark"] .hl .kd,:root[data-theme="dark"] .hl .kn,
+:root[data-theme="dark"] .hl .kp,:root[data-theme="dark"] .hl .kr,:root[data-theme="dark"] .hl .ow,:root[data-theme="dark"] .hl .cp{color:#c9a9ff;}
+:root[data-theme="dark"] .hl .kt,:root[data-theme="dark"] .hl .nb,:root[data-theme="dark"] .hl .bp,:root[data-theme="dark"] .hl .nf,
+:root[data-theme="dark"] .hl .fm,:root[data-theme="dark"] .hl .nc,:root[data-theme="dark"] .hl .nn{color:#8cbcff;}
+:root[data-theme="dark"] .hl [class^="s"],:root[data-theme="dark"] .hl .dl{color:#6ad19b;}
+:root[data-theme="dark"] .hl [class^="c"]:not(.cp){color:#98a29b;}
+:root[data-theme="dark"] .hl [class^="m"],:root[data-theme="dark"] .hl .il,:root[data-theme="dark"] .hl .gp{color:#ff9650;}
+:root[data-theme="dark"] .hl .nv,:root[data-theme="dark"] .hl .vc,:root[data-theme="dark"] .hl .vg,:root[data-theme="dark"] .hl .vi,
+:root[data-theme="dark"] .hl .nd,:root[data-theme="dark"] .hl .na{color:#e8a8ec;}
+/* Achtung-Kasten (Recht, Datenverlust, Sicherheit): immer offen, rot */
+.callout.cx-warnung{border-left:4px solid #b42318;background:color-mix(in srgb,#b42318 5%,var(--panel));}
+.callout.cx-warnung .callout-h{color:#b42318;}
+:root[data-theme="dark"] .callout.cx-warnung{border-left-color:#ff8a7a;background:color-mix(in srgb,#ff8a7a 7%,var(--panel));}
+:root[data-theme="dark"] .callout.cx-warnung .callout-h{color:#ff8a7a;}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
 .table-wrap{overflow-x:auto;margin:1.2em 0;}
 .md-table{border-collapse:collapse;width:100%;font-size:15.5px;}

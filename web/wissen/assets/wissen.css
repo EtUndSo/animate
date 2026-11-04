@@ -86,6 +86,37 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article .fbox .mrow{margin:.3em 0;}
 .article img{max-width:100%;border-radius:10px;} .article code{font-family:var(--fmono);font-size:.9em;background:var(--soft);padding:1px 5px;border-radius:5px;}
 .article pre{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:14px 16px;overflow:auto;} .article pre code{background:none;padding:0;}
+/* Code-Blöcke der Zusatzreihen: Kopfzeile (Titel links, Sprache rechts), Farben aus den Pygments-Klassen, Tag und Nacht */
+.code-block{margin:1.2em 0;} .code-block pre{margin:0;}
+.code-kopf{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 14px;border:1px solid var(--border);border-bottom:none;
+  border-radius:10px 10px 0 0;background:color-mix(in srgb,var(--accent2) 6%,var(--soft));font-family:var(--fmono);font-size:13px;}
+.code-kopf+pre{border-top-left-radius:0;border-top-right-radius:0;}
+.code-t{color:var(--ink);overflow-wrap:anywhere;}
+.code-l{margin-left:auto;color:var(--muted);font-family:var(--fdisp);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
+.article pre.hl{font-size:14px;line-height:1.5;tab-size:4;} .article pre.hl code{font-size:1em;}
+.hl .k,.hl .kc,.hl .kd,.hl .kn,.hl .kp,.hl .kr,.hl .ow,.hl .cp{color:#3f1a78;font-weight:600;}
+.hl .kt,.hl .nb,.hl .bp,.hl .nf,.hl .fm,.hl .nc,.hl .nn{color:#1f5fa8;}
+.hl .nf,.hl .fm,.hl .nc{font-weight:600;}
+.hl .s,.hl .s1,.hl .s2,.hl .sa,.hl .sb,.hl .sc,.hl .sd,.hl .se,.hl .sh,.hl .si,.hl .sx,.hl .sr,.hl .ss,.hl .dl{color:#15633a;}
+.hl .c,.hl .c1,.hl .cm,.hl .cs,.hl .ch,.hl .cpf{color:#5f6662;font-style:italic;}
+.hl .m,.hl .mi,.hl .mf,.hl .mh,.hl .mo,.hl .mb,.hl .il{color:#b33a0b;}
+.hl .nv,.hl .vc,.hl .vg,.hl .vi,.hl .nd,.hl .na{color:#7a2f80;}
+.hl .gp{color:#b33a0b;font-weight:700;user-select:none;}           /* Prompt: beim Kopieren nicht mit markieren */
+.hl .go{color:var(--muted);} .hl .err{color:inherit;border:none;background:none;}
+:root[data-theme="dark"] .hl .k,:root[data-theme="dark"] .hl .kc,:root[data-theme="dark"] .hl .kd,:root[data-theme="dark"] .hl .kn,
+:root[data-theme="dark"] .hl .kp,:root[data-theme="dark"] .hl .kr,:root[data-theme="dark"] .hl .ow,:root[data-theme="dark"] .hl .cp{color:#c9a9ff;}
+:root[data-theme="dark"] .hl .kt,:root[data-theme="dark"] .hl .nb,:root[data-theme="dark"] .hl .bp,:root[data-theme="dark"] .hl .nf,
+:root[data-theme="dark"] .hl .fm,:root[data-theme="dark"] .hl .nc,:root[data-theme="dark"] .hl .nn{color:#8cbcff;}
+:root[data-theme="dark"] .hl [class^="s"],:root[data-theme="dark"] .hl .dl{color:#6ad19b;}
+:root[data-theme="dark"] .hl [class^="c"]:not(.cp){color:#98a29b;}
+:root[data-theme="dark"] .hl [class^="m"],:root[data-theme="dark"] .hl .il,:root[data-theme="dark"] .hl .gp{color:#ff9650;}
+:root[data-theme="dark"] .hl .nv,:root[data-theme="dark"] .hl .vc,:root[data-theme="dark"] .hl .vg,:root[data-theme="dark"] .hl .vi,
+:root[data-theme="dark"] .hl .nd,:root[data-theme="dark"] .hl .na{color:#e8a8ec;}
+/* Achtung-Kasten (Recht, Datenverlust, Sicherheit): immer offen, rot */
+.callout.cx-warnung{border-left:4px solid #b42318;background:color-mix(in srgb,#b42318 5%,var(--panel));}
+.callout.cx-warnung .callout-h{color:#b42318;}
+:root[data-theme="dark"] .callout.cx-warnung{border-left-color:#ff8a7a;background:color-mix(in srgb,#ff8a7a 7%,var(--panel));}
+:root[data-theme="dark"] .callout.cx-warnung .callout-h{color:#ff8a7a;}
 .article blockquote{margin:1em 0;padding:2px 16px;border-left:3px solid var(--accent);color:var(--muted);}
 .table-wrap{overflow-x:auto;margin:1.2em 0;}
 .md-table{border-collapse:collapse;width:100%;font-size:15.5px;}

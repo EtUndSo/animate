@@ -285,6 +285,214 @@ MODULE["hm3"] = {
     },
 }
 
+# Zusatzreihen (ab 04.11.2026): Lernpfad statt Skript, Code-Listings, Makros ohne Argument kommen aus der Präambel des Moduls
+HINWEIS_CYBER = {
+    "de": "**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen "
+          "Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt) und "
+          "Herleitungen; zum Weiterlesen braucht man sie nicht. Kästen „Achtung“ nennen Regeln, die bei praktischen Übungen immer "
+          "gelten. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.",
+    "en": "**How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an "
+          "example. Expandable boxes contain background (why something is the way it is and where it comes from) and derivations; "
+          "you do not need them to read on. Boxes marked “Caution” state rules that always apply to practical exercises. Try the "
+          "exercises (★ to ★★★) yourself first; the solution expands right below each exercise.",
+    "es": "**Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con "
+          "un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene) y deducciones; no hacen "
+          "falta para seguir leyendo. Los recuadros «Atención» indican reglas que valen siempre en los ejercicios prácticos. Intenta "
+          "primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.",
+    "zh": "**如何使用本章。**各节循序渐进，每个新术语都有单独的小节和例子。可展开的方框包含背景（为什么如此、从何而来）和推导；"
+          "不看它们也可以继续阅读。标有“注意”的方框列出实践练习中始终必须遵守的规则。请先自己尝试练习（★ 到 ★★★），解答可在每道练习下方展开。",
+}
+HINWEIS_ML = {
+    "de": "**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen "
+          "Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum ein Verfahren funktioniert und woher es "
+          "kommt), Herleitungen und Beweise; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst "
+          "und führe Programme wirklich aus; die Lösung klappst du direkt unter der Aufgabe auf.",
+    "en": "**How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an "
+          "example. Expandable boxes contain background (why a method works and where it comes from), derivations and proofs; you "
+          "do not need them to read on. Try the exercises (★ to ★★★) yourself first and actually run the programs; the solution "
+          "expands right below each exercise.",
+    "es": "**Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con "
+          "un ejemplo. Los recuadros desplegables contienen el contexto (por qué funciona un método y de dónde viene), deducciones y "
+          "demostraciones; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta y ejecuta de "
+          "verdad los programas; la solución se despliega justo debajo de cada ejercicio.",
+    "zh": "**如何使用本章。**各节循序渐进，每个新术语都有单独的小节和例子。可展开的方框包含背景（方法为什么有效、从何而来）、推导和证明；"
+          "不看它们也可以继续阅读。请先自己尝试练习（★ 到 ★★★），并真正运行程序；解答可在每道练习下方展开。",
+}
+
+MODULE["cyber"] = {
+    "quelle": Path(r"C:\Bücher\EtUndSo\Cybersecurity\Arbeitshefte"),
+    "ziel": "cyber",
+    "szenen": "cyber",
+    "pfad": {"de": "Informatik / Cybersecurity", "en": "Computer Science / Cybersecurity",
+             "es": "Informática / Ciberseguridad", "zh": "计算机科学 / 网络安全"},
+    "basis": "informatik/cybersecurity",
+    "order": 6100000,
+    "praeambel_makros": True,
+    "hinweis": HINWEIS_CYBER,
+    "hefte": {                                           # Stamm T01-T14 (Recherche\LERNPFAD.md); Äste folgen ab 101
+        1: ("Kap1_Sicherheit", "sicherheit-schutzziele-und-spielregeln",
+            {"de": "Sicherheit, Schutzziele und Spielregeln", "en": "Security, Protection Goals and Ground Rules",
+             "es": "Seguridad, objetivos de protección y reglas del juego", "zh": "安全、保护目标与基本规则"}),
+        2: ("Kap2_Computer", "wie-ein-computer-arbeitet",
+            {"de": "Wie ein Computer arbeitet", "en": "How a Computer Works",
+             "es": "Cómo funciona un ordenador", "zh": "计算机如何工作"}),
+        3: ("Kap3_LiveUSB", "linux-vom-usb-stick-und-die-konsole",
+            {"de": "Linux vom USB-Stick und die Konsole", "en": "Linux from a USB Stick and the Console",
+             "es": "Linux desde una memoria USB y la consola", "zh": "从 U 盘运行 Linux 与命令行"}),
+        4: ("Kap4_Shell", "die-shell-als-werkzeug",
+            {"de": "Die Shell als Werkzeug", "en": "The Shell as a Tool",
+             "es": "La shell como herramienta", "zh": "作为工具的 Shell"}),
+        5: ("Kap5_Rechte", "benutzer-rechte-und-prozesse",
+            {"de": "Benutzer, Rechte und Prozesse", "en": "Users, Permissions and Processes",
+             "es": "Usuarios, permisos y procesos", "zh": "用户、权限与进程"}),
+        6: ("Kap6_Netzwerke", "netzwerke-vom-signal-zum-paket",
+            {"de": "Netzwerke I: vom Signal zum Paket", "en": "Networks I: From Signal to Packet",
+             "es": "Redes I: de la señal al paquete", "zh": "网络（一）：从信号到数据包"}),
+        7: ("Kap7_Dienste", "netzwerke-verbindungen-und-dienste",
+            {"de": "Netzwerke II: Verbindungen und Dienste", "en": "Networks II: Connections and Services",
+             "es": "Redes II: conexiones y servicios", "zh": "网络（二）：连接与服务"}),
+        8: ("Kap8_Python", "python-als-sicherheitswerkzeug",
+            {"de": "Python als Sicherheitswerkzeug", "en": "Python as a Security Tool",
+             "es": "Python como herramienta de seguridad", "zh": "Python 作为安全工具"}),
+        9: ("Kap9_Speicher", "c-und-der-speicher-eines-programms",
+            {"de": "C und der Speicher eines Programms", "en": "C and a Program's Memory",
+             "es": "C y la memoria de un programa", "zh": "C 语言与程序的内存"}),
+        10: ("Kap10_Maschinencode", "maschinencode-assembler-und-debugger",
+             {"de": "Maschinencode, Assembler und Debugger", "en": "Machine Code, Assembly and Debuggers",
+              "es": "Código máquina, ensamblador y depurador", "zh": "机器码、汇编与调试器"}),
+        11: ("Kap11_Krypto", "kryptographie-verschluesselung-hash-mac",
+             {"de": "Kryptographie I: Verschlüsselung, Hash, MAC", "en": "Cryptography I: Encryption, Hashes, MACs",
+              "es": "Criptografía I: cifrado, hash y MAC", "zh": "密码学（一）：加密、哈希与 MAC"}),
+        12: ("Kap12_PublicKey", "kryptographie-public-key-signaturen-tls",
+             {"de": "Kryptographie II: Public-Key, Signaturen, TLS", "en": "Cryptography II: Public Key, Signatures, TLS",
+              "es": "Criptografía II: clave pública, firmas y TLS", "zh": "密码学（二）：公钥、签名与 TLS"}),
+        13: ("Kap13_Web", "das-web-http-browser-und-sitzungen",
+             {"de": "Das Web I: HTTP, Browser und Sitzungen", "en": "The Web I: HTTP, Browsers and Sessions",
+              "es": "La web I: HTTP, navegadores y sesiones", "zh": "Web（一）：HTTP、浏览器与会话"}),
+        14: ("Kap14_Webangriffe", "das-web-injection-xss-csrf",
+             {"de": "Das Web II: Injection, XSS, CSRF", "en": "The Web II: Injection, XSS, CSRF",
+              "es": "La web II: inyección, XSS y CSRF", "zh": "Web（二）：注入、XSS 与 CSRF"}),
+    },
+}
+
+MODULE["ml"] = {
+    "quelle": Path(r"C:\Bücher\EtUndSo\MachineLearning\Arbeitshefte"),
+    "ziel": "ml",
+    "szenen": "ml",
+    "pfad": {"de": "Informatik / Machine Learning", "en": "Computer Science / Machine Learning",
+             "es": "Informática / Aprendizaje automático", "zh": "计算机科学 / 机器学习"},
+    "basis": "informatik/machine-learning",
+    "order": 6200000,
+    "praeambel_makros": True,
+    "hinweis": HINWEIS_ML,
+    "hefte": {                                           # Stamm T01-T22 (Recherche\LERNPFAD.md); Äste folgen ab 101
+        1: ("Kap1_Vektoren", "vektoren-und-matrizen",
+            {"de": "Vektoren und Matrizen", "en": "Vectors and Matrices", "es": "Vectores y matrices", "zh": "向量与矩阵"}),
+        2: ("Kap2_Eigenwerte", "projektion-eigenwerte-und-zerlegungen",
+            {"de": "Projektion, Eigenwerte und Zerlegungen", "en": "Projection, Eigenvalues and Decompositions",
+             "es": "Proyección, valores propios y descomposiciones", "zh": "投影、特征值与矩阵分解"}),
+        3: ("Kap3_Ableitung", "ableitung-gradient-und-kettenregel",
+            {"de": "Ableitung, Gradient und Kettenregel", "en": "Derivative, Gradient and Chain Rule",
+             "es": "Derivada, gradiente y regla de la cadena", "zh": "导数、梯度与链式法则"}),
+        4: ("Kap4_Wahrscheinlichkeit", "wahrscheinlichkeit",
+            {"de": "Wahrscheinlichkeit", "en": "Probability", "es": "Probabilidad", "zh": "概率"}),
+        5: ("Kap5_Statistik", "statistik-und-information",
+            {"de": "Statistik und Information", "en": "Statistics and Information",
+             "es": "Estadística e información", "zh": "统计与信息"}),
+        6: ("Kap6_Optimierung", "optimierung",
+            {"de": "Optimierung", "en": "Optimization", "es": "Optimización", "zh": "优化"}),
+        7: ("Kap7_Python", "python-numpy-und-werkzeuge",
+            {"de": "Python, NumPy und Werkzeuge", "en": "Python, NumPy and Tools",
+             "es": "Python, NumPy y herramientas", "zh": "Python、NumPy 与工具"}),
+        8: ("Kap8_Lernen", "lernen-aus-daten",
+            {"de": "Lernen aus Daten", "en": "Learning from Data", "es": "Aprender de los datos", "zh": "从数据中学习"}),
+        9: ("Kap9_Regression", "lineare-regression",
+            {"de": "Lineare Regression", "en": "Linear Regression", "es": "Regresión lineal", "zh": "线性回归"}),
+        10: ("Kap10_Gradientenabstieg", "gradientenabstieg",
+             {"de": "Gradientenabstieg", "en": "Gradient Descent", "es": "Descenso de gradiente", "zh": "梯度下降"}),
+        11: ("Kap11_Logistisch", "logistische-regression-und-softmax",
+             {"de": "Logistische Regression und Softmax", "en": "Logistic Regression and Softmax",
+              "es": "Regresión logística y softmax", "zh": "逻辑回归与 Softmax"}),
+        12: ("Kap12_Regularisierung", "ueberanpassung-und-regularisierung",
+             {"de": "Überanpassung und Regularisierung", "en": "Overfitting and Regularization",
+              "es": "Sobreajuste y regularización", "zh": "过拟合与正则化"}),
+        13: ("Kap13_Evaluierung", "evaluierung-und-modellauswahl",
+             {"de": "Evaluierung und Modellauswahl", "en": "Evaluation and Model Selection",
+              "es": "Evaluación y selección de modelos", "zh": "评估与模型选择"}),
+        14: ("Kap14_kNN", "k-naechste-nachbarn",
+             {"de": "k-nächste Nachbarn", "en": "k-Nearest Neighbors", "es": "k vecinos más cercanos", "zh": "k 近邻"}),
+        15: ("Kap15_Baeume", "entscheidungsbaeume",
+             {"de": "Entscheidungsbäume", "en": "Decision Trees", "es": "Árboles de decisión", "zh": "决策树"}),
+        16: ("Kap16_Ensembles", "ensembles",
+             {"de": "Ensembles", "en": "Ensembles", "es": "Métodos de conjunto", "zh": "集成学习"}),
+        17: ("Kap17_SVM", "support-vektor-maschinen-und-kerne",
+             {"de": "Support-Vektor-Maschinen und Kerne", "en": "Support Vector Machines and Kernels",
+              "es": "Máquinas de vectores de soporte y núcleos", "zh": "支持向量机与核方法"}),
+        18: ("Kap18_Clustering", "clustering",
+             {"de": "Clustering", "en": "Clustering", "es": "Agrupamiento", "zh": "聚类"}),
+        19: ("Kap19_PCA", "hauptkomponentenanalyse",
+             {"de": "Hauptkomponentenanalyse", "en": "Principal Component Analysis",
+              "es": "Análisis de componentes principales", "zh": "主成分分析"}),
+        20: ("Kap20_Netze", "neuronale-netze-vom-neuron-zum-netz",
+             {"de": "Neuronale Netze I: vom Neuron zum Netz", "en": "Neural Networks I: From Neuron to Network",
+              "es": "Redes neuronales I: de la neurona a la red", "zh": "神经网络（一）：从神经元到网络"}),
+        21: ("Kap21_Backprop", "neuronale-netze-backpropagation",
+             {"de": "Neuronale Netze II: Backpropagation", "en": "Neural Networks II: Backpropagation",
+              "es": "Redes neuronales II: retropropagación", "zh": "神经网络（二）：反向传播"}),
+        22: ("Kap22_PyTorch", "neuronale-netze-training-mit-pytorch",
+             {"de": "Neuronale Netze III: Training mit PyTorch", "en": "Neural Networks III: Training with PyTorch",
+              "es": "Redes neuronales III: entrenamiento con PyTorch", "zh": "神经网络（三）：用 PyTorch 训练"}),
+    },
+}
+
+# Code-Umgebungen der Präambeln (Zusatzreihen) -> Sprache des Code-Blocks auf der Website (```<sprache> <titel>)
+CODE_ENVS = {"python": "python", "konsole": "console", "bash": "bash", "ccode": "c", "cppcode": "cpp", "asm": "nasm",
+             "gas": "gas", "ausgabe": "text"}
+# Wortlaut, der nicht als LaTeX gelesen werden darf (% ist darin kein Kommentar): Code-Umgebungen, \verb|..|, \lstinline|..|, \url{..}
+VERBATIM_RE = re.compile(r"\\begin\{(%s)\}.*?\\end\{\1\}|\\(?:verb|lstinline)\*?([^A-Za-z\s{])[^\n]*?\2|\\lstinline\{[^{}\n]*\}|\\url\{[^{}]*\}"
+                         % "|".join(CODE_ENVS), re.S)
+# \texttt{..}: Sonderzeichen-Befehle -> Zeichen
+TT_NAMED = {"textbackslash": "\\", "textasciitilde": "~", "textasciicircum": "^", "textbar": "|", "textless": "<",
+            "textgreater": ">", "textquotesingle": "'", "textquotedbl": '"', "textunderscore": "_", "textdollar": "$",
+            "slash": "/", "textendash": "–", "textemdash": "—", "textquotedblleft": "“", "textquotedblright": "”",
+            "quotedblbase": "„", "ldots": "…", "dots": "…"}
+TT_RE = re.compile(r"\\([A-Za-z]+)(?:\{\}|\s*)|\\([^A-Za-z])|([{}~])")
+
+
+def tt_text(a):
+    """Inhalt von \\texttt{..} als Wortlaut: \\_ -> _, \\textbackslash{} -> \\, ~ -> Leerzeichen, Formatbefehle fallen weg."""
+    def r(m):
+        if m.group(1) is not None:
+            return TT_NAMED.get(m.group(1), "")
+        if m.group(2) is not None:
+            return {" ": " ", ",": " ", "-": "", "/": "", "\\": " ", "\n": " "}.get(m.group(2), m.group(2))
+        return " " if m.group(3) == "~" else ""
+    return TT_RE.sub(r, a)
+
+
+def praeambel_makros(folder):
+    """Makros ohne Argument aus <folder>/praeambel.tex: ((\\name, Ersatz), ...), \\DeclareMathOperator als \\operatorname."""
+    p = folder / "praeambel.tex"
+    if not p.is_file():
+        return ()
+    s = strip_comments(p.read_text(encoding="utf-8"))
+    out = []
+    for m in re.finditer(r"\\(?:newcommand|renewcommand|providecommand)\*?\{\\([A-Za-z]+)\}\s*\{", s):
+        body, _ = group(s, m.end() - 1)
+        if "$" not in body and "#" not in body:
+            out.append(("\\" + m.group(1), body))
+    for m in re.finditer(r"\\DeclareMathOperator(\*?)\{\\([A-Za-z]+)\}\s*\{", s):
+        body, _ = group(s, m.end() - 1)
+        out.append(("\\" + m.group(2), r"\operatorname%s{%s}" % (m.group(1), body)))
+    return tuple(out)
+
+
+def modul_makros(cfg):
+    if "_makros" not in cfg:
+        cfg["_makros"] = praeambel_makros(cfg["quelle"]) if cfg.get("praeambel_makros") else ()
+    return cfg["_makros"]
+
+
 # Wörter, die in den Präambeln der Hefte stehen
 WORT = {
     "de": {"aufgabe": "Aufgabe", "satz": "Satz", "definition": "Definition"},
@@ -345,13 +553,23 @@ MAKROS = ((r"\dd", r"\mathrm{d}"), (r"\ee", r"\mathrm{e}"), (r"\jj", r"\mathrm{j
           (r"\divg", r"\operatorname{div}"), (r"\dS", r"\mathrm{d}\boldsymbol{S}"), (r"\dsg", r"\mathrm{d}\sigma"))
 
 
-def makros(m):
-    for a, b in MAKROS:
+def makros(m, extra=()):
+    for a, b in tuple(extra) + MAKROS:                   # Makros der Modul-Präambel zuerst (\vx ist dort \mathbf{x})
         m = re.sub(re.escape(a) + r"(?![a-zA-Z])", lambda _: b, m)
     return m
 
 def strip_comments(s):
-    return re.sub(r"(?<!\\)%.*", "", s)
+    """%-Kommentare entfernen, aber nicht in Code-Umgebungen, \\verb|..|, \\lstinline|..| und \\url{..} (dort ist % ein Zeichen)."""
+    out, i = [], 0
+    for m in VERBATIM_RE.finditer(s):
+        seg = s[i:m.start()]
+        if re.search(r"(?<!\\)%", seg[seg.rfind("\n") + 1:]):
+            continue                                     # steht selbst in einem Kommentar (geschützte Stücke davor zählen nicht)
+        out.append(re.sub(r"(?<!\\)%.*", "", s[i:m.start()]))
+        out.append(m.group(0))
+        i = m.end()
+    out.append(re.sub(r"(?<!\\)%.*", "", s[i:]))
+    return "".join(out)
 
 
 def group(s, i):
@@ -406,8 +624,11 @@ def env_end(s, name, i):
 
 
 class Heft:
-    def __init__(self, lang, kap, szenen, labels=None, basis=None):
+    def __init__(self, lang, kap, szenen, labels=None, basis=None, extra=(), hinweis=None):
         self.lang, self.kap, self.szenen = lang, kap, szenen
+        self.extra = extra                           # Makros der Modul-Präambel
+        self.hinweis = hinweis or HINWEIS
+        self.code = []                               # Code-Blöcke; im Text bis zum Schluss als @@CODE:n@@
         self.labels = labels or {}
         self.neu = {}                                # label -> (Nummer, Anker), in diesem Durchlauf vergeben
         self.fehlt = set()
@@ -446,8 +667,7 @@ class Heft:
             m = m[:k.start()] + r"\,\mathrm{" + inner + "}" + m[e:]
         m = re.sub(r"\\un(?![A-Za-z])\s*(\\?[A-Za-z]+)", r"\\,\\mathrm{\1}", m)   # \un s, \un\Omega
         m = re.sub(r"\\text\{\\textmu\s*([^{}]*)\}", r"\\mu\\text{\1}", m)
-        for a, b in MAKROS:
-            m = re.sub(re.escape(a) + r"(?![a-zA-Z])", lambda _: b, m)
+        m = makros(m, self.extra)
         return re.sub(r" {2,}", " ", m).strip()
 
     def display(self, inner, labels=(), tag=None):
@@ -543,7 +763,16 @@ class Heft:
             return "__" + t + "__", j
         if name == "texttt":
             a, j = arg()
-            a = re.sub(r"\\([{}_%&#$])", r"\1", a).replace("\\textbackslash", "\\").replace("~", " ")
+            return "`" + tt_text(a) + "`", j
+        if name in ("verb", "lstinline"):                # \verb|..|, \lstinline|..| oder \lstinline{..}: Wortlaut
+            if s[i:i + 1] == "*":
+                i += 1
+            if name == "lstinline" and s[i:i + 1] == "{":
+                a, j = group(s, i)
+            else:
+                d = s[i]
+                j = s.index(d, i + 1)
+                a, j = s[i + 1:j], j + 1
             return "`" + a + "`", j
         if name == "uline":
             a, j = arg()
@@ -633,7 +862,7 @@ class Heft:
                 if SO_ARBEITEST.match(t):                    # gilt nur fürs PDF: durch den Website-Hinweis ersetzen
                     e = re.search(r"\n\s*\n", s[i:])
                     i = i + e.end() if e else len(s)
-                    out.append(HINWEIS[self.lang])
+                    out.append(self.hinweis[self.lang])
                     continue
                 pending = "**" + t + "**"
             elif tok == "\\[":
@@ -690,7 +919,24 @@ class Heft:
             n = "k%d%s" % (self.kap, n)
         return ":::abbildung %s/%s %d\n%s\n:::" % (self.szenen, n, self.fig, self.text(cap))
 
+    def codeblock(self, name, body):
+        """Code-Umgebung -> ```<sprache> <titel> … ```, im Text vorerst als @@CODE:n@@: So ändert kein späterer Schritt
+        (WEBTEXT, Teil-Links, Teilung an ##/###, KaTeX-Prüfung) etwas am Code."""
+        titel = ""
+        m = re.match(r"[ \t]*\[([^\]\n]*)\]", body)
+        if m:
+            titel, body = self.text(m.group(1)), body[m.end():]
+        body = body.split("\n", 1)[1] if "\n" in body else ""     # Rest der \begin-Zeile übergeht listings
+        zeilen = body.expandtabs(4).rstrip().split("\n")
+        while zeilen and not zeilen[0].strip():
+            zeilen.pop(0)
+        zeilen = [z.rstrip() for z in zeilen]
+        self.code.append("```%s%s\n%s\n```" % (CODE_ENVS[name], " " + titel if titel else "", "\n".join(zeilen)))
+        return "@@CODE:%d@@" % (len(self.code) - 1)
+
     def environment(self, name, body):
+        if name in CODE_ENVS:
+            return self.codeblock(name, body)
         if name == "equation":
             return self.equation(body)
         if name == "align":
@@ -731,12 +977,13 @@ class Heft:
             return ":::zweck\n%s\n:::" % self.block(body)
         if name == "analogie":
             return ":::analogie\n%s\n:::" % self.block(body)
-        if name in ("merkbox", "kernbox", "herleitung", "beweis", "vertiefung", "frage", "qa", "ltspice", "hintergrund"):
+        if name in ("merkbox", "kernbox", "herleitung", "beweis", "vertiefung", "frage", "qa", "ltspice", "hintergrund", "warnung"):
             t, j = group(body, body.index("{"))
             title = self.text(t)
             inner = self.block(body[j:])
             kind = {"merkbox": "merke", "kernbox": "kern" if title in KERN_TITEL else "merke", "herleitung": "herleitung", "beweis": "beweis",
-                    "vertiefung": "zusatz", "frage": "frage", "qa": "frage", "ltspice": "ltspice", "hintergrund": "hintergrund"}[name]
+                    "vertiefung": "zusatz", "frage": "frage", "qa": "frage", "ltspice": "ltspice", "hintergrund": "hintergrund",
+                    "warnung": "warnung"}[name]
             return ":::%s %s\n%s\n:::" % (kind, title, inner)
         if name in ("satz", "definition"):
             opt, j = bracket(body, 0)
@@ -863,7 +1110,7 @@ def convert(cfg, kap, lang):
     body = re.sub(r"\\begin\{center\}.*?\\end\{center\}", "", head, count=1, flags=re.S)
 
     def run(labels):
-        h = Heft(lang, kap, cfg["szenen"], labels)
+        h = Heft(lang, kap, cfg["szenen"], labels, extra=modul_makros(cfg), hinweis=cfg.get("hinweis"))
         return h, h.block(body)
     h, _ = run({})
     h, md = run(h.neu)
@@ -883,8 +1130,8 @@ def webtext(md, lang, cfg, teile):
         return t
     def link(m):
         k = int(m.group(1))
-        if k not in cfg["hefte"]:
-            return m.group(0)
+        if k not in cfg["hefte"] or not (cfg["quelle"] / (cfg["hefte"][k][0] + ".tex")).is_file():
+            return m.group(0)                            # (noch) kein Heft: Text ohne Link
         if lang != "de" and not list(cfg["quelle"].glob("kap%d_stufen*_%s.tex" % (k, lang))):
             return m.group(0)                            # noch nicht übersetzt: Text ohne Link, sonst läuft er ins Leere
         _, slug, thema = cfg["hefte"][k]
@@ -1012,11 +1259,12 @@ def artikel(cfg, kap, lang):
             titel, kurz, info = "%s: %s" % (UEBERBLICK[lang], tt), UEBERBLICK[lang], sub
         else:
             titel, kurz, info = a["titel"], "", kurztext(a["md"], sub)
-        info = re.sub(r"\$([^$]+)\$", lambda mm: "$" + makros(mm.group(1)) + "$", info)   # Präambel-Makros wie \ee
+        info = re.sub(r"\$([^$]+)\$", lambda mm: "$" + makros(mm.group(1), h.extra) + "$", info)   # Präambel-Makros wie \ee
         kopf = ["---", "title: " + titel] + (["kurz: " + kurz] if kurz else []) + [
             "pfad: %s / %s" % (cfg["pfad"][lang], thema[lang]), "order: %d" % (cfg["order"] + kap * 10000 + 100 * i),
             "summary: " + info, "tags: " + begriffe(a["md"]), "lang: " + lang, "---", ""]
-        aus.append((n, "\n".join(kopf) + "\n" + a["md"].strip() + "\n"))
+        text = re.sub(r"@@CODE:(\d+)@@", lambda mm: h.code[int(mm.group(1))], a["md"].strip())   # Code erst ganz zum Schluss
+        aus.append((n, "\n".join(kopf) + "\n" + text + "\n"))
     return aus, h, rest, fehlt
 
 
@@ -1034,6 +1282,11 @@ def main():
     alle = []
     for kap in a.kap or sorted(cfg["hefte"]):
         stem, slug, thema = cfg["hefte"][kap]
+        if not (cfg["quelle"] / (stem + ".tex")).is_file():
+            if a.kap:
+                print("⚠ Teil %d: %s.tex fehlt" % (kap, stem))
+                fehler += 1
+            continue                                     # Reihe im Aufbau: Teil noch nicht geschrieben
         for lang in a.lang:
             arts, h, rest, fehlt = artikel(cfg, kap, lang)
             txt = "\n".join(t for _, t in arts)
@@ -1078,6 +1331,7 @@ def katex_pruefen(texte):
     from playwright.sync_api import sync_playwright
     items = []
     for s in texte:
+        s = re.sub(r"(?ms)^```.*?^```[ \t]*$", "", s)     # Code-Blöcke ($ ist dort Prompt oder Variable, keine Formel)
         s = re.sub(r"`[^`]*`", "", s)
         items += [(x, True) for x in re.findall(r"\$\$(.+?)\$\$", s, re.S)]
         items += [(x, False) for x in re.findall(r"\$([^$\n]+)\$", re.sub(r"\$\$.+?\$\$", " ", s, flags=re.S))]

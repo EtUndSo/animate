@@ -1,0 +1,562 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 30,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.09999999999999998,
+      1.15,
+      0
+     ],
+     "width": 2.8,
+     "height": 0.62,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#fbe9e9",
+     "fill_color": "#fbe9e9",
+     "fill_opacity": 1,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@luecke",
+     "position": [
+      0.09999999999999998,
+      1.6199999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@a1",
+     "position": [
+      -2.45,
+      1.15,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.35,
+      1.15,
+      0
+     ],
+     "end": [
+      3.55,
+      1.15,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@a2",
+     "position": [
+      -2.45,
+      -0.15,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.35,
+      -0.15,
+      0
+     ],
+     "end": [
+      3.55,
+      -0.15,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@stand",
+     "position": [
+      -2.45,
+      -1.35,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -1.3,
+      1.15,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@prueft",
+     "position": [
+      -1.3,
+      0.7699999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.1,
+      -0.15,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@prueft",
+     "position": [
+      0.1,
+      -0.53,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1.5,
+      1.15,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@zahlt",
+     "position": [
+      1.5,
+      0.7699999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Dot",
+    "props": {
+     "center": [
+      2.9,
+      -0.15,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@zahlt",
+     "position": [
+      2.9,
+      -0.53,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "100 €",
+     "position": [
+      -1.3,
+      -1.35,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "100 €",
+     "position": [
+      0.1,
+      -1.35,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "0 €",
+     "position": [
+      1.5,
+      -1.35,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "−100 €",
+     "position": [
+      2.9,
+      -1.35,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.35,
+      -1.85,
+      0
+     ],
+     "end": [
+      3.65,
+      -1.85,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@zeit",
+     "position": [
+      3.65,
+      -2.13,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.3,
+      -1.78,
+      0
+     ],
+     "end": [
+      -1.3,
+      -1.9200000000000002,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "t₁",
+     "position": [
+      -1.3,
+      -2.13,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.1,
+      -1.78,
+      0
+     ],
+     "end": [
+      0.1,
+      -1.9200000000000002,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "t₂",
+     "position": [
+      0.1,
+      -2.13,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.5,
+      -1.78,
+      0
+     ],
+     "end": [
+      1.5,
+      -1.9200000000000002,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "t₃",
+     "position": [
+      1.5,
+      -2.13,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.9,
+      -1.78,
+      0
+     ],
+     "end": [
+      2.9,
+      -1.9200000000000002,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "t₄",
+     "position": [
+      2.9,
+      -2.13,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "luecke": {
+    "de": "Lücke zwischen Prüfen und Handeln",
+    "en": "gap between check and use",
+    "es": "hueco entre comprobar y actuar",
+    "zh": "检查与使用之间的空隙"
+   },
+   "a1": {
+    "de": "Automat 1",
+    "en": "ATM 1",
+    "es": "Cajero 1",
+    "zh": "取款机 1"
+   },
+   "a2": {
+    "de": "Automat 2",
+    "en": "ATM 2",
+    "es": "Cajero 2",
+    "zh": "取款机 2"
+   },
+   "stand": {
+    "de": "Kontostand",
+    "en": "balance",
+    "es": "saldo",
+    "zh": "余额"
+   },
+   "prueft": {
+    "de": "prüft: 100 ≥ 100 ✓",
+    "en": "checks: 100 ≥ 100 ✓",
+    "es": "comprueba: 100 ≥ 100 ✓",
+    "zh": "检查：100 ≥ 100 ✓"
+   },
+   "zahlt": {
+    "de": "zahlt 100 € aus,\nbucht ab",
+    "en": "pays out 100 €,\ndebits",
+    "es": "entrega 100 €,\ncarga",
+    "zh": "支付 100 欧元，\n扣款"
+   },
+   "zeit": {
+    "de": "Zeit",
+    "en": "time",
+    "es": "tiempo",
+    "zh": "时间"
+   }
+  }
+ }
+}

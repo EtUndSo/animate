@@ -8,6 +8,8 @@ Anlass, in den Worten des Users:
 
 Der Leser ist neu. Er kennt nur die früheren Teile der Reihe und das, was das Heft selbst erklärt hat.
 
+**Ton.** Seriös und professionell, aber nicht steif: locker genug, dass die Leser dranbleiben und gut verstehen, ohne flapsig zu werden. Der Ton der bisherigen Hefte trifft das bereits.
+
 **Qualität vor allem.** Die Artikel müssen qualitativ sehr hochwertig, klar strukturiert und hilfreich für das Verständnis sein. Der Zeitaufwand fürs Schreiben ist egal; der User hat das mehrfach betont. Lieber ein Heft gründlich als drei schnell.
 
 ## 1. Gliederung wie im Skript

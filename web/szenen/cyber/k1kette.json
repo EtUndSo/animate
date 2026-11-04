@@ -1,0 +1,396 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 17,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      0.75,
+      0
+     ],
+     "width": 2.15,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@schw",
+     "position": [
+      -2.4,
+      0.91,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@schw2",
+     "position": [
+      -2.4,
+      0.58,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      -0.75,
+      0
+     ],
+     "width": 2.15,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@bedr",
+     "position": [
+      -2.4,
+      -0.59,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@bedr2",
+     "position": [
+      -2.4,
+      -0.92,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.5,
+      0,
+      0
+     ],
+     "width": 1.95,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fbe9e9",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@angr",
+     "position": [
+      0.5,
+      0.16,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@angr2",
+     "position": [
+      0.5,
+      -0.17,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.7,
+      0,
+      0
+     ],
+     "width": 1.55,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@schad",
+     "position": [
+      2.7,
+      0.16,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@schad2",
+     "position": [
+      2.7,
+      -0.17,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.325,
+      0.75,
+      0
+     ],
+     "end": [
+      -0.475,
+      0.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.325,
+      -0.75,
+      0
+     ],
+     "end": [
+      -0.475,
+      -0.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.475,
+      0,
+      0
+     ],
+     "end": [
+      1.925,
+      0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@exploit",
+     "position": [
+      0.5,
+      0.85,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "schw": {
+    "de": "Schwachstelle",
+    "en": "Vulnerability",
+    "es": "Vulnerabilidad",
+    "zh": "漏洞"
+   },
+   "schw2": {
+    "de": "Kellerfenster schließt nicht",
+    "en": "basement window won't close",
+    "es": "ventana que no cierra",
+    "zh": "地下室窗户关不严"
+   },
+   "bedr": {
+    "de": "Bedrohung",
+    "en": "Threat",
+    "es": "Amenaza",
+    "zh": "威胁"
+   },
+   "bedr2": {
+    "de": "Einbrecher in der Gegend",
+    "en": "burglars in the area",
+    "es": "ladrones en la zona",
+    "zh": "附近有窃贼"
+   },
+   "angr": {
+    "de": "Angriff",
+    "en": "Attack",
+    "es": "Ataque",
+    "zh": "攻击"
+   },
+   "angr2": {
+    "de": "steigt durchs Fenster ein",
+    "en": "climbs in through the window",
+    "es": "entra por la ventana",
+    "zh": "从窗户爬入"
+   },
+   "schad": {
+    "de": "Schaden",
+    "en": "Damage",
+    "es": "Daño",
+    "zh": "损害"
+   },
+   "schad2": {
+    "de": "Laptop gestohlen",
+    "en": "laptop stolen",
+    "es": "portátil robado",
+    "zh": "笔记本被盗"
+   },
+   "exploit": {
+    "de": "Exploit: Fenster mit\nSchraubenzieher aufhebeln",
+    "en": "Exploit: lever the window\nopen with a screwdriver",
+    "es": "Exploit: forzar la ventana\ncon un destornillador",
+    "zh": "漏洞利用：用螺丝刀\n撬开窗户"
+   }
+  }
+ }
+}

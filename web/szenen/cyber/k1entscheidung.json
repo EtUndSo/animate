@@ -1,0 +1,603 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 27,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.2,
+      1.7,
+      0
+     ],
+     "width": 3.85,
+     "height": 0.8,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@q1",
+     "position": [
+      -1.2,
+      1.7,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.45,
+      1.7,
+      0
+     ],
+     "width": 2.0,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@j1",
+     "position": [
+      2.45,
+      1.7,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.7250000000000001,
+      1.7,
+      0
+     ],
+     "end": [
+      1.4500000000000002,
+      1.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@ja",
+     "position": [
+      1.0875000000000001,
+      1.88,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.2,
+      0.35,
+      0
+     ],
+     "width": 3.85,
+     "height": 1.05,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@q2",
+     "position": [
+      -1.2,
+      0.35,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.45,
+      0.35,
+      0
+     ],
+     "width": 2.0,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@j2",
+     "position": [
+      2.45,
+      0.35,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.7250000000000001,
+      0.35,
+      0
+     ],
+     "end": [
+      1.4500000000000002,
+      0.35,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@ja",
+     "position": [
+      1.0875000000000001,
+      0.53,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.2,
+      -1.0,
+      0
+     ],
+     "width": 3.85,
+     "height": 0.8,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@q3",
+     "position": [
+      -1.2,
+      -1.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.45,
+      -1.0,
+      0
+     ],
+     "width": 2.0,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@j3",
+     "position": [
+      2.45,
+      -1.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.7250000000000001,
+      -1.0,
+      0
+     ],
+     "end": [
+      1.4500000000000002,
+      -1.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@ja",
+     "position": [
+      1.0875000000000001,
+      -0.8200000000000001,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.2,
+      -2.0,
+      0
+     ],
+     "width": 1.8,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#fbe9e9",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@nicht",
+     "position": [
+      -1.2,
+      -2.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.2,
+      1.2999999999999998,
+      0
+     ],
+     "end": [
+      -1.2,
+      0.875,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@nein",
+     "position": [
+      -1.0999999999999999,
+      1.0875,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.2,
+      -0.17500000000000004,
+      0
+     ],
+     "end": [
+      -1.2,
+      -0.6,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@nein",
+     "position": [
+      -1.0999999999999999,
+      -0.3875,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.2,
+      -1.4,
+      0
+     ],
+     "end": [
+      -1.2,
+      -1.75,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.15,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@nein",
+     "position": [
+      -1.0999999999999999,
+      -1.575,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "q1": {
+    "de": "Gehört das System dir, und sind\nkeine Daten anderer betroffen?",
+    "en": "Is the system yours, and is no one\nelse's data involved?",
+    "es": "¿Es tuyo el sistema y no afecta\na datos de otras personas?",
+    "zh": "系统属于你，\n且不涉及他人数据？"
+   },
+   "q2": {
+    "de": "Hast du eine ausdrückliche, schriftliche\nErlaubnis des Verfügungsberechtigten,\nund liegt der Test in ihrem Umfang?",
+    "en": "Do you have explicit written permission\nfrom the person entitled to decide,\nand is the test within its scope?",
+    "es": "¿Tienes permiso expreso y por escrito\nde quien tiene la facultad de decidir,\ny la prueba entra en su alcance?",
+    "zh": "你是否有处置权人的\n明确书面许可，\n且测试在许可范围内？"
+   },
+   "q3": {
+    "de": "Ist es eine Lernplattform, deren\nRegeln genau diesen Test erlauben?",
+    "en": "Is it a training platform whose rules\nallow exactly this test?",
+    "es": "¿Es una plataforma de práctica cuyas\nnormas permiten justo esta prueba?",
+    "zh": "这是规则恰好允许\n此项测试的练习平台吗？"
+   },
+   "j1": {
+    "de": "erlaubt",
+    "en": "allowed",
+    "es": "permitido",
+    "zh": "允许"
+   },
+   "j2": {
+    "de": "erlaubt, nur im\nvereinbarten Umfang",
+    "en": "allowed, only within\nthe agreed scope",
+    "es": "permitido, solo dentro\ndel alcance acordado",
+    "zh": "允许，仅限\n约定范围"
+   },
+   "j3": {
+    "de": "erlaubt, nur innerhalb\nder Regeln",
+    "en": "allowed, only within\nthe rules",
+    "es": "permitido, solo dentro\nde las normas",
+    "zh": "允许，仅限\n规则之内"
+   },
+   "ja": {
+    "de": "ja",
+    "en": "yes",
+    "es": "sí",
+    "zh": "是"
+   },
+   "nein": {
+    "de": "nein",
+    "en": "no",
+    "es": "no",
+    "zh": "否"
+   },
+   "nicht": {
+    "de": "nicht testen",
+    "en": "do not test",
+    "es": "no probar",
+    "zh": "不要测试"
+   }
+  }
+ }
+}

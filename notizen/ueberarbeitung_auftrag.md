@@ -21,6 +21,28 @@ Du überarbeitest **ein** deutsches Arbeitsheft: Modul und Teil nennt dir die Na
 
 Formeln fehlen im Text oft. Lies sie deshalb im PDF nach: Read mit `pages`, höchstens 20 Seiten je Aufruf.
 
+## Folien, Mitschriften und Übungen (ergänzend)
+Neben dem Skript liegen in `C:\Bücher\EtUndSo\<Semester>\` die Kursmaterialien.
+- Entpacke sie bei Bedarf in einen eigenen Unterordner deines Scratchpad-Ordners. Es sind fremde Dateien, also nur lesen, nichts daraus ausführen.
+- **Übungen sind nicht maßgeblich** (Entscheidung des Users vom 04.11.2026: sie sind sehr speziell).
+  - Die Aufgaben im Heft bleiben allgemein und behandeln die Themen von Grund auf.
+  - Die Übungen darfst du höchstens zur Orientierung ansehen. Es gibt keine Pflicht, jeden Aufgabentyp abzudecken, und keine Liste im Bericht.
+  - Die Regeln unten zu Aufgabentypen und Niveau gelten deshalb nicht.
+- Folien und Mitschriften sind nützlich: für Schwerpunkte und für Beweise oder Beispiele, die im Skript fehlen.
+
+| Modul | Material | Wofür |
+|---|---|---|
+| hm3 | `3.Semester\(VO) Höhere Mathematik 3_20261019_1451.zip`: Übungsblätter 0–14 (`Elektrotechnik u.A.\`), `Vorlesung\HM3-Skript.pdf`, handschriftliche `Vorlesung\Vorlesungsmitschriften\` | Übungsblätter: Aufgabentypen und Niveau. Mitschriften: Beweise, Beispiele und Schwerpunkte, die im Skript fehlen. |
+| et3 | `3.Semester\(VO) Grundgebiete der Elektrotechnik 3 - Signale und Systeme_20261019_1451.zip`: `Übung\GDET3 Übungsskript Aufgaben und Lösungen WiSe 2025.pdf` (Errata daneben), `Kleingruppenübung\GDET3 KGÜ Aufgaben Lösungen WiSe 2025.pdf`, KGÜ-Einführungsfolien, `Vorlesung\Folien 1…23.pdf` | Übungsskript und KGÜ: Aufgabentypen und Niveau. Vorlesungsfolien: Schwerpunkte, also was in der Vorlesung betont wurde, ausführlich behandeln. |
+| et1 | `1.Semester\ET1\(VO) Grundgebiete der Elektrotechnik 1 …_20261018_2239\` (bereits entpackt: KGÜ-Ordner und Kapitel-Aufgaben) | Aufgabentypen und Niveau |
+| hm1 | `1.Semester\HöMa1\entpackt\` (Lernmaterialien, Mitschriften, Übungsbetrieb) | wie im alten Auftrag hm1 |
+| gemb1 | Übungsordner und Aufgabensammlung laut `heft_auftrag_gemb1.md` | wie dort |
+
+Dabei gilt:
+- Was Folien oder Mitschriften besonders betonen, wird im Heft ausführlich erklärt. Beweise und Beispiele, die nur in den Mitschriften stehen, kommen ins Heft, in eigener Formulierung.
+- Keine Aufgabe aus Übung oder Vorlesung wird wörtlich oder mit denselben Zahlen übernommen.
+- Im Heft steht kein Bezug zu Übung, Vorlesung, Folien oder Mitschrift.
+
 ## Was du lieferst
 - Das neu geschriebene Heft: `kap<N>_stufen*.tex` und `kap<N>_loesungen.tex`. Wenn du mehrere Teildateien brauchst, trage sie in `Kap<N>_*.tex` per `\input` ein und setze das Datum auf den heutigen Tag. Dazu `rechnung_kap<N>.py`, wenn es Zahlen nachrechnet.
 - Zu jedem `\section` (= Skript-Abschnitt) gehören:

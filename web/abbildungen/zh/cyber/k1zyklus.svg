@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="529" height="156" viewBox="489.4659 394.3418 961.8182 283.6364">
+<rect x="489.4659" y="394.3418" width="961.8182" height="283.6364" fill="#ffffff"/>
+<path d="M568.5 513C633.75 513 699 513 764.25 513C764.25 481.5 764.25 450 764.25 418.5C699 418.5 633.75 418.5 568.5 418.5C568.5 450 568.5 481.5 568.5 513" fill="#7f7f7f" fill-opacity="0.12"/>
+<text x="666.38" y="465.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">无人知晓</text>
+<path d="M764.25 513C894.75 513 1025.25 513 1155.75 513C1155.75 481.5 1155.75 450 1155.75 418.5C1025.25 418.5 894.75 418.5 764.25 418.5C764.25 450 764.25 481.5 764.25 513" fill="#c82828" fill-opacity="0.14"/>
+<text x="960" y="452" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">零日：</text>
+<text x="960" y="479.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">已被利用，无补丁</text>
+<path d="M1155.75 513C1221 513 1286.25 513 1351.5 513C1351.5 481.5 1351.5 450 1351.5 418.5C1286.25 418.5 1221 418.5 1155.75 418.5C1155.75 450 1155.75 481.5 1155.75 513" fill="#eb6834" fill-opacity="0.18"/>
+<text x="1253.62" y="452" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#eb6834" text-anchor="middle" dominant-baseline="central">补丁已发布，</text>
+<text x="1253.62" y="479.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#eb6834" text-anchor="middle" dominant-baseline="central">未安装</text>
+<path d="M521.25 540C822.75 540 1124.25 540 1425.75 540" fill="none" stroke="#111111" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1425.75 540C1418.55 537.12 1411.35 534.24 1404.15 531.36C1404.15 537.12 1404.15 542.88 1404.15 548.64C1411.35 545.76 1418.55 542.88 1425.75 540" fill="#111111" stroke="#111111" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1425.75" y="573.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="end" dominant-baseline="central">时间</text>
+<path d="M568.5 526.5C568.5 535.5 568.5 544.5 568.5 553.5" fill="none" stroke="#111111" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="568.5" y="614" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">缺陷产生，</text>
+<text x="568.5" y="641.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">程序发布</text>
+<path d="M764.25 526.5C764.25 535.5 764.25 544.5 764.25 553.5" fill="none" stroke="#111111" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="764.25" y="614" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">攻击者发现</text>
+<text x="764.25" y="641.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">并利用漏洞</text>
+<path d="M960 526.5C960 535.5 960 544.5 960 553.5" fill="none" stroke="#111111" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="960" y="614" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">厂商</text>
+<text x="960" y="641.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">得知漏洞</text>
+<path d="M1155.75 526.5C1155.75 535.5 1155.75 544.5 1155.75 553.5" fill="none" stroke="#111111" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1155.75" y="614" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">补丁与公开</text>
+<text x="1155.75" y="641.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">（CVE 编号）</text>
+<path d="M1351.5 526.5C1351.5 535.5 1351.5 544.5 1351.5 553.5" fill="none" stroke="#111111" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1351.5" y="614" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">运营者</text>
+<text x="1351.5" y="641.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">安装更新</text>
+</svg>

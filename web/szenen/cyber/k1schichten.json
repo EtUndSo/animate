@@ -1,0 +1,257 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 11,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.35,
+      0.3,
+      0
+     ],
+     "width": 4.6,
+     "height": 2.7,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.06,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.35,
+      0.3,
+      0
+     ],
+     "width": 3.2,
+     "height": 1.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.13,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.35,
+      0.3,
+      0
+     ],
+     "width": 1.75,
+     "height": 0.95,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.22,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@graben",
+     "position": [
+      0.35,
+      1.43,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@mauer",
+     "position": [
+      0.35,
+      1.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@schatz",
+     "position": [
+      0.35,
+      0.44999999999999996,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@wache",
+     "position": [
+      0.35,
+      0.09999999999999998,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.3,
+      0.3,
+      0
+     ],
+     "end": [
+      -0.55,
+      0.3,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@angreifer",
+     "position": [
+      -2.75,
+      0.52,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@alle",
+     "position": [
+      0.35,
+      -1.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "graben": {
+    "de": "Graben: 30 % kommen durch",
+    "en": "moat: 30 % get through",
+    "es": "foso: pasa el 30 %",
+    "zh": "护城河：30% 能通过"
+   },
+   "mauer": {
+    "de": "Mauer: 10 %",
+    "en": "wall: 10 %",
+    "es": "muralla: 10 %",
+    "zh": "城墙：10%"
+   },
+   "schatz": {
+    "de": "Schatz",
+    "en": "treasure",
+    "es": "tesoro",
+    "zh": "宝藏"
+   },
+   "wache": {
+    "de": "Wache: 5 %",
+    "en": "guard: 5 %",
+    "es": "guardia: 5 %",
+    "zh": "守卫：5%"
+   },
+   "angreifer": {
+    "de": "Angreifer",
+    "en": "attacker",
+    "es": "atacante",
+    "zh": "攻击者"
+   },
+   "alle": {
+    "de": "alle drei überwinden:  0.3 · 0.1 · 0.05 = 0.0015",
+    "en": "get past all three:  0.3 · 0.1 · 0.05 = 0.0015",
+    "es": "superar las tres:  0.3 · 0.1 · 0.05 = 0.0015",
+    "zh": "突破全部三道：0.3 · 0.1 · 0.05 = 0.0015"
+   }
+  }
+ }
+}
