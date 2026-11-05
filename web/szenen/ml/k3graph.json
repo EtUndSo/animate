@@ -1,0 +1,496 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 25,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "x₁",
+     "center": [
+      -2.2,
+      1.5,
+      0
+     ],
+     "width": 0.64,
+     "height": 0.544,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "x₂",
+     "center": [
+      -2.2,
+      0.0,
+      0
+     ],
+     "width": 0.64,
+     "height": 0.544,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "x₃",
+     "center": [
+      -2.2,
+      -1.5,
+      0
+     ],
+     "width": 0.64,
+     "height": 0.544,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Circle",
+    "props": {
+     "radius": 0.3,
+     "center": [
+      0.3,
+      0.75,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "+",
+     "position": [
+      0.3,
+      0.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Circle",
+    "props": {
+     "radius": 0.3,
+     "center": [
+      0.3,
+      -0.75,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "+",
+     "position": [
+      0.3,
+      -0.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Circle",
+    "props": {
+     "radius": 0.3,
+     "center": [
+      2.6,
+      0.0,
+      0
+     ],
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "×",
+     "position": [
+      2.6,
+      0.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8839173258770203,
+      1.405175197763106,
+      0
+     ],
+     "end": [
+      0.012652114433654604,
+      0.8362043656699036,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8839173258770203,
+      0.09482480223689398,
+      0
+     ],
+     "end": [
+      0.012652114433654604,
+      0.6637956343300964,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8839173258770203,
+      -0.09482480223689398,
+      0
+     ],
+     "end": [
+      0.012652114433654604,
+      -0.6637956343300964,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8839173258770203,
+      -1.405175197763106,
+      0
+     ],
+     "end": [
+      0.012652114433654604,
+      -0.8362043656699036,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.613740847028888,
+      0.6476932020557974,
+      0
+     ],
+     "end": [
+      2.3147810481555564,
+      0.09300617994927507,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.613740847028888,
+      -0.6476932020557974,
+      0
+     ],
+     "end": [
+      2.3147810481555564,
+      -0.09300617994927507,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.16,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -2.7,
+      1.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -2.7,
+      0.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -2.7,
+      -1.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "v₁",
+     "position": [
+      0.3,
+      1.25,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "v₂",
+     "position": [
+      0.3,
+      -1.25,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "f",
+     "position": [
+      2.6,
+      0.5,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      0.7,
+      0.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "5",
+     "position": [
+      0.7,
+      -0.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "15",
+     "position": [
+      3.0,
+      0.0,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

@@ -151,6 +151,12 @@ Wiederherstellen: Eine betrügerische Überweisung kann die Bank in vielen Fäll
 
 ⁠**Kurz gesagt:** Mechanismen verhindern, erkennen oder stellen wieder her; wer nicht verhindern kann, soll wenigstens erkennen.
 
+:::hintergrund Welche Größe des Risikos jedes der drei Ziele verkleinert
+Mit der Formel $R=H\cdot S$ aus Abschnitt [3](risiko-angreifermodell-und-angriffsflache.html#stufe-3) lassen sich die drei Ziele genau unterscheiden. Ein Mechanismus, der *verhindert*, senkt die Häufigkeit $H$: Weniger Angriffe gelingen. Ein Mechanismus, der *erkennt*, hält den einzelnen Angriff nicht auf und ändert an $H$ zunächst nichts. Er verkürzt aber die Zeit, in der ein Angreifer unbemerkt weitermachen kann, und senkt damit den Schaden $S$ je Ereignis: Wer nach einer Stunde bemerkt wird, liest eine Stunde lang mit, nicht eine Woche. Ein Mechanismus, der *wiederherstellt*, senkt ebenfalls $S$, aber erst nach der Tat: Mit einer Sicherungskopie kostet ein Datenverlust nur die Arbeit seit der letzten Kopie. In Aufgabe [4](risiko-angreifermodell-und-angriffsflache.html#aufg-4) senkt die Sicherungskopie den Schaden einer Erpressung von 120 000 auf 20 000 €, ohne dass ein einziger Angriff seltener wird.
+
+Daraus folgt, warum man alle drei braucht. Wer sich nur auf das Verhindern verlässt, braucht einen vollkommenen Mechanismus, und den gibt es nicht; jeder Angriff, der doch durchkommt, richtet dann den vollen Schaden an. Erkennen und Wiederherstellen setzen genau dort an, wo das Verhindern versagt hat.
+:::
+
 ### Passiver und aktiver Angriff
 
 <span class="anker" id="stufe-4-4"></span>

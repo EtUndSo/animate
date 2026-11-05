@@ -105,7 +105,7 @@ Oben die Graphen der quadratischen Formen $x_1^2+2x_2^2$ (Schüssel), $x_1^2$ (R
 
 </ul>
 
-Sind beide Einträge negativ, steht die Schüssel auf dem Kopf; das ist eine Kuppel. Ein negativer und ein verschwindender Eintrag geben einen umgedrehten Kamm. Bei mehr als zwei Variablen gilt dasselbe: Die Vorzeichen der Diagonaleinträge entscheiden über die Form.
+Sind beide Einträge negativ, steht die Schüssel auf dem Kopf; das ist eine Kuppel. Ein negativer und ein verschwindender Eintrag geben eine umgedrehte Rinne, einen Kamm. Bei mehr als zwei Variablen gilt dasselbe: Die Vorzeichen der Diagonaleinträge entscheiden über die Form.
 
 ⁠**Rechenbeispiel:** Für die Schüssel $f=x_1^2+2x_2^2$ ist die Höhenlinie $f=1$ die Ellipse mit den Halbachsen $1$ auf der $x_1$-Achse und $1/\sqrt2\approx0{,}707$ auf der $x_2$-Achse: Bei $(1,\,0)^{\top}$ und bei $(0,\,1/\sqrt2)^{\top}$ ist $f=1$. Beim Sattel $f=x_1^2-x_2^2$ ist $f(1,\,0)=1$, $f(0,\,1)=-1$ und $f(1,\,1)=0$.
 

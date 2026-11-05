@@ -77,7 +77,7 @@ Der schlimmste Fall ist also: Die Lösung liegt in der Richtung, die $\mathbf{A}
 
 $$\lambda_{1,2}=\frac{2{,}01\pm\sqrt{2{,}01^2-0{,}04}}2=\frac{2{,}01\pm\sqrt{4{,}0001}}2\approx\frac{2{,}01\pm2{,}000025}2,$$
 
-also $\lambda_1\approx2{,}005013$ und $\lambda_2\approx0{,}004988$, beide positiv. Nach Abschnitt [9.7](die-singularwertzerlegung.html#stufe-9-7) sind das auch die Singulärwerte, und $\kappa(\mathbf{A})\approx402$. Die beobachtete Verstärkung $284$ liegt darunter. Sie erreicht die Schranke nicht ganz, weil $\Delta\mathbf{y}=(0;\ 0{,}01)^{\top}$ nicht genau in Richtung $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$ zeigt. Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\kappa=4/1=4$: Relative Fehler werden höchstens vervierfacht.
+also $\lambda_1\approx2{,}005012$ und $\lambda_2\approx0{,}004988$, beide positiv. Nach Abschnitt [9.7](die-singularwertzerlegung.html#stufe-9-7) sind das auch die Singulärwerte, und $\kappa(\mathbf{A})\approx402$. Die beobachtete Verstärkung $284$ liegt darunter. Sie erreicht die Schranke nicht ganz, weil $\Delta\mathbf{y}=(0;\ 0{,}01)^{\top}$ nicht genau in Richtung $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$ zeigt. Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\kappa=4/1=4$: Relative Fehler werden höchstens vervierfacht.
 
 ⁠**Kurz gesagt:** Die Konditionszahl $\kappa(\mathbf{A})=d_1/d_n$ ist der größte Faktor, um den $\mathbf{A}^{-1}$ einen relativen Fehler der Daten in der Lösung vergrößern kann.
 

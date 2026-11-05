@@ -3,7 +3,7 @@ title: Schwachstellen benennen und bewerten
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
 order: 6110800
 summary: Jeden Tag werden weltweit über hundert neue Schwachstellen bekannt.
-tags: CVE, National Vulnerability Database, CWE, Common Vulnerability Scoring System, Vektor, Patch, Update, Lebenszyklus
+tags: CVE, National Vulnerability Database, CWE, Common Vulnerability Scoring System, Vektor, Ausnutzbarkeit, Auswirkung, Patch
 lang: de
 ---
 
@@ -25,7 +25,7 @@ Das BSI zählte für den Zeitraum von Mitte 2024 bis Mitte 2025 im Schnitt 119 n
 __CVE__ (englisch *Common Vulnerabilities and Exposures*) ist ein weltweites Verzeichnis öffentlich bekannter Schwachstellen. Jede Schwachstelle darin erhält eine eindeutige Kennung der Form `CVE-JJJJ-NNNN`: eine Jahreszahl und eine laufende Nummer mit mindestens vier Ziffern.
 :::
 
-Betrieben wird das Verzeichnis von der gemeinnützigen Organisation MITRE im Auftrag der US-Behörde CISA. Die Kennungen vergeben viele dazu berechtigte Stellen, darunter große Hersteller und Sicherheitsbehörden. Die Jahreszahl ist das Jahr, in dem die Kennung vergeben wurde, nicht unbedingt das Jahr, in dem der Fehler entstand.
+Betrieben wird das Verzeichnis von der gemeinnützigen Organisation MITRE im Auftrag der US-Behörde CISA. Die Kennungen vergeben viele dazu berechtigte Stellen, darunter große Hersteller und Sicherheitsbehörden. Die Jahreszahl gibt in der Regel an, in welchem Jahr die Kennung reserviert wurde, nicht, wann der Fehler entstand.
 
 Zu jeder Kennung gibt es einen Eintrag mit einer kurzen Beschreibung, den betroffenen Produkten und Versionen und Verweisen auf weitere Informationen. Die US-Behörde NIST ergänzt die Einträge in ihrer __National Vulnerability Database__ (NVD) um Bewertungen und Einordnungen; ihre Seiten sind frei zugänglich und auf Englisch.
 
@@ -81,6 +81,10 @@ Jedes Jahr veröffentlichen MITRE und CISA eine Liste der 25 gefährlichsten Art
 
 ⁠**Kurz gesagt:** CVE benennt den Einzelfall, CWE die Art des Fehlers.
 
+:::hintergrund Warum man die Art eines Fehlers kennen will
+Ein Patch behebt einen Einzelfall. Kennt man dagegen die Art des Fehlers, kann man seine Ursache abstellen und damit alle künftigen Fälle derselben Art auf einmal verhindern. Beim Kundenportal hieße das: nicht nur die Rechnungsseite reparieren, sondern eine einzige zentrale Stelle bauen, die bei jedem Abruf prüft, wem die Daten gehören. Dann kann auch die nächste Seite, die jemand ergänzt, den Fehler CWE-639 nicht mehr haben; das ist die kleine vertrauenswürdige Basis aus Abschnitt [6](sicherheitsprinzipien-systeme-robust-entwerfen.html#stufe-6). Deshalb lohnt es sich, Schwachstellen nach ihrer Art zu zählen: Häufen sich Fehler einer Art, beseitigt man ihre Ursache an der Wurzel, statt jeden Einzelfall nachzubessern.
+:::
+
 ### CVSS: die Schwere
 
 <span class="anker" id="stufe-7-3"></span>
@@ -118,8 +122,18 @@ In Version 4.0 sind einige Merkmale neu geordnet. Es gibt ein zusätzliches Merk
 
 ⁠**Kurz gesagt:** CVSS fasst die Merkmale einer Schwachstelle in einem Vektor zusammen und macht daraus eine Zahl von 0 bis 10, die ihre Schwere angibt.
 
-:::hintergrund Wie aus dem Vektor eine Zahl wird (Version 3.1)
-In Version 3.1 ist die Bewertung eine Formel. Jeder Wert im Vektor steht für eine Zahl:
+### Wie aus dem Vektor die Zahl wird
+
+<span class="anker" id="stufe-7-4"></span>
+
+Damit zwei Fachleute für denselben Vektor dieselbe Zahl bekommen, ist die Rechnung fest vorgeschrieben. In Version 3.1 ist sie eine Formel, die man mit dem Taschenrechner nachvollziehen kann.
+
+Die Zahl setzt sich aus zwei Teilen zusammen. Der eine sagt, wie leicht ein Angreifer die Lücke erreicht und ausnutzt; jedes Hindernis, das er dabei überwinden muss, macht diesen Teil kleiner. Der andere sagt, wie schwer die Folgen für die drei grundlegenden Schutzziele sind.
+
+:::definition Definition 7.4 (Basisbewertung nach CVSS 3.1)
+<span class="anker" id="satz-7-4"></span>
+
+Jeder Wert im Vektor steht für eine Zahl:
 
 <ul>
 
@@ -143,21 +157,33 @@ C, I, A: H 0,56; L 0,22; N 0.
 
 </ul>
 
-Daraus rechnet man zwei Teilwerte. Die *Ausnutzbarkeit* ist ein Produkt:
+Die __Ausnutzbarkeit__ ist das Produkt
 
-$$E=8{,}22\cdot\mathrm{AV}\cdot\mathrm{AC}\cdot\mathrm{PR}\cdot\mathrm{UI}.$$
+<span class="anker" id="gl-7-1"></span>
+$$E=8{,}22\cdot\mathrm{AV}\cdot\mathrm{AC}\cdot\mathrm{PR}\cdot\mathrm{UI}. \tag{7.1}$$
 
-Die *Auswirkung* geht von der Größe $\mathrm{ISS}=1-(1-C)(1-I)(1-A)$ aus und ist
+Die __Auswirkung__ geht von der Größe $\mathrm{ISS}=1-(1-C)(1-I)(1-A)$ aus und ist
 
-$$W=6{,}42\cdot\mathrm{ISS}\quad\text{(bei S:U)},\qquad W=7{,}52\,(\mathrm{ISS}-0{,}029)-3{,}25\,(\mathrm{ISS}-0{,}02)^{15}\quad\text{(bei S:C)}.$$
+<span class="anker" id="gl-7-2"></span>
+$$W=6{,}42\cdot\mathrm{ISS}\quad\text{(bei S:U)},\qquad W=7{,}52\,(\mathrm{ISS}-0{,}029)-3{,}25\,(\mathrm{ISS}-0{,}02)^{15}\quad\text{(bei S:C)}. \tag{7.2}$$
 
-Ist $W\le0$, so ist die Bewertung 0. Sonst ist sie $\min(W+E,\,10)$ bei S:U und $\min(1{,}08\,(W+E),\,10)$ bei S:C, aufgerundet auf eine Nachkommastelle.
+Ist $W\le0$, so ist die Bewertung 0. Sonst ist sie $\min(W+E,\,10)$ bei S:U und $\min\bigl(1{,}08\,(W+E),\,10\bigr)$ bei S:C, jeweils aufgerundet auf eine Nachkommastelle.
+:::
 
-⁠**Log4Shell:** $\mathrm{ISS}=1-0{,}44^3=0{,}9148$, also $W=7{,}52\cdot0{,}8858-3{,}25\cdot0{,}8948^{15}=6{,}6613-0{,}6136=6{,}0477$. Weiter $E=8{,}22\cdot0{,}85\cdot0{,}77\cdot0{,}85\cdot0{,}85=3{,}8870$. Mit S:C ergibt sich $1{,}08\cdot(6{,}0477+3{,}8870)=10{,}73$, begrenzt auf 10,0.
+Die Abkürzung ISS steht für *impact sub-score*. Die Zahlen $8{,}22$, $6{,}42$, $7{,}52$ und die übrigen Konstanten sind festgelegt, nicht hergeleitet: Sie stehen so in der Beschreibung des Verfahrens, und man schlägt sie dort nach.
 
-Die Formel ist so gebaut, dass zwei Gedanken aus diesem Kapitel in ihr stecken. Die Ausnutzbarkeit $E$ ist ein Produkt: Jedes Hindernis für den Angreifer, ob ein weiter Weg, eine nötige Anmeldung oder ein Nutzer, der mitspielen muss, verkleinert sie um einen Faktor, so wie mehrere Verteidigungslinien in Abschnitt [6](sicherheitsprinzipien-systeme-robust-entwerfen.html#stufe-6). Und die Größe ISS hat dieselbe Gestalt wie die Formel [(3.3)](risiko-angreifermodell-und-angriffsflache.html#gl-3-3) für „mindestens eines“: Sie liegt nahe bei 1, sobald *eines* der drei Schutzziele schwer getroffen ist.
+⁠**Rechenbeispiel: Log4Shell.** Für `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H` ist $\mathrm{ISS}=0{,}9148$, die Auswirkung $W=6{,}0477$ und die Ausnutzbarkeit $E=3{,}8870$. Mit S:C ergibt sich $1{,}08\cdot(W+E)=10{,}73$, begrenzt auf $10{,}0$ (Abb. [15](#abb-15)).
 
-Version 4.0 verzichtet auf eine solche Formel. Fachleute haben dort Gruppen von Vektoren gebildet, die sie für gleich schwer halten, und jeder Gruppe einen Wert zugeordnet; die Bewertung wird aus dieser Tabelle abgelesen und innerhalb der Gruppe verfeinert. Die Stufen von „keine“ bis „kritisch“ sind gleich geblieben.
+:::abbildung cyber/k1rcvss 15
+Die Basisbewertung von Log4Shell nach CVSS 3.1: Die Auswirkung $W$ beginnt mit dem Produkt der drei Faktoren $1-0{,}56=0{,}44$, die Ausnutzbarkeit $E$ ist ein Produkt aus fünf Faktoren. Die Summe, mal $1{,}08$, liegt über $10$ und wird auf $10{,}0$ begrenzt.
+:::
+
+⁠**Kurz gesagt:** In Version 3.1 ist die Bewertung eine Formel: das Produkt der Hindernisse als Ausnutzbarkeit, dazu die Auswirkung auf Vertraulichkeit, Integrität und Verfügbarkeit.
+
+:::hintergrund Warum die Formel so gebaut ist
+In der Formel stecken zwei Gedanken aus diesem Kapitel. Die Ausnutzbarkeit $E$ ist ein Produkt: Jedes Hindernis für den Angreifer, ob ein weiter Weg, eine nötige Anmeldung oder ein Nutzer, der mitspielen muss, verkleinert sie um einen Faktor, so wie mehrere Verteidigungslinien in Abschnitt [6](sicherheitsprinzipien-systeme-robust-entwerfen.html#stufe-6). Und die Größe ISS hat dieselbe Gestalt wie die Formel [(3.3)](risiko-angreifermodell-und-angriffsflache.html#gl-3-3) für „mindestens eines“: Schon ein einziges schwer getroffenes Schutzziel ergibt $\mathrm{ISS}=1-0{,}44=0{,}56$, zwei ergeben $1-0{,}44^2=0{,}81$, drei $1-0{,}44^3=0{,}91$. Jedes weitere getroffene Ziel erhöht den Wert weniger als das vorige, so wie jede weitere Stelle die Wahrscheinlichkeit für „mindestens eine Schwachstelle“ immer weniger erhöht. Eine Lücke ist also schon schwer, wenn ein einziges Schutzziel schwer getroffen ist.
+
+Version 4.0 verzichtet auf eine geschlossene Formel. Fachleute haben die rund 15 Millionen möglichen Vektoren in 270 Gruppen eingeteilt, deren Vektoren sie für ungefähr gleich schwer halten, und jeder Gruppe einen Wert zugeordnet. Die Bewertung wird aus dieser Tabelle abgelesen und innerhalb der Gruppe durch Interpolation verfeinert. Die Stufen von „keine“ bis „kritisch“ sind gleich geblieben.
 :::
 
 :::hintergrund Schwere ist nicht Risiko
@@ -168,19 +194,19 @@ Eine Lücke mit 9,8 in einem Gerät, das nicht mit dem Netz verbunden ist und ke
 
 ### Der Lebenszyklus einer Schwachstelle
 
-<span class="anker" id="stufe-7-4"></span>
+<span class="anker" id="stufe-7-5"></span>
 
 Eine Schwachstelle hat eine Geschichte: Sie entsteht, wird irgendwann von jemandem entdeckt, und mit etwas Glück wird sie behoben. Wie gefährlich sie ist, hängt davon ab, in welcher Phase dieser Geschichte man sich befindet.
 
-:::definition Definition 7.4 (Patch, Update, Lebenszyklus)
-<span class="anker" id="satz-7-4"></span>
+:::definition Definition 7.5 (Patch, Update, Lebenszyklus)
+<span class="anker" id="satz-7-5"></span>
 
 Ein __Patch__ ist eine Korrektur, die der Hersteller für eine Schwachstelle bereitstellt. Ein __Update__ ist das Einspielen dieser Korrektur durch den Betreiber des betroffenen Systems. Der __Lebenszyklus__ einer Schwachstelle ist die Folge ihrer Phasen: Der Fehler entsteht, wird entdeckt, dem Hersteller gemeldet, durch einen Patch behoben und veröffentlicht, und schließlich spielen die Betreiber das Update ein.
 :::
 
-Abbildung [6](#abb-6) zeigt den Lebenszyklus für den ungünstigen Fall, dass Angreifer die Lücke zuerst finden.
+Abbildung [16](#abb-16) zeigt den Lebenszyklus für den ungünstigen Fall, dass Angreifer die Lücke zuerst finden.
 
-:::abbildung cyber/k1zyklus 6
+:::abbildung cyber/k1zyklus 16
 Der Lebenszyklus einer Schwachstelle im ungünstigen Fall. Rot: Angreifer nutzen die Lücke aus, und es gibt noch keinen Patch. Orange: Der Patch ist veröffentlicht, aber noch nicht eingespielt; jetzt kennen auch alle übrigen Angreifer die Lücke.
 :::
 
@@ -198,17 +224,17 @@ Daraus folgt die wichtigste Regel des Betriebs: Updates schnell einspielen, beso
 
 ### Zero-Day
 
-<span class="anker" id="stufe-7-5"></span>
+<span class="anker" id="stufe-7-6"></span>
 
 Der gefährlichste Fall ist der, in dem Angreifer eine Lücke kennen und niemand sonst. Dann gibt es keinen Patch, keine Warnung und keine CVE-Kennung.
 
-:::definition Definition 7.5 (Zero-Day)
-<span class="anker" id="satz-7-5"></span>
+:::definition Definition 7.6 (Zero-Day)
+<span class="anker" id="satz-7-6"></span>
 
 Eine Schwachstelle heißt __Zero-Day__, wenn Angreifer sie kennen oder ausnutzen, bevor der Hersteller einen Patch bereitstellen konnte. Ein Angriff, der eine solche Lücke ausnutzt, heißt Zero-Day-Angriff.
 :::
 
-Der Name sagt: Der Hersteller hatte null Tage Zeit, sich vorzubereiten. In Abbildung [6](#abb-6) ist das die rote Phase.
+Der Name sagt: Der Hersteller hatte null Tage Zeit, sich vorzubereiten. In Abbildung [16](#abb-16) ist das die rote Phase.
 
 ⁠**Beispiel:** Eine Untersuchung von 18 Zero-Day-Angriffen aus den Jahren 2008 bis 2011 ergab, dass sie zwischen 19 Tagen und 30 Monaten unentdeckt blieben, im Median acht Monate. So lange konnten die Angreifer die Lücke benutzen, ohne dass sich jemand dagegen wehren konnte.
 
@@ -270,10 +296,10 @@ Stand der Seite am 4. November 2026; die Gestaltung der Seite kann sich ändern
 :::
 :::
 
-:::aufgabe Aufgabe 13 ★★★ Eine Bewertung selbst berechnen (Vertiefung)
+:::aufgabe Aufgabe 13 ★★★ Eine Bewertung selbst berechnen
 <span class="anker" id="aufg-13"></span>
 
-Benutze die Formeln und Zahlen aus dem Kasten „Wie aus dem Vektor eine Zahl wird“.
+Benutze die Formeln und Zahlen aus Unterabschnitt [7.4](#stufe-7-4).
 
 <ol class="al">
 
@@ -298,7 +324,7 @@ Eine Lücke erlaubt es, aus der Ferne ohne Anmeldung vertrauliche Daten mitzules
 </ol>
 
 :::loesung
-(a) $\mathrm{ISS}=1-0{,}44^3=0{,}9148$. Bei S:U ist $W=6{,}42\cdot0{,}9148=5{,}8731$. $E=8{,}22\cdot0{,}85\cdot0{,}77\cdot0{,}85\cdot0{,}85=3{,}8870$. Summe $9{,}7602$, aufgerundet **9,8**, kritisch. Bei Log4Shell machten der Wirkungsbereich S:C, die andere Auswirkungsformel und der Faktor 1,08 daraus 10,0: Weil die Folgen über die verwundbare Komponente hinausreichen, wird die Lücke als schwerer eingestuft.
+(a) $\mathrm{ISS}=1-0{,}44^3=0{,}9148$. Bei S:U ist $W=6{,}42\cdot0{,}9148=5{,}8731$. $E=8{,}22\cdot0{,}85\cdot0{,}77\cdot0{,}85\cdot0{,}85=3{,}8870$. Summe $9{,}7601$, aufgerundet **9,8**, kritisch. Bei Log4Shell machten der Wirkungsbereich S:C, die andere Auswirkungsformel und der Faktor 1,08 daraus 10,0: Weil die Folgen über die verwundbare Komponente hinausreichen, wird die Lücke als schwerer eingestuft.
 
 (b) Nur $E$ ändert sich: $E=8{,}22\cdot0{,}2\cdot0{,}77\cdot0{,}85\cdot0{,}85=0{,}9146$. Summe $5{,}8731+0{,}9146=6{,}7877$, aufgerundet **6,8**, mittel. Wer die Hand am Gerät haben muss, hat ein großes Hindernis; der Faktor 0,2 statt 0,85 drückt die Bewertung um drei Punkte.
 

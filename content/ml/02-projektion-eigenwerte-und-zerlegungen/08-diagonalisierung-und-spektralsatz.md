@@ -101,7 +101,7 @@ $\mathbf{A}^2=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}\mathbf{S}\boldsymbol
 
 In den Koordinaten $\mathbf{c}$ der Eigenbasis ist jeder Schritt die Multiplikation jeder Koordinate mit ihrer eigenen Zahl: $c_i\mapsto\lambda_ic_i$. Aus einer gekoppelten Rechnung mit $n$ Unbekannten werden $n$ getrennte Rechnungen mit je einer Unbekannten. Diese Koordinaten sind entkoppelt. Auf lange Sicht überwiegt der Anteil mit dem betragsgrößten Eigenwert.
 
-⁠**Rechenbeispiel:** $\mathbf M$ hat die Spur $1{,}5$ und die Determinante $0{,}56-0{,}06=0{,}5$, also die Eigenwerte $1$ und $0{,}5$. Eigenvektoren sind $\mathbf s_1=(3,\,2)^{\top}$ zum Eigenwert $1$, denn $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 1{,}6+1{,}4)^{\top}=\mathbf s_1$, und $\mathbf s_2=(1,\,-1)^{\top}$ zum Eigenwert $0{,}5$. Wohnen anfangs $1000$ Menschen in A und niemand in B, so ist $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ und nach [(7.2)](#gl-7-2)
+⁠**Rechenbeispiel:** $\mathbf M$ hat die Spur $1{,}5$ und die Determinante $0{,}56-0{,}06=0{,}5$, also die Eigenwerte $1$ und $0{,}5$. Eigenvektoren sind $\mathbf s_1=(3,\,2)^{\top}$ zum Eigenwert $1$, denn $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 0{,}6+1{,}4)^{\top}=\mathbf s_1$, und $\mathbf s_2=(1,\,-1)^{\top}$ zum Eigenwert $0{,}5$. Wohnen anfangs $1000$ Menschen in A und niemand in B, so ist $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ und nach [(7.2)](#gl-7-2)
 
 $$\mathbf{x}_k=200\begin{pmatrix}3\\2\end{pmatrix}+400\cdot0{,}5^k\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}600+400\cdot0{,}5^k\\400-400\cdot0{,}5^k\end{pmatrix}.$$
 

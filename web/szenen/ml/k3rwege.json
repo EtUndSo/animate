@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\frac{\\partial F}{\\partial x_1}&=\\sum_{i=1}^2\\frac{\\partial f}{\\partial u_i}\\,\\frac{\\partial u_i}{\\partial x_1}=\\frac{\\partial f}{\\partial u_1}\\,\\frac{\\partial u_1}{\\partial x_1}+\\frac{\\partial f}{\\partial u_2}\\,\\frac{\\partial u_2}{\\partial x_1}\\\\&=4\\cdot2+3\\cdot2=8+6=14\\\\\\frac{\\partial F}{\\partial x_2}&=\\sum_{i=1}^2\\frac{\\partial f}{\\partial u_i}\\,\\frac{\\partial u_i}{\\partial x_2}=\\frac{\\partial f}{\\partial u_1}\\,\\frac{\\partial u_1}{\\partial x_2}+\\frac{\\partial f}{\\partial u_2}\\,\\frac{\\partial u_2}{\\partial x_2}\\\\&=4\\cdot1+3\\cdot4=4+12=16\\end{aligned}",
+     "height": 2.099,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

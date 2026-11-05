@@ -102,7 +102,7 @@ Es sei $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ mit dem Rang $r$. Die 
 $$\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}=\sum_{j=1}^r\frac1{d_j}\,\mathbf{v}_j\mathbf{u}_j^{\top} . \tag{11.3}$$
 :::
 
-Jeder Baustein kehrt einen Baustein von $\mathbf{A}$ um: $\mathbf{A}$ bildet $\mathbf{v}_j$ auf $d_j\mathbf{u}_j$ ab, $\mathbf{A}^+$ bildet $\mathbf{u}_j$ auf $\mathbf{v}_j/d_j$ ab. Richtungen, die $\mathbf{A}$ auf null abbildet, bildet auch $\mathbf{A}^+$ auf null ab, statt durch null zu teilen. Ist $\mathbf{A}$ invertierbar, so ist $\mathbf{A}^+=\mathbf{A}^{-1}$, denn dann ist $\mathbf{A}^{-1}=(\mathbf{V}^{\top})^{-1}\mathbf{D}^{-1}\mathbf{U}^{-1}=\mathbf{V}\mathbf{D}^{-1}\mathbf{U}^{\top}$.
+Jeder Baustein kehrt einen Baustein von $\mathbf{A}$ um: $\mathbf{A}$ bildet $\mathbf{v}_j$ auf $d_j\mathbf{u}_j$ ab, $\mathbf{A}^+$ bildet $\mathbf{u}_j$ auf $\mathbf{v}_j/d_j$ ab. Die Richtungen $\mathbf{u}_j$ mit $j>r$, die $\mathbf{A}$ nicht erreicht, bildet $\mathbf{A}^+$ auf null ab, statt durch null zu teilen. Ist $\mathbf{A}$ invertierbar, so ist $\mathbf{A}^+=\mathbf{A}^{-1}$, denn dann ist $\mathbf{A}^{-1}=(\mathbf{V}^{\top})^{-1}\mathbf{D}^{-1}\mathbf{U}^{-1}=\mathbf{V}\mathbf{D}^{-1}\mathbf{U}^{\top}$.
 
 ⁠**Rechenbeispiel:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist symmetrisch und positiv semidefinit mit dem Eigenwert $5$ zu $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ und dem Eigenwert $0$. Nach Abschnitt [9.7](die-singularwertzerlegung.html#stufe-9-7) ist $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ ihre kompakte Zerlegung, mit $d_1=5$ und $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$. Also ist
 

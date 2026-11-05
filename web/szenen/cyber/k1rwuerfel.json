@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}p\\cdot p&=\\tfrac16\\cdot\\tfrac16=\\tfrac1{36}\\approx0.028\\\\(1-p)^4&=(1-p)\\,(1-p)\\,(1-p)\\,(1-p)=\\tfrac56\\cdot\\tfrac56\\cdot\\tfrac56\\cdot\\tfrac56=\\tfrac{625}{1296}\\approx0.482\\\\1-(1-p)^4&=1-\\tfrac{625}{1296}=\\tfrac{671}{1296}\\approx0.518\\end{aligned}",
+     "height": 0.907,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

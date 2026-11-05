@@ -39,9 +39,9 @@ Wer eine Schwachstelle findet, steht vor einem Dilemma. Schweigt er, bleibt die 
 Bei der __koordinierten Offenlegung__ (englisch *coordinated vulnerability disclosure*, CVD) meldet der Finder eine Schwachstelle vertraulich dem Hersteller oder Betreiber. Beide stimmen ab, wann und wie die Lücke öffentlich wird, in der Regel erst, wenn ein Patch verfügbar ist. Bei Bedarf vermittelt eine dritte Stelle, ein __Koordinator__.
 :::
 
-Den Gegenentwurf, die sofortige vollständige Veröffentlichung, nennt man __Full Disclosure__. Sie war lange ein Druckmittel gegen Hersteller, die gemeldete Lücken jahrelang ignorierten. Abbildung [7](#abb-7) zeigt die Beteiligten der koordinierten Offenlegung.
+Den Gegenentwurf, die sofortige vollständige Veröffentlichung, nennt man __Full Disclosure__. Sie war lange ein Druckmittel gegen Hersteller, die gemeldete Lücken jahrelang ignorierten. Abbildung [17](#abb-17) zeigt die Beteiligten der koordinierten Offenlegung.
 
-:::abbildung cyber/k1offenlegung 7
+:::abbildung cyber/k1offenlegung 17
 Die Beteiligten der koordinierten Offenlegung. Der Finder meldet vertraulich an den Hersteller; reagiert dieser nicht, vermittelt ein Koordinator. Öffentlich wird die Lücke erst, wenn ein Patch bereitsteht.
 :::
 
@@ -178,6 +178,12 @@ Bemerkt man bei der gewöhnlichen, erlaubten Benutzung eines fremden Systems Hin
 
 ⁠**Kurz gesagt:** Bei einem Zufallsfund hört man auf, nimmt nichts mit, schreibt auf und meldet koordiniert.
 
+:::hintergrund Warum man eine Lücke nicht selbst beweisen muss
+Der Betreiber kann das, was der Finder vermutet, selbst und erlaubt prüfen. Er hat Zugang zu seinem System, er kann eigene Testkonten anlegen und in seinen Protokollen nachsehen, und er darf die Daten seiner Kunden ansehen. Eine gut beschriebene Beobachtung zu prüfen, kostet ihn oft nur Minuten.
+
+Der Finder dagegen kann eine Lücke in einem fremden System nur bestätigen, indem er genau das tut, wovor die Lücke schützen soll: fremde Daten abrufen. Dieser Beweis kann selbst strafbar sein, er trifft gerade die Menschen, deren Daten geschützt werden sollen, und er liefert dem Betreiber kaum mehr als die genaue Beschreibung. Deshalb teilt man die Arbeit: Der Finder beobachtet und beschreibt, der Betreiber prüft und behebt.
+:::
+
 ### Hackerethik
 
 <span class="anker" id="stufe-10-6"></span>
@@ -218,11 +224,11 @@ Ein Gedanke aus dieser Kultur trägt die ganze Reihe: Wer Angriffe versteht, kan
 
 <span class="anker" id="stufe-10-7"></span>
 
-Alle praktischen Übungen dieser Reihe, auch die, in denen man aus Sicht eines Angreifers arbeitet, finden unter Regeln statt, die aus diesem Kapitel folgen. Die Frage, die vor jeder Übung steht, lautet: Darf ich das hier testen? Abbildung [8](#abb-8) zeigt, wie man sie beantwortet.
+Alle praktischen Übungen dieser Reihe, auch die, in denen man aus Sicht eines Angreifers arbeitet, finden unter Regeln statt, die aus diesem Kapitel folgen. Die Frage, die vor jeder Übung steht, lautet: Darf ich das hier testen? Abbildung [18](#abb-18) zeigt, wie man sie beantwortet.
 
 Zwei Begriffe kommen darin vor. Eine __Lernplattform__ ist ein Angebot im Internet, dessen Betreiber eigens verwundbare Übungssysteme bereitstellt und ausdrücklich erlaubt, sie innerhalb seiner Regeln anzugreifen. Ein __isoliertes Labor__ ist eine eigene Übungsumgebung, die vom Internet und vom übrigen Heimnetz getrennt ist und in der nur eigene, absichtlich verwundbare Übungsprogramme laufen.
 
-:::abbildung cyber/k1entscheidung 8
+:::abbildung cyber/k1entscheidung 18
 Darf ich das testen? Nur wenn eine der drei Fragen mit Ja beantwortet ist, und dann nur in dem Rahmen, den die Antwort nennt. In jedem anderen Fall lautet die Antwort: nicht testen.
 :::
 
@@ -273,7 +279,7 @@ Lernplattformen, und nur die Ziele, die sie freigeben, zum Beispiel pwn.college 
 
 <li>
 
-⁠**Die Regeln der Plattform gelten.** Greife nur die freigegebenen Ziele an, nie die Plattform selbst oder andere Nutzer, und benutze sie nie als Ausgangspunkt für Angriffe nach außen. Veröffentliche keine Lösungen oder Passwörter von Plattform-Aufgaben; pwn.college und OverTheWire untersagen das ausdrücklich. Diese Reihe gibt zu Plattform-Aufgaben deshalb nur gestufte Hinweise.
+⁠**Die Regeln der Plattform gelten.** Greife nur die freigegebenen Ziele an, nie die Plattform selbst oder andere Nutzer, und benutze sie nie als Ausgangspunkt für Angriffe nach außen. Veröffentliche keine Lösungen oder Passwörter von Plattform-Aufgaben: OverTheWire untersagt ausdrücklich, die Passwörter seiner Stufen zu veröffentlichen, und pwn.college bittet darum, keine Lösungen zu veröffentlichen. Diese Reihe gibt zu Plattform-Aufgaben deshalb nur gestufte Hinweise.
 
 </li>
 
@@ -353,7 +359,7 @@ Du hast dir ein vernetztes Thermostat gekauft. Beim Einrichten in deinem eigenen
 
 <li>
 
-Darfst du an deinem eigenen Gerät weiter untersuchen, wie weit die Lücke reicht? Wo liegen die Grenzen? Benutze Abbildung [8](#abb-8).
+Darfst du an deinem eigenen Gerät weiter untersuchen, wie weit die Lücke reicht? Wo liegen die Grenzen? Benutze Abbildung [18](#abb-18).
 
 </li>
 
@@ -378,7 +384,7 @@ Der Hersteller antwortet acht Wochen lang nicht. Was tust du, und was tust du ni
 </ol>
 
 :::loesung
-(a) Ja, an deinem eigenen Gerät in deinem eigenen Netz darfst du untersuchen, wie weit die Lücke reicht; die erste Frage in Abbildung [8](#abb-8) ist mit Ja beantwortet. Die Grenzen: Leben andere im selben Netz, deren Daten berührt werden könnten, hältst du dich davon fern. Die Server des Herstellers, mit denen die App spricht, gehören dir nicht; sie zu untersuchen wäre unbefugt. Du veröffentlichst nichts, solange der Hersteller nicht informiert ist.
+(a) Ja, an deinem eigenen Gerät in deinem eigenen Netz darfst du untersuchen, wie weit die Lücke reicht; die erste Frage in Abbildung [18](#abb-18) ist mit Ja beantwortet. Die Grenzen: Leben andere im selben Netz, deren Daten berührt werden könnten, hältst du dich davon fern. Die Server des Herstellers, mit denen die App spricht, gehören dir nicht; sie zu untersuchen wäre unbefugt. Du veröffentlichst nichts, solange der Hersteller nicht informiert ist.
 
 (b) Die ausdrückliche, am besten schriftliche Erlaubnis deines Freundes als Verfügungsberechtigtem, mit Umfang: welches Gerät, wann, was du tust. Wohnen bei ihm weitere Menschen, sollten auch sie einverstanden sein, weil ihre Daten im selben Netz laufen.
 

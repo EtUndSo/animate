@@ -228,7 +228,115 @@ def k1entscheidung():
     s.speichern()
 
 
-SZENEN = (k1brief, k1kette, k1risiko, k1toctou, k1schichten, k1zyklus, k1offenlegung, k1entscheidung)
+# ------------------------------------------------------------------ Rechenbilder
+# Jedes Rechenbeispiel des Fließtexts, dessen Kern eine Summe oder ein Produkt mit Zahlen ist, hat eine Formel-Szene
+# cyber/k1r<name> (= \label{fig:k1r<name>} im Heft, dort dieselbe Rechnung als align*). Dezimalzahlen mit Punkt: Die
+# Sprache macht daraus 0{,}5 (de, es, fr, tr). Keine Wörter in den Formeln, weil MathTex nicht übersetzt wird.
+# Alle Formeln bekommen dieselbe Schriftgröße: Die Höhe folgt aus den Maßen der gesetzten Formel (Glyphen-Cache des
+# Exports), höchstens so groß, dass die Formel in die Spalte passt. Beim ersten Bauen gilt der Schätzwert; nach dem
+# Export ergibt ein zweiter Lauf die richtige Höhe (wie tools/szenen/ml_teil1.py).
+_CACHE = Path(__file__).resolve().parent.parent / "tex_glyphen_cache.json"
+EM = 0.245          # Schriftgröße (em) in Szeneneinheiten
+SPALTE = 6.9        # größte Breite in Szeneneinheiten (7.0 füllt die Artikelspalte)
+
+
+def _hoehe(tex, schaetzung):
+    import json as _json
+    import re as _re
+    # Der Export legt die Formel in der Sprache ab (de: 0.5 -> 0{,}5, wie editor.js localizeTex); erst so, dann wörtlich suchen.
+    de = _re.sub(r"(\d)\.(\d+)(?!\d)(?!\s*(?:em|ex|pt|cm|mm|in|mu|px|pc|bp|dd|cc|sp)\b)", r"\1{,}\2", tex)
+    try:
+        cache = _json.loads(_CACHE.read_text(encoding="utf-8"))["glyphs"]
+        glyphen = cache.get(de) or cache.get(tex)
+    except (OSError, ValueError, KeyError):
+        glyphen = None
+    if not glyphen:
+        return schaetzung
+    xs, ys = [], []
+    for g in glyphen:
+        a, b, c, d, e, f = g["m"]
+        zahlen = [float(z) for z in _re.findall(r"-?\d+(?:\.\d+)?", g["d"])]
+        for x, y in zip(zahlen[0::2], zahlen[1::2]):
+            xs.append(a * x + c * y + e)
+            ys.append(b * x + d * y + f)
+    breite, hoehe = max(xs) - min(xs), max(ys) - min(ys)
+    em = min(EM, SPALTE * 1000 / breite)
+    return round(em * hoehe / 1000, 3)
+
+
+def _formel(name, tex, schaetzung=1.0, faktor=1.0):
+    """faktor < 1 nur, wo die Glyphenmaße die gesetzte Höhe überschätzen (Kontrollpunkte großer Klammern) und das
+    Bild sonst breiter als die Spalte würde."""
+    s = Szene("cyber/" + name)
+    s.formel(tex, hoehe=round(_hoehe(tex, schaetzung) * faktor, 3))
+    s.speichern()
+
+
+def _al(*zeilen):
+    return r"\begin{aligned}" + r"\\".join(zeilen) + r"\end{aligned}"
+
+
+def k1rerwartung():                                      # 3.1 Häufigkeit und Erwartungswert
+    _formel("k1rerwartung", _al(r"H\cdot S&=3\cdot15=45",
+                                r"H\cdot S&=0.05\cdot10\,000=500",
+                                r"\frac1{20}\sum_{t=1}^{20}D_t&=\frac1{20}\,(D_1+D_2+\dots+D_{20})",
+                                r"&=\frac1{20}\,(0+0+\dots+0+10\,000)=\frac{10\,000}{20}=500"), 1.9)
+
+
+def k1rwuerfel():                                        # 3.1 unabhängige Ereignisse
+    _formel("k1rwuerfel", _al(r"p\cdot p&=\tfrac16\cdot\tfrac16=\tfrac1{36}\approx0.028",
+                              r"(1-p)^4&=(1-p)\,(1-p)\,(1-p)\,(1-p)=\tfrac56\cdot\tfrac56\cdot\tfrac56\cdot\tfrac56"
+                              r"=\tfrac{625}{1296}\approx0.482",
+                              r"1-(1-p)^4&=1-\tfrac{625}{1296}=\tfrac{671}{1296}\approx0.518"), 1.0)
+
+
+def k1rrisiko():                                         # 3.2 Risiko
+    _formel("k1rrisiko", _al(r"R_\mathrm A=H_\mathrm A\cdot S_\mathrm A&=0.1\cdot50\,000=5\,000",
+                             r"R_\mathrm B=H_\mathrm B\cdot S_\mathrm B&=10\cdot100=1\,000"), 0.65)
+
+
+def k1rgesamt():                                         # 3.3 Gesamtrisiko
+    _formel("k1rgesamt", _al(r"R_\Sigma=\sum_{k\in\{\mathrm A,\mathrm B\}}H_k\cdot S_k&=H_\mathrm A\cdot S_\mathrm A+H_\mathrm B\cdot S_\mathrm B",
+                             r"&=0.1\cdot50\,000+10\cdot100=5\,000+1\,000=6\,000"), 0.9, faktor=0.9)
+
+
+def k1rnutzen():                                         # 3.4 Ökonomie
+    _formel("k1rnutzen", _al(r"N_{80\,\%}&=5\,000-1\,000-2\,000=+2\,000",
+                             r"N_{30\,\%}&=5\,000-3\,500-2\,000=-500",
+                             r"\frac{K}{R_\mathrm A}&=\frac{2\,000}{5\,000}=0.4=40\,\%"), 1.2)
+
+
+def k1rflaeche():                                        # 3.6 Angriffsfläche
+    _formel("k1rflaeche", _al(r"P_{10}=1-(1-p)^{10}&=1-\underbrace{0.98\cdot0.98\cdots0.98}_{10}=1-0.817=0.183",
+                              r"P_3=1-(1-p)^{3}&=1-0.98\cdot0.98\cdot0.98=1-0.941=0.059"), 0.85)
+
+
+def k1rtrennung():                                       # 5 Aufgabentrennung
+    _formel("k1rtrennung", _al(r"q\cdot q=q^2&=0.01\cdot0.01=0.0001=0.01\,\%",
+                               r"\frac{q}{q^2}&=\frac{0.01}{0.0001}=100"), 0.8)
+
+
+def k1rlinien():                                         # 6.1 mehrere Verteidigungslinien
+    _formel("k1rlinien", _al(r"\prod_{k=1}^{3}p_k&=p_1\cdot p_2\cdot p_3",
+                             r"&=0.3\cdot0.1\cdot0.05=0.03\cdot0.05=0.0015"), 0.85)
+
+
+def k1reinfach():                                        # 6.2 Einfachheit
+    _formel("k1reinfach", _al(r"1-(1-p)^3&=1-0.99\cdot0.99\cdot0.99=1-0.970=0.030=3.0\,\%",
+                              r"1-(1-p)^{10}&=1-\underbrace{0.99\cdot0.99\cdots0.99}_{10}=1-0.904=0.096=9.6\,\%"), 0.85)
+
+
+def k1rcvss():                                           # 7 CVSS-Formel (Log4Shell)
+    _formel("k1rcvss", _al(r"\mathrm{ISS}&=1-(1-C)(1-I)(1-A)=1-0.44\cdot0.44\cdot0.44=1-0.0852=0.9148",
+                           r"W&=7.52\,(\mathrm{ISS}-0.029)-3.25\,(\mathrm{ISS}-0.02)^{15}",
+                           r"&=7.52\cdot0.8858-3.25\cdot0.8948^{15}=6.6613-0.6136=6.0477",
+                           r"E&=8.22\cdot\mathrm{AV}\cdot\mathrm{AC}\cdot\mathrm{PR}\cdot\mathrm{UI}"
+                           r"=8.22\cdot0.85\cdot0.77\cdot0.85\cdot0.85=3.8870",
+                           r"1.08\,(W+E)&=1.08\cdot(6.0477+3.8870)=1.08\cdot9.9347=10.73\;\longrightarrow\;10.0"), 1.3)
+
+
+RECHENBILDER = (k1rerwartung, k1rwuerfel, k1rrisiko, k1rgesamt, k1rnutzen, k1rflaeche, k1rtrennung, k1rlinien, k1reinfach, k1rcvss)
+SZENEN = (k1brief, k1kette, k1risiko, k1toctou, k1schichten, k1zyklus, k1offenlegung, k1entscheidung) + RECHENBILDER
 
 for f in SZENEN:
     f()

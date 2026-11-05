@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="491" height="297" viewBox="551.8854 300.375 892.7273 540">
+<rect x="551.8854" y="300.375" width="892.7273" height="540" fill="#ffffff"/>
+<path d="M703.5 378C942 378 1180.5 378 1419 378" fill="none" stroke="#b5b5b5" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="683.25" y="378" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">x</text>
+<path d="M798 378C803.4 378 808.8 378 814.2 378" fill="none" stroke="#2a78d6" stroke-width="8" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="787.2" y="337.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">1</text>
+<text x="825" y="337.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">1.01</text>
+<path d="M703.5 540C942 540 1180.5 540 1419 540" fill="none" stroke="#b5b5b5" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="683.25" y="540" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">u = 3x + 1</text>
+<path d="M798 540C814.2 540 830.4 540 846.6 540" fill="none" stroke="#eb6834" stroke-width="8" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="787.2" y="499.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">4</text>
+<text x="857.4" y="499.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">4.03</text>
+<path d="M703.5 702C942 702 1180.5 702 1419 702" fill="none" stroke="#b5b5b5" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="683.25" y="702" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">y = u²</text>
+<path d="M798 702C928.09 702 1058.17 702 1188.26 702" fill="none" stroke="#c82828" stroke-width="8" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="787.2" y="661.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">16</text>
+<text x="1199.06" y="661.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">16.2409</text>
+<path d="M798 378C798 486 798 594 798 702" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M814.2 378C825 432 835.8 486 846.6 540" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M846.6 540C960.49 594 1074.37 648 1188.26 702" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1061.25" y="456.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">stage 1: factor 3</text>
+<text x="1196.25" y="618.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">stage 2: factor 8</text>
+<text x="1041" y="803.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">together: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24</text>
+</svg>

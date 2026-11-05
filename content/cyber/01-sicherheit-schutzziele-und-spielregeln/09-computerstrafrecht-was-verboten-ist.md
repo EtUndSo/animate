@@ -81,7 +81,7 @@ Die Merkmale zum Abhaken:
 
 <li>
 
-⁠**unter Überwindung der Zugangssicherung**: Er hat die Sicherung überwunden, was nach der Begründung des Gesetzes einen nicht unerheblichen zeitlichen oder technischen Aufwand erfordert.
+⁠**unter Überwindung der Zugangssicherung**: Er hat die Sicherung ausgeschaltet oder umgangen. Nach der Begründung des Gesetzes muss ihre Überwindung einen nicht unerheblichen zeitlichen oder technischen Aufwand erfordern. Der Bundesgerichtshof versteht das so, dass die Sicherung diesen Aufwand *typischerweise* verlangt, gleichgültig, wie leicht es der einzelne Täter hatte; ein Passwortschutz genügt.
 
 </li>
 
@@ -108,7 +108,9 @@ Der Strafrahmen beträgt bis zu drei Jahre Freiheitsstrafe oder Geldstrafe. Eine
 :::hintergrund Warum das Gesetz eine besondere Sicherung verlangt
 § 202a schützt nicht den Inhalt der Daten, sondern das Recht des Verfügungsberechtigten, selbst zu entscheiden, wer sie zu sehen bekommt. Ob das Postfach Liebesbriefe oder Werbung enthält, ist gleich.
 
-Woher aber soll ein Dritter wissen, dass jemand seine Daten geheim halten will? Die Antwort des Gesetzes ist die Sicherung. Mit einem Passwort oder einer Verschlüsselung zeigt der Berechtigte nach außen sichtbar: Diese Daten sind nicht für jeden. Nach der Begründung des Gesetzes muss die Sicherung gerade dieses Interesse an der Geheimhaltung dokumentieren; eine Vorkehrung, die anderen Zwecken dient, etwa ein Kopierschutz, genügt nicht. Wer eine solche Sicherung überwindet, setzt sich bewusst über einen erkennbaren Willen hinweg. Daten, die jemand offen herumliegen lässt, schützt § 202a dagegen nicht. Erlaubt ist ihr Abruf deshalb nicht automatisch; andere Vorschriften, etwa das Datenschutzrecht, können greifen.
+Woher aber soll ein Dritter wissen, dass jemand seine Daten geheim halten will? Die Antwort des Gesetzes ist die Sicherung. Mit einem Passwort oder einer Verschlüsselung zeigt der Berechtigte nach außen sichtbar: Diese Daten sind nicht für jeden. Nach der Begründung des Gesetzes muss die Sicherung gerade dieses Interesse an der Geheimhaltung dokumentieren; eine Vorkehrung, die anderen Zwecken dient, etwa ein Kopierschutz, genügt nicht. Eine Schutzvorkehrung ist danach nur dann eine Zugangssicherung, wenn sie jeden Täter zu einem Weg zwingt, den der Berechtigte erkennbar verhindern wollte. Wer eine solche Sicherung überwindet, setzt sich bewusst über einen erkennbaren Willen hinweg. Das Merkmal soll zugleich Kleinigkeiten ausscheiden: Wo jedermann die Sicherung ohne Weiteres durchbrechen kann, greift die Vorschrift nicht.
+
+Wie weit „Überwinden“ reicht, hat der Bundesgerichtshof 2020 umschrieben: Gemeint ist jede Handlung, die geeignet ist, die Sicherung auszuschalten oder zu umgehen, und die Sicherung muss nicht gerade gegen den Täter gerichtet sein. Auch ein Administrator, der mit wenigen Klicks den Passwortschutz der Rechner seiner Kollegen umgeht, überwindet ihn nach dieser Entscheidung. Ob schon das Eintippen eines ausgespähten oder versehentlich verratenen Passworts ein Überwinden ist, ist damit nicht ausdrücklich entschieden; nach dieser weiten Umschreibung spricht viel dafür. Daten, die jemand offen herumliegen lässt, schützt § 202a dagegen nicht. Erlaubt ist ihr Abruf deshalb nicht automatisch; andere Vorschriften, etwa das Datenschutzrecht, können greifen.
 
 Das Merkmal „unter Überwindung der Zugangssicherung“ kam 2007 hinzu. Damals wurde die Vorschrift an ein Übereinkommen des Europarats über Computerkriminalität angepasst. Seitdem genügt schon das Verschaffen des *Zugangs*; vorher musste sich der Täter die Daten selbst verschaffen. Im Gegenzug stellt das neue Merkmal klar, dass nur strafbar ist, wer dabei eine Sicherung überwindet. Das Übereinkommen erlaubte den Staaten ausdrücklich, eine solche Einschränkung vorzusehen.
 :::
@@ -129,12 +131,12 @@ Die Merkmale: Daten, nicht für den Täter bestimmt; technische Mittel, etwa ein
 
 Der letzte Halbsatz macht die Vorschrift __subsidiär__: Sie tritt zurück, wenn dieselbe Tat nach einer anderen Vorschrift schwerer bestraft wird.
 
-⁠**Beispiel:** Ein Gast zeichnet im offenen Funknetz eines Cafés den Verkehr der anderen Gäste auf, um ihre Nachrichten zu lesen. Die Übermittlung zwischen einem Handy und dem Zugangspunkt ist nicht an die Allgemeinheit gerichtet; dass das Funknetz kein Passwort hat, macht sie nach überwiegender Auffassung nicht öffentlich. Das ist ein Fall von § 202b.
+⁠**Beispiel:** Ein Gast zeichnet im offenen Funknetz eines Cafés den Verkehr der anderen Gäste auf, um ihre Nachrichten zu lesen. Die Übermittlung zwischen einem Handy und dem Zugangspunkt ist nicht an die Allgemeinheit gerichtet. Nach der Begründung des Gesetzes kommt es für die Nichtöffentlichkeit nicht auf Art oder Inhalt der Daten an, sondern auf die Art des Übertragungsvorgangs, und eine Verschlüsselung ist nicht nötig. Dass das Funknetz kein Passwort hat, macht die Übermittlung deshalb nicht ohne Weiteres öffentlich. Gerichtlich abschließend geklärt ist gerade der Fall des offenen Funknetzes nicht, aber vieles spricht dafür, dass der Gast § 202b erfüllt.
 
 ⁠**Kurz gesagt:** Wer mit technischen Mitteln fremde Daten aus einer nichtöffentlichen Übermittlung oder aus der Abstrahlung eines Geräts abgreift, macht sich nach § 202b StGB strafbar, auch ohne Sicherung.
 
 :::hintergrund Warum hier keine Sicherung nötig ist, und ein Paragraph für Elektrotechniker
-Nach der Begründung des Gesetzes schützt § 202b dasselbe wie § 202a, das Interesse des Berechtigten an der Geheimhaltung. Nur zeigt sich dieses Interesse hier nicht durch eine Sicherung, sondern ergibt sich aus dem allgemeinen Recht, dass nichtöffentliche Kommunikation nichtöffentlich bleibt. Wer ein Telefongespräch führt, muss es nicht erst verschlüsseln, damit Mithören verboten ist.
+Nach der Begründung des Gesetzes schützt § 202b dasselbe wie § 202a, das Interesse des Berechtigten an der Geheimhaltung. Nur zeigt sich dieses Interesse hier nicht durch eine Sicherung, sondern ergibt sich aus dem allgemeinen Recht, dass nichtöffentliche Kommunikation nichtöffentlich bleibt. Wer ein Telefongespräch führt, muss es nicht erst verschlüsseln, damit Mithören verboten ist. Die Vorschrift sollte gerade die Lücke schließen, die § 202a bei ungesicherten Übertragungen lässt; als technische Mittel nennt die Begründung ausdrücklich Geräte, die drahtlose Kommunikation erfassen.
 
 Die zweite Variante, die elektromagnetische Abstrahlung, betrifft die Elektrotechnik unmittelbar. Jedes Kabel, das schnell wechselnde Signale führt, strahlt ein schwaches Feld ab, und aus diesem Feld lassen sich unter Umständen die übertragenen Daten wiederherstellen, etwa der Inhalt eines Bildschirms aus einigen Metern Entfernung. Was die Feldtheorie als Nebenwirkung beschreibt und die elektromagnetische Verträglichkeit begrenzen soll, ist hier ein Angriffsweg. Der Gesetzgeber hat ihn ausdrücklich erfasst.
 :::
@@ -337,7 +339,7 @@ Ein Forumsnutzer kauft in einem geschlossenen Forum eine Liste mit E-Mail-Adress
 </ol>
 
 :::loesung
-(a) § 202a. Die Noten sind Daten, nicht für die Studentin bestimmt und durch das Passwort besonders gesichert. Mit dem ausgespähten Passwort überwindet sie die Sicherung, verschafft sich Zugang, ohne Einverständnis und mit Vorsatz. Dass sie das Passwort nur gesehen und nicht geknackt hat, ändert nichts: Die Anmeldung mit einem Passwort, das man nicht benutzen darf, gilt nach überwiegender Auffassung als Überwindung der Sicherung.
+(a) § 202a. Die Noten sind Daten, nicht für die Studentin bestimmt und durch das Passwort besonders gesichert. Mit dem ausgespähten Passwort überwindet sie die Sicherung, verschafft sich Zugang, ohne Einverständnis und mit Vorsatz. Dass sie das Passwort nur gesehen und nicht geknackt hat, ändert daran sehr wahrscheinlich nichts. Der Bundesgerichtshof versteht unter dem Überwinden jede Handlung, mit der man die Sicherung ausschaltet oder umgeht, und lässt einen Passwortschutz genügen; die Anmeldung mit einem Passwort, das man nicht benutzen darf, umgeht genau diese Sicherung. Ausdrücklich entschieden ist der Fall des ausgespähten Passworts allerdings nicht.
 
 (b) § 202b. Der Mitbewohner verschafft sich mit einem technischen Mittel Daten aus einer nichtöffentlichen Übermittlung, die nicht für ihn bestimmt sind. Dass es das gemeinsame WLAN ist, macht den Verkehr der anderen nicht zu seinem; eine Sicherung verlangt § 202b nicht.
 
@@ -413,7 +415,7 @@ Prüfe die sieben Merkmale von § 202a Abs. 1 einzeln.
 
 <li>
 
-⁠*Unter Überwindung der Zugangssicherung*: Er probiert 300 Passwörter durch, das ist ein zeitlicher und technischer Aufwand. Erfüllt.
+⁠*Unter Überwindung der Zugangssicherung*: Ein Passwortschutz verlangt typischerweise einen nicht unerheblichen Aufwand, um ihn zu umgehen, und er schaltet ihn aus, indem er 300 Passwörter durchprobiert. Erfüllt.
 
 </li>
 
@@ -433,7 +435,7 @@ Prüfe die sieben Merkmale von § 202a Abs. 1 einzeln.
 
 Damit ist § 202a erfüllt; Strafrahmen bis zu drei Jahre oder Geldstrafe.
 
-(b) Nein, im Ergebnis nicht. Die Kollegin ist nicht verfügungsberechtigt und kann ihm keine Erlaubnis für die Personalakten erteilen, zumal sie sich über seinen Auftrag irrt. Die Sicherung überwindet er, indem er sich mit einem Passwort anmeldet, das er nicht benutzen darf. Geändert hat sich nur der Weg zum Passwort.
+(b) Sehr wahrscheinlich nicht. Sicher bleibt es beim Merkmal *unbefugt*: Die Kollegin ist nicht verfügungsberechtigt und kann ihm keine Erlaubnis für die Personalakten erteilen, zumal sie sich über seinen Auftrag irrt. Offener ist das Merkmal der *Überwindung*. Ob die Anmeldung mit einem verratenen Passwort, das man nicht benutzen darf, als Überwindung gilt, ist nicht ausdrücklich entschieden. Nach der weiten Umschreibung des Bundesgerichtshofs, jede Handlung, mit der man die Sicherung ausschaltet oder umgeht, spricht aber viel dafür; geändert hätte sich dann nur der Weg zum Passwort.
 
 (c) Dann hat er sich keinen Zugang verschafft, und die Tat ist nur versucht. Der Versuch des § 202a ist nicht strafbar, weil die Vorschrift ein Vergehen beschreibt und keinen Satz über den Versuch enthält (§ 23 Abs. 1 StGB). Strafrechtlich bleibt er nach § 202a straflos; für den Auftrag und für sein Verhältnis zum Unternehmen ist das Verhalten trotzdem ein schwerer Vertrauensbruch, und der Auftraggeber wird ihn kaum weiter beschäftigen.
 

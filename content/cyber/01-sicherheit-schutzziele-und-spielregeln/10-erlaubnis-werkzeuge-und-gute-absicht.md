@@ -81,6 +81,12 @@ Der Antrag betrifft nur die Frage, ob der Staat die Tat verfolgt. An der Tat sel
 
 ⁠**Kurz gesagt:** Bei einem Antragsdelikt hängt die Verfolgung vom Antrag ab, die Strafbarkeit nicht; ohne Antrag bleibt die Tat eine Straftat.
 
+:::hintergrund Warum gerade diese Taten Antragsdelikte sind, und warum nur relative
+Die §§ 202a, 202b und 202d schützen das Recht eines Einzelnen, über seine Daten zu bestimmen. Deshalb überlässt das Gesetz grundsätzlich ihm die Entscheidung, ob ein Strafverfahren stattfindet. Warum es aber *relative* Antragsdelikte sind, die der Staat bei besonderem öffentlichem Interesse auch ohne Antrag verfolgen kann, begründete der Gesetzgeber bei der Reform von 2007 für das Ausspähen und das Abfangen mit einer Eigenheit von Computerdaten: Oft betrifft eine Tat Daten von Dritten, etwa die Kundendaten auf dem Server eines Unternehmens. Diese Dritten sind nicht die Verletzten im Sinne des Gesetzes und dürfen keinen Antrag stellen. Ohne die Möglichkeit, von Amts wegen einzuschreiten, hinge ihr Schutz allein davon ab, ob das Unternehmen ein Verfahren will. Die Datenhehlerei kam 2015 hinzu und wurde in dieselbe Regel aufgenommen.
+
+Bei § 202c gibt es noch gar keinen Geschädigten. Die Vorschrift bestraft eine Gefahr für viele, bevor überhaupt jemand angegriffen wurde; man nennt das ein abstraktes Gefährdungsdelikt. Wo niemand verletzt ist, kann auch niemand einen Antrag stellen. Deshalb ist § 202c nach dem Willen des Gesetzgebers kein Antragsdelikt.
+:::
+
 ### Werkzeuge besitzen: der Beschluss von 2009
 
 <span class="anker" id="stufe-9-3"></span>
@@ -158,7 +164,7 @@ Das Recht verbietet nicht nur Angriffe, es verpflichtet auch die Verteidiger. Dr
 
 <li>
 
-Seit dem 6. Dezember 2025 gilt in Deutschland das Gesetz zur Umsetzung der europäischen NIS-2-Richtlinie. Rund 29 500 Unternehmen und Einrichtungen, die für das Gemeinwesen besonders wichtig sind, müssen sich beim BSI registrieren, ihre Risiken managen und erhebliche Sicherheitsvorfälle in Stufen melden: eine erste Meldung nach spätestens 24 Stunden, eine ausführlichere nach 72 Stunden, einen Abschlussbericht nach einem Monat. Die Geschäftsleitung haftet dafür und muss sich schulen lassen.
+Seit dem 6. Dezember 2025 gilt in Deutschland das Gesetz zur Umsetzung der europäischen NIS-2-Richtlinie. Nach Schätzungen rund 29 500 Unternehmen und Einrichtungen, die für das Gemeinwesen besonders wichtig sind, müssen sich beim BSI registrieren, ihre Risiken managen und erhebliche Sicherheitsvorfälle in Stufen melden: eine erste Meldung spätestens 24 Stunden, nachdem sie vom Vorfall erfahren haben, eine ausführlichere spätestens nach 72 Stunden und eine Abschlussmeldung spätestens einen Monat nach der zweiten Meldung. Die Geschäftsleitung muss die Maßnahmen gegen die Risiken umsetzen und ihre Umsetzung überwachen; verletzt sie diese Pflicht, haftet sie dem Unternehmen nach den Regeln des Gesellschaftsrechts. Außerdem muss sie regelmäßig an Schulungen teilnehmen.
 
 </li>
 
@@ -170,7 +176,7 @@ Der europäische Cyber Resilience Act verpflichtet Hersteller von Produkten mit 
 
 <li>
 
-Die Datenschutz-Grundverordnung verlangt, dass eine Verletzung des Schutzes personenbezogener Daten möglichst binnen 72 Stunden der Aufsichtsbehörde gemeldet wird.
+Die Datenschutz-Grundverordnung verlangt, dass eine Verletzung des Schutzes personenbezogener Daten der Aufsichtsbehörde unverzüglich und möglichst binnen 72 Stunden gemeldet wird, nachdem die Stelle, die die Daten verarbeitet, von ihr erfahren hat, es sei denn, sie führt voraussichtlich zu keinem Risiko für die betroffenen Menschen.
 
 </li>
 
@@ -223,7 +229,7 @@ Ein Entwickler schreibt ein Programm, das automatisch Passwörter an fremden Anm
 
 (c) Nicht erlaubt. Der Server des Buchungsportals gehört einem anderen Verfügungsberechtigten; der Auftrag des Hotels erstreckt sich nicht auf ihn, auch wenn er im selben Ablauf vorkommt. Die Prüferin hätte den Fund dem Hotel melden und es dem Portal überlassen müssen, ob es selbst prüfen lässt.
 
-(d) Nein. Mit dem Abrufen der Noten nach Überwindung der Sicherung hat der Schüler § 202a erfüllt; die gute Absicht ändert daran nichts. Ob der Schulleiter wirksam auf einen Antrag verzichten kann, hängt davon ab, wer für das Notenportal verfügungsberechtigt ist; das kann der Schulträger oder das Land sein. Außerdem ist § 202a ein relatives Antragsdelikt: Die Staatsanwaltschaft kann bei besonderem öffentlichem Interesse auch ohne Antrag verfolgen. Mit den beiden fremden Noten hat er zudem Daten von Mitschülern abgerufen, deren Schutz die Schule zu sichern hat. Besser wäre gewesen, nur die Beobachtung zu melden, ohne fremde Daten anzutasten.
+(d) Nein. Mit dem Abrufen der Noten durch die Lücke, also unter Umgehung der Zugangssicherung des Portals, hat der Schüler § 202a erfüllt; die gute Absicht ändert daran nichts. Ob der Schulleiter wirksam auf einen Antrag verzichten kann, hängt davon ab, wer für das Notenportal verfügungsberechtigt ist; das kann der Schulträger oder das Land sein. Außerdem ist § 202a ein relatives Antragsdelikt: Die Staatsanwaltschaft kann bei besonderem öffentlichem Interesse auch ohne Antrag verfolgen. Mit den beiden fremden Noten hat er zudem Daten von Mitschülern abgerufen, deren Schutz die Schule zu sichern hat. Die Mitschüler selbst können keinen Strafantrag stellen; gerade für solche Fälle hat der Gesetzgeber das Antragsdelikt relativ gestaltet. Besser wäre gewesen, nur die Beobachtung zu melden, ohne fremde Daten anzutasten.
 
 (e) Strafbar nach § 202c Abs. 1 Nr. 2. Das Programm ist kein Dual-Use-Werkzeug mehr: Die Werbung zeigt objektiv, dass sein Zweck das Eindringen in fremde Konten ist, wie es das Bundesverfassungsgericht verlangt. Mit dem Anbieten macht er es anderen zugänglich und rechnet damit, dass sie es für Taten nach § 202a benutzen.
 :::

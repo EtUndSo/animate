@@ -204,9 +204,13 @@ Ein Angreifer schickt den Mitarbeitern einer Firma eine E-Mail im Namen der IT-A
 
 </li>
 
-</ol>
+<li>
 
-(d) In welchem Fall gibt es keinen Angreifer und keinen Exploit? Welche Begriffe der Kette braucht man dann trotzdem?
+In welchem Fall gibt es keinen Angreifer und keinen Exploit? Welche Begriffe der Kette braucht man dann trotzdem?
+
+</li>
+
+</ol>
 
 :::loesung
 (a) Schwachstelle: Das Portal prüft nicht, wem eine Rechnung gehört (fehlende Prüfung). Bedrohung: Neugierige oder böswillige Kunden rufen fremde Rechnungen ab. Angreifer: die Kundin; sie handelt absichtlich, wenn auch aus Neugier. Angriff: das Abrufen der fremden Rechnung. Exploit: die Nummer in der Adresse um eins erhöhen. Schaden: Name, Anschrift und Einkäufe eines anderen Kunden sind bekannt geworden; für den Shop drohen Meldepflichten und Ansehensverlust. Verletzt: Vertraulichkeit.

@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}&\\mathbf J_{\\mathbf g}(\\mathbf x)=\\begin{pmatrix}2&1\\\\2&4\\end{pmatrix},\\qquad \\mathbf h=\\begin{pmatrix}0.1\\\\-0.1\\end{pmatrix}\\\\\\bigl(\\mathbf J_{\\mathbf g}(\\mathbf x)\\,\\mathbf h\\bigr)_i&=\\sum_{j=1}^2\\frac{\\partial g_i}{\\partial x_j}(\\mathbf x)\\,h_j\\\\\\bigl(\\mathbf J_{\\mathbf g}(\\mathbf x)\\,\\mathbf h\\bigr)_1&=2\\cdot0.1+1\\cdot(-0.1)=0.2-0.1=0.1\\\\\\bigl(\\mathbf J_{\\mathbf g}(\\mathbf x)\\,\\mathbf h\\bigr)_2&=2\\cdot0.1+4\\cdot(-0.1)=0.2-0.4=-0.2\\end{aligned}",
+     "height": 2.161,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

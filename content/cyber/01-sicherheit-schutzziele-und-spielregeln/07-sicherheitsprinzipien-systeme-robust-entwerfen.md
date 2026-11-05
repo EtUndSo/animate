@@ -3,7 +3,7 @@ title: Sicherheitsprinzipien: Systeme robust entwerfen
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
 order: 6110700
 summary: Rechte richtig zu vergeben und zu prüfen genügt nicht, wenn der Mechanismus selbst Fehler hat.
-tags: mehreren Verteidigungslinien, Einfachheit, vertrauenswürdige Basis, offenen Verfahrens, der Mensch als Teil des Systems, Sicherheit von Anfang an
+tags: mehreren Verteidigungslinien, Produktzeichen, Einfachheit, vertrauenswürdige Basis, offenen Verfahrens, der Mensch als Teil des Systems, Sicherheit von Anfang an
 lang: de
 ---
 
@@ -25,14 +25,14 @@ Eine mittelalterliche Burg verließ sich nicht auf ihre Mauer allein. Vor der Ma
 Nach dem Prinzip der __mehreren Verteidigungslinien__ (englisch *defense in depth*, Verteidigung in der Tiefe) wird ein Schutzgut durch mehrere hintereinander liegende, voneinander unabhängige Mechanismen geschützt, sodass ein Angreifer alle überwinden muss.
 :::
 
-⁠**Beispiel: die Burg in Zahlen.** Ein Angreifer überwindet den Graben mit der Wahrscheinlichkeit 0,3, die Mauer mit 0,1 und die Wache mit 0,05 (Abb. [5](#abb-5)). Sind die drei Hindernisse unabhängig, so kommt er nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) mit der Wahrscheinlichkeit
+⁠**Rechenbeispiel: die Burg in Zahlen.** Ein Angreifer überwindet den Graben mit der Wahrscheinlichkeit $p_1=0{,}3$, die Mauer mit $p_2=0{,}1$ und die Wache mit $p_3=0{,}05$ (Abb. [12](#abb-12)). Sind die drei Hindernisse unabhängig, so kommt er nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) mit der Wahrscheinlichkeit $0{,}0015$ bis zum Schatz (Abb. [13](#abb-13)), also in 1,5 von 1 000 Versuchen. Das beste einzelne Hindernis, die Wache, ließe ihn in 50 von 1 000 Versuchen durch. Für ein solches Produkt vieler Faktoren schreibt man kurz $\prod_{k=1}^{n}p_k=p_1\cdot p_2\cdots p_n$; das große griechische Pi heißt __Produktzeichen__ und ist für Produkte, was das Summenzeichen für Summen ist.
 
-$$0{,}3\cdot0{,}1\cdot0{,}05=0{,}0015$$
-
-bis zum Schatz, also in 1,5 von 1 000 Versuchen. Das beste einzelne Hindernis, die Wache, ließe ihn in 50 von 1 000 Versuchen durch.
-
-:::abbildung cyber/k1schichten 5
+:::abbildung cyber/k1schichten 12
 Drei Verteidigungslinien um ein Schutzgut. Sind sie unabhängig, multiplizieren sich die Wahrscheinlichkeiten, sie zu überwinden: Durch alle drei kommt ein Angreifer nur in 0,15 % der Fälle.
+:::
+
+:::abbildung cyber/k1rlinien 13
+Die Wahrscheinlichkeit, alle drei unabhängigen Verteidigungslinien der Burg zu überwinden: das Produkt der drei Durchbruchswahrscheinlichkeiten.
 :::
 
 ⁠**Beispiel: ein Online-Konto.** Das Passwort ist die erste Linie, die Bestätigung auf dem Handy die zweite. Eine Nachricht bei jeder Anmeldung von einem neuen Gerät ist eine dritte, die erkennt statt verhindert. Ein Tageslimit für Überweisungen ist eine vierte: Sie begrenzt den Schaden, wenn alle anderen versagt haben.
@@ -59,7 +59,11 @@ Ein Türschloss mit einem Zylinder hat wenige Teile, und man kann jedes davon pr
 Nach dem Prinzip der __Einfachheit__ (englisch *economy of mechanism*) werden Sicherheitsmechanismen so einfach und so klein wie möglich gebaut.
 :::
 
-⁠**Beispiel:** Ein Mechanismus bestehe aus $n$ Bauteilen, und jedes enthalte unabhängig mit der Wahrscheinlichkeit $p=1\,\%$ einen Fehler, durch den man ihn umgehen kann. Nach [(3.3)](risiko-angreifermodell-und-angriffsflache.html#gl-3-3) hat er mit $n=3$ Bauteilen mit der Wahrscheinlichkeit $1-0{,}99^3=3{,}0\,\%$ mindestens einen solchen Fehler, mit $n=10$ Bauteilen mit $1-0{,}99^{10}=9{,}6\,\%$. Jedes zusätzliche Teil ist eine zusätzliche Gelegenheit, wie bei der Angriffsfläche.
+⁠**Rechenbeispiel:** Ein Mechanismus bestehe aus $n$ Bauteilen, und jedes enthalte unabhängig mit der Wahrscheinlichkeit $p=1\,\%$ einen Fehler, durch den man ihn umgehen kann. Nach [(3.3)](risiko-angreifermodell-und-angriffsflache.html#gl-3-3) hat er mit $n=3$ Bauteilen mit der Wahrscheinlichkeit $3{,}0\,\%$ mindestens einen solchen Fehler, mit $n=10$ Bauteilen mit $9{,}6\,\%$ (Abb. [14](#abb-14)). Jedes zusätzliche Teil ist eine zusätzliche Gelegenheit, wie bei der Angriffsfläche.
+
+:::abbildung cyber/k1reinfach 14
+Die Wahrscheinlichkeit, dass ein Mechanismus aus $3$ oder aus $10$ Bauteilen mindestens einen Fehler enthält, wenn jedes Teil unabhängig mit $p=0{,}01$ fehlerhaft ist.
+:::
 
 ⁠**Kurz gesagt:** Sicherheitsmechanismen werden so einfach wie möglich gebaut, denn jedes Teil kann einen Fehler enthalten.
 
@@ -86,6 +90,12 @@ Alles in der vertrauenswürdigen Basis muss stimmen; ein einziger Fehler darin k
 ⁠**Beispiel:** Beim Kundenportal aus Abschnitt [2](von-der-schwachstelle-zum-schaden.html#stufe-2) gehören die Anmeldung und jede Stelle, die Rechte prüft, zur vertrauenswürdigen Basis. Prüfen 50 verschiedene Seiten des Portals jeweils selbst, ob der Kunde die angezeigten Daten sehen darf, so gehören alle 50 Prüfungen dazu, und jede kann falsch sein, wie die Rechnungsseite gezeigt hat. Prüft eine einzige zentrale Stelle jeden Zugriff, so gehört nur diese eine dazu. Die Basis ist kleiner, und die lückenlose Prüfung aus Abschnitt [5](sicherheitsprinzipien-rechte-vergeben-und-prufen.html#stufe-5) lässt sich an einer Stelle sicherstellen.
 
 ⁠**Kurz gesagt:** Die vertrauenswürdige Basis ist alles, was für die Sicherheit korrekt sein muss; je kleiner sie ist, desto eher kann man sie prüfen.
+
+:::hintergrund Warum die vertrauenswürdige Basis klein sein muss: der Referenzmonitor
+Schon 1972 beschrieb eine Studie für die US-Luftwaffe, was der Teil eines Systems leisten muss, der über jeden Zugriff entscheidet. Sie nannte ihn *Referenzmonitor* und stellte drei Forderungen auf: Er muss gegen Veränderung geschützt sein, er muss bei jedem Zugriff aufgerufen werden, und er muss klein genug sein, um vollständig untersucht und getestet zu werden, sodass man sicher sein kann, dass er richtig arbeitet. Die zweite Forderung ist die lückenlose Prüfung aus Abschnitt [5](sicherheitsprinzipien-rechte-vergeben-und-prufen.html#stufe-5). Die dritte ist der Grund für eine kleine vertrauenswürdige Basis.
+
+Rechnen lässt sich das mit der Formel [(3.3)](risiko-angreifermodell-und-angriffsflache.html#gl-3-3). Besteht die Basis aus $n$ Teilen, von denen jedes mit der Wahrscheinlichkeit $p$ einen Fehler hat, so ist sie mit der Wahrscheinlichkeit $1-(1-p)^n$ irgendwo fehlerhaft, und jeder Fehler in ihr kann die ganze Sicherheit aufheben. Fehler außerhalb der Basis zählen dagegen nicht mit. Für die Sicherheit kommt es deshalb nicht darauf an, wie groß das ganze System ist, sondern wie groß seine Basis ist. Ein großes Programm mit einer kleinen Basis kann sicherer sein als ein kleines, in dem jeder Teil über Zugriffe entscheidet.
+:::
 
 ### Kein Verlass auf ein geheimes Verfahren
 
@@ -130,6 +140,14 @@ Menschen umgehen Regeln, die ihnen das Leben schwer machen, und Angreifer zielen
 ⁠**Beispiel:** Eine Firma verlangt, dass alle Mitarbeiter ihr Passwort alle 30 Tage ändern. Die Mitarbeiter wählen daraufhin `Herbst2026!`, `Winter2026!`, `Fruehling2027!`: Passwörter, die ein Angreifer leicht errät, sobald er eines kennt. Die Richtlinien der US-Standardbehörde NIST verbieten einen solchen Zwangswechsel inzwischen ausdrücklich, solange es keinen Hinweis gibt, dass ein Passwort bekannt geworden ist. Ein einmal gewähltes langes Passwort zusammen mit einer Bestätigung auf dem Handy schützt mehr und belastet weniger.
 
 ⁠**Kurz gesagt:** Ein Mechanismus, den Menschen umgehen, schützt nicht; der sichere Weg muss der bequeme sein.
+
+:::hintergrund Warum Menschen Sicherheitsregeln umgehen
+Saltzer und Schroeder zählten das Prinzip 1975 zu ihren Grundsätzen und nannten es *psychologische Akzeptanz*: Die Bedienung muss so einfach sein, dass die Menschen die Schutzmechanismen ganz selbstverständlich und richtig anwenden, und die Mechanismen müssen zu dem passen, was die Menschen selbst schützen wollen. Passt beides zusammen, entstehen am wenigsten Fehler.
+
+Warum es so oft nicht passt, wurde später untersucht. Eine Befragung von 1999 fand, dass der scheinbar sorglose Umgang mit Passwörtern vor allem aus zwei Gründen kam: aus der Art, wie die Mechanismen gebaut waren, und daraus, dass die Menschen nicht wussten, wogegen sie sich eigentlich schützen sollten. Wer sein Passwort ändern musste, hängte oft nur eine Zahl an, nach dem Muster `tom1`, `tom2`, `tom3`.
+
+Daraus entstand ein Erklärungsmodell, das Bild eines Budgets: Jeder Mensch ist bereit, nur eine begrenzte Menge an Zeit und Mühe für Sicherheitsregeln aufzuwenden. Verlangen die Regeln mehr, lässt er die lästigsten weg, und das sind nicht unbedingt die unwichtigsten. Eine Organisation, die viele kleine Regeln aufstellt, verbraucht dieses Budget für Nebensachen, und für die wichtige Regel bleibt nichts übrig. Ein guter Entwurf fragt deshalb bei jeder Regel, was sie die Menschen kostet, und verlangt Aufwand nur dort, wo er viel Schutz bringt. Das Bild ist eine Vereinfachung: Wie groß das Budget ist, hängt von der Person und der Lage ab, und eine Organisation kann es beeinflussen, etwa indem sie erklärt, wozu eine Regel dient.
+:::
 
 ### Sicherheit von Anfang an
 

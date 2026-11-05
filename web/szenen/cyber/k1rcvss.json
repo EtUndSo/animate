@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\mathrm{ISS}&=1-(1-C)(1-I)(1-A)=1-0.44\\cdot0.44\\cdot0.44=1-0.0852=0.9148\\\\W&=7.52\\,(\\mathrm{ISS}-0.029)-3.25\\,(\\mathrm{ISS}-0.02)^{15}\\\\&=7.52\\cdot0.8858-3.25\\cdot0.8948^{15}=6.6613-0.6136=6.0477\\\\E&=8.22\\cdot\\mathrm{AV}\\cdot\\mathrm{AC}\\cdot\\mathrm{PR}\\cdot\\mathrm{UI}=8.22\\cdot0.85\\cdot0.77\\cdot0.85\\cdot0.85=3.8870\\\\1.08\\,(W+E)&=1.08\\cdot(6.0477+3.8870)=1.08\\cdot9.9347=10.73\\;\\longrightarrow\\;10.0\\end{aligned}",
+     "height": 1.174,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

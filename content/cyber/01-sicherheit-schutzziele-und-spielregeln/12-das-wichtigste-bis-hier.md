@@ -30,7 +30,7 @@ Kette: Schwachstelle und Bedrohung, Angreifer, Angriff mit Exploit, Schaden; jed
 
 <li>
 
-Risiko $R=H\cdot S$ in €/Jahr; eine Maßnahme lohnt sich, wenn $R_\text{vorher}-R_\text{nachher}-K>0$.
+Risiko $R=H\cdot S$ in €/Jahr, Gesamtrisiko $R_\Sigma=\sum_k H_k\cdot S_k$; eine Maßnahme lohnt sich, wenn $R_\text{vorher}-R_\text{nachher}-K>0$.
 
 </li>
 
@@ -48,13 +48,13 @@ Richtlinie sagt was, Mechanismus wie; Mechanismen verhindern, erkennen oder stel
 
 <li>
 
-Prinzipien: minimale Rechte, Aufgabentrennung, sichere Voreinstellung, lückenlose Prüfung, Prüfen und Handeln atomar (TOCTTOU), mehrere unabhängige Linien, Einfachheit, kleine vertrauenswürdige Basis, offenes Verfahren, der Mensch, von Anfang an.
+Prinzipien: minimale Rechte, Aufgabentrennung, sichere Voreinstellung, lückenlose Prüfung, Prüfen und Handeln atomar (TOCTTOU), mehrere unabhängige Linien (alle überwunden mit $p_1\cdot p_2\cdots p_n$), Einfachheit, kleine vertrauenswürdige Basis, offenes Verfahren, der Mensch, von Anfang an.
 
 </li>
 
 <li>
 
-CVE benennt, CWE ordnet, CVSS bewertet die Schwere (nicht das Risiko); nach der Veröffentlichung droht jedem System ohne Update der Angriff; gegen Zero-Days helfen nur Prinzipien.
+CVE benennt, CWE ordnet, CVSS bewertet die Schwere (nicht das Risiko), in Version 3.1 aus Ausnutzbarkeit und Auswirkung; nach der Veröffentlichung droht jedem System ohne Update der Angriff; gegen Zero-Days helfen nur Prinzipien.
 
 </li>
 

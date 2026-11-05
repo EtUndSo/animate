@@ -62,10 +62,14 @@ Ein Bankschließfach hat zwei Schlösser. Den einen Schlüssel hat die Kundin, d
 :::definition Definition 5.3 (Aufgabentrennung)
 <span class="anker" id="satz-5-3"></span>
 
-Nach dem Prinzip der __Aufgabentrennung__ (englisch *separation of privilege*) wird eine folgenreiche Handlung nicht schon erlaubt, wenn eine einzige Bedingung erfüllt ist. Sie verlangt mehrere voneinander unabhängige Bedingungen, zum Beispiel die Zustimmung zweier verschiedener Personen.
+Nach dem Prinzip der __Aufgabentrennung__ (englisch *separation of privilege*, auch *separation of responsibility*) wird eine folgenreiche Handlung nicht schon erlaubt, wenn eine einzige Bedingung erfüllt ist. Sie verlangt mehrere voneinander unabhängige Bedingungen, zum Beispiel die Zustimmung zweier verschiedener Personen.
 :::
 
-⁠**Beispiel:** In einem Unternehmen braucht jede Überweisung über 10 000 € die Freigabe durch zwei Personen aus verschiedenen Abteilungen. Ein Betrüger muss nun beide täuschen oder bestechen. Gelingt ihm das bei einer einzelnen Person mit der Wahrscheinlichkeit $q=1\,\%$, und sind die beiden unabhängig, so gelingt es bei beiden nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) nur mit $q^2=0{,}01\cdot0{,}01=0{,}01\,\%$, also hundertmal seltener.
+⁠**Rechenbeispiel:** In einem Unternehmen braucht jede Überweisung über 10 000 € die Freigabe durch zwei Personen aus verschiedenen Abteilungen. Ein Betrüger muss nun beide täuschen oder bestechen. Gelingt ihm das bei einer einzelnen Person mit der Wahrscheinlichkeit $q=1\,\%$, und sind die beiden unabhängig, so gelingt es bei beiden nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) nur mit $q^2=0{,}01\,\%$, also hundertmal seltener (Abb. [10](#abb-10)).
+
+:::abbildung cyber/k1rtrennung 10
+Aufgabentrennung mit zwei unabhängigen Freigebenden, die je mit $q=0{,}01$ getäuscht werden: Beide zugleich täuscht der Betrüger nur mit dem Produkt $q^2$, hundertmal seltener als eine einzelne Person.
+:::
 
 Dasselbe Prinzip steckt in der __Zwei-Faktor-Anmeldung__: Man meldet sich mit zwei voneinander unabhängigen Nachweisen an, zum Beispiel mit einem Passwort, das man weiß, und einem Handy, das man besitzt. Ein gestohlenes Passwort allein genügt dann nicht mehr.
 
@@ -155,9 +159,9 @@ Eine Prüfung schützt nur, wenn ihr Ergebnis noch stimmt, wenn man danach hande
 Eine __TOCTTOU-Schwachstelle__ (englisch *time of check to time of use*, „vom Zeitpunkt der Prüfung bis zum Zeitpunkt der Nutzung“) liegt vor, wenn ein System eine Bedingung prüft, danach eine Handlung ausführt, die auf dieser Bedingung beruht, und sich der geprüfte Zustand dazwischen ändern kann. Die Prüfung ist dann wertlos.
 :::
 
-⁠**Beispiel: zwei Geldautomaten.** Auf einem Konto liegen 100 €, und zwei Karten gehören zu diesem Konto. An zwei Automaten wird fast gleichzeitig je 100 € abgehoben (Abb. [4](#abb-4)). Automat 1 prüft: $100\ge100$, in Ordnung. Bevor er abbucht, prüft Automat 2: Auch für ihn stehen noch 100 € auf dem Konto, in Ordnung. Dann zahlen beide aus und buchen ab. Ausgezahlt wurden 200 €, das Konto steht bei $-100$ €, obwohl jede einzelne Prüfung richtig war.
+⁠**Beispiel: zwei Geldautomaten.** Auf einem Konto liegen 100 €, und zwei Karten gehören zu diesem Konto. An zwei Automaten wird fast gleichzeitig je 100 € abgehoben (Abb. [11](#abb-11)). Automat 1 prüft: $100\ge100$, in Ordnung. Bevor er abbucht, prüft Automat 2: Auch für ihn stehen noch 100 € auf dem Konto, in Ordnung. Dann zahlen beide aus und buchen ab. Ausgezahlt wurden 200 €, das Konto steht bei $-100$ €, obwohl jede einzelne Prüfung richtig war.
 
-:::abbildung cyber/k1toctou 4
+:::abbildung cyber/k1toctou 11
 Eine TOCTTOU-Schwachstelle: Beide Automaten prüfen den Kontostand von 100 €, bevor einer von ihnen abbucht. Jede Prüfung ist für sich richtig, aber zum Zeitpunkt der Auszahlung schon veraltet. Am Ende sind 200 € ausgezahlt.
 :::
 
@@ -232,7 +236,7 @@ Ein Onlineshop gibt Gutscheincodes über 50 € aus, die jeweils nur einmal ei
 
 <li>
 
-Ein Kunde öffnet zwei Browserfenster mit je einer Bestellung und schickt in beiden fast gleichzeitig denselben Code ab. Beschreibe mit Zeitpunkten wie in Abbildung [4](#abb-4), was passieren kann.
+Ein Kunde öffnet zwei Browserfenster mit je einer Bestellung und schickt in beiden fast gleichzeitig denselben Code ab. Beschreibe mit Zeitpunkten wie in Abbildung [11](#abb-11), was passieren kann.
 
 </li>
 
