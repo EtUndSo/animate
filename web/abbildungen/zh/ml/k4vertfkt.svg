@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="508" height="279" viewBox="474.8078 320.5586 923.6364 507.2727">
+<rect x="474.8078" y="320.5586" width="923.6364" height="507.2727" fill="#ffffff"/>
+<path d="M588.75 688.5C687.75 688.5 786.75 688.5 885.75 688.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M588.75 688.5C588.75 598.5 588.75 508.5 588.75 418.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M648.15 702C648.15 693 648.15 684 648.15 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M707.55 702C707.55 693 707.55 684 707.55 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.95 702C766.95 693 766.95 684 766.95 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M826.35 702C826.35 693 826.35 684 826.35 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M575.25 657.82C584.25 657.82 593.25 657.82 602.25 657.82" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M575.25 565.77C584.25 565.77 593.25 565.77 602.25 565.77" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M575.25 473.73C584.25 473.73 593.25 473.73 602.25 473.73" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M575.25 443.05C584.25 443.05 593.25 443.05 602.25 443.05" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="648.15" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="707.55" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="766.95" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">2</text>
+<text x="826.35" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="559.05" y="657.82" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">0.125</text>
+<text x="559.05" y="565.77" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">0.5</text>
+<text x="559.05" y="473.73" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">0.875</text>
+<text x="559.05" y="443.05" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">1</text>
+<text x="737.25" y="788.4" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">x</text>
+<text x="588.75" y="371.25" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">F(x)</text>
+<path d="M588.75 688.5C608.55 688.5 628.35 688.5 648.15 688.5" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M648.15 657.82C667.95 657.82 687.75 657.82 707.55 657.82" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M707.55 565.77C727.35 565.77 747.15 565.77 766.95 565.77" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M766.95 473.73C786.75 473.73 806.55 473.73 826.35 473.73" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M826.35 443.05C846.15 443.05 865.95 443.05 885.75 443.05" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M651.71 688.5C651.71 680.37 650.12 673.77 648.15 673.77C646.18 673.77 644.59 680.37 644.59 688.5C644.59 696.63 646.18 703.23 648.15 703.23C650.12 703.23 651.71 696.63 651.71 688.5" fill="#ffffff" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M656.92 657.82C656.92 652.97 653 649.04 648.15 649.04C643.3 649.04 639.38 652.97 639.38 657.82C639.38 662.66 643.3 666.59 648.15 666.59C653 666.59 656.92 662.66 656.92 657.82" fill="#2a78d6"/>
+<path d="M711.11 657.82C711.11 649.68 709.52 643.09 707.55 643.09C705.58 643.09 703.99 649.68 703.99 657.82C703.99 665.95 705.58 672.55 707.55 672.55C709.52 672.55 711.11 665.95 711.11 657.82" fill="#ffffff" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M716.33 565.77C716.33 560.93 712.4 557 707.55 557C702.7 557 698.78 560.93 698.78 565.77C698.78 570.62 702.7 574.55 707.55 574.55C712.4 574.55 716.33 570.62 716.33 565.77" fill="#2a78d6"/>
+<path d="M770.51 565.77C770.51 557.64 768.92 551.05 766.95 551.05C764.98 551.05 763.39 557.64 763.39 565.77C763.39 573.91 764.98 580.5 766.95 580.5C768.92 580.5 770.51 573.91 770.51 565.77" fill="#ffffff" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M775.73 473.73C775.73 468.88 771.8 464.95 766.95 464.95C762.1 464.95 758.17 468.88 758.17 473.73C758.17 478.57 762.1 482.5 766.95 482.5C771.8 482.5 775.73 478.57 775.73 473.73" fill="#2a78d6"/>
+<path d="M829.91 473.73C829.91 465.59 828.32 459 826.35 459C824.38 459 822.79 465.59 822.79 473.73C822.79 481.86 824.38 488.45 826.35 488.45C828.32 488.45 829.91 481.86 829.91 473.73" fill="#ffffff" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M835.12 443.05C835.12 438.2 831.2 434.27 826.35 434.27C821.5 434.27 817.58 438.2 817.58 443.05C817.58 447.89 821.5 451.82 826.35 451.82C831.2 451.82 835.12 447.89 835.12 443.05" fill="#2a78d6"/>
+<text x="737.25" y="357.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(a) 正面朝上的次数</text>
+<path d="M1074.75 688.5C1173.75 688.5 1272.75 688.5 1371.75 688.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1074.75 688.5C1074.75 598.5 1074.75 508.5 1074.75 418.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1130.44 702C1130.44 693 1130.44 684 1130.44 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1167.56 702C1167.56 693 1167.56 684 1167.56 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1241.81 702C1241.81 693 1241.81 684 1241.81 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1316.06 702C1316.06 693 1316.06 684 1316.06 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1061.25 639.41C1070.25 639.41 1079.25 639.41 1088.25 639.41" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1061.25 541.23C1070.25 541.23 1079.25 541.23 1088.25 541.23" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1061.25 443.05C1070.25 443.05 1079.25 443.05 1088.25 443.05" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1130.44" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="1167.56" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">0.1</text>
+<text x="1241.81" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">0.3</text>
+<text x="1316.06" y="731.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">0.5</text>
+<text x="1045.05" y="639.41" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">0.2</text>
+<text x="1045.05" y="541.23" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">0.6</text>
+<text x="1045.05" y="443.05" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">1</text>
+<text x="1223.25" y="788.4" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">t / s</text>
+<text x="1074.75" y="371.25" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">F(t)</text>
+<path d="M1074.75 688.5C1093.31 688.5 1111.88 688.5 1130.44 688.5C1192.31 606.68 1254.19 524.86 1316.06 443.05C1334.62 443.05 1353.19 443.05 1371.75 443.05" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1167.56 688.5C1167.56 672.14 1167.56 655.77 1167.56 639.41C1136.62 639.41 1105.69 639.41 1074.75 639.41" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1241.81 688.5C1241.81 639.41 1241.81 590.32 1241.81 541.23C1186.12 541.23 1130.44 541.23 1074.75 541.23" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1223.25" y="357.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(b) 到达时刻</text>
+</svg>

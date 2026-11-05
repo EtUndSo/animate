@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\mathbb E[SR]=\\sum_{s=0}^1\\sum_{r=0}^1s\\,r\\,P(S=s,R=r)&=0\\cdot0\\cdot0.5+0\\cdot1\\cdot0.1+1\\cdot0\\cdot0.1+1\\cdot1\\cdot0.3\\\\&=0+0+0+0.3=0.3\\\\\\operatorname{Cov}(S,R)=\\mathbb E[SR]-\\mathbb E[S]\\,\\mathbb E[R]&=0.3-0.4\\cdot0.4=0.3-0.16=0.14\\end{aligned}",
+     "height": 1.058,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

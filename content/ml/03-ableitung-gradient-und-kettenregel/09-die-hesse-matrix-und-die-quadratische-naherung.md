@@ -325,6 +325,6 @@ $$\partial_1f(0,x_2)=\lim_{h\to0}\frac{f(h,x_2)-0}{h}=\lim_{h\to0}x_2\,\frac{h^2
 
 Im Nullpunkt ist $f(h,0)=0$, also $\partial_1f(0,0)=0$; die Formel $-x_2$ gilt also auch für $x_2=0$. Ebenso ist $\partial_2f(x_1,0)=\lim_k x_1\frac{x_1^2-k^2}{x_1^2+k^2}=x_1$.
 
-(b) Erst nach $x_1$, dann nach $x_2$ abgeleitet: $\frac{\partial}{\partial x_2}(-x_2)=-1$. Erst nach $x_2$, dann nach $x_1$: $\frac{\partial}{\partial x_1}(x_1)=+1$. Die gemischten Ableitungen im Nullpunkt sind verschieden. Verletzt ist die Stetigkeit der zweiten Ableitungen im Nullpunkt: Rechnet man sie außerhalb des Nullpunkts aus, so nehmen sie in beliebiger Nähe des Nullpunkts verschiedene Werte an.
+(b) Erst nach $x_1$, dann nach $x_2$ abgeleitet: $\frac{\partial}{\partial x_2}(-x_2)=-1$. Erst nach $x_2$, dann nach $x_1$: $\frac{\partial}{\partial x_1}(x_1)=+1$. Die gemischten Ableitungen im Nullpunkt sind verschieden. Verletzt ist die Stetigkeit der zweiten Ableitungen im Nullpunkt: Außerhalb des Nullpunkts ist die gemischte Ableitung auf der $x_2$-Achse überall $-1$ und auf der $x_1$-Achse überall $+1$. Sie springt also im Nullpunkt, und die beiden Reihenfolgen des Ableitens nähern sich ihm von verschiedenen Seiten.
 :::
 :::

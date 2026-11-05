@@ -104,7 +104,7 @@ Es sei $f$ an der Stelle $\mathbf{x}$ differenzierbar, $\nabla f(\mathbf{x})\ne\
 
 Dass die Gerade die Höhenlinie berührt, folgt aus der Lupe: In der Nähe von $\mathbf{x}$ unterscheiden sich $f$ und ihre lineare Näherung nur um einen Fehler, der schneller als $\lVert\mathbf{h}\rVert$ verschwindet, und damit unterscheiden sich auch ihre Höhenlinien zum Wert $c$ nur so wenig, dass sie bei $\mathbf{x}$ dieselbe Richtung haben. Einen Beweis mit der Kettenregel liefert Aufgabe [22](die-kettenregel-fur-mehrere-variablen.html#aufg-22). Bei mehr als zwei Variablen gilt dasselbe für die Niveaumenge, die dann eine Fläche ist: Der Gradient steht senkrecht auf ihr.
 
-⁠**Rechenbeispiel:** Für die Schüssel $f(\mathbf{x})=x_1^2+4x_2^2$ ist $\nabla f(\mathbf{x})=(2x_1,\,8x_2)^{\top}$ und an der Stelle $(1,\,1)$ gleich $(2,\,8)^{\top}$. Die Höhenlinie durch diesen Punkt ist die Ellipse $x_1^2+4x_2^2=5$. Die Richtung $\mathbf t=(4,\,-1)^{\top}$ steht senkrecht auf dem Gradienten, denn $2\cdot4+8\cdot(-1)=0$. Geht man von $(1,\,1)$ aus ein Stück $s$ in diese Richtung, so ist
+⁠**Rechenbeispiel:** Für die Schüssel $f(\mathbf{x})=x_1^2+4x_2^2$ ist $\nabla f(\mathbf{x})=(2x_1,\,8x_2)^{\top}$ und an der Stelle $(1,\,1)$ gleich $(2,\,8)^{\top}$. Die Höhenlinie durch diesen Punkt ist die Ellipse $x_1^2+4x_2^2=5$. Die Richtung $\mathbf{t}=(4,\,-1)^{\top}$ steht senkrecht auf dem Gradienten, denn $2\cdot4+8\cdot(-1)=0$. Geht man von $(1,\,1)$ aus ein Stück $s$ in diese Richtung, so ist
 
 $$f(1+4s,\ 1-s)=(1+4s)^2+4\,(1-s)^2=5+20s^2 .$$
 

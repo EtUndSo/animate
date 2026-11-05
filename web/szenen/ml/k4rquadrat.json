@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\mathbb E[X^2]=\\sum_{k=1}^6k^2\\,P(X=k)&=1^2\\cdot\\tfrac16+2^2\\cdot\\tfrac16+3^2\\cdot\\tfrac16+4^2\\cdot\\tfrac16+5^2\\cdot\\tfrac16+6^2\\cdot\\tfrac16\\\\&=\\tfrac{1+4+9+16+25+36}{6}=\\tfrac{91}{6}\\approx15.17\\end{aligned}",
+     "height": 0.927,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

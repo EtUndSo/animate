@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}&\\mathbf S=\\frac13\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix},\\qquad \\mathbf u=\\frac1{\\sqrt2}\\begin{pmatrix}1\\\\1\\end{pmatrix}\\\\\\mathbf u^\\top\\mathbf S\\mathbf u=\\sum_{j=1}^2\\sum_{l=1}^2u_j\\,S_{jl}\\,u_l&=u_1S_{11}u_1+u_1S_{12}u_2+u_2S_{21}u_1+u_2S_{22}u_2\\\\&=\\tfrac12\\cdot\\tfrac13\\,(1\\cdot2\\cdot1+1\\cdot1\\cdot1+1\\cdot1\\cdot1+1\\cdot2\\cdot1)\\\\&=\\tfrac16\\,(2+1+1+2)=\\tfrac66=1\\end{aligned}",
+     "height": 1.986,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

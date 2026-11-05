@@ -1,0 +1,285 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 10,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.6,
+      3.6
+     ],
+     "y_range": [
+      0,
+      0.45
+     ],
+     "x_length": 2.2,
+     "y_length": 2.0,
+     "origin": [
+      -1.65,
+      -0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "P(X = x)",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;1;2;3",
+     "y_ticks": "0.125;0.25;0.375",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Stem",
+    "props": {
+     "x": "0;1;2;3",
+     "func": "",
+     "baseline": 0,
+     "arrows": false,
+     "width": 0,
+     "marker": "circle",
+     "markers": true,
+     "marker_radius": 0.08,
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "y": "0.125;0.375;0.375;0.125"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@pmf",
+     "position": [
+      -1.65,
+      1.65,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -0.15,
+      0.65
+     ],
+     "y_range": [
+      0,
+      2.5
+     ],
+     "x_length": 2.2,
+     "y_length": 2.0,
+     "origin": [
+      1.95,
+      -0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@{ts}",
+     "y_label": "p(t) in 1/s",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0;0.1;0.3;0.5",
+     "y_ticks": "1;2",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Band",
+    "props": {
+     "x_min": 0.1,
+     "x_max": 0.3,
+     "y_min": 0,
+     "y_max": 2,
+     "full_height": false,
+     "full_width": false,
+     "label": "",
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.25,
+     "stroke_width": 0,
+     "dash": ""
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o7",
+    "type": "DataCurve",
+    "props": {
+     "data": "-0.15 0\n0 0\n0 2\n0.5 2\n0.5 0\n0.65 0",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": ""
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@flaeche",
+     "position": [
+      0.2,
+      1.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    },
+    "on": "o5"
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@dichte",
+     "position": [
+      1.95,
+      1.65,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "pmf": {
+    "de": "(a) Wahrscheinlichkeitsfunktion",
+    "en": "(a) probability mass function",
+    "es": "(a) función de probabilidad",
+    "zh": "(a) 概率质量函数"
+   },
+   "dichte": {
+    "de": "(b) Dichte",
+    "en": "(b) density",
+    "es": "(b) densidad",
+    "zh": "(b) 概率密度"
+   },
+   "ts": {
+    "de": "t in s",
+    "en": "t in s",
+    "es": "t en s",
+    "zh": "t / s"
+   },
+   "flaeche": {
+    "de": "Fläche\n0.4",
+    "en": "area\n0.4",
+    "es": "área\n0.4",
+    "zh": "面积\n0.4"
+   }
+  }
+ }
+}

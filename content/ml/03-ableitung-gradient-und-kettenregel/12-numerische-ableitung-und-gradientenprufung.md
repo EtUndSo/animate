@@ -74,7 +74,7 @@ Der Abschneidefehler ist also etwa proportional zu $h^2$.
 :::
 
 :::herleitung Warum sich die Krümmung heraushebt
-Mit dem Taylorpolynom dritter Ordnung aus Abschnitt [1.5](die-ableitung.html#stufe-1-5) ist
+Man setzt die quadratische Näherung aus Abschnitt [1.5](die-ableitung.html#stufe-1-5) um ein Glied fort. Passt man wie dort bei der Parabel zusätzlich die dritte Ableitung an, so kommt das Glied $\tfrac16f'''(x)\,h^3$ hinzu; der Faktor $\tfrac16$ entsteht, weil die dritte Ableitung von $h^3$ gleich $6$ ist. Damit ist
 
 $$f(x\pm h)\approx f(x)\pm f'(x)\,h+\tfrac12f''(x)\,h^2\pm\tfrac16f'''(x)\,h^3 .$$
 
@@ -149,7 +149,7 @@ Wer einen Gradienten von Hand herleitet oder als Rückwärtsschritte programmier
 :::definition Definition 11.5 (Gradientenprüfung)
 <span class="anker" id="satz-11-5"></span>
 
-Bei der __Gradientenprüfung__ vergleicht man einen berechneten Gradienten $\mathbf g_{\mathrm a}$ an einer Stelle $\mathbf{x}$ mit dem numerischen Gradienten $\mathbf g_{\mathrm n}$, dessen Komponenten zentrale Differenzen sind,
+Bei der __Gradientenprüfung__ vergleicht man einen berechneten Gradienten $\mathbf{g}_{\mathrm a}$ an einer Stelle $\mathbf{x}$ mit dem numerischen Gradienten $\mathbf{g}_{\mathrm n}$, dessen Komponenten zentrale Differenzen sind,
 
 <span class="anker" id="gl-11-6"></span>
 $$g_{\mathrm n,j}=\frac{f(\mathbf{x}+h\,\mathbf{e}_j)-f(\mathbf{x}-h\,\mathbf{e}_j)}{2h}, \tag{11.6}$$
@@ -164,7 +164,7 @@ wobei man $\rho_j=0$ setzt, wenn beide Werte null sind.
 
 Man vergleicht relativ, weil ein absoluter Fehler von $10^{-6}$ bei einer Ableitung von $10^{6}$ hervorragend, bei einer Ableitung von $10^{-6}$ aber ein vollständiger Fehlschlag ist. Bei Rechnung in doppelter Genauigkeit und $h$ in der Größenordnung $10^{-5}$ gelten diese Erfahrungswerte: Ein relativer Fehler über $10^{-2}$ bedeutet fast sicher einen Fehler in der Formel. Zwischen $10^{-2}$ und $10^{-4}$ ist das Ergebnis verdächtig. Unter $10^{-4}$ ist es bei Funktionen mit Knicken meist in Ordnung, und $10^{-7}$ oder weniger ist ein gutes Ergebnis. Eine Prüfung kostet $2n$ Auswertungen von $f$; man prüft deshalb nur an wenigen Stellen oder nur einige Komponenten. Für die eigentliche Rechnung ist der Rückwärtsmodus da, für ihre Kontrolle der Differenzenquotient.
 
-⁠**Rechenbeispiel 1:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ habe jemand den Gradienten $(2x_1x_2,\ x_1^2+x_2)^{\top}$ hergeleitet, mit einem vergessenen Faktor $2$. An der Stelle $(1,\,2)$ ist das $\mathbf g_{\mathrm a}=(4,\,3)^{\top}$. Mit $h=0{,}001$ ist
+⁠**Rechenbeispiel 1:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ habe jemand den Gradienten $(2x_1x_2,\ x_1^2+x_2)^{\top}$ hergeleitet, mit einem vergessenen Faktor $2$. An der Stelle $(1,\,2)$ ist das $\mathbf{g}_{\mathrm a}=(4,\,3)^{\top}$. Mit $h=0{,}001$ ist
 
 $$\begin{aligned} g_{\mathrm n,1}&=\frac{f(1{,}001;\ 2)-f(0{,}999;\ 2)}{0{,}002}=\frac{6{,}004002-5{,}996002}{0{,}002}=4,\\ g_{\mathrm n,2}&=\frac{f(1;\ 2{,}001)-f(1;\ 1{,}999)}{0{,}002}=\frac{6{,}005001-5{,}995001}{0{,}002}=5 . \end{aligned}$$
 
@@ -286,7 +286,7 @@ Wiederhole die Rechnung für einfache Genauigkeit. Wie viele richtige Stellen ka
 
 $$\begin{aligned} h_+&=\sqrt{2\varepsilon_{\mathrm M}}\approx2{,}1\cdot10^{-8}, & E_+(h_+)&=\mathrm{e}\sqrt{2\varepsilon_{\mathrm M}}\approx5{,}7\cdot10^{-8},\\ h_0&=(1{,}5\,\varepsilon_{\mathrm M})^{1/3}\approx6{,}9\cdot10^{-6}, & E_0(h_0)&=\tfrac{\mathrm{e}}6h_0^2+\frac{\varepsilon_{\mathrm M}\mathrm{e}}{2h_0}\approx6{,}5\cdot10^{-11}. \end{aligned}$$
 
-Bezogen auf $f'(1)=\mathrm{e}$ sind das etwa acht und etwa zehn richtige Stellen.
+Bezogen auf $f'(1)=\mathrm{e}$ sind das relative Fehler von etwa $2\cdot10^{-8}$ und $2\cdot10^{-11}$, also knapp acht und knapp elf richtige Stellen.
 
 (b) Mit $\varepsilon_{\mathrm M}\approx1{,}19\cdot10^{-7}$ ist $h_+\approx4{,}9\cdot10^{-4}$ mit $E_+\approx1{,}3\cdot10^{-3}$ und $h_0\approx5{,}6\cdot10^{-3}$ mit $E_0\approx4{,}3\cdot10^{-5}$. Relativ zu $\mathrm{e}$ sind das etwa $5\cdot10^{-4}$ und $1{,}6\cdot10^{-5}$: Man kann höchstens etwa drei bzw. fünf richtige Stellen erwarten. Eine Gradientenprüfung in einfacher Genauigkeit liefert deshalb auch bei richtiger Formel relative Fehler um $10^{-5}$ bis $10^{-3}$.
 :::

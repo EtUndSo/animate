@@ -128,10 +128,10 @@ Die Näherung [(3.4)](#gl-3-4) wurde bisher nur plausibel gemacht. Für eine Var
 :::definition Definition 3.4 (Differenzierbarkeit)
 <span class="anker" id="satz-3-4"></span>
 
-Eine Funktion $f:\mathbb{R}^d\to\mathbb{R}$ heißt an der Stelle $\mathbf{x}$ __differenzierbar__, wenn es einen Vektor $\mathbf g\in\mathbb{R}^d$ gibt mit
+Eine Funktion $f:\mathbb{R}^d\to\mathbb{R}$ heißt an der Stelle $\mathbf{x}$ __differenzierbar__, wenn es einen Vektor $\mathbf{g}\in\mathbb{R}^d$ gibt mit
 
 <span class="anker" id="gl-3-5"></span>
-$$\lim_{\mathbf{h}\to\mathbf{0}}\frac{f(\mathbf{x}+\mathbf{h})-f(\mathbf{x})-\mathbf g^{\top}\mathbf{h}}{\lVert\mathbf{h}\rVert}=0 . \tag{3.5}$$
+$$\lim_{\mathbf{h}\to\mathbf{0}}\frac{f(\mathbf{x}+\mathbf{h})-f(\mathbf{x})-\mathbf{g}^{\top}\mathbf{h}}{\lVert\mathbf{h}\rVert}=0 . \tag{3.5}$$
 
 Der Grenzwert $\mathbf{h}\to\mathbf{0}$ bedeutet: Der Quotient liegt beliebig nah bei $0$, sobald $\lVert\mathbf{h}\rVert$ klein genug und $\mathbf{h}\ne\mathbf{0}$ ist, gleichgültig, aus welcher Richtung $\mathbf{h}$ sich nähert.
 :::
@@ -139,11 +139,11 @@ Der Grenzwert $\mathbf{h}\to\mathbf{0}$ bedeutet: Der Quotient liegt beliebig na
 :::satz Satz 3.5 (Differenzierbar heißt: Gradient und lineare Näherung)
 <span class="anker" id="satz-3-5"></span>
 
-Ist $f$ an der Stelle $\mathbf{x}$ differenzierbar, so existieren dort alle partiellen Ableitungen, und der Vektor in [(3.5)](#gl-3-5) ist der Gradient: $\mathbf g=\nabla f(\mathbf{x})$. Umgekehrt ist $f$ an der Stelle $\mathbf{x}$ differenzierbar, wenn alle partiellen Ableitungen in der Nähe von $\mathbf{x}$ existieren und an der Stelle $\mathbf{x}$ stetig sind.
+Ist $f$ an der Stelle $\mathbf{x}$ differenzierbar, so existieren dort alle partiellen Ableitungen, und der Vektor in [(3.5)](#gl-3-5) ist der Gradient: $\mathbf{g}=\nabla f(\mathbf{x})$. Umgekehrt ist $f$ an der Stelle $\mathbf{x}$ differenzierbar, wenn alle partiellen Ableitungen in der Nähe von $\mathbf{x}$ existieren und an der Stelle $\mathbf{x}$ stetig sind.
 :::
 
 :::beweis Der Vektor ist der Gradient
-Man wählt in [(3.5)](#gl-3-5) speziell $\mathbf{h}=t\,\mathbf{e}_j$ mit einer Zahl $t\ne0$; dann ist $\lVert\mathbf{h}\rVert=|t|$ und $\mathbf g^{\top}\mathbf{h}=t\,g_j$. Der Quotient lautet $\frac{f(\mathbf{x}+t\mathbf{e}_j)-f(\mathbf{x})-t\,g_j}{|t|}$ und geht gegen $0$. Dann geht auch $\frac{f(\mathbf{x}+t\mathbf{e}_j)-f(\mathbf{x})}{t}-g_j$ gegen $0$, denn diese Zahl hat denselben Betrag. Also existiert die partielle Ableitung nach $x_j$, und sie ist $g_j$. Das gilt für jedes $j$.
+Man wählt in [(3.5)](#gl-3-5) speziell $\mathbf{h}=t\,\mathbf{e}_j$ mit einer Zahl $t\ne0$; dann ist $\lVert\mathbf{h}\rVert=|t|$ und $\mathbf{g}^{\top}\mathbf{h}=t\,g_j$. Der Quotient lautet $\frac{f(\mathbf{x}+t\mathbf{e}_j)-f(\mathbf{x})-t\,g_j}{|t|}$ und geht gegen $0$. Dann geht auch $\frac{f(\mathbf{x}+t\mathbf{e}_j)-f(\mathbf{x})}{t}-g_j$ gegen $0$, denn diese Zahl hat denselben Betrag. Also existiert die partielle Ableitung nach $x_j$, und sie ist $g_j$. Das gilt für jedes $j$.
 :::
 
 Für die Praxis ist die zweite Aussage wichtig. Polynome, die e-Funktion, die logistische Funktion und alles, was man durch Grundrechenarten und Verkettung daraus baut, haben überall dort stetige partielle Ableitungen, wo sie erklärt sind. Solche Funktionen sind also differenzierbar, und für sie gilt [(3.4)](#gl-3-4). Ausnahmen in diesem Kapitel sind Knicke, wie bei $|x|$ oder $\max(x,\,0)$.
@@ -271,7 +271,7 @@ Zeige, dass beide partiellen Ableitungen im Nullpunkt existieren und $0$ sind.
 
 <li>
 
-Zeige mit $\mathbf{h}=(t,\,t)^{\top}$, dass der Quotient in [(3.5)](#gl-3-5) mit $\mathbf g=\mathbf{0}$ nicht gegen $0$ geht. Warum folgt daraus, dass $f$ im Nullpunkt nicht differenzierbar ist, obwohl $f$ dort stetig ist?
+Zeige mit $\mathbf{h}=(t,\,t)^{\top}$, dass der Quotient in [(3.5)](#gl-3-5) mit $\mathbf{g}=\mathbf{0}$ nicht gegen $0$ geht. Warum folgt daraus, dass $f$ im Nullpunkt nicht differenzierbar ist, obwohl $f$ dort stetig ist?
 
 </li>
 
@@ -284,6 +284,6 @@ Zeige mit $\mathbf{h}=(t,\,t)^{\top}$, dass der Quotient in [(3.5)](#gl-3-5) mit
 
 $$\frac{f(\mathbf{h})-f(\mathbf{0})-\mathbf{0}^{\top}\mathbf{h}}{\lVert\mathbf{h}\rVert}=\frac{|t|}{\sqrt2\,|t|}=\frac1{\sqrt2}\approx0{,}707 ,$$
 
-für jedes noch so kleine $t\ne0$. Der Quotient geht nicht gegen $0$, also ist $f$ nicht differenzierbar. Stetig ist $f$ trotzdem, denn $|f(\mathbf{x})|=\sqrt{|x_1|\,|x_2|}\le\lVert\mathbf{x}\rVert$ geht gegen $0$. Das Gelände hat im Nullpunkt keine Lücke, aber entlang der Diagonalen eine Falte, an die sich keine Ebene anschmiegt.
+für jedes noch so kleine $t\ne0$. Der Quotient geht nicht gegen $0$, also ist $f$ nicht differenzierbar. Stetig ist $f$ trotzdem, denn $|f(\mathbf{x})|=\sqrt{|x_1|\,|x_2|}\le\max(|x_1|,|x_2|)\le\lVert\mathbf{x}\rVert$ geht gegen $0$, wenn $\mathbf{x}$ gegen $\mathbf{0}$ geht. Das Gelände hat im Nullpunkt keine Lücke, aber entlang der Diagonalen eine Falte, an die sich keine Ebene anschmiegt.
 :::
 :::

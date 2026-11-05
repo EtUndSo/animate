@@ -32,7 +32,7 @@ Vektoren sind Spalten. Der Gradient einer Funktion $f:\mathbb{R}^n\to\mathbb{R}$
 
 <li>
 
-Die Jacobi-Matrix einer Funktion $\mathbf g:\mathbb{R}^n\to\mathbb{R}^m$ ist eine $m\times n$-Matrix: eine Zeile je Ausgang, eine Spalte je Eingang.
+Die Jacobi-Matrix einer Funktion $\mathbf{g}:\mathbb{R}^n\to\mathbb{R}^m$ ist eine $m\times n$-Matrix: eine Zeile je Ausgang, eine Spalte je Eingang.
 
 </li>
 
@@ -45,7 +45,7 @@ Die Ableitung einer Funktion $f:\mathbb{R}^{m\times n}\to\mathbb{R}$ nach einer 
 </ol>
 :::
 
-Tabelle [2](#tab-2) fasst das zusammen. Zwei Folgerungen hat das Kapitel schon benutzt: Für eine Funktion mit einem Ausgang ist die Jacobi-Matrix der Gradient als Zeile, $\mathbf J_f=\nabla f^{\top}$. Und die Kettenregel für Gradienten braucht die Transponierte, $\nabla(f\circ\mathbf g)=\mathbf J_{\mathbf g}^{\top}\nabla f$. Regel (iii) wird in Abschnitt [7.5](#stufe-7-5) gebraucht: Wer eine Matrix um eine kleine Matrix $\mathbf E$ verändert, will $\nabla_{\mathbf{A}}f$ und $\mathbf E$ Eintrag für Eintrag vergleichen können.
+Tabelle [2](#tab-2) fasst das zusammen. Zwei Folgerungen hat das Kapitel schon benutzt: Für eine Funktion mit einem Ausgang ist die Jacobi-Matrix der Gradient als Zeile, $\mathbf{J}_f=\nabla f^{\top}$. Und die Kettenregel für Gradienten braucht die Transponierte, $\nabla(f\circ\mathbf{g})=\mathbf{J}_{\mathbf{g}}^{\top}\nabla f$. Regel (iii) wird in Abschnitt [7.5](#stufe-7-5) gebraucht: Wer eine Matrix um eine kleine Matrix $\mathbf E$ verändert, will $\nabla_{\mathbf{A}}f$ und $\mathbf E$ Eintrag für Eintrag vergleichen können.
 
 <span class="anker" id="tab-2"></span>
 
@@ -55,15 +55,15 @@ Tabelle [2](#tab-2) fasst das zusammen. Zwei Folgerungen hat das Kapitel schon 
 |---|---|---|
 | $f:\mathbb{R}\to\mathbb{R}$ | $f'(x)$ | Zahl |
 | $f:\mathbb{R}^n\to\mathbb{R}$ | $\nabla f(\mathbf{x})$ | Spalte, $n\times1$ (wie $\mathbf{x}$) |
-| $\mathbf g:\mathbb{R}^n\to\mathbb{R}^m$ | $\mathbf J_{\mathbf g}(\mathbf{x})$ | $m\times n$ (Zeile $i$ ist $\nabla g_i^{\top}$) |
+| $\mathbf{g}:\mathbb{R}^n\to\mathbb{R}^m$ | $\mathbf{J}_{\mathbf{g}}(\mathbf{x})$ | $m\times n$ (Zeile $i$ ist $\nabla g_i^{\top}$) |
 | $f:\mathbb{R}^{m\times n}\to\mathbb{R}$ | $\nabla_{\mathbf{A}}f(\mathbf{A})$ | $m\times n$ (wie $\mathbf{A}$) |
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist der Gradient die Spalte $\nabla f=(4,\,5)^{\top}$ und die Jacobi-Matrix die Zeile $\mathbf J_f=(4\ \ 5)$. Für $\mathbf g$ aus [(5.1)](die-jacobi-matrix.html#gl-5-1) ist $\mathbf J_{\mathbf g}$ eine $2\times2$-Matrix, deren erste Zeile $(2\ \ 1)$ der Gradient von $g_1=x_1x_2$ als Zeile ist.
+⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist der Gradient die Spalte $\nabla f=(4,\,5)^{\top}$ und die Jacobi-Matrix die Zeile $\mathbf{J}_f=(4\ \ 5)$. Für $\mathbf{g}$ aus [(5.1)](die-jacobi-matrix.html#gl-5-1) ist $\mathbf{J}_{\mathbf{g}}$ eine $2\times2$-Matrix, deren erste Zeile $(2\ \ 1)$ der Gradient von $g_1=x_1x_2$ als Zeile ist.
 
-⁠**Kurz gesagt:** Im Kapitel hat ein Gradient die Form seiner Variablen, und eine Jacobi-Matrix hat eine Zeile je Ausgang; daraus folgen $\mathbf J_f=\nabla f^{\top}$ und die Transponierte in der Kettenregel für Gradienten.
+⁠**Kurz gesagt:** Im Kapitel hat ein Gradient die Form seiner Variablen, und eine Jacobi-Matrix hat eine Zeile je Ausgang; daraus folgen $\mathbf{J}_f=\nabla f^{\top}$ und die Transponierte in der Kettenregel für Gradienten.
 
 :::hintergrund Andere Konventionen in der Literatur
-Viele Bücher schreiben den Gradienten als Zeile. Dann ist er dasselbe wie die Jacobi-Matrix einer Funktion mit einem Ausgang, und die Kettenregel kommt ganz ohne Transponieren aus, denn $\nabla(f\circ\mathbf g)=\nabla f\,\mathbf J_{\mathbf g}$ ist dann ein Produkt aus Zeile und Matrix. Der Preis ist, dass der Gradient nicht mehr die Form von $\mathbf{x}$ hat; die Gerade $\mathbf{x}+t\,\nabla f$ in Richtung des steilsten Anstiegs braucht dann ein Transponieren. Man unterscheidet zwei Anordnungen: Im Zähler-Layout richten sich die Zeilen nach den Komponenten der Funktion, wie bei der Jacobi-Matrix dieses Kapitels. Im Nenner-Layout richten sie sich nach den Komponenten der Variablen; dann ist die Ableitung einer vektorwertigen Funktion die Transponierte der Jacobi-Matrix. Dieses Kapitel benutzt eine verbreitete Mischform, Gradient als Spalte und Jacobi-Matrix im Zähler-Layout. Formeln aus verschiedenen Quellen darf man deshalb nicht ungeprüft kombinieren. Eine schnelle Probe ist die Form: Ein Gradient nach $\mathbf{x}\in\mathbb{R}^n$ muss $n$ Einträge in einer Spalte haben. Eine zuverlässigere Probe ist ein kleines Zahlenbeispiel.
+Viele Bücher schreiben den Gradienten als Zeile. Dann ist er dasselbe wie die Jacobi-Matrix einer Funktion mit einem Ausgang, und die Kettenregel kommt ganz ohne Transponieren aus, denn $\nabla(f\circ\mathbf{g})=\nabla f\,\mathbf{J}_{\mathbf{g}}$ ist dann ein Produkt aus Zeile und Matrix. Der Preis ist, dass der Gradient nicht mehr die Form von $\mathbf{x}$ hat; die Gerade $\mathbf{x}+t\,\nabla f$ in Richtung des steilsten Anstiegs braucht dann ein Transponieren. Man unterscheidet zwei Anordnungen: Im Zähler-Layout richten sich die Zeilen nach den Komponenten der Funktion, wie bei der Jacobi-Matrix dieses Kapitels. Im Nenner-Layout richten sie sich nach den Komponenten der Variablen; dann ist die Ableitung einer vektorwertigen Funktion die Transponierte der Jacobi-Matrix. Dieses Kapitel benutzt eine verbreitete Mischform, Gradient als Spalte und Jacobi-Matrix im Zähler-Layout. Formeln aus verschiedenen Quellen darf man deshalb nicht ungeprüft kombinieren. Eine schnelle Probe ist die Form: Ein Gradient nach $\mathbf{x}\in\mathbb{R}^n$ muss $n$ Einträge in einer Spalte haben. Eine zuverlässigere Probe ist ein kleines Zahlenbeispiel.
 :::
 
 ### Lineare Funktionen
@@ -136,7 +136,7 @@ $$\nabla f(\mathbf{x})=-2\mathbf{A}^{\top}(\mathbf{y}-\mathbf{A}\mathbf{x})=2\ma
 :::
 
 :::beweis Gradient der Quadratsumme
-Die Funktion ist eine Verkettung: Zuerst bildet die affine Abbildung $\mathbf{r}(\mathbf{x})=\mathbf{y}-\mathbf{A}\mathbf{x}$ das Residuum, dann bildet $\mathbf{r}\mapsto\lVert\mathbf{r}\rVert^2$ seine Quadratsumme. Nach Abschnitt [5.4](die-jacobi-matrix.html#stufe-5-4) ist $\mathbf J_{\mathbf{r}}=-\mathbf{A}$, nach [(7.2)](#gl-7-2) ist $\nabla_{\mathbf{r}}\lVert\mathbf{r}\rVert^2=2\mathbf{r}$. Die Kettenregel [(6.3)](die-kettenregel-fur-mehrere-variablen.html#gl-6-3) ergibt $\nabla f=(-\mathbf{A})^{\top}\,2\mathbf{r}=-2\mathbf{A}^{\top}\mathbf{r}$.
+Die Funktion ist eine Verkettung: Zuerst bildet die affine Abbildung $\mathbf{r}(\mathbf{x})=\mathbf{y}-\mathbf{A}\mathbf{x}$ das Residuum, dann bildet $\mathbf{r}\mapsto\lVert\mathbf{r}\rVert^2$ seine Quadratsumme. Nach Abschnitt [5.4](die-jacobi-matrix.html#stufe-5-4) ist $\mathbf{J}_{\mathbf{r}}=-\mathbf{A}$, nach [(7.2)](#gl-7-2) ist $\nabla_{\mathbf{r}}\lVert\mathbf{r}\rVert^2=2\mathbf{r}$. Die Kettenregel [(6.3)](die-kettenregel-fur-mehrere-variablen.html#gl-6-3) ergibt $\nabla f=(-\mathbf{A})^{\top}\,2\mathbf{r}=-2\mathbf{A}^{\top}\mathbf{r}$.
 :::
 
 ⁠**Rechenbeispiel:** Es sei $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$, $\mathbf{y}=(1,\,0)^{\top}$ und $\mathbf{x}=(2,\,1)^{\top}$. Dann ist $\mathbf{A}\mathbf{x}=(4,\,1)^{\top}$, das Residuum $\mathbf{r}=(-3,\,-1)^{\top}$ und $f(\mathbf{x})=9+1=10$. Mit $\mathbf{A}^{\top}\mathbf{r}=(-3,\,-7)^{\top}$ ist
@@ -328,7 +328,7 @@ Prüfe (b) mit der linearen Näherung [(7.4)](#gl-7-4): Um wie viel ändert sich
 :::loesung
 (a) $\operatorname{spur}\mathbf{A}=\sum_ia_{ii}$. Die Ableitung nach $a_{ij}$ ist $1$ für $i=j$ und $0$ sonst; in der Form von $\mathbf{A}$ angeordnet ist das $\mathbf{I}$.
 
-(b) Es ist $\lVert\mathbf{A}\mathbf{x}\rVert^2=f(\mathbf{y})$ mit $\mathbf{y}=\mathbf{A}\mathbf{x}$ und $\nabla f(\mathbf{y})=2\mathbf{y}$. Nach [(7.6)](#gl-7-6) ist $\nabla_{\mathbf{A}}=2\mathbf{y}\,\mathbf{x}^{\top}=2\,(\mathbf{A}\mathbf{x})\,\mathbf{x}^{\top}$. Für $\mathbf{A}=\mathbf{I}$ und $\mathbf{x}=(1,\,2)^{\top}$:
+(b) Es ist $\lVert\mathbf{A}\mathbf{x}\rVert^2=f(\mathbf{y})$ mit $\mathbf{y}=\mathbf{A}\mathbf{x}$ und $\nabla f(\mathbf{y})=2\mathbf{y}$. Nach [(7.6)](#gl-7-6) ist $\nabla_{\mathbf{A}}\lVert\mathbf{A}\mathbf{x}\rVert^2=2\mathbf{y}\,\mathbf{x}^{\top}=2\,(\mathbf{A}\mathbf{x})\,\mathbf{x}^{\top}$. Für $\mathbf{A}=\mathbf{I}$ und $\mathbf{x}=(1,\,2)^{\top}$:
 
 $$\nabla_{\mathbf{A}}\lVert\mathbf{A}\mathbf{x}\rVert^2=2\begin{pmatrix}1\\2\end{pmatrix}\begin{pmatrix}1&2\end{pmatrix}=\begin{pmatrix}2&4\\4&8\end{pmatrix}.$$
 

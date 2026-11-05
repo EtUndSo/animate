@@ -23,7 +23,15 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
 | ml | 1 | Überarbeitung mit vollständigem Lesen + Rechenbilder | fertig 04.11. (91 S., 37 Aufgaben, 15 Abb. + 27 Rechenbilder; Website de gebaut). Endgültig, Übersetzung nach ml 2 einreihen. Offen: Rechenbild k1rmittelvektor zeigt 5/2 statt 2,5 (damals konnte s.formel noch keine Dezimalzahlen je Sprache; jetzt möglich, beim Übersetzen anpassen). Neue Regel im Heft: Vektoren mit Dezimalzahlen mit Semikolon (0,2; 0,25)ᵀ. |
 | ml | 2 | Übersetzung en/es/zh/fr/tr | in Arbeit (04.11. nachts, parallel zum Schreib-Agenten; Anrede fr vous, tr siz) |
 | cyber | 1 | Überarbeitung mit vollständigem Lesen + Rechenbilder | fertig 05.11. (74 S., 20 Aufgaben, 8 Abb. + 10 Rechenbilder; Website de gebaut). Alles ganz gelesen, Rechtsstand zum 05.11. unverändert (StGB zuletzt 20.03.2026, kein Reformentwurf). Endgültig, Übersetzung einreihen. Neu: Unterabschnitt Gesamtrisiko, CVSS-Formel im Haupttext, § 202a nach BGH 5 StR 614/19, Plattformregeln korrigiert (OverTheWire untersagt Passwörter, pwn.college bittet). Szene k1rcvss: Symbole W/E müssen in allen Sprachen gleich bleiben. |
-| ml | 3 | Ableitung, Gradient, Kettenregel, autom. Differentiation | in Arbeit (05.11.) |
+| ml | 3 | Ableitung, Gradient, Kettenregel, autom. Differentiation | fertig 05.11. (73 S., 11 Abschnitte, 42 Aufgaben, 10 Abb. + 10 Rechenbilder; Website de gebaut). Alles ganz gelesen, Selbstprüfung über das ganze Heft. Endgültig, Übersetzung einreihen. |
+| ml | 4 | Wahrscheinlichkeit | in Arbeit (05.11.) |
+
+Hinweise ml 3 (verbindlich für spätere Hefte):
+- **Layout-Konvention:** Vektoren sind Spalten; der Gradient ∇f hat die Form von x (Spalte); die Jacobi-Matrix J_g ∈ ℝ^{m×n} hat eine Zeile je Ausgang, (J)ᵢⱼ = ∂gᵢ/∂xⱼ, also J_f = ∇fᵀ.
+- **Kettenregel:** J_{f∘g} = J_f J_g und ∇(f∘g) = J_gᵀ∇f. ∇_A f hat die Form von A. (H_f)ᵢⱼ = ∂²f/∂xᵢ∂xⱼ.
+- **Automatische Differentiation:** Adjungierte ā = ∂f/∂a, Tangentenwert ḃ. ε_M = 2⁻⁵² heißt Maschinengenauigkeit.
+- **Umbenennungen in Teil 3:** H aus Teil 2 heißt A, weil H die Hesse-Matrix ist; Schrittweite h; statt L (Verlust) überall ein allgemeines f. Die logistische Funktion σ ist eingeführt, mit σ′ = σ(1−σ), ohne ML-Zweck.
+- **Präambel ergänzt:** `\mJ \vg \vt \vgamma`.
 
 Hinweise ml 2:
 - SVD als A = UDVᵀ mit d_j; Residuum r = y − Ax̂; ŷ, x̂, P; Drehungen heißen Q (R ist das R der QR-Zerlegung); λ_i, Λ, S mit s_i; Cholesky L; Links-/Rechtsinverse F/G; A⁺; κ = d₁/d_n; ‖·‖₂ Spektralnorm, ‖·‖_F Frobenius; z*; imaginäre Einheit j.

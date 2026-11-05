@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\Delta^2=\\sum_{i=1}^2\\frac{y_i^2}{\\lambda_i}&=\\frac{y_1^2}{\\lambda_1}+\\frac{y_2^2}{\\lambda_2}\\\\\\Delta(\\mathbf x_a)^2&=\\frac{(1.5\\sqrt2)^2}{3}+\\frac{0^2}{1}=\\frac{4.5}{3}+0=1.5\\\\\\Delta(\\mathbf x_b)^2&=\\frac{0^2}{3}+\\frac{(\\sqrt2)^2}{1}=0+\\frac{2}{1}=2\\end{aligned}",
+     "height": 2.015,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

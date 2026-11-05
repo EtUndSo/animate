@@ -36,19 +36,19 @@ Richtungsableitung $D_{\mathbf{u}}f=\nabla f^{\top}\mathbf{u}$; steilster Anstie
 
 <li>
 
-Jacobi-Matrix $\mathbf J_{\mathbf g}\in\mathbb{R}^{m\times n}$, Zeile je Ausgang: $\mathbf g(\mathbf{x}+\mathbf{h})\approx\mathbf g(\mathbf{x})+\mathbf J_{\mathbf g}\mathbf{h}$; für $\mathbf{A}\mathbf{x}+\mathbf{b}$ ist sie $\mathbf{A}$, für elementweise Funktionen diagonal.
+Jacobi-Matrix $\mathbf{J}_{\mathbf{g}}\in\mathbb{R}^{m\times n}$, Zeile je Ausgang: $\mathbf{g}(\mathbf{x}+\mathbf{h})\approx\mathbf{g}(\mathbf{x})+\mathbf{J}_{\mathbf{g}}\mathbf{h}$; für $\mathbf{A}\mathbf{x}+\mathbf{b}$ ist sie $\mathbf{A}$, für elementweise Funktionen diagonal.
 
 </li>
 
 <li>
 
-Kettenregel: $\mathbf J_{\mathbf f\circ\mathbf g}=\mathbf J_{\mathbf f}\mathbf J_{\mathbf g}$, komponentenweise Summe über alle Wege; $\nabla(f\circ\mathbf g)=\mathbf J_{\mathbf g}^{\top}\nabla f$.
+Kettenregel: $\mathbf{J}_{\mathbf f\circ\mathbf{g}}=\mathbf{J}_{\mathbf f}\mathbf{J}_{\mathbf{g}}$, komponentenweise Summe über alle Wege; $\nabla(f\circ\mathbf{g})=\mathbf{J}_{\mathbf{g}}^{\top}\nabla f$.
 
 </li>
 
 <li>
 
-$\nabla(\mathbf{a}^{\top}\mathbf{x})=\mathbf{a}$, $\nabla(\mathbf{x}^{\top}\mathbf{A}\mathbf{x})=(\mathbf{A}+\mathbf{A}^{\top})\mathbf{x}$, $\nabla\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=-2\mathbf{A}^{\top}(\mathbf{y}-\mathbf{A}\mathbf{x})$, $\nabla_{\mathbf{A}}(\mathbf{u}^{\top}\mathbf{A}\mathbf{v})=\mathbf{u}\mathbf{v}^{\top}$; rückwärts durch $\mathbf{y}=\mathbf{A}\mathbf{x}$: $\nabla_{\mathbf{A}}=\nabla_{\mathbf{y}}f\,\mathbf{x}^{\top}$, $\nabla_{\mathbf{x}}=\mathbf{A}^{\top}\nabla_{\mathbf{y}}f$.
+$\nabla(\mathbf{a}^{\top}\mathbf{x})=\mathbf{a}$, $\nabla(\mathbf{x}^{\top}\mathbf{A}\mathbf{x})=(\mathbf{A}+\mathbf{A}^{\top})\mathbf{x}$, $\nabla\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=-2\mathbf{A}^{\top}(\mathbf{y}-\mathbf{A}\mathbf{x})$, $\nabla_{\mathbf{A}}(\mathbf{u}^{\top}\mathbf{A}\mathbf{v})=\mathbf{u}\mathbf{v}^{\top}$; rückwärts durch $\mathbf{y}=\mathbf{A}\mathbf{x}$ mit $F=f(\mathbf{A}\mathbf{x})$: $\nabla_{\mathbf{A}}F=\nabla f(\mathbf{y})\,\mathbf{x}^{\top}$, $\nabla_{\mathbf{x}}F=\mathbf{A}^{\top}\nabla f(\mathbf{y})$.
 
 </li>
 
@@ -66,7 +66,7 @@ Rechengraph: Grundoperationen, Vorwärtsrechnung mit gespeicherten Werten, lokal
 
 <li>
 
-Vorwärtsmodus: Tangentenwerte, ein Durchlauf je Richtung ($\mathbf J\dot{\mathbf{x}}$). Rückwärtsmodus: Adjungierte $\bar a=\sum\bar b\,\partial b/\partial a$ ab $\bar f=1$, ein Durchlauf für den ganzen Gradienten, Aufwand ein kleines Vielfaches einer Auswertung, Preis: Speicher.
+Vorwärtsmodus: Tangentenwerte, ein Durchlauf je Richtung ($\mathbf{J}\dot{\mathbf{x}}$). Rückwärtsmodus: Adjungierte $\bar a=\sum\bar b\,\partial b/\partial a$ ab $\bar f=1$, ein Durchlauf für den ganzen Gradienten, Aufwand ein kleines Vielfaches einer Auswertung, Preis: Speicher.
 
 </li>
 
