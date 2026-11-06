@@ -4,15 +4,19 @@ Du schreibst **ein** deutsches Arbeitsheft von Grund auf neu; Reihe und Teil nen
 
 Dieser Auftrag ersetzt für die Zusatzreihen `ueberarbeitung_auftrag.md`. `UEBERARBEITUNG.md` gilt vollständig; wo dort „Skript“ steht, lies „Lernpfad-Eintrag und WISSEN-Datei des Hefts“.
 
-## Zuerst lesen (Pflicht, jede Datei vollständig)
-Der User hat ausdrücklich verlangt, dass alles ganz gelesen wird: „Nein, der Agent soll alles lesen!“ und „Ein Abschnitt aus einem ganzen Buch zu lesen ist wie ein Wassertropfen aus einem See, das macht keinen Sinn“.
-- Lies jede Datei dieser Liste **von der ersten bis zur letzten Zeile**. Große Dateien liest du in aufeinanderfolgenden Teilen (offset/limit), bis das Ende erreicht ist. Meldet Read eine Teilansicht („PARTIAL view“), liest du weiter, bis alles gelesen ist.
-- Gespart wird nur beim PDF (siehe „Bauen und prüfen“).
+## Zuerst lesen
+**Quellen vollständig, eigene Hefte über Zusammenfassungen.** Der User verlangt, dass alle **Quellen** ganz gelesen werden: „Ein Abschnitt aus einem ganzen Buch zu lesen ist wie ein Wassertropfen aus einem See, das macht keinen Sinn“. Am 06.11.2026 präzisierte er: „Mit vollständig lesen meinte ich die Quellen. Die eigenen erstellten Hefte müssen ja nicht nochmal vollständig gelesen werden, da reichen Zusammenfassungen.“
+- **Quellen** liest du **von der ersten bis zur letzten Zeile**: Leitfaden, Präambel, LERNPFAD, WISSEN-Datei, AUFGABEN, ZUSAMMENFASSUNG, QUELLEN und die Notizen zu deinem Heft. Große Dateien liest du in aufeinanderfolgenden Teilen (offset/limit), bis das Ende erreicht ist. Meldet Read eine Teilansicht („PARTIAL view“), liest du weiter.
+- **Eigene frühere Hefte** (Musterhefte und frühere Teile der Reihe) liest du **nicht ganz**:
+  - Für die früheren Teile deiner Reihe liest du deren Zusammenfassung `zusammenfassung_kap<N>.md` im Heftordner. Verweist du auf eine bestimmte Stelle zurück, liest du genau diese Stelle nach.
+  - Von den Musterheften liest du einen vollständigen Abschnitt und den Abschluss als Stilvorbild.
+- **Dein eigenes neues Heft** prüfst du am Ende trotzdem ganz, Satz für Satz (Selbstprüfung, siehe „Bauen und prüfen“).
+- Gespart wird außerdem beim PDF (siehe „Bauen und prüfen“).
 
 1. `C:\Users\info\PycharmProjects\pythonanimation\notizen\UEBERARBEITUNG.md`: der maßgebliche Leitfaden, besonders §2 (ein Begriff nach dem anderen, Theorie vor Praxis), §3 und §3a (Hintergrund-Kästen mit recherchiertem Warum) und §4 (keine Vorgriffe).
-2. Die beiden Muster, **alle Dateien ganz**:
-   - ET3 Teil 2: `C:\Bücher\ET3\Arbeitshefte\Kap2_Laplace.tex`, `kap2_stufen.tex`, `kap2_stufen_b.tex`, `kap2_loesungen.tex`.
-   - HöMa3 Teil 1: `C:\Bücher\HöMa3\Arbeitshefte\Kap1_Vektorfelder.tex`, `kap1_stufen.tex`, `kap1_loesungen.tex`.
+2. Die beiden Muster, je ein vollständiger Abschnitt und der Abschluss (Kernboxen, Prinzip-Tabelle, ein Stück Lösungen):
+   - ET3 Teil 2: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen.tex` (Abschnitt 1), `kap2_stufen_b.tex` (Ende), `kap2_loesungen.tex` (Anfang).
+   - HöMa3 Teil 1: `C:\Bücher\HöMa3\Arbeitshefte\kap1_stufen.tex` (ein Abschnitt und Ende).
 3. Die Präambel deiner Reihe (`praeambel.tex` im Heftordner, siehe unten): Kästen, Code-Umgebungen, Makros. Benutze nur, was dort steht.
 4. Aus `C:\Bücher\EtUndSo\<Reihe>\Recherche\`, jeweils ganz:
    - `LERNPFAD.md`: darin **der Eintrag deines Hefts** (Lernziele, Begriffe in Einführungsreihenfolge, Voraussetzungen, Hauptquellen, Warum-Ideen, Aufgaben, Abbildungen); bei ML die „Notationsentscheidungen“.
@@ -21,7 +25,15 @@ Der User hat ausdrücklich verlangt, dass alles ganz gelesen wird: „Nein, der 
    - `ZUSAMMENFASSUNG.md`: die Entscheidungen des Users.
    - `QUELLEN.md`.
    - die Dateien in `Notizen\`, die dein Heft betreffen (Belegstellen, Prüfprotokolle, Hauptquellen-Exzerpte deiner Teile).
-5. Die fertigen früheren Hefte der Reihe im Heftordner, alle Dateien ganz: Ihre Begriffe, Bezeichnungen und Beispiele übernimmst du.
+5. Die fertigen früheren Hefte der Reihe über ihre Zusammenfassungen `zusammenfassung_kap<N>.md` im Heftordner. Ihre Begriffe, Bezeichnungen, Datensätze und Beispiele übernimmst du; Einzelstellen liest du bei Bedarf im Heft nach.
+
+**Neue Pflichtlieferung:** Am Ende schreibst du `zusammenfassung_kap<N>.md` für dein Heft, auf Deutsch, etwa 2–4 Seiten. Sie ist für spätere Agenten gedacht, nicht für Leser. Inhalt:
+- Gliederung (Abschnitt und Unterabschnitt mit Nummer);
+- je Abschnitt die eingeführten Begriffe mit Kurzdefinition und den wichtigsten Formeln und Sätzen;
+- festgelegte Bezeichnungen und Konventionen;
+- wiederverwendbare Datensätze und Beispiele mit ihren Zahlen;
+- Abbildungen und Szenennamen;
+- was bewusst auf spätere Hefte verschoben ist.
 
 | Reihe | Heftordner | Recherche | Szenen |
 |---|---|---|---|
@@ -29,6 +41,28 @@ Der User hat ausdrücklich verlangt, dass alles ganz gelesen wird: „Nein, der 
 | ml | `C:\Bücher\EtUndSo\MachineLearning\Arbeitshefte` | `C:\Bücher\EtUndSo\MachineLearning\Recherche` | `tools/szenen/ml_teil<N>.py`, Namen `ml/k<N>name` |
 
 Teil N ist Stamm-Heft T<NN> des Lernpfads (Teil 1 = T01). Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE["cyber"]` bzw. `MODULE["ml"]` und muss exakt stimmen.
+
+**Machine Learning: Grundlagen und Pfad** (Entscheidung des Users, 05.11.2026). Der User: „Wir sollten die mathematischen Grundlagen bei ML als solche markieren, also eher als Nachschlagwerk … Sonst verbringt man Wochen damit diese zu lernen obwohl man sie erst sehr spät oder gar nicht braucht.“
+- **Mathematische Grundlagen:** Die Lernpfad-Hefte T01–T06 heißen „Grundlagen 1–6“ und bilden einen eigenen Bereich „Mathematische Grundlagen (zum Nachschlagen)“.
+  - Untereinander verweisen sie mit „Grundlagen N, Abschnitt M“ (bis zur Umstellung steht dort noch „Teil N“).
+  - Spätere ML-Hefte nennen sie nicht (keine Vorgriffe). Die Website zeigt bei jedem Grundlagen-Abschnitt automatisch, welche ML-Artikel ihn verwenden.
+- **Der ML-Pfad** beginnt mit T08 „Lernen aus Daten“: **ML-Teil N = Lernpfad-Heft T(N+7)**. T07 (Python/NumPy) entfällt im Pfad, weil Python im Bereich „Programmieren“ erklärt wird (siehe „Nichts doppelt erklären“). Die Titelzeile lautet „Arbeitsheft Machine Learning, Teil N“, Rückverweise auf frühere Pfad-Hefte „Teil N“.
+- **Jedes ML-Pfad-Heft setzt die Grundlagen nicht voraus.** Wo es Mathematik braucht, steht zu Beginn des Abschnitts „Was du dafür brauchst“:
+  - jedes benötigte Grundlagen-Thema in einer kurzen, selbsttragenden Zusammenfassung (Definition, eine Formel, ein Mini-Beispiel);
+  - dazu der Verweis „ausführlich: Grundlagen N, Abschnitt M“, auf der Website ein Link.
+
+  Wer die Grundlagen kennt, überspringt das; wer nicht, kann trotzdem weiterlesen oder gezielt nachschlagen. Nimm nur auf, was das Heft wirklich braucht, und genau dort, wo es gebraucht wird.
+- **Optimierung (T06 = Grundlagen 6)** entsteht erst kurz bevor ein Pfad-Heft sie braucht, vor dem Gradientenabstieg.
+
+**Nichts doppelt erklären** (Vorgabe des Users, 06.11.2026). Der User: „darauf achten, dass wir Inhalte nicht mehrfach auf der Webseite vollständig erklären … einen separaten Bereich haben … in den ML-Artikeln darauf verweisen und das Wissen als gekannt voraussetzen. Dann nur noch das Programmieren, das zu dem Inhalt passt.“
+- **Ein Ort pro Thema:** Jedes Thema wird auf der Website genau einmal vollständig erklärt, im passenden Bereich. Welcher das ist, steht in `notizen/themenkarte.md`; dort siehst du vor dem Schreiben nach und trägst deine eigenen Themen ein.
+- **Gemeinsame Bereiche:**
+  - **Programmieren:** Python (Sprache, Datenstrukturen, Funktionen, Module, venv, NumPy-Grundlagen), später C und C++.
+  - **Linux und Kommandozeile:** Shell, Dateien, Rechte, Prozesse.
+
+  ML und Cybersecurity setzen beides voraus.
+- **Fachhefte setzen voraus und verweisen:** Ein Fachheft erklärt nur, was zu seinem Inhalt gehört. Ein ML-Heft programmiert das Modell, ein Cybersecurity-Heft Sockets und Bytes. Vorausgesetztes Wissen bekommt höchstens ein bis drei Sätze und einen Verweis mit Link („ausführlich: Programmieren, Python N, Abschnitt M“).
+- **Mathematik:** Für die ML-Grundlagen gilt dasselbe gegenüber den Mathematik-Modulen (HöMa). Was dort vollständig erklärt ist, etwa Beweise und Herleitungen, steht in den Grundlagen nur noch als Kurzfassung mit Link.
 
 ## Quellen und Recherche
 - **Inhalt:** Was die WISSEN-Datei an Definitionen, Mechanismen, Formeln, Befehlen, typischen Fehlern und Beispielen enthält, kommt ins Heft, soweit es zum Lernziel gehört. Lange Passagen darfst du zusammenfassen; nichts Wichtiges weglassen. Stellen, die die WISSEN-Datei als unsicher markiert („[TOC]“, „noch prüfen“), prüfst du vor dem Schreiben nach.
@@ -52,7 +86,14 @@ Teil N ist Stamm-Heft T<NN> des Lernpfads (Teil 1 = T01). Der Dateiname `Kap<N>_
   - Grundregel in jedem Heft mit praktischen Übungen als Kasten `warnung`: nur eigene Systeme, erlaubte Lernplattformen innerhalb ihrer Regeln oder isolierte Labore. Der Rechtsstand muss exakt und aktuell sein; das Heft ist keine Rechtsberatung und sagt das.
   - Riskante Schritte (Datenträger beschreiben, Bootreihenfolge, Secure Boot, BitLocker) stehen mit ihrem Risiko und der Absicherung in einem `warnung`-Kasten, bevor der Schritt kommt.
   - Lösungen von Plattform-Aufgaben werden nie abgedruckt (pwn.college und OverTheWire verbieten es): Dort nur gestufte Hinweise. Vollständige Lösungen gibt es für die eigenen Aufgaben des Hefts.
-- **Machine Learning:** Programmieren in Python ab Teil 7 (dort Einrichtung), C++ nur in den Heften, die der Lernpfad markiert. Teil 1 bis 6 rechnen von Hand und mit Zahlenbeispielen; kein Werkzeug vor seinem Begriff. Notation strikt nach den Notationsentscheidungen im Lernpfad.
+- **Machine Learning:** Programmieren in Python ab ML-Teil 1. Python, venv und NumPy-Grundlagen setzt das Heft voraus und verweist auf den Bereich „Programmieren“; ML-eigene Werkzeuge (scikit-learn, Datensätze) führt es dort ein, wo sie zuerst gebraucht werden. C++ nur in den Heften, die der Lernpfad markiert. Die Grundlagen 1–6 rechnen von Hand und mit Zahlenbeispielen; kein Werkzeug vor seinem Begriff. Notation strikt nach den Notationsentscheidungen im Lernpfad und den Bezeichnungen der Grundlagen (`notizen/zusatzreihen_stand.md`).
+- **Erst selbst bauen, dann die Bibliothek** (Vorgabe des Users, 05.11.2026). Der User: „bei jedem Thema (falls ohne riesigen Aufwand möglich) erst zeigen, wie man es von Grund auf implementieren kann, das hilft enorm für das Verständnis, dann zeigen, welche fertigen Bibliotheken es dafür gibt und wie man sie nutzt. Also immer den manuellen und dann den fertigen Weg“.
+  - **Reihenfolge je Verfahren:**
+    1. eine kleine eigene Umsetzung von Grund auf, nur mit dem, was bis dahin eingeführt ist: reines Python bzw. NumPy-Grundfunktionen, bei Cybersecurity Shell oder Python mit Sockets;
+    2. dann die üblichen fertigen Bibliotheken bzw. Werkzeuge (z. B. scikit-learn, `numpy.linalg`, PyTorch; nmap, openssl, Wireshark), wie man sie benutzt und welche Optionen zählen;
+    3. zum Schluss ein Vergleich: Beide Wege liefern auf denselben Daten dasselbe Ergebnis, mit echter Ausgabe. Was die Bibliothek zusätzlich leistet (Numerik, Tempo, Randfälle), steht in einem Satz.
+  - **Ausnahmen:** Wo die eigene Umsetzung riesigen Aufwand bedeutet (etwa ein vollständiges TLS, ein Compiler, ein GPU-Kernel), genügt eine stark vereinfachte Kernidee als Skizze. Das Heft sagt dann, was weggelassen ist.
+  - Die Grundlagen-Hefte rechnen weiter von Hand, ohne Code.
 - **Code-Listings** (Präambel): `konsole` (Sitzung: Eingabe mit `$ `, `# ` oder `>>> ` am Zeilenanfang, sonst Ausgabe), `bash`, `python`, `ccode`, `cppcode`, `asm` (Intel), `gas` (AT&T), `ausgabe` (reiner Text). Optionaler Titel: `\begin{python}[hallo.py]`. Code ab Spalte 0, ohne Tabulatoren; Zeichen außerhalb von ASCII nur in Kommentaren und Zeichenketten. Im Fließtext `\texttt{...}` (Sonderzeichen escapen) oder `\verb|...|` (nicht in Überschriften, Kastentiteln und Argumenten).
 - **Übungsumgebung der Leser:** Die Leser richten sich ihre Umgebung selbst ein, nach den Anleitungen in den Heften (Live-USB-Stick oder VM ab Teil 3, isoliertes Labor in späteren Teilen; Python-Umgebung in ML Teil 7). Die Website stellt nie selbst eine Umgebung bereit: keine Online-Terminals, keine eingebetteten Sandboxes, kein ausführbarer Code auf der Seite (Entscheidung des Users vom 04.11.2026, wegen der Sicherheitsrisiken). Externe Übungsplattformen dürfen verlinkt werden.
 - **Alles Ausführbare wird getestet**, bevor es ins Heft kommt. Diese Testumgebung gibt es nur auf dem Rechner des Users, für dich:

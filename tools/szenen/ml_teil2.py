@@ -184,7 +184,7 @@ def k2formen():
         for c in werte:
             zug(s, w, [P(c, t, fz(c, t)) for t in [j / 20 - 1 for j in range(41)]], farbe=farbe, dicke=2)
             zug(s, w, [P(t, c, fz(t, c)) for t in [j / 20 - 1 for j in range(41)]], farbe=farbe, dicke=2)
-        s.text(w, s.tr(key, *worte), (mx, 2.5), MITTEL, "center", farbe)
+        s.text(w, s.tr(key, *worte[:4], fr=worte[4], tr=worte[5]), (mx, 2.5), MITTEL, "center", farbe)
     # Höhenlinien darunter
     for k, farbe in enumerate((BLAU, GRUEN, ROT)):
         a = s.achsen((-1.1, 1.1), (-1.1, 1.1), breite=1.35, hoehe=1.35, mitte=(-2.15 + 2.15 * k, -1.35), kreuz=True, xticks="1",
@@ -354,7 +354,7 @@ def k2kondition():
         s.punkt(w, *T(1, 1), farbe=SCHWARZ, r=0.07)
         s.punkt(w, *T(*neu), farbe=SCHWARZ, r=0.07)
         s.pfeil(T(1, 1), T(*neu), on=w, farbe=SCHWARZ, dicke=4, spitze=0.13)
-        s.text(w, s.tr(key, *worte), T(0.9, 2.8), KLEIN, "center")
+        s.text(w, s.tr(key, *worte[:4], fr=worte[4], tr=worte[5]), T(0.9, 2.8), KLEIN, "center")
         wd = s.tr("wand" + key, "Schnittpunkt wandert um " + weg, "intersection moves by " + weg,
                   "el punto de corte se mueve " + weg, "交点移动 " + weg, fr="l’intersection se déplace de " + weg,
                   tr="kesişim noktası " + weg + " kayar")

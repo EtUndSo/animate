@@ -313,16 +313,16 @@ def k4rkovarianz():                                      # 10.1
                                 r"\operatorname{Cov}(S,R)=\mathbb E[SR]-\mathbb E[S]\,\mathbb E[R]&=0.3-0.4\cdot0.4=0.3-0.16=0.14"), 1.5)
 
 
-XT = r"\tilde{\mathbf x}"
-YT = r"\tilde{\mathbf y}"
+AT = r"\tilde{\mathbf a}"
+BT = r"\tilde{\mathbf b}"
 
 
 def k4rdaten():                                          # 10.6
-    _formel("k4rdaten", _al(r"&" + XT + "=" + _sp(-1, 0, 1) + r",\qquad " + YT + "=" + _sp(0, -1, 1),
-                            r"\operatorname{cov}(\mathbf x,\mathbf y)=\frac13\sum_{i=1}^3(x_i-\bar x)(y_i-\bar y)"
+    _formel("k4rdaten", _al(r"&" + AT + "=" + _sp(-1, 0, 1) + r",\qquad " + BT + "=" + _sp(0, -1, 1),
+                            r"\operatorname{cov}(\mathbf a,\mathbf b)=\frac13\sum_{i=1}^3(a_i-\bar a)(b_i-\bar b)"
                             r"&=\tfrac13\,\bigl((-1)\cdot0+0\cdot(-1)+1\cdot1\bigr)=\tfrac13\,(0+0+1)=\tfrac13",
-                            r"\operatorname{std}(\mathbf x)^2=\frac13\sum_{i=1}^3(x_i-\bar x)^2"
-                            r"&=\tfrac13\,\bigl((-1)^2+0^2+1^2\bigr)=\tfrac13\,(1+0+1)=\tfrac23"), 2.6)
+                            r"\operatorname{std}(\mathbf a)^2=\frac13\sum_{i=1}^3(a_i-\bar a)^2"
+                            r"&=\tfrac13\,\bigl((-1)^2+0^2+1^2\bigr)=\tfrac13\,(1+0+1)=\tfrac23"), 2.0)
 
 
 def k4rkovmatrix():                                      # 11.3

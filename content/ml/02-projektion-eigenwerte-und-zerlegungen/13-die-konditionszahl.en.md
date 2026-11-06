@@ -173,7 +173,7 @@ $5\mathbf{A}$ for $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}
 :::
 :::
 
-:::aufgabe Exercise 37 ★★ Large determinant, poor conditioning
+:::aufgabe Exercise 37 ★★ Determinant 1, yet ill-conditioned
 <span class="anker" id="aufg-37"></span>
 
 Let $\mathbf{A}=\bigl(\begin{smallmatrix}10&7\\7&5\end{smallmatrix}\bigr)$.

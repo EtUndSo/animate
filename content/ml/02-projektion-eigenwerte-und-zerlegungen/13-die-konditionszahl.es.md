@@ -173,7 +173,7 @@ $5\mathbf{A}$ para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix
 :::
 :::
 
-:::aufgabe Ejercicio 37 ★★ Determinante grande, mal condicionamiento
+:::aufgabe Ejercicio 37 ★★ Determinante 1 y, aun así, mal condicionada
 <span class="anker" id="aufg-37"></span>
 
 Sea $\mathbf{A}=\bigl(\begin{smallmatrix}10&7\\7&5\end{smallmatrix}\bigr)$.

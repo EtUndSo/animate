@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\operatorname{MSE}(0.9\\,\\bar X)&=\\sum_{\\bar x}(0.9\\,\\bar x-2)^2\\,P(\\bar X=\\bar x)\\\\&=(-1.1)^2\\cdot\\tfrac19+(-0.65)^2\\cdot\\tfrac29+(-0.2)^2\\cdot\\tfrac39+0.25^2\\cdot\\tfrac29+0.7^2\\cdot\\tfrac19\\\\&=\\tfrac{1.21+0.845+0.12+0.125+0.49}9=\\tfrac{2.79}9=0.31\\\\&=\\underbrace{(-0.2)^2}_{\\operatorname{Bias}^2}+\\underbrace{0.27}_{\\operatorname{Var}}\\end{aligned}",
+     "height": 1.685,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

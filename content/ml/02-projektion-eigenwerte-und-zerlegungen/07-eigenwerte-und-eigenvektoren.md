@@ -104,7 +104,7 @@ Das charakteristische Polynom hat den Grad $n$. Für eine $2\times2$-Matrix ist 
 <span class="anker" id="gl-6-3"></span>
 $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda)-bc=\lambda^2-(a+d)\,\lambda+(ad-bc) . \tag{6.3}$$
 
-Nach dem vorigen Unterabschnitt hat es, mit Vielfachheit gezählt, genau $n$ komplexe Nullstellen. Eine $n\times n$-Matrix hat also $n$ Eigenwerte, wenn man komplexe zulässt und mehrfache mehrfach zählt.
+Nach dem Unterabschnitt über komplexe Zahlen hat es, mit Vielfachheit gezählt, genau $n$ komplexe Nullstellen. Eine $n\times n$-Matrix hat also $n$ Eigenwerte, wenn man komplexe zulässt und mehrfache mehrfach zählt.
 
 ⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ist $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. Die Eigenwerte sind $5$ und $2$, wie im vorigen Unterabschnitt. Für die Diagonalmatrix $\operatorname{diag}(3;\,-1)$ ist $p(\lambda)=(3-\lambda)(-1-\lambda)$ mit den Nullstellen $3$ und $-1$: Die Eigenwerte einer Diagonalmatrix stehen auf ihrer Diagonale, die Eigenvektoren sind die Einheitsvektoren.
 

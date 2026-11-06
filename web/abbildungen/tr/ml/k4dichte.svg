@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="508" height="279" viewBox="474.8078 320.5586 923.6364 507.2727">
-<rect x="474.8078" y="320.5586" width="923.6364" height="507.2727" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="508" height="301" viewBox="474.8078 280.3086 923.6364 547.2727">
+<rect x="474.8078" y="280.3086" width="923.6364" height="547.2727" fill="#ffffff"/>
 <path d="M588.75 688.5C687.75 688.5 786.75 688.5 885.75 688.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M588.75 688.5C588.75 598.5 588.75 508.5 588.75 418.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M631.18 702C631.18 693 631.18 684 631.18 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -26,7 +26,7 @@
 <path d="M783.41 463.5C783.41 457.54 778.57 452.7 772.61 452.7C766.64 452.7 761.81 457.54 761.81 463.5C761.81 469.46 766.64 474.3 772.61 474.3C778.57 474.3 783.41 469.46 783.41 463.5" fill="#2a78d6"/>
 <path d="M843.32 688.5C843.32 663.5 843.32 638.5 843.32 613.5" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M854.12 613.5C854.12 607.54 849.29 602.7 843.32 602.7C837.36 602.7 832.52 607.54 832.52 613.5C832.52 619.46 837.36 624.3 843.32 624.3C849.29 624.3 854.12 619.46 854.12 613.5" fill="#2a78d6"/>
-<text x="737.25" y="357.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(a) probability mass function</text>
+<text x="737.25" y="317.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(a) probability mass function</text>
 <path d="M1074.75 688.5C1173.75 688.5 1272.75 688.5 1371.75 688.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1074.75 688.5C1074.75 598.5 1074.75 508.5 1074.75 418.5" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1130.44 702C1130.44 693 1130.44 684 1130.44 675" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -47,5 +47,5 @@
 <path d="M1074.75 688.5C1093.31 688.5 1111.88 688.5 1130.44 688.5C1130.44 616.5 1130.44 544.5 1130.44 472.5C1192.31 472.5 1254.19 472.5 1316.06 472.5C1316.06 544.5 1316.06 616.5 1316.06 688.5C1334.62 688.5 1353.19 688.5 1371.75 688.5" fill="none" stroke="#2a78d6" stroke-width="5" stroke-linejoin="round" stroke-linecap="butt"/>
 <text x="1204.69" y="566.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">area</text>
 <text x="1204.69" y="594.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">0,4</text>
-<text x="1223.25" y="357.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(b) density</text>
+<text x="1223.25" y="317.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(b) density</text>
 </svg>

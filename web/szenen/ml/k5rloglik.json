@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\ell(0.7)=\\sum_{i=1}^{10}\\ln P(X=x_i\\mid0.7)&=\\ln0.7+\\ln0.3+\\ln0.7+\\ln0.7+\\ln0.3\\\\&\\quad+\\ln0.7+\\ln0.7+\\ln0.3+\\ln0.7+\\ln0.7\\\\&=7\\ln0.7+3\\ln0.3\\approx7\\cdot(-0.3567)+3\\cdot(-1.2040)\\\\&\\approx-2.4967-3.6119=-6.1086\\end{aligned}",
+     "height": 1.268,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

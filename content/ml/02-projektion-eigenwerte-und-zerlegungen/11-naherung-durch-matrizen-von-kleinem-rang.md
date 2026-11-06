@@ -85,7 +85,7 @@ $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1{,}6&3{,}2\\0{
 Die Frobeniusnorm des Fehlers ist $\sqrt{0{,}16+0{,}04+0{,}64+0{,}16}=1=d_2$ (Abb. [25](#abb-25)), ebenso seine Spektralnorm.
 
 :::abbildung ml/k2rfehler 25
-Der Fehler der besten Näherung vom Rang $1$ in der Frobeniusnorm, mit $0{,}4=\tfrac25$, $0{,}2=\tfrac15$ und $0{,}8=\tfrac45$: Er ist $d_2^2=1$.
+Der Fehler der besten Näherung vom Rang $1$ in der Frobeniusnorm, mit $0{,}4=\tfrac25$, $0{,}2=\tfrac15$ und $0{,}8=\tfrac45$: Sein Quadrat ist $d_2^2=1$.
 :::
 
 ⁠**Kurz gesagt:** $\mathbf{A}_k$ behält die $k$ größten Bausteine; der Fehler hat die restlichen Singulärwerte, seine Spektralnorm ist $d_{k+1}$.

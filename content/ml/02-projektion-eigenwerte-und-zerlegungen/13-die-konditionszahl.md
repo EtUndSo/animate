@@ -173,7 +173,7 @@ $5\mathbf{A}$ für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix
 :::
 :::
 
-:::aufgabe Aufgabe 37 ★★ Große Determinante, schlechte Kondition
+:::aufgabe Aufgabe 37 ★★ Determinante 1, trotzdem schlechte Kondition
 <span class="anker" id="aufg-37"></span>
 
 Es sei $\mathbf{A}=\bigl(\begin{smallmatrix}10&7\\7&5\end{smallmatrix}\bigr)$.

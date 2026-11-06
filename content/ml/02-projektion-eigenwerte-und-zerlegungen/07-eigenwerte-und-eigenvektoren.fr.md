@@ -104,7 +104,7 @@ Le polynôme caractéristique est de degré $n$. Pour une matrice $2\times2$, il
 <span class="anker" id="gl-6-3"></span>
 $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda)-bc=\lambda^2-(a+d)\,\lambda+(ad-bc) . \tag{6.3}$$
 
-D’après la sous-section précédente, il a exactement $n$ racines complexes, comptées avec leur multiplicité. Une matrice $n\times n$ a donc $n$ valeurs propres, si l’on admet les valeurs complexes et que l’on compte les valeurs multiples avec leur multiplicité.
+D’après la sous-section sur les nombres complexes, il a exactement $n$ racines complexes, comptées avec leur multiplicité. Une matrice $n\times n$ a donc $n$ valeurs propres, si l’on admet les valeurs complexes et que l’on compte les valeurs multiples avec leur multiplicité.
 
 ⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, on a $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. Les valeurs propres sont $5$ et $2$, comme dans la sous-section précédente. Pour la matrice diagonale $\operatorname{diag}(3;\,-1)$, on a $p(\lambda)=(3-\lambda)(-1-\lambda)$, de racines $3$ et $-1$ : les valeurs propres d’une matrice diagonale sont sur sa diagonale, les vecteurs propres sont les vecteurs unitaires.
 

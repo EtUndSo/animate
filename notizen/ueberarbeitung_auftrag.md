@@ -2,16 +2,18 @@
 
 Du überarbeitest **ein** deutsches Arbeitsheft: Modul und Teil nennt dir die Nachricht. Der User hat zwei Pilothefte abgenommen: „so ist es um Welten besser … Genau so weiter“. Dein Heft muss genauso gut werden. Qualität geht vor allem, die Zeit spielt keine Rolle.
 
-## Zuerst lesen (Pflicht, jede Datei vollständig)
-Der User hat ausdrücklich verlangt, dass alles ganz gelesen wird: „Nein, der Agent soll alles lesen!“ und „Ein Abschnitt aus einem ganzen Buch zu lesen ist wie ein Wassertropfen aus einem See, das macht keinen Sinn“.
-- Lies jede Datei dieser Liste **von der ersten bis zur letzten Zeile**. Große Dateien liest du in aufeinanderfolgenden Teilen (offset/limit), bis das Ende erreicht ist. Meldet Read eine Teilansicht („PARTIAL view“), liest du weiter, bis alles gelesen ist.
-- Das gilt auch für den Volltext des **ganzen Skripts** deines Moduls, nicht nur für dein Kapitel. Nur so erkennst du, was vorher und nachher kommt (keine Vorgriffe, keine Lücken).
-- Gespart wird nur beim fertigen eigenen PDF: Prüfe es mit `python tools/pdf_pruefen.py <heft.pdf> <scratchpad>/pdf --blatt`, statt es als Seitenbilder zu lesen. Sieh dir die gemeldeten Ausschnitte an und jedes Übersichtsblatt einmal.
+## Zuerst lesen
+**Quellen vollständig, eigene Hefte über Zusammenfassungen.** Der User verlangt, dass alle **Quellen** ganz gelesen werden: „Ein Abschnitt aus einem ganzen Buch zu lesen ist wie ein Wassertropfen aus einem See, das macht keinen Sinn“. Präzisiert am 06.11.2026: „Mit vollständig lesen meinte ich die Quellen. Die eigenen erstellten Hefte müssen ja nicht nochmal vollständig gelesen werden, da reichen Zusammenfassungen.“
+- **Quellen ganz lesen,** von der ersten bis zur letzten Zeile: Leitfaden und Auftrag, den Volltext des **ganzen Skripts** deines Moduls (nicht nur dein Kapitel), dazu Folien und Mitschriften, soweit sie dein Thema betreffen. Große Dateien liest du in aufeinanderfolgenden Teilen (offset/limit) bis zum Ende.
+- **Das alte Heft, das du überarbeitest,** liest du ganz: Es ist dein Arbeitsgegenstand.
+- **Andere eigene Hefte** liest du über ihre Zusammenfassungen `zusammenfassung_kap<N>.md`, falls vorhanden. Von den **Musterheften** liest du einen vollständigen Abschnitt und den Abschluss als Stilvorbild.
+- **Am Ende** prüfst du dein überarbeitetes Heft ganz, Satz für Satz, und schreibst `zusammenfassung_kap<N>.md` (Gliederung mit Nummern, Begriffe, Formeln, Bezeichnungen, Beispiele, Abbildungen, Aufgaben).
+- Das fertige eigene PDF prüfst du mit `python tools/pdf_pruefen.py <heft.pdf> <scratchpad>/pdf --blatt` statt mit Seitenbildern. Sieh dir die gemeldeten Ausschnitte an und jedes Übersichtsblatt einmal.
 
 1. `C:\Users\info\PycharmProjects\pythonanimation\notizen\UEBERARBEITUNG.md`: der maßgebliche Leitfaden, besonders §2 (ein Begriff nach dem anderen, Theorie vor Praxis), §3 und §3a (Hintergrund-Kästen mit recherchiertem Warum) sowie §4 (keine Vorgriffe).
-2. Die beiden abgenommenen Muster, **alle Dateien ganz**:
-   - ET3 Teil 2: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen.tex`, `kap2_stufen_b.tex`, `kap2_loesungen.tex`.
-   - HöMa3 Teil 1: `C:\Bücher\HöMa3\Arbeitshefte\kap1_stufen.tex`, `kap1_loesungen.tex`.
+2. Die beiden abgenommenen Muster, je ein vollständiger Abschnitt und der Abschluss:
+   - ET3 Teil 2: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen.tex` (Abschnitt 1), `kap2_stufen_b.tex` (Ende), `kap2_loesungen.tex` (Anfang).
+   - HöMa3 Teil 1: `C:\Bücher\HöMa3\Arbeitshefte\kap1_stufen.tex` (ein Abschnitt und Ende).
 3. Den alten Auftrag deines Moduls (`notizen/heft_auftrag_<modul>.md`, für ET3 siehe unten). Quellen, Dateinamen, Bezeichnungen, Szenen und Bauen gelten weiter. Gliederung in „Stufen“, Längengrenzen und F/A-Kästen sind ersetzt.
 4. Das alte Heft vollständig. Was sich bewährt hat (Beispiele, Abbildungen, Aufgaben, Antworten auf Fragen), wird übernommen, aber an die richtige Stelle gesetzt und einzeln erklärt.
 

@@ -427,6 +427,7 @@ MODULE["cyber"] = {
     "basis": "informatik/cybersecurity",
     "order": 6100000,
     "praeambel_makros": True,
+    "abschnitt_links": True,
     "hinweis": HINWEIS_CYBER,
     "hefte": {                                           # Stamm T01-T14 (Recherche\LERNPFAD.md); Äste folgen ab 101
         1: ("Kap1_Sicherheit", "sicherheit-schutzziele-und-spielregeln",
@@ -498,7 +499,38 @@ MODULE["ml"] = {
     "basis": "informatik/machine-learning",
     "order": 6200000,
     "praeambel_makros": True,
+    "abschnitt_links": True,
     "hinweis": HINWEIS_ML,
+    # Bereiche (Entscheidung des Users, 05./06.11.2026): T01-T06 = „Grundlagen 1-6“ zum Nachschlagen in einem eigenen
+    # Ast, der ML-Pfad zählt ab T08 als „Teil 1“ (Teil N = T(N+7)); T07 Python/NumPy entfällt (Bereich „Programmieren“).
+    # Dateien, Ordner unter content/ und Szenen behalten die Lernpfad-Nummer (Kap1_Vektoren, ml/k1…).
+    "bereiche": (
+        {"kaps": (1, 6), "nr": 0, "nachschlagen": True, "order": 9000000,      # im Baum nach dem Pfad
+         "pfad": {"de": "Mathematische Grundlagen", "en": "Mathematical Foundations", "es": "Fundamentos matemáticos",
+                  "zh": "数学基础", "fr": "Fondements mathématiques", "tr": "Matematiksel Temeller"},
+         "name": {"de": "Grundlagen {n}", "en": "Foundations {n}", "es": "Fundamentos {n}", "zh": "基础篇 {n}",
+                  "fr": "Fondements {n}", "tr": "Temeller {n}"}},
+        {"kaps": (8, 99), "nr": 7, "teil": True,
+         "name": {"de": "Teil {n}", "en": "Part {n}", "es": "Parte {n}", "zh": "第 {n} 部分", "fr": "Partie {n}",
+                  "tr": "Kısım {n}"}},
+    ),
+    "reihe_hinweis": {                                   # auf der Übersicht unter „Machine Learning“
+        "de": "Die mathematischen Grundlagen sind zum Nachschlagen gedacht; man muss sie nicht vorab durcharbeiten. Jedes "
+              "Kapitel des Lernpfads nennt zu Beginn eines Abschnitts die Grundlagen, die es braucht, fasst sie kurz zusammen "
+              "und verlinkt die ausführliche Stelle.",
+        "en": "The mathematical foundations are meant for looking things up; you do not need to work through them first. "
+              "At the start of each section, every chapter of the learning path names the foundations it needs, sums them "
+              "up briefly and links to the full explanation.",
+        "es": "Los fundamentos matemáticos están pensados para consultarlos; no hace falta estudiarlos antes. Al comienzo de "
+              "cada sección, cada capítulo de la ruta de aprendizaje indica los fundamentos que necesita, los resume "
+              "brevemente y enlaza la explicación completa.",
+        "zh": "数学基础供查阅之用，不必事先通读。学习路径的每一章都会在各节开头列出所需的基础知识，加以简要概括，并链接到详细讲解之处。",
+        "fr": "Les fondements mathématiques sont faits pour être consultés ; il n’est pas nécessaire de les étudier "
+              "d’abord. Au début de chaque section, chaque chapitre du parcours indique les fondements dont il a besoin, les "
+              "résume brièvement et renvoie à l’explication complète.",
+        "tr": "Matematiksel temeller başvuru amaçlıdır; önceden baştan sona çalışmanız gerekmez. Öğrenme yolunun her bölümü, "
+              "her kesimin başında ihtiyaç duyduğu temelleri belirtir, kısaca özetler ve ayrıntılı açıklamaya bağlantı verir.",
+    },
     "hefte": {                                           # Stamm T01-T22 (Recherche\LERNPFAD.md); Äste folgen ab 101
         1: ("Kap1_Vektoren", "vektoren-und-matrizen",
             {"de": "Vektoren und Matrizen", "en": "Vectors and Matrices", "es": "Vectores y matrices", "zh": "向量与矩阵",
@@ -521,10 +553,7 @@ MODULE["ml"] = {
         6: ("Kap6_Optimierung", "optimierung",
             {"de": "Optimierung", "en": "Optimization", "es": "Optimización", "zh": "优化",
              "fr": "Optimisation", "tr": "Optimizasyon"}),
-        7: ("Kap7_Python", "python-numpy-und-werkzeuge",
-            {"de": "Python, NumPy und Werkzeuge", "en": "Python, NumPy and Tools",
-             "es": "Python, NumPy y herramientas", "zh": "Python、NumPy 与工具",
-             "fr": "Python, NumPy et outils", "tr": "Python, NumPy ve Araçlar"}),
+        # 7 (Kap7_Python, „Python, NumPy und Werkzeuge“) entfällt: Python steht im Bereich „Programmieren“ (MODULE["prog"])
         8: ("Kap8_Lernen", "lernen-aus-daten",
             {"de": "Lernen aus Daten", "en": "Learning from Data", "es": "Aprender de los datos", "zh": "从数据中学习",
              "fr": "Apprendre à partir des données", "tr": "Verilerden Öğrenme"}),
@@ -579,6 +608,57 @@ MODULE["ml"] = {
               "es": "Redes neuronales III: entrenamiento con PyTorch", "zh": "神经网络（三）：用 PyTorch 训练",
               "fr": "Réseaux de neurones III\u00a0: entraînement avec PyTorch", "tr": "Yapay Sinir Ağları III: PyTorch ile Eğitim"}),
     },
+}
+
+# Gemeinsame Bereiche (Entscheidung des Users, 06.11.2026: „Inhalte nicht mehrfach auf der Webseite vollständig erklären“).
+# ML und Cybersecurity setzen sie voraus und verweisen mit „Programmieren, Python N, Abschnitt M“ bzw. „Linux N, Abschnitt M“
+# (Wendungen je Sprache: "praefix", Bereichsnamen, ABSCHNITT_RE). Hefte trägt der Schreib-Agent hier ein, sobald der
+# Lernpfad steht; fehlende Hefte überspringt der Umwandler, Verweise auf sie bleiben Text ohne Link.
+MODULE["prog"] = {
+    "quelle": Path(r"C:\Bücher\EtUndSo\Programmieren\Arbeitshefte"),
+    "ziel": "prog",
+    "szenen": "prog",
+    "pfad": {"de": "Informatik / Programmieren", "en": "Computer Science / Programming",
+             "es": "Informática / Programación", "zh": "计算机科学 / 编程",
+             "fr": "Informatique / Programmation", "tr": "Bilgisayar Bilimleri / Programlama"},
+    "basis": "informatik/programmieren",
+    "order": 6010000,
+    "praeambel_makros": True,
+    "abschnitt_links": True,
+    "hinweis": HINWEIS_ML,
+    # Verweise von überall nur mit Bereichsnamen davor: „Python 3“ allein ist meist die Sprachversion
+    "praefix": {"de": "Programmieren, ", "en": "Programming, ", "es": "Programación, ", "zh": "编程，",
+                "fr": "Programmation, ", "tr": "Programlama, "},
+    "bereiche": (                                        # Python 1, 2, … = Kap1, Kap2, …; C ab Kap101, C++ ab Kap201
+        {"kaps": (1, 99), "nr": 0, "pfad": {l: "Python" for l in LANGS},
+         "name": {l: "Python {n}" for l in LANGS}},
+        {"kaps": (101, 199), "nr": 100,
+         "pfad": {"de": "C und C++", "en": "C and C++", "es": "C y C++", "zh": "C 与 C++", "fr": "C et C++", "tr": "C ve C++"},
+         "name": {l: "C {n}" for l in LANGS}},
+        {"kaps": (201, 299), "nr": 200,
+         "pfad": {"de": "C und C++", "en": "C and C++", "es": "C y C++", "zh": "C 与 C++", "fr": "C et C++", "tr": "C ve C++"},
+         "name": {l: "C++ {n}" for l in LANGS}},
+    ),
+    "hefte": {},                                         # Nummer: ("Kap<N>_<Name>", "slug", {Titel je Sprache}) wie bei ml
+}
+
+MODULE["linux"] = {
+    "quelle": Path(r"C:\Bücher\EtUndSo\Linux\Arbeitshefte"),
+    "ziel": "linux",
+    "szenen": "linux",
+    "pfad": {"de": "Informatik / Linux und Kommandozeile", "en": "Computer Science / Linux and the Command Line",
+             "es": "Informática / Linux y la línea de comandos", "zh": "计算机科学 / Linux 与命令行",
+             "fr": "Informatique / Linux et ligne de commande", "tr": "Bilgisayar Bilimleri / Linux ve Komut Satırı"},
+    "basis": "informatik/linux-und-kommandozeile",
+    "order": 6050000,
+    "praeambel_makros": True,
+    "abschnitt_links": True,
+    "hinweis": HINWEIS_CYBER,
+    "extern": True,                                      # „Linux N, Abschnitt M“ ist von jedem Modul mit abschnitt_links aus ein Link
+    "bereiche": (
+        {"kaps": (1, 99), "nr": 0, "name": {l: "Linux {n}" for l in LANGS}},
+    ),
+    "hefte": {},
 }
 
 # Code-Umgebungen der Präambeln (Zusatzreihen) -> Sprache des Code-Blocks auf der Website (```<sprache> <titel>)

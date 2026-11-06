@@ -1,0 +1,223 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 9,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      1
+     ],
+     "y_range": [
+      0,
+      3.5
+     ],
+     "x_length": 5.6,
+     "y_length": 3.0,
+     "origin": [
+      0.2,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "θ",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0.2;0.4;0.6;0.8;1",
+     "y_ticks": "1;2;3",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "6*x*(1-x)",
+     "color": "#7f7f7f",
+     "stroke_width": 4,
+     "dash": "10,7",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1320*x^7*(1-x)^3",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "6435*x^8*(1-x)^4",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.6667,
+      0,
+      0
+     ],
+     "end": [
+      0.6667,
+      3.0996,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 2,
+     "dash": "2,5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.7,
+      0,
+      0
+     ],
+     "end": [
+      0.7,
+      2.9351,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": "2,5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.6429,
+      0,
+      0
+     ],
+     "end": [
+      0.6429,
+      3.0539,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2,
+     "dash": "2,5"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o8",
+    "type": "Legend",
+    "props": {
+     "labels": "@{pri};@{lik};@{post}",
+     "colors": "7f7f7f;2a78d6;c82828",
+     "styles": "--;-;-",
+     "position": [
+      0.03,
+      3.4,
+      0
+     ],
+     "font_size": 24,
+     "row_gap": 0.34,
+     "swatch_len": 0.4,
+     "gap": 0.12,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "pri": {
+    "de": "Prior Beta(2, 2)",
+    "en": "prior Beta(2, 2)",
+    "es": "prior Beta(2, 2)",
+    "zh": "先验 Beta(2, 2)"
+   },
+   "lik": {
+    "de": "Likelihood · 1320",
+    "en": "likelihood · 1320",
+    "es": "verosimilitud · 1320",
+    "zh": "似然 · 1320"
+   },
+   "post": {
+    "de": "Posterior Beta(9, 5)",
+    "en": "posterior Beta(9, 5)",
+    "es": "posterior Beta(9, 5)",
+    "zh": "后验 Beta(9, 5)"
+   }
+  }
+ }
+}

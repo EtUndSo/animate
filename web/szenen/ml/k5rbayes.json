@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}P(\\mathcal D)=\\sum_{k=1}^3P(\\mathcal D\\mid\\theta_k)\\,P(\\theta=\\theta_k)&=\\tfrac3{256}\\cdot\\tfrac14+\\tfrac{16}{256}\\cdot\\tfrac12+\\tfrac{27}{256}\\cdot\\tfrac14\\\\&=\\tfrac3{1024}+\\tfrac{32}{1024}+\\tfrac{27}{1024}=\\tfrac{62}{1024}=\\tfrac{31}{512}\\end{aligned}",
+     "height": 1.055,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

@@ -108,8 +108,10 @@
 <path d="M768.67 515.33C762.88 517.81 757.08 520.3 751.29 522.78C754.6 526.09 757.91 529.4 761.22 532.71C763.7 526.92 766.19 521.12 768.67 515.33" fill="#c82828" stroke="#c82828" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M717 567C726.94 576.94 736.89 586.89 746.83 596.83" fill="none" stroke="#00823c" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M746.83 596.83C744.35 591.04 741.87 585.25 739.38 579.46C736.08 582.77 732.77 586.08 729.46 589.38C735.25 591.87 741.04 594.35 746.83 596.83" fill="#00823c" stroke="#00823c" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="754.97" y="493.17" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="end" dominant-baseline="central">√3 q₁</text>
-<text x="759.19" y="611.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#00823c" text-anchor="start" dominant-baseline="central">q₂</text>
+<text x="881.53" y="457.31" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="end" dominant-baseline="central">√3 q₁</text>
+<path d="M771.84 512.16C787.31 498.09 802.78 484.03 818.25 469.97" fill="none" stroke="#c82828" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="801.38" y="642.94" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#00823c" text-anchor="start" dominant-baseline="central">q₂</text>
+<path d="M750.75 600.75C766.92 612 783.09 623.25 799.27 634.5" fill="none" stroke="#00823c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <text x="717" y="330.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(a) 等高线与主轴</text>
 <path d="M1034.25 735.75C1146.75 735.75 1259.25 735.75 1371.75 735.75" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1034.25 735.75C1034.25 623.25 1034.25 510.75 1034.25 398.25" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -140,7 +142,7 @@
 <path d="M1193.52 482.62C1227.97 482.62 1262.41 482.62 1296.85 482.62" fill="none" stroke="#eb6834" stroke-width="8" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1253.29 482.62C1253.29 478.15 1249.66 474.52 1245.19 474.52C1240.71 474.52 1237.09 478.15 1237.09 482.62C1237.09 487.1 1240.71 490.73 1245.19 490.73C1249.66 490.73 1253.29 487.1 1253.29 482.62" fill="#111111"/>
 <path d="M1211.1 567C1211.1 562.53 1207.47 558.9 1203 558.9C1198.53 558.9 1194.9 562.53 1194.9 567C1194.9 571.47 1198.53 575.1 1203 575.1C1207.47 575.1 1211.1 571.47 1211.1 567" fill="#111111"/>
-<text x="1245.19" y="459.42" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">μ₁|₂ = 2</text>
+<text x="1304.25" y="510.05" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">μ₁|₂ = 2</text>
 <text x="1283.16" y="415.12" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="start" dominant-baseline="central">E[x₁ | x₂]</text>
 <text x="1203" y="330.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">(b) 以 x₂ = 4 为条件</text>
 </svg>

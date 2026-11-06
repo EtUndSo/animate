@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}D_{\\mathrm{KL}}(\\mathbf p\\,\\|\\,\\mathbf q)=\\sum_{k=1}^4p_k\\log_2\\frac{p_k}{q_k}&=\\tfrac12\\log_24+\\tfrac14\\log_22+\\tfrac18\\log_2\\tfrac12+\\tfrac18\\log_2\\tfrac14\\\\&=\\tfrac12\\cdot2+\\tfrac14\\cdot1+\\tfrac18\\cdot(-1)+\\tfrac18\\cdot(-2)\\\\&=1+\\tfrac14-\\tfrac18-\\tfrac14=\\tfrac78=0.875\\ \\text{bit}\\end{aligned}",
+     "height": 1.357,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

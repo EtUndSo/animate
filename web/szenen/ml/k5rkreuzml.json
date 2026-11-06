@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}H\\bigl(\\hat{\\mathbf p},\\mathbf q(0.5)\\bigr)=\\sum_{k=1}^2\\hat p_k\\ln\\frac1{q_k(0.5)}&=0.7\\ln\\frac1{0.5}+0.3\\ln\\frac1{0.5}\\approx0.4852+0.2079=0.6931\\\\H\\bigl(\\hat{\\mathbf p},\\mathbf q(0.7)\\bigr)=\\sum_{k=1}^2\\hat p_k\\ln\\frac1{q_k(0.7)}&=0.7\\ln\\frac1{0.7}+0.3\\ln\\frac1{0.3}\\approx0.2497+0.3612=0.6109\\end{aligned}",
+     "height": 1.115,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

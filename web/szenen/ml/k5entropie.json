@@ -1,0 +1,174 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 8,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      1
+     ],
+     "y_range": [
+      0,
+      1.12
+     ],
+     "x_length": 5.4,
+     "y_length": 2.9,
+     "origin": [
+      0.2,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "θ",
+     "y_label": "H_{b}(θ) in bit",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0.1;0.3;0.5;0.7;0.9;1",
+     "y_ticks": "0.469;0.881;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "-x*log2(x)-(1-x)*log2(1-x)",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.0005,
+      0.9995
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "DataCurve",
+    "props": {
+     "data": "0.7 0\n0.7 0.8813\n0 0.8813",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "DataCurve",
+    "props": {
+     "data": "0.9 0\n0.9 0.469\n0 0.469",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.5,
+      1.0,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.7,
+      0.8813,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.9,
+      0.469,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

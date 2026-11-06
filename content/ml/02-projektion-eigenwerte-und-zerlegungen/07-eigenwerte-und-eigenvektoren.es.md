@@ -104,7 +104,7 @@ El polinomio característico tiene grado $n$. Para una matriz $2\times2$ es
 <span class="anker" id="gl-6-3"></span>
 $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda)-bc=\lambda^2-(a+d)\,\lambda+(ad-bc) . \tag{6.3}$$
 
-Según la subsección anterior, tiene, contadas con su multiplicidad, exactamente $n$ raíces complejas. Una matriz $n\times n$ tiene, por tanto, $n$ valores propios si se admiten los complejos y los múltiples se cuentan varias veces.
+Según la subsección sobre números complejos, tiene, contadas con su multiplicidad, exactamente $n$ raíces complejas. Una matriz $n\times n$ tiene, por tanto, $n$ valores propios si se admiten los complejos y los múltiples se cuentan varias veces.
 
 ⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ es $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. Los valores propios son $5$ y $2$, como en la subsección anterior. Para la matriz diagonal $\operatorname{diag}(3;\,-1)$ es $p(\lambda)=(3-\lambda)(-1-\lambda)$, con las raíces $3$ y $-1$: los valores propios de una matriz diagonal están en su diagonal, y los vectores propios son los vectores unitarios.
 

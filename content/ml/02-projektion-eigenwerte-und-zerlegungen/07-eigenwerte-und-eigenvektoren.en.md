@@ -104,7 +104,7 @@ The characteristic polynomial has degree $n$. For a $2\times2$ matrix it is
 <span class="anker" id="gl-6-3"></span>
 $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda)-bc=\lambda^2-(a+d)\,\lambda+(ad-bc) . \tag{6.3}$$
 
-By the previous subsection, it has exactly $n$ complex roots, counted with multiplicity. So an $n\times n$ matrix has $n$ eigenvalues if complex ones are allowed and multiple ones are counted according to their multiplicity.
+By the subsection on complex numbers, it has exactly $n$ complex roots, counted with multiplicity. So an $n\times n$ matrix has $n$ eigenvalues if complex ones are allowed and multiple ones are counted according to their multiplicity.
 
 ⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. The eigenvalues are $5$ and $2$, as in the previous subsection. For the diagonal matrix $\operatorname{diag}(3,\,-1)$, $p(\lambda)=(3-\lambda)(-1-\lambda)$ with the roots $3$ and $-1$: the eigenvalues of a diagonal matrix are on its diagonal, and the eigenvectors are the unit vectors.
 
