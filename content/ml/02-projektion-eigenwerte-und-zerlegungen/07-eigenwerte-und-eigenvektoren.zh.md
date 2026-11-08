@@ -1,7 +1,9 @@
 ---
 title: 特征值与特征向量
-pfad: 计算机科学 / 机器学习 / 投影、特征值与矩阵分解
-order: 6220700
+pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
+knoten: 基础篇 2：投影、特征值与矩阵分解
+nachschlagen: ja
+order: 15220700
 summary: 矩阵对大多数向量既旋转又拉伸。但有些方向它不旋转：沿这种方向的箭头只是变长、变短或翻转。本节求出这些方向以及相应的拉伸因子。它们是矩阵的自然坐标轴。
 tags: 共轭复数, 特征向量, 特征值, 特征多项式, 特征空间, 迹, 代数重数, 几何重数
 lang: zh
@@ -41,7 +43,7 @@ $\mathbf{v}=(1,-\mathrm j)^{\top}$ 的点积 $(\mathbf{v}^*)^{\top}\mathbf{v}$�
 
 <span class="anker" id="stufe-6-2"></span>
 
-在第 1 部分第 8.3 节中，平面上的网格被矩阵旋转、拉伸和剪切。在此过程中，大多数箭头都会改变方向。但对某些矩阵，存在这样的方向：沿该方向的箭头仍然留在它所在的过原点的直线上，只是被拉伸、压缩或翻转（图 [17](#abb-17)）。
+在基础篇 1 第 8.3 节中，平面上的网格被矩阵旋转、拉伸和剪切。在此过程中，大多数箭头都会改变方向。但对某些矩阵，存在这样的方向：沿该方向的箭头仍然留在它所在的过原点的直线上，只是被拉伸、压缩或翻转（图 [17](#abb-17)）。
 
 :::abbildung ml/k2eigen 17
 矩阵 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 把单位圆（灰色）映射为一个椭圆（蓝色）。箭头 $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$（红色）留在自己的直线上，被拉伸为原长的五倍；箭头 $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$（绿色）被拉伸为原长的两倍；它们的像用浅色画出。灰色直线是两个特征方向。相反，单位向量 $\mathbf{e}_1$ 被映射为 $(4,2)^{\top}$（虚线），方向发生了改变。
@@ -80,7 +82,7 @@ $$\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{p(t-\tau)}\,\mathrm{d}\tau=H(p)\,\m
 
 <span class="anker" id="stufe-6-3"></span>
 
-不靠猜测，怎样求特征值？把式 [(6.1)](#gl-6-1) 改写，使所有项都在一边：$\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$，即 $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$。我们要找这样的 $\lambda$，使这个齐次方程组有解 $\mathbf{v}\ne\mathbf{0}$。由第 1 部分第 11.5 节，这意味着：矩阵 $\mathbf{A}-\lambda\mathbf{I}$ 不可逆。由第 1 部分第 14.6 节，这恰好在其行列式为零时成立。
+不靠猜测，怎样求特征值？把式 [(6.1)](#gl-6-1) 改写，使所有项都在一边：$\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$，即 $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$。我们要找这样的 $\lambda$，使这个齐次方程组有解 $\mathbf{v}\ne\mathbf{0}$。由基础篇 1 第 11.5 节，这意味着：矩阵 $\mathbf{A}-\lambda\mathbf{I}$ 不可逆。由基础篇 1 第 14.6 节，这恰好在其行列式为零时成立。
 
 :::definition 定义 6.2 (特征多项式)
 <span class="anker" id="satz-6-2"></span>
@@ -189,7 +191,7 @@ $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 的迹作�
 ⁠**简而言之：**实矩阵可以有复数特征值，它们总是成共轭对出现；旋转角为 $\alpha$ 的旋转的特征值为 $\mathrm e^{\pm\mathrm j\alpha}$。
 
 :::hintergrund 旋转就是乘以 $\mathrm e^{\mathrm j\alpha}$
-对电气工程师来说，这个结果并不陌生。像相量那样，把箭头 $(x_1,\,x_2)^{\top}$ 与复数 $z=x_1+\mathrm jx_2$ 等同起来。于是旋转 $\alpha$ 就是乘以 $\mathrm e^{\mathrm j\alpha}$：$\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$，这恰好是第 1 部分第 8.3 节中旋转矩阵作用下 $\mathbf{Q}\mathbf{x}$ 的两个分量。因此，在复数写法中，旋转就是乘以一个数，而这个数正是一个特征值。第二个特征值 $\mathrm e^{-\mathrm j\alpha}$ 属于共轭写法 $z^*$，它按相反方向旋转。
+对电气工程师来说，这个结果并不陌生。像相量那样，把箭头 $(x_1,\,x_2)^{\top}$ 与复数 $z=x_1+\mathrm jx_2$ 等同起来。于是旋转 $\alpha$ 就是乘以 $\mathrm e^{\mathrm j\alpha}$：$\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$，这恰好是基础篇 1 第 8.3 节中旋转矩阵作用下 $\mathbf{Q}\mathbf{x}$ 的两个分量。因此，在复数写法中，旋转就是乘以一个数，而这个数正是一个特征值。第二个特征值 $\mathrm e^{-\mathrm j\alpha}$ 属于共轭写法 $z^*$，它按相反方向旋转。
 :::
 
 ### 多重特征值
@@ -204,7 +206,7 @@ $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 的迹作�
 特征值 $\lambda$ 的__代数重数__是 $\lambda$ 作为特征多项式的根的重数。
 :::
 
-⁠**算例：**矩阵 $2\mathbf{I}=\operatorname{diag}(2,\,2)$ 的特征多项式为 $p(\lambda)=(2-\lambda)^2$：特征值 $2$ 的代数重数为 $2$。第 1 部分第 8.3 节中的剪切 $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 的特征多项式为 $p(\lambda)=(1-\lambda)^2$：特征值 $1$ 的代数重数也是 $2$。矩阵 $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 有两个不同的特征值，代数重数都是 $1$。
+⁠**算例：**矩阵 $2\mathbf{I}=\operatorname{diag}(2,\,2)$ 的特征多项式为 $p(\lambda)=(2-\lambda)^2$：特征值 $2$ 的代数重数为 $2$。基础篇 1 第 8.3 节中的剪切 $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 的特征多项式为 $p(\lambda)=(1-\lambda)^2$：特征值 $1$ 的代数重数也是 $2$。矩阵 $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 有两个不同的特征值，代数重数都是 $1$。
 
 ⁠**简而言之：**代数重数计算一个特征值作为特征多项式的根出现了多少次。
 
@@ -277,7 +279,7 @@ $\mathbf{A}^{\top}$ 与 $\mathbf{A}$ 有相同的特征值，但一般有不同�
 :::
 
 :::beweis 运算规则
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$，依此类推。(ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$。(iii) 由式 [(6.5)](#gl-6-5)，$\det\mathbf{A}$ 是特征值之积，所以它不为零，当且仅当没有特征值为零。把 $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ 乘以 $\mathbf{A}^{-1}$，得 $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$。(iv) 由第 1 部分第 14.5 节，$\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$；二者有相同的特征多项式。
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$，依此类推。(ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$。(iii) 由式 [(6.5)](#gl-6-5)，$\det\mathbf{A}$ 是特征值之积，所以它不为零，当且仅当没有特征值为零。把 $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ 乘以 $\mathbf{A}^{-1}$，得 $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$。(iv) 由基础篇 1 第 14.5 节，$\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$；二者有相同的特征多项式。
 :::
 
 ⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$，矩阵 $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ 的特征值为 $25$ 和 $4$：$\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$。矩阵 $\mathbf{A}-5\mathbf{I}$ 的特征值为 $0$ 和 $-3$，它不可逆。逆矩阵 $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ 的特征值为 $\tfrac15$ 和 $\tfrac12$：$\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$。转置 $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ 的特征值同样是 $5$ 和 $2$，但 $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$：它的特征向量是 $(2,\,1)^{\top}$ 和 $(1,\,-1)^{\top}$。
@@ -308,7 +310,7 @@ $\mathbf{A}_3$：迹为 $2$，行列式为 $1-9=-8$，所以 $\lambda^2-2\lambda
 证明：上三角矩阵的特征值就是它的对角元素。求 $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$ 的特征值和特征向量。
 
 :::loesung
-对于上三角矩阵，$\mathbf{A}-\lambda\mathbf{I}$ 仍是上三角矩阵，其对角元素为 $a_{ii}-\lambda$。由第 1 部分第 14.4 节，它的行列式等于对角元素之积：$p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$。它的根就是各对角元素。
+对于上三角矩阵，$\mathbf{A}-\lambda\mathbf{I}$ 仍是上三角矩阵，其对角元素为 $a_{ii}-\lambda$。由基础篇 1 第 14.4 节，它的行列式等于对角元素之积：$p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$。它的根就是各对角元素。
 
 因此，给定矩阵的特征值为 $2$、$3$ 和 $5$。对于 $2$：$\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ 要求 $v_3=0$ 和 $v_2=0$，特征向量为 $(1,\,0,\,0)^{\top}$。对于 $3$：$\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ 要求 $v_3=0$ 和 $v_2=v_1$，特征向量为 $(1,\,1,\,0)^{\top}$。对于 $5$：$\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ 要求 $v_2=3v_1$ 和 $v_3=2v_2$，特征向量为 $(1,\,3,\,6)^{\top}$。验算：$\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$。
 :::

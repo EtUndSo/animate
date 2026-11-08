@@ -1,8 +1,10 @@
 ---
-title: Überblick: Vektoren und Matrizen
+title: Überblick: Grundlagen 1 – Vektoren und Matrizen
 kurz: Überblick
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210100
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210100
 summary: Daten als Zahlenlisten, Modelle als lineare Abbildungen
 tags: 
 lang: de

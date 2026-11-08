@@ -1,7 +1,9 @@
 ---
 title: Einheitsmatrix und Inverse
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6211200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15211200
 summary: Manche linearen Abbildungen lassen sich rückgängig machen, andere nicht.
 tags: Einheitsmatrix, invertierbar, Inverse, singulär
 lang: de

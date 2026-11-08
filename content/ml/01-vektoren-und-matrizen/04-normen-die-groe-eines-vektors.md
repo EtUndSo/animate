@@ -1,7 +1,9 @@
 ---
 title: Normen: die Größe eines Vektors
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210400
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210400
 summary: Wie groß ist ein Vektor?
 tags: euklidische Norm, Länge, normiert, normieren, Betragssummennorm, Maximumnorm, Norm, Dreiecksungleichung
 lang: de

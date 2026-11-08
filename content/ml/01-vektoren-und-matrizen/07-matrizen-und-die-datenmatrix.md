@@ -1,7 +1,9 @@
 ---
 title: Matrizen und die Datenmatrix
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210700
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210700
 summary: Ein Datensatz besteht aus vielen Vektoren gleicher Länge.
 tags: Matrix, Eintrag, Format, quadratisch, Diagonale, Diagonalmatrix, Nullmatrix, Datenmatrix
 lang: de

@@ -1,7 +1,9 @@
 ---
 title: Quadratische Formen
-pfad: Informatik / Machine Learning / Projektion, Eigenwerte und Zerlegungen
-order: 6220600
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
+knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+nachschlagen: ja
+order: 15220600
 summary: Nach den linearen Funktionen sind die quadratischen die einfachsten Funktionen mehrerer Variablen.
 tags: quadratische Form
 lang: de
@@ -17,7 +19,7 @@ Nach den linearen Funktionen sind die quadratischen die einfachsten Funktionen m
 
 <span class="anker" id="stufe-5-1"></span>
 
-In [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 8.4, war jede lineare Funktion mit einem Ausgang eine gewichtete Summe $\mathbf{w}^{\top}\mathbf{x}$ der Komponenten. Die nächst einfachere Art von Funktion summiert Produkte von je zwei Komponenten: Quadrate wie $x_1^2$ und gemischte Glieder wie $x_1x_2$. Ein Beispiel aus der Elektrotechnik ist die magnetische Energie zweier gekoppelter Spulen mit den Induktivitäten $L_1$, $L_2$ und der Gegeninduktivität $M$, durch die die Ströme $i_1$ und $i_2$ fließen:
+In [Grundlagen 1, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), war jede lineare Funktion mit einem Ausgang eine gewichtete Summe $\mathbf{w}^{\top}\mathbf{x}$ der Komponenten. Die nächst einfachere Art von Funktion summiert Produkte von je zwei Komponenten: Quadrate wie $x_1^2$ und gemischte Glieder wie $x_1x_2$. Ein Beispiel aus der Elektrotechnik ist die magnetische Energie zweier gekoppelter Spulen mit den Induktivitäten $L_1$, $L_2$ und der Gegeninduktivität $M$, durch die die Ströme $i_1$ und $i_2$ fließen:
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -141,7 +143,7 @@ Beide Faktoren sind positiv: Die Form ist eine Schüssel. Probe bei $\mathbf{x}=
 ⁠**Kurz gesagt:** Quadratisches Ergänzen schreibt eine quadratische Form als Summe von Quadraten; die Vorzeichen der Faktoren vor den Quadraten zeigen, ob sie eine Schüssel, eine Rinne oder ein Sattel ist.
 
 :::hintergrund Quadratisches Ergänzen ist das Gauß-Verfahren
-Die Zahlen in [(5.3)](#gl-5-3) sind dieselben wie im Gauß-Verfahren aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 12.3, angewandt auf die symmetrische Matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Um unter der Diagonale eine Null zu erzeugen, zieht man das $\frac ba$-Fache der ersten Zeile von der zweiten ab und erhält $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Die Diagonaleinträge dieser Stufenform, die sogenannten Pivots, sind genau die Faktoren vor den Quadraten, und der Eliminationsfaktor $\frac ba$ steht in der ersten Klammer. Für die Matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: Faktor $0{,}4$, Pivots $5$ und $1{,}2$. Bei $n$ Variablen setzt man dasselbe fort: Jeder Eliminationsschritt ergänzt eine Variable zu einem Quadrat. Die Form ist genau dann eine Schüssel, wenn alle Pivots positiv sind. Das Produkt der Pivots ist nach den Rechenregeln aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.5, die Determinante, hier $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Die Zahlen in [(5.3)](#gl-5-3) sind dieselben wie im Gauß-Verfahren aus [Grundlagen 1, Abschnitt 12.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), angewandt auf die symmetrische Matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Um unter der Diagonale eine Null zu erzeugen, zieht man das $\frac ba$-Fache der ersten Zeile von der zweiten ab und erhält $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Die Diagonaleinträge dieser Stufenform, die sogenannten Pivots, sind genau die Faktoren vor den Quadraten, und der Eliminationsfaktor $\frac ba$ steht in der ersten Klammer. Für die Matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: Faktor $0{,}4$, Pivots $5$ und $1{,}2$. Bei $n$ Variablen setzt man dasselbe fort: Jeder Eliminationsschritt ergänzt eine Variable zu einem Quadrat. Die Form ist genau dann eine Schüssel, wenn alle Pivots positiv sind. Das Produkt der Pivots ist nach den Rechenregeln aus [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), die Determinante, hier $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Aufgabe 14 ★ Formen und Matrizen

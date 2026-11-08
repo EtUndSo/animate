@@ -1,7 +1,9 @@
 ---
 title: Das Wichtigste bis hier
-pfad: Informatik / Machine Learning / Projektion, Eigenwerte und Zerlegungen
-order: 6221400
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
+knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+nachschlagen: ja
+order: 15221400
 summary: Nächste Punkte, natürliche Richtungen und die Bausteine einer Matrix
 tags: 
 lang: de

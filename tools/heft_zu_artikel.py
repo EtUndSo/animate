@@ -18,6 +18,12 @@ Links. Aufgaben bekommen ihre Lösung direkt als aufklappbaren Block, nicht am E
 Ziel: content/<modul>/<NN-kapitel>/<NN-stufe>[.en|.es|.zh|.fr|.tr].md (die Dateinamen kommen immer aus der deutschen
 Fassung). Feste Wendungen, an denen der Umwandler Kästen erkennt, je Sprache: KERN_TITEL, SO_ARBEITEST, ANTWORT_RE,
 PRINZIP_RE, WEBTEXT, TEIL_RE (siehe notizen/heft_uebersetzung.md).
+
+Bereiche (MODULE[..]["bereiche"], etwa ml: „Grundlagen 1–6“ und der Pfad ab „Teil 1“ = Kap8): eigener Ast im Baum,
+Heftname vor dem Titel (knoten:), Nachschlage-Artikel (nachschlagen:). Zusatzreihen ("abschnitt_links") verlinken
+„Grundlagen 2, Abschnitt 5.3“, „Teil 1, Abschnitt 2“, „Programmieren, Python 3, Abschnitt 4.1“ und „Linux 2, Abschnitt 3“
+in allen Sprachen auf Artikel und Anker (siehe „Bereiche und Verweise“ unten). ml schreibt außerdem content/ml/_reihe*.md,
+den Hinweis der Übersicht.
 """
 import argparse
 import re
@@ -514,7 +520,7 @@ MODULE["ml"] = {
          "name": {"de": "Teil {n}", "en": "Part {n}", "es": "Parte {n}", "zh": "第 {n} 部分", "fr": "Partie {n}",
                   "tr": "Kısım {n}"}},
     ),
-    "reihe_hinweis": {                                   # auf der Übersicht unter „Machine Learning“
+    "reihe_hinweis": {                                   # auf der Übersicht unter „Machine Learning“ (fr: fr_typo beim Schreiben)
         "de": "Die mathematischen Grundlagen sind zum Nachschlagen gedacht; man muss sie nicht vorab durcharbeiten. Jedes "
               "Kapitel des Lernpfads nennt zu Beginn eines Abschnitts die Grundlagen, die es braucht, fasst sie kurz zusammen "
               "und verlinkt die ausführliche Stelle.",
@@ -525,7 +531,7 @@ MODULE["ml"] = {
               "cada sección, cada capítulo de la ruta de aprendizaje indica los fundamentos que necesita, los resume "
               "brevemente y enlaza la explicación completa.",
         "zh": "数学基础供查阅之用，不必事先通读。学习路径的每一章都会在各节开头列出所需的基础知识，加以简要概括，并链接到详细讲解之处。",
-        "fr": "Les fondements mathématiques sont faits pour être consultés ; il n’est pas nécessaire de les étudier "
+        "fr": "Les fondements mathématiques sont faits pour être consultés ; il n’est pas nécessaire de les étudier "
               "d’abord. Au début de chaque section, chaque chapitre du parcours indique les fondements dont il a besoin, les "
               "résume brièvement et renvoie à l’explication complète.",
         "tr": "Matematiksel temeller başvuru amaçlıdır; önceden baştan sona çalışmanız gerekmez. Öğrenme yolunun her bölümü, "
@@ -639,7 +645,53 @@ MODULE["prog"] = {
          "pfad": {"de": "C und C++", "en": "C and C++", "es": "C y C++", "zh": "C 与 C++", "fr": "C et C++", "tr": "C ve C++"},
          "name": {l: "C++ {n}" for l in LANGS}},
     ),
-    "hefte": {},                                         # Nummer: ("Kap<N>_<Name>", "slug", {Titel je Sprache}) wie bei ml
+    "hefte": {                                           # Nummer: ("Kap<N>_<Name>", "slug", {Titel je Sprache}) wie bei ml
+        1: ("Kap1_Programme", "programme-und-der-python-interpreter",
+            {"de": "Programme und der Python-Interpreter", "en": "Programs and the Python Interpreter",
+             "es": "Programas y el intérprete de Python", "zh": "程序与 Python 解释器",
+             "fr": "Programmes et l’interpréteur Python", "tr": "Programlar ve Python Yorumlayıcısı"}),
+        2: ("Kap2_Werte", "werte-typen-und-variablen",
+            {"de": "Werte, Typen und Variablen", "en": "Values, Types and Variables", "es": "Valores, tipos y variables",
+             "zh": "值、类型与变量", "fr": "Valeurs, types et variables", "tr": "Değerler, Türler ve Değişkenler"}),
+        3: ("Kap3_Kontrollfluss", "entscheidungen-und-schleifen",
+            {"de": "Entscheidungen und Schleifen", "en": "Decisions and Loops", "es": "Decisiones y bucles",
+             "zh": "条件与循环", "fr": "Conditions et boucles", "tr": "Kararlar ve Döngüler"}),
+        4: ("Kap4_Funktionen", "funktionen",
+            {"de": "Funktionen", "en": "Functions", "es": "Funciones", "zh": "函数", "fr": "Fonctions", "tr": "Fonksiyonlar"}),
+        5: ("Kap5_Sequenzen", "sequenzen-zeichenketten-listen-und-tupel",
+            {"de": "Sequenzen: Zeichenketten, Listen und Tupel", "en": "Sequences: Strings, Lists and Tuples",
+             "es": "Secuencias: cadenas, listas y tuplas", "zh": "序列：字符串、列表与元组",
+             "fr": "Séquences : chaînes, listes et tuples", "tr": "Diziler: Karakter Dizileri, Listeler ve Demetler"}),
+        6: ("Kap6_Dictionaries", "dictionaries-mengen-und-hashing",
+            {"de": "Dictionaries, Mengen und Hashing", "en": "Dictionaries, Sets and Hashing",
+             "es": "Diccionarios, conjuntos y hashing", "zh": "字典、集合与哈希", "fr": "Dictionnaires, ensembles et hachage",
+             "tr": "Sözlükler, Kümeler ve Karma"}),
+        7: ("Kap7_Laufzeit", "laufzeit-suchen-und-sortieren",
+            {"de": "Laufzeit, Suchen und Sortieren", "en": "Running Time, Searching and Sorting",
+             "es": "Tiempo de ejecución, búsqueda y ordenación", "zh": "运行时间、查找与排序",
+             "fr": "Temps d’exécution, recherche et tri", "tr": "Çalışma Süresi, Arama ve Sıralama"}),
+        8: ("Kap8_Fehler", "ausnahmen-testen-und-fehlersuche",
+            {"de": "Ausnahmen, Testen und Fehlersuche", "en": "Exceptions, Testing and Debugging",
+             "es": "Excepciones, pruebas y depuración", "zh": "异常、测试与调试", "fr": "Exceptions, tests et débogage",
+             "tr": "İstisnalar, Test ve Hata Ayıklama"}),
+        9: ("Kap9_Dateien", "dateien-text-und-bytes",
+            {"de": "Dateien, Text und Bytes", "en": "Files, Text and Bytes", "es": "Archivos, texto y bytes",
+             "zh": "文件、文本与字节", "fr": "Fichiers, texte et octets", "tr": "Dosyalar, Metin ve Baytlar"}),
+        10: ("Kap10_Klassen", "klassen-und-objekte",
+             {"de": "Klassen und Objekte", "en": "Classes and Objects", "es": "Clases y objetos", "zh": "类与对象",
+              "fr": "Classes et objets", "tr": "Sınıflar ve Nesneler"}),
+        11: ("Kap11_Module", "module-pakete-und-virtuelle-umgebungen",
+             {"de": "Module, Pakete und virtuelle Umgebungen", "en": "Modules, Packages and Virtual Environments",
+              "es": "Módulos, paquetes y entornos virtuales", "zh": "模块、包与虚拟环境",
+              "fr": "Modules, paquets et environnements virtuels", "tr": "Modüller, Paketler ve Sanal Ortamlar"}),
+        12: ("Kap12_NumPyArray", "numpy-das-array",
+             {"de": "NumPy I: das Array", "en": "NumPy I: the Array", "es": "NumPy I: el array", "zh": "NumPy I：数组",
+              "fr": "NumPy I : le tableau", "tr": "NumPy I: Dizi"}),
+        13: ("Kap13_NumPyRechnen", "numpy-rechnen-zufall-daten-und-plotten",
+             {"de": "NumPy II: Rechnen, Zufall, Daten und Plotten", "en": "NumPy II: Computing, Randomness, Data and Plotting",
+              "es": "NumPy II: cálculo, azar, datos y gráficos", "zh": "NumPy II：计算、随机、数据与绘图",
+              "fr": "NumPy II : calcul, hasard, données et graphiques", "tr": "NumPy II: Hesaplama, Rastgelelik, Veri ve Çizim"}),
+    },
 }
 
 MODULE["linux"] = {
@@ -787,6 +839,181 @@ FR_AUF, FR_ZU = re.compile(r"«[ \t\u00a0\u202f]*"), re.compile(r"(?<=\S)[ \t\u0
 def fr_typo(t):
     t = FR_VOR.sub(lambda m: ("\u00a0" if m.group(1) == ":" else "\u202f") + m.group(1), t)
     return FR_ZU.sub("\u00a0»", FR_AUF.sub("«\u00a0", t))
+
+
+# ------------------------------------------------------------------------ Bereiche und Verweise ----
+# Ein Modul kann in Bereiche zerfallen (MODULE[..]["bereiche"]), jeder mit
+#   kaps = (von, bis)   Kapitelnummern (= Lernpfad-Nummern der Dateien Kap<N>_…),
+#   nr                  Anzeige-Nummer = kap − nr („Teil 1“ = Kap8 bei ml),
+#   name                Heftname je Sprache mit {n} („Grundlagen {n}“); er steht im Baum vor dem Titel und ist die Wendung,
+#                       an der der Umwandler Verweise erkennt,
+#   pfad                (optional) eigener Ast unter dem Modul („Mathematische Grundlagen“), sonst hängen die Hefte direkt am Modul,
+#   order               (optional) Platz im Baum, wird zu order der Artikel addiert,
+#   nachschlagen        (optional) Nachschlagebereich: Die Website zeigt unter jedem Artikel „Verwendet in“,
+#   teil                (optional) der Bereich heißt „Teil N“ und wird über TEIL_RE erkannt (auch „Teile“, „Teilen“).
+# Verweise (nur Module mit "abschnitt_links"): „<Heftname>, Abschnitt M“ (auch „Abschnitte M und K“) wird zum Link auf den
+# Artikel mit Abschnitt bzw. Unterabschnitt M und dessen Anker, „<Heftname>“ allein zum Überblick des Hefts. Module mit
+# "praefix" (prog: „Programmieren, Python 2“) oder "extern" (linux: „Linux 2“) erreicht man so von jedem dieser Module aus.
+# „Teil N“ zählt im Bereich des eigenen Hefts (in den ML-Grundlagen also wie „Grundlagen N“), außerhalb aller Bereiche im
+# Bereich mit teil=True. Wendungen je Sprache: notizen/heft_uebersetzung.md.
+NUM = r"\d+(?:\.\d+)?(?!\d)"
+ABSCHNITT_RE = {"de": r",[ \xa0]Abschnitte?[ \xa0](?P<s>%s)" % NUM,
+                "en": r",[ \xa0][Ss]ections?[ \xa0](?P<s>%s)" % NUM,
+                "es": r",[ \xa0][Ss]ecci(?:ón|ones)[ \xa0](?P<s>%s)" % NUM,
+                "fr": r",[ \xa0][Ss]ections?[ \xa0](?P<s>%s)" % NUM,
+                "tr": r",[ \xa0][Kk]esim(?:ler)?[ \xa0](?P<s>%s)" % NUM,
+                "zh": r"[ \xa0]?第[ \xa0]?(?P<s>%s)[ \xa0]?节" % NUM}
+UND_RE = {"de": r"(?P<uc>[ \xa0]und[ \xa0])(?P<ut>(?P<uk>%s))" % NUM,      # zweite Nummer: „Abschnitte 10.1 und 11.4“
+          "en": r"(?P<uc>[ \xa0]and[ \xa0])(?P<ut>(?P<uk>%s))" % NUM,
+          "es": r"(?P<uc>[ \xa0]y[ \xa0])(?P<ut>(?P<uk>%s))" % NUM,
+          "fr": r"(?P<uc>[ \xa0]et[ \xa0])(?P<ut>(?P<uk>%s))" % NUM,
+          "tr": r"(?P<uc>[ \xa0]ve[ \xa0])(?P<ut>(?P<uk>%s))" % NUM,
+          "zh": r"(?P<uc>和)(?P<ut>第[ \xa0]?(?P<uk>%s)[ \xa0]?节)" % NUM}
+
+
+def bereich(cfg, kap):
+    """Bereich (Eintrag aus cfg["bereiche"]), zu dem Kapitel kap gehört, oder None."""
+    for b in cfg.get("bereiche", ()):
+        if b["kaps"][0] <= kap <= b["kaps"][1]:
+            return b
+    return None
+
+
+def heft_name(cfg, kap, lang):
+    """„Grundlagen 1“, „Teil 1“, „基础篇 1“ …; None für Module ohne Bereiche."""
+    b = bereich(cfg, kap)
+    return b["name"][lang].format(n=kap - b["nr"]) if b and "name" in b else None
+
+
+def knoten_name(cfg, kap, lang):
+    """Aufschrift des Hefts im Baum: „Grundlagen 1: Vektoren und Matrizen“ (None ohne Bereiche)."""
+    name = heft_name(cfg, kap, lang)
+    if not name:
+        return None
+    t = cfg["hefte"][kap][2][lang]
+    return name + "：" + t if lang == "zh" else fr_typo(name + ": " + t) if lang == "fr" else name + ": " + t
+
+
+def heft_basis(cfg, kap):
+    """Adresse des Asts, in dem das Heft liegt (ohne /wissen/ und Sprache)."""
+    b = bereich(cfg, kap)
+    return cfg["basis"] + ("/" + slugify(b["pfad"]["de"]) if b and b.get("pfad") else "")
+
+
+def heft_pfad(cfg, kap, lang):
+    """pfad: der Artikel: Modul, gegebenenfalls Bereich, Heft."""
+    b = bereich(cfg, kap)
+    return " / ".join([cfg["pfad"][lang]] + ([b["pfad"][lang]] if b and b.get("pfad") else []) + [cfg["hefte"][kap][2][lang]])
+
+
+def heft_url(cfg, kap, lang, artikel=None):
+    """Adresse eines Artikels des Hefts (ohne artikel: der Überblick)."""
+    _, slug, thema = cfg["hefte"][kap]
+    return "/wissen/%s%s/%s/%s.html" % ("" if lang == "de" else lang + "/", heft_basis(cfg, kap), slugify(thema["de"]), artikel or slug)
+
+
+def heft_da(cfg, kap, lang):
+    """Gibt es das Heft (und in dieser Sprache)? Sonst bleibt ein Verweis Text ohne Link."""
+    if kap not in cfg["hefte"] or not (cfg["quelle"] / (cfg["hefte"][kap][0] + ".tex")).is_file():
+        return False
+    return lang == "de" or bool(list(cfg["quelle"].glob("kap%d_stufen*_%s.tex" % (kap, lang))))
+
+
+_ANKER = {}                                              # (ziel, kap) -> {"13.5": (Dateistamm, Artikel, Anker)}
+
+
+def heft_ordner(cfg, kap):
+    return ROOT / "content" / cfg["ziel"] / ("%02d-%s" % (kap, cfg["hefte"][kap][1]))
+
+
+def anker_karte(cfg, kap):
+    """Wo liegen die Abschnitte eines Hefts? Aus den deutschen Artikeln unter content/ (Anker stufe-13, stufe-13-5)."""
+    key = (cfg["ziel"], kap)
+    if key not in _ANKER:
+        d = heft_ordner(cfg, kap)
+        karte = {}
+        for p in (sorted(d.glob("*.md")) if d.is_dir() else ()):
+            if re.search(r"\.(%s)$" % "|".join(l for l in LANGS if l != "de"), p.stem) or "-mensch" in p.name:
+                continue
+            for a in re.findall(r'id="(stufe-\d+(?:-\d+)?)"', p.read_text(encoding="utf-8")):
+                karte.setdefault(a[6:].replace("-", "."), (p.stem, re.sub(r"^\d+-", "", p.stem), a))
+        _ANKER[key] = karte
+    return _ANKER[key]
+
+
+def abschnitt_url(cfg, kap, nummer, lang):
+    """Adresse von Abschnitt/Unterabschnitt nummer („13“, „13.5“) des Hefts, None ohne Ziel (auch: Artikel nicht übersetzt)."""
+    e = anker_karte(cfg, kap).get(nummer)
+    if e is None:
+        return None
+    stem, art, anker = e
+    if lang != "de" and not (heft_ordner(cfg, kap) / ("%s.%s.md" % (stem, lang))).is_file():
+        return None
+    return heft_url(cfg, kap, lang, art) + "#" + anker
+
+
+def _wort_re(t):
+    """Feste Wendung als Muster: Leerzeichen auch geschützt (~), chinesisches Komma auch als , oder ·."""
+    return "".join(r"[ \xa0]" if c == " " else r"[，,·][ \xa0]?" if c == "，" else re.escape(c) for c in t)
+
+
+def _name_re(fmt):
+    """„Grundlagen {n}“ -> Muster mit Gruppe n; keine Versionsnummer („Linux 6.8“)."""
+    vor, _, nach = fmt.partition("{n}")
+    weich = lambda t: _wort_re(t).replace(r"[ \xa0]", r"[ \xa0]?")
+    r = weich(vor) + r"(?P<n>\d+)(?!\d|[.,]\d)" + weich(nach)
+    return (r"\b" + r) if vor[:1].isascii() and vor[:1].isalpha() else r
+
+
+def verweis_arten(cfg, kap, lang):
+    """[(Muster mit Gruppe n, Ziel-Modul, Bereich)] in der Reihenfolge, in der sie zu prüfen sind (längste Wendung zuerst)."""
+    arten = []
+    for z in MODULE.values():                            # 1. Bereiche anderer Module: „Programmieren, Python 2“, „Linux 2“
+        if z.get("praefix") or z.get("extern"):
+            vor = _wort_re(z["praefix"][lang]) if z.get("praefix") else ""
+            for b in sorted(z.get("bereiche", ()), key=lambda b: -len(b["name"][lang])):
+                arten.append((vor + _name_re(b["name"][lang]), z, b))
+    if not (cfg.get("praefix") or cfg.get("extern")):     # 2. eigene Bereiche mit eigenem Namen: „Grundlagen 2“
+        for b in cfg.get("bereiche", ()):
+            if not b.get("teil"):
+                arten.append((_name_re(b["name"][lang]), cfg, b))
+    tb = bereich(cfg, kap) or next((b for b in cfg.get("bereiche", ()) if b.get("teil")), None)
+    arten.append((TEIL_RE[lang].replace(r"(\d+)", r"(?P<n>\d+)", 1), cfg, tb))   # 3. „Teil 2“
+    return arten
+
+
+def verweis_regex(arten, lang):
+    """Alle Verweisarten in einem Muster (so wird nichts doppelt verlinkt); Gruppen je Art mit ihrer Nummer i."""
+    teile = []
+    for i, (muster, _, _) in enumerate(arten):
+        nummeriert = lambda r: re.sub(r"\(\?P<(\w+)>", lambda m: "(?P<%s%d>" % (m.group(1), i), r)
+        teile.append("(?P<a%d>(?P<h%d>%s)(?P<A%d>%s(?P<U%d>%s)?)?)" % (
+            i, i, nummeriert(muster), i, nummeriert(ABSCHNITT_RE[lang]), i, nummeriert(UND_RE[lang])))
+    return re.compile("|".join(teile))
+
+
+def verweis_link(m, arten, lang, fehlt):
+    """Ein gefundener Verweis -> Markdown-Link(s); ohne Heft (oder Übersetzung) bleibt der Text. fehlt sammelt Abschnitte ohne Ziel."""
+    i = int(m.lastgroup[1:])
+    _, z, b = arten[i]
+    k = int(m.group("n%d" % i)) + (b["nr"] if b else 0)
+    if (b and not b["kaps"][0] <= k <= b["kaps"][1]) or not heft_da(z, k, lang):
+        return m.group(0)
+    kopf, ab, u = m.group("h%d" % i), m.group("A%d" % i), m.group("U%d" % i) or ""
+    if ab is None:
+        return "[%s](%s)" % (kopf, heft_url(z, k, lang))
+    ziel = abschnitt_url(z, k, m.group("s%d" % i), lang)
+    if ziel is None:
+        fehlt.append("%s %d: %s" % (z["ziel"], k, m.group(0)))
+        return "[%s](%s)%s" % (kopf, heft_url(z, k, lang), ab)
+    out = "[%s%s](%s)" % (kopf, ab[:len(ab) - len(u)], ziel)
+    if u:
+        z2 = abschnitt_url(z, k, m.group("uk%d" % i), lang)
+        if z2 is None:
+            fehlt.append("%s %d: %s" % (z["ziel"], k, m.group(0)))
+            return out + u
+        out += m.group("uc%d" % i) + "[%s](%s)" % (m.group("ut%d" % i), z2)
+    return out
 
 
 # ----------------------------------------------------------------------------- LaTeX lesen -------
@@ -1380,8 +1607,10 @@ def convert(cfg, kap, lang):
     return h, md, tt, sub, rest, teile
 
 
-def webtext(md, lang, cfg, teile):
-    """Texte anpassen, die nur im PDF stimmen; „Teil 3“ wird zum Link. Formeln, Code, Überschriften und Blockköpfe bleiben."""
+def webtext(md, lang, cfg, teile, kap=None, fehlt=None):
+    """Texte anpassen, die nur im PDF stimmen; „Teil 3“ wird zum Link. Formeln, Code, Überschriften und Blockköpfe bleiben.
+    Module mit "abschnitt_links" (Zusatzreihen): alle Verweisarten aus verweis_arten, mit Abschnitt und Anker; fehlt sammelt
+    Abschnitte ohne Ziel. Die übrigen Module verlinken wie bisher nur „Teil N“ auf den Überblick."""
     def subs(t):
         for a, b in WEBTEXT[lang]:
             t = t.replace(a, b)
@@ -1394,6 +1623,12 @@ def webtext(md, lang, cfg, teile):
             return m.group(0)                            # noch nicht übersetzt: Text ohne Link, sonst läuft er ins Leere
         _, slug, thema = cfg["hefte"][k]
         return "[%s](%s/%s/%s.html)" % (m.group(0), teile, slugify(thema["de"]), slug)
+    teil_re = TEIL_RE[lang]
+    if cfg.get("abschnitt_links") and kap is not None:
+        arten = verweis_arten(cfg, kap, lang)
+        teil_re = verweis_regex(arten, lang)
+        fehlt = [] if fehlt is None else fehlt
+        link = lambda m: verweis_link(m, arten, lang, fehlt)   # noqa: E731
     out = []
     for line in md.split("\n"):
         plain = line.startswith(("#", ":::", "<", "|", "$$"))
@@ -1403,7 +1638,7 @@ def webtext(md, lang, cfg, teile):
             if lang == "fr" and not line.startswith("<"):
                 pieces[i] = fr_typo(pieces[i])
             if not plain:
-                pieces[i] = re.sub(TEIL_RE[lang], link, pieces[i])
+                pieces[i] = re.sub(teil_re, link, pieces[i])
         out.append("".join(pieces))
     return "\n".join(out)
 
@@ -1454,11 +1689,16 @@ GETEILT = set()                                          # von abschnitte() gef�
 def datei_stamm(cfg, kap, stuecke):
     """Dateinamen aus den deutschen Titeln: 01-<kapitel>, 02-<stufe>, ... (der erste bleibt der Name des Kapitels)."""
     _, slug, _ = cfg["hefte"][kap]
-    namen = ["01-" + slug]
+    namen, frei = ["01-" + slug], {slug}
     for i, a in enumerate(stuecke[1:], 2):
         t = re.sub(r"^Stufe\s+\d+:\s*", "", a["titel"])
         t = re.sub(r"\$[^$]*\$", " ", t)
-        namen.append("%02d-%s" % (i, slugify(t)))
+        s, n = slugify(t), 1
+        while (s if n == 1 else "%s-%d" % (s, n)) in frei:   # gleiche Adresse wie der Überblick oder ein anderer Abschnitt
+            n += 1                                           # („Wahrscheinlichkeit“ in Grundlagen 4): -2, -3 …
+        s = s if n == 1 else "%s-%d" % (s, n)
+        frei.add(s)
+        namen.append("%02d-%s" % (i, s))
     return namen
 
 
@@ -1505,25 +1745,29 @@ def artikel(cfg, kap, lang):
     """Liste [(Dateiname, Text)] der Artikel eines Hefts, dazu Heft, offene Lösungen, Anker ohne Ziel."""
     stem, slug, thema = cfg["hefte"][kap]
     h, md, tt, sub, rest, teile = convert(cfg, kap, lang)
-    md = webtext(md, lang, cfg, teile)
+    h.verweis_fehlt = []                                 # „Grundlagen 1, Abschnitt 99“: Heft da, Abschnitt nicht
+    md = webtext(md, lang, cfg, teile, kap, h.verweis_fehlt)
     _, de, *_ = convert(cfg, kap, "de")
     GETEILT.clear()
-    namen = datei_stamm(cfg, kap, abschnitte(webtext(de, "de", cfg, "")))
+    namen = datei_stamm(cfg, kap, abschnitte(webtext(de, "de", cfg, "", kap, [])))
     stuecke = abschnitte(md, set(GETEILT))
     if len(namen) != len(stuecke):
         raise ValueError("Teil %d %s: %d Artikel, deutsch %d" % (kap, lang, len(stuecke), len(namen)))
     fehlt = verweise(stuecke, namen)
+    hname, b = heft_name(cfg, kap, lang), bereich(cfg, kap)   # Module mit Bereichen: „Grundlagen 1“ im Baum und im Überblick
     aus = []
     for i, (a, n) in enumerate(zip(stuecke, namen), 1):
         if a["art"] == "ueberblick":
-            titel, kurz, info = "%s: %s" % (UEBERBLICK[lang], tt), UEBERBLICK[lang], sub
+            titel, kurz, info = "%s: %s" % (UEBERBLICK[lang], ("%s – %s" % (hname, tt)) if hname else tt), UEBERBLICK[lang], sub
             if lang == "fr":                             # Titelblock kommt nicht durch webtext
                 titel, info = fr_typo(titel), fr_typo(info)
         else:
             titel, kurz, info = a["titel"], "", kurztext(a["md"], sub)
         info = re.sub(r"\$([^$]+)\$", lambda mm: "$" + makros(mm.group(1), h.extra) + "$", info)   # Präambel-Makros wie \ee
-        kopf = ["---", "title: " + titel] + (["kurz: " + kurz] if kurz else []) + [
-            "pfad: %s / %s" % (cfg["pfad"][lang], thema[lang]), "order: %d" % (cfg["order"] + kap * 10000 + 100 * i),
+        kopf = ["---", "title: " + titel] + (["kurz: " + kurz] if kurz else []) + ["pfad: " + heft_pfad(cfg, kap, lang)] + (
+            ["knoten: " + knoten_name(cfg, kap, lang)] if hname else []) + (
+            ["nachschlagen: ja"] if b and b.get("nachschlagen") else []) + [
+            "order: %d" % (cfg["order"] + (b.get("order", 0) if b else 0) + kap * 10000 + 100 * i),
             "summary: " + info, "tags: " + begriffe(a["md"]), "lang: " + lang, "---", ""]
         text = re.sub(r"@@CODE:(\d+)@@", lambda mm: h.code[int(mm.group(1))], a["md"].strip())   # Code erst ganz zum Schluss
         aus.append((n, "\n".join(kopf) + "\n" + text + "\n"))
@@ -1554,7 +1798,8 @@ def main():
             langs = [l for l in LANGS if l == "de" or (cfg["quelle"] / ("%s_%s.tex" % (stem, l))).is_file()]
             offen = [l for l in LANGS if l not in langs]
             if offen:
-                print("· Teil %d: noch nicht übersetzt: %s" % (kap, ", ".join(offen)))
+                name = heft_name(cfg, kap, "de")
+                print("· %s: noch nicht übersetzt: %s" % ("Kap. %d (%s)" % (kap, name) if name else "Teil %d" % kap, ", ".join(offen)))
         for lang in langs:
             if lang != "de" and not (cfg["quelle"] / ("%s_%s.tex" % (stem, lang))).is_file():
                 print("⚠ Teil %d %s: %s_%s.tex fehlt (noch nicht übersetzt)" % (kap, lang, stem, lang))
@@ -1576,6 +1821,8 @@ def main():
             ungenutzt = [l for l in h.sol if ("@@LOESUNG:%s@@" % l) not in txt and l not in h.neu]
             if ungenutzt:
                 msg.append("Lösungen ohne Aufgabe: " + ", ".join(ungenutzt))
+            if h.verweis_fehlt:
+                msg.append("Verweise auf fehlende Abschnitte: " + "; ".join(sorted(set(h.verweis_fehlt))))
             if a.aux:
                 msg += aux_vergleich(Path(a.aux) / ((stem + ("" if lang == "de" else "_" + lang)) + ".aux"), h)
             if not a.pruefen:
@@ -1587,15 +1834,32 @@ def main():
                         alt.unlink()
                 for n, t in arts:
                     (ordner / (n + endung + ".md")).write_text(t, encoding="utf-8", newline="\n")
-            print(("⚠ " if msg else "✓ ") + "Teil %d %s: %d Artikel, %d Zeichen, %d Abb., %d Aufg." % (kap, lang, len(arts), len(txt), h.fig, h.aufg))
+                _ANKER.pop((cfg["ziel"], kap), None)             # spätere Hefte verweisen auf die neuen Abschnitte
+            name = heft_name(cfg, kap, "de")
+            print(("⚠ " if msg else "✓ ") + ("Kap. %d (%s)" % (kap, name) if name else "Teil %d" % kap)
+                  + " %s: %d Artikel, %d Zeichen, %d Abb., %d Aufg." % (lang, len(arts), len(txt), h.fig, h.aufg))
             for x in msg:
                 print("    " + x)
                 fehler += 1
+    if cfg.get("reihe_hinweis") and not a.pruefen:
+        reihe_hinweis(cfg)
     if a.katex:
         for t, e in katex_pruefen(alle):
             print("⚠ KaTeX:", t, "\n    ", e)
             fehler += 1
     return 1 if fehler else 0
+
+
+def reihe_hinweis(cfg):
+    """content/<ziel>/_reihe[.<lang>].md: kurzer Text, den die Übersicht der Website unter dem Modul zeigt (build_wissen:
+    Dateien mit „_“ sind keine Artikel; „hinweis:“ nennt den Knoten im Baum der Sprache)."""
+    d = ROOT / "content" / cfg["ziel"]
+    d.mkdir(parents=True, exist_ok=True)
+    for lang, text in cfg["reihe_hinweis"].items():
+        text = fr_typo(text) if lang == "fr" else text
+        kopf = ["---", "hinweis: " + cfg["pfad"][lang], "lang: " + lang, "---", ""]
+        (d / ("_reihe%s.md" % ("" if lang == "de" else "." + lang))).write_text("\n".join(kopf) + "\n" + text + "\n",
+                                                                                encoding="utf-8", newline="\n")
 
 
 def katex_pruefen(texte):

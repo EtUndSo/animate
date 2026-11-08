@@ -1,0 +1,627 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 27,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@im",
+     "position": [
+      -1.8,
+      2.45,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@sk",
+     "position": [
+      2.0,
+      2.45,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8,
+      1.55,
+      0
+     ],
+     "width": 2.25,
+     "height": 0.55,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@lesen",
+     "position": [
+      -1.8,
+      1.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.88,
+      0.05,
+      0
+     ],
+     "width": 1.5,
+     "height": 0.55,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@ausw",
+     "position": [
+      -0.88,
+      0.05,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.72,
+      0.05,
+      0
+     ],
+     "width": 1.5,
+     "height": 0.55,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@anz",
+     "position": [
+      -2.72,
+      0.05,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.1,
+      1.27,
+      0
+     ],
+     "end": [
+      -0.88,
+      0.33,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.63,
+      0.05,
+      0
+     ],
+     "end": [
+      -1.97,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.72,
+      0.33,
+      0
+     ],
+     "end": [
+      -2.5,
+      1.27,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.14,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@wert",
+     "position": [
+      -1.8,
+      -0.32,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@jede",
+     "position": [
+      -1.8,
+      -1.15,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.0,
+      1.6,
+      0
+     ],
+     "width": 2.6,
+     "height": 0.95,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f6f6f2",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{array}{l}\\texttt{print(\"Vorher\")}\\\\\\texttt{2 + 3}\\\\\\texttt{print(\"Nachher\")}\\end{array}",
+     "height": 0.78,
+     "position": [
+      2.0,
+      1.6,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "ausdruck.py",
+     "position": [
+      0.75,
+      2.21,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.0,
+      0.55,
+      0
+     ],
+     "width": 2.8,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@ue",
+     "position": [
+      2.0,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.0,
+      -0.4,
+      0
+     ],
+     "width": 2.8,
+     "height": 0.72,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@zl",
+     "position": [
+      2.0,
+      -0.4,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.0,
+      1.12,
+      0
+     ],
+     "end": [
+      2.0,
+      0.81,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.0,
+      0.29,
+      0
+     ],
+     "end": [
+      2.0,
+      -0.03,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.0,
+      -0.77,
+      0
+     ],
+     "end": [
+      2.0,
+      -1.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.0,
+      -1.43,
+      0
+     ],
+     "width": 1.5,
+     "height": 0.68,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{array}{l}\\texttt{Vorher}\\\\\\texttt{Nachher}\\end{array}",
+     "height": 0.5,
+     "position": [
+      2.0,
+      -1.43,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@nur",
+     "position": [
+      2.0,
+      -2.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "im": {
+    "de": "Interaktiver Modus",
+    "en": "Interactive mode",
+    "es": "Modo interactivo",
+    "zh": "交互模式",
+    "fr": "Mode interactif",
+    "tr": "Etkileşimli kip"
+   },
+   "sk": {
+    "de": "Skript",
+    "en": "Script",
+    "es": "Script",
+    "zh": "脚本",
+    "fr": "Script",
+    "tr": "Betik"
+   },
+   "lesen": {
+    "de": "Lesen: >>> 2 + 3",
+    "en": "Read: >>> 2 + 3",
+    "es": "Leer: >>> 2 + 3",
+    "zh": "读入：>>> 2 + 3",
+    "fr": "Lire : >>> 2 + 3",
+    "tr": "Oku: >>> 2 + 3"
+   },
+   "ausw": {
+    "de": "Auswerten",
+    "en": "Evaluate",
+    "es": "Evaluar",
+    "zh": "求值",
+    "fr": "Évaluer",
+    "tr": "Değerlendir"
+   },
+   "anz": {
+    "de": "Anzeigen: 5",
+    "en": "Display: 5",
+    "es": "Mostrar: 5",
+    "zh": "显示：5",
+    "fr": "Afficher : 5",
+    "tr": "Göster: 5"
+   },
+   "wert": {
+    "de": "Wert 5",
+    "en": "value 5",
+    "es": "valor 5",
+    "zh": "值 5",
+    "fr": "valeur 5",
+    "tr": "değer 5"
+   },
+   "jede": {
+    "de": "jede Eingabe einzeln;\nder Wert jedes Ausdrucks\nwird angezeigt",
+    "en": "each input on its own;\nthe value of every\nexpression is displayed",
+    "es": "cada entrada por separado;\nse muestra el valor\nde cada expresión",
+    "zh": "每次一条输入；\n每个表达式的值\n都会显示",
+    "fr": "chaque saisie séparément ;\nla valeur de chaque\nexpression s'affiche",
+    "tr": "her girdi ayrı ayrı;\nher ifadenin değeri\ngösterilir"
+   },
+   "ue": {
+    "de": "ganze Datei übersetzen",
+    "en": "translate the whole file",
+    "es": "traducir todo el archivo",
+    "zh": "翻译整个文件",
+    "fr": "traduire tout le fichier",
+    "tr": "tüm dosyayı çevir"
+   },
+   "zl": {
+    "de": "Zeilen von oben nach\nunten ausführen",
+    "en": "run the lines from\ntop to bottom",
+    "es": "ejecutar las líneas\nde arriba abajo",
+    "zh": "从上到下\n执行各行",
+    "fr": "exécuter les lignes\nde haut en bas",
+    "tr": "satırları yukarıdan\naşağıya çalıştır"
+   },
+   "nur": {
+    "de": "sichtbar: nur die Ausgaben\nvon print; 2 + 3 zeigt nichts",
+    "en": "visible: only the output\nof print; 2 + 3 shows nothing",
+    "es": "visible: solo la salida\nde print; 2 + 3 no muestra nada",
+    "zh": "可见的只有 print 的输出；\n2 + 3 什么也不显示",
+    "fr": "visible : seulement la sortie\nde print ; 2 + 3 n'affiche rien",
+    "tr": "görünen: yalnızca print\nçıktısı; 2 + 3 bir şey göstermez"
+   }
+  }
+ }
+}

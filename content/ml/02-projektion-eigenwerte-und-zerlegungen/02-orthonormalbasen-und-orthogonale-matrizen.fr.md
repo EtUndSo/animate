@@ -1,7 +1,9 @@
 ---
 title: Bases orthonormées et matrices orthogonales
-pfad: Informatique / Apprentissage automatique / Projection, valeurs propres et décompositions
-order: 6220200
+pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
+knoten: Fondements 2 : Projection, valeurs propres et décompositions
+nachschlagen: ja
+order: 15220200
 summary: Certains repères sont particulièrement commodes : leurs axes sont perpendiculaires entre eux, et l’unité a la même longueur sur chaque axe.
 tags: orthonormés, base orthonormée, matrice orthogonale
 lang: fr
@@ -17,7 +19,7 @@ Certains repères sont particulièrement commodes : leurs axes sont perpendicul
 
 <span class="anker" id="stufe-1-1"></span>
 
-Dans la Partie 1, section 5.3, deux vecteurs étaient dits orthogonaux lorsque leur produit scalaire est nul. Le motif constant $(1,1,1,1)^{\top}$ et le motif alterné $(1,-1,1,-1)^{\top}$ en étaient un exemple : la comparaison d’un signal avec l’un des motifs n’était pas perturbée par l’autre. Elle donnait toutefois la part multipliée par $4$, parce que les deux motifs ont la longueur $2$. Si des vecteurs orthogonaux ont en plus la longueur $1$, ce facteur disparaît lui aussi.
+Dans Fondements 1, section 5.3, deux vecteurs étaient dits orthogonaux lorsque leur produit scalaire est nul. Le motif constant $(1,1,1,1)^{\top}$ et le motif alterné $(1,-1,1,-1)^{\top}$ en étaient un exemple : la comparaison d’un signal avec l’un des motifs n’était pas perturbée par l’autre. Elle donnait toutefois la part multipliée par $4$, parce que les deux motifs ont la longueur $2$. Si des vecteurs orthogonaux ont en plus la longueur $1$, ce facteur disparaît lui aussi.
 
 Imaginez les deux axes $\mathbf{e}_1$ et $\mathbf{e}_2$ du plan, tournés d’un bloc d’un certain angle. Les deux flèches ont toujours la longueur $1$ et restent perpendiculaires l’une à l’autre ; elles pointent simplement dans d’autres directions.
 
@@ -39,7 +41,7 @@ Si $\mathbf{q}_1,\dots,\mathbf{q}_k$ sont orthonormés, ils sont linéairement i
 :::
 
 :::beweis Indépendance linéaire
-Supposons $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. On forme le produit scalaire des deux membres avec $\mathbf{q}_l$. D’après [(1.1)](#gl-1-1), il ne reste à gauche que le terme $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$, et à droite on a $\mathbf{q}_l^{\top}\mathbf{0}=0$. Donc $c_l=0$, et ce pour tout $l$. D’après la définition de la Partie 1, section 13.2, les vecteurs sont donc linéairement indépendants.
+Supposons $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. On forme le produit scalaire des deux membres avec $\mathbf{q}_l$. D’après [(1.1)](#gl-1-1), il ne reste à gauche que le terme $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$, et à droite on a $\mathbf{q}_l^{\top}\mathbf{0}=0$. Donc $c_l=0$, et ce pour tout $l$. D’après la définition de Fondements 1, section 13.2, les vecteurs sont donc linéairement indépendants.
 :::
 
 ⁠**Exemple de calcul :** Pour $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ et $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$, on a
@@ -58,7 +60,7 @@ Le produit scalaire $\mathbf{q}_1^{\top}\mathbf{q}_2$ pas à pas, avec $0{,}6=\t
 
 <span class="anker" id="stufe-1-2"></span>
 
-D’après la Partie 1, section 13.3, une base est un système de coordonnées : tout vecteur y a exactement une représentation. Les plus commodes sont les bases dont les vecteurs sont orthonormés. Elles sont comme le repère habituel, simplement tourné.
+D’après Fondements 1, section 13.3, une base est un système de coordonnées : tout vecteur y a exactement une représentation. Les plus commodes sont les bases dont les vecteurs sont orthonormés. Elles sont comme le repère habituel, simplement tourné.
 
 :::definition Définition 1.3 (Base orthonormée)
 <span class="anker" id="satz-1-3"></span>
@@ -66,7 +68,7 @@ D’après la Partie 1, section 13.3, une base est un système de coordonnées
 Une base formée de vecteurs orthonormés est appelée __base orthonormée__.
 :::
 
-Pour l’espace $\mathbb{R}^n$ tout entier, il suffit de trouver $n$ vecteurs orthonormés. D’après le théorème de la sous-section précédente, ils sont linéairement indépendants. Si on les écrit en colonnes dans une matrice $n\times n$, celle-ci est de rang $n$, et son espace des colonnes est, d’après la Partie 1, section 13.5, l’espace $\mathbb{R}^n$ tout entier. Les $n$ vecteurs engendrent donc $\mathbb{R}^n$ et forment une base. De même, on peut chercher une base orthonormée d’un sous-espace engendré, par exemple d’un plan de $\mathbb{R}^3$ : des vecteurs orthonormés qui engendrent exactement ce sous-espace.
+Pour l’espace $\mathbb{R}^n$ tout entier, il suffit de trouver $n$ vecteurs orthonormés. D’après le théorème de la sous-section précédente, ils sont linéairement indépendants. Si on les écrit en colonnes dans une matrice $n\times n$, celle-ci est de rang $n$, et son espace des colonnes est, d’après Fondements 1, section 13.5, l’espace $\mathbb{R}^n$ tout entier. Les $n$ vecteurs engendrent donc $\mathbb{R}^n$ et forment une base. De même, on peut chercher une base orthonormée d’un sous-espace engendré, par exemple d’un plan de $\mathbb{R}^3$ : des vecteurs orthonormés qui engendrent exactement ce sous-espace.
 
 ⁠**Exemple de calcul :** Les vecteurs $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ et $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$ sont deux vecteurs orthonormés de $\mathbb{R}^2$, donc une base orthonormée de $\mathbb{R}^2$. Les vecteurs unitaires $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ forment la base orthonormée de $\mathbb{R}^3$ que l’on appelle base canonique. Le plan $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ de $\mathbb{R}^3$ a pour base orthonormée $\mathbf{e}_1,\mathbf{e}_2$.
 
@@ -76,9 +78,9 @@ Pour l’espace $\mathbb{R}^n$ tout entier, il suffit de trouver $n$ vecteurs or
 
 <span class="anker" id="stufe-1-3"></span>
 
-Dans une base quelconque, il faut résoudre un système d’équations pour trouver les coordonnées d’un vecteur. Dans la Partie 1, section 13.3, le vecteur $(3,\,2)^{\top}$ avait, dans la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$, les coordonnées $1$ et $2$. Les produits scalaires $(1,0)(3,2)^{\top}=3$ et $(1,1)(3,2)^{\top}=5$ sont tout autre chose. Dans une base orthonormée, en revanche, les coordonnées sont exactement les produits scalaires.
+Dans une base quelconque, il faut résoudre un système d’équations pour trouver les coordonnées d’un vecteur. Dans Fondements 1, section 13.3, le vecteur $(3,\,2)^{\top}$ avait, dans la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$, les coordonnées $1$ et $2$. Les produits scalaires $(1,0)(3,2)^{\top}=3$ et $(1,1)(3,2)^{\top}=5$ sont tout autre chose. Dans une base orthonormée, en revanche, les coordonnées sont exactement les produits scalaires.
 
-L’image de la longueur de l’ombre, vue dans la Partie 1, section 5.5, en donne la raison. Pour un vecteur normé $\mathbf{q}$, $\mathbf{q}^{\top}\mathbf{x}$ est la longueur de l’ombre de $\mathbf{x}$ sur la droite de direction $\mathbf{q}$. Dans une base orthonormée, chaque coordonnée est l’ombre sur son propre axe (Fig. [2](#abb-2)).
+L’image de la longueur de l’ombre, vue dans Fondements 1, section 5.5, en donne la raison. Pour un vecteur normé $\mathbf{q}$, $\mathbf{q}^{\top}\mathbf{x}$ est la longueur de l’ombre de $\mathbf{x}$ sur la droite de direction $\mathbf{q}$. Dans une base orthonormée, chaque coordonnée est l’ombre sur son propre axe (Fig. [2](#abb-2)).
 
 :::abbildung ml/k2onb 2
 Coordonnées dans la base orthonormée $\mathbf{q}_1=(0{,}6;\,0{,}8)^{\top}$, $\mathbf{q}_2=(-0{,}8;\,0{,}6)^{\top}$ (en vert). La flèche $\mathbf{x}=(3,1)^{\top}$ projette une ombre sur chacun des deux axes tournés (en gris), la lumière tombant chaque fois perpendiculairement (en tirets). Les longueurs des ombres $\mathbf{q}_1^{\top}\mathbf{x}=2{,}6$ (en bleu) et $\mathbf{q}_2^{\top}\mathbf{x}=-1{,}8$ (en orange) sont les coordonnées : $\mathbf{x}=2{,}6\,\mathbf{q}_1-1{,}8\,\mathbf{q}_2$.
@@ -133,7 +135,7 @@ La seconde formule de [(1.2)](#gl-1-2) dit que l’énergie $\lVert\mathbf{x}\rV
 
 <span class="anker" id="stufe-1-4"></span>
 
-Si l’on écrit les vecteurs d’une base orthonormée en colonnes dans une matrice $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, les deux formules [(1.2)](#gl-1-2) s’écrivent comme des produits matriciels. D’après la vue par lignes de la Partie 1, section 7.2, toutes les coordonnées à la fois forment le vecteur $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, car les lignes de $\mathbf{Q}^{\top}$ sont les vecteurs $\mathbf{q}_i^{\top}$. Inversement, d’après la vue par colonnes, $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$. La matrice $\mathbf{Q}^{\top}$ défait donc ce que fait $\mathbf{Q}$.
+Si l’on écrit les vecteurs d’une base orthonormée en colonnes dans une matrice $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, les deux formules [(1.2)](#gl-1-2) s’écrivent comme des produits matriciels. D’après la vue par lignes de Fondements 1, section 7.2, toutes les coordonnées à la fois forment le vecteur $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, car les lignes de $\mathbf{Q}^{\top}$ sont les vecteurs $\mathbf{q}_i^{\top}$. Inversement, d’après la vue par colonnes, $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$. La matrice $\mathbf{Q}^{\top}$ défait donc ce que fait $\mathbf{Q}$.
 
 :::definition Définition 1.5 (Matrice orthogonale)
 <span class="anker" id="satz-1-5"></span>
@@ -150,7 +152,7 @@ Si $\mathbf{Q}$ est orthogonale, alors $\mathbf{Q}$ est inversible et $\mathbf{Q
 :::
 
 :::beweis Inverse d’une matrice orthogonale
-Les colonnes sont orthonormées, donc linéairement indépendantes d’après la première sous-section. D’après le théorème de la Partie 1, section 13.5, $\mathbf{Q}$ est donc inversible. En multipliant $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ à droite par $\mathbf{Q}^{-1}$, on obtient $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, et par conséquent aussi $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
+Les colonnes sont orthonormées, donc linéairement indépendantes d’après la première sous-section. D’après le théorème de Fondements 1, section 13.5, $\mathbf{Q}$ est donc inversible. En multipliant $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ à droite par $\mathbf{Q}^{-1}$, on obtient $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, et par conséquent aussi $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
 :::
 
 Un mot sur le nom. Une matrice orthogonale a des colonnes orthonormées, et pas seulement orthogonales ; le nom est un héritage de l’histoire. Les matrices dont les colonnes sont seulement orthogonales, mais pas normées, n’ont pas de nom particulier. Pour elles, $\mathbf{Q}^{\top}\mathbf{Q}$ est une matrice diagonale portant sur sa diagonale les carrés des longueurs des colonnes, mais ce n’est pas $\mathbf{I}$.
@@ -159,7 +161,7 @@ Un mot sur le nom. Une matrice orthogonale a des colonnes orthonormées, et pas 
 
 $$\mathbf{Q}=\begin{pmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{pmatrix},\qquad \mathbf{Q}^{\top}\mathbf{Q}=\begin{pmatrix}0{,}36+0{,}64&-0{,}48+0{,}48\\-0{,}48+0{,}48&0{,}64+0{,}36\end{pmatrix}=\mathbf{I} .$$
 
-Les coefficients de $\mathbf{Q}^{\top}\mathbf{Q}$ sont les produits scalaires des colonnes de la première sous-section ; la Fig. [1](#abb-1) montre le coefficient hors diagonale. Donc $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, sans calcul. Cette matrice est la matrice de rotation de la Partie 1, section 8.3, avec $\cos\alpha=0{,}6$ et $\sin\alpha=0{,}8$, donc une rotation d’angle $\alpha\approx53{,}13^\circ$ dans le sens inverse des aiguilles d’une montre. L’inverse $\mathbf{Q}^{\top}$ fait tourner du même angle en sens contraire.
+Les coefficients de $\mathbf{Q}^{\top}\mathbf{Q}$ sont les produits scalaires des colonnes de la première sous-section ; la Fig. [1](#abb-1) montre le coefficient hors diagonale. Donc $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, sans calcul. Cette matrice est la matrice de rotation de Fondements 1, section 8.3, avec $\cos\alpha=0{,}6$ et $\sin\alpha=0{,}8$, donc une rotation d’angle $\alpha\approx53{,}13^\circ$ dans le sens inverse des aiguilles d’une montre. L’inverse $\mathbf{Q}^{\top}$ fait tourner du même angle en sens contraire.
 
 ⁠**En bref :** Une matrice orthogonale est une matrice carrée à colonnes orthonormées ; son inverse est simplement sa transposée.
 
@@ -181,10 +183,10 @@ et l’angle entre $\mathbf{Q}\mathbf{x}$ et $\mathbf{Q}\mathbf{y}$ est le même
 :::
 
 :::beweis Conservation des produits scalaires
-D’après la règle $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ de la Partie 1, section 10.1, on a $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. Avec $\mathbf{y}=\mathbf{x}$, on obtient l’énoncé sur la longueur, et comme l’angle se calcule uniquement à partir de produits scalaires et de longueurs, il reste lui aussi inchangé. Pour le déterminant, on utilise les règles de calcul de la Partie 1, section 14.5 : $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
+D’après la règle $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ de Fondements 1, section 10.1, on a $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. Avec $\mathbf{y}=\mathbf{x}$, on obtient l’énoncé sur la longueur, et comme l’angle se calcule uniquement à partir de produits scalaires et de longueurs, il reste lui aussi inchangé. Pour le déterminant, on utilise les règles de calcul de Fondements 1, section 14.5 : $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
 :::
 
-Une matrice orthogonale déplace donc l’espace de façon rigide, sans le déformer. Si $\det\mathbf{Q}=1$, c’est une rotation. Si $\det\mathbf{Q}=-1$, elle contient une réflexion, car d’après la Partie 1, section 14.2, un déterminant négatif inverse l’orientation.
+Une matrice orthogonale déplace donc l’espace de façon rigide, sans le déformer. Si $\det\mathbf{Q}=1$, c’est une rotation. Si $\det\mathbf{Q}=-1$, elle contient une réflexion, car d’après Fondements 1, section 14.2, un déterminant négatif inverse l’orientation.
 
 ⁠**Exemple de calcul :** La rotation de la sous-section précédente envoie $\mathbf{x}=(3,\,1)^{\top}$ sur $\mathbf{Q}\mathbf{x}=(1{,}8-0{,}8;\ 2{,}4+0{,}6)^{\top}=(1,\,3)^{\top}$. Les deux vecteurs ont le même carré de longueur, $10$. Le déterminant de la rotation vaut $0{,}36+0{,}64=1$. La matrice $\bigl(\begin{smallmatrix}0{,}6&0{,}8\\0{,}8&-0{,}6\end{smallmatrix}\bigr)$ a elle aussi des colonnes orthonormées, mais son déterminant vaut $-0{,}36-0{,}64=-1$ : c’est la réflexion par rapport à la droite de direction $(2,\,1)^{\top}$, car elle envoie $(2,\,1)^{\top}$ sur lui-même et $(-1,\,2)^{\top}$ sur $(1,\,-2)^{\top}$.
 
@@ -207,14 +209,14 @@ Si $\mathbf{Q}\in\mathbb{R}^{n\times k}$ a des colonnes orthonormées et si $k<n
 :::
 
 :::beweis Matrices rectangulaires
-Les deux premiers énoncés découlent de [(1.1)](#gl-1-1) exactement comme pour les matrices carrées. Pour le troisième : la matrice $\mathbf{Q}^{\top}$ a $k$ lignes et $n$ colonnes. D’après le théorème du rang de la Partie 1, section 13.5, son noyau est de dimension $n-\operatorname{rg}\mathbf{Q}^{\top}\ge n-k\ge1$. Il existe donc un vecteur $\mathbf{z}\ne\mathbf{0}$ tel que $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, et pour lui $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Donc $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
+Les deux premiers énoncés découlent de [(1.1)](#gl-1-1) exactement comme pour les matrices carrées. Pour le troisième : la matrice $\mathbf{Q}^{\top}$ a $k$ lignes et $n$ colonnes. D’après le théorème du rang de Fondements 1, section 13.5, son noyau est de dimension $n-\operatorname{rg}\mathbf{Q}^{\top}\ge n-k\ge1$. Il existe donc un vecteur $\mathbf{z}\ne\mathbf{0}$ tel que $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, et pour lui $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Donc $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
 :::
 
 ⁠**Exemple de calcul 1 :** La matrice dont l’unique colonne est $\mathbf{q}=(0{,}6;\ 0{,}8)^{\top}$ vérifie $\mathbf{q}^{\top}\mathbf{q}=1$, mais
 
 $$\mathbf{q}\mathbf{q}^{\top}=\begin{pmatrix}0{,}36&0{,}48\\0{,}48&0{,}64\end{pmatrix}\ne\mathbf{I} .$$
 
-Celle-ci envoie $(-0{,}8;\ 0{,}6)^{\top}$ sur $\mathbf{0}$. Elle envoie le vecteur $\mathbf{x}=(3,\,1)^{\top}$ sur $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$. C’est exactement l’extrémité de l’ombre de $\mathbf{x}$ de la Partie 1, section 5.5, car $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
+Celle-ci envoie $(-0{,}8;\ 0{,}6)^{\top}$ sur $\mathbf{0}$. Elle envoie le vecteur $\mathbf{x}=(3,\,1)^{\top}$ sur $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$. C’est exactement l’extrémité de l’ombre de $\mathbf{x}$ de Fondements 1, section 5.5, car $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
 
 ⁠**Exemple de calcul 2 :** Les colonnes de $\mathbf{Q}=\Bigl(\begin{smallmatrix}1&0\\0&1\\0&0\end{smallmatrix}\Bigr)$ sont $\mathbf{e}_1$ et $\mathbf{e}_2$ dans $\mathbb{R}^3$. On a $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}_2$, mais $\mathbf{Q}\mathbf{Q}^{\top}=\operatorname{diag}(1;\,1;\,0)$. Cette matrice conserve les deux premières composantes et met la troisième à zéro.
 

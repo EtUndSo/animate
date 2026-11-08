@@ -1,7 +1,9 @@
 ---
 title: Diagonalisation et théorème spectral
-pfad: Informatique / Apprentissage automatique / Projection, valeurs propres et décompositions
-order: 6220800
+pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
+knoten: Fondements 2 : Projection, valeurs propres et décompositions
+nachschlagen: ja
+order: 15220800
 summary: Si l’on décrit une matrice dans une base formée de ses vecteurs propres, elle devient diagonale : chaque coordonnée est seulement multipliée par sa valeur propre, et des calculs couplés se décomposent en calculs séparés.
 tags: changement de base, diagonalisable, axes principaux
 lang: fr
@@ -19,7 +21,7 @@ Si l’on décrit une matrice dans une base formée de ses vecteurs propres, ell
 
 La même flèche a des coordonnées différentes dans des bases différentes. De même, la même application linéaire a des matrices différentes dans des coordonnées différentes. Certaines bases rendent la matrice particulièrement simple.
 
-Soit $\mathbf s_1,\dots,\mathbf s_n$ une base de $\mathbb{R}^n$, et $\mathbf{S}$ la matrice ayant ces vecteurs pour colonnes. D’après la Partie 1, section 13.5, elle est inversible. Si $\mathbf{x}$ a les coordonnées $\mathbf{c}$ dans cette base, alors $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$, et inversement $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. Si l’on applique $\mathbf{A}$ à $\mathbf{x}$, l’image $\mathbf{A}\mathbf{x}$ a les coordonnées $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. Dans les nouvelles coordonnées, l’application agit donc par la matrice $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ : on convertit d’abord dans les anciennes coordonnées, on applique ensuite l’application, puis on reconvertit.
+Soit $\mathbf s_1,\dots,\mathbf s_n$ une base de $\mathbb{R}^n$, et $\mathbf{S}$ la matrice ayant ces vecteurs pour colonnes. D’après Fondements 1, section 13.5, elle est inversible. Si $\mathbf{x}$ a les coordonnées $\mathbf{c}$ dans cette base, alors $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$, et inversement $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. Si l’on applique $\mathbf{A}$ à $\mathbf{x}$, l’image $\mathbf{A}\mathbf{x}$ a les coordonnées $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. Dans les nouvelles coordonnées, l’application agit donc par la matrice $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ : on convertit d’abord dans les anciennes coordonnées, on applique ensuite l’application, puis on reconvertit.
 
 :::definition Définition 7.1 (Changement de base)
 <span class="anker" id="satz-7-1"></span>
@@ -36,10 +38,10 @@ $\mathbf{A}$ et $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ ont le même polynôme car
 :::
 
 :::beweis Changement de base
-On a $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. D’après les règles de calcul de la Partie 1, section 14.5, son déterminant vaut $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. D’après [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), la trace et le déterminant se déduisent des valeurs propres.
+On a $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. D’après les règles de calcul de Fondements 1, section 14.5, son déterminant vaut $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. D’après [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), la trace et le déterminant se déduisent des valeurs propres.
 :::
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ et la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ de la Partie 1, section 13.3, on a $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ et $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Alors
+⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ et la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ de Fondements 1, section 13.3, on a $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ et $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Alors
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
@@ -65,7 +67,7 @@ Réciproquement, si $\mathbf{A}$ peut s’écrire ainsi, les colonnes de $\mathb
 :::
 
 :::beweis Diagonalisation
-D’après la Partie 1, section 9.2, la colonne $i$ de $\mathbf{A}\mathbf{S}$ est le produit $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, et la colonne $i$ de $\mathbf{S}\boldsymbol{\Lambda}$ vaut elle aussi $\lambda_i\mathbf s_i$. Donc $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. Les colonnes de $\mathbf{S}$ sont indépendantes, donc $\mathbf{S}$ est inversible, et la multiplication à gauche par $\mathbf{S}^{-1}$ donne [(7.1)](#gl-7-1). En lisant la même égalité $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ dans l’autre sens, on obtient la réciproque.
+D’après Fondements 1, section 9.2, la colonne $i$ de $\mathbf{A}\mathbf{S}$ est le produit $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, et la colonne $i$ de $\mathbf{S}\boldsymbol{\Lambda}$ vaut elle aussi $\lambda_i\mathbf s_i$. Donc $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. Les colonnes de $\mathbf{S}$ sont indépendantes, donc $\mathbf{S}$ est inversible, et la multiplication à gauche par $\mathbf{S}^{-1}$ donne [(7.1)](#gl-7-1). En lisant la même égalité $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ dans l’autre sens, on obtient la réciproque.
 :::
 
 Une matrice qui peut s’écrire ainsi est dite __diagonalisable__. D’après le théorème de la section [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8), c’est par exemple toujours le cas lorsque les $n$ valeurs propres sont toutes distinctes. Le cisaillement n’est pas diagonalisable, car il lui manque un vecteur propre. La rotation de $90^\circ$ n’est pas non plus diagonalisable avec des nombres réels, seulement avec des nombres complexes. Ces deux matrices sont pourtant inversibles : inversible et diagonalisable sont deux propriétés différentes.
@@ -195,7 +197,7 @@ On procède pas à pas. D’après la section [6.3](eigenwerte-und-eigenvektore
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-avec la matrice symétrique $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, de taille $(n-1)\times(n-1)$. Les zéros en bas à gauche apparaissent parce que $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ est perpendiculaire aux colonnes de $\mathbf{W}$, et ceux en haut à droite également, parce que $\mathbf{A}$ est symétrique. Pour $\mathbf{B}$, on répète la même opération jusqu’à ce qu’il ne reste qu’une matrice $1\times1$. Si l’on a ainsi trouvé pour $\mathbf{B}$ une matrice orthogonale $\mathbf{Q}_B$ telle que $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ soit diagonale, alors $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ est orthogonale en tant que produit de matrices orthogonales, et $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ est diagonale. Comme $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, il s’ensuit que $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. La forme en somme découle de la Partie 1, section 9.5, car $\mathbf{Q}\boldsymbol{\Lambda}$ a pour colonnes $\lambda_i\mathbf{q}_i$.
+avec la matrice symétrique $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, de taille $(n-1)\times(n-1)$. Les zéros en bas à gauche apparaissent parce que $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ est perpendiculaire aux colonnes de $\mathbf{W}$, et ceux en haut à droite également, parce que $\mathbf{A}$ est symétrique. Pour $\mathbf{B}$, on répète la même opération jusqu’à ce qu’il ne reste qu’une matrice $1\times1$. Si l’on a ainsi trouvé pour $\mathbf{B}$ une matrice orthogonale $\mathbf{Q}_B$ telle que $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ soit diagonale, alors $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ est orthogonale en tant que produit de matrices orthogonales, et $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ est diagonale. Comme $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, il s’ensuit que $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. La forme en somme découle de Fondements 1, section 9.5, car $\mathbf{Q}\boldsymbol{\Lambda}$ a pour colonnes $\lambda_i\mathbf{q}_i$.
 :::
 
 D’après la section [2.3](projektion-auf-eine-gerade.html#stufe-2-3), chaque terme $\mathbf{q}_i\mathbf{q}_i^{\top}$ est la projection sur la droite de direction $\mathbf{q}_i$. Une matrice symétrique est donc une somme de projections sur des axes perpendiculaires, chacune pondérée par sa valeur propre. Pour une valeur propre multiple, le choix des $\mathbf{q}_i$ dans son sous-espace propre est libre : toute base orthonormée du sous-espace propre convient. Le signe de chaque $\mathbf{q}_i$ est lui aussi libre. Certains ouvrages classent les valeurs propres par ordre décroissant, d’autres non.
@@ -207,7 +209,7 @@ $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}
 ⁠**En bref :** Toute matrice symétrique s’écrit $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ : elle est diagonale dans un repère convenablement tourné, et c’est une somme pondérée de projections sur des axes perpendiculaires.
 
 :::hintergrund D’où viennent les matrices symétriques
-Des matrices symétriques apparaissent partout où une matrice décrit des relations deux à deux qui ne dépendent pas de l’ordre. Les matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ et $\mathbf{X}\mathbf{X}^{\top}$ de la Partie 1, section 10, contiennent des produits scalaires, et $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. D’après la section [5.2](quadratische-formen.html#stufe-5-2), on peut toujours choisir symétrique la matrice d’une forme quadratique. La matrice d’inductance de bobines couplées est symétrique, car l’inductance mutuelle de la bobine 1 sur la bobine 2 est la même que dans l’autre sens. Pour toutes ces matrices, le théorème spectral garantit des valeurs propres réelles et des directions propres perpendiculaires.
+Des matrices symétriques apparaissent partout où une matrice décrit des relations deux à deux qui ne dépendent pas de l’ordre. Les matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ et $\mathbf{X}\mathbf{X}^{\top}$ de Fondements 1, section 10, contiennent des produits scalaires, et $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. D’après la section [5.2](quadratische-formen.html#stufe-5-2), on peut toujours choisir symétrique la matrice d’une forme quadratique. La matrice d’inductance de bobines couplées est symétrique, car l’inductance mutuelle de la bobine 1 sur la bobine 2 est la même que dans l’autre sens. Pour toutes ces matrices, le théorème spectral garantit des valeurs propres réelles et des directions propres perpendiculaires.
 :::
 
 ### Axes principaux

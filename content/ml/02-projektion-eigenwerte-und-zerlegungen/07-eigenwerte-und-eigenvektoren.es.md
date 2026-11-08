@@ -1,7 +1,9 @@
 ---
 title: Valores propios y vectores propios
-pfad: Informática / Aprendizaje automático / Proyección, valores propios y descomposiciones
-order: 6220700
+pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
+knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+nachschlagen: ja
+order: 15220700
 summary: Una matriz gira y estira a la vez la mayoría de los vectores.
 tags: conjugado complejo, vector propio, valor propio, polinomio característico, espacio propio, traza, multiplicidad algebraica, multiplicidad geométrica
 lang: es
@@ -41,7 +43,7 @@ El producto escalar $(\mathbf{v}^*)^{\top}\mathbf{v}$ para $\mathbf{v}=(1,-\math
 
 <span class="anker" id="stufe-6-2"></span>
 
-En la parte 1, sección 8.3, unas matrices giraban, estiraban y cizallaban la cuadrícula del plano. Al hacerlo, la mayoría de las flechas cambian de dirección. Pero en algunas matrices hay direcciones en las que una flecha se queda sobre su recta que pasa por el origen: solo se estira, se comprime o se invierte (fig. [17](#abb-17)).
+En Fundamentos 1, sección 8.3, unas matrices giraban, estiraban y cizallaban la cuadrícula del plano. Al hacerlo, la mayoría de las flechas cambian de dirección. Pero en algunas matrices hay direcciones en las que una flecha se queda sobre su recta que pasa por el origen: solo se estira, se comprime o se invierte (fig. [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 La matriz $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ transforma la circunferencia unidad (gris) en una elipse (azul). La flecha $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ (roja) se queda sobre su recta y se estira al quíntuplo; la flecha $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ (verde), al doble; sus imágenes están dibujadas en tono claro. Las rectas grises son las dos direcciones propias. El vector unitario $\mathbf{e}_1$, en cambio, se transforma en $(4,2)^{\top}$ (a trazos) y cambia de dirección.
@@ -80,7 +82,7 @@ para todos los $p$ para los que existe la integral. La forma de la entrada se co
 
 <span class="anker" id="stufe-6-3"></span>
 
-¿Cómo se encuentran los valores propios sin adivinar? Se reescribe [(6.1)](#gl-6-1) de modo que todo quede a un lado: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, es decir, $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Se busca un $\lambda$ para el que este sistema homogéneo tenga una solución $\mathbf{v}\ne\mathbf{0}$. Según la parte 1, sección 11.5, eso significa que la matriz $\mathbf{A}-\lambda\mathbf{I}$ no es invertible. Según la parte 1, sección 14.6, eso ocurre si y solo si su determinante es cero.
+¿Cómo se encuentran los valores propios sin adivinar? Se reescribe [(6.1)](#gl-6-1) de modo que todo quede a un lado: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, es decir, $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Se busca un $\lambda$ para el que este sistema homogéneo tenga una solución $\mathbf{v}\ne\mathbf{0}$. Según Fundamentos 1, sección 11.5, eso significa que la matriz $\mathbf{A}-\lambda\mathbf{I}$ no es invertible. Según Fundamentos 1, sección 14.6, eso ocurre si y solo si su determinante es cero.
 
 :::definition Definición 6.2 (Polinomio característico)
 <span class="anker" id="satz-6-2"></span>
@@ -189,7 +191,7 @@ Una matriz real puede tener, por tanto, valores propios complejos. Como su polin
 ⁠**En resumen:** Una matriz real puede tener valores propios complejos, siempre en pares conjugados; una rotación de ángulo $\alpha$ tiene los valores propios $\mathrm e^{\pm\mathrm j\alpha}$.
 
 :::hintergrund Girar es multiplicar por $\mathrm e^{\mathrm j\alpha}$
-Para un ingeniero electrotécnico, el resultado es familiar. Se identifica la flecha $(x_1,\,x_2)^{\top}$ con el número complejo $z=x_1+\mathrm jx_2$, como en un fasor. Una rotación de ángulo $\alpha$ es entonces la multiplicación por $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, y estas son exactamente las dos componentes de $\mathbf{Q}\mathbf{x}$ para la matriz de rotación de la parte 1, sección 8.3. En la notación compleja, la rotación es, por tanto, una multiplicación por un número, y ese número es un valor propio. El segundo valor propio, $\mathrm e^{-\mathrm j\alpha}$, corresponde a la notación conjugada $z^*$, que gira en sentido contrario.
+Para un ingeniero electrotécnico, el resultado es familiar. Se identifica la flecha $(x_1,\,x_2)^{\top}$ con el número complejo $z=x_1+\mathrm jx_2$, como en un fasor. Una rotación de ángulo $\alpha$ es entonces la multiplicación por $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, y estas son exactamente las dos componentes de $\mathbf{Q}\mathbf{x}$ para la matriz de rotación de Fundamentos 1, sección 8.3. En la notación compleja, la rotación es, por tanto, una multiplicación por un número, y ese número es un valor propio. El segundo valor propio, $\mathrm e^{-\mathrm j\alpha}$, corresponde a la notación conjugada $z^*$, que gira en sentido contrario.
 :::
 
 ### Valores propios múltiples
@@ -204,7 +206,7 @@ El polinomio característico puede tener una raíz doble. Entonces coinciden dos
 La __multiplicidad algebraica__ de un valor propio $\lambda$ es la multiplicidad de $\lambda$ como raíz del polinomio característico.
 :::
 
-⁠**Ejemplo numérico:** La matriz $2\mathbf{I}=\operatorname{diag}(2;\,2)$ tiene $p(\lambda)=(2-\lambda)^2$: el valor propio $2$ tiene multiplicidad algebraica $2$. La cizalladura $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ de la parte 1, sección 8.3, tiene $p(\lambda)=(1-\lambda)^2$: el valor propio $1$ también tiene multiplicidad algebraica $2$. La matriz $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ tiene dos valores propios distintos, cada uno con multiplicidad algebraica $1$.
+⁠**Ejemplo numérico:** La matriz $2\mathbf{I}=\operatorname{diag}(2;\,2)$ tiene $p(\lambda)=(2-\lambda)^2$: el valor propio $2$ tiene multiplicidad algebraica $2$. La cizalladura $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ de Fundamentos 1, sección 8.3, tiene $p(\lambda)=(1-\lambda)^2$: el valor propio $1$ también tiene multiplicidad algebraica $2$. La matriz $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ tiene dos valores propios distintos, cada uno con multiplicidad algebraica $1$.
 
 ⁠**En resumen:** La multiplicidad algebraica cuenta cuántas veces aparece un valor propio como raíz del polinomio característico.
 
@@ -277,7 +279,7 @@ $\mathbf{A}^{\top}$ tiene los mismos valores propios que $\mathbf{A}$, pero en g
 :::
 
 :::beweis Reglas de cálculo
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, y así sucesivamente. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) Según [(6.5)](#gl-6-5), $\det\mathbf{A}$ es el producto de los valores propios y, por tanto, es distinto de cero si y solo si ningún valor propio es cero. Si se multiplica $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ por $\mathbf{A}^{-1}$, se obtiene $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) Según la parte 1, sección 14.5, es $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; ambas tienen el mismo polinomio característico.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, y así sucesivamente. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) Según [(6.5)](#gl-6-5), $\det\mathbf{A}$ es el producto de los valores propios y, por tanto, es distinto de cero si y solo si ningún valor propio es cero. Si se multiplica $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ por $\mathbf{A}^{-1}$, se obtiene $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) Según Fundamentos 1, sección 14.5, es $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; ambas tienen el mismo polinomio característico.
 :::
 
 ⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, la matriz $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ tiene los valores propios $25$ y $4$: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. La matriz $\mathbf{A}-5\mathbf{I}$ tiene los valores propios $0$ y $-3$ y no es invertible. La inversa $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ tiene los valores propios $\tfrac15$ y $\tfrac12$: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. La traspuesta $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ también tiene los valores propios $5$ y $2$, pero $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: sus vectores propios son $(2,\,1)^{\top}$ y $(1,\,-1)^{\top}$.
@@ -308,7 +310,7 @@ $\mathbf{A}_3$: traza $2$, determinante $1-9=-8$; por tanto, $\lambda^2-2\lambda
 Demuestra: los valores propios de una matriz triangular superior son sus entradas diagonales. Determina los valores propios y los vectores propios de $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$.
 
 :::loesung
-Para una matriz triangular superior, $\mathbf{A}-\lambda\mathbf{I}$ es de nuevo una matriz triangular superior, con las entradas diagonales $a_{ii}-\lambda$. Según la parte 1, sección 14.4, su determinante es el producto de las entradas diagonales: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Las raíces son las entradas diagonales.
+Para una matriz triangular superior, $\mathbf{A}-\lambda\mathbf{I}$ es de nuevo una matriz triangular superior, con las entradas diagonales $a_{ii}-\lambda$. Según Fundamentos 1, sección 14.4, su determinante es el producto de las entradas diagonales: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Las raíces son las entradas diagonales.
 
 Para la matriz dada, los valores propios son, por tanto, $2$, $3$ y $5$. Para $2$: $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ exige $v_3=0$ y $v_2=0$; vector propio $(1,\,0,\,0)^{\top}$. Para $3$: $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ exige $v_3=0$ y $v_2=v_1$; vector propio $(1,\,1,\,0)^{\top}$. Para $5$: $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ exige $v_2=3v_1$ y $v_3=2v_2$; vector propio $(1,\,3,\,6)^{\top}$. Comprobación: $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

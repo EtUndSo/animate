@@ -1,7 +1,9 @@
 ---
 title: Küçük ranklı matrislerle yaklaşım
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6221100
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15221100
 summary: Tekil değer ayrışımı bir matrisin yapı taşlarını büyüklüklerine göre sıralar.
 tags: Frobenius normu, kesilmiş tekil değer ayrışımı
 lang: tr
@@ -17,7 +19,7 @@ Tekil değer ayrışımı bir matrisin yapı taşlarını büyüklüklerine gör
 
 <span class="anker" id="stufe-10-1"></span>
 
-İki matrisin birbirine ne kadar yakın olduğunu söylemek için farklarının büyüklüğünü veren bir ölçü gerekir. Spektral norm böyle bir ölçüdür; en büyük uzatmayı ölçer. İkincisi daha da akla yatkındır: Matris, Kısım 1, Kesim 6.1'deki bir görüntü gibi satır satır okunarak uzun bir vektöre dönüştürülür ve bu vektörün Öklid normu alınır.
+İki matrisin birbirine ne kadar yakın olduğunu söylemek için farklarının büyüklüğünü veren bir ölçü gerekir. Spektral norm böyle bir ölçüdür; en büyük uzatmayı ölçer. İkincisi daha da akla yatkındır: Matris, Temeller 1, Kesim 6.1'deki bir görüntü gibi satır satır okunarak uzun bir vektöre dönüştürülür ve bu vektörün Öklid normu alınır.
 
 :::definition Tanım 10.1 (Frobenius normu)
 <span class="anker" id="satz-10-1"></span>
@@ -108,7 +110,7 @@ Demek ki rankı en fazla $k$ olan bütün matrisler arasında $\mathbf{A}$ matri
 :::
 
 :::beweis Spektral norm
-Rank-sıfırlık teoremine göre $\mathbf{B}$ matrisinin çekirdeğinin boyutu $n-\operatorname{rank}\mathbf{B}\ge n-k$ olur. Çekirdekte $n-k$ tane doğrusal bağımsız $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ vektörü seçilir ve bunlara $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ eklenir. Bunlar $\mathbb{R}^n$ uzayında $n+1$ vektördür ve Kısım 1, Kesim 13.4'e göre doğrusal bağımlıdır, çünkü $n$ satırlı bir matrisin rankı en fazla $n$ olur. Dolayısıyla hepsi sıfır olmayan ve $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$ eşitliğini sağlayan sayılar vardır. Bu $\mathbf{z}$ vektörü sıfır değildir, çünkü aksi halde iki listenin bağımsızlığı nedeniyle bütün sayılar sıfır olurdu. Vektör hem $\mathbf{B}$ matrisinin çekirdeğinde hem de $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ vektörlerinin gerdiği alt uzaydadır. $1$ uzunluğuna normlanır. O zaman $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$ olur ve $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ ile şu bulunur:
+Rank-sıfırlık teoremine göre $\mathbf{B}$ matrisinin çekirdeğinin boyutu $n-\operatorname{rank}\mathbf{B}\ge n-k$ olur. Çekirdekte $n-k$ tane doğrusal bağımsız $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ vektörü seçilir ve bunlara $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ eklenir. Bunlar $\mathbb{R}^n$ uzayında $n+1$ vektördür ve Temeller 1, Kesim 13.4'e göre doğrusal bağımlıdır, çünkü $n$ satırlı bir matrisin rankı en fazla $n$ olur. Dolayısıyla hepsi sıfır olmayan ve $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$ eşitliğini sağlayan sayılar vardır. Bu $\mathbf{z}$ vektörü sıfır değildir, çünkü aksi halde iki listenin bağımsızlığı nedeniyle bütün sayılar sıfır olurdu. Vektör hem $\mathbf{B}$ matrisinin çekirdeğinde hem de $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ vektörlerinin gerdiği alt uzaydadır. $1$ uzunluğuna normlanır. O zaman $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$ olur ve $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ ile şu bulunur:
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -143,7 +145,7 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 bütün parlaklık değerlerinin karelerinin toplamından hangi payın korunduğunu gösterir.
 
-⁠**Sayısal örnek:** Kısım 1, Kesim 6.1'deki artı işareti şu matristir:
+⁠**Sayısal örnek:** Temeller 1, Kesim 6.1'deki artı işareti şu matristir:
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 

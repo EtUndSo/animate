@@ -1,7 +1,9 @@
 ---
 title: Pozitif tanımlı matrisler
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6220900
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15220900
 summary: Bir kuadratik form, orijin dışında her yerde pozitifse bir çanaktır.
 tags: pozitif tanımlı, pozitif yarı tanımlı, belirsiz, Rayleigh bölümü
 lang: tr
@@ -114,7 +116,7 @@ matrisinin baş asal minörleri $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end{
 
 <span class="anker" id="stufe-8-4"></span>
 
-Kısım 1, Kesim 10'da $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri, bu bölümde da normal denklemlerdeki $\mathbf{A}^{\top}\mathbf{A}$ ortaya çıktı. Bunlar her zaman pozitif yarı tanımlıdır ve nedeni basittir: Kuadratik formları bir uzunluk karesidir.
+Temeller 1, Kesim 10'da $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri, bu bölümde da normal denklemlerdeki $\mathbf{A}^{\top}\mathbf{A}$ ortaya çıktı. Bunlar her zaman pozitif yarı tanımlıdır ve nedeni basittir: Kuadratik formları bir uzunluk karesidir.
 
 :::satz Teorem 8.4 (Gram matrisleri)
 <span class="anker" id="satz-8-4"></span>
@@ -188,7 +190,7 @@ $\mathbf{A}=\mathbf L\mathbf L^{\top}$ ise $\mathbf{x}^{\top}\mathbf{A}\mathbf{x
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-daha büyük $n$ için de tamamlama değişken değişken sürdürülür. Kısım 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$ olur.
+daha büyük $n$ için de tamamlama değişken değişken sürdürülür. Temeller 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$ olur.
 
 ⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ için $a=4$, $b=2$, $c=5$, dolayısıyla $l_{11}=2$, $l_{21}=1$ ve $l_{22}=\sqrt{5-1}=2$ olur:
 

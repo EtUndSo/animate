@@ -1,4 +1,4 @@
-"""Machine Learning Teil 4 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap4_stufen.tex): Abbildungen.
+"""Machine Learning Grundlagen 4 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap4_stufen.tex): Abbildungen.
 
 Szenenname ml/k4<name> = \\label{fig:k4<name>} im Heft. Stil wie tools/szenen/ml_teil3.py (Achsen, Pfeile, Punkte).
 Bauen:  python tools/szenen/ml_teil4.py

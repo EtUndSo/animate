@@ -1,7 +1,9 @@
 ---
 title: Tekil değer ayrışımı
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6221000
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15221000
 summary: Özvektörler yalnızca kare matrislerde vardır ve yalnızca simetrik matrislerde birbirine diktir.
 tags: tekil değerleri, sağ tekil vektörleri, sol tekil vektör, spektral normu
 lang: tr
@@ -54,7 +56,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 sayılarına $\mathbf{A}$ matrisinin __tekil değerleri__ denir.
 :::
 
-Birçok kitap $d_j$ yerine $\sigma_j$ yazar. Tekil değerler burada her zaman bir indis taşır; Kısım 1'deki indissiz $d$, yani öznitelik sayısı, başka bir şeydir.
+Birçok kitap $d_j$ yerine $\sigma_j$ yazar. Tekil değerler burada her zaman bir indis taşır; Temeller 1'deki indissiz $d$, yani öznitelik sayısı, başka bir şeydir.
 
 :::satz Teorem 9.2 (Tekil değerler ve rank)
 <span class="anker" id="satz-9-2"></span>
@@ -128,7 +130,7 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Tekil değer ayrışımı
-$j\le r$ için $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$ olur. $j>r$ için $d_j=0$, dolayısıyla $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ ve $\mathbf{A}\mathbf{v}_j=\mathbf{0}$ olur. $r<m$ ise $\mathbf{u}_1,\dots,\mathbf{u}_r$, örneğin spektral teoremin ispatındaki gibi Gram-Schmidt yöntemiyle, $\mathbb{R}^m$ uzayının bir ortonormal tabanına tamamlanır. Kısım 1, Kesim 9.2'ye göre $\mathbf{A}\mathbf{V}$ matrisinin $j$ numaralı sütunu $\mathbf{A}\mathbf{v}_j$ vektörüdür; $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu ise $j\le r$ için $d_j\mathbf{u}_j$, aksi halde sıfır vektörüdür. Dolayısıyla $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$ olur. $\mathbf{V}$ ortogonal olduğundan $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$ olur ve sağdan $\mathbf{V}^{\top}$ ile çarpma $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ verir. Kompakt biçim Kısım 1, Kesim 9.5'ten çıkar: $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu çarpı $\mathbf{V}^{\top}$ matrisinin $j$ numaralı satırı, $j$ üzerinden toplanır; yalnızca $j\le r$ olan terimler sıfır değildir.
+$j\le r$ için $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$ olur. $j>r$ için $d_j=0$, dolayısıyla $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ ve $\mathbf{A}\mathbf{v}_j=\mathbf{0}$ olur. $r<m$ ise $\mathbf{u}_1,\dots,\mathbf{u}_r$, örneğin spektral teoremin ispatındaki gibi Gram-Schmidt yöntemiyle, $\mathbb{R}^m$ uzayının bir ortonormal tabanına tamamlanır. Temeller 1, Kesim 9.2'ye göre $\mathbf{A}\mathbf{V}$ matrisinin $j$ numaralı sütunu $\mathbf{A}\mathbf{v}_j$ vektörüdür; $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu ise $j\le r$ için $d_j\mathbf{u}_j$, aksi halde sıfır vektörüdür. Dolayısıyla $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$ olur. $\mathbf{V}$ ortogonal olduğundan $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$ olur ve sağdan $\mathbf{V}^{\top}$ ile çarpma $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ verir. Kompakt biçim Temeller 1, Kesim 9.5'ten çıkar: $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu çarpı $\mathbf{V}^{\top}$ matrisinin $j$ numaralı satırı, $j$ üzerinden toplanır; yalnızca $j\le r$ olan terimler sıfır değildir.
 :::
 
 $\mathbf{D}$ matrisinin biçimi $\mathbf{A}$ matrisinin biçimine göre belirlenir. Örneğin $m=3$ ve $n=2$ için $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$ olur. Yaygın kısaltma SVD'dir; İngilizce adı olan *singular value decomposition* sözcüklerinin baş harflerinden gelir.
@@ -179,7 +181,7 @@ $\mathbf{U}$, $\mathbf{e}_j$ vektörünü $\mathbf{u}_j$ vektörünün üzerine 
 
 </ol>
 
-Demek ki her doğrusal dönüşüm, yansımalar bir yana bırakılırsa, bir dönme, eksenler boyunca bir germe ve bir dönme daha demektir. Birim çemberi bir elipse, birim küreyi bir elipsoide dönüştürür; yarı eksenler $d_j\mathbf{u}_j$ olur. $\det\mathbf{A}<0$ ise en az bir yansıma işin içindedir, çünkü Kısım 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ ve $\det\mathbf{D}\ge0$ olur.
+Demek ki her doğrusal dönüşüm, yansımalar bir yana bırakılırsa, bir dönme, eksenler boyunca bir germe ve bir dönme daha demektir. Birim çemberi bir elipse, birim küreyi bir elipsoide dönüştürür; yarı eksenler $d_j\mathbf{u}_j$ olur. $\det\mathbf{A}<0$ ise en az bir yansıma işin içindedir, çünkü Temeller 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ ve $\det\mathbf{D}\ge0$ olur.
 
 :::abbildung ml/k2svd 23
 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ matrisi dönme, germe, dönme olarak. Sol üstte $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (kırmızı) ve $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (yeşil) ile birim çember. $\mathbf{V}^{\top}$ matrisi $-63{,}4^\circ$ kadar döndürür ve $\mathbf{v}_1$ vektörünü $\mathbf{e}_1$, $\mathbf{v}_2$ vektörünü $\mathbf{e}_2$ üzerine getirir (sol alt). $\mathbf{D}$ birinci ekseni $d_1=4$, ikinciyi $d_2=1$ katına uzatır (sağ alt). $\mathbf{U}$ matrisi $26{,}6^\circ$ kadar döndürür ve eksenleri $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ ve $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ üzerine getirir (sağ üst). Siyah $\mathbf{x}=\mathbf{e}_2$ noktası her yoldan $\mathbf{A}\mathbf{x}=(3,2)^{\top}$ noktasına varır. Üstteki doğrudan yol $\mathbf{A}$ matrisinin kendisidir: Birim çember, yarı eksenleri $4\,\mathbf{u}_1$ ve $1\cdot\mathbf{u}_2$ olan elipse dönüşür.
@@ -229,7 +231,7 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$, $\mathbf{A}$ matrisinin çekirdeğinin bi
 (i) Her $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ vektörü $\mathbf{u}_1,\dots,\mathbf{u}_r$ vektörlerinin gerdiği alt uzaydadır; tersine $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ bir görüntüdür. $\mathbf{U}$ matrisinin geri kalan sütunları bunlara diktir, dolayısıyla Kesim [4.4](projektion-auf-einen-unterraum.html#stufe-4-4)'e göre ortogonal tümleyeni gerer. (ii) $\mathbf{u}_j$ vektörleri bağımsız ve $d_j$ sayıları pozitif olduğundan $\mathbf{A}\mathbf{x}=\mathbf{0}$ eşitliği ancak ve ancak bütün $j\le r$ için $\mathbf{v}_j^{\top}\mathbf{x}=0$ ise, yani $\mathbf{x}$ vektörünün yalnızca $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ boyunca koordinatları varsa sağlanır. Son olarak $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$, $\mathbf{A}^{\top}$ matrisinin bir tekil değer ayrışımıdır ve bu ayrışımda $\mathbf{U}$ ile $\mathbf{V}$ rollerini değiş tokuş eder; (i) şıkkı $\mathbf{A}^{\top}$ için uygulanınca geri kalanı verir.
 :::
 
-Sayılar Kısım 1, Kesim 13.5'teki rank-sıfırlık teoremiyle uyumludur: Çekirdeğin boyutu $n-r$ olur.
+Sayılar Temeller 1, Kesim 13.5'teki rank-sıfırlık teoremiyle uyumludur: Çekirdeğin boyutu $n-r$ olur.
 
 ⁠**Sayısal örnek:** Kesim [3.2](die-beste-naherungslosung.html#stufe-3-2)'deki, sütunları $(1,\,0,\,1)^{\top}$ ve $(0,\,1,\,1)^{\top}$ olan $\mathbf{H}$ matrisi için $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ olur; özdeğerleri $3$ ve $1$, dolayısıyla tekil değerleri $d_1=\sqrt3$ ve $d_2=1$, sağ tekil vektörleri de $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$ olur. Sol tekil vektörler şunlardır:
 
@@ -420,7 +422,7 @@ Gösterin: $\mathbf{Q}$ ortogonal ise $\mathbf{Q}\mathbf{A}$ ile $\mathbf{A}$ ma
 </ol>
 
 :::loesung
-(a) Kısım 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ olur. İki ortogonal matrisin determinantı $\pm1$ olur, $\mathbf{D}$ ise determinantı $d_1\cdots d_n$ olan bir köşegen matristir. Dolayısıyla $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) Temeller 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ olur. İki ortogonal matrisin determinantı $\pm1$ olur, $\mathbf{D}$ ise determinantı $d_1\cdots d_n$ olan bir köşegen matristir. Dolayısıyla $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ eşitliğinden $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ ve $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$ çıkar. $\mathbf{D}^{\top}\mathbf{D}$ ve $\mathbf{D}\mathbf{D}^{\top}$ köşegen matrislerinin köşegeninde aynı $d_j^2>0$ elemanları bulunur, yalnızca sıfırların sayısı farklıdır. $\mathbf{A}^{\top}$ matrisinin tekil değerleri $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$ matrisinin özdeğerlerinin karekökleridir, yani yine $d_j$ değerleri ve bunlara eklenen sıfırlar.
 

@@ -1,7 +1,9 @@
 ---
 title: Lineare Gleichungssysteme
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6211300
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15211300
 summary: Bisher war der Eingang x gegeben und der Ausgang Ax gesucht.
 tags: lineares Gleichungssystem, Koeffizientenmatrix, rechte Seite, Lösung, erweiterte Koeffizientenmatrix, Gauß-Verfahren, Zeilenstufenform, homogen
 lang: de

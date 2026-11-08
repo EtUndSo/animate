@@ -1,0 +1,334 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.35,
+      0,
+      0
+     ],
+     "width": 2.15,
+     "height": 1.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.35,
+      0.5,
+      0
+     ],
+     "width": 2.15,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@a1",
+     "position": [
+      -2.35,
+      0.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{42}",
+     "height": 0.32,
+     "position": [
+      -2.35,
+      -0.25,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@{platz} 1000",
+     "position": [
+      -2.35,
+      -1.05,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0,
+      0
+     ],
+     "width": 2.15,
+     "height": 1.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.5,
+      0
+     ],
+     "width": 2.15,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@a2",
+     "position": [
+      0.0,
+      0.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{4.}\\texttt{0}",
+     "height": 0.32,
+     "position": [
+      0.0,
+      -0.25,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@{platz} 1032",
+     "position": [
+      0.0,
+      -1.05,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.35,
+      0,
+      0
+     ],
+     "width": 2.15,
+     "height": 1.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.35,
+      0.5,
+      0
+     ],
+     "width": 2.15,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@a3",
+     "position": [
+      2.35,
+      0.5,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{\"42\"}",
+     "height": 0.32,
+     "position": [
+      2.35,
+      -0.25,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@{platz} 1064",
+     "position": [
+      2.35,
+      -1.05,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "a1": {
+    "de": "Art: ganze Zahl",
+    "en": "kind: integer",
+    "es": "tipo: entero",
+    "zh": "种类：整数",
+    "fr": "type : entier",
+    "tr": "tür: tam sayı"
+   },
+   "a2": {
+    "de": "Art: Zahl mit Komma",
+    "en": "kind: decimal number",
+    "es": "tipo: número decimal",
+    "zh": "种类：小数",
+    "fr": "type : nombre décimal",
+    "tr": "tür: ondalık sayı"
+   },
+   "a3": {
+    "de": "Art: Text",
+    "en": "kind: text",
+    "es": "tipo: texto",
+    "zh": "种类：文本",
+    "fr": "type : texte",
+    "tr": "tür: metin"
+   },
+   "platz": {
+    "de": "Platz Nr.",
+    "en": "place no.",
+    "es": "lugar n.º",
+    "zh": "位置编号",
+    "fr": "place n°",
+    "tr": "yer no."
+   }
+  }
+ }
+}

@@ -1,7 +1,9 @@
 ---
 title: Wichtige Verteilungen
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240900
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240900
 summary: Einige Verteilungen kommen so oft vor, dass sie Namen haben.
 tags: Bernoulli-verteilt, Kategorien, kategorisch verteilt, One-Hot-Kodierung, Binomialkoeffizient, binomialverteilt, gleichverteilt, Histogramm
 lang: de
@@ -56,7 +58,7 @@ Hat ein Experiment mehr als zwei Ausgänge ohne natürliche Reihenfolge, etwa di
 Eine Zufallsvariable mit den Werten $1,\dots,K$ und $P(\text{Kategorie }k)=\theta_k$, wobei $\theta_k\ge0$ und $\sum_{k=1}^K\theta_k=1$, heißt __kategorisch verteilt__ mit dem Parametervektor $\boldsymbol{\theta}=(\theta_1,\dots,\theta_K)^{\top}$.
 :::
 
-Rechnen lässt sich besser mit einer Darstellung als Vektor. Die __One-Hot-Kodierung__ schreibt die Kategorie $k$ als Einheitsvektor $\mathbf{e}_k\in\mathbb{R}^K$ aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 1.6: eine $1$ an der Stelle $k$, sonst Nullen. Ist $\mathbf{y}$ die so kodierte Kategorie, so ist $P(\mathbf{y})=\prod_{k=1}^K\theta_k^{y_k}$, denn im Produkt bleibt nur der Faktor mit $y_k=1$ übrig. Jede Komponente $y_k$ ist eine Indikatorvariable der Kategorie $k$ und hat den Erwartungswert $\theta_k$. Die Bernoulli-Verteilung ist der Fall $K=2$.
+Rechnen lässt sich besser mit einer Darstellung als Vektor. Die __One-Hot-Kodierung__ schreibt die Kategorie $k$ als Einheitsvektor $\mathbf{e}_k\in\mathbb{R}^K$ aus [Grundlagen 1, Abschnitt 1.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-daten-als-zahlenlisten.html#stufe-1-6): eine $1$ an der Stelle $k$, sonst Nullen. Ist $\mathbf{y}$ die so kodierte Kategorie, so ist $P(\mathbf{y})=\prod_{k=1}^K\theta_k^{y_k}$, denn im Produkt bleibt nur der Faktor mit $y_k=1$ übrig. Jede Komponente $y_k$ ist eine Indikatorvariable der Kategorie $k$ und hat den Erwartungswert $\theta_k$. Die Bernoulli-Verteilung ist der Fall $K=2$.
 
 :::warnung Kategorien haben keinen Erwartungswert
 Nummeriert man die Farben Rot, Grün und Blau mit $1$, $2$ und $3$, so ist der „Erwartungswert“ der Nummer eine Zahl ohne Bedeutung: Eine andere Nummerierung ergäbe eine andere Zahl, und die Farbe „$1{,}7$“ gibt es nicht. Erwartungswerte und Varianzen bildet man nur für Zahlen, die wirklich Größen messen. Für Kategorien rechnet man mit den Wahrscheinlichkeiten $\theta_k$ oder mit der One-Hot-Kodierung.
@@ -174,7 +176,7 @@ Es genügt, $I=\int_{-\infty}^\infty\mathrm{e}^{-x^2/2}\,\mathrm{d} x=\sqrt{2\pi
 
 $$I^2=\int_{-\infty}^\infty\mathrm{e}^{-x^2/2}\,\mathrm{d} x\int_{-\infty}^\infty\mathrm{e}^{-y^2/2}\,\mathrm{d} y=\iint_{\mathbb{R}^2}\mathrm{e}^{-(x^2+y^2)/2}\,\mathrm{d} x\,\mathrm{d} y .$$
 
-Der Integrand hängt nur vom Abstand $r=\sqrt{x^2+y^2}$ zum Nullpunkt ab. In Polarkoordinaten wird das Flächenstück $\mathrm{d} x\,\mathrm{d} y$ zu $r\,\mathrm{d} r\,\mathrm{d}\varphi$, mit dem Flächenfaktor $r$ aus dem Hintergrund-Kasten in [Teil 3](/wissen/informatik/machine-learning/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html), Abschnitt 5.4. Damit ist
+Der Integrand hängt nur vom Abstand $r=\sqrt{x^2+y^2}$ zum Nullpunkt ab. In Polarkoordinaten wird das Flächenstück $\mathrm{d} x\,\mathrm{d} y$ zu $r\,\mathrm{d} r\,\mathrm{d}\varphi$, mit dem Flächenfaktor $r$ aus dem Hintergrund-Kasten in [Grundlagen 3, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-jacobi-matrix.html#stufe-5-4). Damit ist
 
 $$I^2=\int_0^{2\pi}\!\!\int_0^\infty\mathrm{e}^{-r^2/2}\,r\,\mathrm{d} r\,\mathrm{d}\varphi=2\pi\Bigl[-\mathrm{e}^{-r^2/2}\Bigr]_0^\infty=2\pi ,$$
 
@@ -224,7 +226,7 @@ Der Beweis oben ist ein Fall einer allgemeinen Regel. Ist $Y=g(X)$ mit einer str
 
 $$p_Y(y)=p_X(x)\,\Bigl|\frac{\mathrm{d} x}{\mathrm{d} y}\Bigr|,\qquad x=g^{-1}(y).$$
 
-Der Betrag steht da, weil eine fallende Funktion die Intervalle umdreht. Die Dichte wird nicht einfach mitgenommen: Wo $g$ Intervalle staucht, steigt die Dichte, wo $g$ sie streckt, sinkt sie. Ein häufiger Fehler ist, den Faktor zu vergessen. Für $X\sim\mathcal U(0,1)$ und $Y=X/2$ ergäbe $p_Y(y)=p_X(2y)=1$ auf $[0,\,\tfrac12]$ eine Gesamtfläche von nur $\tfrac12$; richtig ist $p_Y=2$. Für Zufallsvektoren tritt an die Stelle von $|\mathrm{d} x/\mathrm{d} y|$ der Betrag der Determinante der Jacobi-Matrix der Umkehrabbildung, der Flächen- oder Volumenfaktor aus [Teil 3](/wissen/informatik/machine-learning/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html), Abschnitt 5.4. Eine Anwendung erzeugt Zufallszahlen: Ist $U\sim\mathcal U(0,1)$ und $F$ eine stetige, streng steigende Verteilungsfunktion, so hat $X=F^{-1}(U)$ die Verteilungsfunktion $F$, denn $P(X\le x)=P(U\le F(x))=F(x)$. So machen Rechner aus gleichverteilten Zufallszahlen Zufallszahlen beliebiger Verteilung.
+Der Betrag steht da, weil eine fallende Funktion die Intervalle umdreht. Die Dichte wird nicht einfach mitgenommen: Wo $g$ Intervalle staucht, steigt die Dichte, wo $g$ sie streckt, sinkt sie. Ein häufiger Fehler ist, den Faktor zu vergessen. Für $X\sim\mathcal U(0,1)$ und $Y=X/2$ ergäbe $p_Y(y)=p_X(2y)=1$ auf $[0,\,\tfrac12]$ eine Gesamtfläche von nur $\tfrac12$; richtig ist $p_Y=2$. Für Zufallsvektoren tritt an die Stelle von $|\mathrm{d} x/\mathrm{d} y|$ der Betrag der Determinante der Jacobi-Matrix der Umkehrabbildung, der Flächen- oder Volumenfaktor aus [Grundlagen 3, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-jacobi-matrix.html#stufe-5-4). Eine Anwendung erzeugt Zufallszahlen: Ist $U\sim\mathcal U(0,1)$ und $F$ eine stetige, streng steigende Verteilungsfunktion, so hat $X=F^{-1}(U)$ die Verteilungsfunktion $F$, denn $P(X\le x)=P(U\le F(x))=F(x)$. So machen Rechner aus gleichverteilten Zufallszahlen Zufallszahlen beliebiger Verteilung.
 :::
 
 ### Rauschen als Zufallsvariable
@@ -244,7 +246,7 @@ $$Y=w+\nu, \tag{8.8}$$
 wobei $w$ der feste wahre Wert ist und die Zufallsvariable $\nu$, das __Rauschen__, den Erwartungswert $0$ hat. Ist $\nu\sim\mathcal N(0,\sigma^2)$, so heißt das Rauschen __normalverteilt__; dann ist $Y\sim\mathcal N(w,\sigma^2)$.
 :::
 
-Wie beim Funkkanal mit mehreren Antennen in [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 9.8, heißt das Rauschen $\nu$ (gesprochen „nü“); es trägt als skalare Zufallsvariable ausnahmsweise einen kleinen Buchstaben, weil $N$ schon die Zahl der Datenpunkte ist. Der Erwartungswert $0$ bedeutet, dass das Gerät im Mittel richtig misst; einen festen Versatz würde man zu $w$ zählen und durch Kalibrieren entfernen. Die Standardabweichung $\sigma$ beschreibt die Güte des Geräts. Viele Verfahren, die aus Daten lernen, beschreiben ihre Daten genau so: als einen Anteil, den man erklären möchte, plus Rauschen. Die Normalverteilung ist dabei die Standardannahme für das Rauschen; Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13) begründet sie.
+Wie beim Funkkanal mit mehreren Antennen in [Grundlagen 2, Abschnitt 9.8](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-singularwertzerlegung.html#stufe-9-8), heißt das Rauschen $\nu$ (gesprochen „nü“); es trägt als skalare Zufallsvariable ausnahmsweise einen kleinen Buchstaben, weil $N$ schon die Zahl der Datenpunkte ist. Der Erwartungswert $0$ bedeutet, dass das Gerät im Mittel richtig misst; einen festen Versatz würde man zu $w$ zählen und durch Kalibrieren entfernen. Die Standardabweichung $\sigma$ beschreibt die Güte des Geräts. Viele Verfahren, die aus Daten lernen, beschreiben ihre Daten genau so: als einen Anteil, den man erklären möchte, plus Rauschen. Die Normalverteilung ist dabei die Standardannahme für das Rauschen; Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13) begründet sie.
 
 ⁠**Rechenbeispiel:** Ein Temperatursensor habe normalverteiltes Rauschen mit $\sigma=0{,}5\,\mathrm K$. Der wahre Wert sei $20\,{}^\circ\mathrm C$. Ein Messwert weicht dann mit der Wahrscheinlichkeit $P(|\nu|>1\,\mathrm K)=P(|Z|>2)=1-0{,}954=0{,}046$ um mehr als $1\,\mathrm K$ ab, also bei etwa jeder zweiundzwanzigsten Messung.
 

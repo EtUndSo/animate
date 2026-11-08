@@ -1,7 +1,9 @@
 ---
 title: Abstände und Einheiten
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210500
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210500
 summary: Zwei Beispiele sind sich ähnlich, wenn ihre Vektoren nah beieinanderliegen.
 tags: Abstand, Merkmalsspalte, zentrierte, Standardabweichung, standardisiert
 lang: de
@@ -174,7 +176,7 @@ Der Summand $\beta$ deckt auch Umrechnungen mit verschobenem Nullpunkt ab, etwa 
 ⁠**Kurz gesagt:** Standardisieren misst jedes Merkmal als Abweichung vom Mittelwert in Vielfachen seiner Standardabweichung; danach hängen Abstände nicht mehr von den Einheiten ab.
 
 :::hintergrund Warum gerade die Standardabweichung als Maßstab?
-Man braucht für jedes Merkmal einen Maßstab, der sich bei einem Einheitenwechsel genauso ändert wie die Zahlen selbst. Dann kürzt er sich heraus. Jede Größe, die aus den Daten des Merkmals berechnet wird und die Einheit des Merkmals hat, leistet das: die Standardabweichung, aber auch die Spannweite vom kleinsten zum größten Wert. Die Standardabweichung ist die übliche Wahl, weil sie alle Werte berücksichtigt und nicht nur die beiden äußersten.
+Man braucht für jedes Merkmal einen Maßstab, der sich bei einem Einheitenwechsel um denselben Faktor ändert wie die Unterschiede zwischen den Werten. Dann kürzt er sich heraus. Jede Größe, die aus den Unterschieden zwischen den Werten des Merkmals berechnet wird und die Einheit des Merkmals hat, leistet das: die Standardabweichung, aber auch die Spannweite vom kleinsten zum größten Wert. Die Standardabweichung ist die übliche Wahl, weil sie alle Werte berücksichtigt und nicht nur die beiden äußersten.
 
 Was das Standardisieren mit einem Abstand macht, sieht man, wenn man zwei standardisierte Beispiele $\mathbf{z}_a$ und $\mathbf{z}_b$ voneinander abzieht. Der Mittelwert fällt heraus, $z_{aj}-z_{bj}=(x_{aj}-x_{bj})/s_j$, und es bleibt
 

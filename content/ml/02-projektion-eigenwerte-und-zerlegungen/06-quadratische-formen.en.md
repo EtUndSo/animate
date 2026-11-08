@@ -1,7 +1,9 @@
 ---
 title: Quadratic forms
-pfad: Computer Science / Machine Learning / Projection, Eigenvalues and Decompositions
-order: 6220600
+pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
+knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+nachschlagen: ja
+order: 15220600
 summary: After the linear functions, the quadratic ones are the simplest functions of several variables.
 tags: quadratic form
 lang: en
@@ -17,7 +19,7 @@ After the linear functions, the quadratic ones are the simplest functions of sev
 
 <span class="anker" id="stufe-5-1"></span>
 
-In Part 1, Section 8.4, every linear function with one output was a weighted sum $\mathbf{w}^{\top}\mathbf{x}$ of the components. The next simplest kind of function sums products of two components each: squares such as $x_1^2$ and cross terms such as $x_1x_2$. An example from electrical engineering is the magnetic energy of two coupled coils with the inductances $L_1$, $L_2$ and the mutual inductance $M$, carrying the currents $i_1$ and $i_2$:
+In Foundations 1, Section 8.4, every linear function with one output was a weighted sum $\mathbf{w}^{\top}\mathbf{x}$ of the components. The next simplest kind of function sums products of two components each: squares such as $x_1^2$ and cross terms such as $x_1x_2$. An example from electrical engineering is the magnetic energy of two coupled coils with the inductances $L_1$, $L_2$ and the mutual inductance $M$, carrying the currents $i_1$ and $i_2$:
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -141,7 +143,7 @@ Both coefficients are positive: the form is a bowl. Check at $\mathbf{x}=(1,\,-1
 ⁠**In short:** Completing the square writes a quadratic form as a sum of squares; the signs of the coefficients of the squares show whether it is a bowl, a trough or a saddle.
 
 :::hintergrund Completing the square is Gaussian elimination
-The numbers in [(5.3)](#gl-5-3) are the same as in Gaussian elimination from Part 1, Section 12.3, applied to the symmetric matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. To produce a zero below the diagonal, you subtract $\frac ba$ times the first row from the second and obtain $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. The diagonal entries of this echelon form, the so-called pivots, are exactly the coefficients of the squares, and the elimination factor $\frac ba$ appears in the first parenthesis. For the matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0.4$, pivots $5$ and $1.2$. With $n$ variables you continue in the same way: each elimination step completes the square for one variable. The form is a bowl if and only if all pivots are positive. By the rules from Part 1, Section 14.5, the product of the pivots is the determinant, here $5\cdot1.2=6=5\cdot2-2\cdot2$.
+The numbers in [(5.3)](#gl-5-3) are the same as in Gaussian elimination from Foundations 1, Section 12.3, applied to the symmetric matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. To produce a zero below the diagonal, you subtract $\frac ba$ times the first row from the second and obtain $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. The diagonal entries of this echelon form, the so-called pivots, are exactly the coefficients of the squares, and the elimination factor $\frac ba$ appears in the first parenthesis. For the matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0.4$, pivots $5$ and $1.2$. With $n$ variables you continue in the same way: each elimination step completes the square for one variable. The form is a bowl if and only if all pivots are positive. By the rules from Foundations 1, Section 14.5, the product of the pivots is the determinant, here $5\cdot1.2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Exercise 14 ★ Forms and matrices

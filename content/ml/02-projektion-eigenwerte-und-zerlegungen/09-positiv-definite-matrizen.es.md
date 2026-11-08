@@ -1,7 +1,9 @@
 ---
 title: Matrices definidas positivas
-pfad: Informática / Aprendizaje automático / Proyección, valores propios y descomposiciones
-order: 6220900
+pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
+knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+nachschlagen: ja
+order: 15220900
 summary: Una forma cuadrática es un cuenco si es positiva en todas partes salvo en el origen.
 tags: definida positiva, semidefinida positiva, indefinida, cociente de Rayleigh
 lang: es
@@ -114,7 +116,7 @@ los menores principales dominantes son $2$, $\det\bigl(\begin{smallmatrix}2&1\\1
 
 <span class="anker" id="stufe-8-4"></span>
 
-En la parte 1, sección 10, aparecieron las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$, y en este capítulo, $\mathbf{A}^{\top}\mathbf{A}$ en las ecuaciones normales. Siempre son semidefinidas positivas, y la razón es sencilla: su forma cuadrática es el cuadrado de una longitud.
+En Fundamentos 1, sección 10, aparecieron las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$, y en este capítulo, $\mathbf{A}^{\top}\mathbf{A}$ en las ecuaciones normales. Siempre son semidefinidas positivas, y la razón es sencilla: su forma cuadrática es el cuadrado de una longitud.
 
 :::satz Teorema 8.4 (Matrices de Gram)
 <span class="anker" id="satz-8-4"></span>
@@ -188,7 +190,7 @@ Si $\mathbf{A}=\mathbf L\mathbf L^{\top}$, entonces $\mathbf{x}^{\top}\mathbf{A}
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-y para $n$ mayor se sigue completando cuadrados variable por variable. Según la parte 1, sección 14.5, es $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
+y para $n$ mayor se sigue completando cuadrados variable por variable. Según Fundamentos 1, sección 14.5, es $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
 ⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ es $a=4$, $b=2$, $c=5$; por tanto, $l_{11}=2$, $l_{21}=1$ y $l_{22}=\sqrt{5-1}=2$:
 

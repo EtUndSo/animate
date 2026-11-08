@@ -1,7 +1,9 @@
 ---
 title: Ortonormal tabanlar ve ortogonal matrisler
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6220200
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15220200
 summary: Bazı koordinat sistemleri özellikle kullanışlıdır: Eksenleri birbirine diktir ve birim her eksende aynı uzunluktadır.
 tags: ortonormal, ortonormal taban, ortogonal matris
 lang: tr
@@ -17,7 +19,7 @@ Bazı koordinat sistemleri özellikle kullanışlıdır: Eksenleri birbirine dik
 
 <span class="anker" id="stufe-1-1"></span>
 
-Kısım 1, Kesim 5.3'te iç çarpımları sıfır olan iki vektöre ortogonal denmişti. Sabit örüntü $(1,1,1,1)^{\top}$ ile işaret değiştiren örüntü $(1,-1,1,-1)^{\top}$ bunun bir örneğiydi: Bir sinyalin örüntülerden biriyle karşılaştırılmasını öbür örüntü bozmuyordu. Ancak bu karşılaştırma payın $4$ katını veriyordu, çünkü iki örüntünün de uzunluğu $2$. Ortogonal vektörlerin uzunluğu ayrıca $1$ ise bu çarpan da ortadan kalkar.
+Temeller 1, Kesim 5.3'te iç çarpımları sıfır olan iki vektöre ortogonal denmişti. Sabit örüntü $(1,1,1,1)^{\top}$ ile işaret değiştiren örüntü $(1,-1,1,-1)^{\top}$ bunun bir örneğiydi: Bir sinyalin örüntülerden biriyle karşılaştırılmasını öbür örüntü bozmuyordu. Ancak bu karşılaştırma payın $4$ katını veriyordu, çünkü iki örüntünün de uzunluğu $2$. Ortogonal vektörlerin uzunluğu ayrıca $1$ ise bu çarpan da ortadan kalkar.
 
 Düzlemin $\mathbf{e}_1$ ve $\mathbf{e}_2$ eksenlerini, bütün olarak bir açı kadar döndürülmüş biçimde düşünün. İki ok yine $1$ uzunluğundadır ve yine birbirine diktir; yalnızca başka doğrultuları gösterirler.
 
@@ -39,7 +41,7 @@ $\mathbf{q}_1,\dots,\mathbf{q}_k$ ortonormal ise doğrusal bağımsızdırlar.
 :::
 
 :::beweis Doğrusal bağımsızlık
-$c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$ olsun. İki tarafın $\mathbf{q}_l$ ile iç çarpımı alınır. [(1.1)](#gl-1-1) uyarınca solda yalnızca $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ terimi kalır, sağda ise $\mathbf{q}_l^{\top}\mathbf{0}=0$ durur. Demek ki $c_l=0$, hem de her $l$ için. Kısım 1, Kesim 13.2'deki tanıma göre vektörler böylece doğrusal bağımsızdır.
+$c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$ olsun. İki tarafın $\mathbf{q}_l$ ile iç çarpımı alınır. [(1.1)](#gl-1-1) uyarınca solda yalnızca $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ terimi kalır, sağda ise $\mathbf{q}_l^{\top}\mathbf{0}=0$ durur. Demek ki $c_l=0$, hem de her $l$ için. Temeller 1, Kesim 13.2'deki tanıma göre vektörler böylece doğrusal bağımsızdır.
 :::
 
 ⁠**Sayısal örnek:** $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ ve $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$ için
@@ -58,7 +60,7 @@ $\mathbf{q}_1^{\top}\mathbf{q}_2$ iç çarpımı adım adım, $0{,}6=\tfrac35$ v
 
 <span class="anker" id="stufe-1-2"></span>
 
-Kısım 1, Kesim 13.3'e göre bir taban bir koordinat sistemidir: Her vektörün bu tabanda tam olarak bir gösterimi vardır. En kullanışlı tabanlar, vektörleri ortonormal olanlardır. Bunlar alışılmış eksen takımı gibidir, yalnızca döndürülmüştür.
+Temeller 1, Kesim 13.3'e göre bir taban bir koordinat sistemidir: Her vektörün bu tabanda tam olarak bir gösterimi vardır. En kullanışlı tabanlar, vektörleri ortonormal olanlardır. Bunlar alışılmış eksen takımı gibidir, yalnızca döndürülmüştür.
 
 :::definition Tanım 1.3 (Ortonormal taban)
 <span class="anker" id="satz-1-3"></span>
@@ -66,7 +68,7 @@ Kısım 1, Kesim 13.3'e göre bir taban bir koordinat sistemidir: Her vektör�
 Ortonormal vektörlerden oluşan bir tabana __ortonormal taban__ denir.
 :::
 
-$\mathbb{R}^n$ uzayının tamamı için $n$ tane ortonormal vektör bulmak yeterlidir. Bunlar önceki alt kesimdeki teoreme göre doğrusal bağımsızdır. Bir $n\times n$ matrise sütun olarak yazılırlarsa bu matrisin rankı $n$ olur ve Kısım 1, Kesim 13.5'e göre sütun uzayı $\mathbb{R}^n$ uzayının tamamıdır. Dolayısıyla $n$ vektör $\mathbb{R}^n$ uzayını gerer ve bir taban oluşturur. Aynı şekilde bir gerilen alt uzay (span) için, örneğin $\mathbb{R}^3$ uzayındaki bir düzlem için de bir ortonormal taban aranabilir: tam olarak bu alt uzayı geren ortonormal vektörler.
+$\mathbb{R}^n$ uzayının tamamı için $n$ tane ortonormal vektör bulmak yeterlidir. Bunlar önceki alt kesimdeki teoreme göre doğrusal bağımsızdır. Bir $n\times n$ matrise sütun olarak yazılırlarsa bu matrisin rankı $n$ olur ve Temeller 1, Kesim 13.5'e göre sütun uzayı $\mathbb{R}^n$ uzayının tamamıdır. Dolayısıyla $n$ vektör $\mathbb{R}^n$ uzayını gerer ve bir taban oluşturur. Aynı şekilde bir gerilen alt uzay (span) için, örneğin $\mathbb{R}^3$ uzayındaki bir düzlem için de bir ortonormal taban aranabilir: tam olarak bu alt uzayı geren ortonormal vektörler.
 
 ⁠**Sayısal örnek:** $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ ve $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$ vektörleri $\mathbb{R}^2$ uzayında iki ortonormal vektördür, dolayısıyla $\mathbb{R}^2$ uzayının bir ortonormal tabanıdır. $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ birim vektörleri, $\mathbb{R}^3$ uzayının standart taban denen ortonormal tabanını oluşturur. $\mathbb{R}^3$ uzayındaki $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ düzleminin ortonormal tabanı $\mathbf{e}_1,\mathbf{e}_2$ vektörleridir.
 
@@ -76,9 +78,9 @@ $\mathbb{R}^n$ uzayının tamamı için $n$ tane ortonormal vektör bulmak yeter
 
 <span class="anker" id="stufe-1-3"></span>
 
-Sıradan bir tabanda bir vektörün koordinatlarını bulmak için bir denklem sistemi çözmek gerekir. Kısım 1, Kesim 13.3'te $(3,\,2)^{\top}$ vektörünün $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ tabanındaki koordinatları $1$ ve $2$ idi. $(1,0)(3,2)^{\top}=3$ ve $(1,1)(3,2)^{\top}=5$ iç çarpımları ise bambaşka şeylerdir. Ortonormal bir tabanda ise koordinatlar tam olarak iç çarpımlardır.
+Sıradan bir tabanda bir vektörün koordinatlarını bulmak için bir denklem sistemi çözmek gerekir. Temeller 1, Kesim 13.3'te $(3,\,2)^{\top}$ vektörünün $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ tabanındaki koordinatları $1$ ve $2$ idi. $(1,0)(3,2)^{\top}=3$ ve $(1,1)(3,2)^{\top}=5$ iç çarpımları ise bambaşka şeylerdir. Ortonormal bir tabanda ise koordinatlar tam olarak iç çarpımlardır.
 
-Bunun nedenini Kısım 1, Kesim 5.5'teki gölge uzunluğu resmi gösterir. Birim uzunlukta bir $\mathbf{q}$ vektörü için $\mathbf{q}^{\top}\mathbf{x}$, $\mathbf{x}$ vektörünün $\mathbf{q}$ doğrultusundaki doğru üzerine düşen gölgesinin uzunluğudur. Ortonormal bir tabanda her koordinat, vektörün kendi eksenine düşen gölgesidir (Şekil [2](#abb-2)).
+Bunun nedenini Temeller 1, Kesim 5.5'teki gölge uzunluğu resmi gösterir. Birim uzunlukta bir $\mathbf{q}$ vektörü için $\mathbf{q}^{\top}\mathbf{x}$, $\mathbf{x}$ vektörünün $\mathbf{q}$ doğrultusundaki doğru üzerine düşen gölgesinin uzunluğudur. Ortonormal bir tabanda her koordinat, vektörün kendi eksenine düşen gölgesidir (Şekil [2](#abb-2)).
 
 :::abbildung ml/k2onb 2
 $\mathbf{q}_1=(0{,}6;\,0{,}8)^{\top}$, $\mathbf{q}_2=(-0{,}8;\,0{,}6)^{\top}$ ortonormal tabanında (yeşil) koordinatlar. $\mathbf{x}=(3,1)^{\top}$ oku döndürülmüş iki eksenin (gri) her birine bir gölge düşürür; ışık her seferinde dik gelir (kesikli). $\mathbf{q}_1^{\top}\mathbf{x}=2{,}6$ (mavi) ve $\mathbf{q}_2^{\top}\mathbf{x}=-1{,}8$ (turuncu) gölge uzunlukları koordinatlardır: $\mathbf{x}=2{,}6\,\mathbf{q}_1-1{,}8\,\mathbf{q}_2$.
@@ -133,7 +135,7 @@ sırasıyla bir sabit (DC) bileşenin, periyodu dört adım olan bir kosinüs ve
 
 <span class="anker" id="stufe-1-4"></span>
 
-Ortonormal bir tabanın vektörleri bir $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$ matrisine sütun olarak yazılırsa, [(1.2)](#gl-1-2) içindeki iki formül de matris çarpımı olarak yazılabilir. Kısım 1, Kesim 7.2'deki satır bakışına göre bütün koordinatlar birden $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$ vektörüdür, çünkü $\mathbf{Q}^{\top}$ matrisinin satırları $\mathbf{q}_i^{\top}$ vektörleridir. Tersine, sütun bakışına göre $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ olur. Demek ki $\mathbf{Q}^{\top}$ matrisi, $\mathbf{Q}$ matrisinin yaptığını geri alır.
+Ortonormal bir tabanın vektörleri bir $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$ matrisine sütun olarak yazılırsa, [(1.2)](#gl-1-2) içindeki iki formül de matris çarpımı olarak yazılabilir. Temeller 1, Kesim 7.2'deki satır bakışına göre bütün koordinatlar birden $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$ vektörüdür, çünkü $\mathbf{Q}^{\top}$ matrisinin satırları $\mathbf{q}_i^{\top}$ vektörleridir. Tersine, sütun bakışına göre $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ olur. Demek ki $\mathbf{Q}^{\top}$ matrisi, $\mathbf{Q}$ matrisinin yaptığını geri alır.
 
 :::definition Tanım 1.5 (Ortogonal matris)
 <span class="anker" id="satz-1-5"></span>
@@ -150,7 +152,7 @@ $\mathbf{Q}$ ortogonal ise $\mathbf{Q}$ tersinirdir ve $\mathbf{Q}^{-1}=\mathbf{
 :::
 
 :::beweis Ortogonal bir matrisin tersi
-Sütunlar ortonormaldir, dolayısıyla ilk alt kesime göre doğrusal bağımsızdır. Bu yüzden Kısım 1, Kesim 13.5'teki teoreme göre $\mathbf{Q}$ tersinirdir. $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ eşitliği sağdan $\mathbf{Q}^{-1}$ ile çarpılırsa $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$ çıkar ve böylece $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$ olur.
+Sütunlar ortonormaldir, dolayısıyla ilk alt kesime göre doğrusal bağımsızdır. Bu yüzden Temeller 1, Kesim 13.5'teki teoreme göre $\mathbf{Q}$ tersinirdir. $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ eşitliği sağdan $\mathbf{Q}^{-1}$ ile çarpılırsa $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$ çıkar ve böylece $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$ olur.
 :::
 
 Ad üzerine bir not. Ortogonal bir matrisin sütunları yalnızca ortogonal değil, ortonormaldir; ad tarihsel olarak böyle yerleşmiştir. Sütunları yalnızca ortogonal olup birim uzunlukta olmayan matrislerin ayrı bir adı yoktur. Bunlar için $\mathbf{Q}^{\top}\mathbf{Q}$, köşegeninde sütunların uzunluklarının kareleri bulunan bir köşegen matristir, ama $\mathbf{I}$ değildir.
@@ -159,7 +161,7 @@ Ad üzerine bir not. Ortogonal bir matrisin sütunları yalnızca ortogonal değ
 
 $$\mathbf{Q}=\begin{pmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{pmatrix},\qquad \mathbf{Q}^{\top}\mathbf{Q}=\begin{pmatrix}0{,}36+0{,}64&-0{,}48+0{,}48\\-0{,}48+0{,}48&0{,}64+0{,}36\end{pmatrix}=\mathbf{I} .$$
 
-$\mathbf{Q}^{\top}\mathbf{Q}$ matrisinin elemanları ilk alt kesimdeki sütunların iç çarpımlarıdır; köşegen dışındaki elemanı Şekil [1](#abb-1) gösteriyor. Dolayısıyla hiç hesap yapmadan $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$ bulunur. Bu matris, $\cos\alpha=0{,}6$ ve $\sin\alpha=0{,}8$ ile Kısım 1, Kesim 8.3'teki dönme matrisidir, yani saat yönünün tersine $\alpha\approx53{,}13^\circ$ kadar bir dönmedir. $\mathbf{Q}^{\top}$ tersi aynı açı kadar geri döndürür.
+$\mathbf{Q}^{\top}\mathbf{Q}$ matrisinin elemanları ilk alt kesimdeki sütunların iç çarpımlarıdır; köşegen dışındaki elemanı Şekil [1](#abb-1) gösteriyor. Dolayısıyla hiç hesap yapmadan $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$ bulunur. Bu matris, $\cos\alpha=0{,}6$ ve $\sin\alpha=0{,}8$ ile Temeller 1, Kesim 8.3'teki dönme matrisidir, yani saat yönünün tersine $\alpha\approx53{,}13^\circ$ kadar bir dönmedir. $\mathbf{Q}^{\top}$ tersi aynı açı kadar geri döndürür.
 
 ⁠**Kısacası:** Ortogonal matris, sütunları ortonormal olan bir kare matristir; tersi basitçe devriğidir.
 
@@ -181,10 +183,10 @@ ayrıca $\mathbf{Q}\mathbf{x}$ ile $\mathbf{Q}\mathbf{y}$ arasındaki açı, $\m
 :::
 
 :::beweis İç çarpımların korunması
-Kısım 1, Kesim 10.1'deki $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ kuralına göre $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$ olur. $\mathbf{y}=\mathbf{x}$ alınınca uzunlukla ilgili önerme çıkar; açı da yalnızca iç çarpımlardan ve uzunluklardan hesaplandığı için o da değişmez. Determinant için Kısım 1, Kesim 14.5'teki hesap kuralları kullanılır: $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
+Temeller 1, Kesim 10.1'deki $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ kuralına göre $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$ olur. $\mathbf{y}=\mathbf{x}$ alınınca uzunlukla ilgili önerme çıkar; açı da yalnızca iç çarpımlardan ve uzunluklardan hesaplandığı için o da değişmez. Determinant için Temeller 1, Kesim 14.5'teki hesap kuralları kullanılır: $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
 :::
 
-Demek ki ortogonal bir matris uzayı bozmadan, rijit biçimde hareket ettirir. $\det\mathbf{Q}=1$ ise bir dönmedir. $\det\mathbf{Q}=-1$ ise bir yansıma içerir, çünkü Kısım 1, Kesim 14.2'ye göre negatif bir determinant yönelimi tersine çevirir.
+Demek ki ortogonal bir matris uzayı bozmadan, rijit biçimde hareket ettirir. $\det\mathbf{Q}=1$ ise bir dönmedir. $\det\mathbf{Q}=-1$ ise bir yansıma içerir, çünkü Temeller 1, Kesim 14.2'ye göre negatif bir determinant yönelimi tersine çevirir.
 
 ⁠**Sayısal örnek:** Önceki alt kesimdeki dönme $\mathbf{x}=(3,\,1)^{\top}$ vektörünü $\mathbf{Q}\mathbf{x}=(1{,}8-0{,}8;\ 2{,}4+0{,}6)^{\top}=(1,\,3)^{\top}$ vektörüne götürür. İki vektörün de uzunluğunun karesi $10$. Dönmenin determinantı $0{,}36+0{,}64=1$. $\bigl(\begin{smallmatrix}0{,}6&0{,}8\\0{,}8&-0{,}6\end{smallmatrix}\bigr)$ matrisinin sütunları da ortonormaldir, ama determinantı $-0{,}36-0{,}64=-1$: Bu matris $(2,\,1)^{\top}$ doğrultusundaki doğruya göre yansıtır, çünkü $(2,\,1)^{\top}$ vektörünü kendisine, $(-1,\,2)^{\top}$ vektörünü de $(1,\,-2)^{\top}$ vektörüne götürür.
 
@@ -207,14 +209,14 @@ $\mathbf{Q}\in\mathbb{R}^{n\times k}$ matrisinin sütunları ortonormal ve $k<n$
 :::
 
 :::beweis Dikdörtgen matrisler
-İlk iki önerme, tıpkı kare matrislerde olduğu gibi [(1.1)](#gl-1-1) bağıntısından çıkar. Üçüncüsü için: $\mathbf{Q}^{\top}$ matrisinin $k$ satırı ve $n$ sütunu vardır. Kısım 1, Kesim 13.5'teki rank-sıfırlık teoremine göre çekirdeğinin boyutu $n-\operatorname{rank}\mathbf{Q}^{\top}\ge n-k\ge1$. Demek ki $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$ olan bir $\mathbf{z}\ne\mathbf{0}$ vektörü vardır ve onun için $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$ olur. Dolayısıyla $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
+İlk iki önerme, tıpkı kare matrislerde olduğu gibi [(1.1)](#gl-1-1) bağıntısından çıkar. Üçüncüsü için: $\mathbf{Q}^{\top}$ matrisinin $k$ satırı ve $n$ sütunu vardır. Temeller 1, Kesim 13.5'teki rank-sıfırlık teoremine göre çekirdeğinin boyutu $n-\operatorname{rank}\mathbf{Q}^{\top}\ge n-k\ge1$. Demek ki $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$ olan bir $\mathbf{z}\ne\mathbf{0}$ vektörü vardır ve onun için $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$ olur. Dolayısıyla $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
 :::
 
 ⁠**Sayısal örnek 1:** Tek sütunu $\mathbf{q}=(0{,}6;\ 0{,}8)^{\top}$ olan matris $\mathbf{q}^{\top}\mathbf{q}=1$ koşulunu sağlar, ama
 
 $$\mathbf{q}\mathbf{q}^{\top}=\begin{pmatrix}0{,}36&0{,}48\\0{,}48&0{,}64\end{pmatrix}\ne\mathbf{I} .$$
 
-Bu matris $(-0{,}8;\ 0{,}6)^{\top}$ vektörünü $\mathbf{0}$ vektörüne götürür. $\mathbf{x}=(3,\,1)^{\top}$ vektörünü ise $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$ vektörüne götürür. Bu, Kısım 1, Kesim 5.5'teki $\mathbf{x}$ gölgesinin tam uç noktasıdır, çünkü $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
+Bu matris $(-0{,}8;\ 0{,}6)^{\top}$ vektörünü $\mathbf{0}$ vektörüne götürür. $\mathbf{x}=(3,\,1)^{\top}$ vektörünü ise $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$ vektörüne götürür. Bu, Temeller 1, Kesim 5.5'teki $\mathbf{x}$ gölgesinin tam uç noktasıdır, çünkü $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
 
 ⁠**Sayısal örnek 2:** $\mathbf{Q}=\Bigl(\begin{smallmatrix}1&0\\0&1\\0&0\end{smallmatrix}\Bigr)$ matrisinin sütunları $\mathbb{R}^3$ uzayındaki $\mathbf{e}_1$ ve $\mathbf{e}_2$ vektörleridir. $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}_2$ olur, ama $\mathbf{Q}\mathbf{Q}^{\top}=\operatorname{diag}(1;\,1;\,0)$. Bu matris ilk iki bileşeni korur ve üçüncüsünü sıfırlar.
 

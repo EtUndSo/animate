@@ -1,7 +1,9 @@
 ---
 title: Näherung durch Matrizen von kleinem Rang
-pfad: Informatik / Machine Learning / Projektion, Eigenwerte und Zerlegungen
-order: 6221100
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
+knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+nachschlagen: ja
+order: 15221100
 summary: Die Singulärwertzerlegung ordnet die Bausteine einer Matrix nach ihrer Größe.
 tags: Frobeniusnorm, abgeschnittene Singulärwertzerlegung
 lang: de
@@ -17,7 +19,7 @@ Die Singulärwertzerlegung ordnet die Bausteine einer Matrix nach ihrer Größe.
 
 <span class="anker" id="stufe-10-1"></span>
 
-Um zu sagen, wie nah zwei Matrizen beieinanderliegen, braucht man eine Größe für ihre Differenz. Die Spektralnorm ist eine solche Größe; sie misst die größte Verlängerung. Eine zweite liegt noch näher: Man liest die Matrix wie ein Bild in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 6.1, Zeile für Zeile zu einem langen Vektor aus und nimmt dessen euklidische Norm.
+Um zu sagen, wie nah zwei Matrizen beieinanderliegen, braucht man eine Größe für ihre Differenz. Die Spektralnorm ist eine solche Größe; sie misst die größte Verlängerung. Eine zweite liegt noch näher: Man liest die Matrix wie ein Bild in [Grundlagen 1, Abschnitt 6.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), Zeile für Zeile zu einem langen Vektor aus und nimmt dessen euklidische Norm.
 
 :::definition Definition 10.1 (Frobeniusnorm)
 <span class="anker" id="satz-10-1"></span>
@@ -108,7 +110,7 @@ Unter allen Matrizen vom Rang höchstens $k$ liegt $\mathbf{A}_k$ also am nächs
 :::
 
 :::beweis Spektralnorm
-Nach dem Rangsatz hat der Kern von $\mathbf{B}$ die Dimension $n-\operatorname{rang}\mathbf{B}\ge n-k$. Man wählt $n-k$ linear unabhängige Vektoren $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ im Kern und nimmt $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ dazu. Das sind $n+1$ Vektoren im $\mathbb{R}^n$, und nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.4, sind sie linear abhängig, denn eine Matrix mit $n$ Zeilen hat höchstens den Rang $n$. Es gibt also Zahlen, nicht alle null, mit $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Dieser Vektor $\mathbf{z}$ ist nicht null, denn sonst wären wegen der Unabhängigkeit beider Listen alle Zahlen null. Er liegt im Kern von $\mathbf{B}$ und im Spann von $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Man normiert ihn auf die Länge $1$. Dann ist $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, und mit $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
+Nach dem Rangsatz hat der Kern von $\mathbf{B}$ die Dimension $n-\operatorname{rang}\mathbf{B}\ge n-k$. Man wählt $n-k$ linear unabhängige Vektoren $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ im Kern und nimmt $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ dazu. Das sind $n+1$ Vektoren im $\mathbb{R}^n$, und nach [Grundlagen 1, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), sind sie linear abhängig, denn eine Matrix mit $n$ Zeilen hat höchstens den Rang $n$. Es gibt also Zahlen, nicht alle null, mit $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Dieser Vektor $\mathbf{z}$ ist nicht null, denn sonst wären wegen der Unabhängigkeit beider Listen alle Zahlen null. Er liegt im Kern von $\mathbf{B}$ und im Spann von $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Man normiert ihn auf die Länge $1$. Dann ist $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, und mit $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -143,7 +145,7 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 gibt an, welcher Teil der Summe aller quadrierten Helligkeitswerte erhalten bleibt.
 
-⁠**Rechenbeispiel:** Das Kreuz aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 6.1, ist
+⁠**Rechenbeispiel:** Das Kreuz aus [Grundlagen 1, Abschnitt 6.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), ist
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 

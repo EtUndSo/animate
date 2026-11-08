@@ -1,8 +1,10 @@
 ---
 title: Sözde ters
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6221200
-summary: Kısım 1'de yalnızca bağımsız sütunlu bir kare matrisin tersi vardı.
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15221200
+summary: Temeller 1'de yalnızca bağımsız sütunlu bir kare matrisin tersi vardı.
 tags: sol tersi, sağ tersi, sözde tersi
 lang: tr
 ---
@@ -10,7 +12,7 @@ lang: tr
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Kısım 1'de yalnızca bağımsız sütunlu bir kare matrisin tersi vardı. Bu kesim her matrise bir tür ters veriyor: bilinmeyenlerden çok denklem varken soldan tersine çeviren bir ters, daha az denklem varken sağdan tersine çeviren bir ters ve her durum için bir ters, yani sözde ters. Sözde ters her zaman en iyi yaklaşık çözümü, birden çok varsa da en kısasını verir.
+Temeller 1'de yalnızca bağımsız sütunlu bir kare matrisin tersi vardı. Bu kesim her matrise bir tür ters veriyor: bilinmeyenlerden çok denklem varken soldan tersine çeviren bir ters, daha az denklem varken sağdan tersine çeviren bir ters ve her durum için bir ters, yani sözde ters. Sözde ters her zaman en iyi yaklaşık çözümü, birden çok varsa da en kısasını verir.
 :::
 
 ### Sol ters
@@ -131,7 +133,7 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 İkinci toplam $\mathbf{x}$ vektörüne bağlı değildir. Birincisi ancak ve ancak bütün $j\le r$ için $c_j=\beta_j/d_j$ ise sıfırdır, yani olabildiğince küçüktür; $j>r$ olan $c_j$ değerleri hiç yer almaz. Demek ki en iyi yaklaşık çözümler tam olarak, $j\le r$ için $c_j=\beta_j/d_j$ olan ve $c_{r+1},\dots,c_n$ değerleri keyfi olan $\mathbf{x}=\mathbf{V}\mathbf{c}$ vektörleridir. Uzunlukları $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$ olur ve $j>r$ için $c_j=0$ alındığında en küçüktür. Bu $\mathbf{c}$ vektörü $\mathbf{D}^+\boldsymbol\beta$ olur, dolayısıyla $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$.
 
-Sütunlar bağımsızsa Kesim [3.5](die-beste-naherungslosung.html#stufe-3-5)'e göre yalnızca bir en iyi yaklaşık çözüm vardır: $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; bu çözüm $\mathbf{A}^+\mathbf{y}$ ile, hem de her $\mathbf{y}$ için aynı olmalıdır. Satırlar bağımsızsa Kısım 1, Kesim 13.4'e göre rank $m$ olur, yani sütun uzayı $\mathbb{R}^m$ uzayının tamamıdır ve sistem her $\mathbf{y}$ için çözülebilir; en iyi yaklaşık çözümler sistemin çözümleridir ve Kesim [11.2](#stufe-11-2)'ye göre en kısası $\mathbf G\mathbf{y}$ olur.
+Sütunlar bağımsızsa Kesim [3.5](die-beste-naherungslosung.html#stufe-3-5)'e göre yalnızca bir en iyi yaklaşık çözüm vardır: $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; bu çözüm $\mathbf{A}^+\mathbf{y}$ ile, hem de her $\mathbf{y}$ için aynı olmalıdır. Satırlar bağımsızsa Temeller 1, Kesim 13.4'e göre rank $m$ olur, yani sütun uzayı $\mathbb{R}^m$ uzayının tamamıdır ve sistem her $\mathbf{y}$ için çözülebilir; en iyi yaklaşık çözümler sistemin çözümleridir ve Kesim [11.2](#stufe-11-2)'ye göre en kısası $\mathbf G\mathbf{y}$ olur.
 :::
 
 ⁠**Sayısal örnek 1:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ve $\mathbf{y}=(1,\,1)^{\top}$ için $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0{,}12;\ 0{,}24)^{\top}$ olur. Bu vektör en iyi yaklaşık çözümlerin doğrusu üzerindedir, çünkü $0{,}12+2\cdot0{,}24=0{,}6=\tfrac35$; ayrıca $(1,\,2)^{\top}$ doğrultusunu, yani doğruya dik doğrultuyu gösterir: Doğrunun orijine en yakın noktasıdır.

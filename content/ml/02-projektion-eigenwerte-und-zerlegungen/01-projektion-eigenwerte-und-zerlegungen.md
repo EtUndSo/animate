@@ -1,8 +1,10 @@
 ---
-title: Überblick: Projektion, Eigenwerte und Zerlegungen
+title: Überblick: Grundlagen 2 – Projektion, Eigenwerte und Zerlegungen
 kurz: Überblick
-pfad: Informatik / Machine Learning / Projektion, Eigenwerte und Zerlegungen
-order: 6220100
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
+knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+nachschlagen: ja
+order: 15220100
 summary: Nächste Punkte, natürliche Richtungen und die Bausteine einer Matrix
 tags: 
 lang: de
@@ -10,7 +12,7 @@ lang: de
 
 ## Worum es geht
 
-In [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) ist eine Frage offengeblieben. Vier Wohnungen sind durch ihre Fläche und ihre Zimmerzahl beschrieben, und ihre Preise sind bekannt. Gesucht sind zwei Gewichte, mit denen die gewichtete Summe jeden Preis trifft. Solche Gewichte gibt es nicht: Vier Gleichungen mit zwei Unbekannten widersprechen einander. Mit Messdaten geht es fast immer so. Man hat mehr Messungen als Unbekannte, jede Messung ist ein wenig ungenau, und das Gleichungssystem hat keine Lösung. Trotzdem braucht man Gewichte, und zwar die, die so wenig wie möglich danebenliegen.
+In [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) ist eine Frage offengeblieben. Vier Wohnungen sind durch ihre Fläche und ihre Zimmerzahl beschrieben, und ihre Preise sind bekannt. Gesucht sind zwei Gewichte, mit denen die gewichtete Summe jeden Preis trifft. Solche Gewichte gibt es nicht: Vier Gleichungen mit zwei Unbekannten widersprechen einander. Mit Messdaten geht es fast immer so. Man hat mehr Messungen als Unbekannte, jede Messung ist ein wenig ungenau, und das Gleichungssystem hat keine Lösung. Trotzdem braucht man Gewichte, und zwar die, die so wenig wie möglich danebenliegen.
 
 Dieses Kapitel geht dieser Frage nach und zwei weiteren, die sich als eng verwandt herausstellen. Gibt es Richtungen, in die eine Matrix einen Pfeil nur länger oder kürzer macht, ohne ihn zu drehen, und was verraten diese Richtungen über die Matrix? Und lässt sich jede Matrix in wenige einfache Bausteine zerlegen, nach ihrer Wichtigkeit geordnet, sodass man die unwichtigen weglassen kann? Dazu kommt eine praktische Frage: Wie stark verändert sich das Ergebnis einer Rechnung, wenn die Daten ein wenig falsch sind?
 

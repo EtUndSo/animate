@@ -1,0 +1,509 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 28,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.32,
+      1.55,
+      0
+     ],
+     "width": 6.4,
+     "height": 2.1,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#d6d8d0",
+     "fill_color": "#f6f6f2",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{array}{l}\\texttt{Traceback (most recent call last):}\\\\\\hphantom{\\texttt{00}}\\texttt{File \"/home/student/python-kurs/laufzeitfehler.py\",}\\\\\\hphantom{\\texttt{00}}\\hookrightarrow\\hphantom{\\texttt{0}}\\texttt{line 2, in <module>}\\\\\\hphantom{\\texttt{0000}}\\texttt{print(5 / 0)}\\\\\\hphantom{\\texttt{0000000000}}\\texttt{~~^~~}\\\\\\texttt{ZeroDivisionError: division by zero}\\end{array}",
+     "height": 1.74,
+     "position": [
+      0.3,
+      1.55,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      2.275,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.3,
+      2.275,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      1.9849999999999999,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.3,
+      1.9849999999999999,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      1.405,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -3.3,
+      1.405,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      1.115,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      -3.3,
+      1.115,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      0.825,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "5",
+     "position": [
+      -3.3,
+      0.825,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      -0.15,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "5",
+     "position": [
+      -3.3,
+      -0.15,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@t5",
+     "position": [
+      -3.0,
+      -0.15,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      -0.57,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.3,
+      -0.57,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@t2",
+     "position": [
+      -3.0,
+      -0.57,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      -0.99,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -3.3,
+      -0.99,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@t3",
+     "position": [
+      -3.0,
+      -0.99,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      -1.41,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      -3.3,
+      -1.41,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@t4",
+     "position": [
+      -3.0,
+      -1.41,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Circle",
+    "props": {
+     "radius": 0.15,
+     "center": [
+      -3.3,
+      -1.8299999999999998,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.3,
+      -1.8299999999999998,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@t1",
+     "position": [
+      -3.0,
+      -1.8299999999999998,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "t5": {
+    "de": "Art und Beschreibung: was passiert ist (hier anfangen)",
+    "en": "type and description: what happened (start here)",
+    "es": "tipo y descripción: qué ha pasado (empieza aquí)",
+    "zh": "类型与描述：发生了什么（从这里读起）",
+    "fr": "type et description : ce qui s'est passé (commencer ici)",
+    "tr": "tür ve açıklama: ne oldu (buradan başla)"
+   },
+   "t2": {
+    "de": "Datei, Zeile, <module> = oberste Ebene: wo",
+    "en": "file, line, <module> = top level: where",
+    "es": "archivo, línea, <module> = nivel superior: dónde",
+    "zh": "文件、行号、<module> = 顶层：在哪里",
+    "fr": "fichier, ligne, <module> = niveau supérieur : où",
+    "tr": "dosya, satır, <module> = en üst düzey: nerede"
+   },
+   "t3": {
+    "de": "die Zeile, wie sie in der Datei steht",
+    "en": "the line as written in the file",
+    "es": "la línea tal como está en el archivo",
+    "zh": "文件中的那一行",
+    "fr": "la ligne telle qu'elle est dans le fichier",
+    "tr": "dosyadaki haliyle satır"
+   },
+   "t4": {
+    "de": "\\^ zeigt auf das Rechenzeichen, ~ auf die Werte",
+    "en": "\\^ points to the operator, ~ to the values",
+    "es": "\\^ señala el operador, ~ los valores",
+    "zh": "\\^ 指向运算符，~ 指向参与的值",
+    "fr": "\\^ désigne l'opérateur, ~ les valeurs",
+    "tr": "\\^ işleci, ~ değerleri gösterir"
+   },
+   "t1": {
+    "de": "Kopfzeile: der jüngste Schritt steht zuletzt",
+    "en": "header: the most recent step comes last",
+    "es": "cabecera: el paso más reciente va al final",
+    "zh": "标题行：最近的一步在最后",
+    "fr": "en-tête : l'étape la plus récente vient en dernier",
+    "tr": "başlık: en son adım en sonda"
+   }
+  }
+ }
+}

@@ -1,7 +1,9 @@
 ---
 title: La décomposition en valeurs singulières
-pfad: Informatique / Apprentissage automatique / Projection, valeurs propres et décompositions
-order: 6221000
+pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
+knoten: Fondements 2 : Projection, valeurs propres et décompositions
+nachschlagen: ja
+order: 15221000
 summary: Les vecteurs propres n’existent que pour les matrices carrées, et ils ne sont perpendiculaires que pour les matrices symétriques.
 tags: valeurs singulières, vecteurs singuliers à droite, vecteur singulier à gauche, norme spectrale
 lang: fr
@@ -54,7 +56,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 sont appelés les __valeurs singulières__ de $\mathbf{A}$.
 :::
 
-Beaucoup d’ouvrages écrivent $\sigma_j$ au lieu de $d_j$. Ici, les valeurs singulières portent toujours un indice ; le $d$ sans indice de la Partie 1, le nombre de caractéristiques, est autre chose.
+Beaucoup d’ouvrages écrivent $\sigma_j$ au lieu de $d_j$. Ici, les valeurs singulières portent toujours un indice ; le $d$ sans indice de Fondements 1, le nombre de caractéristiques, est autre chose.
 
 :::satz Théorème 9.2 (Valeurs singulières et rang)
 <span class="anker" id="satz-9-2"></span>
@@ -128,7 +130,7 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Décomposition en valeurs singulières
-Pour $j\le r$, on a $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Pour $j>r$, on a $d_j=0$, donc $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ et $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Si $r<m$, on complète $\mathbf{u}_1,\dots,\mathbf{u}_r$ en une base orthonormée de $\mathbb{R}^m$, par exemple avec le procédé de Gram-Schmidt, comme dans la preuve du théorème spectral. D’après la Partie 1, section 9.2, la colonne $j$ de $\mathbf{A}\mathbf{V}$ est le vecteur $\mathbf{A}\mathbf{v}_j$, et la colonne $j$ de $\mathbf{U}\mathbf{D}$ vaut $d_j\mathbf{u}_j$ pour $j\le r$ et sinon le vecteur nul. Donc $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Comme $\mathbf{V}$ est orthogonale, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, et la multiplication à droite par $\mathbf{V}^{\top}$ donne $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. La forme compacte découle de la Partie 1, section 9.5 : colonne $j$ de $\mathbf{U}\mathbf{D}$ fois ligne $j$ de $\mathbf{V}^{\top}$, sommé sur $j$ ; seuls les termes avec $j\le r$ sont non nuls.
+Pour $j\le r$, on a $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Pour $j>r$, on a $d_j=0$, donc $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ et $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Si $r<m$, on complète $\mathbf{u}_1,\dots,\mathbf{u}_r$ en une base orthonormée de $\mathbb{R}^m$, par exemple avec le procédé de Gram-Schmidt, comme dans la preuve du théorème spectral. D’après Fondements 1, section 9.2, la colonne $j$ de $\mathbf{A}\mathbf{V}$ est le vecteur $\mathbf{A}\mathbf{v}_j$, et la colonne $j$ de $\mathbf{U}\mathbf{D}$ vaut $d_j\mathbf{u}_j$ pour $j\le r$ et sinon le vecteur nul. Donc $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Comme $\mathbf{V}$ est orthogonale, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, et la multiplication à droite par $\mathbf{V}^{\top}$ donne $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. La forme compacte découle de Fondements 1, section 9.5 : colonne $j$ de $\mathbf{U}\mathbf{D}$ fois ligne $j$ de $\mathbf{V}^{\top}$, sommé sur $j$ ; seuls les termes avec $j\le r$ sont non nuls.
 :::
 
 Le format de $\mathbf{D}$ suit celui de $\mathbf{A}$. Pour $m=3$ et $n=2$, par exemple, $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$. L’abréviation usuelle est SVD, d’après le nom anglais *singular value decomposition*.
@@ -179,7 +181,7 @@ $\mathbf{U}$ amène $\mathbf{e}_j$ sur $\mathbf{u}_j$, de nouveau par une rotati
 
 </ol>
 
-Toute application linéaire est donc, aux réflexions près, une rotation, un étirement le long des axes et encore une rotation. Elle transforme le cercle unité en une ellipse et la sphère unité en un ellipsoïde, de demi-axes $d_j\mathbf{u}_j$. Si $\det\mathbf{A}<0$, il y a au moins une réflexion, car d’après la Partie 1, section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, et $\det\mathbf{D}\ge0$.
+Toute application linéaire est donc, aux réflexions près, une rotation, un étirement le long des axes et encore une rotation. Elle transforme le cercle unité en une ellipse et la sphère unité en un ellipsoïde, de demi-axes $d_j\mathbf{u}_j$. Si $\det\mathbf{A}<0$, il y a au moins une réflexion, car d’après Fondements 1, section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, et $\det\mathbf{D}\ge0$.
 
 :::abbildung ml/k2svd 23
 La matrice $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ comme rotation, étirement, rotation. En haut à gauche, le cercle unité avec $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (en rouge) et $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (en vert). $\mathbf{V}^{\top}$ fait tourner de $-63{,}4^\circ$ et amène $\mathbf{v}_1$ sur $\mathbf{e}_1$ et $\mathbf{v}_2$ sur $\mathbf{e}_2$ (en bas à gauche). $\mathbf{D}$ étire le premier axe d’un facteur $d_1=4$ et le second d’un facteur $d_2=1$ (en bas à droite). $\mathbf{U}$ fait tourner de $26{,}6^\circ$ et amène les axes sur $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ et $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ (en haut à droite). Le point noir $\mathbf{x}=\mathbf{e}_2$ aboutit, quel que soit le chemin, en $\mathbf{A}\mathbf{x}=(3,2)^{\top}$. Le chemin direct, en haut, est $\mathbf{A}$ elle-même : le cercle unité devient l’ellipse de demi-axes $4\,\mathbf{u}_1$ et $1\cdot\mathbf{u}_2$.
@@ -229,7 +231,7 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ est une base orthonormée du noyau de $\ma
 (i) Tout $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ appartient au sous-espace engendré par $\mathbf{u}_1,\dots,\mathbf{u}_r$, et inversement $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ est une image. Les autres colonnes de $\mathbf{U}$ sont perpendiculaires à celles-ci et engendrent donc, d’après la section [4.4](projektion-auf-einen-unterraum.html#stufe-4-4), le supplémentaire orthogonal. (ii) Comme les $\mathbf{u}_j$ sont indépendants et les $d_j$ positifs, on a $\mathbf{A}\mathbf{x}=\mathbf{0}$ si et seulement si $\mathbf{v}_j^{\top}\mathbf{x}=0$ pour tout $j\le r$, c’est-à-dire si $\mathbf{x}$ n’a de coordonnées que le long de $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$. Enfin, $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$ est une décomposition en valeurs singulières de $\mathbf{A}^{\top}$, dans laquelle $\mathbf{U}$ et $\mathbf{V}$ échangent leurs rôles ; (i) appliqué à $\mathbf{A}^{\top}$ donne le reste.
 :::
 
-Les nombres concordent avec le théorème du rang de la Partie 1, section 13.5 : le noyau est de dimension $n-r$.
+Les nombres concordent avec le théorème du rang de Fondements 1, section 13.5 : le noyau est de dimension $n-r$.
 
 ⁠**Exemple de calcul :** La matrice $\mathbf{H}$ de colonnes $(1,\,0,\,1)^{\top}$ et $(0,\,1,\,1)^{\top}$ de la section [3.2](die-beste-naherungslosung.html#stufe-3-2) a $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$, de valeurs propres $3$ et $1$, donc les valeurs singulières $d_1=\sqrt3$ et $d_2=1$, et les vecteurs singuliers à droite $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. Ceux à gauche sont
 
@@ -420,7 +422,7 @@ Montrez que, si $\mathbf{Q}$ est orthogonale, $\mathbf{Q}\mathbf{A}$ et $\mathbf
 </ol>
 
 :::loesung
-(a) D’après la Partie 1, section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Les deux matrices orthogonales ont pour déterminant $\pm1$, et $\mathbf{D}$ est une matrice diagonale de déterminant $d_1\cdots d_n$. Donc $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) D’après Fondements 1, section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Les deux matrices orthogonales ont pour déterminant $\pm1$, et $\mathbf{D}$ est une matrice diagonale de déterminant $d_1\cdots d_n$. Donc $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) De $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, on déduit $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ et $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$. Les matrices diagonales $\mathbf{D}^{\top}\mathbf{D}$ et $\mathbf{D}\mathbf{D}^{\top}$ portent sur leur diagonale les mêmes coefficients $d_j^2>0$ ; seul le nombre de zéros diffère. Les valeurs singulières de $\mathbf{A}^{\top}$ sont les racines carrées des valeurs propres de $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$, c’est-à-dire de nouveau les $d_j$, complétés par des zéros.
 

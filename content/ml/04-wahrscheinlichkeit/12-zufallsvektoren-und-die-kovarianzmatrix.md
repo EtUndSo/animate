@@ -1,7 +1,9 @@
 ---
 title: Zufallsvektoren und die Kovarianzmatrix
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6241200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15241200
 summary: Ein Datenpunkt hat meist viele Merkmale.
 tags: Zufallsvektor, Erwartungswertvektor, Kovarianzmatrix, empirische Kovarianzmatrix
 lang: de
@@ -10,14 +12,14 @@ lang: de
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Ein Datenpunkt hat meist viele Merkmale. Dieser Abschnitt fasst sie zu einem Zufallsvektor zusammen und ordnet alle Varianzen und Kovarianzen in einer Matrix an. Mit der Matrixrechnung aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) und [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) wird dann vieles einfach: wie sich die Kovarianzmatrix unter linearen Abbildungen ändert, wie stark die Daten in einer beliebigen Richtung streuen und warum jede Kovarianzmatrix positiv semidefinit ist. Ihre Eigenvektoren zeigen die Richtungen größter und kleinster Streuung.
+Ein Datenpunkt hat meist viele Merkmale. Dieser Abschnitt fasst sie zu einem Zufallsvektor zusammen und ordnet alle Varianzen und Kovarianzen in einer Matrix an. Mit der Matrixrechnung aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) und [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) wird dann vieles einfach: wie sich die Kovarianzmatrix unter linearen Abbildungen ändert, wie stark die Daten in einer beliebigen Richtung streuen und warum jede Kovarianzmatrix positiv semidefinit ist. Ihre Eigenvektoren zeigen die Richtungen größter und kleinster Streuung.
 :::
 
 ### Zufallsvektoren
 
 <span class="anker" id="stufe-11-1"></span>
 
-Mehrere Zufallsvariablen, die zum selben Experiment gehören, schreibt man als Vektor. So kann man mit ihnen rechnen wie mit den Datenpunkten aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html).
+Mehrere Zufallsvariablen, die zum selben Experiment gehören, schreibt man als Vektor. So kann man mit ihnen rechnen wie mit den Datenpunkten aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html).
 
 :::definition Definition 11.1 (Zufallsvektor, Erwartungswertvektor)
 <span class="anker" id="satz-11-1"></span>
@@ -25,7 +27,7 @@ Mehrere Zufallsvariablen, die zum selben Experiment gehören, schreibt man als V
 Ein __Zufallsvektor__ $\mathbf{x}=(x_1,\dots,x_d)^{\top}$ besteht aus $d$ Zufallsvariablen $x_1,\dots,x_d$ auf demselben Ergebnisraum. Sein __Erwartungswertvektor__ ist $\boldsymbol{\mu}=\mathbb{E}[\mathbf{x}]=(\mathbb{E}[x_1],\dots,\mathbb{E}[x_d])^{\top}$.
 :::
 
-Bei Vektoren schreibt dieses Kapitel wie im maschinellen Lernen üblich auch den Zufallsvektor und seine Komponenten klein; der große fette Buchstabe $\mathbf{X}$ bleibt die Datenmatrix aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html). Ob $\mathbf{x}$ der Zufallsvektor oder ein fester Wert ist, sagt der Zusammenhang: In $\mathbb{E}[\mathbf{x}]$ ist er zufällig, in einer Dichte $p(\mathbf{x})$ ist $\mathbf{x}$ die Stelle, an der man sie auswertet. Ein Datenpunkt $\mathbf{x}_i$ ist ein Wert. Erwartungswerte von Matrizen aus Zufallsvariablen bildet man ebenso komponentenweise. Aus der Linearität folgt für eine feste Matrix $\mathbf{A}$ und einen festen Vektor $\mathbf{b}$
+Bei Vektoren schreibt dieses Kapitel wie im maschinellen Lernen üblich auch den Zufallsvektor und seine Komponenten klein; der große fette Buchstabe $\mathbf{X}$ bleibt die Datenmatrix aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html). Ob $\mathbf{x}$ der Zufallsvektor oder ein fester Wert ist, sagt der Zusammenhang: In $\mathbb{E}[\mathbf{x}]$ ist er zufällig, in einer Dichte $p(\mathbf{x})$ ist $\mathbf{x}$ die Stelle, an der man sie auswertet. Ein Datenpunkt $\mathbf{x}_i$ ist ein Wert. Erwartungswerte von Matrizen aus Zufallsvariablen bildet man ebenso komponentenweise. Aus der Linearität folgt für eine feste Matrix $\mathbf{A}$ und einen festen Vektor $\mathbf{b}$
 
 <span class="anker" id="gl-11-1"></span>
 $$\mathbb{E}[\mathbf{A}\mathbf{x}+\mathbf{b}]=\mathbf{A}\boldsymbol{\mu}+\mathbf{b} , \tag{11.1}$$
@@ -51,7 +53,7 @@ Die __Kovarianzmatrix__ eines Zufallsvektors $\mathbf{x}$ mit dem Erwartungswert
 $$\boldsymbol{\Sigma}=\mathbb{E}\bigl[(\mathbf{x}-\boldsymbol{\mu})(\mathbf{x}-\boldsymbol{\mu})^{\top}\bigr],\qquad \Sigma_{jl}=\operatorname{Cov}(x_j,x_l). \tag{11.2}$$
 :::
 
-$(\mathbf{x}-\boldsymbol{\mu})(\mathbf{x}-\boldsymbol{\mu})^{\top}$ ist das äußere Produkt aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 9.5: eine Matrix mit den Einträgen $(x_j-\mu_j)(x_l-\mu_l)$. Ihr Erwartungswert, komponentenweise gebildet, hat nach [(10.1)](kovarianz-und-korrelation.html#gl-10-1) die Einträge $\operatorname{Cov}(x_j,x_l)$. Auf der Diagonalen stehen die Varianzen $\Sigma_{jj}=\operatorname{Var}(x_j)$. Weil die Kovarianz symmetrisch ist, ist $\boldsymbol{\Sigma}$ symmetrisch. Wie bei einer Zahl gibt es die Verschiebungsformel $\boldsymbol{\Sigma}=\mathbb{E}[\mathbf{x}\mathbf{x}^{\top}]-\boldsymbol{\mu}\boldsymbol{\mu}^{\top}$. Sind die Komponenten paarweise unkorreliert, so ist $\boldsymbol{\Sigma}$ eine Diagonalmatrix.
+$(\mathbf{x}-\boldsymbol{\mu})(\mathbf{x}-\boldsymbol{\mu})^{\top}$ ist das äußere Produkt aus [Grundlagen 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): eine Matrix mit den Einträgen $(x_j-\mu_j)(x_l-\mu_l)$. Ihr Erwartungswert, komponentenweise gebildet, hat nach [(10.1)](kovarianz-und-korrelation.html#gl-10-1) die Einträge $\operatorname{Cov}(x_j,x_l)$. Auf der Diagonalen stehen die Varianzen $\Sigma_{jj}=\operatorname{Var}(x_j)$. Weil die Kovarianz symmetrisch ist, ist $\boldsymbol{\Sigma}$ symmetrisch. Wie bei einer Zahl gibt es die Verschiebungsformel $\boldsymbol{\Sigma}=\mathbb{E}[\mathbf{x}\mathbf{x}^{\top}]-\boldsymbol{\mu}\boldsymbol{\mu}^{\top}$. Sind die Komponenten paarweise unkorreliert, so ist $\boldsymbol{\Sigma}$ eine Diagonalmatrix.
 
 ⁠**Rechenbeispiel:** Für $\mathbf{x}=(S,R)^{\top}$ ist $\operatorname{Var}(S)=\operatorname{Var}(R)=0{,}24$ und $\operatorname{Cov}(S,R)=0{,}14$, also
 
@@ -63,7 +65,7 @@ $$\boldsymbol{\Sigma}=\begin{pmatrix}0{,}24&0{,}14\\0{,}14&0{,}24\end{pmatrix}.$
 
 <span class="anker" id="stufe-11-3"></span>
 
-Für einen Datensatz mit der Datenmatrix $\mathbf{X}\in\mathbb{R}^{N\times d}$ aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) nimmt man wieder die empirische Verteilung. Ihre Kovarianzmatrix enthält alle empirischen Kovarianzen der Merkmale und lässt sich mit einem einzigen Matrixprodukt ausrechnen.
+Für einen Datensatz mit der Datenmatrix $\mathbf{X}\in\mathbb{R}^{N\times d}$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) nimmt man wieder die empirische Verteilung. Ihre Kovarianzmatrix enthält alle empirischen Kovarianzen der Merkmale und lässt sich mit einem einzigen Matrixprodukt ausrechnen.
 
 :::definition Definition 11.3 (Empirische Kovarianzmatrix)
 <span class="anker" id="satz-11-3"></span>
@@ -76,7 +78,7 @@ $$\mathbf{S}=\frac1N\,\tilde{\mathbf{X}}^{\top}\tilde{\mathbf{X}}=\frac1N\sum_{i
 die __empirische Kovarianzmatrix__.
 :::
 
-Der Eintrag $(j,l)$ von $\tilde{\mathbf{X}}^{\top}\tilde{\mathbf{X}}$ ist das Skalarprodukt der zentrierten Merkmalsspalten $j$ und $l$; das ist die Gram-Matrix der Merkmale aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 10.4, für die zentrierten Daten. Geteilt durch $N$ ergibt das die empirischen Kovarianzen [(10.7)](kovarianz-und-korrelation.html#gl-10-7). Auf der Diagonalen stehen die Quadrate $s_j^2$ der Standardabweichungen der Merkmale. Die Summenform schreibt dasselbe Produkt als Summe äußerer Produkte, einer je Datenpunkt.
+Der Eintrag $(j,l)$ von $\tilde{\mathbf{X}}^{\top}\tilde{\mathbf{X}}$ ist das Skalarprodukt der zentrierten Merkmalsspalten $j$ und $l$; das ist die Gram-Matrix der Merkmale aus [Grundlagen 1, Abschnitt 10.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4), für die zentrierten Daten. Geteilt durch $N$ ergibt das die empirischen Kovarianzen [(10.7)](kovarianz-und-korrelation.html#gl-10-7). Auf der Diagonalen stehen die Quadrate $s_j^2$ der Standardabweichungen der Merkmale. Die Summenform schreibt dasselbe Produkt als Summe äußerer Produkte, einer je Datenpunkt.
 
 ⁠**Rechenbeispiel:** Die drei Punkte $(1,2)$, $(2,1)$, $(3,3)$ aus Unterabschnitt [10.6](kovarianz-und-korrelation.html#stufe-10-6) bilden die Zeilen von $\mathbf{X}$. Mit $\bar{\mathbf{x}}=(2,\,2)^{\top}$ ist $\tilde{\mathbf{X}}$ die Matrix mit den Zeilen $(-1,\,0)$, $(0,\,-1)$ und $(1,\,1)$, und
 
@@ -127,7 +129,7 @@ Die Summe hat die Varianz $2$, die Differenz $\tfrac23$, und die beiden sind unk
 
 <span class="anker" id="stufe-11-5"></span>
 
-Wie stark streuen Datenpunkte, wenn man nur in eine Richtung blickt? Nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 5.5, ist das Skalarprodukt $\mathbf{u}^{\top}\mathbf{x}$ mit einem Einheitsvektor $\mathbf{u}$ die Länge des Schattens von $\mathbf{x}$ auf die Gerade in Richtung $\mathbf{u}$. Die Streuung der Daten in Richtung $\mathbf{u}$ ist die Varianz dieser Schattenlängen.
+Wie stark streuen Datenpunkte, wenn man nur in eine Richtung blickt? Nach [Grundlagen 1, Abschnitt 5.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), ist das Skalarprodukt $\mathbf{u}^{\top}\mathbf{x}$ mit einem Einheitsvektor $\mathbf{u}$ die Länge des Schattens von $\mathbf{x}$ auf die Gerade in Richtung $\mathbf{u}$. Die Streuung der Daten in Richtung $\mathbf{u}$ ist die Varianz dieser Schattenlängen.
 
 :::satz Satz 11.5 (Varianz in einer Richtung)
 <span class="anker" id="satz-11-5"></span>
@@ -140,7 +142,7 @@ $$\operatorname{Var}(\mathbf{u}^{\top}\mathbf{x})=\mathbf{u}^{\top}\boldsymbol{\
 Für einen Datensatz gilt dasselbe mit $\mathbf{S}$: Die Schattenlängen $\mathbf{u}^{\top}\mathbf{x}_i$ der Datenpunkte haben die empirische Varianz $\mathbf{u}^{\top}\mathbf{S}\mathbf{u}$.
 :::
 
-Das ist der Fall $m=1$ von [(11.4)](#gl-11-4). $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$ ist eine quadratische Form aus [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 5.1. Für $\mathbf{u}=\mathbf{e}_j$ ergibt sie das Diagonalelement $\Sigma_{jj}$, die Varianz der $j$-ten Komponente. Die Kovarianzmatrix enthält also nicht nur die Streuung in den Richtungen der Koordinatenachsen, sondern in jeder Richtung.
+Das ist der Fall $m=1$ von [(11.4)](#gl-11-4). $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$ ist eine quadratische Form aus [Grundlagen 2, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-1). Für $\mathbf{u}=\mathbf{e}_j$ ergibt sie das Diagonalelement $\Sigma_{jj}$, die Varianz der $j$-ten Komponente. Die Kovarianzmatrix enthält also nicht nur die Streuung in den Richtungen der Koordinatenachsen, sondern in jeder Richtung.
 
 ⁠**Rechenbeispiel:** Für die drei Punkte mit $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ und $\mathbf{u}=\tfrac1{\sqrt2}(1,\,1)^{\top}$ ist $\mathbf{u}^{\top}\mathbf{S}\mathbf{u}=1$ (Abb. [16](#abb-16)). Direkt: Die zentrierten Punkte $(-1,0)$, $(0,-1)$, $(1,1)$ haben die Schattenlängen $-\tfrac1{\sqrt2}$, $-\tfrac1{\sqrt2}$, $\tfrac2{\sqrt2}$ mit den Quadraten $\tfrac12$, $\tfrac12$, $2$ und dem Mittelwert $1$. In Richtung $\tfrac1{\sqrt2}(1,\,-1)^{\top}$ ist die Varianz nur $\tfrac13\cdot\tfrac12\,(2-1-1+2)=\tfrac13$, in Richtung der Achsen $\tfrac23$.
 
@@ -154,7 +156,7 @@ Die Varianz der drei Punkte in Richtung $\mathbf{u}=(1,1)^{\top}/\sqrt2$ als qua
 
 <span class="anker" id="stufe-11-6"></span>
 
-Eine Varianz ist nie negativ. Weil $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$ für jeden Vektor $\mathbf{u}$ eine Varianz ist, erfüllt $\boldsymbol{\Sigma}$ die Bedingung aus [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 8.1, mit der positiv semidefinite Matrizen definiert sind. Daraus folgt alles, was [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) über solche Matrizen weiß.
+Eine Varianz ist nie negativ. Weil $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$ für jeden Vektor $\mathbf{u}$ eine Varianz ist, erfüllt $\boldsymbol{\Sigma}$ die Bedingung aus [Grundlagen 2, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-1), mit der positiv semidefinite Matrizen definiert sind. Daraus folgt alles, was [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) über solche Matrizen weiß.
 
 :::satz Satz 11.6 (Eigenschaften der Kovarianzmatrix)
 <span class="anker" id="satz-11-6"></span>
@@ -163,17 +165,17 @@ Jede Kovarianzmatrix $\boldsymbol{\Sigma}$ und jede empirische Kovarianzmatrix $
 :::
 
 :::beweis Eigenschaften der Kovarianzmatrix
-Für jedes $\mathbf{u}$ ist $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}=\operatorname{Var}(\mathbf{u}^{\top}\mathbf{x})\ge0$, auch für Vektoren, die keine Einheitsvektoren sind, denn [(11.4)](#gl-11-4) gilt für jede Zeile. Das ist die Definition von positiv semidefinit; nach dem Eigenwerttest in [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 8.2, sind die Eigenwerte nichtnegativ. Für einen normierten Eigenvektor ist $\mathbf{q}_i^{\top}\boldsymbol{\Sigma}\mathbf{q}_i=\lambda_i\mathbf{q}_i^{\top}\mathbf{q}_i=\lambda_i$. Die größte und die kleinste Varianz in einer Richtung sind nach [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 8.5, der größte und der kleinste Eigenwert. Ist schließlich $\boldsymbol{\Sigma}\mathbf{u}=\mathbf{0}$ für ein $\mathbf{u}\ne\mathbf{0}$, so ist $\operatorname{Var}(\mathbf{u}^{\top}\mathbf{x})=\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}=0$; ist umgekehrt $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}=0$, so ist $\mathbf{u}$ nach dem Spektralsatz eine Kombination von Eigenvektoren zum Eigenwert $0$ und $\boldsymbol{\Sigma}\mathbf{u}=\mathbf{0}$.
+Für jedes $\mathbf{u}$ ist $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}=\operatorname{Var}(\mathbf{u}^{\top}\mathbf{x})\ge0$, auch für Vektoren, die keine Einheitsvektoren sind, denn [(11.4)](#gl-11-4) gilt für jede Zeile. Das ist die Definition von positiv semidefinit; nach dem Eigenwerttest in [Grundlagen 2, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-2), sind die Eigenwerte nichtnegativ. Für einen normierten Eigenvektor ist $\mathbf{q}_i^{\top}\boldsymbol{\Sigma}\mathbf{q}_i=\lambda_i\mathbf{q}_i^{\top}\mathbf{q}_i=\lambda_i$. Die größte und die kleinste Varianz in einer Richtung sind nach [Grundlagen 2, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-5), der größte und der kleinste Eigenwert. Ist schließlich $\boldsymbol{\Sigma}\mathbf{u}=\mathbf{0}$ für ein $\mathbf{u}\ne\mathbf{0}$, so ist $\operatorname{Var}(\mathbf{u}^{\top}\mathbf{x})=\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}=0$; ist umgekehrt $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}=0$, so ist $\mathbf{u}$ nach dem Spektralsatz eine Kombination von Eigenvektoren zum Eigenwert $0$ und $\boldsymbol{\Sigma}\mathbf{u}=\mathbf{0}$.
 :::
 
-Für Daten heißt der letzte Teil: $\mathbf{S}$ ist singulär, wenn die Datenpunkte alle in einer Ebene oder auf einer Geraden liegen, die nicht den ganzen Raum ausfüllt. Dann gibt es eine Richtung, in der sie gar nicht streuen, wie bei den abhängigen Merkmalen aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.6.
+Für Daten heißt der letzte Teil: $\mathbf{S}$ ist singulär, wenn die Datenpunkte alle in einer Ebene oder auf einer Geraden liegen, die nicht den ganzen Raum ausfüllt. Dann gibt es eine Richtung, in der sie gar nicht streuen, wie bei den abhängigen Merkmalen aus [Grundlagen 1, Abschnitt 13.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6).
 
 ⁠**Rechenbeispiel:** $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Eigenwerte $1$ und $\tfrac13$ mit den Eigenvektoren $\tfrac1{\sqrt2}(1,\,1)^{\top}$ und $\tfrac1{\sqrt2}(1,\,-1)^{\top}$. Das sind genau die Richtungen und Varianzen aus Unterabschnitt [11.5](#stufe-11-5): In keiner Richtung streuen die drei Punkte stärker als in Richtung $(1,1)^{\top}$, in keiner schwächer als in Richtung $(1,-1)^{\top}$. Die Punkte $(1,2)$, $(2,4)$, $(3,6)$ liegen dagegen auf einer Geraden durch den Nullpunkt. Für sie ist $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&4\\4&8\end{smallmatrix}\bigr)$ mit der Determinante $0$, und in Richtung $\tfrac1{\sqrt5}(2,\,-1)^{\top}$ ist die Varianz $0$, weil $2x_1-x_2=0$ für jeden Punkt gilt.
 
 ⁠**Kurz gesagt:** Jede Kovarianzmatrix ist positiv semidefinit, weil $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$ eine Varianz ist; ihre Eigenvektoren sind die Richtungen extremer Streuung, ihre Eigenwerte die Varianzen in diesen Richtungen.
 
 :::hintergrund Jede positiv semidefinite Matrix ist eine Kovarianzmatrix
-Der Satz hat eine Umkehrung. Ist $\boldsymbol{\Sigma}$ symmetrisch und positiv definit, so gibt es nach [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 8.6, die Cholesky-Zerlegung $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}^{\top}$. Nimmt man einen Zufallsvektor $\mathbf{z}$ mit unkorrelierten Komponenten der Varianz $1$, also $\operatorname{Cov}(\mathbf{z})=\mathbf{I}$, so hat $\mathbf{x}=\mathbf{L}\mathbf{z}$ nach [(11.4)](#gl-11-4) die Kovarianzmatrix $\mathbf{L}\mathbf{I}\mathbf{L}^{\top}=\boldsymbol{\Sigma}$. Für positiv semidefinite Matrizen nimmt man statt $\mathbf{L}$ etwa $\mathbf{Q}\boldsymbol{\Lambda}^{1/2}$ aus dem Spektralsatz, mit den Wurzeln der Eigenwerte auf der Diagonalen. Eine symmetrische Matrix ist also genau dann eine mögliche Kovarianzmatrix, wenn sie positiv semidefinit ist. Eine Matrix wie $\bigl(\begin{smallmatrix}1&2\\2&1\end{smallmatrix}\bigr)$ mit dem Eigenwert $-1$ kann keine sein: In Richtung des Eigenvektors $(1,-1)^{\top}/\sqrt2$ hätte sie die Varianz $-1$. Das ist auch ein Prüfstein für eigene Rechnungen: Hat eine von Hand angenommene oder aus Teilen zusammengesetzte Kovarianzmatrix einen negativen Eigenwert, steckt ein Fehler darin.
+Der Satz hat eine Umkehrung. Ist $\boldsymbol{\Sigma}$ symmetrisch und positiv definit, so gibt es nach [Grundlagen 2, Abschnitt 8.6](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-6), die Cholesky-Zerlegung $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}^{\top}$. Nimmt man einen Zufallsvektor $\mathbf{z}$ mit unkorrelierten Komponenten der Varianz $1$, also $\operatorname{Cov}(\mathbf{z})=\mathbf{I}$, so hat $\mathbf{x}=\mathbf{L}\mathbf{z}$ nach [(11.4)](#gl-11-4) die Kovarianzmatrix $\mathbf{L}\mathbf{I}\mathbf{L}^{\top}=\boldsymbol{\Sigma}$. Für positiv semidefinite Matrizen nimmt man statt $\mathbf{L}$ etwa $\mathbf{Q}\boldsymbol{\Lambda}^{1/2}$ aus dem Spektralsatz, mit den Wurzeln der Eigenwerte auf der Diagonalen. Eine symmetrische Matrix ist also genau dann eine mögliche Kovarianzmatrix, wenn sie positiv semidefinit ist. Eine Matrix wie $\bigl(\begin{smallmatrix}1&2\\2&1\end{smallmatrix}\bigr)$ mit dem Eigenwert $-1$ kann keine sein: In Richtung des Eigenvektors $(1,-1)^{\top}/\sqrt2$ hätte sie die Varianz $-1$. Das ist auch ein Prüfstein für eigene Rechnungen: Hat eine von Hand angenommene oder aus Teilen zusammengesetzte Kovarianzmatrix einen negativen Eigenwert, steckt ein Fehler darin.
 :::
 
 :::aufgabe Aufgabe 33 ★ Vier Punkte
@@ -288,6 +290,6 @@ Zeige, dass für die empirische Kovarianzmatrix die Spur $\operatorname{spur}\ma
 
 $$\operatorname{Cov}(y_i,y_k)=\operatorname{Cov}\Bigl(\sum_ja_{ij}x_j,\ \sum_la_{kl}x_l\Bigr)=\sum_j\sum_la_{ij}\,\Sigma_{jl}\,a_{kl}=(\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^{\top})_{ik} .$$
 
-(b) $\operatorname{spur}\mathbf{S}=\sum_jS_{jj}=\sum_j\tfrac1N\sum_i(x_{ij}-\bar x_j)^2=\tfrac1N\sum_i\sum_j(x_{ij}-\bar x_j)^2=\tfrac1N\sum_i\lVert\mathbf{x}_i-\bar{\mathbf{x}}\rVert^2$, der mittlere quadrierte Abstand vom Mittelwert. Weil die Spur die Summe der Eigenwerte ist ([Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 6.5), verteilt sich diese Gesamtstreuung auf die Hauptachsen.
+(b) $\operatorname{spur}\mathbf{S}=\sum_jS_{jj}=\sum_j\tfrac1N\sum_i(x_{ij}-\bar x_j)^2=\tfrac1N\sum_i\sum_j(x_{ij}-\bar x_j)^2=\tfrac1N\sum_i\lVert\mathbf{x}_i-\bar{\mathbf{x}}\rVert^2$, der mittlere quadrierte Abstand vom Mittelwert. Weil die Spur die Summe der Eigenwerte ist ([Grundlagen 2, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/eigenwerte-und-eigenvektoren.html#stufe-6-5)), verteilt sich diese Gesamtstreuung auf die Hauptachsen.
 :::
 :::

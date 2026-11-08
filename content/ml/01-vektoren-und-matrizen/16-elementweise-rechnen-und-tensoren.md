@@ -1,7 +1,9 @@
 ---
 title: Elementweise Rechnen und Tensoren
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6211600
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15211600
 summary: Nicht jede Rechnung mit Vektoren und Matrizen ist ein Matrixprodukt.
 tags: Hadamard-Produkt, elementweise, Tensor, Achse, Form
 lang: de
@@ -28,7 +30,7 @@ Für zwei Vektoren oder zwei Matrizen gleichen Formats ist das __Hadamard-Produk
 $$(\mathbf{A}\odot\mathbf{B})_{ij}=a_{ij}\,b_{ij} . \tag{15.1}$$
 :::
 
-Das Hadamard-Produkt ist *nicht* das Matrixprodukt. Das Matrixprodukt bildet Skalarprodukte aus Zeilen und Spalten; das Hadamard-Produkt multipliziert nur Einträge an derselben Stelle. Zwei Zusammenhänge mit Bekanntem: Summiert man das Hadamard-Produkt zweier Vektoren, erhält man ihr Skalarprodukt, $\mathbf 1^{\top}(\mathbf{u}\odot\mathbf{v})=\mathbf{u}^{\top}\mathbf{v}$. Und das Hadamard-Produkt mit einem festen Vektor ist eine Diagonalmatrix: $\mathbf{v}\odot\mathbf{x}=\operatorname{diag}(\mathbf{v})\,\mathbf{x}$.
+Das Hadamard-Produkt ist *nicht* das Matrixprodukt. Das Matrixprodukt bildet Skalarprodukte aus Zeilen und Spalten; das Hadamard-Produkt multipliziert nur Einträge an derselben Stelle. Zwei Zusammenhänge mit Bekanntem: Summiert man das Hadamard-Produkt zweier Vektoren, erhält man ihr Skalarprodukt, $\mathbf 1^{\top}(\mathbf{u}\odot\mathbf{v})=\mathbf{u}^{\top}\mathbf{v}$. Und das Hadamard-Produkt mit einem festen Vektor ist die Multiplikation mit einer Diagonalmatrix: $\mathbf{v}\odot\mathbf{x}=\operatorname{diag}(\mathbf{v})\,\mathbf{x}$.
 
 ⁠**Rechenbeispiel:** $(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, und $4+10+18=32$ ist das Skalarprodukt. Für Matrizen ist
 

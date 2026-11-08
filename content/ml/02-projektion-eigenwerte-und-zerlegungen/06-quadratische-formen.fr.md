@@ -1,7 +1,9 @@
 ---
 title: Formes quadratiques
-pfad: Informatique / Apprentissage automatique / Projection, valeurs propres et décompositions
-order: 6220600
+pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
+knoten: Fondements 2 : Projection, valeurs propres et décompositions
+nachschlagen: ja
+order: 15220600
 summary: Après les fonctions linéaires, les fonctions quadratiques sont les fonctions de plusieurs variables les plus simples.
 tags: forme quadratique
 lang: fr
@@ -17,7 +19,7 @@ Après les fonctions linéaires, les fonctions quadratiques sont les fonctions d
 
 <span class="anker" id="stufe-5-1"></span>
 
-Dans la Partie 1, section 8.4, toute fonction linéaire à une sortie était une somme pondérée $\mathbf{w}^{\top}\mathbf{x}$ des composantes. Le type de fonction suivant par ordre de simplicité additionne des produits de deux composantes : des carrés comme $x_1^2$ et des termes croisés comme $x_1x_2$. Un exemple tiré de l’électrotechnique est l’énergie magnétique de deux bobines couplées d’inductances $L_1$, $L_2$ et d’inductance mutuelle $M$, parcourues par les courants $i_1$ et $i_2$ :
+Dans Fondements 1, section 8.4, toute fonction linéaire à une sortie était une somme pondérée $\mathbf{w}^{\top}\mathbf{x}$ des composantes. Le type de fonction suivant par ordre de simplicité additionne des produits de deux composantes : des carrés comme $x_1^2$ et des termes croisés comme $x_1x_2$. Un exemple tiré de l’électrotechnique est l’énergie magnétique de deux bobines couplées d’inductances $L_1$, $L_2$ et d’inductance mutuelle $M$, parcourues par les courants $i_1$ et $i_2$ :
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -141,7 +143,7 @@ Les deux coefficients sont positifs : la forme est une cuvette. Vérification e
 ⁠**En bref :** Compléter le carré écrit une forme quadratique comme une somme de carrés ; les signes des coefficients des carrés montrent s’il s’agit d’une cuvette, d’une gouttière ou d’une selle.
 
 :::hintergrund Compléter le carré, c’est la méthode du pivot de Gauss
-Les nombres de [(5.3)](#gl-5-3) sont les mêmes que dans la méthode du pivot de Gauss de la Partie 1, section 12.3, appliquée à la matrice symétrique $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Pour créer un zéro sous la diagonale, on retranche de la deuxième ligne $\frac ba$ fois la première et l’on obtient $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Les coefficients diagonaux de cette forme échelonnée, ce qu’on appelle les pivots, sont exactement les coefficients des carrés, et le facteur d’élimination $\frac ba$ figure dans la première parenthèse. Pour la matrice $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ : facteur $0{,}4$, pivots $5$ et $1{,}2$. Avec $n$ variables, on poursuit de la même façon : chaque étape d’élimination complète une variable en un carré. La forme est une cuvette si et seulement si tous les pivots sont positifs. D’après les règles de calcul de la Partie 1, section 14.5, le produit des pivots est le déterminant, ici $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Les nombres de [(5.3)](#gl-5-3) sont les mêmes que dans la méthode du pivot de Gauss de Fondements 1, section 12.3, appliquée à la matrice symétrique $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Pour créer un zéro sous la diagonale, on retranche de la deuxième ligne $\frac ba$ fois la première et l’on obtient $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Les coefficients diagonaux de cette forme échelonnée, ce qu’on appelle les pivots, sont exactement les coefficients des carrés, et le facteur d’élimination $\frac ba$ figure dans la première parenthèse. Pour la matrice $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ : facteur $0{,}4$, pivots $5$ et $1{,}2$. Avec $n$ variables, on poursuit de la même façon : chaque étape d’élimination complète une variable en un carré. La forme est une cuvette si et seulement si tous les pivots sont positifs. D’après les règles de calcul de Fondements 1, section 14.5, le produit des pivots est le déterminant, ici $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Exercice 14 ★ Formes et matrices

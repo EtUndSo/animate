@@ -2314,11 +2314,12 @@ function _fmtNum(v, lang){
 }
 function _decStr(v, lang){ return isFinite(v) ? _locDec(String(+v.toPrecision(6)), lang) : "?"; }   // decimal form of the total
 // A typed LaTeX formula (MathTex) gets the same decimal sign: 0.5 -> 0{,}5 in de/es/fr/tr. Lengths such as
-// \hspace{0.5em} keep their point (TeX needs it).
+// \hspace{0.5em} keep their point (TeX needs it), and so does code in \texttt{…} / \mathtt{…} (Python 4.0 stays 4.0).
 function localizeTex(tex, lang){
   const s=String(tex==null?"":tex);
   if(_locDec("1.5", lang)==="1.5") return s;
-  return s.replace(/(\d)\.(\d+)(?!\d)(?!\s*(?:em|ex|pt|cm|mm|in|mu|px|pc|bp|dd|cc|sp)\b)/g, "$1{,}$2");
+  return s.split(/(\\(?:texttt|mathtt)\{[^{}]*\})/).map((teil, i) => i % 2 ? teil :
+    teil.replace(/(\d)\.(\d+)(?!\d)(?!\s*(?:em|ex|pt|cm|mm|in|mu|px|pc|bp|dd|cc|sp)\b)/g, "$1{,}$2")).join("");
 }
 function _isProperFrac(v){ const f=_approxFrac(v); return !!(f && f[1]!==1); }   // true -> show "fraction = decimal"
 

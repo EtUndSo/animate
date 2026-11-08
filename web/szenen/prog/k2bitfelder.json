@@ -1,0 +1,353 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 18,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "6.5",
+     "position": [
+      -3.25,
+      0.55,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.85,
+      0.55,
+      0
+     ],
+     "width": 0.45,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#fbe9e9",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.35,
+      0.55,
+      0
+     ],
+     "width": 2.45,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.65,
+      0.55,
+      0
+     ],
+     "width": 3.45,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{0}",
+     "height": 0.2,
+     "position": [
+      -2.85,
+      0.55,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{10000000001}",
+     "height": 0.2,
+     "position": [
+      -1.35,
+      0.55,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{1010 0000 0000 … 0000}",
+     "height": 0.16,
+     "position": [
+      1.65,
+      0.55,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "0.1",
+     "position": [
+      -3.25,
+      -0.35,
+      0
+     ],
+     "font_size": 24,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.85,
+      -0.35,
+      0
+     ],
+     "width": 0.45,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#fbe9e9",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.35,
+      -0.35,
+      0
+     ],
+     "width": 2.45,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.65,
+      -0.35,
+      0
+     ],
+     "width": 3.45,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{0}",
+     "height": 0.2,
+     "position": [
+      -2.85,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{01111111011}",
+     "height": 0.2,
+     "position": [
+      -1.35,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\texttt{1001 1001 1001 … 1010}",
+     "height": 0.16,
+     "position": [
+      1.65,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@vz",
+     "position": [
+      -2.9,
+      -1.15,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@ef",
+     "position": [
+      -1.35,
+      -1.15,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@mf",
+     "position": [
+      1.65,
+      -1.15,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "vz": {
+    "de": "Vorzeichen s\n1 Bit",
+    "en": "sign s\n1 bit",
+    "es": "signo s\n1 bit",
+    "zh": "符号 s\n1 位",
+    "fr": "signe s\n1 bit",
+    "tr": "işaret s\n1 bit"
+   },
+   "ef": {
+    "de": "Exponentenfeld c\n11 Bit",
+    "en": "exponent field c\n11 bits",
+    "es": "campo del exponente c\n11 bits",
+    "zh": "指数字段 c\n11 位",
+    "fr": "champ d’exposant c\n11 bits",
+    "tr": "üs alanı c\n11 bit"
+   },
+   "mf": {
+    "de": "Mantissenfeld t\n52 Bit",
+    "en": "significand field t\n52 bits",
+    "es": "campo de la mantisa t\n52 bits",
+    "zh": "尾数字段 t\n52 位",
+    "fr": "champ de mantisse t\n52 bits",
+    "tr": "mantis alanı t\n52 bit"
+   }
+  }
+ }
+}

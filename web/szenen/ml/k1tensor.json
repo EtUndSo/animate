@@ -4797,32 +4797,42 @@
    "sk": {
     "de": "Skalar\nForm: keine",
     "en": "scalar\nshape: none",
-    "es": "escalar\nsin forma",
-    "zh": "标量\n形状：无"
+    "es": "escalar\nforma vacía",
+    "zh": "标量\n形状：无",
+    "fr": "scalaire\nforme vide",
+    "tr": "skaler\nşekil: yok"
    },
    "ve": {
     "de": "Vektor\nForm 4",
     "en": "vector\nshape 4",
     "es": "vector\nforma 4",
-    "zh": "向量\n形状 4"
+    "zh": "向量\n形状 4",
+    "fr": "vecteur\nforme 4",
+    "tr": "vektör\nşekil 4"
    },
    "ma": {
     "de": "Matrix\nForm 4×4",
     "en": "matrix\nshape 4×4",
     "es": "matriz\nforma 4×4",
-    "zh": "矩阵\n形状 4×4"
+    "zh": "矩阵\n形状 4×4",
+    "fr": "matrice\nforme 4×4",
+    "tr": "matris\nşekil 4×4"
    },
    "fb": {
     "de": "Farbbild\nForm 3×4×4",
-    "en": "colour image\nshape 3×4×4",
+    "en": "color image\nshape 3×4×4",
     "es": "imagen en color\nforma 3×4×4",
-    "zh": "彩色图像\n形状 3×4×4"
+    "zh": "彩色图像\n形状 3×4×4",
+    "fr": "image couleur\nforme 3×4×4",
+    "tr": "renkli görüntü\nşekil 3×4×4"
    },
    "st": {
     "de": "Bildstapel\nForm N×3×4×4",
     "en": "image stack\nshape N×3×4×4",
     "es": "pila de\nimágenes\nforma N×3×4×4",
-    "zh": "图像堆叠\n形状 N×3×4×4"
+    "zh": "图像堆叠\n形状 N×3×4×4",
+    "fr": "pile d’images\nforme N×3×4×4",
+    "tr": "görüntü yığını\nşekil N×3×4×4"
    }
   }
  }

@@ -1,4 +1,4 @@
-"""Machine Learning Teil 1 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap1_stufen.tex, kap1_stufen_b.tex): Abbildungen.
+"""Machine Learning Grundlagen 1 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap1_stufen.tex, kap1_stufen_b.tex): Abbildungen.
 
 Szenenname ml/k1<name> = \\label{fig:k1<name>} im Heft. Stil wie tools/szenen/et3_teil2.py (Achsen, Pfeile, Punkte).
 Bauen:  python tools/szenen/ml_teil1.py
@@ -42,8 +42,10 @@ def k1punktpfeil():
         else:
             s.pfeil((0, 0), (3, 2), on=a, farbe=BLAU, dicke=4, spitze=0.2)
             s.text(a, "x", (3.1, 2.25), MITTEL)
-    s.text(None, s.tr("punkt", "als Punkt", "as a point", "como punto", "看作点"), (-1.75, -1.5), MITTEL, "center")
-    s.text(None, s.tr("pfeil", "als Pfeil", "as an arrow", "como flecha", "看作箭头"), (1.75, -1.5), MITTEL, "center")
+    s.text(None, s.tr("punkt", "als Punkt", "as a point", "como punto", "看作点", fr="comme point", tr="nokta olarak"), (-1.75, -1.5),
+           MITTEL, "center")
+    s.text(None, s.tr("pfeil", "als Pfeil", "as an arrow", "como flecha", "看作箭头", fr="comme flèche", tr="ok olarak"), (1.75, -1.5),
+           MITTEL, "center")
     s.speichern()
 
 
@@ -85,11 +87,13 @@ def k1muster():
             s.linie(a, (0.4, 0), (4.6, 0), farbe=GRAU, dicke=2)
             s.stems(a, (1, 2, 3, 4), ys, farbe=farbe, dicke=4, r=0.07)
         s.text(None, summe, (mx, -2.55), MITTEL, "center")
-    s.text(None, s.tr("tl", "x wechselt im Takt", "x alternates", "x alterna", "x 交替变化"), (-0.6, 2.75), MITTEL, "center")
-    s.text(None, s.tr("tr", "x' steigt gleichmäßig", "x' rises steadily", "x' sube de forma regular", "x' 平稳上升"), (2.6, 2.75), MITTEL, "center")
-    s.text(None, s.tr("m", "Muster w", "pattern w", "patrón w", "模式 w"), (-2.05, 1.75), KLEIN, "right")
-    s.text(None, s.tr("sig", "Signal", "signal", "señal", "信号"), (-2.05, 0.35), KLEIN, "right")
-    s.text(None, s.tr("prod", "Produkte", "products", "productos", "乘积"), (-2.05, -1.05), KLEIN, "right")
+    s.text(None, s.tr("tl", "x wechselt im Takt", "x alternates", "x alterna", "x 交替变化", fr="x alterne en cadence",
+                      tr="x işaret değiştirir"), (-0.6, 2.75), MITTEL, "center")
+    s.text(None, s.tr("tr", "x' steigt gleichmäßig", "x' rises steadily", "x' sube de forma regular", "x' 平稳上升",
+                      fr="x' croît régulièrement", tr="x' düzgün biçimde artar"), (2.6, 2.75), MITTEL, "center")
+    s.text(None, s.tr("m", "Muster w", "pattern w", "patrón w", "模式 w", fr="motif w", tr="örüntü w"), (-2.05, 1.75), KLEIN, "right")
+    s.text(None, s.tr("sig", "Signal", "signal", "señal", "信号", fr="signal", tr="sinyal"), (-2.05, 0.35), KLEIN, "right")
+    s.text(None, s.tr("prod", "Produkte", "products", "productos", "乘积", fr="produits", tr="çarpımlar"), (-2.05, -1.05), KLEIN, "right")
     s.speichern()
 
 
@@ -119,9 +123,10 @@ def k1einheitskugeln():
 def k1einheiten():
     s = Szene("ml/k1einheiten")
     s.welt()
-    flaeche = s.tr("fl", "Fläche in m²", "area in m²", "área en m²", "面积 m²")
-    flaeche10 = s.tr("fl10", "Fläche in 10 m²", "area in 10 m²", "área en 10 m²", "面积 10 m²")
-    zimmer = s.tr("zi", "Zimmer", "rooms", "cuartos", "房间数")
+    flaeche = s.tr("fl", "Fläche in m²", "area in m²", "superficie (m²)", "面积 m²", fr="surface (m²)", tr="alan (m²)")
+    flaeche10 = s.tr("fl10", "Fläche in 10 m²", "area in 10 m²", "superficie\n(10 m²)", "面积 10 m²", fr="surface (10 m²)",
+                     tr="alan (10 m²)")
+    zimmer = s.tr("zi", "Zimmer", "rooms", "cuartos", "房间数", fr="pièces", tr="oda")   # es: „habitaciones“ ist zu breit
     a = s.achsen((51, 66.5), (0.5, 5.4), breite=4.0, hoehe=1.27, mitte=(-1.25, 0), xl=flaeche, yl=zimmer, xticks="52;56;60;64", yticks="2;4")
     s.kreis(a, 60, 2, 3.606, farbe=HELLBLAU, dicke=2, dash=DASH)
     s.linie(a, (60, 2), (63, 4), farbe=BLAU, dicke=4)
@@ -157,7 +162,7 @@ def k1schatten():
     s.text(a, "x", (3.1, 1.0), MITTEL, "left", ROT)
     s.text(a, "(uᵀx) u", (1.45, 2.4), MITTEL, "right", BLAU)
     s.text(a, "φ", (0.95, 0.55), MITTEL, "center")
-    sch = s.tr("sch", "Schatten 2.6", "shadow 2.6", "sombra 2.6", "影长 2.6")
+    sch = s.tr("sch", "Schatten 2.6", "shadow 2.6", "sombra 2.6", "影长 2.6", fr="ombre 2.6", tr="gölge 2.6")
     s.text(a, sch, (0.55, 1.55), KLEIN, "right", BLAU)
     s.speichern()
 
@@ -178,13 +183,17 @@ def k1datenmatrix():
             else:
                 f = "#ffffff"
             s.box(str(wert), (h + j * bx, 0.9 - i * by), breite=bx, hoehe=by, groesse=MITTEL, fuellung=f, dicke=2)
-        s.text(None, s.tr("w%d" % (i + 1), "Wohnung %d" % (i + 1), "flat %d" % (i + 1), "piso %d" % (i + 1), "公寓 %d" % (i + 1)),
-               (h - 0.6, 0.9 - i * by), MITTEL, "right")
-    for j, (k, de, en, es, zh) in enumerate((("fl", "Fläche", "area", "superficie", "面积"), ("zi", "Zimmer", "rooms", "habitaciones", "房间"),
-                                             ("en", "Entfernung", "distance", "distancia", "距离"))):
-        s.text(None, s.tr(k, de, en, es, zh), (h + j * bx, 1.45), KLEIN, "center")
-    s.text(None, s.tr("zeile", "Zeile 2: Beispiel x₂ᵀ", "row 2: example x₂ᵀ", "fila 2: ejemplo x₂ᵀ", "第 2 行：样本 x₂ᵀ"), (h + 2.6 * bx, 0.4), MITTEL, "left", BLAU)
-    s.text(None, s.tr("spalte", "Spalte 1: Merkmal Fläche", "column 1: feature area", "columna 1: rasgo superficie", "第 1 列：特征 面积"),
+        n = i + 1
+        s.text(None, s.tr("w%d" % n, "Wohnung %d" % n, "apartment %d" % n, "vivienda %d" % n, "公寓 %d" % n, fr="appartement %d" % n,
+                          tr="daire %d" % n), (h - 0.6, 0.9 - i * by), MITTEL, "right")
+    for j, (k, de, en, es, zh, fr, tr) in enumerate((("fl", "Fläche", "area", "superficie", "面积", "surface", "alan"),
+                                                     ("zi", "Zimmer", "rooms", "habitaciones", "房间", "pièces", "oda"),
+                                                     ("en", "Entfernung", "distance", "distancia", "距离", "distance", "uzaklık"))):
+        s.text(None, s.tr(k, de, en, es, zh, fr=fr, tr=tr), (h + j * bx, 1.45), KLEIN, "center")
+    s.text(None, s.tr("zeile", "Zeile 2: Beispiel x₂ᵀ", "row 2: example x₂ᵀ", "fila 2: ejemplo x₂ᵀ", "第 2 行：样本 x₂ᵀ",
+                      fr="ligne 2 : exemple x₂ᵀ", tr="satır 2: örnek x₂ᵀ"), (h + 2.6 * bx, 0.4), MITTEL, "left", BLAU)
+    s.text(None, s.tr("spalte", "Spalte 1: Merkmal Fläche", "column 1: feature area", "columna 1: característica superficie",
+                      "第 1 列：特征 面积", fr="colonne 1 : caractéristique surface", tr="sütun 1: öznitelik alan"),
            (h - 0.3, -1.15), MITTEL, "left", ORANGE)
     s.text(None, "X ∈ ℝ^{4×3}", (h + 2.6 * bx, -0.6), MITTEL, "left")
     s.speichern()
@@ -201,8 +210,10 @@ def k1zeilenspalten():
         s.box(t, (x, y), breite=z, hoehe=z, groesse=MITTEL, fuellung=f, dicke=2)
     s.text(None, "·", (-2.45, 0.3), MITTEL, "center")
     s.text(None, "=", (-1.5, 0.3), MITTEL, "center")
-    s.text(None, s.tr("zs", "Zeilensicht", "row view", "vista por filas", "行视角"), (-2.0, 1.3), MITTEL, "center")
-    s.text(None, s.tr("z1", "Zeile 1 mal x:\n2·2 + 1·1 = 5", "row 1 times x:\n2·2 + 1·1 = 5", "fila 1 por x:\n2·2 + 1·1 = 5", "第 1 行乘 x：\n2·2 + 1·1 = 5"),
+    s.text(None, s.tr("zs", "Zeilensicht", "row view", "visión por filas", "行视角", fr="vue par lignes", tr="satır bakışı"), (-2.0, 1.3),
+           MITTEL, "center")
+    s.text(None, s.tr("z1", "Zeile 1 mal x:\n2·2 + 1·1 = 5", "row 1 times x:\n2·2 + 1·1 = 5", "fila 1 por x:\n2·2 + 1·1 = 5", "第 1 行乘 x：\n2·2 + 1·1 = 5",
+                      fr="ligne 1 fois x\u00a0:\n2·2 + 1·1 = 5", tr="satır 1 çarpı x:\n2·2 + 1·1 = 5"),
            (-2.0, -0.7), KLEIN, "center")
     a = s.achsen((-0.3, 5.8), (-0.3, 3.7), breite=2.9, hoehe=2.0, mitte=(1.5, 0.0), kreuz=True, xticks="1;2;3;4;5", yticks="1;2;3", xl="y₁", yl="y₂")
     s.pfeil((0, 0), (2, 1), on=a, farbe=HELLBLAU, dicke=3, spitze=0.14)
@@ -213,7 +224,8 @@ def k1zeilenspalten():
     s.text(a, "2a₁", (2.9, 1.05), KLEIN, "center", BLAU)
     s.text(a, "1a₂", (4.85, 2.2), KLEIN, "left", ROT)
     s.text(a, "Ax = (5, 3)^{⊤}", (4.6, 3.4), KLEIN, "right")
-    s.text(None, s.tr("ss", "Spaltensicht", "column view", "vista por columnas", "列视角"), (1.65, 1.45), MITTEL, "center")
+    s.text(None, s.tr("ss", "Spaltensicht", "column view", "visión por columnas", "列视角", fr="vue par colonnes", tr="sütun bakışı"),
+           (1.65, 1.45), MITTEL, "center")
     s.speichern()
 
 
@@ -221,20 +233,21 @@ def k1zeilenspalten():
 def k1ebene():
     s = Szene("ml/k1ebene")
     s.welt()
-    bilder = (("dreh", ("Drehung", "rotation", "rotación", "旋转"), (0, 1), (-1, 0)),
-              ("streck", ("Streckung", "stretch", "estiramiento", "拉伸"), (2, 0), (0, 0.5)),
-              ("scher", ("Scherung", "shear", "cizalla", "剪切"), (1, 0), (1, 1)),
-              ("platt", ("Plattdrücken", "flattening", "aplastamiento", "压扁"), (1, 0), (0, 0)))
+    bilder = (("dreh", ("Drehung", "rotation", "rotación", "旋转", "rotation", "dönme"), (0, 1), (-1, 0)),
+              ("streck", ("Streckung", "stretch", "estiramiento", "拉伸", "étirement", "germe"), (2, 0), (0, 0.5)),
+              ("scher", ("Scherung", "shear", "cizalladura", "剪切", "cisaillement", "kayma"), (1, 0), (1, 1)),
+              ("platt", ("Plattdrücken", "flattening", "aplastamiento", "压扁", "aplatissement", "yassılaştırma"), (1, 0), (0, 0)))
     for k, (key, worte, a1, a2) in enumerate(bilder):
         mx = -2.5 + 1.67 * k
-        a = s.achsen((-1.3, 2.3), (-0.6, 1.6), breite=1.55, hoehe=0.95, mitte=(mx, 0), kreuz=True, xticks="", yticks="")
+        a = s.achsen((-1.3, 2.3), (-0.6, 1.6), breite=1.55, hoehe=0.95, mitte=(mx, 0), kreuz=True, xticks="", yticks="",
+                     xmarks=False, ymarks=False, xzahlen=False, yzahlen=False)   # wie im Heft: Achsen ohne Zahlen
         zug(s, a, [(0, 0), (1, 0), (1, 1), (0, 1), (0, 0)], farbe=HELLGRAU, dicke=2, dash=DASH)
         parallelogramm(s, a, a1, a2, farbe=BLAU, dicke=3)
         if a1 != (0, 0):
             s.pfeil((0, 0), a1, on=a, farbe=ROT, dicke=4, spitze=0.13)
         if a2 != (0, 0):
             s.pfeil((0, 0), a2, on=a, farbe=GRUEN, dicke=4, spitze=0.13)
-        s.text(None, s.tr(key, *worte), (mx, 0.95), KLEIN, "center")
+        s.text(None, s.tr(key, *worte[:4], fr=worte[4], tr=worte[5]), (mx, 0.95), KLEIN, "center")
     s.speichern()
 
 
@@ -261,17 +274,20 @@ def k1hinter():
 def k1reihenfolge():
     s = Szene("ml/k1reihenfolge")
     s.welt()
-    teile = ((("vorher", "before", "antes", "变换前"), (1, 0), (0, 1), ""),
-             (("erst drehen,\ndann strecken", "rotate first,\nthen stretch", "primero girar,\nluego estirar", "先旋转，\n再拉伸"), (0, 0.5), (-2, 0), "SR"),
-             (("erst strecken,\ndann drehen", "stretch first,\nthen rotate", "primero estirar,\nluego girar", "先拉伸，\n再旋转"), (0, 2), (-0.5, 0), "RS"))
+    teile = ((("vorher", "before", "antes", "变换前", "avant", "önce"), (1, 0), (0, 1), ""),
+             (("erst drehen,\ndann strecken", "rotate first,\nthen stretch", "primero girar,\nluego estirar", "先旋转，\n再拉伸",
+               "d’abord tourner,\npuis étirer", "önce döndür,\nsonra ger"), (0, 0.5), (-2, 0), "SR"),
+             (("erst strecken,\ndann drehen", "stretch first,\nthen rotate", "primero estirar,\nluego girar", "先拉伸，\n再旋转",
+               "d’abord étirer,\npuis tourner", "önce ger,\nsonra döndür"), (0, 2), (-0.5, 0), "RS"))
     for k, (worte, a1, a2, name) in enumerate(teile):
         mx = -2.3 + 2.3 * k
-        a = s.achsen((-2.4, 1.5), (-0.5, 2.4), breite=1.95, hoehe=1.45, mitte=(mx, -0.4), kreuz=True, xticks="", yticks="")
+        a = s.achsen((-2.4, 1.5), (-0.5, 2.4), breite=1.95, hoehe=1.45, mitte=(mx, -0.4), kreuz=True, xticks="", yticks="",
+                     xmarks=False, ymarks=False, xzahlen=False, yzahlen=False)   # wie im Heft: Achsen ohne Zahlen
         zug(s, a, [(0, 0), (1, 0), (1, 1), (0, 1), (0, 0)], farbe=HELLGRAU, dicke=2, dash=DASH)
         parallelogramm(s, a, a1, a2, farbe=BLAU, dicke=3)
         s.pfeil((0, 0), a1, on=a, farbe=ROT, dicke=4, spitze=0.13)
         s.pfeil((0, 0), a2, on=a, farbe=GRUEN, dicke=4, spitze=0.13)
-        titel = s.tr("t%d" % k, *worte)
+        titel = s.tr("t%d" % k, *worte[:4], fr=worte[4], tr=worte[5])
         s.text(None, titel if not name else "@{t%d}\n%s" % (k, name), (mx, 1.2), KLEIN, "center")
     s.speichern()
 
@@ -280,9 +296,10 @@ def k1reihenfolge():
 def k1lgs():
     s = Szene("ml/k1lgs")
     s.welt()
-    titel = (("(a) genau eine Lösung", "(a) exactly one solution", "(a) exactamente una solución", "(a) 唯一解"),
-             ("(b) keine Lösung", "(b) no solution", "(b) ninguna solución", "(b) 无解"),
-             ("(c) unendlich viele", "(c) infinitely many", "(c) infinitas", "(c) 无穷多解"))
+    titel = (("(a) genau eine Lösung", "(a) exactly one solution", "(a) exactamente una solución", "(a) 唯一解",
+              "(a) exactement une solution", "(a) tek bir çözüm"),
+             ("(b) keine Lösung", "(b) no solution", "(b) ninguna solución", "(b) 无解", "(b) aucune solution", "(b) çözüm yok"),
+             ("(c) unendlich viele", "(c) infinitely many", "(c) infinitas", "(c) 无穷多解", "(c) une infinité", "(c) sonsuz sayıda"))
     for k in range(3):
         mx = -2.2 + 2.2 * k   # Abstand so, dass „x₁“ am Pfeilende nicht ins Nachbarbild ragt
         a = s.achsen((-0.4, 4.0), (-0.6, 4.0), breite=1.55, hoehe=1.88, mitte=(mx, -0.3), kreuz=True, xticks="1;2;3", yticks="1;2;3", xl="x₁", yl="x₂")
@@ -301,7 +318,7 @@ def k1lgs():
             s.linie(a, (0, 3), (3.5, -0.5), farbe=ROT_HELL, dicke=9)
             s.linie(a, (0, 3), (3.5, -0.5), farbe=BLAU, dicke=3)
             s.text(a, "x₁ + x₂ = 3\n2x₁ + 2x₂ = 6", (1.7, 2.3), KLEIN, "left")
-        s.text(None, s.tr("t%d" % k, *titel[k]), (mx, 1.6), KLEIN, "center")   # über „x₂“
+        s.text(None, s.tr("t%d" % k, *titel[k][:4], fr=titel[k][4], tr=titel[k][5]), (mx, 1.6), KLEIN, "center")   # über „x₂“
     s.speichern()
 
 
@@ -342,7 +359,8 @@ def k1det():
     s.pfeil((0, 0), (1, 0), on=a, farbe=ROT, dicke=4, spitze=0.13)
     s.pfeil((0, 0), (0, 1), on=a, farbe=GRUEN, dicke=4, spitze=0.13)
     s.text(a, "1", (0.5, 0.5), MITTEL, "center")
-    s.text(None, s.tr("eq", "Einheitsquadrat", "unit square", "cuadrado unidad", "单位正方形"), (-1.75, -1.45), MITTEL, "center")
+    s.text(None, s.tr("eq", "Einheitsquadrat", "unit square", "cuadrado unidad", "单位正方形", fr="carré unité", tr="birim kare"),
+           (-1.75, -1.45), MITTEL, "center")
     b = s.achsen((-0.4, 4.6), (-0.4, 3.6), breite=2.6, hoehe=2.08, mitte=(1.75, 0), kreuz=True, xticks="1;2;3;4", yticks="1;2;3", xl="x₁", yl="x₂")
     zug(s, b, [(0, 0), (4, 0), (4, 3), (0, 3), (0, 0)], farbe=HELLGRAU, dicke=2, dash=DASH)
     parallelogramm(s, b, (3, 1), (1, 2), farbe=BLAU, dicke=3)
@@ -351,7 +369,8 @@ def k1det():
     s.text(b, "5", (2, 1.5), MITTEL, "center", BLAU)
     s.text(b, "a₁ = (3,1)^{⊤}", (3.1, 0.55), KLEIN, "left", ROT)
     s.text(b, "a₂ = (1,2)^{⊤}", (0.9, 2.4), KLEIN, "right", GRUEN)
-    s.text(None, s.tr("bild", "Bild unter A", "image under A", "imagen bajo A", "A 作用后的像"), (1.75, -1.45), MITTEL, "center")
+    s.text(None, s.tr("bild", "Bild unter A", "image under A", "imagen bajo A", "A 作用后的像", fr="image par A", tr="A altındaki görüntü"),
+           (1.75, -1.45), MITTEL, "center")
     s.speichern()
 
 
@@ -373,13 +392,16 @@ def k1tensor():
     for n in range(3):
         for dx, f in ((0.16, ROT_HELL), (0.08, GRUEN_HELL), (0, BLAU_HELL)):
             gitter(0.85 + 0.82 * n + dx, 0.5 + 0.12 * n + dx, 4, 4, f)
-    texte = (("sk", ("Skalar\nForm: keine", "scalar\nshape: none", "escalar\nsin forma", "标量\n形状：无"), -3.3),
-             ("ve", ("Vektor\nForm 4", "vector\nshape 4", "vector\nforma 4", "向量\n形状 4"), -2.45),
-             ("ma", ("Matrix\nForm 4×4", "matrix\nshape 4×4", "matriz\nforma 4×4", "矩阵\n形状 4×4"), -1.47),
-             ("fb", ("Farbbild\nForm 3×4×4", "colour image\nshape 3×4×4", "imagen en color\nforma 3×4×4", "彩色图像\n形状 3×4×4"), -0.1),
-             ("st", ("Bildstapel\nForm N×3×4×4", "image stack\nshape N×3×4×4", "pila de\nimágenes\nforma N×3×4×4", "图像堆叠\n形状 N×3×4×4"), 2.05))
+    texte = (("sk", ("Skalar\nForm: keine", "scalar\nshape: none", "escalar\nforma vacía", "标量\n形状：无",
+                     "scalaire\nforme vide", "skaler\nşekil: yok"), -3.3),
+             ("ve", ("Vektor\nForm 4", "vector\nshape 4", "vector\nforma 4", "向量\n形状 4", "vecteur\nforme 4", "vektör\nşekil 4"), -2.45),
+             ("ma", ("Matrix\nForm 4×4", "matrix\nshape 4×4", "matriz\nforma 4×4", "矩阵\n形状 4×4", "matrice\nforme 4×4", "matris\nşekil 4×4"), -1.47),
+             ("fb", ("Farbbild\nForm 3×4×4", "color image\nshape 3×4×4", "imagen en color\nforma 3×4×4", "彩色图像\n形状 3×4×4",
+                     "image couleur\nforme 3×4×4", "renkli görüntü\nşekil 3×4×4"), -0.1),
+             ("st", ("Bildstapel\nForm N×3×4×4", "image stack\nshape N×3×4×4", "pila de\nimágenes\nforma N×3×4×4", "图像堆叠\n形状 N×3×4×4",
+                     "pile d’images\nforme N×3×4×4", "görüntü yığını\nşekil N×3×4×4"), 2.05))
     for key, worte, x in texte:
-        s.text(None, s.tr(key, *worte), (x, -0.75), KLEIN, "center")
+        s.text(None, s.tr(key, *worte[:4], fr=worte[4], tr=worte[5]), (x, -0.75), KLEIN, "center")
     s.speichern()
 
 

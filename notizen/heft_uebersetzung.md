@@ -8,7 +8,7 @@ Regeln:
 - Englisch amerikanische Schreibweise. Begriffe: Stufe = stage, Aufgabe = exercise, Spannung = voltage, Strom = current, Knoten = node, Masche = mesh/loop, Zählpfeil = reference arrow, Ersatzquelle = equivalent source. Das Wort Arbeitsheft wird workbook, cuaderno, 本册 (so erkennt es der Umwandler).
 - Wörter: Verbindlich sind die Bildwörter in tools/szenen/<modul>_teil<N>.py (`s.tr`), die Titel in tools/heft_zu_artikel.py (MODULE["<modul>"], dort stehen auch die fr- und tr-Titel aller Teile) und die Wahl aus Teil 1: en ground, curl-free; es tensión, nudo, masa; zh 电位, 接地点. Zählpfeile: en passive sign convention (Verbraucherzählpfeil), active sign convention (Erzeugerzählpfeil).
 - Titelblock wie ET3: „Workbook“, „Cuaderno de trabajo“, 练习册; Datum en `31~October 2026`. Im Fließtext heißt das Heft aber workbook, cuaderno, 本册.
-- Verweise auf andere Teile: `Part~2`, `Parte~2`, `第 2 部分` (so werden sie auf der Website zu Links).
+- Verweise auf andere Teile: `Part~2`, `Parte~2`, `第 2 部分` (so werden sie auf der Website zu Links). In den Zusatzreihen (ML, Cybersecurity, Programmieren, Linux) gelten die Wendungen im Abschnitt „Verweise auf andere Hefte“ unten; dort wird auch „…, Abschnitt M“ zum Link auf den Abschnitt.
 - In zh hat SimSun keine Kursive: Im Fließtext `\emph` zu `\textbf`.
 - `\markboth` nach `\section*` in allen Sprachen setzen. Deutsche `\pagebreak` nicht übernehmen, sondern je Sprache prüfen, dass kein Boxtitel allein am Seitenfuß steht, und nötige Umbrüche selbst setzen.
 - Absatzüberschriften wie in ET3: „How to work with this workbook.“, „Cómo trabajar con el cuaderno.“, „如何使用本册。“; Lösungen = Solutions, Soluciones, 解答; kernbox-Titel: Key points, Lo esencial, 要点.
@@ -40,6 +40,24 @@ Der Umwandler (tools/heft_zu_artikel.py) erkennt Kästen und Verweise an festen 
 - Französische Typografie: Vor `:` `;` `!` `?` und in « » ein normales Leerzeichen tippen (oder keines); babel-french setzt im PDF das richtige geschützte Leerzeichen, der Umwandler auf der Website ebenso. « » direkt tippen (die Präambel aktiviert sie). Apostroph typografisch: ’. In `\texttt`, Code und URLs ändert sich nichts. In TikZ-Bildern lädt die Präambel die TikZ-Bibliothek `babel`, Optionen mit `:` und `!` (Farben wie `red!50`, Polarkoordinaten `(0:1)`) funktionieren.
 - Türkische Typografie: Die babel-Kurzbefehle sind aus (`shorthands=off`), also `:` und `!` ohne Leerzeichen davor, Anführungszeichen “ ”. Großes İ und kleines ı genau unterscheiden; Kopfzeilen in Großbuchstaben setzt LaTeX türkisch richtig (i → İ).
 - MiKTeX: babel-french braucht die Pakete babel-french und carlisle (scalefnt.sty), babel-turkish das Paket babel-turkish. Alle drei sind seit 04.11.2026 installiert.
+
+## Verweise auf andere Hefte (Zusatzreihen, seit 06.11.2026)
+
+Der Umwandler erkennt nur genau diese Wendungen (mit `~` oder Leerzeichen) und macht daraus Links auf Artikel und Abschnitt. Die Nummer M (13.5, 3) bleibt in allen Sprachen mit Punkt. Endungen im Türkischen mit Apostroph hinter der letzten Zahl (`Temeller~1, Kesim~13.5'te`).
+
+| Zweck | de | en | es | fr | tr | zh |
+|---|---|---|---|---|---|---|
+| ML-Grundlagen-Heft | `Grundlagen~1` | `Foundations~1` | `Fundamentos~1` (ohne Artikel: „de Fundamentos~1“) | `Fondements~1` (ohne Artikel: „dans Fondements~1“) | `Temeller~1` | `基础篇~1` |
+| … mit Abschnitt | `Grundlagen~1, Abschnitt~13.5` | `Foundations~1, Section~13.5` | `Fundamentos~1, sección~13.5` | `Fondements~1, section~13.5` | `Temeller~1, Kesim~13.5` | `基础篇~1~第~13.5~节` |
+| zwei Abschnitte | `…, Abschnitte~10.1 und~11.4` | `…, Sections~10.1 and~11.4` | `…, secciones~10.1 y~11.4` | `…, sections~10.1 et~11.4` | `…, Kesim~10.1 ve~11.4` | `…第~10.1~节和第~11.4~节` |
+| ML-Pfad-Heft (Teil N = Kap N+7) | `Teil~1` | `Part~1` | `Parte~1` | `Partie~1` | `Kısım~1` | `第~1~部分` |
+| Programmieren | `Programmieren, Python~2, Abschnitt~3` | `Programming, Python~2, Section~3` | `Programación, Python~2, sección~3` | `Programmation, Python~2, section~3` | `Programlama, Python~2, Kesim~3` | `编程，Python~2~第~3~节` |
+| … später C, C++ | `Programmieren, C~1`, `Programmieren, C++~1` | `Programming, C~1` … | `Programación, C~1` … | `Programmation, C~1` … | `Programlama, C~1` … | `编程，C~1` … |
+| Linux und Kommandozeile | `Linux~2, Abschnitt~3` | `Linux~2, Section~3` | `Linux~2, sección~3` | `Linux~2, section~3` | `Linux~2, Kesim~3` | `Linux~2~第~3~节` |
+
+- „Python~3“ allein ist kein Verweis (Sprachversion), deshalb steht bei Programmieren immer der Bereichsname davor. „Linux~6.8“ (Versionsnummer) wird nie verlinkt.
+- Titelblock der ML-Grundlagen (Zeile unter dem Untertitel): de `Mathematische Grundlagen für Machine Learning, Grundlagen~N`, en `Mathematical Foundations for Machine Learning, Foundations~N`, es `Fundamentos matemáticos para el aprendizaje automático, Fundamentos~N`, fr `Fondements mathématiques pour l’apprentissage automatique, Fondements~N`, tr `Makine Öğrenmesi için Matematiksel Temeller, Temeller~N`, zh `机器学习数学基础，基础篇~N`. ML-Pfad wie bisher „Arbeitsheft Machine Learning, Teil~N“ / `Workbook Machine Learning, Part~N` usw.
+- Auf der Website heißen die Bereiche: Mathematische Grundlagen / Mathematical Foundations / Fundamentos matemáticos / Fondements mathématiques / Matematiksel Temeller / 数学基础; Programmieren / Programming / Programación / Programmation / Programlama / 编程; Linux und Kommandozeile / Linux and the Command Line / Linux y la línea de comandos / Linux et ligne de commande / Linux ve Komut Satırı / Linux 与命令行.
 
 ## Abbildungen (Szenentexte)
 

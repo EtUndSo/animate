@@ -1,7 +1,9 @@
 ---
 title: Diagonalization and the spectral theorem
-pfad: Computer Science / Machine Learning / Projection, Eigenvalues and Decompositions
-order: 6220800
+pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
+knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+nachschlagen: ja
+order: 15220800
 summary: If you describe a matrix in a basis of its eigenvectors, it becomes diagonal: each coordinate is only multiplied by its eigenvalue, and coupled calculations break down into separate ones.
 tags: change of basis, diagonalizable, principal axes
 lang: en
@@ -19,7 +21,7 @@ If you describe a matrix in a basis of its eigenvectors, it becomes diagonal: ea
 
 The same arrow has different coordinates in different bases. Likewise, the same linear map has different matrices in different coordinates. Some bases make the matrix especially simple.
 
-Let $\mathbf s_1,\dots,\mathbf s_n$ be a basis of $\mathbb{R}^n$, and let $\mathbf{S}$ be the matrix with these columns. By Part 1, Section 13.5, it is invertible. If $\mathbf{x}$ has the coordinates $\mathbf{c}$ in this basis, then $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$, and conversely $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. If you map $\mathbf{x}$ with $\mathbf{A}$, the image $\mathbf{A}\mathbf{x}$ has the coordinates $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. In the new coordinates, the map therefore acts through the matrix $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: first convert to the old coordinates, then map, then convert back.
+Let $\mathbf s_1,\dots,\mathbf s_n$ be a basis of $\mathbb{R}^n$, and let $\mathbf{S}$ be the matrix with these columns. By Foundations 1, Section 13.5, it is invertible. If $\mathbf{x}$ has the coordinates $\mathbf{c}$ in this basis, then $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$, and conversely $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. If you map $\mathbf{x}$ with $\mathbf{A}$, the image $\mathbf{A}\mathbf{x}$ has the coordinates $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. In the new coordinates, the map therefore acts through the matrix $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: first convert to the old coordinates, then map, then convert back.
 
 :::definition Definition 7.1 (Change of basis)
 <span class="anker" id="satz-7-1"></span>
@@ -36,10 +38,10 @@ $\mathbf{A}$ and $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ have the same characteris
 :::
 
 :::beweis Change of basis
-We have $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. By the rules from Part 1, Section 14.5, the determinant of this is $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. By [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), trace and determinant are determined by the eigenvalues.
+We have $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. By the rules from Foundations 1, Section 14.5, the determinant of this is $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. By [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), trace and determinant are determined by the eigenvalues.
 :::
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ and the basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ from Part 1, Section 13.3, we have $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ and $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Then
+⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ and the basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ from Foundations 1, Section 13.3, we have $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ and $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Then
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
@@ -65,7 +67,7 @@ Conversely: if $\mathbf{A}$ can be written in this way, the columns of $\mathbf{
 :::
 
 :::beweis Diagonalization
-By Part 1, Section 9.2, column $i$ of $\mathbf{A}\mathbf{S}$ is the product $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, and column $i$ of $\mathbf{S}\boldsymbol{\Lambda}$ is also $\lambda_i\mathbf s_i$. So $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. The columns of $\mathbf{S}$ are independent, so $\mathbf{S}$ is invertible, and multiplying by $\mathbf{S}^{-1}$ from the left gives [(7.1)](#gl-7-1). Reading the same equation $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ backwards gives the converse.
+By Foundations 1, Section 9.2, column $i$ of $\mathbf{A}\mathbf{S}$ is the product $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, and column $i$ of $\mathbf{S}\boldsymbol{\Lambda}$ is also $\lambda_i\mathbf s_i$. So $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. The columns of $\mathbf{S}$ are independent, so $\mathbf{S}$ is invertible, and multiplying by $\mathbf{S}^{-1}$ from the left gives [(7.1)](#gl-7-1). Reading the same equation $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ backwards gives the converse.
 :::
 
 A matrix that can be written in this way is called __diagonalizable__. By the theorem in Section [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8), this is the case, for example, whenever all $n$ eigenvalues are different. The shear is not diagonalizable, because it is missing an eigenvector. The rotation by $90^\circ$ is not diagonalizable with real numbers either, only with complex ones. Both are nevertheless invertible: invertible and diagonalizable are two different properties.
@@ -195,7 +197,7 @@ Proceed step by step. By Section [6.3](eigenwerte-und-eigenvektoren.html#stufe-
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-with the symmetric $(n-1)\times(n-1)$ matrix $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$. The zeros at the bottom left arise because $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ is perpendicular to the columns of $\mathbf{W}$, and those at the top right likewise, because $\mathbf{A}$ is symmetric. Repeat the same for $\mathbf{B}$ until a $1\times1$ matrix is left. Once you have found in this way an orthogonal matrix $\mathbf{Q}_B$ for $\mathbf{B}$ such that $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ is diagonal, $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ is orthogonal as a product of orthogonal matrices, and $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ is diagonal. Because $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, it follows that $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. The sum form follows from Part 1, Section 9.5, because $\mathbf{Q}\boldsymbol{\Lambda}$ has the columns $\lambda_i\mathbf{q}_i$.
+with the symmetric $(n-1)\times(n-1)$ matrix $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$. The zeros at the bottom left arise because $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ is perpendicular to the columns of $\mathbf{W}$, and those at the top right likewise, because $\mathbf{A}$ is symmetric. Repeat the same for $\mathbf{B}$ until a $1\times1$ matrix is left. Once you have found in this way an orthogonal matrix $\mathbf{Q}_B$ for $\mathbf{B}$ such that $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ is diagonal, $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ is orthogonal as a product of orthogonal matrices, and $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ is diagonal. Because $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, it follows that $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. The sum form follows from Foundations 1, Section 9.5, because $\mathbf{Q}\boldsymbol{\Lambda}$ has the columns $\lambda_i\mathbf{q}_i$.
 :::
 
 By Section [2.3](projektion-auf-eine-gerade.html#stufe-2-3), each term $\mathbf{q}_i\mathbf{q}_i^{\top}$ is the projection onto the line in the direction of $\mathbf{q}_i$. So a symmetric matrix is a sum of projections onto perpendicular axes, each weighted with its eigenvalue. For a multiple eigenvalue, the choice of the $\mathbf{q}_i$ in its eigenspace is free: every orthonormal basis of the eigenspace will do. The sign of each $\mathbf{q}_i$ is free as well. Some books sort the eigenvalues in descending order, others do not.
@@ -207,7 +209,7 @@ $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}
 ⁠**In short:** Every symmetric matrix is $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$: diagonal in a suitably rotated set of axes, a weighted sum of projections onto perpendicular axes.
 
 :::hintergrund Where symmetric matrices come from
-Symmetric matrices arise wherever a matrix describes pairwise relationships that do not depend on the order. The Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ from Part 1, Section 10, contain dot products, and $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. By Section [5.2](quadratische-formen.html#stufe-5-2), the matrix of a quadratic form can always be chosen symmetric. The inductance matrix of coupled coils is symmetric because the mutual inductance from coil 1 to coil 2 is the same as the other way around. For all of these matrices, the spectral theorem guarantees real eigenvalues and perpendicular eigendirections.
+Symmetric matrices arise wherever a matrix describes pairwise relationships that do not depend on the order. The Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ from Foundations 1, Section 10, contain dot products, and $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. By Section [5.2](quadratische-formen.html#stufe-5-2), the matrix of a quadratic form can always be chosen symmetric. The inductance matrix of coupled coils is symmetric because the mutual inductance from coil 1 to coil 2 is the same as the other way around. For all of these matrices, the spectral theorem guarantees real eigenvalues and perpendicular eigendirections.
 :::
 
 ### Principal axes

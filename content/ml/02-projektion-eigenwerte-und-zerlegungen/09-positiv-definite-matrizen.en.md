@@ -1,7 +1,9 @@
 ---
 title: Positive definite matrices
-pfad: Computer Science / Machine Learning / Projection, Eigenvalues and Decompositions
-order: 6220900
+pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
+knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+nachschlagen: ja
+order: 15220900
 summary: A quadratic form is a bowl if it is positive everywhere except at the origin.
 tags: positive definite, positive semidefinite, indefinite, Rayleigh quotient
 lang: en
@@ -114,7 +116,7 @@ the leading principal minors are $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end
 
 <span class="anker" id="stufe-8-4"></span>
 
-In Part 1, Section 10, the Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ appeared, and in this chapter $\mathbf{A}^{\top}\mathbf{A}$ appeared in the normal equations. They are always positive semidefinite, and the reason is simple: their quadratic form is a squared length.
+In Foundations 1, Section 10, the Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ appeared, and in this chapter $\mathbf{A}^{\top}\mathbf{A}$ appeared in the normal equations. They are always positive semidefinite, and the reason is simple: their quadratic form is a squared length.
 
 :::satz Theorem 8.4 (Gram matrices)
 <span class="anker" id="satz-8-4"></span>
@@ -188,7 +190,7 @@ If $\mathbf{A}=\mathbf L\mathbf L^{\top}$, then $\mathbf{x}^{\top}\mathbf{A}\mat
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-and for larger $n$ you continue completing the square variable by variable. By Part 1, Section 14.5, $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
+and for larger $n$ you continue completing the square variable by variable. By Foundations 1, Section 14.5, $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
 ⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$, we have $a=4$, $b=2$, $c=5$, so $l_{11}=2$, $l_{21}=1$ and $l_{22}=\sqrt{5-1}=2$:
 

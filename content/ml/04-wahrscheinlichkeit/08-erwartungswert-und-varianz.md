@@ -1,7 +1,9 @@
 ---
 title: Erwartungswert und Varianz
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240800
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240800
 summary: Eine Verteilung besteht aus vielen Zahlen, oft aus unendlich vielen.
 tags: Erwartungswert, Schwerpunkt, Indikatorvariable, Varianz, Standardabweichung, standardisierte, empirische Verteilung, Median
 lang: de
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-7"></span>
 
 :::zweck
-Eine Verteilung besteht aus vielen Zahlen, oft aus unendlich vielen. Für viele Zwecke genügen zwei: wo die Werte im Mittel liegen und wie weit sie um diese Mitte streuen. Dieser Abschnitt führt dafür den Erwartungswert und die Varianz ein, zeigt die Rechenregeln, die sie handlich machen, und klärt, wie sie mit dem Mittelwert und der Standardabweichung eines Datensatzes aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) zusammenhängen und wie nicht.
+Eine Verteilung besteht aus vielen Zahlen, oft aus unendlich vielen. Für viele Zwecke genügen zwei: wo die Werte im Mittel liegen und wie weit sie um diese Mitte streuen. Dieser Abschnitt führt dafür den Erwartungswert und die Varianz ein, zeigt die Rechenregeln, die sie handlich machen, und klärt, wie sie mit dem Mittelwert und der Standardabweichung eines Datensatzes aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) zusammenhängen und wie nicht.
 :::
 
 ### Der Erwartungswert
@@ -37,12 +39,12 @@ Er wird auch $\mu$ oder $\mu_X$ geschrieben.
 
 Bei unendlich vielen Werten muss die Summe oder das Integral endlich sein, genauer muss es auch mit $|x|$ statt $x$ endlich sein; sonst hat $X$ keinen Erwartungswert. Bei endlich vielen Werten gibt es ihn immer. Anschaulich ist der Erwartungswert der __Schwerpunkt__ der Verteilung: Legt man auf einen Stab an jede Stelle $x_k$ ein Gewicht $P(X=x_k)$, so liegt er bei $\mathbb{E}[X]$ im Gleichgewicht. Der Erwartungswert muss kein möglicher Wert sein; einen Würfelwurf mit $3{,}5$ Augen gibt es nicht.
 
-Hat $X$ endlich viele Werte $v_1,\dots,v_K$ mit den Wahrscheinlichkeiten $p_k=P(X=v_k)$, so ist [(7.1)](#gl-7-1) ein Skalarprodukt aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 2.1: Mit dem Wertevektor $\mathbf{v}=(v_1,\dots,v_K)^{\top}$ und dem Wahrscheinlichkeitsvektor $\mathbf{p}=(p_1,\dots,p_K)^{\top}$ ist
+Hat $X$ endlich viele Werte $v_1,\dots,v_K$ mit den Wahrscheinlichkeiten $p_k=P(X=v_k)$, so ist [(7.1)](#gl-7-1) ein Skalarprodukt aus [Grundlagen 1, Abschnitt 2.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-1): Mit dem Wertevektor $\mathbf{v}=(v_1,\dots,v_K)^{\top}$ und dem Wahrscheinlichkeitsvektor $\mathbf{p}=(p_1,\dots,p_K)^{\top}$ ist
 
 <span class="anker" id="gl-7-3"></span>
 $$\mathbb{E}[X]=\mathbf{v}^{\top}\mathbf{p}=\sum_{k=1}^Kv_k\,p_k . \tag{7.3}$$
 
-Das ist ein gewichteter Mittelwert der Werte, mit den Gewichten $p_k$, die nichtnegativ sind und sich zu $1$ addieren. Gerechnet wird wie bei der Stromrechnung in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 2.3: dort Preis mal Menge, summiert, hier Wert mal Wahrscheinlichkeit.
+Das ist ein gewichteter Mittelwert der Werte, mit den Gewichten $p_k$, die nichtnegativ sind und sich zu $1$ addieren. Gerechnet wird wie bei der Stromrechnung in [Grundlagen 1, Abschnitt 2.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-3): dort Preis mal Menge, summiert, hier Wert mal Wahrscheinlichkeit.
 
 ⁠**Rechenbeispiel 1:** Für die Anzahl $X$ der Köpfe bei drei Münzwürfen ist $\mathbf{v}=(0,\,1,\,2,\,3)^{\top}$ und $\mathbf{p}=(0{,}125;\ 0{,}375;\ 0{,}375;\ 0{,}125)^{\top}$. Abb. [7](#abb-7) rechnet $\mathbb{E}[X]=1{,}5$ Zeile für Zeile: Jeder Wert trägt sein Gewicht bei. Die Verteilung ist symmetrisch um $1{,}5$, und dort liegt ihr Schwerpunkt.
 
@@ -118,7 +120,7 @@ Mit vielen Summanden ist $\mathbb{E}[X_1+\dots+X_n]=\mathbb{E}[X_1]+\dots+\mathb
 
 <span class="anker" id="stufe-7-4"></span>
 
-Zwei Messgeräte können denselben Erwartungswert liefern und trotzdem verschieden gut sein: Das eine streut eng um ihn, das andere weit. Man möchte messen, wie weit die Werte typischerweise von $\mu=\mathbb{E}[X]$ abweichen. Der Erwartungswert der Abweichung selbst taugt dazu nicht, denn nach der Linearität ist $\mathbb{E}[X-\mu]=\mu-\mu=0$: Positive und negative Abweichungen heben sich immer auf. Man quadriert deshalb, wie bei der Standardabweichung eines Datensatzes in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 4.4.
+Zwei Messgeräte können denselben Erwartungswert liefern und trotzdem verschieden gut sein: Das eine streut eng um ihn, das andere weit. Man möchte messen, wie weit die Werte typischerweise von $\mu=\mathbb{E}[X]$ abweichen. Der Erwartungswert der Abweichung selbst taugt dazu nicht, denn nach der Linearität ist $\mathbb{E}[X-\mu]=\mu-\mu=0$: Positive und negative Abweichungen heben sich immer auf. Man quadriert deshalb, wie bei der Standardabweichung eines Datensatzes in [Grundlagen 1, Abschnitt 4.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-4).
 
 :::definition Definition 7.4 (Varianz, Standardabweichung)
 <span class="anker" id="satz-7-4"></span>
@@ -131,9 +133,9 @@ $$\operatorname{Var}(X)=\mathbb{E}\bigl[(X-\mu)^2\bigr]. \tag{7.6}$$
 Ihre __Standardabweichung__ ist $\sigma=\sqrt{\operatorname{Var}(X)}$. Man schreibt auch $\sigma^2$ oder $\sigma_X^2$ für die Varianz.
 :::
 
-Die Varianz hat das Quadrat der Einheit von $X$, die Standardabweichung dieselbe Einheit wie $X$. Die Varianz ist nie negativ, und sie ist genau dann null, wenn $X$ mit Wahrscheinlichkeit $1$ den Wert $\mu$ hat. In [Teil 3](/wissen/informatik/machine-learning/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html) bezeichnete $\sigma$ die logistische Funktion; in diesem Kapitel steht $\sigma$ immer für eine Standardabweichung.
+Die Varianz hat das Quadrat der Einheit von $X$, die Standardabweichung dieselbe Einheit wie $X$. Die Varianz ist nie negativ, und sie ist genau dann null, wenn $X$ mit Wahrscheinlichkeit $1$ den Wert $\mu$ hat. In [Grundlagen 3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html) bezeichnete $\sigma$ die logistische Funktion; in diesem Kapitel steht $\sigma$ immer für eine Standardabweichung.
 
-Ist $X$ eine Spannung ohne Gleichanteil, also mit $\mu=0$, so ist $\operatorname{Var}(X)=\mathbb{E}[X^2]$ der Erwartungswert des Quadrats. Das ist die mittlere Leistung, die diese Spannung an einem Widerstand von $1\,\Omega$ umsetzt, und $\sigma$ ist ihr Effektivwert aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 3.6. Deshalb ist die Varianz die natürliche Kenngröße für Rauschen: Sie ist seine Leistung.
+Ist $X$ eine Spannung ohne Gleichanteil, also mit $\mu=0$, so ist $\operatorname{Var}(X)=\mathbb{E}[X^2]$ der Erwartungswert des Quadrats. Das ist die mittlere Leistung, die diese Spannung an einem Widerstand von $1\,\Omega$ umsetzt, und $\sigma$ ist ihr Effektivwert aus [Grundlagen 1, Abschnitt 3.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-6). Deshalb ist die Varianz die natürliche Kenngröße für Rauschen: Sie ist seine Leistung.
 
 ⁠**Rechenbeispiel:** Beim fairen Würfel mit $\mu=3{,}5$ weichen die Augenzahlen um $2{,}5$, $1{,}5$ und $0{,}5$ nach links und nach rechts vom Erwartungswert ab. Ihre Quadrate, mit je $\tfrac16$ gewichtet, ergeben $\operatorname{Var}(X)=\tfrac{35}{12}\approx2{,}917$ (Abb. [10](#abb-10)) und $\sigma=\sqrt{35/12}\approx1{,}708$. Für die Anzahl der Köpfe mit $\mu=1{,}5$ ist $\operatorname{Var}(X)=2{,}25\cdot\tfrac18+0{,}25\cdot\tfrac38+0{,}25\cdot\tfrac38+2{,}25\cdot\tfrac18=0{,}75$ und $\sigma\approx0{,}866$.
 
@@ -160,12 +162,12 @@ $$\operatorname{Var}(X)=\mathbb{E}[X^2]-\bigl(\mathbb{E}[X]\bigr)^2 . \tag{7.7}$
 Mit $\mu=\mathbb{E}[X]$ ist $(X-\mu)^2=X^2-2\mu X+\mu^2$. Nach der Linearität ist $\mathbb{E}\bigl[(X-\mu)^2\bigr]=\mathbb{E}[X^2]-2\mu\,\mathbb{E}[X]+\mu^2=\mathbb{E}[X^2]-2\mu^2+\mu^2=\mathbb{E}[X^2]-\mu^2$.
 :::
 
-Weil die Varianz nie negativ ist, folgt $\mathbb{E}[X^2]\ge(\mathbb{E}[X])^2$, mit Gleichheit nur, wenn $X$ fest ist. Aus der Mechanik kennt man dieselbe Rechnung als Satz von Steiner: Denkt man sich die Wahrscheinlichkeiten als Massen auf einem Stab, so ist $\mathbb{E}[X^2]$ das Trägheitsmoment um den Nullpunkt, $\operatorname{Var}(X)$ das Trägheitsmoment um den Schwerpunkt $\mu$, und der Unterschied ist Gesamtmasse $1$ mal Abstand $\mu$ zum Quadrat. Für die Zahlen eines Datensatzes ist das die Zerlegung $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$ aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) (Aufgabe [21](#aufg-21)).
+Weil die Varianz nie negativ ist, folgt $\mathbb{E}[X^2]\ge(\mathbb{E}[X])^2$, mit Gleichheit nur, wenn $X$ fest ist. Aus der Mechanik kennt man dieselbe Rechnung als Satz von Steiner: Denkt man sich die Wahrscheinlichkeiten als Massen auf einem Stab, so ist $\mathbb{E}[X^2]$ das Trägheitsmoment um den Nullpunkt, $\operatorname{Var}(X)$ das Trägheitsmoment um den Schwerpunkt $\mu$, und der Unterschied ist Gesamtmasse $1$ mal Abstand $\mu$ zum Quadrat. Für die Zahlen eines Datensatzes ist das die Zerlegung $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) (Aufgabe [21](#aufg-21)).
 
 ⁠**Rechenbeispiel:** Für den fairen Würfel ist mit Abb. [9](#abb-9) $\operatorname{Var}(X)=\tfrac{91}6-\tfrac{49}4=\tfrac{182-147}{12}=\tfrac{35}{12}$, wie in Abb. [10](#abb-10). Für die Anzahl der Köpfe ist $\mathbb{E}[X^2]=0\cdot\tfrac18+1\cdot\tfrac38+4\cdot\tfrac38+9\cdot\tfrac18=3$ und $\operatorname{Var}(X)=3-1{,}5^2=0{,}75$.
 
 :::warnung Auslöschung
-Liegen die Werte von $X$ dicht beieinander und weit weg von null, so sind $\mathbb{E}[X^2]$ und $(\mathbb{E}[X])^2$ zwei große, fast gleiche Zahlen. Nach [Teil 3](/wissen/informatik/machine-learning/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html), Abschnitt 11.3, verliert man beim Abziehen solcher Zahlen fast alle richtigen Stellen. Ein Beispiel: $X$ habe die Werte $10^8+1$ und $10^8+3$ mit je der Wahrscheinlichkeit $\tfrac12$. Die Varianz ist $1$, denn die Werte liegen je $1$ vom Erwartungswert $10^8+2$ entfernt. In doppelter Genauigkeit gerechnet liefert [(7.7)](#gl-7-7) aber $0$: Beide Terme sind etwa $10^{16}$, und der Unterschied von $1$ geht in der Rundung unter. Für Rechnungen am Computer benutzt man deshalb die Definition [(7.6)](#gl-7-6) und bildet zuerst die Abweichungen.
+Liegen die Werte von $X$ dicht beieinander und weit weg von null, so sind $\mathbb{E}[X^2]$ und $(\mathbb{E}[X])^2$ zwei große, fast gleiche Zahlen. Nach [Grundlagen 3, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/numerische-ableitung-und-gradientenprufung.html#stufe-11-3), verliert man beim Abziehen solcher Zahlen fast alle richtigen Stellen. Ein Beispiel: $X$ habe die Werte $10^8+1$ und $10^8+3$ mit je der Wahrscheinlichkeit $\tfrac12$. Die Varianz ist $1$, denn die Werte liegen je $1$ vom Erwartungswert $10^8+2$ entfernt. In doppelter Genauigkeit gerechnet liefert [(7.7)](#gl-7-7) aber $0$: Beide Terme sind etwa $10^{16}$, und der Unterschied von $1$ geht in der Rundung unter. Für Rechnungen am Computer benutzt man deshalb die Definition [(7.6)](#gl-7-6) und bildet zuerst die Abweichungen.
 :::
 
 ⁠**Kurz gesagt:** Die Varianz ist der Erwartungswert des Quadrats minus das Quadrat des Erwartungswerts; von Hand bequem, am Rechner bei großen, eng beieinanderliegenden Werten ungenau.
@@ -198,7 +200,7 @@ $$Z=\frac{X-\mu}{\sigma} \tag{7.9}$$
 die __standardisierte__ Zufallsvariable. Es ist $\mathbb{E}[Z]=0$ und $\operatorname{Var}(Z)=1$.
 :::
 
-Das ist dieselbe Rechnung wie das Standardisieren eines Merkmals in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 4.5, nur mit Erwartungswert und Standardabweichung der Verteilung statt Mittelwert und Standardabweichung der Daten. $Z$ hat keine Einheit und misst die Abweichung vom Erwartungswert in Vielfachen der Standardabweichung.
+Das ist dieselbe Rechnung wie das Standardisieren eines Merkmals in [Grundlagen 1, Abschnitt 4.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-5), nur mit Erwartungswert und Standardabweichung der Verteilung statt Mittelwert und Standardabweichung der Daten. $Z$ hat keine Einheit und misst die Abweichung vom Erwartungswert in Vielfachen der Standardabweichung.
 
 ⁠**Rechenbeispiel:** Eine Temperatur $X$ in Grad Celsius habe $\mu=20$ und $\sigma=2$. In Grad Fahrenheit ist $Y=1{,}8\,X+32$ mit $\mathbb{E}[Y]=1{,}8\cdot20+32=68$ und $\sigma_Y=1{,}8\cdot2=3{,}6$. Ein Wert von $24\,{}^\circ\mathrm C$ hat standardisiert $z=(24-20)/2=2$; derselbe Wert in Fahrenheit, $75{,}2$, hat $z=(75{,}2-68)/3{,}6=2$. Die standardisierte Größe hängt nicht von der Einheit ab.
 
@@ -208,13 +210,13 @@ Das ist dieselbe Rechnung wie das Standardisieren eines Merkmals in [Teil 1](/w
 
 <span class="anker" id="stufe-7-7"></span>
 
-[Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) hat für die Flächen der vier Wohnungen $60$, $40$, $90$ und $70\,\mathrm m^2$ den Mittelwert $65\,\mathrm m^2$ und die Standardabweichung $\sqrt{325}\approx18{,}03\,\mathrm m^2$ berechnet. Dieses Kapitel hat den Erwartungswert und die Standardabweichung einer Zufallsvariablen eingeführt. Die Formeln sehen ähnlich aus. Hängen die Begriffe zusammen?
+[Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) hat für die Flächen der vier Wohnungen $60$, $40$, $90$ und $70\,\mathrm m^2$ den Mittelwert $65\,\mathrm m^2$ und die Standardabweichung $\sqrt{325}\approx18{,}03\,\mathrm m^2$ berechnet. Dieses Kapitel hat den Erwartungswert und die Standardabweichung einer Zufallsvariablen eingeführt. Die Formeln sehen ähnlich aus. Hängen die Begriffe zusammen?
 
 Ein Zusammenhang ist genau. Man ziehe aus dem Datensatz eine Zeile rein zufällig, jede mit der Wahrscheinlichkeit $1/N$, und nenne ihren Wert $X$. Dann ist nach [(7.1)](#gl-7-1)
 
 $$\mathbb{E}[X]=\sum_{i=1}^Nv_i\cdot\frac1N=\bar v,\qquad \operatorname{Var}(X)=\sum_{i=1}^N(v_i-\bar v)^2\cdot\frac1N=\operatorname{std}(\mathbf{v})^2 .$$
 
-Die Verteilung, die jedem Datenpunkt die Wahrscheinlichkeit $1/N$ gibt, heißt __empirische Verteilung__ des Datensatzes. Mittelwert und Standardabweichung eines Datensatzes sind Erwartungswert und Standardabweichung seiner empirischen Verteilung. Dass [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) durch $N$ teilt, passt genau dazu.
+Die Verteilung, die jedem Datenpunkt die Wahrscheinlichkeit $1/N$ gibt, heißt __empirische Verteilung__ des Datensatzes. Mittelwert und Standardabweichung eines Datensatzes sind Erwartungswert und Standardabweichung seiner empirischen Verteilung. Dass [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) durch $N$ teilt, passt genau dazu.
 
 Der wichtigere Unterschied liegt woanders. Die vier Wohnungen sind eine Auswahl aus allen Wohnungen einer Stadt. Man kann sich die Fläche einer zufällig gewählten Wohnung der Stadt als Zufallsvariable vorstellen; ihr Erwartungswert ist eine feste, meist unbekannte Zahl. Der Mittelwert $65\,\mathrm m^2$ hängt dagegen davon ab, welche vier Wohnungen zufällig in den Datensatz gekommen sind. Eine andere Auswahl hätte einen anderen Mittelwert ergeben. Wie nahe der Mittelwert dem Erwartungswert kommt und wie das von der Zahl der Datenpunkte abhängt, beantwortet Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13).
 
@@ -225,7 +227,7 @@ Der wichtigere Unterschied liegt woanders. Die vier Wohnungen sind eine Auswahl 
 | hängt vom Zufall ab | ja: andere Auswahl, anderer Wert | nein: eine feste Zahl |
 | Zusammenhang | ist der Erwartungswert der empirischen Verteilung | wird vom Mittelwert vieler unabhängiger Werte angenähert (Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13)) |
 
-⁠**Rechenbeispiel:** Für die vier Flächen hat die empirische Verteilung die Werte $60$, $40$, $90$, $70$ mit je der Wahrscheinlichkeit $\tfrac14$, also den Erwartungswert $\tfrac14\cdot260=65$ und die Varianz $\tfrac14\,(25+625+625+25)=325$, wie in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html). Hätte der Datensatz statt der zweiten Wohnung eine mit $80\,\mathrm m^2$ enthalten, so wäre der Mittelwert $75\,\mathrm m^2$. Am Erwartungswert der Fläche aller Wohnungen der Stadt ändert das nichts.
+⁠**Rechenbeispiel:** Für die vier Flächen hat die empirische Verteilung die Werte $60$, $40$, $90$, $70$ mit je der Wahrscheinlichkeit $\tfrac14$, also den Erwartungswert $\tfrac14\cdot260=65$ und die Varianz $\tfrac14\,(25+625+625+25)=325$, wie in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html). Hätte der Datensatz statt der zweiten Wohnung eine mit $80\,\mathrm m^2$ enthalten, so wäre der Mittelwert $75\,\mathrm m^2$. Am Erwartungswert der Fläche aller Wohnungen der Stadt ändert das nichts.
 
 ⁠**Kurz gesagt:** Mittelwert und Standardabweichung eines Datensatzes sind Erwartungswert und Standardabweichung seiner empirischen Verteilung; als Aussage über die Verteilung, aus der die Daten stammen, sind sie selbst zufällig.
 
@@ -340,7 +342,7 @@ Prüfe das Ergebnis für $n=3$, indem du alle sechs Zuordnungen aufschreibst.
 :::aufgabe Aufgabe 21 ★★★ Effektivwert und Verschiebungsformel
 <span class="anker" id="aufg-21"></span>
 
-In [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) galt für einen Vektor $\mathbf{v}\in\mathbb{R}^N$ die Zerlegung $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$.
+In [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) galt für einen Vektor $\mathbf{v}\in\mathbb{R}^N$ die Zerlegung $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$.
 
 <ol class="al">
 

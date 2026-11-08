@@ -1,7 +1,9 @@
 ---
 title: Lineare Abbildungen
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210900
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210900
 summary: Eine Matrix ist nicht nur eine Tabelle, sondern auch eine Rechenvorschrift, die aus einem Vektor einen anderen macht.
 tags: Abbildung, linear, Drehung, Streckung, Scherung, affin, Achsenabschnitt
 lang: de
@@ -19,7 +21,7 @@ Eine Matrix ist nicht nur eine Tabelle, sondern auch eine Rechenvorschrift, die 
 
 Viele Rechnungen machen aus einer Liste von Zahlen eine andere Liste. Aus den Merkmalen einer Wohnung werden Kaufpreis und Miete geschätzt; aus den Abtastwerten eines Signals wird ein gefiltertes Signal. Eine solche Vorschrift heißt __Abbildung__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$: Sie ordnet jedem Vektor $\mathbf{x}\in\mathbb{R}^n$ einen Vektor $f(\mathbf{x})\in\mathbb{R}^m$ zu.
 
-Das Matrix-Vektor-Produkt hat zwei besondere Eigenschaften (Unterabschnitt [7.1](das-matrix-vektor-produkt.html#stufe-7-1)): $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ und $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$. Es ist gleichgültig, ob man zuerst addiert oder zuerst abbildet, und ebenso, ob man zuerst vervielfacht oder zuerst abbildet. In der Ebene sieht man diese Eigenschaften an einem Gitter: Eine solche Abbildung macht aus Geraden wieder Geraden, lässt den Nullpunkt an seinem Platz und macht aus parallelen, gleichabständigen Gitterlinien wieder parallele, gleichabständige Linien.
+Das Matrix-Vektor-Produkt hat zwei besondere Eigenschaften (Unterabschnitt [7.1](das-matrix-vektor-produkt.html#stufe-7-1)): $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ und $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$. Es ist gleichgültig, ob man zuerst addiert oder zuerst abbildet, und ebenso, ob man zuerst vervielfacht oder zuerst abbildet. In der Ebene sieht man diese Eigenschaften an einem Gitter: Eine solche Abbildung macht aus Geraden wieder Geraden oder einzelne Punkte, lässt den Nullpunkt an seinem Platz und macht aus parallelen, gleichabständigen Gitterlinien wieder parallele, gleichabständige Linien oder Punkte.
 
 :::definition Definition 8.1 (Lineare Abbildung)
 <span class="anker" id="satz-8-1"></span>
@@ -85,7 +87,7 @@ Eine Matrix kann eine Sammlung von Daten sein, wie die Datenmatrix $\mathbf{X}$,
 
 <span class="anker" id="stufe-8-3"></span>
 
-In der Ebene kann man sehen, was eine Matrix tut. Man zeichnet das Einheitsquadrat mit den Ecken $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_1+\mathbf{e}_2$ und $\mathbf{e}_2$ und sein Bild. Weil die Abbildung Geraden auf Geraden abbildet, wird das Quadrat zu einem Parallelogramm mit den Ecken $\mathbf{0}$, $\mathbf{a}_1$, $\mathbf{a}_1+\mathbf{a}_2$ und $\mathbf{a}_2$. Seine beiden Kanten am Nullpunkt sind die Spalten der Matrix (Abb. [32](#abb-32)). Das ganze Gitter der Ebene wird ebenso verformt: Jedes Kästchen wird zu einer verschobenen Kopie dieses Parallelogramms.
+In der Ebene kann man sehen, was eine Matrix tut. Man zeichnet das Einheitsquadrat mit den Ecken $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_1+\mathbf{e}_2$ und $\mathbf{e}_2$ und sein Bild. Weil die Abbildung Linearkombinationen erhält, wird das Quadrat zu dem Parallelogramm mit den Ecken $\mathbf{0}$, $\mathbf{a}_1$, $\mathbf{a}_1+\mathbf{a}_2$ und $\mathbf{a}_2$. Seine beiden Kanten am Nullpunkt sind die Spalten der Matrix (Abb. [32](#abb-32)). Das ganze Gitter der Ebene wird ebenso verformt: Jedes Kästchen wird zu einer verschobenen Kopie dieses Parallelogramms.
 
 :::abbildung ml/k1ebene 32
 Vier lineare Abbildungen der Ebene. Grau gestrichelt das Einheitsquadrat, blau sein Bild. Der rote Pfeil ist das Bild $\mathbf{a}_1$ von $\mathbf{e}_1$, der grüne das Bild $\mathbf{a}_2$ von $\mathbf{e}_2$; das sind die beiden Spalten der Matrix. Beim Plattdrücken ist $\mathbf{a}_2=\mathbf{0}$, und das Quadrat wird zur Strecke von $\mathbf{0}$ bis $\mathbf{e}_1$.

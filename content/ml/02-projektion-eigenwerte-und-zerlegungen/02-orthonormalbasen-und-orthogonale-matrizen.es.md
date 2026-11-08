@@ -1,7 +1,9 @@
 ---
 title: Bases ortonormales y matrices ortogonales
-pfad: Informática / Aprendizaje automático / Proyección, valores propios y descomposiciones
-order: 6220200
+pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
+knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+nachschlagen: ja
+order: 15220200
 summary: Algunos sistemas de coordenadas son especialmente cómodos: sus ejes son perpendiculares entre sí y la unidad tiene la misma longitud en cada eje.
 tags: ortonormales, base ortonormal, matriz ortogonal
 lang: es
@@ -17,7 +19,7 @@ Algunos sistemas de coordenadas son especialmente cómodos: sus ejes son perpend
 
 <span class="anker" id="stufe-1-1"></span>
 
-En la parte 1, sección 5.3, dos vectores se llamaban ortogonales si su producto escalar es cero. El patrón constante $(1,1,1,1)^{\top}$ y el patrón alternante $(1,-1,1,-1)^{\top}$ eran un ejemplo: al comparar una señal con uno de los patrones, el otro patrón no interfería. Eso sí, la comparación daba la contribución del patrón multiplicada por $4$, porque ambos patrones tienen longitud $2$. Si los vectores ortogonales tienen además longitud $1$, también desaparece este factor.
+En Fundamentos 1, sección 5.3, dos vectores se llamaban ortogonales si su producto escalar es cero. El patrón constante $(1,1,1,1)^{\top}$ y el patrón alternante $(1,-1,1,-1)^{\top}$ eran un ejemplo: al comparar una señal con uno de los patrones, el otro patrón no interfería. Eso sí, la comparación daba la contribución del patrón multiplicada por $4$, porque ambos patrones tienen longitud $2$. Si los vectores ortogonales tienen además longitud $1$, también desaparece este factor.
 
 Imagina los dos ejes $\mathbf{e}_1$ y $\mathbf{e}_2$ del plano girados en bloque un cierto ángulo. Las dos flechas siguen teniendo longitud $1$ y siguen siendo perpendiculares entre sí; solo apuntan en otras direcciones.
 
@@ -39,7 +41,7 @@ Si $\mathbf{q}_1,\dots,\mathbf{q}_k$ son ortonormales, son linealmente independi
 :::
 
 :::beweis Independencia lineal
-Sea $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. Se calcula el producto escalar de ambos lados con $\mathbf{q}_l$. Según [(1.1)](#gl-1-1), a la izquierda solo queda el sumando $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$, y a la derecha está $\mathbf{q}_l^{\top}\mathbf{0}=0$. Por tanto, $c_l=0$, y eso para cada $l$. Según la definición de la parte 1, sección 13.2, los vectores son entonces linealmente independientes.
+Sea $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. Se calcula el producto escalar de ambos lados con $\mathbf{q}_l$. Según [(1.1)](#gl-1-1), a la izquierda solo queda el sumando $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$, y a la derecha está $\mathbf{q}_l^{\top}\mathbf{0}=0$. Por tanto, $c_l=0$, y eso para cada $l$. Según la definición de Fundamentos 1, sección 13.2, los vectores son entonces linealmente independientes.
 :::
 
 ⁠**Ejemplo numérico:** Para $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ y $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$ se tiene
@@ -58,7 +60,7 @@ El producto escalar $\mathbf{q}_1^{\top}\mathbf{q}_2$ paso a paso, con $0{,}6=\t
 
 <span class="anker" id="stufe-1-2"></span>
 
-Según la parte 1, sección 13.3, una base es un sistema de coordenadas: cada vector tiene en ella exactamente una representación. Las más cómodas son las bases cuyos vectores son ortonormales. Son como el sistema de ejes habitual, solo que girado.
+Según Fundamentos 1, sección 13.3, una base es un sistema de coordenadas: cada vector tiene en ella exactamente una representación. Las más cómodas son las bases cuyos vectores son ortonormales. Son como el sistema de ejes habitual, solo que girado.
 
 :::definition Definición 1.3 (Base ortonormal)
 <span class="anker" id="satz-1-3"></span>
@@ -66,7 +68,7 @@ Según la parte 1, sección 13.3, una base es un sistema de coordenadas: cada 
 Una base formada por vectores ortonormales se llama __base ortonormal__.
 :::
 
-Para una base ortonormal de todo $\mathbb{R}^n$ basta con encontrar $n$ vectores ortonormales. Según el teorema de la subsección anterior, son linealmente independientes. Si se escriben como columnas de una matriz $n\times n$, esta tiene rango $n$, y su espacio columna es, según la parte 1, sección 13.5, todo $\mathbb{R}^n$. Por tanto, los $n$ vectores generan $\mathbb{R}^n$ y forman una base. Del mismo modo puede buscarse una base ortonormal de un espacio generado, por ejemplo de un plano en $\mathbb{R}^3$: vectores ortonormales que generen exactamente ese espacio.
+Para una base ortonormal de todo $\mathbb{R}^n$ basta con encontrar $n$ vectores ortonormales. Según el teorema de la subsección anterior, son linealmente independientes. Si se escriben como columnas de una matriz $n\times n$, esta tiene rango $n$, y su espacio columna es, según Fundamentos 1, sección 13.5, todo $\mathbb{R}^n$. Por tanto, los $n$ vectores generan $\mathbb{R}^n$ y forman una base. Del mismo modo puede buscarse una base ortonormal de un espacio generado, por ejemplo de un plano en $\mathbb{R}^3$: vectores ortonormales que generen exactamente ese espacio.
 
 ⁠**Ejemplo numérico:** Los vectores $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ y $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$ son dos vectores ortonormales de $\mathbb{R}^2$ y, por tanto, una base ortonormal de $\mathbb{R}^2$. Los vectores unitarios $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ forman la base ortonormal de $\mathbb{R}^3$ que se llama base canónica. El plano $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ de $\mathbb{R}^3$ tiene la base ortonormal $\mathbf{e}_1,\mathbf{e}_2$.
 
@@ -76,9 +78,9 @@ Para una base ortonormal de todo $\mathbb{R}^n$ basta con encontrar $n$ vectores
 
 <span class="anker" id="stufe-1-3"></span>
 
-En una base cualquiera hay que resolver un sistema de ecuaciones para hallar las coordenadas de un vector. En la parte 1, sección 13.3, $(3,\,2)^{\top}$ tenía en la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ las coordenadas $1$ y $2$. Los productos escalares $(1,0)(3,2)^{\top}=3$ y $(1,1)(3,2)^{\top}=5$ son algo completamente distinto. En una base ortonormal, en cambio, las coordenadas son exactamente los productos escalares.
+En una base cualquiera hay que resolver un sistema de ecuaciones para hallar las coordenadas de un vector. En Fundamentos 1, sección 13.3, $(3,\,2)^{\top}$ tenía en la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ las coordenadas $1$ y $2$. Los productos escalares $(1,0)(3,2)^{\top}=3$ y $(1,1)(3,2)^{\top}=5$ son algo completamente distinto. En una base ortonormal, en cambio, las coordenadas son exactamente los productos escalares.
 
-La razón la muestra la imagen de la longitud de la sombra de la parte 1, sección 5.5. Para un vector normalizado $\mathbf{q}$, $\mathbf{q}^{\top}\mathbf{x}$ es la longitud de la sombra de $\mathbf{x}$ sobre la recta en la dirección de $\mathbf{q}$. En una base ortonormal, cada coordenada es la sombra sobre su propio eje (fig. [2](#abb-2)).
+La razón la muestra la imagen de la longitud de la sombra de Fundamentos 1, sección 5.5. Para un vector normalizado $\mathbf{q}$, $\mathbf{q}^{\top}\mathbf{x}$ es la longitud de la sombra de $\mathbf{x}$ sobre la recta en la dirección de $\mathbf{q}$. En una base ortonormal, cada coordenada es la sombra sobre su propio eje (fig. [2](#abb-2)).
 
 :::abbildung ml/k2onb 2
 Coordenadas en la base ortonormal $\mathbf{q}_1=(0{,}6;\,0{,}8)^{\top}$, $\mathbf{q}_2=(-0{,}8;\,0{,}6)^{\top}$ (verde). La flecha $\mathbf{x}=(3,1)^{\top}$ proyecta una sombra sobre cada uno de los dos ejes girados (gris); la luz incide en cada caso perpendicularmente (a trazos). Las longitudes de las sombras, $\mathbf{q}_1^{\top}\mathbf{x}=2{,}6$ (azul) y $\mathbf{q}_2^{\top}\mathbf{x}=-1{,}8$ (naranja), son las coordenadas: $\mathbf{x}=2{,}6\,\mathbf{q}_1-1{,}8\,\mathbf{q}_2$.
@@ -133,7 +135,7 @@ La segunda fórmula de [(1.2)](#gl-1-2) dice que la energía $\lVert\mathbf{x}\r
 
 <span class="anker" id="stufe-1-4"></span>
 
-Si se escriben los vectores de una base ortonormal como columnas de una matriz $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, las dos fórmulas [(1.2)](#gl-1-2) pueden escribirse como productos de matrices. Todas las coordenadas a la vez forman, según la visión por filas de la parte 1, sección 7.2, el vector $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, pues las filas de $\mathbf{Q}^{\top}$ son los vectores $\mathbf{q}_i^{\top}$. A la inversa, $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ según la visión por columnas. La matriz $\mathbf{Q}^{\top}$ deshace, por tanto, lo que hace $\mathbf{Q}$.
+Si se escriben los vectores de una base ortonormal como columnas de una matriz $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, las dos fórmulas [(1.2)](#gl-1-2) pueden escribirse como productos de matrices. Todas las coordenadas a la vez forman, según la visión por filas de Fundamentos 1, sección 7.2, el vector $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, pues las filas de $\mathbf{Q}^{\top}$ son los vectores $\mathbf{q}_i^{\top}$. A la inversa, $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ según la visión por columnas. La matriz $\mathbf{Q}^{\top}$ deshace, por tanto, lo que hace $\mathbf{Q}$.
 
 :::definition Definición 1.5 (Matriz ortogonal)
 <span class="anker" id="satz-1-5"></span>
@@ -150,7 +152,7 @@ Si $\mathbf{Q}$ es ortogonal, $\mathbf{Q}$ es invertible con $\mathbf{Q}^{-1}=\m
 :::
 
 :::beweis Inversa de una matriz ortogonal
-Las columnas son ortonormales y, según la primera subsección, linealmente independientes. Por el teorema de la parte 1, sección 13.5, $\mathbf{Q}$ es, por ello, invertible. Si se multiplica $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ por la derecha por $\mathbf{Q}^{-1}$, se obtiene $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, y con ello también $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
+Las columnas son ortonormales y, según la primera subsección, linealmente independientes. Por el teorema de Fundamentos 1, sección 13.5, $\mathbf{Q}$ es, por ello, invertible. Si se multiplica $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ por la derecha por $\mathbf{Q}^{-1}$, se obtiene $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, y con ello también $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
 :::
 
 Una observación sobre el nombre. Una matriz ortogonal tiene columnas ortonormales, no meramente ortogonales; el nombre es fruto de la historia. Las matrices cuyas columnas solo son ortogonales, pero no están normalizadas, no tienen un nombre propio. Para ellas, $\mathbf{Q}^{\top}\mathbf{Q}$ es una matriz diagonal con los cuadrados de las longitudes de las columnas en la diagonal, pero no $\mathbf{I}$.
@@ -159,7 +161,7 @@ Una observación sobre el nombre. Una matriz ortogonal tiene columnas ortonormal
 
 $$\mathbf{Q}=\begin{pmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{pmatrix},\qquad \mathbf{Q}^{\top}\mathbf{Q}=\begin{pmatrix}0{,}36+0{,}64&-0{,}48+0{,}48\\-0{,}48+0{,}48&0{,}64+0{,}36\end{pmatrix}=\mathbf{I} .$$
 
-Las entradas de $\mathbf{Q}^{\top}\mathbf{Q}$ son los productos escalares de las columnas de la primera subsección; la entrada fuera de la diagonal la muestra la fig. [1](#abb-1). Por tanto, $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, sin cálculo alguno. Esta matriz es la matriz de rotación de la parte 1, sección 8.3, con $\cos\alpha=0{,}6$ y $\sin\alpha=0{,}8$, es decir, una rotación de $\alpha\approx53{,}13^\circ$ en sentido antihorario. La inversa $\mathbf{Q}^{\top}$ gira el mismo ángulo en sentido contrario.
+Las entradas de $\mathbf{Q}^{\top}\mathbf{Q}$ son los productos escalares de las columnas de la primera subsección; la entrada fuera de la diagonal la muestra la fig. [1](#abb-1). Por tanto, $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, sin cálculo alguno. Esta matriz es la matriz de rotación de Fundamentos 1, sección 8.3, con $\cos\alpha=0{,}6$ y $\sin\alpha=0{,}8$, es decir, una rotación de $\alpha\approx53{,}13^\circ$ en sentido antihorario. La inversa $\mathbf{Q}^{\top}$ gira el mismo ángulo en sentido contrario.
 
 ⁠**En resumen:** Una matriz ortogonal es cuadrada y tiene columnas ortonormales; su inversa es simplemente su traspuesta.
 
@@ -181,10 +183,10 @@ y el ángulo entre $\mathbf{Q}\mathbf{x}$ y $\mathbf{Q}\mathbf{y}$ es el mismo q
 :::
 
 :::beweis Conservación de los productos escalares
-Según la regla $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ de la parte 1, sección 10.1, se tiene $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. Con $\mathbf{y}=\mathbf{x}$ se obtiene la afirmación sobre la longitud, y como el ángulo se calcula solo a partir de productos escalares y longitudes, tampoco cambia. Para el determinante se usan las reglas de cálculo de la parte 1, sección 14.5: $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
+Según la regla $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ de Fundamentos 1, sección 10.1, se tiene $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. Con $\mathbf{y}=\mathbf{x}$ se obtiene la afirmación sobre la longitud, y como el ángulo se calcula solo a partir de productos escalares y longitudes, tampoco cambia. Para el determinante se usan las reglas de cálculo de Fundamentos 1, sección 14.5: $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
 :::
 
-Una matriz ortogonal mueve, por tanto, el espacio de forma rígida, sin deformarlo. Si $\det\mathbf{Q}=1$, es una rotación. Si $\det\mathbf{Q}=-1$, contiene una reflexión, pues según la parte 1, sección 14.2, un determinante negativo invierte la orientación.
+Una matriz ortogonal mueve, por tanto, el espacio de forma rígida, sin deformarlo. Si $\det\mathbf{Q}=1$, es una rotación. Si $\det\mathbf{Q}=-1$, contiene una reflexión, pues según Fundamentos 1, sección 14.2, un determinante negativo invierte la orientación.
 
 ⁠**Ejemplo numérico:** La rotación de la subsección anterior transforma $\mathbf{x}=(3,\,1)^{\top}$ en $\mathbf{Q}\mathbf{x}=(1{,}8-0{,}8;\ 2{,}4+0{,}6)^{\top}=(1,\,3)^{\top}$. El cuadrado de la longitud de ambos vectores es $10$. El determinante de la rotación es $0{,}36+0{,}64=1$. La matriz $\bigl(\begin{smallmatrix}0{,}6&0{,}8\\0{,}8&-0{,}6\end{smallmatrix}\bigr)$ también tiene columnas ortonormales, pero su determinante es $-0{,}36-0{,}64=-1$: refleja respecto a la recta en la dirección de $(2,\,1)^{\top}$, pues transforma $(2,\,1)^{\top}$ en sí mismo y $(-1,\,2)^{\top}$ en $(1,\,-2)^{\top}$.
 
@@ -207,14 +209,14 @@ Si $\mathbf{Q}\in\mathbb{R}^{n\times k}$ tiene columnas ortonormales y $k<n$, se
 :::
 
 :::beweis Matrices rectangulares
-Las dos primeras afirmaciones se deducen de [(1.1)](#gl-1-1) exactamente igual que en las matrices cuadradas. Para la tercera: la matriz $\mathbf{Q}^{\top}$ tiene $k$ filas y $n$ columnas. Según el teorema del rango de la parte 1, sección 13.5, su núcleo tiene dimensión $n-\operatorname{rango}\mathbf{Q}^{\top}\ge n-k\ge1$. Existe, por tanto, un vector $\mathbf{z}\ne\mathbf{0}$ con $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, y para él $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Así pues, $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
+Las dos primeras afirmaciones se deducen de [(1.1)](#gl-1-1) exactamente igual que en las matrices cuadradas. Para la tercera: la matriz $\mathbf{Q}^{\top}$ tiene $k$ filas y $n$ columnas. Según el teorema del rango de Fundamentos 1, sección 13.5, su núcleo tiene dimensión $n-\operatorname{rango}\mathbf{Q}^{\top}\ge n-k\ge1$. Existe, por tanto, un vector $\mathbf{z}\ne\mathbf{0}$ con $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, y para él $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Así pues, $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
 :::
 
 ⁠**Ejemplo numérico 1:** La matriz con la única columna $\mathbf{q}=(0{,}6;\ 0{,}8)^{\top}$ cumple $\mathbf{q}^{\top}\mathbf{q}=1$, pero
 
 $$\mathbf{q}\mathbf{q}^{\top}=\begin{pmatrix}0{,}36&0{,}48\\0{,}48&0{,}64\end{pmatrix}\ne\mathbf{I} .$$
 
-Transforma $(-0{,}8;\ 0{,}6)^{\top}$ en $\mathbf{0}$. El vector $\mathbf{x}=(3,\,1)^{\top}$ lo transforma en $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$. Es exactamente el extremo de la sombra de $\mathbf{x}$ de la parte 1, sección 5.5, pues $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
+Transforma $(-0{,}8;\ 0{,}6)^{\top}$ en $\mathbf{0}$. El vector $\mathbf{x}=(3,\,1)^{\top}$ lo transforma en $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$. Es exactamente el extremo de la sombra de $\mathbf{x}$ de Fundamentos 1, sección 5.5, pues $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
 
 ⁠**Ejemplo numérico 2:** Las columnas de $\mathbf{Q}=\Bigl(\begin{smallmatrix}1&0\\0&1\\0&0\end{smallmatrix}\Bigr)$ son $\mathbf{e}_1$ y $\mathbf{e}_2$ en $\mathbb{R}^3$. Se tiene $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}_2$, pero $\mathbf{Q}\mathbf{Q}^{\top}=\operatorname{diag}(1;\,1;\,0)$. Esta matriz conserva las dos primeras componentes y pone la tercera a cero.
 

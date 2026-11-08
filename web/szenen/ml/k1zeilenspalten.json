@@ -547,20 +547,26 @@
    "zs": {
     "de": "Zeilensicht",
     "en": "row view",
-    "es": "vista por filas",
-    "zh": "行视角"
+    "es": "visión por filas",
+    "zh": "行视角",
+    "fr": "vue par lignes",
+    "tr": "satır bakışı"
    },
    "z1": {
     "de": "Zeile 1 mal x:\n2·2 + 1·1 = 5",
     "en": "row 1 times x:\n2·2 + 1·1 = 5",
     "es": "fila 1 por x:\n2·2 + 1·1 = 5",
-    "zh": "第 1 行乘 x：\n2·2 + 1·1 = 5"
+    "zh": "第 1 行乘 x：\n2·2 + 1·1 = 5",
+    "fr": "ligne 1 fois x :\n2·2 + 1·1 = 5",
+    "tr": "satır 1 çarpı x:\n2·2 + 1·1 = 5"
    },
    "ss": {
     "de": "Spaltensicht",
     "en": "column view",
-    "es": "vista por columnas",
-    "zh": "列视角"
+    "es": "visión por columnas",
+    "zh": "列视角",
+    "fr": "vue par colonnes",
+    "tr": "sütun bakışı"
    }
   }
  }

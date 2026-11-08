@@ -1,7 +1,9 @@
 ---
 title: Kovarianz und Korrelation
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6241100
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15241100
 summary: Zwei Größen schwanken oft gemeinsam: Größere Wohnungen haben mehr Zimmer, an Sonnentagen wird mehr Rad gefahren.
 tags: Kovarianz, unkorreliert, Korrelationskoeffizient, empirische Kovarianz, empirische Korrelationskoeffizient, Zufallsprozess
 lang: de
@@ -131,9 +133,9 @@ Je $40$ Punkte $(x,y)$, waagrecht $x$, senkrecht $y$. (a) bis (d): Punktwolken m
 
 <span class="anker" id="stufe-10-4"></span>
 
-Die Rechenregeln der Kovarianz sind die eines Skalarprodukts aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 2.1. Sie ist symmetrisch und in jedem Argument linear: $\operatorname{Cov}(aX+bY,\,V)=a\,\operatorname{Cov}(X,V)+b\,\operatorname{Cov}(Y,V)$, eine direkte Folge der Linearität des Erwartungswerts. Und $\operatorname{Cov}(X,X)=\operatorname{Var}(X)\ge0$. Das legt eine geometrische Sprache nahe, in der Zufallsvariablen mit Erwartungswert $0$ wie Vektoren behandelt werden.
+Die Rechenregeln der Kovarianz sind die eines Skalarprodukts aus [Grundlagen 1, Abschnitt 2.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-1). Sie ist symmetrisch und in jedem Argument linear: $\operatorname{Cov}(aX+bY,\,V)=a\,\operatorname{Cov}(X,V)+b\,\operatorname{Cov}(Y,V)$, eine direkte Folge der Linearität des Erwartungswerts. Und $\operatorname{Cov}(X,X)=\operatorname{Var}(X)\ge0$. Das legt eine geometrische Sprache nahe, in der Zufallsvariablen mit Erwartungswert $0$ wie Vektoren behandelt werden.
 
-| Vektoren (Teil 1) | Zufallsvariablen mit Erwartungswert $0$ |
+| Vektoren (Grundlagen 1) | Zufallsvariablen mit Erwartungswert $0$ |
 |---|---|
 | Skalarprodukt $\mathbf{a}^{\top}\mathbf{b}$ | Kovarianz $\operatorname{Cov}(X,Y)=\mathbb{E}[XY]$ |
 | Länge $\lVert\mathbf{a}\rVert$ | Standardabweichung $\sigma_X$ |
@@ -142,7 +144,7 @@ Die Rechenregeln der Kovarianz sind die eines Skalarprodukts aus [Teil 1](/wiss
 | Cauchy-Schwarz $\vert \mathbf{a}^{\top}\mathbf{b}\vert \le\lVert\mathbf{a}\rVert\,\lVert\mathbf{b}\rVert$ | $\vert \operatorname{Cov}(X,Y)\vert \le\sigma_X\sigma_Y$, also $\vert \rho\vert \le1$ |
 | Pythagoras für senkrechte Vektoren | $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ für unkorrelierte |
 
-Für einen Datensatz wird das wörtlich. [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 5.4, hat den Korrelationskoeffizienten zweier Merkmale als Kosinus des Winkels zwischen ihren zentrierten Merkmalsvektoren eingeführt. Das ist genau $\rho$ für die empirische Verteilung: Für zwei Merkmalsvektoren $\mathbf{a}$ und $\mathbf{b}$ mit den zentrierten Vektoren $\tilde{\mathbf{a}}$ und $\tilde{\mathbf{b}}$ ist die Kovarianz der empirischen Verteilung $\tfrac1N\tilde{\mathbf{a}}^{\top}\tilde{\mathbf{b}}$, ein Skalarprodukt der zentrierten Vektoren, und die Standardabweichungen sind $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{a}}\rVert$ und $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{b}}\rVert$. Der Faktor $\tfrac1N$ kürzt sich im Quotienten heraus (Unterabschnitt [10.6](#stufe-10-6)).
+Für einen Datensatz wird das wörtlich. [Grundlagen 1, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-4), hat den Korrelationskoeffizienten zweier Merkmale als Kosinus des Winkels zwischen ihren zentrierten Merkmalsvektoren eingeführt. Das ist genau $\rho$ für die empirische Verteilung: Für zwei Merkmalsvektoren $\mathbf{a}$ und $\mathbf{b}$ mit den zentrierten Vektoren $\tilde{\mathbf{a}}$ und $\tilde{\mathbf{b}}$ ist die Kovarianz der empirischen Verteilung $\tfrac1N\tilde{\mathbf{a}}^{\top}\tilde{\mathbf{b}}$, ein Skalarprodukt der zentrierten Vektoren, und die Standardabweichungen sind $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{a}}\rVert$ und $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{b}}\rVert$. Der Faktor $\tfrac1N$ kürzt sich im Quotienten heraus (Unterabschnitt [10.6](#stufe-10-6)).
 
 ⁠**Rechenbeispiel:** Für die Rauschquellen mit $3$ und $4\,\mathrm{mV}$ aus Unterabschnitt [10.2](#stufe-10-2) sei nun $\rho=0{,}5$, etwa weil beide von derselben Versorgungsspannung gestört werden. Das entspricht zwei Vektoren der Längen $3$ und $4$ im Winkel von $60^\circ$. Die Summe hat die Varianz $9+16+2\cdot0{,}5\cdot3\cdot4=37$, also $\sigma\approx6{,}08\,\mathrm{mV}$, mehr als die $5\,\mathrm{mV}$ unkorrelierter Quellen.
 
@@ -190,7 +192,7 @@ $$\operatorname{corr}(\mathbf{a},\mathbf{b})=\frac{\operatorname{cov}(\mathbf{a}
 der __empirische Korrelationskoeffizient__.
 :::
 
-Das ist die Kovarianz der empirischen Verteilung; sie ist durch $N$ geteilt wie die Standardabweichung in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 4.4. Mit $\mathbf{b}=\mathbf{a}$ ist $\operatorname{cov}(\mathbf{a},\mathbf{a})=\operatorname{std}(\mathbf{a})^2$. Kleingeschrieben unterscheiden $\operatorname{cov}$ und $\operatorname{corr}$ die Zahlen eines Datensatzes von den Größen $\operatorname{Cov}$ und $\rho$ einer Verteilung; wie in Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7) hängen sie davon ab, welche Daten zufällig gezogen wurden.
+Das ist die Kovarianz der empirischen Verteilung; sie ist durch $N$ geteilt wie die Standardabweichung in [Grundlagen 1, Abschnitt 4.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-4). Mit $\mathbf{b}=\mathbf{a}$ ist $\operatorname{cov}(\mathbf{a},\mathbf{a})=\operatorname{std}(\mathbf{a})^2$. Kleingeschrieben unterscheiden $\operatorname{cov}$ und $\operatorname{corr}$ die Zahlen eines Datensatzes von den Größen $\operatorname{Cov}$ und $\rho$ einer Verteilung; wie in Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7) hängen sie davon ab, welche Daten zufällig gezogen wurden.
 
 ⁠**Rechenbeispiel:** Drei Datenpunkte $(a_i,b_i)$, nämlich $(1,2)$, $(2,1)$ und $(3,3)$, haben die Mittelwerte $\bar a=\bar b=2$ und die zentrierten Vektoren $\tilde{\mathbf{a}}=(-1,\,0,\,1)^{\top}$ und $\tilde{\mathbf{b}}=(0,\,-1,\,1)^{\top}$. Abb. [14](#abb-14) rechnet $\operatorname{cov}(\mathbf{a},\mathbf{b})=\tfrac13$ und $\operatorname{std}(\mathbf{a})^2=\operatorname{std}(\mathbf{b})^2=\tfrac23$, also $\operatorname{corr}(\mathbf{a},\mathbf{b})=\frac{1/3}{2/3}=0{,}5$.
 
@@ -271,7 +273,7 @@ Für welches $\rho$ ist $\operatorname{Var}(X-Y)$ am kleinsten, und welchen Wert
 :::aufgabe Aufgabe 31 ★★ Die Wohnungen
 <span class="anker" id="aufg-31"></span>
 
-Die vier Wohnungen aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) haben die Flächen $(60,\,40,\,90,\,70)$ und die Zimmerzahlen $(2,\,1,\,4,\,3)$.
+Die vier Wohnungen aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) haben die Flächen $(60,\,40,\,90,\,70)$ und die Zimmerzahlen $(2,\,1,\,4,\,3)$.
 
 <ol class="al">
 

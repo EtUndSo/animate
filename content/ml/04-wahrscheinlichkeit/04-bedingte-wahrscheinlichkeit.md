@@ -1,7 +1,9 @@
 ---
 title: Bedingte Wahrscheinlichkeit
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240400
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240400
 summary: Erfährt man etwas über den Ausgang eines Experiments, ändern sich die Wahrscheinlichkeiten.
 tags: gemeinsame Wahrscheinlichkeit, Randwahrscheinlichkeiten, Summenregel, bedingte Wahrscheinlichkeit, Verkettung, Zerlegung
 lang: de
@@ -59,7 +61,7 @@ $$P(A\mid B)=\frac{P(A\cap B)}{P(B)} \tag{3.2}$$
 die __bedingte Wahrscheinlichkeit__ von $A$ unter der Bedingung $B$, kurz „$A$ gegeben $B$“.
 :::
 
-Der Zähler ist der Teil von $A$, der in $B$ liegt, der Nenner der Inhalt von $B$. Die Division sorgt dafür, dass $B$ selbst die Wahrscheinlichkeit $1$ bekommt: $P(B\mid B)=1$. Als Funktion von $A$ erfüllt $P(\,\cdot\mid B)$ alle drei Axiome. Bedingte Wahrscheinlichkeiten sind also gewöhnliche Wahrscheinlichkeiten auf dem geschrumpften Ergebnisraum $B$, und alle Rechenregeln aus Abschnitt [2](wahrscheinlichkeit.html#stufe-2) gelten für sie, etwa $P(A^{\mathrm c}\mid B)=1-P(A\mid B)$.
+Der Zähler ist der Teil von $A$, der in $B$ liegt, der Nenner der Inhalt von $B$. Die Division sorgt dafür, dass $B$ selbst die Wahrscheinlichkeit $1$ bekommt: $P(B\mid B)=1$. Als Funktion von $A$ erfüllt $P(\,\cdot\mid B)$ alle drei Axiome. Bedingte Wahrscheinlichkeiten sind also gewöhnliche Wahrscheinlichkeiten auf dem geschrumpften Ergebnisraum $B$, und alle Rechenregeln aus Abschnitt [2](wahrscheinlichkeit-2.html#stufe-2) gelten für sie, etwa $P(A^{\mathrm c}\mid B)=1-P(A\mid B)$.
 
 ⁠**Rechenbeispiel 1:** Aus Tabelle [1](#tab-1) ist $P(\text{Fahrrad}\mid\text{Sonne})=0{,}3/0{,}4=0{,}75$ und $P(\text{Fahrrad}\mid\text{Regen})=0{,}1/0{,}6=1/6\approx0{,}167$. Ohne Information über das Wetter ist $P(\text{Fahrrad})=0{,}4$. Die Information „Sonne“ hebt die Wahrscheinlichkeit also deutlich, die Information „Regen“ senkt sie.
 
@@ -104,7 +106,7 @@ Die Verkettung für drei Entnahmen ohne Zurücklegen: Jeder Faktor ist der Antei
 :::
 
 :::warnung Zwei Kettenregeln
-Manche Texte nennen die Verkettung [(3.4)](#gl-3-4) „Kettenregel der Wahrscheinlichkeit“. Mit der Kettenregel der Ableitung aus [Teil 3](/wissen/informatik/machine-learning/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html), Abschnitt 2.2, hat sie nichts zu tun. Gemeinsam ist beiden nur, dass ein Ganzes als Produkt von Schritten geschrieben wird.
+Manche Texte nennen die Verkettung [(3.4)](#gl-3-4) „Kettenregel der Wahrscheinlichkeit“. Mit der Kettenregel der Ableitung aus [Grundlagen 3, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-kettenregel.html#stufe-2-2), hat sie nichts zu tun. Gemeinsam ist beiden nur, dass ein Ganzes als Produkt von Schritten geschrieben wird.
 :::
 
 ⁠**Kurz gesagt:** Die gemeinsame Wahrscheinlichkeit ist bedingte Wahrscheinlichkeit mal Wahrscheinlichkeit der Bedingung; bei mehreren Ereignissen multipliziert man Schritt für Schritt.

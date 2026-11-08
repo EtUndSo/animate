@@ -76,10 +76,10 @@
      "axis_width": 3,
      "x_ticks": "",
      "y_ticks": "",
-     "x_tick_marks": true,
-     "y_tick_marks": true,
-     "x_numbers": true,
-     "y_numbers": true,
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
      "x_log": false,
      "y_log": false,
      "frame": false,
@@ -218,10 +218,10 @@
      "axis_width": 3,
      "x_ticks": "",
      "y_ticks": "",
-     "x_tick_marks": true,
-     "y_tick_marks": true,
-     "x_numbers": true,
-     "y_numbers": true,
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
      "x_log": false,
      "y_log": false,
      "frame": false,
@@ -360,10 +360,10 @@
      "axis_width": 3,
      "x_ticks": "",
      "y_ticks": "",
-     "x_tick_marks": true,
-     "y_tick_marks": true,
-     "x_numbers": true,
-     "y_numbers": true,
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
      "x_log": false,
      "y_log": false,
      "frame": false,
@@ -505,19 +505,25 @@
     "de": "vorher",
     "en": "before",
     "es": "antes",
-    "zh": "变换前"
+    "zh": "变换前",
+    "fr": "avant",
+    "tr": "önce"
    },
    "t1": {
     "de": "erst drehen,\ndann strecken",
     "en": "rotate first,\nthen stretch",
     "es": "primero girar,\nluego estirar",
-    "zh": "先旋转，\n再拉伸"
+    "zh": "先旋转，\n再拉伸",
+    "fr": "d’abord tourner,\npuis étirer",
+    "tr": "önce döndür,\nsonra ger"
    },
    "t2": {
     "de": "erst strecken,\ndann drehen",
     "en": "stretch first,\nthen rotate",
     "es": "primero estirar,\nluego girar",
-    "zh": "先拉伸，\n再旋转"
+    "zh": "先拉伸，\n再旋转",
+    "fr": "d’abord étirer,\npuis tourner",
+    "tr": "önce ger,\nsonra döndür"
    }
   }
  }

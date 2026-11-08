@@ -1,7 +1,9 @@
 ---
 title: Rechengraphen
-pfad: Informatik / Machine Learning / Ableitung, Gradient und Kettenregel
-order: 6231000
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
+knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+nachschlagen: ja
+order: 15231000
 summary: Lange Formeln wertet ein Rechner Schritt für Schritt aus, und jeder Schritt ist eine einfache Operation mit bekannter Ableitung.
 tags: Rechengraph, Vorwärtsrechnung, lokale Ableitung
 lang: de

@@ -308,13 +308,17 @@
     "de": "als Punkt",
     "en": "as a point",
     "es": "como punto",
-    "zh": "看作点"
+    "zh": "看作点",
+    "fr": "comme point",
+    "tr": "nokta olarak"
    },
    "pfeil": {
     "de": "als Pfeil",
     "en": "as an arrow",
     "es": "como flecha",
-    "zh": "看作箭头"
+    "zh": "看作箭头",
+    "fr": "comme flèche",
+    "tr": "ok olarak"
    }
   }
  }

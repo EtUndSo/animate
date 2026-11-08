@@ -1,7 +1,9 @@
 ---
 title: Unabhängigkeit, Basis und Rang
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6211400
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15211400
 summary: Manche Vektoren einer Liste bringen nichts Neues, weil sie sich aus den anderen zusammensetzen lassen.
 tags: Spann, linear unabhängig, linear abhängig, Basis, Dimension, Standardbasis, Rang, vollen Rang
 lang: de

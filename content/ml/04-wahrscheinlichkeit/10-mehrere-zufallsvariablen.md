@@ -1,7 +1,9 @@
 ---
 title: Mehrere Zufallsvariablen
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6241000
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15241000
 summary: Ein Datenpunkt besteht aus mehreren Zahlen, die vom selben Zufall abhängen: Fläche und Miete derselben Wohnung, zwei Abtastwerte desselben Signals.
 tags: Doppelintegral, gemeinsame Wahrscheinlichkeitsfunktion, gemeinsame Dichte, Randverteilung, marginalisiert, bedingte Verteilung, bedingte Dichte, bedingter Erwartungswert
 lang: de

@@ -1,7 +1,9 @@
 ---
 title: Die Ableitung
-pfad: Informatik / Machine Learning / Ableitung, Gradient und Kettenregel
-order: 6230200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
+knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+nachschlagen: ja
+order: 15230200
 summary: Die Ableitung misst, wie stark eine Funktion einer Variablen auf eine kleine Änderung ihrer Eingabe reagiert.
 tags: Sekante, Differenzenquotient, Grenzwert, differenzierbar, Ableitung, Tangente, Knick, lineare Näherung
 lang: de

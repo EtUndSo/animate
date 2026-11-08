@@ -1,7 +1,9 @@
 ---
 title: Maximum Likelihood und KL-Divergenz
-pfad: Informatik / Machine Learning / Statistik und Information
-order: 6251200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
+knoten: Grundlagen 5: Statistik und Information
+nachschlagen: ja
+order: 15251200
 summary: Die Maximum-Likelihood-Schätzung aus Abschnitt 5 und die KL-Divergenz aus Abschnitt 9 beantworten verschiedene Fragen: die nach dem Parameter, der die Daten am wahrscheinlichsten macht, und die nach dem Mehraufwand durch eine falsche Verteilung.
 tags: negative Log-Likelihood
 lang: de
@@ -17,14 +19,14 @@ Die Maximum-Likelihood-Schätzung aus Abschnitt [5](die-maximum-likelihood-scha
 
 <span class="anker" id="stufe-11-1"></span>
 
-Nach [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 7.7, gibt die empirische Verteilung eines Datensatzes jedem der $N$ Datenpunkte die Wahrscheinlichkeit $1/N$. Fallen die Daten in $K$ Kategorien und kommt die Kategorie $k$ genau $N_k$-mal vor, so hat die empirische Verteilung die Wahrscheinlichkeiten
+Nach [Grundlagen 4, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-7), gibt die empirische Verteilung eines Datensatzes jedem der $N$ Datenpunkte die Wahrscheinlichkeit $1/N$. Fallen die Daten in $K$ Kategorien und kommt die Kategorie $k$ genau $N_k$-mal vor, so hat die empirische Verteilung die Wahrscheinlichkeiten
 
 <span class="anker" id="gl-11-1"></span>
 $$\hat p_k=\frac{N_k}N,\qquad\hat{\mathbf{p}}=(\hat p_1,\dots,\hat p_K)^{\top} . \tag{11.1}$$
 
 Sie besteht aus den relativen Häufigkeiten. Das Modell gebe der Kategorie $k$ die Wahrscheinlichkeit $q_k(\boldsymbol{\theta})$; zusammen bilden sie die Verteilung $\mathbf{q}(\boldsymbol{\theta})$.
 
-⁠**Rechenbeispiel:** Für die zehn Würfe der verbogenen Münze mit den Kategorien Kopf und Zahl ist $\hat{\mathbf{p}}=(0{,}7;\ 0{,}3)^{\top}$ und im Bernoulli-Modell $\mathbf{q}(\theta)=(\theta,\ 1-\theta)^{\top}$. Von $20$ Bauteilen, die wie im Beispiel der kategorischen Verteilung in [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 8.2, rot, grün oder blau sind, seien $12$ rot, $5$ grün und $3$ blau. Ihre empirische Verteilung ist $\hat{\mathbf{p}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$.
+⁠**Rechenbeispiel:** Für die zehn Würfe der verbogenen Münze mit den Kategorien Kopf und Zahl ist $\hat{\mathbf{p}}=(0{,}7;\ 0{,}3)^{\top}$ und im Bernoulli-Modell $\mathbf{q}(\theta)=(\theta,\ 1-\theta)^{\top}$. Von $20$ Bauteilen, die wie im Beispiel der kategorischen Verteilung in [Grundlagen 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), rot, grün oder blau sind, seien $12$ rot, $5$ grün und $3$ blau. Ihre empirische Verteilung ist $\hat{\mathbf{p}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$.
 
 ⁠**Kurz gesagt:** Die empirische Verteilung eines Datensatzes mit $K$ Kategorien besteht aus den relativen Häufigkeiten $N_k/N$.
 
@@ -86,14 +88,14 @@ $$\hat{\boldsymbol{\theta}}_{\mathrm{ML}}=\operatorname*{arg\,min}_{\boldsymbol{
 ⁠**Kurz gesagt:** Maximum Likelihood wählt das Modell, das von der empirischen Verteilung der Daten die kleinste KL-Divergenz hat.
 
 :::hintergrund Warum beide Fragen dieselbe Antwort haben
-Die Zerlegung [(11.3)](#gl-11-3) trennt die mittlere Überraschung des Modells über die Daten in zwei Teile. $H(\hat{\mathbf{p}})$ ist die Überraschung, die bleibt, selbst wenn das Modell die Häufigkeiten in den Daten genau trifft; sie ist eine Eigenschaft der Daten, und keine Wahl des Parameters kann sie verkleinern. $D_{\mathrm{KL}}(\hat{\mathbf{p}}\,\|\,\mathbf{q}(\boldsymbol{\theta}))$ ist die zusätzliche Überraschung, weil das Modell die Häufigkeiten anders erwartet, als sie sind; nur sie hängt vom Parameter ab. Dieselbe Trennung in einen unbeeinflussbaren und einen beeinflussbaren Teil hat [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 3.4, bei der besten Näherungslösung gesehen: Dort zerfiel das Fehlerquadrat nach Pythagoras in das senkrechte Residuum und einen Teil im Spaltenraum. Hier tritt an die Stelle von Pythagoras die Zerlegung der Kreuzentropie, und an die Stelle des rechten Winkels die Gibbs-Ungleichung, die den beeinflussbaren Teil nie negativ werden lässt.
+Die Zerlegung [(11.3)](#gl-11-3) trennt die mittlere Überraschung des Modells über die Daten in zwei Teile. $H(\hat{\mathbf{p}})$ ist die Überraschung, die bleibt, selbst wenn das Modell die Häufigkeiten in den Daten genau trifft; sie ist eine Eigenschaft der Daten, und keine Wahl des Parameters kann sie verkleinern. $D_{\mathrm{KL}}(\hat{\mathbf{p}}\,\|\,\mathbf{q}(\boldsymbol{\theta}))$ ist die zusätzliche Überraschung, weil das Modell die Häufigkeiten anders erwartet, als sie sind; nur sie hängt vom Parameter ab. Dieselbe Trennung in einen unbeeinflussbaren und einen beeinflussbaren Teil hat [Grundlagen 2, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-4), bei der besten Näherungslösung gesehen: Dort zerfiel das Fehlerquadrat nach Pythagoras in das senkrechte Residuum und einen Teil im Spaltenraum. Hier tritt an die Stelle von Pythagoras die Zerlegung der Kreuzentropie, und an die Stelle des rechten Winkels die Gibbs-Ungleichung, die den beeinflussbaren Teil nie negativ werden lässt.
 :::
 
 ### Die kategorische Verteilung
 
 <span class="anker" id="stufe-11-4"></span>
 
-Für die kategorische Verteilung aus [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 8.2, mit freien Wahrscheinlichkeiten $\theta_1,\dots,\theta_K$ ist der Maximum-Likelihood-Schätzer mit Ableitungen mühsam zu finden, weil die Wahrscheinlichkeiten nicht unabhängig voneinander sind: Sie müssen sich zu $1$ summieren. Mit dem Satz des vorigen Unterabschnitts braucht man keine Ableitung.
+Für die kategorische Verteilung aus [Grundlagen 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), mit freien Wahrscheinlichkeiten $\theta_1,\dots,\theta_K$ ist der Maximum-Likelihood-Schätzer mit Ableitungen mühsam zu finden, weil die Wahrscheinlichkeiten nicht unabhängig voneinander sind: Sie müssen sich zu $1$ summieren. Mit dem Satz des vorigen Unterabschnitts braucht man keine Ableitung.
 
 :::satz Satz 11.3 (Maximum Likelihood für die kategorische Verteilung)
 <span class="anker" id="satz-11-3"></span>

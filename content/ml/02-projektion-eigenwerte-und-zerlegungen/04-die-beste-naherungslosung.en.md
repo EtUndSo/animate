@@ -1,7 +1,9 @@
 ---
 title: The best approximate solution
-pfad: Computer Science / Machine Learning / Projection, Eigenvalues and Decompositions
-order: 6220400
+pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
+knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+nachschlagen: ja
+order: 15220400
 summary: A system of equations with more equations than unknowns usually has no solution.
 tags: residual, best approximate solution, normal equations, least-squares line
 lang: en
@@ -17,7 +19,7 @@ A system of equations with more equations than unknowns usually has no solution.
 
 <span class="anker" id="stufe-3-1"></span>
 
-In Part 1, Section 12.5, two weights, $w_1$ for the floor area and $w_2$ for the number of rooms, were supposed to hit the prices of apartments exactly. With all four apartments, this is the system $\mathbf{A}\mathbf{w}=\mathbf{y}$ with
+In Foundations 1, Section 12.5, two weights, $w_1$ for the floor area and $w_2$ for the number of rooms, were supposed to hit the prices of apartments exactly. With all four apartments, this is the system $\mathbf{A}\mathbf{w}=\mathbf{y}$ with
 
 $$\mathbf{A}=\begin{pmatrix}60&2\\40&1\\90&4\\70&3\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}200\\130\\290\\240\end{pmatrix}\ \text{thousand euros}.$$
 
@@ -34,9 +36,9 @@ $$\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x} \tag{3.1}$$
 is called the __residual__ for $\mathbf{x}$.
 :::
 
-The word comes from the Latin word for “remainder”. The residual is zero exactly when $\mathbf{x}$ solves the system. It is the error vector from Part 1, Section 3.5, with the opposite sign; its length is the same.
+The word comes from the Latin word for “remainder”. The residual is zero exactly when $\mathbf{x}$ solves the system. It is the error vector from Foundations 1, Section 3.5, with the opposite sign; its length is the same.
 
-⁠**Worked example:** With the weights $\mathbf{w}=(3,\,10)^{\top}$ from Part 1, $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$, and the residual is $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$ with length $20$. Three prices are hit exactly, one is missed by $20$ thousand euros.
+⁠**Worked example:** With the weights $\mathbf{w}=(3,\,10)^{\top}$ from Foundations 1, the product is $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$, and the residual is $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$ with length $20$. Three prices are hit exactly, one is missed by $20$ thousand euros.
 
 ⁠**In short:** The residual $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ is the remainder that a vector $\mathbf{x}$ leaves over when it is used to solve $\mathbf{A}\mathbf{x}=\mathbf{y}$.
 
@@ -46,7 +48,7 @@ The word comes from the Latin word for “remainder”. The residual is zero exa
 
 If the residual cannot become zero, it should at least be as small as possible. The measure for this is its Euclidean length.
 
-You can picture the task geometrically. As $\mathbf{x}$ runs through all vectors, $\mathbf{A}\mathbf{x}$ runs through the column space of $\mathbf{A}$, by Part 1, Section 7.4. The distance $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ is the distance of the point $\mathbf{y}$ from the point $\mathbf{A}\mathbf{x}$ in the column space. So we are looking for the point of the column space that is closest to $\mathbf{y}$ (Fig. [6](#abb-6)). In the previous section the column space was a line; now it can be a plane or a span of higher dimension.
+You can picture the task geometrically. As $\mathbf{x}$ runs through all vectors, $\mathbf{A}\mathbf{x}$ runs through the column space of $\mathbf{A}$, by Foundations 1, Section 7.4. The distance $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ is the distance of the point $\mathbf{y}$ from the point $\mathbf{A}\mathbf{x}$ in the column space. So we are looking for the point of the column space that is closest to $\mathbf{y}$ (Fig. [6](#abb-6)). In the previous section the column space was a line; now it can be a plane or a span of higher dimension.
 
 :::definition Definition 3.2 (Best approximate solution)
 <span class="anker" id="satz-3-2"></span>
@@ -63,7 +65,7 @@ The length is smallest where its square is smallest, and the square is the sum o
 Projection onto a plane in $\mathbb{R}^3$. The columns $\mathbf{a}_1=(1,0,1)^{\top}$ and $\mathbf{a}_2=(0,1,1)^{\top}$ span the plane $x_3=x_1+x_2$ (blue). The point $\mathbf{y}=(1,1,1)^{\top}$ does not lie in it. The closest point of the plane is $\hat{\mathbf{y}}=(\tfrac23,\tfrac23,\tfrac43)^{\top}$; the residual $\mathbf{r}=\mathbf{y}-\hat{\mathbf{y}}=(\tfrac13,\tfrac13,-\tfrac13)^{\top}$ is perpendicular to the plane.
 :::
 
-⁠**Worked example:** The matrix $\mathbf{H}$ from Part 1, Section 7.4, has the columns $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ and $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Its column space is the plane of all vectors whose third component is the sum of the first two. The vector $\mathbf{y}=(1,\,1,\,1)^{\top}$ does not lie in it, so the system $\mathbf{H}\mathbf{x}=\mathbf{y}$ has no solution. With $\mathbf{x}=(1,\,0)^{\top}$ the residual is $(0,\,1,\,0)^{\top}$ with length $1$; with $\mathbf{x}=(1,\,1)^{\top}$ it is $(0,\,0,\,-1)^{\top}$, also with length $1$. Whether we can do better is answered in the next subsection.
+⁠**Worked example:** The matrix $\mathbf{H}$ from Foundations 1, Section 7.4, has the columns $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ and $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Its column space is the plane of all vectors whose third component is the sum of the first two. The vector $\mathbf{y}=(1,\,1,\,1)^{\top}$ does not lie in it, so the system $\mathbf{H}\mathbf{x}=\mathbf{y}$ has no solution. With $\mathbf{x}=(1,\,0)^{\top}$ the residual is $(0,\,1,\,0)^{\top}$ with length $1$; with $\mathbf{x}=(1,\,1)^{\top}$ it is $(0,\,0,\,-1)^{\top}$, also with length $1$. Whether we can do better is answered in the next subsection.
 
 ⁠**In short:** The best approximate solution makes the residual as short as possible; geometrically, it looks for the point of the column space that is closest to $\mathbf{y}$.
 
@@ -90,7 +92,7 @@ The __normal equations__ of the system $\mathbf{A}\mathbf{x}=\mathbf{y}$ with $\
 $$\mathbf{A}^{\top}\mathbf{A}\,\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y} . \tag{3.3}$$
 :::
 
-The word “normal” here means “perpendicular”, as in the normal vector of a plane: the equations require the residual to be perpendicular to the column space. The matrix $\mathbf{A}^{\top}\mathbf{A}$ is the Gram matrix of the columns from Part 1, Section 10.4; it is square, with as many rows as there are unknowns. A large, unsolvable system with $m$ equations becomes a small one with $n$ equations. For a single column $\mathbf{a}$, it reads $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, the formula from the previous section.
+The word “normal” here means “perpendicular”, as in the normal vector of a plane: the equations require the residual to be perpendicular to the column space. The matrix $\mathbf{A}^{\top}\mathbf{A}$ is the Gram matrix of the columns from Foundations 1, Section 10.4; it is square, with as many rows as there are unknowns. A large, unsolvable system with $m$ equations becomes a small one with $n$ equations. For a single column $\mathbf{a}$, it reads $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, the formula from the previous section.
 
 ⁠**Worked example:** For $\mathbf{H}$ and $\mathbf{y}=(1,\,1,\,1)^{\top}$,
 
@@ -153,10 +155,10 @@ $$\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}
 :::
 
 :::beweis Invertibility
-By Part 1, Section 13.5, the square matrix $\mathbf{A}^{\top}\mathbf{A}$ is invertible if and only if its null space contains only the zero vector. Let $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Then also $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, that is, $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ and $\mathbf{A}\mathbf{z}=\mathbf{0}$. Conversely, $\mathbf{A}\mathbf{z}=\mathbf{0}$ immediately gives $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. So the two null spaces are equal. The null space of $\mathbf{A}$ contains only the zero vector if and only if the columns of $\mathbf{A}$ are linearly independent.
+By Foundations 1, Section 13.5, the square matrix $\mathbf{A}^{\top}\mathbf{A}$ is invertible if and only if its null space contains only the zero vector. Let $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Then also $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, that is, $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ and $\mathbf{A}\mathbf{z}=\mathbf{0}$. Conversely, $\mathbf{A}\mathbf{z}=\mathbf{0}$ immediately gives $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. So the two null spaces are equal. The null space of $\mathbf{A}$ contains only the zero vector if and only if the columns of $\mathbf{A}$ are linearly independent.
 :::
 
-If the columns are linearly dependent, there are infinitely many best approximate solutions. You may add any vector from the null space of $\mathbf{A}$ to one of them without changing $\mathbf{A}\hat{\mathbf{x}}$. The closest point $\hat{\mathbf{y}}$ is nevertheless unique, as the theorem in the previous subsection shows. This fits Part 1, Section 13.6: dependent features make the weights ambiguous, but not the predictions.
+If the columns are linearly dependent, there are infinitely many best approximate solutions. You may add any vector from the null space of $\mathbf{A}$ to one of them without changing $\mathbf{A}\hat{\mathbf{x}}$. The closest point $\hat{\mathbf{y}}$ is nevertheless unique, as the theorem in the previous subsection shows. This fits Foundations 1, Section 13.6: dependent features make the weights ambiguous, but not the predictions.
 
 ⁠**Worked example 1:** The columns of $\mathbf{H}$ are linearly independent, and $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ has the inverse $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$. With [(3.5)](#gl-3-5), $\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$, as above.
 
@@ -170,7 +172,7 @@ If the columns are linearly dependent, there are infinitely many best approximat
 
 Now the theory is complete, and it can be applied to an everyday task. Three data points $(t,\,y)=(0,\,1)$, $(1,\,2)$ and $(2,\,4)$ are to be described by a line $y=x_1+x_2\,t$. The three points do not lie on a common line. We are looking for the intercept $x_1$ and the slope $x_2$ that fit best.
 
-Every data point gives an equation $x_1+x_2\,t_i=y_i$. With the column of ones for the intercept, as in Part 1, Section 8.5, this is the system
+Every data point gives an equation $x_1+x_2\,t_i=y_i$. With the column of ones for the intercept, as in Foundations 1, Section 8.5, this is the system
 
 $$\mathbf{A}\mathbf{x}=\mathbf{y}\qquad\text{with}\qquad \mathbf{A}=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}1\\2\\4\end{pmatrix}.$$
 
@@ -195,10 +197,10 @@ Two entries of the normal equations of the least-squares line as sums over the t
 ⁠**In short:** A least-squares line is the best approximate solution of the system that requires all data points to lie on the line; with a column of ones, its residuals add up to zero.
 
 :::hintergrund A filter that reproduces a signal as well as possible
-The same calculation is used to design digital filters. A filter with the coefficients $h_0,\dots,h_{K-1}$ is supposed to reproduce a desired signal $d[n]$ as well as possible from an input signal $x[n]$, with the output $\sum_kh_k\,x[n-k]$. For every time step $n$ this is one equation for the $K$ unknowns $h_k$, so for many time steps it is an overdetermined system $\mathbf{X}\mathbf h=\mathbf d$. Row $n$ of $\mathbf{X}$ contains $x[n],x[n-1],\dots,x[n-K+1]$. In the normal equations $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$, the entry $(k,l)$ of $\mathbf{X}^{\top}\mathbf{X}$ is the sum $\sum_nx[n-k]\,x[n-l]$, which, apart from edge effects at the beginning and end of the signal, is the autocorrelation of $x$ at the lag $l-k$. The vector $\mathbf{X}^{\top}\mathbf d$ contains the cross-correlation of $d$ and $x$. These are exactly the dot products of shifted signals from Part 1, Section 2.4. By [(3.3)](#gl-3-3), the residual $d[n]-\sum_kh_k\,x[n-k]$ of the best filter is perpendicular to every shifted input signal: what the filter cannot reproduce has nothing in common with any of the signals from which it assembles its output.
+The same calculation is used to design digital filters. A filter with the coefficients $h_0,\dots,h_{K-1}$ is supposed to reproduce a desired signal $d[n]$ as well as possible from an input signal $x[n]$, with the output $\sum_kh_k\,x[n-k]$. For every time step $n$ this is one equation for the $K$ unknowns $h_k$, so for many time steps it is an overdetermined system $\mathbf{X}\mathbf h=\mathbf d$. Row $n$ of $\mathbf{X}$ contains $x[n],x[n-1],\dots,x[n-K+1]$. In the normal equations $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$, the entry $(k,l)$ of $\mathbf{X}^{\top}\mathbf{X}$ is the sum $\sum_nx[n-k]\,x[n-l]$, which, apart from edge effects at the beginning and end of the signal, is the autocorrelation of $x$ at the lag $l-k$. The vector $\mathbf{X}^{\top}\mathbf d$ contains the cross-correlation of $d$ and $x$. These are exactly the dot products of shifted signals from Foundations 1, Section 2.4. By [(3.3)](#gl-3-3), the residual $d[n]-\sum_kh_k\,x[n-k]$ of the best filter is perpendicular to every shifted input signal: what the filter cannot reproduce has nothing in common with any of the signals from which it assembles its output.
 :::
 
-### The apartments: what Part 1 left open
+### The apartments: what Foundations 1 left open
 
 <span class="anker" id="stufe-3-7"></span>
 
@@ -214,7 +216,7 @@ Fig. [10](#abb-10) works out two of the entries.
 Two entries of the normal equations of the apartments as dot products: $\mathbf{a}_1=(60,40,90,70)^{\top}$ is the floor-area column, $\mathbf{a}_2=(2,1,4,3)^{\top}$ the rooms column, $\mathbf{y}=(200,130,290,240)^{\top}$ the price vector.
 :::
 
-The two columns are linearly independent; the determinant is $18\,200\cdot30-730^2=13\,100$. With the inverse from Part 1, Section 11.3,
+The two columns are linearly independent; the determinant is $18\,200\cdot30-730^2=13\,100$. With the inverse from Foundations 1, Section 11.3,
 
 $$\hat{\mathbf{w}}=\frac1{13\,100}\begin{pmatrix}30&-730\\-730&18\,200\end{pmatrix}\begin{pmatrix}60\,100\\2\,410\end{pmatrix}=\frac1{13\,100}\begin{pmatrix}43\,700\\-11\,000\end{pmatrix}=\begin{pmatrix}437/131\\-110/131\end{pmatrix}\approx\begin{pmatrix}3.336\\-0.840\end{pmatrix}.$$
 
@@ -222,12 +224,12 @@ The estimated prices are $\mathbf{A}\hat{\mathbf{w}}\approx(198.47,\ 132.60,\ 29
 
 $$\mathbf{r}=\mathbf{y}-\mathbf{A}\hat{\mathbf{w}}=\frac{20}{131}\,(10,\,-17,\,-45,\,59)^{\top}\approx(1.53,\ -2.60,\ -6.87,\ 9.01)^{\top}$$
 
-with length $\lVert\mathbf{r}\rVert\approx11.72$. The weights $(3,\,10)^{\top}$ from Part 1 hit three prices exactly but left a residual of length $20$. The best approximate solution hits no price exactly, but overall it is off by much less. Check: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
+with length $\lVert\mathbf{r}\rVert\approx11.72$. The weights $(3,\,10)^{\top}$ from Foundations 1 hit three prices exactly but left a residual of length $20$. The best approximate solution hits no price exactly, but overall it is off by much less. Check: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
 
 ⁠**In short:** The best approximate solution for the apartments is the weight vector $\hat{\mathbf{w}}\approx(3.336,\ -0.840)^{\top}$; with length $11.72$, its residual is much shorter than any residual that hits three prices exactly.
 
 :::hintergrund Why the weight of the rooms is negative
-A negative weight for the number of rooms looks wrong at first: more rooms should not lower the price. The calculation is nevertheless correct, and the reason lies in the data. In these four apartments, floor area and number of rooms grow together: the larger the apartment, the more rooms it has. The two columns of $\mathbf{A}$ therefore point in almost the same direction; by Part 1, Section 5.2, the cosine of their angle is $730/\sqrt{18\,200\cdot30}\approx0.988$, so the angle is only about $8.9^\circ$. The best combination takes a lot of the floor-area column and subtracts a little of the rooms column again in order to compensate for the deviations of the apartments from the common ratio. For the same floor area, more rooms here mean smaller rooms, and that can actually lower a price; but four apartments cannot show whether this is true. As in Part 1, Section 13.6: when features carry almost the same information, the individual weights say little, but the predictions say a lot.
+A negative weight for the number of rooms looks wrong at first: more rooms should not lower the price. The calculation is nevertheless correct, and the reason lies in the data. In these four apartments, floor area and number of rooms grow together: the larger the apartment, the more rooms it has. The two columns of $\mathbf{A}$ therefore point in almost the same direction; by Foundations 1, Section 5.2, the cosine of their angle is $730/\sqrt{18\,200\cdot30}\approx0.988$, so the angle is only about $8.9^\circ$. The best combination takes a lot of the floor-area column and subtracts a little of the rooms column again in order to compensate for the deviations of the apartments from the common ratio. For the same floor area, more rooms here mean smaller rooms, and that can actually lower a price; but four apartments cannot show whether this is true. As in Foundations 1, Section 13.6: when features carry almost the same information, the individual weights say little, but the predictions say a lot.
 :::
 
 :::aufgabe Exercise 7 ★ Normal equations by hand

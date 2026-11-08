@@ -1,7 +1,9 @@
 ---
 title: Vektoren: Daten als Zahlenlisten
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210200
 summary: Ein Rechner kann nur mit Zahlen umgehen.
 tags: Index, Summenzeichen, Laufindex, Doppelsumme, Merkmal, Beispiel, Datensatz, Vektor
 lang: de

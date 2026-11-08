@@ -1,7 +1,9 @@
 ---
 title: Automatische Differentiation
-pfad: Informatik / Machine Learning / Ableitung, Gradient und Kettenregel
-order: 6231100
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
+knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+nachschlagen: ja
+order: 15231100
 summary: Mit dem Rechengraphen lassen sich Ableitungen mechanisch berechnen, ohne Formeln umzuformen und genau bis auf die Rundung der Grundoperationen.
 tags: Automatische Differentiation, Vorwärtsmodus, Tangentenwert, Adjungierte, Rückwärtsmodus
 lang: de
@@ -207,11 +209,11 @@ Der Unterschied der beiden Modi lässt sich auch mit Matrizen beschreiben. Eine 
 
 $$\mathbf{J}=\mathbf{J}_L\,\mathbf{J}_{L-1}\cdots\mathbf{J}_1 ,$$
 
-wobei $\mathbf{J}_L$ eine Zeile ist, weil die letzte Stufe nur einen Ausgang hat. Das Produkt ist dasselbe, wie man es auch klammert; nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 9.3, ist der Aufwand aber sehr verschieden. Der Rückwärtsmodus klammert von links: $\bigl((\mathbf{J}_L\mathbf{J}_{L-1})\,\mathbf{J}_{L-2}\bigr)\cdots$. Jeder Schritt multipliziert eine Zeile mit einer Matrix und ergibt wieder eine Zeile, die transponierte Adjungierte der jeweiligen Stufe. Der Vorwärtsmodus klammert von rechts: $\mathbf{J}_L\bigl(\cdots(\mathbf{J}_2\,(\mathbf{J}_1\dot{\mathbf{x}}))\bigr)$. Für einen einzelnen Vektor $\dot{\mathbf{x}}$ ist auch das billig; für den ganzen Gradienten braucht er aber $n$ solche Vektoren, und das ist so teuer, als würde man die Matrizen $\mathbf{J}_2\mathbf{J}_1$, $\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1,\dots$ vollständig ausmultiplizieren.
+wobei $\mathbf{J}_L$ eine Zeile ist, weil die letzte Stufe nur einen Ausgang hat. Das Produkt ist dasselbe, wie man es auch klammert; nach [Grundlagen 1, Abschnitt 9.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-3), ist der Aufwand aber sehr verschieden. Der Rückwärtsmodus klammert von links: $\bigl((\mathbf{J}_L\mathbf{J}_{L-1})\,\mathbf{J}_{L-2}\bigr)\cdots$. Jeder Schritt multipliziert eine Zeile mit einer Matrix und ergibt wieder eine Zeile, die transponierte Adjungierte der jeweiligen Stufe. Der Vorwärtsmodus klammert von rechts: $\mathbf{J}_L\bigl(\cdots(\mathbf{J}_2\,(\mathbf{J}_1\dot{\mathbf{x}}))\bigr)$. Für einen einzelnen Vektor $\dot{\mathbf{x}}$ ist auch das billig; für den ganzen Gradienten braucht er aber $n$ solche Vektoren, und das ist so teuer, als würde man die Matrizen $\mathbf{J}_2\mathbf{J}_1$, $\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1,\dots$ vollständig ausmultiplizieren.
 
 Ein zweiter Punkt kommt hinzu: Man bildet die Jacobi-Matrizen nie. Jeder Rückwärtsschritt berechnet direkt das Produkt aus Adjungierter und Jacobi-Matrix, mit den Regeln der Grundoperationen. Für ein Matrix-Vektor-Produkt $\mathbf{y}=\mathbf{A}\mathbf{x}$ ist das nach [(7.6)](ableiten-nach-vektoren-und-matrizen.html#gl-7-6) $\bar{\mathbf{x}}=\mathbf{A}^{\top}\bar{\mathbf{y}}$, ohne eine weitere Matrix; für eine elementweise Funktion ist es nach [(5.4)](die-jacobi-matrix.html#gl-5-4) das komponentenweise Produkt mit den Ableitungen, ohne eine Diagonalmatrix aufzustellen. Das ist auch nötig: Hat eine Stufe $10^5$ Eingänge und $10^5$ Ausgänge, so hat ihre Jacobi-Matrix $10^{10}$ Einträge, bei acht Byte je Zahl also $80$ Gigabyte.
 
-⁠**Rechenbeispiel:** Eine Rechnung bestehe aus drei Stufen $\mathbb{R}^{1000}\to\mathbb{R}^{1000}$ und einer letzten Stufe $\mathbb{R}^{1000}\to\mathbb{R}$. Ein Produkt aus Zeile und $1000\times1000$-Matrix kostet nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 9.3, etwa $2\cdot10^6$ Grundrechenarten, ein Produkt zweier solcher Matrizen etwa $2\cdot10^9$. Von links geklammert sind es drei Produkte aus Zeile und Matrix, zusammen etwa $6\cdot10^6$. Von rechts geklammert sind es zwei Matrizenprodukte und ein Produkt aus Zeile und Matrix, zusammen etwa $4\cdot10^9$, rund $670$-mal so viel.
+⁠**Rechenbeispiel:** Eine Rechnung bestehe aus drei Stufen $\mathbb{R}^{1000}\to\mathbb{R}^{1000}$ und einer letzten Stufe $\mathbb{R}^{1000}\to\mathbb{R}$. Ein Produkt aus Zeile und $1000\times1000$-Matrix kostet nach [Grundlagen 1, Abschnitt 9.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-3), etwa $2\cdot10^6$ Grundrechenarten, ein Produkt zweier solcher Matrizen etwa $2\cdot10^9$. Von links geklammert sind es drei Produkte aus Zeile und Matrix, zusammen etwa $6\cdot10^6$. Von rechts geklammert sind es zwei Matrizenprodukte und ein Produkt aus Zeile und Matrix, zusammen etwa $4\cdot10^9$, rund $670$-mal so viel.
 
 ⁠**Kurz gesagt:** Der Rückwärtsmodus multipliziert die Kette der Jacobi-Matrizen von links mit einer Zeile, der Vorwärtsmodus von rechts mit einer Spalte; die Jacobi-Matrizen selbst werden nie gebildet.
 

@@ -1,8 +1,10 @@
 ---
-title: Überblick: Statistik und Information
+title: Überblick: Grundlagen 5 – Statistik und Information
 kurz: Überblick
-pfad: Informatik / Machine Learning / Statistik und Information
-order: 6250100
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
+knoten: Grundlagen 5: Statistik und Information
+nachschlagen: ja
+order: 15250100
 summary: Aus Daten schätzen und Überraschung messen
 tags: 
 lang: de
@@ -10,11 +12,11 @@ lang: de
 
 ## Worum es geht
 
-In [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html) war die Verteilung immer bekannt, und gefragt war, wie wahrscheinlich bestimmte Daten sind. Zeigt eine Münze mit der Wahrscheinlichkeit $0{,}7$ Kopf, so fällt bei zehn Würfen mit der Wahrscheinlichkeit $0{,}267$ genau siebenmal Kopf. In der Praxis ist die Lage fast immer umgekehrt. Man hat die Daten und kennt die Verteilung nicht. Eine Münze mit verbogenem Rand zeigt in zehn Würfen siebenmal Kopf: Wie wahrscheinlich ist Kopf bei dieser Münze? Vier Messungen derselben Spannung schwanken um $5\,\mathrm V$: Wie groß ist der wahre Wert, und wie stark rauscht das Messgerät?
+In [Grundlagen 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html) war die Verteilung immer bekannt, und gefragt war, wie wahrscheinlich bestimmte Daten sind. Zeigt eine Münze mit der Wahrscheinlichkeit $0{,}7$ Kopf, so fällt bei zehn Würfen mit der Wahrscheinlichkeit $0{,}267$ genau siebenmal Kopf. In der Praxis ist die Lage fast immer umgekehrt. Man hat die Daten und kennt die Verteilung nicht. Eine Münze mit verbogenem Rand zeigt in zehn Würfen siebenmal Kopf: Wie wahrscheinlich ist Kopf bei dieser Münze? Vier Messungen derselben Spannung schwanken um $5\,\mathrm V$: Wie groß ist der wahre Wert, und wie stark rauscht das Messgerät?
 
 Dieses Kapitel geht den Weg von den Daten zurück zur Verteilung. Es fragt: Wie macht man aus Daten eine Zahl für eine unbekannte Größe, und woran erkennt man, ob diese Zahl gut ist? Welche Werte der unbekannten Größe passen am besten zu den Daten? Wie verbindet man die Daten mit dem, was man vorher schon wusste? Und wie misst man, wie überraschend ein Ergebnis ist und wie schlecht eine angenommene Verteilung zur Wirklichkeit passt?
 
-Unterwegs beantwortet das Kapitel drei Fragen, die in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html) und [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html) offengeblieben sind: warum viele Texte und Taschenrechner eine Quadratsumme durch $N-1$ statt durch $N$ teilen, wie man den Satz von Bayes auf eine unbekannte Größe anwendet, die eine ganze Spanne von Werten haben kann, und warum die Normalverteilung neben dem zentralen Grenzwertsatz noch einen zweiten Grund hat, so oft aufzutreten.
+Unterwegs beantwortet das Kapitel drei Fragen, die in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) und [Grundlagen 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html) offengeblieben sind: warum viele Texte und Taschenrechner eine Quadratsumme durch $N-1$ statt durch $N$ teilen, wie man den Satz von Bayes auf eine unbekannte Größe anwendet, die eine ganze Spanne von Werten haben kann, und warum die Normalverteilung neben dem zentralen Grenzwertsatz noch einen zweiten Grund hat, so oft aufzutreten.
 
 Der Nutzen: Mit den Antworten schätzt man unbekannte Größen aus Messwerten und gibt an, wie genau die Schätzung ist. Man baut Vorwissen nachvollziehbar in eine Schätzung ein. Man misst Information in Bit, so wie die Nachrichtentechnik es tut, und sieht, dass zwei auf den ersten Blick verschiedene Fragen dieselbe Antwort haben: die nach den Parametern, die die Daten am besten erklären, und die nach der Verteilung, die am wenigsten von den Daten abweicht.
 

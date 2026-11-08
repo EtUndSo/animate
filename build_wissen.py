@@ -34,6 +34,18 @@ Sprachen (de, en, es, zh, fr, tr): NN-slug.en.md neben NN-slug.md ist die Übers
 landet unter web/wissen/en/<dieselbe Adresse wie der deutsche Artikel>, jede Sprache hat ihren eigenen Baum, ihre
 Übersicht und ihren Suchindex. Das Sprachmenü (Knopf „DE ▾“ in der Kopfleiste, auf schmalen Bildschirmen unter dem
 Titel) führt zur selben Seite in der anderen Sprache; Sprachen ohne Übersetzung dieser Seite sind ausgegraut.
+
+Weitere Kopffelder (tools/heft_zu_artikel.py schreibt sie für Module mit Bereichen, etwa ml):
+    knoten: Grundlagen 1: Vektoren und Matrizen   Aufschrift des letzten pfad-Knotens im Baum, in Brotkrumen und Suche;
+                                                  die Adresse kommt weiter aus pfad: (bleibt bei neuer Nummerierung).
+    nachschlagen: ja                              Nachschlage-Artikel: Darunter steht „Verwendet in“ mit allen Artikeln
+                                                  derselben Sprache, die ihn (oder einen Anker darin) verlinken.
+Dateien content/**/_<name>[.<lang>].md sind keine Artikel, sondern ein kurzer Text zu einem Knoten der Übersicht:
+    ---
+    hinweis: Informatik / Machine Learning        (Pfad des Knotens in dieser Sprache)
+    ---
+    Text (Markdown, eine Zeile oder ein Absatz)
+Seiten unter web/wissen/, die ein Build nicht mehr schreibt (alte Adressen), löscht er am Ende; Ordner mit „_“ bleiben.
 """
 import datetime, json, re, html, unicodedata
 from pathlib import Path
@@ -71,7 +83,7 @@ UI = {
            "leer": "Hier entstehen nach und nach die Artikel.", "beispiel": "Beispiel", "ki_pill": "KI-generiert",
            "hand_pill": "von Hand geschrieben", "quiz": "Quiz — teste dein Verständnis", "impressum": "Impressum", "datenschutz": "Datenschutz",
            "warnung": "Achtung", "konsole": "Konsole", "sprache": "Sprache", "nicht_uebersetzt": "noch nicht übersetzt",
-           "fremd": "Rechtliche Seiten sind auf Deutsch."},
+           "fremd": "Rechtliche Seiten sind auf Deutsch.", "verwendet": "Verwendet in"},
     "en": {"wissen": "Knowledge", "alle_module": "All modules", "abbildung": "Figure", "abb_vorb": "in preparation",
            "editor_offen": "Open scene in editor", "editor_title": "Open this figure's scene in the editor",
            "herleitung": "Derivation", "beweis": "Proof", "frage": "Question", "hintergrund": "Background", "loesung": "Solution", "zweck": "What this stage is about:",
@@ -83,7 +95,8 @@ UI = {
            "lede": "Clear, illustrated explanations, from the ground up and in small steps. Pick a module or use the search.",
            "leer": "Articles are on their way.", "beispiel": "Example", "ki_pill": "AI-generated",
            "hand_pill": "hand-written", "quiz": "Quiz — test your understanding", "impressum": "Legal notice", "datenschutz": "Privacy",
-           "warnung": "Caution", "konsole": "Terminal", "sprache": "Language", "nicht_uebersetzt": "not translated yet"},
+           "warnung": "Caution", "konsole": "Terminal", "sprache": "Language", "nicht_uebersetzt": "not translated yet",
+           "verwendet": "Used in"},
     "es": {"wissen": "Conocimiento", "alle_module": "Todos los módulos", "abbildung": "Figura", "abb_vorb": "en preparación",
            "editor_offen": "Abrir la escena en el editor", "editor_title": "Abrir la escena de esta figura en el editor",
            "herleitung": "Deducción", "beweis": "Demostración", "frage": "Pregunta", "hintergrund": "Contexto", "loesung": "Solución", "zweck": "De qué trata esta etapa:",
@@ -95,7 +108,8 @@ UI = {
            "lede": "Explicaciones claras e ilustradas, desde la base y en pasos pequeños. Elige un módulo o usa la búsqueda.",
            "leer": "Los artículos están en camino.", "beispiel": "Ejemplo", "ki_pill": "generado por IA",
            "hand_pill": "escrito a mano", "quiz": "Cuestionario — comprueba lo aprendido", "impressum": "Aviso legal", "datenschutz": "Privacidad",
-           "warnung": "Atención", "konsole": "Terminal", "sprache": "Idioma", "nicht_uebersetzt": "aún sin traducir"},
+           "warnung": "Atención", "konsole": "Terminal", "sprache": "Idioma", "nicht_uebersetzt": "aún sin traducir",
+           "verwendet": "Se usa en"},
     "zh": {"wissen": "知识库", "alle_module": "全部模块", "abbildung": "图", "abb_vorb": "准备中",
            "editor_offen": "在编辑器中打开场景", "editor_title": "在编辑器中打开此图的场景",
            "herleitung": "推导", "beweis": "证明", "frage": "问题", "hintergrund": "背景", "loesung": "解答", "zweck": "本阶段内容：",
@@ -107,7 +121,8 @@ UI = {
            "lede": "清晰、配图的讲解，从基础出发，循序渐进。请选择模块或使用搜索。",
            "leer": "文章正在陆续添加。", "beispiel": "例", "ki_pill": "AI 生成",
            "hand_pill": "人工撰写", "quiz": "测验：检验你的理解", "impressum": "法律声明", "datenschutz": "隐私",
-           "warnung": "注意", "konsole": "终端", "sprache": "语言", "nicht_uebersetzt": "尚未翻译"},
+           "warnung": "注意", "konsole": "终端", "sprache": "语言", "nicht_uebersetzt": "尚未翻译",
+           "verwendet": "引用本节的文章"},
     # Französisch: Leser wird gesiezt (vous), Leerzeichen vor : ; ! ? und in « » sind geschützt (\u00a0, \u202f)
     "fr": {"wissen": "Connaissances", "alle_module": "Tous les modules", "abbildung": "Figure", "abb_vorb": "en préparation",
            "editor_offen": "Ouvrir la scène dans l’éditeur", "editor_title": "Ouvrir la scène de cette figure dans l’éditeur",
@@ -121,7 +136,8 @@ UI = {
            "lede": "Des explications claires et illustrées, en partant des bases et par petites étapes. Choisissez un module ou utilisez la recherche.",
            "leer": "Les articles arrivent peu à peu.", "beispiel": "Exemple", "ki_pill": "généré par IA",
            "hand_pill": "écrit à la main", "quiz": "Quiz — testez votre compréhension", "impressum": "Mentions légales", "datenschutz": "Confidentialité",
-           "warnung": "Attention", "konsole": "Terminal", "sprache": "Langue", "nicht_uebersetzt": "pas encore traduit"},
+           "warnung": "Attention", "konsole": "Terminal", "sprache": "Langue", "nicht_uebersetzt": "pas encore traduit",
+           "verwendet": "Utilisé dans"},
     # Türkisch: Leser wird gesiezt (siz)
     "tr": {"wissen": "Bilgi", "alle_module": "Tüm modüller", "abbildung": "Şekil", "abb_vorb": "hazırlanıyor",
            "editor_offen": "Sahneyi düzenleyicide aç", "editor_title": "Bu şeklin sahnesini düzenleyicide aç",
@@ -135,7 +151,8 @@ UI = {
            "lede": "Temelden başlayan, küçük adımlarla ilerleyen, anlaşılır ve görsellerle desteklenen açıklamalar. Bir modül seçin ya da aramayı kullanın.",
            "leer": "Makaleler yavaş yavaş ekleniyor.", "beispiel": "Örnek", "ki_pill": "yapay zekâ ile üretildi",
            "hand_pill": "elle yazıldı", "quiz": "Test — anladıklarınızı sınayın", "impressum": "Künye", "datenschutz": "Gizlilik",
-           "warnung": "Dikkat", "konsole": "Terminal", "sprache": "Dil", "nicht_uebersetzt": "henüz çevrilmedi"},
+           "warnung": "Dikkat", "konsole": "Terminal", "sprache": "Dil", "nicht_uebersetzt": "henüz çevrilmedi",
+           "verwendet": "Kullanıldığı yerler"},
 }
 
 def T(key):
@@ -351,13 +368,20 @@ def abbildung_html(name, inner):
 
 # Code-Blöcke (Hefte der Zusatzreihen): ```<sprache> <titel>. Farben per Pygments als CSS-Klassen (.hl …), damit Tag- und
 # Nachtmodus dieselben Seiten nutzen; ohne Pygments bleibt der Code einfarbig. console = Sitzung im Terminal ($/# am
-# Zeilenanfang = Eingabe), mit „>>> " wird daraus die Python-Konsole.
+# Zeilenanfang = Eingabe), mit „>>> " wird daraus die Python-Konsole, mit „PS> " (und ohne $/#) die PowerShell-Sitzung.
 CODE_NAME = {"python": "Python", "bash": "Bash", "c": "C", "cpp": "C++", "nasm": "x86-64", "gas": "x86-64 (AT&T)"}
+
+def _konsolen_lexer(code):
+    if re.search(r"(?m)^>>> ", code):
+        return "pycon"
+    if re.search(r"(?m)^PS> ", code) and not re.search(r"(?m)^[$#] ", code):
+        return "ps1con"
+    return "console"
 
 def code_html(info, code):
     lang, _, titel = info.partition(" ")
     lang = lang.lower()
-    lexer_name = {"console": "pycon" if re.search(r"(?m)^>>> ", code) else "console", "text": "", "": ""}.get(lang, lang)
+    lexer_name = {"console": _konsolen_lexer(code), "text": "", "": ""}.get(lang, lang)
     body = html.escape(code, quote=False)
     if lexer_name:
         try:
@@ -622,7 +646,8 @@ def _new_node(name):
 def collect():
     """{Sprache: Baum}. Eine Übersetzung NN-slug.en.md übernimmt die Adresse des deutschen Artikels neben ihr."""
     roots, ausf = {l: {} for l in LANGS}, []
-    de_pfad = {}
+    de_pfad, de_ordner = {}, {}                        # (Ordner, Stamm) bzw. Quellordner -> Adresse auf der Website (Deutsch)
+    hinweise = []                                      # _<name>.md: kurzer Text zu einem Knoten (hinweis: <Pfad>), kein Artikel
     def deutsch_zuerst(p):
         return (bool(LANG_FILE.search(p.stem)), p)
     for md_file in sorted(SRC.rglob("*.md"), key=deutsch_zuerst):
@@ -630,6 +655,10 @@ def collect():
         ml = LANG_FILE.search(md_file.stem)
         lang = ml.group(1) if ml else "de"
         stem = md_file.stem[:ml.start()] if ml else md_file.stem
+        if md_file.name.startswith("_"):
+            if (meta.get("hinweis") or "").strip() and body.strip():
+                hinweise.append((lang, meta["hinweis"].strip(), body.strip()))
+            continue
         pfad = (meta.get("pfad") or "").strip()
         if not pfad:
             print("  übersprungen (kein pfad:):", md_file.relative_to(SRC)); continue
@@ -641,20 +670,27 @@ def collect():
         for part in parts:
             nd = container.setdefault(slugify(part) if lang == "de" else part, _new_node(part))
             chain.append(nd); container = nd["children"]
+        if (meta.get("knoten") or "").strip():         # Aufschrift des letzten Knotens („Grundlagen 1: Vektoren und Matrizen“),
+            chain[-1]["name"] = meta["knoten"].strip()  # die Adresse kommt weiter aus pfad: (bleibt bei neuer Nummerierung)
         a_slug = re.sub(r"^\d+-", "", stem) or slugify(title)
         key = (str(md_file.parent), stem)
         if lang == "de":
             path = "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html"
             de_pfad[key] = path
-        else:
-            path = lang + "/" + de_pfad.get(key, "/".join(nd["slug"] for nd in chain) + "/" + a_slug + ".html")
+            de_ordner.setdefault(str(md_file.parent), path.rsplit("/", 1)[0])
+        else:                                          # ohne deutsches Gegenstück (veraltete Übersetzung): in den Ordner der
+            ordner = de_ordner.get(str(md_file.parent), "/".join(nd["slug"] for nd in chain))   # übrigen Artikel, sonst
+            path = lang + "/" + de_pfad.get(key, ordner + "/" + a_slug + ".html")               # laufen ihre Links ins Leere
         autor = (meta.get("autor") or "").strip().lower()
         if re.search(r"-mensch(-ausfuehrlich)?$", a_slug):   # Dateiname-Suffix genügt
             autor = autor or "mensch"
-        art = {"title": title, "kurz": meta.get("kurz", ""), "slug": a_slug, "order": order, "path": path,
+        title = title.replace("`", "")                 # Code in Titeln (`float`) als normaler Text: Kopfleiste, Seitentitel, Suche
+        art = {"title": title, "kurz": meta.get("kurz", "").replace("`", ""), "slug": a_slug, "order": order, "path": path,
                "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body,
                "crumbs": [(nd["name"], nd["slug"]) for nd in chain], "lang": lang, "key": key,
                "fassung": (meta.get("fassung") or "").strip().lower(),
+               # Nachschlagebereich (ML-Grundlagen): unter dem Artikel steht „Verwendet in“ mit den Artikeln, die ihn verlinken
+               "nachschlagen": (meta.get("nachschlagen") or "").strip().lower() in ("ja", "yes", "true", "1"),
                "autor": "mensch" if autor in ("mensch", "hand", "human") else "ki"}
         if art["fassung"] == "ausfuehrlich":           # zweite Fassung eines Themas: kein eigener Eintrag im Baum
             ausf.append((art, chain[-1], re.sub(r"-ausfuehrlich$", "", a_slug)))
@@ -669,6 +705,15 @@ def collect():
             partner["fassung"] = partner["fassung"] or "kompakt"
         else:                                          # (noch) ohne kompakte Fassung: normal im Baum führen
             node["articles"].append(art)
+    for lang, pfad, text in hinweise:                  # Hinweis an seinen Knoten hängen (fehlt der Knoten in der Sprache: entfällt)
+        container, nd = roots[lang], None
+        for part in [p.strip() for p in pfad.split("/") if p.strip()]:
+            nd = container.get(slugify(part) if lang == "de" else part)
+            if nd is None:
+                break
+            container = nd["children"]
+        if nd is not None:
+            nd["hinweis"] = text
     def pair_humans(nd):
         """Von Hand geschriebene Fassung (slug-mensch) an die KI-Fassung desselben Themas hängen;
         ohne KI-Gegenstück bleibt sie als eigener Eintrag im Baum."""
@@ -887,13 +932,52 @@ def render_article(art, tree, prev_a, next_a):
     nav += "</div>"
     main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
             + lang_switch(art, "art") + switch + arttoc
-            + body_html + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
+            + body_html + verwendet_html(art) + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
     nav_path = tree_art(art)["path"]
     body = (topbar(panels=True, prev_a=prev_a, next_a=next_a, art=art)
             + '<div class="layout">'
             + sidebar_html(tree, nav_path, art) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
     return page_shell(art["title"], art["summary"] or art["title"], body, depth, sprachen(art))
+
+LINK_RE = re.compile(r"\]\(/wissen/([^)#\s]+)(?:#([^)\s]*))?\)")
+
+def rueckverweise(tree):
+    """{Adresse eines Nachschlage-Artikels: {Adresse des verlinkenden Artikels: (Artikel, {Anker})}} aus den Links aller
+    übrigen Artikel derselben Sprache. Links der Nachschlage-Artikel untereinander zählen nicht (Grundlagen 2 -> 1)."""
+    flat = flatten(tree)
+    ziele = {a["path"]: a for a in flat if a.get("nachschlagen")}
+    out = {}
+    if not ziele:
+        return out
+    for a in flat:
+        if a.get("nachschlagen"):
+            continue
+        for m in LINK_RE.finditer(re.sub(r"(?ms)^```.*?^```[ \t]*$", "", a["body"])):
+            z = ziele.get(m.group(1))
+            if z is not None:
+                out.setdefault(z["path"], {}).setdefault(a["path"], (a, set()))[1].add(m.group(2) or "")
+    return out
+
+RUECK = {}                                             # rueckverweise() der gerade gebauten Sprache (build_lang setzt es)
+
+def verwendet_html(art):
+    """Dezenter Block „Verwendet in“ unter einem Nachschlage-Artikel: die Artikel, die ihn oder seine Abschnitte verlinken,
+    in Lesereihenfolge, dazu die verlinkten Unterabschnitte („13.5 Rang“). Ohne solche Links: nichts."""
+    eintr = RUECK.get(art["path"]) if art.get("nachschlagen") else None
+    if not eintr:
+        return ""
+    titel = {m.group(2): m.group(1) for m in
+             re.finditer(r'(?m)^###\s+(.+?)\s*\n\s*\n<span class="anker" id="(stufe-\d+-\d+)"></span>', art["body"])}
+    rows = []
+    for a, anker in sorted(eintr.values(), key=lambda x: (x[0]["order"], x[0]["title"])):
+        heft = a["crumbs"][-1][0] if a["crumbs"] else ""
+        text = (heft + " › " if heft else "") + (a["kurz"] or a["title"])
+        zu = [k[6:].replace("-", ".") + " " + titel[k] for k in sorted(anker, key=lambda k: [int(x) for x in re.findall(r"\d+", k)] or [0])
+              if k in titel]
+        rows.append(f'<li><a href="/wissen/{a["path"]}">{html.escape(text)}</a>'
+                    + (f'<span class="vw-zu"> · {html.escape(", ".join(zu))}</span>' if zu else "") + "</li>")
+    return f'<aside class="verwendet" aria-label="{html.escape(T("verwendet"))}"><div class="vw-h">{T("verwendet")}</div><ul>{"".join(rows)}</ul></aside>'
 
 def legal_footer():
     return (f'<footer class="wfoot">EtUndSo.de · <a href="/impressum.html">{T("impressum")}</a> · '
@@ -911,15 +995,16 @@ def render_index(tree):
             if nd["articles"]:
                 links = "".join(f'<li><a href="/wissen/{a["path"]}">{html.escape(a["kurz"] or a["title"])}</a></li>' for a in nd["articles"])
                 leaf_cards = f'<div class="theme-card"><ul>{links}</ul></div>'
+            hw = f'<p class="idx-hinweis">{inline(nd["hinweis"])}</p>' if nd.get("hinweis") else ""   # content/**/_*.md
             if depth == 0:
-                rows.append(f'<section class="field-block"><h2 id="{nd["slug"]}">{html.escape(nd["name"])}</h2>')
+                rows.append(f'<section class="field-block"><h2 id="{nd["slug"]}">{html.escape(nd["name"])}</h2>{hw}')
                 rows.append(block(nd["children"], depth + 1) + (f'<div class="field-grid">{leaf_cards}</div>' if leaf_cards else ""))
                 rows.append("</section>")
             else:
                 hd = (f'<h3 class="idx-lvl{depth}">{html.escape(nd["name"])}</h3>' if depth >= 2
                       else f'<h4 class="lvl-h idx-lvl{depth}">{_node_label(nd, depth)}</h4>')
                 inner = block(nd["children"], depth + 1)
-                rows.append(f'<div class="idx-node">{hd}{leaf_cards}{inner}</div>' if (inner or leaf_cards) else "")
+                rows.append(f'<div class="idx-node">{hd}{hw}{leaf_cards}{inner}</div>' if (inner or leaf_cards) else "")
         return "".join(rows)
     cards.append(block(tree, 0))
     cards.append(legal_footer() + "</article></main>")
@@ -930,28 +1015,36 @@ def render_index(tree):
 TREES = {}                                             # {Sprache: Baum}, von main gesetzt
 ART_LANG = {}                                          # (Ordner, Stamm) -> {Sprache: Artikel}: der Sprachumschalter
 
+GESCHRIEBEN = set()                                    # alle Seiten dieses Builds; main löscht danach die übrigen (alte Adressen)
+
+def schreibe(path, text):
+    path.write_text(text, encoding="utf-8")
+    GESCHRIEBEN.add(path.resolve())
+
 def build_lang(lang, tree):
     LANG_NOW[0] = lang
+    RUECK.clear()
+    RUECK.update(rueckverweise(tree))
     flat = flatten(tree)
     for idx, art in enumerate(flat):
         prev_a = flat[idx - 1] if idx > 0 else None
         nxt = flat[idx + 1] if idx + 1 < len(flat) else None
         dest = OUT / Path(art["path"])
         dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(render_article(art, tree, prev_a, nxt), encoding="utf-8")
+        schreibe(dest, render_article(art, tree, prev_a, nxt))
         p2 = (prev_a.get("alt") or prev_a) if prev_a else None   # Nachbarn der ausführlichen Fassung möglichst ebenfalls ausführlich
         n2 = (nxt.get("alt") or nxt) if nxt else None
         if art.get("alt"):
-            (OUT / Path(art["alt"]["path"])).write_text(render_article(art["alt"], tree, p2, n2), encoding="utf-8")
+            schreibe(OUT / Path(art["alt"]["path"]), render_article(art["alt"], tree, p2, n2))
         h = art.get("human")                           # von Hand geschriebene Fassung(en) desselben Themas
         if h:
-            (OUT / Path(h["path"])).write_text(render_article(h, tree, prev_a, nxt), encoding="utf-8")
+            schreibe(OUT / Path(h["path"]), render_article(h, tree, prev_a, nxt))
             if h.get("alt"):
-                (OUT / Path(h["alt"]["path"])).write_text(render_article(h["alt"], tree, p2, n2), encoding="utf-8")
+                schreibe(OUT / Path(h["alt"]["path"]), render_article(h["alt"], tree, p2, n2))
 
     start = OUT if lang == "de" else OUT / lang
     start.mkdir(parents=True, exist_ok=True)
-    (start / "index.html").write_text(render_index(tree), encoding="utf-8")
+    schreibe(start / "index.html", render_index(tree))
 
     # navigation tree (ohne bodies, beliebig tief) + search index
     def jnode(nd):
@@ -989,6 +1082,7 @@ def main():
         for a in flatten(tree):
             ART_LANG.setdefault(a["key"], {})[lang] = a
     counts = {lang: build_lang(lang, tree) for lang, tree in TREES.items()}
+    alt = alte_seiten_entfernen()
     LANG_NOW[0] = "de"
     (OUT / "assets" / "wissen.css").write_text(WISSEN_CSS, encoding="utf-8")
     (OUT / "assets" / "wissen.js").write_text(WISSEN_JS, encoding="utf-8")
@@ -996,7 +1090,33 @@ def main():
     n_mod, n_alt, n_hand = counts["de"]
     andere = ", ".join(f"{l}: {c[0]}" for l, c in counts.items() if l != "de")
     print(f"✓ {n_mod} Artikel (+{n_alt} ausführliche Fassungen, +{n_hand} von Hand)"
-          + (f", übersetzt {andere}" if andere else "") + f" -> {OUT} · Stand {day}")
+          + (f", übersetzt {andere}" if andere else "") + f" -> {OUT} · Stand {day}"
+          + (f" · {alt} alte Seiten entfernt" if alt else ""))
+
+def alte_seiten_entfernen():
+    """Seiten unter web/wissen/, die dieser Build nicht geschrieben hat, sind alte Adressen (umbenannter Artikel, neuer pfad:):
+    löschen, dazu leer gewordene Ordner. Ordner mit „_“ am Anfang (Design-Tests) bleiben unberührt, ebenso alte Seiten, auf
+    die eine neue Seite noch verlinkt (veraltete Übersetzung mit alten Dateinamen): Sonst entstünden tote Links."""
+    alt = [p for p in sorted(OUT.rglob("*.html")) if not p.relative_to(OUT).parts[0].startswith("_") and p.resolve() not in GESCHRIEBEN]
+    if not alt:
+        return 0
+    verlinkt = set()
+    for seite in GESCHRIEBEN:
+        for href in re.findall(r'href="([^"#?]+\.html)', seite.read_text(encoding="utf-8")):
+            ziel = (ROOT / "web" / href.lstrip("/")) if href.startswith("/") else (seite.parent / href)
+            verlinkt.add(ziel.resolve())
+    n = 0
+    for p in alt:
+        if p.resolve() in verlinkt:
+            print("  alte Seite bleibt (noch verlinkt):", p.relative_to(OUT))
+            continue
+        p.unlink()
+        n += 1
+    for d in sorted((d for d in OUT.rglob("*") if d.is_dir()), key=lambda d: -len(d.parts)):
+        rel = d.relative_to(OUT)
+        if not rel.parts[0].startswith("_") and rel.parts[0] not in ("assets", "data", "img") and not any(d.iterdir()):
+            d.rmdir()
+    return n
 
 def write_version():
     """web/version.json für die Meldung „Letztes Update“ der Startseite (User 2026-10-21: blieb nach dem Push stehen).
@@ -1213,6 +1333,12 @@ details.hintergrund .hg-k{font-family:var(--fdisp);font-size:12px;text-transform
 .neighbors{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 8px;}
 .neighbors .nb{display:block;border:1px solid var(--border);border-radius:12px;padding:13px 16px;background:var(--panel);color:inherit;}
 .neighbors .nb:hover{border-color:var(--accent);text-decoration:none;}
+/* „Verwendet in“ unter Nachschlage-Artikeln (ML-Grundlagen): dezent, klein, grau */
+.verwendet{margin:30px 0 4px;padding:10px 16px 11px;border:1px solid var(--border);border-radius:12px;background:var(--soft);color:var(--muted);}
+.verwendet .vw-h{font-size:12.5px;font-weight:600;letter-spacing:.03em;margin-bottom:3px;}
+.verwendet ul{margin:0;padding-left:18px;} .article .verwendet li{font-size:14.5px;margin:.2em 0;line-height:1.5;}
+.verwendet .vw-zu{color:var(--muted);}
+.article .idx-hinweis{font-size:15px;color:var(--muted);margin:.15em 0 .7em;max-width:70ch;}
 .nb-dir{font-size:12px;color:var(--muted);font-weight:600;} .nb-dir.next{text-align:right;}
 .nb-t{font-weight:700;color:var(--ink);margin:3px 0 8px;font-family:var(--fdisp);}
 .nb ul{list-style:none;margin:0;padding:0;} .nb li{font-size:13.5px;color:var(--muted);margin:3px 0;padding-left:14px;position:relative;}
@@ -1353,11 +1479,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 /* Nacht: Karten ohne Schatten, dafür helle Rahmen um alle Kästen (Wunsch des Users); farbige Randstreifen links bleiben */
 :root[data-theme="dark"] .article .sect{box-shadow:none;}
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung){
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung,.verwendet){
   border-top:1px solid var(--rahmen);border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] .bsp-card{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] :is(.article .sect,.callout:not([class*="cx-"]),.callout.cx-zusatz,details.frage,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.bsp-card,.fassung){border-left:1px solid var(--rahmen);}
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.bsp-card,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
 @media(max-width:720px){ .bsp-card{padding:4px 15px 12px;} }
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */

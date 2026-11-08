@@ -1,7 +1,9 @@
 ---
 title: L’essentiel jusqu’ici
-pfad: Informatique / Apprentissage automatique / Projection, valeurs propres et décompositions
-order: 6221400
+pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
+knoten: Fondements 2 : Projection, valeurs propres et décompositions
+nachschlagen: ja
+order: 15221400
 summary: Points les plus proches, directions naturelles et les briques d’une matrice
 tags: 
 lang: fr

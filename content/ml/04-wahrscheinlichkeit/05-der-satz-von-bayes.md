@@ -1,7 +1,9 @@
 ---
 title: Der Satz von Bayes
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240500
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240500
 summary: Häufig kennt man, wie wahrscheinlich ein Befund bei einer Ursache ist, und will umgekehrt wissen, wie wahrscheinlich die Ursache ist, wenn man den Befund beobachtet hat.
 tags: Ausgangswahrscheinlichkeit, Fehlalarm, natürliche Häufigkeiten, Basisrate, Basisratenfehler
 lang: de

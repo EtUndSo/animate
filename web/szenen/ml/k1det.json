@@ -431,13 +431,17 @@
     "de": "Einheitsquadrat",
     "en": "unit square",
     "es": "cuadrado unidad",
-    "zh": "单位正方形"
+    "zh": "单位正方形",
+    "fr": "carré unité",
+    "tr": "birim kare"
    },
    "bild": {
     "de": "Bild unter A",
     "en": "image under A",
     "es": "imagen bajo A",
-    "zh": "A 作用后的像"
+    "zh": "A 作用后的像",
+    "fr": "image par A",
+    "tr": "A altındaki görüntü"
    }
   }
  }

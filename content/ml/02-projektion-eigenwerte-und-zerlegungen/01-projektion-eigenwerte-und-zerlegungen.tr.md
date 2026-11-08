@@ -1,8 +1,10 @@
 ---
-title: Genel Bakış: İzdüşüm, Özdeğerler ve Ayrışımlar
+title: Genel Bakış: Temeller 2 – İzdüşüm, Özdeğerler ve Ayrışımlar
 kurz: Genel Bakış
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6220100
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15220100
 summary: En yakın noktalar, doğal doğrultular ve bir matrisin yapı taşları
 tags: 
 lang: tr
@@ -10,7 +12,7 @@ lang: tr
 
 ## Konunun özü
 
-Kısım 1'de bir soru açık kalmıştı. Dört daire alanları ve oda sayılarıyla betimleniyor ve fiyatları biliniyor. Aranan, ağırlıklı toplamın her fiyatı tam olarak tutturmasını sağlayan iki ağırlıktır. Böyle ağırlıklar yoktur: İki bilinmeyenli dört denklem birbiriyle çelişir. Ölçüm verilerinde durum neredeyse her zaman böyledir. Bilinmeyenlerden daha çok ölçüm vardır, her ölçüm biraz kusurludur ve denklem sisteminin çözümü yoktur. Yine de ağırlıklara ihtiyaç vardır, hem de hedeften olabildiğince az sapanlara.
+Temeller 1'de bir soru açık kalmıştı. Dört daire alanları ve oda sayılarıyla betimleniyor ve fiyatları biliniyor. Aranan, ağırlıklı toplamın her fiyatı tam olarak tutturmasını sağlayan iki ağırlıktır. Böyle ağırlıklar yoktur: İki bilinmeyenli dört denklem birbiriyle çelişir. Ölçüm verilerinde durum neredeyse her zaman böyledir. Bilinmeyenlerden daha çok ölçüm vardır, her ölçüm biraz kusurludur ve denklem sisteminin çözümü yoktur. Yine de ağırlıklara ihtiyaç vardır, hem de hedeften olabildiğince az sapanlara.
 
 Bu bölüm bu soruyu ve onunla yakından akraba olduğu ortaya çıkan iki soruyu daha ele alıyor. Bir matrisin bir oku döndürmeden yalnızca uzattığı ya da kısalttığı doğrultular var mıdır ve bu doğrultular matris hakkında ne söyler? Her matris, önem sırasına dizilmiş birkaç basit yapı taşına ayrılabilir mi, öyle ki önemsiz olanlar atılabilsin? Buna pratik bir soru eklenir: Veriler biraz hatalıysa bir hesabın sonucu ne kadar değişir?
 

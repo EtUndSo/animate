@@ -1,7 +1,9 @@
 ---
 title: El número de condición
-pfad: Informática / Aprendizaje automático / Proyección, valores propios y descomposiciones
-order: 6221300
+pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
+knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+nachschlagen: ja
+order: 15221300
 summary: Los datos medidos nunca son exactos, y un ordenador redondea en cada paso.
 tags: número de condición
 lang: es
@@ -85,7 +87,7 @@ es decir, $\lambda_1\approx2{,}005012$ y $\lambda_2\approx0{,}004988$, ambos pos
 
 <span class="anker" id="stufe-12-3"></span>
 
-En el recuadro de contexto de la parte 1, sección 14.6, había una advertencia: un determinante pequeño no significa que una matriz sea casi singular. El número de condición mide lo que allí se quería decir.
+En el recuadro de contexto de Fundamentos 1, sección 14.6, había una advertencia: un determinante pequeño no significa que una matriz sea casi singular. El número de condición mide lo que allí se quería decir.
 
 :::satz Teorema 12.3 (Distancia a la matriz singular más cercana)
 <span class="anker" id="satz-12-3"></span>
@@ -102,7 +104,7 @@ Una matriz singular tiene como mucho rango $n-1$. Según el teorema de Eckart-Yo
 
 Un número de condición grande significa, por tanto, que un cambio relativamente pequeño hace singular la matriz. El determinante mide otra cosa. Según el ejercicio [29](die-singularwertzerlegung.html#aufg-29), $|\det\mathbf{A}|=d_1\cdots d_n$, el producto de todos los estiramientos; depende de la magnitud de la matriz. El número de condición es un cociente y no cambia si se multiplica $\mathbf{A}$ por un número: $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ para $c\ne0$. Solo mide lo achatada que es la elipse en la que $\mathbf{A}$ transforma la circunferencia unidad.
 
-⁠**Ejemplo numérico:** Las dos matrices de la parte 1, sección 14.6: $0{,}1\cdot\mathbf{I}_{10}$ tiene el determinante $10^{-10}$, pero todos sus valores singulares son $0{,}1$, y $\kappa=1$; está tan bien condicionada como es posible. $\operatorname{diag}(1000;\ 0{,}001)$ tiene el determinante $1$, pero $\kappa=1000/0{,}001=10^6$. Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distancia a la matriz singular más cercana es $d_2\approx0{,}005$: si se cambian sus entradas en unas pocas milésimas, se vuelve singular. La matriz singular $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ está a la distancia $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, algo más que el mínimo.
+⁠**Ejemplo numérico:** Las dos matrices de Fundamentos 1, sección 14.6: $0{,}1\cdot\mathbf{I}_{10}$ tiene el determinante $10^{-10}$, pero todos sus valores singulares son $0{,}1$, y $\kappa=1$; está tan bien condicionada como es posible. $\operatorname{diag}(1000;\ 0{,}001)$ tiene el determinante $1$, pero $\kappa=1000/0{,}001=10^6$. Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distancia a la matriz singular más cercana es $d_2\approx0{,}005$: si se cambian sus entradas en unas pocas milésimas, se vuelve singular. La matriz singular $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ está a la distancia $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, algo más que el mínimo.
 
 ⁠**En resumen:** $1/\kappa(\mathbf{A})$ es la distancia relativa a la matriz singular más cercana; el determinante no dice nada sobre ello, porque depende de la magnitud de la matriz.
 

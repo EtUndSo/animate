@@ -1,7 +1,9 @@
 ---
 title: Die Konditionszahl
-pfad: Informatik / Machine Learning / Projektion, Eigenwerte und Zerlegungen
-order: 6221300
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
+knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+nachschlagen: ja
+order: 15221300
 summary: Messdaten sind nie exakt, und ein Rechner rundet bei jedem Schritt.
 tags: Konditionszahl
 lang: de
@@ -85,7 +87,7 @@ also $\lambda_1\approx2{,}005012$ und $\lambda_2\approx0{,}004988$, beide positi
 
 <span class="anker" id="stufe-12-3"></span>
 
-Im Hintergrund von [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.6, stand eine Warnung: Eine kleine Determinante heißt nicht, dass eine Matrix beinahe singulär ist. Die Konditionszahl misst, was dort gemeint war.
+Im Hintergrund von [Grundlagen 1, Abschnitt 14.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), stand eine Warnung: Eine kleine Determinante heißt nicht, dass eine Matrix beinahe singulär ist. Die Konditionszahl misst, was dort gemeint war.
 
 :::satz Satz 12.3 (Abstand zur nächsten singulären Matrix)
 <span class="anker" id="satz-12-3"></span>
@@ -102,7 +104,7 @@ Eine singuläre Matrix hat höchstens den Rang $n-1$. Nach dem Satz von Eckart u
 
 Eine große Konditionszahl heißt also: Eine verhältnismäßig kleine Änderung macht die Matrix singulär. Die Determinante misst etwas anderes. Nach Aufgabe [29](die-singularwertzerlegung.html#aufg-29) ist $|\det\mathbf{A}|=d_1\cdots d_n$, das Produkt aller Streckungen; es hängt von der Größe der Matrix ab. Die Konditionszahl ist ein Verhältnis und ändert sich nicht, wenn man $\mathbf{A}$ mit einer Zahl multipliziert: $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ für $c\ne0$. Sie misst nur, wie flach die Ellipse ist, in die $\mathbf{A}$ den Einheitskreis verwandelt.
 
-⁠**Rechenbeispiel:** Die beiden Matrizen aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.6: $0{,}1\cdot\mathbf{I}_{10}$ hat die Determinante $10^{-10}$, aber alle Singulärwerte $0{,}1$ und $\kappa=1$; sie ist so gut konditioniert wie möglich. $\operatorname{diag}(1000;\ 0{,}001)$ hat die Determinante $1$, aber $\kappa=1000/0{,}001=10^6$. Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ ist der Abstand zur nächsten singulären Matrix $d_2\approx0{,}005$: Ändert man Einträge um wenige Tausendstel, wird sie singulär. Die singuläre Matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ hat den Abstand $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, etwas mehr als das Minimum.
+⁠**Rechenbeispiel:** Die beiden Matrizen aus [Grundlagen 1, Abschnitt 14.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6): $0{,}1\cdot\mathbf{I}_{10}$ hat die Determinante $10^{-10}$, aber alle Singulärwerte $0{,}1$ und $\kappa=1$; sie ist so gut konditioniert wie möglich. $\operatorname{diag}(1000;\ 0{,}001)$ hat die Determinante $1$, aber $\kappa=1000/0{,}001=10^6$. Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ ist der Abstand zur nächsten singulären Matrix $d_2\approx0{,}005$: Ändert man Einträge um wenige Tausendstel, wird sie singulär. Die singuläre Matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ hat den Abstand $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, etwas mehr als das Minimum.
 
 ⁠**Kurz gesagt:** $1/\kappa(\mathbf{A})$ ist der relative Abstand zur nächsten singulären Matrix; die Determinante sagt darüber nichts, weil sie von der Größe der Matrix abhängt.
 

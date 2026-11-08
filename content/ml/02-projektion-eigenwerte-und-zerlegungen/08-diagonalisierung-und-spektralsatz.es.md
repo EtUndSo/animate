@@ -1,7 +1,9 @@
 ---
 title: Diagonalización y teorema espectral
-pfad: Informática / Aprendizaje automático / Proyección, valores propios y descomposiciones
-order: 6220800
+pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
+knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+nachschlagen: ja
+order: 15220800
 summary: Si se describe una matriz en una base formada por sus vectores propios, se vuelve diagonal: cada coordenada solo se multiplica por su valor propio, y los cálculos acoplados se descomponen en cálculos independientes.
 tags: cambio de base, diagonalizable, ejes principales
 lang: es
@@ -19,7 +21,7 @@ Si se describe una matriz en una base formada por sus vectores propios, se vuelv
 
 La misma flecha tiene coordenadas distintas en bases distintas. Del mismo modo, la misma aplicación lineal tiene matrices distintas en coordenadas distintas. Algunas bases hacen que la matriz sea especialmente sencilla.
 
-Sea $\mathbf s_1,\dots,\mathbf s_n$ una base de $\mathbb{R}^n$, y sea $\mathbf{S}$ la matriz con estas columnas. Según la parte 1, sección 13.5, es invertible. Si $\mathbf{x}$ tiene en esta base las coordenadas $\mathbf{c}$, entonces $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ y, a la inversa, $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. Si se transforma $\mathbf{x}$ con $\mathbf{A}$, la imagen $\mathbf{A}\mathbf{x}$ tiene las coordenadas $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. En las nuevas coordenadas, la aplicación actúa, por tanto, mediante la matriz $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: primero se pasa a las coordenadas antiguas, después se aplica la transformación y, por último, se vuelve a las nuevas.
+Sea $\mathbf s_1,\dots,\mathbf s_n$ una base de $\mathbb{R}^n$, y sea $\mathbf{S}$ la matriz con estas columnas. Según Fundamentos 1, sección 13.5, es invertible. Si $\mathbf{x}$ tiene en esta base las coordenadas $\mathbf{c}$, entonces $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ y, a la inversa, $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. Si se transforma $\mathbf{x}$ con $\mathbf{A}$, la imagen $\mathbf{A}\mathbf{x}$ tiene las coordenadas $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. En las nuevas coordenadas, la aplicación actúa, por tanto, mediante la matriz $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: primero se pasa a las coordenadas antiguas, después se aplica la transformación y, por último, se vuelve a las nuevas.
 
 :::definition Definición 7.1 (Cambio de base)
 <span class="anker" id="satz-7-1"></span>
@@ -36,10 +38,10 @@ $\mathbf{A}$ y $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ tienen el mismo polinomio c
 :::
 
 :::beweis Cambio de base
-Se tiene $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. Según las reglas de cálculo de la parte 1, sección 14.5, su determinante es $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. Según [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), la traza y el determinante se obtienen de los valores propios.
+Se tiene $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. Según las reglas de cálculo de Fundamentos 1, sección 14.5, su determinante es $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. Según [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), la traza y el determinante se obtienen de los valores propios.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ y la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ de la parte 1, sección 13.3, es $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ y $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Entonces
+⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ y la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ de Fundamentos 1, sección 13.3, es $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ y $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Entonces
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
@@ -65,7 +67,7 @@ A la inversa: si $\mathbf{A}$ puede escribirse así, las columnas de $\mathbf{S}
 :::
 
 :::beweis Diagonalización
-Según la parte 1, sección 9.2, la columna $i$ de $\mathbf{A}\mathbf{S}$ es el producto $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, y la columna $i$ de $\mathbf{S}\boldsymbol{\Lambda}$ es también $\lambda_i\mathbf s_i$. Por tanto, $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. Las columnas de $\mathbf{S}$ son independientes; luego $\mathbf{S}$ es invertible, y multiplicando por $\mathbf{S}^{-1}$ por la izquierda se obtiene [(7.1)](#gl-7-1). Si se lee la misma ecuación $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ en sentido inverso, se obtiene el recíproco.
+Según Fundamentos 1, sección 9.2, la columna $i$ de $\mathbf{A}\mathbf{S}$ es el producto $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, y la columna $i$ de $\mathbf{S}\boldsymbol{\Lambda}$ es también $\lambda_i\mathbf s_i$. Por tanto, $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. Las columnas de $\mathbf{S}$ son independientes; luego $\mathbf{S}$ es invertible, y multiplicando por $\mathbf{S}^{-1}$ por la izquierda se obtiene [(7.1)](#gl-7-1). Si se lee la misma ecuación $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ en sentido inverso, se obtiene el recíproco.
 :::
 
 Una matriz que puede escribirse así se llama __diagonalizable__. Según el teorema de la sección [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8), esto ocurre siempre, por ejemplo, cuando los $n$ valores propios son distintos. La cizalladura no es diagonalizable, pues le falta un vector propio. Tampoco la rotación de $90^\circ$ es diagonalizable con números reales, solo con complejos. Ambas son, aun así, invertibles: invertible y diagonalizable son dos propiedades distintas.
@@ -195,7 +197,7 @@ Se procede paso a paso. Según la sección [6.3](eigenwerte-und-eigenvektoren.h
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-con la matriz simétrica $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, de tamaño $(n-1)\times(n-1)$. Los ceros aparecen porque $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ es perpendicular a las columnas de $\mathbf{W}$, y arriba a la derecha igualmente, porque $\mathbf{A}$ es simétrica. Con $\mathbf{B}$ se repite lo mismo hasta que queda una matriz $1\times1$. Si de este modo se ha encontrado para $\mathbf{B}$ una matriz ortogonal $\mathbf{Q}_B$ con la que $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ es diagonal, entonces $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ es ortogonal como producto de matrices ortogonales, y $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ es diagonal. Como $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, se sigue $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. La forma de suma se deduce de la parte 1, sección 9.5, pues $\mathbf{Q}\boldsymbol{\Lambda}$ tiene las columnas $\lambda_i\mathbf{q}_i$.
+con la matriz simétrica $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, de tamaño $(n-1)\times(n-1)$. Los ceros aparecen porque $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ es perpendicular a las columnas de $\mathbf{W}$, y arriba a la derecha igualmente, porque $\mathbf{A}$ es simétrica. Con $\mathbf{B}$ se repite lo mismo hasta que queda una matriz $1\times1$. Si de este modo se ha encontrado para $\mathbf{B}$ una matriz ortogonal $\mathbf{Q}_B$ con la que $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ es diagonal, entonces $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ es ortogonal como producto de matrices ortogonales, y $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ es diagonal. Como $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, se sigue $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. La forma de suma se deduce de Fundamentos 1, sección 9.5, pues $\mathbf{Q}\boldsymbol{\Lambda}$ tiene las columnas $\lambda_i\mathbf{q}_i$.
 :::
 
 Cada sumando $\mathbf{q}_i\mathbf{q}_i^{\top}$ es, según la sección [2.3](projektion-auf-eine-gerade.html#stufe-2-3), la proyección sobre la recta en la dirección de $\mathbf{q}_i$. Una matriz simétrica es, por tanto, una suma de proyecciones sobre ejes perpendiculares, cada una ponderada con su valor propio. En un valor propio múltiple, la elección de los $\mathbf{q}_i$ en su espacio propio es libre: cualquier base ortonormal del espacio propio sirve. También el signo de cada $\mathbf{q}_i$ es libre. Algunos libros ordenan los valores propios de forma decreciente; otros no.
@@ -207,7 +209,7 @@ $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}
 ⁠**En resumen:** Toda matriz simétrica es $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$: diagonal en un sistema de ejes convenientemente girado, una suma ponderada de proyecciones sobre ejes perpendiculares.
 
 :::hintergrund De dónde salen las matrices simétricas
-Las matrices simétricas aparecen siempre que una matriz describe relaciones entre pares que no dependen del orden. Las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$ de la parte 1, sección 10, contienen productos escalares, y $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. La matriz de una forma cuadrática puede elegirse siempre simétrica, según la sección [5.2](quadratische-formen.html#stufe-5-2). La matriz de inductancias de unas bobinas acopladas es simétrica, porque la inductancia mutua de la bobina 1 sobre la bobina 2 es la misma que a la inversa. Para todas estas matrices, el teorema espectral garantiza valores propios reales y direcciones propias perpendiculares.
+Las matrices simétricas aparecen siempre que una matriz describe relaciones entre pares que no dependen del orden. Las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$ de Fundamentos 1, sección 10, contienen productos escalares, y $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. La matriz de una forma cuadrática puede elegirse siempre simétrica, según la sección [5.2](quadratische-formen.html#stufe-5-2). La matriz de inductancias de unas bobinas acopladas es simétrica, porque la inductancia mutua de la bobina 1 sobre la bobina 2 es la misma que a la inversa. Para todas estas matrices, el teorema espectral garantiza valores propios reales y direcciones propias perpendiculares.
 :::
 
 ### Ejes principales

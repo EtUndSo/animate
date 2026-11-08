@@ -1,7 +1,9 @@
 ---
 title: Zufallsvariablen und Verteilungen
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240700
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240700
 summary: Bisher waren Ereignisse Aussagen wie „gerade“ oder „defekt“.
 tags: Zufallsvariable, Wert, Verteilung, diskret, Wahrscheinlichkeitsfunktion, identisch verteilt, Integral, Stammfunktion
 lang: de

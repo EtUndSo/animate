@@ -1,7 +1,9 @@
 ---
 title: 本章要点
-pfad: 计算机科学 / 机器学习 / 投影、特征值与矩阵分解
-order: 6221400
+pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
+knoten: 基础篇 2：投影、特征值与矩阵分解
+nachschlagen: ja
+order: 15221400
 summary: 最近点、自然方向 与矩阵的构件
 tags: 
 lang: zh

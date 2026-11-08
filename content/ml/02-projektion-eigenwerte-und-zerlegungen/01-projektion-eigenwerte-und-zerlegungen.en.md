@@ -1,8 +1,10 @@
 ---
-title: Overview: Projection, Eigenvalues and Decompositions
+title: Overview: Foundations 2 – Projection, Eigenvalues and Decompositions
 kurz: Overview
-pfad: Computer Science / Machine Learning / Projection, Eigenvalues and Decompositions
-order: 6220100
+pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
+knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+nachschlagen: ja
+order: 15220100
 summary: Nearest points, natural directions and the building blocks of a matrix
 tags: 
 lang: en
@@ -10,7 +12,7 @@ lang: en
 
 ## What this is about
 
-In Part 1 one question was left open. Four apartments are described by their floor area and their number of rooms, and their prices are known. We are looking for two weights with which the weighted sum hits every price. Such weights do not exist: four equations in two unknowns contradict one another. With measured data this is almost always the case. You have more measurements than unknowns, every measurement is slightly inaccurate, and the system of equations has no solution. Still, you need weights, namely the ones that are off by as little as possible.
+In Foundations 1 one question was left open. Four apartments are described by their floor area and their number of rooms, and their prices are known. We are looking for two weights with which the weighted sum hits every price. Such weights do not exist: four equations in two unknowns contradict one another. With measured data this is almost always the case. You have more measurements than unknowns, every measurement is slightly inaccurate, and the system of equations has no solution. Still, you need weights, namely the ones that are off by as little as possible.
 
 This chapter pursues this question and two more that turn out to be closely related. Are there directions in which a matrix only makes an arrow longer or shorter without rotating it, and what do these directions reveal about the matrix? And can every matrix be split into a few simple building blocks, ordered by importance, so that the unimportant ones can be left out? On top of that comes a practical question: how much does the result of a calculation change when the data are slightly wrong?
 

@@ -1,7 +1,9 @@
 ---
 title: Le conditionnement
-pfad: Informatique / Apprentissage automatique / Projection, valeurs propres et décompositions
-order: 6221300
+pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
+knoten: Fondements 2 : Projection, valeurs propres et décompositions
+nachschlagen: ja
+order: 15221300
 summary: Les données de mesure ne sont jamais exactes, et un ordinateur arrondit à chaque étape.
 tags: conditionnement
 lang: fr
@@ -85,7 +87,7 @@ donc $\lambda_1\approx2{,}005012$ et $\lambda_2\approx0{,}004988$, toutes deux p
 
 <span class="anker" id="stufe-12-3"></span>
 
-Dans l’encadré « Contexte » de la Partie 1, section 14.6, figurait une mise en garde : un petit déterminant ne signifie pas qu’une matrice est presque singulière. Le conditionnement mesure ce que l’on voulait dire là-bas.
+Dans l’encadré « Contexte » de Fondements 1, section 14.6, figurait une mise en garde : un petit déterminant ne signifie pas qu’une matrice est presque singulière. Le conditionnement mesure ce que l’on voulait dire là-bas.
 
 :::satz Théorème 12.3 (Distance à la matrice singulière la plus proche)
 <span class="anker" id="satz-12-3"></span>
@@ -102,7 +104,7 @@ Une matrice singulière est de rang au plus $n-1$. D’après le théorème d’
 
 Un grand conditionnement signifie donc qu’une modification relativement petite rend la matrice singulière. Le déterminant mesure autre chose. D’après l’exercice [29](die-singularwertzerlegung.html#aufg-29), $|\det\mathbf{A}|=d_1\cdots d_n$, le produit de tous les étirements ; il dépend de la taille de la matrice. Le conditionnement est un rapport et ne change pas lorsqu’on multiplie $\mathbf{A}$ par un nombre : $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ pour $c\ne0$. Il mesure seulement à quel point est aplatie l’ellipse en laquelle $\mathbf{A}$ transforme le cercle unité.
 
-⁠**Exemple de calcul :** Les deux matrices de la Partie 1, section 14.6 : $0{,}1\cdot\mathbf{I}_{10}$ a pour déterminant $10^{-10}$, mais toutes ses valeurs singulières valent $0{,}1$, et $\kappa=1$ ; elle est aussi bien conditionnée que possible. $\operatorname{diag}(1000;\ 0{,}001)$ a pour déterminant $1$, mais $\kappa=1000/0{,}001=10^6$. Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distance à la matrice singulière la plus proche vaut $d_2\approx0{,}005$ : si l’on modifie des coefficients de quelques millièmes, elle devient singulière. La matrice singulière $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ est à la distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, un peu plus que le minimum.
+⁠**Exemple de calcul :** Les deux matrices de Fondements 1, section 14.6 : $0{,}1\cdot\mathbf{I}_{10}$ a pour déterminant $10^{-10}$, mais toutes ses valeurs singulières valent $0{,}1$, et $\kappa=1$ ; elle est aussi bien conditionnée que possible. $\operatorname{diag}(1000;\ 0{,}001)$ a pour déterminant $1$, mais $\kappa=1000/0{,}001=10^6$. Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distance à la matrice singulière la plus proche vaut $d_2\approx0{,}005$ : si l’on modifie des coefficients de quelques millièmes, elle devient singulière. La matrice singulière $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ est à la distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, un peu plus que le minimum.
 
 ⁠**En bref :** $1/\kappa(\mathbf{A})$ est la distance relative à la matrice singulière la plus proche ; le déterminant n’en dit rien, car il dépend de la taille de la matrice.
 

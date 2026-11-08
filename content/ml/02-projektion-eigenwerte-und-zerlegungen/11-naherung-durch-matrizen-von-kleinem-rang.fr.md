@@ -1,7 +1,9 @@
 ---
 title: Approximation par des matrices de petit rang
-pfad: Informatique / Apprentissage automatique / Projection, valeurs propres et décompositions
-order: 6221100
+pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
+knoten: Fondements 2 : Projection, valeurs propres et décompositions
+nachschlagen: ja
+order: 15221100
 summary: La décomposition en valeurs singulières classe les briques d’une matrice selon leur taille.
 tags: norme de Frobenius, décomposition en valeurs singulières tronquée
 lang: fr
@@ -17,7 +19,7 @@ La décomposition en valeurs singulières classe les briques d’une matrice sel
 
 <span class="anker" id="stufe-10-1"></span>
 
-Pour dire à quel point deux matrices sont proches l’une de l’autre, il faut une mesure de la taille de leur différence. La norme spectrale en est une ; elle mesure l’allongement maximal. Une seconde est encore plus immédiate : on lit la matrice ligne par ligne, comme une image dans la Partie 1, section 6.1, pour en faire un long vecteur, et l’on prend sa norme euclidienne.
+Pour dire à quel point deux matrices sont proches l’une de l’autre, il faut une mesure de la taille de leur différence. La norme spectrale en est une ; elle mesure l’allongement maximal. Une seconde est encore plus immédiate : on lit la matrice ligne par ligne, comme une image dans Fondements 1, section 6.1, pour en faire un long vecteur, et l’on prend sa norme euclidienne.
 
 :::definition Définition 10.1 (Norme de Frobenius)
 <span class="anker" id="satz-10-1"></span>
@@ -108,7 +110,7 @@ Parmi toutes les matrices de rang au plus $k$, c’est donc $\mathbf{A}_k$ qui e
 :::
 
 :::beweis Norme spectrale
-D’après le théorème du rang, le noyau de $\mathbf{B}$ est de dimension $n-\operatorname{rg}\mathbf{B}\ge n-k$. On choisit $n-k$ vecteurs linéairement indépendants $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ dans le noyau et l’on y ajoute $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Cela fait $n+1$ vecteurs de $\mathbb{R}^n$, et d’après la Partie 1, section 13.4, ils sont linéairement dépendants, car une matrice à $n$ lignes est de rang au plus $n$. Il existe donc des nombres non tous nuls tels que $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Ce vecteur $\mathbf{z}$ n’est pas nul, car sinon, en raison de l’indépendance des deux listes, tous les nombres seraient nuls. Il appartient au noyau de $\mathbf{B}$ et au sous-espace engendré par $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. On le normalise à la longueur $1$. Alors $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, et avec $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ :
+D’après le théorème du rang, le noyau de $\mathbf{B}$ est de dimension $n-\operatorname{rg}\mathbf{B}\ge n-k$. On choisit $n-k$ vecteurs linéairement indépendants $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ dans le noyau et l’on y ajoute $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Cela fait $n+1$ vecteurs de $\mathbb{R}^n$, et d’après Fondements 1, section 13.4, ils sont linéairement dépendants, car une matrice à $n$ lignes est de rang au plus $n$. Il existe donc des nombres non tous nuls tels que $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Ce vecteur $\mathbf{z}$ n’est pas nul, car sinon, en raison de l’indépendance des deux listes, tous les nombres seraient nuls. Il appartient au noyau de $\mathbf{B}$ et au sous-espace engendré par $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. On le normalise à la longueur $1$. Alors $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, et avec $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ :
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -143,7 +145,7 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 indique quelle part de la somme des carrés de toutes les valeurs de luminosité est conservée.
 
-⁠**Exemple de calcul :** La croix de la Partie 1, section 6.1, est
+⁠**Exemple de calcul :** La croix de Fondements 1, section 6.1, est
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 

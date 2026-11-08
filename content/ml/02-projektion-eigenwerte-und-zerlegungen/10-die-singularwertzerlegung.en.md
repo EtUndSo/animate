@@ -1,7 +1,9 @@
 ---
 title: The singular value decomposition
-pfad: Computer Science / Machine Learning / Projection, Eigenvalues and Decompositions
-order: 6221000
+pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
+knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+nachschlagen: ja
+order: 15221000
 summary: Eigenvectors exist only for square matrices, and they are perpendicular to each other only for symmetric ones.
 tags: singular values, right singular vectors, left singular vector, spectral norm
 lang: en
@@ -54,7 +56,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 are called the __singular values__ of $\mathbf{A}$.
 :::
 
-Many books write $\sigma_j$ instead of $d_j$. Here the singular values always carry an index; the $d$ without an index from Part 1, the number of features, is something else.
+Many books write $\sigma_j$ instead of $d_j$. Here the singular values always carry an index; the $d$ without an index from Foundations 1, the number of features, is something else.
 
 :::satz Theorem 9.2 (Singular values and rank)
 <span class="anker" id="satz-9-2"></span>
@@ -128,7 +130,7 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Singular value decomposition
-For $j\le r$ we have $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. For $j>r$ we have $d_j=0$, so $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ and $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. If $r<m$, extend $\mathbf{u}_1,\dots,\mathbf{u}_r$ to an orthonormal basis of $\mathbb{R}^m$, for instance with the Gram–Schmidt process as in the proof of the spectral theorem. By Part 1, Section 9.2, column $j$ of $\mathbf{A}\mathbf{V}$ is the vector $\mathbf{A}\mathbf{v}_j$, and column $j$ of $\mathbf{U}\mathbf{D}$ is $d_j\mathbf{u}_j$ for $j\le r$ and the zero vector otherwise. So $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Because $\mathbf{V}$ is orthogonal, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, and multiplying by $\mathbf{V}^{\top}$ from the right gives $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. The compact form follows from Part 1, Section 9.5: column $j$ of $\mathbf{U}\mathbf{D}$ times row $j$ of $\mathbf{V}^{\top}$, summed over $j$; only the terms with $j\le r$ are nonzero.
+For $j\le r$ we have $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. For $j>r$ we have $d_j=0$, so $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ and $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. If $r<m$, extend $\mathbf{u}_1,\dots,\mathbf{u}_r$ to an orthonormal basis of $\mathbb{R}^m$, for instance with the Gram–Schmidt process as in the proof of the spectral theorem. By Foundations 1, Section 9.2, column $j$ of $\mathbf{A}\mathbf{V}$ is the vector $\mathbf{A}\mathbf{v}_j$, and column $j$ of $\mathbf{U}\mathbf{D}$ is $d_j\mathbf{u}_j$ for $j\le r$ and the zero vector otherwise. So $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Because $\mathbf{V}$ is orthogonal, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, and multiplying by $\mathbf{V}^{\top}$ from the right gives $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. The compact form follows from Foundations 1, Section 9.5: column $j$ of $\mathbf{U}\mathbf{D}$ times row $j$ of $\mathbf{V}^{\top}$, summed over $j$; only the terms with $j\le r$ are nonzero.
 :::
 
 The shape of $\mathbf{D}$ follows the shape of $\mathbf{A}$. For $m=3$ and $n=2$, for example, $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$. The usual abbreviation is SVD, for *singular value decomposition*.
@@ -179,7 +181,7 @@ $\mathbf{U}$ puts $\mathbf{e}_j$ onto $\mathbf{u}_j$, again a rotation or reflec
 
 </ol>
 
-So every linear map is, up to reflections, a rotation, a stretch along the axes and another rotation. It turns the unit circle into an ellipse and the unit sphere into an ellipsoid, with the semi-axes $d_j\mathbf{u}_j$. If $\det\mathbf{A}<0$, at least one reflection is involved, because by Part 1, Section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, and $\det\mathbf{D}\ge0$.
+So every linear map is, up to reflections, a rotation, a stretch along the axes and another rotation. It turns the unit circle into an ellipse and the unit sphere into an ellipsoid, with the semi-axes $d_j\mathbf{u}_j$. If $\det\mathbf{A}<0$, at least one reflection is involved, because by Foundations 1, Section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, and $\det\mathbf{D}\ge0$.
 
 :::abbildung ml/k2svd 23
 The matrix $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ as rotation, stretch, rotation. Top left, the unit circle with $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (red) and $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (green). $\mathbf{V}^{\top}$ rotates by $-63.4^\circ$ and puts $\mathbf{v}_1$ onto $\mathbf{e}_1$ and $\mathbf{v}_2$ onto $\mathbf{e}_2$ (bottom left). $\mathbf{D}$ stretches the first axis by $d_1=4$ and the second by $d_2=1$ (bottom right). $\mathbf{U}$ rotates by $26.6^\circ$ and puts the axes onto $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ and $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ (top right). The black point $\mathbf{x}=\mathbf{e}_2$ ends up at $\mathbf{A}\mathbf{x}=(3,2)^{\top}$ by either route. The direct route at the top is $\mathbf{A}$ itself: the unit circle becomes the ellipse with the semi-axes $4\,\mathbf{u}_1$ and $1\cdot\mathbf{u}_2$.
@@ -229,7 +231,7 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ is an orthonormal basis of the null space 
 (i) Every $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ lies in the span of $\mathbf{u}_1,\dots,\mathbf{u}_r$, and conversely $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ is an image. The remaining columns of $\mathbf{U}$ are perpendicular to these, so by Section [4.4](projektion-auf-einen-unterraum.html#stufe-4-4) they span the orthogonal complement. (ii) Because the $\mathbf{u}_j$ are independent and the $d_j$ positive, $\mathbf{A}\mathbf{x}=\mathbf{0}$ if and only if $\mathbf{v}_j^{\top}\mathbf{x}=0$ for all $j\le r$, that is, if $\mathbf{x}$ has coordinates only along $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$. Finally, $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$ is a singular value decomposition of $\mathbf{A}^{\top}$ in which $\mathbf{U}$ and $\mathbf{V}$ swap roles; (i) for $\mathbf{A}^{\top}$ gives the rest.
 :::
 
-The numbers match the rank–nullity theorem from Part 1, Section 13.5: the null space has dimension $n-r$.
+The numbers match the rank–nullity theorem from Foundations 1, Section 13.5: the null space has dimension $n-r$.
 
 ⁠**Worked example:** The matrix $\mathbf{H}$ with the columns $(1,\,0,\,1)^{\top}$ and $(0,\,1,\,1)^{\top}$ from Section [3.2](die-beste-naherungslosung.html#stufe-3-2) has $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ with the eigenvalues $3$ and $1$, hence the singular values $d_1=\sqrt3$ and $d_2=1$, and the right singular vectors $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. The left ones are
 
@@ -420,7 +422,7 @@ Show: if $\mathbf{Q}$ is orthogonal, then $\mathbf{Q}\mathbf{A}$ and $\mathbf{A}
 </ol>
 
 :::loesung
-(a) By Part 1, Section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. The two orthogonal matrices have the determinant $\pm1$, and $\mathbf{D}$ is a diagonal matrix with the determinant $d_1\cdots d_n$. Hence $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) By Foundations 1, Section 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. The two orthogonal matrices have the determinant $\pm1$, and $\mathbf{D}$ is a diagonal matrix with the determinant $d_1\cdots d_n$. Hence $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) From $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ it follows that $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ and $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$. The diagonal matrices $\mathbf{D}^{\top}\mathbf{D}$ and $\mathbf{D}\mathbf{D}^{\top}$ have the same entries $d_j^2>0$ on the diagonal, only different numbers of zeros. The singular values of $\mathbf{A}^{\top}$ are the square roots of the eigenvalues of $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$, so again the $d_j$, supplemented by zeros.
 

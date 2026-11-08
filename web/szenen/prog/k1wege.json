@@ -1,0 +1,810 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 34,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@py",
+     "position": [
+      -1.8,
+      3.45,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@cc",
+     "position": [
+      1.8,
+      3.45,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8,
+      2.75,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.52,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f2f2f2",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@l1",
+     "position": [
+      -1.8,
+      2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8,
+      2.75,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.52,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f2f2f2",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@r1",
+     "position": [
+      1.8,
+      2.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8,
+      2.47,
+      0
+     ],
+     "end": [
+      -1.8,
+      2.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.8,
+      2.47,
+      0
+     ],
+     "end": [
+      1.8,
+      2.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8,
+      1.7,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.72,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@l2",
+     "position": [
+      -1.8,
+      1.7,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8,
+      1.7,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.72,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@r2",
+     "position": [
+      1.8,
+      1.7,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8,
+      1.3199999999999998,
+      0
+     ],
+     "end": [
+      -1.8,
+      1.03,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.8,
+      1.3199999999999998,
+      0
+     ],
+     "end": [
+      1.8,
+      1.03,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8,
+      0.65,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.72,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@l3",
+     "position": [
+      -1.8,
+      0.65,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8,
+      0.65,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.72,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@r3",
+     "position": [
+      1.8,
+      0.65,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8,
+      0.27,
+      0
+     ],
+     "end": [
+      -1.8,
+      -0.020000000000000035,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.8,
+      0.27,
+      0
+     ],
+     "end": [
+      1.8,
+      -0.020000000000000035,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8,
+      -0.4,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.72,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@l4",
+     "position": [
+      -1.8,
+      -0.4,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8,
+      -0.4,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.72,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@r4",
+     "position": [
+      1.8,
+      -0.4,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.8,
+      -0.78,
+      0
+     ],
+     "end": [
+      -1.8,
+      -1.17,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.8,
+      -0.78,
+      0
+     ],
+     "end": [
+      1.8,
+      -1.17,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8,
+      -1.45,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.52,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f2f2f2",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@aus",
+     "position": [
+      -1.8,
+      -1.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.8,
+      -1.45,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.52,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f2f2f2",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "@aus",
+     "position": [
+      1.8,
+      -1.45,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8,
+      0.65,
+      0
+     ],
+     "width": 3.3899999999999997,
+     "height": 3.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0,
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "@rahmen",
+     "position": [
+      -1.8,
+      -2.15,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "@jedes",
+     "position": [
+      1.9000000000000001,
+      0.12,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "py": {
+    "de": "Python (CPython)",
+    "en": "Python (CPython)",
+    "es": "Python (CPython)",
+    "zh": "Python（CPython）",
+    "fr": "Python (CPython)",
+    "tr": "Python (CPython)"
+   },
+   "cc": {
+    "de": "C (Compiler)",
+    "en": "C (compiler)",
+    "es": "C (compilador)",
+    "zh": "C（编译器）",
+    "fr": "C (compilateur)",
+    "tr": "C (derleyici)"
+   },
+   "l1": {
+    "de": "hallo.py: Quelltext",
+    "en": "hallo.py: source code",
+    "es": "hallo.py: código fuente",
+    "zh": "hallo.py：源代码",
+    "fr": "hallo.py : code source",
+    "tr": "hallo.py: kaynak kod"
+   },
+   "l2": {
+    "de": "Übersetzen: Syntax prüfen,\nBytecode erzeugen",
+    "en": "Translate: check syntax,\ngenerate bytecode",
+    "es": "Traducir: comprobar sintaxis,\ngenerar bytecode",
+    "zh": "翻译：检查语法，\n生成字节码",
+    "fr": "Traduire : vérifier la syntaxe,\nproduire le bytecode",
+    "tr": "Çevir: sözdizimini denetle,\nbayt kodu üret"
+   },
+   "l3": {
+    "de": "Bytecode\n(im Arbeitsspeicher)",
+    "en": "Bytecode\n(in main memory)",
+    "es": "Bytecode\n(en la memoria)",
+    "zh": "字节码\n（在内存中）",
+    "fr": "Bytecode\n(en mémoire vive)",
+    "tr": "Bayt kodu\n(ana bellekte)"
+   },
+   "l4": {
+    "de": "Interpreterschleife:\nein Befehl nach dem anderen",
+    "en": "Interpreter loop:\none instruction after another",
+    "es": "Bucle del intérprete:\nuna instrucción tras otra",
+    "zh": "解释器循环：\n一条接一条执行",
+    "fr": "Boucle de l'interpréteur :\nune instruction après l'autre",
+    "tr": "Yorumlayıcı döngüsü:\nkomutlar sırayla"
+   },
+   "aus": {
+    "de": "Ausgabe",
+    "en": "Output",
+    "es": "Salida",
+    "zh": "输出",
+    "fr": "Sortie",
+    "tr": "Çıktı"
+   },
+   "r1": {
+    "de": "hallo.c: Quelltext",
+    "en": "hallo.c: source code",
+    "es": "hallo.c: código fuente",
+    "zh": "hallo.c：源代码",
+    "fr": "hallo.c : code source",
+    "tr": "hallo.c: kaynak kod"
+   },
+   "r2": {
+    "de": "Compiler gcc:\neinmal vorab übersetzen",
+    "en": "Compiler gcc:\ntranslate once in advance",
+    "es": "Compilador gcc:\ntraducir una vez antes",
+    "zh": "编译器 gcc：\n预先翻译一次",
+    "fr": "Compilateur gcc :\ntraduire une fois avant",
+    "tr": "Derleyici gcc:\nönceden bir kez çevir"
+   },
+   "r3": {
+    "de": "hallo.exe bzw. hallo:\nMaschinencode (Datei)",
+    "en": "hallo.exe or hallo:\nmachine code (file)",
+    "es": "hallo.exe o hallo:\ncódigo máquina (archivo)",
+    "zh": "hallo.exe 或 hallo：\n机器码（文件）",
+    "fr": "hallo.exe ou hallo :\ncode machine (fichier)",
+    "tr": "hallo.exe veya hallo:\nmakine kodu (dosya)"
+   },
+   "r4": {
+    "de": "Prozessor führt den\nMaschinencode direkt aus",
+    "en": "Processor runs the\nmachine code directly",
+    "es": "El procesador ejecuta\nel código máquina",
+    "zh": "处理器直接执行\n机器码",
+    "fr": "Le processeur exécute\nle code machine",
+    "tr": "İşlemci makine kodunu\ndoğrudan çalıştırır"
+   },
+   "rahmen": {
+    "de": "gestrichelt: Programm python,\nläuft bei jedem Start mit",
+    "en": "dashed: the program python,\nruns along at every start",
+    "es": "discontinuo: el programa python,\nse ejecuta en cada inicio",
+    "zh": "虚线框：程序 python，\n每次启动都要运行",
+    "fr": "en tirets : le programme python,\ns'exécute à chaque lancement",
+    "tr": "kesik çizgi: python programı,\nher başlatmada çalışır"
+   },
+   "jedes": {
+    "de": "bei jedem Start",
+    "en": "at every start",
+    "es": "en cada inicio",
+    "zh": "每次启动",
+    "fr": "à chaque lancement",
+    "tr": "her başlatmada"
+   }
+  }
+ }
+}

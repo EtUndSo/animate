@@ -1,7 +1,9 @@
 ---
 title: Winkel und Ähnlichkeit
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210600
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210600
 summary: Zwei Vektoren können in ähnliche Richtungen zeigen, auch wenn sie verschieden lang sind.
 tags: Winkel, orthogonal, Kosinus-Ähnlichkeit
 lang: de
@@ -246,7 +248,7 @@ Finde einen Vektor $\mathbf{v}\ne\mathbf{0}$, der zu $\mathbf{u}=(1,\,2)^{\top}$
 
 (b) $1\cdot1+1\cdot(-1)+0\cdot3=0$: ja, sie sind orthogonal.
 
-(c) Für $\mathbf{v}=(v_1,v_2)^{\top}$ verlangt die Bedingung $v_1+2v_2=0$. Eine Lösung ist $\mathbf{v}=(2,\,-1)^{\top}$, jedes Vielfache davon ebenso. Probe des Pythagoras: $\mathbf{u}+\mathbf{v}=(3,\,1)^{\top}$ hat das Längenquadrat $10$, und $\lVert\mathbf{u}\rVert^2+\lVert\mathbf{v}\rVert^2=5+5=10$.
+(c) Für $\mathbf{v}=(v_1,v_2)^{\top}$ verlangt die Bedingung $v_1+2v_2=0$. Eine Lösung ist $\mathbf{v}=(2,\,-1)^{\top}$, jedes von null verschiedene Vielfache davon ebenso. Probe des Pythagoras: $\mathbf{u}+\mathbf{v}=(3,\,1)^{\top}$ hat das Längenquadrat $10$, und $\lVert\mathbf{u}\rVert^2+\lVert\mathbf{v}\rVert^2=5+5=10$.
 :::
 :::
 

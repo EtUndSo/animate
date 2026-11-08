@@ -1,7 +1,9 @@
 ---
 title: Formas cuadráticas
-pfad: Informática / Aprendizaje automático / Proyección, valores propios y descomposiciones
-order: 6220600
+pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
+knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+nachschlagen: ja
+order: 15220600
 summary: Después de las funciones lineales, las cuadráticas son las funciones de varias variables más sencillas.
 tags: forma cuadrática
 lang: es
@@ -17,7 +19,7 @@ Después de las funciones lineales, las cuadráticas son las funciones de varias
 
 <span class="anker" id="stufe-5-1"></span>
 
-En la parte 1, sección 8.4, toda función lineal con una salida era una suma ponderada $\mathbf{w}^{\top}\mathbf{x}$ de las componentes. El siguiente tipo de función, en orden de sencillez, suma productos de dos componentes: cuadrados como $x_1^2$ y términos cruzados como $x_1x_2$. Un ejemplo de la electrotecnia es la energía magnética de dos bobinas acopladas con las inductancias $L_1$, $L_2$ y la inductancia mutua $M$, por las que circulan las corrientes $i_1$ e $i_2$:
+En Fundamentos 1, sección 8.4, toda función lineal con una salida era una suma ponderada $\mathbf{w}^{\top}\mathbf{x}$ de las componentes. El siguiente tipo de función, en orden de sencillez, suma productos de dos componentes: cuadrados como $x_1^2$ y términos cruzados como $x_1x_2$. Un ejemplo de la electrotecnia es la energía magnética de dos bobinas acopladas con las inductancias $L_1$, $L_2$ y la inductancia mutua $M$, por las que circulan las corrientes $i_1$ e $i_2$:
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -141,7 +143,7 @@ Ambos coeficientes son positivos: la forma es un cuenco. Comprobación en $\math
 ⁠**En resumen:** Completar cuadrados escribe una forma cuadrática como suma de cuadrados; los signos de los coeficientes de los cuadrados muestran si es un cuenco, un canal o una silla.
 
 :::hintergrund Completar cuadrados es la eliminación gaussiana
-Los números de [(5.3)](#gl-5-3) son los mismos que en la eliminación gaussiana de la parte 1, sección 12.3, aplicada a la matriz simétrica $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Para producir un cero debajo de la diagonal, se resta de la segunda fila $\frac ba$ veces la primera y se obtiene $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Las entradas diagonales de esta forma escalonada, los llamados pivotes, son exactamente los coeficientes de los cuadrados, y el factor de eliminación $\frac ba$ está en el primer paréntesis. Para la matriz $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0{,}4$, pivotes $5$ y $1{,}2$. Con $n$ variables se continúa del mismo modo: cada paso de eliminación completa el cuadrado de una variable. La forma es un cuenco si y solo si todos los pivotes son positivos. El producto de los pivotes es, según las reglas de cálculo de la parte 1, sección 14.5, el determinante, aquí $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Los números de [(5.3)](#gl-5-3) son los mismos que en la eliminación gaussiana de Fundamentos 1, sección 12.3, aplicada a la matriz simétrica $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Para producir un cero debajo de la diagonal, se resta de la segunda fila $\frac ba$ veces la primera y se obtiene $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Las entradas diagonales de esta forma escalonada, los llamados pivotes, son exactamente los coeficientes de los cuadrados, y el factor de eliminación $\frac ba$ está en el primer paréntesis. Para la matriz $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0{,}4$, pivotes $5$ y $1{,}2$. Con $n$ variables se continúa del mismo modo: cada paso de eliminación completa el cuadrado de una variable. La forma es un cuenco si y solo si todos los pivotes son positivos. El producto de los pivotes es, según las reglas de cálculo de Fundamentos 1, sección 14.5, el determinante, aquí $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Ejercicio 14 ★ Formas y matrices

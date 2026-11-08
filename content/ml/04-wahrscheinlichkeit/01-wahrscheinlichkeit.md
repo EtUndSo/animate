@@ -1,8 +1,10 @@
 ---
-title: Überblick: Wahrscheinlichkeit
+title: Überblick: Grundlagen 4 – Wahrscheinlichkeit
 kurz: Überblick
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240100
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240100
 summary: Unsicherheit rechnen: Ereignisse, Verteilungen, Kovarianz und die Normalverteilung
 tags: 
 lang: de

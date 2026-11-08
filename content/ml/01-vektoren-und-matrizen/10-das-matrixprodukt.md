@@ -1,7 +1,9 @@
 ---
 title: Das Matrixprodukt
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6211000
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15211000
 summary: Zwei lineare Abbildungen hintereinander ergeben wieder eine lineare Abbildung, also eine Matrix.
 tags: Matrixprodukt, äußere Produkt
 lang: de

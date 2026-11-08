@@ -1,7 +1,9 @@
 ---
 title: Das Skalarprodukt
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210300
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210300
 summary: Zwei Vektoren gleicher Länge ergeben eine einzige Zahl, wenn man ihre Komponenten paarweise multipliziert und addiert.
 tags: Skalarprodukt, Gewicht, gewichtete Summe, Modell, Vorhersage, Einsvektor, Mittelwert
 lang: de
@@ -216,7 +218,7 @@ Ein Kollege sagt: „Bei der Maklerin zählen die Zimmer am meisten, sie haben d
 
 (b) Wohnung 2 wird zu $(40,\,2,\,1)^{\top}$. Die Vorhersage steigt von $126$ auf $120+20-4=136$, also um $10$. Allgemein ändert sich die gewichtete Summe bei einer Änderung $\Delta x_2$ des zweiten Merkmals um $w_2\,\Delta x_2$, denn $\mathbf{w}^{\top}(\mathbf{x}+\Delta x_2\,\mathbf{e}_2)=\mathbf{w}^{\top}\mathbf{x}+\Delta x_2\,\mathbf{w}^{\top}\mathbf{e}_2=\mathbf{w}^{\top}\mathbf{x}+\Delta x_2\,w_2$. Die anderen Merkmale spielen dafür keine Rolle. Das ist die Linearität des Skalarprodukts: Jedes Merkmal trägt für sich bei, ohne Wechselwirkung mit den anderen.
 
-(c) Die Beiträge bei Wohnung 1 sind $w_1x_{11}=180$, $w_2x_{12}=20$ und $w_3x_{13}=-12$. Den weitaus größten Beitrag liefert die Fläche, obwohl ihr Gewicht das kleinste ist. Die Aussage des Kollegen verwechselt das Gewicht pro Einheit mit dem Beitrag zur Vorhersage; die Fläche hat sehr viele Einheiten.
+(c) Die Beiträge bei Wohnung 1 sind $w_1x_{11}=180$, $w_2x_{12}=20$ und $w_3x_{13}=-12$. Den weitaus größten Beitrag liefert die Fläche, obwohl ihr Gewicht dem Betrag nach das kleinste ist. Die Aussage des Kollegen verwechselt das Gewicht pro Einheit mit dem Beitrag zur Vorhersage; die Fläche hat sehr viele Einheiten.
 :::
 :::
 

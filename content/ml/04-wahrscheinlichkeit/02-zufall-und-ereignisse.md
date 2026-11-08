@@ -1,7 +1,9 @@
 ---
 title: Zufall und Ereignisse
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240200
 summary: Bevor man mit Unsicherheit rechnen kann, muss man aufschreiben, was alles geschehen kann.
 tags: Menge, Elemente, leere Menge, Teilmenge, Vereinigung, Schnitt, Komplement, disjunkt
 lang: de
@@ -97,7 +99,7 @@ Ein Ereignis mit genau einem Ergebnis, $\{\omega\}$, heißt __Elementarereignis_
 ⁠**Kurz gesagt:** Ein Ereignis ist die Menge der Ergebnisse, auf die eine Aussage zutrifft; „oder“, „und“ und „nicht“ werden zu Vereinigung, Schnitt und Komplement.
 
 :::hintergrund Welche Teilmengen sind Ereignisse?
-Bei endlichem oder abzählbar unendlichem $\Omega$ darf jede Teilmenge ein Ereignis sein. Bei $\Omega=[0,\,1]$ geht das nicht mehr: Man kann beweisen, dass es keine Wahrscheinlichkeit gibt, die allen Teilmengen von $[0,\,1]$ einen Wert zuweist, jedem Teilintervall seine Länge gibt, verschobene Mengen gleich behandelt und die Rechenregeln aus Abschnitt [2](wahrscheinlichkeit.html#stufe-2) erfüllt. Die Teilmengen, für die das schiefgeht, sind so verwickelt, dass man sie nicht hinschreiben kann; man braucht zu ihrer Konstruktion ein eigenes Axiom der Mengenlehre, das Auswahlaxiom. Die Theorie beschränkt sich deshalb auf eine Auswahl von Teilmengen, die alle Intervalle enthält und unter Komplement und abzählbaren Vereinigungen abgeschlossen ist. Alle Mengen, die in der Praxis vorkommen, gehören dazu, und dieses Kapitel braucht die Einschränkung nirgends.
+Bei endlichem oder abzählbar unendlichem $\Omega$ darf jede Teilmenge ein Ereignis sein. Bei $\Omega=[0,\,1]$ geht das nicht mehr: Man kann beweisen, dass es keine Wahrscheinlichkeit gibt, die allen Teilmengen von $[0,\,1]$ einen Wert zuweist, jedem Teilintervall seine Länge gibt, verschobene Mengen gleich behandelt und die Rechenregeln aus Abschnitt [2](wahrscheinlichkeit-2.html#stufe-2) erfüllt. Die Teilmengen, für die das schiefgeht, sind so verwickelt, dass man sie nicht hinschreiben kann; man braucht zu ihrer Konstruktion ein eigenes Axiom der Mengenlehre, das Auswahlaxiom. Die Theorie beschränkt sich deshalb auf eine Auswahl von Teilmengen, die alle Intervalle enthält und unter Komplement und abzählbaren Vereinigungen abgeschlossen ist. Alle Mengen, die in der Praxis vorkommen, gehören dazu, und dieses Kapitel braucht die Einschränkung nirgends.
 :::
 
 :::aufgabe Aufgabe 1 ★ Ereignisse beim Wurf zweier Würfel
@@ -130,7 +132,7 @@ Sind $A$ und das Ereignis „die Augensumme ist $8$“ unvereinbar?
 :::loesung
 (a) $A=\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$ mit $6$ Elementen, $B=\{(6,1),(6,2),\dots,(6,6)\}$ mit $6$ Elementen und $A\cap B=\{(6,1)\}$ mit einem Element.
 
-(b) $\#(A\cup B)=6+6-1=11$. Zählt man $\#A+\#B$, so wird jedes Element von $A\cap B$ zweimal gezählt, einmal in $A$ und einmal in $B$; deshalb zieht man es einmal ab. Das ist der Additionssatz aus Unterabschnitt [2.3](wahrscheinlichkeit.html#stufe-2-3) in der Form für Anzahlen.
+(b) $\#(A\cup B)=6+6-1=11$. Zählt man $\#A+\#B$, so wird jedes Element von $A\cap B$ zweimal gezählt, einmal in $A$ und einmal in $B$; deshalb zieht man es einmal ab. Das ist der Additionssatz aus Unterabschnitt [2.3](wahrscheinlichkeit-2.html#stufe-2-3) in der Form für Anzahlen.
 
 (c) Ja. Ein Paar hat nur eine Augensumme; es kann nicht zugleich die Summe $7$ und die Summe $8$ haben. Die beiden Ereignisse sind disjunkt.
 :::

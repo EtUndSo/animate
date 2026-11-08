@@ -1,4 +1,4 @@
-"""Machine Learning Teil 2 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap2_stufen.tex, kap2_stufen_b.tex): Abbildungen.
+"""Machine Learning Grundlagen 2 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap2_stufen.tex, kap2_stufen_b.tex): Abbildungen.
 
 Szenenname ml/k2<name> = \\label{fig:k2<name>} im Heft. Stil wie tools/szenen/ml_teil1.py (Achsen, Pfeile, Punkte).
 Bauen:  python tools/szenen/ml_teil2.py

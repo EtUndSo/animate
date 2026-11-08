@@ -1,7 +1,9 @@
 ---
 title: Mittelwerte vieler Zufallsvariablen
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6241400
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15241400
 summary: Mittelt man viele unabhängige Messungen, so wird das Ergebnis immer genauer, und seine Schwankungen haben fast immer dieselbe Glockenform, gleichgültig, wie die einzelnen Messungen verteilt sind.
 tags: Standardfehler, schwaches, starke
 lang: de
@@ -65,7 +67,7 @@ Mit $\varepsilon=k\sigma$ heißt das: Um mindestens $k$ Standardabweichungen wei
 
 <span class="anker" id="stufe-13-3"></span>
 
-Abschnitt [2](wahrscheinlichkeit.html#stufe-2) hat Wahrscheinlichkeiten mit relativen Häufigkeiten begründet, die sich bei vielen Wiederholungen einpendeln. Mit den beiden letzten Unterabschnitten lässt sich beweisen, dass sie das tun.
+Abschnitt [2](wahrscheinlichkeit-2.html#stufe-2) hat Wahrscheinlichkeiten mit relativen Häufigkeiten begründet, die sich bei vielen Wiederholungen einpendeln. Mit den beiden letzten Unterabschnitten lässt sich beweisen, dass sie das tun.
 
 :::satz Satz 13.3 (Gesetz der großen Zahlen)
 <span class="anker" id="satz-13-3"></span>
@@ -82,7 +84,7 @@ Das folgt aus der Tschebyschow-Ungleichung für $\bar X_n$ mit der Varianz $\sig
 Drei Folgen von je $10\,000$ Würfen eines fairen Würfels, mit einem Rechner erzeugt. Aufgetragen ist der Mittelwert der ersten $n$ Würfe gegen $n$, waagrecht logarithmisch. Die gestrichelten Kurven liegen bei $3{,}5\pm2\sigma/\sqrt n$ mit $\sigma=\sqrt{35/12}$: Zwischen ihnen liegt der laufende Mittelwert für großes $n$ mit etwa $95\,\%$ Wahrscheinlichkeit. Die Abweichungen von $3{,}5$ schrumpfen wie $1/\sqrt n$, nach $10\,000$ Würfen auf wenige Hundertstel.
 :::
 
-Zwei Folgerungen schließen Kreise. Erstens: Ist $X_i$ die Indikatorvariable eines Ereignisses $A$ im $i$-ten Versuch, so ist $\bar X_n$ die relative Häufigkeit $h_n(A)$ und $\mu=P(A)$. Die relative Häufigkeit nähert sich also der Wahrscheinlichkeit, mit dem Standardfehler $\sqrt{P(A)(1-P(A))/n}$. Das ist die Brücke zwischen der Deutung als Häufigkeit und den Axiomen aus Unterabschnitt [2.2](wahrscheinlichkeit.html#stufe-2-2). Zweitens: Der Mittelwert eines Datensatzes aus $N$ i.i.d. Datenpunkten nähert sich mit wachsendem $N$ dem Erwartungswert der Verteilung, aus der die Daten stammen. Das ist die Antwort auf die Frage aus Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7): Der Mittelwert der Daten ist zufällig, aber er streut immer enger um den Erwartungswert, mit dem Standardfehler $\sigma/\sqrt N$.
+Zwei Folgerungen schließen Kreise. Erstens: Ist $X_i$ die Indikatorvariable eines Ereignisses $A$ im $i$-ten Versuch, so ist $\bar X_n$ die relative Häufigkeit $h_n(A)$ und $\mu=P(A)$. Die relative Häufigkeit nähert sich also der Wahrscheinlichkeit, mit dem Standardfehler $\sqrt{P(A)(1-P(A))/n}$. Das ist die Brücke zwischen der Deutung als Häufigkeit und den Axiomen aus Unterabschnitt [2.2](wahrscheinlichkeit-2.html#stufe-2-2). Zweitens: Der Mittelwert eines Datensatzes aus $N$ i.i.d. Datenpunkten nähert sich mit wachsendem $N$ dem Erwartungswert der Verteilung, aus der die Daten stammen. Das ist die Antwort auf die Frage aus Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7): Der Mittelwert der Daten ist zufällig, aber er streut immer enger um den Erwartungswert, mit dem Standardfehler $\sigma/\sqrt N$.
 
 ⁠**Rechenbeispiel:** Für $1\,000$ Würfe eines Würfels und $\varepsilon=0{,}1$ gibt [(13.3)](#gl-13-3) $P(|\bar X_{1000}-3{,}5|\ge0{,}1)\le\frac{35/12}{1000\cdot0{,}01}\approx0{,}29$. Die Schranke ist grob; der zentrale Grenzwertsatz im nächsten Unterabschnitt liefert etwa $0{,}064$.
 

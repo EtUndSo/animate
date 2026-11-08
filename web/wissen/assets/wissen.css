@@ -201,6 +201,12 @@ details.hintergrund .hg-k{font-family:var(--fdisp);font-size:12px;text-transform
 .neighbors{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 8px;}
 .neighbors .nb{display:block;border:1px solid var(--border);border-radius:12px;padding:13px 16px;background:var(--panel);color:inherit;}
 .neighbors .nb:hover{border-color:var(--accent);text-decoration:none;}
+/* „Verwendet in“ unter Nachschlage-Artikeln (ML-Grundlagen): dezent, klein, grau */
+.verwendet{margin:30px 0 4px;padding:10px 16px 11px;border:1px solid var(--border);border-radius:12px;background:var(--soft);color:var(--muted);}
+.verwendet .vw-h{font-size:12.5px;font-weight:600;letter-spacing:.03em;margin-bottom:3px;}
+.verwendet ul{margin:0;padding-left:18px;} .article .verwendet li{font-size:14.5px;margin:.2em 0;line-height:1.5;}
+.verwendet .vw-zu{color:var(--muted);}
+.article .idx-hinweis{font-size:15px;color:var(--muted);margin:.15em 0 .7em;max-width:70ch;}
 .nb-dir{font-size:12px;color:var(--muted);font-weight:600;} .nb-dir.next{text-align:right;}
 .nb-t{font-weight:700;color:var(--ink);margin:3px 0 8px;font-family:var(--fdisp);}
 .nb ul{list-style:none;margin:0;padding:0;} .nb li{font-size:13.5px;color:var(--muted);margin:3px 0;padding-left:14px;position:relative;}
@@ -341,11 +347,11 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 /* Nacht: Karten ohne Schatten, dafür helle Rahmen um alle Kästen (Wunsch des Users); farbige Randstreifen links bleiben */
 :root[data-theme="dark"] .article .sect{box-shadow:none;}
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung){
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung,.verwendet){
   border-top:1px solid var(--rahmen);border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] .bsp-card{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] :is(.article .sect,.callout:not([class*="cx-"]),.callout.cx-zusatz,details.frage,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.bsp-card,.fassung){border-left:1px solid var(--rahmen);}
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.bsp-card,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
 @media(max-width:720px){ .bsp-card{padding:4px 15px 12px;} }
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */

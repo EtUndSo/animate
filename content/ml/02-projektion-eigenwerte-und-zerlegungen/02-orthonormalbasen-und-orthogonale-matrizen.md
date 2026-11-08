@@ -1,7 +1,9 @@
 ---
 title: Orthonormalbasen und orthogonale Matrizen
-pfad: Informatik / Machine Learning / Projektion, Eigenwerte und Zerlegungen
-order: 6220200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
+knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+nachschlagen: ja
+order: 15220200
 summary: Manche Koordinatensysteme sind besonders bequem: Ihre Achsen stehen senkrecht aufeinander, und die Einheit ist auf jeder Achse gleich lang.
 tags: orthonormal, Orthonormalbasis, orthogonale Matrix
 lang: de
@@ -17,7 +19,7 @@ Manche Koordinatensysteme sind besonders bequem: Ihre Achsen stehen senkrecht au
 
 <span class="anker" id="stufe-1-1"></span>
 
-In [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 5.3, hießen zwei Vektoren orthogonal, wenn ihr Skalarprodukt null ist. Das Gleichmuster $(1,1,1,1)^{\top}$ und das Wechselmuster $(1,-1,1,-1)^{\top}$ waren ein Beispiel: Der Vergleich eines Signals mit dem einen Muster wurde vom anderen Muster nicht gestört. Er lieferte allerdings den Anteil mal $4$, weil beide Muster die Länge $2$ haben. Haben orthogonale Vektoren zusätzlich die Länge $1$, so fällt auch dieser Faktor weg.
+In [Grundlagen 1, Abschnitt 5.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3), hießen zwei Vektoren orthogonal, wenn ihr Skalarprodukt null ist. Das Gleichmuster $(1,1,1,1)^{\top}$ und das Wechselmuster $(1,-1,1,-1)^{\top}$ waren ein Beispiel: Der Vergleich eines Signals mit dem einen Muster wurde vom anderen Muster nicht gestört. Er lieferte allerdings den Anteil mal $4$, weil beide Muster die Länge $2$ haben. Haben orthogonale Vektoren zusätzlich die Länge $1$, so fällt auch dieser Faktor weg.
 
 Man stelle sich die beiden Achsen $\mathbf{e}_1$ und $\mathbf{e}_2$ der Ebene vor, als Ganzes um einen Winkel gedreht. Die beiden Pfeile haben weiterhin die Länge $1$ und stehen weiterhin senkrecht aufeinander, nur zeigen sie in andere Richtungen.
 
@@ -39,7 +41,7 @@ Sind $\mathbf{q}_1,\dots,\mathbf{q}_k$ orthonormal, so sind sie linear unabhäng
 :::
 
 :::beweis Lineare Unabhängigkeit
-Es sei $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. Man bildet das Skalarprodukt beider Seiten mit $\mathbf{q}_l$. Nach [(1.1)](#gl-1-1) bleibt links nur der Summand $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ übrig, rechts steht $\mathbf{q}_l^{\top}\mathbf{0}=0$. Also ist $c_l=0$, und zwar für jedes $l$. Nach der Definition in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.2, sind die Vektoren damit linear unabhängig.
+Es sei $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. Man bildet das Skalarprodukt beider Seiten mit $\mathbf{q}_l$. Nach [(1.1)](#gl-1-1) bleibt links nur der Summand $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ übrig, rechts steht $\mathbf{q}_l^{\top}\mathbf{0}=0$. Also ist $c_l=0$, und zwar für jedes $l$. Nach der Definition in [Grundlagen 1, Abschnitt 13.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-2), sind die Vektoren damit linear unabhängig.
 :::
 
 ⁠**Rechenbeispiel:** Für $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ und $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$ ist
@@ -58,7 +60,7 @@ Das Skalarprodukt $\mathbf{q}_1^{\top}\mathbf{q}_2$ Schritt für Schritt, mit $0
 
 <span class="anker" id="stufe-1-2"></span>
 
-Eine Basis ist nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.3, ein Koordinatensystem: Jeder Vektor hat in ihr genau eine Darstellung. Am bequemsten sind Basen, deren Vektoren orthonormal sind. Sie sind wie das gewohnte Achsenkreuz, nur gedreht.
+Eine Basis ist nach [Grundlagen 1, Abschnitt 13.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), ein Koordinatensystem: Jeder Vektor hat in ihr genau eine Darstellung. Am bequemsten sind Basen, deren Vektoren orthonormal sind. Sie sind wie das gewohnte Achsenkreuz, nur gedreht.
 
 :::definition Definition 1.3 (Orthonormalbasis)
 <span class="anker" id="satz-1-3"></span>
@@ -66,7 +68,7 @@ Eine Basis ist nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-m
 Eine Basis aus orthonormalen Vektoren heißt __Orthonormalbasis__.
 :::
 
-Für den ganzen $\mathbb{R}^n$ genügt es, $n$ orthonormale Vektoren zu finden. Sie sind nach dem Satz im vorigen Unterabschnitt linear unabhängig. Schreibt man sie als Spalten in eine $n\times n$-Matrix, so hat diese den Rang $n$, und ihr Spaltenraum ist nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.5, der ganze $\mathbb{R}^n$. Also spannen die $n$ Vektoren den $\mathbb{R}^n$ auf und bilden eine Basis. Ebenso kann man für einen Spann, etwa eine Ebene im $\mathbb{R}^3$, eine Orthonormalbasis suchen: orthonormale Vektoren, die genau diesen Spann aufspannen.
+Für den ganzen $\mathbb{R}^n$ genügt es, $n$ orthonormale Vektoren zu finden. Sie sind nach dem Satz im vorigen Unterabschnitt linear unabhängig. Schreibt man sie als Spalten in eine $n\times n$-Matrix, so hat diese den Rang $n$, und ihr Spaltenraum ist nach [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), der ganze $\mathbb{R}^n$. Also spannen die $n$ Vektoren den $\mathbb{R}^n$ auf und bilden eine Basis. Ebenso kann man für einen Spann, etwa eine Ebene im $\mathbb{R}^3$, eine Orthonormalbasis suchen: orthonormale Vektoren, die genau diesen Spann aufspannen.
 
 ⁠**Rechenbeispiel:** Die Vektoren $\mathbf{q}_1=(0{,}6;\ 0{,}8)^{\top}$ und $\mathbf{q}_2=(-0{,}8;\ 0{,}6)^{\top}$ sind zwei orthonormale Vektoren im $\mathbb{R}^2$, also eine Orthonormalbasis des $\mathbb{R}^2$. Die Einheitsvektoren $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ bilden die Orthonormalbasis des $\mathbb{R}^3$, die man Standardbasis nennt. Die Ebene $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ im $\mathbb{R}^3$ hat die Orthonormalbasis $\mathbf{e}_1,\mathbf{e}_2$.
 
@@ -76,9 +78,9 @@ Für den ganzen $\mathbb{R}^n$ genügt es, $n$ orthonormale Vektoren zu finden. 
 
 <span class="anker" id="stufe-1-3"></span>
 
-In einer gewöhnlichen Basis muss man ein Gleichungssystem lösen, um die Koordinaten eines Vektors zu finden. In [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.3, hatte $(3,\,2)^{\top}$ in der Basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ die Koordinaten $1$ und $2$. Die Skalarprodukte $(1,0)(3,2)^{\top}=3$ und $(1,1)(3,2)^{\top}=5$ sind etwas ganz anderes. In einer Orthonormalbasis dagegen sind die Koordinaten genau die Skalarprodukte.
+In einer gewöhnlichen Basis muss man ein Gleichungssystem lösen, um die Koordinaten eines Vektors zu finden. In [Grundlagen 1, Abschnitt 13.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), hatte $(3,\,2)^{\top}$ in der Basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ die Koordinaten $1$ und $2$. Die Skalarprodukte $(1,0)(3,2)^{\top}=3$ und $(1,1)(3,2)^{\top}=5$ sind etwas ganz anderes. In einer Orthonormalbasis dagegen sind die Koordinaten genau die Skalarprodukte.
 
-Den Grund zeigt das Bild der Schattenlänge aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 5.5. Für einen normierten Vektor $\mathbf{q}$ ist $\mathbf{q}^{\top}\mathbf{x}$ die Länge des Schattens von $\mathbf{x}$ auf der Geraden in Richtung $\mathbf{q}$. In einer Orthonormalbasis ist jede Koordinate der Schatten auf der eigenen Achse (Abb. [2](#abb-2)).
+Den Grund zeigt das Bild der Schattenlänge aus [Grundlagen 1, Abschnitt 5.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5). Für einen normierten Vektor $\mathbf{q}$ ist $\mathbf{q}^{\top}\mathbf{x}$ die Länge des Schattens von $\mathbf{x}$ auf der Geraden in Richtung $\mathbf{q}$. In einer Orthonormalbasis ist jede Koordinate der Schatten auf der eigenen Achse (Abb. [2](#abb-2)).
 
 :::abbildung ml/k2onb 2
 Koordinaten in der Orthonormalbasis $\mathbf{q}_1=(0{,}6;\,0{,}8)^{\top}$, $\mathbf{q}_2=(-0{,}8;\,0{,}6)^{\top}$ (grün). Der Pfeil $\mathbf{x}=(3,1)^{\top}$ wirft auf jede der beiden gedrehten Achsen (grau) einen Schatten, das Licht fällt jeweils senkrecht (gestrichelt). Die Schattenlängen $\mathbf{q}_1^{\top}\mathbf{x}=2{,}6$ (blau) und $\mathbf{q}_2^{\top}\mathbf{x}=-1{,}8$ (orange) sind die Koordinaten: $\mathbf{x}=2{,}6\,\mathbf{q}_1-1{,}8\,\mathbf{q}_2$.
@@ -133,7 +135,7 @@ Die zweite Formel in [(1.2)](#gl-1-2) sagt, dass die Energie $\lVert\mathbf{x}\r
 
 <span class="anker" id="stufe-1-4"></span>
 
-Schreibt man die Vektoren einer Orthonormalbasis als Spalten in eine Matrix $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, so lassen sich beide Formeln [(1.2)](#gl-1-2) als Matrixprodukte schreiben. Alle Koordinaten zugleich sind nach der Zeilensicht aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 7.2, der Vektor $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, denn die Zeilen von $\mathbf{Q}^{\top}$ sind die Vektoren $\mathbf{q}_i^{\top}$. Umgekehrt ist $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ nach der Spaltensicht. Die Matrix $\mathbf{Q}^{\top}$ macht also rückgängig, was $\mathbf{Q}$ tut.
+Schreibt man die Vektoren einer Orthonormalbasis als Spalten in eine Matrix $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, so lassen sich beide Formeln [(1.2)](#gl-1-2) als Matrixprodukte schreiben. Alle Koordinaten zugleich sind nach der Zeilensicht aus [Grundlagen 1, Abschnitt 7.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-2), der Vektor $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, denn die Zeilen von $\mathbf{Q}^{\top}$ sind die Vektoren $\mathbf{q}_i^{\top}$. Umgekehrt ist $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ nach der Spaltensicht. Die Matrix $\mathbf{Q}^{\top}$ macht also rückgängig, was $\mathbf{Q}$ tut.
 
 :::definition Definition 1.5 (Orthogonale Matrix)
 <span class="anker" id="satz-1-5"></span>
@@ -150,7 +152,7 @@ Ist $\mathbf{Q}$ orthogonal, so ist $\mathbf{Q}$ invertierbar mit $\mathbf{Q}^{-
 :::
 
 :::beweis Inverse einer orthogonalen Matrix
-Die Spalten sind orthonormal, nach dem ersten Unterabschnitt also linear unabhängig. Nach dem Satz in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.5, ist $\mathbf{Q}$ deshalb invertierbar. Multipliziert man $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ von rechts mit $\mathbf{Q}^{-1}$, so folgt $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, und damit ist auch $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
+Die Spalten sind orthonormal, nach dem ersten Unterabschnitt also linear unabhängig. Nach dem Satz in [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), ist $\mathbf{Q}$ deshalb invertierbar. Multipliziert man $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ von rechts mit $\mathbf{Q}^{-1}$, so folgt $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, und damit ist auch $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
 :::
 
 Ein Wort zum Namen. Eine orthogonale Matrix hat orthonormale Spalten, nicht bloß orthogonale; der Name ist historisch gewachsen. Für Matrizen, deren Spalten nur orthogonal, aber nicht normiert sind, gibt es keinen eigenen Namen. Für sie ist $\mathbf{Q}^{\top}\mathbf{Q}$ eine Diagonalmatrix mit den Längenquadraten der Spalten auf der Diagonale, aber nicht $\mathbf{I}$.
@@ -159,7 +161,7 @@ Ein Wort zum Namen. Eine orthogonale Matrix hat orthonormale Spalten, nicht blo�
 
 $$\mathbf{Q}=\begin{pmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{pmatrix},\qquad \mathbf{Q}^{\top}\mathbf{Q}=\begin{pmatrix}0{,}36+0{,}64&-0{,}48+0{,}48\\-0{,}48+0{,}48&0{,}64+0{,}36\end{pmatrix}=\mathbf{I} .$$
 
-Die Einträge von $\mathbf{Q}^{\top}\mathbf{Q}$ sind die Skalarprodukte der Spalten aus dem ersten Unterabschnitt; den Eintrag außerhalb der Diagonale zeigt Abb. [1](#abb-1). Also ist $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, ohne Rechnung. Diese Matrix ist die Drehmatrix aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 8.3, mit $\cos\alpha=0{,}6$ und $\sin\alpha=0{,}8$, also eine Drehung um $\alpha\approx53{,}13^\circ$ gegen den Uhrzeigersinn. Die Inverse $\mathbf{Q}^{\top}$ dreht um denselben Winkel zurück.
+Die Einträge von $\mathbf{Q}^{\top}\mathbf{Q}$ sind die Skalarprodukte der Spalten aus dem ersten Unterabschnitt; den Eintrag außerhalb der Diagonale zeigt Abb. [1](#abb-1). Also ist $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, ohne Rechnung. Diese Matrix ist die Drehmatrix aus [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), mit $\cos\alpha=0{,}6$ und $\sin\alpha=0{,}8$, also eine Drehung um $\alpha\approx53{,}13^\circ$ gegen den Uhrzeigersinn. Die Inverse $\mathbf{Q}^{\top}$ dreht um denselben Winkel zurück.
 
 ⁠**Kurz gesagt:** Eine orthogonale Matrix ist quadratisch mit orthonormalen Spalten; ihre Inverse ist einfach ihre Transponierte.
 
@@ -181,10 +183,10 @@ und der Winkel zwischen $\mathbf{Q}\mathbf{x}$ und $\mathbf{Q}\mathbf{y}$ ist de
 :::
 
 :::beweis Erhaltung von Skalarprodukten
-Nach der Regel $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 10.1, ist $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. Mit $\mathbf{y}=\mathbf{x}$ folgt die Aussage über die Länge, und weil der Winkel nur aus Skalarprodukten und Längen berechnet wird, bleibt auch er gleich. Für die Determinante benutzt man die Rechenregeln aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.5: $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
+Nach der Regel $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ aus [Grundlagen 1, Abschnitt 10.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1), ist $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. Mit $\mathbf{y}=\mathbf{x}$ folgt die Aussage über die Länge, und weil der Winkel nur aus Skalarprodukten und Längen berechnet wird, bleibt auch er gleich. Für die Determinante benutzt man die Rechenregeln aus [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5): $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
 :::
 
-Eine orthogonale Matrix bewegt den Raum also starr, ohne ihn zu verzerren. Ist $\det\mathbf{Q}=1$, ist sie eine Drehung. Ist $\det\mathbf{Q}=-1$, enthält sie eine Spiegelung, denn nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.2, kehrt eine negative Determinante die Orientierung um.
+Eine orthogonale Matrix bewegt den Raum also starr, ohne ihn zu verzerren. Ist $\det\mathbf{Q}=1$, ist sie eine Drehung. Ist $\det\mathbf{Q}=-1$, enthält sie eine Spiegelung, denn nach [Grundlagen 1, Abschnitt 14.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-2), kehrt eine negative Determinante die Orientierung um.
 
 ⁠**Rechenbeispiel:** Die Drehung aus dem vorigen Unterabschnitt bildet $\mathbf{x}=(3,\,1)^{\top}$ auf $\mathbf{Q}\mathbf{x}=(1{,}8-0{,}8;\ 2{,}4+0{,}6)^{\top}=(1,\,3)^{\top}$ ab. Beide Vektoren haben das Längenquadrat $10$. Die Determinante der Drehung ist $0{,}36+0{,}64=1$. Die Matrix $\bigl(\begin{smallmatrix}0{,}6&0{,}8\\0{,}8&-0{,}6\end{smallmatrix}\bigr)$ hat ebenfalls orthonormale Spalten, aber die Determinante $-0{,}36-0{,}64=-1$: Sie spiegelt an der Geraden in Richtung $(2,\,1)^{\top}$, denn sie bildet $(2,\,1)^{\top}$ auf sich selbst ab und $(-1,\,2)^{\top}$ auf $(1,\,-2)^{\top}$.
 
@@ -207,14 +209,14 @@ Hat $\mathbf{Q}\in\mathbb{R}^{n\times k}$ orthonormale Spalten und ist $k<n$, so
 :::
 
 :::beweis Rechteckige Matrizen
-Die ersten beiden Aussagen folgen genau wie bei quadratischen Matrizen aus [(1.1)](#gl-1-1). Für die dritte: Die Matrix $\mathbf{Q}^{\top}$ hat $k$ Zeilen und $n$ Spalten. Nach dem Rangsatz aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 13.5, hat ihr Kern die Dimension $n-\operatorname{rang}\mathbf{Q}^{\top}\ge n-k\ge1$. Es gibt also einen Vektor $\mathbf{z}\ne\mathbf{0}$ mit $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, und für ihn ist $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Also ist $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
+Die ersten beiden Aussagen folgen genau wie bei quadratischen Matrizen aus [(1.1)](#gl-1-1). Für die dritte: Die Matrix $\mathbf{Q}^{\top}$ hat $k$ Zeilen und $n$ Spalten. Nach dem Rangsatz aus [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), hat ihr Kern die Dimension $n-\operatorname{rang}\mathbf{Q}^{\top}\ge n-k\ge1$. Es gibt also einen Vektor $\mathbf{z}\ne\mathbf{0}$ mit $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, und für ihn ist $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Also ist $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
 :::
 
 ⁠**Rechenbeispiel 1:** Die Matrix mit der einen Spalte $\mathbf{q}=(0{,}6;\ 0{,}8)^{\top}$ erfüllt $\mathbf{q}^{\top}\mathbf{q}=1$, aber
 
 $$\mathbf{q}\mathbf{q}^{\top}=\begin{pmatrix}0{,}36&0{,}48\\0{,}48&0{,}64\end{pmatrix}\ne\mathbf{I} .$$
 
-Sie bildet $(-0{,}8;\ 0{,}6)^{\top}$ auf $\mathbf{0}$ ab. Den Vektor $\mathbf{x}=(3,\,1)^{\top}$ bildet sie auf $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$ ab. Das ist genau der Endpunkt des Schattens von $\mathbf{x}$ aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 5.5, denn $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
+Sie bildet $(-0{,}8;\ 0{,}6)^{\top}$ auf $\mathbf{0}$ ab. Den Vektor $\mathbf{x}=(3,\,1)^{\top}$ bildet sie auf $(1{,}08+0{,}48;\ 1{,}44+0{,}64)^{\top}=(1{,}56;\ 2{,}08)^{\top}$ ab. Das ist genau der Endpunkt des Schattens von $\mathbf{x}$ aus [Grundlagen 1, Abschnitt 5.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), denn $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2{,}6\,\mathbf{q}$.
 
 ⁠**Rechenbeispiel 2:** Die Spalten von $\mathbf{Q}=\Bigl(\begin{smallmatrix}1&0\\0&1\\0&0\end{smallmatrix}\Bigr)$ sind $\mathbf{e}_1$ und $\mathbf{e}_2$ im $\mathbb{R}^3$. Es ist $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}_2$, aber $\mathbf{Q}\mathbf{Q}^{\top}=\operatorname{diag}(1;\,1;\,0)$. Diese Matrix behält die ersten beiden Komponenten und setzt die dritte auf null.
 

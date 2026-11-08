@@ -520,20 +520,26 @@
    "fl": {
     "de": "Fläche in m²",
     "en": "area in m²",
-    "es": "área en m²",
-    "zh": "面积 m²"
+    "es": "superficie (m²)",
+    "zh": "面积 m²",
+    "fr": "surface (m²)",
+    "tr": "alan (m²)"
    },
    "fl10": {
     "de": "Fläche in 10 m²",
     "en": "area in 10 m²",
-    "es": "área en 10 m²",
-    "zh": "面积 10 m²"
+    "es": "superficie\n(10 m²)",
+    "zh": "面积 10 m²",
+    "fr": "surface (10 m²)",
+    "tr": "alan (10 m²)"
    },
    "zi": {
     "de": "Zimmer",
     "en": "rooms",
     "es": "cuartos",
-    "zh": "房间数"
+    "zh": "房间数",
+    "fr": "pièces",
+    "tr": "oda"
    }
   }
  }

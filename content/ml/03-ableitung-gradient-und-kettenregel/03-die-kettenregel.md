@@ -1,7 +1,9 @@
 ---
 title: Die Kettenregel
-pfad: Informatik / Machine Learning / Ableitung, Gradient und Kettenregel
-order: 6230300
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
+knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+nachschlagen: ja
+order: 15230300
 summary: Viele Funktionen entstehen, indem man eine Funktion in eine andere einsetzt.
 tags: Verkettung, logistische Funktion
 lang: de

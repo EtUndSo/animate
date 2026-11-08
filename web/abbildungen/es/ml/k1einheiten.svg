@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="543" height="317" viewBox="453.5756 224.1432 987.2727 576.3636">
-<rect x="453.5756" y="224.1432" width="987.2727" height="576.3636" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="536" height="326" viewBox="454.1613 224.0864 974.5455 592.7273">
+<rect x="454.1613" y="224.0864" width="974.5455" height="592.7273" fill="#ffffff"/>
 <path d="M521.25 625.73C701.25 625.73 881.25 625.73 1061.25 625.73" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M521.25 625.73C521.25 568.58 521.25 511.43 521.25 454.27" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M556.09 639.23C556.09 630.23 556.09 621.23 556.09 612.23" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -14,7 +14,7 @@
 <text x="974.15" y="668.92" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">64</text>
 <text x="491.55" y="573.24" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">2</text>
 <text x="491.55" y="503.26" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">4</text>
-<text x="791.25" y="725.62" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">área en m²</text>
+<text x="791.25" y="725.62" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">superficie (m²)</text>
 <text x="521.25" y="407.02" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">cuartos</text>
 <path d="M960.43 573.24C960.43 503.56 904.18 447.07 834.8 447.07C765.42 447.07 709.17 503.56 709.17 573.24C709.17 642.92 765.42 699.41 834.8 699.41C904.18 699.41 960.43 642.92 960.43 573.24" fill="none" stroke="#9ec3ec" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M834.8 573.24C869.64 549.91 904.48 526.59 939.31 503.26" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -39,7 +39,8 @@
 <text x="1379.85" y="704.7" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">6,6</text>
 <text x="1242.15" y="554.05" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">2</text>
 <text x="1242.15" y="410.79" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="end" dominant-baseline="central">4</text>
-<text x="1331.25" y="761.4" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">área en 10 m²</text>
+<text x="1331.25" y="745.15" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">superficie</text>
+<text x="1331.25" y="777.65" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">(10 m²)</text>
 <text x="1271.85" y="263.25" font-size="26" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#000000" text-anchor="middle" dominant-baseline="central">cuartos</text>
 <path d="M1336.65 554.05C1343.85 506.3 1351.05 458.54 1358.25 410.79" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M1336.65 554.05C1322.25 554.05 1307.85 554.05 1293.45 554.05" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>

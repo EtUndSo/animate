@@ -1,7 +1,9 @@
 ---
 title: Lo esencial hasta aquí
-pfad: Informática / Aprendizaje automático / Proyección, valores propios y descomposiciones
-order: 6221400
+pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
+knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+nachschlagen: ja
+order: 15221400
 summary: Puntos más cercanos, direcciones naturales y los bloques de una matriz
 tags: 
 lang: es

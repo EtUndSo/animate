@@ -670,31 +670,41 @@
     "de": "x wechselt im Takt",
     "en": "x alternates",
     "es": "x alterna",
-    "zh": "x 交替变化"
+    "zh": "x 交替变化",
+    "fr": "x alterne en cadence",
+    "tr": "x işaret değiştirir"
    },
    "tr": {
     "de": "x' steigt gleichmäßig",
     "en": "x' rises steadily",
     "es": "x' sube de forma regular",
-    "zh": "x' 平稳上升"
+    "zh": "x' 平稳上升",
+    "fr": "x' croît régulièrement",
+    "tr": "x' düzgün biçimde artar"
    },
    "m": {
     "de": "Muster w",
     "en": "pattern w",
     "es": "patrón w",
-    "zh": "模式 w"
+    "zh": "模式 w",
+    "fr": "motif w",
+    "tr": "örüntü w"
    },
    "sig": {
     "de": "Signal",
     "en": "signal",
     "es": "señal",
-    "zh": "信号"
+    "zh": "信号",
+    "fr": "signal",
+    "tr": "sinyal"
    },
    "prod": {
     "de": "Produkte",
     "en": "products",
     "es": "productos",
-    "zh": "乘积"
+    "zh": "乘积",
+    "fr": "produits",
+    "tr": "çarpımlar"
    }
   }
  }

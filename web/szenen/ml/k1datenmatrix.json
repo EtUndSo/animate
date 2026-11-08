@@ -449,57 +449,75 @@
   "strings": {
    "w1": {
     "de": "Wohnung 1",
-    "en": "flat 1",
-    "es": "piso 1",
-    "zh": "公寓 1"
+    "en": "apartment 1",
+    "es": "vivienda 1",
+    "zh": "公寓 1",
+    "fr": "appartement 1",
+    "tr": "daire 1"
    },
    "w2": {
     "de": "Wohnung 2",
-    "en": "flat 2",
-    "es": "piso 2",
-    "zh": "公寓 2"
+    "en": "apartment 2",
+    "es": "vivienda 2",
+    "zh": "公寓 2",
+    "fr": "appartement 2",
+    "tr": "daire 2"
    },
    "w3": {
     "de": "Wohnung 3",
-    "en": "flat 3",
-    "es": "piso 3",
-    "zh": "公寓 3"
+    "en": "apartment 3",
+    "es": "vivienda 3",
+    "zh": "公寓 3",
+    "fr": "appartement 3",
+    "tr": "daire 3"
    },
    "w4": {
     "de": "Wohnung 4",
-    "en": "flat 4",
-    "es": "piso 4",
-    "zh": "公寓 4"
+    "en": "apartment 4",
+    "es": "vivienda 4",
+    "zh": "公寓 4",
+    "fr": "appartement 4",
+    "tr": "daire 4"
    },
    "fl": {
     "de": "Fläche",
     "en": "area",
     "es": "superficie",
-    "zh": "面积"
+    "zh": "面积",
+    "fr": "surface",
+    "tr": "alan"
    },
    "zi": {
     "de": "Zimmer",
     "en": "rooms",
     "es": "habitaciones",
-    "zh": "房间"
+    "zh": "房间",
+    "fr": "pièces",
+    "tr": "oda"
    },
    "en": {
     "de": "Entfernung",
     "en": "distance",
     "es": "distancia",
-    "zh": "距离"
+    "zh": "距离",
+    "fr": "distance",
+    "tr": "uzaklık"
    },
    "zeile": {
     "de": "Zeile 2: Beispiel x₂ᵀ",
     "en": "row 2: example x₂ᵀ",
     "es": "fila 2: ejemplo x₂ᵀ",
-    "zh": "第 2 行：样本 x₂ᵀ"
+    "zh": "第 2 行：样本 x₂ᵀ",
+    "fr": "ligne 2 : exemple x₂ᵀ",
+    "tr": "satır 2: örnek x₂ᵀ"
    },
    "spalte": {
     "de": "Spalte 1: Merkmal Fläche",
     "en": "column 1: feature area",
-    "es": "columna 1: rasgo superficie",
-    "zh": "第 1 列：特征 面积"
+    "es": "columna 1: característica superficie",
+    "zh": "第 1 列：特征 面积",
+    "fr": "colonne 1 : caractéristique surface",
+    "tr": "sütun 1: öznitelik alan"
    }
   }
  }

@@ -1,7 +1,9 @@
 ---
 title: Köşegenleştirme ve spektral teorem
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6220800
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15220800
 summary: Bir matris kendi özvektörlerinden oluşan bir tabanda betimlenirse köşegen olur: Her koordinat yalnızca kendi özdeğeriyle çarpılır ve birbirine bağlı hesaplar tek tek hesaplara ayrılır.
 tags: taban değişimi, köşegenleştirilebilir, asal eksenleri
 lang: tr
@@ -19,7 +21,7 @@ Bir matris kendi özvektörlerinden oluşan bir tabanda betimlenirse köşegen o
 
 Aynı okun farklı tabanlarda farklı koordinatları vardır. Aynı şekilde aynı doğrusal dönüşümün farklı koordinatlarda farklı matrisleri vardır. Bazı tabanlar matrisi özellikle basit kılar.
 
-$\mathbf s_1,\dots,\mathbf s_n$, $\mathbb{R}^n$ uzayının bir tabanı, $\mathbf{S}$ de sütunları bu vektörler olan matris olsun. Kısım 1, Kesim 13.5'e göre bu matris tersinirdir. $\mathbf{x}$ vektörünün bu tabandaki koordinatları $\mathbf{c}$ ise $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ olur, tersine de $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. $\mathbf{x}$ vektörüne $\mathbf{A}$ uygulanırsa $\mathbf{A}\mathbf{x}$ görüntüsünün koordinatları $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$ olur. Demek ki yeni koordinatlarda dönüşüm $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ matrisiyle etki eder: Önce eski koordinatlara çevrilir, sonra dönüşüm uygulanır, sonra geri çevrilir.
+$\mathbf s_1,\dots,\mathbf s_n$, $\mathbb{R}^n$ uzayının bir tabanı, $\mathbf{S}$ de sütunları bu vektörler olan matris olsun. Temeller 1, Kesim 13.5'e göre bu matris tersinirdir. $\mathbf{x}$ vektörünün bu tabandaki koordinatları $\mathbf{c}$ ise $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ olur, tersine de $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. $\mathbf{x}$ vektörüne $\mathbf{A}$ uygulanırsa $\mathbf{A}\mathbf{x}$ görüntüsünün koordinatları $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$ olur. Demek ki yeni koordinatlarda dönüşüm $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ matrisiyle etki eder: Önce eski koordinatlara çevrilir, sonra dönüşüm uygulanır, sonra geri çevrilir.
 
 :::definition Tanım 7.1 (Taban değişimi)
 <span class="anker" id="satz-7-1"></span>
@@ -36,10 +38,10 @@ $\mathbf{A}$ ve $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ matrislerinin karakteristi
 :::
 
 :::beweis Taban değişimi
-$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$ olur. Kısım 1, Kesim 14.5'teki hesap kurallarına göre bunun determinantı $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$ olur. İz ve determinant [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5) uyarınca özdeğerlerden belirlenir.
+$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$ olur. Temeller 1, Kesim 14.5'teki hesap kurallarına göre bunun determinantı $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$ olur. İz ve determinant [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5) uyarınca özdeğerlerden belirlenir.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ve Kısım 1, Kesim 13.3'teki $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ tabanı için $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ ve $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$ olur. O zaman şu bulunur:
+⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ve Temeller 1, Kesim 13.3'teki $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ tabanı için $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ ve $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$ olur. O zaman şu bulunur:
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
@@ -65,7 +67,7 @@ Tersine: $\mathbf{A}$ bu biçimde yazılabiliyorsa $\mathbf{S}$ matrisinin sütu
 :::
 
 :::beweis Köşegenleştirme
-Kısım 1, Kesim 9.2'ye göre $\mathbf{A}\mathbf{S}$ matrisinin $i$ numaralı sütunu $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$ çarpımıdır; $\mathbf{S}\boldsymbol{\Lambda}$ matrisinin $i$ numaralı sütunu da $\lambda_i\mathbf s_i$ olur. Dolayısıyla $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. $\mathbf{S}$ matrisinin sütunları bağımsızdır, dolayısıyla $\mathbf{S}$ tersinirdir ve soldan $\mathbf{S}^{-1}$ ile çarpma [(7.1)](#gl-7-1) bağıntısını verir. Aynı $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ denklemi tersten okunursa ters önerme çıkar.
+Temeller 1, Kesim 9.2'ye göre $\mathbf{A}\mathbf{S}$ matrisinin $i$ numaralı sütunu $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$ çarpımıdır; $\mathbf{S}\boldsymbol{\Lambda}$ matrisinin $i$ numaralı sütunu da $\lambda_i\mathbf s_i$ olur. Dolayısıyla $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. $\mathbf{S}$ matrisinin sütunları bağımsızdır, dolayısıyla $\mathbf{S}$ tersinirdir ve soldan $\mathbf{S}^{-1}$ ile çarpma [(7.1)](#gl-7-1) bağıntısını verir. Aynı $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ denklemi tersten okunursa ters önerme çıkar.
 :::
 
 Bu biçimde yazılabilen bir matrise __köşegenleştirilebilir__ denir. Kesim [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8)'deki teoreme göre bu, örneğin $n$ özdeğerin hepsi farklı olduğunda her zaman böyledir. Kayma köşegenleştirilemez, çünkü bir özvektörü eksiktir. $90^\circ$'lik dönme de gerçel sayılarla köşegenleştirilemez, yalnızca karmaşık sayılarla. İkisi de yine de tersinirdir: Tersinirlik ve köşegenleştirilebilirlik iki ayrı özelliktir.
@@ -195,7 +197,7 @@ Adım adım ilerlenir. Kesim [6.3](eigenwerte-und-eigenvektoren.html#stufe-6-3)
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-burada $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, $(n-1)\times(n-1)$ boyutlu simetrik bir matristir. Sıfırlar, $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ vektörü $\mathbf{W}$ matrisinin sütunlarına dik olduğu için ortaya çıkar; sağ üstte de aynı şekilde, çünkü $\mathbf{A}$ simetriktir. $\mathbf{B}$ için aynı işlem, geriye $1\times1$ boyutlu bir matris kalana kadar tekrarlanır. $\mathbf{B}$ için böylece $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ çarpımını köşegen yapan bir $\mathbf{Q}_B$ ortogonal matrisi bulunduysa $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$, ortogonal matrislerin çarpımı olarak ortogonaldir ve $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ köşegendir. $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$ olduğundan $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ çıkar. Toplam biçimi Kısım 1, Kesim 9.5'ten çıkar, çünkü $\mathbf{Q}\boldsymbol{\Lambda}$ matrisinin sütunları $\lambda_i\mathbf{q}_i$ vektörleridir.
+burada $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, $(n-1)\times(n-1)$ boyutlu simetrik bir matristir. Sıfırlar, $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ vektörü $\mathbf{W}$ matrisinin sütunlarına dik olduğu için ortaya çıkar; sağ üstte de aynı şekilde, çünkü $\mathbf{A}$ simetriktir. $\mathbf{B}$ için aynı işlem, geriye $1\times1$ boyutlu bir matris kalana kadar tekrarlanır. $\mathbf{B}$ için böylece $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ çarpımını köşegen yapan bir $\mathbf{Q}_B$ ortogonal matrisi bulunduysa $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$, ortogonal matrislerin çarpımı olarak ortogonaldir ve $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ köşegendir. $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$ olduğundan $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ çıkar. Toplam biçimi Temeller 1, Kesim 9.5'ten çıkar, çünkü $\mathbf{Q}\boldsymbol{\Lambda}$ matrisinin sütunları $\lambda_i\mathbf{q}_i$ vektörleridir.
 :::
 
 Kesim [2.3](projektion-auf-eine-gerade.html#stufe-2-3)'e göre her $\mathbf{q}_i\mathbf{q}_i^{\top}$ terimi, $\mathbf{q}_i$ doğrultusundaki doğru üzerine izdüşümdür. Demek ki simetrik bir matris, her biri kendi özdeğeriyle ağırlıklandırılmış, birbirine dik eksenler üzerine izdüşümlerin toplamıdır. Katlı bir özdeğerde $\mathbf{q}_i$ vektörleri onun özuzayında serbestçe seçilebilir: Özuzayın her ortonormal tabanı uygundur. Her $\mathbf{q}_i$ vektörünün işareti de serbesttir. Bazı kitaplar özdeğerleri büyükten küçüğe sıralar, bazıları sıralamaz.
@@ -207,7 +209,7 @@ $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}
 ⁠**Kısacası:** Her simetrik matris $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ biçimindedir: uygun biçimde döndürülmüş bir eksen takımında köşegendir, birbirine dik eksenler üzerine izdüşümlerin ağırlıklı bir toplamıdır.
 
 :::hintergrund Simetrik matrisler nereden gelir
-Simetrik matrisler, bir matrisin sıraya bağlı olmayan ikili ilişkileri betimlediği her yerde ortaya çıkar. Kısım 1, Kesim 10'daki $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri iç çarpımlar içerir ve $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. Kesim [5.2](quadratische-formen.html#stufe-5-2)'ye göre bir kuadratik formun matrisi her zaman simetrik seçilebilir. Kuplajlı bobinlerin endüktans matrisi simetriktir, çünkü bobin 1'den bobin 2'ye olan karşılıklı endüktans, ters yöndekiyle aynıdır. Spektral teorem bütün bu matrisler için gerçel özdeğerleri ve birbirine dik öz doğrultuları güvence altına alır.
+Simetrik matrisler, bir matrisin sıraya bağlı olmayan ikili ilişkileri betimlediği her yerde ortaya çıkar. Temeller 1, Kesim 10'daki $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri iç çarpımlar içerir ve $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. Kesim [5.2](quadratische-formen.html#stufe-5-2)'ye göre bir kuadratik formun matrisi her zaman simetrik seçilebilir. Kuplajlı bobinlerin endüktans matrisi simetriktir, çünkü bobin 1'den bobin 2'ye olan karşılıklı endüktans, ters yöndekiyle aynıdır. Spektral teorem bütün bu matrisler için gerçel özdeğerleri ve birbirine dik öz doğrultuları güvence altına alır.
 :::
 
 ### Asal eksenler

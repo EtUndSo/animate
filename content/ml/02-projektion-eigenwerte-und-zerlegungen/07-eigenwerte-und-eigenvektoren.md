@@ -1,7 +1,9 @@
 ---
 title: Eigenwerte und Eigenvektoren
-pfad: Informatik / Machine Learning / Projektion, Eigenwerte und Zerlegungen
-order: 6220700
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
+knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+nachschlagen: ja
+order: 15220700
 summary: Eine Matrix dreht und streckt die meisten Vektoren zugleich.
 tags: konjugiert komplexe, Eigenvektor, Eigenwert, charakteristische Polynom, Eigenraum, Spur, algebraische Vielfachheit, geometrische Vielfachheit
 lang: de
@@ -41,7 +43,7 @@ Das Skalarprodukt $(\mathbf{v}^*)^{\top}\mathbf{v}$ für $\mathbf{v}=(1,-\mathrm
 
 <span class="anker" id="stufe-6-2"></span>
 
-In [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 8.3, wurde das Gitter der Ebene von Matrizen gedreht, gestreckt und geschert. Dabei ändern die meisten Pfeile ihre Richtung. Bei manchen Matrizen gibt es aber Richtungen, in denen ein Pfeil auf seiner Geraden durch den Nullpunkt bleibt: Er wird nur gestreckt, gestaucht oder umgeklappt (Abb. [17](#abb-17)).
+In [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), wurde das Gitter der Ebene von Matrizen gedreht, gestreckt und geschert. Dabei ändern die meisten Pfeile ihre Richtung. Bei manchen Matrizen gibt es aber Richtungen, in denen ein Pfeil auf seiner Geraden durch den Nullpunkt bleibt: Er wird nur gestreckt, gestaucht oder umgeklappt (Abb. [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 Die Matrix $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ bildet den Einheitskreis (grau) auf eine Ellipse ab (blau). Der Pfeil $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ (rot) bleibt auf seiner Geraden und wird auf das Fünffache gestreckt, der Pfeil $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ (grün) auf das Doppelte; ihre Bilder sind hell gezeichnet. Die grauen Geraden sind die beiden Eigenrichtungen. Der Einheitsvektor $\mathbf{e}_1$ dagegen wird auf $(4,2)^{\top}$ abgebildet (gestrichelt) und ändert seine Richtung.
@@ -80,7 +82,7 @@ für alle $p$, für die das Integral existiert. Die Form des Eingangs bleibt erh
 
 <span class="anker" id="stufe-6-3"></span>
 
-Wie findet man Eigenwerte, ohne zu raten? Man schreibt [(6.1)](#gl-6-1) so um, dass alles auf einer Seite steht: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, also $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Gesucht ist ein $\lambda$, für das dieses homogene System eine Lösung $\mathbf{v}\ne\mathbf{0}$ hat. Nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 11.5, heißt das: Die Matrix $\mathbf{A}-\lambda\mathbf{I}$ ist nicht invertierbar. Nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.6, ist das genau dann der Fall, wenn ihre Determinante null ist.
+Wie findet man Eigenwerte, ohne zu raten? Man schreibt [(6.1)](#gl-6-1) so um, dass alles auf einer Seite steht: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, also $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Gesucht ist ein $\lambda$, für das dieses homogene System eine Lösung $\mathbf{v}\ne\mathbf{0}$ hat. Nach [Grundlagen 1, Abschnitt 11.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), heißt das: Die Matrix $\mathbf{A}-\lambda\mathbf{I}$ ist nicht invertierbar. Nach [Grundlagen 1, Abschnitt 14.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), ist das genau dann der Fall, wenn ihre Determinante null ist.
 
 :::definition Definition 6.2 (Charakteristisches Polynom)
 <span class="anker" id="satz-6-2"></span>
@@ -189,7 +191,7 @@ Eine reelle Matrix kann also komplexe Eigenwerte haben. Weil ihr charakteristisc
 ⁠**Kurz gesagt:** Eine reelle Matrix kann komplexe Eigenwerte haben, immer in konjugierten Paaren; eine Drehung um $\alpha$ hat die Eigenwerte $\mathrm e^{\pm\mathrm j\alpha}$.
 
 :::hintergrund Drehen heißt mit $\mathrm e^{\mathrm j\alpha}$ multiplizieren
-Für Elektrotechniker ist das Ergebnis vertraut. Man identifiziert den Pfeil $(x_1,\,x_2)^{\top}$ mit der komplexen Zahl $z=x_1+\mathrm jx_2$, wie bei einem Zeiger. Eine Drehung um $\alpha$ ist dann die Multiplikation mit $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, und das sind genau die beiden Komponenten von $\mathbf{Q}\mathbf{x}$ für die Drehmatrix aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 8.3. In der komplexen Schreibweise ist die Drehung also eine Multiplikation mit einer Zahl, und diese Zahl ist ein Eigenwert. Der zweite Eigenwert $\mathrm e^{-\mathrm j\alpha}$ gehört zur konjugierten Schreibweise $z^*$, die sich in die Gegenrichtung dreht.
+Für Elektrotechniker ist das Ergebnis vertraut. Man identifiziert den Pfeil $(x_1,\,x_2)^{\top}$ mit der komplexen Zahl $z=x_1+\mathrm jx_2$, wie bei einem Zeiger. Eine Drehung um $\alpha$ ist dann die Multiplikation mit $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, und das sind genau die beiden Komponenten von $\mathbf{Q}\mathbf{x}$ für die Drehmatrix aus [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). In der komplexen Schreibweise ist die Drehung also eine Multiplikation mit einer Zahl, und diese Zahl ist ein Eigenwert. Der zweite Eigenwert $\mathrm e^{-\mathrm j\alpha}$ gehört zur konjugierten Schreibweise $z^*$, die sich in die Gegenrichtung dreht.
 :::
 
 ### Mehrfache Eigenwerte
@@ -204,7 +206,7 @@ Das charakteristische Polynom kann eine doppelte Nullstelle haben. Dann fallen z
 Die __algebraische Vielfachheit__ eines Eigenwerts $\lambda$ ist die Vielfachheit von $\lambda$ als Nullstelle des charakteristischen Polynoms.
 :::
 
-⁠**Rechenbeispiel:** Die Matrix $2\mathbf{I}=\operatorname{diag}(2;\,2)$ hat $p(\lambda)=(2-\lambda)^2$: Der Eigenwert $2$ hat die algebraische Vielfachheit $2$. Die Scherung $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 8.3, hat $p(\lambda)=(1-\lambda)^2$: Der Eigenwert $1$ hat ebenfalls die algebraische Vielfachheit $2$. Die Matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat zwei verschiedene Eigenwerte, jeder mit der algebraischen Vielfachheit $1$.
+⁠**Rechenbeispiel:** Die Matrix $2\mathbf{I}=\operatorname{diag}(2;\,2)$ hat $p(\lambda)=(2-\lambda)^2$: Der Eigenwert $2$ hat die algebraische Vielfachheit $2$. Die Scherung $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ aus [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), hat $p(\lambda)=(1-\lambda)^2$: Der Eigenwert $1$ hat ebenfalls die algebraische Vielfachheit $2$. Die Matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat zwei verschiedene Eigenwerte, jeder mit der algebraischen Vielfachheit $1$.
 
 ⁠**Kurz gesagt:** Die algebraische Vielfachheit zählt, wie oft ein Eigenwert als Nullstelle des charakteristischen Polynoms vorkommt.
 
@@ -277,7 +279,7 @@ $\mathbf{A}^{\top}$ hat dieselben Eigenwerte wie $\mathbf{A}$, im Allgemeinen ab
 :::
 
 :::beweis Rechenregeln
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, und so weiter. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) Nach [(6.5)](#gl-6-5) ist $\det\mathbf{A}$ das Produkt der Eigenwerte, also genau dann ungleich null, wenn kein Eigenwert null ist. Multipliziert man $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ mit $\mathbf{A}^{-1}$, folgt $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) Nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.5, ist $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; beide haben dasselbe charakteristische Polynom.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, und so weiter. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) Nach [(6.5)](#gl-6-5) ist $\det\mathbf{A}$ das Produkt der Eigenwerte, also genau dann ungleich null, wenn kein Eigenwert null ist. Multipliziert man $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ mit $\mathbf{A}^{-1}$, folgt $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) Nach [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; beide haben dasselbe charakteristische Polynom.
 :::
 
 ⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ die Eigenwerte $25$ und $4$: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. Die Matrix $\mathbf{A}-5\mathbf{I}$ hat die Eigenwerte $0$ und $-3$ und ist nicht invertierbar. Die Inverse $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ hat die Eigenwerte $\tfrac15$ und $\tfrac12$: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. Die Transponierte $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ hat ebenfalls die Eigenwerte $5$ und $2$, aber $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: Ihre Eigenvektoren sind $(2,\,1)^{\top}$ und $(1,\,-1)^{\top}$.
@@ -308,7 +310,7 @@ $\mathbf{A}_3$: Spur $2$, Determinante $1-9=-8$, also $\lambda^2-2\lambda-8=(\la
 Zeige: Die Eigenwerte einer oberen Dreiecksmatrix sind ihre Diagonaleinträge. Bestimme Eigenwerte und Eigenvektoren von $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$.
 
 :::loesung
-Für eine obere Dreiecksmatrix ist $\mathbf{A}-\lambda\mathbf{I}$ wieder eine obere Dreiecksmatrix mit den Diagonaleinträgen $a_{ii}-\lambda$. Nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 14.4, ist ihre Determinante das Produkt der Diagonaleinträge: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Die Nullstellen sind die Diagonaleinträge.
+Für eine obere Dreiecksmatrix ist $\mathbf{A}-\lambda\mathbf{I}$ wieder eine obere Dreiecksmatrix mit den Diagonaleinträgen $a_{ii}-\lambda$. Nach [Grundlagen 1, Abschnitt 14.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), ist ihre Determinante das Produkt der Diagonaleinträge: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Die Nullstellen sind die Diagonaleinträge.
 
 Für die gegebene Matrix sind die Eigenwerte also $2$, $3$ und $5$. Zu $2$: $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ verlangt $v_3=0$ und $v_2=0$, Eigenvektor $(1,\,0,\,0)^{\top}$. Zu $3$: $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ verlangt $v_3=0$ und $v_2=v_1$, Eigenvektor $(1,\,1,\,0)^{\top}$. Zu $5$: $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ verlangt $v_2=3v_1$ und $v_3=2v_2$, Eigenvektor $(1,\,3,\,6)^{\top}$. Probe: $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

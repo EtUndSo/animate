@@ -1,8 +1,10 @@
 ---
 title: 伪逆
-pfad: 计算机科学 / 机器学习 / 投影、特征值与矩阵分解
-order: 6221200
-summary: 在第 1 部分中，只有列线性无关的方阵才有逆矩阵。本节给每个矩阵一种逆：方程多于未知数时，有从左边求逆的逆；方程少于未知数时，有从右边求逆的逆；还有一种适用于所有情形的逆，即伪逆。它总是给出最佳近似解，而在有多个最佳近似解时给出最短的那个。
+pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
+knoten: 基础篇 2：投影、特征值与矩阵分解
+nachschlagen: ja
+order: 15221200
+summary: 在基础篇 1 中，只有列线性无关的方阵才有逆矩阵。本节给每个矩阵一种逆：方程多于未知数时，有从左边求逆的逆；方程少于未知数时，有从右边求逆的逆；还有一种适用于所有情形的逆，即伪逆。它总是给出最佳近似解，而在有多个最佳近似解时给出最短的那个。
 tags: 左逆, 右逆, 伪逆
 lang: zh
 ---
@@ -10,7 +12,7 @@ lang: zh
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-在第 1 部分中，只有列线性无关的方阵才有逆矩阵。本节给每个矩阵一种逆：方程多于未知数时，有从左边求逆的逆；方程少于未知数时，有从右边求逆的逆；还有一种适用于所有情形的逆，即伪逆。它总是给出最佳近似解，而在有多个最佳近似解时给出最短的那个。
+在基础篇 1 中，只有列线性无关的方阵才有逆矩阵。本节给每个矩阵一种逆：方程多于未知数时，有从左边求逆的逆；方程少于未知数时，有从右边求逆的逆；还有一种适用于所有情形的逆，即伪逆。它总是给出最佳近似解，而在有多个最佳近似解时给出最短的那个。
 :::
 
 ### 左逆
@@ -131,7 +133,7 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 第二个和与 $\mathbf{x}$ 无关。第一个和恰好在对所有 $j\le r$ 都有 $c_j=\beta_j/d_j$ 时为零，从而尽可能小；$j>r$ 的 $c_j$ 根本不出现。所以最佳近似解恰好是这样的 $\mathbf{x}=\mathbf{V}\mathbf{c}$：对 $j\le r$ 有 $c_j=\beta_j/d_j$，而 $c_{r+1},\dots,c_n$ 任意。它们的长度为 $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$，在 $j>r$ 时取 $c_j=0$ 最小。这个 $\mathbf{c}$ 就是 $\mathbf{D}^+\boldsymbol\beta$，所以 $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$。
 
-在各列线性无关时，由第 [3.5](die-beste-naherungslosung.html#stufe-3-5) 节，只有一个最佳近似解 $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$；它必然与 $\mathbf{A}^+\mathbf{y}$ 一致，而且对每个 $\mathbf{y}$ 都如此。在各行线性无关时，由第 1 部分第 13.4 节，秩等于 $m$，所以列空间是整个 $\mathbb{R}^m$，方程组对每个 $\mathbf{y}$ 都可解；最佳近似解就是方程组的解，由第 [11.2](#stufe-11-2) 节，其中最短的是 $\mathbf G\mathbf{y}$。
+在各列线性无关时，由第 [3.5](die-beste-naherungslosung.html#stufe-3-5) 节，只有一个最佳近似解 $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$；它必然与 $\mathbf{A}^+\mathbf{y}$ 一致，而且对每个 $\mathbf{y}$ 都如此。在各行线性无关时，由基础篇 1 第 13.4 节，秩等于 $m$，所以列空间是整个 $\mathbb{R}^m$，方程组对每个 $\mathbf{y}$ 都可解；最佳近似解就是方程组的解，由第 [11.2](#stufe-11-2) 节，其中最短的是 $\mathbf G\mathbf{y}$。
 :::
 
 ⁠**算例 1：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 和 $\mathbf{y}=(1,\,1)^{\top}$，得 $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0.12,\ 0.24)^{\top}$。它在最佳近似解构成的直线上，因为 $0.12+2\cdot0.24=0.6=\tfrac35$；它沿 $(1,\,2)^{\top}$ 方向，垂直于这条直线：它是直线上离原点最近的点。

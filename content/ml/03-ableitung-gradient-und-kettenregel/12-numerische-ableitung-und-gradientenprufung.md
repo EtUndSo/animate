@@ -1,7 +1,9 @@
 ---
 title: Numerische Ableitung und Gradientenprüfung
-pfad: Informatik / Machine Learning / Ableitung, Gradient und Kettenregel
-order: 6231200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
+knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+nachschlagen: ja
+order: 15231200
 summary: Ableitungen kann man auch ohne Formel schätzen: Man wertet die Funktion an zwei nahen Stellen aus und bildet den Differenzenquotienten.
 tags: Vorwärtsdifferenz, Abschneidefehler, zentrale Differenz, Gleitkommazahlen, Maschinengenauigkeit, Auslöschung, Gradientenprüfung, relativen Fehler
 lang: de

@@ -1,7 +1,9 @@
 ---
 title: Orthonormal bases and orthogonal matrices
-pfad: Computer Science / Machine Learning / Projection, Eigenvalues and Decompositions
-order: 6220200
+pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
+knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+nachschlagen: ja
+order: 15220200
 summary: Some coordinate systems are especially convenient: their axes are perpendicular to one another, and the unit has the same length on every axis.
 tags: orthonormal, orthonormal basis, orthogonal matrix
 lang: en
@@ -17,7 +19,7 @@ Some coordinate systems are especially convenient: their axes are perpendicular 
 
 <span class="anker" id="stufe-1-1"></span>
 
-In Part 1, Section 5.3, two vectors were called orthogonal if their dot product is zero. The constant pattern $(1,1,1,1)^{\top}$ and the alternating pattern $(1,-1,1,-1)^{\top}$ were an example: comparing a signal with one pattern was not disturbed by the other pattern. The comparison did, however, return the share multiplied by $4$, because both patterns have length $2$. If orthogonal vectors also have length $1$, this factor disappears as well.
+In Foundations 1, Section 5.3, two vectors were called orthogonal if their dot product is zero. The constant pattern $(1,1,1,1)^{\top}$ and the alternating pattern $(1,-1,1,-1)^{\top}$ were an example: comparing a signal with one pattern was not disturbed by the other pattern. The comparison did, however, return the share multiplied by $4$, because both patterns have length $2$. If orthogonal vectors also have length $1$, this factor disappears as well.
 
 Picture the two axes $\mathbf{e}_1$ and $\mathbf{e}_2$ of the plane, rotated as a whole by some angle. The two arrows still have length $1$ and are still perpendicular to each other; they just point in other directions.
 
@@ -39,7 +41,7 @@ If $\mathbf{q}_1,\dots,\mathbf{q}_k$ are orthonormal, then they are linearly ind
 :::
 
 :::beweis Linear independence
-Let $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. Take the dot product of both sides with $\mathbf{q}_l$. By [(1.1)](#gl-1-1), only the term $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ remains on the left; the right side is $\mathbf{q}_l^{\top}\mathbf{0}=0$. So $c_l=0$, and this holds for every $l$. By the definition in Part 1, Section 13.2, the vectors are therefore linearly independent.
+Let $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$. Take the dot product of both sides with $\mathbf{q}_l$. By [(1.1)](#gl-1-1), only the term $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ remains on the left; the right side is $\mathbf{q}_l^{\top}\mathbf{0}=0$. So $c_l=0$, and this holds for every $l$. By the definition in Foundations 1, Section 13.2, the vectors are therefore linearly independent.
 :::
 
 ⁠**Worked example:** For $\mathbf{q}_1=(0.6,\ 0.8)^{\top}$ and $\mathbf{q}_2=(-0.8,\ 0.6)^{\top}$,
@@ -58,7 +60,7 @@ The dot product $\mathbf{q}_1^{\top}\mathbf{q}_2$ step by step, with $0.6=\tfrac
 
 <span class="anker" id="stufe-1-2"></span>
 
-By Part 1, Section 13.3, a basis is a coordinate system: every vector has exactly one representation in it. The most convenient bases are those whose vectors are orthonormal. They are like the familiar set of axes, only rotated.
+By Foundations 1, Section 13.3, a basis is a coordinate system: every vector has exactly one representation in it. The most convenient bases are those whose vectors are orthonormal. They are like the familiar set of axes, only rotated.
 
 :::definition Definition 1.3 (Orthonormal basis)
 <span class="anker" id="satz-1-3"></span>
@@ -66,7 +68,7 @@ By Part 1, Section 13.3, a basis is a coordinate system: every vector has exac
 A basis of orthonormal vectors is called an __orthonormal basis__.
 :::
 
-For all of $\mathbb{R}^n$ it is enough to find $n$ orthonormal vectors. By the theorem in the previous subsection they are linearly independent. If you write them as the columns of an $n\times n$ matrix, this matrix has rank $n$, and by Part 1, Section 13.5, its column space is all of $\mathbb{R}^n$. So the $n$ vectors span $\mathbb{R}^n$ and form a basis. In the same way you can look for an orthonormal basis of a span, say a plane in $\mathbb{R}^3$: orthonormal vectors whose span is exactly the given one.
+For all of $\mathbb{R}^n$ it is enough to find $n$ orthonormal vectors. By the theorem in the previous subsection they are linearly independent. If you write them as the columns of an $n\times n$ matrix, this matrix has rank $n$, and by Foundations 1, Section 13.5, its column space is all of $\mathbb{R}^n$. So the $n$ vectors span $\mathbb{R}^n$ and form a basis. In the same way you can look for an orthonormal basis of a span, say a plane in $\mathbb{R}^3$: orthonormal vectors whose span is exactly the given one.
 
 ⁠**Worked example:** The vectors $\mathbf{q}_1=(0.6,\ 0.8)^{\top}$ and $\mathbf{q}_2=(-0.8,\ 0.6)^{\top}$ are two orthonormal vectors in $\mathbb{R}^2$, hence an orthonormal basis of $\mathbb{R}^2$. The unit vectors $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ form the orthonormal basis of $\mathbb{R}^3$ that is called the standard basis. The plane $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ in $\mathbb{R}^3$ has the orthonormal basis $\mathbf{e}_1,\mathbf{e}_2$.
 
@@ -76,9 +78,9 @@ For all of $\mathbb{R}^n$ it is enough to find $n$ orthonormal vectors. By the t
 
 <span class="anker" id="stufe-1-3"></span>
 
-In an ordinary basis you have to solve a system of equations to find the coordinates of a vector. In Part 1, Section 13.3, $(3,\,2)^{\top}$ had the coordinates $1$ and $2$ in the basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$. The dot products $(1,0)(3,2)^{\top}=3$ and $(1,1)(3,2)^{\top}=5$ are something entirely different. In an orthonormal basis, by contrast, the coordinates are exactly the dot products.
+In an ordinary basis you have to solve a system of equations to find the coordinates of a vector. In Foundations 1, Section 13.3, $(3,\,2)^{\top}$ had the coordinates $1$ and $2$ in the basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$. The dot products $(1,0)(3,2)^{\top}=3$ and $(1,1)(3,2)^{\top}=5$ are something entirely different. In an orthonormal basis, by contrast, the coordinates are exactly the dot products.
 
-The reason is shown by the picture of the shadow length from Part 1, Section 5.5. For a normalized vector $\mathbf{q}$, the number $\mathbf{q}^{\top}\mathbf{x}$ is the length of the shadow of $\mathbf{x}$ on the line in the direction of $\mathbf{q}$. In an orthonormal basis, every coordinate is the shadow on its own axis (Fig. [2](#abb-2)).
+The reason is shown by the picture of the shadow length from Foundations 1, Section 5.5. For a normalized vector $\mathbf{q}$, the number $\mathbf{q}^{\top}\mathbf{x}$ is the length of the shadow of $\mathbf{x}$ on the line in the direction of $\mathbf{q}$. In an orthonormal basis, every coordinate is the shadow on its own axis (Fig. [2](#abb-2)).
 
 :::abbildung ml/k2onb 2
 Coordinates in the orthonormal basis $\mathbf{q}_1=(0.6,\,0.8)^{\top}$, $\mathbf{q}_2=(-0.8,\,0.6)^{\top}$ (green). The arrow $\mathbf{x}=(3,1)^{\top}$ casts a shadow onto each of the two rotated axes (gray); in each case the light falls perpendicularly (dashed). The shadow lengths $\mathbf{q}_1^{\top}\mathbf{x}=2.6$ (blue) and $\mathbf{q}_2^{\top}\mathbf{x}=-1.8$ (orange) are the coordinates: $\mathbf{x}=2.6\,\mathbf{q}_1-1.8\,\mathbf{q}_2$.
@@ -133,7 +135,7 @@ The second formula in [(1.2)](#gl-1-2) says that the energy $\lVert\mathbf{x}\rV
 
 <span class="anker" id="stufe-1-4"></span>
 
-If you write the vectors of an orthonormal basis as the columns of a matrix $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, both formulas [(1.2)](#gl-1-2) can be written as matrix products. By the row view from Part 1, Section 7.2, all coordinates at once form the vector $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, because the rows of $\mathbf{Q}^{\top}$ are the vectors $\mathbf{q}_i^{\top}$. Conversely, $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ by the column view. So the matrix $\mathbf{Q}^{\top}$ undoes what $\mathbf{Q}$ does.
+If you write the vectors of an orthonormal basis as the columns of a matrix $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$, both formulas [(1.2)](#gl-1-2) can be written as matrix products. By the row view from Foundations 1, Section 7.2, all coordinates at once form the vector $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$, because the rows of $\mathbf{Q}^{\top}$ are the vectors $\mathbf{q}_i^{\top}$. Conversely, $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$ by the column view. So the matrix $\mathbf{Q}^{\top}$ undoes what $\mathbf{Q}$ does.
 
 :::definition Definition 1.5 (Orthogonal matrix)
 <span class="anker" id="satz-1-5"></span>
@@ -150,7 +152,7 @@ If $\mathbf{Q}$ is orthogonal, then $\mathbf{Q}$ is invertible with $\mathbf{Q}^
 :::
 
 :::beweis Inverse of an orthogonal matrix
-The columns are orthonormal, so by the first subsection they are linearly independent. By the theorem in Part 1, Section 13.5, $\mathbf{Q}$ is therefore invertible. Multiplying $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ from the right by $\mathbf{Q}^{-1}$ gives $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, and hence also $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
+The columns are orthonormal, so by the first subsection they are linearly independent. By the theorem in Foundations 1, Section 13.5, $\mathbf{Q}$ is therefore invertible. Multiplying $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ from the right by $\mathbf{Q}^{-1}$ gives $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$, and hence also $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$.
 :::
 
 A word about the name. An orthogonal matrix has orthonormal columns, not merely orthogonal ones; the name has grown historically. There is no special name for matrices whose columns are only orthogonal but not normalized. For them, $\mathbf{Q}^{\top}\mathbf{Q}$ is a diagonal matrix with the squared lengths of the columns on the diagonal, but not $\mathbf{I}$.
@@ -159,7 +161,7 @@ A word about the name. An orthogonal matrix has orthonormal columns, not merely 
 
 $$\mathbf{Q}=\begin{pmatrix}0.6&-0.8\\0.8&0.6\end{pmatrix},\qquad \mathbf{Q}^{\top}\mathbf{Q}=\begin{pmatrix}0.36+0.64&-0.48+0.48\\-0.48+0.48&0.64+0.36\end{pmatrix}=\mathbf{I} .$$
 
-The entries of $\mathbf{Q}^{\top}\mathbf{Q}$ are the dot products of the columns from the first subsection; Fig. [1](#abb-1) shows the off-diagonal entry. So $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, without any calculation. This matrix is the rotation matrix from Part 1, Section 8.3, with $\cos\alpha=0.6$ and $\sin\alpha=0.8$, that is, a counterclockwise rotation by $\alpha\approx53.13^\circ$. The inverse $\mathbf{Q}^{\top}$ rotates back by the same angle.
+The entries of $\mathbf{Q}^{\top}\mathbf{Q}$ are the dot products of the columns from the first subsection; Fig. [1](#abb-1) shows the off-diagonal entry. So $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, without any calculation. This matrix is the rotation matrix from Foundations 1, Section 8.3, with $\cos\alpha=0.6$ and $\sin\alpha=0.8$, that is, a counterclockwise rotation by $\alpha\approx53.13^\circ$. The inverse $\mathbf{Q}^{\top}$ rotates back by the same angle.
 
 ⁠**In short:** An orthogonal matrix is square with orthonormal columns; its inverse is simply its transpose.
 
@@ -181,10 +183,10 @@ and the angle between $\mathbf{Q}\mathbf{x}$ and $\mathbf{Q}\mathbf{y}$ is the s
 :::
 
 :::beweis Preservation of dot products
-By the rule $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ from Part 1, Section 10.1, $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. With $\mathbf{y}=\mathbf{x}$ the statement about the length follows, and because the angle is computed only from dot products and lengths, it stays the same too. For the determinant, use the rules from Part 1, Section 14.5: $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
+By the rule $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ from Foundations 1, Section 10.1, $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$. With $\mathbf{y}=\mathbf{x}$ the statement about the length follows, and because the angle is computed only from dot products and lengths, it stays the same too. For the determinant, use the rules from Foundations 1, Section 14.5: $1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$.
 :::
 
-So an orthogonal matrix moves space rigidly, without distorting it. If $\det\mathbf{Q}=1$, it is a rotation. If $\det\mathbf{Q}=-1$, it contains a reflection, because by Part 1, Section 14.2, a negative determinant reverses the orientation.
+So an orthogonal matrix moves space rigidly, without distorting it. If $\det\mathbf{Q}=1$, it is a rotation. If $\det\mathbf{Q}=-1$, it contains a reflection, because by Foundations 1, Section 14.2, a negative determinant reverses the orientation.
 
 ⁠**Worked example:** The rotation from the previous subsection maps $\mathbf{x}=(3,\,1)^{\top}$ to $\mathbf{Q}\mathbf{x}=(1.8-0.8,\ 2.4+0.6)^{\top}=(1,\,3)^{\top}$. Both vectors have the squared length $10$. The determinant of the rotation is $0.36+0.64=1$. The matrix $\bigl(\begin{smallmatrix}0.6&0.8\\0.8&-0.6\end{smallmatrix}\bigr)$ also has orthonormal columns, but the determinant $-0.36-0.64=-1$: it reflects across the line in the direction of $(2,\,1)^{\top}$, because it maps $(2,\,1)^{\top}$ to itself and $(-1,\,2)^{\top}$ to $(1,\,-2)^{\top}$.
 
@@ -207,14 +209,14 @@ If $\mathbf{Q}\in\mathbb{R}^{n\times k}$ has orthonormal columns and $k<n$, then
 :::
 
 :::beweis Rectangular matrices
-The first two statements follow from [(1.1)](#gl-1-1) exactly as for square matrices. For the third: the matrix $\mathbf{Q}^{\top}$ has $k$ rows and $n$ columns. By the rank–nullity theorem from Part 1, Section 13.5, its null space has dimension $n-\operatorname{rank}\mathbf{Q}^{\top}\ge n-k\ge1$. So there is a vector $\mathbf{z}\ne\mathbf{0}$ with $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, and for it $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Hence $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
+The first two statements follow from [(1.1)](#gl-1-1) exactly as for square matrices. For the third: the matrix $\mathbf{Q}^{\top}$ has $k$ rows and $n$ columns. By the rank–nullity theorem from Foundations 1, Section 13.5, its null space has dimension $n-\operatorname{rank}\mathbf{Q}^{\top}\ge n-k\ge1$. So there is a vector $\mathbf{z}\ne\mathbf{0}$ with $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$, and for it $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$. Hence $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$.
 :::
 
 ⁠**Worked example 1:** The matrix with the single column $\mathbf{q}=(0.6,\ 0.8)^{\top}$ satisfies $\mathbf{q}^{\top}\mathbf{q}=1$, but
 
 $$\mathbf{q}\mathbf{q}^{\top}=\begin{pmatrix}0.36&0.48\\0.48&0.64\end{pmatrix}\ne\mathbf{I} .$$
 
-It maps $(-0.8,\ 0.6)^{\top}$ to $\mathbf{0}$. It maps the vector $\mathbf{x}=(3,\,1)^{\top}$ to $(1.08+0.48,\ 1.44+0.64)^{\top}=(1.56,\ 2.08)^{\top}$. This is exactly the endpoint of the shadow of $\mathbf{x}$ from Part 1, Section 5.5, because $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2.6\,\mathbf{q}$.
+It maps $(-0.8,\ 0.6)^{\top}$ to $\mathbf{0}$. It maps the vector $\mathbf{x}=(3,\,1)^{\top}$ to $(1.08+0.48,\ 1.44+0.64)^{\top}=(1.56,\ 2.08)^{\top}$. This is exactly the endpoint of the shadow of $\mathbf{x}$ from Foundations 1, Section 5.5, because $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2.6\,\mathbf{q}$.
 
 ⁠**Worked example 2:** The columns of $\mathbf{Q}=\Bigl(\begin{smallmatrix}1&0\\0&1\\0&0\end{smallmatrix}\Bigr)$ are $\mathbf{e}_1$ and $\mathbf{e}_2$ in $\mathbb{R}^3$. We have $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}_2$, but $\mathbf{Q}\mathbf{Q}^{\top}=\operatorname{diag}(1,\,1,\,0)$. This matrix keeps the first two components and sets the third to zero.
 

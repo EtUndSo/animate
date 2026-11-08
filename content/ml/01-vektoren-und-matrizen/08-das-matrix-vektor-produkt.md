@@ -1,7 +1,9 @@
 ---
 title: Das Matrix-Vektor-Produkt
-pfad: Informatik / Machine Learning / Vektoren und Matrizen
-order: 6210800
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
+knoten: Grundlagen 1: Vektoren und Matrizen
+nachschlagen: ja
+order: 15210800
 summary: Dieselbe gewichtete Summe soll für alle Beispiele eines Datensatzes berechnet werden.
 tags: Matrix-Vektor-Produkt, Spaltenraum
 lang: de

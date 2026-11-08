@@ -1,7 +1,9 @@
 ---
 title: Schätzen aus einer Stichprobe
-pfad: Informatik / Machine Learning / Statistik und Information
-order: 6250200
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
+knoten: Grundlagen 5: Statistik und Information
+nachschlagen: ja
+order: 15250200
 summary: Daten sind nur ein Ausschnitt dessen, was hätte geschehen können.
 tags: Statistik, statistisches Modell, Parameter, Parameterbereich, Datensatz, Schätzer, Schätzwert, Stichprobenverteilung
 lang: de
@@ -17,7 +19,7 @@ Daten sind nur ein Ausschnitt dessen, was hätte geschehen können. Dieser Absch
 
 <span class="anker" id="stufe-1-1"></span>
 
-[Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html) hat in eine Richtung gerechnet: Die Verteilung war gegeben, gefragt waren Wahrscheinlichkeiten für Daten. Wirft man eine Münze, die mit der Wahrscheinlichkeit $\theta=0{,}7$ Kopf zeigt, zehnmal, so ist die Anzahl der Köpfe nach [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 8.3, binomialverteilt, und genau sieben Köpfe kommen mit der Wahrscheinlichkeit $\binom{10}7\,0{,}7^7\,0{,}3^3\approx0{,}267$ vor. Dieses Kapitel rechnet in die Gegenrichtung (Abb. [1](#abb-1)). Gegeben sind zehn Würfe einer Münze mit verbogenem Rand, siebenmal Kopf, und gefragt ist, welches $\theta$ diese Münze hat. Ein solcher Schluss von beobachteten Daten auf die Verteilung, die sie erzeugt hat, heißt __Statistik__.
+[Grundlagen 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html) hat in eine Richtung gerechnet: Die Verteilung war gegeben, gefragt waren Wahrscheinlichkeiten für Daten. Wirft man eine Münze, die mit der Wahrscheinlichkeit $\theta=0{,}7$ Kopf zeigt, zehnmal, so ist die Anzahl der Köpfe nach [Grundlagen 4, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-3), binomialverteilt, und genau sieben Köpfe kommen mit der Wahrscheinlichkeit $\binom{10}7\,0{,}7^7\,0{,}3^3\approx0{,}267$ vor. Dieses Kapitel rechnet in die Gegenrichtung (Abb. [1](#abb-1)). Gegeben sind zehn Würfe einer Münze mit verbogenem Rand, siebenmal Kopf, und gefragt ist, welches $\theta$ diese Münze hat. Ein solcher Schluss von beobachteten Daten auf die Verteilung, die sie erzeugt hat, heißt __Statistik__.
 
 :::abbildung ml/k5richtung 1
 Zwei Richtungen. Die Wahrscheinlichkeitsrechnung geht von einer bekannten Verteilung zu den Wahrscheinlichkeiten möglicher Daten. Die Statistik geht von beobachteten Daten zurück zu der unbekannten Verteilung, die sie erzeugt hat.
@@ -31,27 +33,27 @@ Die Gegenrichtung ist schwerer, weil sie keine eindeutige Antwort hat. Siebenmal
 Eine Familie von Verteilungen $P(X=x\mid\theta)$, die von einer unbekannten Größe $\theta$ abhängen, heißt __statistisches Modell__. Die Größe $\theta$ heißt __Parameter__, die Menge ihrer zulässigen Werte __Parameterbereich__ $\Theta$. Bei stetigen Daten tritt an die Stelle von $P(X=x\mid\theta)$ eine Dichte $p(x\mid\theta)$.
 :::
 
-Der senkrechte Strich wird wie in [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 3.2, „gegeben“ gelesen: $P(X=x\mid\theta)$ ist die Wahrscheinlichkeit von $X=x$, wenn der Parameter den Wert $\theta$ hat. Ob $\theta$ dabei selbst zufällig ist, lässt die Schreibweise offen; Abschnitt [6](prior-und-posterior.html#stufe-6) kommt darauf zurück. Besteht der Parameter aus mehreren Zahlen, schreibt man ihn als Vektor $\boldsymbol{\theta}$. In den Definitionen steht $\theta$ für einen beliebigen Parameter; in den Rechenbeispielen ist $\theta$ ohne weiteren Zusatz der Parameter einer Bernoulli-Verteilung, wie in [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 8.1.
+Der senkrechte Strich wird wie in [Grundlagen 4, Abschnitt 3.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/bedingte-wahrscheinlichkeit.html#stufe-3-2), „gegeben“ gelesen: $P(X=x\mid\theta)$ ist die Wahrscheinlichkeit von $X=x$, wenn der Parameter den Wert $\theta$ hat. Ob $\theta$ dabei selbst zufällig ist, lässt die Schreibweise offen; Abschnitt [6](prior-und-posterior.html#stufe-6) kommt darauf zurück. Besteht der Parameter aus mehreren Zahlen, schreibt man ihn als Vektor $\boldsymbol{\theta}$. In den Definitionen steht $\theta$ für einen beliebigen Parameter; in den Rechenbeispielen ist $\theta$ ohne weiteren Zusatz der Parameter einer Bernoulli-Verteilung, wie in [Grundlagen 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1).
 
 ⁠**Rechenbeispiel:** Für Münzwürfe mit Kopf $=1$ und Zahl $=0$ ist das Bernoulli-Modell
 
 $$P(X=x\mid\theta)=\theta^x(1-\theta)^{1-x},\qquad x\in\{0,1\},\qquad \Theta=[0,\,1] .$$
 
-Für Messwerte einer Spannung mit Rauschen ist ein übliches Modell die Normalverteilung aus [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 8.5, mit der Dichte $p(x\mid\mu,\sigma^2)$ und dem Parametervektor $\boldsymbol{\theta}=(\mu,\,\sigma^2)^{\top}$. Hier ist $\mu$ der wahre Wert der Spannung, $\sigma^2$ die Varianz des Rauschens und der Parameterbereich die Menge aller Paare mit $\sigma^2>0$.
+Für Messwerte einer Spannung mit Rauschen ist ein übliches Modell die Normalverteilung aus [Grundlagen 4, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-5), mit der Dichte $p(x\mid\mu,\sigma^2)$ und dem Parametervektor $\boldsymbol{\theta}=(\mu,\,\sigma^2)^{\top}$. Hier ist $\mu$ der wahre Wert der Spannung, $\sigma^2$ die Varianz des Rauschens und der Parameterbereich die Menge aller Paare mit $\sigma^2>0$.
 
 ⁠**Kurz gesagt:** Die Statistik schließt von Daten auf die Verteilung, die sie erzeugt hat; dafür beschränkt man sich auf ein Modell, eine Familie von Verteilungen mit einem unbekannten Parameter.
 
 :::hintergrund Warum man sich auf ein Modell beschränkt
-Ohne Modell müsste man aus zehn Würfen auf die ganze Verteilung schließen, die hinter einer Münze steht, und aus vier Messwerten auf eine beliebige Dichte über allen reellen Zahlen. Das ist hoffnungslos: Zu wenigen Daten passen unüberschaubar viele Verteilungen. Ein Modell schrumpft die Frage auf wenige Zahlen. Bei der Münze ist das eine Annahme, die man kaum bezweifeln kann, denn ein Ja-Nein-Ergebnis ist immer Bernoulli-verteilt. Bei der Spannung ist die Normalverteilung eine echte Annahme, begründet durch den zentralen Grenzwertsatz aus [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 13.4. Abschnitt [10](die-grote-entropie.html#stufe-10) liefert einen zweiten Grund. Ist das Modell falsch, so beantwortet die Statistik eine falsche Frage, und das sieht man den Zahlen nicht an. Jede Schätzung in diesem Kapitel gilt deshalb unter der Voraussetzung, dass das gewählte Modell die Daten richtig beschreibt.
+Ohne Modell müsste man aus zehn Würfen auf die ganze Verteilung schließen, die hinter einer Münze steht, und aus vier Messwerten auf eine beliebige Dichte über allen reellen Zahlen. Das ist hoffnungslos: Zu wenigen Daten passen unüberschaubar viele Verteilungen. Ein Modell schrumpft die Frage auf wenige Zahlen. Bei der Münze ist das eine Annahme, die man kaum bezweifeln kann, denn ein Ja-Nein-Ergebnis ist immer Bernoulli-verteilt. Bei der Spannung ist die Normalverteilung eine echte Annahme, begründet durch den zentralen Grenzwertsatz aus [Grundlagen 4, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-4). Abschnitt [10](die-grote-entropie.html#stufe-10) liefert einen zweiten Grund. Ist das Modell falsch, so beantwortet die Statistik eine falsche Frage, und das sieht man den Zahlen nicht an. Jede Schätzung in diesem Kapitel gilt deshalb unter der Voraussetzung, dass das gewählte Modell die Daten richtig beschreibt.
 :::
 
 ### Rückblick: Die Stichprobe
 
 <span class="anker" id="stufe-1-2"></span>
 
-Nach [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 9.6, fasst man einen Datensatz als Stichprobe auf: Die Werte $x_1,\dots,x_N$ sind Ergebnisse von $N$ Zufallsvariablen $X_1,\dots,X_N$, die unabhängig sind und alle dieselbe Verteilung haben, kurz i.i.d. Dieses Kapitel schreibt die Anzahl der Werte mit $N$, wie die Zahl der Beispiele in [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html); [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html) hat für dieselbe Rolle $n$ benutzt. Große Buchstaben stehen wie in [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html) für die Zufallsvariablen, kleine für die beobachteten Werte. Die beobachteten Werte zusammen heißen der __Datensatz__ $\mathcal D=(x_1,\dots,x_N)$.
+Nach [Grundlagen 4, Abschnitt 9.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mehrere-zufallsvariablen.html#stufe-9-6), fasst man einen Datensatz als Stichprobe auf: Die Werte $x_1,\dots,x_N$ sind Ergebnisse von $N$ Zufallsvariablen $X_1,\dots,X_N$, die unabhängig sind und alle dieselbe Verteilung haben, kurz i.i.d. Dieses Kapitel schreibt die Anzahl der Werte mit $N$, wie die Zahl der Beispiele in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html); [Grundlagen 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html) hat für dieselbe Rolle $n$ benutzt. Große Buchstaben stehen wie in [Grundlagen 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html) für die Zufallsvariablen, kleine für die beobachteten Werte. Die beobachteten Werte zusammen heißen der __Datensatz__ $\mathcal D=(x_1,\dots,x_N)$.
 
-Weil die Zufallsvariablen unabhängig sind, ist die Wahrscheinlichkeit eines ganzen Datensatzes nach [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 9.5, das Produkt der einzelnen Wahrscheinlichkeiten:
+Weil die Zufallsvariablen unabhängig sind, ist die Wahrscheinlichkeit eines ganzen Datensatzes nach [Grundlagen 4, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mehrere-zufallsvariablen.html#stufe-9-5), das Produkt der einzelnen Wahrscheinlichkeiten:
 
 <span class="anker" id="gl-1-1"></span>
 $$P(X_1=x_1,\dots,X_N=x_N\mid\theta)=\prod_{i=1}^NP(X=x_i\mid\theta) . \tag{1.1}$$
@@ -83,7 +85,7 @@ $$\hat\theta=g(X_1,\dots,X_N) . \tag{1.2}$$
 Setzt man die beobachteten Werte ein, so heißt die Zahl $g(x_1,\dots,x_N)$ der __Schätzwert__.
 :::
 
-Der Hut über dem Buchstaben bedeutet wie bei der Vorhersage $\hat y$ aus [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 2.2, eine aus Daten berechnete Größe. Viele Texte schreiben für den Schätzer und für den Schätzwert dasselbe Zeichen $\hat\theta$; ob die Vorschrift mit zufälligen $X_i$ oder die Zahl aus den beobachteten $x_i$ gemeint ist, sagt der Zusammenhang. Die Definition verlangt nicht, dass der Schätzer in der Nähe von $\theta$ landet. Wie gut er das tut, ist eine eigene Frage, und Abschnitt [2](wie-gut-ist-ein-schatzer.html#stufe-2) misst es.
+Der Hut über dem Buchstaben bedeutet wie bei der Vorhersage $\hat y$ aus [Grundlagen 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-2), eine aus Daten berechnete Größe. Viele Texte schreiben für den Schätzer und für den Schätzwert dasselbe Zeichen $\hat\theta$; ob die Vorschrift mit zufälligen $X_i$ oder die Zahl aus den beobachteten $x_i$ gemeint ist, sagt der Zusammenhang. Die Definition verlangt nicht, dass der Schätzer in der Nähe von $\theta$ landet. Wie gut er das tut, ist eine eigene Frage, und Abschnitt [2](wie-gut-ist-ein-schatzer.html#stufe-2) misst es.
 
 Für Daten aus Nullen und Einsen bezeichnet dieses Kapitel die Anzahl der Einsen mit $N_1=\sum_ix_i$ und die Anzahl der Nullen mit $N_0=N-N_1$.
 
@@ -145,11 +147,11 @@ Sie hängt vom wahren Parameter ab, von der Vorschrift $g$ und von der Zahl $N$ 
 |---|---|---|---|---|---|---|---|---|---|
 | Mittelwert $\bar x$ | $1$ | $1{,}5$ | $2$ | $1{,}5$ | $2$ | $2{,}5$ | $2$ | $2{,}5$ | $3$ |
 
-Zählt man ab, wie oft jeder Mittelwert vorkommt, erhält man die Stichprobenverteilung von $\bar X$: die Werte $1$; $1{,}5$; $2$; $2{,}5$; $3$ mit den Wahrscheinlichkeiten $\tfrac19,\tfrac29,\tfrac39,\tfrac29,\tfrac19$ (Abb. [2](#abb-2)). Ihr Erwartungswert und ihre Varianz sind nach [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 7.1 und 7.4, Summen über diese fünf Werte (Abb. [3](#abb-3)):
+Zählt man ab, wie oft jeder Mittelwert vorkommt, erhält man die Stichprobenverteilung von $\bar X$: die Werte $1$; $1{,}5$; $2$; $2{,}5$; $3$ mit den Wahrscheinlichkeiten $\tfrac19,\tfrac29,\tfrac39,\tfrac29,\tfrac19$ (Abb. [2](#abb-2)). Ihr Erwartungswert und ihre Varianz sind nach [Grundlagen 4, Abschnitt 7.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-1) und [7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-4), Summen über diese fünf Werte (Abb. [3](#abb-3)):
 
 $$\mathbb{E}[\bar X]=2,\qquad \operatorname{Var}(\bar X)=\tfrac13 .$$
 
-Das passt zu [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 13.1: Der Mittelwert hat den Erwartungswert $\mu=2$ und die Varianz $\sigma^2/N=\tfrac23/2=\tfrac13$.
+Das passt zu [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1): Der Mittelwert hat den Erwartungswert $\mu=2$ und die Varianz $\sigma^2/N=\tfrac23/2=\tfrac13$.
 
 :::abbildung ml/k5stichprobe 2
 (a) Die Verteilung einer Zufallsvariablen mit den Werten $1$, $2$, $3$ je mit der Wahrscheinlichkeit $\tfrac13$. (b) Die Stichprobenverteilung des Mittelwerts $\bar X$ aus zwei unabhängigen solchen Werten. Sie hat denselben Erwartungswert $2$, aber nur die halbe Varianz, und ist um die Mitte zusammengezogen.
@@ -162,7 +164,7 @@ Erwartungswert und Varianz des Schätzers $\bar X$ als Summen über seine Stichp
 ⁠**Kurz gesagt:** Ein Schätzer ist eine Zufallsvariable; seine Verteilung über alle möglichen Stichproben heißt Stichprobenverteilung, und an ihr misst man, wie gut er ist.
 
 :::hintergrund Die Stichprobenverteilung sieht man nie
-In der Praxis hat man genau einen Datensatz und damit genau einen Wert des Schätzers. Die Stichprobenverteilung beschreibt gedachte Wiederholungen, die nie stattfinden. Trotzdem lässt sich über sie viel sagen: In kleinen Beispielen zählt man wie oben alle Stichproben ab; für Mittelwerte liefern [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 13.1, und der zentrale Grenzwertsatz ihre Varianz und ihre Form; und mit einem Rechner kann man sehr viele Datensätze aus einem angenommenen Modell erzeugen und die Werte des Schätzers auszählen. In dieser Sichtweise ist der Parameter eine feste, unbekannte Zahl, und alle Wahrscheinlichkeiten beziehen sich auf die Daten. Sie heißt __frequentistisch__, weil sie Wahrscheinlichkeiten als Häufigkeiten bei Wiederholungen deutet, wie [Teil 4](/wissen/informatik/machine-learning/wahrscheinlichkeit/wahrscheinlichkeit.html), Abschnitt 2.1. Abschnitt [6](prior-und-posterior.html#stufe-6) stellt ihr eine zweite Sichtweise gegenüber.
+In der Praxis hat man genau einen Datensatz und damit genau einen Wert des Schätzers. Die Stichprobenverteilung beschreibt gedachte Wiederholungen, die nie stattfinden. Trotzdem lässt sich über sie viel sagen: In kleinen Beispielen zählt man wie oben alle Stichproben ab; für Mittelwerte liefern [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1), und der zentrale Grenzwertsatz ihre Varianz und ihre Form; und mit einem Rechner kann man sehr viele Datensätze aus einem angenommenen Modell erzeugen und die Werte des Schätzers auszählen. In dieser Sichtweise ist der Parameter eine feste, unbekannte Zahl, und alle Wahrscheinlichkeiten beziehen sich auf die Daten. Sie heißt __frequentistisch__, weil sie Wahrscheinlichkeiten als Häufigkeiten bei Wiederholungen deutet, wie [Grundlagen 4, Abschnitt 2.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit-2.html#stufe-2-1). Abschnitt [6](prior-und-posterior.html#stufe-6) stellt ihr eine zweite Sichtweise gegenüber.
 :::
 
 :::aufgabe Aufgabe 1 ★ Modelle und Schätzer

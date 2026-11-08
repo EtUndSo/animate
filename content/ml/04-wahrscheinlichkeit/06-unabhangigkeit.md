@@ -1,7 +1,9 @@
 ---
 title: Unabhängigkeit
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6240600
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15240600
 summary: Manchmal ändert eine Information gar nichts: Ob der rote Würfel eine Sechs zeigt, sagt nichts über den blauen.
 tags: unabhängig, abhängig, gegenseitig unabhängig, paarweise unabhängig, bedingt unabhängig
 lang: de

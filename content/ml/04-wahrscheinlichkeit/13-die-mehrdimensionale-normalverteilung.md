@@ -1,7 +1,9 @@
 ---
 title: Die mehrdimensionale Normalverteilung
-pfad: Informatik / Machine Learning / Wahrscheinlichkeit
-order: 6241300
+pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
+knoten: Grundlagen 4: Wahrscheinlichkeit
+nachschlagen: ja
+order: 15241300
 summary: Die Normalverteilung gibt es auch für Vektoren.
 tags: normalverteilt, gemeinsam normalverteilt, Mahalanobis-Abstand
 lang: de
@@ -32,7 +34,7 @@ hat. Statt „normalverteilt“ sagt man auch __gemeinsam normalverteilt__.
 
 Für $d=1$ ist $\det\boldsymbol{\Sigma}=\sigma^2$, und es entsteht [(8.5)](wichtige-verteilungen.html#gl-8-5). Ist $\boldsymbol{\Sigma}=\operatorname{diag}(\sigma_1^2,\dots,\sigma_d^2)$ diagonal, so ist der Exponent $-\tfrac12\sum_j(x_j-\mu_j)^2/\sigma_j^2$ und $\det\boldsymbol{\Sigma}=\prod_j\sigma_j^2$. Die Dichte zerfällt dann in das Produkt der $d$ eindimensionalen Dichten $\mathcal N(\mu_j,\sigma_j^2)$, und die Komponenten sind unabhängig. Unterabschnitt [12.3](#stufe-12-3) zeigt, dass $\boldsymbol{\mu}$ und $\boldsymbol{\Sigma}$ tatsächlich Erwartungswertvektor und Kovarianzmatrix sind. Die Formel braucht $\boldsymbol{\Sigma}^{-1}$ und $\det\boldsymbol{\Sigma}>0$, also eine positiv definite Kovarianzmatrix. Ist $\boldsymbol{\Sigma}$ singulär, so liegt die Verteilung nach Unterabschnitt [11.6](zufallsvektoren-und-die-kovarianzmatrix.html#stufe-11-6) auf einer Ebene oder Geraden, die den Raum nicht ausfüllt, und hat keine Dichte; dieses Kapitel betrachtet nur positiv definite $\boldsymbol{\Sigma}$.
 
-⁠**Rechenbeispiel:** Für $d=2$ mit $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $\det\boldsymbol{\Sigma}=3$ und $\boldsymbol{\Sigma}^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 11.3. Die Dichte ist am höchsten bei $\mathbf{x}=\boldsymbol{\mu}$, mit dem Wert $1/(2\pi\sqrt3)\approx0{,}0919$. Der Korrelationskoeffizient der beiden Komponenten ist $1/\sqrt{2\cdot2}=0{,}5$.
+⁠**Rechenbeispiel:** Für $d=2$ mit $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $\det\boldsymbol{\Sigma}=3$ und $\boldsymbol{\Sigma}^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ nach [Grundlagen 1, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3). Die Dichte ist am höchsten bei $\mathbf{x}=\boldsymbol{\mu}$, mit dem Wert $1/(2\pi\sqrt3)\approx0{,}0919$. Der Korrelationskoeffizient der beiden Komponenten ist $1/\sqrt{2\cdot2}=0{,}5$.
 
 ⁠**Kurz gesagt:** Die mehrdimensionale Normalverteilung hat im Exponenten die quadratische Form $-\tfrac12(\mathbf{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})$; bei diagonaler Kovarianzmatrix ist sie das Produkt unabhängiger eindimensionaler Normalverteilungen.
 
@@ -40,7 +42,7 @@ Für $d=1$ ist $\det\boldsymbol{\Sigma}=\sigma^2$, und es entsteht [(8.5)](wicht
 
 <span class="anker" id="stufe-12-2"></span>
 
-Die Dichte hängt von $\mathbf{x}$ nur über die Zahl im Exponenten ab. Punkte mit gleichem Wert dieser Zahl haben gleiche Dichte. Die Zahl ist eine quadratische Form in $\mathbf{x}-\boldsymbol{\mu}$, und wie [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) gezeigt hat, sind die Höhenlinien einer positiv definiten quadratischen Form Ellipsen.
+Die Dichte hängt von $\mathbf{x}$ nur über die Zahl im Exponenten ab. Punkte mit gleichem Wert dieser Zahl haben gleiche Dichte. Die Zahl ist eine quadratische Form in $\mathbf{x}-\boldsymbol{\mu}$, und wie [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) gezeigt hat, sind die Höhenlinien einer positiv definiten quadratischen Form Ellipsen.
 
 :::definition Definition 12.2 (Mahalanobis-Abstand)
 <span class="anker" id="satz-12-2"></span>
@@ -53,7 +55,7 @@ $$\Delta(\mathbf{x})=\sqrt{(\mathbf{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigm
 der __Mahalanobis-Abstand__ von $\mathbf{x}$ zu $\boldsymbol{\mu}$.
 :::
 
-Die Dichte [(12.1)](#gl-12-1) ist $p(\mathbf{x})=p(\boldsymbol{\mu})\,\mathrm{e}^{-\Delta^2/2}$. Die Höhenlinien der Dichte sind also die Mengen mit festem Mahalanobis-Abstand. Ihre Form folgt aus [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 7.7. $\boldsymbol{\Sigma}^{-1}$ hat dieselben Eigenvektoren $\mathbf{q}_i$ wie $\boldsymbol{\Sigma}$ und die Eigenwerte $1/\lambda_i$, denn aus $\boldsymbol{\Sigma}\mathbf{q}_i=\lambda_i\mathbf{q}_i$ folgt $\boldsymbol{\Sigma}^{-1}\mathbf{q}_i=\lambda_i^{-1}\mathbf{q}_i$. Die Ellipse $\Delta=1$ hat deshalb ihre Achsen in den Richtungen $\mathbf{q}_i$ und die Halbachsen $1/\sqrt{1/\lambda_i}=\sqrt{\lambda_i}$, also die Standardabweichungen in diesen Richtungen. Die Ellipse $\Delta=c$ ist um den Faktor $c$ größer. Der Mahalanobis-Abstand misst also den Abstand in Standardabweichungen, gezählt in der Richtung, in der man sich bewegt.
+Die Dichte [(12.1)](#gl-12-1) ist $p(\mathbf{x})=p(\boldsymbol{\mu})\,\mathrm{e}^{-\Delta^2/2}$. Die Höhenlinien der Dichte sind also die Mengen mit festem Mahalanobis-Abstand. Ihre Form folgt aus [Grundlagen 2, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/diagonalisierung-und-spektralsatz.html#stufe-7-7). $\boldsymbol{\Sigma}^{-1}$ hat dieselben Eigenvektoren $\mathbf{q}_i$ wie $\boldsymbol{\Sigma}$ und die Eigenwerte $1/\lambda_i$, denn aus $\boldsymbol{\Sigma}\mathbf{q}_i=\lambda_i\mathbf{q}_i$ folgt $\boldsymbol{\Sigma}^{-1}\mathbf{q}_i=\lambda_i^{-1}\mathbf{q}_i$. Die Ellipse $\Delta=1$ hat deshalb ihre Achsen in den Richtungen $\mathbf{q}_i$ und die Halbachsen $1/\sqrt{1/\lambda_i}=\sqrt{\lambda_i}$, also die Standardabweichungen in diesen Richtungen. Die Ellipse $\Delta=c$ ist um den Faktor $c$ größer. Der Mahalanobis-Abstand misst also den Abstand in Standardabweichungen, gezählt in der Richtung, in der man sich bewegt.
 
 :::abbildung ml/k4ellipsen 17
 Die Normalverteilung mit $\boldsymbol{\mu}=(1,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$. (a) Die Höhenlinien $\Delta=1$ (durchgezogen) und $\Delta=2$ (gestrichelt) sind Ellipsen mit den Achsen in Richtung der Eigenvektoren $\mathbf{q}_1=(1,1)^{\top}/\sqrt2$ zum Eigenwert $3$ und $\mathbf{q}_2=(1,-1)^{\top}/\sqrt2$ zum Eigenwert $1$; die Halbachsen der inneren Ellipse sind $\sqrt3$ und $1$. Dazu $80$ Punkte, gezogen aus dieser Verteilung: $31$ liegen innerhalb von $\Delta=1$, $69$ innerhalb von $\Delta=2$. (b) Kennt man $x_2=4$, so ist $x_1$ normalverteilt mit dem Erwartungswert $2$ und der Standardabweichung $\sqrt{3/2}\approx1{,}22$ (orange: $\pm$ eine Standardabweichung). Die graue Gerade verbindet die bedingten Erwartungswerte für alle Werte von $x_2$; sie geht durch $\boldsymbol{\mu}$ und durch die Punkte, an denen die Ellipsen waagrechte Tangenten haben.
@@ -71,12 +73,12 @@ Der Mahalanobis-Abstand zweier Punkte in Eigenkoordinaten: Jede Koordinate wird 
 
 <span class="anker" id="stufe-12-3"></span>
 
-[Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) hat gezeigt, dass eine symmetrische Matrix in ihrer Eigenbasis diagonal wird und gekoppelte Rechnungen in unabhängige eindimensionale zerfallen. Für die Normalverteilung heißt das: In den Koordinaten der Hauptachsen ist sie das Produkt unabhängiger eindimensionaler Normalverteilungen.
+[Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) hat gezeigt, dass eine symmetrische Matrix in ihrer Eigenbasis diagonal wird und gekoppelte Rechnungen in unabhängige eindimensionale zerfallen. Für die Normalverteilung heißt das: In den Koordinaten der Hauptachsen ist sie das Produkt unabhängiger eindimensionaler Normalverteilungen.
 
 :::satz Satz 12.3 (Zerlegung im Eigensystem)
 <span class="anker" id="satz-12-3"></span>
 
-Es sei $\mathbf{x}\sim\mathcal N(\boldsymbol{\mu},\boldsymbol{\Sigma})$ und $\boldsymbol{\Sigma}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ die Zerlegung aus dem Spektralsatz ([Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 7.6), mit orthonormalen Eigenvektoren $\mathbf{q}_i$ als Spalten von $\mathbf{Q}$ und den Eigenwerten $\lambda_i>0$. Dann sind die Koordinaten
+Es sei $\mathbf{x}\sim\mathcal N(\boldsymbol{\mu},\boldsymbol{\Sigma})$ und $\boldsymbol{\Sigma}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ die Zerlegung aus dem Spektralsatz ([Grundlagen 2, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/diagonalisierung-und-spektralsatz.html#stufe-7-6)), mit orthonormalen Eigenvektoren $\mathbf{q}_i$ als Spalten von $\mathbf{Q}$ und den Eigenwerten $\lambda_i>0$. Dann sind die Koordinaten
 
 <span class="anker" id="gl-12-3"></span>
 $$\mathbf{y}=\mathbf{Q}^{\top}(\mathbf{x}-\boldsymbol{\mu}),\qquad y_i=\mathbf{q}_i^{\top}(\mathbf{x}-\boldsymbol{\mu}), \tag{12.3}$$
@@ -85,7 +87,7 @@ unabhängig, und $y_i\sim\mathcal N(0,\lambda_i)$. Insbesondere ist $\mathbb{E}[
 :::
 
 :::beweis Zerlegung im Eigensystem
-Es ist $\boldsymbol{\Sigma}^{-1}=\mathbf{Q}\boldsymbol{\Lambda}^{-1}\mathbf{Q}^{\top}$, also $(\mathbf{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})=\mathbf{y}^{\top}\boldsymbol{\Lambda}^{-1}\mathbf{y}=\sum_iy_i^2/\lambda_i$, und $\det\boldsymbol{\Sigma}=\prod_i\lambda_i$. Die Abbildung von $\mathbf{x}$ auf $\mathbf{y}$ verschiebt und dreht nur; ihre Jacobi-Matrix $\mathbf{Q}^{\top}$ hat den Betrag der Determinante $1$. Nach dem Flächenfaktor aus [Teil 3](/wissen/informatik/machine-learning/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html), Abschnitt 5.4, ändert sie Flächen und Volumina nicht, und die Dichte von $\mathbf{y}$ ist an jeder Stelle dieselbe Zahl wie die von $\mathbf{x}$ an der zugehörigen Stelle (vergleiche den Variablenwechsel im Hintergrund-Kasten von Unterabschnitt [8.6](wichtige-verteilungen.html#stufe-8-6)). Also ist
+Es ist $\boldsymbol{\Sigma}^{-1}=\mathbf{Q}\boldsymbol{\Lambda}^{-1}\mathbf{Q}^{\top}$, also $(\mathbf{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})=\mathbf{y}^{\top}\boldsymbol{\Lambda}^{-1}\mathbf{y}=\sum_iy_i^2/\lambda_i$, und $\det\boldsymbol{\Sigma}=\prod_i\lambda_i$. Die Abbildung von $\mathbf{x}$ auf $\mathbf{y}$ verschiebt und dreht nur; ihre Jacobi-Matrix $\mathbf{Q}^{\top}$ hat den Betrag der Determinante $1$. Nach dem Flächenfaktor aus [Grundlagen 3, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-jacobi-matrix.html#stufe-5-4), ändert sie Flächen und Volumina nicht, und die Dichte von $\mathbf{y}$ ist an jeder Stelle dieselbe Zahl wie die von $\mathbf{x}$ an der zugehörigen Stelle (vergleiche den Variablenwechsel im Hintergrund-Kasten von Unterabschnitt [8.6](wichtige-verteilungen.html#stufe-8-6)). Also ist
 
 $$p(\mathbf{y})=\frac1{(2\pi)^{d/2}\sqrt{\prod_i\lambda_i}}\,\exp\Bigl(-\tfrac12\sum_i\frac{y_i^2}{\lambda_i}\Bigr)=\prod_{i=1}^d\frac1{\sqrt{2\pi\lambda_i}}\,\mathrm{e}^{-y_i^2/(2\lambda_i)} ,$$
 
@@ -125,7 +127,7 @@ Insbesondere ist jede Komponente $x_j\sim\mathcal N(\mu_j,\Sigma_{jj})$, und jed
 
 Für eine invertierbare Matrix $\mathbf{A}$ folgt der Satz aus dem Variablenwechsel: Der Exponent bleibt eine quadratische Form, und der Vorfaktor ändert sich um den Faktor $1/|\det\mathbf{A}|$. Für $m<d$ ergänzt man $\mathbf{A}$ zu einer invertierbaren Matrix und marginalisiert die zusätzlichen Komponenten heraus; die Rechnung ist länger und wird hier nicht ausgeführt.
 
-Umgekehrt lässt sich jede Normalverteilung aus der einfachsten erzeugen. Hat $\mathbf{z}$ unabhängige standardnormalverteilte Komponenten, so ist $\mathbf{z}\sim\mathcal N(\mathbf{0},\mathbf{I})$. Mit der Cholesky-Zerlegung $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}^{\top}$ aus [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 8.6, ist dann nach [(12.4)](#gl-12-4)
+Umgekehrt lässt sich jede Normalverteilung aus der einfachsten erzeugen. Hat $\mathbf{z}$ unabhängige standardnormalverteilte Komponenten, so ist $\mathbf{z}\sim\mathcal N(\mathbf{0},\mathbf{I})$. Mit der Cholesky-Zerlegung $\boldsymbol{\Sigma}=\mathbf{L}\mathbf{L}^{\top}$ aus [Grundlagen 2, Abschnitt 8.6](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-6), ist dann nach [(12.4)](#gl-12-4)
 
 <span class="anker" id="gl-12-5"></span>
 $$\mathbf{x}=\boldsymbol{\mu}+\mathbf{L}\mathbf{z}\sim\mathcal N(\boldsymbol{\mu},\boldsymbol{\Sigma}). \tag{12.5}$$
@@ -154,11 +156,11 @@ Für Vektoren $\mathbf{x}_a$, $\mathbf{x}_b$ mit den Blöcken $\boldsymbol{\Sigm
 :::
 
 :::herleitung Bedingte Normalverteilung durch quadratisches Ergänzen
-Nach Unterabschnitt [9.4](mehrere-zufallsvariablen.html#stufe-9-4) ist $p(x_1\mid x_2)=p(x_1,x_2)/p(x_2)$ mit der Randdichte $p(x_2)$; bei festem $x_2$ ist der Nenner eine Zahl. Als Funktion von $x_1$ ist die bedingte Dichte also proportional zu $\exp\bigl(-\tfrac12\,Q\bigr)$ mit der quadratischen Form $Q$ aus dem Exponenten. Mit $a_1=x_1-\mu_1$, $a_2=x_2-\mu_2$ und $D=\det\boldsymbol{\Sigma}$ ist nach [Teil 1](/wissen/informatik/machine-learning/vektoren-und-matrizen/vektoren-und-matrizen.html), Abschnitt 11.3,
+Nach Unterabschnitt [9.4](mehrere-zufallsvariablen.html#stufe-9-4) ist $p(x_1\mid x_2)=p(x_1,x_2)/p(x_2)$ mit der Randdichte $p(x_2)$; bei festem $x_2$ ist der Nenner eine Zahl. Als Funktion von $x_1$ ist die bedingte Dichte also proportional zu $\exp\bigl(-\tfrac12\,Q\bigr)$ mit der quadratischen Form $Q$ aus dem Exponenten. Mit $a_1=x_1-\mu_1$, $a_2=x_2-\mu_2$ und $D=\det\boldsymbol{\Sigma}$ ist nach [Grundlagen 1, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3),
 
 $$Q=\frac1D\bigl(\Sigma_{22}a_1^2-2\Sigma_{12}a_1a_2+\Sigma_{11}a_2^2\bigr).$$
 
-Quadratisches Ergänzen in $a_1$ wie in [Teil 2](/wissen/informatik/machine-learning/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html), Abschnitt 5.4, ergibt
+Quadratisches Ergänzen in $a_1$ wie in [Grundlagen 2, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-4), ergibt
 
 $$Q=\frac{\Sigma_{22}}D\Bigl(a_1-\frac{\Sigma_{12}}{\Sigma_{22}}a_2\Bigr)^2+\text{(ein Glied ohne }a_1).$$
 

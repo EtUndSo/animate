@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="530" height="231" viewBox="477.7093 338.9 963.6364 420">
+<rect x="477.7093" y="338.9" width="963.6364" height="420" fill="#ffffff"/>
+<path d="M503.84 540C807.63 540 1111.42 540 1415.22 540" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1415.22 540C1409.37 537.66 1403.52 535.32 1397.67 532.98C1397.67 537.66 1397.67 542.34 1397.67 547.02C1403.52 544.68 1409.37 542.34 1415.22 540" fill="#7f7f7f" stroke="#7f7f7f" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M521.25 530.55C521.25 536.85 521.25 543.15 521.25 549.45" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M579.3 517.05C579.3 532.35 579.3 547.65 579.3 562.95" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M593.81 517.05C593.81 532.35 593.81 547.65 593.81 562.95" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M608.33 517.05C608.33 532.35 608.33 547.65 608.33 562.95" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M622.84 517.05C622.84 532.35 622.84 547.65 622.84 562.95" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M579.3 503.55C593.81 503.55 608.33 503.55 622.84 503.55" fill="none" stroke="#2a78d6" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M601.07 499.5C585.32 476.55 569.57 453.6 553.82 430.65" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="553.82" y="375.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">E = -1</text>
+<text x="553.82" y="411.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#2a78d6" text-anchor="middle" dominant-baseline="central">aralık 1/8</text>
+<path d="M637.35 517.05C637.35 532.35 637.35 547.65 637.35 562.95" fill="none" stroke="#00823c" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M666.38 517.05C666.38 532.35 666.38 547.65 666.38 562.95" fill="none" stroke="#00823c" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M695.4 517.05C695.4 532.35 695.4 547.65 695.4 562.95" fill="none" stroke="#00823c" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M724.42 517.05C724.42 532.35 724.42 547.65 724.42 562.95" fill="none" stroke="#00823c" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M637.35 503.55C666.38 503.55 695.4 503.55 724.42 503.55" fill="none" stroke="#00823c" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="680.89" y="436.05" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#00823c" text-anchor="middle" dominant-baseline="central">E = 0</text>
+<text x="680.89" y="472.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#00823c" text-anchor="middle" dominant-baseline="central">aralık 1/4</text>
+<path d="M753.45 517.05C753.45 532.35 753.45 547.65 753.45 562.95" fill="none" stroke="#eb6834" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M811.5 517.05C811.5 532.35 811.5 547.65 811.5 562.95" fill="none" stroke="#eb6834" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M869.55 517.05C869.55 532.35 869.55 547.65 869.55 562.95" fill="none" stroke="#eb6834" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M927.6 517.05C927.6 532.35 927.6 547.65 927.6 562.95" fill="none" stroke="#eb6834" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M753.45 503.55C811.5 503.55 869.55 503.55 927.6 503.55" fill="none" stroke="#eb6834" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="840.52" y="375.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#eb6834" text-anchor="middle" dominant-baseline="central">E = 1</text>
+<text x="840.52" y="411.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#eb6834" text-anchor="middle" dominant-baseline="central">aralık 1/2</text>
+<path d="M985.65 517.05C985.65 532.35 985.65 547.65 985.65 562.95" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1101.75 517.05C1101.75 532.35 1101.75 547.65 1101.75 562.95" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1217.85 517.05C1217.85 532.35 1217.85 547.65 1217.85 562.95" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1333.95 517.05C1333.95 532.35 1333.95 547.65 1333.95 562.95" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M985.65 503.55C1101.75 503.55 1217.85 503.55 1333.95 503.55" fill="none" stroke="#c82828" stroke-width="3" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1159.8" y="436.05" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">E = 2</text>
+<text x="1159.8" y="472.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#c82828" text-anchor="middle" dominant-baseline="central">aralık 1</text>
+<text x="521.25" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="637.35" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="753.45" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">2</text>
+<text x="869.55" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="985.65" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">4</text>
+<text x="1101.75" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">5</text>
+<text x="1217.85" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">6</text>
+<text x="1333.95" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">7</text>
+<text x="579.3" y="594" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">0,5</text>
+<path d="M1275.9 654.75C1275.9 625.5 1275.9 596.25 1275.9 567" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M1275.9 567C1273.74 572.4 1271.58 577.8 1269.42 583.2C1273.74 583.2 1278.06 583.2 1282.38 583.2C1280.22 577.8 1278.06 572.4 1275.9 567" fill="#7f7f7f" stroke="#7f7f7f" stroke-width="1" stroke-linejoin="round" stroke-linecap="butt"/>
+<text x="1275.9" y="695" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">6,5 yok:</text>
+<text x="1275.9" y="722.5" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">6 veya 7'ye yuvarla</text>
+</svg>

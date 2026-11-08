@@ -464,19 +464,25 @@
     "de": "(a) genau eine Lösung",
     "en": "(a) exactly one solution",
     "es": "(a) exactamente una solución",
-    "zh": "(a) 唯一解"
+    "zh": "(a) 唯一解",
+    "fr": "(a) exactement une solution",
+    "tr": "(a) tek bir çözüm"
    },
    "t1": {
     "de": "(b) keine Lösung",
     "en": "(b) no solution",
     "es": "(b) ninguna solución",
-    "zh": "(b) 无解"
+    "zh": "(b) 无解",
+    "fr": "(b) aucune solution",
+    "tr": "(b) çözüm yok"
    },
    "t2": {
     "de": "(c) unendlich viele",
     "en": "(c) infinitely many",
     "es": "(c) infinitas",
-    "zh": "(c) 无穷多解"
+    "zh": "(c) 无穷多解",
+    "fr": "(c) une infinité",
+    "tr": "(c) sonsuz sayıda"
    }
   }
  }

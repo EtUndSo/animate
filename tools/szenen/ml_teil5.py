@@ -1,4 +1,4 @@
-"""Machine Learning Teil 5 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap5_stufen.tex, kap5_stufen_b.tex): Abbildungen.
+"""Machine Learning Grundlagen 5 (C:\\Bücher\\EtUndSo\\MachineLearning\\Arbeitshefte\\kap5_stufen.tex, kap5_stufen_b.tex): Abbildungen.
 
 Szenenname ml/k5<name> = \\label{fig:k5<name>} im Heft. Stil wie tools/szenen/ml_teil3.py (Achsen, Pfeile, Punkte).
 Bauen:  python tools/szenen/ml_teil5.py

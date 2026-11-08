@@ -1,7 +1,9 @@
 ---
 title: Kuadratik formlar
-pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / İzdüşüm, Özdeğerler ve Ayrışımlar
-order: 6220600
+pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
+knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+nachschlagen: ja
+order: 15220600
 summary: Doğrusal fonksiyonlardan sonra çok değişkenli fonksiyonların en basitleri kuadratik olanlardır.
 tags: kuadratik formu
 lang: tr
@@ -17,7 +19,7 @@ Doğrusal fonksiyonlardan sonra çok değişkenli fonksiyonların en basitleri k
 
 <span class="anker" id="stufe-5-1"></span>
 
-Kısım 1, Kesim 8.4'te tek çıkışlı her doğrusal fonksiyon, bileşenlerin bir $\mathbf{w}^{\top}\mathbf{x}$ ağırlıklı toplamıydı. Basitlikte bundan sonra gelen fonksiyon türü, bileşenlerin ikişerli çarpımlarını toplar: $x_1^2$ gibi kareleri ve $x_1x_2$ gibi karma terimleri. Elektrik mühendisliğinden bir örnek, endüktansları $L_1$, $L_2$ ve karşılıklı endüktansı $M$ olan, içlerinden $i_1$ ve $i_2$ akımları geçen iki kuplajlı bobinin manyetik enerjisidir:
+Temeller 1, Kesim 8.4'te tek çıkışlı her doğrusal fonksiyon, bileşenlerin bir $\mathbf{w}^{\top}\mathbf{x}$ ağırlıklı toplamıydı. Basitlikte bundan sonra gelen fonksiyon türü, bileşenlerin ikişerli çarpımlarını toplar: $x_1^2$ gibi kareleri ve $x_1x_2$ gibi karma terimleri. Elektrik mühendisliğinden bir örnek, endüktansları $L_1$, $L_2$ ve karşılıklı endüktansı $M$ olan, içlerinden $i_1$ ve $i_2$ akımları geçen iki kuplajlı bobinin manyetik enerjisidir:
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -141,7 +143,7 @@ $$5x_1^2+4x_1x_2+2x_2^2=5\,(x_1+0{,}4\,x_2)^2+1{,}2\,x_2^2 .$$
 ⁠**Kısacası:** Tam kareye tamamlama bir kuadratik formu karelerin toplamı olarak yazar; karelerin önündeki katsayıların işaretleri, formun bir çanak mı, bir oluk mu, yoksa bir eyer mi olduğunu gösterir.
 
 :::hintergrund Tam kareye tamamlama Gauss eleme yöntemidir
-[(5.3)](#gl-5-3) içindeki sayılar, Kısım 1, Kesim 12.3'teki Gauss eleme yöntemi $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ simetrik matrisine uygulandığında çıkan sayılarla aynıdır. Köşegenin altında bir sıfır elde etmek için birinci satırın $\frac ba$ katı ikinci satırdan çıkarılır ve $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$ elde edilir. Bu basamak biçiminin köşegen elemanları, yani pivotlar, tam olarak karelerin önündeki katsayılardır; $\frac ba$ eleme çarpanı da birinci parantezde durur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisi için: çarpan $0{,}4$, pivotlar $5$ ve $1{,}2$. $n$ değişkende aynı işlem sürdürülür: Her eleme adımı bir değişkeni bir kareye tamamlar. Form ancak ve ancak bütün pivotlar pozitifse bir çanaktır. Kısım 1, Kesim 14.5'teki hesap kurallarına göre pivotların çarpımı determinanttır, burada $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+[(5.3)](#gl-5-3) içindeki sayılar, Temeller 1, Kesim 12.3'teki Gauss eleme yöntemi $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ simetrik matrisine uygulandığında çıkan sayılarla aynıdır. Köşegenin altında bir sıfır elde etmek için birinci satırın $\frac ba$ katı ikinci satırdan çıkarılır ve $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$ elde edilir. Bu basamak biçiminin köşegen elemanları, yani pivotlar, tam olarak karelerin önündeki katsayılardır; $\frac ba$ eleme çarpanı da birinci parantezde durur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisi için: çarpan $0{,}4$, pivotlar $5$ ve $1{,}2$. $n$ değişkende aynı işlem sürdürülür: Her eleme adımı bir değişkeni bir kareye tamamlar. Form ancak ve ancak bütün pivotlar pozitifse bir çanaktır. Temeller 1, Kesim 14.5'teki hesap kurallarına göre pivotların çarpımı determinanttır, burada $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Alıştırma 14 ★ Formlar ve matrisler
