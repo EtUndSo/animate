@@ -39,6 +39,31 @@ Erst danach kommt der nächste Begriff. Dazu fünf feste Regeln:
   - Ein Beispiel steht dort, wo der Leser es mit dem bis dahin Erklärten verstehen kann. Bei der Laplace-Transformation ist das nach der Definition der Transformation, nicht vorher.
   - Der User sagte dazu: „Beispiele direkt am Anfang zu nennen … ist reine Verwirrung.“
 
+## 2a. Beispiele stehen im Kasten `beispiel`, auf der Website zugeklappt (seit 09.11.2026)
+Der User: „In den Artikeln kommen oft auch Beispiele vor (z.B. in der Einführung zu Python das Beispiel zur Berechnung der Wurzel von 2), diese sollten immer als auf- und zuklappbare Boxen eingebaut sein und standardmäßig geschlossen sein.“
+
+```latex
+\begin{beispiel}{Ein Rezept für die Wurzel aus 2}
+...
+\end{beispiel}
+```
+
+- **Was ein Beispiel ist:** jedes ausgearbeitete Beispiel mit eigener Überschrift oder Einleitung, also „Beispiel“, „Beispiele“, „Rechenbeispiel“, „Zahlenbeispiel“, „Zweites Beispiel“ oder „Gegenbeispiel“. Statt `\paragraph{Beispiel: …}` oder `\textbf{Beispiel:}` steht der Kasten.
+- **Was keins ist:**
+  - ein Halbsatz im Fließtext („zum Beispiel …“);
+  - Aufgaben;
+  - Anwendungsabschnitte mit eigenem `\subsection`;
+  - Analogien und Alltagsbilder;
+  - Hintergrund-Kästen.
+- **Titel:** ohne das Wort „Beispiel“, der Kasten setzt es selbst davor. Ohne Titel `\begin{beispiel}{}`. Ein anderes Wort steht im optionalen Argument, z. B. `\begin{beispiel}[Rechenbeispiel 2]{…}` oder `[Gegenbeispiel]`.
+- **Ganze Unterabschnitte** „Beispiel: …“ bleiben offen: Sie sind auf der Website eine eigene Abschnittskarte, die man am Titel überspringen kann.
+- **Umfang:** Der Kasten umfasst das ganze Beispiel, also Rechnung, Abbildung, Rechenbild und Deutung. Er endet vor dem „Kurz gesagt“ und vor dem nächsten Begriff.
+- **Haupttext:** Er bleibt ohne das Beispiel verständlich. Rechenbilder gelten auch im Beispiel-Kasten.
+- **Aussehen:**
+  - Im PDF sieht ein Beispiel aus wie bisher, mit der Überschrift „Beispiel: Titel.“. Gleitumgebungen dürfen deshalb darin stehen.
+  - Auf der Website ist es eine zugeklappte Box „Beispiel: Titel“.
+- **Verschachtelung:** Ein `hintergrund`-Kasten, der zum Beispiel gehört, darf im Beispiel stehen, ein Beispiel aber nie in einem anderen Kasten.
+
 ## 3. Nichts Verwirrendes zu früh: Hintergrund-Kästen
 Manche Information ist richtig und wichtig, braucht aber Wissen, das an dieser Stelle noch fehlt. Beispiel: bei der Jacobi-Matrix die Näherung „Änderung ≈ Ableitung mal Schritt“, bevor die partielle Ableitung verstanden ist. Solche Informationen stehen nicht im Haupttext, sondern:
 - an der ersten Stelle, an der alle Voraussetzungen erklärt sind, oder

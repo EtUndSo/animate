@@ -1517,6 +1517,12 @@ class Heft:
             return ":::zweck\n%s\n:::" % self.block(body)
         if name == "analogie":
             return ":::analogie\n%s\n:::" % self.block(body)
+        if name == "beispiel":                           # \begin{beispiel}[Wort]{Titel} -> ::::beispiel [Wort] Titel … :::: (zugeklappt)
+            opt, j = bracket(body, 0)
+            t, j = group(body, body.index("{", j))
+            wort, title = self.text(opt or "").strip(), re.sub(r"\.$", "", self.text(t).strip())
+            kopf = ("[%s] " % wort if wort or title.startswith("[") else "") + title
+            return "::::beispiel%s\n%s\n::::" % (" " + kopf.strip() if kopf.strip() else "", self.block(body[j:]))
         if name in ("merkbox", "kernbox", "herleitung", "beweis", "vertiefung", "frage", "qa", "ltspice", "hintergrund", "warnung"):
             t, j = group(body, body.index("{"))
             title = self.text(t)
@@ -1709,7 +1715,9 @@ def abschnitte(md, teilen=None):
         kopf, _, rumpf = t.partition("\n")
         titel = kopf[3:].strip()
         stuecke = re.split(r"(?m)^(?=### )", rumpf)
-        gross = len(t) > grenze and len(stuecke) > 1 if teilen is None else nr in teilen
+        # Beispiele zählen mit (sie gehören zum Artikel), nur ihre Rahmenzeilen nicht: So teilt der Kasten keinen Abschnitt neu.
+        laenge = len(re.sub(r"(?m)^::::(?:beispiel\b.*)?\n?", "", t))
+        gross = laenge > grenze and len(stuecke) > 1 if teilen is None else nr in teilen
         if gross:                                        # große Stufe: an den Unterabschnitten teilen
             GETEILT.add(nr)
             out.append({"titel": titel, "art": "stufe", "md": stuecke[0] + stuecke[1]})

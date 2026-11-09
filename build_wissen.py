@@ -410,12 +410,13 @@ def md_to_html(md):
     formel_n = 0                                          # fortlaufende Nummer der :::formel-Boxen (zum Referenzieren, wie im Skript)
     para = []
     h_ids = set()
-    bsp_n = [0]
-    def beispiel(title, inner):                           # Beispiel: eigene Karte an der Stelle, an der es steht
-        bsp_n[0] += 1
-        out.append(f'<section class="bsp-card"><div class="bsp-card-n">{T("beispiel")} {bsp_n[0]}</div>'
-                   + (f'<div class="bsp-card-t">{inline(title)}</div>' if title else "")
-                   + md_to_html("\n".join(inner))[0] + "</section>")
+    def beispiel(arg, inner):                             # Beispiel: zugeklappte Box „Beispiel: Titel“, ohne Nummer (wie im Heft)
+        wort, titel = T("beispiel"), arg                  # Kopf: „[Rechenbeispiel 2] Titel“, „[Gegenbeispiel]“, „Titel“ oder leer
+        mw = re.match(r"\[([^\]]*)\]\s*(.*)$", arg)
+        if mw:
+            wort, titel = (mw.group(1).strip() or T("beispiel")), mw.group(2).strip()
+        out.append(f'<details class="beispiel"><summary><span class="bsp-k">{inline(wort)}</span>' + inline(titel) + '</summary>'
+                   '<div class="bsp-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
     def flush():
         if para:
             txt = " ".join(para).strip()
@@ -447,7 +448,7 @@ def md_to_html(md):
             i += 1
             out.append(code_html(info, "\n".join(code)))
             continue
-        mb = re.match(r"::::beispiel(?:\s+(.+?))?\s*$", s)   # ::::beispiel … :::: (vier Doppelpunkte, darf :::-Blöcke enthalten)
+        mb = re.match(r"::::beispiel(?:\s+(.+?))?\s*$", s)   # ::::beispiel [Wort] Titel … :::: (vier Doppelpunkte, darf :::-Blöcke enthalten)
         if mb:
             flush(); i += 1; inner = []
             while i < n and lines[i].strip() != "::::":
@@ -1463,10 +1464,16 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .arttoc a{display:block;padding:5px 0;color:var(--ink);font-weight:500;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
-/* ---------- Beispiel-Karte im Artikel (Farbe Orange = Praxis) ---------- */
-.bsp-card{border:1px solid var(--border);border-top:4px solid var(--accent3);border-radius:14px;background:var(--panel);padding:4px 20px 14px;margin:0 0 18px;transition:box-shadow .35s;}
-.bsp-card-n{font-family:var(--fdisp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);white-space:nowrap;}
-.bsp-card-t{font-family:var(--fdisp);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:2px 0 .7em;}
+/* ---------- Beispiel-Kasten (::::beispiel): ausgearbeitetes Beispiel, zugeklappt; weiß mit oranger Kopfleiste (Orange = Praxis),
+   so vom Hintergrund-Kasten (grau, grüne Linie links) und vom LTspice-Hinweis (orange Linie links, getönt) zu unterscheiden ---------- */
+details.beispiel{margin:1.1em 0;border:1px solid var(--border);border-top:3px solid var(--accent3);border-radius:10px;background:var(--panel);}
+details.beispiel>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.beispiel>summary::-webkit-details-marker{display:none;}
+details.beispiel>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent3);transition:transform .15s;}
+details.beispiel[open]>summary::before{transform:rotate(90deg);}
+details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
+.bsp-body{padding:0 16px 10px;border-top:1px solid var(--border);}
+.bsp-body>p:first-child{margin-top:12px;}
 /* ---------- Grüne Leiste, modern (Variante B, 04.11.2026) ---------- */
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
 .article h2{font-weight:700;letter-spacing:-.022em;} .article h3{font-weight:700;letter-spacing:-.015em;}
@@ -1481,10 +1488,9 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
   .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung,.verwendet){
   border-top:1px solid var(--rahmen);border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
-:root[data-theme="dark"] .bsp-card{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
+:root[data-theme="dark"] details.beispiel{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] :is(.article .sect,.callout:not([class*="cx-"]),.callout.cx-zusatz,details.frage,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.bsp-card,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
-@media(max-width:720px){ .bsp-card{padding:4px 15px 12px;} }
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,details.beispiel,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
@@ -1652,6 +1658,30 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
     else { if(side) side.classList.remove("open"); layout.classList.add("hide-left"); }
     mark(bL,leftOpen());
   });
+})();
+// Sprung auf einen Anker in einem zugeklappten Kasten (Beispiel, Hintergrund, Herleitung, Lösung …): erst alle umgebenden
+// Kästen aufklappen, dann hinscrollen. Gilt für Adressen mit #anker (Link aus einem anderen Artikel, Lesezeichen), für Links
+// innerhalb der Seite und für einen zweiten Klick auf denselben Anker (dann gibt es kein hashchange).
+(function(){
+  var start=null;                                                  // beim Laden aufgeklapptes Ziel
+  function zeige(id, immer){
+    if(!id) return null;
+    try{ id=decodeURIComponent(id); }catch(e){}
+    var el=document.getElementById(id); if(!el) return null;
+    var auf=false;
+    for(var d=el.parentElement; d; d=d.parentElement){ if(d.tagName==="DETAILS" && !d.open){ d.open=true; auf=true; } }
+    if(auf || immer) el.scrollIntoView();
+    return auf ? el : null;
+  }
+  window.addEventListener("hashchange", function(){ zeige(location.hash.slice(1), false); });
+  document.addEventListener("click", function(e){
+    var a=e.target.closest && e.target.closest('a[href*="#"]'); if(!a) return;
+    var u=new URL(a.href, location.href);
+    if(u.pathname===location.pathname && u.hash && u.hash===location.hash) zeige(u.hash.slice(1), true);
+  });
+  function beimLaden(){ start=zeige(location.hash.slice(1), false); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", beimLaden); else beimLaden();
+  window.addEventListener("load", function(){ if(start) start.scrollIntoView(); });   // nach KaTeX und Bildern stimmt die Lage erst ganz
 })();
 // KaTeX automatisch rendern; zu breite abgesetzte Formeln danach passend verkleinern (höchstens auf 70 %),
 // statt sie abzuschneiden – wichtig auf dem Handy.
