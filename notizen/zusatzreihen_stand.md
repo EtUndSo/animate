@@ -47,6 +47,12 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
   - Linux 1 zeigt WSL, VM und Live-USB gleichwertig; Live-USB bleibt die erste Cyber-Praxis;
   - C++-Aufgaben in ML werden später geklärt.
 
+## Entscheidung des Users (09.11.2026): Cybersecurity zuerst, über Linux
+- Der User: „weiter mit den Themen bei Cybersecurity“. Auf Rückfrage: **erst Linux 1–8**, weil Cyber Teil 2 und 3 sie voraussetzen; danach Cyber Teil 2 („Schutzgrenzen“), Linux 9–10, Cyber Teil 3 („Linux-Sicherheit“), dann Cyber Teil 4–5 (Netzwerke).
+- Python 3 läuft zu Ende; Python 4, 5, 12, 13 und ML-Teil 1 folgen später.
+- Vorbereitet 09.11.: `MODULE["linux"]["hefte"]` 1–11 (sechs Sprachen), Heftordner `EtUndSo\Linux\Arbeitshefte` mit Präambeln (Kopie Programmieren), `tools/szenen/linux_teil1.py`.
+- Vor Cyber Teil 2 noch offen: Cyber-LERNPFAD auf 12 Hefte und `MODULE["cyber"]` umstellen (nur Kap1 existiert, deshalb Dateinummer = Anzeige-Teil 1–12).
+
 ## Koordination
 Wie der Haupt-Agent Agenten beauftragt, prüft und berichtet, steht in `notizen/koordination.md`. Diese Datei vor jedem Arbeitsschritt lesen.
 
@@ -63,7 +69,7 @@ Wie der Haupt-Agent Agenten beauftragt, prüft und berichtet, steht in `notizen/
 5. **Schreiben:**
    - Python-Hefte (Bereich Programmieren) zuerst;
    - dann ML-Pfad Teil 1 „Lernen aus Daten“ (T08), mit „erst selbst bauen, dann Bibliothek“ und Verweisen statt Wiederholung.
-6. **Übersetzungen** (Grundlagen 1 läuft seit 06.11. abends): Grundlagen 1, 3, 4, 5, Cybersecurity Teil 1, Python 1, Python 2, je ein Übersetzungs-Agent parallel zum Schreib-Agenten.
+6. **Übersetzungen** (Grundlagen 1 läuft seit 06.11. abends): Grundlagen 1, 3, 4, 5, Cybersecurity Teil 1, Python 1, Python 2, Python 3, je ein Übersetzungs-Agent parallel zum Schreib-Agenten.
 7. **Werkzeug-Wünsche aus den Heften (offen):** `s.summe`/`s.produkt` mit anderem Laufindex als i und exakten großen Brüchen (3/131072); `code\kap2\heft_pruefen.py` als allgemeines Werkzeug nach `tools/`. Erledigt 06.11.: `\jj` in der Programmieren-Präambel, Code in `\texttt`/`\mathtt` behält in Szenen den Dezimalpunkt (editor.js localizeTex), Backticks in Artikeltiteln (build_wissen).
 
 ## Hefte
@@ -77,7 +83,8 @@ Wie der Haupt-Agent Agenten beauftragt, prüft und berichtet, steht in `notizen/
 | ml | 1 | Überarbeitung mit vollständigem Lesen + Rechenbilder | fertig 04.11. (91 S., 37 Aufgaben, 15 Abb. + 27 Rechenbilder; Website de gebaut). Endgültig, Übersetzung nach ml 2 einreihen. Offen: Rechenbild k1rmittelvektor zeigt 5/2 statt 2,5 (damals konnte s.formel noch keine Dezimalzahlen je Sprache; jetzt möglich, beim Übersetzen anpassen). Neue Regel im Heft: Vektoren mit Dezimalzahlen mit Semikolon (0,2; 0,25)ᵀ. |
 | prog | 1 | Python 1: Programme und der Python-Interpreter | fertig 06.11. (45 S., 6 Abschnitte, 19 Aufgaben, 5 Abb.; Website de gebaut; zusammenfassung_kap1.md). Code in code\kap1 unter Windows 3.13 und WSL 3.14 getestet. Nicht getestet: neuer Python install manager (py install), VS Code, IDLE-Start. |
 | prog | 2 | Python 2: Werte, Typen und Variablen | fertig 06.11. (85 S., 10 Abschnitte, 41 Aufgaben, davon 37 am Rechner; 7 Abb. + 4 Rechenbilder; 25 Hintergrund-Kästen; Website de gebaut, 12 Artikel; zusammenfassung_kap2.md). Quellen laut Protokoll ganz gelesen. Alle 111/116 Code-Blöcke gegen Windows 3.13 und WSL 3.14 geprüft (code\kap2\heft_pruefen.py), rechnung_kap2.py 82 Prüfungen. pdf_pruefen 0. Endgültig, Übersetzung einreihen. |
-| prog | 3 | Python 3: Entscheidungen und Schleifen | in Arbeit (06.11. abends) |
+| prog | 3 | Python 3: Entscheidungen und Schleifen | fertig 09.11. (81 S., 9 Abschnitte, 35 Aufgaben, davon 30 am Rechner; 9 Abb. + 2 Rechenbilder, alle als Szene prog/k3…; 22 Hintergrund-Kästen, 3 Sätze mit 2 Beweisen; Website de gebaut, 11 Artikel; zusammenfassung_kap3.md). Quellen laut Protokoll ganz gelesen. heft_pruefen: 191 bzw. 192 Blöcke unter Windows 3.13 und WSL 3.14 ohne Abweichung, rechnung_kap3.py 92 Prüfungen. pdf_pruefen 0. Nicht live getestet: Auto-Einrücken im Windows-REPL, „^C“-Echo der Windows-Konsole. Endgültig, Übersetzung einreihen. |
+| linux | 1 | Linux 1: Ein Linux zum Üben (WSL 2, VM, Live-USB) | Phase 1 (Schreiben) läuft seit 09.11.; danach Phase 2 (Prüfen) |
 | ml | G1 | Übersetzung en/es/zh/fr/tr | in Arbeit (06.11.; en fertig, zh läuft, es/fr/tr offen; englische Rechenbilder k1r* noch nicht exportiert) |
 | ml | 2 | Übersetzung en/es/zh/fr/tr | fertig 06.11. (alle sechs Sprachen 0 Fehler, je 14 Artikel; 7 Korrekturen am deutschen Original in alle Fassungen übernommen; Aufgabentitel a:k2detklein jetzt „Determinante 1, trotzdem schlechte Kondition“). Brief mit Glossar: notizen/uebersetzung_brief_zusatzreihen.md. |
 | cyber | 1 | Überarbeitung mit vollständigem Lesen + Rechenbilder | fertig 05.11. (74 S., 20 Aufgaben, 8 Abb. + 10 Rechenbilder; Website de gebaut). Alles ganz gelesen, Rechtsstand zum 05.11. unverändert (StGB zuletzt 20.03.2026, kein Reformentwurf). Endgültig, Übersetzung einreihen. Neu: Unterabschnitt Gesamtrisiko, CVSS-Formel im Haupttext, § 202a nach BGH 5 StR 614/19, Plattformregeln korrigiert (OverTheWire untersagt Passwörter, pwn.college bittet). Szene k1rcvss: Symbole W/E müssen in allen Sprachen gleich bleiben. |
@@ -91,6 +98,13 @@ Hinweise prog 2 (verbindlich für spätere Hefte):
 - **Nicht vorweggenommen:** Wahrheitswert anderer Objekte (`bool("0")`) gehört zu Python 3; `sum`/`math.fsum` mit Listen zu Python 5.
 - **Bezeichnungen:** Vorzeichen s, Exponentenfeld c (nicht e), Mantissenfeld t (nicht f), „Verschiebung“ statt Bias, ε_M = 2⁻⁵² wie in ML Grundlagen 3 (Rundungsschranke ε_M/2), „einstellig/zweistellig“ statt unär/binär.
 - **Rückverweise möglich:** Cybersecurity (Bits/Bytes/Hex) und ML Grundlagen 3, Abschnitt 11.3 (ε_M) können auf „Programmieren, Python 2“ verweisen; in der Themenkarte eingetragen.
+
+Hinweise prog 3 (verbindlich für spätere Hefte):
+- **Reihenfolge in Python 3:** Bedingungen (verkettete Vergleiche, not/and/or, Kurzschluss, Wahrheitswert), if/elif/else mit Block und Einrückung, while (Endlosschleife, Strg+C, Gleitkomma-Falle), for/range, break/continue/Verschachtelung/Akkumulator, Raten und Prüfen, Bisektion (Zwischenwertsatz, Schrittzahl), Newton (Heron, quadratische Konvergenz), Diode als Anwendung.
+- **Nicht vorweggenommen:** Listen und `for` über beliebige Folgen, `[]` als falscher Wert, `sum`/`max` über Listen (Python 5; Python 3 sagt „von den bisher bekannten Werten“); binäre Suche (Python 7).
+- **Bezeichnungen:** Fehler d_n (nicht e_n), Boltzmann-Konstante k_B, Intervall im Zwischenwertsatz [x₁, x₂], Intervalllänge L, Stellenzahl p; Temperaturspannung 25,85 mV.
+- **Gleitkomma-Schleifen** zählen ganzzahlig (`x < 1.0` statt `!=` reicht nicht); Newton mit relativer Toleranz.
+- **Präambel:** `konsole` kennt seit 09.11. die Fortsetzungszeile `... ` (nur Programmieren, nicht Linux, wegen Ausgaben wie „Reading package lists... Done“).
 
 Hinweise ml 3 (verbindlich für spätere Hefte):
 - **Layout-Konvention:** Vektoren sind Spalten; der Gradient ∇f hat die Form von x (Spalte); die Jacobi-Matrix J_g ∈ ℝ^{m×n} hat eine Zeile je Ausgang, (J)ᵢⱼ = ∂gᵢ/∂xⱼ, also J_f = ∇fᵀ.

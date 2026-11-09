@@ -24,7 +24,7 @@ und verweisen mit Link darauf.
 
 <!-- von Hand: Anfang -->
 ## Zuständigkeiten und geplante Themen (von Hand)
-- **Programmieren** (Informatik / Programmieren, Python 1 und 2 fertig): Python als Sprache, Datenstrukturen, Funktionen, Module,
+- **Programmieren** (Informatik / Programmieren, Python 1 bis 3 fertig): Python als Sprache, Datenstrukturen, Funktionen, Module,
   venv, NumPy-Grundlagen; später C und C++. ML und Cybersecurity setzen das voraus.
   - Python 1 erklärt vollständig: Programm/Anweisung, Maschinenbefehl, Programmiersprache, Syntax, Semantik, Quelltext,
     Compiler, Interpreter, CPython, Bytecode, Python installieren (Windows install manager `py`, Linux `python3`),
@@ -39,6 +39,14 @@ und verweisen mit Link darauf.
     `import x`), `math`, `sys.float_info`; `complex`, `cmath`; Zeichenketten-Operatoren und `len`, f-String, `input`,
     Typumwandlung, `round`. Cyber T02 (Bit/Byte/Hex) und ML Grundlagen 3, Abschnitt 11.3 (Gleitkommazahlen) können darauf
     verweisen. Unicode-Nummern von Zeichen (U+201E): Python 9.
+  - Python 3 erklärt vollständig: verkettete Vergleiche, Vergleich von Zeichenketten, `not`/`and`/`or`, Rangfolge,
+    Kurzschlussauswertung, Wahrheitswert von Objekten (ohne Behälter), Ergebnis von `and`/`or`; `if`/`elif`/`else`, Block und
+    Einrückung (Kopfzeile, IndentationError, TabError), `match` nur als Hintergrund; `while`, Endlosschleife, Strg+C/
+    `KeyboardInterrupt`, Gleitkomma-Falle in Schleifen; `for`, `range`, Schleifenvariable; `break`, `continue`, `else` an Schleifen
+    (Hintergrund), verschachtelte Schleifen, Akkumulator (Summe, Anzahl, Produkt, Mittelwert, Maximum); Raten und Prüfen,
+    Näherung mit Toleranz, Zwischenwertsatz (Nullstellen-Fassung), Bisektion mit Schrittzahl, Tangente, Newton-Verfahren,
+    quadratische Konvergenz, Heron = Newton, `math.sqrt`; Diodenarbeitspunkt numerisch. Numerik-Hefte und ML-Grundlagen
+    (Gradientenabstieg, Optimierung) können für Bisektion/Newton darauf verweisen. Eigene Funktionen: Python 4; Listen: Python 5.
 - **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, noch ohne Heft): Shell, Dateien, Rechte, Prozesse.
   Cybersecurity Teil 3 bis 5 werden nach der Recherche cyber-spezifisch oder entfallen.
   - Terminal, Eingabeaufforderung, Befehle eingeben, `cd`, `mkdir`: Kurzfassung in „Programmieren, Python 1, Abschnitt 3.1“
@@ -707,6 +715,18 @@ Je Zeile ein Abschnitt: Verweis-Wendung, Abschnittstitel, dann die Unterabschnit
 - Programmieren, Python 2, Abschnitt 8 „Module: `math` und `sys`“: 8.1 Das Modul und `import` · 8.2 Das Modul `math` · 8.3 Der Toleranzvergleich, fertig: `math.isclose` · 8.4 Die Grenzen des Typs `float`, fertig: `sys.float_info`
 - Programmieren, Python 2, Abschnitt 9 „Komplexe Zahlen“: 9.1 Was du dafür brauchst: komplexe Zahlen · 9.2 Der Typ `complex` · 9.3 Das Attribut: Real- und Imaginärteil · 9.4 Das Modul `cmath` · 9.5 Betrag und Phase: erst von Hand, dann fertig · 9.6 Anwendung: die Impedanz eines RC-Glieds
 - Programmieren, Python 2, Abschnitt 10 „Zeichenketten, Eingabe und Ausgabe“: 10.1 Zeichenketten verketten und vervielfachen · 10.2 Der f-String · 10.3 Die Eingabe mit `input` · 10.4 Die Typumwandlung · 10.5 Runden: erst von Hand, dann fertig · 10.6 Anwendung: ein Einheitenrechner
+
+### Programmieren, Python 3: Entscheidungen und Schleifen (`Kap3_Kontrollfluss`, Modul prog)
+
+- Programmieren, Python 3, Abschnitt 1 „Bedingungen: Vergleiche und logische Operatoren“: 1.1 Rückblick: Wahrheitswerte und Vergleiche · 1.2 Verkettete Vergleiche · 1.3 Zeichenketten vergleichen · 1.4 Der Operator `not` · 1.5 Der Operator `and` · 1.6 Der Operator `or` · 1.7 Die Rangfolge der logischen Operatoren · 1.8 Die Kurzschlussauswertung · 1.9 Der Wahrheitswert von Objekten · 1.10 Was `and` und `or` als Ergebnis liefern
+- Programmieren, Python 3, Abschnitt 2 „Entscheidungen: if, elif und else“: 2.1 Die bedingte Anweisung `if` · 2.2 Der Block und die Einrückung · 2.3 Die Alternative `else` · 2.4 Mehrere Fälle: `elif` · 2.5 Typische Fehler in Bedingungen · 2.6 Anwendung: ein Messbereich mit Unter- und Überlauf
+- Programmieren, Python 3, Abschnitt 3 „Wiederholen mit while“: 3.1 Die `while`-Schleife · 3.2 Die Endlosschleife · 3.3 Die Gleitkomma-Falle · 3.4 Anwendung: Wie lange sich ein Kondensator entlädt
+- Programmieren, Python 3, Abschnitt 4 „Zählen mit for und range“: 4.1 Die `for`-Schleife · 4.2 Die Zahlenfolge `range` · 4.3 Gleitkomma-Schritte über einen ganzzahligen Zähler · 4.4 `for` oder `while`?
+- Programmieren, Python 3, Abschnitt 5 „Schleifen steuern, verschachteln und Ergebnisse sammeln“: 5.1 Abbrechen mit `break` · 5.2 Überspringen mit `continue` · 5.3 Verschachtelte Schleifen · 5.4 Das Akkumulator-Muster · 5.5 Anwendung: Mittelwert und Maximum
+- Programmieren, Python 3, Abschnitt 6 „Lösungen durch Probieren: Raten und Prüfen, Näherung mit Toleranz“: 6.1 Raten und Prüfen · 6.2 Die Näherung mit Toleranz · 6.3 Schrittweite und Toleranz
+- Programmieren, Python 3, Abschnitt 7 „Die Bisektion“: 7.1 Was du dafür brauchst: der Zwischenwertsatz · 7.2 Das Bisektionsverfahren · 7.3 Die Wurzel durch Bisektion · 7.4 Die Schrittzahl der Bisektion
+- Programmieren, Python 3, Abschnitt 8 „Das Newton-Verfahren“: 8.1 Was du dafür brauchst: Ableitung und Tangente · 8.2 Das Newton-Verfahren · 8.3 Die Wurzel durch Newton · 8.4 Die Konvergenzgeschwindigkeit · 8.5 Die Grenzen des Newton-Verfahrens · 8.6 Der fertige Weg: `math.sqrt`
+- Programmieren, Python 3, Abschnitt 9 „Anwendung: der Arbeitspunkt einer Diode“: 9.1 Was du dafür brauchst: Diodenkennlinie und Vorwiderstand · 9.2 Der Arbeitspunkt als Nullstelle · 9.3 Der Arbeitspunkt durch Bisektion · 9.4 Der Arbeitspunkt durch Newton
 
 ## Informatik / Linux und Kommandozeile
 

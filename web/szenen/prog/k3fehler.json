@@ -1,0 +1,278 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 9,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      42,
+      5
+     ],
+     "y_range": [
+      1e-16,
+      10
+     ],
+     "x_length": 5.6,
+     "y_length": 3.6,
+     "origin": [
+      0.35,
+      0.55,
+      0
+     ],
+     "title": "",
+     "x_label": "@schritte",
+     "y_label": "@fehler",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "1e-16;1e-12;1e-8;1e-4;1",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": true,
+     "frame": true,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o3",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 1.41421\n1 1.40421\n2 1.39421\n3 1.38421\n4 1.37421\n5 1.36421\n6 1.35421\n7 1.34421\n8 1.33421\n9 1.32421\n10 1.31421\n11 1.30421\n12 1.29421\n13 1.28421\n14 1.27421\n15 1.26421\n16 1.25421\n17 1.24421\n18 1.23421\n19 1.22421\n20 1.21421\n21 1.20421\n22 1.19421\n23 1.18421\n24 1.17421\n25 1.16421\n26 1.15421\n27 1.14421\n28 1.13421\n29 1.12421\n30 1.11421\n31 1.10421\n32 1.09421\n33 1.08421\n34 1.07421\n35 1.06421\n36 1.05421\n37 1.04421\n38 1.03421\n39 1.02421\n40 1.01421\n41 1.00421\n42 0.994214",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0.414214\n1 0.0857864\n2 0.164214\n3 0.0392136\n4 0.0232864\n5 0.00796356\n6 0.00766144\n7 0.000151062\n8 0.00375519\n9 0.00180206\n10 0.0008255\n11 0.000337219\n12 9.30783e-05\n13 2.89921e-05\n14 3.20431e-05\n15 1.52552e-06\n16 1.37333e-05\n17 6.10388e-06\n18 2.28918e-06\n19 3.81831e-07\n20 5.71843e-07\n21 9.50061e-08\n22 1.43413e-07\n23 2.42032e-08\n24 3.54014e-08\n25 5.59909e-09\n26 9.30207e-09\n27 1.85149e-09\n28 1.8738e-09\n29 1.11526e-11\n30 9.2017e-10\n31 4.54509e-10\n32 2.21678e-10\n33 1.05263e-10\n34 4.7055e-11\n35 1.79512e-11\n36 3.39928e-12\n37 3.87668e-12\n38 2.38698e-13\n39 1.58029e-12\n40 6.70797e-13\n41 2.16049e-13",
+     "clip": true,
+     "step": "",
+     "markers": true,
+     "marker_radius": 0.035,
+     "color": "#2a78d6",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 1\n1 0.5\n2 0.25\n3 0.125\n4 0.0625\n5 0.03125\n6 0.015625\n7 0.0078125\n8 0.00390625\n9 0.00195312\n10 0.000976562\n11 0.000488281\n12 0.000244141\n13 0.00012207\n14 6.10352e-05\n15 3.05176e-05\n16 1.52588e-05\n17 7.62939e-06\n18 3.8147e-06\n19 1.90735e-06\n20 9.53674e-07\n21 4.76837e-07\n22 2.38419e-07\n23 1.19209e-07\n24 5.96046e-08\n25 2.98023e-08\n26 1.49012e-08\n27 7.45058e-09\n28 3.72529e-09\n29 1.86265e-09\n30 9.31323e-10\n31 4.65661e-10\n32 2.32831e-10\n33 1.16415e-10\n34 5.82077e-11\n35 2.91038e-11\n36 1.45519e-11\n37 7.27596e-12\n38 3.63798e-12\n39 1.81899e-12\n40 9.09495e-13\n41 4.54747e-13",
+     "clip": true,
+     "step": "",
+     "markers": false,
+     "marker_radius": 0.06,
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "DataCurve",
+    "props": {
+     "data": "0 0.585786\n1 0.0857864\n2 0.0024531\n3 2.1239e-06\n4 1.59472e-12",
+     "clip": true,
+     "step": "",
+     "markers": true,
+     "marker_radius": 0.05,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@hinweis",
+     "position": [
+      5.5,
+      1e-14,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Legend",
+    "props": {
+     "labels": "@{l_schritt};@{l_bisek};@{l_newton};@{l_schranke}",
+     "colors": "7f7f7f;2a78d6;c82828;2a78d6",
+     "styles": "-;-o;-o;--",
+     "position": [
+      -2.4,
+      -2.5,
+      0
+     ],
+     "font_size": 22,
+     "row_gap": 0.34,
+     "swatch_len": 0.4,
+     "gap": 0.12,
+     "color": "#111111",
+     "stroke_width": 4
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "schritte": {
+    "de": "Schritte n",
+    "en": "steps n",
+    "es": "pasos n",
+    "zh": "步数 n",
+    "fr": "étapes n",
+    "tr": "adım n"
+   },
+   "fehler": {
+    "de": "Fehler |gₙ − √2|",
+    "en": "error |gₙ − √2|",
+    "es": "error |gₙ − √2|",
+    "zh": "误差 |gₙ − √2|",
+    "fr": "erreur |gₙ − √2|",
+    "tr": "hata |gₙ − √2|"
+   },
+   "hinweis": {
+    "de": "Schritt 5: genau math.sqrt(2)",
+    "en": "step 5: exactly math.sqrt(2)",
+    "es": "paso 5: exactamente math.sqrt(2)",
+    "zh": "第 5 步：恰为 math.sqrt(2)",
+    "fr": "étape 5 : exactement math.sqrt(2)",
+    "tr": "5. adım: tam olarak math.sqrt(2)"
+   },
+   "l_schritt": {
+    "de": "Schrittverfahren (h = 0.01)",
+    "en": "stepping (h = 0.01)",
+    "es": "pasos fijos (h = 0.01)",
+    "zh": "定步法 (h = 0.01)",
+    "fr": "pas fixes (h = 0.01)",
+    "tr": "sabit adım (h = 0.01)"
+   },
+   "l_bisek": {
+    "de": "Bisektion",
+    "en": "bisection",
+    "es": "bisección",
+    "zh": "二分法",
+    "fr": "bissection",
+    "tr": "ikiye bölme"
+   },
+   "l_newton": {
+    "de": "Newton",
+    "en": "Newton",
+    "es": "Newton",
+    "zh": "牛顿法",
+    "fr": "Newton",
+    "tr": "Newton"
+   },
+   "l_schranke": {
+    "de": "Schranke 2/2ⁿ⁺¹",
+    "en": "bound 2/2ⁿ⁺¹",
+    "es": "cota 2/2ⁿ⁺¹",
+    "zh": "上界 2/2ⁿ⁺¹",
+    "fr": "borne 2/2ⁿ⁺¹",
+    "tr": "sınır 2/2ⁿ⁺¹"
+   }
+  }
+ }
+}

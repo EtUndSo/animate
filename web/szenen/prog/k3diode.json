@@ -1,0 +1,209 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 7,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.4,
+      0.66,
+      0.05
+     ],
+     "y_range": [
+      0,
+      10,
+      2
+     ],
+     "x_length": 5.6,
+     "y_length": 3.4,
+     "origin": [
+      0.4,
+      0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@uachse",
+     "y_label": "@iachse",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1e-9*(exp(x/0.02585)-1)",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.4,
+      0.603
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "5-x",
+     "color": "#eb6834",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.4,
+      0.66
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.574147,
+      4.425853,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@ap",
+     "position": [
+      0.566,
+      5.4,
+      0
+     ],
+     "font_size": 22,
+     "align": "right",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Legend",
+    "props": {
+     "labels": "@{l_diode};@{l_wid}",
+     "colors": "2a78d6;eb6834",
+     "styles": "-;-",
+     "position": [
+      0.41,
+      9.3,
+      0
+     ],
+     "font_size": 22,
+     "row_gap": 0.34,
+     "swatch_len": 0.4,
+     "gap": 0.12,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "uachse": {
+    "de": "U in V",
+    "en": "U in V",
+    "es": "U en V",
+    "zh": "U / V",
+    "fr": "U en V",
+    "tr": "U (V)"
+   },
+   "iachse": {
+    "de": "Strom in mA",
+    "en": "current in mA",
+    "es": "corriente en mA",
+    "zh": "电流 / mA",
+    "fr": "courant en mA",
+    "tr": "akım (mA)"
+   },
+   "ap": {
+    "de": "Arbeitspunkt 0.574 V, 4.43 mA",
+    "en": "operating point 0.574 V, 4.43 mA",
+    "es": "punto de trabajo 0.574 V, 4.43 mA",
+    "zh": "工作点 0.574 V，4.43 mA",
+    "fr": "point de fonctionnement 0.574 V, 4.43 mA",
+    "tr": "çalışma noktası 0.574 V, 4.43 mA"
+   },
+   "l_diode": {
+    "de": "Diode I_D",
+    "en": "diode I_D",
+    "es": "diodo I_D",
+    "zh": "二极管 I_D",
+    "fr": "diode I_D",
+    "tr": "diyot I_D"
+   },
+   "l_wid": {
+    "de": "Widerstand I_R = (U₀ − U)/R",
+    "en": "resistor I_R = (U₀ − U)/R",
+    "es": "resistencia I_R = (U₀ − U)/R",
+    "zh": "电阻 I_R = (U₀ − U)/R",
+    "fr": "résistance I_R = (U₀ − U)/R",
+    "tr": "direnç I_R = (U₀ − U)/R"
+   }
+  }
+ }
+}

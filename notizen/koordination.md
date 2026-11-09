@@ -3,7 +3,7 @@
 Gilt für alle Heftreihen: Cybersecurity, Machine Learning, Programmieren, Linux und die Uni-Module bei ihrer Überarbeitung. Der Haupt-Agent schreibt selbst keine Hefte, er plant, beauftragt, prüft und berichtet. Der Arbeitsstand je Reihe steht in `zusatzreihen_stand.md` bzw. `ueberarbeitung_stand.md`.
 
 ## Wer gleichzeitig arbeiten darf
-- **Schreiben:** höchstens ein Schreib-Agent zur Zeit, immer auf Opus (`model: "opus"`).
+- **Schreiben:** höchstens ein Schreib-Agent zur Zeit, immer auf Opus (`model: "opus"`). Seit 09.11.2026 entsteht jedes Heft in **zwei Phasen mit je einem frischen Agenten**, nacheinander, siehe unten.
 - **Übersetzen:** parallel dazu höchstens ein Übersetzungs-Agent, nur für endgültige Hefte.
   - Er arbeitet nach `notizen/heft_uebersetzung.md` und dem Brief mit Glossar `notizen/uebersetzung_brief_zusatzreihen.md`, entstanden bei Grundlagen 2.
   - Er prüft jede Datei mit `python tools/uebersetzung_struktur_check.py <de.tex> <L.tex> <L>`.
@@ -12,7 +12,22 @@ Gilt für alle Heftreihen: Cybersecurity, Machine Learning, Programmieren, Linux
 - **Recherche:** Unteragenten höchstens 3 gleichzeitig, immer auf Sonnet, nur zum Suchen und Exzerpieren.
 - **Programmieren am Werkzeug** (Editor, Konverter, Website): ein eigener Agent, der die Dateien der Schreib-Agenten nicht anfasst. Gemeinsam benutzte Werkzeuge hält er jederzeit lauffähig.
 
-## Auftrag an einen Schreib-Agenten
+## Zwei Phasen je Heft (seit 09.11.2026)
+Der User: „wir müssen den Verbrauch senken ohne dabei die Qualität zu beeinflussen“. Ein Heft-Agent kam auf 0,8 bis 1 Million Tokens Kontext. Den größten Teil bezahlte die Schlussphase: viele kleine Schritte (PDF bauen, prüfen, Kleinigkeit ändern, Szene exportieren), jeder mit dem ganzen Kontext samt Quellen. Deshalb:
+1. **Schreib-Agent (Phase 1):** liest die Quellen ganz, recherchiert, schreibt das Heft samt Lösungen, TikZ-Abbildungen, Code und `rechnung_kap<N>.py`. Den Code testet er beim Schreiben. Zum Schluss schreibt er die Übergabe `uebergabe_kap<N>.md` und berichtet. PDF, Szenen und Konverter macht er nicht.
+2. **Prüf-Agent (Phase 2), frisch gestartet:** liest Auftrag, Leitfaden, WISSEN-Datei des Hefts, Übergabe, die Zusammenfassungen der früheren Hefte und das ganze Heft samt Lösungen. Dann:
+   - Satz-für-Satz-Prüfung nach UEBERARBEITUNG §7 und Korrekturen;
+   - PDF und `pdf_pruefen.py`;
+   - Abgleich aller Code-Blöcke mit echter Ausführung;
+   - Editor-Szenen mit Kontaktblatt;
+   - Konverter und Themenkarte;
+   - `zusammenfassung_kap<N>.md` und Bericht.
+
+   Seine frischen Augen sind zugleich eine unabhängige Durchsicht. Die Quellen braucht er nicht ganz, denn ob nichts Wichtiges fehlt, prüft er an der WISSEN-Datei. Einzelne Aussagen schlägt er gezielt nach.
+
+Phase 2 startet erst nach dem Bericht von Phase 1. Es arbeitet also weiterhin nur ein Schreib-Agent zur Zeit.
+
+## Auftrag an einen Schreib-Agenten (Phase 1) bzw. Prüf-Agenten (Phase 2)
 Nach dem Muster der bisherigen Aufträge, mit folgenden Teilen:
 1. **Verweis** auf den Auftrag der Reihe, z. B. `heft_auftrag_zusatzreihen.md` oder `ueberarbeitung_auftrag.md`.
 2. **Eckdaten:** Reihe und Teil, Dateinamen wie in `MODULE[...]` von `tools/heft_zu_artikel.py`, Titelzeile mit Datum, Szenendatei (Gerüst vorher anlegen), Scratchpad-Ordner, Ablage der Recherche-Notizen.
@@ -25,6 +40,7 @@ Nach dem Muster der bisherigen Aufträge, mit folgenden Teilen:
 6. **Bericht und Zusammenfassung:** Der Agent liefert `zusammenfassung_kap<N>.md` für spätere Agenten. Im Bericht stehen Gliederung, Umfang, Warum-Kästen mit Quellen, bewusst Weggelassenes, still korrigierte Fehler der Quellen, neue Bezeichnungen, Wünsche an die Präambel und ein **Lese-Nachweis** (Datei → gelesene Zeilen, auch für das eigene Heft).
 
 ## Prüfroutine nach jedem Bericht
+0. **Nach Phase 1:** nur Punkt 1 (Lese-Nachweis) und ob `uebergabe_kap<N>.md` vorliegt, dann sofort den Prüf-Agenten starten. Die Punkte 2–6 gelten nach Phase 2.
 1. **Quellen vollständig gelesen?** Den Lese-Nachweis mit den Zeilenzahlen der Quelldateien vergleichen; eigene frühere Hefte müssen nicht ganz gelesen sein. Gibt es `zusammenfassung_kap<N>.md`? (`wc -l`). Im Zweifel die Read-Aufrufe (offset/limit) im Protokoll auswerten: `~/.claude/projects/C--B-cher/<sitzung>/subagents/agent-<id>.jsonl`. Fehlt etwas, auch bei der Selbstprüfung des ganzen Hefts samt Lösungen, den Agenten per SendMessage nachlesen und nacharbeiten lassen.
 2. **Selbst nachprüfen:**
    - `python tools/pdf_pruefen.py <pdf> <scratch>` muss 0 Stellen melden. Das PDF nie als Seitenbilder lesen;
@@ -43,3 +59,9 @@ Nach dem Muster der bisherigen Aufträge, mit folgenden Teilen:
 - **Die Schreib-Agenten verbrauchen am meisten.** Ein Heft kostete mit vollständigem Lesen aller früheren Hefte 0,6 bis 0,9 Millionen Tokens. Seit 06.11.2026 lesen die Agenten die früheren Hefte nur über Zusammenfassungen; dadurch wächst der Aufwand nicht mehr mit jedem Heft.
 - **Die Chat-Länge des Haupt-Agenten** kommt hinzu, denn jede Antwort schickt den ganzen bisherigen Verlauf mit. Gegen diesen Anteil hilft `/clear` nach jedem größeren Abschnitt.
 - **Sparen ohne Qualitätsverlust:** Der Haupt-Agent liest keine Agenten-Protokolle und keine großen Dateien unnötig in seinen eigenen Kontext, sondern wertet sie mit Skripten aus. Screenshots sieht er nur gezielt an.
+- **Messen** (Skripte in `tools/agenten/`, Protokolle unter `~/.claude/projects/C--B-cher/<sitzung>/subagents/`):
+  - `agent_tokens.py <subagents-ordner> <id> …` zeigt den aktuellen Kontext je Agent;
+  - `agent_kontext.py <agent.jsonl>` zeigt, woraus er besteht;
+  - `lese_nachweis.py <agent.jsonl>` zeigt, welche Zeilen jeder Datei gelesen wurden (für Prüfroutine Punkt 1).
+- **Befund Python 3 (09.11.2026):** 797k Kontext, davon etwa 55 % Gelesenes (Quellen, eigenes Heft) und 30 % Geschriebenes. Vermeidbar waren: Dateien zweimal komplett geschrieben, zweimal ein Edit über fast die ganze Datei (50 000 Zeichen), ungefilterte Befehlsausgaben. Deshalb die Kontextregeln im Auftrag, Abschnitt „Sparsam mit dem Kontext“.
+- **Übersetzer:** Der leitende Übersetzer bleibt schlank. Er vergibt Dateien an Hilfsagenten, prüft mit Skripten (`uebersetzung_struktur_check.py`, `pdf_pruefen.py`, gefilterte Build-Ausgabe) und lässt Fehler vom zuständigen Hilfsagenten beheben, per SendMessage oder als neuer Auftrag. Selbst korrigiert er nur Einzelzeichen. Übersetzte Texte liest er nicht ganz, sondern prüft sie mit grep-Stichproben. Bei Grundlagen 1 kam er mit 158 eigenen Edits auf 615k.

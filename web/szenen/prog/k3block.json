@@ -1,0 +1,219 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 10,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.45,
+      -0.16,
+      0
+     ],
+     "width": 4.2,
+     "height": 0.64,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{array}{l}\\texttt{u = float(input(\"Spannung in V: \"))}\\\\\\texttt{if u > 5.25:}\\\\\\hspace{2em}\\texttt{zuviel = u - 5.25}\\\\\\hspace{2em}\\texttt{print(f\"Achtung: ... zu hoch\")}\\\\\\texttt{print(\"Messung beendet\")}\\end{array}",
+     "height": 1.6,
+     "position": [
+      -1.65,
+      0.0,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.9,
+      0.05,
+      0
+     ],
+     "end": [
+      0.9,
+      -0.336,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.9,
+      -0.16,
+      0
+     ],
+     "end": [
+      1.05,
+      -0.16,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@block",
+     "position": [
+      1.15,
+      -0.16,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@kopf",
+     "position": [
+      1.15,
+      0.32,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.1,
+      0.32,
+      0
+     ],
+     "end": [
+      1.05,
+      0.32,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@weiter",
+     "position": [
+      1.15,
+      -0.74,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.9,
+      -0.64,
+      0
+     ],
+     "end": [
+      1.05,
+      -0.64,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "kopf": {
+    "de": "Kopfzeile mit Doppelpunkt",
+    "en": "header line with colon",
+    "es": "cabecera con dos puntos",
+    "zh": "带冒号的首行",
+    "fr": "en-tête avec deux-points",
+    "tr": "iki nokta üst üsteli başlık"
+   },
+   "block": {
+    "de": "Block: läuft nur,\nwenn die Bedingung\nwahr ist",
+    "en": "block: runs only\nif the condition\nis true",
+    "es": "bloque: solo se ejecuta\nsi la condición\nes verdadera",
+    "zh": "代码块：仅当\n条件为真时执行",
+    "fr": "bloc : ne s’exécute\nque si la condition\nest vraie",
+    "tr": "blok: yalnızca\nkoşul doğruysa\nçalışır"
+   },
+   "weiter": {
+    "de": "wieder links:\ngehört nicht dazu",
+    "en": "back to the left:\nnot part of it",
+    "es": "de nuevo a la izquierda:\nno forma parte",
+    "zh": "回到左侧：\n不属于该块",
+    "fr": "de nouveau à gauche :\nn’en fait pas partie",
+    "tr": "yeniden solda:\nbloğa ait değil"
+   }
+  }
+ }
+}

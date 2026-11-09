@@ -4,6 +4,58 @@ Du schreibst **ein** deutsches Arbeitsheft von Grund auf neu; Reihe und Teil nen
 
 Dieser Auftrag ersetzt für die Zusatzreihen `ueberarbeitung_auftrag.md`. `UEBERARBEITUNG.md` gilt vollständig; wo dort „Skript“ steht, lies „Lernpfad-Eintrag und WISSEN-Datei des Hefts“.
 
+## Zwei Phasen: Schreiben und Prüfen (seit 09.11.2026)
+Jedes Heft entsteht nacheinander durch zwei Agenten. Deine Nachricht sagt dir, welche Phase du bist. Grund: Der User will „den Verbrauch senken ohne dabei die Qualität zu beeinflussen“. Die vielen kleinen Schritte am Ende (bauen, prüfen, korrigieren, Szenen) brauchen die Quellen nicht mehr. Ein frischer Agent macht sie mit einem Drittel des Kontexts und liest das Heft dabei mit unabhängigen Augen.
+
+**Phase 1, Schreib-Agent:**
+- „Zuerst lesen“: alle Quellen ganz.
+- Recherche, dann das ganze Heft schreiben: Hauptdatei, Stufen, Lösungen, TikZ-Abbildungen, Code unter `code\kap<N>\` (jedes Programm beim Schreiben einmal unter Windows und Linux ausführen; die echte Ausgabe ins Heft) und `rechnung_kap<N>.py` (ausgeführt, 0 Fehler).
+- Kein PDF-Bau, keine Editor-Szenen, kein Konverter, keine Themenkarte. Die Satz-für-Satz-Prüfung macht Phase 2. Du schreibst trotzdem so sorgfältig, als gäbe es keine zweite Prüfung.
+- **Übergabe** `uebergabe_kap<N>.md` im Heftordner, 1–2 Seiten:
+  - Gliederung;
+  - Abbildungen mit Label und gewünschter Szene;
+  - Kandidaten für Rechenbilder;
+  - was getestet ist und was nicht;
+  - Warum-Kästen mit ihren Quellen;
+  - bewusst Weggelassenes, still korrigierte Quellenfehler, neue Bezeichnungen;
+  - offene Fragen an den Prüfer;
+  - Lese-Nachweis.
+- Dann ein knapper Bericht (Abschnitt „Bericht“, ohne Prüfergebnisse).
+
+**Phase 2, Prüf-Agent:**
+- **Lesen:**
+  - diesen Auftrag;
+  - `UEBERARBEITUNG.md`;
+  - die Präambel;
+  - den Lernpfad-Eintrag des Hefts;
+  - die WISSEN-Datei ganz;
+  - die Übergabe;
+  - die Zusammenfassungen der früheren Hefte;
+  - dann **das ganze Heft samt Lösungen, Satz für Satz**.
+
+  Die übrigen Quellen liest du nur gezielt, wenn eine Aussage zu prüfen ist.
+- **Arbeiten:**
+  - Selbstprüfung nach „Bauen und prüfen“ (UEBERARBEITUNG §7) und Korrekturen;
+  - PDF und `pdf_pruefen.py`;
+  - Abgleich aller Code-Blöcke mit echter Ausführung (`heft_pruefen.py`);
+  - `rechnung_kap<N>.py`;
+  - Editor-Szenen und Rechenbilder mit Kontaktblatt;
+  - Konverter, Artikel, `themenkarte.py`;
+  - `zusammenfassung_kap<N>.md`;
+  - Bericht.
+
+  In den Bericht übernimmst du die Angaben der Übergabe und ergänzt deine Korrekturen.
+- Inhaltliche Änderungen, die über Korrekturen hinausgehen, z. B. ein fehlendes Thema aus der WISSEN-Datei, schreibst du selbst, im Stil des Hefts.
+
+## Sparsam mit dem Kontext (beide Phasen)
+Alles, was du liest, schreibst oder ausgibst, bleibt in deinem Kontext und wird bei jedem weiteren Schritt erneut mitgeschickt. Deshalb:
+- **Jede Datei einmal mit Write anlegen**, danach nur noch mit Edit und kleinen `old_string`s von wenigen Zeilen ändern. Nie eine große Datei ein zweites Mal komplett schreiben. Nie ein Edit über große Teile einer Datei; für einen umgebauten Abschnitt mehrere kleine Edits.
+- **Nach Write oder Edit nicht zur Kontrolle neu lesen.** Die Werkzeuge melden Fehler selbst. Eine Datei liest du einmal ganz; danach nur noch die nötigen Zeilen (offset/limit) oder per Grep.
+- **Befehlsausgaben filtern:** pdflatex mit `| grep -E '^!|Overfull|undefined' | head -20`, Testskripte geben nur Abweichungen und eine Schlusszeile aus, lange Ausgaben mit `tail`/`head`.
+- **Bilder** (Kontaktblätter, gemeldete PDF-Stellen) je höchstens einmal ansehen, nach einer Korrektur nur den betroffenen Ausschnitt.
+- **Recherche** über Unteragenten (Sonnet), die knappe Exzerpte mit Fundstelle liefern, keine ganzen Seiten. Webseiten nicht selbst in deinen Kontext laden.
+- **Nichts davon spart an der Qualität:** Die Quellen liest du weiterhin ganz (Phase 1), das Heft wird weiterhin ganz geprüft (Phase 2).
+
 ## Zuerst lesen
 **Quellen vollständig, eigene Hefte über Zusammenfassungen.** Der User verlangt, dass alle **Quellen** ganz gelesen werden: „Ein Abschnitt aus einem ganzen Buch zu lesen ist wie ein Wassertropfen aus einem See, das macht keinen Sinn“. Am 06.11.2026 präzisierte er: „Mit vollständig lesen meinte ich die Quellen. Die eigenen erstellten Hefte müssen ja nicht nochmal vollständig gelesen werden, da reichen Zusammenfassungen.“
 - **Quellen** liest du **von der ersten bis zur letzten Zeile**: Leitfaden, Präambel, LERNPFAD, WISSEN-Datei, AUFGABEN, ZUSAMMENFASSUNG, QUELLEN und die Notizen zu deinem Heft. Große Dateien liest du in aufeinanderfolgenden Teilen (offset/limit), bis das Ende erreicht ist. Meldet Read eine Teilansicht („PARTIAL view“), liest du weiter.
