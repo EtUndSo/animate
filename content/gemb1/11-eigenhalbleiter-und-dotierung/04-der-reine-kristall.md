@@ -61,7 +61,11 @@ Links: Eigenleitungsdichte von Ge, Si und GaAs über $1000/T$, gerechnet mit $E_
 
 Die Werte gelten für 300 K, $n_\mathrm i$ ist mit [(2.2)](#gl-2-2) gerechnet, Massen in Einheiten von $m_0$. In GaAs und InSb ist das Tal kugelförmig, dort steht eine einzige Elektronenmasse.
 
-**Beispiel.** Silizium hat bei 300 K $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$, ein Paar auf $5{,}6\cdot10^{12}$ Atome. $E_\mathrm{Fi}$ liegt 5,6 meV unter der Bandmitte, das sind 0,5 % von $E_\mathrm g$. Von 300 K auf 310 K wächst $n_\mathrm i$ um den Faktor 2,11, davon stammen nur 1,05 aus $T^{3/2}$ und 2,01 aus dem Exponenten. **Grenzfälle:** Für $T\to0$ geht $n_\mathrm i$ gegen null. Bei $m_\mathrm C^*=m_\mathrm V^*$ liegt $E_\mathrm{Fi}$ genau in der Mitte. In InSb ist die Lücke klein und das Massenverhältnis groß, $E_\mathrm{Fi}$ rückt bis auf rund $1\,k_\mathrm BT$ an $E_\mathrm C$ heran. Dann gilt $E-E_\mathrm F>3k_\mathrm BT$ nicht mehr, solche Halbleiter heißen __entartet__. In Ge, Si und GaAs geschieht das erst weit oberhalb der Zimmertemperatur oder durch sehr hohe Dotierung.
+::::beispiel
+Silizium hat bei 300 K $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$, ein Paar auf $5{,}6\cdot10^{12}$ Atome. $E_\mathrm{Fi}$ liegt 5,6 meV unter der Bandmitte, das sind 0,5 % von $E_\mathrm g$. Von 300 K auf 310 K wächst $n_\mathrm i$ um den Faktor 2,11, davon stammen nur 1,05 aus $T^{3/2}$ und 2,01 aus dem Exponenten.
+::::
+
+⁠**Grenzfälle:** Für $T\to0$ geht $n_\mathrm i$ gegen null. Bei $m_\mathrm C^*=m_\mathrm V^*$ liegt $E_\mathrm{Fi}$ genau in der Mitte. In InSb ist die Lücke klein und das Massenverhältnis groß, $E_\mathrm{Fi}$ rückt bis auf rund $1\,k_\mathrm BT$ an $E_\mathrm C$ heran. Dann gilt $E-E_\mathrm F>3k_\mathrm BT$ nicht mehr, solche Halbleiter heißen __entartet__. In Ge, Si und GaAs geschieht das erst weit oberhalb der Zimmertemperatur oder durch sehr hohe Dotierung.
 
 :::frage Ein Paar kostet die ganze Lücke $E_\mathrm g$. Warum steht im Exponenten nur die Hälfte?
 Für das Paar stimmt das: Das Produkt $n\,p$ folgt $\mathrm{e}^{-E_\mathrm g/(k_\mathrm BT)}$. Aber $n$ allein ist die Wurzel daraus, denn es entstehen zwei Teilchen. Jedes zahlt die Hälfte: Von $E_\mathrm F$ bis zu jedem Bandrand sind es rund $E_\mathrm g/2$.

@@ -32,7 +32,11 @@ $$u_\mathrm a=\begin{cases}|u_\mathrm e|-2U_\mathrm F&|u_\mathrm e|>2U_\mathrm F
 
 ⁠**如何理解：**$|u_\mathrm e|<2U_\mathrm F$ 时两对二极管都不导通，$u_\mathrm a$ 保持为零。从降低的峰值可以读出两倍的正向电压。**适用条件：**电阻性负载。输入和输出没有公共参考点。
 
-**例。** 峰值为 $12\,\mathrm{V}-1.4\,\mathrm{V}=10.6$ V，半波整流器为 11.3 V。每个半波中的间隙持续 0.74 ms，占时间的 7.4 %。平均值为 6.29 V，半波整流器只有 3.48 V。**极限情况：**$U_\mathrm F\to0$ 时 $u_\mathrm a=|u_\mathrm e|$。$\hat u<1.4$ V 时输出保持为零。
+::::beispiel
+峰值为 $12\,\mathrm{V}-1.4\,\mathrm{V}=10.6$ V，半波整流器为 11.3 V。每个半波中的间隙持续 0.74 ms，占时间的 7.4 %。平均值为 6.29 V，半波整流器只有 3.48 V。
+::::
+
+⁠**极限情况：**$U_\mathrm F\to0$ 时 $u_\mathrm a=|u_\mathrm e|$。$\hat u<1.4$ V 时输出保持为零。
 
 :::ltspice 桥式整流器
 ⁠**绘制：**电源取 `SINE(0 12 50)`，接在 `a` 和 `b` 之间。二极管 DM 分别从 `a` 接到 `p`，从 `b` 接到 `p`，从接地点接到 `a`，从接地点接到 `b`。`res` 1k 从 `p` 接地。

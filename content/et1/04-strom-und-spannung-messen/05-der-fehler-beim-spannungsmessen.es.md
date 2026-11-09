@@ -38,7 +38,9 @@ Con la regla de los nudos $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$, la corriente se 
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::
 
-**Ejemplo.** En el divisor, $R_1\parallel R_2=20$ k$\Omega$ y $R_L/R_\mathrm i=0{,}1$. La lectura es $3\,\mathrm{V}/1{,}1=2{,}727$ V, es decir, $f=-9{,}1\,\%$. El mecanismo en números: la corriente por $R_1$ sube de 100 µ A a 104,5 µ A, de los cuales 90,9 µ A circulan por $R_2$ y 13,6 µ A por el voltímetro. Los mismos valores da $I_\mathrm q=150$ µ A con $R_L=20$ k$\Omega$. Un multímetro digital de 10 M$\Omega$ muestra 2,994 V, es decir, $f=-0{,}2\,\%$.
+::::beispiel
+En el divisor, $R_1\parallel R_2=20$ k$\Omega$ y $R_L/R_\mathrm i=0{,}1$. La lectura es $3\,\mathrm{V}/1{,}1=2{,}727$ V, es decir, $f=-9{,}1\,\%$. El mecanismo en números: la corriente por $R_1$ sube de 100 µ A a 104,5 µ A, de los cuales 90,9 µ A circulan por $R_2$ y 13,6 µ A por el voltímetro. Los mismos valores da $I_\mathrm q=150$ µ A con $R_L=20$ k$\Omega$. Un multímetro digital de 10 M$\Omega$ muestra 2,994 V, es decir, $f=-0{,}2\,\%$.
+::::
 
 ⁠**Casos límite:** $R_\mathrm i\to\infty$ da $f\to0$. $R_L\to0$ (fuente directamente en el instrumento) también da $f\to0$. Con $R_\mathrm i=R_L$, la tensión se reduce a la mitad.
 

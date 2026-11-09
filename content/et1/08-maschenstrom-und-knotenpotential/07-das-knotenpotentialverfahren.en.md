@@ -90,7 +90,8 @@ At node $\mu$, the current $G_a\,(U_\mu-U_\nu)$ flows away through each conducta
 Left: the model network for node voltage analysis; the battery is converted into a current source. Right: the sources are removed, node 1 is at 1 V, node 2 at 0 V. Through $G_1$, $G_2$, $G_3$, a total of $1+0.25+0.5=1.75$ mA flow away, which is $Y_{11}$. The 0.5 mA arrive at node 2 and must be drawn off there, which is $Y_{21}=-0.5$ mS.
 :::
 
-**Example.** On the left, $I_\mathrm{q1}=U_\mathrm q/R_1=9$ mA with $G_1=1$ mS in parallel. The conductances are $G_2=0.25$ mS, $G_3=0.5$ mS, $G_4=0.1$ mS and $G_5=0.2$ mS (Fig. [5](#abb-5)). The node rules read
+::::beispiel
+On the left, $I_\mathrm{q1}=U_\mathrm q/R_1=9$ mA with $G_1=1$ mS in parallel. The conductances are $G_2=0.25$ mS, $G_3=0.5$ mS, $G_4=0.1$ mS and $G_5=0.2$ mS (Fig. [5](#abb-5)). The node rules read
 
 $$\begin{aligned} \text{Node 1:}\quad&(G_1+G_2)\,U_1+G_3\,(U_1-U_2)-I_\mathrm{q1}=0,\\ \text{Node 2:}\quad&G_3\,(U_2-U_1)+(G_4+G_5)\,U_2-I_\mathrm q=0. \end{aligned}$$
 
@@ -100,7 +101,10 @@ $$\begin{pmatrix}G_1+G_2+G_3&-G_3\\-G_3&G_3+G_4+G_5\end{pmatrix}\begin{pmatrix}U
 
 With $D=1.4-0.25=1.15$, $D_1=7.2+2=9.2$ and $D_2=7+4.5=11.5$, it follows that $U_1=8$ V and $U_2=10$ V. This is the same result as from the three meshes, with a $2\times2$ instead of a $3\times3$ calculation.
 
-The currents come from the differences, and in the *original* network: $(U_\mathrm q-U_1)/R_1=1$ mA, $U_1/R_2=2$ mA, $(U_2-U_1)/R_3=1$ mA, $U_2/R_4=1$ mA, $U_2/R_5=2$ mA. **Checks:** At node 2, $4=1+1+2$ mA. The sources deliver $9\,\mathrm{V}\cdot1\,\mathrm{mA}+10\,\mathrm{V}\cdot4\,\mathrm{mA}=49$ mW, the resistors absorb $1+16+2+10+20=49$ mW. **Limiting case:** For $G_3\to0$ the off-diagonal entries vanish, and the two sides calculate separately (Exercise [7](#aufg-7)).
+The currents come from the differences, and in the *original* network: $(U_\mathrm q-U_1)/R_1=1$ mA, $U_1/R_2=2$ mA, $(U_2-U_1)/R_3=1$ mA, $U_2/R_4=1$ mA, $U_2/R_5=2$ mA. **Checks:** At node 2, $4=1+1+2$ mA. The sources deliver $9\,\mathrm{V}\cdot1\,\mathrm{mA}+10\,\mathrm{V}\cdot4\,\mathrm{mA}=49$ mW, the resistors absorb $1+16+2+10+20=49$ mW.
+::::
+
+⁠**Limiting case:** For $G_3\to0$ the off-diagonal entries vanish, and the two sides calculate separately (Exercise [7](#aufg-7)).
 
 :::frage In $\mathbf Z$ the sign depends on the arrows. Why is there always a minus in $\mathbf Y$?
 Mesh currents have a direction that you choose, and so there are two possibilities in the shared branch. Node voltages have no direction; all count toward the same reference node. At the conductance between two nodes there is therefore always the difference, and the other node's potential always carries a minus.

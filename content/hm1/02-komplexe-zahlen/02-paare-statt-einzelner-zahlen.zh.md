@@ -72,11 +72,13 @@ $$(x_1+\mathrm{i}y_1)(x_2+\mathrm{i}y_2)=(x_1x_2-y_1y_2)+\mathrm{i}(x_1y_2+x_2y_
 (iii) 由 (ii)，等式右边正是式 [(1.1)](#gl-1-1) 和式 [(1.2)](#gl-1-2) 中的数对。
 :::
 
-**例。** 参考模型的和与积：
+::::beispiel
+参考模型的和与积：
 
 $$z_1+z_2=(3+1)+\mathrm{i}(1+2)=4+3\mathrm{i},\qquad z_1z_2=(3+\mathrm{i})(1+2\mathrm{i})=3+6\mathrm{i}+\mathrm{i}+2\mathrm{i}^2=1+7\mathrm{i}.$$
 
 数对公式 [(1.2)](#gl-1-2) 给出同样的结果：$(3\cdot1-1\cdot2,\;3\cdot2+1\cdot1)=(1,7)$。$\mathrm{i}$ 的幂以 4 为周期重复：$\mathrm{i}^1=\mathrm{i}$，$\mathrm{i}^2=-1$，$\mathrm{i}^3=-\mathrm{i}$，$\mathrm{i}^4=1$。所以只有 $n$ 除以 4 的余数起作用，例如 $\mathrm{i}^{10}=\mathrm{i}^8\,\mathrm{i}^2=-1$。
+::::
 
 :::frage $\mathrm{i}$ 真的存在吗，还是只是一种计算技巧？
 在数轴上确实没有 $\mathrm{i}$，这一点疑虑是对的。但 $\mathrm{i}$ 是数对 $(0,1)$，而式 [(1.2)](#gl-1-2) 是关于数对的明确规则。“虚”只是一个历史名称。

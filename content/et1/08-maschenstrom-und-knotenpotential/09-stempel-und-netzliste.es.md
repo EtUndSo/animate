@@ -45,7 +45,8 @@ Una fuente de corriente fija que empuja $I_\mathrm q$ a través de sí de $k$ a 
 
 **Lista de conexiones.** Un esquema se guarda como __lista de conexiones__: una línea por componente con nombre, nudos y valor. En SPICE, `R3 1 2 2k` significa: resistencia entre los nudos 1 y 2. `I2 0 2 4m` significa: 4 mA a través de la fuente del nudo 0 al nudo 2. El programa recorre la lista línea por línea y estampa. Si aparece un nombre de nudo nuevo, la matriz crece en una fila y una columna. Nadie tiene que conocer su tamaño de antemano. El formato rígido procede de la década de 1970, cuando SPICE estaba escrito en FORTRAN y cada línea ocupaba una tarjeta perforada.
 
-**Ejemplo.** La red modelo con la batería convertida da esta lista:
+::::beispiel
+La red modelo con la batería convertida da esta lista:
 
 | Línea | Valor | Elemento |
 |---|---|---|
@@ -61,7 +62,10 @@ Con las filas y columnas en el orden 0, 1, 2 resulta
 
 $$\begin{pmatrix}1{,}55&-1{,}25&-0{,}3\\-1{,}25&1{,}75&-0{,}5\\-0{,}3&-0{,}5&0{,}8\end{pmatrix} \begin{pmatrix}U_0\\U_1\\U_2\end{pmatrix}=\begin{pmatrix}-13\\9\\4\end{pmatrix}.$$
 
-Cada fila suma cero. Si se tachan la fila y la columna 0, queda el sistema de la etapa [5](das-knotenpotentialverfahren.html#stufe-5). **Comprobación:** En la $\mathbf Y$ reducida, la suma de una fila es la conductancia a masa: $1{,}75-0{,}5=1{,}25=G_1+G_2$ y $0{,}8-0{,}5=0{,}3=G_4+G_5$. **Caso límite:** Un nudo sin rama a masa tiene suma de fila cero.
+Cada fila suma cero. Si se tachan la fila y la columna 0, queda el sistema de la etapa [5](das-knotenpotentialverfahren.html#stufe-5). **Comprobación:** En la $\mathbf Y$ reducida, la suma de una fila es la conductancia a masa: $1{,}75-0{,}5=1{,}25=G_1+G_2$ y $0{,}8-0{,}5=0{,}3=G_4+G_5$.
+::::
+
+⁠**Caso límite:** Un nudo sin rama a masa tiene suma de fila cero.
 
 **Redes grandes.** Un nudo suele estar unido solo a entre dos y cinco vecinos; por eso casi todas las posiciones de una matriz grande son cero. Se llama __dispersa__. El simulador guarda solo los elementos distintos de cero y resuelve el sistema por eliminación paso a paso. La regla de Cramer sería inútil para ello: un determinante de 20 filas tiene, según el patrón de [(0.1)](von-grund-auf-drei-gleichungen-drei-unbekannte.html#gl-0-1), unos $2{,}4\cdot10^{18}$ productos.
 

@@ -14,7 +14,7 @@ Ein Wasserstoffatom hat ein Elektron, ein Siliziumatom 14. Warum stürzen diese 
 
 Der Weg führt über acht Begriffe. Das __Coulomb-Potential__ ist die Energielandschaft, die der positive Kern einem Elektron vorgibt. Ein __Atomorbital__ ist ein erlaubter Zustand des Elektrons in dieser Landschaft, eine __Quantenzahl__ eine Zahl, die einen solchen Zustand benennt. Der __Spin__ ist eine innere Eigenschaft des Elektrons. Das __Pauli-Prinzip__ und die __Hundsche Regel__ legen fest, wie sich viele Elektronen auf die Orbitale verteilen. Die __Elektronenkonfiguration__ hält diese Verteilung für ein Atom fest, und das __Periodensystem__ ordnet die Elemente danach.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

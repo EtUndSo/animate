@@ -38,11 +38,13 @@ $$\sum_{\nu=1}^{N}I_\nu=0\quad\text{（所有箭头指向节点）},\qquad\sum I
 
 **为什么有一个方程是多余的。** 每条支路连接两个节点。因此其电流恰好出现在两个节点方程中，一次带 $+$（流入），一次带 $-$（流出）。把 $k$ 个方程全部相加，所有电流都抵消了。所以一个方程可由其余方程得出，而任选 $k-1$ 个方程都是独立的。
 
-**例。** 网络中所有电流箭头都指向实际电流的方向：从 $K_1$ 经电阻向下，$I_\mathrm e$ 从 $K_2$ 到 $K_3$，$I_0$ 经电源从 $K_4$ 到 $K_1$。节点方程为
+::::beispiel
+网络中所有电流箭头都指向实际电流的方向：从 $K_1$ 经电阻向下，$I_\mathrm e$ 从 $K_2$ 到 $K_3$，$I_0$ 经电源从 $K_4$ 到 $K_1$。节点方程为
 
 $$\begin{aligned} K_1:&\quad +I_0-I_\mathrm a-I_\mathrm c=0, & K_2:&\quad +I_\mathrm a-I_\mathrm b-I_\mathrm e=0,\\ K_3:&\quad +I_\mathrm c-I_\mathrm d+I_\mathrm e=0, & K_4:&\quad -I_0+I_\mathrm b+I_\mathrm d=0. \end{aligned}$$
 
 前三个方程之和为 $I_0-I_\mathrm b-I_\mathrm d=0$，即符号相反的第四个方程。如果只把 $K_2$ 和 $K_3$ 相加，$I_\mathrm e$ 就消去了，剩下的是图 [8](#abb-8) 中的闭合面：$I_\mathrm a+I_\mathrm c=I_\mathrm b+I_\mathrm d$。**检验：**在只有两条支路的点上得 $I_1=I_2$。串联的元件中流过相同的电流。
+::::
 
 :::frage 节点上接电容器时，这条定律也成立吗？
 成立。流向极板的电流和其他支路电流一样，电荷不是聚集在节点上，而是聚集在极板上。[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)将讨论这一点。

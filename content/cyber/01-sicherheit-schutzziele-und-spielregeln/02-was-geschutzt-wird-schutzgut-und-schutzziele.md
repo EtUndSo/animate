@@ -29,7 +29,8 @@ Ein __Schutzgut__ ist alles, was für jemanden Wert hat und deshalb geschützt w
 
 Im Englischen heißt das Schutzgut *asset*.
 
-⁠**Beispiel: ein vernetztes Thermostat.** Ein Heizungsthermostat, das sich über das heimische Funknetz (WLAN) per App bedienen lässt, hat mindestens vier Schutzgüter:
+::::beispiel ein vernetztes Thermostat
+Ein Heizungsthermostat, das sich über das heimische Funknetz (WLAN) per App bedienen lässt, hat mindestens vier Schutzgüter:
 
 <ul>
 
@@ -60,6 +61,7 @@ das *Gerät selbst*, das 80 € gekostet hat.
 </ul>
 
 Das Gerät ist das billigste der vier Schutzgüter. Die Informationen und der Dienst, die daran hängen, sind mehr wert.
+::::
 
 ⁠**Kurz gesagt:** Sicherheit ist immer Schutz *von etwas*; das Schutzgut legt fest, wovon.
 
@@ -81,8 +83,7 @@ Wer eine bestimmte Handlung ausführen darf, ist für diese Handlung __berechtig
 
 Eine Berechtigung bezieht sich immer auf eine bestimmte Handlung. Wer ein Dokument lesen darf, darf es deshalb noch nicht ändern. Und wer eine Handlung technisch ausführen kann, ist dadurch nicht berechtigt.
 
-⁠**Beispiel: ein Girokonto.**
-
+::::beispiel ein Girokonto
 <ul>
 
 <li>
@@ -104,6 +105,7 @@ Ein Fremder darf nichts davon. Errät er das Passwort und sieht den Kontostand a
 </li>
 
 </ul>
+::::
 
 ⁠**Kurz gesagt:** Berechtigt ist, wer eine bestimmte Handlung mit dem Schutzgut ausführen darf. Wer es ohne Erlaubnis tut, handelt unbefugt, auch wenn er es technisch kann.
 
@@ -127,7 +129,9 @@ Ein __Schutzziel__ ist eine Eigenschaft eines Schutzguts, die gegenüber unbefug
 
 Im Englischen heißen sie *confidentiality*, *integrity* und *availability*. Nach den Anfangsbuchstaben spricht man von der __CIA-Triade__.
 
-⁠**Beispiel:** Beim Tagebuch ist die Vertraulichkeit verletzt, nicht die Integrität: Der Inhalt ist unverändert. Hätte die Leserin eine Seite herausgerissen, wäre zusätzlich die Integrität verletzt.
+::::beispiel
+Beim Tagebuch ist die Vertraulichkeit verletzt, nicht die Integrität: Der Inhalt ist unverändert. Hätte die Leserin eine Seite herausgerissen, wäre zusätzlich die Integrität verletzt.
+::::
 
 ⁠**Kurz gesagt:** Ein Schutzziel sagt, welche Eigenschaft eines Schutzguts erhalten bleiben soll; die drei grundlegenden sind Vertraulichkeit, Integrität und Verfügbarkeit.
 
@@ -145,8 +149,7 @@ __Vertraulichkeit__ heißt: Eine Information wird nur Berechtigten bekannt. Sie 
 
 Manchmal ist schon die *Existenz* einer Information vertraulich. Dass ein Unternehmen eine Datei mit dem Namen „Standortschließung 2027“ angelegt hat, verrät unter Umständen mehr als jede Zahl darin. Vertraulichkeit kann sich also auf den Inhalt beziehen, aber auch darauf, ob es etwas überhaupt gibt.
 
-⁠**Beispiele:**
-
+::::beispiel [Beispiele]
 <ul>
 
 <li>
@@ -162,6 +165,7 @@ Eine Lehrkraft schickt die Notenliste versehentlich an den ganzen Kurs. Hier gib
 </li>
 
 </ul>
+::::
 
 ⁠**Kurz gesagt:** Vertraulichkeit heißt, nur Berechtigte erfahren die Information.
 
@@ -179,7 +183,9 @@ __Integrität__ heißt: Informationen und die Funktionen eines Systems sind korr
 
 Die Definition nennt zwei Dinge. Integrität betrifft Daten, also zum Beispiel den Betrag einer Überweisung. Sie betrifft aber auch Funktionen: Ein Thermostat, das „21 °C“ anzeigt, aber auf 30 °C heizt, hat seine Integrität verloren, obwohl keine gespeicherte Zahl falsch ist. Die zweite Hälfte des letzten Satzes ist ebenso wichtig: Wie beim Siegel genügt es oft schon, eine Änderung sicher zu *erkennen*.
 
-⁠**Beispiel:** Auf dem Weg von der Bank-App zur Bank wird in einer Überweisung über 250 € die Nummer des Empfängerkontos ausgetauscht. Der Betrag stimmt, der Empfänger nicht: Die Integrität der Überweisung ist verletzt, und das Geld landet beim Täter.
+::::beispiel
+Auf dem Weg von der Bank-App zur Bank wird in einer Überweisung über 250 € die Nummer des Empfängerkontos ausgetauscht. Der Betrag stimmt, der Empfänger nicht: Die Integrität der Überweisung ist verletzt, und das Geld landet beim Täter.
+::::
 
 ⁠**Kurz gesagt:** Integrität heißt, Informationen und Funktionen sind unverfälscht, und unbefugte Änderungen fallen auf.
 
@@ -195,8 +201,7 @@ Was nützt das sicherste Konto, wenn man an sein Geld nicht herankommt? Beim Bri
 __Verfügbarkeit__ heißt: Berechtigte können Informationen und Dienste nutzen, wann und wie es vorgesehen ist. Sie ist verletzt, wenn Berechtigte dabei behindert werden.
 :::
 
-⁠**Beispiele:**
-
+::::beispiel [Beispiele]
 <ul>
 
 <li>
@@ -214,6 +219,7 @@ Eine __Erpressungssoftware__ (englisch *ransomware*) verschlüsselt die Dateien 
 </ul>
 
 Gegen den Verlust der Verfügbarkeit hilft vor allem eine __Sicherungskopie__ (englisch *backup*): eine zweite Kopie der Daten, die getrennt aufbewahrt wird und aus der man den alten Stand zurückholen kann. Erpressungssoftware ist in Deutschland die größte Bedrohung für Unternehmen. Das Bundesamt für Sicherheit in der Informationstechnik (BSI) berichtet für den Zeitraum von Mitte 2024 bis Mitte 2025 von 950 polizeilich angezeigten Fällen, und in 72 % davon hatten die Täter die Daten vorher kopiert und drohten, sie zu veröffentlichen. Dann ist zusätzlich die Vertraulichkeit verletzt.
+::::
 
 ⁠**Kurz gesagt:** Verfügbarkeit heißt, Berechtigte kommen an ihre Informationen und Dienste, wenn sie sie brauchen.
 
@@ -239,7 +245,9 @@ __Authentizität__ (Echtheit) heißt: Eine Information stammt tatsächlich von d
 
 Manche Lehrbücher zählen die Echtheit der Herkunft zur Integrität und sprechen dann von Herkunftsintegrität. Wer die Authentizität als eigenes Ziel nennt, meint dieselbe Eigenschaft.
 
-⁠**Beispiel:** Eine E-Mail trägt als Absender „Prüfungsamt“ und fordert dazu auf, sich über einen Link mit Benutzername und Passwort anzumelden, „damit die Anmeldung zur Prüfung nicht verfällt“. Der Link führt auf eine nachgemachte Seite eines Fremden. Eine solche gefälschte Nachricht, die zur Herausgabe von Zugangsdaten verleiten soll, heißt __Phishing__. Verletzt ist die Authentizität der E-Mail. Gibt das Opfer sein Passwort ein, folgt daraus eine Verletzung der Vertraulichkeit.
+::::beispiel
+Eine E-Mail trägt als Absender „Prüfungsamt“ und fordert dazu auf, sich über einen Link mit Benutzername und Passwort anzumelden, „damit die Anmeldung zur Prüfung nicht verfällt“. Der Link führt auf eine nachgemachte Seite eines Fremden. Eine solche gefälschte Nachricht, die zur Herausgabe von Zugangsdaten verleiten soll, heißt __Phishing__. Verletzt ist die Authentizität der E-Mail. Gibt das Opfer sein Passwort ein, folgt daraus eine Verletzung der Vertraulichkeit.
+::::
 
 ⁠**Kurz gesagt:** Authentizität heißt, der angegebene Absender ist der echte.
 
@@ -257,7 +265,9 @@ __Verbindlichkeit__, auch Zurechenbarkeit genannt, heißt: Eine Handlung lässt 
 
 Englisch spricht man von *non-repudiation*, wörtlich „Nicht-Abstreitbarkeit“.
 
-⁠**Beispiel:** Ein Kunde bestreitet, in einem Onlineshop einen Fernseher für 900 € bestellt zu haben. Hat der Shop nur gespeichert, dass sich jemand mit seinem Passwort angemeldet hat, steht Aussage gegen Aussage: Das Passwort könnte auch ein anderer gekannt haben. Musste der Kunde die Bestellung zusätzlich auf seinem Handy bestätigen und hat der Shop das mit Uhrzeit festgehalten, ist die Bestellung ihm deutlich besser zuzurechnen.
+::::beispiel
+Ein Kunde bestreitet, in einem Onlineshop einen Fernseher für 900 € bestellt zu haben. Hat der Shop nur gespeichert, dass sich jemand mit seinem Passwort angemeldet hat, steht Aussage gegen Aussage: Das Passwort könnte auch ein anderer gekannt haben. Musste der Kunde die Bestellung zusätzlich auf seinem Handy bestätigen und hat der Shop das mit Uhrzeit festgehalten, ist die Bestellung ihm deutlich besser zuzurechnen.
+::::
 
 ⁠**Kurz gesagt:** Verbindlichkeit heißt, eine Handlung lässt sich später beweisbar ihrem Urheber zuordnen.
 
@@ -297,7 +307,8 @@ Der __Schutzbedarf__ eines Schutzguts gibt für jedes Schutzziel an, wie schwer 
 
 Der Schutzbedarf wird für jedes Schutzgut und jedes Schutzziel getrennt bestimmt. Dasselbe Schutzgut kann für die Vertraulichkeit einen hohen und für die Verfügbarkeit einen normalen Schutzbedarf haben.
 
-⁠**Beispiel:** Tabelle [1](#tab-1) bestimmt den Schutzbedarf des vernetzten Thermostats aus dem ersten Unterabschnitt für eine Familie in einer Mietwohnung. Das Gerät selbst fehlt, weil sein Verlust nur 80 € kostet: normaler Schutzbedarf in allen drei Spalten.
+::::beispiel
+Tabelle [1](#tab-1) bestimmt den Schutzbedarf des vernetzten Thermostats aus dem ersten Unterabschnitt für eine Familie in einer Mietwohnung. Das Gerät selbst fehlt, weil sein Verlust nur 80 € kostet: normaler Schutzbedarf in allen drei Spalten.
 
 <span class="anker" id="tab-1"></span>
 
@@ -308,6 +319,7 @@ Der Schutzbedarf wird für jedes Schutzgut und jedes Schutzziel getrennt bestimm
 | Temperaturverlauf | hoch | normal | normal | Er verrät, wann die Wohnung leer steht, und erleichtert damit einen Einbruch. Ein falscher oder fehlender Verlauf schadet kaum. |
 | Steuerfunktion | normal | hoch | hoch | Wer sie verfälscht oder lahmlegt, kann im Winter die Heizung abschalten; gefrorene Wasserleitungen kosten schnell mehrere tausend Euro. |
 | WLAN-Zugangsdaten | hoch | normal | normal | Wer sie kennt, ist im ganzen Heimnetz und erreicht auch Laptop und Handy. |
+::::
 
 ⁠**Kurz gesagt:** Der Schutzbedarf sagt für jedes Schutzgut und jedes Schutzziel, wie schwer eine Verletzung wöge, in den Stufen normal, hoch und sehr hoch.
 

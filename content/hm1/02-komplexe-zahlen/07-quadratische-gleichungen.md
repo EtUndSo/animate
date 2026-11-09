@@ -53,13 +53,17 @@ Es gilt $z^2+pz+q=(z+\frac p2)^2-\frac{p^2}4+q=(z+\frac p2)^2-w^2=(z+\frac p2-w)
 Links die reelle Gleichung des Rechenmodells: Die Lösungen $3\pm\mathrm{i}$ sind gespiegelt. Rechts die komplexe Gleichung: $z_1$ und $z_2$ liegen symmetrisch zur Mitte $2+1{,}5\mathrm{i}$.
 :::
 
-**Beispiel 1, reelle Vorfaktoren.** $z^2-6z+10=0$ hat $p=-6$, $q=10$, $D=9-10=-1$, also $z=3\pm\mathrm{i}$. Das sind $z_1$ und $\overline{z_1}$. Probe: Summe $6=-p$, Produkt $|z_1|^2=10=q$.
+::::beispiel [Beispiel 1] reelle Vorfaktoren
+$z^2-6z+10=0$ hat $p=-6$, $q=10$, $D=9-10=-1$, also $z=3\pm\mathrm{i}$. Das sind $z_1$ und $\overline{z_1}$. Probe: Summe $6=-p$, Produkt $|z_1|^2=10=q$.
+::::
 
-**Beispiel 2, komplexe Vorfaktoren.** Für $z^2-(4+3\mathrm{i})z+1+7\mathrm{i}=0$ ist $-p/2=2+1{,}5\mathrm{i}$ und
+::::beispiel [Beispiel 2] komplexe Vorfaktoren
+Für $z^2-(4+3\mathrm{i})z+1+7\mathrm{i}=0$ ist $-p/2=2+1{,}5\mathrm{i}$ und
 
 $$D=(2+1{,}5\mathrm{i})^2-(1+7\mathrm{i})=1{,}75+6\mathrm{i}-1-7\mathrm{i}=0{,}75-\mathrm{i}.$$
 
 Also ist $s=0{,}75$, $t=-1$ und $|D|=\sqrt{0{,}5625+1}=1{,}25$. Aus [(6.1)](#gl-6-1) folgt $u^2=1$ und $v^2=0{,}25$. Wegen $t<0$ haben $u$ und $v$ verschiedene Vorzeichen: $w=\pm(1-0{,}5\mathrm{i})$. Damit ist $z=2+1{,}5\mathrm{i}\pm(1-0{,}5\mathrm{i})$, also $z=3+\mathrm{i}$ oder $z=1+2\mathrm{i}$. Probe: Summe $4+3\mathrm{i}=-p$, Produkt $1+7\mathrm{i}=q$.
+::::
 
 ⁠**Grenzfall:** Für $q=0$ gibt [(6.2)](#gl-6-2) $z=-p/2\pm p/2$, also $z=0$ und $z=-p$, passend zu $z(z+p)=0$.
 

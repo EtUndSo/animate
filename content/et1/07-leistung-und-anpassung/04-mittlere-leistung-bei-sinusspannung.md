@@ -38,7 +38,11 @@ $$P=\frac{1}{T\,R}\int_0^T\hat u^2\cos^2(\omega t)\,\mathrm{d} t=\frac{1}{T\,R}\
 Der Kosinusteil durchläuft in $T$ zwei volle Schwingungen, sein Integral ist null. Mit $\hat u=R\,\hat\imath$ folgt die zweite Form.
 :::
 
-**Beispiel.** Für $\hat u=10$ V und $R=5\,\Omega$ sind $\hat\imath=2$ A, der Spitzenwert der Leistung 20 W und $P=10$ W. Bei 50 Hz fließen je Periode 0,2 J ins Gitter. **Grenzfall:** Für $\omega\to0$ wird aus $u$ eine Gleichspannung und $p$ bleibt bei $\hat u^2/R$ stehen. Der Faktor $\frac12$ fällt weg, denn über ganze Perioden lässt sich dann nicht mehr mitteln.
+::::beispiel
+Für $\hat u=10$ V und $R=5\,\Omega$ sind $\hat\imath=2$ A, der Spitzenwert der Leistung 20 W und $P=10$ W. Bei 50 Hz fließen je Periode 0,2 J ins Gitter.
+::::
+
+⁠**Grenzfall:** Für $\omega\to0$ wird aus $u$ eine Gleichspannung und $p$ bleibt bei $\hat u^2/R$ stehen. Der Faktor $\frac12$ fällt weg, denn über ganze Perioden lässt sich dann nicht mehr mitteln.
 
 :::zusatz Effektivwert
 Eine Gleichspannung $U$ erzeugt an $R$ dieselbe Wärme, wenn $U^2/R=\frac12\hat u^2/R$ ist, also $U=\hat u/\sqrt2$. Dieser Wert heißt __Effektivwert__. Hier sind es 7,07 V. Die 230 V der Steckdose sind ein Effektivwert, die Amplitude beträgt 325 V.

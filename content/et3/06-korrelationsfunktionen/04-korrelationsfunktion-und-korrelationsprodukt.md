@@ -40,11 +40,13 @@ Ein zeitbegrenztes Signal hat eine AKF der doppelten Dauer.
 
 ⁠**So liest man das:** Am ähnlichsten ist ein Signal sich selbst ohne Verschiebung, und dort ist die AKF seine Energie. Die AKF eines Rechtecks ist das Dreieck: $\varphi^E_{ss}=\operatorname{rect}(-\tau)*\operatorname{rect}(\tau)=\Lambda(\tau)$, doppelt so breit wie das Rechteck (Abb. [1](#abb-1) links).
 
-**Beispiel: ein Echo finden.** Gesendet wird $s=\operatorname{rect}(t)$, empfangen das abgeschwächte, verzögerte Echo $g=0{,}5\operatorname{rect}(t-3)$. Die KKF ist $\varphi^E_{sg}(\tau)=0{,}5\,\Lambda(\tau-3)$: Ihr Maximum liegt bei $\tau=3$, der Verzögerung, und seine Höhe $0{,}5=0{,}5\cdot E_s$ gibt die Dämpfung an (Abb. [1](#abb-1) rechts). So misst ein Radar die Entfernung.
+::::beispiel ein Echo finden
+Gesendet wird $s=\operatorname{rect}(t)$, empfangen das abgeschwächte, verzögerte Echo $g=0{,}5\operatorname{rect}(t-3)$. Die KKF ist $\varphi^E_{sg}(\tau)=0{,}5\,\Lambda(\tau-3)$: Ihr Maximum liegt bei $\tau=3$, der Verzögerung, und seine Höhe $0{,}5=0{,}5\cdot E_s$ gibt die Dämpfung an (Abb. [1](#abb-1) rechts). So misst ein Radar die Entfernung.
 
 :::abbildung et3/k6korr 1
 Links: Die AKF des Rechtecks ist das Dreieck, Maximum $=E_s=1$ bei $\tau=0$, doppelte Breite. Rechts: Die KKF zwischen Sendeimpuls und Echo $0{,}5\operatorname{rect}(t-3)$ hat ihr Maximum bei der Verzögerung $\tau=3$.
 :::
+::::
 
 :::frage Faltung und Korrelation sehen fast gleich aus. Wo ist der Unterschied?
 Bei der Faltung $\int s(\tau)h(t-\tau)\mathrm{d}\tau$ läuft das zweite Signal rückwärts ($-\tau$): Das System „erinnert“ sich an die Vergangenheit. Bei der Korrelation $\int s^*(t)g(t+\tau)\mathrm{d} t$ laufen beide vorwärts: Man legt zwei Formen deckungsgleich übereinander und misst die Übereinstimmung. Rechnerisch ist der Unterschied genau das Spiegeln, deshalb ist Korrelation Faltung mit dem gespiegelten Signal.

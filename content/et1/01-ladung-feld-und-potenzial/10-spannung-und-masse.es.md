@@ -62,7 +62,9 @@ Izquierda y centro: símbolos de una batería (trazo largo y fino: polo positivo
 El mismo circuito con la masa en tres lugares. Los potenciales son 9 V, 3 V, 0 V; luego 6 V, 0 V, $-3$ V; luego 0 V, $-6$ V, $-9$ V. Cada vez hay 6 V en la resistencia superior y 3 V en la inferior.
 :::
 
-**Ejemplo.** En el par de placas, $E=9\,\mathrm{V}/3\,\mathrm{mm}=3$ kV/m, 1000 veces menos que la intensidad de campo de ruptura del aire. Una batería rectangular entrega unos 0,5 Ah (amperios por horas), es decir, 1800 C. Su energía total es $W=Q\,U=1800\,\mathrm{C}\cdot9\,\mathrm{V}=16{,}2$ kJ $=4{,}5$ Wh. En el circuito, la masa está primero en el polo negativo (fig. [10](#abb-10), izquierda). Con [(8.2)](#gl-8-2), de abajo arriba resulta 0 V, $0+3$ V, $3+6$ V. Si la masa pasa al centro, cada potencial baja 3 V. La tensión en la resistencia superior es antes $9\,\mathrm{V}-3\,\mathrm{V}$ y después $6\,\mathrm{V}-0\,\mathrm{V}$. En los vehículos, el polo negativo de la batería suele estar conectado a la carrocería, que allí es la masa.
+::::beispiel
+En el par de placas, $E=9\,\mathrm{V}/3\,\mathrm{mm}=3$ kV/m, 1000 veces menos que la intensidad de campo de ruptura del aire. Una batería rectangular entrega unos 0,5 Ah (amperios por horas), es decir, 1800 C. Su energía total es $W=Q\,U=1800\,\mathrm{C}\cdot9\,\mathrm{V}=16{,}2$ kJ $=4{,}5$ Wh. En el circuito, la masa está primero en el polo negativo (fig. [10](#abb-10), izquierda). Con [(8.2)](#gl-8-2), de abajo arriba resulta 0 V, $0+3$ V, $3+6$ V. Si la masa pasa al centro, cada potencial baja 3 V. La tensión en la resistencia superior es antes $9\,\mathrm{V}-3\,\mathrm{V}$ y después $6\,\mathrm{V}-0\,\mathrm{V}$. En los vehículos, el polo negativo de la batería suele estar conectado a la carrocería, que allí es la masa.
+::::
 
 ⁠**En resumen:** la tensión es energía por unidad de carga entre dos puntos.
 

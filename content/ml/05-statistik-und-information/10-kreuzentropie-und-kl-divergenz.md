@@ -34,11 +34,13 @@ die __Kreuzentropie__ von $\mathbf{q}$ bezüglich $\mathbf{p}$. Summanden mit $p
 
 An erster Stelle steht die Verteilung, mit der tatsächlich gemittelt wird, an zweiter die, mit der man rechnet. In der Sprache der Überraschung ist die Kreuzentropie die mittlere Überraschung, wenn die Wirklichkeit nach $\mathbf{p}$ verteilt ist, man aber $\mathbf{q}$ erwartet. Für $\mathbf{q}=\mathbf{p}$ ist sie die Entropie: $H(\mathbf{p},\mathbf{p})=H(\mathbf{p})$. Ein Ergebnis, das man für unmöglich hält und das trotzdem eintritt, überrascht unendlich; dafür gibt es kein Codewort.
 
-⁠**Rechenbeispiel:** Die Quelle aus Unterabschnitt [8.3](informationsgehalt-und-entropie.html#stufe-8-3) hat $\mathbf{p}=(\tfrac12,\tfrac14,\tfrac18,\tfrac18)^{\top}$. Wer sie mit $\mathbf{q}=(\tfrac18,\tfrac18,\tfrac14,\tfrac12)^{\top}$ beschreibt, baut den Code A $=110$, B $=111$, C $=10$, D $=0$ mit den Längen $\mathbf l'=(3,\,3,\,2,\,1)^{\top}$. Seine mittlere Länge ist $H(\mathbf{p},\mathbf{q})=\tfrac{21}8=2{,}625$ bit je Zeichen (Abb. [17](#abb-17)), mehr als die $2$ bit des Codes mit gleich langen Codewörtern und deutlich mehr als die Entropie $1{,}75$ bit.
+::::beispiel [Rechenbeispiel]
+Die Quelle aus Unterabschnitt [8.3](informationsgehalt-und-entropie.html#stufe-8-3) hat $\mathbf{p}=(\tfrac12,\tfrac14,\tfrac18,\tfrac18)^{\top}$. Wer sie mit $\mathbf{q}=(\tfrac18,\tfrac18,\tfrac14,\tfrac12)^{\top}$ beschreibt, baut den Code A $=110$, B $=111$, C $=10$, D $=0$ mit den Längen $\mathbf l'=(3,\,3,\,2,\,1)^{\top}$. Seine mittlere Länge ist $H(\mathbf{p},\mathbf{q})=\tfrac{21}8=2{,}625$ bit je Zeichen (Abb. [17](#abb-17)), mehr als die $2$ bit des Codes mit gleich langen Codewörtern und deutlich mehr als die Entropie $1{,}75$ bit.
 
 :::abbildung ml/k5rkreuz 17
 Die Kreuzentropie als mittlere Länge des Codes, der für $\mathbf{q}=(\tfrac18,\tfrac18,\tfrac14,\tfrac12)^{\top}$ gebaut ist, wenn die Zeichen tatsächlich mit $\mathbf{p}=(\tfrac12,\tfrac14,\tfrac18,\tfrac18)^{\top}$ kommen.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Kreuzentropie $H(\mathbf{p},\mathbf{q})=\sum_kp_k\log_2(1/q_k)$ ist die mittlere Codelänge, wenn man mit $\mathbf{q}$ rechnet, die Wirklichkeit aber $\mathbf{p}$ ist.
 
@@ -61,7 +63,8 @@ Summanden mit $p_k=0$ lässt man weg; ist $q_k=0$ für ein $k$ mit $p_k>0$, so i
 
 Die zweite Form folgt aus $\log_2\frac{p_k}{q_k}=\log_2\frac1{q_k}-\log_2\frac1{p_k}$. Die Buchstaben KL stehen für Solomon Kullback und Richard Leibler, die den Begriff 1951 einführten; ein anderer Name ist __relative Entropie__. Die Reihenfolge der beiden Verteilungen ist wichtig: Gemittelt wird mit der ersten.
 
-⁠**Rechenbeispiel:** Für $\mathbf{p}$ und $\mathbf{q}$ aus dem vorigen Unterabschnitt ist $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})=2{,}625-1{,}75=0{,}875$ bit. Direkt nach [(9.2)](#gl-9-2) ergibt sich dasselbe (Abb. [18](#abb-18)). Zwei der vier Summanden sind negativ, denn bei C und D ist $q_k>p_k$. Abb. [19](#abb-19) zeigt die Beiträge: Die positiven überwiegen.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{p}$ und $\mathbf{q}$ aus dem vorigen Unterabschnitt ist $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})=2{,}625-1{,}75=0{,}875$ bit. Direkt nach [(9.2)](#gl-9-2) ergibt sich dasselbe (Abb. [18](#abb-18)). Zwei der vier Summanden sind negativ, denn bei C und D ist $q_k>p_k$. Abb. [19](#abb-19) zeigt die Beiträge: Die positiven überwiegen.
 
 :::abbildung ml/k5rkl 18
 Die KL-Divergenz als Summe der Beiträge $p_k\log_2(p_k/q_k)$. Wo $\mathbf{q}$ einem Zeichen mehr Wahrscheinlichkeit gibt als $\mathbf{p}$, ist der Beitrag negativ.
@@ -70,6 +73,7 @@ Die KL-Divergenz als Summe der Beiträge $p_k\log_2(p_k/q_k)$. Wo $\mathbf{q}$ e
 :::abbildung ml/k5kl 19
 (a) Die wahre Verteilung $\mathbf{p}$ (blau) und die angenommene Verteilung $\mathbf{q}$ (rot). (b) Die Beiträge der vier Zeichen zur KL-Divergenz. Die Summe ist $1+\tfrac14-\tfrac18-\tfrac14=\tfrac78$ bit, also positiv, obwohl zwei Beiträge negativ sind.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die KL-Divergenz $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})=H(\mathbf{p},\mathbf{q})-H(\mathbf{p})$ ist der Mehraufwand, den man zahlt, wenn man mit $\mathbf{q}$ statt mit der wahren Verteilung $\mathbf{p}$ rechnet.
 
@@ -89,7 +93,9 @@ Abb. [20](#abb-20) zeigt, was sie bedeutet. Die Gerade $y=x-1$ ist die Tangente
 Der natürliche Logarithmus liegt überall unter seiner Tangente $y=x-1$ an der Stelle $x=1$ und berührt sie nur dort.
 :::
 
-⁠**Rechenbeispiel:** Bei $x=2$ ist $\ln2\approx0{,}693\le1$, bei $x=0{,}5$ ist $\ln0{,}5\approx-0{,}693\le-0{,}5$, und nahe bei $1$ ist die Ungleichung fast eine Gleichung: $\ln1{,}1\approx0{,}0953\le0{,}1$.
+::::beispiel [Rechenbeispiel]
+Bei $x=2$ ist $\ln2\approx0{,}693\le1$, bei $x=0{,}5$ ist $\ln0{,}5\approx-0{,}693\le-0{,}5$, und nahe bei $1$ ist die Ungleichung fast eine Gleichung: $\ln1{,}1\approx0{,}0953\le0{,}1$.
+::::
 
 ⁠**Kurz gesagt:** Der Logarithmus liegt unter seiner Tangente an der Stelle $1$: $\ln x\le x-1$, mit Gleichheit nur für $x=1$.
 
@@ -126,7 +132,9 @@ $$L=\sum_kp_k\,l_k=H(\mathbf{p},\mathbf{q})+\log_2\frac1z\ge H(\mathbf{p},\mathb
 
 mit Gleichheit genau dann, wenn $z=1$ und $\mathbf{q}=\mathbf{p}$ ist, also $2^{-l_k}=p_k$ für alle $k$.
 
-⁠**Rechenbeispiel:** Für die Verteilungen $\mathbf{p}=(0{,}5;\ 0{,}3;\ 0{,}2)^{\top}$ und $\mathbf{q}=(0{,}5;\ 0{,}2;\ 0{,}3)^{\top}$ ist $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})=0+0{,}3\log_21{,}5+0{,}2\log_2\tfrac23\approx0{,}175-0{,}117=0{,}058$ bit. Die Vertauschung zweier Wahrscheinlichkeiten kostet also etwas, wenn auch wenig. Im Beispiel des vorigen Unterabschnitts war es viel mehr, $0{,}875$ bit.
+::::beispiel [Rechenbeispiel]
+Für die Verteilungen $\mathbf{p}=(0{,}5;\ 0{,}3;\ 0{,}2)^{\top}$ und $\mathbf{q}=(0{,}5;\ 0{,}2;\ 0{,}3)^{\top}$ ist $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})=0+0{,}3\log_21{,}5+0{,}2\log_2\tfrac23\approx0{,}175-0{,}117=0{,}058$ bit. Die Vertauschung zweier Wahrscheinlichkeiten kostet also etwas, wenn auch wenig. Im Beispiel des vorigen Unterabschnitts war es viel mehr, $0{,}875$ bit.
+::::
 
 ⁠**Kurz gesagt:** Die KL-Divergenz ist nie negativ und nur für gleiche Verteilungen null; deshalb ist kein Code kürzer als die Entropie und keine falsche Erwartung im Mittel weniger überraschend als die richtige.
 
@@ -140,7 +148,8 @@ Die Ungleichung trägt den Namen des amerikanischen Physikers Josiah Willard Gib
 
 Die KL-Divergenz ist nie negativ und nur für gleiche Verteilungen null, so wie ein Abstand. Zwei andere Eigenschaften eines Abstands aus [Grundlagen 1, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-1), hat sie aber nicht: Sie ist nicht symmetrisch, und die Dreiecksungleichung gilt nicht. Die Rechenbeispiele dieses Unterabschnitts sind in nat angegeben, wie alle KL-Divergenzen von hier an.
 
-⁠**Rechenbeispiel:** Für $\mathbf{p}=(0{,}5;\ 0{,}5)^{\top}$ und $\mathbf{r}=(0{,}9;\ 0{,}1)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{p}=(0{,}5;\ 0{,}5)^{\top}$ und $\mathbf{r}=(0{,}9;\ 0{,}1)^{\top}$ ist
 
 $$D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{r})=0{,}5\ln\frac{0{,}5}{0{,}9}+0{,}5\ln\frac{0{,}5}{0{,}1}\approx0{,}511,\qquad D_{\mathrm{KL}}(\mathbf{r}\,\|\,\mathbf{p})=0{,}9\ln\frac{0{,}9}{0{,}5}+0{,}1\ln\frac{0{,}1}{0{,}5}\approx0{,}368 .$$
 
@@ -149,6 +158,7 @@ Die beiden Richtungen sind verschieden. Der Grund ist anschaulich: Wer eine fair
 $$D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})+D_{\mathrm{KL}}(\mathbf{q}\,\|\,\mathbf{r})\approx0{,}087+0{,}154=0{,}241<0{,}511\approx D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{r}) .$$
 
 Der Umweg über $\mathbf{q}$ ist also „kürzer“ als der direkte Weg, und die Dreiecksungleichung ist verletzt.
+::::
 
 Deshalb heißt die Größe Divergenz und nicht Abstand. Wer sie benutzt, muss sagen, welche Verteilung an erster Stelle steht: die, mit der gemittelt wird, meist die wahre.
 

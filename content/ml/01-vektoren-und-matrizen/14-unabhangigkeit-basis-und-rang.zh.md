@@ -36,7 +36,9 @@ $$\operatorname{span}\{\mathbf{v}_1,\dots,\mathbf{v}_k\}=\Bigl\{\sum_{l=1}^kc_l\
 
 所以，矩阵的列空间就是它的各列张成的空间。张成的空间中任意两个向量的每个线性组合也都在其中；相加和取倍数永远不会把你带出这个集合。
 
-⁠**算例：**$\operatorname{span}\{(1,\,2)^{\top}\}$ 是所有倍数 $c\,(1,\,2)^{\top}$ 构成的直线。$(1,\,2)^{\top}$ 和 $(2,\,4)^{\top}$ 张成的空间是同一条直线，因为 $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$。$(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$ 张成的空间是整个平面：每个向量 $(y_1,\,y_2)^{\top}$ 都等于 $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$。在 $\mathbb{R}^3$ 中，$\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ 是所有满足 $x_3=0$ 的向量构成的平面。
+::::beispiel [算例]
+$\operatorname{span}\{(1,\,2)^{\top}\}$ 是所有倍数 $c\,(1,\,2)^{\top}$ 构成的直线。$(1,\,2)^{\top}$ 和 $(2,\,4)^{\top}$ 张成的空间是同一条直线，因为 $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$。$(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$ 张成的空间是整个平面：每个向量 $(y_1,\,y_2)^{\top}$ 都等于 $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$。在 $\mathbb{R}^3$ 中，$\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ 是所有满足 $x_3=0$ 的向量构成的平面。
+::::
 
 ⁠**简而言之：**一个向量列表张成的空间，就是能由这些向量线性组合而成的一切。
 
@@ -59,7 +61,9 @@ $$c_1\mathbf{v}_1+c_2\mathbf{v}_2+\dots+c_k\mathbf{v}_k=\mathbf{0} \tag{13.2}$$
 
 等价地说，线性相关意味着：至少有一个向量是其他向量的线性组合。事实上，如果式 [(13.2)](#gl-13-2) 在某个系数 $c_l\ne0$ 时成立，就可以解出 $\mathbf{v}_l$：$\mathbf{v}_l=-\sum_{l'\ne l}(c_{l'}/c_l)\,\mathbf{v}_{l'}$。反过来，这样的表示立刻给出一个在 $\mathbf{v}_l$ 前面系数为 $-1$ 的组合。
 
-⁠**算例：**$(1,\,2)^{\top}$ 和 $(2,\,4)^{\top}$ 线性相关：$2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$。向量 $(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$ 线性无关：由 $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$，先得 $c_2=0$，再得 $c_1=0$。三个向量 $(1,\,0,\,1)^{\top}$、$(0,\,1,\,1)^{\top}$ 和 $(1,\,1,\,2)^{\top}$ 线性相关，因为第三个是前两个之和。
+::::beispiel [算例]
+$(1,\,2)^{\top}$ 和 $(2,\,4)^{\top}$ 线性相关：$2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$。向量 $(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$ 线性无关：由 $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$，先得 $c_2=0$，再得 $c_1=0$。三个向量 $(1,\,0,\,1)^{\top}$、$(0,\,1,\,1)^{\top}$ 和 $(1,\,1,\,2)^{\top}$ 线性相关，因为第三个是前两个之和。
+::::
 
 ⁠**简而言之：**线性无关意味着：没有一个向量能由其他向量组合而成；不存在冗余。
 
@@ -87,7 +91,9 @@ $$c_1\mathbf{v}_1+c_2\mathbf{v}_2+\dots+c_k\mathbf{v}_k=\mathbf{0} \tag{13.2}$$
 至少有一种表示，因为基张成 $\mathcal S$。如果有两种，$\sum_lc_l\mathbf{v}_l=\sum_lc_l'\mathbf{v}_l$，它们的差就是 $\sum_l(c_l-c_l')\mathbf{v}_l=\mathbf{0}$。由线性无关，所有 $c_l-c_l'=0$。
 :::
 
-⁠**算例：**$(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$ 构成 $\mathbb{R}^2$ 的一个基：它们线性无关，并且张成整个平面。在这个基下，向量 $(3,\,2)^{\top}$ 的坐标是 $1$ 和 $2$，因为 $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$。直线 $\operatorname{span}\{(0,\,1)^{\top}\}$ 的维数是 $1$，尽管它的向量有两个分量。
+::::beispiel [算例]
+$(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$ 构成 $\mathbb{R}^2$ 的一个基：它们线性无关，并且张成整个平面。在这个基下，向量 $(3,\,2)^{\top}$ 的坐标是 $1$ 和 $2$，因为 $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$。直线 $\operatorname{span}\{(0,\,1)^{\top}\}$ 的维数是 $1$，尽管它的向量有两个分量。
+::::
 
 ⁠**简而言之：**基是张成一切的、由线性无关向量组成的列表；它的长度就是维数。
 
@@ -111,11 +117,13 @@ $$c_1\mathbf{v}_1+c_2\mathbf{v}_2+\dots+c_k\mathbf{v}_k=\mathbf{0} \tag{13.2}$$
 
 若 $\operatorname{rank}\mathbf{A}=\min(m,n)$，则称 $\mathbf{A}$ __满秩__。实际中，用高斯消元法确定秩：初等行变换不改变秩，而在行阶梯形中，秩就是不全为零的行的个数。
 
-⁠**算例：**$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的秩为 $1$：第二列是第一列的两倍，同样，第二行也是第一行的两倍。对
+::::beispiel [算例]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的秩为 $1$：第二列是第一列的两倍，同样，第二行也是第一行的两倍。对
 
 $$\mathbf K=\begin{pmatrix}1&0&1\\0&1&1\\1&1&2\end{pmatrix}$$
 
 从第三行减去第一行和第二行，得到各行 $(1,0,1)$、$(0,1,1)$、$(0,0,0)$。有两行非零，所以 $\operatorname{rank}\mathbf K=2$；确实，第三列是前两列之和。公寓数据集的数据矩阵满秩，秩为 $3$。
+::::
 
 ⁠**简而言之：**秩计算一个矩阵的各列包含多少个真正不同的方向，而它的各行所含的方向恰好一样多。
 
@@ -161,7 +169,9 @@ $$\dim\ker\mathbf{A}+\operatorname{rank}\mathbf{A}=n . \tag{13.4}$$
 由第 [11.5](einheitsmatrix-und-inverse.html#stufe-11-5) 小节，(i) 推出 (ii)。由秩-零化度定理和秩的定义，(ii)、(iii) 和 (iv) 等价。还需证明 (iii) 和 (ii) 推出 (i)。若 $\operatorname{rank}\mathbf{A}=n$，列空间就是 $\mathbb{R}^n$ 中一个维数为 $n$ 的空间，因而就是整个 $\mathbb{R}^n$。所以每个方程组 $\mathbf{A}\mathbf{c}_j=\mathbf{e}_j$ 都可解，这些解构成一个矩阵 $\mathbf{C}$ 的各列，满足 $\mathbf{A}\mathbf{C}=\mathbf{I}$。此外，$\mathbf{A}(\mathbf{C}\mathbf{A}-\mathbf{I})=\mathbf{A}\mathbf{C}\mathbf{A}-\mathbf{A}=\mathbf 0$。所以 $\mathbf{C}\mathbf{A}-\mathbf{I}$ 的每一列都位于零空间中，而由 (ii)，零空间只含零向量。因此也有 $\mathbf{C}\mathbf{A}=\mathbf{I}$，并且 $\mathbf{C}=\mathbf{A}^{-1}$。
 :::
 
-⁠**算例：**$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的零空间为 $\operatorname{span}\{(2,\,-1)^{\top}\}$，维数为 $1$，秩为 $1$：$1+1=2$。上面的矩阵 $\mathbf K$ 的零空间为 $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$，因为它的第三列是前两列之和；由 $\operatorname{rank}\mathbf K=2$ 得 $1+2=3$。
+::::beispiel [算例]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的零空间为 $\operatorname{span}\{(2,\,-1)^{\top}\}$，维数为 $1$，秩为 $1$：$1+1=2$。上面的矩阵 $\mathbf K$ 的零空间为 $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$，因为它的第三列是前两列之和；由 $\operatorname{rank}\mathbf K=2$ 得 $1+2=3$。
+::::
 
 **秩与可解性。** 有了秩和零空间，第 [12](lineare-gleichungssysteme.html#stufe-12) 节中的问题就可以用数来回答，即使矩阵不是方阵。有没有解？解唯一吗？对每个右端项都有解吗？
 
@@ -203,7 +213,9 @@ $\mathbf{A}\mathbf{x}=\mathbf{y}$ 对每个 $\mathbf{y}\in\mathbb{R}^m$ 都可�
 
 对 $\operatorname{rank}\mathbf{A}=n=m$ 的方阵，(ii) 和 (iii) 合在一起：对每个右端项都恰有一个解，这与关于可逆性的定理一致。
 
-⁠**算例：**对 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$，$\operatorname{rank}\mathbf{A}=1$。取 $\mathbf{y}=(1,\,1)^{\top}$，增广矩阵的各行为 $(1,\,2\,|\,1)$ 和 $(2,\,4\,|\,1)$；从第二行减去第一行的两倍，剩下 $(0,\,0\,|\,-1)$，它不是零行。所以 $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$，方程组不可解，与第 [12.2](lineare-gleichungssysteme.html#stufe-12-2) 小节中一样。与此相反，取 $\mathbf{y}=(3,\,6)^{\top}$ 时，剩下 $(0,\,0\,|\,0)$，两个秩相等，方程组可解。因为 $\operatorname{rank}\mathbf{A}=1<2=n$，解不唯一：全部解为 $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$。又因为 $\operatorname{rank}\mathbf{A}=1<2=m$，存在无解的右端项。在第 [12.5](lineare-gleichungssysteme.html#stufe-12-5) 小节的超定方程组中，$\operatorname{rank}\mathbf{A}=2=n$：如果有解，解就是唯一的。但它无解，所以由 (i)，那里有 $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=3$。
+::::beispiel [算例]
+对 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$，$\operatorname{rank}\mathbf{A}=1$。取 $\mathbf{y}=(1,\,1)^{\top}$，增广矩阵的各行为 $(1,\,2\,|\,1)$ 和 $(2,\,4\,|\,1)$；从第二行减去第一行的两倍，剩下 $(0,\,0\,|\,-1)$，它不是零行。所以 $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$，方程组不可解，与第 [12.2](lineare-gleichungssysteme.html#stufe-12-2) 小节中一样。与此相反，取 $\mathbf{y}=(3,\,6)^{\top}$ 时，剩下 $(0,\,0\,|\,0)$，两个秩相等，方程组可解。因为 $\operatorname{rank}\mathbf{A}=1<2=n$，解不唯一：全部解为 $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$。又因为 $\operatorname{rank}\mathbf{A}=1<2=m$，存在无解的右端项。在第 [12.5](lineare-gleichungssysteme.html#stufe-12-5) 小节的超定方程组中，$\operatorname{rank}\mathbf{A}=2=n$：如果有解，解就是唯一的。但它无解，所以由 (i)，那里有 $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=3$。
+::::
 
 ⁠**简而言之：**零空间汇集了矩阵映射为零的方向；$n$ 个输入方向分别归入零空间和秩。方程组 $\mathbf{A}\mathbf{x}=\mathbf{y}$ 可解，当且仅当右端项不使秩增大；解唯一，当且仅当零空间只含零向量。
 
@@ -213,7 +225,8 @@ $\mathbf{A}\mathbf{x}=\mathbf{y}$ 对每个 $\mathbf{y}\in\mathbb{R}^m$ 都可�
 
 在真实的数据集中，特征有时把同样的信息记录了两次。一份问卷以千克记录体重，为了另一项分析，又以磅再记录一次。一份房屋描述给出一楼的面积、二楼的面积和总面积。对数据矩阵而言，这意味着：它的各列线性相关，它的秩小于特征的个数。
 
-⁠**算例：一楼、二楼和总面积。**四栋房屋：
+::::beispiel [算例] 一楼、二楼和总面积
+四栋房屋：
 
 $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\qquad(\text{面积，单位为 }\mathrm m^2).$$
 
@@ -234,12 +247,15 @@ $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\
 </li>
 
 </ul>
+::::
 
-⁠**算例：千克与磅。**一磅恰好是 $0.45359237$ kg，所以同一质量以磅为单位的数值，是以千克为单位的数值的 $c=1/0.45359237\approx2.20462$ 倍。三个人的身高（cm）、体重（kg）和体重（磅）：
+::::beispiel [算例] 千克与磅
+一磅恰好是 $0.45359237$ kg，所以同一质量以磅为单位的数值，是以千克为单位的数值的 $c=1/0.45359237\approx2.20462$ 倍。三个人的身高（cm）、体重（kg）和体重（磅）：
 
 $$\mathbf{X}=\begin{pmatrix}170&70&70\,c\\182&85&85\,c\\165&60&60\,c\end{pmatrix}\approx\begin{pmatrix}170&70&154.3\\182&85&187.4\\165&60&132.3\end{pmatrix}.$$
 
 第三列是第二列的 $c$ 倍，所以 $\operatorname{rank}\mathbf{X}=2$，而 $(0,\,c,\,-1)^{\top}$ 位于零空间中。磅这一列不带来新信息；它只是重复了已有的信息。
+::::
 
 ⁠**简而言之：**如果特征把同样的信息记录了两次，数据矩阵的各列就线性相关；这时秩小于 $d$，不同的权重给出同样的预测值，而 $\mathbf{X}^{\top}\mathbf{X}$ 不可逆。
 

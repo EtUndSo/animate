@@ -31,11 +31,13 @@ $$(\mathbf{v}^*)^{\top}\mathbf{v}=\sum_i|v_i|^2>0\qquad\mathbf{v}\ne\mathbf{0}\t
 
 **Polinomların kökleri.** Katsayıları gerçel ya da karmaşık olan ve derecesi $n\ge1$ olan her polinomun, katlı kökler katlılıkları kadar sayılırsa tam $n$ karmaşık kökü vardır ve polinom $n$ doğrusal çarpana ayrılır. Polinomun katsayıları gerçelse $z$ ile birlikte $z^*$ de bir köktür: Gerçel olmayan kökler çiftler halinde gelir.
 
-⁠**Sayısal örnek:** $\lambda^2-1{,}2\lambda+1=0$ denkleminin kökleri, ikinci dereceden denklemin kök formülüne göre $\lambda=0{,}6\pm\sqrt{0{,}36-1}=0{,}6\pm\mathrm j\,0{,}8$ olur; bu, mutlak değeri $\sqrt{0{,}36+0{,}64}=1$ olan eşlenik bir çifttir. $\mathbf{v}=(1,\,-\mathrm j)^{\top}$ için $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ ve $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ olur (Şekil [16](#abb-16)).
+::::beispiel [Sayısal örnek]
+$\lambda^2-1{,}2\lambda+1=0$ denkleminin kökleri, ikinci dereceden denklemin kök formülüne göre $\lambda=0{,}6\pm\sqrt{0{,}36-1}=0{,}6\pm\mathrm j\,0{,}8$ olur; bu, mutlak değeri $\sqrt{0{,}36+0{,}64}=1$ olan eşlenik bir çifttir. $\mathbf{v}=(1,\,-\mathrm j)^{\top}$ için $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ ve $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ olur (Şekil [16](#abb-16)).
 
 :::abbildung ml/k2rkomplex 16
 $\mathbf{v}=(1,-\mathrm j)^{\top}$ için $(\mathbf{v}^*)^{\top}\mathbf{v}$ iç çarpımı: Her terim $v_i^*v_i=|v_i|^2$ olur, çünkü $\mathrm j\cdot(-\mathrm j)=-\mathrm j^2=1$.
 :::
+::::
 
 ⁠**Kısacası:** $\mathrm j^2=-1$ olmak üzere $x+\mathrm jy$ karmaşık sayıları her polinom denklemini çözer; eşlenik alma sanal kısmın işaretini değiştirir ve $zz^*=|z|^2$ gerçeldir.
 
@@ -43,7 +45,7 @@ $\mathbf{v}=(1,-\mathrm j)^{\top}$ için $(\mathbf{v}^*)^{\top}\mathbf{v}$ iç �
 
 <span class="anker" id="stufe-6-2"></span>
 
-Temeller 1, Kesim 8.3'te düzlemin ızgarası matrislerle döndürülmüş, uzatılmış ve kaydırılmıştı. Bu sırada okların çoğu doğrultusunu değiştirir. Ama bazı matrislerde, bir okun orijinden geçen kendi doğrusu üzerinde kaldığı doğrultular vardır: Ok yalnızca uzar, kısalır ya da ters döner (Şekil [17](#abb-17)).
+[Temeller 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'te düzlemin ızgarası matrislerle döndürülmüş, uzatılmış ve kaydırılmıştı. Bu sırada okların çoğu doğrultusunu değiştirir. Ama bazı matrislerde, bir okun orijinden geçen kendi doğrusu üzerinde kaldığı doğrultular vardır: Ok yalnızca uzar, kısalır ya da ters döner (Şekil [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisi birim çemberi (gri) bir elipse (mavi) dönüştürür. $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ oku (kırmızı) kendi doğrusu üzerinde kalır ve beş katına uzar, $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ oku (yeşil) ise iki katına; görüntüleri açık renkle çizilmiştir. Gri doğrular iki öz doğrultudur. Buna karşılık $\mathbf{e}_1$ birim vektörü $(4,2)^{\top}$ vektörüne gider (kesikli) ve doğrultusunu değiştirir.
@@ -62,11 +64,13 @@ $\lambda$ sayısına da bu özvektöre ait __özdeğer__ denir.
 
 Sıfır vektörü dışarıda bırakılır, çünkü $\mathbf{A}\mathbf{0}=\lambda\mathbf{0}$ her $\lambda$ sayısı için geçerlidir ve hiçbir şey söylemez. Özdeğer ise sıfır olabilir: O zaman özvektör $\mathbf{0}$ vektörüne gider. Negatif bir özdeğer oku ters çevirir. Bu bölümde özdeğerler $\lambda$ ya da $\lambda_i$ ile gösterilir. Terim Almancadan gelir (*eigen* “öz, kendine ait” demektir) ve İngilizcede de kullanılır: *eigenvalue*, *eigenvector*.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için şu bulunur:
 
 $$\mathbf{A}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}5\\5\end{pmatrix}=5\begin{pmatrix}1\\1\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\-2\end{pmatrix}=\begin{pmatrix}2\\-4\end{pmatrix}=2\begin{pmatrix}1\\-2\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}4\\2\end{pmatrix}.$$
 
 Dolayısıyla $(1,\,1)^{\top}$, $5$ özdeğerine ait bir özvektördür; $(1,\,-2)^{\top}$ de $2$ özdeğerine ait bir özvektördür. $(1,\,0)^{\top}$ vektörü özvektör değildir, çünkü $(4,\,2)^{\top}$ onun bir katı değildir.
+::::
 
 ⁠**Kısacası:** Bir özvektör matris tarafından döndürülmez, yalnızca bir sayıyla çarpılır; bu sayı özdeğerdir.
 
@@ -82,7 +86,7 @@ hem de integralin var olduğu bütün $p$ değerleri için. Girişin biçimi kor
 
 <span class="anker" id="stufe-6-3"></span>
 
-Özdeğerler tahmin yürütmeden nasıl bulunur? [(6.1)](#gl-6-1) denklemi, her şey bir tarafta olacak biçimde yeniden yazılır: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, yani $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Aranan, bu homojen sistemin bir $\mathbf{v}\ne\mathbf{0}$ çözümünün bulunduğu bir $\lambda$ değeridir. Temeller 1, Kesim 11.5'e göre bu şu demektir: $\mathbf{A}-\lambda\mathbf{I}$ matrisi tersinir değildir. Temeller 1, Kesim 14.6'ya göre bu, ancak ve ancak determinantı sıfırsa böyledir.
+Özdeğerler tahmin yürütmeden nasıl bulunur? [(6.1)](#gl-6-1) denklemi, her şey bir tarafta olacak biçimde yeniden yazılır: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, yani $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Aranan, bu homojen sistemin bir $\mathbf{v}\ne\mathbf{0}$ çözümünün bulunduğu bir $\lambda$ değeridir. [Temeller 1, Kesim 11.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5)'e göre bu şu demektir: $\mathbf{A}-\lambda\mathbf{I}$ matrisi tersinir değildir. [Temeller 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'ya göre bu, ancak ve ancak determinantı sıfırsa böyledir.
 
 :::definition Tanım 6.2 (Karakteristik polinom)
 <span class="anker" id="satz-6-2"></span>
@@ -108,7 +112,9 @@ $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda
 
 Karmaşık sayılarla ilgili alt kesime göre bu polinomun, katlılıklarıyla sayıldığında tam $n$ karmaşık kökü vardır. Demek ki karmaşık özdeğerlere izin verilir ve katlı olanlar katlılıkları kadar sayılırsa, $n\times n$ boyutlu bir matrisin $n$ özdeğeri vardır.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$ olur. Özdeğerler, önceki alt kesimdeki gibi $5$ ve $2$. $\operatorname{diag}(3;\,-1)$ köşegen matrisi için $p(\lambda)=(3-\lambda)(-1-\lambda)$ olur, kökleri $3$ ve $-1$: Bir köşegen matrisin özdeğerleri köşegenindedir, özvektörleri de birim vektörlerdir.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$ olur. Özdeğerler, önceki alt kesimdeki gibi $5$ ve $2$. $\operatorname{diag}(3;\,-1)$ köşegen matrisi için $p(\lambda)=(3-\lambda)(-1-\lambda)$ olur, kökleri $3$ ve $-1$: Bir köşegen matrisin özdeğerleri köşegenindedir, özvektörleri de birim vektörlerdir.
+::::
 
 ⁠**Kısacası:** Özdeğerler $\det(\mathbf{A}-\lambda\mathbf{I})$ karakteristik polinomunun kökleridir; $n\times n$ boyutlu bir matrisin, katlılık ve karmaşık olanlar sayılınca $n$ özdeğeri vardır.
 
@@ -126,11 +132,13 @@ $\mathbf{A}-\lambda\mathbf{I}$ matrisinin çekirdeğine $\mathbf{A}$ matrisinin 
 
 Özuzay $\lambda$ özdeğerine ait bütün özvektörleri ve sıfır vektörünü içerir. Bir çekirdek olarak, Kesim [4.1](projektion-auf-einen-unterraum.html#stufe-4-1)'deki anlamda bir alt uzaydır.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ve $\lambda=5$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ve $\lambda=5$ için şu bulunur:
 
 $$\mathbf{A}-5\mathbf{I}=\begin{pmatrix}-1&1\\2&-2\end{pmatrix}.$$
 
 İki satır da aynı şeyi ister: $-v_1+v_2=0$. Özuzay, $(1,\,1)^{\top}$ vektörünün bütün katlarından oluşan doğrudur. $\lambda=2$ için $\mathbf{A}-2\mathbf{I}=\bigl(\begin{smallmatrix}2&1\\2&1\end{smallmatrix}\bigr)$ olur ve koşul $2v_1+v_2=0$; özuzay $(1,\,-2)^{\top}$ doğrultusundaki doğrudur. Normlanmış özvektörler, Şekil [17](#abb-17) içindeki gibi $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$ ve $\mathbf{v}_2=(1,\,-2)^{\top}/\sqrt5$ olur. Birbirlerine dik değildirler: $(1,\,1)(1,\,-2)^{\top}=-1\ne0$.
+::::
 
 ⁠**Kısacası:** $\lambda$ özdeğerine ait özvektörler, $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ sisteminin $\mathbf{v}\ne\mathbf{0}$ çözümleridir; sıfır vektörüyle birlikte özuzayı oluştururlar.
 
@@ -168,11 +176,13 @@ Herhangi bir $n$ için $p(\lambda)$ aynı şekilde $(\lambda_1-\lambda)(\lambda_
 Son önerme için: $\operatorname{iz}(\mathbf{A}\mathbf{B})=\sum_i(\mathbf{A}\mathbf{B})_{ii}=\sum_i\sum_la_{il}b_{li}$ ve $\operatorname{iz}(\mathbf{B}\mathbf{A})=\sum_l\sum_ib_{li}a_{il}$. Bu, yalnızca farklı sıralanmış olan aynı çift toplamdır.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için $\operatorname{iz}\mathbf{A}=7=5+2$ (Şekil [18](#abb-18)) ve $\det\mathbf{A}=10=5\cdot2$ olur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $\operatorname{iz}=7$ ve $\det=6$; özdeğerler yani $\lambda^2-7\lambda+6=0$ denkleminin çözümleridir: $6$ ve $1$. Satırları $(1,0,2)$, $(0,1,1)$ olan $\mathbf{A}\in\mathbb{R}^{2\times3}$ ve $\mathbf{B}=\mathbf{A}^{\top}$ için $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ olur, izi $7$; $\mathbf{B}\mathbf{A}$ ise köşegen elemanları $1$, $1$ ve $5$ olan $3\times3$ boyutlu bir matristir, onun izi de $7$.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için $\operatorname{iz}\mathbf{A}=7=5+2$ (Şekil [18](#abb-18)) ve $\det\mathbf{A}=10=5\cdot2$ olur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $\operatorname{iz}=7$ ve $\det=6$; özdeğerler yani $\lambda^2-7\lambda+6=0$ denkleminin çözümleridir: $6$ ve $1$. Satırları $(1,0,2)$, $(0,1,1)$ olan $\mathbf{A}\in\mathbb{R}^{2\times3}$ ve $\mathbf{B}=\mathbf{A}^{\top}$ için $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ olur, izi $7$; $\mathbf{B}\mathbf{A}$ ise köşegen elemanları $1$, $1$ ve $5$ olan $3\times3$ boyutlu bir matristir, onun izi de $7$.
 
 :::abbildung ml/k2rspur 18
 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin izi, köşegen elemanlarının toplamı olarak; bu iz, $5$ ve $2$ özdeğerlerinin toplamına eşittir.
 :::
+::::
 
 ⁠**Kısacası:** İz, köşegen elemanlarının toplamıdır ve aynı zamanda özdeğerlerin toplamıdır; determinant özdeğerlerin çarpımıdır.
 
@@ -182,16 +192,20 @@ $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin
 
 $90^\circ$'lik bir dönme hiçbir oku kendi doğrusu üzerinde bırakmaz: Her ok bir dik açı kadar döndürülür. Dolayısıyla bu dönmenin gerçel bir özvektörü olamaz. Bunun yerine ne olduğunu karakteristik polinom gösterir.
 
-⁠**Sayısal örnek 1:** $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ dönmesi için $p(\lambda)=\lambda^2+1$ olur, kökleri $\lambda=\mathrm j$ ve $\lambda=-\mathrm j$. Özdeğerler saf sanaldır. $\lambda=\mathrm j$ özdeğerine $(1,\,-\mathrm j)^{\top}$ karmaşık özvektörü aittir, çünkü $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::beispiel [Sayısal örnek 1]
+$\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ dönmesi için $p(\lambda)=\lambda^2+1$ olur, kökleri $\lambda=\mathrm j$ ve $\lambda=-\mathrm j$. Özdeğerler saf sanaldır. $\lambda=\mathrm j$ özdeğerine $(1,\,-\mathrm j)^{\top}$ karmaşık özvektörü aittir, çünkü $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::
 
-⁠**Sayısal örnek 2:** Kesim [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4)'teki $\mathbf{Q}=\bigl(\begin{smallmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{smallmatrix}\bigr)$ dönmesi için $p(\lambda)=\lambda^2-1{,}2\lambda+1$ olur ve karmaşık sayılarla ilgili sayısal örneğe göre özdeğerleri $0{,}6\pm\mathrm j\,0{,}8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$, burada $\alpha\approx53{,}13^\circ$. Genel olarak $\alpha$ açısı kadar dönmenin özdeğerleri $\mathrm e^{\pm\mathrm j\alpha}$ olur.
+::::beispiel [Sayısal örnek 2]
+Kesim [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4)'teki $\mathbf{Q}=\bigl(\begin{smallmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{smallmatrix}\bigr)$ dönmesi için $p(\lambda)=\lambda^2-1{,}2\lambda+1$ olur ve karmaşık sayılarla ilgili sayısal örneğe göre özdeğerleri $0{,}6\pm\mathrm j\,0{,}8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$, burada $\alpha\approx53{,}13^\circ$. Genel olarak $\alpha$ açısı kadar dönmenin özdeğerleri $\mathrm e^{\pm\mathrm j\alpha}$ olur.
+::::
 
 Demek ki gerçel bir matrisin karmaşık özdeğerleri olabilir. Karakteristik polinomunun katsayıları gerçel olduğundan bunlar eşlenik çiftler halinde ortaya çıkar. Gerçel bir özvektör yalnızca gerçel bir özdeğere ait olabilir: $\mathbf{v}$ gerçel ve $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ olsaydı, $\lambda\mathbf{v}$ gerçel bir vektörün görüntüsü olarak gerçel olurdu, dolayısıyla $\lambda$ da. Karmaşık özdeğerler matrisin bir düzlemde döndürdüğünü gösterir.
 
 ⁠**Kısacası:** Gerçel bir matrisin karmaşık özdeğerleri olabilir, her zaman eşlenik çiftler halinde; $\alpha$ kadar bir dönmenin özdeğerleri $\mathrm e^{\pm\mathrm j\alpha}$ olur.
 
 :::hintergrund Döndürmek $\mathrm e^{\mathrm j\alpha}$ ile çarpmak demektir
-Elektrik mühendisleri için bu sonuç tanıdıktır. $(x_1,\,x_2)^{\top}$ oku, bir fazörde olduğu gibi $z=x_1+\mathrm jx_2$ karmaşık sayısıyla özdeşleştirilir. O zaman $\alpha$ kadar bir dönme $\mathrm e^{\mathrm j\alpha}$ ile çarpmaktır: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$; bunlar Temeller 1, Kesim 8.3'teki dönme matrisi için $\mathbf{Q}\mathbf{x}$ vektörünün tam olarak iki bileşenidir. Karmaşık gösterimde dönme yani bir sayıyla çarpmadır ve bu sayı bir özdeğerdir. İkinci $\mathrm e^{-\mathrm j\alpha}$ özdeğeri, ters yönde dönen $z^*$ eşlenik gösterimine aittir.
+Elektrik mühendisleri için bu sonuç tanıdıktır. $(x_1,\,x_2)^{\top}$ oku, bir fazörde olduğu gibi $z=x_1+\mathrm jx_2$ karmaşık sayısıyla özdeşleştirilir. O zaman $\alpha$ kadar bir dönme $\mathrm e^{\mathrm j\alpha}$ ile çarpmaktır: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$; bunlar [Temeller 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'teki dönme matrisi için $\mathbf{Q}\mathbf{x}$ vektörünün tam olarak iki bileşenidir. Karmaşık gösterimde dönme yani bir sayıyla çarpmadır ve bu sayı bir özdeğerdir. İkinci $\mathrm e^{-\mathrm j\alpha}$ özdeğeri, ters yönde dönen $z^*$ eşlenik gösterimine aittir.
 :::
 
 ### Katlı özdeğerler
@@ -206,7 +220,9 @@ Karakteristik polinomun çift katlı bir kökü olabilir. O zaman $n$ özdeğerd
 Bir $\lambda$ özdeğerinin __cebirsel katlılığı__, $\lambda$ sayısının karakteristik polinomun kökü olarak katlılığıdır.
 :::
 
-⁠**Sayısal örnek:** $2\mathbf{I}=\operatorname{diag}(2;\,2)$ matrisi için $p(\lambda)=(2-\lambda)^2$: $2$ özdeğerinin cebirsel katlılığı $2$. Temeller 1, Kesim 8.3'teki $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ kayması için $p(\lambda)=(1-\lambda)^2$: $1$ özdeğerinin cebirsel katlılığı da $2$. $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin iki farklı özdeğeri vardır, her birinin cebirsel katlılığı $1$.
+::::beispiel [Sayısal örnek]
+$2\mathbf{I}=\operatorname{diag}(2;\,2)$ matrisi için $p(\lambda)=(2-\lambda)^2$: $2$ özdeğerinin cebirsel katlılığı $2$. [Temeller 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'teki $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ kayması için $p(\lambda)=(1-\lambda)^2$: $1$ özdeğerinin cebirsel katlılığı da $2$. $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin iki farklı özdeğeri vardır, her birinin cebirsel katlılığı $1$.
+::::
 
 ⁠**Kısacası:** Cebirsel katlılık, bir özdeğerin karakteristik polinomun kökü olarak kaç kez yer aldığını sayar.
 
@@ -234,7 +250,9 @@ Geometrik katlılık en az $1$ olur, çünkü her özdeğere ait bir özvektör 
 İki özvektör için: $c_1\mathbf{v}_1+c_2\mathbf{v}_2=\mathbf{0}$ olsun. $\mathbf{A}$ uygulanırsa $c_1\lambda_1\mathbf{v}_1+c_2\lambda_2\mathbf{v}_2=\mathbf{0}$ çıkar. Bundan birinci denklemin $\lambda_2$ katı çıkarılırsa geriye $c_1(\lambda_1-\lambda_2)\mathbf{v}_1=\mathbf{0}$ kalır. $\lambda_1\ne\lambda_2$ ve $\mathbf{v}_1\ne\mathbf{0}$ olduğundan $c_1=0$, sonra da $c_2=0$ olur. Daha çok özvektör için de aynı yol izlenir: Bir bağımlılık olsaydı, sıfırdan farklı katsayıları olabildiğince az olan bir bağımlılık alınırdı. $\mathbf{A}$ uygulanır ve sonuçtan bağımlılığın, içinde yer alan özdeğerlerden birine eşit $\lambda$ katı çıkarılırsa, sıfırdan farklı katsayıları daha da az olan bir bağımlılık elde edilirdi; bu bir çelişkidir.
 :::
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin $(1,\,1)^{\top}$ ve $(1,\,-2)^{\top}$ özvektörleri, farklı olan $5$ ve $2$ özdeğerlerine aittir; doğrusal bağımsızdırlar, çünkü $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. Kaymanın ise yalnızca $(1,\,0)^{\top}$ öz doğrultusu vardır; iki bağımsız özvektörü yoktur.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin $(1,\,1)^{\top}$ ve $(1,\,-2)^{\top}$ özvektörleri, farklı olan $5$ ve $2$ özdeğerlerine aittir; doğrusal bağımsızdırlar, çünkü $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. Kaymanın ise yalnızca $(1,\,0)^{\top}$ öz doğrultusu vardır; iki bağımsız özvektörü yoktur.
+::::
 
 ⁠**Kısacası:** Geometrik katlılık, bir özdeğere ait bağımsız özvektörleri sayar; cebirsel katlılıktan küçük olabilir, ama farklı özdeğerlerin özvektörleri her zaman bağımsızdır.
 
@@ -279,10 +297,12 @@ $\mathbf{A}^{\top}$ matrisinin özdeğerleri $\mathbf{A}$ matrisininkilerle ayn�
 :::
 
 :::beweis Hesap kuralları
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$ ve bu böyle sürer. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) [(6.5)](#gl-6-5) uyarınca $\det\mathbf{A}$ özdeğerlerin çarpımıdır, dolayısıyla ancak ve ancak hiçbir özdeğer sıfır değilse sıfırdan farklıdır. $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ eşitliği $\mathbf{A}^{-1}$ ile çarpılırsa $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$ çıkar. (iv) Temeller 1, Kesim 14.5'e göre $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; iki matrisin karakteristik polinomu aynıdır.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$ ve bu böyle sürer. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) [(6.5)](#gl-6-5) uyarınca $\det\mathbf{A}$ özdeğerlerin çarpımıdır, dolayısıyla ancak ve ancak hiçbir özdeğer sıfır değilse sıfırdan farklıdır. $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ eşitliği $\mathbf{A}^{-1}$ ile çarpılırsa $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$ çıkar. (iv) [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'e göre $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; iki matrisin karakteristik polinomu aynıdır.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $25$ ve $4$ olur: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. $\mathbf{A}-5\mathbf{I}$ matrisinin özdeğerleri $0$ ve $-3$ olur ve bu matris tersinir değildir. $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ tersinin özdeğerleri $\tfrac15$ ve $\tfrac12$ olur: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ devriğinin özdeğerleri de $5$ ve $2$ olur, ama $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: Devriğin özvektörleri $(2,\,1)^{\top}$ ve $(1,\,-1)^{\top}$ olur.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $25$ ve $4$ olur: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. $\mathbf{A}-5\mathbf{I}$ matrisinin özdeğerleri $0$ ve $-3$ olur ve bu matris tersinir değildir. $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ tersinin özdeğerleri $\tfrac15$ ve $\tfrac12$ olur: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ devriğinin özdeğerleri de $5$ ve $2$ olur, ama $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: Devriğin özvektörleri $(2,\,1)^{\top}$ ve $(1,\,-1)^{\top}$ olur.
+::::
 
 ⁠**Kısacası:** Kuvvetler, $\beta\mathbf{I}$ kadar kaydırmalar ve ters matris özvektörleri korur ve özdeğerleri aynı biçimde değiştirir; devrik yalnızca özdeğerleri korur.
 
@@ -310,7 +330,7 @@ $\mathbf{A}_3$: iz $2$, determinant $1-9=-8$, dolayısıyla $\lambda^2-2\lambda-
 Bir üst üçgen matrisin özdeğerlerinin köşegen elemanları olduğunu gösterin. $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$ matrisinin özdeğerlerini ve özvektörlerini bulun.
 
 :::loesung
-Bir üst üçgen matris için $\mathbf{A}-\lambda\mathbf{I}$ da köşegen elemanları $a_{ii}-\lambda$ olan bir üst üçgen matristir. Temeller 1, Kesim 14.4'e göre bu matrisin determinantı köşegen elemanlarının çarpımıdır: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Kökler köşegen elemanlarıdır.
+Bir üst üçgen matris için $\mathbf{A}-\lambda\mathbf{I}$ da köşegen elemanları $a_{ii}-\lambda$ olan bir üst üçgen matristir. [Temeller 1, Kesim 14.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4)'e göre bu matrisin determinantı köşegen elemanlarının çarpımıdır: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Kökler köşegen elemanlarıdır.
 
 Verilen matrisin özdeğerleri dolayısıyla $2$, $3$ ve $5$ olur. $2$ için: $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ matrisi $v_3=0$ ve $v_2=0$ koşullarını verir, özvektör $(1,\,0,\,0)^{\top}$. $3$ için: $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ matrisi $v_3=0$ ve $v_2=v_1$ koşullarını verir, özvektör $(1,\,1,\,0)^{\top}$. $5$ için: $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ matrisi $v_2=3v_1$ ve $v_3=2v_2$ koşullarını verir, özvektör $(1,\,3,\,6)^{\top}$. Sağlama: $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

@@ -37,9 +37,11 @@ $$Z_{11}=\left.\frac{U_1}{I_1}\right|_{I_2=0},\quad Z_{21}=\left.\frac{U_2}{I_1}
 Left: equivalent circuit of the Z form, one resistor each in series with a current-controlled voltage source. Right: open-circuit test at port 2 with the impressed current $I_\mathrm{q}$. In gray, what drops out because of $I_2=0$. The test with port 1 open is the mirror image and gives $Z_{12}$ and $Z_{22}$.
 :::
 
-**Example.** On the T two-port, a current of 100 mA is impressed at port 1, and port 2 stays open. The current runs through $R_\mathrm{a}$ and $R_\mathrm{b}$, $U_1=3.5$ V. $R_\mathrm{c}$ carries no current, nothing drops across it, and $U_2$ is the voltage across $R_\mathrm{b}$: 2 V. So $Z_{11}=35\,\Omega$, $Z_{21}=20\,\Omega$. The same from port 2 gives $U_2=4$ V, $U_1=2$ V, so
+::::beispiel
+On the T two-port, a current of 100 mA is impressed at port 1, and port 2 stays open. The current runs through $R_\mathrm{a}$ and $R_\mathrm{b}$, $U_1=3.5$ V. $R_\mathrm{c}$ carries no current, nothing drops across it, and $U_2$ is the voltage across $R_\mathrm{b}$: 2 V. So $Z_{11}=35\,\Omega$, $Z_{21}=20\,\Omega$. The same from port 2 gives $U_2=4$ V, $U_1=2$ V, so
 
 $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\mathrm{b}&R_\mathrm{b}+R_\mathrm{c}\end{pmatrix}=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**The bridge.** The tests need no ground line. Because its branch resistances are equal, the bridge on the right of Fig. [2](vom-vierpol-zum-zweitor.html#abb-2) divides a current at port 1 in half; both branches have $R_\mathrm{x}+R_\mathrm{y}$. Port 2 is open, and the voltage between the branch midpoints is $\frac{I_1}{2}R_\mathrm{y}-\frac{I_1}{2}R_\mathrm{x}$. By symmetry, the same holds in reverse:
 

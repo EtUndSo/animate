@@ -61,7 +61,9 @@ Für $|x|<\min(R,S)$ sind beide Reihen absolut konvergent (Stufe [1](der-konver
 
 ⁠**Warum die absolute Konvergenz nötig ist:** $a_n=b_n=(-1)^n/\sqrt{n+1}$ ergibt eine konvergente Reihe (Leibniz), aber nicht absolut. In $c_k$ haben alle $k+1$ Summanden dasselbe Vorzeichen, und jeder hat mindestens den Betrag $\frac2{k+2}$. Also ist $|c_k|\ge1$ (zum Beispiel $c_{10}=2{,}29$), und $\sum c_k$ divergiert.
 
-**Beispiel.** Für $a_n=b_n=1$ und $|x|<1$ ist $c_k=k+1$, also $\frac1{(1-x)^2}=\sum_{k=0}^\infty(k+1)x^k$. Bei $x=\frac12$ ergibt beides 4.
+::::beispiel
+Für $a_n=b_n=1$ und $|x|<1$ ist $c_k=k+1$, also $\frac1{(1-x)^2}=\sum_{k=0}^\infty(k+1)x^k$. Bei $x=\frac12$ ergibt beides 4.
+::::
 
 :::satz Satz 4.3 (Binomische Formel)
 <span class="anker" id="satz-4-3"></span>

@@ -34,7 +34,9 @@ hat. Statt „normalverteilt“ sagt man auch __gemeinsam normalverteilt__.
 
 Für $d=1$ ist $\det\boldsymbol{\Sigma}=\sigma^2$, und es entsteht [(8.5)](wichtige-verteilungen.html#gl-8-5). Ist $\boldsymbol{\Sigma}=\operatorname{diag}(\sigma_1^2,\dots,\sigma_d^2)$ diagonal, so ist der Exponent $-\tfrac12\sum_j(x_j-\mu_j)^2/\sigma_j^2$ und $\det\boldsymbol{\Sigma}=\prod_j\sigma_j^2$. Die Dichte zerfällt dann in das Produkt der $d$ eindimensionalen Dichten $\mathcal N(\mu_j,\sigma_j^2)$, und die Komponenten sind unabhängig. Unterabschnitt [12.3](#stufe-12-3) zeigt, dass $\boldsymbol{\mu}$ und $\boldsymbol{\Sigma}$ tatsächlich Erwartungswertvektor und Kovarianzmatrix sind. Die Formel braucht $\boldsymbol{\Sigma}^{-1}$ und $\det\boldsymbol{\Sigma}>0$, also eine positiv definite Kovarianzmatrix. Ist $\boldsymbol{\Sigma}$ singulär, so liegt die Verteilung nach Unterabschnitt [11.6](zufallsvektoren-und-die-kovarianzmatrix.html#stufe-11-6) auf einer Ebene oder Geraden, die den Raum nicht ausfüllt, und hat keine Dichte; dieses Kapitel betrachtet nur positiv definite $\boldsymbol{\Sigma}$.
 
-⁠**Rechenbeispiel:** Für $d=2$ mit $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $\det\boldsymbol{\Sigma}=3$ und $\boldsymbol{\Sigma}^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ nach [Grundlagen 1, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3). Die Dichte ist am höchsten bei $\mathbf{x}=\boldsymbol{\mu}$, mit dem Wert $1/(2\pi\sqrt3)\approx0{,}0919$. Der Korrelationskoeffizient der beiden Komponenten ist $1/\sqrt{2\cdot2}=0{,}5$.
+::::beispiel [Rechenbeispiel]
+Für $d=2$ mit $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $\det\boldsymbol{\Sigma}=3$ und $\boldsymbol{\Sigma}^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ nach [Grundlagen 1, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3). Die Dichte ist am höchsten bei $\mathbf{x}=\boldsymbol{\mu}$, mit dem Wert $1/(2\pi\sqrt3)\approx0{,}0919$. Der Korrelationskoeffizient der beiden Komponenten ist $1/\sqrt{2\cdot2}=0{,}5$.
+::::
 
 ⁠**Kurz gesagt:** Die mehrdimensionale Normalverteilung hat im Exponenten die quadratische Form $-\tfrac12(\mathbf{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})$; bei diagonaler Kovarianzmatrix ist sie das Produkt unabhängiger eindimensionaler Normalverteilungen.
 
@@ -61,11 +63,13 @@ Die Dichte [(12.1)](#gl-12-1) ist $p(\mathbf{x})=p(\boldsymbol{\mu})\,\mathrm{e}
 Die Normalverteilung mit $\boldsymbol{\mu}=(1,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$. (a) Die Höhenlinien $\Delta=1$ (durchgezogen) und $\Delta=2$ (gestrichelt) sind Ellipsen mit den Achsen in Richtung der Eigenvektoren $\mathbf{q}_1=(1,1)^{\top}/\sqrt2$ zum Eigenwert $3$ und $\mathbf{q}_2=(1,-1)^{\top}/\sqrt2$ zum Eigenwert $1$; die Halbachsen der inneren Ellipse sind $\sqrt3$ und $1$. Dazu $80$ Punkte, gezogen aus dieser Verteilung: $31$ liegen innerhalb von $\Delta=1$, $69$ innerhalb von $\Delta=2$. (b) Kennt man $x_2=4$, so ist $x_1$ normalverteilt mit dem Erwartungswert $2$ und der Standardabweichung $\sqrt{3/2}\approx1{,}22$ (orange: $\pm$ eine Standardabweichung). Die graue Gerade verbindet die bedingten Erwartungswerte für alle Werte von $x_2$; sie geht durch $\boldsymbol{\mu}$ und durch die Punkte, an denen die Ellipsen waagrechte Tangenten haben.
 :::
 
-⁠**Rechenbeispiel:** Für die Verteilung aus Unterabschnitt [12.1](#stufe-12-1) mit den Eigenwerten $3$ und $1$ vergleiche man die Punkte $\mathbf{x}_a=\boldsymbol{\mu}+(1{,}5;\ 1{,}5)^{\top}$ und $\mathbf{x}_b=\boldsymbol{\mu}+(1,\,-1)^{\top}$. Euklidisch ist $\mathbf{x}_a$ weiter von $\boldsymbol{\mu}$ entfernt, $\sqrt{4{,}5}\approx2{,}12$ gegen $\sqrt2\approx1{,}41$. In Eigenkoordinaten $y_i=\mathbf{q}_i^{\top}(\mathbf{x}-\boldsymbol{\mu})$ liegt $\mathbf{x}_a$ bei $y_1=1{,}5\sqrt2$, $y_2=0$ und $\mathbf{x}_b$ bei $y_1=0$, $y_2=\sqrt2$, und Abb. [18](#abb-18) ergibt $\Delta(\mathbf{x}_a)\approx1{,}22$ und $\Delta(\mathbf{x}_b)\approx1{,}41$. Der Punkt $\mathbf{x}_a$ liegt in der Richtung, in der die Verteilung weit streut, und ist deshalb weniger ungewöhnlich als $\mathbf{x}_b$, obwohl er weiter entfernt ist. Seine Dichte ist größer.
+::::beispiel [Rechenbeispiel]
+Für die Verteilung aus Unterabschnitt [12.1](#stufe-12-1) mit den Eigenwerten $3$ und $1$ vergleiche man die Punkte $\mathbf{x}_a=\boldsymbol{\mu}+(1{,}5;\ 1{,}5)^{\top}$ und $\mathbf{x}_b=\boldsymbol{\mu}+(1,\,-1)^{\top}$. Euklidisch ist $\mathbf{x}_a$ weiter von $\boldsymbol{\mu}$ entfernt, $\sqrt{4{,}5}\approx2{,}12$ gegen $\sqrt2\approx1{,}41$. In Eigenkoordinaten $y_i=\mathbf{q}_i^{\top}(\mathbf{x}-\boldsymbol{\mu})$ liegt $\mathbf{x}_a$ bei $y_1=1{,}5\sqrt2$, $y_2=0$ und $\mathbf{x}_b$ bei $y_1=0$, $y_2=\sqrt2$, und Abb. [18](#abb-18) ergibt $\Delta(\mathbf{x}_a)\approx1{,}22$ und $\Delta(\mathbf{x}_b)\approx1{,}41$. Der Punkt $\mathbf{x}_a$ liegt in der Richtung, in der die Verteilung weit streut, und ist deshalb weniger ungewöhnlich als $\mathbf{x}_b$, obwohl er weiter entfernt ist. Seine Dichte ist größer.
 
 :::abbildung ml/k4rmahalanobis 18
 Der Mahalanobis-Abstand zweier Punkte in Eigenkoordinaten: Jede Koordinate wird durch die Varianz in ihrer Richtung geteilt. Also ist $\Delta(\mathbf{x}_a)=\sqrt{1{,}5}\approx1{,}22$ und $\Delta(\mathbf{x}_b)=\sqrt2\approx1{,}41$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Höhenlinien der Normalverteilung sind Ellipsen konstanten Mahalanobis-Abstands, mit Achsen in Richtung der Eigenvektoren von $\boldsymbol{\Sigma}$ und Halbachsen $\Delta\sqrt{\lambda_i}$; der Mahalanobis-Abstand misst in Standardabweichungen der jeweiligen Richtung.
 
@@ -96,7 +100,9 @@ das Produkt der Dichten $\mathcal N(0,\lambda_i)$. Damit ist $\mathbb{E}[\mathbf
 
 Anschaulich ist eine mehrdimensionale Normalverteilung also eine Wolke aus unabhängigen Glocken entlang senkrechter Achsen, die gedreht und verschoben wurde. Die Drehung koppelt die Koordinaten $x_1,\dots,x_d$ und macht sie korreliert; in den Koordinaten der Hauptachsen ist die Kopplung verschwunden. Die Achsen sind die Richtungen extremer Streuung aus Unterabschnitt [11.6](zufallsvektoren-und-die-kovarianzmatrix.html#stufe-11-6).
 
-⁠**Rechenbeispiel:** Für $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $y_1=\tfrac1{\sqrt2}(x_1-1+x_2-2)$ normalverteilt mit Varianz $3$ und $y_2=\tfrac1{\sqrt2}(x_1-1-x_2+2)$ mit Varianz $1$, und beide sind unabhängig. Die Summe $x_1+x_2=\sqrt2\,y_1+3$ hat also die Varianz $2\cdot3=6$, wie auch $\mathbf{1}^{\top}\boldsymbol{\Sigma}\mathbf{1}=2+1+1+2=6$ ergibt.
+::::beispiel [Rechenbeispiel]
+Für $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $y_1=\tfrac1{\sqrt2}(x_1-1+x_2-2)$ normalverteilt mit Varianz $3$ und $y_2=\tfrac1{\sqrt2}(x_1-1-x_2+2)$ mit Varianz $1$, und beide sind unabhängig. Die Summe $x_1+x_2=\sqrt2\,y_1+3$ hat also die Varianz $2\cdot3=6$, wie auch $\mathbf{1}^{\top}\boldsymbol{\Sigma}\mathbf{1}=2+1+1+2=6$ ergibt.
+::::
 
 ⁠**Kurz gesagt:** In den Koordinaten der Eigenvektoren von $\boldsymbol{\Sigma}$ ist die Normalverteilung ein Produkt unabhängiger eindimensionaler Normalverteilungen mit den Eigenwerten als Varianzen.
 
@@ -134,7 +140,9 @@ $$\mathbf{x}=\boldsymbol{\mu}+\mathbf{L}\mathbf{z}\sim\mathcal N(\boldsymbol{\mu
 
 So erzeugen Rechner normalverteilte Zufallsvektoren mit vorgegebener Kovarianzmatrix; die $80$ Punkte in Abb. [17](#abb-17) sind so entstanden.
 
-⁠**Rechenbeispiel:** Für $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $\mathbf{L}=\bigl(\begin{smallmatrix}\sqrt2&0\\1/\sqrt2&\sqrt{3/2}\end{smallmatrix}\bigr)$, denn $\mathbf{L}\mathbf{L}^{\top}$ hat die Einträge $2$, $\sqrt2\cdot\tfrac1{\sqrt2}=1$ und $\tfrac12+\tfrac32=2$. Aus $\mathbf{z}=(1,\,-1)^{\top}$ wird $\mathbf{x}=(1,\,2)^{\top}+\bigl(\sqrt2;\ \tfrac1{\sqrt2}-\sqrt{3/2}\bigr)^{\top}\approx(2{,}414;\ 1{,}482)^{\top}$. Die erste Komponente $x_1$ allein ist $\mathcal N(1,2)$-verteilt.
+::::beispiel [Rechenbeispiel]
+Für $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ ist $\mathbf{L}=\bigl(\begin{smallmatrix}\sqrt2&0\\1/\sqrt2&\sqrt{3/2}\end{smallmatrix}\bigr)$, denn $\mathbf{L}\mathbf{L}^{\top}$ hat die Einträge $2$, $\sqrt2\cdot\tfrac1{\sqrt2}=1$ und $\tfrac12+\tfrac32=2$. Aus $\mathbf{z}=(1,\,-1)^{\top}$ wird $\mathbf{x}=(1,\,2)^{\top}+\bigl(\sqrt2;\ \tfrac1{\sqrt2}-\sqrt{3/2}\bigr)^{\top}\approx(2{,}414;\ 1{,}482)^{\top}$. Die erste Komponente $x_1$ allein ist $\mathcal N(1,2)$-verteilt.
+::::
 
 ⁠**Kurz gesagt:** Lineare Abbildungen normalverteilter Vektoren sind wieder normalverteilt, mit $\mathbf{A}\boldsymbol{\mu}+\mathbf{b}$ und $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^{\top}$; aus unabhängigen Standardnormalverteilten erzeugt $\boldsymbol{\mu}+\mathbf{L}\mathbf{z}$ jede Normalverteilung.
 
@@ -169,7 +177,9 @@ Das Glied ohne $a_1$ wird bei festem $x_2$ zu einem konstanten Faktor. Was bleib
 
 Drei Dinge fallen auf. Der bedingte Erwartungswert hängt linear von $x_2$ ab; er liegt auf einer Geraden durch $\boldsymbol{\mu}$ (Abb. [17](#abb-17) (b)). Die bedingte Varianz ist nie größer als die Randvarianz $\Sigma_{11}$, und sie hängt nicht vom beobachteten Wert $x_2$ ab, nur von der Stärke der Korrelation. Und für $\rho=0$ ändert die Beobachtung gar nichts.
 
-⁠**Rechenbeispiel:** Für $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ werde $x_2=4$ beobachtet. Dann ist $\mu_{1|2}=1+\tfrac12\,(4-2)=2$ und $\sigma^2_{1|2}=2-\tfrac12=1{,}5$. Ohne die Beobachtung ist $x_1\sim\mathcal N(1,2)$. Die Messung von $x_2$ hat den Erwartungswert von $x_1$ verschoben und seine Varianz um ein Viertel verringert, um den Anteil $\rho^2=0{,}25$.
+::::beispiel [Rechenbeispiel]
+Für $\boldsymbol{\mu}=(1,\,2)^{\top}$ und $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ werde $x_2=4$ beobachtet. Dann ist $\mu_{1|2}=1+\tfrac12\,(4-2)=2$ und $\sigma^2_{1|2}=2-\tfrac12=1{,}5$. Ohne die Beobachtung ist $x_1\sim\mathcal N(1,2)$. Die Messung von $x_2$ hat den Erwartungswert von $x_1$ verschoben und seine Varianz um ein Viertel verringert, um den Anteil $\rho^2=0{,}25$.
+::::
 
 ⁠**Kurz gesagt:** Bei der Normalverteilung ist die bedingte Verteilung wieder normal; ihr Erwartungswert liegt auf einer Geraden in der beobachteten Größe, ihre Varianz $\Sigma_{11}(1-\rho^2)$ hängt nicht vom beobachteten Wert ab.
 
@@ -195,7 +205,9 @@ Denn dann ist $\boldsymbol{\Sigma}$ diagonal, und nach Unterabschnitt [12.1](#s
 Die Voraussetzung ist, dass der Vektor gemeinsam normalverteilt ist, nicht nur jede Komponente für sich. Im Rechenbeispiel 2 aus Unterabschnitt [10.5](kovarianz-und-korrelation.html#stufe-10-5) sind $X$ und $Y=VX$ beide standardnormalverteilt und unkorreliert, aber abhängig. Der Vektor $(X,Y)^{\top}$ ist nicht gemeinsam normalverteilt: Sonst wäre nach [(12.4)](#gl-12-4) auch $X+Y$ normalverteilt, aber $X+Y$ ist mit der Wahrscheinlichkeit $\tfrac12$ genau $0$. Seine Punkte liegen auf zwei Geraden (Abb. [13](kovarianz-und-korrelation.html#abb-13) (f)), nicht in einer elliptischen Wolke.
 :::
 
-⁠**Rechenbeispiel:** In Unterabschnitt [11.4](zufallsvektoren-und-die-kovarianzmatrix.html#stufe-11-4) waren Summe und Differenz der beiden Merkmale unkorreliert. Ist $\mathbf{x}\sim\mathcal N(\boldsymbol{\mu},\boldsymbol{\Sigma})$ mit $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$, so ist $(x_1+x_2,\ x_1-x_2)^{\top}$ nach [(12.4)](#gl-12-4) gemeinsam normalverteilt mit der Kovarianzmatrix $\operatorname{diag}(6;\,2)$. Die beiden Größen sind deshalb nicht nur unkorreliert, sondern unabhängig: Wer die Summe kennt, weiß nichts über die Differenz.
+::::beispiel [Rechenbeispiel]
+In Unterabschnitt [11.4](zufallsvektoren-und-die-kovarianzmatrix.html#stufe-11-4) waren Summe und Differenz der beiden Merkmale unkorreliert. Ist $\mathbf{x}\sim\mathcal N(\boldsymbol{\mu},\boldsymbol{\Sigma})$ mit $\boldsymbol{\Sigma}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$, so ist $(x_1+x_2,\ x_1-x_2)^{\top}$ nach [(12.4)](#gl-12-4) gemeinsam normalverteilt mit der Kovarianzmatrix $\operatorname{diag}(6;\,2)$. Die beiden Größen sind deshalb nicht nur unkorreliert, sondern unabhängig: Wer die Summe kennt, weiß nichts über die Differenz.
+::::
 
 ⁠**Kurz gesagt:** Bei gemeinsam normalverteilten Größen folgt aus unkorreliert die Unabhängigkeit; einzeln normalverteilte Größen genügen dafür nicht.
 

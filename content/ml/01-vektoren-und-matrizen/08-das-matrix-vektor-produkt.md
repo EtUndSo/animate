@@ -32,7 +32,8 @@ $$(\mathbf{A}\mathbf{x})_i=\sum_{j=1}^{n}a_{ij}\,x_j=a_{i1}x_1+a_{i2}x_2+\dots+a
 
 Das Produkt gibt es nur, wenn $\mathbf{x}$ so viele Komponenten hat, wie $\mathbf{A}$ Spalten hat. Das Ergebnis hat so viele Komponenten, wie $\mathbf{A}$ Zeilen hat. Aus den Rechenregeln für Summen folgt: $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ und $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$.
 
-⁠**Rechenbeispiel:** Für
+::::beispiel [Rechenbeispiel]
+Für
 
 $$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{und}\quad \mathbf{x}=\begin{pmatrix}2\\1\end{pmatrix}\qquad\text{ist}\qquad \mathbf{A}\mathbf{x}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
@@ -41,6 +42,7 @@ Jede Komponente ist eine Summe nach [(7.1)](#gl-7-1) (Abb. [28](#abb-28)). Eine
 :::abbildung ml/k1rmv 28
 Das Matrix-Vektor-Produkt Komponente für Komponente: Für jede Zeile $i$ werden die Einträge $a_{ij}$ mit den passenden $x_j$ multipliziert und addiert.
 :::
+::::
 
 ⁠**Kurz gesagt:** $\mathbf{A}\mathbf{x}$ ist der Vektor, dessen Komponente $i$ die Summe $\sum_ja_{ij}x_j$ ist; eine $m\times n$-Matrix macht aus einem Vektor im $\mathbb{R}^n$ einen Vektor im $\mathbb{R}^m$.
 
@@ -61,7 +63,8 @@ $$\mathbf{X}\mathbf{w}=\begin{pmatrix}\mathbf{x}_1^{\top}\mathbf{w}\\\vdots\\\ma
 
 Das Matrix-Vektor-Produkt wendet also die gewichtete Summe mit den Gewichten $\mathbf{w}$ auf alle Beispiele zugleich an und liefert den Vektor aller Vorhersagen. Im Bild des Mustervergleichs: Jedes Beispiel wird mit demselben Muster $\mathbf{w}$ verglichen.
 
-⁠**Rechenbeispiel:** Für den Wohnungsdatensatz und $\mathbf{w}=(3,\,10,\,-4)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für den Wohnungsdatensatz und $\mathbf{w}=(3,\,10,\,-4)^{\top}$ ist
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
 
@@ -70,6 +73,7 @@ die vier Vorhersagen der Maklerin in Tausend Euro. Jede Komponente ist das Skala
 :::abbildung ml/k1rzeilen 29
 Die Zeilensicht für die Maklerin: jede Wohnung, also jede Zeile von $\mathbf{X}$, mal die Gewichte $\mathbf{w}$.
 :::
+::::
 
 ⁠**Kurz gesagt:** In der Zeilensicht ist $\mathbf{A}\mathbf{x}$ eine Liste von Skalarprodukten, eines je Zeile; $\mathbf{X}\mathbf{w}$ sind die Vorhersagen für alle Beispiele.
 
@@ -102,15 +106,19 @@ Das Matrix-Vektor-Produkt ist die Linearkombination der Spalten von $\mathbf{A}$
 Komponente $i$ der rechten Seite ist $\sum_jx_j\,(\mathbf{a}_j)_i=\sum_jx_j\,a_{ij}$, denn die $i$-te Komponente der Spalte $\mathbf{a}_j$ ist der Eintrag $a_{ij}$. Das ist genau Komponente $i$ von $\mathbf{A}\mathbf{x}$ nach [(7.1)](#gl-7-1).
 :::
 
-⁠**Rechenbeispiel 1:** Für das Produkt $\mathbf{A}\mathbf{x}$ aus Unterabschnitt [7.1](#stufe-7-1) ist
+::::beispiel [Rechenbeispiel 1]
+Für das Produkt $\mathbf{A}\mathbf{x}$ aus Unterabschnitt [7.1](#stufe-7-1) ist
 
 $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\begin{pmatrix}1\\0\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\\1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
+::::
 
-⁠**Rechenbeispiel 2:** Die Vorhersagen der Maklerin sind $3$-mal die Spalte der Flächen plus $10$-mal die Spalte der Zimmer plus $(-4)$-mal die Spalte der Entfernungen (Abb. [31](#abb-31)). Die Spalten von $\mathbf{X}$ heißen dabei wie in Unterabschnitt [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1) $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. In dieser Form sieht man, welcher Teil jeder Vorhersage von welchem Merkmal stammt: Der erste Summand enthält die Beiträge der Fläche, der zweite die der Zimmer, der dritte die der Entfernung.
+::::beispiel [Rechenbeispiel 2]
+Die Vorhersagen der Maklerin sind $3$-mal die Spalte der Flächen plus $10$-mal die Spalte der Zimmer plus $(-4)$-mal die Spalte der Entfernungen (Abb. [31](#abb-31)). Die Spalten von $\mathbf{X}$ heißen dabei wie in Unterabschnitt [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1) $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. In dieser Form sieht man, welcher Teil jeder Vorhersage von welchem Merkmal stammt: Der erste Summand enthält die Beiträge der Fläche, der zweite die der Zimmer, der dritte die der Entfernung.
 
 :::abbildung ml/k1rspalten 31
 Die Spaltensicht für die Maklerin: Jede Spalte $\mathbf{a}_j$ von $\mathbf{X}$ wird mit ihrem Gewicht $w_j$ multipliziert, dann werden die drei Vektoren addiert.
 :::
+::::
 
 ⁠**Kurz gesagt:** In der Spaltensicht ist $\mathbf{A}\mathbf{x}$ eine Linearkombination der Spalten von $\mathbf{A}$; die Komponenten von $\mathbf{x}$ sagen, wie viel von jeder Spalte genommen wird.
 
@@ -130,9 +138,13 @@ Lässt man $\mathbf{x}$ alle Vektoren des $\mathbb{R}^n$ durchlaufen, so durchl�
 Der __Spaltenraum__ einer Matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$ ist die Menge aller Vektoren $\mathbf{A}\mathbf{x}$ mit $\mathbf{x}\in\mathbb{R}^n$, also die Menge aller Linearkombinationen der Spalten von $\mathbf{A}$.
 :::
 
-⁠**Rechenbeispiel 1:** Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat die Spalten $(1,\,2)^{\top}$ und $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Jede Linearkombination ist ein Vielfaches von $(1,\,2)^{\top}$. Der Spaltenraum ist also nur die Gerade durch den Nullpunkt in Richtung $(1,\,2)^{\top}$, obwohl die Ergebnisse zwei Komponenten haben. Der Vektor $(3,\,6)^{\top}$ liegt darin, der Vektor $(1,\,1)^{\top}$ nicht.
+::::beispiel [Rechenbeispiel 1]
+Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat die Spalten $(1,\,2)^{\top}$ und $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Jede Linearkombination ist ein Vielfaches von $(1,\,2)^{\top}$. Der Spaltenraum ist also nur die Gerade durch den Nullpunkt in Richtung $(1,\,2)^{\top}$, obwohl die Ergebnisse zwei Komponenten haben. Der Vektor $(3,\,6)^{\top}$ liegt darin, der Vektor $(1,\,1)^{\top}$ nicht.
+::::
 
-⁠**Rechenbeispiel 2:** Die Matrix $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ liefert $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Ihr Spaltenraum besteht aus den Vektoren des $\mathbb{R}^3$, deren dritte Komponente die Summe der ersten beiden ist; das ist eine Ebene im Raum. Der Vektor $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ liegt darin, $(1,\,1,\,1)^{\top}$ nicht, denn $1+1\ne1$.
+::::beispiel [Rechenbeispiel 2]
+Die Matrix $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ liefert $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Ihr Spaltenraum besteht aus den Vektoren des $\mathbb{R}^3$, deren dritte Komponente die Summe der ersten beiden ist; das ist eine Ebene im Raum. Der Vektor $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ liegt darin, $(1,\,1,\,1)^{\top}$ nicht, denn $1+1\ne1$.
+::::
 
 Für eine Datenmatrix heißt das: Die Vorhersagen $\mathbf{X}\mathbf{w}$ liegen immer im Spaltenraum von $\mathbf{X}$, gleichgültig, welche Gewichte man wählt. Mit diesen Merkmalen lassen sich nur ganz bestimmte Listen von Vorhersagen überhaupt erzeugen.
 

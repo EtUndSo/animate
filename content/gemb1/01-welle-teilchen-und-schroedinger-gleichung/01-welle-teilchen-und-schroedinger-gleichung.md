@@ -12,7 +12,7 @@ lang: de
 
 Ein Kupferkabel leitet Strom, seine Kunststoffhülle nicht, und im Chip eines Telefons schalten Milliarden winziger Schalter aus Silizium. In allen diesen Stoffen sitzen __Elektronen__, die leichten, negativ geladenen Teilchen der Atomhülle. Und doch unterscheiden sich die Stoffe in ihrer __Leitfähigkeit__, dem Maß dafür, wie gut ein Stoff Strom leitet, um fast 30 Zehnerpotenzen. Die Frage dieses Kapitels lautet: *Was ist ein Elektron im Material, und mit welcher Gleichung rechnet man es aus?* Die Antwort gibt die __Quantenmechanik__, die Physik der kleinsten Teilchen. Sie ist das Werkzeug, mit dem man Stoffe versteht und __Bauelemente__ wie Dioden und Transistoren berechnet.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

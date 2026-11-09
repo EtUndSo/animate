@@ -64,7 +64,11 @@ $$U_\mathrm{D0}=U_T\ln\frac{N_\mathrm AN_\mathrm D}{n_\mathrm i^2},\qquad w=\sqr
 ⁠**宽度。**两侧所带电荷量相同，所以 $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$。电场从边缘向交界线性增长，在交界处达到面电荷的场强值（[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)），$E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$。电压是场强曲线下的面积，即一个三角形：$U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$。结合 $w=w_\mathrm n+w_\mathrm p$ 得式 [(3.1)](#gl-3-1)。
 :::
 
-**例。** $U_\mathrm{D0}=25.85\,\mathrm{mV}\cdot\ln10^{12}=0.714$ V，即 $27.6\,U_T$。因此势垒只让比例 $\mathrm{e}^{-27.6}=10^{-12}$ 通过，恰好等于密度之比 $10^{4}/10^{16}$。此外，$w=0.43$ µ m，两个区域各占一半，$E_\mathrm{max}=3.3$ MV/m，相当于空气的击穿场强（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。**极限情况：**若一侧掺杂重得多，该区几乎全部位于另一侧。一侧掺杂增加到十倍，$U_\mathrm{D0}$ 只升高 60 mV。
+::::beispiel
+$U_\mathrm{D0}=25.85\,\mathrm{mV}\cdot\ln10^{12}=0.714$ V，即 $27.6\,U_T$。因此势垒只让比例 $\mathrm{e}^{-27.6}=10^{-12}$ 通过，恰好等于密度之比 $10^{4}/10^{16}$。此外，$w=0.43$ µ m，两个区域各占一半，$E_\mathrm{max}=3.3$ MV/m，相当于空气的击穿场强（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。
+::::
+
+⁠**极限情况：**若一侧掺杂重得多，该区几乎全部位于另一侧。一侧掺杂增加到十倍，$U_\mathrm{D0}$ 只升高 60 mV。
 
 :::frage 二极管内部有 0.71 V。为什么测量它时得到 0 V，为什么它不驱动电流？
 这个电位台阶是真实存在的，但它不是回路中唯一的台阶。金属触点与半导体相接处还会产生其他接触电压。沿任何闭合回路，它们的总和为零，因为平衡时没有能量来源。这个台阶只是建立起扩散与漂移之间的平衡。

@@ -54,7 +54,9 @@ Für das Gegenteil reicht eine Stelle $x_n$ mit $|f_n(x_n)-f(x_n)|\ge c>0$ für 
 
 </ol>
 
-**Beispiele.** ⁠**Rippel:** Es ist $f=0$ und $|w_n(x)|\le1/n$, also $d_n=1/n\to0$. Das ist gleichmäßig. **Entladekurven:** Mit $x_n=1/n$ ist $|u_n(x_n)-f(x_n)|=\mathrm{e}^{-1}$, also nicht gleichmäßig. Genauer gilt $d_n=\sup_{0<x\le1}\mathrm{e}^{-nx}=1$. Dieser Wert wird nicht angenommen, denn bei $x=0$ ist die Abweichung null. Deshalb steht in [(2.1)](#gl-2-1) ein Supremum und kein Maximum. **Beulen:** Mit $x_n=1/n$ ist $b_n(x_n)=n/\mathrm{e}\to\infty$, also nicht gleichmäßig.
+::::beispiel [Beispiele]
+⁠**Rippel:** Es ist $f=0$ und $|w_n(x)|\le1/n$, also $d_n=1/n\to0$. Das ist gleichmäßig. **Entladekurven:** Mit $x_n=1/n$ ist $|u_n(x_n)-f(x_n)|=\mathrm{e}^{-1}$, also nicht gleichmäßig. Genauer gilt $d_n=\sup_{0<x\le1}\mathrm{e}^{-nx}=1$. Dieser Wert wird nicht angenommen, denn bei $x=0$ ist die Abweichung null. Deshalb steht in [(2.1)](#gl-2-1) ein Supremum und kein Maximum. **Beulen:** Mit $x_n=1/n$ ist $b_n(x_n)=n/\mathrm{e}\to\infty$, also nicht gleichmäßig.
+::::
 
 ⁠**Grenzfall:** Auf $[\delta,1]$ mit festem $\delta>0$ konvergieren die Entladekurven gleichmäßig gegen 0, denn dort ist $d_n=\mathrm{e}^{-n\delta}\to0$. Für $\delta=0{,}1$ gilt $d_n<0{,}01$ ab $n=47$, passend zu Stufe [1](punktweise-konvergenz.html#stufe-1). Das Hindernis sitzt allein bei $x=0$. Je kleiner $\delta$, desto langsamer die Konvergenz.
 

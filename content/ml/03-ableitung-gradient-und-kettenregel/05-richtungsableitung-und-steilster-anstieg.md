@@ -47,7 +47,8 @@ $$D_{\mathbf{u}}f(\mathbf{x})=\nabla f(\mathbf{x})^{\top}\mathbf{u} . \tag{4.2}$
 Man setzt in [(3.5)](partielle-ableitungen-und-der-gradient.html#gl-3-5) speziell $\mathbf{h}=t\,\mathbf{u}$ mit $t\ne0$; dann ist $\lVert\mathbf{h}\rVert=|t|$. Der Quotient $\frac{f(\mathbf{x}+t\mathbf{u})-f(\mathbf{x})-t\,\nabla f(\mathbf{x})^{\top}\mathbf{u}}{|t|}$ geht gegen $0$, also auch $\frac{f(\mathbf{x}+t\mathbf{u})-f(\mathbf{x})}{t}-\nabla f(\mathbf{x})^{\top}\mathbf{u}$.
 :::
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ mit $\nabla f=(4,\,5)^{\top}$ und der Richtung $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$, die die Länge $\sqrt{0{,}36+0{,}64}=1$ hat, ist
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ mit $\nabla f=(4,\,5)^{\top}$ und der Richtung $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$, die die Länge $\sqrt{0{,}36+0{,}64}=1$ hat, ist
 
 $$D_{\mathbf{u}}f(1,2)=4\cdot0{,}6+5\cdot0{,}8=2{,}4+4{,}0=6{,}4$$
 
@@ -56,6 +57,7 @@ $$D_{\mathbf{u}}f(1,2)=4\cdot0{,}6+5\cdot0{,}8=2{,}4+4{,}0=6{,}4$$
 :::abbildung ml/k3rrichtung 8
 Die Richtungsableitung als Skalarprodukt von Gradient und Richtung, für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $\mathbf{x}=(1,\,2)^{\top}$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Steigung in Richtung eines Einheitsvektors $\mathbf{u}$ ist das Skalarprodukt $\nabla f(\mathbf{x})^{\top}\mathbf{u}$.
 
@@ -84,7 +86,9 @@ Mit dem Winkel $\varphi$ zwischen $\nabla f(\mathbf{x})$ und $\mathbf{u}$ aus [G
 
 Drei Voraussetzungen stecken im Satz. Erstens muss $\nabla f(\mathbf{x})\ne\mathbf{0}$ sein; ist der Gradient null, so ist die Steigung nach [(4.2)](#gl-4-2) in jede Richtung null, und keine Richtung ist steiler als eine andere. Zweitens muss $f$ differenzierbar sein, sonst gilt [(4.2)](#gl-4-2) nicht. Drittens vergleicht der Satz Richtungen gleicher euklidischer Länge; misst man Schritte anders, ändert sich die steilste Richtung (Hintergrund unten).
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist $\lVert\nabla f\rVert=\sqrt{16+25}=\sqrt{41}\approx6{,}403$, und die steilste Richtung ist $(4,\,5)^{\top}/\sqrt{41}\approx(0{,}625;\ 0{,}781)^{\top}$. Keine Richtung hat eine größere Steigung. Die Richtung $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ aus dem vorigen Unterabschnitt weicht nur um etwa $1{,}8^\circ$ davon ab; deshalb lag ihre Steigung $6{,}4$ schon fast am Höchstwert. In Richtung $(5,\,-4)^{\top}/\sqrt{41}$, senkrecht zum Gradienten, ist die Steigung $(20-20)/\sqrt{41}=0$.
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist $\lVert\nabla f\rVert=\sqrt{16+25}=\sqrt{41}\approx6{,}403$, und die steilste Richtung ist $(4,\,5)^{\top}/\sqrt{41}\approx(0{,}625;\ 0{,}781)^{\top}$. Keine Richtung hat eine größere Steigung. Die Richtung $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ aus dem vorigen Unterabschnitt weicht nur um etwa $1{,}8^\circ$ davon ab; deshalb lag ihre Steigung $6{,}4$ schon fast am Höchstwert. In Richtung $(5,\,-4)^{\top}/\sqrt{41}$, senkrecht zum Gradienten, ist die Steigung $(20-20)/\sqrt{41}=0$.
+::::
 
 ⁠**Kurz gesagt:** Der Gradient zeigt in die Richtung des steilsten Anstiegs, seine Länge ist die Steigung dort; entgegen dem Gradienten geht es am steilsten bergab.
 
@@ -106,7 +110,8 @@ Es sei $f$ an der Stelle $\mathbf{x}$ differenzierbar, $\nabla f(\mathbf{x})\ne\
 
 Dass die Gerade die Höhenlinie berührt, folgt aus der Lupe: In der Nähe von $\mathbf{x}$ unterscheiden sich $f$ und ihre lineare Näherung nur um einen Fehler, der schneller als $\lVert\mathbf{h}\rVert$ verschwindet, und damit unterscheiden sich auch ihre Höhenlinien zum Wert $c$ nur so wenig, dass sie bei $\mathbf{x}$ dieselbe Richtung haben. Einen Beweis mit der Kettenregel liefert Aufgabe [22](die-kettenregel-fur-mehrere-variablen.html#aufg-22). Bei mehr als zwei Variablen gilt dasselbe für die Niveaumenge, die dann eine Fläche ist: Der Gradient steht senkrecht auf ihr.
 
-⁠**Rechenbeispiel:** Für die Schüssel $f(\mathbf{x})=x_1^2+4x_2^2$ ist $\nabla f(\mathbf{x})=(2x_1,\,8x_2)^{\top}$ und an der Stelle $(1,\,1)$ gleich $(2,\,8)^{\top}$. Die Höhenlinie durch diesen Punkt ist die Ellipse $x_1^2+4x_2^2=5$. Die Richtung $\mathbf{t}=(4,\,-1)^{\top}$ steht senkrecht auf dem Gradienten, denn $2\cdot4+8\cdot(-1)=0$. Geht man von $(1,\,1)$ aus ein Stück $s$ in diese Richtung, so ist
+::::beispiel [Rechenbeispiel]
+Für die Schüssel $f(\mathbf{x})=x_1^2+4x_2^2$ ist $\nabla f(\mathbf{x})=(2x_1,\,8x_2)^{\top}$ und an der Stelle $(1,\,1)$ gleich $(2,\,8)^{\top}$. Die Höhenlinie durch diesen Punkt ist die Ellipse $x_1^2+4x_2^2=5$. Die Richtung $\mathbf{t}=(4,\,-1)^{\top}$ steht senkrecht auf dem Gradienten, denn $2\cdot4+8\cdot(-1)=0$. Geht man von $(1,\,1)$ aus ein Stück $s$ in diese Richtung, so ist
 
 $$f(1+4s,\ 1-s)=(1+4s)^2+4\,(1-s)^2=5+20s^2 .$$
 
@@ -115,6 +120,7 @@ Der Wert ändert sich nur um $20s^2$, also schneller verschwindend als $s$: Die 
 :::abbildung ml/k3hoehen 9
 Gradienten (rot, verkürzt gezeichnet) auf Höhenlinien (grau). (a) Bei der runden Schüssel zeigen alle Gradienten genau vom Mittelpunkt weg. (b) Bei der gestreckten Schüssel stehen sie ebenfalls senkrecht auf den Höhenlinien, zeigen aber nur auf den Achsen genau vom Mittelpunkt weg. Am Punkt $(1,\,1)$ (schwarz) ist die Richtung des steilsten Abstiegs blau eingezeichnet. In (a) zeigt sie auf den tiefsten Punkt, in (b) weicht sie um etwa $31^\circ$ von der Richtung zum tiefsten Punkt (gestrichelt) ab.
 :::
+::::
 
 ⁠**Kurz gesagt:** Entlang einer Höhenlinie ändert sich $f$ nicht; deshalb steht der Gradient senkrecht auf ihr.
 
@@ -128,11 +134,13 @@ Für $f(\mathbf{x})=x_1^2+x_2^2$ ist $\nabla f(\mathbf{x})=2\mathbf{x}$. Der neg
 
 Der Grund liegt in der Form der Höhenlinien. Der Gradient weiß nur, wie das Gelände an seinem Fußpunkt geneigt ist; er steht senkrecht auf der Höhenlinie dort. Bei gestreckten Höhenlinien steht die Senkrechte schräg zur Richtung auf die Mitte. Im Beispiel wächst $f$ in Richtung $x_2$ viermal so schnell wie in Richtung $x_1$; die Wände der Schüssel sind in Richtung $x_2$ steiler, und der steilste Abstieg führt vor allem quer zu ihnen.
 
-⁠**Rechenbeispiel:** An der Stelle $(1,\,1)$ ist $-\nabla f=(-2,\,-8)^{\top}$ mit der Länge $\sqrt{68}\approx8{,}246$, die Richtung des steilsten Abstiegs also $(-0{,}243;\ -0{,}970)^{\top}$. Die Richtung zum tiefsten Punkt ist $(-1,\,-1)^{\top}/\sqrt2\approx(-0{,}707;\ -0{,}707)^{\top}$. Der Winkel zwischen beiden hat den Kosinus
+::::beispiel [Rechenbeispiel]
+An der Stelle $(1,\,1)$ ist $-\nabla f=(-2,\,-8)^{\top}$ mit der Länge $\sqrt{68}\approx8{,}246$, die Richtung des steilsten Abstiegs also $(-0{,}243;\ -0{,}970)^{\top}$. Die Richtung zum tiefsten Punkt ist $(-1,\,-1)^{\top}/\sqrt2\approx(-0{,}707;\ -0{,}707)^{\top}$. Der Winkel zwischen beiden hat den Kosinus
 
 $$\frac{(-2)\cdot(-1)+(-8)\cdot(-1)}{\sqrt{68}\cdot\sqrt2}=\frac{10}{\sqrt{136}}\approx0{,}857,$$
 
 er beträgt also etwa $31^\circ$. In Richtung des tiefsten Punkts ist die Steigung nach [(4.2)](#gl-4-2) nur $-10/\sqrt2\approx-7{,}07$, im steilsten Abstieg dagegen $-8{,}246$.
+::::
 
 ⁠**Kurz gesagt:** Der negative Gradient zeigt am steilsten bergab, aber nur bei runden Höhenlinien auf den tiefsten Punkt; bei gestreckten Höhenlinien zeigt er daran vorbei.
 

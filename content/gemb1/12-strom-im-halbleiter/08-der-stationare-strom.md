@@ -66,7 +66,11 @@ Für [(6.2)](#gl-6-2) setzt man rechts in $f=f^0+(e\mathcal E\tau_\text{scat}/\h
 Oben: Gleichgewicht (gestrichelt) und stationäre Verteilung $f$, Verschiebung stark übertrieben. Unten: Abweichung $f-f^0$. Im Halbleiter ändert sich die ganze Verteilung, im Metall nur die __Fermi-Kanten__ $\pm k_\mathrm F$, wo $f$ von 1 auf 0 fällt.
 :::
 
-**Beispiel.** Die Probe hat $\mu_\mathrm n=1200\,\mathrm{cm^2/(V\,s)}$. Bei $\mathcal E=1000$ V/m folgen $|\delta k|=2{,}7\cdot10^{-4}\,\mathrm{nm^{-1}}$, das sind $5\cdot10^{-4}$ von $k_\text{th}$, sowie $|v_\mathrm d|=120$ m/s, 1900-mal weniger als $v_\text{th}$, und $j=1{,}9\cdot10^{5}\,\mathrm{A/m^2}$ mit $\sigma=192$ S/m. **Grenzfall:** Für $\tau_\text{scat}\to\infty$ wächst $\delta k$ ohne Grenze, und es bleibt die Bloch-Schwingung.
+::::beispiel
+Die Probe hat $\mu_\mathrm n=1200\,\mathrm{cm^2/(V\,s)}$. Bei $\mathcal E=1000$ V/m folgen $|\delta k|=2{,}7\cdot10^{-4}\,\mathrm{nm^{-1}}$, das sind $5\cdot10^{-4}$ von $k_\text{th}$, sowie $|v_\mathrm d|=120$ m/s, 1900-mal weniger als $v_\text{th}$, und $j=1{,}9\cdot10^{5}\,\mathrm{A/m^2}$ mit $\sigma=192$ S/m.
+::::
+
+⁠**Grenzfall:** Für $\tau_\text{scat}\to\infty$ wächst $\delta k$ ohne Grenze, und es bleibt die Bloch-Schwingung.
 
 **Was die Gleichung mehr leistet.** Die Form $j=e\,n\,\mu\,\mathcal E$ gab schon das Gasmodell. Der Unterschied liegt in dem, was darin steckt:
 

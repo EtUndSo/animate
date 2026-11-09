@@ -54,7 +54,11 @@ $$\frac1R\frac{\mathrm{d}}{\mathrm{d} r}\Bigl(r^2\frac{\mathrm{d} R}{\mathrm{d} 
 Links steht nur $r$, rechts stehen nur die Winkel. Beide Seiten sind also gleich einer Konstanten $C$. Rechts kommt $V$ nicht vor: Der Winkelanteil ist für jedes Zentralpotential derselbe, nur $R$ kennt die Form von $V(r)$.
 :::
 
-**Beispiel.** Das erlaubte Gebiet endet bei $V(r)=E$, also beim Umkehrradius $r_\mathrm U=e^2/(4\pi\varepsilon_0|E|)$. Für $E=-3{,}4$ eV ist $r_\mathrm U=1{,}44\,\mathrm{eV\,nm}/3{,}4\,\mathrm{eV}=0{,}42$ nm. Im Abstand 0,0529 nm beträgt das Feld des Protons $\mathcal E=e/(4\pi\varepsilon_0r^2)=5{,}1\cdot10^{11}$ V/m, das 170 000-fache der Durchschlagsfeldstärke von Luft. Felder aus Schaltungen stören ein Atom deshalb kaum. **Grenzfälle:** Für $r\to\infty$ geht $V\to0$, und es bleibt das freie Teilchen aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html). Mit der Kernladung $Ze$ statt $e$ wird $V=-Ze^2/(4\pi\varepsilon_0r)$: Der Trichter wird tiefer, seine Form bleibt.
+::::beispiel
+Das erlaubte Gebiet endet bei $V(r)=E$, also beim Umkehrradius $r_\mathrm U=e^2/(4\pi\varepsilon_0|E|)$. Für $E=-3{,}4$ eV ist $r_\mathrm U=1{,}44\,\mathrm{eV\,nm}/3{,}4\,\mathrm{eV}=0{,}42$ nm. Im Abstand 0,0529 nm beträgt das Feld des Protons $\mathcal E=e/(4\pi\varepsilon_0r^2)=5{,}1\cdot10^{11}$ V/m, das 170 000-fache der Durchschlagsfeldstärke von Luft. Felder aus Schaltungen stören ein Atom deshalb kaum.
+::::
+
+⁠**Grenzfälle:** Für $r\to\infty$ geht $V\to0$, und es bleibt das freie Teilchen aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html). Mit der Kernladung $Ze$ statt $e$ wird $V=-Ze^2/(4\pi\varepsilon_0r)$: Der Trichter wird tiefer, seine Form bleibt.
 
 :::frage Rollt das Elektron wie eine Kugel im Trichter?
 Nein. Das Bild zeigt Energie über dem Ort, keine Höhe im Raum, und nur einen Schnitt: $V$ hängt in allen Richtungen gleich von $r$ ab. Das Elektron hat keine Bahn. Es ist eine stehende Welle, die zugleich im ganzen erlaubten Gebiet existiert. Eine rote Linie ist eine Energie, kein Weg.

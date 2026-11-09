@@ -38,7 +38,9 @@ For two capacitors in series, $C_\mathrm{G}=\dfrac{C_1C_2}{C_1+C_2}$, and the vo
 
 ⁠**How to read it:** $C_\mathrm{G}$ is the capacitance of a single capacitor that shows the same behavior at the two outer terminals. In parallel, $C_\mathrm{G}$ becomes larger than every individual value, in series smaller than the smallest. **Validity:** The right formula needs uncharged islands at the start. Otherwise the old island charge is conserved, and $Q_i=Q_\mathrm{G}$ holds only for the added charge.
 
-**Example.** Parallel: $C_\mathrm{G}=150\,\mu\text{F}$, $Q_1=900\,\mu\text{C}$, $Q_2=450\,\mu\text{C}$. In series: $1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$, so $C_\mathrm{G}=33.3\,\mu\text{F}$. At 9 V, $Q=300\,\mu\text{C}$, $U_1=3$ V and $U_2=6$ V.
+::::beispiel
+Parallel: $C_\mathrm{G}=150\,\mu\text{F}$, $Q_1=900\,\mu\text{C}$, $Q_2=450\,\mu\text{C}$. In series: $1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$, so $C_\mathrm{G}=33.3\,\mu\text{F}$. At 9 V, $Q=300\,\mu\text{C}$, $U_1=3$ V and $U_2=6$ V.
+::::
 
 ⁠**Limiting cases:** For $C_2\to\infty$, in series $C_\mathrm{G}\to C_1$: a huge capacitor behaves like a wire. For $C_2\to0$, in series $C_\mathrm{G}\to0$: the gap interrupts; in parallel, $C_1$ remains.
 

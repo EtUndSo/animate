@@ -36,7 +36,9 @@ $$\operatorname{span}\{\mathbf{v}_1,\dots,\mathbf{v}_k\}=\Bigl\{\sum_{l=1}^kc_l\
 
 Der Spaltenraum einer Matrix ist also der Spann ihrer Spalten. Mit zwei Vektoren liegt auch jede Linearkombination von ihnen im Spann; man verlässt ihn durch Addieren und Vervielfachen nie.
 
-⁠**Rechenbeispiel:** $\operatorname{span}\{(1,\,2)^{\top}\}$ ist die Gerade aller Vielfachen $c\,(1,\,2)^{\top}$. Der Spann von $(1,\,2)^{\top}$ und $(2,\,4)^{\top}$ ist dieselbe Gerade, denn $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Der Spann von $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ ist die ganze Ebene: Jeder Vektor $(y_1,\,y_2)^{\top}$ ist $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. Im $\mathbb{R}^3$ ist $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ die Ebene aller Vektoren mit $x_3=0$.
+::::beispiel [Rechenbeispiel]
+$\operatorname{span}\{(1,\,2)^{\top}\}$ ist die Gerade aller Vielfachen $c\,(1,\,2)^{\top}$. Der Spann von $(1,\,2)^{\top}$ und $(2,\,4)^{\top}$ ist dieselbe Gerade, denn $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Der Spann von $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ ist die ganze Ebene: Jeder Vektor $(y_1,\,y_2)^{\top}$ ist $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. Im $\mathbb{R}^3$ ist $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ die Ebene aller Vektoren mit $x_3=0$.
+::::
 
 ⁠**Kurz gesagt:** Der Spann einer Liste von Vektoren ist alles, was man aus ihnen linear kombinieren kann.
 
@@ -59,7 +61,9 @@ nur für $c_1=c_2=\dots=c_k=0$ gilt. Andernfalls heißen sie __linear abhängig_
 
 Linear abhängig heißt gleichwertig: Mindestens einer der Vektoren ist eine Linearkombination der anderen. Denn gilt [(13.2)](#gl-13-2) mit einem Koeffizienten $c_l\ne0$, so kann man nach $\mathbf{v}_l$ auflösen: $\mathbf{v}_l=-\sum_{l'\ne l}(c_{l'}/c_l)\,\mathbf{v}_{l'}$. Umgekehrt ergibt eine solche Darstellung sofort eine Kombination mit dem Koeffizienten $-1$ vor $\mathbf{v}_l$.
 
-⁠**Rechenbeispiel:** $(1,\,2)^{\top}$ und $(2,\,4)^{\top}$ sind linear abhängig: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. Die Vektoren $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ sind linear unabhängig: Aus $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ folgt erst $c_2=0$ und dann $c_1=0$. Die drei Vektoren $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ und $(1,\,1,\,2)^{\top}$ sind linear abhängig, denn der dritte ist die Summe der ersten beiden.
+::::beispiel [Rechenbeispiel]
+$(1,\,2)^{\top}$ und $(2,\,4)^{\top}$ sind linear abhängig: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. Die Vektoren $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ sind linear unabhängig: Aus $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ folgt erst $c_2=0$ und dann $c_1=0$. Die drei Vektoren $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ und $(1,\,1,\,2)^{\top}$ sind linear abhängig, denn der dritte ist die Summe der ersten beiden.
+::::
 
 ⁠**Kurz gesagt:** Linear unabhängig heißt: Keiner der Vektoren lässt sich aus den anderen kombinieren, es gibt keine Redundanz.
 
@@ -87,7 +91,9 @@ Ist $\mathbf{v}_1,\dots,\mathbf{v}_k$ eine Basis von $\mathcal S$, so hat jeder 
 Mindestens eine Darstellung gibt es, weil die Basis $\mathcal S$ aufspannt. Gäbe es zwei, $\sum_lc_l\mathbf{v}_l=\sum_lc_l'\mathbf{v}_l$, so wäre ihre Differenz $\sum_l(c_l-c_l')\mathbf{v}_l=\mathbf{0}$. Wegen der linearen Unabhängigkeit sind dann alle $c_l-c_l'=0$.
 :::
 
-⁠**Rechenbeispiel:** $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ bilden eine Basis des $\mathbb{R}^2$: Sie sind linear unabhängig und spannen die Ebene auf. Der Vektor $(3,\,2)^{\top}$ hat in dieser Basis die Koordinaten $1$ und $2$, denn $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. Die Gerade $\operatorname{span}\{(0,\,1)^{\top}\}$ hat die Dimension $1$, obwohl ihre Vektoren zwei Komponenten haben.
+::::beispiel [Rechenbeispiel]
+$(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ bilden eine Basis des $\mathbb{R}^2$: Sie sind linear unabhängig und spannen die Ebene auf. Der Vektor $(3,\,2)^{\top}$ hat in dieser Basis die Koordinaten $1$ und $2$, denn $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. Die Gerade $\operatorname{span}\{(0,\,1)^{\top}\}$ hat die Dimension $1$, obwohl ihre Vektoren zwei Komponenten haben.
+::::
 
 ⁠**Kurz gesagt:** Eine Basis ist eine Liste unabhängiger Vektoren, die alles aufspannt; ihre Länge ist die Dimension.
 
@@ -111,11 +117,13 @@ Die größte Zahl linear unabhängiger Spalten einer Matrix ist gleich der grö�
 
 Ist $\operatorname{rang}\mathbf{A}=\min(m,n)$, so hat $\mathbf{A}$ __vollen Rang__. Praktisch bestimmt man den Rang mit dem Gauß-Verfahren: Zeilenumformungen ändern ihn nicht, und in der Zeilenstufenform ist er die Zahl der Zeilen, die nicht ganz aus Nullen bestehen.
 
-⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat den Rang $1$: Die zweite Spalte ist das Doppelte der ersten, und ebenso die zweite Zeile das Doppelte der ersten. Für
+::::beispiel [Rechenbeispiel]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat den Rang $1$: Die zweite Spalte ist das Doppelte der ersten, und ebenso die zweite Zeile das Doppelte der ersten. Für
 
 $$\mathbf K=\begin{pmatrix}1&0&1\\0&1&1\\1&1&2\end{pmatrix}$$
 
 zieht man die erste und die zweite Zeile von der dritten ab und erhält die Zeilen $(1,0,1)$, $(0,1,1)$, $(0,0,0)$. Zwei Zeilen sind nicht null, also ist $\operatorname{rang}\mathbf K=2$; tatsächlich ist die dritte Spalte die Summe der ersten beiden. Die Datenmatrix der Wohnungen hat den vollen Rang $3$.
+::::
 
 ⁠**Kurz gesagt:** Der Rang zählt, wie viele wirklich verschiedene Richtungen in den Spalten einer Matrix stecken, und es sind genauso viele wie in ihren Zeilen.
 
@@ -161,7 +169,9 @@ Für $\mathbf{A}\in\mathbb{R}^{n\times n}$ sind gleichwertig: (i) $\mathbf{A}$ i
 Aus (i) folgt (ii) nach Unterabschnitt [11.5](einheitsmatrix-und-inverse.html#stufe-11-5). (ii), (iii) und (iv) sind nach dem Rangsatz und der Definition des Rangs gleichwertig. Es bleibt: Aus (iii) und (ii) folgt (i). Ist $\operatorname{rang}\mathbf{A}=n$, so ist der Spaltenraum ein Raum der Dimension $n$ im $\mathbb{R}^n$, also der ganze $\mathbb{R}^n$. Jedes System $\mathbf{A}\mathbf{c}_j=\mathbf{e}_j$ ist deshalb lösbar, und die Lösungen bilden die Spalten einer Matrix $\mathbf{C}$ mit $\mathbf{A}\mathbf{C}=\mathbf{I}$. Außerdem ist $\mathbf{A}(\mathbf{C}\mathbf{A}-\mathbf{I})=\mathbf{A}\mathbf{C}\mathbf{A}-\mathbf{A}=\mathbf 0$. Jede Spalte von $\mathbf{C}\mathbf{A}-\mathbf{I}$ liegt also im Kern, der nach (ii) nur den Nullvektor enthält. Also ist auch $\mathbf{C}\mathbf{A}=\mathbf{I}$, und $\mathbf{C}=\mathbf{A}^{-1}$.
 :::
 
-⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat den Kern $\operatorname{span}\{(2,\,-1)^{\top}\}$ der Dimension $1$ und den Rang $1$: $1+1=2$. Die Matrix $\mathbf K$ von oben hat den Kern $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, denn ihre dritte Spalte ist die Summe der ersten beiden; mit $\operatorname{rang}\mathbf K=2$ ist $1+2=3$.
+::::beispiel [Rechenbeispiel]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat den Kern $\operatorname{span}\{(2,\,-1)^{\top}\}$ der Dimension $1$ und den Rang $1$: $1+1=2$. Die Matrix $\mathbf K$ von oben hat den Kern $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, denn ihre dritte Spalte ist die Summe der ersten beiden; mit $\operatorname{rang}\mathbf K=2$ ist $1+2=3$.
+::::
 
 **Rang und Lösbarkeit.** Mit Rang und Kern lassen sich die Fragen aus Abschnitt [12](lineare-gleichungssysteme.html#stufe-12) an Zahlen ablesen, auch für Matrizen, die nicht quadratisch sind. Gibt es eine Lösung? Ist sie eindeutig? Gibt es für jede rechte Seite eine?
 
@@ -203,7 +213,9 @@ $\mathbf{A}\mathbf{x}=\mathbf{y}$ ist genau dann für jedes $\mathbf{y}\in\mathb
 
 Für eine quadratische Matrix mit $\operatorname{rang}\mathbf{A}=n=m$ treffen (ii) und (iii) zusammen: genau eine Lösung für jede rechte Seite, passend zum Satz über die Invertierbarkeit.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist $\operatorname{rang}\mathbf{A}=1$. Mit $\mathbf{y}=(1,\,1)^{\top}$ hat die erweiterte Matrix die Zeilen $(1,\,2\,|\,1)$ und $(2,\,4\,|\,1)$; zieht man die erste zweimal von der zweiten ab, bleibt $(0,\,0\,|\,-1)$, keine Nullzeile. Also ist $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, und das System ist unlösbar, wie in Unterabschnitt [12.2](lineare-gleichungssysteme.html#stufe-12-2). Mit $\mathbf{y}=(3,\,6)^{\top}$ bleibt dagegen $(0,\,0\,|\,0)$, die Ränge sind gleich, und das System ist lösbar. Wegen $\operatorname{rang}\mathbf{A}=1<2=n$ ist die Lösung nicht eindeutig: Alle Lösungen sind $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. Und wegen $\operatorname{rang}\mathbf{A}=1<2=m$ gibt es rechte Seiten ohne Lösung. Im überbestimmten System aus Unterabschnitt [12.5](lineare-gleichungssysteme.html#stufe-12-5) ist $\operatorname{rang}\mathbf{A}=2=n$: Gäbe es eine Lösung, wäre sie eindeutig. Es gibt aber keine, also ist dort nach (i) $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=3$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist $\operatorname{rang}\mathbf{A}=1$. Mit $\mathbf{y}=(1,\,1)^{\top}$ hat die erweiterte Matrix die Zeilen $(1,\,2\,|\,1)$ und $(2,\,4\,|\,1)$; zieht man die erste zweimal von der zweiten ab, bleibt $(0,\,0\,|\,-1)$, keine Nullzeile. Also ist $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, und das System ist unlösbar, wie in Unterabschnitt [12.2](lineare-gleichungssysteme.html#stufe-12-2). Mit $\mathbf{y}=(3,\,6)^{\top}$ bleibt dagegen $(0,\,0\,|\,0)$, die Ränge sind gleich, und das System ist lösbar. Wegen $\operatorname{rang}\mathbf{A}=1<2=n$ ist die Lösung nicht eindeutig: Alle Lösungen sind $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. Und wegen $\operatorname{rang}\mathbf{A}=1<2=m$ gibt es rechte Seiten ohne Lösung. Im überbestimmten System aus Unterabschnitt [12.5](lineare-gleichungssysteme.html#stufe-12-5) ist $\operatorname{rang}\mathbf{A}=2=n$: Gäbe es eine Lösung, wäre sie eindeutig. Es gibt aber keine, also ist dort nach (i) $\operatorname{rang}(\mathbf{A}\,|\,\mathbf{y})=3$.
+::::
 
 ⁠**Kurz gesagt:** Der Kern sammelt die Richtungen, die eine Matrix auf null abbildet; Kern und Rang teilen sich die $n$ Eingangsrichtungen. Ein System $\mathbf{A}\mathbf{x}=\mathbf{y}$ ist genau dann lösbar, wenn die rechte Seite den Rang nicht erhöht, und die Lösung ist genau dann eindeutig, wenn der Kern nur den Nullvektor enthält.
 
@@ -213,7 +225,8 @@ Für eine quadratische Matrix mit $\operatorname{rang}\mathbf{A}=n=m$ treffen (i
 
 In echten Datensätzen tragen Merkmale manchmal dieselbe Information doppelt. Ein Fragebogen erfasst das Körpergewicht in Kilogramm und, für eine andere Auswertung, noch einmal in Pfund. Eine Hausbeschreibung nennt die Fläche des Erdgeschosses, die des Obergeschosses und die Gesamtfläche. Für die Datenmatrix heißt das: Ihre Spalten sind linear abhängig, und ihr Rang ist kleiner als die Zahl der Merkmale.
 
-⁠**Rechenbeispiel: Erdgeschoss, Obergeschoss, Gesamtfläche.** Vier Häuser:
+::::beispiel [Rechenbeispiel] Erdgeschoss, Obergeschoss, Gesamtfläche
+Vier Häuser:
 
 $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\qquad(\text{Flächen in }\mathrm m^2).$$
 
@@ -234,12 +247,15 @@ Die dritte Spalte ist die Summe der ersten beiden. Also ist $\operatorname{rang}
 </li>
 
 </ul>
+::::
 
-⁠**Rechenbeispiel: Kilogramm und Pfund.** Ein Pfund sind genau $0{,}45359237$ kg, also ist eine Masse in Pfund das $c=1/0{,}45359237\approx2{,}20462$-Fache derselben Masse in Kilogramm. Drei Personen mit Größe (cm), Masse (kg) und Masse (Pfund):
+::::beispiel [Rechenbeispiel] Kilogramm und Pfund
+Ein Pfund sind genau $0{,}45359237$ kg, also ist eine Masse in Pfund das $c=1/0{,}45359237\approx2{,}20462$-Fache derselben Masse in Kilogramm. Drei Personen mit Größe (cm), Masse (kg) und Masse (Pfund):
 
 $$\mathbf{X}=\begin{pmatrix}170&70&70\,c\\182&85&85\,c\\165&60&60\,c\end{pmatrix}\approx\begin{pmatrix}170&70&154{,}3\\182&85&187{,}4\\165&60&132{,}3\end{pmatrix}.$$
 
 Die dritte Spalte ist das $c$-Fache der zweiten, also ist $\operatorname{rang}\mathbf{X}=2$ und $(0,\,c,\,-1)^{\top}$ liegt im Kern. Die Pfundspalte bringt keine neue Information, sie verdoppelt nur eine vorhandene.
+::::
 
 ⁠**Kurz gesagt:** Tragen Merkmale dieselbe Information doppelt, sind die Spalten der Datenmatrix linear abhängig; dann ist der Rang kleiner als $d$, verschiedene Gewichte liefern dieselben Vorhersagen, und $\mathbf{X}^{\top}\mathbf{X}$ ist nicht invertierbar.
 

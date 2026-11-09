@@ -60,13 +60,16 @@ $$\int_0^Ts_p(t)\mathrm{e}^{-\mathrm{j}2\pi nFt}\mathrm{d} t=\sum_kS_p(k)\int_0^
 Para $k\neq n$, la integral vale $\frac{\mathrm{e}^{\mathrm{j}2\pi(k-n)FT}-1}{\mathrm{j}2\pi(k-n)F}=0$, porque $\mathrm{e}^{\mathrm{j}2\pi(k-n)}=1$. Como el integrando tiene periodo $T$, se puede integrar sobre cualquier intervalo de longitud $T$.
 :::
 
-**Ejemplo: una serie finita.** $s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$. Con las fórmulas de Euler, los coeficientes se leen directamente, sin integrar:
+::::beispiel una serie finita
+$s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$. Con las fórmulas de Euler, los coeficientes se leen directamente, sin integrar:
 
 $$2\cos(2\pi Ft)=\mathrm{e}^{\mathrm{j}2\pi Ft}+\mathrm{e}^{-\mathrm{j}2\pi Ft},\qquad\sin(4\pi Ft)=\frac{1}{2\mathrm{j}}\mathrm{e}^{\mathrm{j}4\pi Ft}-\frac{1}{2\mathrm{j}}\mathrm{e}^{-\mathrm{j}4\pi Ft},$$
 
 es decir, $S_p(0)=1$, $S_p(\pm1)=1$, $S_p(2)=-\tfrac{\mathrm{j}}{2}$, $S_p(-2)=\tfrac{\mathrm{j}}{2}$, todos los demás nulos. Comprobación: $S_p(-2)=S_p^*(2)$.
+::::
 
-**Ejemplo: la onda cuadrada.** Para el modelo de referencia (1 para $|t|\le T_1/2$, con $T_1=T/2$):
+::::beispiel la onda cuadrada
+Para el modelo de referencia (1 para $|t|\le T_1/2$, con $T_1=T/2$):
 
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
@@ -76,6 +79,7 @@ Con $T_1=T/2$: $S_p(0)=0{,}5$, $S_p(\pm1)=1/\pi=0{,}318$, $S_p(\pm2)=0$, $S_p(\p
 :::abbildung et3/k3koeff 1
 Coeficientes de Fourier de la onda cuadrada (0/1) para dos anchuras de pulso. En trazo discontinuo, la envolvente $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$. Con $T_1=T/2$ faltan los armónicos pares; con $T_1=T/4$, uno de cada cuatro.
 :::
+::::
 
 :::frage ¿Por qué en una señal periódica no aparecen frecuencias entre los armónicos?
 Porque cada oscilación de la suma tiene que tener ella misma el periodo $T$; si no, la suma no sería periódica. Una oscilación con $f=1{,}5F$ solo ha dado vuelta y media al cabo de $T$ y está en una posición distinta de la inicial. Ningún peso, por bien elegido que esté, puede compensarlo, porque las frecuencias distintas son ortogonales y no pueden anularse entre sí.

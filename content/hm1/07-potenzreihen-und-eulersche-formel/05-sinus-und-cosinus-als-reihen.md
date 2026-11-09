@@ -72,7 +72,9 @@ Damit ist $B=0$ und $R=\infty$.
 (i) folgt aus Satz [2.3](den-radius-ausrechnen.html#satz-2-3). (ii): $(-x)^{2n+1}=-x^{2n+1}$ und $(-x)^{2n}=x^{2n}$. (iii): Für $x=0$ bleibt nur das Glied $n=0$, beim Cosinus $0^0=1$, beim Sinus $0^1=0$. (iv): Für $x\ne0$ ist $\frac{\sin x}x=\sum_{n=0}^\infty\frac{(-1)^n}{(2n+1)!}x^{2n}$. Das ist wieder eine Potenzreihe mit $R=\infty$, also stetig in 0, mit dem Wert 1 bei $x=0$.
 :::
 
-**Beispiel.** $\sin1\approx1-\frac16+\frac1{120}=0{,}84167$. Nach Leibniz ist der Fehler höchstens das nächste Glied $\frac1{5040}\approx0{,}0002$. Genau ist $\sin1=0{,}84147$. Ebenso $\cos1\approx1-\frac12+\frac1{24}-\frac1{720}=0{,}54028$ (genau $0{,}54030$).
+::::beispiel
+$\sin1\approx1-\frac16+\frac1{120}=0{,}84167$. Nach Leibniz ist der Fehler höchstens das nächste Glied $\frac1{5040}\approx0{,}0002$. Genau ist $\sin1=0{,}84147$. Ebenso $\cos1\approx1-\frac12+\frac1{24}-\frac1{720}=0{,}54028$ (genau $0{,}54030$).
+::::
 
 ⁠**Grenzfall kleine $x$:** Bei $x=0{,}1$ ist $\sin x=0{,}09983$. Die Näherung $\sin x\approx x$ irrt um $1{,}7\cdot10^{-4}$, das ist fast genau $x^3/6$. Die Näherung $\cos x\approx1-x^2/2$ irrt um $4{,}2\cdot10^{-6}$, also um $x^4/24$. **Grenzfall große $x$:** Bei $x=6$ sind die Beträge der Glieder $6;\ 36;\ 64{,}8;\ 55{,}5;\ 27{,}8;\ \dots$ Sie heben sich zu $\sin6=-0{,}279$ fast auf (Abb. [3](#abb-3)).
 

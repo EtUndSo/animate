@@ -55,7 +55,8 @@ $$U_\mathrm{CC}-U_\mathrm{BE}=\Bigl(\frac{I_\mathrm{C}}{B}+I_\mathrm{C}\Bigr)R_\
 Despejando $I_\mathrm{C}$ se obtiene [(7.2)](#gl-7-2).
 :::
 
-**Ejemplo.** Modelo de referencia: $U_\mathrm{q}=2{,}7$ V, $R_\mathrm{i}=6{,}98$ k$\Omega$, $R_\mathrm{i}/B=35\,\Omega\ll1$ k$\Omega$. Con ello, $I_\mathrm{C}=2{,}1\,\mathrm{V}/1040\,\Omega=2{,}02$ mA y $U_\mathrm{CE}=12\,\mathrm{V}-6{,}06\,\mathrm{V}-2{,}03\,\mathrm{V}=3{,}91$ V, luego activa. El potencial de base es 2,63 V, y el divisor lleva 300 µ A, 30 veces $I_\mathrm{B}$.
+::::beispiel
+Modelo de referencia: $U_\mathrm{q}=2{,}7$ V, $R_\mathrm{i}=6{,}98$ k$\Omega$, $R_\mathrm{i}/B=35\,\Omega\ll1$ k$\Omega$. Con ello, $I_\mathrm{C}=2{,}1\,\mathrm{V}/1040\,\Omega=2{,}02$ mA y $U_\mathrm{CE}=12\,\mathrm{V}-6{,}06\,\mathrm{V}-2{,}03\,\mathrm{V}=3{,}91$ V, luego activa. El potencial de base es 2,63 V, y el divisor lleva 300 µ A, 30 veces $I_\mathrm{B}$.
 
 | $I_\mathrm{C}$ con | $B=100$ | $B=200$ | $B=400$ |
 |---|---|---|---|
@@ -63,7 +64,10 @@ Despejando $I_\mathrm{C}$ se obtiene [(7.2)](#gl-7-2).
 | realimentación de tensión ($R_\mathrm{B}=540$ k$\Omega$) | 1,35 mA | 1,99 mA | 2,62 mA |
 | realimentación de corriente | 1,94 mA | 2,02 mA | 2,06 mA |
 
-Tampoco la temperatura influye ya apenas: 50 K de calentamiento bajan $U_\mathrm{BE}$ en 0,1 V, y con [(7.1)](#gl-7-1) $I_\mathrm{C}$ sube solo un 4,8 %. Con una tensión $U_\mathrm{BE}$ fija se multiplicaría por 47. La realimentación de tensión logra menos, porque aquí $R_\mathrm{B}/B=2{,}7$ k$\Omega$ no es pequeña frente a 3 k$\Omega$. Con $R_\mathrm{B}=100$ k$\Omega$, $I_\mathrm{C}$ solo varía entre 2,83 mA y 3,50 mA, pero entonces solo quedan $U_\mathrm{CE}=2{,}2$ V. **Casos límite:** $R_\mathrm{E}\to0$ da $I_\mathrm{C}=B(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{i}$, la fórmula con resistencia de base de la etapa [5](der-arbeitspunkt.html#stufe-5). $B\to\infty$ da $I_\mathrm{C}=(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{E}$.
+Tampoco la temperatura influye ya apenas: 50 K de calentamiento bajan $U_\mathrm{BE}$ en 0,1 V, y con [(7.1)](#gl-7-1) $I_\mathrm{C}$ sube solo un 4,8 %. Con una tensión $U_\mathrm{BE}$ fija se multiplicaría por 47. La realimentación de tensión logra menos, porque aquí $R_\mathrm{B}/B=2{,}7$ k$\Omega$ no es pequeña frente a 3 k$\Omega$. Con $R_\mathrm{B}=100$ k$\Omega$, $I_\mathrm{C}$ solo varía entre 2,83 mA y 3,50 mA, pero entonces solo quedan $U_\mathrm{CE}=2{,}2$ V.
+::::
+
+⁠**Casos límite:** $R_\mathrm{E}\to0$ da $I_\mathrm{C}=B(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{i}$, la fórmula con resistencia de base de la etapa [5](der-arbeitspunkt.html#stufe-5). $B\to\infty$ da $I_\mathrm{C}=(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{E}$.
 
 :::frage ¿Qué cuesta la resistencia de emisor?
 Dos cosas. La tensión en $R_\mathrm{E}$, aquí 2 V, le falta al colector para la excursión de la señal. Y la realimentación negativa actúa también sobre la señal: la ganancia de tensión baja mucho (etapa [10](drei-grundschaltungen.html#stufe-10)). Un condensador en paralelo con $R_\mathrm{E}$ actúa como un hilo para las señales alternas y elimina el segundo inconveniente.

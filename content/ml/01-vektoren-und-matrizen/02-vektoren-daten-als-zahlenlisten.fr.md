@@ -41,17 +41,21 @@ $$\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij} .$$
 
 On la lit de l’intérieur vers l’extérieur : pour chaque ligne $i$, la somme intérieure additionne les nombres de cette ligne, et la somme extérieure additionne les sommes des lignes. Comme l’ordre n’importe pas lorsque les termes sont en nombre fini, on peut échanger les deux symboles somme et additionner d’abord colonne par colonne.
 
-⁠**Exemple de calcul 1 :** Pour $a_1=2$, $a_2=5$, $a_3=1$, on écrit d’abord chaque somme en entier, puis on y substitue les nombres et l’on additionne (Fig. [1](#abb-1)). Ainsi, $\sum_{i=1}^3 a_i=8$ et $\sum_{i=1}^3 a_i^2=30$. Dans la troisième somme, l’indice de sommation est lui-même le terme : $\sum_{j=1}^{3}j=6$.
+::::beispiel [Exemple de calcul 1]
+Pour $a_1=2$, $a_2=5$, $a_3=1$, on écrit d’abord chaque somme en entier, puis on y substitue les nombres et l’on additionne (Fig. [1](#abb-1)). Ainsi, $\sum_{i=1}^3 a_i=8$ et $\sum_{i=1}^3 a_i^2=30$. Dans la troisième somme, l’indice de sommation est lui-même le terme : $\sum_{j=1}^{3}j=6$.
 
 :::abbildung ml/k1rsumme 1
 Trois sommes pas à pas : écrire le symbole somme en entier, substituer les nombres, additionner.
 :::
+::::
 
-⁠**Exemple de calcul 2 :** Le tableau de lignes $(1,\,2)$ et $(3,\,4)$ a pour coefficients $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. En additionnant ligne par ligne, la somme double donne $(1+2)+(3+4)=10$, et colonne par colonne $(1+3)+(2+4)=10$ (Fig. [2](#abb-2)).
+::::beispiel [Exemple de calcul 2]
+Le tableau de lignes $(1,\,2)$ et $(3,\,4)$ a pour coefficients $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. En additionnant ligne par ligne, la somme double donne $(1+2)+(3+4)=10$, et colonne par colonne $(1+3)+(2+4)=10$ (Fig. [2](#abb-2)).
 
 :::abbildung ml/k1rdoppel 2
 La somme double sur le tableau de lignes $(1,\,2)$ et $(3,\,4)$, en haut d’abord ligne par ligne, en bas d’abord colonne par colonne. Les deux ordres donnent la même somme.
 :::
+::::
 
 ⁠**En bref :** $\sum_{i=1}^n a_i$ est la somme de $a_1$ à $a_n$ ; l’indice de sommation $i$ n’est qu’un indice muet.
 
@@ -88,7 +92,9 @@ Dans toute la série, $N$ est le nombre d’exemples et $d$ le nombre de caract�
 
 Deux remarques sur les mots. Dans les bases de données, une ligne d’un tableau s’appelle souvent « enregistrement » ; le jeu de données, lui, est ici la collection entière. Et le mot « exemple » désigne toujours, dans ce chapitre, une chose issue d’un jeu de données ; c’est pourquoi les exercices entièrement calculés s’appellent « exemple de calcul ».
 
-⁠**Exemple de calcul :** Le jeu de données des appartements comporte $N=4$ exemples et $d=3$ caractéristiques. La caractéristique 2 est le nombre de pièces. Pour l’appartement 3, elle vaut $4$.
+::::beispiel [Exemple de calcul]
+Le jeu de données des appartements comporte $N=4$ exemples et $d=3$ caractéristiques. La caractéristique 2 est le nombre de pièces. Pour l’appartement 3, elle vaut $4$.
+::::
 
 Une propriété n’est pas toujours, par nature, un nombre. Le quartier d’un appartement est un nom. De telles propriétés doivent d’abord être traduites en nombres avant que l’on puisse calculer avec elles. Dans ce chapitre, toutes les caractéristiques sont déjà des nombres.
 
@@ -126,7 +132,9 @@ Les vecteurs s’écrivent en minuscules grasses, leurs composantes en caractèr
 
 **Les exemples d’un jeu de données.** L’exemple numéro $i$ est le vecteur $\mathbf{x}_i\in\mathbb{R}^d$. On appelle aussi le vecteur d’un exemple son __vecteur de caractéristiques__. Ses composantes reçoivent deux indices : $x_{ij}$ est la valeur de la caractéristique $j$ pour l’exemple $i$. Une lettre grasse avec un indice est donc un vecteur entier tiré d’une liste de vecteurs, une lettre maigre avec deux indices un nombre isolé.
 
-⁠**Exemple de calcul :** L’appartement 1 est le vecteur $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Sa deuxième composante est $x_{12}=2$. Le vecteur $(2,\,60,\,3)^{\top}$ contient les mêmes nombres, mais c’est un autre vecteur : en première position figure maintenant le nombre $2$, et on le lirait comme une surface.
+::::beispiel [Exemple de calcul]
+L’appartement 1 est le vecteur $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Sa deuxième composante est $x_{12}=2$. Le vecteur $(2,\,60,\,3)^{\top}$ contient les mêmes nombres, mais c’est un autre vecteur : en première position figure maintenant le nombre $2$, et on le lirait comme une surface.
+::::
 
 ⁠**En bref :** Un vecteur est une liste ordonnée de nombres, que l’on peut dessiner comme un point ou comme une flèche ; un exemple à $d$ caractéristiques est un vecteur de $\mathbb{R}^d$.
 
@@ -165,11 +173,13 @@ Comme chaque composante est à elle seule un calcul ordinaire sur des nombres, l
 
 La différence $\mathbf{u}-\mathbf{v}$ a sa propre interprétation géométrique. C’est la flèche qui va de la pointe de $\mathbf{v}$ à la pointe de $\mathbf{u}$, car $\mathbf{v}+(\mathbf{u}-\mathbf{v})=\mathbf{u}$. Pour deux exemples, elle indique de combien ils diffèrent pour chaque caractéristique.
 
-⁠**Exemple de calcul :** De janvier à mars, l’appartement 1 a consommé $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilowattheures d’électricité, et l’appartement 2, dans le même immeuble, $\mathbf{v}=(150,\,100,\,120)^{\top}$. Ensemble, ils consomment
+::::beispiel [Exemple de calcul]
+De janvier à mars, l’appartement 1 a consommé $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilowattheures d’électricité, et l’appartement 2, dans le même immeuble, $\mathbf{v}=(150,\,100,\,120)^{\top}$. Ensemble, ils consomment
 
 $$\mathbf{u}+\mathbf{v}=(350,\,350,\,420)^{\top}\ \text{kWh}.$$
 
 Le multiple $0{,}001\,\mathbf{u}=(0{,}2;\ 0{,}25;\ 0{,}3)^{\top}$ donne la consommation de l’appartement 1 en mégawattheures. La différence $\mathbf{u}-\mathbf{v}=(50,\,150,\,180)^{\top}$ indique combien de kilowattheures l’appartement 1 consomme chaque mois de plus que l’appartement 2. Dans le jeu de données des appartements, $\mathbf{x}_3-\mathbf{x}_1=(30,\,2,\,3)^{\top}$ : l’appartement 3 est plus grand de $30\,\mathrm m^2$, a deux pièces de plus et se trouve $3$ km plus loin du centre que l’appartement 1.
+::::
 
 ⁠**En bref :** On additionne des vecteurs et on les multiplie par un nombre en procédant composante par composante.
 
@@ -194,15 +204,20 @@ une __combinaison linéaire__ des vecteurs $\mathbf{v}_1,\dots,\mathbf{v}_k$. Le
 
 Attention à la lecture : $\mathbf{v}_l$ est en gras, c’est donc le $l$-ième vecteur de la liste, et non la $l$-ième composante d’un vecteur.
 
-⁠**Exemple de calcul 1 :** $(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::beispiel [Exemple de calcul 1]
+$(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::
 
-⁠**Exemple de calcul 2 : le milieu.** La combinaison linéaire $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ des appartements 1 et 2 vaut
+::::beispiel [Exemple de calcul 2] le milieu
+La combinaison linéaire $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ des appartements 1 et 2 vaut
 
 $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{\top}.$$
 
 C’est un appartement fictif qui se situe, pour chaque caractéristique, exactement entre les deux. Le point se trouve au milieu du segment qui les relie.
+::::
 
-⁠**Exemple de calcul 3 : la moyenne des exemples.** Si l’on prend les $N$ exemples avec le coefficient $1/N$, on obtient la __moyenne des exemples__
+::::beispiel [Exemple de calcul 3] la moyenne des exemples
+Si l’on prend les $N$ exemples avec le coefficient $1/N$, on obtient la __moyenne des exemples__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
@@ -212,6 +227,7 @@ Pour le jeu de données des appartements, $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\t
 :::abbildung ml/k1rmittelvektor 5
 La moyenne des quatre appartements : la somme des vecteurs est calculée composante par composante, puis divisée par $4$ ; $5/2=2{,}5$.
 :::
+::::
 
 ⁠**En bref :** Une combinaison linéaire multiplie chaque vecteur par son propre nombre et additionne le tout.
 
@@ -242,7 +258,9 @@ $$\mathbf{x}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\dots+x_d\mathbf{e}_d=\sum_{j=1}^d 
 
 On le voit en calculant le membre de droite composante par composante : en position $j$, seul le terme $x_j\mathbf{e}_j$ apporte une contribution, à savoir $x_j\cdot1$. D’autres coefficients sont impossibles, car ils donneraient un autre nombre en une position ou une autre.
 
-⁠**Exemple de calcul :** $\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, soit $60$ fois « un mètre carré » plus $2$ fois « une pièce » plus $3$ fois « un kilomètre ».
+::::beispiel [Exemple de calcul]
+$\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, soit $60$ fois « un mètre carré » plus $2$ fois « une pièce » plus $3$ fois « un kilomètre ».
+::::
 
 ⁠**En bref :** Le vecteur unitaire $\mathbf{e}_j$ vaut un en position $j$ et zéro partout ailleurs ; tout vecteur est la somme $\sum_jx_j\mathbf{e}_j$.
 

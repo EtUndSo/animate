@@ -28,7 +28,8 @@ Al desarrollar $G=S\cdot H$ con ambas representaciones [(7.2)](der-ideale-bandpa
 
 ⁠**Cómo leerlo:** el factor $\frac12$ compensa que $S_T$ y $H_T$ se hayan duplicado ambos. Por lo demás, es el teorema de convolución habitual, solo que para las envolventes. Ni siquiera hace falta incluir la portadora en el cálculo.
 
-**Ejemplo: coseno conectado que atraviesa el paso banda ideal.** $s(t)=\varepsilon(t)\cos(2\pi f_0t)$ con $f_0=10$ Hz; paso banda con $\Delta f=2$ Hz en torno a $f_0$. La envolvente de la entrada es $s_T\approx\varepsilon(t)$. (Aproximación: el espectro del escalón no está limitado a $f>-f_0$, pero en la banda de paso, $|f|\le\Delta f/2\ll f_0$, es válida.) Con $h_T=2\Delta f\operatorname{si}(\pi\Delta f\,t)$:
+::::beispiel coseno conectado que atraviesa el paso banda ideal
+$s(t)=\varepsilon(t)\cos(2\pi f_0t)$ con $f_0=10$ Hz; paso banda con $\Delta f=2$ Hz en torno a $f_0$. La envolvente de la entrada es $s_T\approx\varepsilon(t)$. (Aproximación: el espectro del escalón no está limitado a $f>-f_0$, pero en la banda de paso, $|f|\le\Delta f/2\ll f_0$, es válida.) Con $h_T=2\Delta f\operatorname{si}(\pi\Delta f\,t)$:
 
 $$g_T(t)\approx\tfrac12\bigl[\varepsilon(t)*2\Delta f\operatorname{si}(\pi\Delta f\,t)\bigr]=\frac12+\frac1\pi\operatorname{Si}(\pi\Delta f\,t),\qquad g(t)\approx\Bigl[\frac12+\frac1\pi\operatorname{Si}(\pi\Delta f\,t)\Bigr]\cos(2\pi f_0t).$$
 
@@ -37,6 +38,7 @@ La envolvente es la respuesta al escalón de un paso bajo ideal con $f_\mathrm g
 :::abbildung et3/k5bandpass 5
 Respuesta del paso banda ideal ($f_0=10$ Hz, $\Delta f=2$ Hz) a un coseno de la frecuencia central conectado en $t=0$. En azul, la señal de salida; en rojo, la envolvente $\pm g_T(t)$. Sube en aproximadamente 0,5 s y, con la sobreoscilación, llega hasta 1,09.
 :::
+::::
 
 :::ltspice Portadora conectada a través de un circuito resonante
 Un paso banda ideal no se puede construir; un circuito resonante serie, sí. **Esquema:** fuente `voltage` en el nodo `in` y luego, en serie, `ind` con `{L}`, `cap` con `{1/((2*pi*f0)**2*L)}` y `res` con `{2*pi*df*L}` a masa. La salida `out` es la tensión en la resistencia. Con `.param f0=10 df=2 L=1`, la frecuencia central es 10 Hz, y el ancho de banda entre los puntos de $-3$ dB, 2 Hz.

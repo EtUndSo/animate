@@ -48,11 +48,11 @@ $$\bigl((\mathbf{A}\mathbf{B})^{\top}\bigr)_{li}=(\mathbf{A}\mathbf{B})_{il}=\su
 Die ersten drei Regeln folgen direkt aus der Definition.
 :::
 
-⁠**Rechenbeispiel:**
-
+::::beispiel [Rechenbeispiel]
 $$\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^{\top}=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}.$$
 
 Für $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ und $\mathbf{D}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)$ ist $\mathbf{C}\mathbf{D}=\bigl(\begin{smallmatrix}2&3\\4&7\end{smallmatrix}\bigr)$, also $(\mathbf{C}\mathbf{D})^{\top}=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$. Dasselbe liefert $\mathbf{D}^{\top}\mathbf{C}^{\top}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&3\\2&4\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$, während $\mathbf{C}^{\top}\mathbf{D}^{\top}=\bigl(\begin{smallmatrix}3&4\\4&6\end{smallmatrix}\bigr)$ etwas anderes ist.
+::::
 
 ⁠**Kurz gesagt:** Transponieren vertauscht Zeilen und Spalten; beim Produkt kehrt sich die Reihenfolge um, $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$.
 
@@ -79,11 +79,13 @@ $$(\mathbf{A}^{\top}\mathbf{A})^{\top}=\mathbf{A}^{\top}(\mathbf{A}^{\top})^{\to
 
 also ist $\mathbf{A}^{\top}\mathbf{A}$ symmetrisch, und ebenso $\mathbf{A}\mathbf{A}^{\top}$.
 
-⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ ist symmetrisch, die Drehung $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ nicht. Für $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ ist
+::::beispiel [Rechenbeispiel]
+$\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ ist symmetrisch, die Drehung $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ nicht. Für $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ ist
 
 $$\mathbf{C}^{\top}\mathbf{C}=\begin{pmatrix}1&3\\2&4\end{pmatrix}\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}10&14\\14&20\end{pmatrix},$$
 
 symmetrisch, wie [(10.2)](#gl-10-2) verlangt.
+::::
 
 ⁠**Kurz gesagt:** Eine symmetrische Matrix ist gleich ihrer Transponierten; $\mathbf{A}^{\top}\mathbf{A}$ und $\mathbf{A}\mathbf{A}^{\top}$ sind immer symmetrisch.
 
@@ -119,11 +121,13 @@ $$\lVert\mathbf{x}_i-\mathbf{x}_k\rVert^2=(\mathbf{X}\mathbf{X}^{\top})_{ii}+(\m
 
 Teilt man den Eintrag $(i,k)$ durch $\sqrt{(\mathbf{X}\mathbf{X}^{\top})_{ii}\,(\mathbf{X}\mathbf{X}^{\top})_{kk}}$, erhält man die Kosinus-Ähnlichkeit von $\mathbf{x}_i$ und $\mathbf{x}_k$.
 
-⁠**Rechenbeispiel:** Für die drei Texte aus Unterabschnitt [5.4](winkel-und-ahnlichkeit.html#stufe-5-4) ist
+::::beispiel [Rechenbeispiel]
+Für die drei Texte aus Unterabschnitt [5.4](winkel-und-ahnlichkeit.html#stufe-5-4) ist
 
 $$\mathbf{X}=\begin{pmatrix}3&2&0\\6&4&0\\0&1&3\end{pmatrix},\qquad \mathbf{X}\mathbf{X}^{\top}=\begin{pmatrix}13&26&2\\26&52&4\\2&4&10\end{pmatrix}.$$
 
 Der Abstand von Text 1 und Text 3 ist nach [(10.4)](#gl-10-4) $\sqrt{13+10-2\cdot2}=\sqrt{19}$, wie früher berechnet. Die Kosinus-Ähnlichkeit von Text 1 und Text 2 ist $26/\sqrt{13\cdot52}=1$.
+::::
 
 ⁠**Kurz gesagt:** Die Gram-Matrix $\mathbf{X}\mathbf{X}^{\top}$ ist die Tabelle aller paarweisen Skalarprodukte der Beispiele; aus ihr folgen alle Längen, Abstände und Winkel.
 
@@ -153,7 +157,8 @@ Jedes Beispiel trägt sein eigenes äußeres Produkt bei.
 
 Der Eintrag $(j,l)$ der rechten Seite ist $\sum_ix_{ij}\,x_{il}$, derselbe wie in [(10.5)](#gl-10-5). Kommt ein neues Beispiel hinzu, ändert sich $\mathbf{X}^{\top}\mathbf{X}$ also nur um eine weitere Schicht $\mathbf{x}_{N+1}\mathbf{x}_{N+1}^{\top}$; man muss nicht alles neu ausrechnen.
 
-⁠**Rechenbeispiel:** Für die Texte ist
+::::beispiel [Rechenbeispiel]
+Für die Texte ist
 
 $$\mathbf{X}^{\top}\mathbf{X}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
 
@@ -166,6 +171,7 @@ Die erste Zeile der Gram-Matrix der Merkmale: Die Spalte „Tor“ $(3,\,6,\,0)^
 Die $0$ an der Stelle $(1,3)$ sagt: Die Wörter „Tor“ und „Wahl“ kommen in keinem Text gemeinsam vor. Als Summe der drei äußeren Produkte:
 
 $$\begin{pmatrix}9&6&0\\6&4&0\\0&0&0\end{pmatrix}+\begin{pmatrix}36&24&0\\24&16&0\\0&0&0\end{pmatrix}+\begin{pmatrix}0&0&0\\0&1&3\\0&3&9\end{pmatrix}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** $\mathbf{X}^{\top}\mathbf{X}$ ist die Gram-Matrix der Merkmalsspalten; sie ist die Summe der äußeren Produkte $\mathbf{x}_i\mathbf{x}_i^{\top}$ aller Beispiele.
 

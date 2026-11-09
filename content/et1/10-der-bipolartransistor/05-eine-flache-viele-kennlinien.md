@@ -47,7 +47,11 @@ Vier Schnitte aus Gleichung [(3.1)](#gl-3-1). Links Eingangs- und Steuerkennlini
 
 Die Stromsteuerkennlinie heißt auch __Übertragungskennlinie__. Bei sehr großen Strömen flacht sie ab, $B$ sinkt: Die Basis ist dann so voll von Elektronen, dass die einfache Rechnung nicht mehr gilt. Die Grenze $U_\mathrm{CE}=U_\mathrm{BE}$ in Abb. [4](#abb-4) ist der Ort $U_\mathrm{CB}=0$. Links davon leitet die CB-Diode bereits schwach, die Kurve knickt aber erst unter rund 0,2 V ein.
 
-**Beispiel.** Schnitt bei $U_\mathrm{CE}=6$ V: 0,582 V, 0,600 V und 0,618 V ergeben 1,0 mA, 2,0 mA und 4,0 mA. Schnitt bei $U_\mathrm{BE}=0{,}6$ V: $U_\mathrm{CE}=0{,}05$ V; 0,2 V; 6 V; 14 V ergeben 1,58 mA; 1,85 mA; 2,00 mA; 2,20 mA. **Grenzfall:** Für $U_\mathrm{CE}=0$ ist $I_\mathrm{C}=0$: Beide Ränder der Basis liegen gleich hoch, es gibt kein Gefälle.
+::::beispiel
+Schnitt bei $U_\mathrm{CE}=6$ V: 0,582 V, 0,600 V und 0,618 V ergeben 1,0 mA, 2,0 mA und 4,0 mA. Schnitt bei $U_\mathrm{BE}=0{,}6$ V: $U_\mathrm{CE}=0{,}05$ V; 0,2 V; 6 V; 14 V ergeben 1,58 mA; 1,85 mA; 2,00 mA; 2,20 mA.
+::::
+
+⁠**Grenzfall:** Für $U_\mathrm{CE}=0$ ist $I_\mathrm{C}=0$: Beide Ränder der Basis liegen gleich hoch, es gibt kein Gefälle.
 
 :::frage Hängt der Strom jetzt von $U_\mathrm{CE}$ ab oder nicht?
 Ja, aber verschieden stark. Bis 0,2 V stark, danach um rund 1 % je Volt. Zum Vergleich: 1 mV an $U_\mathrm{BE}$ wirkt 3,9 %. „Hängt ab“ heißt nicht „hängt gleich stark ab“. Das Gelände hat in beiden Richtungen eine Steigung, nur sind sie sehr verschieden.

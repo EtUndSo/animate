@@ -90,7 +90,11 @@ Así la ve la fuente: tras $R_1$ ve un punto que mantiene su potencial, sea cual
 Arriba, el amplificador inversor; en rojo, el camino de la corriente con $U_\mathrm{E}=+1$ V. Abajo, el límite: $\hat u_\mathrm{E}=3{,}5$ V daría 14 V, y la salida topa en $\pm11$ V. Entonces $\varphi_-$ sube hasta 0,6 V y la masa virtual desaparece.
 :::
 
-**Ejemplo.** $U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V, con $A$ finito más exactamente $-3{,}9998$ V. $R_\mathrm{ent}=10$ k$\Omega$. Con una carga de 2 k$\Omega$ a masa circulan 2 mA, y la salida absorbe 2,1 mA: carga más realimentación. La fuente $U_\mathrm{E}$ no nota nada. **Casos límite:** $R_2=R_1$ solo invierte el signo. $R_2\to0$ da $U_\mathrm{A}=0$.
+::::beispiel
+$U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V, con $A$ finito más exactamente $-3{,}9998$ V. $R_\mathrm{ent}=10$ k$\Omega$. Con una carga de 2 k$\Omega$ a masa circulan 2 mA, y la salida absorbe 2,1 mA: carga más realimentación. La fuente $U_\mathrm{E}$ no nota nada.
+::::
+
+⁠**Casos límite:** $R_2=R_1$ solo invierte el signo. $R_2\to0$ da $U_\mathrm{A}=0$.
 
 **El primer límite.** La regla 1 supone que la salida alcanza la tensión exigida. Con $G=-4$ esto termina en $|U_\mathrm{E}|=11\,\mathrm{V}/4=2{,}75$ V. Por encima, $U_\mathrm{A}=\mp11$ V está fijo, el lazo está abierto y el divisor formado por $R_1$ y $R_2$ determina el nudo: $\varphi_-=0{,}8\,U_\mathrm{E}+0{,}2\,U_\mathrm{A}$, es decir, $+0{,}6$ V con 3,5 V.
 

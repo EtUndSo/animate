@@ -37,7 +37,11 @@ $$I_\mathrm{A}=\frac{U_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{L}},\qquad U_\mathrm{A
 
 背后的机制：如果电源输出的电流大于负载取走的电流，电荷就会在接线端 A 积累，其电位随之升高。于是电源的电流下降，负载的电流上升。这一过程持续到两个电流相等为止。
 
-**例。** 接 16 $\Omega$ 时，$I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0.5$ A，$U_\mathrm{AB}=8$ V，内部压降为 1 V。接 2 $\Omega$ 时为 2.25 A 和 4.5 V。两点都在直线上：$9\,\mathrm{V}-2\,\Omega\cdot2.25\,\mathrm{A}=4.5$ V。两点的差值把内阻显示为斜率：$\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3.5\,\mathrm{V}/(-1.75\,\mathrm{A})=-2\,\Omega$。**极限情况：**当 $R_\mathrm{L}\to\infty$ 时，式 [(5.2)](#gl-5-2) 给出开路 $U_\mathrm{AB}=U_\mathrm{q}$；当 $R_\mathrm{L}\to0$ 时，给出短路电流 $I_\mathrm{SC}=U_\mathrm{q}/R_\mathrm{q}=4.5$ A。当 $R_\mathrm{q}\to0$ 时，剩下理想电压源。非线性负载也可以这样处理：这时它的特性是一条曲线，交点仍然是解（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）。
+::::beispiel
+接 16 $\Omega$ 时，$I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0.5$ A，$U_\mathrm{AB}=8$ V，内部压降为 1 V。接 2 $\Omega$ 时为 2.25 A 和 4.5 V。两点都在直线上：$9\,\mathrm{V}-2\,\Omega\cdot2.25\,\mathrm{A}=4.5$ V。两点的差值把内阻显示为斜率：$\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3.5\,\mathrm{V}/(-1.75\,\mathrm{A})=-2\,\Omega$。
+::::
+
+⁠**极限情况：**当 $R_\mathrm{L}\to\infty$ 时，式 [(5.2)](#gl-5-2) 给出开路 $U_\mathrm{AB}=U_\mathrm{q}$；当 $R_\mathrm{L}\to0$ 时，给出短路电流 $I_\mathrm{SC}=U_\mathrm{q}/R_\mathrm{q}=4.5$ A。当 $R_\mathrm{q}\to0$ 时，剩下理想电压源。非线性负载也可以这样处理：这时它的特性是一条曲线，交点仍然是解（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）。
 
 :::ltspice 电池的特性曲线
 ⁠**绘制：**`voltage`，值为 9，从 `q` 到接地点；`res`，值为 2，从 `q` 到 `a`。负载用名为 `I1` 的电流源 `current`，从 `a` 到接地点。

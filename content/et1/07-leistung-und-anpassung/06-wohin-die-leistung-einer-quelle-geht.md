@@ -39,7 +39,8 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 Die Maschenregel lautet $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multipliziert mit $I$ ergibt sie $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$. In [(5.2)](#gl-5-2) kürzt sich $I$, denn beide Widerstände führen denselben Strom. Der Spannungsteiler ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) liefert $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$.
 :::
 
-**Beispiel.** Die Batterie an vier Lasten:
+::::beispiel
+Die Batterie an vier Lasten:
 
 | $R_\mathrm{L}$ in $\Omega$ | $I$ in A | $U_\mathrm{L}$ in V | $P_\mathrm{L}$ in W | $P_\mathrm{v}$ in W | $P_\mathrm{q}$ in W | $\eta$ |
 |---|---|---|---|---|---|---|
@@ -47,6 +48,7 @@ Die Maschenregel lautet $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multipliziert
 | 2 | 2,25 | 4,5 | 10,125 | 10,125 | 20,25 | 50 % |
 | 8 | 0,9 | 7,2 | 6,48 | 1,62 | 8,1 | 80 % |
 | 16 | 0,5 | 8 | 4 | 0,5 | 4,5 | 88,9 % |
+::::
 
 ⁠**Grenzfälle:** Im Kurzschluss $R_\mathrm{L}=0$ ist $\eta=0$: Die Last bleibt kalt, die ganze Leistung $P_\mathrm{q}=40{,}5$ W heizt $R_\mathrm{i}$. Im Leerlauf $R_\mathrm{L}\to\infty$ geht $\eta\to1$, doch $I\to0$ und damit $P_\mathrm{L}\to0$.
 

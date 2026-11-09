@@ -12,7 +12,7 @@ lang: en
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-In Foundations 1, only a square matrix with independent columns had an inverse. This section gives every matrix a kind of inverse: one that inverts from the left when there are more equations than unknowns, one that inverts from the right when there are fewer, and one for all cases, the pseudoinverse. It always delivers the best approximate solution and, among several, the shortest.
+In [Foundations 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), only a square matrix with independent columns had an inverse. This section gives every matrix a kind of inverse: one that inverts from the left when there are more equations than unknowns, one that inverts from the right when there are fewer, and one for all cases, the pseudoinverse. It always delivers the best approximate solution and, among several, the shortest.
 :::
 
 ### Left inverses
@@ -44,11 +44,13 @@ If the columns are independent, then $\mathbf{A}^{\top}\mathbf{A}$ is invertible
 
 From the right, $\mathbf F$ does not invert. By [(4.1)](projektion-auf-einen-unterraum.html#gl-4-1), the product $\mathbf{A}\mathbf F=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ is the projection onto the column space, and for $m>n$ this is not $\mathbf{I}_m$. Moreover, a tall matrix has many left inverses; [(11.1)](#gl-11-1) is the one that belongs to the orthogonal projection.
 
-⁠**Worked example:** For $\mathbf{H}$ with the columns $(1,\,0,\,1)^{\top}$ and $(0,\,1,\,1)^{\top}$, we have $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ and
+::::beispiel [Worked example]
+For $\mathbf{H}$ with the columns $(1,\,0,\,1)^{\top}$ and $(0,\,1,\,1)^{\top}$, we have $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ and
 
 $$\mathbf F=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\end{pmatrix}.$$
 
 We have $\mathbf F\mathbf{H}=\tfrac13\bigl(\begin{smallmatrix}2+1&-1+1\\-1+1&2+1\end{smallmatrix}\bigr)=\mathbf{I}_2$, and $\mathbf F(1,\,1,\,1)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$ is the best approximate solution from Section [3.3](die-beste-naherungslosung.html#stufe-3-3). $\mathbf{H}\mathbf F$ is the projection matrix $\tfrac13\Bigl(\begin{smallmatrix}2&-1&1\\-1&2&1\\1&1&2\end{smallmatrix}\Bigr)$ from Section [4.2](projektion-auf-einen-unterraum.html#stufe-4-2). Another left inverse is $\bigl(\begin{smallmatrix}1&0&0\\0&1&0\end{smallmatrix}\bigr)$, because the first two rows of $\mathbf{H}$ form the identity matrix; for $(1,\,1,\,1)^{\top}$, however, it does not deliver the best approximate solution but $(1,\,1)^{\top}$.
+::::
 
 ⁠**In short:** A matrix with independent columns has the left inverse $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$; it maps $\mathbf{y}$ to the best approximate solution.
 
@@ -85,7 +87,9 @@ with equality only for $\mathbf{z}=\mathbf{0}$.
 
 Geometrically, the solution set is a line or plane that does not pass through the origin, and $\mathbf G\mathbf{y}$ is its point closest to the origin: the foot of the perpendicular from the origin.
 
-⁠**Worked example:** The single equation $x_1+2x_2=5$ has $\mathbf{A}=(1\ \ 2)$ and $\mathbf{A}\mathbf{A}^{\top}=5$. So $\mathbf G=\tfrac15(1,\,2)^{\top}$ and $\mathbf G\cdot5=(1,\,2)^{\top}$. All solutions are $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$, with the squared length $(1+2t)^2+(2-t)^2=5+5t^2$; the solution is shortest at $t=0$. The vector $(1,\,2)^{\top}$ is perpendicular to the solution line, whose direction is $(2,\,-1)^{\top}$.
+::::beispiel [Worked example]
+The single equation $x_1+2x_2=5$ has $\mathbf{A}=(1\ \ 2)$ and $\mathbf{A}\mathbf{A}^{\top}=5$. So $\mathbf G=\tfrac15(1,\,2)^{\top}$ and $\mathbf G\cdot5=(1,\,2)^{\top}$. All solutions are $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$, with the squared length $(1+2t)^2+(2-t)^2=5+5t^2$; the solution is shortest at $t=0$. The vector $(1,\,2)^{\top}$ is perpendicular to the solution line, whose direction is $(2,\,-1)^{\top}$.
+::::
 
 ⁠**In short:** A matrix with independent rows has the right inverse $\mathbf{A}^{\top}(\mathbf{A}\mathbf{A}^{\top})^{-1}$; it delivers the shortest solution.
 
@@ -106,9 +110,11 @@ $$\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}=\sum_{j=1}^r\frac1{d_j}\,
 
 Each building block inverts a building block of $\mathbf{A}$: $\mathbf{A}$ maps $\mathbf{v}_j$ to $d_j\mathbf{u}_j$, and $\mathbf{A}^+$ maps $\mathbf{u}_j$ to $\mathbf{v}_j/d_j$. For the directions $\mathbf{u}_j$ with $j>r$, which $\mathbf{A}$ does not reach, $\mathbf{A}^+$ returns zero instead of dividing by zero. If $\mathbf{A}$ is invertible, then $\mathbf{A}^+=\mathbf{A}^{-1}$, because then $\mathbf{A}^{-1}=(\mathbf{V}^{\top})^{-1}\mathbf{D}^{-1}\mathbf{U}^{-1}=\mathbf{V}\mathbf{D}^{-1}\mathbf{U}^{\top}$.
 
-⁠**Worked example:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ is symmetric and positive semidefinite with the eigenvalue $5$ for $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ and the eigenvalue $0$. By Section [9.7](die-singularwertzerlegung.html#stufe-9-7), $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ is its compact decomposition, with $d_1=5$ and $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$. Hence
+::::beispiel [Worked example]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ is symmetric and positive semidefinite with the eigenvalue $5$ for $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ and the eigenvalue $0$. By Section [9.7](die-singularwertzerlegung.html#stufe-9-7), $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ is its compact decomposition, with $d_1=5$ and $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$. Hence
 
 $$\mathbf{A}^+=\frac15\,\mathbf{q}\mathbf{q}^{\top}=\frac1{25}\begin{pmatrix}1&2\\2&4\end{pmatrix}.$$
+::::
 
 ⁠**In short:** The pseudoinverse $\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}$ inverts every building block $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ with $d_j>0$ and maps the directions for the singular value $0$ to zero.
 
@@ -133,12 +139,15 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 The second sum does not depend on $\mathbf{x}$. The first is zero, and thus as small as possible, exactly when $c_j=\beta_j/d_j$ for all $j\le r$; the $c_j$ with $j>r$ do not appear at all. So the best approximate solutions are exactly the $\mathbf{x}=\mathbf{V}\mathbf{c}$ with $c_j=\beta_j/d_j$ for $j\le r$ and arbitrary $c_{r+1},\dots,c_n$. Their length is $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$, smallest for $c_j=0$ at $j>r$. This $\mathbf{c}$ is $\mathbf{D}^+\boldsymbol\beta$, so $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$.
 
-With independent columns there is, by Section [3.5](die-beste-naherungslosung.html#stufe-3-5), only one best approximate solution, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; it must agree with $\mathbf{A}^+\mathbf{y}$, and it does so for every $\mathbf{y}$. With independent rows, by Foundations 1, Section 13.4, the rank equals $m$, so the column space is all of $\mathbb{R}^m$, and the system is solvable for every $\mathbf{y}$; the best approximate solutions are the solutions, and by Section [11.2](#stufe-11-2) the shortest one is $\mathbf G\mathbf{y}$.
+With independent columns there is, by Section [3.5](die-beste-naherungslosung.html#stufe-3-5), only one best approximate solution, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; it must agree with $\mathbf{A}^+\mathbf{y}$, and it does so for every $\mathbf{y}$. With independent rows, by [Foundations 1, Section 13.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), the rank equals $m$, so the column space is all of $\mathbb{R}^m$, and the system is solvable for every $\mathbf{y}$; the best approximate solutions are the solutions, and by Section [11.2](#stufe-11-2) the shortest one is $\mathbf G\mathbf{y}$.
 :::
 
-⁠**Worked example 1:** For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ and $\mathbf{y}=(1,\,1)^{\top}$, we get $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0.12,\ 0.24)^{\top}$. It lies on the line of best approximate solutions, because $0.12+2\cdot0.24=0.6=\tfrac35$, and it points in the direction of $(1,\,2)^{\top}$, perpendicular to that line: it is the point of the line closest to the origin.
+::::beispiel [Worked example 1]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ and $\mathbf{y}=(1,\,1)^{\top}$, we get $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0.12,\ 0.24)^{\top}$. It lies on the line of best approximate solutions, because $0.12+2\cdot0.24=0.6=\tfrac35$, and it points in the direction of $(1,\,2)^{\top}$, perpendicular to that line: it is the point of the line closest to the origin.
+::::
 
-⁠**Worked example 2:** The same quantity is measured three times, with the results $4$, $5$ and $9$. The system “$x=4$, $x=5$, $x=9$” has the matrix $\mathbf{1}\in\mathbb{R}^{3\times1}$, a column of ones. It has an independent column, so $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ and
+::::beispiel [Worked example 2]
+The same quantity is measured three times, with the results $4$, $5$ and $9$. The system “$x=4$, $x=5$, $x=9$” has the matrix $\mathbf{1}\in\mathbb{R}^{3\times1}$, a column of ones. It has an independent column, so $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ and
 
 $$x^+=\tfrac13\,\mathbf{1}^{\top}\mathbf{y}=\tfrac13\,(4+5+9)=6 ,$$
 
@@ -147,6 +156,7 @@ the mean (Fig. [27](#abb-27)). The mean of several measurements is the best app
 :::abbildung ml/k2rmittel 27
 The pseudoinverse of the column of ones applied to the measured values $\mathbf{y}=(4,5,9)^{\top}$: the dot product with $\mathbf{1}$ is the sum of the measured values; divided by $\mathbf{1}^{\top}\mathbf{1}=3$, it gives the mean.
 :::
+::::
 
 ⁠**In short:** For every matrix, $\mathbf{A}^+\mathbf{y}$ is a best approximate solution, and among several the shortest; with independent columns or rows, $\mathbf{A}^+$ is the left or right inverse.
 

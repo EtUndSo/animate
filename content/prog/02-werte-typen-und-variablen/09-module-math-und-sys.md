@@ -30,7 +30,8 @@ Ein __Modul__ ist eine Datei mit fertigen Python-Definitionen, etwa Funktionen u
 
 Der Punkt hat dieselbe Bedeutung wie bei einer Methode (Unterabschnitt [1.4](objekte-und-typen.html#stufe-1-4)): „das, was an diesem Objekt hängt“. Das Modulobjekt ist ein Objekt wie jedes andere, mit dem Typ `module`.
 
-**Beispiel.** Vor dem `import` kennt Python den Namen nicht; danach ist nur `math` neu, nicht die Namen darin:
+::::beispiel
+Vor dem `import` kennt Python den Namen nicht; danach ist nur `math` neu, nicht die Namen darin:
 
 ```console
 >>> math.sqrt(2)
@@ -53,6 +54,7 @@ NameError: name 'sqrt' is not defined
 ```
 
 `math.sqrt(2)` liefert denselben `float` wie `2 ** 0.5` in Python 1 ([Programmieren, Python 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5)). Ein `import` gilt bis zum Ende der Sitzung oder des Skripts; im Skript steht er üblicherweise ganz oben.
+::::
 
 ⁠**Kurz gesagt:** `import modul` lädt ein Modul und bindet seinen Namen; `modul.name` greift auf seinen Inhalt zu.
 
@@ -74,7 +76,8 @@ Für technische Rechnungen braucht man die Funktionen vom Taschenrechner: Wurzel
 | `math.hypot(x, y)` | $\sqrt{x^2+y^2}$ |
 | `math.floor(x)`, `math.ceil(x)` | nach unten, nach oben zur ganzen Zahl |
 
-**Beispiel.** Ein Zehnerlogarithmus, eine Entladekurve nach einer Zeitkonstante und ein Sinus:
+::::beispiel
+Ein Zehnerlogarithmus, eine Entladekurve nach einer Zeitkonstante und ein Sinus:
 
 ```console
 >>> math.log10(1000)
@@ -88,6 +91,7 @@ Für technische Rechnungen braucht man die Funktionen vom Taschenrechner: Wurzel
 ```
 
 Ein Kondensator ist nach einer Zeitkonstante auf $\mathrm{e}^{-1}\approx36{,}8\,\%$ seiner Anfangsspannung entladen. Die letzten beiden Zeilen zeigen wieder Rundungsfehler: $\sin30^\circ$ ist $0{,}5$, und $\sin\pi$ ist 0. Aber weder $30^\circ$ im Bogenmaß noch $\pi$ selbst ist als `float` exakt; `math.pi` ist nur der `float`, der $\pi$ am nächsten liegt.
+::::
 
 ⁠**Kurz gesagt:** `math` enthält die Funktionen des Taschenrechners für `float`; Winkel stehen im Bogenmaß.
 

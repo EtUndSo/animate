@@ -74,7 +74,11 @@ Mit $n_\mathrm{p0}=n_\mathrm i^2/N_\mathrm A$, $p_\mathrm{n0}=n_\mathrm i^2/N_\m
 </ol>
 :::
 
-**Beispiel.** Mit $n_\mathrm{p0}=1{,}58\cdot10^{3}\,\mathrm{cm^{-3}}$ und $p_\mathrm{n0}=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$ ist $j_\mathrm s=(4{,}16+1{,}24)\cdot10^{-12}\,\mathrm{A/cm^2}=5{,}4\cdot10^{-12}\,\mathrm{A/cm^2}$ und $I_\mathrm S=5{,}4\cdot10^{-14}$ A (Abb. [8](#abb-8)). Die Löcher im schwächer dotierten n-Gebiet tragen 77 %, denn dort sind die Minoritäten fünfmal häufiger. 1 µ A fließt bei 0,433 V, 1 mA bei 0,611 V, 10 mA bei 0,671 V. **Probe:** Bei $I=10$ mA, also $j=1\,\mathrm{A/cm^2}$, reicht den Majoritäten im n-Gebiet mit $\sigma=1{,}9$ S/cm das Feld 0,52 V/cm, $8{,}5\cdot10^{4}$-mal kleiner als in der Zone. Auf 100 µ m fallen 5,2 mV ab. Für die viel selteneren Minoritäten ist dieses Feld belanglos. **Grenzfälle:** Bei $U_\mathrm{pn}=0$ ist $j=0$. Ab $+119$ mV ist die $-1$ unter 1 %. Über 0,66 V endet die schwache Injektion.
+::::beispiel
+Mit $n_\mathrm{p0}=1{,}58\cdot10^{3}\,\mathrm{cm^{-3}}$ und $p_\mathrm{n0}=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$ ist $j_\mathrm s=(4{,}16+1{,}24)\cdot10^{-12}\,\mathrm{A/cm^2}=5{,}4\cdot10^{-12}\,\mathrm{A/cm^2}$ und $I_\mathrm S=5{,}4\cdot10^{-14}$ A (Abb. [8](#abb-8)). Die Löcher im schwächer dotierten n-Gebiet tragen 77 %, denn dort sind die Minoritäten fünfmal häufiger. 1 µ A fließt bei 0,433 V, 1 mA bei 0,611 V, 10 mA bei 0,671 V. **Probe:** Bei $I=10$ mA, also $j=1\,\mathrm{A/cm^2}$, reicht den Majoritäten im n-Gebiet mit $\sigma=1{,}9$ S/cm das Feld 0,52 V/cm, $8{,}5\cdot10^{4}$-mal kleiner als in der Zone. Auf 100 µ m fallen 5,2 mV ab. Für die viel selteneren Minoritäten ist dieses Feld belanglos.
+::::
+
+⁠**Grenzfälle:** Bei $U_\mathrm{pn}=0$ ist $j=0$. Ab $+119$ mV ist die $-1$ unter 1 %. Über 0,66 V endet die schwache Injektion.
 
 :::abbildung gemb1/k14kennlinie 8
 Kennlinie des Rechenmodells, $I_\mathrm S=5{,}4\cdot10^{-14}$ A. Links linear: Der Strom scheint erst bei rund 0,6 V zu beginnen. Rechts logarithmisch: Es gibt keine Schwelle, die Kennlinie ist über zehn Dekaden eine Gerade.

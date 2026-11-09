@@ -44,7 +44,8 @@ Jedes Potenzial tritt einmal mit $+$ und einmal mit $-$ auf. Mit der Ladung $Q$ 
 Potenzial im gelösten Netz längs zweier Maschen. Eine positive Spannung senkt das Potenzial, wenn man ihrem Pfeil folgt, gegen den Pfeil hebt sie es. Links: Quelle hebt, $R_\mathrm a$ und $R_\mathrm b$ senken um $4+5=9$ V. Rechts läuft der Umlauf ohne Quelle: Der Rückweg durch $R_\mathrm b$ gegen den Strom hebt das Potenzial. Beide Umläufe enden auf dem Startwert.
 :::
 
-**Beispiel: das Netz lösen.** Die Spannungspfeile an den Widerständen liegen im VZS, also von oben nach unten und $U_\mathrm e$ von $K_2$ nach $K_3$. $U_0=9$ V zeigt von $K_1$ nach $K_4$ (GZS). Die drei Maschen aus Abb. [7](knoten-zweige-maschen.html#abb-7) ergeben
+::::beispiel das Netz lösen
+Die Spannungspfeile an den Widerständen liegen im VZS, also von oben nach unten und $U_\mathrm e$ von $K_2$ nach $K_3$. $U_0=9$ V zeigt von $K_1$ nach $K_4$ (GZS). Die drei Maschen aus Abb. [7](knoten-zweige-maschen.html#abb-7) ergeben
 
 $$M_1:\ U_\mathrm a+U_\mathrm b-U_0=0,\qquad M_2:\ U_\mathrm c+U_\mathrm d-U_0=0,\qquad M_3:\ U_\mathrm e+U_\mathrm d-U_\mathrm b=0.$$
 
@@ -60,6 +61,7 @@ Die ersten beiden liefern $I_\mathrm a=(9+5\,I_\mathrm e)/7$ und $I_\mathrm c=(9
 | $U$ in V | 9 | 4 | 5 | 6 | 3 | 2 |
 
 Die Potenziale gegen $K_4$ sind 9, 5, 3 und 0 V. **Kontrollen:** Eine vierte Masche durch $K_1$, $K_2$, $K_3$ muss von selbst stimmen: $U_\mathrm a+U_\mathrm e-U_\mathrm c=4+2-6=0$. Energie: Die Quelle liefert $9\,\mathrm{V}\cdot4\,\mathrm{mA}=36$ mW, die Widerstände nehmen $8+5+12+9+2=36$ mW auf. Liegen zwei Wege zwischen denselben Punkten, etwa $R_1$, $R_2$ in Reihe neben $R_3$, folgt $U_1+U_2-U_3=0$.
+::::
 
 :::ltspice Das Netz nachrechnen
 ⁠**Zeichnen:** Quelle `voltage` mit `9` von `k1` nach Masse, also ist $K_4$ die Masse. `res`: `Ra 2k` von `k1` nach `k2`, `Rb 5k` von `k2` nach Masse, `Rc 3k` von `k1` nach `k3`, `Rd 1k` von `k3` nach Masse, `Re 2k` von `k2` nach `k3`.

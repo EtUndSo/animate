@@ -14,7 +14,7 @@ Jeder Mikrochip beginnt als Sand. Dazwischen liegt einer der reinsten Stoffe, di
 
 Die zweite Frage folgt aus der Ordnung selbst. Elektronen sind Wellen, und eine Welle läuft durch ein Gitter anders als durch leeren Raum. *Wie beschreibt man einen Kristall so, wie eine Welle ihn sieht?* Dafür gehört zu jedem Kristallgitter ein zweites Gitter im Raum der Wellenvektoren, ein __reziprokes Gitter__, und dazu eine besondere Zelle, die __Brillouin-Zone__. Beide sind das Werkzeug für alles, was man über Elektronen im Kristall wissen will.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

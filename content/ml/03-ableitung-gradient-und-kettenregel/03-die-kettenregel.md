@@ -31,7 +31,9 @@ $$(f\circ g)(x)=f\bigl(g(x)\bigr)$$
 die __Verkettung__ von $f$ und $g$, gelesen „$f$ nach $g$“. Die zuerst angewandte Funktion $g$ heißt innere Funktion, $f$ heißt äußere Funktion.
 :::
 
-⁠**Rechenbeispiel:** Für $F(x)=(3x+1)^2$ ist die innere Funktion $g(x)=3x+1$ und die äußere $f(u)=u^2$, also $F=f\circ g$. An der Stelle $1$ ist $g(1)=4$ und $F(1)=f(4)=16$. Die Reihenfolge zählt: $(g\circ f)(x)=g(f(x))=3x^2+1$ ist eine andere Funktion, mit dem Wert $4$ an der Stelle $1$.
+::::beispiel [Rechenbeispiel]
+Für $F(x)=(3x+1)^2$ ist die innere Funktion $g(x)=3x+1$ und die äußere $f(u)=u^2$, also $F=f\circ g$. An der Stelle $1$ ist $g(1)=4$ und $F(1)=f(4)=16$. Die Reihenfolge zählt: $(g\circ f)(x)=g(f(x))=3x^2+1$ ist eine andere Funktion, mit dem Wert $4$ an der Stelle $1$.
+::::
 
 ⁠**Kurz gesagt:** Eine Verkettung $f\circ g$ wendet zuerst $g$ und dann $f$ an; die Reihenfolge ist nicht vertauschbar.
 
@@ -64,11 +66,13 @@ $$f\bigl(g(x+h)\bigr)-f(u)=f'(u)\,k+r_f(k)=f'(u)\,g'(x)\,h+f'(u)\,r_g(h)+r_f(k).
 Nach Division durch $h$ geht der mittlere Summand gegen $0$. Für den letzten schreibt man $r_f(k)/h=\bigl(r_f(k)/k\bigr)\cdot(k/h)$, solange $k\ne0$ ist; der erste Faktor geht gegen $0$, weil mit $h$ auch $k$ gegen $0$ geht, und der zweite gegen $g'(x)$. Ist $k=0$, so ist der Summand ohnehin $0$. Übrig bleibt $f'(u)\,g'(x)$.
 :::
 
-⁠**Rechenbeispiel:** Für $F(x)=(3x+1)^2$ ist $g'(x)=3$ und $f'(u)=2u$. An der Stelle $1$ ist $u=g(1)=4$, also
+::::beispiel [Rechenbeispiel]
+Für $F(x)=(3x+1)^2$ ist $g'(x)=3$ und $f'(u)=2u$. An der Stelle $1$ ist $u=g(1)=4$, also
 
 $$F'(1)=f'(4)\cdot g'(1)=8\cdot3=24 .$$
 
 Probe: Ausmultipliziert ist $F(x)=9x^2+6x+1$, also $F'(x)=18x+6$ und $F'(1)=24$. Abb. [4](#abb-4) zeigt dasselbe mit Zahlen: $F(1{,}01)=4{,}03^2=16{,}2409$, die lineare Näherung sagt $16+24\cdot0{,}01=16{,}24$ voraus.
+::::
 
 ⁠**Kurz gesagt:** Bei einer Verkettung multiplizieren sich die Ableitungen der Stufen, jede an der Stelle ausgewertet, an der ihre Stufe arbeitet: $(f\circ g)'(x)=f'(g(x))\,g'(x)$.
 
@@ -89,7 +93,8 @@ $$\frac{\mathrm{d} u_L}{\mathrm{d} x}=f_L'(u_{L-1})\cdot f_{L-1}'(u_{L-2})\cdots
 
 Für die Rechnung folgt daraus eine Reihenfolge. Jeder Faktor braucht den Wert, an dem seine Stufe arbeitet. Man rechnet deshalb zuerst die Zwischenwerte $u_1,u_2,\dots$ aus, wie bei der gewöhnlichen Auswertung, und erst dann die Faktoren. In welcher Reihenfolge man die Faktoren danach multipliziert, ist bei Zahlen gleichgültig.
 
-⁠**Rechenbeispiel:** Es sei $y=\dfrac1{(x^2+1)^3}$ an der Stelle $x=1$. Die Kette hat drei Glieder:
+::::beispiel [Rechenbeispiel]
+Es sei $y=\dfrac1{(x^2+1)^3}$ an der Stelle $x=1$. Die Kette hat drei Glieder:
 
 $$u_1=x^2+1=2,\qquad u_2=u_1^3=8,\qquad y=\frac1{u_2}=\frac18 .$$
 
@@ -98,6 +103,7 @@ Die Faktoren sind $\frac{\mathrm{d} u_1}{\mathrm{d} x}=2x=2$, $\frac{\mathrm{d} 
 $$\frac{\mathrm{d} y}{\mathrm{d} x}=2\cdot12\cdot\Bigl(-\frac1{64}\Bigr)=-\frac{24}{64}=-0{,}375 .$$
 
 Probe: $y=(x^2+1)^{-3}$ hat nach Potenz- und Kettenregel die Ableitung $-3\,(x^2+1)^{-4}\cdot2x$, an der Stelle $1$ also $-6/16=-0{,}375$.
+::::
 
 ⁠**Kurz gesagt:** Bei einer langen Kette ist die Ableitung das Produkt der Ableitungen aller Glieder; zuerst berechnet man die Zwischenwerte, dann die Faktoren.
 
@@ -143,11 +149,13 @@ Der erste Faktor ist $\sigma(x)$. Der zweite ist $\frac{(1+\mathrm{e}^{-x})-1}{1
 Die logistische Funktion $\sigma$ (blau) steigt von $0$ nach $1$, am steilsten an der Stelle $0$. Ihre Ableitung (rot) hat dort den größten Wert $\tfrac14$ und wird zu beiden Seiten schnell klein. Markiert sind die Werte an den Stellen $0$ und $2$ aus dem Rechenbeispiel.
 :::
 
-⁠**Rechenbeispiel:** An der Stelle $2$ ist $\mathrm{e}^{-2}\approx0{,}1353$, also $\sigma(2)\approx1/1{,}1353\approx0{,}8808$ und
+::::beispiel [Rechenbeispiel]
+An der Stelle $2$ ist $\mathrm{e}^{-2}\approx0{,}1353$, also $\sigma(2)\approx1/1{,}1353\approx0{,}8808$ und
 
 $$\sigma'(2)=\sigma(2)\,\bigl(1-\sigma(2)\bigr)\approx0{,}8808\cdot0{,}1192\approx0{,}1050 .$$
 
 Ist $\sigma(2)$ einmal ausgerechnet, kostet die Ableitung nur noch eine Subtraktion und eine Multiplikation, keine weitere e-Funktion. An der Stelle $10$ ist $\sigma(10)\approx0{,}99995$ und $\sigma'(10)\approx0{,}0000454$: Weit draußen ist die Funktion fast waagrecht, kleine Änderungen der Eingabe kommen kaum noch am Ausgang an.
+::::
 
 ⁠**Kurz gesagt:** Die logistische Funktion $\sigma(x)=1/(1+\mathrm{e}^{-x})$ bildet jede Zahl glatt in das Intervall zwischen $0$ und $1$ ab; ihre Ableitung ist $\sigma(1-\sigma)$, höchstens $\tfrac14$, und lässt sich aus dem Funktionswert allein berechnen.
 

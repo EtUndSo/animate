@@ -51,7 +51,9 @@ Eine Probeladung $Q$ erfährt nach [(3.2)](die-kraft-zwischen-ladungen.html#gl-3
 Feldvektoren um eine positive und eine negative Punktladung. Das Feld zeigt von der positiven Ladung weg und zur negativen hin. Die Pfeillänge ist proportional zu $1/r^2$.
 :::
 
-**Beispiel.** Kugel B ($-20$ nC) erzeugt am Ort von Kugel A das Feld $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2{,}0\cdot10^5$ V/m, es zeigt auf B zu. Die Kraft auf A ist $F=10\,\mathrm{nC}\cdot2{,}0\cdot10^5\,\mathrm{V/m}=2{,}0$ mN wie in Stufe [3](die-kraft-zwischen-ladungen.html#stufe-3). Umgekehrt erzeugt A am Ort von B nur $1{,}0\cdot10^5$ V/m, trifft dort aber auf die doppelte Ladung: wieder 2,0 mN.
+::::beispiel
+Kugel B ($-20$ nC) erzeugt am Ort von Kugel A das Feld $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2{,}0\cdot10^5$ V/m, es zeigt auf B zu. Die Kraft auf A ist $F=10\,\mathrm{nC}\cdot2{,}0\cdot10^5\,\mathrm{V/m}=2{,}0$ mN wie in Stufe [3](die-kraft-zwischen-ladungen.html#stufe-3). Umgekehrt erzeugt A am Ort von B nur $1{,}0\cdot10^5$ V/m, trifft dort aber auf die doppelte Ladung: wieder 2,0 mN.
+::::
 
 ⁠**Kurz gesagt:** Die Kraft auf eine Ladung ist ihre Ladung mal das Feld an ihrem Ort.
 

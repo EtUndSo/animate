@@ -40,7 +40,11 @@ $$d=\frac{\boldsymbol a_1}{h_1}\cdot\frac{\boldsymbol G}{|\boldsymbol G|}=\frac{
 Rechteckgitter mit $a_x=0{,}40$ nm, $a_y=0{,}60$ nm. Links die Scharen $(1\,1)$ und $(2\,1)$ mit ihrem Abstand $d$, rechts die zugehörigen Vektoren im reziproken Gitter. Jeder Pfeil steht senkrecht auf seiner Schar, und der engeren Schar gehört der längere Pfeil.
 :::
 
-**Beispiel.** Im Rechteckgitter ist für $(1\,1)$ der Vektor $\boldsymbol G=(15{,}7;\,10{,}5)\,\mathrm{nm^{-1}}$, $|\boldsymbol G|=18{,}9\,\mathrm{nm^{-1}}$, also $d=0{,}333$ nm. Für $(2\,1)$ ist $|\boldsymbol G|=33{,}1\,\mathrm{nm^{-1}}$ und $d=0{,}190$ nm. **Grenzfall:** Für $(1\,0)$ ist $\boldsymbol G=\boldsymbol b_1$ und $d=a_x$, wie es sein muss.
+::::beispiel
+Im Rechteckgitter ist für $(1\,1)$ der Vektor $\boldsymbol G=(15{,}7;\,10{,}5)\,\mathrm{nm^{-1}}$, $|\boldsymbol G|=18{,}9\,\mathrm{nm^{-1}}$, also $d=0{,}333$ nm. Für $(2\,1)$ ist $|\boldsymbol G|=33{,}1\,\mathrm{nm^{-1}}$ und $d=0{,}190$ nm.
+::::
+
+⁠**Grenzfall:** Für $(1\,0)$ ist $\boldsymbol G=\boldsymbol b_1$ und $d=a_x$, wie es sein muss.
 
 **Kubisch.** Im SC-Gitter ist $\boldsymbol G=(2\pi/a)(h_1,h_2,h_3)$, und aus [(7.1)](#gl-7-1) folgt $d=a/\sqrt{h_1^2+h_2^2+h_3^2}$, die Formel aus [Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html). Auch die Regel aus [Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html), dass $[hkl]$ nur im kubischen System senkrecht auf $(hkl)$ steht, wird klar: Die Normale ist immer $\boldsymbol G=\sum h_i\boldsymbol b_i$. Mit $[hkl]$ stimmt sie nur überein, wenn alle $\boldsymbol b_i$ dasselbe Vielfache ihres $\boldsymbol a_i$ sind, und das verlangt gleich lange, orthogonale Achsen.
 

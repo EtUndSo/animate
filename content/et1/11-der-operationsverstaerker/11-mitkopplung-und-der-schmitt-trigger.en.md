@@ -38,7 +38,11 @@ With the sluggishness from Stage [4](gegenkopplung.html#stufe-4), now $\tau\,\m
 Left, the inverting Schmitt trigger. Right, the hysteresis loop in the reference model, $\beta=0.2$: coming from the left, it flips at $+2.2$ V; coming from the right, at $-2.2$ V. The arrows give the direction of travel.
 :::
 
-**Example.** The thresholds are $\pm0.2\cdot11\,\mathrm{V}=\pm2.2$ V, and the hysteresis is 4.4 V wide. Shortly after flipping at $U_\mathrm{E}=2.2$ V, $U_\mathrm{D}=-2.2\,\mathrm{V}-2.2\,\mathrm{V}=-4.4$ V, far from the window. Benefit: a noisy signal passing slowly through a threshold switches a comparator back and forth many times. With the Schmitt trigger the threshold jumps away by 4.4 V after the first flip, and noise below this width triggers no second flip. **Limiting cases:** $\beta\to0$ gives the comparator from Stage [3](der-opv-ohne-ruckfuhrung.html#stufe-3). $U_\mathrm{E}=0$ allows both states, depending on the history.
+::::beispiel
+The thresholds are $\pm0.2\cdot11\,\mathrm{V}=\pm2.2$ V, and the hysteresis is 4.4 V wide. Shortly after flipping at $U_\mathrm{E}=2.2$ V, $U_\mathrm{D}=-2.2\,\mathrm{V}-2.2\,\mathrm{V}=-4.4$ V, far from the window. Benefit: a noisy signal passing slowly through a threshold switches a comparator back and forth many times. With the Schmitt trigger the threshold jumps away by 4.4 V after the first flip, and noise below this width triggers no second flip.
+::::
+
+⁠**Limiting cases:** $\beta\to0$ gives the comparator from Stage [3](der-opv-ohne-ruckfuhrung.html#stufe-3). $U_\mathrm{E}=0$ allows both states, depending on the history.
 
 :::frage With swapped inputs, LTspice showed 5.00025 V in `.op`. Is the simulation wrong?
 No, it answers a different question. `.op` solves the equilibrium equation, and this solution exists. Whether an equilibrium holds is decided only by the time behavior. In the component something is always making noise, which is why the output runs away. The LTspice box in Stage [10](wo-die-regeln-enden.html#stufe-10) shows this in `.tran`.

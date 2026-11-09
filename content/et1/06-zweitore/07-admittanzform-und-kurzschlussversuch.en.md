@@ -45,11 +45,15 @@ $$Y_{1,\mathrm{SC}}=Y_{11},\qquad Y_{1,\mathrm{OC}}=Y_{11}-\frac{Y_{12}Y_{21}}{Y
 Left: equivalent circuit of the Y form. Right: short-circuit test at port 2 with the impressed voltage $U_\mathrm{q}$. Because $U_2=0$, the source $Y_{12}U_2$ drops out and $Y_{22}$ carries no current. What remains is $Y_{11}$ at the input and the current source $Y_{21}U_1$, whose current flows through the wire.
 :::
 
-**Example.** On the T two-port, 9 V is applied to port 1, and port 2 is short-circuited. The wire puts $R_\mathrm{c}$ in parallel with $R_\mathrm{b}$, the total resistance is $15\,\Omega+10\,\Omega=25\,\Omega$, so $I_1=360$ mA. This current divides in half, $I_2=-180$ mA, negative because it flows out of port 2. With 9 V at port 2 and a short circuit at port 1, the total resistance is $20\,\Omega+15\,\Omega\parallel20\,\Omega$, $I_2=315$ mA and $I_1=-180$ mA. This gives
+::::beispiel
+On the T two-port, 9 V is applied to port 1, and port 2 is short-circuited. The wire puts $R_\mathrm{c}$ in parallel with $R_\mathrm{b}$, the total resistance is $15\,\Omega+10\,\Omega=25\,\Omega$, so $I_1=360$ mA. This current divides in half, $I_2=-180$ mA, negative because it flows out of port 2. With 9 V at port 2 and a short circuit at port 1, the total resistance is $20\,\Omega+15\,\Omega\parallel20\,\Omega$, $I_2=315$ mA and $I_1=-180$ mA. This gives
 
 $$\mathbf Y=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS}.$$
 
-Check with the operation from Stage [4](das-zweitor-im-betrieb.html#stufe-4): $I_1=40\,\mathrm{mS}\cdot7.75\,\mathrm{V}-20\,\mathrm{mS}\cdot3\,\mathrm{V}=250$ mA. The load $Y_\mathrm{L}=16.67$ mS gives $Y_1=40\,\mathrm{mS}-400\,\mathrm{mS^2}/51.67\,\mathrm{mS}=32.26$ mS, which is $1/(31\,\Omega)$. **Limiting cases:** $Y_{1,\mathrm{SC}}=40$ mS is $1/(25\,\Omega)$, $Y_{1,\mathrm{OC}}=28.57$ mS is $1/(35\,\Omega)$, as in Stage [4](das-zweitor-im-betrieb.html#stufe-4).
+Check with the operation from Stage [4](das-zweitor-im-betrieb.html#stufe-4): $I_1=40\,\mathrm{mS}\cdot7.75\,\mathrm{V}-20\,\mathrm{mS}\cdot3\,\mathrm{V}=250$ mA. The load $Y_\mathrm{L}=16.67$ mS gives $Y_1=40\,\mathrm{mS}-400\,\mathrm{mS^2}/51.67\,\mathrm{mS}=32.26$ mS, which is $1/(31\,\Omega)$.
+::::
+
+⁠**Limiting cases:** $Y_{1,\mathrm{SC}}=40$ mS is $1/(25\,\Omega)$, $Y_{1,\mathrm{OC}}=28.57$ mS is $1/(35\,\Omega)$, as in Stage [4](das-zweitor-im-betrieb.html#stufe-4).
 
 **Characteristic curves.** The Y equations can also be drawn. The __input characteristic__ is $I_1=f_1(U_1)$ at fixed $U_2$, the __transfer characteristic__ $I_2=f_2(U_1)$ at fixed $U_2$, the __output characteristic__ $I_2=f_3(U_2)$ at fixed $U_1$. For a linear two-port they are straight lines (Fig. [7](#abb-7)): Their slope is a Y parameter, and the fixed value shifts them in parallel. Each value of the fixed parameter gives one line; together they form a family of curves.
 

@@ -49,7 +49,11 @@ Aquí, $\sigma=n\,e\,\mu$ y $\mu=e\,T/(2\,m_\mathrm e)$ ([Parte 2](/wissen/es/e
 Límite de una resistencia de 250 mW. Cada valor de resistencia solo puede funcionar hasta la hipérbola: 25 $\Omega$ hasta 100 mA, 100 $\Omega$ hasta 50 mA, 400 $\Omega$ hasta 25 mA.
 :::
 
-**Ejemplo.** Con 100 $\Omega$ y 250 mW se permiten $U_\mathrm{max}=5$ V e $I_\mathrm{max}=50$ mA. Con 9 V ideales se generarían 810 mW, 3,24 veces el límite. Haría falta $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$. **Casos límite:** $R\to\infty$ da $P\to0$. $R\to0$ da, con tensión fija, $P\to\infty$. Solo lo impide la resistencia interna de la fuente (etapa [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5)).
+::::beispiel
+Con 100 $\Omega$ y 250 mW se permiten $U_\mathrm{max}=5$ V e $I_\mathrm{max}=50$ mA. Con 9 V ideales se generarían 810 mW, 3,24 veces el límite. Haría falta $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$.
+::::
+
+⁠**Casos límite:** $R\to\infty$ da $P\to0$. $R\to0$ da, con tensión fija, $P\to\infty$. Solo lo impide la resistencia interna de la fuente (etapa [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5)).
 
 :::frage El hilo calefactor y la línea de alimentación llevan la misma corriente. ¿Por qué solo se pone incandescente el hilo calefactor?
 A igual corriente, el calor es proporcional a $R$. Una línea de alimentación de 10 m$\Omega$ solo transforma 2,5 mW con 0,5 A; la carga de 16 $\Omega$, en cambio, 4 W, 1600 veces más. En secadores de pelo y soldadores, el calor es el objetivo; en la línea es una pérdida (etapa [4](leitungsverluste.html#stufe-4)).

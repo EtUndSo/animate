@@ -49,7 +49,8 @@ Die Weiten [(4.3)](feld-potential-und-weite-der-zone.html#gl-4-3) bleiben gülti
 
 ⁠**Gültigkeit:** $U_\mathrm{pn}<U_\mathrm d$, schwache Injektion, kleiner Strom, sonst fällt auch in den Neutralgebieten Spannung ab. Die zweite Gleichung liest man in Abb. [5](#abb-5) ab: Der Abstand von Bandkante zu Niveau bleibt in beiden Neutralgebieten gleich, also verschiebt sich die p-Seite samt Bändern um $-eU_\mathrm{pn}$.
 
-**Beispiel.** Mit $U_\mathrm d=0{,}762$ V folgt:
+::::beispiel
+Mit $U_\mathrm d=0{,}762$ V folgt:
 
 | $U_\mathrm{pn}$ | $+0{,}4$ V | 0 | $-0{,}4$ V | $-5$ V |
 |---|---|---|---|---|
@@ -57,7 +58,10 @@ Die Weiten [(4.3)](feld-potential-und-weite-der-zone.html#gl-4-3) bleiben gülti
 | $L_\mathrm{depl}$ | 237 nm | 344 nm | 425 nm | 946 nm |
 | $\vert \mathcal E_\mathrm{max}\vert $ | 3,06 MV/m | 4,43 MV/m | 5,47 MV/m | 12,2 MV/m |
 
-Der Boltzmann-Faktor der Barriere ist bei +0,4 V $5{,}2\cdot10^{6}$-mal größer als bei 0 V. **Grenzfälle:** Für $U_\mathrm{pn}\to U_\mathrm d$ werden die Bänder flach, $L_\mathrm{depl}\to0$ und $E_\mathrm{Fn}-E_\mathrm{Fp}=\Phi_\mathrm{bi}$, genau wie bei den getrennten Stücken in Abb. [2](der-ubergang-im-gleichgewicht.html#abb-2). Für große Sperrspannung ist $L_\mathrm{depl}\propto\sqrt{|U_\mathrm{pn}|}$.
+Der Boltzmann-Faktor der Barriere ist bei +0,4 V $5{,}2\cdot10^{6}$-mal größer als bei 0 V.
+::::
+
+⁠**Grenzfälle:** Für $U_\mathrm{pn}\to U_\mathrm d$ werden die Bänder flach, $L_\mathrm{depl}\to0$ und $E_\mathrm{Fn}-E_\mathrm{Fp}=\Phi_\mathrm{bi}$, genau wie bei den getrennten Stücken in Abb. [2](der-ubergang-im-gleichgewicht.html#abb-2). Für große Sperrspannung ist $L_\mathrm{depl}\propto\sqrt{|U_\mathrm{pn}|}$.
 
 :::frage Pluspol am p-Gebiet: Warum liegt $E_\mathrm{Fp}$ dann *unten*?
 Weil die Achse die Energie von Elektronen zeigt. Positives Potential bedeutet $-e\varphi<0$. Das p-Gebiet rutscht im Bild mit allen Niveaus nach unten, genau dadurch sinkt die Barriere. Bei Sperrung rutscht es nach oben.

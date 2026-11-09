@@ -56,7 +56,9 @@ Links: Zustände der quadratischen Box, rot die mit einer Energie unter dem Wert
 
 ⁠**Warum die Exponenten?** Der Energieabstand benachbarter Radien wächst wie $n'$. In 1D liegt je Radius ein Zustand, die Dichte fällt. In 2D wächst der Kreisring wie $n'$ mit, die Dichte bleibt. In 3D wächst die Kugelschale wie $n'^2$, die Dichte steigt. **Gültigkeit:** Die glatte Funktion $D(E)$ stimmt nur als Mittelwert über viele Niveaus, also für große Quantenzahlen.
 
-**Beispiel.** Bei $m^*=m_0$ ist in 3D $D(1\,\mathrm{eV})=6{,}8\cdot10^{21}\,\mathrm{eV^{-1}\,cm^{-3}}$, in 2D $D=4{,}2\cdot10^{14}\,\mathrm{eV^{-1}\,cm^{-2}}$, in 1D $D(0{,}1\,\mathrm{eV})=5{,}2\cdot10^{7}\,\mathrm{eV^{-1}\,cm^{-1}}$. **Kontrolle:** Für $n'=20$ gibt der Viertelkreis 314 Zustände, exaktes Zählen 294, bei $n'=50$ sind es 1963 und 1911. Der Fehler sitzt am Kreisrand und verliert an Gewicht.
+::::beispiel
+Bei $m^*=m_0$ ist in 3D $D(1\,\mathrm{eV})=6{,}8\cdot10^{21}\,\mathrm{eV^{-1}\,cm^{-3}}$, in 2D $D=4{,}2\cdot10^{14}\,\mathrm{eV^{-1}\,cm^{-2}}$, in 1D $D(0{,}1\,\mathrm{eV})=5{,}2\cdot10^{7}\,\mathrm{eV^{-1}\,cm^{-1}}$. **Kontrolle:** Für $n'=20$ gibt der Viertelkreis 314 Zustände, exaktes Zählen 294, bei $n'=50$ sind es 1963 und 1911. Der Fehler sitzt am Kreisrand und verliert an Gewicht.
+::::
 
 **Periodische Ränder.** Im Inneren eines großen Kristalls spielen die Wände keine Rolle. Bequemer ist deshalb die __Born-von-Kármán-Bedingung__ $\psi(x+L)=\psi(x)$. Sie erlaubt laufende Wellen $\psi(x)=\frac1{\sqrt L}\,\mathrm{e}^{\mathrm{j} kx}$ mit
 

@@ -34,7 +34,9 @@ $$f(\mathbf{u}+\mathbf{v})=f(\mathbf{u})+f(\mathbf{v})\qquad\text{et}\qquad f(c\
 
 Ensemble, les deux conditions signifient : $f$ conserve les combinaisons linéaires, $f(c_1\mathbf{u}+c_2\mathbf{v})=c_1f(\mathbf{u})+c_2f(\mathbf{v})$. Toute application linéaire envoie le vecteur nul sur le vecteur nul, car $f(\mathbf{0})=f(0\cdot\mathbf{u})=0\cdot f(\mathbf{u})=\mathbf{0}$.
 
-⁠**Exemple de calcul :** L’application $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ de $\mathbb{R}^2$ dans $\mathbb{R}^2$ est linéaire. Ses deux composantes sont des sommes de multiples des $x_j$, et de telles sommes vérifient les conditions [(8.1)](#gl-8-1) ; par exemple, $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. L’application $g(\mathbf{x})=x_1x_2$ n’est pas linéaire, car $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ dès que $x_1x_2\ne0$. L’application $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ n’est pas linéaire non plus, car $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::beispiel [Exemple de calcul]
+L’application $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ de $\mathbb{R}^2$ dans $\mathbb{R}^2$ est linéaire. Ses deux composantes sont des sommes de multiples des $x_j$, et de telles sommes vérifient les conditions [(8.1)](#gl-8-1) ; par exemple, $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. L’application $g(\mathbf{x})=x_1x_2$ n’est pas linéaire, car $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ dès que $x_1x_2\ne0$. L’application $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ n’est pas linéaire non plus, car $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::
 
 ⁠**En bref :** Une application est linéaire si elle conserve les sommes et les multiples ; elle envoie alors des combinaisons linéaires sur des combinaisons linéaires.
 
@@ -65,9 +67,11 @@ $$f(\mathbf{x})=f\Bigl(\sum_{j=1}^nx_j\mathbf{e}_j\Bigr)=\sum_{j=1}^nx_j\,f(\mat
 la dernière égalité découlant de la vue par colonnes [(7.3)](das-matrix-vektor-produkt.html#gl-7-3). S’il existait une seconde matrice $\mathbf{B}$ telle que $\mathbf{B}\mathbf{x}=f(\mathbf{x})$ pour tout $\mathbf{x}$, alors, avec $\mathbf{x}=\mathbf{e}_j$, la colonne $j$ de $\mathbf{B}$ serait égale à $f(\mathbf{e}_j)=\mathbf{a}_j$, et ce pour chaque $j$. Donc $\mathbf{B}=\mathbf{A}$.
 :::
 
-⁠**Exemple de calcul :** Pour $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$, on a $f(\mathbf{e}_1)=(1,\,2)^{\top}$ et $f(\mathbf{e}_2)=(1,\,0)^{\top}$. Donc
+::::beispiel [Exemple de calcul]
+Pour $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$, on a $f(\mathbf{e}_1)=(1,\,2)^{\top}$ et $f(\mathbf{e}_2)=(1,\,0)^{\top}$. Donc
 
 $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{et pour vérifier}\qquad \mathbf{A}\begin{pmatrix}3\\-1\end{pmatrix}=\begin{pmatrix}2\\6\end{pmatrix}=f\bigl((3,\,-1)^{\top}\bigr).$$
+::::
 
 ⁠**En bref :** Applications linéaires et matrices sont une seule et même chose ; la colonne $j$ de la matrice est l’image du vecteur unitaire $\mathbf{e}_j$.
 
@@ -121,12 +125,14 @@ La matrice $\operatorname{diag}(1;\,0)$ conserve la première composante et met 
 
 </ul>
 
-⁠**Exemple de calcul : la rotation d’un angle quelconque.** Si l’on tourne de l’angle $\alpha$ dans le sens inverse des aiguilles d’une montre, $\mathbf{e}_1$ arrive au point $(\cos\alpha,\,\sin\alpha)^{\top}$ du cercle unité, et $\mathbf{e}_2$, situé $90^\circ$ plus loin, au point $(-\sin\alpha,\,\cos\alpha)^{\top}$. D’après [(8.2)](#gl-8-2), la matrice de rotation est donc
+::::beispiel [Exemple de calcul] la rotation d’un angle quelconque
+Si l’on tourne de l’angle $\alpha$ dans le sens inverse des aiguilles d’une montre, $\mathbf{e}_1$ arrive au point $(\cos\alpha,\,\sin\alpha)^{\top}$ du cercle unité, et $\mathbf{e}_2$, situé $90^\circ$ plus loin, au point $(-\sin\alpha,\,\cos\alpha)^{\top}$. D’après [(8.2)](#gl-8-2), la matrice de rotation est donc
 
 <span class="anker" id="gl-8-3"></span>
 $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}. \tag{8.3}$$
 
 Pour $\alpha=90^\circ$, on retrouve la matrice de la Fig. [32](#abb-32). Elle fait tourner le point $(1,\,1)^{\top}$ en $(-1,\,1)^{\top}$ ; l’étirement l’envoie sur $(2;\ 0{,}5)^{\top}$, le cisaillement sur $(2,\,1)^{\top}$ et l’aplatissement sur $(1,\,0)^{\top}$.
+::::
 
 ⁠**En bref :** Une matrice $2\times2$ déforme le quadrillage du plan ; le carré unité devient le parallélogramme construit sur ses deux colonnes.
 
@@ -144,7 +150,9 @@ Toute application linéaire $f\colon\mathbb{R}^d\to\mathbb{R}$ est de la forme $
 
 C’est le théorème de la sous-section [8.2](#stufe-8-2) pour $m=1$ : la matrice $1\times d$ est la ligne $\mathbf{w}^{\top}$, et son produit avec $\mathbf{x}$ est le produit scalaire. La somme pondérée de la sous-section [2.2](das-skalarprodukt.html#stufe-2-2) n’est donc pas un exemple parmi d’autres, mais la règle linéaire la plus générale à une seule sortie.
 
-⁠**Exemple de calcul :** La règle de l’agente immobilière est $f(\mathbf{x})=3x_1+10x_2-4x_3$. On a $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, donc $\mathbf{w}=(3,\,10,\,-4)^{\top}$. Le poids $w_j=f(\mathbf{e}_j)$ est la valeur de la règle pour un exemple imaginaire qui ne possède qu’une unité de la caractéristique $j$ et rien d’autre : il indique combien une unité de cette caractéristique apporte.
+::::beispiel [Exemple de calcul]
+La règle de l’agente immobilière est $f(\mathbf{x})=3x_1+10x_2-4x_3$. On a $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, donc $\mathbf{w}=(3,\,10,\,-4)^{\top}$. Le poids $w_j=f(\mathbf{e}_j)$ est la valeur de la règle pour un exemple imaginaire qui ne possède qu’une unité de la caractéristique $j$ et rien d’autre : il indique combien une unité de cette caractéristique apporte.
+::::
 
 ⁠**En bref :** Toute application linéaire à une seule sortie est une somme pondérée $\mathbf{w}^{\top}\mathbf{x}$, et le poids $w_j$ est sa valeur en $\mathbf{e}_j$.
 
@@ -174,9 +182,11 @@ $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+b\,\mathbf 1 . \tag{8.5}$$
 
 Le terme $b\,\mathbf 1$ ajoute à chaque prédiction le même montant $b$.
 
-⁠**Exemple de calcul :** Avec $\mathbf{w}=(3,\,10,\,-4)^{\top}$ et $b=20$, les prédictions $(188,\,126,\,286,\,232)^{\top}$ deviennent
+::::beispiel [Exemple de calcul]
+Avec $\mathbf{w}=(3,\,10,\,-4)^{\top}$ et $b=20$, les prédictions $(188,\,126,\,286,\,232)^{\top}$ deviennent
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+20\cdot\mathbf 1=(208,\,146,\,306,\,252)^{\top}\ \text{milliers d’euros}.$$
+::::
 
 ⁠**En bref :** Une application affine est une application linéaire plus une translation fixe, $\mathbf{A}\mathbf{x}+\mathbf{b}$ ; pour une seule sortie, la translation s’appelle l’ordonnée à l’origine.
 

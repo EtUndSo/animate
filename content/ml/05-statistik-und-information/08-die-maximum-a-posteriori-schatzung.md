@@ -32,12 +32,14 @@ $$\hat\theta_{\mathrm{MAP}}=\operatorname*{arg\,max}_\theta\,p(\theta\mid\mathca
 
 Die zweite Form folgt aus [(6.5)](prior-und-posterior.html#gl-6-5): Die Evidenz $P(\mathcal D)$ hängt nicht von $\theta$ ab und verschiebt das Maximum nicht, und weil $\ln$ streng monoton wächst, liegt das Maximum von $\mathcal L(\theta)\,p(\theta)$ dort, wo $\ln\mathcal L(\theta)+\ln p(\theta)$ am größten ist. Den Posterior selbst braucht man also nicht; Likelihood und Prior genügen.
 
-⁠**Rechenbeispiel:** Beim Prior $\mathrm{Beta}(\alpha_1,\alpha_0)$ ist der Posterior nach [(6.7)](prior-und-posterior.html#gl-6-7) $\mathrm{Beta}(\alpha_1+N_1,\alpha_0+N_0)$, und sein Modus ist nach dem Satz in Unterabschnitt [6.4](prior-und-posterior.html#stufe-6-4)
+::::beispiel [Rechenbeispiel]
+Beim Prior $\mathrm{Beta}(\alpha_1,\alpha_0)$ ist der Posterior nach [(6.7)](prior-und-posterior.html#gl-6-7) $\mathrm{Beta}(\alpha_1+N_1,\alpha_0+N_0)$, und sein Modus ist nach dem Satz in Unterabschnitt [6.4](prior-und-posterior.html#stufe-6-4)
 
 <span class="anker" id="gl-7-2"></span>
 $$\hat\theta_{\mathrm{MAP}}=\frac{N_1+\alpha_1-1}{N+\alpha_1+\alpha_0-2} . \tag{7.2}$$
 
 Für die verbogene Münze mit dem Prior $\mathrm{Beta}(2,2)$ ist das $\frac{7+1}{10+2}=\frac23\approx0{,}667$. Der Maximum-Likelihood-Schätzer ist $0{,}7$, der Posterior-Mittelwert $\frac9{14}\approx0{,}643$: drei verschiedene Zahlen aus denselben Daten (Abb. [12](prior-und-posterior.html#abb-12)). Mit dem gleichförmigen Prior $\mathrm{Beta}(1,1)$ ist $\ln p(\theta)=0$, und der MAP-Schätzer ist gleich dem Maximum-Likelihood-Schätzer.
+::::
 
 :::warnung Gleiche Formel, verschiedene Schätzer
 Der MAP-Schätzer mit dem Prior $\mathrm{Beta}(2,2)$ ist $(N_1+1)/(N+2)$, dieselbe Formel wie die Laplace-Regel [(6.10)](prior-und-posterior.html#gl-6-10). Das ist ein Zufall der gewählten Parameter. Die Laplace-Regel ist der Erwartungswert des Posteriors beim Prior $\mathrm{Beta}(1,1)$, der MAP-Schätzer der Gipfel des Posteriors beim Prior $\mathrm{Beta}(2,2)$. Mit anderen Priors fallen die beiden auseinander.
@@ -51,7 +53,9 @@ Der MAP-Schätzer mit dem Prior $\mathrm{Beta}(2,2)$ ist $(N_1+1)/(N+2)$, diesel
 
 Die Form [(7.1)](#gl-7-1) zeigt, was der Prior beim MAP-Schätzer tut: Er addiert zur Log-Likelihood einen Term, der nur vom Parameter abhängt, nicht von den Daten. Wo der Prior klein ist, ist sein Logarithmus stark negativ, und dieser Term zieht die Bewertung nach unten. Man nennt ihn deshalb auch einen __Strafterm__: Parameterwerte, die man vorher für unplausibel hielt, werden bestraft.
 
-⁠**Rechenbeispiel:** Für den Prior $\mathrm{Beta}(2,2)$ ist $\ln p(\theta)=\ln6+\ln\theta+\ln(1-\theta)$. Bei $\theta=\tfrac12$ ist das $\ln6-2\ln2\approx0{,}405$, bei $\theta=0{,}9$ schon $\ln6+\ln0{,}9+\ln0{,}1\approx-0{,}616$, und für $\theta\to0$ oder $\theta\to1$ fällt es unter jede Schranke. Bei drei Würfen mit dreimal Kopf liegt das Maximum der Log-Likelihood $3\ln\theta$ am Rand $\theta=1$. Zusammen mit dem Strafterm ist das Maximum von $4\ln\theta+\ln(1-\theta)$ nach [(7.2)](#gl-7-2) bei $\tfrac45$. Wächst die Datenmenge, so wächst die Log-Likelihood als Summe mit, der Strafterm aber nicht. Bei $70$ Köpfen in $100$ Würfen ist der MAP-Schätzer $\tfrac{71}{102}\approx0{,}696$, kaum noch vom Maximum-Likelihood-Schätzer $0{,}7$ zu unterscheiden; bei $30$ Köpfen in $30$ Würfen ist er $\tfrac{31}{32}\approx0{,}969$.
+::::beispiel [Rechenbeispiel]
+Für den Prior $\mathrm{Beta}(2,2)$ ist $\ln p(\theta)=\ln6+\ln\theta+\ln(1-\theta)$. Bei $\theta=\tfrac12$ ist das $\ln6-2\ln2\approx0{,}405$, bei $\theta=0{,}9$ schon $\ln6+\ln0{,}9+\ln0{,}1\approx-0{,}616$, und für $\theta\to0$ oder $\theta\to1$ fällt es unter jede Schranke. Bei drei Würfen mit dreimal Kopf liegt das Maximum der Log-Likelihood $3\ln\theta$ am Rand $\theta=1$. Zusammen mit dem Strafterm ist das Maximum von $4\ln\theta+\ln(1-\theta)$ nach [(7.2)](#gl-7-2) bei $\tfrac45$. Wächst die Datenmenge, so wächst die Log-Likelihood als Summe mit, der Strafterm aber nicht. Bei $70$ Köpfen in $100$ Würfen ist der MAP-Schätzer $\tfrac{71}{102}\approx0{,}696$, kaum noch vom Maximum-Likelihood-Schätzer $0{,}7$ zu unterscheiden; bei $30$ Köpfen in $30$ Würfen ist er $\tfrac{31}{32}\approx0{,}969$.
+::::
 
 ⁠**Kurz gesagt:** Beim MAP-Schätzer wirkt der Logarithmus des Priors als Strafterm, der zur Log-Likelihood addiert wird; mit wachsender Datenmenge verliert er an Gewicht.
 
@@ -84,7 +88,9 @@ Die Ableitung nach $\mu$ ist $\frac1{\sigma^2}\sum_i(x_i-\mu)-\frac1{\tau^2}(\mu
 
 Der MAP-Schätzer ist ein gewichtetes Mittel aus dem Mittelwert der Messungen und dem Erwartungswert des Priors. Die Gewichte sind die Kehrwerte der Varianzen: $N/\sigma^2$ ist der Kehrwert von $\operatorname{Var}(\bar X)=\sigma^2/N$, und $1/\tau^2$ der Kehrwert der Prior-Varianz. Der Prior wirkt also wie eine zusätzliche Messung mit der Varianz $\tau^2$, genau wie bei den zwei Messgeräten in Aufgabe [5](wie-gut-ist-ein-schatzer.html#aufg-5). Der Strafterm $-(\mu-\mu_0)^2/(2\tau^2)$ ist quadratisch: Er bestraft den Abstand von $\mu_0$ umso stärker, je kleiner $\tau$ ist.
 
-⁠**Rechenbeispiel:** Es sei $\sigma=2\,\mathrm{mV}$, $\tau=1\,\mathrm{mV}$ und $\mu_0=0$. Aus $N=4$ Messungen ergibt sich $\bar x=1{,}5\,\mathrm{mV}$. Die Gewichte sind $N/\sigma^2=4/4=1\,\mathrm{mV}^{-2}$ und $1/\tau^2=1\,\mathrm{mV}^{-2}$, also ist $\hat\mu_{\mathrm{MAP}}=\frac{1\cdot1{,}5+1\cdot0}{1+1}=0{,}75\,\mathrm{mV}$. Mit $N=36$ Messungen und demselben Mittelwert ist das Gewicht der Daten $9$, und $\hat\mu_{\mathrm{MAP}}=\frac{9\cdot1{,}5}{9+1}=1{,}35\,\mathrm{mV}$. Mit wachsender Zahl der Messungen rückt der MAP-Schätzer an den Maximum-Likelihood-Schätzer $\bar x$ heran.
+::::beispiel [Rechenbeispiel]
+Es sei $\sigma=2\,\mathrm{mV}$, $\tau=1\,\mathrm{mV}$ und $\mu_0=0$. Aus $N=4$ Messungen ergibt sich $\bar x=1{,}5\,\mathrm{mV}$. Die Gewichte sind $N/\sigma^2=4/4=1\,\mathrm{mV}^{-2}$ und $1/\tau^2=1\,\mathrm{mV}^{-2}$, also ist $\hat\mu_{\mathrm{MAP}}=\frac{1\cdot1{,}5+1\cdot0}{1+1}=0{,}75\,\mathrm{mV}$. Mit $N=36$ Messungen und demselben Mittelwert ist das Gewicht der Daten $9$, und $\hat\mu_{\mathrm{MAP}}=\frac{9\cdot1{,}5}{9+1}=1{,}35\,\mathrm{mV}$. Mit wachsender Zahl der Messungen rückt der MAP-Schätzer an den Maximum-Likelihood-Schätzer $\bar x$ heran.
+::::
 
 ⁠**Kurz gesagt:** Mit einem Gauß-Prior ist der MAP-Schätzer des Erwartungswerts ein Mittel aus Messmittelwert und Prior-Erwartungswert, gewichtet mit den Kehrwerten der Varianzen.
 
@@ -112,7 +118,9 @@ Bei vielen Daten liefern alle drei fast dieselbe Zahl, denn das Gewicht des Prio
 
 Zwei Eigenschaften unterscheiden sie grundsätzlich. Erstens verträgt der MAP-Schätzer keine Umrechnung des Parameters. Er ist der Gipfel einer Dichte, und nach dem Hintergrund-Kasten in Unterabschnitt [5.5](die-maximum-likelihood-schatzung.html#stufe-5-5) verschiebt eine nichtlineare Umrechnung den Gipfel einer Dichte. Der Maximum-Likelihood-Schätzer hat dieses Problem nach dem Satz in Unterabschnitt [5.5](die-maximum-likelihood-schatzung.html#stufe-5-5) nicht. Zweitens fasst jede einzelne Zahl den Posterior nur zusammen. Wie breit er ist, also wie unsicher man nach den Daten noch ist, sagt keiner der beiden bayesschen Schätzer.
 
-⁠**Rechenbeispiel:** Nach zehn Würfen mit dem Prior $\mathrm{Beta}(2,2)$ ist der Posterior $\mathrm{Beta}(9,5)$ mit dem Gipfel bei $\tfrac23$. Fragt man nach der Chance $\theta/(1-\theta)$, so liefert der Maximum-Likelihood-Schätzer $\tfrac{0{,}7}{0{,}3}=\tfrac73$, also die umgerechnete Zahl. Der Gipfel des Posteriors, umgerechnet auf die Chance, ist $\tfrac{2/3}{1/3}=2$. Rechnet man aber die Dichte selbst auf eine andere Größe um und sucht dort den Gipfel, so landet man bei einem anderen $\theta$; der Hintergrund-Kasten rechnet das vor.
+::::beispiel [Rechenbeispiel]
+Nach zehn Würfen mit dem Prior $\mathrm{Beta}(2,2)$ ist der Posterior $\mathrm{Beta}(9,5)$ mit dem Gipfel bei $\tfrac23$. Fragt man nach der Chance $\theta/(1-\theta)$, so liefert der Maximum-Likelihood-Schätzer $\tfrac{0{,}7}{0{,}3}=\tfrac73$, also die umgerechnete Zahl. Der Gipfel des Posteriors, umgerechnet auf die Chance, ist $\tfrac{2/3}{1/3}=2$. Rechnet man aber die Dichte selbst auf eine andere Größe um und sucht dort den Gipfel, so landet man bei einem anderen $\theta$; der Hintergrund-Kasten rechnet das vor.
+::::
 
 ⁠**Kurz gesagt:** Maximum Likelihood, MAP und Posterior-Mittelwert stimmen bei vielen Daten überein und unterscheiden sich bei wenigen; nur der Maximum-Likelihood-Schätzer verträgt jede umkehrbare Umrechnung des Parameters.
 

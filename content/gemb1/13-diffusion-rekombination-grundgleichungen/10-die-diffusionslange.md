@@ -39,7 +39,11 @@ $$\Delta p_\mathrm n(x)=\Delta p_\mathrm n(x=0)\,\exp\Bigl(-\frac x{L_\text{diff
 Der Ansatz $\mathrm{e}^{\kappa x}$ gibt $\kappa=\pm1/L_\text{diff,p}$, die allgemeine Lösung mit $L=L_\text{diff,p}$ ist $C_1\mathrm{e}^{-x/L}+C_2\mathrm{e}^{+x/L}$. Weit im Innern muss der Überschuss verschwinden, also ist $C_2=0$, und $C_1$ ist der Wert bei $x=0$. Probe: $\partial^2/\partial x^2$ gibt den Faktor $1/L^2=1/(D_\mathrm p\tau_\text{rec})$, und [(8.1)](#gl-8-1) stimmt.
 :::
 
-**Beispiel.** Die Probe hat $L_\text{diff,p}=33$ µ m. Bei 164 µ m sind noch 0,7 % übrig. Mit $\Delta p_\mathrm n(0)=10^{13}\,\mathrm{cm^{-3}}$ fließt an der Oberfläche $\mathcal J_\mathrm p(0)=D_\mathrm p\Delta p_\mathrm n(0)/L_\text{diff,p}=3{,}3\cdot10^{16}\,\mathrm{cm^{-2}\,s^{-1}}$, das sind 5,3 mA/cm$^2$. **Kontrolle:** Alles, was eintritt, muss rekombinieren: $\int_0^\infty\Delta p_\mathrm n\,\mathrm{d} x/\tau_\text{rec}=\Delta p_\mathrm n(0)\,L_\text{diff,p}/\tau_\text{rec}$ ergibt wegen $L_\text{diff,p}^2=D_\mathrm p\tau_\text{rec}$ denselben Wert. **Grenzfälle:** Für $\tau_\text{rec}\to\infty$ wird das Profil flach, für $\tau_\text{rec}\to0$ bleiben die Träger an der Oberfläche.
+::::beispiel
+Die Probe hat $L_\text{diff,p}=33$ µ m. Bei 164 µ m sind noch 0,7 % übrig. Mit $\Delta p_\mathrm n(0)=10^{13}\,\mathrm{cm^{-3}}$ fließt an der Oberfläche $\mathcal J_\mathrm p(0)=D_\mathrm p\Delta p_\mathrm n(0)/L_\text{diff,p}=3{,}3\cdot10^{16}\,\mathrm{cm^{-2}\,s^{-1}}$, das sind 5,3 mA/cm$^2$. **Kontrolle:** Alles, was eintritt, muss rekombinieren: $\int_0^\infty\Delta p_\mathrm n\,\mathrm{d} x/\tau_\text{rec}=\Delta p_\mathrm n(0)\,L_\text{diff,p}/\tau_\text{rec}$ ergibt wegen $L_\text{diff,p}^2=D_\mathrm p\tau_\text{rec}$ denselben Wert.
+::::
+
+⁠**Grenzfälle:** Für $\tau_\text{rec}\to\infty$ wird das Profil flach, für $\tau_\text{rec}\to0$ bleiben die Träger an der Oberfläche.
 
 **Dünne Platte.** Rekombiniert auf der Rückseite einer Platte alles sofort, gilt $\Delta p_\mathrm n(d)=0$. Die Gleichung [(8.1)](#gl-8-1) bleibt, und mit festem Wert bei $x=0$ ist
 

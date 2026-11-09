@@ -45,7 +45,11 @@ Un cuadripolo es una unidad conceptualmente cerrada, accesible solo a través de
 Izquierda: el cuadripolo T del modelo de referencia es asimétrico respecto a masa; en rojo, la línea de masa de 1$'$ a 2$'$. Derecha: el circuito en puente de dos pares de resistencias no tiene línea continua entre los puertos; es simétrico respecto a masa. La etapa [3](impedanzform-und-leerlaufversuch.html#stufe-3) calcula ambos.
 :::
 
-**Ejemplo.** En el funcionamiento del cuadripolo T (etapa [4](das-zweitor-im-betrieb.html#stufe-4)) entran $I_1=250$ mA e $I_{1'}=-250$ mA; la carga toma 50 mA, es decir, $I_2=-50$ mA e $I_{2'}=+50$ mA. La suma en [(1.1)](#gl-1-1) es cero. **Caso límite:** Si el puerto 2 está abierto, $I_2=I_{2'}=0$, y hacia fuera el cuadripolo actúa como un dipolo en el puerto 1.
+::::beispiel
+En el funcionamiento del cuadripolo T (etapa [4](das-zweitor-im-betrieb.html#stufe-4)) entran $I_1=250$ mA e $I_{1'}=-250$ mA; la carga toma 50 mA, es decir, $I_2=-50$ mA e $I_{2'}=+50$ mA. La suma en [(1.1)](#gl-1-1) es cero.
+::::
+
+⁠**Caso límite:** Si el puerto 2 está abierto, $I_2=I_{2'}=0$, y hacia fuera el cuadripolo actúa como un dipolo en el puerto 1.
 
 :::frage La línea de masa une 1$'$ y 2$'$. ¿No circula ahí, después de todo, corriente de puerto a puerto?
 Sí, en el interior. Por la línea de masa del cuadripolo T circulan 50 mA de 2$'$ al pie de $R_\mathrm{b}$. Pero la condición de puerto solo dice lo que ocurre en los terminales. Dentro puede circular cualquier corriente, siempre que cada corriente de terminal vuelva por su terminal pareja.

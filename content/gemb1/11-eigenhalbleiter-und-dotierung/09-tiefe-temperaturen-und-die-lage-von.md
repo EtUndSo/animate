@@ -57,7 +57,11 @@ mit $g_\mathrm A=4$ steht unter der Wurzel $N_\mathrm AN_\mathrm V/4$. Allgemein
 $E_\mathrm F$ in Silizium über $T$, numerisch aus der Neutralität, für $N_\mathrm D$ (blau) und $N_\mathrm A$ (rot) von $10^{14}$, $10^{16}$ und $10^{18}\,\mathrm{cm^{-3}}$, mit $\Delta E=45$ meV und $g_\mathrm A=4$. Für $T\to0$ laufen alle Kurven in die Mitte zwischen Bandkante und Niveau, bei hohen $T$ auf $E_\mathrm{Fi}$. Je höher die Dotierung, desto länger bleibt $E_\mathrm F$ nahe am Band.
 :::
 
-**Beispiel.** Die Grenze $K_1=N_\mathrm D$ liegt für die Probe bei 95 K, dort ist $n=0{,}62\,N_\mathrm D$. Bei 77 K ist nach [(7.2)](#gl-7-2) $n=3{,}6\cdot10^{15}\,\mathrm{cm^{-3}}$, die Wurzel gibt 25 % zu viel. Bei 40 K sind $n=1{,}2\cdot10^{14}\,\mathrm{cm^{-3}}$, nur noch 1,2 % der Donatoren ionisiert, und die Wurzel stimmt auf 0,6 %. Dort ist $E_\mathrm C-E_\mathrm F=32$ meV, also $E_\mathrm F-E_\mathrm D=3{,}7\,k_\mathrm BT$. Für $T\to0$ bleiben 22,5 meV. **Grenzfälle:** Für $K_1\gg N_\mathrm D$ ist die Wurzel in [(7.2)](#gl-7-2) $1+2N_\mathrm D/K_1$, also $n=N_\mathrm D$: Das ist die Erschöpfung. Sobald $2N_\mathrm C<N_\mathrm D$ wird, ist der Logarithmus in [(7.3)](#gl-7-3) positiv, und $E_\mathrm F$ nähert sich der Mitte von oben. Bei der Probe geschieht das erst unter 1 K, bei $10^{18}\,\mathrm{cm^{-3}}$ schon bei 20 K.
+::::beispiel
+Die Grenze $K_1=N_\mathrm D$ liegt für die Probe bei 95 K, dort ist $n=0{,}62\,N_\mathrm D$. Bei 77 K ist nach [(7.2)](#gl-7-2) $n=3{,}6\cdot10^{15}\,\mathrm{cm^{-3}}$, die Wurzel gibt 25 % zu viel. Bei 40 K sind $n=1{,}2\cdot10^{14}\,\mathrm{cm^{-3}}$, nur noch 1,2 % der Donatoren ionisiert, und die Wurzel stimmt auf 0,6 %. Dort ist $E_\mathrm C-E_\mathrm F=32$ meV, also $E_\mathrm F-E_\mathrm D=3{,}7\,k_\mathrm BT$. Für $T\to0$ bleiben 22,5 meV.
+::::
+
+⁠**Grenzfälle:** Für $K_1\gg N_\mathrm D$ ist die Wurzel in [(7.2)](#gl-7-2) $1+2N_\mathrm D/K_1$, also $n=N_\mathrm D$: Das ist die Erschöpfung. Sobald $2N_\mathrm C<N_\mathrm D$ wird, ist der Logarithmus in [(7.3)](#gl-7-3) positiv, und $E_\mathrm F$ nähert sich der Mitte von oben. Bei der Probe geschieht das erst unter 1 K, bei $10^{18}\,\mathrm{cm^{-3}}$ schon bei 20 K.
 
 **Überblick für n-Typ.** Die Bereiche grenzen bei $n_\mathrm i=N_\mathrm D$ und $K_1=N_\mathrm D$ aneinander.
 

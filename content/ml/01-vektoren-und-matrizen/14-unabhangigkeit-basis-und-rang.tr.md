@@ -36,7 +36,9 @@ $$\operatorname{span}\{\mathbf{v}_1,\dots,\mathbf{v}_k\}=\Bigl\{\sum_{l=1}^kc_l\
 
 Demek ki bir matrisin sütun uzayı, sütunlarının gerdiği alt uzaydır. Gerilen alt uzayda iki vektör varsa onların her doğrusal bileşimi de oradadır; toplayarak ve bir sayıyla çarparak bu alt uzaydan hiçbir zaman çıkılmaz.
 
-⁠**Sayısal örnek:** $\operatorname{span}\{(1,\,2)^{\top}\}$, bütün $c\,(1,\,2)^{\top}$ katlarından oluşan doğrudur. $(1,\,2)^{\top}$ ve $(2,\,4)^{\top}$ vektörlerinin gerdiği alt uzay aynı doğrudur, çünkü $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. $(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$ vektörlerinin gerdiği alt uzay bütün düzlemdir: Her $(y_1,\,y_2)^{\top}$ vektörü $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$ olarak yazılır. $\mathbb{R}^3$ uzayında $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$, $x_3=0$ olan bütün vektörlerin oluşturduğu düzlemdir.
+::::beispiel [Sayısal örnek]
+$\operatorname{span}\{(1,\,2)^{\top}\}$, bütün $c\,(1,\,2)^{\top}$ katlarından oluşan doğrudur. $(1,\,2)^{\top}$ ve $(2,\,4)^{\top}$ vektörlerinin gerdiği alt uzay aynı doğrudur, çünkü $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. $(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$ vektörlerinin gerdiği alt uzay bütün düzlemdir: Her $(y_1,\,y_2)^{\top}$ vektörü $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$ olarak yazılır. $\mathbb{R}^3$ uzayında $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$, $x_3=0$ olan bütün vektörlerin oluşturduğu düzlemdir.
+::::
 
 ⁠**Kısacası:** Bir vektör listesinin gerdiği alt uzay, bu vektörlerden doğrusal bileşimle elde edilebilen her şeydir.
 
@@ -59,7 +61,9 @@ eşitliği yalnızca $c_1=c_2=\dots=c_k=0$ için sağlanıyorsa bu vektörlere _
 
 Doğrusal bağımlı olmak şuna denktir: Vektörlerden en az biri ötekilerin bir doğrusal bileşimidir. Çünkü [(13.2)](#gl-13-2) eşitliği bir $c_l\ne0$ katsayısıyla sağlanıyorsa eşitlik $\mathbf{v}_l$ için çözülebilir: $\mathbf{v}_l=-\sum_{l'\ne l}(c_{l'}/c_l)\,\mathbf{v}_{l'}$. Tersine, böyle bir gösterim hemen $\mathbf{v}_l$ önünde $-1$ katsayısı bulunan bir bileşim verir.
 
-⁠**Sayısal örnek:** $(1,\,2)^{\top}$ ve $(2,\,4)^{\top}$ doğrusal bağımlıdır: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. $(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$ vektörleri doğrusal bağımsızdır: $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ eşitliğinden önce $c_2=0$, sonra $c_1=0$ çıkar. $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ ve $(1,\,1,\,2)^{\top}$ vektörleri doğrusal bağımlıdır, çünkü üçüncüsü ilk ikisinin toplamıdır.
+::::beispiel [Sayısal örnek]
+$(1,\,2)^{\top}$ ve $(2,\,4)^{\top}$ doğrusal bağımlıdır: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. $(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$ vektörleri doğrusal bağımsızdır: $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ eşitliğinden önce $c_2=0$, sonra $c_1=0$ çıkar. $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ ve $(1,\,1,\,2)^{\top}$ vektörleri doğrusal bağımlıdır, çünkü üçüncüsü ilk ikisinin toplamıdır.
+::::
 
 ⁠**Kısacası:** Doğrusal bağımsız şu demektir: Vektörlerin hiçbiri ötekilerden bileşim olarak elde edilemez, gereksiz tekrar yoktur.
 
@@ -87,7 +91,9 @@ $\mathbf{v}_1,\dots,\mathbf{v}_k$, $\mathcal S$ kümesinin bir tabanıysa her $\
 En az bir gösterim vardır, çünkü taban $\mathcal S$ kümesini gerer. İki gösterim olsaydı, $\sum_lc_l\mathbf{v}_l=\sum_lc_l'\mathbf{v}_l$, bunların farkı $\sum_l(c_l-c_l')\mathbf{v}_l=\mathbf{0}$ olurdu. Doğrusal bağımsızlık yüzünden o zaman bütün $c_l-c_l'=0$ olur.
 :::
 
-⁠**Sayısal örnek:** $(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$, $\mathbb{R}^2$ uzayının bir tabanını oluşturur: Doğrusal bağımsızdırlar ve düzlemi gererler. $(3,\,2)^{\top}$ vektörünün bu tabandaki koordinatları $1$ ve $2$ olur, çünkü $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. $\operatorname{span}\{(0,\,1)^{\top}\}$ doğrusunun vektörlerinin iki bileşeni olmasına rağmen bu doğrunun boyutu $1$ olur.
+::::beispiel [Sayısal örnek]
+$(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$, $\mathbb{R}^2$ uzayının bir tabanını oluşturur: Doğrusal bağımsızdırlar ve düzlemi gererler. $(3,\,2)^{\top}$ vektörünün bu tabandaki koordinatları $1$ ve $2$ olur, çünkü $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. $\operatorname{span}\{(0,\,1)^{\top}\}$ doğrusunun vektörlerinin iki bileşeni olmasına rağmen bu doğrunun boyutu $1$ olur.
+::::
 
 ⁠**Kısacası:** Bir taban, her şeyi geren bağımsız vektörlerden oluşan bir listedir; listenin uzunluğu boyuttur.
 
@@ -111,11 +117,13 @@ Bir matrisin doğrusal bağımsız sütunlarının en büyük sayısı, doğrusa
 
 $\operatorname{rank}\mathbf{A}=\min(m,n)$ ise $\mathbf{A}$ matrisine __tam ranklı__ denir. Uygulamada rank Gauss eleme yöntemiyle belirlenir: Satır işlemleri rankı değiştirmez ve satır basamak biçiminde rank, tamamı sıfırlardan oluşmayan satırların sayısıdır.
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin rankı $1$ olur: İkinci sütun birincinin iki katıdır, aynı biçimde ikinci satır da birincinin iki katıdır.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin rankı $1$ olur: İkinci sütun birincinin iki katıdır, aynı biçimde ikinci satır da birincinin iki katıdır.
 
 $$\mathbf K=\begin{pmatrix}1&0&1\\0&1&1\\1&1&2\end{pmatrix}$$
 
 matrisinde birinci ve ikinci satır üçüncü satırdan çıkarılırsa $(1,0,1)$, $(0,1,1)$, $(0,0,0)$ satırları elde edilir. İki satır sıfır değildir, dolayısıyla $\operatorname{rank}\mathbf K=2$ olur; gerçekten de üçüncü sütun ilk ikisinin toplamıdır. Dairelerin veri matrisi tam ranklıdır, rankı $3$ olur.
+::::
 
 ⁠**Kısacası:** Rank, bir matrisin sütunlarında gerçekten kaç farklı doğrultu bulunduğunu sayar ve bu sayı satırlarındakiyle aynıdır.
 
@@ -161,7 +169,9 @@ $\mathbf{A}\in\mathbb{R}^{n\times n}$ için şunlar denktir: (i) $\mathbf{A}$ te
 (i) koşulundan (ii) çıkar (alt kesim [11.5](einheitsmatrix-und-inverse.html#stufe-11-5)). (ii), (iii) ve (iv), rank-sıfırlık teoremi ve rankın tanımı uyarınca denktir. Geriye şu kalır: (iii) ve (ii) koşullarından (i) çıkar. $\operatorname{rank}\mathbf{A}=n$ ise sütun uzayı, $\mathbb{R}^n$ içinde boyutu $n$ olan bir uzay, yani bütün $\mathbb{R}^n$ uzayıdır. Bu yüzden her $\mathbf{A}\mathbf{c}_j=\mathbf{e}_j$ sistemi çözülebilir ve çözümler, $\mathbf{A}\mathbf{C}=\mathbf{I}$ olan bir $\mathbf{C}$ matrisinin sütunlarını oluşturur. Ayrıca $\mathbf{A}(\mathbf{C}\mathbf{A}-\mathbf{I})=\mathbf{A}\mathbf{C}\mathbf{A}-\mathbf{A}=\mathbf 0$ olur. Demek ki $\mathbf{C}\mathbf{A}-\mathbf{I}$ matrisinin her sütunu, (ii) uyarınca yalnızca sıfır vektörünü içeren çekirdektedir. Dolayısıyla $\mathbf{C}\mathbf{A}=\mathbf{I}$ de geçerlidir ve $\mathbf{C}=\mathbf{A}^{-1}$ olur.
 :::
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin çekirdeği boyutu $1$ olan $\operatorname{span}\{(2,\,-1)^{\top}\}$, rankı da $1$ olur: $1+1=2$. Yukarıdaki $\mathbf K$ matrisinin çekirdeği $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$ olur, çünkü üçüncü sütunu ilk ikisinin toplamıdır; $\operatorname{rank}\mathbf K=2$ ile $1+2=3$ bulunur.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin çekirdeği boyutu $1$ olan $\operatorname{span}\{(2,\,-1)^{\top}\}$, rankı da $1$ olur: $1+1=2$. Yukarıdaki $\mathbf K$ matrisinin çekirdeği $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$ olur, çünkü üçüncü sütunu ilk ikisinin toplamıdır; $\operatorname{rank}\mathbf K=2$ ile $1+2=3$ bulunur.
+::::
 
 **Rank ve çözülebilirlik.** Rank ve çekirdek sayesinde doğrusal denklem sistemleriyle ilgili sorular (Kesim [12](lineare-gleichungssysteme.html#stufe-12)), kare olmayan matrisler için bile sayılardan okunabilir. Bir çözüm var mı? Tek mi? Her sağ taraf için bir çözüm var mı?
 
@@ -203,7 +213,9 @@ $\mathbf{A}\mathbf{x}=\mathbf{y}$ ancak ve ancak $\operatorname{rank}\mathbf{A}=
 
 $\operatorname{rank}\mathbf{A}=n=m$ olan bir kare matris için (ii) ve (iii) bir araya gelir: her sağ taraf için tam olarak bir çözüm; bu, tersinirlik teoremiyle uyumludur.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ için $\operatorname{rank}\mathbf{A}=1$ olur. $\mathbf{y}=(1,\,1)^{\top}$ ile genişletilmiş matrisin satırları $(1,\,2\,|\,1)$ ve $(2,\,4\,|\,1)$ olur; birincisi ikincisinden iki kez çıkarılırsa geriye $(0,\,0\,|\,-1)$ kalır, bu bir sıfır satırı değildir. Demek ki $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$ olur ve sistem, tıpkı alt kesim [12.2](lineare-gleichungssysteme.html#stufe-12-2) içindeki gibi çözülemez. $\mathbf{y}=(3,\,6)^{\top}$ ile ise geriye $(0,\,0\,|\,0)$ kalır, ranklar eşittir ve sistem çözülebilir. $\operatorname{rank}\mathbf{A}=1<2=n$ olduğundan çözüm tek değildir: Bütün çözümler $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$ biçimindedir. $\operatorname{rank}\mathbf{A}=1<2=m$ olduğundan da çözümü olmayan sağ taraflar vardır. Aşırı belirlenmiş sistemde (alt kesim [12.5](lineare-gleichungssysteme.html#stufe-12-5)) $\operatorname{rank}\mathbf{A}=2=n$ olur: Bir çözüm olsaydı tek olurdu. Ama çözüm yoktur, dolayısıyla orada (i) uyarınca $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=3$ olur.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ için $\operatorname{rank}\mathbf{A}=1$ olur. $\mathbf{y}=(1,\,1)^{\top}$ ile genişletilmiş matrisin satırları $(1,\,2\,|\,1)$ ve $(2,\,4\,|\,1)$ olur; birincisi ikincisinden iki kez çıkarılırsa geriye $(0,\,0\,|\,-1)$ kalır, bu bir sıfır satırı değildir. Demek ki $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$ olur ve sistem, tıpkı alt kesim [12.2](lineare-gleichungssysteme.html#stufe-12-2) içindeki gibi çözülemez. $\mathbf{y}=(3,\,6)^{\top}$ ile ise geriye $(0,\,0\,|\,0)$ kalır, ranklar eşittir ve sistem çözülebilir. $\operatorname{rank}\mathbf{A}=1<2=n$ olduğundan çözüm tek değildir: Bütün çözümler $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$ biçimindedir. $\operatorname{rank}\mathbf{A}=1<2=m$ olduğundan da çözümü olmayan sağ taraflar vardır. Aşırı belirlenmiş sistemde (alt kesim [12.5](lineare-gleichungssysteme.html#stufe-12-5)) $\operatorname{rank}\mathbf{A}=2=n$ olur: Bir çözüm olsaydı tek olurdu. Ama çözüm yoktur, dolayısıyla orada (i) uyarınca $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=3$ olur.
+::::
 
 ⁠**Kısacası:** Çekirdek, bir matrisin sıfıra götürdüğü doğrultuları toplar; çekirdek ve rank, $n$ giriş doğrultusunu aralarında paylaşır. Bir $\mathbf{A}\mathbf{x}=\mathbf{y}$ sistemi ancak ve ancak sağ taraf rankı artırmıyorsa çözülebilir ve çözüm ancak ve ancak çekirdek yalnızca sıfır vektörünü içeriyorsa tektir.
 
@@ -213,7 +225,8 @@ $\operatorname{rank}\mathbf{A}=n=m$ olan bir kare matris için (ii) ve (iii) bir
 
 Gerçek veri kümelerinde öznitelikler bazen aynı bilgiyi iki kez taşır. Bir anket vücut ağırlığını kilogram olarak, başka bir değerlendirme için de bir kez daha libre olarak kaydeder. Bir ev tanımında zemin katın alanı, üst katın alanı ve toplam alan verilir. Veri matrisi için bu şu demektir: Sütunları doğrusal bağımlıdır ve rankı öznitelik sayısından küçüktür.
 
-⁠**Sayısal örnek: zemin kat, üst kat, toplam alan.** Dört ev:
+::::beispiel [Sayısal örnek] zemin kat, üst kat, toplam alan
+Dört ev:
 
 $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\qquad(\text{alanlar, birim: }\mathrm m^2).$$
 
@@ -234,12 +247,15 @@ $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\
 </li>
 
 </ul>
+::::
 
-⁠**Sayısal örnek: kilogram ve libre.** Bir libre tam olarak $0{,}45359237$ kg eder; dolayısıyla libre cinsinden bir kütle, aynı kütlenin kilogram cinsinden değerinin $c=1/0{,}45359237\approx2{,}20462$ katıdır. Boyu (cm), kütlesi (kg) ve kütlesi (libre) verilmiş üç kişi:
+::::beispiel [Sayısal örnek] kilogram ve libre
+Bir libre tam olarak $0{,}45359237$ kg eder; dolayısıyla libre cinsinden bir kütle, aynı kütlenin kilogram cinsinden değerinin $c=1/0{,}45359237\approx2{,}20462$ katıdır. Boyu (cm), kütlesi (kg) ve kütlesi (libre) verilmiş üç kişi:
 
 $$\mathbf{X}=\begin{pmatrix}170&70&70\,c\\182&85&85\,c\\165&60&60\,c\end{pmatrix}\approx\begin{pmatrix}170&70&154{,}3\\182&85&187{,}4\\165&60&132{,}3\end{pmatrix}.$$
 
 Üçüncü sütun ikincinin $c$ katıdır, dolayısıyla $\operatorname{rank}\mathbf{X}=2$ olur ve $(0,\,c,\,-1)^{\top}$ çekirdekte bulunur. Libre sütunu yeni bir bilgi getirmez, yalnızca var olan bir bilgiyi ikinci kez taşır.
+::::
 
 ⁠**Kısacası:** Öznitelikler aynı bilgiyi iki kez taşıyorsa veri matrisinin sütunları doğrusal bağımlıdır; o zaman rank $d$ değerinden küçüktür, farklı ağırlıklar aynı tahminleri verir ve $\mathbf{X}^{\top}\mathbf{X}$ tersinir değildir.
 

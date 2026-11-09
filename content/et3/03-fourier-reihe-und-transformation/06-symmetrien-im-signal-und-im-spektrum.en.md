@@ -37,11 +37,13 @@ For real $s$, $\mathcal{F}\{s^*(t)\}=\mathcal{F}\{s(t)\}$. In general, $\mathcal
 
 ⁠**In short:** For a real signal, the negative half of the spectrum is the conjugate mirror image of the positive half. It contains no new information.
 
-**Example.** The exponential pulse $\varepsilon(t)\mathrm{e}^{-t}$ (real) has the even part $\frac12\mathrm{e}^{-|t|}$ and the odd part $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$. Its spectrum $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ has the even real part $\frac{1}{1+(2\pi f)^2}$, the transform of $\frac12\mathrm{e}^{-|t|}$, and the odd imaginary part $\frac{-2\pi f}{1+(2\pi f)^2}$ (Fig. [5](#abb-5)).
+::::beispiel
+The exponential pulse $\varepsilon(t)\mathrm{e}^{-t}$ (real) has the even part $\frac12\mathrm{e}^{-|t|}$ and the odd part $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$. Its spectrum $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ has the even real part $\frac{1}{1+(2\pi f)^2}$, the transform of $\frac12\mathrm{e}^{-|t|}$, and the odd imaginary part $\frac{-2\pi f}{1+(2\pi f)^2}$ (Fig. [5](#abb-5)).
 
 :::abbildung et3/k3gerade 5
 The exponential pulse ($RC=1$ s), decomposed into an even part (blue) and an odd part (red). Right: the spectrum. The even part yields the real part (even in $f$), the odd part the imaginary part (odd in $f$).
 :::
+::::
 
 :::aufgabe Exercise 5 ★ Reading off symmetry
 <span class="anker" id="aufg-5"></span>

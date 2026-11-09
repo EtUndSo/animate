@@ -25,7 +25,9 @@ $$\varphi^E_{ss}(m)\;\circ\!\!-\!\!\bullet\;|S_\mathrm a(f)|^2\ (\text{periodo }
 
 Para señales paso bajo muestreadas se cumple $\varphi^E_{sg}(mT)=T\sum_ns^*(nT)g((n+m)T)$ y $E_s=T\sum_n|s(nT)|^2$. Una señal de energía en tiempo discreto es una secuencia de cuadrado sumable.
 
-**Ejemplo.** $s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ para $m=-2,\dots,2$. Máximo $6=E_s$ en $m=0$, par, cinco valores en lugar de tres. Comprobación con Wiener-Khinchin en $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
+::::beispiel
+$s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ para $m=-2,\dots,2$. Máximo $6=E_s$ en $m=0$, par, cinco valores en lugar de tres. Comprobación con Wiener-Khinchin en $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
+::::
 
 **Correlación periódica.** Como en la convolución ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)), para secuencias de periodo $M$ se cumple
 

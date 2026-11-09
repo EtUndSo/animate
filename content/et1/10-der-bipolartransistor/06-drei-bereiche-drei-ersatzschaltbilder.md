@@ -32,7 +32,11 @@ $$\begin{aligned} \text{Sperrbereich:}\quad & U_\mathrm{BE}<U_\mathrm{BE,ein}\;\
 Die drei Ersatzschaltbilder des npn-Transistors. Links offen im Sperrbereich, Mitte mit gesteuerter Stromquelle im aktiven Bereich, rechts mit zwei Spannungsquellen in der Sättigung. Im Knoten über E vereinigen sich $I_\mathrm{B}$ und $I_\mathrm{C}$.
 :::
 
-**Beispiel.** Bei T ($B=200$) gilt: $I_\mathrm{B}=10$ µ A mit $U_\mathrm{CE}=6$ V ist aktiv, also $I_\mathrm{C}=2$ mA. $I_\mathrm{B}=30$ µ A mit $I_\mathrm{C}=3{,}9$ mA ist Sättigung, denn $B\,I_\mathrm{B}=6$ mA ist größer als der Strom, den der Kreis zulässt. $U_\mathrm{BE}=0{,}3$ V ist Sperrbereich. **Grenzfall:** Für $B\,I_\mathrm{B}=I_\mathrm{C}$ und $U_\mathrm{CE}=U_\mathrm{CE,sat}$ liegt der Transistor genau auf der Grenze zwischen aktiv und Sättigung. Beide Ersatzschaltbilder liefern dort dasselbe.
+::::beispiel
+Bei T ($B=200$) gilt: $I_\mathrm{B}=10$ µ A mit $U_\mathrm{CE}=6$ V ist aktiv, also $I_\mathrm{C}=2$ mA. $I_\mathrm{B}=30$ µ A mit $I_\mathrm{C}=3{,}9$ mA ist Sättigung, denn $B\,I_\mathrm{B}=6$ mA ist größer als der Strom, den der Kreis zulässt. $U_\mathrm{BE}=0{,}3$ V ist Sperrbereich.
+::::
+
+⁠**Grenzfall:** Für $B\,I_\mathrm{B}=I_\mathrm{C}$ und $U_\mathrm{CE}=U_\mathrm{CE,sat}$ liegt der Transistor genau auf der Grenze zwischen aktiv und Sättigung. Beide Ersatzschaltbilder liefern dort dasselbe.
 
 :::frage Warum heißt es Sättigung, wenn der Strom gerade nicht mehr folgt?
 Gesättigt ist nicht der Strom, sondern die Basis: Sie ist mit Elektronen übervoll. Das Wort bedeutet beim Bipolartransistor deshalb den steilen Teil links der Ausgangskennlinie. Beim MOSFET heißt der flache Teil Sättigung. Die beiden Wörter meinen Verschiedenes.

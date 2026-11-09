@@ -89,7 +89,11 @@ $$\|\vec s\|^2=\sum_ix_is_i+\sum_iy_is_i\le\sum_i|x_is_i|+\sum_i|y_is_i|\le\bigl
 Para $\|\vec s\|=0$, a la izquierda de [(9.2)](#gl-9-2) queda 0. Si no, se divide por $\|\vec s\|$.
 :::
 
-**Ejemplo.** Bernoulli: $1{,}01^{10}>1{,}1$, exactamente $1{,}1046$. Para $x$ pequeño, $1+nx$ es una buena aproximación: un 1 % más de tensión significa en una resistencia aproximadamente un 2 % más de potencia, exactamente un 2,01 %. Para $x$ grande es tosca: $2^{10}=1024$ frente a 11. Young con $x=2$, $y=8$: para $\varepsilon=1$ queda $16\le34$, para $\varepsilon=4$ queda $16\le16$. Cauchy-Schwarz con $\vec x=(3,4)$, $\vec y=(1,2)$: $3+8=11\le5\sqrt5\approx11{,}18$. Minkowski: $\|(4,6)\|=\sqrt{52}\approx7{,}21\le5+\sqrt5\approx7{,}24$. **Caso límite:** Con $x=y$ ambas medias son iguales; en el semicírculo, la altura está en el centro.
+::::beispiel
+Bernoulli: $1{,}01^{10}>1{,}1$, exactamente $1{,}1046$. Para $x$ pequeño, $1+nx$ es una buena aproximación: un 1 % más de tensión significa en una resistencia aproximadamente un 2 % más de potencia, exactamente un 2,01 %. Para $x$ grande es tosca: $2^{10}=1024$ frente a 11. Young con $x=2$, $y=8$: para $\varepsilon=1$ queda $16\le34$, para $\varepsilon=4$ queda $16\le16$. Cauchy-Schwarz con $\vec x=(3,4)$, $\vec y=(1,2)$: $3+8=11\le5\sqrt5\approx11{,}18$. Minkowski: $\|(4,6)\|=\sqrt{52}\approx7{,}21\le5+\sqrt5\approx7{,}24$.
+::::
+
+⁠**Caso límite:** Con $x=y$ ambas medias son iguales; en el semicírculo, la altura está en el centro.
 
 :::frage ¿Cuándo uso cada desigualdad?
 Potencia de un número cercano a 1: Bernoulli. Acotar un producto: Young, medias. Suma de productos: Cauchy-Schwarz. Raíz de una suma: Minkowski.

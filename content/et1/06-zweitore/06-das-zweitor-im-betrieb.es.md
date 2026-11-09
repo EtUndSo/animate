@@ -46,11 +46,15 @@ Para [(4.3)](#gl-4-3) se sustituye la carga. La fuente impone $U_1=U_\mathrm{q}-
 Circuito equivalente del cuadripolo T con fuente y carga. Circulan $I_1=250$ mA e $I_2=-50$ mA. La reacción vale $Z_{12}I_2=-1$ V, y la fuente directa da $Z_{21}I_1=5$ V. La entrada muestra 31 $\Omega$ en lugar de 35 $\Omega$.
 :::
 
-**Ejemplo.** Para el cuadripolo T, $Z_{1,\mathrm{CA}}=35\,\Omega$ y $Z_{1,\mathrm{CC}}=35\,\Omega-400\,\Omega^2/40\,\Omega=25\,\Omega$, que es $R_\mathrm{a}+R_\mathrm{b}\parallel R_\mathrm{c}$. Con $R_\mathrm{L}=60\,\Omega$ resulta
+::::beispiel
+Para el cuadripolo T, $Z_{1,\mathrm{CA}}=35\,\Omega$ y $Z_{1,\mathrm{CC}}=35\,\Omega-400\,\Omega^2/40\,\Omega=25\,\Omega$, que es $R_\mathrm{a}+R_\mathrm{b}\parallel R_\mathrm{c}$. Con $R_\mathrm{L}=60\,\Omega$ resulta
 
 $$Z_1=35\,\Omega-\frac{400\,\Omega^2}{100\,\Omega}=31\,\Omega,\quad I_1=\frac{9\,\mathrm{V}}{5\,\Omega+31\,\Omega}=250\,\mathrm{mA},\quad I_2=-\frac{20}{100}\,I_1=-50\,\mathrm{mA}.$$
 
-En la entrada, $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7{,}75$ V; en la salida, $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. Por $R_\mathrm{b}$ circulan $I_1+I_2=200$ mA en lugar de 250 mA, lo que baja $U_1$ exactamente 1 V (fig. [5](#abb-5)). Visto desde la carga: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4{,}5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Entonces $I=4{,}5\,\mathrm{V}/90\,\Omega=50$ mA, la misma corriente. Así pues, la fuente equivalente de la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) está contenida en los cuatro números. **Casos límite:** $R_\mathrm{L}\to\infty$ da $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ da $25\,\Omega$. Toda carga queda en medio.
+En la entrada, $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7{,}75$ V; en la salida, $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. Por $R_\mathrm{b}$ circulan $I_1+I_2=200$ mA en lugar de 250 mA, lo que baja $U_1$ exactamente 1 V (fig. [5](#abb-5)). Visto desde la carga: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4{,}5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Entonces $I=4{,}5\,\mathrm{V}/90\,\Omega=50$ mA, la misma corriente. Así pues, la fuente equivalente de la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) está contenida en los cuatro números.
+::::
+
+⁠**Casos límite:** $R_\mathrm{L}\to\infty$ da $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ da $25\,\Omega$. Toda carga queda en medio.
 
 :::frage La carga solo está en el puerto 2. ¿Cómo se entera de ella la entrada?
 Por los componentes comunes. En el cuadripolo T, ambos puertos pasan por $R_\mathrm{b}$, y su caída de tensión depende de $I_1+I_2$. En general, $Z_{12}$ es la medida de este acoplamiento. No hace falta ninguna transmisión de señal hacia atrás: las tensiones se establecen conjuntamente en la red.

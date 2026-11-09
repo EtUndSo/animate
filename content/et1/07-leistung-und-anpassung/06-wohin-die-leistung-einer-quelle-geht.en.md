@@ -39,7 +39,8 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 The mesh rule reads $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multiplied by $I$, it gives $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$. In [(5.2)](#gl-5-2), $I$ cancels, because both resistors carry the same current. The voltage divider ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) gives $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$.
 :::
 
-**Example.** The battery with four loads:
+::::beispiel
+The battery with four loads:
 
 | $R_\mathrm{L}$ in $\Omega$ | $I$ in A | $U_\mathrm{L}$ in V | $P_\mathrm{L}$ in W | $P_\mathrm{v}$ in W | $P_\mathrm{q}$ in W | $\eta$ |
 |---|---|---|---|---|---|---|
@@ -47,6 +48,7 @@ The mesh rule reads $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multiplied by $I$
 | 2 | 2.25 | 4.5 | 10.125 | 10.125 | 20.25 | 50 % |
 | 8 | 0.9 | 7.2 | 6.48 | 1.62 | 8.1 | 80 % |
 | 16 | 0.5 | 8 | 4 | 0.5 | 4.5 | 88.9 % |
+::::
 
 ⁠**Limiting cases:** In a short circuit, $R_\mathrm{L}=0$, $\eta=0$: the load stays cold, and the entire power $P_\mathrm{q}=40.5$ W heats $R_\mathrm{i}$. In an open circuit, $R_\mathrm{L}\to\infty$, $\eta\to1$, but $I\to0$ and thus $P_\mathrm{L}\to0$.
 

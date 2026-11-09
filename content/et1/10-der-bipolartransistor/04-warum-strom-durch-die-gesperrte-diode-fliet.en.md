@@ -66,7 +66,11 @@ Electrons and holes cross the same barrier. The electron density at the emitter 
 
 **Who controls?** Physically, $U_\mathrm{BE}$ controls, because only the voltage lowers the barrier. The base current is the price for it. In circuits one nevertheless often calculates with $I_\mathrm{B}$: because of $I_\mathrm{C}=B\,I_\mathrm{B}$, the transistor behaves like a current-controlled current source (CCCS, [Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Both views describe the same proportionality. Control via $U_\mathrm{BE}$ explains the exponential law; the view via $I_\mathrm{B}$ is convenient when a resistor sets the base current.
 
-**Example.** $U_\mathrm{BE}=0.6$ V gives $I_\mathrm{C}=1.9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23.08}=2.00$ mA, $I_\mathrm{B}=10$ µ A, $I_\mathrm{E}=2.01$ mA. That is $1.25\cdot10^{16}$ electrons per second in the collector, and 99.5 % of the emitter current arrives there. The exponential function is sensitive: $+18$ mV doubles the current ($U_T\ln2$), $+60$ mV multiplies it by ten ($U_T\ln10$), $+1$ mV brings $+3.9$ %. **Limiting cases:** at $U_\mathrm{BE}=0.4$ V only 0.9 µ A flow, and the transistor is practically off. For $B\to\infty$, $I_\mathrm{B}$ vanishes and $I_\mathrm{E}=I_\mathrm{C}$.
+::::beispiel
+$U_\mathrm{BE}=0.6$ V gives $I_\mathrm{C}=1.9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23.08}=2.00$ mA, $I_\mathrm{B}=10$ µ A, $I_\mathrm{E}=2.01$ mA. That is $1.25\cdot10^{16}$ electrons per second in the collector, and 99.5 % of the emitter current arrives there. The exponential function is sensitive: $+18$ mV doubles the current ($U_T\ln2$), $+60$ mV multiplies it by ten ($U_T\ln10$), $+1$ mV brings $+3.9$ %.
+::::
+
+⁠**Limiting cases:** at $U_\mathrm{BE}=0.4$ V only 0.9 µ A flow, and the transistor is practically off. For $B\to\infty$, $I_\mathrm{B}$ vanishes and $I_\mathrm{E}=I_\mathrm{C}$.
 
 :::analogie
 A large water channel is closed by a flap. A thin jet from a side channel pushes the flap open. Without the control jet nothing flows, the stronger it is the more water passes, and at the bottom the two flows unite. The picture holds for three statements: small controls large, without control the transistor blocks, $I_\mathrm{E}=I_\mathrm{B}+I_\mathrm{C}$. It does not hold for the mechanism: in the transistor nothing moves a flap, the voltage lowers a barrier, and the relationship is exponential.

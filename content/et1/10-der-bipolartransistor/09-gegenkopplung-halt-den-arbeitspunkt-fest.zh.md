@@ -55,7 +55,8 @@ $$U_\mathrm{CC}-U_\mathrm{BE}=\Bigl(\frac{I_\mathrm{C}}{B}+I_\mathrm{C}\Bigr)R_\
 解出 $I_\mathrm{C}$，即得式 [(7.2)](#gl-7-2)。
 :::
 
-**例。** 参考模型：$U_\mathrm{q}=2.7$ V，$R_\mathrm{i}=6.98$ k$\Omega$，$R_\mathrm{i}/B=35\,\Omega\ll1$ k$\Omega$。于是 $I_\mathrm{C}=2.1\,\mathrm{V}/1040\,\Omega=2.02$ mA，$U_\mathrm{CE}=12\,\mathrm{V}-6.06\,\mathrm{V}-2.03\,\mathrm{V}=3.91$ V，处于放大区。基极电位为 2.63 V，分压器的电流为 300 µ A，是 $I_\mathrm{B}$ 的 30 倍。
+::::beispiel
+参考模型：$U_\mathrm{q}=2.7$ V，$R_\mathrm{i}=6.98$ k$\Omega$，$R_\mathrm{i}/B=35\,\Omega\ll1$ k$\Omega$。于是 $I_\mathrm{C}=2.1\,\mathrm{V}/1040\,\Omega=2.02$ mA，$U_\mathrm{CE}=12\,\mathrm{V}-6.06\,\mathrm{V}-2.03\,\mathrm{V}=3.91$ V，处于放大区。基极电位为 2.63 V，分压器的电流为 300 µ A，是 $I_\mathrm{B}$ 的 30 倍。
 
 | $I_\mathrm{C}$ | $B=100$ | $B=200$ | $B=400$ |
 |---|---|---|---|
@@ -63,7 +64,10 @@ $$U_\mathrm{CC}-U_\mathrm{BE}=\Bigl(\frac{I_\mathrm{C}}{B}+I_\mathrm{C}\Bigr)R_\
 | 电压负反馈（$R_\mathrm{B}=540$ k$\Omega$） | 1.35 mA | 1.99 mA | 2.62 mA |
 | 电流负反馈 | 1.94 mA | 2.02 mA | 2.06 mA |
 
-温度的影响也几乎消失了：升温 50 K 使 $U_\mathrm{BE}$ 降低 0.1 V，由式 [(7.1)](#gl-7-1)，$I_\mathrm{C}$ 只上升 4.8 %。若电压 $U_\mathrm{BE}$ 固定，电流将变为 47 倍。电压负反馈的效果较差，因为这里 $R_\mathrm{B}/B=2.7$ k$\Omega$ 相对于 3 k$\Omega$ 并不小。取 $R_\mathrm{B}=100$ k$\Omega$ 时，$I_\mathrm{C}$ 只在 2.83 mA 和 3.50 mA 之间变化，但这时只剩下 $U_\mathrm{CE}=2.2$ V。**极限情况：**$R_\mathrm{E}\to0$ 给出 $I_\mathrm{C}=B(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{i}$，即第 [5](der-arbeitspunkt.html#stufe-5) 阶段带基极电阻的公式。$B\to\infty$ 给出 $I_\mathrm{C}=(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{E}$。
+温度的影响也几乎消失了：升温 50 K 使 $U_\mathrm{BE}$ 降低 0.1 V，由式 [(7.1)](#gl-7-1)，$I_\mathrm{C}$ 只上升 4.8 %。若电压 $U_\mathrm{BE}$ 固定，电流将变为 47 倍。电压负反馈的效果较差，因为这里 $R_\mathrm{B}/B=2.7$ k$\Omega$ 相对于 3 k$\Omega$ 并不小。取 $R_\mathrm{B}=100$ k$\Omega$ 时，$I_\mathrm{C}$ 只在 2.83 mA 和 3.50 mA 之间变化，但这时只剩下 $U_\mathrm{CE}=2.2$ V。
+::::
+
+⁠**极限情况：**$R_\mathrm{E}\to0$ 给出 $I_\mathrm{C}=B(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{i}$，即第 [5](der-arbeitspunkt.html#stufe-5) 阶段带基极电阻的公式。$B\to\infty$ 给出 $I_\mathrm{C}=(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{E}$。
 
 :::frage 发射极电阻的代价是什么？
 有两点。$R_\mathrm{E}$ 上的电压（这里是 2 V）使集电极少了这部分信号摆幅。而且负反馈对信号同样起作用：电压增益大幅下降（第 [10](drei-grundschaltungen.html#stufe-10) 阶段）。与 $R_\mathrm{E}$ 并联一个电容器，对交流信号相当于一根导线，就消除了第二个缺点。

@@ -36,7 +36,9 @@ $$\operatorname{span}\{\mathbf{v}_1,\dots,\mathbf{v}_k\}=\Bigl\{\sum_{l=1}^kc_l\
 
 El espacio columna de una matriz es, por tanto, el espacio generado por sus columnas. Si dos vectores están en el espacio generado, también lo está cualquier combinación lineal de ellos; sumando y multiplicando por números nunca se sale de él.
 
-⁠**Ejemplo numérico:** $\operatorname{span}\{(1,\,2)^{\top}\}$ es la recta de todos los múltiplos $c\,(1,\,2)^{\top}$. El espacio generado por $(1,\,2)^{\top}$ y $(2,\,4)^{\top}$ es la misma recta, pues $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. El espacio generado por $(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ es todo el plano: todo vector $(y_1,\,y_2)^{\top}$ es $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. En $\mathbb{R}^3$, $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ es el plano de todos los vectores con $x_3=0$.
+::::beispiel [Ejemplo numérico]
+$\operatorname{span}\{(1,\,2)^{\top}\}$ es la recta de todos los múltiplos $c\,(1,\,2)^{\top}$. El espacio generado por $(1,\,2)^{\top}$ y $(2,\,4)^{\top}$ es la misma recta, pues $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. El espacio generado por $(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ es todo el plano: todo vector $(y_1,\,y_2)^{\top}$ es $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. En $\mathbb{R}^3$, $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ es el plano de todos los vectores con $x_3=0$.
+::::
 
 ⁠**En resumen:** El espacio generado por una lista de vectores es todo lo que puede obtenerse combinándolos linealmente.
 
@@ -59,7 +61,9 @@ solo se cumple para $c_1=c_2=\dots=c_k=0$. En caso contrario se llaman __linealm
 
 Que sean linealmente dependientes significa, de forma equivalente, que al menos uno de los vectores es una combinación lineal de los demás. En efecto, si se cumple [(13.2)](#gl-13-2) con un coeficiente $c_l\ne0$, se puede despejar $\mathbf{v}_l$: $\mathbf{v}_l=-\sum_{l'\ne l}(c_{l'}/c_l)\,\mathbf{v}_{l'}$. A la inversa, una representación así da de inmediato una combinación con el coeficiente $-1$ delante de $\mathbf{v}_l$.
 
-⁠**Ejemplo numérico:** $(1,\,2)^{\top}$ y $(2,\,4)^{\top}$ son linealmente dependientes: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. Los vectores $(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ son linealmente independientes: de $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ se sigue primero $c_2=0$ y luego $c_1=0$. Los tres vectores $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ y $(1,\,1,\,2)^{\top}$ son linealmente dependientes, pues el tercero es la suma de los dos primeros.
+::::beispiel [Ejemplo numérico]
+$(1,\,2)^{\top}$ y $(2,\,4)^{\top}$ son linealmente dependientes: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. Los vectores $(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ son linealmente independientes: de $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ se sigue primero $c_2=0$ y luego $c_1=0$. Los tres vectores $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ y $(1,\,1,\,2)^{\top}$ son linealmente dependientes, pues el tercero es la suma de los dos primeros.
+::::
 
 ⁠**En resumen:** Linealmente independientes significa que ninguno de los vectores puede obtenerse combinando los demás: no hay redundancia.
 
@@ -87,7 +91,9 @@ Si $\mathbf{v}_1,\dots,\mathbf{v}_k$ es una base de $\mathcal S$, todo vector $\
 Al menos una representación existe, porque la base genera $\mathcal S$. Si hubiera dos, $\sum_lc_l\mathbf{v}_l=\sum_lc_l'\mathbf{v}_l$, su diferencia sería $\sum_l(c_l-c_l')\mathbf{v}_l=\mathbf{0}$. Por la independencia lineal, entonces todos los $c_l-c_l'=0$.
 :::
 
-⁠**Ejemplo numérico:** $(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ forman una base de $\mathbb{R}^2$: son linealmente independientes y generan el plano. El vector $(3,\,2)^{\top}$ tiene en esta base las coordenadas $1$ y $2$, pues $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. La recta $\operatorname{span}\{(0,\,1)^{\top}\}$ tiene dimensión $1$, aunque sus vectores tienen dos componentes.
+::::beispiel [Ejemplo numérico]
+$(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ forman una base de $\mathbb{R}^2$: son linealmente independientes y generan el plano. El vector $(3,\,2)^{\top}$ tiene en esta base las coordenadas $1$ y $2$, pues $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. La recta $\operatorname{span}\{(0,\,1)^{\top}\}$ tiene dimensión $1$, aunque sus vectores tienen dos componentes.
+::::
 
 ⁠**En resumen:** Una base es una lista de vectores independientes que lo genera todo; su longitud es la dimensión.
 
@@ -111,11 +117,13 @@ El mayor número de columnas linealmente independientes de una matriz es igual a
 
 Si $\operatorname{rango}\mathbf{A}=\min(m,n)$, $\mathbf{A}$ tiene __rango completo__. En la práctica, el rango se determina con la eliminación gaussiana: las operaciones de filas no lo cambian, y en la forma escalonada es el número de filas que no constan solo de ceros.
 
-⁠**Ejemplo numérico:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene rango $1$: la segunda columna es el doble de la primera, e igualmente la segunda fila es el doble de la primera. Para
+::::beispiel [Ejemplo numérico]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene rango $1$: la segunda columna es el doble de la primera, e igualmente la segunda fila es el doble de la primera. Para
 
 $$\mathbf K=\begin{pmatrix}1&0&1\\0&1&1\\1&1&2\end{pmatrix}$$
 
 se restan la primera y la segunda fila de la tercera y se obtienen las filas $(1,0,1)$, $(0,1,1)$, $(0,0,0)$. Dos filas no son nulas, así que $\operatorname{rango}\mathbf K=2$; en efecto, la tercera columna es la suma de las dos primeras. La matriz de datos de las viviendas tiene rango completo, $3$.
+::::
 
 ⁠**En resumen:** El rango cuenta cuántas direcciones realmente distintas hay en las columnas de una matriz, y son exactamente tantas como en sus filas.
 
@@ -161,7 +169,9 @@ Para $\mathbf{A}\in\mathbb{R}^{n\times n}$ son equivalentes: (i) $\mathbf{A}$ es
 De (i) se sigue (ii) según la subsección [11.5](einheitsmatrix-und-inverse.html#stufe-11-5). (ii), (iii) y (iv) son equivalentes según el teorema del rango y la definición del rango. Queda por ver que de (iii) y (ii) se sigue (i). Si $\operatorname{rango}\mathbf{A}=n$, el espacio columna es un espacio de dimensión $n$ en $\mathbb{R}^n$, es decir, todo $\mathbb{R}^n$. Por eso, todo sistema $\mathbf{A}\mathbf{c}_j=\mathbf{e}_j$ tiene solución, y las soluciones forman las columnas de una matriz $\mathbf{C}$ con $\mathbf{A}\mathbf{C}=\mathbf{I}$. Además, $\mathbf{A}(\mathbf{C}\mathbf{A}-\mathbf{I})=\mathbf{A}\mathbf{C}\mathbf{A}-\mathbf{A}=\mathbf 0$. Cada columna de $\mathbf{C}\mathbf{A}-\mathbf{I}$ está, por tanto, en el núcleo, que según (ii) solo contiene el vector nulo. Así que también $\mathbf{C}\mathbf{A}=\mathbf{I}$, y $\mathbf{C}=\mathbf{A}^{-1}$.
 :::
 
-⁠**Ejemplo numérico:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene el núcleo $\operatorname{span}\{(2,\,-1)^{\top}\}$, de dimensión $1$, y el rango $1$: $1+1=2$. La matriz $\mathbf K$ de antes tiene el núcleo $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, pues su tercera columna es la suma de las dos primeras; con $\operatorname{rango}\mathbf K=2$ se tiene $1+2=3$.
+::::beispiel [Ejemplo numérico]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene el núcleo $\operatorname{span}\{(2,\,-1)^{\top}\}$, de dimensión $1$, y el rango $1$: $1+1=2$. La matriz $\mathbf K$ de antes tiene el núcleo $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, pues su tercera columna es la suma de las dos primeras; con $\operatorname{rango}\mathbf K=2$ se tiene $1+2=3$.
+::::
 
 **Rango y existencia de solución.** Con el rango y el núcleo, las preguntas de la sección [12](lineare-gleichungssysteme.html#stufe-12) se responden con números, también para matrices que no son cuadradas. ¿Hay alguna solución? ¿Es única? ¿Hay una para cada lado derecho?
 
@@ -203,7 +213,9 @@ $\mathbf{A}\mathbf{x}=\mathbf{y}$ tiene solución para todo $\mathbf{y}\in\mathb
 
 Para una matriz cuadrada con $\operatorname{rango}\mathbf{A}=n=m$, (ii) y (iii) se cumplen a la vez: exactamente una solución para cada lado derecho, de acuerdo con el teorema sobre la invertibilidad.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $\operatorname{rango}\mathbf{A}=1$. Con $\mathbf{y}=(1,\,1)^{\top}$, la matriz ampliada tiene las filas $(1,\,2\,|\,1)$ y $(2,\,4\,|\,1)$; si se resta la primera dos veces de la segunda, queda $(0,\,0\,|\,-1)$, que no es una fila nula. Así que $\operatorname{rango}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, y el sistema no tiene solución, como en la subsección [12.2](lineare-gleichungssysteme.html#stufe-12-2). Con $\mathbf{y}=(3,\,6)^{\top}$ queda, en cambio, $(0,\,0\,|\,0)$, los rangos son iguales y el sistema tiene solución. Como $\operatorname{rango}\mathbf{A}=1<2=n$, la solución no es única: todas las soluciones son $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. Y como $\operatorname{rango}\mathbf{A}=1<2=m$, hay lados derechos sin solución. En el sistema sobredeterminado de la subsección [12.5](lineare-gleichungssysteme.html#stufe-12-5), $\operatorname{rango}\mathbf{A}=2=n$: si hubiera una solución, sería única. Pero no la hay, así que allí, según (i), $\operatorname{rango}(\mathbf{A}\,|\,\mathbf{y})=3$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $\operatorname{rango}\mathbf{A}=1$. Con $\mathbf{y}=(1,\,1)^{\top}$, la matriz ampliada tiene las filas $(1,\,2\,|\,1)$ y $(2,\,4\,|\,1)$; si se resta la primera dos veces de la segunda, queda $(0,\,0\,|\,-1)$, que no es una fila nula. Así que $\operatorname{rango}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, y el sistema no tiene solución, como en la subsección [12.2](lineare-gleichungssysteme.html#stufe-12-2). Con $\mathbf{y}=(3,\,6)^{\top}$ queda, en cambio, $(0,\,0\,|\,0)$, los rangos son iguales y el sistema tiene solución. Como $\operatorname{rango}\mathbf{A}=1<2=n$, la solución no es única: todas las soluciones son $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. Y como $\operatorname{rango}\mathbf{A}=1<2=m$, hay lados derechos sin solución. En el sistema sobredeterminado de la subsección [12.5](lineare-gleichungssysteme.html#stufe-12-5), $\operatorname{rango}\mathbf{A}=2=n$: si hubiera una solución, sería única. Pero no la hay, así que allí, según (i), $\operatorname{rango}(\mathbf{A}\,|\,\mathbf{y})=3$.
+::::
 
 ⁠**En resumen:** El núcleo reúne las direcciones que una matriz lleva a cero; el núcleo y el rango se reparten las $n$ direcciones de entrada. Un sistema $\mathbf{A}\mathbf{x}=\mathbf{y}$ tiene solución si y solo si el lado derecho no aumenta el rango, y la solución es única si y solo si el núcleo solo contiene el vector nulo.
 
@@ -213,7 +225,8 @@ Para una matriz cuadrada con $\operatorname{rango}\mathbf{A}=n=m$, (ii) y (iii) 
 
 En conjuntos de datos reales, a veces varias características llevan dos veces la misma información. Un cuestionario registra el peso corporal en kilogramos y, para otra evaluación, otra vez en libras. La descripción de una casa indica la superficie de la planta baja, la de la planta superior y la superficie total. Para la matriz de datos esto significa: sus columnas son linealmente dependientes, y su rango es menor que el número de características.
 
-⁠**Ejemplo numérico: planta baja, planta superior, superficie total.** Cuatro casas:
+::::beispiel [Ejemplo numérico] planta baja, planta superior, superficie total
+Cuatro casas:
 
 $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\qquad(\text{superficies en }\mathrm m^2).$$
 
@@ -234,12 +247,15 @@ La tercera columna es la suma de las dos primeras. Así que $\operatorname{rango
 </li>
 
 </ul>
+::::
 
-⁠**Ejemplo numérico: kilogramos y libras.** Una libra son exactamente $0{,}45359237$ kg, así que una masa en libras es $c=1/0{,}45359237\approx2{,}20462$ veces la misma masa en kilogramos. Tres personas con estatura (cm), masa (kg) y masa (libras):
+::::beispiel [Ejemplo numérico] kilogramos y libras
+Una libra son exactamente $0{,}45359237$ kg, así que una masa en libras es $c=1/0{,}45359237\approx2{,}20462$ veces la misma masa en kilogramos. Tres personas con estatura (cm), masa (kg) y masa (libras):
 
 $$\mathbf{X}=\begin{pmatrix}170&70&70\,c\\182&85&85\,c\\165&60&60\,c\end{pmatrix}\approx\begin{pmatrix}170&70&154{,}3\\182&85&187{,}4\\165&60&132{,}3\end{pmatrix}.$$
 
 La tercera columna es $c$ veces la segunda, así que $\operatorname{rango}\mathbf{X}=2$ y $(0,\,c,\,-1)^{\top}$ está en el núcleo. La columna de las libras no aporta información nueva; solo duplica una que ya existe.
+::::
 
 ⁠**En resumen:** Si varias características llevan dos veces la misma información, las columnas de la matriz de datos son linealmente dependientes; entonces el rango es menor que $d$, pesos distintos dan las mismas predicciones y $\mathbf{X}^{\top}\mathbf{X}$ no es invertible.
 

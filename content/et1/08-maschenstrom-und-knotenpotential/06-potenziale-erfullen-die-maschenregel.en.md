@@ -44,7 +44,11 @@ For any values of the $k-1$ node voltages, every mesh rule is satisfied. Convers
 
 ⁠**How to read it:** $U_\mu$ is a voltage with an arrow from node $\mu$ to the reference node, unit volt. In a circuit diagram, the ground symbol marks the reference node; in SPICE it is always called 0. You choose the reference node where most branches meet, which makes the equations shortest. **Validity:** The field must be curl-free. A changing magnetic field through a mesh destroys the potentials ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)); in circuits it sits in coils.
 
-**Example.** In the model network, $U_1=8$ V and $U_2=10$ V, as Stage [3](das-maschenstromverfahren.html#stufe-3) showed. The voltage across $R_3$ is $U_{12}=U_1-U_2=-2$ V, so node 2 lies higher, and the current runs from 2 to 1. With $R_3=2\,\mathrm{k\Omega}$ that is the 1 mA from Stage [3](das-maschenstromverfahren.html#stufe-3). The round trip gives $(U_1-U_2)+U_2-U_1=0$ for any other pair of numbers too. **Limiting case:** A network with $k=2$ has a single node voltage. That is the common voltage of a parallel connection.
+::::beispiel
+In the model network, $U_1=8$ V and $U_2=10$ V, as Stage [3](das-maschenstromverfahren.html#stufe-3) showed. The voltage across $R_3$ is $U_{12}=U_1-U_2=-2$ V, so node 2 lies higher, and the current runs from 2 to 1. With $R_3=2\,\mathrm{k\Omega}$ that is the 1 mA from Stage [3](das-maschenstromverfahren.html#stufe-3). The round trip gives $(U_1-U_2)+U_2-U_1=0$ for any other pair of numbers too.
+::::
+
+⁠**Limiting case:** A network with $k=2$ has a single node voltage. That is the common voltage of a parallel connection.
 
 :::frage So is the node voltage a potential or a voltage?
 Both. A potential by itself has a value only relative to a zero point ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). The node voltage is the voltage against the chosen zero point, which is why it carries the symbol $U$. Changing the reference node changes all node voltages, but not a single branch voltage.

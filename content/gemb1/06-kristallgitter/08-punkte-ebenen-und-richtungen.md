@@ -64,7 +64,9 @@ Die Ebene $g=1$ schneidet die Achsen bei $1/h$, $1/k$, $1/l$. Daher kommen die K
 Ebenen in der Würfelzelle, Ursprung in der hinteren unteren Ecke. Rot die Richtung mit denselben Indizes. (200) schneidet die $x$-Achse bei $\frac12$, (102) hat die Schnittpunkte $1,\infty,\frac12$, (210) die Schnittpunkte $1,2,\infty$.
 :::
 
-**Beispiel.** Die Schnittpunkte $4,2,3$ ergeben die Kehrwerte $\frac14,\frac12,\frac13$ und mal 12 die Ebene $(364)$. Aus $2,\infty,1$ wird $\frac12,0,1$, also $(102)$. Aus $1,-2,\infty$ wird $(2\bar10)$. Aus $2,4,2$ wird nach dem Kürzen $1,2,1$, also $(212)$. Die Schreibweise $(200)$ durchbricht die Regel „teilerfremd“ mit Absicht. Sie meint die Ebene mit dem Schnittpunkt $\frac12$, also eine Schar mit gleicher Stellung wie $(100)$ und halbem Abstand. Im SC-Gitter liegen auf den Zwischenebenen keine Atome, im FCC-Gitter dagegen schon.
+::::beispiel
+Die Schnittpunkte $4,2,3$ ergeben die Kehrwerte $\frac14,\frac12,\frac13$ und mal 12 die Ebene $(364)$. Aus $2,\infty,1$ wird $\frac12,0,1$, also $(102)$. Aus $1,-2,\infty$ wird $(2\bar10)$. Aus $2,4,2$ wird nach dem Kürzen $1,2,1$, also $(212)$. Die Schreibweise $(200)$ durchbricht die Regel „teilerfremd“ mit Absicht. Sie meint die Ebene mit dem Schnittpunkt $\frac12$, also eine Schar mit gleicher Stellung wie $(100)$ und halbem Abstand. Im SC-Gitter liegen auf den Zwischenebenen keine Atome, im FCC-Gitter dagegen schon.
+::::
 
 :::definition Definition 6.2 (Richtungen)
 <span class="anker" id="satz-6-2"></span>

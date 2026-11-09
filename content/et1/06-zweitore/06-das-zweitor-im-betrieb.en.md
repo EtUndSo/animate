@@ -46,11 +46,15 @@ For [(4.3)](#gl-4-3) you replace the load. The source imposes $U_1=U_\mathrm{q}-
 Equivalent circuit of the T two-port with source and load. The currents are $I_1=250$ mA and $I_2=-50$ mA. The reverse action amounts to $Z_{12}I_2=-1$ V, and the forward source supplies $Z_{21}I_1=5$ V. The input shows 31 $\Omega$ instead of 35 $\Omega$.
 :::
 
-**Example.** For the T two-port, $Z_{1,\mathrm{OC}}=35\,\Omega$ and $Z_{1,\mathrm{SC}}=35\,\Omega-400\,\Omega^2/40\,\Omega=25\,\Omega$, which is $R_\mathrm{a}+R_\mathrm{b}\parallel R_\mathrm{c}$. With $R_\mathrm{L}=60\,\Omega$,
+::::beispiel
+For the T two-port, $Z_{1,\mathrm{OC}}=35\,\Omega$ and $Z_{1,\mathrm{SC}}=35\,\Omega-400\,\Omega^2/40\,\Omega=25\,\Omega$, which is $R_\mathrm{a}+R_\mathrm{b}\parallel R_\mathrm{c}$. With $R_\mathrm{L}=60\,\Omega$,
 
 $$Z_1=35\,\Omega-\frac{400\,\Omega^2}{100\,\Omega}=31\,\Omega,\quad I_1=\frac{9\,\mathrm{V}}{5\,\Omega+31\,\Omega}=250\,\mathrm{mA},\quad I_2=-\frac{20}{100}\,I_1=-50\,\mathrm{mA}.$$
 
-At the input, $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7.75$ V, at the output $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$, $I_1+I_2=200$ mA flows instead of 250 mA, which lowers $U_1$ by exactly 1 V (Fig. [5](#abb-5)). Seen from the load: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4.5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Then $I=4.5\,\mathrm{V}/90\,\Omega=50$ mA, the same current. So the equivalent source from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) is contained in the four numbers. **Limiting cases:** $R_\mathrm{L}\to\infty$ gives $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ gives $25\,\Omega$. Every load lies in between.
+At the input, $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7.75$ V, at the output $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$, $I_1+I_2=200$ mA flows instead of 250 mA, which lowers $U_1$ by exactly 1 V (Fig. [5](#abb-5)). Seen from the load: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4.5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Then $I=4.5\,\mathrm{V}/90\,\Omega=50$ mA, the same current. So the equivalent source from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) is contained in the four numbers.
+::::
+
+⁠**Limiting cases:** $R_\mathrm{L}\to\infty$ gives $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ gives $25\,\Omega$. Every load lies in between.
 
 :::frage The load is connected only to port 2. How does the input know about it?
 Through the shared components. In the T two-port, both ports lead through $R_\mathrm{b}$, and its voltage drop depends on $I_1+I_2$. In general, $Z_{12}$ is the measure of this coupling. No signal transmission back is needed; the voltages in the network settle together.

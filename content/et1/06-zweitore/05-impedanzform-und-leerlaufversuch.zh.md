@@ -37,9 +37,11 @@ $$Z_{11}=\left.\frac{U_1}{I_1}\right|_{I_2=0},\quad Z_{21}=\left.\frac{U_2}{I_1}
 左：Z 形式的等效电路，每侧一个电阻与一个电流控制电压源串联。右：端口 2 的开路试验，注入电流为 $I_\mathrm{q}$。灰色部分因 $I_2=0$ 而不起作用。端口 1 开路的试验是其镜像，给出 $Z_{12}$ 和 $Z_{22}$。
 :::
 
-**例。** 在 T 形网络的端口 1 注入 100 mA 电流，端口 2 保持开路。电流流过 $R_\mathrm{a}$ 和 $R_\mathrm{b}$，$U_1=3.5$ V。$R_\mathrm{c}$ 中没有电流，上面没有压降，$U_2$ 就是 $R_\mathrm{b}$ 上的电压：2 V。所以 $Z_{11}=35\,\Omega$，$Z_{21}=20\,\Omega$。从端口 2 同样操作得 $U_2=4$ V，$U_1=2$ V，于是
+::::beispiel
+在 T 形网络的端口 1 注入 100 mA 电流，端口 2 保持开路。电流流过 $R_\mathrm{a}$ 和 $R_\mathrm{b}$，$U_1=3.5$ V。$R_\mathrm{c}$ 中没有电流，上面没有压降，$U_2$ 就是 $R_\mathrm{b}$ 上的电压：2 V。所以 $Z_{11}=35\,\Omega$，$Z_{21}=20\,\Omega$。从端口 2 同样操作得 $U_2=4$ V，$U_1=2$ V，于是
 
 $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\mathrm{b}&R_\mathrm{b}+R_\mathrm{c}\end{pmatrix}=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**电桥。**这些试验不需要地线。图 [2](vom-vierpol-zum-zweitor.html#abb-2) 右的电桥因两条支路电阻相同，把端口 1 的电流平分，两条支路都是 $R_\mathrm{x}+R_\mathrm{y}$。端口 2 开路，两条支路中点之间的电压为 $\frac{I_1}{2}R_\mathrm{y}-\frac{I_1}{2}R_\mathrm{x}$。由对称性，反向同样成立：
 

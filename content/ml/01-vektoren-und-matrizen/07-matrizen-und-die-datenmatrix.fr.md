@@ -35,13 +35,15 @@ Les matrices s’écrivent en majuscules grasses, leurs coefficients avec la let
 
 Deux matrices sont égales si elles ont la même taille et le même coefficient à chaque position. On additionne des matrices de même taille et on les multiplie par un nombre coefficient par coefficient, exactement comme les vecteurs : $(\mathbf{A}+\mathbf{B})_{ij}=a_{ij}+b_{ij}$ et $(c\,\mathbf{A})_{ij}=c\,a_{ij}$.
 
-⁠**Exemple de calcul :** La matrice
+::::beispiel [Exemple de calcul]
+La matrice
 
 $$\mathbf{A}=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\in\mathbb{R}^{2\times3}$$
 
 est de taille $2\times3$, a pour coefficients $a_{12}=2$ et $a_{21}=4$, et pour deuxième colonne $\mathbf{a}_2=(2,\,5)^{\top}$. Une image en niveaux de gris de $3\times3$ pixels qui montre une croix claire sur fond sombre est la matrice de lignes $(0,1,0)$, $(1,1,1)$ et $(0,1,0)$. De plus,
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}+\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}1&3\\4&4\end{pmatrix},\qquad 2\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}2&4\\6&8\end{pmatrix}.$$
+::::
 
 ⁠**En bref :** Une matrice est un tableau rectangulaire de nombres à $m$ lignes et $n$ colonnes ; le coefficient $a_{ij}$ se trouve à la ligne $i$ et à la colonne $j$.
 
@@ -65,11 +67,11 @@ Une matrice carrée dont les coefficients hors de la diagonale sont tous nuls s�
 La matrice dont tous les coefficients sont nuls s’appelle la __matrice nulle__ et se note $\mathbf 0$.
 :::
 
-⁠**Exemple de calcul :**
-
+::::beispiel [Exemple de calcul]
 $$\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0{,}5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
 
 La seconde matrice a un coefficient diagonal nul et est pourtant une matrice diagonale ; on exige seulement que des zéros figurent hors de la diagonale. Au lieu de $\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)$, on écrit plus brièvement $\operatorname{diag}(2;\,0{,}5)$.
+::::
 
 ⁠**En bref :** Une matrice carrée a autant de lignes que de colonnes ; une matrice diagonale n’a de coefficients non nuls que sur sa diagonale.
 
@@ -94,11 +96,13 @@ $$\mathbf{X}=\begin{pmatrix}\mathbf{x}_1^{\top}\\\mathbf{x}_2^{\top}\\\vdots\\\m
 
 Le coefficient $x_{ij}$ est la valeur de la caractéristique $j$ pour l’exemple $i$, exactement comme convenu dans la sous-section [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3). La colonne $j$ de $\mathbf{X}$ est la colonne de la caractéristique $j$ de la sous-section [4.3](abstande-und-einheiten.html#stufe-4-3) : toutes les valeurs de cette caractéristique sur l’ensemble des exemples. Les lignes correspondent donc aux exemples, les colonnes aux caractéristiques. La moyenne des exemples $\bar{\mathbf{x}}$ a pour composante $j$ la moyenne de la colonne $j$.
 
-⁠**Exemple de calcul :** Pour le jeu de données des appartements, on a
+::::beispiel [Exemple de calcul]
+Pour le jeu de données des appartements, on a
 
 $$\mathbf{X}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\in\mathbb{R}^{4\times3}.$$
 
 Le coefficient $x_{32}=4$ est le nombre de pièces de l’appartement 3, la première colonne $(60,\,40,\,90,\,70)^{\top}$ contient toutes les surfaces, et sa moyenne $65$ est la première composante de $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$.
+::::
 
 ⁠**En bref :** La matrice de données $\mathbf{X}\in\mathbb{R}^{N\times d}$ contient un exemple par ligne et une caractéristique par colonne.
 

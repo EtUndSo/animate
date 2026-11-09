@@ -90,7 +90,11 @@ So wirkt er für die Quelle: Hinter $R_1$ sieht sie einen Punkt, der sein Potenz
 Oben der invertierende Verstärker, in Rot der Strompfad bei $U_\mathrm{E}=+1$ V. Unten die Grenze: $\hat u_\mathrm{E}=3{,}5$ V ergäbe 14 V, der Ausgang schlägt bei $\pm11$ V an. Dann hebt sich $\varphi_-$ bis 0,6 V, die virtuelle Masse ist fort.
 :::
 
-**Beispiel.** $U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V, mit endlichem $A$ genauer $-3{,}9998$ V. $R_\mathrm{ein}=10$ k$\Omega$. An einer Last von 2 k$\Omega$ gegen Masse fließen 2 mA, der Ausgang nimmt 2,1 mA auf: Last plus Rückführung. Die Quelle $U_\mathrm{E}$ merkt davon nichts. **Grenzfälle:** $R_2=R_1$ kehrt nur das Vorzeichen um. $R_2\to0$ ergibt $U_\mathrm{A}=0$.
+::::beispiel
+$U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V, mit endlichem $A$ genauer $-3{,}9998$ V. $R_\mathrm{ein}=10$ k$\Omega$. An einer Last von 2 k$\Omega$ gegen Masse fließen 2 mA, der Ausgang nimmt 2,1 mA auf: Last plus Rückführung. Die Quelle $U_\mathrm{E}$ merkt davon nichts.
+::::
+
+⁠**Grenzfälle:** $R_2=R_1$ kehrt nur das Vorzeichen um. $R_2\to0$ ergibt $U_\mathrm{A}=0$.
 
 **Die erste Grenze.** Die Regel 1 setzt voraus, dass der Ausgang die verlangte Spannung erreicht. Bei $G=-4$ endet das bei $|U_\mathrm{E}|=11\,\mathrm{V}/4=2{,}75$ V. Darüber ist $U_\mathrm{A}=\mp11$ V fest, die Schleife ist offen, und der Teiler aus $R_1$ und $R_2$ bestimmt den Knoten: $\varphi_-=0{,}8\,U_\mathrm{E}+0{,}2\,U_\mathrm{A}$, bei 3,5 V also $+0{,}6$ V.
 

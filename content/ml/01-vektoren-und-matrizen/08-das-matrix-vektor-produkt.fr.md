@@ -32,7 +32,8 @@ $$(\mathbf{A}\mathbf{x})_i=\sum_{j=1}^{n}a_{ij}\,x_j=a_{i1}x_1+a_{i2}x_2+\dots+a
 
 Le produit n’existe que si $\mathbf{x}$ a autant de composantes que $\mathbf{A}$ a de colonnes. Le résultat a autant de composantes que $\mathbf{A}$ a de lignes. Des règles de calcul des sommes, il découle que $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ et $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$.
 
-⁠**Exemple de calcul :** Pour
+::::beispiel [Exemple de calcul]
+Pour
 
 $$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{et}\quad \mathbf{x}=\begin{pmatrix}2\\1\end{pmatrix}\qquad\text{on a}\qquad \mathbf{A}\mathbf{x}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
@@ -41,6 +42,7 @@ Chaque composante est une somme selon [(7.1)](#gl-7-1) (Fig. [28](#abb-28)). Un
 :::abbildung ml/k1rmv 28
 Le produit matrice-vecteur composante par composante : pour chaque ligne $i$, les coefficients $a_{ij}$ sont multipliés par les $x_j$ correspondants, puis additionnés.
 :::
+::::
 
 ⁠**En bref :** $\mathbf{A}\mathbf{x}$ est le vecteur dont la composante $i$ est la somme $\sum_ja_{ij}x_j$ ; une matrice $m\times n$ transforme un vecteur de $\mathbb{R}^n$ en un vecteur de $\mathbb{R}^m$.
 
@@ -61,7 +63,8 @@ $$\mathbf{X}\mathbf{w}=\begin{pmatrix}\mathbf{x}_1^{\top}\mathbf{w}\\\vdots\\\ma
 
 Le produit matrice-vecteur applique donc la somme pondérée de poids $\mathbf{w}$ à tous les exemples à la fois et fournit le vecteur de toutes les prédictions. Dans l’image de la comparaison avec un motif : chaque exemple est comparé au même motif $\mathbf{w}$.
 
-⁠**Exemple de calcul :** Pour le jeu de données des appartements et $\mathbf{w}=(3,\,10,\,-4)^{\top}$, on a
+::::beispiel [Exemple de calcul]
+Pour le jeu de données des appartements et $\mathbf{w}=(3,\,10,\,-4)^{\top}$, on a
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
 
@@ -70,6 +73,7 @@ les quatre prédictions de l’agente immobilière en milliers d’euros. Chaque
 :::abbildung ml/k1rzeilen 29
 La vue par lignes pour l’agente immobilière : chaque appartement, c’est-à-dire chaque ligne de $\mathbf{X}$, fois les poids $\mathbf{w}$.
 :::
+::::
 
 ⁠**En bref :** Dans la vue par lignes, $\mathbf{A}\mathbf{x}$ est une liste de produits scalaires, un par ligne ; $\mathbf{X}\mathbf{w}$ donne les prédictions pour tous les exemples.
 
@@ -102,15 +106,19 @@ Le produit matrice-vecteur est la combinaison linéaire des colonnes de $\mathbf
 La composante $i$ du membre de droite est $\sum_jx_j\,(\mathbf{a}_j)_i=\sum_jx_j\,a_{ij}$, car la $i$-ième composante de la colonne $\mathbf{a}_j$ est le coefficient $a_{ij}$. C’est exactement la composante $i$ de $\mathbf{A}\mathbf{x}$ d’après [(7.1)](#gl-7-1).
 :::
 
-⁠**Exemple de calcul 1 :** Pour le produit $\mathbf{A}\mathbf{x}$ de la sous-section [7.1](#stufe-7-1), on a
+::::beispiel [Exemple de calcul 1]
+Pour le produit $\mathbf{A}\mathbf{x}$ de la sous-section [7.1](#stufe-7-1), on a
 
 $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\begin{pmatrix}1\\0\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\\1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
+::::
 
-⁠**Exemple de calcul 2 :** Les prédictions de l’agente immobilière valent $3$ fois la colonne des surfaces plus $10$ fois la colonne des pièces plus $(-4)$ fois la colonne des distances (Fig. [31](#abb-31)). Les colonnes de $\mathbf{X}$ se notent ici, comme dans la sous-section [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1), $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. Sous cette forme, on voit quelle part de chaque prédiction provient de quelle caractéristique : le premier terme contient les contributions de la surface, le deuxième celles des pièces, le troisième celles de la distance.
+::::beispiel [Exemple de calcul 2]
+Les prédictions de l’agente immobilière valent $3$ fois la colonne des surfaces plus $10$ fois la colonne des pièces plus $(-4)$ fois la colonne des distances (Fig. [31](#abb-31)). Les colonnes de $\mathbf{X}$ se notent ici, comme dans la sous-section [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1), $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. Sous cette forme, on voit quelle part de chaque prédiction provient de quelle caractéristique : le premier terme contient les contributions de la surface, le deuxième celles des pièces, le troisième celles de la distance.
 
 :::abbildung ml/k1rspalten 31
 La vue par colonnes pour l’agente immobilière : chaque colonne $\mathbf{a}_j$ de $\mathbf{X}$ est multipliée par son poids $w_j$, puis les trois vecteurs sont additionnés.
 :::
+::::
 
 ⁠**En bref :** Dans la vue par colonnes, $\mathbf{A}\mathbf{x}$ est une combinaison linéaire des colonnes de $\mathbf{A}$ ; les composantes de $\mathbf{x}$ indiquent combien l’on prend de chaque colonne.
 
@@ -130,9 +138,13 @@ Si l’on fait parcourir à $\mathbf{x}$ tous les vecteurs de $\mathbb{R}^n$, $\
 L’__espace des colonnes__ d’une matrice $\mathbf{A}\in\mathbb{R}^{m\times n}$ est l’ensemble de tous les vecteurs $\mathbf{A}\mathbf{x}$ avec $\mathbf{x}\in\mathbb{R}^n$, c’est-à-dire l’ensemble de toutes les combinaisons linéaires des colonnes de $\mathbf{A}$.
 :::
 
-⁠**Exemple de calcul 1 :** La matrice $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a pour colonnes $(1,\,2)^{\top}$ et $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Toute combinaison linéaire est un multiple de $(1,\,2)^{\top}$. L’espace des colonnes n’est donc que la droite passant par l’origine et dirigée par $(1,\,2)^{\top}$, bien que les résultats aient deux composantes. Le vecteur $(3,\,6)^{\top}$ en fait partie, le vecteur $(1,\,1)^{\top}$ non.
+::::beispiel [Exemple de calcul 1]
+La matrice $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a pour colonnes $(1,\,2)^{\top}$ et $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Toute combinaison linéaire est un multiple de $(1,\,2)^{\top}$. L’espace des colonnes n’est donc que la droite passant par l’origine et dirigée par $(1,\,2)^{\top}$, bien que les résultats aient deux composantes. Le vecteur $(3,\,6)^{\top}$ en fait partie, le vecteur $(1,\,1)^{\top}$ non.
+::::
 
-⁠**Exemple de calcul 2 :** La matrice $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ donne $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Son espace des colonnes se compose des vecteurs de $\mathbb{R}^3$ dont la troisième composante est la somme des deux premières ; c’est un plan de l’espace. Le vecteur $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ en fait partie, $(1,\,1,\,1)^{\top}$ non, car $1+1\ne1$.
+::::beispiel [Exemple de calcul 2]
+La matrice $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ donne $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Son espace des colonnes se compose des vecteurs de $\mathbb{R}^3$ dont la troisième composante est la somme des deux premières ; c’est un plan de l’espace. Le vecteur $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ en fait partie, $(1,\,1,\,1)^{\top}$ non, car $1+1\ne1$.
+::::
 
 Pour une matrice de données, cela signifie : les prédictions $\mathbf{X}\mathbf{w}$ se trouvent toujours dans l’espace des colonnes de $\mathbf{X}$, quels que soient les poids choisis. Avec ces caractéristiques, on ne peut produire que des listes de prédictions bien déterminées.
 

@@ -43,12 +43,16 @@ $$|\Psi_1+\Psi_2|^2=|\Psi_1|^2+|\Psi_2|^2+2\,\operatorname{Re}\bigl(\Psi_1^*\Psi
 Oben: Betragsquadrat auf dem Schirm in der Nähe der Mitte. Unten: Die Zeiger $\Psi_1$ und $\Psi_2$ an den Stellen A, B und C. Der Wegunterschied dreht sie um $\delta=2\pi y/y_\mathrm S$ gegeneinander. Bei A addieren sie sich, bei C löschen sie sich aus. Gestrichelt: die Summe der Betragsquadrate ohne Interferenz.
 :::
 
-**Beispiel.** Die einfachste Wellenfunktion hat genau eine Wellenzahl (__monochromatische Welle__):
+::::beispiel
+Die einfachste Wellenfunktion hat genau eine Wellenzahl (__monochromatische Welle__):
 
 <span class="anker" id="gl-3-3"></span>
 $$\Psi(x,t)=C\,\mathrm{e}^{\mathrm{j}(kx-\omega t)},\qquad\text{im Raum}\quad\Psi(\boldsymbol r,t)=C\,\mathrm{e}^{\mathrm{j}(\boldsymbol k\cdot\boldsymbol r-\omega t)}. \tag{3.3}$$
 
-Hier ist $|\Psi|^2=|C|^2$ überall und jederzeit gleich. Über die ganze Achse divergiert [(3.1)](#gl-3-1), man normiert deshalb auf ein großes Intervall der Länge $L$: $L\,|C|^2=1$ gibt $C=1/\sqrt L$. Für $L=10$ nm ist $C=10^{4}\,\mathrm{m^{-1/2}}$, und in einem Stück von 2 nm liegt das Elektron mit der Wahrscheinlichkeit 0,2. **Grenzfall:** Für $L\to\infty$ geht $C\to0$. Eine Welle mit exakt einer Wellenlänge ist unendlich ausgedehnt und sagt nichts über den Ort.
+Hier ist $|\Psi|^2=|C|^2$ überall und jederzeit gleich. Über die ganze Achse divergiert [(3.1)](#gl-3-1), man normiert deshalb auf ein großes Intervall der Länge $L$: $L\,|C|^2=1$ gibt $C=1/\sqrt L$. Für $L=10$ nm ist $C=10^{4}\,\mathrm{m^{-1/2}}$, und in einem Stück von 2 nm liegt das Elektron mit der Wahrscheinlichkeit 0,2.
+::::
+
+⁠**Grenzfall:** Für $L\to\infty$ geht $C\to0$. Eine Welle mit exakt einer Wellenlänge ist unendlich ausgedehnt und sagt nichts über den Ort.
 
 :::frage Liegt dann ein Fünftel des Elektrons in diesem Stück von 2 nm?
 Nein. Jeder Nachweis findet ein ganzes Elektron mit der Ladung $-e$. Die Zahl 0,2 sagt: Von vielen gleichen Versuchen endet ein Fünftel dort. Die Welle ist keine verschmierte Ladung, sie regelt die Häufigkeit.

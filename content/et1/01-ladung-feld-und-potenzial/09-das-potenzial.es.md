@@ -58,7 +58,9 @@ Sin independencia del camino, $\varphi$ ni siquiera estaría definido de forma �
 Izquierda: el par de placas con el punto de referencia en la placa B. Las líneas discontinuas son superficies equipotenciales en sección, separadas 3 V. Derecha: el potencial baja a lo largo de $x$ de 9 V a 0 V; su pendiente $-3$ V/mm es $-E$.
 :::
 
-**Ejemplo.** Con $\varphi=0$ en B, A está a 9 V, y $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$: 6 V en 1 mm, 3 V en 2 mm. La esfera A ($+10$ nC) tiene a 3 cm de distancia el potencial 3,0 kV, y a 6 cm, 1,5 kV. La diferencia por 1 nC da los 1,5 µ J de la etapa [6](arbeit-im-feld.html#stufe-6).
+::::beispiel
+Con $\varphi=0$ en B, A está a 9 V, y $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$: 6 V en 1 mm, 3 V en 2 mm. La esfera A ($+10$ nC) tiene a 3 cm de distancia el potencial 3,0 kV, y a 6 cm, 1,5 kV. La diferencia por 1 nC da los 1,5 µ J de la etapa [6](arbeit-im-feld.html#stufe-6).
+::::
 
 ⁠**En resumen:** el potencial es la energía por unidad de carga en un lugar, medida desde el punto de referencia.
 

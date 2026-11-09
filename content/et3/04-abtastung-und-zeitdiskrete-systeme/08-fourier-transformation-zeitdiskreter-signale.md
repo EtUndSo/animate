@@ -24,7 +24,8 @@ $$S_\mathrm a(f)=\sum_{n=-\infty}^{\infty}s(n)\,\mathrm{e}^{-\mathrm{j}2\pi nf},
 
 ⁠**So liest man das:** $S_\mathrm a(f)$ ist periodisch mit der Periode 1, das ist die Abtastrate. Eine Periode, $|f|\le\frac12$, enthält alles. Deshalb integriert die Rücktransformation nur über ein Intervall der Länge 1. Die Summe ist eine Fourier-Reihe in $f$, mit den Abtastwerten als Koeffizienten.
 
-**Beispiel.** Für $s(n)=\varepsilon(n)\,b^n$ mit $|b|<1$ (geometrische Reihe):
+::::beispiel
+Für $s(n)=\varepsilon(n)\,b^n$ mit $|b|<1$ (geometrische Reihe):
 
 <span class="anker" id="gl-7-2"></span>
 $$S_\mathrm a(f)=\sum_{n=0}^{\infty}\bigl(b\,\mathrm{e}^{-\mathrm{j}2\pi f}\bigr)^n=\frac{1}{1-b\,\mathrm{e}^{-\mathrm{j}2\pi f}},\qquad|S_\mathrm a(f)|^2=\frac{1}{1+b^2-2b\cos(2\pi f)}. \tag{7.2}$$
@@ -34,6 +35,7 @@ Das ist zugleich der Frequenzgang $H_\mathrm a(f)$ des rekursiven Systems aus St
 :::abbildung et3/k4dtft 6
 Betrag des Frequenzgangs des rekursiven Systems mit $b=0{,}6$. Er ist periodisch mit der Abtastrate. Zwischen den roten Linien liegt die eine Periode, die alles beschreibt.
 :::
+::::
 
 **Faltung und Multiplikation.** Wie bei Funktionen gilt $s(n)*h(n)\;\circ\!\!-\!\!\bullet\;S_\mathrm a(f)H_\mathrm a(f)$. Das Produkt zweier Folgen ergibt die __periodische Faltung__ der Spektren über eine Periode:
 

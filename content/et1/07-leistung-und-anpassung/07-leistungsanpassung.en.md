@@ -47,7 +47,11 @@ Without a derivative: With $x=I/I_\mathrm{SC}$, $P_\mathrm{L}=P_\mathrm{SC}\,x(1
 As a mechanism: A current increase $\mathrm{d} I$ brings $U_\mathrm{q}\mathrm{d} I$ out of the source, and the losses grow by $2R_\mathrm{i}I\,\mathrm{d} I$. At $I=I_\mathrm{SC}/2$, the loss eats up the gain: 9 V against $2\cdot2\,\Omega\cdot2.25\,\mathrm{A}=9$ V.
 :::
 
-**Example.** For $R_\mathrm{L}=2\,\Omega$, $I=2.25$ A, $U_\mathrm{L}=4.5$ V and $P_\mathrm{L}=10.125$ W, which is a quarter of $P_\mathrm{SC}=40.5$ W. The loads 0.5 $\Omega$ and 8 $\Omega$ both give 6.48 W. In general, $\alpha$ and $1/\alpha$ supply the same power, because they swap $x$ and $1-x$. **Limiting cases:** For $\alpha\to0$, the current is fixed and $P_\mathrm{L}\approx P_\mathrm{SC}\,\alpha$. For $\alpha\to\infty$, the voltage is fixed and $P_\mathrm{L}\approx P_\mathrm{SC}/\alpha$.
+::::beispiel
+For $R_\mathrm{L}=2\,\Omega$, $I=2.25$ A, $U_\mathrm{L}=4.5$ V and $P_\mathrm{L}=10.125$ W, which is a quarter of $P_\mathrm{SC}=40.5$ W. The loads 0.5 $\Omega$ and 8 $\Omega$ both give 6.48 W. In general, $\alpha$ and $1/\alpha$ supply the same power, because they swap $x$ and $1-x$.
+::::
+
+⁠**Limiting cases:** For $\alpha\to0$, the current is fixed and $P_\mathrm{L}\approx P_\mathrm{SC}\,\alpha$. For $\alpha\to\infty$, the voltage is fixed and $P_\mathrm{L}\approx P_\mathrm{SC}/\alpha$.
 
 :::ltspice Parabola and straight line
 ⁠**Draw:** `voltage` with 9 from `q` to ground, `res` with 2 from `q` to `a`. As the load, a current source `current` named `I1` from `a` to ground.

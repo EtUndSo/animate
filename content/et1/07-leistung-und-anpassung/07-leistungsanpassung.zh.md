@@ -47,7 +47,11 @@ $$\frac{\mathrm{d} P_\mathrm{L}}{\mathrm{d}\alpha}=P_\mathrm{SC}\,\frac{(1+\alph
 从机理上看：电流增量 $\mathrm{d} I$ 从电源带来 $U_\mathrm{q}\mathrm{d} I$，损耗增加 $2R_\mathrm{i}I\,\mathrm{d} I$。在 $I=I_\mathrm{SC}/2$ 时，损耗吃掉了增量：9 V 对 $2\cdot2\,\Omega\cdot2.25\,\mathrm{A}=9$ V。
 :::
 
-**例。** 对于 $R_\mathrm{L}=2\,\Omega$，有 $I=2.25$ A，$U_\mathrm{L}=4.5$ V，$P_\mathrm{L}=10.125$ W，这是 $P_\mathrm{SC}=40.5$ W 的四分之一。负载 0.5 $\Omega$ 和 8 $\Omega$ 都得到 6.48 W。一般来说，$\alpha$ 和 $1/\alpha$ 给出相同的功率，因为它们互换了 $x$ 和 $1-x$。**极限情况：**当 $\alpha\to0$ 时，电流固定，$P_\mathrm{L}\approx P_\mathrm{SC}\,\alpha$。当 $\alpha\to\infty$ 时，电压固定，$P_\mathrm{L}\approx P_\mathrm{SC}/\alpha$。
+::::beispiel
+对于 $R_\mathrm{L}=2\,\Omega$，有 $I=2.25$ A，$U_\mathrm{L}=4.5$ V，$P_\mathrm{L}=10.125$ W，这是 $P_\mathrm{SC}=40.5$ W 的四分之一。负载 0.5 $\Omega$ 和 8 $\Omega$ 都得到 6.48 W。一般来说，$\alpha$ 和 $1/\alpha$ 给出相同的功率，因为它们互换了 $x$ 和 $1-x$。
+::::
+
+⁠**极限情况：**当 $\alpha\to0$ 时，电流固定，$P_\mathrm{L}\approx P_\mathrm{SC}\,\alpha$。当 $\alpha\to\infty$ 时，电压固定，$P_\mathrm{L}\approx P_\mathrm{SC}/\alpha$。
 
 :::ltspice 抛物线与直线
 ⁠**绘制：**`voltage` 取 9，从 `q` 接到接地点，`res` 取 2，从 `q` 接到 `a`。负载用名为 `I1` 的电流源 `current`，从 `a` 接到接地点。

@@ -38,7 +38,11 @@ This must hold for every current. So the terms without $I_\mathrm{A}$ and the te
 The same battery at the same operating point. Left, 0.5 A flows through everything. Right, the source current of 4.5 A divides into 4 A through the conductance and 0.5 A to the load. At the terminals, voltage and current agree.
 :::
 
-**Example.** The battery with 9 V and 2 $\Omega$ becomes $I_\mathrm{q}=4.5$ A and $G_\mathrm{q}=0.5$ S. At the operating point with 8 V the conductance takes $0.5\,\mathrm{S}\cdot8\,\mathrm{V}=4$ A, leaving 0.5 A for the load (Fig. [7](#abb-7)). **Limiting case:** For $R_\mathrm{q}\to0$, $I_\mathrm{q}\to\infty$. An ideal voltage source has no current-source form, an ideal current source no voltage-source form.
+::::beispiel
+The battery with 9 V and 2 $\Omega$ becomes $I_\mathrm{q}=4.5$ A and $G_\mathrm{q}=0.5$ S. At the operating point with 8 V the conductance takes $0.5\,\mathrm{S}\cdot8\,\mathrm{V}=4$ A, leaving 0.5 A for the load (Fig. [7](#abb-7)).
+::::
+
+⁠**Limiting case:** For $R_\mathrm{q}\to0$, $I_\mathrm{q}\to\infty$. An ideal voltage source has no current-source form, an ideal current source no voltage-source form.
 
 **Which form do you choose?** For calculation both are equally good. You take the form that shows the behavior better: voltage sources have low resistance (ideally zero), current sources have high resistance (ideally infinite). If $R_\mathrm{q}$ is small compared with the load, the voltage hardly changes, and you choose the voltage-source form. If $R_\mathrm{q}$ is large compared with the load, the current hardly changes, and you choose the current-source form.
 

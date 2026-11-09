@@ -44,9 +44,13 @@ Both sources have the voltage $U_\mathrm{AB}$, and the node rule adds their curr
 Left, two identical batteries in parallel. Right, the characteristic curves: in parallel the open-circuit voltage stays and the short-circuit current doubles. In series the open-circuit voltage doubles and the short-circuit current stays. The dots show the operating points with 16 $\Omega$.
 :::
 
-**Example.** Two batteries from the reference model. In parallel: 9 V, 1 $\Omega$, $I_\mathrm{SC}=9$ A. Current form as a check: $4.5+4.5=9$ A and $0.5+0.5=1$ S. In series: 18 V, 4 $\Omega$, $I_\mathrm{SC}=4.5$ A. Into 16 $\Omega$ the parallel connection delivers 8.47 V and 0.529 A, the series connection 14.4 V and 0.9 A (Fig. [8](#abb-8)). The parallel connection brings little here, because 2 $\Omega$ is small compared with 16 $\Omega$.
+::::beispiel
+Two batteries from the reference model. In parallel: 9 V, 1 $\Omega$, $I_\mathrm{SC}=9$ A. Current form as a check: $4.5+4.5=9$ A and $0.5+0.5=1$ S. In series: 18 V, 4 $\Omega$, $I_\mathrm{SC}=4.5$ A. Into 16 $\Omega$ the parallel connection delivers 8.47 V and 0.529 A, the series connection 14.4 V and 0.9 A (Fig. [8](#abb-8)). The parallel connection brings little here, because 2 $\Omega$ is small compared with 16 $\Omega$.
 
-If one of the batteries is discharged to 8 V, then by [(7.3)](#gl-7-3) a current of $1\,\mathrm{V}/4\,\Omega=0.25$ A circulates in the open circuit. Both terminals are at 8.5 V, also according to [(7.2)](#gl-7-2). **Limiting case:** With only 10 m$\Omega$ of internal resistance each, it would be 50 A. That is why large battery cells are connected in parallel only at equal voltage. For $U_\mathrm{q1}=U_\mathrm{q2}$ the circulating current vanishes.
+If one of the batteries is discharged to 8 V, then by [(7.3)](#gl-7-3) a current of $1\,\mathrm{V}/4\,\Omega=0.25$ A circulates in the open circuit. Both terminals are at 8.5 V, also according to [(7.2)](#gl-7-2).
+::::
+
+⁠**Limiting case:** With only 10 m$\Omega$ of internal resistance each, it would be 50 A. That is why large battery cells are connected in parallel only at equal voltage. For $U_\mathrm{q1}=U_\mathrm{q2}$ the circulating current vanishes.
 
 :::frage Do two parallel batteries give more voltage?
 In the open circuit no, both supply 9 V. Under load a little, because the current divides between two internal resistances and only half as much drops internally. The real gain is a short-circuit current twice as large and twice the amount of charge.

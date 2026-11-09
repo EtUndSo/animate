@@ -84,11 +84,19 @@ Potenzgesetze für $x,y\ne0$, $p,q\in\mathbb{Z}$: $x^px^q=x^{p+q}$, $(x^p)^q=x^{
 Links ist jede Farbe ein Winkelstück. Rechts der Induktionsschritt: $n^2$ wächst um $2n+1$ Felder.
 :::
 
-**Beispiel 1: Summe der ungeraden Zahlen.** Behauptung: $\sum_{i=1}^n(2i-1)=n^2$. **Anfang:** $2\cdot1-1=1=1^2$. **Schritt:** Gilt die Formel für $n$, dann ist $\sum_{i=1}^{n+1}(2i-1)=n^2+2(n+1)-1=n^2+2n+1=(n+1)^2$. **Schluss:** Sie gilt für alle $n$. Ebenso beweist man $\sum_{i=1}^ni=\frac{n(n+1)}2$ und $\sum_{i=1}^ni^3=\frac{n^2(n+1)^2}4$ (Aufgabe [6](#aufg-6)).
+::::beispiel [Beispiel 1] Summe der ungeraden Zahlen
+Behauptung: $\sum_{i=1}^n(2i-1)=n^2$. **Anfang:** $2\cdot1-1=1=1^2$. **Schritt:** Gilt die Formel für $n$, dann ist $\sum_{i=1}^{n+1}(2i-1)=n^2+2(n+1)-1=n^2+2n+1=(n+1)^2$. **Schluss:** Sie gilt für alle $n$. Ebenso beweist man $\sum_{i=1}^ni=\frac{n(n+1)}2$ und $\sum_{i=1}^ni^3=\frac{n^2(n+1)^2}4$ (Aufgabe [6](#aufg-6)).
+::::
 
-**Beispiel 2: später Start.** $n!>2^n$ für $n\ge n_0=4$. Anfang: $24>16$. Schritt: $(n+1)!=(n+1)\,n!>(n+1)\,2^n\ge2\cdot2^n$, denn $n+1\ge2$. **Grenzfall:** Für $n=3$ ist $6<8$, der Start bei 4 ist nötig.
+::::beispiel [Beispiel 2] später Start
+$n!>2^n$ für $n\ge n_0=4$. Anfang: $24>16$. Schritt: $(n+1)!=(n+1)\,n!>(n+1)\,2^n\ge2\cdot2^n$, denn $n+1\ge2$.
+::::
 
-**Beispiel 3: alle früheren Fälle.** Jedes $n\ge2$ ist ein Produkt von Primzahlen. Anfang: 2 ist prim. Schritt: Ist $n+1$ nicht prim, ist $n+1=ab$ mit $2\le a,b\le n$. Hier reicht $\mathcal A(n)$ allein nicht, man braucht $\mathcal A(a)$ und $\mathcal A(b)$.
+⁠**Grenzfall:** Für $n=3$ ist $6<8$, der Start bei 4 ist nötig.
+
+::::beispiel [Beispiel 3] alle früheren Fälle
+Jedes $n\ge2$ ist ein Produkt von Primzahlen. Anfang: 2 ist prim. Schritt: Ist $n+1$ nicht prim, ist $n+1=ab$ mit $2\le a,b\le n$. Hier reicht $\mathcal A(n)$ allein nicht, man braucht $\mathcal A(a)$ und $\mathcal A(b)$.
+::::
 
 :::aufgabe Aufgabe 6 ★★ Induktion üben
 <span class="anker" id="aufg-6"></span>

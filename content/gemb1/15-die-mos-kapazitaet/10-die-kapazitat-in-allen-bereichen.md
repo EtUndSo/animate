@@ -62,13 +62,15 @@ Nach dem gaußschen Satz ist $|Q'_\mathrm{SC}|=\varepsilon\,|\mathcal E(0)|$. F�
 Links: Ersatzschaltbild, $C'_\mathrm{IS}$ in Reihe zur Parallelschaltung im Halbleiter. Rechts: Kapazität des Rechenmodells, blau exakt aus [(8.2)](#gl-8-2), gestrichelt nur Verarmung. Beide Enden nähern sich $C'_\mathrm{IS}$.
 :::
 
-**Beispiel.** Die Tabelle zeigt das Rechenmodell mit $C'_\mathrm{IS}=172{,}7\,\mathrm{nF/cm^2}$. Das Minimum liegt mit 46,2 nF/cm$^2$ bei $\varphi_\mathrm s=0{,}68$ V.
+::::beispiel
+Die Tabelle zeigt das Rechenmodell mit $C'_\mathrm{IS}=172{,}7\,\mathrm{nF/cm^2}$. Das Minimum liegt mit 46,2 nF/cm$^2$ bei $\varphi_\mathrm s=0{,}68$ V.
 
 | $\varphi_\mathrm s$ in V | $-0{,}15$ | 0 | 0,1 | 0,3 | 0,6 | 0,777 | 0,9 |
 |---|---|---|---|---|---|---|---|
 | $\vert Q'_\mathrm{SC}\vert $ in nC/cm$^2$ | 288,9 | 0 | 27,3 | 52,3 | 75,6 | 88,0 | 196 |
 | $C'_\mathrm{SC}$ in nF/cm$^2$ | 5688 | 438,9 | 178,8 | 95,3 | 65,9 | 113,2 | 2956 |
 | $C'_\mathrm{ges}/C'_\mathrm{IS}$ | 0,971 | 0,718 | 0,509 | 0,356 | 0,276 | 0,396 | 0,945 |
+::::
 
 ⁠**Grenzfälle:** Die Kastenformel gibt bei 0,3 V den Wert 54,7 statt 52,3 nC/cm$^2$. Genauer steht in Verarmung $\varphi_\mathrm s-V_\mathrm T$ unter der Wurzel, das ist die weiche Kante aus Abb. [4](verarmung.html#abb-4). Bei $\varphi_\mathrm{s,SI}$ ist $n_{p0}\mathrm{e}^{\varphi_\mathrm s/V_\mathrm T}=N_\mathrm A$. Dann ist $F=N_\mathrm A\varphi_\mathrm s$, die Kastenformel stimmt wieder, und $C'_\mathrm{SC}=2C'_\mathrm{depl}$: Elektronen und Ionen tragen gleich viel bei.
 

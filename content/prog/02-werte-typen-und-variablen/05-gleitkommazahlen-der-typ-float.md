@@ -32,7 +32,8 @@ Darin ist die __Mantisse__ $m$ eine Binärzahl mit $p$ Stellen und genau einer S
 Der __Exponent__ $E$ ist eine ganze Zahl aus einem festen Bereich.
 :::
 
-**Beispiel: ein Spielzeugformat.** Mit nur $p=3$ Stellen gibt es vier Mantissen: $1{,}00_2=1$, $1{,}01_2=1{,}25$, $1{,}10_2=1{,}5$ und $1{,}11_2=1{,}75$. Lässt man die Exponenten $E=-1,0,1,2$ zu, entstehen 16 positive Zahlen:
+::::beispiel ein Spielzeugformat
+Mit nur $p=3$ Stellen gibt es vier Mantissen: $1{,}00_2=1$, $1{,}01_2=1{,}25$, $1{,}10_2=1{,}5$ und $1{,}11_2=1{,}75$. Lässt man die Exponenten $E=-1,0,1,2$ zu, entstehen 16 positive Zahlen:
 
 | $E$ | $m=1$ | $m=1{,}25$ | $m=1{,}5$ | $m=1{,}75$ | Abstand |
 |---|---|---|---|---|---|
@@ -46,6 +47,7 @@ Auf dem Zahlenstrahl liegen sie nicht gleichmäßig (Abb. [6](#abb-6)). Zwische
 :::abbildung prog/k2zahlenstrahl 6
 Die 16 positiven Zahlen eines Gleitkommaformats mit drei Binärstellen und den Exponenten $-1$ bis $2$. In jedem Bereich von einer Zweierpotenz zur nächsten liegen gleich viele Zahlen, vier Stück; deshalb verdoppelt sich ihr Abstand mit jeder Zweierpotenz. Zwischen 0 und $0{,}5$ liegt keine Zahl des Formats.
 :::
+::::
 
 ⁠**Kurz gesagt:** Eine Gleitkommazahl ist Mantisse mal Zweierpotenz; mit fester Stellenzahl wächst der Abstand benachbarter Zahlen mit ihrem Betrag.
 
@@ -121,7 +123,9 @@ Gewöhnliche Zahlen haben $1\le c\le2046$. Die Werte $c=0$ und $c=2047$ sind fü
 
 Die Zahl 1023 heißt die Verschiebung des Exponenten.
 
-**Beispiel.** In Abb. [7](#abb-7) hat $6{,}5$ das Exponentenfeld $10000000001_2=1025$, also $E=1025-1023=2$. Tatsächlich ist $6{,}5=1{,}625\cdot2^2$. Die untere Zeile hat $c=01111111011_2=\mathtt{3fb}_{16}=1019$, also $E=-4$.
+::::beispiel
+In Abb. [7](#abb-7) hat $6{,}5$ das Exponentenfeld $10000000001_2=1025$, also $E=1025-1023=2$. Tatsächlich ist $6{,}5=1{,}625\cdot2^2$. Die untere Zeile hat $c=01111111011_2=\mathtt{3fb}_{16}=1019$, also $E=-4$.
+::::
 
 ⁠**Kurz gesagt:** Das Exponentenfeld speichert $E+1023$; so kommt es ohne Vorzeichen aus.
 
@@ -150,7 +154,9 @@ Die 1 vor dem Komma heißt das verborgene Bit, weil sie nicht im Speicher steht.
 <span class="anker" id="gl-4-1"></span>
 $$x=(-1)^s\cdot\Bigl(1+\frac{t}{2^{52}}\Bigr)\cdot2^{\,c-1023}. \tag{4.1}$$
 
-**Beispiel.** Für $6{,}5$ beginnt das Mantissenfeld in Abb. [7](#abb-7) mit $101$, danach folgen nur Nullen. Die Mantisse ist also $m=1{,}101_2=1+\frac12+\frac18=1{,}625$, und mit $E=2$ und $s=0$ ergibt sich $x=1{,}625\cdot4=6{,}5$.
+::::beispiel
+Für $6{,}5$ beginnt das Mantissenfeld in Abb. [7](#abb-7) mit $101$, danach folgen nur Nullen. Die Mantisse ist also $m=1{,}101_2=1+\frac12+\frac18=1{,}625$, und mit $E=2$ und $s=0$ ergibt sich $x=1{,}625\cdot4=6{,}5$.
+::::
 
 ⁠**Kurz gesagt:** Das Mantissenfeld speichert die 52 Stellen hinter dem Komma; die führende 1 ergänzt man beim Lesen.
 
@@ -199,7 +205,9 @@ hinter `p` steht der Exponent $E$ als Dezimalzahl, also nicht das Feld $c$, sond
 
 </ul>
 
-**Beispiel.** Bei $6{,}5$ ist das Mantissenfeld $\mathtt{a000000000000}_{16}$, die Ziffer $\mathtt a=1010_2$ und dahinter nur Nullen: $m=1{,}1010_2=1{,}625$. Mit $E=2$ folgt $6{,}5$, wie in Abb. [7](#abb-7). Bei $-0{,}75$ ist $s=1$, $\mathtt{8}=1000_2$, also $m=1{,}1_2=1{,}5$, und $E=-1$: $x=-1{,}5\cdot\frac12=-0{,}75$.
+::::beispiel
+Bei $6{,}5$ ist das Mantissenfeld $\mathtt{a000000000000}_{16}$, die Ziffer $\mathtt a=1010_2$ und dahinter nur Nullen: $m=1{,}1010_2=1{,}625$. Mit $E=2$ folgt $6{,}5$, wie in Abb. [7](#abb-7). Bei $-0{,}75$ ist $s=1$, $\mathtt{8}=1000_2$, also $m=1{,}1_2=1{,}5$, und $E=-1$: $x=-1{,}5\cdot\frac12=-0{,}75$.
+::::
 
 ⁠**Kurz gesagt:** `hex` zeigt einen `float` als $\pm$`0x1.`*Mantissenfeld*`p`*Exponent*.
 
@@ -281,7 +289,8 @@ Der interaktive Modus und `print` zeigen einen `float` als die kürzeste Dezimal
 
 Angezeigt ist also nicht der gespeicherte Wert, sondern ein eindeutiges Kennzeichen für ihn. Tippt man die angezeigte Zahl wieder ein, erhält man genau denselben `float`.
 
-**Beispiel.** Für den gespeicherten Wert von `0.1` ist die kürzeste solche Dezimalzahl $0{,}1$ selbst; deshalb erscheint `0.1`. Bei `0.1 + 0.2` ist das anders:
+::::beispiel
+Für den gespeicherten Wert von `0.1` ist die kürzeste solche Dezimalzahl $0{,}1$ selbst; deshalb erscheint `0.1`. Bei `0.1 + 0.2` ist das anders:
 
 ```console
 >>> 0.1 + 0.2
@@ -295,6 +304,7 @@ Angezeigt ist also nicht der gespeicherte Wert, sondern ein eindeutiges Kennzeic
 ```
 
 Die Summe ist ein anderer `float` als der, den Python für `0.3` speichert: Die Mantissenfelder unterscheiden sich in der letzten Stelle, die beiden Zahlen sind Nachbarn. Das Etikett `0.3` ist schon vergeben, also braucht die Summe ein längeres, und das kürzeste, das zu ihr und zu keinem Nachbarn passt, hat 17 Stellen.
+::::
 
 ⁠**Kurz gesagt:** Angezeigt wird die kürzeste Dezimalzahl, die denselben `float` ergibt; angezeigt ist nicht gleich gespeichert.
 

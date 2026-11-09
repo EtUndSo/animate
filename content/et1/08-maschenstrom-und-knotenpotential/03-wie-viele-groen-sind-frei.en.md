@@ -32,7 +32,8 @@ can be chosen freely. All other currents and voltages follow from Kirchhoff.
 The model network. Three nodes (red), six branches. The branch on the left contains the battery and $R_1$ in series, because nothing branches off between them. Node 0 is the entire lower line.
 :::
 
-**Example.** The network in Fig. [1](#abb-1) has $k=3$ and $z=6$, so $m=4$:
+::::beispiel
+The network in Fig. [1](#abb-1) has $k=3$ and $z=6$, so $m=4$:
 
 | Approach | Unknowns | Equations |
 |---|---|---|
@@ -40,6 +41,7 @@ The model network. Three nodes (red), six branches. The branch on the left conta
 | Ohm's law substituted | 6 | 2 nodes, 4 meshes |
 | mesh currents | 4 | 4 meshes; the current source fixes one value, 3 remain |
 | node voltages | 2 | 2 nodes |
+::::
 
 ⁠**Limiting cases:** A series connection as a ring has $z=k$ and $m=1$: a single current applies everywhere, which is the core of the series connection. A parallel connection has $k=2$ and $k-1=1$: a single voltage applies everywhere, which is the core of the parallel connection.
 

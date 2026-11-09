@@ -24,11 +24,13 @@ $$S_d(k)=\sum_{n=0}^{M-1}s_d(n)\,\mathrm{e}^{-\mathrm{j}2\pi kn/M},\qquad s_d(n)
 
 ⁠**How to read it:** $S_d(k)$ is the value of the spectrum $S_\mathrm a(f)$ at $f=k/M$. The index $k$ counts oscillations that fit exactly $k$ times into the $M$ values. The inverse transform is a Fourier series with $M$ terms. The theorems hold analogously, for example the shift $s_d(n-m)\;\circ\!\!-\!\!\bullet\;S_d(k)\mathrm{e}^{-\mathrm{j}2\pi mk/M}$ (circular: what is shifted out at the end comes back in at the start) and Parseval $\sum_n|s_d(n)|^2=\frac1M\sum_k|S_d(k)|^2$.
 
-**Example.** $s_d=(1,\,2,\,0,\,-1)$, $M=4$, $\mathrm{e}^{-\mathrm{j}2\pi/4}=-\mathrm{j}$:
+::::beispiel
+$s_d=(1,\,2,\,0,\,-1)$, $M=4$, $\mathrm{e}^{-\mathrm{j}2\pi/4}=-\mathrm{j}$:
 
 $$S_d(k)=\sum_{n=0}^{3}s_d(n)(-\mathrm{j})^{kn}:\qquad S_d(0)=2,\quad S_d(1)=1-3\mathrm{j},\quad S_d(2)=0,\quad S_d(3)=1+3\mathrm{j}.$$
 
 Check: $S_d(3)=S_d^*(1)$, because the signal is real ($k=3$ corresponds to $k=-1$). Parseval: $1+4+0+1=6=\frac14(4+10+0+10)$.
+::::
 
 :::aufgabe Exercise 8 ★★ DFT by hand
 <span class="anker" id="aufg-8"></span>

@@ -62,7 +62,9 @@ Links und Mitte: Schaltzeichen einer Batterie (langer dünner Strich: Pluspol) u
 Derselbe Stromkreis mit Masse an drei Stellen. Die Potenziale sind 9 V, 3 V, 0 V, dann 6 V, 0 V, $-3$ V, dann 0 V, $-6$ V, $-9$ V. Jedes Mal liegen 6 V am oberen und 3 V am unteren Widerstand.
 :::
 
-**Beispiel.** Im Plattenpaar ist $E=9\,\mathrm{V}/3\,\mathrm{mm}=3$ kV/m, 1000-mal weniger als die Durchschlagsfeldstärke von Luft. Eine Blockbatterie liefert rund 0,5 Ah (Ampere mal Stunden), das sind 1800 C. Ihre gesamte Energie ist $W=Q\,U=1800\,\mathrm{C}\cdot9\,\mathrm{V}=16{,}2$ kJ $=4{,}5$ Wh. Im Stromkreis liegt die Masse zunächst am Minuspol (Abb. [10](#abb-10) links). Mit [(8.2)](#gl-8-2) ergibt sich von unten nach oben 0 V, $0+3$ V, $3+6$ V. Wandert die Masse in die Mitte, sinkt jedes Potenzial um 3 V. Die Spannung am oberen Widerstand ist vorher $9\,\mathrm{V}-3\,\mathrm{V}$, nachher $6\,\mathrm{V}-0\,\mathrm{V}$. In Kraftfahrzeugen ist meist der Minuspol der Batterie mit der Karosserie verbunden, sie ist dort die Masse.
+::::beispiel
+Im Plattenpaar ist $E=9\,\mathrm{V}/3\,\mathrm{mm}=3$ kV/m, 1000-mal weniger als die Durchschlagsfeldstärke von Luft. Eine Blockbatterie liefert rund 0,5 Ah (Ampere mal Stunden), das sind 1800 C. Ihre gesamte Energie ist $W=Q\,U=1800\,\mathrm{C}\cdot9\,\mathrm{V}=16{,}2$ kJ $=4{,}5$ Wh. Im Stromkreis liegt die Masse zunächst am Minuspol (Abb. [10](#abb-10) links). Mit [(8.2)](#gl-8-2) ergibt sich von unten nach oben 0 V, $0+3$ V, $3+6$ V. Wandert die Masse in die Mitte, sinkt jedes Potenzial um 3 V. Die Spannung am oberen Widerstand ist vorher $9\,\mathrm{V}-3\,\mathrm{V}$, nachher $6\,\mathrm{V}-0\,\mathrm{V}$. In Kraftfahrzeugen ist meist der Minuspol der Batterie mit der Karosserie verbunden, sie ist dort die Masse.
+::::
 
 ⁠**Kurz gesagt:** Spannung ist Energie je Ladung zwischen zwei Punkten.
 

@@ -89,7 +89,11 @@ $$\|\vec s\|^2=\sum_ix_is_i+\sum_iy_is_i\le\sum_i|x_is_i|+\sum_i|y_is_i|\le\bigl
 Für $\|\vec s\|=0$ steht in [(9.2)](#gl-9-2) links 0. Sonst teilt man durch $\|\vec s\|$.
 :::
 
-**Beispiel.** Bernoulli: $1{,}01^{10}>1{,}1$, exakt $1{,}1046$. Für kleines $x$ ist $1+nx$ eine gute Näherung: 1 % mehr Spannung bedeutet an einem Widerstand rund 2 % mehr Leistung, exakt 2,01 %. Für großes $x$ ist sie grob: $2^{10}=1024$ gegen 11. Young mit $x=2$, $y=8$: Für $\varepsilon=1$ steht $16\le34$, für $\varepsilon=4$ steht $16\le16$. Cauchy-Schwarz mit $\vec x=(3,4)$, $\vec y=(1,2)$: $3+8=11\le5\sqrt5\approx11{,}18$. Minkowski: $\|(4,6)\|=\sqrt{52}\approx7{,}21\le5+\sqrt5\approx7{,}24$. **Grenzfall:** Bei $x=y$ sind beide Mittel gleich, im Halbkreis steht die Höhe auf der Mitte.
+::::beispiel
+Bernoulli: $1{,}01^{10}>1{,}1$, exakt $1{,}1046$. Für kleines $x$ ist $1+nx$ eine gute Näherung: 1 % mehr Spannung bedeutet an einem Widerstand rund 2 % mehr Leistung, exakt 2,01 %. Für großes $x$ ist sie grob: $2^{10}=1024$ gegen 11. Young mit $x=2$, $y=8$: Für $\varepsilon=1$ steht $16\le34$, für $\varepsilon=4$ steht $16\le16$. Cauchy-Schwarz mit $\vec x=(3,4)$, $\vec y=(1,2)$: $3+8=11\le5\sqrt5\approx11{,}18$. Minkowski: $\|(4,6)\|=\sqrt{52}\approx7{,}21\le5+\sqrt5\approx7{,}24$.
+::::
+
+⁠**Grenzfall:** Bei $x=y$ sind beide Mittel gleich, im Halbkreis steht die Höhe auf der Mitte.
 
 :::frage Wann nehme ich welche Ungleichung?
 Potenz einer Zahl nahe 1: Bernoulli. Produkt abschätzen: Young, Mittelwerte. Summe von Produkten: Cauchy-Schwarz. Wurzel aus einer Summe: Minkowski.

@@ -39,11 +39,13 @@ $$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{
 La ley es un resultado de medida. Las series de ensayos dan por separado $F\sim Q_\mathrm{A}$, $F\sim Q_\mathrm{B}$, $F\sim1/r^2$ y $\vec F\parallel\vec r$, y juntas $F\sim Q_\mathrm{A}Q_\mathrm{B}/r^2$; el factor es $k$. Si se supone $F\sim1/r^{2\pm\delta}$, la cota de $\delta$ bajó de 0,02 con Cavendish (siglo XVIII) a $5\cdot10^{-5}$ con Maxwell (siglo XIX), y luego a $10^{-13}$ (Bartlett y otros, 1970) y $3\cdot10^{-16}$ (Williams y otros, 1971).
 :::
 
-**Ejemplo.** En el modelo de referencia,
+::::beispiel
+En el modelo de referencia,
 
 $$F=8{,}99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}\cdot\frac{10\cdot10^{-9}\,\mathrm{C}\cdot20\cdot10^{-9}\,\mathrm{C}}{(0{,}03\,\mathrm{m})^2}=2{,}0\,\mathrm{mN}.$$
 
 El peso de la esfera A es 9,81 mN, así que $\tan\alpha=0{,}204$ y $\alpha=11{,}5^\circ$. Esta desviación la produce la falta de un electrón de cada $5\cdot10^{12}$. La gravitación entre dos esferas de 1 g a la misma distancia es solo $7{,}4\cdot10^{-14}$ N; es $2{,}7\cdot10^{10}$ veces menor y puede omitirse. Entre dos electrones, la fuerza eléctrica es incluso $4{,}2\cdot10^{42}$ veces mayor.
+::::
 
 ⁠**Casos límite:** Para $r\to\infty$, $F\to0$. Para $Q_\mathrm{A}=0$, $F=0$. El doble de distancia da 0,5 mN; el doble de carga $Q_\mathrm{A}$ da 4,0 mN.
 

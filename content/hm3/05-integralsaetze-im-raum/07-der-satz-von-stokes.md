@@ -56,7 +56,9 @@ $$\int_{\mathcal F}\operatorname{rot}\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{S}
 ⁠**Schritt 4.** Die Kettenregel gibt $\mathrm{d}\boldsymbol{x}=\Phi_u\,\mathrm{d} u+\Phi_v\,\mathrm{d} v$, also $P\,\mathrm{d} u+Q\,\mathrm{d} v=\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{x}$. Damit steht rechts das Kurvenintegral über $\partial\mathcal F$.
 :::
 
-**Beispiel: Kuppel.** Für $\boldsymbol{F}=(-y,x,2z)$ ist $\operatorname{rot}\boldsymbol{F}=(0,0,2)$. Mit [(1.3)](flachen-beschreiben.html#gl-1-3) ist $\operatorname{rot}\boldsymbol{F}\cdot(\Phi_r\times\Phi_\varphi)=2r$, das Flächenintegral also $\int_0^{2\pi}\!\int_0^22r\,\mathrm{d} r\,\mathrm{d}\varphi=8\pi$. Der Rand $\gamma(t)=(2\cos t,2\sin t,0)$ läuft von oben gesehen gegen den Uhrzeigersinn, passt also zu $\boldsymbol{n}$ nach oben. Es ist $\boldsymbol{F}(\gamma)\cdot\dot\gamma=4\sin^2t+4\cos^2t=4$, das Randintegral also $2\pi\cdot4=8\pi$. Beide Seiten stimmen.
+::::beispiel Kuppel
+Für $\boldsymbol{F}=(-y,x,2z)$ ist $\operatorname{rot}\boldsymbol{F}=(0,0,2)$. Mit [(1.3)](flachen-beschreiben.html#gl-1-3) ist $\operatorname{rot}\boldsymbol{F}\cdot(\Phi_r\times\Phi_\varphi)=2r$, das Flächenintegral also $\int_0^{2\pi}\!\int_0^22r\,\mathrm{d} r\,\mathrm{d}\varphi=8\pi$. Der Rand $\gamma(t)=(2\cos t,2\sin t,0)$ läuft von oben gesehen gegen den Uhrzeigersinn, passt also zu $\boldsymbol{n}$ nach oben. Es ist $\boldsymbol{F}(\gamma)\cdot\dot\gamma=4\sin^2t+4\cos^2t=4$, das Randintegral also $2\pi\cdot4=8\pi$. Beide Seiten stimmen.
+::::
 
 **Der wichtigste Trick.** Das Ergebnis hängt nur vom Rand ab. Hat man ein hässliches $\int_{\mathcal F}\operatorname{rot}\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{S}$, gibt es zwei Auswege: das Randintegral rechnen oder die Fläche durch eine einfachere mit demselben Rand ersetzen, etwa die Bodenscheibe. Dort ist $\boldsymbol{n}=(0,0,1)$, und der Integrand vereinfacht sich oft stark. Komponenten, die auf dem Rand verschwinden, spielen gar keine Rolle.
 

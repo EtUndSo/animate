@@ -14,7 +14,7 @@ Salz löst sich in Wasser, Diamant ritzt Glas, Kupfer lässt sich zu Draht ziehe
 
 Der Weg führt über acht Begriffe. Eine __chemische Bindung__ ist der Zusammenhalt von Atomen durch ihre äußeren Elektronen. Die __Bindungsenergie__ ist der Aufwand, sie zu trennen. Vier Arten werden unterschieden: __ionische Bindung__ (ein Atom gibt Elektronen an ein anderes ab), __kovalente Bindung__ (zwei Atome teilen sich Elektronen), __metallische Bindung__ (alle Atome teilen sich Elektronen) und __Dipol-Bindung__ (Anziehung zwischen ungleich verteilten Ladungen). Ein __Molekülorbital__ ist ein Elektronenzustand, der zu mehreren Atomen gehört. Die __Hybridisierung__ mischt Orbitale eines Atoms und legt so die Richtungen seiner Bindungen fest.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

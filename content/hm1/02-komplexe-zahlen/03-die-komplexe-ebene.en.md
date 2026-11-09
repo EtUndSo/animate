@@ -39,7 +39,11 @@ For $z=x+\mathrm{i}y$ we have $\mathrm{i}z=-y+\mathrm{i}x$. The arrow of $z$ is 
 We have $\mathrm{i}(x+\mathrm{i}y)=\mathrm{i}x+\mathrm{i}^2y=-y+\mathrm{i}x$. The arrow of $z$ is the hypotenuse of a right triangle with the horizontal leg $x$ and the vertical leg $y$, both counted with sign. The quarter turn makes $x$ to the right into $x$ upward and $y$ upward into $y$ to the left. So the rotated arrow ends at $(-y,x)$.
 :::
 
-**Example.** $\mathrm{i}z_1=-1+3\mathrm{i}$, $\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$, $\mathrm{i}^3z_1=1-3\mathrm{i}$, $\mathrm{i}^4z_1=z_1$ (Fig. [2](#abb-2), right). **Limiting case:** A real factor $r$ does not rotate, it stretches: $r(x+\mathrm{i}y)=rx+\mathrm{i}ry$. For $r=-1$ it reverses the arrow, like $\mathrm{i}$ applied twice.
+::::beispiel
+$\mathrm{i}z_1=-1+3\mathrm{i}$, $\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$, $\mathrm{i}^3z_1=1-3\mathrm{i}$, $\mathrm{i}^4z_1=z_1$ (Fig. [2](#abb-2), right).
+::::
+
+⁠**Limiting case:** A real factor $r$ does not rotate, it stretches: $r(x+\mathrm{i}y)=rx+\mathrm{i}ry$. For $r=-1$ it reverses the arrow, like $\mathrm{i}$ applied twice.
 
 :::frage Isn't the complex plane just the ordinary coordinate plane?
 As a set and for addition, yes. The difference is multiplication: [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) turns two points into a point again, and this makes division possible (Stage [4](dividieren-und-was-verloren-geht.html#stufe-4)). Only that turns the plane into a number system.

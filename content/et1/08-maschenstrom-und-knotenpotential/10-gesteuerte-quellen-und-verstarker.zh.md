@@ -23,7 +23,8 @@ lang: zh
 
 ⁠**如何理解：**$g$ 是__跨导__，即单位控制电压产生的电流，单位为西门子，模型中为 50 mS。**适用条件：**电源应是线性的。晶体管只在工作点附近的小变化范围内才如此（[第 10 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）。
 
-**例：无负反馈。** 一个 $I_\mathrm q=20$ µ A 的电流源，带 $G_\mathrm q=0.5$ mS，给节点 1 供电。那里有 $G_\mathrm i=0.5$ mS 接到接地点。电源 $g\,U_1$ 把电流从节点 2 抽到接地点，那里还接有 $G_\mathrm o=0.05$ mS 和 $G_\mathrm L=0.2$ mS。由印记得
+::::beispiel 无负反馈
+一个 $I_\mathrm q=20$ µ A 的电流源，带 $G_\mathrm q=0.5$ mS，给节点 1 供电。那里有 $G_\mathrm i=0.5$ mS 接到接地点。电源 $g\,U_1$ 把电流从节点 2 抽到接地点，那里还接有 $G_\mathrm o=0.05$ mS 和 $G_\mathrm L=0.2$ mS。由印记得
 
 <span class="anker" id="gl-8-1"></span>
 $$\begin{pmatrix}G_\mathrm q+G_\mathrm i&0\\g&G_\mathrm o+G_\mathrm L\end{pmatrix}\begin{pmatrix}U_1\\U_2\end{pmatrix}=\begin{pmatrix}I_\mathrm q\\0\end{pmatrix}. \tag{8.1}$$
@@ -34,6 +35,7 @@ $Y_{12}=0$，但 $Y_{21}=g$。由 $D=(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\ma
 $$U_1=\frac{I_\mathrm q}{G_\mathrm q+G_\mathrm i},\qquad U_2=-\frac{g\,I_\mathrm q}{(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mathrm L)},\qquad A_u=\frac{U_2}{U_1}=-\frac{g}{G_\mathrm o+G_\mathrm L}. \tag{8.2}$$
 
 模型中 $D=0.25$，$U_1=20$ mV，$U_2=-4$ V，__电压增益__ $A_u=-200$，与[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)相同。负号的来源是受控电流从节点 2 流出。
+::::
 
 **有负反馈。** 输入和输出共同的下方连接点称为底点。把它与接地点断开，并在那里插入 $R_\mathrm S=1\,\mathrm{k\Omega}$，就出现节点 3（图 [8](#abb-8)）。这时输出电流流过 $R_\mathrm S$，抬高 $U_3$。这使控制电压 $U_1-U_3$ 下降，输出电流随之减小。这种输出对自身输入的反作用称为__负反馈__。
 

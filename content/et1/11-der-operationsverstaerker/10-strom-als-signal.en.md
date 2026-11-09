@@ -43,7 +43,11 @@ There are two feedback paths here: the lower $R$ gives negative feedback, the le
 Left, the transimpedance amplifier with a current source as input. Right, the NIC with $R=10$ k$\Omega$ and $R_2=5$ k$\Omega$ at 1 V on terminal 1: the output is at 3 V and pushes 0.2 mA out of the terminal.
 :::
 
-**Example.** With $R=10$ k$\Omega$, $R_2=5$ k$\Omega$ and $U_1=1$ V, $I_2=0.2$ mA, $U_\mathrm{A}=3$ V, $I_1=-0.2$ mA, so $R_\mathrm{in}=-5$ k$\Omega$. The energy comes from the supply of the op amp. *Application:* A current source with 1 mA and internal resistance $R_\mathrm{q}=10$ k$\Omega$ delivers only 0.909 mA to 1 k$\Omega$, because part of it goes through $R_\mathrm{q}$. In parallel with it, a NIC with $R_2=R_\mathrm{q}$: the conductance $1/R_\mathrm{q}-1/R_2$ vanishes, and the load gets 1 mA. The real source acts like an ideal one. The NIC supplies exactly the 0.1 mA that $R_\mathrm{q}$ branches off. **Limiting case:** Without a load, $R_\mathrm{i}=R_\mathrm{q}=R_2$, both feedback paths are equally strong, the loop gain is zero, and the rule no longer holds.
+::::beispiel
+With $R=10$ k$\Omega$, $R_2=5$ k$\Omega$ and $U_1=1$ V, $I_2=0.2$ mA, $U_\mathrm{A}=3$ V, $I_1=-0.2$ mA, so $R_\mathrm{in}=-5$ k$\Omega$. The energy comes from the supply of the op amp. *Application:* A current source with 1 mA and internal resistance $R_\mathrm{q}=10$ k$\Omega$ delivers only 0.909 mA to 1 k$\Omega$, because part of it goes through $R_\mathrm{q}$. In parallel with it, a NIC with $R_2=R_\mathrm{q}$: the conductance $1/R_\mathrm{q}-1/R_2$ vanishes, and the load gets 1 mA. The real source acts like an ideal one. The NIC supplies exactly the 0.1 mA that $R_\mathrm{q}$ branches off.
+::::
+
+⁠**Limiting case:** Without a load, $R_\mathrm{i}=R_\mathrm{q}=R_2$, both feedback paths are equally strong, the loop gain is zero, and the rule no longer holds.
 
 :::aufgabe Exercise 9 ★★★ Compensating a current source
 <span class="anker" id="aufg-9"></span>

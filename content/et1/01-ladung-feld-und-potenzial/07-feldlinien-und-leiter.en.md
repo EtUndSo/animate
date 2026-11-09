@@ -65,7 +65,9 @@ Calculated field lines. Top: with opposite charges they run from $+$ to $-$; wit
 ⁠**Rule 4, cavity.** The external field ends on the induced charges of the outer side. With no charge in the cavity, a line there would have to run from wall to wall. A charge could gain energy along this line and return at no cost through the field-free metal. That would be energy from nothing, which Stage [6](arbeit-im-feld.html#stufe-6) rules out.
 :::
 
-**Example.** In the pair of plates, the charge sits on the inner sides of the plates, and the lines run parallel and equally dense from A to B. Equal density means that $\vec E$ is the same everywhere; the field is __uniform__. This holds as long as $d$ is small compared with the plate width; only at the edge does a weaker __fringing field__ bulge outward. The tube in Fig. [6](#abb-6) shows rules 3 and 4; at its apex the field is around twice as strong as without the tube. A closed metal shell protects its interior, which is why you are safe in a car during a thunderstorm.
+::::beispiel
+In the pair of plates, the charge sits on the inner sides of the plates, and the lines run parallel and equally dense from A to B. Equal density means that $\vec E$ is the same everywhere; the field is __uniform__. This holds as long as $d$ is small compared with the plate width; only at the edge does a weaker __fringing field__ bulge outward. The tube in Fig. [6](#abb-6) shows rules 3 and 4; at its apex the field is around twice as strong as without the tube. A closed metal shell protects its interior, which is why you are safe in a car during a thunderstorm.
+::::
 
 ⁠**Check:** Rule 1 fits Coulomb's law. From a charge, $N$ lines run evenly in all directions and pierce a sphere of area $4\pi r^2$. The density $N/(4\pi r^2)$ falls with $1/r^2$, hence also the factor $4\pi$ in $k=1/(4\pi\varepsilon_0)$. Conversely, shielding is perfect only for an exponent of exactly 2. This gave rise to the measurements from Stage [3](die-kraft-zwischen-ladungen.html#stufe-3): one searched for a residual field in a charged hollow sphere.
 

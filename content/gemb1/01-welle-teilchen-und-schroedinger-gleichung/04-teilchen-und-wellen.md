@@ -41,7 +41,11 @@ $$\lambda=\frac h{\sqrt{2mE_\mathrm{kin}}}. \tag{2.2}$$
 Die Spalte haben den Abstand $s$, der Schirm die Entfernung $D\gg s$. Zum Schirmpunkt $y$ unter dem kleinen Winkel $\theta$ ist der Weg von einem Spalt um $s\sin\theta\approx s\,y/D$ länger als vom anderen. Hell ist es, wenn dieser Unterschied ein ganzes Vielfaches von $\lambda$ beträgt. Benachbarte Streifen haben also den Abstand $y_\mathrm S=\lambda\,D/s$.
 :::
 
-**Beispiel.** Die Elektronen aus Stufe [1](elektronen-als-gas.html#stufe-1) haben $E_\mathrm{kin}=\frac32k_\mathrm BT=38{,}8$ meV, also nach [(2.2)](#gl-2-2) $\lambda=6{,}2$ nm. Das ist das 24-fache des Atomabstands in Kupfer (0,26 nm) und das Sechsfache der angenommenen freien Weglänge. Eine Kugel, die von Atom zu Atom fliegt, ist also schon nach den eigenen Zahlen das falsche Bild. Das Probe-Elektron mit 1 eV hat $p=5{,}40\cdot10^{-25}$ kg m/s, $k=5{,}12\cdot10^{9}\,\mathrm{m^{-1}}$ und $\lambda=1{,}23$ nm. **Grenzfall:** Ein Staubkorn von 1 µ g mit 1 mm/s hat $\lambda=6{,}6\cdot10^{-22}$ m. Für große Masse geht $\lambda\to0$, die Streifen rücken zusammen, bis nur die zwei Häufungen bleiben. Deshalb sieht man im Alltag keine Materiewellen.
+::::beispiel
+Die Elektronen aus Stufe [1](elektronen-als-gas.html#stufe-1) haben $E_\mathrm{kin}=\frac32k_\mathrm BT=38{,}8$ meV, also nach [(2.2)](#gl-2-2) $\lambda=6{,}2$ nm. Das ist das 24-fache des Atomabstands in Kupfer (0,26 nm) und das Sechsfache der angenommenen freien Weglänge. Eine Kugel, die von Atom zu Atom fliegt, ist also schon nach den eigenen Zahlen das falsche Bild. Das Probe-Elektron mit 1 eV hat $p=5{,}40\cdot10^{-25}$ kg m/s, $k=5{,}12\cdot10^{9}\,\mathrm{m^{-1}}$ und $\lambda=1{,}23$ nm.
+::::
+
+⁠**Grenzfall:** Ein Staubkorn von 1 µ g mit 1 mm/s hat $\lambda=6{,}6\cdot10^{-22}$ m. Für große Masse geht $\lambda\to0$, die Streifen rücken zusammen, bis nur die zwei Häufungen bleiben. Deshalb sieht man im Alltag keine Materiewellen.
 
 :::frage Geht ein Elektron nun durch einen Spalt oder durch beide?
 Ein Messgerät am Spalt findet immer ein ganzes Elektron, das stimmt. Aber diese Messung zerstört die Streifen. Ohne Messung beschreibt nur eine Welle durch beide Spalte das Ergebnis. „Durch welchen“ setzt eine Bahn voraus, und die gibt es hier nicht.

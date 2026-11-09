@@ -34,7 +34,9 @@ $$f(\mathbf{u}+\mathbf{v})=f(\mathbf{u})+f(\mathbf{v})\qquad\text{und}\qquad f(c
 
 Beide Bedingungen zusammen besagen: $f$ erhält Linearkombinationen, $f(c_1\mathbf{u}+c_2\mathbf{v})=c_1f(\mathbf{u})+c_2f(\mathbf{v})$. Jede lineare Abbildung bildet den Nullvektor auf den Nullvektor ab, denn $f(\mathbf{0})=f(0\cdot\mathbf{u})=0\cdot f(\mathbf{u})=\mathbf{0}$.
 
-⁠**Rechenbeispiel:** Die Abbildung $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ von $\mathbb{R}^2$ nach $\mathbb{R}^2$ ist linear. Beide Komponenten sind Summen von Vielfachen der $x_j$, und für solche Summen gelten die Bedingungen [(8.1)](#gl-8-1); zum Beispiel ist $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. Nicht linear ist $g(\mathbf{x})=x_1x_2$, denn $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$, sobald $x_1x_2\ne0$. Auch $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ ist nicht linear, denn $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::beispiel [Rechenbeispiel]
+Die Abbildung $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ von $\mathbb{R}^2$ nach $\mathbb{R}^2$ ist linear. Beide Komponenten sind Summen von Vielfachen der $x_j$, und für solche Summen gelten die Bedingungen [(8.1)](#gl-8-1); zum Beispiel ist $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. Nicht linear ist $g(\mathbf{x})=x_1x_2$, denn $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$, sobald $x_1x_2\ne0$. Auch $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ ist nicht linear, denn $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::
 
 ⁠**Kurz gesagt:** Eine Abbildung ist linear, wenn sie Summen und Vielfache erhält; sie bildet dann Linearkombinationen auf Linearkombinationen ab.
 
@@ -65,9 +67,11 @@ $$f(\mathbf{x})=f\Bigl(\sum_{j=1}^nx_j\mathbf{e}_j\Bigr)=\sum_{j=1}^nx_j\,f(\mat
 der letzte Schritt nach der Spaltensicht [(7.3)](das-matrix-vektor-produkt.html#gl-7-3). Gäbe es eine zweite Matrix $\mathbf{B}$ mit $\mathbf{B}\mathbf{x}=f(\mathbf{x})$ für alle $\mathbf{x}$, so wäre mit $\mathbf{x}=\mathbf{e}_j$ die Spalte $j$ von $\mathbf{B}$ gleich $f(\mathbf{e}_j)=\mathbf{a}_j$, für jedes $j$. Also ist $\mathbf{B}=\mathbf{A}$.
 :::
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ ist $f(\mathbf{e}_1)=(1,\,2)^{\top}$ und $f(\mathbf{e}_2)=(1,\,0)^{\top}$. Also ist
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ ist $f(\mathbf{e}_1)=(1,\,2)^{\top}$ und $f(\mathbf{e}_2)=(1,\,0)^{\top}$. Also ist
 
 $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{und zur Probe}\qquad \mathbf{A}\begin{pmatrix}3\\-1\end{pmatrix}=\begin{pmatrix}2\\6\end{pmatrix}=f\bigl((3,\,-1)^{\top}\bigr).$$
+::::
 
 ⁠**Kurz gesagt:** Lineare Abbildungen und Matrizen sind dasselbe; die Spalte $j$ der Matrix ist das Bild des Einheitsvektors $\mathbf{e}_j$.
 
@@ -121,12 +125,14 @@ Die Matrix $\operatorname{diag}(1;\,0)$ behält die erste Komponente und setzt d
 
 </ul>
 
-⁠**Rechenbeispiel: die Drehung um einen beliebigen Winkel.** Dreht man um den Winkel $\alpha$ gegen den Uhrzeigersinn, so landet $\mathbf{e}_1$ im Punkt $(\cos\alpha,\,\sin\alpha)^{\top}$ auf dem Einheitskreis und $\mathbf{e}_2$, das $90^\circ$ weiter liegt, im Punkt $(-\sin\alpha,\,\cos\alpha)^{\top}$. Nach [(8.2)](#gl-8-2) ist die Drehmatrix deshalb
+::::beispiel [Rechenbeispiel] die Drehung um einen beliebigen Winkel
+Dreht man um den Winkel $\alpha$ gegen den Uhrzeigersinn, so landet $\mathbf{e}_1$ im Punkt $(\cos\alpha,\,\sin\alpha)^{\top}$ auf dem Einheitskreis und $\mathbf{e}_2$, das $90^\circ$ weiter liegt, im Punkt $(-\sin\alpha,\,\cos\alpha)^{\top}$. Nach [(8.2)](#gl-8-2) ist die Drehmatrix deshalb
 
 <span class="anker" id="gl-8-3"></span>
 $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}. \tag{8.3}$$
 
 Für $\alpha=90^\circ$ ergibt sich die Matrix aus Abb. [32](#abb-32). Den Punkt $(1,\,1)^{\top}$ dreht sie nach $(-1,\,1)^{\top}$, die Streckung bildet ihn auf $(2;\ 0{,}5)^{\top}$ ab, die Scherung auf $(2,\,1)^{\top}$ und das Plattdrücken auf $(1,\,0)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Eine $2\times2$-Matrix verformt das Gitter der Ebene; aus dem Einheitsquadrat wird das Parallelogramm, das ihre beiden Spalten aufspannen.
 
@@ -144,7 +150,9 @@ Jede lineare Abbildung $f\colon\mathbb{R}^d\to\mathbb{R}$ hat die Form $f(\mathb
 
 Das ist der Satz aus Unterabschnitt [8.2](#stufe-8-2) für $m=1$: Die $1\times d$-Matrix ist die Zeile $\mathbf{w}^{\top}$, und ihr Produkt mit $\mathbf{x}$ ist das Skalarprodukt. Die gewichtete Summe aus Unterabschnitt [2.2](das-skalarprodukt.html#stufe-2-2) ist also nicht irgendein Beispiel, sondern die allgemeinste lineare Vorschrift mit einem Ausgang.
 
-⁠**Rechenbeispiel:** Die Vorschrift der Maklerin ist $f(\mathbf{x})=3x_1+10x_2-4x_3$. Es ist $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, also $\mathbf{w}=(3,\,10,\,-4)^{\top}$. Das Gewicht $w_j=f(\mathbf{e}_j)$ ist der Wert der Vorschrift für ein gedachtes Beispiel, das nur eine Einheit von Merkmal $j$ hat und sonst nichts: Es sagt, wie viel eine Einheit dieses Merkmals beiträgt.
+::::beispiel [Rechenbeispiel]
+Die Vorschrift der Maklerin ist $f(\mathbf{x})=3x_1+10x_2-4x_3$. Es ist $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, also $\mathbf{w}=(3,\,10,\,-4)^{\top}$. Das Gewicht $w_j=f(\mathbf{e}_j)$ ist der Wert der Vorschrift für ein gedachtes Beispiel, das nur eine Einheit von Merkmal $j$ hat und sonst nichts: Es sagt, wie viel eine Einheit dieses Merkmals beiträgt.
+::::
 
 ⁠**Kurz gesagt:** Jede lineare Abbildung mit einem Ausgang ist eine gewichtete Summe $\mathbf{w}^{\top}\mathbf{x}$, und das Gewicht $w_j$ ist ihr Wert bei $\mathbf{e}_j$.
 
@@ -174,9 +182,11 @@ $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+b\,\mathbf 1 . \tag{8.5}$$
 
 Der Summand $b\,\mathbf 1$ addiert zu jeder Vorhersage denselben Betrag $b$.
 
-⁠**Rechenbeispiel:** Mit $\mathbf{w}=(3,\,10,\,-4)^{\top}$ und $b=20$ werden aus den Vorhersagen $(188,\,126,\,286,\,232)^{\top}$ die Vorhersagen
+::::beispiel [Rechenbeispiel]
+Mit $\mathbf{w}=(3,\,10,\,-4)^{\top}$ und $b=20$ werden aus den Vorhersagen $(188,\,126,\,286,\,232)^{\top}$ die Vorhersagen
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+20\cdot\mathbf 1=(208,\,146,\,306,\,252)^{\top}\ \text{Tausend Euro}.$$
+::::
 
 ⁠**Kurz gesagt:** Eine affine Abbildung ist eine lineare Abbildung plus eine feste Verschiebung, $\mathbf{A}\mathbf{x}+\mathbf{b}$; bei einem Ausgang heißt die Verschiebung Achsenabschnitt.
 

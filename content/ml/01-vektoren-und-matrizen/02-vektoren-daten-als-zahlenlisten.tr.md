@@ -41,17 +41,21 @@ $$\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij} .$$
 
 Çift toplam içeriden dışarıya doğru okunur: Her $i$ satırı için içteki toplam o satırın sayılarını toplar, dıştaki toplam da satır toplamlarını toplar. Terim sayısı sonlu olduğunda sıra önemli olmadığından iki toplam sembolünün yeri değiştirilebilir ve önce sütun sütun toplanabilir.
 
-⁠**Sayısal örnek 1:** $a_1=2$, $a_2=5$, $a_3=1$ için her toplam önce açık yazılır, sonra sayılar yerine konur ve toplanır (Şekil [1](#abb-1)). Böylece $\sum_{i=1}^3 a_i=8$ ve $\sum_{i=1}^3 a_i^2=30$ bulunur. Üçüncü toplamda terim, toplam indisinin kendisidir: $\sum_{j=1}^{3}j=6$.
+::::beispiel [Sayısal örnek 1]
+$a_1=2$, $a_2=5$, $a_3=1$ için her toplam önce açık yazılır, sonra sayılar yerine konur ve toplanır (Şekil [1](#abb-1)). Böylece $\sum_{i=1}^3 a_i=8$ ve $\sum_{i=1}^3 a_i^2=30$ bulunur. Üçüncü toplamda terim, toplam indisinin kendisidir: $\sum_{j=1}^{3}j=6$.
 
 :::abbildung ml/k1rsumme 1
 Adım adım üç toplam: Toplam sembolü açık yazılır, sayılar yerine konur, toplanır.
 :::
+::::
 
-⁠**Sayısal örnek 2:** Satırları $(1,\,2)$ ve $(3,\,4)$ olan tablonun elemanları şunlardır: $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Satır satır toplandığında çift toplam $(1+2)+(3+4)=10$, sütun sütun toplandığında $(1+3)+(2+4)=10$ olur (Şekil [2](#abb-2)).
+::::beispiel [Sayısal örnek 2]
+Satırları $(1,\,2)$ ve $(3,\,4)$ olan tablonun elemanları şunlardır: $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Satır satır toplandığında çift toplam $(1+2)+(3+4)=10$, sütun sütun toplandığında $(1+3)+(2+4)=10$ olur (Şekil [2](#abb-2)).
 
 :::abbildung ml/k1rdoppel 2
 Satırları $(1,\,2)$ ve $(3,\,4)$ olan tablo üzerinden çift toplam; üstte önce satır satır, altta önce sütun sütun. İki sıra da aynı toplamı verir.
 :::
+::::
 
 ⁠**Kısacası:** $\sum_{i=1}^n a_i$, $a_1$ ile başlayıp $a_n$ ile biten toplamdır; $i$ toplam indisi yalnızca bir yer tutucudur.
 
@@ -88,7 +92,9 @@ Bütün seri boyunca şu geçerlidir: $N$ örneklerin sayısı, $d$ öznitelikle
 
 Sözcüklerle ilgili iki not. Veritabanlarında bir tablonun tek bir satırına genellikle “kayıt” denir; burada ise veri kümesi tek bir satır değil, bütün topluluktur. Ayrıca “örnek” sözcüğü bu bölümde her zaman bir veri kümesindeki bir nesne anlamına gelir; baştan sona hesaplanmış örnekler bu yüzden “sayısal örnek” diye adlandırılır.
 
-⁠**Sayısal örnek:** Daire veri kümesinde $N=4$ örnek ve $d=3$ öznitelik vardır. Öznitelik 2 oda sayısıdır. Bu öznitelik Daire 3'te $4$ değerini alır.
+::::beispiel [Sayısal örnek]
+Daire veri kümesinde $N=4$ örnek ve $d=3$ öznitelik vardır. Öznitelik 2 oda sayısıdır. Bu öznitelik Daire 3'te $4$ değerini alır.
+::::
 
 Her özellik kendiliğinden bir sayı değildir. Bir dairenin bulunduğu semt bir addır. Bu tür özelliklerle hesap yapabilmek için önce onları sayılara çevirmek gerekir. Bu bölümde bütün öznitelikler zaten sayıdır.
 
@@ -126,7 +132,9 @@ Vektörler kalın ve küçük harfle, bileşenleri ise ince harfle yazılır. Te
 
 **Bir veri kümesinin örnekleri.** $i$ numaralı örnek $\mathbf{x}_i\in\mathbb{R}^d$ vektörüdür. Bir örneğin vektörüne onun __öznitelik vektörü__ de denir. Bileşenleri iki indis alır: $x_{ij}$, $i$ numaralı örnekte $j$ numaralı özniteliğin değeridir. Yani tek indisli kalın bir harf, bir vektör listesinden alınmış bütün bir vektördür; iki indisli ince bir harf ise tek bir sayıdır.
 
-⁠**Sayısal örnek:** Daire 1, $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$ vektörüdür. Bu vektörün ikinci bileşeni $x_{12}=2$ sayısıdır. $(2,\,60,\,3)^{\top}$ vektörü aynı sayıları içerir, ama başka bir vektördür: Artık ilk yerde $2$ sayısı durur ve bu sayı alan olarak okunurdu.
+::::beispiel [Sayısal örnek]
+Daire 1, $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$ vektörüdür. Bu vektörün ikinci bileşeni $x_{12}=2$ sayısıdır. $(2,\,60,\,3)^{\top}$ vektörü aynı sayıları içerir, ama başka bir vektördür: Artık ilk yerde $2$ sayısı durur ve bu sayı alan olarak okunurdu.
+::::
 
 ⁠**Kısacası:** Vektör, nokta ya da ok olarak çizilebilen sıralı bir sayı listesidir; $d$ öznitelikli bir örnek $\mathbb{R}^d$ uzayında bir vektördür.
 
@@ -165,11 +173,13 @@ Her bileşen kendi başına sayılarla yapılan sıradan bir hesap olduğundan b
 
 $\mathbf{u}-\mathbf{v}$ farkının kendine özgü bir canlandırması vardır. Bu fark, $\mathbf{v}$ vektörünün ucundan $\mathbf{u}$ vektörünün ucuna giden oktur, çünkü $\mathbf{v}+(\mathbf{u}-\mathbf{v})=\mathbf{u}$. İki örnek söz konusuysa fark, her öznitelikte bunların birbirinden ne kadar ayrıldığını gösterir.
 
-⁠**Sayısal örnek:** Daire 1 ocak, şubat ve mart aylarında $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilovatsaat elektrik tüketmiştir, aynı binadaki Daire 2 ise $\mathbf{v}=(150,\,100,\,120)^{\top}$. İkisi birlikte şu kadar tüketir:
+::::beispiel [Sayısal örnek]
+Daire 1 ocak, şubat ve mart aylarında $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilovatsaat elektrik tüketmiştir, aynı binadaki Daire 2 ise $\mathbf{v}=(150,\,100,\,120)^{\top}$. İkisi birlikte şu kadar tüketir:
 
 $$\mathbf{u}+\mathbf{v}=(350,\,350,\,420)^{\top}\ \text{kWh}.$$
 
 Daire 1'in tüketimini megavatsaat cinsinden $0{,}001\,\mathbf{u}=(0{,}2;\ 0{,}25;\ 0{,}3)^{\top}$ katı verir. $\mathbf{u}-\mathbf{v}=(50,\,150,\,180)^{\top}$ farkı, Daire 1'in her ay Daire 2'den kaç kilovatsaat fazla tükettiğini söyler. Daire veri kümesinde $\mathbf{x}_3-\mathbf{x}_1=(30,\,2,\,3)^{\top}$ olur: Daire 3, Daire 1'den $30\,\mathrm m^2$ daha büyüktür, iki odası daha fazladır ve $3$ km daha dışarıdadır.
+::::
 
 ⁠**Kısacası:** Vektörler bileşen bileşen toplanır ve bir sayıyla bileşen bileşen çarpılır.
 
@@ -194,15 +204,20 @@ ifadesine $\mathbf{v}_1,\dots,\mathbf{v}_k$ vektörlerinin bir __doğrusal bile�
 
 Okurken dikkat: $\mathbf{v}_l$ kalındır, yani listenin $l$-inci vektörüdür, bir vektörün $l$-inci bileşeni değil.
 
-⁠**Sayısal örnek 1:** $(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::beispiel [Sayısal örnek 1]
+$(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::
 
-⁠**Sayısal örnek 2: orta nokta.** Daire 1 ile Daire 2'nin $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ doğrusal bileşimi şudur:
+::::beispiel [Sayısal örnek 2] orta nokta
+Daire 1 ile Daire 2'nin $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ doğrusal bileşimi şudur:
 
 $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{\top}.$$
 
 Bu, her öznitelikte tam ikisinin ortasında duran hayali bir dairedir. Nokta, iki noktayı birleştiren doğru parçasının ortasında yer alır.
+::::
 
-⁠**Sayısal örnek 3: örneklerin ortalaması.** Bütün $N$ örnek $1/N$ katsayısıyla alınırsa __örneklerin ortalaması__ ortaya çıkar:
+::::beispiel [Sayısal örnek 3] örneklerin ortalaması
+Bütün $N$ örnek $1/N$ katsayısıyla alınırsa __örneklerin ortalaması__ ortaya çıkar:
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
@@ -212,6 +227,7 @@ Daire veri kümesi için $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ bulunur (Şe
 :::abbildung ml/k1rmittelvektor 5
 Dört dairenin ortalaması: Vektörlerin toplamı bileşen bileşen oluşturulur, sonra $4$'e bölünür; $5/2=2{,}5$.
 :::
+::::
 
 ⁠**Kısacası:** Bir doğrusal bileşim her vektörü kendine ait bir sayıyla çarpar ve hepsini toplar.
 
@@ -242,7 +258,9 @@ $$\mathbf{x}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\dots+x_d\mathbf{e}_d=\sum_{j=1}^d 
 
 Bunu görmek için sağ taraf bileşen bileşen hesaplanır: $j$ numaralı yere yalnızca $x_j\mathbf{e}_j$ terimi bir katkı yapar, o da $x_j\cdot1$ kadardır. Başka katsayılar mümkün değildir, çünkü bunlar bir yerde başka bir sayı verirdi.
 
-⁠**Sayısal örnek:** $\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, yani $60$ kez “bir metrekare” artı $2$ kez “bir oda” artı $3$ kez “bir kilometre”.
+::::beispiel [Sayısal örnek]
+$\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, yani $60$ kez “bir metrekare” artı $2$ kez “bir oda” artı $3$ kez “bir kilometre”.
+::::
 
 ⁠**Kısacası:** $\mathbf{e}_j$ birim vektörünün yalnızca $j$ numaralı bileşeni bire, öteki bütün bileşenleri sıfıra eşittir; her vektör $\sum_jx_j\mathbf{e}_j$ toplamıdır.
 

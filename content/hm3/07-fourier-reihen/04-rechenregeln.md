@@ -71,10 +71,12 @@ und der Randterm ist null, weil $f(2\pi)=f(0)$ gilt.
 
 ⁠**So liest man das:** In (v) bleibt jeder Betrag $|c_k|$ gleich, nur die Phase ändert sich. In (vi) wird eine Schwingung beim Ableiten um den Faktor $|k|$ verstärkt, hohe Frequenzen also am stärksten. **Wozu die Voraussetzung in (vi)?** Die Regel gilt weiter, wenn $f$ stetig ist und aus endlich vielen stetig differenzierbaren Stücken besteht: Man integriert stückweise partiell, und die Randterme an den Knicken heben sich auf, weil $f$ dort stetig ist. An einem Sprung bleibt dagegen ein Randterm übrig: $q$ hat abseits der Sprünge die Ableitung 0, trotzdem ist $c_1\neq0$.
 
-**Beispiel: das Dreieck ohne Integral.** $w$ ist gerade, also ist $b_k=0$. Weiter ist $w$ stetig, stückweise stetig differenzierbar, und $w'=q$. Aus [(2.6)](koeffizienten-und-polynome.html#gl-2-6) folgt für ungerades $k$ der Koeffizient $c_k(q)=-\mathrm{i}\,b_k/2=-\frac{2\mathrm{i}}{\pi k}$. Regel (vi) gibt $c_k(w)=c_k(q)/(\mathrm{i}k)=-\frac2{\pi k^2}$, und für gerades $k\neq0$ ist $c_k(w)=0$. Für $k=0$ sagt (vi) nichts, dort ist $c_0(w)=\frac\pi2$ der Mittelwert. Mit $a_k=2c_k$ folgt
+::::beispiel das Dreieck ohne Integral
+$w$ ist gerade, also ist $b_k=0$. Weiter ist $w$ stetig, stückweise stetig differenzierbar, und $w'=q$. Aus [(2.6)](koeffizienten-und-polynome.html#gl-2-6) folgt für ungerades $k$ der Koeffizient $c_k(q)=-\mathrm{i}\,b_k/2=-\frac{2\mathrm{i}}{\pi k}$. Regel (vi) gibt $c_k(w)=c_k(q)/(\mathrm{i}k)=-\frac2{\pi k^2}$, und für gerades $k\neq0$ ist $c_k(w)=0$. Für $k=0$ sagt (vi) nichts, dort ist $c_0(w)=\frac\pi2$ der Mittelwert. Mit $a_k=2c_k$ folgt
 
 <span class="anker" id="gl-3-1"></span>
 $$T_Nw(x)=\frac\pi2-\frac4\pi\sum_{k\le N,\ k\text{ ungerade}}\frac{\cos kx}{k^2}. \tag{3.1}$$
+::::
 
 ⁠**Kontrolle:** Bei $x=0$ soll $w(0)=0$ herauskommen. Es ist $T_1w(0)=\frac\pi2-\frac4\pi\approx0{,}30$ und $T_3w(0)\approx0{,}16$. Abb. [3](#abb-3) vergleicht beide Funktionen.
 

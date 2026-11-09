@@ -47,7 +47,11 @@ Links: $R/R_{20}$ über der Temperatur für Kupfer ($\alpha=3{,}9\cdot10^{-3}$�
 
 **Mechanismus.** Metalle (Kupfer, Silber, Platin, Wolfram): $n$ steht fest, ein wärmeres Gitter schwingt stärker, die Flugzeit $T$ sinkt, $\mu$ sinkt, $R$ steigt. Halbleiter (Silizium, Germanium): Bei Raumtemperatur sind nur wenige Elektronen frei. Wärme befreit weitere ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ wächst viel schneller, als $\mu$ fällt, $R$ sinkt. __Kompensierte Legierungen__ wie Konstantan: Die Stöße an den unregelmäßig eingebauten Fremdatomen überwiegen und hängen kaum von der Temperatur ab. Alternativ legt man einen PTC und einen NTC in Reihe, sodass die Zunahme des einen die Abnahme des anderen ausgleicht ($R_1\alpha_1+R_2\alpha_2=0$).
 
-**Beispiel.** Der Draht erwärmt sich von 20 °C auf 70 °C. Aus [(4.2)](#gl-4-2) folgt der Faktor $1+3{,}9\cdot10^{-3}\cdot50=1{,}195$, also 40,6 m$\Omega$ statt 34 m$\Omega$. Ein extremer Fall ist der Wolframdraht der Lampe: Der Faktor 12 von $1{,}5\,\Omega$ auf $18\,\Omega$ entspricht nach [(4.2)](#gl-4-2) rund 2460 °C, als grobe Näherung über diese große Spanne. **Grenzfälle:** $\vartheta=\vartheta_0$ ergibt $R(\vartheta_0)$, $\alpha=0$ ergibt einen konstanten Wert.
+::::beispiel
+Der Draht erwärmt sich von 20 °C auf 70 °C. Aus [(4.2)](#gl-4-2) folgt der Faktor $1+3{,}9\cdot10^{-3}\cdot50=1{,}195$, also 40,6 m$\Omega$ statt 34 m$\Omega$. Ein extremer Fall ist der Wolframdraht der Lampe: Der Faktor 12 von $1{,}5\,\Omega$ auf $18\,\Omega$ entspricht nach [(4.2)](#gl-4-2) rund 2460 °C, als grobe Näherung über diese große Spanne.
+::::
+
+⁠**Grenzfälle:** $\vartheta=\vartheta_0$ ergibt $R(\vartheta_0)$, $\alpha=0$ ergibt einen konstanten Wert.
 
 :::frage Warum brennen Glühlampen meist beim Einschalten durch?
 Kalt hat der Draht nur $1{,}5\,\Omega$, an 9 V fließen im ersten Moment 6 A statt 0,5 A. Dieser Stoß heizt den Draht in Sekundenbruchteilen auf. Sein Widerstand steigt, das senkt den Strom, bis sich $18\,\Omega$ einstellen. An dünnen Stellen ist die Erwärmung am stärksten, dort reißt der Draht.

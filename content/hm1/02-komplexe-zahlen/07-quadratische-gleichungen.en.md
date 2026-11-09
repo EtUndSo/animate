@@ -53,13 +53,17 @@ We have $z^2+pz+q=(z+\frac p2)^2-\frac{p^2}4+q=(z+\frac p2)^2-w^2=(z+\frac p2-w)
 Left: the real equation of the reference model: The solutions $3\pm\mathrm{i}$ are mirror images. Right: the complex equation: $z_1$ and $z_2$ lie symmetrically about the center $2+1.5\mathrm{i}$.
 :::
 
-**Example 1, real coefficients.** $z^2-6z+10=0$ has $p=-6$, $q=10$, $D=9-10=-1$, so $z=3\pm\mathrm{i}$. These are $z_1$ and $\overline{z_1}$. Check: sum $6=-p$, product $|z_1|^2=10=q$.
+::::beispiel [Example 1] real coefficients
+$z^2-6z+10=0$ has $p=-6$, $q=10$, $D=9-10=-1$, so $z=3\pm\mathrm{i}$. These are $z_1$ and $\overline{z_1}$. Check: sum $6=-p$, product $|z_1|^2=10=q$.
+::::
 
-**Example 2, complex coefficients.** For $z^2-(4+3\mathrm{i})z+1+7\mathrm{i}=0$ we have $-p/2=2+1.5\mathrm{i}$ and
+::::beispiel [Example 2] complex coefficients
+For $z^2-(4+3\mathrm{i})z+1+7\mathrm{i}=0$ we have $-p/2=2+1.5\mathrm{i}$ and
 
 $$D=(2+1.5\mathrm{i})^2-(1+7\mathrm{i})=1.75+6\mathrm{i}-1-7\mathrm{i}=0.75-\mathrm{i}.$$
 
 So $s=0.75$, $t=-1$ and $|D|=\sqrt{0.5625+1}=1.25$. From [(6.1)](#gl-6-1) follow $u^2=1$ and $v^2=0.25$. Because $t<0$, $u$ and $v$ have opposite signs: $w=\pm(1-0.5\mathrm{i})$. Thus $z=2+1.5\mathrm{i}\pm(1-0.5\mathrm{i})$, that is, $z=3+\mathrm{i}$ or $z=1+2\mathrm{i}$. Check: sum $4+3\mathrm{i}=-p$, product $1+7\mathrm{i}=q$.
+::::
 
 ⁠**Limiting case:** For $q=0$, [(6.2)](#gl-6-2) gives $z=-p/2\pm p/2$, so $z=0$ and $z=-p$, matching $z(z+p)=0$.
 

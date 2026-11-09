@@ -54,7 +54,9 @@ $$\forall\varepsilon>0\ \exists n\in\mathbb{N}:\ 0\le b_n-a_n<\varepsilon. \tag{
 ⁠**乘积法则：**$\sqrt x\sqrt y\ge0$ 且 $(\sqrt x\sqrt y)^2=xy$（M1，M2），而非负解是唯一的。
 :::
 
-**例。** 六步之后 $1.40625\le\sqrt2\le1.4375$，宽度 $2^{-5}=0.03125$。小数是同一种思路，只是分成十份而不是两份：每一位数字把区间缩小到十分之一。所以每个实数都有表示式 [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1)。
+::::beispiel
+六步之后 $1.40625\le\sqrt2\le1.4375$，宽度 $2^{-5}=0.03125$。小数是同一种思路，只是分成十份而不是两份：每一位数字把区间缩小到十分之一。所以每个实数都有表示式 [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1)。
+::::
 
 :::frage 从计算器上读出 $\sqrt2$ 不就够了吗？何必费这么大劲？
 对任何数值来说，这就够了。但计算器显示的是一个分数，$1.414213562$，它的平方不是 2。这里的问题是：究竟有没有一个数，平方恰好是 2？在 $\mathbb{Q}$ 中没有，在 $\mathbb{R}$ 中有，而这个差别日后支撑着极限和连续性。

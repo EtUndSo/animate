@@ -25,7 +25,9 @@ $$\delta_{il}=\begin{cases}1,&i=l,\\0,&i\neq l.\end{cases}$$
 
 Als Matrix $(\delta_{il})_{il}$ geschrieben, stehen auf der Diagonale Einsen und sonst Nullen. Außerdem gilt $\delta_{il}=\hat{\boldsymbol{e}}_i\cdot\hat{\boldsymbol{e}}_l$. In einer Summe über einen Index wählt es einen Summanden aus: $\sum_{l}\delta_{il}\,a_l=a_i$.
 
-⁠**Beispiel:** $\delta_{22}=1$, $\delta_{23}=0$. Für $\boldsymbol a=(4,5,6)$ ist $\sum_{l=1}^3\delta_{3l}\,a_l=a_3=6$.
+::::beispiel
+$\delta_{22}=1$, $\delta_{23}=0$. Für $\boldsymbol a=(4,5,6)$ ist $\sum_{l=1}^3\delta_{3l}\,a_l=a_3=6$.
+::::
 
 ⁠**Kurz gesagt:** $\delta_{il}$ ist $1$ bei gleichen Indizes und sonst $0$; in einer Summe pickt es einen Summanden heraus.
 
@@ -46,7 +48,9 @@ $$\boldsymbol a\cdot(\boldsymbol b\times\boldsymbol c)=\boldsymbol b\cdot(\bolds
 
 In Indizes ist es $\sum_{i,j,k}\varepsilon_{ijk}\,a_ib_jc_k$, nach [(3.6)](divergenz-rotation-und-laplace-operator.html#gl-3-6).
 
-⁠**Beispiel:** Für $\boldsymbol a=(1,0,0)$, $\boldsymbol b=(0,1,0)$, $\boldsymbol c=(1,1,1)$ ist $\boldsymbol b\times\boldsymbol c=(1,0,-1)$ und $\boldsymbol a\cdot(\boldsymbol b\times\boldsymbol c)=1$. Ebenso ist $\det\bigl(\begin{smallmatrix}1&0&1\\0&1&1\\0&0&1\end{smallmatrix}\bigr)=1$.
+::::beispiel
+Für $\boldsymbol a=(1,0,0)$, $\boldsymbol b=(0,1,0)$, $\boldsymbol c=(1,1,1)$ ist $\boldsymbol b\times\boldsymbol c=(1,0,-1)$ und $\boldsymbol a\cdot(\boldsymbol b\times\boldsymbol c)=1$. Ebenso ist $\det\bigl(\begin{smallmatrix}1&0&1\\0&1&1\\0&0&1\end{smallmatrix}\bigr)=1$.
+::::
 
 ⁠**Kurz gesagt:** Das Spatprodukt $\boldsymbol a\cdot(\boldsymbol b\times\boldsymbol c)$ ist die Determinante der drei Vektoren und bleibt bei zyklischem Vertauschen gleich.
 
@@ -66,7 +70,9 @@ Beide Seiten sind in jedem der drei Vektoren linear. Deshalb genügt es, die For
 <span class="anker" id="gl-4-3"></span>
 $$\sum_{k=1}^3\varepsilon_{ijk}\,\varepsilon_{klm}=\delta_{il}\,\delta_{jm}-\delta_{im}\,\delta_{jl}. \tag{4.3}$$
 
-⁠**Beispiel:** $\boldsymbol a=(1,2,0)$, $\boldsymbol b=(0,1,1)$, $\boldsymbol c=(1,0,1)$. Links: $\boldsymbol b\times\boldsymbol c=(1,1,-1)$ und $\boldsymbol a\times(1,1,-1)=(-2,1,-1)$. Rechts: $\boldsymbol a\cdot\boldsymbol c=1$ und $\boldsymbol a\cdot\boldsymbol b=2$, also $1\cdot(0,1,1)-2\cdot(1,0,1)=(-2,1,-1)$.
+::::beispiel
+$\boldsymbol a=(1,2,0)$, $\boldsymbol b=(0,1,1)$, $\boldsymbol c=(1,0,1)$. Links: $\boldsymbol b\times\boldsymbol c=(1,1,-1)$ und $\boldsymbol a\times(1,1,-1)=(-2,1,-1)$. Rechts: $\boldsymbol a\cdot\boldsymbol c=1$ und $\boldsymbol a\cdot\boldsymbol b=2$, also $1\cdot(0,1,1)-2\cdot(1,0,1)=(-2,1,-1)$.
+::::
 
 :::hintergrund Warum die Indexform so aussieht
 In der Summe $\sum_k\varepsilon_{ijk}\varepsilon_{klm}$ ist ein Summand nur dann nicht null, wenn $i,j,k$ verschieden sind und $k,l,m$ verschieden sind. Für $i=j$ ist also alles null, und rechts ebenso. Für $i\neq j$ ist $k$ der dritte Index, und dann müssen $l,m$ dieselben zwei Indizes sein wie $i,j$: entweder $l=i,m=j$ oder $l=j,m=i$. Im ersten Fall ist $\varepsilon_{ijk}\varepsilon_{kij}=\varepsilon_{ijk}^2=1$, denn $\varepsilon_{kij}=\varepsilon_{ijk}$ (zyklisch). Im zweiten Fall ist $\varepsilon_{ijk}\varepsilon_{kji}=-\varepsilon_{ijk}^2=-1$. Genau das zählt die rechte Seite: $\delta_{il}\delta_{jm}$ ist $1$ im ersten Fall, $\delta_{im}\delta_{jl}$ ist $1$ im zweiten. Geometrisch: $\boldsymbol b\times\boldsymbol c$ steht senkrecht auf der Ebene von $\boldsymbol b$ und $\boldsymbol c$, und ein zweites Kreuzprodukt damit führt in diese Ebene zurück. Deshalb ist das Ergebnis eine Kombination von $\boldsymbol b$ und $\boldsymbol c$.
@@ -100,7 +106,9 @@ Steht rechts von $\nabla$ ein Produkt, wird jeder Faktor abgeleitet, wie bei der
 
 Jede Rechenregel dieses Abschnitts entsteht deshalb in zwei Schritten: zuerst die Produktregel, sodass jeder Faktor einmal abgeleitet wird, dann eine Rechenregel für Vektoren.
 
-⁠**Beispiel:** Für $\varphi=x$ und $\boldsymbol{E}=(x,0,0)$ ist $\nabla\cdot(\varphi\boldsymbol{E})=\partial(x^2)/\partial x=2x$. Würde man $\varphi$ wie eine Zahl vor $\nabla$ ziehen, käme $x\,\nabla\cdot\boldsymbol{E}=x$ heraus, also nur die Hälfte: Der Beitrag, in dem $\varphi$ abgeleitet wird, fehlt.
+::::beispiel
+Für $\varphi=x$ und $\boldsymbol{E}=(x,0,0)$ ist $\nabla\cdot(\varphi\boldsymbol{E})=\partial(x^2)/\partial x=2x$. Würde man $\varphi$ wie eine Zahl vor $\nabla$ ziehen, käme $x\,\nabla\cdot\boldsymbol{E}=x$ heraus, also nur die Hälfte: Der Beitrag, in dem $\varphi$ abgeleitet wird, fehlt.
+::::
 
 ⁠**Kurz gesagt:** $\nabla$ leitet alles rechts von ihm ab. Mit ihm rechnet man wie mit einem Vektor, wenn man zusätzlich die Produktregel beachtet.
 
@@ -131,7 +139,9 @@ Die erste Summe ist nach [(3.6)](divergenz-rotation-und-laplace-operator.html#gl
 
 ⁠**So liest man das:** Beide Formeln haben die Form „$\nabla$ trifft $\varphi$“ plus „$\nabla$ trifft $\boldsymbol{E}$“. Einmal dockt $\nabla$ als Skalarprodukt an, einmal als Kreuzprodukt.
 
-⁠**Beispiel:** $\varphi=x$ und $\boldsymbol{E}=(0,0,y)$. Direkt: $\varphi\boldsymbol{E}=(0,0,xy)$ hat nach Unterabschnitt [3.12](divergenz-rotation-und-laplace-operator.html#stufe-3-12) die Rotation $(x,-y,0)$. Mit der Regel: $\nabla\varphi\times\boldsymbol{E}=(1,0,0)\times(0,0,y)=(0,-y,0)$ und $\varphi\,\operatorname{rot}\boldsymbol{E}=x\,(1,0,0)$, zusammen $(x,-y,0)$.
+::::beispiel
+$\varphi=x$ und $\boldsymbol{E}=(0,0,y)$. Direkt: $\varphi\boldsymbol{E}=(0,0,xy)$ hat nach Unterabschnitt [3.12](divergenz-rotation-und-laplace-operator.html#stufe-3-12) die Rotation $(x,-y,0)$. Mit der Regel: $\nabla\varphi\times\boldsymbol{E}=(1,0,0)\times(0,0,y)=(0,-y,0)$ und $\varphi\,\operatorname{rot}\boldsymbol{E}=x\,(1,0,0)$, zusammen $(x,-y,0)$.
+::::
 
 ⁠**Kurz gesagt:** Divergenz und Rotation von $\varphi\boldsymbol{E}$ zerfallen in einen Teil, in dem $\varphi$ abgeleitet wird, und einen, in dem $\boldsymbol{E}$ abgeleitet wird.
 
@@ -147,7 +157,9 @@ $$\operatorname{rot}(\varphi\boldsymbol{E})=\Bigl(\frac{\partial\varphi}{\partia
 
 Man erhält die Formel, wenn man in [(4.4)](#gl-4-4) $\boldsymbol{E}=(E_1,E_2,0)$ einsetzt, mit $\varphi$ und $\boldsymbol{E}$ unabhängig von $x_3$, und die dritte Komponente nimmt.
 
-⁠**Beispiel:** $\varphi=x$ und $\boldsymbol{E}=(y,x)$. Direkt: $\operatorname{rot}(xy,\;x^2)=2x-x=x$. Mit der Regel: $(1\cdot x-0\cdot y)+x\cdot(1-1)=x$.
+::::beispiel
+$\varphi=x$ und $\boldsymbol{E}=(y,x)$. Direkt: $\operatorname{rot}(xy,\;x^2)=2x-x=x$. Mit der Regel: $(1\cdot x-0\cdot y)+x\cdot(1-1)=x$.
+::::
 
 ⁠**Kurz gesagt:** In der Ebene ersetzt das äußere Produkt $a_1b_2-a_2b_1$ das Kreuzprodukt in der Produktregel der Rotation.
 
@@ -170,7 +182,9 @@ $$(\boldsymbol{E}\cdot\nabla)\boldsymbol B=\sum_{j=1}^3E_j\,\frac{\partial\bolds
 
 ⁠**So liest man das:** $\boldsymbol{E}\cdot\nabla=\sum_jE_j\,\partial/\partial x_j$ ist ein Ableitungsbefehl, er wird auf jede Komponente von $\boldsymbol B$ angewendet. Das Ergebnis ist ein Vektorfeld. In Matrixform ist $(\boldsymbol{E}\cdot\nabla)\boldsymbol B=D\boldsymbol B\,\boldsymbol{E}$. Ist $\boldsymbol{E}$ an einem Punkt ein Einheitsvektor, ist das die Richtungsableitung von $\boldsymbol B$ in diese Richtung. Es ist etwas völlig anderes als $\boldsymbol{E}\,\operatorname{div}\boldsymbol B$, das Feld $\boldsymbol{E}$ mal die Zahl $\operatorname{div}\boldsymbol B$.
 
-⁠**Beispiel:** $\boldsymbol{E}=(x,y,0)$ und $\boldsymbol B=(xy,0,0)$. Es ist $\partial\boldsymbol B/\partial x=(y,0,0)$, $\partial\boldsymbol B/\partial y=(x,0,0)$ und $\partial\boldsymbol B/\partial z=0$, also $(\boldsymbol{E}\cdot\nabla)\boldsymbol B=x(y,0,0)+y(x,0,0)=(2xy,0,0)$. Dagegen ist $\operatorname{div}\boldsymbol B=y$ und $\boldsymbol{E}\,\operatorname{div}\boldsymbol B=(xy,\,y^2,\,0)$.
+::::beispiel
+$\boldsymbol{E}=(x,y,0)$ und $\boldsymbol B=(xy,0,0)$. Es ist $\partial\boldsymbol B/\partial x=(y,0,0)$, $\partial\boldsymbol B/\partial y=(x,0,0)$ und $\partial\boldsymbol B/\partial z=0$, also $(\boldsymbol{E}\cdot\nabla)\boldsymbol B=x(y,0,0)+y(x,0,0)=(2xy,0,0)$. Dagegen ist $\operatorname{div}\boldsymbol B=y$ und $\boldsymbol{E}\,\operatorname{div}\boldsymbol B=(xy,\,y^2,\,0)$.
+::::
 
 ⁠**Kurz gesagt:** $(\boldsymbol{E}\cdot\nabla)\boldsymbol B$ ist die Änderung von $\boldsymbol B$, wenn man sich mit der Geschwindigkeit $\boldsymbol{E}$ bewegt.
 
@@ -192,7 +206,9 @@ $$\begin{aligned} \operatorname{div}(\boldsymbol{E}\times\boldsymbol B)&=\boldsy
 
 ⁠**So liest man das:** Beide Formeln folgen aus der Darstellung von Kreuzprodukt und Rotation mit Levi-Civita-Symbolen und der Produktregel. Für die zweite braucht man zusätzlich die Graßmann-Identität in Indizes [(4.3)](#gl-4-3). In [(4.6)](#gl-4-6) wird jeder Faktor einmal abgeleitet: Der Summand mit $\operatorname{rot}\boldsymbol{E}$ enthält die Ableitungen von $\boldsymbol{E}$, der mit $\operatorname{rot}\boldsymbol B$ die von $\boldsymbol B$. Das Minuszeichen kommt daher, dass das Kreuzprodukt beim Vertauschen der Faktoren sein Vorzeichen wechselt.
 
-⁠**Beispiel:** $\boldsymbol{E}=(y,0,0)$ und $\boldsymbol B=(0,0,x)$. Es ist $\boldsymbol{E}\times\boldsymbol B=(0,\,-xy,\,0)$ und $\operatorname{div}(\boldsymbol{E}\times\boldsymbol B)=-x$. Rechts: $\operatorname{rot}\boldsymbol{E}=(0,0,-1)$ und $\operatorname{rot}\boldsymbol B=(0,-1,0)$, also $\boldsymbol B\cdot\operatorname{rot}\boldsymbol{E}-\boldsymbol{E}\cdot\operatorname{rot}\boldsymbol B=-x-0=-x$.
+::::beispiel
+$\boldsymbol{E}=(y,0,0)$ und $\boldsymbol B=(0,0,x)$. Es ist $\boldsymbol{E}\times\boldsymbol B=(0,\,-xy,\,0)$ und $\operatorname{div}(\boldsymbol{E}\times\boldsymbol B)=-x$. Rechts: $\operatorname{rot}\boldsymbol{E}=(0,0,-1)$ und $\operatorname{rot}\boldsymbol B=(0,-1,0)$, also $\boldsymbol B\cdot\operatorname{rot}\boldsymbol{E}-\boldsymbol{E}\cdot\operatorname{rot}\boldsymbol B=-x-0=-x$.
+::::
 
 :::hintergrund Warum man $\nabla$ nicht einfach in Vektorformeln einsetzen darf
 Weil $\nabla$ alles rechts von ihm ableitet. Wendet man auf $\nabla\cdot(\boldsymbol{E}\times\boldsymbol B)$ das zyklische Vertauschen des Spatprodukts an, als wäre $\nabla$ ein Vektor, entsteht $\boldsymbol B\cdot(\nabla\times\boldsymbol{E})$. Dann fehlt der zweite Summand von [(4.6)](#gl-4-6), denn $\boldsymbol B$ steht nicht mehr rechts von $\nabla$ und würde gar nicht abgeleitet. Vektoridentitäten gelten für $\nabla$ nur, wenn man vorher mit der Produktregel dafür sorgt, dass jeder Faktor genau einmal abgeleitet wird, und wenn das abgeleitete Feld danach rechts von $\nabla$ steht.
@@ -231,7 +247,9 @@ Die Summanden mit $i=j$ fehlen, weil dort $\varepsilon_{ijk}=0$ ist. Benennt man
 
 ⁠**So liest man das:** Die Rotation eines zweimal stetig differenzierbaren Felds ist divergenzfrei. Der Mechanismus ist derselbe wie bei $\operatorname{rot}\nabla\varphi=0$: Das Levi-Civita-Symbol wechselt beim Vertauschen zweier Indizes das Vorzeichen, die zweite Ableitung nicht. Was schiefsymmetrisch gegen symmetrisch summiert wird, ergibt null.
 
-⁠**Beispiel:** $\boldsymbol{E}=(0,0,x^2y)$ hat $\operatorname{rot}\boldsymbol{E}=(x^2,\,-2xy,\,0)$ und $\operatorname{div}\operatorname{rot}\boldsymbol{E}=2x-2x=0$.
+::::beispiel
+$\boldsymbol{E}=(0,0,x^2y)$ hat $\operatorname{rot}\boldsymbol{E}=(x^2,\,-2xy,\,0)$ und $\operatorname{div}\operatorname{rot}\boldsymbol{E}=2x-2x=0$.
+::::
 
 ⁠**Kurz gesagt:** Die Divergenz einer Rotation ist null, weil die Levi-Civita-Symbole schiefsymmetrisch und die zweiten Ableitungen symmetrisch sind.
 
@@ -268,7 +286,9 @@ Das abgeleitete Feld steht dabei immer an letzter Stelle.
 
 ⁠**So liest man das:** Der Laplace-Operator wirkt hier komponentenweise auf das Vektorfeld (Unterabschnitt [3.7](divergenz-rotation-und-laplace-operator.html#stufe-3-7)). Für ein divergenzfreies Feld bleibt $\operatorname{rot}\operatorname{rot}\boldsymbol{E}=-\Delta\boldsymbol{E}$.
 
-⁠**Beispiel:** $\boldsymbol{E}=(y^2,0,0)$. Es ist $\operatorname{rot}\boldsymbol{E}=(0,0,-2y)$ und $\operatorname{rot}\operatorname{rot}\boldsymbol{E}=(-2,0,0)$. Rechts: $\operatorname{div}\boldsymbol{E}=0$ und $\Delta\boldsymbol{E}=(2,0,0)$, also $0-(2,0,0)=(-2,0,0)$.
+::::beispiel
+$\boldsymbol{E}=(y^2,0,0)$. Es ist $\operatorname{rot}\boldsymbol{E}=(0,0,-2y)$ und $\operatorname{rot}\operatorname{rot}\boldsymbol{E}=(-2,0,0)$. Rechts: $\operatorname{div}\boldsymbol{E}=0$ und $\Delta\boldsymbol{E}=(2,0,0)$, also $0-(2,0,0)=(-2,0,0)$.
+::::
 
 ⁠**Kurz gesagt:** $\operatorname{rot}\operatorname{rot}\boldsymbol{E}=\nabla\operatorname{div}\boldsymbol{E}-\Delta\boldsymbol{E}$: die Graßmann-Identität mit $\nabla$, das Feld immer an letzter Stelle.
 
@@ -296,7 +316,9 @@ Nach Satz [4.4](#satz-4-4) ist jedes Wirbelfeld $\boldsymbol B=\nabla\times\bol
 | notwendige Bedingung | $\operatorname{rot}\boldsymbol{E}=0$ (Satz [3.11](divergenz-rotation-und-laplace-operator.html#satz-3-11)) | $\operatorname{div}\boldsymbol B=0$ (Satz [4.4](#satz-4-4)) |
 | hinreichend? | nicht auf jeder Menge | nicht auf jeder Menge |
 
-⁠**Beispiel:** $\boldsymbol B=(0,0,2)$ ist ein Wirbelfeld mit dem Vektorpotential $\boldsymbol{A}=(-y,x,0)$, denn $\operatorname{rot}(-y,x,0)=(0,0,2)$ (Unterabschnitt [3.14](divergenz-rotation-und-laplace-operator.html#stufe-3-14)). Es ist divergenzfrei, wie es sein muss.
+::::beispiel
+$\boldsymbol B=(0,0,2)$ ist ein Wirbelfeld mit dem Vektorpotential $\boldsymbol{A}=(-y,x,0)$, denn $\operatorname{rot}(-y,x,0)=(0,0,2)$ (Unterabschnitt [3.14](divergenz-rotation-und-laplace-operator.html#stufe-3-14)). Es ist divergenzfrei, wie es sein muss.
+::::
 
 ⁠**Kurz gesagt:** Ein Wirbelfeld ist die Rotation eines Vektorpotentials. Es ist dann divergenzfrei.
 
@@ -312,7 +334,9 @@ $$\operatorname{rot}(\boldsymbol{A}+\nabla\psi)=\operatorname{rot}\boldsymbol{A}
 
 denn $\operatorname{rot}\nabla\psi=0$ nach Satz [3.11](divergenz-rotation-und-laplace-operator.html#satz-3-11). Diese Freiheit, ein Potential zu ändern, ohne das Feld zu ändern, heißt __Eichfreiheit__.
 
-⁠**Beispiel:** Das Feld $\boldsymbol B=(0,0,2)$ hat die Vektorpotentiale $(-y,x,0)$ und $(0,2x,0)$; beide haben die Rotation $(0,0,2)$. Ihre Differenz ist $(-y,-x,0)=\nabla(-xy)$, ein Gradientenfeld.
+::::beispiel
+Das Feld $\boldsymbol B=(0,0,2)$ hat die Vektorpotentiale $(-y,x,0)$ und $(0,2x,0)$; beide haben die Rotation $(0,0,2)$. Ihre Differenz ist $(-y,-x,0)=\nabla(-xy)$, ein Gradientenfeld.
+::::
 
 :::hintergrund Warum man die Freiheit begrüßt
 Messen kann man nur das Feld, nicht sein Potential. Alle Potentiale, die dasselbe Feld liefern, beschreiben deshalb dieselbe Physik. Die Freiheit lässt sich ausnutzen: Man wählt unter allen Potentialen dasjenige, mit dem die Rechnung am einfachsten wird. Beim Skalarpotential legt man meist den Nullpunkt fest, etwa „$u=0$ im Unendlichen“. Beim Vektorpotential kann man eine ganze Funktion $\psi$ wählen und damit eine zusätzliche Bedingung an $\boldsymbol{A}$ erzwingen. Das heißt Eichen.
@@ -349,7 +373,9 @@ $$\operatorname{rot}\boldsymbol B=\operatorname{rot}\operatorname{rot}\boldsymbo
 Ohne Eichung koppelt $\operatorname{rot}\operatorname{rot}\boldsymbol{A}$ die drei Komponenten von $\boldsymbol{A}$ miteinander: In $\nabla\operatorname{div}\boldsymbol{A}$ steckt in jeder Komponente die Divergenz, also alle drei Komponenten. In Coulomb-Eichung fällt dieser Teil weg, und $\operatorname{rot}\boldsymbol B=-\Delta\boldsymbol{A}'$ zerfällt in drei getrennte Gleichungen $-\Delta A'_i=(\operatorname{rot}\boldsymbol B)_i$, je eine für jede Komponente. Jede davon hat dieselbe Form wie die Gleichung $-\Delta u=\operatorname{div}\boldsymbol{E}$, die nach Unterabschnitt [3.11](divergenz-rotation-und-laplace-operator.html#stufe-3-11) ein Potential $u$ mit der Quellendichte seines Felds $\boldsymbol{E}=-\nabla u$ verbindet. Statt eines gekoppelten Systems löst man dreimal dieselbe Art von Gleichung für eine einzige skalare Funktion.
 :::
 
-⁠**Beispiel:** $\boldsymbol{A}=(x,\,2x,\,0)$ hat $\operatorname{rot}\boldsymbol{A}=(0,0,2)$ und $\operatorname{div}\boldsymbol{A}=1$. Die Funktion $\psi=x^2/2$ löst $\Delta\psi=1$. Dann ist $\boldsymbol{A}'=\boldsymbol{A}-\nabla\psi=(x,2x,0)-(x,0,0)=(0,\,2x,\,0)$. Es ist $\operatorname{div}\boldsymbol{A}'=0$ und $\operatorname{rot}\boldsymbol{A}'=(0,0,2)$, wie verlangt.
+::::beispiel
+$\boldsymbol{A}=(x,\,2x,\,0)$ hat $\operatorname{rot}\boldsymbol{A}=(0,0,2)$ und $\operatorname{div}\boldsymbol{A}=1$. Die Funktion $\psi=x^2/2$ löst $\Delta\psi=1$. Dann ist $\boldsymbol{A}'=\boldsymbol{A}-\nabla\psi=(x,2x,0)-(x,0,0)=(0,\,2x,\,0)$. Es ist $\operatorname{div}\boldsymbol{A}'=0$ und $\operatorname{rot}\boldsymbol{A}'=(0,0,2)$, wie verlangt.
+::::
 
 ⁠**Kurz gesagt:** In Coulomb-Eichung ist $\operatorname{div}\boldsymbol{A}=0$; man erreicht sie mit einer Lösung von $\Delta\psi=\operatorname{div}\boldsymbol{A}$, und dann gilt $\operatorname{rot}\boldsymbol B=-\Delta\boldsymbol{A}$.
 

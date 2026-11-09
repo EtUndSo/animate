@@ -34,11 +34,15 @@ $$r=\frac{\mathrm{d} U_\mathrm D}{\mathrm{d} I}=\frac{U_T}{I+I_\mathrm S}\approx
 Differentiating [(4.1)](warum-der-strom-exponentiell-wachst.html#gl-4-1): $\mathrm{d} I/\mathrm{d} U_\mathrm D=(I_\mathrm S/U_T)\,\mathrm{e}^{U_\mathrm D/U_T}=(I+I_\mathrm S)/U_T$. The reciprocal is $r$. The exponential function reproduces itself under differentiation, which is why only $I$ appears in the result, and $I_\mathrm S$ drops out in the forward direction. Two diodes with different $I_\mathrm S$ have the same $r$ at the same current.
 :::
 
-**Example.** In the reference model, $r=25.85\,\mathrm{mV}/4.31\,\mathrm{mA}=6.0\,\Omega$. A sine with a peak value of 100 mV is added to the source. For the changes, $R$ and $r$ form a voltage divider:
+::::beispiel
+In the reference model, $r=25.85\,\mathrm{mV}/4.31\,\mathrm{mA}=6.0\,\Omega$. A sine with a peak value of 100 mV is added to the source. For the changes, $R$ and $r$ form a voltage divider:
 
 $$\hat u_\mathrm D=100\,\mathrm{mV}\cdot\frac{6.0\,\Omega}{1000\,\mathrm{\Omega}+6.0\,\Omega}=0.60\,\mathrm{mV},\qquad\hat\imath=\frac{100\,\mathrm{mV}}{1006\,\mathrm{\Omega}}=99.4\,\mu\text{A}.$$
 
-The exact calculation for $U_0=5.1$ V gives $+0.59$ mV and $+99.4$ µ A. Almost all of the signal appears across the resistor; 0.6 % remains at the diode. **Limiting cases:** For $I\to0$, $r=U_T/I_\mathrm S=2.6\,\mathrm{T\Omega}$, and the diode isolates. For large $I$, $r$ tends to zero; in reality the bulk resistance remains.
+The exact calculation for $U_0=5.1$ V gives $+0.59$ mV and $+99.4$ µ A. Almost all of the signal appears across the resistor; 0.6 % remains at the diode.
+::::
+
+⁠**Limiting cases:** For $I\to0$, $r=U_T/I_\mathrm S=2.6\,\mathrm{T\Omega}$, and the diode isolates. For large $I$, $r$ tends to zero; in reality the bulk resistance remains.
 
 :::ltspice Operating point and signal
 ⁠**Draw:** source `voltage` from `in` to ground, value `5`, under `Advanced` enter `1` for AC Amplitude. `res` 1k from `in` to `d`, `diode` DM from `d` to ground, model as above.

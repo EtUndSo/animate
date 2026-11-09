@@ -46,7 +46,11 @@ Links: Vorzeichen und Höhenlinien von $\psi_{n_x,n_y}$ in der quadratischen Box
 
 ⁠**So liest man das:** Je Richtung gibt es eine Quantenzahl. $\psi_{n_x,n_y}$ hat $n_x-1$ Knotenlinien quer zur $x$-Achse und $n_y-1$ quer zur $y$-Achse, so entsteht das Schachbrett in Abb. [4](#abb-4). Die Massen $m_x$ und $m_y$ kommen aus der Krümmung von $E(k)$ in der jeweiligen Richtung [(2.3)](das-kosinus-band.html#gl-2-3). Sind sie verschieden, spricht man von __Anisotropie__, sind sie gleich, von __Isotropie__. **Gültigkeit:** rechteckige Form, unendlich hohe Wände, Massen längs der Kanten.
 
-**Beispiel.** Eine Box mit $L_x=3$ nm und $L_y=2$ nm hat für $m=m_0$ die Energie $E_{1,1}=0{,}376\,\mathrm{eV\,nm^2}\,(1/9+1/4)\,\mathrm{nm^{-2}}=136$ meV, dazu $E_{2,1}=261$ meV, $E_{1,2}=418$ meV und $E_{2,2}=543$ meV. Eine Stufe in der kurzen Richtung kostet mehr. **Grenzfall:** Für $L_y\to\infty$ ist das Elektron in $y$ frei, $E$ wird in dieser Richtung wieder kontinuierlich.
+::::beispiel
+Eine Box mit $L_x=3$ nm und $L_y=2$ nm hat für $m=m_0$ die Energie $E_{1,1}=0{,}376\,\mathrm{eV\,nm^2}\,(1/9+1/4)\,\mathrm{nm^{-2}}=136$ meV, dazu $E_{2,1}=261$ meV, $E_{1,2}=418$ meV und $E_{2,2}=543$ meV. Eine Stufe in der kurzen Richtung kostet mehr.
+::::
+
+⁠**Grenzfall:** Für $L_y\to\infty$ ist das Elektron in $y$ frei, $E$ wird in dieser Richtung wieder kontinuierlich.
 
 :::frage Warum ein Produkt und keine Summe?
 Eine Summe $\phi(x)+\chi(y)$ wäre an der Wand $x=0$ gleich $\chi(y)$, also nicht null. Ein Produkt ist null, sobald ein Faktor null ist. So erfüllt es alle vier Wände zugleich. Summen tauchen dafür bei der Energie auf, weil die Krümmungen in $x$ und $y$ sich addieren.

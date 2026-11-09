@@ -38,7 +38,11 @@ $$U_\mathrm{sal}=\tfrac12\Bigl(\tfrac12\bigl(\tfrac12U_0+U_1\bigr)+U_2\Bigr)=\tf
 La superposición da el mismo número. Ejemplo, la fuente $U_1$: en el nudo central ve 2$R$ a la izquierda y $R+2R=3R$ a la derecha, en conjunto $\frac65R$. El divisor da allí $\frac{6/5}{6/5+2}=\frac38U_1$. El camino hasta la salida divide otra vez por $\frac{2R}{R+2R}=\frac23$, es decir, $\frac38\cdot\frac23=\frac14$.
 :::
 
-**Ejemplo.** Con $U_\mathrm{ref}=8$ V y $R=1$ k$\Omega$, los bits pesan 4 V, 2 V y 1 V. La posición 101 da 5 V. Una carga con $R_\mathrm{L}=R$ forma un divisor con $R_\mathrm{i}$ y reduce esto a la mitad, 2,5 V. Por eso, en los convertidores reales sigue un amplificador operacional ([Parte 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) con una resistencia de entrada muy alta: prácticamente no consume corriente, y la escalera queda en circuito abierto. **Casos límite:** La posición 000 da 0 V, la posición 111 da 7 V, un escalón por debajo de $U_\mathrm{ref}$.
+::::beispiel
+Con $U_\mathrm{ref}=8$ V y $R=1$ k$\Omega$, los bits pesan 4 V, 2 V y 1 V. La posición 101 da 5 V. Una carga con $R_\mathrm{L}=R$ forma un divisor con $R_\mathrm{i}$ y reduce esto a la mitad, 2,5 V. Por eso, en los convertidores reales sigue un amplificador operacional ([Parte 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) con una resistencia de entrada muy alta: prácticamente no consume corriente, y la escalera queda en circuito abierto.
+::::
+
+⁠**Casos límite:** La posición 000 da 0 V, la posición 111 da 7 V, un escalón por debajo de $U_\mathrm{ref}$.
 
 :::ltspice El convertidor cuenta
 ⁠**Esquema:** fig. [12](#abb-12) sin interruptores: 2$R$ del nudo `n0` a masa, luego 2$R$ de cada uno de `n0`, `n1`, `n2` a una fuente `voltage` contra masa y $R$ entre los nudos, $R=1$ k$\Omega$. Las fuentes cuentan en binario: `PULSE(0 8 1m 1u 1u 1m 2m)`, `PULSE(0 8 2m 1u 1u 2m 4m)`, `PULSE(0 8 4m 1u 1u 4m 8m)`.

@@ -14,7 +14,7 @@ Trifft Licht auf einen Halbleiter, entstehen dort zusätzliche Elektronen und L�
 
 Der Weg führt über acht Begriffe. __Diffusion__ ist die Ausbreitung von Teilchen durch ihre ungeordnete Bewegung. Die __Teilchenstromdichte__ zählt die Teilchen, die je Fläche und Zeit eine Ebene durchqueren. Das __Fick-Gesetz__ verknüpft sie mit dem Gefälle der Dichte. Die __Kontinuitätsgleichung__ ist die Buchführung über die Teilchen in einem Volumen. __Generation__ ist das Entstehen eines Paars aus Elektron und Loch, __Rekombination__ sein Verschwinden. Die __Einstein-Beziehung__ verbindet Diffusion und Beweglichkeit. Die __Diffusionslänge__ ist die mittlere Tiefe, die ein Ladungsträger bis zu seiner Rekombination erreicht.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

@@ -41,11 +41,13 @@ $\mathbf{A}$ und $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ haben dasselbe charakteri
 Es ist $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. Nach den Rechenregeln aus [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist die Determinante davon $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. Spur und Determinante sind nach [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5) aus den Eigenwerten bestimmt.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ und die Basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ aus [Grundlagen 1, Abschnitt 13.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), ist $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ und $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Dann ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ und die Basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ aus [Grundlagen 1, Abschnitt 13.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), ist $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ und $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Dann ist
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
 Die Spur ist wieder $7$, die Determinante wieder $10$, und die Eigenwerte stehen jetzt auf der Diagonale einer Dreiecksmatrix: $2$ und $5$.
+::::
 
 ⁠**Kurz gesagt:** In der Basis der Spalten von $\mathbf{S}$ hat die Abbildung $\mathbf{A}$ die Matrix $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$; Eigenwerte, Spur und Determinante bleiben dabei gleich.
 
@@ -72,9 +74,11 @@ Nach [Grundlagen 1, Abschnitt 9.2](/wissen/informatik/machine-learning/mathema
 
 Eine Matrix, die sich so schreiben lässt, heißt __diagonalisierbar__. Nach dem Satz in Abschnitt [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8) ist das zum Beispiel immer der Fall, wenn alle $n$ Eigenwerte verschieden sind. Nicht diagonalisierbar ist die Scherung, denn ihr fehlt ein Eigenvektor. Auch die Drehung um $90^\circ$ ist nicht mit reellen Zahlen diagonalisierbar, nur mit komplexen. Beide sind trotzdem invertierbar: Invertierbar und diagonalisierbar sind zwei verschiedene Eigenschaften.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ mit den Eigenvektoren $(1,\,1)^{\top}$ und $(1,\,-2)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ mit den Eigenvektoren $(1,\,1)^{\top}$ und $(1,\,-2)^{\top}$ ist
 
 $$\mathbf{S}=\begin{pmatrix}1&1\\1&-2\end{pmatrix},\qquad \mathbf{S}^{-1}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix},\qquad \mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix}\begin{pmatrix}5&2\\5&-4\end{pmatrix}=\begin{pmatrix}5&0\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Eine Matrix mit $n$ unabhängigen Eigenvektoren ist in deren Basis diagonal: $\mathbf{A}=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}$.
 
@@ -103,11 +107,13 @@ $\mathbf{A}^2=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}\mathbf{S}\boldsymbol
 
 In den Koordinaten $\mathbf{c}$ der Eigenbasis ist jeder Schritt die Multiplikation jeder Koordinate mit ihrer eigenen Zahl: $c_i\mapsto\lambda_ic_i$. Aus einer gekoppelten Rechnung mit $n$ Unbekannten werden $n$ getrennte Rechnungen mit je einer Unbekannten. Diese Koordinaten sind entkoppelt. Auf lange Sicht überwiegt der Anteil mit dem betragsgrößten Eigenwert.
 
-⁠**Rechenbeispiel:** $\mathbf M$ hat die Spur $1{,}5$ und die Determinante $0{,}56-0{,}06=0{,}5$, also die Eigenwerte $1$ und $0{,}5$. Eigenvektoren sind $\mathbf s_1=(3,\,2)^{\top}$ zum Eigenwert $1$, denn $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 0{,}6+1{,}4)^{\top}=\mathbf s_1$, und $\mathbf s_2=(1,\,-1)^{\top}$ zum Eigenwert $0{,}5$. Wohnen anfangs $1000$ Menschen in A und niemand in B, so ist $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ und nach [(7.2)](#gl-7-2)
+::::beispiel [Rechenbeispiel]
+$\mathbf M$ hat die Spur $1{,}5$ und die Determinante $0{,}56-0{,}06=0{,}5$, also die Eigenwerte $1$ und $0{,}5$. Eigenvektoren sind $\mathbf s_1=(3,\,2)^{\top}$ zum Eigenwert $1$, denn $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 0{,}6+1{,}4)^{\top}=\mathbf s_1$, und $\mathbf s_2=(1,\,-1)^{\top}$ zum Eigenwert $0{,}5$. Wohnen anfangs $1000$ Menschen in A und niemand in B, so ist $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ und nach [(7.2)](#gl-7-2)
 
 $$\mathbf{x}_k=200\begin{pmatrix}3\\2\end{pmatrix}+400\cdot0{,}5^k\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}600+400\cdot0{,}5^k\\400-400\cdot0{,}5^k\end{pmatrix}.$$
 
 Nach einem Jahr sind es $(800,\,200)^{\top}$, nach zwei Jahren $(700,\,300)^{\top}$, und auf lange Sicht stellt sich $(600,\,400)^{\top}$ ein. Der Anteil zum Eigenwert $0{,}5$ halbiert sich jedes Jahr, der Anteil zum Eigenwert $1$ bleibt.
+::::
 
 ⁠**Kurz gesagt:** In der Eigenbasis wird jede Potenz der Matrix zu Potenzen der Eigenwerte; gekoppelte Folgen zerfallen in getrennte Folgen, eine je Eigenvektor.
 
@@ -143,7 +149,9 @@ Also ist $(\lambda-\lambda^*)\,(\mathbf{v}^*)^{\top}\mathbf{v}=0$. Nach Abschnit
 
 Zu einem reellen Eigenwert gibt es dann auch reelle Eigenvektoren, denn $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ ist ein reelles Gleichungssystem.
 
-⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ hat das charakteristische Polynom $\lambda^2-7\lambda+6$ mit der Diskriminante $49-24=25>0$ und den reellen Eigenwerten $6$ und $1$. Für eine beliebige symmetrische $2\times2$-Matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ ist die Diskriminante $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$; die Eigenwerte sind also immer reell, wie der Satz sagt.
+::::beispiel [Rechenbeispiel]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ hat das charakteristische Polynom $\lambda^2-7\lambda+6$ mit der Diskriminante $49-24=25>0$ und den reellen Eigenwerten $6$ und $1$. Für eine beliebige symmetrische $2\times2$-Matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ ist die Diskriminante $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$; die Eigenwerte sind also immer reell, wie der Satz sagt.
+::::
 
 ⁠**Kurz gesagt:** Eine symmetrische Matrix hat nur reelle Eigenwerte und reelle Eigenvektoren.
 
@@ -163,11 +171,13 @@ Eigenvektoren einer symmetrischen Matrix zu verschiedenen Eigenwerten stehen sen
 Es sei $\mathbf{A}\mathbf{v}_1=\lambda_1\mathbf{v}_1$ und $\mathbf{A}\mathbf{v}_2=\lambda_2\mathbf{v}_2$ mit $\lambda_1\ne\lambda_2$. Man berechnet $\mathbf{v}_1^{\top}\mathbf{A}\mathbf{v}_2$ auf zwei Arten: als $\mathbf{v}_1^{\top}(\lambda_2\mathbf{v}_2)=\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2$, und mit $\mathbf{A}^{\top}=\mathbf{A}$ als $(\mathbf{A}\mathbf{v}_1)^{\top}\mathbf{v}_2=\lambda_1\,\mathbf{v}_1^{\top}\mathbf{v}_2$. Also ist $(\lambda_1-\lambda_2)\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$, und wegen $\lambda_1\ne\lambda_2$ ist $\mathbf{v}_1^{\top}\mathbf{v}_2=0$.
 :::
 
-⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ hat zum Eigenwert $6$ den Eigenvektor $(2,\,1)^{\top}$, denn $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$, und zum Eigenwert $1$ den Eigenvektor $(1,\,-2)^{\top}$, denn $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. Ihr Skalarprodukt ist $2-2=0$ (Abb. [19](#abb-19)).
+::::beispiel [Rechenbeispiel]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ hat zum Eigenwert $6$ den Eigenvektor $(2,\,1)^{\top}$, denn $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$, und zum Eigenwert $1$ den Eigenvektor $(1,\,-2)^{\top}$, denn $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. Ihr Skalarprodukt ist $2-2=0$ (Abb. [19](#abb-19)).
 
 :::abbildung ml/k2rsenkrecht 19
 Das Skalarprodukt der Eigenvektoren $(2,1)^{\top}$ zum Eigenwert $6$ und $(1,-2)^{\top}$ zum Eigenwert $1$ der symmetrischen Matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: Sie stehen senkrecht aufeinander.
 :::
+::::
 
 ⁠**Kurz gesagt:** Bei einer symmetrischen Matrix stehen Eigenvektoren zu verschiedenen Eigenwerten senkrecht aufeinander.
 
@@ -202,9 +212,11 @@ mit der symmetrischen $(n-1)\times(n-1)$-Matrix $\mathbf{B}=\mathbf{W}^{\top}\ma
 
 Jeder Summand $\mathbf{q}_i\mathbf{q}_i^{\top}$ ist nach Abschnitt [2.3](projektion-auf-eine-gerade.html#stufe-2-3) die Projektion auf die Gerade in Richtung $\mathbf{q}_i$. Eine symmetrische Matrix ist also eine Summe von Projektionen auf senkrechte Achsen, jede mit ihrem Eigenwert gewichtet. Bei einem mehrfachen Eigenwert ist die Wahl der $\mathbf{q}_i$ in seinem Eigenraum frei: Jede Orthonormalbasis des Eigenraums ist recht. Auch das Vorzeichen jedes $\mathbf{q}_i$ ist frei. Manche Bücher sortieren die Eigenwerte absteigend, andere nicht.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ sind $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ und $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ die normierten Eigenvektoren zu $6$ und $1$. Dann ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ sind $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ und $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ die normierten Eigenvektoren zu $6$ und $1$. Dann ist
 
 $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}=\frac15\begin{pmatrix}25&10\\10&10\end{pmatrix}=\begin{pmatrix}5&2\\2&2\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Jede symmetrische Matrix ist $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$: in einem passend gedrehten Achsenkreuz diagonal, eine gewichtete Summe von Projektionen auf senkrechte Achsen.
 
@@ -237,11 +249,13 @@ Die Richtungen der Eigenvektoren heißen deshalb die __Hauptachsen__ der quadrat
 Die Höhenlinien $5x_1^2+4x_1x_2+2x_2^2=1$ (blau) und $=\tfrac14$ (hellblau) sind Ellipsen. Ihre Achsen (grau) liegen in den Richtungen der Eigenvektoren $\mathbf{q}_1=(2,1)^{\top}/\sqrt5$ zum Eigenwert $6$ und $\mathbf{q}_2=(1,-2)^{\top}/\sqrt5$ zum Eigenwert $1$. Die Halbachsen der äußeren Ellipse sind $1/\sqrt6\approx0{,}41$ (rot) und $1/\sqrt1=1$ (grün): In Richtung des großen Eigenwerts steigt die Form am steilsten, die Ellipse ist dort am schmalsten.
 :::
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ sind die Koordinaten in der Eigenbasis $c_1=(2x_1+x_2)/\sqrt5$ und $c_2=(x_1-2x_2)/\sqrt5$, und
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ sind die Koordinaten in der Eigenbasis $c_1=(2x_1+x_2)/\sqrt5$ und $c_2=(x_1-2x_2)/\sqrt5$, und
 
 $$5x_1^2+4x_1x_2+2x_2^2=6\,c_1^2+c_2^2=\tfrac65(2x_1+x_2)^2+\tfrac15(x_1-2x_2)^2 .$$
 
 Ausmultipliziert ergibt die rechte Seite $\tfrac15\bigl(24x_1^2+24x_1x_2+6x_2^2+x_1^2-4x_1x_2+4x_2^2\bigr)=5x_1^2+4x_1x_2+2x_2^2$. Die Höhenlinie $f=1$ ist die Ellipse in Abb. [20](#abb-20), mit den Halbachsen $1/\sqrt6\approx0{,}408$ und $1$.
+::::
 
 ⁠**Kurz gesagt:** In der Eigenbasis wird jede quadratische Form zur Summe $\sum_i\lambda_ic_i^2$ ohne gemischte Glieder; die Eigenvektoren sind die Hauptachsen ihrer Ellipsen, die Halbachsen sind $1/\sqrt{\lambda_i}$.
 

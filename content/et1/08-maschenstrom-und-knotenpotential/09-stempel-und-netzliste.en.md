@@ -45,7 +45,8 @@ A fixed current source that pushes $I_\mathrm q$ through itself from $k$ to $i$ 
 
 **Netlist.** A circuit diagram is stored as a __netlist__: one line per component, consisting of name, nodes and value. In SPICE, `R3 1 2 2k` means: resistor between the nodes 1 and 2. `I2 0 2 4m` means: 4 mA through the source from node 0 to node 2. The program goes through the list line by line and stamps. If a new node name appears, the matrix grows by one row and one column. Nobody has to know its size beforehand. The rigid format dates from the 1970s, when SPICE was written in FORTRAN and each line occupied a punched card.
 
-**Example.** The model network with the converted battery gives this list:
+::::beispiel
+The model network with the converted battery gives this list:
 
 | Line | Value | Entry |
 |---|---|---|
@@ -61,7 +62,10 @@ With the rows and columns in the order 0, 1, 2 this gives
 
 $$\begin{pmatrix}1.55&-1.25&-0.3\\-1.25&1.75&-0.5\\-0.3&-0.5&0.8\end{pmatrix} \begin{pmatrix}U_0\\U_1\\U_2\end{pmatrix}=\begin{pmatrix}-13\\9\\4\end{pmatrix}.$$
 
-Each row sums to zero. If you delete row and column 0, the system from Stage [5](das-knotenpotentialverfahren.html#stufe-5) remains. **Check:** In the reduced $\mathbf Y$, the row sum is the conductance to ground: $1.75-0.5=1.25=G_1+G_2$ and $0.8-0.5=0.3=G_4+G_5$. **Limiting case:** A node without a branch to ground has the row sum zero.
+Each row sums to zero. If you delete row and column 0, the system from Stage [5](das-knotenpotentialverfahren.html#stufe-5) remains. **Check:** In the reduced $\mathbf Y$, the row sum is the conductance to ground: $1.75-0.5=1.25=G_1+G_2$ and $0.8-0.5=0.3=G_4+G_5$.
+::::
+
+⁠**Limiting case:** A node without a branch to ground has the row sum zero.
 
 **Large networks.** A node is usually connected to only two to five neighbors, so almost all positions of a large matrix are zero. It is called __sparse__. The simulator stores only the nonzero entries and solves the system by stepwise elimination. Cramer's rule would be useless for this: a determinant with 20 rows has around $2.4\cdot10^{18}$ products following the pattern of [(0.1)](von-grund-auf-drei-gleichungen-drei-unbekannte.html#gl-0-1).
 

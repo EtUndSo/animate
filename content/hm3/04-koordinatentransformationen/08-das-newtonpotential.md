@@ -31,12 +31,14 @@ $$-\Delta u=f\quad\text{in }\mathbb{R}^3\qquad\text{mit}\qquad u(\boldsymbol{x})
 
 ⁠**So liest man das:** $f$ ist die Quelldichte, etwa Ladung oder Masse je Volumen, $u$ ist das zugehörige Potential, und $\Delta=\operatorname{div}\nabla$ ist der Laplace-Operator aus [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html). Der Satz wird hier ohne Beweis benutzt. Die Existenz folgt aus Stufe [5](integrale-uber-eine-singularitat.html#stufe-5): Nach der Verschiebung $\boldsymbol{y}\mapsto\boldsymbol{x}-\boldsymbol{y}$ ist der Integrand $f(\boldsymbol{x}-\boldsymbol{y})/|\boldsymbol{y}|$ beschränkt durch $c/|\boldsymbol{y}|$ mit $c=\max|f|$, also ist $\alpha=1<3$. Ersetzt man im Nenner $|\boldsymbol{x}-\boldsymbol{y}|$ durch $\max\{|\boldsymbol{x}-\boldsymbol{y}|,\varepsilon\}$, ist der Integrand für jedes $\varepsilon>0$ stetig mit kompaktem Träger. Die Bedingungen lassen sich abschwächen: Statt des kompakten Trägers genügt ein passendes Abklingen von $f(\boldsymbol{x})$ für $|\boldsymbol{x}|\to\infty$.
 
-**Beispiel: die Kugelschale.** Für $0\le R_1<R_2$ sei $\mathcal S=\{\boldsymbol{y}:R_1\le|\boldsymbol{y}|\le R_2\}$ eine __Kugelschale__ mit konstanter Dichte $\rho>0$. Die Dichte springt am Rand, Satz [6.1](#satz-6-1) ist also nicht direkt anwendbar. Außerhalb von $\mathcal S$ hat das Integral aber gar keine Singularität, und das Potential ist
+::::beispiel die Kugelschale
+Für $0\le R_1<R_2$ sei $\mathcal S=\{\boldsymbol{y}:R_1\le|\boldsymbol{y}|\le R_2\}$ eine __Kugelschale__ mit konstanter Dichte $\rho>0$. Die Dichte springt am Rand, Satz [6.1](#satz-6-1) ist also nicht direkt anwendbar. Außerhalb von $\mathcal S$ hat das Integral aber gar keine Singularität, und das Potential ist
 
 <span class="anker" id="gl-6-3"></span>
 $$u(\boldsymbol{x})=\frac\rho{4\pi}\int_{\mathcal S}\frac{\mathrm{d}\boldsymbol{y}}{|\boldsymbol{x}-\boldsymbol{y}|},\qquad\boldsymbol{x}\notin\mathcal S. \tag{6.3}$$
 
 Die Schale ist drehsymmetrisch, also hängt $u$ nur vom Abstand ab. Lege $\boldsymbol{x}=(0,0,a)$ mit $a>0$ auf die $z$-Achse und schreibe $\boldsymbol{y}$ in Kugelkoordinaten (Abb. [6](#abb-6)). Der Kosinussatz gibt $|\boldsymbol{x}-\boldsymbol{y}|=\sqrt{r^2-2ra\cos\theta+a^2}$.
+::::
 
 :::herleitung Potential der Kugelschale
 ⁠**Schritt 1: Winkel.** $\varphi$ kommt im Integranden nicht vor und gibt $2\pi$:

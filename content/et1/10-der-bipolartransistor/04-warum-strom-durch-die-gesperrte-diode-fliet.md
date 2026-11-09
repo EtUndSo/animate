@@ -66,7 +66,11 @@ Elektronen und Löcher überqueren dieselbe Barriere. Die Elektronendichte am Em
 
 **Wer steuert?** Physikalisch steuert $U_\mathrm{BE}$, denn nur die Spannung senkt die Barriere. Der Basisstrom ist der Preis dafür. In Schaltungen rechnet man trotzdem oft mit $I_\mathrm{B}$: Wegen $I_\mathrm{C}=B\,I_\mathrm{B}$ verhält sich der Transistor wie eine stromgesteuerte Stromquelle (CCCS, [Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Beide Sichten beschreiben dieselbe Proportionalität. Die Steuerung über $U_\mathrm{BE}$ erklärt das Exponentialgesetz, die Sicht über $I_\mathrm{B}$ ist bequem, wenn ein Widerstand den Basisstrom vorgibt.
 
-**Beispiel.** $U_\mathrm{BE}=0{,}6$ V ergibt $I_\mathrm{C}=1{,}9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23{,}08}=2{,}00$ mA, $I_\mathrm{B}=10$ µ A, $I_\mathrm{E}=2{,}01$ mA. Das sind $1{,}25\cdot10^{16}$ Elektronen je Sekunde im Kollektor, und vom Emitterstrom kommen 99,5 % dort an. Die e-Funktion ist empfindlich: $+18$ mV verdoppeln den Strom ($U_T\ln2$), $+60$ mV verzehnfachen ihn ($U_T\ln10$), $+1$ mV bringt $+3{,}9$ %. **Grenzfälle:** Bei $U_\mathrm{BE}=0{,}4$ V fließen nur 0,9 µ A, der Transistor ist praktisch aus. Für $B\to\infty$ verschwindet $I_\mathrm{B}$, und $I_\mathrm{E}=I_\mathrm{C}$.
+::::beispiel
+$U_\mathrm{BE}=0{,}6$ V ergibt $I_\mathrm{C}=1{,}9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23{,}08}=2{,}00$ mA, $I_\mathrm{B}=10$ µ A, $I_\mathrm{E}=2{,}01$ mA. Das sind $1{,}25\cdot10^{16}$ Elektronen je Sekunde im Kollektor, und vom Emitterstrom kommen 99,5 % dort an. Die e-Funktion ist empfindlich: $+18$ mV verdoppeln den Strom ($U_T\ln2$), $+60$ mV verzehnfachen ihn ($U_T\ln10$), $+1$ mV bringt $+3{,}9$ %.
+::::
+
+⁠**Grenzfälle:** Bei $U_\mathrm{BE}=0{,}4$ V fließen nur 0,9 µ A, der Transistor ist praktisch aus. Für $B\to\infty$ verschwindet $I_\mathrm{B}$, und $I_\mathrm{E}=I_\mathrm{C}$.
 
 :::analogie
 Eine große Wasserrinne ist durch eine Klappe verschlossen. Ein dünner Strahl aus einer Seitenrinne drückt die Klappe auf. Ohne Steuerstrahl fließt nichts, je stärker er ist, desto mehr strömt, und unten vereinigen sich beide Ströme. Das Bild trägt für drei Aussagen: Klein steuert groß, ohne Steuerung sperrt der Transistor, $I_\mathrm{E}=I_\mathrm{B}+I_\mathrm{C}$. Es stimmt nicht für den Mechanismus: Im Transistor bewegt nichts eine Klappe, die Spannung senkt eine Barriere, und der Zusammenhang ist exponentiell.

@@ -32,7 +32,11 @@ A blocked diode bears at most $\hat u-U_\mathrm F$.
 
 ⁠**How to read it:** For $|u_\mathrm e|<2U_\mathrm F$ neither pair conducts, and $u_\mathrm a$ stays zero. At the lowered peak you can read off twice the forward voltage. **Validity:** resistive load. Input and output have no common reference point.
 
-**Example.** The peak is $12\,\mathrm{V}-1.4\,\mathrm{V}=10.6$ V; for the half-wave rectifier it is 11.3 V. The gap lasts 0.74 ms per half-wave, which is 7.4 % of the time. The mean value is 6.29 V; for the half-wave rectifier it is only 3.48 V. **Limiting cases:** For $U_\mathrm F\to0$, $u_\mathrm a=|u_\mathrm e|$. For $\hat u<1.4$ V the output stays zero.
+::::beispiel
+The peak is $12\,\mathrm{V}-1.4\,\mathrm{V}=10.6$ V; for the half-wave rectifier it is 11.3 V. The gap lasts 0.74 ms per half-wave, which is 7.4 % of the time. The mean value is 6.29 V; for the half-wave rectifier it is only 3.48 V.
+::::
+
+⁠**Limiting cases:** For $U_\mathrm F\to0$, $u_\mathrm a=|u_\mathrm e|$. For $\hat u<1.4$ V the output stays zero.
 
 :::ltspice Bridge rectifier
 ⁠**Draw:** source with `SINE(0 12 50)` between `a` and `b`. Diodes DM from `a` to `p`, from `b` to `p`, from ground to `a` and from ground to `b`. `res` 1k from `p` to ground.

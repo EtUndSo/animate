@@ -43,7 +43,11 @@ Hier gibt es zwei Rückführungen, das untere $R$ gegenkoppelt, das linke mitkop
 Links der Transimpedanzverstärker mit Stromquelle als Eingang. Rechts der NIC mit $R=10$ k$\Omega$ und $R_2=5$ k$\Omega$ bei 1 V an Klemme 1: Der Ausgang steht auf 3 V und schiebt 0,2 mA aus der Klemme heraus.
 :::
 
-**Beispiel.** Mit $R=10$ k$\Omega$, $R_2=5$ k$\Omega$ und $U_1=1$ V ist $I_2=0{,}2$ mA, $U_\mathrm{A}=3$ V, $I_1=-0{,}2$ mA, also $R_\mathrm{ein}=-5$ k$\Omega$. Die Energie kommt aus der Versorgung des OPV. *Anwendung:* Eine Stromquelle mit 1 mA und Innenwiderstand $R_\mathrm{q}=10$ k$\Omega$ gibt an 1 k$\Omega$ nur 0,909 mA ab, weil ein Teil durch $R_\mathrm{q}$ geht. Parallel dazu ein NIC mit $R_2=R_\mathrm{q}$: Der Leitwert $1/R_\mathrm{q}-1/R_2$ verschwindet, die Last bekommt 1 mA. Die reale Quelle wirkt wie eine ideale. Der NIC liefert genau die 0,1 mA, die $R_\mathrm{q}$ abzweigt. **Grenzfall:** Ohne Last ist $R_\mathrm{i}=R_\mathrm{q}=R_2$, beide Rückführungen sind gleich stark, die Schleifenverstärkung ist null, und die Regel gilt nicht mehr.
+::::beispiel
+Mit $R=10$ k$\Omega$, $R_2=5$ k$\Omega$ und $U_1=1$ V ist $I_2=0{,}2$ mA, $U_\mathrm{A}=3$ V, $I_1=-0{,}2$ mA, also $R_\mathrm{ein}=-5$ k$\Omega$. Die Energie kommt aus der Versorgung des OPV. *Anwendung:* Eine Stromquelle mit 1 mA und Innenwiderstand $R_\mathrm{q}=10$ k$\Omega$ gibt an 1 k$\Omega$ nur 0,909 mA ab, weil ein Teil durch $R_\mathrm{q}$ geht. Parallel dazu ein NIC mit $R_2=R_\mathrm{q}$: Der Leitwert $1/R_\mathrm{q}-1/R_2$ verschwindet, die Last bekommt 1 mA. Die reale Quelle wirkt wie eine ideale. Der NIC liefert genau die 0,1 mA, die $R_\mathrm{q}$ abzweigt.
+::::
+
+⁠**Grenzfall:** Ohne Last ist $R_\mathrm{i}=R_\mathrm{q}=R_2$, beide Rückführungen sind gleich stark, die Schleifenverstärkung ist null, und die Regel gilt nicht mehr.
 
 :::aufgabe Aufgabe 9 ★★★ Stromquelle kompensieren
 <span class="anker" id="aufg-9"></span>

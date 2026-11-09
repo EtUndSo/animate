@@ -32,7 +32,9 @@ $$z_{n-1}B^{n-1}+\dots+z_1B^1+z_0B^0=\sum_{i=0}^{n-1}z_i\,B^i .$$
 Die Zahl $B^i$ heißt der Stellenwert der Stelle $i$. Gezählt wird von rechts, beginnend bei $i=0$.
 :::
 
-**Beispiel.** Im gewohnten Dezimalsystem ist $B=10$: $4705=4\cdot10^3+7\cdot10^2+0\cdot10^1+5\cdot10^0=4000+700+0+5$.
+::::beispiel
+Im gewohnten Dezimalsystem ist $B=10$: $4705=4\cdot10^3+7\cdot10^2+0\cdot10^1+5\cdot10^0=4000+700+0+5$.
+::::
 
 ⁠**Kurz gesagt:** In einem Stellenwertsystem ist jede Ziffer mit dem Stellenwert ihrer Position zu multiplizieren, und alles wird addiert.
 
@@ -54,11 +56,13 @@ Eine Binärstelle heißt __Bit__, nach dem englischen *binary digit*. Die Bits e
 
 $$b_{n-1}\ldots b_1b_0\,{}_2=\sum_{i=0}^{n-1}b_i\,2^i .$$
 
-**Beispiel.** $10011_2$ hat die Bits $b_4=1$, $b_3=0$, $b_2=0$, $b_1=1$, $b_0=1$. Die Rechnung steht Schritt für Schritt in Abb. [3](#abb-3): Die Zahl ist 19.
+::::beispiel
+$10011_2$ hat die Bits $b_4=1$, $b_3=0$, $b_2=0$, $b_1=1$, $b_0=1$. Die Rechnung steht Schritt für Schritt in Abb. [3](#abb-3): Die Zahl ist 19.
 
 :::abbildung prog/k2rbinaer 3
 Der Wert der Binärzahl $10011_2$: jedes Bit mal seinem Stellenwert, dann addieren.
 :::
+::::
 
 In Python schreibt man eine Binärzahl mit dem Präfix `0b`. Der interaktive Modus zeigt sie als Dezimalzahl an, denn das Objekt ist ein gewöhnlicher `int`:
 
@@ -92,11 +96,13 @@ Ein __Byte__ ist eine Gruppe von 8 Bit.
 
 Mit $n$ Bit lassen sich $2^n$ verschiedene Muster bilden, denn jedes Bit verdoppelt die Zahl der Möglichkeiten. Ein Byte hat also $2^8=256$ Muster und kann die ganzen Zahlen von 0 bis 255 darstellen. Speichergrößen zählt man in Byte: Eine Zahl aus 64 Bit belegt 8 Byte.
 
-**Beispiel.** Die größte Zahl in einem Byte hat alle acht Bits gesetzt. Ihr Wert ist die Summe aller acht Stellenwerte (Abb. [4](#abb-4)):
+::::beispiel
+Die größte Zahl in einem Byte hat alle acht Bits gesetzt. Ihr Wert ist die Summe aller acht Stellenwerte (Abb. [4](#abb-4)):
 
 :::abbildung prog/k2rbyte 4
 Der größte Wert eines Bytes: Alle acht Bits sind 1, die Stellenwerte $2^0$ bis $2^7$ werden addiert. Das Ergebnis ist $255=2^8-1$.
 :::
+::::
 
 Das Ergebnis ist um eins kleiner als der nächste Stellenwert $2^8=256$. Das gilt für jede Zahl aus lauter Einsen: $n$ Einsen ergeben $2^n-1$, so wie im Dezimalsystem $999=10^3-1$ ist.
 
@@ -179,7 +185,8 @@ Weil $16=2^4$ ist, steht jede Hexadezimalziffer für genau vier Bits:
 
 Ein Byte sind also genau zwei Hexadezimalziffern.
 
-**Beispiel.** $255=1111\,1111_2$ ist hexadezimal $\mathtt{ff}_{16}$, denn $15\cdot16+15=255$. Die lange Bitfolge vom Anfang zerlegt man von rechts in Vierergruppen: $0011\;1111\;1111\;1011_2=\mathtt{3ffb}_{16}$. In Python schreibt man Hexadezimalzahlen mit dem Präfix `0x`; `hex` wandelt um, `int` mit der Basis 16 wandelt zurück:
+::::beispiel
+$255=1111\,1111_2$ ist hexadezimal $\mathtt{ff}_{16}$, denn $15\cdot16+15=255$. Die lange Bitfolge vom Anfang zerlegt man von rechts in Vierergruppen: $0011\;1111\;1111\;1011_2=\mathtt{3ffb}_{16}$. In Python schreibt man Hexadezimalzahlen mit dem Präfix `0x`; `hex` wandelt um, `int` mit der Basis 16 wandelt zurück:
 
 ```console
 >>> 0xff
@@ -193,6 +200,7 @@ Ein Byte sind also genau zwei Hexadezimalziffern.
 ```
 
 Bei `bin` fehlen die beiden führenden Nullen der ersten Vierergruppe; Python lässt führende Nullen weg.
+::::
 
 ⁠**Kurz gesagt:** Hexadezimal ist die Basis 16; jede Ziffer steht für vier Bits, ein Byte für zwei Ziffern.
 
@@ -212,7 +220,9 @@ Ein __Binärbruch__ ist eine Zahl mit Stellen rechts vom Komma im Binärsystem. 
 $$0{,}b_{-1}b_{-2}\ldots b_{-m}\,{}_2=\sum_{k=1}^{m}b_{-k}\,2^{-k} .$$
 :::
 
-**Beispiel.** $0{,}101_2=1\cdot\tfrac12+0\cdot\tfrac14+1\cdot\tfrac18=\tfrac58=0{,}625$ und $0{,}011_2=\tfrac14+\tfrac18=\tfrac38=0{,}375$.
+::::beispiel
+$0{,}101_2=1\cdot\tfrac12+0\cdot\tfrac14+1\cdot\tfrac18=\tfrac58=0{,}625$ und $0{,}011_2=\tfrac14+\tfrac18=\tfrac38=0{,}375$.
+::::
 
 Nicht jeder Bruch hat einen endlichen Binärbruch. Im Dezimalsystem ist das vertraut: $\frac14=0{,}25$ endet, $\frac13=0{,}333\ldots$ nicht. Welche Zahlen im Binärsystem enden, sagt der folgende Satz.
 
@@ -248,9 +258,12 @@ Wie sehen die unendlich vielen Binärstellen von $0{,}1$ aus? Für die Stellen r
 Für $0\le x<1$ bestimmt das __Verdopplungsverfahren__ die Binärstellen von $x$: Man verdoppelt $x$. Der ganzzahlige Teil des Ergebnisses, 0 oder 1, ist die nächste Stelle; mit dem Anteil rechts vom Komma macht man weiter. Das Verfahren endet, wenn dieser Anteil 0 ist.
 :::
 
-**Beispiel 1: $0{,}625$.** $2\cdot0{,}625=1{,}25$, Stelle 1, weiter mit $0{,}25$. $2\cdot0{,}25=0{,}5$, Stelle 0. $2\cdot0{,}5=1{,}0$, Stelle 1, Rest 0, fertig: $0{,}625=0{,}101_2$, wie im letzten Unterabschnitt.
+::::beispiel [Beispiel 1] $0{,}625$
+$2\cdot0{,}625=1{,}25$, Stelle 1, weiter mit $0{,}25$. $2\cdot0{,}25=0{,}5$, Stelle 0. $2\cdot0{,}5=1{,}0$, Stelle 1, Rest 0, fertig: $0{,}625=0{,}101_2$, wie im letzten Unterabschnitt.
+::::
 
-**Beispiel 2: $0{,}1$.** Damit sich keine Rundung einschleicht, rechnet man mit dem Bruch $\frac{z}{10}$ und verdoppelt nur den ganzzahligen Zähler $z$. Ist $2z\ge10$, ist die Stelle 1 und man zieht 10 ab; sonst ist die Stelle 0:
+::::beispiel [Beispiel 2] $0{,}1$
+Damit sich keine Rundung einschleicht, rechnet man mit dem Bruch $\frac{z}{10}$ und verdoppelt nur den ganzzahligen Zähler $z$. Ist $2z\ge10$, ist die Stelle 1 und man zieht 10 ab; sonst ist die Stelle 0:
 
 | Schritt | Bruch | verdoppelt | Stelle |
 |---|---|---|---|
@@ -273,6 +286,7 @@ Wie nahe man $0{,}1$ mit den ersten Stellen kommt, zeigt die Summe der Stellenwe
 :::abbildung prog/k2rnull 5
 Die ersten vier Paare von Einsen im Binärbruch von $0{,}1$, als Summe ihrer Stellenwerte. Nach 17 Stellen fehlt noch etwa $1{,}5\cdot10^{-6}$ bis $0{,}1$, und mit jeder weiteren Gruppe von vier Stellen schrumpft der Rest auf ein Sechzehntel.
 :::
+::::
 
 Die Summe kommt $0{,}1$ immer näher, erreicht es aber mit keiner endlichen Zahl von Stellen. Der Fehler nach den 17 Stellen ist $0{,}1-\frac{13107}{131072}=\frac{1}{655360}=0{,}1\cdot2^{-16}$: Hinter Stelle 17 steht wieder dasselbe Muster wie in $0{,}1$ selbst, nur um 16 Stellen nach rechts gerückt.
 

@@ -36,7 +36,8 @@ Eine __bedingte Anweisung__ hat die Form
 Die erste Zeile heißt __Kopfzeile__; sie beginnt mit `if` und endet mit einem Doppelpunkt. Darunter stehen eine oder mehrere Anweisungen, weiter eingerückt als die Kopfzeile. Python wertet die Bedingung aus und bestimmt ihren Wahrheitswert (Unterabschnitt [1.9](bedingungen-vergleiche-und-logische-operatoren.html#stufe-1-9)). Ist er `True`, führt Python die eingerückten Anweisungen aus, sonst überspringt es sie. In beiden Fällen geht es danach mit der nächsten Zeile weiter, die wieder so weit links steht wie die Kopfzeile.
 :::
 
-**Beispiel.** Das Skript fragt die Spannung ab und prüft sie:
+::::beispiel
+Das Skript fragt die Spannung ab und prüft sie:
 
 ```python usb_if.py
 # Spannung an einem USB-Anschluss prüfen: erlaubt sind höchstens 5,25 V
@@ -66,6 +67,7 @@ Messung beendet
 ```
 
 Die letzte Zeile des Skripts läuft in beiden Fällen, denn sie gehört nicht mehr zur Bedingung.
+::::
 
 ⁠**Kurz gesagt:** `if Bedingung:` führt die eingerückten Zeilen darunter nur aus, wenn die Bedingung wahr ist.
 
@@ -87,7 +89,8 @@ Ein Block ist an seiner Einrückung zu erkennen. Die zwei eingerückten Zeilen (
 Ein __Block__ ist eine Folge von Anweisungen, die alle gleich weit eingerückt sind und auf eine Kopfzeile folgen, also auf eine Zeile mit einem Doppelpunkt am Ende. Er endet vor der ersten Zeile, die weniger weit eingerückt ist. Ein Block darf selbst Kopfzeilen mit eigenen, noch weiter eingerückten Blöcken enthalten. Üblich sind vier Leerzeichen je Ebene; so empfiehlt es der Stilleitfaden für Python, PEP 8.
 :::
 
-**Beispiel.** Zwei Anweisungen im Block:
+::::beispiel
+Zwei Anweisungen im Block:
 
 ```python usb_block.py
 # Zwei Anweisungen hängen an derselben Bedingung
@@ -104,6 +107,7 @@ Spannung in V: 5.4
 Achtung: Spannung um 0.15 V zu hoch
 Messung beendet
 ```
+::::
 
 **Blöcke im interaktiven Modus.** Auch dort kann man einen Block eingeben. Nach der Kopfzeile zeigt Python statt `>>>` die Fortsetzung `...` ([Programmieren, Python 1, Abschnitt 4.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-1)). Ab Python 3.13 rückt der interaktive Modus die nächste Zeile von selbst um vier Leerzeichen ein; du tippst nur noch die Anweisung. Eine leere Zeile beendet die Eingabe, erst dann läuft der Block. Hier enthält der Block eine zweite Kopfzeile mit einem eigenen, tiefer eingerückten Block:
 
@@ -185,7 +189,8 @@ Das Skript soll nicht nur warnen, sondern im anderen Fall bestätigen, dass die 
 Auf den Block einer bedingten Anweisung darf eine Zeile `else:` folgen, genau so weit eingerückt wie das zugehörige `if`, und danach ein eigener Block. Er läuft genau dann, wenn die Bedingung falsch ist. Von den beiden Blöcken läuft also immer genau einer.
 :::
 
-**Beispiel.** Das Skript aus Unterabschnitt [2.1](#stufe-2-1) mit einem zweiten Weg:
+::::beispiel
+Das Skript aus Unterabschnitt [2.1](#stufe-2-1) mit einem zweiten Weg:
 
 ```python usb_else.py
 # Spannung prüfen: Warnung oder Bestätigung, genau eins von beiden
@@ -205,6 +210,7 @@ Messung beendet
 ```
 
 `else` hat keine Bedingung, denn es ist genau der Fall, in dem die Bedingung des `if` nicht gilt.
+::::
 
 ⁠**Kurz gesagt:** `else` gibt den Block an, der läuft, wenn die Bedingung falsch ist.
 
@@ -226,7 +232,8 @@ Flussdiagramm von `if`, `elif` und `else`. Die Fragen werden von oben nach unten
 Zwischen dem Block eines `if` und einem möglichen `else` dürfen beliebig viele Zeilen `elif Bedingung:` mit je einem Block stehen, alle so weit eingerückt wie das `if`. `elif` ist eine Abkürzung von „else if“. Python prüft die Bedingungen von oben nach unten. Den Block der ersten Bedingung, die wahr ist, führt es aus und überspringt alle übrigen. Ist keine wahr, läuft der Block nach `else`, falls es eines gibt.
 :::
 
-**Beispiel.** Die drei Fälle der USB-Spannung:
+::::beispiel
+Die drei Fälle der USB-Spannung:
 
 ```python usb_elif.py
 # Spannung eines USB-Anschlusses einordnen: erlaubt sind 4,75 V bis 5,25 V
@@ -252,6 +259,7 @@ zu hoch
 ```
 
 Die zweite Bedingung prüft nur die obere Grenze. Das genügt, weil Python sie nur erreicht, wenn die erste falsch war, also wenn `u` mindestens 4,75 ist. Die Reihenfolge der Fälle ist deshalb wichtig: Wer sie vertauscht, bekommt ein anderes Programm.
+::::
 
 Zwei Schreibfehler sind häufig. `else if` statt `elif` ergibt `SyntaxError: expected ':'`. Ein `elif` nach dem `else` ist ebenfalls ein Syntaxfehler; Python 3.14 sagt dazu ausdrücklich `'elif' block follows an 'else' block`, Python 3.13 nur `invalid syntax`.
 

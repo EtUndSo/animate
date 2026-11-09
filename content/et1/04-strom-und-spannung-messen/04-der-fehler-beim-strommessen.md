@@ -36,7 +36,9 @@ Der __relative Fehler__ ist $f=(I_R'-I_R)/I_R=-R_\mathrm i/(R+R_\mathrm i)$. Fü
 Die Maschenregel lautet $U=I_R'R+I_R'R_\mathrm i$, also $I_R'=U/(R+R_\mathrm i)$. Damit ist $f=I_R'/I_R-1=R/(R+R_\mathrm i)-1=-R_\mathrm i/(R+R_\mathrm i)$.
 :::
 
-**Beispiel.** $I_R=5$ mA, $I_R'=9\,\mathrm{V}/1810\,\Omega=4{,}972$ mA, also $f=-0{,}55\,\%$. Mit 1 $\Omega$ wie beim Digitalmultimeter wären es 4,997 mA und $f=-0{,}056\,\%$: Fehler vernachlässigbar. An einem kleinen Widerstand sieht es anders aus: 0,9 V an 90 $\Omega$ ergeben 10 mA, mit dem Instrument nur 9 mA, also $f=-10\,\%$. Nicht das Gerät allein entscheidet, sondern das Verhältnis $R_\mathrm i/R$.
+::::beispiel
+$I_R=5$ mA, $I_R'=9\,\mathrm{V}/1810\,\Omega=4{,}972$ mA, also $f=-0{,}55\,\%$. Mit 1 $\Omega$ wie beim Digitalmultimeter wären es 4,997 mA und $f=-0{,}056\,\%$: Fehler vernachlässigbar. An einem kleinen Widerstand sieht es anders aus: 0,9 V an 90 $\Omega$ ergeben 10 mA, mit dem Instrument nur 9 mA, also $f=-10\,\%$. Nicht das Gerät allein entscheidet, sondern das Verhältnis $R_\mathrm i/R$.
+::::
 
 ⁠**Grenzfälle:** $R_\mathrm i\to0$ ergibt $f\to0$. $R\to0$ ergibt $I_R'\to U/R_\mathrm i$ und $f\to-100\,\%$: Nur noch das Instrument begrenzt den Strom. Das ist Aufgabe [1](das-messgerat-ist-ein-bauteil.html#aufg-1)(a).
 

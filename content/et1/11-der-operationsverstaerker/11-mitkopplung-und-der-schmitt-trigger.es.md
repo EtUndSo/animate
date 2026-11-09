@@ -38,7 +38,11 @@ Con la inercia de la etapa [4](gegenkopplung.html#stufe-4) se cumple ahora $\ta
 A la izquierda, el disparador de Schmitt inversor. A la derecha, el ciclo de histéresis en el modelo de referencia, $\beta=0{,}2$: viniendo de la izquierda bascula en $+2{,}2$ V; viniendo de la derecha, en $-2{,}2$ V. Las flechas indican el sentido de recorrido.
 :::
 
-**Ejemplo.** Los umbrales son $\pm0{,}2\cdot11\,\mathrm{V}=\pm2{,}2$ V, y la histéresis tiene 4,4 V de ancho. Poco después de bascular con $U_\mathrm{E}=2{,}2$ V es $U_\mathrm{D}=-2{,}2\,\mathrm{V}-2{,}2\,\mathrm{V}=-4{,}4$ V, muy lejos de la ventana. Utilidad: una señal ruidosa que cruza lentamente un umbral hace conmutar un comparador muchas veces de un lado a otro. En el disparador de Schmitt, el umbral salta 4,4 V tras el primer basculamiento, y un ruido menor que esa anchura no provoca un segundo basculamiento. **Casos límite:** $\beta\to0$ da el comparador de la etapa [3](der-opv-ohne-ruckfuhrung.html#stufe-3). $U_\mathrm{E}=0$ admite ambos estados, según la historia previa.
+::::beispiel
+Los umbrales son $\pm0{,}2\cdot11\,\mathrm{V}=\pm2{,}2$ V, y la histéresis tiene 4,4 V de ancho. Poco después de bascular con $U_\mathrm{E}=2{,}2$ V es $U_\mathrm{D}=-2{,}2\,\mathrm{V}-2{,}2\,\mathrm{V}=-4{,}4$ V, muy lejos de la ventana. Utilidad: una señal ruidosa que cruza lentamente un umbral hace conmutar un comparador muchas veces de un lado a otro. En el disparador de Schmitt, el umbral salta 4,4 V tras el primer basculamiento, y un ruido menor que esa anchura no provoca un segundo basculamiento.
+::::
+
+⁠**Casos límite:** $\beta\to0$ da el comparador de la etapa [3](der-opv-ohne-ruckfuhrung.html#stufe-3). $U_\mathrm{E}=0$ admite ambos estados, según la historia previa.
 
 :::frage LTspice mostró en `.op`, con las entradas intercambiadas, 5,00025 V. ¿Está mal la simulación?
 No, responde a otra pregunta. `.op` resuelve la ecuación de equilibrio, y esta solución existe. Si un equilibrio se mantiene lo decide solo la evolución temporal. En el componente siempre hay algo de ruido; por eso la salida se escapa. El recuadro de LTspice de la etapa [10](wo-die-regeln-enden.html#stufe-10) lo muestra en `.tran`.

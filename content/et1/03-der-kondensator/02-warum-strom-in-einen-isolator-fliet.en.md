@@ -37,7 +37,9 @@ Suppose more flows in than out. Then a net charge $Q_\mathrm{n}$ collects in the
 In the pipe of a water circuit, a rubber membrane sits across the flow. The pump presses water against it, and the membrane stretches. Water moves on both sides, none goes through the membrane. Its counterpressure grows with the stretching, and when it reaches the pump pressure, the water stands still. The picture ends at the energy: the membrane stores it in the rubber, the capacitor in the field between the plates (Stage [6](die-gespeicherte-energie.html#stufe-6)).
 :::
 
-**Example.** A meter in the lead to A shows a constant 0.9 mA for 0.1 s. Then $Q=I\,t=90\,\mu\text{C}$ have been displaced, which is $5.6\cdot10^{14}$ electrons. They have left A, and just as many have arrived on B. A meter in the lead to B shows the same 0.9 mA.
+::::beispiel
+A meter in the lead to A shows a constant 0.9 mA for 0.1 s. Then $Q=I\,t=90\,\mu\text{C}$ have been displaced, which is $5.6\cdot10^{14}$ electrons. They have left A, and just as many have arrived on B. A meter in the lead to B shows the same 0.9 mA.
+::::
 
 ⁠**Limiting case:** If the plates are already at the potentials of the terminals, the drop along the wires is zero and so is the current. A capacitor charged to 9 V draws no current from a 9 V battery.
 

@@ -39,11 +39,13 @@ $$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{
 这条定律是测量结果。各组实验分别给出 $F\sim Q_\mathrm{A}$、$F\sim Q_\mathrm{B}$、$F\sim1/r^2$ 和 $\vec F\parallel\vec r$，合起来就是 $F\sim Q_\mathrm{A}Q_\mathrm{B}/r^2$，比例系数为 $k$。若设 $F\sim1/r^{2\pm\delta}$，则 $\delta$ 的上限从卡文迪什（18 世纪）的 0.02，经麦克斯韦（19 世纪）的 $5\cdot10^{-5}$，降到 $10^{-13}$（巴特利特等，1970 年）和 $3\cdot10^{-16}$（威廉斯等，1971 年）。
 :::
 
-**例。** 在参考模型中，
+::::beispiel
+在参考模型中，
 
 $$F=8.99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}\cdot\frac{10\cdot10^{-9}\,\mathrm{C}\cdot20\cdot10^{-9}\,\mathrm{C}}{(0.03\,\mathrm{m})^2}=2.0\,\mathrm{mN}.$$
 
 小球 A 的重力为 9.81 mN，因此 $\tan\alpha=0.204$，$\alpha=11.5^\circ$。产生这一偏转的，只是每 $5\cdot10^{12}$ 个电子中缺少一个。相同距离上两个 1 g 小球之间的万有引力只有 $7.4\cdot10^{-14}$ N，比电力小 $2.7\cdot10^{10}$ 倍，可以忽略。两个电子之间的电力甚至是万有引力的 $4.2\cdot10^{42}$ 倍。
+::::
 
 ⁠**极限情况：**$r\to\infty$ 时 $F\to0$。$Q_\mathrm{A}=0$ 时 $F=0$。距离加倍得 0.5 mN，电荷 $Q_\mathrm{A}$ 加倍得 4.0 mN。
 

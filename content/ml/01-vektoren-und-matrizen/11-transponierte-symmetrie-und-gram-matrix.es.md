@@ -48,11 +48,11 @@ $$\bigl((\mathbf{A}\mathbf{B})^{\top}\bigr)_{li}=(\mathbf{A}\mathbf{B})_{il}=\su
 Las tres primeras reglas se siguen directamente de la definición.
 :::
 
-⁠**Ejemplo numérico:**
-
+::::beispiel [Ejemplo numérico]
 $$\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^{\top}=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}.$$
 
 Para $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ y $\mathbf{D}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)$ se tiene $\mathbf{C}\mathbf{D}=\bigl(\begin{smallmatrix}2&3\\4&7\end{smallmatrix}\bigr)$, así que $(\mathbf{C}\mathbf{D})^{\top}=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$. Lo mismo da $\mathbf{D}^{\top}\mathbf{C}^{\top}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&3\\2&4\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$, mientras que $\mathbf{C}^{\top}\mathbf{D}^{\top}=\bigl(\begin{smallmatrix}3&4\\4&6\end{smallmatrix}\bigr)$ es otra cosa.
+::::
 
 ⁠**En resumen:** Trasponer intercambia filas y columnas; en el producto, el orden se invierte: $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$.
 
@@ -79,11 +79,13 @@ $$(\mathbf{A}^{\top}\mathbf{A})^{\top}=\mathbf{A}^{\top}(\mathbf{A}^{\top})^{\to
 
 así que $\mathbf{A}^{\top}\mathbf{A}$ es simétrica, y también $\mathbf{A}\mathbf{A}^{\top}$.
 
-⁠**Ejemplo numérico:** $\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ es simétrica; la rotación $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, no. Para $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ se tiene
+::::beispiel [Ejemplo numérico]
+$\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ es simétrica; la rotación $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, no. Para $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ se tiene
 
 $$\mathbf{C}^{\top}\mathbf{C}=\begin{pmatrix}1&3\\2&4\end{pmatrix}\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}10&14\\14&20\end{pmatrix},$$
 
 que es simétrica, como exige [(10.2)](#gl-10-2).
+::::
 
 ⁠**En resumen:** Una matriz simétrica es igual a su traspuesta; $\mathbf{A}^{\top}\mathbf{A}$ y $\mathbf{A}\mathbf{A}^{\top}$ son siempre simétricas.
 
@@ -119,11 +121,13 @@ $$\lVert\mathbf{x}_i-\mathbf{x}_k\rVert^2=(\mathbf{X}\mathbf{X}^{\top})_{ii}+(\m
 
 Si se divide la entrada $(i,k)$ por $\sqrt{(\mathbf{X}\mathbf{X}^{\top})_{ii}\,(\mathbf{X}\mathbf{X}^{\top})_{kk}}$, se obtiene la similitud coseno de $\mathbf{x}_i$ y $\mathbf{x}_k$.
 
-⁠**Ejemplo numérico:** Para los tres textos de la subsección [5.4](winkel-und-ahnlichkeit.html#stufe-5-4) se tiene
+::::beispiel [Ejemplo numérico]
+Para los tres textos de la subsección [5.4](winkel-und-ahnlichkeit.html#stufe-5-4) se tiene
 
 $$\mathbf{X}=\begin{pmatrix}3&2&0\\6&4&0\\0&1&3\end{pmatrix},\qquad \mathbf{X}\mathbf{X}^{\top}=\begin{pmatrix}13&26&2\\26&52&4\\2&4&10\end{pmatrix}.$$
 
 La distancia entre el texto 1 y el texto 3 es, según [(10.4)](#gl-10-4), $\sqrt{13+10-2\cdot2}=\sqrt{19}$, como se calculó antes. La similitud coseno de los textos 1 y 2 es $26/\sqrt{13\cdot52}=1$.
+::::
 
 ⁠**En resumen:** La matriz de Gram $\mathbf{X}\mathbf{X}^{\top}$ es la tabla de todos los productos escalares por parejas de los ejemplos; de ella se deducen todas las longitudes, distancias y ángulos.
 
@@ -153,7 +157,8 @@ Cada ejemplo aporta su propio producto exterior.
 
 La entrada $(j,l)$ del lado derecho es $\sum_ix_{ij}\,x_{il}$, la misma que en [(10.5)](#gl-10-5). Si se añade un ejemplo nuevo, $\mathbf{X}^{\top}\mathbf{X}$ solo cambia, por tanto, en una capa más, $\mathbf{x}_{N+1}\mathbf{x}_{N+1}^{\top}$; no hay que recalcularlo todo.
 
-⁠**Ejemplo numérico:** Para los textos se tiene
+::::beispiel [Ejemplo numérico]
+Para los textos se tiene
 
 $$\mathbf{X}^{\top}\mathbf{X}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
 
@@ -166,6 +171,7 @@ La primera fila de la matriz de Gram de las características: la columna «gol»
 El $0$ en la posición $(1,3)$ dice: las palabras «gol» y «elección» no aparecen juntas en ningún texto. Como suma de los tres productos exteriores:
 
 $$\begin{pmatrix}9&6&0\\6&4&0\\0&0&0\end{pmatrix}+\begin{pmatrix}36&24&0\\24&16&0\\0&0&0\end{pmatrix}+\begin{pmatrix}0&0&0\\0&1&3\\0&3&9\end{pmatrix}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
+::::
 
 ⁠**En resumen:** $\mathbf{X}^{\top}\mathbf{X}$ es la matriz de Gram de las columnas de las características; es la suma de los productos exteriores $\mathbf{x}_i\mathbf{x}_i^{\top}$ de todos los ejemplos.
 

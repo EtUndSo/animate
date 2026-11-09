@@ -29,9 +29,9 @@ __单位矩阵__ $\mathbf{I}_n\in\mathbb{R}^{n\times n}$ 是对角线上全为�
 
 如果型很明确，就简写为 $\mathbf{I}$。对每个向量 $\mathbf{x}\in\mathbb{R}^n$，有 $\mathbf{I}\mathbf{x}=\mathbf{x}$；对每个矩阵 $\mathbf{A}\in\mathbb{R}^{m\times n}$，有 $\mathbf{A}\mathbf{I}_n=\mathbf{A}$ 和 $\mathbf{I}_m\mathbf{A}=\mathbf{A}$。在矩阵乘积中，单位矩阵起着数 $1$ 的作用。
 
-⁠**算例：**
-
+::::beispiel [算例]
 $$\mathbf{I}_3=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix},\qquad \mathbf{I}_3\begin{pmatrix}60\\2\\3\end{pmatrix}=\begin{pmatrix}60\\2\\3\end{pmatrix}.$$
+::::
 
 ⁠**简而言之：**单位矩阵在对角线上为一，其余位置全为零；作为映射，它使每个向量保持不变。
 
@@ -54,11 +54,11 @@ $$\mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I} . \tag{11.1}$$
 
 这样的矩阵至多有一个。事实上，如果 $\mathbf{B}$ 和 $\mathbf{C}$ 都是 $\mathbf{A}$ 的逆矩阵，那么 $\mathbf{B}=\mathbf{B}\mathbf{I}=\mathbf{B}(\mathbf{A}\mathbf{C})=(\mathbf{B}\mathbf{A})\mathbf{C}=\mathbf{I}\mathbf{C}=\mathbf{C}$。正因为如此，可以说“**这个**逆矩阵”，而不只是“一个逆矩阵”。知道了它，就能从任何结果 $\mathbf{y}=\mathbf{A}\mathbf{x}$ 倒推回去：$\mathbf{A}^{-1}\mathbf{y}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{x}$。
 
-⁠**算例：**
-
+::::beispiel [算例]
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\begin{pmatrix}2-1&-2+2\\1-1&-1+2\end{pmatrix}=\begin{pmatrix}1&0\\0&1\end{pmatrix},$$
 
 另一种顺序同样如此，所以 $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$。拉伸的逆矩阵是 $\operatorname{diag}(2,\,0.5)^{-1}=\operatorname{diag}(0.5,\,2)$，旋转 $90^\circ$ 的逆矩阵是旋转 $-90^\circ$，$\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$。
+::::
 
 ⁠**简而言之：**逆矩阵 $\mathbf{A}^{-1}$ 撤销映射 $\mathbf{A}$：$\mathbf{A}^{-1}\mathbf{A}=\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$。
 
@@ -89,7 +89,9 @@ $$\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}=\be
 另一种顺序同样如此。若 $ad-bc\ne0$，就除以这个数，得到式 [(11.1)](#gl-11-1)。若 $ad-bc=0$，则 $\mathbf{A}$ 把向量 $(d,\,-c)^{\top}$ 变成 $(ad-bc,\ cd-dc)^{\top}=\mathbf{0}$，同样把 $(b,\,-a)^{\top}$ 变成 $\mathbf{0}$。除非四个元素全为零，否则这两个向量中至少有一个不是零向量；而四个元素全为零时，$\mathbf{A}$ 本来就是零矩阵。但是，把一个向量 $\mathbf{x}\ne\mathbf{0}$ 映射为 $\mathbf{0}$ 的矩阵没有逆矩阵：如果有的话，就会有 $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{A}^{-1}\mathbf{0}=\mathbf{0}$。
 :::
 
-⁠**算例：**对 $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$，$ad-bc=2-1=1$，所以逆矩阵是 $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$，与上面相同。对 $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$，$ad-bc=5$，逆矩阵是 $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$。
+::::beispiel [算例]
+对 $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$，$ad-bc=2-1=1$，所以逆矩阵是 $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$，与上面相同。对 $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$，$ad-bc=5$，逆矩阵是 $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$。
+::::
 
 ⁠**简而言之：**$2\times2$ 矩阵可逆，当且仅当 $ad-bc\ne0$；逆矩阵为 $\frac{1}{ad-bc}\bigl(\begin{smallmatrix}d&-b\\-c&a\end{smallmatrix}\bigr)$。
 
@@ -113,9 +115,11 @@ $$(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1},\qquad(\mathbf{A}^{
 
 有一条你可能希望成立的规则并不成立：$(\mathbf{A}+\mathbf{B})^{-1}$ 一般不等于 $\mathbf{A}^{-1}+\mathbf{B}^{-1}$。即使对数而言，也有 $\frac{1}{2+4}=\frac16$，而 $\frac12+\frac14=\frac34$。
 
-⁠**算例：**对 $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ 和 $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$，$\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$，其中 $ad-bc=21-16=5$，所以 $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$。由下式得到同样的结果：
+::::beispiel [算例]
+对 $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ 和 $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$，$\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$，其中 $ad-bc=21-16=5$，所以 $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$。由下式得到同样的结果：
 
 $$\mathbf{B}^{-1}\mathbf{A}^{-1}=\tfrac15\begin{pmatrix}2&-1\\-1&3\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\tfrac15\begin{pmatrix}3&-4\\-4&7\end{pmatrix}.$$
+::::
 
 ⁠**简而言之：**乘积的逆矩阵是各逆矩阵按相反顺序的乘积，$(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$。
 
@@ -141,7 +145,9 @@ $$\mathbf{B}^{-1}\mathbf{A}^{-1}=\tfrac15\begin{pmatrix}2&-1\\-1&3\end{pmatrix}\
 
 直观地说：若 $\mathbf{A}\mathbf{x}=\mathbf{0}$，则对每个 $\mathbf{u}$，两个不同的向量 $\mathbf{u}$ 和 $\mathbf{u}+\mathbf{x}$ 都落到同一处，因为 $\mathbf{A}(\mathbf{u}+\mathbf{x})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{x}=\mathbf{A}\mathbf{u}$。输出相同的两个输入无法区分。不可逆的方阵称为__奇异矩阵__。
 
-⁠**算例：**对 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$，$ad-bc=4-4=0$。确实，$\mathbf{x}=(2,\,-1)^{\top}$ 被映射为 $(2-2,\ 4-4)^{\top}=\mathbf{0}$，而不同的向量 $(1,\,1)^{\top}$ 和 $(3,\,0)^{\top}$ 都落到 $(3,\,6)^{\top}$。
+::::beispiel [算例]
+对 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$，$ad-bc=4-4=0$。确实，$\mathbf{x}=(2,\,-1)^{\top}$ 被映射为 $(2-2,\ 4-4)^{\top}=\mathbf{0}$，而不同的向量 $(1,\,1)^{\top}$ 和 $(3,\,0)^{\top}$ 都落到 $(3,\,6)^{\top}$。
+::::
 
 对数据而言，这意味着：例如一个计算如果只由卧室数和起居室数求出房间总数，就无法再把这两个数分开。对 $2\times2$ 矩阵，这恰好就是第 [11.3](#stufe-11-3) 小节中 $ad-bc=0$ 的情形。
 

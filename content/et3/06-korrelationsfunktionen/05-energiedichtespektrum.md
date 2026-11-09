@@ -29,7 +29,8 @@ $$E_s=\varphi^E_{ss}(0)=\int_{-\infty}^{\infty}|s(t)|^2\,\mathrm{d} t=\int_{-\in
 
 Zwei orthogonale Signale haben auch orthogonale Spektren: $\int s^*g\,\mathrm{d} t=\int S^*G\,\mathrm{d} f=0$.
 
-**Beispiel: der Exponentialimpuls.** $s(t)=\varepsilon(t)\mathrm{e}^{-t}$ hat $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$, also $|S|^2=\frac{1}{1+(2\pi f)^2}$. Das ist zugleich $\operatorname{Re}\{S\}$, und dessen Rücktransformation ist der gerade Anteil des Signals ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
+::::beispiel der Exponentialimpuls
+$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ hat $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$, also $|S|^2=\frac{1}{1+(2\pi f)^2}$. Das ist zugleich $\operatorname{Re}\{S\}$, und dessen Rücktransformation ist der gerade Anteil des Signals ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
 
 $$\varphi^E_{ss}(\tau)=\tfrac12\mathrm{e}^{-|\tau|},\qquad E_s=\varphi^E_{ss}(0)=\tfrac12.$$
 
@@ -38,6 +39,7 @@ Dasselbe gibt $\int_0^\infty\mathrm{e}^{-2t}\mathrm{d} t=\frac12$ im Zeitbereich
 :::abbildung et3/k6exp 2
 Exponentialimpuls ($RC=1$ s). Links das Signal und seine AKF $\frac12\mathrm{e}^{-|\tau|}$ (gerade, Maximum $=E_s=\frac12$). Rechts Betragsspektrum und Energiedichtespektrum, das schneller abfällt: Die Energie sitzt bei tiefen Frequenzen.
 :::
+::::
 
 :::aufgabe Aufgabe 4 ★ Parseval prüfen
 <span class="anker" id="aufg-4"></span>

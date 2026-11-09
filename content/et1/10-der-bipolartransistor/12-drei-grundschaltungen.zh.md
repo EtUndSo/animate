@@ -36,7 +36,11 @@ $$A_\text{共发射极}=-S\,R_\mathrm{C}=-\frac{U_{R_\mathrm{C}}}{U_T},\qquad A_
 对信号来说，$U_\mathrm{CC}$ 相当于地。共发射极：$u_\mathrm{be}=u_\mathrm{in}$，$u_\mathrm{out}=-R_\mathrm{C}i_\mathrm{c}=-R_\mathrm{C}S\,u_\mathrm{in}$，再由 $S=I_\mathrm{C}/U_T$ 得 $S\,R_\mathrm{C}=I_\mathrm{C}R_\mathrm{C}/U_T$。带发射极电阻：$u_\mathrm{in}=u_\mathrm{be}+R_\mathrm{E}S\,u_\mathrm{be}$，$u_\mathrm{in}$ 的大部分加在 $R_\mathrm{E}$ 上，其余部分 $u_\mathrm{be}=u_\mathrm{in}/(1+S\,R_\mathrm{E})$ 起控制作用。共集电极：$u_\mathrm{out}=R_\mathrm{E}S\,u_\mathrm{be}$，$u_\mathrm{be}=u_\mathrm{in}-u_\mathrm{out}$，解方程即可。共基极：基极不动，所以 $u_\mathrm{be}=-u_\mathrm{in}$，$u_\mathrm{out}=-R_\mathrm{C}S\,u_\mathrm{be}=+S\,R_\mathrm{C}u_\mathrm{in}$。
 :::
 
-**例。** 共发射极电路在点 A：$A=-6\,\mathrm{V}/26\,\mathrm{mV}=-231$，考虑 $r_\mathrm{CE}$ 后更准确的值是 $-215$。输入 1 mV 变成输出 0.23 V。中点允许的__电压摆幅__（输出幅值）接近 6 V，但输入为 25 mV 时切线早已失效。对于 2.6 mV 的小信号极限，输出为 0.6 V。放大器的工作点必须位于斜率近似恒定的区域，摆幅还应尽可能大。负反馈版本的 $A=-3\,\text{k}\Omega/(1\,\text{k}\Omega+12.9\,\Omega)=-2.96$：只有 1.3 % 的 $u_\mathrm{in}$ 加在 BE 通路上，但增益几乎只由两个电阻决定。$R_\mathrm{E}=3$ k$\Omega$、2 mA 的射极跟随器：$S\,R_\mathrm{E}=231$，$A=0.996$。它的优势不在电压，而在电流：电流增益为 $1+B=201$。它用作__缓冲器__：几乎不给电源增加负担，并以低阻抗驱动负载。**极限情况：**负反馈形式中 $R_\mathrm{E}\to0$ 给出 $-S\,R_\mathrm{C}$。射极跟随器中 $R_\mathrm{E}\to\infty$ 给出 $A\to1$。
+::::beispiel
+共发射极电路在点 A：$A=-6\,\mathrm{V}/26\,\mathrm{mV}=-231$，考虑 $r_\mathrm{CE}$ 后更准确的值是 $-215$。输入 1 mV 变成输出 0.23 V。中点允许的__电压摆幅__（输出幅值）接近 6 V，但输入为 25 mV 时切线早已失效。对于 2.6 mV 的小信号极限，输出为 0.6 V。放大器的工作点必须位于斜率近似恒定的区域，摆幅还应尽可能大。负反馈版本的 $A=-3\,\text{k}\Omega/(1\,\text{k}\Omega+12.9\,\Omega)=-2.96$：只有 1.3 % 的 $u_\mathrm{in}$ 加在 BE 通路上，但增益几乎只由两个电阻决定。$R_\mathrm{E}=3$ k$\Omega$、2 mA 的射极跟随器：$S\,R_\mathrm{E}=231$，$A=0.996$。它的优势不在电压，而在电流：电流增益为 $1+B=201$。它用作__缓冲器__：几乎不给电源增加负担，并以低阻抗驱动负载。
+::::
+
+⁠**极限情况：**负反馈形式中 $R_\mathrm{E}\to0$ 给出 $-S\,R_\mathrm{C}$。射极跟随器中 $R_\mathrm{E}\to\infty$ 给出 $A\to1$。
 
 | 电路 | $A$ | 输入电阻 | 输出电阻 | 用途 |
 |---|---|---|---|---|

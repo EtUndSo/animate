@@ -39,7 +39,11 @@ Der Stab wird dicker. Weil das Silizium nur Gas und den eigenen Stab berührt, n
 
 ⁠**So liest man das:** [(2.2)](#gl-2-2) ist die Umkehrung von [(2.1)](#gl-2-1). Die Temperatur entscheidet die Richtung: Bei 300 °C entsteht SiHCl$_3$, über 1000 °C zerfällt es. Nach [(2.2)](#gl-2-2) wird jedes SiHCl$_3$ zu Silizium, nach [(2.3)](#gl-2-3) jedes zweite, nach [(2.4)](#gl-2-4) jedes vierte, der Rest bleibt als SiCl$_4$ zurück. Der zugeführte Wasserstoff begünstigt [(2.2)](#gl-2-2). Das Ergebnis ist polykristallin, weil das Gas die Atome an vielen Stellen zugleich absetzt: Viele Keime wachsen nebeneinander, jeder mit eigener Gitterrichtung.
 
-**Beispiel.** Ein Stab mit 150 mm Durchmesser und 2 m Länge enthält 82 kg Silizium. Nach [(2.2)](#gl-2-2) allein sind dafür 397 kg SiHCl$_3$ nötig. **Grenzfall:** Ohne Wasserstoff bleibt [(2.2)](#gl-2-2) aus, und höchstens die Hälfte des Siliziums landet im Stab.
+::::beispiel
+Ein Stab mit 150 mm Durchmesser und 2 m Länge enthält 82 kg Silizium. Nach [(2.2)](#gl-2-2) allein sind dafür 397 kg SiHCl$_3$ nötig.
+::::
+
+⁠**Grenzfall:** Ohne Wasserstoff bleibt [(2.2)](#gl-2-2) aus, und höchstens die Hälfte des Siliziums landet im Stab.
 
 :::frage Warum destilliert man nicht gleich das Silizium?
 Silizium siedet erst weit über 3000 °C. Dort gibt jeder Behälter selbst Fremdatome ab. Der Umweg über SiHCl$_3$ verschiebt die Trennung auf rund 30 °C, wo sie sauber gelingt.

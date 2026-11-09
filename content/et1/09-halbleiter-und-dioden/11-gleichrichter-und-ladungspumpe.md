@@ -32,7 +32,11 @@ Eine gesperrte Diode trägt höchstens $\hat u-U_\mathrm F$.
 
 ⁠**So liest man das:** Für $|u_\mathrm e|<2U_\mathrm F$ leiten beide Paare nicht, $u_\mathrm a$ bleibt null. Am gesunkenen Scheitel liest man die doppelte Durchlassspannung ab. **Gültigkeit:** ohmsche Last. Eingang und Ausgang haben keinen gemeinsamen Bezugspunkt.
 
-**Beispiel.** Der Scheitel ist $12\,\mathrm{V}-1{,}4\,\mathrm{V}=10{,}6$ V, beim Einweggleichrichter 11,3 V. Die Lücke dauert je Halbwelle 0,74 ms, das sind 7,4 % der Zeit. Der Mittelwert ist 6,29 V, beim Einweggleichrichter nur 3,48 V. **Grenzfälle:** Für $U_\mathrm F\to0$ ist $u_\mathrm a=|u_\mathrm e|$. Für $\hat u<1{,}4$ V bleibt der Ausgang null.
+::::beispiel
+Der Scheitel ist $12\,\mathrm{V}-1{,}4\,\mathrm{V}=10{,}6$ V, beim Einweggleichrichter 11,3 V. Die Lücke dauert je Halbwelle 0,74 ms, das sind 7,4 % der Zeit. Der Mittelwert ist 6,29 V, beim Einweggleichrichter nur 3,48 V.
+::::
+
+⁠**Grenzfälle:** Für $U_\mathrm F\to0$ ist $u_\mathrm a=|u_\mathrm e|$. Für $\hat u<1{,}4$ V bleibt der Ausgang null.
 
 :::ltspice Brückengleichrichter
 ⁠**Zeichnen:** Quelle mit `SINE(0 12 50)` zwischen `a` und `b`. Dioden DM von `a` nach `p`, von `b` nach `p`, von Masse nach `a` und von Masse nach `b`. `res` 1k von `p` nach Masse.

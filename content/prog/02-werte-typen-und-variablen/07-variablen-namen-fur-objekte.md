@@ -34,7 +34,8 @@ Python wertet den Ausdruck rechts aus und verbindet dann den Namen links mit dem
 
 Das Gleichheitszeichen ist hier keine Gleichung wie in der Mathematik, sondern ein Auftrag: „Kapitel den Namen links an das Ergebnis rechts.“ Die Richtung ist fest: Der Name steht immer links.
 
-**Beispiel.** Spannung, Widerstand und Strom aus dem ohmschen Gesetz:
+::::beispiel
+Spannung, Widerstand und Strom aus dem ohmschen Gesetz:
 
 ```console
 >>> spannung = 5
@@ -47,6 +48,7 @@ Das Gleichheitszeichen ist hier keine Gleichung wie in der Mathematik, sondern e
 ```
 
 Nach einer Zuweisung zeigt der interaktive Modus nichts an. Eine Zuweisung ist eine Anweisung ([Programmieren, Python 1, Abschnitt 1.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-programmiersprachen.html#stufe-1-1)) und kein Ausdruck; sie hat keinen Wert, den man anzeigen könnte. Ihr Ergebnis ist nur, dass der Name ab jetzt etwas bedeutet.
+::::
 
 ⁠**Kurz gesagt:** `name = ausdruck` rechnet den Ausdruck aus und bindet den Namen an das Ergebnis.
 
@@ -66,7 +68,8 @@ Ein Name, der an ein Objekt gebunden ist, heißt __Variable__. Der Wert der Vari
 
 Eine Variable entsteht mit ihrer ersten Zuweisung. Davor ist der Name unbekannt, und Python meldet einen `NameError`.
 
-**Beispiel.** Die Sitzung aus dem letzten Unterabschnitt geht weiter:
+::::beispiel
+Die Sitzung aus dem letzten Unterabschnitt geht weiter:
 
 ```console
 >>> leistung
@@ -80,6 +83,7 @@ NameError: name 'leistung' is not defined
 ```
 
 Erst die Zuweisung macht aus dem Namen `leistung` eine Variable. Danach steht im Zustandsdiagramm ein vierter Name mit einem Pfeil auf ein `float`-Objekt mit dem Wert $0{,}0532$.
+::::
 
 ⁠**Kurz gesagt:** Eine Variable ist ein Name, der an ein Objekt gebunden ist; sie entsteht mit der ersten Zuweisung.
 
@@ -101,7 +105,8 @@ Zustandsdiagramme. Links: Nach `y = x` sind beide Namen an dasselbe Objekt gebun
 Eine Zuweisung legt nie eine Kopie eines Objekts an. `y = x` bindet `y` an dasselbe Objekt, an das `x` gebunden ist. Eine spätere Zuweisung an `x` bindet nur `x` neu; `y` bleibt an seinem Objekt.
 :::
 
-**Beispiel.** Die Identität (Unterabschnitt [1.3](objekte-und-typen.html#stufe-1-3)) macht sichtbar, welches Objekt hinter einem Namen steht:
+::::beispiel
+Die Identität (Unterabschnitt [1.3](objekte-und-typen.html#stufe-1-3)) macht sichtbar, welches Objekt hinter einem Namen steht:
 
 ```console
 >>> x = 5
@@ -120,6 +125,7 @@ Eine Zuweisung legt nie eine Kopie eines Objekts an. `y = x` bindet `y` an dasse
 ```
 
 Nach `y = x` haben beide Namen dieselbe Identität: ein Objekt, zwei Etiketten. Nach `x = x + 1` hat `x` eine neue Identität, `y` die alte. Das Objekt 5 hat sich nicht verändert; das kann es auch nicht, denn der Wert einer Zahl bleibt für immer derselbe (Unterabschnitt [1.3](objekte-und-typen.html#stufe-1-3)).
+::::
 
 ⁠**Kurz gesagt:** Eine Zuweisung heftet ein Etikett an ein Objekt oder hängt es um; sie kopiert nichts.
 
@@ -153,7 +159,8 @@ Ein Schlüsselwort ist ein Wort, das in Python eine feste Bedeutung hat. Python�
 
 Buchstaben mit Umlaut sind in Namen erlaubt, `größe` ist ein gültiger Name. Üblich sind aber Namen aus Kleinbuchstaben ohne Umlaute, Wörter durch Unterstriche getrennt: `u_batterie`, `strom_ma`. Daran halten sich die Programme dieses Kapitels.
 
-**Beispiel.** Drei Verstöße, jeder mit seiner Meldung:
+::::beispiel
+Drei Verstöße, jeder mit seiner Meldung:
 
 ```console
 >>> 3d = 4
@@ -174,6 +181,7 @@ SyntaxError: invalid syntax
 ```
 
 `3d` beginnt mit einer Ziffer; Python liest den Anfang als Zahl und stolpert über das `d`. `mein-wert` liest Python als Rechnung `mein` minus `wert`, und an eine Rechnung kann man nichts binden. Der Vorschlag mit `==` hilft hier nicht; gemeint war ein Name, also `mein_wert`. `class` ist ein Schlüsselwort.
+::::
 
 **Eine Falle: eingebaute Namen überschreiben.** `print`, `type`, `id` und die anderen eingebauten Funktionen sind ebenfalls Namen, aber keine Schlüsselwörter. Man darf sie neu binden, und dann sind sie weg:
 
@@ -205,7 +213,8 @@ Für einen arithmetischen Operator $\circ$ aus `+ - * / // % **` bedeutet die __
 
 Wichtig sind die Klammern: Der ganze Ausdruck rechts wird zuerst ausgerechnet. `x *= 2 + 3` verfünffacht `x`.
 
-**Beispiel.** Ein Zähler und eine Summe aus Schritten von $0{,}1$, wie in Unterabschnitt [5.1](rechnen-mit-gleitkommazahlen.html#stufe-5-1):
+::::beispiel
+Ein Zähler und eine Summe aus Schritten von $0{,}1$, wie in Unterabschnitt [5.1](rechnen-mit-gleitkommazahlen.html#stufe-5-1):
 
 ```console
 >>> zaehler = 0
@@ -226,6 +235,7 @@ Wichtig sind die Klammern: Der ganze Ausdruck rechts wird zuerst ausgerechnet. `
 ```
 
 Auch eine erweiterte Zuweisung bindet den Namen neu: `zaehler += 1` erzeugt ein neues `int`-Objekt und hängt das Etikett `zaehler` daran.
+::::
 
 ⁠**Kurz gesagt:** `x += a` ist für Zahlen die Kurzform von `x = x + (a)`; ebenso `-=`, `*=`, `/=`, `//=`, `%=` und `**=`.
 

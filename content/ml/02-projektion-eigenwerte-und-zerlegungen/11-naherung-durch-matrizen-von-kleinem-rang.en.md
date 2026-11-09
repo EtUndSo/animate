@@ -19,7 +19,7 @@ The singular value decomposition orders the building blocks of a matrix by their
 
 <span class="anker" id="stufe-10-1"></span>
 
-To say how close two matrices are to each other, you need a measure of size for their difference. The spectral norm is one such measure; it measures the largest lengthening. A second one is even more obvious: you read the matrix out row by row into one long vector, like an image in Foundations 1, Section 6.1, and take the Euclidean norm of that vector.
+To say how close two matrices are to each other, you need a measure of size for their difference. The spectral norm is one such measure; it measures the largest lengthening. A second one is even more obvious: you read the matrix out row by row into one long vector, like an image in [Foundations 1, Section 6.1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), and take the Euclidean norm of that vector.
 
 :::definition Definition 10.1 (Frobenius norm)
 <span class="anker" id="satz-10-1"></span>
@@ -44,11 +44,13 @@ Diagonal entry $j$ of $\mathbf{A}^{\top}\mathbf{A}$ is $\mathbf{a}_j^{\top}\math
 
 Two consequences. Because $d_1^2\le\sum_jd_j^2$, we have $\lVert\mathbf{A}\rVert_2\le\lVert\mathbf{A}\rVert_F$. And an orthogonal matrix does not change the Frobenius norm: $(\mathbf{Q}\mathbf{A})^{\top}(\mathbf{Q}\mathbf{A})=\mathbf{A}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{A}=\mathbf{A}^{\top}\mathbf{A}$, so $\mathbf{Q}\mathbf{A}$ and $\mathbf{A}$ have the same singular values.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, we have $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Fig. [24](#abb-24)), so $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4.12$, slightly more than $\lVert\mathbf{A}\rVert_2=4$.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, we have $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Fig. [24](#abb-24)), so $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4.12$, slightly more than $\lVert\mathbf{A}\rVert_2=4$.
 
 :::abbildung ml/k2rfrobenius 24
 The squared Frobenius norm of $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$: the sum of all squared entries, equal to the sum of the squared singular values.
 :::
+::::
 
 ⁠**In short:** The Frobenius norm is the Euclidean norm of all entries; its square is the sum of the squared singular values.
 
@@ -80,7 +82,8 @@ $$\lVert\mathbf{A}-\mathbf{A}_k\rVert_2=d_{k+1},\qquad \lVert\mathbf{A}-\mathbf{
 
 For storage, $\mathbf{A}_k$ needs only the $k$ vectors $\mathbf{u}_j$ with $m$ entries each, the $k$ vectors $\mathbf{v}_j$ with $n$ entries each and the $k$ numbers $d_j$, a total of $k(m+n+1)$ numbers instead of $mn$.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ and $k=1$,
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ and $k=1$,
 
 $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1.6&3.2\\0.8&1.6\end{pmatrix},\qquad \mathbf{A}-\mathbf{A}_1=\mathbf{u}_2\mathbf{v}_2^{\top}=\begin{pmatrix}0.4&-0.2\\-0.8&0.4\end{pmatrix}.$$
 
@@ -89,6 +92,7 @@ The Frobenius norm of the error is $\sqrt{0.16+0.04+0.64+0.16}=1=d_2$ (Fig. [25
 :::abbildung ml/k2rfehler 25
 The error of the best approximation of rank $1$ in the Frobenius norm, squared, with $0.4=\tfrac25$, $0.2=\tfrac15$ and $0.8=\tfrac45$: it equals $d_2^2=1$.
 :::
+::::
 
 ⁠**In short:** $\mathbf{A}_k$ keeps the $k$ largest building blocks; the error has the remaining singular values, and its spectral norm is $d_{k+1}$.
 
@@ -110,7 +114,7 @@ So among all matrices of rank at most $k$, the matrix $\mathbf{A}_k$ is closest 
 :::
 
 :::beweis Spectral norm
-By the rank–nullity theorem, the null space of $\mathbf{B}$ has dimension $n-\operatorname{rank}\mathbf{B}\ge n-k$. Choose $n-k$ linearly independent vectors $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ in the null space and add $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. These are $n+1$ vectors in $\mathbb{R}^n$, and by Foundations 1, Section 13.4, they are linearly dependent, because a matrix with $n$ rows has rank at most $n$. So there are numbers, not all zero, with $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. This vector $\mathbf{z}$ is not zero, because otherwise, by the independence of both lists, all numbers would be zero. It lies in the null space of $\mathbf{B}$ and in the span of $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Normalize it to length $1$. Then $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, and with $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
+By the rank–nullity theorem, the null space of $\mathbf{B}$ has dimension $n-\operatorname{rank}\mathbf{B}\ge n-k$. Choose $n-k$ linearly independent vectors $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ in the null space and add $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. These are $n+1$ vectors in $\mathbb{R}^n$, and by [Foundations 1, Section 13.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), they are linearly dependent, because a matrix with $n$ rows has rank at most $n$. So there are numbers, not all zero, with $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. This vector $\mathbf{z}$ is not zero, because otherwise, by the independence of both lists, all numbers would be zero. It lies in the null space of $\mathbf{B}$ and in the span of $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Normalize it to length $1$. Then $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, and with $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -119,7 +123,9 @@ So $\mathbf{A}-\mathbf{B}$ lengthens the unit vector $\mathbf{z}$ by at least th
 
 The proof shows the reason: a matrix of rank $k$ must map a whole set of directions to zero, namely its null space. This null space inevitably meets the space of the $k+1$ most strongly stretched directions of $\mathbf{A}$, and there $\mathbf{B}$ makes an error of at least $d_{k+1}$.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, the matrix $\mathbf{A}_1$ is the best matrix of rank $1$, with the error $1$ in both norms. Another matrix of rank $1$, say $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, which simply strikes out the second row, has the error $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$ with norm $2$.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, the matrix $\mathbf{A}_1$ is the best matrix of rank $1$, with the error $1$ in both norms. Another matrix of rank $1$, say $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, which simply strikes out the second row, has the error $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$ with norm $2$.
+::::
 
 ⁠**In short:** The truncated decomposition $\mathbf{A}_k$ is the best approximation of rank $k$, in the spectral norm as well as in the Frobenius norm.
 
@@ -145,7 +151,8 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 indicates which part of the sum of all squared brightness values is preserved.
 
-⁠**Worked example:** The cross from Foundations 1, Section 6.1, is
+::::beispiel [Worked example]
+The cross from [Foundations 1, Section 6.1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), is
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 
@@ -158,6 +165,7 @@ $$\mathbf{C}_1=2\,\mathbf{q}_1\mathbf{q}_1^{\top}=\frac13\begin{pmatrix}1&2&1\\2
 :::abbildung ml/k2bild 26
 The cross $\mathbf{C}$ of $3\times3$ pixels (left, $0$ black, $1$ white), its best approximation $\mathbf{C}_1$ of rank $1$ (middle; the value $\tfrac43$ is brighter than white and is shown as white) and the error $\mathbf{C}-\mathbf{C}_1$ (right, red positive, blue negative). The error is itself a matrix of rank $1$, the building block for the singular value $1$.
 :::
+::::
 
 For a cross of $3\times3$ pixels this saves little. For large images the difference is considerable: an image of $1000\times1000$ pixels has $10^6$ entries; the approximation with $k=50$ building blocks needs $50\cdot(1000+1000+1)=100\,050$ numbers, about $10\,\%$. Whether the approximation looks good depends on how quickly the singular values fall off. In many photos, neighboring rows are very similar; the rows then lie close to a subspace of small dimension, and a few large singular values carry almost the entire sum $\sum_jd_j^2$.
 

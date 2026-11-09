@@ -47,7 +47,9 @@ Für den Abstand $x=u_\infty-u_C$ gilt wie in Stufe [9](aufladen-uber-einen-wid
 Fünf Sekunden Laden, fünf Sekunden Entladen. Die Spannung verläuft stetig, die Prozentzahlen beziehen sich auf den Endwert beim Laden und auf den Startwert beim Entladen. Der Strom springt beim Umschalten und wechselt beim Entladen das Vorzeichen, gestrichelt die Sprünge.
 :::
 
-**Beispiel.** Im Rechenmodell startet das Entladen bei 9 V. Im ersten Moment ist $u_R=-9$ V und $i=-0{,}9$ mA. Nach 1 s sind es $u_C=3{,}31$ V und $i=-0{,}331$ mA, nach 3 s noch 0,448 V. Lädt man nur 5 s lang wie in Abb. [12](#abb-12), startet das Entladen bei 8,94 V.
+::::beispiel
+Im Rechenmodell startet das Entladen bei 9 V. Im ersten Moment ist $u_R=-9$ V und $i=-0{,}9$ mA. Nach 1 s sind es $u_C=3{,}31$ V und $i=-0{,}331$ mA, nach 3 s noch 0,448 V. Lädt man nur 5 s lang wie in Abb. [12](#abb-12), startet das Entladen bei 8,94 V.
+::::
 
 ⁠**Kontrolle:** Die Ladung, die beim Entladen durch $R$ fließt, ist $\int_0^\infty|i|\,\mathrm{d} t=\frac{U_0}{R}\,\tau=C\,U_0$, genau die gespeicherte Ladung. **Grenzfall:** Für $u_C(0)=u_\infty$ ist die Klammer in [(10.2)](#gl-10-2) null: Es passiert nichts, der Kondensator ist schon im Endzustand.
 

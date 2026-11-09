@@ -59,7 +59,8 @@ Die Kettenregel gibt $\frac{\partial}{\partial u}f(\Phi(u,v,w))=\nabla f\cdot\fr
 
 **Warum orthogonal nötig ist.** Die schiefen Koordinaten $\Phi(u,v)=(u+v,\,v)$ haben $\hat{\boldsymbol{e}}_u=(1,0)$, $\hat{\boldsymbol{e}}_v=\frac1{\sqrt2}(1,1)$ und $h_v=\sqrt2$. Die Funktion $f=y=v$ hat den Gradienten $(0,1)$, die Formel gäbe aber $\frac1{\sqrt2}\hat{\boldsymbol{e}}_v=(\frac12,\frac12)$. In einer schiefen Basis ist $\boldsymbol{F}\cdot\hat{\boldsymbol{e}}_u$ nicht die Komponente längs $\hat{\boldsymbol{e}}_u$, [(7.3)](#gl-7-3) gilt dort nicht.
 
-**Beispiel: Zylinderkoordinaten.** Für $\Phi(r,\varphi,z)=(r\cos\varphi,r\sin\varphi,z)$ mit $r>0$, $\varphi\in(0,2\pi)$, $z\in\mathbb{R}$ ist
+::::beispiel Zylinderkoordinaten
+Für $\Phi(r,\varphi,z)=(r\cos\varphi,r\sin\varphi,z)$ mit $r>0$, $\varphi\in(0,2\pi)$, $z\in\mathbb{R}$ ist
 
 $$\boldsymbol a_r=(\cos\varphi,\sin\varphi,0)^T,\quad\boldsymbol a_\varphi=(-r\sin\varphi,r\cos\varphi,0)^T,\quad\boldsymbol a_z=(0,0,1)^T.$$
 
@@ -67,6 +68,7 @@ Alle Skalarprodukte verschwinden, das System ist orthogonal, mit $h_r=1$, $h_\va
 
 <span class="anker" id="gl-7-5"></span>
 $$\nabla f=\frac{\partial f}{\partial r}\,\hat{\boldsymbol{e}}_r+\frac1r\frac{\partial f}{\partial\varphi}\,\hat{\boldsymbol{e}}_\varphi+\frac{\partial f}{\partial z}\,\hat{\boldsymbol{e}}_z. \tag{7.5}$$
+::::
 
 ⁠**Kontrolle:** $f=x=r\cos\varphi$ gibt $\cos\varphi\,\hat{\boldsymbol{e}}_r-\sin\varphi\,\hat{\boldsymbol{e}}_\varphi=(1,0,0)$, wie es sein muss.
 

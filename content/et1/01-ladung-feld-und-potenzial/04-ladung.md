@@ -40,7 +40,11 @@ Die Namen sind älter als das Elektron. DuFay unterschied 1733 glasige und harzi
 
 **Leiter und Isolatoren.** In einem __Leiter__ wie Metall kann je Atom mindestens ein Elektron durch den ganzen Körper wandern. In einem __Isolator__ wie Glas oder Gummi bleiben die Elektronen an ihren Atomen. Deshalb bleibt Ladung auf einem Isolator, wo sie entstanden ist, während sie sich auf Metall sofort verteilt.
 
-**Beispiel.** Kugel A ($+10$ nC) fehlen $N=Q/e=6{,}24\cdot10^{10}$ Elektronen. Eine Kunststoffkugel von 1 g enthält rund $3{,}2\cdot10^{23}$ Elektronen, es fehlt also nur eines von $5\cdot10^{12}$. **Grenzfall:** Für $N_\mathrm{p}=N_\mathrm{e}$ ist $Q=0$. Ein neutraler Körper enthält nicht wenig Ladung, sondern gleich viel von beiden Vorzeichen.
+::::beispiel
+Kugel A ($+10$ nC) fehlen $N=Q/e=6{,}24\cdot10^{10}$ Elektronen. Eine Kunststoffkugel von 1 g enthält rund $3{,}2\cdot10^{23}$ Elektronen, es fehlt also nur eines von $5\cdot10^{12}$.
+::::
+
+⁠**Grenzfall:** Für $N_\mathrm{p}=N_\mathrm{e}$ ist $Q=0$. Ein neutraler Körper enthält nicht wenig Ladung, sondern gleich viel von beiden Vorzeichen.
 
 :::frage Warum heißt ausgerechnet der Mangel an Elektronen positiv?
 Weil die Vorzeichen vergeben wurden, bevor man Elektronen kannte. Franklin nannte geriebenes Glas positiv, erst viel später zeigte sich, dass es dabei Elektronen verliert. Die Festlegung blieb, also trägt das Elektron negative Ladung. Physikalisch ist daran nichts besonders.

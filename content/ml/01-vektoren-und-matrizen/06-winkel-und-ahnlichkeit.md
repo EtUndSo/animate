@@ -46,7 +46,9 @@ Multipliziert mit $\lVert\mathbf{v}\rVert^2>0$ heißt das $(\mathbf{u}^{\top}\ma
 Gleichheit gilt genau dann, wenn $\lVert\mathbf{u}-t\,\mathbf{v}\rVert=0$ ist für dieses $t$, also $\mathbf{u}=t\,\mathbf{v}$. Umgekehrt ist für $\mathbf{u}=c\,\mathbf{v}$ tatsächlich $|\mathbf{u}^{\top}\mathbf{v}|=|c|\,\lVert\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$ ist $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$. Die Ungleichung ist streng, weil $\mathbf{v}$ kein Vielfaches von $\mathbf{u}$ ist.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$ ist $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$. Die Ungleichung ist streng, weil $\mathbf{v}$ kein Vielfaches von $\mathbf{u}$ ist.
+::::
 
 Mit der Ungleichung lässt sich nachholen, was in Unterabschnitt [3.4](normen-die-groe-eines-vektors.html#stufe-3-4) nur anschaulich begründet war: die Dreiecksungleichung der euklidischen Norm. Es ist
 
@@ -95,11 +97,13 @@ $$\cos\varphi=\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\
 
 Diese Definition ist nur möglich, weil die rechte Seite nach der Cauchy-Schwarz-Ungleichung immer zwischen $-1$ und $1$ liegt. Zu jeder solchen Zahl gibt es genau einen Winkel zwischen $0^\circ$ und $180^\circ$. Am Vorzeichen des Skalarprodukts sieht man, ob der Winkel spitz ($\mathbf{u}^{\top}\mathbf{v}>0$), recht ($\mathbf{u}^{\top}\mathbf{v}=0$) oder stumpf ($\mathbf{u}^{\top}\mathbf{v}<0$) ist.
 
-⁠**Rechenbeispiel:** Für $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ ist $\cos\varphi=1/\sqrt2$, also $\varphi=45^\circ$. Für $(1,\,0,\,1)^{\top}$ und $(1,\,1,\,0)^{\top}$ ist $\cos\varphi=\tfrac12$, also $\varphi=60^\circ$ (Abb. [22](#abb-22)). Für $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$ ist $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, also $\varphi\approx53{,}4^\circ$.
+::::beispiel [Rechenbeispiel]
+Für $(1,\,0)^{\top}$ und $(1,\,1)^{\top}$ ist $\cos\varphi=1/\sqrt2$, also $\varphi=45^\circ$. Für $(1,\,0,\,1)^{\top}$ und $(1,\,1,\,0)^{\top}$ ist $\cos\varphi=\tfrac12$, also $\varphi=60^\circ$ (Abb. [22](#abb-22)). Für $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$ ist $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, also $\varphi\approx53{,}4^\circ$.
 
 :::abbildung ml/k1rwinkel 22
 Der Winkel zwischen $(1,\,0,\,1)^{\top}$ und $(1,\,1,\,0)^{\top}$: im Zähler das Skalarprodukt, im Nenner die beiden Längen.
 :::
+::::
 
 ⁠**Kurz gesagt:** Der Kosinus des Winkels zwischen zwei Vektoren ist ihr Skalarprodukt geteilt durch das Produkt ihrer Längen.
 
@@ -125,13 +129,17 @@ Sind $\mathbf{u}$ und $\mathbf{v}$ orthogonal, so ist $\lVert\mathbf{u}+\mathbf{
 
 Das folgt sofort aus $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert^2+2\,\mathbf{u}^{\top}\mathbf{v}+\lVert\mathbf{v}\rVert^2$, denn der mittlere Summand ist null.
 
-⁠**Rechenbeispiel 1:** $(1,\,2,\,2)^{\top}$ und $(2,\,0,\,-1)^{\top}$ sind orthogonal, denn $2+0-2=0$. Ihre Summe $(3,\,2,\,1)^{\top}$ hat das Längenquadrat $14=9+5$.
+::::beispiel [Rechenbeispiel 1]
+$(1,\,2,\,2)^{\top}$ und $(2,\,0,\,-1)^{\top}$ sind orthogonal, denn $2+0-2=0$. Ihre Summe $(3,\,2,\,1)^{\top}$ hat das Längenquadrat $14=9+5$.
+::::
 
-⁠**Rechenbeispiel 2: zwei Muster, die sich nicht stören.** Das Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ und das Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ aus Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) sind orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. Ein Signal, das aus $2$-mal dem Gleichmuster und $1$-mal dem Wechselmuster besteht, ist $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. Der Vergleich mit dem Gleichmuster ergibt $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, der Vergleich mit dem Wechselmuster $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Abb. [23](#abb-23)). Jeder Vergleich findet genau seinen eigenen Anteil, mal $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; der andere Anteil stört ihn nicht.
+::::beispiel [Rechenbeispiel 2] zwei Muster, die sich nicht stören
+Das Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ und das Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ aus Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) sind orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. Ein Signal, das aus $2$-mal dem Gleichmuster und $1$-mal dem Wechselmuster besteht, ist $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. Der Vergleich mit dem Gleichmuster ergibt $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, der Vergleich mit dem Wechselmuster $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Abb. [23](#abb-23)). Jeder Vergleich findet genau seinen eigenen Anteil, mal $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; der andere Anteil stört ihn nicht.
 
 :::abbildung ml/k1rortho 23
 Die beiden Muster sind orthogonal (oben). Der Vergleich des Signals $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ mit jedem Muster liefert dessen Anteil mal $4$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Orthogonal heißt Skalarprodukt null; orthogonale Pfeile stehen senkrecht aufeinander, und für sie gilt der Satz des Pythagoras.
 
@@ -168,7 +176,8 @@ also der Kosinus ihres Winkels.
 
 Sie ist $1$, wenn die Vektoren in dieselbe Richtung zeigen, $0$, wenn sie orthogonal sind, und $-1$, wenn sie entgegengesetzt zeigen. Multipliziert man einen der Vektoren mit einer positiven Zahl, ändert sie sich nicht, denn die Zahl kürzt sich heraus.
 
-⁠**Rechenbeispiel:** Drei Texte und ihre Zählungen der Wörter „Tor“, „Ball“ und „Wahl“:
+::::beispiel [Rechenbeispiel]
+Drei Texte und ihre Zählungen der Wörter „Tor“, „Ball“ und „Wahl“:
 
 $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad \mathbf{x}_3=(0,\,1,\,3)^{\top} .$$
 
@@ -179,6 +188,7 @@ Zwei Kosinus-Ähnlichkeiten der Wortzählungen: jeweils ein Skalarprodukt im Zä
 :::
 
 Die Abstände dagegen sind $\lVert\mathbf{x}_1-\mathbf{x}_2\rVert=\sqrt{13}\approx3{,}61$, $\lVert\mathbf{x}_1-\mathbf{x}_3\rVert=\sqrt{19}\approx4{,}36$ und $\lVert\mathbf{x}_2-\mathbf{x}_3\rVert=\sqrt{54}\approx7{,}35$. Nach dem Abstand liegt Text 1 von Text 3 kaum weiter entfernt als von Text 2, obwohl Text 2 genau dasselbe Thema hat. Die Kosinus-Ähnlichkeit erkennt das sofort: Sie ist $1$, und der Winkel zu Text 3 ist mit etwa $79{,}9^\circ$ fast ein rechter.
+::::
 
 ⁠**Kurz gesagt:** Die Kosinus-Ähnlichkeit vergleicht nur die Richtungen zweier Vektoren und übersieht ihre Längen.
 
@@ -208,11 +218,13 @@ Mit $\mathbf{u}^{\top}\mathbf{u}=\lVert\mathbf{u}\rVert^2=1$ ist $\mathbf{u}^{\t
 
 Ist $\mathbf{u}$ nicht normiert, so ist $\mathbf{u}^{\top}\mathbf{x}$ die Schattenlänge von $\mathbf{x}$ in Richtung $\mathbf{u}$, multipliziert mit $\lVert\mathbf{u}\rVert$.
 
-⁠**Rechenbeispiel:** $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ ist normiert, denn $0{,}36+0{,}64=1$. Für $\mathbf{x}=(3,\,1)^{\top}$ ist die Schattenlänge $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (Abb. [26](#abb-26)), der Schattenpunkt $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ und der Verbindungspfeil $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Er ist orthogonal zu $\mathbf{u}$: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Mit $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ ist $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, also $\varphi\approx34{,}7^\circ$.
+::::beispiel [Rechenbeispiel]
+$\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ ist normiert, denn $0{,}36+0{,}64=1$. Für $\mathbf{x}=(3,\,1)^{\top}$ ist die Schattenlänge $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (Abb. [26](#abb-26)), der Schattenpunkt $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ und der Verbindungspfeil $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Er ist orthogonal zu $\mathbf{u}$: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Mit $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ ist $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, also $\varphi\approx34{,}7^\circ$.
 
 :::abbildung ml/k1rschatten 26
 Die Schattenlänge von $\mathbf{x}$ in Richtung des normierten Vektors $\mathbf{u}$ als Skalarprodukt.
 :::
+::::
 
 Für eine gewichtete Summe heißt das: Sind die Gewichte normiert, so gibt $\mathbf{w}^{\top}\mathbf{x}$ an, wie weit das Beispiel $\mathbf{x}$ in Richtung von $\mathbf{w}$ reicht. Alle Punkte, die denselben Wert $\mathbf{w}^{\top}\mathbf{x}$ liefern, werfen denselben Schatten. In der Ebene liegen sie deshalb auf einer Geraden senkrecht zu $\mathbf{w}$, im Raum auf einer Ebene senkrecht zu $\mathbf{w}$.
 

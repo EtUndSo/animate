@@ -57,7 +57,11 @@ $$\tan\Theta_\mathrm H=\frac{\mathcal E_\mathrm H}{\mathcal E_\mathrm a}=-\mu_\m
 
 Er ist überall in der Platte gleich, unabhängig von Form und Kontakten, und misst $\mu$ direkt. An den Stromkontakten schließen die Metallflächen das Hall-Feld kurz: Die Lorentz-Kraft bleibt dort unkompensiert, es entsteht ein Stromanteil $j_y$, und die Strombahnen laufen schräg. Zwischen den Kontakten ist $j_y=0$.
 
-**Beispiel.** Eine Platte aus dem Material der Probe mit $d=0{,}5$ mm, $w=5$ mm, $I=1$ mA und $B=0{,}5$ T hat $R_\mathrm H=-6{,}24\cdot10^{-4}\,\mathrm{m^3/C}$, $U_\mathrm H=-0{,}62$ mV und wegen $\mu_\mathrm nB=0{,}06$ den Hall-Winkel $3{,}4^\circ$. Kupfer gäbe nur $-0{,}074$ nV, denn $U_\mathrm H\propto1/n$. Aus $|R_\mathrm H|$ folgt die Dichte, mit $\sigma$ die Beweglichkeit: $\mu=|R_\mathrm H|\,\sigma$. **Grenzfall:** Für $B=0$ ist $U_\mathrm H=0$.
+::::beispiel
+Eine Platte aus dem Material der Probe mit $d=0{,}5$ mm, $w=5$ mm, $I=1$ mA und $B=0{,}5$ T hat $R_\mathrm H=-6{,}24\cdot10^{-4}\,\mathrm{m^3/C}$, $U_\mathrm H=-0{,}62$ mV und wegen $\mu_\mathrm nB=0{,}06$ den Hall-Winkel $3{,}4^\circ$. Kupfer gäbe nur $-0{,}074$ nV, denn $U_\mathrm H\propto1/n$. Aus $|R_\mathrm H|$ folgt die Dichte, mit $\sigma$ die Beweglichkeit: $\mu=|R_\mathrm H|\,\sigma$.
+::::
+
+⁠**Grenzfall:** Für $B=0$ ist $U_\mathrm H=0$.
 
 :::aufgabe Aufgabe 9 ★★ Eine Probe vermessen
 <span class="anker" id="aufg-9"></span>

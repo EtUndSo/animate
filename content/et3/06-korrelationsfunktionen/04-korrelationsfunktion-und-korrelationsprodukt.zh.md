@@ -40,11 +40,13 @@ $$\begin{aligned} &\varphi^E_{gs}(\tau)=\varphi^{E*}_{sg}(-\tau),\qquad\varphi^E
 
 ⁠**如何理解：**信号在不平移时与自身最相似，此时自相关函数的值就是信号的能量。矩形的自相关函数是三角形：$\varphi^E_{ss}=\operatorname{rect}(-\tau)*\operatorname{rect}(\tau)=\Lambda(\tau)$，其宽度是矩形的两倍（图 [1](#abb-1) 左）。
 
-**例：寻找回波。** 发送信号为 $s=\operatorname{rect}(t)$；接收信号是经过衰减和延迟的回波 $g=0.5\operatorname{rect}(t-3)$。互相关函数为 $\varphi^E_{sg}(\tau)=0.5\,\Lambda(\tau-3)$：它的最大值位于 $\tau=3$，即延迟处；最大值的高度 $0.5=0.5\cdot E_s$ 表明了衰减（图 [1](#abb-1) 右）。雷达就是这样测量距离的。
+::::beispiel 寻找回波
+发送信号为 $s=\operatorname{rect}(t)$；接收信号是经过衰减和延迟的回波 $g=0.5\operatorname{rect}(t-3)$。互相关函数为 $\varphi^E_{sg}(\tau)=0.5\,\Lambda(\tau-3)$：它的最大值位于 $\tau=3$，即延迟处；最大值的高度 $0.5=0.5\cdot E_s$ 表明了衰减（图 [1](#abb-1) 右）。雷达就是这样测量距离的。
 
 :::abbildung et3/k6korr 1
 左：矩形的自相关函数是三角形，最大值 $=E_s=1$，位于 $\tau=0$ 处，宽度加倍。右：发送脉冲与回波 $0.5\operatorname{rect}(t-3)$ 之间的互相关函数在延迟 $\tau=3$ 处取最大值。
 :::
+::::
 
 :::frage 卷积和相关看起来几乎一样。区别在哪里？
 在卷积 $\int s(\tau)h(t-\tau)\mathrm{d}\tau$ 中，第二个信号是倒着走的（$-\tau$）：系统“记得”过去。在相关 $\int s^*(t)g(t+\tau)\mathrm{d} t$ 中，两个信号都正着走：把一个形状恰好叠放在另一个形状上，度量二者吻合得有多好。在数学上，区别恰恰就是反转；正因为如此，相关就是与反转信号的卷积。

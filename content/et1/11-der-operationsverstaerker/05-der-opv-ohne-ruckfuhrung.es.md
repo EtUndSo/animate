@@ -38,7 +38,11 @@ A la izquierda, el símbolo con los terminales de alimentación. A la derecha, l
 Convertidor flash de 2 bits con $U_\mathrm{Ref}=6$ V y resistencias iguales. Las entradas no toman corriente, las resistencias están en serie y las tomas están a 6, 4 y 2 V. Con $U_\mathrm{E}=3{,}2$ V solo K3 conmuta hacia arriba.
 :::
 
-**Ejemplo.** Con $U_\mathrm{E}=3{,}2$ V es $U_\mathrm{D}=-2{,}8$ V en K1, $-0{,}8$ V en K2 y $+1{,}2$ V en K3. K1 y K2 están en $-11$ V; K3, en $+11$ V. Las tres salidas distinguen cuatro rangos: por debajo de 2 V, de 2 a 4 V, de 4 a 6 V, por encima de 6 V. **Caso límite:** Para $A\to\infty$, la ventana se convierte en un punto y la curva característica en un escalón en $U_\mathrm{D}=0$.
+::::beispiel
+Con $U_\mathrm{E}=3{,}2$ V es $U_\mathrm{D}=-2{,}8$ V en K1, $-0{,}8$ V en K2 y $+1{,}2$ V en K3. K1 y K2 están en $-11$ V; K3, en $+11$ V. Las tres salidas distinguen cuatro rangos: por debajo de 2 V, de 2 a 4 V, de 4 a 6 V, por encima de 6 V.
+::::
+
+⁠**Caso límite:** Para $A\to\infty$, la ventana se convierte en un punto y la curva característica en un escalón en $U_\mathrm{D}=0$.
 
 :::aufgabe Ejercicio 3 ★ Comparadores
 <span class="anker" id="aufg-3"></span>

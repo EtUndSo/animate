@@ -43,7 +43,11 @@ $$R_\mathrm{in}=\frac{U_1}{I_1}=-R_2. \tag{8.2}$$
 左：以电流源为输入的跨阻放大器。右：NIC，$R=10$ k$\Omega$，$R_2=5$ k$\Omega$，接线端 1 上为 1 V：输出位于 3 V，把 0.2 mA 从接线端推出。
 :::
 
-**例。** 取 $R=10$ k$\Omega$、$R_2=5$ k$\Omega$、$U_1=1$ V，则 $I_2=0.2$ mA，$U_\mathrm{A}=3$ V，$I_1=-0.2$ mA，即 $R_\mathrm{in}=-5$ k$\Omega$。能量来自运放的电源。**应用：**一个 1 mA、内阻 $R_\mathrm{q}=10$ k$\Omega$ 的电流源接 1 k$\Omega$ 时只输出 0.909 mA，因为一部分流过 $R_\mathrm{q}$。并联一个 $R_2=R_\mathrm{q}$ 的 NIC：电导 $1/R_\mathrm{q}-1/R_2$ 变为零，负载得到 1 mA。实际电源就像理想电源一样工作。NIC 恰好提供被 $R_\mathrm{q}$ 分走的 0.1 mA。**极限情况：**没有负载时 $R_\mathrm{i}=R_\mathrm{q}=R_2$，两条反馈同样强，环路增益为零，规则不再成立。
+::::beispiel
+取 $R=10$ k$\Omega$、$R_2=5$ k$\Omega$、$U_1=1$ V，则 $I_2=0.2$ mA，$U_\mathrm{A}=3$ V，$I_1=-0.2$ mA，即 $R_\mathrm{in}=-5$ k$\Omega$。能量来自运放的电源。**应用：**一个 1 mA、内阻 $R_\mathrm{q}=10$ k$\Omega$ 的电流源接 1 k$\Omega$ 时只输出 0.909 mA，因为一部分流过 $R_\mathrm{q}$。并联一个 $R_2=R_\mathrm{q}$ 的 NIC：电导 $1/R_\mathrm{q}-1/R_2$ 变为零，负载得到 1 mA。实际电源就像理想电源一样工作。NIC 恰好提供被 $R_\mathrm{q}$ 分走的 0.1 mA。
+::::
+
+⁠**极限情况：**没有负载时 $R_\mathrm{i}=R_\mathrm{q}=R_2$，两条反馈同样强，环路增益为零，规则不再成立。
 
 :::aufgabe 练习 9 ★★★ 补偿电流源
 <span class="anker" id="aufg-9"></span>

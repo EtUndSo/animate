@@ -39,11 +39,15 @@ $\mathbb{E}(X)$ heißt __Erwartungswert__ von $X$ und wird oft mit $\mu_X$ bezei
 
 ⁠**So liest man das:** Beide Fälle mitteln $x$ über die Verteilung. Allgemein schreibt man das als __Maßintegral__ $\mathbb{E}(X)=\int_\mathbb{R} x\,\mathbb{P}_X(\mathrm{d} x)$, wobei formal $\mathbb{P}_X(\mathrm{d} x)=\sum_kp_X(x_k)\,\delta_{x_k}(\mathrm{d} x)$ bzw. $\mathbb{P}_X(\mathrm{d} x)=f_X(x)\,\mathrm{d} x$ gilt. Dieses Integral braucht einen erweiterten Integralbegriff, deshalb bleibt es hier bei den beiden Fällen. Die absolute Konvergenz macht den Wert unabhängig von der Reihenfolge.
 
-⁠**Beispiele:** $\mathbb{E}(W_1)=\frac{1+2+3+4}4=\frac52$, $\mathbb{E}(S)=5$. Für die LED gibt partielle Integration
+::::beispiel [Beispiele]
+$\mathbb{E}(W_1)=\frac{1+2+3+4}4=\frac52$, $\mathbb{E}(S)=5$. Für die LED gibt partielle Integration
 
 $$\mathbb{E}(X)=\int_0^\infty x\,\tfrac12\mathrm{e}^{-x/2}\,\mathrm{d} x=\Bigl[-x\,\mathrm{e}^{-x/2}\Bigr]_0^\infty+\int_0^\infty\mathrm{e}^{-x/2}\,\mathrm{d} x=2.$$
 
-Die Gleichverteilung auf $[a,b]$ hat $\mathbb{E}(X)=\frac{a+b}2$, die Mitte. **Grenzfall:** $\mathbb{E}(c)=c$ für eine Konstante.
+Die Gleichverteilung auf $[a,b]$ hat $\mathbb{E}(X)=\frac{a+b}2$, die Mitte.
+::::
+
+⁠**Grenzfall:** $\mathbb{E}(c)=c$ für eine Konstante.
 
 :::abbildung hm3/k8schwerpunkt 7
 Der Erwartungswert als Schwerpunkt. Bei der LED ist die Dichte bei 0 am größten, der Schwerpunkt liegt trotzdem bei 2, weil der lange Ausläufer mit großem Hebel zieht.
@@ -90,7 +94,11 @@ Sei $X$ absolut stetig mit Dichte $f_X$ und $g:\mathbb{R}\to\mathbb{R}$ stetig. 
 $$\mathbb{E}(g(X))=\int_\mathbb{R} g(x)\,f_X(x)\,\mathrm{d} x. \tag{7.3}$$
 :::
 
-Der Satz wird hier ohne Beweis benutzt. **Beispiel:** Für die LED gibt zweimalige partielle Integration $\mathbb{E}(X^2)=8$. Das ist nicht $\mathbb{E}(X)^2=4$: Im Allgemeinen ist $\mathbb{E}(g(X))\neq g(\mathbb{E}(X))$.
+Der Satz wird hier ohne Beweis benutzt.
+
+::::beispiel
+Für die LED gibt zweimalige partielle Integration $\mathbb{E}(X^2)=8$. Das ist nicht $\mathbb{E}(X)^2=4$: Im Allgemeinen ist $\mathbb{E}(g(X))\neq g(\mathbb{E}(X))$.
+::::
 
 :::frage Ist der Erwartungswert der wahrscheinlichste Wert?
 Nein. Bei der LED ist $\mathbb{P}(X<2)=1-\mathrm{e}^{-1}\approx0{,}63$, die meisten halten kürzer als der Mittelwert. Bei $W_1$ kommt $\frac52$ gar nicht vor.

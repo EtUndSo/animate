@@ -19,7 +19,7 @@ Después de las funciones lineales, las cuadráticas son las funciones de varias
 
 <span class="anker" id="stufe-5-1"></span>
 
-En Fundamentos 1, sección 8.4, toda función lineal con una salida era una suma ponderada $\mathbf{w}^{\top}\mathbf{x}$ de las componentes. El siguiente tipo de función, en orden de sencillez, suma productos de dos componentes: cuadrados como $x_1^2$ y términos cruzados como $x_1x_2$. Un ejemplo de la electrotecnia es la energía magnética de dos bobinas acopladas con las inductancias $L_1$, $L_2$ y la inductancia mutua $M$, por las que circulan las corrientes $i_1$ e $i_2$:
+En [Fundamentos 1, sección 8.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), toda función lineal con una salida era una suma ponderada $\mathbf{w}^{\top}\mathbf{x}$ de las componentes. El siguiente tipo de función, en orden de sencillez, suma productos de dos componentes: cuadrados como $x_1^2$ y términos cruzados como $x_1x_2$. Un ejemplo de la electrotecnia es la energía magnética de dos bobinas acopladas con las inductancias $L_1$, $L_2$ y la inductancia mutua $M$, por las que circulan las corrientes $i_1$ e $i_2$:
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -42,11 +42,13 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 
 Si se duplica $\mathbf{x}$, $f$ se cuadruplica: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. De ahí el nombre.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ es $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. En el punto $\mathbf{x}=(1,\,-1)^{\top}$ es $f=5-4+2=3$; como control, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ y $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La fig. [14](#abb-14) calcula la doble suma [(5.1)](#gl-5-1) en este punto término a término. En el punto $(1,\,1)^{\top}$ es $f=11$; en el origen, $f=0$. La energía de las dos bobinas es $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ con el vector de corrientes $\mathbf i=(i_1,\,i_2)^{\top}$; la matriz se llama matriz de inductancias.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ es $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. En el punto $\mathbf{x}=(1,\,-1)^{\top}$ es $f=5-4+2=3$; como control, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ y $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La fig. [14](#abb-14) calcula la doble suma [(5.1)](#gl-5-1) en este punto término a término. En el punto $(1,\,1)^{\top}$ es $f=11$; en el origen, $f=0$. La energía de las dos bobinas es $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ con el vector de corrientes $\mathbf i=(i_1,\,i_2)^{\top}$; la matriz se llama matriz de inductancias.
 
 :::abbildung ml/k2rqf 14
 La forma cuadrática de $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ en el punto $\mathbf{x}=(1,-1)^{\top}$ como doble suma: cuatro términos, uno por cada entrada de $\mathbf{A}$.
 :::
+::::
 
 ⁠**En resumen:** Una forma cuadrática $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ es una suma de cuadrados y productos cruzados de las componentes, con las entradas de $\mathbf{A}$ como pesos.
 
@@ -71,7 +73,9 @@ El número $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ es igual a su propia traspues
 
 La matriz $\frac12(\mathbf{A}+\mathbf{A}^{\top})$ es simétrica. En este capítulo, una forma cuadrática tiene, por ello, siempre una matriz simétrica. Se obtiene de la forma así: en la diagonal están los coeficientes de los cuadrados, y fuera de ella, en cada caso, la mitad del coeficiente del término cruzado.
 
-⁠**Ejemplo numérico:** La forma $3x_1^2-6x_1x_2+x_2^2$ tiene la matriz simétrica $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. La forma $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ en $\mathbb{R}^3$ tiene la matriz $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$; el término cruzado $2x_1x_3$ se reparte entre las entradas $(1,3)$ y $(3,1)$.
+::::beispiel [Ejemplo numérico]
+La forma $3x_1^2-6x_1x_2+x_2^2$ tiene la matriz simétrica $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. La forma $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ en $\mathbb{R}^3$ tiene la matriz $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$; el término cruzado $2x_1x_3$ se reparte entre las entradas $(1,3)$ y $(3,1)$.
+::::
 
 ⁠**En resumen:** Una forma cuadrática solo ve la parte simétrica de su matriz; por eso se escribe siempre con una matriz simétrica.
 
@@ -109,7 +113,9 @@ Arriba, las gráficas de las formas cuadráticas $x_1^2+2x_2^2$ (cuenco), $x_1^2
 
 Si las dos entradas son negativas, el cuenco queda boca abajo: es una cúpula. Una entrada negativa y otra nula dan un canal invertido, una cresta. Con más de dos variables vale lo mismo: los signos de las entradas diagonales deciden la forma.
 
-⁠**Ejemplo numérico:** Para el cuenco $f=x_1^2+2x_2^2$, la curva de nivel $f=1$ es la elipse con los semiejes $1$ sobre el eje $x_1$ y $1/\sqrt2\approx0{,}707$ sobre el eje $x_2$: en $(1,\,0)^{\top}$ y en $(0,\,1/\sqrt2)^{\top}$ es $f=1$. En la silla $f=x_1^2-x_2^2$ es $f(1,\,0)=1$, $f(0,\,1)=-1$ y $f(1,\,1)=0$.
+::::beispiel [Ejemplo numérico]
+Para el cuenco $f=x_1^2+2x_2^2$, la curva de nivel $f=1$ es la elipse con los semiejes $1$ sobre el eje $x_1$ y $1/\sqrt2\approx0{,}707$ sobre el eje $x_2$: en $(1,\,0)^{\top}$ y en $(0,\,1/\sqrt2)^{\top}$ es $f=1$. En la silla $f=x_1^2-x_2^2$ es $f(1,\,0)=1$, $f(0,\,1)=-1$ y $f(1,\,1)=0$.
+::::
 
 ⁠**En resumen:** Sin términos cruzados, la forma se lee en los signos de la diagonal: todos positivos, un cuenco; positivo y cero, un canal; signos distintos, una silla.
 
@@ -132,18 +138,22 @@ $$ax_1^2+2bx_1x_2+cx_2^2=a\Bigl(x_1+\frac bax_2\Bigr)^2+\Bigl(c-\frac{b^2}a\Bigr
 
 A la derecha hay una suma de dos cuadrados. Las nuevas variables $z_1=x_1+\frac bax_2$ y $z_2=x_2$ toman cualquier par de números cuando $\mathbf{x}$ recorre el plano. La forma en las variables $z_1,z_2$ ya no tiene, por tanto, términos cruzados, y los signos de $a$ y $c-b^2/a$ deciden entre cuenco, canal o silla.
 
-⁠**Ejemplo numérico 1:** $5x_1^2+4x_1x_2+2x_2^2$ tiene $a=5$, $b=2$, $c=2$:
+::::beispiel [Ejemplo numérico 1]
+$5x_1^2+4x_1x_2+2x_2^2$ tiene $a=5$, $b=2$, $c=2$:
 
 $$5x_1^2+4x_1x_2+2x_2^2=5\,(x_1+0{,}4\,x_2)^2+1{,}2\,x_2^2 .$$
 
 Ambos coeficientes son positivos: la forma es un cuenco. Comprobación en $\mathbf{x}=(1,\,-1)^{\top}$: $5\cdot0{,}36+1{,}2=3$.
+::::
 
-⁠**Ejemplo numérico 2:** $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Los coeficientes tienen signos distintos: una silla. En efecto, $f(1,\,0)=1>0$ y $f(1,\,-1)=1-6+1=-4<0$.
+::::beispiel [Ejemplo numérico 2]
+$x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Los coeficientes tienen signos distintos: una silla. En efecto, $f(1,\,0)=1>0$ y $f(1,\,-1)=1-6+1=-4<0$.
+::::
 
 ⁠**En resumen:** Completar cuadrados escribe una forma cuadrática como suma de cuadrados; los signos de los coeficientes de los cuadrados muestran si es un cuenco, un canal o una silla.
 
 :::hintergrund Completar cuadrados es la eliminación gaussiana
-Los números de [(5.3)](#gl-5-3) son los mismos que en la eliminación gaussiana de Fundamentos 1, sección 12.3, aplicada a la matriz simétrica $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Para producir un cero debajo de la diagonal, se resta de la segunda fila $\frac ba$ veces la primera y se obtiene $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Las entradas diagonales de esta forma escalonada, los llamados pivotes, son exactamente los coeficientes de los cuadrados, y el factor de eliminación $\frac ba$ está en el primer paréntesis. Para la matriz $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0{,}4$, pivotes $5$ y $1{,}2$. Con $n$ variables se continúa del mismo modo: cada paso de eliminación completa el cuadrado de una variable. La forma es un cuenco si y solo si todos los pivotes son positivos. El producto de los pivotes es, según las reglas de cálculo de Fundamentos 1, sección 14.5, el determinante, aquí $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Los números de [(5.3)](#gl-5-3) son los mismos que en la eliminación gaussiana de [Fundamentos 1, sección 12.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), aplicada a la matriz simétrica $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Para producir un cero debajo de la diagonal, se resta de la segunda fila $\frac ba$ veces la primera y se obtiene $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Las entradas diagonales de esta forma escalonada, los llamados pivotes, son exactamente los coeficientes de los cuadrados, y el factor de eliminación $\frac ba$ está en el primer paréntesis. Para la matriz $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0{,}4$, pivotes $5$ y $1{,}2$. Con $n$ variables se continúa del mismo modo: cada paso de eliminación completa el cuadrado de una variable. La forma es un cuenco si y solo si todos los pivotes son positivos. El producto de los pivotes es, según las reglas de cálculo de [Fundamentos 1, sección 14.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), el determinante, aquí $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Ejercicio 14 ★ Formas y matrices

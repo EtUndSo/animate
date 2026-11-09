@@ -32,11 +32,13 @@ $$(\mathbf{A}\odot\mathbf{B})_{ij}=a_{ij}\,b_{ij} . \tag{15.1}$$
 
 The Hadamard product is *not* the matrix product. The matrix product forms dot products of rows and columns; the Hadamard product only multiplies entries in the same position. Two connections with things you already know: if you add up the Hadamard product of two vectors, you get their dot product, $\mathbf 1^{\top}(\mathbf{u}\odot\mathbf{v})=\mathbf{u}^{\top}\mathbf{v}$. And the Hadamard product with a fixed vector is multiplication by a diagonal matrix: $\mathbf{v}\odot\mathbf{x}=\operatorname{diag}(\mathbf{v})\,\mathbf{x}$.
 
-⁠**Worked example:** $(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, and $4+10+18=32$ is the dot product. For matrices,
+::::beispiel [Worked example]
+$(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, and $4+10+18=32$ is the dot product. For matrices,
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}\odot\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}0&2\\3&0\end{pmatrix},\qquad\text{but}\qquad \begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}2&1\\4&3\end{pmatrix}.$$
 
 With a vector of zeros and ones you can mask out features: $(1,\,0,\,1)^{\top}\odot\mathbf{x}_1=(60,\,0,\,3)^{\top}$ drops the number of rooms of apartment 1.
+::::
 
 ⁠**In short:** The Hadamard product $\odot$ multiplies entry by entry; it is not the matrix product.
 
@@ -54,7 +56,9 @@ For a function $f\colon\mathbb{R}\to\mathbb{R}$ and a vector $\mathbf{x}\in\math
 
 Many norms can be written this way: the 1-norm is the sum of the elementwise absolute values, $\lVert\mathbf{x}\rVert_1=\mathbf 1^{\top}|\mathbf{x}|$, and the square of the Euclidean norm is the sum of the elementwise squares. An elementwise function is in general not linear: elementwise squaring turns $2\mathbf{x}$ into the vector with the entries $4x_j^2$, not $2x_j^2$.
 
-⁠**Worked example:** The real estate agent's error vector was $(-12,\,-4,\,-4,\,-8)^{\top}$. The elementwise absolute values give $(12,\,4,\,4,\,8)^{\top}$ with the sum $28$, the 1-norm. For appraiser A from Subsection [3.5](normen-die-groe-eines-vektors.html#stufe-3-5), the elementwise squares give $(100,\,100,\,100,\,100)^{\top}$ with the sum $400=20^2$.
+::::beispiel [Worked example]
+The real estate agent's error vector was $(-12,\,-4,\,-4,\,-8)^{\top}$. The elementwise absolute values give $(12,\,4,\,4,\,8)^{\top}$ with the sum $28$, the 1-norm. For appraiser A from Subsection [3.5](normen-die-groe-eines-vektors.html#stufe-3-5), the elementwise squares give $(100,\,100,\,100,\,100)^{\top}$ with the sum $400=20^2$.
+::::
 
 ⁠**In short:** An elementwise function acts on each entry separately; in general it is not linear.
 
@@ -71,11 +75,13 @@ $$\tilde{\mathbf{X}}=\mathbf{X}-\mathbf 1\,\bar{\mathbf{x}}^{\top} , \tag{15.2}$
 
 and its row $i$ is the vector $(\mathbf{x}_i-\bar{\mathbf{x}})^{\top}$. Many texts write $\mathbf{X}-\bar{\mathbf{x}}^{\top}$ for short and mean by it: subtract the row vector from every row. Strictly speaking, the difference of an $N\times d$ matrix and a $1\times d$ matrix is not defined; the shorthand always stands for [(15.2)](#gl-15-2).
 
-⁠**Worked example:** For the apartments, $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65,\ 2.5,\ 3)^{\top}$ and
+::::beispiel [Worked example]
+For the apartments, $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65,\ 2.5,\ 3)^{\top}$ and
 
 $$\tilde{\mathbf{X}}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}-\begin{pmatrix}65&2.5&3\\65&2.5&3\\65&2.5&3\\65&2.5&3\end{pmatrix}=\begin{pmatrix}-5&-0.5&0\\-25&-1.5&-2\\25&1.5&3\\5&0.5&-1\end{pmatrix}.$$
 
 Each column is the centered feature column from Subsection [4.3](abstande-und-einheiten.html#stufe-4-3) and sums to zero.
+::::
 
 ⁠**In short:** Adding a vector $\mathbf{q}$ to every row of a matrix $\mathbf{A}$ means forming $\mathbf{A}+\mathbf 1\,\mathbf{q}^{\top}$; the common shorthand $\mathbf{A}+\mathbf{q}^{\top}$ means exactly this.
 
@@ -97,7 +103,9 @@ A scalar is a tensor with $0$ axes, a vector in $\mathbb{R}^d$ one with a single
 Tensors with $0$ to $4$ axes: a scalar, a vector with $4$ entries, a $4\times4$ matrix (such as a grayscale image), a color image made of three $4\times4$ channels for red, green and blue, and a stack of $N$ such color images (indicated by three images).
 :::
 
-⁠**Worked example:** A color image with $4\times4$ pixels and three color channels is a tensor of shape $3\times4\times4$ with $48$ entries. The entry with the indices $(1,2,3)$ is the brightness of the first channel, that is, red, at the pixel in row $2$ and column $3$.
+::::beispiel [Worked example]
+A color image with $4\times4$ pixels and three color channels is a tensor of shape $3\times4\times4$ with $48$ entries. The entry with the indices $(1,2,3)$ is the brightness of the first channel, that is, red, at the pixel in row $2$ and column $3$.
+::::
 
 ⁠**In short:** A tensor is an array of numbers with any number of axes; scalar, vector and matrix are the cases with $0$, $1$ and $2$ axes.
 
@@ -115,7 +123,9 @@ A grayscale image with $28\times28$ pixels is a matrix, that is, a tensor of sha
 
 The order of the axes is a convention. Some programs put the color channel first ($3\times32\times32$), others last ($32\times32\times3$). The numbers are the same, only their arrangement differs, and before any calculation it must be clear which axis means what.
 
-⁠**Worked example:** A dataset of $60\,000$ grayscale images with $28\times28$ pixels is a tensor of shape $60\,000\times28\times28$ with $47\,040\,000$ entries. If you read out each image into a vector in $\mathbb{R}^{784}$, this becomes a data matrix in $\mathbb{R}^{60\,000\times784}$, with the same entries.
+::::beispiel [Worked example]
+A dataset of $60\,000$ grayscale images with $28\times28$ pixels is a tensor of shape $60\,000\times28\times28$ with $47\,040\,000$ entries. If you read out each image into a vector in $\mathbb{R}^{784}$, this becomes a data matrix in $\mathbb{R}^{60\,000\times784}$, with the same entries.
+::::
 
 ⁠**In short:** An image is a tensor with two or three axes, a stack of images one with one more axis; the first axis counts the examples.
 

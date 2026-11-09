@@ -24,7 +24,9 @@ $$t(x)=f(g)+f'(g)\,(x-g).$$
 
 In der Nähe von $g$ unterscheidet sich der Graph kaum von seiner Tangente. Für die Wurzel braucht man nur eine Ableitung aus der Schule: Für $f(x)=x^2-a$ mit fester Zahl $a$ ist $f'(x)=2x$.
 
-⁠**Beispiel:** Für $f(x)=x^2-2$ an der Stelle $g=2$ ist $f(2)=2$ und $f'(2)=4$, die Tangente also $t(x)=2+4(x-2)$. Sie schneidet die $x$-Achse dort, wo $t(x)=0$ ist: $x=2-2/4=1{,}5$.
+::::beispiel
+Für $f(x)=x^2-2$ an der Stelle $g=2$ ist $f(2)=2$ und $f'(2)=4$, die Tangente also $t(x)=2+4(x-2)$. Sie schneidet die $x$-Achse dort, wo $t(x)=0$ ist: $x=2-2/4=1{,}5$.
+::::
 
 ⁠**Kurz gesagt:** Die Tangente ist die Gerade, die sich an einer Stelle an den Graphen anschmiegt; ihre Steigung ist die Ableitung.
 
@@ -52,7 +54,9 @@ solange $|f(g_n)|$ größer als eine Toleranz $\varepsilon$ ist. $g_{n+1}$ ist d
 
 Die Formel folgt direkt aus der Tangente: $t(x)=f(g_n)+f'(g_n)(x-g_n)=0$ ergibt $x=g_n-f(g_n)/f'(g_n)$.
 
-**Beispiel.** Für $f(x)=x^2-2$ mit $g_0=2$ ist $g_1=1{,}5$ wie in Unterabschnitt [8.1](#stufe-8-1). Im nächsten Schritt ist $f(1{,}5)=0{,}25$ und $f'(1{,}5)=3$, also $g_2=1{,}5-0{,}25/3=1{,}41\overline6$.
+::::beispiel
+Für $f(x)=x^2-2$ mit $g_0=2$ ist $g_1=1{,}5$ wie in Unterabschnitt [8.1](#stufe-8-1). Im nächsten Schritt ist $f(1{,}5)=0{,}25$ und $f'(1{,}5)=3$, also $g_2=1{,}5-0{,}25/3=1{,}41\overline6$.
+::::
 
 ⁠**Kurz gesagt:** Das Newton-Verfahren springt in jedem Schritt zur Nullstelle der Tangente.
 
@@ -118,7 +122,8 @@ $d_{n+1}=\dfrac{g_n^2+a}{2g_n}-\sqrt a=\dfrac{g_n^2-2\sqrt a\,g_n+a}{2g_n}=\dfra
 
 Zwei Folgerungen. Erstens ist $d_{n+1}\ge0$: Nach dem ersten Schritt liegt jede Schätzung über $\sqrt a$ oder auf ihr. Zweitens wird der Fehler in jedem Schritt quadriert, bis auf den Faktor $1/(2g_n)$, der nahe der Lösung etwa $1/(2\sqrt a)$ ist. Für den relativen Fehler $\delta_n=d_n/\sqrt a$ folgt daraus mit $g_n\ge\sqrt a$ die Abschätzung $\delta_{n+1}=\delta_n^2\sqrt a/(2g_n)\le\delta_n^2/2$. Ist $\delta_n$ etwa $10^{-p}$, hat $g_n$ also etwa $p$ gültige Dezimalstellen, dann ist $\delta_{n+1}$ höchstens etwa $10^{-2p}/2$: Aus $p$ gültigen Stellen werden etwa $2p$. Diese Eigenschaft heißt __quadratische Konvergenz__.
 
-**Beispiel.** Die Fehler des Skripts für $\sqrt2$ mit $g_0=2$, nachgerechnet mit dem Satz:
+::::beispiel
+Die Fehler des Skripts für $\sqrt2$ mit $g_0=2$, nachgerechnet mit dem Satz:
 
 | $n$ | $d_n=g_n-\sqrt2$ | $d_n^2/(2g_n)$ |
 |---|---|---|
@@ -133,6 +138,7 @@ Jede Zeile sagt den Fehler der nächsten richtig voraus. Abb. [10](#abb-10) ste
 :::abbildung prog/k3fehler 10
 Fehler über der Zahl der Schritte für $\sqrt2$, logarithmisch aufgetragen. Das Schrittverfahren mit der Schrittweite 0,01 ist nach 42 Schritten kaum näher gekommen. Die Bisektion (Fehler der Mitte nach $n$ Schritten) folgt im Mittel der gestrichelten Geraden: Halbieren ist auf der logarithmischen Achse eine Gerade. Newton fällt immer steiler ab, denn jeder Schritt quadriert den Fehler; nach Schritt 4 lässt sich der Fehler nicht mehr auftragen, weil er null ist.
 :::
+::::
 
 ⁠**Kurz gesagt:** Beim Newton-Verfahren wird der Fehler in jedem Schritt quadriert, die Zahl der gültigen Stellen verdoppelt sich.
 

@@ -60,13 +60,16 @@ $$\int_0^Ts_p(t)\mathrm{e}^{-\mathrm{j}2\pi nFt}\mathrm{d} t=\sum_kS_p(k)\int_0^
 For $k\neq n$ the integral is $\frac{\mathrm{e}^{\mathrm{j}2\pi(k-n)FT}-1}{\mathrm{j}2\pi(k-n)F}=0$, because $\mathrm{e}^{\mathrm{j}2\pi(k-n)}=1$. Since the integrand has the period $T$, you may integrate over any interval of length $T$.
 :::
 
-**Example: a finite series.** $s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$. With Euler's formulas you can read off the coefficients without integrating:
+::::beispiel a finite series
+$s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$. With Euler's formulas you can read off the coefficients without integrating:
 
 $$2\cos(2\pi Ft)=\mathrm{e}^{\mathrm{j}2\pi Ft}+\mathrm{e}^{-\mathrm{j}2\pi Ft},\qquad\sin(4\pi Ft)=\frac{1}{2\mathrm{j}}\mathrm{e}^{\mathrm{j}4\pi Ft}-\frac{1}{2\mathrm{j}}\mathrm{e}^{-\mathrm{j}4\pi Ft},$$
 
 so $S_p(0)=1$, $S_p(\pm1)=1$, $S_p(2)=-\tfrac{\mathrm{j}}{2}$, $S_p(-2)=\tfrac{\mathrm{j}}{2}$, all others zero. Check: $S_p(-2)=S_p^*(2)$.
+::::
 
-**Example: the square wave.** For the reference model (1 for $|t|\le T_1/2$ with $T_1=T/2$):
+::::beispiel the square wave
+For the reference model (1 for $|t|\le T_1/2$ with $T_1=T/2$):
 
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
@@ -76,6 +79,7 @@ With $T_1=T/2$: $S_p(0)=0.5$, $S_p(\pm1)=1/\pi=0.318$, $S_p(\pm2)=0$, $S_p(\pm3)
 :::abbildung et3/k3koeff 1
 Fourier coefficients of the square wave (0/1) for two pulse widths. Dashed: the envelope $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$. For $T_1=T/2$ the even harmonics are missing, for $T_1=T/4$ every fourth one.
 :::
+::::
 
 :::frage Why are there no frequencies between the harmonics in a periodic signal?
 Because every oscillation in the sum must itself have the period $T$; otherwise the sum would not be periodic. An oscillation with $f=1.5F$ has made only one and a half turns after $T$ and is in a different position than at the start. No weight, however cleverly chosen, can compensate for this, because different frequencies are orthogonal and cannot cancel each other.

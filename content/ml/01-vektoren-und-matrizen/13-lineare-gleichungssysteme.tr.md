@@ -34,11 +34,11 @@ eşitliğine $m$ denklemli ve $x_1,\dots,x_n$ olmak üzere $n$ bilinmeyenli bir 
 
 Açık yazıldığında $i$ numaralı satırda $a_{i1}x_1+\dots+a_{in}x_n=y_i$ denklemi durur.
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}$$
 
 sisteminin çözümü $\mathbf{x}=(2,\,1)^{\top}$ olur: $2\cdot2+1=5$ ve $2+1=3$. Katsayı matrisi, tersi $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$ olan matris olarak daha önceden bilinir (alt kesim [11.2](einheitsmatrix-und-inverse.html#stufe-11-2)). Sistem soldan bu tersle çarpılırsa çözüm hemen ortaya çıkar: $\mathbf{x}=\mathbf{A}^{-1}\mathbf{y}=(5-3,\ -5+6)^{\top}=(2,\,1)^{\top}$.
+::::
 
 ⁠**Kısacası:** $\mathbf{A}\mathbf{x}=\mathbf{y}$ doğrusal denklem sistemi, hangi $\mathbf{x}$ girişinin $\mathbf{y}$ çıkışını verdiğini sorar.
 
@@ -64,7 +64,9 @@ Sütun resmi, ne zaman bir çözümün var olduğu sorusunu hemen cevaplar. $\ma
 $\mathbf{A}\mathbf{x}=\mathbf{y}$ sisteminin ancak ve ancak $\mathbf{y}$ vektörü $\mathbf{A}$ matrisinin sütun uzayındaysa bir çözümü vardır.
 :::
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ sistemi $\mathbf{y}=(3,\,6)^{\top}$ için çözülebilir, örneğin $\mathbf{x}=(1,\,1)^{\top}$ ile; ama $\mathbf{y}=(1,\,1)^{\top}$ için çözülemez: Sütun uzayı yalnızca $(1,\,2)^{\top}$ doğrultusundaki doğrudur (alt kesim [7.4](das-matrix-vektor-produkt.html#stufe-7-4)).
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ sistemi $\mathbf{y}=(3,\,6)^{\top}$ için çözülebilir, örneğin $\mathbf{x}=(1,\,1)^{\top}$ ile; ama $\mathbf{y}=(1,\,1)^{\top}$ için çözülemez: Sütun uzayı yalnızca $(1,\,2)^{\top}$ doğrultusundaki doğrudur (alt kesim [7.4](das-matrix-vektor-produkt.html#stufe-7-4)).
+::::
 
 ⁠**Kısacası:** Satır resminde bir çözüm bütün denklemlerin ortak bir noktasıdır, sütun resminde ise sütunların sağ tarafı vermesini sağlayan katsayı seçimidir.
 
@@ -116,8 +118,7 @@ Bir sistem ile ondan satır işlemleriyle elde edilen sistemin çözümleri ayn�
 Eski sistemin her çözümü yeni denklemleri de sağlar, çünkü yeni denklemler eskilerin toplamları ve katlarıdır. Ama üç işlemin her biri geri de alınabilir: eklenen kat yeniden çıkarılır, satırların yeri yeniden değiştirilir, sayıya bölünür. Demek ki tersine, yeni sistemin her çözümü eskisini de sağlar.
 :::
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\begin{aligned} x_1+2x_2+x_3&=8\\ 2x_1+x_2+x_3&=7\\ x_1+x_2+2x_3&=9 \end{aligned} \qquad\text{sisteminin genişletilmiş katsayı matrisi şudur:}\qquad \left(\begin{array}{ccc|c}1&2&1&8\\2&1&1&7\\1&1&2&9\end{array}\right).$$
 
 Birinci satır ikinci satırdan iki kez, üçüncü satırdan bir kez çıkarılırsa $x_1$ ikisinden de yok olur. Ardından yeni ikinci ve üçüncü satırların yeri değiştirilir ve yeni ikinci satır üçüncüden üç kez çıkarılırsa $x_2$ de son satırdan yok olur:
@@ -125,6 +126,7 @@ Birinci satır ikinci satırdan iki kez, üçüncü satırdan bir kez çıkarıl
 $$\left(\begin{array}{ccc|c}1&2&1&8\\0&-3&-1&-9\\0&-1&1&1\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&-3&-1&-9\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&0&-4&-12\end{array}\right).$$
 
 Aşağıdan yukarıya: $-4x_3=-12$, dolayısıyla $x_3=3$; sonra $-x_2+3=1$, dolayısıyla $x_2=2$; sonra $x_1+4+3=8$, dolayısıyla $x_1=1$. Çözüm $\mathbf{x}=(1,\,2,\,3)^{\top}$ olur; üç denklemin hepsinde yerine koymak bunu doğrular.
+::::
 
 ⁠**Kısacası:** Gauss eleme yöntemi, çözümleri değiştirmeyen satır işlemleriyle bilinmeyenleri adım adım yok eder ve sonra aşağıdan yukarıya doğru yerine koyar.
 
@@ -154,7 +156,8 @@ dolayısıyla $\mathbf{x}$ ve $\mathbf{x}'$ noktalarından geçen doğrunun her 
 
 Sağ tarafı sıfır olan $\mathbf{A}\mathbf{x}=\mathbf{0}$ sistemine __homojen__ denir. Bu sistemin her zaman $\mathbf{x}=\mathbf{0}$ çözümü vardır. $\mathbf{A}\mathbf{x}=\mathbf{y}$ sisteminin tek bir $\mathbf{x}_{\mathrm s}$ çözümü biliniyorsa öbür bütün çözümler, buna homojen sistemin çözümleri eklenerek elde edilir: $\mathbf{A}\mathbf{x}=\mathbf{y}$ ancak ve ancak $\mathbf{A}(\mathbf{x}-\mathbf{x}_{\mathrm s})=\mathbf{y}-\mathbf{y}=\mathbf{0}$ ise geçerlidir.
 
-⁠**Sayısal örnek:** Şekildeki üç sistem (Şekil [38](#abb-38)):
+::::beispiel [Sayısal örnek]
+Şekildeki üç sistem (Şekil [38](#abb-38)):
 
 <ol class="al">
 
@@ -177,6 +180,7 @@ $x_1+x_2=3$, $2x_1+2x_2=6$: İkinci denklem birincinin iki katıdır. Bir çöz�
 </li>
 
 </ol>
+::::
 
 ⁠**Kısacası:** Bir doğrusal denklem sisteminin ya hiç çözümü yoktur, ya tam olarak bir ya da sonsuz sayıda çözümü vardır; bütün çözümler, bir çözüm artı homojen sistemin çözümleridir.
 
@@ -194,11 +198,13 @@ Denklem sayısı bilinmeyen sayısından fazla olan ($m>n$) bir doğrusal denkle
 
 Aşırı belirlenmiş bir sistemin çoğunlukla çözümü yoktur: İki denklem iki bilinmeyeni zaten belirler ve üçüncü denklemin de rastlantı sonucu sağlanması gerekirdi. Sütun resminde: $\mathbb{R}^m$ uzayındaki $n$ sütunun sütun uzayı, $n<m$ için $\mathbb{R}^m$ uzayının yalnızca küçük bir parçasıdır ve sağ taraf neredeyse hiçbir zaman onun içinde bulunmaz. Eksik belirlenmiş bir sistemin ise, çözülebiliyorsa, sonsuz sayıda çözümü vardır: Satır basamak biçiminde en az bir bilinmeyenin kendi pivotu olmaz ve bu bilinmeyen serbestçe seçilebilir.
 
-⁠**Sayısal örnek:** Fiyatları $200$, $130$ ve $290$ bin avro olan 1, 2 ve 3 numaralı daireler için sistem şudur:
+::::beispiel [Sayısal örnek]
+Fiyatları $200$, $130$ ve $290$ bin avro olan 1, 2 ve 3 numaralı daireler için sistem şudur:
 
 $$60\,w_1+2\,w_2=200,\qquad 40\,w_1+w_2=130,\qquad 90\,w_1+4\,w_2=290 .$$
 
 İlk iki denklemden $w_1=3$ ve $w_2=10$ çıkar: İkinci denklem birinciden iki kez çıkarılırsa $-20\,w_1=-60$ kalır. Ama üçüncü denklemde yerine konunca bu, $270+40=310\ne290$ verir. Sistemin çözümü yoktur. Hiçbir ağırlık çifti üç fiyatın üçünü de tam olarak tutturamaz. Böyle bir durumda bunun yerine ne arandığı ayrı bir sorudur.
+::::
 
 ⁠**Kısacası:** Aşırı belirlenmiş bir sistemde bilinmeyenlerden fazla denklem vardır ve sistem çoğunlukla çözülemez; eksik belirlenmiş bir sistemde daha az denklem vardır ve sistem çözülebiliyorsa sonsuz sayıda çözümü vardır.
 

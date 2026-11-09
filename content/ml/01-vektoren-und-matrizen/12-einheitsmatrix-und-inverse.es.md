@@ -29,9 +29,9 @@ La __matriz identidad__ $\mathbf{I}_n\in\mathbb{R}^{n\times n}$ es la matriz dia
 
 Si el tamaño está claro, se escribe abreviadamente $\mathbf{I}$. Para todo vector $\mathbf{x}\in\mathbb{R}^n$, $\mathbf{I}\mathbf{x}=\mathbf{x}$, y para toda matriz $\mathbf{A}\in\mathbb{R}^{m\times n}$, $\mathbf{A}\mathbf{I}_n=\mathbf{A}$ y también $\mathbf{I}_m\mathbf{A}=\mathbf{A}$. La matriz identidad desempeña en el producto de matrices el papel del número $1$.
 
-⁠**Ejemplo numérico:**
-
+::::beispiel [Ejemplo numérico]
 $$\mathbf{I}_3=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix},\qquad \mathbf{I}_3\begin{pmatrix}60\\2\\3\end{pmatrix}=\begin{pmatrix}60\\2\\3\end{pmatrix}.$$
+::::
 
 ⁠**En resumen:** La matriz identidad tiene unos en la diagonal y ceros en el resto; como aplicación, deja cada vector sin cambios.
 
@@ -54,11 +54,11 @@ La matriz $\mathbf{A}^{-1}$ se llama la __inversa__ de $\mathbf{A}$.
 
 Existe como mucho una matriz así. En efecto, si $\mathbf{B}$ y $\mathbf{C}$ son ambas inversas de $\mathbf{A}$, entonces $\mathbf{B}=\mathbf{B}\mathbf{I}=\mathbf{B}(\mathbf{A}\mathbf{C})=(\mathbf{B}\mathbf{A})\mathbf{C}=\mathbf{I}\mathbf{C}=\mathbf{C}$. Por eso se puede hablar de *la* inversa. Si se conoce, cualquier resultado $\mathbf{y}=\mathbf{A}\mathbf{x}$ puede recalcularse hacia atrás: $\mathbf{A}^{-1}\mathbf{y}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{x}$.
 
-⁠**Ejemplo numérico:**
-
+::::beispiel [Ejemplo numérico]
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\begin{pmatrix}2-1&-2+2\\1-1&-1+2\end{pmatrix}=\begin{pmatrix}1&0\\0&1\end{pmatrix},$$
 
 y lo mismo en el otro orden, así que $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$. El estiramiento tiene la inversa $\operatorname{diag}(2;\,0{,}5)^{-1}=\operatorname{diag}(0{,}5;\,2)$; la rotación de $90^\circ$, la rotación de $-90^\circ$, $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$.
+::::
 
 ⁠**En resumen:** La inversa $\mathbf{A}^{-1}$ deshace la aplicación $\mathbf{A}$: $\mathbf{A}^{-1}\mathbf{A}=\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$.
 
@@ -89,7 +89,9 @@ $$\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}=\be
 y lo mismo en el otro orden. Si $ad-bc\ne0$, se divide por este número y se obtiene [(11.1)](#gl-11-1). Si $ad-bc=0$, $\mathbf{A}$ lleva el vector $(d,\,-c)^{\top}$ a $(ad-bc,\ cd-dc)^{\top}=\mathbf{0}$, e igualmente $(b,\,-a)^{\top}$ a $\mathbf{0}$. Al menos uno de los dos no es el vector nulo, salvo que las cuatro entradas sean cero, y entonces $\mathbf{A}$ es de todos modos la matriz nula. Pero una matriz que lleva un vector $\mathbf{x}\ne\mathbf{0}$ a $\mathbf{0}$ no tiene inversa: si la tuviera, sería $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{A}^{-1}\mathbf{0}=\mathbf{0}$.
 :::
 
-⁠**Ejemplo numérico:** Para $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$, $ad-bc=2-1=1$, así que la inversa es $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$, como antes. Para $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $ad-bc=5$, y la inversa es $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$.
+::::beispiel [Ejemplo numérico]
+Para $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$, $ad-bc=2-1=1$, así que la inversa es $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$, como antes. Para $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $ad-bc=5$, y la inversa es $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$.
+::::
 
 ⁠**En resumen:** Una matriz $2\times2$ es invertible si y solo si $ad-bc\ne0$; la inversa es $\frac{1}{ad-bc}\bigl(\begin{smallmatrix}d&-b\\-c&a\end{smallmatrix}\bigr)$.
 
@@ -113,9 +115,11 @@ En cada caso se comprueba que el producto con el candidato da la matriz identida
 
 Una regla que sería cómoda no se cumple: $(\mathbf{A}+\mathbf{B})^{-1}$ no es, en general, $\mathbf{A}^{-1}+\mathbf{B}^{-1}$. Ya con números, $\frac{1}{2+4}=\frac16$, pero $\frac12+\frac14=\frac34$.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ y $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$, con $ad-bc=21-16=5$, así que $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. Lo mismo da
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ y $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$, con $ad-bc=21-16=5$, así que $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. Lo mismo da
 
 $$\mathbf{B}^{-1}\mathbf{A}^{-1}=\tfrac15\begin{pmatrix}2&-1\\-1&3\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\tfrac15\begin{pmatrix}3&-4\\-4&7\end{pmatrix}.$$
+::::
 
 ⁠**En resumen:** La inversa de un producto es el producto de las inversas en orden inverso, $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$.
 
@@ -141,7 +145,9 @@ Si hubiera una inversa, sería $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\
 
 Intuitivamente: con $\mathbf{A}\mathbf{x}=\mathbf{0}$, para todo $\mathbf{u}$ los dos vectores distintos $\mathbf{u}$ y $\mathbf{u}+\mathbf{x}$ van a parar al mismo lugar, pues $\mathbf{A}(\mathbf{u}+\mathbf{x})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{x}=\mathbf{A}\mathbf{u}$. Dos entradas con la misma salida no pueden distinguirse. Una matriz cuadrada que no es invertible se llama __singular__.
 
-⁠**Ejemplo numérico:** Para $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $ad-bc=4-4=0$. En efecto, $\mathbf{x}=(2,\,-1)^{\top}$ se lleva a $(2-2,\ 4-4)^{\top}=\mathbf{0}$, y los vectores distintos $(1,\,1)^{\top}$ y $(3,\,0)^{\top}$ van a parar ambos a $(3,\,6)^{\top}$.
+::::beispiel [Ejemplo numérico]
+Para $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $ad-bc=4-4=0$. En efecto, $\mathbf{x}=(2,\,-1)^{\top}$ se lleva a $(2-2,\ 4-4)^{\top}=\mathbf{0}$, y los vectores distintos $(1,\,1)^{\top}$ y $(3,\,0)^{\top}$ van a parar ambos a $(3,\,6)^{\top}$.
+::::
 
 Para los datos, esto significa: un cálculo que, por ejemplo, a partir del número de dormitorios y del de salones solo forma el número total de habitaciones ya no puede separar los dos números. En las matrices $2\times2$, este es exactamente el caso $ad-bc=0$ de la subsección [11.3](#stufe-11-3).
 

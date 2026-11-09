@@ -32,7 +32,8 @@ $$(\mathbf{A}\mathbf{x})_i=\sum_{j=1}^{n}a_{ij}\,x_j=a_{i1}x_1+a_{i2}x_2+\dots+a
 
 只有当 $\mathbf{x}$ 的分量个数与 $\mathbf{A}$ 的列数相同时，乘积才存在。结果的分量个数与 $\mathbf{A}$ 的行数相同。由求和规则可得 $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ 和 $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$。
 
-⁠**算例：**对于
+::::beispiel [算例]
+对于
 
 $$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{和}\quad \mathbf{x}=\begin{pmatrix}2\\1\end{pmatrix}\qquad\text{有}\qquad \mathbf{A}\mathbf{x}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
@@ -41,6 +42,7 @@ $$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{和}\quad \mat
 :::abbildung ml/k1rmv 28
 逐个分量计算矩阵-向量乘积：对每一行 $i$，把元素 $a_{ij}$ 与对应的 $x_j$ 相乘再相加。
 :::
+::::
 
 ⁠**简而言之：**$\mathbf{A}\mathbf{x}$ 是第 $i$ 个分量为和 $\sum_ja_{ij}x_j$ 的向量；$m\times n$ 矩阵把 $\mathbb{R}^n$ 中的向量变成 $\mathbb{R}^m$ 中的向量。
 
@@ -61,7 +63,8 @@ $$\mathbf{X}\mathbf{w}=\begin{pmatrix}\mathbf{x}_1^{\top}\mathbf{w}\\\vdots\\\ma
 
 所以，矩阵-向量乘积把权重为 $\mathbf{w}$ 的加权和同时用于所有样本，并给出全部预测值构成的向量。用模式比对的图景来说：每个样本都与同一个模式 $\mathbf{w}$ 进行比对。
 
-⁠**算例：**对公寓数据集和 $\mathbf{w}=(3,\,10,\,-4)^{\top}$，
+::::beispiel [算例]
+对公寓数据集和 $\mathbf{w}=(3,\,10,\,-4)^{\top}$，
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
 
@@ -70,6 +73,7 @@ $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\7
 :::abbildung ml/k1rzeilen 29
 房产经纪人估价的行视角：每套公寓，即 $\mathbf{X}$ 的每一行，乘以权重 $\mathbf{w}$。
 :::
+::::
 
 ⁠**简而言之：**按行视角，$\mathbf{A}\mathbf{x}$ 是一串点积，每行一个；$\mathbf{X}\mathbf{w}$ 是所有样本的预测值列表。
 
@@ -102,15 +106,19 @@ $$\mathbf{A}\mathbf{x}=x_1\mathbf{a}_1+x_2\mathbf{a}_2+\dots+x_n\mathbf{a}_n=\su
 右边的第 $i$ 个分量是 $\sum_jx_j\,(\mathbf{a}_j)_i=\sum_jx_j\,a_{ij}$，因为列 $\mathbf{a}_j$ 的第 $i$ 个分量就是元素 $a_{ij}$。按式 [(7.1)](#gl-7-1)，这恰好是 $\mathbf{A}\mathbf{x}$ 的第 $i$ 个分量。
 :::
 
-⁠**算例 1：**对第 [7.1](#stufe-7-1) 小节中的乘积 $\mathbf{A}\mathbf{x}$，
+::::beispiel [算例 1]
+对第 [7.1](#stufe-7-1) 小节中的乘积 $\mathbf{A}\mathbf{x}$，
 
 $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\begin{pmatrix}1\\0\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\\1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
+::::
 
-⁠**算例 2：**房产经纪人的预测值等于 $3$ 倍的面积列加 $10$ 倍的房间数列加 $(-4)$ 倍的距离列（图 [31](#abb-31)）。与第 [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1) 小节一样，$\mathbf{X}$ 的各列记作 $\mathbf{a}_1$、$\mathbf{a}_2$、$\mathbf{a}_3$。从这种形式可以看出每个预测值的哪一部分来自哪个特征：第一项包含面积的贡献，第二项包含房间数的贡献，第三项包含距离的贡献。
+::::beispiel [算例 2]
+房产经纪人的预测值等于 $3$ 倍的面积列加 $10$ 倍的房间数列加 $(-4)$ 倍的距离列（图 [31](#abb-31)）。与第 [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1) 小节一样，$\mathbf{X}$ 的各列记作 $\mathbf{a}_1$、$\mathbf{a}_2$、$\mathbf{a}_3$。从这种形式可以看出每个预测值的哪一部分来自哪个特征：第一项包含面积的贡献，第二项包含房间数的贡献，第三项包含距离的贡献。
 
 :::abbildung ml/k1rspalten 31
 房产经纪人估价的列视角：$\mathbf{X}$ 的每一列 $\mathbf{a}_j$ 乘以它的权重 $w_j$，然后把三个向量相加。
 :::
+::::
 
 ⁠**简而言之：**按列视角，$\mathbf{A}\mathbf{x}$ 是 $\mathbf{A}$ 各列的线性组合；$\mathbf{x}$ 的各分量说明每一列取多少。
 
@@ -130,9 +138,13 @@ $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\b
 矩阵 $\mathbf{A}\in\mathbb{R}^{m\times n}$ 的__列空间__是所有向量 $\mathbf{A}\mathbf{x}$（其中 $\mathbf{x}\in\mathbb{R}^n$）构成的集合，也就是 $\mathbf{A}$ 各列的所有线性组合构成的集合。
 :::
 
-⁠**算例 1：**矩阵 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的列为 $(1,\,2)^{\top}$ 和 $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$。每个线性组合都是 $(1,\,2)^{\top}$ 的倍数。所以，尽管结果有两个分量，列空间却只是过原点、沿 $(1,\,2)^{\top}$ 方向的直线。向量 $(3,\,6)^{\top}$ 在其中；向量 $(1,\,1)^{\top}$ 不在。
+::::beispiel [算例 1]
+矩阵 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的列为 $(1,\,2)^{\top}$ 和 $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$。每个线性组合都是 $(1,\,2)^{\top}$ 的倍数。所以，尽管结果有两个分量，列空间却只是过原点、沿 $(1,\,2)^{\top}$ 方向的直线。向量 $(3,\,6)^{\top}$ 在其中；向量 $(1,\,1)^{\top}$ 不在。
+::::
 
-⁠**算例 2：**矩阵 $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ 给出 $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$。它的列空间由 $\mathbb{R}^3$ 中第三个分量等于前两个分量之和的向量组成；这是空间中的一个平面。向量 $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ 在其中，而 $(1,\,1,\,1)^{\top}$ 不在，因为 $1+1\ne1$。
+::::beispiel [算例 2]
+矩阵 $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ 给出 $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$。它的列空间由 $\mathbb{R}^3$ 中第三个分量等于前两个分量之和的向量组成；这是空间中的一个平面。向量 $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ 在其中，而 $(1,\,1,\,1)^{\top}$ 不在，因为 $1+1\ne1$。
+::::
 
 对数据矩阵而言，这意味着：无论选择什么权重，预测值 $\mathbf{X}\mathbf{w}$ 总是位于 $\mathbf{X}$ 的列空间中。用这些特征，只能产生非常特定的预测值列表。
 

@@ -36,7 +36,8 @@ $$\neg\bigl(\forall x\in M:\mathcal A(x)\bigr)\Leftrightarrow\bigl(\exists x\in 
 No. Un ejemplo solo comprueba un $x$. Según [(2.1)](#gl-2-1), en cambio, un solo __contraejemplo__ refuta la proposición «para todo». A la inversa, «existe» se demuestra con un ejemplo.
 :::
 
-**Ejemplo: cuantificadores anidados.** Sean $H$ los aparatos de un hogar, $F$ los fusibles, y $K(g,s)$ signifique «el aparato $g$ está conectado al fusible $s$». Entonces
+::::beispiel cuantificadores anidados
+Sean $H$ los aparatos de un hogar, $F$ los fusibles, y $K(g,s)$ signifique «el aparato $g$ está conectado al fusible $s$». Entonces
 
 $$\mathcal P:=\bigl(\forall g\in H\ \exists s\in F:K(g,s)\bigr),\qquad \mathcal Q:=\bigl(\exists s\in F\ \forall g\in H:K(g,s)\bigr)$$
 
@@ -45,6 +46,7 @@ dicen cosas distintas (fig. [2](#abb-2)): en $\mathcal P$, $s$ puede depender d
 :::abbildung hm1/k1quantoren 2
 La imagen de la derecha cumple ambas proposiciones; la de la izquierda, solo la primera.
 :::
+::::
 
 :::satz Teorema 2.3 (Demostración indirecta)
 <span class="anker" id="satz-2-3"></span>

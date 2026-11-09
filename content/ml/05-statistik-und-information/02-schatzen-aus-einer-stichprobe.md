@@ -35,11 +35,13 @@ Eine Familie von Verteilungen $P(X=x\mid\theta)$, die von einer unbekannten Grö
 
 Der senkrechte Strich wird wie in [Grundlagen 4, Abschnitt 3.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/bedingte-wahrscheinlichkeit.html#stufe-3-2), „gegeben“ gelesen: $P(X=x\mid\theta)$ ist die Wahrscheinlichkeit von $X=x$, wenn der Parameter den Wert $\theta$ hat. Ob $\theta$ dabei selbst zufällig ist, lässt die Schreibweise offen; Abschnitt [6](prior-und-posterior.html#stufe-6) kommt darauf zurück. Besteht der Parameter aus mehreren Zahlen, schreibt man ihn als Vektor $\boldsymbol{\theta}$. In den Definitionen steht $\theta$ für einen beliebigen Parameter; in den Rechenbeispielen ist $\theta$ ohne weiteren Zusatz der Parameter einer Bernoulli-Verteilung, wie in [Grundlagen 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1).
 
-⁠**Rechenbeispiel:** Für Münzwürfe mit Kopf $=1$ und Zahl $=0$ ist das Bernoulli-Modell
+::::beispiel [Rechenbeispiel]
+Für Münzwürfe mit Kopf $=1$ und Zahl $=0$ ist das Bernoulli-Modell
 
 $$P(X=x\mid\theta)=\theta^x(1-\theta)^{1-x},\qquad x\in\{0,1\},\qquad \Theta=[0,\,1] .$$
 
 Für Messwerte einer Spannung mit Rauschen ist ein übliches Modell die Normalverteilung aus [Grundlagen 4, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-5), mit der Dichte $p(x\mid\mu,\sigma^2)$ und dem Parametervektor $\boldsymbol{\theta}=(\mu,\,\sigma^2)^{\top}$. Hier ist $\mu$ der wahre Wert der Spannung, $\sigma^2$ die Varianz des Rauschens und der Parameterbereich die Menge aller Paare mit $\sigma^2>0$.
+::::
 
 ⁠**Kurz gesagt:** Die Statistik schließt von Daten auf die Verteilung, die sie erzeugt hat; dafür beschränkt man sich auf ein Modell, eine Familie von Verteilungen mit einem unbekannten Parameter.
 
@@ -60,11 +62,13 @@ $$P(X_1=x_1,\dots,X_N=x_N\mid\theta)=\prod_{i=1}^NP(X=x_i\mid\theta) . \tag{1.1}
 
 Dabei ist $\prod_{i=1}^N$ das Produktzeichen: Es multipliziert die Faktoren für $i=1$ bis $N$, so wie das Summenzeichen sie addiert.
 
-⁠**Rechenbeispiel:** Die verbogene Münze aus dem vorigen Unterabschnitt hat in zehn Würfen die Folge
+::::beispiel [Rechenbeispiel]
+Die verbogene Münze aus dem vorigen Unterabschnitt hat in zehn Würfen die Folge
 
 $$\mathcal D=(1,\,0,\,1,\,1,\,0,\,1,\,1,\,0,\,1,\,1)$$
 
 ergeben, also siebenmal Kopf. Hätte sie $\theta=0{,}7$, so hätte genau diese Folge nach [(1.1)](#gl-1-1) die Wahrscheinlichkeit $0{,}7\cdot0{,}3\cdot0{,}7\cdot0{,}7\cdot0{,}3\cdot0{,}7\cdot0{,}7\cdot0{,}3\cdot0{,}7\cdot0{,}7=0{,}7^7\cdot0{,}3^3\approx0{,}00222$. Die Wahrscheinlichkeit $0{,}267$ aus dem vorigen Unterabschnitt ist $120$-mal so groß, weil es $\binom{10}7=120$ Folgen mit sieben Köpfen gibt.
+::::
 
 ⁠**Kurz gesagt:** Ein Datensatz ist eine Stichprobe aus $N$ unabhängigen, gleich verteilten Zufallsvariablen; seine Wahrscheinlichkeit ist das Produkt der Einzelwahrscheinlichkeiten.
 
@@ -89,7 +93,8 @@ Der Hut über dem Buchstaben bedeutet wie bei der Vorhersage $\hat y$ aus [Grund
 
 Für Daten aus Nullen und Einsen bezeichnet dieses Kapitel die Anzahl der Einsen mit $N_1=\sum_ix_i$ und die Anzahl der Nullen mit $N_0=N-N_1$.
 
-⁠**Rechenbeispiel:** Für die zehn Würfe mit $N_1=7$ liefern vier verschiedene Schätzer für $\theta$:
+::::beispiel [Rechenbeispiel]
+Für die zehn Würfe mit $N_1=7$ liefern vier verschiedene Schätzer für $\theta$:
 
 <ul>
 
@@ -120,6 +125,7 @@ den Bruch $(N_1+1)/(N+2)=8/12\approx0{,}667$.
 </ul>
 
 Alle vier sind Schätzer im Sinn der Definition. Der zweite und der dritte wirken unvernünftig, und der vierte hat noch keine Begründung; die Abschnitte [2](wie-gut-ist-ein-schatzer.html#stufe-2) und [6](prior-und-posterior.html#stufe-6) kommen auf sie zurück.
+::::
 
 ⁠**Kurz gesagt:** Ein Schätzer ist eine Vorschrift, die aus den Daten eine Zahl für einen unbekannten Parameter macht; der Schätzwert ist diese Zahl für die beobachteten Daten.
 
@@ -137,7 +143,8 @@ Die Verteilung eines Schätzers $\hat\theta=g(X_1,\dots,X_N)$ heißt seine __Sti
 
 Sie hängt vom wahren Parameter ab, von der Vorschrift $g$ und von der Zahl $N$ der Werte. Der wahre Parameter ist dabei fest; zufällig sind nur die Daten.
 
-⁠**Rechenbeispiel:** Eine Zufallsvariable $X$ nehme die Werte $1$, $2$ und $3$ je mit der Wahrscheinlichkeit $\tfrac13$ an; man kann sich einen Würfel vorstellen, dessen Seiten die Zahlen $1,1,2,2,3,3$ tragen. Ihr Erwartungswert ist $\mu=2$, ihre Varianz $\sigma^2=\tfrac13(1+0+1)=\tfrac23$. Aus ihr wird eine Stichprobe vom Umfang $N=2$ gezogen, und geschätzt wird $\mu$ mit dem Mittelwert $\bar X=\tfrac12(X_1+X_2)$. Es gibt nur $3\cdot3=9$ mögliche Stichproben, und wegen der Unabhängigkeit hat jede die Wahrscheinlichkeit $\tfrac13\cdot\tfrac13=\tfrac19$. Tabelle [1](#tab-1) zählt sie alle auf.
+::::beispiel [Rechenbeispiel]
+Eine Zufallsvariable $X$ nehme die Werte $1$, $2$ und $3$ je mit der Wahrscheinlichkeit $\tfrac13$ an; man kann sich einen Würfel vorstellen, dessen Seiten die Zahlen $1,1,2,2,3,3$ tragen. Ihr Erwartungswert ist $\mu=2$, ihre Varianz $\sigma^2=\tfrac13(1+0+1)=\tfrac23$. Aus ihr wird eine Stichprobe vom Umfang $N=2$ gezogen, und geschätzt wird $\mu$ mit dem Mittelwert $\bar X=\tfrac12(X_1+X_2)$. Es gibt nur $3\cdot3=9$ mögliche Stichproben, und wegen der Unabhängigkeit hat jede die Wahrscheinlichkeit $\tfrac13\cdot\tfrac13=\tfrac19$. Tabelle [1](#tab-1) zählt sie alle auf.
 
 <span class="anker" id="tab-1"></span>
 
@@ -160,6 +167,7 @@ Das passt zu [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learnin
 :::abbildung ml/k5rerwartung 3
 Erwartungswert und Varianz des Schätzers $\bar X$ als Summen über seine Stichprobenverteilung: jeder mögliche Wert, gewichtet mit seiner Wahrscheinlichkeit.
 :::
+::::
 
 ⁠**Kurz gesagt:** Ein Schätzer ist eine Zufallsvariable; seine Verteilung über alle möglichen Stichproben heißt Stichprobenverteilung, und an ihr misst man, wie gut er ist.
 

@@ -39,7 +39,8 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 网孔定律为 $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$。乘以 $I$ 得 $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$。在式 [(5.2)](#gl-5-2) 中 $I$ 被约去，因为两个电阻流过相同的电流。分压器（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）给出 $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$。
 :::
 
-**例。** 电池接四种负载：
+::::beispiel
+电池接四种负载：
 
 | $R_\mathrm{L}$ / $\Omega$ | $I$ / A | $U_\mathrm{L}$ / V | $P_\mathrm{L}$ / W | $P_\mathrm{v}$ / W | $P_\mathrm{q}$ / W | $\eta$ |
 |---|---|---|---|---|---|---|
@@ -47,6 +48,7 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 | 2 | 2.25 | 4.5 | 10.125 | 10.125 | 20.25 | 50 % |
 | 8 | 0.9 | 7.2 | 6.48 | 1.62 | 8.1 | 80 % |
 | 16 | 0.5 | 8 | 4 | 0.5 | 4.5 | 88.9 % |
+::::
 
 ⁠**极限情况：**短路时 $R_\mathrm{L}=0$，$\eta=0$：负载保持冷态，全部功率 $P_\mathrm{q}=40.5$ W 都加热 $R_\mathrm{i}$。开路时 $R_\mathrm{L}\to\infty$，$\eta\to1$，但 $I\to0$，因而 $P_\mathrm{L}\to0$。
 

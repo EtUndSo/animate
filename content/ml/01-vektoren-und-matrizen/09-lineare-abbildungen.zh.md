@@ -34,7 +34,9 @@ $$f(\mathbf{u}+\mathbf{v})=f(\mathbf{u})+f(\mathbf{v})\qquad\text{且}\qquad f(c
 
 两个条件合起来是说：$f$ 保持线性组合，$f(c_1\mathbf{u}+c_2\mathbf{v})=c_1f(\mathbf{u})+c_2f(\mathbf{v})$。每个线性映射都把零向量映射为零向量，因为 $f(\mathbf{0})=f(0\cdot\mathbf{u})=0\cdot f(\mathbf{u})=\mathbf{0}$。
 
-⁠**算例：**从 $\mathbb{R}^2$ 到 $\mathbb{R}^2$ 的映射 $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ 是线性的。它的两个分量都是 $x_j$ 的倍数之和，而这样的和满足式 [(8.1)](#gl-8-1) 中的条件；例如 $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$。映射 $g(\mathbf{x})=x_1x_2$ 不是线性的，因为只要 $x_1x_2\ne0$，就有 $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$。$h(\mathbf{x})=\mathbf{x}+\mathbf 1$ 也不是线性的，因为 $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$。
+::::beispiel [算例]
+从 $\mathbb{R}^2$ 到 $\mathbb{R}^2$ 的映射 $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ 是线性的。它的两个分量都是 $x_j$ 的倍数之和，而这样的和满足式 [(8.1)](#gl-8-1) 中的条件；例如 $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$。映射 $g(\mathbf{x})=x_1x_2$ 不是线性的，因为只要 $x_1x_2\ne0$，就有 $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$。$h(\mathbf{x})=\mathbf{x}+\mathbf 1$ 也不是线性的，因为 $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$。
+::::
 
 ⁠**简而言之：**如果一个映射保持和与倍数，它就是线性的；这时它把线性组合映射为线性组合。
 
@@ -65,9 +67,11 @@ $$f(\mathbf{x})=f\Bigl(\sum_{j=1}^nx_j\mathbf{e}_j\Bigr)=\sum_{j=1}^nx_j\,f(\mat
 最后一步依据的是列视角，即式 [(7.3)](das-matrix-vektor-produkt.html#gl-7-3)。如果还有第二个矩阵 $\mathbf{B}$，对所有 $\mathbf{x}$ 都有 $\mathbf{B}\mathbf{x}=f(\mathbf{x})$，那么取 $\mathbf{x}=\mathbf{e}_j$，$\mathbf{B}$ 的第 $j$ 列就等于 $f(\mathbf{e}_j)=\mathbf{a}_j$，对每个 $j$ 都是如此。因此 $\mathbf{B}=\mathbf{A}$。
 :::
 
-⁠**算例：**对 $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$，有 $f(\mathbf{e}_1)=(1,\,2)^{\top}$ 和 $f(\mathbf{e}_2)=(1,\,0)^{\top}$。所以
+::::beispiel [算例]
+对 $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$，有 $f(\mathbf{e}_1)=(1,\,2)^{\top}$ 和 $f(\mathbf{e}_2)=(1,\,0)^{\top}$。所以
 
 $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{验算：}\qquad \mathbf{A}\begin{pmatrix}3\\-1\end{pmatrix}=\begin{pmatrix}2\\6\end{pmatrix}=f\bigl((3,\,-1)^{\top}\bigr).$$
+::::
 
 ⁠**简而言之：**线性映射与矩阵是一回事；矩阵的第 $j$ 列是单位向量 $\mathbf{e}_j$ 的像。
 
@@ -121,12 +125,14 @@ __剪切__ $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 使 $\math
 
 </ul>
 
-⁠**算例：任意角度的旋转。**逆时针旋转角度 $\alpha$ 时，$\mathbf{e}_1$ 落到单位圆上的点 $(\cos\alpha,\,\sin\alpha)^{\top}$，而比它再转过 $90^\circ$ 的 $\mathbf{e}_2$ 落到点 $(-\sin\alpha,\,\cos\alpha)^{\top}$。所以由式 [(8.2)](#gl-8-2)，旋转矩阵为
+::::beispiel [算例] 任意角度的旋转
+逆时针旋转角度 $\alpha$ 时，$\mathbf{e}_1$ 落到单位圆上的点 $(\cos\alpha,\,\sin\alpha)^{\top}$，而比它再转过 $90^\circ$ 的 $\mathbf{e}_2$ 落到点 $(-\sin\alpha,\,\cos\alpha)^{\top}$。所以由式 [(8.2)](#gl-8-2)，旋转矩阵为
 
 <span class="anker" id="gl-8-3"></span>
 $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}. \tag{8.3}$$
 
 当 $\alpha=90^\circ$ 时，得到图 [32](#abb-32) 中的矩阵。它把点 $(1,\,1)^{\top}$ 旋转到 $(-1,\,1)^{\top}$；拉伸把同一个点映射到 $(2,\ 0.5)^{\top}$，剪切把它映射到 $(2,\,1)^{\top}$，压扁把它映射到 $(1,\,0)^{\top}$。
+::::
 
 ⁠**简而言之：**$2\times2$ 矩阵使平面的网格变形；单位正方形变成由它的两列张成的平行四边形。
 
@@ -144,7 +150,9 @@ $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\
 
 这就是第 [8.2](#stufe-8-2) 小节中的定理在 $m=1$ 时的情形：$1\times d$ 矩阵就是行 $\mathbf{w}^{\top}$，它与 $\mathbf{x}$ 的乘积就是点积。所以，第 [2.2](das-skalarprodukt.html#stufe-2-2) 小节中的加权和并不只是众多规则中的一种，而是只有一个输出的最一般的线性规则。
 
-⁠**算例：**房产经纪人的规则是 $f(\mathbf{x})=3x_1+10x_2-4x_3$。有 $f(\mathbf{e}_1)=3$，$f(\mathbf{e}_2)=10$，$f(\mathbf{e}_3)=-4$，所以 $\mathbf{w}=(3,\,10,\,-4)^{\top}$。权重 $w_j=f(\mathbf{e}_j)$ 是这条规则对一个假想样本的取值，这个样本只有一个单位的特征 $j$，其他什么都没有：它说明这个特征的一个单位贡献多少。
+::::beispiel [算例]
+房产经纪人的规则是 $f(\mathbf{x})=3x_1+10x_2-4x_3$。有 $f(\mathbf{e}_1)=3$，$f(\mathbf{e}_2)=10$，$f(\mathbf{e}_3)=-4$，所以 $\mathbf{w}=(3,\,10,\,-4)^{\top}$。权重 $w_j=f(\mathbf{e}_j)$ 是这条规则对一个假想样本的取值，这个样本只有一个单位的特征 $j$，其他什么都没有：它说明这个特征的一个单位贡献多少。
+::::
 
 ⁠**简而言之：**每个只有一个输出的线性映射都是加权和 $\mathbf{w}^{\top}\mathbf{x}$，权重 $w_j$ 是它在 $\mathbf{e}_j$ 处的值。
 
@@ -174,9 +182,11 @@ $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+b\,\mathbf 1 . \tag{8.5}$$
 
 项 $b\,\mathbf 1$ 给每个预测值加上同样的数 $b$。
 
-⁠**算例：**取 $\mathbf{w}=(3,\,10,\,-4)^{\top}$ 和 $b=20$，预测值 $(188,\,126,\,286,\,232)^{\top}$ 变为
+::::beispiel [算例]
+取 $\mathbf{w}=(3,\,10,\,-4)^{\top}$ 和 $b=20$，预测值 $(188,\,126,\,286,\,232)^{\top}$ 变为
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+20\cdot\mathbf 1=(208,\,146,\,306,\,252)^{\top}\ \text{千欧元}.$$
+::::
 
 ⁠**简而言之：**仿射映射是线性映射加上一个固定的平移，$\mathbf{A}\mathbf{x}+\mathbf{b}$；只有一个输出时，这个平移称为截距。
 

@@ -80,13 +80,17 @@ Electrones y huecos tienen la misma barrera, y sus corrientes se suman con el mi
 Simplificación: en realidad, el valor de $I_\mathrm S$ lo determina la difusión de la minoría en las regiones neutras detrás de la zona. El factor $\mathrm{e}^{U/U_T}$ se mantiene, porque fija la densidad de portadores en el borde de la zona.
 :::
 
-**Ejemplo.** Con [(4.1)](#gl-4-1) se obtiene en el modelo de referencia:
+::::beispiel
+Con [(4.1)](#gl-4-1) se obtiene en el modelo de referencia:
 
 | $I$ | 1 µ A | 10 µ A | 100 µ A | 1 mA | 10 mA |
 |---|---|---|---|---|---|
 | $U$ | 0,476 V | 0,536 V | 0,595 V | 0,655 V | 0,714 V |
 
-A 0,655 V la barrera se ha reducido a $2{,}3\,U_T$, y la fracción ha subido de $10^{-12}$ a 0,1. **Casos límite:** Con $U=0$, $I=0$. Para $U\ll-U_T$ queda $I=-I_\mathrm S$: ya a $-5\,U_T$ es el 99,3 % de ese valor. A partir de $U=119$ mV, el sumando $-1$ es menor que el 1 % del primero.
+A 0,655 V la barrera se ha reducido a $2{,}3\,U_T$, y la fracción ha subido de $10^{-12}$ a 0,1.
+::::
+
+⁠**Casos límite:** Con $U=0$, $I=0$. Para $U\ll-U_T$ queda $I=-I_\mathrm S$: ya a $-5\,U_T$ es el 99,3 % de ese valor. A partir de $U=119$ mV, el sumando $-1$ es menor que el 1 % del primero.
 
 **Sentido inverso.** Con $U<0$ la barrera crece y la zona se ensancha. La corriente cuesta arriba se extingue y solo queda la corriente de la minoría. No depende de la altura de la barrera, solo de cuántos portadores llegan a su borde. Por eso se satura en $I_\mathrm S$. Los diodos reales bloquean con pA a nA, porque además se generan pares en la zona.
 

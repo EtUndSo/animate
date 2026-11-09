@@ -29,9 +29,9 @@ $\mathbf{I}_n\in\mathbb{R}^{n\times n}$ __birim matrisi__, köşegeninde yalnız
 
 Tip açıksa kısaca $\mathbf{I}$ yazılır. Her $\mathbf{x}\in\mathbb{R}^n$ vektörü için $\mathbf{I}\mathbf{x}=\mathbf{x}$, her $\mathbf{A}\in\mathbb{R}^{m\times n}$ matrisi için de $\mathbf{A}\mathbf{I}_n=\mathbf{A}$ ve $\mathbf{I}_m\mathbf{A}=\mathbf{A}$ olur. Birim matris, matris çarpımında $1$ sayısının rolünü oynar.
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\mathbf{I}_3=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix},\qquad \mathbf{I}_3\begin{pmatrix}60\\2\\3\end{pmatrix}=\begin{pmatrix}60\\2\\3\end{pmatrix}.$$
+::::
 
 ⁠**Kısacası:** Birim matrisin köşegeninde birler, başka her yerde sıfırlar vardır; bir dönüşüm olarak her vektörü değiştirmeden bırakır.
 
@@ -54,11 +54,11 @@ $\mathbf{A}^{-1}$ matrisine $\mathbf{A}$ matrisinin __tersi__ denir.
 
 Böyle en çok bir matris vardır. Gerçekten de $\mathbf{B}$ ve $\mathbf{C}$ ikisi de $\mathbf{A}$ matrisinin tersiyse $\mathbf{B}=\mathbf{B}\mathbf{I}=\mathbf{B}(\mathbf{A}\mathbf{C})=(\mathbf{B}\mathbf{A})\mathbf{C}=\mathbf{I}\mathbf{C}=\mathbf{C}$ olur. Bu yüzden *tek* bir tersten söz edilebilir. Ters bilinirse her $\mathbf{y}=\mathbf{A}\mathbf{x}$ sonucundan geriye doğru hesap yapılabilir: $\mathbf{A}^{-1}\mathbf{y}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{x}$.
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\begin{pmatrix}2-1&-2+2\\1-1&-1+2\end{pmatrix}=\begin{pmatrix}1&0\\0&1\end{pmatrix},$$
 
 ve öbür sırada da aynısı çıkar; dolayısıyla $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$ olur. Germenin tersi $\operatorname{diag}(2;\,0{,}5)^{-1}=\operatorname{diag}(0{,}5;\,2)$, $90^\circ$ kadar dönmenin tersi de $-90^\circ$ kadar dönmedir, $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$.
+::::
 
 ⁠**Kısacası:** $\mathbf{A}^{-1}$ tersi, $\mathbf{A}$ dönüşümünü geri alır: $\mathbf{A}^{-1}\mathbf{A}=\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$.
 
@@ -89,7 +89,9 @@ $$\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}=\be
 ve öbür sırada da aynısı çıkar. $ad-bc\ne0$ ise bu sayıya bölünür ve [(11.1)](#gl-11-1) elde edilir. $ad-bc=0$ ise $\mathbf{A}$ matrisi $(d,\,-c)^{\top}$ vektörünü $(ad-bc,\ cd-dc)^{\top}=\mathbf{0}$ vektörüne, aynı biçimde $(b,\,-a)^{\top}$ vektörünü de $\mathbf{0}$ vektörüne götürür. Dört elemanın hepsi sıfır olmadıkça bu iki vektörden en az biri sıfır vektörü değildir; dördü de sıfırsa $\mathbf{A}$ zaten sıfır matristir. Ama bir $\mathbf{x}\ne\mathbf{0}$ vektörünü $\mathbf{0}$ vektörüne götüren bir matrisin tersi yoktur: Olsaydı $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{A}^{-1}\mathbf{0}=\mathbf{0}$ olurdu.
 :::
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ için $ad-bc=2-1=1$ olur, dolayısıyla tersi, yukarıdaki gibi $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$ matrisidir. $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ için $ad-bc=5$, tersi de $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$ olur.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ için $ad-bc=2-1=1$ olur, dolayısıyla tersi, yukarıdaki gibi $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$ matrisidir. $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ için $ad-bc=5$, tersi de $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$ olur.
+::::
 
 ⁠**Kısacası:** $2\times2$ tipinde bir matris ancak ve ancak $ad-bc\ne0$ ise tersinirdir; tersi $\frac{1}{ad-bc}\bigl(\begin{smallmatrix}d&-b\\-c&a\end{smallmatrix}\bigr)$ olur.
 
@@ -113,9 +115,11 @@ Her seferinde adayla çarpımın birim matrisi verdiği kontrol edilir. Çarpım
 
 İnsanın olmasını isteyeceği bir kural ise geçerli değildir: $(\mathbf{A}+\mathbf{B})^{-1}$ genel olarak $\mathbf{A}^{-1}+\mathbf{B}^{-1}$ değildir. Sayılar için bile $\frac{1}{2+4}=\frac16$, ama $\frac12+\frac14=\frac34$ olur.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ ve $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ için $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ ve $ad-bc=21-16=5$ olur, dolayısıyla $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. Aynı sonucu şu da verir:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ ve $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ için $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ ve $ad-bc=21-16=5$ olur, dolayısıyla $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. Aynı sonucu şu da verir:
 
 $$\mathbf{B}^{-1}\mathbf{A}^{-1}=\tfrac15\begin{pmatrix}2&-1\\-1&3\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\tfrac15\begin{pmatrix}3&-4\\-4&7\end{pmatrix}.$$
+::::
 
 ⁠**Kısacası:** Bir çarpımın tersi, terslerin ters sırayla alınmış çarpımıdır, $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$.
 
@@ -141,7 +145,9 @@ Bir ters olsaydı $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{A}^{-1
 
 Sezgisel olarak: $\mathbf{A}\mathbf{x}=\mathbf{0}$ ise her $\mathbf{u}$ için birbirinden farklı $\mathbf{u}$ ve $\mathbf{u}+\mathbf{x}$ vektörleri aynı yere gelir, çünkü $\mathbf{A}(\mathbf{u}+\mathbf{x})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{x}=\mathbf{A}\mathbf{u}$. Çıkışı aynı olan iki giriş birbirinden ayırt edilemez. Tersinir olmayan bir kare matrise __tekil__ denir.
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ için $ad-bc=4-4=0$ olur. Gerçekten de $\mathbf{x}=(2,\,-1)^{\top}$ vektörü $(2-2,\ 4-4)^{\top}=\mathbf{0}$ vektörüne gider ve birbirinden farklı $(1,\,1)^{\top}$ ve $(3,\,0)^{\top}$ vektörlerinin ikisi de $(3,\,6)^{\top}$ vektörüne gelir.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ için $ad-bc=4-4=0$ olur. Gerçekten de $\mathbf{x}=(2,\,-1)^{\top}$ vektörü $(2-2,\ 4-4)^{\top}=\mathbf{0}$ vektörüne gider ve birbirinden farklı $(1,\,1)^{\top}$ ve $(3,\,0)^{\top}$ vektörlerinin ikisi de $(3,\,6)^{\top}$ vektörüne gelir.
+::::
 
 Veriler için bu şu demektir: Örneğin yatak odaları ile oturma odalarından yalnızca oda toplamını oluşturan bir hesap, iki sayıyı artık birbirinden ayıramaz. $2\times2$ tipindeki matrislerde bu, tam olarak $ad-bc=0$ durumudur (alt kesim [11.3](#stufe-11-3)).
 

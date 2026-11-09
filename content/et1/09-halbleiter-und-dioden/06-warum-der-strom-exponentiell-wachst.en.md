@@ -80,13 +80,17 @@ Electrons and holes have the same barrier, and their currents add with the same 
 Simplification: in reality the size of $I_\mathrm S$ is determined by the diffusion of the minority in the neutral regions behind the space-charge region. The factor $\mathrm{e}^{U/U_T}$ remains, because it sets the carrier density at the edge of the region.
 :::
 
-**Example.** With [(4.1)](#gl-4-1), the reference model gives:
+::::beispiel
+With [(4.1)](#gl-4-1), the reference model gives:
 
 | $I$ | 1 µ A | 10 µ A | 100 µ A | 1 mA | 10 mA |
 |---|---|---|---|---|---|
 | $U$ | 0.476 V | 0.536 V | 0.595 V | 0.655 V | 0.714 V |
 
-At 0.655 V the barrier has shrunk to $2.3\,U_T$, and the fraction has risen from $10^{-12}$ to 0.1. **Limiting cases:** At $U=0$, $I=0$. For $U\ll-U_T$, $I=-I_\mathrm S$ remains: already at $-5\,U_T$ it is 99.3 % of that. From $U=119$ mV on, the term $-1$ is smaller than 1 % of the first term.
+At 0.655 V the barrier has shrunk to $2.3\,U_T$, and the fraction has risen from $10^{-12}$ to 0.1.
+::::
+
+⁠**Limiting cases:** At $U=0$, $I=0$. For $U\ll-U_T$, $I=-I_\mathrm S$ remains: already at $-5\,U_T$ it is 99.3 % of that. From $U=119$ mV on, the term $-1$ is smaller than 1 % of the first term.
 
 **Reverse direction.** At $U<0$ the barrier grows and the region becomes wider. The uphill current dies out, and only the minority current remains. It does not depend on how high the barrier is, only on how many carriers reach its edge. That is why it saturates at $I_\mathrm S$. Real diodes block with pA to nA, because additional pairs are generated in the region.
 

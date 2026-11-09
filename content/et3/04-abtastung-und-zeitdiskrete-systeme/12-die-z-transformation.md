@@ -50,7 +50,8 @@ Ein kausales LSI-System ist genau dann stabil, wenn alle Pole von $H(z)$ im Inne
 
 ⁠**Warum:** Kausal heißt Konvergenzbereich außerhalb des äußersten Pols. Stabil heißt $\sum|h(n)|<\infty$, dann konvergiert $H(z)$ auf dem Einheitskreis, er gehört also zum Konvergenzbereich. Beides zusammen geht nur, wenn der äußerste Pol innerhalb des Einheitskreises liegt. Für das rekursive System mit $H(z)=\frac{1}{1-bz^{-1}}$ heißt das wieder $|b|<1$.
 
-**Beispiel.** $s(n)=0{,}5^n\cos(\pi n/3)\,\varepsilon(n)$. Mit $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$ und [(11.2)](#gl-11-2) für $b=0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}$:
+::::beispiel
+$s(n)=0{,}5^n\cos(\pi n/3)\,\varepsilon(n)$. Mit $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$ und [(11.2)](#gl-11-2) für $b=0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}$:
 
 $$S(z)=\frac12\Bigl[\frac{1}{1-0{,}5\mathrm{e}^{\mathrm{j}\pi/3}z^{-1}}+\frac{1}{1-0{,}5\mathrm{e}^{-\mathrm{j}\pi/3}z^{-1}}\Bigr]=\frac{1-0{,}25z^{-1}}{1-0{,}5z^{-1}+0{,}25z^{-2}},\qquad|z|>0{,}5.$$
 
@@ -59,6 +60,7 @@ Pole bei $0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}=0{,}25\pm0{,}433\mathrm{j}$, Null
 :::abbildung et3/k4zebene 8
 z-Ebene des Beispiels: Pole (Kreuze) bei $0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}$, Nullstellen (Kreise) bei 0 und 0,25. Der Konvergenzbereich (blau) liegt außerhalb des Kreises durch die Pole und enthält den Einheitskreis. Als Impulsantwort gelesen, beschreibt die Folge ein kausales und stabiles System.
 :::
+::::
 
 :::aufgabe Aufgabe 11 ★★ z-Transformation anwenden
 <span class="anker" id="aufg-11"></span>

@@ -34,7 +34,9 @@ Andernfalls heißen sie __abhängig__.
 
 Ist $P(B)>0$, so ist [(5.1)](#gl-5-1) gleichbedeutend mit $P(A\mid B)=P(A)$, und ist $P(A)>0$, mit $P(B\mid A)=P(B)$. Unabhängigkeit ist eine Eigenschaft der Zahlen $P$, nicht der Physik. Oft folgt sie aus dem Aufbau des Experiments, etwa bei zwei getrennten Würfeln. Man kann sie aber auch nachrechnen, und dann zeigen sich manchmal Ereignisse als unabhängig, bei denen man es nicht erwartet.
 
-⁠**Rechenbeispiel:** Beim fairen Würfel sei $A=\{2,4,6\}$ und $B=\{1,2\}$. Es ist $P(A\cap B)=P(\{2\})=\tfrac16$ und $P(A)\,P(B)=\tfrac12\cdot\tfrac13=\tfrac16$: $A$ und $B$ sind unabhängig, obwohl sie dasselbe Ergebnis $2$ enthalten. Mit $C=\{1,2,3\}$ ist $P(A\cap C)=\tfrac16$, aber $P(A)\,P(C)=\tfrac14$: abhängig. In Tabelle [1](bedingte-wahrscheinlichkeit.html#tab-1) sind „Sonne“ und „Fahrrad“ abhängig, denn $P(\text{Sonne}\cap\text{Fahrrad})=0{,}3$, aber $0{,}4\cdot0{,}4=0{,}16$.
+::::beispiel [Rechenbeispiel]
+Beim fairen Würfel sei $A=\{2,4,6\}$ und $B=\{1,2\}$. Es ist $P(A\cap B)=P(\{2\})=\tfrac16$ und $P(A)\,P(B)=\tfrac12\cdot\tfrac13=\tfrac16$: $A$ und $B$ sind unabhängig, obwohl sie dasselbe Ergebnis $2$ enthalten. Mit $C=\{1,2,3\}$ ist $P(A\cap C)=\tfrac16$, aber $P(A)\,P(C)=\tfrac14$: abhängig. In Tabelle [1](bedingte-wahrscheinlichkeit.html#tab-1) sind „Sonne“ und „Fahrrad“ abhängig, denn $P(\text{Sonne}\cap\text{Fahrrad})=0{,}3$, aber $0{,}4\cdot0{,}4=0{,}16$.
+::::
 
 ⁠**Kurz gesagt:** Unabhängig heißt: Die gemeinsame Wahrscheinlichkeit ist das Produkt der einzelnen; die Information über das eine ändert nichts an der Wahrscheinlichkeit des anderen.
 
@@ -52,7 +54,9 @@ Sind $A$ und $B$ unvereinbar und haben beide positive Wahrscheinlichkeit, so sin
 
 Denn $P(A\cap B)=P(\emptyset)=0$, aber $P(A)\,P(B)>0$. Umgekehrt vererbt sich Unabhängigkeit auf die Gegenereignisse: Sind $A$ und $B$ unabhängig, so auch $A$ und $B^{\mathrm c}$, denn nach der Summenregel ist $P(A\cap B^{\mathrm c})=P(A)-P(A)P(B)=P(A)\,P(B^{\mathrm c})$. Ebenso sind dann $A^{\mathrm c}$ und $B^{\mathrm c}$ unabhängig.
 
-⁠**Rechenbeispiel:** Beim Würfel sind $\{1\}$ und $\{2\}$ unvereinbar. Weiß man, dass die Eins gefallen ist, so ist $P(\{2\}\mid\{1\})=0$ statt $\tfrac16$. Für die unabhängigen Ereignisse $A=\{2,4,6\}$ und $B=\{1,2\}$ aus Unterabschnitt [5.1](#stufe-5-1) ist $P(A\cap B^{\mathrm c})=P(\{4,6\})=\tfrac13=\tfrac12\cdot\tfrac23=P(A)\,P(B^{\mathrm c})$.
+::::beispiel [Rechenbeispiel]
+Beim Würfel sind $\{1\}$ und $\{2\}$ unvereinbar. Weiß man, dass die Eins gefallen ist, so ist $P(\{2\}\mid\{1\})=0$ statt $\tfrac16$. Für die unabhängigen Ereignisse $A=\{2,4,6\}$ und $B=\{1,2\}$ aus Unterabschnitt [5.1](#stufe-5-1) ist $P(A\cap B^{\mathrm c})=P(\{4,6\})=\tfrac13=\tfrac12\cdot\tfrac23=P(A)\,P(B^{\mathrm c})$.
+::::
 
 ⁠**Kurz gesagt:** Unvereinbare Ereignisse mit positiver Wahrscheinlichkeit sind nie unabhängig; unabhängige Ereignisse bleiben unabhängig, wenn man eines durch sein Gegenereignis ersetzt.
 
@@ -75,9 +79,13 @@ Gilt die Formel nur für je zwei Ereignisse, heißen sie __paarweise unabhängig
 
 Für unabhängige Ereignisse wird die Wahrscheinlichkeit, dass alle eintreten, ein einfaches Produkt, und mit dem Gegenereignis ebenso die Wahrscheinlichkeit, dass mindestens eines eintritt: $P(\text{mindestens ein }A_i)=1-\prod_i\bigl(1-P(A_i)\bigr)$, weil auch die Gegenereignisse unabhängig sind.
 
-⁠**Rechenbeispiel 1:** Zehn Bauteile fallen unabhängig voneinander mit je $5\,\%$ Wahrscheinlichkeit aus. Dann fällt keines aus mit der Wahrscheinlichkeit $0{,}95^{10}\approx0{,}599$, und mindestens eines mit $1-0{,}95^{10}\approx0{,}401$.
+::::beispiel [Rechenbeispiel 1]
+Zehn Bauteile fallen unabhängig voneinander mit je $5\,\%$ Wahrscheinlichkeit aus. Dann fällt keines aus mit der Wahrscheinlichkeit $0{,}95^{10}\approx0{,}599$, und mindestens eines mit $1-0{,}95^{10}\approx0{,}401$.
+::::
 
-⁠**Rechenbeispiel 2: paarweise, aber nicht gegenseitig.** Zwei Bits $b_1$ und $b_2$ werden durch faire, unabhängige Münzwürfe bestimmt. Ein drittes Bit ist das Paritätsbit $b_3=b_1\oplus b_2$, also $1$, wenn genau eines der beiden Bits $1$ ist. Die vier gleich wahrscheinlichen Fälle sind $(b_1,b_2,b_3)\in\{(0,0,0),(0,1,1),(1,0,1),(1,1,0)\}$. Es sei $A_k$ = „$b_k=1$“. Jedes $A_k$ hat die Wahrscheinlichkeit $\tfrac12$, und je zwei treten in genau einem der vier Fälle gemeinsam ein, mit der Wahrscheinlichkeit $\tfrac14=\tfrac12\cdot\tfrac12$. Also sind die drei Ereignisse paarweise unabhängig. Aber $A_1\cap A_2\cap A_3$ tritt nie ein, denn wenn $b_1=b_2=1$ ist, ist $b_3=0$: $P(A_1\cap A_2\cap A_3)=0\ne\tfrac18$. Jedes Bit für sich verrät nichts über ein anderes, zwei Bits zusammen legen das dritte fest. Genau darauf beruht die Fehlererkennung mit Paritätsbits.
+::::beispiel [Rechenbeispiel 2] paarweise, aber nicht gegenseitig
+Zwei Bits $b_1$ und $b_2$ werden durch faire, unabhängige Münzwürfe bestimmt. Ein drittes Bit ist das Paritätsbit $b_3=b_1\oplus b_2$, also $1$, wenn genau eines der beiden Bits $1$ ist. Die vier gleich wahrscheinlichen Fälle sind $(b_1,b_2,b_3)\in\{(0,0,0),(0,1,1),(1,0,1),(1,1,0)\}$. Es sei $A_k$ = „$b_k=1$“. Jedes $A_k$ hat die Wahrscheinlichkeit $\tfrac12$, und je zwei treten in genau einem der vier Fälle gemeinsam ein, mit der Wahrscheinlichkeit $\tfrac14=\tfrac12\cdot\tfrac12$. Also sind die drei Ereignisse paarweise unabhängig. Aber $A_1\cap A_2\cap A_3$ tritt nie ein, denn wenn $b_1=b_2=1$ ist, ist $b_3=0$: $P(A_1\cap A_2\cap A_3)=0\ne\tfrac18$. Jedes Bit für sich verrät nichts über ein anderes, zwei Bits zusammen legen das dritte fest. Genau darauf beruht die Fehlererkennung mit Paritätsbits.
+::::
 
 ⁠**Kurz gesagt:** Mehrere Ereignisse sind unabhängig, wenn die Produktformel für jede Auswahl gilt; paarweise Unabhängigkeit reicht dafür nicht.
 
@@ -98,7 +106,8 @@ $$P(A\cap B\mid C)=P(A\mid C)\,P(B\mid C). \tag{5.3}$$
 
 Unabhängigkeit und bedingte Unabhängigkeit folgen nicht auseinander. Das Beispiel zeigt die eine Richtung. Die andere: Zwei unabhängige Münzen $A$ = „erste Münze Kopf“ und $B$ = „zweite Münze Kopf“ sind gegeben $C$ = „genau eine Münze zeigt Kopf“ abhängig, denn unter $C$ schließen sie einander aus.
 
-⁠**Rechenbeispiel:** Es seien $W_1$, $W_2$ die Alarme der beiden Geräte, bedingt unabhängig gegeben $D$ und gegeben $D^{\mathrm c}$. Dann ist
+::::beispiel [Rechenbeispiel]
+Es seien $W_1$, $W_2$ die Alarme der beiden Geräte, bedingt unabhängig gegeben $D$ und gegeben $D^{\mathrm c}$. Dann ist
 
 $$P(W_1\cap W_2)=0{,}99^2\cdot0{,}01+0{,}05^2\cdot0{,}99=0{,}009801+0{,}002475=0{,}012276 .$$
 
@@ -107,6 +116,7 @@ Mit $P(W_1)=P(W_2)=0{,}0594$ aus Unterabschnitt [4.2](der-satz-von-bayes.html#s
 $$P(D\mid W_1\cap W_2)=\frac{0{,}99\cdot\tfrac16}{0{,}99\cdot\tfrac16+0{,}05\cdot\tfrac56}=\frac{0{,}165}{0{,}165+0{,}041\overline6}\approx0{,}798 .$$
 
 Ein zweiter Befund, der gegeben den Zustand des Teils unabhängig vom ersten ist, hebt die Wahrscheinlichkeit von $17\,\%$ auf $80\,\%$.
+::::
 
 ⁠**Kurz gesagt:** Bedingt unabhängig heißt unabhängig, sobald man die Bedingung kennt; zwei Befunde derselben Ursache sind meist bedingt unabhängig, aber nicht unabhängig.
 

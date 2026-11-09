@@ -44,7 +44,11 @@ $$U_\mu=\varphi_\mu-\varphi_0. \tag{4.1}$$
 
 ⁠**如何理解：**$U_\mu$ 是箭头从节点 $\mu$ 指向参考节点的电压，单位为伏特。电路图中用接地符号标出参考节点，在 SPICE 中它总是称为 0。参考节点选在汇集支路最多的地方，这样方程最短。**适用条件：**电场必须是无旋的。穿过网孔的变化磁场会破坏电位（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)），在电路中它存在于线圈里。
 
-**例。** 在模型电路中 $U_1=8$ V，$U_2=10$ V，这正是第 [3](das-maschenstromverfahren.html#stufe-3) 阶段的结果。$R_3$ 上的电压为 $U_{12}=U_1-U_2=-2$ V，所以节点 2 更高，电流从 2 流向 1。由 $R_3=2\,\mathrm{k\Omega}$ 得到的正是第 [3](das-maschenstromverfahren.html#stufe-3) 阶段的 1 mA。绕行一周得 $(U_1-U_2)+U_2-U_1=0$，对任何其他一对数值也如此。**极限情况：**$k=2$ 的网络只有一个节点电位。这就是并联的公共电压。
+::::beispiel
+在模型电路中 $U_1=8$ V，$U_2=10$ V，这正是第 [3](das-maschenstromverfahren.html#stufe-3) 阶段的结果。$R_3$ 上的电压为 $U_{12}=U_1-U_2=-2$ V，所以节点 2 更高，电流从 2 流向 1。由 $R_3=2\,\mathrm{k\Omega}$ 得到的正是第 [3](das-maschenstromverfahren.html#stufe-3) 阶段的 1 mA。绕行一周得 $(U_1-U_2)+U_2-U_1=0$，对任何其他一对数值也如此。
+::::
+
+⁠**极限情况：**$k=2$ 的网络只有一个节点电位。这就是并联的公共电压。
 
 :::frage 节点电位到底是电位还是电压？
 两者都是。单独的电位只有相对于零点才有数值（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。节点电位是相对于所选零点的电压，所以用符号 $U$ 表示。更换参考节点会改变所有节点电位，但不会改变任何一个支路电压。

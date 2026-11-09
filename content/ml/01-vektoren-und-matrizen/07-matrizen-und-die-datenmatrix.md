@@ -35,13 +35,15 @@ Matrizen werden fett und groß geschrieben, ihre Einträge mit dem kleinen Buchs
 
 Zwei Matrizen sind gleich, wenn sie dasselbe Format und an jeder Stelle denselben Eintrag haben. Matrizen gleichen Formats addiert man und multipliziert sie mit einer Zahl Eintrag für Eintrag, genau wie Vektoren: $(\mathbf{A}+\mathbf{B})_{ij}=a_{ij}+b_{ij}$ und $(c\,\mathbf{A})_{ij}=c\,a_{ij}$.
 
-⁠**Rechenbeispiel:** Die Matrix
+::::beispiel [Rechenbeispiel]
+Die Matrix
 
 $$\mathbf{A}=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\in\mathbb{R}^{2\times3}$$
 
 hat das Format $2\times3$, die Einträge $a_{12}=2$ und $a_{21}=4$ und die zweite Spalte $\mathbf{a}_2=(2,\,5)^{\top}$. Ein Graustufenbild aus $3\times3$ Bildpunkten, das ein helles Kreuz auf dunklem Grund zeigt, ist die Matrix mit den Zeilen $(0,1,0)$, $(1,1,1)$ und $(0,1,0)$. Außerdem ist
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}+\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}1&3\\4&4\end{pmatrix},\qquad 2\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}2&4\\6&8\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Eine Matrix ist eine rechteckige Zahlentabelle mit $m$ Zeilen und $n$ Spalten; der Eintrag $a_{ij}$ steht in Zeile $i$ und Spalte $j$.
 
@@ -65,11 +67,11 @@ Eine quadratische Matrix, deren Einträge außerhalb der Diagonale alle null sin
 Die Matrix, deren Einträge alle null sind, heißt __Nullmatrix__ und wird $\mathbf 0$ geschrieben.
 :::
 
-⁠**Rechenbeispiel:**
-
+::::beispiel [Rechenbeispiel]
 $$\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0{,}5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
 
 Die zweite Matrix hat einen Diagonaleintrag null und ist trotzdem eine Diagonalmatrix; verlangt wird nur, dass außerhalb der Diagonale Nullen stehen. Statt $\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)$ schreibt man kurz $\operatorname{diag}(2;\,0{,}5)$.
+::::
 
 ⁠**Kurz gesagt:** Eine quadratische Matrix hat gleich viele Zeilen wie Spalten; eine Diagonalmatrix hat nur auf der Diagonale Einträge ungleich null.
 
@@ -94,11 +96,13 @@ $$\mathbf{X}=\begin{pmatrix}\mathbf{x}_1^{\top}\\\mathbf{x}_2^{\top}\\\vdots\\\m
 
 Der Eintrag $x_{ij}$ ist der Wert von Merkmal $j$ bei Beispiel $i$, genau wie in Unterabschnitt [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3) vereinbart. Die Spalte $j$ von $\mathbf{X}$ ist die Merkmalsspalte von Merkmal $j$ aus Unterabschnitt [4.3](abstande-und-einheiten.html#stufe-4-3): alle Werte dieses Merkmals über alle Beispiele. Die Zeilen gehören also zu den Beispielen, die Spalten zu den Merkmalen. Der Mittelwert der Beispiele $\bar{\mathbf{x}}$ hat als Komponente $j$ den Mittelwert der Spalte $j$.
 
-⁠**Rechenbeispiel:** Für den Wohnungsdatensatz ist
+::::beispiel [Rechenbeispiel]
+Für den Wohnungsdatensatz ist
 
 $$\mathbf{X}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\in\mathbb{R}^{4\times3}.$$
 
 Der Eintrag $x_{32}=4$ ist die Zimmerzahl von Wohnung 3, die erste Spalte $(60,\,40,\,90,\,70)^{\top}$ enthält alle Flächen, und ihr Mittelwert $65$ ist die erste Komponente von $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Die Datenmatrix $\mathbf{X}\in\mathbb{R}^{N\times d}$ enthält ein Beispiel pro Zeile und ein Merkmal pro Spalte.
 

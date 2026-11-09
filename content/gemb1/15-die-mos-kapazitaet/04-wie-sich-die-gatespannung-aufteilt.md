@@ -62,7 +62,11 @@ $$n(0)=N_\mathrm C\exp\Bigl(-\frac{E_\mathrm{C,\infty}-e\varphi_\mathrm s-E_\mat
 $n\cdot p=n_\mathrm i^2$ gilt im Gleichgewicht an jedem Ort, also $p(0)=n_\mathrm i^2/n(0)$. Dasselbe gilt an jeder Stelle $x$ mit $\varphi(x)$ statt $\varphi_\mathrm s$.
 :::
 
-**Beispiel.** Bei $\varphi_\mathrm s=0{,}2$ V ist $\varphi_\mathrm s/V_\mathrm T=7{,}74$. Dann ist $p(0)=1{,}3\cdot10^{13}\,\mathrm{cm^{-3}}$ und $n(0)=6{,}0\cdot10^{6}\,\mathrm{cm^{-3}}$. Je 59,5 mV ändern beide Dichten sich um den Faktor 10, die eine nach oben, die andere nach unten. **Grenzfall:** $\varphi_\mathrm s=0$ ergibt die Werte tief im Substrat, keine Raumladung und $V_\mathrm G=0$.
+::::beispiel
+Bei $\varphi_\mathrm s=0{,}2$ V ist $\varphi_\mathrm s/V_\mathrm T=7{,}74$. Dann ist $p(0)=1{,}3\cdot10^{13}\,\mathrm{cm^{-3}}$ und $n(0)=6{,}0\cdot10^{6}\,\mathrm{cm^{-3}}$. Je 59,5 mV ändern beide Dichten sich um den Faktor 10, die eine nach oben, die andere nach unten.
+::::
+
+⁠**Grenzfall:** $\varphi_\mathrm s=0$ ergibt die Werte tief im Substrat, keine Raumladung und $V_\mathrm G=0$.
 
 :::frage Metall und Halbleiter haben verschiedene Fermi-Niveaus. Warum fließt dann kein Strom?
 Verschiedene Fermi-Niveaus treiben nur dann einen Strom, wenn es einen Weg gibt. Der Isolator versperrt ihn. Beim Anlegen der Spannung fließt nur kurz der Ladestrom, bis die Platten geladen sind.

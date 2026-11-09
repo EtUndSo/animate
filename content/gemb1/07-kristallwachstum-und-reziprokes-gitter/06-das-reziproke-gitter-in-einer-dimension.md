@@ -54,7 +54,11 @@ $$E=\frac{\hbar^2}{2m}\,(k+G)^2,\qquad G=h_1\,\frac{2\pi}a,\quad h_1=0,\pm1,\pm2
 
 Das ist eine Schar von Parabeln, deren Scheitel um die reziproken Gittervektoren verschoben sind (Abb. [4](#abb-4)). Es ist dieselbe Parabel, nur in Stücke geschnitten. Ist $k$ größer als $\pi/a$, zieht man ein passendes $G$ ab und landet in der Zone. So faltet man die Parabel stückweise in den Bereich $-\pi/a<k<+\pi/a$. Das heißt __reduziertes Zonenschema__. **Gültigkeit:** [(4.3)](#gl-4-3) setzt voraus, dass das Gitter die Energie nicht merklich ändert.
 
-**Beispiel.** Bei $a=0{,}2$ nm hat die Parabel am Zonenrand 9,40 eV. Der Zustand $k=40\,\mathrm{nm^{-1}}$ liegt außerhalb der Zone. Abzug von $G=31{,}4\,\mathrm{nm^{-1}}$ ergibt $k=8{,}58\,\mathrm{nm^{-1}}$, und [(4.3)](#gl-4-3) liefert mit $k+G=40\,\mathrm{nm^{-1}}$ die Energie 61 eV wie zuvor. **Grenzfall:** Für $a\to0$ wächst $G$ über alle Grenzen, die Kopien rücken ins Unendliche, und eine einzige Parabel bleibt: der freie Raum aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html).
+::::beispiel
+Bei $a=0{,}2$ nm hat die Parabel am Zonenrand 9,40 eV. Der Zustand $k=40\,\mathrm{nm^{-1}}$ liegt außerhalb der Zone. Abzug von $G=31{,}4\,\mathrm{nm^{-1}}$ ergibt $k=8{,}58\,\mathrm{nm^{-1}}$, und [(4.3)](#gl-4-3) liefert mit $k+G=40\,\mathrm{nm^{-1}}$ die Energie 61 eV wie zuvor.
+::::
+
+⁠**Grenzfall:** Für $a\to0$ wächst $G$ über alle Grenzen, die Kopien rücken ins Unendliche, und eine einzige Parabel bleibt: der freie Raum aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html).
 
 :::frage Die Dichte $|\psi|^2$ einer ebenen Welle ist doch überall gleich. Wozu dann die Bedingung?
 Richtig: Für eine einzelne Welle ist $|\mathrm{e}^{\mathrm{j} kx}|^2=1$ bei jedem $k$, und eine Welle mit beliebigem $k$ darf im Gitter existieren. Die Bedingung [(4.1)](#gl-4-1) betrifft die Teilwellen, aus denen eine gitterperiodische Größe besteht. Sie müssen selbst periodisch sein, die Welle $\psi$ muss es nicht.

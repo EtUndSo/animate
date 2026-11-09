@@ -51,7 +51,9 @@ Systeme, die einem anderen gehören, etwa ein Zahlungsdienst, den ein Shop einge
 
 </ul>
 
-⁠**Beispiel:** Ein Onlinehändler beauftragt eine Prüferin schriftlich, vom 10. bis 14. März seine Webseite `shop.example` auf Schwachstellen zu testen, ausdrücklich ohne Überlastungsangriffe. Innerhalb dieses Umfangs handelt sie befugt. Stellt sie am 15. März noch einen Test fertig, oder testet sie auch den Server des Zahlungsdienstes, so liegt das außerhalb des Umfangs und ist unbefugt.
+::::beispiel
+Ein Onlinehändler beauftragt eine Prüferin schriftlich, vom 10. bis 14. März seine Webseite `shop.example` auf Schwachstellen zu testen, ausdrücklich ohne Überlastungsangriffe. Innerhalb dieses Umfangs handelt sie befugt. Stellt sie am 15. März noch einen Test fertig, oder testet sie auch den Server des Zahlungsdienstes, so liegt das außerhalb des Umfangs und ist unbefugt.
+::::
 
 ⁠**Kurz gesagt:** Mit der Erlaubnis des Verfügungsberechtigten ist dieselbe Handlung keine Straftat, aber nur innerhalb des Umfangs, den er erlaubt hat.
 
@@ -77,7 +79,9 @@ Relative Antragsdelikte sind das Ausspähen, das Abfangen und die Datenhehlerei 
 
 Der Antrag betrifft nur die Frage, ob der Staat die Tat verfolgt. An der Tat selbst ändert er nichts: Auch ohne Antrag bleibt sie eine rechtswidrige Straftat. Der Verletzte kann den Antrag noch Wochen später stellen, die Staatsanwaltschaft kann das öffentliche Interesse bejahen, und unabhängig vom Strafrecht kann der Verletzte Schadensersatz verlangen.
 
-⁠**Beispiel:** Eine Studentin dringt ohne Erlaubnis in einen Server ihrer Hochschule ein, um eine Lücke zu zeigen. Der Administrator ist beeindruckt und will nichts unternehmen. Das macht die Tat nicht erlaubt: Verfügungsberechtigt ist die Hochschule, nicht der Administrator, und sie kann innerhalb von drei Monaten, nachdem sie davon erfahren hat, Strafantrag stellen.
+::::beispiel
+Eine Studentin dringt ohne Erlaubnis in einen Server ihrer Hochschule ein, um eine Lücke zu zeigen. Der Administrator ist beeindruckt und will nichts unternehmen. Das macht die Tat nicht erlaubt: Verfügungsberechtigt ist die Hochschule, nicht der Administrator, und sie kann innerhalb von drei Monaten, nachdem sie davon erfahren hat, Strafantrag stellen.
+::::
 
 ⁠**Kurz gesagt:** Bei einem Antragsdelikt hängt die Verfolgung vom Antrag ab, die Strafbarkeit nicht; ohne Antrag bleibt die Tat eine Straftat.
 
@@ -133,7 +137,9 @@ Wer im Auftrag und damit im Einverständnis des Verfügungsberechtigten prüft, 
 
 Der Beschluss ist eine Entscheidung über die Nichtannahme und hat deshalb keine Gesetzeskraft. Er zeigt aber, wie das höchste deutsche Gericht die Vorschrift versteht. Eine Restunsicherheit bleibt bei Programmen, die objektiv für Straftaten gebaut sind, also bei echter Schadsoftware, und bei der Weitergabe an Dritte.
 
-⁠**Beispiel:** Ein Student installiert nmap auf seinem Laptop, um sein eigenes Heimnetz zu untersuchen. Das ist nicht strafbar: nmap ist ein Dual-Use-Werkzeug, und er bereitet keine Straftat vor. Richtet er dasselbe Programm ohne Erlaubnis gegen die Rechner eines Unternehmens und dringt mit den Ergebnissen ein, so ist nicht der Besitz das Problem, sondern der Einsatz: Er kann sich nach § 202a strafbar machen.
+::::beispiel
+Ein Student installiert nmap auf seinem Laptop, um sein eigenes Heimnetz zu untersuchen. Das ist nicht strafbar: nmap ist ein Dual-Use-Werkzeug, und er bereitet keine Straftat vor. Richtet er dasselbe Programm ohne Erlaubnis gegen die Rechner eines Unternehmens und dringt mit den Ergebnissen ein, so ist nicht der Besitz das Problem, sondern der Einsatz: Er kann sich nach § 202a strafbar machen.
+::::
 
 ⁠**Kurz gesagt:** Nicht das Werkzeug ist strafbar, sondern sein Einsatz gegen fremde Systeme ohne Erlaubnis.
 
@@ -153,7 +159,9 @@ Nach geltendem Recht nein. Keine der Vorschriften aus Abschnitt [8](computerstr
 
 Diese Rechtslage ist umstritten, weil sie auch Menschen trifft, die anderen helfen wollen. Das Bundesministerium der Justiz legte am 4. November 2024 einen Entwurf vor, nach dem nicht unbefugt handeln sollte, wer eine Sicherheitslücke feststellen und die Verantwortlichen darüber informieren will, soweit sein Vorgehen dafür erforderlich ist. Dieser Entwurf ist *nicht Gesetz geworden*: Bis zur vorgezogenen Bundestagswahl im Februar 2025 kam er über das Stadium eines Entwurfs des Ministeriums nicht hinaus. Die neue Bundesregierung hat im Koalitionsvertrag angekündigt, im Computerstrafrecht Rechtssicherheit für die IT-Sicherheitsforschung zu schaffen. Ein neuer Entwurf war bis zum 4. November 2026 nicht veröffentlicht.
 
-⁠**Beispiel:** Ein Student bemerkt, dass er auf der Seite seines Fitnessstudios durch das Ändern einer Nummer in der Adresse die Daten anderer Mitglieder sehen könnte. Probiert er es aus, um es zu beweisen, riskiert er ein Strafverfahren, auch wenn er die Lücke danach meldet. Meldet er nur seine Beobachtung, ohne fremde Daten abzurufen, bleibt er auf der sicheren Seite.
+::::beispiel
+Ein Student bemerkt, dass er auf der Seite seines Fitnessstudios durch das Ändern einer Nummer in der Adresse die Daten anderer Mitglieder sehen könnte. Probiert er es aus, um es zu beweisen, riskiert er ein Strafverfahren, auch wenn er die Lücke danach meldet. Meldet er nur seine Beobachtung, ohne fremde Daten abzurufen, bleibt er auf der sicheren Seite.
+::::
 
 ⁠**Kurz gesagt:** Nach geltendem Recht schützt eine gute Absicht nicht; wer ohne Erlaubnis eindringt, macht sich strafbar, auch wenn er die Lücke danach meldet.
 

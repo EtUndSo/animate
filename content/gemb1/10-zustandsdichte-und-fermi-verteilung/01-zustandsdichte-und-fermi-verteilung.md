@@ -14,7 +14,7 @@ In einem Stück Kupfer und in einem Stück Silizium stecken gleichermaßen unvor
 
 Der Weg führt über acht Begriffe. __Ladungsträger__ sind bewegliche Ladungen, also Elektronen im Leitungsband und Löcher im Valenzband. Die __Ladungsträgerdichte__ ist ihre Zahl je Volumen. Der __k-Raum__ ist der Raum der Wellenvektoren, in dem man Zustände abzählt. Die __Zustandsdichte__ nennt die Zahl der Plätze für Elektronen je Energieintervall und Volumen. Die __Entropie__ misst, auf wie viele Arten sich eine Verteilung verwirklichen lässt. Die __Fermi-Verteilung__ gibt an, mit welcher Wahrscheinlichkeit ein Platz besetzt ist, die __Fermi-Energie__ ist ihr Bezugspunkt. Die __effektive Zustandsdichte__ fasst ein ganzes Band zu einer einzigen Zahl zusammen.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

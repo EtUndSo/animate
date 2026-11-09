@@ -78,7 +78,11 @@ Se construye un árbol: empezando por un nudo, cada rama nueva añade exactament
 
 **Incógnitas y ecuaciones.** Cada rama lleva una corriente y una tensión: son $2z$ incógnitas. Frente a ellas hay $z$ ecuaciones de componente (una por rama), $k-1$ ecuaciones de nudo (etapa [7](die-knotenregel-ist-ladungserhaltung.html#stufe-7)) y $z-k+1$ ecuaciones de malla (etapa [8](die-maschenregel-ist-energieerhaltung.html#stufe-8)). La suma es exactamente $2z$. **En resumen:** Toda red tiene exactamente tantas ecuaciones como incógnitas.
 
-**Ejemplo.** La red tiene $k=4$, $z=6$, es decir, $m=3$. Su grafo tiene 16 árboles de tres ramas cada uno. La fig. [7](#abb-7) elige la estrella alrededor de $K_4$ con las ramas 0, b y d. Las ramas de enlace a, c y e cierran las mallas $M_1$, $M_2$ y $M_3$. El sistema comprende 12 incógnitas y 12 ecuaciones. **Casos límite:** Un solo lazo tiene $z=k$, es decir, $m=1$. Un árbol solo tiene $z=k-1$, es decir, $m=0$: sin camino cerrado no circula corriente estacionaria.
+::::beispiel
+La red tiene $k=4$, $z=6$, es decir, $m=3$. Su grafo tiene 16 árboles de tres ramas cada uno. La fig. [7](#abb-7) elige la estrella alrededor de $K_4$ con las ramas 0, b y d. Las ramas de enlace a, c y e cierran las mallas $M_1$, $M_2$ y $M_3$. El sistema comprende 12 incógnitas y 12 ecuaciones.
+::::
+
+⁠**Casos límite:** Un solo lazo tiene $z=k$, es decir, $m=1$. Un árbol solo tiene $z=k-1$, es decir, $m=0$: sin camino cerrado no circula corriente estacionaria.
 
 :::frage ¿Es un nudo la unión de dos componentes sin derivación?
 Según la definición, no, porque allí no se bifurca nada. Si aun así se cuenta, $m$ no cambia: un nudo adicional divide una rama en dos, y $k$ y $z$ aumentan ambos en 1.

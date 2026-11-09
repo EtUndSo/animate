@@ -40,7 +40,11 @@ $$U_\mathrm{CE}=U_\mathrm{CE,sat},\qquad I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mat
 
 ⁠**How to read it:** $U_\mathrm{CC}$ is the __supply voltage__, $U_\mathrm{in}$ the input voltage against ground. $R_\mathrm{B}$ sets the base current, $R_\mathrm{C}$ converts the collector current into a voltage. **Validity:** emitter at ground, the linear model from Stage [4](drei-bereiche-drei-ersatzschaltbilder.html#stufe-4). Equation [(5.1)](#gl-5-1) holds in both conducting regions because the same 0.6 V source lies between B and E there.
 
-**Example.** Reference model: $I_\mathrm{B}=(5\,\mathrm{V}-0.6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A, $I_\mathrm{C}=2$ mA, $U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V. That is more than 0.2 V, so active (point A). A wrong first assumption does no harm: saturation would give $I_\mathrm{C}=3.93$ mA, but $B\,I_\mathrm{B}=2$ mA is smaller, in contradiction to [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3). For $U_\mathrm{in}=12$ V, $I_\mathrm{B}=25.9$ µ A. Assuming active operation would yield $U_\mathrm{CE}=-3.5$ V, a contradiction. In saturation, $I_\mathrm{C}=3.93$ mA and $B\,I_\mathrm{B}=5.18$ mA (point S). **Limiting cases:** $R_\mathrm{C}=0$ gives $U_\mathrm{CE}=U_\mathrm{CC}$, and the output is rigid. $U_\mathrm{in}<0.6$ V gives $I_\mathrm{C}=0$ and $U_\mathrm{CE}=12$ V (point Z).
+::::beispiel
+Reference model: $I_\mathrm{B}=(5\,\mathrm{V}-0.6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A, $I_\mathrm{C}=2$ mA, $U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V. That is more than 0.2 V, so active (point A). A wrong first assumption does no harm: saturation would give $I_\mathrm{C}=3.93$ mA, but $B\,I_\mathrm{B}=2$ mA is smaller, in contradiction to [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3). For $U_\mathrm{in}=12$ V, $I_\mathrm{B}=25.9$ µ A. Assuming active operation would yield $U_\mathrm{CE}=-3.5$ V, a contradiction. In saturation, $I_\mathrm{C}=3.93$ mA and $B\,I_\mathrm{B}=5.18$ mA (point S).
+::::
+
+⁠**Limiting cases:** $R_\mathrm{C}=0$ gives $U_\mathrm{CE}=U_\mathrm{CC}$, and the output is rigid. $U_\mathrm{in}<0.6$ V gives $I_\mathrm{C}=0$ and $U_\mathrm{CE}=12$ V (point Z).
 
 **The middle of the active region.** In the active region, $U_\mathrm{CE}$ lies between 0.2 V and $U_\mathrm{CC}$. So that a signal has equal room on both sides, the point is placed in the middle. With $\Delta U=U_\mathrm{CC}-U_\mathrm{CE,sat}=11.8$ V,
 

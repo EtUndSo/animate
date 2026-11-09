@@ -14,7 +14,7 @@ Schwierige Funktionen kennt man oft nur über Näherungen. Die Funktion $\mathrm
 
 Der Weg führt über acht Begriffe. Eine __Funktionenfolge__ ist eine Folge, deren Glieder Funktionen sind. Die __punktweise Konvergenz__ prüft jede Stelle einzeln, die __gleichmäßige Konvergenz__ prüft den größten Abstand über alle Stellen. Eine __Funktionenreihe__ ist eine unendliche Summe von Funktionen. Der __Konvergenzradius__ sagt, wie weit um ihren Mittelpunkt eine Potenzreihe konvergiert. Die __Supremumsnorm__ misst die Größe einer Funktion durch ihren größten Betrag. __Vollständigkeit__ heißt, dass in einem Raum jede Folge, deren Glieder einander beliebig nahe kommen, einen Grenzwert hat. Die __Konvergenz im quadratischen Mittel__ misst den Abstand durch ein Integral über die quadrierte Abweichung.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Die Rechenmodelle für dieses Kapitel
 <ul>

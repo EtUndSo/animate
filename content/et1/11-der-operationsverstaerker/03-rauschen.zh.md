@@ -47,7 +47,11 @@ $$\mathrm{SNR}=\frac{P_\mathrm{s}}{P_\mathrm{r}}=\Bigl(\frac{u_\mathrm{s,eff}}{u
 对两个相互独立的干扰，$(u_1+u_2)^2=u_1^2+2u_1u_2+u_2^2$。对时间取平均时，乘积 $u_1u_2$ 为正和为负的机会相同，其均值为零。剩下 $u_\mathrm{tot,eff}^2=u_\mathrm{1,eff}^2+u_\mathrm{2,eff}^2$。[(1.1)](#gl-1-1) 中的积分就是对所有频率窄带的这种求和。
 :::
 
-**例。** 传感器电阻的 $|u_\mathrm{r,R}|^2=4\cdot1.381\cdot10^{-23}\cdot300\cdot10^4=1.66\cdot10^{-16}\,\mathrm{V^2/Hz}$，因此在 20 kHz 带宽内 $u_\mathrm{r,eff}=1.82$ µ V。1 mV 的有用信号是它的 549 倍：$\mathrm{SNR}=54.8$ dB。带宽减半使噪声降低 $\sqrt2$ 倍，即 3 dB。**极限情况：**当 $R\to0$ 或 $T\to0$ 时，热噪声消失。
+::::beispiel
+传感器电阻的 $|u_\mathrm{r,R}|^2=4\cdot1.381\cdot10^{-23}\cdot300\cdot10^4=1.66\cdot10^{-16}\,\mathrm{V^2/Hz}$，因此在 20 kHz 带宽内 $u_\mathrm{r,eff}=1.82$ µ V。1 mV 的有用信号是它的 549 倍：$\mathrm{SNR}=54.8$ dB。带宽减半使噪声降低 $\sqrt2$ 倍，即 3 dB。
+::::
+
+⁠**极限情况：**当 $R\to0$ 或 $T\to0$ 时，热噪声消失。
 
 **放大器改变了什么。** 它把信号和已有噪声放大同样的倍数，所以 SNR 不变，或因其自身噪声而变差。它只对在它**之后**才加入、且大小固定的干扰有帮助。如果到下一台设备的线路加入 100 µ V，没有放大器时只剩 20.0 dB。在传感器处放大 100 倍后则为 $0.1\,\mathrm{V}/\sqrt{(182\,\mathrm{\mu\text{} V})^2+(100\,\mathrm{\mu\text{} V})^2}$，即 53.7 dB。第二个办法是取差值：对两条线路影响相同的干扰，只要只看两者之差就会消失。这由第 [2](der-differenzverstarker.html#stufe-2) 阶段实现。
 

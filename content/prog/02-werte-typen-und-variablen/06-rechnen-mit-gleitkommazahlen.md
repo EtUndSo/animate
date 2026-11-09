@@ -28,7 +28,8 @@ Die Summe zweier `float` hat im Allgemeinen mehr Binärstellen, als ein `float` 
 Für die Grundrechenarten $+$, $-$, $\cdot$, $/$ und die Quadratwurzel verlangt IEEE 754: Das Ergebnis ist das exakte Ergebnis der gespeicherten Werte, gerundet nach derselben Regel wie beim Speichern, also auf den nächsten `float` und bei Gleichstand zur geraden Mantisse. Der dabei entstehende Unterschied heißt __Rundungsfehler__ der Rechnung.
 :::
 
-**Beispiel: $0{,}1+0{,}2$.** Die gespeicherten Werte sind etwas größer als $0{,}1$ und $0{,}2$. Ihre exakte Summe ist
+::::beispiel $0{,}1+0{,}2$
+Die gespeicherten Werte sind etwas größer als $0{,}1$ und $0{,}2$. Ihre exakte Summe ist
 
 $$0{,}3000000000000000166533453693773481063544750213623046875 .$$
 
@@ -41,8 +42,10 @@ Sie liegt zwischen zwei benachbarten `float`:
 | rechter Nachbar, angezeigt als `0.30000000000000004` | $0{,}3000000000000000444089209850062616169452667236328125$ |
 
 Beide Abstände sind genau gleich, $2{,}78\cdot10^{-17}$: ein Gleichstand. Die Regel entscheidet für die gerade Mantisse. Das Mantissenfeld des linken Nachbarn endet auf `3`, also auf das Bit 1, das des rechten auf `4`, also auf das Bit 0. Deshalb ist das Ergebnis der rechte Nachbar, und `0.1 + 0.2` ist nicht der `float`, den Python für `0.3` speichert.
+::::
 
-**Beispiel: zehnmal $0{,}1$.** Bei vielen Rechenschritten wird jedes Zwischenergebnis gerundet, und die Fehler können sich summieren. Mit dem Unterstrich `_` für das letzte Ergebnis ([Programmieren, Python 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)) und der Pfeiltaste addiert man im interaktiven Modus zehnmal $0{,}1$:
+::::beispiel zehnmal $0{,}1$
+Bei vielen Rechenschritten wird jedes Zwischenergebnis gerundet, und die Fehler können sich summieren. Mit dem Unterstrich `_` für das letzte Ergebnis ([Programmieren, Python 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)) und der Pfeiltaste addiert man im interaktiven Modus zehnmal $0{,}1$:
 
 ```console
 >>> 0.1
@@ -70,6 +73,7 @@ Beide Abstände sind genau gleich, $2{,}78\cdot10^{-17}$: ein Gleichstand. Die R
 ```
 
 Nach zehn Additionen fehlt eine letzte Stelle bis 1. Die Multiplikation `0.1 * 10` ist dagegen ein einziger Rechenschritt, und dessen exaktes Ergebnis liegt so nahe an 1, dass die Rundung genau 1 trifft. Dieselbe Größe, auf zwei Wegen gerechnet, ergibt zwei verschiedene `float`.
+::::
 
 ⁠**Kurz gesagt:** Jede Rechnung ist exakt gerechnet und dann gerundet; die Fehler einzelner Schritte können sich über viele Schritte summieren.
 
@@ -109,7 +113,8 @@ Ein `float` hat also etwa 16 gültige Dezimalstellen.
 Sei $2^E\le|x|<2^{E+1}$. In diesem Bereich haben alle `float` den Exponenten $E$, und ihre Mantissen unterscheiden sich in Schritten von $2^{-52}$. Benachbarte `float` haben dort also den Abstand $2^{-52}\cdot2^E$. Beim Runden auf den nächsten ist der Fehler höchstens der halbe Abstand: $|\tilde x-x|\le2^{-53}\cdot2^E\le2^{-53}\,|x|$, weil $2^E\le|x|$.
 :::
 
-**Beispiel.** Addiert man zu 1 den Wert $2^{-52}$, entsteht der Nachbar von 1. Addiert man nur die Hälfte, $2^{-53}$, liegt das exakte Ergebnis genau in der Mitte zwischen 1 und dem Nachbarn, und die Rundung zur geraden Mantisse liefert wieder 1:
+::::beispiel
+Addiert man zu 1 den Wert $2^{-52}$, entsteht der Nachbar von 1. Addiert man nur die Hälfte, $2^{-53}$, liegt das exakte Ergebnis genau in der Mitte zwischen 1 und dem Nachbarn, und die Rundung zur geraden Mantisse liefert wieder 1:
 
 ```console
 >>> 1.0 + 2 ** -52
@@ -132,6 +137,7 @@ Der Abstand wächst mit der Zahl. Bei $10^{16}$ ist er schon 2: $10^{16}$ liegt 
 ```
 
 Die letzte Zeile zeigt eine Folge davon: Alle ganzen Zahlen bis $2^{53}=9\,007\,199\,254\,740\,992$ sind als `float` exakt, darüber nicht mehr jede.
+::::
 
 **Die Beobachtung aus Python 1.** Das Heron-Rezept endete bei `1.414213562373095`, der fertige Weg `2 ** 0.5` lieferte `1.4142135623730951` ([Programmieren, Python 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5)). Zwischen 1 und 2 haben benachbarte `float` genau den Abstand $\varepsilon_{\mathrm M}$, und so weit liegen die beiden Ergebnisse auseinander:
 
@@ -158,7 +164,8 @@ In der Mathematik ist $(a+b)-a=b$. Mit `float` kann dabei etwas ganz anderes her
 Ist $|b|$ kleiner als der halbe Abstand der `float` in der Nähe von $a$, dann ergibt $a+b$ wieder $a$: Der kleine Summand geht vollständig verloren. Man sagt, er wird __absorbiert__.
 :::
 
-**Beispiel.** Bei $10^{16}$ ist der Abstand 2, und 1 ist genau der halbe Abstand. Der Gleichstand wird zur geraden Mantisse gerundet, und das ist $10^{16}$ selbst:
+::::beispiel
+Bei $10^{16}$ ist der Abstand 2, und 1 ist genau der halbe Abstand. Der Gleichstand wird zur geraden Mantisse gerundet, und das ist $10^{16}$ selbst:
 
 ```console
 >>> 1e16 + 1 - 1e16
@@ -168,6 +175,7 @@ Ist $|b|$ kleiner als der halbe Abstand der `float` in der Nähe von $a$, dann e
 ```
 
 Dieselben drei Zahlen, in anderer Reihenfolge verknüpft, liefern verschiedene Ergebnisse. Mit `float` gilt das Assoziativgesetz der Addition also nicht: Es kommt darauf an, was man zuerst rechnet. Wer viele kleine Werte zu einem großen addiert, sollte die kleinen zuerst zusammenzählen.
+::::
 
 ⁠**Kurz gesagt:** Ein Summand, der kleiner ist als der halbe Abstand der `float` beim anderen Summanden, verschwindet beim Addieren.
 
@@ -185,7 +193,8 @@ Zieht man zwei fast gleiche Messwerte voneinander ab, um eine kleine Differenz z
 __Auslöschung__ heißt der Verlust gültiger Stellen beim Subtrahieren zweier fast gleicher Zahlen, die schon mit Rundungsfehlern behaftet sind. Die Subtraktion selbst ist dabei oft exakt; die vorhandenen Fehler werden aber relativ zum kleinen Ergebnis groß.
 :::
 
-**Beispiel.** $1+10^{-15}$ wird beim Speichern auf ein Vielfaches von $2^{-52}$ gerundet. Zieht man 1 wieder ab, sieht man genau diese Rundung:
+::::beispiel
+$1+10^{-15}$ wird beim Speichern auf ein Vielfaches von $2^{-52}$ gerundet. Zieht man 1 wieder ab, sieht man genau diese Rundung:
 
 ```console
 >>> (1 + 1e-15) - 1
@@ -193,6 +202,7 @@ __Auslöschung__ heißt der Verlust gültiger Stellen beim Subtrahieren zweier f
 ```
 
 Das Ergebnis müsste $10^{-15}$ sein, ist aber um 11 % zu groß. Der Fehler beim Speichern von $1+10^{-15}$ war winzig, relativ zu 1 etwa $10^{-16}$. Relativ zum Ergebnis $10^{-15}$ ist derselbe Fehler aber riesig. Von den 16 gültigen Stellen ist nach dem Abziehen nur noch eine richtig.
+::::
 
 ⁠**Kurz gesagt:** Beim Abziehen fast gleicher, gerundeter Zahlen bleiben nur die fehlerhaften hinteren Stellen übrig.
 
@@ -210,7 +220,8 @@ Das Exponentenfeld hat 11 Bit, der größte Exponent ist 1023. Was passiert, wen
 Der größte `float` ist $(2-2^{-52})\cdot2^{1023}\approx1{,}797\cdot10^{308}$. Ist das gerundete Ergebnis einer Rechnung größer, spricht man vom __Überlauf__, und das Ergebnis ist der besondere Wert `inf` (unendlich), bei negativen Ergebnissen `-inf`.
 :::
 
-**Beispiel.** Auch eine zu große Zahl im Quelltext wird zu `inf`. Mit `inf` rechnet Python weiter wie mit $\infty$:
+::::beispiel
+Auch eine zu große Zahl im Quelltext wird zu `inf`. Mit `inf` rechnet Python weiter wie mit $\infty$:
 
 ```console
 >>> 1e308 * 10
@@ -235,6 +246,7 @@ Traceback (most recent call last):
     ~~~~^^~~~~~
 OverflowError: (34, 'Numerical result out of range')
 ```
+::::
 
 ⁠**Kurz gesagt:** Ergebnisse über $1{,}797\cdot10^{308}$ werden zu `inf`; mit `inf` rechnet Python wie mit $\infty$ weiter, nur `**` meldet einen `OverflowError`.
 
@@ -256,7 +268,8 @@ Was ist $\infty-\infty$? Darauf gibt es keine sinnvolle Zahl als Antwort. Trotzd
 `nan` (englisch *not a number*, keine Zahl) ist der `float`, den eine Rechnung ohne sinnvolles Ergebnis liefert, etwa $\infty-\infty$ oder $0\cdot\infty$. Fast jede Rechnung mit `nan` ergibt wieder `nan`.
 :::
 
-**Beispiel.** Zwei Rechnungen ohne sinnvolles Ergebnis, dann eine, die das `nan` weiterreicht:
+::::beispiel
+Zwei Rechnungen ohne sinnvolles Ergebnis, dann eine, die das `nan` weiterreicht:
 
 ```console
 >>> 1e309 - 1e309
@@ -268,6 +281,7 @@ nan
 ```
 
 Ein `nan` am Ende einer langen Rechnung zeigt an, dass irgendwo unterwegs etwas Ungültiges passiert ist, auch wenn man nicht mehr sieht, wo.
+::::
 
 ⁠**Kurz gesagt:** `nan` ist das Ergebnis ungültiger Rechnungen und steckt jede weitere Rechnung an.
 

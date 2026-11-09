@@ -35,7 +35,11 @@ $$V_\mathrm G=\varphi_\mathrm s-\frac{Q'_\mathrm{SC}}{C'_\mathrm{IS}},\qquad\var
 Exakte Lösung des Rechenmodells. Links: $\varphi_\mathrm s$ folgt zunächst der Gatespannung und bleibt über $V_\mathrm{th}$ fast stehen. Rechts: Die Verarmungsladung sättigt, die Inversionsladung wächst linear. Gestrichelt die Näherung [(6.2)](#gl-6-2).
 :::
 
-**Beispiel.** Im Rechenmodell ist $V_\mathrm{WI}=0{,}389+0{,}360=0{,}749$ V und $V_\mathrm{th}=0{,}777+0{,}510=1{,}287$ V mit $Q'_\mathrm{SC}=-88{,}0\,\mathrm{nC/cm^2}$. Im Isolator herrschen dann 25,5 MV/m. Von $V_\mathrm{th}$ bis 3 V steigt $\varphi_\mathrm s$ nur von 0,777 auf 0,936 V, die Verarmungsladung von 88,0 auf 96,5 nC/cm$^2$. Die Elektronen liefern 260 nC/cm$^2$, das sind $1{,}6\cdot10^{12}$ Elektronen je cm$^2$. Die Näherung [(6.2)](#gl-6-2) ergibt 296 nC/cm$^2$, sie überschätzt um den Teil der Spannung, der noch in $\varphi_\mathrm s$ geht. **Grenzfälle:** $d_\mathrm{IS}\to0$ gibt die untere Schranke $V_\mathrm{th}\to\varphi_\mathrm{s,SI}$, 2 nm Oxid ergeben 0,828 V. Stärkere Dotierung vergrößert die Ionenladung: Bei 20 nm Oxid sind es 1,004 V für $N_\mathrm A=10^{16}\,\mathrm{cm^{-3}}$ und 1,806 V für $10^{17}\,\mathrm{cm^{-3}}$.
+::::beispiel
+Im Rechenmodell ist $V_\mathrm{WI}=0{,}389+0{,}360=0{,}749$ V und $V_\mathrm{th}=0{,}777+0{,}510=1{,}287$ V mit $Q'_\mathrm{SC}=-88{,}0\,\mathrm{nC/cm^2}$. Im Isolator herrschen dann 25,5 MV/m. Von $V_\mathrm{th}$ bis 3 V steigt $\varphi_\mathrm s$ nur von 0,777 auf 0,936 V, die Verarmungsladung von 88,0 auf 96,5 nC/cm$^2$. Die Elektronen liefern 260 nC/cm$^2$, das sind $1{,}6\cdot10^{12}$ Elektronen je cm$^2$. Die Näherung [(6.2)](#gl-6-2) ergibt 296 nC/cm$^2$, sie überschätzt um den Teil der Spannung, der noch in $\varphi_\mathrm s$ geht.
+::::
+
+⁠**Grenzfälle:** $d_\mathrm{IS}\to0$ gibt die untere Schranke $V_\mathrm{th}\to\varphi_\mathrm{s,SI}$, 2 nm Oxid ergeben 0,828 V. Stärkere Dotierung vergrößert die Ionenladung: Bei 20 nm Oxid sind es 1,004 V für $N_\mathrm A=10^{16}\,\mathrm{cm^{-3}}$ und 1,806 V für $10^{17}\,\mathrm{cm^{-3}}$.
 
 :::frage Geschieht an der Schwellspannung etwas Sprunghaftes?
 Nein. $n(0)$ wächst stetig, und auch darunter gibt es Elektronen. $V_\mathrm{th}$ ist eine Festlegung. Sie ist sinnvoll, weil sich dort in wenigen zehn Millivolt das Verhalten ändert: Darunter wächst die Ladung mit der Wurzel von $\varphi_\mathrm s$, darüber exponentiell.

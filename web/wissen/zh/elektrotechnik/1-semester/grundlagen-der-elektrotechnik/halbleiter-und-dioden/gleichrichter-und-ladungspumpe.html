@@ -17,7 +17,8 @@
 <div class="gl-zeile"><div class="gl-f">$$\textcolor{#1b7f4a}{u_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{\begin{cases}|u_\mathrm e|-2U_\mathrm F&amp;|u_\mathrm e|&gt;2U_\mathrm F\\0&amp;\text{其他情况。}\end{cases}}$$</div><div class="gl-nr"><span>(9.1)</span></div></div>
 <p>截止的二极管最多承受 $\hat u-U_\mathrm F$。</p></aside>
 <p>⁠<strong>如何理解：</strong>$|u_\mathrm e|&lt;2U_\mathrm F$ 时两对二极管都不导通，$u_\mathrm a$ 保持为零。从降低的峰值可以读出两倍的正向电压。<strong>适用条件：</strong>电阻性负载。输入和输出没有公共参考点。</p>
-<p><strong>例。</strong> 峰值为 $\textcolor{#1b7f4a}{12\,\mathrm{V}-1.4\,\mathrm{V}}\textcolor{#15633a}{=}\textcolor{#c2410c}{10.6}$ V，半波整流器为 11.3 V。每个半波中的间隙持续 0.74 ms，占时间的 7.4 %。平均值为 6.29 V，半波整流器只有 3.48 V。<strong>极限情况：</strong>$U_\mathrm F\to0$ 时 $\textcolor{#1b7f4a}{u_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{|u_\mathrm e|}$。$\hat u&lt;1.4$ V 时输出保持为零。</p>
+<details class="beispiel"><summary><span class="bsp-k">例</span></summary><div class="bsp-body"><p>峰值为 $\textcolor{#1b7f4a}{12\,\mathrm{V}-1.4\,\mathrm{V}}\textcolor{#15633a}{=}\textcolor{#c2410c}{10.6}$ V，半波整流器为 11.3 V。每个半波中的间隙持续 0.74 ms，占时间的 7.4 %。平均值为 6.29 V，半波整流器只有 3.48 V。</p></div></details>
+<p>⁠<strong>极限情况：</strong>$U_\mathrm F\to0$ 时 $\textcolor{#1b7f4a}{u_\mathrm a}\textcolor{#15633a}{=}\textcolor{#c2410c}{|u_\mathrm e|}$。$\hat u&lt;1.4$ V 时输出保持为零。</p>
 <details class="ltspice"><summary><span class="lt-k">LTspice</span>桥式整流器</summary><div class="lt-body"><p>⁠<strong>绘制：</strong>电源取 <code>SINE(0 12 50)</code>，接在 <code>a</code> 和 <code>b</code> 之间。二极管 DM 分别从 <code>a</code> 接到 <code>p</code>，从 <code>b</code> 接到 <code>p</code>，从接地点接到 <code>a</code>，从接地点接到 <code>b</code>。<code>res</code> 1k 从 <code>p</code> 接地。</p>
 <p>⁠<strong>指令：</strong><code>.tran 40m</code></p>
 <p>⁠<strong>你会看到：</strong><code>V(p)</code> 如图 <a href="#abb-11">11</a> 所示，峰值 10.57 V，平均值 6.29 V。截止二极管上的电压 $V(p,a)$ 达到 11.28 V。计算值为 10.6 V、6.29 V 和 11.3 V。做练习 <a href="#aufg-11">11</a> 时，用 24 代替 12。</p></div></details>

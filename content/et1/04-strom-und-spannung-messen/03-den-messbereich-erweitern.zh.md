@@ -42,7 +42,9 @@ $$\frac{I_\text{旧}}{I_\text{新}}=\frac{R_\mathrm{Shunt}}{R_\mathrm{Shunt}+R_\
 $$U_\text{旧}=U_\text{新}\,\frac{R_\text{旧}}{R_\text{旧}+R_\mathrm V} \quad\Rightarrow\quad \alpha=\frac{R_\text{旧}+R_\mathrm V}{R_\text{旧}}\quad\Rightarrow\quad R_\mathrm V=R_\text{旧}\,(\alpha-1).$$
 :::
 
-**例。** 对于 10 mA：$R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9.95\,\mathrm{mA}}=10.05\,\Omega$，与 2 k$\Omega$ 并联得 $R_\mathrm{iA}=10\,\Omega$。对于 10 V：$\alpha=100$，$R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$，所以 $R_\mathrm{iV}=200$ k$\Omega$。
+::::beispiel
+对于 10 mA：$R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9.95\,\mathrm{mA}}=10.05\,\Omega$，与 2 k$\Omega$ 并联得 $R_\mathrm{iA}=10\,\Omega$。对于 10 V：$\alpha=100$，$R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$，所以 $R_\mathrm{iV}=200$ k$\Omega$。
+::::
 
 ⁠**简而言之：**满偏时，在任何量程下电流表上的压降都是 100 mV，流过电压表的电流都是 50 µ A。由此直接得到内阻：$R_\mathrm{iA}=100\,\mathrm{mV}/10\,\mathrm{mA}=10\,\Omega$，$R_\mathrm{iV}=10\,\mathrm{V}/50\,\mu\text{A}=200$ k$\Omega$。可见，灵敏的电流量程内阻大，高的电压量程内阻也大。50 µ A 的倒数 20 k$\Omega$/V 作为特性参数标在指针式仪表上。
 

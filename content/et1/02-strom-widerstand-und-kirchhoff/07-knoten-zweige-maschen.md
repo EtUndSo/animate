@@ -78,7 +78,11 @@ Man baut einen Baum auf: Beginnend bei einem Knoten holt jeder neue Zweig genau 
 
 **Unbekannte und Gleichungen.** Jeder Zweig trägt einen Strom und eine Spannung, das sind $2z$ Unbekannte. Dagegen stehen $z$ Bauteilgleichungen (eine je Zweig), $k-1$ Knotengleichungen (Stufe [7](die-knotenregel-ist-ladungserhaltung.html#stufe-7)) und $z-k+1$ Maschengleichungen (Stufe [8](die-maschenregel-ist-energieerhaltung.html#stufe-8)). Die Summe ist genau $2z$. **Kurz gesagt:** Jedes Netz hat genau so viele Gleichungen wie Unbekannte.
 
-**Beispiel.** Das Netz hat $k=4$, $z=6$, also $m=3$. Sein Graph hat 16 Bäume mit je drei Zweigen. Abb. [7](#abb-7) wählt den Stern um $K_4$ mit den Zweigen 0, b und d. Die Verbindungszweige a, c und e schließen die Maschen $M_1$, $M_2$ und $M_3$. Das System umfasst 12 Unbekannte und 12 Gleichungen. **Grenzfälle:** Ein einzelner Kreis hat $z=k$, also $m=1$. Ein Baum allein hat $z=k-1$, also $m=0$: Ohne geschlossenen Weg fließt kein stationärer Strom.
+::::beispiel
+Das Netz hat $k=4$, $z=6$, also $m=3$. Sein Graph hat 16 Bäume mit je drei Zweigen. Abb. [7](#abb-7) wählt den Stern um $K_4$ mit den Zweigen 0, b und d. Die Verbindungszweige a, c und e schließen die Maschen $M_1$, $M_2$ und $M_3$. Das System umfasst 12 Unbekannte und 12 Gleichungen.
+::::
+
+⁠**Grenzfälle:** Ein einzelner Kreis hat $z=k$, also $m=1$. Ein Baum allein hat $z=k-1$, also $m=0$: Ohne geschlossenen Weg fließt kein stationärer Strom.
 
 :::frage Ist die Verbindung zweier Bauteile ohne Abzweig ein Knoten?
 Nach der Definition nicht, denn dort verzweigt sich nichts. Zählt man sie trotzdem mit, ändert sich $m$ nicht: Ein zusätzlicher Knoten teilt einen Zweig in zwei, $k$ und $z$ wachsen beide um 1.

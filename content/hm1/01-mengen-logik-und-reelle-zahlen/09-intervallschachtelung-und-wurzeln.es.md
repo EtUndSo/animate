@@ -54,7 +54,9 @@ Por qué $x^2=2$: de $a_n\le x\le b_n$ se sigue por el teorema [4.2](anordnungs
 ⁠*Regla del producto:* $\sqrt x\sqrt y\ge0$ y $(\sqrt x\sqrt y)^2=xy$ (M1, M2), y la solución no negativa es única.
 :::
 
-**Ejemplo.** Tras seis pasos es $1{,}40625\le\sqrt2\le1{,}4375$, anchura $2^{-5}=0{,}03125$. Los números decimales son la misma idea con diez partes en lugar de dos: cada cifra reduce el intervalo a una décima parte. Por eso todo número real tiene una representación [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1).
+::::beispiel
+Tras seis pasos es $1{,}40625\le\sqrt2\le1{,}4375$, anchura $2^{-5}=0{,}03125$. Los números decimales son la misma idea con diez partes en lugar de dos: cada cifra reduce el intervalo a una décima parte. Por eso todo número real tiene una representación [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1).
+::::
 
 :::frage Basta con leer $\sqrt2$ en la calculadora. ¿Para qué tanto esfuerzo?
 Para cualquier valor numérico, basta. Pero la calculadora muestra una fracción, $1{,}414213562$, cuyo cuadrado no es 2. La pregunta aquí es: ¿existe siquiera un número con cuadrado exactamente 2? En $\mathbb{Q}$ no, en $\mathbb{R}$ sí, y esta diferencia sostiene después los límites y la continuidad.

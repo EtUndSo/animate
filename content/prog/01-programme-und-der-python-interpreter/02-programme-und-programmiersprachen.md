@@ -32,7 +32,8 @@ Ein __Programm__ ist eine Folge von eindeutig beschriebenen Arbeitsschritten, di
 
 Einen einzelnen Arbeitsschritt eines Programms nennt man __Anweisung__.
 
-**Beispiel: ein Rezept für die Wurzel aus 2.** Das folgende Rezept heißt Heron-Verfahren, nach Heron von Alexandria, der es im ersten Jahrhundert beschrieben hat. Es braucht nur die Grundrechenarten:
+::::beispiel ein Rezept für die Wurzel aus 2
+Das folgende Rezept heißt Heron-Verfahren, nach Heron von Alexandria, der es im ersten Jahrhundert beschrieben hat. Es braucht nur die Grundrechenarten:
 
 <ol>
 
@@ -70,6 +71,7 @@ Nach drei Durchgängen ist $g=1{,}414\,216$ und $g^2=2{,}000\,006$, nach vier Du
 :::abbildung prog/k1heron 1
 Das Heron-Verfahren für $\sqrt2$ auf dem Zahlenstrahl. In jedem Durchgang liegen die Schätzung $g$ (blau) und $2/g$ (orange) auf verschiedenen Seiten von $\sqrt2$, weil ihr Produkt 2 ist. Ihr Mittelwert (Strich) wird die neue Schätzung. Der Abstand der beiden Punkte schrumpft von $1$ über $0{,}17$ auf $0{,}005$; im dritten Durchgang liegen sie in dieser Darstellung fast aufeinander.
 :::
+::::
 
 Wer das Rezept befolgt, muss nicht wissen, warum es funktioniert. Jeder Schritt ist so eindeutig, dass auch eine Maschine ihn ausführen kann. Genau das macht aus einem Rezept ein Programm.
 
@@ -119,7 +121,8 @@ Ein __Maschinenbefehl__ ist ein Befehl, den der Prozessor unmittelbar ausführen
 
 Ein Programm, das nur aus Maschinenbefehlen besteht, heißt __Maschinencode__.
 
-**Beispiel.** Schritt 2 des Heron-Rezepts zerfällt in Maschinenbefehle etwa so:
+::::beispiel
+Schritt 2 des Heron-Rezepts zerfällt in Maschinenbefehle etwa so:
 
 <ol>
 
@@ -131,7 +134,7 @@ Hole die Zahl $g$ aus dem Speicher.
 
 <li>
 
-Teile 2 durch diese Zahl.
+[Teile 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html) durch diese Zahl.
 
 </li>
 
@@ -156,6 +159,7 @@ Lege das Ergebnis als neues $g$ im Speicher ab.
 </ol>
 
 Jeder dieser Befehle ist im Speicher eine Zahl. Welche Zahl welchen Befehl bedeutet, ist für jede Familie von Prozessoren anders festgelegt. Die Prozessoren der meisten PCs verstehen andere Zahlen als die eines Smartphones oder eines Raspberry Pi. Maschinencode für den einen läuft auf dem anderen deshalb nicht.
+::::
 
 ⁠**Kurz gesagt:** Der Prozessor versteht nur sehr einfache Maschinenbefehle, die als Zahlen im Speicher stehen, und jede Prozessorfamilie hat ihre eigenen.
 
@@ -179,13 +183,15 @@ Maschinencode ist eine lange Folge von Zahlen. Menschen können ihn kaum lesen, 
 Eine __Programmiersprache__ ist eine künstliche Sprache, in der genau festgelegt ist, welche Texte erlaubt sind und was jeder erlaubte Text bewirkt.
 :::
 
-**Beispiel.** Python, C und C++ sind Programmiersprachen. Den ersten Durchgang des Heron-Rezepts mit $g=1$ schreibt man in Python so:
+::::beispiel
+Python, C und C++ sind Programmiersprachen. Den ersten Durchgang des Heron-Rezepts mit $g=1$ schreibt man in Python so:
 
 ```python
 (1 + 2 / 1) / 2
 ```
 
-Das Zeichen `/` bedeutet „geteilt durch“, `+` bedeutet „plus“, und die Klammern wirken wie in der Mathematik. Diese Zeile hat in Python genau eine Bedeutung: Teile 2 durch 1, addiere 1, teile das Ergebnis durch 2.
+Das Zeichen `/` bedeutet „geteilt durch“, `+` bedeutet „plus“, und die Klammern wirken wie in der Mathematik. Diese Zeile hat in Python genau eine Bedeutung: [Teile 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html) durch 1, addiere 1, teile das Ergebnis durch 2.
+::::
 
 ⁠**Kurz gesagt:** Eine Programmiersprache ist eine künstliche Sprache ohne Mehrdeutigkeit, in der man Programme aufschreibt.
 
@@ -203,7 +209,8 @@ Bei einer Programmiersprache muss man zwei Fragen trennen: Ist ein Text überhau
 Die __Syntax__ einer Programmiersprache ist die Gesamtheit der Regeln, die festlegen, welche Texte in ihr erlaubt sind.
 :::
 
-**Beispiel.** In Python ist `(1 + 2 / 1) / 2` erlaubt. Die folgenden Zeilen verletzen die Syntax:
+::::beispiel
+In Python ist `(1 + 2 / 1) / 2` erlaubt. Die folgenden Zeilen verletzen die Syntax:
 
 <ul>
 
@@ -220,6 +227,7 @@ Die __Syntax__ einer Programmiersprache ist die Gesamtheit der Regeln, die festl
 </li>
 
 </ul>
+::::
 
 ⁠**Kurz gesagt:** Die Syntax legt die erlaubte Form fest, unabhängig davon, was ein Text bedeutet.
 
@@ -235,9 +243,11 @@ Ein Text in erlaubter Form muss außerdem eine festgelegte Wirkung haben.
 Die __Semantik__ einer Programmiersprache legt fest, was ein erlaubter Text bedeutet, also was geschieht, wenn er ausgeführt wird.
 :::
 
-**Beispiel.** Die Zeile `7 / 2` ist in Python und in C erlaubt, hat also in beiden Sprachen die richtige Form. In Python bedeutet sie „teile 7 durch 2“, das Ergebnis ist 3,5. In C bedeutet derselbe Text bei ganzen Zahlen „teile und lass den Rest weg“, das Ergebnis ist 3. Gleiche Form, verschiedene Bedeutung.
+::::beispiel
+Die Zeile `7 / 2` ist in Python und in C erlaubt, hat also in beiden Sprachen die richtige Form. In Python bedeutet sie „teile 7 durch 2“, das Ergebnis ist 3,5. In C bedeutet derselbe Text bei ganzen Zahlen „teile und lass den Rest weg“, das Ergebnis ist 3. Gleiche Form, verschiedene Bedeutung.
 
 Ein zweites Beispiel: Wer den Mittelwert von 3 und 4 berechnen will und `3 + 4 / 2` schreibt, hat einen erlaubten Text geschrieben. Seine festgelegte Bedeutung ist aber $3+\frac42=5$, nicht der gemeinte Mittelwert $3{,}5$. Die Semantik richtet sich nach dem Text, nicht nach der Absicht.
+::::
 
 ⁠**Kurz gesagt:** Die Semantik legt fest, was ein erlaubter Text bewirkt.
 
@@ -257,7 +267,9 @@ Was ein Mensch in einer Programmiersprache aufschreibt, braucht einen Namen, um 
 Der __Quelltext__ eines Programms ist sein Text in einer Programmiersprache, so wie Menschen ihn schreiben und lesen.
 :::
 
-**Beispiel.** Die Zeile `(1 + 2 / 1) / 2` ist ein sehr kurzer Python-Quelltext. Ein Prozessor kann ihn nicht ausführen, denn er versteht nur Maschinenbefehle. Zwischen dem Quelltext und dem Prozessor muss also übersetzt werden.
+::::beispiel
+Die Zeile `(1 + 2 / 1) / 2` ist ein sehr kurzer Python-Quelltext. Ein Prozessor kann ihn nicht ausführen, denn er versteht nur Maschinenbefehle. Zwischen dem Quelltext und dem Prozessor muss also übersetzt werden.
+::::
 
 ⁠**Kurz gesagt:** Der Quelltext ist das Programm in der Form, in der Menschen es schreiben; der Prozessor kann ihn nicht unmittelbar ausführen.
 

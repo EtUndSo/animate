@@ -34,11 +34,13 @@ is called a __system of linear equations__ with $m$ equations and the $n$ unknow
 
 Written out, row $i$ contains the equation $a_{i1}x_1+\dots+a_{in}x_n=y_i$.
 
-⁠**Worked example:** The system
+::::beispiel [Worked example]
+The system
 
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}$$
 
 has the solution $\mathbf{x}=(2,\,1)^{\top}$: $2\cdot2+1=5$ and $2+1=3$. The coefficient matrix is familiar from Subsection [11.2](einheitsmatrix-und-inverse.html#stufe-11-2), with the inverse $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$. If you multiply the system by this inverse from the left, the solution appears immediately: $\mathbf{x}=\mathbf{A}^{-1}\mathbf{y}=(5-3,\ -5+6)^{\top}=(2,\,1)^{\top}$.
+::::
 
 ⁠**In short:** A system of linear equations $\mathbf{A}\mathbf{x}=\mathbf{y}$ asks which input $\mathbf{x}$ produces the output $\mathbf{y}$.
 
@@ -64,7 +66,9 @@ The column picture immediately answers when there is a solution at all. The vect
 The system $\mathbf{A}\mathbf{x}=\mathbf{y}$ has a solution if and only if $\mathbf{y}$ lies in the column space of $\mathbf{A}$.
 :::
 
-⁠**Worked example:** The system $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ is solvable for $\mathbf{y}=(3,\,6)^{\top}$, for instance with $\mathbf{x}=(1,\,1)^{\top}$, but not for $\mathbf{y}=(1,\,1)^{\top}$: by Subsection [7.4](das-matrix-vektor-produkt.html#stufe-7-4), the column space is only the line in the direction of $(1,\,2)^{\top}$.
+::::beispiel [Worked example]
+The system $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ is solvable for $\mathbf{y}=(3,\,6)^{\top}$, for instance with $\mathbf{x}=(1,\,1)^{\top}$, but not for $\mathbf{y}=(1,\,1)^{\top}$: by Subsection [7.4](das-matrix-vektor-produkt.html#stufe-7-4), the column space is only the line in the direction of $(1,\,2)^{\top}$.
+::::
 
 ⁠**In short:** In the row picture, a solution is a point common to all equations; in the column picture, it is the choice of coefficients with which the columns give the right-hand side.
 
@@ -116,7 +120,8 @@ A system and the system obtained from it by row operations have the same solutio
 Every solution of the old system also satisfies the new equations, because these are sums and multiples of the old ones. But each of the three operations can also be undone: subtract the multiple again, swap the rows back, divide by the number. So, conversely, every solution of the new system also satisfies the old one.
 :::
 
-⁠**Worked example:** The system
+::::beispiel [Worked example]
+The system
 
 $$\begin{aligned} x_1+2x_2+x_3&=8\\ 2x_1+x_2+x_3&=7\\ x_1+x_2+2x_3&=9 \end{aligned} \qquad\text{has the augmented matrix}\qquad \left(\begin{array}{ccc|c}1&2&1&8\\2&1&1&7\\1&1&2&9\end{array}\right).$$
 
@@ -125,6 +130,7 @@ If you subtract the first row twice from the second and once from the third, $x_
 $$\left(\begin{array}{ccc|c}1&2&1&8\\0&-3&-1&-9\\0&-1&1&1\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&-3&-1&-9\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&0&-4&-12\end{array}\right).$$
 
 From the bottom up: $-4x_3=-12$, so $x_3=3$; then $-x_2+3=1$, so $x_2=2$; then $x_1+4+3=8$, so $x_1=1$. The solution is $\mathbf{x}=(1,\,2,\,3)^{\top}$, and substituting it into all three equations confirms it.
+::::
 
 ⁠**In short:** Gaussian elimination eliminates the unknowns step by step with row operations, which do not change the solutions, and then substitutes from the bottom up.
 
@@ -154,7 +160,8 @@ so every point $\mathbf{x}+t\,(\mathbf{x}'-\mathbf{x})$ of the line through $\ma
 
 The system $\mathbf{A}\mathbf{x}=\mathbf{0}$ with right-hand side zero is called __homogeneous__. It always has the solution $\mathbf{x}=\mathbf{0}$. If you know a single solution $\mathbf{x}_{\mathrm s}$ of the system $\mathbf{A}\mathbf{x}=\mathbf{y}$, you get all the others by adding the solutions of the homogeneous system: $\mathbf{A}\mathbf{x}=\mathbf{y}$ holds exactly when $\mathbf{A}(\mathbf{x}-\mathbf{x}_{\mathrm s})=\mathbf{y}-\mathbf{y}=\mathbf{0}$.
 
-⁠**Worked example:** The three systems in Fig. [38](#abb-38):
+::::beispiel [Worked example]
+The three systems in Fig. [38](#abb-38):
 
 <ol class="al">
 
@@ -177,6 +184,7 @@ $x_1+x_2=3$, $2x_1+2x_2=6$: the second equation is twice the first. One solution
 </li>
 
 </ol>
+::::
 
 ⁠**In short:** A system of linear equations has no solution, exactly one or infinitely many; all solutions are one solution plus the solutions of the homogeneous system.
 
@@ -194,11 +202,13 @@ A system of linear equations with more equations than unknowns ($m>n$) is called
 
 An overdetermined system usually has no solution: two equations already fix two unknowns, and the third equation would have to hold by coincidence as well. In the column picture: for $n<m$, the column space of $n$ columns in $\mathbb{R}^m$ is only a small part of $\mathbb{R}^m$, and the right-hand side almost never lies in it. An underdetermined system, on the other hand, has infinitely many solutions if it is solvable at all: in row echelon form at least one unknown remains without a pivot of its own, and it can be chosen freely.
 
-⁠**Worked example:** For apartments 1 to 3 with the prices $200$, $130$ and $290$ thousand euros, the system reads
+::::beispiel [Worked example]
+For apartments 1 to 3 with the prices $200$, $130$ and $290$ thousand euros, the system reads
 
 $$60\,w_1+2\,w_2=200,\qquad 40\,w_1+w_2=130,\qquad 90\,w_1+4\,w_2=290 .$$
 
 The first two equations give $w_1=3$ and $w_2=10$: if you subtract the second twice from the first, $-20\,w_1=-60$ remains. Substituted into the third, however, this gives $270+40=310\ne290$. The system has no solution. No pair of weights hits all three prices exactly. What to look for instead in such a case is a question of its own.
+::::
 
 ⁠**In short:** An overdetermined system has more equations than unknowns and is usually unsolvable; an underdetermined one has fewer and, if it is solvable, infinitely many solutions.
 

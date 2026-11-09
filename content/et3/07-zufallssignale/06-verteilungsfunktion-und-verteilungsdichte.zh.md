@@ -25,11 +25,13 @@ $$P_s(x)=\mathrm{Prob}[s(t)\le x],\qquad p_s(x)=\frac{\mathrm{d} P_s(x)}{\mathrm
 <span class="anker" id="gl-5-2"></span>
 $$m_s=\int x\,p_s(x)\,\mathrm{d} x,\qquad L_s=\int x^2p_s(x)\,\mathrm{d} x,\qquad\mathrm E\{F[s]\}=\int F(x)\,p_s(x)\,\mathrm{d} x. \tag{5.2}$$
 
-**例：均匀分布。** 在以 $m_s$ 为中心、宽度为 $a$ 的区间内，所有取值出现的可能性都相同：$p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$。于是
+::::beispiel 均匀分布
+在以 $m_s$ 为中心、宽度为 $a$ 的区间内，所有取值出现的可能性都相同：$p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$。于是
 
 $$L_s=\frac1a\int_{m_s-a/2}^{m_s+a/2}x^2\mathrm{d} x=\frac{a^2}{12}+m_s^2,\qquad\sigma_s^2=\frac{a^2}{12}.$$
 
 参考模型中的随机数（$a=1$，$m_s=0$）的方差为 $\frac1{12}=0.0833$。
+::::
 
 **特性曲线。** 若信号通过一条特性曲线（传输特性）$y=k(x)$（带饱和的放大器、整流器、量化器），它的分布就会改变。对单调的特性曲线，每个区间的概率保持不变：
 

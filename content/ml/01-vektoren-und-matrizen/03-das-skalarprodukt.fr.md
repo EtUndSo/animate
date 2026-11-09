@@ -68,11 +68,13 @@ $\mathbf{u}^{\top}\mathbf{u}=\sum_ju_j^2\ge0$, et $\mathbf{u}^{\top}\mathbf{u}=0
 (i) découle de $u_jv_j=v_ju_j$ pour chaque composante. (ii) est la règle des sommes [(1.2)](vektoren-daten-als-zahlenlisten.html#gl-1-2) : $\sum_j(c\,u_j)v_j=c\sum_ju_jv_j$ et $\sum_j(u_j+q_j)v_j=\sum_ju_jv_j+\sum_jq_jv_j$. (iii) Chaque terme $u_j^2$ est positif ou nul. La somme n’est nulle que si chaque terme est nul, c’est-à-dire si chaque $u_j=0$.
 :::
 
-⁠**Exemple de calcul :** Pour $\mathbf{u}=(1,\,2,\,3)^{\top}$ et $\mathbf{v}=(4,\,-1,\,2)^{\top}$, on a $\mathbf{u}^{\top}\mathbf{v}=8$ et $\mathbf{u}^{\top}\mathbf{u}=14$ (Fig. [6](#abb-6)). Dans l’ordre inverse, on obtient le même nombre, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$, comme l’exige la symétrie.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{u}=(1,\,2,\,3)^{\top}$ et $\mathbf{v}=(4,\,-1,\,2)^{\top}$, on a $\mathbf{u}^{\top}\mathbf{v}=8$ et $\mathbf{u}^{\top}\mathbf{u}=14$ (Fig. [6](#abb-6)). Dans l’ordre inverse, on obtient le même nombre, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$, comme l’exige la symétrie.
 
 :::abbildung ml/k1rskp 6
 Deux produits scalaires pas à pas : composante fois composante, puis la somme des produits. Le produit scalaire d’un vecteur avec lui-même est la somme des carrés de ses composantes.
 :::
+::::
 
 ⁠**En bref :** Le produit scalaire multiplie deux vecteurs composante par composante et additionne les produits ; c’est un nombre.
 
@@ -99,13 +101,15 @@ $$\hat y=\mathbf{w}^{\top}\mathbf{x}=\sum_{j=1}^{d}w_j\,x_j . \tag{2.2}$$
 
 Une règle de calcul fixe qui produit un nombre à partir des caractéristiques d’un exemple s’appelle un __modèle__. Le nombre que le modèle fournit pour un exemple s’appelle sa __prédiction__. Le chapeau sur le $y$ dans $\hat y$ indique qu’il s’agit d’une estimation calculée et non d’une valeur mesurée. Dans ce chapitre, les poids sont toujours donnés ; savoir d’où viennent de bons poids est une question à part.
 
-⁠**Exemple de calcul :** L’agente immobilière utilise les poids $\mathbf{w}=(3,\,10,\,-4)^{\top}$ en milliers d’euros par mètre carré, par pièce et par kilomètre. Pour l’appartement 1, $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ (Fig. [7](#abb-7)), soit $188$ mille euros.
+::::beispiel [Exemple de calcul]
+L’agente immobilière utilise les poids $\mathbf{w}=(3,\,10,\,-4)^{\top}$ en milliers d’euros par mètre carré, par pièce et par kilomètre. Pour l’appartement 1, $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ (Fig. [7](#abb-7)), soit $188$ mille euros.
 
 :::abbildung ml/k1rgewicht 7
 L’estimation de l’agente immobilière pour l’appartement 1 : chaque caractéristique fois son poids, puis la somme. Les contributions des trois caractéristiques sont de $180$, $20$ et $-12$ mille euros.
 :::
 
 Pour les autres appartements, on obtient de même $\hat y_2=126$, $\hat y_3=286$ et $\hat y_4=232$. Chaque produit $w_jx_j$ s’exprime en milliers d’euros, parce que l’unité de la caractéristique se simplifie avec l’unité au dénominateur du poids. C’est la seule raison pour laquelle on peut additionner les trois produits.
+::::
 
 ⁠**En bref :** Une somme pondérée est le produit scalaire $\mathbf{w}^{\top}\mathbf{x}$ des poids et des caractéristiques ; c’est le modèle le plus simple qui transforme des caractéristiques en une prédiction.
 
@@ -132,7 +136,8 @@ $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$
 
 Autres calculs de ce type : le produit scalaire avec un vecteur unitaire sélectionne une composante, $\mathbf{e}_j^{\top}\mathbf{v}=v_j$, car tous les autres produits contiennent un zéro. Le produit scalaire d’un vecteur avec lui-même est la somme des carrés, $\mathbf{v}^{\top}\mathbf{v}=\sum_iv_i^2$. Les quantités multipliées par les prix, puis additionnées, donnent le montant de la facture. Et évaluer un polynôme $p(t)=c_1+c_2t+\dots+c_nt^{n-1}$ en un point $t$ revient à former le produit scalaire $\mathbf{c}^{\top}\mathbf{z}$ de ses coefficients $\mathbf{c}=(c_1,\dots,c_n)^{\top}$ avec les puissances $\mathbf{z}=(1,\,t,\,t^2,\dots,t^{n-1})^{\top}$. Pour $p(t)=1+2t+3t^2$ au point $t=2$, cela donne $(1,\,2,\,3)\,(1,\,2,\,4)^{\top}=1+4+12=17$.
 
-⁠**Exemple de calcul :** De janvier à mars, l’appartement 1 a consommé $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh d’électricité (sous-section [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). Au total, cela fait $\mathbf 1^{\top}\mathbf{u}=750$ kWh, soit en moyenne $\bar u=250$ kWh par mois (Fig. [8](#abb-8)). La consommation de février est $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh.
+::::beispiel [Exemple de calcul]
+De janvier à mars, l’appartement 1 a consommé $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh d’électricité (sous-section [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). Au total, cela fait $\mathbf 1^{\top}\mathbf{u}=750$ kWh, soit en moyenne $\bar u=250$ kWh par mois (Fig. [8](#abb-8)). La consommation de février est $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh.
 
 :::abbildung ml/k1rmittel 8
 Somme et moyenne de la consommation d’électricité comme produit scalaire avec le vecteur de uns, en kWh.
@@ -143,6 +148,7 @@ Si le kilowattheure coûte $\mathbf{p}=(0{,}32;\ 0{,}34;\ 0{,}28)^{\top}$ euro a
 :::abbildung ml/k1rstrom 9
 La facture d’électricité comme produit scalaire : prix fois quantité pour chaque mois, puis la somme, en euros.
 :::
+::::
 
 ⁠**En bref :** La somme, la moyenne, la sélection d’une composante et la somme des carrés sont des produits scalaires avec $\mathbf 1$, $\tfrac1n\mathbf 1$, $\mathbf{e}_j$ et le vecteur lui-même.
 
@@ -162,11 +168,13 @@ Plus précisément : la contribution de la position $j$ au produit scalaire $\m
 
 En traitement du signal, on connaît ce calcul sous le nom de corrélation. L’intercorrélation de deux suites réelles $x[n]$ et $y[n]$ pour un décalage nul vaut $\sum_nx[n]\,y[n]$. Si l’on écrit les échantillons de deux signaux de longueur finie sous forme de vecteurs $\mathbf{x}$ et $\mathbf{y}$, c’est exactement le produit scalaire $\mathbf{x}^{\top}\mathbf{y}$. L’énergie d’un signal, $\sum_nx[n]^2$, est de même $\mathbf{x}^{\top}\mathbf{x}$. La comparaison avec un motif n’est donc pas un nouvel outil, mais celui-là même avec lequel un corrélateur cherche un motif connu dans un signal.
 
-⁠**Exemple de calcul :** Avec le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, on a $\mathbf{w}^{\top}\mathbf{x}=8$ pour $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ et $\mathbf{w}^{\top}\mathbf{x}'=0$ pour $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). Avec le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$, c’est l’inverse : $\mathbf 1^{\top}\mathbf{x}=2$, mais $\mathbf 1^{\top}\mathbf{x}'=10$. Le signal $\mathbf{x}$ est donc surtout alterné, $\mathbf{x}'$ surtout constant.
+::::beispiel [Exemple de calcul]
+Avec le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, on a $\mathbf{w}^{\top}\mathbf{x}=8$ pour $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ et $\mathbf{w}^{\top}\mathbf{x}'=0$ pour $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). Avec le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$, c’est l’inverse : $\mathbf 1^{\top}\mathbf{x}=2$, mais $\mathbf 1^{\top}\mathbf{x}'=10$. Le signal $\mathbf{x}$ est donc surtout alterné, $\mathbf{x}'$ surtout constant.
 
 :::abbildung ml/k1rmuster 11
 Le motif alterné $\mathbf{w}$ avec deux signaux. En haut, $\mathbf{x}$ suit le motif : les quatre produits sont positifs. En bas, $\mathbf{x}'$ croît régulièrement : les produits se compensent deux à deux.
 :::
+::::
 
 La somme pondérée de l’agente immobilière est elle aussi une comparaison avec un motif. Son motif $\mathbf{w}=(3,\,10,\,-4)^{\top}$ décrit ce qui donne de la valeur à un appartement : beaucoup de surface, beaucoup de pièces, peu de distance. Plus un appartement correspond à ce motif, plus sa prédiction est élevée.
 

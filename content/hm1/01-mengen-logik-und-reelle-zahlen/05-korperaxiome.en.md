@@ -98,7 +98,11 @@ For $u,v\ne0$, $\frac xu\cdot\frac yv=\frac{xy}{uv}$ and $\frac xu+\frac yv=\fra
 (vi) $\frac xu\cdot\frac yv=(xu^{-1})(yv^{-1})=(xy)(u^{-1}v^{-1})$, and $u^{-1}v^{-1}=(uv)^{-1}$, because $(u^{-1}v^{-1})(uv)=1$ and the inverse is unique. The division rule follows with $(y v^{-1})^{-1}=y^{-1}v$, the sum rule by expanding: $\frac xu=\frac{xv}{uv}$, $\frac yv=\frac{yu}{uv}$, then (AM).
 :::
 
-**Example.** $(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$. **Limiting case** $v=u=1$: The sum rule becomes $x+y=x+y$.
+::::beispiel
+$(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$.
+::::
+
+⁠**Limiting case** $v=u=1$: The sum rule becomes $x+y=x+y$.
 
 :::frage I know this from school. Why a proof?
 They are familiar for $\mathbb{Q}$ and $\mathbb{R}$. But they are not among the axioms, and only the proof shows where they hold: in every field. The school rule “squares are not negative,” by contrast, does not follow from this list and fails in [Part 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Besides, you practice reasoning on content whose result you already know.

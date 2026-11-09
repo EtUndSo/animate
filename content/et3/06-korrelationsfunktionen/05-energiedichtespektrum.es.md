@@ -29,7 +29,8 @@ $$E_s=\varphi^E_{ss}(0)=\int_{-\infty}^{\infty}|s(t)|^2\,\mathrm{d} t=\int_{-\in
 
 Dos señales ortogonales tienen también espectros ortogonales: $\int s^*g\,\mathrm{d} t=\int S^*G\,\mathrm{d} f=0$.
 
-**Ejemplo: el pulso exponencial.** $s(t)=\varepsilon(t)\mathrm{e}^{-t}$ tiene $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$; por tanto, $|S|^2=\frac{1}{1+(2\pi f)^2}$. Esto es a la vez $\operatorname{Re}\{S\}$, y su transformada inversa es la parte par de la señal ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
+::::beispiel el pulso exponencial
+$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ tiene $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$; por tanto, $|S|^2=\frac{1}{1+(2\pi f)^2}$. Esto es a la vez $\operatorname{Re}\{S\}$, y su transformada inversa es la parte par de la señal ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
 
 $$\varphi^E_{ss}(\tau)=\tfrac12\mathrm{e}^{-|\tau|},\qquad E_s=\varphi^E_{ss}(0)=\tfrac12.$$
 
@@ -38,6 +39,7 @@ Lo mismo da $\int_0^\infty\mathrm{e}^{-2t}\mathrm{d} t=\frac12$ en el dominio de
 :::abbildung et3/k6exp 2
 Pulso exponencial ($RC=1$ s). A la izquierda, la señal y su FAC $\frac12\mathrm{e}^{-|\tau|}$ (par, máximo $=E_s=\frac12$). A la derecha, el espectro de amplitud y la densidad espectral de energía, que decae más deprisa: la energía se concentra en las frecuencias bajas.
 :::
+::::
 
 :::aufgabe Ejercicio 4 ★ Comprobar Parseval
 <span class="anker" id="aufg-4"></span>

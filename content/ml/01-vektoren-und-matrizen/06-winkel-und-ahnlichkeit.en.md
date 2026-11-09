@@ -46,7 +46,9 @@ Multiplied by $\lVert\mathbf{v}\rVert^2>0$, this means $(\mathbf{u}^{\top}\mathb
 Equality holds if and only if $\lVert\mathbf{u}-t\,\mathbf{v}\rVert=0$ for this $t$, that is, $\mathbf{u}=t\,\mathbf{v}$. Conversely, for $\mathbf{u}=c\,\mathbf{v}$ we do get $|\mathbf{u}^{\top}\mathbf{v}|=|c|\,\lVert\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$.
 :::
 
-⁠**Worked example:** For $\mathbf{u}=(1,\,2,\,2)^{\top}$ and $\mathbf{v}=(2,\,0,\,1)^{\top}$, $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6.71$. The inequality is strict because $\mathbf{v}$ is not a multiple of $\mathbf{u}$.
+::::beispiel [Worked example]
+For $\mathbf{u}=(1,\,2,\,2)^{\top}$ and $\mathbf{v}=(2,\,0,\,1)^{\top}$, $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6.71$. The inequality is strict because $\mathbf{v}$ is not a multiple of $\mathbf{u}$.
+::::
 
 With the inequality, you can now prove what was justified only intuitively in Subsection [3.4](normen-die-groe-eines-vektors.html#stufe-3-4): the triangle inequality of the Euclidean norm. We have
 
@@ -95,11 +97,13 @@ $$\cos\varphi=\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\
 
 This definition is only possible because, by the Cauchy–Schwarz inequality, the right-hand side always lies between $-1$ and $1$. For each such number there is exactly one angle between $0^\circ$ and $180^\circ$. The sign of the dot product tells you whether the angle is acute ($\mathbf{u}^{\top}\mathbf{v}>0$), right ($\mathbf{u}^{\top}\mathbf{v}=0$) or obtuse ($\mathbf{u}^{\top}\mathbf{v}<0$).
 
-⁠**Worked example:** For $(1,\,0)^{\top}$ and $(1,\,1)^{\top}$, $\cos\varphi=1/\sqrt2$, so $\varphi=45^\circ$. For $(1,\,0,\,1)^{\top}$ and $(1,\,1,\,0)^{\top}$, $\cos\varphi=\tfrac12$, so $\varphi=60^\circ$ (Fig. [22](#abb-22)). For $\mathbf{u}=(1,\,2,\,2)^{\top}$ and $\mathbf{v}=(2,\,0,\,1)^{\top}$, $\cos\varphi=4/(3\sqrt5)\approx0.596$, so $\varphi\approx53.4^\circ$.
+::::beispiel [Worked example]
+For $(1,\,0)^{\top}$ and $(1,\,1)^{\top}$, $\cos\varphi=1/\sqrt2$, so $\varphi=45^\circ$. For $(1,\,0,\,1)^{\top}$ and $(1,\,1,\,0)^{\top}$, $\cos\varphi=\tfrac12$, so $\varphi=60^\circ$ (Fig. [22](#abb-22)). For $\mathbf{u}=(1,\,2,\,2)^{\top}$ and $\mathbf{v}=(2,\,0,\,1)^{\top}$, $\cos\varphi=4/(3\sqrt5)\approx0.596$, so $\varphi\approx53.4^\circ$.
 
 :::abbildung ml/k1rwinkel 22
 The angle between $(1,\,0,\,1)^{\top}$ and $(1,\,1,\,0)^{\top}$: the dot product in the numerator, the two lengths in the denominator.
 :::
+::::
 
 ⁠**In short:** The cosine of the angle between two vectors is their dot product divided by the product of their lengths.
 
@@ -125,13 +129,17 @@ If $\mathbf{u}$ and $\mathbf{v}$ are orthogonal, then $\lVert\mathbf{u}+\mathbf{
 
 This follows immediately from $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert^2+2\,\mathbf{u}^{\top}\mathbf{v}+\lVert\mathbf{v}\rVert^2$, because the middle term is zero.
 
-⁠**Worked example 1:** $(1,\,2,\,2)^{\top}$ and $(2,\,0,\,-1)^{\top}$ are orthogonal, because $2+0-2=0$. Their sum $(3,\,2,\,1)^{\top}$ has the squared length $14=9+5$.
+::::beispiel [Worked example 1]
+$(1,\,2,\,2)^{\top}$ and $(2,\,0,\,-1)^{\top}$ are orthogonal, because $2+0-2=0$. Their sum $(3,\,2,\,1)^{\top}$ has the squared length $14=9+5$.
+::::
 
-⁠**Worked example 2: two patterns that do not interfere.** The constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ and the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ from Subsection [2.4](das-skalarprodukt.html#stufe-2-4) are orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. A signal consisting of $2$ times the constant pattern and $1$ times the alternating pattern is $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. The comparison with the constant pattern gives $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, the comparison with the alternating pattern $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Each comparison finds exactly its own share, times $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; the other share does not interfere with it.
+::::beispiel [Worked example 2] two patterns that do not interfere
+The constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ and the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ from Subsection [2.4](das-skalarprodukt.html#stufe-2-4) are orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. A signal consisting of $2$ times the constant pattern and $1$ times the alternating pattern is $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. The comparison with the constant pattern gives $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, the comparison with the alternating pattern $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Each comparison finds exactly its own share, times $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; the other share does not interfere with it.
 
 :::abbildung ml/k1rortho 23
 The two patterns are orthogonal (top). Comparing the signal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ with each pattern gives that pattern's share times $4$.
 :::
+::::
 
 ⁠**In short:** Orthogonal means that the dot product is zero; orthogonal arrows are perpendicular to each other, and the Pythagorean theorem holds for them.
 
@@ -168,7 +176,8 @@ that is, the cosine of their angle.
 
 It is $1$ if the vectors point in the same direction, $0$ if they are orthogonal, and $-1$ if they point in opposite directions. If you multiply one of the vectors by a positive number, it does not change, because the number cancels out.
 
-⁠**Worked example:** Three texts and their counts of the words “goal”, “ball” and “election”:
+::::beispiel [Worked example]
+Three texts and their counts of the words “goal”, “ball” and “election”:
 
 $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad \mathbf{x}_3=(0,\,1,\,3)^{\top} .$$
 
@@ -179,6 +188,7 @@ Two cosine similarities of the word counts: in each case a dot product in the nu
 :::
 
 The distances, by contrast, are $\lVert\mathbf{x}_1-\mathbf{x}_2\rVert=\sqrt{13}\approx3.61$, $\lVert\mathbf{x}_1-\mathbf{x}_3\rVert=\sqrt{19}\approx4.36$ and $\lVert\mathbf{x}_2-\mathbf{x}_3\rVert=\sqrt{54}\approx7.35$. By distance, text 1 is hardly farther from text 3 than from text 2, even though text 2 has exactly the same topic. Cosine similarity recognizes this immediately: it is $1$, and the angle to text 3, at about $79.9^\circ$, is almost a right angle.
+::::
 
 ⁠**In short:** Cosine similarity compares only the directions of two vectors and ignores their lengths.
 
@@ -208,11 +218,13 @@ Since $\mathbf{u}^{\top}\mathbf{u}=\lVert\mathbf{u}\rVert^2=1$, we get $\mathbf{
 
 If $\mathbf{u}$ is not normalized, then $\mathbf{u}^{\top}\mathbf{x}$ is the shadow length of $\mathbf{x}$ in the direction of $\mathbf{u}$, multiplied by $\lVert\mathbf{u}\rVert$.
 
-⁠**Worked example:** $\mathbf{u}=(0.6,\ 0.8)^{\top}$ is normalized, because $0.36+0.64=1$. For $\mathbf{x}=(3,\,1)^{\top}$, the shadow length is $\mathbf{u}^{\top}\mathbf{x}=2.6$ (Fig. [26](#abb-26)), the shadow point is $2.6\,\mathbf{u}=(1.56,\ 2.08)^{\top}$, and the connecting arrow is $\mathbf{x}-2.6\,\mathbf{u}=(1.44,\ -1.08)^{\top}$. It is orthogonal to $\mathbf{u}$: $0.6\cdot1.44-0.8\cdot1.08=0$. With $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3.162$, we get $\cos\varphi=2.6/3.162\approx0.822$, so $\varphi\approx34.7^\circ$.
+::::beispiel [Worked example]
+$\mathbf{u}=(0.6,\ 0.8)^{\top}$ is normalized, because $0.36+0.64=1$. For $\mathbf{x}=(3,\,1)^{\top}$, the shadow length is $\mathbf{u}^{\top}\mathbf{x}=2.6$ (Fig. [26](#abb-26)), the shadow point is $2.6\,\mathbf{u}=(1.56,\ 2.08)^{\top}$, and the connecting arrow is $\mathbf{x}-2.6\,\mathbf{u}=(1.44,\ -1.08)^{\top}$. It is orthogonal to $\mathbf{u}$: $0.6\cdot1.44-0.8\cdot1.08=0$. With $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3.162$, we get $\cos\varphi=2.6/3.162\approx0.822$, so $\varphi\approx34.7^\circ$.
 
 :::abbildung ml/k1rschatten 26
 The shadow length of $\mathbf{x}$ in the direction of the normalized vector $\mathbf{u}$ as a dot product.
 :::
+::::
 
 For a weighted sum, this means: if the weights are normalized, $\mathbf{w}^{\top}\mathbf{x}$ states how far the example $\mathbf{x}$ reaches in the direction of $\mathbf{w}$. All points that give the same value $\mathbf{w}^{\top}\mathbf{x}$ cast the same shadow. In the plane they therefore lie on a line perpendicular to $\mathbf{w}$, and in space on a plane perpendicular to $\mathbf{w}$.
 

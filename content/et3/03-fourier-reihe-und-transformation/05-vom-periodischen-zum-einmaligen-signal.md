@@ -36,11 +36,13 @@ Kurzschreibweise: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ oder $S(f)=\mathcal{F}\{s(
 
 ⁠**Faltung wird Produkt.** Wie in [Teil 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. Aus $s*\delta=s$ folgt $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, also $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: Der Dirac-Impuls enthält alle Frequenzen mit gleichem Gewicht.
 
-**Beispiel: der Exponentialimpuls.** Die Impulsantwort des RC-Glieds, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
+::::beispiel der Exponentialimpuls
+Die Impulsantwort des RC-Glieds, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
 Das ist derselbe Frequenzgang wie aus der Wechselstromrechnung ([Teil 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Die Impulsantwort enthält also die ganze Information über das Frequenzverhalten.
+::::
 
 :::frage Was ist der Unterschied zwischen $S_p(k)$ und $S(f)$, außer dass das eine diskret ist?
 Die Einheit. $S_p(k)$ ist eine Amplitude (V): Die $k$-te Harmonische hat wirklich diese Stärke. $S(f)$ ist eine Dichte (V/Hz): Bei einem einmaligen Signal hat keine einzelne Frequenz eine endliche Amplitude, erst ein Frequenzband $\Delta f$ trägt etwa $S(f)\,\Delta f$. Deshalb ist $S_p(k)=F\cdot S(kF)$: Jede Linie vertritt ein Band der Breite $F$.

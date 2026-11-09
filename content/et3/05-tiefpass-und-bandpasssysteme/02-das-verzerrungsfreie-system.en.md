@@ -32,11 +32,13 @@ $$\begin{aligned} &\text{Attenuation:} && a(f)=-20\lg|H(f)|\ \text{dB}\quad\text
 
 ⁠**How to read it:** the __phase delay__ is the delay of a single oscillation of frequency $f$. The __group delay__ is the delay of a group of neighboring frequencies, that is, of an envelope (Stage [11](phasen-und-gruppenlaufzeit-beim-bandpass.html#stufe-11)). For the distortionless system, $a$, $t_\mathrm p$ and $t_\mathrm g$ are constant and $t_\mathrm p=t_\mathrm g=t_0$.
 
-**Example: the RC circuit.** With $\varphi=-\arctan(2\pi f\,RC)$ and $RC=1$ s:
+::::beispiel the RC circuit
+With $\varphi=-\arctan(2\pi f\,RC)$ and $RC=1$ s:
 
 $$t_\mathrm p=\frac{\arctan(2\pi f\,RC)}{2\pi f},\qquad t_\mathrm g=\frac{RC}{1+(2\pi f\,RC)^2}.$$
 
 For $f\to0$ both are $RC=1$ s. At $f=0.159$ Hz ($2\pi fRC=1$), $t_\mathrm p=0.785$ s, $t_\mathrm g=0.5$ s and $a=3.0$ dB. So the RC circuit is not distortionless: its attenuation depends on frequency, and different frequencies arrive at different times.
+::::
 
 :::ltspice Reading attenuation and delays of the RC circuit
 ⁠**Draw:** the RC circuit (`res` with `1Meg`, `cap` with `1u`), source value `AC 1`, directive `.ac dec 100 0.01 10`.

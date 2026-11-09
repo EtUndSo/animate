@@ -32,12 +32,14 @@ gleichbedeutend $\lim_{n\to\infty}|f_n(x)-f(x)|=0$ für jedes $x\in[a,b]$.
 
 ⁠**So liest man das:** Für jedes $x$ wird eine eigene Zahlenfolge geprüft. Bei $f_n(x)=x/n$ auf $[0,1]$ ist das an der Stelle $x=\frac12$ die Folge $\frac12,\frac14,\frac16,\dots$ mit Grenzwert 0, und die Grenzfunktion ist $f=0$. Ausgeschrieben heißt [(1.1)](#gl-1-1): Zu jedem $\varepsilon>0$ und jedem $x$ gibt es ein $N$ mit $|f_n(x)-f(x)|<\varepsilon$ für alle $n\ge N$. Dieses $N$ darf von $x$ abhängen.
 
-**Beispiel: die Entladekurven.** Bei $x=0$ ist $u_n(0)=1$ für alle $n$. Für $x>0$ gilt $\mathrm{e}^{-nx}\to0$. Die Grenzfunktion ist also
+::::beispiel die Entladekurven
+Bei $x=0$ ist $u_n(0)=1$ für alle $n$. Für $x>0$ gilt $\mathrm{e}^{-nx}\to0$. Die Grenzfunktion ist also
 
 <span class="anker" id="gl-1-2"></span>
 $$f(x)=\begin{cases}1&x=0,\\0&0<x\le1.\end{cases} \tag{1.2}$$
 
 Wie groß $n$ für $u_n(x)<0{,}01$ sein muss, hängt von der Stelle ab: Die Bedingung heißt $n>\ln(100)/x\approx4{,}6/x$. Das gibt $n\ge10$ bei $x=0{,}5$, $n\ge47$ bei $x=0{,}1$ und $n\ge461$ bei $x=0{,}01$. Ein $n$, das für alle $x>0$ zugleich passt, gibt es nicht.
+::::
 
 **Verlust 1: die Stetigkeit.** Jedes $u_n$ ist stetig, die Grenzfunktion [(1.2)](#gl-1-2) springt bei $x=0$. Das ist eine Frage der Reihenfolge zweier Grenzwerte:
 

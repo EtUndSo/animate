@@ -45,7 +45,11 @@ $$z>2k-2. \tag{6.1}$$
 
 这张表显示了一种__对偶性__，即一种镜像关系：把网孔与节点、电流与电压、串联与并联、电阻与电导互换，一种方法就变成另一种方法。原因在于基尔霍夫：两条定律都说“总和为零”，只是针对不同的集合。
 
-**例。** 右边变换之后，模型电路有 $k=3$，$z=5$。由 $5>4$ 知它在直线上方，确实是三个网孔对两个节点。**极限情况：**[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的电桥 $k=4$，$z=6$，恰好在直线上。这时由电源决定：理想电压源有利于网孔法，因为它在那里位于右端。
+::::beispiel
+右边变换之后，模型电路有 $k=3$，$z=5$。由 $5>4$ 知它在直线上方，确实是三个网孔对两个节点。
+::::
+
+⁠**极限情况：**[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的电桥 $k=4$，$z=6$，恰好在直线上。这时由电源决定：理想电压源有利于网孔法，因为它在那里位于右端。
 
 仿真器只使用节点电位。网络的网孔要由程序先去搜索，而且只有网络能画成无交叉的形式时才有窗口。节点则已经写在电路描述中（第 [7](stempel-und-netzliste.html#stufe-7) 阶段）。
 

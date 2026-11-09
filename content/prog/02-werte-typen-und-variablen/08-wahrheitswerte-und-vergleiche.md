@@ -30,7 +30,8 @@ Der Typ `bool` hat genau zwei Werte, `True` (wahr) und `False` (falsch). Beide s
 
 Der Name erinnert an George Boole, der im 19. Jahrhundert das Rechnen mit wahr und falsch begründete. Rechnet man mit Wahrheitswerten, behandelt Python `True` wie 1 und `False` wie 0.
 
-**Beispiel.** Der Typ von `True`, und Rechnen mit Wahrheitswerten:
+::::beispiel
+Der Typ von `True`, und Rechnen mit Wahrheitswerten:
 
 ```console
 >>> type(True)
@@ -40,6 +41,7 @@ Der Name erinnert an George Boole, der im 19. Jahrhundert das Rechnen mit wahr 
 >>> True * 10
 10
 ```
+::::
 
 ⁠**Kurz gesagt:** `bool` hat die Werte `True` und `False`; beim Rechnen zählen sie als 1 und 0.
 
@@ -65,7 +67,8 @@ Sie haben einen niedrigeren Rang als alle arithmetischen Operatoren: Python rech
 
 Das doppelte `==` vergleicht, das einfache `=` bindet einen Namen. Schreibt man versehentlich `x == 5`, wo eine Zuweisung gemeint war, bindet Python nichts: Es vergleicht nur und zeigt im interaktiven Modus `True` oder `False` an.
 
-**Beispiel.** Zahlen verschiedener Typen vergleicht Python nach ihrem Wert; eine Zahl und eine Zeichenkette sind nie gleich:
+::::beispiel
+Zahlen verschiedener Typen vergleicht Python nach ihrem Wert; eine Zahl und eine Zeichenkette sind nie gleich:
 
 ```console
 >>> 7 > 5
@@ -82,6 +85,7 @@ False
 >>> spannung > 5
 True
 ```
+::::
 
 ⁠**Kurz gesagt:** `==`, `!=`, `<`, `<=`, `>`, `>=` vergleichen zwei Werte und liefern `True` oder `False`.
 
@@ -97,7 +101,8 @@ Mit dem Operator `==` lässt sich jetzt prüfen, was Abschnitt [5](rechnen-mit-
 Zwei `float` sind für `==` genau dann gleich, wenn sie denselben Wert haben, also bis auf die letzte Binärstelle übereinstimmen. Zwei Rechenwege, die mathematisch dasselbe ergeben, liefern wegen der Rundung oft verschiedene `float`. Und `nan` ist zu keinem Wert gleich, nicht einmal zu sich selbst.
 :::
 
-**Beispiel.** Drei Vergleiche nach einer Rechnung, dann `nan`:
+::::beispiel
+Drei Vergleiche nach einer Rechnung, dann `nan`:
 
 ```console
 >>> 0.1 + 0.2 == 0.3
@@ -114,6 +119,7 @@ True
 ```
 
 Ob `==` bei Gleitkommazahlen `True` oder `False` liefert, hängt also vom Zufall der Rundung ab. Die dritte Zeile ist zufällig wahr, die ersten beiden zufällig falsch. Für Ergebnisse von Rechnungen ist `==` deshalb kein brauchbarer Test.
+::::
 
 ⁠**Kurz gesagt:** Ergebnisse von Gleitkommarechnungen nie mit `==` vergleichen.
 
@@ -176,7 +182,8 @@ Die Vergleichsoperatoren fragen nach dem Wert. Manchmal will man aber wissen, ob
 Der Operator `is` liefert `True`, wenn seine beiden Operanden dasselbe Objekt sind, also dieselbe Identität haben. `is not` ist seine Verneinung.
 :::
 
-**Beispiel.** Zwei getrennt eingetippte Zahlen mit gleichem Wert sind hier zwei Objekte:
+::::beispiel
+Zwei getrennt eingetippte Zahlen mit gleichem Wert sind hier zwei Objekte:
 
 ```console
 >>> x = 1000.5
@@ -191,6 +198,7 @@ True
 ```
 
 `x` und `y` haben denselben Wert, hängen aber an zwei verschiedenen Kästen. `z = x` heftet ein zweites Etikett an den Kasten von `x`.
+::::
 
 Für Zahlen und Zeichenketten ist `is` der falsche Operator. Ob Python für zwei gleiche Werte ein Objekt oder zwei anlegt, ist nicht festgelegt und kann sich von Version zu Version ändern. Zahlen vergleicht man mit `==`, Gleitkommazahlen mit Toleranz.
 
@@ -222,7 +230,8 @@ Manche Funktionen haben kein Ergebnis, das sie zurückgeben könnten. `print` zu
 
 Es gibt nur ein einziges Objekt `None`. Ob ein Name an `None` gebunden ist, prüft man deshalb mit `is`: `x is None`.
 
-**Beispiel.** Der Wert eines `print`-Aufrufs:
+::::beispiel
+Der Wert eines `print`-Aufrufs:
 
 ```console
 >>> ergebnis = print("Hallo")
@@ -237,6 +246,7 @@ True
 ```
 
 Die erste Zeile schreibt `Hallo` und bindet `ergebnis` an den Wert des Aufrufs, also an `None`. Der interaktive Modus zeigt `None` nicht an; das ist der Grund, warum nach einem `print`-Aufruf keine zweite Zeile erscheint ([Programmieren, Python 1, Abschnitt 4.8](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-8)). Erst `print` macht `None` sichtbar.
+::::
 
 ⁠**Kurz gesagt:** `None` bedeutet „kein Wert“; man prüft darauf mit `is None`.
 

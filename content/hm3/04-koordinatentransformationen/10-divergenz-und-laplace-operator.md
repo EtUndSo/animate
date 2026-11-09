@@ -41,7 +41,8 @@ $$\frac1{h_u}\Bigl(\frac{\partial\boldsymbol{F}}{\partial u}\cdot\hat{\boldsymbo
 
 Der letzte Term ist die Drehung der Basis. Kartesisch fehlt er, denn dort sind die Basisvektoren konstant. Die Ableitungen von $\hat{\boldsymbol{e}}_u$ lassen sich als Linearkombinationen von $\hat{\boldsymbol{e}}_u,\hat{\boldsymbol{e}}_v,\hat{\boldsymbol{e}}_w$ schreiben, meist mit veränderlichen Koeffizienten. In orthogonalen Koordinaten fällt dabei der Koeffizient von $\hat{\boldsymbol{e}}_u$ immer weg: Aus $|\hat{\boldsymbol{e}}_u|^2=1$ folgt $\hat{\boldsymbol{e}}_u\cdot\partial\hat{\boldsymbol{e}}_u/\partial u=0$. So ist $\partial\hat{\boldsymbol{e}}_u/\partial u$ eine Linearkombination von $\hat{\boldsymbol{e}}_v$ und $\hat{\boldsymbol{e}}_w$.
 
-**Beispiel: Zylinderkoordinaten.** Sei $\boldsymbol{E}=E_r\hat{\boldsymbol{e}}_r+E_\varphi\hat{\boldsymbol{e}}_\varphi+E_z\hat{\boldsymbol{e}}_z$. Aus $\hat{\boldsymbol{e}}_r=(\cos\varphi,\sin\varphi,0)$, $\hat{\boldsymbol{e}}_\varphi=(-\sin\varphi,\cos\varphi,0)$, $\hat{\boldsymbol{e}}_z=(0,0,1)$ folgt
+::::beispiel Zylinderkoordinaten
+Sei $\boldsymbol{E}=E_r\hat{\boldsymbol{e}}_r+E_\varphi\hat{\boldsymbol{e}}_\varphi+E_z\hat{\boldsymbol{e}}_z$. Aus $\hat{\boldsymbol{e}}_r=(\cos\varphi,\sin\varphi,0)$, $\hat{\boldsymbol{e}}_\varphi=(-\sin\varphi,\cos\varphi,0)$, $\hat{\boldsymbol{e}}_z=(0,0,1)$ folgt
 
 <span class="anker" id="gl-8-5"></span>
 $$\frac{\partial\hat{\boldsymbol{e}}_r}{\partial\varphi}=\hat{\boldsymbol{e}}_\varphi,\qquad\frac{\partial\hat{\boldsymbol{e}}_\varphi}{\partial\varphi}=-\hat{\boldsymbol{e}}_r, \tag{8.5}$$
@@ -55,6 +56,7 @@ Mit $E_r=1$ und $E_\varphi=E_z=0$ ist das die Zahl $1/r$ aus der Idee. Setzt man
 
 <span class="anker" id="gl-8-7"></span>
 $$\Delta f=\operatorname{div}\nabla f=\frac{\partial^2f}{\partial r^2}+\frac1r\frac{\partial f}{\partial r}+\frac1{r^2}\frac{\partial^2f}{\partial\varphi^2}+\frac{\partial^2f}{\partial z^2}. \tag{8.7}$$
+::::
 
 ⁠**Kontrolle:** $f=x^2+y^2=r^2$ gibt $2+2=4$, wie kartesisch. $f=x^2-y^2=r^2\cos2\varphi$ gibt $2\cos2\varphi+2\cos2\varphi-4\cos2\varphi=0$, ebenfalls wie kartesisch.
 

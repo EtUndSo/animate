@@ -62,11 +62,15 @@ $$\frac{\mathrm{d}^\ell}{\mathrm{d} x^\ell}f(x)=\sum_{k\in\mathbb{Z}}(\mathrm{i}
 
 ⁠**So liest man das:** Wegen der gleichmäßigen Konvergenz darf man in $\langle f,\hat{\boldsymbol{e}}_k\rangle$ Summe und Integral tauschen. Die $c_k$ sind also wirklich die Fourier-Koeffizienten von $f$. Die Voraussetzungen sind hinreichend, nicht notwendig. Beim Dreieck ist $|c_k|=\frac2{\pi k^2}$ für ungerades $k$: (i) greift, also ist $w$ stetig. Für $m=1$ divergiert die Summe, und tatsächlich hat $w$ Knicke. Beim Rechteck divergiert schon $\sum|c_k|$, und $q$ springt.
 
-**Beispiel: eine periodische Differentialgleichung.** Gesucht ist die $2\pi$-periodische Lösung von $u''+\frac14u=w$. Setzt man $u=\sum_ku_k\mathrm{e}^{\mathrm{i}kx}$ ein, gibt jeder Baustein für sich die Gleichung $(\frac14-k^2)\,u_k=c_k(w)$. Eine Differentialgleichung wird so zu unendlich vielen Divisionen. Mit [(3.1)](rechenregeln.html#gl-3-1) folgt
+::::beispiel eine periodische Differentialgleichung
+Gesucht ist die $2\pi$-periodische Lösung von $u''+\frac14u=w$. Setzt man $u=\sum_ku_k\mathrm{e}^{\mathrm{i}kx}$ ein, gibt jeder Baustein für sich die Gleichung $(\frac14-k^2)\,u_k=c_k(w)$. Eine Differentialgleichung wird so zu unendlich vielen Divisionen. Mit [(3.1)](rechenregeln.html#gl-3-1) folgt
 
 $$u(x)=2\pi+\frac{16}\pi\sum_{k\text{ ungerade}}\frac{\cos kx}{k^2(4k^2-1)}.$$
 
-Der erste Term ist $c_0(w)/\frac14$, der Faktor bei $\cos x$ ist $\frac{16}{3\pi}\approx1{,}70$. Wegen $|u_k|\sim1/k^4$ ist $\sum k^2|u_k|<\infty$. Nach Satz [9.2](#satz-9-2) ist $u$ zweimal stetig differenzierbar, und das gliedweise Ableiten beim Einsetzen war erlaubt. In der Elektrotechnik ist das die Zeigerrechnung, angewandt auf jede Frequenz $k$. **Grenzfall:** Steht statt $\frac14$ eine Zahl $\mu^2$ mit $\mu\in\mathbb{N}$, ist der Faktor $\mu^2-k^2$ bei $k=\pm\mu$ null, und für $c_\mu(w)\neq0$ gibt es keine periodische Lösung. Das ist Resonanz. Abb. [9](#abb-9) zeigt rechts die Lösung, links den Unterschied zwischen stetig und springend.
+Der erste Term ist $c_0(w)/\frac14$, der Faktor bei $\cos x$ ist $\frac{16}{3\pi}\approx1{,}70$. Wegen $|u_k|\sim1/k^4$ ist $\sum k^2|u_k|<\infty$. Nach Satz [9.2](#satz-9-2) ist $u$ zweimal stetig differenzierbar, und das gliedweise Ableiten beim Einsetzen war erlaubt. In der Elektrotechnik ist das die Zeigerrechnung, angewandt auf jede Frequenz $k$.
+::::
+
+⁠**Grenzfall:** Steht statt $\frac14$ eine Zahl $\mu^2$ mit $\mu\in\mathbb{N}$, ist der Faktor $\mu^2-k^2$ bei $k=\pm\mu$ null, und für $c_\mu(w)\neq0$ gibt es keine periodische Lösung. Das ist Resonanz. Abb. [9](#abb-9) zeigt rechts die Lösung, links den Unterschied zwischen stetig und springend.
 
 :::abbildung hm3/k7glatt 9
 Links: Der größte Abstand zwischen $f$ und $T_Nf$. Für das stetige Dreieck $w$ fällt er gegen null, für das springende Rechteck $q$ bleibt er 1. Rechts: Die periodische Lösung $u$ von $u''+\frac14u=w$. Die Antwort läuft der Anregung entgegen, weil der Faktor $\frac14-k^2$ für $k\ge1$ negativ ist.

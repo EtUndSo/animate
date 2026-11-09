@@ -65,7 +65,9 @@ Berechnete Feldlinien. Oben: Bei ungleichnamigen Ladungen laufen sie von $+$ nac
 ⁠**Regel 4, Hohlraum.** Das äußere Feld endet auf den influenzierten Ladungen der Außenseite. Ohne Ladung im Hohlraum müsste eine Linie dort von Wand zu Wand laufen. Eine Ladung könnte längs dieser Linie Energie gewinnen und durch das feldfreie Metall kostenlos zurückkehren. Das wäre Energie aus dem Nichts, was Stufe [6](arbeit-im-feld.html#stufe-6) ausschließt.
 :::
 
-**Beispiel.** Im Plattenpaar sitzt die Ladung auf den Innenseiten der Platten, die Linien laufen parallel und gleich dicht von A nach B. Gleiche Dichte heißt: $\vec E$ ist überall gleich, das Feld ist __homogen__. Das gilt, solange $d$ klein gegen die Plattenbreite ist, nur am Rand wölbt sich ein schwächeres __Streufeld__ nach außen. Das Rohr in Abb. [6](#abb-6) zeigt Regel 3 und 4, an seinem Scheitel ist das Feld rund doppelt so stark wie ohne Rohr. Eine geschlossene Metallhülle schützt ihr Inneres, deshalb sitzt man im Auto bei Gewitter sicher.
+::::beispiel
+Im Plattenpaar sitzt die Ladung auf den Innenseiten der Platten, die Linien laufen parallel und gleich dicht von A nach B. Gleiche Dichte heißt: $\vec E$ ist überall gleich, das Feld ist __homogen__. Das gilt, solange $d$ klein gegen die Plattenbreite ist, nur am Rand wölbt sich ein schwächeres __Streufeld__ nach außen. Das Rohr in Abb. [6](#abb-6) zeigt Regel 3 und 4, an seinem Scheitel ist das Feld rund doppelt so stark wie ohne Rohr. Eine geschlossene Metallhülle schützt ihr Inneres, deshalb sitzt man im Auto bei Gewitter sicher.
+::::
 
 ⁠**Kontrolle:** Regel 1 passt zum Coulomb-Gesetz. Von einer Ladung laufen $N$ Linien gleichmäßig in alle Richtungen und durchstoßen eine Kugel mit der Fläche $4\pi r^2$. Die Dichte $N/(4\pi r^2)$ fällt mit $1/r^2$, daher auch der Faktor $4\pi$ in $k=1/(4\pi\varepsilon_0)$. Umgekehrt ist die Abschirmung nur bei genau dem Exponenten 2 vollkommen. So entstanden die Messungen aus Stufe [3](die-kraft-zwischen-ladungen.html#stufe-3): Man suchte in einer geladenen Hohlkugel nach einem Restfeld.
 

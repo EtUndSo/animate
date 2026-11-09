@@ -45,7 +45,11 @@ Each point is a network. Below $z=k-1$ it would not be connected. Above the red 
 
 The table shows a __duality__, a mirroring: if you swap mesh and node, current and voltage, series and parallel, resistance and conductance, one method turns into the other. The reason lies in Kirchhoff: both rules say “the sum is zero”, only over different sets.
 
-**Example.** After the conversion on the right, the model network has $k=3$ and $z=5$. With $5>4$ it lies above the line, and indeed there were three meshes against two nodes. **Limiting case:** The bridge from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) with $k=4$ and $z=6$ lies exactly on the line. Then the sources decide: an ideal voltage source speaks for meshes, because there it stands on the right-hand side.
+::::beispiel
+After the conversion on the right, the model network has $k=3$ and $z=5$. With $5>4$ it lies above the line, and indeed there were three meshes against two nodes.
+::::
+
+⁠**Limiting case:** The bridge from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) with $k=4$ and $z=6$ lies exactly on the line. Then the sources decide: an ideal voltage source speaks for meshes, because there it stands on the right-hand side.
 
 Simulators use only node voltages. A program must first search for the meshes of a network, and windows exist only if the network can be drawn without crossings. Nodes, on the other hand, are already in the circuit description (Stage [7](stempel-und-netzliste.html#stufe-7)).
 

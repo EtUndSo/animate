@@ -44,7 +44,8 @@ Cada potencial aparece una vez con $+$ y otra con $-$. Multiplicado por la carga
 Potencial en la red resuelta a lo largo de dos mallas. Una tensión positiva baja el potencial si se sigue su flecha; contra la flecha lo sube. Izquierda: la fuente sube, $R_\mathrm a$ y $R_\mathrm b$ bajan $4+5=9$ V. A la derecha, la vuelta no pasa por ninguna fuente: el camino de regreso por $R_\mathrm b$ contra la corriente sube el potencial. Ambas vueltas terminan en el valor inicial.
 :::
 
-**Ejemplo: resolver la red.** Las flechas de tensión de las resistencias están en el CR, es decir, de arriba abajo, y $U_\mathrm e$ de $K_2$ a $K_3$. $U_0=9$ V apunta de $K_1$ a $K_4$ (CG). Las tres mallas de la fig. [7](knoten-zweige-maschen.html#abb-7) dan
+::::beispiel resolver la red
+Las flechas de tensión de las resistencias están en el CR, es decir, de arriba abajo, y $U_\mathrm e$ de $K_2$ a $K_3$. $U_0=9$ V apunta de $K_1$ a $K_4$ (CG). Las tres mallas de la fig. [7](knoten-zweige-maschen.html#abb-7) dan
 
 $$M_1:\ U_\mathrm a+U_\mathrm b-U_0=0,\qquad M_2:\ U_\mathrm c+U_\mathrm d-U_0=0,\qquad M_3:\ U_\mathrm e+U_\mathrm d-U_\mathrm b=0.$$
 
@@ -60,6 +61,7 @@ Las dos primeras dan $I_\mathrm a=(9+5\,I_\mathrm e)/7$ e $I_\mathrm c=(9-I_\mat
 | $U$ en V | 9 | 4 | 5 | 6 | 3 | 2 |
 
 Los potenciales respecto a $K_4$ son 9, 5, 3 y 0 V. **Comprobaciones:** Una cuarta malla por $K_1$, $K_2$, $K_3$ debe cumplirse por sí sola: $U_\mathrm a+U_\mathrm e-U_\mathrm c=4+2-6=0$. Energía: la fuente entrega $9\,\mathrm{V}\cdot4\,\mathrm{mA}=36$ mW, las resistencias absorben $8+5+12+9+2=36$ mW. Si hay dos caminos entre los mismos puntos, por ejemplo $R_1$, $R_2$ en serie junto a $R_3$, se obtiene $U_1+U_2-U_3=0$.
+::::
 
 :::ltspice Recalcular la red
 ⁠**Esquema:** fuente `voltage` con `9` de `k1` a masa, así que $K_4$ es la masa. `res`: `Ra 2k` de `k1` a `k2`, `Rb 5k` de `k2` a masa, `Rc 3k` de `k1` a `k3`, `Rd 1k` de `k3` a masa, `Re 2k` de `k2` a `k3`.

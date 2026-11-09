@@ -62,7 +62,11 @@ $$D=D_0\exp\Bigl(-\frac{E_\text{Diff}}{k_\mathrm BT}\Bigr). \tag{1.3}$$
 
 Bor wandert in Silizium über reguläre Gitterplätze, mit $D_0=6\,\mathrm{cm^2/s}$ und $E_\text{Diff}=3{,}6$ eV.
 
-**Beispiel.** Bei 1100 °C ist $k_\mathrm BT=118$ meV und $D=3{,}7\cdot10^{-13}\,\mathrm{cm^2/s}$. Fällt die Bordichte auf 1 µ m um $10^{19}\,\mathrm{cm^{-3}}$, ist $\mathcal J=3{,}7\cdot10^{10}\,\mathrm{cm^{-2}\,s^{-1}}$. Bei 1000 °C ist $D$ schon 11-mal kleiner, bei 300 K ist $D=2\cdot10^{-60}\,\mathrm{cm^2/s}$: Eine eingebaute Dotierung bleibt bei Raumtemperatur, wo sie ist. **Grenzfälle:** Bei überall gleicher Dichte ist $\mathcal J=0$. Für $k_\mathrm BT\gg E_\text{Diff}$ strebt $D$ gegen $D_0$.
+::::beispiel
+Bei 1100 °C ist $k_\mathrm BT=118$ meV und $D=3{,}7\cdot10^{-13}\,\mathrm{cm^2/s}$. Fällt die Bordichte auf 1 µ m um $10^{19}\,\mathrm{cm^{-3}}$, ist $\mathcal J=3{,}7\cdot10^{10}\,\mathrm{cm^{-2}\,s^{-1}}$. Bei 1000 °C ist $D$ schon 11-mal kleiner, bei 300 K ist $D=2\cdot10^{-60}\,\mathrm{cm^2/s}$: Eine eingebaute Dotierung bleibt bei Raumtemperatur, wo sie ist.
+::::
+
+⁠**Grenzfälle:** Bei überall gleicher Dichte ist $\mathcal J=0$. Für $k_\mathrm BT\gg E_\text{Diff}$ strebt $D$ gegen $D_0$.
 
 :::frage Woher „weiß“ ein Teilchen, wo die Dichte kleiner ist?
 Es weiß es nicht. Jedes Teilchen läuft mit gleicher Wahrscheinlichkeit in jede Richtung. Der Strom entsteht erst beim Zählen, weil von der dichten Seite mehr Teilchen starten.

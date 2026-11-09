@@ -45,12 +45,14 @@ in jedem Punkt eine normierte Basis des $\mathbb{R}^3$.
 
 ⁠**So liest man das:** $\boldsymbol{t}_1$ und $\boldsymbol{t}_2$ liegen in der Tangentialebene, $\boldsymbol{n}$ steht darauf senkrecht. Die drei Vektoren sind linear unabhängig, weil $\boldsymbol{x}_u\times\boldsymbol{x}_v\neq0$ gilt. Eine Orthonormalbasis ist das im Allgemeinen nicht: $\boldsymbol{t}_1$ und $\boldsymbol{t}_2$ müssen nicht senkrecht aufeinander stehen.
 
-**Beispiel: die Kuppel.** In Polarkoordinaten lautet die Parametrisierung
+::::beispiel die Kuppel
+In Polarkoordinaten lautet die Parametrisierung
 
 <span class="anker" id="gl-1-3"></span>
 $$\Phi(r,\varphi)=\begin{pmatrix}r\cos\varphi\\r\sin\varphi\\4-r^2\end{pmatrix},\qquad\Phi_r=\begin{pmatrix}\cos\varphi\\\sin\varphi\\-2r\end{pmatrix},\qquad\Phi_\varphi=\begin{pmatrix}-r\sin\varphi\\r\cos\varphi\\0\end{pmatrix}. \tag{1.3}$$
 
 Das Kreuzprodukt ist $\Phi_r\times\Phi_\varphi=(2r^2\cos\varphi,\;2r^2\sin\varphi,\;r)$. Im Punkt $(1,0,3)$ ($r=1$, $\varphi=0$) ergibt das $(2,0,1)$, also $\boldsymbol{n}=(2,0,1)/\sqrt5$: schräg nach oben außen, wie man es auf einer Kuppel erwartet. Bei $r=0$ wird das Kreuzprodukt null, obwohl die Fläche dort völlig glatt ist. Das liegt an den Polarkoordinaten, nicht an der Fläche.
+::::
 
 :::frage Heißt das, die Kuppel ist an der Spitze nicht regulär?
 Doch, sie ist regulär, nur diese Parametrisierung nicht. Als Graph $(x,y)\mapsto(x,y,4-x^2-y^2)$ ist überall $\Phi_x\times\Phi_y=(2x,2y,1)\neq0$. Regularität ist eine Eigenschaft der Parametrisierung. Für Integrale spielt ein einzelner Ausnahmepunkt keine Rolle, er hat die Fläche null. Deshalb darf man Polar- und Kugelkoordinaten trotzdem benutzen.

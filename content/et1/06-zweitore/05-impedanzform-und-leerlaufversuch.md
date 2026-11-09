@@ -37,9 +37,11 @@ $$Z_{11}=\left.\frac{U_1}{I_1}\right|_{I_2=0},\quad Z_{21}=\left.\frac{U_2}{I_1}
 Links: Ersatzschaltbild der Z-Form, je ein Widerstand in Reihe mit einer stromgesteuerten Spannungsquelle. Rechts: Leerlaufversuch an Tor 2 mit eingeprägtem Strom $I_\mathrm{q}$. Grau ist, was durch $I_2=0$ wegfällt. Der Versuch mit offenem Tor 1 ist das Spiegelbild und liefert $Z_{12}$ und $Z_{22}$.
 :::
 
-**Beispiel.** Am T-Zweitor prägt man an Tor 1 den Strom 100 mA ein, Tor 2 bleibt offen. Der Strom läuft durch $R_\mathrm{a}$ und $R_\mathrm{b}$, $U_1=3{,}5$ V. $R_\mathrm{c}$ ist stromlos, an ihm fällt nichts ab, und $U_2$ ist die Spannung an $R_\mathrm{b}$: 2 V. Also $Z_{11}=35\,\Omega$, $Z_{21}=20\,\Omega$. Dasselbe von Tor 2 aus ergibt $U_2=4$ V, $U_1=2$ V, also
+::::beispiel
+Am T-Zweitor prägt man an Tor 1 den Strom 100 mA ein, Tor 2 bleibt offen. Der Strom läuft durch $R_\mathrm{a}$ und $R_\mathrm{b}$, $U_1=3{,}5$ V. $R_\mathrm{c}$ ist stromlos, an ihm fällt nichts ab, und $U_2$ ist die Spannung an $R_\mathrm{b}$: 2 V. Also $Z_{11}=35\,\Omega$, $Z_{21}=20\,\Omega$. Dasselbe von Tor 2 aus ergibt $U_2=4$ V, $U_1=2$ V, also
 
 $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\mathrm{b}&R_\mathrm{b}+R_\mathrm{c}\end{pmatrix}=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**Die Brücke.** Die Versuche brauchen keine Masseleitung. Die Brücke in Abb. [2](vom-vierpol-zum-zweitor.html#abb-2) rechts teilt einen Strom an Tor 1 wegen der gleichen Zweigwiderstände je zur Hälfte auf, beide Zweige haben $R_\mathrm{x}+R_\mathrm{y}$. Tor 2 ist offen, und die Spannung zwischen den Zweigmitten ist $\frac{I_1}{2}R_\mathrm{y}-\frac{I_1}{2}R_\mathrm{x}$. Aus Symmetrie gilt dasselbe rückwärts:
 

@@ -37,7 +37,11 @@ With $U_\mathrm{E2}=0$ no current flows through $R_3$, $R_4$, and the plus input
 Left, the summing amplifier: the currents of the three sources meet at the node and flow through $R_\mathrm{F}$. Right, the difference amplifier with $R_1=R_3$ and $R_2=R_4$: at 2.00 V and 2.05 V both inputs are at 1.64 V.
 :::
 
-**Examples.** ⁠*Summing amplifier* with $R_\mathrm{F}=40$ k$\Omega$, $R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$, $R_\mathrm{E3}=20$ k$\Omega$ and $0.5$ V, $-0.2$ V, $0.1$ V: the currents are 50, $-20$ and 5 µ A, together 35 µ A, so $U_\mathrm{A}=-1.4$ V. *Difference amplifier* with $R_1=R_3=10$ k$\Omega$, $R_2=R_4=40$ k$\Omega$, $U_\mathrm{E1}=2.00$ V, $U_\mathrm{E2}=2.05$ V: $\varphi_+=0.8\cdot2.05\,\mathrm{V}=1.64$ V. Through $R_1$ flows $(2.00-1.64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A, so $U_\mathrm{A}=1.64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0.2$ V. Superposition gives $-8.0\,\mathrm{V}+8.2\,\mathrm{V}$, the same. The common mode of about 2 V is gone. *Chain* of two inverting amplifiers with $G_1=-4$ and $G_2=-2$: 0.5 V becomes $-2$ V, then $+4$ V, so $G=+8$. **Limiting case:** $U_\mathrm{E1}=U_\mathrm{E2}$ gives 0.
+::::beispiel [Examples]
+⁠*Summing amplifier* with $R_\mathrm{F}=40$ k$\Omega$, $R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$, $R_\mathrm{E3}=20$ k$\Omega$ and $0.5$ V, $-0.2$ V, $0.1$ V: the currents are 50, $-20$ and 5 µ A, together 35 µ A, so $U_\mathrm{A}=-1.4$ V. *Difference amplifier* with $R_1=R_3=10$ k$\Omega$, $R_2=R_4=40$ k$\Omega$, $U_\mathrm{E1}=2.00$ V, $U_\mathrm{E2}=2.05$ V: $\varphi_+=0.8\cdot2.05\,\mathrm{V}=1.64$ V. Through $R_1$ flows $(2.00-1.64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A, so $U_\mathrm{A}=1.64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0.2$ V. Superposition gives $-8.0\,\mathrm{V}+8.2\,\mathrm{V}$, the same. The common mode of about 2 V is gone. *Chain* of two inverting amplifiers with $G_1=-4$ and $G_2=-2$: 0.5 V becomes $-2$ V, then $+4$ V, so $G=+8$.
+::::
+
+⁠**Limiting case:** $U_\mathrm{E1}=U_\mathrm{E2}$ gives 0.
 
 **Procedure for larger circuits.** First determine the potentials of the inputs, then calculate stage by stage from left to right. In a chain, each output is the input of the next stage, a potential with a fixed value.
 

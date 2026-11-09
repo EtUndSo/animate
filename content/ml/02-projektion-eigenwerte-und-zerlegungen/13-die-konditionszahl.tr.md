@@ -75,11 +75,13 @@ Eşitlik, $\mathbf{y}$ vektörü $\mathbf{u}_1$ doğrultusunu, $\Delta\mathbf{y}
 
 Demek ki en kötü durum şudur: Çözüm $\mathbf{A}$ matrisinin en çok uzattığı doğrultudadır, böylece $\mathbf{y}$, $\mathbf{x}$ vektörüne göre büyüktür; hata ise $\mathbf{A}$ matrisinin en az uzattığı doğrultudadır, böylece geri hesaplama onu $1/d_n$ katına büyütür.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ simetriktir; izi $2{,}01$, determinantı $0{,}01$ olur. Özdeğerleri şunlardır:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ simetriktir; izi $2{,}01$, determinantı $0{,}01$ olur. Özdeğerleri şunlardır:
 
 $$\lambda_{1,2}=\frac{2{,}01\pm\sqrt{2{,}01^2-0{,}04}}2=\frac{2{,}01\pm\sqrt{4{,}0001}}2\approx\frac{2{,}01\pm2{,}000025}2,$$
 
 yani $\lambda_1\approx2{,}005012$ ve $\lambda_2\approx0{,}004988$; ikisi de pozitiftir. Kesim [9.7](die-singularwertzerlegung.html#stufe-9-7)'ye göre bunlar aynı zamanda tekil değerlerdir ve $\kappa(\mathbf{A})\approx402$ olur. Gözlenen $284$ büyütme bunun altındadır. Sınıra tam ulaşmaz, çünkü $\Delta\mathbf{y}=(0;\ 0{,}01)^{\top}$ tam olarak $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$ doğrultusunu göstermez. $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\kappa=4/1=4$ olur: Göreli hatalar en fazla dört katına çıkar.
+::::
 
 ⁠**Kısacası:** $\kappa(\mathbf{A})=d_1/d_n$ koşul sayısı, $\mathbf{A}^{-1}$ matrisinin verilerdeki göreli bir hatayı çözümde büyütebileceği en büyük çarpandır.
 
@@ -87,7 +89,7 @@ yani $\lambda_1\approx2{,}005012$ ve $\lambda_2\approx0{,}004988$; ikisi de pozi
 
 <span class="anker" id="stufe-12-3"></span>
 
-Temeller 1, Kesim 14.6'daki arka plan kutusunda bir uyarı vardı: Küçük bir determinant, bir matrisin neredeyse tekil olduğu anlamına gelmez. Koşul sayısı orada kastedileni ölçer.
+[Temeller 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'daki arka plan kutusunda bir uyarı vardı: Küçük bir determinant, bir matrisin neredeyse tekil olduğu anlamına gelmez. Koşul sayısı orada kastedileni ölçer.
 
 :::satz Teorem 12.3 (En yakın tekil matrise uzaklık)
 <span class="anker" id="satz-12-3"></span>
@@ -104,7 +106,9 @@ Tekil bir matrisin rankı en fazla $n-1$ olur. $k=n-1$ ile Eckart-Young teoremin
 
 Demek ki büyük bir koşul sayısı şu anlama gelir: Görece küçük bir değişiklik matrisi tekil yapar. Determinant başka bir şey ölçer. Alıştırma [29](die-singularwertzerlegung.html#aufg-29)'a göre $|\det\mathbf{A}|=d_1\cdots d_n$, yani bütün uzatmaların çarpımıdır; matrisin büyüklüğüne bağlıdır. Koşul sayısı bir orandır ve $\mathbf{A}$ bir sayıyla çarpıldığında değişmez: $c\ne0$ için $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$. Yalnızca $\mathbf{A}$ matrisinin birim çemberi dönüştürdüğü elipsin ne kadar basık olduğunu ölçer.
 
-⁠**Sayısal örnek:** Temeller 1, Kesim 14.6'daki iki matris: $0{,}1\cdot\mathbf{I}_{10}$ matrisinin determinantı $10^{-10}$, ama bütün tekil değerleri $0{,}1$ ve $\kappa=1$ olur; olabildiğince iyi koşulludur. $\operatorname{diag}(1000;\ 0{,}001)$ matrisinin determinantı $1$, ama $\kappa=1000/0{,}001=10^6$ olur. $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ için en yakın tekil matrise uzaklık $d_2\approx0{,}005$ olur: Elemanları birkaç binde bir kadar değiştirmek matrisi tekil yapar. Tekil $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ matrisinin uzaklığı $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, yani en küçük değerden biraz fazladır.
+::::beispiel [Sayısal örnek]
+[Temeller 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'daki iki matris: $0{,}1\cdot\mathbf{I}_{10}$ matrisinin determinantı $10^{-10}$, ama bütün tekil değerleri $0{,}1$ ve $\kappa=1$ olur; olabildiğince iyi koşulludur. $\operatorname{diag}(1000;\ 0{,}001)$ matrisinin determinantı $1$, ama $\kappa=1000/0{,}001=10^6$ olur. $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ için en yakın tekil matrise uzaklık $d_2\approx0{,}005$ olur: Elemanları birkaç binde bir kadar değiştirmek matrisi tekil yapar. Tekil $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ matrisinin uzaklığı $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, yani en küçük değerden biraz fazladır.
+::::
 
 ⁠**Kısacası:** $1/\kappa(\mathbf{A})$, en yakın tekil matrise olan göreli uzaklıktır; determinant bu konuda hiçbir şey söylemez, çünkü matrisin büyüklüğüne bağlıdır.
 
@@ -129,7 +133,9 @@ Buna karşılık $\mathbf{A}=\mathbf{Q}\mathbf{R}$ QR ayrışımı için $\kappa
 $\mathbf{A}^{\top}\mathbf{A}$ simetrik ve pozitif tanımlıdır, özdeğerleri $d_j^2$ olur; Kesim [9.7](die-singularwertzerlegung.html#stufe-9-7)'ye göre bunlar aynı zamanda tekil değerleridir ve oranları $d_1^2/d_n^2$ olur. $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ olduğundan $\mathbf{R}^{\top}\mathbf{R}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{A}^{\top}\mathbf{A}$ olur; dolayısıyla $\mathbf{R}$ matrisinin tekil değerleri $\mathbf{A}$ matrisininkilerle aynıdır.
 :::
 
-⁠**Sayısal örnek:** Kesim [3.7](die-beste-naherungslosung.html#stufe-3-7)'deki, alan ve oda sayısından oluşan daire matrisinin tekil değerleri $d_1\approx135{,}02$ ve $d_2\approx0{,}848$, dolayısıyla $\kappa(\mathbf{A})\approx159{,}3$ ve $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$ olur. $\kappa(\mathbf{A})$ değerini iki neden büyütür. Birincisi birimlerdir: Alanlar $65$ dolayında, oda sayıları $2{,}5$ dolayında sayılardır. Alan $10\,\mathrm m^2$ birimiyle ölçülürse koşul sayısı yaklaşık $18{,}5$ değerine iner. İkincisi, iki sütun neredeyse aynı doğrultuyu gösterir; aralarında yalnızca yaklaşık $8{,}9^\circ$'lik bir açı vardır. Bu yüzden iki sütun da $1$ uzunluğuna getirilse bile $\kappa\approx12{,}8$ kalır. Birimlerin dönüştürülmesi uydurulan $\hat{\mathbf{y}}$ değerlerini değiştirmez: Bir sütun $10$ ile bölünürse ona ait ağırlık $10$ katına çıkar ve çarpımlar aynı kalır.
+::::beispiel [Sayısal örnek]
+Kesim [3.7](die-beste-naherungslosung.html#stufe-3-7)'deki, alan ve oda sayısından oluşan daire matrisinin tekil değerleri $d_1\approx135{,}02$ ve $d_2\approx0{,}848$, dolayısıyla $\kappa(\mathbf{A})\approx159{,}3$ ve $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$ olur. $\kappa(\mathbf{A})$ değerini iki neden büyütür. Birincisi birimlerdir: Alanlar $65$ dolayında, oda sayıları $2{,}5$ dolayında sayılardır. Alan $10\,\mathrm m^2$ birimiyle ölçülürse koşul sayısı yaklaşık $18{,}5$ değerine iner. İkincisi, iki sütun neredeyse aynı doğrultuyu gösterir; aralarında yalnızca yaklaşık $8{,}9^\circ$'lik bir açı vardır. Bu yüzden iki sütun da $1$ uzunluğuna getirilse bile $\kappa\approx12{,}8$ kalır. Birimlerin dönüştürülmesi uydurulan $\hat{\mathbf{y}}$ değerlerini değiştirmez: Bir sütun $10$ ile bölünürse ona ait ağırlık $10$ katına çıkar ve çarpımlar aynı kalır.
+::::
 
 ⁠**Kısacası:** Normal denklemler $\kappa(\mathbf{A})^2$ ile, QR ayrışımı $\kappa(\mathbf{A})$ ile çalışır; iyi seçilmiş birimler koşul sayısını düşürür.
 

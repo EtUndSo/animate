@@ -41,7 +41,8 @@ $$\frac UI=R\parallel R_\mathrm{iV},\qquad f=-\frac{R}{R+R_\mathrm{iV}}. \tag{5.
 Stromrichtig: $U/I=(I_RR+I_RR_\mathrm{iA})/I_R=R+R_\mathrm{iA}$. Spannungsrichtig: $I/U=(I_R+I_\mathrm{iV})/U_R=1/R+1/R_\mathrm{iV}$, also $U/I=R\parallel R_\mathrm{iV}$ und $f=(R\parallel R_\mathrm{iV})/R-1=-R/(R+R_\mathrm{iV})$.
 :::
 
-**Beispiel.** Das Rechenmodell in beiden Schaltungen:
+::::beispiel
+Das Rechenmodell in beiden Schaltungen:
 
 |  | Anzeige $U$ | Anzeige $I$ | $U/I$ und Fehler |
 |---|---|---|---|
@@ -49,6 +50,7 @@ Stromrichtig: $U/I=(I_RR+I_RR_\mathrm{iA})/I_R=R+R_\mathrm{iA}$. Spannungsrichti
 | spannungsrichtig | 8,950 V | 5,017 mA (durch $R$: 4,972 mA) | 1783,9 $\Omega$, $-0{,}89\,\%$ |
 
 Die rechnerische Korrektur führt in beiden Fällen auf 1800 $\Omega$ zurück.
+::::
 
 **Welche Schaltung?** Abb. [7](#abb-7) zeigt beide Fehler über $R$. Kleine Widerstände misst man spannungsrichtig, weil ihr Strom den des Voltmeters weit übertrifft. Große misst man stromrichtig, weil ihre Spannung den Abfall am Amperemeter weit übertrifft. Die Kurven kreuzen sich nahe 1,4 k$\Omega$ (Aufgabe [6](#aufg-6)). Bei 1,8 k$\Omega$ ist stromrichtig etwas besser.
 

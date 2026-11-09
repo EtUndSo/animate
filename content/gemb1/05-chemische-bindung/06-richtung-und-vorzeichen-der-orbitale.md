@@ -27,7 +27,11 @@ Die Kopplung zweier Orbitale ist $H_\mathrm{AB}=\int\phi_\mathrm A\hat H\phi_\ma
 
 ⁠**So liest man das:** Der Index sagt, welche Orbitale koppeln und wie sie liegen. $V_{\mathrm{pp}\sigma}$ ist größer als $V_{\mathrm{pp}\pi}$, denn frontal überlappen Keulen stärker als seitlich. Die Bindung C–C bringt als $\sigma$-Bindung 3,6 eV, die $\pi$-Bindung der Doppelbindung 2,8 eV. **Gültigkeit:** Orbitale benachbarter Atome. Am selben Atom koppeln verschiedene Orbitale nicht, denn sie sind orthogonal.
 
-**Beispiel.** Ein Stickstoffatom hat drei einfach besetzte p-Orbitale. In N$_2$ überlappen die $\mathrm p_z$ frontal zu einem $\sigma$-Orbital, die $\mathrm p_x$ und die $\mathrm p_y$ seitlich zu zwei $\pi$-Orbitalen. Das sind drei Elektronenpaare, eine Dreifachbindung mit 9,8 eV. **Grenzfall:** Vertauscht man bei einem Orbital Plus und Minus, ändert sich nur das Vorzeichen von $H_\mathrm{AB}$, die Energien bleiben.
+::::beispiel
+Ein Stickstoffatom hat drei einfach besetzte p-Orbitale. In N$_2$ überlappen die $\mathrm p_z$ frontal zu einem $\sigma$-Orbital, die $\mathrm p_x$ und die $\mathrm p_y$ seitlich zu zwei $\pi$-Orbitalen. Das sind drei Elektronenpaare, eine Dreifachbindung mit 9,8 eV.
+::::
+
+⁠**Grenzfall:** Vertauscht man bei einem Orbital Plus und Minus, ändert sich nur das Vorzeichen von $H_\mathrm{AB}$, die Energien bleiben.
 
 **Eigenschaften.** Das Elektronenpaar sitzt zwischen zwei Atomen, es ist __lokalisiert__, und beide ziehen ähnlich stark daran. Die Bindungsenergie liegt bei etwa 4 bis 12 eV. Anders als bei Ionen geben die Orbitale die Richtungen vor. Das bestimmt die Gestalt von Molekülen und den meist locker gepackten Aufbau kovalenter Festkörper. Die Zahlenverhältnisse sind stöchiometrisch. Bei Elementen höherer Perioden können auch d-Orbitale beteiligt sein. Kovalente Festkörper wie Silizium oder Diamant sind Halbleiter oder Isolatoren, weil ihre Elektronen in den Bindungen festsitzen.
 

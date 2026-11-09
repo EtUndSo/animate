@@ -90,7 +90,8 @@ En el nudo $\mu$ sale por cada conductancia $G_a$ hacia el vecino $\nu$ la corri
 Izquierda: la red modelo para el análisis por nudos; la batería se ha convertido en fuente de corriente. Derecha: se han quitado las fuentes, el nudo 1 está a 1 V y el nudo 2 a 0 V. Por $G_1$, $G_2$, $G_3$ salen $1+0{,}25+0{,}5=1{,}75$ mA, que es $Y_{11}$. Los 0,5 mA llegan al nudo 2 y hay que extraerlos allí, que es $Y_{21}=-0{,}5$ mS.
 :::
 
-**Ejemplo.** A la izquierda, $I_\mathrm{q1}=U_\mathrm q/R_1=9$ mA con $G_1=1$ mS en paralelo. Las conductancias son $G_2=0{,}25$ mS, $G_3=0{,}5$ mS, $G_4=0{,}1$ mS y $G_5=0{,}2$ mS (fig. [5](#abb-5)). Las leyes de los nudos son
+::::beispiel
+A la izquierda, $I_\mathrm{q1}=U_\mathrm q/R_1=9$ mA con $G_1=1$ mS en paralelo. Las conductancias son $G_2=0{,}25$ mS, $G_3=0{,}5$ mS, $G_4=0{,}1$ mS y $G_5=0{,}2$ mS (fig. [5](#abb-5)). Las leyes de los nudos son
 
 $$\begin{aligned} \text{Nudo 1:}\quad&(G_1+G_2)\,U_1+G_3\,(U_1-U_2)-I_\mathrm{q1}=0,\\ \text{Nudo 2:}\quad&G_3\,(U_2-U_1)+(G_4+G_5)\,U_2-I_\mathrm q=0. \end{aligned}$$
 
@@ -100,7 +101,10 @@ $$\begin{pmatrix}G_1+G_2+G_3&-G_3\\-G_3&G_3+G_4+G_5\end{pmatrix}\begin{pmatrix}U
 
 Con $D=1{,}4-0{,}25=1{,}15$, $D_1=7{,}2+2=9{,}2$ y $D_2=7+4{,}5=11{,}5$ resultan $U_1=8$ V y $U_2=10$ V. Es el mismo resultado que con las tres mallas, con un cálculo de $2\times2$ en lugar de $3\times3$.
 
-Las corrientes salen de las diferencias, y además en la red *original*: $(U_\mathrm q-U_1)/R_1=1$ mA, $U_1/R_2=2$ mA, $(U_2-U_1)/R_3=1$ mA, $U_2/R_4=1$ mA, $U_2/R_5=2$ mA. **Comprobaciones:** En el nudo 2, $4=1+1+2$ mA. Las fuentes entregan $9\,\mathrm{V}\cdot1\,\mathrm{mA}+10\,\mathrm{V}\cdot4\,\mathrm{mA}=49$ mW, las resistencias absorben $1+16+2+10+20=49$ mW. **Caso límite:** Para $G_3\to0$ desaparecen los elementos fuera de la diagonal, y ambos lados se calculan por separado (ejercicio [7](#aufg-7)).
+Las corrientes salen de las diferencias, y además en la red *original*: $(U_\mathrm q-U_1)/R_1=1$ mA, $U_1/R_2=2$ mA, $(U_2-U_1)/R_3=1$ mA, $U_2/R_4=1$ mA, $U_2/R_5=2$ mA. **Comprobaciones:** En el nudo 2, $4=1+1+2$ mA. Las fuentes entregan $9\,\mathrm{V}\cdot1\,\mathrm{mA}+10\,\mathrm{V}\cdot4\,\mathrm{mA}=49$ mW, las resistencias absorben $1+16+2+10+20=49$ mW.
+::::
+
+⁠**Caso límite:** Para $G_3\to0$ desaparecen los elementos fuera de la diagonal, y ambos lados se calculan por separado (ejercicio [7](#aufg-7)).
 
 :::frage En $\mathbf Z$ el signo depende de las flechas. ¿Por qué en $\mathbf Y$ siempre hay un menos?
 Las corrientes de malla tienen un sentido que se elige, y por tanto también dos posibilidades en la rama común. Los potenciales de nudo no tienen sentido; todos se cuentan respecto al mismo nudo de referencia. En la conductancia entre dos nudos está por eso siempre la diferencia, y el potencial ajeno lleva siempre un menos.

@@ -48,7 +48,11 @@ $$\frac{\mathrm{d}\Phi}{\mathrm{d} x}=e\,\mathcal E,\qquad\frac{\mathrm{d}^2\Phi
 <span class="anker" id="gl-1-5"></span>
 $$Q'=\frac{Q}{A}=\int_0^\infty\rho(x)\,\mathrm{d} x. \tag{1.5}$$
 
-**Beispiel.** In Abb. [1](#abb-1) fehlen die Elektronen in einer Schicht von $d=200$ nm Dicke, dort stehen nur Donatoren mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$. Die Gegenladung $-Q'$ sitzt dünn auf der Oberfläche bei $x=0$, rechts der Schicht ist alles neutral. Aus [(1.5)](#gl-1-5) folgt $Q'=eN_\mathrm Dd=3{,}2\cdot10^{-4}\,\mathrm{C/m^2}$, das sind $2\cdot10^{11}$ Ladungen je cm$^2$. Das Feld fällt nach [(1.2)](#gl-1-2) linear von $Q'/\varepsilon=3{,}09$ MV/m auf null. Die Bandkante steigt als Parabel um $eQ'd/(2\varepsilon)=0{,}309$ eV, das sind $12\,k_\mathrm BT$. Wenige hundert Nanometer Raumladung verbiegen die Bänder also um einen großen Teil der Bandlücke. **Grenzfälle:** Ist $\rho=0$, sind die Bänder gerade: mit Feld schräg wie in [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html), ohne Feld waagerecht.
+::::beispiel
+In Abb. [1](#abb-1) fehlen die Elektronen in einer Schicht von $d=200$ nm Dicke, dort stehen nur Donatoren mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$. Die Gegenladung $-Q'$ sitzt dünn auf der Oberfläche bei $x=0$, rechts der Schicht ist alles neutral. Aus [(1.5)](#gl-1-5) folgt $Q'=eN_\mathrm Dd=3{,}2\cdot10^{-4}\,\mathrm{C/m^2}$, das sind $2\cdot10^{11}$ Ladungen je cm$^2$. Das Feld fällt nach [(1.2)](#gl-1-2) linear von $Q'/\varepsilon=3{,}09$ MV/m auf null. Die Bandkante steigt als Parabel um $eQ'd/(2\varepsilon)=0{,}309$ eV, das sind $12\,k_\mathrm BT$. Wenige hundert Nanometer Raumladung verbiegen die Bänder also um einen großen Teil der Bandlücke.
+::::
+
+⁠**Grenzfälle:** Ist $\rho=0$, sind die Bänder gerade: mit Feld schräg wie in [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html), ohne Feld waagerecht.
 
 :::abbildung gemb1/k14baender 1
 Vorgegebene Ladung und ihre Folgen. Oben: positive Schicht der Dicke 200 nm, $\rho=1{,}6\cdot10^{3}\,\mathrm{C/m^3}$, dazu die Gegenladung $-Q'$ auf der Oberfläche. Mitte: Das Feld steigt linear bis null. Unten: Die Bandkanten folgen als Parabel, beide um dieselben 0,31 eV. Wo $\rho=0$ und $\mathcal E=0$ ist, sind sie waagerecht.

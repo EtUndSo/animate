@@ -37,7 +37,11 @@ Mit $U_\mathrm{E2}=0$ fließt durch $R_3$, $R_4$ kein Strom, der Plus-Eingang li
 Links der Addierer: Die Ströme der drei Quellen treffen sich am Knoten und fließen durch $R_\mathrm{F}$. Rechts der Subtrahierer mit $R_1=R_3$ und $R_2=R_4$: Bei 2,00 V und 2,05 V liegen beide Eingänge auf 1,64 V.
 :::
 
-**Beispiele.** ⁠*Addierer* mit $R_\mathrm{F}=40$ k$\Omega$, $R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$, $R_\mathrm{E3}=20$ k$\Omega$ und $0{,}5$ V, $-0{,}2$ V, $0{,}1$ V: Die Ströme sind 50, $-20$ und 5 µ A, zusammen 35 µ A, also $U_\mathrm{A}=-1{,}4$ V. *Subtrahierer* mit $R_1=R_3=10$ k$\Omega$, $R_2=R_4=40$ k$\Omega$, $U_\mathrm{E1}=2{,}00$ V, $U_\mathrm{E2}=2{,}05$ V: $\varphi_+=0{,}8\cdot2{,}05\,\mathrm{V}=1{,}64$ V. Durch $R_1$ fließen $(2{,}00-1{,}64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A, also $U_\mathrm{A}=1{,}64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0{,}2$ V. Die Überlagerung ergibt $-8{,}0\,\mathrm{V}+8{,}2\,\mathrm{V}$, dasselbe. Der Gleichtakt von rund 2 V ist fort. *Kette* aus zwei Invertierern mit $G_1=-4$ und $G_2=-2$: Aus 0,5 V wird $-2$ V, dann $+4$ V, also $G=+8$. **Grenzfall:** $U_\mathrm{E1}=U_\mathrm{E2}$ ergibt 0.
+::::beispiel [Beispiele]
+⁠*Addierer* mit $R_\mathrm{F}=40$ k$\Omega$, $R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$, $R_\mathrm{E3}=20$ k$\Omega$ und $0{,}5$ V, $-0{,}2$ V, $0{,}1$ V: Die Ströme sind 50, $-20$ und 5 µ A, zusammen 35 µ A, also $U_\mathrm{A}=-1{,}4$ V. *Subtrahierer* mit $R_1=R_3=10$ k$\Omega$, $R_2=R_4=40$ k$\Omega$, $U_\mathrm{E1}=2{,}00$ V, $U_\mathrm{E2}=2{,}05$ V: $\varphi_+=0{,}8\cdot2{,}05\,\mathrm{V}=1{,}64$ V. Durch $R_1$ fließen $(2{,}00-1{,}64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A, also $U_\mathrm{A}=1{,}64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0{,}2$ V. Die Überlagerung ergibt $-8{,}0\,\mathrm{V}+8{,}2\,\mathrm{V}$, dasselbe. Der Gleichtakt von rund 2 V ist fort. *Kette* aus zwei Invertierern mit $G_1=-4$ und $G_2=-2$: Aus 0,5 V wird $-2$ V, dann $+4$ V, also $G=+8$.
+::::
+
+⁠**Grenzfall:** $U_\mathrm{E1}=U_\mathrm{E2}$ ergibt 0.
 
 **Vorgehen bei größeren Schaltungen.** Zuerst die Potenziale der Eingänge bestimmen, dann Stufe für Stufe von links nach rechts rechnen. In einer Kette ist jeder Ausgang der Eingang der nächsten Stufe, ein Potenzial mit festem Wert.
 

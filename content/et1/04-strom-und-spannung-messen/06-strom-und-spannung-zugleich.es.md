@@ -41,7 +41,8 @@ $$\frac UI=R\parallel R_\mathrm{iV},\qquad f=-\frac{R}{R+R_\mathrm{iV}}. \tag{5.
 Corriente correcta: $U/I=(I_RR+I_RR_\mathrm{iA})/I_R=R+R_\mathrm{iA}$. Tensión correcta: $I/U=(I_R+I_\mathrm{iV})/U_R=1/R+1/R_\mathrm{iV}$, es decir, $U/I=R\parallel R_\mathrm{iV}$ y $f=(R\parallel R_\mathrm{iV})/R-1=-R/(R+R_\mathrm{iV})$.
 :::
 
-**Ejemplo.** El modelo de referencia en ambos circuitos:
+::::beispiel
+El modelo de referencia en ambos circuitos:
 
 |  | Lectura $U$ | Lectura $I$ | $U/I$ y error |
 |---|---|---|---|
@@ -49,6 +50,7 @@ Corriente correcta: $U/I=(I_RR+I_RR_\mathrm{iA})/I_R=R+R_\mathrm{iA}$. Tensión 
 | tensión correcta | 8,950 V | 5,017 mA (por $R$: 4,972 mA) | 1783,9 $\Omega$, $-0{,}89\,\%$ |
 
 La corrección por cálculo lleva en ambos casos de vuelta a 1800 $\Omega$.
+::::
 
 **¿Qué circuito?** La fig. [7](#abb-7) muestra ambos errores en función de $R$. Las resistencias pequeñas se miden con el circuito de tensión correcta, porque su corriente supera con mucho la del voltímetro. Las grandes se miden con el circuito de corriente correcta, porque su tensión supera con mucho la caída en el amperímetro. Las curvas se cruzan cerca de 1,4 k$\Omega$ (ejercicio [6](#aufg-6)). Con 1,8 k$\Omega$, el circuito de corriente correcta es algo mejor.
 

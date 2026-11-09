@@ -37,7 +37,11 @@ $$I_\mathrm{A}=\frac{U_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{L}},\qquad U_\mathrm{A
 
 El mecanismo detrás: si la fuente entregara más corriente de la que toma la carga, se acumularía carga en el terminal A y su potencial subiría. Entonces bajaría la corriente de la fuente y subiría la corriente de la carga. Esto continúa hasta que ambas corrientes son iguales.
 
-**Ejemplo.** Con 16 $\Omega$ son $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A y $U_\mathrm{AB}=8$ V, y en el interior cae 1 V. Con 2 $\Omega$ son 2,25 A y 4,5 V. Ambos puntos están en la recta: $9\,\mathrm{V}-2\,\Omega\cdot2{,}25\,\mathrm{A}=4{,}5$ V. Su separación muestra la resistencia interna como pendiente: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3{,}5\,\mathrm{V}/(-1{,}75\,\mathrm{A})=-2\,\Omega$. **Casos límite:** Para $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) da el circuito abierto $U_\mathrm{AB}=U_\mathrm{q}$; para $R_\mathrm{L}\to0$, la corriente de cortocircuito $I_\mathrm{CC}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Para $R_\mathrm{q}\to0$ queda la fuente de tensión ideal. También una carga no lineal se puede tratar así: su curva característica es entonces una curva, y la intersección sigue siendo la solución ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+::::beispiel
+Con 16 $\Omega$ son $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A y $U_\mathrm{AB}=8$ V, y en el interior cae 1 V. Con 2 $\Omega$ son 2,25 A y 4,5 V. Ambos puntos están en la recta: $9\,\mathrm{V}-2\,\Omega\cdot2{,}25\,\mathrm{A}=4{,}5$ V. Su separación muestra la resistencia interna como pendiente: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3{,}5\,\mathrm{V}/(-1{,}75\,\mathrm{A})=-2\,\Omega$.
+::::
+
+⁠**Casos límite:** Para $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) da el circuito abierto $U_\mathrm{AB}=U_\mathrm{q}$; para $R_\mathrm{L}\to0$, la corriente de cortocircuito $I_\mathrm{CC}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Para $R_\mathrm{q}\to0$ queda la fuente de tensión ideal. También una carga no lineal se puede tratar así: su curva característica es entonces una curva, y la intersección sigue siendo la solución ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::ltspice La curva característica de la batería
 ⁠**Esquema:** `voltage` con 9 de `q` a masa, `res` con 2 de `q` a `a`. Como carga, una fuente de corriente `current` llamada `I1` de `a` a masa.

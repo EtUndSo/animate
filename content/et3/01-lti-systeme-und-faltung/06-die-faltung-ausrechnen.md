@@ -47,7 +47,8 @@ Lässt man $t$ wachsen, gleitet das gespiegelte $h$ von links nach rechts über 
 
 Warum gespiegelt? Als Funktion von $\tau$ fällt das Argument $t-\tau$, wenn $\tau$ wächst. Der Anfang von $h$ (Alter null) liegt bei $\tau=t$, ältere Stöße liegen weiter links. Beim RC-Glied ist $h$ am Anfang am größten: Das System „erinnert“ sich an die jüngste Vergangenheit am stärksten.
 
-**Beispiel: RC-Glied und Rechteckimpuls.** Die Impulsantwort des RC-Glieds mit der Zeitkonstanten $T=RC$ ist ein abfallender Exponentialimpuls der Fläche 1. Der kurze Stoß lädt den Kondensator schlagartig auf $1/T$, danach entlädt er sich über $R$:
+::::beispiel RC-Glied und Rechteckimpuls
+Die Impulsantwort des RC-Glieds mit der Zeitkonstanten $T=RC$ ist ein abfallender Exponentialimpuls der Fläche 1. Der kurze Stoß lädt den Kondensator schlagartig auf $1/T$, danach entlädt er sich über $R$:
 
 <span class="anker" id="gl-5-1"></span>
 $$h(t)=\frac1T\,\varepsilon(t)\,\mathrm{e}^{-t/T}. \tag{5.1}$$
@@ -56,6 +57,7 @@ Eingang: Rechteck der Höhe $a$ von $0$ bis $T_0$. Abbildung [6](#abb-6) zeigt 
 
 <span class="anker" id="gl-5-2"></span>
 $$g(t)=\begin{cases}0 & t<0,\\[2pt] a\bigl(1-\mathrm{e}^{-t/T}\bigr) & 0\le t\le T_0,\\[2pt] a\bigl(\mathrm{e}^{T_0/T}-1\bigr)\mathrm{e}^{-t/T} & t>T_0.\end{cases} \tag{5.2}$$
+::::
 
 :::herleitung Antwort auf den Rechteckimpuls
 ⁠**$t<0$:** Das geschobene $h(t-\tau)$ ist nur für $\tau\le t<0$ von null verschieden, $s(\tau)$ nur für $\tau\ge0$. Keine Überlappung, $g=0$.

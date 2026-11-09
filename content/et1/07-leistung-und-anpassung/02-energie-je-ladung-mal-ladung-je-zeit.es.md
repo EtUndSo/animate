@@ -41,7 +41,11 @@ $$W=U\,I\,\Delta t,\qquad P=\frac{W}{\Delta t}=U\,I. \tag{1.2}$$
 En el tiempo $\mathrm{d} t$ entra por el terminal 1 la carga $\mathrm{d} Q=i\,\mathrm{d} t$ y sale por el terminal 2 la misma carga (ley de los nudos, [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). El interior no cambia. Para el balance es como si $\mathrm{d} Q$ hubiera pasado directamente de $\varphi_1$ a $\varphi_2$. Según la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), la energía cedida es $\mathrm{d} W=(\varphi_1-\varphi_2)\,\mathrm{d} Q=u\,i\,\mathrm{d} t$. Al dividir por $\mathrm{d} t$ se obtiene [(1.1)](#gl-1-1). Los electrones se mueven en sentido contrario y tienen carga negativa. Ambos signos juntos dan el mismo producto.
 :::
 
-**Ejemplo.** En $R_\mathrm{L}=16\,\Omega$ hay 8 V y circulan 0,5 A ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Cada culombio cede 8 J y cada segundo llegan 0,5 C: $P=4$ W. En una hora son $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14{,}4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Contados uno a uno, pasan por segundo $I/e=3{,}12\cdot10^{18}$ electrones, y cada uno cede $e\cdot8\,\mathrm{V}=1{,}28\cdot10^{-18}$ J. El producto vuelve a ser 4 W. **Casos límite:** Con los terminales abiertos hay 9 V y 0 A, es decir, $P=0$. Un hilo ideal tiene $U=0$, es decir, $P=0$ con cualquier corriente.
+::::beispiel
+En $R_\mathrm{L}=16\,\Omega$ hay 8 V y circulan 0,5 A ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Cada culombio cede 8 J y cada segundo llegan 0,5 C: $P=4$ W. En una hora son $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14{,}4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Contados uno a uno, pasan por segundo $I/e=3{,}12\cdot10^{18}$ electrones, y cada uno cede $e\cdot8\,\mathrm{V}=1{,}28\cdot10^{-18}$ J. El producto vuelve a ser 4 W.
+::::
+
+⁠**Casos límite:** Con los terminales abiertos hay 9 V y 0 A, es decir, $P=0$. Un hilo ideal tiene $U=0$, es decir, $P=0$ con cualquier corriente.
 
 :::frage ¿Se consume corriente en el componente?
 No. Antes y después del componente circula la misma corriente; la carga vuelve a salir por completo. Lo que se consume es energía: la carga sigue su camino a un potencial más bajo. Por eso, en la factura del «consumo de electricidad» aparecen kilovatios-hora.

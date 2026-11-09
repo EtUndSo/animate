@@ -62,7 +62,11 @@ Bei schwacher Injektion und gleichem $\tau_\text{rec}$ folgt daraus die Gleichun
 <span class="anker" id="gl-6-9"></span>
 $$\begin{aligned} \frac{\partial\Delta n_\mathrm p}{\partial t}&=G_\mathrm n-\frac{\Delta n_\mathrm p}{\tau_\text{rec}}+\mu_\mathrm n\mathcal E\,\frac{\partial\Delta n_\mathrm p}{\partial x}+n_\mathrm p\mu_\mathrm n\frac{\partial\mathcal E}{\partial x}+D_\mathrm n\frac{\partial^2\Delta n_\mathrm p}{\partial x^2},\\ \frac{\partial\Delta p_\mathrm n}{\partial t}&=G_\mathrm p-\frac{\Delta p_\mathrm n}{\tau_\text{rec}}-\mu_\mathrm p\mathcal E\,\frac{\partial\Delta p_\mathrm n}{\partial x}-p_\mathrm n\mu_\mathrm p\frac{\partial\mathcal E}{\partial x}+D_\mathrm p\frac{\partial^2\Delta p_\mathrm n}{\partial x^2}. \end{aligned} \tag{6.8|6.9}$$
 
-**Beispiel.** Fehlen über 1 µ m nur $10^{12}\,\mathrm{cm^{-3}}$ Elektronen, ein Zehntausendstel von $N_\mathrm D$, entstehen schon $\mathcal E=1{,}5$ kV/m und 0,8 mV. Winzige Abweichungen von der Neutralität erzeugen also merkliche Felder. **Grenzfälle:** Die früheren Ergebnisse sind Sonderfälle:
+::::beispiel
+Fehlen über 1 µ m nur $10^{12}\,\mathrm{cm^{-3}}$ Elektronen, ein Zehntausendstel von $N_\mathrm D$, entstehen schon $\mathcal E=1{,}5$ kV/m und 0,8 mV. Winzige Abweichungen von der Neutralität erzeugen also merkliche Felder.
+::::
+
+⁠**Grenzfälle:** Die früheren Ergebnisse sind Sonderfälle:
 
 | Annahme | bleibt übrig | Ergebnis |
 |---|---|---|

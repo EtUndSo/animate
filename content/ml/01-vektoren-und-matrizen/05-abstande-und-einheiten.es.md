@@ -36,13 +36,15 @@ $$\lVert\mathbf{u}-\mathbf{v}\rVert^2=(\mathbf{u}-\mathbf{v})^{\top}(\mathbf{u}-
 
 Con longitudes fijas se cumple, por tanto: cuanto mayor es el producto escalar, menor es la distancia. Ambos miden la semejanza, solo que en sentido opuesto.
 
-⁠**Ejemplo numérico:** Las viviendas 1 y 2 se diferencian en $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Su distancia euclídea es $\sqrt{405}\approx20{,}12$ (fig. [18](#abb-18)); en la norma 1 es $20+1+2=23$; en la norma del máximo, $20$.
+::::beispiel [Ejemplo numérico]
+Las viviendas 1 y 2 se diferencian en $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Su distancia euclídea es $\sqrt{405}\approx20{,}12$ (fig. [18](#abb-18)); en la norma 1 es $20+1+2=23$; en la norma del máximo, $20$.
 
 :::abbildung ml/k1rabstand 18
 La distancia euclídea entre las viviendas 1 y 2: primero la diferencia, después su longitud.
 :::
 
 Como comprobación de [(4.1)](#gl-4-1) con $\mathbf{u}=(1,\,2,\,2)^{\top}$ y $\mathbf{v}=(2,\,0,\,1)^{\top}$: a la izquierda, $\lVert(-1,\,2,\,1)^{\top}\rVert^2=6$; a la derecha, $9+5-2\cdot4=6$.
+::::
 
 ⁠**En resumen:** La distancia entre dos puntos de datos es la norma de su diferencia; estar cerca significa ser parecidos.
 
@@ -91,11 +93,13 @@ se llama vector __centrado__. Sus componentes son las desviaciones respecto de l
 
 Las desviaciones siempre se compensan entre sí: $\mathbf 1^{\top}\tilde{\mathbf{v}}=\mathbf 1^{\top}\mathbf{v}-\bar v\,\mathbf 1^{\top}\mathbf 1=N\bar v-\bar v\,N=0$. El vector centrado tiene, por tanto, media cero.
 
-⁠**Ejemplo numérico:** Las superficies $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ tienen la media $\bar v=65$. Centrado, el vector es $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, y las desviaciones suman efectivamente cero (fig. [20](#abb-20)). Los números de habitaciones $(2,\,1,\,4,\,3)^{\top}$ tienen la media $2{,}5$ y, centrados, son $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$; las distancias $(3,\,1,\,6,\,2)^{\top}$ tienen la media $3$ y, centradas, son $(0,\,-2,\,3,\,-1)^{\top}$.
+::::beispiel [Ejemplo numérico]
+Las superficies $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ tienen la media $\bar v=65$. Centrado, el vector es $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, y las desviaciones suman efectivamente cero (fig. [20](#abb-20)). Los números de habitaciones $(2,\,1,\,4,\,3)^{\top}$ tienen la media $2{,}5$ y, centrados, son $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$; las distancias $(3,\,1,\,6,\,2)^{\top}$ tienen la media $3$ y, centradas, son $(0,\,-2,\,3,\,-1)^{\top}$.
 
 :::abbildung ml/k1rzentriert 20
 La media de las superficies y la suma de las desviaciones respecto de la media, en $\mathrm m^2$.
 :::
+::::
 
 ⁠**En resumen:** Centrar resta a cada componente la media; quedan las desviaciones, que suman cero.
 
@@ -116,11 +120,13 @@ $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\l
 
 La desviación típica tiene la misma unidad que la característica. Es cero si y solo si todas las componentes son iguales. Muchos textos dividen en [(4.3)](#gl-4-3) por $N-1$ en lugar de por $N$. Con muchos ejemplos, la diferencia es pequeña. Esta serie divide por $N$ y lo indica cuando, en alguna ocasión, deba ser de otro modo.
 
-⁠**Ejemplo numérico:** Las superficies centradas $(-5,\,-25,\,25,\,5)^{\top}$ tienen la suma de cuadrados $1\,300$, así que $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ (fig. [21](#abb-21)). Del mismo modo se obtiene para las habitaciones $\sqrt{5/4}\approx1{,}118$ y para las distancias $\sqrt{14/4}\approx1{,}871$ km.
+::::beispiel [Ejemplo numérico]
+Las superficies centradas $(-5,\,-25,\,25,\,5)^{\top}$ tienen la suma de cuadrados $1\,300$, así que $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ (fig. [21](#abb-21)). Del mismo modo se obtiene para las habitaciones $\sqrt{5/4}\approx1{,}118$ y para las distancias $\sqrt{14/4}\approx1{,}871$ km.
 
 :::abbildung ml/k1rstd 21
 La desviación típica de las superficies: elevar las desviaciones al cuadrado, promediar, extraer la raíz. El resultado $\sqrt{325}\approx18{,}03$ tiene la unidad $\mathrm m^2$.
 :::
+::::
 
 ⁠**En resumen:** La desviación típica es el valor eficaz de las desviaciones respecto de la media, la oscilación típica de una característica.
 
@@ -151,13 +157,17 @@ y sustituyendo cada valor original por este número. Los números $z_{ij}$ se ll
 
 La columna estandarizada de la característica tiene media $0$ y desviación típica $1$, pues centrar hace cero la media y la división por $s_j$ hace que la desviación típica valga uno. Los valores ya no tienen unidad.
 
-⁠**Ejemplo numérico 1: el conjunto de datos de viviendas.** Con las medias $65$, $2{,}5$, $3$ y las desviaciones típicas $18{,}03$, $1{,}118$, $1{,}871$, las cuatro viviendas se convierten en
+::::beispiel [Ejemplo numérico 1] el conjunto de datos de viviendas
+Con las medias $65$, $2{,}5$, $3$ y las desviaciones típicas $18{,}03$, $1{,}118$, $1{,}871$, las cuatro viviendas se convierten en
 
 $$\begin{aligned} \mathbf{z}_1&\approx(-0{,}28;\ -0{,}45;\ 0)^{\top}, & \mathbf{z}_2&\approx(-1{,}39;\ -1{,}34;\ -1{,}07)^{\top},\\ \mathbf{z}_3&\approx(1{,}39;\ 1{,}34;\ 1{,}60)^{\top}, & \mathbf{z}_4&\approx(0{,}28;\ 0{,}45;\ -0{,}53)^{\top}. \end{aligned}$$
 
 Las tres características se mueven ahora en el mismo intervalo de valores.
+::::
 
-⁠**Ejemplo numérico 2: A, B y C.** Las tres viviendas de la subsección [4.2](#stufe-4-2) tienen la superficie media $59\,\mathrm m^2$, con la desviación típica $\sqrt{14}\approx3{,}74\,\mathrm m^2$, y en promedio $8/3$ habitaciones, con la desviación típica $\sqrt{8/9}\approx0{,}943$. Tras estandarizar, $\lVert\text A-\text B\rVert\approx2{,}27$ y $\lVert\text A-\text C\rVert\approx1{,}60$. A se parece más, por tanto, a C, y este juicio ya no depende de la unidad de la superficie.
+::::beispiel [Ejemplo numérico 2] A, B y C
+Las tres viviendas de la subsección [4.2](#stufe-4-2) tienen la superficie media $59\,\mathrm m^2$, con la desviación típica $\sqrt{14}\approx3{,}74\,\mathrm m^2$, y en promedio $8/3$ habitaciones, con la desviación típica $\sqrt{8/9}\approx0{,}943$. Tras estandarizar, $\lVert\text A-\text B\rVert\approx2{,}27$ y $\lVert\text A-\text C\rVert\approx1{,}60$. A se parece más, por tanto, a C, y este juicio ya no depende de la unidad de la superficie.
+::::
 
 Que la unidad desaparezca vale en general:
 

@@ -38,7 +38,9 @@ $$U_L'=I_\mathrm q\,(R_L\parallel R_\mathrm i)=U_L\cdot\frac{1}{1+R_L/R_\mathrm 
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::
 
-**例。** 在分压器上，$R_1\parallel R_2=20$ k$\Omega$，$R_L/R_\mathrm i=0.1$。读数为 $3\,\mathrm{V}/1.1=2.727$ V，所以 $f=-9.1\,\%$。用数字看这一机理：流过 $R_1$ 的电流从 100 µ A 升到 104.5 µ A，其中 90.9 µ A 流过 $R_2$，13.6 µ A 流过电压表。$I_\mathrm q=150$ µ A 加在 $R_L=20$ k$\Omega$ 上得到同样的值。内阻 10 M$\Omega$ 的数字万用表显示 2.994 V，所以 $f=-0.2\,\%$。
+::::beispiel
+在分压器上，$R_1\parallel R_2=20$ k$\Omega$，$R_L/R_\mathrm i=0.1$。读数为 $3\,\mathrm{V}/1.1=2.727$ V，所以 $f=-9.1\,\%$。用数字看这一机理：流过 $R_1$ 的电流从 100 µ A 升到 104.5 µ A，其中 90.9 µ A 流过 $R_2$，13.6 µ A 流过电压表。$I_\mathrm q=150$ µ A 加在 $R_L=20$ k$\Omega$ 上得到同样的值。内阻 10 M$\Omega$ 的数字万用表显示 2.994 V，所以 $f=-0.2\,\%$。
+::::
 
 ⁠**极限情况：**$R_\mathrm i\to\infty$ 得 $f\to0$。$R_L\to0$（电源直接接在仪表上）同样得 $f\to0$。$R_\mathrm i=R_L$ 时电压减半。
 

@@ -70,15 +70,19 @@ $$R_\mathrm{i}=-\frac{U_\mathrm{x}-U_\mathrm{y}}{I_\mathrm{x}-I_\mathrm{y}},\qqu
 左：网络 N，右：它的两个等效电源。在接线端上，三者无法区分。
 :::
 
-**例。** 对 N，$U_\mathrm{OC}=9$ V 已由第 [8](uberlagerung.html#stufe-8) 阶段得知。短路时，$R_2$ 处于两个相连的接线端之间，不通过电流。电压源驱动 $U_\mathrm{q1}/R_1=3$ A 流过接线端，电流源驱动 1.5 A：$I_\mathrm{SC}=U_\mathrm{q1}/R_1+I_\mathrm{q2}=4.5$ A。由此得 $R_\mathrm{i}=9\,\mathrm{V}/4.5\,\mathrm{A}=2\,\Omega$。第二种途径证实了这一点：关闭电源后 $R_1$ 和 $R_2$ 并联，$6\,\Omega\parallel3\,\Omega=2\,\Omega$。诺顿形式为 $I_\mathrm{i}=4.5$ A，$G_\mathrm{i}=0.5$ S（图 [10](#abb-10)）。
+::::beispiel
+对 N，$U_\mathrm{OC}=9$ V 已由第 [8](uberlagerung.html#stufe-8) 阶段得知。短路时，$R_2$ 处于两个相连的接线端之间，不通过电流。电压源驱动 $U_\mathrm{q1}/R_1=3$ A 流过接线端，电流源驱动 1.5 A：$I_\mathrm{SC}=U_\mathrm{q1}/R_1+I_\mathrm{q2}=4.5$ A。由此得 $R_\mathrm{i}=9\,\mathrm{V}/4.5\,\mathrm{A}=2\,\Omega$。第二种途径证实了这一点：关闭电源后 $R_1$ 和 $R_2$ 并联，$6\,\Omega\parallel3\,\Omega=2\,\Omega$。诺顿形式为 $I_\mathrm{i}=4.5$ A，$G_\mathrm{i}=0.5$ S（图 [10](#abb-10)）。
 
 这正是第 [5](reale-quellen-und-der-arbeitspunkt.html#stufe-5) 阶段中电池的数值。不用再看网络，对 16 $\Omega$ 就得到 $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0.5$ A 和 $U_\mathrm{AB}=8$ V。**检验**（在原电路中）：经 $R_1$ 流来 $(18-8)\,\mathrm{V}/6\,\Omega=1.667$ A，加上 1.5 A，共 3.167 A。其中 $R_2$ 取走最大的部分 $8\,\mathrm{V}/3\,\Omega=2.667$ A，0.5 A 流向负载。如果 $I_\mathrm{q2}=0$，就剩下分电路 1 的分压器，$U_\mathrm{i}=\frac{R_2}{R_1+R_2}U_\mathrm{q1}=6$ V，$I_\mathrm{i}=U_\mathrm{q1}/R_1=3$ A，$R_\mathrm{i}=R_1\parallel R_2$ 不变。
 
 :::abbildung et1/k5geraden 11
 N 在一个电源和两个电源作用下的特性曲线。每个电源都使直线向上平移，斜率 $R_\mathrm{i}=2\,\Omega$ 不变，因为它只取决于电阻。6 V 与 3 V 之和以及 3 A 与 1.5 A 之和就是叠加。
 :::
+::::
 
-**第二个例子：实际电流源。** 理想电流源 $I_\mathrm{q}=3$ A 并联 $R_\mathrm{q}=20\,\Omega$，经 $R_\mathrm{v}=10\,\Omega$ 向接线端 A 供电。它的另一极是 B，A、B 之间接 $R_\mathrm{p}=30\,\Omega$。短路时 $R_\mathrm{p}$ 被旁路，分流得 $I_\mathrm{SC}=I_\mathrm{q}\frac{R_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{v}}=2$ A。开路时 $R_\mathrm{v}$ 和 $R_\mathrm{p}$ 串联。它们的电流为 $I_\mathrm{q}\frac{R_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{v}+R_\mathrm{p}}=1$ A，所以 $U_\mathrm{OC}=R_\mathrm{p}\cdot1\,\mathrm{A}=30$ V。两者之商为 $R_\mathrm{i}=15\,\Omega$。关闭时电流源变成断口，其并联电阻保留：$R_\mathrm{i}=R_\mathrm{p}\parallel(R_\mathrm{q}+R_\mathrm{v})=15\,\Omega$，或用电导表示为 $G_\mathrm{i}=G_\mathrm{p}+\frac{1}{R_\mathrm{q}+R_\mathrm{v}}$。
+::::beispiel [第二个例子] 实际电流源
+理想电流源 $I_\mathrm{q}=3$ A 并联 $R_\mathrm{q}=20\,\Omega$，经 $R_\mathrm{v}=10\,\Omega$ 向接线端 A 供电。它的另一极是 B，A、B 之间接 $R_\mathrm{p}=30\,\Omega$。短路时 $R_\mathrm{p}$ 被旁路，分流得 $I_\mathrm{SC}=I_\mathrm{q}\frac{R_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{v}}=2$ A。开路时 $R_\mathrm{v}$ 和 $R_\mathrm{p}$ 串联。它们的电流为 $I_\mathrm{q}\frac{R_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{v}+R_\mathrm{p}}=1$ A，所以 $U_\mathrm{OC}=R_\mathrm{p}\cdot1\,\mathrm{A}=30$ V。两者之商为 $R_\mathrm{i}=15\,\Omega$。关闭时电流源变成断口，其并联电阻保留：$R_\mathrm{i}=R_\mathrm{p}\parallel(R_\mathrm{q}+R_\mathrm{v})=15\,\Omega$，或用电导表示为 $G_\mathrm{i}=G_\mathrm{p}+\frac{1}{R_\mathrm{q}+R_\mathrm{v}}$。
+::::
 
 ⁠**极限情况：**如果理想电压源直接接在接线端上，$R_\mathrm{i}=0$，诺顿形式不存在。如果理想电流源与某个接线端串联，$R_\mathrm{i}=\infty$，戴维南形式不存在。如果各电源恰好相互抵消，则 $U_\mathrm{OC}=0$，$I_\mathrm{SC}=0$。这时比值失效，但途径 2 仍能给出 $R_\mathrm{i}$。
 

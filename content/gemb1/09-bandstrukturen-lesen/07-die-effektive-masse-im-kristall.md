@@ -50,7 +50,11 @@ $$E\approx E_\mathrm C+\frac{\hbar^2(k-k_\mathrm C)^2}{2m_\mathrm C^*},\qquad E\
 
 $m_\mathrm C^*$ und $m_\mathrm V^*$ sind positive Beträge. Dazwischen sind wenig allgemeine Aussagen möglich. **Mechanismus der negativen Masse:** Die Kraft schiebt $k$ auf den Zonenrand zu. Dort wird die Welle am Gitter reflektiert, und die Reflexion gibt mehr Impuls ans Gitter ab, als die Kraft zuführt. Das Elektron wird langsamer. Der Energiegewinn geht in potentielle Energie, denn die stehende Welle rückt in die Gebiete hohen Potentials zwischen den Atomen. Beim freien Elektron wächst dagegen nur die kinetische Energie.
 
-**Beispiel.** Im Rechenmodell ist $v_\text{max}=3{,}8\cdot10^5$ m/s und $\hbar^2/(2V_\mathrm{ss}a^2)=1{,}22\,m_0$. Bei $ka=\pi/4$ sind $v=2{,}69\cdot10^5$ m/s und $m^*=1{,}72\,m_0$, bei $3\pi/4$ gleiches $v$ und $m^*=-1{,}72\,m_0$. Dieselbe Kraft beschleunigt ein Elektron in GaAs 14,9-mal stärker als ein freies. **Grenzfall:** Mit der Kopplung $t_0=\hbar^2/(2ma^2)$ des Rechengitters aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) statt $V_\mathrm{ss}$ ergibt [(5.2)](#gl-5-2) bei $k=0$ genau $m^*=m$.
+::::beispiel
+Im Rechenmodell ist $v_\text{max}=3{,}8\cdot10^5$ m/s und $\hbar^2/(2V_\mathrm{ss}a^2)=1{,}22\,m_0$. Bei $ka=\pi/4$ sind $v=2{,}69\cdot10^5$ m/s und $m^*=1{,}72\,m_0$, bei $3\pi/4$ gleiches $v$ und $m^*=-1{,}72\,m_0$. Dieselbe Kraft beschleunigt ein Elektron in GaAs 14,9-mal stärker als ein freies.
+::::
+
+⁠**Grenzfall:** Mit der Kopplung $t_0=\hbar^2/(2ma^2)$ des Rechengitters aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) statt $V_\mathrm{ss}$ ergibt [(5.2)](#gl-5-2) bei $k=0$ genau $m^*=m$.
 
 :::frage Läuft ein Elektron im Feld wirklich bis zum oberen Bandrand und wieder zurück?
 Ohne Stöße ja, bei $10^6$ V/m wäre die Zone nach 16,5 ps durchlaufen. Das heißt Bloch-Schwingung. Stöße mit Gitterschwingungen bremsen das Elektron aber schon nach etwa 0,1 ps, nach gut 1 % des Wegs zum Zonenrand. Deshalb reicht meist die Parabel [(5.3)](#gl-5-3).

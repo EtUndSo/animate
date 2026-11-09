@@ -39,7 +39,11 @@ Ein Bravais-Gitter ist ein periodisches Gitter mit __Translationssymmetrie__: Je
 Die fünf Bravais-Gitter der Ebene mit je einer primitiven Zelle (blau) und ihren Vektoren (rot). Die Wabe unten rechts ist keines: Volle und offene Punkte sehen ihre Nachbarn in entgegengesetzten Richtungen.
 :::
 
-**Beispiel: die Wabe.** __Graphen__ ist eine einzelne Lage Kohlenstoff in Wabenform mit 0,142 nm Abstand zwischen Nachbarn. Alle Atome sind gleich, ihre Umgebungen nicht: Ein Atom hat seine drei Nachbarn oben links, oben rechts und unten, das nächste Atom unten links, unten rechts und oben (Abb. [2](#abb-2)). Die Wabe ist deshalb ein hexagonales Gitter mit zweiatomiger Basis: $\boldsymbol d_1=0$, $\boldsymbol d_2=\frac13(\boldsymbol a_1+\boldsymbol a_2)$. Die Gitterkonstante ist $a=\sqrt3\cdot0{,}142\,\mathrm{nm}=0{,}246$ nm, die Zelle hat $\Omega=0{,}0524\,\mathrm{nm^2}$, also kommen 38 Atome auf 1 nm$^2$. **Grenzfall:** Mit nur einem Atom je Zelle wäre die Dichte halb so groß, das Muster aber ein echtes hexagonales Bravais-Gitter.
+::::beispiel die Wabe
+__Graphen__ ist eine einzelne Lage Kohlenstoff in Wabenform mit 0,142 nm Abstand zwischen Nachbarn. Alle Atome sind gleich, ihre Umgebungen nicht: Ein Atom hat seine drei Nachbarn oben links, oben rechts und unten, das nächste Atom unten links, unten rechts und oben (Abb. [2](#abb-2)). Die Wabe ist deshalb ein hexagonales Gitter mit zweiatomiger Basis: $\boldsymbol d_1=0$, $\boldsymbol d_2=\frac13(\boldsymbol a_1+\boldsymbol a_2)$. Die Gitterkonstante ist $a=\sqrt3\cdot0{,}142\,\mathrm{nm}=0{,}246$ nm, die Zelle hat $\Omega=0{,}0524\,\mathrm{nm^2}$, also kommen 38 Atome auf 1 nm$^2$.
+::::
+
+⁠**Grenzfall:** Mit nur einem Atom je Zelle wäre die Dichte halb so groß, das Muster aber ein echtes hexagonales Bravais-Gitter.
 
 :::frage Setzt man in jede Quadratmitte eines quadratischen Gitters einen Punkt: Entsteht ein sechstes Gitter?
 Nein. Die Vektoren $\frac a2(1,1)$ und $\frac a2(-1,1)$ erreichen alle Punkte, sind gleich lang und stehen senkrecht. Das ist wieder ein quadratisches Gitter, um 45° gedreht, mit $a'=a/\sqrt2$. Beim Rechteck stehen die Vektoren zu den Mitten nicht senkrecht, dort entsteht wirklich ein neues Gitter.

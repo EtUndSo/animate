@@ -14,7 +14,7 @@ Ein Kreis ist in den Koordinaten $x$ und $y$ unbequem: Die Grenzen des einen Int
 
 Der Nutzen ist groß. Das Volumen eines Rotationskörpers, das Potential einer geladenen Kugel, das Feld um einen Draht: All das wird erst in passenden Koordinaten rechenbar. Zum Schluss steht dieselbe Frage für Ableitungen: Wie sehen Gradient und Divergenz aus, wenn eine Funktion nicht in $x,y,z$ gegeben ist, sondern in Abstand und Winkeln?
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Die Rechenmodelle für dieses Kapitel
 <ul>

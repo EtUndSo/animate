@@ -116,7 +116,11 @@ Aus [(1.4)](#gl-1-4) mit $v_0=0$ und $s_0=0$ folgt $t=v/a$ und $s=\frac12a\,t^2=
 Ein Rucksack mit 2 kg wird von A nach B gebracht, 8 m zur Seite und 6 m hinauf. Auf der Treppe zählen nur die roten Stücke, zusammen 6 m. Auf der Rampe ist der Weg 10 m lang und $\cos\alpha=0{,}6$. Beide Wege ergeben 117,7 J.
 :::
 
-**Beispiel.** Auf den Rucksack wirkt die __Gewichtskraft__ $F_\mathrm{G}=m\,g=19{,}62\,\mathrm{N}$. Um ihn gleichmäßig zu heben, bringt die Hand dieselbe Kraft nach oben auf. Über die Treppe ist $W=19{,}62\,\mathrm{N}\cdot6\,\mathrm{m}=117{,}7\,\mathrm{J}$, über die Rampe $W=19{,}62\,\mathrm{N}\cdot10\,\mathrm{m}\cdot0{,}6=117{,}7\,\mathrm{J}$. Die Hand verrichtet $+117{,}7$ J, die Gewichtskraft $-117{,}7$ J. Die Energie steckt danach in der Höhe, als __potenzielle Energie__: Fällt der Rucksack, wird sie zu Bewegungsenergie. Dieses Paar aus Arbeit der Feldkraft und Arbeit von außen kehrt in Stufe [6](arbeit-im-feld.html#stufe-6) wieder. **Grenzfälle:** $\alpha=0$ ergibt $\Delta W=F\,\Delta s$, $\alpha=90^\circ$ ergibt $\Delta W=0$.
+::::beispiel
+Auf den Rucksack wirkt die __Gewichtskraft__ $F_\mathrm{G}=m\,g=19{,}62\,\mathrm{N}$. Um ihn gleichmäßig zu heben, bringt die Hand dieselbe Kraft nach oben auf. Über die Treppe ist $W=19{,}62\,\mathrm{N}\cdot6\,\mathrm{m}=117{,}7\,\mathrm{J}$, über die Rampe $W=19{,}62\,\mathrm{N}\cdot10\,\mathrm{m}\cdot0{,}6=117{,}7\,\mathrm{J}$. Die Hand verrichtet $+117{,}7$ J, die Gewichtskraft $-117{,}7$ J. Die Energie steckt danach in der Höhe, als __potenzielle Energie__: Fällt der Rucksack, wird sie zu Bewegungsenergie. Dieses Paar aus Arbeit der Feldkraft und Arbeit von außen kehrt in Stufe [6](arbeit-im-feld.html#stufe-6) wieder.
+::::
+
+⁠**Grenzfälle:** $\alpha=0$ ergibt $\Delta W=F\,\Delta s$, $\alpha=90^\circ$ ergibt $\Delta W=0$.
 
 :::frage Beim waagerechten Tragen wird der Arm doch müde. Wird da keine Arbeit verrichtet?
 Am Rucksack nicht: Er gewinnt weder Höhe noch Geschwindigkeit. Der Muskel verbraucht trotzdem Energie, weil seine Fasern sich laufend neu anspannen. Sie wird im Körper zu Wärme und erreicht den Rucksack nicht.

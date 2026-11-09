@@ -82,7 +82,11 @@ Jede Potenz $q,\dots,q^n$ kommt einmal mit Plus und einmal mit Minus vor, nur de
 
 ⁠**Verlauf.** Für $q>0$ ist $s_{n+1}=s_n+q^{n+1}>s_n$: Die Folge wächst streng monoton. Für $q\ge1$ ist jeder Summand mindestens 1, also $s_n\ge n+1$, und die Folge ist unbeschränkt. Für $0<q<1$ ist $q^{n+1}>0$, also $0<s_n<\frac1{1-q}$, und die Folge ist beschränkt.
 
-**Beispiel.** Für $q=\frac12$ ergibt [(1.1)](#gl-1-1) die Summenfolge in geschlossener Form: $s_n=2\bigl(1-(\frac12)^{n+1}\bigr)=2-(\frac12)^n$, zum Beispiel $s_{10}=2047/1024=1{,}99902$. Der Rest $2-s_n=(\frac12)^n$ halbiert sich in jedem Schritt. **Grenzfälle:** Für $q=0$ ist $s_n=1$. Für $q$ nahe 1 geht die Formel in $n+1$ über: $q=1{,}001$ und $n=9$ ergeben $10{,}05$ statt 10.
+::::beispiel
+Für $q=\frac12$ ergibt [(1.1)](#gl-1-1) die Summenfolge in geschlossener Form: $s_n=2\bigl(1-(\frac12)^{n+1}\bigr)=2-(\frac12)^n$, zum Beispiel $s_{10}=2047/1024=1{,}99902$. Der Rest $2-s_n=(\frac12)^n$ halbiert sich in jedem Schritt.
+::::
+
+⁠**Grenzfälle:** Für $q=0$ ist $s_n=1$. Für $q$ nahe 1 geht die Formel in $n+1$ über: $q=1{,}001$ und $n=9$ ergeben $10{,}05$ statt 10.
 
 :::aufgabe Aufgabe 1 ★ Geometrische Summen
 <span class="anker" id="aufg-1"></span>

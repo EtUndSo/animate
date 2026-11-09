@@ -68,11 +68,13 @@ $\mathbf{u}^{\top}\mathbf{u}=\sum_ju_j^2\ge0$ ve $\mathbf{u}^{\top}\mathbf{u}=0$
 (i) her bileşen için $u_jv_j=v_ju_j$ olmasından çıkar. (ii) [(1.2)](vektoren-daten-als-zahlenlisten.html#gl-1-2) toplam kuralıdır: $\sum_j(c\,u_j)v_j=c\sum_ju_jv_j$ ve $\sum_j(u_j+q_j)v_j=\sum_ju_jv_j+\sum_jq_jv_j$. (iii) Her $u_j^2$ terimi negatif değildir. Toplam ancak her terim sıfırsa, yani her $u_j=0$ ise sıfırdır.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{u}=(1,\,2,\,3)^{\top}$ ve $\mathbf{v}=(4,\,-1,\,2)^{\top}$ için $\mathbf{u}^{\top}\mathbf{v}=8$ ve $\mathbf{u}^{\top}\mathbf{u}=14$ bulunur (Şekil [6](#abb-6)). Ters sırada da aynı sayı çıkar, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$; simetri de bunu gerektirir.
+::::beispiel [Sayısal örnek]
+$\mathbf{u}=(1,\,2,\,3)^{\top}$ ve $\mathbf{v}=(4,\,-1,\,2)^{\top}$ için $\mathbf{u}^{\top}\mathbf{v}=8$ ve $\mathbf{u}^{\top}\mathbf{u}=14$ bulunur (Şekil [6](#abb-6)). Ters sırada da aynı sayı çıkar, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$; simetri de bunu gerektirir.
 
 :::abbildung ml/k1rskp 6
 Adım adım iki iç çarpım: bileşen çarpı bileşen, sonra çarpımların toplamı. Bir vektörün kendisiyle iç çarpımı, bileşenlerinin karelerinin toplamıdır.
 :::
+::::
 
 ⁠**Kısacası:** İç çarpım iki vektörü bileşen bileşen çarpar ve çarpımları toplar; sonuç bir sayıdır.
 
@@ -99,13 +101,15 @@ $$\hat y=\mathbf{w}^{\top}\mathbf{x}=\sum_{j=1}^{d}w_j\,x_j . \tag{2.2}$$
 
 Bir örneğin özniteliklerinden bir sayı hesaplayan sabit bir hesap kuralına __model__ denir. Modelin bir örnek için verdiği sayıya onun __tahmini__ denir. $\hat y$ içinde $y$ harfinin üstündeki şapka, bunun ölçülmüş bir değer değil, hesaplanmış bir tahmin değeri olduğunu gösterir. Bu bölümde ağırlıklar her zaman verilmiştir; iyi ağırlıkların nereden geldiği ayrı bir sorudur.
 
-⁠**Sayısal örnek:** Emlakçı metrekare, oda ve kilometre başına bin avro cinsinden $\mathbf{w}=(3,\,10,\,-4)^{\top}$ ağırlıklarını kullanır. Daire 1 için $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ bulunur (Şekil [7](#abb-7)), yani $188$ bin avro.
+::::beispiel [Sayısal örnek]
+Emlakçı metrekare, oda ve kilometre başına bin avro cinsinden $\mathbf{w}=(3,\,10,\,-4)^{\top}$ ağırlıklarını kullanır. Daire 1 için $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ bulunur (Şekil [7](#abb-7)), yani $188$ bin avro.
 
 :::abbildung ml/k1rgewicht 7
 Emlakçının Daire 1 için tahmini: her öznitelik çarpı ağırlığı, sonra toplam. Üç özniteliğin katkıları $180$, $20$ ve $-12$ bin avrodur.
 :::
 
 Öteki daireler için de aynı biçimde $\hat y_2=126$, $\hat y_3=286$ ve $\hat y_4=232$ bulunur. Her $w_jx_j$ çarpımının birimi bin avrodur, çünkü özniteliğin birimi ağırlığın paydasındaki birimle sadeleşir. Üç çarpım ancak bu yüzden toplanabilir.
+::::
 
 ⁠**Kısacası:** Ağırlıklı toplam, ağırlıklarla özniteliklerin $\mathbf{w}^{\top}\mathbf{x}$ iç çarpımıdır; özniteliklerden bir tahmin üreten en basit modeldir.
 
@@ -132,7 +136,8 @@ $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$
 
 Bu türden başka hesaplar: Bir birim vektörle iç çarpım bir bileşeni seçer, $\mathbf{e}_j^{\top}\mathbf{v}=v_j$, çünkü öteki bütün çarpımlar bir sıfır içerir. Bir vektörün kendisiyle iç çarpımı karelerin toplamıdır, $\mathbf{v}^{\top}\mathbf{v}=\sum_iv_i^2$. Miktarlar çarpı fiyatlar toplanınca fatura tutarını verir. Ve bir $p(t)=c_1+c_2t+\dots+c_nt^{n-1}$ polinomunu bir $t$ noktasında hesaplamak, $\mathbf{c}^{\top}\mathbf{z}$ iç çarpımını almak demektir; burada $\mathbf{c}=(c_1,\dots,c_n)^{\top}$ polinomun katsayılarını, $\mathbf{z}=(1,\,t,\,t^2,\dots,t^{n-1})^{\top}$ ise kuvvetleri içerir. $p(t)=1+2t+3t^2$ için $t=2$ noktasında bu, $(1,\,2,\,3)\,(1,\,2,\,4)^{\top}=1+4+12=17$ olur.
 
-⁠**Sayısal örnek:** Daire 1 ocak, şubat ve mart aylarında $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh elektrik tüketmiştir (alt kesim [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). Toplam tüketim $\mathbf 1^{\top}\mathbf{u}=750$ kWh, aylık ortalama $\bar u=250$ kWh olur (Şekil [8](#abb-8)). Şubat ayındaki tüketim $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh olur.
+::::beispiel [Sayısal örnek]
+Daire 1 ocak, şubat ve mart aylarında $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh elektrik tüketmiştir (alt kesim [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). Toplam tüketim $\mathbf 1^{\top}\mathbf{u}=750$ kWh, aylık ortalama $\bar u=250$ kWh olur (Şekil [8](#abb-8)). Şubat ayındaki tüketim $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh olur.
 
 :::abbildung ml/k1rmittel 8
 Elektrik tüketiminin toplamı ve ortalaması, birler vektörüyle iç çarpım olarak, kWh cinsinden.
@@ -143,6 +148,7 @@ Kilovatsaatin fiyatı üç ayda $\mathbf{p}=(0{,}32;\ 0{,}34;\ 0{,}28)^{\top}$ a
 :::abbildung ml/k1rstrom 9
 İç çarpım olarak elektrik faturası: her ay için fiyat çarpı miktar, sonra toplam, avro cinsinden.
 :::
+::::
 
 ⁠**Kısacası:** Toplam, ortalama, bir bileşenin seçilmesi ve kareler toplamı; $\mathbf 1$, $\tfrac1n\mathbf 1$, $\mathbf{e}_j$ ve vektörün kendisiyle alınan iç çarpımlardır.
 
@@ -162,11 +168,13 @@ Kesin söylemek gerekirse: $j$ yerinin $\mathbf{w}^{\top}\mathbf{x}$ iç çarpı
 
 Bu hesap sinyal işlemeden korelasyon olarak bilinir. İki gerçel $x[n]$ ve $y[n]$ dizisinin sıfır kaydırmadaki çapraz ilintisi $\sum_nx[n]\,y[n]$ toplamıdır. Sonlu uzunluktaki iki sinyalin örnek değerleri $\mathbf{x}$ ve $\mathbf{y}$ vektörleri olarak yazılırsa bu tam olarak $\mathbf{x}^{\top}\mathbf{y}$ iç çarpımıdır. Bir sinyalin enerjisi, $\sum_nx[n]^2$, aynı biçimde $\mathbf{x}^{\top}\mathbf{x}$ olur. Yani örüntü karşılaştırması yeni bir araç değildir; bir korelatörün bir sinyalde bilinen bir örüntüyü ararken kullandığı araçla aynıdır.
 
-⁠**Sayısal örnek:** İşaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ile $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}=8$, $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}'=0$ bulunur (Şekil [11](#abb-11)). Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile durum tersinedir: $\mathbf 1^{\top}\mathbf{x}=2$, ama $\mathbf 1^{\top}\mathbf{x}'=10$. Yani $\mathbf{x}$ büyük ölçüde işaret değiştiren, $\mathbf{x}'$ ise büyük ölçüde sabit kalan bir sinyaldir.
+::::beispiel [Sayısal örnek]
+İşaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ile $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}=8$, $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}'=0$ bulunur (Şekil [11](#abb-11)). Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile durum tersinedir: $\mathbf 1^{\top}\mathbf{x}=2$, ama $\mathbf 1^{\top}\mathbf{x}'=10$. Yani $\mathbf{x}$ büyük ölçüde işaret değiştiren, $\mathbf{x}'$ ise büyük ölçüde sabit kalan bir sinyaldir.
 
 :::abbildung ml/k1rmuster 11
 İşaret değiştiren örüntü $\mathbf{w}$ ve iki sinyal. Üstte $\mathbf{x}$ örüntüyü izler: Dört çarpımın hepsi pozitiftir. Altta $\mathbf{x}'$ düzgün biçimde artar: Çarpımlar ikişer ikişer birbirini götürür.
 :::
+::::
 
 Emlakçının ağırlıklı toplamı da bir örüntü karşılaştırmasıdır. Onun $\mathbf{w}=(3,\,10,\,-4)^{\top}$ örüntüsü bir daireyi neyin değerli kıldığını betimler: çok alan, çok oda, az uzaklık. Bir daire bu örüntüye ne kadar iyi uyarsa tahmini de o kadar yüksek olur.
 

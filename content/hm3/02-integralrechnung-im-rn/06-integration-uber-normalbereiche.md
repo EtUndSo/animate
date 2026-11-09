@@ -37,7 +37,9 @@ Ein Normalbereich heißt __regulär__, wenn die Funktionen $\alpha$ und $\beta$ 
 
 ⁠**So liest man das:** Beim Typ 1 schneidet jede waagerechte Gerade $y=\text{konst}$ mit $c\le y\le d$ den Bereich in einer Strecke von $\alpha(y)$ bis $\beta(y)$. Beim Typ 2 schneidet jede senkrechte Gerade $x=\text{konst}$ mit $a\le x\le b$ den Bereich in einer Strecke von $\mu(x)$ bis $\nu(x)$. Regulär heißt: Die Randkurven haben überall eine Tangente mit endlicher Steigung, die sich stetig ändert. Ein Rechteck ist ein regulärer Normalbereich beider Typen, mit konstanten Randfunktionen.
 
-⁠**Beispiel: Linse.** Die Menge zwischen den Kurven $y=x^2$ und $y=x$ für $0\le x\le1$. Als Typ 2 ist sie $\{x^2\le y\le x,\ 0\le x\le1\}$ mit $\mu(x)=x^2$ und $\nu(x)=x$. Als Typ 1 ist sie $\{y\le x\le\sqrt y,\ 0\le y\le1\}$ mit $\alpha(y)=y$ und $\beta(y)=\sqrt y$. Als Typ 2 ist sie regulär. Als Typ 1 ist sie es nicht, denn $\beta(y)=\sqrt y$ ist bei $y=0$ nicht differenzierbar. Ob ein Normalbereich regulär ist, hängt also von der Beschreibung ab.
+::::beispiel Linse
+Die Menge zwischen den Kurven $y=x^2$ und $y=x$ für $0\le x\le1$. Als Typ 2 ist sie $\{x^2\le y\le x,\ 0\le x\le1\}$ mit $\mu(x)=x^2$ und $\nu(x)=x$. Als Typ 1 ist sie $\{y\le x\le\sqrt y,\ 0\le y\le1\}$ mit $\alpha(y)=y$ und $\beta(y)=\sqrt y$. Als Typ 2 ist sie regulär. Als Typ 1 ist sie es nicht, denn $\beta(y)=\sqrt y$ ist bei $y=0$ nicht differenzierbar. Ob ein Normalbereich regulär ist, hängt also von der Beschreibung ab.
+::::
 
 :::hintergrund Wozu man Normalbereiche braucht
 Das Integral über eine Menge ist mit der Fortsetzung durch null erklärt, und diese springt am Rand. Der Satz von Fubini aus Abschnitt [3](mehrfachintegrale.html#stufe-3) setzt aber stetige Integranden voraus. Ein Normalbereich löst dieses Problem durch seine Form. Bei festem $y$ besteht die Zeile des umgebenden Quaders aus drei Stücken: links von $\alpha(y)$ ist $\bar f=0$, zwischen $\alpha(y)$ und $\beta(y)$ ist $\bar f=f$, rechts von $\beta(y)$ ist wieder $\bar f=0$. Die Sprünge sitzen also genau an den Grenzen des inneren Integrals, und es bleibt das gewöhnliche Integral $\int_{\alpha(y)}^{\beta(y)}f(x,y)\,\mathrm{d} x$ einer stetigen Funktion. Nach der Leibnizregel, Satz [1.10](integrale-mit-parameter-uber-endlichen-intervallen.html#satz-1-10), im Teil für bloß stetige Funktionen, hängt es stetig von $y$ ab, und das äußere Integral existiert. Der Sprung verschwindet so aus der Rechnung. Wäre der Schnitt einer Zeile mit dem Bereich nicht eine einzige Strecke, sondern zerfiele er in mehrere Stücke, deren Zahl sich mit $y$ ändert, ginge das nicht mehr so einfach. Dann zerlegt man den Bereich in mehrere Normalbereiche.
@@ -75,11 +77,13 @@ $$\Bigl|\int_Df(x,y)\,\mathrm{d} x\,\mathrm{d} y\Bigr|\le|D|\sup_{(x,y)\in D}|f(
 Man setzt $f$ wie in [(4.1)](integration-uber-mengen-und-berechnung-von-volumina.html#gl-4-1) durch null auf einen Quader $Q=[a',b']\times[c,d]$ fort, der $D$ enthält. Bei festem $y$ ist $\bar f(x,y)$ gleich $f(x,y)$ für $\alpha(y)\le x\le\beta(y)$ und sonst null. Das Integral über die Zeile des Quaders ist also $\int_{\alpha(y)}^{\beta(y)}f(x,y)\,\mathrm{d} x$. Nach der Leibnizregel, im Teil für bloß stetige Funktionen, ist das stetig in $y$; das äußere Integral existiert also. Die Abschätzung folgt wie [(3.3)](mehrfachintegrale.html#gl-3-3) aus $-S\le f\le S$ mit $S=\sup_D|f|$ und aus [(5.2)](#gl-5-2).
 :::
 
-⁠**Beispiel: Linse.** Für $f(x,y)=x$ auf der Linse, in beiden Beschreibungen:
+::::beispiel Linse
+Für $f(x,y)=x$ auf der Linse, in beiden Beschreibungen:
 
 $$\int_0^1\Bigl(\int_{x^2}^xx\,\mathrm{d} y\Bigr)\mathrm{d} x=\int_0^1(x^2-x^3)\,\mathrm{d} x=\frac1{12},\qquad\int_0^1\Bigl(\int_y^{\sqrt y}x\,\mathrm{d} x\Bigr)\mathrm{d} y=\int_0^1\frac{y-y^2}2\,\mathrm{d} y=\frac1{12} .$$
 
 Der Flächeninhalt ist $|D|=\int_0^1(x-x^2)\,\mathrm{d} x=\frac16$. Die Abschätzung ergibt $\frac1{12}\le\frac16\cdot1$.
+::::
 
 :::hintergrund Warum das innere Integral keine festen Grenzen haben darf
 Feste Grenzen beschreiben ein Rechteck. Schreibt man $\int_0^1\int_0^1x\,\mathrm{d} y\,\mathrm{d} x$ statt $\int_0^1\int_{x^2}^xx\,\mathrm{d} y\,\mathrm{d} x$, integriert man über das ganze Quadrat, nicht über die Linse, und erhält $\frac12$ statt $\frac1{12}$. Eine Faustregel hilft: Nach dem inneren Integral darf die äußere Variable noch vorkommen, nach dem äußeren muss eine Zahl herauskommen. Die inneren Grenzen dürfen nur von äußeren Variablen abhängen, nie von der Variablen, über die gerade integriert wird.
@@ -100,7 +104,8 @@ $$\int_Df(\boldsymbol{x})\,\mathrm{d}\boldsymbol{x}=\sum_{j=1}^N\int_{D_j}f(\bol
 
 Es lässt sich zeigen, dass das Ergebnis nicht von der gewählten Zerlegung abhängt. Eine Vereinigung von endlich vielen regulären Normalbereichen heißt in diesem Kapitel ein __regulärer Bereich__.
 
-⁠**Beispiel: Kreisscheibe.** Die Kreisscheibe $D=\{x^2+y^2\le4\}$ mit dem Radius $2$ ist ein Normalbereich vom Typ 1 mit $\alpha(y)=-\sqrt{4-y^2}$, $\beta(y)=\sqrt{4-y^2}$ und $y\in[-2,2]$. Aber $\beta'(y)=-y/\sqrt{4-y^2}$ wächst für $y\to\pm2$ über alle Grenzen: Oben und unten hat der Kreis eine waagerechte Tangente, und als Funktion von $y$ hat der Rand dort eine unendliche Steigung. Als Typ 1 ist $D$ deshalb nicht regulär. Man zerlegt (Abb. [14](#abb-14)):
+::::beispiel Kreisscheibe
+Die Kreisscheibe $D=\{x^2+y^2\le4\}$ mit dem Radius $2$ ist ein Normalbereich vom Typ 1 mit $\alpha(y)=-\sqrt{4-y^2}$, $\beta(y)=\sqrt{4-y^2}$ und $y\in[-2,2]$. Aber $\beta'(y)=-y/\sqrt{4-y^2}$ wächst für $y\to\pm2$ über alle Grenzen: Oben und unten hat der Kreis eine waagerechte Tangente, und als Funktion von $y$ hat der Rand dort eine unendliche Steigung. Als Typ 1 ist $D$ deshalb nicht regulär. Man zerlegt (Abb. [14](#abb-14)):
 
 <ul>
 
@@ -133,6 +138,7 @@ Der Mittelstreifen hat nach [(5.2)](#gl-5-2) die Fläche $\int_{-\sqrt2}^{\sqrt2
 :::abbildung hm3/k2kreis 14
 Die Kreisscheibe mit dem Radius $2$, zerlegt in drei reguläre Normalbereiche: den Mittelstreifen $|y|\le\sqrt2$ vom Typ 1 (blau) und oben und unten je eine Kappe vom Typ 2 (orange). An den Schnittlinien hat der Kreis die Steigung $\pm1$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Bereiche, deren Rand irgendwo eine unendliche Steigung hat, zerlegt man in reguläre Normalbereiche und addiert die Integrale.
 
@@ -163,13 +169,16 @@ $$\int_Mf(x,y,z)\,\mathrm{d} x\,\mathrm{d} y\,\mathrm{d} z=\int_D\Bigl(\int_{\ps
 
 ⁠**So liest man das:** $\psi_1(x,y)$ ist die Höhe des Bodens, $\psi_2(x,y)$ die des Deckels über dem Punkt $(x,y)$, und $D$ ist der Schatten des Körpers in der $x$-$y$-Ebene. Das innere Integral hängt noch von $x$ und $y$ ab, das äußere ist ein Integral über einen ebenen Bereich wie im letzten Unterabschnitt. Für $f\equiv1$ ist $\operatorname{vol}(M)=\int_D(\psi_2-\psi_1)\,\mathrm{d} x\,\mathrm{d} y$. Ist der Boden eben und der Abstand $\psi_2-\psi_1=H$ konstant, bleibt $H\,|D|$: Grundfläche mal Höhe.
 
-⁠**Beispiel: noch einmal die Kuppel.** Mit dem Boden $\psi_1=0$, dem Deckel $\psi_2=4-x^2-y^2$ und der Kreisscheibe $D$ vom Radius $2$ als Schatten ist
+::::beispiel noch einmal die Kuppel
+Mit dem Boden $\psi_1=0$, dem Deckel $\psi_2=4-x^2-y^2$ und der Kreisscheibe $D$ vom Radius $2$ als Schatten ist
 
 $$\operatorname{vol}(K)=\int_{-2}^2\Bigl(\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}}(4-y^2-x^2)\,\mathrm{d} x\Bigr)\mathrm{d} y=\frac43\int_{-2}^2(4-y^2)^{3/2}\,\mathrm{d} y=8\pi .$$
 
 Innen gilt $\int_{-s}^s(s^2-x^2)\,\mathrm{d} x=\frac43s^3$ für jede Zahl $s>0$, hier mit $s=\sqrt{4-y^2}$. Außen ergibt die Substitution $y=2\sin\theta$ den Wert $16\int_{-\pi/2}^{\pi/2}\cos^4\theta\,\mathrm{d}\theta=6\pi$. Das stimmt mit [(4.3)](integration-uber-mengen-und-berechnung-von-volumina.html#gl-4-3) überein; die Scheiben waren bequemer. Hier wurde die Kreisscheibe als Typ 1 verwendet; das ist erlaubt, weil die Integrationsformel nur stetige Randfunktionen braucht.
+::::
 
-⁠**Beispiel: zwei Zylinder.** Sei $M=Z_1\cap Z_2\cap O$ mit den Zylindern $Z_1=\{x^2+y^2\le4\}$ und $Z_2=\{x^2+z^2\le4\}$ und $O=\{x\ge0,\ y\ge0,\ z\ge0\}$. Dieses Achtel des Raums heißt der erste __Oktant__. $Z_2$ begrenzt $z$, $Z_1$ begrenzt $y$, beide in Abhängigkeit von $x$:
+::::beispiel zwei Zylinder
+Sei $M=Z_1\cap Z_2\cap O$ mit den Zylindern $Z_1=\{x^2+y^2\le4\}$ und $Z_2=\{x^2+z^2\le4\}$ und $O=\{x\ge0,\ y\ge0,\ z\ge0\}$. Dieses Achtel des Raums heißt der erste __Oktant__. $Z_2$ begrenzt $z$, $Z_1$ begrenzt $y$, beide in Abhängigkeit von $x$:
 
 $$M=\{(x,y,z):\ 0\le z\le\sqrt{4-x^2},\ (x,y)\in D\},\quad D=\{(x,y):\ 0\le y\le\sqrt{4-x^2},\ 0\le x\le2\}.$$
 
@@ -178,6 +187,7 @@ Der Schatten $D$ ist ein ebener Normalbereich vom Typ 2. Also ist
 $$\int_Mf\,\mathrm{d} x\,\mathrm{d} y\,\mathrm{d} z=\int_0^2\Bigl(\int_0^{\sqrt{4-x^2}}\Bigl(\int_0^{\sqrt{4-x^2}}f(x,y,z)\,\mathrm{d} z\Bigr)\mathrm{d} y\Bigr)\mathrm{d} x .$$
 
 Für $f\equiv1$ ergibt das $\operatorname{vol}(M)=\int_0^2(4-x^2)\,\mathrm{d} x=\frac{16}3$. Für $f=x^2+y^2+z^2$ ist das innere Doppelintegral $x^2(4-x^2)+\frac23(4-x^2)^2$, und es folgt $\int_Mf\,\mathrm{d} V=\frac{704}{45}\approx15{,}6$.
+::::
 
 :::merke Vorgehen bei einem Mehrfachintegral über einen Bereich
 Den Bereich skizzieren und als Normalbereich schreiben, nötigenfalls zerlegen. Von innen nach außen integrieren: Innen stehen Funktionen der äußeren Variablen, ganz außen Zahlen. Die Reihenfolge so wählen, dass die Grenzen einfach werden und die Rechnung kurz.

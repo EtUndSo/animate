@@ -51,11 +51,13 @@ $$\mathbf Y_\mathrm{T}=\frac1D\begin{pmatrix}R_\mathrm{b}+R_\mathrm{c}&-R_\mathr
 两种电路，同一个二端口网络。左为 15、20 和 20 $\Omega$ 的 T 形网络，右为等效的 50、50 和 66.7 $\Omega$ 的 $\pi$ 形网络。两者都有 $\det\mathbf Z=1000\,\Omega^2$。在端口上，任何测量都无法区分它们。
 :::
 
-**例。** $\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$，所以
+::::beispiel
+$\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$，所以
 
 $$\mathbf Y=\frac{1}{1000\,\Omega^2}\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\Omega=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS},$$
 
 这正是短路试验的结果。$\pi$ 形网络的 $G_2=20$ mS，$G_1=40\,\mathrm{mS}-20\,\mathrm{mS}=20$ mS，$G_3=15$ mS，即 50 $\Omega$、50 $\Omega$ 和 66.7 $\Omega$。接同样的电源和负载，它同样给出 7.75 V 和 3 V。
+::::
 
 ⁠**极限情况：并非每种形式都存在。**串联电阻 $R$ 和并联电阻 $R$ 单独位于两个端口之间时，分别有
 

@@ -51,14 +51,18 @@ Zentriert rechteckiges Gitter. Links: Verbindungslinien (grün), ihre Mittelsenk
 
 **Die einfachen Fälle.** In der Kette ist die Zelle eine Strecke der Länge $a$ mit je $a/2$ links und rechts vom Punkt, im rechteckigen und quadratischen Gitter das Rechteck um den Punkt, im hexagonalen Gitter ein regelmäßiges Sechseck mit der Seite $a/\sqrt3$, sonst ein ungleichseitiges Sechseck.
 
-**Beispiel.** Ein zentriert rechteckiges Gitter hat ein Rechteck mit $a=0{,}40$ nm und $b=0{,}60$ nm (Abb. [3](#abb-3)). Das Rechteck enthält zwei Gitterpunkte, also ist $\Omega=a\,b/2=0{,}12\,\mathrm{nm^2}$. Die Schnitte ergeben ein Sechseck mit den Ecken $(\pm0{,}2;\,\pm0{,}083)$ nm und $(0;\,\pm0{,}217)$ nm. Seine Fläche ist 0,12 nm$^2$. Das Rechteck hat dagegen 0,24 nm$^2$, es ist eine Einheitszelle, aber nicht primitiv.
+::::beispiel
+Ein zentriert rechteckiges Gitter hat ein Rechteck mit $a=0{,}40$ nm und $b=0{,}60$ nm (Abb. [3](#abb-3)). Das Rechteck enthält zwei Gitterpunkte, also ist $\Omega=a\,b/2=0{,}12\,\mathrm{nm^2}$. Die Schnitte ergeben ein Sechseck mit den Ecken $(\pm0{,}2;\,\pm0{,}083)$ nm und $(0;\,\pm0{,}217)$ nm. Seine Fläche ist 0,12 nm$^2$. Das Rechteck hat dagegen 0,24 nm$^2$, es ist eine Einheitszelle, aber nicht primitiv.
 
 Ein zweites Beispiel zeigt, dass Gittervektoren nicht längs der Koordinatenachsen liegen müssen. Die Vektoren
 
 <span class="anker" id="gl-3-1"></span>
 $$\boldsymbol a_1=\frac{1}{\sqrt2}\,(a,\,a),\qquad \boldsymbol a_2=\frac{1}{\sqrt2}\,(-a,\,a) \tag{3.1}$$
 
-haben die Länge $a$ und stehen senkrecht, denn $\boldsymbol a_1\cdot\boldsymbol a_2=0$. Sie erzeugen ein quadratisches Gitter, das um 45° gegen die Achsen gedreht ist. Seine Wigner-Seitz-Zelle ist ein Quadrat mit der Kante $a$. **Grenzfall:** Für $a=b$ im zentrierten Rechteck entsteht das gedrehte quadratische Gitter aus Stufe [2](bravais-gitter-in-einer-und-zwei-dimensionen.html#stufe-2), und das Sechseck wird zum Quadrat.
+haben die Länge $a$ und stehen senkrecht, denn $\boldsymbol a_1\cdot\boldsymbol a_2=0$. Sie erzeugen ein quadratisches Gitter, das um 45° gegen die Achsen gedreht ist. Seine Wigner-Seitz-Zelle ist ein Quadrat mit der Kante $a$.
+::::
+
+⁠**Grenzfall:** Für $a=b$ im zentrierten Rechteck entsteht das gedrehte quadratische Gitter aus Stufe [2](bravais-gitter-in-einer-und-zwei-dimensionen.html#stufe-2), und das Sechseck wird zum Quadrat.
 
 :::frage Reichen immer die nächsten Nachbarn?
 Nein. Im Beispiel liegen die vier nächsten Nachbarn 0,361 nm entfernt. Ihre Schnitte schließen eine Raute von 0,141 nm$^2$ ein, und das ist mehr als $\Omega$. Die Nachbarn in 0,40 nm Abstand schneiden die Spitzen ab. Man nimmt so viele Nachbarn, bis kein weiterer Schnitt das Gebiet mehr verkleinert. Die Probe ist der Inhalt: Er muss $\Omega$ ergeben.

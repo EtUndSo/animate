@@ -60,13 +60,16 @@ $$\int_0^Ts_p(t)\mathrm{e}^{-\mathrm{j}2\pi nFt}\mathrm{d} t=\sum_kS_p(k)\int_0^
 当 $k\neq n$ 时，积分为 $\frac{\mathrm{e}^{\mathrm{j}2\pi(k-n)FT}-1}{\mathrm{j}2\pi(k-n)F}=0$，因为 $\mathrm{e}^{\mathrm{j}2\pi(k-n)}=1$。由于被积函数的周期为 $T$，可以在任意长度为 $T$ 的区间上积分。
 :::
 
-**例：有限级数。** $s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$。利用欧拉公式，无需积分即可读出系数：
+::::beispiel 有限级数
+$s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$。利用欧拉公式，无需积分即可读出系数：
 
 $$2\cos(2\pi Ft)=\mathrm{e}^{\mathrm{j}2\pi Ft}+\mathrm{e}^{-\mathrm{j}2\pi Ft},\qquad\sin(4\pi Ft)=\frac{1}{2\mathrm{j}}\mathrm{e}^{\mathrm{j}4\pi Ft}-\frac{1}{2\mathrm{j}}\mathrm{e}^{-\mathrm{j}4\pi Ft},$$
 
 所以 $S_p(0)=1$，$S_p(\pm1)=1$，$S_p(2)=-\tfrac{\mathrm{j}}{2}$，$S_p(-2)=\tfrac{\mathrm{j}}{2}$，其余均为零。验证：$S_p(-2)=S_p^*(2)$。
+::::
 
-**例：方波。** 对参考模型（$|t|\le T_1/2$ 时为 1，$T_1=T/2$）：
+::::beispiel 方波
+对参考模型（$|t|\le T_1/2$ 时为 1，$T_1=T/2$）：
 
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
@@ -76,6 +79,7 @@ $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\m
 :::abbildung et3/k3koeff 1
 方波（0/1）在两种脉冲宽度下的傅里叶系数。虚线：包络 $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$。$T_1=T/2$ 时缺少偶次谐波，$T_1=T/4$ 时缺少 4 的倍数次谐波。
 :::
+::::
 
 :::frage 为什么周期信号在谐波之间没有频率？
 因为和式中的每个振荡本身都必须具有周期 $T$，否则和就不是周期的。频率为 $f=1.5F$ 的振荡在经过 $T$ 之后只转了一圈半，所处位置与开始时不同。无论权重选得多么巧妙，都无法弥补这一点，因为不同的频率相互正交，不能彼此抵消。

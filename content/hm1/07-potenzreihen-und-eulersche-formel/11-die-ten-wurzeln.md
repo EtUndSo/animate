@@ -64,11 +64,15 @@ Mit $z=|z|\,\mathrm{e}^{\mathrm{i}\varphi}$ lautet die Gleichung $|z|^n\mathrm{e
 Links die drei Lösungen von $z^3=8\mathrm{i}$ auf dem Kreis mit Radius 2, rechts die fünf Lösungen von $z^5=1$ auf dem Einheitskreis. Eine Drehung um $2\pi/n$ bildet das $n$-Eck auf sich ab.
 :::
 
-**Beispiel.** Für $z^3=8\mathrm{i}$ ist $|a|=8$ und $\alpha=\frac\pi2$, also $|z|=2$ und $\varphi_k=\frac\pi6+\frac{2\pi}3k$:
+::::beispiel
+Für $z^3=8\mathrm{i}$ ist $|a|=8$ und $\alpha=\frac\pi2$, also $|z|=2$ und $\varphi_k=\frac\pi6+\frac{2\pi}3k$:
 
 $$z_0=2\,\mathrm{e}^{\mathrm{i}\pi/6}=\sqrt3+\mathrm{i},\qquad z_1=2\,\mathrm{e}^{5\mathrm{i}\pi/6}=-\sqrt3+\mathrm{i},\qquad z_2=2\,\mathrm{e}^{3\mathrm{i}\pi/2}=-2\mathrm{i}.$$
 
-Probe: $(\sqrt3+\mathrm{i})^2=2+2\sqrt3\,\mathrm{i}$ und $(2+2\sqrt3\,\mathrm{i})(\sqrt3+\mathrm{i})=2\sqrt3+2\mathrm{i}+6\mathrm{i}-2\sqrt3=8\mathrm{i}$. **Grenzfälle:** $n=1$ gibt $z_0=a$. $n=2$ gibt zwei gegenüberliegende Punkte, die Lösungen $\pm w$ aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html): Für $D=0{,}75-\mathrm{i}$ ist $\sqrt{|D|}=1{,}118=|1-0{,}5\mathrm{i}|$.
+Probe: $(\sqrt3+\mathrm{i})^2=2+2\sqrt3\,\mathrm{i}$ und $(2+2\sqrt3\,\mathrm{i})(\sqrt3+\mathrm{i})=2\sqrt3+2\mathrm{i}+6\mathrm{i}-2\sqrt3=8\mathrm{i}$.
+::::
+
+⁠**Grenzfälle:** $n=1$ gibt $z_0=a$. $n=2$ gibt zwei gegenüberliegende Punkte, die Lösungen $\pm w$ aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html): Für $D=0{,}75-\mathrm{i}$ ist $\sqrt{|D|}=1{,}118=|1-0{,}5\mathrm{i}|$.
 
 :::frage In $\mathbb{R}$ hat $x^3=8$ nur eine Lösung, warum hier drei?
 Die reelle Lösung $2$ bleibt. In $\mathbb{C}$ kommen $2\,\mathrm{e}^{2\pi\mathrm{i}/3}$ und $2\,\mathrm{e}^{4\pi\mathrm{i}/3}$ neben der reellen Achse hinzu. Die Zahlengerade kennt nur die Richtungen $0$ und $\pi$.

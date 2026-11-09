@@ -34,7 +34,9 @@ geçerliyse bu matrise __pozitif tanımlı__, her $\mathbf{x}$ için $\mathbf{x}
 
 Simetri tanımın bir parçasıdır. Kuadratik form için bu bir kısıtlama değildir; Kesim [5.2](quadratische-formen.html#stufe-5-2)'ye göre zaten yalnızca simetrik kısım önemlidir. Ama sonraki alt kesimdeki testlerin geçerli olması için simetri gereklidir. Her pozitif tanımlı matris aynı zamanda pozitif yarı tanımlıdır.
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ pozitif tanımlıdır, çünkü Kesim [5.4](quadratische-formen.html#stufe-5-4)'e göre $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$ olur ve bu ifade yalnızca $x_2=0$ ve dolayısıyla $x_1=0$ ise sıfırdır. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin formu $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$ olur; bu matris pozitif yarı tanımlıdır, ama pozitif tanımlı değildir, çünkü $\mathbf{x}=(2,\,-1)^{\top}$ için form sıfırdır. Grafiği, vadi tabanı $(2,\,-1)^{\top}$ doğrultusunda olan bir oluktur.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ pozitif tanımlıdır, çünkü Kesim [5.4](quadratische-formen.html#stufe-5-4)'e göre $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$ olur ve bu ifade yalnızca $x_2=0$ ve dolayısıyla $x_1=0$ ise sıfırdır. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin formu $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$ olur; bu matris pozitif yarı tanımlıdır, ama pozitif tanımlı değildir, çünkü $\mathbf{x}=(2,\,-1)^{\top}$ için form sıfırdır. Grafiği, vadi tabanı $(2,\,-1)^{\top}$ doğrultusunda olan bir oluktur.
+::::
 
 ⁠**Kısacası:** Pozitif tanımlı demek, kuadratik formun orijin dışında pozitif, yani bir çanak olması demektir; pozitif yarı tanımlı demek, hiçbir yerde negatif olmaması demektir.
 
@@ -56,7 +58,9 @@ Bütün $\lambda_i>0$ ve $\mathbf{x}\ne\mathbf{0}$ ise $\mathbf{c}=\mathbf{Q}^{\
 
 Simetrik bir matrisin hem pozitif hem negatif özdeğerleri varsa formu bazı doğrultularda pozitif, bazılarında negatiftir: bir eyer. Böyle bir matrise __belirsiz__ denir. Buna karşılık bütün özdeğerleri negatif olan bir matrise negatif tanımlı denir; formu bir kubbedir.
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $6$ ve $1$: pozitif tanımlı. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $5$ ve $0$: pozitif yarı tanımlı. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ matrisinin bütün elemanları pozitiftir, ama özdeğerleri $4$ ve $-2$: belirsiz, çünkü $\mathbf{x}=(1,\,-1)^{\top}$ için form $1-6+1=-4$ olur. Demek ki elemanların pozitif olması tanımlılık hakkında hiçbir şey söylemez.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $6$ ve $1$: pozitif tanımlı. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $5$ ve $0$: pozitif yarı tanımlı. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ matrisinin bütün elemanları pozitiftir, ama özdeğerleri $4$ ve $-2$: belirsiz, çünkü $\mathbf{x}=(1,\,-1)^{\top}$ için form $1-6+1=-4$ olur. Demek ki elemanların pozitif olması tanımlılık hakkında hiçbir şey söylemez.
+::::
 
 ⁠**Kısacası:** Simetrik bir matris ancak ve ancak bütün özdeğerleri pozitifse pozitif tanımlıdır; pozitif ve negatif özdeğerler bir arada bir eyer verir.
 
@@ -104,11 +108,11 @@ $n=2$ için bu [(5.3)](quadratische-formen.html#gl-5-3) bağıntısıdır: Pivot
 
 İki uyarı. Birincisi, tek başına $\det\mathbf{A}>0$ yetmez: $\operatorname{diag}(-1;\,-3)$ matrisinin determinantı $3$, ama matris negatif tanımlıdır. İkincisi, test yarı tanımlılığa doğrudan aktarılamaz: $\operatorname{diag}(0;\,-1)$ matrisinin baş asal minörleri $0$ ve $0$, ikisi de negatif değildir; matris yine de pozitif yarı tanımlı değildir.
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 matrisinin baş asal minörleri $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)=3$ ve $\det\mathbf{A}=2\cdot3-1\cdot2=4$ olur; hepsi pozitiftir: $\mathbf{A}$ pozitif tanımlıdır. Pivotlar $2$, $\tfrac32$ ve $\tfrac43$, yani ardışık minörlerin bölümleridir. Sağlama: Özdeğerler $2-\sqrt2$, $2$ ve $2+\sqrt2$ olur, hepsi pozitiftir ve çarpımları $(4-2)\cdot2=4$.
+::::
 
 ⁠**Kısacası:** Simetrik bir matris ancak ve ancak bütün pivotları ya da bütün baş asal minörleri pozitifse pozitif tanımlıdır; $2\times2$ için bu $a>0$ ve $ac-b^2>0$ demektir.
 
@@ -116,7 +120,7 @@ matrisinin baş asal minörleri $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end{
 
 <span class="anker" id="stufe-8-4"></span>
 
-Temeller 1, Kesim 10'da $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri, bu bölümde da normal denklemlerdeki $\mathbf{A}^{\top}\mathbf{A}$ ortaya çıktı. Bunlar her zaman pozitif yarı tanımlıdır ve nedeni basittir: Kuadratik formları bir uzunluk karesidir.
+[Temeller 1, Kesim 10](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)'da $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri, bu bölümde da normal denklemlerdeki $\mathbf{A}^{\top}\mathbf{A}$ ortaya çıktı. Bunlar her zaman pozitif yarı tanımlıdır ve nedeni basittir: Kuadratik formları bir uzunluk karesidir.
 
 :::satz Teorem 8.4 (Gram matrisleri)
 <span class="anker" id="satz-8-4"></span>
@@ -130,7 +134,9 @@ $\mathbf{A}^{\top}\mathbf{A}$ simetriktir ve $\mathbf{x}^{\top}\mathbf{A}^{\top}
 
 Aynısı, sütunlar yerine satırlarla $\mathbf{A}\mathbf{A}^{\top}$ için de geçerlidir. Teorem Kesim [3.5](die-beste-naherungslosung.html#stufe-3-5)'i sonradan açıklar: Sütunlar bağımsızsa $\mathbf{A}^{\top}\mathbf{A}$ pozitif tanımlıdır, yani bütün özdeğerleri pozitiftir ve tersinirdir.
 
-⁠**Sayısal örnek:** $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $3$ ve $1$: pozitif tanımlı; bu, $\mathbf{H}$ matrisinin bağımsız sütunlarıyla uyumludur. $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ için $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ olur; determinantı $0$, özdeğerleri $25$ ve $0$: pozitif yarı tanımlı, pozitif tanımlı değil.
+::::beispiel [Sayısal örnek]
+$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ matrisinin özdeğerleri $3$ ve $1$: pozitif tanımlı; bu, $\mathbf{H}$ matrisinin bağımsız sütunlarıyla uyumludur. $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ için $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ olur; determinantı $0$, özdeğerleri $25$ ve $0$: pozitif yarı tanımlı, pozitif tanımlı değil.
+::::
 
 ⁠**Kısacası:** $\mathbf{x}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\lVert\mathbf{A}\mathbf{x}\rVert^2$ olduğundan $\mathbf{A}^{\top}\mathbf{A}$ her zaman pozitif yarı tanımlıdır; sütunlar bağımsızsa pozitif tanımlıdır.
 
@@ -161,11 +167,13 @@ Bu, özdeğerlerin ağırlıklı bir ortalamasıdır ve bir ortalama her zaman o
 
 [(8.2)](#gl-8-2) içindeki bölüme __Rayleigh bölümü__ denir. $\lVert\mathbf{x}\rVert=1$ için bu bölüm kuadratik formun kendisidir: Birim çember üzerinde form, en küçük ile en büyük özdeğer arasında kalır.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için Rayleigh bölümü $\mathbf{e}_1$ noktasında $5$, $\mathbf{e}_2$ noktasında $2$, $(1,\,1)^{\top}/\sqrt2$ noktasında $\tfrac{5+4+2}2=5{,}5$ ve $(1,\,-1)^{\top}/\sqrt2$ noktasında $\tfrac{5-4+2}2=1{,}5$ olur. Bütün değerler $1$ ile $6$ arasındadır. $6$ değerine $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ noktasında ulaşılır: $\tfrac15(20+8+2)=6$. Bölüm $\mathbf{x}$ vektörünün uzunluğuna bağlı değildir; Şekil [21](#abb-21) onu $\mathbf{x}=(1,\,1)^{\top}$ için köklü ifadeler olmadan hesaplıyor.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için Rayleigh bölümü $\mathbf{e}_1$ noktasında $5$, $\mathbf{e}_2$ noktasında $2$, $(1,\,1)^{\top}/\sqrt2$ noktasında $\tfrac{5+4+2}2=5{,}5$ ve $(1,\,-1)^{\top}/\sqrt2$ noktasında $\tfrac{5-4+2}2=1{,}5$ olur. Bütün değerler $1$ ile $6$ arasındadır. $6$ değerine $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ noktasında ulaşılır: $\tfrac15(20+8+2)=6$. Bölüm $\mathbf{x}$ vektörünün uzunluğuna bağlı değildir; Şekil [21](#abb-21) onu $\mathbf{x}=(1,\,1)^{\top}$ için köklü ifadeler olmadan hesaplıyor.
 
 :::abbildung ml/k2rrayleigh 21
 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin $\mathbf{x}=(1,1)^{\top}$ noktasındaki Rayleigh bölümü: Pay ve payda toplam olarak; $\tfrac{11}2=5{,}5$ bölümü $1$ ve $6$ özdeğerleri arasındadır.
 :::
+::::
 
 ⁠**Kısacası:** Birim çember üzerinde bir kuadratik form en küçük ile en büyük özdeğer arasında kalır ve bu uç değerler öz doğrultularda alınır.
 
@@ -190,13 +198,15 @@ $\mathbf{A}=\mathbf L\mathbf L^{\top}$ ise $\mathbf{x}^{\top}\mathbf{A}\mathbf{x
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-daha büyük $n$ için de tamamlama değişken değişken sürdürülür. Temeller 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$ olur.
+daha büyük $n$ için de tamamlama değişken değişken sürdürülür. [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'e göre $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$ olur.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ için $a=4$, $b=2$, $c=5$, dolayısıyla $l_{11}=2$, $l_{21}=1$ ve $l_{22}=\sqrt{5-1}=2$ olur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ için $a=4$, $b=2$, $c=5$, dolayısıyla $l_{11}=2$, $l_{21}=1$ ve $l_{22}=\sqrt{5-1}=2$ olur:
 
 $$\mathbf L=\begin{pmatrix}2&0\\1&2\end{pmatrix},\qquad \mathbf L\mathbf L^{\top}=\begin{pmatrix}4&2\\2&1+4\end{pmatrix}=\mathbf{A} .$$
 
 Form $4x_1^2+4x_1x_2+5x_2^2=(2x_1+x_2)^2+(2x_2)^2$ olur; karelerin içindeki iki ifade $\mathbf L^{\top}\mathbf{x}$ vektörünün bileşenleridir. Determinant $20-4=16=(2\cdot2)^2$.
+::::
 
 ⁠**Kısacası:** Her pozitif tanımlı matris, $\mathbf L$ bir alt üçgen matris olmak üzere $\mathbf L\mathbf L^{\top}$ biçimindedir; bu ayrışım, matris biçiminde tam kareye tamamlamadır.
 

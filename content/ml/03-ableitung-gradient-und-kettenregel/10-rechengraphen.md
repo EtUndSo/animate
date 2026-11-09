@@ -21,7 +21,8 @@ Lange Formeln wertet ein Rechner Schritt für Schritt aus, und jeder Schritt ist
 
 Mit den Regeln aus Abschnitt [1.4](die-ableitung.html#stufe-1-4) kann man jede Formel ableiten, die aus Grundrechenarten und bekannten Funktionen besteht. Schreibt man das Ergebnis als Formel aus, wird es aber oft viel länger als die Funktion selbst. Ein Produkt aus $n$ Faktoren hat nach der Produktregel eine Ableitung aus $n$ Summanden mit je $n$ Faktoren; die Formel wächst also mit $n^2$, während die Funktion nur $n$ Faktoren hat. Mit Zwischenergebnissen bleibt die Rechnung dagegen klein. Man merkt sich nach jedem Schritt den bisherigen Wert und die bisherige Ableitung und rechnet mit Zahlen weiter, nicht mit Formeln.
 
-⁠**Rechenbeispiel:** Es sei $p(x)=(x+1)(x+2)(x+3)(x+4)$ und gesucht ist $p'(0)$. Die ausgeschriebene Produktregel ergibt vier Summanden, in denen jeweils ein Faktor durch seine Ableitung $1$ ersetzt ist:
+::::beispiel [Rechenbeispiel]
+Es sei $p(x)=(x+1)(x+2)(x+3)(x+4)$ und gesucht ist $p'(0)$. Die ausgeschriebene Produktregel ergibt vier Summanden, in denen jeweils ein Faktor durch seine Ableitung $1$ ersetzt ist:
 
 $$p'(0)=2\cdot3\cdot4+1\cdot3\cdot4+1\cdot2\cdot4+1\cdot2\cdot3=24+12+8+6=50$$
 
@@ -34,6 +35,7 @@ Jeder Schritt kostet zwei Multiplikationen und eine Addition, gleich wie viele F
 :::abbildung ml/k3rvierfaktoren 17
 Die ausgeschriebene Produktregel für $p(x)=(x+1)(x+2)(x+3)(x+4)$ an der Stelle $0$: Im Summanden $k$ ist der Faktor $x+k$ durch seine Ableitung $1$ ersetzt.
 :::
+::::
 
 ⁠**Kurz gesagt:** Ausgeschriebene Ableitungsformeln werden schnell viel länger als die Funktion; mit Zwischenergebnissen, als Zahlen gespeichert, bleibt der Aufwand je Schritt klein.
 
@@ -51,7 +53,8 @@ Ein __Rechengraph__ besteht aus Knoten und gerichteten Kanten, also Pfeilen zwis
 
 Grundoperationen sind die Grundrechenarten und Funktionen einer Variablen wie das Quadrat, die e-Funktion oder die logistische Funktion. Weil der Graph kreisfrei ist, kann man die Knoten immer so anordnen, dass jeder Knoten nach seinen Vorgängern kommt; in dieser Reihenfolge rechnet man. Ein Rechenprogramm mit Schleifen und Verzweigungen ergibt für bestimmte Eingangswerte ebenfalls einen solchen Graphen: Eine Schleife, die dreimal durchlaufen wird, liefert dreimal hintereinander dieselben Knoten.
 
-⁠**Rechenbeispiel:** Das Beispiel dieses und des nächsten Abschnitts ist
+::::beispiel [Rechenbeispiel]
+Das Beispiel dieses und des nächsten Abschnitts ist
 
 <span class="anker" id="gl-9-1"></span>
 $$f(x_1,x_2,x_3)=(x_1+x_2)\,(x_2+x_3) \tag{9.1}$$
@@ -61,6 +64,7 @@ mit den Zwischenergebnissen $v_1=x_1+x_2$ und $v_2=x_2+x_3$ und dem Ergebnis $f=
 :::abbildung ml/k3graph 18
 Der Rechengraph von $f=(x_1+x_2)\,(x_2+x_3)$. Die Pfeile zeigen in Rechenrichtung, die Kreise enthalten die Grundoperation. Grün stehen die Werte der Vorwärtsrechnung an der Stelle $(1,\,2,\,3)$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Ein Rechengraph zerlegt eine Rechnung in Grundoperationen; seine Kanten zeigen, welcher Wert in welchen anderen eingeht, und weil er kreisfrei ist, gibt es immer eine Reihenfolge, in der man ihn ausrechnen kann.
 
@@ -76,7 +80,8 @@ Einen Rechengraphen auszuwerten heißt, die Knoten in einer Reihenfolge zu berec
 Die __Vorwärtsrechnung__ eines Rechengraphen berechnet alle Knoten in einer Reihenfolge, in der jeder Knoten nach seinen Vorgängern kommt, und speichert jeden Wert.
 :::
 
-⁠**Rechenbeispiel:** Für [(9.1)](#gl-9-1) an der Stelle $(1,\,2,\,3)$ ergibt sich Tabelle [3](#tab-3).
+::::beispiel [Rechenbeispiel]
+Für [(9.1)](#gl-9-1) an der Stelle $(1,\,2,\,3)$ ergibt sich Tabelle [3](#tab-3).
 
 <span class="anker" id="tab-3"></span>
 
@@ -90,6 +95,7 @@ Die __Vorwärtsrechnung__ eines Rechengraphen berechnet alle Knoten in einer Rei
 | $v_1$ | $x_1+x_2$ | $3$ |
 | $v_2$ | $x_2+x_3$ | $5$ |
 | $f$ | $v_1\cdot v_2$ | $15$ |
+::::
 
 ⁠**Kurz gesagt:** Die Vorwärtsrechnung wertet den Graphen Knoten für Knoten aus und speichert jeden Zwischenwert.
 
@@ -122,11 +128,13 @@ Für die Grundoperationen sind die lokalen Ableitungen einfach (Tabelle [4](#ta
 
 Mit den lokalen Ableitungen ist die Kettenregel aus Abschnitt [6.2](die-kettenregel-fur-mehrere-variablen.html#stufe-6-2) eine reine Zählaufgabe: Die Ableitung des Ergebnisses nach einem Eingang ist die Summe über alle Wege vom Eingang zum Ergebnis, und entlang jedes Wegs multipliziert man die lokalen Ableitungen seiner Kanten.
 
-⁠**Rechenbeispiel:** Im Graphen von Abb. [18](#abb-18) haben die vier Kanten von den Eingängen zu den Additionsknoten die lokale Ableitung $1$. Die Kante von $v_1$ zum Ergebnis hat $\partial f/\partial v_1=v_2=5$, die von $v_2$ hat $\partial f/\partial v_2=v_1=3$. Von $x_1$ führt ein Weg zum Ergebnis, von $x_3$ ebenfalls, von $x_2$ führen zwei. Also ist
+::::beispiel [Rechenbeispiel]
+Im Graphen von Abb. [18](#abb-18) haben die vier Kanten von den Eingängen zu den Additionsknoten die lokale Ableitung $1$. Die Kante von $v_1$ zum Ergebnis hat $\partial f/\partial v_1=v_2=5$, die von $v_2$ hat $\partial f/\partial v_2=v_1=3$. Von $x_1$ führt ein Weg zum Ergebnis, von $x_3$ ebenfalls, von $x_2$ führen zwei. Also ist
 
 $$\frac{\partial f}{\partial x_1}=1\cdot5=5,\qquad \frac{\partial f}{\partial x_2}=1\cdot5+1\cdot3=8,\qquad \frac{\partial f}{\partial x_3}=1\cdot3=3 .$$
 
 Probe: Ausmultipliziert ist $f=x_1x_2+x_1x_3+x_2^2+x_2x_3$ mit den partiellen Ableitungen $x_2+x_3=5$, $x_1+2x_2+x_3=8$ und $x_1+x_2=3$.
+::::
 
 ⁠**Kurz gesagt:** Jede Kante trägt die lokale Ableitung ihrer Grundoperation, ausgewertet mit den gespeicherten Werten; die Ableitung des Ergebnisses ist die Summe über alle Wege der Produkte dieser Zahlen.
 

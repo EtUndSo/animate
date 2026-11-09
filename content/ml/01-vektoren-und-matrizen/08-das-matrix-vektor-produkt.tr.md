@@ -32,8 +32,7 @@ $$(\mathbf{A}\mathbf{x})_i=\sum_{j=1}^{n}a_{ij}\,x_j=a_{i1}x_1+a_{i2}x_2+\dots+a
 
 Çarpım ancak $\mathbf{x}$ vektörünün bileşen sayısı $\mathbf{A}$ matrisinin sütun sayısına eşitse tanımlıdır. Sonucun bileşen sayısı $\mathbf{A}$ matrisinin satır sayısına eşittir. Toplamlar için hesap kurallarından şu çıkar: $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ ve $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$.
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{ve}\quad \mathbf{x}=\begin{pmatrix}2\\1\end{pmatrix}\qquad\text{için}\qquad \mathbf{A}\mathbf{x}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
 Her bileşen [(7.1)](#gl-7-1) uyarınca bir toplamdır (Şekil [28](#abb-28)). $3\times2$ tipinde bir matris çarpı $2$ bileşenli bir vektör, $3$ bileşenli bir vektör verir.
@@ -41,6 +40,7 @@ Her bileşen [(7.1)](#gl-7-1) uyarınca bir toplamdır (Şekil [28](#abb-28)). 
 :::abbildung ml/k1rmv 28
 Bileşen bileşen matris-vektör çarpımı: Her $i$ satırı için $a_{ij}$ elemanları karşılık gelen $x_j$ bileşenleriyle çarpılır ve toplanır.
 :::
+::::
 
 ⁠**Kısacası:** $\mathbf{A}\mathbf{x}$ çarpımı, $i$ numaralı bileşeni $\sum_ja_{ij}x_j$ toplamı olan vektördür; $m\times n$ tipinde bir matris $\mathbb{R}^n$ uzayındaki bir vektörü $\mathbb{R}^m$ uzayındaki bir vektöre dönüştürür.
 
@@ -61,7 +61,8 @@ $$\mathbf{X}\mathbf{w}=\begin{pmatrix}\mathbf{x}_1^{\top}\mathbf{w}\\\vdots\\\ma
 
 Yani matris-vektör çarpımı, $\mathbf{w}$ ağırlıklarıyla ağırlıklı toplamı bütün örneklere aynı anda uygular ve bütün tahminlerin vektörünü verir. Örüntü karşılaştırması resminde: Her örnek aynı $\mathbf{w}$ örüntüsüyle karşılaştırılır.
 
-⁠**Sayısal örnek:** Daire veri kümesi ve $\mathbf{w}=(3,\,10,\,-4)^{\top}$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+Daire veri kümesi ve $\mathbf{w}=(3,\,10,\,-4)^{\top}$ için şu bulunur:
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
 
@@ -70,6 +71,7 @@ yani emlakçının bin avro cinsinden dört tahmini. Her bileşen bir satırın 
 :::abbildung ml/k1rzeilen 29
 Emlakçı için satır bakışı: her daire, yani $\mathbf{X}$ matrisinin her satırı, çarpı $\mathbf{w}$ ağırlıkları.
 :::
+::::
 
 ⁠**Kısacası:** Satır bakışında $\mathbf{A}\mathbf{x}$, her satır için bir tane olmak üzere bir iç çarpımlar listesidir; $\mathbf{X}\mathbf{w}$ bütün örnekler için tahminlerdir.
 
@@ -102,15 +104,19 @@ Matris-vektör çarpımı, $\mathbf{A}$ matrisinin sütunlarının, katsayılar�
 Sağ tarafın $i$ numaralı bileşeni $\sum_jx_j\,(\mathbf{a}_j)_i=\sum_jx_j\,a_{ij}$ olur, çünkü $\mathbf{a}_j$ sütununun $i$-inci bileşeni $a_{ij}$ elemanıdır. Bu, [(7.1)](#gl-7-1) uyarınca tam olarak $\mathbf{A}\mathbf{x}$ vektörünün $i$ numaralı bileşenidir.
 :::
 
-⁠**Sayısal örnek 1:** Daha önceki $\mathbf{A}\mathbf{x}$ çarpımı (alt kesim [7.1](#stufe-7-1)) için şu bulunur:
+::::beispiel [Sayısal örnek 1]
+Daha önceki $\mathbf{A}\mathbf{x}$ çarpımı (alt kesim [7.1](#stufe-7-1)) için şu bulunur:
 
 $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\begin{pmatrix}1\\0\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\\1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
+::::
 
-⁠**Sayısal örnek 2:** Emlakçının tahminleri, $3$ kez alanların sütunu artı $10$ kez odaların sütunu artı $(-4)$ kez uzaklıkların sütunudur (Şekil [31](#abb-31)). Burada $\mathbf{X}$ matrisinin sütunlarına, daha önce olduğu gibi (alt kesim [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1)), $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$ denir. Bu biçimde her tahminin hangi kısmının hangi öznitelikten geldiği görülür: Birinci terim alanın katkılarını, ikincisi odalarınkini, üçüncüsü uzaklığınkini içerir.
+::::beispiel [Sayısal örnek 2]
+Emlakçının tahminleri, $3$ kez alanların sütunu artı $10$ kez odaların sütunu artı $(-4)$ kez uzaklıkların sütunudur (Şekil [31](#abb-31)). Burada $\mathbf{X}$ matrisinin sütunlarına, daha önce olduğu gibi (alt kesim [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1)), $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$ denir. Bu biçimde her tahminin hangi kısmının hangi öznitelikten geldiği görülür: Birinci terim alanın katkılarını, ikincisi odalarınkini, üçüncüsü uzaklığınkini içerir.
 
 :::abbildung ml/k1rspalten 31
 Emlakçı için sütun bakışı: $\mathbf{X}$ matrisinin her $\mathbf{a}_j$ sütunu kendi $w_j$ ağırlığıyla çarpılır, sonra üç vektör toplanır.
 :::
+::::
 
 ⁠**Kısacası:** Sütun bakışında $\mathbf{A}\mathbf{x}$ çarpımı, $\mathbf{A}$ matrisinin sütunlarının bir doğrusal bileşimidir; $\mathbf{x}$ vektörünün bileşenleri her sütundan ne kadar alınacağını söyler.
 
@@ -130,9 +136,13 @@ $\mathbf{x}$ vektörü $\mathbb{R}^n$ uzayının bütün vektörlerini dolaşır
 Bir $\mathbf{A}\in\mathbb{R}^{m\times n}$ matrisinin __sütun uzayı__, $\mathbf{x}\in\mathbb{R}^n$ olmak üzere bütün $\mathbf{A}\mathbf{x}$ vektörlerinin kümesidir, yani $\mathbf{A}$ matrisinin sütunlarının bütün doğrusal bileşimlerinin kümesidir.
 :::
 
-⁠**Sayısal örnek 1:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin sütunları $(1,\,2)^{\top}$ ve $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$ olur. Her doğrusal bileşim $(1,\,2)^{\top}$ vektörünün bir katıdır. Demek ki sonuçların iki bileşeni olmasına rağmen sütun uzayı yalnızca orijinden geçen ve $(1,\,2)^{\top}$ yönünde uzanan doğrudur. $(3,\,6)^{\top}$ vektörü bu doğru üzerindedir, $(1,\,1)^{\top}$ vektörü değildir.
+::::beispiel [Sayısal örnek 1]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisinin sütunları $(1,\,2)^{\top}$ ve $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$ olur. Her doğrusal bileşim $(1,\,2)^{\top}$ vektörünün bir katıdır. Demek ki sonuçların iki bileşeni olmasına rağmen sütun uzayı yalnızca orijinden geçen ve $(1,\,2)^{\top}$ yönünde uzanan doğrudur. $(3,\,6)^{\top}$ vektörü bu doğru üzerindedir, $(1,\,1)^{\top}$ vektörü değildir.
+::::
 
-⁠**Sayısal örnek 2:** $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ matrisi $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$ verir. Sütun uzayı, $\mathbb{R}^3$ uzayının üçüncü bileşeni ilk iki bileşenin toplamı olan vektörlerinden oluşur; bu, uzayda bir düzlemdir. $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ vektörü bu düzlemdedir, $(1,\,1,\,1)^{\top}$ değildir, çünkü $1+1\ne1$.
+::::beispiel [Sayısal örnek 2]
+$\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ matrisi $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$ verir. Sütun uzayı, $\mathbb{R}^3$ uzayının üçüncü bileşeni ilk iki bileşenin toplamı olan vektörlerinden oluşur; bu, uzayda bir düzlemdir. $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ vektörü bu düzlemdedir, $(1,\,1,\,1)^{\top}$ değildir, çünkü $1+1\ne1$.
+::::
 
 Bir veri matrisi için bu şu demektir: $\mathbf{X}\mathbf{w}$ tahminleri, hangi ağırlıklar seçilirse seçilsin, her zaman $\mathbf{X}$ matrisinin sütun uzayındadır. Bu özniteliklerle ancak çok belirli tahmin listeleri üretilebilir.
 

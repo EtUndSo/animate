@@ -68,7 +68,11 @@ Die Änderung von $x$ ist proportional zu $x$ selbst: Je größer der Rest, dest
 ⁠**Derselbe Weg über den Strom:** Aus $U_0=R\,i+\frac1C\int_0^ti\,\mathrm{d} t'$ folgt durch Ableiten $0=R\,\frac{\mathrm{d} i}{\mathrm{d} t}+\frac iC$. Kurz geschrieben ist das $\frac{\mathrm{d} i}{i}=-\frac{\mathrm{d} t}{RC}$, und Schritt 2 bis 4 liefern $\ln i=-\frac{t}{RC}+\ln\frac{U_0}{R}$, also wieder $i=\frac{U_0}{R}\mathrm{e}^{-t/RC}$.
 :::
 
-**Beispiel.** Im Rechenmodell ist nach $t=1$ s $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5{,}69$ V, $u_R=3{,}31$ V und $i=0{,}331$ mA (Abb. [11](#abb-11)). Beide Spannungen ergeben zu jeder Zeit 9 V. Die Tangente am Start steigt mit $U_0/\tau=9$ V/s und erreicht 9 V genau bei $t=\tau$: Bliebe der Anfangsstrom konstant wie in Stufe [3](strom-und-spannung-am-kondensator.html#stufe-3), wäre der Kondensator nach $\tau$ voll. **Kurz gesagt:** $\tau$ ist die Endladung geteilt durch den Anfangsstrom, $C\,U_0/(U_0/R)=RC$.
+::::beispiel
+Im Rechenmodell ist nach $t=1$ s $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5{,}69$ V, $u_R=3{,}31$ V und $i=0{,}331$ mA (Abb. [11](#abb-11)). Beide Spannungen ergeben zu jeder Zeit 9 V. Die Tangente am Start steigt mit $U_0/\tau=9$ V/s und erreicht 9 V genau bei $t=\tau$: Bliebe der Anfangsstrom konstant wie in Stufe [3](strom-und-spannung-am-kondensator.html#stufe-3), wäre der Kondensator nach $\tau$ voll.
+::::
+
+⁠**Kurz gesagt:** $\tau$ ist die Endladung geteilt durch den Anfangsstrom, $C\,U_0/(U_0/R)=RC$.
 
 :::abbildung et1/k3laden 11
 Aufladen mit $U_0=9$ V, $R=10\,\mathrm{k\Omega}$ und $C=100\,\mu\text{F}$. Links die Spannungen, rechts der Strom. Der Strom springt bei $t=0$ von null auf 0,9 mA und klingt ab. Die Tangenten am Start treffen bei $t=\tau=1$ s den Endwert. Die Punkte gehören zu $t=\tau$.

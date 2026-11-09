@@ -47,7 +47,11 @@ The characteristic curve rises everywhere, the line falls everywhere, so there i
 
 [(6.2)](#gl-6-2) cannot be solved for $U_\mathrm D$, because $U_\mathrm D$ appears both in the exponent and outside it. You solve graphically or by __iteration__, that is, by repeated substitution: estimate $U_\mathrm D$, calculate $I=(U_0-U_\mathrm D)/R$, then $U_\mathrm D=U_T\ln(I/I_\mathrm S+1)$, and repeat.
 
-**Example.** Start with $U_\mathrm D=0.7$ V. Step 1: $I=4.300$ mA, $U_\mathrm D=0.69245$ V. Step 2: $I=4.3076$ mA, $U_\mathrm D=0.69249$ V. So the OP is (0.692 V | 4.31 mA), and 4.31 V is across the resistor. If $U_0$ is doubled to 10 V, the current almost doubles, to 9.29 mA, and $U_\mathrm D$ rises by only 20 mV to 0.712 V. **Limiting cases:** At $U_0=0.5$ V, $I=2.3$ µ A, and almost the whole source voltage stays across the diode. For negative $U_0$, $I=-I_\mathrm S$, and the source is entirely across the diode.
+::::beispiel
+Start with $U_\mathrm D=0.7$ V. Step 1: $I=4.300$ mA, $U_\mathrm D=0.69245$ V. Step 2: $I=4.3076$ mA, $U_\mathrm D=0.69249$ V. So the OP is (0.692 V | 4.31 mA), and 4.31 V is across the resistor. If $U_0$ is doubled to 10 V, the current almost doubles, to 9.29 mA, and $U_\mathrm D$ rises by only 20 mV to 0.712 V.
+::::
+
+⁠**Limiting cases:** At $U_0=0.5$ V, $I=2.3$ µ A, and almost the whole source voltage stays across the diode. For negative $U_0$, $I=-I_\mathrm S$, and the source is entirely across the diode.
 
 :::frage Why not calculate the other way around: estimate $U_\mathrm D$, get $I$ from the exponential function, then $U_\mathrm D=U_0-R\,I$?
 Because this route diverges. An error of 1 mV changes the diode current by 3.9 %, that is, 0.17 mA, and this gives an error of 167 mV across the resistor. In the first method the error shrinks by that same factor each step, $r/R=0.006$ (Stage [8](kleine-anderungen-um-den-arbeitspunkt.html#stufe-8)). The flat logarithm damps, the steep exponential function amplifies.

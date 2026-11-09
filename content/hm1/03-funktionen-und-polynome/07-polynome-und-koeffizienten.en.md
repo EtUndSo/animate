@@ -57,7 +57,8 @@ $C$ depends only on the coefficients, and $|x|$ may be arbitrarily small. So $|a
 Left, $P$ at large scale. Right, the section around $x=0$ with the line $a_0+a_1x=6-11x$: At $x=0.1$ it deviates by only 0.028; near zero the higher powers hardly matter.
 :::
 
-**Example.** When is $ax^2+bx+c=a(x-x_1)(x-x_2)$ for all $x$? Multiplying out gives $ax^2-a(x_1+x_2)x+ax_1x_2$ on the right, so comparing coefficients gives
+::::beispiel
+When is $ax^2+bx+c=a(x-x_1)(x-x_2)$ for all $x$? Multiplying out gives $ax^2-a(x_1+x_2)x+ax_1x_2$ on the right, so comparing coefficients gives
 
 <span class="anker" id="gl-5-3"></span>
 $$b=-a(x_1+x_2),\qquad c=a\,x_1x_2. \tag{5.3}$$
@@ -67,7 +68,10 @@ For $a\neq0$ and $D:=b^2-4ac\ge0$, these two equations are solved by the __quadr
 <span class="anker" id="gl-5-4"></span>
 $$x_{1}=\frac{-b+\sqrt D}{2a},\qquad x_{2}=\frac{-b-\sqrt D}{2a}. \tag{5.4}$$
 
-Substituting confirms it: $-a(x_1+x_2)=-a\cdot\frac{-2b}{2a}=b$ and $ax_1x_2=\frac{1}{4a}\bigl(b^2-D\bigr)=c$. The number $D$ is called the __discriminant__. For $Q$, $D=1+8=9$, so $x_{1}=2$, $x_{2}=-1$, and $x_1+x_2=1=-b/a$, $x_1x_2=-2=c/a$. **Limiting cases:** $D=0$ gives $x_1=x_2$. For $D<0$ there is no real zero, because then $ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$, and the bracket is positive. So $x^2+\beta x+\gamma$ has no real zero if and only if $\beta^2-4\gamma<0$.
+Substituting confirms it: $-a(x_1+x_2)=-a\cdot\frac{-2b}{2a}=b$ and $ax_1x_2=\frac{1}{4a}\bigl(b^2-D\bigr)=c$. The number $D$ is called the __discriminant__. For $Q$, $D=1+8=9$, so $x_{1}=2$, $x_{2}=-1$, and $x_1+x_2=1=-b/a$, $x_1x_2=-2=c/a$.
+::::
+
+⁠**Limiting cases:** $D=0$ gives $x_1=x_2$. For $D<0$ there is no real zero, because then $ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$, and the bracket is positive. So $x^2+\beta x+\gamma$ has no real zero if and only if $\beta^2-4\gamma<0$.
 
 :::frage Why doesn't the proof simply substitute $x=0$ after dividing by $x$? There is a polynomial there again, after all.
 There are polynomials on the left and right, that is true. But the equation was derived only for $x\neq0$, and nothing about the point 0 follows from that immediately. The detour via small $|x|$ closes exactly this gap. Part 5 gives the concept behind it the name continuity.

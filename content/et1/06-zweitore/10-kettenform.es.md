@@ -43,7 +43,8 @@ $$\begin{pmatrix}U_1'\\I_1'\end{pmatrix}=\mathbf A'\begin{pmatrix}U_2'\\-I_2'\en
 Arriba: dos cuadripolos en cadena. La salida del primero y la entrada del segundo comparten tensión y corriente. Abajo: el cuadripolo T como cadena de tres cuadripolos elementales: resistencia longitudinal, conductancia transversal, resistencia longitudinal.
 :::
 
-**Ejemplo.** Los bloques más sencillos son la resistencia longitudinal y la conductancia transversal. En la resistencia longitudinal, $U_1=U_2+R(-I_2)$ e $I_1=-I_2$; en la conductancia transversal, $U_1=U_2$ e $I_1=G\,U_2+(-I_2)$:
+::::beispiel
+Los bloques más sencillos son la resistencia longitudinal y la conductancia transversal. En la resistencia longitudinal, $U_1=U_2+R(-I_2)$ e $I_1=-I_2$; en la conductancia transversal, $U_1=U_2$ e $I_1=G\,U_2+(-I_2)$:
 
 $$\mathbf A_R=\begin{pmatrix}1&R\\0&1\end{pmatrix},\qquad \mathbf A_G=\begin{pmatrix}1&0\\G&1\end{pmatrix}.$$
 
@@ -52,6 +53,7 @@ El cuadripolo T es una cadena de $R_\mathrm{a}$, $G_\mathrm{b}=1/R_\mathrm{b}=50
 $$\mathbf A=\begin{pmatrix}1&15\,\Omega\\0&1\end{pmatrix}\begin{pmatrix}1&0\\50\,\mathrm{mS}&1\end{pmatrix}\begin{pmatrix}1&20\,\Omega\\0&1\end{pmatrix}=\begin{pmatrix}1{,}75&50\,\Omega\\50\,\mathrm{mS}&2\end{pmatrix}.$$
 
 Hacia atrás desde la carga, con $U_2=3$ V y $-I_2=50$ mA: $U_1=5{,}25\,\mathrm{V}+2{,}5\,\mathrm{V}=7{,}75$ V e $I_1=150\,\mathrm{mA}+100\,\mathrm{mA}=250$ mA. Son los valores de la etapa [4](das-zweitor-im-betrieb.html#stufe-4), sin sistema de ecuaciones.
+::::
 
 La red en $\pi$ equivalente, con las conductancias transversales $G_1$, $G_3$ y la conductancia longitudinal $G_2$, da en general
 

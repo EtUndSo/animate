@@ -38,7 +38,11 @@ Mit der Trägheit aus Stufe [4](gegenkopplung.html#stufe-4) gilt nun $\tau\,\ma
 Links der invertierende Schmitt-Trigger. Rechts die Hystereseschleife im Rechenmodell, $\beta=0{,}2$: Wer von links kommt, kippt bei $+2{,}2$ V, wer von rechts kommt, bei $-2{,}2$ V. Die Pfeile geben die Laufrichtung.
 :::
 
-**Beispiel.** Die Schwellen sind $\pm0{,}2\cdot11\,\mathrm{V}=\pm2{,}2$ V, die Hysterese ist 4,4 V breit. Kurz nach dem Kippen bei $U_\mathrm{E}=2{,}2$ V ist $U_\mathrm{D}=-2{,}2\,\mathrm{V}-2{,}2\,\mathrm{V}=-4{,}4$ V, weit weg vom Fenster. Nutzen: Ein verrauschtes Signal, das langsam durch eine Schwelle läuft, schaltet einen Komparator viele Male hin und her. Beim Schmitt-Trigger springt die Schwelle nach dem ersten Kippen um 4,4 V weg, Rauschen unter dieser Breite löst kein zweites Kippen aus. **Grenzfälle:** $\beta\to0$ ergibt den Komparator aus Stufe [3](der-opv-ohne-ruckfuhrung.html#stufe-3). $U_\mathrm{E}=0$ lässt beide Zustände zu, je nach Vorgeschichte.
+::::beispiel
+Die Schwellen sind $\pm0{,}2\cdot11\,\mathrm{V}=\pm2{,}2$ V, die Hysterese ist 4,4 V breit. Kurz nach dem Kippen bei $U_\mathrm{E}=2{,}2$ V ist $U_\mathrm{D}=-2{,}2\,\mathrm{V}-2{,}2\,\mathrm{V}=-4{,}4$ V, weit weg vom Fenster. Nutzen: Ein verrauschtes Signal, das langsam durch eine Schwelle läuft, schaltet einen Komparator viele Male hin und her. Beim Schmitt-Trigger springt die Schwelle nach dem ersten Kippen um 4,4 V weg, Rauschen unter dieser Breite löst kein zweites Kippen aus.
+::::
+
+⁠**Grenzfälle:** $\beta\to0$ ergibt den Komparator aus Stufe [3](der-opv-ohne-ruckfuhrung.html#stufe-3). $U_\mathrm{E}=0$ lässt beide Zustände zu, je nach Vorgeschichte.
 
 :::frage LTspice zeigte in `.op` bei vertauschten Eingängen 5,00025 V. Ist die Simulation falsch?
 Nein, sie beantwortet eine andere Frage. `.op` löst die Gleichgewichtsgleichung, und diese Lösung existiert. Ob ein Gleichgewicht hält, entscheidet erst der Zeitverlauf. Im Bauteil rauscht immer etwas, darum läuft der Ausgang davon. Der LTspice-Kasten in Stufe [10](wo-die-regeln-enden.html#stufe-10) zeigt das in `.tran`.

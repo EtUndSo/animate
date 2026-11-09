@@ -14,7 +14,7 @@ Ein Stück Silizium von der Größe eines Zuckerwürfels enthält mehr Atome, al
 
 Der Weg führt über acht Begriffe. Ein __Kristall__ ist eine regelmäßige, sich wiederholende Anordnung von Atomen. Das __Punktgitter__ sagt, wo sich etwas wiederholt, die __Basis__, was sich wiederholt. Die __Einheitszelle__ ist eine Kachel, die den Raum lückenlos füllt. Ein __Bravais-Gitter__ ist ein Punktgitter, in dem jeder Punkt dieselbe Umgebung hat. Die __Koordinationszahl__ zählt die nächsten Nachbarn eines Atoms, die __Packungsdichte__ den gefüllten Anteil des Raums. __Millersche Indizes__ sind Zahlen, die eine Ebene im Kristall benennen.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

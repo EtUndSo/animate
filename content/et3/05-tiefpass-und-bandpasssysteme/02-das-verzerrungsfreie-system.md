@@ -32,11 +32,13 @@ $$\begin{aligned} &\text{Dämpfungsmaß:} && a(f)=-20\lg|H(f)|\ \text{dB}\quad\t
 
 ⁠**So liest man das:** Die __Phasenlaufzeit__ ist die Verzögerung einer einzelnen Schwingung der Frequenz $f$. Die __Gruppenlaufzeit__ ist die Verzögerung einer Gruppe benachbarter Frequenzen, also einer Hüllkurve (Stufe [11](phasen-und-gruppenlaufzeit-beim-bandpass.html#stufe-11)). Beim verzerrungsfreien System sind $a$, $t_\mathrm p$ und $t_\mathrm g$ konstant und $t_\mathrm p=t_\mathrm g=t_0$.
 
-**Beispiel: das RC-Glied.** Mit $\varphi=-\arctan(2\pi f\,RC)$ und $RC=1$ s:
+::::beispiel das RC-Glied
+Mit $\varphi=-\arctan(2\pi f\,RC)$ und $RC=1$ s:
 
 $$t_\mathrm p=\frac{\arctan(2\pi f\,RC)}{2\pi f},\qquad t_\mathrm g=\frac{RC}{1+(2\pi f\,RC)^2}.$$
 
 Für $f\to0$ sind beide $RC=1$ s. Bei $f=0{,}159$ Hz ($2\pi fRC=1$) ist $t_\mathrm p=0{,}785$ s, $t_\mathrm g=0{,}5$ s und $a=3{,}0$ dB. Das RC-Glied ist also nicht verzerrungsfrei: Es dämpft frequenzabhängig, und verschiedene Frequenzen kommen verschieden spät an.
+::::
 
 :::ltspice Dämpfung und Laufzeiten des RC-Glieds ablesen
 ⁠**Zeichnen:** RC-Glied (`res` mit `1Meg`, `cap` mit `1u`), Quellwert `AC 1`, Direktive `.ac dec 100 0.01 10`.

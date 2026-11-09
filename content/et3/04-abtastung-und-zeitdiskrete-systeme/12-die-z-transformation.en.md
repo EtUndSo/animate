@@ -50,7 +50,8 @@ A causal LSI system is stable if and only if all poles of $H(z)$ lie inside the 
 
 ⁠**Why:** causal means a region of convergence outside the outermost pole. Stable means $\sum|h(n)|<\infty$; then $H(z)$ converges on the unit circle, so the unit circle belongs to the region of convergence. Both together are possible only if the outermost pole lies inside the unit circle. For the recursive system with $H(z)=\frac{1}{1-bz^{-1}}$ this again means $|b|<1$.
 
-**Example.** $s(n)=0.5^n\cos(\pi n/3)\,\varepsilon(n)$. With $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$ and [(11.2)](#gl-11-2) for $b=0.5\mathrm{e}^{\pm\mathrm{j}\pi/3}$:
+::::beispiel
+$s(n)=0.5^n\cos(\pi n/3)\,\varepsilon(n)$. With $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$ and [(11.2)](#gl-11-2) for $b=0.5\mathrm{e}^{\pm\mathrm{j}\pi/3}$:
 
 $$S(z)=\frac12\Bigl[\frac{1}{1-0.5\mathrm{e}^{\mathrm{j}\pi/3}z^{-1}}+\frac{1}{1-0.5\mathrm{e}^{-\mathrm{j}\pi/3}z^{-1}}\Bigr]=\frac{1-0.25z^{-1}}{1-0.5z^{-1}+0.25z^{-2}},\qquad|z|>0.5.$$
 
@@ -59,6 +60,7 @@ Poles at $0.5\mathrm{e}^{\pm\mathrm{j}\pi/3}=0.25\pm0.433\mathrm{j}$, zeros at $
 :::abbildung et3/k4zebene 8
 z-plane of the example: poles (crosses) at $0.5\mathrm{e}^{\pm\mathrm{j}\pi/3}$, zeros (circles) at 0 and 0.25. The region of convergence (blue) lies outside the circle through the poles and contains the unit circle. Read as an impulse response, the sequence describes a causal and stable system.
 :::
+::::
 
 :::aufgabe Exercise 11 ★★ Applying the z-transform
 <span class="anker" id="aufg-11"></span>

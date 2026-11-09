@@ -42,11 +42,13 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 
 Verdoppelt man $\mathbf{x}$, so vervierfacht sich $f$: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. Daher der Name.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. An der Stelle $\mathbf{x}=(1,\,-1)^{\top}$ ist $f=5-4+2=3$; zur Kontrolle ist $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ und $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Abb. [14](#abb-14) rechnet die Doppelsumme [(5.1)](#gl-5-1) an dieser Stelle Glied für Glied aus. An der Stelle $(1,\,1)^{\top}$ ist $f=11$, im Nullpunkt $f=0$. Die Energie der beiden Spulen ist $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ mit dem Stromvektor $\mathbf i=(i_1,\,i_2)^{\top}$; die Matrix heißt Induktivitätsmatrix.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. An der Stelle $\mathbf{x}=(1,\,-1)^{\top}$ ist $f=5-4+2=3$; zur Kontrolle ist $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ und $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Abb. [14](#abb-14) rechnet die Doppelsumme [(5.1)](#gl-5-1) an dieser Stelle Glied für Glied aus. An der Stelle $(1,\,1)^{\top}$ ist $f=11$, im Nullpunkt $f=0$. Die Energie der beiden Spulen ist $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ mit dem Stromvektor $\mathbf i=(i_1,\,i_2)^{\top}$; die Matrix heißt Induktivitätsmatrix.
 
 :::abbildung ml/k2rqf 14
 Die quadratische Form von $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ an der Stelle $\mathbf{x}=(1,-1)^{\top}$ als Doppelsumme: vier Glieder, eines für jeden Eintrag von $\mathbf{A}$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Eine quadratische Form $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ ist eine Summe aus Quadraten und gemischten Produkten der Komponenten, mit den Einträgen von $\mathbf{A}$ als Gewichten.
 
@@ -71,7 +73,9 @@ Die Zahl $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ ist gleich ihrer eigenen Transp
 
 Die Matrix $\frac12(\mathbf{A}+\mathbf{A}^{\top})$ ist symmetrisch. In diesem Kapitel hat eine quadratische Form deshalb immer eine symmetrische Matrix. Man liest sie so ab: Auf der Diagonale stehen die Faktoren vor den Quadraten, außerhalb jeweils die Hälfte des Faktors vor dem gemischten Glied.
 
-⁠**Rechenbeispiel:** Die Form $3x_1^2-6x_1x_2+x_2^2$ hat die symmetrische Matrix $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. Die Form $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ im $\mathbb{R}^3$ hat die Matrix $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$; das gemischte Glied $2x_1x_3$ verteilt sich auf die Einträge $(1,3)$ und $(3,1)$.
+::::beispiel [Rechenbeispiel]
+Die Form $3x_1^2-6x_1x_2+x_2^2$ hat die symmetrische Matrix $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. Die Form $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ im $\mathbb{R}^3$ hat die Matrix $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$; das gemischte Glied $2x_1x_3$ verteilt sich auf die Einträge $(1,3)$ und $(3,1)$.
+::::
 
 ⁠**Kurz gesagt:** Eine quadratische Form sieht nur den symmetrischen Anteil ihrer Matrix; man schreibt sie deshalb immer mit einer symmetrischen Matrix.
 
@@ -109,7 +113,9 @@ Oben die Graphen der quadratischen Formen $x_1^2+2x_2^2$ (Schüssel), $x_1^2$ (R
 
 Sind beide Einträge negativ, steht die Schüssel auf dem Kopf; das ist eine Kuppel. Ein negativer und ein verschwindender Eintrag geben eine umgedrehte Rinne, einen Kamm. Bei mehr als zwei Variablen gilt dasselbe: Die Vorzeichen der Diagonaleinträge entscheiden über die Form.
 
-⁠**Rechenbeispiel:** Für die Schüssel $f=x_1^2+2x_2^2$ ist die Höhenlinie $f=1$ die Ellipse mit den Halbachsen $1$ auf der $x_1$-Achse und $1/\sqrt2\approx0{,}707$ auf der $x_2$-Achse: Bei $(1,\,0)^{\top}$ und bei $(0,\,1/\sqrt2)^{\top}$ ist $f=1$. Beim Sattel $f=x_1^2-x_2^2$ ist $f(1,\,0)=1$, $f(0,\,1)=-1$ und $f(1,\,1)=0$.
+::::beispiel [Rechenbeispiel]
+Für die Schüssel $f=x_1^2+2x_2^2$ ist die Höhenlinie $f=1$ die Ellipse mit den Halbachsen $1$ auf der $x_1$-Achse und $1/\sqrt2\approx0{,}707$ auf der $x_2$-Achse: Bei $(1,\,0)^{\top}$ und bei $(0,\,1/\sqrt2)^{\top}$ ist $f=1$. Beim Sattel $f=x_1^2-x_2^2$ ist $f(1,\,0)=1$, $f(0,\,1)=-1$ und $f(1,\,1)=0$.
+::::
 
 ⁠**Kurz gesagt:** Ohne gemischte Glieder liest man die Form an den Vorzeichen der Diagonale ab: alle positiv eine Schüssel, positiv und null eine Rinne, gemischte Vorzeichen ein Sattel.
 
@@ -132,13 +138,17 @@ $$ax_1^2+2bx_1x_2+cx_2^2=a\Bigl(x_1+\frac bax_2\Bigr)^2+\Bigl(c-\frac{b^2}a\Bigr
 
 Rechts steht eine Summe von zwei Quadraten. Die neuen Variablen $z_1=x_1+\frac bax_2$ und $z_2=x_2$ nehmen jedes Zahlenpaar an, wenn $\mathbf{x}$ die Ebene durchläuft. Die Form in den Variablen $z_1,z_2$ hat also keine gemischten Glieder mehr, und die Vorzeichen von $a$ und $c-b^2/a$ entscheiden über Schüssel, Rinne oder Sattel.
 
-⁠**Rechenbeispiel 1:** $5x_1^2+4x_1x_2+2x_2^2$ hat $a=5$, $b=2$, $c=2$:
+::::beispiel [Rechenbeispiel 1]
+$5x_1^2+4x_1x_2+2x_2^2$ hat $a=5$, $b=2$, $c=2$:
 
 $$5x_1^2+4x_1x_2+2x_2^2=5\,(x_1+0{,}4\,x_2)^2+1{,}2\,x_2^2 .$$
 
 Beide Faktoren sind positiv: Die Form ist eine Schüssel. Probe bei $\mathbf{x}=(1,\,-1)^{\top}$: $5\cdot0{,}36+1{,}2=3$.
+::::
 
-⁠**Rechenbeispiel 2:** $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Die Faktoren haben verschiedene Vorzeichen: ein Sattel. Tatsächlich ist $f(1,\,0)=1>0$ und $f(1,\,-1)=1-6+1=-4<0$.
+::::beispiel [Rechenbeispiel 2]
+$x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Die Faktoren haben verschiedene Vorzeichen: ein Sattel. Tatsächlich ist $f(1,\,0)=1>0$ und $f(1,\,-1)=1-6+1=-4<0$.
+::::
 
 ⁠**Kurz gesagt:** Quadratisches Ergänzen schreibt eine quadratische Form als Summe von Quadraten; die Vorzeichen der Faktoren vor den Quadraten zeigen, ob sie eine Schüssel, eine Rinne oder ein Sattel ist.
 

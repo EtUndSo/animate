@@ -44,7 +44,8 @@ $$(\varphi_1-\varphi_2)+(\varphi_2-\varphi_3)+\dots+(\varphi_N-\varphi_1)=0.$$
 已解网络中沿两个网孔的电位。沿箭头方向走时，正电压使电位降低；逆箭头方向走时使电位升高。左：电源升高，$R_\mathrm a$ 和 $R_\mathrm b$ 共降低 $4+5=9$ V。右边的绕行不经过电源：逆着电流经 $R_\mathrm b$ 返回的路径使电位升高。两次绕行都回到起始值。
 :::
 
-**例：求解网络。** 电阻上的电压箭头采用负载惯例，即从上到下，$U_\mathrm e$ 从 $K_2$ 到 $K_3$。$U_0=9$ V 从 $K_1$ 指向 $K_4$（发电机惯例）。由图 [7](knoten-zweige-maschen.html#abb-7) 的三个网孔得
+::::beispiel 求解网络
+电阻上的电压箭头采用负载惯例，即从上到下，$U_\mathrm e$ 从 $K_2$ 到 $K_3$。$U_0=9$ V 从 $K_1$ 指向 $K_4$（发电机惯例）。由图 [7](knoten-zweige-maschen.html#abb-7) 的三个网孔得
 
 $$M_1:\ U_\mathrm a+U_\mathrm b-U_0=0,\qquad M_2:\ U_\mathrm c+U_\mathrm d-U_0=0,\qquad M_3:\ U_\mathrm e+U_\mathrm d-U_\mathrm b=0.$$
 
@@ -60,6 +61,7 @@ $$7\,I_\mathrm a-5\,I_\mathrm e=9,\qquad4\,I_\mathrm c+I_\mathrm e=9,\qquad-5\,I
 | $U$（V） | 9 | 4 | 5 | 6 | 3 | 2 |
 
 相对于 $K_4$ 的电位分别为 9、5、3 和 0 V。**检验：**经过 $K_1$、$K_2$、$K_3$ 的第四个网孔必须自动成立：$U_\mathrm a+U_\mathrm e-U_\mathrm c=4+2-6=0$。能量：电源提供 $9\,\mathrm{V}\cdot4\,\mathrm{mA}=36$ mW，电阻吸收 $8+5+12+9+2=36$ mW。如果同样两点之间有两条路径，例如 $R_1$、$R_2$ 串联后与 $R_3$ 并排，则得 $U_1+U_2-U_3=0$。
+::::
 
 :::ltspice 验算网络
 ⁠**绘制：**电压源 `voltage` 取 `9`，从 `k1` 接地，因此 $K_4$ 就是接地点。`res`：`Ra 2k` 从 `k1` 接到 `k2`，`Rb 5k` 从 `k2` 接地，`Rc 3k` 从 `k1` 接到 `k3`，`Rd 1k` 从 `k3` 接地，`Re 2k` 从 `k2` 接到 `k3`。

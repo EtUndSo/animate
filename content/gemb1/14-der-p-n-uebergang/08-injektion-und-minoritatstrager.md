@@ -81,7 +81,11 @@ Im feldfreien Neutralgebiet gilt die Diffusionsgleichung aus [Teil 13](/wissen/
 Links Durchlass mit +0,5 V, rechts Sperrung mit $-0{,}2$ V, Maßstab µ m, die Zone ist nur noch die senkrechte Linie. Oben: Quasi-Fermi-Niveaus. In der Zone liegen sie flach, in den Neutralgebieten nähert sich das der Minoritäten dem der Majoritäten an. Unten: Dichten, punktiert die Gleichgewichtswerte. Bei Durchlass steigen die Minoritäten am Rand um den Faktor $2{,}5\cdot10^{8}$, bei Sperrung fallen sie fast auf null.
 :::
 
-**Beispiel.** Bei $U_\mathrm{pn}=0{,}5$ V ist $\mathrm{e}^{eU_\mathrm{pn}/(k_\mathrm BT)}=2{,}5\cdot10^{8}$. Am Rand ist $n_\mathrm p=4{,}0\cdot10^{11}\,\mathrm{cm^{-3}}$ und $p_\mathrm n=2{,}0\cdot10^{12}\,\mathrm{cm^{-3}}$ (Abb. [6](#abb-6)). Das sind $8\cdot10^{-6}$ von $N_\mathrm A$ und $2\cdot10^{-4}$ von $N_\mathrm D$, die Injektion ist schwach. $p_\mathrm n=0{,}1\,N_\mathrm D$ wird bei 0,66 V erreicht. **Grenzfälle:** Bei $U_\mathrm{pn}=0$ verschwindet der Überschuss. Für $U_\mathrm{pn}\ll-k_\mathrm BT/e$ ist die Randdichte praktisch null, der Überschuss ist $-n_\mathrm{p0}$ und $-p_\mathrm{n0}$: Die Zone saugt Minoritäten ab.
+::::beispiel
+Bei $U_\mathrm{pn}=0{,}5$ V ist $\mathrm{e}^{eU_\mathrm{pn}/(k_\mathrm BT)}=2{,}5\cdot10^{8}$. Am Rand ist $n_\mathrm p=4{,}0\cdot10^{11}\,\mathrm{cm^{-3}}$ und $p_\mathrm n=2{,}0\cdot10^{12}\,\mathrm{cm^{-3}}$ (Abb. [6](#abb-6)). Das sind $8\cdot10^{-6}$ von $N_\mathrm A$ und $2\cdot10^{-4}$ von $N_\mathrm D$, die Injektion ist schwach. $p_\mathrm n=0{,}1\,N_\mathrm D$ wird bei 0,66 V erreicht.
+::::
+
+⁠**Grenzfälle:** Bei $U_\mathrm{pn}=0$ verschwindet der Überschuss. Für $U_\mathrm{pn}\ll-k_\mathrm BT/e$ ist die Randdichte praktisch null, der Überschuss ist $-n_\mathrm{p0}$ und $-p_\mathrm{n0}$: Die Zone saugt Minoritäten ab.
 
 :::frage Elektronen laufen in das p-Gebiet. Lädt es sich dadurch nicht auf?
 Nein. Jeder Elektronenüberschuss zieht in weniger als 1 ps, der Zeit $\tau_\varepsilon$, gleich viele Löcher heran, also ist $\Delta p\approx\Delta n$. Das Neutralgebiet bleibt neutral. Für die Majoritäten ist dieser Zuwachs winzig ($8\cdot10^{-6}$ von $N_\mathrm A$), für die Minoritäten ist er alles. Deshalb zählt man nur die Minoritäten.

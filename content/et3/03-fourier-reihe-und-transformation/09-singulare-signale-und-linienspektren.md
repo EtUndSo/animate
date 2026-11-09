@@ -80,11 +80,13 @@ Dirac-Kamm mit $T=0{,}5$ s und sein Spektrum: wieder ein Kamm, mit dem Abstand
 Die Gleichung $\mathrm{j}2\pi f\,S(f)=1$ legt $S$ nur für $f\neq0$ fest. Bei $f=0$ steht links $0\cdot S(0)$, und ein Summand $c\,\delta(f)$ fällt wegen $f\delta(f)=0$ heraus. Das ist das Gegenstück dazu, dass Ableiten eine Konstante „vergisst“: $\varepsilon(t)$ und $\varepsilon(t)+b$ haben dieselbe Ableitung. Welche Konstante richtig ist, entscheidet der gerade Anteil: $\varepsilon$ hat den Mittelwert $\frac12$, also $c=\frac12$.
 :::
 
-**Beispiel: der eingeschaltete Kosinus.** $\varepsilon(t)\cos(2\pi Ft)$. Multiplikation wird Faltung, und die Faltung mit einem Dirac-Impuls verschiebt:
+::::beispiel der eingeschaltete Kosinus
+$\varepsilon(t)\cos(2\pi Ft)$. Multiplikation wird Faltung, und die Faltung mit einem Dirac-Impuls verschiebt:
 
 $$\Bigl[\tfrac12\delta(f)+\tfrac{1}{\mathrm{j}2\pi f}\Bigr]*\tfrac12\bigl[\delta(f+F)+\delta(f-F)\bigr] =\tfrac14\bigl[\delta(f+F)+\delta(f-F)\bigr]-\frac{\mathrm{j}}{4\pi}\Bigl[\frac{1}{f+F}+\frac{1}{f-F}\Bigr].$$
 
 Neben den halbierten Linien bei $\pm F$ entsteht ein breites Spektrum: Der Einschaltvorgang selbst enthält Frequenzen nahe $\pm F$.
+::::
 
 :::aufgabe Aufgabe 10 ★ Linienspektren
 <span class="anker" id="aufg-10"></span>

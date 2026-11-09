@@ -55,7 +55,8 @@ $$U_\mathrm{CC}-U_\mathrm{BE}=\Bigl(\frac{I_\mathrm{C}}{B}+I_\mathrm{C}\Bigr)R_\
 Auflösen nach $I_\mathrm{C}$ ergibt [(7.2)](#gl-7-2).
 :::
 
-**Beispiel.** Rechenmodell: $U_\mathrm{q}=2{,}7$ V, $R_\mathrm{i}=6{,}98$ k$\Omega$, $R_\mathrm{i}/B=35\,\Omega\ll1$ k$\Omega$. Damit ist $I_\mathrm{C}=2{,}1\,\mathrm{V}/1040\,\Omega=2{,}02$ mA und $U_\mathrm{CE}=12\,\mathrm{V}-6{,}06\,\mathrm{V}-2{,}03\,\mathrm{V}=3{,}91$ V, also aktiv. Das Basispotenzial liegt bei 2,63 V, der Teiler führt 300 µ A, das 30-Fache von $I_\mathrm{B}$.
+::::beispiel
+Rechenmodell: $U_\mathrm{q}=2{,}7$ V, $R_\mathrm{i}=6{,}98$ k$\Omega$, $R_\mathrm{i}/B=35\,\Omega\ll1$ k$\Omega$. Damit ist $I_\mathrm{C}=2{,}1\,\mathrm{V}/1040\,\Omega=2{,}02$ mA und $U_\mathrm{CE}=12\,\mathrm{V}-6{,}06\,\mathrm{V}-2{,}03\,\mathrm{V}=3{,}91$ V, also aktiv. Das Basispotenzial liegt bei 2,63 V, der Teiler führt 300 µ A, das 30-Fache von $I_\mathrm{B}$.
 
 | $I_\mathrm{C}$ bei | $B=100$ | $B=200$ | $B=400$ |
 |---|---|---|---|
@@ -63,7 +64,10 @@ Auflösen nach $I_\mathrm{C}$ ergibt [(7.2)](#gl-7-2).
 | Spannungsgegenkopplung ($R_\mathrm{B}=540$ k$\Omega$) | 1,35 mA | 1,99 mA | 2,62 mA |
 | Stromgegenkopplung | 1,94 mA | 2,02 mA | 2,06 mA |
 
-Auch die Temperatur wirkt kaum noch: 50 K Erwärmung senken $U_\mathrm{BE}$ um 0,1 V, $I_\mathrm{C}$ steigt mit [(7.1)](#gl-7-1) nur um 4,8 %. Bei fester Spannung $U_\mathrm{BE}$ wäre es das 47-Fache. Die Spannungsgegenkopplung erreicht weniger, denn hier ist $R_\mathrm{B}/B=2{,}7$ k$\Omega$ nicht klein gegen 3 k$\Omega$. Mit $R_\mathrm{B}=100$ k$\Omega$ schwankt $I_\mathrm{C}$ nur noch zwischen 2,83 mA und 3,50 mA, doch dann bleiben nur $U_\mathrm{CE}=2{,}2$ V. **Grenzfälle:** $R_\mathrm{E}\to0$ ergibt $I_\mathrm{C}=B(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{i}$, die Formel mit Basiswiderstand aus Stufe [5](der-arbeitspunkt.html#stufe-5). $B\to\infty$ ergibt $I_\mathrm{C}=(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{E}$.
+Auch die Temperatur wirkt kaum noch: 50 K Erwärmung senken $U_\mathrm{BE}$ um 0,1 V, $I_\mathrm{C}$ steigt mit [(7.1)](#gl-7-1) nur um 4,8 %. Bei fester Spannung $U_\mathrm{BE}$ wäre es das 47-Fache. Die Spannungsgegenkopplung erreicht weniger, denn hier ist $R_\mathrm{B}/B=2{,}7$ k$\Omega$ nicht klein gegen 3 k$\Omega$. Mit $R_\mathrm{B}=100$ k$\Omega$ schwankt $I_\mathrm{C}$ nur noch zwischen 2,83 mA und 3,50 mA, doch dann bleiben nur $U_\mathrm{CE}=2{,}2$ V.
+::::
+
+⁠**Grenzfälle:** $R_\mathrm{E}\to0$ ergibt $I_\mathrm{C}=B(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{i}$, die Formel mit Basiswiderstand aus Stufe [5](der-arbeitspunkt.html#stufe-5). $B\to\infty$ ergibt $I_\mathrm{C}=(U_\mathrm{q}-U_\mathrm{BE})/R_\mathrm{E}$.
 
 :::frage Was kostet der Emitterwiderstand?
 Zweierlei. Die Spannung an $R_\mathrm{E}$, hier 2 V, fehlt dem Kollektor für die Aussteuerung. Und die Gegenkopplung wirkt auch auf das Signal: Die Spannungsverstärkung sinkt stark (Stufe [10](drei-grundschaltungen.html#stufe-10)). Ein Kondensator parallel zu $R_\mathrm{E}$ wirkt für Wechselsignale wie ein Draht und nimmt den zweiten Nachteil weg.

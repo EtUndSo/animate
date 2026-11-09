@@ -47,7 +47,11 @@ Sin derivada: con $x=I/I_\mathrm{CC}$ es $P_\mathrm{L}=P_\mathrm{CC}\,x(1-x)$. E
 Como mecanismo: un incremento de corriente $\mathrm{d} I$ saca $U_\mathrm{q}\mathrm{d} I$ de la fuente, y las pérdidas crecen $2R_\mathrm{i}I\,\mathrm{d} I$. Con $I=I_\mathrm{CC}/2$, la pérdida se come el incremento: 9 V frente a $2\cdot2\,\Omega\cdot2{,}25\,\mathrm{A}=9$ V.
 :::
 
-**Ejemplo.** Para $R_\mathrm{L}=2\,\Omega$ son $I=2{,}25$ A, $U_\mathrm{L}=4{,}5$ V y $P_\mathrm{L}=10{,}125$ W, una cuarta parte de $P_\mathrm{CC}=40{,}5$ W. Las cargas de 0,5 $\Omega$ y 8 $\Omega$ dan ambas 6,48 W. En general, $\alpha$ y $1/\alpha$ dan la misma potencia, porque intercambian $x$ y $1-x$. **Casos límite:** Para $\alpha\to0$, la corriente es fija y $P_\mathrm{L}\approx P_\mathrm{CC}\,\alpha$. Para $\alpha\to\infty$, la tensión es fija y $P_\mathrm{L}\approx P_\mathrm{CC}/\alpha$.
+::::beispiel
+Para $R_\mathrm{L}=2\,\Omega$ son $I=2{,}25$ A, $U_\mathrm{L}=4{,}5$ V y $P_\mathrm{L}=10{,}125$ W, una cuarta parte de $P_\mathrm{CC}=40{,}5$ W. Las cargas de 0,5 $\Omega$ y 8 $\Omega$ dan ambas 6,48 W. En general, $\alpha$ y $1/\alpha$ dan la misma potencia, porque intercambian $x$ y $1-x$.
+::::
+
+⁠**Casos límite:** Para $\alpha\to0$, la corriente es fija y $P_\mathrm{L}\approx P_\mathrm{CC}\,\alpha$. Para $\alpha\to\infty$, la tensión es fija y $P_\mathrm{L}\approx P_\mathrm{CC}/\alpha$.
 
 :::ltspice Parábola y recta
 ⁠**Esquema:** `voltage` con 9 de `q` a masa, `res` con 2 de `q` a `a`. Como carga, una fuente de corriente `current` llamada `I1` de `a` a masa.

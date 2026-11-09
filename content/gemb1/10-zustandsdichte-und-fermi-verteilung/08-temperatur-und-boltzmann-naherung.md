@@ -43,8 +43,7 @@ $$f(E)=\frac1{1+\mathrm{e}^{(E-E_\mathrm F)/(k_\mathrm BT)}}\approx\mathrm{e}^{-
 
 ⁠**So liest man das:** Das ist die klassische __Maxwell-Boltzmann-Verteilung__. Sie gilt, weil die Plätze dort so dünn besetzt sind, dass sich zwei Elektronen fast nie um denselben Platz bewerben. Das Pauli-Prinzip spielt keine Rolle mehr. Der __Boltzmann-Faktor__ $\mathrm{e}^{-\Delta E/(k_\mathrm BT)}$ sagt, wie viel seltener ein Platz besetzt ist, der um $\Delta E$ höher liegt. **Warum exponentiell?** Das Gitter muss $\Delta E$ hergeben. Nach [(5.1)](die-fermi-verteilung.html#gl-5-1) sinkt seine Entropie um $\Delta E/T$, nach [(4.2)](anordnungen-zahlen.html#gl-4-2) also sein Gewicht um den Faktor $\mathrm{e}^{-\Delta E/(k_\mathrm BT)}$. Genau so selten ist das Ereignis. **Gültigkeit:** Der relative Fehler ist exakt $\mathrm{e}^{-(E-E_\mathrm F)/(k_\mathrm BT)}$, denn mit $u=(E-E_\mathrm F)/(k_\mathrm BT)$ ist $\mathrm{e}^{-u}\,(1+\mathrm{e}^{u})-1=\mathrm{e}^{-u}$.
 
-**Beispiel.**
-
+::::beispiel
 | $(E-E_\mathrm F)/(k_\mathrm BT)$ | 1 | 3 | 4,6 | 8 |
 |---|---|---|---|---|
 | $f$ | 0,269 | 0,0474 | 0,00995 | 0,00034 |
@@ -52,6 +51,7 @@ $$f(E)=\frac1{1+\mathrm{e}^{(E-E_\mathrm F)/(k_\mathrm BT)}}\approx\mathrm{e}^{-
 | relativer Fehler | 37 % | 5,0 % | 1,0 % | 0,03 % |
 
 Die Regel lautet also: Ab $E-E_\mathrm F>3k_\mathrm BT$ liegt der Fehler unter 5 %, ab $4{,}6\,k_\mathrm BT$ unter 1 %. Das sind bei 300 K 78 meV und 119 meV, bei 3 K ein Hundertstel davon. Ein Platz 0,1 eV über $E_\mathrm F$ hat bei 300 K die Besetzung 0,0205, die Näherung gibt 0,0209.
+::::
 
 :::frage Muss bei $E_\mathrm F$ ein Zustand liegen?
 Nein. $f(E)$ sagt, wie wahrscheinlich ein Platz dieser Energie besetzt wäre, falls es ihn gibt. Ohne Platz ist $D=0$, und das Produkt $D\,f$ ist null. $E_\mathrm F$ darf deshalb auch dort liegen, wo es keine Zustände gibt.

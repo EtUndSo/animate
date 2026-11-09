@@ -32,7 +32,11 @@ Man schreibt $\lim_{n\to\infty}a_n=a$ oder $a_n\to a$ für $n\to\infty$.
 Der Epsilon-Schlauch um $a=2$ mit $\varepsilon=0{,}5$ und den Gliedern der Pendelfolge. Das Glied $a_6=2{,}5$ liegt genau auf dem Rand und damit nicht im offenen Intervall, $a_7=1{,}571$ liegt drin. Ab $N_0=6$ bleiben alle Glieder im Schlauch, die grauen bis $n=6$ zählen nicht.
 :::
 
-**Beispiel.** Für die Pendelfolge ist $a_n-2=d_n$, und das ist nach Stufe [2](das-epsilon-spiel.html#stufe-2) eine Nullfolge. Also gilt $\lim a_n=2$, mit denselben Antworten wie im Spiel. Für die Summenfolge ist $2-s_n=(\frac12)^n$, eine geometrische Folge, also gilt $\lim s_n=2$. **Grenzfall:** Die konstante Folge $a_n=c$ hat den Grenzwert $c$ mit $N_0=1$ für jede Toleranz.
+::::beispiel
+Für die Pendelfolge ist $a_n-2=d_n$, und das ist nach Stufe [2](das-epsilon-spiel.html#stufe-2) eine Nullfolge. Also gilt $\lim a_n=2$, mit denselben Antworten wie im Spiel. Für die Summenfolge ist $2-s_n=(\frac12)^n$, eine geometrische Folge, also gilt $\lim s_n=2$.
+::::
+
+⁠**Grenzfall:** Die konstante Folge $a_n=c$ hat den Grenzwert $c$ mit $N_0=1$ für jede Toleranz.
 
 **Der Trick der Epsilontik.** Oft lässt sich $|a_n-a|<\varepsilon$ nicht bequem nach $n$ auflösen. Man sucht dann eine bekannte positive Nullfolge $y_n$ mit $|a_n-a|\le y_n$, etwa $y_n=\frac Cn$ oder $\frac C{\sqrt n}$. Nach $n$ aufgelöst wird nur $y_n<\varepsilon$. Gefragt ist ein $N_0$, nicht das kleinste. Beispiel: $f_n=\dfrac{2n^2+3}{n^2+n}$ hat den Grenzwert 2, denn für $n\ge2$ ist
 

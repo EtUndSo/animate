@@ -14,7 +14,7 @@ Ein Radar sendet einen Impuls und sucht im Empfangssignal sein Echo. Ein Mobilte
 
 
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 Rechteckimpuls $\operatorname{rect}(t)$, Dreieck $\Lambda(t)$, Exponentialimpuls $\varepsilon(t)\mathrm{e}^{-t}$ (die Impulsantwort des RC-Glieds mit $RC=1$ s) und die Folge $(1,2,1)$. Die Zahlen rechnet `rechnung_kap6.py` nach.

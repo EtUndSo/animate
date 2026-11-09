@@ -40,7 +40,9 @@ $$\eta=1-x,\qquad\frac{P_\mathrm{L}}{P_\mathrm{SC}}=x\,\eta=x(1-x). \tag{7.1}$$
 | 电流 | $R_\mathrm{L}\ll R_\mathrm{i}$ | $I\approx I_\mathrm{SC}$，几乎与负载无关 | 接近 0 | 电流表、电流源 |
 | 功率 | $R_\mathrm{L}=R_\mathrm{i}$ | $P_\mathrm{L}$ 最大 | $\frac12$ | 天线、信号处理 |
 
-**例。** 在这块电池上，$R_\mathrm{L}=200\,\Omega$ 时电压为 8.91 V，是 $U_\mathrm{q}$ 的 99 %。$R_\mathrm{L}=0.02\,\Omega$ 时电流为 4.46 A，是 $I_\mathrm{SC}$ 的 99 %。从 2 $\Omega$ 换到 8 $\Omega$ 损失 36 % 的功率，并把电池中的热量降到 16 %。
+::::beispiel
+在这块电池上，$R_\mathrm{L}=200\,\Omega$ 时电压为 8.91 V，是 $U_\mathrm{q}$ 的 99 %。$R_\mathrm{L}=0.02\,\Omega$ 时电流为 4.46 A，是 $I_\mathrm{SC}$ 的 99 %。从 2 $\Omega$ 换到 8 $\Omega$ 损失 36 % 的功率，并把电池中的热量降到 16 %。
+::::
 
 ⁠**电力工程。**功率在 kW 量级，电源中的热量既费钱又危及电源。人们要求高效率，即 $R_\mathrm{i}\ll R_\mathrm{L}$。一块 18 V、60 m$\Omega$ 的电动工具电池在 120 A 启动时仍能达到 $\eta=1-7.2\,\mathrm{V}/18\,\mathrm{V}=60$ %，内部产生 $(120\,\mathrm{A})^2\cdot60\,\mathrm{m\Omega}=864$ W。一盏 1.8 W 的工作灯相当于 180 $\Omega$，$\eta=180/180.06=99.97$ %。在这里，匹配意味着电池中有 1350 W 的热量。
 
@@ -64,7 +66,11 @@ $$P_\mathrm{q}=\frac{U_\mathrm{q}^2}{R_\mathrm{tot}}=\frac{U_\mathrm{q}^2\,(2R_\
 由 $R_\mathrm{L}=R_\mathrm{q}R/(R_\mathrm{q}+R)$ 得 $R\parallel R_\mathrm{L}=R^2R_\mathrm{q}/(R^2+2R_\mathrm{q}R)=R\,R_\mathrm{q}/(R+2R_\mathrm{q})$。于是 $R_\mathrm{tot}=2R_\mathrm{q}(R_\mathrm{q}+R)/(2R_\mathrm{q}+R)$。一般地，分压公式给出 $U_\mathrm{L}=U_\mathrm{q}(R\parallel R_\mathrm{L})/R_\mathrm{tot}=U_\mathrm{q}\,R\,R_\mathrm{L}/\bigl(R_\mathrm{q}(R+R_\mathrm{L})+R\,R_\mathrm{L}\bigr)$。代入即得式 [(7.2)](#gl-7-2) 中的公式。于是 $P_\mathrm{L}=U_\mathrm{L}^2(R_\mathrm{q}+R)/(R_\mathrm{q}R)$。$P_\mathrm{L}$ 与 $P_\mathrm{q}$ 之商约简后即为式 [(7.3)](#gl-7-3)。
 :::
 
-**例。** 对于 $U_\mathrm{q}=18$ V，$R_\mathrm{q}=6\,\Omega$，$R=3\,\Omega$，有 $R_\mathrm{i}=2\,\Omega$，$U_\mathrm{OC}=6$ V。当 $R_\mathrm{L}=2\,\Omega$ 时，负载上为 3 V，得到 4.5 W。流过 $R_\mathrm{q}$ 的电流为 2.5 A，其中 1 A 流过 $R$。这样 $R_\mathrm{q}$ 中为 37.5 W，$R$ 中为 3 W，加上负载，$P_\mathrm{q}=45$ W，$\eta=10$ %。等效电源看起来显示 50 %，因为它对内部什么也没有说明。流过 $R$ 的电流在没有负载时也存在，开路时网络就已经以 36 W 发热。**极限情况：**当 $R\to\infty$ 时，这条支路不复存在，式 [(7.3)](#gl-7-3) 又给出 $\eta=\frac12$。
+::::beispiel
+对于 $U_\mathrm{q}=18$ V，$R_\mathrm{q}=6\,\Omega$，$R=3\,\Omega$，有 $R_\mathrm{i}=2\,\Omega$，$U_\mathrm{OC}=6$ V。当 $R_\mathrm{L}=2\,\Omega$ 时，负载上为 3 V，得到 4.5 W。流过 $R_\mathrm{q}$ 的电流为 2.5 A，其中 1 A 流过 $R$。这样 $R_\mathrm{q}$ 中为 37.5 W，$R$ 中为 3 W，加上负载，$P_\mathrm{q}=45$ W，$\eta=10$ %。等效电源看起来显示 50 %，因为它对内部什么也没有说明。流过 $R$ 的电流在没有负载时也存在，开路时网络就已经以 36 W 发热。
+::::
+
+⁠**极限情况：**当 $R\to\infty$ 时，这条支路不复存在，式 [(7.3)](#gl-7-3) 又给出 $\eta=\frac12$。
 
 :::frage 最大值处 $\eta=50$ % 是否意味着匹配时我“损失”了一半能量？
 对于有真实内阻的电源，是的，它和负载发热一样多。功率小时这可以接受。在能量昂贵或电源敏感的场合，工作点要远在最大值的右侧。

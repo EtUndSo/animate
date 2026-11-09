@@ -33,7 +33,9 @@ Gesetzestexte wirken auf den ersten Blick wie lange, verschachtelte Sätze. Sie 
 
 **Vergehen und Versuch.** Taten, die im Mindestmaß mit weniger als einem Jahr Freiheitsstrafe oder mit Geldstrafe bedroht sind, heißen __Vergehen__, die übrigen Verbrechen (§ 12 StGB). Alle Vorschriften dieses Abschnitts beschreiben Vergehen. Ein __Versuch__ liegt vor, wenn jemand nach seiner Vorstellung unmittelbar ansetzt, die Tat zu begehen, sie aber nicht vollendet. Der Versuch eines Vergehens ist nur strafbar, wenn das Gesetz es ausdrücklich bestimmt (§ 23 Abs. 1 StGB). Bei jeder Vorschrift muss man deshalb nachsehen, ob sie einen Satz „Der Versuch ist strafbar“ enthält.
 
-⁠**Beispiel: der Diebstahl.** § 242 Abs. 1 StGB lautet: „Wer eine fremde bewegliche Sache einem anderen in der Absicht wegnimmt, die Sache sich oder einem Dritten rechtswidrig zuzueignen, wird mit Freiheitsstrafe bis zu fünf Jahren oder mit Geldstrafe bestraft.“ Die Merkmale sind: eine Sache, beweglich, fremd, Wegnahme, Absicht der Zueignung, Vorsatz. Wer ein fremdes Fahrrad nimmt, eine Runde fährt und es zurückstellt, will es sich nicht zueignen; ein Merkmal fehlt, ein Diebstahl ist es nicht. Straflos ist er trotzdem nicht, denn für genau diesen Fall gibt es eine eigene Vorschrift, den unbefugten Gebrauch eines Fahrzeugs (§ 248b StGB), und Fahrräder sind dort ausdrücklich genannt. Fehlt ein Merkmal, entfällt also nur diese eine Vorschrift.
+::::beispiel der Diebstahl
+§ 242 Abs. 1 StGB lautet: „Wer eine fremde bewegliche Sache einem anderen in der Absicht wegnimmt, die Sache sich oder einem Dritten rechtswidrig zuzueignen, wird mit Freiheitsstrafe bis zu fünf Jahren oder mit Geldstrafe bestraft.“ Die Merkmale sind: eine Sache, beweglich, fremd, Wegnahme, Absicht der Zueignung, Vorsatz. Wer ein fremdes Fahrrad nimmt, eine Runde fährt und es zurückstellt, will es sich nicht zueignen; ein Merkmal fehlt, ein Diebstahl ist es nicht. Straflos ist er trotzdem nicht, denn für genau diesen Fall gibt es eine eigene Vorschrift, den unbefugten Gebrauch eines Fahrzeugs (§ 248b StGB), und Fahrräder sind dort ausdrücklich genannt. Fehlt ein Merkmal, entfällt also nur diese eine Vorschrift.
+::::
 
 ⁠**Kurz gesagt:** Ein Straftatbestand ist eine Liste von Merkmalen, die alle erfüllt sein müssen; strafbar ist nur Vorsatz, und der Versuch eines Vergehens nur, wenn das Gesetz es sagt.
 
@@ -101,7 +103,9 @@ Die Merkmale zum Abhaken:
 
 Der Strafrahmen beträgt bis zu drei Jahre Freiheitsstrafe oder Geldstrafe. Einen Satz über den Versuch enthält § 202a nicht; der Versuch ist also nicht strafbar.
 
-⁠**Beispiel:** Ein Student errät das Passwort zum E-Mail-Postfach seiner früheren Freundin und liest ihre Nachrichten. Alle Merkmale sind erfüllt: Daten, nicht für ihn bestimmt, durch ein Passwort gesichert, überwunden, Zugang verschafft, ohne ihr Einverständnis, mit Vorsatz. Dass er „nur nachsehen“ wollte und nichts verändert hat, ändert daran nichts.
+::::beispiel
+Ein Student errät das Passwort zum E-Mail-Postfach seiner früheren Freundin und liest ihre Nachrichten. Alle Merkmale sind erfüllt: Daten, nicht für ihn bestimmt, durch ein Passwort gesichert, überwunden, Zugang verschafft, ohne ihr Einverständnis, mit Vorsatz. Dass er „nur nachsehen“ wollte und nichts verändert hat, ändert daran nichts.
+::::
 
 ⁠**Kurz gesagt:** Wer unbefugt eine Zugangssicherung überwindet und sich so Zugang zu fremden, gesicherten Daten verschafft, macht sich nach § 202a StGB strafbar.
 
@@ -131,7 +135,9 @@ Die Merkmale: Daten, nicht für den Täter bestimmt; technische Mittel, etwa ein
 
 Der letzte Halbsatz macht die Vorschrift __subsidiär__: Sie tritt zurück, wenn dieselbe Tat nach einer anderen Vorschrift schwerer bestraft wird.
 
-⁠**Beispiel:** Ein Gast zeichnet im offenen Funknetz eines Cafés den Verkehr der anderen Gäste auf, um ihre Nachrichten zu lesen. Die Übermittlung zwischen einem Handy und dem Zugangspunkt ist nicht an die Allgemeinheit gerichtet. Nach der Begründung des Gesetzes kommt es für die Nichtöffentlichkeit nicht auf Art oder Inhalt der Daten an, sondern auf die Art des Übertragungsvorgangs, und eine Verschlüsselung ist nicht nötig. Dass das Funknetz kein Passwort hat, macht die Übermittlung deshalb nicht ohne Weiteres öffentlich. Gerichtlich abschließend geklärt ist gerade der Fall des offenen Funknetzes nicht, aber vieles spricht dafür, dass der Gast § 202b erfüllt.
+::::beispiel
+Ein Gast zeichnet im offenen Funknetz eines Cafés den Verkehr der anderen Gäste auf, um ihre Nachrichten zu lesen. Die Übermittlung zwischen einem Handy und dem Zugangspunkt ist nicht an die Allgemeinheit gerichtet. Nach der Begründung des Gesetzes kommt es für die Nichtöffentlichkeit nicht auf Art oder Inhalt der Daten an, sondern auf die Art des Übertragungsvorgangs, und eine Verschlüsselung ist nicht nötig. Dass das Funknetz kein Passwort hat, macht die Übermittlung deshalb nicht ohne Weiteres öffentlich. Gerichtlich abschließend geklärt ist gerade der Fall des offenen Funknetzes nicht, aber vieles spricht dafür, dass der Gast § 202b erfüllt.
+::::
 
 ⁠**Kurz gesagt:** Wer mit technischen Mitteln fremde Daten aus einer nichtöffentlichen Übermittlung oder aus der Abstrahlung eines Geräts abgreift, macht sich nach § 202b StGB strafbar, auch ohne Sicherung.
 
@@ -177,7 +183,9 @@ Eine solche Vorschrift, die schon die Vorbereitung einer Tat bestraft, heißt __
 
 Zwei Merkmale sind entscheidend: Die Handlung muss eine Straftat nach § 202a oder § 202b *vorbereiten*, und bei Programmen kommt es auf ihren *Zweck* an.
 
-⁠**Beispiel:** Jemand schreibt ein Programm, das Passwörter von Nutzern eines Online-Spiels abgreift, und verkauft es in einem Forum mit dem Satz „Damit kommst du in jedes fremde Konto“. Zweck des Programms ist offensichtlich das Ausspähen von Daten, und mit dem Verkauf bereitet er solche Taten anderer vor.
+::::beispiel
+Jemand schreibt ein Programm, das Passwörter von Nutzern eines Online-Spiels abgreift, und verkauft es in einem Forum mit dem Satz „Damit kommst du in jedes fremde Konto“. Zweck des Programms ist offensichtlich das Ausspähen von Daten, und mit dem Verkauf bereitet er solche Taten anderer vor.
+::::
 
 ⁠**Kurz gesagt:** § 202c StGB bestraft schon das Herstellen und Weitergeben von Passwörtern und von Programmen, deren Zweck das Ausspähen oder Abfangen von Daten ist.
 
@@ -195,7 +203,9 @@ Wer gestohlene Daten nicht selbst erbeutet, sondern nur weiterverwendet, ist ebe
 
 Nach Absatz 2 darf die Strafe nicht schwerer sein als die für die ursprüngliche Tat. Absatz 3 nimmt Handlungen aus, die ausschließlich rechtmäßigen dienstlichen oder beruflichen Pflichten dienen, zum Beispiel die Arbeit von Journalisten mit zugespielten Daten.
 
-⁠**Beispiel:** Nach einem Einbruch bei einem Onlineshop wird eine Datei mit 200 000 Kundenkonten in einem Forum zum Kauf angeboten. Wer sie kauft, um die Zugangsdaten zu verkaufen oder selbst zu benutzen, erfüllt § 202d.
+::::beispiel
+Nach einem Einbruch bei einem Onlineshop wird eine Datei mit 200 000 Kundenkonten in einem Forum zum Kauf angeboten. Wer sie kauft, um die Zugangsdaten zu verkaufen oder selbst zu benutzen, erfüllt § 202d.
+::::
 
 Für das Üben folgt daraus eine klare Regel: Man besorgt sich keine geleakten Datenbanken oder Passwortlisten, auch nicht „zum Üben“, und gibt keine weiter. Für Übungen gibt es frei verfügbare, eigens dafür erstellte Daten.
 
@@ -219,7 +229,9 @@ Die Vorschriften bis hierher schützen die Vertraulichkeit. § 303a schützt di
 
 Hier steht der Satz über den Versuch: Schon wer ansetzt, fremde Daten zu verändern, und dabei scheitert, macht sich strafbar. Eine besondere Sicherung der Daten verlangt § 303a nicht.
 
-⁠**Beispiele:** Eine Erpressungssoftware verschlüsselt fremde Dateien; das macht sie unbrauchbar. Ein Angreifer ändert die Startseite einer Vereinswebseite, um eine Botschaft zu hinterlassen. Ein Eindringling löscht die Aufzeichnungen über seine Anmeldungen, um seine Spuren zu verwischen.
+::::beispiel [Beispiele]
+Eine Erpressungssoftware verschlüsselt fremde Dateien; das macht sie unbrauchbar. Ein Angreifer ändert die Startseite einer Vereinswebseite, um eine Botschaft zu hinterlassen. Ein Eindringling löscht die Aufzeichnungen über seine Anmeldungen, um seine Spuren zu verwischen.
+::::
 
 ⁠**Kurz gesagt:** Wer fremde Daten rechtswidrig löscht, unterdrückt, unbrauchbar macht oder verändert, macht sich nach § 303a StGB strafbar, schon beim Versuch.
 
@@ -263,7 +275,9 @@ Die weiteren Absätze verschärfen und erweitern: Ist die Datenverarbeitung für
 
 Nummer 2 erfasst einen Angriff, der aus lauter für sich harmlosen Anfragen besteht. Ein Angriff, der einen Dienst durch massenhafte Anfragen lahmlegt, heißt __Überlastungsangriff__ (englisch *denial of service*, DoS). Kommen die Anfragen von vielen Rechnern zugleich, spricht man von einem verteilten Überlastungsangriff (DDoS).
 
-⁠**Beispiel:** Ein Spieler wird aus einem Online-Spiel ausgeschlossen. Aus Ärger mietet er für 20 € in einem Forum einen Überlastungsangriff auf die Server des Spielebetreibers, die daraufhin einen Abend lang ausfallen. Er übermittelt Daten in der Absicht, dem Betreiber zu schaden, und stört eine Datenverarbeitung, die für dieses Unternehmen wesentlich ist: § 303b Abs. 1 Nr. 2, wegen des fremden Unternehmens mit dem Strafrahmen von Absatz 2. Die Ausrede „Ich wollte nur testen, wie viel der Server aushält“ hilft nicht, wenn die Absicht zu schaden nachweisbar ist; und ohne Erlaubnis des Betreibers darf man auch einen gut gemeinten Belastungstest nicht durchführen.
+::::beispiel
+Ein Spieler wird aus einem Online-Spiel ausgeschlossen. Aus Ärger mietet er für 20 € in einem Forum einen Überlastungsangriff auf die Server des Spielebetreibers, die daraufhin einen Abend lang ausfallen. Er übermittelt Daten in der Absicht, dem Betreiber zu schaden, und stört eine Datenverarbeitung, die für dieses Unternehmen wesentlich ist: § 303b Abs. 1 Nr. 2, wegen des fremden Unternehmens mit dem Strafrahmen von Absatz 2. Die Ausrede „Ich wollte nur testen, wie viel der Server aushält“ hilft nicht, wenn die Absicht zu schaden nachweisbar ist; und ohne Erlaubnis des Betreibers darf man auch einen gut gemeinten Belastungstest nicht durchführen.
+::::
 
 ⁠**Kurz gesagt:** Wer eine wesentliche Datenverarbeitung erheblich stört, etwa durch einen Überlastungsangriff, begeht Computersabotage; gegen Betriebe und Behörden drohen bis zu fünf Jahre, schon der Versuch ist strafbar.
 
@@ -281,7 +295,9 @@ Die letzte Vorschrift schützt nicht Daten, sondern Vermögen, und zwar gegen T�
 
 Über einen Verweis auf den Betrug (Absatz 2) ist auch hier der Versuch strafbar. Absatz 3 bestraft die Vorbereitung, etwa das Herstellen oder Weitergeben von Programmen zu diesem Zweck, mit bis zu drei Jahren.
 
-⁠**Beispiel:** Ein Täter hat durch Phishing die Zugangsdaten zum Online-Banking eines Opfers erbeutet und überweist damit 2 000 € auf ein eigenes Konto. Er verwendet Daten unbefugt, beeinflusst so das Ergebnis der Überweisung im Rechner der Bank und schädigt das Vermögen des Opfers, um sich zu bereichern.
+::::beispiel
+Ein Täter hat durch Phishing die Zugangsdaten zum Online-Banking eines Opfers erbeutet und überweist damit 2 000 € auf ein eigenes Konto. Er verwendet Daten unbefugt, beeinflusst so das Ergebnis der Überweisung im Rechner der Bank und schädigt das Vermögen des Opfers, um sich zu bereichern.
+::::
 
 ⁠**Kurz gesagt:** Wer durch Manipulation einer Datenverarbeitung einen anderen um Geld bringt, um sich zu bereichern, begeht Computerbetrug.
 

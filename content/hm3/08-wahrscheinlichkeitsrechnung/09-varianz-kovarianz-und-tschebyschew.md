@@ -28,7 +28,11 @@ $$\operatorname{Var}(X)=\mathbb{E}(X^2)-\mathbb{E}(X)^2. \tag{8.1}$$
 
 Dabei ist $\mathbb{E}(X^2)=\sum_iX(\omega_i)^2\,\mathbb{P}(\omega_i)$ im diskreten Fall und $\int_\mathbb{R} x^2f_X(x)\,\mathrm{d} x$ im absolut stetigen Fall nach [(7.3)](der-erwartungswert.html#gl-7-3).
 
-⁠**Beispiele:** $\mathbb{E}(W_1^2)=\frac{30}4$, also $\operatorname{Var}(W_1)=\frac{15}2-\frac{25}4=\frac54$. Die LED hat $\operatorname{Var}(X)=8-4=4$, also $\sigma_X=2$. Die Gleichverteilung auf $[a,b]$ hat $\operatorname{Var}(X)=(b-a)^2/12$. **Grenzfall:** Für $X\equiv c$ ist die Varianz null.
+::::beispiel [Beispiele]
+$\mathbb{E}(W_1^2)=\frac{30}4$, also $\operatorname{Var}(W_1)=\frac{15}2-\frac{25}4=\frac54$. Die LED hat $\operatorname{Var}(X)=8-4=4$, also $\sigma_X=2$. Die Gleichverteilung auf $[a,b]$ hat $\operatorname{Var}(X)=(b-a)^2/12$.
+::::
+
+⁠**Grenzfall:** Für $X\equiv c$ ist die Varianz null.
 
 :::herleitung Poisson und Normalverteilung
 Poisson: Mit $k^2=k(k-1)+k$ und $\mathbb{E}(X)=\lambda$ ist
@@ -60,7 +64,11 @@ $$\operatorname{Cov}(X,Y):=\mathbb{E}\bigl[(X-\mathbb{E}(X))(Y-\mathbb{E}(Y))\bi
 Es ist $(cX-c\mu)^2=c^2(X-\mu)^2$. Für die Summe bilde mit $a=X-\mathbb{E}(X)$, $b=Y-\mathbb{E}(Y)$ den Erwartungswert von $(a+b)^2=a^2+b^2+2ab$. Die zweite Form von $\operatorname{Cov}$ folgt durch Ausmultiplizieren.
 :::
 
-⁠**So liest man das:** Die Varianz ist quadratisch, nicht linear. $\operatorname{Cov}(X,Y)>0$ heißt, dass $X$ und $Y$ tendenziell gemeinsam über oder unter ihrem Mittel liegen. **Beispiel:** $\mathbb{E}(W_1W_2)=\frac1{16}\sum_{i,j}ij=\frac{25}4=\mathbb{E}(W_1)\,\mathbb{E}(W_2)$, also $\operatorname{Cov}(W_1,W_2)=0$ und $\operatorname{Var}(S)=\frac52$. Dagegen ist $\operatorname{Cov}(W_1,S)=\operatorname{Var}(W_1)=\frac54$: Eine hohe erste Augenzahl macht eine hohe Summe wahrscheinlicher.
+⁠**So liest man das:** Die Varianz ist quadratisch, nicht linear. $\operatorname{Cov}(X,Y)>0$ heißt, dass $X$ und $Y$ tendenziell gemeinsam über oder unter ihrem Mittel liegen.
+
+::::beispiel
+$\mathbb{E}(W_1W_2)=\frac1{16}\sum_{i,j}ij=\frac{25}4=\mathbb{E}(W_1)\,\mathbb{E}(W_2)$, also $\operatorname{Cov}(W_1,W_2)=0$ und $\operatorname{Var}(S)=\frac52$. Dagegen ist $\operatorname{Cov}(W_1,S)=\operatorname{Var}(W_1)=\frac54$: Eine hohe erste Augenzahl macht eine hohe Summe wahrscheinlicher.
+::::
 
 :::satz Satz 8.3 (Tschebyschew-Ungleichung)
 <span class="anker" id="satz-8-3"></span>
@@ -79,11 +87,15 @@ $$\begin{aligned} \sigma^2=\sum_i(x_i-\mu)^2\,\mathbb{P}(X=x_i)&\ge\sum_{|x_i-\m
 Im absolut stetigen Fall steht statt der Summen $\int(x-\mu)^2f(x)\,\mathrm{d} x$, und derselbe Schluss gilt.
 :::
 
-⁠**So liest man das:** Für große $\varepsilon$ fällt die Schranke quadratisch. Für $\varepsilon\le\sigma$ ist sie mindestens 1 und sagt nichts, denn $\mathbb{P}(A)\le1$ gilt immer. Der Grenzfall $\varepsilon=\sigma$ zeigt, dass $\sigma$ die Größe der typischen Abweichung angibt. **Beispiel:** Für die LED ist $\mathbb{P}(|X-2|\ge4)=\mathbb{P}(X\ge6)=\mathrm{e}^{-3}\approx0{,}05$, die Schranke gibt $\frac4{16}=0{,}25$. Sie ist grob (Abb. [8](#abb-8)), gilt dafür aber für jede Verteilung.
+⁠**So liest man das:** Für große $\varepsilon$ fällt die Schranke quadratisch. Für $\varepsilon\le\sigma$ ist sie mindestens 1 und sagt nichts, denn $\mathbb{P}(A)\le1$ gilt immer. Der Grenzfall $\varepsilon=\sigma$ zeigt, dass $\sigma$ die Größe der typischen Abweichung angibt.
+
+::::beispiel
+Für die LED ist $\mathbb{P}(|X-2|\ge4)=\mathbb{P}(X\ge6)=\mathrm{e}^{-3}\approx0{,}05$, die Schranke gibt $\frac4{16}=0{,}25$. Sie ist grob (Abb. [8](#abb-8)), gilt dafür aber für jede Verteilung.
 
 :::abbildung hm3/k8tscheb 8
 Abweichung um mindestens $k\sigma$: die Schranke $1/k^2$ und die wahren Werte für Normalverteilung und LED. Unter $k=1$ sagt die Schranke nichts.
 :::
+::::
 
 :::aufgabe Aufgabe 12 ★★ Schranke und Wirklichkeit
 <span class="anker" id="aufg-12"></span>

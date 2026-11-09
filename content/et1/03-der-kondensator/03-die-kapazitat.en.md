@@ -30,7 +30,9 @@ $$C=\frac{Q}{U},\qquad Q=C\,U,\qquad[C]=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm 
 Left: Twice the charge gives field lines twice as dense and thus twice the voltage. Right: The charge grows in proportion to the voltage; the slope of the line is the capacitance. The dots belong to 9 V.
 :::
 
-**Example.** The pair of plates has $C=29.5$ pF (Stage [4](plattenkondensator-und-dielektrikum.html#stufe-4)). At 9 V it carries $Q=29.5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC, which is $1.66\cdot10^{9}$ electrons. A 1 mm thick copper plate of this area contains $8.5\cdot10^{23}$ free electrons. So only one in $5\cdot10^{14}$ moves, and these sit on the inner side of the plate. The metal stays practically unchanged. The capacitor of the RC circuit carries $Q=900\,\mu\text{C}$ at 9 V, 3.4 million times more.
+::::beispiel
+The pair of plates has $C=29.5$ pF (Stage [4](plattenkondensator-und-dielektrikum.html#stufe-4)). At 9 V it carries $Q=29.5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC, which is $1.66\cdot10^{9}$ electrons. A 1 mm thick copper plate of this area contains $8.5\cdot10^{23}$ free electrons. So only one in $5\cdot10^{14}$ moves, and these sit on the inner side of the plate. The metal stays practically unchanged. The capacitor of the RC circuit carries $Q=900\,\mu\text{C}$ at 9 V, 3.4 million times more.
+::::
 
 ⁠**Limiting case:** For $U=0$, $Q=0$: without voltage nothing is separated. For the same charge, the smaller capacitor shows the larger voltage.
 

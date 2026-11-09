@@ -73,7 +73,11 @@ Die Mittelwerte __konvergieren stochastisch__ gegen $\mu$: Wiederholt man das Ge
 <span class="anker" id="gl-11-6"></span>
 $$\lim_{n\to\infty}\mathbb{P}\Bigl(\Bigl|\frac{S_n-\mathbb{E}(S_n)}n\Bigr|\ge\varepsilon\Bigr)=0, \tag{11.6}$$
 
-denn $\operatorname{Var}(S_n/n)\le M/n$. **Beispiel:** Für 1000 Würfe eines Vierer-Würfels ist $\mathbb{P}(|\overline X_{1000}-\frac52|\ge0{,}1)\le\frac{5/4}{1000\cdot0{,}01}=0{,}125$.
+denn $\operatorname{Var}(S_n/n)\le M/n$.
+
+::::beispiel
+Für 1000 Würfe eines Vierer-Würfels ist $\mathbb{P}(|\overline X_{1000}-\frac52|\ge0{,}1)\le\frac{5/4}{1000\cdot0{,}01}=0{,}125$.
+::::
 
 **Das starke Gesetz.** Das schwache Gesetz spricht über viele Reihen fester Länge. Wirft man aber eine einzige Münze immer weiter, erwartet man, dass genau diese Folge der Mittelwerte konvergiert: $\overline X_n(\omega)\to\mu$ (Abb. [11](#abb-11)). Zufallsvariablen $X_i$ heißen __identisch verteilt__, wenn ihre Verteilungsfunktionen gleich sind, im diskreten Fall also die $p_{X_i}$, im absolut stetigen die $f_{X_i}$ im Sinne der Integration. Dann sind auch Erwartungswerte und Varianzen gleich, falls sie existieren. Unabhängig und identisch verteilt kürzt man __i.i.d.__ ab (engl. independent identically distributed).
 

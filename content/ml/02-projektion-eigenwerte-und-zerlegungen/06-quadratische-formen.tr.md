@@ -19,7 +19,7 @@ Doğrusal fonksiyonlardan sonra çok değişkenli fonksiyonların en basitleri k
 
 <span class="anker" id="stufe-5-1"></span>
 
-Temeller 1, Kesim 8.4'te tek çıkışlı her doğrusal fonksiyon, bileşenlerin bir $\mathbf{w}^{\top}\mathbf{x}$ ağırlıklı toplamıydı. Basitlikte bundan sonra gelen fonksiyon türü, bileşenlerin ikişerli çarpımlarını toplar: $x_1^2$ gibi kareleri ve $x_1x_2$ gibi karma terimleri. Elektrik mühendisliğinden bir örnek, endüktansları $L_1$, $L_2$ ve karşılıklı endüktansı $M$ olan, içlerinden $i_1$ ve $i_2$ akımları geçen iki kuplajlı bobinin manyetik enerjisidir:
+[Temeller 1, Kesim 8.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4)'te tek çıkışlı her doğrusal fonksiyon, bileşenlerin bir $\mathbf{w}^{\top}\mathbf{x}$ ağırlıklı toplamıydı. Basitlikte bundan sonra gelen fonksiyon türü, bileşenlerin ikişerli çarpımlarını toplar: $x_1^2$ gibi kareleri ve $x_1x_2$ gibi karma terimleri. Elektrik mühendisliğinden bir örnek, endüktansları $L_1$, $L_2$ ve karşılıklı endüktansı $M$ olan, içlerinden $i_1$ ve $i_2$ akımları geçen iki kuplajlı bobinin manyetik enerjisidir:
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -42,11 +42,13 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 
 $\mathbf{x}$ iki katına çıkarılırsa $f$ dört katına çıkar: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. Adı buradan gelir.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ olur. $\mathbf{x}=(1,\,-1)^{\top}$ noktasında $f=5-4+2=3$; sağlama olarak $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ ve $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Şekil [14](#abb-14), [(5.1)](#gl-5-1) çift toplamını bu noktada terim terim hesaplıyor. $(1,\,1)^{\top}$ noktasında $f=11$, orijinde $f=0$. İki bobinin enerjisi $\mathbf i=(i_1,\,i_2)^{\top}$ akım vektörüyle $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ olur; bu matrise endüktans matrisi denir.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ olur. $\mathbf{x}=(1,\,-1)^{\top}$ noktasında $f=5-4+2=3$; sağlama olarak $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ ve $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Şekil [14](#abb-14), [(5.1)](#gl-5-1) çift toplamını bu noktada terim terim hesaplıyor. $(1,\,1)^{\top}$ noktasında $f=11$, orijinde $f=0$. İki bobinin enerjisi $\mathbf i=(i_1,\,i_2)^{\top}$ akım vektörüyle $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ olur; bu matrise endüktans matrisi denir.
 
 :::abbildung ml/k2rqf 14
 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin kuadratik formu $\mathbf{x}=(1,-1)^{\top}$ noktasında çift toplam olarak: $\mathbf{A}$ matrisinin her elemanı için bir tane olmak üzere dört terim.
 :::
+::::
 
 ⁠**Kısacası:** Bir $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ kuadratik formu, bileşenlerin karelerinden ve karma çarpımlarından oluşan, ağırlıkları $\mathbf{A}$ matrisinin elemanları olan bir toplamdır.
 
@@ -71,7 +73,9 @@ $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ sayısı kendi devriğine eşittir, yani
 
 $\frac12(\mathbf{A}+\mathbf{A}^{\top})$ matrisi simetriktir. Bu yüzden bu bölümde bir kuadratik formun matrisi her zaman simetriktir. Bu matris şöyle okunur: Köşegende karelerin katsayıları, köşegen dışında ise her seferinde karma terimin katsayısının yarısı durur.
 
-⁠**Sayısal örnek:** $3x_1^2-6x_1x_2+x_2^2$ formunun simetrik matrisi $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$ olur. $\mathbb{R}^3$ uzayındaki $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ formunun matrisi $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$ olur; $2x_1x_3$ karma terimi $(1,3)$ ve $(3,1)$ elemanlarına paylaştırılır.
+::::beispiel [Sayısal örnek]
+$3x_1^2-6x_1x_2+x_2^2$ formunun simetrik matrisi $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$ olur. $\mathbb{R}^3$ uzayındaki $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ formunun matrisi $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$ olur; $2x_1x_3$ karma terimi $(1,3)$ ve $(3,1)$ elemanlarına paylaştırılır.
+::::
 
 ⁠**Kısacası:** Bir kuadratik form matrisinin yalnızca simetrik kısmını görür; bu yüzden her zaman simetrik bir matrisle yazılır.
 
@@ -109,7 +113,9 @@ $\frac12(\mathbf{A}+\mathbf{A}^{\top})$ matrisi simetriktir. Bu yüzden bu böl�
 
 İki eleman da negatifse çanak baş aşağı durur; bu bir kubbedir. Negatif bir eleman ve sıfır olan bir eleman ters dönmüş bir oluk, yani bir sırt verir. İkiden fazla değişkende de aynısı geçerlidir: Biçime köşegen elemanlarının işaretleri karar verir.
 
-⁠**Sayısal örnek:** $f=x_1^2+2x_2^2$ çanağında $f=1$ eş yükselti eğrisi, yarı eksenleri $x_1$ ekseninde $1$ ve $x_2$ ekseninde $1/\sqrt2\approx0{,}707$ olan elipstir: $(1,\,0)^{\top}$ ve $(0,\,1/\sqrt2)^{\top}$ noktalarında $f=1$. $f=x_1^2-x_2^2$ eyerinde $f(1,\,0)=1$, $f(0,\,1)=-1$ ve $f(1,\,1)=0$.
+::::beispiel [Sayısal örnek]
+$f=x_1^2+2x_2^2$ çanağında $f=1$ eş yükselti eğrisi, yarı eksenleri $x_1$ ekseninde $1$ ve $x_2$ ekseninde $1/\sqrt2\approx0{,}707$ olan elipstir: $(1,\,0)^{\top}$ ve $(0,\,1/\sqrt2)^{\top}$ noktalarında $f=1$. $f=x_1^2-x_2^2$ eyerinde $f(1,\,0)=1$, $f(0,\,1)=-1$ ve $f(1,\,1)=0$.
+::::
 
 ⁠**Kısacası:** Karma terim yoksa biçim köşegenin işaretlerinden okunur: hepsi pozitifse bir çanak, pozitif ve sıfırsa bir oluk, karışık işaretliyse bir eyer.
 
@@ -132,18 +138,22 @@ $$ax_1^2+2bx_1x_2+cx_2^2=a\Bigl(x_1+\frac bax_2\Bigr)^2+\Bigl(c-\frac{b^2}a\Bigr
 
 Sağ tarafta iki karenin toplamı vardır. $\mathbf{x}$ düzlemi dolaşırken $z_1=x_1+\frac bax_2$ ve $z_2=x_2$ yeni değişkenleri her sayı çiftini alır. Demek ki $z_1,z_2$ değişkenlerinde yazılan formda karma terim kalmaz ve çanak, oluk ya da eyer olduğuna $a$ ile $c-b^2/a$ katsayılarının işaretleri karar verir.
 
-⁠**Sayısal örnek 1:** $5x_1^2+4x_1x_2+2x_2^2$ için $a=5$, $b=2$, $c=2$:
+::::beispiel [Sayısal örnek 1]
+$5x_1^2+4x_1x_2+2x_2^2$ için $a=5$, $b=2$, $c=2$:
 
 $$5x_1^2+4x_1x_2+2x_2^2=5\,(x_1+0{,}4\,x_2)^2+1{,}2\,x_2^2 .$$
 
 İki katsayı da pozitiftir: Form bir çanaktır. $\mathbf{x}=(1,\,-1)^{\top}$ noktasında sağlama: $5\cdot0{,}36+1{,}2=3$.
+::::
 
-⁠**Sayısal örnek 2:** $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Katsayıların işaretleri farklıdır: bir eyer. Gerçekten de $f(1,\,0)=1>0$ ve $f(1,\,-1)=1-6+1=-4<0$.
+::::beispiel [Sayısal örnek 2]
+$x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Katsayıların işaretleri farklıdır: bir eyer. Gerçekten de $f(1,\,0)=1>0$ ve $f(1,\,-1)=1-6+1=-4<0$.
+::::
 
 ⁠**Kısacası:** Tam kareye tamamlama bir kuadratik formu karelerin toplamı olarak yazar; karelerin önündeki katsayıların işaretleri, formun bir çanak mı, bir oluk mu, yoksa bir eyer mi olduğunu gösterir.
 
 :::hintergrund Tam kareye tamamlama Gauss eleme yöntemidir
-[(5.3)](#gl-5-3) içindeki sayılar, Temeller 1, Kesim 12.3'teki Gauss eleme yöntemi $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ simetrik matrisine uygulandığında çıkan sayılarla aynıdır. Köşegenin altında bir sıfır elde etmek için birinci satırın $\frac ba$ katı ikinci satırdan çıkarılır ve $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$ elde edilir. Bu basamak biçiminin köşegen elemanları, yani pivotlar, tam olarak karelerin önündeki katsayılardır; $\frac ba$ eleme çarpanı da birinci parantezde durur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisi için: çarpan $0{,}4$, pivotlar $5$ ve $1{,}2$. $n$ değişkende aynı işlem sürdürülür: Her eleme adımı bir değişkeni bir kareye tamamlar. Form ancak ve ancak bütün pivotlar pozitifse bir çanaktır. Temeller 1, Kesim 14.5'teki hesap kurallarına göre pivotların çarpımı determinanttır, burada $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+[(5.3)](#gl-5-3) içindeki sayılar, [Temeller 1, Kesim 12.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)'teki Gauss eleme yöntemi $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ simetrik matrisine uygulandığında çıkan sayılarla aynıdır. Köşegenin altında bir sıfır elde etmek için birinci satırın $\frac ba$ katı ikinci satırdan çıkarılır ve $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$ elde edilir. Bu basamak biçiminin köşegen elemanları, yani pivotlar, tam olarak karelerin önündeki katsayılardır; $\frac ba$ eleme çarpanı da birinci parantezde durur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisi için: çarpan $0{,}4$, pivotlar $5$ ve $1{,}2$. $n$ değişkende aynı işlem sürdürülür: Her eleme adımı bir değişkeni bir kareye tamamlar. Form ancak ve ancak bütün pivotlar pozitifse bir çanaktır. [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'teki hesap kurallarına göre pivotların çarpımı determinanttır, burada $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Alıştırma 14 ★ Formlar ve matrisler

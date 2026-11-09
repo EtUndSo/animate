@@ -45,7 +45,11 @@ $$\begin{pmatrix} \ddots&\ddots\\ \ddots&2t_0+V_{\ell-1}&-t_0&0\\ &-t_0&2t_0+V_\
 
 $\boldsymbol H$ heißt __Hamilton-Matrix__. Auf der Hauptdiagonale steht $2t_0+V_\ell$, direkt daneben $-t_0$, sonst überall null. Der Operator $\hat H$ ist zur Tabelle geworden. Gesucht sind die Vektoren, die $\boldsymbol H$ nur um den Faktor $E$ streckt: Das ist die Eigenwertaufgabe der linearen Algebra. $N$ Punkte liefern $N$ Energien, zu jeder einen Vektor mit den Amplituden. Ein Rechner schafft das für Tausende Punkte und für jedes $V_\ell$.
 
-**Beispiel.** Prüfe die Näherung an $\psi(x)=\sin(\pi x/L)$ mit $L=2$ nm an der Stelle $x=1$ nm. Exakt ist $\psi''=-(\pi/L)^2=-2{,}467\,\mathrm{nm^{-2}}$. Mit $a=0{,}2$ nm und $\psi_{\ell\pm1}=\cos(0{,}1\,\pi)=0{,}951$ ergibt die Differenz $-2{,}447\,\mathrm{nm^{-2}}$. Die Abweichung von 0,82 % ist genau $(ka)^2/12$ mit $ka=0{,}314$. **Grenzfall:** Für $a\to0$ wächst $t_0$ wie $1/a^2$, die Klammer in [(1.1)](#gl-1-1) schrumpft wie $a^2$. Das Produkt bleibt endlich, und [(0.1)](von-grund-auf-was-aus-teil-1-gebraucht-wird.html#gl-0-1) kehrt zurück.
+::::beispiel
+Prüfe die Näherung an $\psi(x)=\sin(\pi x/L)$ mit $L=2$ nm an der Stelle $x=1$ nm. Exakt ist $\psi''=-(\pi/L)^2=-2{,}467\,\mathrm{nm^{-2}}$. Mit $a=0{,}2$ nm und $\psi_{\ell\pm1}=\cos(0{,}1\,\pi)=0{,}951$ ergibt die Differenz $-2{,}447\,\mathrm{nm^{-2}}$. Die Abweichung von 0,82 % ist genau $(ka)^2/12$ mit $ka=0{,}314$.
+::::
+
+⁠**Grenzfall:** Für $a\to0$ wächst $t_0$ wie $1/a^2$, die Klammer in [(1.1)](#gl-1-1) schrumpft wie $a^2$. Das Produkt bleibt endlich, und [(0.1)](von-grund-auf-was-aus-teil-1-gebraucht-wird.html#gl-0-1) kehrt zurück.
 
 Das Gitter ist mehr als ein Rechentrick: In einem Kristall sitzen die Atome an regelmäßigen Plätzen, und ein Elektron wechselt von Atom zu Atom. [(1.1)](#gl-1-1) ist das einfachste Modell davon, vereinfacht in den Werten von $t_0$ und $V_\ell$.
 

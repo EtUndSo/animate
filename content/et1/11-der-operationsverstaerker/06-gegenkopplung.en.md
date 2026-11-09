@@ -51,7 +51,8 @@ The factor in front of $U_\mathrm{A}$ is negative, so every deviation decays: $U
 Left, the loop as a block diagram: at the summing point, $\beta\,U_\mathrm{A}$ is subtracted. Right, the response to a step from 0 to 1 V in the linear model: $U_\mathrm{A}$ rises with $\tau_G=0.80$ µ s to 5 V, $U_\mathrm{D}$ falls from 1 V to 50 µ V.
 :::
 
-**Example.** With $A\beta=20000$, 1 V at the input becomes $U_\mathrm{A}=4.99975$ V; the deviation from the ideal 5 V is 0.005 % $=1/(A\beta)$. The specimens scatter by a factor of four:
+::::beispiel
+With $A\beta=20000$, 1 V at the input becomes $U_\mathrm{A}=4.99975$ V; the deviation from the ideal 5 V is 0.005 % $=1/(A\beta)$. The specimens scatter by a factor of four:
 
 | $A$ | $U_\mathrm{D}$ | $U_\mathrm{A}$ | Deviation from 5 V |
 |---|---|---|---|
@@ -59,7 +60,10 @@ Left, the loop as a block diagram: at the summing point, $\beta\,U_\mathrm{A}$ i
 | 100000 | 50.00 µ V | 4.99975 V | $-0.0050$ % |
 | 200000 | 25.00 µ V | 4.99988 V | $-0.0025$ % |
 
-A change in $A$ of 300 % shifts $G$ by 0.0075 %. You trade gain for accuracy: 100000 becomes 5, but in return two resistors determine the result. **In short:** The gain is the reciprocal of the fed-back fraction. **Limiting cases:** $A\to\infty$ gives $U_\mathrm{D}\to0$ and $G=1/\beta$. $\beta\to0$ gives $G\to A$; without feedback, the open loop remains.
+A change in $A$ of 300 % shifts $G$ by 0.0075 %. You trade gain for accuracy: 100000 becomes 5, but in return two resistors determine the result.
+::::
+
+⁠**In short:** The gain is the reciprocal of the fed-back fraction. **Limiting cases:** $A\to\infty$ gives $U_\mathrm{D}\to0$ and $G=1/\beta$. $\beta\to0$ gives $G\to A$; without feedback, the open loop remains.
 
 **Input and output.** At the plus input only $U_\mathrm{D}=50$ µ V lies across $r_\mathrm{e}$, so 50 pA flows, one two-millionth of the divider current of 100 µ A. The input resistance thus rises to $r_\mathrm{e}(1+A\beta)=20$ G$\Omega$. At the output, the loop acts against any loading: if a load pulls $U_\mathrm{A}$ down a little, $U_\mathrm{D}$ grows, and the internal voltage rises until the loss is almost compensated. The output resistance falls to $r_\mathrm{a}/(1+A\beta)=3.75$ m$\Omega$.
 

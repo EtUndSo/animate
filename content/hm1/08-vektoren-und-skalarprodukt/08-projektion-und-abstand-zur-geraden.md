@@ -47,7 +47,11 @@ Gleichheit steht genau für $t=\alpha$, denn $\|\vec v\|\ne0$.
 Links der Abstand von $Q=(2,6)$ zur Geraden $(0,2)+t\,\vec a$. Der Lotfußpunkt ist $R=(3,3)$, das Lot $\vec u=(-1,3)$ steht senkrecht auf $\vec a$. Der Weg zu $P=(0,2)$ ist die Hypotenuse, also länger. Rechts die Orthogonalprojektion von $\vec b$ auf $\vec a$: $\vec b$ zerfällt in $\frac12\vec a=(1{,}5;\ 0{,}5)$ und den Rest $(-0{,}5;\ 1{,}5)$.
 :::
 
-**Beispiel.** Für $\vec p=(0,2)$, $\vec v=\vec a$, $\vec q=(2,6)$ ist $\vec q-\vec p=(2,4)$, also $\alpha=\frac{6+4}{10}=1$, $\vec r=(3,3)$ und $\vec u=(-1,3)$. Probe: $\langle\vec u,\vec a\rangle=-3+3=0$. Der Abstand ist $\sqrt{10}=3{,}162$. Der Punkt $P$ selbst liegt weiter weg, $\|\vec q-\vec p\|^2=20=10+10$, genau wie im Beweis mit $t=0$. **Grenzfälle:** Liegt $Q$ auf $g$, ist $\vec u=\vec0$ und der Abstand 0. Ersetzt man $\vec v$ durch $c\vec v$ mit $c\ne0$, wird $\alpha$ zu $\alpha/c$, und $\vec r$ bleibt derselbe Punkt.
+::::beispiel
+Für $\vec p=(0,2)$, $\vec v=\vec a$, $\vec q=(2,6)$ ist $\vec q-\vec p=(2,4)$, also $\alpha=\frac{6+4}{10}=1$, $\vec r=(3,3)$ und $\vec u=(-1,3)$. Probe: $\langle\vec u,\vec a\rangle=-3+3=0$. Der Abstand ist $\sqrt{10}=3{,}162$. Der Punkt $P$ selbst liegt weiter weg, $\|\vec q-\vec p\|^2=20=10+10$, genau wie im Beweis mit $t=0$.
+::::
+
+⁠**Grenzfälle:** Liegt $Q$ auf $g$, ist $\vec u=\vec0$ und der Abstand 0. Ersetzt man $\vec v$ durch $c\vec v$ mit $c\ne0$, wird $\alpha$ zu $\alpha/c$, und $\vec r$ bleibt derselbe Punkt.
 
 **Orthogonalprojektion.** Für $\vec p=\vec0$ geht die Gerade durch $O$ und ist der Unterraum $\operatorname{span}\{\vec v\}$.
 

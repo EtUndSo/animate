@@ -36,7 +36,11 @@ $E(k)$ des Kammpotentials mit $w=1$ nm und $V_\mathrm B=1$ eV, gerechnet aus
 
 **Warum die Lücke am Zonenrand sitzt.** In der Parabelschar aus [Teil 7](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter/kristallwachstum-und-reziprokes-gitter.html) schneiden sich dort zwei Äste: $k=\pi/a$ und $k-2\pi/a=-\pi/a$ haben dieselbe Energie. Ihre Überlagerung sind die stehenden Wellen der Idee. Das Potential trennt sie, und die Lücke öffnet sich.
 
-**Beispiel.** Für $b=0{,}2$ nm ist $a=1{,}2$ nm. Das freie Elektron hätte am Zonenrand $\hbar^2(\pi/a)^2/(2m_0)=261$ meV, das mittlere Potential $V_\mathrm Bb/a$ gibt 167 meV dazu, zusammen 428 meV. Das liegt in der Lücke von 268 bis 535 meV. In der Lückenmitte hat $k$ einen imaginären Anteil, die Amplitude fällt je Periode auf 45 %, nach fünf Perioden auf 1,8 %. Für diese Energie wirkt der Kristall wie eine Wand, ein Elektron läuft zurück. **Grenzfälle:** Für $b\to\infty$ schrumpft jedes Band auf das Niveau des Einzeltopfs. Für $b\to0$ schließen sich die Lücken, und die Parabel bleibt.
+::::beispiel
+Für $b=0{,}2$ nm ist $a=1{,}2$ nm. Das freie Elektron hätte am Zonenrand $\hbar^2(\pi/a)^2/(2m_0)=261$ meV, das mittlere Potential $V_\mathrm Bb/a$ gibt 167 meV dazu, zusammen 428 meV. Das liegt in der Lücke von 268 bis 535 meV. In der Lückenmitte hat $k$ einen imaginären Anteil, die Amplitude fällt je Periode auf 45 %, nach fünf Perioden auf 1,8 %. Für diese Energie wirkt der Kristall wie eine Wand, ein Elektron läuft zurück.
+::::
+
+⁠**Grenzfälle:** Für $b\to\infty$ schrumpft jedes Band auf das Niveau des Einzeltopfs. Für $b\to0$ schließen sich die Lücken, und die Parabel bleibt.
 
 :::zusatz Lücken für Schall und Licht
 Bänder und Lücken gelten für alle Wellen in periodischen Strukturen. Reihen von Säulen sperren Schall in einem Frequenzband. Spiegel für extremes UV-Licht mit $\lambda=13{,}5$ nm, mit dem man Chips belichtet, sind Stapel aus etwa 40 Doppelschichten Molybdän und Silizium mit der Periode $\lambda/2$. Dieses Licht wird sogar von Luft verschluckt, Linsen scheiden aus. Im Stapel fällt es in die Lücke und kehrt um.

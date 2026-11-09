@@ -69,7 +69,11 @@ Let $n\in\mathbb{N}$. For odd $n$, $f(x)=x^n$ is strictly monotonically increasi
 
 ⁠**How to read it:** $n$ is the fixed power. **Why “on $\mathbb{R}_0^+$” is needed:** For even $n$, $f$ is not monotonic on all of $\mathbb{R}$: $-2<-1$, but $(-2)^2>(-1)^2$.
 
-**Examples.** $h$ is bounded below by $-1$, but not above. The bell is bounded and strictly decreasing on $\mathbb{R}_0^+$: From $0\le x<y$ follows $1+x^2<1+y^2$, so $b(x)>b(y)$. Sum and product of bounded functions are again bounded: From $|f|\le K$ and $|g|\le L$ follow $|f+g|\le K+L$ and $|f\cdot g|\le K\,L$. **Limiting cases:** A constant function is monotonically increasing and decreasing at the same time, but not strictly. $f(x)=0$ is even and odd at the same time.
+::::beispiel [Examples]
+$h$ is bounded below by $-1$, but not above. The bell is bounded and strictly decreasing on $\mathbb{R}_0^+$: From $0\le x<y$ follows $1+x^2<1+y^2$, so $b(x)>b(y)$. Sum and product of bounded functions are again bounded: From $|f|\le K$ and $|g|\le L$ follow $|f+g|\le K+L$ and $|f\cdot g|\le K\,L$.
+::::
+
+⁠**Limiting cases:** A constant function is monotonically increasing and decreasing at the same time, but not strictly. $f(x)=0$ is even and odd at the same time.
 
 :::frage Is a function that is not even automatically odd?
 For numbers that is true; for functions it is not: $f(x)=x^2+x$ has $f(1)=2$ and $f(-1)=0$: neither equal nor opposite. Most functions are neither.

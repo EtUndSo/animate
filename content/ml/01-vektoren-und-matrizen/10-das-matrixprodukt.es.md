@@ -50,7 +50,8 @@ $$\sum_{l=1}^k(\mathbf{A}\mathbf{B})_{il}\,x_l=\sum_{l=1}^k\sum_{j=1}^na_{ij}\,b
 y esa es la componente $i$ de $\mathbf{A}(\mathbf{B}\mathbf{x})$. En el paso intermedio se han intercambiado las dos sumas y se ha sacado $a_{ij}$ delante de la suma interior.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ y $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ se tiene
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ y $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ se tiene
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
 
@@ -61,6 +62,7 @@ El producto de matrices entrada por entrada: la entrada $(i,l)$ es la fila $i$ d
 :::
 
 Comprobación con $\mathbf{x}=(1,\,2)^{\top}$: $\mathbf{B}\mathbf{x}=(2,\,1)^{\top}$, luego $\mathbf{A}(\mathbf{B}\mathbf{x})=(4,\,1)^{\top}$; y directamente, $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+2,\ 1+0)^{\top}=(4,\,1)^{\top}$.
+::::
 
 ⁠**En resumen:** El producto de matrices $\mathbf{A}\mathbf{B}$ es la matriz de la aplicación «primero $\mathbf{B}$, después $\mathbf{A}$»; su entrada $(i,l)$ es la fila $i$ de $\mathbf{A}$ por la columna $l$ de $\mathbf{B}$.
 
@@ -81,11 +83,13 @@ Del mismo modo, la fila $i$ de $\mathbf{A}\mathbf{B}$ es la fila $i$ de $\mathbf
 
 Para los datos, esto significa: si se quieren aplicar varias sumas ponderadas a todos los ejemplos, se escriben los vectores de pesos uno al lado de otro como columnas de una matriz $\mathbf{W}$. El producto $\mathbf{X}\mathbf{W}$ contiene entonces en la columna $l$ las predicciones con el $l$-ésimo vector de pesos.
 
-⁠**Ejemplo numérico:** Además del precio de compra con $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (miles de euros), se quiere estimar el alquiler mensual con los pesos $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (euros). Con $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$ se tiene
+::::beispiel [Ejemplo numérico]
+Además del precio de compra con $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (miles de euros), se quiere estimar el alquiler mensual con los pesos $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (euros). Con $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$ se tiene
 
 $$\mathbf{X}\mathbf{W}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3&12\\10&30\\-4&-8\end{pmatrix}=\begin{pmatrix}188&756\\126&502\\286&1152\\232&914\end{pmatrix}.$$
 
 La fila $i$ contiene ambas estimaciones para la vivienda $i$; la columna $1$, todos los precios de compra; la columna $2$, todos los alquileres.
+::::
 
 ⁠**En resumen:** Las columnas de $\mathbf{A}\mathbf{B}$ son $\mathbf{A}$ por las columnas de $\mathbf{B}$; $\mathbf{X}\mathbf{W}$ aplica varias sumas ponderadas a todos los ejemplos a la vez.
 
@@ -131,13 +135,17 @@ En general, sin embargo, $\mathbf{A}\mathbf{B}\ne\mathbf{B}\mathbf{A}$: el produ
 
 La regla (i) se deduce del significado: ambos lados son la matriz de la aplicación «primero $\mathbf{C}$, después $\mathbf{B}$, después $\mathbf{A}$», pues $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{x})=\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{x}))=\mathbf{A}((\mathbf{B}\mathbf{C})\mathbf{x})$ para todo $\mathbf{x}$. Las reglas (ii) y (iii) se comprueban entrada por entrada con [(9.1)](#gl-9-1) y las reglas de las sumas.
 
-⁠**Ejemplo numérico 1:** Con la rotación $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ y el estiramiento $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$ se tiene
+::::beispiel [Ejemplo numérico 1]
+Con la rotación $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ y el estiramiento $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$ se tiene
 
 $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0{,}5&0\end{pmatrix},\qquad \mathbf R\mathbf{S}=\begin{pmatrix}0&-0{,}5\\2&0\end{pmatrix}.$$
 
 Primero girar y luego estirar lleva $\mathbf{e}_1$ a $(0;\,0{,}5)^{\top}$; primero estirar y luego girar, a $(0,\,2)^{\top}$.
+::::
 
-⁠**Ejemplo numérico 2:** De la subsección [9.1](#stufe-9-1) se tiene $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, pero $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. Con tamaños distintos es aún más claro: para $\mathbf{A}\in\mathbb{R}^{2\times3}$ y $\mathbf{B}\in\mathbb{R}^{3\times2}$, $\mathbf{A}\mathbf{B}$ es una matriz $2\times2$ y $\mathbf{B}\mathbf{A}$ una matriz $3\times3$.
+::::beispiel [Ejemplo numérico 2]
+De la subsección [9.1](#stufe-9-1) se tiene $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, pero $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. Con tamaños distintos es aún más claro: para $\mathbf{A}\in\mathbb{R}^{2\times3}$ y $\mathbf{B}\in\mathbb{R}^{3\times2}$, $\mathbf{A}\mathbf{B}$ es una matriz $2\times2$ y $\mathbf{B}\mathbf{A}$ una matriz $3\times3$.
+::::
 
 ⁠**En resumen:** En el producto de matrices se pueden mover los paréntesis y desarrollar los productos, pero no intercambiar el orden.
 
@@ -159,11 +167,13 @@ Si $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ y $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ s
 
 Por muchas etapas lineales que se conecten en serie, el resultado siempre puede calcularse con una única matriz en un solo paso. Todo lo que puede hacer una cadena de etapas lineales lo puede hacer ya, por tanto, una sola matriz. De la teoría de señales y sistemas se conoce lo mismo: dos sistemas lineales en cadena forman juntos de nuevo un sistema lineal.
 
-⁠**Ejemplo numérico:** Una primera etapa convierte tres números en dos, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$; una segunda convierte dos números de nuevo en tres, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Juntas son la única matriz
+::::beispiel [Ejemplo numérico]
+Una primera etapa convierte tres números en dos, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$; una segunda convierte dos números de nuevo en tres, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Juntas son la única matriz
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&5&-1\\1&1&1\\0&3&-3\end{pmatrix}.$$
 
 Comprobación con $\mathbf{x}=(1,\,1,\,1)^{\top}$: $\mathbf{B}\mathbf{x}=(3,\,0)^{\top}$ y $\mathbf{A}(3,\,0)^{\top}=(6,\,3,\,0)^{\top}$; igualmente, $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+5-1,\ 1+1+1,\ 0+3-3)^{\top}=(6,\,3,\,0)^{\top}$.
+::::
 
 ⁠**En resumen:** Varias etapas lineales en serie son juntas una única aplicación lineal; su matriz es el producto de las matrices individuales.
 
@@ -184,9 +194,9 @@ $$(\mathbf{u}\mathbf{v}^{\top})_{ij}=u_i\,v_j . \tag{9.3}$$
 
 Es el producto de matrices de una matriz $m\times1$ por una matriz $1\times n$. Cada columna es un múltiplo de $\mathbf{u}$, en concreto $v_j\,\mathbf{u}$, y cada fila, un múltiplo de $\mathbf{v}^{\top}$.
 
-⁠**Ejemplo numérico:**
-
+::::beispiel [Ejemplo numérico]
 $$\begin{pmatrix}1\\2\\3\end{pmatrix}\begin{pmatrix}4&5\end{pmatrix}=\begin{pmatrix}4&5\\8&10\\12&15\end{pmatrix}.$$
+::::
 
 Con el producto exterior, todo producto de matrices puede escribirse como suma: «columna $j$ de $\mathbf{A}$ por fila $j$ de $\mathbf{B}$», sumado sobre $j$,
 

@@ -47,7 +47,8 @@ Si se deja crecer $t$, la $h$ reflejada se desliza de izquierda a derecha sobre 
 
 ¿Por qué reflejada? Como función de $\tau$, el argumento $t-\tau$ disminuye cuando $\tau$ crece. El comienzo de $h$ (edad cero) está en $\tau=t$; los impulsos más antiguos quedan más a la izquierda. En el circuito RC, $h$ es máxima al principio: el sistema «recuerda» con más fuerza el pasado más reciente.
 
-**Ejemplo: circuito RC y pulso rectangular.** La respuesta al impulso del circuito RC con la constante de tiempo $T=RC$ es un pulso exponencial decreciente de área 1. El impulso corto carga el condensador de golpe hasta $1/T$ y después se descarga a través de $R$:
+::::beispiel circuito RC y pulso rectangular
+La respuesta al impulso del circuito RC con la constante de tiempo $T=RC$ es un pulso exponencial decreciente de área 1. El impulso corto carga el condensador de golpe hasta $1/T$ y después se descarga a través de $R$:
 
 <span class="anker" id="gl-5-1"></span>
 $$h(t)=\frac1T\,\varepsilon(t)\,\mathrm{e}^{-t/T}. \tag{5.1}$$
@@ -56,6 +57,7 @@ Entrada: rectángulo de altura $a$ de $0$ a $T_0$. La figura [6](#abb-6) muestr
 
 <span class="anker" id="gl-5-2"></span>
 $$g(t)=\begin{cases}0 & t<0,\\[2pt] a\bigl(1-\mathrm{e}^{-t/T}\bigr) & 0\le t\le T_0,\\[2pt] a\bigl(\mathrm{e}^{T_0/T}-1\bigr)\mathrm{e}^{-t/T} & t>T_0.\end{cases} \tag{5.2}$$
+::::
 
 :::herleitung Respuesta al pulso rectangular
 ⁠**$t<0$:** La $h(t-\tau)$ desplazada solo es distinta de cero para $\tau\le t<0$; $s(\tau)$, solo para $\tau\ge0$. No hay solapamiento, $g=0$.

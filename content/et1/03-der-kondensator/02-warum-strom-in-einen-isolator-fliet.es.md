@@ -37,7 +37,9 @@ Supongamos que entra más de lo que sale. Entonces se acumula en el componente u
 En la tubería de un circuito de agua hay una membrana de goma atravesada. La bomba empuja agua contra ella, y la membrana se estira. A ambos lados se mueve agua, pero nada atraviesa la membrana. Su contrapresión crece con el estiramiento, y cuando alcanza la presión de la bomba, el agua se detiene. La imagen termina en la energía: la membrana la almacena en la goma; el condensador, en el campo entre las placas (etapa [6](die-gespeicherte-energie.html#stufe-6)).
 :::
 
-**Ejemplo.** Un instrumento de medida en el cable de A indica durante 0,1 s una corriente constante de 0,9 mA. Se han desplazado entonces $Q=I\,t=90\,\mu\text{C}$, es decir, $5{,}6\cdot10^{14}$ electrones. Han abandonado A, y otros tantos han llegado a B. Un instrumento en el cable de B indica los mismos 0,9 mA.
+::::beispiel
+Un instrumento de medida en el cable de A indica durante 0,1 s una corriente constante de 0,9 mA. Se han desplazado entonces $Q=I\,t=90\,\mu\text{C}$, es decir, $5{,}6\cdot10^{14}$ electrones. Han abandonado A, y otros tantos han llegado a B. Un instrumento en el cable de B indica los mismos 0,9 mA.
+::::
 
 ⁠**Caso límite:** Si las placas ya están a los potenciales de los polos, la caída a lo largo de los cables es cero, y también la corriente. Un condensador cargado a 9 V no toma corriente de una batería de 9 V.
 

@@ -38,7 +38,9 @@ Mit der Knotenregel $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$ teilt sich der Strom au
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::
 
-**Beispiel.** Am Teiler ist $R_1\parallel R_2=20$ k$\Omega$ und $R_L/R_\mathrm i=0{,}1$. Die Anzeige beträgt $3\,\mathrm{V}/1{,}1=2{,}727$ V, also $f=-9{,}1\,\%$. Der Mechanismus in Zahlen: Der Strom durch $R_1$ steigt von 100 µ A auf 104,5 µ A, davon fließen 90,9 µ A durch $R_2$ und 13,6 µ A durch das Voltmeter. Dieselben Werte ergibt $I_\mathrm q=150$ µ A an $R_L=20$ k$\Omega$. Ein Digitalmultimeter mit 10 M$\Omega$ zeigt 2,994 V, also $f=-0{,}2\,\%$.
+::::beispiel
+Am Teiler ist $R_1\parallel R_2=20$ k$\Omega$ und $R_L/R_\mathrm i=0{,}1$. Die Anzeige beträgt $3\,\mathrm{V}/1{,}1=2{,}727$ V, also $f=-9{,}1\,\%$. Der Mechanismus in Zahlen: Der Strom durch $R_1$ steigt von 100 µ A auf 104,5 µ A, davon fließen 90,9 µ A durch $R_2$ und 13,6 µ A durch das Voltmeter. Dieselben Werte ergibt $I_\mathrm q=150$ µ A an $R_L=20$ k$\Omega$. Ein Digitalmultimeter mit 10 M$\Omega$ zeigt 2,994 V, also $f=-0{,}2\,\%$.
+::::
 
 ⁠**Grenzfälle:** $R_\mathrm i\to\infty$ ergibt $f\to0$. $R_L\to0$ (Quelle direkt am Gerät) ergibt ebenfalls $f\to0$. Bei $R_\mathrm i=R_L$ halbiert sich die Spannung.
 

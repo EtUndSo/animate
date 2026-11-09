@@ -37,7 +37,9 @@ $$\begin{aligned} \text{积分器：}&u_\mathrm{A}(t)=u_\mathrm{A}(0)-\frac{1}{R
 四个电路，一条规则：左边的元件把输入电压变成电流，上边的元件为此要求一个输出电压。各节点都处于虚地。
 :::
 
-**例。** ⁠**积分器**，$R=10$ k$\Omega$，$C=10$ nF，即 $R\,C=100$ µ s。当 $U_\mathrm{E}=1$ V 时，流过固定电流 100 µ A。与[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)的 RC 电路不同，它在充电时不减小，因为 $R$ 上的电压保持 1 V。$u_\mathrm{A}$ 以 10 V/ms 匀速下降，1.1 ms 后达到 $-11$ V。1 kHz、$\pm1$ V 的方波变成 $\pm2.5$ V 的三角波。**微分器**，$R\,C$ 相同：1 kHz、$\pm1$ V 的三角波以 4 V/ms 上升，$u_\mathrm{A}$ 变成 $\pm0.4$ V 的方波。对正弦波，其幅值随频率增大，$\hat u_\mathrm{A}/\hat u_\mathrm{E}=2\pi f\,R\,C$：1 kHz 时为 0.63，100 kHz 时为 62.8。因此它对高频噪声（第 [1](rauschen.html#stufe-1) 阶段）的放大特别强。**对数放大器**，$R=10$ k$\Omega$，$I_\mathrm{S}=1.9\cdot10^{-13}$ A：0.1 V、1 V、10 V 得到 $-0.462$ V、$-0.522$ V、$-0.582$ V。每个十倍程（因子 10）增加 $U_T\ln10=59.9$ mV。**指数放大器**，数值相同：0.5 V 得到 $-0.427$ V，每增加 18 mV，幅值加倍。
+::::beispiel
+⁠**积分器**，$R=10$ k$\Omega$，$C=10$ nF，即 $R\,C=100$ µ s。当 $U_\mathrm{E}=1$ V 时，流过固定电流 100 µ A。与[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)的 RC 电路不同，它在充电时不减小，因为 $R$ 上的电压保持 1 V。$u_\mathrm{A}$ 以 10 V/ms 匀速下降，1.1 ms 后达到 $-11$ V。1 kHz、$\pm1$ V 的方波变成 $\pm2.5$ V 的三角波。**微分器**，$R\,C$ 相同：1 kHz、$\pm1$ V 的三角波以 4 V/ms 上升，$u_\mathrm{A}$ 变成 $\pm0.4$ V 的方波。对正弦波，其幅值随频率增大，$\hat u_\mathrm{A}/\hat u_\mathrm{E}=2\pi f\,R\,C$：1 kHz 时为 0.63，100 kHz 时为 62.8。因此它对高频噪声（第 [1](rauschen.html#stufe-1) 阶段）的放大特别强。**对数放大器**，$R=10$ k$\Omega$，$I_\mathrm{S}=1.9\cdot10^{-13}$ A：0.1 V、1 V、10 V 得到 $-0.462$ V、$-0.522$ V、$-0.582$ V。每个十倍程（因子 10）增加 $U_T\ln10=59.9$ mV。**指数放大器**，数值相同：0.5 V 得到 $-0.427$ V，每增加 18 mV，幅值加倍。
+::::
 
 ⁠**极限情况：**$u_\mathrm{E}=0$ 时积分器保持不动，维持 $u_\mathrm{A}(0)$。当 $U_\mathrm{E}<0$ 时，对数放大器的二极管截止，反馈中断，输出运行到极限：规则只在回路导通时成立。
 

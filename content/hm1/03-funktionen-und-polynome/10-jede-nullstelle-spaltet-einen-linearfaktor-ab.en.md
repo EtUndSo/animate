@@ -66,7 +66,11 @@ Not every real polynomial has the form [(8.3)](#gl-8-3), as $x^2+1$ shows. That 
 In the complex numbers ([Part 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)), every polynomial of degree $n\ge1$ has a zero (fundamental theorem of algebra). With real coefficients, along with $z$ also $\overline{z}$ is a zero, and $(x-z)(x-\overline{z})=x^2-2\operatorname{Re}(z)\,x+|z|^2$ is real. For $x^2+x+1$, $z=-\frac12+\frac{\sqrt3}{2}\,\mathrm{i}$.
 :::
 
-**Example.** For $S$, the scheme at $x_0=2$ gives the row $1,-1,-1,-2,0$, so $S(x)=(x-2)(x^3-x^2-x-2)$. Again at $x_0=2$: $1,1,1,0$, so $S(x)=(x-2)^2(x^2+x+1)$. The third time: $1,3,7$; the remainder $7\neq0$ ends the search. The multiplicity is 2, and because $1-4=-3<0$, the form [(8.4)](#gl-8-4) has been reached, with $n=4$, $k=1$. **Limiting case:** For $m=n$, $P_n(x)=a_n(x-x_0)^n$, the polynomial with only one zero.
+::::beispiel
+For $S$, the scheme at $x_0=2$ gives the row $1,-1,-1,-2,0$, so $S(x)=(x-2)(x^3-x^2-x-2)$. Again at $x_0=2$: $1,1,1,0$, so $S(x)=(x-2)^2(x^2+x+1)$. The third time: $1,3,7$; the remainder $7\neq0$ ends the search. The multiplicity is 2, and because $1-4=-3<0$, the form [(8.4)](#gl-8-4) has been reached, with $n=4$, $k=1$.
+::::
+
+⁠**Limiting case:** For $m=n$, $P_n(x)=a_n(x-x_0)^n$, the polynomial with only one zero.
 
 **What the multiplicity does.** Near $x_0$, $Q_{n-m}(x)$ does not change its sign, since it is not zero there. The sign of $P_n$ is therefore determined by $(x-x_0)^m$: For odd $m$ it changes, and the graph crosses the axis. For even $m$ it does not change, and the graph only touches it (Fig. [9](#abb-9)).
 

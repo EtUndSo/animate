@@ -38,7 +38,9 @@ Para dos condensadores en serie, $C_\mathrm{G}=\dfrac{C_1C_2}{C_1+C_2}$, y la te
 
 ⁠**Cómo leerlo:** $C_\mathrm{G}$ es la capacidad de un único condensador que muestra el mismo comportamiento en los dos terminales exteriores. En paralelo, $C_\mathrm{G}$ es mayor que cada valor individual; en serie, menor que el más pequeño. **Validez:** La fórmula de la derecha necesita islas sin carga al inicio. Si no, la carga anterior de la isla se conserva, y $Q_i=Q_\mathrm{G}$ solo vale para la carga que se añade.
 
-**Ejemplo.** En paralelo: $C_\mathrm{G}=150\,\mu\text{F}$, $Q_1=900\,\mu\text{C}$, $Q_2=450\,\mu\text{C}$. En serie: $1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$, es decir, $C_\mathrm{G}=33{,}3\,\mu\text{F}$. A 9 V es $Q=300\,\mu\text{C}$, $U_1=3$ V y $U_2=6$ V.
+::::beispiel
+En paralelo: $C_\mathrm{G}=150\,\mu\text{F}$, $Q_1=900\,\mu\text{C}$, $Q_2=450\,\mu\text{C}$. En serie: $1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$, es decir, $C_\mathrm{G}=33{,}3\,\mu\text{F}$. A 9 V es $Q=300\,\mu\text{C}$, $U_1=3$ V y $U_2=6$ V.
+::::
 
 ⁠**Casos límite:** Para $C_2\to\infty$, en serie $C_\mathrm{G}\to C_1$: un condensador enorme se comporta como un cable. Para $C_2\to0$, en serie $C_\mathrm{G}\to0$: el hueco interrumpe; en paralelo queda $C_1$.
 

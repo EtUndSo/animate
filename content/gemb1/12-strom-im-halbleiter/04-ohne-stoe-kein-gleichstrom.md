@@ -49,7 +49,11 @@ $$\frac1{\tau_\text{scat}}=\frac1{\tau_\text{e-ph}}+\frac1{\tau_\text{e-ion}}+\f
 
 ⁠**So liest man das:** $1/\tau_i$ ist die __Streurate__, die Zahl der Stöße je Sekunde. Es addieren sich die Raten, nicht die Zeiten, denn in einer kurzen Zeit $\mathrm{d} t$ stößt ein Träger mit der Wahrscheinlichkeit $\mathrm{d} t/\tau_1+\mathrm{d} t/\tau_2+\dots$. Das kleinste $\tau_i$ bestimmt das Ergebnis. Die Indizes stehen für Phonon, Ion und Elektron.
 
-**Beispiel.** Bei $\mathcal E=2\cdot10^5$ V/m ist in der Kette $T_\mathrm B=82{,}7$ ps und $\Delta x=10$ µ m. In der Probe ist $\tau_\text{e-ph}=0{,}21$ ps und $\tau_\text{e-ion}=1{,}24$ ps, zusammen $1/\tau_\text{scat}=(4{,}83+0{,}81)\cdot10^{12}\,\mathrm{s^{-1}}$, also $\tau_\text{scat}=0{,}18$ ps. Auf einen Zonendurchlauf kämen über 400 Stöße: Die Schwingung beginnt gar nicht. **Grenzfall:** Für $\mathcal E\to0$ geht $T_\mathrm B\to\infty$.
+::::beispiel
+Bei $\mathcal E=2\cdot10^5$ V/m ist in der Kette $T_\mathrm B=82{,}7$ ps und $\Delta x=10$ µ m. In der Probe ist $\tau_\text{e-ph}=0{,}21$ ps und $\tau_\text{e-ion}=1{,}24$ ps, zusammen $1/\tau_\text{scat}=(4{,}83+0{,}81)\cdot10^{12}\,\mathrm{s^{-1}}$, also $\tau_\text{scat}=0{,}18$ ps. Auf einen Zonendurchlauf kämen über 400 Stöße: Die Schwingung beginnt gar nicht.
+::::
+
+⁠**Grenzfall:** Für $\mathcal E\to0$ geht $T_\mathrm B\to\infty$.
 
 :::aufgabe Aufgabe 2 ★ Raten addieren
 <span class="anker" id="aufg-2"></span>

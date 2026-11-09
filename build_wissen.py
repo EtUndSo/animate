@@ -1156,8 +1156,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);lin
 a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--bar);border-bottom:1px solid var(--bar-rand);}
-.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--bar-ink);}
-.brand span{color:var(--bar-ink);} .brand span.so{color:var(--bar-hl);}
+.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:#6ad19b;}   /* Logo: „Et“ grün, „So“ rot (Wunsch des Users 09.11.2026) */
+.brand span{color:var(--bar-ink);} .brand span.so{color:#ff4d4d;}
 .topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--bar-hl);}

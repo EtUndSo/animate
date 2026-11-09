@@ -45,9 +45,11 @@ Für die Umkehrung sei $H=R_{10}R_{20}+R_{20}R_{30}+R_{30}R_{10}$. Dann ist $S=H
 Links eine Brücke ohne Abgleich mit dem Dreieck 1-2-3 (blau). Rechts ist das Dreieck durch einen Stern ersetzt (rot). Jetzt liegen 4 $\Omega$ und 20 $\Omega$ in Reihe, ebenso 8 $\Omega$ und 16 $\Omega$.
 :::
 
-**Beispiel.** In Abb. [4](#abb-4) ist $R_{12}=10\,\Omega$, $R_{23}=R_{31}=20\,\Omega$, der Umfang beträgt 50 $\Omega$. Aus [(3.1)](#gl-3-1) folgen $R_{10}=4\,\Omega$, $R_{20}=4\,\Omega$, $R_{30}=8\,\Omega$. Die Brücke zerfällt in Gruppen:
+::::beispiel
+In Abb. [4](#abb-4) ist $R_{12}=10\,\Omega$, $R_{23}=R_{31}=20\,\Omega$, der Umfang beträgt 50 $\Omega$. Aus [(3.1)](#gl-3-1) folgen $R_{10}=4\,\Omega$, $R_{20}=4\,\Omega$, $R_{30}=8\,\Omega$. Die Brücke zerfällt in Gruppen:
 
 $$R_\mathrm{AB}=4\,\Omega+(4\,\Omega+20\,\Omega)\parallel(8\,\Omega+16\,\Omega)=4\,\Omega+12\,\Omega=16\,\Omega.$$
+::::
 
 ⁠**Kontrolle** an den Klemmen 1, 2 bei offener Klemme 3: Der Stern hat $4+4=8\,\Omega$, das Dreieck $10\,\Omega\parallel40\,\Omega=8\,\Omega$. **Grenzfälle:** Drei gleiche Dreieckswiderstände ergeben einen Stern mit einem Drittel des Werts. Für $R_{12}\to0$ gehen $R_{10}$ und $R_{20}$ gegen null, und $R_{30}$ wird $R_{23}\parallel R_{31}$, genau das, was das kurzgeschlossene Dreieck ist.
 

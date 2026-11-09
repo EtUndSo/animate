@@ -34,7 +34,8 @@ Ein __Objekt__ ist ein Stück des Arbeitsspeichers, in dem Python einen Wert abl
 
 Jeder Wert, mit dem Python arbeitet, steckt in einem Objekt: jede Zahl, jede Zeichenkette, auch jedes Zwischenergebnis einer Rechnung.
 
-**Beispiel.** Tippt man im interaktiven Modus nacheinander `42`, `4.0` und `"42"` ein, rechnet Python mit drei Objekten wie in Abb. [1](#abb-1):
+::::beispiel
+Tippt man im interaktiven Modus nacheinander `42`, `4.0` und `"42"` ein, rechnet Python mit drei Objekten wie in Abb. [1](#abb-1):
 
 ```console
 >>> 42
@@ -46,6 +47,7 @@ Jeder Wert, mit dem Python arbeitet, steckt in einem Objekt: jede Zahl, jede Zei
 ```
 
 Das erste enthält die ganze Zahl 42, das zweite eine Zahl mit Nachkommastellen, das dritte den Text aus den Zeichen 4 und 2. Der interaktive Modus zeigt die Art schon in der Schreibweise: ohne Punkt, mit Punkt, mit Apostrophen.
+::::
 
 ⁠**Kurz gesagt:** Ein Objekt ist ein Wert im Arbeitsspeicher, der die Angabe seiner Art mit sich trägt.
 
@@ -63,7 +65,8 @@ Bevor Python zwei Werte verknüpft, muss es wissen, was mit ihnen erlaubt ist. D
 Der __Typ__ eines Objekts ist die Art seines Werts. Er legt fest, welche Werte das Objekt haben kann und was man mit ihm tun kann. Die Funktion `type` liefert den Typ eines Objekts.
 :::
 
-**Beispiel.** Die drei Objekte aus Abb. [1](#abb-1) haben drei verschiedene Typen:
+::::beispiel
+Die drei Objekte aus Abb. [1](#abb-1) haben drei verschiedene Typen:
 
 ```console
 >>> type(42)
@@ -107,6 +110,7 @@ TypeError: can only concatenate str (not "int") to str
 ```
 
 Die Ausnahme ([Programmieren, Python 1, Abschnitt 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3)) hat die Art `TypeError`, auf Deutsch etwa „Typfehler“. Die Beschreibung sagt: An einen `str` kann man nur einen `str` anhängen, keinen `int`. Python wandelt die Zahl 3 also nicht von sich aus in den Text `"3"` um.
+::::
 
 ⁠**Kurz gesagt:** Der Typ sagt, was für ein Wert in einem Objekt steckt und was man mit ihm tun kann; `type` zeigt ihn an.
 
@@ -130,7 +134,8 @@ Zwei Objekte können denselben Typ und denselben Wert haben und trotzdem zwei ve
 Die __Identität__ eines Objekts ist eine ganze Zahl, die das Objekt von allen anderen Objekten unterscheidet, die zur selben Zeit bestehen. Sie ändert sich nicht, solange das Objekt besteht. Die Funktion `id` liefert sie.
 :::
 
-**Beispiel.** Die Identität ist eine lange, zufällig wirkende Zahl:
+::::beispiel
+Die Identität ist eine lange, zufällig wirkende Zahl:
 
 ```console
 >>> id(42)
@@ -140,6 +145,7 @@ Die __Identität__ eines Objekts ist eine ganze Zahl, die das Objekt von allen a
 ```
 
 Auf deinem Rechner erscheinen andere Zahlen, und beim nächsten Start von Python wieder andere. Das macht nichts: Es kommt nie auf den Zahlenwert an, nur darauf, ob zwei Objekte dieselbe Identität haben.
+::::
 
 Bei Zahlen und Zeichenketten bleibt außerdem der Wert eines Objekts für immer derselbe. Eine Rechnung verändert kein vorhandenes Objekt. Sie liefert ein neues Objekt, in dem das Ergebnis steht: `2 + 3` lässt die Objekte 2 und 3 unberührt und liefert ein Objekt mit dem Wert 5.
 
@@ -165,7 +171,8 @@ Manche Fähigkeiten eines Typs passen auf kein Rechenzeichen: einen Text in Gro�
 Eine __Methode__ ist eine Funktion, die zu einem Typ gehört. Man ruft sie für ein Objekt auf, indem man hinter das Objekt einen Punkt, den Namen der Methode und runde Klammern schreibt.
 :::
 
-**Beispiel.** Der Typ `str` hat eine Methode `upper`, die den Text in Großbuchstaben liefert. Der Typ `float` hat eine Methode `as_integer_ratio`, die die Zahl als Bruch aus Zähler und Nenner schreibt:
+::::beispiel
+Der Typ `str` hat eine Methode `upper`, die den Text in Großbuchstaben liefert. Der Typ `float` hat eine Methode `as_integer_ratio`, die die Zahl als Bruch aus Zähler und Nenner schreibt:
 
 ```console
 >>> "Ohm".upper()
@@ -181,6 +188,7 @@ AttributeError: 'float' object has no attribute 'upper'
 ```
 
 Die Antwort `(5, 2)` besteht aus zwei Werten in Klammern: dem Zähler 5 und dem Nenner 2, denn $2{,}5=5/2$. Die letzte Eingabe zeigt, dass jede Methode zu ihrem Typ gehört: Ein `float` hat keine Methode `upper`. Python meldet das als `AttributeError`, auf Deutsch etwa „Merkmalsfehler“: Am Objekt hängt nichts mit dem Namen `upper`. Die Klammern um `2.5` sorgen dafür, dass Python den Punkt vor dem Methodennamen nicht für einen Dezimalpunkt hält. Bei einer ganzen Zahl braucht man sie: Ohne Klammern läse Python `19.` als Anfang der Zahl $19{,}0$.
+::::
 
 ⁠**Kurz gesagt:** Eine Methode ist eine Funktion eines Typs; man ruft sie mit `objekt.name()` auf.
 

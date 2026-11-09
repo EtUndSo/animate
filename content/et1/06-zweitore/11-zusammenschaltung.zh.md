@@ -38,9 +38,11 @@ lang: zh
 三种互联。左为串联，串联：电流相同，Z 相加。中为并联，并联：电压相同，Y 相加。右为串联，并联：$I_1$ 和 $U_2$ 相同，H 相加。
 :::
 
-**例。** ⁠**串联：**T 形网络本身就是两个分开的串联电阻和一个并联电阻的串联连接：
+::::beispiel
+⁠**串联：**T 形网络本身就是两个分开的串联电阻和一个并联电阻的串联连接：
 
 $$\mathbf Z=\begin{pmatrix}15&0\\0&20\end{pmatrix}\Omega+\begin{pmatrix}20&20\\20&20\end{pmatrix}\Omega=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**并联：**在 T 形网络上从接线端 1 到接线端 2 跨接一个 100 $\Omega$ 的电阻，$\mathbf Y$ 就加上串联电导：
 

@@ -57,7 +57,11 @@ Repetir para cada fuente y sumar todos los efectos parciales con su signo correc
 La red N y sus dos circuitos parciales. Centro: la fuente de corriente está abierta y queda un divisor de tensión. Derecha: la fuente de tensión es un cable, y la fuente de corriente alimenta $R_1$ y $R_2$ en paralelo. Los terminales A y B están abiertos.
 :::
 
-**Ejemplo.** Se busca $U_\mathrm{AB}$ en N con los terminales abiertos (fig. [9](#abb-9)). Circuito parcial 1: divisor de tensión, $U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V. Circuito parcial 2: $U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1{,}5\,\mathrm{A}=3$ V. Suma: $U_\mathrm{AB}=9$ V. Los coeficientes son, por tanto, $a=\frac13$ para $U_\mathrm{q1}$ y $Z=2\,\Omega$ para $I_\mathrm{q2}$. **Comprobación** con la ley de los nudos en A: por $R_1$ llegan $(18-9)\,\mathrm{V}/6\,\Omega=1{,}5$ A, más 1,5 A de la fuente de corriente, y por $R_2$ salen $9\,\mathrm{V}/3\,\Omega=3$ A. También las corrientes de rama se superponen: en $R_1$ circulan $2$ A del circuito parcial 1 y $-0{,}5$ A del circuito parcial 2. **Caso límite:** Si se duplican ambas fuentes, $U_\mathrm{AB}$ se duplica a 18 V, porque los coeficientes no cambian.
+::::beispiel
+Se busca $U_\mathrm{AB}$ en N con los terminales abiertos (fig. [9](#abb-9)). Circuito parcial 1: divisor de tensión, $U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V. Circuito parcial 2: $U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1{,}5\,\mathrm{A}=3$ V. Suma: $U_\mathrm{AB}=9$ V. Los coeficientes son, por tanto, $a=\frac13$ para $U_\mathrm{q1}$ y $Z=2\,\Omega$ para $I_\mathrm{q2}$. **Comprobación** con la ley de los nudos en A: por $R_1$ llegan $(18-9)\,\mathrm{V}/6\,\Omega=1{,}5$ A, más 1,5 A de la fuente de corriente, y por $R_2$ salen $9\,\mathrm{V}/3\,\Omega=3$ A. También las corrientes de rama se superponen: en $R_1$ circulan $2$ A del circuito parcial 1 y $-0{,}5$ A del circuito parcial 2.
+::::
+
+⁠**Caso límite:** Si se duplican ambas fuentes, $U_\mathrm{AB}$ se duplica a 18 V, porque los coeficientes no cambian.
 
 :::herleitung Los coeficientes de N
 Con los terminales abiertos, la ley de los nudos en A dice $(U_\mathrm{q1}-U_\mathrm{AB})/R_1+I_\mathrm{q2}=U_\mathrm{AB}/R_2$. Despejando la tensión buscada:

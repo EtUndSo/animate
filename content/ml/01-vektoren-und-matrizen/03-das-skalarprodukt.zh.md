@@ -68,11 +68,13 @@ $\mathbf{u}^{\top}\mathbf{u}=\sum_ju_j^2\ge0$，并且只有当 $\mathbf{u}=\mat
 (i) 由每个分量都满足 $u_jv_j=v_ju_j$ 得出。(ii) 就是求和规则式 [(1.2)](vektoren-daten-als-zahlenlisten.html#gl-1-2)：$\sum_j(c\,u_j)v_j=c\sum_ju_jv_j$，以及 $\sum_j(u_j+q_j)v_j=\sum_ju_jv_j+\sum_jq_jv_j$。(iii) 每一项 $u_j^2$ 都非负。只有当每一项都为零，即每个 $u_j=0$ 时，和才为零。
 :::
 
-⁠**算例：**对于 $\mathbf{u}=(1,\,2,\,3)^{\top}$ 和 $\mathbf{v}=(4,\,-1,\,2)^{\top}$，得到 $\mathbf{u}^{\top}\mathbf{v}=8$ 和 $\mathbf{u}^{\top}\mathbf{u}=14$（图 [6](#abb-6)）。交换顺序，结果仍是同一个数 $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$，正如对称性所要求的。
+::::beispiel [算例]
+对于 $\mathbf{u}=(1,\,2,\,3)^{\top}$ 和 $\mathbf{v}=(4,\,-1,\,2)^{\top}$，得到 $\mathbf{u}^{\top}\mathbf{v}=8$ 和 $\mathbf{u}^{\top}\mathbf{u}=14$（图 [6](#abb-6)）。交换顺序，结果仍是同一个数 $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$，正如对称性所要求的。
 
 :::abbildung ml/k1rskp 6
 逐步计算两个点积：分量乘分量，再把乘积相加。一个向量与自身的点积就是它各分量的平方和。
 :::
+::::
 
 ⁠**简而言之：**点积把两个向量逐个分量相乘，再把乘积相加；它是一个数。
 
@@ -99,13 +101,15 @@ $$\hat y=\mathbf{w}^{\top}\mathbf{x}=\sum_{j=1}^{d}w_j\,x_j . \tag{2.2}$$
 
 由样本的特征算出一个数的固定计算规则称为__模型__。模型对一个样本给出的数称为它的__预测值__。$\hat y$ 中 $y$ 上面的“帽子”表示这是一个计算出来的估计值，而不是测量值。在本章中，权重总是给定的；好的权重从何而来，是另一个问题。
 
-⁠**算例：**房产经纪人使用的权重为 $\mathbf{w}=(3,\,10,\,-4)^{\top}$，单位依次是千欧元每平方米、千欧元每房间和千欧元每公里。对公寓 1，$\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$（图 [7](#abb-7)），即 $188$ 千欧元。
+::::beispiel [算例]
+房产经纪人使用的权重为 $\mathbf{w}=(3,\,10,\,-4)^{\top}$，单位依次是千欧元每平方米、千欧元每房间和千欧元每公里。对公寓 1，$\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$（图 [7](#abb-7)），即 $188$ 千欧元。
 
 :::abbildung ml/k1rgewicht 7
 房产经纪人对公寓 1 的估价：每个特征乘以它的权重，再求和。三个特征的贡献分别为 $180$、$20$ 和 $-12$ 千欧元。
 :::
 
 同样，其他公寓的预测值为 $\hat y_2=126$，$\hat y_3=286$，$\hat y_4=232$。每个乘积 $w_jx_j$ 的单位都是千欧元，因为特征的单位与权重分母中的单位相互抵消。正因为如此，这三个乘积才可以相加。
+::::
 
 ⁠**简而言之：**加权和是权重与特征的点积 $\mathbf{w}^{\top}\mathbf{x}$；它是由特征作出预测的最简单的模型。
 
@@ -132,7 +136,8 @@ $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$
 
 这类计算还有很多：与单位向量的点积取出一个分量，$\mathbf{e}_j^{\top}\mathbf{v}=v_j$，因为其余各乘积都含有一个零。向量与自身的点积是平方和，$\mathbf{v}^{\top}\mathbf{v}=\sum_iv_i^2$。数量乘以价格再求和，就得到一张账单的金额。在一点 $t$ 处计算多项式 $p(t)=c_1+c_2t+\dots+c_nt^{n-1}$ 的值，就是求它的系数 $\mathbf{c}=(c_1,\dots,c_n)^{\top}$ 与幂次 $\mathbf{z}=(1,\,t,\,t^2,\dots,t^{n-1})^{\top}$ 的点积 $\mathbf{c}^{\top}\mathbf{z}$。对于 $p(t)=1+2t+3t^2$ 和 $t=2$，结果是 $(1,\,2,\,3)\,(1,\,2,\,4)^{\top}=1+4+12=17$。
 
-⁠**算例：**从一月到三月，公寓 1 的用电量为 $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh（第 [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4) 小节）。总计为 $\mathbf 1^{\top}\mathbf{u}=750$ kWh，平均每月 $\bar u=250$ kWh（图 [8](#abb-8)）。二月的用电量为 $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh。
+::::beispiel [算例]
+从一月到三月，公寓 1 的用电量为 $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh（第 [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4) 小节）。总计为 $\mathbf 1^{\top}\mathbf{u}=750$ kWh，平均每月 $\bar u=250$ kWh（图 [8](#abb-8)）。二月的用电量为 $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh。
 
 :::abbildung ml/k1rmittel 8
 把用电量的和与均值写成与全 1 向量的点积，单位为 kWh。
@@ -143,6 +148,7 @@ $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$
 :::abbildung ml/k1rstrom 9
 把电费写成点积：每个月的价格乘以用量，再求和，单位为欧元。
 :::
+::::
 
 ⁠**简而言之：**和、均值、取出一个分量以及平方和，分别是与 $\mathbf 1$、$\tfrac1n\mathbf 1$、$\mathbf{e}_j$ 和向量自身的点积。
 
@@ -162,11 +168,13 @@ $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$
 
 在信号处理中，这种计算称为相关。两个实序列 $x[n]$ 和 $y[n]$ 在移位为零时的互相关是 $\sum_nx[n]\,y[n]$。把两个有限长信号的采样值写成向量 $\mathbf{x}$ 和 $\mathbf{y}$，这恰好就是点积 $\mathbf{x}^{\top}\mathbf{y}$。信号的能量 $\sum_nx[n]^2$ 同样是 $\mathbf{x}^{\top}\mathbf{x}$。所以模式比对并不是新工具，它正是相关器在信号中搜索已知模式时所用的那个工具。
 
-⁠**算例：**用交替模式 $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$，对 $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ 得 $\mathbf{w}^{\top}\mathbf{x}=8$，对 $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ 得 $\mathbf{w}^{\top}\mathbf{x}'=0$（图 [11](#abb-11)）。用恒定模式 $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ 时情况正好相反：$\mathbf 1^{\top}\mathbf{x}=2$，而 $\mathbf 1^{\top}\mathbf{x}'=10$。所以信号 $\mathbf{x}$ 主要在交替变化，而 $\mathbf{x}'$ 主要保持恒定。
+::::beispiel [算例]
+用交替模式 $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$，对 $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ 得 $\mathbf{w}^{\top}\mathbf{x}=8$，对 $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ 得 $\mathbf{w}^{\top}\mathbf{x}'=0$（图 [11](#abb-11)）。用恒定模式 $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ 时情况正好相反：$\mathbf 1^{\top}\mathbf{x}=2$，而 $\mathbf 1^{\top}\mathbf{x}'=10$。所以信号 $\mathbf{x}$ 主要在交替变化，而 $\mathbf{x}'$ 主要保持恒定。
 
 :::abbildung ml/k1rmuster 11
 交替模式 $\mathbf{w}$ 与两个信号。上面，$\mathbf{x}$ 跟随模式：四个乘积全为正。下面，$\mathbf{x}'$ 平稳上升：乘积两两抵消。
 :::
+::::
 
 房产经纪人的加权和也是一种模式比对。她的模式 $\mathbf{w}=(3,\,10,\,-4)^{\top}$ 描述了什么样的公寓值钱：面积大、房间多、距离近。一套公寓与这个模式越吻合，它的预测值就越高。
 

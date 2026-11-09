@@ -34,7 +34,9 @@ et __semi-définie positive__ si $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}\ge0$ pou
 
 La symétrie fait partie de la définition. Pour la forme quadratique, ce n’est pas une restriction : d’après la section [5.2](quadratische-formen.html#stufe-5-2), seule la partie symétrique compte de toute façon. Elle est cependant nécessaire pour que les critères de la sous-section suivante soient valables. Toute matrice définie positive est aussi semi-définie positive.
 
-⁠**Exemple de calcul :** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ est définie positive, car d’après la section [5.4](quadratische-formen.html#stufe-5-4), $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$, et cette expression n’est nulle que si $x_2=0$, et alors aussi $x_1=0$. La matrice $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a pour forme $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$ ; elle est semi-définie positive, mais pas définie positive, car pour $\mathbf{x}=(2,\,-1)^{\top}$ la forme est nulle. Son graphe est une gouttière dont le fond de vallée est dans la direction $(2,\,-1)^{\top}$.
+::::beispiel [Exemple de calcul]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ est définie positive, car d’après la section [5.4](quadratische-formen.html#stufe-5-4), $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$, et cette expression n’est nulle que si $x_2=0$, et alors aussi $x_1=0$. La matrice $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a pour forme $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$ ; elle est semi-définie positive, mais pas définie positive, car pour $\mathbf{x}=(2,\,-1)^{\top}$ la forme est nulle. Son graphe est une gouttière dont le fond de vallée est dans la direction $(2,\,-1)^{\top}$.
+::::
 
 ⁠**En bref :** Définie positive signifie : la forme quadratique est positive hors de l’origine, c’est une cuvette ; semi-définie positive signifie : elle n’est négative nulle part.
 
@@ -56,7 +58,9 @@ Si tous les $\lambda_i>0$ et si $\mathbf{x}\ne\mathbf{0}$, alors $\mathbf{c}=\ma
 
 Si une matrice symétrique a des valeurs propres positives et négatives, sa forme est positive dans certaines directions et négative dans d’autres : c’est une selle. Une telle matrice est dite __indéfinie__. De même, une matrice dont toutes les valeurs propres sont négatives est dite définie négative ; sa forme est un dôme.
 
-⁠**Exemple de calcul :** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ a les valeurs propres $6$ et $1$ : définie positive. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a les valeurs propres $5$ et $0$ : semi-définie positive. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ n’a que des coefficients positifs, mais les valeurs propres $4$ et $-2$ : indéfinie, car pour $\mathbf{x}=(1,\,-1)^{\top}$, la forme vaut $1-6+1=-4$. Des coefficients positifs ne disent donc rien du caractère défini.
+::::beispiel [Exemple de calcul]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ a les valeurs propres $6$ et $1$ : définie positive. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a les valeurs propres $5$ et $0$ : semi-définie positive. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ n’a que des coefficients positifs, mais les valeurs propres $4$ et $-2$ : indéfinie, car pour $\mathbf{x}=(1,\,-1)^{\top}$, la forme vaut $1-6+1=-4$. Des coefficients positifs ne disent donc rien du caractère défini.
+::::
 
 ⁠**En bref :** Une matrice symétrique est définie positive si et seulement si toutes ses valeurs propres sont positives ; des valeurs propres positives et négatives à la fois donnent une selle.
 
@@ -104,11 +108,13 @@ Pour $n=2$, c’est [(5.3)](quadratische-formen.html#gl-5-3) : les pivots sont $
 
 Deux mises en garde. Premièrement, $\det\mathbf{A}>0$ seul ne suffit pas : $\operatorname{diag}(-1;\,-3)$ a pour déterminant $3$, mais elle est définie négative. Deuxièmement, le critère ne se transpose pas simplement au cas semi-défini : $\operatorname{diag}(0;\,-1)$ a pour mineurs principaux dominants $0$ et $0$, tous deux non négatifs, et n’est pourtant pas semi-définie positive.
 
-⁠**Exemple de calcul :** Pour
+::::beispiel [Exemple de calcul]
+Pour
 
 $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 les mineurs principaux dominants valent $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)=3$ et $\det\mathbf{A}=2\cdot3-1\cdot2=4$, tous positifs : $\mathbf{A}$ est définie positive. Les pivots sont $2$, $\tfrac32$ et $\tfrac43$, les quotients de mineurs consécutifs. Pour contrôle : les valeurs propres sont $2-\sqrt2$, $2$ et $2+\sqrt2$, toutes positives, et leur produit vaut $(4-2)\cdot2=4$.
+::::
 
 ⁠**En bref :** Une matrice symétrique est définie positive si et seulement si tous les pivots, ou tous les mineurs principaux dominants, sont positifs ; pour une matrice $2\times2$, cela signifie $a>0$ et $ac-b^2>0$.
 
@@ -116,7 +122,7 @@ les mineurs principaux dominants valent $2$, $\det\bigl(\begin{smallmatrix}2&1\\
 
 <span class="anker" id="stufe-8-4"></span>
 
-Dans Fondements 1, section 10, sont apparues les matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ et $\mathbf{X}\mathbf{X}^{\top}$, et dans ce chapitre, $\mathbf{A}^{\top}\mathbf{A}$ dans les équations normales. Elles sont toujours semi-définies positives, et la raison en est simple : leur forme quadratique est un carré de longueur.
+Dans [Fondements 1, section 10](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), sont apparues les matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ et $\mathbf{X}\mathbf{X}^{\top}$, et dans ce chapitre, $\mathbf{A}^{\top}\mathbf{A}$ dans les équations normales. Elles sont toujours semi-définies positives, et la raison en est simple : leur forme quadratique est un carré de longueur.
 
 :::satz Théorème 8.4 (Matrices de Gram)
 <span class="anker" id="satz-8-4"></span>
@@ -130,7 +136,9 @@ $\mathbf{A}^{\top}\mathbf{A}$ est symétrique, et $\mathbf{x}^{\top}\mathbf{A}^{
 
 Il en va de même pour $\mathbf{A}\mathbf{A}^{\top}$, avec les lignes au lieu des colonnes. Le théorème explique après coup la section [3.5](die-beste-naherungslosung.html#stufe-3-5) : si les colonnes sont indépendantes, $\mathbf{A}^{\top}\mathbf{A}$ est définie positive, n’a donc que des valeurs propres positives et est inversible.
 
-⁠**Exemple de calcul :** $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ a les valeurs propres $3$ et $1$ : définie positive, ce qui concorde avec les colonnes indépendantes de $\mathbf{H}$. Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, on a $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$, de déterminant $0$ et de valeurs propres $25$ et $0$ : semi-définie positive, mais pas définie positive.
+::::beispiel [Exemple de calcul]
+$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ a les valeurs propres $3$ et $1$ : définie positive, ce qui concorde avec les colonnes indépendantes de $\mathbf{H}$. Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, on a $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$, de déterminant $0$ et de valeurs propres $25$ et $0$ : semi-définie positive, mais pas définie positive.
+::::
 
 ⁠**En bref :** $\mathbf{A}^{\top}\mathbf{A}$ est toujours semi-définie positive, car $\mathbf{x}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\lVert\mathbf{A}\mathbf{x}\rVert^2$ ; si les colonnes sont indépendantes, elle est définie positive.
 
@@ -161,11 +169,13 @@ C’est une moyenne pondérée des valeurs propres, et une moyenne est toujours 
 
 Le quotient de [(8.2)](#gl-8-2) est appelé __quotient de Rayleigh__. Pour $\lVert\mathbf{x}\rVert=1$, c’est la forme quadratique elle-même : sur le cercle unité, la forme est comprise entre la plus petite et la plus grande valeur propre.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, le quotient de Rayleigh vaut $5$ en $\mathbf{e}_1$, $2$ en $\mathbf{e}_2$, $\tfrac{5+4+2}2=5{,}5$ en $(1,\,1)^{\top}/\sqrt2$ et $\tfrac{5-4+2}2=1{,}5$ en $(1,\,-1)^{\top}/\sqrt2$. Toutes ces valeurs sont comprises entre $1$ et $6$. Il atteint la valeur $6$ en $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ : $\tfrac15(20+8+2)=6$. Le quotient ne dépend pas de la longueur de $\mathbf{x}$ ; la Fig. [21](#abb-21) le calcule pour $\mathbf{x}=(1,\,1)^{\top}$, sans racines.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, le quotient de Rayleigh vaut $5$ en $\mathbf{e}_1$, $2$ en $\mathbf{e}_2$, $\tfrac{5+4+2}2=5{,}5$ en $(1,\,1)^{\top}/\sqrt2$ et $\tfrac{5-4+2}2=1{,}5$ en $(1,\,-1)^{\top}/\sqrt2$. Toutes ces valeurs sont comprises entre $1$ et $6$. Il atteint la valeur $6$ en $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ : $\tfrac15(20+8+2)=6$. Le quotient ne dépend pas de la longueur de $\mathbf{x}$ ; la Fig. [21](#abb-21) le calcule pour $\mathbf{x}=(1,\,1)^{\top}$, sans racines.
 
 :::abbildung ml/k2rrayleigh 21
 Le quotient de Rayleigh de $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ au point $\mathbf{x}=(1,1)^{\top}$ : numérateur et dénominateur comme sommes ; le quotient $\tfrac{11}2=5{,}5$ est compris entre les valeurs propres $1$ et $6$.
 :::
+::::
 
 ⁠**En bref :** Sur le cercle unité, une forme quadratique est comprise entre la plus petite et la plus grande valeur propre, et ces valeurs extrêmes sont atteintes dans les directions propres.
 
@@ -190,13 +200,15 @@ Si $\mathbf{A}=\mathbf L\mathbf L^{\top}$, alors $\mathbf{x}^{\top}\mathbf{A}\ma
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-et pour $n$ plus grand, on poursuit la complétion variable par variable. D’après Fondements 1, section 14.5, $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
+et pour $n$ plus grand, on poursuit la complétion variable par variable. D’après [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$, on a $a=4$, $b=2$, $c=5$, donc $l_{11}=2$, $l_{21}=1$ et $l_{22}=\sqrt{5-1}=2$ :
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$, on a $a=4$, $b=2$, $c=5$, donc $l_{11}=2$, $l_{21}=1$ et $l_{22}=\sqrt{5-1}=2$ :
 
 $$\mathbf L=\begin{pmatrix}2&0\\1&2\end{pmatrix},\qquad \mathbf L\mathbf L^{\top}=\begin{pmatrix}4&2\\2&1+4\end{pmatrix}=\mathbf{A} .$$
 
 La forme est $4x_1^2+4x_1x_2+5x_2^2=(2x_1+x_2)^2+(2x_2)^2$ ; les deux expressions à l’intérieur des carrés sont les composantes de $\mathbf L^{\top}\mathbf{x}$. Le déterminant vaut $20-4=16=(2\cdot2)^2$.
+::::
 
 ⁠**En bref :** Toute matrice définie positive s’écrit $\mathbf L\mathbf L^{\top}$ avec une matrice triangulaire inférieure $\mathbf L$ ; cette décomposition est la complétion du carré sous forme matricielle.
 

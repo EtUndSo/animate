@@ -75,11 +75,13 @@ $$\frac{\lVert\Delta\mathbf{x}\rVert}{\lVert\mathbf{x}\rVert}\le\kappa(\mathbf{A
 
 因此最坏的情形是：解位于 $\mathbf{A}$ 拉伸最强的方向上，使得 $\mathbf{y}$ 相对于 $\mathbf{x}$ 很大；而误差位于 $\mathbf{A}$ 拉伸最弱的方向上，使得反解时误差被放大 $1/d_n$ 倍。
 
-⁠**算例：**$\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$ 是对称矩阵，迹为 $2.01$，行列式为 $0.01$。它的特征值为
+::::beispiel [算例]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$ 是对称矩阵，迹为 $2.01$，行列式为 $0.01$。它的特征值为
 
 $$\lambda_{1,2}=\frac{2.01\pm\sqrt{2.01^2-0.04}}2=\frac{2.01\pm\sqrt{4.0001}}2\approx\frac{2.01\pm2.000025}2,$$
 
 所以 $\lambda_1\approx2.005012$，$\lambda_2\approx0.004988$，都为正。由第 [9.7](die-singularwertzerlegung.html#stufe-9-7) 节，它们也是奇异值，$\kappa(\mathbf{A})\approx402$。观察到的放大倍数 $284$ 低于这个值。它没有完全达到上界，因为 $\Delta\mathbf{y}=(0,\ 0.01)^{\top}$ 并不恰好沿 $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$ 方向。对于 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$，$\kappa=4/1=4$：相对误差至多放大为四倍。
+::::
 
 ⁠**简而言之：**条件数 $\kappa(\mathbf{A})=d_1/d_n$ 是 $\mathbf{A}^{-1}$ 能把数据的相对误差在解中放大的最大倍数。
 
@@ -87,7 +89,7 @@ $$\lambda_{1,2}=\frac{2.01\pm\sqrt{2.01^2-0.04}}2=\frac{2.01\pm\sqrt{4.0001}}2\a
 
 <span class="anker" id="stufe-12-3"></span>
 
-基础篇 1 第 14.6 节的背景方框中有一个警告：行列式小并不意味着矩阵接近奇异。条件数衡量的正是那里所指的东西。
+[基础篇 1 第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)的背景方框中有一个警告：行列式小并不意味着矩阵接近奇异。条件数衡量的正是那里所指的东西。
 
 :::satz 定理 12.3 (到最近奇异矩阵的距离)
 <span class="anker" id="satz-12-3"></span>
@@ -104,7 +106,9 @@ $$\min_{\mathbf{B}\ \text{奇异}}\frac{\lVert\mathbf{A}-\mathbf{B}\rVert_2}{\lV
 
 所以条件数大意味着：一个相对较小的改变就会使矩阵变成奇异的。行列式衡量的是另一回事。由练习 [29](die-singularwertzerlegung.html#aufg-29)，$|\det\mathbf{A}|=d_1\cdots d_n$，即所有拉伸之积；它取决于矩阵的大小。条件数是一个比值，把 $\mathbf{A}$ 乘以一个数时它不变：对 $c\ne0$，$\kappa(c\mathbf{A})=\kappa(\mathbf{A})$。它只衡量 $\mathbf{A}$ 把单位圆变成的那个椭圆有多扁。
 
-⁠**算例：**基础篇 1 第 14.6 节中的两个矩阵：$0.1\cdot\mathbf{I}_{10}$ 的行列式为 $10^{-10}$，但所有奇异值都是 $0.1$，$\kappa=1$；它的条件已是最好。$\operatorname{diag}(1000,\ 0.001)$ 的行列式为 $1$，但 $\kappa=1000/0.001=10^6$。对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$，到最近奇异矩阵的距离为 $d_2\approx0.005$：把元素改变几个千分之一，它就变成奇异的。奇异矩阵 $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ 到它的距离为 $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$，比最小值稍大。
+::::beispiel [算例]
+[基础篇 1 第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)中的两个矩阵：$0.1\cdot\mathbf{I}_{10}$ 的行列式为 $10^{-10}$，但所有奇异值都是 $0.1$，$\kappa=1$；它的条件已是最好。$\operatorname{diag}(1000,\ 0.001)$ 的行列式为 $1$，但 $\kappa=1000/0.001=10^6$。对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$，到最近奇异矩阵的距离为 $d_2\approx0.005$：把元素改变几个千分之一，它就变成奇异的。奇异矩阵 $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ 到它的距离为 $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$，比最小值稍大。
+::::
 
 ⁠**简而言之：**$1/\kappa(\mathbf{A})$ 是到最近奇异矩阵的相对距离；行列式对此说明不了什么，因为它取决于矩阵的大小。
 
@@ -129,7 +133,9 @@ $$\kappa(\mathbf{A}^{\top}\mathbf{A})=\kappa(\mathbf{A})^2 . \tag{12.4}$$
 $\mathbf{A}^{\top}\mathbf{A}$ 是对称正定矩阵，特征值为 $d_j^2$；由第 [9.7](die-singularwertzerlegung.html#stufe-9-7) 节，这些也是它的奇异值，它们的比为 $d_1^2/d_n^2$。由于 $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$，有 $\mathbf{R}^{\top}\mathbf{R}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{A}^{\top}\mathbf{A}$；所以 $\mathbf{R}$ 与 $\mathbf{A}$ 有相同的奇异值。
 :::
 
-⁠**算例：**第 [3.7](die-beste-naherungslosung.html#stufe-3-7) 节中由面积和房间数组成的公寓矩阵，奇异值为 $d_1\approx135.02$ 和 $d_2\approx0.848$，所以 $\kappa(\mathbf{A})\approx159.3$，$\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$。有两个原因使 $\kappa(\mathbf{A})$ 很大。第一是单位：面积是 $65$ 左右的数，房间数是 $2.5$ 左右的数。如果以 $10\,\mathrm m^2$ 为单位来度量面积，条件数就降到约 $18.5$。第二，两列几乎指向同一方向；它们之间的夹角只有约 $8.9^\circ$。因此，即使把两列都缩放到长度 $1$，仍然有 $\kappa\approx12.8$。换算单位并不改变拟合值 $\hat{\mathbf{y}}$：把一列除以 $10$，相应的权重就变为原来的 $10$ 倍，乘积保持不变。
+::::beispiel [算例]
+第 [3.7](die-beste-naherungslosung.html#stufe-3-7) 节中由面积和房间数组成的公寓矩阵，奇异值为 $d_1\approx135.02$ 和 $d_2\approx0.848$，所以 $\kappa(\mathbf{A})\approx159.3$，$\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$。有两个原因使 $\kappa(\mathbf{A})$ 很大。第一是单位：面积是 $65$ 左右的数，房间数是 $2.5$ 左右的数。如果以 $10\,\mathrm m^2$ 为单位来度量面积，条件数就降到约 $18.5$。第二，两列几乎指向同一方向；它们之间的夹角只有约 $8.9^\circ$。因此，即使把两列都缩放到长度 $1$，仍然有 $\kappa\approx12.8$。换算单位并不改变拟合值 $\hat{\mathbf{y}}$：把一列除以 $10$，相应的权重就变为原来的 $10$ 倍，乘积保持不变。
+::::
 
 ⁠**简而言之：**正规方程用的是 $\kappa(\mathbf{A})^2$，QR 分解用的是 $\kappa(\mathbf{A})$；选择合适的单位可以降低条件数。
 

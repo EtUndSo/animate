@@ -39,11 +39,13 @@ Die Arbeit des Felds wird vollständig zu Bewegungsenergie: $\frac12mv_2^2-\frac
 Links: Das Elektron startet an Platte B und läuft gegen das Feld zu Platte A. Rechts: Von $x=3$ mm nach $x=0$ wächst die Bewegungsenergie auf $1{,}44\cdot10^{-18}$ J, die potenzielle Energie fällt um denselben Betrag, Bezugspunkt B. Die Summe bleibt null.
 :::
 
-**Beispiel.** Für das Elektron im Plattenpaar ist
+::::beispiel
+Für das Elektron im Plattenpaar ist
 
 $$\begin{aligned} F&=e\,E=4{,}81\cdot10^{-16}\,\mathrm{N},\qquad a=\frac{F}{m_\mathrm{e}}=5{,}28\cdot10^{14}\,\mathrm{m/s^2},\qquad W=e\,U=1{,}44\cdot10^{-18}\,\mathrm{J},\\ v&=\sqrt{\frac{2\cdot1{,}44\cdot10^{-18}\,\mathrm{J}}{9{,}109\cdot10^{-31}\,\mathrm{kg}}}=1{,}78\cdot10^{6}\,\mathrm{m/s},\qquad t=\frac{2\cdot3\,\mathrm{mm}}{v}=3{,}37\,\mathrm{ns}. \end{aligned}$$
 
 Ein Proton läuft von A nach B. Es gewinnt dieselbe Energie, ist aber 1836-mal schwerer: $v=4{,}15\cdot10^4$ m/s, $\sqrt{1836}=42{,}9$-mal langsamer, Flugzeit 144 ns.
+::::
 
 ⁠**Kurz gesagt:** Durchläuft eine Ladung im Vakuum eine Spannung, ändert sich ihre Bewegungsenergie um Ladung mal Spannung, unabhängig von Weg und Abstand.
 

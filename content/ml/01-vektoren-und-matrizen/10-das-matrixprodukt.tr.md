@@ -50,7 +50,8 @@ $$\sum_{l=1}^k(\mathbf{A}\mathbf{B})_{il}\,x_l=\sum_{l=1}^k\sum_{j=1}^na_{ij}\,b
 ve bu, $\mathbf{A}(\mathbf{B}\mathbf{x})$ vektörünün $i$ numaralı bileşenidir. Ortadaki adımda iki toplamın yeri değiştirildi ve $a_{ij}$ içteki toplamın önüne alındı.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ ve $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ ve $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ için şu bulunur:
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
 
@@ -61,6 +62,7 @@ Eleman eleman matris çarpımı: $(i,l)$ elemanı, $\mathbf{A}$ matrisinin $i$ n
 :::
 
 $\mathbf{x}=(1,\,2)^{\top}$ ile kontrol: $\mathbf{B}\mathbf{x}=(2,\,1)^{\top}$, sonra $\mathbf{A}(\mathbf{B}\mathbf{x})=(4,\,1)^{\top}$; doğrudan da $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+2,\ 1+0)^{\top}=(4,\,1)^{\top}$.
+::::
 
 ⁠**Kısacası:** $\mathbf{A}\mathbf{B}$ matris çarpımı, “önce $\mathbf{B}$, sonra $\mathbf{A}$” dönüşümünün matrisidir; $(i,l)$ elemanı, $\mathbf{A}$ matrisinin $i$ numaralı satırı çarpı $\mathbf{B}$ matrisinin $l$ numaralı sütunudur.
 
@@ -81,11 +83,13 @@ Aynı biçimde $\mathbf{A}\mathbf{B}$ matrisinin $i$ numaralı satırı, $\mathb
 
 Veriler için bu şu demektir: Birkaç ağırlıklı toplam bütün örneklere uygulanmak istenirse ağırlık vektörleri bir $\mathbf{W}$ matrisinin sütunları olarak yan yana yazılır. O zaman $\mathbf{X}\mathbf{W}$ çarpımının $l$ numaralı sütunu, $l$-inci ağırlık vektörüyle yapılan tahminleri içerir.
 
-⁠**Sayısal örnek:** $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (bin avro) ile tahmin edilen satış fiyatının yanında $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (avro) ağırlıklarıyla aylık kira da tahmin edilmek isteniyor. $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$ ile şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{w}=(3,\,10,\,-4)^{\top}$ (bin avro) ile tahmin edilen satış fiyatının yanında $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (avro) ağırlıklarıyla aylık kira da tahmin edilmek isteniyor. $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$ ile şu bulunur:
 
 $$\mathbf{X}\mathbf{W}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3&12\\10&30\\-4&-8\end{pmatrix}=\begin{pmatrix}188&756\\126&502\\286&1152\\232&914\end{pmatrix}.$$
 
 $i$ numaralı satır, $i$ numaralı daire için iki tahmini de içerir; $1$ numaralı sütun bütün satış fiyatlarını, $2$ numaralı sütun bütün kiraları içerir.
+::::
 
 ⁠**Kısacası:** $\mathbf{A}\mathbf{B}$ matrisinin sütunları, $\mathbf{A}$ çarpı $\mathbf{B}$ matrisinin sütunlarıdır; $\mathbf{X}\mathbf{W}$ birkaç ağırlıklı toplamı bütün örneklere aynı anda uygular.
 
@@ -131,13 +135,17 @@ Ama genel olarak $\mathbf{A}\mathbf{B}\ne\mathbf{B}\mathbf{A}$ olur: Matris çar
 
 (i) kuralı anlamdan çıkar: İki taraf da “önce $\mathbf{C}$, sonra $\mathbf{B}$, sonra $\mathbf{A}$” dönüşümünün matrisidir, çünkü her $\mathbf{x}$ için $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{x})=\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{x}))=\mathbf{A}((\mathbf{B}\mathbf{C})\mathbf{x})$ olur. (ii) ve (iii) kuralları [(9.1)](#gl-9-1) ve toplam kurallarıyla eleman eleman doğrulanır.
 
-⁠**Sayısal örnek 1:** $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ dönmesi ve $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$ germesiyle şu bulunur:
+::::beispiel [Sayısal örnek 1]
+$\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ dönmesi ve $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$ germesiyle şu bulunur:
 
 $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0{,}5&0\end{pmatrix},\qquad \mathbf R\mathbf{S}=\begin{pmatrix}0&-0{,}5\\2&0\end{pmatrix}.$$
 
 Önce döndürüp sonra germek $\mathbf{e}_1$ vektörünü $(0;\,0{,}5)^{\top}$ vektörüne, önce gerip sonra döndürmek ise $(0,\,2)^{\top}$ vektörüne götürür.
+::::
 
-⁠**Sayısal örnek 2:** Daha önceki matrisler için (alt kesim [9.1](#stufe-9-1)) $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, ama $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$ olur. Tipler farklıysa bu daha da belirgindir: $\mathbf{A}\in\mathbb{R}^{2\times3}$ ve $\mathbf{B}\in\mathbb{R}^{3\times2}$ için $\mathbf{A}\mathbf{B}$ çarpımı $2\times2$ tipinde, $\mathbf{B}\mathbf{A}$ çarpımı ise $3\times3$ tipinde bir matristir.
+::::beispiel [Sayısal örnek 2]
+Daha önceki matrisler için (alt kesim [9.1](#stufe-9-1)) $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, ama $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$ olur. Tipler farklıysa bu daha da belirgindir: $\mathbf{A}\in\mathbb{R}^{2\times3}$ ve $\mathbf{B}\in\mathbb{R}^{3\times2}$ için $\mathbf{A}\mathbf{B}$ çarpımı $2\times2$ tipinde, $\mathbf{B}\mathbf{A}$ çarpımı ise $3\times3$ tipinde bir matristir.
+::::
 
 ⁠**Kısacası:** Matris çarpımında parantezlerin yeri değiştirilebilir ve parantezler açılabilir, ama çarpanların sırası değiştirilemez.
 
@@ -159,11 +167,13 @@ $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ ve $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ do�
 
 Kaç doğrusal aşama art arda bağlanırsa bağlansın, sonuç her zaman tek bir matrisle tek adımda hesaplanabilir. Demek ki doğrusal aşamalardan oluşan bir zincirin yapabildiğini tek bir matris de yapabilir. Sinyaller ve sistemler alanından aynı şey bilinir: Zincir hâlinde bağlanmış iki doğrusal sistem birlikte yine doğrusal bir sistem oluşturur.
 
-⁠**Sayısal örnek:** Birinci aşama üç sayıdan iki sayı üretir, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$; ikinci aşama iki sayıdan yine üç sayı üretir, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Birlikte bunlar tek bir matristir:
+::::beispiel [Sayısal örnek]
+Birinci aşama üç sayıdan iki sayı üretir, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$; ikinci aşama iki sayıdan yine üç sayı üretir, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Birlikte bunlar tek bir matristir:
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&5&-1\\1&1&1\\0&3&-3\end{pmatrix}.$$
 
 $\mathbf{x}=(1,\,1,\,1)^{\top}$ ile kontrol: $\mathbf{B}\mathbf{x}=(3,\,0)^{\top}$ ve $\mathbf{A}(3,\,0)^{\top}=(6,\,3,\,0)^{\top}$; aynı biçimde $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+5-1,\ 1+1+1,\ 0+3-3)^{\top}=(6,\,3,\,0)^{\top}$.
+::::
 
 ⁠**Kısacası:** Art arda doğrusal aşamalar birlikte tek bir doğrusal dönüşümdür; bu dönüşümün matrisi tek tek matrislerin çarpımıdır.
 
@@ -184,9 +194,9 @@ $$(\mathbf{u}\mathbf{v}^{\top})_{ij}=u_i\,v_j . \tag{9.3}$$
 
 Bu, $m\times1$ tipinde bir matris ile $1\times n$ tipinde bir matrisin matris çarpımıdır. Her sütun $\mathbf{u}$ vektörünün bir katıdır, yani $v_j\,\mathbf{u}$; her satır da $\mathbf{v}^{\top}$ satırının bir katıdır.
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\begin{pmatrix}1\\2\\3\end{pmatrix}\begin{pmatrix}4&5\end{pmatrix}=\begin{pmatrix}4&5\\8&10\\12&15\end{pmatrix}.$$
+::::
 
 Dış çarpımla her matris çarpımı bir toplam olarak yazılabilir: “$\mathbf{A}$ matrisinin $j$ numaralı sütunu çarpı $\mathbf{B}$ matrisinin $j$ numaralı satırı”, $j$ üzerinden toplanmış olarak:
 

@@ -98,7 +98,11 @@ Für $u,v\ne0$ gilt $\frac xu\cdot\frac yv=\frac{xy}{uv}$ und $\frac xu+\frac yv
 (vi) $\frac xu\cdot\frac yv=(xu^{-1})(yv^{-1})=(xy)(u^{-1}v^{-1})$, und $u^{-1}v^{-1}=(uv)^{-1}$, denn $(u^{-1}v^{-1})(uv)=1$ und das Inverse ist eindeutig. Die Divisionsregel folgt mit $(y v^{-1})^{-1}=y^{-1}v$, die Summenregel durch Erweitern: $\frac xu=\frac{xv}{uv}$, $\frac yv=\frac{yu}{uv}$, dann (AM).
 :::
 
-**Beispiel.** $(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$. **Grenzfall** $v=u=1$: Die Summenregel wird zu $x+y=x+y$.
+::::beispiel
+$(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$.
+::::
+
+⁠**Grenzfall** $v=u=1$: Die Summenregel wird zu $x+y=x+y$.
 
 :::frage Das weiß ich aus der Schule. Wozu ein Beweis?
 Für $\mathbb{Q}$ und $\mathbb{R}$ sind sie vertraut. Aber sie stehen nicht in den Axiomen, und erst der Beweis zeigt, wo sie gelten: in jedem Körper. Die Schulregel „Quadrate sind nicht negativ“ folgt dagegen nicht aus dieser Liste und fällt in [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Außerdem übt man das Schließen an Inhalten, deren Ergebnis man kennt.

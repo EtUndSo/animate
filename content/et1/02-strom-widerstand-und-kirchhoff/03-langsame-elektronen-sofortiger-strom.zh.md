@@ -36,7 +36,11 @@ $$|\vec v_\mathrm{max}|=\frac{e\,|\vec E|}{m_\mathrm e}\,T,\qquad\vec v_\mathrm 
 由 $F=m_\mathrm e\,a$ 和 $F=e\,E$（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）得加速度 $a=e\,E/m_\mathrm e$。一次飞行开始时定向部分为零，所以 $v(t)=a\,t$，$v_\mathrm{max}=a\,T$。锯齿波的平均值为 $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$。速度不会继续增大，因为每次碰撞都使它归零。
 :::
 
-**例。** 在导线中，$v_\mathrm D=j/(n\,e)=6\cdot10^3\,\mathrm{A/m^2}/(1.36\cdot10^{10}\,\mathrm{C/m^3})=4.4\cdot10^{-7}$ m/s，即 0.44 µ m/s。走完一米，电子需要 26 天。导线中的电场为 $E=v_\mathrm D/\mu=0.10$ mV/m。漂移之所以这么小，是因为导线中有极多的载流子：每米 6800 C 的电荷只需每秒提供 3 mC。**简而言之：**漂移速度等于电流除以每米的自由电荷。**极限情况：**没有电场时 $v_\mathrm D=0$。电流加倍，漂移加倍。碰撞很多（$T\to0$）时 $\mu\to0$：材料不导电。
+::::beispiel
+在导线中，$v_\mathrm D=j/(n\,e)=6\cdot10^3\,\mathrm{A/m^2}/(1.36\cdot10^{10}\,\mathrm{C/m^3})=4.4\cdot10^{-7}$ m/s，即 0.44 µ m/s。走完一米，电子需要 26 天。导线中的电场为 $E=v_\mathrm D/\mu=0.10$ mV/m。漂移之所以这么小，是因为导线中有极多的载流子：每米 6800 C 的电荷只需每秒提供 3 mC。
+::::
+
+⁠**简而言之：**漂移速度等于电流除以每米的自由电荷。**极限情况：**没有电场时 $v_\mathrm D=0$。电流加倍，漂移加倍。碰撞很多（$T\to0$）时 $\mu\to0$：材料不导电。
 
 **为什么电流仍然立刻出现。** 导线中有两样东西在传播，不可混淆。电子缓慢漂移。而电场在开关闭合时以电磁波的形式沿导线传播，在电缆中约为 $2\cdot10^8$ m/s。电子本来就遍布导线。每个电子在电场波前到达时就开始漂移（图 [3](#abb-3)）。经过几次这样的传播时间后，整个电路中就流过稳态电流。能量随电场传输，而不是随电子传输。波前走一米需要 5 ns。在这 5 ns 内，电子漂移 2.2 fm，比两个铜原子的间距小约 100 000 倍。两个速度相差 $4.5\cdot10^{14}$ 倍。
 

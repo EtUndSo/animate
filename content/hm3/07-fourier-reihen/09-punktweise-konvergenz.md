@@ -98,7 +98,9 @@ $$I_N=\frac1{2\pi}\int_0^{2\pi}h(y)\cos\tfrac y2\,\sin Ny\,\mathrm{d} y+\frac1{2
 Das sind, bis auf den Faktor $\frac12$, die Koeffizienten $b_N$ von $h\cos\frac y2$ und $a_N$ von $h\sin\frac y2$, beide periodisch fortgesetzt. Beide Funktionen sind Riemann-integrierbar, also gehen die Koeffizienten nach [(5.3)](die-beste-naherung.html#gl-5-3) gegen null.
 :::
 
-**Beispiele.** Für das Rechteck ist $T_Nq(0)=0=\frac12(1+(-1))$ für alle $N$, und bei $x=\frac\pi2$ folgt $\frac4\pi(1-\frac13+\frac15-\dots)=1$. Der Sägezahn ist der Prototyp: In den glatten Bereichen konvergiert die Reihe gleichmäßig, an den Sprüngen punktweise gegen den Mittelwert.
+::::beispiel [Beispiele]
+Für das Rechteck ist $T_Nq(0)=0=\frac12(1+(-1))$ für alle $N$, und bei $x=\frac\pi2$ folgt $\frac4\pi(1-\frac13+\frac15-\dots)=1$. Der Sägezahn ist der Prototyp: In den glatten Bereichen konvergiert die Reihe gleichmäßig, an den Sprüngen punktweise gegen den Mittelwert.
+::::
 
 :::zusatz Gibbs-Phänomen
 Die erste Spitze neben einem Sprung bleibt für große $N$ bei rund $9\,\%$ der Sprunghöhe und rückt nur näher an den Sprung. An jeder festen Stelle zieht sie vorbei, das verträgt sich also mit [(8.3)](#gl-8-3).

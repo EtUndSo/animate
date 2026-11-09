@@ -48,11 +48,11 @@ $$\bigl((\mathbf{A}\mathbf{B})^{\top}\bigr)_{li}=(\mathbf{A}\mathbf{B})_{il}=\su
 前三条规则直接由定义得出。
 :::
 
-⁠**算例：**
-
+::::beispiel [算例]
 $$\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^{\top}=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}.$$
 
 对 $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ 和 $\mathbf{D}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)$，有 $\mathbf{C}\mathbf{D}=\bigl(\begin{smallmatrix}2&3\\4&7\end{smallmatrix}\bigr)$，所以 $(\mathbf{C}\mathbf{D})^{\top}=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$。由 $\mathbf{D}^{\top}\mathbf{C}^{\top}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&3\\2&4\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$ 得到同样的结果，而 $\mathbf{C}^{\top}\mathbf{D}^{\top}=\bigl(\begin{smallmatrix}3&4\\4&6\end{smallmatrix}\bigr)$ 则是另一个矩阵。
+::::
 
 ⁠**简而言之：**转置交换行与列；对乘积，顺序要反过来，$(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$。
 
@@ -79,11 +79,13 @@ $$(\mathbf{A}^{\top}\mathbf{A})^{\top}=\mathbf{A}^{\top}(\mathbf{A}^{\top})^{\to
 
 所以 $\mathbf{A}^{\top}\mathbf{A}$ 是对称的，$\mathbf{A}\mathbf{A}^{\top}$ 也是。
 
-⁠**算例：**$\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ 是对称的，旋转 $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ 则不是。对 $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$，
+::::beispiel [算例]
+$\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ 是对称的，旋转 $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ 则不是。对 $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$，
 
 $$\mathbf{C}^{\top}\mathbf{C}=\begin{pmatrix}1&3\\2&4\end{pmatrix}\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}10&14\\14&20\end{pmatrix},$$
 
 它是对称的，正如式 [(10.2)](#gl-10-2) 所要求的。
+::::
 
 ⁠**简而言之：**对称矩阵等于它的转置；$\mathbf{A}^{\top}\mathbf{A}$ 和 $\mathbf{A}\mathbf{A}^{\top}$ 总是对称的。
 
@@ -119,11 +121,13 @@ $$\lVert\mathbf{x}_i-\mathbf{x}_k\rVert^2=(\mathbf{X}\mathbf{X}^{\top})_{ii}+(\m
 
 把元素 $(i,k)$ 除以 $\sqrt{(\mathbf{X}\mathbf{X}^{\top})_{ii}\,(\mathbf{X}\mathbf{X}^{\top})_{kk}}$，就得到 $\mathbf{x}_i$ 与 $\mathbf{x}_k$ 的余弦相似度。
 
-⁠**算例：**对第 [5.4](winkel-und-ahnlichkeit.html#stufe-5-4) 小节中的三篇文本，
+::::beispiel [算例]
+对第 [5.4](winkel-und-ahnlichkeit.html#stufe-5-4) 小节中的三篇文本，
 
 $$\mathbf{X}=\begin{pmatrix}3&2&0\\6&4&0\\0&1&3\end{pmatrix},\qquad \mathbf{X}\mathbf{X}^{\top}=\begin{pmatrix}13&26&2\\26&52&4\\2&4&10\end{pmatrix}.$$
 
 由式 [(10.4)](#gl-10-4)，文本 1 与文本 3 之间的距离为 $\sqrt{13+10-2\cdot2}=\sqrt{19}$，与前面算出的一致。文本 1 与文本 2 的余弦相似度为 $26/\sqrt{13\cdot52}=1$。
+::::
 
 ⁠**简而言之：**格拉姆矩阵 $\mathbf{X}\mathbf{X}^{\top}$ 是样本两两之间所有点积构成的表格；所有长度、距离和角度都可以由它得出。
 
@@ -153,7 +157,8 @@ $$\mathbf{X}^{\top}\mathbf{X}=\sum_{i=1}^N\mathbf{x}_i\,\mathbf{x}_i^{\top} . \t
 
 右边的元素 $(j,l)$ 是 $\sum_ix_{ij}\,x_{il}$，与式 [(10.5)](#gl-10-5) 相同。所以，如果新增一个样本，$\mathbf{X}^{\top}\mathbf{X}$ 只多出一层 $\mathbf{x}_{N+1}\mathbf{x}_{N+1}^{\top}$；不必全部重新计算。
 
-⁠**算例：**对这些文本，
+::::beispiel [算例]
+对这些文本，
 
 $$\mathbf{X}^{\top}\mathbf{X}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
 
@@ -166,6 +171,7 @@ $$\mathbf{X}^{\top}\mathbf{X}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix
 位置 $(1,3)$ 上的 $0$ 是说：“进球”和“选举”这两个词在任何一篇文本中都没有同时出现。写成三个外积之和：
 
 $$\begin{pmatrix}9&6&0\\6&4&0\\0&0&0\end{pmatrix}+\begin{pmatrix}36&24&0\\24&16&0\\0&0&0\end{pmatrix}+\begin{pmatrix}0&0&0\\0&1&3\\0&3&9\end{pmatrix}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
+::::
 
 ⁠**简而言之：**$\mathbf{X}^{\top}\mathbf{X}$ 是特征列的格拉姆矩阵；它是所有样本的外积 $\mathbf{x}_i\mathbf{x}_i^{\top}$ 之和。
 

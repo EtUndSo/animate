@@ -24,7 +24,8 @@ $$S_\mathrm a(f)=\sum_{n=-\infty}^{\infty}s(n)\,\mathrm{e}^{-\mathrm{j}2\pi nf},
 
 ⁠**Cómo leerlo:** el espectro $S_\mathrm a(f)$ es periódico con periodo 1, que es la frecuencia de muestreo. Un periodo, $|f|\le\frac12$, lo contiene todo. Por eso la transformada inversa solo integra sobre un intervalo de longitud 1. La suma es una serie de Fourier en $f$, con las muestras como coeficientes.
 
-**Ejemplo.** Para $s(n)=\varepsilon(n)\,b^n$ con $|b|<1$ (serie geométrica):
+::::beispiel
+Para $s(n)=\varepsilon(n)\,b^n$ con $|b|<1$ (serie geométrica):
 
 <span class="anker" id="gl-7-2"></span>
 $$S_\mathrm a(f)=\sum_{n=0}^{\infty}\bigl(b\,\mathrm{e}^{-\mathrm{j}2\pi f}\bigr)^n=\frac{1}{1-b\,\mathrm{e}^{-\mathrm{j}2\pi f}},\qquad|S_\mathrm a(f)|^2=\frac{1}{1+b^2-2b\cos(2\pi f)}. \tag{7.2}$$
@@ -34,6 +35,7 @@ Es a la vez la respuesta en frecuencia $H_\mathrm a(f)$ del sistema recursivo de
 :::abbildung et3/k4dtft 6
 Módulo de la respuesta en frecuencia del sistema recursivo con $b=0{,}6$. Es periódico con la frecuencia de muestreo. Entre las líneas rojas está el único periodo que lo describe todo.
 :::
+::::
 
 **Convolución y multiplicación.** Como con las funciones, se cumple $s(n)*h(n)\;\circ\!\!-\!\!\bullet\;S_\mathrm a(f)H_\mathrm a(f)$. El producto de dos secuencias da la __convolución periódica__ de los espectros sobre un periodo:
 

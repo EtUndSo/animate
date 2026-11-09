@@ -67,13 +67,17 @@ $$I_\mathrm D>0\ \Rightarrow\ U_\mathrm D=U_\mathrm F,\qquad U_\mathrm D<U_\math
 
 $n$ 个二极管有 $2^n$ 种组合，所以好的初始假设很值得。看一看电位会有帮助。
 
-**例。** 图 [9](#abb-9) 下方：5 V 和 2 V 各经 1 k$\Omega$ 和一个二极管向节点 X 供电，$R_3=2\,\mathrm{k\Omega}$ 从 X 接地。$U_\mathrm F=0.7$ V。
+::::beispiel
+图 [9](#abb-9) 下方：5 V 和 2 V 各经 1 k$\Omega$ 和一个二极管向节点 X 供电，$R_3=2\,\mathrm{k\Omega}$ 从 X 接地。$U_\mathrm F=0.7$ V。
 
 ⁠**假设 1：两者都导通。**在 X 处的节点定律（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）为 $(4.3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1.3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$。由此得 $\varphi_\mathrm X=2.24$ V，$I_\mathrm{D1}=2.06$ mA，$I_\mathrm{D2}=-0.94$ mA。负电流是矛盾。
 
 ⁠**假设 2：D$_1$ 导通，D$_2$ 截止。**于是 $I=(5\,\mathrm{V}-0.7\,\mathrm{V})/3\,\mathrm{k\Omega}=1.43$ mA，$\varphi_\mathrm X=2.87$ V。D$_2$ 上的电压为 $U_\mathrm{D2}=2\,\mathrm{V}-2.87\,\mathrm{V}=-0.87$ V。它小于 $U_\mathrm F$，没有矛盾。工作点为 D$_1$ (0.7 V | 1.43 mA) 和 D$_2$ ($-0.87$ V | 0)。完整仿真给出 2.89 V 和 1.45 mA。
 
-⁠**看电位：**只有当 $\varphi_\mathrm X<2\,\mathrm{V}-0.7\,\mathrm{V}=1.3$ V 时，D$_2$ 才导通。仅 5 V 电源就把 X 抬到 2.87 V，因此 D$_2$ 的阴极高于阳极。较高的电压占了上风。假设 3（只有 D$_2$ 导通）会给出 $U_\mathrm{D1}=4.13$ V，假设 4（两者都截止）给出 $U_\mathrm{D1}=5$ V，都大于 $U_\mathrm F$，因而都是矛盾。**极限情况：**$U_2=5$ V 时两条支路相同，每个二极管各承担一半电流。
+⁠**看电位：**只有当 $\varphi_\mathrm X<2\,\mathrm{V}-0.7\,\mathrm{V}=1.3$ V 时，D$_2$ 才导通。仅 5 V 电源就把 X 抬到 2.87 V，因此 D$_2$ 的阴极高于阳极。较高的电压占了上风。假设 3（只有 D$_2$ 导通）会给出 $U_\mathrm{D1}=4.13$ V，假设 4（两者都截止）给出 $U_\mathrm{D1}=5$ V，都大于 $U_\mathrm F$，因而都是矛盾。
+::::
+
+⁠**极限情况：**$U_2=5$ V 时两条支路相同，每个二极管各承担一半电流。
 
 :::frage 为什么负电流是矛盾？电压源不是可以吸收电流吗？
 等效电源可以，二极管不行：在反向只流过 $I_\mathrm S$。该模型只适用于 $I_\mathrm D>0$。负的结果说明计算在这个范围之外使用了二极管。

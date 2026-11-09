@@ -26,7 +26,11 @@ $$I_\mathrm{ref}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{ref}}=I_\mathrm{C1
 
 ⁠**How to read it:** $I_\mathrm{ref}$ is the __reference current__. The two base currents branch off from it. Hence the small error $2/B$. **Validity:** T2 active, equal transistors and equal temperature, for instance on one chip. Because of the slope of the characteristic, T2 delivers somewhat more at large $U_\mathrm{CE2}$.
 
-**Example.** With $R_\mathrm{ref}=5.7$ k$\Omega$, $I_\mathrm{ref}=2$ mA and $I_\mathrm{C2}=1.98$ mA, with $R_\mathrm{L}$ arbitrary up to $11.8\,\mathrm{V}/1.98\,\mathrm{mA}=5.96$ k$\Omega$. Beyond that T2 would be saturated. With [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1), the current in T2 would be 7 % larger at $U_\mathrm{CE2}=6$ V and $U_\mathrm{CE1}=0.6$ V. **Limiting case:** for $B\to\infty$, $I_\mathrm{C2}=I_\mathrm{ref}$.
+::::beispiel
+With $R_\mathrm{ref}=5.7$ k$\Omega$, $I_\mathrm{ref}=2$ mA and $I_\mathrm{C2}=1.98$ mA, with $R_\mathrm{L}$ arbitrary up to $11.8\,\mathrm{V}/1.98\,\mathrm{mA}=5.96$ k$\Omega$. Beyond that T2 would be saturated. With [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1), the current in T2 would be 7 % larger at $U_\mathrm{CE2}=6$ V and $U_\mathrm{CE1}=0.6$ V.
+::::
+
+⁠**Limiting case:** for $B\to\infty$, $I_\mathrm{C2}=I_\mathrm{ref}$.
 
 **The idea: voltage regulator.** A rectifier with smoothing ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) delivers a DC voltage with a residual fluctuation, the __ripple__. In the regulator (Fig. [9](#abb-9), right), a Zener diode holds the base at $U_\mathrm{Z}$. The emitter is the output and lies one diode voltage lower. If the output voltage falls because the load draws more current, $U_\mathrm{BE}$ grows and the transistor supplies more. The rest of the input voltage drops across $U_\mathrm{CE}$. The load current does not flow through $R_1$; the base needs only one $B$-th of it. So the Zener diode is hardly loaded.
 
@@ -45,7 +49,11 @@ $$U_\mathrm{A}=U_\mathrm{Z}-U_\mathrm{BE}. \tag{8.2}$$
 Left, current mirror: T1 as a diode produces $U_\mathrm{BE}$, T2 copies the current. Center, voltage regulator with Zener diode, the emitter is the output. Right, the waveform: the input voltage fluctuates between 10.5 V and 13.5 V, the output stays at 5.6 V.
 :::
 
-**Example.** $U_\mathrm{Z}=6.2$ V gives $U_\mathrm{A}=5.6$ V. At a 50 mA load, the base needs 0.25 mA. With $R_1=1$ k$\Omega$ and $U_\mathrm{E}=12$ V$\,\pm1.5$ V, 4.05 mA to 7.05 mA flow through the Zener diode. A Zener diode with a small-signal resistance of 10 $\Omega$ turns 3 V of ripple into just 30 mV. In the transistor, up to $7.9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW arise, just under $P_\mathrm{max}$. The regulator converts the excess voltage into heat. With 0.68 V instead of 0.6 V, the more accurate $U_\mathrm{BE}$ at 50 mA, $U_\mathrm{A}$ would be 80 mV smaller. **Limiting case:** without a load, $I_\mathrm{B}\approx0$, $U_\mathrm{A}$ rises slightly, $U_\mathrm{Z}$ stays.
+::::beispiel
+$U_\mathrm{Z}=6.2$ V gives $U_\mathrm{A}=5.6$ V. At a 50 mA load, the base needs 0.25 mA. With $R_1=1$ k$\Omega$ and $U_\mathrm{E}=12$ V$\,\pm1.5$ V, 4.05 mA to 7.05 mA flow through the Zener diode. A Zener diode with a small-signal resistance of 10 $\Omega$ turns 3 V of ripple into just 30 mV. In the transistor, up to $7.9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW arise, just under $P_\mathrm{max}$. The regulator converts the excess voltage into heat. With 0.68 V instead of 0.6 V, the more accurate $U_\mathrm{BE}$ at 50 mA, $U_\mathrm{A}$ would be 80 mV smaller.
+::::
+
+⁠**Limiting case:** without a load, $I_\mathrm{B}\approx0$, $U_\mathrm{A}$ rises slightly, $U_\mathrm{Z}$ stays.
 
 :::frage Why not the Zener diode alone?
 Then the series resistor would have to supply the entire 50 mA plus a remainder for the Zener diode at the lowest input voltage. At peak voltage the difference would flow through the Zener diode, and the series resistor would heat up with around 0.7 W. The transistor separates the two: the Zener diode sets the voltage, the supply delivers the current via the collector. Power transistors and components derived from them also switch large currents, for instance in converters for electric motors.

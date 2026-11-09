@@ -41,7 +41,11 @@ $$W=U\,I\,\Delta t,\qquad P=\frac{W}{\Delta t}=U\,I. \tag{1.2}$$
 在时间 $\mathrm{d} t$ 内，电荷 $\mathrm{d} Q=i\,\mathrm{d} t$ 从接线端 1 进入，同样的电荷从接线端 2 流出（节点定律，[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。内部保持不变。就能量平衡而言，相当于 $\mathrm{d} Q$ 直接从 $\varphi_1$ 到达 $\varphi_2$。由[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)可知，释放的能量为 $\mathrm{d} W=(\varphi_1-\varphi_2)\,\mathrm{d} Q=u\,i\,\mathrm{d} t$。除以 $\mathrm{d} t$ 即得式 [(1.1)](#gl-1-1)。电子运动方向相反，且带负电。两个符号合在一起，得到同样的乘积。
 :::
 
-**例。** $R_\mathrm{L}=16\,\Omega$ 上的电压为 8 V，电流为 0.5 A（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。每库仑释放 8 J，每秒到来 0.5 C：$P=4$ W。一小时内为 $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14.4\,\mathrm{kJ}=4\,\mathrm{Wh}$。逐个计数时，每秒通过 $I/e=3.12\cdot10^{18}$ 个电子，每个释放 $e\cdot8\,\mathrm{V}=1.28\cdot10^{-18}$ J。乘积仍是 4 W。**极限情况：**接线端开路时为 9 V 和 0 A，所以 $P=0$。理想导线的 $U=0$，所以在任何电流下 $P=0$。
+::::beispiel
+$R_\mathrm{L}=16\,\Omega$ 上的电压为 8 V，电流为 0.5 A（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。每库仑释放 8 J，每秒到来 0.5 C：$P=4$ W。一小时内为 $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14.4\,\mathrm{kJ}=4\,\mathrm{Wh}$。逐个计数时，每秒通过 $I/e=3.12\cdot10^{18}$ 个电子，每个释放 $e\cdot8\,\mathrm{V}=1.28\cdot10^{-18}$ J。乘积仍是 4 W。
+::::
+
+⁠**极限情况：**接线端开路时为 9 V 和 0 A，所以 $P=0$。理想导线的 $U=0$，所以在任何电流下 $P=0$。
 
 :::frage 元件中电流被消耗了吗？
 没有。元件前后流过的电流相同，电荷全部又流了出来。被消耗的是能量：电荷以较低的电位继续前进。因此“耗电量”的账单上写的是千瓦时。

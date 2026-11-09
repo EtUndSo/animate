@@ -41,7 +41,11 @@ $$U_\mathrm{A}=A_\mathrm{D}\,U_\mathrm{D},\qquad A_\mathrm{D}=S\,R_\mathrm{C}=\f
 Ambos emisores están al mismo potencial, así que $U_\mathrm{BE2}-U_\mathrm{BE1}=U_\mathrm{D}$. Con $I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T}$ se sigue $I_\mathrm{C2}/I_\mathrm{C1}=\mathrm{e}^{U_\mathrm{D}/U_T}$. Junto con $I_\mathrm{C1}+I_\mathrm{C2}=I_0$ esto da [(2.1)](#gl-2-1). Para cambios pequeños: la suma está fijada, así que $\Delta I_\mathrm{C1}=-\Delta I_\mathrm{C2}$. Ambos son $S$ por el cambio de su propia $U_\mathrm{BE}$, de modo que los cambios son iguales y opuestos. Su diferencia es $U_\mathrm{D}$, así que cada unión soporta $\pm U_\mathrm{D}/2$. Por tanto, $\Delta I_\mathrm{C2}=S\,U_\mathrm{D}/2$ y $U_\mathrm{A}=2R_\mathrm{C}\,\Delta I_\mathrm{C2}=S\,R_\mathrm{C}\,U_\mathrm{D}$.
 :::
 
-**Ejemplo.** En reposo circula 1 mA por cada rama, y los colectores están a $12\,\mathrm{V}-3\,\mathrm{V}=9$ V. $S=38{,}5$ mS, así que $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$. Con $U_\mathrm{D}=1$ mV pasan $\pm19{,}2$ µ A de una rama a otra, cada colector se mueve 57,7 mV, y juntos dan $U_\mathrm{A}=115$ mV. Una perturbación de 100 mV en ambas entradas no cambia nada de esto. **Casos límite:** $U_\mathrm{D}=0$ da $I_0/2$ por rama. Con $|U_\mathrm{D}|\gg U_T$ todo circula por un transistor, $U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V. El rango lineal solo tiene unas pocas $U_T$ de ancho: con 26 mV, la recta da 3,0 V; la curva exacta, 2,77 V.
+::::beispiel
+En reposo circula 1 mA por cada rama, y los colectores están a $12\,\mathrm{V}-3\,\mathrm{V}=9$ V. $S=38{,}5$ mS, así que $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$. Con $U_\mathrm{D}=1$ mV pasan $\pm19{,}2$ µ A de una rama a otra, cada colector se mueve 57,7 mV, y juntos dan $U_\mathrm{A}=115$ mV. Una perturbación de 100 mV en ambas entradas no cambia nada de esto.
+::::
+
+⁠**Casos límite:** $U_\mathrm{D}=0$ da $I_0/2$ por rama. Con $|U_\mathrm{D}|\gg U_T$ todo circula por un transistor, $U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V. El rango lineal solo tiene unas pocas $U_T$ de ancho: con 26 mV, la recta da 3,0 V; la curva exacta, 2,77 V.
 
 **Entrada.** Una señal de entrada $U_\mathrm{D}$ está aplicada a dos uniones BE en serie, y la resistencia de entrada es $2\,r_\mathrm{BE}=2B/S=10{,}4$ k$\Omega$. Con una corriente total de 20 µ A en lugar de 2 mA son 1,04 M$\Omega$, y cada base toma solo 50 nA. De ahí proceden $r_\mathrm{e}$ e $I_\mathrm{B}$ del modelo de referencia.
 

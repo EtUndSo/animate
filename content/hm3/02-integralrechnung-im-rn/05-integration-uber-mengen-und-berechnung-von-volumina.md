@@ -42,11 +42,13 @@ heißt das Integral von $f$ über $M$.
 
 ⁠**So liest man das:** $Q\setminus M$ ist die Menge der Punkte von $Q$, die nicht in $M$ liegen. Das hat einen Haken: $\bar f$ ist im Allgemeinen nicht stetig, denn am Rand von $M$ springt sie von $f$ auf null. Die Sätze des letzten Abschnitts setzen stetige Integranden voraus und sagen deshalb über die rechte Seite nichts. Hier hilft das Lebesgue-Integral: Es garantiert, dass das Integral für abgeschlossene, beschränkte Mengen $M$ __wohldefiniert__ ist, also einen eindeutigen Wert hat, der nicht vom gewählten Quader abhängt. Man erhält ihn zum Beispiel, indem man $\bar f$ als Grenzwert geeigneter stetiger Funktionen auf $Q$ darstellt.
 
-⁠**Beispiel:** $M=[0,1]\times[0,1]$, $f(x,y)=xy$ und der größere Quader $Q=[0,2]\times[0,1]$. Für festes $y>0$ ist $x\mapsto\bar f(x,y)$ gleich $xy$ für $x\le1$ und null für $x>1$; bei $x=1$ springt sie. Eine Funktion einer Variablen mit endlich vielen Sprüngen integriert man stückweise:
+::::beispiel
+$M=[0,1]\times[0,1]$, $f(x,y)=xy$ und der größere Quader $Q=[0,2]\times[0,1]$. Für festes $y>0$ ist $x\mapsto\bar f(x,y)$ gleich $xy$ für $x\le1$ und null für $x>1$; bei $x=1$ springt sie. Eine Funktion einer Variablen mit endlich vielen Sprüngen integriert man stückweise:
 
 $$\int_0^2\bar f(x,y)\,\mathrm{d} x=\int_0^1xy\,\mathrm{d} x+\int_1^20\,\mathrm{d} x=\frac y2,\qquad\int_0^1\frac y2\,\mathrm{d} y=\frac14 .$$
 
 Das ist dasselbe wie $\int_Mxy\,\mathrm{d} x\,\mathrm{d} y$ direkt über den Quader $M$ gerechnet, wie es sein muss.
+::::
 
 :::hintergrund Warum der Sprung am Rand meist nicht stört
 Man denkt an die Säulensummen aus dem Hintergrund zum Satz von Fubini. Ein kleines Rechteck, das ganz in $M$ oder ganz außerhalb liegt, merkt vom Sprung nichts. Nur die Rechtecke, die den Rand von $M$ treffen, können Ärger machen, denn dort hängt der Säulenwert davon ab, ob der gewählte Punkt innen oder außen liegt. Ihr Beitrag ist höchstens $\sup|f|$ mal ihre Gesamtfläche. Lässt sich der Rand mit Rechtecken beliebig kleiner Gesamtfläche überdecken, dann geht diese Gesamtfläche bei feiner werdender Einteilung gegen null, und die Säulensummen konvergieren trotz des Sprungs. Das trifft für alle Mengen dieses Kapitels zu. Ihr Rand besteht aus endlich vielen Stücken von Graphen stetiger Funktionen, und ein solcher Graph über $[a,b]$ lässt sich wegen der gleichmäßigen Stetigkeit mit $N$ Rechtecken der Breite $(b-a)/N$ und der Höhe $2\varepsilon$ überdecken, zusammen mit der Fläche $2\varepsilon\,(b-a)$. Es gibt aber abgeschlossene, beschränkte Mengen mit so zerfranstem Rand, dass er sich nicht so überdecken lässt. Für sie konvergieren die Säulensummen schon für $f=1$ nicht, und erst das Lebesgue-Integral gibt dem Integral einen Wert.
@@ -68,7 +70,9 @@ Für eine abgeschlossene, beschränkte Menge $M\subset\mathbb{R}^3$ heißt $\ope
 
 Für einen Quader ergibt sich wieder $|Q|$, denn $\int_Q1\,\mathrm{d}\boldsymbol{x}$ ist das Produkt der Intervalllängen.
 
-⁠**Beispiel:** Das Dreieck $D=\{(x,y):0\le y\le x\le1\}$ im Quadrat $[0,1]^2$. Für festes $y$ ist die fortgesetzte Funktion $\bar1$ gleich $1$ für $y\le x\le1$ und sonst null. Das innere Integral ist also die Länge $1-y$, und $|D|=\int_0^1(1-y)\,\mathrm{d} y=\frac12$, wie es für ein halbes Quadrat sein muss.
+::::beispiel
+Das Dreieck $D=\{(x,y):0\le y\le x\le1\}$ im Quadrat $[0,1]^2$. Für festes $y$ ist die fortgesetzte Funktion $\bar1$ gleich $1$ für $y\le x\le1$ und sonst null. Das innere Integral ist also die Länge $1-y$, und $|D|=\int_0^1(1-y)\,\mathrm{d} y=\frac12$, wie es für ein halbes Quadrat sein muss.
+::::
 
 ⁠**Kurz gesagt:** Volumen und Flächeninhalt sind die Integrale der Funktion $1$ über die Menge.
 
@@ -111,16 +115,22 @@ Das ist eine Riemann-Summe von $\mathcal A$ auf $[0,H]$. Weil $\mathcal A$ steti
 Das Zeichen $\approx$ in der Herleitung verbirgt die Frage, ob „Fläche mal Dicke“ für eine Schicht genau genug ist. Die genaue Begründung kommt aus dem Mehrfachintegral. Nach Unterabschnitt [4.2](#stufe-4-2) ist $\operatorname{vol}(M)=\int_Q\bar1\,\mathrm{d}\boldsymbol{x}$. Rechnet man dieses Integral iteriert, mit $z$ als äußerer Variable, dann ist das innere Doppelintegral über $x$ und $y$ in der Höhe $z$ genau $\int\!\!\int\bar1\,\mathrm{d} x\,\mathrm{d} y=|D(z)|=\mathcal A(z)$, und außen bleibt $\int_0^H\mathcal A(z)\,\mathrm{d} z$. Das Prinzip von Cavalieri ist also ein iteriertes Integral mit $z$ außen. Weil $\bar1$ am Rand von $M$ springt, braucht man dafür eine Fassung des Satzes von Fubini für unstetige Integranden; die liefert das Lebesgue-Integral.
 :::
 
-⁠**Beispiel: Kegel.** Ein Kegel mit einem Grundkreis vom Radius $R$ und der Höhe $H$ wird auf die Spitze gestellt. Der Radius des Querschnitts wächst linear von $0$ an der Spitze bis $R$ oben, ist also $zR/H$, und $\mathcal A(z)=\pi(zR/H)^2$. Damit ist
+::::beispiel Kegel
+Ein Kegel mit einem Grundkreis vom Radius $R$ und der Höhe $H$ wird auf die Spitze gestellt. Der Radius des Querschnitts wächst linear von $0$ an der Spitze bis $R$ oben, ist also $zR/H$, und $\mathcal A(z)=\pi(zR/H)^2$. Damit ist
 
 $$\operatorname{vol}=\int_0^H\pi\frac{R^2}{H^2}z^2\,\mathrm{d} z=\pi\frac{R^2}{H^2}\cdot\frac{H^3}3=\frac\pi3R^2H .$$
 
-Bei $R=2$ und $H=3$ ist das $4\pi$. **Grenzfall:** Bei konstantem $\mathcal A$, etwa für einen Zylinder, bleibt Grundfläche mal Höhe.
+Bei $R=2$ und $H=3$ ist das $4\pi$.
+::::
 
-⁠**Beispiel: Kuppel.** Die *Kuppel* $K$ ist der Körper zwischen der Ebene $z=0$ und dem Graphen der Kuppelfunktion: $K=\{(x,y,z):0\le z\le4-x^2-y^2\}$. In der Höhe $z$ ist der Querschnitt die Kreisscheibe $x^2+y^2\le4-z$ mit $\mathcal A(z)=\pi(4-z)$. Also ist
+⁠**Grenzfall:** Bei konstantem $\mathcal A$, etwa für einen Zylinder, bleibt Grundfläche mal Höhe.
+
+::::beispiel Kuppel
+Die *Kuppel* $K$ ist der Körper zwischen der Ebene $z=0$ und dem Graphen der Kuppelfunktion: $K=\{(x,y,z):0\le z\le4-x^2-y^2\}$. In der Höhe $z$ ist der Querschnitt die Kreisscheibe $x^2+y^2\le4-z$ mit $\mathcal A(z)=\pi(4-z)$. Also ist
 
 <span class="anker" id="gl-4-3"></span>
 $$\operatorname{vol}(K)=\int_0^4\pi(4-z)\,\mathrm{d} z=8\pi . \tag{4.3}$$
+::::
 
 :::hintergrund Ein Bild: der schief geschobene Münzstapel
 Einen Stapel Münzen kann man schief schieben, ohne dass sich sein Volumen ändert, denn jede Münze bleibt dieselbe. Das ist das Prinzip von Cavalieri im Kleinen. Das Bild ist eine Analogie und hat eine Grenze: Eine echte Münze hat über ihre ganze Dicke denselben Querschnitt, eine Schicht eines Kegels nicht. Für dicke Schichten stimmt „Fläche mal Dicke“ deshalb nur ungefähr. Erst der Grenzwert $\Delta z\searrow0$ macht daraus eine genaue Aussage.

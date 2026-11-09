@@ -26,7 +26,8 @@ Python 1 hat die Zeichenkette als Wert aus Text eingeführt ([Programmieren, Py
 Für Zeichenketten bedeutet `+` Aneinanderhängen, das __Verketten__: `"Ohm" + "meter"` ist `"Ohmmeter"`. `*` mit einem `int` wiederholt die Zeichenkette. Die eingebaute Funktion `len` liefert die Zahl der Zeichen.
 :::
 
-**Beispiel.** Verketten, wiederholen, zählen:
+::::beispiel
+Verketten, wiederholen, zählen:
 
 ```console
 >>> "Ohm" + "meter"
@@ -46,6 +47,7 @@ Für Zeichenketten bedeutet `+` Aneinanderhängen, das __Verketten__: `"Ohm" + "
 ```
 
 `""` ist die leere Zeichenkette, mit null Zeichen. `"4" + "2"` ergibt den Text `'42'`, nicht die Zahl 6: Für `str` bedeutet `+` Verketten, egal, was in der Zeichenkette steht.
+::::
 
 ⁠**Kurz gesagt:** Bei Zeichenketten verkettet `+`, `*` wiederholt, und `len` zählt die Zeichen.
 
@@ -78,7 +80,8 @@ Hinter dem Ausdruck kann, durch einen Doppelpunkt getrennt, eine Formatangabe st
 
 Steht hinter dem Ausdruck ein Gleichheitszeichen, `f"{U=}"`, setzt Python den Ausdruck selbst, ein `=` und den Wert ein; das ist praktisch zum Nachsehen von Zwischenwerten. Die Formatangaben sind dieselben wie bei der Funktion `format` aus Unterabschnitt [3.4](zahlen-im-binarsystem.html#stufe-3-4). Wie in allen Python-Ausgaben steht der Dezimalpunkt als Punkt und die Tausendertrennung als Komma.
 
-**Beispiel.** Eine Messzeile mit Spannung, Strom, Widerstand und Leistung:
+::::beispiel
+Eine Messzeile mit Spannung, Strom, Widerstand und Leistung:
 
 ```console
 >>> U = 3.3
@@ -94,6 +97,7 @@ Strom: 12.50 mA
 ```
 
 Der interaktive Modus zeigt einen f-String als Zeichenkette mit Apostrophen; erst `print` gibt den reinen Text aus.
+::::
 
 **Den gespeicherten Wert von `0.1`, fertig.** In Unterabschnitt [4.6](gleitkommazahlen-der-typ-float.html#stufe-4-6) hat die Rechnung mit $5^{55}$ von Hand die 55 Nachkommastellen des gespeicherten Werts von `0.1` geliefert. Mit einer Formatangabe geht es direkt:
 
@@ -120,7 +124,8 @@ Bisher stehen alle Werte im Quelltext. Ein Einheitenrechner soll aber die Zahlen
 Die eingebaute Funktion `input` schreibt den Text in ihren Klammern als Frage ins Terminal, wartet, bis der Benutzer eine Zeile eintippt und Enter drückt, und liefert diese Zeile als Zeichenkette, ohne das Enter.
 :::
 
-**Beispiel.** Im interaktiven Modus erscheint die Frage, und dahinter tippt man die Antwort, hier `5`:
+::::beispiel
+Im interaktiven Modus erscheint die Frage, und dahinter tippt man die Antwort, hier `5`:
 
 ```console
 >>> spannung = input("Spannung in V: ")
@@ -134,6 +139,7 @@ Spannung in V: 5
 ```
 
 `input` liefert *immer* eine Zeichenkette, auch wenn man eine Zahl eintippt. `spannung * 2` wiederholt deshalb den Text, statt zu rechnen. Mit einer Eingabe zu rechnen, verlangt einen weiteren Schritt.
+::::
 
 ⁠**Kurz gesagt:** `input` fragt nach einer Zeile und liefert sie als `str`.
 
@@ -171,7 +177,8 @@ Die Funktionen `int`, `float` und `str` erzeugen aus einem Wert ein neues Objekt
 </ul>
 :::
 
-**Beispiel.** Umwandlungen, die gelingen, und zwei, die scheitern:
+::::beispiel
+Umwandlungen, die gelingen, und zwei, die scheitern:
 
 ```console
 >>> int("42")
@@ -203,6 +210,7 @@ ValueError: could not convert string to float: '2,5'
 ```
 
 `int("4.2")` scheitert, weil `4.2` keine ganze Zahl ist; `int(float("4.2"))` ginge. `float("2,5")` scheitert am Komma: Python erwartet den Dezimalpunkt, auch bei Eingaben. Für Zahlen aus `input` ist das typische Muster deshalb `float(input("..."))`.
+::::
 
 ⁠**Kurz gesagt:** `int`, `float` und `str` wandeln ausdrücklich um; `int` schneidet Nachkommastellen ab.
 

@@ -36,7 +36,9 @@ und Gleichheit gilt genau dann, wenn $\mathbf{p}$ die Gleichverteilung $\mathbf{
 Nach [(9.2)](kreuzentropie-und-kl-divergenz.html#gl-9-2) ist $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{u})=\sum_kp_k\log_2(p_kK)=\sum_kp_k\log_2K-\sum_kp_k\log_2\frac1{p_k}=\log_2K-H(\mathbf{p})$. Nach der Gibbs-Ungleichung ist das nicht negativ und nur für $\mathbf{p}=\mathbf{u}$ null.
 :::
 
-⁠**Rechenbeispiel:** Für die Quelle mit $\mathbf{p}=(\tfrac12,\tfrac14,\tfrac18,\tfrac18)^{\top}$ ist $H(\mathbf{p})=1{,}75\le\log_24=2$, und $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{u})=0{,}25$ bit. Das ist genau die Ersparnis des Codes aus Abb. [14](informationsgehalt-und-entropie.html#abb-14) gegenüber dem Code mit zwei Ziffern je Zeichen. Ein fairer Würfel hat die größtmögliche Entropie $\log_26\approx2{,}585$ bit für sechs Ergebnisse.
+::::beispiel [Rechenbeispiel]
+Für die Quelle mit $\mathbf{p}=(\tfrac12,\tfrac14,\tfrac18,\tfrac18)^{\top}$ ist $H(\mathbf{p})=1{,}75\le\log_24=2$, und $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{u})=0{,}25$ bit. Das ist genau die Ersparnis des Codes aus Abb. [14](informationsgehalt-und-entropie.html#abb-14) gegenüber dem Code mit zwei Ziffern je Zeichen. Ein fairer Würfel hat die größtmögliche Entropie $\log_26\approx2{,}585$ bit für sechs Ergebnisse.
+::::
 
 ⁠**Kurz gesagt:** Unter allen Verteilungen auf $K$ Ergebnissen hat die Gleichverteilung die größte Entropie, $\log_2K$; der Abstand zu ihr ist $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{u})$.
 
@@ -63,12 +65,14 @@ integriert über alle $x$ mit $p(x)>0$.
 
 Das kleine $h$ soll daran erinnern, dass sie sich anders verhält als die Entropie $H$ einer diskreten Verteilung. Sie misst, wie weit eine Dichte ausgebreitet ist, aber sie kann negativ sein, und sie hängt von der Einheit ab, in der man $x$ misst.
 
-⁠**Rechenbeispiel:** Für die Gleichverteilung auf $[0,\,a]$ ist $p(x)=1/a$ und $h=\int_0^a\frac1a\ln a\,\mathrm{d} x=\ln a$. Für $a=\tfrac18$ ist das $\ln\tfrac18\approx-2{,}079$ nat, in bit $\log_2\tfrac18=-3$: negativ. Misst man dieselbe Größe in Millimetern statt in Metern, so wird aus $[0,\,a]$ das Intervall $[0,\,1000a]$, und $h$ wächst um $\ln1000\approx6{,}91$ nat. Für die Normalverteilung $\mathcal N(\mu,\sigma^2)$ ist $\ln\frac1{p(x)}=\tfrac12\ln(2\pi\sigma^2)+\frac{(x-\mu)^2}{2\sigma^2}$, und der Erwartungswert davon ist
+::::beispiel [Rechenbeispiel]
+Für die Gleichverteilung auf $[0,\,a]$ ist $p(x)=1/a$ und $h=\int_0^a\frac1a\ln a\,\mathrm{d} x=\ln a$. Für $a=\tfrac18$ ist das $\ln\tfrac18\approx-2{,}079$ nat, in bit $\log_2\tfrac18=-3$: negativ. Misst man dieselbe Größe in Millimetern statt in Metern, so wird aus $[0,\,a]$ das Intervall $[0,\,1000a]$, und $h$ wächst um $\ln1000\approx6{,}91$ nat. Für die Normalverteilung $\mathcal N(\mu,\sigma^2)$ ist $\ln\frac1{p(x)}=\tfrac12\ln(2\pi\sigma^2)+\frac{(x-\mu)^2}{2\sigma^2}$, und der Erwartungswert davon ist
 
 <span class="anker" id="gl-10-3"></span>
 $$h\bigl(\mathcal N(\mu,\sigma^2)\bigr)=\tfrac12\ln(2\pi\sigma^2)+\frac{\sigma^2}{2\sigma^2}=\tfrac12\ln(2\pi\mathrm{e}\,\sigma^2) , \tag{10.3}$$
 
 für $\sigma=1$ etwa $1{,}419$ nat.
+::::
 
 ⁠**Kurz gesagt:** Die differentielle Entropie $h(p)=\int p\ln(1/p)\,\mathrm{d} x$ misst die Ausbreitung einer Dichte; sie kann negativ sein und hängt von der Einheit ab.
 
@@ -99,7 +103,8 @@ integriert über alle $x$ mit $p(x)>0$.
 
 Die Gibbs-Ungleichung gilt mit demselben Beweis, die Summen werden zu Integralen: $-D_{\mathrm{KL}}(p\,\|\,q)\le\int p\,(q/p-1)\,\mathrm{d} x=\int q\,\mathrm{d} x-1\le0$. Gleichheit gilt genau dann, wenn $p$ und $q$ übereinstimmen, abgesehen von Stellen, an denen das Integral nichts bemerkt. Die KL-Divergenz hängt nicht von der Einheit ab: Misst man $x$ in einer anderen Einheit, so werden beide Dichten mit demselben Faktor multipliziert, und ihr Verhältnis bleibt gleich.
 
-⁠**Rechenbeispiel:** Es sei $p$ die Dichte von $\mathcal N(0,1)$ und $q$ die von $\mathcal N(1,\,2^2)$. Mit [(4.1)](die-likelihood.html#gl-4-1) ist
+::::beispiel [Rechenbeispiel]
+Es sei $p$ die Dichte von $\mathcal N(0,1)$ und $q$ die von $\mathcal N(1,\,2^2)$. Mit [(4.1)](die-likelihood.html#gl-4-1) ist
 
 $$\ln\frac{p(x)}{q(x)}=\ln2-\frac{x^2}2+\frac{(x-1)^2}8 .$$
 
@@ -112,6 +117,7 @@ Abb. [21](#abb-21) zeigt das als Fläche: Die KL-Divergenz ist die Fläche unte
 :::abbildung ml/k5klflaeche 21
 (a) Zwei Normalverteilungen. (b) Der Integrand der KL-Divergenz. Blau die Fläche, wo $p>q$ ist, zwischen $x\approx-1{,}85$ und $x\approx1{,}18$; rot die negative Fläche, wo $q$ größer ist. Die blaue Fläche überwiegt, und die gesamte Fläche ist $0{,}443$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die KL-Divergenz zweier Dichten ist die Fläche unter $p\ln(p/q)$; sie ist nie negativ, nur für gleiche Dichten null und hängt nicht von der Einheit ab.
 
@@ -146,7 +152,9 @@ also $h(p)\le h(q)$, mit Gleichheit genau dann, wenn $p=q$ ist.
 
 Der Beweis zeigt den Mechanismus. Der Logarithmus einer Normalverteilungsdichte ist eine quadratische Funktion von $x$. Mittelt man ihn mit irgendeiner Dichte $p$, so kommt es nur auf deren Erwartungswert und Varianz an. Unter allen Dichten mit derselben Varianz hat deshalb $\int p\ln(1/q)$ denselben Wert, und die Gibbs-Ungleichung sortiert sie nach ihrem Abstand zur Normalverteilung.
 
-⁠**Rechenbeispiel:** Die Gleichverteilung auf $[-a,\,a]$ hat nach [Grundlagen 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4), die Varianz $(2a)^2/12=a^2/3$. Mit $a=\sqrt3\,\sigma$ hat sie also die Varianz $\sigma^2$ und die differentielle Entropie $\ln(2a)=\ln\sigma+\ln(2\sqrt3)\approx\ln\sigma+1{,}242$. Die Normalverteilung mit derselben Varianz hat $\tfrac12\ln(2\pi\mathrm{e})+\ln\sigma\approx\ln\sigma+1{,}419$, also $0{,}176$ nat mehr. Genau so groß ist die KL-Divergenz der Gleichverteilung zur Normalverteilung.
+::::beispiel [Rechenbeispiel]
+Die Gleichverteilung auf $[-a,\,a]$ hat nach [Grundlagen 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4), die Varianz $(2a)^2/12=a^2/3$. Mit $a=\sqrt3\,\sigma$ hat sie also die Varianz $\sigma^2$ und die differentielle Entropie $\ln(2a)=\ln\sigma+\ln(2\sqrt3)\approx\ln\sigma+1{,}242$. Die Normalverteilung mit derselben Varianz hat $\tfrac12\ln(2\pi\mathrm{e})+\ln\sigma\approx\ln\sigma+1{,}419$, also $0{,}176$ nat mehr. Genau so groß ist die KL-Divergenz der Gleichverteilung zur Normalverteilung.
+::::
 
 ⁠**Kurz gesagt:** Unter allen Verteilungen mit derselben Varianz hat die Normalverteilung die größte differentielle Entropie, $\tfrac12\ln(2\pi\mathrm{e}\,\sigma^2)$.
 

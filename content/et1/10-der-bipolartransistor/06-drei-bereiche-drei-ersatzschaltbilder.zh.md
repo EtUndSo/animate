@@ -32,7 +32,11 @@ $$\begin{aligned} \text{截止区：}\quad & U_\mathrm{BE}<U_\mathrm{BE,on}\;\Ri
 npn 晶体管的三种等效电路。左：截止区，开路。中：放大区，含受控电流源。右：饱和区，含两个电压源。$I_\mathrm{B}$ 和 $I_\mathrm{C}$ 在 E 上方的节点处汇合。
 :::
 
-**例。** 对 T（$B=200$）有：$I_\mathrm{B}=10$ µ A 且 $U_\mathrm{CE}=6$ V 是放大区，所以 $I_\mathrm{C}=2$ mA。$I_\mathrm{B}=30$ µ A 且 $I_\mathrm{C}=3.9$ mA 是饱和区，因为 $B\,I_\mathrm{B}=6$ mA 大于电路允许的电流。$U_\mathrm{BE}=0.3$ V 是截止区。**极限情况：**当 $B\,I_\mathrm{B}=I_\mathrm{C}$ 且 $U_\mathrm{CE}=U_\mathrm{CE,sat}$ 时，晶体管正好处在放大区和饱和区的边界上。两种等效电路在那里给出相同的结果。
+::::beispiel
+对 T（$B=200$）有：$I_\mathrm{B}=10$ µ A 且 $U_\mathrm{CE}=6$ V 是放大区，所以 $I_\mathrm{C}=2$ mA。$I_\mathrm{B}=30$ µ A 且 $I_\mathrm{C}=3.9$ mA 是饱和区，因为 $B\,I_\mathrm{B}=6$ mA 大于电路允许的电流。$U_\mathrm{BE}=0.3$ V 是截止区。
+::::
+
+⁠**极限情况：**当 $B\,I_\mathrm{B}=I_\mathrm{C}$ 且 $U_\mathrm{CE}=U_\mathrm{CE,sat}$ 时，晶体管正好处在放大区和饱和区的边界上。两种等效电路在那里给出相同的结果。
 
 :::frage 电流明明不再跟随了，为什么叫饱和？
 饱和的不是电流，而是基区：它被电子塞得过满。因此，对双极型晶体管来说，这个词指的是输出特性曲线左侧的陡峭部分。对 MOSFET 来说，平坦部分才叫饱和。这两个词含义不同。

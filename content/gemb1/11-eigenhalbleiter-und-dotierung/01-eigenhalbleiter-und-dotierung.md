@@ -14,7 +14,7 @@ Ein Stück reines Silizium enthält bei Raumtemperatur so wenige bewegliche Ladu
 
 Der Weg führt über acht Begriffe. Ein __Halbleiter__ ist ein Kristall, dessen Bandlücke so klein ist, dass Wärme einige Elektronen ins Leitungsband hebt. Ein __Eigenhalbleiter__ ist ein reiner Halbleiter ohne Fremdatome. __Dotierung__ heißt: Man baut gezielt wenige Fremdatome ein. Ein __Donator__ ist ein Fremdatom, das ein Elektron abgibt, ein __Akzeptor__ eines, das ein Elektron aufnimmt. Die __Ladungsneutralität__ verlangt, dass ein Stück Kristall insgesamt ungeladen ist. Die __Störstellenerschöpfung__ ist der Temperaturbereich, in dem alle Fremdatome ionisiert sind, die __Störstellenreserve__ der Bereich, in dem ein Teil von ihnen neutral bleibt.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

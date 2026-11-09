@@ -34,11 +34,13 @@ Sans indice, $\lVert\mathbf{x}\rVert$ désigne toujours, dans cette série, la n
 
 On l’appelle aussi la __longueur__ du vecteur ou, à cause des carrés, la norme $L_2$. Un vecteur de longueur $1$ est dit __normé__. Si l’on divise un vecteur $\mathbf{x}\ne\mathbf{0}$ par sa longueur, $\mathbf{x}/\lVert\mathbf{x}\rVert$ est normé et pointe dans la même direction. Cette opération s’appelle __normer__.
 
-⁠**Exemple de calcul :** Le vecteur $\mathbf{x}=(3,\,-4)^{\top}$ a pour longueur $\lVert\mathbf{x}\rVert_2=5$ (Fig. [12](#abb-12)). Normé, il devient $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$. Dans l’espace, $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
+::::beispiel [Exemple de calcul]
+Le vecteur $\mathbf{x}=(3,\,-4)^{\top}$ a pour longueur $\lVert\mathbf{x}\rVert_2=5$ (Fig. [12](#abb-12)). Normé, il devient $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$. Dans l’espace, $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
 
 :::abbildung ml/k1rl2 12
 La norme euclidienne de $(3,\,-4)^{\top}$ : élever les composantes au carré, additionner, extraire la racine. Le signe moins disparaît lors de l’élévation au carré.
 :::
+::::
 
 ⁠**En bref :** La norme euclidienne est la longueur de la flèche, la racine de la somme des carrés des composantes.
 
@@ -59,13 +61,15 @@ $$\lVert\mathbf{x}\rVert_1=|x_1|+|x_2|+\dots+|x_d|=\sum_{j=1}^d|x_j| . \tag{3.2}
 
 On l’appelle aussi norme $L_1$ ou, d’après le réseau de rues de Manhattan, norme de Manhattan.
 
-⁠**Exemple de calcul :** Pour $\mathbf{x}=(3,\,-4)^{\top}$, on a $\lVert\mathbf{x}\rVert_1=7$ (Fig. [13](#abb-13)), et $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{x}=(3,\,-4)^{\top}$, on a $\lVert\mathbf{x}\rVert_1=7$ (Fig. [13](#abb-13)), et $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
 
 :::abbildung ml/k1rl1 13
 La norme 1 de $\mathbf{x}=(3,\,-4)^{\top}$ : additionner les valeurs absolues des composantes.
 :::
 
 Ici, la norme 1 est plus grande que la longueur euclidienne, parce que le détour par les rues est plus long que le trajet à vol d’oiseau.
+::::
 
 ⁠**En bref :** La norme 1 additionne les valeurs absolues des composantes ; c’est le trajet à travers un réseau de rues à angles droits.
 
@@ -86,7 +90,9 @@ $$\lVert\mathbf{x}\rVert_\infty=\max_{j=1,\dots,d}|x_j| . \tag{3.3}$$
 
 On l’appelle aussi norme $L_\infty$. La raison du symbole infini est donnée dans la sous-section suivante.
 
-⁠**Exemple de calcul :** $\lVert(3,\,-4)^{\top}\rVert_\infty=4$ et $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Si les écarts d’une pièce sont de $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm, leur norme du maximum vaut $0{,}08$ mm, et la pièce est conforme.
+::::beispiel [Exemple de calcul]
+$\lVert(3,\,-4)^{\top}\rVert_\infty=4$ et $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Si les écarts d’une pièce sont de $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm, leur norme du maximum vaut $0{,}08$ mm, et la pièce est conforme.
+::::
 
 ⁠**En bref :** La norme du maximum est la plus grande valeur absolue d’une composante, le pire écart individuel.
 
@@ -139,11 +145,13 @@ Pour $p=1$, c’est la norme 1, pour $p=2$ la norme euclidienne. Plus $p$ est gr
 Les sphères unités de trois normes dans le plan : le losange de la norme 1 (à gauche, en orange), le cercle de la norme euclidienne (au milieu, en bleu) et le carré de la norme du maximum (à droite, en vert) ; en gris, à chaque fois, les deux autres pour comparaison. Toutes trois passent par les points $(\pm1,\,0)$ et $(0,\,\pm1)$.
 :::
 
-⁠**Exemple de calcul :** Pour $\mathbf{x}=(3,\,-4)^{\top}$, on a $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (Fig. [15](#abb-15)) et $\lVert\mathbf{x}\rVert_\infty=4$. Quand $p$ croît, la norme $p$ se rapproche de la plus grande valeur absolue d’une composante, ici $4$. La raison se lit déjà dans la somme : pour $p=10$, $4^{10}$ est presque dix-huit fois plus grand que $3^{10}$, et la racine de la somme est à peine plus grande que la racine de $4^{10}$ seul.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{x}=(3,\,-4)^{\top}$, on a $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (Fig. [15](#abb-15)) et $\lVert\mathbf{x}\rVert_\infty=4$. Quand $p$ croît, la norme $p$ se rapproche de la plus grande valeur absolue d’une composante, ici $4$. La raison se lit déjà dans la somme : pour $p=10$, $4^{10}$ est presque dix-huit fois plus grand que $3^{10}$, et la racine de la somme est à peine plus grande que la racine de $4^{10}$ seul.
 
 :::abbildung ml/k1rlp 15
 Deux normes $p$ de $\mathbf{x}=(3,\,-4)^{\top}$, pour $p=3$ et $p=10$. Plus $p$ est grand, plus le terme de la plus grande composante prédomine.
 :::
+::::
 
 Que la norme 1 satisfasse les conditions (N1) à (N3) se vérifie directement : (N1) et (N2) sont vraies parce que $|x_j|\ge0$ et $|c\,x_j|=|c|\,|x_j|$. (N3) découle de l’inégalité triangulaire pour les nombres, $|u_j+v_j|\le|u_j|+|v_j|$, sommée sur tous les $j$. Pour la norme du maximum, on procède de même. Pour la norme euclidienne, l’inégalité triangulaire est intuitivement évidente, parce que le chemin direct entre deux points n’est jamais plus long qu’un détour par un troisième point.
 
@@ -182,7 +190,8 @@ le __vecteur d’erreur__. Ici, $\hat{\mathbf{y}}=(\hat y_1,\dots,\hat y_N)^{\to
 
 Choisir la norme que l’on applique au vecteur d’erreur, c’est décider quelles erreurs l’on redoute le plus. Le signe n’y joue aucun rôle, car toute norme donne à $\mathbf{y}-\hat{\mathbf{y}}$ la même grandeur qu’à $\hat{\mathbf{y}}-\mathbf{y}$.
 
-⁠**Exemple de calcul :** Les quatre appartements ont été vendus ; les prix réels étaient $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$, en milliers d’euros. Deux experts A et B avaient auparavant fait les estimations suivantes :
+::::beispiel [Exemple de calcul]
+Les quatre appartements ont été vendus ; les prix réels étaient $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$, en milliers d’euros. Deux experts A et B avaient auparavant fait les estimations suivantes :
 
 $$\hat{\mathbf{y}}_{\mathrm A}=(210,\,120,\,300,\,230)^{\top},\qquad \hat{\mathbf{y}}_{\mathrm B}=(200,\,130,\,290,\,280)^{\top}.$$
 
@@ -202,6 +211,7 @@ Les normes euclidiennes des deux vecteurs d’erreur, en milliers d’euros. Ave
 | Expert B, $\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y}$ | $40$ | $\sqrt{1600}=40$ | $40$ |
 
 Selon la norme 1, les deux sont aussi bons l’un que l’autre : tous deux se trompent au total de $40$ mille euros. Selon la norme euclidienne, A est deux fois meilleur, selon la norme du maximum quatre fois meilleur. Qui juge chaque millier d’euros d’écart aussi grave, quel que soit l’appartement, mesure avec $L_1$. Qui juge une grosse valeur aberrante plus grave que de nombreuses petites erreurs mesure avec $L_2$. Qui ne craint que le pire des cas mesure avec $L_\infty$.
+::::
 
 ⁠**En bref :** Le vecteur d’erreur rassemble les écarts de toutes les prédictions ; sa norme mesure la grandeur de l’erreur, et le choix de la norme détermine quelles erreurs comptent particulièrement.
 
@@ -228,11 +238,13 @@ L’abréviation rms signifie *root mean square* : la racine de la moyenne des 
 
 Le nom est connu en électrotechnique : la valeur efficace d’une tension alternative est la racine de la moyenne temporelle de son carré. Pour un signal échantillonné, [(3.6)](#gl-3-6) est le même calcul, avec des échantillons au lieu d’une intégrale. Si l’on échantillonne une sinusoïde sur exactement une période en $n\ge3$ points régulièrement répartis, on obtient même exactement la valeur efficace $1/\sqrt2$ de la sinusoïde.
 
-⁠**Exemple de calcul :** Les vecteurs d’erreur des experts de la sous-section précédente ont pour valeurs efficaces $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ et $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mille euros : A se trompe typiquement de $10$ mille euros. Une sinusoïde d’amplitude $1$, échantillonnée en quatre points régulièrement répartis sur une période, a pour échantillons $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ et pour valeur efficace $1/\sqrt2\approx0{,}707$ (Fig. [17](#abb-17)).
+::::beispiel [Exemple de calcul]
+Les vecteurs d’erreur des experts de la sous-section précédente ont pour valeurs efficaces $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ et $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mille euros : A se trompe typiquement de $10$ mille euros. Une sinusoïde d’amplitude $1$, échantillonnée en quatre points régulièrement répartis sur une période, a pour échantillons $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ et pour valeur efficace $1/\sqrt2\approx0{,}707$ (Fig. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
 La valeur efficace d’une sinusoïde échantillonnée : additionner les carrés, diviser par le nombre de composantes, extraire la racine.
 :::
+::::
 
 ⁠**En bref :** La valeur efficace $\lVert\mathbf{x}\rVert/\sqrt n$ est la valeur absolue typique d’une composante et rend comparables des vecteurs de longueurs différentes.
 

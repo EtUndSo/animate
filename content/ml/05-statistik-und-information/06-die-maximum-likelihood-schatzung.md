@@ -41,12 +41,14 @@ Die Funktion $f$ sei auf einem Intervall $I$ differenzierbar, und $x^*$ liege in
 
 Dahinter steht die Tatsache aus der Schule, dass eine Funktion mit positiver Ableitung wächst und eine mit negativer Ableitung fällt. Links von $x^*$ steigt $f$ also bis $x^*$ an, rechts davon fällt $f$ wieder ab.
 
-⁠**Rechenbeispiel:** Für $f(x)=\ln x-x$ auf $x>0$ ist $f'(x)=1/x-1$. Die Ableitung ist null bei $x=1$, positiv für $x<1$ und negativ für $x>1$. Also ist $x=1$ der höchste Punkt, mit $f(1)=-1$. Für jedes $x>0$ ist deshalb $\ln x-x\le-1$, also
+::::beispiel [Rechenbeispiel]
+Für $f(x)=\ln x-x$ auf $x>0$ ist $f'(x)=1/x-1$. Die Ableitung ist null bei $x=1$, positiv für $x<1$ und negativ für $x>1$. Also ist $x=1$ der höchste Punkt, mit $f(1)=-1$. Für jedes $x>0$ ist deshalb $\ln x-x\le-1$, also
 
 <span class="anker" id="gl-5-1"></span>
 $$\ln x\le x-1 , \tag{5.1}$$
 
 mit Gleichheit nur bei $x=1$. Diese Ungleichung wird in Abschnitt [9](kreuzentropie-und-kl-divergenz.html#stufe-9) wichtig.
+::::
 
 ⁠**Kurz gesagt:** Am höchsten Punkt im Inneren eines Intervalls ist die Ableitung null; wechselt sie dort von positiv zu negativ, ist es tatsächlich der höchste Punkt.
 
@@ -84,7 +86,9 @@ $$\ell'(\theta)=\frac{N_1}\theta-\frac{N_0}{1-\theta} .$$
 Sie ist null, wenn $N_1(1-\theta)=N_0\,\theta$ ist, also $N_1=(N_0+N_1)\,\theta=N\theta$. Beide Summanden von $\ell'$ fallen mit wachsendem $\theta$, also fällt auch $\ell'$: Die Ableitung ist links von $N_1/N$ positiv und rechts davon negativ. Nach dem Satz über den Vorzeichenwechsel ist $N_1/N$ der höchste Punkt. Ist $N_1=N$, so ist $\mathcal L(\theta)=\theta^N$ am größten bei $\theta=1=N_1/N$; ist $N_1=0$, so ist $\mathcal L(\theta)=(1-\theta)^N$ am größten bei $\theta=0=N_1/N$.
 :::
 
-⁠**Rechenbeispiel:** Für die zehn Würfe ist $\hat\theta_{\mathrm{ML}}=7/10=0{,}7$, die Stelle des Maximums in Abb. [7](die-likelihood.html#abb-7). Zur Probe ist $\ell'(0{,}7)=7/0{,}7-3/0{,}3=10-10=0$. Der Anteil der Köpfe, in Abschnitt [1](schatzen-aus-einer-stichprobe.html#stufe-1) nur ein naheliegendes Rezept, ist damit begründet: Er ist der Parameterwert, unter dem die beobachteten Würfe am wahrscheinlichsten sind.
+::::beispiel [Rechenbeispiel]
+Für die zehn Würfe ist $\hat\theta_{\mathrm{ML}}=7/10=0{,}7$, die Stelle des Maximums in Abb. [7](die-likelihood.html#abb-7). Zur Probe ist $\ell'(0{,}7)=7/0{,}7-3/0{,}3=10-10=0$. Der Anteil der Köpfe, in Abschnitt [1](schatzen-aus-einer-stichprobe.html#stufe-1) nur ein naheliegendes Rezept, ist damit begründet: Er ist der Parameterwert, unter dem die beobachteten Würfe am wahrscheinlichsten sind.
+::::
 
 :::warnung Wenige Daten
 Zeigt eine Münze in drei Würfen dreimal Kopf, so ist $\hat\theta_{\mathrm{ML}}=1$. Das Modell mit diesem Parameter hält Zahl für unmöglich. Ein einziger späterer Wurf mit Zahl hätte unter ihm die Wahrscheinlichkeit null. Maximum Likelihood nimmt kleine Datensätze wörtlich. Abschnitt [6](prior-und-posterior.html#stufe-6) zeigt, wie Vorwissen über Münzen solche Schlüsse abmildert.
@@ -124,7 +128,9 @@ In [(5.4)](#gl-5-4) hängt nur der zweite Summand von $\mu$ ab, und er ist die Q
 
 Bemerkenswert ist, dass die Antwort nicht von $\sigma^2$ abhängt: Wie stark das Rauschen auch ist, der plausibelste wahre Wert ist der Mittelwert.
 
-⁠**Rechenbeispiel:** Für die vier Spannungen ist $\hat\mu_{\mathrm{ML}}=\tfrac14(4{,}9+5{,}3+5{,}1+4{,}7)=5{,}0\,\mathrm V$. [Grundlagen 2, Abschnitt 11.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-pseudoinverse.html#stufe-11-4), hat den Mittelwert mehrerer Messungen schon als beste Näherungslösung des Gleichungssystems „$x=x_i$ für alle $i$“ gefunden. Jetzt hat derselbe Wert eine zweite Bedeutung: Er ist der wahre Wert, der die Messungen am wahrscheinlichsten macht, wenn das Rauschen normalverteilt ist.
+::::beispiel [Rechenbeispiel]
+Für die vier Spannungen ist $\hat\mu_{\mathrm{ML}}=\tfrac14(4{,}9+5{,}3+5{,}1+4{,}7)=5{,}0\,\mathrm V$. [Grundlagen 2, Abschnitt 11.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-pseudoinverse.html#stufe-11-4), hat den Mittelwert mehrerer Messungen schon als beste Näherungslösung des Gleichungssystems „$x=x_i$ für alle $i$“ gefunden. Jetzt hat derselbe Wert eine zweite Bedeutung: Er ist der wahre Wert, der die Messungen am wahrscheinlichsten macht, wenn das Rauschen normalverteilt ist.
+::::
 
 ⁠**Kurz gesagt:** Bei normalverteilten Daten ist der Maximum-Likelihood-Schätzer für den Erwartungswert der Mittelwert, weil die Log-Likelihood bis auf Konstanten die negative Quadratsumme der Abweichungen ist.
 
@@ -157,7 +163,9 @@ Sie ist positiv für $v<Q/N$, null bei $v=Q/N$ und negativ für $v>Q/N$. Nach de
 
 Der Maximum-Likelihood-Schätzer für die Varianz ist also genau der Schätzer mit dem Nenner $N$ aus Abschnitt [3](die-varianz-schatzen.html#stufe-3), der die Varianz im Mittel um den Faktor $(N-1)/N$ unterschätzt. Maximum Likelihood garantiert keine Erwartungstreue.
 
-⁠**Rechenbeispiel:** Für die vier Spannungen ist $Q=0{,}01+0{,}09+0{,}01+0{,}09=0{,}2\,\mathrm V^2$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}2/4=0{,}05\,\mathrm V^2$. Die Standardabweichung mit dem Nenner $N$, die [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) für Datensätze benutzt hat, ist also unter dem Normalverteilungsmodell die Maximum-Likelihood-Schätzung von $\sigma$; das zeigt der nächste Unterabschnitt. Hier ist sie $\sqrt{0{,}05}\approx0{,}224\,\mathrm V$.
+::::beispiel [Rechenbeispiel]
+Für die vier Spannungen ist $Q=0{,}01+0{,}09+0{,}01+0{,}09=0{,}2\,\mathrm V^2$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}2/4=0{,}05\,\mathrm V^2$. Die Standardabweichung mit dem Nenner $N$, die [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) für Datensätze benutzt hat, ist also unter dem Normalverteilungsmodell die Maximum-Likelihood-Schätzung von $\sigma$; das zeigt der nächste Unterabschnitt. Hier ist sie $\sqrt{0{,}05}\approx0{,}224\,\mathrm V$.
+::::
 
 ⁠**Kurz gesagt:** Bei normalverteilten Daten schätzt Maximum Likelihood die Varianz mit dem Nenner $N$, also verzerrt.
 
@@ -180,7 +188,9 @@ $$\hat\eta_{\mathrm{ML}}=g(\hat\theta_{\mathrm{ML}}) . \tag{5.7}$$
 Schreibt man das Modell mit $\eta$ statt mit $\theta$, so hat der Datensatz unter $\eta$ dieselbe Wahrscheinlichkeit wie unter $\theta=g^{-1}(\eta)$. Die Likelihood als Funktion von $\eta$ ist also $\mathcal L(g^{-1}(\eta))$. Sie nimmt dieselben Werte an wie $\mathcal L$, nur unter anderen Namen. Ihr größter Wert ist derselbe, und er gehört zum Namen $\eta=g(\hat\theta_{\mathrm{ML}})$.
 :::
 
-⁠**Rechenbeispiel:** Weil $\sigma=\sqrt{\sigma^2}$ für positive Zahlen umkehrbar ist, ist die Maximum-Likelihood-Schätzung der Standardabweichung der vier Spannungen $\hat\sigma_{\mathrm{ML}}=\sqrt{0{,}05}\approx0{,}224\,\mathrm V$. Für die Münze ist die Chance $\theta/(1-\theta)$ umkehrbar, ihr Maximum-Likelihood-Schätzer also $0{,}7/0{,}3=7/3\approx2{,}33$: Kopf ist etwa $2{,}3$-mal so wahrscheinlich wie Zahl. Erwartungstreue übersteht solche Umrechnungen dagegen nicht. Nach Unterabschnitt [3.3](die-varianz-schatzen.html#stufe-3-3) ist $\hat\sigma^2_{N-1}$ erwartungstreu, seine Wurzel aber nicht.
+::::beispiel [Rechenbeispiel]
+Weil $\sigma=\sqrt{\sigma^2}$ für positive Zahlen umkehrbar ist, ist die Maximum-Likelihood-Schätzung der Standardabweichung der vier Spannungen $\hat\sigma_{\mathrm{ML}}=\sqrt{0{,}05}\approx0{,}224\,\mathrm V$. Für die Münze ist die Chance $\theta/(1-\theta)$ umkehrbar, ihr Maximum-Likelihood-Schätzer also $0{,}7/0{,}3=7/3\approx2{,}33$: Kopf ist etwa $2{,}3$-mal so wahrscheinlich wie Zahl. Erwartungstreue übersteht solche Umrechnungen dagegen nicht. Nach Unterabschnitt [3.3](die-varianz-schatzen.html#stufe-3-3) ist $\hat\sigma^2_{N-1}$ erwartungstreu, seine Wurzel aber nicht.
+::::
 
 ⁠**Kurz gesagt:** Rechnet man den Parameter umkehrbar um, so rechnet man den Maximum-Likelihood-Schätzer einfach mit um.
 

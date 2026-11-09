@@ -92,12 +92,14 @@ Ist noch gar keine Version installiert, holt der erste Start von `py` oder `pyth
 
 Danach startet `py` die Standardversion; das ist die neueste installierte, wenn du nichts anderes einstellst. Der Befehl `python` tut dasselbe. Eine bestimmte Version wählst du mit `py -V:3.14`. In diesem Kapitel steht unter Windows der Befehl `py`.
 
-**Beispiel: die Version prüfen.** Die Option `--version` lässt Python seine Versionsnummer nennen, ohne sonst etwas zu tun. Auf dem Rechner, mit dem dieses Kapitel geprüft wurde, ist Python 3.13 installiert:
+::::beispiel die Version prüfen
+Die Option `--version` lässt Python seine Versionsnummer nennen, ohne sonst etwas zu tun. Auf dem Rechner, mit dem dieses Kapitel geprüft wurde, ist Python 3.13 installiert:
 
 ```console Windows (PowerShell)
 PS> py --version
 Python 3.13.9
 ```
+::::
 
 **Zwei typische Probleme.**
 
@@ -214,7 +216,9 @@ der Fehlerbehebungsnummer, hier 4; sie wächst, wenn eine Unterversion Korrektur
 
 Versionsnummern vergleicht man Teil für Teil von links, nicht als Dezimalzahl: 3.14 ist neuer als 3.9, weil 14 größer ist als 9.
 
-**Beispiel.** Der Prüfrechner unter Windows meldet `Python 3.13.9`, der unter Linux `Python 3.14.4`. Beide haben die Hauptversion 3; die Linux-Version ist eine Unterversion neuer. Im November 2026 ist 3.15 die neueste Unterversion, 3.14 erhält noch Fehlerbehebungen, 3.13 nur noch Sicherheitskorrekturen. Alle Beispiele dieses Kapitels laufen ab Python 3.12; ausprobiert sind sie unter Windows mit Python 3.13 und unter Linux mit Python 3.14. Wo sich die Ausgaben der beiden Versionen unterscheiden, steht es dabei.
+::::beispiel
+Der Prüfrechner unter Windows meldet `Python 3.13.9`, der unter Linux `Python 3.14.4`. Beide haben die Hauptversion 3; die Linux-Version ist eine Unterversion neuer. Im November 2026 ist 3.15 die neueste Unterversion, 3.14 erhält noch Fehlerbehebungen, 3.13 nur noch Sicherheitskorrekturen. Alle Beispiele dieses Kapitels laufen ab Python 3.12; ausprobiert sind sie unter Windows mit Python 3.13 und unter Linux mit Python 3.14. Wo sich die Ausgaben der beiden Versionen unterscheiden, steht es dabei.
+::::
 
 ⁠**Kurz gesagt:** Die Versionsnummer sagt, welches Python du hast; man vergleicht sie Teil für Teil.
 

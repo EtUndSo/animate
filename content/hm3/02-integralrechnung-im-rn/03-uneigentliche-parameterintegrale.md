@@ -21,7 +21,9 @@ Für Abschätzungen braucht man die kleinste Zahl, die über allen Werten einer 
 
 Eine Zahl $S$ heißt __obere Schranke__ einer Menge reeller Zahlen, wenn keine Zahl der Menge größer ist als $S$. Die kleinste obere Schranke heißt __Supremum__ und wird $\sup$ geschrieben. Für eine Funktion $f$ auf einer Menge $M$ schreibt man $\sup_{\boldsymbol{x}\in M}f(\boldsymbol{x})$ für das Supremum aller ihrer Werte. Ist das Supremum selbst ein Wert von $f$, heißt es das __Maximum__. Eine stetige Funktion auf einer kompakten Menge hat immer ein Maximum; das ist der Satz vom Maximum.
 
-⁠**Beispiel:** Für $\mathrm{e}^{-t}$ auf $(0,\infty)$ ist $\sup=1$. Das ist kein Wert der Funktion, denn $\mathrm{e}^{-t}<1$ für $t>0$; ein Maximum gibt es also nicht. Auf dem kompakten Intervall $[0,1]$ ist $1=\mathrm{e}^{-0}$ das Maximum. Für festes $t>0$ ist $\sup_{x\in\mathbb{R}}|\sin(tx)|=1$, angenommen bei $tx=\pi/2$.
+::::beispiel
+Für $\mathrm{e}^{-t}$ auf $(0,\infty)$ ist $\sup=1$. Das ist kein Wert der Funktion, denn $\mathrm{e}^{-t}<1$ für $t>0$; ein Maximum gibt es also nicht. Auf dem kompakten Intervall $[0,1]$ ist $1=\mathrm{e}^{-0}$ das Maximum. Für festes $t>0$ ist $\sup_{x\in\mathbb{R}}|\sin(tx)|=1$, angenommen bei $tx=\pi/2$.
+::::
 
 ⁠**Kurz gesagt:** Das Supremum ist die kleinste obere Schranke der Werte; wird es angenommen, ist es das Maximum.
 
@@ -43,7 +45,9 @@ falls dieser Grenzwert existiert. Ein so erklärtes Integral heißt __uneigentli
 
 **Allgemein.** Für ein offenes Intervall $(a,b)$ mit $-\infty\le a<b\le\infty$ und stetiges $u$ darauf integriert man über abgeschlossene Stücke $[a',b']\subset(a,b)$ und lässt $a'\to a$ und $b'\to b$ gehen, und zwar unabhängig voneinander. Existiert der Grenzwert, heißt $u$ __uneigentlich integrierbar__ auf $(a,b)$.
 
-⁠**Beispiel:** Für eine Zahl $\kappa>0$ ist $\int_0^T\mathrm{e}^{-\kappa t}\,\mathrm{d} t=\frac{1-\mathrm{e}^{-\kappa T}}\kappa\to\frac1\kappa$, also $\int_0^\infty\mathrm{e}^{-\kappa t}\,\mathrm{d} t=\frac1\kappa$. Ebenso ist $\int_1^Tt^{-2}\,\mathrm{d} t=1-\frac1T\to1$, aber $\int_1^Tt^{-1}\,\mathrm{d} t=\ln T\to\infty$. Allgemein konvergiert $\int_1^\infty t^{-r}\,\mathrm{d} t$ genau für Exponenten $r>1$ und $\int_0^1t^{-r}\,\mathrm{d} t$ genau für $r<1$; zum Beispiel ist $\int_0^1t^{-1/2}\,\mathrm{d} t=\lim_{s\searrow0}\bigl(2-2\sqrt s\bigr)=2$.
+::::beispiel
+Für eine Zahl $\kappa>0$ ist $\int_0^T\mathrm{e}^{-\kappa t}\,\mathrm{d} t=\frac{1-\mathrm{e}^{-\kappa T}}\kappa\to\frac1\kappa$, also $\int_0^\infty\mathrm{e}^{-\kappa t}\,\mathrm{d} t=\frac1\kappa$. Ebenso ist $\int_1^Tt^{-2}\,\mathrm{d} t=1-\frac1T\to1$, aber $\int_1^Tt^{-1}\,\mathrm{d} t=\ln T\to\infty$. Allgemein konvergiert $\int_1^\infty t^{-r}\,\mathrm{d} t$ genau für Exponenten $r>1$ und $\int_0^1t^{-r}\,\mathrm{d} t$ genau für $r<1$; zum Beispiel ist $\int_0^1t^{-1/2}\,\mathrm{d} t=\lim_{s\searrow0}\bigl(2-2\sqrt s\bigr)=2$.
+::::
 
 ⁠**Kurz gesagt:** Ein uneigentliches Integral ist der Grenzwert der Integrale über endliche Stücke, die gegen das ganze Intervall wachsen.
 
@@ -59,7 +63,9 @@ Ob ein uneigentliches Integral konvergiert, sieht man selten am Grenzwert direkt
 
 **Exponentialfunktion gegen Potenz.** Für $m\ge0$ und $\kappa>0$ ist $t^m\mathrm{e}^{-\kappa t}$ auf $[0,\infty)$ beschränkt. Das Maximum liegt bei $t=m/\kappa$. Die $\mathrm{e}$-Funktion gewinnt also gegen jede Potenz.
 
-⁠**Beispiel:** $\int_0^\infty t^2\,\mathrm{e}^{-t}\,\mathrm{d} t$ konvergiert absolut. Denn $t^2\mathrm{e}^{-t}=\bigl(t^2\mathrm{e}^{-t/2}\bigr)\,\mathrm{e}^{-t/2}$, und der erste Faktor ist höchstens $16\,\mathrm{e}^{-2}\approx2{,}17$, sein Maximum bei $t=4$. Also ist $v(t)=2{,}17\,\mathrm{e}^{-t/2}$ eine Vergleichsfunktion mit $\int_0^\infty v\,\mathrm{d} t=4{,}34$. Der genaue Wert des Integrals ist $2$.
+::::beispiel
+$\int_0^\infty t^2\,\mathrm{e}^{-t}\,\mathrm{d} t$ konvergiert absolut. Denn $t^2\mathrm{e}^{-t}=\bigl(t^2\mathrm{e}^{-t/2}\bigr)\,\mathrm{e}^{-t/2}$, und der erste Faktor ist höchstens $16\,\mathrm{e}^{-2}\approx2{,}17$, sein Maximum bei $t=4$. Also ist $v(t)=2{,}17\,\mathrm{e}^{-t/2}$ eine Vergleichsfunktion mit $\int_0^\infty v\,\mathrm{d} t=4{,}34$. Der genaue Wert des Integrals ist $2$.
+::::
 
 ⁠**Ein Integral, das nur bedingt konvergiert:** $\int_0^\infty\frac{\sin t}t\,\mathrm{d} t$ konvergiert, aber nicht absolut. Der Integrand ist bei $t=0$ harmlos, denn $\frac{\sin t}t\to1$.
 
@@ -85,7 +91,9 @@ $$\int_a^bu\bigl(\sigma(t)\bigr)\,\sigma'(t)\,\mathrm{d} t=\int_{\sigma(a)}^{\si
 
 ⁠**So liest man das:** Man ersetzt $s=\sigma(t)$ und $\mathrm{d} s=\sigma'(t)\,\mathrm{d} t$, und die Grenzen wandern mit. Ein häufiger Sonderfall ist $\sigma(t)=x\,t$ mit einer festen Zahl $x>0$: $\int_0^\infty u(xt)\,\mathrm{d} t=\frac1x\int_0^\infty u(s)\,\mathrm{d} s$. Für uneigentliche Integrale folgt das aus dem endlichen Fall, indem man die obere Grenze gegen unendlich gehen lässt.
 
-⁠**Beispiel:** Mit $\sigma(t)=t^2$ und $u=\cos$ ist $\int_0^12t\cos(t^2)\,\mathrm{d} t=\int_0^1\cos s\,\mathrm{d} s=\sin1\approx0{,}841$.
+::::beispiel
+Mit $\sigma(t)=t^2$ und $u=\cos$ ist $\int_0^12t\cos(t^2)\,\mathrm{d} t=\int_0^1\cos s\,\mathrm{d} s=\sin1\approx0{,}841$.
+::::
 
 :::hintergrund Woher der Faktor $\sigma'(t)$ kommt
 Die Abbildung $t\mapsto\sigma(t)$ bildet ein kurzes Stück der Länge $\Delta t$ bei $t$ auf ein Stück der Länge ungefähr $|\sigma'(t)|\,\Delta t$ ab. Der Faktor $\sigma'(t)$ sagt also, wie stark die Substitution die $t$-Achse an dieser Stelle streckt oder staucht. In der Riemann-Summe $\sum_ku(\sigma(t_k))\,\sigma'(t_k)\,\Delta t$ ist jeder Summand deshalb ungefähr „Wert von $u$ mal Länge des Bildstücks“, also ein Summand einer Riemann-Summe von $u$ über das Bildintervall. Ohne den Faktor würde man jedes Bildstück so zählen, als hätte es die Länge $\Delta t$.
@@ -107,7 +115,9 @@ Die Abschätzung $\bigl|\int_a^bf\,\mathrm{d} t\bigr|\le\int_a^b|f|\,\mathrm{d} 
 
 $$\mathrm{e}^{-\mathrm i\xi x}=\cos(\xi x)-\mathrm i\sin(\xi x),\qquad|\mathrm{e}^{-\mathrm i\xi x}|=1 .$$
 
-⁠**Beispiel:** $\int_0^\pi\mathrm{e}^{\mathrm it}\,\mathrm{d} t=\int_0^\pi\cos t\,\mathrm{d} t+\mathrm i\int_0^\pi\sin t\,\mathrm{d} t=0+2\mathrm i=2\mathrm i$. Der Betrag $2$ ist kleiner als $\int_0^\pi|\mathrm{e}^{\mathrm it}|\,\mathrm{d} t=\pi$.
+::::beispiel
+$\int_0^\pi\mathrm{e}^{\mathrm it}\,\mathrm{d} t=\int_0^\pi\cos t\,\mathrm{d} t+\mathrm i\int_0^\pi\sin t\,\mathrm{d} t=0+2\mathrm i=2\mathrm i$. Der Betrag $2$ ist kleiner als $\int_0^\pi|\mathrm{e}^{\mathrm it}|\,\mathrm{d} t=\pi$.
+::::
 
 ⁠**Kurz gesagt:** Komplexe Integranden integriert man nach Real- und Imaginärteil getrennt.
 
@@ -131,7 +141,9 @@ ein __uneigentliches Parameterintegral__. Entsprechend für ein offenes Interval
 
 ⁠**So liest man das:** Jedes $F_T$ ist nach Satz [1.7](integrale-mit-parameter-uber-endlichen-intervallen.html#satz-1-7) stetig. Das uneigentliche Parameterintegral ist der Grenzwert dieser stetigen Funktionen für $T\to\infty$. Ob der Grenzwert wieder stetig ist, ist die Frage dieses Abschnitts.
 
-⁠**Beispiel:** Die Abklingkurven über ganz $[0,\infty)$: Für $x>0$ ist $F_T(x)=\frac{1-\mathrm{e}^{-xT}}x$ und $F(x)=\int_0^\infty\mathrm{e}^{-xt}\,\mathrm{d} t=\frac1x$. Für $x\le0$ divergiert das Integral, weil $\mathrm{e}^{-xt}\ge1$ ist. Das uneigentliche Parameterintegral ist also auf $\mathcal U=(0,\infty)$ erklärt.
+::::beispiel
+Die Abklingkurven über ganz $[0,\infty)$: Für $x>0$ ist $F_T(x)=\frac{1-\mathrm{e}^{-xT}}x$ und $F(x)=\int_0^\infty\mathrm{e}^{-xt}\,\mathrm{d} t=\frac1x$. Für $x\le0$ divergiert das Integral, weil $\mathrm{e}^{-xt}\ge1$ ist. Das uneigentliche Parameterintegral ist also auf $\mathcal U=(0,\infty)$ erklärt.
+::::
 
 ⁠**Kurz gesagt:** Ein uneigentliches Parameterintegral ist für jeden Parameter der Grenzwert der Integrale bis $T$.
 
@@ -180,7 +192,9 @@ Das uneigentliche Parameterintegral $\int_a^\infty f(\boldsymbol{x},t)\,\mathrm{
 $$\Bigl|\int_T^\infty f(\boldsymbol{x},t)\,\mathrm{d} t\Bigr|<\varepsilon\quad\text{für alle }T\ge T_0\text{ und alle }\boldsymbol{x}\in\mathcal U .$$
 :::
 
-⁠**Beispiel:** $\int_0^\infty\mathrm{e}^{-t}\cos(xt)\,\mathrm{d} t$ ist auf $\mathbb{R}$ gleichmäßig konvergent, denn $\bigl|\int_T^\infty\mathrm{e}^{-t}\cos(xt)\,\mathrm{d} t\bigr|\le\int_T^\infty\mathrm{e}^{-t}\,\mathrm{d} t=\mathrm{e}^{-T}$ für jedes $x$. Zu $\varepsilon$ passt $T_0=\ln(1/\varepsilon)$. Das Integral [(2.1)](#gl-2-1) ist auf $(0,\infty)$ dagegen nicht gleichmäßig konvergent: Zu jedem $T$ wähle $x=1/T$. Dann ist das Restintegral $\int_{Tx}^\infty\frac{\sin s}s\,\mathrm{d} s=\int_1^\infty\frac{\sin s}s\,\mathrm{d} s\approx0{,}625$, egal wie groß $T$ ist.
+::::beispiel
+$\int_0^\infty\mathrm{e}^{-t}\cos(xt)\,\mathrm{d} t$ ist auf $\mathbb{R}$ gleichmäßig konvergent, denn $\bigl|\int_T^\infty\mathrm{e}^{-t}\cos(xt)\,\mathrm{d} t\bigr|\le\int_T^\infty\mathrm{e}^{-t}\,\mathrm{d} t=\mathrm{e}^{-T}$ für jedes $x$. Zu $\varepsilon$ passt $T_0=\ln(1/\varepsilon)$. Das Integral [(2.1)](#gl-2-1) ist auf $(0,\infty)$ dagegen nicht gleichmäßig konvergent: Zu jedem $T$ wähle $x=1/T$. Dann ist das Restintegral $\int_{Tx}^\infty\frac{\sin s}s\,\mathrm{d} s=\int_1^\infty\frac{\sin s}s\,\mathrm{d} s\approx0{,}625$, egal wie groß $T$ ist.
+::::
 
 :::satz Satz 2.4 (Gleichmäßig konvergente Parameterintegrale)
 <span class="anker" id="satz-2-4"></span>
@@ -246,11 +260,15 @@ Für $T\to\infty$ geht die linke Seite gegen $F(\boldsymbol{x}+h\,\hat{\boldsymb
 
 ⁠**Warum $g$ nicht von $\boldsymbol{x}$ abhängen darf:** Für das Beispiel [(2.1)](#gl-2-1) müsste $g(t)\ge\sup_x\frac{|\sin(tx)|}t=\frac1t$ gelten, denn das Supremum wird bei $tx=\pi/2$ angenommen. Aber $\int_1^\infty\frac{\mathrm{d} t}t=\infty$. Es gibt also keine Majorante, und $F$ darf springen.
 
-⁠**Beispiel:** $F(x)=\int_0^\infty\mathrm{e}^{-t}\cos(xt)\,\mathrm{d} t$ auf $\mathbb{R}$. Hier passen $g(t)=\mathrm{e}^{-t}$ und $G(t)=t\,\mathrm{e}^{-t}$, denn $|\partial_x(\mathrm{e}^{-t}\cos(xt))|=|t\,\mathrm{e}^{-t}\sin(xt)|\le t\,\mathrm{e}^{-t}$; beide sind über $[0,\infty)$ integrierbar. Also ist $F$ stetig differenzierbar mit
+::::beispiel
+$F(x)=\int_0^\infty\mathrm{e}^{-t}\cos(xt)\,\mathrm{d} t$ auf $\mathbb{R}$. Hier passen $g(t)=\mathrm{e}^{-t}$ und $G(t)=t\,\mathrm{e}^{-t}$, denn $|\partial_x(\mathrm{e}^{-t}\cos(xt))|=|t\,\mathrm{e}^{-t}\sin(xt)|\le t\,\mathrm{e}^{-t}$; beide sind über $[0,\infty)$ integrierbar. Also ist $F$ stetig differenzierbar mit
 
 $$F'(x)=-\int_0^\infty t\,\mathrm{e}^{-t}\sin(xt)\,\mathrm{d} t .$$
 
-Zweimal partiell integriert ist $F(x)=\frac1{1+x^2}$, also $F'(1)=-\frac12$, und das Integral ergibt denselben Wert. **Grenzfall:** $F(0)=\int_0^\infty\mathrm{e}^{-t}\,\mathrm{d} t=1$.
+Zweimal partiell integriert ist $F(x)=\frac1{1+x^2}$, also $F'(1)=-\frac12$, und das Integral ergibt denselben Wert.
+::::
+
+⁠**Grenzfall:** $F(0)=\int_0^\infty\mathrm{e}^{-t}\,\mathrm{d} t=1$.
 
 :::hintergrund Wie Fläche verloren gehen kann: drei Fluchtwege
 Hinter allen Gegenbeispielen steckt dasselbe Bild. Für jedes feste $t$ geht der Integrand gegen einen Grenzwert, die Fläche aber nicht gegen die Fläche des Grenzwerts. Die Fläche entkommt auf einem von drei Wegen (Abb. [7](#abb-7)); diese Einteilung ist in der Analysis gebräuchlich. Sie kann nach oben fliehen, in eine immer höhere und schmalere Spitze, wie in Abb. [3](integrale-mit-parameter-uber-endlichen-intervallen.html#abb-3). Sie kann in die Breite fliehen: Die Kurve wird flacher und breiter, an jeder Stelle geht sie gegen null, aber die Fläche bleibt. Und sie kann nach rechts fliehen: Ein Buckel fester Form wandert ins Unendliche, an jeder festen Stelle ist er irgendwann vorbei.
@@ -295,11 +313,13 @@ Für stetiges, absolut uneigentlich integrierbares $f\colon\mathbb{R}\to\mathbb{
 Wegen $|\mathrm{e}^{-\mathrm i\xi x}|=1$ ist $|f(x)\,\mathrm{e}^{-\mathrm i\xi x}|/\sqrt{2\pi}=|f(x)|/\sqrt{2\pi}=:g(x)$. Das ist eine Majorante, die nicht von $\xi$ abhängt. Satz [2.5](#satz-2-5), angewendet auf Real- und Imaginärteil mit $\mathcal U=\mathbb{R}$, gibt die Stetigkeit, und die Abschätzung aus Unterabschnitt [2.5](#stufe-2-5) gibt $|\hat f(\xi)|\le\int_\mathbb{R} g\,\mathrm{d} x$. Die Ableitung nach $\xi$ trifft nur die Schwingung: $\partial_\xi\bigl(f(x)\,\mathrm{e}^{-\mathrm i\xi x}\bigr)=(-\mathrm ix)f(x)\,\mathrm{e}^{-\mathrm i\xi x}$, mit der Majorante $|x\,f(x)|/\sqrt{2\pi}$. Satz [2.5](#satz-2-5) erlaubt also das Ableiten unter dem Integral, und das Ergebnis ist die Fourier-Transformierte von $(-\mathrm ix)f(x)$. Wiederholt man das $k$-mal, folgt die Aussage.
 :::
 
-⁠**Beispiel:** $f(x)=\mathrm{e}^{-|x|}$. Der Imaginärteil $-\mathrm{e}^{-|x|}\sin(\xi x)$ ist ungerade in $x$ und integriert sich zu null. Mit $\int_0^\infty\mathrm{e}^{-x}\cos(\xi x)\,\mathrm{d} x=\frac1{1+\xi^2}$ aus dem letzten Unterabschnitt folgt
+::::beispiel
+$f(x)=\mathrm{e}^{-|x|}$. Der Imaginärteil $-\mathrm{e}^{-|x|}\sin(\xi x)$ ist ungerade in $x$ und integriert sich zu null. Mit $\int_0^\infty\mathrm{e}^{-x}\cos(\xi x)\,\mathrm{d} x=\frac1{1+\xi^2}$ aus dem letzten Unterabschnitt folgt
 
 $$\hat f(\xi)=\frac2{\sqrt{2\pi}}\int_0^\infty\mathrm{e}^{-x}\cos(\xi x)\,\mathrm{d} x=\sqrt{\frac2\pi}\,\frac1{1+\xi^2}.$$
 
 Die Funktion $x\,\mathrm{e}^{-|x|}$ ist absolut integrierbar, also ist $\hat f$ stetig differenzierbar. Zur Kontrolle der Ableitungsregel: Die Fourier-Transformierte von $(-\mathrm ix)\mathrm{e}^{-|x|}$ ist $-\frac2{\sqrt{2\pi}}\int_0^\infty x\,\mathrm{e}^{-x}\sin(\xi x)\,\mathrm{d} x=-\frac2{\sqrt{2\pi}}\cdot\frac{2\xi}{(1+\xi^2)^2}$, und das ist $\frac{\mathrm{d}}{\mathrm{d}\xi}\sqrt{\frac2\pi}\frac1{1+\xi^2}$.
+::::
 
 :::hintergrund Warum jede Ableitung einen Faktor $-\mathrm ix$ bringt und was das bedeutet
 Der Parameter $\xi$ steckt nur in der Schwingung $\mathrm{e}^{-\mathrm i\xi x}$, und deren Ableitung nach $\xi$ ist $-\mathrm ix$ mal sie selbst. Jede Ableitung von $\hat f$ multipliziert den Integranden also mit $-\mathrm ix$. Dieser Faktor wächst mit $|x|$. Damit das Integral danach noch konvergiert und eine Majorante hat, muss $f$ für große $|x|$ schnell genug abfallen. Daraus ergibt sich ein Zusammenhang, der die Fourier-Transformation durchzieht: Je schneller $f$ abfällt, desto öfter lässt sich $\hat f$ ableiten. Im Beispiel fällt $\mathrm{e}^{-|x|}$ schneller als jede Potenz, und $\hat f$ ist beliebig oft differenzierbar.
@@ -327,7 +347,9 @@ Sei $\mathcal U\subset\mathbb{R}^n$ offen und $f\colon\mathcal U\times(a,b)\to\m
 
 ⁠**So liest man das:** Man wendet Satz [2.5](#satz-2-5) auf die offene Menge $\mathcal V(\boldsymbol{x}_0)$ statt auf $\mathcal U$ an. Er liefert Stetigkeit und Differenzierbarkeit in $\mathcal V(\boldsymbol{x}_0)$, insbesondere im Punkt $\boldsymbol{x}_0$. Weil das für jeden Punkt geht, gilt es überall.
 
-⁠**Beispiel:** $F(x)=\int_0^\infty\mathrm{e}^{-xt}\,\mathrm{d} t=\frac1x$ auf $\mathcal U=(0,\infty)$. Für festes $t$ ist $\sup_{x>0}\mathrm{e}^{-xt}=1$, und die Konstante $1$ ist über $(0,\infty)$ nicht integrierbar; eine Majorante für alle $x>0$ gibt es also nicht. Zu $x_0>0$ wähle aber $\mathcal V(x_0)=(x_0/2,\infty)$. Dort ist $\mathrm{e}^{-xt}\le\mathrm{e}^{-x_0t/2}$ und $|\partial_x\mathrm{e}^{-xt}|=t\,\mathrm{e}^{-xt}\le t\,\mathrm{e}^{-x_0t/2}$, beides integrierbar (Abb. [8](#abb-8)). Also ist $F$ stetig differenzierbar mit $F'(x)=-\int_0^\infty t\,\mathrm{e}^{-xt}\,\mathrm{d} t=-\frac1{x^2}$, wie die Formel $F=1/x$ bestätigt.
+::::beispiel
+$F(x)=\int_0^\infty\mathrm{e}^{-xt}\,\mathrm{d} t=\frac1x$ auf $\mathcal U=(0,\infty)$. Für festes $t$ ist $\sup_{x>0}\mathrm{e}^{-xt}=1$, und die Konstante $1$ ist über $(0,\infty)$ nicht integrierbar; eine Majorante für alle $x>0$ gibt es also nicht. Zu $x_0>0$ wähle aber $\mathcal V(x_0)=(x_0/2,\infty)$. Dort ist $\mathrm{e}^{-xt}\le\mathrm{e}^{-x_0t/2}$ und $|\partial_x\mathrm{e}^{-xt}|=t\,\mathrm{e}^{-xt}\le t\,\mathrm{e}^{-x_0t/2}$, beides integrierbar (Abb. [8](#abb-8)). Also ist $F$ stetig differenzierbar mit $F'(x)=-\int_0^\infty t\,\mathrm{e}^{-xt}\,\mathrm{d} t=-\frac1{x^2}$, wie die Formel $F=1/x$ bestätigt.
+::::
 
 ⁠**Kurz gesagt:** Eine Majorante in der Nähe jedes Punkts genügt, weil Stetigkeit und Differenzierbarkeit lokale Eigenschaften sind.
 
@@ -367,7 +389,9 @@ $$g(t)=\mathrm{e}^{-t}\bigl(t^{x_0/2-1}+t^{2x_0-1}\bigr)$$
 eine Majorante auf $\mathcal V(x_0)$. Sie ist integrierbar: Nahe $0$ wegen $x_0/2-1>-1$ (Unterabschnitt [2.2](#stufe-2-2)), für große $t$, weil die $\mathrm{e}$-Funktion gewinnt. Für die Ableitung nimmt man $g(t)\,|\ln t|$ als Majorante (Aufgabe [7](#aufg-7)). Nach Satz [2.8](#satz-2-8) folgt die Behauptung.
 :::
 
-⁠**Beispiel:** $\Gamma(1)=\int_0^\infty\mathrm{e}^{-t}\,\mathrm{d} t=1$, und partielle Integration ergibt $\Gamma(2)=\int_0^\infty t\,\mathrm{e}^{-t}\,\mathrm{d} t=1$. Nach [(2.6)](#gl-2-6) ist $\Gamma'(1)=\int_0^\infty\mathrm{e}^{-t}\ln t\,\mathrm{d} t\approx-0{,}577$. Die Ableitung ist negativ, weil $\ln t<0$ auf $(0,1)$ ist und dieser Teil hier überwiegt.
+::::beispiel
+$\Gamma(1)=\int_0^\infty\mathrm{e}^{-t}\,\mathrm{d} t=1$, und partielle Integration ergibt $\Gamma(2)=\int_0^\infty t\,\mathrm{e}^{-t}\,\mathrm{d} t=1$. Nach [(2.6)](#gl-2-6) ist $\Gamma'(1)=\int_0^\infty\mathrm{e}^{-t}\ln t\,\mathrm{d} t\approx-0{,}577$. Die Ableitung ist negativ, weil $\ln t<0$ auf $(0,1)$ ist und dieser Teil hier überwiegt.
+::::
 
 :::hintergrund Wozu die Gamma-Funktion: die Fakultät für alle positiven Zahlen
 Partielle Integration ergibt $\Gamma(x+1)=x\,\Gamma(x)$ (Aufgabe [7](#aufg-7)). Das ist dieselbe Regel wie $(n+1)!=(n+1)\cdot n!$, nur um eins verschoben. Mit $\Gamma(1)=1$ folgt $\Gamma(n+1)=n!$ für jede natürliche Zahl $n$. Die Gamma-Funktion ist also eine glatte Kurve durch die Punkte $(n+1,\,n!)$, und sie liefert Werte dazwischen. Zum Beispiel ergibt die Substitution $t=s^2$ mit dem bekannten Wert $\int_0^\infty\mathrm{e}^{-s^2}\,\mathrm{d} s=\sqrt\pi/2$
@@ -419,11 +443,13 @@ mit einer Konstanten $C_1>0$. Denn $|f(t)|\exp(-\frac14x_0t)\le C(1+t^m)\exp(-\f
 
 ⁠**So liest man das:** Jede Ableitung nach $x$ zieht einen Faktor $-t$ aus der Dämpfung $\mathrm{e}^{-xt}$ heraus.
 
-⁠**Beispiel:** Für $f=1$ ist $\mathcal{L}1(x)=\frac1x$. Nach [(2.8)](#gl-2-8) ist $\mathcal{L}\bigl((-t)^k\bigr)(x)=\frac{\mathrm{d}^k}{\mathrm{d} x^k}\frac1x=\frac{(-1)^kk!}{x^{k+1}}$, also
+::::beispiel
+Für $f=1$ ist $\mathcal{L}1(x)=\frac1x$. Nach [(2.8)](#gl-2-8) ist $\mathcal{L}\bigl((-t)^k\bigr)(x)=\frac{\mathrm{d}^k}{\mathrm{d} x^k}\frac1x=\frac{(-1)^kk!}{x^{k+1}}$, also
 
 $$\mathcal{L}(t^k)(x)=\int_0^\infty t^k\,\mathrm{e}^{-xt}\,\mathrm{d} t=\frac{k!}{x^{k+1}} .$$
 
 Bei $k=1$ und $x=2$ ist das $\int_0^\infty t\,\mathrm{e}^{-2t}\,\mathrm{d} t=\frac14$.
+::::
 
 :::hintergrund Ein Integral für $n!$ und die Verbindung zur Gamma-Funktion
 Setzt man im Beispiel $x=1$, ergibt sich $\int_0^\infty t^n\mathrm{e}^{-t}\,\mathrm{d} t=n!$, also $\Gamma(n+1)=n!$ ohne jede partielle Integration: Man hat nur das einfache Integral $\int_0^\infty\mathrm{e}^{-xt}\,\mathrm{d} t=1/x$ $n$-mal nach dem Parameter abgeleitet. Dieser Kunstgriff, ein schwieriges Integral durch Ableiten eines leichten nach einem Parameter zu gewinnen, ist eine der wichtigsten Anwendungen dieses Abschnitts. Allgemeiner ergibt die Substitution $s=xt$ für jede Zahl $a>0$

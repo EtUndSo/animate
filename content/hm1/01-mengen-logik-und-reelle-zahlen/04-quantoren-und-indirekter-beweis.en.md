@@ -36,7 +36,8 @@ $$\neg\bigl(\forall x\in M:\mathcal A(x)\bigr)\Leftrightarrow\bigl(\exists x\in 
 No. An example only checks one $x$. By [(2.1)](#gl-2-1), on the other hand, a single __counterexample__ refutes a “for all” statement. Conversely, “there is” is proved with one example.
 :::
 
-**Example: nested quantifiers.** Let $H$ be the devices of a household, $F$ the fuses, and let $K(g,s)$ mean “device $g$ is connected to fuse $s$.” Then
+::::beispiel nested quantifiers
+Let $H$ be the devices of a household, $F$ the fuses, and let $K(g,s)$ mean “device $g$ is connected to fuse $s$.” Then
 
 $$\mathcal P:=\bigl(\forall g\in H\ \exists s\in F:K(g,s)\bigr),\qquad \mathcal Q:=\bigl(\exists s\in F\ \forall g\in H:K(g,s)\bigr)$$
 
@@ -45,6 +46,7 @@ say different things (Fig. [2](#abb-2)): In $\mathcal P$, $s$ may depend on the
 :::abbildung hm1/k1quantoren 2
 The right picture satisfies both statements, the left one only the first.
 :::
+::::
 
 :::satz Theorem 2.3 (Indirect proof)
 <span class="anker" id="satz-2-3"></span>

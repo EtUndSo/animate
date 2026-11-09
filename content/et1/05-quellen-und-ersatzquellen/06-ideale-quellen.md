@@ -32,7 +32,11 @@ $$U_\mathrm{AB}=U_\mathrm{q}\quad\text{für jeden Strom},\qquad\qquad I_\mathrm{
 
 ⁠**Gültigkeit:** Zwei Beschaltungen widersprechen dem Modell. Eine kurzgeschlossene Spannungsquelle soll zugleich $U_\mathrm{AB}=U_\mathrm{q}$ und $U_\mathrm{AB}=0$ erfüllen. Eine offene Stromquelle soll zugleich $I_\mathrm{A}=I_\mathrm{q}$ und $I_\mathrm{A}=0$ erfüllen, denn ein Strom braucht einen geschlossenen Weg.
 
-**Beispiel.** Die 9-V-Quelle an 16 $\Omega$ liefert 0,5625 A, an 1 $\Omega$ liefert sie 9 A, an 1 m$\Omega$ wären es 9000 A. Eine 0,5-A-Quelle erzeugt an 16 $\Omega$ 8 V, an 1 k$\Omega$ 500 V, an 1 M$\Omega$ wären es 500 kV. **Grenzfall:** Je extremer die Last, desto weiter entfernt sich das Modell von jedem echten Gerät. Das ist der Grund für die nächste Stufe.
+::::beispiel
+Die 9-V-Quelle an 16 $\Omega$ liefert 0,5625 A, an 1 $\Omega$ liefert sie 9 A, an 1 m$\Omega$ wären es 9000 A. Eine 0,5-A-Quelle erzeugt an 16 $\Omega$ 8 V, an 1 k$\Omega$ 500 V, an 1 M$\Omega$ wären es 500 kV.
+::::
+
+⁠**Grenzfall:** Je extremer die Last, desto weiter entfernt sich das Modell von jedem echten Gerät. Das ist der Grund für die nächste Stufe.
 
 :::frage Kann der Strom auch rückwärts durch eine Quelle fließen?
 Ja. Eine ideale Quelle legt nur ihre eine Größe fest. Fließt der Strom in den Pluspol einer Spannungsquelle hinein, ist $I_\mathrm{A}<0$, und die Quelle nimmt Leistung auf. So lädt man einen Akku.

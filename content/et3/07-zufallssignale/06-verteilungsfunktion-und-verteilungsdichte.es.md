@@ -25,11 +25,13 @@ $$P_s(x)=\mathrm{Prob}[s(t)\le x],\qquad p_s(x)=\frac{\mathrm{d} P_s(x)}{\mathrm
 <span class="anker" id="gl-5-2"></span>
 $$m_s=\int x\,p_s(x)\,\mathrm{d} x,\qquad L_s=\int x^2p_s(x)\,\mathrm{d} x,\qquad\mathrm E\{F[s]\}=\int F(x)\,p_s(x)\,\mathrm{d} x. \tag{5.2}$$
 
-**Ejemplo: distribución uniforme.** Todos los valores de un intervalo de anchura $a$ en torno a $m_s$ son igual de probables: $p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$. Entonces
+::::beispiel distribución uniforme
+Todos los valores de un intervalo de anchura $a$ en torno a $m_s$ son igual de probables: $p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$. Entonces
 
 $$L_s=\frac1a\int_{m_s-a/2}^{m_s+a/2}x^2\mathrm{d} x=\frac{a^2}{12}+m_s^2,\qquad\sigma_s^2=\frac{a^2}{12}.$$
 
 Los números aleatorios del modelo de referencia ($a=1$, $m_s=0$) tienen la varianza $\frac1{12}=0{,}0833$.
+::::
 
 **Características.** Si una señal pasa por una característica $y=k(x)$ (amplificador con saturación, rectificador, cuantizador), su distribución cambia. Con una característica monótona, la probabilidad de cada intervalo se conserva:
 

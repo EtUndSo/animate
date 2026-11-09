@@ -70,7 +70,11 @@ Definiteness and symmetry are in [(8.1)](#gl-8-1). *Triangle inequality for $d$.
 ⁠*Root.* $|x|\ge0$ and $|x|^2=x^2$, so $|x|$ is the unique nonnegative solution of $z^2=x^2$.
 :::
 
-**Example.** With $x=-3$, $y=5$: $|x+y|=2\le8=|x|+|y|$ and $\bigl||x|-|y|\bigr|=2\le|x+y|=2$. **Limiting case** $y=0$: All inequalities become $|x|=|x|$.
+::::beispiel
+With $x=-3$, $y=5$: $|x+y|=2\le8=|x|+|y|$ and $\bigl||x|-|y|\bigr|=2\le|x+y|=2$.
+::::
+
+⁠**Limiting case** $y=0$: All inequalities become $|x|=|x|$.
 
 :::aufgabe Exercise 9 ★★ Inequalities with absolute values
 <span class="anker" id="aufg-9"></span>

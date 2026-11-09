@@ -36,7 +36,8 @@ der __Differenzenquotient__ von $f$ an der Stelle $x$ zur Schrittweite $h$. Er i
 
 Die Schrittweite $h$ darf auch negativ sein; dann liegt der zweite Punkt links von $x$. Für $h=0$ ist der Quotient nicht erklärt, weil man nicht durch null teilen kann.
 
-⁠**Rechenbeispiel:** Es sei $f(x)=x^3$ und $x=2$, also $f(2)=8$. Für drei Schrittweiten ist
+::::beispiel [Rechenbeispiel]
+Es sei $f(x)=x^3$ und $x=2$, also $f(2)=8$. Für drei Schrittweiten ist
 
 $$\frac{3^3-8}{1}=19,\qquad \frac{2{,}5^3-8}{0{,}5}=\frac{15{,}625-8}{0{,}5}=15{,}25,\qquad \frac{2{,}1^3-8}{0{,}1}=\frac{9{,}261-8}{0{,}1}=12{,}61 .$$
 
@@ -50,6 +51,7 @@ Mit $h=1$, $h=0{,}5$ und $h=0{,}1$ ergibt diese Formel wieder $19$, $15{,}25$ un
 :::abbildung ml/k3sekante 1
 Sekanten des Graphen von $f(x)=x^3$ durch den Punkt $(2,\,8)$, mit den Steigungen $19$ für $h=1$ (rot) und $15{,}25$ für $h=0{,}5$ (orange). Mit kleinerer Schrittweite $h$ rückt der zweite Punkt näher heran, die Sekante wird flacher, und ihre Steigung $12+6h+h^2$ nähert sich der Steigung $12$ der Tangente (gestrichelt).
 :::
+::::
 
 ⁠**Kurz gesagt:** Der Differenzenquotient ist die Änderung des Funktionswerts geteilt durch die Änderung der Eingabe, die mittlere Steigung zwischen zwei Punkten des Graphen.
 
@@ -72,9 +74,13 @@ heißt die __Ableitung__ von $f$ an der Stelle $x$. Man schreibt auch $\frac{\ma
 
 Ist $f$ an jeder Stelle differenzierbar, so ist $f'$ wieder eine Funktion: Sie ordnet jedem $x$ die Steigung des Graphen an dieser Stelle zu. Sie heißt Ableitungsfunktion oder kurz ebenfalls Ableitung. Die Schreibweise $\frac{\mathrm{d} f}{\mathrm{d} x}$ erinnert an den Quotienten aus [(1.1)](#gl-1-1), ist aber selbst kein Bruch, sondern das Zeichen für den Grenzwert.
 
-⁠**Rechenbeispiel 1:** Nach [(1.2)](#gl-1-2) ist der Differenzenquotient von $f(x)=x^3$ an der Stelle $2$ gleich $12+6h+h^2$. Für $h\to0$ werden $6h$ und $h^2$ beliebig klein, also ist $f'(2)=12$. Dieselbe Rechnung an einer beliebigen Stelle $x$ ergibt mit $(x+h)^3=x^3+3x^2h+3xh^2+h^3$ den Quotienten $3x^2+3xh+h^2$ und damit $f'(x)=3x^2$.
+::::beispiel [Rechenbeispiel 1]
+Nach [(1.2)](#gl-1-2) ist der Differenzenquotient von $f(x)=x^3$ an der Stelle $2$ gleich $12+6h+h^2$. Für $h\to0$ werden $6h$ und $h^2$ beliebig klein, also ist $f'(2)=12$. Dieselbe Rechnung an einer beliebigen Stelle $x$ ergibt mit $(x+h)^3=x^3+3x^2h+3xh^2+h^3$ den Quotienten $3x^2+3xh+h^2$ und damit $f'(x)=3x^2$.
+::::
 
-⁠**Rechenbeispiel 2:** Die Betragsfunktion $f(x)=|x|$ hat an der Stelle $0$ keine Ableitung. Ihr Differenzenquotient ist $|h|/h$, also $1$ für jedes $h>0$ und $-1$ für jedes $h<0$. Es gibt keine Zahl, der er von beiden Seiten nahekommt. Der Graph hat bei $0$ einen __Knick__: Links steigt er mit $-1$, rechts mit $+1$, und keine Gerade schmiegt sich beiden Seiten zugleich an. An jeder anderen Stelle ist $|x|$ differenzierbar, mit der Ableitung $1$ für $x>0$ und $-1$ für $x<0$.
+::::beispiel [Rechenbeispiel 2]
+Die Betragsfunktion $f(x)=|x|$ hat an der Stelle $0$ keine Ableitung. Ihr Differenzenquotient ist $|h|/h$, also $1$ für jedes $h>0$ und $-1$ für jedes $h<0$. Es gibt keine Zahl, der er von beiden Seiten nahekommt. Der Graph hat bei $0$ einen __Knick__: Links steigt er mit $-1$, rechts mit $+1$, und keine Gerade schmiegt sich beiden Seiten zugleich an. An jeder anderen Stelle ist $|x|$ differenzierbar, mit der Ableitung $1$ für $x>0$ und $-1$ für $x<0$.
+::::
 
 ⁠**Kurz gesagt:** Die Ableitung $f'(x)$ ist der Grenzwert der Sekantensteigungen, also die Steigung der Tangente; an einem Knick gibt es sie nicht.
 
@@ -111,11 +117,13 @@ Die Bedingung $r(h)/h\to0$ sagt mehr, als dass der Fehler klein wird. Auch $h$ s
 
 Die Gleichung [(1.4)](#gl-1-4) liefert auch die anschaulichste Deutung der Ableitung. Eine kleine Änderung $h$ der Eingabe kommt am Ausgang ungefähr als $f'(x)\,h$ an. Die Ableitung ist also der *Faktor*, mit dem die Funktion kleine Änderungen weitergibt, ihre Empfindlichkeit an der Stelle $x$. Ein großes $|f'(x)|$ bedeutet, dass schon kleine Änderungen der Eingabe den Wert stark verändern; ein negatives $f'(x)$ bedeutet, dass der Wert fällt, wenn die Eingabe wächst.
 
-⁠**Rechenbeispiel:** Für $f(x)=x^3$ an der Stelle $2$ und $h=0{,}01$ liefert die lineare Näherung
+::::beispiel [Rechenbeispiel]
+Für $f(x)=x^3$ an der Stelle $2$ und $h=0{,}01$ liefert die lineare Näherung
 
 $$f(2{,}01)\approx8+12\cdot0{,}01=8{,}12 .$$
 
 Genau ist $f(2{,}01)=2{,}01^3=8{,}120601$. Der Fehler ist $r(0{,}01)=0{,}000601$, nach der Rechnung zu [(1.2)](#gl-1-2) allgemein $r(h)=6h^2+h^3$. Der Quotient $r(h)/h=6h+h^2$ ist für $h=0{,}01$ gleich $0{,}0601$ und für $h=0{,}001$ gleich $0{,}006001$: Er geht gegen null, wie der Satz verlangt.
+::::
 
 ⁠**Kurz gesagt:** Nahe bei $x$ ist $f(x+h)\approx f(x)+f'(x)\,h$; die Ableitung ist der Faktor, mit dem kleine Änderungen weitergegeben werden, und der Fehler verschwindet schneller als $h$.
 
@@ -167,11 +175,13 @@ $$(x+h)^n=x^n+n\,x^{n-1}h+(\text{Summanden mit }h^2,h^3,\dots,h^n),$$
 also ist der Differenzenquotient $n\,x^{n-1}$ plus Summanden, die noch mindestens ein $h$ enthalten. Für $h\to0$ bleibt $n\,x^{n-1}$. Die Quotientenregel folgt aus der Produktregel, angewandt auf $u=(u/v)\cdot v$.
 :::
 
-⁠**Rechenbeispiel:** Es sei $f(x)=(x^2+1)(x-3)$ und gesucht ist $f'(2)$. Mit $u=x^2+1$, $u'=2x$, $v=x-3$, $v'=1$ liefert die Produktregel
+::::beispiel [Rechenbeispiel]
+Es sei $f(x)=(x^2+1)(x-3)$ und gesucht ist $f'(2)$. Mit $u=x^2+1$, $u'=2x$, $v=x-3$, $v'=1$ liefert die Produktregel
 
 $$f'(x)=2x\,(x-3)+(x^2+1)\cdot1,\qquad f'(2)=4\cdot(-1)+5\cdot1=1 .$$
 
 Probe: Ausmultipliziert ist $f(x)=x^3-3x^2+x-3$, also $f'(x)=3x^2-6x+1$ und $f'(2)=12-12+1=1$.
+::::
 
 ⁠**Kurz gesagt:** Mit den Grundableitungen der Tabelle und den Regeln für Summe, Vielfaches, Produkt und Quotient leitet man zusammengesetzte Formeln ab, ohne einen Grenzwert zu bilden.
 
@@ -206,7 +216,8 @@ $$f(x+h)=f(x)+f'(x)\,h+\tfrac12f''(x)\,h^2+r_2(h)\qquad\text{mit}\qquad\lim_{h\t
 
 Stetig heißt dabei, dass sich $f''$ bei kleinen Änderungen der Stelle nur wenig ändert, ohne Sprung. Den Beweis führt man ähnlich wie bei der linearen Näherung, mit einem Schritt mehr; die Aussage heißt Satz von Taylor. Der Fehler $r_2(h)$ verschwindet jetzt schneller als $h^2$, also bei kleinem $h$ noch viel schneller als der Fehler der linearen Näherung.
 
-⁠**Rechenbeispiel:** Für $f(x)=x^3$ ist $f'(x)=3x^2$, $f''(x)=6x$ und $f'''(x)=6$. An der Stelle $2$ ist $f''(2)=12>0$: Der Graph biegt sich nach oben von der Tangente weg, wie Abb. [2](#abb-2) links zeigt. Die quadratische Näherung für $h=0{,}01$ ist
+::::beispiel [Rechenbeispiel]
+Für $f(x)=x^3$ ist $f'(x)=3x^2$, $f''(x)=6x$ und $f'''(x)=6$. An der Stelle $2$ ist $f''(2)=12>0$: Der Graph biegt sich nach oben von der Tangente weg, wie Abb. [2](#abb-2) links zeigt. Die quadratische Näherung für $h=0{,}01$ ist
 
 $$f(2{,}01)\approx8+12\cdot0{,}01+\tfrac12\cdot12\cdot0{,}01^2=8+0{,}12+0{,}0006=8{,}1206 .$$
 
@@ -215,6 +226,7 @@ Der genaue Wert ist $8{,}120601$, der Fehler nur noch $0{,}000001=h^3$. Abb. [3
 :::abbildung ml/k3rtaylor1 3
 Die quadratische Näherung von $f(x)=x^3$ an der Stelle $2$ für $h=0{,}01$ als Summe aus Wert, Steigungsglied und Krümmungsglied.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die zweite Ableitung misst, wie schnell sich die Steigung ändert, also die Krümmung; mit ihr wird die Näherung zu $f(x+h)\approx f(x)+f'(x)\,h+\tfrac12f''(x)\,h^2$.
 

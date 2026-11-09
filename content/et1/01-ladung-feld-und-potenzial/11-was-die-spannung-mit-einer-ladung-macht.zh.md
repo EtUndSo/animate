@@ -39,11 +39,13 @@ $$v=\sqrt{\frac{2\,|Q\,U|}{m}},\qquad a=\frac{|Q|\,E}{m},\qquad t=\frac{2\,d}{v}
 左：电子从极板 B 出发，逆着电场向极板 A 运动。右：从 $x=3$ mm 到 $x=0$，动能增大到 $1.44\cdot10^{-18}$ J，势能减小同样的量，参考点为 B。总和始终为零。
 :::
 
-**例。** 对于平行极板中的电子，
+::::beispiel
+对于平行极板中的电子，
 
 $$\begin{aligned} F&=e\,E=4.81\cdot10^{-16}\,\mathrm{N},\qquad a=\frac{F}{m_\mathrm{e}}=5.28\cdot10^{14}\,\mathrm{m/s^2},\qquad W=e\,U=1.44\cdot10^{-18}\,\mathrm{J},\\ v&=\sqrt{\frac{2\cdot1.44\cdot10^{-18}\,\mathrm{J}}{9.109\cdot10^{-31}\,\mathrm{kg}}}=1.78\cdot10^{6}\,\mathrm{m/s},\qquad t=\frac{2\cdot3\,\mathrm{mm}}{v}=3.37\,\mathrm{ns}. \end{aligned}$$
 
 质子从 A 运动到 B。它获得相同的能量，但重 1836 倍：$v=4.15\cdot10^4$ m/s，慢 $\sqrt{1836}=42.9$ 倍，飞行时间为 144 ns。
+::::
 
 ⁠**简而言之：**电荷在真空中经过一个电压时，动能的变化等于电荷乘以电压，与路径和距离无关。
 

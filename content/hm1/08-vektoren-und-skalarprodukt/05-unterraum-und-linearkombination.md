@@ -43,7 +43,13 @@ Sei $V$ ein Vektorraum über $\mathbb K=\mathbb{R}$ oder $\mathbb{C}$. Eine Teil
 </ul>
 :::
 
-⁠**So liest man das:** Vektoren aus $U$ bleiben beim Addieren und Strecken in $U$. Darum ist $U$ selbst ein Vektorraum, die Rechenregeln erbt es von $V$. Wegen (U1) geht jeder Unterraum durch den Ursprung. **Beispiel:** $U=\{\lambda\,\vec a:\lambda\in\mathbb{R}\}$ erfüllt (U1) mit $\lambda=0$, (U2) wie oben und (U3) nach (V3), denn $\alpha(\lambda\vec a)=(\alpha\lambda)\vec a$. **Polynome:** Alle Polynome $a_0+a_1x+a_2x^2+a_3x^3$ bilden einen Unterraum. Die Polynome vom Grad *genau* 3 bilden keinen: $(x^3+x)+(-x^3+x^2)=x^2+x$ hat Grad 2, (U2) ist verletzt, und die Nullfunktion fehlt. **Grenzfälle:** $\{\vec0\}$ und $V$ selbst sind Unterräume.
+⁠**So liest man das:** Vektoren aus $U$ bleiben beim Addieren und Strecken in $U$. Darum ist $U$ selbst ein Vektorraum, die Rechenregeln erbt es von $V$. Wegen (U1) geht jeder Unterraum durch den Ursprung.
+
+::::beispiel
+$U=\{\lambda\,\vec a:\lambda\in\mathbb{R}\}$ erfüllt (U1) mit $\lambda=0$, (U2) wie oben und (U3) nach (V3), denn $\alpha(\lambda\vec a)=(\alpha\lambda)\vec a$. **Polynome:** Alle Polynome $a_0+a_1x+a_2x^2+a_3x^3$ bilden einen Unterraum. Die Polynome vom Grad *genau* 3 bilden keinen: $(x^3+x)+(-x^3+x^2)=x^2+x$ hat Grad 2, (U2) ist verletzt, und die Nullfunktion fehlt.
+::::
+
+⁠**Grenzfälle:** $\{\vec0\}$ und $V$ selbst sind Unterräume.
 
 :::definition Definition 3.2 (Linearkombination, Aufspann)
 <span class="anker" id="satz-3-2"></span>
@@ -76,7 +82,9 @@ $\operatorname{span}\{\vec a_1,\dots,\vec a_n\}$ ist immer ein linearer Unterrau
 Links $\operatorname{span}\{\vec a\}$, eine Gerade durch $O$, und die parallele Gerade $(0,2)+t\,\vec a$, die $O$ verfehlt und deshalb kein Unterraum ist. Rechts das schräge Gitter aller Kombinationen $s\vec a+t\vec b$ mit ganzen $s,t$. Der Punkt $(5,0)$ ist $2\vec a-\vec b$. Mit reellen $s,t$ wird die ganze Ebene erreicht.
 :::
 
-**Beispiel.** Jeder Punkt $(x_1,x_2)$ liegt in $\operatorname{span}\{\vec a,\vec b\}$. Komponentenweise verlangt $s\vec a+t\vec b=(x_1,x_2)$ die Gleichungen $3s+t=x_1$ und $s+2t=x_2$. Daraus folgt $s=\frac15(2x_1-x_2)$ und $t=\frac15(3x_2-x_1)$. Für $(5,0)$ ist das $s=2$, $t=-1$. Also ist $\operatorname{span}\{\vec a,\vec b\}=\mathbb{R}^2$. Die ungeraden Polynome $\alpha_1x+\alpha_2x^3+\alpha_3x^5$ sind der Unterraum $\operatorname{span}\{x,x^3,x^5\}$, das sind alle Polynome vom Grad $\le5$ mit $p(-x)=-p(x)$. In der Elektrotechnik bilden die Zweigströme, die alle Knotenregeln erfüllen, einen Unterraum: Summe und Vielfaches zulässiger Stromverteilungen sind wieder zulässig.
+::::beispiel
+Jeder Punkt $(x_1,x_2)$ liegt in $\operatorname{span}\{\vec a,\vec b\}$. Komponentenweise verlangt $s\vec a+t\vec b=(x_1,x_2)$ die Gleichungen $3s+t=x_1$ und $s+2t=x_2$. Daraus folgt $s=\frac15(2x_1-x_2)$ und $t=\frac15(3x_2-x_1)$. Für $(5,0)$ ist das $s=2$, $t=-1$. Also ist $\operatorname{span}\{\vec a,\vec b\}=\mathbb{R}^2$. Die ungeraden Polynome $\alpha_1x+\alpha_2x^3+\alpha_3x^5$ sind der Unterraum $\operatorname{span}\{x,x^3,x^5\}$, das sind alle Polynome vom Grad $\le5$ mit $p(-x)=-p(x)$. In der Elektrotechnik bilden die Zweigströme, die alle Knotenregeln erfüllen, einen Unterraum: Summe und Vielfaches zulässiger Stromverteilungen sind wieder zulässig.
+::::
 
 :::frage Ist jede Gerade ein Unterraum?
 Nur die Geraden durch $O$. Für $\vec w=\vec p+t\vec v$ gilt das genau dann, wenn $\vec0$ auf der Geraden liegt, also wenn $\vec p\in\operatorname{span}\{\vec v\}$. Eine Gerade daneben ist ein verschobener Unterraum.

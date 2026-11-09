@@ -40,7 +40,11 @@ $$\frac{I_1}{I_2}=\frac{U_\mathrm{L2}}{U_\mathrm{L1}},\qquad\frac{P_\mathrm{cabl
 
 ⁠**Cómo leerlo:** $U_\mathrm{cable}$ es la __caída de tensión__ a lo largo de la línea. $P_\mathrm{cable}$ es la __potencia de pérdidas__; $P_\text{útil}=P_\mathrm{L}$, la __potencia útil__ de la carga; $P_\mathrm{q}=U_\mathrm{q}I$, la potencia de la fuente. $U_\mathrm{L}$ es la tensión en la carga. **Validez:** Las fórmulas valen para magnitudes continuas y para la resistencia de la línea. Con tensión alterna y carga óhmica valen con valores eficaces.
 
-**Ejemplo.** La carga necesita 40 kW, $R_\mathrm{cable}=1\,\Omega$. Con $U_\mathrm{L}=400$ V son $I=100$ A, $U_\mathrm{cable}=100$ V y $P_\mathrm{cable}=10$ kW. La fuente debe suministrar 500 V y, según [(4.2)](#gl-4-2), llega $1-100/500=80$ %. Con 20 kV son $I=2$ A, $U_\mathrm{cable}=2$ V y $P_\mathrm{cable}=4$ W, y llega el 99,99 %. La corriente baja en un factor 50; la pérdida, en $50^2=2500$. **Caso límite:** Para $R_\mathrm{cable}\to0$ se tiene $U_\mathrm{cable}=0$, y [(4.2)](#gl-4-2) da 1. A distancias largas, la energía solo se puede transmitir con tensión alta; por eso la red eléctrica se construye en niveles. La __tensión nominal__ es la tensión para la que está diseñada una red:
+::::beispiel
+La carga necesita 40 kW, $R_\mathrm{cable}=1\,\Omega$. Con $U_\mathrm{L}=400$ V son $I=100$ A, $U_\mathrm{cable}=100$ V y $P_\mathrm{cable}=10$ kW. La fuente debe suministrar 500 V y, según [(4.2)](#gl-4-2), llega $1-100/500=80$ %. Con 20 kV son $I=2$ A, $U_\mathrm{cable}=2$ V y $P_\mathrm{cable}=4$ W, y llega el 99,99 %. La corriente baja en un factor 50; la pérdida, en $50^2=2500$.
+::::
+
+⁠**Caso límite:** Para $R_\mathrm{cable}\to0$ se tiene $U_\mathrm{cable}=0$, y [(4.2)](#gl-4-2) da 1. A distancias largas, la energía solo se puede transmitir con tensión alta; por eso la red eléctrica se construye en niveles. La __tensión nominal__ es la tensión para la que está diseñada una red:
 
 | Nivel | Tensión nominal | Alcance | Función |
 |---|---|---|---|

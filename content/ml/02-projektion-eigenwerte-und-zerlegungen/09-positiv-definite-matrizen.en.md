@@ -34,7 +34,9 @@ and __positive semidefinite__ if $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}\ge0$ for
 
 Symmetry is part of the definition. For the quadratic form this is no restriction, since by Section [5.2](quadratische-formen.html#stufe-5-2) only the symmetric part counts anyway. It is needed, however, for the tests in the next subsection to hold. Every positive definite matrix is also positive semidefinite.
 
-⁠**Worked example:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ is positive definite, because by Section [5.4](quadratische-formen.html#stufe-5-4), $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0.4x_2)^2+1.2x_2^2$, and this is zero only if $x_2=0$ and then also $x_1=0$. The matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the form $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$; it is positive semidefinite but not positive definite, because the form is zero for $\mathbf{x}=(2,\,-1)^{\top}$. Its graph is a trough with the valley floor in the direction of $(2,\,-1)^{\top}$.
+::::beispiel [Worked example]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ is positive definite, because by Section [5.4](quadratische-formen.html#stufe-5-4), $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0.4x_2)^2+1.2x_2^2$, and this is zero only if $x_2=0$ and then also $x_1=0$. The matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the form $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$; it is positive semidefinite but not positive definite, because the form is zero for $\mathbf{x}=(2,\,-1)^{\top}$. Its graph is a trough with the valley floor in the direction of $(2,\,-1)^{\top}$.
+::::
 
 ⁠**In short:** Positive definite means: the quadratic form is positive away from the origin, a bowl; positive semidefinite means: nowhere negative.
 
@@ -56,7 +58,9 @@ If all $\lambda_i>0$ and $\mathbf{x}\ne\mathbf{0}$, then also $\mathbf{c}=\mathb
 
 If a symmetric matrix has positive and negative eigenvalues, its form is positive in some directions and negative in others: a saddle. Such a matrix is called __indefinite__. Correspondingly, a matrix with only negative eigenvalues is called negative definite; its form is a dome.
 
-⁠**Worked example:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ has the eigenvalues $6$ and $1$: positive definite. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the eigenvalues $5$ and $0$: positive semidefinite. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ has only positive entries, but the eigenvalues $4$ and $-2$: indefinite, because for $\mathbf{x}=(1,\,-1)^{\top}$ the form is $1-6+1=-4$. So positive entries say nothing about definiteness.
+::::beispiel [Worked example]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ has the eigenvalues $6$ and $1$: positive definite. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the eigenvalues $5$ and $0$: positive semidefinite. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ has only positive entries, but the eigenvalues $4$ and $-2$: indefinite, because for $\mathbf{x}=(1,\,-1)^{\top}$ the form is $1-6+1=-4$. So positive entries say nothing about definiteness.
+::::
 
 ⁠**In short:** A symmetric matrix is positive definite if and only if all eigenvalues are positive; positive and negative eigenvalues together give a saddle.
 
@@ -104,11 +108,13 @@ For $n=2$ this is [(5.3)](quadratische-formen.html#gl-5-3): the pivots are $a$ a
 
 Two warnings. First, $\det\mathbf{A}>0$ alone is not enough: $\operatorname{diag}(-1,\,-3)$ has the determinant $3$ but is negative definite. Second, the test does not simply carry over to semidefinite: $\operatorname{diag}(0,\,-1)$ has the leading principal minors $0$ and $0$, neither of them negative, and is nevertheless not positive semidefinite.
 
-⁠**Worked example:** For
+::::beispiel [Worked example]
+For
 
 $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 the leading principal minors are $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)=3$ and $\det\mathbf{A}=2\cdot3-1\cdot2=4$, all positive: $\mathbf{A}$ is positive definite. The pivots are $2$, $\tfrac32$ and $\tfrac43$, the quotients of consecutive minors. As a check: the eigenvalues are $2-\sqrt2$, $2$ and $2+\sqrt2$, all positive, and their product is $(4-2)\cdot2=4$.
+::::
 
 ⁠**In short:** A symmetric matrix is positive definite if and only if all pivots or all leading principal minors are positive; for $2\times2$ this means $a>0$ and $ac-b^2>0$.
 
@@ -116,7 +122,7 @@ the leading principal minors are $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end
 
 <span class="anker" id="stufe-8-4"></span>
 
-In Foundations 1, Section 10, the Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ appeared, and in this chapter $\mathbf{A}^{\top}\mathbf{A}$ appeared in the normal equations. They are always positive semidefinite, and the reason is simple: their quadratic form is a squared length.
+In [Foundations 1, Section 10](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), the Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ appeared, and in this chapter $\mathbf{A}^{\top}\mathbf{A}$ appeared in the normal equations. They are always positive semidefinite, and the reason is simple: their quadratic form is a squared length.
 
 :::satz Theorem 8.4 (Gram matrices)
 <span class="anker" id="satz-8-4"></span>
@@ -130,7 +136,9 @@ $\mathbf{A}^{\top}\mathbf{A}$ is symmetric, and $\mathbf{x}^{\top}\mathbf{A}^{\t
 
 The same holds for $\mathbf{A}\mathbf{A}^{\top}$ with the rows instead of the columns. The theorem explains Section [3.5](die-beste-naherungslosung.html#stufe-3-5) in hindsight: with independent columns, $\mathbf{A}^{\top}\mathbf{A}$ is positive definite, so it has only positive eigenvalues and is invertible.
 
-⁠**Worked example:** $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ has the eigenvalues $3$ and $1$: positive definite, in line with the independent columns of $\mathbf{H}$. For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, we get $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ with the determinant $0$ and the eigenvalues $25$ and $0$: positive semidefinite, not positive definite.
+::::beispiel [Worked example]
+$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ has the eigenvalues $3$ and $1$: positive definite, in line with the independent columns of $\mathbf{H}$. For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, we get $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ with the determinant $0$ and the eigenvalues $25$ and $0$: positive semidefinite, not positive definite.
+::::
 
 ⁠**In short:** $\mathbf{A}^{\top}\mathbf{A}$ is always positive semidefinite, because $\mathbf{x}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\lVert\mathbf{A}\mathbf{x}\rVert^2$; with independent columns it is positive definite.
 
@@ -161,11 +169,13 @@ This is a weighted mean of the eigenvalues, and a mean always lies between the s
 
 The quotient in [(8.2)](#gl-8-2) is called the __Rayleigh quotient__. For $\lVert\mathbf{x}\rVert=1$ it is the quadratic form itself: on the unit circle, the form lies between the smallest and the largest eigenvalue.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, the Rayleigh quotient is $5$ at $\mathbf{e}_1$, $2$ at $\mathbf{e}_2$, $\tfrac{5+4+2}2=5.5$ at $(1,\,1)^{\top}/\sqrt2$ and $\tfrac{5-4+2}2=1.5$ at $(1,\,-1)^{\top}/\sqrt2$. All values lie between $1$ and $6$. It reaches the value $6$ at $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$: $\tfrac15(20+8+2)=6$. The quotient does not depend on the length of $\mathbf{x}$; Fig. [21](#abb-21) computes it for $\mathbf{x}=(1,\,1)^{\top}$ without square roots.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, the Rayleigh quotient is $5$ at $\mathbf{e}_1$, $2$ at $\mathbf{e}_2$, $\tfrac{5+4+2}2=5.5$ at $(1,\,1)^{\top}/\sqrt2$ and $\tfrac{5-4+2}2=1.5$ at $(1,\,-1)^{\top}/\sqrt2$. All values lie between $1$ and $6$. It reaches the value $6$ at $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$: $\tfrac15(20+8+2)=6$. The quotient does not depend on the length of $\mathbf{x}$; Fig. [21](#abb-21) computes it for $\mathbf{x}=(1,\,1)^{\top}$ without square roots.
 
 :::abbildung ml/k2rrayleigh 21
 The Rayleigh quotient of $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ at the point $\mathbf{x}=(1,1)^{\top}$: numerator and denominator as sums; the quotient $\tfrac{11}2=5.5$ lies between the eigenvalues $1$ and $6$.
 :::
+::::
 
 ⁠**In short:** On the unit circle, a quadratic form lies between the smallest and the largest eigenvalue, and these extreme values are attained in the eigendirections.
 
@@ -190,13 +200,15 @@ If $\mathbf{A}=\mathbf L\mathbf L^{\top}$, then $\mathbf{x}^{\top}\mathbf{A}\mat
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-and for larger $n$ you continue completing the square variable by variable. By Foundations 1, Section 14.5, $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
+and for larger $n$ you continue completing the square variable by variable. By [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$, we have $a=4$, $b=2$, $c=5$, so $l_{11}=2$, $l_{21}=1$ and $l_{22}=\sqrt{5-1}=2$:
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$, we have $a=4$, $b=2$, $c=5$, so $l_{11}=2$, $l_{21}=1$ and $l_{22}=\sqrt{5-1}=2$:
 
 $$\mathbf L=\begin{pmatrix}2&0\\1&2\end{pmatrix},\qquad \mathbf L\mathbf L^{\top}=\begin{pmatrix}4&2\\2&1+4\end{pmatrix}=\mathbf{A} .$$
 
 The form is $4x_1^2+4x_1x_2+5x_2^2=(2x_1+x_2)^2+(2x_2)^2$; the two expressions inside the squares are the components of $\mathbf L^{\top}\mathbf{x}$. The determinant is $20-4=16=(2\cdot2)^2$.
+::::
 
 ⁠**In short:** Every positive definite matrix is $\mathbf L\mathbf L^{\top}$ with a lower triangular matrix $\mathbf L$; the decomposition is completing the square in matrix form.
 

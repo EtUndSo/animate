@@ -26,7 +26,9 @@ $$\hat p_k=\frac{N_k}N,\qquad\hat{\mathbf{p}}=(\hat p_1,\dots,\hat p_K)^{\top} .
 
 Sie besteht aus den relativen Häufigkeiten. Das Modell gebe der Kategorie $k$ die Wahrscheinlichkeit $q_k(\boldsymbol{\theta})$; zusammen bilden sie die Verteilung $\mathbf{q}(\boldsymbol{\theta})$.
 
-⁠**Rechenbeispiel:** Für die zehn Würfe der verbogenen Münze mit den Kategorien Kopf und Zahl ist $\hat{\mathbf{p}}=(0{,}7;\ 0{,}3)^{\top}$ und im Bernoulli-Modell $\mathbf{q}(\theta)=(\theta,\ 1-\theta)^{\top}$. Von $20$ Bauteilen, die wie im Beispiel der kategorischen Verteilung in [Grundlagen 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), rot, grün oder blau sind, seien $12$ rot, $5$ grün und $3$ blau. Ihre empirische Verteilung ist $\hat{\mathbf{p}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$.
+::::beispiel [Rechenbeispiel]
+Für die zehn Würfe der verbogenen Münze mit den Kategorien Kopf und Zahl ist $\hat{\mathbf{p}}=(0{,}7;\ 0{,}3)^{\top}$ und im Bernoulli-Modell $\mathbf{q}(\theta)=(\theta,\ 1-\theta)^{\top}$. Von $20$ Bauteilen, die wie im Beispiel der kategorischen Verteilung in [Grundlagen 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), rot, grün oder blau sind, seien $12$ rot, $5$ grün und $3$ blau. Ihre empirische Verteilung ist $\hat{\mathbf{p}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Die empirische Verteilung eines Datensatzes mit $K$ Kategorien besteht aus den relativen Häufigkeiten $N_k/N$.
 
@@ -51,11 +53,13 @@ Fällt der Datenpunkt $i$ in die Kategorie $k_i$, so ist $\ell(\boldsymbol{\thet
 
 Die Zahl $-\ell(\boldsymbol{\theta})$ heißt __negative Log-Likelihood__. Nach dem Hintergrund-Kasten in Unterabschnitt [5.2](die-maximum-likelihood-schatzung.html#stufe-5-2) ist sie die gesamte Überraschung des Modells über die Daten, also nach Unterabschnitt [8.1](informationsgehalt-und-entropie.html#stufe-8-1) die Summe der Informationsgehalte aller Datenpunkte in nat. Geteilt durch $N$ ist sie die mittlere Überraschung je Datenpunkt.
 
-⁠**Rechenbeispiel:** Für die verbogene Münze ist $\ell(0{,}5)=-6{,}931$ und $\ell(0{,}7)=-6{,}109$. Geteilt durch $-10$ ergibt das $0{,}693$ und $0{,}611$, und das sind die Kreuzentropien (Abb. [22](#abb-22)).
+::::beispiel [Rechenbeispiel]
+Für die verbogene Münze ist $\ell(0{,}5)=-6{,}931$ und $\ell(0{,}7)=-6{,}109$. Geteilt durch $-10$ ergibt das $0{,}693$ und $0{,}611$, und das sind die Kreuzentropien (Abb. [22](#abb-22)).
 
 :::abbildung ml/k5rkreuzml 22
 Die Kreuzentropie der empirischen Verteilung $\hat{\mathbf{p}}=(0{,}7;\ 0{,}3)^{\top}$ der zehn Würfe zu zwei Modellen. Sie ist die negative Log-Likelihood je Wurf: $6{,}931/10$ und $6{,}109/10$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die negative Log-Likelihood je Datenpunkt ist die Kreuzentropie der empirischen Verteilung zum Modell, gemessen in nat.
 
@@ -83,7 +87,9 @@ $$\hat{\boldsymbol{\theta}}_{\mathrm{ML}}=\operatorname*{arg\,min}_{\boldsymbol{
 [(11.3)](#gl-11-3) ist [(11.2)](#gl-11-2) zusammen mit $H(\mathbf{p},\mathbf{q})=H(\mathbf{p})+D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})$ aus [(9.2)](kreuzentropie-und-kl-divergenz.html#gl-9-2). Der erste Summand hängt nicht von $\boldsymbol{\theta}$ ab. Die Log-Likelihood ist also genau dort am größten, wo die KL-Divergenz am kleinsten ist.
 :::
 
-⁠**Rechenbeispiel:** Für die verbogene Münze ist $H(\hat{\mathbf{p}})=0{,}611$ nat, die Kreuzentropie zu $\mathbf{q}(0{,}7)$ aus Abb. [22](#abb-22). Zum Modell $\theta=0{,}5$ ist $D_{\mathrm{KL}}=0{,}693-0{,}611=0{,}082$ nat, zum Modell $\theta=0{,}7$ ist sie null. Der Maximum-Likelihood-Schätzer $0{,}7$ ist also der Parameter, dessen Modellverteilung mit der empirischen Verteilung übereinstimmt.
+::::beispiel [Rechenbeispiel]
+Für die verbogene Münze ist $H(\hat{\mathbf{p}})=0{,}611$ nat, die Kreuzentropie zu $\mathbf{q}(0{,}7)$ aus Abb. [22](#abb-22). Zum Modell $\theta=0{,}5$ ist $D_{\mathrm{KL}}=0{,}693-0{,}611=0{,}082$ nat, zum Modell $\theta=0{,}7$ ist sie null. Der Maximum-Likelihood-Schätzer $0{,}7$ ist also der Parameter, dessen Modellverteilung mit der empirischen Verteilung übereinstimmt.
+::::
 
 ⁠**Kurz gesagt:** Maximum Likelihood wählt das Modell, das von der empirischen Verteilung der Daten die kleinste KL-Divergenz hat.
 
@@ -110,7 +116,9 @@ $$\hat\theta_{k,\mathrm{ML}}=\frac{N_k}N,\qquad k=1,\dots,K . \tag{11.5}$$
 Nach [(11.4)](#gl-11-4) ist der Schätzer die Verteilung $\boldsymbol{\theta}$ mit der kleinsten KL-Divergenz $D_{\mathrm{KL}}(\hat{\mathbf{p}}\,\|\,\boldsymbol{\theta})$. Nach der Gibbs-Ungleichung ist diese nie negativ und genau für $\boldsymbol{\theta}=\hat{\mathbf{p}}$ null. Weil $\hat{\mathbf{p}}$ selbst eine zulässige Verteilung ist, ist sie der Schätzer.
 :::
 
-⁠**Rechenbeispiel:** Für die $20$ Bauteile sind die Maximum-Likelihood-Schätzungen die relativen Häufigkeiten, also $\hat{\boldsymbol{\theta}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$. Für $K=2$ ergibt sich noch einmal der Anteil der Einsen $N_1/N$ aus Unterabschnitt [5.2](die-maximum-likelihood-schatzung.html#stufe-5-2), diesmal ohne Ableitung.
+::::beispiel [Rechenbeispiel]
+Für die $20$ Bauteile sind die Maximum-Likelihood-Schätzungen die relativen Häufigkeiten, also $\hat{\boldsymbol{\theta}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$. Für $K=2$ ergibt sich noch einmal der Anteil der Einsen $N_1/N$ aus Unterabschnitt [5.2](die-maximum-likelihood-schatzung.html#stufe-5-2), diesmal ohne Ableitung.
+::::
 
 ⁠**Kurz gesagt:** Bei der kategorischen Verteilung sind die Maximum-Likelihood-Schätzer die relativen Häufigkeiten; das folgt direkt aus der Gibbs-Ungleichung.
 
@@ -125,7 +133,9 @@ $$-\frac1N\,\ell(\mu,\sigma^2)=\tfrac12\ln(2\pi\sigma^2)+\frac1{2\sigma^2}\cdot\
 
 Für einen festen Wert von $\sigma^2$ ist der erste Summand eine Konstante, und der zweite ist bis auf den positiven Faktor $1/(2\sigma^2)$ die mittlere quadratische Abweichung der Daten von $\mu$. Unter dem Normalverteilungsmodell heißt „die Likelihood maximieren“ also dasselbe wie „die mittlere quadratische Abweichung minimieren“: Beide haben dieselbe Lösung, auch wenn ihre Werte verschieden sind. Auch hier nennt man die mittlere negative Log-Likelihood eine Kreuzentropie zwischen der empirischen Verteilung und dem Modell, im Sinn des Hintergrund-Kastens unten.
 
-⁠**Rechenbeispiel:** Für die vier Spannungen mit $\bar x=5{,}0\,\mathrm V$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}05\,\mathrm V^2$ ist der kleinste Wert von [(11.6)](#gl-11-6) gleich $\tfrac12\ln(2\pi\cdot0{,}05)+\tfrac12=\tfrac12\ln(2\pi\mathrm{e}\cdot0{,}05)\approx-0{,}079$ nat. Er ist negativ, weil die angepasste Normalverteilung schmal ist: Ihre Dichte ist an zwei der vier Messwerte etwa $1{,}61$ und an den beiden anderen etwa $0{,}73$, und die Logarithmen dieser Werte sind im Mittel positiv. Zugleich ist er nach [(10.3)](die-grote-entropie.html#gl-10-3) die differentielle Entropie der angepassten Normalverteilung (Aufgabe [48](#aufg-48)).
+::::beispiel [Rechenbeispiel]
+Für die vier Spannungen mit $\bar x=5{,}0\,\mathrm V$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}05\,\mathrm V^2$ ist der kleinste Wert von [(11.6)](#gl-11-6) gleich $\tfrac12\ln(2\pi\cdot0{,}05)+\tfrac12=\tfrac12\ln(2\pi\mathrm{e}\cdot0{,}05)\approx-0{,}079$ nat. Er ist negativ, weil die angepasste Normalverteilung schmal ist: Ihre Dichte ist an zwei der vier Messwerte etwa $1{,}61$ und an den beiden anderen etwa $0{,}73$, und die Logarithmen dieser Werte sind im Mittel positiv. Zugleich ist er nach [(10.3)](die-grote-entropie.html#gl-10-3) die differentielle Entropie der angepassten Normalverteilung (Aufgabe [48](#aufg-48)).
+::::
 
 ⁠**Kurz gesagt:** Bei normalverteilten Daten mit fester Varianz ist Maximum Likelihood dasselbe wie die kleinste mittlere quadratische Abweichung; die mittlere negative Log-Likelihood heißt auch dann Kreuzentropie zum Modell.
 

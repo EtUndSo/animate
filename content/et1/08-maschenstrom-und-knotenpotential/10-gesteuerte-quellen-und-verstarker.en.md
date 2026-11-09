@@ -23,7 +23,8 @@ A source with $I=g\,(U_p-U_q)$ from $i$ to $k$ adds $+g$ to $(i,p)$ and $(k,q)$ 
 
 ⁠**How to read it:** $g$ is the __transconductance__, current per control voltage in siemens, 50 mS in the model. **Validity:** The source must be linear. Transistors are linear only for small changes around an operating point ([Part 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 
-**Example: without negative feedback.** A current source $I_\mathrm q=20$ µ A with $G_\mathrm q=0.5$ mS feeds node 1. There, $G_\mathrm i=0.5$ mS lies to ground. The source $g\,U_1$ draws current from node 2 into ground; $G_\mathrm o=0.05$ mS and $G_\mathrm L=0.2$ mS are also connected there. The stamps give
+::::beispiel without negative feedback
+A current source $I_\mathrm q=20$ µ A with $G_\mathrm q=0.5$ mS feeds node 1. There, $G_\mathrm i=0.5$ mS lies to ground. The source $g\,U_1$ draws current from node 2 into ground; $G_\mathrm o=0.05$ mS and $G_\mathrm L=0.2$ mS are also connected there. The stamps give
 
 <span class="anker" id="gl-8-1"></span>
 $$\begin{pmatrix}G_\mathrm q+G_\mathrm i&0\\g&G_\mathrm o+G_\mathrm L\end{pmatrix}\begin{pmatrix}U_1\\U_2\end{pmatrix}=\begin{pmatrix}I_\mathrm q\\0\end{pmatrix}. \tag{8.1}$$
@@ -34,6 +35,7 @@ $Y_{12}=0$, but $Y_{21}=g$. With $D=(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mat
 $$U_1=\frac{I_\mathrm q}{G_\mathrm q+G_\mathrm i},\qquad U_2=-\frac{g\,I_\mathrm q}{(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mathrm L)},\qquad A_u=\frac{U_2}{U_1}=-\frac{g}{G_\mathrm o+G_\mathrm L}. \tag{8.2}$$
 
 In the model, $D=0.25$, $U_1=20$ mV, $U_2=-4$ V and the __voltage gain__ is $A_u=-200$, as in [Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). The minus arises because the controlled current flows out of node 2.
+::::
 
 **With negative feedback.** The common lower point of input and output is called the foot point. If you separate it from ground and insert $R_\mathrm S=1\,\mathrm{k\Omega}$ there, node 3 arises (Fig. [8](#abb-8)). The output current now runs through $R_\mathrm S$ and raises $U_3$. This lowers the control voltage $U_1-U_3$, and the output current decreases. This action of the output back on its own input is called __negative feedback__.
 

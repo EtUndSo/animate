@@ -40,7 +40,11 @@ Sie ist monoton wachsend, denn $S_{2N+2}=S_{2N}+(a_{2N+1}-a_{2N+2})\ge S_{2N}$. 
 Die Teilsummen $L_N$. Die ungeraden fallen, die geraden steigen, der Grenzwert $S$ liegt immer dazwischen. Der Abstand zweier Nachbarn ist das nächste Glied.
 :::
 
-**Beispiel.** $L_N$ lautet $1;\ 0{,}5;\ 0{,}833;\ 0{,}583;\ 0{,}783;\ 0{,}617;\ \dots$ Die Schrittweite $\frac1n$ erfüllt alle Voraussetzungen, die Reihe konvergiert. Ihr Wert ist $\log2=0{,}6931$, das wird hier nicht bewiesen. Genauso wie die geraden Teilsummen steigen, fallen die ungeraden: $S_{2N+1}=S_{2N-1}-(a_{2N}-a_{2N+1})$. Also liegt $S$ zwischen je zwei Nachbarn, und der Fehler ist höchstens das erste weggelassene Glied: $|S-S_N|\le a_{N+1}$. Für $N=100$ ist $L_{100}=0{,}68817$, der Fehler $0{,}00498$ unterbietet $\frac1{101}=0{,}0099$. Hundert Glieder ergeben also nur zwei Stellen. **Grenzfall:** Für $a_n=q^n$ mit $0<q<1$ entsteht eine geometrische Reihe mit Wert $\frac q{1+q}$, für $q=\frac12$ also $\frac13$.
+::::beispiel
+$L_N$ lautet $1;\ 0{,}5;\ 0{,}833;\ 0{,}583;\ 0{,}783;\ 0{,}617;\ \dots$ Die Schrittweite $\frac1n$ erfüllt alle Voraussetzungen, die Reihe konvergiert. Ihr Wert ist $\log2=0{,}6931$, das wird hier nicht bewiesen. Genauso wie die geraden Teilsummen steigen, fallen die ungeraden: $S_{2N+1}=S_{2N-1}-(a_{2N}-a_{2N+1})$. Also liegt $S$ zwischen je zwei Nachbarn, und der Fehler ist höchstens das erste weggelassene Glied: $|S-S_N|\le a_{N+1}$. Für $N=100$ ist $L_{100}=0{,}68817$, der Fehler $0{,}00498$ unterbietet $\frac1{101}=0{,}0099$. Hundert Glieder ergeben also nur zwei Stellen.
+::::
+
+⁠**Grenzfall:** Für $a_n=q^n$ mit $0<q<1$ entsteht eine geometrische Reihe mit Wert $\frac q{1+q}$, für $q=\frac12$ also $\frac13$.
 
 :::frage Warum rettet das Vorzeichen die harmonische Reihe?
 Fasst man je zwei Nachbarn zusammen, bleibt $\frac1{2k-1}-\frac1{2k}=\frac1{2k(2k-1)}$. Die Paare schrumpfen also wie $\frac1{4k^2}$ und nicht wie $\frac1k$. Das Vorzeichen macht aus langsam fallenden Gliedern schnell fallende Paare.

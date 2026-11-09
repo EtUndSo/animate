@@ -75,11 +75,13 @@ Aus beiden Gleichungen folgt $\mathbf{A}\Delta\mathbf{x}=\Delta\mathbf{y}$. Nach
 
 Der schlimmste Fall ist also: Die Lösung liegt in der Richtung, die $\mathbf{A}$ am stärksten streckt, sodass $\mathbf{y}$ groß ist im Vergleich zu $\mathbf{x}$, und der Fehler liegt in der Richtung, die $\mathbf{A}$ am schwächsten streckt, sodass das Rückrechnen ihn um $1/d_n$ vergrößert.
 
-⁠**Rechenbeispiel:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ ist symmetrisch mit der Spur $2{,}01$ und der Determinante $0{,}01$. Ihre Eigenwerte sind
+::::beispiel [Rechenbeispiel]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ ist symmetrisch mit der Spur $2{,}01$ und der Determinante $0{,}01$. Ihre Eigenwerte sind
 
 $$\lambda_{1,2}=\frac{2{,}01\pm\sqrt{2{,}01^2-0{,}04}}2=\frac{2{,}01\pm\sqrt{4{,}0001}}2\approx\frac{2{,}01\pm2{,}000025}2,$$
 
 also $\lambda_1\approx2{,}005012$ und $\lambda_2\approx0{,}004988$, beide positiv. Nach Abschnitt [9.7](die-singularwertzerlegung.html#stufe-9-7) sind das auch die Singulärwerte, und $\kappa(\mathbf{A})\approx402$. Die beobachtete Verstärkung $284$ liegt darunter. Sie erreicht die Schranke nicht ganz, weil $\Delta\mathbf{y}=(0;\ 0{,}01)^{\top}$ nicht genau in Richtung $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$ zeigt. Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\kappa=4/1=4$: Relative Fehler werden höchstens vervierfacht.
+::::
 
 ⁠**Kurz gesagt:** Die Konditionszahl $\kappa(\mathbf{A})=d_1/d_n$ ist der größte Faktor, um den $\mathbf{A}^{-1}$ einen relativen Fehler der Daten in der Lösung vergrößern kann.
 
@@ -104,7 +106,9 @@ Eine singuläre Matrix hat höchstens den Rang $n-1$. Nach dem Satz von Eckart u
 
 Eine große Konditionszahl heißt also: Eine verhältnismäßig kleine Änderung macht die Matrix singulär. Die Determinante misst etwas anderes. Nach Aufgabe [29](die-singularwertzerlegung.html#aufg-29) ist $|\det\mathbf{A}|=d_1\cdots d_n$, das Produkt aller Streckungen; es hängt von der Größe der Matrix ab. Die Konditionszahl ist ein Verhältnis und ändert sich nicht, wenn man $\mathbf{A}$ mit einer Zahl multipliziert: $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ für $c\ne0$. Sie misst nur, wie flach die Ellipse ist, in die $\mathbf{A}$ den Einheitskreis verwandelt.
 
-⁠**Rechenbeispiel:** Die beiden Matrizen aus [Grundlagen 1, Abschnitt 14.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6): $0{,}1\cdot\mathbf{I}_{10}$ hat die Determinante $10^{-10}$, aber alle Singulärwerte $0{,}1$ und $\kappa=1$; sie ist so gut konditioniert wie möglich. $\operatorname{diag}(1000;\ 0{,}001)$ hat die Determinante $1$, aber $\kappa=1000/0{,}001=10^6$. Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ ist der Abstand zur nächsten singulären Matrix $d_2\approx0{,}005$: Ändert man Einträge um wenige Tausendstel, wird sie singulär. Die singuläre Matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ hat den Abstand $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, etwas mehr als das Minimum.
+::::beispiel [Rechenbeispiel]
+Die beiden Matrizen aus [Grundlagen 1, Abschnitt 14.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6): $0{,}1\cdot\mathbf{I}_{10}$ hat die Determinante $10^{-10}$, aber alle Singulärwerte $0{,}1$ und $\kappa=1$; sie ist so gut konditioniert wie möglich. $\operatorname{diag}(1000;\ 0{,}001)$ hat die Determinante $1$, aber $\kappa=1000/0{,}001=10^6$. Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ ist der Abstand zur nächsten singulären Matrix $d_2\approx0{,}005$: Ändert man Einträge um wenige Tausendstel, wird sie singulär. Die singuläre Matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ hat den Abstand $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, etwas mehr als das Minimum.
+::::
 
 ⁠**Kurz gesagt:** $1/\kappa(\mathbf{A})$ ist der relative Abstand zur nächsten singulären Matrix; die Determinante sagt darüber nichts, weil sie von der Größe der Matrix abhängt.
 
@@ -129,7 +133,9 @@ Für die QR-Zerlegung $\mathbf{A}=\mathbf{Q}\mathbf{R}$ dagegen ist $\kappa(\mat
 $\mathbf{A}^{\top}\mathbf{A}$ ist symmetrisch und positiv definit mit den Eigenwerten $d_j^2$; nach Abschnitt [9.7](die-singularwertzerlegung.html#stufe-9-7) sind das auch ihre Singulärwerte, und ihr Verhältnis ist $d_1^2/d_n^2$. Wegen $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ ist $\mathbf{R}^{\top}\mathbf{R}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{A}^{\top}\mathbf{A}$; $\mathbf{R}$ hat also dieselben Singulärwerte wie $\mathbf{A}$.
 :::
 
-⁠**Rechenbeispiel:** Die Wohnungsmatrix aus Abschnitt [3.7](die-beste-naherungslosung.html#stufe-3-7), Fläche und Zimmerzahl, hat die Singulärwerte $d_1\approx135{,}02$ und $d_2\approx0{,}848$, also $\kappa(\mathbf{A})\approx159{,}3$ und $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Zwei Ursachen machen $\kappa(\mathbf{A})$ groß. Erstens die Einheiten: Die Flächen sind Zahlen um $65$, die Zimmerzahlen um $2{,}5$. Misst man die Fläche in Einheiten von $10\,\mathrm m^2$, so sinkt die Konditionszahl auf etwa $18{,}5$. Zweitens zeigen die beiden Spalten fast in dieselbe Richtung, sie schließen nur etwa $8{,}9^\circ$ ein. Auch wenn man beide Spalten auf die Länge $1$ bringt, bleibt deshalb $\kappa\approx12{,}8$. Das Umrechnen der Einheiten ändert die angepassten Werte $\hat{\mathbf{y}}$ nicht: Teilt man eine Spalte durch $10$, so wird das zugehörige Gewicht $10$-mal so groß, und die Produkte bleiben gleich.
+::::beispiel [Rechenbeispiel]
+Die Wohnungsmatrix aus Abschnitt [3.7](die-beste-naherungslosung.html#stufe-3-7), Fläche und Zimmerzahl, hat die Singulärwerte $d_1\approx135{,}02$ und $d_2\approx0{,}848$, also $\kappa(\mathbf{A})\approx159{,}3$ und $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Zwei Ursachen machen $\kappa(\mathbf{A})$ groß. Erstens die Einheiten: Die Flächen sind Zahlen um $65$, die Zimmerzahlen um $2{,}5$. Misst man die Fläche in Einheiten von $10\,\mathrm m^2$, so sinkt die Konditionszahl auf etwa $18{,}5$. Zweitens zeigen die beiden Spalten fast in dieselbe Richtung, sie schließen nur etwa $8{,}9^\circ$ ein. Auch wenn man beide Spalten auf die Länge $1$ bringt, bleibt deshalb $\kappa\approx12{,}8$. Das Umrechnen der Einheiten ändert die angepassten Werte $\hat{\mathbf{y}}$ nicht: Teilt man eine Spalte durch $10$, so wird das zugehörige Gewicht $10$-mal so groß, und die Produkte bleiben gleich.
+::::
 
 ⁠**Kurz gesagt:** Die Normalgleichungen arbeiten mit $\kappa(\mathbf{A})^2$, die QR-Zerlegung mit $\kappa(\mathbf{A})$; gut gewählte Einheiten senken die Konditionszahl.
 

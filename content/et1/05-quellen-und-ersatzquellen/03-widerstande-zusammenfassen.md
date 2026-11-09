@@ -30,7 +30,9 @@ $$R_\mathrm{AB}=R_\mathrm{a}+R_\mathrm{b}\parallel\bigl(R_\mathrm{c}+R_\mathrm{d
 
 ⁠**So liest man das:** $R$ ist ein Widerstand in $\Omega$, $G=1/R$ sein __Leitwert__ in Siemens (S). In Reihe addiert man Widerstände, parallel addiert man Leitwerte. In der zweiten Form steht deshalb jede Parallelgruppe als Summe von Leitwerten. Die eckige Klammer mit dem Exponenten $-1$ kehrt das Ergebnis wieder um. **Gültigkeit:** Das Verfahren braucht echte Gruppen. Hängt an einem Zwischenknoten ein dritter Zweig, liegen die zwei Nachbarn nicht mehr in Reihe (Stufe [2](symmetrie-nutzen.html#stufe-2) und [3](stern-und-dreieck.html#stufe-3)).
 
-**Beispiel.** Mit den Werten aus Abb. [1](#abb-1): $G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33{,}3+16{,}7$ mS $=100$ mS, das sind 10 $\Omega$. Dazu in Reihe $R_\mathrm{c}$: 15 $\Omega$. Parallel zu $R_\mathrm{b}$: $30\,\Omega\parallel15\,\Omega=10\,\Omega$. Dazu in Reihe $R_\mathrm{a}$: $R_\mathrm{AB}=16\,\Omega$. Die Rückrechnung liefert die Ströme: Bei 8 V an A und B fließen 0,5 A. An $R_\mathrm{a}$ fallen 3 V ab, es bleiben 5 V für den Rest. Durch $R_\mathrm{b}$ fließen $5\,\mathrm{V}/30\,\Omega=166{,}7$ mA, durch $R_\mathrm{c}$ fließen $5\,\mathrm{V}/15\,\Omega=333{,}3$ mA. Die Summe ist 500 mA.
+::::beispiel
+Mit den Werten aus Abb. [1](#abb-1): $G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33{,}3+16{,}7$ mS $=100$ mS, das sind 10 $\Omega$. Dazu in Reihe $R_\mathrm{c}$: 15 $\Omega$. Parallel zu $R_\mathrm{b}$: $30\,\Omega\parallel15\,\Omega=10\,\Omega$. Dazu in Reihe $R_\mathrm{a}$: $R_\mathrm{AB}=16\,\Omega$. Die Rückrechnung liefert die Ströme: Bei 8 V an A und B fließen 0,5 A. An $R_\mathrm{a}$ fallen 3 V ab, es bleiben 5 V für den Rest. Durch $R_\mathrm{b}$ fließen $5\,\mathrm{V}/30\,\Omega=166{,}7$ mA, durch $R_\mathrm{c}$ fließen $5\,\mathrm{V}/15\,\Omega=333{,}3$ mA. Die Summe ist 500 mA.
+::::
 
 ⁠**Grenzfall:** Für $R_\mathrm{b}\to0$ wird [(1.1)](#gl-1-1) zu $R_\mathrm{AB}=R_\mathrm{a}=6\,\Omega$. Der Kurzschluss überbrückt alles dahinter, die Ladung nimmt den Draht.
 

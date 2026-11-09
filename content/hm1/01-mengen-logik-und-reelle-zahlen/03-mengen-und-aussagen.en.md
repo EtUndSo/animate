@@ -94,7 +94,11 @@ Go through all four cases of the building blocks. Reading $t$ as “$x$ lies in 
 Columns 5 and 6 agree, as do columns 7 and 8. The other rules work the same way. The transitivity of inclusion follows from that of implication: From $x\in A$ follows $x\in B$, and from that $x\in C$.
 :::
 
-**Example.** $(A\cap B)^c=G\setminus\{2,3\}$ has 10 elements. On the right stands $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$, the same 10 elements. Contraposition as a proof tool: Instead of “$n^2$ even $\Rightarrow$ $n$ even” one shows “$n$ odd $\Rightarrow$ $n^2$ odd”: $(2k+1)^2=2(2k^2+2k)+1$. **Limiting cases:** For $B=\emptyset$, De Morgan becomes $G=G$. The domain matters: $(n\ge7\Leftrightarrow n>6)$ holds in $\mathbb{N}$; for $n=13/2$ it is $f\Leftrightarrow t$, hence false.
+::::beispiel
+$(A\cap B)^c=G\setminus\{2,3\}$ has 10 elements. On the right stands $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$, the same 10 elements. Contraposition as a proof tool: Instead of “$n^2$ even $\Rightarrow$ $n$ even” one shows “$n$ odd $\Rightarrow$ $n^2$ odd”: $(2k+1)^2=2(2k^2+2k)+1$.
+::::
+
+⁠**Limiting cases:** For $B=\emptyset$, De Morgan becomes $G=G$. The domain matters: $(n\ge7\Leftrightarrow n>6)$ holds in $\mathbb{N}$; for $n=13/2$ it is $f\Leftrightarrow t$, hence false.
 
 :::aufgabe Exercise 1 ★ Calculating with sets
 <span class="anker" id="aufg-1"></span>

@@ -46,17 +46,21 @@ $$\mathbb{E}[X]=\mathbf{v}^{\top}\mathbf{p}=\sum_{k=1}^Kv_k\,p_k . \tag{7.3}$$
 
 Das ist ein gewichteter Mittelwert der Werte, mit den Gewichten $p_k$, die nichtnegativ sind und sich zu $1$ addieren. Gerechnet wird wie bei der Stromrechnung in [Grundlagen 1, Abschnitt 2.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-3): dort Preis mal Menge, summiert, hier Wert mal Wahrscheinlichkeit.
 
-⁠**Rechenbeispiel 1:** Für die Anzahl $X$ der Köpfe bei drei Münzwürfen ist $\mathbf{v}=(0,\,1,\,2,\,3)^{\top}$ und $\mathbf{p}=(0{,}125;\ 0{,}375;\ 0{,}375;\ 0{,}125)^{\top}$. Abb. [7](#abb-7) rechnet $\mathbb{E}[X]=1{,}5$ Zeile für Zeile: Jeder Wert trägt sein Gewicht bei. Die Verteilung ist symmetrisch um $1{,}5$, und dort liegt ihr Schwerpunkt.
+::::beispiel [Rechenbeispiel 1]
+Für die Anzahl $X$ der Köpfe bei drei Münzwürfen ist $\mathbf{v}=(0,\,1,\,2,\,3)^{\top}$ und $\mathbf{p}=(0{,}125;\ 0{,}375;\ 0{,}375;\ 0{,}125)^{\top}$. Abb. [7](#abb-7) rechnet $\mathbb{E}[X]=1{,}5$ Zeile für Zeile: Jeder Wert trägt sein Gewicht bei. Die Verteilung ist symmetrisch um $1{,}5$, und dort liegt ihr Schwerpunkt.
 
 :::abbildung ml/k4rmuenzen 7
 Der Erwartungswert der Anzahl der Köpfe als Skalarprodukt aus Wertevektor und Wahrscheinlichkeitsvektor: Jeder Wert geht mit seiner Wahrscheinlichkeit gewichtet ein.
 :::
+::::
 
-⁠**Rechenbeispiel 2:** Für einen fairen Würfel ist $P(X=k)=\tfrac16$ für $k=1,\dots,6$, und jede Augenzahl geht mit demselben Gewicht ein; der Erwartungswert ist $3{,}5$, die Mitte der sechs Werte (Abb. [8](#abb-8)). Für den gleichmäßig verteilten Eintreffzeitpunkt aus Unterabschnitt [6.4](zufallsvariablen-und-verteilungen.html#stufe-6-4) ist $\mathbb{E}[T]=\int_0^{0{,}5}t\cdot2\,\mathrm{d} t=\bigl[t^2\bigr]_0^{0{,}5}=0{,}25\,\mathrm s$, die Mitte des Intervalls.
+::::beispiel [Rechenbeispiel 2]
+Für einen fairen Würfel ist $P(X=k)=\tfrac16$ für $k=1,\dots,6$, und jede Augenzahl geht mit demselben Gewicht ein; der Erwartungswert ist $3{,}5$, die Mitte der sechs Werte (Abb. [8](#abb-8)). Für den gleichmäßig verteilten Eintreffzeitpunkt aus Unterabschnitt [6.4](zufallsvariablen-und-verteilungen.html#stufe-6-4) ist $\mathbb{E}[T]=\int_0^{0{,}5}t\cdot2\,\mathrm{d} t=\bigl[t^2\bigr]_0^{0{,}5}=0{,}25\,\mathrm s$, die Mitte des Intervalls.
 
 :::abbildung ml/k4rwuerfel 8
 Der Erwartungswert eines fairen Würfels: Jede Augenzahl mit der Wahrscheinlichkeit $\tfrac16$ gewichtet und summiert.
 :::
+::::
 
 ⁠**Kurz gesagt:** Der Erwartungswert ist der mit den Wahrscheinlichkeiten gewichtete Mittelwert der Werte, der Schwerpunkt der Verteilung; bei endlich vielen Werten ist er das Skalarprodukt $\mathbf{v}^{\top}\mathbf{p}$.
 
@@ -77,11 +81,13 @@ $$\mathbb{E}[g(X)]=\sum_kg(x_k)\,P(X=x_k)\qquad\text{bzw.}\qquad \mathbb{E}[g(X)
 
 Im diskreten Fall fasst man dafür in [(7.1)](#gl-7-1) für $g(X)$ alle $x_k$ mit demselben Wert $g(x_k)$ zusammen; ihre Wahrscheinlichkeiten addieren sich zur Wahrscheinlichkeit dieses Werts. Im stetigen Fall gilt die Formel ebenso, der Beweis braucht aber mehr Integralrechnung.
 
-⁠**Rechenbeispiel:** Für den fairen Würfel ist $\mathbb{E}[X^2]=\tfrac{91}6\approx15{,}17$ (Abb. [9](#abb-9)): Die quadrierten Augenzahlen $1,4,\dots,36$ werden mit je $\tfrac16$ gewichtet.
+::::beispiel [Rechenbeispiel]
+Für den fairen Würfel ist $\mathbb{E}[X^2]=\tfrac{91}6\approx15{,}17$ (Abb. [9](#abb-9)): Die quadrierten Augenzahlen $1,4,\dots,36$ werden mit je $\tfrac16$ gewichtet.
 
 :::abbildung ml/k4rquadrat 9
 Der Erwartungswert des Quadrats der Augenzahl: Die Werte werden erst quadriert, dann mit ihren Wahrscheinlichkeiten gewichtet.
 :::
+::::
 
 :::warnung Erwartungswert der Funktion ist nicht Funktion des Erwartungswerts
 Es ist $\mathbb{E}[X^2]=\tfrac{91}6\approx15{,}17$, aber $(\mathbb{E}[X])^2=3{,}5^2=12{,}25$. Im Allgemeinen ist $\mathbb{E}[g(X)]\ne g(\mathbb{E}[X])$. Gleichheit gilt für Funktionen der Form $g(x)=ax+b$, wie der nächste Unterabschnitt zeigt.
@@ -112,7 +118,9 @@ Fasst man in [(7.1)](#gl-7-1) die Ergebnisse nach dem Wert von $X$ zusammen und 
 
 Mit vielen Summanden ist $\mathbb{E}[X_1+\dots+X_n]=\mathbb{E}[X_1]+\dots+\mathbb{E}[X_n]$. Besonders nützlich ist das mit Zählvariablen. Die __Indikatorvariable__ eines Ereignisses $A$ ist die Zufallsvariable $\mathbb 1_A$ mit dem Wert $1$, wenn $A$ eintritt, und $0$ sonst. Ihr Erwartungswert ist $\mathbb{E}[\mathbb 1_A]=0\cdot P(A^{\mathrm c})+1\cdot P(A)=P(A)$. Eine Anzahl ist eine Summe von Indikatorvariablen, also ist ihr Erwartungswert die Summe der Wahrscheinlichkeiten.
 
-⁠**Rechenbeispiel:** Die Augensumme zweier Würfel hat den Erwartungswert $3{,}5+3{,}5=7$, ohne dass man die $36$ Paare durchgehen muss. Die Anzahl der Köpfe bei drei Münzwürfen ist $X=\mathbb 1_{A_1}+\mathbb 1_{A_2}+\mathbb 1_{A_3}$ mit $A_k$ = „Wurf $k$ zeigt Kopf“, also ist $\mathbb{E}[X]=3\cdot\tfrac12=1{,}5$, wie in Abb. [7](#abb-7). Für die Spannung $X$ in Volt mit $\mathbb{E}[X]=0{,}25\,\mathrm V$ hat die Angabe $1\,000\,X$ in Millivolt den Erwartungswert $250\,\mathrm{mV}$.
+::::beispiel [Rechenbeispiel]
+Die Augensumme zweier Würfel hat den Erwartungswert $3{,}5+3{,}5=7$, ohne dass man die $36$ Paare durchgehen muss. Die Anzahl der Köpfe bei drei Münzwürfen ist $X=\mathbb 1_{A_1}+\mathbb 1_{A_2}+\mathbb 1_{A_3}$ mit $A_k$ = „Wurf $k$ zeigt Kopf“, also ist $\mathbb{E}[X]=3\cdot\tfrac12=1{,}5$, wie in Abb. [7](#abb-7). Für die Spannung $X$ in Volt mit $\mathbb{E}[X]=0{,}25\,\mathrm V$ hat die Angabe $1\,000\,X$ in Millivolt den Erwartungswert $250\,\mathrm{mV}$.
+::::
 
 ⁠**Kurz gesagt:** Der Erwartungswert ist linear: Er vertauscht mit Vielfachen, Verschiebungen und Summen, auch wenn die Summanden voneinander abhängen.
 
@@ -137,11 +145,13 @@ Die Varianz hat das Quadrat der Einheit von $X$, die Standardabweichung dieselbe
 
 Ist $X$ eine Spannung ohne Gleichanteil, also mit $\mu=0$, so ist $\operatorname{Var}(X)=\mathbb{E}[X^2]$ der Erwartungswert des Quadrats. Das ist die mittlere Leistung, die diese Spannung an einem Widerstand von $1\,\Omega$ umsetzt, und $\sigma$ ist ihr Effektivwert aus [Grundlagen 1, Abschnitt 3.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-6). Deshalb ist die Varianz die natürliche Kenngröße für Rauschen: Sie ist seine Leistung.
 
-⁠**Rechenbeispiel:** Beim fairen Würfel mit $\mu=3{,}5$ weichen die Augenzahlen um $2{,}5$, $1{,}5$ und $0{,}5$ nach links und nach rechts vom Erwartungswert ab. Ihre Quadrate, mit je $\tfrac16$ gewichtet, ergeben $\operatorname{Var}(X)=\tfrac{35}{12}\approx2{,}917$ (Abb. [10](#abb-10)) und $\sigma=\sqrt{35/12}\approx1{,}708$. Für die Anzahl der Köpfe mit $\mu=1{,}5$ ist $\operatorname{Var}(X)=2{,}25\cdot\tfrac18+0{,}25\cdot\tfrac38+0{,}25\cdot\tfrac38+2{,}25\cdot\tfrac18=0{,}75$ und $\sigma\approx0{,}866$.
+::::beispiel [Rechenbeispiel]
+Beim fairen Würfel mit $\mu=3{,}5$ weichen die Augenzahlen um $2{,}5$, $1{,}5$ und $0{,}5$ nach links und nach rechts vom Erwartungswert ab. Ihre Quadrate, mit je $\tfrac16$ gewichtet, ergeben $\operatorname{Var}(X)=\tfrac{35}{12}\approx2{,}917$ (Abb. [10](#abb-10)) und $\sigma=\sqrt{35/12}\approx1{,}708$. Für die Anzahl der Köpfe mit $\mu=1{,}5$ ist $\operatorname{Var}(X)=2{,}25\cdot\tfrac18+0{,}25\cdot\tfrac38+0{,}25\cdot\tfrac38+2{,}25\cdot\tfrac18=0{,}75$ und $\sigma\approx0{,}866$.
 
 :::abbildung ml/k4rvarianz 10
 Die Varianz eines fairen Würfels: die quadrierten Abweichungen vom Erwartungswert $3{,}5$, gewichtet mit den Wahrscheinlichkeiten.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Varianz ist der Erwartungswert der quadrierten Abweichung vom Erwartungswert, die Standardabweichung ihre Wurzel; bei einer Spannung ohne Gleichanteil ist die Varianz die Leistung an $1\,\Omega$.
 
@@ -164,7 +174,9 @@ Mit $\mu=\mathbb{E}[X]$ ist $(X-\mu)^2=X^2-2\mu X+\mu^2$. Nach der Linearität i
 
 Weil die Varianz nie negativ ist, folgt $\mathbb{E}[X^2]\ge(\mathbb{E}[X])^2$, mit Gleichheit nur, wenn $X$ fest ist. Aus der Mechanik kennt man dieselbe Rechnung als Satz von Steiner: Denkt man sich die Wahrscheinlichkeiten als Massen auf einem Stab, so ist $\mathbb{E}[X^2]$ das Trägheitsmoment um den Nullpunkt, $\operatorname{Var}(X)$ das Trägheitsmoment um den Schwerpunkt $\mu$, und der Unterschied ist Gesamtmasse $1$ mal Abstand $\mu$ zum Quadrat. Für die Zahlen eines Datensatzes ist das die Zerlegung $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) (Aufgabe [21](#aufg-21)).
 
-⁠**Rechenbeispiel:** Für den fairen Würfel ist mit Abb. [9](#abb-9) $\operatorname{Var}(X)=\tfrac{91}6-\tfrac{49}4=\tfrac{182-147}{12}=\tfrac{35}{12}$, wie in Abb. [10](#abb-10). Für die Anzahl der Köpfe ist $\mathbb{E}[X^2]=0\cdot\tfrac18+1\cdot\tfrac38+4\cdot\tfrac38+9\cdot\tfrac18=3$ und $\operatorname{Var}(X)=3-1{,}5^2=0{,}75$.
+::::beispiel [Rechenbeispiel]
+Für den fairen Würfel ist mit Abb. [9](#abb-9) $\operatorname{Var}(X)=\tfrac{91}6-\tfrac{49}4=\tfrac{182-147}{12}=\tfrac{35}{12}$, wie in Abb. [10](#abb-10). Für die Anzahl der Köpfe ist $\mathbb{E}[X^2]=0\cdot\tfrac18+1\cdot\tfrac38+4\cdot\tfrac38+9\cdot\tfrac18=3$ und $\operatorname{Var}(X)=3-1{,}5^2=0{,}75$.
+::::
 
 :::warnung Auslöschung
 Liegen die Werte von $X$ dicht beieinander und weit weg von null, so sind $\mathbb{E}[X^2]$ und $(\mathbb{E}[X])^2$ zwei große, fast gleiche Zahlen. Nach [Grundlagen 3, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/numerische-ableitung-und-gradientenprufung.html#stufe-11-3), verliert man beim Abziehen solcher Zahlen fast alle richtigen Stellen. Ein Beispiel: $X$ habe die Werte $10^8+1$ und $10^8+3$ mit je der Wahrscheinlichkeit $\tfrac12$. Die Varianz ist $1$, denn die Werte liegen je $1$ vom Erwartungswert $10^8+2$ entfernt. In doppelter Genauigkeit gerechnet liefert [(7.7)](#gl-7-7) aber $0$: Beide Terme sind etwa $10^{16}$, und der Unterschied von $1$ geht in der Rundung unter. Für Rechnungen am Computer benutzt man deshalb die Definition [(7.6)](#gl-7-6) und bildet zuerst die Abweichungen.
@@ -202,7 +214,9 @@ die __standardisierte__ Zufallsvariable. Es ist $\mathbb{E}[Z]=0$ und $\operator
 
 Das ist dieselbe Rechnung wie das Standardisieren eines Merkmals in [Grundlagen 1, Abschnitt 4.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-5), nur mit Erwartungswert und Standardabweichung der Verteilung statt Mittelwert und Standardabweichung der Daten. $Z$ hat keine Einheit und misst die Abweichung vom Erwartungswert in Vielfachen der Standardabweichung.
 
-⁠**Rechenbeispiel:** Eine Temperatur $X$ in Grad Celsius habe $\mu=20$ und $\sigma=2$. In Grad Fahrenheit ist $Y=1{,}8\,X+32$ mit $\mathbb{E}[Y]=1{,}8\cdot20+32=68$ und $\sigma_Y=1{,}8\cdot2=3{,}6$. Ein Wert von $24\,{}^\circ\mathrm C$ hat standardisiert $z=(24-20)/2=2$; derselbe Wert in Fahrenheit, $75{,}2$, hat $z=(75{,}2-68)/3{,}6=2$. Die standardisierte Größe hängt nicht von der Einheit ab.
+::::beispiel [Rechenbeispiel]
+Eine Temperatur $X$ in Grad Celsius habe $\mu=20$ und $\sigma=2$. In Grad Fahrenheit ist $Y=1{,}8\,X+32$ mit $\mathbb{E}[Y]=1{,}8\cdot20+32=68$ und $\sigma_Y=1{,}8\cdot2=3{,}6$. Ein Wert von $24\,{}^\circ\mathrm C$ hat standardisiert $z=(24-20)/2=2$; derselbe Wert in Fahrenheit, $75{,}2$, hat $z=(75{,}2-68)/3{,}6=2$. Die standardisierte Größe hängt nicht von der Einheit ab.
+::::
 
 ⁠**Kurz gesagt:** Verschieben ändert die Varianz nicht, Strecken um $a$ multipliziert sie mit $a^2$; Standardisieren macht aus jeder Zufallsvariablen eine mit Erwartungswert $0$ und Varianz $1$.
 
@@ -227,7 +241,9 @@ Der wichtigere Unterschied liegt woanders. Die vier Wohnungen sind eine Auswahl 
 | hängt vom Zufall ab | ja: andere Auswahl, anderer Wert | nein: eine feste Zahl |
 | Zusammenhang | ist der Erwartungswert der empirischen Verteilung | wird vom Mittelwert vieler unabhängiger Werte angenähert (Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13)) |
 
-⁠**Rechenbeispiel:** Für die vier Flächen hat die empirische Verteilung die Werte $60$, $40$, $90$, $70$ mit je der Wahrscheinlichkeit $\tfrac14$, also den Erwartungswert $\tfrac14\cdot260=65$ und die Varianz $\tfrac14\,(25+625+625+25)=325$, wie in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html). Hätte der Datensatz statt der zweiten Wohnung eine mit $80\,\mathrm m^2$ enthalten, so wäre der Mittelwert $75\,\mathrm m^2$. Am Erwartungswert der Fläche aller Wohnungen der Stadt ändert das nichts.
+::::beispiel [Rechenbeispiel]
+Für die vier Flächen hat die empirische Verteilung die Werte $60$, $40$, $90$, $70$ mit je der Wahrscheinlichkeit $\tfrac14$, also den Erwartungswert $\tfrac14\cdot260=65$ und die Varianz $\tfrac14\,(25+625+625+25)=325$, wie in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html). Hätte der Datensatz statt der zweiten Wohnung eine mit $80\,\mathrm m^2$ enthalten, so wäre der Mittelwert $75\,\mathrm m^2$. Am Erwartungswert der Fläche aller Wohnungen der Stadt ändert das nichts.
+::::
 
 ⁠**Kurz gesagt:** Mittelwert und Standardabweichung eines Datensatzes sind Erwartungswert und Standardabweichung seiner empirischen Verteilung; als Aussage über die Verteilung, aus der die Daten stammen, sind sie selbst zufällig.
 

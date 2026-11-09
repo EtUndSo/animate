@@ -51,7 +51,9 @@ $$\vec E=k\,\frac{Q_0}{r^2}\cdot\frac{\vec r}{r},\qquad E=k\,\frac{|Q_0|}{r^2}, 
 正、负点电荷周围的电场矢量。电场从正电荷出发，指向负电荷。箭头长度与 $1/r^2$ 成正比。
 :::
 
-**例。** 小球 B（$-20$ nC）在小球 A 处产生的电场为 $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2.0\cdot10^5$ V/m，方向指向 B。A 所受的力为 $F=10\,\mathrm{nC}\cdot2.0\cdot10^5\,\mathrm{V/m}=2.0$ mN，与第 [3](die-kraft-zwischen-ladungen.html#stufe-3) 阶段相同。反过来，A 在 B 处只产生 $1.0\cdot10^5$ V/m，但那里的电荷是两倍：结果同样是 2.0 mN。
+::::beispiel
+小球 B（$-20$ nC）在小球 A 处产生的电场为 $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2.0\cdot10^5$ V/m，方向指向 B。A 所受的力为 $F=10\,\mathrm{nC}\cdot2.0\cdot10^5\,\mathrm{V/m}=2.0$ mN，与第 [3](die-kraft-zwischen-ladungen.html#stufe-3) 阶段相同。反过来，A 在 B 处只产生 $1.0\cdot10^5$ V/m，但那里的电荷是两倍：结果同样是 2.0 mN。
+::::
 
 ⁠**简而言之：**电荷所受的力等于其电荷乘以所在位置的电场。
 

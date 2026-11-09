@@ -31,7 +31,9 @@ con funciones cualesquiera (dos veces derivables) $u_\mathrm{prog}$ (progresiva)
 
 ⁠**Cómo leerlo:** una forma de señal cualquiera se propaga sin cambios a lo largo de la línea con la velocidad $v$. Esto se debe a que todas las componentes de frecuencia son igual de rápidas y se atenúan igual de poco: la línea es un sistema sin distorsión en el sentido de la [parte 5](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), con el retardo $l/v$. La ecuación de onda para $u$ se obtiene de [(2.1)](die-leitungsgleichungen.html#gl-2-1) derivando la primera ecuación respecto a $s$ y la segunda respecto a $t$, y eliminando $i$.
 
-**Ejemplo: cable coaxial.** $Z=50\,\Omega$ y $C'=100$ pF/m dan $L'=Z^2C'=250$ nH/m y $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, dos tercios de la velocidad de la luz (debido al dieléctrico del cable). Una señal tarda 50 ns en recorrer 10 m de cable. Si el cable se termina con 75 $\Omega$ en lugar de 50 $\Omega$, $r=\frac{75-50}{75+50}=0{,}2$: el 20 % de la amplitud de tensión vuelve como eco.
+::::beispiel cable coaxial
+$Z=50\,\Omega$ y $C'=100$ pF/m dan $L'=Z^2C'=250$ nH/m y $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, dos tercios de la velocidad de la luz (debido al dieléctrico del cable). Una señal tarda 50 ns en recorrer 10 m de cable. Si el cable se termina con 75 $\Omega$ en lugar de 50 $\Omega$, $r=\frac{75-50}{75+50}=0{,}2$: el 20 % de la amplitud de tensión vuelve como eco.
+::::
 
 :::ltspice Reflexiones en una línea
 ⁠**Esquema:** fuente `voltage` con `PULSE(0 2 0 1n 1n 10n 1)` y una resistencia interna `res` con `50` hacia el nodo `in`. Desde `in`, una línea sin pérdidas `tline` con `Td=50n Z0=50` (el cable coaxial de 10 m del ejemplo) hasta el nodo `end`, y ahí `res` con `{RE}` a masa. Como la resistencia interna es igual a $Z$, sale una onda de 1 V, y el eco se absorbe por completo en la fuente.

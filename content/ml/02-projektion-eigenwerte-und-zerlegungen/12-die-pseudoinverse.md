@@ -44,11 +44,13 @@ Sind die Spalten unabhängig, so ist $\mathbf{A}^{\top}\mathbf{A}$ nach Abschnit
 
 Von rechts kehrt $\mathbf F$ nicht um. Das Produkt $\mathbf{A}\mathbf F=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ ist nach [(4.1)](projektion-auf-einen-unterraum.html#gl-4-1) die Projektion auf den Spaltenraum, und für $m>n$ ist das nicht $\mathbf{I}_m$. Eine hohe Matrix hat außerdem viele Linksinversen; [(11.1)](#gl-11-1) ist die, die zur orthogonalen Projektion gehört.
 
-⁠**Rechenbeispiel:** Für $\mathbf{H}$ mit den Spalten $(1,\,0,\,1)^{\top}$ und $(0,\,1,\,1)^{\top}$ ist $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ und
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{H}$ mit den Spalten $(1,\,0,\,1)^{\top}$ und $(0,\,1,\,1)^{\top}$ ist $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ und
 
 $$\mathbf F=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\end{pmatrix}.$$
 
 Es ist $\mathbf F\mathbf{H}=\tfrac13\bigl(\begin{smallmatrix}2+1&-1+1\\-1+1&2+1\end{smallmatrix}\bigr)=\mathbf{I}_2$, und $\mathbf F(1,\,1,\,1)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$ ist die beste Näherungslösung aus Abschnitt [3.3](die-beste-naherungslosung.html#stufe-3-3). $\mathbf{H}\mathbf F$ ist die Projektionsmatrix $\tfrac13\Bigl(\begin{smallmatrix}2&-1&1\\-1&2&1\\1&1&2\end{smallmatrix}\Bigr)$ aus Abschnitt [4.2](projektion-auf-einen-unterraum.html#stufe-4-2). Eine andere Linksinverse ist $\bigl(\begin{smallmatrix}1&0&0\\0&1&0\end{smallmatrix}\bigr)$, denn die ersten beiden Zeilen von $\mathbf{H}$ bilden die Einheitsmatrix; sie liefert aber für $(1,\,1,\,1)^{\top}$ nicht die beste Näherungslösung, sondern $(1,\,1)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Eine Matrix mit unabhängigen Spalten hat die Linksinverse $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$; sie bildet $\mathbf{y}$ auf die beste Näherungslösung ab.
 
@@ -85,7 +87,9 @@ mit Gleichheit nur für $\mathbf{z}=\mathbf{0}$.
 
 Geometrisch ist die Lösungsmenge eine Gerade oder Ebene, die nicht durch den Nullpunkt geht, und $\mathbf G\mathbf{y}$ ist ihr Punkt, der dem Nullpunkt am nächsten liegt: der Fußpunkt des Lots vom Nullpunkt.
 
-⁠**Rechenbeispiel:** Die eine Gleichung $x_1+2x_2=5$ hat $\mathbf{A}=(1\ \ 2)$ und $\mathbf{A}\mathbf{A}^{\top}=5$. Also ist $\mathbf G=\tfrac15(1,\,2)^{\top}$ und $\mathbf G\cdot5=(1,\,2)^{\top}$. Alle Lösungen sind $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$, mit der Länge im Quadrat $(1+2t)^2+(2-t)^2=5+5t^2$; am kürzesten ist die Lösung bei $t=0$. Der Vektor $(1,\,2)^{\top}$ steht senkrecht auf der Lösungsgeraden, deren Richtung $(2,\,-1)^{\top}$ ist.
+::::beispiel [Rechenbeispiel]
+Die eine Gleichung $x_1+2x_2=5$ hat $\mathbf{A}=(1\ \ 2)$ und $\mathbf{A}\mathbf{A}^{\top}=5$. Also ist $\mathbf G=\tfrac15(1,\,2)^{\top}$ und $\mathbf G\cdot5=(1,\,2)^{\top}$. Alle Lösungen sind $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$, mit der Länge im Quadrat $(1+2t)^2+(2-t)^2=5+5t^2$; am kürzesten ist die Lösung bei $t=0$. Der Vektor $(1,\,2)^{\top}$ steht senkrecht auf der Lösungsgeraden, deren Richtung $(2,\,-1)^{\top}$ ist.
+::::
 
 ⁠**Kurz gesagt:** Eine Matrix mit unabhängigen Zeilen hat die Rechtsinverse $\mathbf{A}^{\top}(\mathbf{A}\mathbf{A}^{\top})^{-1}$; sie liefert die kürzeste Lösung.
 
@@ -106,9 +110,11 @@ $$\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}=\sum_{j=1}^r\frac1{d_j}\,
 
 Jeder Baustein kehrt einen Baustein von $\mathbf{A}$ um: $\mathbf{A}$ bildet $\mathbf{v}_j$ auf $d_j\mathbf{u}_j$ ab, $\mathbf{A}^+$ bildet $\mathbf{u}_j$ auf $\mathbf{v}_j/d_j$ ab. Die Richtungen $\mathbf{u}_j$ mit $j>r$, die $\mathbf{A}$ nicht erreicht, bildet $\mathbf{A}^+$ auf null ab, statt durch null zu teilen. Ist $\mathbf{A}$ invertierbar, so ist $\mathbf{A}^+=\mathbf{A}^{-1}$, denn dann ist $\mathbf{A}^{-1}=(\mathbf{V}^{\top})^{-1}\mathbf{D}^{-1}\mathbf{U}^{-1}=\mathbf{V}\mathbf{D}^{-1}\mathbf{U}^{\top}$.
 
-⁠**Rechenbeispiel:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist symmetrisch und positiv semidefinit mit dem Eigenwert $5$ zu $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ und dem Eigenwert $0$. Nach Abschnitt [9.7](die-singularwertzerlegung.html#stufe-9-7) ist $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ ihre kompakte Zerlegung, mit $d_1=5$ und $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$. Also ist
+::::beispiel [Rechenbeispiel]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist symmetrisch und positiv semidefinit mit dem Eigenwert $5$ zu $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ und dem Eigenwert $0$. Nach Abschnitt [9.7](die-singularwertzerlegung.html#stufe-9-7) ist $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ ihre kompakte Zerlegung, mit $d_1=5$ und $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$. Also ist
 
 $$\mathbf{A}^+=\frac15\,\mathbf{q}\mathbf{q}^{\top}=\frac1{25}\begin{pmatrix}1&2\\2&4\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Die Pseudoinverse $\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}$ kehrt jeden Baustein $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ mit $d_j>0$ um und lässt die Richtungen zum Singulärwert $0$ auf null.
 
@@ -136,9 +142,12 @@ Die zweite Summe hängt nicht von $\mathbf{x}$ ab. Die erste ist genau dann null
 Bei unabhängigen Spalten gibt es nach Abschnitt [3.5](die-beste-naherungslosung.html#stufe-3-5) nur eine beste Näherungslösung, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; sie muss mit $\mathbf{A}^+\mathbf{y}$ übereinstimmen, und zwar für jedes $\mathbf{y}$. Bei unabhängigen Zeilen ist der Rang nach [Grundlagen 1, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), gleich $m$, der Spaltenraum also der ganze $\mathbb{R}^m$, und das System ist für jedes $\mathbf{y}$ lösbar; die besten Näherungslösungen sind die Lösungen, und die kürzeste ist nach Abschnitt [11.2](#stufe-11-2) $\mathbf G\mathbf{y}$.
 :::
 
-⁠**Rechenbeispiel 1:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ und $\mathbf{y}=(1,\,1)^{\top}$ ist $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0{,}12;\ 0{,}24)^{\top}$. Er liegt auf der Geraden der besten Näherungslösungen, denn $0{,}12+2\cdot0{,}24=0{,}6=\tfrac35$, und zeigt in Richtung $(1,\,2)^{\top}$, senkrecht zu ihr: Er ist ihr Punkt, der dem Nullpunkt am nächsten liegt.
+::::beispiel [Rechenbeispiel 1]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ und $\mathbf{y}=(1,\,1)^{\top}$ ist $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0{,}12;\ 0{,}24)^{\top}$. Er liegt auf der Geraden der besten Näherungslösungen, denn $0{,}12+2\cdot0{,}24=0{,}6=\tfrac35$, und zeigt in Richtung $(1,\,2)^{\top}$, senkrecht zu ihr: Er ist ihr Punkt, der dem Nullpunkt am nächsten liegt.
+::::
 
-⁠**Rechenbeispiel 2:** Dieselbe Größe wird dreimal gemessen, mit den Ergebnissen $4$, $5$ und $9$. Das System „$x=4$, $x=5$, $x=9$“ hat die Matrix $\mathbf{1}\in\mathbb{R}^{3\times1}$, eine Spalte aus Einsen. Sie hat eine unabhängige Spalte, also ist $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ und
+::::beispiel [Rechenbeispiel 2]
+Dieselbe Größe wird dreimal gemessen, mit den Ergebnissen $4$, $5$ und $9$. Das System „$x=4$, $x=5$, $x=9$“ hat die Matrix $\mathbf{1}\in\mathbb{R}^{3\times1}$, eine Spalte aus Einsen. Sie hat eine unabhängige Spalte, also ist $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ und
 
 $$x^+=\tfrac13\,\mathbf{1}^{\top}\mathbf{y}=\tfrac13\,(4+5+9)=6 ,$$
 
@@ -147,6 +156,7 @@ der Mittelwert (Abb. [27](#abb-27)). Der Mittelwert mehrerer Messungen ist die 
 :::abbildung ml/k2rmittel 27
 Die Pseudoinverse der Einsenspalte angewandt auf die Messwerte $\mathbf{y}=(4,5,9)^{\top}$: Das Skalarprodukt mit $\mathbf{1}$ ist die Summe der Messwerte, geteilt durch $\mathbf{1}^{\top}\mathbf{1}=3$ ergibt den Mittelwert.
 :::
+::::
 
 ⁠**Kurz gesagt:** $\mathbf{A}^+\mathbf{y}$ ist für jede Matrix eine beste Näherungslösung, unter mehreren die kürzeste; bei unabhängigen Spalten oder Zeilen ist $\mathbf{A}^+$ die Links- oder Rechtsinverse.
 

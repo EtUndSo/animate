@@ -30,7 +30,8 @@ Der Typ `int` umfasst die ganzen Zahlen $\ldots,-2,-1,0,1,2,\ldots$ Ein Objekt v
 
 Man schreibt einen `int` als Folge von Ziffern ohne Punkt, negative Zahlen mit einem Minus davor. Lange Zahlen darf man mit Unterstrichen gliedern: `1_000_000` ist dieselbe Zahl wie `1000000`.
 
-**Beispiel.** $2^{100}$ hat 31 Stellen und wird exakt ausgerechnet. Auch eine Rechnung, bei der eine kleine Zahl zwischen zwei riesigen steht, geht nicht verloren:
+::::beispiel
+$2^{100}$ hat 31 Stellen und wird exakt ausgerechnet. Auch eine Rechnung, bei der eine kleine Zahl zwischen zwei riesigen steht, geht nicht verloren:
 
 ```console
 >>> 2 ** 100
@@ -40,6 +41,7 @@ Man schreibt einen `int` als Folge von Ziffern ohne Punkt, negative Zahlen mit e
 >>> 1_000_000 * 1_000_000
 1000000000000
 ```
+::::
 
 ⁠**Kurz gesagt:** Ein `int` ist eine ganze Zahl beliebiger Größe; Python rechnet mit ihr exakt.
 
@@ -119,7 +121,8 @@ Spannung durch Widerstand, Strecke durch Zeit: Die gewöhnliche Division braucht
 Der Operator `/` teilt den linken Operanden durch den rechten. Das Ergebnis ist immer ein `float`, auch wenn beide Operanden ein `int` sind und die Division aufgeht.
 :::
 
-**Beispiel.** Das erklärt die Beobachtung aus Python 1, dass `12 / 4` die Antwort `3.0` liefert:
+::::beispiel
+Das erklärt die Beobachtung aus Python 1, dass `12 / 4` die Antwort `3.0` liefert:
 
 ```console
 >>> 7 / 2
@@ -137,6 +140,7 @@ ZeroDivisionError: division by zero
 ```
 
 Durch null teilen geht nicht; Python meldet einen `ZeroDivisionError`. Teilt man einen `float` durch null, lautet die Beschreibung in Python 3.13 `float division by zero`, ab Python 3.14 wie bei ganzen Zahlen `division by zero`.
+::::
 
 ⁠**Kurz gesagt:** `/` teilt wie in der Mathematik und liefert immer einen `float`.
 
@@ -183,7 +187,8 @@ Für $b>0$ liegt der Rest im Bereich $0\le a\,\%\,b<b$, für $b<0$ im Bereich $b
 [(2.1)](#gl-2-1) ist die Definition des Rests, nach $a$ aufgelöst. Sei $b>0$ und $q=a\,/\!/\,b$. Weil $q$ die größte ganze Zahl mit $q\le a/b$ ist, gilt $q\le a/b<q+1$. Multipliziert man mit $b>0$, folgt $qb\le a<qb+b$, also $0\le a-qb<b$, und $a-qb$ ist der Rest. Für $b<0$ dreht die Multiplikation beide Ungleichungen um: $qb\ge a>qb+b$, also $0\ge a-qb>b$.
 :::
 
-**Beispiel.** Zuerst positive Zahlen, dann negative:
+::::beispiel
+Zuerst positive Zahlen, dann negative:
 
 ```console
 >>> 125 // 60
@@ -201,6 +206,7 @@ Für $b>0$ liegt der Rest im Bereich $0\le a\,\%\,b<b$, für $b<0$ im Bereich $b
 ```
 
 Die Probe mit [(2.1)](#gl-2-1): $2\cdot60+5=125$, $(-4)\cdot2+1=-7$ und $(-4)\cdot(-2)+(-1)=7$. Bei $-7\,/\!/\,2$ ist $-7/2=-3{,}5$, und die größte ganze Zahl, die nicht größer ist, ist $-4$, nicht $-3$.
+::::
 
 Die eingebaute Funktion `divmod` liefert beide Ergebnisse auf einmal, zuerst den Quotienten, dann den Rest. Beide Operatoren funktionieren auch mit Gleitkommazahlen:
 
@@ -267,7 +273,8 @@ Mehrere `**` wertet Python von rechts nach links aus: `2 ** 3 ** 2` ist $2^{(3^2
 </ul>
 :::
 
-**Beispiel.** Negative Exponenten, Minuszeichen und Potenztürme:
+::::beispiel
+Negative Exponenten, Minuszeichen und Potenztürme:
 
 ```console
 >>> 2 ** -1
@@ -287,6 +294,7 @@ Mehrere `**` wertet Python von rechts nach links aus: `2 ** 3 ** 2` ist $2^{(3^2
 ```
 
 `0 ** 0` ist in Python festgelegt als 1, wie in den meisten Programmiersprachen.
+::::
 
 ⁠**Kurz gesagt:** `**` bindet stärker als ein Minus davor und wird von rechts nach links ausgewertet; ein negativer Exponent liefert einen `float`.
 
@@ -315,7 +323,8 @@ Die __Rangfolge__ der Operatoren legt fest, welcher Operator in einem Ausdruck o
 Klammern gehen allem vor.
 :::
 
-**Beispiel.** `2 + 3 * 4 ** 2 // 5` wertet Python so aus: zuerst die Potenz $4^2=16$, dann von links nach rechts $3\cdot16=48$ und $48\,/\!/\,5=9$, zuletzt $2+9=11$. Bei `12 / 3 / 2` haben beide Operatoren denselben Rang, also gilt $(12/3)/2=2$:
+::::beispiel
+`2 + 3 * 4 ** 2 // 5` wertet Python so aus: zuerst die Potenz $4^2=16$, dann von links nach rechts $3\cdot16=48$ und $48\,/\!/\,5=9$, zuletzt $2+9=11$. Bei `12 / 3 / 2` haben beide Operatoren denselben Rang, also gilt $(12/3)/2=2$:
 
 ```console
 >>> 2 + 3 * 4 ** 2 // 5
@@ -329,6 +338,7 @@ Klammern gehen allem vor.
 ```
 
 In der zweiten Zeile ist $7\,\%\,3=1$, dann $1\cdot2=2$, zuletzt $100-2=98$.
+::::
 
 ⁠**Kurz gesagt:** Potenz vor Vorzeichen vor Punktrechnung (`* / // %`) vor Strichrechnung; Klammern gehen vor, und im Zweifel setzt man sie.
 

@@ -38,9 +38,11 @@ In Reihe, Reihe führen beide Teile dieselben Ströme: $\mathbf I'=\mathbf I''=\
 Drei Zusammenschaltungen. Links Reihe, Reihe: gleiche Ströme, Z addiert sich. Mitte parallel, parallel: gleiche Spannungen, Y addiert sich. Rechts Reihe, parallel: gleiches $I_1$ und $U_2$, H addiert sich.
 :::
 
-**Beispiel.** ⁠**Reihe:** Das T-Zweitor selbst ist eine Reihenschaltung aus zwei getrennten Längswiderständen und einem Querwiderstand:
+::::beispiel
+⁠**Reihe:** Das T-Zweitor selbst ist eine Reihenschaltung aus zwei getrennten Längswiderständen und einem Querwiderstand:
 
 $$\mathbf Z=\begin{pmatrix}15&0\\0&20\end{pmatrix}\Omega+\begin{pmatrix}20&20\\20&20\end{pmatrix}\Omega=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**Parallel:** Legt man einen Widerstand von 100 $\Omega$ von Klemme 1 nach Klemme 2 über das T-Zweitor, kommt zu $\mathbf Y$ der Längsleitwert hinzu:
 

@@ -50,7 +50,8 @@ $$\sum_{l=1}^k(\mathbf{A}\mathbf{B})_{il}\,x_l=\sum_{l=1}^k\sum_{j=1}^na_{ij}\,b
 und das ist Komponente $i$ von $\mathbf{A}(\mathbf{B}\mathbf{x})$. Im mittleren Schritt wurden die beiden Summen vertauscht und $a_{ij}$ vor die innere Summe gezogen.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ und $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ und $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ ist
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
 
@@ -61,6 +62,7 @@ Das Matrixprodukt Eintrag für Eintrag: Eintrag $(i,l)$ ist Zeile $i$ von $\math
 :::
 
 Probe mit $\mathbf{x}=(1,\,2)^{\top}$: $\mathbf{B}\mathbf{x}=(2,\,1)^{\top}$, dann $\mathbf{A}(\mathbf{B}\mathbf{x})=(4,\,1)^{\top}$; und direkt $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+2,\ 1+0)^{\top}=(4,\,1)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Das Matrixprodukt $\mathbf{A}\mathbf{B}$ ist die Matrix der Abbildung „erst $\mathbf{B}$, dann $\mathbf{A}$“; sein Eintrag $(i,l)$ ist Zeile $i$ von $\mathbf{A}$ mal Spalte $l$ von $\mathbf{B}$.
 
@@ -81,11 +83,13 @@ Ebenso ist die Zeile $i$ von $\mathbf{A}\mathbf{B}$ die Zeile $i$ von $\mathbf{A
 
 Für Daten heißt das: Will man mehrere gewichtete Summen auf alle Beispiele anwenden, schreibt man die Gewichtsvektoren als Spalten einer Matrix $\mathbf{W}$ nebeneinander. Das Produkt $\mathbf{X}\mathbf{W}$ enthält dann in Spalte $l$ die Vorhersagen mit dem $l$-ten Gewichtsvektor.
 
-⁠**Rechenbeispiel:** Neben dem Kaufpreis mit $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (Tausend Euro) soll die Monatsmiete mit den Gewichten $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (Euro) geschätzt werden. Mit $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$ ist
+::::beispiel [Rechenbeispiel]
+Neben dem Kaufpreis mit $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (Tausend Euro) soll die Monatsmiete mit den Gewichten $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (Euro) geschätzt werden. Mit $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$ ist
 
 $$\mathbf{X}\mathbf{W}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3&12\\10&30\\-4&-8\end{pmatrix}=\begin{pmatrix}188&756\\126&502\\286&1152\\232&914\end{pmatrix}.$$
 
 Zeile $i$ enthält beide Schätzungen für Wohnung $i$, Spalte $1$ alle Kaufpreise, Spalte $2$ alle Mieten.
+::::
 
 ⁠**Kurz gesagt:** Die Spalten von $\mathbf{A}\mathbf{B}$ sind $\mathbf{A}$ mal die Spalten von $\mathbf{B}$; $\mathbf{X}\mathbf{W}$ wendet mehrere gewichtete Summen auf alle Beispiele zugleich an.
 
@@ -131,13 +135,17 @@ Im Allgemeinen ist aber $\mathbf{A}\mathbf{B}\ne\mathbf{B}\mathbf{A}$: Das Matri
 
 Regel (i) folgt aus der Bedeutung: Beide Seiten sind die Matrix der Abbildung „erst $\mathbf{C}$, dann $\mathbf{B}$, dann $\mathbf{A}$“, denn $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{x})=\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{x}))=\mathbf{A}((\mathbf{B}\mathbf{C})\mathbf{x})$ für jedes $\mathbf{x}$. Die Regeln (ii) und (iii) rechnet man mit [(9.1)](#gl-9-1) und den Summenregeln Eintrag für Eintrag nach.
 
-⁠**Rechenbeispiel 1:** Mit der Drehung $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ und der Streckung $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$ ist
+::::beispiel [Rechenbeispiel 1]
+Mit der Drehung $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ und der Streckung $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$ ist
 
 $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0{,}5&0\end{pmatrix},\qquad \mathbf R\mathbf{S}=\begin{pmatrix}0&-0{,}5\\2&0\end{pmatrix}.$$
 
 Erst drehen, dann strecken schickt $\mathbf{e}_1$ nach $(0;\,0{,}5)^{\top}$, erst strecken, dann drehen nach $(0,\,2)^{\top}$.
+::::
 
-⁠**Rechenbeispiel 2:** Aus Unterabschnitt [9.1](#stufe-9-1) ist $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, aber $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. Bei verschiedenen Formaten ist es noch deutlicher: Für $\mathbf{A}\in\mathbb{R}^{2\times3}$ und $\mathbf{B}\in\mathbb{R}^{3\times2}$ ist $\mathbf{A}\mathbf{B}$ eine $2\times2$-Matrix und $\mathbf{B}\mathbf{A}$ eine $3\times3$-Matrix.
+::::beispiel [Rechenbeispiel 2]
+Aus Unterabschnitt [9.1](#stufe-9-1) ist $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, aber $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. Bei verschiedenen Formaten ist es noch deutlicher: Für $\mathbf{A}\in\mathbb{R}^{2\times3}$ und $\mathbf{B}\in\mathbb{R}^{3\times2}$ ist $\mathbf{A}\mathbf{B}$ eine $2\times2$-Matrix und $\mathbf{B}\mathbf{A}$ eine $3\times3$-Matrix.
+::::
 
 ⁠**Kurz gesagt:** Beim Matrixprodukt darf man Klammern versetzen und ausmultiplizieren, aber nicht die Reihenfolge vertauschen.
 
@@ -159,11 +167,13 @@ Sind $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ und $g(\mathbf{u})=\mathbf{A}\mathbf{u
 
 Wie viele lineare Stufen man auch hintereinanderschaltet, das Ergebnis lässt sich immer mit einer einzigen Matrix in einem Schritt ausrechnen. Was eine Kette linearer Stufen kann, kann also schon eine einzelne Matrix. Aus Signale und Systeme kennt man dasselbe: Zwei lineare Systeme in Kette bilden zusammen wieder ein lineares System.
 
-⁠**Rechenbeispiel:** Eine erste Stufe macht aus drei Zahlen zwei, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, eine zweite aus zwei Zahlen wieder drei, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Zusammen ist das die eine Matrix
+::::beispiel [Rechenbeispiel]
+Eine erste Stufe macht aus drei Zahlen zwei, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, eine zweite aus zwei Zahlen wieder drei, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Zusammen ist das die eine Matrix
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&5&-1\\1&1&1\\0&3&-3\end{pmatrix}.$$
 
 Probe mit $\mathbf{x}=(1,\,1,\,1)^{\top}$: $\mathbf{B}\mathbf{x}=(3,\,0)^{\top}$ und $\mathbf{A}(3,\,0)^{\top}=(6,\,3,\,0)^{\top}$; ebenso $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+5-1,\ 1+1+1,\ 0+3-3)^{\top}=(6,\,3,\,0)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Lineare Stufen hintereinander sind zusammen eine einzige lineare Abbildung, ihre Matrix ist das Produkt der einzelnen Matrizen.
 
@@ -184,9 +194,9 @@ $$(\mathbf{u}\mathbf{v}^{\top})_{ij}=u_i\,v_j . \tag{9.3}$$
 
 Es ist das Matrixprodukt einer $m\times1$-Matrix mit einer $1\times n$-Matrix. Jede Spalte ist ein Vielfaches von $\mathbf{u}$, nämlich $v_j\,\mathbf{u}$, und jede Zeile ein Vielfaches von $\mathbf{v}^{\top}$.
 
-⁠**Rechenbeispiel:**
-
+::::beispiel [Rechenbeispiel]
 $$\begin{pmatrix}1\\2\\3\end{pmatrix}\begin{pmatrix}4&5\end{pmatrix}=\begin{pmatrix}4&5\\8&10\\12&15\end{pmatrix}.$$
+::::
 
 Mit dem äußeren Produkt lässt sich jedes Matrixprodukt als Summe schreiben: „Spalte $j$ von $\mathbf{A}$ mal Zeile $j$ von $\mathbf{B}$“, summiert über $j$,
 

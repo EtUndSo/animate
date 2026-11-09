@@ -38,11 +38,13 @@ Sei $N:=x^2+y^2>0$. Der Kehrwert ist das Paar $(x/N,\,-y/N)$. Nach [(1.2)](paare
 $$(x,y)\odot\Bigl(\frac xN,\frac{-y}N\Bigr)=\Bigl(\frac{x\cdot x}N-\frac{y\cdot(-y)}N,\;\frac{x\cdot(-y)}N+\frac{y\cdot x}N\Bigr)=\Bigl(\frac{x^2+y^2}N,\;0\Bigr)=(1,0).$$
 :::
 
-**Beispiel.** Mit dem Rechenmodell, Nenner $z_2\overline{z_2}=5$:
+::::beispiel
+Mit dem Rechenmodell, Nenner $z_2\overline{z_2}=5$:
 
 $$\frac{z_1}{z_2}=\frac{(3+\mathrm{i})(1-2\mathrm{i})}{(1+2\mathrm{i})(1-2\mathrm{i})}=\frac{3-6\mathrm{i}+\mathrm{i}-2\mathrm{i}^2}{5}=\frac{5-5\mathrm{i}}{5}=1-\mathrm{i}.$$
 
 Probe: $(1-\mathrm{i})(1+2\mathrm{i})=1+2\mathrm{i}-\mathrm{i}-2\mathrm{i}^2=3+\mathrm{i}$. Außerdem ist $1/z_2=(1-2\mathrm{i})/5=0{,}2-0{,}4\mathrm{i}$ und $1/\mathrm{i}=-\mathrm{i}$.
+::::
 
 :::satz Satz 4.2 ($\mathbb{C}$ ist ein Körper)
 <span class="anker" id="satz-4-2"></span>

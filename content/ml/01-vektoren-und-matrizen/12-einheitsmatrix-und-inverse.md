@@ -29,9 +29,9 @@ Die __Einheitsmatrix__ $\mathbf{I}_n\in\mathbb{R}^{n\times n}$ ist die Diagonalm
 
 Wenn das Format klar ist, schreibt man kurz $\mathbf{I}$. Für jeden Vektor $\mathbf{x}\in\mathbb{R}^n$ ist $\mathbf{I}\mathbf{x}=\mathbf{x}$, und für jede Matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$ ist $\mathbf{A}\mathbf{I}_n=\mathbf{A}$ und $\mathbf{I}_m\mathbf{A}=\mathbf{A}$. Die Einheitsmatrix spielt beim Matrixprodukt die Rolle der Zahl $1$.
 
-⁠**Rechenbeispiel:**
-
+::::beispiel [Rechenbeispiel]
 $$\mathbf{I}_3=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix},\qquad \mathbf{I}_3\begin{pmatrix}60\\2\\3\end{pmatrix}=\begin{pmatrix}60\\2\\3\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Die Einheitsmatrix hat Einsen auf der Diagonale und sonst Nullen; als Abbildung lässt sie jeden Vektor unverändert.
 
@@ -54,11 +54,11 @@ Die Matrix $\mathbf{A}^{-1}$ heißt die __Inverse__ von $\mathbf{A}$.
 
 Es gibt höchstens eine solche Matrix. Sind nämlich $\mathbf{B}$ und $\mathbf{C}$ beide invers zu $\mathbf{A}$, so ist $\mathbf{B}=\mathbf{B}\mathbf{I}=\mathbf{B}(\mathbf{A}\mathbf{C})=(\mathbf{B}\mathbf{A})\mathbf{C}=\mathbf{I}\mathbf{C}=\mathbf{C}$. Deshalb darf man von *der* Inversen sprechen. Kennt man sie, kann man jedes Ergebnis $\mathbf{y}=\mathbf{A}\mathbf{x}$ zurückrechnen: $\mathbf{A}^{-1}\mathbf{y}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{x}$.
 
-⁠**Rechenbeispiel:**
-
+::::beispiel [Rechenbeispiel]
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\begin{pmatrix}2-1&-2+2\\1-1&-1+2\end{pmatrix}=\begin{pmatrix}1&0\\0&1\end{pmatrix},$$
 
 und ebenso in der anderen Reihenfolge, also ist $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$. Die Streckung hat die Inverse $\operatorname{diag}(2;\,0{,}5)^{-1}=\operatorname{diag}(0{,}5;\,2)$, die Drehung um $90^\circ$ die Drehung um $-90^\circ$, $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$.
+::::
 
 ⁠**Kurz gesagt:** Die Inverse $\mathbf{A}^{-1}$ macht die Abbildung $\mathbf{A}$ rückgängig: $\mathbf{A}^{-1}\mathbf{A}=\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$.
 
@@ -89,7 +89,9 @@ $$\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}=\be
 und in der anderen Reihenfolge ebenso. Ist $ad-bc\ne0$, teilt man durch diese Zahl und erhält [(11.1)](#gl-11-1). Ist $ad-bc=0$, so schickt $\mathbf{A}$ den Vektor $(d,\,-c)^{\top}$ auf $(ad-bc,\ cd-dc)^{\top}=\mathbf{0}$ und ebenso $(b,\,-a)^{\top}$ auf $\mathbf{0}$. Wenigstens einer der beiden ist nicht der Nullvektor, außer alle vier Einträge sind null, und dann ist $\mathbf{A}$ ohnehin die Nullmatrix. Eine Matrix, die einen Vektor $\mathbf{x}\ne\mathbf{0}$ auf $\mathbf{0}$ abbildet, hat aber keine Inverse: Gäbe es eine, so wäre $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{A}^{-1}\mathbf{0}=\mathbf{0}$.
 :::
 
-⁠**Rechenbeispiel:** Für $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ ist $ad-bc=2-1=1$, also ist die Inverse $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$, wie oben. Für $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ ist $ad-bc=5$ und die Inverse $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$.
+::::beispiel [Rechenbeispiel]
+Für $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ ist $ad-bc=2-1=1$, also ist die Inverse $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$, wie oben. Für $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ ist $ad-bc=5$ und die Inverse $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$.
+::::
 
 ⁠**Kurz gesagt:** Eine $2\times2$-Matrix ist genau dann invertierbar, wenn $ad-bc\ne0$; die Inverse ist $\frac{1}{ad-bc}\bigl(\begin{smallmatrix}d&-b\\-c&a\end{smallmatrix}\bigr)$.
 
@@ -113,9 +115,11 @@ Man prüft jeweils, dass das Produkt mit dem Kandidaten die Einheitsmatrix ergib
 
 Eine Regel, die man gern hätte, gilt nicht: $(\mathbf{A}+\mathbf{B})^{-1}$ ist im Allgemeinen nicht $\mathbf{A}^{-1}+\mathbf{B}^{-1}$. Schon für Zahlen ist $\frac{1}{2+4}=\frac16$, aber $\frac12+\frac14=\frac34$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ und $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ ist $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ mit $ad-bc=21-16=5$, also $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. Dasselbe ergibt
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ und $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ ist $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ mit $ad-bc=21-16=5$, also $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. Dasselbe ergibt
 
 $$\mathbf{B}^{-1}\mathbf{A}^{-1}=\tfrac15\begin{pmatrix}2&-1\\-1&3\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\tfrac15\begin{pmatrix}3&-4\\-4&7\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Die Inverse eines Produkts ist das Produkt der Inversen in umgekehrter Reihenfolge, $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$.
 
@@ -141,7 +145,9 @@ Gäbe es eine Inverse, so wäre $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=
 
 Anschaulich: Mit $\mathbf{A}\mathbf{x}=\mathbf{0}$ landen für jedes $\mathbf{u}$ die beiden verschiedenen Vektoren $\mathbf{u}$ und $\mathbf{u}+\mathbf{x}$ am selben Ort, denn $\mathbf{A}(\mathbf{u}+\mathbf{x})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{x}=\mathbf{A}\mathbf{u}$. Zwei Eingänge mit demselben Ausgang lassen sich nicht auseinanderhalten. Eine quadratische Matrix, die nicht invertierbar ist, heißt __singulär__.
 
-⁠**Rechenbeispiel:** Für $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist $ad-bc=4-4=0$. Tatsächlich wird $\mathbf{x}=(2,\,-1)^{\top}$ auf $(2-2,\ 4-4)^{\top}=\mathbf{0}$ abgebildet, und die verschiedenen Vektoren $(1,\,1)^{\top}$ und $(3,\,0)^{\top}$ landen beide in $(3,\,6)^{\top}$.
+::::beispiel [Rechenbeispiel]
+Für $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist $ad-bc=4-4=0$. Tatsächlich wird $\mathbf{x}=(2,\,-1)^{\top}$ auf $(2-2,\ 4-4)^{\top}=\mathbf{0}$ abgebildet, und die verschiedenen Vektoren $(1,\,1)^{\top}$ und $(3,\,0)^{\top}$ landen beide in $(3,\,6)^{\top}$.
+::::
 
 Für Daten heißt das: Eine Rechnung, die zum Beispiel aus Schlafzimmern und Wohnzimmern nur die Summe der Zimmer bildet, kann die beiden Zahlen nicht mehr trennen. Bei $2\times2$-Matrizen ist das genau der Fall $ad-bc=0$ aus Unterabschnitt [11.3](#stufe-11-3).
 

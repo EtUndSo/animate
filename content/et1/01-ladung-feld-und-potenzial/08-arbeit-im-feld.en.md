@@ -45,7 +45,9 @@ $$W_{12}=Q\int_{r_1}^{r_2}k\,\frac{Q_0}{r^2}\,\mathrm{d} r=k\,Q\,Q_0\Bigl(\frac{
 Detail of the pair of plates, to scale. A test charge $+1$ nC goes around the triangle. From 1 to 2 it gains 9 nJ. From 2 to 3 it moves across the field: no work. From 3 to 1 it loses 9 nJ. The round trip gives zero.
 :::
 
-**Example.** In Fig. [7](#abb-7), $F=Q\,E=3$ µ N in the $x$-direction and $W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ. Directly from 1 to 3 the path is 5 mm long, with $\cos\alpha=0.6$: again 9 nJ. In the field of sphere A ($Q_0=+10$ nC), $+1$ nC gains from 3 cm to 6 cm the energy $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1.5$ µ J.
+::::beispiel
+In Fig. [7](#abb-7), $F=Q\,E=3$ µ N in the $x$-direction and $W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ. Directly from 1 to 3 the path is 5 mm long, with $\cos\alpha=0.6$: again 9 nJ. In the field of sphere A ($Q_0=+10$ nC), $+1$ nC gains from 3 cm to 6 cm the energy $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1.5$ µ J.
+::::
 
 ⁠**Limiting cases:** For $\alpha=90^\circ$ and for $P_2=P_1$, $W=0$. For a negative charge the sign reverses: an electron gains energy when it moves against $\vec E$. For $r_2\to\infty$, $W_{12}=kQQ_0/r_1$ remains finite.
 

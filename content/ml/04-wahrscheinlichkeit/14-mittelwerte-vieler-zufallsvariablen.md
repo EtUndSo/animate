@@ -34,7 +34,9 @@ Die Standardabweichung $\sigma/\sqrt n$ des Mittelwerts heißt __Standardfehler_
 
 Der Erwartungswert folgt aus der Linearität. Für die Varianz addieren sich nach [(10.4)](kovarianz-und-korrelation.html#gl-10-4) die $n$ Varianzen zu $n\sigma^2$, und der Faktor $\tfrac1n$ geht nach [(7.8)](erwartungswert-und-varianz.html#gl-7-8) quadriert ein: $\tfrac1{n^2}\cdot n\sigma^2=\sigma^2/n$. Dabei braucht man nur, dass die $X_i$ paarweise unkorreliert sind. Der Mittelwert wird also mit wachsendem $n$ genauer, aber langsam: Für die halbe Streuung braucht man viermal so viele Messungen, für ein Zehntel hundertmal so viele.
 
-⁠**Rechenbeispiel:** Ein Messgerät habe Rauschen mit $\sigma=5\,\mathrm{mV}$. Der Mittelwert aus $16$ Messungen hat den Standardfehler $5/4=1{,}25\,\mathrm{mV}$, der aus $100$ Messungen $0{,}5\,\mathrm{mV}$. In der Signalverarbeitung heißt das: Mitteln über $n$ Wiederholungen verbessert das Verhältnis von Signal- zu Rauschamplitude um $\sqrt n$, das von Signal- zu Rauschleistung um $n$. Der Mittelwert von $100$ Würfen eines Würfels hat den Standardfehler $1{,}708/10\approx0{,}171$.
+::::beispiel [Rechenbeispiel]
+Ein Messgerät habe Rauschen mit $\sigma=5\,\mathrm{mV}$. Der Mittelwert aus $16$ Messungen hat den Standardfehler $5/4=1{,}25\,\mathrm{mV}$, der aus $100$ Messungen $0{,}5\,\mathrm{mV}$. In der Signalverarbeitung heißt das: Mitteln über $n$ Wiederholungen verbessert das Verhältnis von Signal- zu Rauschamplitude um $\sqrt n$, das von Signal- zu Rauschleistung um $n$. Der Mittelwert von $100$ Würfen eines Würfels hat den Standardfehler $1{,}708/10\approx0{,}171$.
+::::
 
 ⁠**Kurz gesagt:** Der Mittelwert von $n$ unabhängigen Größen hat denselben Erwartungswert und die Standardabweichung $\sigma/\sqrt n$: Er wird genauer, aber nur mit der Wurzel aus $n$.
 
@@ -59,7 +61,9 @@ Es sei $A$ das Ereignis $|X-\mu|\ge\varepsilon$. Auf $A$ ist $(X-\mu)^2\ge\varep
 
 Mit $\varepsilon=k\sigma$ heißt das: Um mindestens $k$ Standardabweichungen weicht eine Zufallsvariable höchstens mit der Wahrscheinlichkeit $1/k^2$ ab, gleich wie sie verteilt ist. Für $k=2$ sind das $25\,\%$, für $k=3$ etwa $11\,\%$. Bei der Normalverteilung sind es nur $4{,}6\,\%$ und $0{,}3\,\%$. Die Schranke ist grob, weil sie für jede Verteilung gelten muss, aber sie braucht nur die Varianz.
 
-⁠**Rechenbeispiel:** Für einen Würfel ist $P(|X-3{,}5|\ge2{,}5)\le\frac{35/12}{6{,}25}\approx0{,}467$. Tatsächlich ist die Wahrscheinlichkeit $P(X\in\{1,6\})=\tfrac13$.
+::::beispiel [Rechenbeispiel]
+Für einen Würfel ist $P(|X-3{,}5|\ge2{,}5)\le\frac{35/12}{6{,}25}\approx0{,}467$. Tatsächlich ist die Wahrscheinlichkeit $P(X\in\{1,6\})=\tfrac13$.
+::::
 
 ⁠**Kurz gesagt:** Eine Abweichung um mindestens $\varepsilon$ hat höchstens die Wahrscheinlichkeit $\sigma^2/\varepsilon^2$, für jede Verteilung.
 
@@ -86,7 +90,9 @@ Drei Folgen von je $10\,000$ Würfen eines fairen Würfels, mit einem Rechner er
 
 Zwei Folgerungen schließen Kreise. Erstens: Ist $X_i$ die Indikatorvariable eines Ereignisses $A$ im $i$-ten Versuch, so ist $\bar X_n$ die relative Häufigkeit $h_n(A)$ und $\mu=P(A)$. Die relative Häufigkeit nähert sich also der Wahrscheinlichkeit, mit dem Standardfehler $\sqrt{P(A)(1-P(A))/n}$. Das ist die Brücke zwischen der Deutung als Häufigkeit und den Axiomen aus Unterabschnitt [2.2](wahrscheinlichkeit-2.html#stufe-2-2). Zweitens: Der Mittelwert eines Datensatzes aus $N$ i.i.d. Datenpunkten nähert sich mit wachsendem $N$ dem Erwartungswert der Verteilung, aus der die Daten stammen. Das ist die Antwort auf die Frage aus Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7): Der Mittelwert der Daten ist zufällig, aber er streut immer enger um den Erwartungswert, mit dem Standardfehler $\sigma/\sqrt N$.
 
-⁠**Rechenbeispiel:** Für $1\,000$ Würfe eines Würfels und $\varepsilon=0{,}1$ gibt [(13.3)](#gl-13-3) $P(|\bar X_{1000}-3{,}5|\ge0{,}1)\le\frac{35/12}{1000\cdot0{,}01}\approx0{,}29$. Die Schranke ist grob; der zentrale Grenzwertsatz im nächsten Unterabschnitt liefert etwa $0{,}064$.
+::::beispiel [Rechenbeispiel]
+Für $1\,000$ Würfe eines Würfels und $\varepsilon=0{,}1$ gibt [(13.3)](#gl-13-3) $P(|\bar X_{1000}-3{,}5|\ge0{,}1)\le\frac{35/12}{1000\cdot0{,}01}\approx0{,}29$. Die Schranke ist grob; der zentrale Grenzwertsatz im nächsten Unterabschnitt liefert etwa $0{,}064$.
+::::
 
 ⁠**Kurz gesagt:** Der Mittelwert vieler unabhängiger Wiederholungen nähert sich dem Erwartungswert; relative Häufigkeiten nähern sich den Wahrscheinlichkeiten und Mittelwerte von Daten den Erwartungswerten.
 
@@ -115,7 +121,9 @@ $$P\Bigl(\frac{\bar X_n-\mu}{\sigma/\sqrt n}\le z\Bigr)\ \longrightarrow\ \Phi(z
 
 Für großes $n$ ist $\bar X_n$ also näherungsweise $\mathcal N(\mu,\sigma^2/n)$-verteilt und die Summe $X_1+\dots+X_n$ näherungsweise $\mathcal N(n\mu,\,n\sigma^2)$-verteilt. Der Satz ist ohne Beweis angegeben; der Beweis braucht mehr Analysis, als dieses Kapitel bereitstellt. Wie groß $n$ sein muss, hängt von der Verteilung der $X_i$ ab: Bei symmetrischen Verteilungen wie dem Würfel genügen wenige Summanden, bei sehr schiefen braucht man mehr. Für die Binomialverteilung als Summe von Bernoulli-Variablen sagt der Satz, dass $\mathrm{Bin}(n,\theta)$ für großes $n$ fast eine Normalverteilung mit $n\theta$ und $n\theta(1-\theta)$ ist; das war die erste Form des Satzes, gefunden 1733 von Abraham de Moivre.
 
-⁠**Rechenbeispiel:** Für den Mittelwert von $1\,000$ Würfen ist $\sigma/\sqrt n=1{,}708/\sqrt{1000}\approx0{,}054$. Eine Abweichung von mindestens $0{,}1$ sind $0{,}1/0{,}054\approx1{,}85$ Standardfehler, also ist $P(|\bar X_{1000}-3{,}5|\ge0{,}1)\approx2\,\bigl(1-\Phi(1{,}85)\bigr)\approx0{,}064$. Ein Gerät mit beliebig verteiltem Rauschen der Standardabweichung $2\,\mathrm{mV}$ liefert über $100$ Messungen gemittelt einen Wert, der mit etwa $95\,\%$ Wahrscheinlichkeit um höchstens $1{,}96\cdot0{,}2\,\mathrm{mV}\approx0{,}39\,\mathrm{mV}$ vom wahren Wert abweicht.
+::::beispiel [Rechenbeispiel]
+Für den Mittelwert von $1\,000$ Würfen ist $\sigma/\sqrt n=1{,}708/\sqrt{1000}\approx0{,}054$. Eine Abweichung von mindestens $0{,}1$ sind $0{,}1/0{,}054\approx1{,}85$ Standardfehler, also ist $P(|\bar X_{1000}-3{,}5|\ge0{,}1)\approx2\,\bigl(1-\Phi(1{,}85)\bigr)\approx0{,}064$. Ein Gerät mit beliebig verteiltem Rauschen der Standardabweichung $2\,\mathrm{mV}$ liefert über $100$ Messungen gemittelt einen Wert, der mit etwa $95\,\%$ Wahrscheinlichkeit um höchstens $1{,}96\cdot0{,}2\,\mathrm{mV}\approx0{,}39\,\mathrm{mV}$ vom wahren Wert abweicht.
+::::
 
 ⁠**Kurz gesagt:** Mittelwerte und Summen vieler unabhängiger Größen mit endlicher Varianz sind näherungsweise normalverteilt, gleich wie die einzelnen Größen verteilt sind.
 

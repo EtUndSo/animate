@@ -41,11 +41,13 @@ $$\frac{\partial E_r}{\partial b_j}=-2\int_0^T\Bigl(f-\sum_ib_is_i\Bigr)s_j\,\ma
 
 ⁠**如何理解：**每个系数都单独确定，与其他系数无关。增加一个基函数时，原有的系数保持不变。这就是正交函数系的优点，与傅里叶级数（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）完全一样。$b_i$ 就是互相关 $\varphi^E_{fs_i}(0)$。正因为如此，可以用一组相关滤波器 $h_i(t)=s_i(T-t)$ 来测量这些系数，只需在 $t=T$ 时刻对它们的输出采样（[第 7 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)）。
 
-**例。** $[0,1]$ 上的 $f(t)=t^2$，$E_f=\frac15$。取 $s_0=1$ 和 $s_1=\sqrt3(2t-1)$：
+::::beispiel
+$[0,1]$ 上的 $f(t)=t^2$，$E_f=\frac15$。取 $s_0=1$ 和 $s_1=\sqrt3(2t-1)$：
 
 $$b_0=\int_0^1t^2\mathrm{d} t=\tfrac13,\qquad b_1=\sqrt3\int_0^1t^2(2t-1)\mathrm{d} t=\tfrac{\sqrt3}{6}=0.289,\qquad\sum b_i^2=\tfrac19+\tfrac1{12}=\tfrac{7}{36}.$$
 
 逼近式为 $\frac13+\frac{\sqrt3}{6}\sqrt3(2t-1)=t-\frac16$，即能量意义下的最佳直线。误差能量为 $\frac15-\frac7{36}=\frac{1}{180}=0.0056$，即 $E_f$ 的 2.8 %。再加上 $s_2=\sqrt5(6t^2-6t+1)$，就增加了系数 $b_2=\frac{\sqrt5}{30}=0.075$，而误差变为零，因为 $t^2$ 本身就是二次多项式。
+::::
 
 :::aufgabe 练习 1 ★ 验证标准正交性
 <span class="anker" id="aufg-1"></span>

@@ -13,6 +13,7 @@
       --bg:#ffffff; --panel:#ffffff; --ink:#16191a; --muted:#59605b; --border:#e6e8e6; --soft:#f6f7f6;
       --accent:#15633a; --accent2:#1b7f4a; --accent3:#c2410c; --green:#15633a; --on-accent:#ffffff;
       --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-hl:#ff9650;
+      --logo-et:#6ad19b; --logo-so:#ff4d4d;   /* Logo: „Et“ grün, „So“ rot (Wunsch des Users 09.11.2026) */
       --font-display:"Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
       --font-body:system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
@@ -29,8 +30,8 @@
     .build-banner a{margin:0 6px;}
 
     header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--bar-rand);background:var(--bar);position:sticky;top:0;z-index:5;}
-    .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--bar-ink);}
-    .brand span{color:var(--bar-ink);} .brand span.so{color:var(--bar-hl);}
+    .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--logo-et);}
+    .brand span{color:var(--bar-ink);} .brand span.so{color:var(--logo-so);}
     nav{display:flex;align-items:center;gap:20px;}
     nav a.lnk{color:var(--bar-ink);font-weight:600;font-size:15px;}
     nav a.lnk:hover{color:var(--bar-hl);}

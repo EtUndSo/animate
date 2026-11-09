@@ -80,11 +80,13 @@ $T=0.5$ s 的狄拉克梳状函数及其频谱：仍是梳状函数，间隔�
 方程 $\mathrm{j}2\pi f\,S(f)=1$ 只在 $f\neq0$ 处确定 $S$。在 $f=0$ 处，左边为 $0\cdot S(0)$；$S$ 中若含有一项 $c\,\delta(f)$，它会因 $f\delta(f)=0$ 而被消去。这与求导会“遗忘”常数相对应：$\varepsilon(t)$ 与 $\varepsilon(t)+b$ 具有相同的导数。哪个常数是正确的，由偶部决定：$\varepsilon$ 的平均值为 $\frac12$，所以 $c=\frac12$。
 :::
 
-**例：接通的余弦。** $\varepsilon(t)\cos(2\pi Ft)$。相乘变为卷积，而与狄拉克冲激卷积就是平移：
+::::beispiel 接通的余弦
+$\varepsilon(t)\cos(2\pi Ft)$。相乘变为卷积，而与狄拉克冲激卷积就是平移：
 
 $$\Bigl[\tfrac12\delta(f)+\tfrac{1}{\mathrm{j}2\pi f}\Bigr]*\tfrac12\bigl[\delta(f+F)+\delta(f-F)\bigr] =\tfrac14\bigl[\delta(f+F)+\delta(f-F)\bigr]-\frac{\mathrm{j}}{4\pi}\Bigl[\frac{1}{f+F}+\frac{1}{f-F}\Bigr].$$
 
 除了 $\pm F$ 处减半的谱线外，还出现了一个宽的频谱：接通过程本身包含 $\pm F$ 附近的频率。
+::::
 
 :::aufgabe 练习 10 ★ 线谱
 <span class="anker" id="aufg-10"></span>

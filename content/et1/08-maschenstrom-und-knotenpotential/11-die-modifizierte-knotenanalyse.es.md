@@ -37,11 +37,15 @@ Por cada fuente de tensión adicional se añaden una fila y una columna.
 
 ⁠**Cómo leerlo:** $I_V$ sale en $i$ y llega en $k$; por eso está en la fila $i$ con $+1$ y en la fila $k$ con $-1$, como las corrientes salientes de una conductancia. Si la fuente entrega potencia, su corriente la atraviesa de negativo a positivo, e $I_V$ es negativa. Eso es justo lo que SPICE muestra como `I(V1)`. Los unos no tienen unidad; la fila nueva calcula en voltios, la columna nueva en amperios. **Validez:** En la diagonal hay ahora un cero, pero el sistema sigue siendo resoluble mientras la red sea unívoca. Dos fuentes ideales en paralelo no lo son. **En resumen:** Cada elemento de la red tiene su propia estampa, y todas se pueden escribir independientemente unas de otras.
 
-**Ejemplo: la red modelo tal como la ve SPICE.** SPICE no convierte nada. La batería es una fuente ideal $U_\mathrm q$ entre el nuevo nudo 3 y masa; detrás está $R_1$ de 3 a 1. La fuente de corriente y $R_5$ se quedan como están. Las incógnitas son $U_1$, $U_2$, $U_3$ e $I_V$:
+::::beispiel la red modelo tal como la ve SPICE
+SPICE no convierte nada. La batería es una fuente ideal $U_\mathrm q$ entre el nuevo nudo 3 y masa; detrás está $R_1$ de 3 a 1. La fuente de corriente y $R_5$ se quedan como están. Las incógnitas son $U_1$, $U_2$, $U_3$ e $I_V$:
 
 $$\begin{pmatrix}1{,}75&-0{,}5&-1&0\\-0{,}5&0{,}8&0&0\\-1&0&1&1\\0&0&1&0\end{pmatrix} \begin{pmatrix}U_1\\U_2\\U_3\\I_V\end{pmatrix}=\begin{pmatrix}0\\4\\0\\9\end{pmatrix}.$$
 
-La última fila da $U_3=9$ V, con lo que las dos primeras filas se convierten en el sistema de la etapa [5](das-knotenpotentialverfahren.html#stufe-5): $U_1=8$ V, $U_2=10$ V. La tercera fila da $I_V=G_1\,(U_1-U_3)=-1$ mA. Son los resultados de ambos métodos, sin ninguna conversión. **Caso límite:** Para $R_1\to0$, el nudo 3 pasa a ser el nudo 1. El análisis por nudos falla ahí, el MNA no (ejercicio [11](#aufg-11)).
+La última fila da $U_3=9$ V, con lo que las dos primeras filas se convierten en el sistema de la etapa [5](das-knotenpotentialverfahren.html#stufe-5): $U_1=8$ V, $U_2=10$ V. La tercera fila da $I_V=G_1\,(U_1-U_3)=-1$ mA. Son los resultados de ambos métodos, sin ninguna conversión.
+::::
+
+⁠**Caso límite:** Para $R_1\to0$, el nudo 3 pasa a ser el nudo 1. El análisis por nudos falla ahí, el MNA no (ejercicio [11](#aufg-11)).
 
 :::ltspice La red modelo tal como la resuelve SPICE
 ⁠**Esquema:** `voltage` con `9` de `3` a masa, `R1 1k` de `3` a `1`, `R2 4k` de `1` a masa, `R3 2k` de `1` a `2`, `R4 10k` y `R5 5k` de `2` a masa, `current` con `4m` de masa a `2`.

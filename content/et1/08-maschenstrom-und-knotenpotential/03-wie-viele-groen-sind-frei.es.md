@@ -32,7 +32,8 @@ Todas las demás corrientes y tensiones se deducen de Kirchhoff.
 La red modelo. Tres nudos (en rojo), seis ramas. La rama de la izquierda contiene la batería y $R_1$ en serie, porque entre ellas no se bifurca nada. El nudo 0 es toda la línea inferior.
 :::
 
-**Ejemplo.** La red de la fig. [1](#abb-1) tiene $k=3$ y $z=6$, es decir, $m=4$:
+::::beispiel
+La red de la fig. [1](#abb-1) tiene $k=3$ y $z=6$, es decir, $m=4$:
 
 | Planteamiento | Incógnitas | Ecuaciones |
 |---|---|---|
@@ -40,6 +41,7 @@ La red modelo. Tres nudos (en rojo), seis ramas. La rama de la izquierda contien
 | ley de Ohm sustituida | 6 | 2 nudos, 4 mallas |
 | corrientes de malla | 4 | 4 mallas; la fuente de corriente fija un valor, quedan 3 |
 | potenciales de nudo | 2 | 2 nudos |
+::::
 
 ⁠**Casos límite:** Una conexión en serie en forma de anillo tiene $z=k$ y $m=1$: una sola corriente vale en todas partes, y esa es la esencia de la conexión en serie. Una conexión en paralelo tiene $k=2$ y $k-1=1$: una sola tensión vale en todas partes, y esa es la esencia de la conexión en paralelo.
 

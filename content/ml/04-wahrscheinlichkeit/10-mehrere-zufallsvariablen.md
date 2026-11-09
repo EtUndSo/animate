@@ -25,7 +25,9 @@ $$\iint_{[a,b]\times[c,d]}f(x,y)\,\mathrm{d} x\,\mathrm{d} y=\int_a^b\Bigl(\int_
 
 Das innere Integral ist die Fläche eines Schnitts bei festem $x$; summiert man die Schnittflächen mal ihrer Dicke $\mathrm{d} x$, erhält man das Volumen. Für stetige Funktionen ist die Reihenfolge gleichgültig. Ist $f(x,y)=g(x)\,h(y)$ ein Produkt, so zerfällt das Doppelintegral in das Produkt $\int g\,\mathrm{d} x\cdot\int h\,\mathrm{d} y$.
 
-⁠**Rechenbeispiel:** Für $f(x,y)=x+y$ auf $[0,\,1]\times[0,\,1]$ ist das innere Integral $\int_0^1(x+y)\,\mathrm{d} y=x+\tfrac12$ und das äußere $\int_0^1(x+\tfrac12)\,\mathrm{d} x=\tfrac12+\tfrac12=1$.
+::::beispiel [Rechenbeispiel]
+Für $f(x,y)=x+y$ auf $[0,\,1]\times[0,\,1]$ ist das innere Integral $\int_0^1(x+y)\,\mathrm{d} y=x+\tfrac12$ und das äußere $\int_0^1(x+\tfrac12)\,\mathrm{d} x=\tfrac12+\tfrac12=1$.
+::::
 
 ⁠**Kurz gesagt:** Ein Doppelintegral ist ein Volumen; man rechnet es als zwei gewöhnliche Integrale nacheinander aus.
 
@@ -46,7 +48,9 @@ $$P\bigl((X,Y)\in B\bigr)=\iint_Bp(x,y)\,\mathrm{d} x\,\mathrm{d} y . \tag{9.1}$
 
 Die gemeinsame Wahrscheinlichkeitsfunktion summiert sich über alle Paare zu $1$, die gemeinsame Dichte hat das Volumen $1$. Eine gemeinsame Dichte ist eine Wahrscheinlichkeit pro Flächeneinheit; nach dem Muster von [(6.3)](zufallsvariablen-und-verteilungen.html#gl-6-3) ist $P(x\le X\le x+\Delta x,\ y\le Y\le y+\Delta y)\approx p(x,y)\,\Delta x\,\Delta y$.
 
-⁠**Rechenbeispiel:** Aus Tabelle [1](bedingte-wahrscheinlichkeit.html#tab-1) ist $P(S=1,R=1)=0{,}3$, $P(S=1,R=0)=0{,}1$, $P(S=0,R=1)=0{,}1$ und $P(S=0,R=0)=0{,}5$. Stetig: $p(x,y)=x+y$ auf dem Einheitsquadrat und $0$ sonst ist eine gemeinsame Dichte, denn sie ist nichtnegativ und hat nach Unterabschnitt [9.1](#stufe-9-1) das Volumen $1$. Die Wahrscheinlichkeit, dass beide Größen höchstens $\tfrac12$ sind, ist $\int_0^{1/2}\!\int_0^{1/2}(x+y)\,\mathrm{d} y\,\mathrm{d} x=\int_0^{1/2}\bigl(\tfrac x2+\tfrac18\bigr)\mathrm{d} x=\tfrac1{16}+\tfrac1{16}=\tfrac18$.
+::::beispiel [Rechenbeispiel]
+Aus Tabelle [1](bedingte-wahrscheinlichkeit.html#tab-1) ist $P(S=1,R=1)=0{,}3$, $P(S=1,R=0)=0{,}1$, $P(S=0,R=1)=0{,}1$ und $P(S=0,R=0)=0{,}5$. Stetig: $p(x,y)=x+y$ auf dem Einheitsquadrat und $0$ sonst ist eine gemeinsame Dichte, denn sie ist nichtnegativ und hat nach Unterabschnitt [9.1](#stufe-9-1) das Volumen $1$. Die Wahrscheinlichkeit, dass beide Größen höchstens $\tfrac12$ sind, ist $\int_0^{1/2}\!\int_0^{1/2}(x+y)\,\mathrm{d} y\,\mathrm{d} x=\int_0^{1/2}\bigl(\tfrac x2+\tfrac18\bigr)\mathrm{d} x=\tfrac1{16}+\tfrac1{16}=\tfrac18$.
+::::
 
 ⁠**Kurz gesagt:** Die gemeinsame Verteilung gibt für jede Kombination von Werten an, wie wahrscheinlich sie ist; diskret als Tabelle, stetig als Dichte über der Ebene.
 
@@ -67,7 +71,9 @@ $$P(X=x)=\sum_yP(X=x,\,Y=y)\qquad\text{bzw.}\qquad p_X(x)=\int_{-\infty}^\infty 
 
 Im diskreten Fall ist das die Summenregel aus Unterabschnitt [3.1](bedingte-wahrscheinlichkeit.html#stufe-3-1), denn die Ereignisse $\{Y=y\}$ zerlegen $\Omega$. Im stetigen Fall integriert man über alle $y$ einen Streifen der Breite $\Delta x$; das Integral über $y$ ergibt seine Wahrscheinlichkeit pro Breite. Man sagt, man __marginalisiert__ die andere Größe heraus. Die Randverteilungen allein legen die gemeinsame Verteilung nicht fest: Wie die Größen zusammenhängen, geht beim Summieren verloren. Bei vielen Größen wird das Marginalisieren teuer: Wer aus der gemeinsamen Verteilung von $30$ Ja-Nein-Größen die Randverteilung einer einzigen bestimmt, summiert für jeden ihrer beiden Werte über $2^{29}\approx5{,}4\cdot10^8$ Kombinationen der übrigen.
 
-⁠**Rechenbeispiel:** $P(S=1)=0{,}3+0{,}1=0{,}4$ und $P(R=1)=0{,}3+0{,}1=0{,}4$. Für die Dichte $p(x,y)=x+y$ auf dem Einheitsquadrat ist $p_X(x)=\int_0^1(x+y)\,\mathrm{d} y=x+\tfrac12$ für $0\le x\le1$; ebenso ist $p_Y(y)=y+\tfrac12$.
+::::beispiel [Rechenbeispiel]
+$P(S=1)=0{,}3+0{,}1=0{,}4$ und $P(R=1)=0{,}3+0{,}1=0{,}4$. Für die Dichte $p(x,y)=x+y$ auf dem Einheitsquadrat ist $p_X(x)=\int_0^1(x+y)\,\mathrm{d} y=x+\tfrac12$ für $0\le x\le1$; ebenso ist $p_Y(y)=y+\tfrac12$.
+::::
 
 ⁠**Kurz gesagt:** Die Randverteilung einer Größe entsteht aus der gemeinsamen Verteilung, indem man über alle Werte der anderen Größe summiert oder integriert.
 
@@ -92,7 +98,9 @@ Für festes $x$ ist das eine Verteilung in $y$: nichtnegativ und mit der Summe o
 
 Bedingte Verteilungen sind die Sprache für Vorhersagen. Wer aus der Fläche einer Wohnung ihre Miete vorhersagen möchte, fragt nach der Verteilung der Miete gegeben die Fläche. Dass diese Verteilung im Allgemeinen nicht auf einem einzigen Wert sitzt, ist die fehlende Information aus „Worum es geht“: Gleiche Fläche, verschiedene Mieten.
 
-⁠**Rechenbeispiel:** Die bedingte Verteilung von $R$ gegeben $S=1$ ist $P(R=1\mid S=1)=0{,}75$, $P(R=0\mid S=1)=0{,}25$; gegeben $S=0$ ist sie $\tfrac16$ und $\tfrac56$. Die bedingten Erwartungswerte sind $\mathbb{E}[R\mid S=1]=0{,}75$ und $\mathbb{E}[R\mid S=0]=\tfrac16$. Für die Dichte $x+y$ ist $p(y\mid x)=(x+y)/(x+\tfrac12)$ auf $[0,\,1]$. Bei $x=0$ ist das $2y$: Kleine $y$ sind dann selten, große häufig.
+::::beispiel [Rechenbeispiel]
+Die bedingte Verteilung von $R$ gegeben $S=1$ ist $P(R=1\mid S=1)=0{,}75$, $P(R=0\mid S=1)=0{,}25$; gegeben $S=0$ ist sie $\tfrac16$ und $\tfrac56$. Die bedingten Erwartungswerte sind $\mathbb{E}[R\mid S=1]=0{,}75$ und $\mathbb{E}[R\mid S=0]=\tfrac16$. Für die Dichte $x+y$ ist $p(y\mid x)=(x+y)/(x+\tfrac12)$ auf $[0,\,1]$. Bei $x=0$ ist das $2y$: Kleine $y$ sind dann selten, große häufig.
+::::
 
 ⁠**Kurz gesagt:** Die bedingte Verteilung von $Y$ gegeben $X=x$ ist der Schnitt der gemeinsamen Verteilung bei $x$, skaliert auf die Gesamtwahrscheinlichkeit $1$.
 
@@ -123,7 +131,9 @@ Sind $X$ und $Y$ unabhängig, so ist $\mathbb{E}[XY]=\mathbb{E}[X]\,\mathbb{E}[Y
 
 Im diskreten Fall ist $\mathbb{E}[XY]=\sum_{x,y}xy\,P(X=x)P(Y=y)=\sum_xx\,P(X=x)\cdot\sum_yy\,P(Y=y)$, weil die Doppelsumme eines Produkts in das Produkt der Summen zerfällt. Ohne Unabhängigkeit gilt die Regel im Allgemeinen nicht.
 
-⁠**Rechenbeispiel:** Für zwei faire Würfel ist $P(X=a,\,Y=b)=\tfrac1{36}=\tfrac16\cdot\tfrac16$ für alle Paare, also sind sie unabhängig, und $\mathbb{E}[XY]=3{,}5^2=12{,}25$. $S$ und $R$ sind abhängig, denn $P(S=1,R=1)=0{,}3\ne0{,}4\cdot0{,}4$. Dort ist $\mathbb{E}[SR]=P(S=1,R=1)=0{,}3$, aber $\mathbb{E}[S]\,\mathbb{E}[R]=0{,}16$. Die Dichte $x+y$ zerfällt nicht in eine Funktion von $x$ mal eine Funktion von $y$: $(x+\tfrac12)(y+\tfrac12)\ne x+y$, etwa bei $x=y=0$.
+::::beispiel [Rechenbeispiel]
+Für zwei faire Würfel ist $P(X=a,\,Y=b)=\tfrac1{36}=\tfrac16\cdot\tfrac16$ für alle Paare, also sind sie unabhängig, und $\mathbb{E}[XY]=3{,}5^2=12{,}25$. $S$ und $R$ sind abhängig, denn $P(S=1,R=1)=0{,}3\ne0{,}4\cdot0{,}4$. Dort ist $\mathbb{E}[SR]=P(S=1,R=1)=0{,}3$, aber $\mathbb{E}[S]\,\mathbb{E}[R]=0{,}16$. Die Dichte $x+y$ zerfällt nicht in eine Funktion von $x$ mal eine Funktion von $y$: $(x+\tfrac12)(y+\tfrac12)\ne x+y$, etwa bei $x=y=0$.
+::::
 
 ⁠**Kurz gesagt:** Unabhängige Zufallsvariablen haben als gemeinsame Verteilung das Produkt ihrer Randverteilungen; dann ist auch der Erwartungswert eines Produkts das Produkt der Erwartungswerte.
 
@@ -143,7 +153,9 @@ Für Datenpunkte mit mehreren Merkmalen gilt dasselbe: Die Zeilen $\mathbf{x}_1,
 
 Die Annahme ist nicht immer erfüllt, und man muss sie prüfen. Aufeinanderfolgende Abtastwerte eines Signals hängen meist voneinander ab, weil sich das Signal zwischen zwei Abtastzeitpunkten nur wenig ändert. Zehn Messungen an derselben Person sind sich ähnlicher als zehn Messungen an zehn Personen. Und wenn sich eine Fertigung im Lauf des Tages verstellt, sind die Teile vom Abend anders verteilt als die vom Morgen.
 
-⁠**Rechenbeispiel:** Zehn Würfe eines fairen Würfels sind i.i.d. Jede bestimmte Folge, etwa $(3,1,4,1,5,6,2,6,5,3)$, hat die Wahrscheinlichkeit $(\tfrac16)^{10}\approx1{,}65\cdot10^{-8}$, weil die gemeinsame Wahrscheinlichkeitsfunktion das Produkt der zehn Randverteilungen ist. Zieht man aus dem Datensatz der vier Wohnungen mit Zurücklegen, jedes Mal jede Wohnung mit $\tfrac14$, so sind die Ziehungen i.i.d. mit der empirischen Verteilung aus Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7).
+::::beispiel [Rechenbeispiel]
+Zehn Würfe eines fairen Würfels sind i.i.d. Jede bestimmte Folge, etwa $(3,1,4,1,5,6,2,6,5,3)$, hat die Wahrscheinlichkeit $(\tfrac16)^{10}\approx1{,}65\cdot10^{-8}$, weil die gemeinsame Wahrscheinlichkeitsfunktion das Produkt der zehn Randverteilungen ist. Zieht man aus dem Datensatz der vier Wohnungen mit Zurücklegen, jedes Mal jede Wohnung mit $\tfrac14$, so sind die Ziehungen i.i.d. mit der empirischen Verteilung aus Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7).
+::::
 
 ⁠**Kurz gesagt:** i.i.d. heißt unabhängig und mit derselben Verteilung; ein Datensatz wird als Stichprobe solcher Zufallsvariablen aufgefasst, aus einer unbekannten Verteilung.
 

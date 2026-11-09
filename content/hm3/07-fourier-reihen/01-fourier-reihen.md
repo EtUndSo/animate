@@ -14,7 +14,7 @@ Die Netzspannung, ein Geigenton und das Taktsignal eines Prozessors haben eines 
 
 Der Weg führt über acht Begriffe. Eine __Fourier-Reihe__ ist eine unendliche Summe von Schwingungen. Ein __Fourier-Koeffizient__ sagt, wie stark eine Schwingung in einer Funktion steckt. Ein __Fourier-Polynom__ ist eine endliche Teilsumme der Reihe. Die __Bestapproximation__ ist die beste Näherung aus einer vorgegebenen Menge von Funktionen. Die __Parseval-Identität__ vergleicht die Energie einer Funktion mit den Energien ihrer Schwingungen. Die __Faltung__ ist ein gleitender, gewichteter Mittelwert. Der __Dirichlet-Kern__ ist das Gewicht, mit dem ein Fourier-Polynom mittelt. Der __Poisson-Kern__ ist das Gewicht, mit dem die Randwerte einer Kreisscheibe in ihr Inneres wirken.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Die Rechenmodelle für dieses Kapitel
 Alle drei Funktionen werden mit der Periode $2\pi$ auf ganz $\mathbb{R}$ fortgesetzt.

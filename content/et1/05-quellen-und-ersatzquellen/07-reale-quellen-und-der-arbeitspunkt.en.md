@@ -37,7 +37,11 @@ $$I_\mathrm{A}=\frac{U_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{L}},\qquad U_\mathrm{A
 
 The mechanism behind it: if the source delivered more current than the load takes, charge would accumulate at terminal A and its potential would rise. Then the current of the source would fall and the current of the load would rise. This continues until the two currents are equal.
 
-**Example.** With 16 $\Omega$, $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0.5$ A and $U_\mathrm{AB}=8$ V, and 1 V drops internally. With 2 $\Omega$ it is 2.25 A and 4.5 V. Both points lie on the line: $9\,\mathrm{V}-2\,\Omega\cdot2.25\,\mathrm{A}=4.5$ V. Their separation shows the internal resistance as a slope: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3.5\,\mathrm{V}/(-1.75\,\mathrm{A})=-2\,\Omega$. **Limiting cases:** For $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) gives the open circuit $U_\mathrm{AB}=U_\mathrm{q}$, for $R_\mathrm{L}\to0$ the short-circuit current $I_\mathrm{SC}=U_\mathrm{q}/R_\mathrm{q}=4.5$ A. For $R_\mathrm{q}\to0$ the ideal voltage source remains. A nonlinear load can be treated the same way: its characteristic is then a curve, and the intersection is still the solution ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+::::beispiel
+With 16 $\Omega$, $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0.5$ A and $U_\mathrm{AB}=8$ V, and 1 V drops internally. With 2 $\Omega$ it is 2.25 A and 4.5 V. Both points lie on the line: $9\,\mathrm{V}-2\,\Omega\cdot2.25\,\mathrm{A}=4.5$ V. Their separation shows the internal resistance as a slope: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3.5\,\mathrm{V}/(-1.75\,\mathrm{A})=-2\,\Omega$.
+::::
+
+⁠**Limiting cases:** For $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) gives the open circuit $U_\mathrm{AB}=U_\mathrm{q}$, for $R_\mathrm{L}\to0$ the short-circuit current $I_\mathrm{SC}=U_\mathrm{q}/R_\mathrm{q}=4.5$ A. For $R_\mathrm{q}\to0$ the ideal voltage source remains. A nonlinear load can be treated the same way: its characteristic is then a curve, and the intersection is still the solution ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::ltspice The characteristic curve of the battery
 ⁠**Draw:** `voltage` with 9 from `q` to ground, `res` with 2 from `q` to `a`. As a load, a current source `current` named `I1` from `a` to ground.

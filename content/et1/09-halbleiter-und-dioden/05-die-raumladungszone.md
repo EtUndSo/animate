@@ -64,7 +64,11 @@ $$U_\mathrm{D0}=U_T\ln\frac{N_\mathrm AN_\mathrm D}{n_\mathrm i^2},\qquad w=\sqr
 ⁠**Breite.** Beide Seiten tragen gleich viel Ladung, also $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$. Das Feld wächst von den Rändern linear bis zur Grenze und erreicht dort den Wert einer Flächenladung ([Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), $E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$. Die Spannung ist die Fläche unter dem Feldverlauf, ein Dreieck: $U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$. Mit $w=w_\mathrm n+w_\mathrm p$ ergibt das [(3.1)](#gl-3-1).
 :::
 
-**Beispiel.** $U_\mathrm{D0}=25{,}85\,\mathrm{mV}\cdot\ln10^{12}=0{,}714$ V, das sind $27{,}6\,U_T$. Die Barriere lässt also den Anteil $\mathrm{e}^{-27{,}6}=10^{-12}$ passieren, genau das Verhältnis $10^{4}/10^{16}$ der Dichten. Weiter ist $w=0{,}43$ µ m, je zur Hälfte in beiden Gebieten, und $E_\mathrm{max}=3{,}3$ MV/m, so viel wie die Durchschlagsfeldstärke von Luft ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). **Grenzfälle:** Ist eine Seite viel stärker dotiert, liegt die Zone fast ganz in der anderen. Zehnmal mehr Dotierung auf einer Seite hebt $U_\mathrm{D0}$ nur um 60 mV.
+::::beispiel
+$U_\mathrm{D0}=25{,}85\,\mathrm{mV}\cdot\ln10^{12}=0{,}714$ V, das sind $27{,}6\,U_T$. Die Barriere lässt also den Anteil $\mathrm{e}^{-27{,}6}=10^{-12}$ passieren, genau das Verhältnis $10^{4}/10^{16}$ der Dichten. Weiter ist $w=0{,}43$ µ m, je zur Hälfte in beiden Gebieten, und $E_\mathrm{max}=3{,}3$ MV/m, so viel wie die Durchschlagsfeldstärke von Luft ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
+::::
+
+⁠**Grenzfälle:** Ist eine Seite viel stärker dotiert, liegt die Zone fast ganz in der anderen. Zehnmal mehr Dotierung auf einer Seite hebt $U_\mathrm{D0}$ nur um 60 mV.
 
 :::frage In der Diode stecken 0,71 V. Warum misst man an ihr 0 V, und warum treibt sie keinen Strom?
 Die Potenzialstufe ist echt, aber sie ist nicht die einzige im Kreis. Wo Metallkontakte auf den Halbleiter treffen, entstehen weitere Kontaktspannungen. Rund um jeden Kreis ist ihre Summe null, denn im Gleichgewicht gibt es keine Energiequelle. Sie stellt nur das Gleichgewicht zwischen Diffusion und Drift her.

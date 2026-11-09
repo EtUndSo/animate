@@ -25,7 +25,9 @@ $$\varphi^E_{ss}(m)\;\circ\!\!-\!\!\bullet\;|S_\mathrm a(f)|^2\ (\text{period }1
 
 For sampled low-pass signals, $\varphi^E_{sg}(mT)=T\sum_ns^*(nT)g((n+m)T)$ and $E_s=T\sum_n|s(nT)|^2$. A discrete-time energy signal is a square-summable sequence.
 
-**Example.** $s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ for $m=-2,\dots,2$. Maximum $6=E_s$ at $m=0$, even, five values instead of three. Check with Wiener–Khinchin at $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
+::::beispiel
+$s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ for $m=-2,\dots,2$. Maximum $6=E_s$ at $m=0$, even, five values instead of three. Check with Wiener–Khinchin at $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
+::::
 
 **Periodic correlation.** As with convolution ([Part 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)), the following holds for sequences with the period $M$:
 

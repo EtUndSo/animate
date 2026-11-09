@@ -21,7 +21,7 @@ Bir nokta bir doğrunun yanında duruyor. Doğrunun hangi noktası ona en yakın
 
 Orijinden geçen bir doğru, bir $\mathbf{a}\ne\mathbf{0}$ doğrultu vektörünün bütün $t\,\mathbf{a}$ katlarından oluşur. Doğru üzerinde olması gerekmeyen bir $\mathbf{y}$ noktası veriliyor. Aranan, doğrunun $\mathbf{y}$ noktasına en yakın noktasıdır.
 
-Temeller 1, Kesim 5.5'te bir ok, ışık dik geldiğinde bir doğru üzerine gölge düşürüyordu. Gölgenin uç noktası, $\mathbf{y}$ noktasından doğruya inilen dikmenin doğruyla buluştuğu noktadır, yani *dikme ayağı*. Bu noktadan $\mathbf{y}$ noktasına giden bağlantı doğruya diktir (Şekil [4](#abb-4)). Bu noktanın en yakın nokta olduğunu sonraki alt kesim gösteriyor. Burada önce nokta hesaplanıyor, hem de $\mathbf{a}$ birim uzunlukta olmasa bile.
+[Temeller 1, Kesim 5.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5)'te bir ok, ışık dik geldiğinde bir doğru üzerine gölge düşürüyordu. Gölgenin uç noktası, $\mathbf{y}$ noktasından doğruya inilen dikmenin doğruyla buluştuğu noktadır, yani *dikme ayağı*. Bu noktadan $\mathbf{y}$ noktasına giden bağlantı doğruya diktir (Şekil [4](#abb-4)). Bu noktanın en yakın nokta olduğunu sonraki alt kesim gösteriyor. Burada önce nokta hesaplanıyor, hem de $\mathbf{a}$ birim uzunlukta olmasa bile.
 
 :::herleitung Dikme ayağı
 Aranan nokta doğru üzerindedir, yani henüz bilinmeyen bir $\hat x$ sayısıyla $\hat x\,\mathbf{a}$ biçimindedir. $\mathbf{y}-\hat x\,\mathbf{a}$ bağlantısı $\mathbf{a}$ vektörüne dik olmalıdır:
@@ -40,19 +40,23 @@ $\mathbf{a}\in\mathbb{R}^n$, $\mathbf{a}\ne\mathbf{0}$ olsun. $\mathbf{y}\in\mat
 $$\hat{\mathbf{y}}=\hat x\,\mathbf{a}\qquad\text{burada}\qquad\hat x=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}} . \tag{2.1}$$
 :::
 
-$\hat{\mathbf{y}}$ noktası $\mathbb{R}^n$ uzayında bir vektördür; $\hat x$ sayısı ise onun $\mathbf{a}$ boyunca koordinatıdır. İkisi birbirine karıştırılmamalıdır. $\mathbf{a}$ birim uzunluktaysa $\mathbf{a}^{\top}\mathbf{a}=1$ ve $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$ olur; bu tam olarak Temeller 1'deki gölge noktasıdır.
+$\hat{\mathbf{y}}$ noktası $\mathbb{R}^n$ uzayında bir vektördür; $\hat x$ sayısı ise onun $\mathbf{a}$ boyunca koordinatıdır. İkisi birbirine karıştırılmamalıdır. $\mathbf{a}$ birim uzunluktaysa $\mathbf{a}^{\top}\mathbf{a}=1$ ve $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$ olur; bu tam olarak [Temeller 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'deki gölge noktasıdır.
 
 :::abbildung ml/k2lot 4
 $\mathbf{y}=(4,3)^{\top}$ vektörünün $\mathbf{a}=(1,2)^{\top}$ doğrultusundaki doğru üzerine izdüşümü. Dikme ayağı $\hat{\mathbf{y}}=2\mathbf{a}=(2,4)^{\top}$ noktasıdır; $\mathbf{r}=(2,-1)^{\top}$ bağlantısı (mavi) doğruya diktir. Doğrunun başka bir noktası, örneğin $(1,2)^{\top}$, $\mathbf{y}$ noktasına daha uzaktır (kesikli): $\mathbf{y}$, $\hat{\mathbf{y}}$ ve $(1,2)^{\top}$ noktalarının oluşturduğu üçgenin $\hat{\mathbf{y}}$ köşesinde bir dik açı vardır ve kesikli kenar bu üçgenin hipotenüsüdür.
 :::
 
-⁠**Sayısal örnek 1:** $\mathbf{a}=(1,\,2)^{\top}$ ve $\mathbf{y}=(4,\,3)^{\top}$ için $\mathbf{a}^{\top}\mathbf{y}=4+6=10$ ve $\mathbf{a}^{\top}\mathbf{a}=5$ olur (Şekil [5](#abb-5)); dolayısıyla $\hat x=2$ ve $\hat{\mathbf{y}}=(2,\,4)^{\top}$. $\mathbf{y}-\hat{\mathbf{y}}=(2,\,-1)^{\top}$ bağlantısı $\mathbf{a}$ vektörüne diktir: $2-2=0$.
+::::beispiel [Sayısal örnek 1]
+$\mathbf{a}=(1,\,2)^{\top}$ ve $\mathbf{y}=(4,\,3)^{\top}$ için $\mathbf{a}^{\top}\mathbf{y}=4+6=10$ ve $\mathbf{a}^{\top}\mathbf{a}=5$ olur (Şekil [5](#abb-5)); dolayısıyla $\hat x=2$ ve $\hat{\mathbf{y}}=(2,\,4)^{\top}$. $\mathbf{y}-\hat{\mathbf{y}}=(2,\,-1)^{\top}$ bağlantısı $\mathbf{a}$ vektörüne diktir: $2-2=0$.
 
 :::abbildung ml/k2rproj 5
 İzdüşümün iki iç çarpımı adım adım: $\hat x$ kesrinin payında $\mathbf{a}^{\top}\mathbf{y}=10$, paydasında $\mathbf{a}^{\top}\mathbf{a}=5$.
 :::
+::::
 
-⁠**Sayısal örnek 2:** $\mathbf{a}=(3,\,4)^{\top}$ ve $\mathbf{y}=(3,\,1)^{\top}$ için $\hat x=(9+4)/25=0{,}52$ ve $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$ olur; bu, Temeller 1'de $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$ birim vektörüyle bulunan gölge noktasının aynısıdır. Doğrultu vektörünün uzunluğu hiçbir rol oynamaz: $\mathbf{a}$ yerine $c\ne0$ olmak üzere $c\,\mathbf{a}$ alınırsa $\hat x$ değeri $\hat x/c$ olur ve $\hat{\mathbf{y}}$ değişmez. Buna karşılık $\mathbf{y}$ iki katına çıkarılırsa $\hat{\mathbf{y}}$ de iki katına çıkar.
+::::beispiel [Sayısal örnek 2]
+$\mathbf{a}=(3,\,4)^{\top}$ ve $\mathbf{y}=(3,\,1)^{\top}$ için $\hat x=(9+4)/25=0{,}52$ ve $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$ olur; bu, [Temeller 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'de $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$ birim vektörüyle bulunan gölge noktasının aynısıdır. Doğrultu vektörünün uzunluğu hiçbir rol oynamaz: $\mathbf{a}$ yerine $c\ne0$ olmak üzere $c\,\mathbf{a}$ alınırsa $\hat x$ değeri $\hat x/c$ olur ve $\hat{\mathbf{y}}$ değişmez. Buna karşılık $\mathbf{y}$ iki katına çıkarılırsa $\hat{\mathbf{y}}$ de iki katına çıkar.
+::::
 
 ⁠**Kısacası:** $\mathbf{y}$ vektörünün $\mathbf{a}$ doğrultusundaki doğru üzerine izdüşümü dikme ayağıdır: $\hat{\mathbf{y}}=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{a}$.
 
@@ -78,17 +82,19 @@ $t\,\mathbf{a}$ noktasından $\mathbf{y}$ noktasına giden bağlantı iki okun t
 
 $$\mathbf{y}-t\,\mathbf{a}=(\mathbf{y}-\hat{\mathbf{y}})+(\hat x-t)\,\mathbf{a} .$$
 
-Birinci terim türetmeye göre $\mathbf{a}$ vektörüne diktir, dolayısıyla ikinci terime de diktir. Temeller 1, Kesim 5.3'teki Pisagor teoremine göre toplamın uzunluğunun karesi, uzunlukların karelerinin toplamıdır; bu da [(2.2)](#gl-2-2) bağıntısıdır. Sağ taraftaki ikinci terim hiçbir zaman negatif değildir ve yalnızca $t=\hat x$ için sıfırdır. Dolayısıyla uzaklık tam olarak $t=\hat x$ için en küçüktür.
+Birinci terim türetmeye göre $\mathbf{a}$ vektörüne diktir, dolayısıyla ikinci terime de diktir. [Temeller 1, Kesim 5.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3)'teki Pisagor teoremine göre toplamın uzunluğunun karesi, uzunlukların karelerinin toplamıdır; bu da [(2.2)](#gl-2-2) bağıntısıdır. Sağ taraftaki ikinci terim hiçbir zaman negatif değildir ve yalnızca $t=\hat x$ için sıfırdır. Dolayısıyla uzaklık tam olarak $t=\hat x$ için en küçüktür.
 :::
 
 Dikme ayağının uzunluğu için $\lVert\hat{\mathbf{y}}\rVert=|\hat x|\,\lVert\mathbf{a}\rVert=|\mathbf{a}^{\top}\mathbf{y}|/\lVert\mathbf{a}\rVert=|\cos\varphi|\,\lVert\mathbf{y}\rVert$ geçerlidir; burada $\varphi$, $\mathbf{a}$ ile $\mathbf{y}$ arasındaki açıdır. Bu, hipotenüsü $\mathbf{y}$ olan dik üçgendeki komşu dik kenardır.
 
-⁠**Sayısal örnek:** Önceki alt kesimin ilk sayısal örneğinde $\lVert\mathbf{y}-\hat{\mathbf{y}}\rVert^2=\lVert(2,\,-1)^{\top}\rVert^2=5$ olur. $t=1$ noktası, yani $(1,\,2)^{\top}$ için [(2.2)](#gl-2-2) bağıntısı $5+1\cdot5=10$ uzaklık karesini öngörür ve gerçekten de $\lVert(3,\,1)^{\top}\rVert^2=10$. $t=3$, yani $(3,\,6)^{\top}$ için de bu değer $5+1\cdot5=10=\lVert(1,\,-3)^{\top}\rVert^2$ olur. İki nokta dikme ayağına eşit uzaklıktadır, ama farklı taraflarda.
+::::beispiel [Sayısal örnek]
+Önceki alt kesimin ilk sayısal örneğinde $\lVert\mathbf{y}-\hat{\mathbf{y}}\rVert^2=\lVert(2,\,-1)^{\top}\rVert^2=5$ olur. $t=1$ noktası, yani $(1,\,2)^{\top}$ için [(2.2)](#gl-2-2) bağıntısı $5+1\cdot5=10$ uzaklık karesini öngörür ve gerçekten de $\lVert(3,\,1)^{\top}\rVert^2=10$. $t=3$, yani $(3,\,6)^{\top}$ için de bu değer $5+1\cdot5=10=\lVert(1,\,-3)^{\top}\rVert^2$ olur. İki nokta dikme ayağına eşit uzaklıktadır, ama farklı taraflarda.
+::::
 
 ⁠**Kısacası:** Bir doğrunun en yakın noktası dikme ayağıdır, çünkü doğru boyunca atılan her adım Pisagor teoremine göre uzaklığın karesini büyütür.
 
 :::hintergrund Neden tam bir tane en yakın nokta vardır ve bu neden Öklid normuna bağlıdır
-İspat Pisagor teoremini kullanır; bu teorem de yalnızca bir iç çarpımdan türeyen normlar için geçerlidir. Temeller 1, Kesim 3.4'te mutlak değerler toplamı normunun (1-normunun) böyle bir norm olmadığı ortaya çıkmıştı. Bu normla teklik gerçekten de kaybolur. Örnek: $\mathbf{a}=(1,\,1)^{\top}$ doğrultusundaki doğru ve $\mathbf{y}=(1,\,0)^{\top}$ noktası. $0\le t\le1$ için
+İspat Pisagor teoremini kullanır; bu teorem de yalnızca bir iç çarpımdan türeyen normlar için geçerlidir. [Temeller 1, Kesim 3.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-4)'te mutlak değerler toplamı normunun (1-normunun) böyle bir norm olmadığı ortaya çıkmıştı. Bu normla teklik gerçekten de kaybolur. Örnek: $\mathbf{a}=(1,\,1)^{\top}$ doğrultusundaki doğru ve $\mathbf{y}=(1,\,0)^{\top}$ noktası. $0\le t\le1$ için
 
 $$\lVert\mathbf{y}-t\,\mathbf{a}\rVert_1=|1-t|+|0-t|=(1-t)+t=1 ,$$
 
@@ -99,11 +105,11 @@ yani bu uzaklık $\mathbf{0}$ ile $\mathbf{a}$ arasındaki bütün noktalar içi
 
 <span class="anker" id="stufe-2-3"></span>
 
-$\mathbf{y}\mapsto\hat{\mathbf{y}}$ kuralı doğrusaldır: İki noktanın toplamı izdüşümlerinin toplamına, bir katı ise izdüşümünün aynı katına gider. Dolayısıyla Temeller 1, Kesim 8.2'ye göre bir matrisi vardır. $\mathbf{a}^{\top}\mathbf{y}$ sayısı $\mathbf{a}$ vektörünün öbür yanına yazılıp matris çarpımı yeniden parantezlenirse matris doğrudan okunur:
+$\mathbf{y}\mapsto\hat{\mathbf{y}}$ kuralı doğrusaldır: İki noktanın toplamı izdüşümlerinin toplamına, bir katı ise izdüşümünün aynı katına gider. Dolayısıyla [Temeller 1, Kesim 8.2](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2)'ye göre bir matrisi vardır. $\mathbf{a}^{\top}\mathbf{y}$ sayısı $\mathbf{a}$ vektörünün öbür yanına yazılıp matris çarpımı yeniden parantezlenirse matris doğrudan okunur:
 
 $$\hat{\mathbf{y}}=\mathbf{a}\,\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}=\frac{\mathbf{a}\,\mathbf{a}^{\top}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{y} .$$
 
-Kesrin payında Temeller 1, Kesim 9.5'teki dış çarpım durur.
+Kesrin payında [Temeller 1, Kesim 9.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)'teki dış çarpım durur.
 
 :::definition Tanım 2.3 (Bir doğrunun izdüşüm matrisi)
 <span class="anker" id="satz-2-3"></span>
@@ -128,11 +134,13 @@ $(\mathbf{a}\mathbf{a}^{\top})^{\top}=\mathbf{a}\mathbf{a}^{\top}$, dolayısıyl
 
 $\mathbf{P}^2=\mathbf{P}$ denkleminin basit bir anlamı vardır: Zaten doğru üzerinde duran, ikinci izdüşümde yerinde kalır.
 
-⁠**Sayısal örnek:** $\mathbf{a}=(1,\,2)^{\top}$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{a}=(1,\,2)^{\top}$ için şu bulunur:
 
 $$\mathbf{P}=\frac15\begin{pmatrix}1&2\\2&4\end{pmatrix},\qquad \mathbf{P}\begin{pmatrix}4\\3\end{pmatrix}=\frac15\begin{pmatrix}4+6\\8+12\end{pmatrix}=\begin{pmatrix}2\\4\end{pmatrix}.$$
 
-$\mathbf{P}^2=\mathbf{P}$ için sağlama: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, dolayısıyla $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisi Temeller 1, Kesim 11.5'te tersi olmayan bir matris örneğiydi. Şimdi ne yaptığı açık: Bir izdüşümün beş katıdır ve düzlemi $(1,\,2)^{\top}$ doğrultusundaki doğrunun üzerine ezer.
+$\mathbf{P}^2=\mathbf{P}$ için sağlama: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, dolayısıyla $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisi [Temeller 1, Kesim 11.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5)'te tersi olmayan bir matris örneğiydi. Şimdi ne yaptığı açık: Bir izdüşümün beş katıdır ve düzlemi $(1,\,2)^{\top}$ doğrultusundaki doğrunun üzerine ezer.
+::::
 
 ⁠**Kısacası:** Bir doğru üzerine izdüşüm, $\mathbf{P}=\mathbf{a}\mathbf{a}^{\top}/(\mathbf{a}^{\top}\mathbf{a})$ ile yapılan matris-vektör çarpımıdır; bu matris simetriktir ve $\mathbf{P}^2=\mathbf{P}$ koşulunu sağlar.
 
@@ -155,10 +163,12 @@ Bir $\mathbf{P}$ izdüşümü ancak ve ancak $\mathbf{P}^{\top}=\mathbf{P}$ ise 
 :::
 
 :::beweis Dik demek simetrik demektir
-Bütün $\mathbf{y},\mathbf{z}$ için $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$ olur. $\mathbf{P}^{\top}=\mathbf{P}$ ise $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$ olur ve ifade sıfırdır. Tersine, ifade bütün $\mathbf{y},\mathbf{z}$ için sıfırsa $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ matrisi sıfır matristir; çünkü $\mathbf{y}=\mathbf{e}_i$ ve $\mathbf{z}=\mathbf{e}_l$ seçilince ifade bu matrisin $(i,l)$ elemanını verir. O zaman $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$ olur ve Temeller 1, Kesim 10.2'ye göre $\mathbf{P}^{\top}\mathbf{P}$ simetriktir.
+Bütün $\mathbf{y},\mathbf{z}$ için $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$ olur. $\mathbf{P}^{\top}=\mathbf{P}$ ise $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$ olur ve ifade sıfırdır. Tersine, ifade bütün $\mathbf{y},\mathbf{z}$ için sıfırsa $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ matrisi sıfır matristir; çünkü $\mathbf{y}=\mathbf{e}_i$ ve $\mathbf{z}=\mathbf{e}_l$ seçilince ifade bu matrisin $(i,l)$ elemanını verir. O zaman $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$ olur ve [Temeller 1, Kesim 10.2](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2)'ye göre $\mathbf{P}^{\top}\mathbf{P}$ simetriktir.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{P}=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$ matrisi $(x_1,\,x_2)^{\top}$ vektörünü $(x_1+x_2,\,0)^{\top}$ vektörüne götürür. $\mathbf{P}^2=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$ olduğundan $\mathbf{P}$, $x_1$ ekseni üzerine bir izdüşümdür. Simetrik değildir, dolayısıyla dik değildir: $(0,\,1)^{\top}$ noktası $(1,\,0)^{\top}$ noktasına gider, $(-1,\,1)^{\top}$ bağlantısı eksene eğiktir. Işık burada $(1,\,-1)^{\top}$ doğrultusunda gelir. $x_1$ ekseninin en yakın noktasını, yani $(0,\,0)^{\top}$ noktasını bu izdüşüm vermez.
+::::beispiel [Sayısal örnek]
+$\mathbf{P}=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$ matrisi $(x_1,\,x_2)^{\top}$ vektörünü $(x_1+x_2,\,0)^{\top}$ vektörüne götürür. $\mathbf{P}^2=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$ olduğundan $\mathbf{P}$, $x_1$ ekseni üzerine bir izdüşümdür. Simetrik değildir, dolayısıyla dik değildir: $(0,\,1)^{\top}$ noktası $(1,\,0)^{\top}$ noktasına gider, $(-1,\,1)^{\top}$ bağlantısı eksene eğiktir. Işık burada $(1,\,-1)^{\top}$ doğrultusunda gelir. $x_1$ ekseninin en yakın noktasını, yani $(0,\,0)^{\top}$ noktasını bu izdüşüm vermez.
+::::
 
 ⁠**Kısacası:** İzdüşüm, $\mathbf{P}^2=\mathbf{P}$ olan bir matristir; ancak ve ancak simetrikse diktir, yani dikme ayağını verir.
 

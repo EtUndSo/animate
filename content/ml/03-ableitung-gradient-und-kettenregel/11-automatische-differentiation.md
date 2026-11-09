@@ -29,7 +29,9 @@ __Automatische Differentiation__ berechnet Ableitungen einer Rechnung, indem sie
 
 Automatische Differentiation rechnet mit Zahlen, nicht mit Formeln, und deshalb wachsen keine Ausdrücke an. Sie nähert nichts an: Das Ergebnis ist die exakte Ableitung, verfälscht nur durch die Rundung der einzelnen Rechenschritte. Und sie funktioniert für jedes Programm, das aus Grundoperationen besteht, auch mit Schleifen und Verzweigungen, denn für die gegebenen Eingänge liefert das Programm einen Rechengraphen. Die schrittweise Rechnung im Beispiel zu Abschnitt [9.1](rechengraphen.html#stufe-9-1) war schon automatische Differentiation.
 
-⁠**Rechenbeispiel:** Für [(9.1)](rechengraphen.html#gl-9-1) hat der vorige Abschnitt die Ableitungen $5$, $8$ und $3$ aus den lokalen Ableitungen zusammengesetzt, ohne die Formel von $f$ auszumultiplizieren oder abzuleiten. Das war automatische Differentiation, wenn auch noch ohne festes Verfahren für die Reihenfolge der Rechnung. Die beiden folgenden Unterabschnitte geben diese Reihenfolge an.
+::::beispiel [Rechenbeispiel]
+Für [(9.1)](rechengraphen.html#gl-9-1) hat der vorige Abschnitt die Ableitungen $5$, $8$ und $3$ aus den lokalen Ableitungen zusammengesetzt, ohne die Formel von $f$ auszumultiplizieren oder abzuleiten. Das war automatische Differentiation, wenn auch noch ohne festes Verfahren für die Reihenfolge der Rechnung. Die beiden folgenden Unterabschnitte geben diese Reihenfolge an.
+::::
 
 ⁠**Kurz gesagt:** Automatische Differentiation wendet die Kettenregel mit Zahlen auf den Rechengraphen an; sie ist exakt bis auf Rundung und braucht keine Formel.
 
@@ -52,7 +54,8 @@ in derselben Reihenfolge wie die Werte. Diese Zahl heißt der __Tangentenwert__ 
 
 Der Name erinnert an die Tangente aus Abschnitt [1.2](die-ableitung.html#stufe-1-2), ist aber eine Zahl: Der Tangentenwert $\dot b$ ist die Änderungsrate des Knotens $b$, wenn man die Eingänge entlang der Geraden $\mathbf{x}+t\,\dot{\mathbf{x}}$ verschiebt. Die Formel [(10.1)](#gl-10-1) ist die Kettenregel entlang dieser Kurve, [(6.4)](die-kettenregel-fur-mehrere-variablen.html#gl-6-4), für einen einzigen Knoten. Am Ergebnis steht nach einem Durchlauf $\dot f=\nabla f(\mathbf{x})^{\top}\dot{\mathbf{x}}$. Hat die Rechnung mehrere Ausgänge, so steht dort das Produkt $\mathbf{J}\,\dot{\mathbf{x}}$ der Jacobi-Matrix mit der Richtung. Mit $\dot{\mathbf{x}}=\mathbf{e}_j$ liefert ein Durchlauf die partielle Ableitung nach $x_j$, bei mehreren Ausgängen die Spalte $j$ der Jacobi-Matrix. Für den ganzen Gradienten einer Funktion von $n$ Variablen braucht der Vorwärtsmodus also $n$ Durchläufe.
 
-⁠**Rechenbeispiel:** Für [(9.1)](rechengraphen.html#gl-9-1) an der Stelle $(1,\,2,\,3)$ mit der Richtung $\dot{\mathbf{x}}=\mathbf{e}_2=(0,\,1,\,0)^{\top}$ ergibt sich Tabelle [5](#tab-5). Am Ergebnis steht $\dot f=8=\partial f/\partial x_2$. Für $\partial f/\partial x_1$ und $\partial f/\partial x_3$ braucht man zwei weitere Durchläufe mit $\mathbf{e}_1$ und $\mathbf{e}_3$.
+::::beispiel [Rechenbeispiel]
+Für [(9.1)](rechengraphen.html#gl-9-1) an der Stelle $(1,\,2,\,3)$ mit der Richtung $\dot{\mathbf{x}}=\mathbf{e}_2=(0,\,1,\,0)^{\top}$ ergibt sich Tabelle [5](#tab-5). Am Ergebnis steht $\dot f=8=\partial f/\partial x_2$. Für $\partial f/\partial x_1$ und $\partial f/\partial x_3$ braucht man zwei weitere Durchläufe mit $\mathbf{e}_1$ und $\mathbf{e}_3$.
 
 <span class="anker" id="tab-5"></span>
 
@@ -66,6 +69,7 @@ Der Name erinnert an die Tangente aus Abschnitt [1.2](die-ableitung.html#stufe-
 | $v_1$ | $x_1+x_2$ | $3$ | $\dot v_1=\dot x_1+\dot x_2$ | $1$ |
 | $v_2$ | $x_2+x_3$ | $5$ | $\dot v_2=\dot x_2+\dot x_3$ | $1$ |
 | $f$ | $v_1\cdot v_2$ | $15$ | $\dot f=v_2\,\dot v_1+v_1\,\dot v_2$ | $5+3=8$ |
+::::
 
 ⁠**Kurz gesagt:** Der Vorwärtsmodus führt zu jedem Wert seinen Tangentenwert mit; ein Durchlauf liefert die Ableitung in einer Richtung, also eine Spalte der Jacobi-Matrix.
 
@@ -102,7 +106,8 @@ Für jeden Knoten $a$ ist die nach [(10.2)](#gl-10-2) berechnete Zahl $\bar a$ d
 Man ordnet alle Wege von $a$ zum Ergebnis nach ihrer ersten Kante. Jeder Weg beginnt mit einer Kante zu einem Nachfolger $b$ und setzt sich dann als Weg von $b$ zum Ergebnis fort. Die Wege, die über $b$ gehen, tragen deshalb zusammen $\frac{\partial b}{\partial a}$ mal die Summe über alle Wege von $b$ zum Ergebnis bei. Ist diese Summe für alle Nachfolger schon richtig berechnet, also gleich $\bar b$, so ist die Summe für $a$ genau [(10.2)](#gl-10-2). Für das Ergebnis selbst stimmt die Aussage mit $\bar f=1$, dem leeren Weg. Weil man rückwärts rechnet, sind die Nachfolger immer vor $a$ an der Reihe, und die Aussage überträgt sich Knoten für Knoten bis zu den Eingängen.
 :::
 
-⁠**Rechenbeispiel:** Für [(9.1)](rechengraphen.html#gl-9-1) an der Stelle $(1,\,2,\,3)$ ergibt sich Tabelle [6](#tab-6) und Abb. [19](#abb-19). Ein einziger Rückwärtsdurchlauf liefert alle drei partiellen Ableitungen $(5,\,8,\,3)$, die der Vorwärtsmodus nur mit drei Durchläufen bekam.
+::::beispiel [Rechenbeispiel]
+Für [(9.1)](rechengraphen.html#gl-9-1) an der Stelle $(1,\,2,\,3)$ ergibt sich Tabelle [6](#tab-6) und Abb. [19](#abb-19). Ein einziger Rückwärtsdurchlauf liefert alle drei partiellen Ableitungen $(5,\,8,\,3)$, die der Vorwärtsmodus nur mit drei Durchläufen bekam.
 
 <span class="anker" id="tab-6"></span>
 
@@ -120,6 +125,7 @@ Man ordnet alle Wege von $a$ zum Ergebnis nach ihrer ersten Kante. Jeder Weg beg
 :::abbildung ml/k3rueckwaerts 19
 Vorwärts- und Rückwärtswerte im Rechengraphen von $f=(x_1+x_2)\,(x_2+x_3)$ an der Stelle $(1,\,2,\,3)$: grün die Werte der Vorwärtsrechnung, rot die Adjungierten, grau an den Kanten die lokalen Ableitungen. Beim Rückwärtsrechnen wandert jede Adjungierte entgegen der Pfeilrichtung, wird mit der lokalen Ableitung der Kante multipliziert, und wo zwei Kanten von einem Knoten ausgehen, wie bei $x_2$, werden die Beiträge addiert.
 :::
+::::
 
 ⁠**Kurz gesagt:** Der Rückwärtsmodus rechnet erst vorwärts und speichert alle Werte, dann rückwärts die Adjungierten $\bar a=\sum\bar b\,\partial b/\partial a$; ein Rückwärtsdurchlauf liefert den ganzen Gradienten.
 
@@ -169,7 +175,9 @@ Wird ein Knoten mehrfach verwendet, so *addieren* sich die Beiträge aller seine
 
 Jede Aussage ist [(10.2)](#gl-10-2) mit den lokalen Ableitungen aus Tabelle [4](rechengraphen.html#tab-4). Aus (b) folgt eine nützliche Beobachtung: Ist ein Faktor tausendmal so groß wie der andere, so ist die Adjungierte des kleineren Faktors tausendmal so groß wie die des größeren. Große Unterschiede in den Größenordnungen der Eingänge führen deshalb zu ebenso großen Unterschieden in den partiellen Ableitungen.
 
-⁠**Rechenbeispiel:** In Tabelle [6](#tab-6) hat die Multiplikation vertauscht: $v_1$ erhielt $v_2=5$, $v_2$ erhielt $v_1=3$. Die Additionen haben diese Werte unverändert weitergereicht, und $x_2$ hat als Knoten mit zwei Nachfolgern $5+3=8$ gesammelt. Ein Beispiel mit Maximum: Für $f=\max(x_1,x_2)\cdot x_3$ an der Stelle $(1,\,2,\,3)$ ist $v=\max(1,2)=2$ und $f=6$. Rückwärts ist $\bar v=x_3=3$ und $\bar x_3=v=2$; das Maximum gibt $\bar v$ an den größeren Eingang $x_2$, also $\bar x_2=3$ und $\bar x_1=0$. Tatsächlich ändert eine kleine Änderung von $x_1$ das Ergebnis nicht, solange $x_1<x_2$ bleibt.
+::::beispiel [Rechenbeispiel]
+In Tabelle [6](#tab-6) hat die Multiplikation vertauscht: $v_1$ erhielt $v_2=5$, $v_2$ erhielt $v_1=3$. Die Additionen haben diese Werte unverändert weitergereicht, und $x_2$ hat als Knoten mit zwei Nachfolgern $5+3=8$ gesammelt. Ein Beispiel mit Maximum: Für $f=\max(x_1,x_2)\cdot x_3$ an der Stelle $(1,\,2,\,3)$ ist $v=\max(1,2)=2$ und $f=6$. Rückwärts ist $\bar v=x_3=3$ und $\bar x_3=v=2$; das Maximum gibt $\bar v$ an den größeren Eingang $x_2$, also $\bar x_2=3$ und $\bar x_1=0$. Tatsächlich ändert eine kleine Änderung von $x_1$ das Ergebnis nicht, solange $x_1<x_2$ bleibt.
+::::
 
 ⁠**Kurz gesagt:** Addition verteilt, Multiplikation vertauscht, Maximum leitet weiter, und an Verzweigungen wird addiert.
 
@@ -191,7 +199,9 @@ Den Satz beweist man, indem man für jede Grundoperation abzählt, wie viele Rec
 
 Einen Preis hat der Rückwärtsmodus: Speicher. Der Rückwärtsdurchlauf braucht alle Werte der Vorwärtsrechnung, denn die lokalen Ableitungen werden mit ihnen ausgewertet. Man muss also jeden Zwischenwert aufheben, bis der Rückwärtsdurchlauf an ihm vorbeigekommen ist. Bei langen Rechnungen ist dieser Speicher oft die eigentliche Grenze.
 
-⁠**Rechenbeispiel:** Eine Funktion habe $n=10^6$ Eingänge, und eine Auswertung dauere eine Sekunde. Der Vorwärtsmodus braucht für den Gradienten $10^6$ Durchläufe, also mindestens $10^6$ Sekunden, gut $11$ Tage. Zentrale Differenzenquotienten brauchen $2\cdot10^6$ Auswertungen, gut $23$ Tage, und sind dann nur ungefähr richtig. Der Rückwärtsmodus braucht eine Vorwärtsrechnung und einen Rückwärtsdurchlauf, mit $c\approx3$ also wenige Sekunden.
+::::beispiel [Rechenbeispiel]
+Eine Funktion habe $n=10^6$ Eingänge, und eine Auswertung dauere eine Sekunde. Der Vorwärtsmodus braucht für den Gradienten $10^6$ Durchläufe, also mindestens $10^6$ Sekunden, gut $11$ Tage. Zentrale Differenzenquotienten brauchen $2\cdot10^6$ Auswertungen, gut $23$ Tage, und sind dann nur ungefähr richtig. Der Rückwärtsmodus braucht eine Vorwärtsrechnung und einen Rückwärtsdurchlauf, mit $c\approx3$ also wenige Sekunden.
+::::
 
 ⁠**Kurz gesagt:** Der Rückwärtsmodus liefert alle $n$ partiellen Ableitungen einer Zahl für ein kleines festes Vielfaches einer Auswertung, unabhängig von $n$; er bezahlt dafür mit dem Speicher für alle Zwischenwerte.
 
@@ -213,7 +223,9 @@ wobei $\mathbf{J}_L$ eine Zeile ist, weil die letzte Stufe nur einen Ausgang hat
 
 Ein zweiter Punkt kommt hinzu: Man bildet die Jacobi-Matrizen nie. Jeder Rückwärtsschritt berechnet direkt das Produkt aus Adjungierter und Jacobi-Matrix, mit den Regeln der Grundoperationen. Für ein Matrix-Vektor-Produkt $\mathbf{y}=\mathbf{A}\mathbf{x}$ ist das nach [(7.6)](ableiten-nach-vektoren-und-matrizen.html#gl-7-6) $\bar{\mathbf{x}}=\mathbf{A}^{\top}\bar{\mathbf{y}}$, ohne eine weitere Matrix; für eine elementweise Funktion ist es nach [(5.4)](die-jacobi-matrix.html#gl-5-4) das komponentenweise Produkt mit den Ableitungen, ohne eine Diagonalmatrix aufzustellen. Das ist auch nötig: Hat eine Stufe $10^5$ Eingänge und $10^5$ Ausgänge, so hat ihre Jacobi-Matrix $10^{10}$ Einträge, bei acht Byte je Zahl also $80$ Gigabyte.
 
-⁠**Rechenbeispiel:** Eine Rechnung bestehe aus drei Stufen $\mathbb{R}^{1000}\to\mathbb{R}^{1000}$ und einer letzten Stufe $\mathbb{R}^{1000}\to\mathbb{R}$. Ein Produkt aus Zeile und $1000\times1000$-Matrix kostet nach [Grundlagen 1, Abschnitt 9.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-3), etwa $2\cdot10^6$ Grundrechenarten, ein Produkt zweier solcher Matrizen etwa $2\cdot10^9$. Von links geklammert sind es drei Produkte aus Zeile und Matrix, zusammen etwa $6\cdot10^6$. Von rechts geklammert sind es zwei Matrizenprodukte und ein Produkt aus Zeile und Matrix, zusammen etwa $4\cdot10^9$, rund $670$-mal so viel.
+::::beispiel [Rechenbeispiel]
+Eine Rechnung bestehe aus drei Stufen $\mathbb{R}^{1000}\to\mathbb{R}^{1000}$ und einer letzten Stufe $\mathbb{R}^{1000}\to\mathbb{R}$. Ein Produkt aus Zeile und $1000\times1000$-Matrix kostet nach [Grundlagen 1, Abschnitt 9.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-3), etwa $2\cdot10^6$ Grundrechenarten, ein Produkt zweier solcher Matrizen etwa $2\cdot10^9$. Von links geklammert sind es drei Produkte aus Zeile und Matrix, zusammen etwa $6\cdot10^6$. Von rechts geklammert sind es zwei Matrizenprodukte und ein Produkt aus Zeile und Matrix, zusammen etwa $4\cdot10^9$, rund $670$-mal so viel.
+::::
 
 ⁠**Kurz gesagt:** Der Rückwärtsmodus multipliziert die Kette der Jacobi-Matrizen von links mit einer Zeile, der Vorwärtsmodus von rechts mit einer Spalte; die Jacobi-Matrizen selbst werden nie gebildet.
 

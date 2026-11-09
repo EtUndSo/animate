@@ -14,7 +14,7 @@ Ein Bauteil fällt irgendwann aus, ein Messwert schwankt um den wahren Wert, ein
 
 Die __Wahrscheinlichkeitsrechnung__ ist die Mathematik für solche Fragen. Eine Zahl, die vom Zufall abhängt, heißt __Zufallsvariable__. Dieses Kapitel fragt: Was lässt sich über eine solche Zahl exakt aussagen, und was ändert sich, wenn man denselben Versuch sehr oft wiederholt?
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Die Rechenmodelle für dieses Kapitel
 <ul>

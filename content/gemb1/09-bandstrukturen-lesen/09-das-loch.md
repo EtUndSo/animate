@@ -62,7 +62,11 @@ Oben links: Ein volles Band mit 15 Zuständen, symmetrisch um $k=0$. Oben rechts
 
 **Zwei Sorten.** An der Valenzbandkante von Silizium treffen sich zwei Bänder mit verschiedener Krümmung (Stufe [3](silizium.html#stufe-3)). Das flachere ergibt __schwere Löcher__ mit $m_\mathrm{hh}^*=0{,}49\,m_0$, das stärker gekrümmte __leichte Löcher__ mit $m_\mathrm{lh}^*=0{,}16\,m_0$.
 
-**Beispiel.** Ein Valenzband habe die Form der Kette im Rechenmodell, $E=E_\mathrm V-2V_\mathrm{ss}(1-\cos(ka))$ mit $m_\mathrm V^*=1{,}22\,m_0$. Das Feld $\mathcal E=10^6$ V/m beschleunigt das Loch mit $e\mathcal E/m_\mathrm V^*=1{,}4\cdot10^{17}\,\mathrm{m/s^2}$ in Feldrichtung. **Grenzfall:** Ein Band mit einem einzigen Elektron und eines mit einem einzigen Loch sind Spiegelbilder, und halb gefüllt sind beide Beschreibungen gleich gut.
+::::beispiel
+Ein Valenzband habe die Form der Kette im Rechenmodell, $E=E_\mathrm V-2V_\mathrm{ss}(1-\cos(ka))$ mit $m_\mathrm V^*=1{,}22\,m_0$. Das Feld $\mathcal E=10^6$ V/m beschleunigt das Loch mit $e\mathcal E/m_\mathrm V^*=1{,}4\cdot10^{17}\,\mathrm{m/s^2}$ in Feldrichtung.
+::::
+
+⁠**Grenzfall:** Ein Band mit einem einzigen Elektron und eines mit einem einzigen Loch sind Spiegelbilder, und halb gefüllt sind beide Beschreibungen gleich gut.
 
 :::aufgabe Aufgabe 8 ★★ Einem Loch folgen
 <span class="anker" id="aufg-8"></span>

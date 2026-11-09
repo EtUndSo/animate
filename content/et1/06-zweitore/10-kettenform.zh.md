@@ -43,7 +43,8 @@ $$\begin{pmatrix}U_1'\\I_1'\end{pmatrix}=\mathbf A'\begin{pmatrix}U_2'\\-I_2'\en
 上：两个二端口网络级联。第一个的输出和第二个的输入共享电压和电流。下：T 形网络作为三个基本二端口网络的级联：串联电阻、并联电导、串联电阻。
 :::
 
-**例。** 最简单的构件是串联电阻和并联电导。对串联电阻，$U_1=U_2+R(-I_2)$，$I_1=-I_2$；对并联电导，$U_1=U_2$，$I_1=G\,U_2+(-I_2)$：
+::::beispiel
+最简单的构件是串联电阻和并联电导。对串联电阻，$U_1=U_2+R(-I_2)$，$I_1=-I_2$；对并联电导，$U_1=U_2$，$I_1=G\,U_2+(-I_2)$：
 
 $$\mathbf A_R=\begin{pmatrix}1&R\\0&1\end{pmatrix},\qquad \mathbf A_G=\begin{pmatrix}1&0\\G&1\end{pmatrix}.$$
 
@@ -52,6 +53,7 @@ T 形网络是 $R_\mathrm{a}$、$G_\mathrm{b}=1/R_\mathrm{b}=50$ mS 和 $R_\ma
 $$\mathbf A=\begin{pmatrix}1&15\,\Omega\\0&1\end{pmatrix}\begin{pmatrix}1&0\\50\,\mathrm{mS}&1\end{pmatrix}\begin{pmatrix}1&20\,\Omega\\0&1\end{pmatrix}=\begin{pmatrix}1.75&50\,\Omega\\50\,\mathrm{mS}&2\end{pmatrix}.$$
 
 从负载往回算，取 $U_2=3$ V，$-I_2=50$ mA：$U_1=5.25\,\mathrm{V}+2.5\,\mathrm{V}=7.75$ V，$I_1=150\,\mathrm{mA}+100\,\mathrm{mA}=250$ mA。这些就是第 [4](das-zweitor-im-betrieb.html#stufe-4) 阶段的值，无需解方程组。
+::::
 
 等效的 $\pi$ 形网络，并联电导为 $G_1$、$G_3$，串联电导为 $G_2$，一般有
 

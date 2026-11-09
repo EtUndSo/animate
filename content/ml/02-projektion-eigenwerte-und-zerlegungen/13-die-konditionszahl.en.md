@@ -75,11 +75,13 @@ The two equations give $\mathbf{A}\Delta\mathbf{x}=\Delta\mathbf{y}$. By [(9.5)]
 
 So the worst case is this: the solution lies in the direction that $\mathbf{A}$ stretches most, so that $\mathbf{y}$ is large compared with $\mathbf{x}$, and the error lies in the direction that $\mathbf{A}$ stretches least, so that solving back enlarges it by $1/d_n$.
 
-⁠**Worked example:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$ is symmetric with the trace $2.01$ and the determinant $0.01$. Its eigenvalues are
+::::beispiel [Worked example]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$ is symmetric with the trace $2.01$ and the determinant $0.01$. Its eigenvalues are
 
 $$\lambda_{1,2}=\frac{2.01\pm\sqrt{2.01^2-0.04}}2=\frac{2.01\pm\sqrt{4.0001}}2\approx\frac{2.01\pm2.000025}2,$$
 
 so $\lambda_1\approx2.005012$ and $\lambda_2\approx0.004988$, both positive. By Section [9.7](die-singularwertzerlegung.html#stufe-9-7), these are also the singular values, and $\kappa(\mathbf{A})\approx402$. The observed amplification $284$ lies below this. It does not quite reach the bound, because $\Delta\mathbf{y}=(0,\ 0.01)^{\top}$ does not point exactly in the direction of $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$. For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, we have $\kappa=4/1=4$: relative errors are at most quadrupled.
+::::
 
 ⁠**In short:** The condition number $\kappa(\mathbf{A})=d_1/d_n$ is the largest factor by which $\mathbf{A}^{-1}$ can enlarge a relative error of the data in the solution.
 
@@ -87,7 +89,7 @@ so $\lambda_1\approx2.005012$ and $\lambda_2\approx0.004988$, both positive. By 
 
 <span class="anker" id="stufe-12-3"></span>
 
-The background box in Foundations 1, Section 14.6, contained a warning: a small determinant does not mean that a matrix is nearly singular. The condition number measures what was meant there.
+The background box in [Foundations 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), contained a warning: a small determinant does not mean that a matrix is nearly singular. The condition number measures what was meant there.
 
 :::satz Theorem 12.3 (Distance to the nearest singular matrix)
 <span class="anker" id="satz-12-3"></span>
@@ -104,7 +106,9 @@ A singular matrix has rank at most $n-1$. By the Eckart–Young theorem with $k=
 
 So a large condition number means: a relatively small change makes the matrix singular. The determinant measures something else. By Exercise [29](die-singularwertzerlegung.html#aufg-29), $|\det\mathbf{A}|=d_1\cdots d_n$, the product of all stretches; it depends on the size of the matrix. The condition number is a ratio and does not change when $\mathbf{A}$ is multiplied by a number: $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ for $c\ne0$. It only measures how flat the ellipse is into which $\mathbf{A}$ transforms the unit circle.
 
-⁠**Worked example:** The two matrices from Foundations 1, Section 14.6: $0.1\cdot\mathbf{I}_{10}$ has the determinant $10^{-10}$, but all singular values are $0.1$ and $\kappa=1$; it is as well conditioned as possible. $\operatorname{diag}(1000,\ 0.001)$ has the determinant $1$, but $\kappa=1000/0.001=10^6$. For $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$, the distance to the nearest singular matrix is $d_2\approx0.005$: changing entries by a few thousandths makes it singular. The singular matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ is at the distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$, slightly more than the minimum.
+::::beispiel [Worked example]
+The two matrices from [Foundations 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6): $0.1\cdot\mathbf{I}_{10}$ has the determinant $10^{-10}$, but all singular values are $0.1$ and $\kappa=1$; it is as well conditioned as possible. $\operatorname{diag}(1000,\ 0.001)$ has the determinant $1$, but $\kappa=1000/0.001=10^6$. For $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$, the distance to the nearest singular matrix is $d_2\approx0.005$: changing entries by a few thousandths makes it singular. The singular matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ is at the distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$, slightly more than the minimum.
+::::
 
 ⁠**In short:** $1/\kappa(\mathbf{A})$ is the relative distance to the nearest singular matrix; the determinant says nothing about this, because it depends on the size of the matrix.
 
@@ -129,7 +133,9 @@ For the QR decomposition $\mathbf{A}=\mathbf{Q}\mathbf{R}$, on the other hand, w
 $\mathbf{A}^{\top}\mathbf{A}$ is symmetric and positive definite with the eigenvalues $d_j^2$; by Section [9.7](die-singularwertzerlegung.html#stufe-9-7), these are also its singular values, and their ratio is $d_1^2/d_n^2$. Because $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$, we have $\mathbf{R}^{\top}\mathbf{R}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{A}^{\top}\mathbf{A}$; so $\mathbf{R}$ has the same singular values as $\mathbf{A}$.
 :::
 
-⁠**Worked example:** The apartment matrix from Section [3.7](die-beste-naherungslosung.html#stufe-3-7), with floor area and number of rooms, has the singular values $d_1\approx135.02$ and $d_2\approx0.848$, so $\kappa(\mathbf{A})\approx159.3$ and $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Two causes make $\kappa(\mathbf{A})$ large. First, the units: the floor areas are numbers around $65$, the numbers of rooms around $2.5$. If you measure the floor area in units of $10\,\mathrm m^2$, the condition number drops to about $18.5$. Second, the two columns point in almost the same direction; the angle between them is only about $8.9^\circ$. That is why $\kappa\approx12.8$ remains even if you scale both columns to length $1$. Converting the units does not change the fitted values $\hat{\mathbf{y}}$: if you divide a column by $10$, the corresponding weight becomes $10$ times as large, and the products stay the same.
+::::beispiel [Worked example]
+The apartment matrix from Section [3.7](die-beste-naherungslosung.html#stufe-3-7), with floor area and number of rooms, has the singular values $d_1\approx135.02$ and $d_2\approx0.848$, so $\kappa(\mathbf{A})\approx159.3$ and $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Two causes make $\kappa(\mathbf{A})$ large. First, the units: the floor areas are numbers around $65$, the numbers of rooms around $2.5$. If you measure the floor area in units of $10\,\mathrm m^2$, the condition number drops to about $18.5$. Second, the two columns point in almost the same direction; the angle between them is only about $8.9^\circ$. That is why $\kappa\approx12.8$ remains even if you scale both columns to length $1$. Converting the units does not change the fitted values $\hat{\mathbf{y}}$: if you divide a column by $10$, the corresponding weight becomes $10$ times as large, and the products stay the same.
+::::
 
 ⁠**In short:** The normal equations work with $\kappa(\mathbf{A})^2$, the QR decomposition with $\kappa(\mathbf{A})$; well-chosen units lower the condition number.
 

@@ -41,17 +41,21 @@ $$\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij} .$$
 
 Se lee de dentro hacia fuera: para cada fila $i$, la suma interior suma los números de esa fila; la suma exterior suma las sumas de las filas. Como con un número finito de sumandos el orden no importa, se pueden intercambiar los dos signos de sumatorio y sumar primero por columnas.
 
-⁠**Ejemplo numérico 1:** Para $a_1=2$, $a_2=5$, $a_3=1$, cada suma se escribe primero desarrollada; después se sustituyen los números y se suma (fig. [1](#abb-1)). Así, $\sum_{i=1}^3 a_i=8$ y $\sum_{i=1}^3 a_i^2=30$. En la tercera suma, el propio índice de sumación es el sumando: $\sum_{j=1}^{3}j=6$.
+::::beispiel [Ejemplo numérico 1]
+Para $a_1=2$, $a_2=5$, $a_3=1$, cada suma se escribe primero desarrollada; después se sustituyen los números y se suma (fig. [1](#abb-1)). Así, $\sum_{i=1}^3 a_i=8$ y $\sum_{i=1}^3 a_i^2=30$. En la tercera suma, el propio índice de sumación es el sumando: $\sum_{j=1}^{3}j=6$.
 
 :::abbildung ml/k1rsumme 1
 Tres sumas paso a paso: desarrollar el signo de sumatorio, sustituir los números, sumar.
 :::
+::::
 
-⁠**Ejemplo numérico 2:** La tabla con las filas $(1,\,2)$ y $(3,\,4)$ tiene las entradas $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Sumando por filas, la suma doble da $(1+2)+(3+4)=10$; por columnas, $(1+3)+(2+4)=10$ (fig. [2](#abb-2)).
+::::beispiel [Ejemplo numérico 2]
+La tabla con las filas $(1,\,2)$ y $(3,\,4)$ tiene las entradas $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Sumando por filas, la suma doble da $(1+2)+(3+4)=10$; por columnas, $(1+3)+(2+4)=10$ (fig. [2](#abb-2)).
 
 :::abbildung ml/k1rdoppel 2
 La suma doble sobre la tabla con las filas $(1,\,2)$ y $(3,\,4)$: arriba, primero por filas; abajo, primero por columnas. Ambos órdenes dan la misma suma.
 :::
+::::
 
 ⁠**En resumen:** $\sum_{i=1}^n a_i$ es la suma de $a_1$ a $a_n$; el índice de sumación $i$ es solo un marcador de posición.
 
@@ -88,7 +92,9 @@ En toda la serie se cumple: $N$ es el número de ejemplos y $d$ el número de ca
 
 Dos aclaraciones sobre los términos. En las bases de datos, una sola fila de una tabla se llama a menudo «registro»; aquí, el conjunto de datos es la colección entera. Y la palabra «ejemplo» designa en este capítulo siempre una cosa de un conjunto de datos; por eso, los cálculos resueltos paso a paso se llaman «ejemplo numérico».
 
-⁠**Ejemplo numérico:** El conjunto de datos de viviendas tiene $N=4$ ejemplos y $d=3$ características. La característica 2 es el número de habitaciones. En la vivienda 3 tiene el valor $4$.
+::::beispiel [Ejemplo numérico]
+El conjunto de datos de viviendas tiene $N=4$ ejemplos y $d=3$ características. La característica 2 es el número de habitaciones. En la vivienda 3 tiene el valor $4$.
+::::
 
 No toda propiedad es de por sí un número. El barrio de una vivienda es un nombre. Tales propiedades hay que traducirlas primero a números antes de poder calcular con ellas. En este capítulo, todas las características ya son números.
 
@@ -126,7 +132,9 @@ Los vectores se escriben en negrita y en minúscula; sus componentes, en tipo no
 
 **Los ejemplos de un conjunto de datos.** El ejemplo número $i$ es el vector $\mathbf{x}_i\in\mathbb{R}^d$. El vector de un ejemplo se llama también su __vector de características__. Sus componentes llevan dos índices: $x_{ij}$ es el valor de la característica $j$ en el ejemplo $i$. Una letra en negrita con un índice es, por tanto, un vector entero de una lista de vectores; una letra normal con dos índices, un único número.
 
-⁠**Ejemplo numérico:** La vivienda 1 es el vector $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Su segunda componente es $x_{12}=2$. El vector $(2,\,60,\,3)^{\top}$ contiene los mismos números, pero es otro vector: en la primera posición está ahora el número $2$, y ese se leería como superficie.
+::::beispiel [Ejemplo numérico]
+La vivienda 1 es el vector $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Su segunda componente es $x_{12}=2$. El vector $(2,\,60,\,3)^{\top}$ contiene los mismos números, pero es otro vector: en la primera posición está ahora el número $2$, y ese se leería como superficie.
+::::
 
 ⁠**En resumen:** Un vector es una lista ordenada de números que puede dibujarse como punto o como flecha; un ejemplo con $d$ características es un vector de $\mathbb{R}^d$.
 
@@ -165,11 +173,13 @@ Como cada componente es por sí sola un cálculo ordinario con números, valen l
 
 La diferencia $\mathbf{u}-\mathbf{v}$ tiene una interpretación propia. Es la flecha que va de la punta de $\mathbf{v}$ a la punta de $\mathbf{u}$, pues $\mathbf{v}+(\mathbf{u}-\mathbf{v})=\mathbf{u}$. Para dos ejemplos, indica en cuánto se diferencian en cada característica.
 
-⁠**Ejemplo numérico:** La vivienda 1 ha consumido de enero a marzo $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilovatios hora de electricidad; la vivienda 2, en el mismo edificio, $\mathbf{v}=(150,\,100,\,120)^{\top}$. Juntas consumen
+::::beispiel [Ejemplo numérico]
+La vivienda 1 ha consumido de enero a marzo $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilovatios hora de electricidad; la vivienda 2, en el mismo edificio, $\mathbf{v}=(150,\,100,\,120)^{\top}$. Juntas consumen
 
 $$\mathbf{u}+\mathbf{v}=(350,\,350,\,420)^{\top}\ \text{kWh}.$$
 
 El consumo de la vivienda 1 en megavatios hora lo da el múltiplo $0{,}001\,\mathbf{u}=(0{,}2;\ 0{,}25;\ 0{,}3)^{\top}$. La diferencia $\mathbf{u}-\mathbf{v}=(50,\,150,\,180)^{\top}$ indica cuántos kilovatios hora más que la vivienda 2 consume la vivienda 1 en cada mes. En el conjunto de datos de viviendas, $\mathbf{x}_3-\mathbf{x}_1=(30,\,2,\,3)^{\top}$: la vivienda 3 es $30\,\mathrm m^2$ más grande, tiene dos habitaciones más y está $3$ km más lejos del centro que la vivienda 1.
+::::
 
 ⁠**En resumen:** Los vectores se suman y se multiplican por un número componente por componente.
 
@@ -194,15 +204,20 @@ se llama una __combinación lineal__ de los vectores $\mathbf{v}_1,\dots,\mathbf
 
 Atención al leer: $\mathbf{v}_l$ está en negrita; es, por tanto, el $l$-ésimo vector de la lista, no la $l$-ésima componente de un vector.
 
-⁠**Ejemplo numérico 1:** $(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::beispiel [Ejemplo numérico 1]
+$(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::
 
-⁠**Ejemplo numérico 2: el punto medio.** La combinación lineal $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ de las viviendas 1 y 2 es
+::::beispiel [Ejemplo numérico 2] el punto medio
+La combinación lineal $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ de las viviendas 1 y 2 es
 
 $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{\top}.$$
 
 Es una vivienda imaginaria que, en cada característica, está exactamente a medio camino entre las dos. El punto está en el centro del segmento de unión.
+::::
 
-⁠**Ejemplo numérico 3: la media de los ejemplos.** Si se toman todos los $N$ ejemplos con el coeficiente $1/N$, se obtiene la __media de los ejemplos__
+::::beispiel [Ejemplo numérico 3] la media de los ejemplos
+Si se toman todos los $N$ ejemplos con el coeficiente $1/N$, se obtiene la __media de los ejemplos__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
@@ -212,6 +227,7 @@ Para el conjunto de datos de viviendas, $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top
 :::abbildung ml/k1rmittelvektor 5
 La media de las cuatro viviendas: la suma de los vectores se forma componente por componente y después se divide por $4$; $5/2=2{,}5$.
 :::
+::::
 
 ⁠**En resumen:** Una combinación lineal multiplica cada vector por un número propio y lo suma todo.
 
@@ -242,7 +258,9 @@ $$\mathbf{x}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\dots+x_d\mathbf{e}_d=\sum_{j=1}^d 
 
 Se ve calculando el lado derecho componente por componente: en la posición $j$ solo aporta algo el sumando $x_j\mathbf{e}_j$, y en concreto $x_j\cdot1$. Otros coeficientes no son posibles, pues darían en alguna posición un número distinto.
 
-⁠**Ejemplo numérico:** $\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, es decir, $60$ veces «un metro cuadrado» más $2$ veces «una habitación» más $3$ veces «un kilómetro».
+::::beispiel [Ejemplo numérico]
+$\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, es decir, $60$ veces «un metro cuadrado» más $2$ veces «una habitación» más $3$ veces «un kilómetro».
+::::
 
 ⁠**En resumen:** El vector unitario $\mathbf{e}_j$ tiene un uno en la posición $j$ y ceros en las demás; todo vector es la suma $\sum_jx_j\mathbf{e}_j$.
 

@@ -40,7 +40,11 @@ $$\frac{I_1}{I_2}=\frac{U_\mathrm{L2}}{U_\mathrm{L1}},\qquad\frac{P_\mathrm{cabl
 
 ⁠**How to read it:** $U_\mathrm{cable}$ is the __voltage drop__ along the line. $P_\mathrm{cable}$ is the __power loss__, $P_\mathrm{useful}=P_\mathrm{L}$ the __useful power__ of the load, $P_\mathrm{q}=U_\mathrm{q}I$ the power of the source. $U_\mathrm{L}$ is the voltage across the load. **Validity:** The formulas hold for DC quantities and for the resistance of the line. For an AC voltage and an ohmic load, they hold with RMS values.
 
-**Example.** The load needs 40 kW, $R_\mathrm{cable}=1\,\Omega$. At $U_\mathrm{L}=400$ V, $I=100$ A, $U_\mathrm{cable}=100$ V and $P_\mathrm{cable}=10$ kW. The source must supply 500 V, and by [(4.2)](#gl-4-2), $1-100/500=80$ % arrive. At 20 kV, $I=2$ A, $U_\mathrm{cable}=2$ V and $P_\mathrm{cable}=4$ W, and 99.99 % arrive. The current falls by a factor of 50, the loss by $50^2=2500$. **Limiting case:** For $R_\mathrm{cable}\to0$, $U_\mathrm{cable}=0$ and [(4.2)](#gl-4-2) gives 1. Over longer distances, energy can be transmitted only at high voltage, which is why the grid is built in levels. The __nominal voltage__ is the voltage for which a grid is designed:
+::::beispiel
+The load needs 40 kW, $R_\mathrm{cable}=1\,\Omega$. At $U_\mathrm{L}=400$ V, $I=100$ A, $U_\mathrm{cable}=100$ V and $P_\mathrm{cable}=10$ kW. The source must supply 500 V, and by [(4.2)](#gl-4-2), $1-100/500=80$ % arrive. At 20 kV, $I=2$ A, $U_\mathrm{cable}=2$ V and $P_\mathrm{cable}=4$ W, and 99.99 % arrive. The current falls by a factor of 50, the loss by $50^2=2500$.
+::::
+
+⁠**Limiting case:** For $R_\mathrm{cable}\to0$, $U_\mathrm{cable}=0$ and [(4.2)](#gl-4-2) gives 1. Over longer distances, energy can be transmitted only at high voltage, which is why the grid is built in levels. The __nominal voltage__ is the voltage for which a grid is designed:
 
 | Level | Nominal voltage | Range | Task |
 |---|---|---|---|

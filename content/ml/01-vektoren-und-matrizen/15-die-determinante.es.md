@@ -44,7 +44,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 
 Su valor absoluto es el área del paralelogramo que forman las columnas, es decir, el factor en que $\mathbf{A}$ cambia el área del cuadrado unidad. Es el mismo número que aparece en el denominador de la inversa [(11.2)](einheitsmatrix-und-inverse.html#gl-11-2).
 
-⁠**Ejemplo numérico:** $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ y $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. El estiramiento cambia la forma del cuadrado, pero no su área: lo que estira a lo ancho lo quita en altura.
+::::beispiel [Ejemplo numérico]
+$\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ y $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. El estiramiento cambia la forma del cuadrado, pero no su área: lo que estira a lo ancho lo quita en altura.
+::::
 
 ⁠**En resumen:** El determinante $ad-bc$ de una matriz $2\times2$ es, en valor absoluto, el factor en que la aplicación cambia el área del cuadrado unidad.
 
@@ -56,7 +58,9 @@ Un área nunca es negativa; el determinante puede serlo. El signo lleva una info
 
 En el cuadrado unidad, $\mathbf{e}_2$ está, visto desde $\mathbf{e}_1$, en sentido antihorario. Si en las imágenes sigue siendo así, es decir, si $\mathbf{a}_2$ está, visto desde $\mathbf{a}_1$, también en sentido antihorario, entonces $\det\mathbf{A}>0$. Si $\mathbf{a}_2$ está en sentido horario respecto de $\mathbf{a}_1$, el plano se ha reflejado, y $\det\mathbf{A}<0$. Esta propiedad se llama __orientación__: un determinante positivo conserva la orientación; uno negativo la invierte.
 
-⁠**Ejemplo numérico:** La reflexión respecto del eje $x_1$, $\operatorname{diag}(1;\,-1)$, tiene el determinante $-1$: el área sigue siendo la misma, la orientación se invierte. Si se intercambian las columnas de una matriz, el determinante cambia de signo: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. La rotación de $90^\circ$ tiene $\det=0\cdot0-(-1)\cdot1=1$; la cizalladura, $\det=1\cdot1-1\cdot0=1$; el aplastamiento $\operatorname{diag}(1;\,0)$, el determinante $0$.
+::::beispiel [Ejemplo numérico]
+La reflexión respecto del eje $x_1$, $\operatorname{diag}(1;\,-1)$, tiene el determinante $-1$: el área sigue siendo la misma, la orientación se invierte. Si se intercambian las columnas de una matriz, el determinante cambia de signo: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. La rotación de $90^\circ$ tiene $\det=0\cdot0-(-1)\cdot1=1$; la cizalladura, $\det=1\cdot1-1\cdot0=1$; el aplastamiento $\operatorname{diag}(1;\,0)$, el determinante $0$.
+::::
 
 ⁠**En resumen:** El valor absoluto del determinante es el factor de área; su signo dice si la aplicación refleja.
 
@@ -76,7 +80,9 @@ Si $\mathbf{A}\in\mathbb{R}^{2\times2}$ transforma una figura de área $F$, la i
 Se coloca sobre la figura una cuadrícula fina de pequeños cuadrados de lado $h$. Un cuadrado con el vértice $\mathbf{q}$ tiene los vértices $\mathbf{q}$, $\mathbf{q}+h\mathbf{e}_1$, $\mathbf{q}+h\mathbf{e}_1+h\mathbf{e}_2$ y $\mathbf{q}+h\mathbf{e}_2$. Su imagen tiene los vértices $\mathbf{A}\mathbf{q}$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1+h\mathbf{a}_2$ y $\mathbf{A}\mathbf{q}+h\mathbf{a}_2$: es el paralelogramo formado por $h\mathbf{a}_1$ y $h\mathbf{a}_2$, desplazado a $\mathbf{A}\mathbf{q}$. Su área es $h^2\,|\det\mathbf{A}|$, independientemente de dónde estuviera el cuadrado. Cada cuadrado pequeño se hace, por tanto, mayor o menor en el mismo factor $|\det\mathbf{A}|$. La figura consta aproximadamente de tales cuadrados, y cuanto más fina es la cuadrícula, más exacta es la aproximación. Por eso, el factor vale para toda la figura.
 :::
 
-⁠**Ejemplo numérico:** El círculo de radio $1$ tiene el área $\pi$. El estiramiento $\operatorname{diag}(3;\,2)$ lo convierte en una elipse de semiejes $3$ y $2$. Su área es $\pi\cdot3\cdot2=6\pi$, es decir, exactamente $|\det\mathbf{A}|=6$ veces el área del círculo. El triángulo de vértices $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ tiene el área $\tfrac12$; bajo $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ se convierte en el triángulo de vértices $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$, de área $\tfrac52$.
+::::beispiel [Ejemplo numérico]
+El círculo de radio $1$ tiene el área $\pi$. El estiramiento $\operatorname{diag}(3;\,2)$ lo convierte en una elipse de semiejes $3$ y $2$. Su área es $\pi\cdot3\cdot2=6\pi$, es decir, exactamente $|\det\mathbf{A}|=6$ veces el área del círculo. El triángulo de vértices $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ tiene el área $\tfrac12$; bajo $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ se convierte en el triángulo de vértices $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$, de área $\tfrac52$.
+::::
 
 ⁠**En resumen:** Una aplicación lineal cambia el área de cualquier figura en el mismo factor $|\det\mathbf{A}|$, porque trata igual cada casilla pequeña de la cuadrícula.
 
@@ -99,7 +105,8 @@ donde $\mathbf{A}_{1j}$ es la matriz $(n-1)\times(n-1)$ que resulta de $\mathbf{
 
 Para $n=2$, [(14.2)](#gl-14-2) vuelve a dar $a_{11}a_{22}-a_{12}a_{21}$. Igualmente se puede desarrollar por cualquier otra fila o columna, con el signo $(-1)^{i+j}$ para la entrada $a_{ij}$; el resultado es siempre el mismo. Para $n=3$, $|\det\mathbf{A}|$ es el volumen del paralelepípedo formado por las tres columnas, y el signo dice si las columnas están dispuestas en el mismo sentido de giro que $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ (regla de la mano derecha) o reflejadas.
 
-⁠**Ejemplo numérico:** Para la matriz de coeficientes de la subsección [12.3](lineare-gleichungssysteme.html#stufe-12-3),
+::::beispiel [Ejemplo numérico]
+Para la matriz de coeficientes de la subsección [12.3](lineare-gleichungssysteme.html#stufe-12-3),
 
 $$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
 
@@ -108,6 +115,7 @@ el desarrollo de Laplace por la primera fila da $\det\mathbf{A}=-4$ (fig. [41](
 :::abbildung ml/k1rlaplace 41
 El desarrollo de Laplace por la primera fila: cada entrada de la primera fila por el determinante de la matriz restante sin su fila ni su columna, con signos alternos.
 :::
+::::
 
 Para una matriz triangular superior, bajo cuya diagonal solo hay ceros, se desarrolla una y otra vez por la primera columna y se obtiene el producto de las entradas diagonales, por ejemplo $\det\Bigl(\begin{smallmatrix}2&1&3\\0&3&1\\0&0&4\end{smallmatrix}\Bigr)=2\cdot3\cdot4=24$.
 
@@ -161,9 +169,13 @@ si se suma a una fila un múltiplo de otra, el determinante no cambia; si se int
 
 La regla (iii) se sigue de (i) con $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$ y $\det\mathbf{I}=1$. La regla (iv) dice: si se estiran las $n$ aristas del cubo unidad en un factor $c$, su volumen crece en el factor $c^n$. La regla (v) hace de la eliminación gaussiana el camino práctico para calcular determinantes: se lleva la matriz a forma escalonada, se anota el número de intercambios y se multiplican las entradas diagonales.
 
-⁠**Ejemplo numérico 1:** Con $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ y $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$, el producto $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ tiene que tener el determinante $5$: $21-16=5$.
+::::beispiel [Ejemplo numérico 1]
+Con $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ y $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$, el producto $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ tiene que tener el determinante $5$: $21-16=5$.
+::::
 
-⁠**Ejemplo numérico 2:** En la eliminación gaussiana de la subsección [12.3](lineare-gleichungssysteme.html#stufe-12-3), la matriz de coeficientes se llevó, con sumas de múltiplos y un intercambio, a la forma escalonada con la diagonal $1$, $-1$, $-4$. Así que su determinante es $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, como con el desarrollo de Laplace.
+::::beispiel [Ejemplo numérico 2]
+En la eliminación gaussiana de la subsección [12.3](lineare-gleichungssysteme.html#stufe-12-3), la matriz de coeficientes se llevó, con sumas de múltiplos y un intercambio, a la forma escalonada con la diagonal $1$, $-1$, $-4$. Así que su determinante es $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, como con el desarrollo de Laplace.
+::::
 
 ⁠**En resumen:** El determinante de un producto es el producto de los determinantes, porque los factores de volumen se multiplican al encadenar aplicaciones; en la práctica se calcula con la eliminación gaussiana.
 
@@ -195,7 +207,9 @@ Si $\mathbf{A}$ es invertible, según la regla (i), $\det\mathbf{A}\cdot\det\mat
 
 Junto con el teorema de la subsección [13.5](unabhangigkeit-basis-und-rang.html#stufe-13-5), para una matriz cuadrada son, por tanto, equivalentes: $\det\mathbf{A}\ne0$, $\mathbf{A}$ invertible, $\operatorname{rango}\mathbf{A}=n$, $\ker\mathbf{A}=\{\mathbf{0}\}$, columnas linealmente independientes.
 
-⁠**Ejemplo numérico:** La matriz $\mathbf K$ de la subsección [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) tiene $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, de acuerdo con $\operatorname{rango}\mathbf K=2$. La matriz de coeficientes del ejemplo de la eliminación gaussiana tiene $\det=-4\ne0$ y es invertible; por eso el sistema tenía exactamente una solución.
+::::beispiel [Ejemplo numérico]
+La matriz $\mathbf K$ de la subsección [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) tiene $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, de acuerdo con $\operatorname{rango}\mathbf K=2$. La matriz de coeficientes del ejemplo de la eliminación gaussiana tiene $\det=-4\ne0$ y es invertible; por eso el sistema tenía exactamente una solución.
+::::
 
 ⁠**En resumen:** Una matriz cuadrada es invertible si y solo si su determinante no es cero, es decir, si no aplasta el espacio.
 

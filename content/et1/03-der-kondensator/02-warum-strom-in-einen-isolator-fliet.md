@@ -37,7 +37,9 @@ Angenommen, es fließt mehr hinein als heraus. Dann sammelt sich im Bauteil eine
 Im Rohr eines Wasserkreises sitzt quer eine Gummihaut. Die Pumpe drückt Wasser dagegen, die Haut dehnt sich. Auf beiden Seiten bewegt sich Wasser, durch die Haut geht keines. Ihr Gegendruck wächst mit der Dehnung, und wenn er den Pumpendruck erreicht, steht das Wasser. Das Bild endet bei der Energie: Die Haut speichert sie im Gummi, der Kondensator im Feld zwischen den Platten (Stufe [6](die-gespeicherte-energie.html#stufe-6)).
 :::
 
-**Beispiel.** Ein Messgerät in der Zuleitung zu A zeigt 0,1 s lang konstant 0,9 mA. Dann sind $Q=I\,t=90\,\mu\text{C}$ verschoben, das sind $5{,}6\cdot10^{14}$ Elektronen. Sie haben A verlassen, ebenso viele sind auf B angekommen. Ein Messgerät in der Zuleitung zu B zeigt dieselben 0,9 mA.
+::::beispiel
+Ein Messgerät in der Zuleitung zu A zeigt 0,1 s lang konstant 0,9 mA. Dann sind $Q=I\,t=90\,\mu\text{C}$ verschoben, das sind $5{,}6\cdot10^{14}$ Elektronen. Sie haben A verlassen, ebenso viele sind auf B angekommen. Ein Messgerät in der Zuleitung zu B zeigt dieselben 0,9 mA.
+::::
 
 ⁠**Grenzfall:** Liegen die Platten schon auf den Potenzialen der Pole, ist das Gefälle längs der Drähte null und damit auch der Strom. Ein auf 9 V geladener Kondensator zieht aus einer 9-V-Batterie keinen Strom.
 

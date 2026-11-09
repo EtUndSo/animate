@@ -68,11 +68,13 @@ $\mathbf{u}^{\top}\mathbf{u}=\sum_ju_j^2\ge0$, and $\mathbf{u}^{\top}\mathbf{u}=
 (i) follows from $u_jv_j=v_ju_j$ for each component. (ii) is the sum rule [(1.2)](vektoren-daten-als-zahlenlisten.html#gl-1-2): $\sum_j(c\,u_j)v_j=c\sum_ju_jv_j$ and $\sum_j(u_j+q_j)v_j=\sum_ju_jv_j+\sum_jq_jv_j$. (iii) Each term $u_j^2$ is nonnegative. The sum is zero only if every term is zero, that is, if every $u_j=0$.
 :::
 
-⁠**Worked example:** For $\mathbf{u}=(1,\,2,\,3)^{\top}$ and $\mathbf{v}=(4,\,-1,\,2)^{\top}$, we get $\mathbf{u}^{\top}\mathbf{v}=8$ and $\mathbf{u}^{\top}\mathbf{u}=14$ (Fig. [6](#abb-6)). In the reverse order the result is the same number, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$, as symmetry requires.
+::::beispiel [Worked example]
+For $\mathbf{u}=(1,\,2,\,3)^{\top}$ and $\mathbf{v}=(4,\,-1,\,2)^{\top}$, we get $\mathbf{u}^{\top}\mathbf{v}=8$ and $\mathbf{u}^{\top}\mathbf{u}=14$ (Fig. [6](#abb-6)). In the reverse order the result is the same number, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$, as symmetry requires.
 
 :::abbildung ml/k1rskp 6
 Two dot products step by step: component times component, then the sum of the products. The dot product of a vector with itself is the sum of the squares of its components.
 :::
+::::
 
 ⁠**In short:** The dot product multiplies two vectors component by component and adds the products; it is a number.
 
@@ -99,13 +101,15 @@ $$\hat y=\mathbf{w}^{\top}\mathbf{x}=\sum_{j=1}^{d}w_j\,x_j . \tag{2.2}$$
 
 A fixed rule that computes a number from the features of an example is called a __model__. The number that the model returns for an example is called its __prediction__. The hat over the $y$ in $\hat y$ indicates that this is a computed estimate and not a measured value. In this chapter the weights are always given; where good weights come from is a question of its own.
 
-⁠**Worked example:** The real estate agent uses the weights $\mathbf{w}=(3,\,10,\,-4)^{\top}$ in thousand euros per square meter, per room and per kilometer. For apartment 1, $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ (Fig. [7](#abb-7)), that is, $188$ thousand euros.
+::::beispiel [Worked example]
+The real estate agent uses the weights $\mathbf{w}=(3,\,10,\,-4)^{\top}$ in thousand euros per square meter, per room and per kilometer. For apartment 1, $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ (Fig. [7](#abb-7)), that is, $188$ thousand euros.
 
 :::abbildung ml/k1rgewicht 7
 The real estate agent's estimate for apartment 1: each feature times its weight, then the sum. The contributions of the three features are $180$, $20$ and $-12$ thousand euros.
 :::
 
 In the same way, the other apartments give $\hat y_2=126$, $\hat y_3=286$ and $\hat y_4=232$. Each product $w_jx_j$ has the unit thousand euros, because the unit of the feature cancels against the unit in the denominator of the weight. Only for this reason may you add the three products.
+::::
 
 ⁠**In short:** A weighted sum is the dot product $\mathbf{w}^{\top}\mathbf{x}$ of weights and features; it is the simplest model that makes a prediction from features.
 
@@ -132,7 +136,8 @@ $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$
 
 More calculations of this kind: the dot product with a unit vector picks out one component, $\mathbf{e}_j^{\top}\mathbf{v}=v_j$, because all other products contain a zero. The dot product of a vector with itself is the sum of squares, $\mathbf{v}^{\top}\mathbf{v}=\sum_iv_i^2$. Quantities times prices, summed up, give the amount of an invoice. And evaluating a polynomial $p(t)=c_1+c_2t+\dots+c_nt^{n-1}$ at a point $t$ means forming the dot product $\mathbf{c}^{\top}\mathbf{z}$ of its coefficients $\mathbf{c}=(c_1,\dots,c_n)^{\top}$ with the powers $\mathbf{z}=(1,\,t,\,t^2,\dots,t^{n-1})^{\top}$. For $p(t)=1+2t+3t^2$ at $t=2$, this is $(1,\,2,\,3)\,(1,\,2,\,4)^{\top}=1+4+12=17$.
 
-⁠**Worked example:** From January to March, apartment 1 consumed $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh of electricity (Subsection [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). In total this is $\mathbf 1^{\top}\mathbf{u}=750$ kWh, on average $\bar u=250$ kWh per month (Fig. [8](#abb-8)). The consumption in February is $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh.
+::::beispiel [Worked example]
+From January to March, apartment 1 consumed $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh of electricity (Subsection [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). In total this is $\mathbf 1^{\top}\mathbf{u}=750$ kWh, on average $\bar u=250$ kWh per month (Fig. [8](#abb-8)). The consumption in February is $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh.
 
 :::abbildung ml/k1rmittel 8
 Sum and mean of the electricity consumption as a dot product with the all-ones vector, in kWh.
@@ -143,6 +148,7 @@ If a kilowatt-hour costs $\mathbf{p}=(0.32,\ 0.34,\ 0.28)^{\top}$ euros in the t
 :::abbildung ml/k1rstrom 9
 The electricity bill as a dot product: price times quantity for each month, then the sum, in euros.
 :::
+::::
 
 ⁠**In short:** The sum, the mean, picking out a component and the sum of squares are dot products with $\mathbf 1$, $\tfrac1n\mathbf 1$, $\mathbf{e}_j$ and the vector itself.
 
@@ -162,11 +168,13 @@ More precisely: the contribution of position $j$ to the dot product $\mathbf{w}^
 
 In signal processing, this calculation is known as correlation. The cross-correlation of two real sequences $x[n]$ and $y[n]$ at shift zero is $\sum_nx[n]\,y[n]$. If you write the samples of two signals of finite length as vectors $\mathbf{x}$ and $\mathbf{y}$, this is exactly the dot product $\mathbf{x}^{\top}\mathbf{y}$. The energy of a signal, $\sum_nx[n]^2$, is likewise $\mathbf{x}^{\top}\mathbf{x}$. So comparing with a pattern is not a new tool; it is the same one a correlator uses to search for a known pattern in a signal.
 
-⁠**Worked example:** With the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, we get $\mathbf{w}^{\top}\mathbf{x}=8$ for $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ and $\mathbf{w}^{\top}\mathbf{x}'=0$ for $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). With the constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ it is the other way around: $\mathbf 1^{\top}\mathbf{x}=2$, but $\mathbf 1^{\top}\mathbf{x}'=10$. So the signal $\mathbf{x}$ mainly alternates, while $\mathbf{x}'$ mainly stays constant.
+::::beispiel [Worked example]
+With the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, we get $\mathbf{w}^{\top}\mathbf{x}=8$ for $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ and $\mathbf{w}^{\top}\mathbf{x}'=0$ for $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). With the constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ it is the other way around: $\mathbf 1^{\top}\mathbf{x}=2$, but $\mathbf 1^{\top}\mathbf{x}'=10$. So the signal $\mathbf{x}$ mainly alternates, while $\mathbf{x}'$ mainly stays constant.
 
 :::abbildung ml/k1rmuster 11
 The alternating pattern $\mathbf{w}$ with two signals. At the top, $\mathbf{x}$ follows the pattern: all four products are positive. At the bottom, $\mathbf{x}'$ rises steadily: the products cancel in pairs.
 :::
+::::
 
 The real estate agent's weighted sum is also a comparison with a pattern. Her pattern $\mathbf{w}=(3,\,10,\,-4)^{\top}$ describes what makes an apartment valuable: a lot of floor area, many rooms, little distance. The better an apartment fits this pattern, the higher its prediction.
 

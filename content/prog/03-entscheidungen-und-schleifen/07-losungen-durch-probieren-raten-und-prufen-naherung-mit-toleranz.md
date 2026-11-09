@@ -28,7 +28,8 @@ Gesucht ist die Wurzel einer ganzen Zahl, etwa von 49. Wer keine Formel kennt, k
 __Raten und Prüfen__, auch __erschöpfende Suche__ genannt, geht die möglichen Lösungen in einer festen Reihenfolge durch und prüft jede. Es hört auf, sobald ein Kandidat passt oder feststeht, dass keiner der übrigen mehr passen kann.
 :::
 
-**Beispiel: die ganzzahlige Wurzel.** Die Kandidaten sind $g=0,1,2,\ldots$. Solange $g^2<a$ ist, kann $g$ nicht die Wurzel sein, und die Schleife geht zum nächsten. Sie endet beim ersten $g$ mit $g^2\ge a$, und dann gibt es zwei Fälle: Entweder ist $g^2=a$, dann ist $g$ die Wurzel, oder $g^2>a$, dann hat $a$ keine ganzzahlige Wurzel, denn alle kleineren Kandidaten hatten $g^2<a$, und alle größeren haben erst recht $g^2>a$.
+::::beispiel die ganzzahlige Wurzel
+Die Kandidaten sind $g=0,1,2,\ldots$. Solange $g^2<a$ ist, kann $g$ nicht die Wurzel sein, und die Schleife geht zum nächsten. Sie endet beim ersten $g$ mit $g^2\ge a$, und dann gibt es zwei Fälle: Entweder ist $g^2=a$, dann ist $g$ die Wurzel, oder $g^2>a$, dann hat $a$ keine ganzzahlige Wurzel, denn alle kleineren Kandidaten hatten $g^2<a$, und alle größeren haben erst recht $g^2>a$.
 
 ```python wurzel_raten.py
 # Ganzzahlige Quadratwurzel durch Raten und Prüfen: g = 0, 1, 2, ... bis g*g mindestens a ist
@@ -52,6 +53,7 @@ Ganze Zahl a ab 0: 50
 ```
 
 Die Schleife endet sicher, denn $g$ wächst in jedem Durchlauf um 1, und irgendwann ist $g^2\ge a$. Wie lange das dauert, ist die Schwäche des Verfahrens: Die Zahl der Schritte ist die kleinste ganze Zahl $g$ mit $g^2\ge a$, also etwa $\sqrt a$. Für $a=10^{12}$ sind das eine Million Schritte; mit jeden zwei Stellen mehr in $a$ wird es zehnmal so lange.
+::::
 
 ⁠**Kurz gesagt:** Raten und Prüfen findet sicher eine Lösung oder zeigt, dass es keine gibt, braucht aber so viele Schritte, wie es Kandidaten gibt.
 
@@ -81,7 +83,8 @@ Eine Zahl $g$ ist eine __Näherung__ von $\sqrt a$ mit der Toleranz $\varepsilon
 
 Das einfachste Verfahren, eine solche Näherung zu finden, heißt hier __Schrittverfahren__: Man beginnt bei $g=0$ und erhöht $g$ in festen Schritten der Schrittweite $h$, bis $|g^2-a|<\varepsilon$ ist.
 
-**Beispiel.** $\sqrt{25}$ mit $\varepsilon=0{,}01$ und der Schrittweite $h=0{,}0001$. Die Schleife hat eine zweite Bedingung: Sie hört auch auf, wenn $g^2$ schon über $a$ liegt, denn dann kann kein weiterer Schritt mehr treffen.
+::::beispiel
+$\sqrt{25}$ mit $\varepsilon=0{,}01$ und der Schrittweite $h=0{,}0001$. Die Schleife hat eine zweite Bedingung: Sie hört auch auf, wenn $g^2$ schon über $a$ liegt, denn dann kann kein weiterer Schritt mehr treffen.
 
 ```python wurzel_schritte.py
 # Quadratwurzel in kleinen Schritten suchen, bis g*g nahe genug an a liegt
@@ -106,6 +109,7 @@ Näherung: 4.999000000001688 nach 49990 Schritten
 ```
 
 Die Schleife hält beim ersten $g$, dessen Quadrat über $25-0{,}01=24{,}99$ liegt; das ist $g=4{,}999$. Angezeigt wird `4.999000000001688`, weil $g$ durch fast 50 000 Additionen entstanden ist, von denen jede gerundet wurde, wie bei der Gleitkomma-Falle in Unterabschnitt [3.3](wiederholen-mit-while.html#stufe-3-3).
+::::
 
 ⁠**Kurz gesagt:** Mit Gleitkommazahlen sucht man keine exakte Lösung, sondern eine, die eine Toleranz einhält.
 
@@ -119,7 +123,8 @@ Das Schrittverfahren hat zwei Stellschrauben, $h$ und $\varepsilon$, und sie hä
 
 Wie breit ist der Bereich? Aus $g^2-a=(g-\sqrt a)(g+\sqrt a)$ und $g+\sqrt a\approx2\sqrt a$ in der Nähe der Lösung folgt: $|g^2-a|<\varepsilon$ heißt ungefähr $|g-\sqrt a|<\varepsilon/(2\sqrt a)$. Der Bereich ist also etwa $\varepsilon/\sqrt a$ breit, für $a=25$ und $\varepsilon=0{,}01$ von 4,999 bis 5,001.
 
-**Beispiel: ein zu großer Schritt.** Mit $h=0{,}003$ liegen die Kandidaten bei …, 4,998, 5,001, …. Das Quadrat des ersten ist 24,980, das des zweiten 25,010; beide liegen außerhalb der Toleranz:
+::::beispiel ein zu großer Schritt
+Mit $h=0{,}003$ liegen die Kandidaten bei …, 4,998, 5,001, …. Das Quadrat des ersten ist 24,980, das des zweiten 25,010; beide liegen außerhalb der Toleranz:
 
 ```console Linux
 $ python3 wurzel_schritte.py
@@ -128,6 +133,7 @@ Schrittweite h = 0.003
 ```
 
 Ohne die zweite Bedingung `g * g <= a` liefe die Schleife hier endlos weiter, immer weiter von der Lösung weg.
+::::
 
 **Die Kosten.** Die Schrittweite darf also höchstens so groß sein wie der Bereich, $h\lesssim\varepsilon/\sqrt a$, und dann braucht das Verfahren etwa $\sqrt a/h\gtrsim a/\varepsilon$ Schritte. Für $\sqrt{25}$ mit $\varepsilon=0{,}01$ sind das einige Tausend bis Zehntausende, das geht in Sekundenbruchteilen. Für $\sqrt2$ auf zwölf Stellen, $\varepsilon=10^{-12}$, sind es etwa $2\cdot10^{12}$ Schritte. Eine Python-Schleife schafft auf einem üblichen Rechner grob zehn Millionen einfache Durchläufe in der Sekunde; das ergibt $2\cdot10^5$ s, mehr als zwei Tage. Wie man in 41 Schritten auf zwölf Stellen kommt, zeigt Abschnitt [7](die-bisektion.html#stufe-7).
 

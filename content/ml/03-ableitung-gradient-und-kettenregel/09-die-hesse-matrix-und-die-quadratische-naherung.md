@@ -32,11 +32,13 @@ $$\frac{\partial^2f}{\partial x_i\,\partial x_j}=\frac{\partial}{\partial x_i}\B
 erst nach $x_j$, dann nach $x_i$ abgeleitet. Für $i=j$ schreibt man $\partial^2f/\partial x_i^2$. Für $i\ne j$ heißen sie gemischte Ableitungen.
 :::
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ ist $\partial_1f=2x_1x_2$ und $\partial_2f=x_1^2+2x_2$, also
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ ist $\partial_1f=2x_1x_2$ und $\partial_2f=x_1^2+2x_2$, also
 
 $$\begin{gathered} \frac{\partial^2f}{\partial x_1^2}=\frac{\partial}{\partial x_1}(2x_1x_2)=2x_2,\qquad \frac{\partial^2f}{\partial x_2\,\partial x_1}=\frac{\partial}{\partial x_2}(2x_1x_2)=2x_1,\\ \frac{\partial^2f}{\partial x_1\,\partial x_2}=\frac{\partial}{\partial x_1}(x_1^2+2x_2)=2x_1,\qquad \frac{\partial^2f}{\partial x_2^2}=\frac{\partial}{\partial x_2}(x_1^2+2x_2)=2 . \end{gathered}$$
 
 An der Stelle $(1,\,2)$ sind das $4$, $2$, $2$ und $2$. Die beiden gemischten Ableitungen sind gleich, obwohl sie auf verschiedenen Wegen entstanden sind.
+::::
 
 ⁠**Kurz gesagt:** Zweite partielle Ableitungen leiten eine partielle Ableitung noch einmal partiell ab; die gemischten beschreiben, wie sich die Steigung in einer Richtung beim Gehen in eine andere Richtung ändert.
 
@@ -59,11 +61,13 @@ heißt die __Hesse-Matrix__ von $f$ an der Stelle $\mathbf{x}$.
 
 Die Matrix ist nach dem Mathematiker Otto Hesse benannt; manche Bücher schreiben $\nabla^2f$. Ihre Spalte $j$ ist der Gradient der Funktion $\partial_jf$. Sie ist damit eng mit der Jacobi-Matrix des Gradienten verwandt, der vektorwertigen Funktion $\mathbf{x}\mapsto\nabla f(\mathbf{x})$: Deren Eintrag $(i,j)$ ist $\partial(\partial_if)/\partial x_j$, die Ableitung in der anderen Reihenfolge. Der nächste Unterabschnitt zeigt, dass beide Reihenfolgen fast immer dasselbe ergeben; dann ist die Hesse-Matrix die Jacobi-Matrix des Gradienten.
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ ist nach dem vorigen Unterabschnitt
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ ist nach dem vorigen Unterabschnitt
 
 $$\mathbf{H}_f(\mathbf{x})=\begin{pmatrix}2x_2&2x_1\\2x_1&2\end{pmatrix},\qquad \mathbf{H}_f(1,2)=\begin{pmatrix}4&2\\2&2\end{pmatrix}.$$
 
 Für eine quadratische Funktion $f(\mathbf{x})=\tfrac12\mathbf{x}^{\top}\mathbf{A}\mathbf{x}+\mathbf{b}^{\top}\mathbf{x}+c$ mit symmetrischem $\mathbf{A}$ ist nach Abschnitt [7](ableiten-nach-vektoren-und-matrizen.html#stufe-7) $\nabla f(\mathbf{x})=\mathbf{A}\mathbf{x}+\mathbf{b}$ und damit $\mathbf{H}_f=\mathbf{A}$ an jeder Stelle. Für die Schüssel $x_1^2+4x_2^2$ aus Abschnitt [4](richtungsableitung-und-steilster-anstieg.html#stufe-4) ist $\mathbf{A}=\operatorname{diag}(2;\,8)$.
+::::
 
 ⁠**Kurz gesagt:** Die Hesse-Matrix sammelt alle zweiten partiellen Ableitungen; bei einer quadratischen Funktion $\tfrac12\mathbf{x}^{\top}\mathbf{A}\mathbf{x}+\mathbf{b}^{\top}\mathbf{x}+c$ ist sie überall $\mathbf{A}$.
 
@@ -90,11 +94,13 @@ $$\Delta(h,k)=f(x_1+h,\,x_2+k)-f(x_1+h,\,x_2)-f(x_1,\,x_2+k)+f(x_1,\,x_2).$$
 
 Fasst man den ersten mit dem dritten und den zweiten mit dem vierten Summanden zusammen, so ist $\Delta$ die Änderung der Differenz $f(x_1+h,\cdot)-f(x_1,\cdot)$ beim Schritt $k$ in Richtung $x_2$: Wie ändert sich der Anstieg in Richtung $x_1$, wenn man in Richtung $x_2$ geht? Teilt man durch $hk$, so nähert sich das für kleine $h$ und $k$ der Ableitung erst nach $x_1$, dann nach $x_2$. Fasst man stattdessen die ersten beiden und die letzten beiden Summanden zusammen, liest man dieselbe Zahl als Änderung des Anstiegs in Richtung $x_2$ beim Schritt in Richtung $x_1$, und der Quotient nähert sich der Ableitung in der anderen Reihenfolge. Beide Grenzwerte gehören zu derselben Zahl $\Delta/(hk)$. Die Stetigkeit sorgt dafür, dass es auf die Reihenfolge der beiden Grenzübergänge nicht ankommt.
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ mit $h=k=0{,}1$ ist
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ mit $h=k=0{,}1$ ist
 
 $$\Delta=f(1{,}1;\ 2{,}1)-f(1{,}1;\ 2)-f(1;\ 2{,}1)+f(1,2)=6{,}951-6{,}42-6{,}51+6=0{,}021,$$
 
 also $\Delta/(hk)=2{,}1$, nahe bei der gemischten Ableitung $2x_1=2$. Die Abweichung kommt daher, dass $2x_1$ zwischen $x_1=1$ und $x_1=1{,}1$ nicht konstant ist.
+::::
 
 ⁠**Kurz gesagt:** Bei stetigen zweiten Ableitungen ist die Reihenfolge des Ableitens gleichgültig, und die Hesse-Matrix ist symmetrisch.
 
@@ -127,7 +133,8 @@ Die quadratische Näherung [(1.6)](die-ableitung.html#gl-1-6) von $\phi$ an der 
 
 Das neue Glied $\tfrac12\mathbf{h}^{\top}\mathbf{H}_f\mathbf{h}$ ist eine quadratische Form im Sinn von [Grundlagen 2, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-1), mit der Hesse-Matrix als Matrix. Die Funktion sieht in der Nähe von $\mathbf{x}$ also aus wie eine Ebene plus eine quadratische Form.
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ und $\mathbf{h}=(0{,}01;\ 0{,}02)^{\top}$ wie in Abschnitt [3.4](partielle-ableitungen-und-der-gradient.html#stufe-3-4) ist
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ und $\mathbf{h}=(0{,}01;\ 0{,}02)^{\top}$ wie in Abschnitt [3.4](partielle-ableitungen-und-der-gradient.html#stufe-3-4) ist
 
 $$\tfrac12\,\mathbf{h}^{\top}\mathbf{H}_f\mathbf{h}=\tfrac12\bigl(4\cdot0{,}01^2+2\cdot2\cdot0{,}01\cdot0{,}02+2\cdot0{,}02^2\bigr)=\tfrac12\,(0{,}0004+0{,}0008+0{,}0008)=0{,}001$$
 
@@ -136,6 +143,7 @@ $$\tfrac12\,\mathbf{h}^{\top}\mathbf{H}_f\mathbf{h}=\tfrac12\bigl(4\cdot0{,}01^2
 :::abbildung ml/k3rtaylor2 15
 Das Krümmungsglied der quadratischen Näherung als Doppelsumme; die beiden gemischten Summanden $h_1\cdot2\cdot h_2$ und $h_2\cdot2\cdot h_1$ sind zum mittleren Glied zusammengefasst.
 :::
+::::
 
 ⁠**Kurz gesagt:** Nahe bei $\mathbf{x}$ ist $f(\mathbf{x}+\mathbf{h})\approx f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}\mathbf{h}+\tfrac12\mathbf{h}^{\top}\mathbf{H}_f(\mathbf{x})\mathbf{h}$: Ebene plus quadratische Form.
 
@@ -171,9 +179,12 @@ In Richtung eines Eigenvektors ist die Krümmung genau der zugehörige Eigenwert
 
 Die Ungleichung ist die Aussage über den größten und kleinsten Wert einer quadratischen Form auf dem Einheitskreis aus [Grundlagen 2, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-5). Für einen Eigenvektor $\mathbf{u}$ zum Eigenwert $\lambda$ ist $\mathbf{u}^{\top}\mathbf{H}_f\mathbf{u}=\lambda\,\mathbf{u}^{\top}\mathbf{u}=\lambda$. Die Begriffe positiv definit und indefinit stammen aus [Grundlagen 2, Abschnitt 8](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8); dort war die Form einer quadratischen Form an ihren Eigenwerten abzulesen, als Schüssel, Rinne oder Sattel. Über die quadratische Näherung [(8.4)](#gl-8-4) überträgt sich das auf das Gelände in der Nähe von $\mathbf{x}$: Die Höhenlinien des Krümmungsglieds sind bei positiv definiter Hesse-Matrix Ellipsen, deren Hauptachsen nach [Grundlagen 2, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/diagonalisierung-und-spektralsatz.html#stufe-7-7), in Richtung der Eigenvektoren liegen und in der Richtung starker Krümmung kurz sind.
 
-⁠**Rechenbeispiel 1:** Für die Schüssel $f(\mathbf{x})=x_1^2+4x_2^2$ ist $\mathbf{H}_f=\operatorname{diag}(2;\,8)$ mit den Eigenwerten $2$ und $8$. In Richtung $x_1$ ist die Krümmung $2$, in Richtung $x_2$ ist sie $8$, und in Richtung $\mathbf{u}=(1,\,1)^{\top}/\sqrt2$ ist sie $\tfrac12(2+8)=5$. Das erklärt die gestreckten Höhenlinien aus Abschnitt [4.4](richtungsableitung-und-steilster-anstieg.html#stufe-4-4): In Richtung $x_2$ krümmt sich die Schüssel viermal so stark, ihre Wände sind dort steiler, und die Ellipsen sind in dieser Richtung schmal.
+::::beispiel [Rechenbeispiel 1]
+Für die Schüssel $f(\mathbf{x})=x_1^2+4x_2^2$ ist $\mathbf{H}_f=\operatorname{diag}(2;\,8)$ mit den Eigenwerten $2$ und $8$. In Richtung $x_1$ ist die Krümmung $2$, in Richtung $x_2$ ist sie $8$, und in Richtung $\mathbf{u}=(1,\,1)^{\top}/\sqrt2$ ist sie $\tfrac12(2+8)=5$. Das erklärt die gestreckten Höhenlinien aus Abschnitt [4.4](richtungsableitung-und-steilster-anstieg.html#stufe-4-4): In Richtung $x_2$ krümmt sich die Schüssel viermal so stark, ihre Wände sind dort steiler, und die Ellipsen sind in dieser Richtung schmal.
+::::
 
-⁠**Rechenbeispiel 2:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist $\mathbf{H}_f=\bigl(\begin{smallmatrix}4&2\\2&2\end{smallmatrix}\bigr)$. Spur $6$ und Determinante $4$ ergeben nach [Grundlagen 2, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/eigenwerte-und-eigenvektoren.html#stufe-6-5), die Eigenwerte $3\pm\sqrt5$, also etwa $5{,}236$ und $0{,}764$. Beide sind positiv, die Hesse-Matrix ist positiv definit: In der Nähe von $(1,\,2)$ krümmt sich das Gelände in jeder Richtung nach oben. In Richtung $\mathbf{u}=(1,\,1)^{\top}/\sqrt2$ ist die Krümmung
+::::beispiel [Rechenbeispiel 2]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist $\mathbf{H}_f=\bigl(\begin{smallmatrix}4&2\\2&2\end{smallmatrix}\bigr)$. Spur $6$ und Determinante $4$ ergeben nach [Grundlagen 2, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/eigenwerte-und-eigenvektoren.html#stufe-6-5), die Eigenwerte $3\pm\sqrt5$, also etwa $5{,}236$ und $0{,}764$. Beide sind positiv, die Hesse-Matrix ist positiv definit: In der Nähe von $(1,\,2)$ krümmt sich das Gelände in jeder Richtung nach oben. In Richtung $\mathbf{u}=(1,\,1)^{\top}/\sqrt2$ ist die Krümmung
 
 $$\mathbf{u}^{\top}\mathbf{H}_f\mathbf{u}=\tfrac12\,(4+2+2+2)=5,$$
 
@@ -182,6 +193,7 @@ und sie liegt zwischen $0{,}764$ und $5{,}236$ (Abb. [16](#abb-16)).
 :::abbildung ml/k3rkruemmung 16
 Die Krümmung von $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ in Richtung der Winkelhalbierenden; der Faktor $\tfrac12$ kommt von $u_iu_j=\tfrac12$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Krümmung in Richtung $\mathbf{u}$ ist $\mathbf{u}^{\top}\mathbf{H}_f\mathbf{u}$; sie liegt zwischen dem kleinsten und dem größten Eigenwert der Hesse-Matrix, und deren Vorzeichen entscheiden, ob sich das Gelände wie eine Schüssel oder wie ein Sattel krümmt.
 

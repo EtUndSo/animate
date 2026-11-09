@@ -30,7 +30,9 @@ $$C=\frac{Q}{U},\qquad Q=C\,U,\qquad[C]=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm 
 Izquierda: el doble de carga da líneas de campo el doble de densas y, por tanto, el doble de tensión. Derecha: la carga crece en proporción a la tensión; la pendiente de la recta es la capacidad. Los puntos corresponden a 9 V.
 :::
 
-**Ejemplo.** El par de placas tiene $C=29{,}5$ pF (etapa [4](plattenkondensator-und-dielektrikum.html#stufe-4)). A 9 V lleva $Q=29{,}5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC, es decir, $1{,}66\cdot10^{9}$ electrones. Una placa de cobre de 1 mm de grosor y esta área contiene $8{,}5\cdot10^{23}$ electrones libres. Por tanto, solo se desplaza uno de cada $5\cdot10^{14}$, y estos se sitúan en la cara interior de la placa. El metal permanece prácticamente inalterado. El condensador del circuito RC lleva a 9 V $Q=900\,\mu\text{C}$, 3,4 millones de veces más.
+::::beispiel
+El par de placas tiene $C=29{,}5$ pF (etapa [4](plattenkondensator-und-dielektrikum.html#stufe-4)). A 9 V lleva $Q=29{,}5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC, es decir, $1{,}66\cdot10^{9}$ electrones. Una placa de cobre de 1 mm de grosor y esta área contiene $8{,}5\cdot10^{23}$ electrones libres. Por tanto, solo se desplaza uno de cada $5\cdot10^{14}$, y estos se sitúan en la cara interior de la placa. El metal permanece prácticamente inalterado. El condensador del circuito RC lleva a 9 V $Q=900\,\mu\text{C}$, 3,4 millones de veces más.
+::::
 
 ⁠**Caso límite:** Para $U=0$ es $Q=0$: sin tensión no hay nada separado. Con la misma carga, el condensador más pequeño muestra la mayor tensión.
 

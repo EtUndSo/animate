@@ -40,7 +40,11 @@ $$U_\mathrm{CE}=U_\mathrm{CE,sat},\qquad I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mat
 
 ⁠**Cómo leerlo:** $U_\mathrm{CC}$ es la __tensión de alimentación__, $U_\mathrm{ent}$ la tensión de entrada respecto a masa. $R_\mathrm{B}$ fija la corriente de base, $R_\mathrm{C}$ convierte la corriente de colector en una tensión. **Validez:** emisor a masa, el modelo lineal de la etapa [4](drei-bereiche-drei-ersatzschaltbilder.html#stufe-4). La ecuación [(5.1)](#gl-5-1) vale en las dos regiones de conducción porque allí hay la misma fuente de 0,6 V entre B y E.
 
-**Ejemplo.** Modelo de referencia: $I_\mathrm{B}=(5\,\mathrm{V}-0{,}6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A, $I_\mathrm{C}=2$ mA, $U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V. Es más de 0,2 V, luego activa (punto A). Una primera suposición falsa no hace daño: la saturación daría $I_\mathrm{C}=3{,}93$ mA, pero $B\,I_\mathrm{B}=2$ mA es menor, en contradicción con [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3). Para $U_\mathrm{ent}=12$ V es $I_\mathrm{B}=25{,}9$ µ A. Suponiendo la región activa saldría $U_\mathrm{CE}=-3{,}5$ V, es decir, una contradicción. En la saturación, $I_\mathrm{C}=3{,}93$ mA y $B\,I_\mathrm{B}=5{,}18$ mA (punto S). **Casos límite:** $R_\mathrm{C}=0$ da $U_\mathrm{CE}=U_\mathrm{CC}$, y la salida queda rígida. $U_\mathrm{ent}<0{,}6$ V da $I_\mathrm{C}=0$ y $U_\mathrm{CE}=12$ V (punto Z).
+::::beispiel
+Modelo de referencia: $I_\mathrm{B}=(5\,\mathrm{V}-0{,}6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A, $I_\mathrm{C}=2$ mA, $U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V. Es más de 0,2 V, luego activa (punto A). Una primera suposición falsa no hace daño: la saturación daría $I_\mathrm{C}=3{,}93$ mA, pero $B\,I_\mathrm{B}=2$ mA es menor, en contradicción con [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3). Para $U_\mathrm{ent}=12$ V es $I_\mathrm{B}=25{,}9$ µ A. Suponiendo la región activa saldría $U_\mathrm{CE}=-3{,}5$ V, es decir, una contradicción. En la saturación, $I_\mathrm{C}=3{,}93$ mA y $B\,I_\mathrm{B}=5{,}18$ mA (punto S).
+::::
+
+⁠**Casos límite:** $R_\mathrm{C}=0$ da $U_\mathrm{CE}=U_\mathrm{CC}$, y la salida queda rígida. $U_\mathrm{ent}<0{,}6$ V da $I_\mathrm{C}=0$ y $U_\mathrm{CE}=12$ V (punto Z).
 
 **El centro de la región activa.** En la región activa, $U_\mathrm{CE}$ está entre 0,2 V y $U_\mathrm{CC}$. Para que una señal tenga el mismo margen a ambos lados, el punto se coloca en el centro. Con $\Delta U=U_\mathrm{CC}-U_\mathrm{CE,sat}=11{,}8$ V es
 

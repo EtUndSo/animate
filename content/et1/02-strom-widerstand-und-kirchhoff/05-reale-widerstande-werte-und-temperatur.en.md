@@ -47,7 +47,11 @@ Left: $R/R_{20}$ versus temperature for copper ($\alpha=3.9\cdot10^{-3}$ /K), 
 
 **Mechanism.** Metals (copper, silver, platinum, tungsten): $n$ is fixed, a warmer lattice vibrates more strongly, the flight time $T$ falls, $\mu$ falls, $R$ rises. Semiconductors (silicon, germanium): at room temperature only a few electrons are free. Heat frees more ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ grows much faster than $\mu$ falls, $R$ falls. __Compensated alloys__ such as constantan: the collisions with the irregularly embedded impurity atoms predominate and hardly depend on temperature. Alternatively, a PTC and an NTC are placed in series so that the increase of one offsets the decrease of the other ($R_1\alpha_1+R_2\alpha_2=0$).
 
-**Example.** The wire warms up from 20 °C to 70 °C. From [(4.2)](#gl-4-2) follows the factor $1+3.9\cdot10^{-3}\cdot50=1.195$, so 40.6 m$\Omega$ instead of 34 m$\Omega$. An extreme case is the tungsten filament of the lamp: the factor 12 from $1.5\,\Omega$ to $18\,\Omega$ corresponds by [(4.2)](#gl-4-2) to around 2460 °C, as a rough approximation over this large span. **Limiting cases:** $\vartheta=\vartheta_0$ gives $R(\vartheta_0)$, $\alpha=0$ gives a constant value.
+::::beispiel
+The wire warms up from 20 °C to 70 °C. From [(4.2)](#gl-4-2) follows the factor $1+3.9\cdot10^{-3}\cdot50=1.195$, so 40.6 m$\Omega$ instead of 34 m$\Omega$. An extreme case is the tungsten filament of the lamp: the factor 12 from $1.5\,\Omega$ to $18\,\Omega$ corresponds by [(4.2)](#gl-4-2) to around 2460 °C, as a rough approximation over this large span.
+::::
+
+⁠**Limiting cases:** $\vartheta=\vartheta_0$ gives $R(\vartheta_0)$, $\alpha=0$ gives a constant value.
 
 :::frage Why do incandescent lamps usually burn out at switch-on?
 Cold, the filament has only $1.5\,\Omega$; at 9 V, 6 A flow in the first moment instead of 0.5 A. This surge heats the filament in fractions of a second. Its resistance rises, which lowers the current, until $18\,\Omega$ are reached. At thin spots the heating is greatest, and that is where the filament breaks.

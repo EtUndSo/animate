@@ -27,7 +27,8 @@ Eine __Sicherheitsrichtlinie__ (englisch *security policy*) ist eine Festlegung 
 
 Mit diesem Begriff lässt sich genau sagen, was „sicher“ bedeutet. Die Richtlinie teilt alle Zustände, in die ein System geraten kann, in erlaubte und verbotene. Ein System ist in Bezug auf seine Richtlinie *sicher*, wenn es in einem erlaubten Zustand beginnt und nie in einen verbotenen gelangen kann.
 
-⁠**Beispiel:** Eine Hochschule legt für ihr Notensystem fest:
+::::beispiel
+Eine Hochschule legt für ihr Notensystem fest:
 
 <ul>
 
@@ -52,6 +53,7 @@ Prüferinnen und Prüfer dürfen die Noten ihrer eigenen Prüfungen lesen.
 </ul>
 
 Ein Zustand, in dem ein Student eine fremde Note gelesen oder seine eigene geändert hat, ist verboten.
+::::
 
 ⁠**Kurz gesagt:** Eine Sicherheitsrichtlinie legt fest, was erlaubt ist; „sicher“ heißt, dass nie ein verbotener Zustand eintritt.
 
@@ -69,7 +71,9 @@ Ein __Sicherheitsmechanismus__ ist ein Verfahren, ein Werkzeug oder eine Vorgehe
 
 Mechanismen müssen nicht technisch sein. Eine Anmeldung mit Passwort ist ein Mechanismus, aber auch eine abgeschlossene Bürotür oder die Anweisung, sich am Telefon erst auszuweisen, bevor man ein neues Passwort bekommt.
 
-⁠**Beispiel:** Im Notensystem setzt die Anmeldung mit Benutzername und Passwort durch, dass das System weiß, wer vor ihm sitzt. Eine Rechteverwaltung setzt durch, dass Studierende nur ihre eigenen Noten sehen und nur Konten des Prüfungsamts Noten ändern können.
+::::beispiel
+Im Notensystem setzt die Anmeldung mit Benutzername und Passwort durch, dass das System weiß, wer vor ihm sitzt. Eine Rechteverwaltung setzt durch, dass Studierende nur ihre eigenen Noten sehen und nur Konten des Prüfungsamts Noten ändern können.
+::::
 
 Eine Richtlinie gilt auch dort, wo kein Mechanismus sie durchsetzt. Lässt eine Mitarbeiterin des Prüfungsamts ihren Rechner angemeldet und unbeaufsichtigt, und ein Student ändert dort seine Note, so hat kein Mechanismus das verhindert. Ein Verstoß gegen die Richtlinie ist es trotzdem.
 
@@ -125,8 +129,7 @@ Das wichtigste Werkzeug zum Wiederherstellen von Daten ist die Sicherungskopie a
 
 Daraus folgt der Grundsatz __erkennen, wenn man nicht verhindern kann__. Lässt sich ein Angriff nicht oder nur zu unvertretbaren Kosten verhindern, so soll man ihn wenigstens bemerken, um rechtzeitig zu reagieren und den Schaden zu begrenzen. Ein Angriff, den niemand bemerkt, kann beliebig lange weiterlaufen.
 
-⁠**Beispiel: ein Online-Bankkonto.**
-
+::::beispiel ein Online-Bankkonto
 <ul>
 
 <li>
@@ -148,6 +151,7 @@ Wiederherstellen: Eine betrügerische Überweisung kann die Bank in vielen Fäll
 </li>
 
 </ul>
+::::
 
 ⁠**Kurz gesagt:** Mechanismen verhindern, erkennen oder stellen wieder her; wer nicht verhindern kann, soll wenigstens erkennen.
 
@@ -173,7 +177,9 @@ Ein __aktiver Angriff__ verändert etwas: Er fälscht oder löscht Daten, schleu
 
 Passive Angriffe richten sich gegen die Vertraulichkeit. Aktive Angriffe richten sich gegen die Integrität, die Authentizität oder die Verfügbarkeit.
 
-⁠**Beispiel: das Funknetz im Café.** Ein Gast zeichnet mit seinem Laptop alles auf, was über das Funknetz geht, und liest unverschlüsselte Nachrichten der anderen Gäste. Das ist ein passiver Angriff. Ein anderer stellt einen eigenen Zugangspunkt mit demselben Netznamen auf, die Geräte der Gäste verbinden sich mit ihm, und er leitet ihren Verkehr um und verändert ihn. Das ist ein aktiver Angriff.
+::::beispiel das Funknetz im Café
+Ein Gast zeichnet mit seinem Laptop alles auf, was über das Funknetz geht, und liest unverschlüsselte Nachrichten der anderen Gäste. Das ist ein passiver Angriff. Ein anderer stellt einen eigenen Zugangspunkt mit demselben Netznamen auf, die Geräte der Gäste verbinden sich mit ihm, und er leitet ihren Verkehr um und verändert ihn. Das ist ein aktiver Angriff.
+::::
 
 Für die Verteidigung folgt daraus eine Faustregel. Ein passiver Angriff hinterlässt keine Spuren; man kann ihn kaum erkennen und muss ihn deshalb *verhindern*, etwa indem man die Nachrichten verschlüsselt, sodass Mithören nichts nützt. Ein aktiver Angriff muss etwas verändern und hinterlässt dabei Spuren; man kann ihn *erkennen*, auch wenn man ihn nicht immer ganz verhindern kann.
 

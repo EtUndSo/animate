@@ -32,7 +32,8 @@ Eine __`for`-Schleife__ hat die Form
 Dabei liefert `range(n)` für eine ganze Zahl $n$ die ganzen Zahlen $0, 1, \ldots, n-1$ der Reihe nach. Die Schleife bindet `name` nacheinander an jede dieser Zahlen und führt jedes Mal den Block aus; nach der letzten Zahl geht es nach dem Block weiter. Der Name heißt die __Schleifenvariable__. Allgemein steht nach `in` ein Objekt, das der Reihe nach Werte liefert; in diesem Abschnitt ist es immer ein `range`.
 :::
 
-**Beispiel.** Die ersten Zweierpotenzen:
+::::beispiel
+Die ersten Zweierpotenzen:
 
 ```python zweierpotenzen.py
 # Zweierpotenzen mit einer for-Schleife
@@ -52,6 +53,7 @@ fertig
 ```
 
 Mit `while` braucht dieselbe Schleife drei Zeilen mehr: `k = 0` vor der Schleife, die Bedingung `k < 5` und `k = k + 1` am Ende des Blocks. Die `for`-Schleife erledigt alle drei.
+::::
 
 ⁠**Kurz gesagt:** `for k in range(n):` führt den Block für $k=0,1,\ldots,n-1$ aus.
 
@@ -75,7 +77,8 @@ Die Folge `range(2, 11, 3)`: Sie beginnt beim Start 2, geht in Schritten von 3 w
 $$\mathtt{len}=\max\Bigl(0,\Bigl\lceil\frac{\mathtt{stop}-\mathtt{start}}{\mathtt{schritt}}\Bigr\rceil\Bigr).$$
 :::
 
-**Beispiel.** Der Zusatz `end=" "` in `print`, mit Namen übergeben, schreibt am Ende ein Leerzeichen statt eines Zeilenwechsels. So steht jede Folge in einer Zeile, und `print()` ohne Werte beendet die Zeile:
+::::beispiel
+Der Zusatz `end=" "` in `print`, mit Namen übergeben, schreibt am Ende ein Leerzeichen statt eines Zeilenwechsels. So steht jede Folge in einer Zeile, und `print()` ohne Werte beendet die Zeile:
 
 ```python range_folgen.py
 # Welche Zahlen liefert range? Jede Zeile zeigt eine Folge, end=" " hält sie in einer Zeile.
@@ -149,6 +152,7 @@ R = 500 Ohm   I = 10.0 mA
 ```
 
 Der häufigste Fehler mit `range` ist genau dieser: `range(1, 10)` liefert 1 bis 9, nicht 1 bis 10.
+::::
 
 ⁠**Kurz gesagt:** `range(start, stop, schritt)` zählt von `start` in Schritten bis vor `stop`; der Stopp gehört nie dazu.
 

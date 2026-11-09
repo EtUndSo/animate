@@ -37,11 +37,13 @@ $$\mathcal{F}\{s_g\}=\tfrac12\bigl[S(f)+S^*(f)\bigr]=\operatorname{Re}\{S(f)\},\
 
 ⁠**简而言之：**对实信号而言，频谱的负半部分是正半部分的共轭镜像，不包含任何新的信息。
 
-**例。** 指数脉冲 $\varepsilon(t)\mathrm{e}^{-t}$（实信号）的偶部为 $\frac12\mathrm{e}^{-|t|}$，奇部为 $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$。其频谱 $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ 的实部 $\frac{1}{1+(2\pi f)^2}$ 是偶函数，正是 $\frac12\mathrm{e}^{-|t|}$ 的变换；虚部 $\frac{-2\pi f}{1+(2\pi f)^2}$ 是奇函数（图 [5](#abb-5)）。
+::::beispiel
+指数脉冲 $\varepsilon(t)\mathrm{e}^{-t}$（实信号）的偶部为 $\frac12\mathrm{e}^{-|t|}$，奇部为 $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$。其频谱 $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ 的实部 $\frac{1}{1+(2\pi f)^2}$ 是偶函数，正是 $\frac12\mathrm{e}^{-|t|}$ 的变换；虚部 $\frac{-2\pi f}{1+(2\pi f)^2}$ 是奇函数（图 [5](#abb-5)）。
 
 :::abbildung et3/k3gerade 5
 指数脉冲（$RC=1$ s）分解为偶部（蓝）和奇部（红）。右图：频谱。偶部给出实部（$f$ 的偶函数），奇部给出虚部（$f$ 的奇函数）。
 :::
+::::
 
 :::aufgabe 练习 5 ★ 由对称性判断
 <span class="anker" id="aufg-5"></span>

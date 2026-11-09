@@ -27,9 +27,11 @@ Las rectas y los planos que pasan por el origen, los espacios columna y los núc
 Un conjunto $\mathcal U\subseteq\mathbb{R}^n$ se llama __subespacio__ de $\mathbb{R}^n$ si es el espacio generado por un número finito de vectores.
 :::
 
-De forma equivalente: $\mathcal U$ contiene el vector nulo, y si dos vectores $\mathbf{u},\mathbf{v}$ están en $\mathcal U$, también lo están $\mathbf{u}+\mathbf{v}$ y todo múltiplo $c\,\mathbf{u}$. Todo subespacio tiene una base y, por tanto, según Fundamentos 1, sección 13.3, una dimensión.
+De forma equivalente: $\mathcal U$ contiene el vector nulo, y si dos vectores $\mathbf{u},\mathbf{v}$ están en $\mathcal U$, también lo están $\mathbf{u}+\mathbf{v}$ y todo múltiplo $c\,\mathbf{u}$. Todo subespacio tiene una base y, por tanto, según [Fundamentos 1, sección 13.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), una dimensión.
 
-⁠**Ejemplo numérico:** En $\mathbb{R}^3$ son subespacios: el origen solo, de dimensión $0$; toda recta que pasa por el origen, de dimensión $1$; todo plano que pasa por el origen, como el espacio columna de $\mathbf{H}$ de la sección anterior, de dimensión $2$; y todo $\mathbb{R}^3$. El núcleo de una matriz es un subespacio, y el espacio columna también. Una recta que no pasa por el origen no es un subespacio, pues no contiene el vector nulo.
+::::beispiel [Ejemplo numérico]
+En $\mathbb{R}^3$ son subespacios: el origen solo, de dimensión $0$; toda recta que pasa por el origen, de dimensión $1$; todo plano que pasa por el origen, como el espacio columna de $\mathbf{H}$ de la sección anterior, de dimensión $2$; y todo $\mathbb{R}^3$. El núcleo de una matriz es un subespacio, y el espacio columna también. Una recta que no pasa por el origen no es un subespacio, pues no contiene el vector nulo.
+::::
 
 ⁠**En resumen:** Un subespacio es un espacio generado por vectores; sumando y multiplicando por números no se sale de él.
 
@@ -57,16 +59,18 @@ Se cumple $\mathbf{P}\mathbf{y}=\hat{\mathbf{y}}$, $\mathbf{P}^{\top}=\mathbf{P}
 :::
 
 :::beweis Propiedades
-La primera ecuación es la deducción de arriba. Con las reglas de cálculo de Fundamentos 1, secciones 10.1 y 11.4, se tiene $\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$, pues $\mathbf{A}^{\top}\mathbf{A}$ es simétrica y, con ella, también su inversa. Además, $\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$, y de ahí $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$. Según el teorema de la sección [2.4](projektion-auf-eine-gerade.html#stufe-2-4), una proyección simétrica es ortogonal.
+La primera ecuación es la deducción de arriba. Con las reglas de cálculo de [Fundamentos 1, secciones 10.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1) y [11.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-4), se tiene $\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$, pues $\mathbf{A}^{\top}\mathbf{A}$ es simétrica y, con ella, también su inversa. Además, $\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$, y de ahí $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$. Según el teorema de la sección [2.4](projektion-auf-eine-gerade.html#stufe-2-4), una proyección simétrica es ortogonal.
 :::
 
 La ecuación $\mathbf{P}\mathbf{A}=\mathbf{A}$ dice que cada columna y, con ello, cada vector del espacio columna se queda donde está al proyectar.
 
-⁠**Ejemplo numérico:** Para $\mathbf{H}$ se tiene
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{H}$ se tiene
 
 $$\mathbf{P}=\mathbf{H}\cdot\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\mathbf{H}^{\top}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix}.$$
 
 Comprobación: $\mathbf{P}(1,\,1,\,1)^{\top}=\tfrac13(2,\,2,\,4)^{\top}=(\tfrac23,\,\tfrac23,\,\tfrac43)^{\top}=\hat{\mathbf{y}}$, y $\mathbf{P}\mathbf{a}_1=\tfrac13(2+1,\ -1+1,\ 1+2)^{\top}=(1,\,0,\,1)^{\top}=\mathbf{a}_1$.
+::::
 
 ⁠**En resumen:** La matriz de proyección $\mathbf{P}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ transforma cada vector en el punto más cercano del espacio columna; es simétrica y cumple $\mathbf{P}^2=\mathbf{P}$.
 
@@ -85,13 +89,15 @@ Si $\mathbf{Q}\in\mathbb{R}^{n\times k}$ tiene columnas ortonormales $\mathbf{q}
 $$\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}=\sum_{i=1}^k\mathbf{q}_i\mathbf{q}_i^{\top} . \tag{4.2}$$
 :::
 
-La forma de suma se deduce de Fundamentos 1, sección 9.5: un producto de matrices es la suma de los productos exteriores de columnas y filas. Cada sumando $\mathbf{q}_i\mathbf{q}_i^{\top}$ es la matriz de proyección sobre la recta en la dirección de $\mathbf{q}_i$. Con columnas ortonormales, la proyección sobre el espacio columna es, por tanto, la suma de las proyecciones sobre los ejes individuales. Esto explica a posteriori la última subsección de la sección [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1): $\mathbf{Q}\mathbf{Q}^{\top}$ no es la matriz identidad, sino la proyección sobre el espacio columna de $\mathbf{Q}$. Lo que es perpendicular a él lo desecha.
+La forma de suma se deduce de [Fundamentos 1, sección 9.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): un producto de matrices es la suma de los productos exteriores de columnas y filas. Cada sumando $\mathbf{q}_i\mathbf{q}_i^{\top}$ es la matriz de proyección sobre la recta en la dirección de $\mathbf{q}_i$. Con columnas ortonormales, la proyección sobre el espacio columna es, por tanto, la suma de las proyecciones sobre los ejes individuales. Esto explica a posteriori la última subsección de la sección [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1): $\mathbf{Q}\mathbf{Q}^{\top}$ no es la matriz identidad, sino la proyección sobre el espacio columna de $\mathbf{Q}$. Lo que es perpendicular a él lo desecha.
 
-⁠**Ejemplo numérico:** Los vectores $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ y $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ son ortonormales: $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. En ambos, la tercera componente es la suma de las dos primeras; forman una base ortonormal del plano de $\mathbf{H}$. Se tiene
+::::beispiel [Ejemplo numérico]
+Los vectores $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ y $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ son ortonormales: $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. En ambos, la tercera componente es la suma de las dos primeras; forman una base ortonormal del plano de $\mathbf{H}$. Se tiene
 
 $$\mathbf{q}_1\mathbf{q}_1^{\top}+\mathbf{q}_2\mathbf{q}_2^{\top}=\frac12\begin{pmatrix}1&0&1\\0&0&0\\1&0&1\end{pmatrix}+\frac16\begin{pmatrix}1&-2&-1\\-2&4&2\\-1&2&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix},$$
 
 la misma matriz que en la subsección anterior, esta vez sin inversa.
+::::
 
 ⁠**En resumen:** Con columnas ortonormales, $\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$ y $\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}$, la suma de las proyecciones sobre las columnas individuales.
 
@@ -141,14 +147,16 @@ $\dim\mathcal U^\perp=n-\dim\mathcal U$.
 :::
 
 :::beweis Descomposición
-(i) Que $\mathbf{P}\mathbf{y}$ está en $\mathcal U$ y que $\mathbf{y}-\mathbf{P}\mathbf{y}$ es perpendicular a $\mathcal U$ es la definición de la proyección ortogonal. Si hubiera una segunda descomposición $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$, $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ sería un vector que está en $\mathcal U$ y a la vez es perpendicular a $\mathcal U$, es decir, perpendicular a sí mismo. Entonces el cuadrado de su longitud es cero y, por tanto, es el vector nulo. (ii) $\mathbf{I}-\mathbf{P}$ es simétrica, y $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$. Su imagen está, según (i), en $\mathcal U^\perp$. Todo $\mathbf{z}\in\mathcal U^\perp$ queda fijo: $\mathbf{P}\mathbf{z}$ está en $\mathcal U$ y es a la vez la diferencia $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$ de dos vectores perpendiculares a $\mathcal U$; por tanto, $\mathbf{P}\mathbf{z}$ es perpendicular a sí mismo y es $\mathbf{0}$. (iii) Si se elige una base de $\mathcal U$ como columnas de una matriz $\mathbf{A}$, $\mathcal U^\perp$ es el núcleo de $\mathbf{A}^{\top}$. Según el teorema del rango de Fundamentos 1, sección 13.5, tiene dimensión $n-\operatorname{rango}\mathbf{A}^{\top}=n-\operatorname{rango}\mathbf{A}=n-\dim\mathcal U$.
+(i) Que $\mathbf{P}\mathbf{y}$ está en $\mathcal U$ y que $\mathbf{y}-\mathbf{P}\mathbf{y}$ es perpendicular a $\mathcal U$ es la definición de la proyección ortogonal. Si hubiera una segunda descomposición $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$, $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ sería un vector que está en $\mathcal U$ y a la vez es perpendicular a $\mathcal U$, es decir, perpendicular a sí mismo. Entonces el cuadrado de su longitud es cero y, por tanto, es el vector nulo. (ii) $\mathbf{I}-\mathbf{P}$ es simétrica, y $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$. Su imagen está, según (i), en $\mathcal U^\perp$. Todo $\mathbf{z}\in\mathcal U^\perp$ queda fijo: $\mathbf{P}\mathbf{z}$ está en $\mathcal U$ y es a la vez la diferencia $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$ de dos vectores perpendiculares a $\mathcal U$; por tanto, $\mathbf{P}\mathbf{z}$ es perpendicular a sí mismo y es $\mathbf{0}$. (iii) Si se elige una base de $\mathcal U$ como columnas de una matriz $\mathbf{A}$, $\mathcal U^\perp$ es el núcleo de $\mathbf{A}^{\top}$. Según el teorema del rango de [Fundamentos 1, sección 13.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), tiene dimensión $n-\operatorname{rango}\mathbf{A}^{\top}=n-\operatorname{rango}\mathbf{A}=n-\dim\mathcal U$.
 :::
 
-⁠**Ejemplo numérico:** El plano de $\mathbf{H}$ tiene dimensión $2$; su complemento ortogonal en $\mathbb{R}^3$ tiene, por tanto, dimensión $1$: la recta en la dirección del vector normal $\mathbf{k}=(1,\,1,\,-1)^{\top}$. En efecto, $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. Se tiene
+::::beispiel [Ejemplo numérico]
+El plano de $\mathbf{H}$ tiene dimensión $2$; su complemento ortogonal en $\mathbb{R}^3$ tiene, por tanto, dimensión $1$: la recta en la dirección del vector normal $\mathbf{k}=(1,\,1,\,-1)^{\top}$. En efecto, $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. Se tiene
 
 $$\mathbf{I}-\mathbf{P}=\frac13\begin{pmatrix}1&1&-1\\1&1&-1\\-1&-1&1\end{pmatrix}=\frac{\mathbf{k}\mathbf{k}^{\top}}{\mathbf{k}^{\top}\mathbf{k}},$$
 
 la proyección sobre esta recta. Para $\mathbf{y}=(1,\,1,\,1)^{\top}$ es $(\mathbf{I}-\mathbf{P})\mathbf{y}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$, el residuo de la sección anterior.
+::::
 
 ⁠**En resumen:** El complemento ortogonal $\mathcal U^\perp$ contiene todos los vectores perpendiculares a $\mathcal U$; cada vector se descompone de manera única en una parte en $\mathcal U$ y otra en $\mathcal U^\perp$, y las dimensiones suman $n$.
 
@@ -187,7 +195,8 @@ Se procede paso a paso. Supongamos que $\mathbf{q}_1,\dots,\mathbf{q}_{i-1}$ ya 
 
 Si los vectores dados son, a pesar de todo, dependientes, el proceso lo detecta por sí mismo: en algún momento es $\tilde{\mathbf{q}}_i=\mathbf{0}$, y no se puede normalizar.
 
-⁠**Ejemplo numérico:** Para las columnas de $\mathbf{H}$, $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ y $\mathbf{a}_2=(0,\,1,\,1)^{\top}$, es $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$. Entonces $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ y
+::::beispiel [Ejemplo numérico]
+Para las columnas de $\mathbf{H}$, $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ y $\mathbf{a}_2=(0,\,1,\,1)^{\top}$, es $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$. Entonces $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ y
 
 $$\tilde{\mathbf{q}}_2=\mathbf{a}_2-\frac1{\sqrt2}\,\mathbf{q}_1=(0,\,1,\,1)^{\top}-\tfrac12(1,\,0,\,1)^{\top}=\bigl(-\tfrac12,\,1,\,\tfrac12\bigr)^{\top},\qquad \lVert\tilde{\mathbf{q}}_2\rVert=\sqrt{\tfrac14+1+\tfrac14}=\sqrt{\tfrac32} .$$
 
@@ -196,6 +205,7 @@ Normalizado es $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$, exactamente la
 :::abbildung ml/k2rgs 12
 Gram-Schmidt para las columnas de $\mathbf{H}$: el producto escalar $\mathbf{q}_1^{\top}\mathbf{a}_2$ con $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ y $\mathbf{a}_2=(0,1,1)^{\top}$, que da la longitud de la sombra, y el cuadrado de la longitud del resto $\tilde{\mathbf{q}}_2=(-\tfrac12,1,\tfrac12)^{\top}$.
 :::
+::::
 
 ⁠**En resumen:** Gram-Schmidt resta a cada vector su proyección sobre los ya hallados y normaliza el resto; así se obtiene una base ortonormal del mismo subespacio.
 
@@ -226,11 +236,13 @@ con una matriz $\mathbf{Q}\in\mathbb{R}^{m\times n}$ de columnas ortonormales y 
 
 Una matriz triangular superior solo tiene ceros por debajo de la diagonal. La columna $i$ de $\mathbf{Q}\mathbf{R}$ es, según la visión por columnas, $\sum_lr_{li}\mathbf{q}_l$, es decir, exactamente la representación de $\mathbf{a}_i$ de arriba. Las columnas de $\mathbf{Q}$ las da el proceso de Gram-Schmidt, y las entradas de $\mathbf{R}$ se obtienen de paso. Como $\mathbf{Q}$ tiene columnas ortonormales, además $\mathbf{R}=\mathbf{Q}^{\top}\mathbf{A}$.
 
-⁠**Ejemplo numérico:** Para $\mathbf{H}$ se tiene
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{H}$ se tiene
 
 $$\mathbf{Q}=\begin{pmatrix}\tfrac1{\sqrt2}&-\tfrac1{\sqrt6}\\0&\tfrac2{\sqrt6}\\\tfrac1{\sqrt2}&\tfrac1{\sqrt6}\end{pmatrix},\qquad \mathbf{R}=\begin{pmatrix}\sqrt2&\tfrac1{\sqrt2}\\0&\sqrt{\tfrac32}\end{pmatrix}\approx\begin{pmatrix}1{,}414&0{,}707\\0&1{,}225\end{pmatrix}.$$
 
 Comprobación de la segunda columna: $\tfrac1{\sqrt2}\cdot\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}+\sqrt{\tfrac32}\cdot\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}=\tfrac12(1,\,0,\,1)^{\top}+\tfrac12(-1,\,2,\,1)^{\top}=(0,\,1,\,1)^{\top}=\mathbf{a}_2$.
+::::
 
 ⁠**En resumen:** La descomposición QR $\mathbf{A}=\mathbf{Q}\mathbf{R}$ escribe el proceso de Gram-Schmidt como un producto de matrices: $\mathbf{Q}$ tiene columnas ortonormales y $\mathbf{R}$ es una matriz triangular superior.
 
@@ -250,16 +262,18 @@ $$\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y} . \tag{4.6}$$
 :::
 
 :::beweis Resolver con QR
-Se tiene $\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ y $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. Las ecuaciones normales son, por tanto, $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. La matriz triangular $\mathbf{R}$ tiene entradas diagonales positivas y, por tanto, según Fundamentos 1, sección 14.4, un determinante distinto de cero, de modo que es invertible; lo mismo vale para $\mathbf{R}^{\top}$. Si se multiplica por la izquierda por $(\mathbf{R}^{\top})^{-1}$, queda [(4.6)](#gl-4-6).
+Se tiene $\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ y $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. Las ecuaciones normales son, por tanto, $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. La matriz triangular $\mathbf{R}$ tiene entradas diagonales positivas y, por tanto, según [Fundamentos 1, sección 14.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), un determinante distinto de cero, de modo que es invertible; lo mismo vale para $\mathbf{R}^{\top}$. Si se multiplica por la izquierda por $(\mathbf{R}^{\top})^{-1}$, queda [(4.6)](#gl-4-6).
 :::
 
-El sistema [(4.6)](#gl-4-6) tiene forma triangular y se resuelve de abajo arriba, como en la sustitución regresiva al final de la eliminación gaussiana de Fundamentos 1, sección 12.3. Para una matriz $m\times n$, el camino completo cuesta unas $2mn^2$ operaciones aritméticas elementales, casi todas para la descomposición QR.
+El sistema [(4.6)](#gl-4-6) tiene forma triangular y se resuelve de abajo arriba, como en la sustitución regresiva al final de la eliminación gaussiana de [Fundamentos 1, sección 12.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3). Para una matriz $m\times n$, el camino completo cuesta unas $2mn^2$ operaciones aritméticas elementales, casi todas para la descomposición QR.
 
-⁠**Ejemplo numérico:** Para $\mathbf{H}$ y $\mathbf{y}=(1,\,1,\,1)^{\top}$ es $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$. La fila inferior de [(4.6)](#gl-4-6) dice $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, es decir, $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. La fila superior dice $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, es decir, $\hat x_1=1-\tfrac13=\tfrac23$. Es la misma solución que con las ecuaciones normales. Las componentes de $\mathbf{Q}^{\top}\mathbf{y}$ son los productos escalares de la fig. [13](#abb-13).
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{H}$ y $\mathbf{y}=(1,\,1,\,1)^{\top}$ es $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$. La fila inferior de [(4.6)](#gl-4-6) dice $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, es decir, $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. La fila superior dice $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, es decir, $\hat x_1=1-\tfrac13=\tfrac23$. Es la misma solución que con las ecuaciones normales. Las componentes de $\mathbf{Q}^{\top}\mathbf{y}$ son los productos escalares de la fig. [13](#abb-13).
 
 :::abbildung ml/k2rqr 13
 El lado derecho $\mathbf{Q}^{\top}\mathbf{y}$ del sistema triangular para $\mathbf{y}=(1,1,1)^{\top}$, con $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ y $\mathbf{q}_2=(-1,2,1)^{\top}/\sqrt6$.
 :::
+::::
 
 ⁠**En resumen:** Con $\mathbf{A}=\mathbf{Q}\mathbf{R}$, las ecuaciones normales se convierten en el sistema triangular $\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$; la matriz $\mathbf{A}^{\top}\mathbf{A}$ no se forma nunca.
 

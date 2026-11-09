@@ -39,7 +39,11 @@ $$r_0^{\,\gamma_\mathrm{ab}-\gamma_\mathrm{an}}=\frac{\gamma_\mathrm{ab}K_\mathr
 $\mathrm{d} E_\mathrm{pot}/\mathrm{d} r=0$ ergibt $\gamma_\mathrm{ab}K_\mathrm{ab}r_0^{-\gamma_\mathrm{ab}}=\gamma_\mathrm{an}K_\mathrm{an}r_0^{-\gamma_\mathrm{an}}$. Die Abstoßung ist am Minimum also der Bruchteil $\gamma_\mathrm{an}/\gamma_\mathrm{ab}$ der Anziehung, das ergibt $E_\mathrm B$. Nochmaliges Ableiten ergibt $D$.
 :::
 
-**Beispiel.** K$^+$ und Cl$^-$ mit $K_\mathrm{an}=1{,}44$ eV nm, $\gamma_\mathrm{an}=1$, $\gamma_\mathrm{ab}=9$, $r_0=0{,}267$ nm: Die Coulomb-Energie ist $-5{,}39$ eV, die Abstoßung $+0{,}60$ eV, also $E_\mathrm B=4{,}79$ eV. Bei $0{,}8\,r_0$ beträgt die Abstoßung schon $+4{,}46$ eV. An jedem Ion zieht $F_\mathrm{an}=20{,}2$ eV/nm $=3{,}24$ nN, die Abstoßung hält genau dagegen. $D=605$ eV/nm$^2=97$ N/m. **Grenzfall:** Für $\gamma_\mathrm{ab}\to\infty$ wird die Abstoßung zur harten Wand bei $r_0$, und $E_\mathrm B\to K_\mathrm{an}/r_0^{\gamma_\mathrm{an}}$.
+::::beispiel
+K$^+$ und Cl$^-$ mit $K_\mathrm{an}=1{,}44$ eV nm, $\gamma_\mathrm{an}=1$, $\gamma_\mathrm{ab}=9$, $r_0=0{,}267$ nm: Die Coulomb-Energie ist $-5{,}39$ eV, die Abstoßung $+0{,}60$ eV, also $E_\mathrm B=4{,}79$ eV. Bei $0{,}8\,r_0$ beträgt die Abstoßung schon $+4{,}46$ eV. An jedem Ion zieht $F_\mathrm{an}=20{,}2$ eV/nm $=3{,}24$ nN, die Abstoßung hält genau dagegen. $D=605$ eV/nm$^2=97$ N/m.
+::::
+
+⁠**Grenzfall:** Für $\gamma_\mathrm{ab}\to\infty$ wird die Abstoßung zur harten Wand bei $r_0$, und $E_\mathrm B\to K_\mathrm{an}/r_0^{\gamma_\mathrm{an}}$.
 
 **Was Wärme ändert.** Die Atome schwingen um $r_0$. Nach dem __Gleichverteilungssatz__ hat jede Schwingung im Mittel die thermische Energie $k_\mathrm BT$, die Bewegung liegt also um $k_\mathrm BT$ über dem Minimum und ist durch die Kurve begrenzt. Diese ist links steil und rechts flach. Bei 300 K reicht die Schwingung im Ionenpaar 8,6 pm nach innen und 10,0 pm nach außen, ihre Mitte liegt 0,7 pm oder 0,26 % über $r_0$. Das ist die Ursache der __thermischen Ausdehnung__. Für die Modellkurve gilt $\Delta r/r_0=\frac{\gamma_\mathrm{an}+\gamma_\mathrm{ab}+3}{3\gamma_\mathrm{an}\gamma_\mathrm{ab}}\,k_\mathrm BT/E_\mathrm B$, also der __Ausdehnungskoeffizient__ $\alpha_\mathrm{th}=\Delta r/(r_0T)=8{,}7\cdot10^{-6}$ K$^{-1}$: Schwache Bindungen dehnen sich stärker aus. Mit steigender Temperatur gewinnt die Schwingung gegen die Bindung. Festkörper schmelzen, viele organische Moleküle zersetzen sich, und bei genügend hoher Temperatur werden alle Stoffe oder ihre Zerfallsprodukte gasförmig.
 

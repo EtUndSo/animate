@@ -93,7 +93,11 @@ $z+\overline{z}=2\operatorname{Re}(z)$，$z-\overline{z}=2\mathrm{i}\operatornam
 (vii)：$(x+\mathrm{i}y)+(x-\mathrm{i}y)=2x$，$(x+\mathrm{i}y)-(x-\mathrm{i}y)=2\mathrm{i}y$。
 :::
 
-**例。** 对 $z_1$ 有 $\overline{z_1}=3-\mathrm{i}$，$z_1\overline{z_1}=9+1=10$，$z_1+\overline{z_1}=6=2\cdot3$，$z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$。对 (iv) 的检验：$\overline{z_1z_2}=1-7\mathrm{i}$，$\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$。**极限情况：**当 $y=0$ 时，$\overline{z}=z$，$z\overline{z}=x^2$。实数位于镜像轴上，保持不变。
+::::beispiel
+对 $z_1$ 有 $\overline{z_1}=3-\mathrm{i}$，$z_1\overline{z_1}=9+1=10$，$z_1+\overline{z_1}=6=2\cdot3$，$z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$。对 (iv) 的检验：$\overline{z_1z_2}=1-7\mathrm{i}$，$\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$。
+::::
+
+⁠**极限情况：**当 $y=0$ 时，$\overline{z}=z$，$z\overline{z}=x^2$。实数位于镜像轴上，保持不变。
 
 :::frage $z\overline{z}$ 不就是 $z^2$ 吗？
 只有 $z$ 为实数时才是。在 $z^2$ 中交叉项相加得 $2\mathrm{i}xy$，在 $z\overline{z}$ 中它们相互抵消。在参考模型中，$z_2^2=-3+4\mathrm{i}$，而 $z_2\overline{z_2}=5$。

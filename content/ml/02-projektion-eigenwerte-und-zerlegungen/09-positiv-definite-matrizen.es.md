@@ -34,7 +34,9 @@ y __semidefinida positiva__ si $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}\ge0$ para 
 
 La simetría forma parte de la definición. Para la forma cuadrática no supone ninguna restricción: según la sección [5.2](quadratische-formen.html#stufe-5-2), de todos modos solo cuenta la parte simétrica. Pero es necesaria para que valgan los criterios de la subsección siguiente. Toda matriz definida positiva es también semidefinida positiva.
 
-⁠**Ejemplo numérico:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ es definida positiva, pues según la sección [5.4](quadratische-formen.html#stufe-5-4) es $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$, y esto solo es cero si $x_2=0$ y entonces también $x_1=0$. La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene la forma $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$; es semidefinida positiva, pero no definida positiva, pues para $\mathbf{x}=(2,\,-1)^{\top}$ la forma es cero. Su gráfica es un canal con el fondo del valle en la dirección de $(2,\,-1)^{\top}$.
+::::beispiel [Ejemplo numérico]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ es definida positiva, pues según la sección [5.4](quadratische-formen.html#stufe-5-4) es $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$, y esto solo es cero si $x_2=0$ y entonces también $x_1=0$. La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene la forma $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$; es semidefinida positiva, pero no definida positiva, pues para $\mathbf{x}=(2,\,-1)^{\top}$ la forma es cero. Su gráfica es un canal con el fondo del valle en la dirección de $(2,\,-1)^{\top}$.
+::::
 
 ⁠**En resumen:** Definida positiva significa que la forma cuadrática es positiva fuera del origen: un cuenco; semidefinida positiva significa que no es negativa en ningún punto.
 
@@ -56,7 +58,9 @@ Si todos los $\lambda_i>0$ y $\mathbf{x}\ne\mathbf{0}$, también $\mathbf{c}=\ma
 
 Si una matriz simétrica tiene valores propios positivos y negativos, su forma es positiva en unas direcciones y negativa en otras: una silla. Una matriz así se llama __indefinida__. Análogamente, una matriz cuyos valores propios son todos negativos se llama definida negativa; su forma es una cúpula.
 
-⁠**Ejemplo numérico:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ tiene los valores propios $6$ y $1$: definida positiva. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene los valores propios $5$ y $0$: semidefinida positiva. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ tiene todas sus entradas positivas, pero los valores propios $4$ y $-2$: indefinida, pues para $\mathbf{x}=(1,\,-1)^{\top}$ la forma vale $1-6+1=-4$. Las entradas positivas no dicen, por tanto, nada sobre el carácter definido.
+::::beispiel [Ejemplo numérico]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ tiene los valores propios $6$ y $1$: definida positiva. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene los valores propios $5$ y $0$: semidefinida positiva. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ tiene todas sus entradas positivas, pero los valores propios $4$ y $-2$: indefinida, pues para $\mathbf{x}=(1,\,-1)^{\top}$ la forma vale $1-6+1=-4$. Las entradas positivas no dicen, por tanto, nada sobre el carácter definido.
+::::
 
 ⁠**En resumen:** Una matriz simétrica es definida positiva si y solo si todos sus valores propios son positivos; valores propios positivos y negativos a la vez dan una silla.
 
@@ -104,11 +108,13 @@ Para $n=2$, esto es [(5.3)](quadratische-formen.html#gl-5-3): los pivotes son $a
 
 Dos advertencias. Primera: $\det\mathbf{A}>0$ por sí solo no basta: $\operatorname{diag}(-1;\,-3)$ tiene el determinante $3$, pero es definida negativa. Segunda: el criterio no se traslada sin más al caso semidefinido: $\operatorname{diag}(0;\,-1)$ tiene los menores principales dominantes $0$ y $0$, ambos no negativos, y aun así no es semidefinida positiva.
 
-⁠**Ejemplo numérico:** Para
+::::beispiel [Ejemplo numérico]
+Para
 
 $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 los menores principales dominantes son $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)=3$ y $\det\mathbf{A}=2\cdot3-1\cdot2=4$, todos positivos: $\mathbf{A}$ es definida positiva. Los pivotes son $2$, $\tfrac32$ y $\tfrac43$, los cocientes de menores consecutivos. Como control: los valores propios son $2-\sqrt2$, $2$ y $2+\sqrt2$, todos positivos, y su producto es $(4-2)\cdot2=4$.
+::::
 
 ⁠**En resumen:** Una matriz simétrica es definida positiva si y solo si todos los pivotes o todos los menores principales dominantes son positivos; en el caso $2\times2$, esto significa $a>0$ y $ac-b^2>0$.
 
@@ -116,7 +122,7 @@ los menores principales dominantes son $2$, $\det\bigl(\begin{smallmatrix}2&1\\1
 
 <span class="anker" id="stufe-8-4"></span>
 
-En Fundamentos 1, sección 10, aparecieron las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$, y en este capítulo, $\mathbf{A}^{\top}\mathbf{A}$ en las ecuaciones normales. Siempre son semidefinidas positivas, y la razón es sencilla: su forma cuadrática es el cuadrado de una longitud.
+En [Fundamentos 1, sección 10](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), aparecieron las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$, y en este capítulo, $\mathbf{A}^{\top}\mathbf{A}$ en las ecuaciones normales. Siempre son semidefinidas positivas, y la razón es sencilla: su forma cuadrática es el cuadrado de una longitud.
 
 :::satz Teorema 8.4 (Matrices de Gram)
 <span class="anker" id="satz-8-4"></span>
@@ -130,7 +136,9 @@ $\mathbf{A}^{\top}\mathbf{A}$ es simétrica, y $\mathbf{x}^{\top}\mathbf{A}^{\to
 
 Lo mismo vale para $\mathbf{A}\mathbf{A}^{\top}$, con las filas en lugar de las columnas. El teorema explica a posteriori la sección [3.5](die-beste-naherungslosung.html#stufe-3-5): con columnas independientes, $\mathbf{A}^{\top}\mathbf{A}$ es definida positiva; tiene, por tanto, todos sus valores propios positivos y es invertible.
 
-⁠**Ejemplo numérico:** $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ tiene los valores propios $3$ y $1$: definida positiva, en consonancia con las columnas independientes de $\mathbf{H}$. Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ es $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$, con el determinante $0$ y los valores propios $25$ y $0$: semidefinida positiva, no definida positiva.
+::::beispiel [Ejemplo numérico]
+$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ tiene los valores propios $3$ y $1$: definida positiva, en consonancia con las columnas independientes de $\mathbf{H}$. Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ es $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$, con el determinante $0$ y los valores propios $25$ y $0$: semidefinida positiva, no definida positiva.
+::::
 
 ⁠**En resumen:** $\mathbf{A}^{\top}\mathbf{A}$ es siempre semidefinida positiva, porque $\mathbf{x}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\lVert\mathbf{A}\mathbf{x}\rVert^2$; con columnas independientes, es definida positiva.
 
@@ -161,11 +169,13 @@ Es una media ponderada de los valores propios, y una media está siempre entre e
 
 El cociente de [(8.2)](#gl-8-2) se llama __cociente de Rayleigh__. Para $\lVert\mathbf{x}\rVert=1$, es la propia forma cuadrática: sobre la circunferencia unidad, la forma está entre el valor propio mínimo y el máximo.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, el cociente de Rayleigh vale $5$ en $\mathbf{e}_1$; $2$ en $\mathbf{e}_2$; $\tfrac{5+4+2}2=5{,}5$ en $(1,\,1)^{\top}/\sqrt2$, y $\tfrac{5-4+2}2=1{,}5$ en $(1,\,-1)^{\top}/\sqrt2$. Todos los valores están entre $1$ y $6$. El valor $6$ lo alcanza en $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$: $\tfrac15(20+8+2)=6$. El cociente no depende de la longitud de $\mathbf{x}$; la fig. [21](#abb-21) lo calcula para $\mathbf{x}=(1,\,1)^{\top}$ sin raíces.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, el cociente de Rayleigh vale $5$ en $\mathbf{e}_1$; $2$ en $\mathbf{e}_2$; $\tfrac{5+4+2}2=5{,}5$ en $(1,\,1)^{\top}/\sqrt2$, y $\tfrac{5-4+2}2=1{,}5$ en $(1,\,-1)^{\top}/\sqrt2$. Todos los valores están entre $1$ y $6$. El valor $6$ lo alcanza en $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$: $\tfrac15(20+8+2)=6$. El cociente no depende de la longitud de $\mathbf{x}$; la fig. [21](#abb-21) lo calcula para $\mathbf{x}=(1,\,1)^{\top}$ sin raíces.
 
 :::abbildung ml/k2rrayleigh 21
 El cociente de Rayleigh de $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ en el punto $\mathbf{x}=(1,1)^{\top}$: numerador y denominador como sumas; el cociente $\tfrac{11}2=5{,}5$ está entre los valores propios $1$ y $6$.
 :::
+::::
 
 ⁠**En resumen:** Sobre la circunferencia unidad, una forma cuadrática está entre el valor propio mínimo y el máximo, y estos valores extremos se alcanzan en las direcciones propias.
 
@@ -190,13 +200,15 @@ Si $\mathbf{A}=\mathbf L\mathbf L^{\top}$, entonces $\mathbf{x}^{\top}\mathbf{A}
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-y para $n$ mayor se sigue completando cuadrados variable por variable. Según Fundamentos 1, sección 14.5, es $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
+y para $n$ mayor se sigue completando cuadrados variable por variable. Según [Fundamentos 1, sección 14.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), es $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ es $a=4$, $b=2$, $c=5$; por tanto, $l_{11}=2$, $l_{21}=1$ y $l_{22}=\sqrt{5-1}=2$:
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ es $a=4$, $b=2$, $c=5$; por tanto, $l_{11}=2$, $l_{21}=1$ y $l_{22}=\sqrt{5-1}=2$:
 
 $$\mathbf L=\begin{pmatrix}2&0\\1&2\end{pmatrix},\qquad \mathbf L\mathbf L^{\top}=\begin{pmatrix}4&2\\2&1+4\end{pmatrix}=\mathbf{A} .$$
 
 La forma es $4x_1^2+4x_1x_2+5x_2^2=(2x_1+x_2)^2+(2x_2)^2$; las dos expresiones de dentro de los cuadrados son las componentes de $\mathbf L^{\top}\mathbf{x}$. El determinante es $20-4=16=(2\cdot2)^2$.
+::::
 
 ⁠**En resumen:** Toda matriz definida positiva es $\mathbf L\mathbf L^{\top}$ con una matriz triangular inferior $\mathbf L$; la descomposición es completar cuadrados en forma matricial.
 

@@ -50,7 +50,8 @@ $$H(z)=\frac{G(z)}{S(z)}=\frac{\sum_{q=0}^{Q}a_q\,z^{-q}}{1-\sum_{p=1}^{P}b_p\,z
 
 ⁠**原因：**因果意味着收敛域位于最外侧极点之外。稳定意味着 $\sum|h(n)|<\infty$；这时 $H(z)$ 在单位圆上收敛，因此单位圆属于收敛域。只有当最外侧极点位于单位圆内部时，二者才能同时成立。对于 $H(z)=\frac{1}{1-bz^{-1}}$ 的递归系统，这又意味着 $|b|<1$。
 
-**例。** $s(n)=0.5^n\cos(\pi n/3)\,\varepsilon(n)$。利用 $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$，并对 $b=0.5\mathrm{e}^{\pm\mathrm{j}\pi/3}$ 应用式 [(11.2)](#gl-11-2)：
+::::beispiel
+$s(n)=0.5^n\cos(\pi n/3)\,\varepsilon(n)$。利用 $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$，并对 $b=0.5\mathrm{e}^{\pm\mathrm{j}\pi/3}$ 应用式 [(11.2)](#gl-11-2)：
 
 $$S(z)=\frac12\Bigl[\frac{1}{1-0.5\mathrm{e}^{\mathrm{j}\pi/3}z^{-1}}+\frac{1}{1-0.5\mathrm{e}^{-\mathrm{j}\pi/3}z^{-1}}\Bigr]=\frac{1-0.25z^{-1}}{1-0.5z^{-1}+0.25z^{-2}},\qquad|z|>0.5.$$
 
@@ -59,6 +60,7 @@ $$S(z)=\frac12\Bigl[\frac{1}{1-0.5\mathrm{e}^{\mathrm{j}\pi/3}z^{-1}}+\frac{1}{1
 :::abbildung et3/k4zebene 8
 例题的 z 平面：极点（叉号）位于 $0.5\mathrm{e}^{\pm\mathrm{j}\pi/3}$，零点（圆圈）位于 0 和 0.25。收敛域（蓝色）位于经过极点的圆之外，并包含单位圆。若把该序列看作单位脉冲响应，它描述的是一个因果且稳定的系统。
 :::
+::::
 
 :::aufgabe 练习 11 ★★ 应用 z 变换
 <span class="anker" id="aufg-11"></span>

@@ -34,7 +34,9 @@ $$f(\mathbf{u}+\mathbf{v})=f(\mathbf{u})+f(\mathbf{v})\qquad\text{and}\qquad f(c
 
 Together, the two conditions say: $f$ preserves linear combinations, $f(c_1\mathbf{u}+c_2\mathbf{v})=c_1f(\mathbf{u})+c_2f(\mathbf{v})$. Every linear map sends the zero vector to the zero vector, because $f(\mathbf{0})=f(0\cdot\mathbf{u})=0\cdot f(\mathbf{u})=\mathbf{0}$.
 
-⁠**Worked example:** The map $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ from $\mathbb{R}^2$ to $\mathbb{R}^2$ is linear. Both components are sums of multiples of the $x_j$, and such sums satisfy the conditions [(8.1)](#gl-8-1); for example, $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. The map $g(\mathbf{x})=x_1x_2$ is not linear, because $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ as soon as $x_1x_2\ne0$. Nor is $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ linear, because $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::beispiel [Worked example]
+The map $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ from $\mathbb{R}^2$ to $\mathbb{R}^2$ is linear. Both components are sums of multiples of the $x_j$, and such sums satisfy the conditions [(8.1)](#gl-8-1); for example, $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. The map $g(\mathbf{x})=x_1x_2$ is not linear, because $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ as soon as $x_1x_2\ne0$. Nor is $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ linear, because $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::
 
 ⁠**In short:** A map is linear if it preserves sums and multiples; it then maps linear combinations to linear combinations.
 
@@ -65,9 +67,11 @@ $$f(\mathbf{x})=f\Bigl(\sum_{j=1}^nx_j\mathbf{e}_j\Bigr)=\sum_{j=1}^nx_j\,f(\mat
 the last step by the column view [(7.3)](das-matrix-vektor-produkt.html#gl-7-3). If there were a second matrix $\mathbf{B}$ with $\mathbf{B}\mathbf{x}=f(\mathbf{x})$ for all $\mathbf{x}$, then, taking $\mathbf{x}=\mathbf{e}_j$, column $j$ of $\mathbf{B}$ would equal $f(\mathbf{e}_j)=\mathbf{a}_j$, for every $j$. Hence $\mathbf{B}=\mathbf{A}$.
 :::
 
-⁠**Worked example:** For $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ we have $f(\mathbf{e}_1)=(1,\,2)^{\top}$ and $f(\mathbf{e}_2)=(1,\,0)^{\top}$. So
+::::beispiel [Worked example]
+For $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ we have $f(\mathbf{e}_1)=(1,\,2)^{\top}$ and $f(\mathbf{e}_2)=(1,\,0)^{\top}$. So
 
 $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{and as a check}\qquad \mathbf{A}\begin{pmatrix}3\\-1\end{pmatrix}=\begin{pmatrix}2\\6\end{pmatrix}=f\bigl((3,\,-1)^{\top}\bigr).$$
+::::
 
 ⁠**In short:** Linear maps and matrices are the same thing; column $j$ of the matrix is the image of the unit vector $\mathbf{e}_j$.
 
@@ -121,12 +125,14 @@ The matrix $\operatorname{diag}(1,\,0)$ keeps the first component and sets the s
 
 </ul>
 
-⁠**Worked example: the rotation by an arbitrary angle.** If you rotate counterclockwise by the angle $\alpha$, then $\mathbf{e}_1$ lands at the point $(\cos\alpha,\,\sin\alpha)^{\top}$ on the unit circle, and $\mathbf{e}_2$, which lies $90^\circ$ further on, lands at the point $(-\sin\alpha,\,\cos\alpha)^{\top}$. By [(8.2)](#gl-8-2), the rotation matrix is therefore
+::::beispiel [Worked example] the rotation by an arbitrary angle
+If you rotate counterclockwise by the angle $\alpha$, then $\mathbf{e}_1$ lands at the point $(\cos\alpha,\,\sin\alpha)^{\top}$ on the unit circle, and $\mathbf{e}_2$, which lies $90^\circ$ further on, lands at the point $(-\sin\alpha,\,\cos\alpha)^{\top}$. By [(8.2)](#gl-8-2), the rotation matrix is therefore
 
 <span class="anker" id="gl-8-3"></span>
 $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}. \tag{8.3}$$
 
 For $\alpha=90^\circ$ this gives the matrix from Fig. [32](#abb-32). It rotates the point $(1,\,1)^{\top}$ to $(-1,\,1)^{\top}$; the stretch maps the same point to $(2,\ 0.5)^{\top}$, the shear to $(2,\,1)^{\top}$ and the flattening to $(1,\,0)^{\top}$.
+::::
 
 ⁠**In short:** A $2\times2$ matrix deforms the grid of the plane; the unit square becomes the parallelogram spanned by its two columns.
 
@@ -144,7 +150,9 @@ Every linear map $f\colon\mathbb{R}^d\to\mathbb{R}$ has the form $f(\mathbf{x})=
 
 This is the theorem from Subsection [8.2](#stufe-8-2) for $m=1$: the $1\times d$ matrix is the row $\mathbf{w}^{\top}$, and its product with $\mathbf{x}$ is the dot product. So the weighted sum from Subsection [2.2](das-skalarprodukt.html#stufe-2-2) is not just one rule among many but the most general linear rule with one output.
 
-⁠**Worked example:** The real estate agent's rule is $f(\mathbf{x})=3x_1+10x_2-4x_3$. We have $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, so $\mathbf{w}=(3,\,10,\,-4)^{\top}$. The weight $w_j=f(\mathbf{e}_j)$ is the value of the rule for an imaginary example that has one unit of feature $j$ and nothing else: it says how much one unit of this feature contributes.
+::::beispiel [Worked example]
+The real estate agent's rule is $f(\mathbf{x})=3x_1+10x_2-4x_3$. We have $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, so $\mathbf{w}=(3,\,10,\,-4)^{\top}$. The weight $w_j=f(\mathbf{e}_j)$ is the value of the rule for an imaginary example that has one unit of feature $j$ and nothing else: it says how much one unit of this feature contributes.
+::::
 
 ⁠**In short:** Every linear map with one output is a weighted sum $\mathbf{w}^{\top}\mathbf{x}$, and the weight $w_j$ is its value at $\mathbf{e}_j$.
 
@@ -174,9 +182,11 @@ $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+b\,\mathbf 1 . \tag{8.5}$$
 
 The term $b\,\mathbf 1$ adds the same amount $b$ to every prediction.
 
-⁠**Worked example:** With $\mathbf{w}=(3,\,10,\,-4)^{\top}$ and $b=20$, the predictions $(188,\,126,\,286,\,232)^{\top}$ become
+::::beispiel [Worked example]
+With $\mathbf{w}=(3,\,10,\,-4)^{\top}$ and $b=20$, the predictions $(188,\,126,\,286,\,232)^{\top}$ become
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+20\cdot\mathbf 1=(208,\,146,\,306,\,252)^{\top}\ \text{thousand euros}.$$
+::::
 
 ⁠**In short:** An affine map is a linear map plus a fixed shift, $\mathbf{A}\mathbf{x}+\mathbf{b}$; with one output, the shift is called the intercept.
 

@@ -25,7 +25,9 @@ $$\varphi^E_{ss}(m)\;\circ\!\!-\!\!\bullet\;|S_\mathrm a(f)|^2\ (\text{周期为
 
 对于采样后的低通信号，有 $\varphi^E_{sg}(mT)=T\sum_ns^*(nT)g((n+m)T)$ 和 $E_s=T\sum_n|s(nT)|^2$。离散时间能量信号是平方可和的序列。
 
-**例。** $s=(1,2,1)$：当 $m=-2,\dots,2$ 时，$\varphi^E_{ss}=(1,4,6,4,1)$。最大值 $6=E_s$ 位于 $m=0$，偶对称，有五个值而不是三个。在 $f=0$ 处用维纳–辛钦定理验证：$|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$。
+::::beispiel
+$s=(1,2,1)$：当 $m=-2,\dots,2$ 时，$\varphi^E_{ss}=(1,4,6,4,1)$。最大值 $6=E_s$ 位于 $m=0$，偶对称，有五个值而不是三个。在 $f=0$ 处用维纳–辛钦定理验证：$|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$。
+::::
 
 **周期相关。** 与卷积的情形一样（[第 4 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)），对于周期为 $M$ 的序列有：
 

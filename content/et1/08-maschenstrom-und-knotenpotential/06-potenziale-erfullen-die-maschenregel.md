@@ -44,7 +44,11 @@ Für beliebige Werte der $k-1$ Knotenpotentiale ist jede Maschenregel erfüllt. 
 
 ⁠**So liest man das:** $U_\mu$ ist eine Spannung mit Pfeil von Knoten $\mu$ zum Bezugsknoten, Einheit Volt. Im Schaltplan zeigt das Massezeichen den Bezugsknoten an, in SPICE heißt er immer 0. Den Bezugsknoten wählt man dort, wo die meisten Zweige zusammenkommen, dann werden die Gleichungen am kürzesten. **Gültigkeit:** Das Feld muss wirbelfrei sein. Ein veränderliches Magnetfeld durch eine Masche zerstört die Potenziale ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), in Schaltungen sitzt es in Spulen.
 
-**Beispiel.** Im Rechenmodell sind $U_1=8$ V und $U_2=10$ V, wie Stufe [3](das-maschenstromverfahren.html#stufe-3) ergab. Die Spannung an $R_3$ ist $U_{12}=U_1-U_2=-2$ V, also liegt Knoten 2 höher, und der Strom läuft von 2 nach 1. Mit $R_3=2\,\mathrm{k\Omega}$ sind das die 1 mA aus Stufe [3](das-maschenstromverfahren.html#stufe-3). Der Umlauf ergibt $(U_1-U_2)+U_2-U_1=0$ auch für jedes andere Zahlenpaar. **Grenzfall:** Ein Netz mit $k=2$ hat ein einziges Knotenpotential. Das ist die gemeinsame Spannung einer Parallelschaltung.
+::::beispiel
+Im Rechenmodell sind $U_1=8$ V und $U_2=10$ V, wie Stufe [3](das-maschenstromverfahren.html#stufe-3) ergab. Die Spannung an $R_3$ ist $U_{12}=U_1-U_2=-2$ V, also liegt Knoten 2 höher, und der Strom läuft von 2 nach 1. Mit $R_3=2\,\mathrm{k\Omega}$ sind das die 1 mA aus Stufe [3](das-maschenstromverfahren.html#stufe-3). Der Umlauf ergibt $(U_1-U_2)+U_2-U_1=0$ auch für jedes andere Zahlenpaar.
+::::
+
+⁠**Grenzfall:** Ein Netz mit $k=2$ hat ein einziges Knotenpotential. Das ist die gemeinsame Spannung einer Parallelschaltung.
 
 :::frage Ist das Knotenpotential nun ein Potenzial oder eine Spannung?
 Beides. Ein Potenzial für sich hat nur gegenüber einem Nullpunkt einen Wert ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Das Knotenpotential ist die Spannung gegen den gewählten Nullpunkt, deshalb trägt es das Zeichen $U$. Ein Wechsel des Bezugsknotens ändert alle Knotenpotentiale, aber keine einzige Zweigspannung.

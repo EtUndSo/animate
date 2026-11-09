@@ -39,7 +39,11 @@ lang: zh
 有 $\mathrm{i}(x+\mathrm{i}y)=\mathrm{i}x+\mathrm{i}^2y=-y+\mathrm{i}x$。$z$ 的箭头是一个直角三角形的斜边，其水平直角边为 $x$，竖直直角边为 $y$，两者都带符号。转四分之一圈后，向右的 $x$ 变为向上的 $x$，向上的 $y$ 变为向左的 $y$。所以旋转后的箭头终点为 $(-y,x)$。
 :::
 
-**例。** $\mathrm{i}z_1=-1+3\mathrm{i}$，$\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$，$\mathrm{i}^3z_1=1-3\mathrm{i}$，$\mathrm{i}^4z_1=z_1$（图 [2](#abb-2)，右）。**极限情况：**实因子 $r$ 不旋转，而是伸缩：$r(x+\mathrm{i}y)=rx+\mathrm{i}ry$。当 $r=-1$ 时它使箭头反向，与乘两次 $\mathrm{i}$ 相同。
+::::beispiel
+$\mathrm{i}z_1=-1+3\mathrm{i}$，$\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$，$\mathrm{i}^3z_1=1-3\mathrm{i}$，$\mathrm{i}^4z_1=z_1$（图 [2](#abb-2)，右）。
+::::
+
+⁠**极限情况：**实因子 $r$ 不旋转，而是伸缩：$r(x+\mathrm{i}y)=rx+\mathrm{i}ry$。当 $r=-1$ 时它使箭头反向，与乘两次 $\mathrm{i}$ 相同。
 
 :::frage 复平面不就是普通的坐标平面吗？
 作为集合以及在做加法时，确实如此。区别在于乘法：式 [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) 由两个点又得到一个点，并由此可以做除法（第 [4](dividieren-und-was-verloren-geht.html#stufe-4) 阶段）。正是这一点才使平面成为一个数系。

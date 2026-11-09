@@ -72,11 +72,13 @@ $$(x_1+\mathrm{i}y_1)(x_2+\mathrm{i}y_2)=(x_1x_2-y_1y_2)+\mathrm{i}(x_1y_2+x_2y_
 (iii) Por (ii), los segundos miembros son exactamente los pares de [(1.1)](#gl-1-1) y [(1.2)](#gl-1-2).
 :::
 
-**Ejemplo.** Suma y producto del modelo de referencia:
+::::beispiel
+Suma y producto del modelo de referencia:
 
 $$z_1+z_2=(3+1)+\mathrm{i}(1+2)=4+3\mathrm{i},\qquad z_1z_2=(3+\mathrm{i})(1+2\mathrm{i})=3+6\mathrm{i}+\mathrm{i}+2\mathrm{i}^2=1+7\mathrm{i}.$$
 
 La fórmula de pares [(1.2)](#gl-1-2) da lo mismo: $(3\cdot1-1\cdot2,\;3\cdot2+1\cdot1)=(1,7)$. Las potencias de $\mathrm{i}$ se repiten con período 4: $\mathrm{i}^1=\mathrm{i}$, $\mathrm{i}^2=-1$, $\mathrm{i}^3=-\mathrm{i}$, $\mathrm{i}^4=1$. Por tanto solo cuenta el resto de dividir $n$ entre 4, por ejemplo $\mathrm{i}^{10}=\mathrm{i}^8\,\mathrm{i}^2=-1$.
+::::
 
 :::frage ¿Existe $\mathrm{i}$ de verdad, o es un truco de cálculo?
 En la recta numérica no existe $\mathrm{i}$; hasta ahí la duda es acertada. Pero $\mathrm{i}$ es el par $(0,1)$, y [(1.2)](#gl-1-2) es una regla inequívoca para pares. «Imaginario» es solo un nombre histórico.

@@ -37,7 +37,8 @@ __Definitionsbereich__, __Wertebereich__ und __Graph__ von $f$, es ist $\mathcal
 
 ⁠**So liest man das:** Der Pfeil $\to$ verbindet Mengen, $\mapsto$ verbindet Elemente, und $=:$ heißt „wird so genannt“. $B$ ist nur ein Vorrat, es gilt $\mathcal W(f)\subset B$. Da man $\mathcal W(f)$ oft nicht kennt, schreibt man bei reellen Funktionen meist $f:\mathcal D(f)\to\mathbb{R}$. Gleiche Graphen bedeuten auch gleiche Definitionsbereiche: $\sqrt x$ auf $[0,10]$ und $\sqrt x$ auf $\mathbb{R}_0^+$ haben dieselbe Formel und sind verschiedene Funktionen.
 
-**Beispiele.** Die Parabel erreicht nur $y\ge-1$: Ein Quadrat ist nie negativ, also ist $h(x)=(x-2)^2-1\ge-1$, und jedes $y\ge-1$ wird von $x=2+\sqrt{y+1}$ getroffen. Für die Glocke ist $1+x^2\ge1$, also $0<b(x)\le1$.
+::::beispiel [Beispiele]
+Die Parabel erreicht nur $y\ge-1$: Ein Quadrat ist nie negativ, also ist $h(x)=(x-2)^2-1\ge-1$, und jedes $y\ge-1$ wird von $x=2+\sqrt{y+1}$ getroffen. Für die Glocke ist $1+x^2\ge1$, also $0<b(x)\le1$.
 
 | Funktion | $\mathcal D(f)$ | $\mathcal W(f)$ |
 |---|---|---|
@@ -48,7 +49,10 @@ __Definitionsbereich__, __Wertebereich__ und __Graph__ von $f$, es ist $\mathcal
 | Betrag: $f(x)=x$ für $x\ge0$, $f(x)=-x$ für $x<0$ | $\mathbb{R}$ | $\mathbb{R}_0^+$ |
 | Länge eines Vektors: $f(\vec x)=\sqrt{x_1^2+\dots+x_n^2}$ | $\mathbb{R}^n$ | $\mathbb{R}_0^+$ |
 
-Der Betrag zeigt: Eine Funktion darf stückweise erklärt sein. Die letzte Zeile zeigt: Eingänge müssen keine Zahlen sein, diese Funktion ist nicht reell. **Grenzfall:** Für $a=0$ ist $f(x)=b$ konstant, alle Eingänge teilen sich einen Ausgang. Das ist erlaubt, $\mathcal W(f)=\{b\}$.
+Der Betrag zeigt: Eine Funktion darf stückweise erklärt sein. Die letzte Zeile zeigt: Eingänge müssen keine Zahlen sein, diese Funktion ist nicht reell.
+::::
+
+⁠**Grenzfall:** Für $a=0$ ist $f(x)=b$ konstant, alle Eingänge teilen sich einen Ausgang. Das ist erlaubt, $\mathcal W(f)=\{b\}$.
 
 **Nicht jede Menge von Paaren ist ein Graph.** Der Einheitskreis $\{(x,y)\in\mathbb{R}^2:x^2+y^2=1\}$ enthält $(0,1)$ und $(0,-1)$: Der Eingang $0$ hätte zwei Ausgänge. Im Bild heißt das: Eine senkrechte Linie trifft einen Graphen höchstens einmal (Abb. [2](#abb-2)).
 

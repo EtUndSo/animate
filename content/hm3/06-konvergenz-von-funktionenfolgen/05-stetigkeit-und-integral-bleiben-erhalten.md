@@ -54,7 +54,11 @@ Nach Satz [3.1](#satz-3-1) ist $f$ stetig, das Integral rechts existiert also. 
 $$\Bigl|\int_a^bf(x)\,\mathrm{d} x-\int_a^bf_n(x)\,\mathrm{d} x\Bigr|\le\int_a^b|f(x)-f_n(x)|\,\mathrm{d} x\le(b-a)\,\varepsilon.$$
 :::
 
-⁠**So liest man das:** Die Fläche zwischen zwei Kurven ist höchstens Breite mal größter Abstand. Darin steckt die Länge $b-a$, und sie muss endlich sein (Aufgabe [3](#aufg-3)). **Beispiel:** Für den Rippel $w_3$ ist $\int_0^\pi w_3\,\mathrm{d} x=\frac29\approx0{,}22$, die Abschätzung gibt $\pi\cdot\frac13\approx1{,}05$, und für $n\to\infty$ gehen beide gegen null. Der Satz ist bequem, aber nicht scharf: Auch ohne gleichmäßige Konvergenz kann das Integral passen. So ist $\int_0^1u_n\,\mathrm{d} x=(1-\mathrm{e}^{-n})/n\to0$, und das ist das Integral der Grenzfunktion [(1.2)](punktweise-konvergenz.html#gl-1-2).
+⁠**So liest man das:** Die Fläche zwischen zwei Kurven ist höchstens Breite mal größter Abstand. Darin steckt die Länge $b-a$, und sie muss endlich sein (Aufgabe [3](#aufg-3)).
+
+::::beispiel
+Für den Rippel $w_3$ ist $\int_0^\pi w_3\,\mathrm{d} x=\frac29\approx0{,}22$, die Abschätzung gibt $\pi\cdot\frac13\approx1{,}05$, und für $n\to\infty$ gehen beide gegen null. Der Satz ist bequem, aber nicht scharf: Auch ohne gleichmäßige Konvergenz kann das Integral passen. So ist $\int_0^1u_n\,\mathrm{d} x=(1-\mathrm{e}^{-n})/n\to0$, und das ist das Integral der Grenzfunktion [(1.2)](punktweise-konvergenz.html#gl-1-2).
+::::
 
 :::frage Wo scheitert der Beweis bei den Beulen?
 An der Abschätzung. Sie braucht einen kleinen größten Abstand, die Beulen haben aber $d_n=n/\mathrm{e}$. Das gibt nur $\int_0^1b_n\,\mathrm{d} x\le n/\mathrm{e}$, und das sagt für große $n$ nichts. Die Fläche bleibt nahe 1, weil die Höhe wie $n$ wächst und die Breite wie $1/n$ schrumpft.

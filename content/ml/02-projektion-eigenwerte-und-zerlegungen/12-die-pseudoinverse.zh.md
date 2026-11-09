@@ -12,7 +12,7 @@ lang: zh
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-在基础篇 1 中，只有列线性无关的方阵才有逆矩阵。本节给每个矩阵一种逆：方程多于未知数时，有从左边求逆的逆；方程少于未知数时，有从右边求逆的逆；还有一种适用于所有情形的逆，即伪逆。它总是给出最佳近似解，而在有多个最佳近似解时给出最短的那个。
+在[基础篇 1](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) 中，只有列线性无关的方阵才有逆矩阵。本节给每个矩阵一种逆：方程多于未知数时，有从左边求逆的逆；方程少于未知数时，有从右边求逆的逆；还有一种适用于所有情形的逆，即伪逆。它总是给出最佳近似解，而在有多个最佳近似解时给出最短的那个。
 :::
 
 ### 左逆
@@ -44,11 +44,13 @@ $$\mathbf F=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top} \tag{11.1}$$
 
 从右边乘时，$\mathbf F$ 并不起逆的作用。由式 [(4.1)](projektion-auf-einen-unterraum.html#gl-4-1)，乘积 $\mathbf{A}\mathbf F=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ 是向列空间的投影，而当 $m>n$ 时，它不是 $\mathbf{I}_m$。此外，高矩阵有许多左逆；式 [(11.1)](#gl-11-1) 是与正交投影相对应的那一个。
 
-⁠**算例：**对于列为 $(1,\,0,\,1)^{\top}$ 和 $(0,\,1,\,1)^{\top}$ 的 $\mathbf{H}$，有 $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$，以及
+::::beispiel [算例]
+对于列为 $(1,\,0,\,1)^{\top}$ 和 $(0,\,1,\,1)^{\top}$ 的 $\mathbf{H}$，有 $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$，以及
 
 $$\mathbf F=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\end{pmatrix}.$$
 
 有 $\mathbf F\mathbf{H}=\tfrac13\bigl(\begin{smallmatrix}2+1&-1+1\\-1+1&2+1\end{smallmatrix}\bigr)=\mathbf{I}_2$，而 $\mathbf F(1,\,1,\,1)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$ 就是第 [3.3](die-beste-naherungslosung.html#stufe-3-3) 节中的最佳近似解。$\mathbf{H}\mathbf F$ 是第 [4.2](projektion-auf-einen-unterraum.html#stufe-4-2) 节中的投影矩阵 $\tfrac13\Bigl(\begin{smallmatrix}2&-1&1\\-1&2&1\\1&1&2\end{smallmatrix}\Bigr)$。另一个左逆是 $\bigl(\begin{smallmatrix}1&0&0\\0&1&0\end{smallmatrix}\bigr)$，因为 $\mathbf{H}$ 的前两行构成单位矩阵；但对于 $(1,\,1,\,1)^{\top}$，它给出的不是最佳近似解，而是 $(1,\,1)^{\top}$。
+::::
 
 ⁠**简而言之：**列线性无关的矩阵有左逆 $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$；它把 $\mathbf{y}$ 映射为最佳近似解。
 
@@ -85,7 +87,9 @@ $$\lVert\mathbf{x}\rVert^2=\lVert\mathbf G\mathbf{y}+\mathbf{z}\rVert^2=\lVert\m
 
 从几何上看，解集是一条不过原点的直线或一个不过原点的平面，$\mathbf G\mathbf{y}$ 是其中离原点最近的点：从原点所作垂线的垂足。
 
-⁠**算例：**单个方程 $x_1+2x_2=5$ 对应 $\mathbf{A}=(1\ \ 2)$，$\mathbf{A}\mathbf{A}^{\top}=5$。所以 $\mathbf G=\tfrac15(1,\,2)^{\top}$，$\mathbf G\cdot5=(1,\,2)^{\top}$。所有的解为 $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$，长度的平方为 $(1+2t)^2+(2-t)^2=5+5t^2$；$t=0$ 时解最短。向量 $(1,\,2)^{\top}$ 垂直于方向为 $(2,\,-1)^{\top}$ 的解直线。
+::::beispiel [算例]
+单个方程 $x_1+2x_2=5$ 对应 $\mathbf{A}=(1\ \ 2)$，$\mathbf{A}\mathbf{A}^{\top}=5$。所以 $\mathbf G=\tfrac15(1,\,2)^{\top}$，$\mathbf G\cdot5=(1,\,2)^{\top}$。所有的解为 $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$，长度的平方为 $(1+2t)^2+(2-t)^2=5+5t^2$；$t=0$ 时解最短。向量 $(1,\,2)^{\top}$ 垂直于方向为 $(2,\,-1)^{\top}$ 的解直线。
+::::
 
 ⁠**简而言之：**行线性无关的矩阵有右逆 $\mathbf{A}^{\top}(\mathbf{A}\mathbf{A}^{\top})^{-1}$；它给出最短解。
 
@@ -106,9 +110,11 @@ $$\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}=\sum_{j=1}^r\frac1{d_j}\,
 
 每个构件都把 $\mathbf{A}$ 的一个构件反转过来：$\mathbf{A}$ 把 $\mathbf{v}_j$ 映射为 $d_j\mathbf{u}_j$，$\mathbf{A}^+$ 把 $\mathbf{u}_j$ 映射为 $\mathbf{v}_j/d_j$。对于 $\mathbf{A}$ 达不到的方向 $\mathbf{u}_j$（$j>r$），$\mathbf{A}^+$ 把它们映射为零，而不是除以零。若 $\mathbf{A}$ 可逆，则 $\mathbf{A}^+=\mathbf{A}^{-1}$，因为这时 $\mathbf{A}^{-1}=(\mathbf{V}^{\top})^{-1}\mathbf{D}^{-1}\mathbf{U}^{-1}=\mathbf{V}\mathbf{D}^{-1}\mathbf{U}^{\top}$。
 
-⁠**算例：**$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 是对称半正定矩阵，有属于 $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ 的特征值 $5$ 和特征值 $0$。由第 [9.7](die-singularwertzerlegung.html#stufe-9-7) 节，$\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ 是它的紧凑分解，其中 $d_1=5$，$\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$。因此
+::::beispiel [算例]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 是对称半正定矩阵，有属于 $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ 的特征值 $5$ 和特征值 $0$。由第 [9.7](die-singularwertzerlegung.html#stufe-9-7) 节，$\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ 是它的紧凑分解，其中 $d_1=5$，$\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$。因此
 
 $$\mathbf{A}^+=\frac15\,\mathbf{q}\mathbf{q}^{\top}=\frac1{25}\begin{pmatrix}1&2\\2&4\end{pmatrix}.$$
+::::
 
 ⁠**简而言之：**伪逆 $\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}$ 把每个 $d_j>0$ 的构件 $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ 反转过来，并把属于奇异值 $0$ 的方向映射为零。
 
@@ -133,12 +139,15 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 第二个和与 $\mathbf{x}$ 无关。第一个和恰好在对所有 $j\le r$ 都有 $c_j=\beta_j/d_j$ 时为零，从而尽可能小；$j>r$ 的 $c_j$ 根本不出现。所以最佳近似解恰好是这样的 $\mathbf{x}=\mathbf{V}\mathbf{c}$：对 $j\le r$ 有 $c_j=\beta_j/d_j$，而 $c_{r+1},\dots,c_n$ 任意。它们的长度为 $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$，在 $j>r$ 时取 $c_j=0$ 最小。这个 $\mathbf{c}$ 就是 $\mathbf{D}^+\boldsymbol\beta$，所以 $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$。
 
-在各列线性无关时，由第 [3.5](die-beste-naherungslosung.html#stufe-3-5) 节，只有一个最佳近似解 $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$；它必然与 $\mathbf{A}^+\mathbf{y}$ 一致，而且对每个 $\mathbf{y}$ 都如此。在各行线性无关时，由基础篇 1 第 13.4 节，秩等于 $m$，所以列空间是整个 $\mathbb{R}^m$，方程组对每个 $\mathbf{y}$ 都可解；最佳近似解就是方程组的解，由第 [11.2](#stufe-11-2) 节，其中最短的是 $\mathbf G\mathbf{y}$。
+在各列线性无关时，由第 [3.5](die-beste-naherungslosung.html#stufe-3-5) 节，只有一个最佳近似解 $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$；它必然与 $\mathbf{A}^+\mathbf{y}$ 一致，而且对每个 $\mathbf{y}$ 都如此。在各行线性无关时，由[基础篇 1 第 13.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4)，秩等于 $m$，所以列空间是整个 $\mathbb{R}^m$，方程组对每个 $\mathbf{y}$ 都可解；最佳近似解就是方程组的解，由第 [11.2](#stufe-11-2) 节，其中最短的是 $\mathbf G\mathbf{y}$。
 :::
 
-⁠**算例 1：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 和 $\mathbf{y}=(1,\,1)^{\top}$，得 $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0.12,\ 0.24)^{\top}$。它在最佳近似解构成的直线上，因为 $0.12+2\cdot0.24=0.6=\tfrac35$；它沿 $(1,\,2)^{\top}$ 方向，垂直于这条直线：它是直线上离原点最近的点。
+::::beispiel [算例 1]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 和 $\mathbf{y}=(1,\,1)^{\top}$，得 $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0.12,\ 0.24)^{\top}$。它在最佳近似解构成的直线上，因为 $0.12+2\cdot0.24=0.6=\tfrac35$；它沿 $(1,\,2)^{\top}$ 方向，垂直于这条直线：它是直线上离原点最近的点。
+::::
 
-⁠**算例 2：**对同一个量测量三次，结果为 $4$、$5$ 和 $9$。方程组“$x=4$，$x=5$，$x=9$”的矩阵是 $\mathbf{1}\in\mathbb{R}^{3\times1}$，即一个全 1 列。它的列线性无关，所以 $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$，并且
+::::beispiel [算例 2]
+对同一个量测量三次，结果为 $4$、$5$ 和 $9$。方程组“$x=4$，$x=5$，$x=9$”的矩阵是 $\mathbf{1}\in\mathbb{R}^{3\times1}$，即一个全 1 列。它的列线性无关，所以 $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$，并且
 
 $$x^+=\tfrac13\,\mathbf{1}^{\top}\mathbf{y}=\tfrac13\,(4+5+9)=6 ,$$
 
@@ -147,6 +156,7 @@ $$x^+=\tfrac13\,\mathbf{1}^{\top}\mathbf{y}=\tfrac13\,(4+5+9)=6 ,$$
 :::abbildung ml/k2rmittel 27
 全 1 列的伪逆作用于测量值 $\mathbf{y}=(4,5,9)^{\top}$：与 $\mathbf{1}$ 的点积是测量值之和，除以 $\mathbf{1}^{\top}\mathbf{1}=3$ 就得到平均值。
 :::
+::::
 
 ⁠**简而言之：**对每个矩阵，$\mathbf{A}^+\mathbf{y}$ 都是一个最佳近似解，在有多个时是最短的那个；在各列或各行线性无关时，$\mathbf{A}^+$ 就是左逆或右逆。
 

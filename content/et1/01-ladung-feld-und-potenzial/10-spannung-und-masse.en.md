@@ -62,7 +62,9 @@ Left and center: circuit symbols of a battery (long thin line: plus terminal) an
 The same circuit with ground at three places. The potentials are 9 V, 3 V, 0 V, then 6 V, 0 V, $-3$ V, then 0 V, $-6$ V, $-9$ V. Each time, 6 V are across the upper resistor and 3 V across the lower one.
 :::
 
-**Example.** In the pair of plates, $E=9\,\mathrm{V}/3\,\mathrm{mm}=3$ kV/m, 1000 times less than the breakdown field strength of air. A rectangular battery supplies around 0.5 Ah (amperes times hours), which is 1800 C. Its total energy is $W=Q\,U=1800\,\mathrm{C}\cdot9\,\mathrm{V}=16.2$ kJ $=4.5$ Wh. In the circuit, ground is at first at the minus terminal (Fig. [10](#abb-10) left). With [(8.2)](#gl-8-2), from bottom to top this gives 0 V, $0+3$ V, $3+6$ V. If ground moves to the middle, every potential falls by 3 V. The voltage across the upper resistor is $9\,\mathrm{V}-3\,\mathrm{V}$ before and $6\,\mathrm{V}-0\,\mathrm{V}$ after. In motor vehicles, the minus terminal of the battery is usually connected to the body, which is the ground there.
+::::beispiel
+In the pair of plates, $E=9\,\mathrm{V}/3\,\mathrm{mm}=3$ kV/m, 1000 times less than the breakdown field strength of air. A rectangular battery supplies around 0.5 Ah (amperes times hours), which is 1800 C. Its total energy is $W=Q\,U=1800\,\mathrm{C}\cdot9\,\mathrm{V}=16.2$ kJ $=4.5$ Wh. In the circuit, ground is at first at the minus terminal (Fig. [10](#abb-10) left). With [(8.2)](#gl-8-2), from bottom to top this gives 0 V, $0+3$ V, $3+6$ V. If ground moves to the middle, every potential falls by 3 V. The voltage across the upper resistor is $9\,\mathrm{V}-3\,\mathrm{V}$ before and $6\,\mathrm{V}-0\,\mathrm{V}$ after. In motor vehicles, the minus terminal of the battery is usually connected to the body, which is the ground there.
+::::
 
 ⁠**In short:** voltage is energy per charge between two points.
 

@@ -33,7 +33,8 @@ Strom ist Ladung je Zeit, $i=\mathrm{d} q/\mathrm{d} t$ ([Teil 2](/wissen/elekt
 
 **Zwei Folgerungen.** Erstens: **Die Spannung springt nicht.** Ein Sprung um $\Delta U$ in der Zeit $\Delta t$ verlangt $i=C\,\Delta U/\Delta t$. Für $\Delta t\to0$ wüchse der Strom unbegrenzt, denn die Ladung $C\,\Delta U$ müsste in null Zeit ankommen. 9 V in 1 µs an 100 µF verlangen schon 900 A. Der Strom darf dagegen springen, denn er ist nicht an eine gespeicherte Größe gebunden. Zweitens: **Bei konstanter Spannung fließt kein Strom.** Mit $\mathrm{d} u/\mathrm{d} t=0$ ist $i=0$, der Kondensator sperrt Gleichstrom.
 
-**Beispiel.** Eine __Stromquelle__, ein Bauteil, das seinen Strom unabhängig von der Spannung festhält, speist über den Schalter S einen Widerstand und einen ungeladenen Kondensator in Reihe (Abb. [3](#abb-3)). Sie liefert $I=0{,}9$ mA, $R$ und $C$ sind die Werte des RC-Kreises. Mit dem Schließen von S bei $t=0$ springt $u_R$ auf den festen Wert $R\,I=9$ V. Am Kondensator liefert [(3.2)](#gl-3-2) mit $u_C(0)=0$
+::::beispiel
+Eine __Stromquelle__, ein Bauteil, das seinen Strom unabhängig von der Spannung festhält, speist über den Schalter S einen Widerstand und einen ungeladenen Kondensator in Reihe (Abb. [3](#abb-3)). Sie liefert $I=0{,}9$ mA, $R$ und $C$ sind die Werte des RC-Kreises. Mit dem Schließen von S bei $t=0$ springt $u_R$ auf den festen Wert $R\,I=9$ V. Am Kondensator liefert [(3.2)](#gl-3-2) mit $u_C(0)=0$
 
 <span class="anker" id="gl-3-3"></span>
 $$u_C(t)=\frac{Q(t)}{C}=\frac{I\,t}{C}=9\,\mathrm{V/s}\cdot t. \tag{3.3}$$
@@ -43,6 +44,7 @@ Die Spannung wächst gerade an. Sie startet stetig bei null, obwohl der Strom sp
 :::abbildung et1/k3rampe 3
 Eine Stromquelle lädt einen Kondensator über $R=10\,\mathrm{k\Omega}$. Mit dem Schließen von S springt $u_R$ auf 9 V und bleibt dort. $u_C$ startet bei null und steigt mit 9 V/s, weil je Sekunde dieselbe Ladung ankommt.
 :::
+::::
 
 ⁠**Grenzfall:** Für $C\to\infty$ wird die Steigung null, die Spannung rührt sich nicht. Ein sehr großer Kondensator hält deshalb eine Spannung fest.
 

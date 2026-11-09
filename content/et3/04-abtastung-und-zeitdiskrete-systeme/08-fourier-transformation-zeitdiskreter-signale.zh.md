@@ -24,7 +24,8 @@ $$S_\mathrm a(f)=\sum_{n=-\infty}^{\infty}s(n)\,\mathrm{e}^{-\mathrm{j}2\pi nf},
 
 ⁠**如何理解：**$S_\mathrm a(f)$ 是周期为 1 的周期函数，而 1 正是采样率。一个周期 $|f|\le\frac12$ 就包含了全部信息。因此，反变换只需在长度为 1 的区间上积分。这个求和式是关于 $f$ 的傅里叶级数，以样本值为系数。
 
-**例。** 对 $|b|<1$ 的 $s(n)=\varepsilon(n)\,b^n$（等比级数）：
+::::beispiel
+对 $|b|<1$ 的 $s(n)=\varepsilon(n)\,b^n$（等比级数）：
 
 <span class="anker" id="gl-7-2"></span>
 $$S_\mathrm a(f)=\sum_{n=0}^{\infty}\bigl(b\,\mathrm{e}^{-\mathrm{j}2\pi f}\bigr)^n=\frac{1}{1-b\,\mathrm{e}^{-\mathrm{j}2\pi f}},\qquad|S_\mathrm a(f)|^2=\frac{1}{1+b^2-2b\cos(2\pi f)}. \tag{7.2}$$
@@ -34,6 +35,7 @@ $$S_\mathrm a(f)=\sum_{n=0}^{\infty}\bigl(b\,\mathrm{e}^{-\mathrm{j}2\pi f}\bigr
 :::abbildung et3/k4dtft 6
 $b=0.6$ 的递归系统频率响应的幅值。它以采样率为周期。两条红线之间是足以描述全部信息的那一个周期。
 :::
+::::
 
 **卷积与相乘。** 与函数的情形一样，$s(n)*h(n)\;\circ\!\!-\!\!\bullet\;S_\mathrm a(f)H_\mathrm a(f)$。两个序列的乘积对应于两个频谱在一个周期上的__周期卷积__：
 

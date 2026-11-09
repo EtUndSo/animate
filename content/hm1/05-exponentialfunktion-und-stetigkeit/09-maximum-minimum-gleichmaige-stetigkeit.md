@@ -53,7 +53,13 @@ $M\in\mathcal W(f)$: Es gibt $x_1\in[a,b]$ mit $f(x)\le M=f(x_1)$ für alle $x\i
 Nach Satz [7.1](#satz-7-1) ist $\mathcal W(f)$ beschränkt und nicht leer, das Vollständigkeitsaxiom gibt $M\in\mathbb{R}$. Da $M-\frac1n$ keine obere Schranke ist, gibt es $x_n\in[a,b]$ mit $M-\frac1n<f(x_n)\le M$, also $f(x_n)\to M$. Bolzano-Weierstraß gibt eine Teilfolge $x_{n_k}\to x_1$, und $x_1\in[a,b]$ wie oben. Die Folgenstetigkeit gibt $f(x_1)=\lim_{k\to\infty}f(x_{n_k})=M$. Für $m$ wendet man das auf $-f$ an.
 :::
 
-⁠**So liest man das:** Ein Supremum muss kein Funktionswert sein, hier ist es einer. Wo, sagt der Beweis nicht: Er ist __nicht konstruktiv__. **Beispiele:** Die wachsende Prüffunktion hat auf $[0,1]$ das Minimum $k(0)=1$ und das Maximum $k(1)=3{,}718$. Die Kurve $i(x)=x\,\mathrm{e}^{-x}$ auf $[0,2]$ (so verläuft der Strom eines kritisch gedämpften Schwingkreises) hat das Minimum $i(0)=0$ und das Maximum $i(1)=\frac{1}{\mathrm{e}}=0{,}3679$. Das zeigt Satz [2.1](wachstum-logarithmus-allgemeine-potenz.html#satz-2-1) (i): Aus $\mathrm{e}^{x-1}\ge x$ folgt $x\,\mathrm{e}^{-x}\le\mathrm{e}^{-1}$. **Grenzfall:** Für konstantes $f$ ist $m=M$.
+⁠**So liest man das:** Ein Supremum muss kein Funktionswert sein, hier ist es einer. Wo, sagt der Beweis nicht: Er ist __nicht konstruktiv__.
+
+::::beispiel [Beispiele]
+Die wachsende Prüffunktion hat auf $[0,1]$ das Minimum $k(0)=1$ und das Maximum $k(1)=3{,}718$. Die Kurve $i(x)=x\,\mathrm{e}^{-x}$ auf $[0,2]$ (so verläuft der Strom eines kritisch gedämpften Schwingkreises) hat das Minimum $i(0)=0$ und das Maximum $i(1)=\frac{1}{\mathrm{e}}=0{,}3679$. Das zeigt Satz [2.1](wachstum-logarithmus-allgemeine-potenz.html#satz-2-1) (i): Aus $\mathrm{e}^{x-1}\ge x$ folgt $x\,\mathrm{e}^{-x}\le\mathrm{e}^{-1}$.
+::::
+
+⁠**Grenzfall:** Für konstantes $f$ ist $m=M$.
 
 **Jede Voraussetzung wird gebraucht (Abb. [7](#abb-7)).**
 
@@ -78,7 +84,11 @@ Sei $f:M\to\mathbb{R}$, $M\subset\mathbb{R}$. Dann heißt $f$ auf $M$ __gleichm�
 $$|x-y|<\delta_0\quad\Longrightarrow\quad|f(x)-f(y)|<\varepsilon. \tag{7.1}$$
 :::
 
-⁠**So liest man das:** Im Unterschied zum $\varepsilon$-$\delta$-Kriterium darf $\delta_0$ nicht von $x$ oder $y$ abhängen. Hält man $y=x_0$ fest, entsteht [(4.1)](stetigkeit-und-epsilon-delta.html#gl-4-1): Gleichmäßig stetig auf $(a,b)$ ergibt stetig in jedem Punkt. Die Umkehrung gilt nicht, wie $1/x$ auf $(0,1]$ zeigt: Für $x=\frac1n$, $y=\frac1{n+1}$ ist $|x-y|=\frac1{n(n+1)}\to0$, aber $|f(x)-f(y)|=1$. **Beispiel:** $x^2$ auf $[0,3]$: Es ist $|x^2-y^2|=|x-y|\,|x+y|\le6\,|x-y|$, also gewinnt $\delta_0=\varepsilon/6$ überall. Auf ganz $\mathbb{R}$ fehlt die Schranke für $|x+y|$.
+⁠**So liest man das:** Im Unterschied zum $\varepsilon$-$\delta$-Kriterium darf $\delta_0$ nicht von $x$ oder $y$ abhängen. Hält man $y=x_0$ fest, entsteht [(4.1)](stetigkeit-und-epsilon-delta.html#gl-4-1): Gleichmäßig stetig auf $(a,b)$ ergibt stetig in jedem Punkt. Die Umkehrung gilt nicht, wie $1/x$ auf $(0,1]$ zeigt: Für $x=\frac1n$, $y=\frac1{n+1}$ ist $|x-y|=\frac1{n(n+1)}\to0$, aber $|f(x)-f(y)|=1$.
+
+::::beispiel
+$x^2$ auf $[0,3]$: Es ist $|x^2-y^2|=|x-y|\,|x+y|\le6\,|x-y|$, also gewinnt $\delta_0=\varepsilon/6$ überall. Auf ganz $\mathbb{R}$ fehlt die Schranke für $|x+y|$.
+::::
 
 :::satz Satz 7.4 (Stetig auf [a,b] ist gleichmäßig stetig)
 <span class="anker" id="satz-7-4"></span>

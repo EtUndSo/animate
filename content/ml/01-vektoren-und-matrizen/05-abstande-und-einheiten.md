@@ -36,13 +36,15 @@ $$\lVert\mathbf{u}-\mathbf{v}\rVert^2=(\mathbf{u}-\mathbf{v})^{\top}(\mathbf{u}-
 
 Bei festen Längen gilt also: Je größer das Skalarprodukt, desto kleiner der Abstand. Beide messen Ähnlichkeit, nur in entgegengesetzter Richtung.
 
-⁠**Rechenbeispiel:** Die Wohnungen 1 und 2 unterscheiden sich um $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Ihr euklidischer Abstand ist $\sqrt{405}\approx20{,}12$ (Abb. [18](#abb-18)), in der Betragssummennorm $20+1+2=23$, in der Maximumnorm $20$.
+::::beispiel [Rechenbeispiel]
+Die Wohnungen 1 und 2 unterscheiden sich um $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Ihr euklidischer Abstand ist $\sqrt{405}\approx20{,}12$ (Abb. [18](#abb-18)), in der Betragssummennorm $20+1+2=23$, in der Maximumnorm $20$.
 
 :::abbildung ml/k1rabstand 18
 Der euklidische Abstand der Wohnungen 1 und 2: zuerst die Differenz, dann ihre Länge.
 :::
 
 Zur Probe von [(4.1)](#gl-4-1) mit $\mathbf{u}=(1,\,2,\,2)^{\top}$ und $\mathbf{v}=(2,\,0,\,1)^{\top}$: links $\lVert(-1,\,2,\,1)^{\top}\rVert^2=6$, rechts $9+5-2\cdot4=6$.
+::::
 
 ⁠**Kurz gesagt:** Der Abstand zweier Datenpunkte ist die Norm ihrer Differenz; nah beieinander heißt ähnlich.
 
@@ -91,11 +93,13 @@ der __zentrierte__ Vektor. Seine Komponenten sind die Abweichungen vom Mittelwer
 
 Die Abweichungen heben sich immer gegenseitig auf: $\mathbf 1^{\top}\tilde{\mathbf{v}}=\mathbf 1^{\top}\mathbf{v}-\bar v\,\mathbf 1^{\top}\mathbf 1=N\bar v-\bar v\,N=0$. Der zentrierte Vektor hat also den Mittelwert null.
 
-⁠**Rechenbeispiel:** Die Flächen $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ haben den Mittelwert $\bar v=65$. Zentriert ist $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, und die Abweichungen addieren sich tatsächlich zu null (Abb. [20](#abb-20)). Die Zimmerzahlen $(2,\,1,\,4,\,3)^{\top}$ haben den Mittelwert $2{,}5$ und zentriert $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$, die Entfernungen $(3,\,1,\,6,\,2)^{\top}$ den Mittelwert $3$ und zentriert $(0,\,-2,\,3,\,-1)^{\top}$.
+::::beispiel [Rechenbeispiel]
+Die Flächen $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ haben den Mittelwert $\bar v=65$. Zentriert ist $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, und die Abweichungen addieren sich tatsächlich zu null (Abb. [20](#abb-20)). Die Zimmerzahlen $(2,\,1,\,4,\,3)^{\top}$ haben den Mittelwert $2{,}5$ und zentriert $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$, die Entfernungen $(3,\,1,\,6,\,2)^{\top}$ den Mittelwert $3$ und zentriert $(0,\,-2,\,3,\,-1)^{\top}$.
 
 :::abbildung ml/k1rzentriert 20
 Der Mittelwert der Flächen und die Summe der Abweichungen vom Mittelwert, in $\mathrm m^2$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Zentrieren zieht von jeder Komponente den Mittelwert ab; übrig bleiben die Abweichungen, die sich zu null addieren.
 
@@ -116,11 +120,13 @@ $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\l
 
 Die Standardabweichung hat dieselbe Einheit wie das Merkmal. Sie ist genau dann null, wenn alle Komponenten gleich sind. Viele Texte teilen in [(4.3)](#gl-4-3) durch $N-1$ statt durch $N$. Bei vielen Beispielen ist der Unterschied klein. Diese Reihe teilt durch $N$ und sagt es dazu, wenn es einmal anders sein soll.
 
-⁠**Rechenbeispiel:** Die zentrierten Flächen $(-5,\,-25,\,25,\,5)^{\top}$ haben die Quadratsumme $1\,300$, also ist $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ (Abb. [21](#abb-21)). Ebenso erhält man für die Zimmer $\sqrt{5/4}\approx1{,}118$ und für die Entfernungen $\sqrt{14/4}\approx1{,}871$ km.
+::::beispiel [Rechenbeispiel]
+Die zentrierten Flächen $(-5,\,-25,\,25,\,5)^{\top}$ haben die Quadratsumme $1\,300$, also ist $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ (Abb. [21](#abb-21)). Ebenso erhält man für die Zimmer $\sqrt{5/4}\approx1{,}118$ und für die Entfernungen $\sqrt{14/4}\approx1{,}871$ km.
 
 :::abbildung ml/k1rstd 21
 Die Standardabweichung der Flächen: Abweichungen quadrieren, mitteln, Wurzel ziehen. Das Ergebnis $\sqrt{325}\approx18{,}03$ hat die Einheit $\mathrm m^2$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Standardabweichung ist der Effektivwert der Abweichungen vom Mittelwert, die typische Schwankung eines Merkmals.
 
@@ -151,13 +157,17 @@ ersetzt. Die Zahlen $z_{ij}$ heißen die standardisierten Werte.
 
 Die standardisierte Merkmalsspalte hat den Mittelwert $0$ und die Standardabweichung $1$, denn Zentrieren macht den Mittelwert zu null und die Division durch $s_j$ macht die typische Abweichung zu eins. Die Werte haben keine Einheit mehr.
 
-⁠**Rechenbeispiel 1: der Wohnungsdatensatz.** Mit den Mittelwerten $65$, $2{,}5$, $3$ und den Standardabweichungen $18{,}03$, $1{,}118$, $1{,}871$ werden die vier Wohnungen zu
+::::beispiel [Rechenbeispiel 1] der Wohnungsdatensatz
+Mit den Mittelwerten $65$, $2{,}5$, $3$ und den Standardabweichungen $18{,}03$, $1{,}118$, $1{,}871$ werden die vier Wohnungen zu
 
 $$\begin{aligned} \mathbf{z}_1&\approx(-0{,}28;\ -0{,}45;\ 0)^{\top}, & \mathbf{z}_2&\approx(-1{,}39;\ -1{,}34;\ -1{,}07)^{\top},\\ \mathbf{z}_3&\approx(1{,}39;\ 1{,}34;\ 1{,}60)^{\top}, & \mathbf{z}_4&\approx(0{,}28;\ 0{,}45;\ -0{,}53)^{\top}. \end{aligned}$$
 
 Alle drei Merkmale bewegen sich jetzt im selben Zahlenbereich.
+::::
 
-⁠**Rechenbeispiel 2: A, B und C.** Die drei Wohnungen aus Unterabschnitt [4.2](#stufe-4-2) haben die mittlere Fläche $59\,\mathrm m^2$ mit der Standardabweichung $\sqrt{14}\approx3{,}74\,\mathrm m^2$ und im Mittel $8/3$ Zimmer mit der Standardabweichung $\sqrt{8/9}\approx0{,}943$. Nach dem Standardisieren ist $\lVert\text A-\text B\rVert\approx2{,}27$ und $\lVert\text A-\text C\rVert\approx1{,}60$. Am ähnlichsten ist A also C, und dieses Urteil hängt nicht mehr von der Einheit der Fläche ab.
+::::beispiel [Rechenbeispiel 2] A, B und C
+Die drei Wohnungen aus Unterabschnitt [4.2](#stufe-4-2) haben die mittlere Fläche $59\,\mathrm m^2$ mit der Standardabweichung $\sqrt{14}\approx3{,}74\,\mathrm m^2$ und im Mittel $8/3$ Zimmer mit der Standardabweichung $\sqrt{8/9}\approx0{,}943$. Nach dem Standardisieren ist $\lVert\text A-\text B\rVert\approx2{,}27$ und $\lVert\text A-\text C\rVert\approx1{,}60$. Am ähnlichsten ist A also C, und dieses Urteil hängt nicht mehr von der Einheit der Fläche ab.
+::::
 
 Dass die Einheit herausfällt, gilt allgemein:
 

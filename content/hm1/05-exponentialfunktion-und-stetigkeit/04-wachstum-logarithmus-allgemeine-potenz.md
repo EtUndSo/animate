@@ -147,7 +147,13 @@ Für $a,b>0$, $x,y\in\mathbb{R}$ gilt: (i) $(a\cdot b)^x=a^x\cdot b^x$, (ii) $a^
 (iv) $\log(\mathrm{e}^{x\log a})=x\log a$ nach [(2.1)](#gl-2-1). (i) $\mathrm{e}^{x\log(ab)}=\mathrm{e}^{x\log a+x\log b}=\mathrm{e}^{x\log a}\mathrm{e}^{x\log b}$. (ii) $(a^x)^y=\mathrm{e}^{y\log(a^x)}=\mathrm{e}^{yx\log a}$ nach (iv). (iii) $\mathrm{e}^{(x+y)\log a}=\mathrm{e}^{x\log a}\mathrm{e}^{y\log a}$. Rationale $x$: Satz [2.3](#satz-2-3) (ii), (iii) geben $q\log\sqrt[q]{a^p}=\log(a^p)=p\log a$, also $\sqrt[q]{a^p}=\mathrm{e}^{\frac pq\log a}$.
 :::
 
-⁠**So liest man das:** Die Regeln aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) gelten jetzt für reelle Exponenten. **Beispiel:** $2^{\sqrt2}=\mathrm{e}^{\sqrt2\cdot0{,}6931}=\mathrm{e}^{0{,}9803}=2{,}6651$. **Grenzfälle:** $a=1$ ergibt $1^x=1$, denn $\log1=0$; $a=\mathrm{e}$ ergibt wieder $\mathrm{e}^x$. **Warum $a>0$:** Für $a<0$ ist nur ein Teil erklärt: $a^n$, $a^{-n}=1/a^n$ und $a^{1/n}$ für ungerades $n$. Mehr geht nicht widerspruchsfrei: $(-8)^{1/3}=-2$, aber mit $\frac26=\frac13$ wäre $\sqrt[6]{(-8)^2}=2$.
+⁠**So liest man das:** Die Regeln aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) gelten jetzt für reelle Exponenten.
+
+::::beispiel
+$2^{\sqrt2}=\mathrm{e}^{\sqrt2\cdot0{,}6931}=\mathrm{e}^{0{,}9803}=2{,}6651$.
+::::
+
+⁠**Grenzfälle:** $a=1$ ergibt $1^x=1$, denn $\log1=0$; $a=\mathrm{e}$ ergibt wieder $\mathrm{e}^x$. **Warum $a>0$:** Für $a<0$ ist nur ein Teil erklärt: $a^n$, $a^{-n}=1/a^n$ und $a^{1/n}$ für ungerades $n$. Mehr geht nicht widerspruchsfrei: $(-8)^{1/3}=-2$, aber mit $\frac26=\frac13$ wäre $\sqrt[6]{(-8)^2}=2$.
 
 :::aufgabe Aufgabe 2 ★★ Gleichungen und Wachstum
 <span class="anker" id="aufg-2"></span>

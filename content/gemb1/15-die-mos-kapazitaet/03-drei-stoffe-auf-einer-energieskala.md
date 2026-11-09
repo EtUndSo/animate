@@ -70,7 +70,11 @@ Der Isolator ist ideal: Es fließt kein Strom durch ihn.
 
 Verbindet man Metall und Halbleiter außen mit einem Draht, gleichen sich ihre Fermi-Niveaus an. Wegen $\Phi_\mathrm M=\Phi_\mathrm{SC}$ stimmen sie schon überein, also fließt keine Ladung. Ohne Ladung gibt es kein Feld, und die Bänder bleiben bis zur Grenzfläche waagerecht (Abb. [1](#abb-1)). Das ist der Flachbandfall. Die Spannung, die die Bänder flach macht, heißt __Flachbandspannung__ $V_\mathrm{FB}$. Für den idealen Kondensator ist $V_\mathrm{FB}=0$. Weil $\chi_\mathrm{SC}$ für n- und p-Silizium gleich ist, $\Phi_\mathrm{SC}$ aber nicht, braucht jedes Substrat sein eigenes Metall.
 
-**Beispiel.** Im Rechenmodell ist $E_\mathrm{Fi,\infty}-E_\mathrm F=25{,}85\,\mathrm{meV}\cdot\ln(3\cdot10^{16}/8{,}9\cdot10^{9})=0{,}389$ eV, also $\Phi_\mathrm{SC}=4{,}05+0{,}56+0{,}389=5{,}00$ eV. Das Metall braucht denselben Wert. Dann ist $\Phi_\mathrm B=4{,}10$ eV, das sind $159\,k_\mathrm BT$. Der Boltzmann-Faktor $10^{-69}$ zeigt, warum thermisch kein Elektron den Isolator überwindet. n-Silizium mit $N_\mathrm D=3\cdot10^{16}\,\mathrm{cm^{-3}}$ hat 4,22 eV. **Grenzfall:** Für $N\to n_\mathrm i$ verschwindet die Klammer, beide Sorten haben $\chi_\mathrm{SC}+E_\mathrm g/2=4{,}61$ eV.
+::::beispiel
+Im Rechenmodell ist $E_\mathrm{Fi,\infty}-E_\mathrm F=25{,}85\,\mathrm{meV}\cdot\ln(3\cdot10^{16}/8{,}9\cdot10^{9})=0{,}389$ eV, also $\Phi_\mathrm{SC}=4{,}05+0{,}56+0{,}389=5{,}00$ eV. Das Metall braucht denselben Wert. Dann ist $\Phi_\mathrm B=4{,}10$ eV, das sind $159\,k_\mathrm BT$. Der Boltzmann-Faktor $10^{-69}$ zeigt, warum thermisch kein Elektron den Isolator überwindet. n-Silizium mit $N_\mathrm D=3\cdot10^{16}\,\mathrm{cm^{-3}}$ hat 4,22 eV.
+::::
+
+⁠**Grenzfall:** Für $N\to n_\mathrm i$ verschwindet die Klammer, beide Sorten haben $\chi_\mathrm{SC}+E_\mathrm g/2=4{,}61$ eV.
 
 :::frage Warum ist die Elektronenaffinität für n- und p-Silizium gleich, die Austrittsarbeit aber nicht?
 Wenige Fremdatome ändern den Kristall und seine Oberfläche kaum, also bleibt der Abstand von $E_\mathrm C$ zum Vakuum gleich. Sie legen aber fest, wie weit die Zustände besetzt sind, und damit $E_\mathrm F$. Die Austrittsarbeit zählt ab $E_\mathrm F$.

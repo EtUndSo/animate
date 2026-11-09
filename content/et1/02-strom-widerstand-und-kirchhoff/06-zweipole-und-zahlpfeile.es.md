@@ -43,7 +43,9 @@ El __sentido convencional de la corriente__ es el sentido en el que se movería 
 Izquierda: cadena de fuente y $3\,\mathrm{k\Omega}$ con las flechas habituales. En la fuente, sentidos opuestos (CG); en la resistencia, el mismo sentido (CR); todos los valores son positivos. Los electrones se mueven contra la flecha de corriente. Derecha: la misma resistencia, una vez con la flecha de tensión invertida. Solo cambia el signo.
 :::
 
-**Ejemplo.** 9 V en $3\,\mathrm{k\Omega}$ dan $I=3$ mA. Si la flecha de tensión apunta de abajo arriba, $U=\varphi_\text{abajo}-\varphi_\text{arriba}=-9$ V, y [(5.2)](#gl-5-2) queda $-9\,\mathrm{V}=-3\,\mathrm{k\Omega}\cdot3\,\mathrm{mA}$. **Comprobación:** Si se invierten ambas flechas, $U=R\,I$ se convierte en $-U=R\,(-I)$, es decir, de nuevo la misma ecuación.
+::::beispiel
+9 V en $3\,\mathrm{k\Omega}$ dan $I=3$ mA. Si la flecha de tensión apunta de abajo arriba, $U=\varphi_\text{abajo}-\varphi_\text{arriba}=-9$ V, y [(5.2)](#gl-5-2) queda $-9\,\mathrm{V}=-3\,\mathrm{k\Omega}\cdot3\,\mathrm{mA}$. **Comprobación:** Si se invierten ambas flechas, $U=R\,I$ se convierte en $-U=R\,(-I)$, es decir, de nuevo la misma ecuación.
+::::
 
 :::frage Los electrones van de negativo a positivo. ¿Por qué se calcula al revés?
 El sentido se fijó antes de conocer los electrones, y no perjudica: en $\vec j=q\,\vec v$, para los electrones ambos factores cambian de signo. Electrones hacia la izquierda dan la misma densidad de corriente que carga positiva hacia la derecha. La caída de tensión, el calor y el campo magnético solo dependen de $\vec j$.

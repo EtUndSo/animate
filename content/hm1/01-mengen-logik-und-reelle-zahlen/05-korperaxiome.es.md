@@ -98,7 +98,11 @@ Para $u,v\ne0$ se cumple $\frac xu\cdot\frac yv=\frac{xy}{uv}$ y $\frac xu+\frac
 (vi) $\frac xu\cdot\frac yv=(xu^{-1})(yv^{-1})=(xy)(u^{-1}v^{-1})$, y $u^{-1}v^{-1}=(uv)^{-1}$, pues $(u^{-1}v^{-1})(uv)=1$ y el inverso es único. La regla de la división se sigue con $(y v^{-1})^{-1}=y^{-1}v$, la de la suma amplificando: $\frac xu=\frac{xv}{uv}$, $\frac yv=\frac{yu}{uv}$, y luego (AM).
 :::
 
-**Ejemplo.** $(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$. **Caso límite** $v=u=1$: La regla de la suma se convierte en $x+y=x+y$.
+::::beispiel
+$(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$.
+::::
+
+⁠**Caso límite** $v=u=1$: La regla de la suma se convierte en $x+y=x+y$.
 
 :::frage Eso ya lo sé de la escuela. ¿Para qué una demostración?
 Para $\mathbb{Q}$ y $\mathbb{R}$ son conocidas. Pero no están en los axiomas, y solo la demostración muestra dónde valen: en todo cuerpo. La regla escolar «los cuadrados no son negativos», en cambio, no se sigue de esta lista y deja de valer en la [Parte 2](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Además, se practica el razonamiento con contenidos cuyo resultado se conoce.

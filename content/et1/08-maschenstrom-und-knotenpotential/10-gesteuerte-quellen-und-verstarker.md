@@ -23,7 +23,8 @@ Eine Quelle mit $I=g\,(U_p-U_q)$ von $i$ nach $k$ addiert $+g$ auf $(i,p)$ und $
 
 ⁠**So liest man das:** $g$ ist die __Steilheit__, Strom je Steuerspannung in Siemens, im Modell 50 mS. **Gültigkeit:** Die Quelle soll linear sein. Transistoren sind es nur für kleine Änderungen um einen Arbeitspunkt ([Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 
-**Beispiel: ohne Gegenkopplung.** Eine Stromquelle $I_\mathrm q=20$ µ A mit $G_\mathrm q=0{,}5$ mS speist Knoten 1. Dort liegt $G_\mathrm i=0{,}5$ mS nach Masse. Die Quelle $g\,U_1$ zieht Strom aus Knoten 2 in die Masse, dort hängen auch $G_\mathrm o=0{,}05$ mS und $G_\mathrm L=0{,}2$ mS. Die Stempel ergeben
+::::beispiel ohne Gegenkopplung
+Eine Stromquelle $I_\mathrm q=20$ µ A mit $G_\mathrm q=0{,}5$ mS speist Knoten 1. Dort liegt $G_\mathrm i=0{,}5$ mS nach Masse. Die Quelle $g\,U_1$ zieht Strom aus Knoten 2 in die Masse, dort hängen auch $G_\mathrm o=0{,}05$ mS und $G_\mathrm L=0{,}2$ mS. Die Stempel ergeben
 
 <span class="anker" id="gl-8-1"></span>
 $$\begin{pmatrix}G_\mathrm q+G_\mathrm i&0\\g&G_\mathrm o+G_\mathrm L\end{pmatrix}\begin{pmatrix}U_1\\U_2\end{pmatrix}=\begin{pmatrix}I_\mathrm q\\0\end{pmatrix}. \tag{8.1}$$
@@ -34,6 +35,7 @@ $Y_{12}=0$, aber $Y_{21}=g$. Mit $D=(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mat
 $$U_1=\frac{I_\mathrm q}{G_\mathrm q+G_\mathrm i},\qquad U_2=-\frac{g\,I_\mathrm q}{(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mathrm L)},\qquad A_u=\frac{U_2}{U_1}=-\frac{g}{G_\mathrm o+G_\mathrm L}. \tag{8.2}$$
 
 Im Modell sind $D=0{,}25$, $U_1=20$ mV, $U_2=-4$ V und die __Spannungsverstärkung__ $A_u=-200$, wie in [Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). Das Minus entsteht, weil der gesteuerte Strom aus Knoten 2 herausfließt.
+::::
 
 **Mit Gegenkopplung.** Der gemeinsame untere Punkt von Eingang und Ausgang heißt Fußpunkt. Trennt man ihn von der Masse und fügt dort $R_\mathrm S=1\,\mathrm{k\Omega}$ ein, entsteht Knoten 3 (Abb. [8](#abb-8)). Der Ausgangsstrom läuft nun durch $R_\mathrm S$ und hebt $U_3$ an. Dadurch sinkt die Steuerspannung $U_1-U_3$, und der Ausgangsstrom wird kleiner. Diese Rückwirkung des Ausgangs auf den eigenen Eingang heißt __Gegenkopplung__.
 

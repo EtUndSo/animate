@@ -42,7 +42,9 @@ Schema des Lichtbogenofens. Am Lichtbogen unten ist es am heißesten. Gase (blau
 
 Der Mechanismus ist ein Kreislauf. SiO ist ein Gas und steigt vom Lichtbogen auf. In kühleren Schichten fängt der Kohlenstoff es ein [(1.3)](#gl-1-3), oder es zerfällt wieder [(1.5)](#gl-1-5). Beides ergibt Feststoffe, die mit dem Gemenge nach unten sinken. Im heißesten Bereich entsteht aus SiC und SiO$_2$ das Silizium [(1.4)](#gl-1-4). So geht kaum Silizium als Gas verloren. **Grenzfall:** Wäre der Ofen überall unter 1500 °C, liefe nur [(1.5)](#gl-1-5), und kein Silizium entstünde.
 
-**Beispiel.** 13 MWh je 1000 kg sind 46,8 MJ/kg, also 13,6 eV je Siliziumatom. Eine chemische Bindung trägt einige eV. Hier sind je Atom mehrere Bindungen zum Sauerstoff zu lösen, und der Ofen verliert zusätzlich Wärme.
+::::beispiel
+13 MWh je 1000 kg sind 46,8 MJ/kg, also 13,6 eV je Siliziumatom. Eine chemische Bindung trägt einige eV. Hier sind je Atom mehrere Bindungen zum Sauerstoff zu lösen, und der Ofen verliert zusätzlich Wärme.
+::::
 
 **Warum das nicht reicht.** Für genau festgelegte Halbleitereigenschaften sind Einkristallinität und chemische Reinheit unverzichtbar, etwa für die Beweglichkeit (wie leicht Ladungsträger im Feld driften) und die Lebensdauer (wie lange ein beweglicher Ladungsträger besteht, bis er eingefangen wird). Der Mechanismus: Ein Gitterfehler oder Fremdatom stört die Periodizität, Elektronen werden dort gestreut oder festgehalten. Gitterfehler und Fremdatomgehalt müssen deshalb genau kontrolliert werden. Rohsilizium muss um den Faktor $10^9$ reiner werden. Aus 3 % werden $3\cdot10^{-11}$, ein Fremdatom auf $3\cdot10^{10}$ Siliziumatome. Das sind noch $1{,}5\cdot10^{12}$ Fremdatome je cm$^3$, im Mittel 0,87 µm oder 1600 Gitterkonstanten voneinander entfernt.
 

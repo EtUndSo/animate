@@ -38,7 +38,11 @@ $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE
 所以它是一个二端口网络（[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)），两个端口共用发射极。
 :::
 
-**例。** 在参考模型中，$\varphi_\mathrm{E}=0$，$\varphi_\mathrm{B}=0.6$ V，$\varphi_\mathrm{C}=6$ V。于是 $U_\mathrm{BE}=0.6$ V，$U_\mathrm{CE}=6$ V，$U_\mathrm{CB}=5.4$ V。BE 二极管导通，因为它的 p 侧电位较高。CB 二极管截止，因为它的 n 侧电位高出 5.4 V。由 $I_\mathrm{C}=2$ mA 和 $I_\mathrm{B}=10$ µ A 得 $I_\mathrm{E}=2.01$ mA。**极限情况：**当 $U_\mathrm{CB}=0$ 时，$U_\mathrm{CE}=U_\mathrm{BE}$。正常工作到此为止。
+::::beispiel
+在参考模型中，$\varphi_\mathrm{E}=0$，$\varphi_\mathrm{B}=0.6$ V，$\varphi_\mathrm{C}=6$ V。于是 $U_\mathrm{BE}=0.6$ V，$U_\mathrm{CE}=6$ V，$U_\mathrm{CB}=5.4$ V。BE 二极管导通，因为它的 p 侧电位较高。CB 二极管截止，因为它的 n 侧电位高出 5.4 V。由 $I_\mathrm{C}=2$ mA 和 $I_\mathrm{B}=10$ µ A 得 $I_\mathrm{E}=2.01$ mA。
+::::
+
+⁠**极限情况：**当 $U_\mathrm{CB}=0$ 时，$U_\mathrm{CE}=U_\mathrm{BE}$。正常工作到此为止。
 
 :::frage 我能用两个二极管焊成一个晶体管吗？
 不能。两个二极管的等效图只表示边界的极性。在两个分开的二极管中，每个电子早在到达第二个阻挡层之前就复合了，截止的二极管仍然截止。晶体管效应之所以出现，只是因为两个边界之间的距离比电子在 p 区中能存活的距离还短。

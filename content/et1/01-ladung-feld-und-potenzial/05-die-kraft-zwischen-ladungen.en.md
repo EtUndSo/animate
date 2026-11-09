@@ -39,11 +39,13 @@ $$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{
 The law is a measurement result. Individually, the series of experiments give $F\sim Q_\mathrm{A}$, $F\sim Q_\mathrm{B}$, $F\sim1/r^2$ and $\vec F\parallel\vec r$, together $F\sim Q_\mathrm{A}Q_\mathrm{B}/r^2$, and the factor is $k$. If one assumes $F\sim1/r^{2\pm\delta}$, the limit on $\delta$ fell from 0.02 with Cavendish (18th century) via $5\cdot10^{-5}$ with Maxwell (19th century) to $10^{-13}$ (Bartlett and others, 1970) and $3\cdot10^{-16}$ (Williams and others, 1971).
 :::
 
-**Example.** In the reference model,
+::::beispiel
+In the reference model,
 
 $$F=8.99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}\cdot\frac{10\cdot10^{-9}\,\mathrm{C}\cdot20\cdot10^{-9}\,\mathrm{C}}{(0.03\,\mathrm{m})^2}=2.0\,\mathrm{mN}.$$
 
 The weight of sphere A is 9.81 mN, so $\tan\alpha=0.204$ and $\alpha=11.5^\circ$. This deflection is produced by the absence of one electron in $5\cdot10^{12}$. The gravitation between two 1 g spheres at the same distance is only $7.4\cdot10^{-14}$ N; it is smaller by a factor of $2.7\cdot10^{10}$ and can be dropped. Between two electrons, the electric force is even $4.2\cdot10^{42}$ times greater.
+::::
 
 ⁠**Limiting cases:** For $r\to\infty$, $F\to0$. For $Q_\mathrm{A}=0$, $F=0$. Double the distance gives 0.5 mN, double the charge $Q_\mathrm{A}$ gives 4.0 mN.
 

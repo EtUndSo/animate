@@ -50,7 +50,8 @@ $$\sum_{l=1}^k(\mathbf{A}\mathbf{B})_{il}\,x_l=\sum_{l=1}^k\sum_{j=1}^na_{ij}\,b
 et c’est la composante $i$ de $\mathbf{A}(\mathbf{B}\mathbf{x})$. À l’étape du milieu, on a échangé les deux sommes et mis $a_{ij}$ en facteur devant la somme intérieure.
 :::
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ et $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$, on a
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ et $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$, on a
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
 
@@ -61,6 +62,7 @@ Le produit matriciel coefficient par coefficient : le coefficient $(i,l)$ est l
 :::
 
 Vérification avec $\mathbf{x}=(1,\,2)^{\top}$ : $\mathbf{B}\mathbf{x}=(2,\,1)^{\top}$, puis $\mathbf{A}(\mathbf{B}\mathbf{x})=(4,\,1)^{\top}$ ; et directement $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+2,\ 1+0)^{\top}=(4,\,1)^{\top}$.
+::::
 
 ⁠**En bref :** Le produit matriciel $\mathbf{A}\mathbf{B}$ est la matrice de l’application « d’abord $\mathbf{B}$, puis $\mathbf{A}$ » ; son coefficient $(i,l)$ est la ligne $i$ de $\mathbf{A}$ fois la colonne $l$ de $\mathbf{B}$.
 
@@ -81,11 +83,13 @@ De même, la ligne $i$ de $\mathbf{A}\mathbf{B}$ est la ligne $i$ de $\mathbf{A}
 
 Pour les données, cela signifie : si l’on veut appliquer plusieurs sommes pondérées à tous les exemples, on écrit les vecteurs de poids côte à côte comme colonnes d’une matrice $\mathbf{W}$. Le produit $\mathbf{X}\mathbf{W}$ contient alors dans la colonne $l$ les prédictions obtenues avec le $l$-ième vecteur de poids.
 
-⁠**Exemple de calcul :** Outre le prix d’achat avec $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (milliers d’euros), on veut estimer le loyer mensuel avec les poids $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (euros). Avec $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$, on a
+::::beispiel [Exemple de calcul]
+Outre le prix d’achat avec $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (milliers d’euros), on veut estimer le loyer mensuel avec les poids $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (euros). Avec $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$, on a
 
 $$\mathbf{X}\mathbf{W}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3&12\\10&30\\-4&-8\end{pmatrix}=\begin{pmatrix}188&756\\126&502\\286&1152\\232&914\end{pmatrix}.$$
 
 La ligne $i$ contient les deux estimations pour l’appartement $i$, la colonne $1$ tous les prix d’achat, la colonne $2$ tous les loyers.
+::::
 
 ⁠**En bref :** Les colonnes de $\mathbf{A}\mathbf{B}$ sont $\mathbf{A}$ fois les colonnes de $\mathbf{B}$ ; $\mathbf{X}\mathbf{W}$ applique plusieurs sommes pondérées à tous les exemples à la fois.
 
@@ -131,13 +135,17 @@ En général, cependant, $\mathbf{A}\mathbf{B}\ne\mathbf{B}\mathbf{A}$ : le prod
 
 La règle (i) découle de la signification : les deux membres sont la matrice de l’application « d’abord $\mathbf{C}$, puis $\mathbf{B}$, puis $\mathbf{A}$ », car $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{x})=\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{x}))=\mathbf{A}((\mathbf{B}\mathbf{C})\mathbf{x})$ pour tout $\mathbf{x}$. Les règles (ii) et (iii) se vérifient coefficient par coefficient à l’aide de [(9.1)](#gl-9-1) et des règles de calcul des sommes.
 
-⁠**Exemple de calcul 1 :** Avec la rotation $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ et l’étirement $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$, on a
+::::beispiel [Exemple de calcul 1]
+Avec la rotation $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ et l’étirement $\mathbf{S}=\operatorname{diag}(2;\,0{,}5)$, on a
 
 $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0{,}5&0\end{pmatrix},\qquad \mathbf R\mathbf{S}=\begin{pmatrix}0&-0{,}5\\2&0\end{pmatrix}.$$
 
 Tourner d’abord puis étirer envoie $\mathbf{e}_1$ sur $(0;\,0{,}5)^{\top}$, étirer d’abord puis tourner l’envoie sur $(0,\,2)^{\top}$.
+::::
 
-⁠**Exemple de calcul 2 :** D’après la sous-section [9.1](#stufe-9-1), $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, mais $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. Avec des tailles différentes, c’est encore plus net : pour $\mathbf{A}\in\mathbb{R}^{2\times3}$ et $\mathbf{B}\in\mathbb{R}^{3\times2}$, $\mathbf{A}\mathbf{B}$ est une matrice $2\times2$ et $\mathbf{B}\mathbf{A}$ une matrice $3\times3$.
+::::beispiel [Exemple de calcul 2]
+D’après la sous-section [9.1](#stufe-9-1), $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, mais $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. Avec des tailles différentes, c’est encore plus net : pour $\mathbf{A}\in\mathbb{R}^{2\times3}$ et $\mathbf{B}\in\mathbb{R}^{3\times2}$, $\mathbf{A}\mathbf{B}$ est une matrice $2\times2$ et $\mathbf{B}\mathbf{A}$ une matrice $3\times3$.
+::::
 
 ⁠**En bref :** Dans un produit matriciel, on peut déplacer les parenthèses et développer, mais pas échanger l’ordre des facteurs.
 
@@ -159,11 +167,13 @@ Si $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ et $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ 
 
 Quel que soit le nombre d’étages linéaires que l’on enchaîne, le résultat peut toujours se calculer en une seule étape avec une seule matrice. Ce que peut faire une chaîne d’étages linéaires, une seule matrice le peut donc déjà. En théorie des signaux et des systèmes, on connaît la même chose : deux systèmes linéaires en cascade forment ensemble de nouveau un système linéaire.
 
-⁠**Exemple de calcul :** Un premier étage transforme trois nombres en deux, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, un second transforme deux nombres de nouveau en trois, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Ensemble, cela donne l’unique matrice
+::::beispiel [Exemple de calcul]
+Un premier étage transforme trois nombres en deux, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, un second transforme deux nombres de nouveau en trois, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Ensemble, cela donne l’unique matrice
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&5&-1\\1&1&1\\0&3&-3\end{pmatrix}.$$
 
 Vérification avec $\mathbf{x}=(1,\,1,\,1)^{\top}$ : $\mathbf{B}\mathbf{x}=(3,\,0)^{\top}$ et $\mathbf{A}(3,\,0)^{\top}=(6,\,3,\,0)^{\top}$ ; de même, $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+5-1,\ 1+1+1,\ 0+3-3)^{\top}=(6,\,3,\,0)^{\top}$.
+::::
 
 ⁠**En bref :** Des étages linéaires enchaînés forment ensemble une seule application linéaire, dont la matrice est le produit des matrices de chaque étage.
 
@@ -184,9 +194,9 @@ $$(\mathbf{u}\mathbf{v}^{\top})_{ij}=u_i\,v_j . \tag{9.3}$$
 
 C’est le produit matriciel d’une matrice $m\times1$ par une matrice $1\times n$. Chaque colonne est un multiple de $\mathbf{u}$, à savoir $v_j\,\mathbf{u}$, et chaque ligne un multiple de $\mathbf{v}^{\top}$.
 
-⁠**Exemple de calcul :**
-
+::::beispiel [Exemple de calcul]
 $$\begin{pmatrix}1\\2\\3\end{pmatrix}\begin{pmatrix}4&5\end{pmatrix}=\begin{pmatrix}4&5\\8&10\\12&15\end{pmatrix}.$$
+::::
 
 Avec le produit extérieur, tout produit matriciel peut s’écrire comme une somme : « colonne $j$ de $\mathbf{A}$ fois ligne $j$ de $\mathbf{B}$ », sommé sur $j$,
 

@@ -53,12 +53,16 @@ Links: Generation durch Licht und drei Wege der Rekombination. Rechts: Überschu
 
 **Wohin die Energie geht.** Die Energie $E_\mathrm g$ wird auf drei Wegen frei (Abb. [5](#abb-5)): als Licht mit $\hbar\omega=E_\mathrm g$, als Wärme durch Phononen, oder in zwei Schritten über __tiefe Störstellen__ mit Niveaus nahe der Bandmitte. In Silizium und Germanium geht sie als Wärme ans Gitter, weil ihre Lücke indirekt ist ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)), im direkten GaAs entsteht ein Lichtquant. $\tau_\text{rec}$ hängt von der Bandstruktur, der Dichte der Partner, der Dichte der Störstellen und der Temperatur ab. Reines Silizium und Germanium erreichen rund $10^{-3}$ s, Gold als tiefe Störstelle senkt das in Silizium bis auf $10^{-10}$ s, GaAs liegt bei $10^{-8}$ s. An Oberflächen ist die Rate viel höher als im Kristall.
 
-**Beispiel.** Licht erzeuge in der Probe homogen $G_\mathrm p=10^{19}\,\mathrm{cm^{-3}\,s^{-1}}$. Aus $\partial\Delta p_\mathrm n/\partial t=G_\mathrm p-\Delta p_\mathrm n/\tau_\text{rec}$ und $\Delta p_\mathrm n(0)=0$ folgt
+::::beispiel
+Licht erzeuge in der Probe homogen $G_\mathrm p=10^{19}\,\mathrm{cm^{-3}\,s^{-1}}$. Aus $\partial\Delta p_\mathrm n/\partial t=G_\mathrm p-\Delta p_\mathrm n/\tau_\text{rec}$ und $\Delta p_\mathrm n(0)=0$ folgt
 
 <span class="anker" id="gl-5-3"></span>
 $$\Delta p_\mathrm n(t)=G_\mathrm p\tau_\text{rec}\,\bigl(1-\mathrm{e}^{-t/\tau_\text{rec}}\bigr). \tag{5.3}$$
 
-Stationär sind das $10^{13}\,\mathrm{cm^{-3}}$: 0,1 % der Mehrheit, aber das $1{,}3\cdot10^{9}$-fache von $p_{\mathrm n0}=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$. Die Injektion ist schwach, obwohl sich die Minderheit um neun Größenordnungen ändert. Der Zustand ist konstant, aber kein Gleichgewicht: Das Licht führt ständig Energie zu, und wegen $n\,p\ne n_\mathrm i^2$ passt keine gemeinsame Fermi-Energie zu beiden Sorten, jede hat ihr eigenes Quasi-Fermi-Niveau ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)). Die Abklingzeit eines Photowiderstands ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)) ist genau $\tau_\text{rec}$. **Grenzfall:** Für $t\ll\tau_\text{rec}$ ist $\Delta p_\mathrm n\approx G_\mathrm pt$.
+Stationär sind das $10^{13}\,\mathrm{cm^{-3}}$: 0,1 % der Mehrheit, aber das $1{,}3\cdot10^{9}$-fache von $p_{\mathrm n0}=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$. Die Injektion ist schwach, obwohl sich die Minderheit um neun Größenordnungen ändert. Der Zustand ist konstant, aber kein Gleichgewicht: Das Licht führt ständig Energie zu, und wegen $n\,p\ne n_\mathrm i^2$ passt keine gemeinsame Fermi-Energie zu beiden Sorten, jede hat ihr eigenes Quasi-Fermi-Niveau ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)). Die Abklingzeit eines Photowiderstands ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)) ist genau $\tau_\text{rec}$.
+::::
+
+⁠**Grenzfall:** Für $t\ll\tau_\text{rec}$ ist $\Delta p_\mathrm n\approx G_\mathrm pt$.
 
 :::frage Elektronen und Löcher verschwinden gleich oft. Warum entscheidet allein die Minderheit?
 Weil nur sie sich relativ ändert. Die Mehrheit steht im Beispiel bei $1{,}001\cdot10^{16}\,\mathrm{cm^{-3}}$, die Zahl der Partner ist also fest. Die Rate folgt dem, was sich ändert: der Zahl der Löcher.

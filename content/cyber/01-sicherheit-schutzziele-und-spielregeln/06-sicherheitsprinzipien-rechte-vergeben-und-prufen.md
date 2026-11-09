@@ -27,7 +27,9 @@ Ein __Sicherheitsprinzip__ ist ein Grundsatz für den Entwurf von Sicherheitsmec
 
 Sicherheitsprinzipien sind keine Gesetze, die man beweisen kann, sondern verdichtete Erfahrung. Mehrere von ihnen haben die Informatiker Jerome Saltzer und Michael Schroeder schon 1975 aufgeschrieben; sie gelten bis heute fast unverändert.
 
-⁠**Beispiel:** Zwei Sicherheitsprinzipien kennst du schon. „Sicherheit ist Ökonomie“ aus Abschnitt [3](risiko-angreifermodell-und-angriffsflache.html#stufe-3) gilt für den Tresor einer Bank ebenso wie für die Bildschirmsperre eines Handys. „Erkennen, wenn man nicht verhindern kann“ aus Abschnitt [4](richtlinie-und-mechanismus.html#stufe-4) gilt für die Alarmanlage eines Hauses ebenso wie für die Nachricht der Bank bei einer neuen Anmeldung. Keines der beiden hängt von einer bestimmten Technik ab; das macht sie zu Prinzipien.
+::::beispiel
+Zwei Sicherheitsprinzipien kennst du schon. „Sicherheit ist Ökonomie“ aus Abschnitt [3](risiko-angreifermodell-und-angriffsflache.html#stufe-3) gilt für den Tresor einer Bank ebenso wie für die Bildschirmsperre eines Handys. „Erkennen, wenn man nicht verhindern kann“ aus Abschnitt [4](richtlinie-und-mechanismus.html#stufe-4) gilt für die Alarmanlage eines Hauses ebenso wie für die Nachricht der Bank bei einer neuen Anmeldung. Keines der beiden hängt von einer bestimmten Technik ab; das macht sie zu Prinzipien.
+::::
 
 ⁠**Kurz gesagt:** Sicherheitsprinzipien sind bewährte Entwurfsgrundsätze, an denen man Mechanismen misst.
 
@@ -43,7 +45,9 @@ Wie viele Rechte soll jemand bekommen? Der Handwerker, der die Heizung wartet, b
 Nach dem Prinzip der __minimalen Rechte__ (englisch *least privilege*) erhält jede Person und jedes Programm genau die Rechte, die für die jeweilige Aufgabe nötig sind, und nur so lange, wie sie nötig sind.
 :::
 
-⁠**Beispiel:** Eine Praktikantin soll in einem Unternehmen die Ablage für ein einziges Projekt pflegen. Bekommt sie Zugriff auf alle 200 Projektordner, so liegen alle 200 offen, wenn ihr Konto durch Phishing in fremde Hände fällt. Bekommt sie Zugriff auf genau einen, liegt einer offen. Dieselbe Rechnung gilt für Programme: Eine Taschenlampen-App, die das Adressbuch lesen darf, verrät beim ersten Fehler das Adressbuch.
+::::beispiel
+Eine Praktikantin soll in einem Unternehmen die Ablage für ein einziges Projekt pflegen. Bekommt sie Zugriff auf alle 200 Projektordner, so liegen alle 200 offen, wenn ihr Konto durch Phishing in fremde Hände fällt. Bekommt sie Zugriff auf genau einen, liegt einer offen. Dieselbe Rechnung gilt für Programme: Eine Taschenlampen-App, die das Adressbuch lesen darf, verrät beim ersten Fehler das Adressbuch.
+::::
 
 ⁠**Kurz gesagt:** Jeder bekommt nur die Rechte, die er für seine Aufgabe braucht, und nur so lange, wie er sie braucht.
 
@@ -65,11 +69,13 @@ Ein Bankschließfach hat zwei Schlösser. Den einen Schlüssel hat die Kundin, d
 Nach dem Prinzip der __Aufgabentrennung__ (englisch *separation of privilege*, auch *separation of responsibility*) wird eine folgenreiche Handlung nicht schon erlaubt, wenn eine einzige Bedingung erfüllt ist. Sie verlangt mehrere voneinander unabhängige Bedingungen, zum Beispiel die Zustimmung zweier verschiedener Personen.
 :::
 
-⁠**Rechenbeispiel:** In einem Unternehmen braucht jede Überweisung über 10 000 € die Freigabe durch zwei Personen aus verschiedenen Abteilungen. Ein Betrüger muss nun beide täuschen oder bestechen. Gelingt ihm das bei einer einzelnen Person mit der Wahrscheinlichkeit $q=1\,\%$, und sind die beiden unabhängig, so gelingt es bei beiden nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) nur mit $q^2=0{,}01\,\%$, also hundertmal seltener (Abb. [10](#abb-10)).
+::::beispiel [Rechenbeispiel]
+In einem Unternehmen braucht jede Überweisung über 10 000 € die Freigabe durch zwei Personen aus verschiedenen Abteilungen. Ein Betrüger muss nun beide täuschen oder bestechen. Gelingt ihm das bei einer einzelnen Person mit der Wahrscheinlichkeit $q=1\,\%$, und sind die beiden unabhängig, so gelingt es bei beiden nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) nur mit $q^2=0{,}01\,\%$, also hundertmal seltener (Abb. [10](#abb-10)).
 
 :::abbildung cyber/k1rtrennung 10
 Aufgabentrennung mit zwei unabhängigen Freigebenden, die je mit $q=0{,}01$ getäuscht werden: Beide zugleich täuscht der Betrüger nur mit dem Produkt $q^2$, hundertmal seltener als eine einzelne Person.
 :::
+::::
 
 Dasselbe Prinzip steckt in der __Zwei-Faktor-Anmeldung__: Man meldet sich mit zwei voneinander unabhängigen Nachweisen an, zum Beispiel mit einem Passwort, das man weiß, und einem Handy, das man besitzt. Ein gestohlenes Passwort allein genügt dann nicht mehr.
 
@@ -95,8 +101,7 @@ Nach dem Prinzip der __sicheren Voreinstellung__ (englisch *fail-safe defaults*)
 
 Die Gästeliste folgt dem Prinzip, die Liste mit Hausverboten nicht.
 
-⁠**Beispiele:**
-
+::::beispiel [Beispiele]
 <ul>
 
 <li>
@@ -114,6 +119,7 @@ Bricht eine Überweisung mitten in der Verarbeitung ab, so wird sie vollständig
 </ul>
 
 Was ein „sicherer Zustand“ ist, hängt vom Schutzziel ab. Eine Tür zum Rechenzentrum soll bei Stromausfall verschlossen bleiben, damit niemand hineinkommt. Eine Notausgangstür muss bei Stromausfall aufgehen, damit niemand eingesperrt ist. Beide folgen dem Prinzip, nur für verschiedene Ziele.
+::::
 
 ⁠**Kurz gesagt:** Was nicht ausdrücklich erlaubt ist, ist verboten, und bei einem Ausfall endet das System in einem sicheren Zustand.
 
@@ -137,7 +143,9 @@ In einem Hotel öffnet die Schlüsselkarte nicht nur den Haupteingang, sondern a
 Nach dem Prinzip der __lückenlosen Prüfung__ (englisch *complete mediation*) wird jeder Zugriff auf jedes Schutzgut darauf geprüft, ob er erlaubt ist, und zwar bei jedem Zugriff aufs Neue.
 :::
 
-⁠**Beispiel:** Das Kundenportal aus Abschnitt [2](von-der-schwachstelle-zum-schaden.html#stufe-2) prüft beim Anmelden, wer der Kunde ist. Beim Abruf einer Rechnung prüft es nur, ob die Nummer existiert, nicht, ob die Rechnung diesem Kunden gehört. Die Schwachstelle ist eine Lücke in der Prüfung: Die Tür am Eingang prüft, die Türen zu den einzelnen Rechnungen nicht. Lückenlos wäre: Bei jedem Abruf prüft das Portal, ob die verlangte Rechnung zum angemeldeten Kunden gehört.
+::::beispiel
+Das Kundenportal aus Abschnitt [2](von-der-schwachstelle-zum-schaden.html#stufe-2) prüft beim Anmelden, wer der Kunde ist. Beim Abruf einer Rechnung prüft es nur, ob die Nummer existiert, nicht, ob die Rechnung diesem Kunden gehört. Die Schwachstelle ist eine Lücke in der Prüfung: Die Tür am Eingang prüft, die Türen zu den einzelnen Rechnungen nicht. Lückenlos wäre: Bei jedem Abruf prüft das Portal, ob die verlangte Rechnung zum angemeldeten Kunden gehört.
+::::
 
 ⁠**Kurz gesagt:** Jeder Zugriff wird geprüft, jedes Mal.
 
@@ -159,11 +167,13 @@ Eine Prüfung schützt nur, wenn ihr Ergebnis noch stimmt, wenn man danach hande
 Eine __TOCTTOU-Schwachstelle__ (englisch *time of check to time of use*, „vom Zeitpunkt der Prüfung bis zum Zeitpunkt der Nutzung“) liegt vor, wenn ein System eine Bedingung prüft, danach eine Handlung ausführt, die auf dieser Bedingung beruht, und sich der geprüfte Zustand dazwischen ändern kann. Die Prüfung ist dann wertlos.
 :::
 
-⁠**Beispiel: zwei Geldautomaten.** Auf einem Konto liegen 100 €, und zwei Karten gehören zu diesem Konto. An zwei Automaten wird fast gleichzeitig je 100 € abgehoben (Abb. [11](#abb-11)). Automat 1 prüft: $100\ge100$, in Ordnung. Bevor er abbucht, prüft Automat 2: Auch für ihn stehen noch 100 € auf dem Konto, in Ordnung. Dann zahlen beide aus und buchen ab. Ausgezahlt wurden 200 €, das Konto steht bei $-100$ €, obwohl jede einzelne Prüfung richtig war.
+::::beispiel zwei Geldautomaten
+Auf einem Konto liegen 100 €, und zwei Karten gehören zu diesem Konto. An zwei Automaten wird fast gleichzeitig je 100 € abgehoben (Abb. [11](#abb-11)). Automat 1 prüft: $100\ge100$, in Ordnung. Bevor er abbucht, prüft Automat 2: Auch für ihn stehen noch 100 € auf dem Konto, in Ordnung. Dann zahlen beide aus und buchen ab. Ausgezahlt wurden 200 €, das Konto steht bei $-100$ €, obwohl jede einzelne Prüfung richtig war.
 
 :::abbildung cyber/k1toctou 11
 Eine TOCTTOU-Schwachstelle: Beide Automaten prüfen den Kontostand von 100 €, bevor einer von ihnen abbucht. Jede Prüfung ist für sich richtig, aber zum Zeitpunkt der Auszahlung schon veraltet. Am Ende sind 200 € ausgezahlt.
 :::
+::::
 
 Die Abhilfe besteht darin, Prüfen und Handeln untrennbar zu verbinden. Eine Handlung heißt __atomar__, wenn sie entweder ganz oder gar nicht ausgeführt wird und niemand einen Zwischenstand sehen oder verändern kann. Im Beispiel muss „prüfen, ob der Stand reicht, und abbuchen“ eine einzige atomare Handlung sein: Solange Automat 1 prüft und abbucht, muss Automat 2 warten. Er sieht dann nur noch 0 € und lehnt ab.
 

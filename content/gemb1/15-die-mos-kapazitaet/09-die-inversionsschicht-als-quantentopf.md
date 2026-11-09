@@ -37,7 +37,11 @@ $$n_\mathrm s=\int\!\mathrm{d} E\,D_\mathrm s(E)\,f(E),\qquad Q'_\mathrm{inv}=-e
 
 Mit wachsender Gatespannung rückt $E_\mathrm F$ über weitere Stufen von $D_\mathrm s$. Die Zustandsdichte nimmt zu, also auch die Ladungsträgerdichte.
 
-**Beispiel.** Mit $L_x=5$ nm ist $E_1^\mathrm h=16$ meV, $E_2^\mathrm h=65$ meV und $E_1^\mathrm l=79$ meV. Die Abstände liegen also bei wenigen $k_\mathrm BT$, und die Quantisierung ist bei 300 K deutlich. Die schwere Leiter hat zwei Täler mit $D_\mathrm s=2\cdot0{,}19\,m_0/(\pi\hbar^2)=1{,}59\cdot10^{14}/(\mathrm{eV\,cm^2})$, die leichte vier mit $4\cdot0{,}418\,m_0/(\pi\hbar^2)=6{,}99\cdot10^{14}/(\mathrm{eV\,cm^2})$. Die $1{,}6\cdot10^{12}$ Elektronen je cm$^2$ aus Stufe [6](die-schwellspannung.html#stufe-6) füllen nur 10 meV des untersten Subbands bei $T=0$. **Grenzfall:** Für $L_x\to\infty$ rücken die Stufen zusammen, die Treppe wird zur Wurzelkurve der dreidimensionalen Zustandsdichte.
+::::beispiel
+Mit $L_x=5$ nm ist $E_1^\mathrm h=16$ meV, $E_2^\mathrm h=65$ meV und $E_1^\mathrm l=79$ meV. Die Abstände liegen also bei wenigen $k_\mathrm BT$, und die Quantisierung ist bei 300 K deutlich. Die schwere Leiter hat zwei Täler mit $D_\mathrm s=2\cdot0{,}19\,m_0/(\pi\hbar^2)=1{,}59\cdot10^{14}/(\mathrm{eV\,cm^2})$, die leichte vier mit $4\cdot0{,}418\,m_0/(\pi\hbar^2)=6{,}99\cdot10^{14}/(\mathrm{eV\,cm^2})$. Die $1{,}6\cdot10^{12}$ Elektronen je cm$^2$ aus Stufe [6](die-schwellspannung.html#stufe-6) füllen nur 10 meV des untersten Subbands bei $T=0$.
+::::
+
+⁠**Grenzfall:** Für $L_x\to\infty$ rücken die Stufen zusammen, die Treppe wird zur Wurzelkurve der dreidimensionalen Zustandsdichte.
 
 :::frage Wenn die Elektronen quantisiert sind, stimmt dann die klassische Rechnung aus Stufe [6](die-schwellspannung.html#stufe-6) noch?
 Für die Ladung fast ganz. Sie folgt aus dem Plattenkondensator [(6.2)](die-schwellspannung.html#gl-6-2), nicht aus den Details der Schicht. Die Quantisierung hebt das unterste Niveau um einige 10 meV, das ändert $V_\mathrm{th}$ nur wenig. Für die Form der Schicht und die Zahl der Zustände braucht man sie aber.

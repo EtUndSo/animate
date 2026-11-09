@@ -47,7 +47,8 @@ As $t$ increases, the flipped $h$ slides from left to right across $s$. Wherever
 
 Why flipped? As a function of $\tau$, the argument $t-\tau$ decreases as $\tau$ increases. The beginning of $h$ (age zero) lies at $\tau=t$, and older impulses lie further to the left. For the RC circuit, $h$ is largest at the beginning: the system “remembers” the most recent past most strongly.
 
-**Example: RC circuit and rectangular pulse.** The impulse response of the RC circuit with the time constant $T=RC$ is a decaying exponential pulse of area 1. The short impulse charges the capacitor abruptly to $1/T$, after which it discharges through $R$:
+::::beispiel RC circuit and rectangular pulse
+The impulse response of the RC circuit with the time constant $T=RC$ is a decaying exponential pulse of area 1. The short impulse charges the capacitor abruptly to $1/T$, after which it discharges through $R$:
 
 <span class="anker" id="gl-5-1"></span>
 $$h(t)=\frac1T\,\varepsilon(t)\,\mathrm{e}^{-t/T}. \tag{5.1}$$
@@ -56,6 +57,7 @@ Input: a rectangle of height $a$ from $0$ to $T_0$. Figure [6](#abb-6) shows th
 
 <span class="anker" id="gl-5-2"></span>
 $$g(t)=\begin{cases}0 & t<0,\\[2pt] a\bigl(1-\mathrm{e}^{-t/T}\bigr) & 0\le t\le T_0,\\[2pt] a\bigl(\mathrm{e}^{T_0/T}-1\bigr)\mathrm{e}^{-t/T} & t>T_0.\end{cases} \tag{5.2}$$
+::::
 
 :::herleitung Response to the rectangular pulse
 ⁠**$t<0$:** The shifted $h(t-\tau)$ is nonzero only for $\tau\le t<0$, and $s(\tau)$ only for $\tau\ge0$. No overlap, $g=0$.

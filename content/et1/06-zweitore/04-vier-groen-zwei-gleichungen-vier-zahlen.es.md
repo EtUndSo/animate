@@ -37,11 +37,15 @@ $$y_1=p_{11}x_1+p_{12}x_2,\qquad y_2=p_{21}x_1+p_{22}x_2. \tag{2.2}$$
 Los tres sistemas de flechas. Izquierda, simétrico: ambas corrientes apuntan hacia el cuadripolo. Centro, en cadena: la corriente de salida apunta hacia la carga. Derecha, mixto, como en este capítulo: $I_2$ sigue definida como a la izquierda, y la corriente hacia la carga se llama $-I_2$.
 :::
 
-**Ejemplo.** En el punto medio del cuadripolo T se encuentran $I_1$ e $I_2$, y por $R_\mathrm{b}$ circula su suma. La ley de las mallas da
+::::beispiel
+En el punto medio del cuadripolo T se encuentran $I_1$ e $I_2$, y por $R_\mathrm{b}$ circula su suma. La ley de las mallas da
 
 $$U_1=R_\mathrm{a}I_1+R_\mathrm{b}(I_1+I_2)=35\,\Omega\cdot I_1+20\,\Omega\cdot I_2,\qquad U_2=R_\mathrm{c}I_2+R_\mathrm{b}(I_1+I_2)=20\,\Omega\cdot I_1+40\,\Omega\cdot I_2.$$
 
-El sumando $20\,\Omega\cdot I_2$ de $U_1$ es el mecanismo: la corriente del puerto 2 pasa por $R_\mathrm{b}$, eleva allí el potencial del punto medio, y el puerto 1 ve esa elevación. Con $I_1=250$ mA e $I_2=-50$ mA resulta $U_1=8{,}75\,\mathrm{V}-1\,\mathrm{V}=7{,}75$ V y $U_2=5\,\mathrm{V}-2\,\mathrm{V}=3$ V. **Caso límite:** Sin causas, $I_1=I_2=0$, ambas tensiones son cero, como exige un cuadripolo sin fuentes propias. Con una fuente independiente en el interior, en cada ecuación se añadiría una constante.
+El sumando $20\,\Omega\cdot I_2$ de $U_1$ es el mecanismo: la corriente del puerto 2 pasa por $R_\mathrm{b}$, eleva allí el potencial del punto medio, y el puerto 1 ve esa elevación. Con $I_1=250$ mA e $I_2=-50$ mA resulta $U_1=8{,}75\,\mathrm{V}-1\,\mathrm{V}=7{,}75$ V y $U_2=5\,\mathrm{V}-2\,\mathrm{V}=3$ V.
+::::
+
+⁠**Caso límite:** Sin causas, $I_1=I_2=0$, ambas tensiones son cero, como exige un cuadripolo sin fuentes propias. Con una fuente independiente en el interior, en cada ecuación se añadiría una constante.
 
 ⁠**En resumen:** Dos magnitudes son libres, y cada una de las otras dos es una suma con dos factores fijos.
 

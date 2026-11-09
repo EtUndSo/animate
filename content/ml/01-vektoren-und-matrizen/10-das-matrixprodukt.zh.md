@@ -50,7 +50,8 @@ $$\sum_{l=1}^k(\mathbf{A}\mathbf{B})_{il}\,x_l=\sum_{l=1}^k\sum_{j=1}^na_{ij}\,b
 这就是 $\mathbf{A}(\mathbf{B}\mathbf{x})$ 的第 $i$ 个分量。中间一步交换了两个求和符号，并把 $a_{ij}$ 移到内层求和的前面。
 :::
 
-⁠**算例：**对 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ 和 $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$，有
+::::beispiel [算例]
+对 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ 和 $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$，有
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
 
@@ -61,6 +62,7 @@ $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
 :::
 
 用 $\mathbf{x}=(1,\,2)^{\top}$ 验算：$\mathbf{B}\mathbf{x}=(2,\,1)^{\top}$，然后 $\mathbf{A}(\mathbf{B}\mathbf{x})=(4,\,1)^{\top}$；直接计算则是 $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+2,\ 1+0)^{\top}=(4,\,1)^{\top}$。
+::::
 
 ⁠**简而言之：**矩阵乘积 $\mathbf{A}\mathbf{B}$ 是映射“先 $\mathbf{B}$，后 $\mathbf{A}$”的矩阵；它的元素 $(i,l)$ 是 $\mathbf{A}$ 的第 $i$ 行乘以 $\mathbf{B}$ 的第 $l$ 列。
 
@@ -81,11 +83,13 @@ $$\mathbf{A}\begin{pmatrix}\mathbf{B}\mathbf{e}_1&\cdots&\mathbf{B}\mathbf{e}_k\
 
 对数据而言，这意味着：如果要把几个加权和用于所有样本，就把各个权重向量作为矩阵 $\mathbf{W}$ 的各列并排写出。于是乘积 $\mathbf{X}\mathbf{W}$ 的第 $l$ 列包含用第 $l$ 个权重向量得出的预测值。
 
-⁠**算例：**除了用 $\mathbf{w}=(3,\,10,\,-4)^{\top}$（千欧元）估算购买价格，还要用权重 $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$（欧元）估算月租金。取 $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$，得
+::::beispiel [算例]
+除了用 $\mathbf{w}=(3,\,10,\,-4)^{\top}$（千欧元）估算购买价格，还要用权重 $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$（欧元）估算月租金。取 $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$，得
 
 $$\mathbf{X}\mathbf{W}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3&12\\10&30\\-4&-8\end{pmatrix}=\begin{pmatrix}188&756\\126&502\\286&1152\\232&914\end{pmatrix}.$$
 
 第 $i$ 行包含对公寓 $i$ 的两个估计值，第 $1$ 列是所有购买价格，第 $2$ 列是所有租金。
+::::
 
 ⁠**简而言之：**$\mathbf{A}\mathbf{B}$ 的各列是 $\mathbf{A}$ 乘以 $\mathbf{B}$ 的各列；$\mathbf{X}\mathbf{W}$ 把几个加权和同时用于所有样本。
 
@@ -131,13 +135,17 @@ $c\,(\mathbf{A}\mathbf{B})=(c\,\mathbf{A})\mathbf{B}=\mathbf{A}(c\,\mathbf{B})$�
 
 规则 (i) 由意义得出：两边都是映射“先 $\mathbf{C}$，再 $\mathbf{B}$，后 $\mathbf{A}$”的矩阵，因为对每个 $\mathbf{x}$ 都有 $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{x})=\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{x}))=\mathbf{A}((\mathbf{B}\mathbf{C})\mathbf{x})$。规则 (ii) 和 (iii) 可以用式 [(9.1)](#gl-9-1) 和求和规则逐个元素地验证。
 
-⁠**算例 1：**对旋转 $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ 和拉伸 $\mathbf{S}=\operatorname{diag}(2,\,0.5)$，
+::::beispiel [算例 1]
+对旋转 $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ 和拉伸 $\mathbf{S}=\operatorname{diag}(2,\,0.5)$，
 
 $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0.5&0\end{pmatrix},\qquad \mathbf R\mathbf{S}=\begin{pmatrix}0&-0.5\\2&0\end{pmatrix}.$$
 
 先旋转再拉伸，把 $\mathbf{e}_1$ 变成 $(0,\,0.5)^{\top}$；先拉伸再旋转，把它变成 $(0,\,2)^{\top}$。
+::::
 
-⁠**算例 2：**由第 [9.1](#stufe-9-1) 小节，$\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$，但 $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$。型不同时就更明显了：对 $\mathbf{A}\in\mathbb{R}^{2\times3}$ 和 $\mathbf{B}\in\mathbb{R}^{3\times2}$，$\mathbf{A}\mathbf{B}$ 是 $2\times2$ 矩阵，而 $\mathbf{B}\mathbf{A}$ 是 $3\times3$ 矩阵。
+::::beispiel [算例 2]
+由第 [9.1](#stufe-9-1) 小节，$\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$，但 $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$。型不同时就更明显了：对 $\mathbf{A}\in\mathbb{R}^{2\times3}$ 和 $\mathbf{B}\in\mathbb{R}^{3\times2}$，$\mathbf{A}\mathbf{B}$ 是 $2\times2$ 矩阵，而 $\mathbf{B}\mathbf{A}$ 是 $3\times3$ 矩阵。
+::::
 
 ⁠**简而言之：**在矩阵乘积中，可以重新加括号，也可以展开，但不能交换顺序。
 
@@ -159,11 +167,13 @@ $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0.5&0\end{pmatrix},\qquad \mathbf R\m
 
 无论串联多少个线性级，结果总能用单个矩阵一步算出。所以，一串线性级能做的事，单个矩阵就已经能做到。在信号与系统中，你也见过同样的结论：两个串联的线性系统合起来仍是一个线性系统。
 
-⁠**算例：**第一级把三个数变成两个，$\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$，第二级再把两个数变回三个，$\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$。合起来就是单个矩阵
+::::beispiel [算例]
+第一级把三个数变成两个，$\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$，第二级再把两个数变回三个，$\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$。合起来就是单个矩阵
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&5&-1\\1&1&1\\0&3&-3\end{pmatrix}.$$
 
 用 $\mathbf{x}=(1,\,1,\,1)^{\top}$ 验算：$\mathbf{B}\mathbf{x}=(3,\,0)^{\top}$，而 $\mathbf{A}(3,\,0)^{\top}=(6,\,3,\,0)^{\top}$；同样，$(\mathbf{A}\mathbf{B})\mathbf{x}=(2+5-1,\ 1+1+1,\ 0+3-3)^{\top}=(6,\,3,\,0)^{\top}$。
+::::
 
 ⁠**简而言之：**串联的线性级合起来构成单个线性映射；它的矩阵是各个矩阵的乘积。
 
@@ -184,9 +194,9 @@ $$(\mathbf{u}\mathbf{v}^{\top})_{ij}=u_i\,v_j . \tag{9.3}$$
 
 它是一个 $m\times1$ 矩阵与一个 $1\times n$ 矩阵的矩阵乘积。每一列都是 $\mathbf{u}$ 的倍数，即 $v_j\,\mathbf{u}$；每一行都是 $\mathbf{v}^{\top}$ 的倍数。
 
-⁠**算例：**
-
+::::beispiel [算例]
 $$\begin{pmatrix}1\\2\\3\end{pmatrix}\begin{pmatrix}4&5\end{pmatrix}=\begin{pmatrix}4&5\\8&10\\12&15\end{pmatrix}.$$
+::::
 
 借助外积，每个矩阵乘积都可以写成一个和：“$\mathbf{A}$ 的第 $j$ 列乘以 $\mathbf{B}$ 的第 $j$ 行”，对 $j$ 求和，
 

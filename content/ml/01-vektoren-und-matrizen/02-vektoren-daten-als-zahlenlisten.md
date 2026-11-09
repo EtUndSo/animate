@@ -41,17 +41,21 @@ $$\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij} .$$
 
 Man liest sie von innen nach außen: Für jede Zeile $i$ addiert die innere Summe die Zahlen dieser Zeile, die äußere Summe addiert die Zeilensummen. Weil es bei endlich vielen Summanden auf die Reihenfolge nicht ankommt, darf man die beiden Summenzeichen vertauschen und zuerst spaltenweise addieren.
 
-⁠**Rechenbeispiel 1:** Für $a_1=2$, $a_2=5$, $a_3=1$ schreibt man jede Summe zuerst aus, setzt dann die Zahlen ein und addiert (Abb. [1](#abb-1)). So ist $\sum_{i=1}^3 a_i=8$ und $\sum_{i=1}^3 a_i^2=30$. In der dritten Summe ist der Laufindex selbst der Summand: $\sum_{j=1}^{3}j=6$.
+::::beispiel [Rechenbeispiel 1]
+Für $a_1=2$, $a_2=5$, $a_3=1$ schreibt man jede Summe zuerst aus, setzt dann die Zahlen ein und addiert (Abb. [1](#abb-1)). So ist $\sum_{i=1}^3 a_i=8$ und $\sum_{i=1}^3 a_i^2=30$. In der dritten Summe ist der Laufindex selbst der Summand: $\sum_{j=1}^{3}j=6$.
 
 :::abbildung ml/k1rsumme 1
 Drei Summen Schritt für Schritt: das Summenzeichen ausschreiben, die Zahlen einsetzen, addieren.
 :::
+::::
 
-⁠**Rechenbeispiel 2:** Die Tabelle mit den Zeilen $(1,\,2)$ und $(3,\,4)$ hat die Einträge $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Zeilenweise addiert ergibt die Doppelsumme $(1+2)+(3+4)=10$, spaltenweise $(1+3)+(2+4)=10$ (Abb. [2](#abb-2)).
+::::beispiel [Rechenbeispiel 2]
+Die Tabelle mit den Zeilen $(1,\,2)$ und $(3,\,4)$ hat die Einträge $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Zeilenweise addiert ergibt die Doppelsumme $(1+2)+(3+4)=10$, spaltenweise $(1+3)+(2+4)=10$ (Abb. [2](#abb-2)).
 
 :::abbildung ml/k1rdoppel 2
 Die Doppelsumme über die Tabelle mit den Zeilen $(1,\,2)$ und $(3,\,4)$, oben zuerst zeilenweise, unten zuerst spaltenweise. Beide Reihenfolgen ergeben dieselbe Summe.
 :::
+::::
 
 ⁠**Kurz gesagt:** $\sum_{i=1}^n a_i$ ist die Summe von $a_1$ bis $a_n$; der Laufindex $i$ ist nur ein Platzhalter.
 
@@ -88,7 +92,9 @@ In der ganzen Reihe gilt: $N$ ist die Zahl der Beispiele und $d$ die Zahl der Me
 
 Zwei Hinweise zu den Wörtern. In Datenbanken heißt eine einzelne Zeile einer Tabelle oft „Datensatz“; hier ist der Datensatz die ganze Sammlung. Und das Wort „Beispiel“ meint in diesem Kapitel immer ein Ding aus einem Datensatz; durchgerechnete Aufgaben heißen deshalb „Rechenbeispiel“.
 
-⁠**Rechenbeispiel:** Der Wohnungsdatensatz hat $N=4$ Beispiele und $d=3$ Merkmale. Merkmal 2 ist die Zimmerzahl. Bei Wohnung 3 hat es den Wert $4$.
+::::beispiel [Rechenbeispiel]
+Der Wohnungsdatensatz hat $N=4$ Beispiele und $d=3$ Merkmale. Merkmal 2 ist die Zimmerzahl. Bei Wohnung 3 hat es den Wert $4$.
+::::
 
 Nicht jede Eigenschaft ist von sich aus eine Zahl. Der Stadtteil einer Wohnung ist ein Name. Solche Eigenschaften muss man erst in Zahlen übersetzen, bevor man mit ihnen rechnen kann. In diesem Kapitel sind alle Merkmale schon Zahlen.
 
@@ -126,7 +132,9 @@ Vektoren werden fett und klein geschrieben, ihre Komponenten mager. Eine einzeln
 
 **Die Beispiele eines Datensatzes.** Das Beispiel Nummer $i$ ist der Vektor $\mathbf{x}_i\in\mathbb{R}^d$. Den Vektor eines Beispiels nennt man auch seinen __Merkmalsvektor__. Seine Komponenten bekommen zwei Indizes: $x_{ij}$ ist der Wert von Merkmal $j$ bei Beispiel $i$. Ein fetter Buchstabe mit einem Index ist also ein ganzer Vektor aus einer Liste von Vektoren, ein magerer Buchstabe mit zwei Indizes eine einzelne Zahl.
 
-⁠**Rechenbeispiel:** Wohnung 1 ist der Vektor $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Ihre zweite Komponente ist $x_{12}=2$. Der Vektor $(2,\,60,\,3)^{\top}$ enthält dieselben Zahlen, ist aber ein anderer Vektor: An der ersten Stelle steht jetzt die Zahl $2$, und die würde man als Fläche lesen.
+::::beispiel [Rechenbeispiel]
+Wohnung 1 ist der Vektor $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Ihre zweite Komponente ist $x_{12}=2$. Der Vektor $(2,\,60,\,3)^{\top}$ enthält dieselben Zahlen, ist aber ein anderer Vektor: An der ersten Stelle steht jetzt die Zahl $2$, und die würde man als Fläche lesen.
+::::
 
 ⁠**Kurz gesagt:** Ein Vektor ist eine geordnete Liste von Zahlen, die man als Punkt oder als Pfeil zeichnen kann; ein Beispiel mit $d$ Merkmalen ist ein Vektor im $\mathbb{R}^d$.
 
@@ -165,11 +173,13 @@ Weil jede Komponente für sich eine gewöhnliche Rechnung mit Zahlen ist, gelten
 
 Die Differenz $\mathbf{u}-\mathbf{v}$ hat eine eigene Anschauung. Sie ist der Pfeil, der von der Spitze von $\mathbf{v}$ zur Spitze von $\mathbf{u}$ führt, denn $\mathbf{v}+(\mathbf{u}-\mathbf{v})=\mathbf{u}$. Bei zwei Beispielen gibt sie an, um wie viel sie sich in jedem Merkmal unterscheiden.
 
-⁠**Rechenbeispiel:** Wohnung 1 hat von Januar bis März $\mathbf{u}=(200,\,250,\,300)^{\top}$ Kilowattstunden Strom verbraucht, Wohnung 2 im selben Haus $\mathbf{v}=(150,\,100,\,120)^{\top}$. Zusammen verbrauchen sie
+::::beispiel [Rechenbeispiel]
+Wohnung 1 hat von Januar bis März $\mathbf{u}=(200,\,250,\,300)^{\top}$ Kilowattstunden Strom verbraucht, Wohnung 2 im selben Haus $\mathbf{v}=(150,\,100,\,120)^{\top}$. Zusammen verbrauchen sie
 
 $$\mathbf{u}+\mathbf{v}=(350,\,350,\,420)^{\top}\ \text{kWh}.$$
 
 Den Verbrauch von Wohnung 1 in Megawattstunden liefert das Vielfache $0{,}001\,\mathbf{u}=(0{,}2;\ 0{,}25;\ 0{,}3)^{\top}$. Die Differenz $\mathbf{u}-\mathbf{v}=(50,\,150,\,180)^{\top}$ sagt, wie viele Kilowattstunden Wohnung 1 in jedem Monat mehr verbraucht als Wohnung 2. Im Wohnungsdatensatz ist $\mathbf{x}_3-\mathbf{x}_1=(30,\,2,\,3)^{\top}$: Wohnung 3 ist $30\,\mathrm m^2$ größer, hat zwei Zimmer mehr und liegt $3$ km weiter draußen als Wohnung 1.
+::::
 
 ⁠**Kurz gesagt:** Vektoren addiert man und multipliziert sie mit einer Zahl, indem man es Komponente für Komponente tut.
 
@@ -194,15 +204,20 @@ eine __Linearkombination__ der Vektoren $\mathbf{v}_1,\dots,\mathbf{v}_k$. Die Z
 
 Achtung beim Lesen: $\mathbf{v}_l$ ist fett, also der $l$-te Vektor der Liste, nicht die $l$-te Komponente eines Vektors.
 
-⁠**Rechenbeispiel 1:** $(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::beispiel [Rechenbeispiel 1]
+$(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::
 
-⁠**Rechenbeispiel 2: der Mittelpunkt.** Die Linearkombination $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ der Wohnungen 1 und 2 ist
+::::beispiel [Rechenbeispiel 2] der Mittelpunkt
+Die Linearkombination $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ der Wohnungen 1 und 2 ist
 
 $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{\top}.$$
 
 Das ist eine gedachte Wohnung, die in jedem Merkmal genau zwischen den beiden liegt. Der Punkt liegt in der Mitte der Verbindungsstrecke.
+::::
 
-⁠**Rechenbeispiel 3: der Mittelwert der Beispiele.** Nimmt man alle $N$ Beispiele mit dem Koeffizienten $1/N$, entsteht der __Mittelwert der Beispiele__
+::::beispiel [Rechenbeispiel 3] der Mittelwert der Beispiele
+Nimmt man alle $N$ Beispiele mit dem Koeffizienten $1/N$, entsteht der __Mittelwert der Beispiele__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
@@ -212,6 +227,7 @@ Für den Wohnungsdatensatz ist $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ (Abb.�
 :::abbildung ml/k1rmittelvektor 5
 Der Mittelwert der vier Wohnungen: Die Summe der Vektoren wird Komponente für Komponente gebildet und dann durch $4$ geteilt; $5/2=2{,}5$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Eine Linearkombination multipliziert jeden Vektor mit einer eigenen Zahl und addiert alles.
 
@@ -242,7 +258,9 @@ $$\mathbf{x}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\dots+x_d\mathbf{e}_d=\sum_{j=1}^d 
 
 Man sieht das, wenn man die rechte Seite Komponente für Komponente ausrechnet: An der Stelle $j$ trägt nur der Summand $x_j\mathbf{e}_j$ etwas bei, und zwar $x_j\cdot1$. Andere Koeffizienten sind nicht möglich, denn sie würden an irgendeiner Stelle eine andere Zahl ergeben.
 
-⁠**Rechenbeispiel:** $\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, also $60$-mal „ein Quadratmeter“ plus $2$-mal „ein Zimmer“ plus $3$-mal „ein Kilometer“.
+::::beispiel [Rechenbeispiel]
+$\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, also $60$-mal „ein Quadratmeter“ plus $2$-mal „ein Zimmer“ plus $3$-mal „ein Kilometer“.
+::::
 
 ⁠**Kurz gesagt:** Der Einheitsvektor $\mathbf{e}_j$ hat an der Stelle $j$ eine Eins und sonst Nullen; jeder Vektor ist die Summe $\sum_jx_j\mathbf{e}_j$.
 

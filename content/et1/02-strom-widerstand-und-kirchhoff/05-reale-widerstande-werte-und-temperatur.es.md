@@ -47,7 +47,11 @@ Izquierda: $R/R_{20}$ frente a la temperatura para el cobre ($\alpha=3{,}9\cdot1
 
 **Mecanismo.** Metales (cobre, plata, platino, wolframio): $n$ es fijo, una red cristalina más caliente vibra con más fuerza, el tiempo de vuelo $T$ baja, $\mu$ baja, $R$ sube. Semiconductores (silicio, germanio): a temperatura ambiente solo unos pocos electrones están libres. El calor libera más ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ crece mucho más deprisa de lo que cae $\mu$, $R$ baja. __Aleaciones compensadas__ como el constantán: predominan las colisiones con los átomos extraños incorporados irregularmente, que apenas dependen de la temperatura. Como alternativa se conectan en serie una PTC y una NTC, de modo que el aumento de una compense la disminución de la otra ($R_1\alpha_1+R_2\alpha_2=0$).
 
-**Ejemplo.** El hilo se calienta de 20 °C a 70 °C. De [(4.2)](#gl-4-2) se obtiene el factor $1+3{,}9\cdot10^{-3}\cdot50=1{,}195$, es decir, 40,6 m$\Omega$ en lugar de 34 m$\Omega$. Un caso extremo es el filamento de wolframio de la lámpara: el factor 12 de $1{,}5\,\Omega$ a $18\,\Omega$ corresponde según [(4.2)](#gl-4-2) a unos 2460 °C, como aproximación burda en este amplio intervalo. **Casos límite:** $\vartheta=\vartheta_0$ da $R(\vartheta_0)$; $\alpha=0$ da un valor constante.
+::::beispiel
+El hilo se calienta de 20 °C a 70 °C. De [(4.2)](#gl-4-2) se obtiene el factor $1+3{,}9\cdot10^{-3}\cdot50=1{,}195$, es decir, 40,6 m$\Omega$ en lugar de 34 m$\Omega$. Un caso extremo es el filamento de wolframio de la lámpara: el factor 12 de $1{,}5\,\Omega$ a $18\,\Omega$ corresponde según [(4.2)](#gl-4-2) a unos 2460 °C, como aproximación burda en este amplio intervalo.
+::::
+
+⁠**Casos límite:** $\vartheta=\vartheta_0$ da $R(\vartheta_0)$; $\alpha=0$ da un valor constante.
 
 :::frage ¿Por qué las lámparas incandescentes suelen fundirse al encenderlas?
 En frío, el filamento solo tiene $1{,}5\,\Omega$; con 9 V circulan en el primer momento 6 A en lugar de 0,5 A. Este impulso calienta el filamento en fracciones de segundo. Su resistencia sube, lo que reduce la corriente, hasta llegar a $18\,\Omega$. En los puntos delgados el calentamiento es mayor, y allí se rompe el filamento.

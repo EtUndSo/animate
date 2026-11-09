@@ -39,9 +39,11 @@ $$\mathbb{P}(S_n^*\le x)\to\Phi(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^x\mathrm{e}
 Standardisierte Summe von $n$ Vierer-Würfeln, exakt berechnet und als Dichte aufgetragen, darüber die Glocke. Schon bei $n=16$ ist kaum ein Unterschied zu sehen.
 :::
 
-⁠**Beispiel:** 80 Vierer-Würfel haben $\mathbb{E}(S_{80})=200$ und $\operatorname{Var}(S_{80})=100$. Damit ist (exakt wäre es $0{,}768$)
+::::beispiel
+80 Vierer-Würfel haben $\mathbb{E}(S_{80})=200$ und $\operatorname{Var}(S_{80})=100$. Damit ist (exakt wäre es $0{,}768$)
 
 $$\mathbb{P}(190<S_{80}\le215)=\mathbb{P}(-1<S_{80}^*\le1{,}5)\approx\Phi(1{,}5)-\Phi(-1)=0{,}9332-0{,}1587=0{,}7745.$$
+::::
 
 **Wie groß muss eine Stichprobe sein?** Eine Serie hat den unbekannten Ausschussanteil $p\in(0,1)$. Wie viele Teile muss man prüfen, damit der gemessene Anteil mit mindestens 90 % um weniger als 3 Prozentpunkte von $p$ abweicht? Jedes Teil ist ein Bernoulli-Experiment mit $\mu=p$, $\sigma^2=p(1-p)$, gesucht ist $\mathbb{P}(A_n)\ge0{,}9$ für $A_n=\{|\overline X_n-p|<0{,}03\}$. Mit [(12.1)](#gl-12-1) ist $A_n=\bigl\{|S_n^*|<0{,}03\sqrt{n/(p(1-p))}\bigr\}$, und wegen $\Phi(-x)=1-\Phi(x)$ folgt
 

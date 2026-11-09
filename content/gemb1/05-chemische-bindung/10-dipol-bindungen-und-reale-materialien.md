@@ -36,7 +36,11 @@ $$\begin{aligned} \text{Dipol--Ion:}\quad&E_\mathrm{an}=-\frac{q_\mathrm I\,p_\m
 Eine Ladung erzeugt das Potential $\propto1/r$. Ein Dipol ist die Differenz zweier solcher Potentiale im Abstand $d$, also $d$ mal Ableitung: $\propto d/r^2$. Das ergibt die erste Formel. Ein zweiter Dipol spürt wieder nur eine Differenz, also $\propto1/r^3$. Bei London entsteht $p_\mathrm{el,2}=\alpha_\mathrm{pol,2}\mathcal E$ erst durch das Feld $\mathcal E\propto p_\mathrm{el,1}/r^3$ des ersten Dipols, deshalb $E_\mathrm{an}\propto p_\mathrm{el,1}p_\mathrm{el,2}/r^3\propto\alpha_\mathrm{pol,2}\,p_\mathrm{el,1}^2/r^6$. Der schwankende Dipol $p_\mathrm{el,1}$ wächst seinerseits mit $\alpha_\mathrm{pol,1}$.
 :::
 
-**Beispiel.** Ein Na$^+$ im Abstand 0,23 nm von einem Wassermolekül gewinnt 1,05 eV, zwei Wassermoleküle in einer Linie bei 0,28 nm gewinnen 0,19 eV. Für gleiche Atome gilt bei London $E_\mathrm{an}=-\frac34\Delta E_\mathrm{IE}\,(\alpha_\mathrm{pol}/(4\pi\varepsilon_0))^2/r^6$. Argon mit 0,00164 nm$^3$, 15,76 eV und $r_0=0{,}38$ nm ergibt 10,6 meV, gemessen sind 10,4 meV. Das liegt unter $k_\mathrm BT$ bei 300 K, darum ist Argon gasförmig. Dipol-Bindungen reichen von 0,4 eV bei Wasserstoffbrücken bis 0,01 eV bei London. **Grenzfall:** Verdoppelt man $r$, sinkt die Energie auf $\frac14$, $\frac18$ oder $\frac1{64}$. London wirkt also kaum über die nächsten Nachbarn hinaus.
+::::beispiel
+Ein Na$^+$ im Abstand 0,23 nm von einem Wassermolekül gewinnt 1,05 eV, zwei Wassermoleküle in einer Linie bei 0,28 nm gewinnen 0,19 eV. Für gleiche Atome gilt bei London $E_\mathrm{an}=-\frac34\Delta E_\mathrm{IE}\,(\alpha_\mathrm{pol}/(4\pi\varepsilon_0))^2/r^6$. Argon mit 0,00164 nm$^3$, 15,76 eV und $r_0=0{,}38$ nm ergibt 10,6 meV, gemessen sind 10,4 meV. Das liegt unter $k_\mathrm BT$ bei 300 K, darum ist Argon gasförmig. Dipol-Bindungen reichen von 0,4 eV bei Wasserstoffbrücken bis 0,01 eV bei London.
+::::
+
+⁠**Grenzfall:** Verdoppelt man $r$, sinkt die Energie auf $\frac14$, $\frac18$ oder $\frac1{64}$. London wirkt also kaum über die nächsten Nachbarn hinaus.
 
 **Bindungstypen in realen Materialien.** Die drei starken Typen sind Grenzfälle mit jedem Übergang dazwischen. Abb. [8](#abb-8) ordnet sie: Große Differenz der Elektronegativität führt zu ionischer Bindung, kleine Differenz bei niedrigem Mittel zu metallischer, bei hohem Mittel zu kovalenter Bindung. In vielen Werkstoffen wirken mehrere Typen:
 

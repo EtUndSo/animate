@@ -47,7 +47,11 @@ $$E_\mathrm{kin}(x)=E-V(x),\qquad k(x)=\frac{\sqrt{2m\bigl(E-V(x)\bigr)}}\hbar,\
 Energiediagramm zwischen zwei Platten. Blau: Scheitel $V(x)$. Grün: die an drei Orten gültige Parabel mit eigener $k$-Achse. Rot: Gesamtenergie $E$, sie bleibt fest. Das Elektron startet links mit $k=0$. Der rote Punkt liegt an jedem Ort dort auf der Parabel, wo sie $E$ erreicht, $k$ wächst nach rechts. Orange: kinetische Energie.
 :::
 
-**Beispiel.** Bei $U=1$ V und $d=100$ nm ist $|\mathcal E|=10^{7}$ V/m und $F=1{,}60\cdot10^{-12}$ N. Damit wächst $k$ je Sekunde um $F/\hbar=1{,}52\cdot10^{22}\,\mathrm{m^{-1}}$. Das Elektron braucht ohne Stöße $t=2d/v=3{,}4\cdot10^{-13}$ s und kommt als Probe-Elektron mit 1 eV und $v=5{,}93\cdot10^{5}$ m/s an. Über die letzte Wellenlänge von 1,23 nm ändert sich $V$ nur um 12 meV. **Grenzfall:** Bei $U=0$ ist $V$ konstant, $F=0$, und $k$ bleibt fest.
+::::beispiel
+Bei $U=1$ V und $d=100$ nm ist $|\mathcal E|=10^{7}$ V/m und $F=1{,}60\cdot10^{-12}$ N. Damit wächst $k$ je Sekunde um $F/\hbar=1{,}52\cdot10^{22}\,\mathrm{m^{-1}}$. Das Elektron braucht ohne Stöße $t=2d/v=3{,}4\cdot10^{-13}$ s und kommt als Probe-Elektron mit 1 eV und $v=5{,}93\cdot10^{5}$ m/s an. Über die letzte Wellenlänge von 1,23 nm ändert sich $V$ nur um 12 meV.
+::::
+
+⁠**Grenzfall:** Bei $U=0$ ist $V$ konstant, $F=0$, und $k$ bleibt fest.
 
 :::frage Die Masse des Elektrons steht doch in jeder Tabelle. Wozu dann [(7.1)](#gl-7-1)?
 Für das freie Elektron gibt die Formel nur $m_0$ zurück, das stimmt. Ihre Herleitung braucht aber nur $p=\hbar k$ und $F=\mathrm{d} p/\mathrm{d} t$, nicht die Parabel. Sie gilt für jede Kurve $E(k)$ und liefert die Masse, mit der das Teilchen auf eine Kraft reagiert, gleich woher die Kurve kommt.

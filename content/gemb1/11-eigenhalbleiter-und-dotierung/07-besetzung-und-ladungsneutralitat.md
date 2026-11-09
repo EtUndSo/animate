@@ -61,7 +61,11 @@ Sie lässt sich nur numerisch lösen, etwa mit dem Newton-Verfahren. Die Lösung
 Links: Zustandsdichte mit dem Donatorniveau, nicht maßstäblich. Der Pfeil steht für die Deltafunktion. Rechts: Silizium mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ bei 300 K. Aufgetragen sind $n$, $p$ und $N_\mathrm D^+$ als Funktion der gedachten Lage von $E_\mathrm F$, gestrichelt die Summe $p+N_\mathrm D^+$. Im Schnittpunkt mit $n$ ist die Ladung ausgeglichen, dort liegt $E_\mathrm F$.
 :::
 
-**Beispiel.** Die Probe aus dem Rechenmodell hat bei 300 K den Schnittpunkt bei $E_\mathrm C-E_\mathrm F=205$ meV. Dann ist $E_\mathrm D-E_\mathrm F=160$ meV $=6{,}2\,k_\mathrm BT$, und nach [(5.4)](#gl-5-4) sind $2\,\mathrm{e}^{-6{,}2}=0{,}40$ % neutral. Die Löcher mit $p=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$ sind zwölf Zehnerpotenzen seltener als die Elektronen. **Grenzfälle:** Für $E_\mathrm F\ll E_\mathrm D$ geht $N_\mathrm D^+$ gegen $N_\mathrm D$, für $E_\mathrm F\gg E_\mathrm D$ gegen null.
+::::beispiel
+Die Probe aus dem Rechenmodell hat bei 300 K den Schnittpunkt bei $E_\mathrm C-E_\mathrm F=205$ meV. Dann ist $E_\mathrm D-E_\mathrm F=160$ meV $=6{,}2\,k_\mathrm BT$, und nach [(5.4)](#gl-5-4) sind $2\,\mathrm{e}^{-6{,}2}=0{,}40$ % neutral. Die Löcher mit $p=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$ sind zwölf Zehnerpotenzen seltener als die Elektronen.
+::::
+
+⁠**Grenzfälle:** Für $E_\mathrm F\ll E_\mathrm D$ geht $N_\mathrm D^+$ gegen $N_\mathrm D$, für $E_\mathrm F\gg E_\mathrm D$ gegen null.
 
 :::frage Bei $E=E_\mathrm F$ ist $f=\frac12$. Warum ist der Donator bei $E_\mathrm F=E_\mathrm D$ zu zwei Dritteln besetzt?
 $f=\frac12$ gilt für einen Platz, der besetzt oder leer sein kann, mit je einer Möglichkeit. Der Donator hat zwei Möglichkeiten für besetzt und eine für leer. Bei gleichem Gewicht jeder Möglichkeit sind es $\frac23$ zu $\frac13$.

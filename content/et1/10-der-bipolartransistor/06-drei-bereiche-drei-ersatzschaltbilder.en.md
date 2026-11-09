@@ -32,7 +32,11 @@ $$\begin{aligned} \text{Cut-off region:}\quad & U_\mathrm{BE}<U_\mathrm{BE,on}\;
 The three equivalent circuits of the npn transistor. Left, open in the cut-off region; center, with a controlled current source in the active region; right, with two voltage sources in saturation. At the node above E, $I_\mathrm{B}$ and $I_\mathrm{C}$ unite.
 :::
 
-**Example.** For T ($B=200$): $I_\mathrm{B}=10$ µ A with $U_\mathrm{CE}=6$ V is active, so $I_\mathrm{C}=2$ mA. $I_\mathrm{B}=30$ µ A with $I_\mathrm{C}=3.9$ mA is saturation, because $B\,I_\mathrm{B}=6$ mA is larger than the current the circuit allows. $U_\mathrm{BE}=0.3$ V is the cut-off region. **Limiting case:** for $B\,I_\mathrm{B}=I_\mathrm{C}$ and $U_\mathrm{CE}=U_\mathrm{CE,sat}$, the transistor lies exactly on the boundary between active and saturation. Both equivalent circuits give the same result there.
+::::beispiel
+For T ($B=200$): $I_\mathrm{B}=10$ µ A with $U_\mathrm{CE}=6$ V is active, so $I_\mathrm{C}=2$ mA. $I_\mathrm{B}=30$ µ A with $I_\mathrm{C}=3.9$ mA is saturation, because $B\,I_\mathrm{B}=6$ mA is larger than the current the circuit allows. $U_\mathrm{BE}=0.3$ V is the cut-off region.
+::::
+
+⁠**Limiting case:** for $B\,I_\mathrm{B}=I_\mathrm{C}$ and $U_\mathrm{CE}=U_\mathrm{CE,sat}$, the transistor lies exactly on the boundary between active and saturation. Both equivalent circuits give the same result there.
 
 :::frage Why is it called saturation when the current just stops following?
 What is saturated is not the current but the base: it is overfilled with electrons. That is why, for the bipolar transistor, the word means the steep part at the left of the output characteristic. For the MOSFET, the flat part is called saturation. The two words mean different things.

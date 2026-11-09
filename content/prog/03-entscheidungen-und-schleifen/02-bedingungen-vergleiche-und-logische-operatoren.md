@@ -54,7 +54,8 @@ Ein USB-Anschluss soll 5 V liefern, erlaubt sind 4,75 V bis 5,25 V. Ob eine g
 Stehen mehrere Vergleichsoperatoren hintereinander, etwa `a < b <= c`, so heißt der Ausdruck ein __verketteter Vergleich__. Er ergibt `True` genau dann, wenn jeder der einzelnen Vergleiche `a < b` und `b <= c` `True` ergibt. Den mittleren Ausdruck `b` wertet Python dabei nur einmal aus, und ergibt schon ein früherer Vergleich `False`, wertet es die weiteren nicht mehr aus.
 :::
 
-**Beispiel.** Eine Spannung im Bereich und eine darüber:
+::::beispiel
+Eine Spannung im Bereich und eine darüber:
 
 ```console
 >>> u = 5.1
@@ -68,6 +69,7 @@ True
 ```
 
 Die letzte Zeile ist erlaubt, denn `1 < 3` und `3 > 2` stimmen beide. Sie liest sich aber schlecht, weil sie keinen Bereich beschreibt. Verkettete Vergleiche benutzt man am besten nur in der Form `untere <= wert <= obere`.
+::::
 
 ⁠**Kurz gesagt:** `a <= x <= b` prüft wie in der Mathematik, ob `x` zwischen `a` und `b` liegt.
 
@@ -91,7 +93,8 @@ Zwei Zeichenketten sind gleich (`==`), wenn sie aus denselben Zeichen in derselb
 
 Die Nummer eines Zeichens ist die weltweit festgelegte Nummer aus [Programmieren, Python 1, Abschnitt 6.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-1), zum Beispiel U+201E für das untere Anführungszeichen. Für die Reihenfolge reicht es, drei Bereiche zu kennen: Die Ziffern `0` bis `9` haben die Nummern U+0030 bis U+0039, die Großbuchstaben `A` bis `Z` U+0041 bis U+005A und die Kleinbuchstaben `a` bis `z` U+0061 bis U+007A. Ziffern kommen also vor Großbuchstaben, Großbuchstaben vor Kleinbuchstaben.
 
-**Beispiel.** Fünf Vergleiche von Zeichenketten:
+::::beispiel
+Fünf Vergleiche von Zeichenketten:
 
 ```console
 >>> "Ohm" == "ohm"
@@ -124,6 +127,7 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 ```
 
 Gleichheit zwischen Text und Zahl ist einfach falsch, denn ein Text ist nie gleich einer Zahl. Einen Größenvergleich zwischen beiden lehnt Python dagegen ab, weil es keine sinnvolle Antwort gibt.
+::::
 
 ⁠**Kurz gesagt:** Zeichenketten vergleicht Python Zeichen für Zeichen nach ihren Nummern; `"10" < "9"` ist wahr, deshalb Eingaben erst umwandeln, dann vergleichen.
 
@@ -148,7 +152,8 @@ Manchmal ist die Gegenfrage die interessante: nicht „liegt die Spannung im Ber
 
 `not` hat einen niedrigeren Rang als die Vergleiche: `not u > 5.25` heißt `not (u > 5.25)`.
 
-**Beispiel.** Eine Spannung von 5,4 V liegt nicht im Bereich:
+::::beispiel
+Eine Spannung von 5,4 V liegt nicht im Bereich:
 
 ```console
 >>> u = 5.4
@@ -157,6 +162,7 @@ True
 >>> not True
 False
 ```
+::::
 
 ⁠**Kurz gesagt:** `not` kehrt einen Wahrheitswert um.
 
@@ -183,7 +189,8 @@ Ein Netzteil arbeitet nur dann richtig, wenn zwei Dinge gleichzeitig stimmen: Di
 
 Ein verketteter Vergleich ist eine Kurzschreibweise für `and`: `a < b < c` hat denselben Wert wie `a < b and b < c`, nur dass `b` einmal ausgewertet wird (Unterabschnitt [1.2](#stufe-1-2)).
 
-**Beispiel.** Die Spannung stimmt, der Strom ist mit 0,62 A aber höher als die erlaubten 0,5 A:
+::::beispiel
+Die Spannung stimmt, der Strom ist mit 0,62 A aber höher als die erlaubten 0,5 A:
 
 ```console
 >>> u = 5.1
@@ -191,6 +198,7 @@ Ein verketteter Vergleich ist eine Kurzschreibweise für `and`: `a < b < c` hat 
 >>> 4.75 <= u <= 5.25 and i <= 0.5
 False
 ```
+::::
 
 ⁠**Kurz gesagt:** `a and b` ist nur wahr, wenn beide wahr sind.
 
@@ -215,7 +223,8 @@ Ein Alarm soll anspringen, wenn die Spannung zu niedrig ist oder wenn sie zu hoc
 | `True` | `False` | `True` |
 | `True` | `True` | `True` |
 
-**Beispiel.** Der Alarm aus der Einleitung, einmal mit `or` und einmal als Umkehrung des Bereichs:
+::::beispiel
+Der Alarm aus der Einleitung, einmal mit `or` und einmal als Umkehrung des Bereichs:
 
 ```console
 >>> u = 5.4
@@ -226,6 +235,7 @@ True
 ```
 
 Beide Zeilen fragen dasselbe: Eine Spannung liegt genau dann außerhalb des Bereichs, wenn sie unter der unteren oder über der oberen Grenze liegt.
+::::
 
 ⁠**Kurz gesagt:** `a or b` ist wahr, sobald einer der beiden wahr ist.
 
@@ -241,7 +251,8 @@ Was bedeutet `a or b and c`: `(a or b) and c` oder `a or (b and c)`? Wie bei Pun
 Von fester zu loser bindend: Rechenoperatoren, dann Vergleiche, dann `not`, dann `and`, zuletzt `or`. `and` bindet also stärker als `or`, so wie Mal stärker bindet als Plus.
 :::
 
-**Beispiel.** Ohne Klammern rechnet Python zuerst `False and False`:
+::::beispiel
+Ohne Klammern rechnet Python zuerst `False and False`:
 
 ```console
 >>> True or False and False
@@ -251,6 +262,7 @@ False
 ```
 
 Wer eine Bedingung aus `and` und `or` zusammensetzt, setzt am besten Klammern, auch wo sie nicht nötig sind. Sie kosten nichts und ersparen dem Leser das Nachschlagen.
+::::
 
 ⁠**Kurz gesagt:** `not` vor `and` vor `or`, alle nach den Vergleichen; im Zweifel Klammern.
 
@@ -268,7 +280,8 @@ Manche Bedingung hat eine zweite Hälfte, die nur dann sinnvoll ist, wenn die er
 Python wertet `a and b` und `a or b` von links aus und hört auf, sobald das Ergebnis feststeht. Bei `a and b` wird `b` nur ausgewertet, wenn `a` wahr ist; bei `a or b` nur, wenn `a` falsch ist. Diese Regel heißt __Kurzschlussauswertung__.
 :::
 
-**Beispiel.** Der Ausdruck `1 / 0` löst eine Ausnahme aus, sobald Python ihn auswertet. Mit ihm sieht man, ob die rechte Seite ausgewertet wird:
+::::beispiel
+Der Ausdruck `1 / 0` löst eine Ausnahme aus, sobald Python ihn auswertet. Mit ihm sieht man, ob die rechte Seite ausgewertet wird:
 
 ```console
 >>> False and 1 / 0
@@ -298,6 +311,7 @@ ZeroDivisionError: division by zero
 ```
 
 Die Prüfung, die eine Rechnung erst erlaubt, muss links stehen.
+::::
 
 ⁠**Kurz gesagt:** `and` und `or` werten den rechten Operanden nur aus, wenn er das Ergebnis noch ändern kann; die schützende Bedingung gehört deshalb nach links.
 
@@ -319,7 +333,8 @@ Die Operatoren `not`, `and` und `or` nehmen nicht nur `True` und `False` an, son
 Jedes Objekt hat einen __Wahrheitswert__, `True` oder `False`; die Typumwandlung `bool(x)` zeigt ihn an. Von den bisher bekannten Werten haben genau diese den Wahrheitswert `False`: `False`, `None`, die Null jedes Zahlentyps (`0`, `0.0`, `-0.0`, `0j`) und die leere Zeichenkette `""`. Alle anderen haben den Wahrheitswert `True`. Wo Python eine Bedingung erwartet, etwa bei `not`, benutzt es den Wahrheitswert des Objekts.
 :::
 
-**Beispiel.** `bool` zeigt den Wahrheitswert verschiedener Werte:
+::::beispiel
+`bool` zeigt den Wahrheitswert verschiedener Werte:
 
 ```console
 >>> bool(0)
@@ -347,6 +362,7 @@ True
 ```
 
 `"0"`, `" "` und `"False"` sind Zeichenketten mit mindestens einem Zeichen, also wahr; was die Zeichen bedeuten, spielt keine Rolle. `0.1 + 0.2 - 0.3` ist nicht null, sondern etwa $5{,}55\cdot10^{-17}$, weil jede Rechnung gerundet wird ([Programmieren, Python 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1)), und gilt deshalb als wahr.
+::::
 
 ⁠**Kurz gesagt:** Von den bisher bekannten Werten gelten Null, `None`, `False` und die leere Zeichenkette als falsch, alle anderen als wahr.
 
@@ -368,7 +384,8 @@ Ein Programm fragt nach dem Namen eines Messplatzes. Bleibt die Eingabe leer, so
 
 Sind beide Operanden vom Typ `bool`, kommen genau die Tafeln aus den Unterabschnitten [1.5](#stufe-1-5) und [1.6](#stufe-1-6) heraus.
 
-**Beispiel.** Mit Zahlen und Zeichenketten als Operanden:
+::::beispiel
+Mit Zahlen und Zeichenketten als Operanden:
 
 ```console
 >>> 3 and 4
@@ -388,6 +405,7 @@ False
 ```
 
 Mit `name = eingabe or "Standard"` bekommt `name` den eingetippten Text, wenn er nicht leer ist, und sonst `"Standard"`.
+::::
 
 **Die Falle mit der Null.** Bei Zahlen ist dieselbe Schreibweise gefährlich. Die Zeile `strom = messwert or 0.02` soll einen fehlenden Messwert durch 20 mA ersetzen. Eine echte Messung von `0.0` hat aber ebenfalls den Wahrheitswert `False` und wird stillschweigend durch `0.02` ersetzt. Ob ein Wert fehlt, prüft man deshalb mit `messwert is None` und nicht über seinen Wahrheitswert.
 

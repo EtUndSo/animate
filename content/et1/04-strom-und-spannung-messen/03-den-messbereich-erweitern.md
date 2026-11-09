@@ -42,7 +42,9 @@ Auflösen nach $R_\mathrm{Shunt}$ ergibt [(2.1)](#gl-2-1). Vorwiderstand und Ins
 $$U_\mathrm{alt}=U_\mathrm{neu}\,\frac{R_\mathrm{alt}}{R_\mathrm{alt}+R_\mathrm V} \quad\Rightarrow\quad \alpha=\frac{R_\mathrm{alt}+R_\mathrm V}{R_\mathrm{alt}}\quad\Rightarrow\quad R_\mathrm V=R_\mathrm{alt}\,(\alpha-1).$$
 :::
 
-**Beispiel.** Für 10 mA: $R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9{,}95\,\mathrm{mA}}=10{,}05\,\Omega$, parallel zu 2 k$\Omega$ also $R_\mathrm{iA}=10\,\Omega$. Für 10 V: $\alpha=100$, $R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$, also $R_\mathrm{iV}=200$ k$\Omega$.
+::::beispiel
+Für 10 mA: $R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9{,}95\,\mathrm{mA}}=10{,}05\,\Omega$, parallel zu 2 k$\Omega$ also $R_\mathrm{iA}=10\,\Omega$. Für 10 V: $\alpha=100$, $R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$, also $R_\mathrm{iV}=200$ k$\Omega$.
+::::
 
 ⁠**Kurz gesagt:** Am Amperemeter fallen bei Vollausschlag in jedem Bereich 100 mV ab, durch das Voltmeter fließen bei Vollausschlag in jedem Bereich 50 µ A. Daraus folgen die Innenwiderstände direkt: $R_\mathrm{iA}=100\,\mathrm{mV}/10\,\mathrm{mA}=10\,\Omega$ und $R_\mathrm{iV}=10\,\mathrm{V}/50\,\mu\text{A}=200$ k$\Omega$. Ein empfindlicher Strombereich hat also einen großen Innenwiderstand, ein hoher Spannungsbereich ebenfalls. Der Kehrwert von 50 µ A, 20 k$\Omega$/V, steht als Kennwert auf Zeigerinstrumenten.
 

@@ -83,7 +83,11 @@ Modelo de referencia $x=-3<y=2$. Por 2 estira la recta alejándola del cero; el 
 (e) «$\Leftarrow$»: Para $x=y$ no hay nada que demostrar. De $x>y\ge0$ se sigue $x\cdot x>y\cdot x\ge y\cdot y$ por (O4) con $z=x$ y $z=y$. «$\Rightarrow$» por contraposición: de $0\le x<y$ se sigue igualmente $x\cdot x\le x\cdot y<y\cdot y$.
 :::
 
-**Ejemplo.** Para $x\ne0$, $x$ es positivo si y solo si $x^{-1}$ es positivo, pues $x\cdot x^{-1}=1>0$ y (c). Por tanto: resuelve $\frac1x>2$. Para $x>0$ se puede multiplicar por $x$: $1>2x$, luego $0<x<\frac12$. Para $x<0$ el lado izquierdo es negativo y no hay solución. **Caso límite:** Con $x=\frac12$ queda $2>2$, falso; el extremo no pertenece a la solución.
+::::beispiel
+Para $x\ne0$, $x$ es positivo si y solo si $x^{-1}$ es positivo, pues $x\cdot x^{-1}=1>0$ y (c). Por tanto: resuelve $\frac1x>2$. Para $x>0$ se puede multiplicar por $x$: $1>2x$, luego $0<x<\frac12$. Para $x<0$ el lado izquierdo es negativo y no hay solución.
+::::
+
+⁠**Caso límite:** Con $x=\frac12$ queda $2>2$, falso; el extremo no pertenece a la solución.
 
 :::aufgabe Ejercicio 5 ★★ Desigualdades
 <span class="anker" id="aufg-5"></span>

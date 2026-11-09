@@ -45,7 +45,11 @@ Cada punto es una red. Por debajo de $z=k-1$ no sería conexa. Por encima de la 
 
 La tabla muestra una __dualidad__, una simetría especular: si se intercambian malla y nudo, corriente y tensión, serie y paralelo, resistencia y conductancia, un método se convierte en el otro. La razón está en Kirchhoff: ambas leyes dicen «la suma es cero», solo que sobre conjuntos distintos.
 
-**Ejemplo.** Tras la conversión de la derecha, la red modelo tiene $k=3$ y $z=5$. Con $5>4$ queda por encima de la recta, y en efecto eran tres mallas frente a dos nudos. **Caso límite:** El puente de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), con $k=4$ y $z=6$, queda justo sobre la recta. Entonces deciden las fuentes: una fuente de tensión ideal habla a favor de las mallas, porque allí va en el lado derecho.
+::::beispiel
+Tras la conversión de la derecha, la red modelo tiene $k=3$ y $z=5$. Con $5>4$ queda por encima de la recta, y en efecto eran tres mallas frente a dos nudos.
+::::
+
+⁠**Caso límite:** El puente de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), con $k=4$ y $z=6$, queda justo sobre la recta. Entonces deciden las fuentes: una fuente de tensión ideal habla a favor de las mallas, porque allí va en el lado derecho.
 
 Los simuladores solo usan potenciales de nudo. Las mallas de una red, un programa tiene que buscarlas primero, y solo hay ventanas si la red se puede dibujar sin cruces. Los nudos, en cambio, ya están en la descripción del circuito (etapa [7](stempel-und-netzliste.html#stufe-7)).
 

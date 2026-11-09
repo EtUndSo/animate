@@ -38,11 +38,13 @@ For the charge $Q_\mathrm K$ on the node, $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\
 
 **Why one equation is superfluous.** Each branch connects two nodes. Its current therefore appears in exactly two node equations, once with $+$ (incoming) and once with $-$ (outgoing). If all $k$ equations are added, all the currents cancel. So one equation follows from the others, and any selection of $k-1$ equations is independent.
 
-**Example.** All the current arrows in the network point in the direction of the actual current: from $K_1$ down through the resistors, $I_\mathrm e$ from $K_2$ to $K_3$, $I_0$ through the source from $K_4$ to $K_1$. The node equations are
+::::beispiel
+All the current arrows in the network point in the direction of the actual current: from $K_1$ down through the resistors, $I_\mathrm e$ from $K_2$ to $K_3$, $I_0$ through the source from $K_4$ to $K_1$. The node equations are
 
 $$\begin{aligned} K_1:&\quad +I_0-I_\mathrm a-I_\mathrm c=0, & K_2:&\quad +I_\mathrm a-I_\mathrm b-I_\mathrm e=0,\\ K_3:&\quad +I_\mathrm c-I_\mathrm d+I_\mathrm e=0, & K_4:&\quad -I_0+I_\mathrm b+I_\mathrm d=0. \end{aligned}$$
 
 The sum of the first three is $I_0-I_\mathrm b-I_\mathrm d=0$, the fourth equation with the opposite sign. If only $K_2$ and $K_3$ are added, $I_\mathrm e$ drops out, and the closed surface from Fig. [8](#abb-8) remains: $I_\mathrm a+I_\mathrm c=I_\mathrm b+I_\mathrm d$. **Check:** At a point with only two branches, $I_1=I_2$ follows. The same current flows through components in series.
+::::
 
 :::frage Does the rule also hold if a capacitor is connected to a node?
 Yes. The current to the plate is a branch current like any other; the charge collects not on the node, but on the plate. [Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) deals with this.

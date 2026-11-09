@@ -43,7 +43,9 @@ Un voltímetro se conecta en paralelo. Lo ideal es $R_\mathrm i\to\infty$; en la
 
 ⁠**Cómo leerlo:** La corriente es carga que atraviesa una sección. Por eso se abre el circuito y se hace pasar toda la corriente por el amperímetro. En él no debe caer tensión, así que $R_\mathrm i$ debe ser pequeña. La tensión es la diferencia entre dos puntos. Por eso se conecta el voltímetro a ambos puntos sin abrir el circuito. Por él no debe circular corriente, así que $R_\mathrm i$ debe ser grande. Los valores numéricos son típicos de los multímetros digitales. **Validez:** $R_\mathrm i$ vale para un rango de medida y cambia al conmutarlo (etapa [2](den-messbereich-erweitern.html#stufe-2)).
 
-**Ejemplo.** El mecanismo de medida del modelo de referencia ya es ambas cosas. A fondo de escala circulan 50 µ A por 2 k$\Omega$, así que hay $U_\mathrm M=R_\mathrm MI_\mathrm M=100$ mV. La escala podría rotularse con 50 µ A o con 100 mV: dos nombres para la misma desviación.
+::::beispiel
+El mecanismo de medida del modelo de referencia ya es ambas cosas. A fondo de escala circulan 50 µ A por 2 k$\Omega$, así que hay $U_\mathrm M=R_\mathrm MI_\mathrm M=100$ mV. La escala podría rotularse con 50 µ A o con 100 mV: dos nombres para la misma desviación.
+::::
 
 ⁠**Caso límite:** Para $R_\mathrm i=0$, el amperímetro actúa como un trozo de cable; para $R_\mathrm i\to\infty$, el voltímetro actúa como un punto abierto. Para el circuito, los instrumentos ideales no existen.
 

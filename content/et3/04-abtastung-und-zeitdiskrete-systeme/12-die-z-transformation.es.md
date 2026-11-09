@@ -50,7 +50,8 @@ Un sistema LSI causal es estable si y solo si todos los polos de $H(z)$ están e
 
 ⁠**Por qué:** causal significa región de convergencia fuera del polo más exterior. Estable significa $\sum|h(n)|<\infty$; entonces $H(z)$ converge sobre la circunferencia unidad, que pertenece, por tanto, a la región de convergencia. Ambas cosas a la vez solo son posibles si el polo más exterior está dentro de la circunferencia unidad. Para el sistema recursivo con $H(z)=\frac{1}{1-bz^{-1}}$, esto vuelve a significar $|b|<1$.
 
-**Ejemplo.** $s(n)=0{,}5^n\cos(\pi n/3)\,\varepsilon(n)$. Con $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$ y [(11.2)](#gl-11-2) para $b=0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}$:
+::::beispiel
+$s(n)=0{,}5^n\cos(\pi n/3)\,\varepsilon(n)$. Con $\cos=\frac12(\mathrm{e}^{\mathrm{j}\pi n/3}+\mathrm{e}^{-\mathrm{j}\pi n/3})$ y [(11.2)](#gl-11-2) para $b=0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}$:
 
 $$S(z)=\frac12\Bigl[\frac{1}{1-0{,}5\mathrm{e}^{\mathrm{j}\pi/3}z^{-1}}+\frac{1}{1-0{,}5\mathrm{e}^{-\mathrm{j}\pi/3}z^{-1}}\Bigr]=\frac{1-0{,}25z^{-1}}{1-0{,}5z^{-1}+0{,}25z^{-2}},\qquad|z|>0{,}5.$$
 
@@ -59,6 +60,7 @@ Polos en $0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}=0{,}25\pm0{,}433\mathrm{j}$, cero
 :::abbildung et3/k4zebene 8
 Plano $z$ del ejemplo: polos (cruces) en $0{,}5\mathrm{e}^{\pm\mathrm{j}\pi/3}$, ceros (círculos) en 0 y 0,25. La región de convergencia (azul) está fuera de la circunferencia que pasa por los polos y contiene la circunferencia unidad. Leída como respuesta al impulso, la secuencia describe un sistema causal y estable.
 :::
+::::
 
 :::aufgabe Ejercicio 11 ★★ Aplicar la transformada z
 <span class="anker" id="aufg-11"></span>

@@ -64,7 +64,11 @@ $$U_\mathrm{D0}=U_T\ln\frac{N_\mathrm AN_\mathrm D}{n_\mathrm i^2},\qquad w=\sqr
 ⁠**Width.** Both sides carry the same amount of charge, so $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$. The field grows linearly from the edges to the boundary and reaches there the value of a surface charge ([Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), $E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$. The voltage is the area under the field curve, a triangle: $U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$. With $w=w_\mathrm n+w_\mathrm p$ this gives [(3.1)](#gl-3-1).
 :::
 
-**Example.** $U_\mathrm{D0}=25.85\,\mathrm{mV}\cdot\ln10^{12}=0.714$ V, which is $27.6\,U_T$. So the barrier lets the fraction $\mathrm{e}^{-27.6}=10^{-12}$ pass, exactly the ratio $10^{4}/10^{16}$ of the densities. Further, $w=0.43$ µ m, half of it in each region, and $E_\mathrm{max}=3.3$ MV/m, as much as the breakdown field strength of air ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). **Limiting cases:** If one side is much more heavily doped, the region lies almost entirely in the other. Ten times more doping on one side raises $U_\mathrm{D0}$ by only 60 mV.
+::::beispiel
+$U_\mathrm{D0}=25.85\,\mathrm{mV}\cdot\ln10^{12}=0.714$ V, which is $27.6\,U_T$. So the barrier lets the fraction $\mathrm{e}^{-27.6}=10^{-12}$ pass, exactly the ratio $10^{4}/10^{16}$ of the densities. Further, $w=0.43$ µ m, half of it in each region, and $E_\mathrm{max}=3.3$ MV/m, as much as the breakdown field strength of air ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
+::::
+
+⁠**Limiting cases:** If one side is much more heavily doped, the region lies almost entirely in the other. Ten times more doping on one side raises $U_\mathrm{D0}$ by only 60 mV.
 
 :::frage There are 0.71 V inside the diode. Why do you measure 0 V across it, and why does it not drive a current?
 The potential step is real, but it is not the only one in the circuit. Where metal contacts meet the semiconductor, further contact voltages arise. Around any closed circuit their sum is zero, because in equilibrium there is no energy source. The step only establishes the equilibrium between diffusion and drift.

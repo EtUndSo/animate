@@ -52,12 +52,16 @@ $$D(E)=\frac1{\pi\hbar}\sqrt{\frac{2m^*}{E-V_0}}=\frac2h\sqrt{\frac{2m^*}{E-V_0}
 Links das Kosinus-Band des Rechenmodells, Punkte auf der $k$-Achse: erlaubte Werte, schematisch weit auseinander. Zwei gleich breite Energiefenster schneiden unten ein langes, in der Mitte ein kurzes $k$-Stück aus. Rechts die Zustandsdichte: blau das Kosinus-Band, rot gestrichelt die Parabel. Beide Bandränder sind flach, also ist $D$ dort groß.
 :::
 
-**Beispiel.** Für die Kette des Rechenmodells ist $E(k)=2t_0(1-\cos(ka))$ ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)), und aus [(1.2)](#gl-1-2) folgt
+::::beispiel
+Für die Kette des Rechenmodells ist $E(k)=2t_0(1-\cos(ka))$ ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)), und aus [(1.2)](#gl-1-2) folgt
 
 <span class="anker" id="gl-1-4"></span>
 $$D(E)=\frac{2}{\pi a\sqrt{E\,(4t_0-E)}},\qquad0<E<4t_0. \tag{1.4}$$
 
-Bei $E=0{,}2$ eV sind das 4,24 Plätze je eV und nm, die Parabel [(1.3)](#gl-1-3) gibt 4,03. Eine Kette mit $10^4$ Atomen ist $L=2{,}5$ µ m lang. Zählt man die $k$-Werte von Hand, liegen im Fenster von 0,19 bis 0,21 eV genau 106, also 212 Plätze, und $L\,D\,\Delta E=212{,}2$. In der Bandmitte $E=1$ eV ist $D=2{,}55$ je eV und nm, die Parabel taugt dort nicht mehr. **Grenzfall:** Ist jeder Platz besetzt, also $f=1$, ergibt [(1.4)](#gl-1-4) $n=\int_0^{4t_0}D\,\mathrm{d} E=2/a$. Das sind die zwei Plätze je Atom aus [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html).
+Bei $E=0{,}2$ eV sind das 4,24 Plätze je eV und nm, die Parabel [(1.3)](#gl-1-3) gibt 4,03. Eine Kette mit $10^4$ Atomen ist $L=2{,}5$ µ m lang. Zählt man die $k$-Werte von Hand, liegen im Fenster von 0,19 bis 0,21 eV genau 106, also 212 Plätze, und $L\,D\,\Delta E=212{,}2$. In der Bandmitte $E=1$ eV ist $D=2{,}55$ je eV und nm, die Parabel taugt dort nicht mehr.
+::::
+
+⁠**Grenzfall:** Ist jeder Platz besetzt, also $f=1$, ergibt [(1.4)](#gl-1-4) $n=\int_0^{4t_0}D\,\mathrm{d} E=2/a$. Das sind die zwei Plätze je Atom aus [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html).
 
 :::frage Warum liegen die Plätze auf der $k$-Achse gleichmäßig und auf der Energieachse nicht?
 Die Randbedingung legt $k$ fest: Eine ganze Zahl von Wellenlängen muss auf $L$ passen, und das ergibt gleiche Schritte $2\pi/L$. Die Energie ist eine gekrümmte Funktion von $k$. Gleiche Schritte auf der einen Achse werden deshalb ungleiche auf der anderen.

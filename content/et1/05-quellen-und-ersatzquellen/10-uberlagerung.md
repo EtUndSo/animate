@@ -57,7 +57,11 @@ Für jede Quelle wiederholen und alle Teilwirkungen vorzeichenrichtig addieren.
 Das Netzwerk N und seine beiden Teilbilder. Mitte: Die Stromquelle ist offen, es bleibt ein Spannungsteiler. Rechts: Die Spannungsquelle ist ein Draht, die Stromquelle speist $R_1$ und $R_2$ parallel. Die Klemmen A und B sind offen.
 :::
 
-**Beispiel.** Gesucht ist $U_\mathrm{AB}$ in N bei offenen Klemmen (Abb. [9](#abb-9)). Teilbild 1: Spannungsteiler, $U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V. Teilbild 2: $U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1{,}5\,\mathrm{A}=3$ V. Summe: $U_\mathrm{AB}=9$ V. Die Koeffizienten sind also $a=\frac13$ für $U_\mathrm{q1}$ und $Z=2\,\Omega$ für $I_\mathrm{q2}$. **Kontrolle** mit der Knotenregel an A: Durch $R_1$ kommen $(18-9)\,\mathrm{V}/6\,\Omega=1{,}5$ A, dazu 1,5 A aus der Stromquelle, und durch $R_2$ gehen $9\,\mathrm{V}/3\,\Omega=3$ A ab. Auch die Zweigströme überlagern sich: In $R_1$ fließen $2$ A aus Teilbild 1 und $-0{,}5$ A aus Teilbild 2. **Grenzfall:** Verdoppelt man beide Quellen, verdoppelt sich $U_\mathrm{AB}$ auf 18 V, denn die Koeffizienten bleiben.
+::::beispiel
+Gesucht ist $U_\mathrm{AB}$ in N bei offenen Klemmen (Abb. [9](#abb-9)). Teilbild 1: Spannungsteiler, $U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V. Teilbild 2: $U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1{,}5\,\mathrm{A}=3$ V. Summe: $U_\mathrm{AB}=9$ V. Die Koeffizienten sind also $a=\frac13$ für $U_\mathrm{q1}$ und $Z=2\,\Omega$ für $I_\mathrm{q2}$. **Kontrolle** mit der Knotenregel an A: Durch $R_1$ kommen $(18-9)\,\mathrm{V}/6\,\Omega=1{,}5$ A, dazu 1,5 A aus der Stromquelle, und durch $R_2$ gehen $9\,\mathrm{V}/3\,\Omega=3$ A ab. Auch die Zweigströme überlagern sich: In $R_1$ fließen $2$ A aus Teilbild 1 und $-0{,}5$ A aus Teilbild 2.
+::::
+
+⁠**Grenzfall:** Verdoppelt man beide Quellen, verdoppelt sich $U_\mathrm{AB}$ auf 18 V, denn die Koeffizienten bleiben.
 
 :::herleitung Die Koeffizienten von N
 Die Knotenregel an A lautet bei offenen Klemmen $(U_\mathrm{q1}-U_\mathrm{AB})/R_1+I_\mathrm{q2}=U_\mathrm{AB}/R_2$. Nach der gesuchten Spannung umgestellt:

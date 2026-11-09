@@ -34,11 +34,13 @@ $$\mathbf{A}\mathbf{x}=\mathbf{y} \tag{12.1}$$
 
 写开来，第 $i$ 行是方程 $a_{i1}x_1+\dots+a_{in}x_n=y_i$。
 
-⁠**算例：**方程组
+::::beispiel [算例]
+方程组
 
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}$$
 
 的解为 $\mathbf{x}=(2,\,1)^{\top}$：$2\cdot2+1=5$，$2+1=3$。这个系数矩阵在第 [11.2](einheitsmatrix-und-inverse.html#stufe-11-2) 小节中已经出现过，其逆矩阵为 $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$。把方程组从左边乘以这个逆矩阵，解立刻就出来了：$\mathbf{x}=\mathbf{A}^{-1}\mathbf{y}=(5-3,\ -5+6)^{\top}=(2,\,1)^{\top}$。
+::::
 
 ⁠**简而言之：**线性方程组 $\mathbf{A}\mathbf{x}=\mathbf{y}$ 问的是：哪个输入 $\mathbf{x}$ 产生输出 $\mathbf{y}$。
 
@@ -64,7 +66,9 @@ $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begi
 方程组 $\mathbf{A}\mathbf{x}=\mathbf{y}$ 有解，当且仅当 $\mathbf{y}$ 位于 $\mathbf{A}$ 的列空间中。
 :::
 
-⁠**算例：**方程组 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ 对 $\mathbf{y}=(3,\,6)^{\top}$ 可解，例如 $\mathbf{x}=(1,\,1)^{\top}$，但对 $\mathbf{y}=(1,\,1)^{\top}$ 不可解：由第 [7.4](das-matrix-vektor-produkt.html#stufe-7-4) 小节，列空间只是沿 $(1,\,2)^{\top}$ 方向的直线。
+::::beispiel [算例]
+方程组 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ 对 $\mathbf{y}=(3,\,6)^{\top}$ 可解，例如 $\mathbf{x}=(1,\,1)^{\top}$，但对 $\mathbf{y}=(1,\,1)^{\top}$ 不可解：由第 [7.4](das-matrix-vektor-produkt.html#stufe-7-4) 小节，列空间只是沿 $(1,\,2)^{\top}$ 方向的直线。
+::::
 
 ⁠**简而言之：**在行图中，解是所有方程的公共点；在列图中，解是使各列组合成右端项的那组系数。
 
@@ -116,7 +120,8 @@ __高斯消元法__用三种初等行变换对增广矩阵进行变换：
 旧方程组的每个解也满足新方程，因为新方程是旧方程的和与倍数。而三种变换中的每一种都可以撤销：再减去那个倍数，把两行换回来，除以那个数。所以反过来，新方程组的每个解也满足旧方程组。
 :::
 
-⁠**算例：**方程组
+::::beispiel [算例]
+方程组
 
 $$\begin{aligned} x_1+2x_2+x_3&=8\\ 2x_1+x_2+x_3&=7\\ x_1+x_2+2x_3&=9 \end{aligned} \qquad\text{的增广矩阵为}\qquad \left(\begin{array}{ccc|c}1&2&1&8\\2&1&1&7\\1&1&2&9\end{array}\right).$$
 
@@ -125,6 +130,7 @@ $$\begin{aligned} x_1+2x_2+x_3&=8\\ 2x_1+x_2+x_3&=7\\ x_1+x_2+2x_3&=9 \end{align
 $$\left(\begin{array}{ccc|c}1&2&1&8\\0&-3&-1&-9\\0&-1&1&1\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&-3&-1&-9\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&0&-4&-12\end{array}\right).$$
 
 自下而上：$-4x_3=-12$，所以 $x_3=3$；然后 $-x_2+3=1$，所以 $x_2=2$；然后 $x_1+4+3=8$，所以 $x_1=1$。解为 $\mathbf{x}=(1,\,2,\,3)^{\top}$，把它代入全部三个方程即可验证。
+::::
 
 ⁠**简而言之：**高斯消元法用不改变解的初等行变换逐步消去未知数，然后自下而上回代。
 
@@ -154,7 +160,8 @@ $$\mathbf{A}\bigl(\mathbf{x}+t\,(\mathbf{x}'-\mathbf{x})\bigr)=\mathbf{A}\mathbf
 
 右端项为零的方程组 $\mathbf{A}\mathbf{x}=\mathbf{0}$ 称为__齐次__方程组。它总有解 $\mathbf{x}=\mathbf{0}$。如果知道方程组 $\mathbf{A}\mathbf{x}=\mathbf{y}$ 的一个解 $\mathbf{x}_{\mathrm s}$，把齐次方程组的解加上去，就得到所有其他解：$\mathbf{A}\mathbf{x}=\mathbf{y}$ 成立，当且仅当 $\mathbf{A}(\mathbf{x}-\mathbf{x}_{\mathrm s})=\mathbf{y}-\mathbf{y}=\mathbf{0}$。
 
-⁠**算例：**图 [38](#abb-38) 中的三个方程组：
+::::beispiel [算例]
+图 [38](#abb-38) 中的三个方程组：
 
 <ol class="al">
 
@@ -177,6 +184,7 @@ $x_1+x_2=3$，$2x_1+2x_2=6$：第二个方程是第一个的两倍。一个解�
 </li>
 
 </ol>
+::::
 
 ⁠**简而言之：**线性方程组无解、恰有一个解或有无穷多解；全部解等于一个解加上齐次方程组的解。
 
@@ -194,11 +202,13 @@ $x_1+x_2=3$，$2x_1+2x_2=6$：第二个方程是第一个的两倍。一个解�
 
 超定方程组通常无解：两个方程已经确定了两个未知数，第三个方程必须碰巧也成立。用列图来说：当 $n<m$ 时，$\mathbb{R}^m$ 中 $n$ 个列的列空间只是 $\mathbb{R}^m$ 的一小部分，右端项几乎从不落在其中。与此相反，欠定方程组只要有解，就有无穷多解：在行阶梯形中，至少有一个未知数没有自己的主元，它可以自由选取。
 
-⁠**算例：**对价格为 $200$、$130$ 和 $290$ 千欧元的公寓 1 至 3，方程组为
+::::beispiel [算例]
+对价格为 $200$、$130$ 和 $290$ 千欧元的公寓 1 至 3，方程组为
 
 $$60\,w_1+2\,w_2=200,\qquad 40\,w_1+w_2=130,\qquad 90\,w_1+4\,w_2=290 .$$
 
 由前两个方程得 $w_1=3$ 和 $w_2=10$：从第一个方程减去第二个方程的两倍，剩下 $-20\,w_1=-60$。然而代入第三个方程，得到 $270+40=310\ne290$。方程组无解。没有哪一对权重能恰好命中全部三个价格。在这种情况下应当改为寻找什么，是另一个问题。
+::::
 
 ⁠**简而言之：**超定方程组的方程多于未知数，通常无解；欠定方程组的方程少于未知数，只要有解，就有无穷多解。
 

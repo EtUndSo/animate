@@ -79,7 +79,11 @@ Die Koeffizienten bilden die stehende Welle einer Box der Länge $L=(N+1)a$ mit 
 Vier Atome mit $E_\mathrm s=-5$ eV und $V_\mathrm{ss}=0{,}5$ eV. Links: Koeffizienten $c_\ell^{(n)}$ der vier Zustände, orange die Einhüllende $\sin(n\pi\ell/5)$. Rechts: Die vier Energien liegen auf einem Kosinus bei $k=n\pi/(5a)$.
 :::
 
-**Beispiel.** Mit $E_\mathrm s=-5$ eV und $V_\mathrm{ss}=0{,}5$ eV sind die Energien $-5{,}809$, $-5{,}309$, $-4{,}691$ und $-4{,}191$ eV. Ihre Summe ist $4E_\mathrm s$, die Niveaus spalten um die Mitte auf. Gleiches Vorzeichen bei Nachbarn senkt die Energie, jeder Vorzeichenwechsel hebt sie: $n=1$ hat keinen Wechsel, $n=4$ an jedem Paar. **Kontrolle:** Vier Töpfe mit $b=0{,}4$ nm ergeben ohne Näherung 166,9, 180,2, 198,3 und 214,6 meV, [(4.4)](#gl-4-4) mit den Werten aus Stufe [3](zwei-atome.html#stufe-3) ergibt 166,4, 181,1, 199,4 und 214,2 meV. **Grenzfall:** $N=2$ ergibt mit $\cos(\pi/3)=\frac12$ wieder [(3.2)](zwei-atome.html#gl-3-2).
+::::beispiel
+Mit $E_\mathrm s=-5$ eV und $V_\mathrm{ss}=0{,}5$ eV sind die Energien $-5{,}809$, $-5{,}309$, $-4{,}691$ und $-4{,}191$ eV. Ihre Summe ist $4E_\mathrm s$, die Niveaus spalten um die Mitte auf. Gleiches Vorzeichen bei Nachbarn senkt die Energie, jeder Vorzeichenwechsel hebt sie: $n=1$ hat keinen Wechsel, $n=4$ an jedem Paar. **Kontrolle:** Vier Töpfe mit $b=0{,}4$ nm ergeben ohne Näherung 166,9, 180,2, 198,3 und 214,6 meV, [(4.4)](#gl-4-4) mit den Werten aus Stufe [3](zwei-atome.html#stufe-3) ergibt 166,4, 181,1, 199,4 und 214,2 meV.
+::::
+
+⁠**Grenzfall:** $N=2$ ergibt mit $\cos(\pi/3)=\frac12$ wieder [(3.2)](zwei-atome.html#gl-3-2).
 
 :::aufgabe Aufgabe 4 ★★ Drei Atome
 <span class="anker" id="aufg-4"></span>

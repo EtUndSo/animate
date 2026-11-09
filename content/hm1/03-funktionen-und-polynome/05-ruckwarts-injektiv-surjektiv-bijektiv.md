@@ -68,7 +68,11 @@ Surjektiv ist $f$ nach Definition von $\mathcal W(f)$. Für die Injektivität ze
 
 ⁠**So liest man das:** Das Ziel ist hier genau $\mathcal W(f)$. **Warum „streng“ nötig ist:** Auf dem waagerechten Stück in Abb. [3](gerade-monoton-beschrankt.html#abb-3) haben viele $x$ dasselbe Bild. **Die Umkehrung gilt nicht:** $f(x)=1/x$ auf $\mathbb{R}\setminus\{0\}$ ist bijektiv auf $\mathbb{R}\setminus\{0\}$, aber nicht monoton, denn $-1<1$ ergibt $f(-1)<f(1)$, und $1<2$ ergibt $f(1)>f(2)$.
 
-**Beispiele.** Nach Satz [2.2](gerade-monoton-beschrankt.html#satz-2-2) und [3.2](#satz-3-2) ist $f(x)=x^n$ bijektiv auf seinen Wertebereich, und zwar ist $\mathcal W(f)=\mathbb{R}_0^+$ für gerades $n$ auf $\mathbb{R}_0^+$ und $\mathcal W(f)=\mathbb{R}$ für ungerades $n$ auf $\mathbb{R}$. Dass wirklich jedes $y$ getroffen wird, folgt wie bei $\sqrt y$ aus der Vollständigkeit der reellen Zahlen ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Ohne Monotonie rechnet man direkt: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ ist injektiv, denn $2x-5=2y-5$ ergibt $x=y$, und surjektiv, denn zu $y$ löst $x=(y+5)/2$ die Gleichung. **Grenzfall:** $f(x)=x$ ist bijektiv, jede Höhe wird genau bei $x=y$ getroffen.
+::::beispiel [Beispiele]
+Nach Satz [2.2](gerade-monoton-beschrankt.html#satz-2-2) und [3.2](#satz-3-2) ist $f(x)=x^n$ bijektiv auf seinen Wertebereich, und zwar ist $\mathcal W(f)=\mathbb{R}_0^+$ für gerades $n$ auf $\mathbb{R}_0^+$ und $\mathcal W(f)=\mathbb{R}$ für ungerades $n$ auf $\mathbb{R}$. Dass wirklich jedes $y$ getroffen wird, folgt wie bei $\sqrt y$ aus der Vollständigkeit der reellen Zahlen ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Ohne Monotonie rechnet man direkt: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ ist injektiv, denn $2x-5=2y-5$ ergibt $x=y$, und surjektiv, denn zu $y$ löst $x=(y+5)/2$ die Gleichung.
+::::
+
+⁠**Grenzfall:** $f(x)=x$ ist bijektiv, jede Höhe wird genau bei $x=y$ getroffen.
 
 :::frage Kann man jede nicht injektive Funktion injektiv machen?
 Ja, durch Verkleinern des Definitionsbereichs. Das ändert die Funktion, und man muss sagen, welches Teilstück man behält: $h$ auf $[2,\infty)$ und $h$ auf $(-\infty,2]$ sind beide injektiv und haben verschiedene Umkehrungen. Genauso entsteht $\sqrt y$ aus $x^2$ auf $\mathbb{R}_0^+$.

@@ -34,7 +34,11 @@ $$\bar E_\mathrm{kin}=\frac1{12}\,\frac{h^2}{8m_0a^2}. \tag{7.1}$$
 Die Niveaus sind $E_n=n^2h^2/(8m_0L^2)$ ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)) mit je zwei Elektronen, $N$ Elektronen füllen $n=1$ bis $N/2$. Mit $\sum_{n=1}^{N/2}n^2\approx(N/2)^3/3$ ist die Gesamtenergie $2\cdot\frac{N^3}{24}\cdot\frac{h^2}{8m_0N^2a^2}$. Geteilt durch $N$ kürzt sich jedes $N$ heraus.
 :::
 
-**Beispiel.** Ohne Abschirmung läge das 2s-Elektron des Lithiums bei $-13{,}6\,\mathrm{eV}\cdot9/4=-30{,}6$ eV, gemessen ist $-5{,}39$ eV. Bei $a=0{,}30$ nm ist die Boxenergie 4,18 eV, ihr Zwölftel 0,35 eV. Im Modell spart jedes Elektron 3,8 eV Bewegungsenergie. **Grenzfall:** Für $N=2$ ist $\bar E_\mathrm{kin}$ ein Viertel der Boxenergie. Schon zwei Atome gewinnen den Großteil, das ist das Bild der längeren Box aus Stufe [3](zwei-atome-teilen-elektronen.html#stufe-3).
+::::beispiel
+Ohne Abschirmung läge das 2s-Elektron des Lithiums bei $-13{,}6\,\mathrm{eV}\cdot9/4=-30{,}6$ eV, gemessen ist $-5{,}39$ eV. Bei $a=0{,}30$ nm ist die Boxenergie 4,18 eV, ihr Zwölftel 0,35 eV. Im Modell spart jedes Elektron 3,8 eV Bewegungsenergie.
+::::
+
+⁠**Grenzfall:** Für $N=2$ ist $\bar E_\mathrm{kin}$ ein Viertel der Boxenergie. Schon zwei Atome gewinnen den Großteil, das ist das Bild der längeren Box aus Stufe [3](zwei-atome-teilen-elektronen.html#stufe-3).
 
 **Eigenschaften.** Die frei beweglichen Elektronen erklären die hohe Leitfähigkeit von Gold, Aluminium, Kupfer oder Silber. Zwischen verschiedenen Elementen gibt es keinen Grund für feste Zahlenverhältnisse, Legierungen (Metallmischungen) entstehen in vielen Verhältnissen. Die Bindung ist nicht gerichtet: Die Atome ordnen sich möglichst dicht an, wie Kugeln in einer Kiste, und können aneinander vorbeigleiten. Darum lässt sich Kupfer zu Draht ziehen. Die Bindungsenergie ist meist kleiner als bei ionischen und kovalenten Bindungen, von 1 eV (Na) bis 3 eV (Al) je Atom. Übergangsmetalle erreichen mehr, zum Beispiel 8,6 eV bei Wolfram, weil die Elektronen der nicht aufgefüllten Schalen zusätzlich kovalent binden.
 

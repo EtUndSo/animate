@@ -39,7 +39,9 @@ $$h_n(A\cup B)=h_n(A)+h_n(B)\qquad\text{für disjunkte }A,B . \tag{2.2}$$
 
 Die relative Häufigkeit selbst schwankt: Eine andere Folge von $n$ Würfen liefert meist eine andere Zahl. Mit wachsendem $n$ schwankt sie aber immer weniger. Warum das so ist und wie schnell es geht, zeigt Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13).
 
-⁠**Rechenbeispiel:** In $20$ Würfen fiel $9$-mal eine gerade Augenzahl, $3$-mal die Fünf und $8$-mal die Eins oder die Drei. Also ist $h_{20}(\{2,4,6\})=9/20=0{,}45$ und $h_{20}(\{5\})=3/20=0{,}15$. Die beiden Ereignisse sind disjunkt, und „gerade oder Fünf“ trat $9+3=12$-mal ein: $h_{20}(\{2,4,5,6\})=0{,}6=0{,}45+0{,}15$.
+::::beispiel [Rechenbeispiel]
+In $20$ Würfen fiel $9$-mal eine gerade Augenzahl, $3$-mal die Fünf und $8$-mal die Eins oder die Drei. Also ist $h_{20}(\{2,4,6\})=9/20=0{,}45$ und $h_{20}(\{5\})=3/20=0{,}15$. Die beiden Ereignisse sind disjunkt, und „gerade oder Fünf“ trat $9+3=12$-mal ein: $h_{20}(\{2,4,5,6\})=0{,}6=0{,}45+0{,}15$.
+::::
 
 ⁠**Kurz gesagt:** Die relative Häufigkeit ist der Anteil der Wiederholungen, in denen ein Ereignis eintritt; sie liegt zwischen $0$ und $1$, ist für $\Omega$ gleich $1$ und addiert sich bei unvereinbaren Ereignissen.
 
@@ -84,7 +86,9 @@ Diese drei Forderungen heißen die __Axiome__ der Wahrscheinlichkeit. $\Omega$ m
 
 Das dritte Axiom gilt für endlich viele und für abzählbar unendlich viele Ereignisse. Bei zwei Ereignissen ist es die Regel [(2.2)](#gl-2-2). Ein Axiom wird nicht bewiesen; es ist eine Festlegung, an der man messen kann, ob eine Zuordnung von Zahlen zu Ereignissen eine Wahrscheinlichkeit ist. Welche Zahlen man im Einzelfall wählt, sagen die Axiome nicht. Das entscheidet man mit Wissen über das Experiment, etwa über die Symmetrie eines Würfels, oder mit Daten.
 
-⁠**Rechenbeispiel:** Für einen fairen Würfel setzt man $P(\{k\})=1/6$ für $k=1,\dots,6$ und für ein Ereignis $A$ die Summe über seine Elemente. Dann ist $P(A)\ge0$, $P(\Omega)=6\cdot\tfrac16=1$, und die Additivität gilt, weil disjunkte Ereignisse keine gemeinsamen Summanden haben. Ein gezinkter Würfel mit $P(\{6\})=0{,}25$ und $P(\{k\})=0{,}15$ für $k=1,\dots,5$ erfüllt die Axiome ebenfalls, denn $5\cdot0{,}15+0{,}25=1$. Dort ist $P(\{2,4,6\})=0{,}15+0{,}15+0{,}25=0{,}55$.
+::::beispiel [Rechenbeispiel]
+Für einen fairen Würfel setzt man $P(\{k\})=1/6$ für $k=1,\dots,6$ und für ein Ereignis $A$ die Summe über seine Elemente. Dann ist $P(A)\ge0$, $P(\Omega)=6\cdot\tfrac16=1$, und die Additivität gilt, weil disjunkte Ereignisse keine gemeinsamen Summanden haben. Ein gezinkter Würfel mit $P(\{6\})=0{,}25$ und $P(\{k\})=0{,}15$ für $k=1,\dots,5$ erfüllt die Axiome ebenfalls, denn $5\cdot0{,}15+0{,}25=1$. Dort ist $P(\{2,4,6\})=0{,}15+0{,}15+0{,}25=0{,}55$.
+::::
 
 ⁠**Kurz gesagt:** Eine Wahrscheinlichkeit ist nichtnegativ, gibt dem sicheren Ereignis den Wert $1$ und addiert sich über unvereinbare Ereignisse.
 
@@ -138,7 +142,9 @@ $P(A\cup B)=P(A)+P(B)-P(A\cap B)$.
 
 Regel (c) heißt __Additionssatz__. Das abgezogene Glied verhindert, dass die gemeinsame Teilfläche doppelt gezählt wird. Sind $A$ und $B$ unvereinbar, so ist es null, und es bleibt Axiom (iii). Regel (a) ist oft der kürzeste Weg: Statt „mindestens einmal“ rechnet man „keinmal“ und zieht von $1$ ab.
 
-⁠**Rechenbeispiel:** Für den fairen Würfel mit $A=\{2,4,6\}$ und $B=\{5,6\}$ ist $P(A\cup B)=\tfrac36+\tfrac26-\tfrac16=\tfrac46=\tfrac23$. Zählt man nach, so hat $A\cup B=\{2,4,5,6\}$ tatsächlich vier Elemente. Beim gezinkten Würfel aus Unterabschnitt [2.2](#stufe-2-2) ist $P(\text{keine Sechs})=1-0{,}25=0{,}75$.
+::::beispiel [Rechenbeispiel]
+Für den fairen Würfel mit $A=\{2,4,6\}$ und $B=\{5,6\}$ ist $P(A\cup B)=\tfrac36+\tfrac26-\tfrac16=\tfrac46=\tfrac23$. Zählt man nach, so hat $A\cup B=\{2,4,5,6\}$ tatsächlich vier Elemente. Beim gezinkten Würfel aus Unterabschnitt [2.2](#stufe-2-2) ist $P(\text{keine Sechs})=1-0{,}25=0{,}75$.
+::::
 
 ⁠**Kurz gesagt:** Wahrscheinlichkeiten verhalten sich wie Teilflächen einer Fläche vom Inhalt $1$; das Gegenereignis hat $1-P(A)$, und bei überlappenden Ereignissen zieht man den Schnitt einmal ab.
 
@@ -163,7 +169,9 @@ Das folgt aus Axiom (iii), denn $A$ ist die disjunkte Vereinigung seiner $\#A$ E
 Beim Wurf zweier Würfel ist die Augensumme eine der Zahlen $2,\dots,12$. Diese elf Ausgänge sind aber nicht gleich wahrscheinlich: Die Summe $2$ entsteht nur aus $(1,1)$, die Summe $7$ aus sechs Paaren. Gleich wahrscheinlich sind die $36$ Paare des Ergebnisraums aus Unterabschnitt [1.2](zufall-und-ereignisse.html#stufe-1-2). Formel [(2.4)](#gl-2-4) gilt nur für einen Ergebnisraum, dessen Ergebnisse wirklich gleich wahrscheinlich sind.
 :::
 
-⁠**Rechenbeispiel:** Beim Wurf zweier fairer Würfel hat „Augensumme $7$“ die sechs Ergebnisse $(1,6)$, $(2,5)$, $(3,4)$, $(4,3)$, $(5,2)$, $(6,1)$. Also ist $P(\text{Summe }7)=6/36=1/6$. „Augensumme $2$“ hat nur das Ergebnis $(1,1)$ und die Wahrscheinlichkeit $1/36$.
+::::beispiel [Rechenbeispiel]
+Beim Wurf zweier fairer Würfel hat „Augensumme $7$“ die sechs Ergebnisse $(1,6)$, $(2,5)$, $(3,4)$, $(4,3)$, $(5,2)$, $(6,1)$. Also ist $P(\text{Summe }7)=6/36=1/6$. „Augensumme $2$“ hat nur das Ergebnis $(1,1)$ und die Wahrscheinlichkeit $1/36$.
+::::
 
 ⁠**Kurz gesagt:** Sind alle Ergebnisse gleich wahrscheinlich, so ist die Wahrscheinlichkeit eines Ereignisses der Anteil seiner Ergebnisse an allen Ergebnissen.
 

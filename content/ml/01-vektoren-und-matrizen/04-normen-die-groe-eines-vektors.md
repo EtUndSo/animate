@@ -34,11 +34,13 @@ Ohne Index meint $\lVert\mathbf{x}\rVert$ in dieser Reihe immer die euklidische 
 
 Man nennt sie auch die __Länge__ des Vektors oder, wegen der Quadrate, die $L_2$-Norm. Ein Vektor der Länge $1$ heißt __normiert__. Teilt man einen Vektor $\mathbf{x}\ne\mathbf{0}$ durch seine Länge, so ist $\mathbf{x}/\lVert\mathbf{x}\rVert$ normiert und zeigt in dieselbe Richtung. Diesen Schritt nennt man __normieren__.
 
-⁠**Rechenbeispiel:** Der Vektor $\mathbf{x}=(3,\,-4)^{\top}$ hat die Länge $\lVert\mathbf{x}\rVert_2=5$ (Abb. [12](#abb-12)). Normiert ist er $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$. Im Raum ist $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
+::::beispiel [Rechenbeispiel]
+Der Vektor $\mathbf{x}=(3,\,-4)^{\top}$ hat die Länge $\lVert\mathbf{x}\rVert_2=5$ (Abb. [12](#abb-12)). Normiert ist er $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$. Im Raum ist $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
 
 :::abbildung ml/k1rl2 12
 Die euklidische Norm von $(3,\,-4)^{\top}$: Komponenten quadrieren, addieren, Wurzel ziehen. Das Minuszeichen fällt beim Quadrieren weg.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die euklidische Norm ist die Länge des Pfeils, die Wurzel aus der Quadratsumme der Komponenten.
 
@@ -59,13 +61,15 @@ $$\lVert\mathbf{x}\rVert_1=|x_1|+|x_2|+\dots+|x_d|=\sum_{j=1}^d|x_j| . \tag{3.2}
 
 Man nennt sie auch $L_1$-Norm oder, nach dem Straßennetz von Manhattan, Manhattan-Norm.
 
-⁠**Rechenbeispiel:** Für $\mathbf{x}=(3,\,-4)^{\top}$ ist $\lVert\mathbf{x}\rVert_1=7$ (Abb. [13](#abb-13)), und $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{x}=(3,\,-4)^{\top}$ ist $\lVert\mathbf{x}\rVert_1=7$ (Abb. [13](#abb-13)), und $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
 
 :::abbildung ml/k1rl1 13
 Die Betragssummennorm von $\mathbf{x}=(3,\,-4)^{\top}$: die Beträge der Komponenten addieren.
 :::
 
 Die Betragssummennorm ist hier größer als die euklidische Länge, weil der Umweg über die Straßen länger ist als die Luftlinie.
+::::
 
 ⁠**Kurz gesagt:** Die Betragssummennorm addiert die Beträge der Komponenten; sie ist der Weg durch ein rechtwinkliges Straßennetz.
 
@@ -86,7 +90,9 @@ $$\lVert\mathbf{x}\rVert_\infty=\max_{j=1,\dots,d}|x_j| . \tag{3.3}$$
 
 Man nennt sie auch $L_\infty$-Norm. Der Grund für das Unendlichzeichen steht im nächsten Unterabschnitt.
 
-⁠**Rechenbeispiel:** $\lVert(3,\,-4)^{\top}\rVert_\infty=4$ und $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Sind die Abweichungen eines Bauteils $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm, so ist ihre Maximumnorm $0{,}08$ mm und das Teil in Ordnung.
+::::beispiel [Rechenbeispiel]
+$\lVert(3,\,-4)^{\top}\rVert_\infty=4$ und $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Sind die Abweichungen eines Bauteils $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm, so ist ihre Maximumnorm $0{,}08$ mm und das Teil in Ordnung.
+::::
 
 ⁠**Kurz gesagt:** Die Maximumnorm ist der größte Betrag einer Komponente, die schlimmste Einzelabweichung.
 
@@ -139,11 +145,13 @@ Für $p=1$ ist das die Betragssummennorm, für $p=2$ die euklidische Norm. Je gr
 Die Einheitskugeln dreier Normen in der Ebene: die Raute der Betragssummennorm (links, orange), der Kreis der euklidischen Norm (Mitte, blau) und das Quadrat der Maximumnorm (rechts, grün); grau jeweils die beiden anderen zum Vergleich. Alle drei gehen durch die Punkte $(\pm1,\,0)$ und $(0,\,\pm1)$.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{x}=(3,\,-4)^{\top}$ ist $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (Abb. [15](#abb-15)) und $\lVert\mathbf{x}\rVert_\infty=4$. Mit wachsendem $p$ nähert sich die $p$-Norm dem größten Betrag einer Komponente, hier $4$. Der Grund steht schon in der Summe: Bei $p=10$ ist $4^{10}$ fast achtzehnmal so groß wie $3^{10}$, und die Wurzel aus der Summe ist kaum größer als die Wurzel aus $4^{10}$ allein.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{x}=(3,\,-4)^{\top}$ ist $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (Abb. [15](#abb-15)) und $\lVert\mathbf{x}\rVert_\infty=4$. Mit wachsendem $p$ nähert sich die $p$-Norm dem größten Betrag einer Komponente, hier $4$. Der Grund steht schon in der Summe: Bei $p=10$ ist $4^{10}$ fast achtzehnmal so groß wie $3^{10}$, und die Wurzel aus der Summe ist kaum größer als die Wurzel aus $4^{10}$ allein.
 
 :::abbildung ml/k1rlp 15
 Zwei $p$-Normen von $\mathbf{x}=(3,\,-4)^{\top}$, für $p=3$ und $p=10$. Je größer $p$, desto mehr überwiegt der Summand der größten Komponente.
 :::
+::::
 
 Dass die Betragssummennorm die Bedingungen (N1) bis (N3) erfüllt, rechnet man direkt nach: (N1) und (N2) gelten, weil $|x_j|\ge0$ und $|c\,x_j|=|c|\,|x_j|$ ist. (N3) folgt aus der Dreiecksungleichung für Zahlen, $|u_j+v_j|\le|u_j|+|v_j|$, summiert über alle $j$. Für die Maximumnorm geht es ebenso. Für die euklidische Norm ist die Dreiecksungleichung anschaulich klar, weil der direkte Weg zwischen zwei Punkten nie länger ist als ein Umweg über einen dritten Punkt.
 
@@ -182,7 +190,8 @@ der __Fehlervektor__. Dabei ist $\hat{\mathbf{y}}=(\hat y_1,\dots,\hat y_N)^{\to
 
 Welche Norm man auf den Fehlervektor anwendet, ist eine Entscheidung darüber, welche Fehler man am meisten scheut. Das Vorzeichen spielt dabei keine Rolle, denn jede Norm gibt $\mathbf{y}-\hat{\mathbf{y}}$ dieselbe Größe wie $\hat{\mathbf{y}}-\mathbf{y}$.
 
-⁠**Rechenbeispiel:** Die vier Wohnungen wurden verkauft, die tatsächlichen Preise waren $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$ Tausend Euro. Zwei Gutachter A und B hatten vorher geschätzt:
+::::beispiel [Rechenbeispiel]
+Die vier Wohnungen wurden verkauft, die tatsächlichen Preise waren $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$ Tausend Euro. Zwei Gutachter A und B hatten vorher geschätzt:
 
 $$\hat{\mathbf{y}}_{\mathrm A}=(210,\,120,\,300,\,230)^{\top},\qquad \hat{\mathbf{y}}_{\mathrm B}=(200,\,130,\,290,\,280)^{\top}.$$
 
@@ -202,6 +211,7 @@ Die euklidischen Normen der beiden Fehlervektoren in Tausend Euro. Der einzelne 
 | Gutachter B, $\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y}$ | $40$ | $\sqrt{1600}=40$ | $40$ |
 
 Nach der Betragssummennorm sind beide gleich gut: Beide liegen zusammen um $40$ Tausend Euro daneben. Nach der euklidischen Norm ist A doppelt so gut, nach der Maximumnorm viermal so gut. Wer jeden Tausender Abweichung gleich schlimm findet, egal bei welcher Wohnung, misst mit $L_1$. Wer einen großen Ausreißer schlimmer findet als viele kleine Fehler, misst mit $L_2$. Wer nur den schlimmsten Fall fürchtet, misst mit $L_\infty$.
+::::
 
 ⁠**Kurz gesagt:** Der Fehlervektor sammelt die Abweichungen aller Vorhersagen; seine Norm misst die Größe des Fehlers, und die Wahl der Norm legt fest, welche Fehler besonders zählen.
 
@@ -228,11 +238,13 @@ Die Abkürzung rms steht für *root mean square*: die Wurzel aus dem Mittelwert 
 
 Aus der Elektrotechnik kennt man den Namen: Der Effektivwert einer Wechselspannung ist die Wurzel aus dem zeitlichen Mittel ihres Quadrats. Für ein abgetastetes Signal ist [(3.6)](#gl-3-6) dieselbe Rechnung mit Abtastwerten statt eines Integrals. Tastet man einen Sinus über genau eine Periode an $n\ge3$ gleichmäßig verteilten Stellen ab, kommt sogar exakt der Effektivwert $1/\sqrt2$ des Sinus heraus.
 
-⁠**Rechenbeispiel:** Die Fehlervektoren der Gutachter aus dem vorigen Unterabschnitt haben die Effektivwerte $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ und $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ Tausend Euro: A liegt typischerweise um $10$ Tausend Euro daneben. Ein Sinus der Amplitude $1$, an vier gleichmäßig verteilten Stellen einer Periode abgetastet, hat die Abtastwerte $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ und den Effektivwert $1/\sqrt2\approx0{,}707$ (Abb. [17](#abb-17)).
+::::beispiel [Rechenbeispiel]
+Die Fehlervektoren der Gutachter aus dem vorigen Unterabschnitt haben die Effektivwerte $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ und $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ Tausend Euro: A liegt typischerweise um $10$ Tausend Euro daneben. Ein Sinus der Amplitude $1$, an vier gleichmäßig verteilten Stellen einer Periode abgetastet, hat die Abtastwerte $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ und den Effektivwert $1/\sqrt2\approx0{,}707$ (Abb. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
 Der Effektivwert eines abgetasteten Sinus: Quadrate addieren, durch die Zahl der Komponenten teilen, Wurzel ziehen.
 :::
+::::
 
 ⁠**Kurz gesagt:** Der Effektivwert $\lVert\mathbf{x}\rVert/\sqrt n$ ist der typische Betrag einer Komponente und macht Vektoren verschiedener Länge vergleichbar.
 

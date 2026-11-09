@@ -14,7 +14,7 @@ Ein Kondensator aus zwei Metallplatten speichert Ladung, und sonst geschieht in 
 
 Der Weg führt über acht Begriffe. Der __MIS-Kondensator__ besteht aus Metall, Isolator und Halbleiter. Das __Gate__ ist seine Metallelektrode. Das __Oberflächenpotential__ gibt an, wie stark sich die Bänder an der Grenzfläche zum Isolator verbiegen. Im __Flachbandfall__ verbiegen sie sich gar nicht. Bei __Akkumulation__ sammeln sich die Majoritätsträger an der Grenzfläche, bei __Verarmung__ werden sie von dort verdrängt, bei __Inversion__ überwiegen dort die Minoritätsträger. Die __Schwellspannung__ ist die Gatespannung, ab der diese Umkehr vollständig ist.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

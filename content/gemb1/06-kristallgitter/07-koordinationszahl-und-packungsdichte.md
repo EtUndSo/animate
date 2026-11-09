@@ -53,7 +53,11 @@ Aus der Zelle folgt auch die Dichte. $N$ Atome mit der Molmasse $M$ wiegen $N\,M
 <span class="anker" id="gl-5-2"></span>
 $$\rho_\mathrm m=\frac{N\,M}{N_\mathrm{Av}\,\Omega}. \tag{5.2}$$
 
-**Beispiel.** Aluminium ist FCC mit $a=0{,}4050$ nm. Der Nachbarabstand ist $a/\sqrt2=0{,}2864$ nm, also $r_\mathrm{at}=0{,}1432$ nm. Die Dichte der Atome ist $4/a^3=6{,}02\cdot10^{22}\,\mathrm{cm^{-3}}$. Mit [(5.2)](#gl-5-2) folgt $\rho_\mathrm m=2{,}698\,\mathrm{g/cm^3}$, gemessen werden 2,70 g/cm$^3$. **Grenzfälle:** In $P$ kürzt sich $a$ heraus: Alle FCC-Metalle haben dieselben 74 %, ob Gold oder Aluminium. Die zweite Schale liegt bei SC ($\sqrt2\,a$, 12 Punkte) und FCC ($a$, 6 Punkte) 41 % weiter als die erste, bei BCC ($a$, 6 Punkte) nur 15,5 %. Deshalb formen in BCC auch diese Punkte die Wigner-Seitz-Zelle mit.
+::::beispiel
+Aluminium ist FCC mit $a=0{,}4050$ nm. Der Nachbarabstand ist $a/\sqrt2=0{,}2864$ nm, also $r_\mathrm{at}=0{,}1432$ nm. Die Dichte der Atome ist $4/a^3=6{,}02\cdot10^{22}\,\mathrm{cm^{-3}}$. Mit [(5.2)](#gl-5-2) folgt $\rho_\mathrm m=2{,}698\,\mathrm{g/cm^3}$, gemessen werden 2,70 g/cm$^3$.
+::::
+
+⁠**Grenzfälle:** In $P$ kürzt sich $a$ heraus: Alle FCC-Metalle haben dieselben 74 %, ob Gold oder Aluminium. Die zweite Schale liegt bei SC ($\sqrt2\,a$, 12 Punkte) und FCC ($a$, 6 Punkte) 41 % weiter als die erste, bei BCC ($a$, 6 Punkte) nur 15,5 %. Deshalb formen in BCC auch diese Punkte die Wigner-Seitz-Zelle mit.
 
 :::frage Das Eckatom liegt doch vollständig da. Warum zählt nur ein Achtel?
 Weil acht Würfel diese Ecke teilen und jedes Atom genau einmal in die Summe eingehen soll. Abb. [5](#abb-5) zeigt es für die Fläche: Von jeder Eckkugel liegt nur ein Viertel des Kreises in der Zelle.

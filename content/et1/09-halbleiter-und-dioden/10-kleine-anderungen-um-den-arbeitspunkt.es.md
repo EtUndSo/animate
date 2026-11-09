@@ -34,11 +34,15 @@ $$r=\frac{\mathrm{d} U_\mathrm D}{\mathrm{d} I}=\frac{U_T}{I+I_\mathrm S}\approx
 Derivando [(4.1)](warum-der-strom-exponentiell-wachst.html#gl-4-1): $\mathrm{d} I/\mathrm{d} U_\mathrm D=(I_\mathrm S/U_T)\,\mathrm{e}^{U_\mathrm D/U_T}=(I+I_\mathrm S)/U_T$. El inverso es $r$. La función exponencial se reproduce al derivar; por eso en el resultado solo aparece $I$, e $I_\mathrm S$ desaparece en sentido directo. Dos diodos con distinta $I_\mathrm S$ tienen la misma $r$ a la misma corriente.
 :::
 
-**Ejemplo.** En el modelo de referencia, $r=25{,}85\,\mathrm{mV}/4{,}31\,\mathrm{mA}=6{,}0\,\Omega$. A la fuente se le suma una senoide con 100 mV de valor de pico. Para los cambios, $R$ y $r$ forman un divisor de tensión:
+::::beispiel
+En el modelo de referencia, $r=25{,}85\,\mathrm{mV}/4{,}31\,\mathrm{mA}=6{,}0\,\Omega$. A la fuente se le suma una senoide con 100 mV de valor de pico. Para los cambios, $R$ y $r$ forman un divisor de tensión:
 
 $$\hat u_\mathrm D=100\,\mathrm{mV}\cdot\frac{6{,}0\,\Omega}{1000\,\mathrm{\Omega}+6{,}0\,\Omega}=0{,}60\,\mathrm{mV},\qquad\hat\imath=\frac{100\,\mathrm{mV}}{1006\,\mathrm{\Omega}}=99{,}4\,\mu\text{A}.$$
 
-El cálculo exacto para $U_0=5{,}1$ V da $+0{,}59$ mV y $+99{,}4$ µ A. En la resistencia aparece casi toda la señal; en el diodo queda el 0,6 %. **Casos límite:** Para $I\to0$, $r=U_T/I_\mathrm S=2{,}6\,\mathrm{T\Omega}$, y el diodo aísla. Para $I$ grande, $r$ tiende a cero; en la realidad queda la resistencia de volumen.
+El cálculo exacto para $U_0=5{,}1$ V da $+0{,}59$ mV y $+99{,}4$ µ A. En la resistencia aparece casi toda la señal; en el diodo queda el 0,6 %.
+::::
+
+⁠**Casos límite:** Para $I\to0$, $r=U_T/I_\mathrm S=2{,}6\,\mathrm{T\Omega}$, y el diodo aísla. Para $I$ grande, $r$ tiende a cero; en la realidad queda la resistencia de volumen.
 
 :::ltspice Punto de trabajo y señal
 ⁠**Esquema:** fuente `voltage` de `in` a masa, valor `5`, en `Advanced` introduce `1` en AC Amplitude. `res` 1k de `in` a `d`, `diode` DM de `d` a masa, modelo como arriba.

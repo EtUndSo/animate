@@ -53,7 +53,11 @@ $$E_\mathrm g=(E_\mathrm p-2V_\mathrm{pp})-(E_\mathrm s+2V_\mathrm{ss}). \tag{7.
 
 ⁠**Gültigkeit:** $E_\mathrm p-E_\mathrm s>2(V_\mathrm{ss}+V_\mathrm{pp})$, und die Bandkanten liegen am Zonenrand.
 
-**Beispiel.** Mit den Zahlen aus Abb. [7](#abb-7) reicht das untere Band von $-6$ bis $-4$ eV, das obere von $-2{,}5$ bis $+0{,}5$ eV, also $E_\mathrm g=1{,}5$ eV. Bei $ka=\pi/2$ ist $\tilde E_\mathrm s=-5$ eV und $\tilde E_\mathrm p=-1$ eV, und $V_\mathrm{sp}$ schiebt die Energien auf $-5{,}332$ und $-0{,}668$ eV. **Grenzfall:** Ohne Kopplungen bleiben die Atomniveaus mit $E_\mathrm g=E_\mathrm p-E_\mathrm s$.
+::::beispiel
+Mit den Zahlen aus Abb. [7](#abb-7) reicht das untere Band von $-6$ bis $-4$ eV, das obere von $-2{,}5$ bis $+0{,}5$ eV, also $E_\mathrm g=1{,}5$ eV. Bei $ka=\pi/2$ ist $\tilde E_\mathrm s=-5$ eV und $\tilde E_\mathrm p=-1$ eV, und $V_\mathrm{sp}$ schiebt die Energien auf $-5{,}332$ und $-0{,}668$ eV.
+::::
+
+⁠**Grenzfall:** Ohne Kopplungen bleiben die Atomniveaus mit $E_\mathrm g=E_\mathrm p-E_\mathrm s$.
 
 :::aufgabe Aufgabe 8 ★ Vorzeichen bestimmen
 <span class="anker" id="aufg-8"></span>

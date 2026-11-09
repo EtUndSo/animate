@@ -80,7 +80,11 @@ Der Betrag zum Quadrat ergibt die erste Form von [(4.3)](#gl-4-3). Für die zwei
 </ol>
 :::
 
-**Beispiel.** Für $E=0{,}5$ eV und $L=1$ nm ist $\kappa L=6{,}27$, $\sinh^2(\kappa L)=7{,}05\cdot10^{4}$ und $4\frac E{V_0}(1-\frac E{V_0})=0{,}75$. Das ergibt $T=1{,}06\cdot10^{-5}$: Eines von 94 000 Elektronen kommt durch. Mit $L=0{,}4$ nm ist $T=0{,}020$, die Amplitude rechts also $\sqrt T=0{,}14$. **Grenzfälle:** $L\to0$ ergibt $T=1$, ohne Barriere läuft alles durch. $L\to\infty$ ergibt $T\to0$ wie in Stufe [3](die-welle-dringt-in-die-wand-ein.html#stufe-3). $V_0\to\infty$ bei festem $E$ ergibt ebenfalls $T\to0$.
+::::beispiel
+Für $E=0{,}5$ eV und $L=1$ nm ist $\kappa L=6{,}27$, $\sinh^2(\kappa L)=7{,}05\cdot10^{4}$ und $4\frac E{V_0}(1-\frac E{V_0})=0{,}75$. Das ergibt $T=1{,}06\cdot10^{-5}$: Eines von 94 000 Elektronen kommt durch. Mit $L=0{,}4$ nm ist $T=0{,}020$, die Amplitude rechts also $\sqrt T=0{,}14$.
+::::
+
+⁠**Grenzfälle:** $L\to0$ ergibt $T=1$, ohne Barriere läuft alles durch. $L\to\infty$ ergibt $T\to0$ wie in Stufe [3](die-welle-dringt-in-die-wand-ein.html#stufe-3). $V_0\to\infty$ bei festem $E$ ergibt ebenfalls $T\to0$.
 
 :::frage Verliert das Elektron beim Tunneln Energie? Die Welle ist rechts doch viel kleiner.
 Nein. Rechts ist $V=0$, also ist $k$ dasselbe wie links, die Wellenlänge ändert sich nicht. Die kleine Amplitude bedeutet eine kleine Wahrscheinlichkeit, kein schwächeres Elektron. Wer rechts ankommt, hat die volle Energie $E$. Der Rest der Wahrscheinlichkeit ist reflektiert.

@@ -44,7 +44,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 
 Sa valeur absolue est l’aire du parallélogramme construit sur les colonnes, c’est-à-dire le facteur dont $\mathbf{A}$ change l’aire du carré unité. C’est le même nombre que celui qui figure au dénominateur de l’inverse [(11.2)](einheitsmatrix-und-inverse.html#gl-11-2).
 
-⁠**Exemple de calcul :** $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ et $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. L’étirement change la forme du carré, mais pas son aire : ce qu’il gagne en largeur, il le perd en hauteur.
+::::beispiel [Exemple de calcul]
+$\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ et $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. L’étirement change la forme du carré, mais pas son aire : ce qu’il gagne en largeur, il le perd en hauteur.
+::::
 
 ⁠**En bref :** Le déterminant $ad-bc$ d’une matrice $2\times2$ est, en valeur absolue, le facteur dont l’application change l’aire du carré unité.
 
@@ -56,7 +58,9 @@ Une aire n’est jamais négative, le déterminant peut l’être. Son signe por
 
 Dans le carré unité, $\mathbf{e}_2$ se trouve, vu de $\mathbf{e}_1$, dans le sens inverse des aiguilles d’une montre. Si cela reste ainsi pour les images, c’est-à-dire si $\mathbf{a}_2$ se trouve lui aussi, vu de $\mathbf{a}_1$, dans le sens inverse des aiguilles d’une montre, alors $\det\mathbf{A}>0$. Si $\mathbf{a}_2$ se trouve dans le sens des aiguilles d’une montre par rapport à $\mathbf{a}_1$, le plan a été retourné, et $\det\mathbf{A}<0$. Cette propriété s’appelle l’__orientation__ : un déterminant positif conserve l’orientation, un déterminant négatif l’inverse.
 
-⁠**Exemple de calcul :** La réflexion par rapport à l’axe des $x_1$, $\operatorname{diag}(1;\,-1)$, a pour déterminant $-1$ : l’aire reste la même, l’orientation s’inverse. Si l’on échange les colonnes d’une matrice, le déterminant change de signe : $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. La rotation de $90^\circ$ a $\det=0\cdot0-(-1)\cdot1=1$, le cisaillement $\det=1\cdot1-1\cdot0=1$, l’aplatissement $\operatorname{diag}(1;\,0)$ le déterminant $0$.
+::::beispiel [Exemple de calcul]
+La réflexion par rapport à l’axe des $x_1$, $\operatorname{diag}(1;\,-1)$, a pour déterminant $-1$ : l’aire reste la même, l’orientation s’inverse. Si l’on échange les colonnes d’une matrice, le déterminant change de signe : $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. La rotation de $90^\circ$ a $\det=0\cdot0-(-1)\cdot1=1$, le cisaillement $\det=1\cdot1-1\cdot0=1$, l’aplatissement $\operatorname{diag}(1;\,0)$ le déterminant $0$.
+::::
 
 ⁠**En bref :** La valeur absolue du déterminant est le facteur d’aire, son signe indique si l’application retourne le plan.
 
@@ -76,7 +80,9 @@ Si $\mathbf{A}\in\mathbb{R}^{2\times2}$ transforme une figure d’aire $F$, l’
 On pose sur la figure un quadrillage fin de petits carrés de côté $h$. Un carré de coin $\mathbf{q}$ a pour sommets $\mathbf{q}$, $\mathbf{q}+h\mathbf{e}_1$, $\mathbf{q}+h\mathbf{e}_1+h\mathbf{e}_2$ et $\mathbf{q}+h\mathbf{e}_2$. Son image a pour sommets $\mathbf{A}\mathbf{q}$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1+h\mathbf{a}_2$ et $\mathbf{A}\mathbf{q}+h\mathbf{a}_2$ : c’est le parallélogramme construit sur $h\mathbf{a}_1$ et $h\mathbf{a}_2$, translaté en $\mathbf{A}\mathbf{q}$. Son aire est $h^2\,|\det\mathbf{A}|$, quel que soit l’endroit où se trouvait le carré. Chaque petit carré est donc agrandi ou réduit du même facteur $|\det\mathbf{A}|$. La figure se compose approximativement de tels carrés, et ce d’autant plus exactement que le quadrillage est fin. C’est pourquoi le facteur vaut pour la figure entière.
 :::
 
-⁠**Exemple de calcul :** Le disque de rayon $1$ a pour aire $\pi$. L’étirement $\operatorname{diag}(3;\,2)$ en fait une ellipse de demi-axes $3$ et $2$. Son aire est $\pi\cdot3\cdot2=6\pi$, soit exactement $|\det\mathbf{A}|=6$ fois l’aire du disque. Le triangle de sommets $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ a pour aire $\tfrac12$ ; par $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, il devient le triangle de sommets $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$, d’aire $\tfrac52$.
+::::beispiel [Exemple de calcul]
+Le disque de rayon $1$ a pour aire $\pi$. L’étirement $\operatorname{diag}(3;\,2)$ en fait une ellipse de demi-axes $3$ et $2$. Son aire est $\pi\cdot3\cdot2=6\pi$, soit exactement $|\det\mathbf{A}|=6$ fois l’aire du disque. Le triangle de sommets $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ a pour aire $\tfrac12$ ; par $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, il devient le triangle de sommets $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$, d’aire $\tfrac52$.
+::::
 
 ⁠**En bref :** Une application linéaire change l’aire de toute figure du même facteur $|\det\mathbf{A}|$, parce qu’elle traite de la même façon chaque petite case du quadrillage.
 
@@ -99,7 +105,8 @@ où $\mathbf{A}_{1j}$ est la matrice $(n-1)\times(n-1)$ obtenue à partir de $\m
 
 Pour $n=2$, [(14.2)](#gl-14-2) redonne $a_{11}a_{22}-a_{12}a_{21}$. On peut tout aussi bien développer selon n’importe quelle autre ligne ou colonne, avec le signe $(-1)^{i+j}$ pour le coefficient $a_{ij}$ ; le résultat est toujours le même. Pour $n=3$, $|\det\mathbf{A}|$ est le volume du parallélépipède construit sur les trois colonnes, et le signe indique si les colonnes sont disposées dans le même sens de rotation que $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ (règle de la main droite) ou en miroir.
 
-⁠**Exemple de calcul :** Pour la matrice des coefficients de la sous-section [12.3](lineare-gleichungssysteme.html#stufe-12-3),
+::::beispiel [Exemple de calcul]
+Pour la matrice des coefficients de la sous-section [12.3](lineare-gleichungssysteme.html#stufe-12-3),
 
 $$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
 
@@ -108,6 +115,7 @@ le développement de Laplace selon la première ligne donne $\det\mathbf{A}=-4$ 
 :::abbildung ml/k1rlaplace 41
 Le développement de Laplace selon la première ligne : chaque coefficient de la première ligne fois le déterminant de la matrice restante, sans sa ligne ni sa colonne, avec des signes alternés.
 :::
+::::
 
 Pour une matrice triangulaire supérieure, sous la diagonale de laquelle ne figurent que des zéros, on développe à chaque fois selon la première colonne et l’on obtient le produit des coefficients diagonaux, par exemple $\det\Bigl(\begin{smallmatrix}2&1&3\\0&3&1\\0&0&4\end{smallmatrix}\Bigr)=2\cdot3\cdot4=24$.
 
@@ -161,9 +169,13 @@ si l’on ajoute à une ligne un multiple d’une autre, le déterminant ne chan
 
 La règle (iii) découle de (i) avec $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$ et $\det\mathbf{I}=1$. La règle (iv) dit : si l’on étire les $n$ arêtes du cube unité d’un facteur $c$, son volume est multiplié par $c^n$. La règle (v) fait de la méthode du pivot de Gauss la voie pratique pour calculer des déterminants : on met la matrice sous forme échelonnée, on retient le nombre d’échanges et l’on multiplie les coefficients diagonaux.
 
-⁠**Exemple de calcul 1 :** Avec $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ et $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$, le produit $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ doit avoir pour déterminant $5$ : $21-16=5$.
+::::beispiel [Exemple de calcul 1]
+Avec $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ et $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$, le produit $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ doit avoir pour déterminant $5$ : $21-16=5$.
+::::
 
-⁠**Exemple de calcul 2 :** Dans la méthode du pivot de Gauss de la sous-section [12.3](lineare-gleichungssysteme.html#stufe-12-3), la matrice des coefficients a été mise, par des additions de multiples et un échange, sous la forme échelonnée de diagonale $1$, $-1$, $-4$. Son déterminant vaut donc $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, comme avec le développement de Laplace.
+::::beispiel [Exemple de calcul 2]
+Dans la méthode du pivot de Gauss de la sous-section [12.3](lineare-gleichungssysteme.html#stufe-12-3), la matrice des coefficients a été mise, par des additions de multiples et un échange, sous la forme échelonnée de diagonale $1$, $-1$, $-4$. Son déterminant vaut donc $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, comme avec le développement de Laplace.
+::::
 
 ⁠**En bref :** Le déterminant d’un produit est le produit des déterminants, parce que les facteurs de volume se multiplient lors de la composition ; en pratique, on le calcule avec la méthode du pivot de Gauss.
 
@@ -195,7 +207,9 @@ Si $\mathbf{A}$ est inversible, alors, d’après la règle (i), $\det\mathbf{A}
 
 Avec le théorème de la sous-section [13.5](unabhangigkeit-basis-und-rang.html#stufe-13-5), les énoncés suivants sont donc équivalents pour une matrice carrée : $\det\mathbf{A}\ne0$, $\mathbf{A}$ inversible, $\operatorname{rg}\mathbf{A}=n$, $\ker\mathbf{A}=\{\mathbf{0}\}$, colonnes linéairement indépendantes.
 
-⁠**Exemple de calcul :** La matrice $\mathbf K$ de la sous-section [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) a pour déterminant $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, en accord avec $\operatorname{rg}\mathbf K=2$. La matrice des coefficients de l’exemple traité par la méthode du pivot de Gauss a $\det=-4\ne0$ et est inversible ; c’est pourquoi le système avait exactement une solution.
+::::beispiel [Exemple de calcul]
+La matrice $\mathbf K$ de la sous-section [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) a pour déterminant $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, en accord avec $\operatorname{rg}\mathbf K=2$. La matrice des coefficients de l’exemple traité par la méthode du pivot de Gauss a $\det=-4\ne0$ et est inversible ; c’est pourquoi le système avait exactement une solution.
+::::
 
 ⁠**En bref :** Une matrice carrée est inversible si et seulement si son déterminant n’est pas nul, c’est-à-dire si elle n’aplatit pas l’espace.
 

@@ -39,11 +39,13 @@ $$D_+f(x)\approx f'(x)+\tfrac12f''(x)\,h . \tag{11.2}$$
 
 Der Fehler ist also etwa proportional zu $h$: Zehnmal kleineres $h$ gibt etwa zehnmal kleineren Abschneidefehler.
 
-⁠**Rechenbeispiel:** Für $f(x)=x^3$ an der Stelle $2$ mit $h=10^{-3}$ ist $2{,}001^3=8{,}012006001$ und
+::::beispiel [Rechenbeispiel]
+Für $f(x)=x^3$ an der Stelle $2$ mit $h=10^{-3}$ ist $2{,}001^3=8{,}012006001$ und
 
 $$D_+f(2)=\frac{8{,}012006001-8}{0{,}001}=12{,}006001 .$$
 
 Der Fehler $0{,}006001$ passt zu $\tfrac12f''(2)\,h=\tfrac12\cdot12\cdot0{,}001=0{,}006$; der Rest $0{,}000001=h^2$ ist das nächste Glied.
+::::
 
 ⁠**Kurz gesagt:** Die Vorwärtsdifferenz hat einen Abschneidefehler von etwa $\tfrac12f''(x)\,h$, proportional zur Schrittweite.
 
@@ -85,11 +87,13 @@ Zieht man die beiden Gleichungen voneinander ab, fallen die Glieder mit geraden 
 
 Für eine quadratische Funktion ist $f'''=0$, und die zentrale Differenz ist für jedes $h$ exakt. Sie braucht zwei neue Auswertungen von $f$, die Vorwärtsdifferenz nur eine, wenn $f(x)$ schon bekannt ist.
 
-⁠**Rechenbeispiel:** Für $f(x)=x^3$ an der Stelle $2$ mit $h=10^{-3}$ ist $1{,}999^3=7{,}988005999$ und
+::::beispiel [Rechenbeispiel]
+Für $f(x)=x^3$ an der Stelle $2$ mit $h=10^{-3}$ ist $1{,}999^3=7{,}988005999$ und
 
 $$D_0f(2)=\frac{8{,}012006001-7{,}988005999}{0{,}002}=\frac{0{,}024000002}{0{,}002}=12{,}000001 .$$
 
 Der Fehler ist $0{,}000001=\tfrac16\cdot6\cdot h^2$, sechstausendmal kleiner als bei der Vorwärtsdifferenz.
+::::
 
 ⁠**Kurz gesagt:** Die zentrale Differenz hat einen Abschneidefehler von etwa $\tfrac16f'''(x)\,h^2$, weil sich das Krümmungsglied heraushebt.
 
@@ -107,7 +111,9 @@ diese Zahl heißt __Maschinengenauigkeit__, und Rechenprogramme geben sie unter 
 
 Gefährlich wird die Rundung beim Abziehen fast gleicher Zahlen. Die vorderen Ziffern heben sich auf, die Rundungsfehler der hinteren bleiben, und vom Ergebnis sind nur noch wenige Ziffern richtig. Das heißt __Auslöschung__. Ein Differenzenquotient zieht genau solche Zahlen voneinander ab, und je kleiner $h$ ist, desto ähnlicher sind sie sich.
 
-⁠**Rechenbeispiel:** Für $f(x)=x^3$ an der Stelle $2$ und $h=10^{-8}$ ist $f(2+h)=8{,}00000012\ldots$ Beide Funktionswerte sind etwa $8$ und tragen je einen Rundungsfehler bis etwa $8\cdot1{,}1\cdot10^{-16}\approx9\cdot10^{-16}$. Ihre Differenz ist etwa $1{,}2\cdot10^{-7}$; ein Fehler von $10^{-15}$ darin ist ein relativer Fehler von fast $10^{-8}$. Von den $16$ Stellen sind nach dem Abziehen also nur noch etwa $8$ richtig, und die Division durch $h$ ändert daran nichts.
+::::beispiel [Rechenbeispiel]
+Für $f(x)=x^3$ an der Stelle $2$ und $h=10^{-8}$ ist $f(2+h)=8{,}00000012\ldots$ Beide Funktionswerte sind etwa $8$ und tragen je einen Rundungsfehler bis etwa $8\cdot1{,}1\cdot10^{-16}\approx9\cdot10^{-16}$. Ihre Differenz ist etwa $1{,}2\cdot10^{-7}$; ein Fehler von $10^{-15}$ darin ist ein relativer Fehler von fast $10^{-8}$. Von den $16$ Stellen sind nach dem Abziehen also nur noch etwa $8$ richtig, und die Division durch $h$ ändert daran nichts.
+::::
 
 ⁠**Kurz gesagt:** Rechner runden jedes Ergebnis auf etwa $16$ Stellen, $\varepsilon_{\mathrm M}=2^{-52}$; beim Abziehen fast gleicher Zahlen bleiben davon nur wenige richtige Stellen übrig.
 
@@ -138,7 +144,9 @@ Trägt man den Fehler gegen $h$ doppelt logarithmisch auf, so entsteht ein V (Ab
 Der Fehler der beiden Differenzenquotienten für $f(x)=x^3$ an der Stelle $2$, in doppelter Genauigkeit gerechnet, gegen die Schrittweite $h$ von $10^{-15}$ bis $10^{-1}$, beide Achsen logarithmisch. Rechts herrscht der Abschneidefehler (Steigung $1$ bzw. $2$), links der Rundungsfehler (Steigung $-1$). Die gestrichelten Kurven sind die Abschätzungen [(11.5)](#gl-11-5); die tiefsten Punkte liegen bei $h\approx10^{-8}$ (vorwärts) und $h\approx3\cdot10^{-6}$ (zentral).
 :::
 
-⁠**Rechenbeispiel:** Für $f(x)=x^3$ an der Stelle $2$ ist $|f|=8$, $|f''|=12$ und $|f'''|=6$. Die beste Schrittweite der Vorwärtsdifferenz ist $h_+=\sqrt{2\cdot2{,}2\cdot10^{-16}\cdot8/12}\approx1{,}7\cdot10^{-8}$ mit einem Fehler von etwa $\sqrt{2\cdot2{,}2\cdot10^{-16}\cdot8\cdot12}\approx2{,}1\cdot10^{-7}$; bezogen auf $f'(2)=12$ sind das etwa acht richtige Stellen. Die beste Schrittweite der zentralen Differenz ist $h_0=(1{,}5\cdot2{,}2\cdot10^{-16}\cdot8/6)^{1/3}\approx7{,}6\cdot10^{-6}$ mit einem Fehler von etwa $(7{,}6\cdot10^{-6})^2+2{,}2\cdot10^{-16}\cdot8/(2\cdot7{,}6\cdot10^{-6})\approx1{,}7\cdot10^{-10}$, etwa elf richtige Stellen. Abb. [20](#abb-20) bestätigt beides: Gemessen wurden $7{,}3\cdot10^{-8}$ bei $h=10^{-8}$ und $2{,}0\cdot10^{-11}$ bei $h\approx3{,}2\cdot10^{-6}$. Mit $h=10^{-14}$ dagegen ist bei beiden Quotienten schon die erste Nachkommastelle falsch.
+::::beispiel [Rechenbeispiel]
+Für $f(x)=x^3$ an der Stelle $2$ ist $|f|=8$, $|f''|=12$ und $|f'''|=6$. Die beste Schrittweite der Vorwärtsdifferenz ist $h_+=\sqrt{2\cdot2{,}2\cdot10^{-16}\cdot8/12}\approx1{,}7\cdot10^{-8}$ mit einem Fehler von etwa $\sqrt{2\cdot2{,}2\cdot10^{-16}\cdot8\cdot12}\approx2{,}1\cdot10^{-7}$; bezogen auf $f'(2)=12$ sind das etwa acht richtige Stellen. Die beste Schrittweite der zentralen Differenz ist $h_0=(1{,}5\cdot2{,}2\cdot10^{-16}\cdot8/6)^{1/3}\approx7{,}6\cdot10^{-6}$ mit einem Fehler von etwa $(7{,}6\cdot10^{-6})^2+2{,}2\cdot10^{-16}\cdot8/(2\cdot7{,}6\cdot10^{-6})\approx1{,}7\cdot10^{-10}$, etwa elf richtige Stellen. Abb. [20](#abb-20) bestätigt beides: Gemessen wurden $7{,}3\cdot10^{-8}$ bei $h=10^{-8}$ und $2{,}0\cdot10^{-11}$ bei $h\approx3{,}2\cdot10^{-6}$. Mit $h=10^{-14}$ dagegen ist bei beiden Quotienten schon die erste Nachkommastelle falsch.
+::::
 
 ⁠**Kurz gesagt:** Zu großes $h$ gibt Abschneidefehler, zu kleines gibt Rundungsfehler; am besten ist vorwärts $h\approx10^{-8}$, zentral $h\approx10^{-5}$ bis $10^{-6}$, und die zentrale Differenz erreicht dabei etwa elf statt acht richtige Stellen.
 
@@ -166,17 +174,21 @@ wobei man $\rho_j=0$ setzt, wenn beide Werte null sind.
 
 Man vergleicht relativ, weil ein absoluter Fehler von $10^{-6}$ bei einer Ableitung von $10^{6}$ hervorragend, bei einer Ableitung von $10^{-6}$ aber ein vollständiger Fehlschlag ist. Bei Rechnung in doppelter Genauigkeit und $h$ in der Größenordnung $10^{-5}$ gelten diese Erfahrungswerte: Ein relativer Fehler über $10^{-2}$ bedeutet fast sicher einen Fehler in der Formel. Zwischen $10^{-2}$ und $10^{-4}$ ist das Ergebnis verdächtig. Unter $10^{-4}$ ist es bei Funktionen mit Knicken meist in Ordnung, und $10^{-7}$ oder weniger ist ein gutes Ergebnis. Eine Prüfung kostet $2n$ Auswertungen von $f$; man prüft deshalb nur an wenigen Stellen oder nur einige Komponenten. Für die eigentliche Rechnung ist der Rückwärtsmodus da, für ihre Kontrolle der Differenzenquotient.
 
-⁠**Rechenbeispiel 1:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ habe jemand den Gradienten $(2x_1x_2,\ x_1^2+x_2)^{\top}$ hergeleitet, mit einem vergessenen Faktor $2$. An der Stelle $(1,\,2)$ ist das $\mathbf{g}_{\mathrm a}=(4,\,3)^{\top}$. Mit $h=0{,}001$ ist
+::::beispiel [Rechenbeispiel 1]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ habe jemand den Gradienten $(2x_1x_2,\ x_1^2+x_2)^{\top}$ hergeleitet, mit einem vergessenen Faktor $2$. An der Stelle $(1,\,2)$ ist das $\mathbf{g}_{\mathrm a}=(4,\,3)^{\top}$. Mit $h=0{,}001$ ist
 
 $$\begin{aligned} g_{\mathrm n,1}&=\frac{f(1{,}001;\ 2)-f(0{,}999;\ 2)}{0{,}002}=\frac{6{,}004002-5{,}996002}{0{,}002}=4,\\ g_{\mathrm n,2}&=\frac{f(1;\ 2{,}001)-f(1;\ 1{,}999)}{0{,}002}=\frac{6{,}005001-5{,}995001}{0{,}002}=5 . \end{aligned}$$
 
 Die zentralen Differenzen sind hier exakt, weil $f$ in jeder einzelnen Variablen höchstens quadratisch ist. Die relativen Fehler sind $\rho_1=0$ und $\rho_2=|3-5|/5=0{,}4$: Die zweite Komponente ist falsch.
+::::
 
-⁠**Rechenbeispiel 2:** Geprüft wird die Formel $\sigma'(x)=\sigma(x)(1-\sigma(x))$ an der Stelle $1$. Mit zehn Stellen ist $\sigma(1)\approx0{,}7310585786$, und die Formel ergibt $0{,}7310585786\cdot0{,}2689414214\approx0{,}1966119332$. Mit $h=0{,}01$ ist $\sigma(1{,}01)\approx0{,}7330201492$ und $\sigma(0{,}99)\approx0{,}7290879223$, also
+::::beispiel [Rechenbeispiel 2]
+Geprüft wird die Formel $\sigma'(x)=\sigma(x)(1-\sigma(x))$ an der Stelle $1$. Mit zehn Stellen ist $\sigma(1)\approx0{,}7310585786$, und die Formel ergibt $0{,}7310585786\cdot0{,}2689414214\approx0{,}1966119332$. Mit $h=0{,}01$ ist $\sigma(1{,}01)\approx0{,}7330201492$ und $\sigma(0{,}99)\approx0{,}7290879223$, also
 
 $$g_{\mathrm n}=\frac{0{,}7330201492-0{,}7290879223}{0{,}02}=\frac{0{,}0039322269}{0{,}02}\approx0{,}196611345 .$$
 
 Der relative Fehler ist $\rho\approx5{,}9\cdot10^{-7}/0{,}1966\approx3{,}0\cdot10^{-6}$. Er stammt vom Abschneidefehler der verhältnismäßig großen Schrittweite und ist weit unter der Schwelle $10^{-2}$; die Formel ist richtig. In doppelter Genauigkeit mit $h=10^{-5}$ sinkt er auf etwa $10^{-11}$.
+::::
 
 ⁠**Kurz gesagt:** Die Gradientenprüfung vergleicht einen berechneten Gradienten komponentenweise mit zentralen Differenzen; relative Fehler über $10^{-2}$ zeigen einen Fehler in der Formel, solche unter $10^{-7}$ eine richtige Formel.
 
@@ -192,11 +204,13 @@ Die erste Ursache sind Knicke. An einem Knick, wie bei $|x|$ oder $\max(x,\,0)$ 
 Eine bestandene Gradientenprüfung an einer Stelle zeigt, dass die Formel dort stimmt, nicht überall. Ein vergessenes Glied, das an der geprüften Stelle null ist, fällt nicht auf. Prüfe deshalb an mehreren Stellen mit unregelmäßigen Zahlen und alle Komponenten, die verschieden berechnet werden.
 :::
 
-⁠**Rechenbeispiel:** Für $f(x)=|x|$ an der Stelle $x=10^{-6}$ ist die Ableitung $1$. Mit $h=10^{-5}$ liegt der Knick bei $0$ zwischen $x-h$ und $x+h$, und
+::::beispiel [Rechenbeispiel]
+Für $f(x)=|x|$ an der Stelle $x=10^{-6}$ ist die Ableitung $1$. Mit $h=10^{-5}$ liegt der Knick bei $0$ zwischen $x-h$ und $x+h$, und
 
 $$D_0f(10^{-6})=\frac{|1{,}1\cdot10^{-5}|-|-0{,}9\cdot10^{-5}|}{2\cdot10^{-5}}=\frac{0{,}2\cdot10^{-5}}{2\cdot10^{-5}}=0{,}1 .$$
 
 Der relative Fehler ist $0{,}9$, obwohl die Formel $f'(x)=1$ für $x>0$ richtig ist. Mit $h=10^{-7}$ liegt der Knick außerhalb, und die zentrale Differenz ist exakt $1$.
+::::
 
 ⁠**Kurz gesagt:** Knicke, einfache Genauigkeit, zu kleine Schrittweiten und Gradienten nahe null verfälschen die Prüfung; man prüft an mehreren unregelmäßigen Stellen.
 

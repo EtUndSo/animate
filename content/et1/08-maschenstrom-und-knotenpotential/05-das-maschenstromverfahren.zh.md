@@ -90,7 +90,8 @@ $U_{\mathrm q\mu}$ 是网孔中电源电压之和，每个驱动网孔电流的�
 用于网孔电流法的模型电路。右边的电流源已变换为电压源。红色是公共电阻 $R_2$ 和 $R_4$：它们出现在 $\mathbf Z$ 的对角线之外。I 和 III 没有公共支路，所以 $Z_{13}=0$。
 :::
 
-**例。** 右边得到 $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V，与 $R_5$ 串联（图 [3](#abb-3)）。三次顺时针绕行得
+::::beispiel
+右边得到 $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V，与 $R_5$ 串联（图 [3](#abb-3)）。三次顺时针绕行得
 
 $$\begin{aligned} \text{I:}\quad&R_1I_\mathrm I+R_2(I_\mathrm I-I_\mathrm{II})-U_\mathrm q=0,\\ \text{II:}\quad&R_2(I_\mathrm{II}-I_\mathrm I)+R_3I_\mathrm{II}+R_4(I_\mathrm{II}-I_\mathrm{III})=0,\\ \text{III:}\quad&R_4(I_\mathrm{III}-I_\mathrm{II})+R_5I_\mathrm{III}+U_\mathrm{q5}=0. \end{aligned}$$
 
@@ -105,6 +106,7 @@ $$D=5\cdot140+4\cdot(-60)=460,\qquad D_1=9\cdot140+4\cdot(-200)=460,$$
 $$D_2=5\cdot(-200)-9\cdot(-60)=-460,\qquad D_3=-1600+320+360=-920.$$
 
 所以 $I_\mathrm I=1$ mA，$I_\mathrm{II}=-1$ mA，$I_\mathrm{III}=-2$ mA。负号表示：网孔 II 和 III 实际上是逆时针流动的。由第 [2](maschenstrome-erfullen-die-knotenregel.html#stufe-2) 阶段得支路电流：$R_1$ 中 1 mA，$R_2$ 中向下 2 mA，$R_3$ 中从节点 2 到节点 1 为 1 mA，$R_4$ 中向下 1 mA。**检验：**$U_1=R_2\cdot2\,\mathrm{mA}=8$ V，$U_2=R_4\cdot1\,\mathrm{mA}=10$ V。网孔 I：$1+8-9=0$。
+::::
 
 ⁠**极限情况：**$R_2\to0$ 时 $Z_{12}=0$，网孔 I 解耦：中间的导线把两侧分开，因为不论流过多大电流，它上面的电压都为零。
 

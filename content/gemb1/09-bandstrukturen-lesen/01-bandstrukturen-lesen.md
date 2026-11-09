@@ -14,7 +14,7 @@ In einer Leuchtdiode steckt oft Galliumarsenid, in einem Prozessor Silizium. Bei
 
 Wer das kann, sieht einem Stoff an, ob er leitet, ob er Licht abgibt und wie schnell seine Elektronen auf ein Feld antworten. Vier Größen tragen das Kapitel. Die __Bandlücke__ ist der Energieabstand zwischen besetzten und leeren Bändern. Die __effektive Masse__ ist die Masse, mit der ein Elektron im Kristall auf eine Kraft reagiert. Das __Loch__ ist ein fehlendes Elektron in einem fast vollen Band, das sich wie ein eigenes Teilchen bewegt. Die __Entartung__ zählt, wie viele verschiedene Zustände dieselbe Energie haben.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

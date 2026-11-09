@@ -44,7 +44,9 @@ $$E=\frac{Q}{\varepsilon_0\,A},\qquad U=E\,d=\frac{Q\,d}{\varepsilon_0\,A}\quad\
 Mit Dielektrikum enden Linien auf der gebundenen Ladung $Q_\mathrm{g}$, durch den Raum läuft nur noch der Anteil $Q-Q_\mathrm{g}$. In den meisten Isolatoren ist dieser Anteil ein fester Bruchteil von $Q$. Man schreibt $Q-Q_\mathrm{g}=Q/\varepsilon_\mathrm{r}$, das ergibt $E=Q/(\varepsilon_\mathrm{r}\varepsilon_0A)$ und damit [(4.1)](#gl-4-1).
 :::
 
-**Beispiel.** Das Plattenpaar hat $C=8{,}854\cdot10^{-12}\,\mathrm{F/m}\cdot0{,}01\,\mathrm{m^2}/0{,}003\,\mathrm{m}=29{,}5$ pF. Mit Keramik der Zahl $\varepsilon_\mathrm{r}=1000$ wären es 29,5 nF. Für 100 µF bräuchte man bei 3 mm Luft die Fläche $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$, das sind 3,4 Hektar. Deshalb arbeiten reale Kondensatoren mit dünnen Schichten (Stufe [5](bauformen-und-selbstentladung.html#stufe-5)).
+::::beispiel
+Das Plattenpaar hat $C=8{,}854\cdot10^{-12}\,\mathrm{F/m}\cdot0{,}01\,\mathrm{m^2}/0{,}003\,\mathrm{m}=29{,}5$ pF. Mit Keramik der Zahl $\varepsilon_\mathrm{r}=1000$ wären es 29,5 nF. Für 100 µF bräuchte man bei 3 mm Luft die Fläche $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$, das sind 3,4 Hektar. Deshalb arbeiten reale Kondensatoren mit dünnen Schichten (Stufe [5](bauformen-und-selbstentladung.html#stufe-5)).
+::::
 
 ⁠**Kontrolle:** Die Einheit stimmt: $\frac{\mathrm{A\,s}}{\mathrm{V\,m}}\cdot\frac{\mathrm{m^2}}{\mathrm{m}}=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$. **Grenzfall:** Für $d\to0$ wüchse $C$ unbegrenzt. Das verhindert der __Durchschlag__: Bei $E_\mathrm{max}$ wird das Dielektrikum leitend, in Luft bei 3 MV/m ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Dünne Schichten brauchen deshalb einen festen Stoff, und jeder Kondensator hat eine Höchstspannung $U_\mathrm{max}=E_\mathrm{max}\,d$.
 

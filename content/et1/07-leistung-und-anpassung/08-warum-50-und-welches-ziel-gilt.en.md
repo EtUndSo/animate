@@ -40,7 +40,9 @@ Left: power at the load and efficiency versus $R_\mathrm{L}/R_\mathrm{i}$. The p
 | Current | $R_\mathrm{L}\ll R_\mathrm{i}$ | $I\approx I_\mathrm{SC}$, hardly load-dependent | close to 0 | Ammeter, current sources |
 | Power | $R_\mathrm{L}=R_\mathrm{i}$ | $P_\mathrm{L}$ maximum | $\frac12$ | Antennas, signal processing |
 
-**Examples.** At the battery, $R_\mathrm{L}=200\,\Omega$ gives the voltage 8.91 V, 99 % of $U_\mathrm{q}$. With $R_\mathrm{L}=0.02\,\Omega$, 4.46 A flow, 99 % of $I_\mathrm{SC}$. The step from 2 $\Omega$ to 8 $\Omega$ costs 36 % of the power and lowers the heat in the battery to 16 %.
+::::beispiel [Examples]
+At the battery, $R_\mathrm{L}=200\,\Omega$ gives the voltage 8.91 V, 99 % of $U_\mathrm{q}$. With $R_\mathrm{L}=0.02\,\Omega$, 4.46 A flow, 99 % of $I_\mathrm{SC}$. The step from 2 $\Omega$ to 8 $\Omega$ costs 36 % of the power and lowers the heat in the battery to 16 %.
+::::
 
 ⁠**Power engineering.** The powers are in the kW range, and all heat in the source costs money and endangers it. One wants high efficiency, that is, $R_\mathrm{i}\ll R_\mathrm{L}$. A power-tool battery with 18 V and 60 m$\Omega$ still reaches $\eta=1-7.2\,\mathrm{V}/18\,\mathrm{V}=60$ % during startup at 120 A, and $(120\,\mathrm{A})^2\cdot60\,\mathrm{m\Omega}=864$ W arise inside. A work light with 1.8 W acts like 180 $\Omega$, and $\eta=180/180.06=99.97$ %. Matching would mean 1350 W of heat in the battery here.
 
@@ -64,7 +66,11 @@ Left, the network at matching with the actual powers. Right, its equivalent sour
 With $R_\mathrm{L}=R_\mathrm{q}R/(R_\mathrm{q}+R)$, $R\parallel R_\mathrm{L}=R^2R_\mathrm{q}/(R^2+2R_\mathrm{q}R)=R\,R_\mathrm{q}/(R+2R_\mathrm{q})$. This gives $R_\mathrm{tot}=2R_\mathrm{q}(R_\mathrm{q}+R)/(2R_\mathrm{q}+R)$. In general, the voltage divider gives $U_\mathrm{L}=U_\mathrm{q}(R\parallel R_\mathrm{L})/R_\mathrm{tot}=U_\mathrm{q}\,R\,R_\mathrm{L}/\bigl(R_\mathrm{q}(R+R_\mathrm{L})+R\,R_\mathrm{L}\bigr)$. Substituting gives the formula in [(7.2)](#gl-7-2). Thus $P_\mathrm{L}=U_\mathrm{L}^2(R_\mathrm{q}+R)/(R_\mathrm{q}R)$. The quotient of $P_\mathrm{L}$ and $P_\mathrm{q}$ reduces to [(7.3)](#gl-7-3).
 :::
 
-**Example.** For $U_\mathrm{q}=18$ V, $R_\mathrm{q}=6\,\Omega$ and $R=3\,\Omega$, $R_\mathrm{i}=2\,\Omega$ and $U_\mathrm{OC}=6$ V. At $R_\mathrm{L}=2\,\Omega$, 3 V are across the load, and it receives 4.5 W. 2.5 A flow through $R_\mathrm{q}$, of which 1 A goes through $R$. That gives 37.5 W in $R_\mathrm{q}$, 3 W in $R$, and together with the load $P_\mathrm{q}=45$ W and $\eta=10$ %. The equivalent source appears to show 50 %, because it says nothing about the interior. The current through $R$ also flows without a load; even in an open circuit the network heats with 36 W. **Limiting case:** For $R\to\infty$, this branch disappears, and [(7.3)](#gl-7-3) gives $\eta=\frac12$ again.
+::::beispiel
+For $U_\mathrm{q}=18$ V, $R_\mathrm{q}=6\,\Omega$ and $R=3\,\Omega$, $R_\mathrm{i}=2\,\Omega$ and $U_\mathrm{OC}=6$ V. At $R_\mathrm{L}=2\,\Omega$, 3 V are across the load, and it receives 4.5 W. 2.5 A flow through $R_\mathrm{q}$, of which 1 A goes through $R$. That gives 37.5 W in $R_\mathrm{q}$, 3 W in $R$, and together with the load $P_\mathrm{q}=45$ W and $\eta=10$ %. The equivalent source appears to show 50 %, because it says nothing about the interior. The current through $R$ also flows without a load; even in an open circuit the network heats with 36 W.
+::::
+
+⁠**Limiting case:** For $R\to\infty$, this branch disappears, and [(7.3)](#gl-7-3) gives $\eta=\frac12$ again.
 
 :::frage Does $\eta=50$ % at the maximum mean that with matching I “lose” half of the energy?
 With a source with a real internal resistance, yes; it heats up as much as the load. At low power this is tolerable. Where energy is expensive or the source is sensitive, one operates far to the right of the maximum.

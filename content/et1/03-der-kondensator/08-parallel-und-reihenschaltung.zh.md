@@ -38,7 +38,9 @@ $$C_\mathrm{G}=\sum_{i=1}^nC_i,\qquad\qquad\frac{1}{C_\mathrm{G}}=\sum_{i=1}^n\f
 
 ⁠**如何理解：**$C_\mathrm{G}$ 是这样一个单独电容器的电容：它在两个外部接线端上表现出相同的行为。并联时 $C_\mathrm{G}$ 大于每个单独的值，串联时小于最小的值。**适用条件：**右边的公式要求开始时孤岛不带电。否则孤岛上原有的电荷保持不变，$Q_i=Q_\mathrm{G}$ 只对新增的电荷成立。
 
-**例。** 并联：$C_\mathrm{G}=150\,\mu\text{F}$，$Q_1=900\,\mu\text{C}$，$Q_2=450\,\mu\text{C}$。串联：$1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$，因此 $C_\mathrm{G}=33.3\,\mu\text{F}$。在 9 V 下 $Q=300\,\mu\text{C}$，$U_1=3$ V，$U_2=6$ V。
+::::beispiel
+并联：$C_\mathrm{G}=150\,\mu\text{F}$，$Q_1=900\,\mu\text{C}$，$Q_2=450\,\mu\text{C}$。串联：$1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$，因此 $C_\mathrm{G}=33.3\,\mu\text{F}$。在 9 V 下 $Q=300\,\mu\text{C}$，$U_1=3$ V，$U_2=6$ V。
+::::
 
 ⁠**极限情况：**当 $C_2\to\infty$ 时，串联的 $C_\mathrm{G}\to C_1$，极大的电容器相当于一根导线。当 $C_2\to0$ 时，串联的 $C_\mathrm{G}\to0$，间隙使电路断开，并联时则剩下 $C_1$。
 

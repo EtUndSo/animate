@@ -20,13 +20,16 @@ $$m_g=m_s\sum_nh(n),\qquad\varphi_{gg}(m)=\varphi_{ss}(m)*\varphi^E_{hh}(m),\qqu
 
 con la densidad espectral de potencia periódica $\Phi_{ss,\mathrm a}(f)=\sum_m\varphi_{ss}(m)\mathrm{e}^{-\mathrm{j}2\pi fm}$ y $L_s=\int_{-1/2}^{1/2}\Phi_{ss,\mathrm a}\mathrm{d} f$. El __ruido blanco en tiempo discreto__ tiene $\Phi_{ss,\mathrm a}=N$ y $\varphi_{ss}(m)=N\delta(m)$: los números consecutivos están incorrelados. A diferencia del caso continuo, su potencia es finita, $L_s=N$.
 
-**Ejemplo 1: promedio de dos valores.** Ruido blanco con distribución uniforme ($\sigma_s^2=\frac1{12}$) a través de $h(n)=\frac12[\delta(n)+\delta(n-1)]$, es decir, $g(n)=\frac12[s(n)+s(n-1)]$. Con $\varphi^E_{hh}=\frac14\delta(m+1)+\frac12\delta(m)+\frac14\delta(m-1)$:
+::::beispiel [Ejemplo 1] promedio de dos valores
+Ruido blanco con distribución uniforme ($\sigma_s^2=\frac1{12}$) a través de $h(n)=\frac12[\delta(n)+\delta(n-1)]$, es decir, $g(n)=\frac12[s(n)+s(n-1)]$. Con $\varphi^E_{hh}=\frac14\delta(m+1)+\frac12\delta(m)+\frac14\delta(m-1)$:
 
 $$\varphi_{gg}(m)=\tfrac{\sigma_s^2}{4}\delta(m+1)+\tfrac{\sigma_s^2}{2}\delta(m)+\tfrac{\sigma_s^2}{4}\delta(m-1).$$
 
 La varianza se reduce a la mitad, a $\frac{1}{24}$, y los valores de salida vecinos están ahora correlados (comparten un valor de entrada). Los valores de salida tienen distribución triangular, porque cada uno es la semisuma de dos números independientes con distribución uniforme. Una simulación con 200 000 números da la varianza 0,0415 en lugar de $\frac1{24}=0{,}0417$.
+::::
 
-**Ejemplo 2: filtro recursivo (proceso AR(1)).** Ruido blanco de varianza $\sigma_s^2$ a través de $h(n)=b^n\varepsilon(n)$ ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). Con $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
+::::beispiel [Ejemplo 2] filtro recursivo (proceso AR(1))
+Ruido blanco de varianza $\sigma_s^2$ a través de $h(n)=b^n\varepsilon(n)$ ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). Con $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
 
 <span class="anker" id="gl-12-2"></span>
 $$\varphi_{gg}(m)=\frac{\sigma_s^2}{1-b^2}\,b^{|m|},\qquad\Phi_{gg,\mathrm a}(f)=\frac{\sigma_s^2}{1-2b\cos(2\pi f)+b^2}. \tag{12.2}$$
@@ -36,6 +39,7 @@ Para $b=0{,}6$, la varianza es $1{,}56$ veces la varianza de entrada, y los valo
 :::abbildung et3/k7ar 5
 Densidades espectrales de potencia de procesos AR(1), periódicas con periodo 1. Para $b=0{,}6$ van de 6,25 ($f=0$) a 0,39 ($f=\frac12$); para $b=0{,}9$, de 100 a 0,28.
 :::
+::::
 
 :::aufgabe Ejercicio 12 ★★ Proceso AR(1)
 <span class="anker" id="aufg-12"></span>

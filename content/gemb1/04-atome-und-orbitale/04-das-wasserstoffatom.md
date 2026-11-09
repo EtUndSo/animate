@@ -57,7 +57,11 @@ $$\frac{\hbar^2}{m_0a}=\frac{e^2}{4\pi\varepsilon_0}\quad\Rightarrow\quad a=r_1=
 Die Normierung verlangt $1=A^2\int_0^\infty\mathrm{e}^{-2r/r_1}\,4\pi r^2\,\mathrm{d} r=A^2\pi r_1^3$. Das ist [(2.3)](#gl-2-3). Für $n\ge2$ hat die Welle Knoten, die Rechnung wird länger und liefert den Faktor $1/n^2$.
 :::
 
-**Beispiel.** Es ist $E_2=-3{,}40$ eV und $E_3=-1{,}51$ eV. Fällt das Elektron von $n=3$ auf $n=2$, nimmt ein Photon die Differenz 1,89 eV mit. Das ergibt $\lambda=h\,c/\Delta E=656$ nm, die rote Linie im Licht von Wasserstoff. Die Wärmeenergie bei 300 K ist $k_\mathrm BT=25{,}85$ meV ($k_\mathrm B$: Boltzmann-Konstante). Der Abstand $E_2-E_1=10{,}2$ eV ist 395-mal größer, Wärme hebt das Elektron also nicht an. **Grenzfälle:** Für $n\to\infty$ geht $E_n\to0$, die Niveaus rücken zusammen und gehen in die freien Zustände über. Für $Z$ Protonen und ein Elektron ersetzt man $e^2$ durch $Ze^2$: Dann ist $E_n\propto Z^2$ und $r_1\propto1/Z$.
+::::beispiel
+Es ist $E_2=-3{,}40$ eV und $E_3=-1{,}51$ eV. Fällt das Elektron von $n=3$ auf $n=2$, nimmt ein Photon die Differenz 1,89 eV mit. Das ergibt $\lambda=h\,c/\Delta E=656$ nm, die rote Linie im Licht von Wasserstoff. Die Wärmeenergie bei 300 K ist $k_\mathrm BT=25{,}85$ meV ($k_\mathrm B$: Boltzmann-Konstante). Der Abstand $E_2-E_1=10{,}2$ eV ist 395-mal größer, Wärme hebt das Elektron also nicht an.
+::::
+
+⁠**Grenzfälle:** Für $n\to\infty$ geht $E_n\to0$, die Niveaus rücken zusammen und gehen in die freien Zustände über. Für $Z$ Protonen und ein Elektron ersetzt man $e^2$ durch $Ze^2$: Dann ist $E_n\propto Z^2$ und $r_1\propto1/Z$.
 
 :::frage In der Box wächst die Energie mit $n^2$. Warum steht hier $1/n^2$, und warum rücken die Niveaus nach oben zusammen?
 Die Box hat eine feste Breite, der Trichter wird nach oben breiter. Der Umkehrradius ist $r_\mathrm U=2n^2r_1$. Setzt man $L\propto n^2$ in die Box-Regel $E\propto n^2/L^2$ ein, entsteht $1/n^2$. Das ist nur eine Abschätzung, trifft aber das Gesetz.

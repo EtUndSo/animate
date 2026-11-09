@@ -42,13 +42,17 @@ La ley de los nudos se cumple entonces para todos los valores de las $I_\mu$. A 
 
 ⁠**Cómo leerlo:** $\mu$ numera las mallas, en los ejemplos con números romanos. El sentido es libre; un valor negativo significa que la corriente circulante gira al revés. **Validez:** Las mallas deben ser independientes. Si la red se puede dibujar sin cruces, se eligen las __ventanas__, las superficies entre las ramas. Al construir desde el árbol, cada nueva rama de enlace divide exactamente una superficie en dos, así que hay exactamente $m$ ventanas.
 
-**Ejemplo.** Si en la red modelo se agrupan la fuente de corriente y $R_5$ en una rama con fuente de tensión (etapa [3](das-maschenstromverfahren.html#stufe-3)), quedan tres ventanas I, II, III con corrientes de malla en sentido horario. De ellas se deducen las cinco corrientes de rama:
+::::beispiel
+Si en la red modelo se agrupan la fuente de corriente y $R_5$ en una rama con fuente de tensión (etapa [3](das-maschenstromverfahren.html#stufe-3)), quedan tres ventanas I, II, III con corrientes de malla en sentido horario. De ellas se deducen las cinco corrientes de rama:
 
 | Rama | izquierda, $R_1$ | $R_2$ | $R_3$ | $R_4$ | derecha, $R_5$ |
 |---|---|---|---|---|---|
 | Corriente | $I_\mathrm I$ | $I_\mathrm I-I_\mathrm{II}$ | $I_\mathrm{II}$ | $I_\mathrm{II}-I_\mathrm{III}$ | $I_\mathrm{III}$ |
 
-En el nudo 1 esto da $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$, sean cuales sean los valores de las corrientes. **Casos límite:** Para $m=1$, la corriente de malla es la corriente de la conexión en serie. Para $I_\mathrm{II}=0$ desaparece la corriente en $R_3$; las mitades izquierda y derecha no intercambian nada.
+En el nudo 1 esto da $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$, sean cuales sean los valores de las corrientes.
+::::
+
+⁠**Casos límite:** Para $m=1$, la corriente de malla es la corriente de la conexión en serie. Para $I_\mathrm{II}=0$ desaparece la corriente en $R_3$; las mitades izquierda y derecha no intercambian nada.
 
 :::frage ¿Qué mide un amperímetro en la rama de $R_2$, $I_\mathrm I$ o $I_\mathrm{II}$?
 Ninguna de las dos, sino la corriente de rama $I_\mathrm I-I_\mathrm{II}$. Una corriente de malla solo se puede medir directamente donde circula sola, aquí por ejemplo $I_\mathrm I$ en $R_1$. Esa es la idea del árbol: la corriente de malla es la corriente de una rama que pertenece solo a esa malla.

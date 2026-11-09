@@ -14,7 +14,7 @@ Ein Ball, der zu langsam ist, rollt am Hang zurück. Er kommt nie auf die andere
 
 Die Frage dieses Kapitels lautet: *Was tut eine Elektronenwelle an einer endlich hohen Wand, und kommt etwas auf der anderen Seite an?* Davon hängt ab, ob die nur wenige Atomlagen dicke Isolierschicht in einem Transistor dicht hält und wie viel Strom ein Chip im Ruhezustand verliert. Den Durchgang durch eine Wand, die ein Teilchen klassisch nicht überwinden könnte, nennt man __Tunneleffekt__. Zwei Größen beschreiben ihn: Der __Transmissionskoeffizient__ sagt, welcher Anteil der Elektronen durchkommt, die __Eindringtiefe__, wie weit die Welle in die Wand hineinreicht.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

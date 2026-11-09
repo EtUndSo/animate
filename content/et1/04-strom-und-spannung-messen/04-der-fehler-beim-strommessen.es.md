@@ -36,7 +36,9 @@ El __error relativo__ es $f=(I_R'-I_R)/I_R=-R_\mathrm i/(R+R_\mathrm i)$. Para $
 La regla de las mallas dice $U=I_R'R+I_R'R_\mathrm i$, es decir, $I_R'=U/(R+R_\mathrm i)$. Con ello, $f=I_R'/I_R-1=R/(R+R_\mathrm i)-1=-R_\mathrm i/(R+R_\mathrm i)$.
 :::
 
-**Ejemplo.** $I_R=5$ mA, $I_R'=9\,\mathrm{V}/1810\,\Omega=4{,}972$ mA, es decir, $f=-0{,}55\,\%$. Con 1 $\Omega$, como en el multímetro digital, serían 4,997 mA y $f=-0{,}056\,\%$: error despreciable. Con una resistencia pequeña la cosa cambia: 0,9 V en 90 $\Omega$ dan 10 mA; con el instrumento, solo 9 mA, es decir, $f=-10\,\%$. No decide el instrumento por sí solo, sino la relación $R_\mathrm i/R$.
+::::beispiel
+$I_R=5$ mA, $I_R'=9\,\mathrm{V}/1810\,\Omega=4{,}972$ mA, es decir, $f=-0{,}55\,\%$. Con 1 $\Omega$, como en el multímetro digital, serían 4,997 mA y $f=-0{,}056\,\%$: error despreciable. Con una resistencia pequeña la cosa cambia: 0,9 V en 90 $\Omega$ dan 10 mA; con el instrumento, solo 9 mA, es decir, $f=-10\,\%$. No decide el instrumento por sí solo, sino la relación $R_\mathrm i/R$.
+::::
 
 ⁠**Casos límite:** $R_\mathrm i\to0$ da $f\to0$. $R\to0$ da $I_R'\to U/R_\mathrm i$ y $f\to-100\,\%$: ya solo el instrumento limita la corriente. Eso es el ejercicio [1](das-messgerat-ist-ein-bauteil.html#aufg-1)(a).
 

@@ -80,11 +80,13 @@ Dirac comb with $T=0.5$ s and its spectrum: again a comb, with the spacing $1/
 The equation $\mathrm{j}2\pi f\,S(f)=1$ determines $S$ only for $f\neq0$. At $f=0$ the left-hand side is $0\cdot S(0)$, and a term $c\,\delta(f)$ drops out because $f\delta(f)=0$. This is the counterpart of the fact that differentiation “forgets” a constant: $\varepsilon(t)$ and $\varepsilon(t)+b$ have the same derivative. Which constant is correct is decided by the even part: $\varepsilon$ has the mean value $\frac12$, so $c=\frac12$.
 :::
 
-**Example: the switched-on cosine.** $\varepsilon(t)\cos(2\pi Ft)$. Multiplication becomes convolution, and convolution with a Dirac impulse shifts:
+::::beispiel the switched-on cosine
+$\varepsilon(t)\cos(2\pi Ft)$. Multiplication becomes convolution, and convolution with a Dirac impulse shifts:
 
 $$\Bigl[\tfrac12\delta(f)+\tfrac{1}{\mathrm{j}2\pi f}\Bigr]*\tfrac12\bigl[\delta(f+F)+\delta(f-F)\bigr] =\tfrac14\bigl[\delta(f+F)+\delta(f-F)\bigr]-\frac{\mathrm{j}}{4\pi}\Bigl[\frac{1}{f+F}+\frac{1}{f-F}\Bigr].$$
 
 Besides the halved lines at $\pm F$, a broad spectrum arises: the switch-on process itself contains frequencies near $\pm F$.
+::::
 
 :::aufgabe Exercise 10 ★ Line spectra
 <span class="anker" id="aufg-10"></span>

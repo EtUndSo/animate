@@ -90,7 +90,9 @@ $\vec v_1,\dots,\vec v_n\in V$ sind linear unabhängig genau dann, wenn keiner d
 Die Vektoren $\vec c$, $\vec d$ und $\vec f=2\vec c-\vec d$ liegen in einer Ebene durch $O$ und sind linear abhängig. Der Weg $2\vec c$, dann $-\vec d$ führt zur Spitze von $\vec f$. Der Vektor $(0,0,2)$ ragt aus der Ebene heraus, darum sind $\vec c$, $\vec d$, $(0,0,2)$ linear unabhängig.
 :::
 
-**Beispiel.** $\vec c$ und $\vec d$ sind linear unabhängig: $s\vec c+t\vec d=(2s,s+t,2t)=\vec0$ erzwingt mit der ersten Komponente $s=0$, mit der dritten $t=0$. Dagegen ist $2\vec c-\vec d-\vec f=\vec0$ eine nichttriviale Kombination. Für die Polynome gilt $p+q-r=0$, also ist $\operatorname{span}\{p,q,r\}=\operatorname{span}\{p,q\}$. Die Polynome $1,x,x^2$ sind linear unabhängig: Ist $\alpha_0+\alpha_1x+\alpha_2x^2=0$ für alle $x$, folgt aus dem Identitätssatz ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)) $\alpha_0=\alpha_1=\alpha_2=0$.
+::::beispiel
+$\vec c$ und $\vec d$ sind linear unabhängig: $s\vec c+t\vec d=(2s,s+t,2t)=\vec0$ erzwingt mit der ersten Komponente $s=0$, mit der dritten $t=0$. Dagegen ist $2\vec c-\vec d-\vec f=\vec0$ eine nichttriviale Kombination. Für die Polynome gilt $p+q-r=0$, also ist $\operatorname{span}\{p,q,r\}=\operatorname{span}\{p,q\}$. Die Polynome $1,x,x^2$ sind linear unabhängig: Ist $\alpha_0+\alpha_1x+\alpha_2x^2=0$ für alle $x$, folgt aus dem Identitätssatz ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)) $\alpha_0=\alpha_1=\alpha_2=0$.
+::::
 
 **Ebenen.** Zwei linear unabhängige Richtungen spannen eine Ebene auf.
 

@@ -33,12 +33,14 @@ zu; sie heißt __vektorwertig__. Die Funktionen $g_1,\dots,g_m:\mathbb{R}^n\to\m
 
 Vektorwertige Funktionen schreibt dieses Kapitel fett, wie Vektoren; Funktionen mit einer Zahl als Wert schreibt es mager.
 
-⁠**Rechenbeispiel:** Durch die Abschnitte [5](#stufe-5) und [6](die-kettenregel-fur-mehrere-variablen.html#stufe-6) begleitet uns die Funktion $\mathbf{g}:\mathbb{R}^2\to\mathbb{R}^2$ mit
+::::beispiel [Rechenbeispiel]
+Durch die Abschnitte [5](#stufe-5) und [6](die-kettenregel-fur-mehrere-variablen.html#stufe-6) begleitet uns die Funktion $\mathbf{g}:\mathbb{R}^2\to\mathbb{R}^2$ mit
 
 <span class="anker" id="gl-5-1"></span>
 $$\mathbf{g}(\mathbf{x})=\begin{pmatrix}x_1x_2\\ 2x_1+x_2^2\end{pmatrix},\qquad \mathbf{g}(1,2)=\begin{pmatrix}2\\6\end{pmatrix}. \tag{5.1}$$
 
 Ihre Komponenten sind $g_1(\mathbf{x})=x_1x_2$ und $g_2(\mathbf{x})=2x_1+x_2^2$.
+::::
 
 ⁠**Kurz gesagt:** Eine vektorwertige Funktion $\mathbf{g}:\mathbb{R}^n\to\mathbb{R}^m$ besteht aus $m$ Funktionen von $n$ Variablen, einer für jeden Ausgang.
 
@@ -61,11 +63,13 @@ die __Jacobi-Matrix__ von $\mathbf{g}$ an der Stelle $\mathbf{x}$.
 
 Die Zeile $i$ gehört zum Ausgang $g_i$; sie ist sein Gradient, als Zeile geschrieben: $\nabla g_i(\mathbf{x})^{\top}$. Die Spalte $j$ gehört zum Eingang $x_j$; sie sagt, wie alle Ausgänge zugleich reagieren, wenn man nur $x_j$ verändert. Für eine Funktion $f:\mathbb{R}^n\to\mathbb{R}$ mit einem einzigen Ausgang ist die Jacobi-Matrix eine $1\times n$-Matrix, nämlich der Gradient als Zeile: $\mathbf{J}_f(\mathbf{x})=\nabla f(\mathbf{x})^{\top}$. Die Matrix ist nach dem Mathematiker Carl Gustav Jacob Jacobi benannt.
 
-⁠**Rechenbeispiel:** Für $\mathbf{g}$ aus [(5.1)](#gl-5-1) ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{g}$ aus [(5.1)](#gl-5-1) ist
 
 $$\mathbf{J}_{\mathbf{g}}(\mathbf{x})=\begin{pmatrix}x_2&x_1\\2&2x_2\end{pmatrix},\qquad \mathbf{J}_{\mathbf{g}}(1,2)=\begin{pmatrix}2&1\\2&4\end{pmatrix}.$$
 
 Die erste Spalte $(2,\,2)^{\top}$ sagt: Wächst $x_1$ um ein kleines $h$, wachsen beide Ausgänge um etwa $2h$. Die zweite Spalte $(1,\,4)^{\top}$ sagt: Wächst $x_2$, reagiert der zweite Ausgang viermal so stark wie der erste.
+::::
 
 ⁠**Kurz gesagt:** Die Jacobi-Matrix hat eine Zeile je Ausgang und eine Spalte je Eingang; ihr Eintrag $(i,j)$ ist $\partial g_i/\partial x_j$.
 
@@ -90,7 +94,8 @@ Die Komponente $i$ von $\mathbf{J}_{\mathbf{g}}(\mathbf{x})\,\mathbf{h}$ ist $\n
 
 In der Nähe von $\mathbf{x}$ wirkt $\mathbf{g}$ also wie die lineare Abbildung $\mathbf{h}\mapsto\mathbf{J}_{\mathbf{g}}(\mathbf{x})\,\mathbf{h}$, und nach [Grundlagen 1, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), gehört zu jeder linearen Abbildung genau eine Matrix. Die Jacobi-Matrix ist diese Matrix. Unter der Lupe verformt $\mathbf{g}$ ein kleines Gitter um $\mathbf{x}$ so, wie die Matrix $\mathbf{J}_{\mathbf{g}}(\mathbf{x})$ das Einheitsgitter verformt: Es wird gedreht, gestreckt oder geschert, aber gerade Linien bleiben fast gerade.
 
-⁠**Rechenbeispiel:** Für $\mathbf{g}$ aus [(5.1)](#gl-5-1) an der Stelle $(1,\,2)$ und $\mathbf{h}=(0{,}1;\ -0{,}1)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{g}$ aus [(5.1)](#gl-5-1) an der Stelle $(1,\,2)$ und $\mathbf{h}=(0{,}1;\ -0{,}1)^{\top}$ ist
 
 $$\mathbf{J}_{\mathbf{g}}(1,2)\,\mathbf{h}=\begin{pmatrix}2\cdot0{,}1+1\cdot(-0{,}1)\\2\cdot0{,}1+4\cdot(-0{,}1)\end{pmatrix}=\begin{pmatrix}0{,}1\\-0{,}2\end{pmatrix}, \qquad \mathbf{g}(1{,}1;\ 1{,}9)\approx\begin{pmatrix}2{,}1\\5{,}8\end{pmatrix}.$$
 
@@ -99,6 +104,7 @@ Genau ist $\mathbf{g}(1{,}1;\ 1{,}9)=(2{,}09;\ 5{,}81)^{\top}$. Abb. [10](#abb-
 :::abbildung ml/k3rjacobi 10
 Die Änderung der linearen Näherung von $\mathbf{g}$ an der Stelle $\mathbf{x}=(1,\,2)^{\top}$ als Matrix-Vektor-Produkt: Jede Zeile ist das Skalarprodukt aus dem Gradienten eines Ausgangs und der Verschiebung.
 :::
+::::
 
 ⁠**Kurz gesagt:** Nahe bei $\mathbf{x}$ ist $\mathbf{g}(\mathbf{x}+\mathbf{h})\approx\mathbf{g}(\mathbf{x})+\mathbf{J}_{\mathbf{g}}(\mathbf{x})\,\mathbf{h}$; die Jacobi-Matrix ist die Matrix der linearen Abbildung, als die $\mathbf{g}$ im Kleinen wirkt.
 
@@ -137,7 +143,9 @@ $$\mathbf{J}_{\mathbf{g}}(\mathbf{x})=\operatorname{diag}\bigl(\varphi'(x_1),\,\
 
 Beide Ergebnisse haben einen einfachen Grund. Eine affine Abbildung ist schon linear bis auf die Verschiebung $\mathbf{b}$; ihre beste lineare Näherung ist sie selbst ohne $\mathbf{b}$. Bei einer elementweisen Funktion wirkt jeder Eingang nur auf seinen eigenen Ausgang; alle Einträge außerhalb der Diagonale sind null, weil es keine Verbindungen zwischen verschiedenen Komponenten gibt.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&-1\\3&1\end{smallmatrix}\bigr)$ ist die Jacobi-Matrix von $\mathbf{x}\mapsto\mathbf{A}\mathbf{x}$ überall $\mathbf{A}$ selbst. Quadriert man jede Komponente, $\varphi(t)=t^2$, so ist an der Stelle $\mathbf{x}=(1,\,-2,\,3)^{\top}$ die Jacobi-Matrix $\operatorname{diag}(2;\,-4;\,6)$. Wendet man die logistische Funktion auf jede Komponente von $\mathbf{x}=(0,\,2)^{\top}$ an, so ist sie nach [(2.4)](die-kettenregel.html#gl-2-4) $\operatorname{diag}\bigl(\sigma'(0);\,\sigma'(2)\bigr)\approx\operatorname{diag}(0{,}25;\ 0{,}105)$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&-1\\3&1\end{smallmatrix}\bigr)$ ist die Jacobi-Matrix von $\mathbf{x}\mapsto\mathbf{A}\mathbf{x}$ überall $\mathbf{A}$ selbst. Quadriert man jede Komponente, $\varphi(t)=t^2$, so ist an der Stelle $\mathbf{x}=(1,\,-2,\,3)^{\top}$ die Jacobi-Matrix $\operatorname{diag}(2;\,-4;\,6)$. Wendet man die logistische Funktion auf jede Komponente von $\mathbf{x}=(0,\,2)^{\top}$ an, so ist sie nach [(2.4)](die-kettenregel.html#gl-2-4) $\operatorname{diag}\bigl(\sigma'(0);\,\sigma'(2)\bigr)\approx\operatorname{diag}(0{,}25;\ 0{,}105)$.
+::::
 
 ⁠**Kurz gesagt:** Die Jacobi-Matrix von $\mathbf{x}\mapsto\mathbf{A}\mathbf{x}+\mathbf{b}$ ist $\mathbf{A}$; die einer elementweisen Funktion ist die Diagonalmatrix der einzelnen Ableitungen.
 

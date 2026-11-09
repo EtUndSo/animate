@@ -49,7 +49,11 @@ Here $\sigma=n\,e\,\mu$ and $\mu=e\,T/(2\,m_\mathrm e)$ ([Part 2](/wissen/en/el
 Limit of a resistor with 250 mW. Each resistance value may be operated only up to the hyperbola: 25 $\Omega$ up to 100 mA, 100 $\Omega$ up to 50 mA, 400 $\Omega$ up to 25 mA.
 :::
 
-**Example.** With 100 $\Omega$ and 250 mW, $U_\mathrm{max}=5$ V and $I_\mathrm{max}=50$ mA are permissible. At ideal 9 V, 810 mW would arise, 3.24 times the limit. It would take $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$. **Limiting cases:** $R\to\infty$ gives $P\to0$. $R\to0$ gives $P\to\infty$ at fixed voltage. Only the internal resistance of the source prevents this (Stage [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5)).
+::::beispiel
+With 100 $\Omega$ and 250 mW, $U_\mathrm{max}=5$ V and $I_\mathrm{max}=50$ mA are permissible. At ideal 9 V, 810 mW would arise, 3.24 times the limit. It would take $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$.
+::::
+
+⁠**Limiting cases:** $R\to\infty$ gives $P\to0$. $R\to0$ gives $P\to\infty$ at fixed voltage. Only the internal resistance of the source prevents this (Stage [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5)).
 
 :::frage Heating wire and lead carry the same current. Why does only the heating wire glow?
 At equal current, the heat is proportional to $R$. A lead with 10 m$\Omega$ converts only 2.5 mW at 0.5 A, while the 16 $\Omega$ load converts 4 W, 1600 times as much. In hair dryers and soldering irons the heat is the purpose; in the line it is a loss (Stage [4](leitungsverluste.html#stufe-4)).

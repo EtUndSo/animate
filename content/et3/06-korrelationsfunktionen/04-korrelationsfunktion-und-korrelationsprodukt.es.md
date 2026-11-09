@@ -40,11 +40,13 @@ Una señal de duración limitada tiene una FAC de duración doble.
 
 ⁠**Cómo leerlo:** a lo que más se parece una señal es a sí misma sin desplazar, y ahí la FAC es su energía. La FAC de un rectángulo es el triángulo: $\varphi^E_{ss}=\operatorname{rect}(-\tau)*\operatorname{rect}(\tau)=\Lambda(\tau)$, el doble de ancho que el rectángulo (fig. [1](#abb-1), izquierda).
 
-**Ejemplo: encontrar un eco.** Se emite $s=\operatorname{rect}(t)$ y se recibe el eco atenuado y retrasado $g=0{,}5\operatorname{rect}(t-3)$. La FCC es $\varphi^E_{sg}(\tau)=0{,}5\,\Lambda(\tau-3)$: su máximo está en $\tau=3$, el retardo, y su altura $0{,}5=0{,}5\cdot E_s$ indica la atenuación (fig. [1](#abb-1), derecha). Así mide un radar la distancia.
+::::beispiel encontrar un eco
+Se emite $s=\operatorname{rect}(t)$ y se recibe el eco atenuado y retrasado $g=0{,}5\operatorname{rect}(t-3)$. La FCC es $\varphi^E_{sg}(\tau)=0{,}5\,\Lambda(\tau-3)$: su máximo está en $\tau=3$, el retardo, y su altura $0{,}5=0{,}5\cdot E_s$ indica la atenuación (fig. [1](#abb-1), derecha). Así mide un radar la distancia.
 
 :::abbildung et3/k6korr 1
 Izquierda: la FAC del rectángulo es el triángulo, con máximo $=E_s=1$ en $\tau=0$ y el doble de anchura. Derecha: la FCC entre el pulso emitido y el eco $0{,}5\operatorname{rect}(t-3)$ tiene su máximo en el retardo $\tau=3$.
 :::
+::::
 
 :::frage La convolución y la correlación parecen casi iguales. ¿Dónde está la diferencia?
 En la convolución, $\int s(\tau)h(t-\tau)\mathrm{d}\tau$, la segunda señal avanza hacia atrás ($-\tau$): el sistema «recuerda» el pasado. En la correlación, $\int s^*(t)g(t+\tau)\mathrm{d} t$, ambas avanzan hacia delante: se colocan dos formas una exactamente sobre la otra y se mide su coincidencia. En el cálculo, la diferencia es precisamente la reflexión; por eso la correlación es una convolución con la señal reflejada.

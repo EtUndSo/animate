@@ -90,7 +90,8 @@ For mesh $\mu$, the sum of all $R_a\,I_a$ equals the driving voltage $U_{\mathrm
 The model network for mesh current analysis. On the right, the current source is converted into a voltage source. In red are the shared resistors $R_2$ and $R_4$: they stand outside the diagonal of $\mathbf Z$. I and III have no shared branch, which is why $Z_{13}=0$.
 :::
 
-**Example.** On the right, $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V with $R_5$ in series (Fig. [3](#abb-3)). The three clockwise traversals read
+::::beispiel
+On the right, $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V with $R_5$ in series (Fig. [3](#abb-3)). The three clockwise traversals read
 
 $$\begin{aligned} \text{I:}\quad&R_1I_\mathrm I+R_2(I_\mathrm I-I_\mathrm{II})-U_\mathrm q=0,\\ \text{II:}\quad&R_2(I_\mathrm{II}-I_\mathrm I)+R_3I_\mathrm{II}+R_4(I_\mathrm{II}-I_\mathrm{III})=0,\\ \text{III:}\quad&R_4(I_\mathrm{III}-I_\mathrm{II})+R_5I_\mathrm{III}+U_\mathrm{q5}=0. \end{aligned}$$
 
@@ -105,6 +106,7 @@ $$D=5\cdot140+4\cdot(-60)=460,\qquad D_1=9\cdot140+4\cdot(-200)=460,$$
 $$D_2=5\cdot(-200)-9\cdot(-60)=-460,\qquad D_3=-1600+320+360=-920.$$
 
 So $I_\mathrm I=1$ mA, $I_\mathrm{II}=-1$ mA and $I_\mathrm{III}=-2$ mA. The minus says: meshes II and III actually run counterclockwise. The branch currents from Stage [2](maschenstrome-erfullen-die-knotenregel.html#stufe-2) are 1 mA in $R_1$, 2 mA downward in $R_2$, 1 mA in $R_3$ from node 2 to node 1 and 1 mA downward in $R_4$. **Check:** $U_1=R_2\cdot2\,\mathrm{mA}=8$ V and $U_2=R_4\cdot1\,\mathrm{mA}=10$ V. Mesh I: $1+8-9=0$.
+::::
 
 ⁠**Limiting case:** For $R_2\to0$, $Z_{12}=0$ and mesh I is decoupled: a wire in the middle separates both sides, because its voltage is zero whatever flows through it.
 

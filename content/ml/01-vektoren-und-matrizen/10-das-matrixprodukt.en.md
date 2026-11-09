@@ -50,7 +50,8 @@ $$\sum_{l=1}^k(\mathbf{A}\mathbf{B})_{il}\,x_l=\sum_{l=1}^k\sum_{j=1}^na_{ij}\,b
 and this is component $i$ of $\mathbf{A}(\mathbf{B}\mathbf{x})$. In the middle step, the two sums were swapped and $a_{ij}$ was moved in front of the inner sum.
 :::
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ and $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$,
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ and $\mathbf{B}=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$,
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&1\\1&0\end{pmatrix}.$$
 
@@ -61,6 +62,7 @@ The matrix product entry by entry: entry $(i,l)$ is row $i$ of $\mathbf{A}$ time
 :::
 
 Check with $\mathbf{x}=(1,\,2)^{\top}$: $\mathbf{B}\mathbf{x}=(2,\,1)^{\top}$, then $\mathbf{A}(\mathbf{B}\mathbf{x})=(4,\,1)^{\top}$; and directly, $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+2,\ 1+0)^{\top}=(4,\,1)^{\top}$.
+::::
 
 ⁠**In short:** The matrix product $\mathbf{A}\mathbf{B}$ is the matrix of the map “first $\mathbf{B}$, then $\mathbf{A}$”; its entry $(i,l)$ is row $i$ of $\mathbf{A}$ times column $l$ of $\mathbf{B}$.
 
@@ -81,11 +83,13 @@ Likewise, row $i$ of $\mathbf{A}\mathbf{B}$ is row $i$ of $\mathbf{A}$, multipli
 
 For data this means: if you want to apply several weighted sums to all examples, you write the weight vectors side by side as the columns of a matrix $\mathbf{W}$. The product $\mathbf{X}\mathbf{W}$ then contains in column $l$ the predictions with the $l$th weight vector.
 
-⁠**Worked example:** Besides the purchase price with $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (thousand euros), the monthly rent is to be estimated with the weights $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (euros). With $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$,
+::::beispiel [Worked example]
+Besides the purchase price with $\mathbf{w}=(3,\,10,\,-4)^{\top}$ (thousand euros), the monthly rent is to be estimated with the weights $\mathbf{w}_{\mathrm M}=(12,\,30,\,-8)^{\top}$ (euros). With $\mathbf{W}=\begin{pmatrix}\mathbf{w}&\mathbf{w}_{\mathrm M}\end{pmatrix}\in\mathbb{R}^{3\times2}$,
 
 $$\mathbf{X}\mathbf{W}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3&12\\10&30\\-4&-8\end{pmatrix}=\begin{pmatrix}188&756\\126&502\\286&1152\\232&914\end{pmatrix}.$$
 
 Row $i$ contains both estimates for apartment $i$, column $1$ all purchase prices, column $2$ all rents.
+::::
 
 ⁠**In short:** The columns of $\mathbf{A}\mathbf{B}$ are $\mathbf{A}$ times the columns of $\mathbf{B}$; $\mathbf{X}\mathbf{W}$ applies several weighted sums to all examples at once.
 
@@ -131,13 +135,17 @@ In general, however, $\mathbf{A}\mathbf{B}\ne\mathbf{B}\mathbf{A}$: the matrix p
 
 Rule (i) follows from the meaning: both sides are the matrix of the map “first $\mathbf{C}$, then $\mathbf{B}$, then $\mathbf{A}$”, because $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{x})=\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{x}))=\mathbf{A}((\mathbf{B}\mathbf{C})\mathbf{x})$ for every $\mathbf{x}$. Rules (ii) and (iii) are verified entry by entry with [(9.1)](#gl-9-1) and the rules for sums.
 
-⁠**Worked example 1:** With the rotation $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ and the stretch $\mathbf{S}=\operatorname{diag}(2,\,0.5)$,
+::::beispiel [Worked example 1]
+With the rotation $\mathbf R=\mathbf R_{90^\circ}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ and the stretch $\mathbf{S}=\operatorname{diag}(2,\,0.5)$,
 
 $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0.5&0\end{pmatrix},\qquad \mathbf R\mathbf{S}=\begin{pmatrix}0&-0.5\\2&0\end{pmatrix}.$$
 
 Rotating first, then stretching sends $\mathbf{e}_1$ to $(0,\,0.5)^{\top}$; stretching first, then rotating sends it to $(0,\,2)^{\top}$.
+::::
 
-⁠**Worked example 2:** From Subsection [9.1](#stufe-9-1), $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, but $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. With different sizes it is even clearer: for $\mathbf{A}\in\mathbb{R}^{2\times3}$ and $\mathbf{B}\in\mathbb{R}^{3\times2}$, $\mathbf{A}\mathbf{B}$ is a $2\times2$ matrix and $\mathbf{B}\mathbf{A}$ a $3\times3$ matrix.
+::::beispiel [Worked example 2]
+From Subsection [9.1](#stufe-9-1), $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\bigr)$, but $\mathbf{B}\mathbf{A}=\bigl(\begin{smallmatrix}0&1\\1&2\end{smallmatrix}\bigr)$. With different sizes it is even clearer: for $\mathbf{A}\in\mathbb{R}^{2\times3}$ and $\mathbf{B}\in\mathbb{R}^{3\times2}$, $\mathbf{A}\mathbf{B}$ is a $2\times2$ matrix and $\mathbf{B}\mathbf{A}$ a $3\times3$ matrix.
+::::
 
 ⁠**In short:** In a matrix product you may regroup the parentheses and multiply out, but you may not swap the order.
 
@@ -159,11 +167,13 @@ If $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ and $g(\mathbf{u})=\mathbf{A}\mathbf{u}$
 
 No matter how many linear stages you connect in series, the result can always be computed with a single matrix in one step. So whatever a chain of linear stages can do, a single matrix can already do. From signals and systems you know the same thing: two linear systems connected in series together form a linear system again.
 
-⁠**Worked example:** A first stage turns three numbers into two, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, a second turns two numbers back into three, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Together this is the single matrix
+::::beispiel [Worked example]
+A first stage turns three numbers into two, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, a second turns two numbers back into three, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Together this is the single matrix
 
 $$\mathbf{A}\mathbf{B}=\begin{pmatrix}2&5&-1\\1&1&1\\0&3&-3\end{pmatrix}.$$
 
 Check with $\mathbf{x}=(1,\,1,\,1)^{\top}$: $\mathbf{B}\mathbf{x}=(3,\,0)^{\top}$ and $\mathbf{A}(3,\,0)^{\top}=(6,\,3,\,0)^{\top}$; likewise, $(\mathbf{A}\mathbf{B})\mathbf{x}=(2+5-1,\ 1+1+1,\ 0+3-3)^{\top}=(6,\,3,\,0)^{\top}$.
+::::
 
 ⁠**In short:** Linear stages in series together form a single linear map; its matrix is the product of the individual matrices.
 
@@ -184,9 +194,9 @@ $$(\mathbf{u}\mathbf{v}^{\top})_{ij}=u_i\,v_j . \tag{9.3}$$
 
 It is the matrix product of an $m\times1$ matrix with a $1\times n$ matrix. Each column is a multiple of $\mathbf{u}$, namely $v_j\,\mathbf{u}$, and each row is a multiple of $\mathbf{v}^{\top}$.
 
-⁠**Worked example:**
-
+::::beispiel [Worked example]
 $$\begin{pmatrix}1\\2\\3\end{pmatrix}\begin{pmatrix}4&5\end{pmatrix}=\begin{pmatrix}4&5\\8&10\\12&15\end{pmatrix}.$$
+::::
 
 With the outer product, every matrix product can be written as a sum: “column $j$ of $\mathbf{A}$ times row $j$ of $\mathbf{B}$”, summed over $j$,
 

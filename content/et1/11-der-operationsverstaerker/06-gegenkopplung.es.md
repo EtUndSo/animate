@@ -51,7 +51,8 @@ El factor delante de $U_\mathrm{A}$ es negativo, así que toda desviación se ex
 A la izquierda, el lazo como diagrama de bloques: en el punto de suma se resta $\beta\,U_\mathrm{A}$. A la derecha, la respuesta a un escalón de 0 a 1 V en el modelo lineal: $U_\mathrm{A}$ sube con $\tau_G=0{,}80$ µ s hasta 5 V, y $U_\mathrm{D}$ cae de 1 V a 50 µ V.
 :::
 
-**Ejemplo.** Con $A\beta=20000$, 1 V de entrada se convierte en $U_\mathrm{A}=4{,}99975$ V; la desviación respecto al ideal de 5 V es 0,005 % $=1/(A\beta)$. Los ejemplares se dispersan en un factor de cuatro:
+::::beispiel
+Con $A\beta=20000$, 1 V de entrada se convierte en $U_\mathrm{A}=4{,}99975$ V; la desviación respecto al ideal de 5 V es 0,005 % $=1/(A\beta)$. Los ejemplares se dispersan en un factor de cuatro:
 
 | $A$ | $U_\mathrm{D}$ | $U_\mathrm{A}$ | Desviación respecto a 5 V |
 |---|---|---|---|
@@ -59,7 +60,10 @@ A la izquierda, el lazo como diagrama de bloques: en el punto de suma se resta $
 | 100000 | 50,00 µ V | 4,99975 V | $-0{,}0050$ % |
 | 200000 | 25,00 µ V | 4,99988 V | $-0{,}0025$ % |
 
-Un cambio de $A$ del 300 % desplaza $G$ un 0,0075 %. Se cambia ganancia por precisión: 100000 se convierten en 5, pero a cambio dos resistencias determinan el resultado. **En resumen:** La ganancia es el inverso de la fracción realimentada. **Casos límite:** $A\to\infty$ da $U_\mathrm{D}\to0$ y $G=1/\beta$. $\beta\to0$ da $G\to A$; sin realimentación queda el lazo abierto.
+Un cambio de $A$ del 300 % desplaza $G$ un 0,0075 %. Se cambia ganancia por precisión: 100000 se convierten en 5, pero a cambio dos resistencias determinan el resultado.
+::::
+
+⁠**En resumen:** La ganancia es el inverso de la fracción realimentada. **Casos límite:** $A\to\infty$ da $U_\mathrm{D}\to0$ y $G=1/\beta$. $\beta\to0$ da $G\to A$; sin realimentación queda el lazo abierto.
 
 **Entrada y salida.** En la entrada positiva solo hay $U_\mathrm{D}=50$ µ V sobre $r_\mathrm{e}$; circulan 50 pA, una dosmillonésima de la corriente del divisor de 100 µ A. Así, la resistencia de entrada sube a $r_\mathrm{e}(1+A\beta)=20$ G$\Omega$. En la salida, el lazo actúa contra cualquier carga: si una carga baja un poco $U_\mathrm{A}$, crece $U_\mathrm{D}$, y la tensión interna sube hasta compensar casi por completo la pérdida. La resistencia de salida baja a $r_\mathrm{a}/(1+A\beta)=3{,}75$ m$\Omega$.
 

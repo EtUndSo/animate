@@ -27,8 +27,7 @@ Eine __Schwachstelle__ (englisch *vulnerability*) ist eine Eigenschaft eines Sys
 
 Eine Schwachstelle kann in einem Programmfehler liegen, in einer ungünstigen Einstellung oder in einer Gewohnheit der Menschen, die das System benutzen.
 
-⁠**Beispiele:**
-
+::::beispiel [Beispiele]
 <ul>
 
 <li>
@@ -50,6 +49,7 @@ Eine Schwachstelle kann in einem Programmfehler liegen, in einer ungünstigen Ei
 </li>
 
 </ul>
+::::
 
 ⁠**Kurz gesagt:** Eine Schwachstelle ist eine Eigenschaft des Systems, durch die ein Schutzziel verletzt werden kann.
 
@@ -67,7 +67,9 @@ Eine __Bedrohung__ (englisch *threat*) ist eine mögliche Verletzung eines Schut
 
 Das Wort „möglich“ ist wichtig. Eine Bedrohung muss nicht eintreten; sie beschreibt, was passieren *könnte*.
 
-⁠**Beispiel:** Für den Router mit dem Passwort `admin` besteht die Bedrohung darin, dass Programme das Internet ständig automatisch nach Geräten mit Werkspasswörtern absuchen und sich dort anmelden. Das ist keine Theorie: 2016 übernahm ein Schadprogramm namens Mirai auf genau diese Weise Hunderttausende Kameras und Router und missbrauchte sie, um große Webdienste mit Anfragen zu überlasten.
+::::beispiel
+Für den Router mit dem Passwort `admin` besteht die Bedrohung darin, dass Programme das Internet ständig automatisch nach Geräten mit Werkspasswörtern absuchen und sich dort anmelden. Das ist keine Theorie: 2016 übernahm ein Schadprogramm namens Mirai auf genau diese Weise Hunderttausende Kameras und Router und missbrauchte sie, um große Webdienste mit Anfragen zu überlasten.
+::::
 
 ⁠**Kurz gesagt:** Eine Bedrohung ist eine mögliche Verletzung eines Schutzziels, durch Menschen oder Ereignisse.
 
@@ -91,7 +93,9 @@ Ein __Angreifer__ ist ein Mensch oder eine Gruppe, die absichtlich versucht, ein
 
 Eine Bedrohung ist also eine Möglichkeit, ein Angreifer ist jemand, der handelt. Nicht hinter jeder Bedrohung steht ein Angreifer: Ein Brand im Rechenzentrum ist eine Bedrohung für die Verfügbarkeit, aber er will nichts.
 
-⁠**Beispiel:** Beim Router sind die Angreifer die Leute, die das Suchprogramm geschrieben haben und betreiben, um die übernommenen Geräte zu vermieten.
+::::beispiel
+Beim Router sind die Angreifer die Leute, die das Suchprogramm geschrieben haben und betreiben, um die übernommenen Geräte zu vermieten.
+::::
 
 ⁠**Kurz gesagt:** Ein Angreifer ist jemand, der absichtlich ein Schutzziel verletzen will.
 
@@ -117,7 +121,9 @@ Ein __Angriff__ ist eine Handlung, mit der ein Angreifer eine Schwachstelle ausn
 
 Ein Angriff kann scheitern, etwa weil die Schwachstelle inzwischen behoben ist. Auch dann war es ein Angriff: Der Begriff beschreibt die Handlung, nicht ihren Erfolg.
 
-⁠**Beispiel:** Das Suchprogramm findet den Router, meldet sich mit `admin` an und ändert seine Einstellungen so, dass er künftig Befehle des Angreifers ausführt.
+::::beispiel
+Das Suchprogramm findet den Router, meldet sich mit `admin` an und ändert seine Einstellungen so, dass er künftig Befehle des Angreifers ausführt.
+::::
 
 ⁠**Kurz gesagt:** Ein Angriff ist die Tat, mit der ein Angreifer eine Schwachstelle ausnutzt.
 
@@ -135,8 +141,7 @@ Ein __Exploit__ (von englisch *to exploit*, ausnutzen) ist das konkrete Verfahre
 
 Ein Exploit gehört immer zu einer bestimmten Schwachstelle. Ist sie behoben, wird er wertlos. Umgekehrt kann ein Exploit existieren, ohne dass ihn je jemand für einen Angriff benutzt.
 
-⁠**Beispiele:**
-
+::::beispiel [Beispiele]
 <ul>
 
 <li>
@@ -152,6 +157,7 @@ Beim Router besteht er aus einer Liste von Werkspasswörtern und einem Programm,
 </li>
 
 </ul>
+::::
 
 ⁠**Kurz gesagt:** Ein Exploit ist das Werkzeug, das zu einer bestimmten Schwachstelle passt.
 
@@ -175,7 +181,9 @@ Die Kette von der Schwachstelle zum Schaden, am Beispiel eines Hauses. Erst wenn
 
 Weil es eine Kette ist, kann man sie an jedem Glied unterbrechen: das Fenster reparieren (Schwachstelle), einen Zaun bauen, der Einbrecher fernhält (Bedrohung), eine Alarmanlage einbauen, die den Einstieg meldet (Angriff), den Laptop in einen Tresor legen (Schaden).
 
-⁠**Beispiel:** Beim Router besteht der Schaden für den Besitzer zuerst in einem verlangsamten Internetanschluss. Schwerer wiegt, dass Angriffe auf andere von seinem Anschluss ausgehen und zunächst zu ihm zurückverfolgt werden.
+::::beispiel
+Beim Router besteht der Schaden für den Besitzer zuerst in einem verlangsamten Internetanschluss. Schwerer wiegt, dass Angriffe auf andere von seinem Anschluss ausgehen und zunächst zu ihm zurückverfolgt werden.
+::::
 
 ⁠**Kurz gesagt:** Ein Schaden entsteht, wenn eine Bedrohung auf eine passende Schwachstelle trifft und ausgenutzt wird; jede Gegenmaßnahme unterbricht ein Glied dieser Kette.
 

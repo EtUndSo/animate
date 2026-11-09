@@ -37,9 +37,11 @@ $$Z_{11}=\left.\frac{U_1}{I_1}\right|_{I_2=0},\quad Z_{21}=\left.\frac{U_2}{I_1}
 Izquierda: circuito equivalente de la forma Z, en cada lado una resistencia en serie con una fuente de tensión controlada por corriente. Derecha: ensayo de circuito abierto en el puerto 2 con la corriente impuesta $I_\mathrm{q}$. En gris, lo que desaparece por $I_2=0$. El ensayo con el puerto 1 abierto es la imagen especular y da $Z_{12}$ y $Z_{22}$.
 :::
 
-**Ejemplo.** En el cuadripolo T se impone en el puerto 1 la corriente de 100 mA, y el puerto 2 queda abierto. La corriente pasa por $R_\mathrm{a}$ y $R_\mathrm{b}$, $U_1=3{,}5$ V. $R_\mathrm{c}$ no lleva corriente, en ella no cae nada, y $U_2$ es la tensión en $R_\mathrm{b}$: 2 V. Por tanto, $Z_{11}=35\,\Omega$, $Z_{21}=20\,\Omega$. Lo mismo desde el puerto 2 da $U_2=4$ V, $U_1=2$ V, es decir,
+::::beispiel
+En el cuadripolo T se impone en el puerto 1 la corriente de 100 mA, y el puerto 2 queda abierto. La corriente pasa por $R_\mathrm{a}$ y $R_\mathrm{b}$, $U_1=3{,}5$ V. $R_\mathrm{c}$ no lleva corriente, en ella no cae nada, y $U_2$ es la tensión en $R_\mathrm{b}$: 2 V. Por tanto, $Z_{11}=35\,\Omega$, $Z_{21}=20\,\Omega$. Lo mismo desde el puerto 2 da $U_2=4$ V, $U_1=2$ V, es decir,
 
 $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\mathrm{b}&R_\mathrm{b}+R_\mathrm{c}\end{pmatrix}=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**El puente.** Los ensayos no necesitan línea de masa. El puente de la fig. [2](vom-vierpol-zum-zweitor.html#abb-2), derecha, reparte una corriente en el puerto 1 por mitades, porque las resistencias de las ramas son iguales: ambas ramas tienen $R_\mathrm{x}+R_\mathrm{y}$. El puerto 2 está abierto, y la tensión entre los puntos medios de las ramas es $\frac{I_1}{2}R_\mathrm{y}-\frac{I_1}{2}R_\mathrm{x}$. Por simetría, lo mismo vale en sentido inverso:
 

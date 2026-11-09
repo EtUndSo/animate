@@ -36,7 +36,9 @@ Ohne Querstrom liefert die Knotenregel $I_1=I_2$ und $I_3=I_4$. Gleiche Potenzia
 $$\frac{U_{R4}}{U_{R3}}=\frac{U_{R2}}{U_{R1}} \quad\Rightarrow\quad \frac{I_4R_4}{I_3R_3}=\frac{I_2R_2}{I_1R_1} \quad\Rightarrow\quad \frac{R_4}{R_3}=\frac{R_2}{R_1}.$$
 :::
 
-**Beispiel.** Mit $R_2/R_1=1{,}8$ und $R_3=1$ k$\Omega$ steht der Zeiger bei $R_4=1800\,\Omega$ auf null, beide Mittelpunkte liegen auf 5,786 V. Sind $R_3$ und das Verhältnis auf je 0,1 % genau, ist $R_4$ auf $\pm0{,}2\,\%$ genau, mehr als 15-mal besser als $U/I$. Die Genauigkeit stammt nun aus Widerständen, und die lassen sich viel genauer fertigen als Zeigerskalen.
+::::beispiel
+Mit $R_2/R_1=1{,}8$ und $R_3=1$ k$\Omega$ steht der Zeiger bei $R_4=1800\,\Omega$ auf null, beide Mittelpunkte liegen auf 5,786 V. Sind $R_3$ und das Verhältnis auf je 0,1 % genau, ist $R_4$ auf $\pm0{,}2\,\%$ genau, mehr als 15-mal besser als $U/I$. Die Genauigkeit stammt nun aus Widerständen, und die lassen sich viel genauer fertigen als Zeigerskalen.
+::::
 
 ⁠**Grenzfall:** Mit wachsendem $R_4$ läuft der rechte Mittelpunkt von 0 bis $U_\mathrm q$. Die Spannung am Instrument wechselt dabei genau einmal das Vorzeichen, es gibt also genau eine Abgleichstellung.
 

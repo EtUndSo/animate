@@ -48,11 +48,11 @@ $$\bigl((\mathbf{A}\mathbf{B})^{\top}\bigr)_{li}=(\mathbf{A}\mathbf{B})_{il}=\su
 The first three rules follow directly from the definition.
 :::
 
-⁠**Worked example:**
-
+::::beispiel [Worked example]
 $$\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^{\top}=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}.$$
 
 For $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ and $\mathbf{D}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)$ we have $\mathbf{C}\mathbf{D}=\bigl(\begin{smallmatrix}2&3\\4&7\end{smallmatrix}\bigr)$, so $(\mathbf{C}\mathbf{D})^{\top}=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$. The same result comes from $\mathbf{D}^{\top}\mathbf{C}^{\top}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&3\\2&4\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$, whereas $\mathbf{C}^{\top}\mathbf{D}^{\top}=\bigl(\begin{smallmatrix}3&4\\4&6\end{smallmatrix}\bigr)$ is something different.
+::::
 
 ⁠**In short:** Transposing swaps rows and columns; for a product, the order is reversed, $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$.
 
@@ -79,11 +79,13 @@ $$(\mathbf{A}^{\top}\mathbf{A})^{\top}=\mathbf{A}^{\top}(\mathbf{A}^{\top})^{\to
 
 so $\mathbf{A}^{\top}\mathbf{A}$ is symmetric, and so is $\mathbf{A}\mathbf{A}^{\top}$.
 
-⁠**Worked example:** $\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ is symmetric, the rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ is not. For $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$,
+::::beispiel [Worked example]
+$\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ is symmetric, the rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ is not. For $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$,
 
 $$\mathbf{C}^{\top}\mathbf{C}=\begin{pmatrix}1&3\\2&4\end{pmatrix}\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}10&14\\14&20\end{pmatrix},$$
 
 which is symmetric, as [(10.2)](#gl-10-2) requires.
+::::
 
 ⁠**In short:** A symmetric matrix equals its transpose; $\mathbf{A}^{\top}\mathbf{A}$ and $\mathbf{A}\mathbf{A}^{\top}$ are always symmetric.
 
@@ -119,11 +121,13 @@ $$\lVert\mathbf{x}_i-\mathbf{x}_k\rVert^2=(\mathbf{X}\mathbf{X}^{\top})_{ii}+(\m
 
 If you divide entry $(i,k)$ by $\sqrt{(\mathbf{X}\mathbf{X}^{\top})_{ii}\,(\mathbf{X}\mathbf{X}^{\top})_{kk}}$, you get the cosine similarity of $\mathbf{x}_i$ and $\mathbf{x}_k$.
 
-⁠**Worked example:** For the three texts from Subsection [5.4](winkel-und-ahnlichkeit.html#stufe-5-4),
+::::beispiel [Worked example]
+For the three texts from Subsection [5.4](winkel-und-ahnlichkeit.html#stufe-5-4),
 
 $$\mathbf{X}=\begin{pmatrix}3&2&0\\6&4&0\\0&1&3\end{pmatrix},\qquad \mathbf{X}\mathbf{X}^{\top}=\begin{pmatrix}13&26&2\\26&52&4\\2&4&10\end{pmatrix}.$$
 
 By [(10.4)](#gl-10-4), the distance between text 1 and text 3 is $\sqrt{13+10-2\cdot2}=\sqrt{19}$, as computed earlier. The cosine similarity of text 1 and text 2 is $26/\sqrt{13\cdot52}=1$.
+::::
 
 ⁠**In short:** The Gram matrix $\mathbf{X}\mathbf{X}^{\top}$ is the table of all pairwise dot products of the examples; all lengths, distances and angles follow from it.
 
@@ -153,7 +157,8 @@ Each example contributes its own outer product.
 
 Entry $(j,l)$ of the right-hand side is $\sum_ix_{ij}\,x_{il}$, the same as in [(10.5)](#gl-10-5). So if a new example is added, $\mathbf{X}^{\top}\mathbf{X}$ changes only by one more layer $\mathbf{x}_{N+1}\mathbf{x}_{N+1}^{\top}$; you do not have to recompute everything.
 
-⁠**Worked example:** For the texts,
+::::beispiel [Worked example]
+For the texts,
 
 $$\mathbf{X}^{\top}\mathbf{X}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
 
@@ -166,6 +171,7 @@ The first row of the Gram matrix of the features: the “goal” column $(3,\,6,
 The $0$ in position $(1,3)$ says: the words “goal” and “election” never occur together in any of the texts. As the sum of the three outer products:
 
 $$\begin{pmatrix}9&6&0\\6&4&0\\0&0&0\end{pmatrix}+\begin{pmatrix}36&24&0\\24&16&0\\0&0&0\end{pmatrix}+\begin{pmatrix}0&0&0\\0&1&3\\0&3&9\end{pmatrix}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
+::::
 
 ⁠**In short:** $\mathbf{X}^{\top}\mathbf{X}$ is the Gram matrix of the feature columns; it is the sum of the outer products $\mathbf{x}_i\mathbf{x}_i^{\top}$ of all examples.
 

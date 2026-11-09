@@ -78,7 +78,9 @@ Ob man wie in [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materiali
 
 Kubisches BN hat 6,4 eV. **So liest man das:** Weiter unten im Periodensystem sind mehr Orbitale der Atome besetzt, die Abstände werden länger, Lücke und effektive Masse schrumpfen. **Mechanismus:** Größerer Abstand schwächt die Bindung ([Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), bindende und antibindende Zustände rücken zusammen. Valenz- und Leitungsband stoßen sich ab wie die Bänder mit s-p-Kopplung in [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html). Je näher sie sich kommen, desto stärker krümmen sie sich an der Kante, und desto kleiner ist $m^*$.
 
-**Beispiel: GaAs lesen.** Acht Elektronen, vier volle Bänder (Schritt 1). Kein Band schneidet $E_\mathrm F$ (2). $E_\mathrm g=1{,}42$ eV (3). Eine zweite Lücke rund 7 bis 10 eV unter $E_\mathrm V$ öffnet sich, weil Ga und As verschieden sind, wie in Aufgabe [2](graphen.html#aufg-2), und spielt für die Leitung keine Rolle. Die Lücke ist direkt (4). Das stark gekrümmte Leitungsband ergibt $m_\mathrm C^*=0{,}067\,m_0$ mit Entartung 1 im $\Gamma$-Tal, oben im Valenzband liegen schwere und leichte Löcher (5). Wie viele Elektronen bei gegebener Temperatur tatsächlich ins Leitungsband gelangen, bleibt die offene Frage.
+::::beispiel GaAs lesen
+Acht Elektronen, vier volle Bänder (Schritt 1). Kein Band schneidet $E_\mathrm F$ (2). $E_\mathrm g=1{,}42$ eV (3). Eine zweite Lücke rund 7 bis 10 eV unter $E_\mathrm V$ öffnet sich, weil Ga und As verschieden sind, wie in Aufgabe [2](graphen.html#aufg-2), und spielt für die Leitung keine Rolle. Die Lücke ist direkt (4). Das stark gekrümmte Leitungsband ergibt $m_\mathrm C^*=0{,}067\,m_0$ mit Entartung 1 im $\Gamma$-Tal, oben im Valenzband liegen schwere und leichte Löcher (5). Wie viele Elektronen bei gegebener Temperatur tatsächlich ins Leitungsband gelangen, bleibt die offene Frage.
+::::
 
 :::aufgabe Aufgabe 9 ★★ Eine Kette lesen
 <span class="anker" id="aufg-9"></span>

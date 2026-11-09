@@ -68,7 +68,11 @@ The change of $x$ is proportional to $x$ itself: the larger the remainder, the f
 ⁠**The same route via the current:** From $U_0=R\,i+\frac1C\int_0^ti\,\mathrm{d} t'$, differentiating gives $0=R\,\frac{\mathrm{d} i}{\mathrm{d} t}+\frac iC$. Written briefly this is $\frac{\mathrm{d} i}{i}=-\frac{\mathrm{d} t}{RC}$, and steps 2 to 4 give $\ln i=-\frac{t}{RC}+\ln\frac{U_0}{R}$, so again $i=\frac{U_0}{R}\mathrm{e}^{-t/RC}$.
 :::
 
-**Example.** In the reference model, after $t=1$ s, $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5.69$ V, $u_R=3.31$ V and $i=0.331$ mA (Fig. [11](#abb-11)). At any time the two voltages add up to 9 V. The tangent at the start rises at $U_0/\tau=9$ V/s and reaches 9 V exactly at $t=\tau$: if the initial current stayed constant as in Stage [3](strom-und-spannung-am-kondensator.html#stufe-3), the capacitor would be full after $\tau$. **In short:** $\tau$ is the final charge divided by the initial current, $C\,U_0/(U_0/R)=RC$.
+::::beispiel
+In the reference model, after $t=1$ s, $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5.69$ V, $u_R=3.31$ V and $i=0.331$ mA (Fig. [11](#abb-11)). At any time the two voltages add up to 9 V. The tangent at the start rises at $U_0/\tau=9$ V/s and reaches 9 V exactly at $t=\tau$: if the initial current stayed constant as in Stage [3](strom-und-spannung-am-kondensator.html#stufe-3), the capacitor would be full after $\tau$.
+::::
+
+⁠**In short:** $\tau$ is the final charge divided by the initial current, $C\,U_0/(U_0/R)=RC$.
 
 :::abbildung et1/k3laden 11
 Charging with $U_0=9$ V, $R=10\,\mathrm{k\Omega}$ and $C=100\,\mu\text{F}$. Left, the voltages; right, the current. The current jumps from zero to 0.9 mA at $t=0$ and decays. The tangents at the start meet the final value at $t=\tau=1$ s. The dots belong to $t=\tau$.

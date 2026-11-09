@@ -51,11 +51,13 @@ Igualando ambas resultan $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ y $G_3=Y_{22}+Y_{21}
 Dos circuitos, el mismo cuadripolo. A la izquierda, la red en T con 15, 20 y 20 $\Omega$; a la derecha, la red en $\pi$ equivalente con 50, 50 y 66,7 $\Omega$. Ambas tienen $\det\mathbf Z=1000\,\Omega^2$. En los puertos, ninguna medición las distingue.
 :::
 
-**Ejemplo.** Se tiene $\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$, es decir,
+::::beispiel
+Se tiene $\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$, es decir,
 
 $$\mathbf Y=\frac{1}{1000\,\Omega^2}\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\Omega=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS},$$
 
 exactamente el resultado de los ensayos de cortocircuito. La red en $\pi$ tiene $G_2=20$ mS, $G_1=40\,\mathrm{mS}-20\,\mathrm{mS}=20$ mS, $G_3=15$ mS, es decir, 50 $\Omega$, 50 $\Omega$ y 66,7 $\Omega$. Con la misma fuente y carga da de nuevo 7,75 V y 3 V.
+::::
 
 ⁠**Casos límite: no toda forma existe.** Una resistencia longitudinal $R$ y una resistencia transversal $R$, cada una sola entre los puertos, tienen
 

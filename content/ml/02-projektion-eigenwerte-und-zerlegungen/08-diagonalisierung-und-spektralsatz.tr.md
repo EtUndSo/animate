@@ -21,7 +21,7 @@ Bir matris kendi özvektörlerinden oluşan bir tabanda betimlenirse köşegen o
 
 Aynı okun farklı tabanlarda farklı koordinatları vardır. Aynı şekilde aynı doğrusal dönüşümün farklı koordinatlarda farklı matrisleri vardır. Bazı tabanlar matrisi özellikle basit kılar.
 
-$\mathbf s_1,\dots,\mathbf s_n$, $\mathbb{R}^n$ uzayının bir tabanı, $\mathbf{S}$ de sütunları bu vektörler olan matris olsun. Temeller 1, Kesim 13.5'e göre bu matris tersinirdir. $\mathbf{x}$ vektörünün bu tabandaki koordinatları $\mathbf{c}$ ise $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ olur, tersine de $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. $\mathbf{x}$ vektörüne $\mathbf{A}$ uygulanırsa $\mathbf{A}\mathbf{x}$ görüntüsünün koordinatları $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$ olur. Demek ki yeni koordinatlarda dönüşüm $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ matrisiyle etki eder: Önce eski koordinatlara çevrilir, sonra dönüşüm uygulanır, sonra geri çevrilir.
+$\mathbf s_1,\dots,\mathbf s_n$, $\mathbb{R}^n$ uzayının bir tabanı, $\mathbf{S}$ de sütunları bu vektörler olan matris olsun. [Temeller 1, Kesim 13.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)'e göre bu matris tersinirdir. $\mathbf{x}$ vektörünün bu tabandaki koordinatları $\mathbf{c}$ ise $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ olur, tersine de $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. $\mathbf{x}$ vektörüne $\mathbf{A}$ uygulanırsa $\mathbf{A}\mathbf{x}$ görüntüsünün koordinatları $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$ olur. Demek ki yeni koordinatlarda dönüşüm $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ matrisiyle etki eder: Önce eski koordinatlara çevrilir, sonra dönüşüm uygulanır, sonra geri çevrilir.
 
 :::definition Tanım 7.1 (Taban değişimi)
 <span class="anker" id="satz-7-1"></span>
@@ -38,14 +38,16 @@ $\mathbf{A}$ ve $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ matrislerinin karakteristi
 :::
 
 :::beweis Taban değişimi
-$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$ olur. Temeller 1, Kesim 14.5'teki hesap kurallarına göre bunun determinantı $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$ olur. İz ve determinant [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5) uyarınca özdeğerlerden belirlenir.
+$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$ olur. [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'teki hesap kurallarına göre bunun determinantı $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$ olur. İz ve determinant [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5) uyarınca özdeğerlerden belirlenir.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ve Temeller 1, Kesim 13.3'teki $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ tabanı için $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ ve $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$ olur. O zaman şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ve [Temeller 1, Kesim 13.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)'teki $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ tabanı için $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ ve $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$ olur. O zaman şu bulunur:
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
 İz yine $7$, determinant yine $10$; özdeğerler de şimdi bir üçgen matrisin köşegeninde durur: $2$ ve $5$.
+::::
 
 ⁠**Kısacası:** $\mathbf{S}$ matrisinin sütunlarından oluşan tabanda $\mathbf{A}$ dönüşümünün matrisi $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ olur; özdeğerler, iz ve determinant bu sırada değişmez.
 
@@ -67,14 +69,16 @@ Tersine: $\mathbf{A}$ bu biçimde yazılabiliyorsa $\mathbf{S}$ matrisinin sütu
 :::
 
 :::beweis Köşegenleştirme
-Temeller 1, Kesim 9.2'ye göre $\mathbf{A}\mathbf{S}$ matrisinin $i$ numaralı sütunu $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$ çarpımıdır; $\mathbf{S}\boldsymbol{\Lambda}$ matrisinin $i$ numaralı sütunu da $\lambda_i\mathbf s_i$ olur. Dolayısıyla $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. $\mathbf{S}$ matrisinin sütunları bağımsızdır, dolayısıyla $\mathbf{S}$ tersinirdir ve soldan $\mathbf{S}^{-1}$ ile çarpma [(7.1)](#gl-7-1) bağıntısını verir. Aynı $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ denklemi tersten okunursa ters önerme çıkar.
+[Temeller 1, Kesim 9.2](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2)'ye göre $\mathbf{A}\mathbf{S}$ matrisinin $i$ numaralı sütunu $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$ çarpımıdır; $\mathbf{S}\boldsymbol{\Lambda}$ matrisinin $i$ numaralı sütunu da $\lambda_i\mathbf s_i$ olur. Dolayısıyla $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. $\mathbf{S}$ matrisinin sütunları bağımsızdır, dolayısıyla $\mathbf{S}$ tersinirdir ve soldan $\mathbf{S}^{-1}$ ile çarpma [(7.1)](#gl-7-1) bağıntısını verir. Aynı $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ denklemi tersten okunursa ters önerme çıkar.
 :::
 
 Bu biçimde yazılabilen bir matrise __köşegenleştirilebilir__ denir. Kesim [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8)'deki teoreme göre bu, örneğin $n$ özdeğerin hepsi farklı olduğunda her zaman böyledir. Kayma köşegenleştirilemez, çünkü bir özvektörü eksiktir. $90^\circ$'lik dönme de gerçel sayılarla köşegenleştirilemez, yalnızca karmaşık sayılarla. İkisi de yine de tersinirdir: Tersinirlik ve köşegenleştirilebilirlik iki ayrı özelliktir.
 
-⁠**Sayısal örnek:** Özvektörleri $(1,\,1)^{\top}$ ve $(1,\,-2)^{\top}$ olan $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+Özvektörleri $(1,\,1)^{\top}$ ve $(1,\,-2)^{\top}$ olan $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ için şu bulunur:
 
 $$\mathbf{S}=\begin{pmatrix}1&1\\1&-2\end{pmatrix},\qquad \mathbf{S}^{-1}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix},\qquad \mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix}\begin{pmatrix}5&2\\5&-4\end{pmatrix}=\begin{pmatrix}5&0\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**Kısacası:** $n$ bağımsız özvektörü olan bir matris, bu özvektörlerin tabanında köşegendir: $\mathbf{A}=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}$.
 
@@ -103,11 +107,13 @@ $\mathbf{A}^2=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}\mathbf{S}\boldsymbol
 
 Öz tabanın $\mathbf{c}$ koordinatlarında her adım, her koordinatın kendi sayısıyla çarpılmasıdır: $c_i\mapsto\lambda_ic_i$. $n$ bilinmeyenli, birbirine bağlı bir hesaptan, her biri tek bilinmeyenli $n$ ayrı hesap çıkar. Bu koordinatlar ayrışmıştır, yani birbirinden bağımsızdır. Uzun vadede mutlak değerce en büyük özdeğere ait pay baskın çıkar.
 
-⁠**Sayısal örnek:** $\mathbf M$ matrisinin izi $1{,}5$, determinantı $0{,}56-0{,}06=0{,}5$, dolayısıyla özdeğerleri $1$ ve $0{,}5$ olur. $1$ özdeğerine ait bir özvektör $\mathbf s_1=(3,\,2)^{\top}$ olur, çünkü $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 0{,}6+1{,}4)^{\top}=\mathbf s_1$; $0{,}5$ özdeğerine ait bir özvektör de $\mathbf s_2=(1,\,-1)^{\top}$. Başlangıçta A'da $1000$ kişi oturuyor, B'de kimse oturmuyorsa $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ olur ve [(7.2)](#gl-7-2) uyarınca şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf M$ matrisinin izi $1{,}5$, determinantı $0{,}56-0{,}06=0{,}5$, dolayısıyla özdeğerleri $1$ ve $0{,}5$ olur. $1$ özdeğerine ait bir özvektör $\mathbf s_1=(3,\,2)^{\top}$ olur, çünkü $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 0{,}6+1{,}4)^{\top}=\mathbf s_1$; $0{,}5$ özdeğerine ait bir özvektör de $\mathbf s_2=(1,\,-1)^{\top}$. Başlangıçta A'da $1000$ kişi oturuyor, B'de kimse oturmuyorsa $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ olur ve [(7.2)](#gl-7-2) uyarınca şu bulunur:
 
 $$\mathbf{x}_k=200\begin{pmatrix}3\\2\end{pmatrix}+400\cdot0{,}5^k\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}600+400\cdot0{,}5^k\\400-400\cdot0{,}5^k\end{pmatrix}.$$
 
 Bir yıl sonra $(800,\,200)^{\top}$, iki yıl sonra $(700,\,300)^{\top}$ olur ve uzun vadede $(600,\,400)^{\top}$ dengesi kurulur. $0{,}5$ özdeğerine ait pay her yıl yarıya iner, $1$ özdeğerine ait pay ise kalır.
+::::
 
 ⁠**Kısacası:** Öz tabanda matrisin her kuvveti özdeğerlerin kuvvetlerine dönüşür; birbirine bağlı diziler, her özvektör için bir tane olmak üzere ayrı dizilere ayrışır.
 
@@ -143,7 +149,9 @@ Dolayısıyla $(\lambda-\lambda^*)\,(\mathbf{v}^*)^{\top}\mathbf{v}=0$ olur. Kes
 
 Gerçel bir özdeğere ait gerçel özvektörler de vardır, çünkü $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ gerçel bir denklem sistemidir.
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin karakteristik polinomu $\lambda^2-7\lambda+6$, diskriminantı $49-24=25>0$, gerçel özdeğerleri de $6$ ve $1$ olur. Herhangi bir simetrik $2\times2$ matris $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ için diskriminant $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$ olur; teoremin söylediği gibi özdeğerler her zaman gerçeldir.
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin karakteristik polinomu $\lambda^2-7\lambda+6$, diskriminantı $49-24=25>0$, gerçel özdeğerleri de $6$ ve $1$ olur. Herhangi bir simetrik $2\times2$ matris $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ için diskriminant $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$ olur; teoremin söylediği gibi özdeğerler her zaman gerçeldir.
+::::
 
 ⁠**Kısacası:** Simetrik bir matrisin yalnızca gerçel özdeğerleri ve gerçel özvektörleri vardır.
 
@@ -163,11 +171,13 @@ Simetrik bir matrisin farklı özdeğerlere ait özvektörleri birbirine diktir.
 $\lambda_1\ne\lambda_2$ olmak üzere $\mathbf{A}\mathbf{v}_1=\lambda_1\mathbf{v}_1$ ve $\mathbf{A}\mathbf{v}_2=\lambda_2\mathbf{v}_2$ olsun. $\mathbf{v}_1^{\top}\mathbf{A}\mathbf{v}_2$ iki yoldan hesaplanır: $\mathbf{v}_1^{\top}(\lambda_2\mathbf{v}_2)=\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2$ olarak ve $\mathbf{A}^{\top}=\mathbf{A}$ kullanılarak $(\mathbf{A}\mathbf{v}_1)^{\top}\mathbf{v}_2=\lambda_1\,\mathbf{v}_1^{\top}\mathbf{v}_2$ olarak. Dolayısıyla $(\lambda_1-\lambda_2)\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$ olur ve $\lambda_1\ne\lambda_2$ olduğundan $\mathbf{v}_1^{\top}\mathbf{v}_2=0$.
 :::
 
-⁠**Sayısal örnek:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin $6$ özdeğerine ait özvektörü $(2,\,1)^{\top}$ olur, çünkü $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$; $1$ özdeğerine ait özvektörü de $(1,\,-2)^{\top}$ olur, çünkü $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. İç çarpımları $2-2=0$ (Şekil [19](#abb-19)).
+::::beispiel [Sayısal örnek]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin $6$ özdeğerine ait özvektörü $(2,\,1)^{\top}$ olur, çünkü $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$; $1$ özdeğerine ait özvektörü de $(1,\,-2)^{\top}$ olur, çünkü $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. İç çarpımları $2-2=0$ (Şekil [19](#abb-19)).
 
 :::abbildung ml/k2rsenkrecht 19
 Simetrik $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin $6$ özdeğerine ait $(2,1)^{\top}$ ve $1$ özdeğerine ait $(1,-2)^{\top}$ özvektörlerinin iç çarpımı: Bu özvektörler birbirine diktir.
 :::
+::::
 
 ⁠**Kısacası:** Simetrik bir matriste farklı özdeğerlere ait özvektörler birbirine diktir.
 
@@ -197,19 +207,21 @@ Adım adım ilerlenir. Kesim [6.3](eigenwerte-und-eigenvektoren.html#stufe-6-3)
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-burada $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, $(n-1)\times(n-1)$ boyutlu simetrik bir matristir. Sıfırlar, $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ vektörü $\mathbf{W}$ matrisinin sütunlarına dik olduğu için ortaya çıkar; sağ üstte de aynı şekilde, çünkü $\mathbf{A}$ simetriktir. $\mathbf{B}$ için aynı işlem, geriye $1\times1$ boyutlu bir matris kalana kadar tekrarlanır. $\mathbf{B}$ için böylece $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ çarpımını köşegen yapan bir $\mathbf{Q}_B$ ortogonal matrisi bulunduysa $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$, ortogonal matrislerin çarpımı olarak ortogonaldir ve $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ köşegendir. $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$ olduğundan $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ çıkar. Toplam biçimi Temeller 1, Kesim 9.5'ten çıkar, çünkü $\mathbf{Q}\boldsymbol{\Lambda}$ matrisinin sütunları $\lambda_i\mathbf{q}_i$ vektörleridir.
+burada $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, $(n-1)\times(n-1)$ boyutlu simetrik bir matristir. Sıfırlar, $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ vektörü $\mathbf{W}$ matrisinin sütunlarına dik olduğu için ortaya çıkar; sağ üstte de aynı şekilde, çünkü $\mathbf{A}$ simetriktir. $\mathbf{B}$ için aynı işlem, geriye $1\times1$ boyutlu bir matris kalana kadar tekrarlanır. $\mathbf{B}$ için böylece $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ çarpımını köşegen yapan bir $\mathbf{Q}_B$ ortogonal matrisi bulunduysa $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$, ortogonal matrislerin çarpımı olarak ortogonaldir ve $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ köşegendir. $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$ olduğundan $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ çıkar. Toplam biçimi [Temeller 1, Kesim 9.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)'ten çıkar, çünkü $\mathbf{Q}\boldsymbol{\Lambda}$ matrisinin sütunları $\lambda_i\mathbf{q}_i$ vektörleridir.
 :::
 
 Kesim [2.3](projektion-auf-eine-gerade.html#stufe-2-3)'e göre her $\mathbf{q}_i\mathbf{q}_i^{\top}$ terimi, $\mathbf{q}_i$ doğrultusundaki doğru üzerine izdüşümdür. Demek ki simetrik bir matris, her biri kendi özdeğeriyle ağırlıklandırılmış, birbirine dik eksenler üzerine izdüşümlerin toplamıdır. Katlı bir özdeğerde $\mathbf{q}_i$ vektörleri onun özuzayında serbestçe seçilebilir: Özuzayın her ortonormal tabanı uygundur. Her $\mathbf{q}_i$ vektörünün işareti de serbesttir. Bazı kitaplar özdeğerleri büyükten küçüğe sıralar, bazıları sıralamaz.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ ve $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$, $6$ ve $1$ özdeğerlerine ait normlanmış özvektörlerdir. O zaman şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ ve $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$, $6$ ve $1$ özdeğerlerine ait normlanmış özvektörlerdir. O zaman şu bulunur:
 
 $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}=\frac15\begin{pmatrix}25&10\\10&10\end{pmatrix}=\begin{pmatrix}5&2\\2&2\end{pmatrix}.$$
+::::
 
 ⁠**Kısacası:** Her simetrik matris $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$ biçimindedir: uygun biçimde döndürülmüş bir eksen takımında köşegendir, birbirine dik eksenler üzerine izdüşümlerin ağırlıklı bir toplamıdır.
 
 :::hintergrund Simetrik matrisler nereden gelir
-Simetrik matrisler, bir matrisin sıraya bağlı olmayan ikili ilişkileri betimlediği her yerde ortaya çıkar. Temeller 1, Kesim 10'daki $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri iç çarpımlar içerir ve $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. Kesim [5.2](quadratische-formen.html#stufe-5-2)'ye göre bir kuadratik formun matrisi her zaman simetrik seçilebilir. Kuplajlı bobinlerin endüktans matrisi simetriktir, çünkü bobin 1'den bobin 2'ye olan karşılıklı endüktans, ters yöndekiyle aynıdır. Spektral teorem bütün bu matrisler için gerçel özdeğerleri ve birbirine dik öz doğrultuları güvence altına alır.
+Simetrik matrisler, bir matrisin sıraya bağlı olmayan ikili ilişkileri betimlediği her yerde ortaya çıkar. [Temeller 1, Kesim 10](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)'daki $\mathbf{X}^{\top}\mathbf{X}$ ve $\mathbf{X}\mathbf{X}^{\top}$ Gram matrisleri iç çarpımlar içerir ve $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. Kesim [5.2](quadratische-formen.html#stufe-5-2)'ye göre bir kuadratik formun matrisi her zaman simetrik seçilebilir. Kuplajlı bobinlerin endüktans matrisi simetriktir, çünkü bobin 1'den bobin 2'ye olan karşılıklı endüktans, ters yöndekiyle aynıdır. Spektral teorem bütün bu matrisler için gerçel özdeğerleri ve birbirine dik öz doğrultuları güvence altına alır.
 :::
 
 ### Asal eksenler
@@ -237,11 +249,13 @@ Bu yüzden özvektörlerin doğrultularına kuadratik formun __asal eksenleri__ 
 $5x_1^2+4x_1x_2+2x_2^2=1$ (mavi) ve $=\tfrac14$ (açık mavi) eş yükselti eğrileri elipslerdir. Eksenleri (gri), $6$ özdeğerine ait $\mathbf{q}_1=(2,1)^{\top}/\sqrt5$ ve $1$ özdeğerine ait $\mathbf{q}_2=(1,-2)^{\top}/\sqrt5$ özvektörlerinin doğrultularındadır. Dıştaki elipsin yarı eksenleri $1/\sqrt6\approx0{,}41$ (kırmızı) ve $1/\sqrt1=1$ (yeşil) olur: Büyük özdeğerin doğrultusunda form en hızlı yükselir ve elips orada en dardır.
 :::
 
-⁠**Sayısal örnek:** $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ için öz tabandaki koordinatlar $c_1=(2x_1+x_2)/\sqrt5$ ve $c_2=(x_1-2x_2)/\sqrt5$ olur ve şu geçerlidir:
+::::beispiel [Sayısal örnek]
+$f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ için öz tabandaki koordinatlar $c_1=(2x_1+x_2)/\sqrt5$ ve $c_2=(x_1-2x_2)/\sqrt5$ olur ve şu geçerlidir:
 
 $$5x_1^2+4x_1x_2+2x_2^2=6\,c_1^2+c_2^2=\tfrac65(2x_1+x_2)^2+\tfrac15(x_1-2x_2)^2 .$$
 
 Sağ taraf açılınca $\tfrac15\bigl(24x_1^2+24x_1x_2+6x_2^2+x_1^2-4x_1x_2+4x_2^2\bigr)=5x_1^2+4x_1x_2+2x_2^2$ elde edilir. $f=1$ eş yükselti eğrisi, Şekil [20](#abb-20) içindeki, yarı eksenleri $1/\sqrt6\approx0{,}408$ ve $1$ olan elipstir.
+::::
 
 ⁠**Kısacası:** Öz tabanda her kuadratik form karma terimsiz bir $\sum_i\lambda_ic_i^2$ toplamına dönüşür; özvektörler formun elipslerinin asal eksenleridir, yarı eksenler de $1/\sqrt{\lambda_i}$ olur.
 

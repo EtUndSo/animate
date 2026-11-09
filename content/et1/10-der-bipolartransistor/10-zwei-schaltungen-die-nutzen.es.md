@@ -26,7 +26,11 @@ $$I_\mathrm{ref}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{ref}}=I_\mathrm{C1
 
 ⁠**Cómo leerlo:** $I_\mathrm{ref}$ es la __corriente de referencia__. Las dos corrientes de base se derivan de ella. De ahí el pequeño error $2/B$. **Validez:** T2 activo, transistores iguales e igual temperatura, por ejemplo en un chip. Debido a la pendiente de la curva característica, T2 entrega algo más con $U_\mathrm{CE2}$ grande.
 
-**Ejemplo.** Con $R_\mathrm{ref}=5{,}7$ k$\Omega$ es $I_\mathrm{ref}=2$ mA e $I_\mathrm{C2}=1{,}98$ mA, con $R_\mathrm{L}$ arbitraria hasta $11{,}8\,\mathrm{V}/1{,}98\,\mathrm{mA}=5{,}96$ k$\Omega$. Más allá, T2 estaría saturado. Con [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1), a $U_\mathrm{CE2}=6$ V y $U_\mathrm{CE1}=0{,}6$ V la corriente en T2 sería un 7 % mayor. **Caso límite:** para $B\to\infty$ es $I_\mathrm{C2}=I_\mathrm{ref}$.
+::::beispiel
+Con $R_\mathrm{ref}=5{,}7$ k$\Omega$ es $I_\mathrm{ref}=2$ mA e $I_\mathrm{C2}=1{,}98$ mA, con $R_\mathrm{L}$ arbitraria hasta $11{,}8\,\mathrm{V}/1{,}98\,\mathrm{mA}=5{,}96$ k$\Omega$. Más allá, T2 estaría saturado. Con [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1), a $U_\mathrm{CE2}=6$ V y $U_\mathrm{CE1}=0{,}6$ V la corriente en T2 sería un 7 % mayor.
+::::
+
+⁠**Caso límite:** para $B\to\infty$ es $I_\mathrm{C2}=I_\mathrm{ref}$.
 
 **La idea: regulador de tensión.** Un rectificador con filtrado ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) entrega una tensión continua con una ondulación residual, el __rizado__. En el regulador (fig. [9](#abb-9), derecha), un diodo Zener mantiene la base en $U_\mathrm{Z}$. El emisor es la salida y está una tensión de diodo más abajo. Si la tensión de salida baja porque la carga pide más corriente, $U_\mathrm{BE}$ crece y el transistor aporta más. En $U_\mathrm{CE}$ cae el resto de la tensión de entrada. La corriente de carga no pasa por $R_1$; la base solo necesita la $B$-ésima parte. El diodo Zener apenas se carga, por tanto.
 
@@ -45,7 +49,11 @@ $$U_\mathrm{A}=U_\mathrm{Z}-U_\mathrm{BE}. \tag{8.2}$$
 Izquierda, espejo de corriente: T1 como diodo genera $U_\mathrm{BE}$, T2 copia la corriente. Centro, regulador de tensión con diodo Zener, el emisor es la salida. Derecha, la evolución: la tensión de entrada oscila entre 10,5 V y 13,5 V, la salida se mantiene en 5,6 V.
 :::
 
-**Ejemplo.** $U_\mathrm{Z}=6{,}2$ V da $U_\mathrm{A}=5{,}6$ V. Con 50 mA de carga, la base necesita 0,25 mA. Con $R_1=1$ k$\Omega$ y $U_\mathrm{E}=12$ V$\,\pm1{,}5$ V circulan por el diodo Zener de 4,05 mA a 7,05 mA. Un diodo Zener con 10 $\Omega$ de resistencia de pequeña señal convierte 3 V de rizado en solo 30 mV. En el transistor se producen hasta $7{,}9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW, justo por debajo de $P_\mathrm{max}$. El regulador convierte en calor la tensión sobrante. Con 0,68 V en lugar de 0,6 V, el valor más exacto de $U_\mathrm{BE}$ con 50 mA, $U_\mathrm{A}$ sería 80 mV menor. **Caso límite:** sin carga, $I_\mathrm{B}\approx0$, $U_\mathrm{A}$ sube ligeramente, $U_\mathrm{Z}$ se mantiene.
+::::beispiel
+$U_\mathrm{Z}=6{,}2$ V da $U_\mathrm{A}=5{,}6$ V. Con 50 mA de carga, la base necesita 0,25 mA. Con $R_1=1$ k$\Omega$ y $U_\mathrm{E}=12$ V$\,\pm1{,}5$ V circulan por el diodo Zener de 4,05 mA a 7,05 mA. Un diodo Zener con 10 $\Omega$ de resistencia de pequeña señal convierte 3 V de rizado en solo 30 mV. En el transistor se producen hasta $7{,}9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW, justo por debajo de $P_\mathrm{max}$. El regulador convierte en calor la tensión sobrante. Con 0,68 V en lugar de 0,6 V, el valor más exacto de $U_\mathrm{BE}$ con 50 mA, $U_\mathrm{A}$ sería 80 mV menor.
+::::
+
+⁠**Caso límite:** sin carga, $I_\mathrm{B}\approx0$, $U_\mathrm{A}$ sube ligeramente, $U_\mathrm{Z}$ se mantiene.
 
 :::frage ¿Por qué no solo el diodo Zener?
 Entonces la resistencia en serie tendría que aportar los 50 mA completos y además un resto para el diodo Zener con la tensión de entrada más baja. Con la tensión de pico, la diferencia circularía por el diodo Zener, y la resistencia en serie se calentaría con unos 0,7 W. El transistor separa ambas cosas: el diodo Zener impone la tensión, y la alimentación aporta la corriente a través del colector. Los transistores de potencia y los componentes derivados de ellos conmutan también grandes corrientes, por ejemplo en convertidores para motores eléctricos.

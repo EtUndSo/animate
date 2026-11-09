@@ -36,7 +36,9 @@ __相对误差__为 $f=(I_R'-I_R)/I_R=-R_\mathrm i/(R+R_\mathrm i)$。$R_\mathrm
 基尔霍夫电压定律为 $U=I_R'R+I_R'R_\mathrm i$，所以 $I_R'=U/(R+R_\mathrm i)$。于是 $f=I_R'/I_R-1=R/(R+R_\mathrm i)-1=-R_\mathrm i/(R+R_\mathrm i)$。
 :::
 
-**例。** $I_R=5$ mA，$I_R'=9\,\mathrm{V}/1810\,\Omega=4.972$ mA，所以 $f=-0.55\,\%$。若像数字万用表那样内阻为 1 $\Omega$，则为 4.997 mA，$f=-0.056\,\%$：误差可以忽略。对小电阻情况就不同了：0.9 V 加在 90 $\Omega$ 上得 10 mA，接入仪表后只有 9 mA，所以 $f=-10\,\%$。起决定作用的不是仪表本身，而是比值 $R_\mathrm i/R$。
+::::beispiel
+$I_R=5$ mA，$I_R'=9\,\mathrm{V}/1810\,\Omega=4.972$ mA，所以 $f=-0.55\,\%$。若像数字万用表那样内阻为 1 $\Omega$，则为 4.997 mA，$f=-0.056\,\%$：误差可以忽略。对小电阻情况就不同了：0.9 V 加在 90 $\Omega$ 上得 10 mA，接入仪表后只有 9 mA，所以 $f=-10\,\%$。起决定作用的不是仪表本身，而是比值 $R_\mathrm i/R$。
+::::
 
 ⁠**极限情况：**$R_\mathrm i\to0$ 得 $f\to0$。$R\to0$ 得 $I_R'\to U/R_\mathrm i$ 和 $f\to-100\,\%$：此时只有仪表在限制电流。这就是练习 [1](das-messgerat-ist-ein-bauteil.html#aufg-1)(a)。
 

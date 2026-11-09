@@ -52,7 +52,13 @@ Die Schottky-Näherung besteht aus zwei Annahmen. Erstens ist der Übergang abru
 $$\rho(x)=\begin{cases}-e\,N_\mathrm A^-&\text{für }-L_\mathrm{depl}^\mathrm A<x<0,\\ +e\,N_\mathrm D^+&\text{für }0<x<L_\mathrm{depl}^\mathrm D,\\ 0&\text{sonst.}\end{cases} \tag{3.3}$$
 :::
 
-⁠**So liest man das:** $L_\mathrm{depl}^\mathrm A$ und $L_\mathrm{depl}^\mathrm D$ sind die Ausdehnungen der Zone in das p- und das n-Gebiet (depletion, Verarmung). Ein Ort ist entweder ganz verarmt oder ganz neutral. **Gültigkeit:** $L_\mathrm{depl}\gg L_\mathrm{Deb}$ auf der jeweiligen Seite. **Beispiel:** Die Rechnung für Abb. [3](#abb-3) zeigt die Grenzen. Am rechten Rand fällt $\rho$ von 90 % auf 10 % zwischen 210 nm und 351 nm, das sind $3{,}4\,L_\mathrm{Deb}$, links ebenfalls $3{,}4\,L_\mathrm{Deb}$. Der Kasten überschätzt die Gesamtladung und das Feld dennoch nur um 3,6 %, denn was er am Rand zu viel zählt, zählt er daneben zu wenig. **Grenzfall:** Für $n_0\to\infty$ geht $L_\mathrm{Deb}\to0$: Eine dichte Trägerwolke schirmt auf kürzester Strecke ab.
+⁠**So liest man das:** $L_\mathrm{depl}^\mathrm A$ und $L_\mathrm{depl}^\mathrm D$ sind die Ausdehnungen der Zone in das p- und das n-Gebiet (depletion, Verarmung). Ein Ort ist entweder ganz verarmt oder ganz neutral. **Gültigkeit:** $L_\mathrm{depl}\gg L_\mathrm{Deb}$ auf der jeweiligen Seite.
+
+::::beispiel
+Die Rechnung für Abb. [3](#abb-3) zeigt die Grenzen. Am rechten Rand fällt $\rho$ von 90 % auf 10 % zwischen 210 nm und 351 nm, das sind $3{,}4\,L_\mathrm{Deb}$, links ebenfalls $3{,}4\,L_\mathrm{Deb}$. Der Kasten überschätzt die Gesamtladung und das Feld dennoch nur um 3,6 %, denn was er am Rand zu viel zählt, zählt er daneben zu wenig.
+::::
+
+⁠**Grenzfall:** Für $n_0\to\infty$ geht $L_\mathrm{Deb}\to0$: Eine dichte Trägerwolke schirmt auf kürzester Strecke ab.
 
 :::frage Warum endet die Raumladung so scharf, obwohl Träger doch diffundieren?
 Sie diffundieren, aber jeder Ladungsüberschuss der Mehrheit erzeugt sofort ein Gegenfeld. Bei $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ fließt er in $\tau_\varepsilon=0{,}54$ ps ab, das ist $1{,}9\cdot10^{6}$-mal kürzer als $\tau_\text{rec}$. Deshalb reicht die Störung nur eine Debye-Länge weit, nicht eine Diffusionslänge.

@@ -36,11 +36,13 @@ Notación abreviada: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ o $S(f)=\mathcal{F}\{s(
 
 ⁠**La convolución se convierte en producto.** Como en la [parte 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. De $s*\delta=s$ se sigue $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, es decir, $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: el impulso de Dirac contiene todas las frecuencias con el mismo peso.
 
-**Ejemplo: el pulso exponencial.** La respuesta al impulso del circuito RC, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
+::::beispiel el pulso exponencial
+La respuesta al impulso del circuito RC, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
 Es la misma respuesta en frecuencia que da el cálculo de corriente alterna ([parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Por tanto, la respuesta al impulso contiene toda la información sobre el comportamiento en frecuencia.
+::::
 
 :::frage ¿Qué diferencia hay entre $S_p(k)$ y $S(f)$, aparte de que una es discreta?
 La unidad. $S_p(k)$ es una amplitud (V): el $k$-ésimo armónico tiene realmente esa intensidad. $S(f)$ es una densidad (V/Hz): en una señal no periódica, ninguna frecuencia aislada tiene una amplitud finita; solo una banda de frecuencias $\Delta f$ aporta aproximadamente $S(f)\,\Delta f$. Por eso $S_p(k)=F\cdot S(kF)$: cada línea representa una banda de anchura $F$.

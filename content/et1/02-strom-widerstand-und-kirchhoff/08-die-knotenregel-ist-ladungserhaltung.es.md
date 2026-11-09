@@ -38,11 +38,13 @@ Para la carga $Q_\mathrm K$ del nudo se cumple $\mathrm{d} Q_\mathrm K/\mathrm{d
 
 **Por qué sobra una ecuación.** Cada rama une dos nudos. Por eso su corriente aparece en exactamente dos ecuaciones de nudo, una vez con $+$ (entrante) y otra con $-$ (saliente). Si se suman las $k$ ecuaciones, todas las corrientes se cancelan. Una ecuación se deduce, pues, de las demás, y cualquier selección de $k-1$ ecuaciones es independiente.
 
-**Ejemplo.** Todas las flechas de corriente de la red apuntan en el sentido de la corriente real: de $K_1$ hacia abajo a través de las resistencias, $I_\mathrm e$ de $K_2$ a $K_3$, $I_0$ a través de la fuente de $K_4$ a $K_1$. Las ecuaciones de nudo son
+::::beispiel
+Todas las flechas de corriente de la red apuntan en el sentido de la corriente real: de $K_1$ hacia abajo a través de las resistencias, $I_\mathrm e$ de $K_2$ a $K_3$, $I_0$ a través de la fuente de $K_4$ a $K_1$. Las ecuaciones de nudo son
 
 $$\begin{aligned} K_1:&\quad +I_0-I_\mathrm a-I_\mathrm c=0, & K_2:&\quad +I_\mathrm a-I_\mathrm b-I_\mathrm e=0,\\ K_3:&\quad +I_\mathrm c-I_\mathrm d+I_\mathrm e=0, & K_4:&\quad -I_0+I_\mathrm b+I_\mathrm d=0. \end{aligned}$$
 
 La suma de las tres primeras es $I_0-I_\mathrm b-I_\mathrm d=0$, la cuarta ecuación con el signo contrario. Si solo se suman $K_2$ y $K_3$, desaparece $I_\mathrm e$ y queda la superficie de la fig. [8](#abb-8): $I_\mathrm a+I_\mathrm c=I_\mathrm b+I_\mathrm d$. **Comprobación:** En un punto con solo dos ramas se obtiene $I_1=I_2$. Por componentes en serie circula la misma corriente.
+::::
 
 :::frage ¿Vale la ley también si en un nudo hay un condensador?
 Sí. La corriente hacia la placa es una corriente de rama como cualquier otra; la carga no se acumula en el nudo, sino en la placa. La [Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) trata este caso.

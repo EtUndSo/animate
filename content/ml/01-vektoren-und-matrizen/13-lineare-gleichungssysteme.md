@@ -34,11 +34,13 @@ ein __lineares Gleichungssystem__ mit $m$ Gleichungen und den $n$ Unbekannten $x
 
 Ausgeschrieben steht in Zeile $i$ die Gleichung $a_{i1}x_1+\dots+a_{in}x_n=y_i$.
 
-⁠**Rechenbeispiel:** Das System
+::::beispiel [Rechenbeispiel]
+Das System
 
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}$$
 
 hat die Lösung $\mathbf{x}=(2,\,1)^{\top}$: $2\cdot2+1=5$ und $2+1=3$. Die Koeffizientenmatrix ist aus Unterabschnitt [11.2](einheitsmatrix-und-inverse.html#stufe-11-2) bekannt, mit der Inversen $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$. Multipliziert man das System von links mit ihr, steht die Lösung sofort da: $\mathbf{x}=\mathbf{A}^{-1}\mathbf{y}=(5-3,\ -5+6)^{\top}=(2,\,1)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Ein lineares Gleichungssystem $\mathbf{A}\mathbf{x}=\mathbf{y}$ fragt, welcher Eingang $\mathbf{x}$ den Ausgang $\mathbf{y}$ liefert.
 
@@ -64,7 +66,9 @@ Das Spaltenbild beantwortet sofort, wann es überhaupt eine Lösung gibt. Die Ve
 Das System $\mathbf{A}\mathbf{x}=\mathbf{y}$ hat genau dann eine Lösung, wenn $\mathbf{y}$ im Spaltenraum von $\mathbf{A}$ liegt.
 :::
 
-⁠**Rechenbeispiel:** Das System $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ ist für $\mathbf{y}=(3,\,6)^{\top}$ lösbar, etwa mit $\mathbf{x}=(1,\,1)^{\top}$, aber für $\mathbf{y}=(1,\,1)^{\top}$ nicht: Der Spaltenraum ist nach Unterabschnitt [7.4](das-matrix-vektor-produkt.html#stufe-7-4) nur die Gerade in Richtung $(1,\,2)^{\top}$.
+::::beispiel [Rechenbeispiel]
+Das System $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ ist für $\mathbf{y}=(3,\,6)^{\top}$ lösbar, etwa mit $\mathbf{x}=(1,\,1)^{\top}$, aber für $\mathbf{y}=(1,\,1)^{\top}$ nicht: Der Spaltenraum ist nach Unterabschnitt [7.4](das-matrix-vektor-produkt.html#stufe-7-4) nur die Gerade in Richtung $(1,\,2)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Im Zeilenbild ist eine Lösung ein gemeinsamer Punkt aller Gleichungen, im Spaltenbild die Wahl der Koeffizienten, mit der die Spalten die rechte Seite ergeben.
 
@@ -116,7 +120,8 @@ Ein System und das durch Zeilenumformungen daraus entstandene System haben diese
 Jede Lösung des alten Systems erfüllt auch die neuen Gleichungen, denn diese sind Summen und Vielfache der alten. Jede der drei Umformungen lässt sich aber auch rückgängig machen: das Vielfache wieder abziehen, die Zeilen zurücktauschen, durch die Zahl teilen. Also erfüllt umgekehrt jede Lösung des neuen Systems auch das alte.
 :::
 
-⁠**Rechenbeispiel:** Das System
+::::beispiel [Rechenbeispiel]
+Das System
 
 $$\begin{aligned} x_1+2x_2+x_3&=8\\ 2x_1+x_2+x_3&=7\\ x_1+x_2+2x_3&=9 \end{aligned} \qquad\text{hat die erweiterte Koeffizientenmatrix}\qquad \left(\begin{array}{ccc|c}1&2&1&8\\2&1&1&7\\1&1&2&9\end{array}\right).$$
 
@@ -125,6 +130,7 @@ Zieht man die erste Zeile zweimal von der zweiten und einmal von der dritten ab,
 $$\left(\begin{array}{ccc|c}1&2&1&8\\0&-3&-1&-9\\0&-1&1&1\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&-3&-1&-9\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&0&-4&-12\end{array}\right).$$
 
 Von unten nach oben: $-4x_3=-12$, also $x_3=3$; dann $-x_2+3=1$, also $x_2=2$; dann $x_1+4+3=8$, also $x_1=1$. Die Lösung ist $\mathbf{x}=(1,\,2,\,3)^{\top}$, und Einsetzen in alle drei Gleichungen bestätigt sie.
+::::
 
 ⁠**Kurz gesagt:** Das Gauß-Verfahren eliminiert die Unbekannten Schritt für Schritt durch Zeilenumformungen, die die Lösungen nicht ändern, und setzt dann von unten nach oben ein.
 
@@ -154,7 +160,8 @@ also ist jeder Punkt $\mathbf{x}+t\,(\mathbf{x}'-\mathbf{x})$ der Geraden durch 
 
 Das System $\mathbf{A}\mathbf{x}=\mathbf{0}$ mit der rechten Seite null heißt __homogen__. Es hat immer die Lösung $\mathbf{x}=\mathbf{0}$. Kennt man eine einzige Lösung $\mathbf{x}_{\mathrm s}$ des Systems $\mathbf{A}\mathbf{x}=\mathbf{y}$, so erhält man alle anderen, indem man die Lösungen des homogenen Systems dazuaddiert: $\mathbf{A}\mathbf{x}=\mathbf{y}$ gilt genau dann, wenn $\mathbf{A}(\mathbf{x}-\mathbf{x}_{\mathrm s})=\mathbf{y}-\mathbf{y}=\mathbf{0}$ ist.
 
-⁠**Rechenbeispiel:** Die drei Systeme in Abb. [38](#abb-38):
+::::beispiel [Rechenbeispiel]
+Die drei Systeme in Abb. [38](#abb-38):
 
 <ol class="al">
 
@@ -177,6 +184,7 @@ $x_1+x_2=3$, $2x_1+2x_2=6$: Die zweite Gleichung ist das Doppelte der ersten. Ei
 </li>
 
 </ol>
+::::
 
 ⁠**Kurz gesagt:** Ein lineares Gleichungssystem hat keine, genau eine oder unendlich viele Lösungen; alle Lösungen sind eine Lösung plus die Lösungen des homogenen Systems.
 
@@ -194,11 +202,13 @@ Ein lineares Gleichungssystem mit mehr Gleichungen als Unbekannten ($m>n$) heiß
 
 Ein überbestimmtes System hat meist keine Lösung: Schon zwei Gleichungen legen zwei Unbekannte fest, und die dritte Gleichung müsste zufällig ebenfalls stimmen. Im Spaltenbild: Der Spaltenraum von $n$ Spalten im $\mathbb{R}^m$ ist für $n<m$ nur ein kleiner Teil des $\mathbb{R}^m$, und die rechte Seite liegt fast nie darin. Ein unterbestimmtes System hat dagegen, wenn es überhaupt lösbar ist, unendlich viele Lösungen: In der Zeilenstufenform bleibt mindestens eine Unbekannte ohne eigene Stufe, und sie ist frei wählbar.
 
-⁠**Rechenbeispiel:** Für die Wohnungen 1 bis 3 mit den Preisen $200$, $130$ und $290$ Tausend Euro lautet das System
+::::beispiel [Rechenbeispiel]
+Für die Wohnungen 1 bis 3 mit den Preisen $200$, $130$ und $290$ Tausend Euro lautet das System
 
 $$60\,w_1+2\,w_2=200,\qquad 40\,w_1+w_2=130,\qquad 90\,w_1+4\,w_2=290 .$$
 
 Aus den ersten beiden Gleichungen folgt $w_1=3$ und $w_2=10$: Zieht man die zweite zweimal von der ersten ab, bleibt $-20\,w_1=-60$. In die dritte eingesetzt, ergibt das aber $270+40=310\ne290$. Das System hat keine Lösung. Kein Paar von Gewichten trifft alle drei Preise genau. Was man in einem solchen Fall stattdessen sucht, ist eine eigene Frage.
+::::
 
 ⁠**Kurz gesagt:** Ein überbestimmtes System hat mehr Gleichungen als Unbekannte und ist meist unlösbar, ein unterbestimmtes hat weniger und, wenn lösbar, unendlich viele Lösungen.
 

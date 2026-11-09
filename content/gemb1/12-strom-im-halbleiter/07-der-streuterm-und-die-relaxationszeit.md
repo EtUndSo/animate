@@ -62,7 +62,11 @@ $$\frac{\partial f}{\partial t}=\frac{\partial(f-f^0)}{\partial t}=-\frac{f-f^0}
 
 Eine Anregung klingt auf der Zeitskala $\tau$ ab, daher der Name __Relaxationszeit__ ([Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)). Mehrere Prozesse liefern je einen Term $-(f-f^0)/\tau_i$. Das ist [(2.2)](ohne-stoe-kein-gleichstrom.html#gl-2-2): $\tau$ in [(5.4)](#gl-5-4) ist $\tau_\text{scat}$.
 
-**Beispiel.** In der Probe ist $\tau_\text{scat}=0{,}18$ ps. Eine Abweichung ist nach 0,82 ps auf 1 % gefallen, das sind 4,6 Streuzeiten. **Grenzfall:** Für $\tau\to\infty$ verschwindet die rechte Seite von [(5.4)](#gl-5-4), und es bleibt [(3.2)](vom-wellenpaket-zur-verteilungsfunktion.html#gl-3-2).
+::::beispiel
+In der Probe ist $\tau_\text{scat}=0{,}18$ ps. Eine Abweichung ist nach 0,82 ps auf 1 % gefallen, das sind 4,6 Streuzeiten.
+::::
+
+⁠**Grenzfall:** Für $\tau\to\infty$ verschwindet die rechte Seite von [(5.4)](#gl-5-4), und es bleibt [(3.2)](vom-wellenpaket-zur-verteilungsfunktion.html#gl-3-2).
 
 :::aufgabe Aufgabe 5 ★★ Hin, zurück und abklingen
 <span class="anker" id="aufg-5"></span>

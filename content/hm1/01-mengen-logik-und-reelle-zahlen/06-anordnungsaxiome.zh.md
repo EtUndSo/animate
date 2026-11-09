@@ -83,7 +83,11 @@ lang: zh
 (e) “$\Leftarrow$”：$x=y$ 时无需证明。由 $x>y\ge0$，用 (O4) 并取 $z=x$ 和 $z=y$，得 $x\cdot x>y\cdot x\ge y\cdot y$。“$\Rightarrow$”用逆否命题：由 $0\le x<y$ 同样得 $x\cdot x\le x\cdot y<y\cdot y$。
 :::
 
-**例。** 当 $x\ne0$ 时，$x$ 为正当且仅当 $x^{-1}$ 为正，因为 $x\cdot x^{-1}=1>0$，再用 (c)。因此，解 $\frac1x>2$。当 $x>0$ 时可以乘以 $x$：$1>2x$，所以 $0<x<\frac12$。当 $x<0$ 时左边为负，无解。**极限情况：**$x=\frac12$ 时得 $2>2$，这是假的，端点不属于解。
+::::beispiel
+当 $x\ne0$ 时，$x$ 为正当且仅当 $x^{-1}$ 为正，因为 $x\cdot x^{-1}=1>0$，再用 (c)。因此，解 $\frac1x>2$。当 $x>0$ 时可以乘以 $x$：$1>2x$，所以 $0<x<\frac12$。当 $x<0$ 时左边为负，无解。
+::::
+
+⁠**极限情况：**$x=\frac12$ 时得 $2>2$，这是假的，端点不属于解。
 
 :::aufgabe 练习 5 ★★ 不等式
 <span class="anker" id="aufg-5"></span>

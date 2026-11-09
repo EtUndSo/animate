@@ -89,7 +89,11 @@ $$\|\vec s\|^2=\sum_ix_is_i+\sum_iy_is_i\le\sum_i|x_is_i|+\sum_i|y_is_i|\le\bigl
 For $\|\vec s\|=0$, the left side of [(9.2)](#gl-9-2) is 0. Otherwise divide by $\|\vec s\|$.
 :::
 
-**Example.** Bernoulli: $1.01^{10}>1.1$, exactly $1.1046$. For small $x$, $1+nx$ is a good approximation: 1 % more voltage means roughly 2 % more power in a resistor, exactly 2.01 %. For large $x$ it is crude: $2^{10}=1024$ versus 11. Young with $x=2$, $y=8$: For $\varepsilon=1$ we get $16\le34$, for $\varepsilon=4$ we get $16\le16$. Cauchy-Schwarz with $\vec x=(3,4)$, $\vec y=(1,2)$: $3+8=11\le5\sqrt5\approx11.18$. Minkowski: $\|(4,6)\|=\sqrt{52}\approx7.21\le5+\sqrt5\approx7.24$. **Limiting case:** For $x=y$ both means are equal; in the semicircle the height stands at the center.
+::::beispiel
+Bernoulli: $1.01^{10}>1.1$, exactly $1.1046$. For small $x$, $1+nx$ is a good approximation: 1 % more voltage means roughly 2 % more power in a resistor, exactly 2.01 %. For large $x$ it is crude: $2^{10}=1024$ versus 11. Young with $x=2$, $y=8$: For $\varepsilon=1$ we get $16\le34$, for $\varepsilon=4$ we get $16\le16$. Cauchy-Schwarz with $\vec x=(3,4)$, $\vec y=(1,2)$: $3+8=11\le5\sqrt5\approx11.18$. Minkowski: $\|(4,6)\|=\sqrt{52}\approx7.21\le5+\sqrt5\approx7.24$.
+::::
+
+⁠**Limiting case:** For $x=y$ both means are equal; in the semicircle the height stands at the center.
 
 :::frage When do I use which inequality?
 Power of a number close to 1: Bernoulli. Estimating a product: Young, means. Sum of products: Cauchy-Schwarz. Root of a sum: Minkowski.

@@ -36,7 +36,11 @@ $$\frac{U_2}{U}=\frac{R_2}{R_1+R_2},\qquad\frac{U_1}{U_2}=\frac{R_1}{R_2}. \tag{
 La ley de las mallas da $U=\sum U_i$, la ley de Ohm $U_i=R_i\,I$ con la misma $I$. Por tanto, $U=(R_1+\dots+R_N)\,I$. En el cociente de $U_\nu=R_\nu\,I$ y $U$ se cancela $I$.
 :::
 
-**Ejemplo.** La cadena tiene $R_\mathrm{tot}=3\,\mathrm{k\Omega}$, es decir, $I=3$ mA, $U_1=6$ V y $U_2=3$ V (fig. [10](#abb-10), izquierda). De [(9.3)](#gl-9-3): $U_2=9\,\mathrm{V}\cdot1/3=3$ V. **Casos límite:** $R_2\to0$ da $U_2\to0$: un cortocircuito no soporta tensión. $R_2\to\infty$ da $U_2\to U$: un punto abierto soporta toda la tensión. $R_1=R_2$ reduce $U$ a la mitad.
+::::beispiel
+La cadena tiene $R_\mathrm{tot}=3\,\mathrm{k\Omega}$, es decir, $I=3$ mA, $U_1=6$ V y $U_2=3$ V (fig. [10](#abb-10), izquierda). De [(9.3)](#gl-9-3): $U_2=9\,\mathrm{V}\cdot1/3=3$ V.
+::::
+
+⁠**Casos límite:** $R_2\to0$ da $U_2\to0$: un cortocircuito no soporta tensión. $R_2\to\infty$ da $U_2\to U$: un punto abierto soporta toda la tensión. $R_1=R_2$ reduce $U$ a la mitad.
 
 :::abbildung et1/k2teiler 10
 Izquierda: el divisor de tensión del modelo de referencia. Centro: cadena de un convertidor de 3 bits con $U_\mathrm{ref}=3{,}2$ V. Los extremos $R/2$ desplazan todas las tomas medio escalón. Derecha: salida frente al número $Z$. La escalera está centrada alrededor de la recta ideal discontinua; el error es como máximo de medio escalón.

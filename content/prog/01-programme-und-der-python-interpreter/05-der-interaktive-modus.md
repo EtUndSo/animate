@@ -30,7 +30,8 @@ Im __interaktiven Modus__ liest Python eine Eingabe, führt sie aus, zeigt das E
 
 Die Eingabeaufforderung des interaktiven Modus ist `>>>`. Auf Englisch heißt dieser Kreislauf aus Lesen, Ausführen und Anzeigen *read–eval–print loop*, abgekürzt REPL.
 
-**Beispiel.** Starte im Terminal `py` (Windows) oder `python3` (Linux), ohne etwas dahinter. Python meldet sich mit seiner Version und wartet auf eine Eingabe:
+::::beispiel
+Starte im Terminal `py` (Windows) oder `python3` (Linux), ohne etwas dahinter. Python meldet sich mit seiner Version und wartet auf eine Eingabe:
 
 ```console Windows (PowerShell)
 PS> py
@@ -79,6 +80,7 @@ Hinter jedes `>>>` tippst du eine Zeile und drückst Enter. Python antwortet in 
 </ul>
 
 Ab Python 3.13 ist der interaktive Modus farbig; in diesem Kapitel sind die Sitzungen ohne Farben abgedruckt.
+::::
 
 ⁠**Kurz gesagt:** Im interaktiven Modus tippt man hinter `>>>` eine Zeile, und Python antwortet sofort.
 
@@ -102,7 +104,8 @@ Ein __Wert__ ist ein einzelnes Datum, mit dem Python arbeitet, zum Beispiel die 
 
 Zahlen mit Nachkommastellen schreibt man in Python mit einem Punkt, nicht mit einem Komma: `0.5` statt 0,5. Im Fließtext dieses Kapitels stehen Zahlen weiter mit Komma; in Python-Zeilen und in den Antworten von Python stehen sie mit Punkt.
 
-**Beispiel.** Tippt man eine Zahl ein, zeigt der interaktive Modus ihren Wert. Er schreibt ihn so, wie Python ihn selbst schreiben würde, und lässt zum Beispiel eine überflüssige Null am Ende weg:
+::::beispiel
+Tippt man eine Zahl ein, zeigt der interaktive Modus ihren Wert. Er schreibt ihn so, wie Python ihn selbst schreiben würde, und lässt zum Beispiel eine überflüssige Null am Ende weg:
 
 ```console
 >>> 42
@@ -112,6 +115,7 @@ Zahlen mit Nachkommastellen schreibt man in Python mit einem Punkt, nicht mit ei
 >>> 2.50
 2.5
 ```
+::::
 
 ⁠**Kurz gesagt:** Ein Wert ist ein Datum wie die Zahl 42; Nachkommastellen stehen in Python hinter einem Punkt.
 
@@ -129,7 +133,9 @@ Ein __Ausdruck__ ist ein Stück Quelltext, das Python zu einem Wert ausrechnen k
 
 Das Ausrechnen eines Ausdrucks heißt __Auswerten__.
 
-**Beispiel.** `2 + 3` ist ein Ausdruck mit dem Wert 5. Auch eine einzelne Zahl wie `42` ist ein Ausdruck, der einfachste überhaupt: Ihr Wert ist die Zahl selbst. Der interaktive Modus wertet jeden eingetippten Ausdruck aus und zeigt den Wert in der nächsten Zeile an. Die Sitzungen oben sind also lauter Paare aus Ausdruck und Wert.
+::::beispiel
+`2 + 3` ist ein Ausdruck mit dem Wert 5. Auch eine einzelne Zahl wie `42` ist ein Ausdruck, der einfachste überhaupt: Ihr Wert ist die Zahl selbst. Der interaktive Modus wertet jeden eingetippten Ausdruck aus und zeigt den Wert in der nächsten Zeile an. Die Sitzungen oben sind also lauter Paare aus Ausdruck und Wert.
+::::
 
 ⁠**Kurz gesagt:** Ein Ausdruck ist Quelltext, der einen Wert ergibt; der interaktive Modus zeigt diesen Wert sofort an.
 
@@ -195,7 +201,8 @@ Python kennt keine Einheiten. Welche Einheit eine Zahl hat, musst du selbst im K
 
 </ul>
 
-**Beispiel: das ohmsche Gesetz.** An einem Widerstand von $470\,\Omega$ liegen $5\,\mathrm V$. Der Strom ist $I=U/R$, die Leistung $P=U^2/R$. Und an einem Widerstand von $2{,}2\,\mathrm{k\Omega}$, durch den $2{,}5\,\mathrm{mA}$ fließen, liegt $U=R\cdot I$:
+::::beispiel das ohmsche Gesetz
+An einem Widerstand von $470\,\Omega$ liegen $5\,\mathrm V$. Der Strom ist $I=U/R$, die Leistung $P=U^2/R$. Und an einem Widerstand von $2{,}2\,\mathrm{k\Omega}$, durch den $2{,}5\,\mathrm{mA}$ fließen, liegt $U=R\cdot I$:
 
 ```console
 >>> 5 / 470
@@ -207,6 +214,7 @@ Python kennt keine Einheiten. Welche Einheit eine Zahl hat, musst du selbst im K
 ```
 
 Abgelesen: $I\approx0{,}0106\,\mathrm A=10{,}6\,\mathrm{mA}$, $P\approx0{,}053\,\mathrm W=53\,\mathrm{mW}$ und $U=5{,}5\,\mathrm V$.
+::::
 
 **Das letzte Ergebnis.** Der interaktive Modus merkt sich den zuletzt angezeigten Wert unter dem Zeichen `_` (Unterstrich), so wie die Taste ANS eines Taschenrechners. Nach der Sitzung oben ergibt `_ * 1000` also 5500.0. Das funktioniert nur im interaktiven Modus.
 
@@ -283,7 +291,8 @@ Programme geben nicht nur Zahlen aus, sondern auch Text, etwa „Strom in A:“ 
 Eine __Zeichenkette__ ist ein Wert, der aus Text besteht. Im Quelltext steht sie zwischen zwei geraden Anführungszeichen, `"Hallo"`, oder zwischen zwei Apostrophen, `'Hallo'`.
 :::
 
-**Beispiel.** Drei Eingaben im interaktiven Modus:
+::::beispiel
+Drei Eingaben im interaktiven Modus:
 
 ```console
 >>> "Hallo"
@@ -295,6 +304,7 @@ Eine __Zeichenkette__ ist ein Wert, der aus Text besteht. Im Quelltext steht sie
 ```
 
 Der interaktive Modus zeigt eine Zeichenkette mit Apostrophen an, auch wenn man sie mit Anführungszeichen eingetippt hat; beides bedeutet dasselbe. Wichtiger ist die zweite Zeile: `"7 * 6"` wird nicht ausgerechnet. Zwischen Anführungszeichen ist `7 * 6` nur eine Folge von fünf Zeichen.
+::::
 
 Die Anführungszeichen müssen die geraden von der Tastatur sein. Die typografischen Zeichen „ und “ aus der Textverarbeitung sind für Python andere Zeichen.
 
@@ -318,7 +328,9 @@ Viele Aufgaben kommen in fast jedem Programm vor, zum Beispiel etwas auf den Bil
 Eine __Funktion__ ist ein fertiges Teilprogramm mit einem Namen, das man bei Bedarf ausführen lassen kann.
 :::
 
-**Beispiel.** Python bringt die Funktion mit dem Namen `print` mit. Sie schreibt Werte als Text in das Terminal.
+::::beispiel
+Python bringt die Funktion mit dem Namen `print` mit. Sie schreibt Werte als Text in das Terminal.
+::::
 
 ⁠**Kurz gesagt:** Eine Funktion ist ein fertiges Teilprogramm mit Namen.
 
@@ -334,7 +346,8 @@ Eine Funktion tut erst etwas, wenn man sie ausführen lässt. Dazu gibt es eine 
 Ein __Funktionsaufruf__ lässt eine Funktion ausführen. Man schreibt ihren Namen, dahinter runde Klammern und in die Klammern die Werte, mit denen die Funktion arbeiten soll, durch Kommas getrennt.
 :::
 
-**Beispiel.** Die Funktion `print` schreibt die Werte in ihren Klammern in eine Zeile, getrennt durch je ein Leerzeichen. Zeichenketten erscheinen dabei ohne Anführungszeichen. Steht in den Klammern ein Ausdruck, wertet Python ihn zuerst aus und gibt dann seinen Wert aus.
+::::beispiel
+Die Funktion `print` schreibt die Werte in ihren Klammern in eine Zeile, getrennt durch je ein Leerzeichen. Zeichenketten erscheinen dabei ohne Anführungszeichen. Steht in den Klammern ein Ausdruck, wertet Python ihn zuerst aus und gibt dann seinen Wert aus.
 
 ```console
 >>> print("Hallo")
@@ -348,6 +361,7 @@ Strom in A: 0.010638297872340425
 ```
 
 Ein Aufruf ohne Werte, `print()`, schreibt eine leere Zeile.
+::::
 
 Im interaktiven Modus sehen `"Hallo"` und `print("Hallo")` ähnlich aus, sind aber verschieden. Im ersten Fall zeigt der interaktive Modus den Wert eines Ausdrucks, mit Apostrophen. Im zweiten Fall schreibt die Funktion `print` den Text selbst ins Terminal, ohne Apostrophe. Der Aufruf von `print` hat danach keinen Wert, den der interaktive Modus noch anzeigen würde.
 

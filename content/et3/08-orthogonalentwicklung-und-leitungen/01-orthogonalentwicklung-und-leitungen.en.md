@@ -13,7 +13,7 @@ lang: en
 This chapter adds two topics to Parts 1 to 7. The first generalizes the Fourier series: a signal is decomposed in terms of arbitrary orthogonal functions, just as a vector is decomposed into its components. The second shows what happens on a long line: voltage and current travel as waves, which can be reflected at the end. The optimal quantizer, which would be a candidate for a third supplementary topic, is already covered in [Part 7](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html) (Stage 5).
 
 
-**How to work with this chapter.** Each stage is a short article of its own with the idea, typical questions you can expand, and exercises (★ to ★★★). Try the exercises yourself first; the solution expands right below each exercise. Finish one stage before you move on to the next.
+**How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference models for this chapter
 <ul>

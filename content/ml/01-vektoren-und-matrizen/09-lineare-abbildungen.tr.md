@@ -34,7 +34,9 @@ $$f(\mathbf{u}+\mathbf{v})=f(\mathbf{u})+f(\mathbf{v})\qquad\text{ve}\qquad f(c\
 
 İki koşul birlikte şunu söyler: $f$ doğrusal bileşimleri korur, $f(c_1\mathbf{u}+c_2\mathbf{v})=c_1f(\mathbf{u})+c_2f(\mathbf{v})$. Her doğrusal dönüşüm sıfır vektörünü sıfır vektörüne götürür, çünkü $f(\mathbf{0})=f(0\cdot\mathbf{u})=0\cdot f(\mathbf{u})=\mathbf{0}$.
 
-⁠**Sayısal örnek:** $\mathbb{R}^2$ uzayından $\mathbb{R}^2$ uzayına giden $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ dönüşümü doğrusaldır. İki bileşen de $x_j$ bileşenlerinin katlarının toplamıdır ve bu tür toplamlar için [(8.1)](#gl-8-1) koşulları sağlanır; örneğin $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$ olur. $g(\mathbf{x})=x_1x_2$ ise doğrusal değildir, çünkü $x_1x_2\ne0$ olduğunda $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ olur. $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ de doğrusal değildir, çünkü $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::beispiel [Sayısal örnek]
+$\mathbb{R}^2$ uzayından $\mathbb{R}^2$ uzayına giden $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ dönüşümü doğrusaldır. İki bileşen de $x_j$ bileşenlerinin katlarının toplamıdır ve bu tür toplamlar için [(8.1)](#gl-8-1) koşulları sağlanır; örneğin $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$ olur. $g(\mathbf{x})=x_1x_2$ ise doğrusal değildir, çünkü $x_1x_2\ne0$ olduğunda $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ olur. $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ de doğrusal değildir, çünkü $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::
 
 ⁠**Kısacası:** Bir dönüşüm toplamları ve katları koruyorsa doğrusaldır; o zaman doğrusal bileşimleri doğrusal bileşimlere götürür.
 
@@ -65,9 +67,11 @@ $$f(\mathbf{x})=f\Bigl(\sum_{j=1}^nx_j\mathbf{e}_j\Bigr)=\sum_{j=1}^nx_j\,f(\mat
 burada son adım [(7.3)](das-matrix-vektor-produkt.html#gl-7-3) sütun bakışından gelir. Bütün $\mathbf{x}$ vektörleri için $\mathbf{B}\mathbf{x}=f(\mathbf{x})$ eşitliğini sağlayan ikinci bir $\mathbf{B}$ matrisi olsaydı, $\mathbf{x}=\mathbf{e}_j$ alındığında $\mathbf{B}$ matrisinin $j$ numaralı sütunu her $j$ için $f(\mathbf{e}_j)=\mathbf{a}_j$ olurdu. Demek ki $\mathbf{B}=\mathbf{A}$.
 :::
 
-⁠**Sayısal örnek:** $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ için $f(\mathbf{e}_1)=(1,\,2)^{\top}$ ve $f(\mathbf{e}_2)=(1,\,0)^{\top}$ olur. Demek ki
+::::beispiel [Sayısal örnek]
+$f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ için $f(\mathbf{e}_1)=(1,\,2)^{\top}$ ve $f(\mathbf{e}_2)=(1,\,0)^{\top}$ olur. Demek ki
 
 $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{ve kontrol için}\qquad \mathbf{A}\begin{pmatrix}3\\-1\end{pmatrix}=\begin{pmatrix}2\\6\end{pmatrix}=f\bigl((3,\,-1)^{\top}\bigr).$$
+::::
 
 ⁠**Kısacası:** Doğrusal dönüşümler ile matrisler aynı şeydir; matrisin $j$ numaralı sütunu $\mathbf{e}_j$ birim vektörünün görüntüsüdür.
 
@@ -121,12 +125,14 @@ $\operatorname{diag}(1;\,0)$ matrisi birinci bileşeni korur ve ikincisini sıf�
 
 </ul>
 
-⁠**Sayısal örnek: herhangi bir açı kadar dönme.** Saat yönünün tersine $\alpha$ açısı kadar döndürüldüğünde $\mathbf{e}_1$ vektörü birim çember üzerindeki $(\cos\alpha,\,\sin\alpha)^{\top}$ noktasına, ondan $90^\circ$ ileride bulunan $\mathbf{e}_2$ vektörü ise $(-\sin\alpha,\,\cos\alpha)^{\top}$ noktasına gelir. Bu yüzden [(8.2)](#gl-8-2) uyarınca dönme matrisi şudur:
+::::beispiel [Sayısal örnek] herhangi bir açı kadar dönme
+Saat yönünün tersine $\alpha$ açısı kadar döndürüldüğünde $\mathbf{e}_1$ vektörü birim çember üzerindeki $(\cos\alpha,\,\sin\alpha)^{\top}$ noktasına, ondan $90^\circ$ ileride bulunan $\mathbf{e}_2$ vektörü ise $(-\sin\alpha,\,\cos\alpha)^{\top}$ noktasına gelir. Bu yüzden [(8.2)](#gl-8-2) uyarınca dönme matrisi şudur:
 
 <span class="anker" id="gl-8-3"></span>
 $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}. \tag{8.3}$$
 
 $\alpha=90^\circ$ için yukarıdaki dönme matrisi çıkar (Şekil [32](#abb-32)). Bu matris $(1,\,1)^{\top}$ noktasını $(-1,\,1)^{\top}$ noktasına döndürür; germe onu $(2;\ 0{,}5)^{\top}$ noktasına, kayma $(2,\,1)^{\top}$ noktasına, yassılaştırma da $(1,\,0)^{\top}$ noktasına götürür.
+::::
 
 ⁠**Kısacası:** $2\times2$ tipinde bir matris düzlemin ızgarasının biçimini değiştirir; birim kare, matrisin iki sütununun gerdiği paralelkenara dönüşür.
 
@@ -144,7 +150,9 @@ Her $f\colon\mathbb{R}^d\to\mathbb{R}$ doğrusal dönüşümü, $w_j=f(\mathbf{e
 
 Bu, $m=1$ için alt kesim [8.2](#stufe-8-2) içindeki teoremdir: $1\times d$ tipindeki matris $\mathbf{w}^{\top}$ satırıdır ve bu satırın $\mathbf{x}$ ile çarpımı iç çarpımdır. Demek ki ağırlıklı toplam (alt kesim [2.2](das-skalarprodukt.html#stufe-2-2)) sıradan bir özel durum değil, tek çıkışlı en genel doğrusal kuraldır.
 
-⁠**Sayısal örnek:** Emlakçının kuralı $f(\mathbf{x})=3x_1+10x_2-4x_3$ olur. $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, dolayısıyla $\mathbf{w}=(3,\,10,\,-4)^{\top}$ bulunur. $w_j=f(\mathbf{e}_j)$ ağırlığı, kuralın, $j$ özniteliğinden yalnızca bir birimi olan ve başka hiçbir şeyi olmayan hayalî bir örnek için verdiği değerdir: Bu özniteliğin bir biriminin ne kadar katkı yaptığını söyler.
+::::beispiel [Sayısal örnek]
+Emlakçının kuralı $f(\mathbf{x})=3x_1+10x_2-4x_3$ olur. $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, dolayısıyla $\mathbf{w}=(3,\,10,\,-4)^{\top}$ bulunur. $w_j=f(\mathbf{e}_j)$ ağırlığı, kuralın, $j$ özniteliğinden yalnızca bir birimi olan ve başka hiçbir şeyi olmayan hayalî bir örnek için verdiği değerdir: Bu özniteliğin bir biriminin ne kadar katkı yaptığını söyler.
+::::
 
 ⁠**Kısacası:** Tek çıkışlı her doğrusal dönüşüm bir $\mathbf{w}^{\top}\mathbf{x}$ ağırlıklı toplamıdır ve $w_j$ ağırlığı, dönüşümün $\mathbf{e}_j$ noktasındaki değeridir.
 
@@ -174,9 +182,11 @@ $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+b\,\mathbf 1 . \tag{8.5}$$
 
 $b\,\mathbf 1$ terimi her tahmine aynı $b$ tutarını ekler.
 
-⁠**Sayısal örnek:** $\mathbf{w}=(3,\,10,\,-4)^{\top}$ ve $b=20$ ile $(188,\,126,\,286,\,232)^{\top}$ tahminleri şu tahminlere dönüşür:
+::::beispiel [Sayısal örnek]
+$\mathbf{w}=(3,\,10,\,-4)^{\top}$ ve $b=20$ ile $(188,\,126,\,286,\,232)^{\top}$ tahminleri şu tahminlere dönüşür:
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+20\cdot\mathbf 1=(208,\,146,\,306,\,252)^{\top}\ \text{bin avro}.$$
+::::
 
 ⁠**Kısacası:** Afin bir dönüşüm, bir doğrusal dönüşüm artı sabit bir kaydırmadır, $\mathbf{A}\mathbf{x}+\mathbf{b}$; tek çıkışta bu kaydırmaya eksen kesişimi denir.
 

@@ -46,7 +46,9 @@ Multiplicado por $\lVert\mathbf{v}\rVert^2>0$, esto significa $(\mathbf{u}^{\top
 La igualdad se cumple si y solo si $\lVert\mathbf{u}-t\,\mathbf{v}\rVert=0$ para este $t$, es decir, si $\mathbf{u}=t\,\mathbf{v}$. A la inversa, para $\mathbf{u}=c\,\mathbf{v}$ se tiene efectivamente $|\mathbf{u}^{\top}\mathbf{v}|=|c|\,\lVert\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{u}=(1,\,2,\,2)^{\top}$ y $\mathbf{v}=(2,\,0,\,1)^{\top}$ se tiene $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$. La desigualdad es estricta porque $\mathbf{v}$ no es un múltiplo de $\mathbf{u}$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{u}=(1,\,2,\,2)^{\top}$ y $\mathbf{v}=(2,\,0,\,1)^{\top}$ se tiene $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$. La desigualdad es estricta porque $\mathbf{v}$ no es un múltiplo de $\mathbf{u}$.
+::::
 
 Con la desigualdad puede completarse lo que en la subsección [3.4](normen-die-groe-eines-vektors.html#stufe-3-4) solo se había justificado de forma intuitiva: la desigualdad triangular de la norma euclídea. Se tiene
 
@@ -95,11 +97,13 @@ $$\cos\varphi=\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\
 
 Esta definición solo es posible porque, según la desigualdad de Cauchy-Schwarz, el lado derecho está siempre entre $-1$ y $1$. Para cada uno de estos números hay exactamente un ángulo entre $0^\circ$ y $180^\circ$. En el signo del producto escalar se ve si el ángulo es agudo ($\mathbf{u}^{\top}\mathbf{v}>0$), recto ($\mathbf{u}^{\top}\mathbf{v}=0$) u obtuso ($\mathbf{u}^{\top}\mathbf{v}<0$).
 
-⁠**Ejemplo numérico:** Para $(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ se tiene $\cos\varphi=1/\sqrt2$, es decir, $\varphi=45^\circ$. Para $(1,\,0,\,1)^{\top}$ y $(1,\,1,\,0)^{\top}$ se tiene $\cos\varphi=\tfrac12$, es decir, $\varphi=60^\circ$ (fig. [22](#abb-22)). Para $\mathbf{u}=(1,\,2,\,2)^{\top}$ y $\mathbf{v}=(2,\,0,\,1)^{\top}$ se tiene $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, es decir, $\varphi\approx53{,}4^\circ$.
+::::beispiel [Ejemplo numérico]
+Para $(1,\,0)^{\top}$ y $(1,\,1)^{\top}$ se tiene $\cos\varphi=1/\sqrt2$, es decir, $\varphi=45^\circ$. Para $(1,\,0,\,1)^{\top}$ y $(1,\,1,\,0)^{\top}$ se tiene $\cos\varphi=\tfrac12$, es decir, $\varphi=60^\circ$ (fig. [22](#abb-22)). Para $\mathbf{u}=(1,\,2,\,2)^{\top}$ y $\mathbf{v}=(2,\,0,\,1)^{\top}$ se tiene $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, es decir, $\varphi\approx53{,}4^\circ$.
 
 :::abbildung ml/k1rwinkel 22
 El ángulo entre $(1,\,0,\,1)^{\top}$ y $(1,\,1,\,0)^{\top}$: en el numerador, el producto escalar; en el denominador, las dos longitudes.
 :::
+::::
 
 ⁠**En resumen:** El coseno del ángulo entre dos vectores es su producto escalar dividido por el producto de sus longitudes.
 
@@ -125,13 +129,17 @@ Si $\mathbf{u}$ y $\mathbf{v}$ son ortogonales, entonces $\lVert\mathbf{u}+\math
 
 Esto se deduce inmediatamente de $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert^2+2\,\mathbf{u}^{\top}\mathbf{v}+\lVert\mathbf{v}\rVert^2$, pues el sumando central es cero.
 
-⁠**Ejemplo numérico 1:** $(1,\,2,\,2)^{\top}$ y $(2,\,0,\,-1)^{\top}$ son ortogonales, pues $2+0-2=0$. Su suma $(3,\,2,\,1)^{\top}$ tiene el cuadrado de la longitud $14=9+5$.
+::::beispiel [Ejemplo numérico 1]
+$(1,\,2,\,2)^{\top}$ y $(2,\,0,\,-1)^{\top}$ son ortogonales, pues $2+0-2=0$. Su suma $(3,\,2,\,1)^{\top}$ tiene el cuadrado de la longitud $14=9+5$.
+::::
 
-⁠**Ejemplo numérico 2: dos patrones que no se estorban.** El patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ y el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la subsección [2.4](das-skalarprodukt.html#stufe-2-4) son ortogonales, $\mathbf 1^{\top}\mathbf{w}=0$. Una señal que consta de $2$ veces el patrón constante y $1$ vez el patrón alternante es $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparación con el patrón constante da $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$; la comparación con el patrón alternante, $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (fig. [23](#abb-23)). Cada comparación encuentra exactamente su propia parte, multiplicada por $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; la otra parte no la estorba.
+::::beispiel [Ejemplo numérico 2] dos patrones que no se estorban
+El patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ y el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la subsección [2.4](das-skalarprodukt.html#stufe-2-4) son ortogonales, $\mathbf 1^{\top}\mathbf{w}=0$. Una señal que consta de $2$ veces el patrón constante y $1$ vez el patrón alternante es $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparación con el patrón constante da $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$; la comparación con el patrón alternante, $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (fig. [23](#abb-23)). Cada comparación encuentra exactamente su propia parte, multiplicada por $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; la otra parte no la estorba.
 
 :::abbildung ml/k1rortho 23
 Los dos patrones son ortogonales (arriba). La comparación de la señal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ con cada patrón da su parte multiplicada por $4$.
 :::
+::::
 
 ⁠**En resumen:** Ortogonal significa producto escalar cero; las flechas ortogonales son perpendiculares, y para ellas se cumple el teorema de Pitágoras.
 
@@ -168,7 +176,8 @@ es decir, el coseno de su ángulo.
 
 Vale $1$ si los vectores apuntan en la misma dirección, $0$ si son ortogonales y $-1$ si apuntan en sentidos opuestos. Si se multiplica uno de los vectores por un número positivo, la similitud no cambia, pues el número se simplifica.
 
-⁠**Ejemplo numérico:** Tres textos y sus recuentos de las palabras «gol», «balón» y «elección»:
+::::beispiel [Ejemplo numérico]
+Tres textos y sus recuentos de las palabras «gol», «balón» y «elección»:
 
 $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad \mathbf{x}_3=(0,\,1,\,3)^{\top} .$$
 
@@ -179,6 +188,7 @@ Dos similitudes coseno de los recuentos de palabras: en cada caso, un producto e
 :::
 
 Las distancias, en cambio, son $\lVert\mathbf{x}_1-\mathbf{x}_2\rVert=\sqrt{13}\approx3{,}61$, $\lVert\mathbf{x}_1-\mathbf{x}_3\rVert=\sqrt{19}\approx4{,}36$ y $\lVert\mathbf{x}_2-\mathbf{x}_3\rVert=\sqrt{54}\approx7{,}35$. Según la distancia, el texto 1 apenas está más lejos del texto 3 que del texto 2, aunque el texto 2 trata exactamente del mismo tema. La similitud coseno lo reconoce de inmediato: vale $1$, y el ángulo con el texto 3, de unos $79{,}9^\circ$, es casi recto.
+::::
 
 ⁠**En resumen:** La similitud coseno compara solo las direcciones de dos vectores y pasa por alto sus longitudes.
 
@@ -208,11 +218,13 @@ Con $\mathbf{u}^{\top}\mathbf{u}=\lVert\mathbf{u}\rVert^2=1$ se tiene $\mathbf{u
 
 Si $\mathbf{u}$ no está normalizado, $\mathbf{u}^{\top}\mathbf{x}$ es la longitud de la sombra de $\mathbf{x}$ en la dirección $\mathbf{u}$, multiplicada por $\lVert\mathbf{u}\rVert$.
 
-⁠**Ejemplo numérico:** $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ está normalizado, pues $0{,}36+0{,}64=1$. Para $\mathbf{x}=(3,\,1)^{\top}$, la longitud de la sombra es $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (fig. [26](#abb-26)), el punto de la sombra es $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ y la flecha de unión es $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Es ortogonal a $\mathbf{u}$: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Con $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ se tiene $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, es decir, $\varphi\approx34{,}7^\circ$.
+::::beispiel [Ejemplo numérico]
+$\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ está normalizado, pues $0{,}36+0{,}64=1$. Para $\mathbf{x}=(3,\,1)^{\top}$, la longitud de la sombra es $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (fig. [26](#abb-26)), el punto de la sombra es $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ y la flecha de unión es $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Es ortogonal a $\mathbf{u}$: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Con $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ se tiene $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, es decir, $\varphi\approx34{,}7^\circ$.
 
 :::abbildung ml/k1rschatten 26
 La longitud de la sombra de $\mathbf{x}$ en la dirección del vector normalizado $\mathbf{u}$ como producto escalar.
 :::
+::::
 
 Para una suma ponderada, esto significa: si los pesos están normalizados, $\mathbf{w}^{\top}\mathbf{x}$ indica hasta dónde llega el ejemplo $\mathbf{x}$ en la dirección de $\mathbf{w}$. Todos los puntos que dan el mismo valor $\mathbf{w}^{\top}\mathbf{x}$ proyectan la misma sombra. En el plano están, por tanto, en una recta perpendicular a $\mathbf{w}$; en el espacio, en un plano perpendicular a $\mathbf{w}$.
 

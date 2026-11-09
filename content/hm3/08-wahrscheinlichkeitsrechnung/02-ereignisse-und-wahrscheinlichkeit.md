@@ -131,7 +131,9 @@ $$\mathbb{P}\Bigl(\bigcup_kA_k\Bigr)=\sum_{k=1}^\infty\mathbb{P}(B_k)=\lim_{n\to
 Absteigend: Die Komplemente $A_n^c$ steigen auf. Die Behauptung folgt mit [(1.1)](#gl-1-1) und Regel (ii).
 :::
 
-⁠**Beispiel:** Sei $A_n$ „unter den ersten $n$ Würfen eines Vierer-Würfels keine 4“. Dann ist $\mathbb{P}(A_n)=(3/4)^n$, die $A_n$ fallen ab, und ihr Schnitt „nie eine 4“ hat die Wahrscheinlichkeit $\lim_n(3/4)^n=0$.
+::::beispiel
+Sei $A_n$ „unter den ersten $n$ Würfen eines Vierer-Würfels keine 4“. Dann ist $\mathbb{P}(A_n)=(3/4)^n$, die $A_n$ fallen ab, und ihr Schnitt „nie eine 4“ hat die Wahrscheinlichkeit $\lim_n(3/4)^n=0$.
+::::
 
 :::frage Warum lässt man nicht immer alle Teilmengen als Ereignisse zu?
 Bei abzählbarem $\Omega$ geht das. Auf einem Intervall lässt sich dagegen nicht jeder Teilmenge widerspruchsfrei eine Länge zuordnen.

@@ -34,11 +34,13 @@ se llama un __sistema de ecuaciones lineales__ con $m$ ecuaciones y las $n$ inc�
 
 Escrita en detalle, en la fila $i$ está la ecuación $a_{i1}x_1+\dots+a_{in}x_n=y_i$.
 
-⁠**Ejemplo numérico:** El sistema
+::::beispiel [Ejemplo numérico]
+El sistema
 
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}$$
 
 tiene la solución $\mathbf{x}=(2,\,1)^{\top}$: $2\cdot2+1=5$ y $2+1=3$. La matriz de coeficientes ya se conoce de la subsección [11.2](einheitsmatrix-und-inverse.html#stufe-11-2), con la inversa $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$. Si se multiplica el sistema por ella por la izquierda, la solución aparece de inmediato: $\mathbf{x}=\mathbf{A}^{-1}\mathbf{y}=(5-3,\ -5+6)^{\top}=(2,\,1)^{\top}$.
+::::
 
 ⁠**En resumen:** Un sistema de ecuaciones lineales $\mathbf{A}\mathbf{x}=\mathbf{y}$ pregunta qué entrada $\mathbf{x}$ da la salida $\mathbf{y}$.
 
@@ -64,7 +66,9 @@ La imagen por columnas responde de inmediato a la pregunta de cuándo hay alguna
 El sistema $\mathbf{A}\mathbf{x}=\mathbf{y}$ tiene solución si y solo si $\mathbf{y}$ está en el espacio columna de $\mathbf{A}$.
 :::
 
-⁠**Ejemplo numérico:** El sistema $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ tiene solución para $\mathbf{y}=(3,\,6)^{\top}$, por ejemplo con $\mathbf{x}=(1,\,1)^{\top}$, pero para $\mathbf{y}=(1,\,1)^{\top}$ no: según la subsección [7.4](das-matrix-vektor-produkt.html#stufe-7-4), el espacio columna es solo la recta en la dirección $(1,\,2)^{\top}$.
+::::beispiel [Ejemplo numérico]
+El sistema $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ tiene solución para $\mathbf{y}=(3,\,6)^{\top}$, por ejemplo con $\mathbf{x}=(1,\,1)^{\top}$, pero para $\mathbf{y}=(1,\,1)^{\top}$ no: según la subsección [7.4](das-matrix-vektor-produkt.html#stufe-7-4), el espacio columna es solo la recta en la dirección $(1,\,2)^{\top}$.
+::::
 
 ⁠**En resumen:** En la imagen por filas, una solución es un punto común de todas las ecuaciones; en la imagen por columnas, la elección de coeficientes con la que las columnas dan el lado derecho.
 
@@ -116,7 +120,8 @@ Un sistema y el sistema obtenido de él mediante operaciones de filas tienen las
 Toda solución del sistema antiguo cumple también las ecuaciones nuevas, pues estas son sumas y múltiplos de las antiguas. Pero cada una de las tres operaciones también puede deshacerse: restar de nuevo el múltiplo, volver a intercambiar las filas, dividir por el número. Así que, a la inversa, toda solución del sistema nuevo cumple también el antiguo.
 :::
 
-⁠**Ejemplo numérico:** El sistema
+::::beispiel [Ejemplo numérico]
+El sistema
 
 $$\begin{aligned} x_1+2x_2+x_3&=8\\ 2x_1+x_2+x_3&=7\\ x_1+x_2+2x_3&=9 \end{aligned} \qquad\text{tiene la matriz ampliada}\qquad \left(\begin{array}{ccc|c}1&2&1&8\\2&1&1&7\\1&1&2&9\end{array}\right).$$
 
@@ -125,6 +130,7 @@ Si se resta la primera fila dos veces de la segunda y una vez de la tercera, $x_
 $$\left(\begin{array}{ccc|c}1&2&1&8\\0&-3&-1&-9\\0&-1&1&1\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&-3&-1&-9\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&0&-4&-12\end{array}\right).$$
 
 De abajo arriba: $-4x_3=-12$, así que $x_3=3$; luego $-x_2+3=1$, así que $x_2=2$; luego $x_1+4+3=8$, así que $x_1=1$. La solución es $\mathbf{x}=(1,\,2,\,3)^{\top}$, y sustituirla en las tres ecuaciones la confirma.
+::::
 
 ⁠**En resumen:** La eliminación gaussiana elimina las incógnitas paso a paso mediante operaciones de filas que no cambian las soluciones y después sustituye de abajo arriba.
 
@@ -154,7 +160,8 @@ así que cada punto $\mathbf{x}+t\,(\mathbf{x}'-\mathbf{x})$ de la recta que pas
 
 El sistema $\mathbf{A}\mathbf{x}=\mathbf{0}$, con lado derecho nulo, se llama __homogéneo__. Siempre tiene la solución $\mathbf{x}=\mathbf{0}$. Si se conoce una solución cualquiera $\mathbf{x}_{\mathrm s}$ del sistema $\mathbf{A}\mathbf{x}=\mathbf{y}$, se obtienen todas las demás sumándole las soluciones del sistema homogéneo: $\mathbf{A}\mathbf{x}=\mathbf{y}$ se cumple si y solo si $\mathbf{A}(\mathbf{x}-\mathbf{x}_{\mathrm s})=\mathbf{y}-\mathbf{y}=\mathbf{0}$.
 
-⁠**Ejemplo numérico:** Los tres sistemas de la fig. [38](#abb-38):
+::::beispiel [Ejemplo numérico]
+Los tres sistemas de la fig. [38](#abb-38):
 
 <ol class="al">
 
@@ -177,6 +184,7 @@ $x_1+x_2=3$, $2x_1+2x_2=6$: la segunda ecuación es el doble de la primera. Una 
 </li>
 
 </ol>
+::::
 
 ⁠**En resumen:** Un sistema de ecuaciones lineales no tiene ninguna solución, tiene exactamente una o tiene infinitas; todas las soluciones son una solución más las soluciones del sistema homogéneo.
 
@@ -194,11 +202,13 @@ Un sistema de ecuaciones lineales con más ecuaciones que incógnitas ($m>n$) se
 
 Un sistema sobredeterminado no suele tener solución: ya dos ecuaciones fijan dos incógnitas, y la tercera ecuación tendría que cumplirse también por casualidad. En la imagen por columnas: el espacio columna de $n$ columnas en $\mathbb{R}^m$ es, para $n<m$, solo una pequeña parte de $\mathbb{R}^m$, y el lado derecho casi nunca está en él. Un sistema infradeterminado, en cambio, si es que tiene solución, tiene infinitas: en la forma escalonada queda al menos una incógnita sin pivote propio, y puede elegirse libremente.
 
-⁠**Ejemplo numérico:** Para las viviendas 1 a 3, con los precios de $200$, $130$ y $290$ mil euros, el sistema es
+::::beispiel [Ejemplo numérico]
+Para las viviendas 1 a 3, con los precios de $200$, $130$ y $290$ mil euros, el sistema es
 
 $$60\,w_1+2\,w_2=200,\qquad 40\,w_1+w_2=130,\qquad 90\,w_1+4\,w_2=290 .$$
 
 De las dos primeras ecuaciones se sigue $w_1=3$ y $w_2=10$: si se resta la segunda dos veces de la primera, queda $-20\,w_1=-60$. Pero, sustituido en la tercera, esto da $270+40=310\ne290$. El sistema no tiene solución. Ningún par de pesos acierta exactamente los tres precios. Qué se busca en su lugar en un caso así es una cuestión aparte.
+::::
 
 ⁠**En resumen:** Un sistema sobredeterminado tiene más ecuaciones que incógnitas y no suele tener solución; uno infradeterminado tiene menos y, si tiene solución, tiene infinitas.
 

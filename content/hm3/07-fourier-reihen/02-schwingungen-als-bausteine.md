@@ -48,11 +48,15 @@ weil $\mathrm{e}^{\mathrm{i}(k-\ell)2\pi}=1$ ist.
 
 ⁠**So liest man das:** __Orthonormal__ heißt: paarweise senkrecht und jeweils mit Norm 1. Die Zahl $\delta_{k\ell}$ heißt __Kronecker-Symbol__. Die Bausteine verhalten sich also wie die Einheitsvektoren eines Koordinatensystems.
 
-**Beispiel.** Sei $f(x)=3+2\cos x-4\sin2x$. Mit $\cos x=\frac12(\hat{\boldsymbol{e}}_1+\hat{\boldsymbol{e}}_{-1})$ und $\sin2x=\frac1{2\mathrm{i}}(\hat{\boldsymbol{e}}_2-\hat{\boldsymbol{e}}_{-2})$ wird
+::::beispiel
+Sei $f(x)=3+2\cos x-4\sin2x$. Mit $\cos x=\frac12(\hat{\boldsymbol{e}}_1+\hat{\boldsymbol{e}}_{-1})$ und $\sin2x=\frac1{2\mathrm{i}}(\hat{\boldsymbol{e}}_2-\hat{\boldsymbol{e}}_{-2})$ wird
 
 $$f=3\,\hat{\boldsymbol{e}}_0+\hat{\boldsymbol{e}}_1+\hat{\boldsymbol{e}}_{-1}+2\mathrm{i}\,\hat{\boldsymbol{e}}_2-2\mathrm{i}\,\hat{\boldsymbol{e}}_{-2}.$$
 
-Bildet man $\langle f,\hat{\boldsymbol{e}}_2\rangle$, fallen nach Satz [1.2](#satz-1-2) alle Terme bis auf einen weg, und es bleibt $\langle f,\hat{\boldsymbol{e}}_2\rangle=2\mathrm{i}$. Das Skalarprodukt liest den Anteil also direkt aus $f$ ab. **Grenzfall:** Ein Baustein, der nicht vorkommt, ergibt null: $\langle f,\hat{\boldsymbol{e}}_5\rangle=0$.
+Bildet man $\langle f,\hat{\boldsymbol{e}}_2\rangle$, fallen nach Satz [1.2](#satz-1-2) alle Terme bis auf einen weg, und es bleibt $\langle f,\hat{\boldsymbol{e}}_2\rangle=2\mathrm{i}$. Das Skalarprodukt liest den Anteil also direkt aus $f$ ab.
+::::
+
+⁠**Grenzfall:** Ein Baustein, der nicht vorkommt, ergibt null: $\langle f,\hat{\boldsymbol{e}}_5\rangle=0$.
 
 :::frage Warum komplex, wenn die Signale reell sind?
 Weil sich beim Multiplizieren von $\mathrm{e}^{\mathrm{i}kx}$ die Exponenten addieren und beim Ableiten nur ein Faktor entsteht. Mit Sinus und Cosinus bräuchte man jedes Mal Additionstheoreme. Eine reelle Schwingung ist dann die Summe zweier gegenläufiger Zeiger, wie in $\cos x=\frac12(\hat{\boldsymbol{e}}_1+\hat{\boldsymbol{e}}_{-1})$.

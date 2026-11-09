@@ -41,11 +41,13 @@ La ortonormalidad solo deja $i=j$ en la suma. Si se sustituyen estos $b_i$ y se 
 
 ⁠**Cómo leerlo:** cada coeficiente se determina por separado, con independencia de los demás. Si se añade una función base, los coeficientes anteriores no cambian. Esa es la ventaja de los sistemas ortogonales, exactamente como en la serie de Fourier ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ es la correlación cruzada $\varphi^E_{fs_i}(0)$. Por eso los coeficientes pueden medirse con un banco de filtros adaptados $h_i(t)=s_i(T-t)$, cuyas salidas se muestrean en $t=T$ ([parte 7](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
 
-**Ejemplo.** $f(t)=t^2$ en $[0,1]$, $E_f=\frac15$. Con $s_0=1$ y $s_1=\sqrt3(2t-1)$:
+::::beispiel
+$f(t)=t^2$ en $[0,1]$, $E_f=\frac15$. Con $s_0=1$ y $s_1=\sqrt3(2t-1)$:
 
 $$b_0=\int_0^1t^2\mathrm{d} t=\tfrac13,\qquad b_1=\sqrt3\int_0^1t^2(2t-1)\mathrm{d} t=\tfrac{\sqrt3}{6}=0{,}289,\qquad\sum b_i^2=\tfrac19+\tfrac1{12}=\tfrac{7}{36}.$$
 
 La aproximación es $\frac13+\frac{\sqrt3}{6}\sqrt3(2t-1)=t-\frac16$, la mejor recta en el sentido de la energía. La energía del resto es $\frac15-\frac7{36}=\frac{1}{180}=0{,}0056$, es decir, el 2,8 % de $E_f$. Con $s_2=\sqrt5(6t^2-6t+1)$ se añade $b_2=\frac{\sqrt5}{30}=0{,}075$, y el resto se anula, porque $t^2$ ya es un polinomio de grado dos.
+::::
 
 :::aufgabe Ejercicio 1 ★ Comprobar la ortonormalidad
 <span class="anker" id="aufg-1"></span>

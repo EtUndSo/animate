@@ -40,7 +40,9 @@ Links: Leistung an der Last und Wirkungsgrad über $R_\mathrm{L}/R_\mathrm{i}$. 
 | Strom | $R_\mathrm{L}\ll R_\mathrm{i}$ | $I\approx I_\mathrm{KS}$, kaum lastabhängig | nahe 0 | Strommesser, Stromquellen |
 | Leistung | $R_\mathrm{L}=R_\mathrm{i}$ | $P_\mathrm{L}$ maximal | $\frac12$ | Antennen, Signalverarbeitung |
 
-**Beispiele.** An der Batterie ergibt $R_\mathrm{L}=200\,\Omega$ die Spannung 8,91 V, 99 % von $U_\mathrm{q}$. Mit $R_\mathrm{L}=0{,}02\,\Omega$ fließen 4,46 A, 99 % von $I_\mathrm{KS}$. Der Schritt von 2 $\Omega$ auf 8 $\Omega$ kostet 36 % der Leistung und senkt die Wärme in der Batterie auf 16 %.
+::::beispiel [Beispiele]
+An der Batterie ergibt $R_\mathrm{L}=200\,\Omega$ die Spannung 8,91 V, 99 % von $U_\mathrm{q}$. Mit $R_\mathrm{L}=0{,}02\,\Omega$ fließen 4,46 A, 99 % von $I_\mathrm{KS}$. Der Schritt von 2 $\Omega$ auf 8 $\Omega$ kostet 36 % der Leistung und senkt die Wärme in der Batterie auf 16 %.
+::::
 
 ⁠**Energietechnik.** Die Leistungen liegen im kW-Bereich, jede Wärme in der Quelle kostet Geld und gefährdet sie. Man will hohen Wirkungsgrad, also $R_\mathrm{i}\ll R_\mathrm{L}$. Ein Werkzeug-Akku mit 18 V und 60 m$\Omega$ erreicht beim Anlauf mit 120 A noch $\eta=1-7{,}2\,\mathrm{V}/18\,\mathrm{V}=60$ %, innen entstehen $(120\,\mathrm{A})^2\cdot60\,\mathrm{m\Omega}=864$ W. Eine Arbeitsleuchte mit 1,8 W wirkt wie 180 $\Omega$, und $\eta=180/180{,}06=99{,}97$ %. Anpassung bedeutete hier 1350 W Wärme im Akku.
 
@@ -64,7 +66,11 @@ Links das Netz bei Anpassung mit den wirklichen Leistungen. Rechts seine Ersatzq
 Mit $R_\mathrm{L}=R_\mathrm{q}R/(R_\mathrm{q}+R)$ ist $R\parallel R_\mathrm{L}=R^2R_\mathrm{q}/(R^2+2R_\mathrm{q}R)=R\,R_\mathrm{q}/(R+2R_\mathrm{q})$. Das ergibt $R_\mathrm{ges}=2R_\mathrm{q}(R_\mathrm{q}+R)/(2R_\mathrm{q}+R)$. Allgemein gilt der Spannungsteiler $U_\mathrm{L}=U_\mathrm{q}(R\parallel R_\mathrm{L})/R_\mathrm{ges}=U_\mathrm{q}\,R\,R_\mathrm{L}/\bigl(R_\mathrm{q}(R+R_\mathrm{L})+R\,R_\mathrm{L}\bigr)$. Einsetzen ergibt die Formel in [(7.2)](#gl-7-2). Damit ist $P_\mathrm{L}=U_\mathrm{L}^2(R_\mathrm{q}+R)/(R_\mathrm{q}R)$. Der Quotient aus $P_\mathrm{L}$ und $P_\mathrm{q}$ kürzt sich auf [(7.3)](#gl-7-3).
 :::
 
-**Beispiel.** Für $U_\mathrm{q}=18$ V, $R_\mathrm{q}=6\,\Omega$ und $R=3\,\Omega$ sind $R_\mathrm{i}=2\,\Omega$ und $U_\mathrm{LL}=6$ V. Bei $R_\mathrm{L}=2\,\Omega$ liegen 3 V an der Last, sie bekommt 4,5 W. Durch $R_\mathrm{q}$ fließen 2,5 A, davon 1 A durch $R$. Das ergibt 37,5 W in $R_\mathrm{q}$, 3 W in $R$, zusammen mit der Last $P_\mathrm{q}=45$ W und $\eta=10$ %. Die Ersatzquelle zeigt scheinbar 50 %, denn sie sagt über das Innere nichts aus. Der Strom durch $R$ fließt auch ohne Last, schon im Leerlauf heizt das Netz mit 36 W. **Grenzfall:** Für $R\to\infty$ fällt dieser Zweig weg, und [(7.3)](#gl-7-3) ergibt wieder $\eta=\frac12$.
+::::beispiel
+Für $U_\mathrm{q}=18$ V, $R_\mathrm{q}=6\,\Omega$ und $R=3\,\Omega$ sind $R_\mathrm{i}=2\,\Omega$ und $U_\mathrm{LL}=6$ V. Bei $R_\mathrm{L}=2\,\Omega$ liegen 3 V an der Last, sie bekommt 4,5 W. Durch $R_\mathrm{q}$ fließen 2,5 A, davon 1 A durch $R$. Das ergibt 37,5 W in $R_\mathrm{q}$, 3 W in $R$, zusammen mit der Last $P_\mathrm{q}=45$ W und $\eta=10$ %. Die Ersatzquelle zeigt scheinbar 50 %, denn sie sagt über das Innere nichts aus. Der Strom durch $R$ fließt auch ohne Last, schon im Leerlauf heizt das Netz mit 36 W.
+::::
+
+⁠**Grenzfall:** Für $R\to\infty$ fällt dieser Zweig weg, und [(7.3)](#gl-7-3) ergibt wieder $\eta=\frac12$.
 
 :::frage Heißt $\eta=50$ % am Maximum, dass ich mit Anpassung die Hälfte der Energie „verliere“?
 Bei einer Quelle mit echtem Innenwiderstand ja, sie heizt sich so stark wie die Last. Bei kleiner Leistung ist das tragbar. Wo Energie teuer oder die Quelle empfindlich ist, arbeitet man weit rechts vom Maximum.

@@ -19,7 +19,7 @@ lang: zh
 
 <span class="anker" id="stufe-10-1"></span>
 
-要说明两个矩阵彼此有多接近，就需要一个衡量它们之差大小的量。谱范数就是这样一个量；它衡量最大的拉长。第二个量更为直接：像基础篇 1 第 6.1 节中的图像那样，把矩阵逐行读成一个长向量，再取这个向量的欧几里得范数。
+要说明两个矩阵彼此有多接近，就需要一个衡量它们之差大小的量。谱范数就是这样一个量；它衡量最大的拉长。第二个量更为直接：像[基础篇 1 第 6.1 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1)中的图像那样，把矩阵逐行读成一个长向量，再取这个向量的欧几里得范数。
 
 :::definition 定义 10.1 (Frobenius 范数)
 <span class="anker" id="satz-10-1"></span>
@@ -44,11 +44,13 @@ $\mathbf{A}^{\top}\mathbf{A}$ 的第 $j$ 个对角元素是 $\mathbf{a}_j^{\top}
 
 两个推论。由于 $d_1^2\le\sum_jd_j^2$，有 $\lVert\mathbf{A}\rVert_2\le\lVert\mathbf{A}\rVert_F$。此外，正交矩阵不改变 Frobenius 范数：$(\mathbf{Q}\mathbf{A})^{\top}(\mathbf{Q}\mathbf{A})=\mathbf{A}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{A}=\mathbf{A}^{\top}\mathbf{A}$，所以 $\mathbf{Q}\mathbf{A}$ 与 $\mathbf{A}$ 有相同的奇异值。
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$，有 $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$（图 [24](#abb-24)），所以 $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4.12$，比 $\lVert\mathbf{A}\rVert_2=4$ 稍大。
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$，有 $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$（图 [24](#abb-24)），所以 $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4.12$，比 $\lVert\mathbf{A}\rVert_2=4$ 稍大。
 
 :::abbildung ml/k2rfrobenius 24
 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ 的 Frobenius 范数的平方：所有元素的平方和，等于各奇异值的平方和。
 :::
+::::
 
 ⁠**简而言之：**Frobenius 范数是由所有元素构成的向量的欧几里得范数；它的平方是各奇异值的平方和。
 
@@ -80,7 +82,8 @@ $$\lVert\mathbf{A}-\mathbf{A}_k\rVert_2=d_{k+1},\qquad \lVert\mathbf{A}-\mathbf{
 
 存储时，$\mathbf{A}_k$ 只需要 $k$ 个各有 $m$ 个分量的向量 $\mathbf{u}_j$、$k$ 个各有 $n$ 个分量的向量 $\mathbf{v}_j$ 以及 $k$ 个数 $d_j$，共 $k(m+n+1)$ 个数，而不是 $mn$ 个。
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ 和 $k=1$，
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ 和 $k=1$，
 
 $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1.6&3.2\\0.8&1.6\end{pmatrix},\qquad \mathbf{A}-\mathbf{A}_1=\mathbf{u}_2\mathbf{v}_2^{\top}=\begin{pmatrix}0.4&-0.2\\-0.8&0.4\end{pmatrix}.$$
 
@@ -89,6 +92,7 @@ $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1.6&3.2\\0.8&1.
 :::abbildung ml/k2rfehler 25
 秩 $1$ 最佳逼近在 Frobenius 范数下的误差的平方，其中 $0.4=\tfrac25$，$0.2=\tfrac15$，$0.8=\tfrac45$：它等于 $d_2^2=1$。
 :::
+::::
 
 ⁠**简而言之：**$\mathbf{A}_k$ 保留 $k$ 个最大的构件；误差具有其余的奇异值，它的谱范数为 $d_{k+1}$。
 
@@ -110,7 +114,7 @@ $$\lVert\mathbf{A}-\mathbf{B}\rVert_2\ge d_{k+1}=\lVert\mathbf{A}-\mathbf{A}_k\r
 :::
 
 :::beweis 谱范数
-由秩-零化度定理，$\mathbf{B}$ 的零空间的维数为 $n-\operatorname{rank}\mathbf{B}\ge n-k$。在零空间中选取 $n-k$ 个线性无关的向量 $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$，再添上 $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$。这是 $\mathbb{R}^n$ 中的 $n+1$ 个向量，由基础篇 1 第 13.4 节，它们线性相关，因为 $n$ 行的矩阵的秩至多为 $n$。所以存在不全为零的数，使 $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$。这个向量 $\mathbf{z}$ 不为零，否则由两组向量各自的线性无关性，所有的数都为零。它既在 $\mathbf{B}$ 的零空间中，又在 $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ 张成的空间中。把它归一化为长度 $1$。于是 $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$，并且由 $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$、$\sum_jc_j^2=1$ 得
+由秩-零化度定理，$\mathbf{B}$ 的零空间的维数为 $n-\operatorname{rank}\mathbf{B}\ge n-k$。在零空间中选取 $n-k$ 个线性无关的向量 $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$，再添上 $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$。这是 $\mathbb{R}^n$ 中的 $n+1$ 个向量，由[基础篇 1 第 13.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4)，它们线性相关，因为 $n$ 行的矩阵的秩至多为 $n$。所以存在不全为零的数，使 $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$。这个向量 $\mathbf{z}$ 不为零，否则由两组向量各自的线性无关性，所有的数都为零。它既在 $\mathbf{B}$ 的零空间中，又在 $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ 张成的空间中。把它归一化为长度 $1$。于是 $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$，并且由 $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$、$\sum_jc_j^2=1$ 得
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -119,7 +123,9 @@ $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVe
 
 证明揭示了原因：秩为 $k$ 的矩阵必须把一整组方向映射为零，即它的零空间。这个零空间必然与 $\mathbf{A}$ 拉伸最强的 $k+1$ 个方向所张成的空间相交，而在那里 $\mathbf{B}$ 至少产生 $d_{k+1}$ 的误差。
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$，$\mathbf{A}_1$ 是秩 $1$ 的最佳矩阵，在两种范数下误差都是 $1$。另一个秩 $1$ 矩阵，例如直接把第二行划掉的 $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$，误差为 $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$，其范数为 $2$。
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$，$\mathbf{A}_1$ 是秩 $1$ 的最佳矩阵，在两种范数下误差都是 $1$。另一个秩 $1$ 矩阵，例如直接把第二行划掉的 $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$，误差为 $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$，其范数为 $2$。
+::::
 
 ⁠**简而言之：**截断分解 $\mathbf{A}_k$ 是秩 $k$ 的最佳逼近，无论在谱范数下还是在 Frobenius 范数下都是如此。
 
@@ -145,7 +151,8 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 表明所有亮度值的平方和中有多大一部分得以保留。
 
-⁠**算例：**基础篇 1 第 6.1 节中的十字为
+::::beispiel [算例]
+[基础篇 1 第 6.1 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1)中的十字为
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 
@@ -158,6 +165,7 @@ $$\mathbf{C}_1=2\,\mathbf{q}_1\mathbf{q}_1^{\top}=\frac13\begin{pmatrix}1&2&1\\2
 :::abbildung ml/k2bild 26
 由 $3\times3$ 个像素组成的十字 $\mathbf{C}$（左，$0$ 为黑色，$1$ 为白色），它的秩 $1$ 最佳逼近 $\mathbf{C}_1$（中；值 $\tfrac43$ 比白色更亮，按白色显示），以及误差 $\mathbf{C}-\mathbf{C}_1$（右，红色为正，蓝色为负）。误差本身也是一个秩为 $1$ 的矩阵，即属于奇异值 $1$ 的构件。
 :::
+::::
 
 对于 $3\times3$ 像素的十字，这节省不了多少。对于大图像，差别就很可观了：一幅 $1000\times1000$ 像素的图像有 $10^6$ 个元素；含 $k=50$ 个构件的逼近需要 $50\cdot(1000+1000+1)=100\,050$ 个数，约为 $10\,\%$。逼近看起来是否好，取决于奇异值下降得有多快。在许多照片中，相邻的行非常相似；这时各行都靠近一个低维子空间，少数几个大的奇异值就承载了几乎整个和 $\sum_jd_j^2$。
 

@@ -75,11 +75,15 @@ Alle Teile führen den Abstand auf die Nullfolgen $a_n-a$ und $b_n-b$ zurück.
 (v) Es ist $a\ge0$, denn für $a<0$ läge kein Glied $a_n\ge0$ im Schlauch mit $\varepsilon=|a|$. Für $a=0$ ist das Satz [3.2](nullfolgen-vergleichen.html#satz-3-2) (ii). Für $a>0$ gilt nach der dritten binomischen Formel $(\sqrt{a_n}-\sqrt a)(\sqrt{a_n}+\sqrt a)=a_n-a$, also $|\sqrt{a_n}-\sqrt a|=\dfrac{|a_n-a|}{\sqrt{a_n}+\sqrt a}\le\dfrac{|a_n-a|}{\sqrt a}$, wieder eine Majorante.
 :::
 
-**Beispiel.** Für $r_n=\dfrac{3n^2-n+5}{n^2+4n+1}$ passen die Regeln nicht direkt, denn Zähler und Nenner sind unbeschränkt. Kürzen mit der höchsten Potenz $n^2$ macht aus beiden konvergente Folgen:
+::::beispiel
+Für $r_n=\dfrac{3n^2-n+5}{n^2+4n+1}$ passen die Regeln nicht direkt, denn Zähler und Nenner sind unbeschränkt. Kürzen mit der höchsten Potenz $n^2$ macht aus beiden konvergente Folgen:
 
 $$r_n=\frac{3-\frac1n+\frac5{n^2}}{1+\frac4n+\frac1{n^2}}\ \longrightarrow\ \frac{3-0+0}{1+0+0}=3.$$
 
-Dabei sind $\frac1n$, $\frac1{n^2}$ Nullfolgen, die Regeln (i) und (ii) geben Zähler und Nenner, (iii) und (ii) den Bruch. Zahlen: $r_{10}=2{,}092$, $r_{100}=2{,}875$, $r_{1000}=2{,}987$. Im Rechenmodell gilt ebenso $a_n+s_n\to4$, $a_n\cdot s_n\to4$, $1/a_n\to\frac12$ und $\sqrt{s_n}\to\sqrt2$. **Grenzfälle:** Ist der Grad des Zählers kleiner als der des Nenners, ergibt das Kürzen 0, ist er größer, wird die Folge unbeschränkt. Bei gleichem Grad zählt das Verhältnis der führenden Koeffizienten, hier $3/1$.
+Dabei sind $\frac1n$, $\frac1{n^2}$ Nullfolgen, die Regeln (i) und (ii) geben Zähler und Nenner, (iii) und (ii) den Bruch. Zahlen: $r_{10}=2{,}092$, $r_{100}=2{,}875$, $r_{1000}=2{,}987$. Im Rechenmodell gilt ebenso $a_n+s_n\to4$, $a_n\cdot s_n\to4$, $1/a_n\to\frac12$ und $\sqrt{s_n}\to\sqrt2$.
+::::
+
+⁠**Grenzfälle:** Ist der Grad des Zählers kleiner als der des Nenners, ergibt das Kürzen 0, ist er größer, wird die Folge unbeschränkt. Bei gleichem Grad zählt das Verhältnis der führenden Koeffizienten, hier $3/1$.
 
 :::frage Bei $\sqrt{n+4}-\sqrt n$ gilt doch „unendlich minus unendlich gleich null“?
 Das Ergebnis stimmt, die Begründung nicht. Regel (i) setzt konvergente Summanden voraus, $\sqrt n$ konvergiert nicht. Dass die Differenz zweier unbeschränkter Folgen nichts Bestimmtes ergibt, zeigen $(n+4)-n=4$ und $(2n)-n=n$. Hier hilft erst das Umformen.

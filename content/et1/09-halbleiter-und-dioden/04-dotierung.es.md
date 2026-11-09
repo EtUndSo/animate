@@ -34,7 +34,11 @@ $$\text{región n: }n\approx N_\mathrm D,\qquad\text{región p: }p\approx N_\mat
 El calor genera pares de electrón y hueco a un ritmo que solo depende de $T$ y del material. La recombinación requiere que ambos se encuentren; su ritmo es $c\,n\,p$. En equilibrio ambos ritmos son iguales, así que $n\,p$ es constante. En silicio puro $n=p=n_\mathrm i$, por tanto $n\,p=n_\mathrm i^2$. Más electrones significan más recombinación y menos huecos.
 :::
 
-**Ejemplo.** Con $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ hay un átomo de impureza por cada $5\cdot10^{6}$ átomos de silicio, y aun así $n$ sube a un millón de veces $n_\mathrm i$. Los huecos bajan a $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$. Mayoría y minoría están separadas por un factor $10^{12}$. $W_\mathrm F$ sube $25{,}85\,\mathrm{meV}\cdot\ln10^{6}=0{,}36$ eV. **Caso límite:** Para $N_\mathrm D\to0$, [(2.1)](#gl-2-1) vuelve a dar $n=p=n_\mathrm i$.
+::::beispiel
+Con $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ hay un átomo de impureza por cada $5\cdot10^{6}$ átomos de silicio, y aun así $n$ sube a un millón de veces $n_\mathrm i$. Los huecos bajan a $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$. Mayoría y minoría están separadas por un factor $10^{12}$. $W_\mathrm F$ sube $25{,}85\,\mathrm{meV}\cdot\ln10^{6}=0{,}36$ eV.
+::::
+
+⁠**Caso límite:** Para $N_\mathrm D\to0$, [(2.1)](#gl-2-1) vuelve a dar $n=p=n_\mathrm i$.
 
 :::frage ¿El silicio tipo n tiene carga negativa y el tipo p carga positiva?
 No, ambos son neutros. «n» y «p» indican el signo de las cargas móviles, no el de la pieza. En la región n, cada electrón libre tiene enfrente un ion positivo fijo. Solo en la unión pn se separan ambos (etapa [3](die-raumladungszone.html#stufe-3)).

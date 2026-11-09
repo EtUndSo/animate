@@ -68,7 +68,11 @@ La variación de $x$ es proporcional a la propia $x$: cuanto mayor es el resto, 
 ⁠**El mismo camino a través de la corriente:** De $U_0=R\,i+\frac1C\int_0^ti\,\mathrm{d} t'$, derivando, resulta $0=R\,\frac{\mathrm{d} i}{\mathrm{d} t}+\frac iC$. Escrito de forma breve, es $\frac{\mathrm{d} i}{i}=-\frac{\mathrm{d} t}{RC}$, y los pasos 2 a 4 dan $\ln i=-\frac{t}{RC}+\ln\frac{U_0}{R}$, es decir, de nuevo $i=\frac{U_0}{R}\mathrm{e}^{-t/RC}$.
 :::
 
-**Ejemplo.** En el modelo de referencia, tras $t=1$ s es $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5{,}69$ V, $u_R=3{,}31$ V e $i=0{,}331$ mA (fig. [11](#abb-11)). Las dos tensiones suman 9 V en todo momento. La tangente en el inicio sube a razón de $U_0/\tau=9$ V/s y alcanza 9 V exactamente en $t=\tau$: si la corriente inicial se mantuviera constante como en la etapa [3](strom-und-spannung-am-kondensator.html#stufe-3), el condensador estaría lleno tras $\tau$. **En resumen:** $\tau$ es la carga final dividida por la corriente inicial, $C\,U_0/(U_0/R)=RC$.
+::::beispiel
+En el modelo de referencia, tras $t=1$ s es $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5{,}69$ V, $u_R=3{,}31$ V e $i=0{,}331$ mA (fig. [11](#abb-11)). Las dos tensiones suman 9 V en todo momento. La tangente en el inicio sube a razón de $U_0/\tau=9$ V/s y alcanza 9 V exactamente en $t=\tau$: si la corriente inicial se mantuviera constante como en la etapa [3](strom-und-spannung-am-kondensator.html#stufe-3), el condensador estaría lleno tras $\tau$.
+::::
+
+⁠**En resumen:** $\tau$ es la carga final dividida por la corriente inicial, $C\,U_0/(U_0/R)=RC$.
 
 :::abbildung et1/k3laden 11
 Carga con $U_0=9$ V, $R=10\,\mathrm{k\Omega}$ y $C=100\,\mu\text{F}$. Izquierda, las tensiones; derecha, la corriente. La corriente salta de cero a 0,9 mA en $t=0$ y se extingue. Las tangentes en el inicio alcanzan el valor final en $t=\tau=1$ s. Los puntos corresponden a $t=\tau$.

@@ -49,7 +49,11 @@ $$P=n\,A\,L\,\frac{W_1}{T}=n\,A\,L\,\frac{e^2E^2\,T}{2\,m_\mathrm e}=\sigma\,E^2
 250 mW 电阻的极限。每个阻值只能工作到双曲线为止：25 $\Omega$ 到 100 mA，100 $\Omega$ 到 50 mA，400 $\Omega$ 到 25 mA。
 :::
 
-**例。** 对于 100 $\Omega$ 和 250 mW，允许 $U_\mathrm{max}=5$ V，$I_\mathrm{max}=50$ mA。接在理想的 9 V 上会产生 810 mW，是极限值的 3.24 倍。需要 $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$。**极限情况：**$R\to\infty$ 时 $P\to0$。$R\to0$ 时，在固定电压下 $P\to\infty$。只有电源的内阻能阻止这种情况（第 [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5) 阶段）。
+::::beispiel
+对于 100 $\Omega$ 和 250 mW，允许 $U_\mathrm{max}=5$ V，$I_\mathrm{max}=50$ mA。接在理想的 9 V 上会产生 810 mW，是极限值的 3.24 倍。需要 $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$。
+::::
+
+⁠**极限情况：**$R\to\infty$ 时 $P\to0$。$R\to0$ 时，在固定电压下 $P\to\infty$。只有电源的内阻能阻止这种情况（第 [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5) 阶段）。
 
 :::frage 电热丝和引线流过相同的电流。为什么只有电热丝发红？
 电流相同时，热量与 $R$ 成正比。一段 10 m$\Omega$ 的引线在 0.5 A 时只转换 2.5 mW，而 16 $\Omega$ 的负载转换 4 W，是前者的 1600 倍。在吹风机和电烙铁中，热就是目的；在线路中，它是损耗（第 [4](leitungsverluste.html#stufe-4) 阶段）。

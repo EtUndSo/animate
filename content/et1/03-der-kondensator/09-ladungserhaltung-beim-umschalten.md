@@ -30,12 +30,14 @@ $$Q_\mathrm{ges}=\sum_iC_iU_i=\text{const}. \tag{8.1}$$
 Stellung 1: $C_1$ lädt sich auf 9 V, $C_2$ ist leer. Stellung 2: Die gestrichelte Insel enthält die oberen Platten beider Kondensatoren. Die 900 µC verteilen sich, bis beide Spannungen gleich sind.
 :::
 
-**Beispiel.** In Abb. [8](#abb-8) trägt $C_1$ in Stellung 1 die Ladung $C_1U_0=900\,\mu\text{C}$, und $C_2$ ist leer. Der Schalter geht auf Stellung 2. Beide oberen Platten hängen nun an einem Draht, also gilt nach dem Ausgleich dieselbe Spannung $U$. Aus [(8.1)](#gl-8-1) folgt
+::::beispiel
+In Abb. [8](#abb-8) trägt $C_1$ in Stellung 1 die Ladung $C_1U_0=900\,\mu\text{C}$, und $C_2$ ist leer. Der Schalter geht auf Stellung 2. Beide oberen Platten hängen nun an einem Draht, also gilt nach dem Ausgleich dieselbe Spannung $U$. Aus [(8.1)](#gl-8-1) folgt
 
 <span class="anker" id="gl-8-2"></span>
 $$C_1U+C_2U=C_1U_0\quad\Longrightarrow\quad U=U_0\,\frac{C_1}{C_1+C_2}=9\,\mathrm{V}\cdot\frac{100}{150}=6\,\mathrm{V}. \tag{8.2}$$
 
 Danach trägt $C_1$ noch 600 µC, $C_2$ hat 300 µC erhalten.
+::::
 
 **Die Energie bleibt nicht erhalten.** Vorher sind $\frac12C_1U_0^2=4{,}05$ mJ gespeichert, nachher $\frac12(C_1+C_2)U^2=2{,}70$ mJ. Es fehlen 1,35 mJ, ein Drittel. Der Ausgleichsstrom erwärmt die Leitungen und den Schalter. Der Verlust hängt nicht von deren Widerstand ab: Ein kleinerer Widerstand ergibt einen größeren Strom für kürzere Zeit, und beides hebt sich genau auf. Allgemein gehen beim Ausgleich zweier Spannungen $U_1$ und $U_2$ verloren:
 

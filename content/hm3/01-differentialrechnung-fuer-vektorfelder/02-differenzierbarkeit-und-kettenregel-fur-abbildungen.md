@@ -35,7 +35,9 @@ $$|\boldsymbol{x}|=\sqrt{x_1^2+\dots+x_n^2}.$$
 
 In der Ebene ist das der Satz des Pythagoras. Man nennt $|\boldsymbol{x}|$ auch die __euklidische Norm__ von $\boldsymbol{x}$. Der __Abstand__ zweier Punkte $\boldsymbol{x}$ und $\boldsymbol{y}$ ist die Länge des Pfeils zwischen ihnen, also $|\boldsymbol{y}-\boldsymbol{x}|$.
 
-⁠**Beispiel:** Für $\boldsymbol{x}=(3,4)$ ist $|\boldsymbol{x}|=\sqrt{9+16}=5$. Die Punkte $(1,2)$ und $(4,6)$ haben den Abstand $|(3,4)|=5$. Im Raum ist $|(1,2,2)|=\sqrt{1+4+4}=3$.
+::::beispiel
+Für $\boldsymbol{x}=(3,4)$ ist $|\boldsymbol{x}|=\sqrt{9+16}=5$. Die Punkte $(1,2)$ und $(4,6)$ haben den Abstand $|(3,4)|=5$. Im Raum ist $|(1,2,2)|=\sqrt{1+4+4}=3$.
+::::
 
 ⁠**Kurz gesagt:** Ein Vektor im $\mathbb{R}^n$ ist eine Liste von $n$ Zahlen, die man als Pfeil zeichnet. Seine Länge ist die Wurzel aus der Summe der Quadrate seiner Komponenten.
 
@@ -55,7 +57,9 @@ $$\boldsymbol a\cdot\boldsymbol b=|\boldsymbol a|\,|\boldsymbol b|\cos\alpha ,$$
 
 wobei $\alpha$ der Winkel zwischen den beiden Pfeilen ist. Daran liest man ab: Für Vektoren, die nicht null sind, ist das Skalarprodukt positiv, wenn der Winkel kleiner als $90^\circ$ ist, null, wenn sie senkrecht aufeinander stehen, und negativ, wenn der Winkel größer als $90^\circ$ ist. Mit einem Einheitsvektor liefert das Skalarprodukt eine Komponente: $\hat{\boldsymbol{e}}_j\cdot\boldsymbol{x}=x_j$.
 
-⁠**Beispiel:** $(1,2,2)\cdot(2,0,-1)=2+0-2=0$, die beiden Vektoren stehen senkrecht aufeinander. Für $(1,1)$ und $(1,0)$ ist das Skalarprodukt $1$. Zur Kontrolle mit dem Winkel: $|(1,1)|\,|(1,0)|\cos45^\circ=\sqrt2\cdot1\cdot\tfrac1{\sqrt2}=1$.
+::::beispiel
+$(1,2,2)\cdot(2,0,-1)=2+0-2=0$, die beiden Vektoren stehen senkrecht aufeinander. Für $(1,1)$ und $(1,0)$ ist das Skalarprodukt $1$. Zur Kontrolle mit dem Winkel: $|(1,1)|\,|(1,0)|\cos45^\circ=\sqrt2\cdot1\cdot\tfrac1{\sqrt2}=1$.
+::::
 
 ⁠**Kurz gesagt:** Das Skalarprodukt multipliziert Komponente mit Komponente und addiert. Es ist genau dann null, wenn zwei Vektoren, die nicht null sind, senkrecht aufeinander stehen.
 
@@ -79,11 +83,11 @@ $$(ML)_{ik}=\sum_{j=1}^n M_{ij}\,L_{jk}.$$
 
 Eintrag $(i,k)$ ist Zeile $i$ von $M$ mal Spalte $k$ von $L$. Das geht nur, wenn $M$ so viele Spalten hat wie $L$ Zeilen, und das Ergebnis hat so viele Zeilen wie $M$ und so viele Spalten wie $L$. Es gilt $(ML)\boldsymbol s=M(L\boldsymbol s)$: Das Produkt wirkt wie die beiden Matrizen nacheinander, zuerst $L$, dann $M$.
 
-⁠**Beispiel:**
-
+::::beispiel
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}3\\7\end{pmatrix},\qquad \begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}2&1\\4&3\end{pmatrix}.$$
 
 Die Matrix $\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ macht aus $\hat{\boldsymbol{e}}_2=(0,1)$ ihre zweite Spalte $(2,4)$. Eine $2\times3$-Matrix mal eine $3\times1$-Matrix ergibt eine $2\times1$-Matrix.
+::::
 
 ⁠**Kurz gesagt:** Matrix mal Vektor ergibt einen Vektor. Das Matrixprodukt ist die Matrix, die dasselbe bewirkt wie zwei Matrizen nacheinander.
 
@@ -99,11 +103,11 @@ Dieselben Zahlen lassen sich als Zeile oder als Spalte anordnen. Für die Rechnu
 
 **Symmetrische Matrizen.** Eine quadratische Matrix heißt __symmetrisch__, wenn $M^T=M$ gilt, also $M_{jk}=M_{kj}$ für alle $j,k$. Ihre Einträge sind an der Diagonalen gespiegelt.
 
-⁠**Beispiel:**
-
+::::beispiel
 $$\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^T=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix},\qquad (1\;\;2\;\;3)\begin{pmatrix}4\\5\\6\end{pmatrix}=4+10+18=32 .$$
 
 Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&5\end{smallmatrix}\bigr)$ ist symmetrisch. Die Matrix $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ ist es nicht, denn rechts oben steht $-1$ und links unten $1$.
+::::
 
 ⁠**Kurz gesagt:** Transponieren vertauscht Zeilen und Spalten. Eine symmetrische Matrix bleibt dabei gleich.
 
@@ -123,7 +127,9 @@ Die Schale $\varphi(x,y)=x^2+2y^2$ als Landkarte. Die blauen Linien sind die Hö
 
 **Höhenlinien.** Für eine Zahl $c$ heißt die Menge aller Punkte $(x,y)$ mit $f(x,y)=c$ die __Höhenlinie__ von $f$ zum Wert $c$. Sie ist die Schnittlinie des Graphen mit der waagerechten Ebene in der Höhe $c$, von oben gesehen. Bei drei Variablen ist die Menge aller Punkte mit $f(x,y,z)=c$ meist eine Fläche. Sie heißt __Niveaufläche__.
 
-⁠**Beispiel:** Die Funktion $\varphi(x,y)=x^2+2y^2$ heißt in diesem Kapitel die *Schale*, weil ihr Graph wie eine Schale aussieht. Es ist $\varphi(0,0)=0$, $\varphi(2,0)=4$, $\varphi(0,1)=2$ und $\varphi(1,1)=3$. Die Höhenlinie zum Wert $3$ besteht aus den Punkten mit $x^2+2y^2=3$. Das ist eine Ellipse um den Nullpunkt, die die $x$-Achse bei $\pm\sqrt3$ und die $y$-Achse bei $\pm\sqrt{3/2}$ schneidet und durch $(1,1)$ läuft.
+::::beispiel
+Die Funktion $\varphi(x,y)=x^2+2y^2$ heißt in diesem Kapitel die *Schale*, weil ihr Graph wie eine Schale aussieht. Es ist $\varphi(0,0)=0$, $\varphi(2,0)=4$, $\varphi(0,1)=2$ und $\varphi(1,1)=3$. Die Höhenlinie zum Wert $3$ besteht aus den Punkten mit $x^2+2y^2=3$. Das ist eine Ellipse um den Nullpunkt, die die $x$-Achse bei $\pm\sqrt3$ und die $y$-Achse bei $\pm\sqrt{3/2}$ schneidet und durch $(1,1)$ läuft.
+::::
 
 ⁠**Kurz gesagt:** Eine skalare Funktion ordnet jedem Punkt eine Zahl zu. Man zeichnet sie als Landkarte mit Höhenlinien.
 
@@ -143,7 +149,9 @@ und nennt die Zahl $c$ den __Grenzwert__ von $f$ in $\boldsymbol{x}_0$, wenn fü
 
 **Stetigkeit.** Die Funktion $f$ heißt __stetig__ in $\boldsymbol{x}_0$, wenn sie dort erklärt ist und $\lim_{\boldsymbol{x}\to\boldsymbol{x}_0}f(\boldsymbol{x})=f(\boldsymbol{x}_0)$ gilt. Sie heißt stetig, wenn sie in jedem Punkt ihres Bereichs stetig ist. Summen, Produkte und Verkettungen stetiger Funktionen sind stetig, Quotienten überall dort, wo der Nenner nicht null ist. Deshalb sind zum Beispiel alle Polynome in $x_1,\dots,x_n$ stetig.
 
-⁠**Beispiel:** Die Schale $\varphi(x,y)=x^2+2y^2$ ist ein Polynom und damit stetig. Anders die Funktion $q(x,y)=\dfrac{x^2-y^2}{x^2+y^2}$ für $(x,y)\neq(0,0)$, ergänzt durch $q(0,0)=0$. Längs der Folge $(1/\nu,\,0)$ ist $q=1$, längs der Folge $(0,\,1/\nu)$ ist $q=-1$. Beide Folgen gehen gegen den Nullpunkt, aber die Funktionswerte streben verschiedenen Zahlen zu. Also hat $q$ im Nullpunkt keinen Grenzwert und ist dort nicht stetig.
+::::beispiel
+Die Schale $\varphi(x,y)=x^2+2y^2$ ist ein Polynom und damit stetig. Anders die Funktion $q(x,y)=\dfrac{x^2-y^2}{x^2+y^2}$ für $(x,y)\neq(0,0)$, ergänzt durch $q(0,0)=0$. Längs der Folge $(1/\nu,\,0)$ ist $q=1$, längs der Folge $(0,\,1/\nu)$ ist $q=-1$. Beide Folgen gehen gegen den Nullpunkt, aber die Funktionswerte streben verschiedenen Zahlen zu. Also hat $q$ im Nullpunkt keinen Grenzwert und ist dort nicht stetig.
+::::
 
 ⁠**Kurz gesagt:** Ein Grenzwert in mehreren Variablen existiert nur, wenn jede Annäherung an den Punkt denselben Wert liefert. Stetig heißt: Der Grenzwert ist der Funktionswert.
 
@@ -172,11 +180,13 @@ falls dieser Grenzwert existiert. Existieren in jedem Punkt alle partiellen Able
 
 ⁠**So liest man das:** Der Punkt $\boldsymbol{x}+t\,\hat{\boldsymbol{e}}_k$ unterscheidet sich von $\boldsymbol{x}$ nur in der Komponente $k$, und zwar um $t$. Der Bruch ist also der gewöhnliche Differenzenquotient in Richtung der $x_k$-Achse. Beim Rechnen leitet man nach $x_k$ ab und behandelt alle anderen Variablen wie Konstanten. Statt $\frac{\partial f}{\partial x_k}$ schreibt man auch kurz $\partial_{x_k}f$.
 
-⁠**Beispiel:** Für die Schale $\varphi(x,y)=x^2+2y^2$ ist
+::::beispiel
+Für die Schale $\varphi(x,y)=x^2+2y^2$ ist
 
 $$\frac{\partial\varphi}{\partial x}=2x,\qquad \frac{\partial\varphi}{\partial y}=4y,\qquad\text{also}\qquad \frac{\partial\varphi}{\partial x}(1,1)=2,\quad\frac{\partial\varphi}{\partial y}(1,1)=4.$$
 
 Zur Kontrolle der Differenzenquotient mit $t=\frac1{10}$: $\bigl(\varphi(1{,}1;\,1)-\varphi(1,1)\bigr)/0{,}1=(3{,}21-3)/0{,}1=2{,}1$, nahe bei $2$. Mit drei Variablen: Für $f(x,y,z)=xy^2z^3$ ist $\partial f/\partial y=2xyz^3$.
+::::
 
 ⁠**Kurz gesagt:** Die partielle Ableitung nach $x_k$ ist die Steigung in Richtung der $x_k$-Achse. Man berechnet sie, indem man alle anderen Variablen festhält.
 
@@ -192,11 +202,13 @@ $$\frac{\partial^2 f}{\partial x_j\,\partial x_k}=\frac{\partial}{\partial x_j}\
 
 Gelesen wird von rechts nach links: zuerst nach $x_k$, dann nach $x_j$. Bei zwei gleichen Variablen schreibt man $\partial^2f/\partial x_k^2$. Für $j\neq k$ nennt man sie eine __gemischte__ partielle Ableitung. Ebenso gibt es dritte und höhere partielle Ableitungen. Wie oft insgesamt abgeleitet wird, heißt die __Ordnung__ der Ableitung.
 
-⁠**Beispiel:** Für $f(x,y)=x^2y^3$ ist $\partial f/\partial x=2xy^3$ und $\partial f/\partial y=3x^2y^2$. Daraus folgen die vier zweiten partiellen Ableitungen
+::::beispiel
+Für $f(x,y)=x^2y^3$ ist $\partial f/\partial x=2xy^3$ und $\partial f/\partial y=3x^2y^2$. Daraus folgen die vier zweiten partiellen Ableitungen
 
 $$\frac{\partial^2 f}{\partial x^2}=2y^3,\qquad \frac{\partial^2 f}{\partial y\,\partial x}=6xy^2,\qquad \frac{\partial^2 f}{\partial x\,\partial y}=6xy^2,\qquad \frac{\partial^2 f}{\partial y^2}=6x^2y .$$
 
 Die beiden gemischten Ableitungen stimmen hier überein, obwohl sie auf verschiedenen Wegen entstanden sind.
+::::
 
 ⁠**Kurz gesagt:** Höhere partielle Ableitungen entstehen durch wiederholtes Ableiten. Die Ordnung zählt, wie oft abgeleitet wurde.
 
@@ -222,7 +234,9 @@ In der Ebene ist das eine Kreisscheibe ohne ihren Randkreis.
 Eine Menge $\mathcal U\subset\mathbb{R}^n$ heißt __offen__, wenn um jeden Punkt von $\mathcal U$ eine Kugel liegt, die ganz in $\mathcal U$ enthalten ist.
 :::
 
-⁠**Beispiel:** Die Kreisscheibe $\{|\boldsymbol{x}|<1\}$ in der Ebene ist offen: Um einen Punkt $\boldsymbol{x}_0$ mit $|\boldsymbol{x}_0|<1$ liegt die Kugel mit dem Radius $\rho=1-|\boldsymbol{x}_0|$ ganz in ihr. Ebenso offen sind der ganze $\mathbb{R}^n$, der $\mathbb{R}^n$ ohne den Nullpunkt, geschrieben $\mathbb{R}^n\setminus\{0\}$ (Radius $\rho=|\boldsymbol{x}_0|$), und die Halbebene $\{(x,y):x+y>0\}$. Die Kreisscheibe mit Rand, $\{|\boldsymbol{x}|\le1\}$, ist nicht offen: Jede Kugel um den Randpunkt $(1,0)$ enthält Punkte mit $|\boldsymbol{x}|>1$.
+::::beispiel
+Die Kreisscheibe $\{|\boldsymbol{x}|<1\}$ in der Ebene ist offen: Um einen Punkt $\boldsymbol{x}_0$ mit $|\boldsymbol{x}_0|<1$ liegt die Kugel mit dem Radius $\rho=1-|\boldsymbol{x}_0|$ ganz in ihr. Ebenso offen sind der ganze $\mathbb{R}^n$, der $\mathbb{R}^n$ ohne den Nullpunkt, geschrieben $\mathbb{R}^n\setminus\{0\}$ (Radius $\rho=|\boldsymbol{x}_0|$), und die Halbebene $\{(x,y):x+y>0\}$. Die Kreisscheibe mit Rand, $\{|\boldsymbol{x}|\le1\}$, ist nicht offen: Jede Kugel um den Randpunkt $(1,0)$ enthält Punkte mit $|\boldsymbol{x}|>1$.
+::::
 
 ⁠**Kurz gesagt:** Von jedem Punkt einer offenen Menge aus kann man ein Stück in jede Richtung gehen, ohne die Menge zu verlassen.
 
@@ -246,11 +260,13 @@ zu. Die skalaren Funktionen $f_1,\dots,f_m$ heißen die __Komponentenfunktionen_
 
 Für $m=1$ ist eine Abbildung eine skalare Funktion; man setzt sie dann nicht fett. Eine Abbildung heißt stetig oder partiell differenzierbar, wenn alle ihre Komponentenfunktionen stetig oder partiell differenzierbar sind.
 
-⁠**Beispiel:** Die Abbildung $\boldsymbol f\colon\mathbb{R}^2\to\mathbb{R}^2$,
+::::beispiel
+Die Abbildung $\boldsymbol f\colon\mathbb{R}^2\to\mathbb{R}^2$,
 
 $$\boldsymbol f(x,y)=\bigl(x^2-y^2,\;2xy\bigr),$$
 
 hat die Komponentenfunktionen $f_1(x,y)=x^2-y^2$ und $f_2(x,y)=2xy$. Im Punkt $(1,\frac12)$ liefert sie $\boldsymbol f(1,\tfrac12)=(1-\tfrac14,\;1)=(\tfrac34,\,1)$. Ein Beispiel mit verschieden vielen Ein- und Ausgängen ist $\boldsymbol g\colon\mathbb{R}^3\to\mathbb{R}^2$, $\boldsymbol g(x,y,z)=(xyz,\;x+y)$.
+::::
 
 ⁠**Kurz gesagt:** Eine Abbildung von $\mathbb{R}^n$ nach $\mathbb{R}^m$ besteht aus $m$ skalaren Funktionen von $n$ Variablen.
 
@@ -272,9 +288,13 @@ Sei $\mathcal U\subset\mathbb{R}^n$ offen. Eine Abbildung $\boldsymbol{E}\colon\
 
 Rechnerisch ist ein Vektorfeld eine Abbildung mit $m=n$. Der Unterschied liegt in der Deutung: Eingang und Ausgang leben im selben Raum, und der Wert $\boldsymbol{E}(\boldsymbol{x})$ wird als Pfeil gezeichnet, der im Punkt $\boldsymbol{x}$ beginnt.
 
-⁠**Beispiel 1: das Drehfeld.** $\boldsymbol{E}(x,y)=(-y,\,x)$ auf $\mathbb{R}^2$. Im Punkt $(1,0)$ ist $\boldsymbol{E}=(0,1)$, der Pfeil zeigt nach oben. Im Punkt $(0,1)$ ist $\boldsymbol{E}=(-1,0)$, er zeigt nach links, im Punkt $(-1,0)$ ist $\boldsymbol{E}=(0,-1)$, er zeigt nach unten. Die Länge $|\boldsymbol{E}(x,y)|=\sqrt{y^2+x^2}$ ist der Abstand des Punkts vom Nullpunkt. In diesem Kapitel heißt dieses Feld das *Drehfeld*.
+::::beispiel [Beispiel 1] das Drehfeld
+$\boldsymbol{E}(x,y)=(-y,\,x)$ auf $\mathbb{R}^2$. Im Punkt $(1,0)$ ist $\boldsymbol{E}=(0,1)$, der Pfeil zeigt nach oben. Im Punkt $(0,1)$ ist $\boldsymbol{E}=(-1,0)$, er zeigt nach links, im Punkt $(-1,0)$ ist $\boldsymbol{E}=(0,-1)$, er zeigt nach unten. Die Länge $|\boldsymbol{E}(x,y)|=\sqrt{y^2+x^2}$ ist der Abstand des Punkts vom Nullpunkt. In diesem Kapitel heißt dieses Feld das *Drehfeld*.
+::::
 
-⁠**Beispiel 2: das Strahlfeld.** $\boldsymbol{E}(\boldsymbol{x})=\boldsymbol{x}$ auf $\mathbb{R}^n$. Der Pfeil im Punkt $\boldsymbol{x}$ zeigt vom Nullpunkt weg und ist so lang wie der Abstand zum Nullpunkt. In diesem Kapitel heißt es das *Strahlfeld*.
+::::beispiel [Beispiel 2] das Strahlfeld
+$\boldsymbol{E}(\boldsymbol{x})=\boldsymbol{x}$ auf $\mathbb{R}^n$. Der Pfeil im Punkt $\boldsymbol{x}$ zeigt vom Nullpunkt weg und ist so lang wie der Abstand zum Nullpunkt. In diesem Kapitel heißt es das *Strahlfeld*.
+::::
 
 ⁠**Kurz gesagt:** Ein Vektorfeld heftet an jeden Punkt einen Pfeil derselben Dimension.
 
@@ -301,11 +321,15 @@ heißt __Jacobi-Matrix__ von $\boldsymbol f$. Ihren Wert im Punkt $\boldsymbol{x
 
 ⁠**So liest man das:** Der Index $j$ zählt die Zeilen, also die Ausgänge. Der Index $k$ zählt die Spalten, also die Eingänge. Zeile $j$ enthält alle Ableitungen der einen Komponentenfunktion $f_j$. Spalte $k$ enthält die Ableitungen aller Komponentenfunktionen nach der einen Variablen $x_k$. Die Jacobi-Matrix ist an jedem Punkt eine andere Matrix, sie hängt also selbst von $\boldsymbol{x}$ ab.
 
-⁠**Beispiel 1:** Für $\boldsymbol f(x,y)=(x^2-y^2,\;2xy)$ ist zum Beispiel $\partial f_2/\partial x=2y$ der Eintrag in Zeile $2$, Spalte $1$. Insgesamt
+::::beispiel [Beispiel 1]
+Für $\boldsymbol f(x,y)=(x^2-y^2,\;2xy)$ ist zum Beispiel $\partial f_2/\partial x=2y$ der Eintrag in Zeile $2$, Spalte $1$. Insgesamt
 
 $$D\boldsymbol f(x,y)=\begin{pmatrix}2x&-2y\\2y&2x\end{pmatrix},\qquad D\boldsymbol f(1,\tfrac12)=\begin{pmatrix}2&-1\\1&2\end{pmatrix}.$$
+::::
 
-⁠**Beispiel 2:** Das Drehfeld $\boldsymbol{E}(x,y)=(-y,x)$ hat an jedem Punkt dieselbe Jacobi-Matrix $D\boldsymbol{E}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, denn $E_1=-y$ hängt nur von $y$ ab und $E_2=x$ nur von $x$.
+::::beispiel [Beispiel 2]
+Das Drehfeld $\boldsymbol{E}(x,y)=(-y,x)$ hat an jedem Punkt dieselbe Jacobi-Matrix $D\boldsymbol{E}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, denn $E_1=-y$ hängt nur von $y$ ab und $E_2=x$ nur von $x$.
+::::
 
 ⁠**Grenzfall:** Für $n=m=1$ ist $Df=(f')$ eine $1\times1$-Matrix, die gewöhnliche Ableitung.
 
@@ -336,7 +360,9 @@ heißt __Gradient__ von $f$. Man schreibt dafür auch $\nabla f$, gelesen „Nab
 
 Ordnet man jedem Punkt $\boldsymbol{x}\in\mathcal U$ den Vektor $\nabla f(\boldsymbol{x})$ zu, entsteht ein Vektorfeld auf $\mathcal U$. Der Gradient macht also aus einer skalaren Funktion ein Vektorfeld.
 
-⁠**Beispiel:** Für die Schale ist $\nabla\varphi(x,y)=(2x,\,4y)^T$. Im Punkt $(1,1)$ ist $\nabla\varphi=(2,4)^T$, im Nullpunkt ist $\nabla\varphi=(0,0)^T$: Am Boden der Schale steigt sie in keiner Achsenrichtung. Mit drei Variablen: Für $f(x,y,z)=xy^2z^3$ ist $\nabla f=(y^2z^3,\;2xyz^3,\;3xy^2z^2)^T$.
+::::beispiel
+Für die Schale ist $\nabla\varphi(x,y)=(2x,\,4y)^T$. Im Punkt $(1,1)$ ist $\nabla\varphi=(2,4)^T$, im Nullpunkt ist $\nabla\varphi=(0,0)^T$: Am Boden der Schale steigt sie in keiner Achsenrichtung. Mit drei Variablen: Für $f(x,y,z)=xy^2z^3$ ist $\nabla f=(y^2z^3,\;2xyz^3,\;3xy^2z^2)^T$.
+::::
 
 ⁠**Kurz gesagt:** Der Gradient ist der Vektor der partiellen Ableitungen einer skalaren Funktion. Er heftet an jeden Punkt einen Pfeil.
 
@@ -359,9 +385,11 @@ $$\nabla=\Bigl(\frac{\partial}{\partial x_1},\dots,\frac{\partial}{\partial x_n}
 
 Steht rechts daneben eine skalare Funktion $f$, wird jeder Eintrag auf $f$ angewendet, und es entsteht der Gradient: $\nabla f=(\partial f/\partial x_1,\dots,\partial f/\partial x_n)^T=\operatorname{grad}f$. So wie $\frac{\mathrm{d}}{\mathrm{d} x}$ ohne Funktion dahinter keine Zahl ist, hat $\nabla$ für sich allein keinen Wert. Es hat nur die Form eines Spaltenvektors.
 
-⁠**Beispiel:** Für $f(x,y)=x^2y$ in der Ebene ist $\nabla=(\partial/\partial x,\,\partial/\partial y)^T$ und
+::::beispiel
+Für $f(x,y)=x^2y$ in der Ebene ist $\nabla=(\partial/\partial x,\,\partial/\partial y)^T$ und
 
 $$\nabla f=\begin{pmatrix}\partial(x^2y)/\partial x\\\partial(x^2y)/\partial y\end{pmatrix}=\begin{pmatrix}2xy\\x^2\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** $\nabla$ ist ein Spaltenvektor aus Ableitungsbefehlen. Erst mit einer Funktion dahinter ergibt es etwas, nämlich den Gradienten.
 
@@ -380,7 +408,9 @@ Für eine Abbildung $\boldsymbol f=(f_1,\dots,f_m)$ ist Zeile $j$ der Jacobi-Mat
 
 Multipliziert man die Zeile $Df(\boldsymbol{x})$ mit einem Spaltenvektor $\boldsymbol s\in\mathbb{R}^n$, ergibt Zeile mal Spalte das Skalarprodukt: $Df(\boldsymbol{x})\,\boldsymbol s=\nabla f(\boldsymbol{x})\cdot\boldsymbol s$.
 
-⁠**Beispiel:** Für $\boldsymbol f(x,y)=(x^2-y^2,\;2xy)$ ist $\nabla f_1=(2x,\,-2y)^T$ und $\nabla f_2=(2y,\,2x)^T$. Transponiert und untereinander geschrieben, ergeben sie die Jacobi-Matrix $\bigl(\begin{smallmatrix}2x&-2y\\2y&2x\end{smallmatrix}\bigr)$ aus Unterabschnitt [1.12](#stufe-1-12).
+::::beispiel
+Für $\boldsymbol f(x,y)=(x^2-y^2,\;2xy)$ ist $\nabla f_1=(2x,\,-2y)^T$ und $\nabla f_2=(2y,\,2x)^T$. Transponiert und untereinander geschrieben, ergeben sie die Jacobi-Matrix $\bigl(\begin{smallmatrix}2x&-2y\\2y&2x\end{smallmatrix}\bigr)$ aus Unterabschnitt [1.12](#stufe-1-12).
+::::
 
 ⁠**Kurz gesagt:** Der Gradient ist eine Spalte, die Jacobi-Matrix einer skalaren Funktion eine Zeile mit denselben Einträgen. Die Zeilen der Jacobi-Matrix einer Abbildung sind die transponierten Gradienten ihrer Komponentenfunktionen.
 
@@ -402,7 +432,9 @@ Man kann sich eine Maschine vorstellen: Oben steckt man eine Funktion hinein, di
 Eine Vorschrift, die einer Funktion mit Hilfe ihrer partiellen Ableitungen eine neue Funktion zuordnet, heißt __Differentialoperator__. Die höchste Ordnung der Ableitungen, die er benutzt, heißt seine Ordnung.
 :::
 
-⁠**Beispiel:** $f\mapsto f'$ ist ein Differentialoperator erster Ordnung für Funktionen einer Variablen, $f\mapsto f''$ einer zweiter Ordnung. Für Funktionen von zwei Variablen ist $f\mapsto\partial^2f/\partial x^2+\partial f/\partial y$ ein Differentialoperator zweiter Ordnung; für $f=x^2y$ liefert er $2y+x^2$. Der Gradient $f\mapsto\nabla f$ braucht nur erste partielle Ableitungen. Er ist ein Differentialoperator erster Ordnung, der aus einer skalaren Funktion ein Vektorfeld macht.
+::::beispiel
+$f\mapsto f'$ ist ein Differentialoperator erster Ordnung für Funktionen einer Variablen, $f\mapsto f''$ einer zweiter Ordnung. Für Funktionen von zwei Variablen ist $f\mapsto\partial^2f/\partial x^2+\partial f/\partial y$ ein Differentialoperator zweiter Ordnung; für $f=x^2y$ liefert er $2y+x^2$. Der Gradient $f\mapsto\nabla f$ braucht nur erste partielle Ableitungen. Er ist ein Differentialoperator erster Ordnung, der aus einer skalaren Funktion ein Vektorfeld macht.
+::::
 
 ⁠**Kurz gesagt:** Ein Differentialoperator macht durch Ableiten aus einer Funktion eine neue. Der Gradient ist einer erster Ordnung.
 
@@ -480,17 +512,21 @@ $$\frac{\boldsymbol f(\boldsymbol{x}_0+\eta\,\boldsymbol s)-\boldsymbol f(\bolds
 Unter immer stärkerer Vergrößerung sieht die Abbildung also aus wie die Matrix $D\boldsymbol f(\boldsymbol{x}_0)$: Geraden werden zu Geraden, Quadrate zu Parallelogrammen, wie in Abb. [6](#abb-6). Das ist der Mechanismus hinter der Differentialrechnung in mehreren Variablen: Krumme Abbildungen werden im Kleinen durch Matrizen ersetzt, und mit Matrizen kann man rechnen. Dass die Einträge gerade die partiellen Ableitungen sind, liegt daran, dass eine Matrix durch ihre Spalten $A\hat{\boldsymbol{e}}_k$ festgelegt ist, und die misst man mit Schritten längs der Achsen, wie im Beweis von Satz [1.10](#satz-1-10).
 :::
 
-⁠**Beispiel 1:** Für die Schale gilt um den Punkt $(1,1)$ exakt
+::::beispiel [Beispiel 1]
+Für die Schale gilt um den Punkt $(1,1)$ exakt
 
 $$\varphi(1+s_1,\,1+s_2)=3+2s_1+4s_2+s_1^2+2s_2^2 .$$
 
 Mit $A=D\varphi(1,1)=(2\;\;4)$ ist der Fehler $s_1^2+2s_2^2\le2|\boldsymbol s|^2$. Der Bruch in [(1.6)](#gl-1-6) ist also höchstens $2|\boldsymbol s|$ und geht gegen null: Die Schale ist in $(1,1)$ differenzierbar.
+::::
 
-⁠**Beispiel 2:** Für $\boldsymbol f(x,y)=(x^2-y^2,\,2xy)$ und den Schritt $\boldsymbol s=(\tfrac1{10},0)$ von $(1,\tfrac12)$ aus sagt [(1.7)](#gl-1-7) die Änderung
+::::beispiel [Beispiel 2]
+Für $\boldsymbol f(x,y)=(x^2-y^2,\,2xy)$ und den Schritt $\boldsymbol s=(\tfrac1{10},0)$ von $(1,\tfrac12)$ aus sagt [(1.7)](#gl-1-7) die Änderung
 
 $$D\boldsymbol f(1,\tfrac12)\,\boldsymbol s=\begin{pmatrix}2&-1\\1&2\end{pmatrix}\begin{pmatrix}1/10\\0\end{pmatrix}=\begin{pmatrix}1/5\\1/10\end{pmatrix}$$
 
 voraus. Das ist $\frac1{10}$ mal die erste Spalte. Exakt ist $\boldsymbol f(\tfrac{11}{10},\tfrac12)-\boldsymbol f(1,\tfrac12)=(\tfrac{21}{100},\,\tfrac1{10})$. Die Abweichung $\frac1{100}$ ist klein gegen die Schrittlänge $\frac1{10}$.
+::::
 
 ⁠**Kurz gesagt:** Differenzierbar heißt: Nahe dem Punkt ist die Änderung bis auf einen Fehler, der schneller verschwindet als der Schritt, gleich Jacobi-Matrix mal Schritt.
 
@@ -506,11 +542,13 @@ $$z=f(\boldsymbol{x}_0)+\nabla f(\boldsymbol{x}_0)\cdot(\boldsymbol{x}-\boldsymb
 
 die __Tangentialebene__ an den Graphen von $f$ über dem Punkt $\boldsymbol{x}_0$. Nahe $\boldsymbol{x}_0$ unterscheidet sich der Graph von ihr um weniger als jedes feste Vielfache des Abstands $|\boldsymbol{x}-\boldsymbol{x}_0|$.
 
-⁠**Beispiel:** Für die Schale ist $\varphi(1,1)=3$ und $\nabla\varphi(1,1)=(2,4)^T$. Die Tangentialebene über $(1,1)$ ist
+::::beispiel
+Für die Schale ist $\varphi(1,1)=3$ und $\nabla\varphi(1,1)=(2,4)^T$. Die Tangentialebene über $(1,1)$ ist
 
 $$z=3+2(x-1)+4(y-1)=2x+4y-3 .$$
 
 Im Punkt $(1{,}1;\,1)$ liefert sie $3{,}2$, die Schale hat dort den Wert $3{,}21$.
+::::
 
 ⁠**Kurz gesagt:** Die Tangentialebene ist die lineare Näherung einer Funktion von zwei Variablen, als Ebene über der Landkarte gezeichnet.
 
@@ -558,7 +596,9 @@ Eine Abbildung, deren partielle Ableitungen alle existieren und stetig sind, hei
 Man geht von $\boldsymbol{x}_0$ nach $\boldsymbol{x}_0+\boldsymbol s$ nicht schräg, sondern in $n$ Teilschritten parallel zu den Achsen: zuerst um $s_1$ in Richtung $x_1$, dann um $s_2$ in Richtung $x_2$ und so weiter. Auf jedem Teilschritt ändert sich nur eine Variable, jede Komponentenfunktion ist dort eine Funktion einer Variablen. Für sie gilt der Mittelwertsatz: Die Änderung ist die Ableitung an einer Zwischenstelle mal die Länge des Teilschritts. Hier ist das die partielle Ableitung an einem Zwischenpunkt mal $s_k$. Weil die partiellen Ableitungen stetig sind, unterscheiden sie sich an den Zwischenpunkten nur wenig von ihren Werten in $\boldsymbol{x}_0$, und dieser Unterschied geht mit $\boldsymbol s\to0$ gegen null. Summiert man die Teilschritte, ist die Änderung also $D\boldsymbol f(\boldsymbol{x}_0)\,\boldsymbol s$ plus ein Fehler, der schneller verschwindet als $|\boldsymbol s|$. Die Stetigkeit verbindet so die Achsenrichtungen mit allen übrigen Richtungen.
 :::
 
-⁠**Beispiel:** Die Komponentenfunktionen von $\boldsymbol f(x,y)=(x^2-y^2,\,2xy)$ sind Polynome. Ihre partiellen Ableitungen $2x$, $-2y$, $2y$, $2x$ sind wieder Polynome und damit stetig. Also ist $\boldsymbol f$ auf ganz $\mathbb{R}^2$ stetig differenzierbar und damit differenzierbar. Dasselbe gilt für jede Abbildung, die aus Polynomen, $\mathrm{e}$-Funktion, Sinus, Kosinus und ähnlichen Bausteinen zusammengesetzt ist, überall dort, wo kein Nenner null wird.
+::::beispiel
+Die Komponentenfunktionen von $\boldsymbol f(x,y)=(x^2-y^2,\,2xy)$ sind Polynome. Ihre partiellen Ableitungen $2x$, $-2y$, $2y$, $2x$ sind wieder Polynome und damit stetig. Also ist $\boldsymbol f$ auf ganz $\mathbb{R}^2$ stetig differenzierbar und damit differenzierbar. Dasselbe gilt für jede Abbildung, die aus Polynomen, $\mathrm{e}$-Funktion, Sinus, Kosinus und ähnlichen Bausteinen zusammengesetzt ist, überall dort, wo kein Nenner null wird.
+::::
 
 Damit gilt die Kette
 
@@ -590,7 +630,9 @@ Sei $\mathcal U\subset\mathbb{R}^n$ offen und $k$ eine natürliche Zahl. Eine Ab
 
 ⁠**So liest man das:** „Kleiner oder gleich $k$“ schließt die Ordnung $0$ ein, also die Abbildung selbst. Gemeint sind alle Ableitungen von der Ordnung $0$ bis einschließlich $k$, nicht nur die der Ordnung $k$. $C^1$ ist dasselbe wie stetig differenzierbar. Man schreibt kurz $\boldsymbol f\in C^k$.
 
-⁠**Beispiel:** Die Schale $\varphi=x^2+2y^2$ ist ein Polynom. Alle ihre partiellen Ableitungen jeder Ordnung sind Polynome, also ist $\varphi\in C^k$ für jedes $k$. Die Funktion $f(x,y)=x|x|$ ist in $C^1$, aber nicht in $C^2$: Es ist $\partial f/\partial x=2|x|$ und $\partial f/\partial y=0$, beides stetig. Die zweite Ableitung $\partial^2f/\partial x^2$ ist $2$ für $x>0$ und $-2$ für $x<0$ und existiert auf der $y$-Achse nicht.
+::::beispiel
+Die Schale $\varphi=x^2+2y^2$ ist ein Polynom. Alle ihre partiellen Ableitungen jeder Ordnung sind Polynome, also ist $\varphi\in C^k$ für jedes $k$. Die Funktion $f(x,y)=x|x|$ ist in $C^1$, aber nicht in $C^2$: Es ist $\partial f/\partial x=2|x|$ und $\partial f/\partial y=0$, beides stetig. Die zweite Ableitung $\partial^2f/\partial x^2$ ist $2$ für $x>0$ und $-2$ für $x<0$ und existiert auf der $y$-Achse nicht.
+::::
 
 ⁠**Kurz gesagt:** $C^k$ heißt: alle partiellen Ableitungen bis zur Ordnung $k$ existieren und sind stetig.
 
@@ -608,13 +650,17 @@ Sei $k\ge2$ und $\boldsymbol f\in C^k(\mathcal U;\mathbb{R}^m)$. Dann darf man b
 $$\frac{\partial^2f}{\partial x_j\,\partial x_k}=\frac{\partial^2f}{\partial x_k\,\partial x_j}\qquad\text{für alle }j,k .$$
 :::
 
-⁠**Beispiel:** Für $f(x,y)=x^2y^3$ ergaben beide Reihenfolgen $6xy^2$ (Unterabschnitt [1.8](#stufe-1-8)). Das Polynom ist in $C^2$, also musste es so sein.
+::::beispiel
+Für $f(x,y)=x^2y^3$ ergaben beide Reihenfolgen $6xy^2$ (Unterabschnitt [1.8](#stufe-1-8)). Das Polynom ist in $C^2$, also musste es so sein.
+::::
 
-⁠**Gegenbeispiel:** Ohne Stetigkeit kann die Reihenfolge eine Rolle spielen. Sei $f(x,y)=\dfrac{xy(x^2-y^2)}{x^2+y^2}$ für $(x,y)\neq(0,0)$ und $f(0,0)=0$. Aus der Definition [(1.1)](#gl-1-1) folgt $\frac{\partial f}{\partial x}(0,y)=-y$ und $\frac{\partial f}{\partial y}(x,0)=x$. Damit ist
+::::beispiel [Gegenbeispiel]
+Ohne Stetigkeit kann die Reihenfolge eine Rolle spielen. Sei $f(x,y)=\dfrac{xy(x^2-y^2)}{x^2+y^2}$ für $(x,y)\neq(0,0)$ und $f(0,0)=0$. Aus der Definition [(1.1)](#gl-1-1) folgt $\frac{\partial f}{\partial x}(0,y)=-y$ und $\frac{\partial f}{\partial y}(x,0)=x$. Damit ist
 
 $$\frac{\partial^2f}{\partial y\,\partial x}(0,0)=\frac{\mathrm{d}}{\mathrm{d} y}(-y)=-1,\qquad\frac{\partial^2f}{\partial x\,\partial y}(0,0)=\frac{\mathrm{d}}{\mathrm{d} x}\,x=1 .$$
 
 Die gemischten Ableitungen dieser Funktion sind im Nullpunkt nicht stetig, deshalb greift der Satz nicht.
+::::
 
 :::hintergrund Warum man die Reihenfolge vertauschen darf
 Beide gemischten Ableitungen im Punkt $(x,y)$ entstehen aus derselben Zahl, dem doppelten Differenzenquotienten
@@ -646,9 +692,13 @@ dann heißt $\boldsymbol{E}$ ein __Gradientenfeld__ auf $\mathcal U$. Jede solch
 
 Man sagt „ein“ Skalarpotential, weil es nicht das einzige ist: Mit $\varphi$ hat auch $\varphi+1$ den Gradienten $\boldsymbol{E}$, denn die Ableitung einer Konstanten ist null.
 
-⁠**Beispiel 1:** Das Feld $\boldsymbol{E}(x,y)=(2x,\,4y)$ ist ein Gradientenfeld auf $\mathbb{R}^2$. Ein Skalarpotential ist die Schale $\varphi=x^2+2y^2$, denn $\nabla\varphi=(2x,4y)^T$.
+::::beispiel [Beispiel 1]
+Das Feld $\boldsymbol{E}(x,y)=(2x,\,4y)$ ist ein Gradientenfeld auf $\mathbb{R}^2$. Ein Skalarpotential ist die Schale $\varphi=x^2+2y^2$, denn $\nabla\varphi=(2x,4y)^T$.
+::::
 
-⁠**Beispiel 2:** Das Strahlfeld $\boldsymbol{E}(\boldsymbol{x})=\boldsymbol{x}$ ist ein Gradientenfeld auf $\mathbb{R}^n$ mit dem Skalarpotential $\varphi(\boldsymbol{x})=\frac12|\boldsymbol{x}|^2=\frac12(x_1^2+\dots+x_n^2)$. Denn $\partial\varphi/\partial x_j=x_j$, also $\nabla\varphi=\boldsymbol{x}$.
+::::beispiel [Beispiel 2]
+Das Strahlfeld $\boldsymbol{E}(\boldsymbol{x})=\boldsymbol{x}$ ist ein Gradientenfeld auf $\mathbb{R}^n$ mit dem Skalarpotential $\varphi(\boldsymbol{x})=\frac12|\boldsymbol{x}|^2=\frac12(x_1^2+\dots+x_n^2)$. Denn $\partial\varphi/\partial x_j=x_j$, also $\nabla\varphi=\boldsymbol{x}$.
+::::
 
 ⁠**Kurz gesagt:** Ein Gradientenfeld ist der Gradient einer skalaren Funktion, seines Skalarpotentials.
 
@@ -674,9 +724,13 @@ $$(D\boldsymbol{E})_{jk}=\frac{\partial E_j}{\partial x_k}=\frac{\partial}{\part
 
 Ist das Feld $\boldsymbol{E}$ selbst stetig differenzierbar, ist die Voraussetzung an $\varphi$ immer erfüllt: Die ersten partiellen Ableitungen von $\varphi$ sind die Komponenten von $\boldsymbol{E}$, ihre partiellen Ableitungen also die von $\boldsymbol{E}$, und die sind stetig. Für ein stetig differenzierbares Feld heißt das: Ist $D\boldsymbol{E}$ an einem Punkt nicht symmetrisch, dann hat $\boldsymbol{E}$ kein Skalarpotential. Ob umgekehrt jedes Feld mit symmetrischer Jacobi-Matrix ein Skalarpotential hat, sagt der Satz nicht.
 
-⁠**Beispiel 1:** Für $\boldsymbol{E}=(2x,4y)$ ist $D\boldsymbol{E}=\bigl(\begin{smallmatrix}2&0\\0&4\end{smallmatrix}\bigr)$ symmetrisch, passend zum Skalarpotential $x^2+2y^2$.
+::::beispiel [Beispiel 1]
+Für $\boldsymbol{E}=(2x,4y)$ ist $D\boldsymbol{E}=\bigl(\begin{smallmatrix}2&0\\0&4\end{smallmatrix}\bigr)$ symmetrisch, passend zum Skalarpotential $x^2+2y^2$.
+::::
 
-⁠**Beispiel 2:** Das Drehfeld $(-y,x)$ ist stetig differenzierbar und hat $D\boldsymbol{E}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$. Rechts oben steht $-1$, links unten $1$. Die Matrix ist nicht symmetrisch, also ist das Drehfeld kein Gradientenfeld.
+::::beispiel [Beispiel 2]
+Das Drehfeld $(-y,x)$ ist stetig differenzierbar und hat $D\boldsymbol{E}=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$. Rechts oben steht $-1$, links unten $1$. Die Matrix ist nicht symmetrisch, also ist das Drehfeld kein Gradientenfeld.
+::::
 
 ⁠**Kurz gesagt:** Gradientenfelder haben eine symmetrische Jacobi-Matrix, weil man zweite Ableitungen vertauschen darf. Ein Feld mit unsymmetrischer Jacobi-Matrix hat kein Skalarpotential.
 
@@ -726,11 +780,13 @@ $$\boldsymbol f\bigl(\boldsymbol{g}(\boldsymbol{x}+\boldsymbol s)\bigr)-\boldsym
 Beide Fehlerterme verschwinden schneller als $|\boldsymbol s|$, weil $|\boldsymbol w|$ für kleine $\boldsymbol s$ höchstens ein festes Vielfaches von $|\boldsymbol s|$ ist. Also ist $\boldsymbol f\circ\boldsymbol{g}$ in $\boldsymbol{x}$ differenzierbar, und nach Satz [1.10](#satz-1-10) ist die Matrix vor $\boldsymbol s$ ihre Jacobi-Matrix.
 :::
 
-⁠**Beispiel:** Sei $f(y_1,y_2)=y_1^2+y_2$ und $\boldsymbol{g}(x_1,x_2)=(x_1x_2,\;x_1+x_2)$, betrachtet im Punkt $\boldsymbol{x}=(1,2)$. Dort ist $\boldsymbol{g}(1,2)=(2,3)$. Die beiden Jacobi-Matrizen sind
+::::beispiel
+Sei $f(y_1,y_2)=y_1^2+y_2$ und $\boldsymbol{g}(x_1,x_2)=(x_1x_2,\;x_1+x_2)$, betrachtet im Punkt $\boldsymbol{x}=(1,2)$. Dort ist $\boldsymbol{g}(1,2)=(2,3)$. Die beiden Jacobi-Matrizen sind
 
 $$Df(\boldsymbol{y})=(2y_1\;\;\;1),\quad Df(2,3)=(4\;\;\;1),\qquad D\boldsymbol{g}(\boldsymbol{x})=\begin{pmatrix}x_2&x_1\\1&1\end{pmatrix},\quad D\boldsymbol{g}(1,2)=\begin{pmatrix}2&1\\1&1\end{pmatrix}.$$
 
 Nach [(1.9)](#gl-1-9) ist $D(f\circ\boldsymbol{g})(1,2)=(4\;\;1)\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=(9\;\;5)$. Zur Kontrolle direkt: $(f\circ\boldsymbol{g})(\boldsymbol{x})=x_1^2x_2^2+x_1+x_2$ hat die partiellen Ableitungen $2x_1x_2^2+1$ und $2x_1^2x_2+1$, im Punkt $(1,2)$ also $9$ und $5$.
+::::
 
 ⁠**Grenzfall:** Für $n=m=N=1$ steht dort die bekannte Kettenregel $(f\circ g)'(x)=f'(g(x))\,g'(x)$.
 
@@ -762,7 +818,9 @@ der __Tangentenvektor__ von $\gamma$ an der Stelle $t$. Der Punkt über einem Ze
 
 Der Tangentenvektor ist die Jacobi-Matrix von $\gamma$, eine Spalte mit $n$ Einträgen. Nach [(1.7)](#gl-1-7) ist $\gamma(t+\tau)\approx\gamma(t)+\tau\,\dot\gamma(t)$ für kleine Zahlen $\tau$. Er zeigt also in die Richtung, in die die Kurve läuft, und seine Länge gibt an, wie schnell sie durchlaufen wird. Beschreibt $\gamma(t)$ den Ort eines Teilchens zur Zeit $t$, ist $\dot\gamma(t)$ seine Geschwindigkeit.
 
-⁠**Beispiel:** $\gamma(t)=(\cos t,\,\sin t)$ für $t\in[0,2\pi]$ läuft einmal gegen den Uhrzeigersinn um den Kreis mit Radius $1$ (Abb. [9](#abb-9)). Der Tangentenvektor ist $\dot\gamma(t)=(-\sin t,\,\cos t)$ und hat immer die Länge $1$. Bei $t=\pi/4$ ist $\gamma=(\tfrac1{\sqrt2},\tfrac1{\sqrt2})$ und $\dot\gamma=(-\tfrac1{\sqrt2},\tfrac1{\sqrt2})$. Das Skalarprodukt der beiden ist $-\tfrac12+\tfrac12=0$: Der Tangentenvektor steht senkrecht auf dem Pfeil vom Mittelpunkt zum Kurvenpunkt.
+::::beispiel
+$\gamma(t)=(\cos t,\,\sin t)$ für $t\in[0,2\pi]$ läuft einmal gegen den Uhrzeigersinn um den Kreis mit Radius $1$ (Abb. [9](#abb-9)). Der Tangentenvektor ist $\dot\gamma(t)=(-\sin t,\,\cos t)$ und hat immer die Länge $1$. Bei $t=\pi/4$ ist $\gamma=(\tfrac1{\sqrt2},\tfrac1{\sqrt2})$ und $\dot\gamma=(-\tfrac1{\sqrt2},\tfrac1{\sqrt2})$. Das Skalarprodukt der beiden ist $-\tfrac12+\tfrac12=0$: Der Tangentenvektor steht senkrecht auf dem Pfeil vom Mittelpunkt zum Kurvenpunkt.
+::::
 
 ⁠**Kurz gesagt:** Eine Kurve ist eine Abbildung von einem Intervall in den $\mathbb{R}^n$. Ihr Tangentenvektor ist die Ableitung jeder Komponente nach $t$ und zeigt in Laufrichtung.
 
@@ -787,11 +845,13 @@ Setze in Satz [1.16](#satz-1-16) $f=h$ und $\boldsymbol{g}=\gamma$. Die innere 
 $$\frac{\mathrm{d}}{\mathrm{d} t}\,h\bigl(\gamma(t)\bigr)=Dh\bigl(\gamma(t)\bigr)\,\dot\gamma(t)=\sum_{j=1}^n\frac{\partial h}{\partial x_j}\bigl(\gamma(t)\bigr)\,\dot\gamma_j(t)=\nabla h\bigl(\gamma(t)\bigr)\cdot\dot\gamma(t).$$
 :::
 
-⁠**Beispiel:** Die Schale $\varphi=x^2+2y^2$ längs des Kreises $\gamma(t)=(\cos t,\sin t)$. Es ist $\nabla\varphi(\gamma(t))=(2\cos t,\;4\sin t)$ und $\dot\gamma(t)=(-\sin t,\;\cos t)$, also
+::::beispiel
+Die Schale $\varphi=x^2+2y^2$ längs des Kreises $\gamma(t)=(\cos t,\sin t)$. Es ist $\nabla\varphi(\gamma(t))=(2\cos t,\;4\sin t)$ und $\dot\gamma(t)=(-\sin t,\;\cos t)$, also
 
 $$\frac{\mathrm{d}}{\mathrm{d} t}\,\varphi\bigl(\gamma(t)\bigr)=-2\cos t\sin t+4\sin t\cos t=2\sin t\cos t .$$
 
 Zur Kontrolle direkt: $\varphi(\gamma(t))=\cos^2t+2\sin^2t=1+\sin^2t$ hat die Ableitung $2\sin t\cos t$.
+::::
 
 ⁠**Grenzfall:** Für $n=1$ und $\gamma(t)=t$ steht dort $\frac{\mathrm{d}}{\mathrm{d} t}h(t)=h'(t)$.
 
@@ -822,9 +882,11 @@ $$\frac{\mathrm{d}}{\mathrm{d} t}\,h(\boldsymbol{x}+t\,\boldsymbol v)\Big|_{t=0}
 
 Für $\boldsymbol v=\hat{\boldsymbol{e}}_k$ ist das die partielle Ableitung nach $x_k$.
 
-⁠**Beispiel:** Die Schale im Punkt $(1,1)$ in Richtung $\boldsymbol v=\frac15(3,4)$. Es ist $|\boldsymbol v|=\frac15\sqrt{9+16}=1$ und
+::::beispiel
+Die Schale im Punkt $(1,1)$ in Richtung $\boldsymbol v=\frac15(3,4)$. Es ist $|\boldsymbol v|=\frac15\sqrt{9+16}=1$ und
 
 $$\nabla\varphi(1,1)\cdot\boldsymbol v=(2,4)\cdot\tfrac15(3,4)=\tfrac15(6+16)=\tfrac{22}5=4{,}4 .$$
+::::
 
 ⁠**Kurz gesagt:** Die Richtungsableitung ist die Steigung in einer beliebigen Richtung $\boldsymbol v$ der Länge $1$, und sie ist $\nabla h\cdot\boldsymbol v$.
 
@@ -870,7 +932,9 @@ Der Gradient steht senkrecht auf den Höhenlinien: Ist $\gamma$ eine differenzie
 Höhenlinien der Schale $\varphi=x^2+2y^2$ mit Gradientenpfeilen auf der Linie $\varphi=3$. Im Punkt $(1,1)$ ist $\nabla\varphi=(2,4)^T$, gezeichnet in verkleinertem Maßstab. Die grüne Kurve $\gamma$ schneidet die Höhenlinien, und [(1.10)](#gl-1-10) sagt, wie schnell $\varphi$ dabei wächst.
 :::
 
-⁠**Beispiel:** Für die Schale im Punkt $(1,1)$ ist $\nabla\varphi=(2,4)^T$ und $|\nabla\varphi|=\sqrt{20}=2\sqrt5\approx4{,}47$. Am steilsten steigt sie in Richtung $(2,4)/(2\sqrt5)=(1,2)/\sqrt5$, mit der Steigung $4{,}47$. Die Richtung $\frac15(3,4)$ aus dem letzten Unterabschnitt liefert nur $4{,}4$. Senkrecht zum Gradienten, in Richtung $\pm(-2,1)/\sqrt5$, ändert sich $\varphi$ in erster Näherung nicht: Das ist die Richtung der Höhenlinie durch $(1,1)$ (Abb. [10](#abb-10)).
+::::beispiel
+Für die Schale im Punkt $(1,1)$ ist $\nabla\varphi=(2,4)^T$ und $|\nabla\varphi|=\sqrt{20}=2\sqrt5\approx4{,}47$. Am steilsten steigt sie in Richtung $(2,4)/(2\sqrt5)=(1,2)/\sqrt5$, mit der Steigung $4{,}47$. Die Richtung $\frac15(3,4)$ aus dem letzten Unterabschnitt liefert nur $4{,}4$. Senkrecht zum Gradienten, in Richtung $\pm(-2,1)/\sqrt5$, ändert sich $\varphi$ in erster Näherung nicht: Das ist die Richtung der Höhenlinie durch $(1,1)$ (Abb. [10](#abb-10)).
+::::
 
 :::hintergrund Der Graph ist eine Fläche im Raum. Warum zeigt der Gradient dann in der Ebene?
 Der Gradient von $h(x,y)$ hat zwei Komponenten. Er ist ein Vektor im Raum der Eingänge, also in der $x$-$y$-Ebene. Er gibt die Richtung an, in die man auf der Landkarte gehen muss, um am steilsten bergauf zu kommen. Er ist kein Pfeil, der auf dem Hang liegt. Deshalb steht er in der Karte senkrecht auf den Höhenlinien.
@@ -894,9 +958,13 @@ $$\dot\gamma(t)=\boldsymbol{E}\bigl(\gamma(t)\bigr)\qquad\text{für alle }t\in I
 
 In Zeichnungen zeigt man meist nur die Bahn einer Feldlinie. Sie verläuft überall in Richtung der Pfeile.
 
-⁠**Beispiel 1:** Für das Drehfeld $\boldsymbol{E}(x,y)=(-y,x)$ ist der Kreis $\gamma(t)=(\cos t,\sin t)$ eine Feldlinie: $\dot\gamma(t)=(-\sin t,\cos t)$ und $\boldsymbol{E}(\gamma(t))=(-\sin t,\cos t)$ stimmen überein. Die Feldlinien des Drehfelds sind Kreise um den Nullpunkt (vergleiche Abb. [4](#abb-4)).
+::::beispiel [Beispiel 1]
+Für das Drehfeld $\boldsymbol{E}(x,y)=(-y,x)$ ist der Kreis $\gamma(t)=(\cos t,\sin t)$ eine Feldlinie: $\dot\gamma(t)=(-\sin t,\cos t)$ und $\boldsymbol{E}(\gamma(t))=(-\sin t,\cos t)$ stimmen überein. Die Feldlinien des Drehfelds sind Kreise um den Nullpunkt (vergleiche Abb. [4](#abb-4)).
+::::
 
-⁠**Beispiel 2:** Für das Strahlfeld $\boldsymbol{E}(\boldsymbol{x})=\boldsymbol{x}$ in der Ebene ist $\gamma(t)=(\mathrm{e}^t,0)$ eine Feldlinie, denn $\dot\gamma(t)=(\mathrm{e}^t,0)=\gamma(t)=\boldsymbol{E}(\gamma(t))$. Sie läuft auf der $x$-Achse vom Nullpunkt weg.
+::::beispiel [Beispiel 2]
+Für das Strahlfeld $\boldsymbol{E}(\boldsymbol{x})=\boldsymbol{x}$ in der Ebene ist $\gamma(t)=(\mathrm{e}^t,0)$ eine Feldlinie, denn $\dot\gamma(t)=(\mathrm{e}^t,0)=\gamma(t)=\boldsymbol{E}(\gamma(t))$. Sie läuft auf der $x$-Achse vom Nullpunkt weg.
+::::
 
 ⁠**Kurz gesagt:** Eine Feldlinie ist eine Kurve, die an jedem Punkt dem Pfeil des Felds folgt.
 
@@ -922,7 +990,9 @@ $$\frac{\mathrm{d}}{\mathrm{d} t}\,u\bigl(\gamma(t)\bigr)=\nabla u\bigl(\gamma(t
 
 Für den Begriff Gradientenfeld spielt das Vorzeichen keine Rolle: Aus $\boldsymbol{E}=-\nabla u$ folgt $\boldsymbol{E}=\nabla(-u)$. Ein Potentialfeld ist also ein Gradientenfeld mit dem Skalarpotential $-u$.
 
-⁠**Beispiel:** Sei $u(x,y,z)=-3x$ im ganzen Raum. Dann ist $\boldsymbol{E}=-\nabla u=(3,0,0)$, ein Feld, das überall gleich stark in $x$-Richtung zeigt. Die Kurve $\gamma(t)=(3t,0,0)$ ist eine Feldlinie, denn $\dot\gamma=(3,0,0)=\boldsymbol{E}$. Längs ihr ist $u(\gamma(t))=-9t$, das Potential fällt mit der Rate $9=|\boldsymbol{E}|^2$.
+::::beispiel
+Sei $u(x,y,z)=-3x$ im ganzen Raum. Dann ist $\boldsymbol{E}=-\nabla u=(3,0,0)$, ein Feld, das überall gleich stark in $x$-Richtung zeigt. Die Kurve $\gamma(t)=(3t,0,0)$ ist eine Feldlinie, denn $\dot\gamma=(3,0,0)=\boldsymbol{E}$. Längs ihr ist $u(\gamma(t))=-9t$, das Potential fällt mit der Rate $9=|\boldsymbol{E}|^2$.
+::::
 
 ⁠**Kurz gesagt:** In der Physik ist das Feld der negative Gradient des Potentials. Dann fällt das Potential längs jeder Feldlinie.
 

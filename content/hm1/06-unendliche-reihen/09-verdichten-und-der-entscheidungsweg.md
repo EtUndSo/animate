@@ -44,11 +44,15 @@ Ist $\{S_N\}$ beschränkt, sind die Teilsummen rechts beschränkt und wachsen, a
 Der Satz am Beispiel $a_n=\frac1n$. Links überdecken die Rechtecke $2^k\,a_{(2^k)}$ alle Balken, rechts liegen die Rechtecke $2^{k-1}\,a_{(2^k)}$ in den Balken. Die Reihe liegt also zwischen der Hälfte der verdichteten Reihe und ihr selbst.
 :::
 
-**Beispiel.** Sei $a_n=\frac1{n\log n}$ für $n\ge2$. Die Glieder fallen, weil $n$ und $\log n$ wachsen. Dass die Reihe bei 2 beginnt, stört nicht: Setzt man $a_1:=a_2$, ändert ein zusätzliches Glied die Konvergenz nicht. Es ist
+::::beispiel
+Sei $a_n=\frac1{n\log n}$ für $n\ge2$. Die Glieder fallen, weil $n$ und $\log n$ wachsen. Dass die Reihe bei 2 beginnt, stört nicht: Setzt man $a_1:=a_2$, ändert ein zusätzliches Glied die Konvergenz nicht. Es ist
 
 $$2^k\,a_{(2^k)}=\frac{2^k}{2^k\,\log(2^k)}=\frac1{\log2}\cdot\frac1k\qquad(k\ge1).$$
 
-Das ist die harmonische Reihe mal einer Zahl, also divergiert $\sum_{n=2}^\infty\frac1{n\log n}$. Sichtbar wird das kaum: Für $D_N=\sum_{n=2}^N\frac1{n\log n}$ ist $D_{10}=1{,}650$, $D_{1000}=2{,}727$, $D_{10^6}=3{,}420$. **Grenzfall:** Für $a_n=\frac1{n^s}$ mit $s>0$ ist $2^k\,a_{(2^k)}=(2^{1-s})^k$, das ist genau die Aussage aus Stufe [5](absolute-konvergenz-und-vergleich.html#stufe-5).
+Das ist die harmonische Reihe mal einer Zahl, also divergiert $\sum_{n=2}^\infty\frac1{n\log n}$. Sichtbar wird das kaum: Für $D_N=\sum_{n=2}^N\frac1{n\log n}$ ist $D_{10}=1{,}650$, $D_{1000}=2{,}727$, $D_{10^6}=3{,}420$.
+::::
+
+⁠**Grenzfall:** Für $a_n=\frac1{n^s}$ mit $s>0$ ist $2^k\,a_{(2^k)}=(2^{1-s})^k$, das ist genau die Aussage aus Stufe [5](absolute-konvergenz-und-vergleich.html#stufe-5).
 
 **Warum die Vergleichsreihen hier nicht helfen.** Der Logarithmus wächst langsamer als jede Wurzel: Für alle $m\in\mathbb{N}$ gilt ([Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html))
 

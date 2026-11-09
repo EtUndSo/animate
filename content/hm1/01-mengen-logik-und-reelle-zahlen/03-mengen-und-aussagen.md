@@ -94,7 +94,11 @@ Alle vier Fälle der Bausteine durchgehen. Liest man $w$ als „$x$ liegt in der
 Spalte 5 und 6 stimmen überein, ebenso Spalte 7 und 8. Die anderen Regeln gehen genauso. Die Transitivität der Inklusion folgt aus der der Implikation: Aus $x\in A$ folgt $x\in B$, daraus $x\in C$.
 :::
 
-**Beispiel.** $(A\cap B)^c=G\setminus\{2,3\}$ hat 10 Elemente. Rechts steht $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$, dieselben 10 Elemente. Kontraposition als Beweismittel: Statt „$n^2$ gerade $\Rightarrow$ $n$ gerade“ zeigt man „$n$ ungerade $\Rightarrow$ $n^2$ ungerade“: $(2k+1)^2=2(2k^2+2k)+1$. **Grenzfälle:** Für $B=\emptyset$ wird De Morgan zu $G=G$. Der Grundbereich zählt mit: $(n\ge7\Leftrightarrow n>6)$ gilt in $\mathbb{N}$, für $n=13/2$ ist es $f\Leftrightarrow w$, also falsch.
+::::beispiel
+$(A\cap B)^c=G\setminus\{2,3\}$ hat 10 Elemente. Rechts steht $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$, dieselben 10 Elemente. Kontraposition als Beweismittel: Statt „$n^2$ gerade $\Rightarrow$ $n$ gerade“ zeigt man „$n$ ungerade $\Rightarrow$ $n^2$ ungerade“: $(2k+1)^2=2(2k^2+2k)+1$.
+::::
+
+⁠**Grenzfälle:** Für $B=\emptyset$ wird De Morgan zu $G=G$. Der Grundbereich zählt mit: $(n\ge7\Leftrightarrow n>6)$ gilt in $\mathbb{N}$, für $n=13/2$ ist es $f\Leftrightarrow w$, also falsch.
 
 :::aufgabe Aufgabe 1 ★ Mengen ausrechnen
 <span class="anker" id="aufg-1"></span>

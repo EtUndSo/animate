@@ -90,7 +90,11 @@ That is how it looks to the source: behind $R_1$ it sees a point that holds its 
 Top, the inverting amplifier, in red the current path at $U_\mathrm{E}=+1$ V. Bottom, the limit: $\hat u_\mathrm{E}=3.5$ V would give 14 V, and the output hits its limit at $\pm11$ V. Then $\varphi_-$ rises to as much as 0.6 V, and the virtual ground is gone.
 :::
 
-**Example.** $U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V, more precisely $-3.9998$ V with finite $A$. $R_\mathrm{in}=10$ k$\Omega$. With a load of 2 k$\Omega$ to ground, 2 mA flows, and the output takes in 2.1 mA: load plus feedback. The source $U_\mathrm{E}$ notices nothing of this. **Limiting cases:** $R_2=R_1$ only reverses the sign. $R_2\to0$ gives $U_\mathrm{A}=0$.
+::::beispiel
+$U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V, more precisely $-3.9998$ V with finite $A$. $R_\mathrm{in}=10$ k$\Omega$. With a load of 2 k$\Omega$ to ground, 2 mA flows, and the output takes in 2.1 mA: load plus feedback. The source $U_\mathrm{E}$ notices nothing of this.
+::::
+
+⁠**Limiting cases:** $R_2=R_1$ only reverses the sign. $R_2\to0$ gives $U_\mathrm{A}=0$.
 
 **The first limit.** Rule 1 assumes that the output reaches the demanded voltage. At $G=-4$ this ends at $|U_\mathrm{E}|=11\,\mathrm{V}/4=2.75$ V. Above that, $U_\mathrm{A}=\mp11$ V is fixed, the loop is open, and the divider of $R_1$ and $R_2$ determines the node: $\varphi_-=0.8\,U_\mathrm{E}+0.2\,U_\mathrm{A}$, so $+0.6$ V at 3.5 V.
 

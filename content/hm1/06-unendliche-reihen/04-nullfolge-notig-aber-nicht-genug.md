@@ -36,7 +36,11 @@ Für $n>m$ ist $S_n-S_m=\sum_{\ell=m+1}^na_\ell$. Bedingung [(2.1)](#gl-2-1) sag
 Konvergiert $\sum_{n=1}^\infty a_n$, dann gilt $\lim_{n\to\infty}a_n=0$.
 :::
 
-⁠**So liest man das:** Ist $\{a_n\}$ keine Nullfolge, muss die Reihe divergieren. Das ist die Kontraposition und der billigste Test überhaupt. Die Bedingung ist nur notwendig, nicht hinreichend: Aus $a_n\to0$ folgt keine Konvergenz. **Beispiele:** Für $|q|\ge1$ ist $|q^n|\ge1$, also divergiert die geometrische Reihe. Bei $\sum\frac n{2n+1}$ streben die Glieder gegen $\frac12$, also divergiert auch sie.
+⁠**So liest man das:** Ist $\{a_n\}$ keine Nullfolge, muss die Reihe divergieren. Das ist die Kontraposition und der billigste Test überhaupt. Die Bedingung ist nur notwendig, nicht hinreichend: Aus $a_n\to0$ folgt keine Konvergenz.
+
+::::beispiel [Beispiele]
+Für $|q|\ge1$ ist $|q^n|\ge1$, also divergiert die geometrische Reihe. Bei $\sum\frac n{2n+1}$ streben die Glieder gegen $\frac12$, also divergiert auch sie.
+::::
 
 :::beweis Ein Stück aus einer Stufe
 Wähle in [(2.1)](#gl-2-1) $n=m+1$. Das ergibt $|a_{m+1}|<\varepsilon$ für alle $m>N_0$, also ist $\{a_n\}$ nach dem Epsilon-Kriterium eine Nullfolge.

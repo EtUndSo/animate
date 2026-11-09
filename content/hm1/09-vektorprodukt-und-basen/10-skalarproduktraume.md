@@ -58,7 +58,11 @@ In jedem Skalarproduktraum ist $\|\vec v\|:=\sqrt{\langle\vec v,\vec v\rangle}$ 
 <span class="anker" id="gl-8-1"></span>
 $$\langle p,q\rangle:=\int_{-1}^1p(x)q(x)\,\mathrm{d} x=\sum_{i=0}^n\sum_{j=0}^m\alpha_i\beta_j\int_{-1}^1x^{i+j}\,\mathrm{d} x. \tag{8.1}$$
 
-Das ist ein Skalarprodukt: (S1) ist die Linearität des Integrals, (S2) gilt wegen $pq=qp$. (S3): $p^2\ge0$ ist stetig und für $p\ne0$ höchstens an endlich vielen Stellen null, also ist das Integral positiv. **Beispiel ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)):** Für $p(x)=x^2-1$, $q(x)=x+1$ ist $\langle p,q\rangle=\int_{-1}^1(x^3+x^2-x-1)\mathrm{d} x=-\frac43$ und $\|q\|^2=\frac83$.
+Das ist ein Skalarprodukt: (S1) ist die Linearität des Integrals, (S2) gilt wegen $pq=qp$. (S3): $p^2\ge0$ ist stetig und für $p\ne0$ höchstens an endlich vielen Stellen null, also ist das Integral positiv.
+
+::::beispiel [Beispiel (Teil 8)]
+Für $p(x)=x^2-1$, $q(x)=x+1$ ist $\langle p,q\rangle=\int_{-1}^1(x^3+x^2-x-1)\mathrm{d} x=-\frac43$ und $\|q\|^2=\frac83$.
+::::
 
 Gram-Schmidt für $1,x,x^2$: $\|1\|^2=2$ gibt $c_0=\frac1{\sqrt2}$. Wegen $\langle x,1\rangle=0$ bleibt $x$, und $\|x\|^2=\frac23$ gibt $c_1=\sqrt{3/2}\,x$. Für $x^2$ ist $\langle x^2,c_1\rangle=0$ und $\langle x^2,c_0\rangle c_0=\frac13$, also $d_2=x^2-\frac13$, $\|d_2\|^2=\frac8{45}$, $c_2=\sqrt{45/8}\,(x^2-\frac13)$. Das ist eine ONB des Raums der Polynome vom Grad höchstens 2. Die Fourier-Reihe ist derselbe Gedanke für Signale: Sinus und Cosinus bilden, passend normiert, eine Orthonormalbasis (mit unendlich vielen Elementen), und die Fourier-Koeffizienten sind Skalarprodukte wie in [(7.1)](orthonormalbasis-und-gram-schmidt.html#gl-7-1).
 

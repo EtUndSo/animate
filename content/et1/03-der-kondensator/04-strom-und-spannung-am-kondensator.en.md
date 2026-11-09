@@ -33,7 +33,8 @@ Current is charge per time, $i=\mathrm{d} q/\mathrm{d} t$ ([Part 2](/wissen/en/
 
 **Two consequences.** First: **The voltage does not jump.** A jump by $\Delta U$ in the time $\Delta t$ requires $i=C\,\Delta U/\Delta t$. For $\Delta t\to0$ the current would grow without limit, because the charge $C\,\Delta U$ would have to arrive in zero time. 9 V in 1 µs across 100 µF already requires 900 A. The current, on the other hand, may jump, because it is not tied to a stored quantity. Second: **At constant voltage no current flows.** With $\mathrm{d} u/\mathrm{d} t=0$, $i=0$: the capacitor blocks direct current.
 
-**Example.** A __current source__, a component that holds its current fixed regardless of the voltage, feeds a resistor and an uncharged capacitor in series through the switch S (Fig. [3](#abb-3)). It supplies $I=0.9$ mA; $R$ and $C$ are the values of the RC circuit. When S closes at $t=0$, $u_R$ jumps to the fixed value $R\,I=9$ V. At the capacitor, [(3.2)](#gl-3-2) with $u_C(0)=0$ gives
+::::beispiel
+A __current source__, a component that holds its current fixed regardless of the voltage, feeds a resistor and an uncharged capacitor in series through the switch S (Fig. [3](#abb-3)). It supplies $I=0.9$ mA; $R$ and $C$ are the values of the RC circuit. When S closes at $t=0$, $u_R$ jumps to the fixed value $R\,I=9$ V. At the capacitor, [(3.2)](#gl-3-2) with $u_C(0)=0$ gives
 
 <span class="anker" id="gl-3-3"></span>
 $$u_C(t)=\frac{Q(t)}{C}=\frac{I\,t}{C}=9\,\mathrm{V/s}\cdot t. \tag{3.3}$$
@@ -43,6 +44,7 @@ The voltage grows in a straight line. It starts continuously at zero even though
 :::abbildung et1/k3rampe 3
 A current source charges a capacitor through $R=10\,\mathrm{k\Omega}$. When S closes, $u_R$ jumps to 9 V and stays there. $u_C$ starts at zero and rises at 9 V/s, because the same charge arrives every second.
 :::
+::::
 
 ⁠**Limiting case:** For $C\to\infty$ the slope becomes zero and the voltage does not budge. A very large capacitor therefore holds a voltage fixed.
 

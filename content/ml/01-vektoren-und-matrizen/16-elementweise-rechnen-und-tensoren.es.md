@@ -32,11 +32,13 @@ $$(\mathbf{A}\odot\mathbf{B})_{ij}=a_{ij}\,b_{ij} . \tag{15.1}$$
 
 El producto de Hadamard *no* es el producto de matrices. El producto de matrices forma productos escalares de filas y columnas; el producto de Hadamard solo multiplica entradas en la misma posición. Dos relaciones con lo ya conocido: si se suma el producto de Hadamard de dos vectores, se obtiene su producto escalar, $\mathbf 1^{\top}(\mathbf{u}\odot\mathbf{v})=\mathbf{u}^{\top}\mathbf{v}$. Y el producto de Hadamard por un vector fijo es la multiplicación por una matriz diagonal: $\mathbf{v}\odot\mathbf{x}=\operatorname{diag}(\mathbf{v})\,\mathbf{x}$.
 
-⁠**Ejemplo numérico:** $(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, y $4+10+18=32$ es el producto escalar. Para matrices se tiene
+::::beispiel [Ejemplo numérico]
+$(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, y $4+10+18=32$ es el producto escalar. Para matrices se tiene
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}\odot\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}0&2\\3&0\end{pmatrix},\qquad\text{pero}\qquad \begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}2&1\\4&3\end{pmatrix}.$$
 
 Con un vector de ceros y unos se pueden ocultar características: $(1,\,0,\,1)^{\top}\odot\mathbf{x}_1=(60,\,0,\,3)^{\top}$ suprime en la vivienda 1 el número de habitaciones.
+::::
 
 ⁠**En resumen:** El producto de Hadamard $\odot$ multiplica entrada por entrada; no es el producto de matrices.
 
@@ -54,7 +56,9 @@ Para una función $f\colon\mathbb{R}\to\mathbb{R}$ y un vector $\mathbf{x}\in\ma
 
 Muchas normas pueden escribirse así: la norma 1 es la suma de los valores absolutos elemento a elemento, $\lVert\mathbf{x}\rVert_1=\mathbf 1^{\top}|\mathbf{x}|$, y el cuadrado de la norma euclídea, la suma de los cuadrados elemento a elemento. Una función elemento a elemento no es lineal en general: elevar al cuadrado elemento a elemento convierte $2\mathbf{x}$ en el vector con las entradas $4x_j^2$, no $2x_j^2$.
 
-⁠**Ejemplo numérico:** El vector de error de la agente inmobiliaria era $(-12,\,-4,\,-4,\,-8)^{\top}$. Los valores absolutos elemento a elemento dan $(12,\,4,\,4,\,8)^{\top}$, con la suma $28$, la norma 1. Para el tasador A de la subsección [3.5](normen-die-groe-eines-vektors.html#stufe-3-5), los cuadrados elemento a elemento dan $(100,\,100,\,100,\,100)^{\top}$, con la suma $400=20^2$.
+::::beispiel [Ejemplo numérico]
+El vector de error de la agente inmobiliaria era $(-12,\,-4,\,-4,\,-8)^{\top}$. Los valores absolutos elemento a elemento dan $(12,\,4,\,4,\,8)^{\top}$, con la suma $28$, la norma 1. Para el tasador A de la subsección [3.5](normen-die-groe-eines-vektors.html#stufe-3-5), los cuadrados elemento a elemento dan $(100,\,100,\,100,\,100)^{\top}$, con la suma $400=20^2$.
+::::
 
 ⁠**En resumen:** Una función elemento a elemento actúa sobre cada entrada por separado; en general no es lineal.
 
@@ -71,11 +75,13 @@ $$\tilde{\mathbf{X}}=\mathbf{X}-\mathbf 1\,\bar{\mathbf{x}}^{\top} , \tag{15.2}$
 
 cuya fila $i$ es el vector $(\mathbf{x}_i-\bar{\mathbf{x}})^{\top}$. Muchos textos escriben abreviadamente $\mathbf{X}-\bar{\mathbf{x}}^{\top}$ y quieren decir con ello: restar el vector fila de cada fila. En sentido estricto, la diferencia de una matriz $N\times d$ y una matriz $1\times d$ no está definida; la abreviatura significa siempre [(15.2)](#gl-15-2).
 
-⁠**Ejemplo numérico:** Para las viviendas, $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ y
+::::beispiel [Ejemplo numérico]
+Para las viviendas, $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ y
 
 $$\tilde{\mathbf{X}}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}-\begin{pmatrix}65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\end{pmatrix}=\begin{pmatrix}-5&-0{,}5&0\\-25&-1{,}5&-2\\25&1{,}5&3\\5&0{,}5&-1\end{pmatrix}.$$
 
 Cada columna es la columna de la característica centrada de la subsección [4.3](abstande-und-einheiten.html#stufe-4-3) y suma cero.
+::::
 
 ⁠**En resumen:** Sumar un vector $\mathbf{q}$ a cada fila de una matriz $\mathbf{A}$ significa $\mathbf{A}+\mathbf 1\,\mathbf{q}^{\top}$; la abreviatura habitual $\mathbf{A}+\mathbf{q}^{\top}$ quiere decir exactamente eso.
 
@@ -97,7 +103,9 @@ Un escalar es un tensor con $0$ ejes; un vector de $\mathbb{R}^d$, uno con un ej
 Tensores de $0$ a $4$ ejes: un escalar, un vector de $4$ entradas, una matriz $4\times4$ (por ejemplo, una imagen en escala de grises), una imagen en color formada por tres canales $4\times4$ para rojo, verde y azul, y una pila de $N$ de estas imágenes en color (representada con tres imágenes).
 :::
 
-⁠**Ejemplo numérico:** Una imagen en color de $4\times4$ píxeles y tres canales de color es un tensor de forma $3\times4\times4$ con $48$ entradas. La entrada con los índices $(1,2,3)$ es la luminosidad del primer canal, es decir, el rojo, en el píxel de la fila $2$ y la columna $3$.
+::::beispiel [Ejemplo numérico]
+Una imagen en color de $4\times4$ píxeles y tres canales de color es un tensor de forma $3\times4\times4$ con $48$ entradas. La entrada con los índices $(1,2,3)$ es la luminosidad del primer canal, es decir, el rojo, en el píxel de la fila $2$ y la columna $3$.
+::::
 
 ⁠**En resumen:** Un tensor es una disposición de números con un número cualquiera de ejes; el escalar, el vector y la matriz son los casos con $0$, $1$ y $2$ ejes.
 
@@ -115,7 +123,9 @@ Una imagen en escala de grises de $28\times28$ píxeles es una matriz, es decir,
 
 El orden de los ejes es una convención. Algunos programas ponen el canal de color al principio ($3\times32\times32$); otros, al final ($32\times32\times3$). Los números son los mismos, solo cambia su disposición, y antes de cada cálculo tiene que estar claro qué significa cada eje.
 
-⁠**Ejemplo numérico:** Un conjunto de datos de $60\,000$ imágenes en escala de grises de $28\times28$ píxeles es un tensor de forma $60\,000\times28\times28$ con $47\,040\,000$ entradas. Si cada imagen se lee como un vector de $\mathbb{R}^{784}$, se obtiene una matriz de datos de $\mathbb{R}^{60\,000\times784}$, con las mismas entradas.
+::::beispiel [Ejemplo numérico]
+Un conjunto de datos de $60\,000$ imágenes en escala de grises de $28\times28$ píxeles es un tensor de forma $60\,000\times28\times28$ con $47\,040\,000$ entradas. Si cada imagen se lee como un vector de $\mathbb{R}^{784}$, se obtiene una matriz de datos de $\mathbb{R}^{60\,000\times784}$, con las mismas entradas.
+::::
 
 ⁠**En resumen:** Una imagen es un tensor con dos o tres ejes; una pila de imágenes, uno con un eje más; el primer eje cuenta los ejemplos.
 

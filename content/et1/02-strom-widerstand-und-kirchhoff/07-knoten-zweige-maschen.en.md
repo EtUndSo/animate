@@ -78,7 +78,11 @@ Build a tree: starting at one node, each new branch brings in exactly one new no
 
 **Unknowns and equations.** Each branch carries a current and a voltage, which makes $2z$ unknowns. Against them stand $z$ component equations (one per branch), $k-1$ node equations (Stage [7](die-knotenregel-ist-ladungserhaltung.html#stufe-7)) and $z-k+1$ mesh equations (Stage [8](die-maschenregel-ist-energieerhaltung.html#stufe-8)). The sum is exactly $2z$. **In short:** Every network has exactly as many equations as unknowns.
 
-**Example.** The network has $k=4$, $z=6$, so $m=3$. Its graph has 16 trees with three branches each. Fig. [7](#abb-7) chooses the star around $K_4$ with the branches 0, b and d. The link branches a, c and e close the meshes $M_1$, $M_2$ and $M_3$. The system comprises 12 unknowns and 12 equations. **Limiting cases:** A single loop has $z=k$, so $m=1$. A tree alone has $z=k-1$, so $m=0$: without a closed path, no steady current flows.
+::::beispiel
+The network has $k=4$, $z=6$, so $m=3$. Its graph has 16 trees with three branches each. Fig. [7](#abb-7) chooses the star around $K_4$ with the branches 0, b and d. The link branches a, c and e close the meshes $M_1$, $M_2$ and $M_3$. The system comprises 12 unknowns and 12 equations.
+::::
+
+⁠**Limiting cases:** A single loop has $z=k$, so $m=1$. A tree alone has $z=k-1$, so $m=0$: without a closed path, no steady current flows.
 
 :::frage Is the connection of two components without a junction a node?
 According to the definition it is not, because nothing branches there. If you count it anyway, $m$ does not change: an additional node splits one branch into two, and $k$ and $z$ both grow by 1.

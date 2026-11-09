@@ -77,7 +77,8 @@ Addiere alle Matrizen, ziehe $E\cdot\mathbf1$ ab und setze die Determinante null
 
 ⁠**So liest man das:** Der Phasenfaktor stammt aus [(5.1)](viele-atome.html#gl-5-1), $a$ ist hier die Länge der Zelle. Die Zahl der Bänder ist $M$. **Kontrolle:** Für ein Atom mit einem s-Orbital sind die drei Matrizen die Zahlen $-V_\mathrm{ss}$, $E_\mathrm s$, $-V_\mathrm{ss}$, und Schritt 9 ergibt [(5.2)](viele-atome.html#gl-5-2).
 
-**Beispiel: zwei Atome je Zelle.** Eine Zickzack-Kette aus Kohlenstoffatomen wie im Polyacetylen (Abb. [8](#abb-8)) hat in jeder Zelle die Atome A und B, der primitive Gittervektor hat die Länge $a$ (Schritt 1). Für die Leitung zählt das p-Orbital senkrecht zur Ebene der Kette (Schritt 2), also $M=2\cdot1=2$ (Schritt 3), und mit nächsten Nachbarn $\#=3$ (Schritt 4). Benachbarte Orbitale überlappen seitlich mit gleichem Vorzeichen, die Kopplung ist $-V_{\mathrm{pp}\pi}$. A koppelt an B derselben Zelle und an B der linken Zelle, B an A der rechten Zelle. Mit den Zeilen A, B und den Spalten A, B der jeweiligen Zelle ergeben die Schritte 5 bis 7
+::::beispiel zwei Atome je Zelle
+Eine Zickzack-Kette aus Kohlenstoffatomen wie im Polyacetylen (Abb. [8](#abb-8)) hat in jeder Zelle die Atome A und B, der primitive Gittervektor hat die Länge $a$ (Schritt 1). Für die Leitung zählt das p-Orbital senkrecht zur Ebene der Kette (Schritt 2), also $M=2\cdot1=2$ (Schritt 3), und mit nächsten Nachbarn $\#=3$ (Schritt 4). Benachbarte Orbitale überlappen seitlich mit gleichem Vorzeichen, die Kopplung ist $-V_{\mathrm{pp}\pi}$. A koppelt an B derselben Zelle und an B der linken Zelle, B an A der rechten Zelle. Mit den Zeilen A, B und den Spalten A, B der jeweiligen Zelle ergeben die Schritte 5 bis 7
 
 $$\underbrace{\begin{pmatrix}E_\mathrm p&-V_{\mathrm{pp}\pi}\\-V_{\mathrm{pp}\pi}&E_\mathrm p\end{pmatrix}}_{\text{Mitte}},\qquad\underbrace{\begin{pmatrix}0&-V_{\mathrm{pp}\pi}\\0&0\end{pmatrix}}_{\text{links}},\qquad\underbrace{\begin{pmatrix}0&0\\-V_{\mathrm{pp}\pi}&0\end{pmatrix}}_{\text{rechts}}.$$
 
@@ -94,6 +95,7 @@ $$E-E_\mathrm p=\pm V_{\mathrm{pp}\pi}\sqrt{2\bigl(1+\cos(ka)\bigr)}. \tag{8.2}$
 :::abbildung gemb1/k8rezept 8
 Links: Kette mit den Atomen A und B, die zentrale Zelle ist grau, $a$ die Länge der Zelle. Rechts: Die Bänder [(8.2)](#gl-8-2) für $V_{\mathrm{pp}\pi}=2{,}5$ eV. Bei $k=0$ spalten sie maximal auf, am Zonenrand berühren sie sich.
 :::
+::::
 
 ⁠**So liest man das:** Das $\pm$ ist bindend und antibindend, die Fortsetzung von [(3.2)](zwei-atome.html#gl-3-2) auf den Kristall. Mit $V_{\mathrm{pp}\pi}=2{,}5$ eV ist die Aufspaltung bei $k=0$ $\pm5$ eV, bei $ka=\pi/2$ noch $\pm3{,}54$ eV, und bei $ka=\pi$ null: Die beiden Beiträge zur Kopplung von A und B heben sich auf, $1+\mathrm{e}^{\mathrm{j}\pi}=0$. **Kontrolle:** Es gilt $\sqrt{2(1+\cos(ka))}=2|\cos(ka/2)|$. Das ist das Band [(5.2)](viele-atome.html#gl-5-2) einer Kette mit Atomabstand $a/2$, in die halb so breite Zone zurückgefaltet. Sind A und B gleichwertig, ändert die größere Zelle nur die Buchführung.
 

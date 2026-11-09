@@ -38,11 +38,13 @@ Für die Ladung $Q_\mathrm K$ auf dem Knoten gilt $\mathrm{d} Q_\mathrm K/\mathr
 
 **Warum eine Gleichung überflüssig ist.** Jeder Zweig verbindet zwei Knoten. Sein Strom tritt deshalb in genau zwei Knotengleichungen auf, einmal mit $+$ (zufließend) und einmal mit $-$ (abfließend). Addiert man alle $k$ Gleichungen, heben sich alle Ströme auf. Eine Gleichung folgt also aus den übrigen, und jede Auswahl von $k-1$ Gleichungen ist unabhängig.
 
-**Beispiel.** Alle Strompfeile im Netz zeigen in Richtung des tatsächlichen Stroms: von $K_1$ durch die Widerstände nach unten, $I_\mathrm e$ von $K_2$ nach $K_3$, $I_0$ durch die Quelle von $K_4$ nach $K_1$. Die Knotengleichungen lauten
+::::beispiel
+Alle Strompfeile im Netz zeigen in Richtung des tatsächlichen Stroms: von $K_1$ durch die Widerstände nach unten, $I_\mathrm e$ von $K_2$ nach $K_3$, $I_0$ durch die Quelle von $K_4$ nach $K_1$. Die Knotengleichungen lauten
 
 $$\begin{aligned} K_1:&\quad +I_0-I_\mathrm a-I_\mathrm c=0, & K_2:&\quad +I_\mathrm a-I_\mathrm b-I_\mathrm e=0,\\ K_3:&\quad +I_\mathrm c-I_\mathrm d+I_\mathrm e=0, & K_4:&\quad -I_0+I_\mathrm b+I_\mathrm d=0. \end{aligned}$$
 
 Die Summe der ersten drei ist $I_0-I_\mathrm b-I_\mathrm d=0$, die vierte Gleichung mit umgekehrtem Vorzeichen. Addiert man nur $K_2$ und $K_3$, fällt $I_\mathrm e$ heraus, und es bleibt die Hülle aus Abb. [8](#abb-8): $I_\mathrm a+I_\mathrm c=I_\mathrm b+I_\mathrm d$. **Kontrolle:** An einem Punkt mit nur zwei Zweigen folgt $I_1=I_2$. Durch hintereinanderliegende Bauteile fließt derselbe Strom.
+::::
 
 :::frage Gilt die Regel auch, wenn an einem Knoten ein Kondensator hängt?
 Ja. Der Strom zur Platte ist ein Zweigstrom wie jeder andere, die Ladung sammelt sich nicht auf dem Knoten, sondern auf der Platte. [Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) behandelt das.

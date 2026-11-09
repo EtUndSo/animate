@@ -61,7 +61,11 @@ Hundsche Regel: Energiegleiche Orbitale einer Unterschale werden zuerst einfach 
 Kästchen sind Orbitale, Pfeile Elektronen, die Energie wächst nach oben (nicht maßstäblich). Beide Atome haben außen zwei s- und zwei p-Elektronen. Die äußeren p-Elektronen sitzen nach der Hundschen Regel einzeln und parallel, ein p-Orbital bleibt leer.
 :::
 
-**Beispiel.** Kohlenstoff hat sechs Elektronen: je zwei in 1s und 2s, zwei bleiben für 2p. Sie gehen einzeln in $2\mathrm p_x$ und $2\mathrm p_y$, also $1\mathrm s^2\,2\mathrm s^2\,2\mathrm p^2$. Silizium hat 14 Elektronen: $1\mathrm s^2\,2\mathrm s^2\,2\mathrm p^6\,3\mathrm s^2\,3\mathrm p^2$. Beide tragen außen dasselbe Muster $\mathrm s^2\mathrm p^2$. Wie stark die Abschirmung wirkt, zeigt Lithium. Sein 2s-Elektron lässt sich mit 5,39 eV lösen. Aus $|E|=13{,}6\,\mathrm{eV}\cdot Z_\mathrm{eff}^2/n^2$ (Stufe [2](das-wasserstoffatom.html#stufe-2) mit $Z_\mathrm{eff}$ statt $Z$) folgt $Z_\mathrm{eff}=1{,}26$ statt 3. **Grenzfälle:** Für $Z=1$ gibt es nichts abzuschirmen, und 2s und 2p sind wieder entartet. Bei Helium mit zwei 1s-Elektronen sinkt die Ionisierungsenergie von 54,4 eV für He$^+$ auf 24,6 eV, das ist $Z_\mathrm{eff}=1{,}34$.
+::::beispiel
+Kohlenstoff hat sechs Elektronen: je zwei in 1s und 2s, zwei bleiben für 2p. Sie gehen einzeln in $2\mathrm p_x$ und $2\mathrm p_y$, also $1\mathrm s^2\,2\mathrm s^2\,2\mathrm p^2$. Silizium hat 14 Elektronen: $1\mathrm s^2\,2\mathrm s^2\,2\mathrm p^6\,3\mathrm s^2\,3\mathrm p^2$. Beide tragen außen dasselbe Muster $\mathrm s^2\mathrm p^2$. Wie stark die Abschirmung wirkt, zeigt Lithium. Sein 2s-Elektron lässt sich mit 5,39 eV lösen. Aus $|E|=13{,}6\,\mathrm{eV}\cdot Z_\mathrm{eff}^2/n^2$ (Stufe [2](das-wasserstoffatom.html#stufe-2) mit $Z_\mathrm{eff}$ statt $Z$) folgt $Z_\mathrm{eff}=1{,}26$ statt 3.
+::::
+
+⁠**Grenzfälle:** Für $Z=1$ gibt es nichts abzuschirmen, und 2s und 2p sind wieder entartet. Bei Helium mit zwei 1s-Elektronen sinkt die Ionisierungsenergie von 54,4 eV für He$^+$ auf 24,6 eV, das ist $Z_\mathrm{eff}=1{,}34$.
 
 Die Hundsche Regel hat auch für magnetische Werkstoffe zentrale Bedeutung: Parallele, ungepaarte Spins geben einem Atom ein magnetisches Moment. Eisen hat in 3d sechs Elektronen auf fünf Orbitale und damit vier ungepaarte Spins.
 

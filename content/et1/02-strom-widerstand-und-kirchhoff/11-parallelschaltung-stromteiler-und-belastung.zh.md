@@ -38,7 +38,11 @@ $$R_1\parallel R_2=\frac{R_1\,R_2}{R_1+R_2},\qquad I_1=I_\mathrm{tot}\,\frac{G_1
 $$I_1=I_\mathrm{tot}\,\frac{1/R_1}{1/R_1+1/R_2}=I_\mathrm{tot}\,\frac{R_2}{R_1+R_2}.$$
 :::
 
-**例。** 串联链的 $R_1$ 和 $R_2$ 并联接在 9 V 上：$G_\mathrm{tot}=0.5+1=1.5$ mS，所以 $R_\mathrm{tot}=667\,\Omega$，小于较小的那个值，$I=13.5$ mA。分流器给出 $I_1=13.5\,\mathrm{mA}\cdot1/3=4.5$ mA，$I_2=9$ mA。混合网络由内向外合并：$6\,\mathrm{k\Omega}$ 与 $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ 并联得 $6\parallel3=2\,\mathrm{k\Omega}$。**极限情况：**$R_2\to\infty$ 时得 $R_1$，开路支路不起作用。$R_2\to0$ 时得 0，短路承担全部电流。$R_1=R_2$ 时得 $R_1/2$。
+::::beispiel
+串联链的 $R_1$ 和 $R_2$ 并联接在 9 V 上：$G_\mathrm{tot}=0.5+1=1.5$ mS，所以 $R_\mathrm{tot}=667\,\Omega$，小于较小的那个值，$I=13.5$ mA。分流器给出 $I_1=13.5\,\mathrm{mA}\cdot1/3=4.5$ mA，$I_2=9$ mA。混合网络由内向外合并：$6\,\mathrm{k\Omega}$ 与 $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ 并联得 $6\parallel3=2\,\mathrm{k\Omega}$。
+::::
+
+⁠**极限情况：**$R_2\to\infty$ 时得 $R_1$，开路支路不起作用。$R_2\to0$ 时得 0，短路承担全部电流。$R_1=R_2$ 时得 $R_1/2$。
 
 **带负载的分压器。** 分压器的电压要为下一级电路供电，__负载电阻__ $R_\mathrm L$ 与 $R_2$ 并联（图 [11](#abb-11)）。机理是：中间节点多开了一条路径，总电阻下降，流过 $R_1$ 的电流上升，$R_1$ 上的压降增大，中间电位下降。把 $R_2'=R_2\parallel R_\mathrm L$ 代入式 [(9.3)](reihenschaltung-und-spannungsteiler.html#gl-9-3)：
 
@@ -51,7 +55,9 @@ $$\frac{U_2}{U}=\frac{R_2\parallel R_\mathrm L}{R_1+R_2\parallel R_\mathrm L}=\f
 左：带负载的分压器。右：按式 [(10.4)](#gl-10-4)，$R_1=2\,\mathrm{k\Omega}$、$R_2=1\,\mathrm{k\Omega}$、$U=9$ V 时 $U_2$ 随 $R_\mathrm L$ 的变化。$R_\mathrm L=1\,\mathrm{k\Omega}$ 时剩下 1.8 V，$10\,\mathrm{k\Omega}$ 时为 2.81 V。只有远大于 $R_1\parallel R_2=667\,\Omega$ 时，负载的影响才察觉不到。
 :::
 
-**例。** 对串联链，相对于空载 3 V 的相对误差 $\delta=(U_{2,0}-U_2)/U_{2,0}$ 为：$R_\mathrm L=1\,\mathrm{k\Omega}$ 时 40 %，$10\,\mathrm{k\Omega}$ 时 6.3 %，$100\,\mathrm{k\Omega}$ 时 0.66 %。误差为 $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$，其中 $R_\mathrm i=R_1\parallel R_2$（练习 [11](#aufg-11)）。所以分压器的作用相当于一个内阻为 $R_\mathrm i$ 的电源（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
+::::beispiel
+对串联链，相对于空载 3 V 的相对误差 $\delta=(U_{2,0}-U_2)/U_{2,0}$ 为：$R_\mathrm L=1\,\mathrm{k\Omega}$ 时 40 %，$10\,\mathrm{k\Omega}$ 时 6.3 %，$100\,\mathrm{k\Omega}$ 时 0.66 %。误差为 $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$，其中 $R_\mathrm i=R_1\parallel R_2$（练习 [11](#aufg-11)）。所以分压器的作用相当于一个内阻为 $R_\mathrm i$ 的电源（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
+::::
 
 :::ltspice 测量负载影响
 ⁠**绘制：**电压源 `voltage` 取 `9`，从 `in` 接地，`res` `R1 2k` 从 `in` 接到 `mid`，`R2 1k` 从 `mid` 接地，`RL` 的值取 `{RL}`，从 `mid` 接地。

@@ -41,7 +41,8 @@ $$\frac UI=R\parallel R_\mathrm{iV},\qquad f=-\frac{R}{R+R_\mathrm{iV}}. \tag{5.
 Correct current: $U/I=(I_RR+I_RR_\mathrm{iA})/I_R=R+R_\mathrm{iA}$. Correct voltage: $I/U=(I_R+I_\mathrm{iV})/U_R=1/R+1/R_\mathrm{iV}$, so $U/I=R\parallel R_\mathrm{iV}$ and $f=(R\parallel R_\mathrm{iV})/R-1=-R/(R+R_\mathrm{iV})$.
 :::
 
-**Example.** The reference model in both circuits:
+::::beispiel
+The reference model in both circuits:
 
 |  | Reading $U$ | Reading $I$ | $U/I$ and error |
 |---|---|---|---|
@@ -49,6 +50,7 @@ Correct current: $U/I=(I_RR+I_RR_\mathrm{iA})/I_R=R+R_\mathrm{iA}$. Correct volt
 | correct voltage | 8.950 V | 5.017 mA (through $R$: 4.972 mA) | 1783.9 $\Omega$, $-0.89\,\%$ |
 
 The mathematical correction leads back to 1800 $\Omega$ in both cases.
+::::
 
 **Which circuit?** Fig. [7](#abb-7) shows both errors versus $R$. Small resistors are measured with the correct-voltage circuit, because their current far exceeds that of the voltmeter. Large ones are measured with the correct-current circuit, because their voltage far exceeds the drop across the ammeter. The curves cross near 1.4 k$\Omega$ (Exercise [6](#aufg-6)). At 1.8 k$\Omega$, the correct-current circuit is slightly better.
 

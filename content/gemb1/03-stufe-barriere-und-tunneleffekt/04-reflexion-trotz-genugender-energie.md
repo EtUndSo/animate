@@ -48,7 +48,11 @@ Links: Welle bei $E=3$ eV an der Kante mit $V_0=2$ eV (grau: Gebiet II), Rea
 Nach [(2.1)](#gl-2-1) zählt der Strom, nicht die Dichte. Links haben einlaufende und reflektierte Welle dieselbe Geschwindigkeit, sie fällt in $R$ heraus: $R=|B/A|^2$. Rechts ist das Elektron langsamer, also $T=|C/A|^2\,k_\mathrm{II}/k_\mathrm I$. Mit [(1.4)](zwei-gebiete-an-einer-kante-zusammensetzen.html#gl-1-4) wird das $4k_\mathrm Ik_\mathrm{II}/(k_\mathrm I+k_\mathrm{II})^2$. Die Summe stimmt: $(k_\mathrm I-k_\mathrm{II})^2+4k_\mathrm Ik_\mathrm{II}=(k_\mathrm I+k_\mathrm{II})^2$.
 :::
 
-**Beispiel.** Bei $E=3$ eV ist $R=0{,}268^2=0{,}072$. Von 1000 Elektronen kehren 72 um, obwohl alle genug Energie haben. $T$ ergibt sich zu $|C/A|^2\cdot k_\mathrm{II}/k_\mathrm I=1{,}608\cdot0{,}577=0{,}928$. Für $E/V_0=1{,}05$, 2 und 4 ist $R=0{,}412$, 0,029 und 0,005. **Grenzfälle:** Für $E\gg V_0$ ist $k_\mathrm{II}\approx k_\mathrm I$, also $R\to0$ und $T\to1$, wie klassisch. Für $E\to V_0$ geht $k_\mathrm{II}\to0$, also $T\to0$. Knapp über der Kante kehrt fast jedes Elektron um. Das widerspricht der klassischen Erwartung am stärksten.
+::::beispiel
+Bei $E=3$ eV ist $R=0{,}268^2=0{,}072$. Von 1000 Elektronen kehren 72 um, obwohl alle genug Energie haben. $T$ ergibt sich zu $|C/A|^2\cdot k_\mathrm{II}/k_\mathrm I=1{,}608\cdot0{,}577=0{,}928$. Für $E/V_0=1{,}05$, 2 und 4 ist $R=0{,}412$, 0,029 und 0,005.
+::::
+
+⁠**Grenzfälle:** Für $E\gg V_0$ ist $k_\mathrm{II}\approx k_\mathrm I$, also $R\to0$ und $T\to1$, wie klassisch. Für $E\to V_0$ geht $k_\mathrm{II}\to0$, also $T\to0$. Knapp über der Kante kehrt fast jedes Elektron um. Das widerspricht der klassischen Erwartung am stärksten.
 
 :::frage $C/A$ ist 1,27, also größer als 1. Kommt rechts mehr an, als links einläuft?
 Nein. $|C|^2$ ist eine Dichte, kein Strom. Rechts sind die Elektronen langsamer, also drängen sie sich dichter. Der Strom ist nur das 0,928-fache des einlaufenden.

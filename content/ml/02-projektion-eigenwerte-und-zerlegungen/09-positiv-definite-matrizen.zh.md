@@ -34,7 +34,9 @@ $$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}>0\qquad\text{对所有}\ \mathbf{x}\ne\m
 
 对称性是定义的一部分。对二次型来说，这并不构成限制，因为由第 [5.2](quadratische-formen.html#stufe-5-2) 节，起作用的反正只是对称部分。但要让下一小节的判别法成立，就需要对称性。每个正定矩阵也是半正定的。
 
-⁠**算例：**$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 是正定的，因为由第 [5.4](quadratische-formen.html#stufe-5-4) 节，$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0.4x_2)^2+1.2x_2^2$，而它只在 $x_2=0$、进而 $x_1=0$ 时为零。矩阵 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的二次型为 $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$；它是半正定的，但不是正定的，因为对 $\mathbf{x}=(2,\,-1)^{\top}$，二次型为零。它的图像是一个槽形，谷底沿 $(2,\,-1)^{\top}$ 方向。
+::::beispiel [算例]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 是正定的，因为由第 [5.4](quadratische-formen.html#stufe-5-4) 节，$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0.4x_2)^2+1.2x_2^2$，而它只在 $x_2=0$、进而 $x_1=0$ 时为零。矩阵 $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的二次型为 $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$；它是半正定的，但不是正定的，因为对 $\mathbf{x}=(2,\,-1)^{\top}$，二次型为零。它的图像是一个槽形，谷底沿 $(2,\,-1)^{\top}$ 方向。
+::::
 
 ⁠**简而言之：**正定的意思是：二次型在原点以外为正，是碗形；半正定的意思是：二次型处处不为负。
 
@@ -56,7 +58,9 @@ $$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}>0\qquad\text{对所有}\ \mathbf{x}\ne\m
 
 若对称矩阵既有正特征值又有负特征值，它的二次型就在某些方向上为正，在另一些方向上为负：这是鞍形。这样的矩阵称为__不定__的。相应地，只有负特征值的矩阵称为负定的；它的二次型是穹顶形。
 
-⁠**算例：**$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 的特征值为 $6$ 和 $1$：正定。$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的特征值为 $5$ 和 $0$：半正定。$\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ 的元素全为正，但特征值为 $4$ 和 $-2$：不定，因为对 $\mathbf{x}=(1,\,-1)^{\top}$，二次型为 $1-6+1=-4$。所以元素为正并不能说明定性。
+::::beispiel [算例]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 的特征值为 $6$ 和 $1$：正定。$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ 的特征值为 $5$ 和 $0$：半正定。$\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ 的元素全为正，但特征值为 $4$ 和 $-2$：不定，因为对 $\mathbf{x}=(1,\,-1)^{\top}$，二次型为 $1-6+1=-4$。所以元素为正并不能说明定性。
+::::
 
 ⁠**简而言之：**对称矩阵是正定的，当且仅当所有特征值都为正；正特征值和负特征值同时出现时是鞍形。
 
@@ -104,11 +108,13 @@ $\mathbf{A}$ 是正定的；
 
 有两点需要注意。第一，仅有 $\det\mathbf{A}>0$ 是不够的：$\operatorname{diag}(-1,\,-3)$ 的行列式为 $3$，却是负定的。第二，这个判别法不能简单地照搬到半正定的情形：$\operatorname{diag}(0,\,-1)$ 的顺序主子式为 $0$ 和 $0$，都不为负，但它并不是半正定的。
 
-⁠**算例：**对于
+::::beispiel [算例]
+对于
 
 $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 顺序主子式为 $2$、$\det\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)=3$ 和 $\det\mathbf{A}=2\cdot3-1\cdot2=4$，全为正：$\mathbf{A}$ 是正定的。主元为 $2$、$\tfrac32$ 和 $\tfrac43$，即相邻两个主子式之商。验算：特征值为 $2-\sqrt2$、$2$ 和 $2+\sqrt2$，全为正，其积为 $(4-2)\cdot2=4$。
+::::
 
 ⁠**简而言之：**对称矩阵是正定的，当且仅当所有主元或所有顺序主子式都为正；对于 $2\times2$ 矩阵，这意味着 $a>0$ 且 $ac-b^2>0$。
 
@@ -116,7 +122,7 @@ $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 <span class="anker" id="stufe-8-4"></span>
 
-基础篇 1 第 10 节中出现过格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$；在本章中，$\mathbf{A}^{\top}\mathbf{A}$ 出现在正规方程里。它们总是半正定的，原因很简单：它们的二次型是一个长度的平方。
+[基础篇 1 第 10 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)中出现过格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$；在本章中，$\mathbf{A}^{\top}\mathbf{A}$ 出现在正规方程里。它们总是半正定的，原因很简单：它们的二次型是一个长度的平方。
 
 :::satz 定理 8.4 (格拉姆矩阵)
 <span class="anker" id="satz-8-4"></span>
@@ -130,7 +136,9 @@ $\mathbf{A}^{\top}\mathbf{A}$ 是对称的，并且 $\mathbf{x}^{\top}\mathbf{A}
 
 把列换成行，同样的结论对 $\mathbf{A}\mathbf{A}^{\top}$ 也成立。这个定理事后解释了第 [3.5](die-beste-naherungslosung.html#stufe-3-5) 节：在各列线性无关时，$\mathbf{A}^{\top}\mathbf{A}$ 是正定的，因而只有正特征值，并且可逆。
 
-⁠**算例：**$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ 的特征值为 $3$ 和 $1$：正定，这与 $\mathbf{H}$ 的列线性无关相符。对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$，得到 $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$，其行列式为 $0$，特征值为 $25$ 和 $0$：半正定，但不是正定。
+::::beispiel [算例]
+$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ 的特征值为 $3$ 和 $1$：正定，这与 $\mathbf{H}$ 的列线性无关相符。对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$，得到 $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$，其行列式为 $0$，特征值为 $25$ 和 $0$：半正定，但不是正定。
+::::
 
 ⁠**简而言之：**$\mathbf{A}^{\top}\mathbf{A}$ 总是半正定的，因为 $\mathbf{x}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\lVert\mathbf{A}\mathbf{x}\rVert^2$；在各列线性无关时，它是正定的。
 
@@ -161,11 +169,13 @@ $$\frac{\sum_i\lambda_ic_i^2}{\sum_ic_i^2}=\sum_i\lambda_i\,g_i\qquad\text{其�
 
 式 [(8.2)](#gl-8-2) 中的商称为__瑞利商__。当 $\lVert\mathbf{x}\rVert=1$ 时，它就是二次型本身：在单位圆上，二次型的值介于最小特征值与最大特征值之间。
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，瑞利商在 $\mathbf{e}_1$ 处为 $5$，在 $\mathbf{e}_2$ 处为 $2$，在 $(1,\,1)^{\top}/\sqrt2$ 处为 $\tfrac{5+4+2}2=5.5$，在 $(1,\,-1)^{\top}/\sqrt2$ 处为 $\tfrac{5-4+2}2=1.5$。所有值都介于 $1$ 和 $6$ 之间。它在 $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ 处达到 $6$：$\tfrac15(20+8+2)=6$。这个商与 $\mathbf{x}$ 的长度无关；图 [21](#abb-21) 对 $\mathbf{x}=(1,\,1)^{\top}$ 不用平方根就算出了它。
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，瑞利商在 $\mathbf{e}_1$ 处为 $5$，在 $\mathbf{e}_2$ 处为 $2$，在 $(1,\,1)^{\top}/\sqrt2$ 处为 $\tfrac{5+4+2}2=5.5$，在 $(1,\,-1)^{\top}/\sqrt2$ 处为 $\tfrac{5-4+2}2=1.5$。所有值都介于 $1$ 和 $6$ 之间。它在 $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ 处达到 $6$：$\tfrac15(20+8+2)=6$。这个商与 $\mathbf{x}$ 的长度无关；图 [21](#abb-21) 对 $\mathbf{x}=(1,\,1)^{\top}$ 不用平方根就算出了它。
 
 :::abbildung ml/k2rrayleigh 21
 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 在点 $\mathbf{x}=(1,1)^{\top}$ 处的瑞利商：分子和分母都写成和；商 $\tfrac{11}2=5.5$ 介于特征值 $1$ 和 $6$ 之间。
 :::
+::::
 
 ⁠**简而言之：**在单位圆上，二次型的值介于最小特征值与最大特征值之间，这两个极值在特征方向上取得。
 
@@ -190,13 +200,15 @@ $$\mathbf{A}=\mathbf L\mathbf L^{\top} . \tag{8.3}$$
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-对于更大的 $n$，就逐个变量地继续配方。由基础篇 1 第 14.5 节，$\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$。
+对于更大的 $n$，就逐个变量地继续配方。由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$。
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$，有 $a=4$，$b=2$，$c=5$，所以 $l_{11}=2$，$l_{21}=1$，$l_{22}=\sqrt{5-1}=2$：
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$，有 $a=4$，$b=2$，$c=5$，所以 $l_{11}=2$，$l_{21}=1$，$l_{22}=\sqrt{5-1}=2$：
 
 $$\mathbf L=\begin{pmatrix}2&0\\1&2\end{pmatrix},\qquad \mathbf L\mathbf L^{\top}=\begin{pmatrix}4&2\\2&1+4\end{pmatrix}=\mathbf{A} .$$
 
 二次型为 $4x_1^2+4x_1x_2+5x_2^2=(2x_1+x_2)^2+(2x_2)^2$；两个平方中的表达式就是 $\mathbf L^{\top}\mathbf{x}$ 的分量。行列式为 $20-4=16=(2\cdot2)^2$。
+::::
 
 ⁠**简而言之：**每个正定矩阵都是 $\mathbf L\mathbf L^{\top}$，其中 $\mathbf L$ 是下三角矩阵；这个分解就是矩阵形式的配方。
 

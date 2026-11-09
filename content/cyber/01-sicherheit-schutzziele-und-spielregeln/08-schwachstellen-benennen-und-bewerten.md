@@ -29,7 +29,9 @@ Betrieben wird das Verzeichnis von der gemeinnützigen Organisation MITRE im Auf
 
 Zu jeder Kennung gibt es einen Eintrag mit einer kurzen Beschreibung, den betroffenen Produkten und Versionen und Verweisen auf weitere Informationen. Die US-Behörde NIST ergänzt die Einträge in ihrer __National Vulnerability Database__ (NVD) um Bewertungen und Einordnungen; ihre Seiten sind frei zugänglich und auf Englisch.
 
-⁠**Beispiel:** Im Dezember 2021 wurde eine Schwachstelle in Log4j bekannt, einem sehr weit verbreiteten Baustein, mit dem Programme Protokolldateien schreiben. Sie erhielt die Kennung `CVE-2021-44228` und wurde unter dem Namen Log4Shell bekannt. Über die Kennung findet man sie in jeder Datenbank, jeder Herstellerwarnung und jedem Prüfwerkzeug wieder.
+::::beispiel
+Im Dezember 2021 wurde eine Schwachstelle in Log4j bekannt, einem sehr weit verbreiteten Baustein, mit dem Programme Protokolldateien schreiben. Sie erhielt die Kennung `CVE-2021-44228` und wurde unter dem Namen Log4Shell bekannt. Über die Kennung findet man sie in jeder Datenbank, jeder Herstellerwarnung und jedem Prüfwerkzeug wieder.
+::::
 
 ⁠**Kurz gesagt:** Eine CVE-Kennung ist der weltweit eindeutige Name einer bekannten Schwachstelle.
 
@@ -53,7 +55,8 @@ __CWE__ (englisch *Common Weakness Enumeration*) ist ein öffentlicher Katalog v
 
 CVE und CWE beantworten verschiedene Fragen: CVE sagt, *welcher* Fehler in *welchem* Produkt steckt; CWE sagt, *was für eine Art* von Fehler es ist. Ein CVE-Eintrag verweist deshalb meist auf eine oder mehrere CWE-Nummern.
 
-⁠**Beispiele** aus diesem Kapitel:
+::::beispiel [Beispiele]
+aus diesem Kapitel:
 
 <ul>
 
@@ -78,6 +81,7 @@ Die Geldautomaten haben eine Schwachstelle der Art CWE-367, „Time-of-check Tim
 </ul>
 
 Jedes Jahr veröffentlichen MITRE und CISA eine Liste der 25 gefährlichsten Arten, gemessen an den gemeldeten Schwachstellen. In der Liste von 2025 belegen drei Arten von Fehlern in Webanwendungen die ersten Plätze; auf Platz vier steht CWE-862, „Missing Authorization“, die fehlende Rechteprüfung, also ein Verstoß gegen die lückenlose Prüfung aus Abschnitt [5](sicherheitsprinzipien-rechte-vergeben-und-prufen.html#stufe-5).
+::::
 
 ⁠**Kurz gesagt:** CVE benennt den Einzelfall, CWE die Art des Fehlers.
 
@@ -112,11 +116,13 @@ Herausgeber ist FIRST, ein internationaler Verband von Teams, die auf Sicherheit
 | Wirkungsbereich | S | U: Die Folgen bleiben in der verwundbaren Komponente; C: Sie reichen darüber hinaus in andere Teile des Systems |
 | Folgen für Vertraulichkeit, Integrität, Verfügbarkeit | C, I, A | je H: hoch; L: gering; N: keine |
 
-⁠**Beispiel: Log4Shell.** Die NVD gibt für CVE-2021-44228 den Vektor
+::::beispiel Log4Shell
+Die NVD gibt für CVE-2021-44228 den Vektor
 
 `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H`
 
 und die Bewertung 10,0, kritisch, an. Gelesen heißt das: Ein Angreifer erreicht die Lücke aus der Ferne über das Netz (AV:N), ohne besondere Bedingungen (AC:L), ohne jede Anmeldung (PR:N) und ohne dass ein Nutzer mitwirken muss (UI:N). Die Folgen reichen über den verwundbaren Baustein hinaus in das ganze Programm, das ihn benutzt (S:C), und Vertraulichkeit, Integrität und Verfügbarkeit sind jeweils schwer betroffen (C:H, I:H, A:H). Schlimmer geht es in diesem Schema nicht.
+::::
 
 In Version 4.0 sind einige Merkmale neu geordnet. Es gibt ein zusätzliches Merkmal für Voraussetzungen des Angriffs (AT), die Mitwirkung eines Nutzers wird feiner unterschieden (keine, passiv, aktiv), und statt des Wirkungsbereichs S werden die Folgen getrennt für das verwundbare System (VC, VI, VA) und für nachfolgende Systeme (SC, SI, SA) angegeben.
 
@@ -172,11 +178,13 @@ Ist $W\le0$, so ist die Bewertung 0. Sonst ist sie $\min(W+E,\,10)$ bei S:U und 
 
 Die Abkürzung ISS steht für *impact sub-score*. Die Zahlen $8{,}22$, $6{,}42$, $7{,}52$ und die übrigen Konstanten sind festgelegt, nicht hergeleitet: Sie stehen so in der Beschreibung des Verfahrens, und man schlägt sie dort nach.
 
-⁠**Rechenbeispiel: Log4Shell.** Für `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H` ist $\mathrm{ISS}=0{,}9148$, die Auswirkung $W=6{,}0477$ und die Ausnutzbarkeit $E=3{,}8870$. Mit S:C ergibt sich $1{,}08\cdot(W+E)=10{,}73$, begrenzt auf $10{,}0$ (Abb. [15](#abb-15)).
+::::beispiel [Rechenbeispiel] Log4Shell
+Für `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H` ist $\mathrm{ISS}=0{,}9148$, die Auswirkung $W=6{,}0477$ und die Ausnutzbarkeit $E=3{,}8870$. Mit S:C ergibt sich $1{,}08\cdot(W+E)=10{,}73$, begrenzt auf $10{,}0$ (Abb. [15](#abb-15)).
 
 :::abbildung cyber/k1rcvss 15
 Die Basisbewertung von Log4Shell nach CVSS 3.1: Die Auswirkung $W$ beginnt mit dem Produkt der drei Faktoren $1-0{,}56=0{,}44$, die Ausnutzbarkeit $E$ ist ein Produkt aus fünf Faktoren. Die Summe, mal $1{,}08$, liegt über $10$ und wird auf $10{,}0$ begrenzt.
 :::
+::::
 
 ⁠**Kurz gesagt:** In Version 3.1 ist die Bewertung eine Formel: das Produkt der Hindernisse als Ausnutzbarkeit, dazu die Auswirkung auf Vertraulichkeit, Integrität und Verfügbarkeit.
 
@@ -212,7 +220,9 @@ Der Lebenszyklus einer Schwachstelle im ungünstigen Fall. Rot: Angreifer nutzen
 
 Die Phase nach der Veröffentlichung ist besonders gefährlich, obwohl es einen Patch gibt. Mit der Veröffentlichung erfahren alle Angreifer von der Lücke, und viele Systeme sind noch nicht aktualisiert. Eine Schwachstelle, die bekannt ist und für die es einen Patch gibt, der aber noch nicht überall eingespielt ist, nennt man auch __n-day__. Eine Untersuchung von Angriffen aus den Jahren 2008 bis 2011 fand, dass die Zahl der Angriffe auf eine Lücke nach ihrer Veröffentlichung um bis zu fünf Größenordnungen zunahm.
 
-⁠**Beispiel: Log4Shell.** Die Kennung CVE-2021-44228 wurde am 10. Dezember 2021 veröffentlicht. Am selben Tag nahm die US-Behörde CISA die Lücke in ihren Katalog nachweislich ausgenutzter Schwachstellen auf und verpflichtete die Bundesbehörden der USA, sie bis zum 24. Dezember 2021 zu beheben. Behoben ist der Fehler ab Version 2.15.0 des Bausteins und, für ältere Umgebungen, in den Versionen 2.12.2 und 2.3.1. Weil Log4j in unzähligen Programmen steckt, oft ohne dass deren Betreiber es wussten, dauerte es bei vielen Systemen Monate, bis das Update eingespielt war.
+::::beispiel Log4Shell
+Die Kennung CVE-2021-44228 wurde am 10. Dezember 2021 veröffentlicht. Am selben Tag nahm die US-Behörde CISA die Lücke in ihren Katalog nachweislich ausgenutzter Schwachstellen auf und verpflichtete die Bundesbehörden der USA, sie bis zum 24. Dezember 2021 zu beheben. Behoben ist der Fehler ab Version 2.15.0 des Bausteins und, für ältere Umgebungen, in den Versionen 2.12.2 und 2.3.1. Weil Log4j in unzähligen Programmen steckt, oft ohne dass deren Betreiber es wussten, dauerte es bei vielen Systemen Monate, bis das Update eingespielt war.
+::::
 
 ⁠**Kurz gesagt:** Eine Schwachstelle durchläuft Entstehung, Entdeckung, Meldung, Patch, Veröffentlichung und Update; nach der Veröffentlichung ist sie allen bekannt, und gefährdet ist jedes System, das das Update noch nicht hat.
 
@@ -236,7 +246,9 @@ Eine Schwachstelle heißt __Zero-Day__, wenn Angreifer sie kennen oder ausnutzen
 
 Der Name sagt: Der Hersteller hatte null Tage Zeit, sich vorzubereiten. In Abbildung [16](#abb-16) ist das die rote Phase.
 
-⁠**Beispiel:** Eine Untersuchung von 18 Zero-Day-Angriffen aus den Jahren 2008 bis 2011 ergab, dass sie zwischen 19 Tagen und 30 Monaten unentdeckt blieben, im Median acht Monate. So lange konnten die Angreifer die Lücke benutzen, ohne dass sich jemand dagegen wehren konnte.
+::::beispiel
+Eine Untersuchung von 18 Zero-Day-Angriffen aus den Jahren 2008 bis 2011 ergab, dass sie zwischen 19 Tagen und 30 Monaten unentdeckt blieben, im Median acht Monate. So lange konnten die Angreifer die Lücke benutzen, ohne dass sich jemand dagegen wehren konnte.
+::::
 
 Gegen einen Zero-Day hilft kein Update, denn es gibt noch keines. Was dann schützt, sind die Grundsätze aus den Abschnitten [4](richtlinie-und-mechanismus.html#stufe-4) bis [6](sicherheitsprinzipien-systeme-robust-entwerfen.html#stufe-6): Minimale Rechte begrenzen, was der Angreifer nach dem Einbruch tun kann, mehrere Verteidigungslinien zwingen ihn, weitere Hindernisse zu überwinden, und Mechanismen, die erkennen, bemerken ihn auch dann, wenn keiner ihn verhindert hat.
 

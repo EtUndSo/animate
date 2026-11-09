@@ -30,7 +30,9 @@ $$C=\frac{Q}{U},\qquad Q=C\,U,\qquad[C]=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm 
 左：电荷加倍，电场线的密度加倍，电压也加倍。右：电荷随电压成正比增长，直线的斜率就是电容。圆点对应 9 V。
 :::
 
-**例。** 平行极板的电容为 $C=29.5$ pF（第 [4](plattenkondensator-und-dielektrikum.html#stufe-4) 阶段）。在 9 V 下它带电 $Q=29.5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC，即 $1.66\cdot10^{9}$ 个电子。这样面积、1 mm 厚的铜板含有 $8.5\cdot10^{23}$ 个自由电子。所以每 $5\cdot10^{14}$ 个电子中只有一个移动，而且它们都位于极板的内侧。金属几乎没有变化。RC 电路的电容器在 9 V 下带电 $Q=900\,\mu\text{C}$，是其 340 万倍。
+::::beispiel
+平行极板的电容为 $C=29.5$ pF（第 [4](plattenkondensator-und-dielektrikum.html#stufe-4) 阶段）。在 9 V 下它带电 $Q=29.5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC，即 $1.66\cdot10^{9}$ 个电子。这样面积、1 mm 厚的铜板含有 $8.5\cdot10^{23}$ 个自由电子。所以每 $5\cdot10^{14}$ 个电子中只有一个移动，而且它们都位于极板的内侧。金属几乎没有变化。RC 电路的电容器在 9 V 下带电 $Q=900\,\mu\text{C}$，是其 340 万倍。
+::::
 
 ⁠**极限情况：**当 $U=0$ 时 $Q=0$：没有电压，就没有电荷分离。电荷相同时，较小的电容器显示较大的电压。
 

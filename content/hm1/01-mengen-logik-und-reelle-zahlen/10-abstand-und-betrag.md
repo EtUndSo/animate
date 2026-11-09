@@ -70,7 +70,11 @@ Definitheit und Symmetrie stehen in [(8.1)](#gl-8-1). *Dreiecksungleichung für 
 ⁠*Wurzel.* $|x|\ge0$ und $|x|^2=x^2$, also ist $|x|$ die eindeutige nicht negative Lösung von $z^2=x^2$.
 :::
 
-**Beispiel.** Mit $x=-3$, $y=5$: $|x+y|=2\le8=|x|+|y|$ und $\bigl||x|-|y|\bigr|=2\le|x+y|=2$. **Grenzfall** $y=0$: Alle Ungleichungen werden zu $|x|=|x|$.
+::::beispiel
+Mit $x=-3$, $y=5$: $|x+y|=2\le8=|x|+|y|$ und $\bigl||x|-|y|\bigr|=2\le|x+y|=2$.
+::::
+
+⁠**Grenzfall** $y=0$: Alle Ungleichungen werden zu $|x|=|x|$.
 
 :::aufgabe Aufgabe 9 ★★ Betragsungleichungen
 <span class="anker" id="aufg-9"></span>

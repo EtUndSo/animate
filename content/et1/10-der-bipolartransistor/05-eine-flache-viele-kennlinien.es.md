@@ -47,7 +47,11 @@ Cuatro secciones de la ecuación [(3.1)](#gl-3-1). Izquierda, curvas caracterís
 
 La curva característica de control por corriente se llama también __curva característica de transferencia__. Con corrientes muy grandes se aplana y $B$ disminuye: la base está entonces tan llena de electrones que el cálculo sencillo deja de valer. El límite $U_\mathrm{CE}=U_\mathrm{BE}$ de la fig. [4](#abb-4) es el lugar $U_\mathrm{CB}=0$. A su izquierda, el diodo CB ya conduce débilmente, pero la curva solo se dobla por debajo de unos 0,2 V.
 
-**Ejemplo.** Sección a $U_\mathrm{CE}=6$ V: 0,582 V, 0,600 V y 0,618 V dan 1,0 mA, 2,0 mA y 4,0 mA. Sección a $U_\mathrm{BE}=0{,}6$ V: $U_\mathrm{CE}=0{,}05$ V; 0,2 V; 6 V; 14 V dan 1,58 mA; 1,85 mA; 2,00 mA; 2,20 mA. **Caso límite:** para $U_\mathrm{CE}=0$ es $I_\mathrm{C}=0$: los dos bordes de la base están a la misma altura y no hay gradiente.
+::::beispiel
+Sección a $U_\mathrm{CE}=6$ V: 0,582 V, 0,600 V y 0,618 V dan 1,0 mA, 2,0 mA y 4,0 mA. Sección a $U_\mathrm{BE}=0{,}6$ V: $U_\mathrm{CE}=0{,}05$ V; 0,2 V; 6 V; 14 V dan 1,58 mA; 1,85 mA; 2,00 mA; 2,20 mA.
+::::
+
+⁠**Caso límite:** para $U_\mathrm{CE}=0$ es $I_\mathrm{C}=0$: los dos bordes de la base están a la misma altura y no hay gradiente.
 
 :::frage Entonces, ¿la corriente depende de $U_\mathrm{CE}$ o no?
 Sí, pero con fuerza muy distinta. Mucho hasta 0,2 V, y después alrededor de un 1 % por voltio. Como comparación: 1 mV en $U_\mathrm{BE}$ produce un 3,9 %. «Depende» no significa «depende con la misma fuerza». El terreno tiene pendiente en ambas direcciones, solo que muy distinta.

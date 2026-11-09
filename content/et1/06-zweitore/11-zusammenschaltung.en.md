@@ -38,9 +38,11 @@ In series, series, both parts carry the same currents: $\mathbf I'=\mathbf I''=\
 Three interconnections. Left, series, series: equal currents, Z adds. Center, parallel, parallel: equal voltages, Y adds. Right, series, parallel: equal $I_1$ and $U_2$, H adds.
 :::
 
-**Example.** ⁠**Series:** The T two-port itself is a series connection of two separate series resistors and one shunt resistor:
+::::beispiel
+⁠**Series:** The T two-port itself is a series connection of two separate series resistors and one shunt resistor:
 
 $$\mathbf Z=\begin{pmatrix}15&0\\0&20\end{pmatrix}\Omega+\begin{pmatrix}20&20\\20&20\end{pmatrix}\Omega=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**Parallel:** If you place a resistor of 100 $\Omega$ from terminal 1 to terminal 2 across the T two-port, the series conductance is added to $\mathbf Y$:
 

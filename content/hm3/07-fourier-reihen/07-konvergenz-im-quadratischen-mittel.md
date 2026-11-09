@@ -72,12 +72,14 @@ $$|\langle f,g\rangle-\langle T_Nf,T_Ng\rangle|\le\|f-T_Nf\|_2\,\|g\|_2+\|f\|_2\
 
 ⁠**So liest man das:** Das Skalarprodukt zweier Funktionen rechnet man in den Koeffizienten aus wie in $\mathbb{C}^n$. Für $g=f$ steht dort [(6.1)](#gl-6-1).
 
-**Beispiel: Reihenwerte.** Für den Sägezahn ist $a_k=0$, $b_k=\frac1k$. Aus [(6.2)](#gl-6-2) folgt
+::::beispiel Reihenwerte
+Für den Sägezahn ist $a_k=0$, $b_k=\frac1k$. Aus [(6.2)](#gl-6-2) folgt
 
 <span class="anker" id="gl-6-4"></span>
 $$\sum_{k=1}^\infty\frac1{k^2}=\frac1\pi\int_0^{2\pi}\Bigl(\frac{\pi-x}2\Bigr)^2\,\mathrm{d} x=\frac{\pi^2}6. \tag{6.4}$$
 
 Damit ist auch die Zahl aus Stufe [4](der-sagezahn-zu-fu.html#stufe-4) bekannt: $C=\frac{\pi^2}4-\frac{\pi^2}6$, also $\sum_{k\ge1}\frac{(-1)^{k+1}}{k^2}=\frac{\pi^2}{12}$. **Kontrolle:** Für $f=1$ ist $c_0=1$, und beide Seiten von [(6.1)](#gl-6-1) sind 1.
+::::
 
 **Der passende Raum.** Die Theorie legt den Vektorraum $\mathcal V=\{f=\sum_{k\in\mathbb{Z}}c_k\hat{\boldsymbol{e}}_k:c_k\in\mathbb{C},\ \sum_{k\in\mathbb{Z}}|c_k|^2<\infty\}$ nahe. Er ist unendlichdimensional, und die $\hat{\boldsymbol{e}}_k$ bilden eine Orthonormalbasis. Nach Satz [6.1](#satz-6-1) enthält er die Riemann-integrierbaren Funktionen, er ist aber größer. Weil die Konvergenz nur im quadratischen Mittel stattfindet, sind seine Elemente im Allgemeinen nicht punktweise definiert. Man kann ihn mit dem Hilbertraum $L^2((0,2\pi);\mathbb{C})$ aus [Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html) gleichsetzen. Dieselbe Theorie gilt mit einem passenden Skalarprodukt für andere Orthonormalsysteme, etwa Legendre-, Laguerre- und Tschebyschow-Polynome.
 

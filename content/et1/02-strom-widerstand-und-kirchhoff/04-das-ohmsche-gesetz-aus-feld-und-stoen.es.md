@@ -49,7 +49,11 @@ $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}
 | Aluminio | 2,8 | 36 | Constantán | 50 | 2 |
 | Wolframio | 5,5 | 18 | Carbón | 5000 a 10000 | 0,02 a 0,01 |
 
-**Ejemplo.** El hilo tiene $R=\rho\,L/A=34\,\mathrm{m\Omega}$. Con 3 mA caen en él 0,10 mV, es decir, $1{,}1\cdot10^{-5}$ de los 9 V. Esto justifica que los esquemas dibujen los hilos como ideales, sin tensión a lo largo del hilo. El mismo cálculo muestra por qué las resistencias no son de cobre: $2\,\mathrm{k\Omega}$ necesitarían, con $0{,}01\,\mathrm{mm^2}$ de sección, 1,2 km de cobre, pero solo 40 m de constantán. **Casos límite:** El doble de longitud con la misma tensión reduce a la mitad el campo y, con él, la corriente. El doble de sección actúa como dos hilos uno junto a otro; la corriente se duplica. $U=0$ da $I=0$.
+::::beispiel
+El hilo tiene $R=\rho\,L/A=34\,\mathrm{m\Omega}$. Con 3 mA caen en él 0,10 mV, es decir, $1{,}1\cdot10^{-5}$ de los 9 V. Esto justifica que los esquemas dibujen los hilos como ideales, sin tensión a lo largo del hilo. El mismo cálculo muestra por qué las resistencias no son de cobre: $2\,\mathrm{k\Omega}$ necesitarían, con $0{,}01\,\mathrm{mm^2}$ de sección, 1,2 km de cobre, pero solo 40 m de constantán.
+::::
+
+⁠**Casos límite:** El doble de longitud con la misma tensión reduce a la mitad el campo y, con él, la corriente. El doble de sección actúa como dos hilos uno junto a otro; la corriente se duplica. $U=0$ da $I=0$.
 
 **Adónde va la energía.** En cada colisión, el electrón cede a la red cristalina la energía cinética ganada en el campo. La red vibra con más fuerza, y eso es calor. Cada culombio cede la energía $U$ en julios, y por segundo pasan $I$ culombios. La __potencia__, la energía por unidad de tiempo, es por tanto $P=U\,I=R\,I^2$. La cadena convierte $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW. La [Parte 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) trata la potencia con más detalle.
 

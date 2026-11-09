@@ -36,7 +36,9 @@ $$\operatorname{span}\{\mathbf{v}_1,\dots,\mathbf{v}_k\}=\Bigl\{\sum_{l=1}^kc_l\
 
 L’espace des colonnes d’une matrice est donc le sous-espace engendré par ses colonnes. Si deux vecteurs appartiennent au sous-espace engendré, toute combinaison linéaire de ceux-ci y appartient aussi ; on n’en sort jamais en additionnant et en multipliant par des nombres.
 
-⁠**Exemple de calcul :** $\operatorname{span}\{(1,\,2)^{\top}\}$ est la droite de tous les multiples $c\,(1,\,2)^{\top}$. Le sous-espace engendré par $(1,\,2)^{\top}$ et $(2,\,4)^{\top}$ est la même droite, car $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Le sous-espace engendré par $(1,\,0)^{\top}$ et $(1,\,1)^{\top}$ est le plan tout entier : tout vecteur $(y_1,\,y_2)^{\top}$ vaut $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. Dans $\mathbb{R}^3$, $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ est le plan de tous les vecteurs tels que $x_3=0$.
+::::beispiel [Exemple de calcul]
+$\operatorname{span}\{(1,\,2)^{\top}\}$ est la droite de tous les multiples $c\,(1,\,2)^{\top}$. Le sous-espace engendré par $(1,\,2)^{\top}$ et $(2,\,4)^{\top}$ est la même droite, car $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Le sous-espace engendré par $(1,\,0)^{\top}$ et $(1,\,1)^{\top}$ est le plan tout entier : tout vecteur $(y_1,\,y_2)^{\top}$ vaut $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. Dans $\mathbb{R}^3$, $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ est le plan de tous les vecteurs tels que $x_3=0$.
+::::
 
 ⁠**En bref :** Le sous-espace engendré par une liste de vecteurs est tout ce que l’on peut obtenir par combinaison linéaire de ces vecteurs.
 
@@ -59,7 +61,9 @@ n’est vérifié que pour $c_1=c_2=\dots=c_k=0$. Sinon, ils sont dits __linéai
 
 Linéairement dépendants signifie, de façon équivalente : au moins l’un des vecteurs est une combinaison linéaire des autres. En effet, si [(13.2)](#gl-13-2) est vérifié avec un coefficient $c_l\ne0$, on peut isoler $\mathbf{v}_l$ : $\mathbf{v}_l=-\sum_{l'\ne l}(c_{l'}/c_l)\,\mathbf{v}_{l'}$. Inversement, une telle écriture donne immédiatement une combinaison avec le coefficient $-1$ devant $\mathbf{v}_l$.
 
-⁠**Exemple de calcul :** $(1,\,2)^{\top}$ et $(2,\,4)^{\top}$ sont linéairement dépendants : $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. Les vecteurs $(1,\,0)^{\top}$ et $(1,\,1)^{\top}$ sont linéairement indépendants : de $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$, on tire d’abord $c_2=0$, puis $c_1=0$. Les trois vecteurs $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ et $(1,\,1,\,2)^{\top}$ sont linéairement dépendants, car le troisième est la somme des deux premiers.
+::::beispiel [Exemple de calcul]
+$(1,\,2)^{\top}$ et $(2,\,4)^{\top}$ sont linéairement dépendants : $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. Les vecteurs $(1,\,0)^{\top}$ et $(1,\,1)^{\top}$ sont linéairement indépendants : de $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$, on tire d’abord $c_2=0$, puis $c_1=0$. Les trois vecteurs $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ et $(1,\,1,\,2)^{\top}$ sont linéairement dépendants, car le troisième est la somme des deux premiers.
+::::
 
 ⁠**En bref :** Linéairement indépendants signifie qu’aucun des vecteurs ne peut être obtenu par combinaison des autres : il n’y a pas de redondance.
 
@@ -87,7 +91,9 @@ Si $\mathbf{v}_1,\dots,\mathbf{v}_k$ est une base de $\mathcal S$, tout vecteur 
 Il existe au moins une écriture, parce que la base engendre $\mathcal S$. S’il y en avait deux, $\sum_lc_l\mathbf{v}_l=\sum_lc_l'\mathbf{v}_l$, leur différence serait $\sum_l(c_l-c_l')\mathbf{v}_l=\mathbf{0}$. En raison de l’indépendance linéaire, toutes les différences vérifient alors $c_l-c_l'=0$.
 :::
 
-⁠**Exemple de calcul :** $(1,\,0)^{\top}$ et $(1,\,1)^{\top}$ forment une base de $\mathbb{R}^2$ : ils sont linéairement indépendants et engendrent le plan. Dans cette base, le vecteur $(3,\,2)^{\top}$ a pour coordonnées $1$ et $2$, car $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. La droite $\operatorname{span}\{(0,\,1)^{\top}\}$ est de dimension $1$, bien que ses vecteurs aient deux composantes.
+::::beispiel [Exemple de calcul]
+$(1,\,0)^{\top}$ et $(1,\,1)^{\top}$ forment une base de $\mathbb{R}^2$ : ils sont linéairement indépendants et engendrent le plan. Dans cette base, le vecteur $(3,\,2)^{\top}$ a pour coordonnées $1$ et $2$, car $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. La droite $\operatorname{span}\{(0,\,1)^{\top}\}$ est de dimension $1$, bien que ses vecteurs aient deux composantes.
+::::
 
 ⁠**En bref :** Une base est une liste de vecteurs indépendants qui engendre tout ; sa longueur est la dimension.
 
@@ -111,11 +117,13 @@ Le plus grand nombre de colonnes linéairement indépendantes d’une matrice es
 
 Si $\operatorname{rg}\mathbf{A}=\min(m,n)$, on dit que $\mathbf{A}$ est de __rang maximal__. En pratique, on détermine le rang par la méthode du pivot de Gauss : les opérations sur les lignes ne le changent pas, et dans la forme échelonnée, il est égal au nombre de lignes qui ne sont pas entièrement nulles.
 
-⁠**Exemple de calcul :** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ est de rang $1$ : la deuxième colonne est le double de la première, et de même la deuxième ligne est le double de la première. Pour
+::::beispiel [Exemple de calcul]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ est de rang $1$ : la deuxième colonne est le double de la première, et de même la deuxième ligne est le double de la première. Pour
 
 $$\mathbf K=\begin{pmatrix}1&0&1\\0&1&1\\1&1&2\end{pmatrix}$$
 
 on soustrait la première et la deuxième ligne de la troisième et l’on obtient les lignes $(1,0,1)$, $(0,1,1)$, $(0,0,0)$. Deux lignes ne sont pas nulles, donc $\operatorname{rg}\mathbf K=2$ ; effectivement, la troisième colonne est la somme des deux premières. La matrice de données des appartements est de rang maximal $3$.
+::::
 
 ⁠**En bref :** Le rang compte combien de directions réellement différentes se trouvent dans les colonnes d’une matrice, et il y en a exactement autant que dans ses lignes.
 
@@ -161,7 +169,9 @@ Pour $\mathbf{A}\in\mathbb{R}^{n\times n}$, les énoncés suivants sont équival
 (ii) découle de (i) d’après la sous-section [11.5](einheitsmatrix-und-inverse.html#stufe-11-5). (ii), (iii) et (iv) sont équivalents d’après le théorème du rang et la définition du rang. Il reste à montrer que (iii) et (ii) entraînent (i). Si $\operatorname{rg}\mathbf{A}=n$, l’espace des colonnes est un espace de dimension $n$ dans $\mathbb{R}^n$, donc $\mathbb{R}^n$ tout entier. Chaque système $\mathbf{A}\mathbf{c}_j=\mathbf{e}_j$ a donc une solution, et les solutions forment les colonnes d’une matrice $\mathbf{C}$ telle que $\mathbf{A}\mathbf{C}=\mathbf{I}$. De plus, $\mathbf{A}(\mathbf{C}\mathbf{A}-\mathbf{I})=\mathbf{A}\mathbf{C}\mathbf{A}-\mathbf{A}=\mathbf 0$. Chaque colonne de $\mathbf{C}\mathbf{A}-\mathbf{I}$ appartient donc au noyau, qui, d’après (ii), ne contient que le vecteur nul. Donc $\mathbf{C}\mathbf{A}=\mathbf{I}$ également, et $\mathbf{C}=\mathbf{A}^{-1}$.
 :::
 
-⁠**Exemple de calcul :** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a pour noyau $\operatorname{span}\{(2,\,-1)^{\top}\}$, de dimension $1$, et pour rang $1$ : $1+1=2$. La matrice $\mathbf K$ ci-dessus a pour noyau $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, car sa troisième colonne est la somme des deux premières ; avec $\operatorname{rg}\mathbf K=2$, on a $1+2=3$.
+::::beispiel [Exemple de calcul]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ a pour noyau $\operatorname{span}\{(2,\,-1)^{\top}\}$, de dimension $1$, et pour rang $1$ : $1+1=2$. La matrice $\mathbf K$ ci-dessus a pour noyau $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, car sa troisième colonne est la somme des deux premières ; avec $\operatorname{rg}\mathbf K=2$, on a $1+2=3$.
+::::
 
 **Rang et existence de solutions.** Avec le rang et le noyau, les questions de la section [12](lineare-gleichungssysteme.html#stufe-12) se lisent sur des nombres, même pour des matrices qui ne sont pas carrées. Existe-t-il une solution ? Est-elle unique ? Existe-t-il une solution pour chaque second membre ?
 
@@ -203,7 +213,9 @@ $\mathbf{A}\mathbf{x}=\mathbf{y}$ a une solution pour tout $\mathbf{y}\in\mathbb
 
 Pour une matrice carrée avec $\operatorname{rg}\mathbf{A}=n=m$, (ii) et (iii) se rejoignent : exactement une solution pour chaque second membre, en accord avec le théorème sur l’inversibilité.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, on a $\operatorname{rg}\mathbf{A}=1$. Avec $\mathbf{y}=(1,\,1)^{\top}$, la matrice augmentée a pour lignes $(1,\,2\,|\,1)$ et $(2,\,4\,|\,1)$ ; si l’on soustrait deux fois la première de la deuxième, il reste $(0,\,0\,|\,-1)$, qui n’est pas une ligne nulle. Donc $\operatorname{rg}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, et le système n’a pas de solution, comme dans la sous-section [12.2](lineare-gleichungssysteme.html#stufe-12-2). Avec $\mathbf{y}=(3,\,6)^{\top}$, en revanche, il reste $(0,\,0\,|\,0)$, les rangs sont égaux, et le système a une solution. Comme $\operatorname{rg}\mathbf{A}=1<2=n$, la solution n’est pas unique : toutes les solutions sont $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. Et comme $\operatorname{rg}\mathbf{A}=1<2=m$, il existe des seconds membres sans solution. Dans le système surdéterminé de la sous-section [12.5](lineare-gleichungssysteme.html#stufe-12-5), on a $\operatorname{rg}\mathbf{A}=2=n$ : s’il existait une solution, elle serait unique. Mais il n’y en a pas, donc, d’après (i), on a là $\operatorname{rg}(\mathbf{A}\,|\,\mathbf{y})=3$.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, on a $\operatorname{rg}\mathbf{A}=1$. Avec $\mathbf{y}=(1,\,1)^{\top}$, la matrice augmentée a pour lignes $(1,\,2\,|\,1)$ et $(2,\,4\,|\,1)$ ; si l’on soustrait deux fois la première de la deuxième, il reste $(0,\,0\,|\,-1)$, qui n’est pas une ligne nulle. Donc $\operatorname{rg}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, et le système n’a pas de solution, comme dans la sous-section [12.2](lineare-gleichungssysteme.html#stufe-12-2). Avec $\mathbf{y}=(3,\,6)^{\top}$, en revanche, il reste $(0,\,0\,|\,0)$, les rangs sont égaux, et le système a une solution. Comme $\operatorname{rg}\mathbf{A}=1<2=n$, la solution n’est pas unique : toutes les solutions sont $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. Et comme $\operatorname{rg}\mathbf{A}=1<2=m$, il existe des seconds membres sans solution. Dans le système surdéterminé de la sous-section [12.5](lineare-gleichungssysteme.html#stufe-12-5), on a $\operatorname{rg}\mathbf{A}=2=n$ : s’il existait une solution, elle serait unique. Mais il n’y en a pas, donc, d’après (i), on a là $\operatorname{rg}(\mathbf{A}\,|\,\mathbf{y})=3$.
+::::
 
 ⁠**En bref :** Le noyau rassemble les directions qu’une matrice envoie sur zéro ; le noyau et le rang se partagent les $n$ directions d’entrée. Un système $\mathbf{A}\mathbf{x}=\mathbf{y}$ a une solution si et seulement si le second membre n’augmente pas le rang, et la solution est unique si et seulement si le noyau ne contient que le vecteur nul.
 
@@ -213,7 +225,8 @@ Pour une matrice carrée avec $\operatorname{rg}\mathbf{A}=n=m$, (ii) et (iii) s
 
 Dans des jeux de données réels, des caractéristiques portent parfois deux fois la même information. Un questionnaire relève le poids corporel en kilogrammes et, pour une autre exploitation, une seconde fois en livres. Une description de maison indique la surface du rez-de-chaussée, celle de l’étage et la surface totale. Pour la matrice de données, cela signifie : ses colonnes sont linéairement dépendantes, et son rang est inférieur au nombre de caractéristiques.
 
-⁠**Exemple de calcul : rez-de-chaussée, étage, surface totale.** Quatre maisons :
+::::beispiel [Exemple de calcul] rez-de-chaussée, étage, surface totale
+Quatre maisons :
 
 $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\qquad(\text{surfaces en }\mathrm m^2).$$
 
@@ -234,12 +247,15 @@ La troisième colonne est la somme des deux premières. Donc $\operatorname{rg}\
 </li>
 
 </ul>
+::::
 
-⁠**Exemple de calcul : kilogrammes et livres.** Une livre vaut exactement $0{,}45359237$ kg, donc une masse en livres vaut $c=1/0{,}45359237\approx2{,}20462$ fois la même masse en kilogrammes. Trois personnes avec leur taille (cm), leur masse (kg) et leur masse (livres) :
+::::beispiel [Exemple de calcul] kilogrammes et livres
+Une livre vaut exactement $0{,}45359237$ kg, donc une masse en livres vaut $c=1/0{,}45359237\approx2{,}20462$ fois la même masse en kilogrammes. Trois personnes avec leur taille (cm), leur masse (kg) et leur masse (livres) :
 
 $$\mathbf{X}=\begin{pmatrix}170&70&70\,c\\182&85&85\,c\\165&60&60\,c\end{pmatrix}\approx\begin{pmatrix}170&70&154{,}3\\182&85&187{,}4\\165&60&132{,}3\end{pmatrix}.$$
 
 La troisième colonne vaut $c$ fois la deuxième, donc $\operatorname{rg}\mathbf{X}=2$, et $(0,\,c,\,-1)^{\top}$ appartient au noyau. La colonne en livres n’apporte aucune information nouvelle, elle ne fait que dupliquer une information existante.
+::::
 
 ⁠**En bref :** Si des caractéristiques portent deux fois la même information, les colonnes de la matrice de données sont linéairement dépendantes ; le rang est alors inférieur à $d$, des poids différents fournissent les mêmes prédictions, et $\mathbf{X}^{\top}\mathbf{X}$ n’est pas inversible.
 

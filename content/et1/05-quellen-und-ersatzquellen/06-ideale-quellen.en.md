@@ -32,7 +32,11 @@ $$U_\mathrm{AB}=U_\mathrm{q}\quad\text{for every current},\qquad\qquad I_\mathrm
 
 ⁠**Validity:** Two connections contradict the model. A short-circuited voltage source would have to satisfy both $U_\mathrm{AB}=U_\mathrm{q}$ and $U_\mathrm{AB}=0$. An open current source would have to satisfy both $I_\mathrm{A}=I_\mathrm{q}$ and $I_\mathrm{A}=0$, because a current needs a closed path.
 
-**Example.** The 9 V source delivers 0.5625 A into 16 $\Omega$, 9 A into 1 $\Omega$, and it would be 9000 A into 1 m$\Omega$. A 0.5 A source produces 8 V across 16 $\Omega$, 500 V across 1 k$\Omega$, and it would be 500 kV across 1 M$\Omega$. **Limiting case:** The more extreme the load, the further the model departs from any real device. That is the reason for the next stage.
+::::beispiel
+The 9 V source delivers 0.5625 A into 16 $\Omega$, 9 A into 1 $\Omega$, and it would be 9000 A into 1 m$\Omega$. A 0.5 A source produces 8 V across 16 $\Omega$, 500 V across 1 k$\Omega$, and it would be 500 kV across 1 M$\Omega$.
+::::
+
+⁠**Limiting case:** The more extreme the load, the further the model departs from any real device. That is the reason for the next stage.
 
 :::frage Can the current also flow backward through a source?
 Yes. An ideal source fixes only its one quantity. If the current flows into the plus terminal of a voltage source, then $I_\mathrm{A}<0$, and the source absorbs power. That is how a rechargeable battery is charged.

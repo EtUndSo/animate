@@ -29,11 +29,13 @@ heißt __gemeinsame Verteilungsfunktion__ von $X$ und $Y$ oder Verteilungsfunkti
 $$F_{X,Y}(x,y)=F_X(x)\,F_Y(y)\quad\text{für alle }(x,y)\in\mathbb{R}^2. \tag{9.2}$$
 :::
 
-**Beispiel: das Einheitsquadrat.** Sei $\Omega=[0,1]^2$ mit der Fläche als $\mathbb{P}$ wie in Stufe [3](zusatzwissen-unabhangigkeit-und-bayes.html#stufe-3). Für stetige $g,h$ auf $[0,1]$ sei $X(\omega)=g(s)$ und $Y(\omega)=h(t)$ für $\omega=(s,t)$. Dann besteht $\{X\le x\}$ aus senkrechten und $\{Y\le y\}$ aus waagerechten Streifen. Solche Streifenmengen sind unabhängig, also auch $X$ und $Y$. Hier ist $\mathbb{P}(\mathrm{d}\omega)=\mathrm{d} s\,\mathrm{d} t$, und Erwartungswerte sind Flächenintegrale:
+::::beispiel das Einheitsquadrat
+Sei $\Omega=[0,1]^2$ mit der Fläche als $\mathbb{P}$ wie in Stufe [3](zusatzwissen-unabhangigkeit-und-bayes.html#stufe-3). Für stetige $g,h$ auf $[0,1]$ sei $X(\omega)=g(s)$ und $Y(\omega)=h(t)$ für $\omega=(s,t)$. Dann besteht $\{X\le x\}$ aus senkrechten und $\{Y\le y\}$ aus waagerechten Streifen. Solche Streifenmengen sind unabhängig, also auch $X$ und $Y$. Hier ist $\mathbb{P}(\mathrm{d}\omega)=\mathrm{d} s\,\mathrm{d} t$, und Erwartungswerte sind Flächenintegrale:
 
 $$\mathbb{E}(X)=\int_\Omega X(\omega)\,\mathbb{P}(\mathrm{d}\omega)=\int_0^1\!\!\int_0^1X(s,t)\,\mathrm{d} s\,\mathrm{d} t=\int_0^1g(s)\,\mathrm{d} s,\qquad\mathbb{E}(Y)=\int_0^1h(t)\,\mathrm{d} t.$$
 
 Das Doppelintegral von $g(s)h(t)$ zerfällt nach Fubini ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)), also ist $\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$. Für $g(s)=s^2$, $h(t)=2t$ gibt das $\frac13\cdot1=\frac13$.
+::::
 
 :::satz Satz 9.2 (Unabhängigkeit im diskreten Fall)
 <span class="anker" id="satz-9-2"></span>
@@ -65,7 +67,11 @@ $$\mathbb{E}(XY)=\sum_{k,\ell}x_ky_\ell\,\mathbb{P}(X=x_k,\,Y=y_\ell)=\sum_kx_k\
 Der Rest folgt aus [(8.3)](varianz-kovarianz-und-tschebyschew.html#gl-8-3) und [(8.2)](varianz-kovarianz-und-tschebyschew.html#gl-8-2).
 :::
 
-⁠**Beispiele:** $W_1,W_2$ sind unabhängig, denn jedes Paar hat die Wahrscheinlichkeit $\frac14\cdot\frac14$. Das erklärt $\operatorname{Var}(S)=\frac54+\frac54$. Für binomialverteiltes $X=\sum_{i=1}^nX_i$ mit unabhängigen Treffern ist $\operatorname{Var}(X_i)=p-p^2$, also schrittweise $\operatorname{Var}(X)=np(1-p)$. **Grenzfall:** Mit $Y=X$ versagt die Produktregel: $\mathbb{E}(W_1\cdot W_1)=\frac{15}2\neq\frac{25}4$.
+::::beispiel [Beispiele]
+$W_1,W_2$ sind unabhängig, denn jedes Paar hat die Wahrscheinlichkeit $\frac14\cdot\frac14$. Das erklärt $\operatorname{Var}(S)=\frac54+\frac54$. Für binomialverteiltes $X=\sum_{i=1}^nX_i$ mit unabhängigen Treffern ist $\operatorname{Var}(X_i)=p-p^2$, also schrittweise $\operatorname{Var}(X)=np(1-p)$.
+::::
+
+⁠**Grenzfall:** Mit $Y=X$ versagt die Produktregel: $\mathbb{E}(W_1\cdot W_1)=\frac{15}2\neq\frac{25}4$.
 
 :::definition Definition 9.4 (Unkorreliert)
 <span class="anker" id="satz-9-4"></span>

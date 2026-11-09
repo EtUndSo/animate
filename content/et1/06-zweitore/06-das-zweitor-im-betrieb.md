@@ -46,11 +46,15 @@ Für [(4.3)](#gl-4-3) ersetzt man die Last. Die Quelle gibt $U_1=U_\mathrm{q}-R_
 Ersatzschaltbild des T-Zweitors mit Quelle und Last. Es fließen $I_1=250$ mA und $I_2=-50$ mA. Die Rückwirkung beträgt $Z_{12}I_2=-1$ V, die Vorwärtsquelle liefert $Z_{21}I_1=5$ V. Der Eingang zeigt 31 $\Omega$ statt 35 $\Omega$.
 :::
 
-**Beispiel.** Für das T-Zweitor ist $Z_{1,\mathrm{LL}}=35\,\Omega$ und $Z_{1,\mathrm{KS}}=35\,\Omega-400\,\Omega^2/40\,\Omega=25\,\Omega$, das ist $R_\mathrm{a}+R_\mathrm{b}\parallel R_\mathrm{c}$. Mit $R_\mathrm{L}=60\,\Omega$ wird
+::::beispiel
+Für das T-Zweitor ist $Z_{1,\mathrm{LL}}=35\,\Omega$ und $Z_{1,\mathrm{KS}}=35\,\Omega-400\,\Omega^2/40\,\Omega=25\,\Omega$, das ist $R_\mathrm{a}+R_\mathrm{b}\parallel R_\mathrm{c}$. Mit $R_\mathrm{L}=60\,\Omega$ wird
 
 $$Z_1=35\,\Omega-\frac{400\,\Omega^2}{100\,\Omega}=31\,\Omega,\quad I_1=\frac{9\,\mathrm{V}}{5\,\Omega+31\,\Omega}=250\,\mathrm{mA},\quad I_2=-\frac{20}{100}\,I_1=-50\,\mathrm{mA}.$$
 
-Am Eingang ist $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7{,}75$ V, am Ausgang $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$ fließen $I_1+I_2=200$ mA statt 250 mA, das senkt $U_1$ um genau 1 V (Abb. [5](#abb-5)). Von der Last aus gesehen: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4{,}5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Dann ist $I=4{,}5\,\mathrm{V}/90\,\Omega=50$ mA, derselbe Strom. Die Ersatzquelle aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) steckt also in den vier Zahlen. **Grenzfälle:** $R_\mathrm{L}\to\infty$ ergibt $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ ergibt $25\,\Omega$. Jede Last liegt dazwischen.
+Am Eingang ist $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7{,}75$ V, am Ausgang $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$ fließen $I_1+I_2=200$ mA statt 250 mA, das senkt $U_1$ um genau 1 V (Abb. [5](#abb-5)). Von der Last aus gesehen: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4{,}5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Dann ist $I=4{,}5\,\mathrm{V}/90\,\Omega=50$ mA, derselbe Strom. Die Ersatzquelle aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) steckt also in den vier Zahlen.
+::::
+
+⁠**Grenzfälle:** $R_\mathrm{L}\to\infty$ ergibt $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ ergibt $25\,\Omega$. Jede Last liegt dazwischen.
 
 :::frage Die Last hängt nur an Tor 2. Woher weiß der Eingang von ihr?
 Von den gemeinsamen Bauteilen. Im T-Zweitor führen beide Tore durch $R_\mathrm{b}$, sein Spannungsabfall hängt von $I_1+I_2$ ab. Allgemein ist $Z_{12}$ das Maß für diese Kopplung. Eine Signalübertragung zurück braucht es nicht, die Spannungen stellen sich im Netzwerk gemeinsam ein.

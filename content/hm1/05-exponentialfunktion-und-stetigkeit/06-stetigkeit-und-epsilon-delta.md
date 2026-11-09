@@ -72,7 +72,11 @@ Gleichbedeutend: $\forall\,\varepsilon>0\ \exists\,\delta_0>0$ mit $\bigl(x\in U
 „$\Rightarrow$“ indirekt: Gilt [(4.1)](#gl-4-1) nicht, gibt es $\varepsilon_1>0$ und zu jedem $\delta_0=\frac1n$ ein $x_n$ mit $|x_n-x_0|<\frac1n$ und $|f(x_n)-f(x_0)|\ge\varepsilon_1$. Dann ist $x_n\ne x_0$ und $x_n\to x_0$, aber $f(x_n)$ läuft nicht gegen $f(x_0)$.
 :::
 
-**Beispiel.** $f(x)=x^2$ bei $x_0=2$. Es ist $|x^2-4|=|x-2|\,|x+2|$. Um den zweiten Faktor zu begrenzen, verlangt man zuerst $|x-2|<1$, dann ist $|x+2|<5$. Also ist $\delta_0:=\min\{1,\varepsilon/5\}$ eine Antwort: Für $|x-2|<\delta_0$ ist $|x^2-4|<5\,\delta_0\le\varepsilon$. Für $\varepsilon=0{,}5$ ist $\delta_0=0{,}1$, und tatsächlich liegt $x^2$ für $x\in(1{,}9;\ 2{,}1)$ zwischen $3{,}61$ und $4{,}41$. An einer Stelle $x_0>0$ gibt derselbe Weg $\delta_0=\min\{1,\varepsilon/(2x_0+1)\}$: Je steiler der Graph, desto kleiner $\delta_0$. **Grenzfall:** Für $f(x)=|x|$ gewinnt bei $x_0=0$ die Antwort $\delta_0=\varepsilon$.
+::::beispiel
+$f(x)=x^2$ bei $x_0=2$. Es ist $|x^2-4|=|x-2|\,|x+2|$. Um den zweiten Faktor zu begrenzen, verlangt man zuerst $|x-2|<1$, dann ist $|x+2|<5$. Also ist $\delta_0:=\min\{1,\varepsilon/5\}$ eine Antwort: Für $|x-2|<\delta_0$ ist $|x^2-4|<5\,\delta_0\le\varepsilon$. Für $\varepsilon=0{,}5$ ist $\delta_0=0{,}1$, und tatsächlich liegt $x^2$ für $x\in(1{,}9;\ 2{,}1)$ zwischen $3{,}61$ und $4{,}41$. An einer Stelle $x_0>0$ gibt derselbe Weg $\delta_0=\min\{1,\varepsilon/(2x_0+1)\}$: Je steiler der Graph, desto kleiner $\delta_0$.
+::::
+
+⁠**Grenzfall:** Für $f(x)=|x|$ gewinnt bei $x_0=0$ die Antwort $\delta_0=\varepsilon$.
 
 :::abbildung hm1/k5epsdelta 4
 $x^2$ bei $x_0=2$, $\varepsilon=0{,}5$: Über dem Streifen $(1{,}9;\ 2{,}1)$ bleibt der Graph im Streifen $(3{,}5;\ 4{,}5)$. $\delta_0=0{,}1$ ist nicht die größte Antwort, aber sie gewinnt.
@@ -92,7 +96,11 @@ $$\tilde f(x):=\begin{cases}f(x),&x\in\dot U_\eta(x_0),\\y_0,&x=x_0\end{cases}$$
 heißt __stetige Ergänzung__ (oder Fortsetzung) von $f$ auf $U_\eta(x_0)$.
 :::
 
-⁠**So liest man das:** Man füllt die Stelle mit dem einzigen Wert, der den Graphen schließt. **Beispiele:** $L$ wird mit $\tilde L(2)=4$ zur Geraden $x+2$. $h(x)=\frac{\mathrm{e}^x-1}x$ hat bei 0 keinen Wert, wird aber mit $\tilde h(0)=1$ nach [(3.5)](grenzwerte-von-funktionen.html#gl-3-5) stetig. **Nicht ergänzbar:** $H$ hat bei 0 keinen Grenzwert, $|1/x|$ wächst ohne Grenze.
+⁠**So liest man das:** Man füllt die Stelle mit dem einzigen Wert, der den Graphen schließt.
+
+::::beispiel [Beispiele]
+$L$ wird mit $\tilde L(2)=4$ zur Geraden $x+2$. $h(x)=\frac{\mathrm{e}^x-1}x$ hat bei 0 keinen Wert, wird aber mit $\tilde h(0)=1$ nach [(3.5)](grenzwerte-von-funktionen.html#gl-3-5) stetig. **Nicht ergänzbar:** $H$ hat bei 0 keinen Grenzwert, $|1/x|$ wächst ohne Grenze.
+::::
 
 :::aufgabe Aufgabe 4 ★★ Toleranzspiel
 <span class="anker" id="aufg-4"></span>

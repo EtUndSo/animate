@@ -34,7 +34,11 @@ $$\text{n-Gebiet: }n\approx N_\mathrm D,\qquad\text{p-Gebiet: }p\approx N_\mathr
 Die Wärme erzeugt Paare aus Elektron und Loch mit einer Rate, die nur von $T$ und dem Stoff abhängt. Rekombination braucht ein Treffen beider, ihre Rate ist $c\,n\,p$. Im Gleichgewicht sind beide Raten gleich, also ist $n\,p$ konstant. In reinem Silizium ist $n=p=n_\mathrm i$, also $n\,p=n_\mathrm i^2$. Mehr Elektronen bedeuten mehr Rekombination und weniger Löcher.
 :::
 
-**Beispiel.** Mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ kommt ein Fremdatom auf $5\cdot10^{6}$ Siliziumatome, und doch steigt $n$ auf das Millionenfache von $n_\mathrm i$. Die Löcher sinken auf $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$. Mehrheit und Minderheit trennt der Faktor $10^{12}$. $W_\mathrm F$ steigt um $25{,}85\,\mathrm{meV}\cdot\ln10^{6}=0{,}36$ eV. **Grenzfall:** Für $N_\mathrm D\to0$ ergibt [(2.1)](#gl-2-1) wieder $n=p=n_\mathrm i$.
+::::beispiel
+Mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ kommt ein Fremdatom auf $5\cdot10^{6}$ Siliziumatome, und doch steigt $n$ auf das Millionenfache von $n_\mathrm i$. Die Löcher sinken auf $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$. Mehrheit und Minderheit trennt der Faktor $10^{12}$. $W_\mathrm F$ steigt um $25{,}85\,\mathrm{meV}\cdot\ln10^{6}=0{,}36$ eV.
+::::
+
+⁠**Grenzfall:** Für $N_\mathrm D\to0$ ergibt [(2.1)](#gl-2-1) wieder $n=p=n_\mathrm i$.
 
 :::frage Ist n-Silizium negativ und p-Silizium positiv geladen?
 Nein, beide sind neutral. „n“ und „p“ nennen das Vorzeichen der beweglichen Ladungen, nicht das des Stücks. Im n-Gebiet steht jedem freien Elektron ein ortsfestes positives Ion gegenüber. Erst am pn-Übergang trennen sich beide (Stufe [3](die-raumladungszone.html#stufe-3)).

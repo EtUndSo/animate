@@ -55,7 +55,9 @@ Einsetzen von $\mathrm{d} x/\mathrm{d} t=v$ und $\hbar\,\mathrm{d} k/\mathrm{d} 
 
 ⁠**Gültigkeit:** Das Paket muss schmal sein gegen die Breite von $f$ in $k$ und klein gegen die Strecke, auf der sich Potential und Dichte ändern. In Silizium ist bei 300 K die thermische Geschwindigkeit $v_\text{th}=\sqrt{3k_\mathrm BT/m_\mathrm n^*}=2{,}3\cdot10^5$ m/s (wie $v_\mathrm e$ aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html), mit $m^*$ statt $m_0$) und damit $k_\text{th}=m_\mathrm n^*v_\text{th}/\hbar=0{,}51\,\mathrm{nm^{-1}}$. Ein Paket mit $\Delta x=10$ nm hat $\Delta k=0{,}05\,\mathrm{nm^{-1}}$, 10 % davon. Für Gebiete über 100 nm reicht das. Weit darunter braucht man die Quantenmechanik mit Greenschen Funktionen $G^r(x,x',E)$.
 
-**Beispiel.** Zwei Grenzfälle lösen [(3.2)](#gl-3-2) sofort. In homogener Probe ist $f(k,t)=f(k-Ft/\hbar,0)$: die starre Verschiebung aus Stufe [1](strom-aus-besetzten-zustanden.html#stufe-1). Ohne Kraft ist $f(x,k,t)=f(x-v(k)t,k,0)$: Jede Gruppe läuft weiter, bei $v_\text{th}$ in 1 ps um 230 nm.
+::::beispiel
+Zwei Grenzfälle lösen [(3.2)](#gl-3-2) sofort. In homogener Probe ist $f(k,t)=f(k-Ft/\hbar,0)$: die starre Verschiebung aus Stufe [1](strom-aus-besetzten-zustanden.html#stufe-1). Ohne Kraft ist $f(x,k,t)=f(x-v(k)t,k,0)$: Jede Gruppe läuft weiter, bei $v_\text{th}$ in 1 ps um 230 nm.
+::::
 
 :::frage Legt $f(x,k,t)$ nicht doch Ort und Wellenzahl zugleich fest?
 Nein. Ein Kästchen mit $\Delta x\,\Delta k\approx\frac12$ enthält rund einen Platz. Gemeint ist immer ein Mittel über Kästchen mit vielen Plätzen, und für den Strom genügt das.

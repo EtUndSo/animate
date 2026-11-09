@@ -38,11 +38,13 @@ $$z^{-1}=\frac1z=\frac{\overline{z}}{z\overline{z}}=\frac{x}{x^2+y^2}-\mathrm{i}
 $$(x,y)\odot\Bigl(\frac xN,\frac{-y}N\Bigr)=\Bigl(\frac{x\cdot x}N-\frac{y\cdot(-y)}N,\;\frac{x\cdot(-y)}N+\frac{y\cdot x}N\Bigr)=\Bigl(\frac{x^2+y^2}N,\;0\Bigr)=(1,0).$$
 :::
 
-**例。** 用参考模型，分母为 $z_2\overline{z_2}=5$：
+::::beispiel
+用参考模型，分母为 $z_2\overline{z_2}=5$：
 
 $$\frac{z_1}{z_2}=\frac{(3+\mathrm{i})(1-2\mathrm{i})}{(1+2\mathrm{i})(1-2\mathrm{i})}=\frac{3-6\mathrm{i}+\mathrm{i}-2\mathrm{i}^2}{5}=\frac{5-5\mathrm{i}}{5}=1-\mathrm{i}.$$
 
 检验：$(1-\mathrm{i})(1+2\mathrm{i})=1+2\mathrm{i}-\mathrm{i}-2\mathrm{i}^2=3+\mathrm{i}$。此外，$1/z_2=(1-2\mathrm{i})/5=0.2-0.4\mathrm{i}$，$1/\mathrm{i}=-\mathrm{i}$。
+::::
 
 :::satz 定理 4.2 ($\mathbb{C}$ 是域)
 <span class="anker" id="satz-4-2"></span>

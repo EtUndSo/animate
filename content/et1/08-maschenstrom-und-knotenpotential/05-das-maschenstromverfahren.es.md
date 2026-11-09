@@ -90,7 +90,8 @@ Para la malla $\mu$, la suma de todos los $R_a\,I_a$ es igual a la tensión impu
 La red modelo para el análisis por mallas. A la derecha, la fuente de corriente se ha convertido en fuente de tensión. En rojo, las resistencias comunes $R_2$ y $R_4$: están fuera de la diagonal de $\mathbf Z$. I y III no tienen rama común; por eso $Z_{13}=0$.
 :::
 
-**Ejemplo.** A la derecha, $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V con $R_5$ en serie (fig. [3](#abb-3)). Los tres recorridos en sentido horario son
+::::beispiel
+A la derecha, $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V con $R_5$ en serie (fig. [3](#abb-3)). Los tres recorridos en sentido horario son
 
 $$\begin{aligned} \text{I:}\quad&R_1I_\mathrm I+R_2(I_\mathrm I-I_\mathrm{II})-U_\mathrm q=0,\\ \text{II:}\quad&R_2(I_\mathrm{II}-I_\mathrm I)+R_3I_\mathrm{II}+R_4(I_\mathrm{II}-I_\mathrm{III})=0,\\ \text{III:}\quad&R_4(I_\mathrm{III}-I_\mathrm{II})+R_5I_\mathrm{III}+U_\mathrm{q5}=0. \end{aligned}$$
 
@@ -105,6 +106,7 @@ $$D=5\cdot140+4\cdot(-60)=460,\qquad D_1=9\cdot140+4\cdot(-200)=460,$$
 $$D_2=5\cdot(-200)-9\cdot(-60)=-460,\qquad D_3=-1600+320+360=-920.$$
 
 Por tanto, $I_\mathrm I=1$ mA, $I_\mathrm{II}=-1$ mA e $I_\mathrm{III}=-2$ mA. El signo menos dice: las mallas II y III van en realidad en sentido antihorario. Las corrientes de rama de la etapa [2](maschenstrome-erfullen-die-knotenregel.html#stufe-2) son 1 mA en $R_1$, 2 mA hacia abajo en $R_2$, 1 mA en $R_3$ del nudo 2 al nudo 1 y 1 mA hacia abajo en $R_4$. **Comprobación:** $U_1=R_2\cdot2\,\mathrm{mA}=8$ V y $U_2=R_4\cdot1\,\mathrm{mA}=10$ V. Malla I: $1+8-9=0$.
+::::
 
 ⁠**Caso límite:** Para $R_2\to0$ resulta $Z_{12}=0$, y la malla I queda desacoplada: un hilo en el centro separa ambos lados, porque su tensión es cero, circule lo que circule por él.
 

@@ -140,6 +140,30 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
     mark(bL,leftOpen());
   });
 })();
+// Sprung auf einen Anker in einem zugeklappten Kasten (Beispiel, Hintergrund, Herleitung, Lösung …): erst alle umgebenden
+// Kästen aufklappen, dann hinscrollen. Gilt für Adressen mit #anker (Link aus einem anderen Artikel, Lesezeichen), für Links
+// innerhalb der Seite und für einen zweiten Klick auf denselben Anker (dann gibt es kein hashchange).
+(function(){
+  var start=null;                                                  // beim Laden aufgeklapptes Ziel
+  function zeige(id, immer){
+    if(!id) return null;
+    try{ id=decodeURIComponent(id); }catch(e){}
+    var el=document.getElementById(id); if(!el) return null;
+    var auf=false;
+    for(var d=el.parentElement; d; d=d.parentElement){ if(d.tagName==="DETAILS" && !d.open){ d.open=true; auf=true; } }
+    if(auf || immer) el.scrollIntoView();
+    return auf ? el : null;
+  }
+  window.addEventListener("hashchange", function(){ zeige(location.hash.slice(1), false); });
+  document.addEventListener("click", function(e){
+    var a=e.target.closest && e.target.closest('a[href*="#"]'); if(!a) return;
+    var u=new URL(a.href, location.href);
+    if(u.pathname===location.pathname && u.hash && u.hash===location.hash) zeige(u.hash.slice(1), true);
+  });
+  function beimLaden(){ start=zeige(location.hash.slice(1), false); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", beimLaden); else beimLaden();
+  window.addEventListener("load", function(){ if(start) start.scrollIntoView(); });   // nach KaTeX und Bildern stimmt die Lage erst ganz
+})();
 // KaTeX automatisch rendern; zu breite abgesetzte Formeln danach passend verkleinern (höchstens auf 70 %),
 // statt sie abzuschneiden – wichtig auf dem Handy.
 (function(){

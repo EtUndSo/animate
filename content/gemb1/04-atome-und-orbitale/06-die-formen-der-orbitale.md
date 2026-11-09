@@ -38,12 +38,16 @@ Winkelanteil der s-, p- und d-Orbitale im Schnitt durch den Kern. Der Abstand de
 
 **Was $Y$ bedeutet.** Dem Winkelanteil allein kommt keine physikalische Bedeutung zu. Erst das Produkt $\psi=RY$ beschreibt das Elektron, und erst $|\psi|^2$ ist die Aufenthaltsdichte. Die wesentliche Aussage steckt aber schon in $Y$: In bestimmten Richtungen ist die Aufenthaltswahrscheinlichkeit groß, auf den Knotenflächen geht sie gegen null.
 
-**Beispiel.** Für $n=2$ gilt bis auf die Normierung
+::::beispiel
+Für $n=2$ gilt bis auf die Normierung
 
 <span class="anker" id="gl-4-1"></span>
 $$\psi_{2\mathrm s}\propto\Bigl(1-\frac{r}{2r_1}\Bigr)\mathrm{e}^{-r/(2r_1)},\qquad\psi_{2\mathrm p_z}\propto z\,\mathrm{e}^{-r/(2r_1)}. \tag{4.1}$$
 
-2s hat eine Knotenkugel bei $r=2r_1=0{,}106$ nm. $2\mathrm p_z$ hat die Knotenebene $z=0$ und seine größte Amplitude auf der $z$-Achse bei $|z|=2r_1$. Beide klingen außen doppelt so langsam ab wie 1s. **Grenzfälle:** Am Kern ist nur ein s-Orbital ungleich null, denn für $\ell\ge1$ geht $R$ wie $r^\ell$ gegen null. Weit außen klingt jedes Orbital wie im verbotenen Gebiet aus [Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) mit $\mathrm{e}^{-\kappa r}$ ab, mit $\kappa=\sqrt{2m_0|E_n|}/\hbar=1/(n\,r_1)$.
+2s hat eine Knotenkugel bei $r=2r_1=0{,}106$ nm. $2\mathrm p_z$ hat die Knotenebene $z=0$ und seine größte Amplitude auf der $z$-Achse bei $|z|=2r_1$. Beide klingen außen doppelt so langsam ab wie 1s.
+::::
+
+⁠**Grenzfälle:** Am Kern ist nur ein s-Orbital ungleich null, denn für $\ell\ge1$ geht $R$ wie $r^\ell$ gegen null. Weit außen klingt jedes Orbital wie im verbotenen Gebiet aus [Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) mit $\mathrm{e}^{-\kappa r}$ ab, mit $\kappa=\sqrt{2m_0|E_n|}/\hbar=1/(n\,r_1)$.
 
 :::frage Ein p-Orbital hat eine Knotenebene. Wie kommt das Elektron von einer Keule in die andere, wenn es diese Ebene nie betritt?
 Die Frage setzt eine Bahn voraus, und die gibt es nicht. Der Zustand ist eine stehende Welle, die zugleich in beiden Keulen existiert. Nichts wandert durch die Knotenebene, das Elektron wechselt nicht hinüber.

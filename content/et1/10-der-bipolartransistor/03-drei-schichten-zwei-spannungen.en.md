@@ -38,7 +38,11 @@ $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE
 So it is a two-port ([Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) whose two ports share the emitter.
 :::
 
-**Example.** In the reference model, $\varphi_\mathrm{E}=0$, $\varphi_\mathrm{B}=0.6$ V, $\varphi_\mathrm{C}=6$ V. This gives $U_\mathrm{BE}=0.6$ V, $U_\mathrm{CE}=6$ V and $U_\mathrm{CB}=5.4$ V. The BE diode conducts because its p side is higher. The CB diode blocks because its n side is 5.4 V higher. From $I_\mathrm{C}=2$ mA and $I_\mathrm{B}=10$ µ A follows $I_\mathrm{E}=2.01$ mA. **Limiting case:** for $U_\mathrm{CB}=0$, $U_\mathrm{CE}=U_\mathrm{BE}$. This is where normal operation ends.
+::::beispiel
+In the reference model, $\varphi_\mathrm{E}=0$, $\varphi_\mathrm{B}=0.6$ V, $\varphi_\mathrm{C}=6$ V. This gives $U_\mathrm{BE}=0.6$ V, $U_\mathrm{CE}=6$ V and $U_\mathrm{CB}=5.4$ V. The BE diode conducts because its p side is higher. The CB diode blocks because its n side is 5.4 V higher. From $I_\mathrm{C}=2$ mA and $I_\mathrm{B}=10$ µ A follows $I_\mathrm{E}=2.01$ mA.
+::::
+
+⁠**Limiting case:** for $U_\mathrm{CB}=0$, $U_\mathrm{CE}=U_\mathrm{BE}$. This is where normal operation ends.
 
 :::frage Can I solder a transistor together from two diodes?
 No. The equivalent picture of two diodes only shows the polarity of the boundaries. In two separate diodes, every electron recombines long before it reaches the second depletion layer, and the blocking diode stays blocked. The transistor effect arises only because the two boundaries lie closer together than the distance an electron survives in the p region.

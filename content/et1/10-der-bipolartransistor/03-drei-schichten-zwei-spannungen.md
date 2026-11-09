@@ -38,7 +38,11 @@ $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE
 Er ist also ein Zweitor ([Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), dessen beide Tore sich den Emitter teilen.
 :::
 
-**Beispiel.** Im Rechenmodell sind $\varphi_\mathrm{E}=0$, $\varphi_\mathrm{B}=0{,}6$ V, $\varphi_\mathrm{C}=6$ V. Damit ist $U_\mathrm{BE}=0{,}6$ V, $U_\mathrm{CE}=6$ V und $U_\mathrm{CB}=5{,}4$ V. Die BE-Diode leitet, denn ihre p-Seite liegt höher. Die CB-Diode sperrt, denn ihre n-Seite liegt 5,4 V höher. Aus $I_\mathrm{C}=2$ mA und $I_\mathrm{B}=10$ µ A folgt $I_\mathrm{E}=2{,}01$ mA. **Grenzfall:** Für $U_\mathrm{CB}=0$ ist $U_\mathrm{CE}=U_\mathrm{BE}$. Dort endet der Normalbetrieb.
+::::beispiel
+Im Rechenmodell sind $\varphi_\mathrm{E}=0$, $\varphi_\mathrm{B}=0{,}6$ V, $\varphi_\mathrm{C}=6$ V. Damit ist $U_\mathrm{BE}=0{,}6$ V, $U_\mathrm{CE}=6$ V und $U_\mathrm{CB}=5{,}4$ V. Die BE-Diode leitet, denn ihre p-Seite liegt höher. Die CB-Diode sperrt, denn ihre n-Seite liegt 5,4 V höher. Aus $I_\mathrm{C}=2$ mA und $I_\mathrm{B}=10$ µ A folgt $I_\mathrm{E}=2{,}01$ mA.
+::::
+
+⁠**Grenzfall:** Für $U_\mathrm{CB}=0$ ist $U_\mathrm{CE}=U_\mathrm{BE}$. Dort endet der Normalbetrieb.
 
 :::frage Kann ich einen Transistor aus zwei Dioden zusammenlöten?
 Nein. Das Ersatzbild aus zwei Dioden zeigt nur die Polung der Grenzen. In zwei getrennten Dioden rekombiniert jedes Elektron, lange bevor es die zweite Sperrschicht erreicht, und die gesperrte Diode bleibt gesperrt. Der Transistoreffekt entsteht erst dadurch, dass beide Grenzen enger beieinanderliegen, als ein Elektron im p-Gebiet überlebt.

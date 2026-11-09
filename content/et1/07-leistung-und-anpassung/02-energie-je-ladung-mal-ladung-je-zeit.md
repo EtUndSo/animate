@@ -41,7 +41,11 @@ $$W=U\,I\,\Delta t,\qquad P=\frac{W}{\Delta t}=U\,I. \tag{1.2}$$
 In der Zeit $\mathrm{d} t$ tritt am Anschluss 1 die Ladung $\mathrm{d} Q=i\,\mathrm{d} t$ ein und am Anschluss 2 dieselbe Ladung aus (Knotenregel, [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Das Innere bleibt unverändert. Für die Bilanz ist es so, als wäre $\mathrm{d} Q$ unmittelbar von $\varphi_1$ nach $\varphi_2$ gelangt. Nach [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) ist die abgegebene Energie $\mathrm{d} W=(\varphi_1-\varphi_2)\,\mathrm{d} Q=u\,i\,\mathrm{d} t$. Division durch $\mathrm{d} t$ ergibt [(1.1)](#gl-1-1). Elektronen laufen umgekehrt und tragen negative Ladung. Beide Vorzeichen zusammen ergeben dasselbe Produkt.
 :::
 
-**Beispiel.** An $R_\mathrm{L}=16\,\Omega$ liegen 8 V, es fließen 0,5 A ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Jedes Coulomb gibt 8 J ab, je Sekunde kommen 0,5 C: $P=4$ W. In einer Stunde sind das $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14{,}4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Einzeln gezählt laufen je Sekunde $I/e=3{,}12\cdot10^{18}$ Elektronen durch, jedes gibt $e\cdot8\,\mathrm{V}=1{,}28\cdot10^{-18}$ J ab. Das Produkt sind wieder 4 W. **Grenzfälle:** An offenen Klemmen sind es 9 V und 0 A, also $P=0$. Ein idealer Draht hat $U=0$, also $P=0$ bei jedem Strom.
+::::beispiel
+An $R_\mathrm{L}=16\,\Omega$ liegen 8 V, es fließen 0,5 A ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Jedes Coulomb gibt 8 J ab, je Sekunde kommen 0,5 C: $P=4$ W. In einer Stunde sind das $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14{,}4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Einzeln gezählt laufen je Sekunde $I/e=3{,}12\cdot10^{18}$ Elektronen durch, jedes gibt $e\cdot8\,\mathrm{V}=1{,}28\cdot10^{-18}$ J ab. Das Produkt sind wieder 4 W.
+::::
+
+⁠**Grenzfälle:** An offenen Klemmen sind es 9 V und 0 A, also $P=0$. Ein idealer Draht hat $U=0$, also $P=0$ bei jedem Strom.
 
 :::frage Wird im Bauteil Strom verbraucht?
 Nein. Vor und hinter dem Bauteil fließt derselbe Strom, die Ladung kommt vollständig wieder heraus. Verbraucht wird Energie: Die Ladung läuft auf niedrigerem Potenzial weiter. Auf der Rechnung für den „Stromverbrauch“ stehen deshalb Kilowattstunden.

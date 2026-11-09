@@ -24,7 +24,8 @@ $$S_\mathrm a(f)=\sum_{n=-\infty}^{\infty}s(n)\,\mathrm{e}^{-\mathrm{j}2\pi nf},
 
 ⁠**How to read it:** $S_\mathrm a(f)$ is periodic with period 1, which is the sampling rate. One period, $|f|\le\frac12$, contains everything. This is why the inverse transform integrates only over an interval of length 1. The sum is a Fourier series in $f$, with the samples as coefficients.
 
-**Example.** For $s(n)=\varepsilon(n)\,b^n$ with $|b|<1$ (geometric series):
+::::beispiel
+For $s(n)=\varepsilon(n)\,b^n$ with $|b|<1$ (geometric series):
 
 <span class="anker" id="gl-7-2"></span>
 $$S_\mathrm a(f)=\sum_{n=0}^{\infty}\bigl(b\,\mathrm{e}^{-\mathrm{j}2\pi f}\bigr)^n=\frac{1}{1-b\,\mathrm{e}^{-\mathrm{j}2\pi f}},\qquad|S_\mathrm a(f)|^2=\frac{1}{1+b^2-2b\cos(2\pi f)}. \tag{7.2}$$
@@ -34,6 +35,7 @@ This is also the frequency response $H_\mathrm a(f)$ of the recursive system fro
 :::abbildung et3/k4dtft 6
 Magnitude of the frequency response of the recursive system with $b=0.6$. It is periodic with the sampling rate. Between the red lines lies the one period that describes everything.
 :::
+::::
 
 **Convolution and multiplication.** As with functions, $s(n)*h(n)\;\circ\!\!-\!\!\bullet\;S_\mathrm a(f)H_\mathrm a(f)$. The product of two sequences gives the __periodic convolution__ of the spectra over one period:
 

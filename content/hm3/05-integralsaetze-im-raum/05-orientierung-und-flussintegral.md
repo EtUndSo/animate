@@ -33,11 +33,13 @@ $$\int_{\mathcal F}\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{S}=\int_B\boldsymbol
 
 ⁠**So liest man das:** In [(4.2)](#gl-4-2) kürzt sich der Betrag aus $\boldsymbol{n}$ gegen den aus $\mathrm{d}\sigma$. Man braucht also keine Wurzel, und das macht die Rechnung bequem: Flussintegrale sind meist leichter als Oberflächenintegrale.
 
-**Beispiel.** Fluss von $\boldsymbol{F}=(-y,x,2z)$ durch die Kuppel nach oben. Mit [(1.3)](flachen-beschreiben.html#gl-1-3) zeigt $\Phi_r\times\Phi_\varphi$ nach oben, weil die letzte Komponente $r>0$ ist. Das Skalarprodukt ist
+::::beispiel
+Fluss von $\boldsymbol{F}=(-y,x,2z)$ durch die Kuppel nach oben. Mit [(1.3)](flachen-beschreiben.html#gl-1-3) zeigt $\Phi_r\times\Phi_\varphi$ nach oben, weil die letzte Komponente $r>0$ ist. Das Skalarprodukt ist
 
 $$\boldsymbol{F}\cdot(\Phi_r\times\Phi_\varphi)=-r\sin\varphi\cdot2r^2\cos\varphi+r\cos\varphi\cdot2r^2\sin\varphi+2(4-r^2)\,r=2r(4-r^2).$$
 
 Die Drehanteile heben sich weg, denn sie laufen längs der Fläche. Es bleibt $\int_0^{2\pi}\!\int_0^22r(4-r^2)\,\mathrm{d} r\,\mathrm{d}\varphi=2\pi\cdot8=16\pi$.
+::::
 
 :::frage Zeigt $\boldsymbol{x}_u\times\boldsymbol{x}_v$ automatisch nach außen?
 Nein. Es zeigt dorthin, wohin es die Reihenfolge der Parameter bestimmt. Bei der Kugel mit $(\theta,\varphi)$ zeigt $\boldsymbol{x}_\theta\times\boldsymbol{x}_\varphi$ nach außen, bei $(\varphi,\theta)$ nach innen. Prüfe immer an einem Punkt, ob das Vorzeichen zur verlangten Orientierung passt.

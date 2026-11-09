@@ -38,7 +38,11 @@ Die Knotenregel gibt $I=\sum I_i$, mit gleichem $U$ also $I=(G_1+\dots+G_N)\,U$.
 $$I_1=I_\mathrm{ges}\,\frac{1/R_1}{1/R_1+1/R_2}=I_\mathrm{ges}\,\frac{R_2}{R_1+R_2}.$$
 :::
 
-**Beispiel.** $R_1$ und $R_2$ der Kette parallel an 9 V: $G_\mathrm{ges}=0{,}5+1=1{,}5$ mS, also $R_\mathrm{ges}=667\,\Omega$, weniger als der kleinere Wert, und $I=13{,}5$ mA. Der Stromteiler gibt $I_1=13{,}5\,\mathrm{mA}\cdot1/3=4{,}5$ mA, $I_2=9$ mA. Gemischte Netze fasst man von innen nach außen zusammen: $6\,\mathrm{k\Omega}$ parallel zu $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ ergibt $6\parallel3=2\,\mathrm{k\Omega}$. **Grenzfälle:** $R_2\to\infty$ ergibt $R_1$, der offene Zweig zählt nicht. $R_2\to0$ ergibt 0, der Kurzschluss übernimmt den ganzen Strom. $R_1=R_2$ ergibt $R_1/2$.
+::::beispiel
+$R_1$ und $R_2$ der Kette parallel an 9 V: $G_\mathrm{ges}=0{,}5+1=1{,}5$ mS, also $R_\mathrm{ges}=667\,\Omega$, weniger als der kleinere Wert, und $I=13{,}5$ mA. Der Stromteiler gibt $I_1=13{,}5\,\mathrm{mA}\cdot1/3=4{,}5$ mA, $I_2=9$ mA. Gemischte Netze fasst man von innen nach außen zusammen: $6\,\mathrm{k\Omega}$ parallel zu $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ ergibt $6\parallel3=2\,\mathrm{k\Omega}$.
+::::
+
+⁠**Grenzfälle:** $R_2\to\infty$ ergibt $R_1$, der offene Zweig zählt nicht. $R_2\to0$ ergibt 0, der Kurzschluss übernimmt den ganzen Strom. $R_1=R_2$ ergibt $R_1/2$.
 
 **Der belastete Spannungsteiler.** Die Spannung eines Teilers soll eine weitere Stufe versorgen, der __Lastwiderstand__ $R_\mathrm L$ liegt parallel zu $R_2$ (Abb. [11](#abb-11)). Der Mechanismus: Am Mittelknoten öffnet sich ein zusätzlicher Weg, der Gesamtwiderstand sinkt, der Strom durch $R_1$ steigt, an $R_1$ fällt mehr ab, und das Mittelpotenzial sinkt. Mit $R_2'=R_2\parallel R_\mathrm L$ in [(9.3)](reihenschaltung-und-spannungsteiler.html#gl-9-3):
 
@@ -51,7 +55,9 @@ $$\frac{U_2}{U}=\frac{R_2\parallel R_\mathrm L}{R_1+R_2\parallel R_\mathrm L}=\f
 Links: belasteter Spannungsteiler. Rechts: $U_2$ über $R_\mathrm L$ für $R_1=2\,\mathrm{k\Omega}$, $R_2=1\,\mathrm{k\Omega}$, $U=9$ V, nach [(10.4)](#gl-10-4). Mit $R_\mathrm L=1\,\mathrm{k\Omega}$ bleiben 1,8 V, mit $10\,\mathrm{k\Omega}$ sind es 2,81 V. Erst weit oberhalb von $R_1\parallel R_2=667\,\Omega$ ist die Last unmerklich.
 :::
 
-**Beispiel.** Für die Kette ist der relative Fehler $\delta=(U_{2,0}-U_2)/U_{2,0}$ gegen die unbelasteten 3 V: $R_\mathrm L=1\,\mathrm{k\Omega}$ ergibt 40 %, $10\,\mathrm{k\Omega}$ ergibt 6,3 %, $100\,\mathrm{k\Omega}$ ergibt 0,66 %. Der Fehler ist $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ mit $R_\mathrm i=R_1\parallel R_2$ (Aufgabe [11](#aufg-11)). Der Teiler wirkt also wie eine Quelle mit dem Innenwiderstand $R_\mathrm i$ ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+::::beispiel
+Für die Kette ist der relative Fehler $\delta=(U_{2,0}-U_2)/U_{2,0}$ gegen die unbelasteten 3 V: $R_\mathrm L=1\,\mathrm{k\Omega}$ ergibt 40 %, $10\,\mathrm{k\Omega}$ ergibt 6,3 %, $100\,\mathrm{k\Omega}$ ergibt 0,66 %. Der Fehler ist $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ mit $R_\mathrm i=R_1\parallel R_2$ (Aufgabe [11](#aufg-11)). Der Teiler wirkt also wie eine Quelle mit dem Innenwiderstand $R_\mathrm i$ ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+::::
 
 :::ltspice Belastung messen
 ⁠**Zeichnen:** Quelle `voltage` mit `9` von `in` nach Masse, `res` `R1 2k` von `in` nach `mid`, `R2 1k` von `mid` nach Masse, `RL` mit Wert `{RL}` von `mid` nach Masse.

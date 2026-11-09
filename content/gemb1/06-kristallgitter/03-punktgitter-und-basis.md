@@ -53,7 +53,11 @@ $$\Omega=|\boldsymbol a_1\times\boldsymbol a_2|\quad\text{(Ebene)},\qquad \Omega
 Die Punkte sitzen auf den vier Ecken, und jede Ecke gehört zu vier Zellen: $4\cdot\frac14=1$. Die Punktdichte gehört zum Gitter, also ist $\Omega$ für alle primitiven Zellen gleich.
 :::
 
-**Beispiel: die Mauer.** Ein Ziegel ist 24 cm lang und 6 cm hoch, die Fuge 1 cm breit, jede Reihe ist um einen halben Ziegel versetzt. Dann sind $\boldsymbol a_1=(25;\,0)$ cm und $\boldsymbol a_2=(12{,}5;\,7)$ cm primitive Gittervektoren. Mit [(1.2)](#gl-1-2) ist $\Omega=175\,\mathrm{cm^2}$, also kommen 57 Ziegel auf 1 m$^2$: Der Zellinhalt liefert die Dichte. Die Vektoren $(12{,}5;\,7)$ cm und $(-12{,}5;\,7)$ cm erzeugen dasselbe Gitter mit derselben Fläche. **Grenzfall:** Ohne Versatz wird $\boldsymbol a_2=(0;\,7)$ cm, die Zelle wird ein Rechteck, und $\Omega$ bleibt 175 cm$^2$.
+::::beispiel die Mauer
+Ein Ziegel ist 24 cm lang und 6 cm hoch, die Fuge 1 cm breit, jede Reihe ist um einen halben Ziegel versetzt. Dann sind $\boldsymbol a_1=(25;\,0)$ cm und $\boldsymbol a_2=(12{,}5;\,7)$ cm primitive Gittervektoren. Mit [(1.2)](#gl-1-2) ist $\Omega=175\,\mathrm{cm^2}$, also kommen 57 Ziegel auf 1 m$^2$: Der Zellinhalt liefert die Dichte. Die Vektoren $(12{,}5;\,7)$ cm und $(-12{,}5;\,7)$ cm erzeugen dasselbe Gitter mit derselben Fläche.
+::::
+
+⁠**Grenzfall:** Ohne Versatz wird $\boldsymbol a_2=(0;\,7)$ cm, die Zelle wird ein Rechteck, und $\Omega$ bleibt 175 cm$^2$.
 
 :::frage Sitzt an jedem Gitterpunkt ein Atom?
 Nicht unbedingt. Der Gitterpunkt ist ein Bezugspunkt, den man im Muster frei wählt. Verschiebt man alle Punkte um denselben Vektor, beschreibt das Gitter denselben Kristall.

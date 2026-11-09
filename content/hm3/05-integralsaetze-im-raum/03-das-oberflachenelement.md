@@ -70,11 +70,15 @@ Eine __stückweise reguläre Fläche__ besteht aus endlich vielen regulären Fl�
 
 Das braucht man für geschlossene Flächen. Eine Kugeloberfläche oder ein Würfel lassen sich nicht als ein einziges injektives Flächenstück schreiben, wohl aber aus mehreren zusammensetzen.
 
-**Beispiel: die Kuppel.** Mit [(1.3)](flachen-beschreiben.html#gl-1-3) ist $E=1+4r^2$, $F=0$, $G=r^2$, also $\sqrt{EG-F^2}=r\sqrt{1+4r^2}$. Der Inhalt ist
+::::beispiel die Kuppel
+Mit [(1.3)](flachen-beschreiben.html#gl-1-3) ist $E=1+4r^2$, $F=0$, $G=r^2$, also $\sqrt{EG-F^2}=r\sqrt{1+4r^2}$. Der Inhalt ist
 
 $$\mathcal A(K)=\int_0^{2\pi}\!\!\int_0^2r\sqrt{1+4r^2}\;\mathrm{d} r\,\mathrm{d}\varphi=2\pi\Bigl[\tfrac1{12}(1+4r^2)^{3/2}\Bigr]_0^2=\frac\pi6\bigl(17\sqrt{17}-1\bigr)\approx36{,}2.$$
 
-Die Kuppel ist fast dreimal so groß wie der Kreis $4\pi\approx12{,}6$, über dem sie steht. **Grenzfall:** Für eine flache Kuppel $z=0$ fehlt das $4r^2$ unter der Wurzel, und es bleibt $\int\!\!\int r\,\mathrm{d} r\,\mathrm{d}\varphi=4\pi$.
+Die Kuppel ist fast dreimal so groß wie der Kreis $4\pi\approx12{,}6$, über dem sie steht.
+::::
+
+⁠**Grenzfall:** Für eine flache Kuppel $z=0$ fehlt das $4r^2$ unter der Wurzel, und es bleibt $\int\!\!\int r\,\mathrm{d} r\,\mathrm{d}\varphi=4\pi$.
 
 :::frage Warum darf ich nicht einfach $\mathrm{d} x\,\mathrm{d} y$ schreiben, wenn die Fläche ein Graph ist?
 Weil $\mathrm{d} x\,\mathrm{d} y$ den Schatten der Fläche misst, nicht die Fläche. Eine steile Stelle wirft einen kleinen Schatten, ist aber groß. Der Korrekturfaktor ist $\sqrt{1+|\nabla H|^2}$ (Stufe [3](drei-standardfalle.html#stufe-3)). Das ist die häufigste Fehlerquelle: $\mathrm{d}\sigma$ vergessen und über den Grundriss integrieren.

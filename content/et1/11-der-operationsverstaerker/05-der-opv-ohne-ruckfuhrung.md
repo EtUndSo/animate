@@ -38,7 +38,11 @@ Links das Schaltzeichen mit Versorgungsanschlüssen. Rechts die Kennlinie im Rec
 2-Bit-Flash-Wandler mit $U_\mathrm{Ref}=6$ V und gleichen Widerständen. Die Eingänge ziehen keinen Strom, die Widerstände liegen in Reihe, die Abgriffe liegen bei 6, 4 und 2 V. Bei $U_\mathrm{E}=3{,}2$ V schaltet nur K3 nach oben.
 :::
 
-**Beispiel.** Bei $U_\mathrm{E}=3{,}2$ V ist $U_\mathrm{D}=-2{,}8$ V an K1, $-0{,}8$ V an K2 und $+1{,}2$ V an K3. K1 und K2 stehen auf $-11$ V, K3 auf $+11$ V. Die drei Ausgänge unterscheiden vier Bereiche: unter 2 V, 2 bis 4 V, 4 bis 6 V, über 6 V. **Grenzfall:** Für $A\to\infty$ wird das Fenster zum Punkt, die Kennlinie zur Stufe bei $U_\mathrm{D}=0$.
+::::beispiel
+Bei $U_\mathrm{E}=3{,}2$ V ist $U_\mathrm{D}=-2{,}8$ V an K1, $-0{,}8$ V an K2 und $+1{,}2$ V an K3. K1 und K2 stehen auf $-11$ V, K3 auf $+11$ V. Die drei Ausgänge unterscheiden vier Bereiche: unter 2 V, 2 bis 4 V, 4 bis 6 V, über 6 V.
+::::
+
+⁠**Grenzfall:** Für $A\to\infty$ wird das Fenster zum Punkt, die Kennlinie zur Stufe bei $U_\mathrm{D}=0$.
 
 :::aufgabe Aufgabe 3 ★ Komparatoren
 <span class="anker" id="aufg-3"></span>

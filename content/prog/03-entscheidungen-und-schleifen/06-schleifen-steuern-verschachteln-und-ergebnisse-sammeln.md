@@ -28,7 +28,8 @@ Eine Suche soll aufhören, sobald sie etwas gefunden hat. Die Bedingung der Schl
 Die Anweisung `break` im Block einer Schleife beendet diese Schleife sofort. Der Rest des Blocks wird übersprungen, ebenso alle weiteren Durchläufe, und das Programm geht mit der ersten Zeile nach der Schleife weiter.
 :::
 
-**Beispiel: der kleinste Teiler.** Eine ganze Zahl $n\ge2$ ist eine Primzahl, wenn sie außer 1 und sich selbst keinen Teiler hat. Das Skript probiert die möglichen Teiler $t=2,3,\ldots$ der Reihe nach durch; beim ersten, der $n$ ohne Rest teilt, bricht es ab. Der Name `teiler` ist anfangs an `None` gebunden, das heißt hier „noch keiner gefunden“ ([Programmieren, Python 2, Abschnitt 7.6](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-6)).
+::::beispiel der kleinste Teiler
+Eine ganze Zahl $n\ge2$ ist eine Primzahl, wenn sie außer 1 und sich selbst keinen Teiler hat. Das Skript probiert die möglichen Teiler $t=2,3,\ldots$ der Reihe nach durch; beim ersten, der $n$ ohne Rest teilt, bricht es ab. Der Name `teiler` ist anfangs an `None` gebunden, das heißt hier „noch keiner gefunden“ ([Programmieren, Python 2, Abschnitt 7.6](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-6)).
 
 ```python kleinster_teiler.py
 # Den kleinsten Teiler einer ganzen Zahl n ab 2 suchen; ohne Teiler ist n eine Primzahl
@@ -56,6 +57,7 @@ Ganze Zahl ab 2: 97
 ```
 
 Die Bedingung `t * t <= n` begrenzt die Suche auf Teiler bis $\sqrt n$. Das genügt: Ist $n=t\cdot s$ mit $t\le s$, dann ist $t\cdot t\le t\cdot s=n$. Jede zusammengesetzte Zahl hat also einen Teiler, der höchstens $\sqrt n$ ist. Bei 97 prüft das Skript nur $t=2$ bis 9 statt 2 bis 96.
+::::
 
 ⁠**Kurz gesagt:** `break` beendet eine Schleife sofort, typisch nach einem Fund.
 
@@ -101,7 +103,8 @@ Manchmal soll eine Schleife einzelne Werte auslassen, aber danach weiterlaufen, 
 Die Anweisung `continue` im Block einer Schleife beendet nur den laufenden Durchlauf. Der Rest des Blocks wird übersprungen. Eine `for`-Schleife macht mit dem nächsten Wert weiter, eine `while`-Schleife mit der nächsten Prüfung ihrer Bedingung.
 :::
 
-**Beispiel.** Von acht Kanälen ist Kanal 3 defekt:
+::::beispiel
+Von acht Kanälen ist Kanal 3 defekt:
 
 ```python kanaele.py
 # Messkanäle 0 bis 7 abfragen; Kanal 3 ist defekt und wird übersprungen
@@ -125,6 +128,7 @@ fertig
 ```
 
 Dasselbe ließe sich mit `if kanal != 3:` und dem eingerückten `print` schreiben. `continue` lohnt sich, wenn ein Durchlauf viele Zeilen hat und mehrere Gründe, ihn auszulassen: Jeder Grund bekommt eine kurze Prüfung am Anfang, und der eigentliche Block muss nicht immer tiefer eingerückt werden.
+::::
 
 ⁠**Kurz gesagt:** `continue` überspringt den Rest des laufenden Durchlaufs, die Schleife läuft weiter.
 
@@ -148,7 +152,8 @@ Für jede Zahl prüfen, ob sie eine Primzahl ist; für jedes Paar zweier Widerst
 Steht eine Schleife im Block einer anderen, heißen die beiden __verschachtelt__. Die Schleife im Block heißt die innere, die andere die äußere. Bei jedem Durchlauf der äußeren Schleife läuft die innere vollständig. Hat die äußere $m$ Durchläufe und die innere jeweils $n$, läuft der Block der inneren Schleife $m\cdot n$-mal. `break` und `continue` wirken nur auf die innerste Schleife, deren Block sie enthält.
 :::
 
-**Beispiel: alle Primzahlen bis 30.** Die äußere Schleife geht die Zahlen $n$ durch, die innere sucht wie in Unterabschnitt [5.1](#stufe-5-1) einen Teiler. Das `break` verlässt nur die innere Schleife; die äußere macht mit dem nächsten $n$ weiter.
+::::beispiel alle Primzahlen bis 30
+Die äußere Schleife geht die Zahlen $n$ durch, die innere sucht wie in Unterabschnitt [5.1](#stufe-5-1) einen Teiler. Das `break` verlässt nur die innere Schleife; die äußere macht mit dem nächsten $n$ weiter.
 
 ```python primzahlen.py
 # Alle Primzahlen bis 30: für jede Zahl n die möglichen Teiler t durchprobieren
@@ -169,8 +174,10 @@ print()
 $ python3 primzahlen.py
 2 3 5 7 11 13 17 19 23 29
 ```
+::::
 
-**Beispiel: zwei Widerstände für 150 $\Omega$.** Gesucht sind zwei Widerstände aus der Reihe 100 $\Omega$, 200 $\Omega$, …, 900 $\Omega$, die parallel geschaltet $R_1R_2/(R_1+R_2)=150$ $\Omega$ ergeben. Die innere Schleife beginnt bei `r1`, damit jedes Paar nur einmal vorkommt. Das Ergebnis ist ein `float`, deshalb vergleicht das Skript mit `math.isclose`:
+::::beispiel zwei Widerstände für 150 $\Omega$
+Gesucht sind zwei Widerstände aus der Reihe 100 $\Omega$, 200 $\Omega$, …, 900 $\Omega$, die parallel geschaltet $R_1R_2/(R_1+R_2)=150$ $\Omega$ ergeben. Die innere Schleife beginnt bei `r1`, damit jedes Paar nur einmal vorkommt. Das Ergebnis ist ein `float`, deshalb vergleicht das Skript mit `math.isclose`:
 
 ```python parallel_suche.py
 # Zwei Widerstände aus 100, 200, ..., 900 Ohm suchen, die parallel 150 Ohm ergeben
@@ -189,6 +196,7 @@ $ python3 parallel_suche.py
 ```
 
 Hier hängt die Zahl der inneren Durchläufe vom äußeren Wert ab: neun für $R_1=100$ $\Omega$, acht für 200 $\Omega$, und so fort bis einer für 900 $\Omega$, zusammen 45 Paare statt $9\cdot9=81$.
+::::
 
 ⁠**Kurz gesagt:** In verschachtelten Schleifen läuft die innere bei jedem Durchlauf der äußeren ganz durch; `break` verlässt nur die innere.
 
@@ -206,7 +214,8 @@ Eine Schleife soll nicht nur etwas ausgeben, sondern ein Ergebnis aus allen Durc
 Ein __Akkumulator__ ist ein Name, der vor einer Schleife an einen Startwert gebunden wird und in jedem Durchlauf mit dem neuen Wert verrechnet wird, zum Beispiel mit `summe = summe + wert`. Nach der Schleife ist er an das Ergebnis gebunden. Der Startwert ist das Ergebnis für den Fall, dass die Schleife keinen einzigen Durchlauf hat: 0 für eine Summe und eine Anzahl, 1 für ein Produkt.
 :::
 
-**Beispiel: eine Summe.** Die Summe der Quadrate $1^2+2^2+\cdots+5^2$, mit dem Zwischenstand nach jedem Durchlauf:
+::::beispiel eine Summe
+Die Summe der Quadrate $1^2+2^2+\cdots+5^2$, mit dem Zwischenstand nach jedem Durchlauf:
 
 ```python quadratsumme.py
 # Akkumulator: die Summe der Quadrate 1*1 + 2*2 + ... + 5*5
@@ -232,8 +241,10 @@ Die Schleife rechnet genau die Summe aus, die man in der Mathematik mit dem Summ
 :::abbildung prog/k3rquadrate 6
 Die Summe der Quadrate von 1 bis 5 Schritt für Schritt, so wie die Schleife in `quadratsumme.py` sie bildet: Jeder Summand ist ein Durchlauf.
 :::
+::::
 
-**Beispiel: eine Anzahl.** Ein Zähler ist ein Akkumulator, zu dem in jedem passenden Durchlauf 1 addiert wird:
+::::beispiel eine Anzahl
+Ein Zähler ist ein Akkumulator, zu dem in jedem passenden Durchlauf 1 addiert wird:
 
 ```python zaehler.py
 # Akkumulator als Zähler: Wie viele Zahlen von 1 bis 100 sind durch 3 oder durch 7 teilbar?
@@ -250,8 +261,10 @@ Anzahl: 43
 ```
 
 Zur Kontrolle von Hand: Durch 3 teilbar sind 33 der Zahlen, durch 7 teilbar 14, durch beide, also durch 21, sind 4 teilbar und doppelt gezählt; $33+14-4=43$.
+::::
 
-**Beispiel: ein Produkt.** Auf wie viele Arten lassen sich fünf Messgeräte nacheinander anschließen? Für das erste gibt es 5 Möglichkeiten, für das zweite noch 4, und so weiter, zusammen $5\cdot4\cdot3\cdot2\cdot1$. Der Startwert eines Produkts ist 1:
+::::beispiel ein Produkt
+Auf wie viele Arten lassen sich fünf Messgeräte nacheinander anschließen? Für das erste gibt es 5 Möglichkeiten, für das zweite noch 4, und so weiter, zusammen $5\cdot4\cdot3\cdot2\cdot1$. Der Startwert eines Produkts ist 1:
 
 ```python reihenfolgen.py
 # Akkumulator für ein Produkt: Auf wie viele Arten lassen sich 5 Messgeräte nacheinander anschließen?
@@ -265,6 +278,7 @@ print("Reihenfolgen:", anzahl)
 $ python3 reihenfolgen.py
 Reihenfolgen: 120
 ```
+::::
 
 ⁠**Kurz gesagt:** Ein Akkumulator startet vor der Schleife mit 0 (Summe, Anzahl) oder 1 (Produkt) und nimmt in jedem Durchlauf einen Wert auf.
 

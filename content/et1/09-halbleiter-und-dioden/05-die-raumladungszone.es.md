@@ -64,7 +64,11 @@ $$U_\mathrm{D0}=U_T\ln\frac{N_\mathrm AN_\mathrm D}{n_\mathrm i^2},\qquad w=\sqr
 ⁠**Anchura.** Los dos lados llevan la misma carga, así que $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$. El campo crece linealmente desde los bordes hasta el límite y allí alcanza el valor de una carga superficial ([Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), $E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$. La tensión es el área bajo la curva del campo, un triángulo: $U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$. Con $w=w_\mathrm n+w_\mathrm p$ esto da [(3.1)](#gl-3-1).
 :::
 
-**Ejemplo.** $U_\mathrm{D0}=25{,}85\,\mathrm{mV}\cdot\ln10^{12}=0{,}714$ V, es decir, $27{,}6\,U_T$. Así, la barrera deja pasar la fracción $\mathrm{e}^{-27{,}6}=10^{-12}$, exactamente la relación $10^{4}/10^{16}$ de las densidades. Además, $w=0{,}43$ µ m, la mitad en cada región, y $E_\mathrm{max}=3{,}3$ MV/m, tanto como la intensidad de campo de ruptura del aire ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). **Casos límite:** Si un lado está mucho más dopado, la zona queda casi por completo en el otro. Diez veces más dopado en un lado solo sube $U_\mathrm{D0}$ 60 mV.
+::::beispiel
+$U_\mathrm{D0}=25{,}85\,\mathrm{mV}\cdot\ln10^{12}=0{,}714$ V, es decir, $27{,}6\,U_T$. Así, la barrera deja pasar la fracción $\mathrm{e}^{-27{,}6}=10^{-12}$, exactamente la relación $10^{4}/10^{16}$ de las densidades. Además, $w=0{,}43$ µ m, la mitad en cada región, y $E_\mathrm{max}=3{,}3$ MV/m, tanto como la intensidad de campo de ruptura del aire ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
+::::
+
+⁠**Casos límite:** Si un lado está mucho más dopado, la zona queda casi por completo en el otro. Diez veces más dopado en un lado solo sube $U_\mathrm{D0}$ 60 mV.
 
 :::frage En el diodo hay 0,71 V. ¿Por qué se miden 0 V en él, y por qué no impulsa corriente?
 El escalón de potencial es real, pero no es el único del circuito. Donde los contactos metálicos se encuentran con el semiconductor surgen otras tensiones de contacto. Alrededor de cualquier circuito cerrado su suma es cero, porque en equilibrio no hay fuente de energía. El escalón solo establece el equilibrio entre difusión y deriva.

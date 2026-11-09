@@ -49,7 +49,8 @@ $$a-\varepsilon<a_{N_0}\le a_n\le a,\quad\text{also}\quad|a_n-a|<\varepsilon.$$
 Links die Summenfolge unter der Decke $\sup\mathcal W(s_n)=2$. Der rote Streifen hat die Breite $\varepsilon=0{,}1$. Ab $N_0=3$ bleiben alle Glieder darin. Rechts die Wurzelfolge: Sie fällt, ist nach unten beschränkt und strebt gegen $\sqrt2$. Innerhalb der rationalen Zahlen gibt es dort kein Ziel.
 :::
 
-**Beispiel: die Wurzelfolge.** Alle Glieder $x_1=2$, $x_{n+1}=\frac12(x_n+2/x_n)$ sind positiv und rational, denn Brüche bleiben bei den Grundrechenarten Brüche. Ausmultiplizieren zeigt zwei Dinge:
+::::beispiel die Wurzelfolge
+Alle Glieder $x_1=2$, $x_{n+1}=\frac12(x_n+2/x_n)$ sind positiv und rational, denn Brüche bleiben bei den Grundrechenarten Brüche. Ausmultiplizieren zeigt zwei Dinge:
 
 $$x_{n+1}^2-2=\tfrac14\Bigl(x_n-\frac2{x_n}\Bigr)^2\ge0,\qquad x_n-x_{n+1}=\frac{x_n^2-2}{2x_n}\ge0.$$
 
@@ -58,6 +59,7 @@ Die erste Gleichung sagt mit $x_1^2=4$, dass $x_n^2\ge2$ für alle $n$ gilt, die
 $$x=\tfrac12\Bigl(x+\frac2x\Bigr)\quad\Longrightarrow\quad x^2=2\quad\Longrightarrow\quad x=\sqrt2.$$
 
 Zahlen: $x_3=1{,}4167$, $x_4=1{,}414216$, $x_5=1{,}4142135624$. Der Fehler von $x_5$ liegt unter $2\cdot10^{-12}$. Das Heron-Verfahren ist ein gängiger Weg, Wurzeln in digitalen Rechenwerken zu bestimmen.
+::::
 
 **Warum das in $\mathbb{Q}$ scheitert.** Alle Voraussetzungen des Monotonie-Lemmas prüft man innerhalb von $\mathbb{Q}$: Die $x_n$ sind Brüche, sie fallen, und die Schranke 1 ist ein Bruch. Trotzdem gibt es in $\mathbb{Q}$ keinen Grenzwert: Jeder Grenzwert müsste die Gleichung $x^2=2$ erfüllen, und kein Bruch tut das ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Der Beweis des Lemmas bricht genau an einer Stelle: Die Menge $\{x_n\}$ hat in $\mathbb{Q}$ kein Infimum. Zu jeder rationalen unteren Schranke gibt es eine größere. Die Folge läuft auf eine Lücke zu. Deshalb steht in der Definition der Konvergenz $a\in\mathbb{R}$ und deshalb ist die Vollständigkeit keine Formalie: *In $\mathbb{R}$ hat jede monotone beschränkte Folge ein Ziel, in $\mathbb{Q}$ nicht.*
 

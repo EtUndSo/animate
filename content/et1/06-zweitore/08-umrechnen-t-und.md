@@ -51,11 +51,13 @@ Setzt man beide gleich, entstehen $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ und $G_3=Y_
 Zwei Schaltungen, dasselbe Zweitor. Links die T-Schaltung mit 15, 20 und 20 $\Omega$, rechts die gleichwertige $\pi$-Schaltung mit 50, 50 und 66,7 $\Omega$. Beide haben $\det\mathbf Z=1000\,\Omega^2$. An den Toren lassen sie sich durch keine Messung unterscheiden.
 :::
 
-**Beispiel.** Es ist $\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$, also
+::::beispiel
+Es ist $\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$, also
 
 $$\mathbf Y=\frac{1}{1000\,\Omega^2}\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\Omega=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS},$$
 
 genau das Ergebnis der Kurzschlussversuche. Die $\pi$-Schaltung hat $G_2=20$ mS, $G_1=40\,\mathrm{mS}-20\,\mathrm{mS}=20$ mS, $G_3=15$ mS, also 50 $\Omega$, 50 $\Omega$ und 66,7 $\Omega$. Mit derselben Quelle und Last ergibt sie wieder 7,75 V und 3 V.
+::::
 
 ⁠**Grenzfälle: Nicht jede Form existiert.** Ein Längswiderstand $R$ und ein Querwiderstand $R$, jeweils allein zwischen den Toren, haben
 

@@ -28,7 +28,8 @@ $G=S\cdot H$ mit beiden Darstellungen [(7.2)](der-ideale-bandpass-und-sein-aquiv
 
 ⁠**So liest man das:** Der Faktor $\frac12$ gleicht aus, dass $S_T$ und $H_T$ beide verdoppelt wurden. Sonst ist es der gewohnte Faltungssatz, nur für die Hüllkurven. Der Träger muss gar nicht mitgerechnet werden.
 
-**Beispiel: eingeschalteter Kosinus durch den idealen Bandpass.** $s(t)=\varepsilon(t)\cos(2\pi f_0t)$ mit $f_0=10$ Hz, Bandpass mit $\Delta f=2$ Hz um $f_0$. Die Hüllkurve des Eingangs ist $s_T\approx\varepsilon(t)$. (Näherung: Das Spektrum des Sprungs ist nicht auf $f>-f_0$ begrenzt, im Durchlassbereich $|f|\le\Delta f/2\ll f_0$ stimmt es aber.) Mit $h_T=2\Delta f\operatorname{si}(\pi\Delta f\,t)$:
+::::beispiel eingeschalteter Kosinus durch den idealen Bandpass
+$s(t)=\varepsilon(t)\cos(2\pi f_0t)$ mit $f_0=10$ Hz, Bandpass mit $\Delta f=2$ Hz um $f_0$. Die Hüllkurve des Eingangs ist $s_T\approx\varepsilon(t)$. (Näherung: Das Spektrum des Sprungs ist nicht auf $f>-f_0$ begrenzt, im Durchlassbereich $|f|\le\Delta f/2\ll f_0$ stimmt es aber.) Mit $h_T=2\Delta f\operatorname{si}(\pi\Delta f\,t)$:
 
 $$g_T(t)\approx\tfrac12\bigl[\varepsilon(t)*2\Delta f\operatorname{si}(\pi\Delta f\,t)\bigr]=\frac12+\frac1\pi\operatorname{Si}(\pi\Delta f\,t),\qquad g(t)\approx\Bigl[\frac12+\frac1\pi\operatorname{Si}(\pi\Delta f\,t)\Bigr]\cos(2\pi f_0t).$$
 
@@ -37,6 +38,7 @@ Die Hüllkurve ist die Sprungantwort eines idealen Tiefpasses mit $f_\mathrm g=\
 :::abbildung et3/k5bandpass 5
 Antwort des idealen Bandpasses ($f_0=10$ Hz, $\Delta f=2$ Hz) auf einen bei $t=0$ eingeschalteten Kosinus der Mittenfrequenz. Blau das Ausgangssignal, rot die Einhüllende $\pm g_T(t)$. Sie steigt in etwa 0,5 s an und schwingt auf 1,09 über.
 :::
+::::
 
 :::ltspice Eingeschalteter Träger durch einen Schwingkreis
 Einen idealen Bandpass kann man nicht bauen, einen Reihenschwingkreis schon. **Zeichnen:** Quelle `voltage` am Netz `in`, dann in Reihe `ind` mit `{L}`, `cap` mit `{1/((2*pi*f0)**2*L)}` und `res` mit `{2*pi*df*L}` nach Masse. Der Ausgang `out` ist die Spannung am Widerstand. Mit `.param f0=10 df=2 L=1` ist die Mittenfrequenz 10 Hz und die Bandbreite zwischen den $-3$-dB-Punkten 2 Hz.

@@ -57,7 +57,9 @@ Das sind Ankathete und Gegenkathete durch Hypotenuse: Die Reihen sind die Funkti
 (ii): $w:=z/|z|$ hat den Betrag 1, also ist $w=\mathrm{e}^{\mathrm{i}\varphi}$ mit eindeutigem $\varphi$, und $z=|z|\,w$. Die zweite Form ist [(6.1)](die-eulersche-formel.html#gl-6-1).
 :::
 
-**Beispiel: Umrechnen.** Aus [(8.2)](#gl-8-2) folgt $\tan\varphi=y/x$ für $x\ne0$. Die Taste $\arctan$ liefert Werte in $(-\frac\pi2,\frac\pi2)$, den Quadranten bestimmt man selbst. Für $z_1=3+\mathrm{i}$ ist $|z_1|=\sqrt{10}$ und $\varphi_1=\arctan\frac13\approx0{,}3218$ ($18{,}43^\circ$). Für $z_2=1+2\mathrm{i}$ ist $\varphi_2=\arctan2\approx1{,}1071$ ($63{,}43^\circ$). Für $-1-\mathrm{i}$ gibt $\arctan1=\frac\pi4$ den falschen Quadranten, richtig ist $\varphi=\frac\pi4+\pi=\frac54\pi$ und $|z|=\sqrt2$.
+::::beispiel Umrechnen
+Aus [(8.2)](#gl-8-2) folgt $\tan\varphi=y/x$ für $x\ne0$. Die Taste $\arctan$ liefert Werte in $(-\frac\pi2,\frac\pi2)$, den Quadranten bestimmt man selbst. Für $z_1=3+\mathrm{i}$ ist $|z_1|=\sqrt{10}$ und $\varphi_1=\arctan\frac13\approx0{,}3218$ ($18{,}43^\circ$). Für $z_2=1+2\mathrm{i}$ ist $\varphi_2=\arctan2\approx1{,}1071$ ($63{,}43^\circ$). Für $-1-\mathrm{i}$ gibt $\arctan1=\frac\pi4$ den falschen Quadranten, richtig ist $\varphi=\frac\pi4+\pi=\frac54\pi$ und $|z|=\sqrt2$.
+::::
 
 :::satz Satz 8.2 (Multiplikation in Polardarstellung)
 <span class="anker" id="satz-8-2"></span>
@@ -72,7 +74,9 @@ Außerdem ist $\arg(zw)=\varphi+\psi$, falls $\varphi+\psi<2\pi$, sonst $\arg(zw
 
 ⁠**So liest man das:** Beträge multiplizieren, Winkel addieren. $w=\mathrm{i}=\mathrm{e}^{\mathrm{i}\pi/2}$ ist die Vierteldrehung aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html), und $\mathrm{i}^2=-1$ heißt: zweimal $90^\circ$ sind $180^\circ$. Es folgt $z^n=|z|^n\mathrm{e}^{\mathrm{i}n\varphi}$. Konjugieren kehrt den Winkel um. Der Beweis ist [(8.1)](#gl-8-1) und die Funktionalgleichung, bei $1/z$ die Probe $z\cdot\frac1{|z|}\mathrm{e}^{-\mathrm{i}\varphi}=1$.
 
-**Beispiel.** $z_1z_2=\sqrt{10}\sqrt5\,\mathrm{e}^{\mathrm{i}(0{,}3218+1{,}1071)}=\sqrt{50}\,\mathrm{e}^{1{,}4289\,\mathrm{i}}$, und $\sqrt{50}\cos1{,}4289=1$, $\sqrt{50}\sin1{,}4289=7$. Das ist $1+7\mathrm{i}$ aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Potenzen werden kurz: $(1+\mathrm{i})^8=(\sqrt2)^8\,\mathrm{e}^{8\mathrm{i}\pi/4}=16\,\mathrm{e}^{2\pi\mathrm{i}}=16$.
+::::beispiel
+$z_1z_2=\sqrt{10}\sqrt5\,\mathrm{e}^{\mathrm{i}(0{,}3218+1{,}1071)}=\sqrt{50}\,\mathrm{e}^{1{,}4289\,\mathrm{i}}$, und $\sqrt{50}\cos1{,}4289=1$, $\sqrt{50}\sin1{,}4289=7$. Das ist $1+7\mathrm{i}$ aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Potenzen werden kurz: $(1+\mathrm{i})^8=(\sqrt2)^8\,\mathrm{e}^{8\mathrm{i}\pi/4}=16\,\mathrm{e}^{2\pi\mathrm{i}}=16$.
+::::
 
 :::satz Satz 8.3 (Rechenregeln in $\mathbb{C}$, Zusammenfassung)
 <span class="anker" id="satz-8-3"></span>

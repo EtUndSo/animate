@@ -25,11 +25,13 @@ $$P_s(x)=\mathrm{Prob}[s(t)\le x],\qquad p_s(x)=\frac{\mathrm{d} P_s(x)}{\mathrm
 <span class="anker" id="gl-5-2"></span>
 $$m_s=\int x\,p_s(x)\,\mathrm{d} x,\qquad L_s=\int x^2p_s(x)\,\mathrm{d} x,\qquad\mathrm E\{F[s]\}=\int F(x)\,p_s(x)\,\mathrm{d} x. \tag{5.2}$$
 
-**Example: uniform distribution.** All values in an interval of width $a$ around $m_s$ are equally likely: $p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$. Then
+::::beispiel uniform distribution
+All values in an interval of width $a$ around $m_s$ are equally likely: $p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$. Then
 
 $$L_s=\frac1a\int_{m_s-a/2}^{m_s+a/2}x^2\mathrm{d} x=\frac{a^2}{12}+m_s^2,\qquad\sigma_s^2=\frac{a^2}{12}.$$
 
 The random numbers of the reference model ($a=1$, $m_s=0$) have the variance $\frac1{12}=0.0833$.
+::::
 
 **Characteristic curves.** If a signal passes through a characteristic curve (transfer characteristic) $y=k(x)$ (amplifier with saturation, rectifier, quantizer), its distribution changes. For a monotonic characteristic, the probability of every interval is preserved:
 

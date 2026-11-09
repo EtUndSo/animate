@@ -93,7 +93,11 @@ $z+\overline{z}=2\operatorname{Re}(z)$ and $z-\overline{z}=2\mathrm{i}\operatorn
 (vii): $(x+\mathrm{i}y)+(x-\mathrm{i}y)=2x$ and $(x+\mathrm{i}y)-(x-\mathrm{i}y)=2\mathrm{i}y$.
 :::
 
-**Example.** For $z_1$, we have $\overline{z_1}=3-\mathrm{i}$, $z_1\overline{z_1}=9+1=10$, $z_1+\overline{z_1}=6=2\cdot3$ and $z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$. Check of (iv): $\overline{z_1z_2}=1-7\mathrm{i}$ and $\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$. **Limiting case:** For $y=0$, $\overline{z}=z$ and $z\overline{z}=x^2$. Real numbers lie on the mirror axis and do not change.
+::::beispiel
+For $z_1$, we have $\overline{z_1}=3-\mathrm{i}$, $z_1\overline{z_1}=9+1=10$, $z_1+\overline{z_1}=6=2\cdot3$ and $z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$. Check of (iv): $\overline{z_1z_2}=1-7\mathrm{i}$ and $\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$.
+::::
+
+⁠**Limiting case:** For $y=0$, $\overline{z}=z$ and $z\overline{z}=x^2$. Real numbers lie on the mirror axis and do not change.
 
 :::frage Isn't $z\overline{z}$ the same as $z^2$?
 Only for real $z$. In $z^2$ the cross terms add up to $2\mathrm{i}xy$; in $z\overline{z}$ they cancel. In the reference model, $z_2^2=-3+4\mathrm{i}$, but $z_2\overline{z_2}=5$.

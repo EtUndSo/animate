@@ -116,7 +116,11 @@ From [(1.4)](#gl-1-4) with $v_0=0$ and $s_0=0$ it follows that $t=v/a$ and $s=\f
 A backpack of 2 kg is carried from A to B, 8 m sideways and 6 m up. On the stairs, only the red pieces count, 6 m in total. On the ramp, the path is 10 m long and $\cos\alpha=0.6$. Both paths give 117.7 J.
 :::
 
-**Example.** The __weight__ $F_\mathrm{G}=m\,g=19.62\,\mathrm{N}$ acts on the backpack. To lift it steadily, the hand applies the same force upward. Over the stairs, $W=19.62\,\mathrm{N}\cdot6\,\mathrm{m}=117.7\,\mathrm{J}$; over the ramp, $W=19.62\,\mathrm{N}\cdot10\,\mathrm{m}\cdot0.6=117.7\,\mathrm{J}$. The hand does $+117.7$ J of work, the weight $-117.7$ J. The energy is then stored in the height, as __potential energy__: if the backpack falls, it becomes kinetic energy. This pair, work of the field force and work from outside, returns in Stage [6](arbeit-im-feld.html#stufe-6). **Limiting cases:** $\alpha=0$ gives $\Delta W=F\,\Delta s$, $\alpha=90^\circ$ gives $\Delta W=0$.
+::::beispiel
+The __weight__ $F_\mathrm{G}=m\,g=19.62\,\mathrm{N}$ acts on the backpack. To lift it steadily, the hand applies the same force upward. Over the stairs, $W=19.62\,\mathrm{N}\cdot6\,\mathrm{m}=117.7\,\mathrm{J}$; over the ramp, $W=19.62\,\mathrm{N}\cdot10\,\mathrm{m}\cdot0.6=117.7\,\mathrm{J}$. The hand does $+117.7$ J of work, the weight $-117.7$ J. The energy is then stored in the height, as __potential energy__: if the backpack falls, it becomes kinetic energy. This pair, work of the field force and work from outside, returns in Stage [6](arbeit-im-feld.html#stufe-6).
+::::
+
+⁠**Limiting cases:** $\alpha=0$ gives $\Delta W=F\,\Delta s$, $\alpha=90^\circ$ gives $\Delta W=0$.
 
 :::frage Carrying something horizontally still makes your arm tired. Is no work being done there?
 Not on the backpack: it gains neither height nor speed. The muscle consumes energy all the same, because its fibers keep tensing anew. That energy turns into heat in the body and never reaches the backpack.

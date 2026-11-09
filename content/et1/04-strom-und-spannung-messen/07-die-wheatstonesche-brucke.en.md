@@ -36,7 +36,9 @@ Without a cross current, the node rule gives $I_1=I_2$ and $I_3=I_4$. Equal pote
 $$\frac{U_{R4}}{U_{R3}}=\frac{U_{R2}}{U_{R1}} \quad\Rightarrow\quad \frac{I_4R_4}{I_3R_3}=\frac{I_2R_2}{I_1R_1} \quad\Rightarrow\quad \frac{R_4}{R_3}=\frac{R_2}{R_1}.$$
 :::
 
-**Example.** With $R_2/R_1=1.8$ and $R_3=1$ k$\Omega$, the pointer is at zero at $R_4=1800\,\Omega$, and both midpoints are at 5.786 V. If $R_3$ and the ratio are each accurate to 0.1 %, $R_4$ is accurate to $\pm0.2\,\%$, more than 15 times better than $U/I$. The accuracy now comes from resistors, and these can be made far more precisely than pointer scales.
+::::beispiel
+With $R_2/R_1=1.8$ and $R_3=1$ k$\Omega$, the pointer is at zero at $R_4=1800\,\Omega$, and both midpoints are at 5.786 V. If $R_3$ and the ratio are each accurate to 0.1 %, $R_4$ is accurate to $\pm0.2\,\%$, more than 15 times better than $U/I$. The accuracy now comes from resistors, and these can be made far more precisely than pointer scales.
+::::
 
 ⁠**Limiting case:** As $R_4$ grows, the right midpoint runs from 0 to $U_\mathrm q$. The voltage across the instrument changes sign exactly once, so there is exactly one balance position.
 

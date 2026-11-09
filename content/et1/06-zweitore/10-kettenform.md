@@ -43,7 +43,8 @@ $$\begin{pmatrix}U_1'\\I_1'\end{pmatrix}=\mathbf A'\begin{pmatrix}U_2'\\-I_2'\en
 Oben: Zwei Zweitore in Kette. Ausgang des ersten und Eingang des zweiten teilen Spannung und Strom. Unten: Das T-Zweitor als Kette aus drei Elementarzweitoren, Längswiderstand, Querleitwert, Längswiderstand.
 :::
 
-**Beispiel.** Die einfachsten Bausteine sind der Längswiderstand und der Querleitwert. Beim Längswiderstand ist $U_1=U_2+R(-I_2)$ und $I_1=-I_2$, beim Querleitwert $U_1=U_2$ und $I_1=G\,U_2+(-I_2)$:
+::::beispiel
+Die einfachsten Bausteine sind der Längswiderstand und der Querleitwert. Beim Längswiderstand ist $U_1=U_2+R(-I_2)$ und $I_1=-I_2$, beim Querleitwert $U_1=U_2$ und $I_1=G\,U_2+(-I_2)$:
 
 $$\mathbf A_R=\begin{pmatrix}1&R\\0&1\end{pmatrix},\qquad \mathbf A_G=\begin{pmatrix}1&0\\G&1\end{pmatrix}.$$
 
@@ -52,6 +53,7 @@ Das T-Zweitor ist eine Kette aus $R_\mathrm{a}$, $G_\mathrm{b}=1/R_\mathrm{b}=50
 $$\mathbf A=\begin{pmatrix}1&15\,\Omega\\0&1\end{pmatrix}\begin{pmatrix}1&0\\50\,\mathrm{mS}&1\end{pmatrix}\begin{pmatrix}1&20\,\Omega\\0&1\end{pmatrix}=\begin{pmatrix}1{,}75&50\,\Omega\\50\,\mathrm{mS}&2\end{pmatrix}.$$
 
 Rückwärts von der Last, mit $U_2=3$ V und $-I_2=50$ mA: $U_1=5{,}25\,\mathrm{V}+2{,}5\,\mathrm{V}=7{,}75$ V und $I_1=150\,\mathrm{mA}+100\,\mathrm{mA}=250$ mA. Das sind die Werte aus Stufe [4](das-zweitor-im-betrieb.html#stufe-4), ohne Gleichungssystem.
+::::
 
 Die gleichwertige $\pi$-Schaltung mit den Querleitwerten $G_1$, $G_3$ und dem Längsleitwert $G_2$ ergibt allgemein
 

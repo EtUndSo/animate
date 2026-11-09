@@ -21,9 +21,11 @@ Eine endliche Summe ändert sich nicht, wenn man die Summanden vertauscht. Für 
 Sei $k:\mathbb{N}\to\mathbb{N}$ eine __Bijektion__, also eine Zuordnung, die jede natürliche Zahl genau einmal trifft ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)). Dann heißt $\sum_{n=1}^\infty a_{k(n)}$ eine Umordnung von $\sum_{n=1}^\infty a_n$.
 :::
 
-**Beispiel.** Dieselben Glieder wie bei $L_N$, aber immer zwei positive vor einem negativen:
+::::beispiel
+Dieselben Glieder wie bei $L_N$, aber immer zwei positive vor einem negativen:
 
 $$T:\quad1+\frac13-\frac12+\frac15+\frac17-\frac14+\frac19+\frac1{11}-\frac16+\dots$$
+::::
 
 ⁠**So liest man das:** $k(n)$ ist die alte Platznummer des Glieds, das jetzt auf Platz $n$ steht. Hier ist $k(1)=1$, $k(2)=3$, $k(3)=2$, $k(4)=5$. Jedes Glied kommt genau einmal vor. Die Teilsummen $T_N$ lauten $1;\ 1{,}333;\ 0{,}833;\ 1{,}033;\ 1{,}176;\ 0{,}926;\ \dots$ und laufen nicht zu $\log2$ (Abb. [9](#abb-9)): $T_{30}=1{,}0152$, $T_{300}=1{,}0372$, $T_{3000}=1{,}0395$.
 
@@ -58,7 +60,11 @@ Sei $\sum_{n=1}^\infty a_n$ absolut konvergent und $k:\mathbb{N}\to\mathbb{N}$ e
 Sei $\varepsilon>0$. Das Cauchy-Kriterium für $\sum|a_n|$ gibt ein $N_1$, so dass jede endliche Summe von Beträgen $|a_n|$ mit Indizes $n>N_1$ kleiner als $\varepsilon$ ist. Wähle $P\ge N_1$ so groß, dass $1,\dots,N_1$ unter $k(1),\dots,k(P)$ vorkommen. Für $M\ge P$ heben sich in $\sum_{n=1}^Ma_{k(n)}-\sum_{n=1}^Ma_n$ alle Glieder mit Index bis $N_1$ auf. Übrig bleiben zwei Summen über verschiedene Indizes oberhalb von $N_1$, also ist der Unterschied kleiner als $2\varepsilon$. Er geht gegen 0, beide Reihen haben denselben Grenzwert.
 :::
 
-**Beispiel.** $\sum_{n=0}^\infty(-\frac12)^n=\frac23$ ist absolut konvergent. Die Umordnung $1+\frac14-\frac12+\frac1{16}+\frac1{64}-\frac18+\dots$ hat nach 3, 6 und 9 Gliedern die Werte $0{,}75$, $0{,}703$ und $0{,}677$ und strebt wieder gegen $\frac23$. Die positiven Glieder ergeben für sich $\frac43$, die negativen $\frac23$. Beide Vorräte sind endlich, und $\frac43-\frac23$ hängt von keiner Reihenfolge ab. **Grenzfall:** Vertauscht man nur endlich viele Glieder, ändert sich keine Teilsumme ab einem Index, das ist auch bei bedingter Konvergenz erlaubt.
+::::beispiel
+$\sum_{n=0}^\infty(-\frac12)^n=\frac23$ ist absolut konvergent. Die Umordnung $1+\frac14-\frac12+\frac1{16}+\frac1{64}-\frac18+\dots$ hat nach 3, 6 und 9 Gliedern die Werte $0{,}75$, $0{,}703$ und $0{,}677$ und strebt wieder gegen $\frac23$. Die positiven Glieder ergeben für sich $\frac43$, die negativen $\frac23$. Beide Vorräte sind endlich, und $\frac43-\frac23$ hängt von keiner Reihenfolge ab.
+::::
+
+⁠**Grenzfall:** Vertauscht man nur endlich viele Glieder, ändert sich keine Teilsumme ab einem Index, das ist auch bei bedingter Konvergenz erlaubt.
 
 :::frage Ist Umordnen nicht dasselbe wie Klammern setzen?
 Nein. Klammern ändert die Reihenfolge nicht, es liest nur seltener ab. Es ist in jeder konvergenten Reihe erlaubt. Umordnen ändert die Reihenfolge und ist nur bei absoluter Konvergenz harmlos.

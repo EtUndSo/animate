@@ -63,7 +63,9 @@ Links steht nur $t$, rechts nur $x$. Beide können für alle $x$ und $t$ nur gle
 Stationärer Zustand, Beispiel stehende Welle. Links: An festem Ort dreht sich der Zeiger $\Psi$ mit $\omega=E/\hbar$ im Uhrzeigersinn, seine Länge bleibt. Rechts oben: Der Realteil schwingt. Rechts unten: Das Betragsquadrat hängt nicht von der Zeit ab.
 :::
 
-**Beispiel.** Bei $E=1$ eV ist $\omega=E/\hbar=1{,}52\cdot10^{15}\,\mathrm{s^{-1}}$, der Zeiger dreht sich in 4,14 fs einmal. Keine Messung an $|\Psi|^2$ sieht diese Drehung.
+::::beispiel
+Bei $E=1$ eV ist $\omega=E/\hbar=1{,}52\cdot10^{15}\,\mathrm{s^{-1}}$, der Zeiger dreht sich in 4,14 fs einmal. Keine Messung an $|\Psi|^2$ sieht diese Drehung.
+::::
 
 **Was man damit berechnet.** Aus den Lösungen folgen die Energie der Elektronen und die Zahl der Zustände je Energie, die Aufenthaltswahrscheinlichkeit und damit die Elektronendichte, der Transport, also die Stromdichte, und der Drehimpuls mit seinem magnetischen Moment.
 

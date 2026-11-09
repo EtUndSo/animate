@@ -54,7 +54,9 @@ Warum $x^2=2$: Aus $a_n\le x\le b_n$ folgt nach Satz [4.2](anordnungsaxiome.htm
 ⁠*Produktregel:* $\sqrt x\sqrt y\ge0$ und $(\sqrt x\sqrt y)^2=xy$ (M1, M2), und die nicht negative Lösung ist eindeutig.
 :::
 
-**Beispiel.** Nach sechs Schritten ist $1{,}40625\le\sqrt2\le1{,}4375$, Breite $2^{-5}=0{,}03125$. Dezimalzahlen sind dieselbe Idee mit zehn statt zwei Teilen: Jede Ziffer schränkt das Intervall auf ein Zehntel ein. Deshalb hat jede reelle Zahl eine Darstellung [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1).
+::::beispiel
+Nach sechs Schritten ist $1{,}40625\le\sqrt2\le1{,}4375$, Breite $2^{-5}=0{,}03125$. Dezimalzahlen sind dieselbe Idee mit zehn statt zwei Teilen: Jede Ziffer schränkt das Intervall auf ein Zehntel ein. Deshalb hat jede reelle Zahl eine Darstellung [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1).
+::::
 
 :::frage Es reicht doch, $\sqrt2$ vom Taschenrechner abzulesen. Wozu der Aufwand?
 Für jeden Zahlenwert reicht das. Der Rechner zeigt aber einen Bruch, $1{,}414213562$, dessen Quadrat nicht 2 ist. Die Frage hier lautet: Gibt es überhaupt eine Zahl mit Quadrat genau 2? In $\mathbb{Q}$ nein, in $\mathbb{R}$ ja, und dieser Unterschied trägt später Grenzwerte und Stetigkeit.

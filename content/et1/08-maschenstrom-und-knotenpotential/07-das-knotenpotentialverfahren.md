@@ -90,7 +90,8 @@ Am Knoten $\mu$ fließt über jeden Leitwert $G_a$ zum Nachbarn $\nu$ der Strom 
 Links: das Rechenmodell für das Knotenpotentialverfahren, die Batterie ist in eine Stromquelle umgewandelt. Rechts: Die Quellen sind entfernt, Knoten 1 liegt auf 1 V, Knoten 2 auf 0 V. Über $G_1$, $G_2$, $G_3$ fließen $1+0{,}25+0{,}5=1{,}75$ mA ab, das ist $Y_{11}$. Die 0,5 mA kommen an Knoten 2 an und müssen dort entnommen werden, das ist $Y_{21}=-0{,}5$ mS.
 :::
 
-**Beispiel.** Links wird $I_\mathrm{q1}=U_\mathrm q/R_1=9$ mA mit $G_1=1$ mS parallel. Die Leitwerte sind $G_2=0{,}25$ mS, $G_3=0{,}5$ mS, $G_4=0{,}1$ mS und $G_5=0{,}2$ mS (Abb. [5](#abb-5)). Die Knotenregeln lauten
+::::beispiel
+Links wird $I_\mathrm{q1}=U_\mathrm q/R_1=9$ mA mit $G_1=1$ mS parallel. Die Leitwerte sind $G_2=0{,}25$ mS, $G_3=0{,}5$ mS, $G_4=0{,}1$ mS und $G_5=0{,}2$ mS (Abb. [5](#abb-5)). Die Knotenregeln lauten
 
 $$\begin{aligned} \text{Knoten 1:}\quad&(G_1+G_2)\,U_1+G_3\,(U_1-U_2)-I_\mathrm{q1}=0,\\ \text{Knoten 2:}\quad&G_3\,(U_2-U_1)+(G_4+G_5)\,U_2-I_\mathrm q=0. \end{aligned}$$
 
@@ -100,7 +101,10 @@ $$\begin{pmatrix}G_1+G_2+G_3&-G_3\\-G_3&G_3+G_4+G_5\end{pmatrix}\begin{pmatrix}U
 
 Mit $D=1{,}4-0{,}25=1{,}15$, $D_1=7{,}2+2=9{,}2$ und $D_2=7+4{,}5=11{,}5$ folgen $U_1=8$ V und $U_2=10$ V. Das ist dasselbe Ergebnis wie aus den drei Maschen, mit einer $2\times2$- statt einer $3\times3$-Rechnung.
 
-Die Ströme kommen aus den Differenzen, und zwar im *ursprünglichen* Netz: $(U_\mathrm q-U_1)/R_1=1$ mA, $U_1/R_2=2$ mA, $(U_2-U_1)/R_3=1$ mA, $U_2/R_4=1$ mA, $U_2/R_5=2$ mA. **Kontrollen:** An Knoten 2 sind $4=1+1+2$ mA. Die Quellen liefern $9\,\mathrm{V}\cdot1\,\mathrm{mA}+10\,\mathrm{V}\cdot4\,\mathrm{mA}=49$ mW, die Widerstände nehmen $1+16+2+10+20=49$ mW auf. **Grenzfall:** Für $G_3\to0$ verschwindet die Nebendiagonale, und beide Seiten rechnen getrennt (Aufgabe [7](#aufg-7)).
+Die Ströme kommen aus den Differenzen, und zwar im *ursprünglichen* Netz: $(U_\mathrm q-U_1)/R_1=1$ mA, $U_1/R_2=2$ mA, $(U_2-U_1)/R_3=1$ mA, $U_2/R_4=1$ mA, $U_2/R_5=2$ mA. **Kontrollen:** An Knoten 2 sind $4=1+1+2$ mA. Die Quellen liefern $9\,\mathrm{V}\cdot1\,\mathrm{mA}+10\,\mathrm{V}\cdot4\,\mathrm{mA}=49$ mW, die Widerstände nehmen $1+16+2+10+20=49$ mW auf.
+::::
+
+⁠**Grenzfall:** Für $G_3\to0$ verschwindet die Nebendiagonale, und beide Seiten rechnen getrennt (Aufgabe [7](#aufg-7)).
 
 :::frage In $\mathbf Z$ hängt das Vorzeichen von den Pfeilen ab. Warum steht in $\mathbf Y$ immer ein Minus?
 Maschenströme haben eine Richtung, die man wählt, also auch zwei Möglichkeiten im gemeinsamen Zweig. Knotenpotentiale haben keine Richtung, alle zählen zum selben Bezugsknoten. Am Leitwert zwischen zwei Knoten steht deshalb immer die Differenz, und das fremde Potenzial trägt immer ein Minus.

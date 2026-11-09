@@ -40,7 +40,11 @@ gilt beim Sprung ins Leitungsband $E_\mathrm{nach}-E_\mathrm{vor}=E_\mathrm{Ph}$
 
 ⁠**So liest man das:** Bei direkter Lücke ist $E_\mathrm g$ die kleinste Photonenenergie, die ein Elektron hebt. Bei indirekter Lücke muss zusätzlich ein __Phonon__ mitwirken, ein Energiequant der Gitterschwingung. Es liefert den Unterschied $\boldsymbol k_\mathrm C-\boldsymbol k_\mathrm V$, und seine Energie ist mit einigen 10 meV klein gegen $E_\mathrm g$. Das erklärt die schlechte Ausbeute: Elektron, leerer Zustand und Phonon müssen zusammentreffen, das ist viel seltener als der direkte Sprung. In Silizium gibt ein Elektron seine Energie deshalb meist als Wärme ab.
 
-**Beispiel.** In GaAs gehört zu $E_\mathrm g=1{,}42$ eV die Wellenlänge $\lambda=873$ nm, nahes Infrarot. Dann ist $k_\mathrm{Ph}=0{,}0072\,\mathrm{nm^{-1}}$, 1545-mal weniger als $2\pi/a=11{,}11\,\mathrm{nm^{-1}}$. In Silizium ist $\lambda=1107$ nm und $k_\mathrm{Ph}=0{,}0057\,\mathrm{nm^{-1}}$, der Abstand der Kanten aber $9{,}83\,\mathrm{nm^{-1}}$, also 1733-mal mehr. Deshalb baut man Leuchtdioden und Laser aus GaAs und verwandten Stoffen. **Grenzfall:** Rückt $\boldsymbol k_\mathrm C$ nach $\boldsymbol k_\mathrm V$, entfällt das Phonon, und die Lücke wird direkt.
+::::beispiel
+In GaAs gehört zu $E_\mathrm g=1{,}42$ eV die Wellenlänge $\lambda=873$ nm, nahes Infrarot. Dann ist $k_\mathrm{Ph}=0{,}0072\,\mathrm{nm^{-1}}$, 1545-mal weniger als $2\pi/a=11{,}11\,\mathrm{nm^{-1}}$. In Silizium ist $\lambda=1107$ nm und $k_\mathrm{Ph}=0{,}0057\,\mathrm{nm^{-1}}$, der Abstand der Kanten aber $9{,}83\,\mathrm{nm^{-1}}$, also 1733-mal mehr. Deshalb baut man Leuchtdioden und Laser aus GaAs und verwandten Stoffen.
+::::
+
+⁠**Grenzfall:** Rückt $\boldsymbol k_\mathrm C$ nach $\boldsymbol k_\mathrm V$, entfällt das Phonon, und die Lücke wird direkt.
 
 **Täler in GaAs.** Das unterste Tal liegt bei $\Gamma$ und ist kugelförmig, mit der kleinen Masse $m^*=0{,}067\,m_0$. Rund 0,29 eV höher folgt ein Minimum bei $L$, rund 0,48 eV höher eines bei $X$. Knapp über $E_\mathrm C$ ist die Fläche konstanter Energie also eine Kugel um $\Gamma$, erst höher kommen Ellipsoide bei $L$ und dann bei $X$ hinzu. Die Wärmeenergie $k_\mathrm BT=26$ meV ist elfmal kleiner als der erste Abstand: Bei Raumtemperatur bleiben die Elektronen im $\Gamma$-Tal.
 

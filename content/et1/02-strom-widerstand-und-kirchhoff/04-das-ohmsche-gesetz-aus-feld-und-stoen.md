@@ -49,7 +49,11 @@ $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}
 | Aluminium | 2,8 | 36 | Konstantan | 50 | 2 |
 | Wolfram | 5,5 | 18 | Kohle | 5000 bis 10000 | 0,02 bis 0,01 |
 
-**Beispiel.** Der Draht hat $R=\rho\,L/A=34\,\mathrm{m\Omega}$. Bei 3 mA fallen an ihm 0,10 mV ab, das ist $1{,}1\cdot10^{-5}$ der 9 V. Das begründet, warum Schaltpläne Drähte als ideal zeichnen, ohne Spannung längs des Drahts. Dieselbe Rechnung zeigt, warum Widerstände nicht aus Kupfer sind: $2\,\mathrm{k\Omega}$ bräuchten bei $0{,}01\,\mathrm{mm^2}$ Querschnitt 1,2 km Kupfer, aber nur 40 m Konstantan. **Grenzfälle:** Doppelte Länge halbiert bei gleicher Spannung das Feld und damit den Strom. Doppelter Querschnitt wirkt wie zwei Drähte nebeneinander, der Strom verdoppelt sich. $U=0$ ergibt $I=0$.
+::::beispiel
+Der Draht hat $R=\rho\,L/A=34\,\mathrm{m\Omega}$. Bei 3 mA fallen an ihm 0,10 mV ab, das ist $1{,}1\cdot10^{-5}$ der 9 V. Das begründet, warum Schaltpläne Drähte als ideal zeichnen, ohne Spannung längs des Drahts. Dieselbe Rechnung zeigt, warum Widerstände nicht aus Kupfer sind: $2\,\mathrm{k\Omega}$ bräuchten bei $0{,}01\,\mathrm{mm^2}$ Querschnitt 1,2 km Kupfer, aber nur 40 m Konstantan.
+::::
+
+⁠**Grenzfälle:** Doppelte Länge halbiert bei gleicher Spannung das Feld und damit den Strom. Doppelter Querschnitt wirkt wie zwei Drähte nebeneinander, der Strom verdoppelt sich. $U=0$ ergibt $I=0$.
 
 **Wohin die Energie geht.** Bei jedem Stoß gibt das Elektron die im Feld gewonnene Bewegungsenergie an das Gitter ab. Das Gitter schwingt stärker, und das ist Wärme. Jedes Coulomb gibt die Energie $U$ in Joule ab, je Sekunde laufen $I$ Coulomb durch. Die __Leistung__, die Energie je Zeit, ist daher $P=U\,I=R\,I^2$. Die Kette setzt $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW um. [Teil 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) behandelt die Leistung genauer.
 

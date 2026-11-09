@@ -36,7 +36,9 @@ Faraday también mostró la inducción sin imán: enrolló dos bobinas en un ani
 
 **Las ecuaciones de Maxwell en palabras.** Las ecuaciones en sí requieren más matemáticas, pero su contenido cabe en cuatro frases. La __densidad de flujo__ es aquí la medida de la densidad de las líneas de campo. **Ley de Gauss para campos eléctricos:** Las cargas son fuentes y sumideros de la densidad de flujo eléctrico. **Ley de Gauss para el magnetismo:** La densidad de flujo magnético no tiene fuentes; sus líneas son cerradas. **Ley de inducción:** Las variaciones temporales del flujo magnético producen un campo eléctrico rotacional. **Ley de Ampère:** Las corrientes y las variaciones temporales del campo eléctrico producen un campo magnético rotacional.
 
-**Ejemplo.** El imán de la fig. [12](#abb-12) cambia el flujo a través de la bobina con $N=500$ de manera uniforme en 0,2 mWb en 25 ms. La tensión es entonces constante: $|U_\mathrm{ind}|=500\cdot0{,}2\,\mathrm{mWb}/25\,\mathrm{ms}=4$ V. Durante ese tiempo, la integral de $\vec E$ alrededor del flujo no es cero, y la tensión entre dos puntos depende de por qué lado del flujo pasa el camino.
+::::beispiel
+El imán de la fig. [12](#abb-12) cambia el flujo a través de la bobina con $N=500$ de manera uniforme en 0,2 mWb en 25 ms. La tensión es entonces constante: $|U_\mathrm{ind}|=500\cdot0{,}2\,\mathrm{mWb}/25\,\mathrm{ms}=4$ V. Durante ese tiempo, la integral de $\vec E$ alrededor del flujo no es cero, y la tensión entre dos puntos depende de por qué lado del flujo pasa el camino.
+::::
 
 ⁠**Casos límite:** Con flujo constante, $u_\mathrm{ind}=0$; un imán en reposo no crea tensión. En la mayoría de los circuitos, los flujos variables están casi por completo en las bobinas. Entre los componentes, el campo sigue siendo prácticamente irrotacional; por eso los potenciales y las tensiones siguen siendo allí la herramienta.
 

@@ -43,7 +43,9 @@ Sei $M\subset\mathbb{R}$. $x_0\in\mathbb{R}$ heißt Häufungspunkt der Menge $M$
 
 ⁠**So liest man das:** $n_k$ wählt aus, die Reihenfolge bleibt, und es ist $n_k\ge k$. Beim Grenzwert liegen *alle bis auf endlich viele* Glieder im Schlauch, beim Häufungspunkt nur *unendlich viele*. Ein Wert muss dabei gar nicht angenommen werden. In (i) zählt ein Wert mehrfach, weil die Glieder Plätze haben, in (ii) zählt jedes Element einmal. Endlich viele Glieder ändern wie beim Grenzwert nichts. Für (ii) reicht schon *ein* Element in jeder punktierten Umgebung: Zu einem Element $m$ nimmt man $\tilde\varepsilon=\frac12|m-x_0|$ und findet ein weiteres, und so fort. Gleichbedeutend: Es gibt eine Folge in $M\setminus\{x_0\}$, die gegen $x_0$ läuft.
 
-**Beispiele.** $q_n=(-1)^n\frac n{n+1}$, also $-\frac12;\ \frac23;\ -\frac34;\ \frac45;\ \dots$, hat die Häufungspunkte $\pm1$, die Menge $\{q_n\}$ ebenso. Auch die Folge $(-1)^n$ hat sie, ihre Wertemenge $\{-1,1\}$ aber nicht: Endliche Mengen haben keinen Häufungspunkt. Die Menge $[0,1]\cap\mathbb{Q}$ hat jeden Punkt von $[0,1]$ als Häufungspunkt, denn jedes Intervall enthält Brüche.
+::::beispiel [Beispiele]
+$q_n=(-1)^n\frac n{n+1}$, also $-\frac12;\ \frac23;\ -\frac34;\ \frac45;\ \dots$, hat die Häufungspunkte $\pm1$, die Menge $\{q_n\}$ ebenso. Auch die Folge $(-1)^n$ hat sie, ihre Wertemenge $\{-1,1\}$ aber nicht: Endliche Mengen haben keinen Häufungspunkt. Die Menge $[0,1]\cap\mathbb{Q}$ hat jeden Punkt von $[0,1]$ als Häufungspunkt, denn jedes Intervall enthält Brüche.
+::::
 
 :::satz Satz 6.3 (Häufungspunkte und Teilfolgen)
 <span class="anker" id="satz-6-3"></span>

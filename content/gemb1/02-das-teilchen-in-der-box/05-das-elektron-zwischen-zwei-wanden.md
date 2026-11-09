@@ -80,7 +80,11 @@ Rechenmodell $L=2$ nm. Oben links: Niveaus $E_1=94$ meV, $E_2=376$ meV, $E
 
 Der tiefste Zustand heißt Grundzustand, seine Energie $E_1>0$ __Nullpunktsenergie__: Ein eingesperrtes Teilchen ruht nie. Der Grund ist die Krümmung: Eine Funktion, die an beiden Wänden null und dazwischen nicht null ist, muss gekrümmt sein, und Krümmung ist kinetische Energie. Drei Abhängigkeiten sind zu merken. Aus $E_n\propto n^2$ folgt der Abstand $E_{n+1}-E_n=(2n+1)E_1$, die Niveaus rücken nach oben auseinander. Aus $E_n\propto1/L^2$ folgt: Halbe Box, vierfache Energie. Aus $E_n\propto1/m$ folgt: Leichte Teilchen zeigen die Quantisierung stärker.
 
-**Beispiel.** Im Rechenmodell ist $E_1=0{,}376\,\mathrm{eV\,nm^2}/(2\,\mathrm{nm})^2=94$ meV, $E_2=4E_1=376$ meV, $E_3=9E_1=846$ meV. Dieselbe Formel gibt für $L=50$ nm nur 0,15 meV, für $L=0{,}2$ nm, also Atomgröße, schon 9,4 eV. **Grenzfälle:** Für $L\to\infty$ gehen alle Abstände gegen null, das Spektrum wird kontinuierlich wie beim freien Elektron. Für $n\to\infty$ schwingt $|\psi_n|^2$ so schnell, dass kein Messgerät die Berge trennt. Es bleibt der Mittelwert $1/L$, genau die klassische Gleichverteilung. Diese Übereinstimmung heißt __Korrespondenzprinzip__.
+::::beispiel
+Im Rechenmodell ist $E_1=0{,}376\,\mathrm{eV\,nm^2}/(2\,\mathrm{nm})^2=94$ meV, $E_2=4E_1=376$ meV, $E_3=9E_1=846$ meV. Dieselbe Formel gibt für $L=50$ nm nur 0,15 meV, für $L=0{,}2$ nm, also Atomgröße, schon 9,4 eV.
+::::
+
+⁠**Grenzfälle:** Für $L\to\infty$ gehen alle Abstände gegen null, das Spektrum wird kontinuierlich wie beim freien Elektron. Für $n\to\infty$ schwingt $|\psi_n|^2$ so schnell, dass kein Messgerät die Berge trennt. Es bleibt der Mittelwert $1/L$, genau die klassische Gleichverteilung. Diese Übereinstimmung heißt __Korrespondenzprinzip__.
 
 :::frage $\psi_n$ hat an der Wand einen Knick. Muss $\psi$ nicht glatt sein?
 Ein Knick bedeutet dort eine unendliche zweite Ableitung. Im Inneren wäre das unmöglich, denn in [(0.1)](von-grund-auf-was-aus-teil-1-gebraucht-wird.html#gl-0-1) steht sonst nichts Unendliches, was sie ausgleicht. An der unendlich hohen Wand ist $V$ selbst unendlich, und nur dort ist der Knick erlaubt.

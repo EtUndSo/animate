@@ -44,7 +44,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 
 Determinantın mutlak değeri, sütunların gerdiği paralelkenarın alanı, yani $\mathbf{A}$ matrisinin birim karenin alanını değiştirdiği çarpandır. Bu, [(11.2)](einheitsmatrix-und-inverse.html#gl-11-2) formülündeki tersin paydasında duran sayının ta kendisidir.
 
-⁠**Sayısal örnek:** $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ ve $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. Germe, karenin biçimini değiştirir, ama alanını değiştirmez: Eni ne kadar uzatıyorsa boyu o kadar kısaltır.
+::::beispiel [Sayısal örnek]
+$\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ ve $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. Germe, karenin biçimini değiştirir, ama alanını değiştirmez: Eni ne kadar uzatıyorsa boyu o kadar kısaltır.
+::::
 
 ⁠**Kısacası:** $2\times2$ tipinde bir matrisin $ad-bc$ determinantı, mutlak değerce, dönüşümün birim karenin alanını değiştirdiği çarpandır.
 
@@ -56,7 +58,9 @@ Bir alan hiçbir zaman negatif değildir, determinant ise negatif olabilir. İş
 
 Birim karede $\mathbf{e}_2$, $\mathbf{e}_1$ vektöründen bakıldığında saat yönünün tersinde bulunur. Görüntülerde de bu böyle kalıyorsa, yani $\mathbf{a}_2$ de $\mathbf{a}_1$ vektöründen bakıldığında saat yönünün tersinde bulunuyorsa $\det\mathbf{A}>0$ olur. $\mathbf{a}_2$, $\mathbf{a}_1$ vektöründen bakıldığında saat yönündeyse düzlem yansıtılmıştır ve $\det\mathbf{A}<0$ olur. Bu niteliğe __yönelim__ denir: Pozitif bir determinant yönelimi korur, negatif bir determinant onu tersine çevirir.
 
-⁠**Sayısal örnek:** $x_1$ eksenine göre yansımanın, yani $\operatorname{diag}(1;\,-1)$ matrisinin determinantı $-1$ olur: Alan aynı kalır, yönelim tersine döner. Bir matrisin sütunlarının yeri değiştirilirse determinant işaret değiştirir: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. $90^\circ$ kadar dönme için $\det=0\cdot0-(-1)\cdot1=1$, kayma için $\det=1\cdot1-1\cdot0=1$ olur; $\operatorname{diag}(1;\,0)$ yassılaştırmasının determinantı ise $0$ olur.
+::::beispiel [Sayısal örnek]
+$x_1$ eksenine göre yansımanın, yani $\operatorname{diag}(1;\,-1)$ matrisinin determinantı $-1$ olur: Alan aynı kalır, yönelim tersine döner. Bir matrisin sütunlarının yeri değiştirilirse determinant işaret değiştirir: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. $90^\circ$ kadar dönme için $\det=0\cdot0-(-1)\cdot1=1$, kayma için $\det=1\cdot1-1\cdot0=1$ olur; $\operatorname{diag}(1;\,0)$ yassılaştırmasının determinantı ise $0$ olur.
+::::
 
 ⁠**Kısacası:** Determinantın mutlak değeri alan çarpanıdır; işareti, dönüşümün yansıtıp yansıtmadığını söyler.
 
@@ -76,7 +80,9 @@ $\mathbf{A}\in\mathbb{R}^{2\times2}$ matrisi, alanı $F$ olan bir şekli dönü�
 Şeklin üzerine, kenar uzunluğu $h$ olan küçük karelerden oluşan ince bir ızgara konur. Bir köşesi $\mathbf{q}$ olan bir karenin köşeleri $\mathbf{q}$, $\mathbf{q}+h\mathbf{e}_1$, $\mathbf{q}+h\mathbf{e}_1+h\mathbf{e}_2$ ve $\mathbf{q}+h\mathbf{e}_2$ olur. Görüntüsünün köşeleri $\mathbf{A}\mathbf{q}$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1+h\mathbf{a}_2$ ve $\mathbf{A}\mathbf{q}+h\mathbf{a}_2$ olur: Bu, $h\mathbf{a}_1$ ve $h\mathbf{a}_2$ vektörlerinden oluşan ve $\mathbf{A}\mathbf{q}$ noktasına kaydırılmış paralelkenardır. Alanı, karenin nerede bulunduğundan bağımsız olarak $h^2\,|\det\mathbf{A}|$ olur. Demek ki her küçük kare aynı $|\det\mathbf{A}|$ çarpanıyla büyür ya da küçülür. Söz konusu şekil yaklaşık olarak bu tür karelerden oluşur ve ızgara ne kadar inceyse yaklaşım o kadar iyidir. Bu yüzden çarpan bütün şekil için geçerlidir.
 :::
 
-⁠**Sayısal örnek:** Yarıçapı $1$ olan çemberin çevrelediği alan $\pi$ olur. $\operatorname{diag}(3;\,2)$ germesi bunu yarı eksenleri $3$ ve $2$ olan bir elipse dönüştürür. Elipsin alanı $\pi\cdot3\cdot2=6\pi$, yani çemberin çevrelediği alanın tam $|\det\mathbf{A}|=6$ katıdır. Köşeleri $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ olan üçgenin alanı $\tfrac12$ olur; bu üçgen $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ altında köşeleri $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$ olan ve alanı $\tfrac52$ olan üçgene dönüşür.
+::::beispiel [Sayısal örnek]
+Yarıçapı $1$ olan çemberin çevrelediği alan $\pi$ olur. $\operatorname{diag}(3;\,2)$ germesi bunu yarı eksenleri $3$ ve $2$ olan bir elipse dönüştürür. Elipsin alanı $\pi\cdot3\cdot2=6\pi$, yani çemberin çevrelediği alanın tam $|\det\mathbf{A}|=6$ katıdır. Köşeleri $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ olan üçgenin alanı $\tfrac12$ olur; bu üçgen $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ altında köşeleri $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$ olan ve alanı $\tfrac52$ olan üçgene dönüşür.
+::::
 
 ⁠**Kısacası:** Doğrusal bir dönüşüm her şeklin alanını aynı $|\det\mathbf{A}|$ çarpanıyla değiştirir, çünkü ızgaranın her küçük karesine aynı biçimde davranır.
 
@@ -99,7 +105,8 @@ burada $\mathbf{A}_{1j}$, $\mathbf{A}$ matrisinin birinci satırı ve $j$ numara
 
 $n=2$ için [(14.2)](#gl-14-2) yine $a_{11}a_{22}-a_{12}a_{21}$ verir. Açılım, $a_{ij}$ elemanı için $(-1)^{i+j}$ işaretiyle, başka herhangi bir satıra ya da sütuna göre de yapılabilir; sonuç hep aynıdır. $n=3$ için $|\det\mathbf{A}|$ üç sütundan oluşan paralelyüzün hacmidir; işaret ise sütunların $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ ile aynı dönme yönünde mi (sağ el kuralı) yoksa yansıtılmış olarak mı dizildiğini söyler.
 
-⁠**Sayısal örnek:** Gauss eleme yöntemindeki katsayı matrisi (alt kesim [12.3](lineare-gleichungssysteme.html#stufe-12-3)) için,
+::::beispiel [Sayısal örnek]
+Gauss eleme yöntemindeki katsayı matrisi (alt kesim [12.3](lineare-gleichungssysteme.html#stufe-12-3)) için,
 
 $$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
 
@@ -108,6 +115,7 @@ birinci satıra göre Laplace açılımı $\det\mathbf{A}=-4$ verir (Şekil [41
 :::abbildung ml/k1rlaplace 41
 Birinci satıra göre Laplace açılımı: Birinci satırın her elemanı çarpı, o elemanın satırı ve sütunu çıkarılınca kalan matrisin determinantı; işaretler sırayla değişir.
 :::
+::::
 
 Köşegeninin altında yalnızca sıfırlar bulunan bir üst üçgen matriste açılım tekrar tekrar birinci sütuna göre yapılır ve köşegen elemanlarının çarpımı elde edilir; örneğin $\det\Bigl(\begin{smallmatrix}2&1&3\\0&3&1\\0&0&4\end{smallmatrix}\Bigr)=2\cdot3\cdot4=24$.
 
@@ -161,9 +169,13 @@ Bir satırın bir katı başka bir satıra eklenirse determinant değişmez; iki
 
 (iii) kuralı, $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$ ve $\det\mathbf{I}=1$ ile (i) kuralından çıkar. (iv) kuralı şunu söyler: Birim küpün $n$ kenarının hepsi $c$ katına gerilirse hacmi $c^n$ katına çıkar. (v) kuralı, Gauss eleme yöntemini determinant hesaplamanın pratik yolu yapar: Matris satır basamak biçimine getirilir, yer değiştirmelerin sayısı akılda tutulur ve köşegen elemanları çarpılır.
 
-⁠**Sayısal örnek 1:** $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ ve $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$ olduğundan $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ çarpımının determinantı $5$ olmalıdır: $21-16=5$.
+::::beispiel [Sayısal örnek 1]
+$\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ ve $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$ olduğundan $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ çarpımının determinantı $5$ olmalıdır: $21-16=5$.
+::::
 
-⁠**Sayısal örnek 2:** Gauss eleme yönteminin uygulamasında (alt kesim [12.3](lineare-gleichungssysteme.html#stufe-12-3)) katsayı matrisi, katların eklenmesi ve bir yer değiştirmeyle köşegeni $1$, $-1$, $-4$ olan basamak biçimine getirilmişti. Demek ki determinantı, Laplace açılımında olduğu gibi $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$ olur.
+::::beispiel [Sayısal örnek 2]
+Gauss eleme yönteminin uygulamasında (alt kesim [12.3](lineare-gleichungssysteme.html#stufe-12-3)) katsayı matrisi, katların eklenmesi ve bir yer değiştirmeyle köşegeni $1$, $-1$, $-4$ olan basamak biçimine getirilmişti. Demek ki determinantı, Laplace açılımında olduğu gibi $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$ olur.
+::::
 
 ⁠**Kısacası:** Bir çarpımın determinantı determinantların çarpımıdır, çünkü hacim çarpanları art arda çarpılır; uygulamada determinant Gauss eleme yöntemiyle hesaplanır.
 
@@ -195,7 +207,9 @@ $\mathbf{A}$ tersinirse (i) kuralına göre $\det\mathbf{A}\cdot\det\mathbf{A}^{
 
 Demek ki alt kesim [13.5](unabhangigkeit-basis-und-rang.html#stufe-13-5) içindeki teoremle birlikte bir kare matris için şunlar denktir: $\det\mathbf{A}\ne0$, $\mathbf{A}$ tersinir, $\operatorname{rank}\mathbf{A}=n$, $\ker\mathbf{A}=\{\mathbf{0}\}$, sütunlar doğrusal bağımsız.
 
-⁠**Sayısal örnek:** $\mathbf K$ matrisi (alt kesim [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4)) için $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$ olur; bu, $\operatorname{rank}\mathbf K=2$ ile uyumludur. Gauss eleme yöntemiyle çözülen sistemin katsayı matrisi için $\det=-4\ne0$ olur ve bu matris tersinirdir; bu yüzden sistemin tam olarak bir çözümü vardı.
+::::beispiel [Sayısal örnek]
+$\mathbf K$ matrisi (alt kesim [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4)) için $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$ olur; bu, $\operatorname{rank}\mathbf K=2$ ile uyumludur. Gauss eleme yöntemiyle çözülen sistemin katsayı matrisi için $\det=-4\ne0$ olur ve bu matris tersinirdir; bu yüzden sistemin tam olarak bir çözümü vardı.
+::::
 
 ⁠**Kısacası:** Bir kare matris ancak ve ancak determinantı sıfır değilse, yani uzayı yassılaştırmıyorsa tersinirdir.
 

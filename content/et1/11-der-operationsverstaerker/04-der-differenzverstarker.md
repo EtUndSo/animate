@@ -41,7 +41,11 @@ $$U_\mathrm{A}=A_\mathrm{D}\,U_\mathrm{D},\qquad A_\mathrm{D}=S\,R_\mathrm{C}=\f
 Beide Emitter liegen auf demselben Potenzial, also $U_\mathrm{BE2}-U_\mathrm{BE1}=U_\mathrm{D}$. Mit $I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T}$ folgt $I_\mathrm{C2}/I_\mathrm{C1}=\mathrm{e}^{U_\mathrm{D}/U_T}$. Zusammen mit $I_\mathrm{C1}+I_\mathrm{C2}=I_0$ ergibt das [(2.1)](#gl-2-1). Für kleine Änderungen gilt: Die Summe ist fest, also $\Delta I_\mathrm{C1}=-\Delta I_\mathrm{C2}$. Beide sind $S$ mal der Änderung der eigenen $U_\mathrm{BE}$, die Änderungen sind also entgegengesetzt gleich. Ihre Differenz ist $U_\mathrm{D}$, also trägt jede Strecke $\pm U_\mathrm{D}/2$. Damit ist $\Delta I_\mathrm{C2}=S\,U_\mathrm{D}/2$ und $U_\mathrm{A}=2R_\mathrm{C}\,\Delta I_\mathrm{C2}=S\,R_\mathrm{C}\,U_\mathrm{D}$.
 :::
 
-**Beispiel.** In Ruhe fließen je 1 mA, die Kollektoren liegen bei $12\,\mathrm{V}-3\,\mathrm{V}=9$ V. $S=38{,}5$ mS, also $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$. Bei $U_\mathrm{D}=1$ mV wandert $\pm19{,}2$ µ A zwischen den Zweigen, jeder Kollektor bewegt sich um 57,7 mV, zusammen sind das $U_\mathrm{A}=115$ mV. Eine Störung von 100 mV auf beiden Eingängen ändert daran nichts. **Grenzfälle:** $U_\mathrm{D}=0$ ergibt $I_0/2$ je Zweig. Bei $|U_\mathrm{D}|\gg U_T$ fließt alles durch einen Transistor, $U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V. Der lineare Bereich ist nur wenige $U_T$ breit: Bei 26 mV liefert die Gerade 3,0 V, die exakte Kurve 2,77 V.
+::::beispiel
+In Ruhe fließen je 1 mA, die Kollektoren liegen bei $12\,\mathrm{V}-3\,\mathrm{V}=9$ V. $S=38{,}5$ mS, also $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$. Bei $U_\mathrm{D}=1$ mV wandert $\pm19{,}2$ µ A zwischen den Zweigen, jeder Kollektor bewegt sich um 57,7 mV, zusammen sind das $U_\mathrm{A}=115$ mV. Eine Störung von 100 mV auf beiden Eingängen ändert daran nichts.
+::::
+
+⁠**Grenzfälle:** $U_\mathrm{D}=0$ ergibt $I_0/2$ je Zweig. Bei $|U_\mathrm{D}|\gg U_T$ fließt alles durch einen Transistor, $U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V. Der lineare Bereich ist nur wenige $U_T$ breit: Bei 26 mV liefert die Gerade 3,0 V, die exakte Kurve 2,77 V.
 
 **Eingang.** Ein Eingangssignal $U_\mathrm{D}$ liegt an zwei BE-Strecken in Reihe, der Eingangswiderstand ist $2\,r_\mathrm{BE}=2B/S=10{,}4$ k$\Omega$. Bei 20 µ A Summenstrom statt 2 mA sind es 1,04 M$\Omega$, und jede Basis zieht nur 50 nA. Daher stammen $r_\mathrm{e}$ und $I_\mathrm{B}$ im Rechenmodell.
 

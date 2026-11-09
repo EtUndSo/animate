@@ -12,7 +12,7 @@ lang: es
 
 ## De qué trata
 
-En Fundamentos 1 quedó abierta una pregunta. Cuatro viviendas están descritas por su superficie y su número de habitaciones, y se conocen sus precios. Se buscan dos pesos con los que la suma ponderada acierte cada precio. Tales pesos no existen: cuatro ecuaciones con dos incógnitas se contradicen entre sí. Con datos medidos casi siempre ocurre lo mismo. Se tienen más mediciones que incógnitas, cada medición es un poco imprecisa, y el sistema de ecuaciones no tiene solución. Aun así se necesitan pesos, y precisamente los que se desvíen lo menos posible.
+En [Fundamentos 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) quedó abierta una pregunta. Cuatro viviendas están descritas por su superficie y su número de habitaciones, y se conocen sus precios. Se buscan dos pesos con los que la suma ponderada acierte cada precio. Tales pesos no existen: cuatro ecuaciones con dos incógnitas se contradicen entre sí. Con datos medidos casi siempre ocurre lo mismo. Se tienen más mediciones que incógnitas, cada medición es un poco imprecisa, y el sistema de ecuaciones no tiene solución. Aun así se necesitan pesos, y precisamente los que se desvíen lo menos posible.
 
 Este capítulo aborda esta pregunta y otras dos que resultan estar estrechamente emparentadas con ella. ¿Hay direcciones en las que una matriz solo alarga o acorta una flecha, sin girarla, y qué revelan esas direcciones sobre la matriz? ¿Y puede descomponerse toda matriz en unos pocos bloques sencillos, ordenados por su importancia, de modo que puedan omitirse los poco importantes? A ello se suma una pregunta práctica: ¿cuánto cambia el resultado de un cálculo si los datos son un poco erróneos?
 

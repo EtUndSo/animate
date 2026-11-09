@@ -91,21 +91,33 @@ $$\alpha^*:=\frac{\beta-\langle\vec w,\vec n\rangle}{\langle\vec v,\vec n\rangle
 
 </ul>
 
-⁠**Beispiel:** Für $\vec w=(1,0,-1)$, $\vec v=(2,0,1)$ ist $\langle\vec w,\vec n\rangle=0$ und $\langle\vec v,\vec n\rangle=2$. Das gibt $\alpha^*=1$ und den Schnittpunkt $S=(3,0,0)$. Die Richtung $(1,0,-1)$ ist parallel zu $H$: Mit $\vec w=(1,0,-1)$ liegt Fall 2a vor, mit $\vec w=(1,2,1)$ Fall 2b.
+::::beispiel
+Für $\vec w=(1,0,-1)$, $\vec v=(2,0,1)$ ist $\langle\vec w,\vec n\rangle=0$ und $\langle\vec v,\vec n\rangle=2$. Das gibt $\alpha^*=1$ und den Schnittpunkt $S=(3,0,0)$. Die Richtung $(1,0,-1)$ ist parallel zu $H$: Mit $\vec w=(1,0,-1)$ liegt Fall 2a vor, mit $\vec w=(1,2,1)$ Fall 2b.
+::::
 
 **Problem B: Lotfußpunkt und Abstand.** Gesucht ist zu $P$ mit $\vec p=\overrightarrow{OP}$ der Punkt $\vec q\in H$ mit $\vec p-\vec q\in\{\alpha\vec n:\alpha\in\mathbb{R}\}$. Also schneidet man die Gerade durch $P$ mit Richtung $\vec n$ mit $H$. Das ist Problem A mit $\vec w:=\vec p$, $\vec v:=\vec n$. Wegen $\langle\vec n,\vec n\rangle=1\ne0$ liegt Fall 1 vor, also ist $\alpha^*=\beta-\langle\vec p,\vec n\rangle$ und
 
 <span class="anker" id="gl-8-5"></span>
 $$\vec q=\vec p+\bigl(\beta-\langle\vec p,\vec n\rangle\bigr)\vec n,\qquad\operatorname{dist}(P,H)=\min_{\vec z\in H}\|\vec p-\vec z\|=\|\vec p-\vec q\|=\bigl|\beta-\langle\vec p,\vec n\rangle\bigr|. \tag{8.5}$$
 
-Der Punkt $\vec q$ heißt __orthogonale Projektion__ von $P$ auf $H$. Er ist der nächste Punkt, aus demselben Grund wie in Stufe [6](projektion-und-abstand-zur-geraden.html#stufe-6): Für $\vec z\in H$ ist $\langle\vec q-\vec z,\vec n\rangle=\beta-\beta=0$, also steht $\vec q-\vec z$ senkrecht auf $\vec p-\vec q$, und Pythagoras gibt $\|\vec p-\vec z\|^2=\|\vec p-\vec q\|^2+\|\vec q-\vec z\|^2$. Für $P=O$ folgt $\operatorname{dist}(O,H)=\beta$. **Beispiel:** Für $P=(3,3,3)$ ist $\langle\vec p,\vec n\rangle=5$, also $\alpha^*=-3$, $\vec q=(1,2,1)$ und $\operatorname{dist}(P,H)=3$, dagegen $\operatorname{dist}(O,H)=2$.
+Der Punkt $\vec q$ heißt __orthogonale Projektion__ von $P$ auf $H$. Er ist der nächste Punkt, aus demselben Grund wie in Stufe [6](projektion-und-abstand-zur-geraden.html#stufe-6): Für $\vec z\in H$ ist $\langle\vec q-\vec z,\vec n\rangle=\beta-\beta=0$, also steht $\vec q-\vec z$ senkrecht auf $\vec p-\vec q$, und Pythagoras gibt $\|\vec p-\vec z\|^2=\|\vec p-\vec q\|^2+\|\vec q-\vec z\|^2$. Für $P=O$ folgt $\operatorname{dist}(O,H)=\beta$.
+
+::::beispiel
+Für $P=(3,3,3)$ ist $\langle\vec p,\vec n\rangle=5$, also $\alpha^*=-3$, $\vec q=(1,2,1)$ und $\operatorname{dist}(P,H)=3$, dagegen $\operatorname{dist}(O,H)=2$.
+::::
 
 **Problem C: Winkel zwischen Gerade und Hyperebene.** Gesucht ist der Winkel $\gamma$ zwischen $G$ und ihrer Projektion $G'$ auf $H$. Vorausgesetzt wird (a) $\langle\vec v,\vec n\rangle\ne0$, also ein eindeutiger Schnittpunkt, und (b) $\vec v\notin\operatorname{span}\{\vec n\}$, sonst ist $G'$ nur ein Punkt. Es sei $\delta\in(0,\frac\pi2)$ der Winkel zwischen $\vec n$ und $\vec v$ oder $-\vec v$, je nachdem, welcher Vektor $\cos\delta>0$ liefert. Die Vektoren $\vec n$, $\vec v$ und die Richtung von $G'$ liegen in einer Ebene, und $\vec n$ steht senkrecht auf $G'$. Also ist $\gamma=\frac\pi2-\delta$, und mit [(7.4)](winkel-cauchy-schwarz-parallelogramm.html#gl-7-4) gilt
 
 <span class="anker" id="gl-8-6"></span>
 $$\sin\gamma=\cos\Bigl(\frac\pi2-\gamma\Bigr)=\cos\delta=\frac{|\langle\vec n,\vec v\rangle|}{\|\vec n\|\cdot\|\vec v\|}\ne0. \tag{8.6}$$
 
-Damit lässt sich $\gamma\in(0,\frac\pi2)$ berechnen. **Beispiel:** Für $\vec v=(2,0,1)$ ist $\sin\gamma=\frac2{\sqrt5}$, also $\gamma=63{,}43^\circ$ und $\delta=26{,}57^\circ$ (Abb. [10](#abb-10)). **Grenzfälle:** Für $G$ senkrecht auf $H$ gibt die Formel $\gamma=\frac\pi2$, für $G$ parallel zu $H$ gibt sie $\gamma=0$.
+Damit lässt sich $\gamma\in(0,\frac\pi2)$ berechnen.
+
+::::beispiel
+Für $\vec v=(2,0,1)$ ist $\sin\gamma=\frac2{\sqrt5}$, also $\gamma=63{,}43^\circ$ und $\delta=26{,}57^\circ$ (Abb. [10](#abb-10)).
+::::
+
+⁠**Grenzfälle:** Für $G$ senkrecht auf $H$ gibt die Formel $\gamma=\frac\pi2$, für $G$ parallel zu $H$ gibt sie $\gamma=0$.
 
 :::abbildung hm1/k8geradewinkel 10
 Die Gerade $G$ durchstößt $H$ in $S=(3,0,0)$. In $S$ steht $\vec n$ senkrecht auf $H$. $G'$ ist die Projektion von $G$ auf $H$. Die Winkel $\gamma=63{,}43^\circ$ und $\delta=26{,}57^\circ$ ergänzen sich zu $90^\circ$.

@@ -84,11 +84,19 @@ Power laws for $x,y\ne0$, $p,q\in\mathbb{Z}$: $x^px^q=x^{p+q}$, $(x^p)^q=x^{p\cd
 Left, each color is an L-shaped piece. Right, the induction step: $n^2$ grows by $2n+1$ squares.
 :::
 
-**Example 1: Sum of the odd numbers.** Claim: $\sum_{i=1}^n(2i-1)=n^2$. **Base case:** $2\cdot1-1=1=1^2$. **Step:** If the formula holds for $n$, then $\sum_{i=1}^{n+1}(2i-1)=n^2+2(n+1)-1=n^2+2n+1=(n+1)^2$. **Conclusion:** It holds for all $n$. In the same way one proves $\sum_{i=1}^ni=\frac{n(n+1)}2$ and $\sum_{i=1}^ni^3=\frac{n^2(n+1)^2}4$ (Exercise [6](#aufg-6)).
+::::beispiel [Example 1] Sum of the odd numbers
+Claim: $\sum_{i=1}^n(2i-1)=n^2$. **Base case:** $2\cdot1-1=1=1^2$. **Step:** If the formula holds for $n$, then $\sum_{i=1}^{n+1}(2i-1)=n^2+2(n+1)-1=n^2+2n+1=(n+1)^2$. **Conclusion:** It holds for all $n$. In the same way one proves $\sum_{i=1}^ni=\frac{n(n+1)}2$ and $\sum_{i=1}^ni^3=\frac{n^2(n+1)^2}4$ (Exercise [6](#aufg-6)).
+::::
 
-**Example 2: late start.** $n!>2^n$ for $n\ge n_0=4$. Base case: $24>16$. Step: $(n+1)!=(n+1)\,n!>(n+1)\,2^n\ge2\cdot2^n$, because $n+1\ge2$. **Limiting case:** For $n=3$, $6<8$; the start at 4 is necessary.
+::::beispiel [Example 2] late start
+$n!>2^n$ for $n\ge n_0=4$. Base case: $24>16$. Step: $(n+1)!=(n+1)\,n!>(n+1)\,2^n\ge2\cdot2^n$, because $n+1\ge2$.
+::::
 
-**Example 3: all earlier cases.** Every $n\ge2$ is a product of primes. Base case: 2 is prime. Step: If $n+1$ is not prime, then $n+1=ab$ with $2\le a,b\le n$. Here $\mathcal A(n)$ alone is not enough; you need $\mathcal A(a)$ and $\mathcal A(b)$.
+⁠**Limiting case:** For $n=3$, $6<8$; the start at 4 is necessary.
+
+::::beispiel [Example 3] all earlier cases
+Every $n\ge2$ is a product of primes. Base case: 2 is prime. Step: If $n+1$ is not prime, then $n+1=ab$ with $2\le a,b\le n$. Here $\mathcal A(n)$ alone is not enough; you need $\mathcal A(a)$ and $\mathcal A(b)$.
+::::
 
 :::aufgabe Exercise 6 ★★ Practicing induction
 <span class="anker" id="aufg-6"></span>

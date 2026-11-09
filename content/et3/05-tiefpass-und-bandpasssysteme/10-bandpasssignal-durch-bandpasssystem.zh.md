@@ -28,7 +28,8 @@ $$G_T(f)=\tfrac12S_T(f)\,H_T(f)\qquad\bullet\!\!-\!\!\circ\qquad g_T(t)=\tfrac12
 
 ⁠**如何理解：**因子 $\frac12$ 补偿了 $S_T$ 和 $H_T$ 都被加倍这一事实。除此之外，它就是熟悉的卷积定理，只不过是对包络而言。载波根本不必参与计算。
 
-**例：接通的余弦通过理想带通。** $s(t)=\varepsilon(t)\cos(2\pi f_0t)$，$f_0=10$ Hz，带通以 $f_0$ 为中心，$\Delta f=2$ Hz。输入的包络为 $s_T\approx\varepsilon(t)$。（这是近似：阶跃的频谱并不局限于 $f>-f_0$，但在通带 $|f|\le\Delta f/2\ll f_0$ 内它是正确的。）利用 $h_T=2\Delta f\operatorname{si}(\pi\Delta f\,t)$：
+::::beispiel 接通的余弦通过理想带通
+$s(t)=\varepsilon(t)\cos(2\pi f_0t)$，$f_0=10$ Hz，带通以 $f_0$ 为中心，$\Delta f=2$ Hz。输入的包络为 $s_T\approx\varepsilon(t)$。（这是近似：阶跃的频谱并不局限于 $f>-f_0$，但在通带 $|f|\le\Delta f/2\ll f_0$ 内它是正确的。）利用 $h_T=2\Delta f\operatorname{si}(\pi\Delta f\,t)$：
 
 $$g_T(t)\approx\tfrac12\bigl[\varepsilon(t)*2\Delta f\operatorname{si}(\pi\Delta f\,t)\bigr]=\frac12+\frac1\pi\operatorname{Si}(\pi\Delta f\,t),\qquad g(t)\approx\Bigl[\frac12+\frac1\pi\operatorname{Si}(\pi\Delta f\,t)\Bigr]\cos(2\pi f_0t).$$
 
@@ -37,6 +38,7 @@ $$g_T(t)\approx\tfrac12\bigl[\varepsilon(t)*2\Delta f\operatorname{si}(\pi\Delta
 :::abbildung et3/k5bandpass 5
 理想带通（$f_0=10$ Hz，$\Delta f=2$ Hz）对在 $t=0$ 时接通的中心频率余弦的响应。蓝：输出信号；红：包络 $\pm g_T(t)$。包络在约 0.5 s 内上升，并过冲到 1.09。
 :::
+::::
 
 :::ltspice 接通的载波通过谐振电路
 理想带通无法实现，但串联谐振电路可以实现。**绘制：**电压源 `voltage` 接在节点 `in` 上，然后依次串联 `ind`（取 `{L}`）、`cap`（取 `{1/((2*pi*f0)**2*L)}`）和 `res`（取 `{2*pi*df*L}`）到地。输出 `out` 是电阻两端的电压。取 `.param f0=10 df=2 L=1` 时，中心频率为 10 Hz，两个 $-3$ dB 点之间的带宽为 2 Hz。

@@ -56,11 +56,13 @@ Ist $\widetilde P=0$ oder $\operatorname{grad}\widetilde P<m$, ist man fertig mi
 
 ⁠**So liest man das:** $S_{n-m}$ ist der Polynomteil, $T_k$ der Rest. $b_m\neq0$ ist nötig, denn man teilt durch $b_m$. Für $n<m$ gibt es nichts zu teilen, dann ist $S=0$ und $T=P_n$. Das Beispiel $x^2:x$ zeigt den glatten Fall $T=0$.
 
-**Beispiel.** Für $P:Q$ löscht $2x\cdot Q$ den Term $2x^3$ aus, danach $-1\cdot Q$ den Term $-x^2$:
+::::beispiel
+Für $P:Q$ löscht $2x\cdot Q$ den Term $2x^3$ aus, danach $-1\cdot Q$ den Term $-x^2$:
 
 $$\begin{array}{lrrrr} & 2x^3 & -3x^2 & -11x & +6\\ -2x\cdot Q: & -2x^3 & +2x^2 & +4x & \\ \hline & & -x^2 & -7x & +6\\ +1\cdot Q: & & +x^2 & -x & -2\\ \hline & & & -8x & +4 \end{array}$$
 
 Also ist $R(x)=2x-1+\dfrac{-8x+4}{x^2-x-2}$, mit $n-m=1$ und $k=1<2$. **Probe** nach [(6.3)](#gl-6-3) bei $x=3$: $5\cdot4+(-20)=0=P(3)$.
+::::
 
 :::abbildung hm1/k3division 7
 Die Division $P:Q$ als Koeffizienten je Potenz. In jedem Schritt verschwindet die höchste Potenz, der Grad sinkt von 3 auf 2 und auf 1. Dann ist er kleiner als der Grad 2 von $Q$, und das Verfahren endet.

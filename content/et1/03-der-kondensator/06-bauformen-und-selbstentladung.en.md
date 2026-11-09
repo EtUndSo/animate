@@ -64,7 +64,9 @@ $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$
 
 $A$ and $d$ cancel: the self-discharge depends only on the material, not on the size of the component.
 
-**Example.** Plastic film with $\rho\approx10^{16}\,\Omega\,$m and $\varepsilon_\mathrm{r}=2.2$ gives around two days. For a 100 µF electrolytic capacitor at 9 V, data sheets state at most around 9 µA of leakage current, that is, $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$. That is 100 times more than $R$ in the RC circuit; the leakage current is 1 % of 0.9 mA and is neglected in the following stages.
+::::beispiel
+Plastic film with $\rho\approx10^{16}\,\Omega\,$m and $\varepsilon_\mathrm{r}=2.2$ gives around two days. For a 100 µF electrolytic capacitor at 9 V, data sheets state at most around 9 µA of leakage current, that is, $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$. That is 100 times more than $R$ in the RC circuit; the leakage current is 1 % of 0.9 mA and is neglected in the following stages.
+::::
 
 ⁠**Limiting case:** For $\rho\to\infty$, $R_\mathrm{I}\,C$ grows without limit; this is the ideal capacitor without self-discharge.
 

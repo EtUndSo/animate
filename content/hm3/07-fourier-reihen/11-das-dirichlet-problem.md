@@ -81,7 +81,11 @@ Angenommen, $\max_{\partial\mathbb D}u<\max_{\overline{\mathbb D}}u$ mit Differe
 
 Zwei Lösungen haben als Differenz eine harmonische Funktion mit Randwerten null. Ihr Maximum und Minimum sind also null, die Lösungen stimmen überein. **Wozu die ganze Scheibe?** Auf der gelochten Scheibe $\mathbb D\setminus\{0\}$ ist $\ln r$ harmonisch mit Randwert 0 auf $r=1$, ohne null zu sein: Das Maximumprinzip braucht auch den inneren Rand.
 
-**Beispiel.** Sei $g(x,y)=x^2$, also $g(\mathrm{e}^{\mathrm{i}\varphi})=\cos^2\varphi=\frac12+\frac12\cos2\varphi$. Der Faktor $r^{|k|}$ gibt $u=\frac12+\frac12r^2\cos2\varphi=\frac12+\frac12(x^2-y^2)$. Es ist $\Delta u=1-1=0$, und auf dem Rand gilt $\frac12(x^2+y^2)+\frac12(x^2-y^2)=x^2$. **Grenzfall:** $P_0=1$, also ist $u(0,0)=\frac1{2\pi}\int_0^{2\pi}g(\mathrm{e}^{\mathrm{i}t})\,\mathrm{d} t$: Der Wert in der Mitte ist der Mittelwert der Randwerte, hier $\frac12$ (Abb. [10](#abb-10)).
+::::beispiel
+Sei $g(x,y)=x^2$, also $g(\mathrm{e}^{\mathrm{i}\varphi})=\cos^2\varphi=\frac12+\frac12\cos2\varphi$. Der Faktor $r^{|k|}$ gibt $u=\frac12+\frac12r^2\cos2\varphi=\frac12+\frac12(x^2-y^2)$. Es ist $\Delta u=1-1=0$, und auf dem Rand gilt $\frac12(x^2+y^2)+\frac12(x^2-y^2)=x^2$.
+::::
+
+⁠**Grenzfall:** $P_0=1$, also ist $u(0,0)=\frac1{2\pi}\int_0^{2\pi}g(\mathrm{e}^{\mathrm{i}t})\,\mathrm{d} t$: Der Wert in der Mitte ist der Mittelwert der Randwerte, hier $\frac12$ (Abb. [10](#abb-10)).
 
 :::abbildung hm3/k7poisson 10
 Links: Der Poisson-Kern ist positiv, hat den Mittelwert 1 und konzentriert sich für $r\nearrow1$ bei $\varphi=0$. Rechts: Höhenlinien der Lösung $u=\frac12+\frac12(x^2-y^2)$ zu den Randwerten $g=x^2$. In der Mitte steht der Mittelwert der Randwerte.

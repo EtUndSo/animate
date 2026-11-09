@@ -68,7 +68,11 @@ $x$ 的变化与 $x$ 本身成正比：剩余量越大，缩小得越快。
 ⁠**同样的方法用于电流：**由 $U_0=R\,i+\frac1C\int_0^ti\,\mathrm{d} t'$ 求导得 $0=R\,\frac{\mathrm{d} i}{\mathrm{d} t}+\frac iC$。简写为 $\frac{\mathrm{d} i}{i}=-\frac{\mathrm{d} t}{RC}$，第 2 到 4 步给出 $\ln i=-\frac{t}{RC}+\ln\frac{U_0}{R}$，于是又得到 $i=\frac{U_0}{R}\mathrm{e}^{-t/RC}$。
 :::
 
-**例。** 在参考模型中，$t=1$ s 时 $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5.69$ V，$u_R=3.31$ V，$i=0.331$ mA（图 [11](#abb-11)）。两个电压之和在任何时刻都是 9 V。起点处的切线以 $U_0/\tau=9$ V/s 上升，恰好在 $t=\tau$ 时达到 9 V：如果初始电流像第 [3](strom-und-spannung-am-kondensator.html#stufe-3) 阶段那样保持不变，电容器经过 $\tau$ 就充满了。**简而言之：**$\tau$ 是最终电荷除以初始电流，$C\,U_0/(U_0/R)=RC$。
+::::beispiel
+在参考模型中，$t=1$ s 时 $u_C=9\,\mathrm{V}\cdot(1-\mathrm{e}^{-1})=5.69$ V，$u_R=3.31$ V，$i=0.331$ mA（图 [11](#abb-11)）。两个电压之和在任何时刻都是 9 V。起点处的切线以 $U_0/\tau=9$ V/s 上升，恰好在 $t=\tau$ 时达到 9 V：如果初始电流像第 [3](strom-und-spannung-am-kondensator.html#stufe-3) 阶段那样保持不变，电容器经过 $\tau$ 就充满了。
+::::
+
+⁠**简而言之：**$\tau$ 是最终电荷除以初始电流，$C\,U_0/(U_0/R)=RC$。
 
 :::abbildung et1/k3laden 11
 充电，$U_0=9$ V，$R=10\,\mathrm{k\Omega}$，$C=100\,\mu\text{F}$。左边是电压，右边是电流。电流在 $t=0$ 时从零跳变到 0.9 mA，然后衰减。起点处的切线在 $t=\tau=1$ s 时到达最终值。圆点对应 $t=\tau$。

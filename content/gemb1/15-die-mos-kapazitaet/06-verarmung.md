@@ -42,7 +42,11 @@ Aus [(0.3)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-3) fo
 Rechenmodell bei $\varphi_\mathrm s=0{,}3$ V: Raumladung, Feld und Potential. Blau die Schottky-Näherung mit $L_\mathrm{depl}=114$ nm, grau die exakte Lösung. Die Löcher kehren über wenige $L_\mathrm D$ zurück, der wahre Rand ist also weich.
 :::
 
-**Beispiel.** Bei $\varphi_\mathrm s=0{,}3$ V ist $L_\mathrm{depl}=114$ nm, das 4,8-Fache von $L_\mathrm D$. Die Ladung ist $Q'_\mathrm{SC}=-54{,}7\,\mathrm{nC/cm^2}$, damit $V_\mathrm{IS}=0{,}317$ V und $V_\mathrm G=0{,}617$ V. Am Rand ist $\mathcal E(0)=2\varphi_\mathrm s/L_\mathrm{depl}=5{,}3$ MV/m, im Isolator 15,8 MV/m. Das Verhältnis ist $\varepsilon/\varepsilon_\mathrm{IS}=3$, denn die Grenzfläche trägt keine Ladung. Umgekehrt ist [(4.3)](#gl-4-3) eine quadratische Gleichung: $\sqrt{\varphi_\mathrm s}=-\gamma/2+\sqrt{\gamma^2/4+V_\mathrm G}$. **Grenzfall:** Bei sehr dünnem Isolator ist $\gamma\to0$ und $V_\mathrm G\approx\varphi_\mathrm s$. Mit 2 nm Oxid wären es hier nur 0,03 V am Isolator. Bei 20 nm liegen $V_\mathrm{IS}$ und $\varphi_\mathrm s$ dagegen gleichauf, $V_\mathrm{IS}$ darf man also nicht weglassen.
+::::beispiel
+Bei $\varphi_\mathrm s=0{,}3$ V ist $L_\mathrm{depl}=114$ nm, das 4,8-Fache von $L_\mathrm D$. Die Ladung ist $Q'_\mathrm{SC}=-54{,}7\,\mathrm{nC/cm^2}$, damit $V_\mathrm{IS}=0{,}317$ V und $V_\mathrm G=0{,}617$ V. Am Rand ist $\mathcal E(0)=2\varphi_\mathrm s/L_\mathrm{depl}=5{,}3$ MV/m, im Isolator 15,8 MV/m. Das Verhältnis ist $\varepsilon/\varepsilon_\mathrm{IS}=3$, denn die Grenzfläche trägt keine Ladung. Umgekehrt ist [(4.3)](#gl-4-3) eine quadratische Gleichung: $\sqrt{\varphi_\mathrm s}=-\gamma/2+\sqrt{\gamma^2/4+V_\mathrm G}$.
+::::
+
+⁠**Grenzfall:** Bei sehr dünnem Isolator ist $\gamma\to0$ und $V_\mathrm G\approx\varphi_\mathrm s$. Mit 2 nm Oxid wären es hier nur 0,03 V am Isolator. Bei 20 nm liegen $V_\mathrm{IS}$ und $\varphi_\mathrm s$ dagegen gleichauf, $V_\mathrm{IS}$ darf man also nicht weglassen.
 
 :::frage Warum wächst die Zone nur mit der Wurzel der Bandverbiegung?
 Wächst die Zone, kommt zweierlei zusammen: mehr Ladung, und diese Ladung sitzt weiter weg. Die Spannung ist Ladung mal Abstand. Deshalb geht $L_\mathrm{depl}$ quadratisch ein: Die doppelte Bandverbiegung braucht nur die $\sqrt2$-fache Breite, 161 nm bei 0,6 V.

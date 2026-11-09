@@ -64,7 +64,9 @@ Zwei Wellen mit $k_0\pm\Delta k$ und $\omega_0\pm\Delta\omega$ ergeben $2\cos(\D
 
 ⁠**So liest man das:** Das Maximum des Pakets ist der markante Punkt, mit dem sich das Elektron bewegt, deshalb ist $v_\mathrm g$ seine Geschwindigkeit. $v_\mathrm{ph}$ hat keine messbare Bedeutung: Sie ändert sich mit dem Energienullpunkt, $v_\mathrm g$ nicht, denn die Ableitung sieht die Konstante $V_0$ nicht. Für $V_0=0$ laufen die Wellenberge langsamer als die Hülle, sie tauchen vorn auf und verschwinden hinten.
 
-**Beispiel.** Ein Probe-Elektron mit $v_\mathrm g=5{,}93\cdot10^{5}$ m/s sitze im Paket mit $w=2$ nm. Dann ist $\Delta x=1$ nm, $\Delta k=5\cdot10^{8}\,\mathrm{m^{-1}}$, rund 10 % von $k_0$. Die Wellenzahlen des Pakets haben verschiedene Gruppengeschwindigkeiten, sie streuen um $\Delta v=\hbar\Delta k/m_0=5{,}8\cdot10^{4}$ m/s. Deshalb läuft das Paket auseinander: Nach $t=\Delta x/\Delta v=1{,}7\cdot10^{-14}$ s ist die Streuung so groß wie die Breite selbst.
+::::beispiel
+Ein Probe-Elektron mit $v_\mathrm g=5{,}93\cdot10^{5}$ m/s sitze im Paket mit $w=2$ nm. Dann ist $\Delta x=1$ nm, $\Delta k=5\cdot10^{8}\,\mathrm{m^{-1}}$, rund 10 % von $k_0$. Die Wellenzahlen des Pakets haben verschiedene Gruppengeschwindigkeiten, sie streuen um $\Delta v=\hbar\Delta k/m_0=5{,}8\cdot10^{4}$ m/s. Deshalb läuft das Paket auseinander: Nach $t=\Delta x/\Delta v=1{,}7\cdot10^{-14}$ s ist die Streuung so groß wie die Breite selbst.
+::::
 
 :::frage Ist die Unschärfe ein Messfehler, den bessere Geräte beseitigen?
 Nein. Ein Zustand mit kleinem $\Delta x$ enthält viele Wellenzahlen, er hat gar keinen scharfen Impuls. Das gilt für jede Welle: Auch ein kurzer Spannungspuls hat ein breites Spektrum.

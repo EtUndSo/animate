@@ -19,7 +19,7 @@ After the linear functions, the quadratic ones are the simplest functions of sev
 
 <span class="anker" id="stufe-5-1"></span>
 
-In Foundations 1, Section 8.4, every linear function with one output was a weighted sum $\mathbf{w}^{\top}\mathbf{x}$ of the components. The next simplest kind of function sums products of two components each: squares such as $x_1^2$ and cross terms such as $x_1x_2$. An example from electrical engineering is the magnetic energy of two coupled coils with the inductances $L_1$, $L_2$ and the mutual inductance $M$, carrying the currents $i_1$ and $i_2$:
+In [Foundations 1, Section 8.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), every linear function with one output was a weighted sum $\mathbf{w}^{\top}\mathbf{x}$ of the components. The next simplest kind of function sums products of two components each: squares such as $x_1^2$ and cross terms such as $x_1x_2$. An example from electrical engineering is the magnetic energy of two coupled coils with the inductances $L_1$, $L_2$ and the mutual inductance $M$, carrying the currents $i_1$ and $i_2$:
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -42,11 +42,13 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 
 If you double $\mathbf{x}$, then $f$ quadruples: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. Hence the name.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. At the point $\mathbf{x}=(1,\,-1)^{\top}$, $f=5-4+2=3$; as a check, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ and $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Fig. [14](#abb-14) works out the double sum [(5.1)](#gl-5-1) at this point term by term. At the point $(1,\,1)^{\top}$, $f=11$; at the origin, $f=0$. The energy of the two coils is $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ with the current vector $\mathbf i=(i_1,\,i_2)^{\top}$; the matrix is called the inductance matrix.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. At the point $\mathbf{x}=(1,\,-1)^{\top}$, $f=5-4+2=3$; as a check, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ and $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Fig. [14](#abb-14) works out the double sum [(5.1)](#gl-5-1) at this point term by term. At the point $(1,\,1)^{\top}$, $f=11$; at the origin, $f=0$. The energy of the two coils is $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ with the current vector $\mathbf i=(i_1,\,i_2)^{\top}$; the matrix is called the inductance matrix.
 
 :::abbildung ml/k2rqf 14
 The quadratic form of $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ at the point $\mathbf{x}=(1,-1)^{\top}$ as a double sum: four terms, one for each entry of $\mathbf{A}$.
 :::
+::::
 
 ⁠**In short:** A quadratic form $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ is a sum of squares and mixed products of the components, with the entries of $\mathbf{A}$ as weights.
 
@@ -71,7 +73,9 @@ The number $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ equals its own transpose, so 
 
 The matrix $\frac12(\mathbf{A}+\mathbf{A}^{\top})$ is symmetric. In this chapter, a quadratic form therefore always has a symmetric matrix. You read it off as follows: the diagonal holds the coefficients of the squares, and each off-diagonal entry holds half the coefficient of the corresponding cross term.
 
-⁠**Worked example:** The form $3x_1^2-6x_1x_2+x_2^2$ has the symmetric matrix $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. The form $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ in $\mathbb{R}^3$ has the matrix $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$; the cross term $2x_1x_3$ is split between the entries $(1,3)$ and $(3,1)$.
+::::beispiel [Worked example]
+The form $3x_1^2-6x_1x_2+x_2^2$ has the symmetric matrix $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. The form $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ in $\mathbb{R}^3$ has the matrix $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$; the cross term $2x_1x_3$ is split between the entries $(1,3)$ and $(3,1)$.
+::::
 
 ⁠**In short:** A quadratic form sees only the symmetric part of its matrix; that is why it is always written with a symmetric matrix.
 
@@ -109,7 +113,9 @@ Top: the graphs of the quadratic forms $x_1^2+2x_2^2$ (bowl), $x_1^2$ (trough) a
 
 If both entries are negative, the bowl is upside down; that is a dome. A negative and a zero entry give an upside-down trough, a ridge. With more than two variables the same holds: the signs of the diagonal entries decide the shape.
 
-⁠**Worked example:** For the bowl $f=x_1^2+2x_2^2$, the contour line $f=1$ is the ellipse with the semi-axes $1$ on the $x_1$-axis and $1/\sqrt2\approx0.707$ on the $x_2$-axis: at $(1,\,0)^{\top}$ and at $(0,\,1/\sqrt2)^{\top}$, $f=1$. For the saddle $f=x_1^2-x_2^2$, $f(1,\,0)=1$, $f(0,\,1)=-1$ and $f(1,\,1)=0$.
+::::beispiel [Worked example]
+For the bowl $f=x_1^2+2x_2^2$, the contour line $f=1$ is the ellipse with the semi-axes $1$ on the $x_1$-axis and $1/\sqrt2\approx0.707$ on the $x_2$-axis: at $(1,\,0)^{\top}$ and at $(0,\,1/\sqrt2)^{\top}$, $f=1$. For the saddle $f=x_1^2-x_2^2$, $f(1,\,0)=1$, $f(0,\,1)=-1$ and $f(1,\,1)=0$.
+::::
 
 ⁠**In short:** Without cross terms, you read off the shape from the signs on the diagonal: all positive gives a bowl, positive and zero a trough, mixed signs a saddle.
 
@@ -132,18 +138,22 @@ $$ax_1^2+2bx_1x_2+cx_2^2=a\Bigl(x_1+\frac bax_2\Bigr)^2+\Bigl(c-\frac{b^2}a\Bigr
 
 The right-hand side is a sum of two squares. The new variables $z_1=x_1+\frac bax_2$ and $z_2=x_2$ take on every pair of numbers as $\mathbf{x}$ runs through the plane. So the form in the variables $z_1,z_2$ has no cross terms anymore, and the signs of $a$ and $c-b^2/a$ decide between bowl, trough and saddle.
 
-⁠**Worked example 1:** $5x_1^2+4x_1x_2+2x_2^2$ has $a=5$, $b=2$, $c=2$:
+::::beispiel [Worked example 1]
+$5x_1^2+4x_1x_2+2x_2^2$ has $a=5$, $b=2$, $c=2$:
 
 $$5x_1^2+4x_1x_2+2x_2^2=5\,(x_1+0.4\,x_2)^2+1.2\,x_2^2 .$$
 
 Both coefficients are positive: the form is a bowl. Check at $\mathbf{x}=(1,\,-1)^{\top}$: $5\cdot0.36+1.2=3$.
+::::
 
-⁠**Worked example 2:** $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. The coefficients have different signs: a saddle. Indeed, $f(1,\,0)=1>0$ and $f(1,\,-1)=1-6+1=-4<0$.
+::::beispiel [Worked example 2]
+$x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. The coefficients have different signs: a saddle. Indeed, $f(1,\,0)=1>0$ and $f(1,\,-1)=1-6+1=-4<0$.
+::::
 
 ⁠**In short:** Completing the square writes a quadratic form as a sum of squares; the signs of the coefficients of the squares show whether it is a bowl, a trough or a saddle.
 
 :::hintergrund Completing the square is Gaussian elimination
-The numbers in [(5.3)](#gl-5-3) are the same as in Gaussian elimination from Foundations 1, Section 12.3, applied to the symmetric matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. To produce a zero below the diagonal, you subtract $\frac ba$ times the first row from the second and obtain $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. The diagonal entries of this echelon form, the so-called pivots, are exactly the coefficients of the squares, and the elimination factor $\frac ba$ appears in the first parenthesis. For the matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0.4$, pivots $5$ and $1.2$. With $n$ variables you continue in the same way: each elimination step completes the square for one variable. The form is a bowl if and only if all pivots are positive. By the rules from Foundations 1, Section 14.5, the product of the pivots is the determinant, here $5\cdot1.2=6=5\cdot2-2\cdot2$.
+The numbers in [(5.3)](#gl-5-3) are the same as in Gaussian elimination from [Foundations 1, Section 12.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), applied to the symmetric matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. To produce a zero below the diagonal, you subtract $\frac ba$ times the first row from the second and obtain $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. The diagonal entries of this echelon form, the so-called pivots, are exactly the coefficients of the squares, and the elimination factor $\frac ba$ appears in the first parenthesis. For the matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0.4$, pivots $5$ and $1.2$. With $n$ variables you continue in the same way: each elimination step completes the square for one variable. The form is a bowl if and only if all pivots are positive. By the rules from [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), the product of the pivots is the determinant, here $5\cdot1.2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Exercise 14 ★ Forms and matrices

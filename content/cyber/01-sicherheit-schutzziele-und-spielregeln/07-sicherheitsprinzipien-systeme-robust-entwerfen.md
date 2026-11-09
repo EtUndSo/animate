@@ -25,7 +25,8 @@ Eine mittelalterliche Burg verließ sich nicht auf ihre Mauer allein. Vor der Ma
 Nach dem Prinzip der __mehreren Verteidigungslinien__ (englisch *defense in depth*, Verteidigung in der Tiefe) wird ein Schutzgut durch mehrere hintereinander liegende, voneinander unabhängige Mechanismen geschützt, sodass ein Angreifer alle überwinden muss.
 :::
 
-⁠**Rechenbeispiel: die Burg in Zahlen.** Ein Angreifer überwindet den Graben mit der Wahrscheinlichkeit $p_1=0{,}3$, die Mauer mit $p_2=0{,}1$ und die Wache mit $p_3=0{,}05$ (Abb. [12](#abb-12)). Sind die drei Hindernisse unabhängig, so kommt er nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) mit der Wahrscheinlichkeit $0{,}0015$ bis zum Schatz (Abb. [13](#abb-13)), also in 1,5 von 1 000 Versuchen. Das beste einzelne Hindernis, die Wache, ließe ihn in 50 von 1 000 Versuchen durch. Für ein solches Produkt vieler Faktoren schreibt man kurz $\prod_{k=1}^{n}p_k=p_1\cdot p_2\cdots p_n$; das große griechische Pi heißt __Produktzeichen__ und ist für Produkte, was das Summenzeichen für Summen ist.
+::::beispiel [Rechenbeispiel] die Burg in Zahlen
+Ein Angreifer überwindet den Graben mit der Wahrscheinlichkeit $p_1=0{,}3$, die Mauer mit $p_2=0{,}1$ und die Wache mit $p_3=0{,}05$ (Abb. [12](#abb-12)). Sind die drei Hindernisse unabhängig, so kommt er nach der Produktregel [(3.2)](risiko-angreifermodell-und-angriffsflache.html#gl-3-2) mit der Wahrscheinlichkeit $0{,}0015$ bis zum Schatz (Abb. [13](#abb-13)), also in 1,5 von 1 000 Versuchen. Das beste einzelne Hindernis, die Wache, ließe ihn in 50 von 1 000 Versuchen durch. Für ein solches Produkt vieler Faktoren schreibt man kurz $\prod_{k=1}^{n}p_k=p_1\cdot p_2\cdots p_n$; das große griechische Pi heißt __Produktzeichen__ und ist für Produkte, was das Summenzeichen für Summen ist.
 
 :::abbildung cyber/k1schichten 12
 Drei Verteidigungslinien um ein Schutzgut. Sind sie unabhängig, multiplizieren sich die Wahrscheinlichkeiten, sie zu überwinden: Durch alle drei kommt ein Angreifer nur in 0,15 % der Fälle.
@@ -34,8 +35,11 @@ Drei Verteidigungslinien um ein Schutzgut. Sind sie unabhängig, multiplizieren 
 :::abbildung cyber/k1rlinien 13
 Die Wahrscheinlichkeit, alle drei unabhängigen Verteidigungslinien der Burg zu überwinden: das Produkt der drei Durchbruchswahrscheinlichkeiten.
 :::
+::::
 
-⁠**Beispiel: ein Online-Konto.** Das Passwort ist die erste Linie, die Bestätigung auf dem Handy die zweite. Eine Nachricht bei jeder Anmeldung von einem neuen Gerät ist eine dritte, die erkennt statt verhindert. Ein Tageslimit für Überweisungen ist eine vierte: Sie begrenzt den Schaden, wenn alle anderen versagt haben.
+::::beispiel ein Online-Konto
+Das Passwort ist die erste Linie, die Bestätigung auf dem Handy die zweite. Eine Nachricht bei jeder Anmeldung von einem neuen Gerät ist eine dritte, die erkennt statt verhindert. Ein Tageslimit für Überweisungen ist eine vierte: Sie begrenzt den Schaden, wenn alle anderen versagt haben.
+::::
 
 ⁠**Kurz gesagt:** Mehrere unabhängige Linien hintereinander zwingen den Angreifer, alle zu überwinden; ihre Durchbruchswahrscheinlichkeiten multiplizieren sich.
 
@@ -59,11 +63,13 @@ Ein Türschloss mit einem Zylinder hat wenige Teile, und man kann jedes davon pr
 Nach dem Prinzip der __Einfachheit__ (englisch *economy of mechanism*) werden Sicherheitsmechanismen so einfach und so klein wie möglich gebaut.
 :::
 
-⁠**Rechenbeispiel:** Ein Mechanismus bestehe aus $n$ Bauteilen, und jedes enthalte unabhängig mit der Wahrscheinlichkeit $p=1\,\%$ einen Fehler, durch den man ihn umgehen kann. Nach [(3.3)](risiko-angreifermodell-und-angriffsflache.html#gl-3-3) hat er mit $n=3$ Bauteilen mit der Wahrscheinlichkeit $3{,}0\,\%$ mindestens einen solchen Fehler, mit $n=10$ Bauteilen mit $9{,}6\,\%$ (Abb. [14](#abb-14)). Jedes zusätzliche Teil ist eine zusätzliche Gelegenheit, wie bei der Angriffsfläche.
+::::beispiel [Rechenbeispiel]
+Ein Mechanismus bestehe aus $n$ Bauteilen, und jedes enthalte unabhängig mit der Wahrscheinlichkeit $p=1\,\%$ einen Fehler, durch den man ihn umgehen kann. Nach [(3.3)](risiko-angreifermodell-und-angriffsflache.html#gl-3-3) hat er mit $n=3$ Bauteilen mit der Wahrscheinlichkeit $3{,}0\,\%$ mindestens einen solchen Fehler, mit $n=10$ Bauteilen mit $9{,}6\,\%$ (Abb. [14](#abb-14)). Jedes zusätzliche Teil ist eine zusätzliche Gelegenheit, wie bei der Angriffsfläche.
 
 :::abbildung cyber/k1reinfach 14
 Die Wahrscheinlichkeit, dass ein Mechanismus aus $3$ oder aus $10$ Bauteilen mindestens einen Fehler enthält, wenn jedes Teil unabhängig mit $p=0{,}01$ fehlerhaft ist.
 :::
+::::
 
 ⁠**Kurz gesagt:** Sicherheitsmechanismen werden so einfach wie möglich gebaut, denn jedes Teil kann einen Fehler enthalten.
 
@@ -87,7 +93,9 @@ Die __vertrauenswürdige Basis__ (englisch *trusted computing base*, TCB) eines 
 
 Alles in der vertrauenswürdigen Basis muss stimmen; ein einziger Fehler darin kann die ganze Sicherheit aufheben. Alles außerhalb darf Fehler haben, ohne dass die Sicherheit leidet.
 
-⁠**Beispiel:** Beim Kundenportal aus Abschnitt [2](von-der-schwachstelle-zum-schaden.html#stufe-2) gehören die Anmeldung und jede Stelle, die Rechte prüft, zur vertrauenswürdigen Basis. Prüfen 50 verschiedene Seiten des Portals jeweils selbst, ob der Kunde die angezeigten Daten sehen darf, so gehören alle 50 Prüfungen dazu, und jede kann falsch sein, wie die Rechnungsseite gezeigt hat. Prüft eine einzige zentrale Stelle jeden Zugriff, so gehört nur diese eine dazu. Die Basis ist kleiner, und die lückenlose Prüfung aus Abschnitt [5](sicherheitsprinzipien-rechte-vergeben-und-prufen.html#stufe-5) lässt sich an einer Stelle sicherstellen.
+::::beispiel
+Beim Kundenportal aus Abschnitt [2](von-der-schwachstelle-zum-schaden.html#stufe-2) gehören die Anmeldung und jede Stelle, die Rechte prüft, zur vertrauenswürdigen Basis. Prüfen 50 verschiedene Seiten des Portals jeweils selbst, ob der Kunde die angezeigten Daten sehen darf, so gehören alle 50 Prüfungen dazu, und jede kann falsch sein, wie die Rechnungsseite gezeigt hat. Prüft eine einzige zentrale Stelle jeden Zugriff, so gehört nur diese eine dazu. Die Basis ist kleiner, und die lückenlose Prüfung aus Abschnitt [5](sicherheitsprinzipien-rechte-vergeben-und-prufen.html#stufe-5) lässt sich an einer Stelle sicherstellen.
+::::
 
 ⁠**Kurz gesagt:** Die vertrauenswürdige Basis ist alles, was für die Sicherheit korrekt sein muss; je kleiner sie ist, desto eher kann man sie prüfen.
 
@@ -111,7 +119,9 @@ Nach dem Prinzip des __offenen Verfahrens__ (englisch *open design*) muss ein Sy
 
 Das Prinzip ist alt. Der Kryptograph Auguste Kerckhoffs forderte schon 1883, ein Verschlüsselungsverfahren dürfe keine Geheimhaltung verlangen und müsse ohne Nachteil in die Hände des Feindes fallen können. Claude Shannon fasste es 1949 in den Satz, man solle annehmen, „der Feind kennt das System“. Den umgekehrten Ansatz, Sicherheit durch Verbergen des Verfahrens, nennt man abschätzig *security through obscurity*.
 
-⁠**Beispiel:** Ein Hersteller von Funkschlüsseln für Autos hält sein selbst erdachtes Verschlüsselungsverfahren geheim. Sobald jemand einen Schlüssel ausliest und das Verfahren herausfindet, sind alle Autos dieser Bauart zugleich gefährdet, und ändern lässt sich das Verfahren nur durch einen Austausch der Elektronik. Benutzt der Hersteller dagegen ein öffentlich bekanntes und gründlich geprüftes Verfahren mit einem eigenen Schlüssel je Auto, so verrät ein ausgelesener Schlüssel nur dieses eine Auto.
+::::beispiel
+Ein Hersteller von Funkschlüsseln für Autos hält sein selbst erdachtes Verschlüsselungsverfahren geheim. Sobald jemand einen Schlüssel ausliest und das Verfahren herausfindet, sind alle Autos dieser Bauart zugleich gefährdet, und ändern lässt sich das Verfahren nur durch einen Austausch der Elektronik. Benutzt der Hersteller dagegen ein öffentlich bekanntes und gründlich geprüftes Verfahren mit einem eigenen Schlüssel je Auto, so verrät ein ausgelesener Schlüssel nur dieses eine Auto.
+::::
 
 ⁠**Kurz gesagt:** Die Sicherheit darf nur von einem kleinen, austauschbaren Geheimnis abhängen, nie davon, dass der Angreifer das Verfahren nicht kennt.
 
@@ -137,7 +147,9 @@ Nach dem Prinzip __der Mensch als Teil des Systems__ (englisch *consider human f
 
 Menschen umgehen Regeln, die ihnen das Leben schwer machen, und Angreifer zielen bewusst auf Menschen, weil sie sich leichter täuschen lassen als Mechanismen. Phishing aus Abschnitt [1](was-geschutzt-wird-schutzgut-und-schutzziele.html#stufe-1) ist das bekannteste Beispiel.
 
-⁠**Beispiel:** Eine Firma verlangt, dass alle Mitarbeiter ihr Passwort alle 30 Tage ändern. Die Mitarbeiter wählen daraufhin `Herbst2026!`, `Winter2026!`, `Fruehling2027!`: Passwörter, die ein Angreifer leicht errät, sobald er eines kennt. Die Richtlinien der US-Standardbehörde NIST verbieten einen solchen Zwangswechsel inzwischen ausdrücklich, solange es keinen Hinweis gibt, dass ein Passwort bekannt geworden ist. Ein einmal gewähltes langes Passwort zusammen mit einer Bestätigung auf dem Handy schützt mehr und belastet weniger.
+::::beispiel
+Eine Firma verlangt, dass alle Mitarbeiter ihr Passwort alle 30 Tage ändern. Die Mitarbeiter wählen daraufhin `Herbst2026!`, `Winter2026!`, `Fruehling2027!`: Passwörter, die ein Angreifer leicht errät, sobald er eines kennt. Die Richtlinien der US-Standardbehörde NIST verbieten einen solchen Zwangswechsel inzwischen ausdrücklich, solange es keinen Hinweis gibt, dass ein Passwort bekannt geworden ist. Ein einmal gewähltes langes Passwort zusammen mit einer Bestätigung auf dem Handy schützt mehr und belastet weniger.
+::::
 
 ⁠**Kurz gesagt:** Ein Mechanismus, den Menschen umgehen, schützt nicht; der sichere Weg muss der bequeme sein.
 
@@ -163,7 +175,9 @@ Nach dem Prinzip __Sicherheit von Anfang an__ (englisch *design security in from
 
 Nachträglich eingebaute Sicherheit ist teuer und lückenhaft, weil das alte System weiter funktionieren muss: Jede neue Prüfung darf nichts kaputtmachen, was sich auf das alte Verhalten verlässt.
 
-⁠**Beispiel:** Das Verfahren, mit dem E-Mails zwischen Servern weitergereicht werden, wurde 1982 für ein Netz festgelegt, in dem sich die Beteiligten kannten. Es prüft nicht, ob der angegebene Absender stimmt; jeder Server kann jeden beliebigen Absender eintragen. Seit Jahrzehnten gibt es Ergänzungen, mit denen der Empfänger die Herkunft prüfen kann. Weil aber alte Server weiter Post zustellen können müssen, sind diese Prüfungen nicht überall eingeschaltet, und gefälschte Absender sind bis heute ein Werkzeug für Phishing.
+::::beispiel
+Das Verfahren, mit dem E-Mails zwischen Servern weitergereicht werden, wurde 1982 für ein Netz festgelegt, in dem sich die Beteiligten kannten. Es prüft nicht, ob der angegebene Absender stimmt; jeder Server kann jeden beliebigen Absender eintragen. Seit Jahrzehnten gibt es Ergänzungen, mit denen der Empfänger die Herkunft prüfen kann. Weil aber alte Server weiter Post zustellen können müssen, sind diese Prüfungen nicht überall eingeschaltet, und gefälschte Absender sind bis heute ein Werkzeug für Phishing.
+::::
 
 ⁠**Kurz gesagt:** Sicherheit wird von Anfang an mitentworfen, denn nachträglich lässt sie sich nur mühsam und unvollständig einbauen.
 

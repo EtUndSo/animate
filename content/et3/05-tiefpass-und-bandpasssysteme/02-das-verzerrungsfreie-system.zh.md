@@ -32,11 +32,13 @@ $$\begin{aligned} &\text{衰减：} && a(f)=-20\lg|H(f)|\ \text{dB}\quad\text{�
 
 ⁠**如何理解：**__相位时延__是频率为 $f$ 的单个振荡的延迟。__群时延__是一组相邻频率的延迟，也就是包络的延迟（第 [11](phasen-und-gruppenlaufzeit-beim-bandpass.html#stufe-11) 阶段）。对无失真系统，$a$、$t_\mathrm p$ 和 $t_\mathrm g$ 都是常数，且 $t_\mathrm p=t_\mathrm g=t_0$。
 
-**例：RC 电路。** 取 $\varphi=-\arctan(2\pi f\,RC)$ 和 $RC=1$ s：
+::::beispiel RC 电路
+取 $\varphi=-\arctan(2\pi f\,RC)$ 和 $RC=1$ s：
 
 $$t_\mathrm p=\frac{\arctan(2\pi f\,RC)}{2\pi f},\qquad t_\mathrm g=\frac{RC}{1+(2\pi f\,RC)^2}.$$
 
 当 $f\to0$ 时，二者都等于 $RC=1$ s。在 $f=0.159$ Hz（$2\pi fRC=1$）处，$t_\mathrm p=0.785$ s，$t_\mathrm g=0.5$ s，$a=3.0$ dB。因此 RC 电路不是无失真的：它的衰减与频率有关，不同频率到达的时间也不同。
+::::
 
 :::ltspice 读出 RC 电路的衰减和时延
 ⁠**绘制：**RC 电路（`res` 取 `1Meg`，`cap` 取 `1u`），信号源的值取 `AC 1`，指令为 `.ac dec 100 0.01 10`。

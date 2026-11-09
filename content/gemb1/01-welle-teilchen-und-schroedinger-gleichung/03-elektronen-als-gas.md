@@ -58,7 +58,11 @@ Der Exponentialfaktor macht hohe Energien selten, $4\pi v^2$ zählt die Geschwin
 ⁠**Drift.** Das Feld übt die Kraft $F=-e\mathcal E$ aus. Die Zeit $t$ nach einem Stoß hat ein Elektron die Geschwindigkeit $v_\text{Stoß}+F\,t/m_0$. Im Mittel über alle Elektronen fällt der zufällige Teil weg, und der letzte Stoß liegt $\tau$ zurück: $v_\mathrm d=-e\,\mathcal E\,\tau/m_0$. Durch die Fläche $A$ läuft in der Zeit $\Delta t$ die Ladung aller Elektronen im Zylinder der Länge $|v_\mathrm d|\Delta t$. Das gibt $j=e\,n\,|v_\mathrm d|$.
 :::
 
-**Beispiel.** Mit $\tau=8{,}6\cdot10^{-15}$ s folgen für Kupfer $\mu=1{,}5\cdot10^{-3}\,\mathrm{m^2/(V\,s)}$ und $\sigma=2{,}1\cdot10^{7}$ S/m. Das liegt nur um den Faktor 2,9 unter dem Messwert. Bei 1 A in 1 mm$^2$ ist $j=10^{6}\,\mathrm{A/m^2}$, $\mathcal E=17$ mV/m und $|v_\mathrm d|=0{,}073$ mm/s. Die Elektronen rasen also $1{,}6\cdot10^{9}$-mal schneller, als sie vorankommen: Der Strom ist eine winzige Schlagseite der Wärmebewegung. **Grenzfälle:** Für $n\to0$ gibt es keine Träger, $\sigma\to0$. Für $\tau\to\infty$ bremst nichts mehr, $\sigma\to\infty$.
+::::beispiel
+Mit $\tau=8{,}6\cdot10^{-15}$ s folgen für Kupfer $\mu=1{,}5\cdot10^{-3}\,\mathrm{m^2/(V\,s)}$ und $\sigma=2{,}1\cdot10^{7}$ S/m. Das liegt nur um den Faktor 2,9 unter dem Messwert. Bei 1 A in 1 mm$^2$ ist $j=10^{6}\,\mathrm{A/m^2}$, $\mathcal E=17$ mV/m und $|v_\mathrm d|=0{,}073$ mm/s. Die Elektronen rasen also $1{,}6\cdot10^{9}$-mal schneller, als sie vorankommen: Der Strom ist eine winzige Schlagseite der Wärmebewegung.
+::::
+
+⁠**Grenzfälle:** Für $n\to0$ gibt es keine Träger, $\sigma\to0$. Für $\tau\to\infty$ bremst nichts mehr, $\sigma\to\infty$.
 
 **Wo das Bild endet.** Die Tabelle zeigt gemessene Leitfähigkeiten.
 

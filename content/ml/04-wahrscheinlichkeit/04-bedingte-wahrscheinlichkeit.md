@@ -40,7 +40,9 @@ $$P(A)=P(A\cap B)+P(A\cap B^{\mathrm c}). \tag{3.1}$$
 
 Diese Regel heißt __Summenregel__.
 
-⁠**Rechenbeispiel:** Aus Tabelle [1](#tab-1) ist $P(\text{Sonne}\cap\text{Fahrrad})=0{,}3$, $P(\text{Sonne}\cap\text{kein Fahrrad})=0{,}1$, $P(\text{Regen}\cap\text{Fahrrad})=0{,}1$ und $P(\text{Regen}\cap\text{kein Fahrrad})=0{,}5$. Die Summenregel ergibt $P(\text{Sonne})=0{,}3+0{,}1=0{,}4$ und $P(\text{Fahrrad})=0{,}3+0{,}1=0{,}4$. Alle vier Zellen zusammen ergeben $1$.
+::::beispiel [Rechenbeispiel]
+Aus Tabelle [1](#tab-1) ist $P(\text{Sonne}\cap\text{Fahrrad})=0{,}3$, $P(\text{Sonne}\cap\text{kein Fahrrad})=0{,}1$, $P(\text{Regen}\cap\text{Fahrrad})=0{,}1$ und $P(\text{Regen}\cap\text{kein Fahrrad})=0{,}5$. Die Summenregel ergibt $P(\text{Sonne})=0{,}3+0{,}1=0{,}4$ und $P(\text{Fahrrad})=0{,}3+0{,}1=0{,}4$. Alle vier Zellen zusammen ergeben $1$.
+::::
 
 ⁠**Kurz gesagt:** In einer Zähltabelle stehen in den Zellen die gemeinsamen Wahrscheinlichkeiten und am Rand die Randwahrscheinlichkeiten; eine Randwahrscheinlichkeit ist die Summe ihrer Zeile oder Spalte.
 
@@ -63,9 +65,13 @@ die __bedingte Wahrscheinlichkeit__ von $A$ unter der Bedingung $B$, kurz „$A$
 
 Der Zähler ist der Teil von $A$, der in $B$ liegt, der Nenner der Inhalt von $B$. Die Division sorgt dafür, dass $B$ selbst die Wahrscheinlichkeit $1$ bekommt: $P(B\mid B)=1$. Als Funktion von $A$ erfüllt $P(\,\cdot\mid B)$ alle drei Axiome. Bedingte Wahrscheinlichkeiten sind also gewöhnliche Wahrscheinlichkeiten auf dem geschrumpften Ergebnisraum $B$, und alle Rechenregeln aus Abschnitt [2](wahrscheinlichkeit-2.html#stufe-2) gelten für sie, etwa $P(A^{\mathrm c}\mid B)=1-P(A\mid B)$.
 
-⁠**Rechenbeispiel 1:** Aus Tabelle [1](#tab-1) ist $P(\text{Fahrrad}\mid\text{Sonne})=0{,}3/0{,}4=0{,}75$ und $P(\text{Fahrrad}\mid\text{Regen})=0{,}1/0{,}6=1/6\approx0{,}167$. Ohne Information über das Wetter ist $P(\text{Fahrrad})=0{,}4$. Die Information „Sonne“ hebt die Wahrscheinlichkeit also deutlich, die Information „Regen“ senkt sie.
+::::beispiel [Rechenbeispiel 1]
+Aus Tabelle [1](#tab-1) ist $P(\text{Fahrrad}\mid\text{Sonne})=0{,}3/0{,}4=0{,}75$ und $P(\text{Fahrrad}\mid\text{Regen})=0{,}1/0{,}6=1/6\approx0{,}167$. Ohne Information über das Wetter ist $P(\text{Fahrrad})=0{,}4$. Die Information „Sonne“ hebt die Wahrscheinlichkeit also deutlich, die Information „Regen“ senkt sie.
+::::
 
-⁠**Rechenbeispiel 2:** Beim fairen Würfel ist $P(\{6\}\mid\text{gerade})=\frac{1/6}{1/2}=\frac13$: Unter den drei geraden Zahlen ist die Sechs eine. Umgekehrt ist $P(\text{gerade}\mid\{6\})=1$.
+::::beispiel [Rechenbeispiel 2]
+Beim fairen Würfel ist $P(\{6\}\mid\text{gerade})=\frac{1/6}{1/2}=\frac13$: Unter den drei geraden Zahlen ist die Sechs eine. Umgekehrt ist $P(\text{gerade}\mid\{6\})=1$.
+::::
 
 :::warnung $P(A\mid B)$ und $P(B\mid A)$ sind verschiedene Zahlen
 Das zweite Rechenbeispiel zeigt es: $P(\{6\}\mid\text{gerade})=\tfrac13$, aber $P(\text{gerade}\mid\{6\})=1$. Die beiden Zahlen haben denselben Zähler $P(A\cap B)$, aber verschiedene Nenner. Wer sie verwechselt, macht einen der häufigsten Fehler im Umgang mit Wahrscheinlichkeiten. Abschnitt [4](der-satz-von-bayes.html#stufe-4) zeigt, wie man von der einen zur anderen kommt und wie groß der Unterschied werden kann.
@@ -99,11 +105,13 @@ $$P(A_1\cap A_2\cap\dots\cap A_m)=P(A_1)\,P(A_2\mid A_1)\,P(A_3\mid A_1\cap A_2)
 
 Die Verkettung folgt, indem man die Produktregel wiederholt anwendet, zuerst auf $A_1\cap\dots\cap A_{m-1}$ und $A_m$, dann auf den Rest. Sie liest sich wie eine Geschichte in Schritten: Zuerst muss $A_1$ eintreten, dann, nachdem $A_1$ eingetreten ist, $A_2$, und so weiter.
 
-⁠**Rechenbeispiel:** In einer Kiste liegen $10$ Bauteile, davon $2$ defekte. Man entnimmt nacheinander drei, ohne sie zurückzulegen. $A_k$ sei „das $k$-te entnommene Teil ist intakt“. Beim ersten Griff sind $8$ von $10$ Teilen intakt, beim zweiten, nachdem ein intaktes fehlt, $7$ von $9$, beim dritten $6$ von $8$. Die Verkettung multipliziert diese drei Anteile und ergibt $P(\text{alle drei intakt})=\tfrac7{15}\approx0{,}467$ (Abb. [1](#abb-1)). Mit über $50\,\%$ ist also mindestens ein defektes Teil dabei.
+::::beispiel [Rechenbeispiel]
+In einer Kiste liegen $10$ Bauteile, davon $2$ defekte. Man entnimmt nacheinander drei, ohne sie zurückzulegen. $A_k$ sei „das $k$-te entnommene Teil ist intakt“. Beim ersten Griff sind $8$ von $10$ Teilen intakt, beim zweiten, nachdem ein intaktes fehlt, $7$ von $9$, beim dritten $6$ von $8$. Die Verkettung multipliziert diese drei Anteile und ergibt $P(\text{alle drei intakt})=\tfrac7{15}\approx0{,}467$ (Abb. [1](#abb-1)). Mit über $50\,\%$ ist also mindestens ein defektes Teil dabei.
 
 :::abbildung ml/k4rverkettung 1
 Die Verkettung für drei Entnahmen ohne Zurücklegen: Jeder Faktor ist der Anteil intakter Teile unter denen, die noch in der Kiste liegen.
 :::
+::::
 
 :::warnung Zwei Kettenregeln
 Manche Texte nennen die Verkettung [(3.4)](#gl-3-4) „Kettenregel der Wahrscheinlichkeit“. Mit der Kettenregel der Ableitung aus [Grundlagen 3, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-kettenregel.html#stufe-2-2), hat sie nichts zu tun. Gemeinsam ist beiden nur, dass ein Ganzes als Produkt von Schritten geschrieben wird.
@@ -134,11 +142,13 @@ Die Mengen $A\cap B_1,\dots,A\cap B_k$ sind disjunkt, und ihre Vereinigung ist $
 
 Für die Zerlegung $B$, $B^{\mathrm c}$ ist das die Summenregel [(3.1)](#gl-3-1), mit der Produktregel umgeschrieben. Der Satz ist ein gewichteter Mittelwert: Die Gewichte $P(B_i)$ sind nichtnegativ und ergeben zusammen $1$, also liegt $P(A)$ immer zwischen der kleinsten und der größten der Zahlen $P(A\mid B_i)$.
 
-⁠**Rechenbeispiel:** Fabrik 1 liefert $60\,\%$ der Teile mit $1\,\%$ Ausschuss, Fabrik 2 liefert $40\,\%$ mit $3\,\%$ Ausschuss. Mit $B_i$ = „aus Fabrik $i$“ und $A$ = „Ausschuss“ ergibt [(3.5)](#gl-3-5) einen Ausschussanteil von $1{,}8\,\%$ (Abb. [2](#abb-2)). Er liegt zwischen $1\,\%$ und $3\,\%$, näher bei $1\,\%$, weil Fabrik 1 mehr liefert. Ebenso ergibt Tabelle [1](#tab-1) $P(\text{Fahrrad})=0{,}75\cdot0{,}4+\tfrac16\cdot0{,}6=0{,}3+0{,}1=0{,}4$.
+::::beispiel [Rechenbeispiel]
+Fabrik 1 liefert $60\,\%$ der Teile mit $1\,\%$ Ausschuss, Fabrik 2 liefert $40\,\%$ mit $3\,\%$ Ausschuss. Mit $B_i$ = „aus Fabrik $i$“ und $A$ = „Ausschuss“ ergibt [(3.5)](#gl-3-5) einen Ausschussanteil von $1{,}8\,\%$ (Abb. [2](#abb-2)). Er liegt zwischen $1\,\%$ und $3\,\%$, näher bei $1\,\%$, weil Fabrik 1 mehr liefert. Ebenso ergibt Tabelle [1](#tab-1) $P(\text{Fahrrad})=0{,}75\cdot0{,}4+\tfrac16\cdot0{,}6=0{,}3+0{,}1=0{,}4$.
 
 :::abbildung ml/k4rtotal 2
 Der Satz von der totalen Wahrscheinlichkeit für zwei Fabriken: Ausschussanteil jeder Fabrik mal ihr Lieferanteil, dann die Summe.
 :::
+::::
 
 ⁠**Kurz gesagt:** Eine Wahrscheinlichkeit ist der mit $P(B_i)$ gewichtete Mittelwert der bedingten Wahrscheinlichkeiten über alle Fälle einer Zerlegung.
 

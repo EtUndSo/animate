@@ -38,7 +38,11 @@ The node rule gives $I=\sum I_i$, so with the same $U$, $I=(G_1+\dots+G_N)\,U$. 
 $$I_1=I_\mathrm{tot}\,\frac{1/R_1}{1/R_1+1/R_2}=I_\mathrm{tot}\,\frac{R_2}{R_1+R_2}.$$
 :::
 
-**Example.** $R_1$ and $R_2$ of the chain in parallel at 9 V: $G_\mathrm{tot}=0.5+1=1.5$ mS, so $R_\mathrm{tot}=667\,\Omega$, less than the smaller value, and $I=13.5$ mA. The current divider gives $I_1=13.5\,\mathrm{mA}\cdot1/3=4.5$ mA, $I_2=9$ mA. Mixed networks are combined from the inside out: $6\,\mathrm{k\Omega}$ in parallel with $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ gives $6\parallel3=2\,\mathrm{k\Omega}$. **Limiting cases:** $R_2\to\infty$ gives $R_1$; the open branch does not count. $R_2\to0$ gives 0; the short circuit takes over the entire current. $R_1=R_2$ gives $R_1/2$.
+::::beispiel
+$R_1$ and $R_2$ of the chain in parallel at 9 V: $G_\mathrm{tot}=0.5+1=1.5$ mS, so $R_\mathrm{tot}=667\,\Omega$, less than the smaller value, and $I=13.5$ mA. The current divider gives $I_1=13.5\,\mathrm{mA}\cdot1/3=4.5$ mA, $I_2=9$ mA. Mixed networks are combined from the inside out: $6\,\mathrm{k\Omega}$ in parallel with $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ gives $6\parallel3=2\,\mathrm{k\Omega}$.
+::::
+
+⁠**Limiting cases:** $R_2\to\infty$ gives $R_1$; the open branch does not count. $R_2\to0$ gives 0; the short circuit takes over the entire current. $R_1=R_2$ gives $R_1/2$.
 
 **The loaded voltage divider.** The voltage of a divider is to supply another circuit stage; the __load resistor__ $R_\mathrm L$ lies in parallel with $R_2$ (Fig. [11](#abb-11)). The mechanism: at the middle node an additional path opens, the total resistance falls, the current through $R_1$ rises, more drops across $R_1$, and the middle potential falls. With $R_2'=R_2\parallel R_\mathrm L$ in [(9.3)](reihenschaltung-und-spannungsteiler.html#gl-9-3):
 
@@ -51,7 +55,9 @@ $$\frac{U_2}{U}=\frac{R_2\parallel R_\mathrm L}{R_1+R_2\parallel R_\mathrm L}=\f
 Left: loaded voltage divider. Right: $U_2$ versus $R_\mathrm L$ for $R_1=2\,\mathrm{k\Omega}$, $R_2=1\,\mathrm{k\Omega}$, $U=9$ V, by [(10.4)](#gl-10-4). With $R_\mathrm L=1\,\mathrm{k\Omega}$, 1.8 V remain; with $10\,\mathrm{k\Omega}$, it is 2.81 V. Only far above $R_1\parallel R_2=667\,\Omega$ is the load imperceptible.
 :::
 
-**Example.** For the chain, the relative error $\delta=(U_{2,0}-U_2)/U_{2,0}$ against the unloaded 3 V is: $R_\mathrm L=1\,\mathrm{k\Omega}$ gives 40 %, $10\,\mathrm{k\Omega}$ gives 6.3 %, $100\,\mathrm{k\Omega}$ gives 0.66 %. The error is $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ with $R_\mathrm i=R_1\parallel R_2$ (Exercise [11](#aufg-11)). So the divider acts like a source with the internal resistance $R_\mathrm i$ ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+::::beispiel
+For the chain, the relative error $\delta=(U_{2,0}-U_2)/U_{2,0}$ against the unloaded 3 V is: $R_\mathrm L=1\,\mathrm{k\Omega}$ gives 40 %, $10\,\mathrm{k\Omega}$ gives 6.3 %, $100\,\mathrm{k\Omega}$ gives 0.66 %. The error is $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ with $R_\mathrm i=R_1\parallel R_2$ (Exercise [11](#aufg-11)). So the divider acts like a source with the internal resistance $R_\mathrm i$ ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+::::
 
 :::ltspice Measuring the load
 ⁠**Draw:** source `voltage` with `9` from `in` to ground, `res` `R1 2k` from `in` to `mid`, `R2 1k` from `mid` to ground, `RL` with value `{RL}` from `mid` to ground.

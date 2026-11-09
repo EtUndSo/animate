@@ -33,7 +33,9 @@ Die Funktion $u$ unter dem Integralzeichen heißt der __Integrand__. Die Variabl
 
 **Rechenregeln.** Aus der Summe übertragen sich drei Regeln. Das Integral ist *linear*: $\int_a^b(\lambda_1u+\lambda_2v)\,\mathrm{d} t=\lambda_1\int_a^bu\,\mathrm{d} t+\lambda_2\int_a^bv\,\mathrm{d} t$ für Zahlen $\lambda_1,\lambda_2$. Es ist *monoton*: Aus $u\le v$ auf $[a,b]$ folgt $\int_a^bu\,\mathrm{d} t\le\int_a^bv\,\mathrm{d} t$. Es ist *additiv* bezüglich der Grenzen: $\int_a^cu\,\mathrm{d} t=\int_a^bu\,\mathrm{d} t+\int_b^cu\,\mathrm{d} t$. Aus der Monotonie folgt mit $-|u|\le u\le|u|$ die Abschätzung $\bigl|\int_a^bu\,\mathrm{d} t\bigr|\le\int_a^b|u|\,\mathrm{d} t$.
 
-⁠**Beispiel:** $u(t)=t^2$ auf $[0,1]$ mit $N=4$ Stücken der Länge $\Delta t=\frac14$. Mit den rechten Enden $t_k=\frac k4$ ist die Riemann-Summe $\frac14\bigl(\frac1{16}+\frac4{16}+\frac9{16}+\frac{16}{16}\bigr)=\frac{15}{32}\approx0{,}469$, mit den linken Enden $\frac14\bigl(0+\frac1{16}+\frac4{16}+\frac9{16}\bigr)=\frac7{32}\approx0{,}219$. Mit $N=100$ und rechten Enden ergibt sich $0{,}33835$. Der Grenzwert ist $\int_0^1t^2\,\mathrm{d} t=\frac13$.
+::::beispiel
+$u(t)=t^2$ auf $[0,1]$ mit $N=4$ Stücken der Länge $\Delta t=\frac14$. Mit den rechten Enden $t_k=\frac k4$ ist die Riemann-Summe $\frac14\bigl(\frac1{16}+\frac4{16}+\frac9{16}+\frac{16}{16}\bigr)=\frac{15}{32}\approx0{,}469$, mit den linken Enden $\frac14\bigl(0+\frac1{16}+\frac4{16}+\frac9{16}\bigr)=\frac7{32}\approx0{,}219$. Mit $N=100$ und rechten Enden ergibt sich $0{,}33835$. Der Grenzwert ist $\int_0^1t^2\,\mathrm{d} t=\frac13$.
+::::
 
 ⁠**Kurz gesagt:** Das Integral ist der Grenzwert der Rechtecksummen $\sum u(t_k)\,\Delta t$. Es ist linear, monoton und additiv in den Grenzen.
 
@@ -67,7 +69,9 @@ Ist $u$ stetig differenzierbar auf $[a,b]$, dann gilt $\int_a^bu'(t)\,\mathrm{d}
 
 ⁠**So liest man das:** (i) Schiebt man die obere Grenze um ein kleines $h$ weiter, kommt ein Streifen der Breite $h$ und der Höhe ungefähr $u(s)$ hinzu. Die Fläche wächst also mit der Rate $u(s)$. Steht die Variable in der *unteren* Grenze, dreht sich das Vorzeichen um: $\frac{\mathrm{d}}{\mathrm{d} s}\int_s^bu(t)\,\mathrm{d} t=-u(s)$, denn $\int_s^b=-\int_b^s$. (ii) Eine Funktion mit der Ableitung $u$ heißt Stammfunktion von $u$ ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)). Man integriert also, indem man eine Stammfunktion an den Grenzen auswertet.
 
-⁠**Beispiel:** $\int_0^st^2\,\mathrm{d} t=\frac{s^3}3$, und die Ableitung nach $s$ ist $s^2$, der Integrand an der oberen Grenze. Mit (ii): $\int_1^2 2t\,\mathrm{d} t=2^2-1^2=3$.
+::::beispiel
+$\int_0^st^2\,\mathrm{d} t=\frac{s^3}3$, und die Ableitung nach $s$ ist $s^2$, der Integrand an der oberen Grenze. Mit (ii): $\int_1^2 2t\,\mathrm{d} t=2^2-1^2=3$.
+::::
 
 ⁠**Kurz gesagt:** Ein Integral nach seiner oberen Grenze abzuleiten ergibt den Integranden an dieser Grenze. Integrieren heißt, eine Stammfunktion an den Grenzen auszuwerten.
 
@@ -89,7 +93,9 @@ $$\frac{u(s+h)-u(s)}{h}=u'(\tau).$$
 
 ⁠**So liest man das:** Links steht die mittlere Steigung zwischen $s$ und $s+h$, die Steigung der Sekante. Rechts steht die Steigung an einer Stelle $\tau$ dazwischen. Der Satz sagt nur, dass es diese Stelle gibt, nicht, wo sie liegt. Sie heißt hier die __Zwischenstelle__.
 
-⁠**Beispiel:** $u(t)=t^2$, $s=0$, $h=1$. Die mittlere Steigung ist $(1-0)/1=1$. Wegen $u'(\tau)=2\tau$ liegt die Zwischenstelle bei $\tau=\frac12$.
+::::beispiel
+$u(t)=t^2$, $s=0$, $h=1$. Die mittlere Steigung ist $(1-0)/1=1$. Wegen $u'(\tau)=2\tau$ liegt die Zwischenstelle bei $\tau=\frac12$.
+::::
 
 ⁠**Kurz gesagt:** Die mittlere Steigung zwischen zwei Stellen wird an einer Zwischenstelle als echte Steigung angenommen.
 
@@ -107,7 +113,9 @@ $$\frac{u(s+h)-u(s)}{h}=u'(\tau).$$
 
 **Kompakt.** Eine Menge, die abgeschlossen und beschränkt ist, heißt __kompakt__.
 
-⁠**Beispiel:** Das Intervall $[a,b]$ ist kompakt: Sein Rand besteht aus den Punkten $a$ und $b$, und beide gehören dazu. Das Intervall $(0,1]$ ist nicht abgeschlossen, denn sein Randpunkt $0$ fehlt. Das Intervall $[0,\infty)$ ist abgeschlossen, aber nicht beschränkt. Ein Rechteck $[a,b]\times[c,d]$ mit seinen Kanten und die Kreisscheibe $\{|\boldsymbol{x}|\le1\}$ mit ihrem Randkreis sind kompakt. Die Kreisscheibe $\{|\boldsymbol{x}|<1\}$ ohne Randkreis ist offen und deshalb nicht abgeschlossen.
+::::beispiel
+Das Intervall $[a,b]$ ist kompakt: Sein Rand besteht aus den Punkten $a$ und $b$, und beide gehören dazu. Das Intervall $(0,1]$ ist nicht abgeschlossen, denn sein Randpunkt $0$ fehlt. Das Intervall $[0,\infty)$ ist abgeschlossen, aber nicht beschränkt. Ein Rechteck $[a,b]\times[c,d]$ mit seinen Kanten und die Kreisscheibe $\{|\boldsymbol{x}|\le1\}$ mit ihrem Randkreis sind kompakt. Die Kreisscheibe $\{|\boldsymbol{x}|<1\}$ ohne Randkreis ist offen und deshalb nicht abgeschlossen.
+::::
 
 ⁠**Kurz gesagt:** Kompakt heißt: Die Menge enthält ihren Rand und reicht nicht ins Unendliche.
 
@@ -129,7 +137,9 @@ $$|f(\boldsymbol{x})-f(\boldsymbol{x}_0)|<\varepsilon\quad\text{für alle }\bold
 
 ⁠**So liest man das:** $\varepsilon$ ist die erlaubte Abweichung des Funktionswerts, $\delta$ der erlaubte Abstand vom Punkt. Je kleiner $\varepsilon$, desto kleiner muss man in der Regel $\delta$ wählen. Das $\delta$ darf außer von $\varepsilon$ auch vom Punkt $\boldsymbol{x}_0$ abhängen.
 
-⁠**Beispiel:** $f(x)=x^2$ im Punkt $x_0=1$. Für $|x-1|<1$ ist $|x+1|<3$, also $|x^2-1|=|x-1|\,|x+1|<3\,|x-1|$. Zu $\varepsilon>0$ passt deshalb $\delta=\min(1,\varepsilon/3)$. Zu $\varepsilon=0{,}3$ gehört $\delta=0{,}1$. Zur Kontrolle: $1{,}1^2-1=0{,}21$ und $1-0{,}9^2=0{,}19$, beide kleiner als $0{,}3$.
+::::beispiel
+$f(x)=x^2$ im Punkt $x_0=1$. Für $|x-1|<1$ ist $|x+1|<3$, also $|x^2-1|=|x-1|\,|x+1|<3\,|x-1|$. Zu $\varepsilon>0$ passt deshalb $\delta=\min(1,\varepsilon/3)$. Zu $\varepsilon=0{,}3$ gehört $\delta=0{,}1$. Zur Kontrolle: $1{,}1^2-1=0{,}21$ und $1-0{,}9^2=0{,}19$, beide kleiner als $0{,}3$.
+::::
 
 :::hintergrund Warum die beiden Beschreibungen der Stetigkeit dasselbe sagen
 Gilt die Bedingung mit $\varepsilon$ und $\delta$, und geht eine Folge $\boldsymbol{x}_\nu$ gegen $\boldsymbol{x}_0$, dann ist von einem Index an $|\boldsymbol{x}_\nu-\boldsymbol{x}_0|<\delta$ und damit $|f(\boldsymbol{x}_\nu)-f(\boldsymbol{x}_0)|<\varepsilon$. Weil $\varepsilon$ beliebig war, folgt $f(\boldsymbol{x}_\nu)\to f(\boldsymbol{x}_0)$. Umgekehrt: Gäbe es ein $\varepsilon>0$, zu dem kein $\delta$ passt, dann fände man zu jedem $\delta=1/\nu$ einen Punkt $\boldsymbol{x}_\nu$ mit $|\boldsymbol{x}_\nu-\boldsymbol{x}_0|<1/\nu$, aber $|f(\boldsymbol{x}_\nu)-f(\boldsymbol{x}_0)|\ge\varepsilon$. Diese Folge geht gegen $\boldsymbol{x}_0$, ihre Funktionswerte aber nicht gegen $f(\boldsymbol{x}_0)$. Das widerspricht der Stetigkeit im Sinn von [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html).
@@ -159,7 +169,9 @@ $$|f(\boldsymbol{x})-f(\boldsymbol{y})|<\varepsilon\quad\text{für alle }\boldsy
 
 ⁠**So liest man das:** Der Unterschied zur Stetigkeit steckt in der Reihenfolge. Bei der Stetigkeit wählt man zuerst den Punkt und dann $\delta$. Hier wählt man $\delta$ zuerst, und es muss für alle Punkte zugleich passen.
 
-⁠**Beispiel:** Auf $[0{,}1;\,1]$ ist $1/t$ gleichmäßig stetig, denn $\bigl|\frac1s-\frac1t\bigr|=\frac{|t-s|}{st}\le100\,|t-s|$. Das $\delta=\varepsilon/100$ passt überall. Auf $(0,1]$ dagegen nicht: Zu $\varepsilon=1$ und jedem $\delta<1$ liegen die Punkte $\delta/2$ und $\delta$ weniger als $\delta$ auseinander, ihre Werte unterscheiden sich aber um $\frac2\delta-\frac1\delta=\frac1\delta>1$.
+::::beispiel
+Auf $[0{,}1;\,1]$ ist $1/t$ gleichmäßig stetig, denn $\bigl|\frac1s-\frac1t\bigr|=\frac{|t-s|}{st}\le100\,|t-s|$. Das $\delta=\varepsilon/100$ passt überall. Auf $(0,1]$ dagegen nicht: Zu $\varepsilon=1$ und jedem $\delta<1$ liegen die Punkte $\delta/2$ und $\delta$ weniger als $\delta$ auseinander, ihre Werte unterscheiden sich aber um $\frac2\delta-\frac1\delta=\frac1\delta>1$.
+::::
 
 Auf kompakten Mengen kann das nicht passieren:
 
@@ -208,12 +220,14 @@ heißt __Parameterintegral__. Die Größe $\boldsymbol{x}$ heißt __Parameter__.
 
 ⁠**So liest man das:** Für jeden festen Parameter $\boldsymbol{x}$ ist $t\mapsto f(\boldsymbol{x},t)$ eine stetige Funktion einer Variablen, und $F(\boldsymbol{x})$ ist ihr Integral. Über $t$ wird integriert, $t$ verschwindet dabei. Übrig bleibt eine Funktion des Parameters.
 
-⁠**Beispiel (Abklingkurven):** Für $f(x,t)=\mathrm{e}^{-xt}$ auf $\mathbb{R}\times[0,1]$ ist für $x\neq0$
+::::beispiel Abklingkurven
+Für $f(x,t)=\mathrm{e}^{-xt}$ auf $\mathbb{R}\times[0,1]$ ist für $x\neq0$
 
 <span class="anker" id="gl-1-2"></span>
 $$F(x)=\int_0^1\mathrm{e}^{-xt}\,\mathrm{d} t=\Bigl[-\frac{\mathrm{e}^{-xt}}x\Bigr]_{t=0}^{1}=\frac{1-\mathrm{e}^{-x}}x,\qquad\text{und}\quad F(0)=\int_0^11\,\mathrm{d} t=1 . \tag{1.2}$$
 
 Zum Beispiel ist $F(1)=1-\mathrm{e}^{-1}\approx0{,}632$ und $F(3)=(1-\mathrm{e}^{-3})/3\approx0{,}317$. In diesem Kapitel heißt dieses Beispiel das Beispiel der *Abklingkurven*.
+::::
 
 ⁠**Kurz gesagt:** Ein Parameterintegral ist eine Funktion des Parameters, deren Wert die Fläche unter der Kurve zu diesem Parameter ist.
 
@@ -243,9 +257,12 @@ $$|F(\boldsymbol{y})-F(\boldsymbol{x})|=\Bigl|\int_a^b\bigl(f(\boldsymbol{y},t)-
 Weil $\varepsilon$ beliebig war, ist $F$ in $\boldsymbol{x}$ stetig.
 :::
 
-⁠**Beispiel:** Die Abklingkurven [(1.2)](#gl-1-2): $\mathrm{e}^{-xt}$ ist auf $\mathbb{R}\times[0,1]$ stetig, also ist $F$ auf ganz $\mathbb{R}$ stetig, auch im Punkt $x=0$, an dem die Formel $(1-\mathrm{e}^{-x})/x$ nicht erklärt ist. Zur Kontrolle: Wegen $\mathrm{e}^{-x}=1-x+\frac{x^2}2-\dots$ ist $(1-\mathrm{e}^{-x})/x=1-\frac x2+\dots$, und das geht für $x\to0$ gegen $1=F(0)$.
+::::beispiel
+Die Abklingkurven [(1.2)](#gl-1-2): $\mathrm{e}^{-xt}$ ist auf $\mathbb{R}\times[0,1]$ stetig, also ist $F$ auf ganz $\mathbb{R}$ stetig, auch im Punkt $x=0$, an dem die Formel $(1-\mathrm{e}^{-x})/x$ nicht erklärt ist. Zur Kontrolle: Wegen $\mathrm{e}^{-x}=1-x+\frac{x^2}2-\dots$ ist $(1-\mathrm{e}^{-x})/x=1-\frac x2+\dots$, und das geht für $x\to0$ gegen $1=F(0)$.
+::::
 
-⁠**Gegenbeispiel:** Ohne die Stetigkeit von $f$ kann die Fläche springen. Sei
+::::beispiel [Gegenbeispiel]
+Ohne die Stetigkeit von $f$ kann die Fläche springen. Sei
 
 $$f(x,t)=\frac1{|x|}\,\mathrm{e}^{-t/|x|}\quad\text{für }x\neq0,\qquad f(0,t)=0,\qquad t\in[0,1].$$
 
@@ -254,6 +271,7 @@ Für $x\neq0$ ist $F(x)=\bigl[-\mathrm{e}^{-t/|x|}\bigr]_{t=0}^{1}=1-\mathrm{e}^
 :::abbildung hm3/k2spitze 3
 Die Kurven $f(x,t)=\frac1x\,\mathrm{e}^{-t/x}$ für $x=1$, $x=\frac12$ und $x=\frac15$. Für $x\to0$ wird die Kurve zu einer Spitze bei $t=0$, die immer höher und schmaler wird. An jeder Stelle $t>0$ geht der Wert gegen null, die Fläche aber gegen $1$.
 :::
+::::
 
 :::hintergrund Wohin die Fläche im Gegenbeispiel verschwindet
 An jeder festen Stelle $t>0$ geht $f(x,t)=\frac1{|x|}\mathrm{e}^{-t/|x|}$ für $x\to0$ gegen null, denn die $\mathrm{e}$-Funktion fällt schneller, als $1/|x|$ wächst. Die Kurve geht also an jeder Stelle gegen die Nullfunktion, deren Fläche $0$ ist. Trotzdem bleibt die Fläche nahe $1$: Sie sammelt sich in einem immer schmaleren Streifen bei $t=0$ und entkommt dort nach oben. Genau das verhindert die Stetigkeit von $f$ auf der kompakten Menge $B\times[a,b]$ im Beweis: Eine gleichmäßig stetige Funktion kann keine Spitze bilden, die bei kleinen Änderungen des Parameters beliebig hoch wird. Die Fläche ändert sich dann höchstens um $\varepsilon\,(b-a)$, egal wo die Änderung sitzt.
@@ -308,11 +326,13 @@ $$\Bigl|\frac{F(\boldsymbol{x}+h\,\hat{\boldsymbol{e}}_k)-F(\boldsymbol{x})}h-\i
 Weil $\varepsilon$ beliebig war, geht der Differenzenquotient für $h\to0$ gegen das Integral in [(1.3)](#gl-1-3). Also existiert $\partial F/\partial x_k$. Nach Satz [1.7](#satz-1-7), angewendet auf die stetige Funktion $\partial f/\partial x_k$, ist diese partielle Ableitung stetig. Stetige partielle Ableitungen machen $F$ nach [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) stetig differenzierbar.
 :::
 
-⁠**Beispiel:** Für die Abklingkurven [(1.2)](#gl-1-2) ist $\partial_x\mathrm{e}^{-xt}=-t\,\mathrm{e}^{-xt}$, stetig auf $\mathbb{R}\times[0,1]$. Also ist
+::::beispiel
+Für die Abklingkurven [(1.2)](#gl-1-2) ist $\partial_x\mathrm{e}^{-xt}=-t\,\mathrm{e}^{-xt}$, stetig auf $\mathbb{R}\times[0,1]$. Also ist
 
 $$F'(x)=-\int_0^1t\,\mathrm{e}^{-xt}\,\mathrm{d} t .$$
 
 Im Punkt $x=0$ ergibt das $F'(0)=-\int_0^1t\,\mathrm{d} t=-\frac12$; aus der Formel $(1-\mathrm{e}^{-x})/x$ bekäme man diesen Wert nur über einen Grenzwert. Im Punkt $x=1$ liefert partielle Integration $\int_0^1t\,\mathrm{e}^{-t}\,\mathrm{d} t=1-\frac2{\mathrm{e}}$, also $F'(1)=\frac2{\mathrm{e}}-1\approx-0{,}264$. Ableiten von $(1-\mathrm{e}^{-x})/x$ ergibt denselben Wert. Das ist die Steigung der Tangente in Abb. [2](#abb-2).
+::::
 
 ⁠**Grenzfall:** Hängt $f$ nicht von $\boldsymbol{x}$ ab, ist $F$ konstant, und beide Seiten von [(1.3)](#gl-1-3) sind null.
 
@@ -340,11 +360,13 @@ Ist $f\colon[a,b]\times[c,d]\to\mathbb{R}$ stetig, dann ist $F(y)=\int_a^bf(x,y)
 
 ⁠**So liest man das:** Das ist Satz [1.8](#satz-1-8) für einen Parameter $y$, mit zwei Unterschieden: Die Integrationsvariable heißt jetzt $x$, und der Parameterbereich ist abgeschlossen statt offen. Der Beweis bleibt derselbe; an den Enden nimmt man im Differenzenquotienten nur $h$ einer Sorte. Die kompakte Menge im Beweis ist jetzt das ganze Rechteck $[a,b]\times[c,d]$.
 
-⁠**Beispiel:** $F(y)=\int_0^1\ln(x+y)\,\mathrm{d} x$ für $y\in[1,2]$. Der Integrand und $\partial_y\ln(x+y)=\frac1{x+y}$ sind auf $[0,1]\times[1,2]$ stetig. Am linken Ende ist also die rechtsseitige Ableitung
+::::beispiel
+$F(y)=\int_0^1\ln(x+y)\,\mathrm{d} x$ für $y\in[1,2]$. Der Integrand und $\partial_y\ln(x+y)=\frac1{x+y}$ sind auf $[0,1]\times[1,2]$ stetig. Am linken Ende ist also die rechtsseitige Ableitung
 
 $$F'(1)=\int_0^1\frac{\mathrm{d} x}{x+1}=\ln2\approx0{,}693 .$$
 
 Zur Kontrolle: Es ist $F(y)=(1+y)\ln(1+y)-y\ln y-1$ und $F'(y)=\ln\frac{1+y}y$, bei $y=1$ also $\ln2$.
+::::
 
 ⁠**Kurz gesagt:** Auch mit einem abgeschlossenen Parameterintervall darf man unter dem Integral ableiten; an den Enden sind einseitige Ableitungen gemeint.
 
@@ -411,11 +433,13 @@ $$F'(y)=\frac{\partial J}{\partial p}\,\alpha'(y)+\frac{\partial J}{\partial q}\
 Einsetzen ergibt [(1.4)](#gl-1-4). Alle drei Terme sind stetig in $y$, also ist $F'$ stetig. Sind nur $f$, $\alpha$, $\beta$ stetig, dann ist $J$ stetig in $(p,q,y)$, und als Verkettung stetiger Funktionen ist $F$ stetig.
 :::
 
-⁠**Beispiel:** Bei $F(y)=\int_0^y\mathrm{e}^{-xy}\,\mathrm{d} x$ für $y>0$ steckt $y$ im Integranden und in der oberen Grenze. Mit $\alpha(y)=0$ und $\beta(y)=y$ ergibt [(1.4)](#gl-1-4)
+::::beispiel
+Bei $F(y)=\int_0^y\mathrm{e}^{-xy}\,\mathrm{d} x$ für $y>0$ steckt $y$ im Integranden und in der oberen Grenze. Mit $\alpha(y)=0$ und $\beta(y)=y$ ergibt [(1.4)](#gl-1-4)
 
 $$F'(y)=-\int_0^yx\,\mathrm{e}^{-xy}\,\mathrm{d} x+\mathrm{e}^{-y^2}.$$
 
 Bei $y=1$ ist $\int_0^1x\,\mathrm{e}^{-x}\,\mathrm{d} x=1-\frac2{\mathrm{e}}$, also $F'(1)=-\bigl(1-\frac2{\mathrm{e}}\bigr)+\frac1{\mathrm{e}}=\frac3{\mathrm{e}}-1\approx0{,}104$. Zur Kontrolle: Es ist $F(y)=(1-\mathrm{e}^{-y^2})/y$, und Ableiten ergibt bei $y=1$ denselben Wert.
+::::
 
 ⁠**Grenzfälle:** Bei festen Grenzen ist $\alpha'=\beta'=0$, und es bleibt Satz [1.9](#satz-1-9). Hängt $f$ nicht von $y$ ab, bleibt $F'=f(\beta)\,\beta'-f(\alpha)\,\alpha'$, der Hauptsatz mit der Kettenregel. Bei $\alpha=\beta$ ist $F=0$, und die beiden Randterme heben sich auf.
 

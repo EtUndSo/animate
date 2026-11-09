@@ -12,7 +12,7 @@ lang: fr
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Dans Fondements 1, seule une matrice carrée à colonnes indépendantes avait une inverse. Cette section donne à toute matrice une sorte d’inverse : une qui inverse à gauche lorsqu’il y a plus d’équations que d’inconnues, une qui inverse à droite lorsqu’il y en a moins, et une pour tous les cas, la pseudo-inverse. Celle-ci fournit toujours une meilleure solution approchée et, s’il y en a plusieurs, la plus courte.
+Dans [Fondements 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), seule une matrice carrée à colonnes indépendantes avait une inverse. Cette section donne à toute matrice une sorte d’inverse : une qui inverse à gauche lorsqu’il y a plus d’équations que d’inconnues, une qui inverse à droite lorsqu’il y en a moins, et une pour tous les cas, la pseudo-inverse. Celle-ci fournit toujours une meilleure solution approchée et, s’il y en a plusieurs, la plus courte.
 :::
 
 ### Inverses à gauche
@@ -44,11 +44,13 @@ Si les colonnes sont indépendantes, $\mathbf{A}^{\top}\mathbf{A}$ est inversibl
 
 $\mathbf F$ n’inverse pas à droite. D’après [(4.1)](projektion-auf-einen-unterraum.html#gl-4-1), le produit $\mathbf{A}\mathbf F=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ est la projection sur l’espace des colonnes, et pour $m>n$, ce n’est pas $\mathbf{I}_m$. Une matrice haute a en outre beaucoup d’inverses à gauche ; [(11.1)](#gl-11-1) est celle qui correspond à la projection orthogonale.
 
-⁠**Exemple de calcul :** Pour $\mathbf{H}$, de colonnes $(1,\,0,\,1)^{\top}$ et $(0,\,1,\,1)^{\top}$, on a $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ et
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{H}$, de colonnes $(1,\,0,\,1)^{\top}$ et $(0,\,1,\,1)^{\top}$, on a $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ et
 
 $$\mathbf F=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\end{pmatrix}.$$
 
 On a $\mathbf F\mathbf{H}=\tfrac13\bigl(\begin{smallmatrix}2+1&-1+1\\-1+1&2+1\end{smallmatrix}\bigr)=\mathbf{I}_2$, et $\mathbf F(1,\,1,\,1)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$ est la meilleure solution approchée de la section [3.3](die-beste-naherungslosung.html#stufe-3-3). $\mathbf{H}\mathbf F$ est la matrice de projection $\tfrac13\Bigl(\begin{smallmatrix}2&-1&1\\-1&2&1\\1&1&2\end{smallmatrix}\Bigr)$ de la section [4.2](projektion-auf-einen-unterraum.html#stufe-4-2). Une autre inverse à gauche est $\bigl(\begin{smallmatrix}1&0&0\\0&1&0\end{smallmatrix}\bigr)$, car les deux premières lignes de $\mathbf{H}$ forment la matrice identité ; mais pour $(1,\,1,\,1)^{\top}$, elle ne fournit pas la meilleure solution approchée : elle donne $(1,\,1)^{\top}$.
+::::
 
 ⁠**En bref :** Une matrice à colonnes indépendantes a pour inverse à gauche $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ ; celle-ci envoie $\mathbf{y}$ sur la meilleure solution approchée.
 
@@ -85,7 +87,9 @@ avec égalité seulement pour $\mathbf{z}=\mathbf{0}$.
 
 Géométriquement, l’ensemble des solutions est une droite ou un plan qui ne passe pas par l’origine, et $\mathbf G\mathbf{y}$ en est le point le plus proche de l’origine : le pied de la perpendiculaire abaissée de l’origine.
 
-⁠**Exemple de calcul :** L’équation unique $x_1+2x_2=5$ a $\mathbf{A}=(1\ \ 2)$ et $\mathbf{A}\mathbf{A}^{\top}=5$. Donc $\mathbf G=\tfrac15(1,\,2)^{\top}$ et $\mathbf G\cdot5=(1,\,2)^{\top}$. Toutes les solutions s’écrivent $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$, de carré de longueur $(1+2t)^2+(2-t)^2=5+5t^2$ ; la solution la plus courte est obtenue pour $t=0$. Le vecteur $(1,\,2)^{\top}$ est perpendiculaire à la droite des solutions, dont la direction est $(2,\,-1)^{\top}$.
+::::beispiel [Exemple de calcul]
+L’équation unique $x_1+2x_2=5$ a $\mathbf{A}=(1\ \ 2)$ et $\mathbf{A}\mathbf{A}^{\top}=5$. Donc $\mathbf G=\tfrac15(1,\,2)^{\top}$ et $\mathbf G\cdot5=(1,\,2)^{\top}$. Toutes les solutions s’écrivent $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$, de carré de longueur $(1+2t)^2+(2-t)^2=5+5t^2$ ; la solution la plus courte est obtenue pour $t=0$. Le vecteur $(1,\,2)^{\top}$ est perpendiculaire à la droite des solutions, dont la direction est $(2,\,-1)^{\top}$.
+::::
 
 ⁠**En bref :** Une matrice à lignes indépendantes a pour inverse à droite $\mathbf{A}^{\top}(\mathbf{A}\mathbf{A}^{\top})^{-1}$ ; celle-ci fournit la solution la plus courte.
 
@@ -106,9 +110,11 @@ $$\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}=\sum_{j=1}^r\frac1{d_j}\,
 
 Chaque brique inverse une brique de $\mathbf{A}$ : $\mathbf{A}$ envoie $\mathbf{v}_j$ sur $d_j\mathbf{u}_j$, $\mathbf{A}^+$ envoie $\mathbf{u}_j$ sur $\mathbf{v}_j/d_j$. Les directions $\mathbf{u}_j$ avec $j>r$, que $\mathbf{A}$ n’atteint pas, $\mathbf{A}^+$ les envoie sur zéro au lieu de diviser par zéro. Si $\mathbf{A}$ est inversible, alors $\mathbf{A}^+=\mathbf{A}^{-1}$, car dans ce cas $\mathbf{A}^{-1}=(\mathbf{V}^{\top})^{-1}\mathbf{D}^{-1}\mathbf{U}^{-1}=\mathbf{V}\mathbf{D}^{-1}\mathbf{U}^{\top}$.
 
-⁠**Exemple de calcul :** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ est symétrique et semi-définie positive, de valeur propre $5$ associée à $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ et de valeur propre $0$. D’après la section [9.7](die-singularwertzerlegung.html#stufe-9-7), $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ est sa décomposition compacte, avec $d_1=5$ et $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$. Donc
+::::beispiel [Exemple de calcul]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ est symétrique et semi-définie positive, de valeur propre $5$ associée à $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ et de valeur propre $0$. D’après la section [9.7](die-singularwertzerlegung.html#stufe-9-7), $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ est sa décomposition compacte, avec $d_1=5$ et $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$. Donc
 
 $$\mathbf{A}^+=\frac15\,\mathbf{q}\mathbf{q}^{\top}=\frac1{25}\begin{pmatrix}1&2\\2&4\end{pmatrix}.$$
+::::
 
 ⁠**En bref :** La pseudo-inverse $\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}$ inverse chaque brique $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ avec $d_j>0$ et envoie sur zéro les directions associées à la valeur singulière $0$.
 
@@ -133,12 +139,15 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 La seconde somme ne dépend pas de $\mathbf{x}$. La première est nulle, donc aussi petite que possible, si et seulement si $c_j=\beta_j/d_j$ pour tout $j\le r$ ; les $c_j$ avec $j>r$ n’y apparaissent pas du tout. Les meilleures solutions approchées sont donc exactement les $\mathbf{x}=\mathbf{V}\mathbf{c}$ avec $c_j=\beta_j/d_j$ pour $j\le r$ et $c_{r+1},\dots,c_n$ quelconques. Leur longueur vérifie $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$ ; elle est minimale pour $c_j=0$ lorsque $j>r$. Ce $\mathbf{c}$ est $\mathbf{D}^+\boldsymbol\beta$, donc $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$.
 
-Si les colonnes sont indépendantes, il n’y a, d’après la section [3.5](die-beste-naherungslosung.html#stufe-3-5), qu’une seule meilleure solution approchée, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$ ; elle doit coïncider avec $\mathbf{A}^+\mathbf{y}$, et ce pour tout $\mathbf{y}$. Si les lignes sont indépendantes, le rang vaut $m$ d’après Fondements 1, section 13.4 ; l’espace des colonnes est donc $\mathbb{R}^m$ tout entier, et le système est résoluble pour tout $\mathbf{y}$ ; les meilleures solutions approchées sont les solutions, et la plus courte est $\mathbf G\mathbf{y}$ d’après la section [11.2](#stufe-11-2).
+Si les colonnes sont indépendantes, il n’y a, d’après la section [3.5](die-beste-naherungslosung.html#stufe-3-5), qu’une seule meilleure solution approchée, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$ ; elle doit coïncider avec $\mathbf{A}^+\mathbf{y}$, et ce pour tout $\mathbf{y}$. Si les lignes sont indépendantes, le rang vaut $m$ d’après [Fondements 1, section 13.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4) ; l’espace des colonnes est donc $\mathbb{R}^m$ tout entier, et le système est résoluble pour tout $\mathbf{y}$ ; les meilleures solutions approchées sont les solutions, et la plus courte est $\mathbf G\mathbf{y}$ d’après la section [11.2](#stufe-11-2).
 :::
 
-⁠**Exemple de calcul 1 :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ et $\mathbf{y}=(1,\,1)^{\top}$, on a $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0{,}12;\ 0{,}24)^{\top}$. Ce vecteur est sur la droite des meilleures solutions approchées, car $0{,}12+2\cdot0{,}24=0{,}6=\tfrac35$, et il pointe dans la direction $(1,\,2)^{\top}$, perpendiculaire à cette droite : c’est son point le plus proche de l’origine.
+::::beispiel [Exemple de calcul 1]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ et $\mathbf{y}=(1,\,1)^{\top}$, on a $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0{,}12;\ 0{,}24)^{\top}$. Ce vecteur est sur la droite des meilleures solutions approchées, car $0{,}12+2\cdot0{,}24=0{,}6=\tfrac35$, et il pointe dans la direction $(1,\,2)^{\top}$, perpendiculaire à cette droite : c’est son point le plus proche de l’origine.
+::::
 
-⁠**Exemple de calcul 2 :** Une même grandeur est mesurée trois fois, avec les résultats $4$, $5$ et $9$. Le système « $x=4$, $x=5$, $x=9$ » a pour matrice $\mathbf{1}\in\mathbb{R}^{3\times1}$, une colonne de uns. Elle a une colonne indépendante, donc $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ et
+::::beispiel [Exemple de calcul 2]
+Une même grandeur est mesurée trois fois, avec les résultats $4$, $5$ et $9$. Le système « $x=4$, $x=5$, $x=9$ » a pour matrice $\mathbf{1}\in\mathbb{R}^{3\times1}$, une colonne de uns. Elle a une colonne indépendante, donc $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ et
 
 $$x^+=\tfrac13\,\mathbf{1}^{\top}\mathbf{y}=\tfrac13\,(4+5+9)=6 ,$$
 
@@ -147,6 +156,7 @@ la moyenne (Fig. [27](#abb-27)). La moyenne de plusieurs mesures est la meilleu
 :::abbildung ml/k2rmittel 27
 La pseudo-inverse de la colonne de uns appliquée aux valeurs mesurées $\mathbf{y}=(4,5,9)^{\top}$ : le produit scalaire avec $\mathbf{1}$ est la somme des valeurs mesurées ; divisée par $\mathbf{1}^{\top}\mathbf{1}=3$, elle donne la moyenne.
 :::
+::::
 
 ⁠**En bref :** Pour toute matrice, $\mathbf{A}^+\mathbf{y}$ est une meilleure solution approchée, et la plus courte s’il y en a plusieurs ; si les colonnes ou les lignes sont indépendantes, $\mathbf{A}^+$ est l’inverse à gauche ou à droite.
 

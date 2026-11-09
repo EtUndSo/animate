@@ -47,7 +47,11 @@ A la izquierda, la densidad de una resistencia de 10 k$\Omega$ con una compone
 Para dos perturbaciones independientes, $(u_1+u_2)^2=u_1^2+2u_1u_2+u_2^2$. En la media temporal, el producto $u_1u_2$ es positivo tan a menudo como negativo, y su media se anula. Queda $u_\mathrm{tot,eff}^2=u_\mathrm{1,eff}^2+u_\mathrm{2,eff}^2$. La integral de [(1.1)](#gl-1-1) es esta suma sobre todas las franjas de frecuencia.
 :::
 
-**Ejemplo.** La resistencia del sensor tiene $|u_\mathrm{r,R}|^2=4\cdot1{,}381\cdot10^{-23}\cdot300\cdot10^4=1{,}66\cdot10^{-16}\,\mathrm{V^2/Hz}$; en 20 kHz, por tanto, $u_\mathrm{r,eff}=1{,}82$ µ V. La señal útil de 1 mV es 549 veces mayor: $\mathrm{SNR}=54{,}8$ dB. La mitad del ancho de banda reduce el ruido en un factor $\sqrt2$, es decir, 3 dB. **Casos límite:** Para $R\to0$ o $T\to0$ desaparece el ruido térmico.
+::::beispiel
+La resistencia del sensor tiene $|u_\mathrm{r,R}|^2=4\cdot1{,}381\cdot10^{-23}\cdot300\cdot10^4=1{,}66\cdot10^{-16}\,\mathrm{V^2/Hz}$; en 20 kHz, por tanto, $u_\mathrm{r,eff}=1{,}82$ µ V. La señal útil de 1 mV es 549 veces mayor: $\mathrm{SNR}=54{,}8$ dB. La mitad del ancho de banda reduce el ruido en un factor $\sqrt2$, es decir, 3 dB.
+::::
+
+⁠**Casos límite:** Para $R\to0$ o $T\to0$ desaparece el ruido térmico.
 
 **Qué cambia un amplificador.** Eleva la señal y el ruido presente en su entrada en el mismo factor, así que la SNR sigue igual o empeora por su ruido propio. Solo ayuda contra las perturbaciones que se añaden *detrás* de él y tienen un tamaño fijo. Si la línea hasta el siguiente aparato añade 100 µ V, sin amplificador quedan 20,0 dB. Con una ganancia de 100 en el sensor son $0{,}1\,\mathrm{V}/\sqrt{(182\,\mathrm{\mu\text{} V})^2+(100\,\mathrm{\mu\text{} V})^2}$, es decir, 53,7 dB. El segundo recurso es la diferencia: una perturbación que afecta por igual a dos líneas desaparece si solo se evalúa su diferencia. Eso lo consigue la etapa [2](der-differenzverstarker.html#stufe-2).
 

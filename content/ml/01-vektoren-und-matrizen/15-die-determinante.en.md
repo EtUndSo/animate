@@ -44,7 +44,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 
 Its absolute value is the area of the parallelogram spanned by the columns, that is, the factor by which $\mathbf{A}$ changes the area of the unit square. It is the same number that appears in the denominator of the inverse [(11.2)](einheitsmatrix-und-inverse.html#gl-11-2).
 
-⁠**Worked example:** $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2,\,0.5)=1$ and $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. The stretch changes the shape of the square but not its area: what it gains in width, it loses in height.
+::::beispiel [Worked example]
+$\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2,\,0.5)=1$ and $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. The stretch changes the shape of the square but not its area: what it gains in width, it loses in height.
+::::
 
 ⁠**In short:** In absolute value, the determinant $ad-bc$ of a $2\times2$ matrix is the factor by which the map changes the area of the unit square.
 
@@ -56,7 +58,9 @@ An area is never negative, but the determinant can be. Its sign carries addition
 
 In the unit square, $\mathbf{e}_2$ lies counterclockwise from $\mathbf{e}_1$. If this stays so for the images, that is, if $\mathbf{a}_2$ also lies counterclockwise from $\mathbf{a}_1$, then $\det\mathbf{A}>0$. If $\mathbf{a}_2$ lies clockwise from $\mathbf{a}_1$, the plane has been reflected, and $\det\mathbf{A}<0$. This property is called __orientation__: a positive determinant preserves the orientation, a negative one reverses it.
 
-⁠**Worked example:** The reflection across the $x_1$-axis, $\operatorname{diag}(1,\,-1)$, has determinant $-1$: the area stays the same, the orientation is reversed. If you swap the columns of a matrix, the determinant changes its sign: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. The rotation by $90^\circ$ has $\det=0\cdot0-(-1)\cdot1=1$, the shear $\det=1\cdot1-1\cdot0=1$, and the flattening $\operatorname{diag}(1,\,0)$ has determinant $0$.
+::::beispiel [Worked example]
+The reflection across the $x_1$-axis, $\operatorname{diag}(1,\,-1)$, has determinant $-1$: the area stays the same, the orientation is reversed. If you swap the columns of a matrix, the determinant changes its sign: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. The rotation by $90^\circ$ has $\det=0\cdot0-(-1)\cdot1=1$, the shear $\det=1\cdot1-1\cdot0=1$, and the flattening $\operatorname{diag}(1,\,0)$ has determinant $0$.
+::::
 
 ⁠**In short:** The absolute value of the determinant is the area factor; its sign tells whether the map reflects.
 
@@ -76,7 +80,9 @@ If $\mathbf{A}\in\mathbb{R}^{2\times2}$ maps a figure of area $F$, the image has
 Lay a fine grid of small squares with side length $h$ over the figure. A square with the corner $\mathbf{q}$ has the corners $\mathbf{q}$, $\mathbf{q}+h\mathbf{e}_1$, $\mathbf{q}+h\mathbf{e}_1+h\mathbf{e}_2$ and $\mathbf{q}+h\mathbf{e}_2$. Its image has the corners $\mathbf{A}\mathbf{q}$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1+h\mathbf{a}_2$ and $\mathbf{A}\mathbf{q}+h\mathbf{a}_2$: it is the parallelogram formed by $h\mathbf{a}_1$ and $h\mathbf{a}_2$, shifted to $\mathbf{A}\mathbf{q}$. Its area is $h^2\,|\det\mathbf{A}|$, no matter where the square was. So every small square becomes larger or smaller by the same factor $|\det\mathbf{A}|$. The figure consists approximately of such squares, and the finer the grid, the more accurate the approximation. Therefore the factor holds for the whole figure.
 :::
 
-⁠**Worked example:** The disk of radius $1$ has area $\pi$. The stretch $\operatorname{diag}(3,\,2)$ turns it into an ellipse with semi-axes $3$ and $2$. The area of the ellipse is $\pi\cdot3\cdot2=6\pi$, that is, exactly $|\det\mathbf{A}|=6$ times the area of the disk. The triangle with the corners $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ has area $\tfrac12$; under $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ it becomes the triangle with the corners $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$ and area $\tfrac52$.
+::::beispiel [Worked example]
+The disk of radius $1$ has area $\pi$. The stretch $\operatorname{diag}(3,\,2)$ turns it into an ellipse with semi-axes $3$ and $2$. The area of the ellipse is $\pi\cdot3\cdot2=6\pi$, that is, exactly $|\det\mathbf{A}|=6$ times the area of the disk. The triangle with the corners $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ has area $\tfrac12$; under $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ it becomes the triangle with the corners $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$ and area $\tfrac52$.
+::::
 
 ⁠**In short:** A linear map changes the area of every figure by the same factor $|\det\mathbf{A}|$, because it treats every small cell of the grid in the same way.
 
@@ -99,7 +105,8 @@ where $\mathbf{A}_{1j}$ is the $(n-1)\times(n-1)$ matrix obtained from $\mathbf{
 
 For $n=2$, [(14.2)](#gl-14-2) again gives $a_{11}a_{22}-a_{12}a_{21}$. You may just as well expand along any other row or column, with the sign $(-1)^{i+j}$ for the entry $a_{ij}$; the result is always the same. For $n=3$, $|\det\mathbf{A}|$ is the volume of the parallelepiped formed by the three columns, and the sign tells whether the columns have the same handedness as $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ (right-hand rule) or are mirrored.
 
-⁠**Worked example:** For the coefficient matrix from Subsection [12.3](lineare-gleichungssysteme.html#stufe-12-3),
+::::beispiel [Worked example]
+For the coefficient matrix from Subsection [12.3](lineare-gleichungssysteme.html#stufe-12-3),
 
 $$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
 
@@ -108,6 +115,7 @@ the Laplace expansion along the first row gives $\det\mathbf{A}=-4$ (Fig. [41](
 :::abbildung ml/k1rlaplace 41
 The Laplace expansion along the first row: each entry of the first row times the determinant of the matrix that remains without its row and column, with alternating signs.
 :::
+::::
 
 For an upper triangular matrix, which has only zeros below its diagonal, you expand along the first column again and again and get the product of the diagonal entries, for example $\det\Bigl(\begin{smallmatrix}2&1&3\\0&3&1\\0&0&4\end{smallmatrix}\Bigr)=2\cdot3\cdot4=24$.
 
@@ -161,9 +169,13 @@ adding a multiple of one row to another does not change the determinant; swappin
 
 Rule (iii) follows from (i) with $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$ and $\det\mathbf{I}=1$. Rule (iv) says: if you stretch all $n$ edges of the unit cube by $c$, its volume is multiplied by $c^n$. Rule (v) makes Gaussian elimination the practical way to compute determinants: you bring the matrix to row echelon form, keep track of the number of swaps and multiply the diagonal entries.
 
-⁠**Worked example 1:** Since $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ and $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$, the product $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ must have determinant $5$: $21-16=5$.
+::::beispiel [Worked example 1]
+Since $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ and $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$, the product $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ must have determinant $5$: $21-16=5$.
+::::
 
-⁠**Worked example 2:** In Gaussian elimination from Subsection [12.3](lineare-gleichungssysteme.html#stufe-12-3), the coefficient matrix was brought, with additions of multiples and one swap, to the echelon form with the diagonal $1$, $-1$, $-4$. So its determinant is $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, as with the Laplace expansion.
+::::beispiel [Worked example 2]
+In Gaussian elimination from Subsection [12.3](lineare-gleichungssysteme.html#stufe-12-3), the coefficient matrix was brought, with additions of multiples and one swap, to the echelon form with the diagonal $1$, $-1$, $-4$. So its determinant is $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, as with the Laplace expansion.
+::::
 
 ⁠**In short:** The determinant of a product is the product of the determinants, because the volume factors multiply when maps are applied one after the other; in practice you compute it with Gaussian elimination.
 
@@ -195,7 +207,9 @@ If $\mathbf{A}$ is invertible, then by rule (i) $\det\mathbf{A}\cdot\det\mathbf{
 
 Together with the theorem from Subsection [13.5](unabhangigkeit-basis-und-rang.html#stufe-13-5), the following are therefore equivalent for a square matrix: $\det\mathbf{A}\ne0$, $\mathbf{A}$ invertible, $\operatorname{rank}\mathbf{A}=n$, $\ker\mathbf{A}=\{\mathbf{0}\}$, columns linearly independent.
 
-⁠**Worked example:** The matrix $\mathbf K$ from Subsection [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) has $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, in agreement with $\operatorname{rank}\mathbf K=2$. The coefficient matrix from the worked example on Gaussian elimination has $\det=-4\ne0$ and is invertible; that is why the system had exactly one solution.
+::::beispiel [Worked example]
+The matrix $\mathbf K$ from Subsection [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) has $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, in agreement with $\operatorname{rank}\mathbf K=2$. The coefficient matrix from the worked example on Gaussian elimination has $\det=-4\ne0$ and is invertible; that is why the system had exactly one solution.
+::::
 
 ⁠**In short:** A square matrix is invertible exactly when its determinant is not zero, that is, when it does not flatten space.
 

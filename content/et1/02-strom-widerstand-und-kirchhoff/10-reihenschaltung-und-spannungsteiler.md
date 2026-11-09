@@ -36,7 +36,11 @@ $$\frac{U_2}{U}=\frac{R_2}{R_1+R_2},\qquad\frac{U_1}{U_2}=\frac{R_1}{R_2}. \tag{
 Die Maschenregel gibt $U=\sum U_i$, das ohmsche Gesetz $U_i=R_i\,I$ mit demselben $I$. Also $U=(R_1+\dots+R_N)\,I$. Der Quotient aus $U_\nu=R_\nu\,I$ und $U$ kürzt $I$ heraus.
 :::
 
-**Beispiel.** Die Kette hat $R_\mathrm{ges}=3\,\mathrm{k\Omega}$, also $I=3$ mA, $U_1=6$ V und $U_2=3$ V (Abb. [10](#abb-10) links). Aus [(9.3)](#gl-9-3): $U_2=9\,\mathrm{V}\cdot1/3=3$ V. **Grenzfälle:** $R_2\to0$ ergibt $U_2\to0$, ein Kurzschluss trägt keine Spannung. $R_2\to\infty$ ergibt $U_2\to U$, eine offene Stelle trägt die ganze Spannung. $R_1=R_2$ halbiert $U$.
+::::beispiel
+Die Kette hat $R_\mathrm{ges}=3\,\mathrm{k\Omega}$, also $I=3$ mA, $U_1=6$ V und $U_2=3$ V (Abb. [10](#abb-10) links). Aus [(9.3)](#gl-9-3): $U_2=9\,\mathrm{V}\cdot1/3=3$ V.
+::::
+
+⁠**Grenzfälle:** $R_2\to0$ ergibt $U_2\to0$, ein Kurzschluss trägt keine Spannung. $R_2\to\infty$ ergibt $U_2\to U$, eine offene Stelle trägt die ganze Spannung. $R_1=R_2$ halbiert $U$.
 
 :::abbildung et1/k2teiler 10
 Links: der Spannungsteiler des Rechenmodells. Mitte: Kette eines 3-Bit-Wandlers an $U_\mathrm{ref}=3{,}2$ V. Die Enden $R/2$ verschieben alle Abgriffe um eine halbe Stufe. Rechts: Ausgang über der Zahl $Z$. Die Treppe liegt mittig um die gestrichelte ideale Gerade, der Fehler ist höchstens eine halbe Stufe.

@@ -31,11 +31,13 @@ $$(\mathbf{v}^*)^{\top}\mathbf{v}=\sum_i|v_i|^2>0\qquad\text{für }\mathbf{v}\ne
 
 **Nullstellen von Polynomen.** Jedes Polynom vom Grad $n\ge1$ mit reellen oder komplexen Koeffizienten hat genau $n$ komplexe Nullstellen, wenn man mehrfache Nullstellen mehrfach zählt, und zerfällt in $n$ Linearfaktoren. Hat das Polynom reelle Koeffizienten, so ist mit $z$ auch $z^*$ eine Nullstelle: Nicht reelle Nullstellen kommen in Paaren.
 
-⁠**Rechenbeispiel:** $\lambda^2-1{,}2\lambda+1=0$ hat nach der Lösungsformel die Nullstellen $\lambda=0{,}6\pm\sqrt{0{,}36-1}=0{,}6\pm\mathrm j\,0{,}8$, ein konjugiertes Paar mit dem Betrag $\sqrt{0{,}36+0{,}64}=1$. Für $\mathbf{v}=(1,\,-\mathrm j)^{\top}$ ist $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ und $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ (Abb. [16](#abb-16)).
+::::beispiel [Rechenbeispiel]
+$\lambda^2-1{,}2\lambda+1=0$ hat nach der Lösungsformel die Nullstellen $\lambda=0{,}6\pm\sqrt{0{,}36-1}=0{,}6\pm\mathrm j\,0{,}8$, ein konjugiertes Paar mit dem Betrag $\sqrt{0{,}36+0{,}64}=1$. Für $\mathbf{v}=(1,\,-\mathrm j)^{\top}$ ist $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ und $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ (Abb. [16](#abb-16)).
 
 :::abbildung ml/k2rkomplex 16
 Das Skalarprodukt $(\mathbf{v}^*)^{\top}\mathbf{v}$ für $\mathbf{v}=(1,-\mathrm j)^{\top}$: Jedes Glied ist $v_i^*v_i=|v_i|^2$, denn $\mathrm j\cdot(-\mathrm j)=-\mathrm j^2=1$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Komplexe Zahlen $x+\mathrm jy$ mit $\mathrm j^2=-1$ lösen jede Polynomgleichung; Konjugieren wechselt das Vorzeichen des Imaginärteils, und $zz^*=|z|^2$ ist reell.
 
@@ -62,11 +64,13 @@ Die Zahl $\lambda$ heißt der zugehörige __Eigenwert__.
 
 Der Nullvektor ist ausgeschlossen, weil $\mathbf{A}\mathbf{0}=\lambda\mathbf{0}$ für jede Zahl $\lambda$ gilt und nichts verrät. Der Eigenwert darf dagegen null sein: Dann wird der Eigenvektor auf $\mathbf{0}$ abgebildet. Ein negativer Eigenwert klappt den Pfeil um. Eigenwerte heißen in diesem Kapitel $\lambda$ oder $\lambda_i$. Das Wort stammt aus dem Deutschen und wird auch im Englischen benutzt: *eigenvalue*, *eigenvector*.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ist
 
 $$\mathbf{A}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}5\\5\end{pmatrix}=5\begin{pmatrix}1\\1\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\-2\end{pmatrix}=\begin{pmatrix}2\\-4\end{pmatrix}=2\begin{pmatrix}1\\-2\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}4\\2\end{pmatrix}.$$
 
 Also ist $(1,\,1)^{\top}$ ein Eigenvektor zum Eigenwert $5$ und $(1,\,-2)^{\top}$ einer zum Eigenwert $2$. Der Vektor $(1,\,0)^{\top}$ ist keiner, denn $(4,\,2)^{\top}$ ist kein Vielfaches von ihm.
+::::
 
 ⁠**Kurz gesagt:** Ein Eigenvektor wird von der Matrix nicht gedreht, nur mit einer Zahl multipliziert; diese Zahl ist der Eigenwert.
 
@@ -108,7 +112,9 @@ $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda
 
 Nach dem Unterabschnitt über komplexe Zahlen hat es, mit Vielfachheit gezählt, genau $n$ komplexe Nullstellen. Eine $n\times n$-Matrix hat also $n$ Eigenwerte, wenn man komplexe zulässt und mehrfache mehrfach zählt.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ist $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. Die Eigenwerte sind $5$ und $2$, wie im vorigen Unterabschnitt. Für die Diagonalmatrix $\operatorname{diag}(3;\,-1)$ ist $p(\lambda)=(3-\lambda)(-1-\lambda)$ mit den Nullstellen $3$ und $-1$: Die Eigenwerte einer Diagonalmatrix stehen auf ihrer Diagonale, die Eigenvektoren sind die Einheitsvektoren.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ist $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. Die Eigenwerte sind $5$ und $2$, wie im vorigen Unterabschnitt. Für die Diagonalmatrix $\operatorname{diag}(3;\,-1)$ ist $p(\lambda)=(3-\lambda)(-1-\lambda)$ mit den Nullstellen $3$ und $-1$: Die Eigenwerte einer Diagonalmatrix stehen auf ihrer Diagonale, die Eigenvektoren sind die Einheitsvektoren.
+::::
 
 ⁠**Kurz gesagt:** Die Eigenwerte sind die Nullstellen des charakteristischen Polynoms $\det(\mathbf{A}-\lambda\mathbf{I})$; eine $n\times n$-Matrix hat, mit Vielfachheit und komplex gezählt, $n$ Eigenwerte.
 
@@ -126,11 +132,13 @@ Der Kern von $\mathbf{A}-\lambda\mathbf{I}$ heißt der __Eigenraum__ von $\mathb
 
 Er enthält alle Eigenvektoren zu $\lambda$ und den Nullvektor. Als Kern ist er ein Unterraum im Sinn von Abschnitt [4.1](projektion-auf-einen-unterraum.html#stufe-4-1).
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ und $\lambda=5$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ und $\lambda=5$ ist
 
 $$\mathbf{A}-5\mathbf{I}=\begin{pmatrix}-1&1\\2&-2\end{pmatrix}.$$
 
 Beide Zeilen verlangen dasselbe: $-v_1+v_2=0$. Der Eigenraum ist die Gerade aller Vielfachen von $(1,\,1)^{\top}$. Für $\lambda=2$ ist $\mathbf{A}-2\mathbf{I}=\bigl(\begin{smallmatrix}2&1\\2&1\end{smallmatrix}\bigr)$ mit der Bedingung $2v_1+v_2=0$, der Eigenraum ist die Gerade in Richtung $(1,\,-2)^{\top}$. Normiert sind die Eigenvektoren $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$ und $\mathbf{v}_2=(1,\,-2)^{\top}/\sqrt5$, wie in Abb. [17](#abb-17). Sie stehen nicht senkrecht aufeinander: $(1,\,1)(1,\,-2)^{\top}=-1\ne0$.
+::::
 
 ⁠**Kurz gesagt:** Die Eigenvektoren zu $\lambda$ sind die Lösungen $\mathbf{v}\ne\mathbf{0}$ von $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$; zusammen mit dem Nullvektor bilden sie den Eigenraum.
 
@@ -168,11 +176,13 @@ Für beliebiges $n$ zerfällt $p(\lambda)$ ebenso in $(\lambda_1-\lambda)(\lambd
 Für die letzte Aussage: $\operatorname{spur}(\mathbf{A}\mathbf{B})=\sum_i(\mathbf{A}\mathbf{B})_{ii}=\sum_i\sum_la_{il}b_{li}$ und $\operatorname{spur}(\mathbf{B}\mathbf{A})=\sum_l\sum_ib_{li}a_{il}$. Das ist dieselbe Doppelsumme, nur anders geordnet.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ist $\operatorname{spur}\mathbf{A}=7=5+2$ (Abb. [18](#abb-18)) und $\det\mathbf{A}=10=5\cdot2$. Für $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist $\operatorname{spur}=7$ und $\det=6$; die Eigenwerte sind also die Lösungen von $\lambda^2-7\lambda+6=0$, nämlich $6$ und $1$. Für $\mathbf{A}\in\mathbb{R}^{2\times3}$ mit den Zeilen $(1,0,2)$, $(0,1,1)$ und $\mathbf{B}=\mathbf{A}^{\top}$ ist $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ mit der Spur $7$ und $\mathbf{B}\mathbf{A}$ eine $3\times3$-Matrix mit den Diagonaleinträgen $1$, $1$ und $5$, ebenfalls mit der Spur $7$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ ist $\operatorname{spur}\mathbf{A}=7=5+2$ (Abb. [18](#abb-18)) und $\det\mathbf{A}=10=5\cdot2$. Für $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist $\operatorname{spur}=7$ und $\det=6$; die Eigenwerte sind also die Lösungen von $\lambda^2-7\lambda+6=0$, nämlich $6$ und $1$. Für $\mathbf{A}\in\mathbb{R}^{2\times3}$ mit den Zeilen $(1,0,2)$, $(0,1,1)$ und $\mathbf{B}=\mathbf{A}^{\top}$ ist $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ mit der Spur $7$ und $\mathbf{B}\mathbf{A}$ eine $3\times3$-Matrix mit den Diagonaleinträgen $1$, $1$ und $5$, ebenfalls mit der Spur $7$.
 
 :::abbildung ml/k2rspur 18
 Die Spur von $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ als Summe der Diagonaleinträge; sie ist gleich der Summe der Eigenwerte $5$ und $2$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Spur ist die Summe der Diagonaleinträge und die Summe der Eigenwerte, die Determinante das Produkt der Eigenwerte.
 
@@ -182,9 +192,13 @@ Die Spur von $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr
 
 Eine Drehung um $90^\circ$ lässt keinen Pfeil auf seiner Geraden: Jeder wird um einen rechten Winkel weitergedreht. Sie kann also keinen reellen Eigenvektor haben. Das charakteristische Polynom zeigt, was stattdessen geschieht.
 
-⁠**Rechenbeispiel 1:** Für die Drehung $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ ist $p(\lambda)=\lambda^2+1$ mit den Nullstellen $\lambda=\mathrm j$ und $\lambda=-\mathrm j$. Die Eigenwerte sind rein imaginär. Zu $\lambda=\mathrm j$ gehört der komplexe Eigenvektor $(1,\,-\mathrm j)^{\top}$, denn $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::beispiel [Rechenbeispiel 1]
+Für die Drehung $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ ist $p(\lambda)=\lambda^2+1$ mit den Nullstellen $\lambda=\mathrm j$ und $\lambda=-\mathrm j$. Die Eigenwerte sind rein imaginär. Zu $\lambda=\mathrm j$ gehört der komplexe Eigenvektor $(1,\,-\mathrm j)^{\top}$, denn $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::
 
-⁠**Rechenbeispiel 2:** Die Drehung $\mathbf{Q}=\bigl(\begin{smallmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{smallmatrix}\bigr)$ aus Abschnitt [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4) hat $p(\lambda)=\lambda^2-1{,}2\lambda+1$ und nach dem Rechenbeispiel zu den komplexen Zahlen die Eigenwerte $0{,}6\pm\mathrm j\,0{,}8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$ mit $\alpha\approx53{,}13^\circ$. Allgemein hat die Drehung um den Winkel $\alpha$ die Eigenwerte $\mathrm e^{\pm\mathrm j\alpha}$.
+::::beispiel [Rechenbeispiel 2]
+Die Drehung $\mathbf{Q}=\bigl(\begin{smallmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{smallmatrix}\bigr)$ aus Abschnitt [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4) hat $p(\lambda)=\lambda^2-1{,}2\lambda+1$ und nach dem Rechenbeispiel zu den komplexen Zahlen die Eigenwerte $0{,}6\pm\mathrm j\,0{,}8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$ mit $\alpha\approx53{,}13^\circ$. Allgemein hat die Drehung um den Winkel $\alpha$ die Eigenwerte $\mathrm e^{\pm\mathrm j\alpha}$.
+::::
 
 Eine reelle Matrix kann also komplexe Eigenwerte haben. Weil ihr charakteristisches Polynom reelle Koeffizienten hat, treten sie in konjugierten Paaren auf. Ein reeller Eigenvektor gehört nur zu einem reellen Eigenwert: Wäre $\mathbf{v}$ reell und $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$, so wäre $\lambda\mathbf{v}$ als Bild eines reellen Vektors reell, also auch $\lambda$. Komplexe Eigenwerte zeigen an, dass die Matrix in einer Ebene dreht.
 
@@ -206,7 +220,9 @@ Das charakteristische Polynom kann eine doppelte Nullstelle haben. Dann fallen z
 Die __algebraische Vielfachheit__ eines Eigenwerts $\lambda$ ist die Vielfachheit von $\lambda$ als Nullstelle des charakteristischen Polynoms.
 :::
 
-⁠**Rechenbeispiel:** Die Matrix $2\mathbf{I}=\operatorname{diag}(2;\,2)$ hat $p(\lambda)=(2-\lambda)^2$: Der Eigenwert $2$ hat die algebraische Vielfachheit $2$. Die Scherung $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ aus [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), hat $p(\lambda)=(1-\lambda)^2$: Der Eigenwert $1$ hat ebenfalls die algebraische Vielfachheit $2$. Die Matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat zwei verschiedene Eigenwerte, jeder mit der algebraischen Vielfachheit $1$.
+::::beispiel [Rechenbeispiel]
+Die Matrix $2\mathbf{I}=\operatorname{diag}(2;\,2)$ hat $p(\lambda)=(2-\lambda)^2$: Der Eigenwert $2$ hat die algebraische Vielfachheit $2$. Die Scherung $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ aus [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), hat $p(\lambda)=(1-\lambda)^2$: Der Eigenwert $1$ hat ebenfalls die algebraische Vielfachheit $2$. Die Matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat zwei verschiedene Eigenwerte, jeder mit der algebraischen Vielfachheit $1$.
+::::
 
 ⁠**Kurz gesagt:** Die algebraische Vielfachheit zählt, wie oft ein Eigenwert als Nullstelle des charakteristischen Polynoms vorkommt.
 
@@ -234,7 +250,9 @@ Eigenvektoren $\mathbf{v}_1,\dots,\mathbf{v}_k$ zu paarweise verschiedenen Eigen
 Für zwei Eigenvektoren: Es sei $c_1\mathbf{v}_1+c_2\mathbf{v}_2=\mathbf{0}$. Wendet man $\mathbf{A}$ an, folgt $c_1\lambda_1\mathbf{v}_1+c_2\lambda_2\mathbf{v}_2=\mathbf{0}$. Zieht man davon das $\lambda_2$-Fache der ersten Gleichung ab, bleibt $c_1(\lambda_1-\lambda_2)\mathbf{v}_1=\mathbf{0}$. Wegen $\lambda_1\ne\lambda_2$ und $\mathbf{v}_1\ne\mathbf{0}$ ist $c_1=0$, und dann auch $c_2=0$. Für mehr Eigenvektoren geht man ebenso vor: Gäbe es eine Abhängigkeit, so nehme man eine mit möglichst wenigen Koeffizienten ungleich null. Anwenden von $\mathbf{A}$ und Abziehen des $\lambda$-Fachen eines dieser Eigenwerte ergäbe eine Abhängigkeit mit noch weniger Koeffizienten ungleich null, ein Widerspruch.
 :::
 
-⁠**Rechenbeispiel:** Die Eigenvektoren $(1,\,1)^{\top}$ und $(1,\,-2)^{\top}$ von $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ gehören zu den verschiedenen Eigenwerten $5$ und $2$; sie sind linear unabhängig, denn $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. Die Scherung hat dagegen nur die Eigenrichtung $(1,\,0)^{\top}$; zwei unabhängige Eigenvektoren gibt es nicht.
+::::beispiel [Rechenbeispiel]
+Die Eigenvektoren $(1,\,1)^{\top}$ und $(1,\,-2)^{\top}$ von $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ gehören zu den verschiedenen Eigenwerten $5$ und $2$; sie sind linear unabhängig, denn $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. Die Scherung hat dagegen nur die Eigenrichtung $(1,\,0)^{\top}$; zwei unabhängige Eigenvektoren gibt es nicht.
+::::
 
 ⁠**Kurz gesagt:** Die geometrische Vielfachheit zählt die unabhängigen Eigenvektoren zu einem Eigenwert; sie kann kleiner sein als die algebraische, aber verschiedene Eigenwerte haben immer unabhängige Eigenvektoren.
 
@@ -282,7 +300,9 @@ $\mathbf{A}^{\top}$ hat dieselben Eigenwerte wie $\mathbf{A}$, im Allgemeinen ab
 (i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, und so weiter. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) Nach [(6.5)](#gl-6-5) ist $\det\mathbf{A}$ das Produkt der Eigenwerte, also genau dann ungleich null, wenn kein Eigenwert null ist. Multipliziert man $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ mit $\mathbf{A}^{-1}$, folgt $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) Nach [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; beide haben dasselbe charakteristische Polynom.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ die Eigenwerte $25$ und $4$: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. Die Matrix $\mathbf{A}-5\mathbf{I}$ hat die Eigenwerte $0$ und $-3$ und ist nicht invertierbar. Die Inverse $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ hat die Eigenwerte $\tfrac15$ und $\tfrac12$: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. Die Transponierte $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ hat ebenfalls die Eigenwerte $5$ und $2$, aber $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: Ihre Eigenvektoren sind $(2,\,1)^{\top}$ und $(1,\,-1)^{\top}$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ die Eigenwerte $25$ und $4$: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. Die Matrix $\mathbf{A}-5\mathbf{I}$ hat die Eigenwerte $0$ und $-3$ und ist nicht invertierbar. Die Inverse $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ hat die Eigenwerte $\tfrac15$ und $\tfrac12$: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. Die Transponierte $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ hat ebenfalls die Eigenwerte $5$ und $2$, aber $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: Ihre Eigenvektoren sind $(2,\,1)^{\top}$ und $(1,\,-1)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Potenzen, Verschiebungen um $\beta\mathbf{I}$ und die Inverse behalten die Eigenvektoren und verändern die Eigenwerte auf dieselbe Weise; die Transponierte behält nur die Eigenwerte.
 

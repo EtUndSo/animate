@@ -41,7 +41,11 @@ $$U_\mathrm{A}=A_\mathrm{D}\,U_\mathrm{D},\qquad A_\mathrm{D}=S\,R_\mathrm{C}=\f
 两个发射极电位相同，所以 $U_\mathrm{BE2}-U_\mathrm{BE1}=U_\mathrm{D}$。由 $I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T}$ 得 $I_\mathrm{C2}/I_\mathrm{C1}=\mathrm{e}^{U_\mathrm{D}/U_T}$。与 $I_\mathrm{C1}+I_\mathrm{C2}=I_0$ 联立即得 [(2.1)](#gl-2-1)。对小变化：总和固定，所以 $\Delta I_\mathrm{C1}=-\Delta I_\mathrm{C2}$。两者都等于 $S$ 乘以各自 $U_\mathrm{BE}$ 的变化，因此这两个变化大小相等、方向相反。它们的差是 $U_\mathrm{D}$，所以每个结承担 $\pm U_\mathrm{D}/2$。于是 $\Delta I_\mathrm{C2}=S\,U_\mathrm{D}/2$，$U_\mathrm{A}=2R_\mathrm{C}\,\Delta I_\mathrm{C2}=S\,R_\mathrm{C}\,U_\mathrm{D}$。
 :::
 
-**例。** 静态时每条支路流过 1 mA，集电极位于 $12\,\mathrm{V}-3\,\mathrm{V}=9$ V。$S=38.5$ mS，所以 $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$。当 $U_\mathrm{D}=1$ mV 时，两条支路之间转移 $\pm19.2$ µ A，每个集电极移动 57.7 mV，合计 $U_\mathrm{A}=115$ mV。两个输入端上 100 mV 的干扰对此毫无影响。**极限情况：**$U_\mathrm{D}=0$ 时每条支路为 $I_0/2$。当 $|U_\mathrm{D}|\gg U_T$ 时，全部电流流过一个晶体管，$U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V。线性范围只有几个 $U_T$ 宽：在 26 mV 处，直线给出 3.0 V，精确曲线给出 2.77 V。
+::::beispiel
+静态时每条支路流过 1 mA，集电极位于 $12\,\mathrm{V}-3\,\mathrm{V}=9$ V。$S=38.5$ mS，所以 $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$。当 $U_\mathrm{D}=1$ mV 时，两条支路之间转移 $\pm19.2$ µ A，每个集电极移动 57.7 mV，合计 $U_\mathrm{A}=115$ mV。两个输入端上 100 mV 的干扰对此毫无影响。
+::::
+
+⁠**极限情况：**$U_\mathrm{D}=0$ 时每条支路为 $I_0/2$。当 $|U_\mathrm{D}|\gg U_T$ 时，全部电流流过一个晶体管，$U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V。线性范围只有几个 $U_T$ 宽：在 26 mV 处，直线给出 3.0 V，精确曲线给出 2.77 V。
 
 **输入。** 输入信号 $U_\mathrm{D}$ 加在两个串联的 BE 结上，输入电阻为 $2\,r_\mathrm{BE}=2B/S=10.4$ k$\Omega$。总电流为 20 µ A 而不是 2 mA 时，输入电阻为 1.04 M$\Omega$，每个基极只取 50 nA。参考模型中的 $r_\mathrm{e}$ 和 $I_\mathrm{B}$ 就来源于此。
 

@@ -47,7 +47,11 @@ $$I=\frac{U_0-U_\mathrm D}{R}\qquad\text{和}\qquad I=I_\mathrm S\bigl(\mathrm{e
 
 式 [(6.2)](#gl-6-2) 无法解出 $U_\mathrm D$，因为 $U_\mathrm D$ 既在指数中又在指数外。可以用图解法或__迭代__法求解，即反复代入：估计 $U_\mathrm D$，计算 $I=(U_0-U_\mathrm D)/R$，再算 $U_\mathrm D=U_T\ln(I/I_\mathrm S+1)$，然后重复。
 
-**例。** 从 $U_\mathrm D=0.7$ V 开始。第 1 步：$I=4.300$ mA，$U_\mathrm D=0.69245$ V。第 2 步：$I=4.3076$ mA，$U_\mathrm D=0.69249$ V。于是工作点为 (0.692 V | 4.31 mA)，电阻上的电压为 4.31 V。把 $U_0$ 加倍到 10 V，电流几乎加倍，达到 9.29 mA，而 $U_\mathrm D$ 只升高 20 mV，达到 0.712 V。**极限情况：**$U_0=0.5$ V 时 $I=2.3$ µ A，几乎全部电源电压都加在二极管上。$U_0$ 为负时 $I=-I_\mathrm S$，电源电压完全加在二极管上。
+::::beispiel
+从 $U_\mathrm D=0.7$ V 开始。第 1 步：$I=4.300$ mA，$U_\mathrm D=0.69245$ V。第 2 步：$I=4.3076$ mA，$U_\mathrm D=0.69249$ V。于是工作点为 (0.692 V | 4.31 mA)，电阻上的电压为 4.31 V。把 $U_0$ 加倍到 10 V，电流几乎加倍，达到 9.29 mA，而 $U_\mathrm D$ 只升高 20 mV，达到 0.712 V。
+::::
+
+⁠**极限情况：**$U_0=0.5$ V 时 $I=2.3$ µ A，几乎全部电源电压都加在二极管上。$U_0$ 为负时 $I=-I_\mathrm S$，电源电压完全加在二极管上。
 
 :::frage 为什么不反过来算：估计 $U_\mathrm D$，由指数函数求 $I$，再求 $U_\mathrm D=U_0-R\,I$？
 因为这样做是发散的。1 mV 的误差使二极管电流变化 3.9 %，即 0.17 mA，这在电阻上造成 167 mV 的误差。在第一种方法中，误差每步按同一因子缩小，$r/R=0.006$（第 [8](kleine-anderungen-um-den-arbeitspunkt.html#stufe-8) 阶段）。平缓的对数函数起衰减作用，陡峭的指数函数起放大作用。

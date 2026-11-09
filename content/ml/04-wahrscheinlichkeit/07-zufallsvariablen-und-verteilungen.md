@@ -29,7 +29,9 @@ Eine __Zufallsvariable__ $X$ ist eine Funktion, die jedem Ergebnis $\omega\in\Om
 
 Der Name führt in die Irre: Eine Zufallsvariable ist weder zufällig noch eine Variable, sondern eine feste Funktion. Zufällig ist nur, bei welchem Ergebnis sie ausgewertet wird. Zufallsvariablen schreibt man mit großen Buchstaben $X,Y,Z$, ihre möglichen Werte mit kleinen $x,y,z$. Aussagen über Werte sind Ereignisse: $\{X=x\}$ ist die Menge aller Ergebnisse $\omega$ mit $X(\omega)=x$, $\{X\le x\}$ die mit $X(\omega)\le x$. Man schreibt kurz $P(X=x)$ statt $P(\{X=x\})$.
 
-⁠**Rechenbeispiel:** Bei drei fairen Münzwürfen hat $\Omega$ die $8$ gleich wahrscheinlichen Ergebnisse KKK, KKZ, KZK, ZKK, KZZ, ZKZ, ZZK, ZZZ. Die Zufallsvariable $X$ = „Anzahl der Köpfe“ hat die Werte $3,2,2,2,1,1,1,0$. Das Ereignis $\{X=2\}$ ist $\{\text{KKZ},\text{KZK},\text{ZKK}\}$, also ist $P(X=2)=3/8$. Ebenso ist $P(X=0)=P(X=3)=1/8$ und $P(X=1)=3/8$.
+::::beispiel [Rechenbeispiel]
+Bei drei fairen Münzwürfen hat $\Omega$ die $8$ gleich wahrscheinlichen Ergebnisse KKK, KKZ, KZK, ZKK, KZZ, ZKZ, ZZK, ZZZ. Die Zufallsvariable $X$ = „Anzahl der Köpfe“ hat die Werte $3,2,2,2,1,1,1,0$. Das Ereignis $\{X=2\}$ ist $\{\text{KKZ},\text{KZK},\text{ZKK}\}$, also ist $P(X=2)=3/8$. Ebenso ist $P(X=0)=P(X=3)=1/8$ und $P(X=1)=3/8$.
+::::
 
 ⁠**Kurz gesagt:** Eine Zufallsvariable ordnet jedem Ergebnis eine Zahl zu; Aussagen über ihren Wert sind Ereignisse.
 
@@ -52,7 +54,9 @@ heißt ihre __Wahrscheinlichkeitsfunktion__. Es gilt $P(X=x_k)\ge0$ und $\sum_kP
 
 Die Summe ist $1$, weil die Ereignisse $\{X=x_k\}$ eine Zerlegung von $\Omega$ bilden: Bei jedem Ergebnis hat $X$ genau einen Wert. Umgekehrt ist jede Liste nichtnegativer Zahlen mit der Summe $1$ die Wahrscheinlichkeitsfunktion einer Zufallsvariablen. Man zeichnet sie als Stabdiagramm (Abb. [5](#abb-5), links). Für jede Menge $\mathcal M$ von Werten ist $P(X\in\mathcal M)=\sum_{x_k\in\mathcal M}P(X=x_k)$. Zwei Zufallsvariablen mit derselben Wahrscheinlichkeitsfunktion heißen __identisch verteilt__, auch wenn sie auf verschiedenen Ergebnisräumen leben.
 
-⁠**Rechenbeispiel:** Für die Anzahl $X$ der Köpfe bei drei Münzwürfen ist die Wahrscheinlichkeitsfunktion $\tfrac18,\tfrac38,\tfrac38,\tfrac18$ an den Stellen $0,1,2,3$, mit der Summe $\tfrac88=1$. Die Wahrscheinlichkeit, mindestens zwei Köpfe zu werfen, ist $P(X\ge2)=\tfrac38+\tfrac18=\tfrac12$.
+::::beispiel [Rechenbeispiel]
+Für die Anzahl $X$ der Köpfe bei drei Münzwürfen ist die Wahrscheinlichkeitsfunktion $\tfrac18,\tfrac38,\tfrac38,\tfrac18$ an den Stellen $0,1,2,3$, mit der Summe $\tfrac88=1$. Die Wahrscheinlichkeit, mindestens zwei Köpfe zu werfen, ist $P(X\ge2)=\tfrac38+\tfrac18=\tfrac12$.
+::::
 
 ⁠**Kurz gesagt:** Die Verteilung einer diskreten Zufallsvariablen ist die Liste ihrer Werte mit deren Wahrscheinlichkeiten, die sich zu $1$ addieren.
 
@@ -68,7 +72,9 @@ der Flächeninhalt zwischen dem Graphen von $f$ und der $x$-Achse von $a$ bis $b
 
 Ausgerechnet wird ein Integral mit einer __Stammfunktion__ $F$, also einer Funktion mit $F'=f$: Es ist $\int_a^bf(x)\,\mathrm{d} x=F(b)-F(a)$. Integrale über unbeschränkte Bereiche sind Grenzwerte, etwa $\int_{-\infty}^\infty f(x)\,\mathrm{d} x=\lim_{a\to-\infty,\,b\to\infty}\int_a^bf(x)\,\mathrm{d} x$. Zwei Rechenregeln werden gebraucht: Das Integral ist linear, $\int(\alpha f+\beta g)=\alpha\int f+\beta\int g$, und Integrale über aneinandergrenzende Intervalle addieren sich.
 
-⁠**Rechenbeispiel:** Für $f(x)=2x$ auf $[0,\,1]$ ist $F(x)=x^2$ eine Stammfunktion, also $\int_0^12x\,\mathrm{d} x=1-0=1$: Das Dreieck unter der Geraden hat die Grundseite $1$ und die Höhe $2$. Ebenso ist $\int_0^{1/2}2x\,\mathrm{d} x=\tfrac14$. Die Summe mit $n=2$ Rechtecken liefert $\bigl(2\cdot\tfrac14+2\cdot\tfrac34\bigr)\cdot\tfrac12=1$; sie ist hier schon exakt, weil sich bei einer Geraden die Fehler über und unter den Rechteckkanten aufheben.
+::::beispiel [Rechenbeispiel]
+Für $f(x)=2x$ auf $[0,\,1]$ ist $F(x)=x^2$ eine Stammfunktion, also $\int_0^12x\,\mathrm{d} x=1-0=1$: Das Dreieck unter der Geraden hat die Grundseite $1$ und die Höhe $2$. Ebenso ist $\int_0^{1/2}2x\,\mathrm{d} x=\tfrac14$. Die Summe mit $n=2$ Rechtecken liefert $\bigl(2\cdot\tfrac14+2\cdot\tfrac34\bigr)\cdot\tfrac12=1$; sie ist hier schon exakt, weil sich bei einer Geraden die Fehler über und unter den Rechteckkanten aufheben.
+::::
 
 ⁠**Kurz gesagt:** Ein Integral ist der Grenzwert von Summen aus Funktionswert mal Breite, also ein Flächeninhalt; ausgerechnet wird es mit einer Stammfunktion.
 
@@ -98,7 +104,9 @@ Die Dichte ist also eine Wahrscheinlichkeit pro Längeneinheit, wie eine Massend
 (a) Die Anzahl der Köpfe bei drei Münzwürfen: Die Wahrscheinlichkeiten sind die Höhen der Stäbe. (b) Der Eintreffzeitpunkt, gleichmäßig verteilt auf $[0;\ 0{,}5]\,\mathrm s$: Die Dichte hat die Höhe $2$ pro Sekunde, und die Wahrscheinlichkeit für $0{,}1\le T\le0{,}3$ ist die Fläche $0{,}2\cdot2=0{,}4$. Bei einer Dichte ist die Höhe keine Wahrscheinlichkeit; erst die Fläche ist eine.
 :::
 
-⁠**Rechenbeispiel:** Für den Eintreffzeitpunkt ist $p(t)=2/\mathrm s$ für $0\le t\le0{,}5\,\mathrm s$ und $p(t)=0$ sonst (Abb. [5](#abb-5), rechts). Die Gesamtfläche ist $2\cdot0{,}5=1$. Es ist $P(0{,}1\le T\le0{,}3)=2\cdot0{,}2=0{,}4$ und $P(T\le0{,}1)=0{,}2$. Der Zahlenwert $2$ der Dichte ist größer als $1$, und das ist kein Widerspruch, denn die Dichte ist keine Wahrscheinlichkeit.
+::::beispiel [Rechenbeispiel]
+Für den Eintreffzeitpunkt ist $p(t)=2/\mathrm s$ für $0\le t\le0{,}5\,\mathrm s$ und $p(t)=0$ sonst (Abb. [5](#abb-5), rechts). Die Gesamtfläche ist $2\cdot0{,}5=1$. Es ist $P(0{,}1\le T\le0{,}3)=2\cdot0{,}2=0{,}4$ und $P(T\le0{,}1)=0{,}2$. Der Zahlenwert $2$ der Dichte ist größer als $1$, und das ist kein Widerspruch, denn die Dichte ist keine Wahrscheinlichkeit.
+::::
 
 ⁠**Kurz gesagt:** Bei stetig verteilten Zufallsvariablen ist jeder einzelne Wert unwahrscheinlich; Wahrscheinlichkeiten sind Flächen unter der Dichte, und die Dichte ist Wahrscheinlichkeit pro Längeneinheit.
 
@@ -127,7 +135,9 @@ $F$ steigt von $0$ für sehr kleine $x$ bis $1$ für sehr große $x$ und fällt 
 Verteilungsfunktionen. (a) Bei der diskreten Anzahl der Köpfe eine Treppe mit Stufen der Höhe $\tfrac18,\tfrac38,\tfrac38,\tfrac18$; der gefüllte Punkt zeigt den Wert an der Sprungstelle. (b) Beim gleichmäßig verteilten Eintreffzeitpunkt eine Rampe mit der Steigung $2/\mathrm s$, der Dichte; der Abstand der gestrichelten Linien ist $F(0{,}3)-F(0{,}1)=0{,}4$.
 :::
 
-⁠**Rechenbeispiel:** Für die Anzahl der Köpfe ist $F(x)=0$ für $x<0$, $F(x)=\tfrac18$ für $0\le x<1$, $F(x)=\tfrac48$ für $1\le x<2$, $F(x)=\tfrac78$ für $2\le x<3$ und $F(x)=1$ ab $3$. Also ist $P(1<X\le3)=F(3)-F(1)=1-\tfrac12=\tfrac12$. Für den Eintreffzeitpunkt ist $F(t)=2t/\mathrm s$ zwischen $0$ und $0{,}5\,\mathrm s$, und $F(0{,}3)-F(0{,}1)=0{,}6-0{,}2=0{,}4$, wie in Unterabschnitt [6.4](#stufe-6-4).
+::::beispiel [Rechenbeispiel]
+Für die Anzahl der Köpfe ist $F(x)=0$ für $x<0$, $F(x)=\tfrac18$ für $0\le x<1$, $F(x)=\tfrac48$ für $1\le x<2$, $F(x)=\tfrac78$ für $2\le x<3$ und $F(x)=1$ ab $3$. Also ist $P(1<X\le3)=F(3)-F(1)=1-\tfrac12=\tfrac12$. Für den Eintreffzeitpunkt ist $F(t)=2t/\mathrm s$ zwischen $0$ und $0{,}5\,\mathrm s$, und $F(0{,}3)-F(0{,}1)=0{,}6-0{,}2=0{,}4$, wie in Unterabschnitt [6.4](#stufe-6-4).
+::::
 
 ⁠**Kurz gesagt:** Die Verteilungsfunktion $F(x)=P(X\le x)$ steigt von $0$ auf $1$; bei diskreten Größen ist sie eine Treppe, bei stetig verteilten die Fläche links von $x$ mit $F'=p$.
 

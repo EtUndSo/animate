@@ -29,7 +29,9 @@ Eine Menge $\mathcal U\subseteq\mathbb{R}^n$ heißt __Unterraum__ des $\mathbb{R
 
 Gleichwertig: $\mathcal U$ enthält den Nullvektor, und mit zwei Vektoren $\mathbf{u},\mathbf{v}$ enthält $\mathcal U$ auch $\mathbf{u}+\mathbf{v}$ und jedes Vielfache $c\,\mathbf{u}$. Jeder Unterraum hat eine Basis und damit nach [Grundlagen 1, Abschnitt 13.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), eine Dimension.
 
-⁠**Rechenbeispiel:** Im $\mathbb{R}^3$ sind Unterräume: der Nullpunkt allein, mit der Dimension $0$; jede Gerade durch den Nullpunkt, mit der Dimension $1$; jede Ebene durch den Nullpunkt, wie der Spaltenraum von $\mathbf{H}$ aus dem vorigen Abschnitt, mit der Dimension $2$; und der ganze $\mathbb{R}^3$. Der Kern einer Matrix ist ein Unterraum, der Spaltenraum ebenfalls. Eine Gerade, die nicht durch den Nullpunkt geht, ist kein Unterraum, denn sie enthält den Nullvektor nicht.
+::::beispiel [Rechenbeispiel]
+Im $\mathbb{R}^3$ sind Unterräume: der Nullpunkt allein, mit der Dimension $0$; jede Gerade durch den Nullpunkt, mit der Dimension $1$; jede Ebene durch den Nullpunkt, wie der Spaltenraum von $\mathbf{H}$ aus dem vorigen Abschnitt, mit der Dimension $2$; und der ganze $\mathbb{R}^3$. Der Kern einer Matrix ist ein Unterraum, der Spaltenraum ebenfalls. Eine Gerade, die nicht durch den Nullpunkt geht, ist kein Unterraum, denn sie enthält den Nullvektor nicht.
+::::
 
 ⁠**Kurz gesagt:** Ein Unterraum ist ein Spann von Vektoren; man verlässt ihn durch Addieren und Vervielfachen nicht.
 
@@ -62,11 +64,13 @@ Die erste Gleichung ist die Herleitung oben. Mit den Rechenregeln aus [Grundlage
 
 Die Gleichung $\mathbf{P}\mathbf{A}=\mathbf{A}$ sagt: Jede Spalte, und damit jeder Vektor des Spaltenraums, bleibt beim Projizieren, wo er ist.
 
-⁠**Rechenbeispiel:** Für $\mathbf{H}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{H}$ ist
 
 $$\mathbf{P}=\mathbf{H}\cdot\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\mathbf{H}^{\top}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix}.$$
 
 Probe: $\mathbf{P}(1,\,1,\,1)^{\top}=\tfrac13(2,\,2,\,4)^{\top}=(\tfrac23,\,\tfrac23,\,\tfrac43)^{\top}=\hat{\mathbf{y}}$, und $\mathbf{P}\mathbf{a}_1=\tfrac13(2+1,\ -1+1,\ 1+2)^{\top}=(1,\,0,\,1)^{\top}=\mathbf{a}_1$.
+::::
 
 ⁠**Kurz gesagt:** Die Projektionsmatrix $\mathbf{P}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ bildet jeden Vektor auf den nächsten Punkt des Spaltenraums ab; sie ist symmetrisch und erfüllt $\mathbf{P}^2=\mathbf{P}$.
 
@@ -87,11 +91,13 @@ $$\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}=\sum_{i=1}^k\mathbf{q}_i\mathbf{q}_i^{\
 
 Die Summenform folgt aus [Grundlagen 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): Ein Matrixprodukt ist die Summe der äußeren Produkte aus Spalten und Zeilen. Jeder Summand $\mathbf{q}_i\mathbf{q}_i^{\top}$ ist die Projektionsmatrix auf die Gerade in Richtung $\mathbf{q}_i$. Bei orthonormalen Spalten ist die Projektion auf den Spaltenraum also die Summe der Projektionen auf die einzelnen Achsen. Das erklärt nachträglich den letzten Unterabschnitt von Abschnitt [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1): $\mathbf{Q}\mathbf{Q}^{\top}$ ist nicht die Einheitsmatrix, sondern die Projektion auf den Spaltenraum von $\mathbf{Q}$. Was senkrecht dazu liegt, wirft sie weg.
 
-⁠**Rechenbeispiel:** Die Vektoren $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ und $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ sind orthonormal: $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. Bei beiden ist die dritte Komponente die Summe der ersten beiden; sie bilden eine Orthonormalbasis der Ebene von $\mathbf{H}$. Es ist
+::::beispiel [Rechenbeispiel]
+Die Vektoren $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ und $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ sind orthonormal: $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. Bei beiden ist die dritte Komponente die Summe der ersten beiden; sie bilden eine Orthonormalbasis der Ebene von $\mathbf{H}$. Es ist
 
 $$\mathbf{q}_1\mathbf{q}_1^{\top}+\mathbf{q}_2\mathbf{q}_2^{\top}=\frac12\begin{pmatrix}1&0&1\\0&0&0\\1&0&1\end{pmatrix}+\frac16\begin{pmatrix}1&-2&-1\\-2&4&2\\-1&2&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix},$$
 
 dieselbe Matrix wie im vorigen Unterabschnitt, diesmal ohne Inverse.
+::::
 
 ⁠**Kurz gesagt:** Bei orthonormalen Spalten ist $\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$ und $\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}$, die Summe der Projektionen auf die einzelnen Spalten.
 
@@ -144,11 +150,13 @@ $\dim\mathcal U^\perp=n-\dim\mathcal U$.
 (i) Dass $\mathbf{P}\mathbf{y}$ in $\mathcal U$ liegt und $\mathbf{y}-\mathbf{P}\mathbf{y}$ senkrecht auf $\mathcal U$ steht, ist die Definition der orthogonalen Projektion. Gäbe es eine zweite Zerlegung $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$, so wäre $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ ein Vektor, der in $\mathcal U$ liegt und zugleich senkrecht auf $\mathcal U$ steht, also senkrecht auf sich selbst. Sein Längenquadrat ist dann null, also ist er der Nullvektor. (ii) $\mathbf{I}-\mathbf{P}$ ist symmetrisch, und $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$. Ihr Bild liegt nach (i) in $\mathcal U^\perp$. Jedes $\mathbf{z}\in\mathcal U^\perp$ bleibt fest: $\mathbf{P}\mathbf{z}$ liegt in $\mathcal U$ und ist zugleich die Differenz $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$ zweier Vektoren, die senkrecht auf $\mathcal U$ stehen; also steht $\mathbf{P}\mathbf{z}$ senkrecht auf sich selbst und ist $\mathbf{0}$. (iii) Wählt man für $\mathcal U$ eine Basis als Spalten einer Matrix $\mathbf{A}$, so ist $\mathcal U^\perp$ der Kern von $\mathbf{A}^{\top}$. Nach dem Rangsatz aus [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), hat er die Dimension $n-\operatorname{rang}\mathbf{A}^{\top}=n-\operatorname{rang}\mathbf{A}=n-\dim\mathcal U$.
 :::
 
-⁠**Rechenbeispiel:** Die Ebene von $\mathbf{H}$ hat die Dimension $2$, ihr orthogonales Komplement im $\mathbb{R}^3$ also die Dimension $1$: die Gerade in Richtung des Normalenvektors $\mathbf{k}=(1,\,1,\,-1)^{\top}$. Tatsächlich ist $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. Es ist
+::::beispiel [Rechenbeispiel]
+Die Ebene von $\mathbf{H}$ hat die Dimension $2$, ihr orthogonales Komplement im $\mathbb{R}^3$ also die Dimension $1$: die Gerade in Richtung des Normalenvektors $\mathbf{k}=(1,\,1,\,-1)^{\top}$. Tatsächlich ist $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. Es ist
 
 $$\mathbf{I}-\mathbf{P}=\frac13\begin{pmatrix}1&1&-1\\1&1&-1\\-1&-1&1\end{pmatrix}=\frac{\mathbf{k}\mathbf{k}^{\top}}{\mathbf{k}^{\top}\mathbf{k}},$$
 
 die Projektion auf diese Gerade. Für $\mathbf{y}=(1,\,1,\,1)^{\top}$ ist $(\mathbf{I}-\mathbf{P})\mathbf{y}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$, das Residuum aus dem vorigen Abschnitt.
+::::
 
 ⁠**Kurz gesagt:** Das orthogonale Komplement $\mathcal U^\perp$ enthält alle Vektoren senkrecht zu $\mathcal U$; jeder Vektor zerfällt eindeutig in einen Teil in $\mathcal U$ und einen in $\mathcal U^\perp$, und die Dimensionen ergänzen sich zu $n$.
 
@@ -187,7 +195,8 @@ Man geht Schritt für Schritt vor. Angenommen, $\mathbf{q}_1,\dots,\mathbf{q}_{i
 
 Sind die gegebenen Vektoren doch abhängig, bemerkt das Verfahren es selbst: Irgendwann ist $\tilde{\mathbf{q}}_i=\mathbf{0}$, und man kann nicht normieren.
 
-⁠**Rechenbeispiel:** Für die Spalten von $\mathbf{H}$, $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ und $\mathbf{a}_2=(0,\,1,\,1)^{\top}$, ist $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$. Dann ist $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ und
+::::beispiel [Rechenbeispiel]
+Für die Spalten von $\mathbf{H}$, $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ und $\mathbf{a}_2=(0,\,1,\,1)^{\top}$, ist $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$. Dann ist $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ und
 
 $$\tilde{\mathbf{q}}_2=\mathbf{a}_2-\frac1{\sqrt2}\,\mathbf{q}_1=(0,\,1,\,1)^{\top}-\tfrac12(1,\,0,\,1)^{\top}=\bigl(-\tfrac12,\,1,\,\tfrac12\bigr)^{\top},\qquad \lVert\tilde{\mathbf{q}}_2\rVert=\sqrt{\tfrac14+1+\tfrac14}=\sqrt{\tfrac32} .$$
 
@@ -196,6 +205,7 @@ Normiert ist $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$, genau die Orthon
 :::abbildung ml/k2rgs 12
 Gram-Schmidt für die Spalten von $\mathbf{H}$: das Skalarprodukt $\mathbf{q}_1^{\top}\mathbf{a}_2$ mit $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ und $\mathbf{a}_2=(0,1,1)^{\top}$, das die Länge des Schattens angibt, und das Längenquadrat des Rests $\tilde{\mathbf{q}}_2=(-\tfrac12,1,\tfrac12)^{\top}$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Gram-Schmidt zieht von jedem Vektor seine Projektion auf die schon gefundenen ab und normiert den Rest; so entsteht eine Orthonormalbasis desselben Unterraums.
 
@@ -226,11 +236,13 @@ mit einer Matrix $\mathbf{Q}\in\mathbb{R}^{m\times n}$ mit orthonormalen Spalten
 
 Eine obere Dreiecksmatrix hat unterhalb der Diagonale nur Nullen. Spalte $i$ von $\mathbf{Q}\mathbf{R}$ ist nach der Spaltensicht $\sum_lr_{li}\mathbf{q}_l$, also genau die Darstellung von $\mathbf{a}_i$ oben. Die Spalten von $\mathbf{Q}$ liefert das Gram-Schmidt-Verfahren, die Einträge von $\mathbf{R}$ fallen dabei nebenbei ab. Weil $\mathbf{Q}$ orthonormale Spalten hat, ist außerdem $\mathbf{R}=\mathbf{Q}^{\top}\mathbf{A}$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{H}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{H}$ ist
 
 $$\mathbf{Q}=\begin{pmatrix}\tfrac1{\sqrt2}&-\tfrac1{\sqrt6}\\0&\tfrac2{\sqrt6}\\\tfrac1{\sqrt2}&\tfrac1{\sqrt6}\end{pmatrix},\qquad \mathbf{R}=\begin{pmatrix}\sqrt2&\tfrac1{\sqrt2}\\0&\sqrt{\tfrac32}\end{pmatrix}\approx\begin{pmatrix}1{,}414&0{,}707\\0&1{,}225\end{pmatrix}.$$
 
 Probe der zweiten Spalte: $\tfrac1{\sqrt2}\cdot\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}+\sqrt{\tfrac32}\cdot\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}=\tfrac12(1,\,0,\,1)^{\top}+\tfrac12(-1,\,2,\,1)^{\top}=(0,\,1,\,1)^{\top}=\mathbf{a}_2$.
+::::
 
 ⁠**Kurz gesagt:** Die QR-Zerlegung $\mathbf{A}=\mathbf{Q}\mathbf{R}$ schreibt das Gram-Schmidt-Verfahren als Matrixprodukt: $\mathbf{Q}$ hat orthonormale Spalten, $\mathbf{R}$ ist eine obere Dreiecksmatrix.
 
@@ -255,11 +267,13 @@ Es ist $\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}
 
 Das System [(4.6)](#gl-4-6) hat Dreiecksform und wird von unten nach oben gelöst, wie das Rückwärtseinsetzen am Ende des Gauß-Verfahrens in [Grundlagen 1, Abschnitt 12.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3). Für eine $m\times n$-Matrix kostet der ganze Weg etwa $2mn^2$ Grundrechenarten, fast alles davon für die QR-Zerlegung.
 
-⁠**Rechenbeispiel:** Für $\mathbf{H}$ und $\mathbf{y}=(1,\,1,\,1)^{\top}$ ist $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$. Die untere Zeile von [(4.6)](#gl-4-6) lautet $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, also $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. Die obere Zeile lautet $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, also $\hat x_1=1-\tfrac13=\tfrac23$. Das ist dieselbe Lösung wie mit den Normalgleichungen. Die Komponenten von $\mathbf{Q}^{\top}\mathbf{y}$ sind die Skalarprodukte in Abb. [13](#abb-13).
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{H}$ und $\mathbf{y}=(1,\,1,\,1)^{\top}$ ist $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$. Die untere Zeile von [(4.6)](#gl-4-6) lautet $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, also $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. Die obere Zeile lautet $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, also $\hat x_1=1-\tfrac13=\tfrac23$. Das ist dieselbe Lösung wie mit den Normalgleichungen. Die Komponenten von $\mathbf{Q}^{\top}\mathbf{y}$ sind die Skalarprodukte in Abb. [13](#abb-13).
 
 :::abbildung ml/k2rqr 13
 Die rechte Seite $\mathbf{Q}^{\top}\mathbf{y}$ des Dreieckssystems für $\mathbf{y}=(1,1,1)^{\top}$, mit $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ und $\mathbf{q}_2=(-1,2,1)^{\top}/\sqrt6$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Mit $\mathbf{A}=\mathbf{Q}\mathbf{R}$ wird aus den Normalgleichungen das Dreieckssystem $\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$; die Matrix $\mathbf{A}^{\top}\mathbf{A}$ wird dabei nie gebildet.
 

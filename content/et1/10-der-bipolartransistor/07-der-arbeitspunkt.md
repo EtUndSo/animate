@@ -40,7 +40,11 @@ $$U_\mathrm{CE}=U_\mathrm{CE,sat},\qquad I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mat
 
 ⁠**So liest man das:** $U_\mathrm{CC}$ ist die __Versorgungsspannung__, $U_\mathrm{ein}$ die Eingangsspannung gegen Masse. $R_\mathrm{B}$ setzt den Basisstrom, $R_\mathrm{C}$ wandelt den Kollektorstrom in eine Spannung. **Gültigkeit:** Emitter an Masse, das lineare Modell aus Stufe [4](drei-bereiche-drei-ersatzschaltbilder.html#stufe-4). Gleichung [(5.1)](#gl-5-1) gilt in beiden leitenden Bereichen, weil dort dieselbe 0,6-V-Quelle zwischen B und E liegt.
 
-**Beispiel.** Rechenmodell: $I_\mathrm{B}=(5\,\mathrm{V}-0{,}6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A, $I_\mathrm{C}=2$ mA, $U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V. Das ist mehr als 0,2 V, also aktiv (Punkt A). Eine falsche erste Annahme schadet nicht: Sättigung ergäbe $I_\mathrm{C}=3{,}93$ mA, aber $B\,I_\mathrm{B}=2$ mA ist kleiner, im Widerspruch zu [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3). Für $U_\mathrm{ein}=12$ V ist $I_\mathrm{B}=25{,}9$ µ A. Aktiv angenommen käme $U_\mathrm{CE}=-3{,}5$ V heraus, also Widerspruch. In der Sättigung sind $I_\mathrm{C}=3{,}93$ mA und $B\,I_\mathrm{B}=5{,}18$ mA (Punkt S). **Grenzfälle:** $R_\mathrm{C}=0$ ergibt $U_\mathrm{CE}=U_\mathrm{CC}$, der Ausgang ist starr. $U_\mathrm{ein}<0{,}6$ V ergibt $I_\mathrm{C}=0$ und $U_\mathrm{CE}=12$ V (Punkt Z).
+::::beispiel
+Rechenmodell: $I_\mathrm{B}=(5\,\mathrm{V}-0{,}6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A, $I_\mathrm{C}=2$ mA, $U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V. Das ist mehr als 0,2 V, also aktiv (Punkt A). Eine falsche erste Annahme schadet nicht: Sättigung ergäbe $I_\mathrm{C}=3{,}93$ mA, aber $B\,I_\mathrm{B}=2$ mA ist kleiner, im Widerspruch zu [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3). Für $U_\mathrm{ein}=12$ V ist $I_\mathrm{B}=25{,}9$ µ A. Aktiv angenommen käme $U_\mathrm{CE}=-3{,}5$ V heraus, also Widerspruch. In der Sättigung sind $I_\mathrm{C}=3{,}93$ mA und $B\,I_\mathrm{B}=5{,}18$ mA (Punkt S).
+::::
+
+⁠**Grenzfälle:** $R_\mathrm{C}=0$ ergibt $U_\mathrm{CE}=U_\mathrm{CC}$, der Ausgang ist starr. $U_\mathrm{ein}<0{,}6$ V ergibt $I_\mathrm{C}=0$ und $U_\mathrm{CE}=12$ V (Punkt Z).
 
 **Die Mitte des aktiven Bereichs.** Im aktiven Bereich liegt $U_\mathrm{CE}$ zwischen 0,2 V und $U_\mathrm{CC}$. Damit ein Signal nach beiden Seiten gleich viel Platz hat, legt man den Punkt in die Mitte. Mit $\Delta U=U_\mathrm{CC}-U_\mathrm{CE,sat}=11{,}8$ V ist
 

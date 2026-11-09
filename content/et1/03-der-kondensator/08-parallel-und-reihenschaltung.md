@@ -38,7 +38,9 @@ Für zwei Kondensatoren in Reihe ist $C_\mathrm{G}=\dfrac{C_1C_2}{C_1+C_2}$, und
 
 ⁠**So liest man das:** $C_\mathrm{G}$ ist die Kapazität eines einzelnen Kondensators, der dasselbe Verhalten an den beiden Außenklemmen zeigt. Parallel wird $C_\mathrm{G}$ größer als jeder Einzelwert, in Reihe kleiner als der kleinste. **Gültigkeit:** Die rechte Formel braucht ungeladene Inseln beim Start. Sonst bleibt die alte Inselladung erhalten, und $Q_i=Q_\mathrm{G}$ gilt nur für die hinzukommende Ladung.
 
-**Beispiel.** Parallel: $C_\mathrm{G}=150\,\mu\text{F}$, $Q_1=900\,\mu\text{C}$, $Q_2=450\,\mu\text{C}$. In Reihe: $1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$, also $C_\mathrm{G}=33{,}3\,\mu\text{F}$. Bei 9 V ist $Q=300\,\mu\text{C}$, $U_1=3$ V und $U_2=6$ V.
+::::beispiel
+Parallel: $C_\mathrm{G}=150\,\mu\text{F}$, $Q_1=900\,\mu\text{C}$, $Q_2=450\,\mu\text{C}$. In Reihe: $1/C_\mathrm{G}=1/(100\,\mu\text{F})+1/(50\,\mu\text{F})$, also $C_\mathrm{G}=33{,}3\,\mu\text{F}$. Bei 9 V ist $Q=300\,\mu\text{C}$, $U_1=3$ V und $U_2=6$ V.
+::::
 
 ⁠**Grenzfälle:** Für $C_2\to\infty$ geht in Reihe $C_\mathrm{G}\to C_1$, ein riesiger Kondensator verhält sich wie ein Draht. Für $C_2\to0$ geht in Reihe $C_\mathrm{G}\to0$, die Lücke unterbricht, parallel bleibt $C_1$.
 

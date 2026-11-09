@@ -38,7 +38,11 @@ Left, the circuit symbol with supply terminals. Right, the characteristic curve 
 2-bit flash converter with $U_\mathrm{Ref}=6$ V and equal resistors. The inputs draw no current, so the resistors are in series, and the taps are at 6, 4 and 2 V. At $U_\mathrm{E}=3.2$ V only K3 switches up.
 :::
 
-**Example.** At $U_\mathrm{E}=3.2$ V, $U_\mathrm{D}=-2.8$ V at K1, $-0.8$ V at K2 and $+1.2$ V at K3. K1 and K2 are at $-11$ V, K3 at $+11$ V. The three outputs distinguish four ranges: below 2 V, 2 to 4 V, 4 to 6 V, above 6 V. **Limiting case:** For $A\to\infty$ the window becomes a point and the characteristic curve a step at $U_\mathrm{D}=0$.
+::::beispiel
+At $U_\mathrm{E}=3.2$ V, $U_\mathrm{D}=-2.8$ V at K1, $-0.8$ V at K2 and $+1.2$ V at K3. K1 and K2 are at $-11$ V, K3 at $+11$ V. The three outputs distinguish four ranges: below 2 V, 2 to 4 V, 4 to 6 V, above 6 V.
+::::
+
+⁠**Limiting case:** For $A\to\infty$ the window becomes a point and the characteristic curve a step at $U_\mathrm{D}=0$.
 
 :::aufgabe Exercise 3 ★ Comparators
 <span class="anker" id="aufg-3"></span>

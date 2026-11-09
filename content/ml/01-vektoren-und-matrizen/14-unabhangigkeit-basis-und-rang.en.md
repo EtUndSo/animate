@@ -36,7 +36,9 @@ $$\operatorname{span}\{\mathbf{v}_1,\dots,\mathbf{v}_k\}=\Bigl\{\sum_{l=1}^kc_l\
 
 So the column space of a matrix is the span of its columns. Along with any two of its vectors, every linear combination of them also lies in the span; adding and taking multiples never lead you out of it.
 
-⁠**Worked example:** $\operatorname{span}\{(1,\,2)^{\top}\}$ is the line of all multiples $c\,(1,\,2)^{\top}$. The span of $(1,\,2)^{\top}$ and $(2,\,4)^{\top}$ is the same line, because $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. The span of $(1,\,0)^{\top}$ and $(1,\,1)^{\top}$ is the whole plane: every vector $(y_1,\,y_2)^{\top}$ is $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. In $\mathbb{R}^3$, $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ is the plane of all vectors with $x_3=0$.
+::::beispiel [Worked example]
+$\operatorname{span}\{(1,\,2)^{\top}\}$ is the line of all multiples $c\,(1,\,2)^{\top}$. The span of $(1,\,2)^{\top}$ and $(2,\,4)^{\top}$ is the same line, because $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. The span of $(1,\,0)^{\top}$ and $(1,\,1)^{\top}$ is the whole plane: every vector $(y_1,\,y_2)^{\top}$ is $(y_1-y_2)\,(1,\,0)^{\top}+y_2\,(1,\,1)^{\top}$. In $\mathbb{R}^3$, $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ is the plane of all vectors with $x_3=0$.
+::::
 
 ⁠**In short:** The span of a list of vectors is everything you can form from them as a linear combination.
 
@@ -59,7 +61,9 @@ holds only for $c_1=c_2=\dots=c_k=0$. Otherwise they are called __linearly depen
 
 Equivalently, linearly dependent means: at least one of the vectors is a linear combination of the others. Indeed, if [(13.2)](#gl-13-2) holds with a coefficient $c_l\ne0$, you can solve for $\mathbf{v}_l$: $\mathbf{v}_l=-\sum_{l'\ne l}(c_{l'}/c_l)\,\mathbf{v}_{l'}$. Conversely, such a representation immediately gives a combination with the coefficient $-1$ in front of $\mathbf{v}_l$.
 
-⁠**Worked example:** $(1,\,2)^{\top}$ and $(2,\,4)^{\top}$ are linearly dependent: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. The vectors $(1,\,0)^{\top}$ and $(1,\,1)^{\top}$ are linearly independent: from $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ it follows first that $c_2=0$ and then that $c_1=0$. The three vectors $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ and $(1,\,1,\,2)^{\top}$ are linearly dependent, because the third is the sum of the first two.
+::::beispiel [Worked example]
+$(1,\,2)^{\top}$ and $(2,\,4)^{\top}$ are linearly dependent: $2\,(1,\,2)^{\top}-(2,\,4)^{\top}=\mathbf{0}$. The vectors $(1,\,0)^{\top}$ and $(1,\,1)^{\top}$ are linearly independent: from $c_1(1,\,0)^{\top}+c_2(1,\,1)^{\top}=(c_1+c_2,\ c_2)^{\top}=\mathbf{0}$ it follows first that $c_2=0$ and then that $c_1=0$. The three vectors $(1,\,0,\,1)^{\top}$, $(0,\,1,\,1)^{\top}$ and $(1,\,1,\,2)^{\top}$ are linearly dependent, because the third is the sum of the first two.
+::::
 
 ⁠**In short:** Linearly independent means: none of the vectors can be combined from the others; there is no redundancy.
 
@@ -87,7 +91,9 @@ If $\mathbf{v}_1,\dots,\mathbf{v}_k$ is a basis of $\mathcal S$, then every vect
 There is at least one representation, because the basis spans $\mathcal S$. If there were two, $\sum_lc_l\mathbf{v}_l=\sum_lc_l'\mathbf{v}_l$, their difference would be $\sum_l(c_l-c_l')\mathbf{v}_l=\mathbf{0}$. By linear independence, all $c_l-c_l'=0$.
 :::
 
-⁠**Worked example:** $(1,\,0)^{\top}$ and $(1,\,1)^{\top}$ form a basis of $\mathbb{R}^2$: they are linearly independent and span the plane. In this basis, the vector $(3,\,2)^{\top}$ has the coordinates $1$ and $2$, because $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. The line $\operatorname{span}\{(0,\,1)^{\top}\}$ has dimension $1$, even though its vectors have two components.
+::::beispiel [Worked example]
+$(1,\,0)^{\top}$ and $(1,\,1)^{\top}$ form a basis of $\mathbb{R}^2$: they are linearly independent and span the plane. In this basis, the vector $(3,\,2)^{\top}$ has the coordinates $1$ and $2$, because $(3,\,2)^{\top}=1\cdot(1,\,0)^{\top}+2\cdot(1,\,1)^{\top}$. The line $\operatorname{span}\{(0,\,1)^{\top}\}$ has dimension $1$, even though its vectors have two components.
+::::
 
 ⁠**In short:** A basis is a list of independent vectors that spans everything; its length is the dimension.
 
@@ -111,11 +117,13 @@ The largest number of linearly independent columns of a matrix equals the larges
 
 If $\operatorname{rank}\mathbf{A}=\min(m,n)$, then $\mathbf{A}$ has __full rank__. In practice, you determine the rank with Gaussian elimination: row operations do not change it, and in row echelon form it is the number of rows that do not consist entirely of zeros.
 
-⁠**Worked example:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has rank $1$: the second column is twice the first, and likewise the second row is twice the first. For
+::::beispiel [Worked example]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has rank $1$: the second column is twice the first, and likewise the second row is twice the first. For
 
 $$\mathbf K=\begin{pmatrix}1&0&1\\0&1&1\\1&1&2\end{pmatrix}$$
 
 you subtract the first and the second row from the third and get the rows $(1,0,1)$, $(0,1,1)$, $(0,0,0)$. Two rows are nonzero, so $\operatorname{rank}\mathbf K=2$; indeed, the third column is the sum of the first two. The data matrix of the apartments has full rank $3$.
+::::
 
 ⁠**In short:** The rank counts how many truly different directions the columns of a matrix contain, and there are just as many as in its rows.
 
@@ -161,7 +169,9 @@ For $\mathbf{A}\in\mathbb{R}^{n\times n}$, the following are equivalent: (i) $\m
 (i) implies (ii) by Subsection [11.5](einheitsmatrix-und-inverse.html#stufe-11-5). (ii), (iii) and (iv) are equivalent by the rank–nullity theorem and the definition of rank. It remains to show that (iii) and (ii) imply (i). If $\operatorname{rank}\mathbf{A}=n$, the column space is a space of dimension $n$ in $\mathbb{R}^n$, hence all of $\mathbb{R}^n$. So every system $\mathbf{A}\mathbf{c}_j=\mathbf{e}_j$ is solvable, and the solutions form the columns of a matrix $\mathbf{C}$ with $\mathbf{A}\mathbf{C}=\mathbf{I}$. Moreover, $\mathbf{A}(\mathbf{C}\mathbf{A}-\mathbf{I})=\mathbf{A}\mathbf{C}\mathbf{A}-\mathbf{A}=\mathbf 0$. So every column of $\mathbf{C}\mathbf{A}-\mathbf{I}$ lies in the null space, which by (ii) contains only the zero vector. Hence $\mathbf{C}\mathbf{A}=\mathbf{I}$ as well, and $\mathbf{C}=\mathbf{A}^{-1}$.
 :::
 
-⁠**Worked example:** $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the null space $\operatorname{span}\{(2,\,-1)^{\top}\}$, of dimension $1$, and rank $1$: $1+1=2$. The matrix $\mathbf K$ from above has the null space $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, because its third column is the sum of the first two; with $\operatorname{rank}\mathbf K=2$ we get $1+2=3$.
+::::beispiel [Worked example]
+$\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the null space $\operatorname{span}\{(2,\,-1)^{\top}\}$, of dimension $1$, and rank $1$: $1+1=2$. The matrix $\mathbf K$ from above has the null space $\operatorname{span}\{(1,\,1,\,-1)^{\top}\}$, because its third column is the sum of the first two; with $\operatorname{rank}\mathbf K=2$ we get $1+2=3$.
+::::
 
 **Rank and solvability.** With rank and null space, the questions from Section [12](lineare-gleichungssysteme.html#stufe-12) can be answered by numbers, even for matrices that are not square. Is there a solution? Is it unique? Is there one for every right-hand side?
 
@@ -203,7 +213,9 @@ $\mathbf{A}\mathbf{x}=\mathbf{y}$ is solvable for every $\mathbf{y}\in\mathbb{R}
 
 For a square matrix with $\operatorname{rank}\mathbf{A}=n=m$, (ii) and (iii) come together: exactly one solution for every right-hand side, in agreement with the theorem on invertibility.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $\operatorname{rank}\mathbf{A}=1$. With $\mathbf{y}=(1,\,1)^{\top}$, the augmented matrix has the rows $(1,\,2\,|\,1)$ and $(2,\,4\,|\,1)$; subtracting the first twice from the second leaves $(0,\,0\,|\,-1)$, which is not a zero row. So $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, and the system is unsolvable, as in Subsection [12.2](lineare-gleichungssysteme.html#stufe-12-2). With $\mathbf{y}=(3,\,6)^{\top}$, on the other hand, $(0,\,0\,|\,0)$ remains, the ranks are equal, and the system is solvable. Because $\operatorname{rank}\mathbf{A}=1<2=n$, the solution is not unique: all solutions are $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. And because $\operatorname{rank}\mathbf{A}=1<2=m$, there are right-hand sides without a solution. In the overdetermined system from Subsection [12.5](lineare-gleichungssysteme.html#stufe-12-5), $\operatorname{rank}\mathbf{A}=2=n$: if there were a solution, it would be unique. But there is none, so by (i), $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=3$ there.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $\operatorname{rank}\mathbf{A}=1$. With $\mathbf{y}=(1,\,1)^{\top}$, the augmented matrix has the rows $(1,\,2\,|\,1)$ and $(2,\,4\,|\,1)$; subtracting the first twice from the second leaves $(0,\,0\,|\,-1)$, which is not a zero row. So $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=2\ne1$, and the system is unsolvable, as in Subsection [12.2](lineare-gleichungssysteme.html#stufe-12-2). With $\mathbf{y}=(3,\,6)^{\top}$, on the other hand, $(0,\,0\,|\,0)$ remains, the ranks are equal, and the system is solvable. Because $\operatorname{rank}\mathbf{A}=1<2=n$, the solution is not unique: all solutions are $(1,\,1)^{\top}+t\,(2,\,-1)^{\top}$. And because $\operatorname{rank}\mathbf{A}=1<2=m$, there are right-hand sides without a solution. In the overdetermined system from Subsection [12.5](lineare-gleichungssysteme.html#stufe-12-5), $\operatorname{rank}\mathbf{A}=2=n$: if there were a solution, it would be unique. But there is none, so by (i), $\operatorname{rank}(\mathbf{A}\,|\,\mathbf{y})=3$ there.
+::::
 
 ⁠**In short:** The null space collects the directions that a matrix maps to zero; null space and rank share the $n$ input directions between them. A system $\mathbf{A}\mathbf{x}=\mathbf{y}$ is solvable exactly when the right-hand side does not increase the rank, and the solution is unique exactly when the null space contains only the zero vector.
 
@@ -213,7 +225,8 @@ For a square matrix with $\operatorname{rank}\mathbf{A}=n=m$, (ii) and (iii) com
 
 In real datasets, features sometimes carry the same information twice. A questionnaire records body weight in kilograms and, for a different analysis, once more in pounds. A house description gives the floor area of the ground floor, that of the upper floor and the total floor area. For the data matrix this means: its columns are linearly dependent, and its rank is smaller than the number of features.
 
-⁠**Worked example: ground floor, upper floor, total floor area.** Four houses:
+::::beispiel [Worked example] ground floor, upper floor, total floor area
+Four houses:
 
 $$\mathbf{X}=\begin{pmatrix}50&40&90\\60&0&60\\45&45&90\\70&30&100\end{pmatrix}\qquad(\text{areas in }\mathrm m^2).$$
 
@@ -234,12 +247,15 @@ The third column is the sum of the first two. So $\operatorname{rank}\mathbf{X}=
 </li>
 
 </ul>
+::::
 
-⁠**Worked example: kilograms and pounds.** One pound is exactly $0.45359237$ kg, so a mass in pounds is $c=1/0.45359237\approx2.20462$ times the same mass in kilograms. Three people with height (cm), mass (kg) and mass (pounds):
+::::beispiel [Worked example] kilograms and pounds
+One pound is exactly $0.45359237$ kg, so a mass in pounds is $c=1/0.45359237\approx2.20462$ times the same mass in kilograms. Three people with height (cm), mass (kg) and mass (pounds):
 
 $$\mathbf{X}=\begin{pmatrix}170&70&70\,c\\182&85&85\,c\\165&60&60\,c\end{pmatrix}\approx\begin{pmatrix}170&70&154.3\\182&85&187.4\\165&60&132.3\end{pmatrix}.$$
 
 The third column is $c$ times the second, so $\operatorname{rank}\mathbf{X}=2$ and $(0,\,c,\,-1)^{\top}$ lies in the null space. The pound column brings no new information; it merely duplicates information that is already there.
+::::
 
 ⁠**In short:** If features carry the same information twice, the columns of the data matrix are linearly dependent; then the rank is smaller than $d$, different weights give the same predictions, and $\mathbf{X}^{\top}\mathbf{X}$ is not invertible.
 

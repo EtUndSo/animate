@@ -30,7 +30,9 @@ $$R_\mathrm{AB}=R_\mathrm{a}+R_\mathrm{b}\parallel\bigl(R_\mathrm{c}+R_\mathrm{d
 
 ⁠**Cómo leerlo:** $R$ es una resistencia en $\Omega$, $G=1/R$ su __conductancia__ en siemens (S). En serie se suman resistencias; en paralelo se suman conductancias. Por eso, en la segunda forma cada grupo en paralelo aparece como una suma de conductancias. El corchete con el exponente $-1$ invierte de nuevo el resultado. **Validez:** El procedimiento necesita grupos auténticos. Si en un nudo intermedio hay conectada una tercera rama, las dos vecinas ya no están en serie (etapas [2](symmetrie-nutzen.html#stufe-2) y [3](stern-und-dreieck.html#stufe-3)).
 
-**Ejemplo.** Con los valores de la fig. [1](#abb-1): $G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33{,}3+16{,}7$ mS $=100$ mS, es decir, 10 $\Omega$. Con $R_\mathrm{c}$ en serie: 15 $\Omega$. En paralelo con $R_\mathrm{b}$: $30\,\Omega\parallel15\,\Omega=10\,\Omega$. Con $R_\mathrm{a}$ en serie: $R_\mathrm{AB}=16\,\Omega$. El cálculo inverso da las corrientes: con 8 V entre A y B circulan 0,5 A. En $R_\mathrm{a}$ caen 3 V y quedan 5 V para el resto. Por $R_\mathrm{b}$ circulan $5\,\mathrm{V}/30\,\Omega=166{,}7$ mA, por $R_\mathrm{c}$ circulan $5\,\mathrm{V}/15\,\Omega=333{,}3$ mA. La suma es 500 mA.
+::::beispiel
+Con los valores de la fig. [1](#abb-1): $G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33{,}3+16{,}7$ mS $=100$ mS, es decir, 10 $\Omega$. Con $R_\mathrm{c}$ en serie: 15 $\Omega$. En paralelo con $R_\mathrm{b}$: $30\,\Omega\parallel15\,\Omega=10\,\Omega$. Con $R_\mathrm{a}$ en serie: $R_\mathrm{AB}=16\,\Omega$. El cálculo inverso da las corrientes: con 8 V entre A y B circulan 0,5 A. En $R_\mathrm{a}$ caen 3 V y quedan 5 V para el resto. Por $R_\mathrm{b}$ circulan $5\,\mathrm{V}/30\,\Omega=166{,}7$ mA, por $R_\mathrm{c}$ circulan $5\,\mathrm{V}/15\,\Omega=333{,}3$ mA. La suma es 500 mA.
+::::
 
 ⁠**Caso límite:** Para $R_\mathrm{b}\to0$, [(1.1)](#gl-1-1) se convierte en $R_\mathrm{AB}=R_\mathrm{a}=6\,\Omega$. El cortocircuito puentea todo lo que hay detrás; la carga toma el cable.
 

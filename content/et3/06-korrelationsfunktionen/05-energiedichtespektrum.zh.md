@@ -29,7 +29,8 @@ $$E_s=\varphi^E_{ss}(0)=\int_{-\infty}^{\infty}|s(t)|^2\,\mathrm{d} t=\int_{-\in
 
 两个正交信号的频谱也是正交的：$\int s^*g\,\mathrm{d} t=\int S^*G\,\mathrm{d} f=0$。
 
-**例：指数脉冲。** $s(t)=\varepsilon(t)\mathrm{e}^{-t}$ 的频谱为 $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$，因此 $|S|^2=\frac{1}{1+(2\pi f)^2}$。它同时也是 $\operatorname{Re}\{S\}$，而 $\operatorname{Re}\{S\}$ 的逆变换是信号的偶部（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）：
+::::beispiel 指数脉冲
+$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ 的频谱为 $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$，因此 $|S|^2=\frac{1}{1+(2\pi f)^2}$。它同时也是 $\operatorname{Re}\{S\}$，而 $\operatorname{Re}\{S\}$ 的逆变换是信号的偶部（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）：
 
 $$\varphi^E_{ss}(\tau)=\tfrac12\mathrm{e}^{-|\tau|},\qquad E_s=\varphi^E_{ss}(0)=\tfrac12.$$
 
@@ -38,6 +39,7 @@ $$\varphi^E_{ss}(\tau)=\tfrac12\mathrm{e}^{-|\tau|},\qquad E_s=\varphi^E_{ss}(0)
 :::abbildung et3/k6exp 2
 指数脉冲（$RC=1$ s）。左：信号及其自相关函数 $\frac12\mathrm{e}^{-|\tau|}$（偶函数，最大值 $=E_s=\frac12$）。右：幅度谱和能量谱密度，后者衰减得更快：能量集中在低频。
 :::
+::::
 
 :::aufgabe 练习 4 ★ 验证帕塞瓦尔定理
 <span class="anker" id="aufg-4"></span>

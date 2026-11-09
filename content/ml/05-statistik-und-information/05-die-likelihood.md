@@ -37,11 +37,13 @@ $$\log_2x=\frac{\ln x}{\ln2},\qquad \ln2\approx0{,}6931 . \tag{4.2}$$
 
 Für $\log_2$ gelten dieselben Rechenregeln [(4.1)](#gl-4-1). Dieses Kapitel schreibt immer $\ln$ oder $\log_2$, nie $\log$ ohne Basis.
 
-⁠**Rechenbeispiel:** Mit den Rechenregeln ist
+::::beispiel [Rechenbeispiel]
+Mit den Rechenregeln ist
 
 $$\ln\bigl(0{,}7^7\cdot0{,}3^3\bigr)=7\ln0{,}7+3\ln0{,}3\approx7\cdot(-0{,}3567)+3\cdot(-1{,}2040)\approx-6{,}109 .$$
 
 Zur Probe: $0{,}7^7\cdot0{,}3^3\approx0{,}0022236$, und der Taschenrechner liefert $\ln0{,}0022236\approx-6{,}109$. Ferner ist $\log_2\frac1{1024}=-10$, denn $2^{10}=1024$, und $\log_23=\ln3/\ln2\approx1{,}0986/0{,}6931\approx1{,}585$.
+::::
 
 ⁠**Kurz gesagt:** Der Logarithmus macht Produkte zu Summen und Potenzen zu Vielfachen, er wächst streng monoton, und $\log_2x=\ln x/\ln2$.
 
@@ -76,7 +78,9 @@ $$\int_0^1\theta^7(1-\theta)^3\,\mathrm{d}\theta=\frac18-\frac39+\frac3{10}-\fra
 Wie man aus Daten tatsächlich eine Verteilung über $\theta$ gewinnt, zeigt Abschnitt [6](prior-und-posterior.html#stufe-6).
 :::
 
-⁠**Rechenbeispiel:** Für die zehn Würfe ist $\mathcal L(0{,}5)\approx0{,}000977$, $\mathcal L(0{,}6)\approx0{,}00179$, $\mathcal L(0{,}7)\approx0{,}00222$ und $\mathcal L(0{,}8)\approx0{,}00168$. Am Verhältnis zweier Werte liest man ab, wie viel besser der eine Parameterwert die Daten erklärt als der andere: $\mathcal L(0{,}7)/\mathcal L(0{,}5)\approx2{,}28$.
+::::beispiel [Rechenbeispiel]
+Für die zehn Würfe ist $\mathcal L(0{,}5)\approx0{,}000977$, $\mathcal L(0{,}6)\approx0{,}00179$, $\mathcal L(0{,}7)\approx0{,}00222$ und $\mathcal L(0{,}8)\approx0{,}00168$. Am Verhältnis zweier Werte liest man ab, wie viel besser der eine Parameterwert die Daten erklärt als der andere: $\mathcal L(0{,}7)/\mathcal L(0{,}5)\approx2{,}28$.
+::::
 
 ⁠**Kurz gesagt:** Die Likelihood ist die Wahrscheinlichkeit der beobachteten Daten, gelesen als Funktion des Parameters; sie bewertet Parameterwerte, ist aber keine Verteilung über sie.
 
@@ -108,11 +112,13 @@ $$\mathcal L(\theta)=\theta^{N_1}(1-\theta)^{N_0} . \tag{4.5}$$
 
 Die Likelihood hängt nur von der Anzahl der Einsen ab, nicht von ihrer Reihenfolge.
 
-⁠**Rechenbeispiel:** Für die zehn Würfe und $\theta=0{,}7$ hat jede $1$ den Faktor $0{,}7$ und jede $0$ den Faktor $0{,}3$. Abb. [8](#abb-8) multipliziert die zehn Faktoren.
+::::beispiel [Rechenbeispiel]
+Für die zehn Würfe und $\theta=0{,}7$ hat jede $1$ den Faktor $0{,}7$ und jede $0$ den Faktor $0{,}3$. Abb. [8](#abb-8) multipliziert die zehn Faktoren.
 
 :::abbildung ml/k5rprodukt 8
 Die Likelihood von $\theta=0{,}7$ für die Würfe $\mathcal D=(1,0,1,1,0,1,1,0,1,1)$ als Produkt: ein Faktor je Wurf, $0{,}7$ für Kopf und $0{,}3$ für Zahl.
 :::
+::::
 
 Bei stetigen Daten sind die Faktoren Dichtewerte, keine Wahrscheinlichkeiten. Das ändert am Vergleich zweier Parameterwerte nichts. Nach [Grundlagen 4, Abschnitt 6.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/zufallsvariablen-und-verteilungen.html#stufe-6-4), ist die Wahrscheinlichkeit, dass ein Wert in ein kurzes Intervall der Länge $\Delta$ um $x_i$ fällt, etwa $p(x_i\mid\theta)\,\Delta$. Die Wahrscheinlichkeit, dass alle $N$ Werte in ihre Intervalle fallen, ist dann etwa $\mathcal L(\theta)\,\Delta^N$. Der Faktor $\Delta^N$ hängt nicht von $\theta$ ab und ändert nicht, welcher Parameterwert die Daten wahrscheinlicher macht.
 
@@ -146,11 +152,13 @@ $$\ell(\theta)=N_1\ln\theta+N_0\ln(1-\theta) . \tag{4.7}$$
 
 Weil alle Wahrscheinlichkeiten höchstens $1$ sind, ist die Log-Likelihood diskreter Daten nie positiv.
 
-⁠**Rechenbeispiel:** Für die zehn Würfe ist $\ell(0{,}7)=7\ln0{,}7+3\ln0{,}3\approx-6{,}109$ (Abb. [9](#abb-9)) und $\ell(0{,}5)=10\ln0{,}5\approx-6{,}931$. Der Unterschied $0{,}823$ ist der Logarithmus des Verhältnisses $2{,}28$ aus dem vorigen Unterabschnitt. Abb. [7](#abb-7) (b) zeigt die ganze Kurve.
+::::beispiel [Rechenbeispiel]
+Für die zehn Würfe ist $\ell(0{,}7)=7\ln0{,}7+3\ln0{,}3\approx-6{,}109$ (Abb. [9](#abb-9)) und $\ell(0{,}5)=10\ln0{,}5\approx-6{,}931$. Der Unterschied $0{,}823$ ist der Logarithmus des Verhältnisses $2{,}28$ aus dem vorigen Unterabschnitt. Abb. [7](#abb-7) (b) zeigt die ganze Kurve.
 
 :::abbildung ml/k5rloglik 9
 Die Log-Likelihood von $\theta=0{,}7$ für dieselben zehn Würfe als Summe: ein Summand je Wurf, $\ln0{,}7$ für Kopf und $\ln0{,}3$ für Zahl.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Log-Likelihood ist der Logarithmus der Likelihood und für eine Stichprobe eine Summe mit einem Summanden je Datenpunkt.
 

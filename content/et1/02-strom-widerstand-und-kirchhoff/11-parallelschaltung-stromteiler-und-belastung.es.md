@@ -38,7 +38,11 @@ La ley de los nudos da $I=\sum I_i$; con la misma $U$, por tanto, $I=(G_1+\dots+
 $$I_1=I_\mathrm{tot}\,\frac{1/R_1}{1/R_1+1/R_2}=I_\mathrm{tot}\,\frac{R_2}{R_1+R_2}.$$
 :::
 
-**Ejemplo.** $R_1$ y $R_2$ de la cadena en paralelo a 9 V: $G_\mathrm{tot}=0{,}5+1=1{,}5$ mS, es decir, $R_\mathrm{tot}=667\,\Omega$, menos que el valor menor, e $I=13{,}5$ mA. El divisor de corriente da $I_1=13{,}5\,\mathrm{mA}\cdot1/3=4{,}5$ mA, $I_2=9$ mA. Las redes mixtas se agrupan de dentro hacia fuera: $6\,\mathrm{k\Omega}$ en paralelo con $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ da $6\parallel3=2\,\mathrm{k\Omega}$. **Casos límite:** $R_2\to\infty$ da $R_1$: la rama abierta no cuenta. $R_2\to0$ da 0: el cortocircuito se lleva toda la corriente. $R_1=R_2$ da $R_1/2$.
+::::beispiel
+$R_1$ y $R_2$ de la cadena en paralelo a 9 V: $G_\mathrm{tot}=0{,}5+1=1{,}5$ mS, es decir, $R_\mathrm{tot}=667\,\Omega$, menos que el valor menor, e $I=13{,}5$ mA. El divisor de corriente da $I_1=13{,}5\,\mathrm{mA}\cdot1/3=4{,}5$ mA, $I_2=9$ mA. Las redes mixtas se agrupan de dentro hacia fuera: $6\,\mathrm{k\Omega}$ en paralelo con $1\,\mathrm{k\Omega}+2\,\mathrm{k\Omega}$ da $6\parallel3=2\,\mathrm{k\Omega}$.
+::::
+
+⁠**Casos límite:** $R_2\to\infty$ da $R_1$: la rama abierta no cuenta. $R_2\to0$ da 0: el cortocircuito se lleva toda la corriente. $R_1=R_2$ da $R_1/2$.
 
 **El divisor de tensión con carga.** La tensión de un divisor debe alimentar otra etapa del circuito; la __resistencia de carga__ $R_\mathrm L$ queda en paralelo con $R_2$ (fig. [11](#abb-11)). El mecanismo: en el nudo central se abre un camino adicional, la resistencia total baja, la corriente por $R_1$ sube, en $R_1$ cae más tensión y el potencial central baja. Con $R_2'=R_2\parallel R_\mathrm L$ en [(9.3)](reihenschaltung-und-spannungsteiler.html#gl-9-3):
 
@@ -51,7 +55,9 @@ $$\frac{U_2}{U}=\frac{R_2\parallel R_\mathrm L}{R_1+R_2\parallel R_\mathrm L}=\f
 Izquierda: divisor de tensión con carga. Derecha: $U_2$ frente a $R_\mathrm L$ para $R_1=2\,\mathrm{k\Omega}$, $R_2=1\,\mathrm{k\Omega}$, $U=9$ V, según [(10.4)](#gl-10-4). Con $R_\mathrm L=1\,\mathrm{k\Omega}$ quedan 1,8 V; con $10\,\mathrm{k\Omega}$ son 2,81 V. Solo muy por encima de $R_1\parallel R_2=667\,\Omega$ la carga es imperceptible.
 :::
 
-**Ejemplo.** Para la cadena, el error relativo $\delta=(U_{2,0}-U_2)/U_{2,0}$ respecto a los 3 V sin carga es: $R_\mathrm L=1\,\mathrm{k\Omega}$ da 40 %, $10\,\mathrm{k\Omega}$ da 6,3 %, $100\,\mathrm{k\Omega}$ da 0,66 %. El error es $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ con $R_\mathrm i=R_1\parallel R_2$ (ejercicio [11](#aufg-11)). El divisor actúa, pues, como una fuente con la resistencia interna $R_\mathrm i$ ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+::::beispiel
+Para la cadena, el error relativo $\delta=(U_{2,0}-U_2)/U_{2,0}$ respecto a los 3 V sin carga es: $R_\mathrm L=1\,\mathrm{k\Omega}$ da 40 %, $10\,\mathrm{k\Omega}$ da 6,3 %, $100\,\mathrm{k\Omega}$ da 0,66 %. El error es $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ con $R_\mathrm i=R_1\parallel R_2$ (ejercicio [11](#aufg-11)). El divisor actúa, pues, como una fuente con la resistencia interna $R_\mathrm i$ ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+::::
 
 :::ltspice Medir la carga
 ⁠**Esquema:** fuente `voltage` con `9` de `in` a masa, `res` `R1 2k` de `in` a `mid`, `R2 1k` de `mid` a masa, `RL` con valor `{RL}` de `mid` a masa.

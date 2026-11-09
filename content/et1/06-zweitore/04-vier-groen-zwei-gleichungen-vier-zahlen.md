@@ -37,11 +37,15 @@ $$y_1=p_{11}x_1+p_{12}x_2,\qquad y_2=p_{21}x_1+p_{22}x_2. \tag{2.2}$$
 Die drei Pfeilsysteme. Links symmetrisch: Beide Ströme zeigen in das Zweitor. Mitte Kettenpfeil: Der Ausgangsstrom zeigt zur Last. Rechts gemischt, wie in diesem Kapitel: $I_2$ bleibt definiert wie links, der Strom zur Last heißt $-I_2$.
 :::
 
-**Beispiel.** Am Mittelpunkt des T-Zweitors treffen sich $I_1$ und $I_2$, durch $R_\mathrm{b}$ fließt ihre Summe. Die Maschenregel ergibt
+::::beispiel
+Am Mittelpunkt des T-Zweitors treffen sich $I_1$ und $I_2$, durch $R_\mathrm{b}$ fließt ihre Summe. Die Maschenregel ergibt
 
 $$U_1=R_\mathrm{a}I_1+R_\mathrm{b}(I_1+I_2)=35\,\Omega\cdot I_1+20\,\Omega\cdot I_2,\qquad U_2=R_\mathrm{c}I_2+R_\mathrm{b}(I_1+I_2)=20\,\Omega\cdot I_1+40\,\Omega\cdot I_2.$$
 
-Der Summand $20\,\Omega\cdot I_2$ in $U_1$ ist der Mechanismus: Der Strom von Tor 2 läuft durch $R_\mathrm{b}$, hebt dort das Potenzial des Mittelpunkts, und Tor 1 sieht diese Anhebung. Mit $I_1=250$ mA und $I_2=-50$ mA folgt $U_1=8{,}75\,\mathrm{V}-1\,\mathrm{V}=7{,}75$ V und $U_2=5\,\mathrm{V}-2\,\mathrm{V}=3$ V. **Grenzfall:** Ohne Ursachen, $I_1=I_2=0$, sind beide Spannungen null, wie es ein Zweitor ohne eigene Quellen verlangt. Mit einer unabhängigen Quelle im Inneren käme in jeder Gleichung eine Konstante hinzu.
+Der Summand $20\,\Omega\cdot I_2$ in $U_1$ ist der Mechanismus: Der Strom von Tor 2 läuft durch $R_\mathrm{b}$, hebt dort das Potenzial des Mittelpunkts, und Tor 1 sieht diese Anhebung. Mit $I_1=250$ mA und $I_2=-50$ mA folgt $U_1=8{,}75\,\mathrm{V}-1\,\mathrm{V}=7{,}75$ V und $U_2=5\,\mathrm{V}-2\,\mathrm{V}=3$ V.
+::::
+
+⁠**Grenzfall:** Ohne Ursachen, $I_1=I_2=0$, sind beide Spannungen null, wie es ein Zweitor ohne eigene Quellen verlangt. Mit einer unabhängigen Quelle im Inneren käme in jeder Gleichung eine Konstante hinzu.
 
 ⁠**Kurz gesagt:** Zwei Größen sind frei, und jede der beiden anderen ist eine Summe mit zwei festen Faktoren.
 

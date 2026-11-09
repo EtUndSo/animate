@@ -45,7 +45,11 @@ Ein Zweitor ist eine gedanklich geschlossene Einheit, zugänglich nur über sein
 Links: Das T-Zweitor des Rechenmodells ist erdunsymmetrisch, rot die Masseleitung von 1$'$ nach 2$'$. Rechts: Die Brückenschaltung aus zwei Widerstandspaaren hat keine durchgehende Leitung zwischen den Toren, sie ist erdsymmetrisch. Stufe [3](impedanzform-und-leerlaufversuch.html#stufe-3) rechnet beide.
 :::
 
-**Beispiel.** Im Betrieb des T-Zweitors (Stufe [4](das-zweitor-im-betrieb.html#stufe-4)) fließen $I_1=250$ mA hinein und $I_{1'}=-250$ mA, die Last entnimmt 50 mA, also $I_2=-50$ mA und $I_{2'}=+50$ mA. Die Summe in [(1.1)](#gl-1-1) ist null. **Grenzfall:** Ist Tor 2 offen, ist $I_2=I_{2'}=0$, und das Zweitor wirkt nach außen wie ein Zweipol an Tor 1.
+::::beispiel
+Im Betrieb des T-Zweitors (Stufe [4](das-zweitor-im-betrieb.html#stufe-4)) fließen $I_1=250$ mA hinein und $I_{1'}=-250$ mA, die Last entnimmt 50 mA, also $I_2=-50$ mA und $I_{2'}=+50$ mA. Die Summe in [(1.1)](#gl-1-1) ist null.
+::::
+
+⁠**Grenzfall:** Ist Tor 2 offen, ist $I_2=I_{2'}=0$, und das Zweitor wirkt nach außen wie ein Zweipol an Tor 1.
 
 :::frage Die Masseleitung verbindet 1$'$ und 2$'$. Fließt da nicht doch Strom von Tor zu Tor?
 Ja, im Inneren. In der Masseleitung des T-Zweitors laufen 50 mA von 2$'$ zum Fußpunkt von $R_\mathrm{b}$. Die Torbedingung sagt aber nur, was an den Klemmen geschieht. Innen darf jeder Strom laufen, solange jeder Klemmenstrom an seiner Partnerklemme zurückkommt.

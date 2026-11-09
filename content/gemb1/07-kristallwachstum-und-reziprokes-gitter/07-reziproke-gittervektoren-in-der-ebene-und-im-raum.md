@@ -50,10 +50,12 @@ $$\boldsymbol G\cdot\boldsymbol R=h_1\ell_1(\boldsymbol a_1\cdot\boldsymbol b_1)
 $\boldsymbol a_2\times\boldsymbol a_3$ steht senkrecht auf $\boldsymbol a_2$ und $\boldsymbol a_3$, also ist $\boldsymbol a_2\cdot\boldsymbol b_1=\boldsymbol a_3\cdot\boldsymbol b_1=0$. Der Nenner sorgt für $\boldsymbol a_1\cdot\boldsymbol b_1=2\pi$. Die anderen Formeln entstehen durch zyklisches Vertauschen.
 :::
 
-**Beispiele in der Ebene** (Abb. [5](#abb-5)). Das **Rechteckgitter** hat $\boldsymbol a_1=(a_x,0)$, $\boldsymbol a_2=(0,a_y)$. Daraus folgen $\boldsymbol b_1=2\pi(1/a_x,0)$ und $\boldsymbol b_2=2\pi(0,1/a_y)$. Im Rechenmodell sind das 15,7 und 10,5 nm$^{-1}$: Die lange Kante im Ort wird zur kurzen im $k$-Raum. Das **zentriert rechteckige Gitter** mit denselben Kanten hat $\boldsymbol a_1=(a_x,0)$, $\boldsymbol a_2=\frac12(a_x,a_y)$. Hier gilt
+::::beispiel [Beispiele] in der Ebene
+(Abb. [5](#abb-5)). Das **Rechteckgitter** hat $\boldsymbol a_1=(a_x,0)$, $\boldsymbol a_2=(0,a_y)$. Daraus folgen $\boldsymbol b_1=2\pi(1/a_x,0)$ und $\boldsymbol b_2=2\pi(0,1/a_y)$. Im Rechenmodell sind das 15,7 und 10,5 nm$^{-1}$: Die lange Kante im Ort wird zur kurzen im $k$-Raum. Das **zentriert rechteckige Gitter** mit denselben Kanten hat $\boldsymbol a_1=(a_x,0)$, $\boldsymbol a_2=\frac12(a_x,a_y)$. Hier gilt
 
 <span class="anker" id="gl-5-4"></span>
 $$\boldsymbol b_1=2\pi\Bigl(\frac1{a_x},-\frac1{a_y}\Bigr),\qquad\boldsymbol b_2=2\pi\Bigl(0,\frac2{a_y}\Bigr). \tag{5.4}$$
+::::
 
 ⁠**Probe:** $\boldsymbol a_1\cdot\boldsymbol b_2=0$, $\boldsymbol a_2\cdot\boldsymbol b_1=\pi-\pi=0$, $\boldsymbol a_2\cdot\boldsymbol b_2=2\pi$. **Grenzfall:** Für $a_y\to\infty$ im Rechteckgitter wird $\boldsymbol b_2$ null: Es bleiben unabhängige Ketten mit $2\pi/a_x$.
 
@@ -61,7 +63,8 @@ $$\boldsymbol b_1=2\pi\Bigl(\frac1{a_x},-\frac1{a_y}\Bigr),\qquad\boldsymbol b_2
 Links die Gitter, rechts ihre reziproken Gitter, getönt je eine primitive Zelle. Oben rechteckig, unten zentriert rechteckig. Unten steht $\boldsymbol b_1$ senkrecht auf $\boldsymbol a_2$ und $\boldsymbol b_2$ senkrecht auf $\boldsymbol a_1$.
 :::
 
-**Beispiele im Raum.** Bei SC ist $\boldsymbol b_1=(2\pi/a)(1,0,0)$, entsprechend die anderen: wieder SC mit der Kante $2\pi/a$. Für FCC ergeben die Vektoren aus der Tabelle
+::::beispiel [Beispiele] im Raum
+Bei SC ist $\boldsymbol b_1=(2\pi/a)(1,0,0)$, entsprechend die anderen: wieder SC mit der Kante $2\pi/a$. Für FCC ergeben die Vektoren aus der Tabelle
 
 $$\boldsymbol a_2\times\boldsymbol a_3=\frac{a^2}4(-1,-1,1),\quad\boldsymbol a_1\cdot(\boldsymbol a_2\times\boldsymbol a_3)=-\frac{a^3}4,\quad\boldsymbol b_1=\frac{2\pi}a(1,1,-1).$$
 
@@ -74,6 +77,7 @@ Der Betrag $a^3/4$ ist $\Omega$, und $\boldsymbol a_1\cdot\boldsymbol b_1=\frac 
 | FCC | $(1,1,-1)$, $(1,-1,1)$, $(-1,1,1)$ | BCC mit Würfelkante $4\pi/a$ |
 
 $\frac{2\pi}a(1,1,-1)$ ist ein BCC-Vektor $\frac{a'}2(1,1,-1)$ mit $a'=4\pi/a$. FCC und BCC tauschen also die Rollen. Der Grund liegt in [(5.2)](#gl-5-2): Die Bedingung ist in $\boldsymbol a$ und $\boldsymbol b$ symmetrisch, also ist das reziproke Gitter des reziproken Gitters wieder das Ausgangsgitter.
+::::
 
 :::frage Warum zeigt $\boldsymbol b_1$ nicht einfach in Richtung $\boldsymbol a_1$?
 [(5.2)](#gl-5-2) verlangt etwas anderes: $\boldsymbol b_1$ muss senkrecht auf $\boldsymbol a_2$ und $\boldsymbol a_3$ stehen. Nur bei orthogonalen $\boldsymbol a_i$ ist das die Richtung von $\boldsymbol a_1$. Eine Welle längs $\boldsymbol b_1$ hat auf jeder Geraden längs $\boldsymbol a_2$ dieselbe Phase.

@@ -44,7 +44,8 @@ Each potential appears once with $+$ and once with $-$. Multiplied by the charge
 Potential in the solved network along two meshes. A positive voltage lowers the potential if you follow its arrow; against the arrow it raises it. Left: the source raises, $R_\mathrm a$ and $R_\mathrm b$ lower by $4+5=9$ V. On the right, the traversal runs without a source: the way back through $R_\mathrm b$ against the current raises the potential. Both traversals end at the starting value.
 :::
 
-**Example: solving the network.** The voltage arrows at the resistors are in the PSC, that is, from top to bottom, and $U_\mathrm e$ from $K_2$ to $K_3$. $U_0=9$ V points from $K_1$ to $K_4$ (ASC). The three meshes from Fig. [7](knoten-zweige-maschen.html#abb-7) give
+::::beispiel solving the network
+The voltage arrows at the resistors are in the PSC, that is, from top to bottom, and $U_\mathrm e$ from $K_2$ to $K_3$. $U_0=9$ V points from $K_1$ to $K_4$ (ASC). The three meshes from Fig. [7](knoten-zweige-maschen.html#abb-7) give
 
 $$M_1:\ U_\mathrm a+U_\mathrm b-U_0=0,\qquad M_2:\ U_\mathrm c+U_\mathrm d-U_0=0,\qquad M_3:\ U_\mathrm e+U_\mathrm d-U_\mathrm b=0.$$
 
@@ -60,6 +61,7 @@ The first two give $I_\mathrm a=(9+5\,I_\mathrm e)/7$ and $I_\mathrm c=(9-I_\mat
 | $U$ in V | 9 | 4 | 5 | 6 | 3 | 2 |
 
 The potentials relative to $K_4$ are 9, 5, 3 and 0 V. **Checks:** A fourth mesh through $K_1$, $K_2$, $K_3$ must work out by itself: $U_\mathrm a+U_\mathrm e-U_\mathrm c=4+2-6=0$. Energy: the source delivers $9\,\mathrm{V}\cdot4\,\mathrm{mA}=36$ mW, the resistors absorb $8+5+12+9+2=36$ mW. If two paths lie between the same points, such as $R_1$, $R_2$ in series next to $R_3$, then $U_1+U_2-U_3=0$ follows.
+::::
 
 :::ltspice Recalculating the network
 ⁠**Draw:** source `voltage` with `9` from `k1` to ground, so $K_4$ is the ground. `res`: `Ra 2k` from `k1` to `k2`, `Rb 5k` from `k2` to ground, `Rc 3k` from `k1` to `k3`, `Rd 1k` from `k3` to ground, `Re 2k` from `k2` to `k3`.

@@ -34,7 +34,9 @@ $$f(\mathbf{u}+\mathbf{v})=f(\mathbf{u})+f(\mathbf{v})\qquad\text{y}\qquad f(c\,
 
 Ambas condiciones juntas dicen: $f$ conserva las combinaciones lineales, $f(c_1\mathbf{u}+c_2\mathbf{v})=c_1f(\mathbf{u})+c_2f(\mathbf{v})$. Toda aplicación lineal lleva el vector nulo al vector nulo, pues $f(\mathbf{0})=f(0\cdot\mathbf{u})=0\cdot f(\mathbf{u})=\mathbf{0}$.
 
-⁠**Ejemplo numérico:** La aplicación $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ de $\mathbb{R}^2$ en $\mathbb{R}^2$ es lineal. Ambas componentes son sumas de múltiplos de las $x_j$, y para tales sumas se cumplen las condiciones [(8.1)](#gl-8-1); por ejemplo, $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. No es lineal $g(\mathbf{x})=x_1x_2$, pues $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ en cuanto $x_1x_2\ne0$. Tampoco $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ es lineal, pues $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::beispiel [Ejemplo numérico]
+La aplicación $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ de $\mathbb{R}^2$ en $\mathbb{R}^2$ es lineal. Ambas componentes son sumas de múltiplos de las $x_j$, y para tales sumas se cumplen las condiciones [(8.1)](#gl-8-1); por ejemplo, $f(\mathbf{u}+\mathbf{v})=(u_1+v_1+u_2+v_2,\ 2u_1+2v_1)^{\top}=f(\mathbf{u})+f(\mathbf{v})$. No es lineal $g(\mathbf{x})=x_1x_2$, pues $g(2\mathbf{x})=4x_1x_2\ne2\,g(\mathbf{x})$ en cuanto $x_1x_2\ne0$. Tampoco $h(\mathbf{x})=\mathbf{x}+\mathbf 1$ es lineal, pues $h(\mathbf{0})=\mathbf 1\ne\mathbf{0}$.
+::::
 
 ⁠**En resumen:** Una aplicación es lineal si conserva sumas y múltiplos; entonces lleva combinaciones lineales a combinaciones lineales.
 
@@ -65,9 +67,11 @@ $$f(\mathbf{x})=f\Bigl(\sum_{j=1}^nx_j\mathbf{e}_j\Bigr)=\sum_{j=1}^nx_j\,f(\mat
 el último paso, según la visión por columnas [(7.3)](das-matrix-vektor-produkt.html#gl-7-3). Si hubiera una segunda matriz $\mathbf{B}$ con $\mathbf{B}\mathbf{x}=f(\mathbf{x})$ para todo $\mathbf{x}$, tomando $\mathbf{x}=\mathbf{e}_j$, la columna $j$ de $\mathbf{B}$ sería igual a $f(\mathbf{e}_j)=\mathbf{a}_j$, para cada $j$. Por tanto, $\mathbf{B}=\mathbf{A}$.
 :::
 
-⁠**Ejemplo numérico:** Para $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ se tiene $f(\mathbf{e}_1)=(1,\,2)^{\top}$ y $f(\mathbf{e}_2)=(1,\,0)^{\top}$. Por tanto,
+::::beispiel [Ejemplo numérico]
+Para $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ se tiene $f(\mathbf{e}_1)=(1,\,2)^{\top}$ y $f(\mathbf{e}_2)=(1,\,0)^{\top}$. Por tanto,
 
 $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{y como comprobación}\qquad \mathbf{A}\begin{pmatrix}3\\-1\end{pmatrix}=\begin{pmatrix}2\\6\end{pmatrix}=f\bigl((3,\,-1)^{\top}\bigr).$$
+::::
 
 ⁠**En resumen:** Las aplicaciones lineales y las matrices son lo mismo; la columna $j$ de la matriz es la imagen del vector unitario $\mathbf{e}_j$.
 
@@ -121,12 +125,14 @@ La matriz $\operatorname{diag}(1;\,0)$ conserva la primera componente y pone la 
 
 </ul>
 
-⁠**Ejemplo numérico: la rotación de un ángulo cualquiera.** Si se gira un ángulo $\alpha$ en sentido antihorario, $\mathbf{e}_1$ va a parar al punto $(\cos\alpha,\,\sin\alpha)^{\top}$ de la circunferencia unidad, y $\mathbf{e}_2$, que está $90^\circ$ más allá, al punto $(-\sin\alpha,\,\cos\alpha)^{\top}$. Según [(8.2)](#gl-8-2), la matriz de rotación es, por tanto,
+::::beispiel [Ejemplo numérico] la rotación de un ángulo cualquiera
+Si se gira un ángulo $\alpha$ en sentido antihorario, $\mathbf{e}_1$ va a parar al punto $(\cos\alpha,\,\sin\alpha)^{\top}$ de la circunferencia unidad, y $\mathbf{e}_2$, que está $90^\circ$ más allá, al punto $(-\sin\alpha,\,\cos\alpha)^{\top}$. Según [(8.2)](#gl-8-2), la matriz de rotación es, por tanto,
 
 <span class="anker" id="gl-8-3"></span>
 $$\mathbf R_\alpha=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}. \tag{8.3}$$
 
 Para $\alpha=90^\circ$ se obtiene la matriz de la fig. [32](#abb-32). Esta lleva el punto $(1,\,1)^{\top}$ a $(-1,\,1)^{\top}$; el estiramiento lo lleva a $(2;\ 0{,}5)^{\top}$; la cizalladura, a $(2,\,1)^{\top}$, y el aplastamiento, a $(1,\,0)^{\top}$.
+::::
 
 ⁠**En resumen:** Una matriz $2\times2$ deforma la cuadrícula del plano; el cuadrado unidad se convierte en el paralelogramo que forman sus dos columnas.
 
@@ -144,7 +150,9 @@ Toda aplicación lineal $f\colon\mathbb{R}^d\to\mathbb{R}$ tiene la forma $f(\ma
 
 Es el teorema de la subsección [8.2](#stufe-8-2) para $m=1$: la matriz $1\times d$ es la fila $\mathbf{w}^{\top}$, y su producto por $\mathbf{x}$ es el producto escalar. La suma ponderada de la subsección [2.2](das-skalarprodukt.html#stufe-2-2) no es, por tanto, un ejemplo cualquiera, sino la regla lineal más general con una salida.
 
-⁠**Ejemplo numérico:** La regla de la agente inmobiliaria es $f(\mathbf{x})=3x_1+10x_2-4x_3$. Se tiene $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, es decir, $\mathbf{w}=(3,\,10,\,-4)^{\top}$. El peso $w_j=f(\mathbf{e}_j)$ es el valor de la regla para un ejemplo imaginario que solo tiene una unidad de la característica $j$ y nada más: dice cuánto aporta una unidad de esa característica.
+::::beispiel [Ejemplo numérico]
+La regla de la agente inmobiliaria es $f(\mathbf{x})=3x_1+10x_2-4x_3$. Se tiene $f(\mathbf{e}_1)=3$, $f(\mathbf{e}_2)=10$, $f(\mathbf{e}_3)=-4$, es decir, $\mathbf{w}=(3,\,10,\,-4)^{\top}$. El peso $w_j=f(\mathbf{e}_j)$ es el valor de la regla para un ejemplo imaginario que solo tiene una unidad de la característica $j$ y nada más: dice cuánto aporta una unidad de esa característica.
+::::
 
 ⁠**En resumen:** Toda aplicación lineal con una salida es una suma ponderada $\mathbf{w}^{\top}\mathbf{x}$, y el peso $w_j$ es su valor en $\mathbf{e}_j$.
 
@@ -174,9 +182,11 @@ $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+b\,\mathbf 1 . \tag{8.5}$$
 
 El sumando $b\,\mathbf 1$ suma a cada predicción el mismo importe $b$.
 
-⁠**Ejemplo numérico:** Con $\mathbf{w}=(3,\,10,\,-4)^{\top}$ y $b=20$, las predicciones $(188,\,126,\,286,\,232)^{\top}$ se convierten en las predicciones
+::::beispiel [Ejemplo numérico]
+Con $\mathbf{w}=(3,\,10,\,-4)^{\top}$ y $b=20$, las predicciones $(188,\,126,\,286,\,232)^{\top}$ se convierten en las predicciones
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}+20\cdot\mathbf 1=(208,\,146,\,306,\,252)^{\top}\ \text{miles de euros}.$$
+::::
 
 ⁠**En resumen:** Una aplicación afín es una aplicación lineal más un desplazamiento fijo, $\mathbf{A}\mathbf{x}+\mathbf{b}$; con una salida, el desplazamiento se llama ordenada en el origen.
 

@@ -38,7 +38,11 @@ $$P=\frac{1}{T\,R}\int_0^T\hat u^2\cos^2(\omega t)\,\mathrm{d} t=\frac{1}{T\,R}\
 The cosine part goes through two full oscillations in $T$; its integral is zero. With $\hat u=R\,\hat\imath$, the second form follows.
 :::
 
-**Example.** For $\hat u=10$ V and $R=5\,\Omega$, $\hat\imath=2$ A, the peak value of the power is 20 W and $P=10$ W. At 50 Hz, 0.2 J flow into the lattice per period. **Limiting case:** For $\omega\to0$, $u$ becomes a DC voltage and $p$ stays at $\hat u^2/R$. The factor $\frac12$ disappears, because averaging over whole periods is then no longer possible.
+::::beispiel
+For $\hat u=10$ V and $R=5\,\Omega$, $\hat\imath=2$ A, the peak value of the power is 20 W and $P=10$ W. At 50 Hz, 0.2 J flow into the lattice per period.
+::::
+
+⁠**Limiting case:** For $\omega\to0$, $u$ becomes a DC voltage and $p$ stays at $\hat u^2/R$. The factor $\frac12$ disappears, because averaging over whole periods is then no longer possible.
 
 :::zusatz RMS value
 A DC voltage $U$ produces the same heat in $R$ if $U^2/R=\frac12\hat u^2/R$, that is, $U=\hat u/\sqrt2$. This value is called the __RMS value__. Here it is 7.07 V. The 230 V of the wall outlet are an RMS value; the amplitude is 325 V.

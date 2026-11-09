@@ -70,7 +70,9 @@ $$\mathbb{E}(XY)=\int_{-\infty}^\infty\!\!\int_{-\infty}^\infty xy\,f(x,y)\,\mat
 
 Für unabhängige $X,Y$ zerfällt das Integral nach (ii) und gibt wieder $\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$.
 
-**Beispiel.** Sei $f(x,y)=x+y$ auf $[0,1]^2$ und 0 sonst. Die Normierung stimmt: $\frac12+\frac12=1$. Aus [(10.2)](#gl-10-2) folgt $f_X(x)=x+\frac12$ auf $[0,1]$, und genauso für $Y$. Das Produkt der Randdichten ist nicht $x+y$, also sind $X,Y$ abhängig. Mit $\mathbb{E}(X)=\mathbb{E}(Y)=\frac7{12}$ und $\mathbb{E}(XY)=\frac13$ ist $\operatorname{Cov}(X,Y)=\frac13-\frac{49}{144}=-\frac1{144}$.
+::::beispiel
+Sei $f(x,y)=x+y$ auf $[0,1]^2$ und 0 sonst. Die Normierung stimmt: $\frac12+\frac12=1$. Aus [(10.2)](#gl-10-2) folgt $f_X(x)=x+\frac12$ auf $[0,1]$, und genauso für $Y$. Das Produkt der Randdichten ist nicht $x+y$, also sind $X,Y$ abhängig. Mit $\mathbb{E}(X)=\mathbb{E}(Y)=\frac7{12}$ und $\mathbb{E}(XY)=\frac13$ ist $\operatorname{Cov}(X,Y)=\frac13-\frac{49}{144}=-\frac1{144}$.
+::::
 
 **Zweidimensionale Normalverteilung.** Sind $X,Y\sim\mathcal N(0,1)$ unabhängig, hat $(X,Y)$ die Dichte
 

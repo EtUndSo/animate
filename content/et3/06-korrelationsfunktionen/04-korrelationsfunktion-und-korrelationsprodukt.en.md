@@ -40,11 +40,13 @@ A time-limited signal has an ACF of twice the duration.
 
 ⁠**How to read it:** A signal is most similar to itself without a shift, and there the ACF is its energy. The ACF of a rectangle is the triangle: $\varphi^E_{ss}=\operatorname{rect}(-\tau)*\operatorname{rect}(\tau)=\Lambda(\tau)$, twice as wide as the rectangle (Fig. [1](#abb-1), left).
 
-**Example: finding an echo.** The transmitted signal is $s=\operatorname{rect}(t)$; the received signal is the attenuated, delayed echo $g=0.5\operatorname{rect}(t-3)$. The CCF is $\varphi^E_{sg}(\tau)=0.5\,\Lambda(\tau-3)$: its maximum lies at $\tau=3$, the delay, and its height $0.5=0.5\cdot E_s$ indicates the attenuation (Fig. [1](#abb-1), right). This is how a radar measures distance.
+::::beispiel finding an echo
+The transmitted signal is $s=\operatorname{rect}(t)$; the received signal is the attenuated, delayed echo $g=0.5\operatorname{rect}(t-3)$. The CCF is $\varphi^E_{sg}(\tau)=0.5\,\Lambda(\tau-3)$: its maximum lies at $\tau=3$, the delay, and its height $0.5=0.5\cdot E_s$ indicates the attenuation (Fig. [1](#abb-1), right). This is how a radar measures distance.
 
 :::abbildung et3/k6korr 1
 Left: the ACF of the rectangle is the triangle, maximum $=E_s=1$ at $\tau=0$, twice the width. Right: the CCF between the transmitted pulse and the echo $0.5\operatorname{rect}(t-3)$ has its maximum at the delay $\tau=3$.
 :::
+::::
 
 :::frage Convolution and correlation look almost the same. What is the difference?
 In convolution, $\int s(\tau)h(t-\tau)\mathrm{d}\tau$, the second signal runs backward ($-\tau$): the system “remembers” the past. In correlation, $\int s^*(t)g(t+\tau)\mathrm{d} t$, both run forward: you place one shape exactly over the other and measure how well they match. Mathematically, the difference is precisely the flipping; that is why correlation is convolution with the flipped signal.

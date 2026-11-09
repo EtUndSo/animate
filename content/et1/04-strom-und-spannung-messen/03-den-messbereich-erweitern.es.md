@@ -42,7 +42,9 @@ Despejando $R_\mathrm{Shunt}$ se obtiene [(2.1)](#gl-2-1). La resistencia en ser
 $$U_\mathrm{viejo}=U_\mathrm{nuevo}\,\frac{R_\mathrm{viejo}}{R_\mathrm{viejo}+R_\mathrm V} \quad\Rightarrow\quad \alpha=\frac{R_\mathrm{viejo}+R_\mathrm V}{R_\mathrm{viejo}}\quad\Rightarrow\quad R_\mathrm V=R_\mathrm{viejo}\,(\alpha-1).$$
 :::
 
-**Ejemplo.** Para 10 mA: $R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9{,}95\,\mathrm{mA}}=10{,}05\,\Omega$, en paralelo con 2 k$\Omega$ da $R_\mathrm{iA}=10\,\Omega$. Para 10 V: $\alpha=100$, $R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$, es decir, $R_\mathrm{iV}=200$ k$\Omega$.
+::::beispiel
+Para 10 mA: $R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9{,}95\,\mathrm{mA}}=10{,}05\,\Omega$, en paralelo con 2 k$\Omega$ da $R_\mathrm{iA}=10\,\Omega$. Para 10 V: $\alpha=100$, $R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$, es decir, $R_\mathrm{iV}=200$ k$\Omega$.
+::::
 
 ⁠**En resumen:** a fondo de escala, en el amperímetro caen 100 mV en cualquier rango, y por el voltímetro circulan 50 µ A en cualquier rango. De ahí se deducen directamente las resistencias internas: $R_\mathrm{iA}=100\,\mathrm{mV}/10\,\mathrm{mA}=10\,\Omega$ y $R_\mathrm{iV}=10\,\mathrm{V}/50\,\mu\text{A}=200$ k$\Omega$. Así pues, un rango de corriente sensible tiene una resistencia interna grande, y un rango de tensión alto también. El inverso de 50 µ A, 20 k$\Omega$/V, figura como dato característico en los instrumentos de aguja.
 

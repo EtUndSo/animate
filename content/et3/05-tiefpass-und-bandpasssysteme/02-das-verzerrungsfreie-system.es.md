@@ -32,11 +32,13 @@ $$\begin{aligned} &\text{Atenuación:} && a(f)=-20\lg|H(f)|\ \text{dB}\quad\text
 
 ⁠**Cómo leerlo:** el __retardo de fase__ es el retardo de una única oscilación de frecuencia $f$. El __retardo de grupo__ es el retardo de un grupo de frecuencias vecinas, es decir, de una envolvente (etapa [11](phasen-und-gruppenlaufzeit-beim-bandpass.html#stufe-11)). En el sistema sin distorsión, $a$, $t_\mathrm p$ y $t_\mathrm g$ son constantes y $t_\mathrm p=t_\mathrm g=t_0$.
 
-**Ejemplo: el circuito RC.** Con $\varphi=-\arctan(2\pi f\,RC)$ y $RC=1$ s:
+::::beispiel el circuito RC
+Con $\varphi=-\arctan(2\pi f\,RC)$ y $RC=1$ s:
 
 $$t_\mathrm p=\frac{\arctan(2\pi f\,RC)}{2\pi f},\qquad t_\mathrm g=\frac{RC}{1+(2\pi f\,RC)^2}.$$
 
 Para $f\to0$, ambos valen $RC=1$ s. En $f=0{,}159$ Hz ($2\pi fRC=1$), $t_\mathrm p=0{,}785$ s, $t_\mathrm g=0{,}5$ s y $a=3{,}0$ dB. Así pues, el circuito RC no está libre de distorsión: su atenuación depende de la frecuencia, y las distintas frecuencias llegan en instantes distintos.
+::::
 
 :::ltspice Leer la atenuación y los retardos del circuito RC
 ⁠**Esquema:** circuito RC (`res` con `1Meg`, `cap` con `1u`), valor de fuente `AC 1`, directiva `.ac dec 100 0.01 10`.

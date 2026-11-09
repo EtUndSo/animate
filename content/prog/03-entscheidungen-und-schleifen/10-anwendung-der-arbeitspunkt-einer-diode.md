@@ -26,7 +26,9 @@ Dabei ist $U$ die Spannung an der Diode, $I_\mathrm S$ der Sättigungsstrom, ein
 
 Liegt die Diode in Reihe mit einem Widerstand $R$ an einer Spannungsquelle $U_0$, fällt am Widerstand die Spannung $U_0-U$ ab, und durch ihn fließt $I_R=(U_0-U)/R$. Weil es nur einen Weg für den Strom gibt, ist $I_R=I_\mathrm D$. Der Strom und die Spannung, die beide Gleichungen zugleich erfüllen, heißen der __Arbeitspunkt__. Ausführlich stehen Kennlinie und Arbeitspunkt in Grundlagen der Elektrotechnik, Teil 9.
 
-⁠**Beispiel:** Mit $U_0=5$ V und $R=1$ $\mathrm{k\Omega}$ fließt bei $U=0{,}6$ V durch den Widerstand $4{,}4$ mA, durch die Diode aber nach der Kennlinie $10^{-12}\,\mathrm A\cdot(\mathrm{e}^{0{,}6/0{,}02585}-1)\approx12$ mA. Die Spannung $U=0{,}6$ V ist also zu hoch für den Arbeitspunkt.
+::::beispiel
+Mit $U_0=5$ V und $R=1$ $\mathrm{k\Omega}$ fließt bei $U=0{,}6$ V durch den Widerstand $4{,}4$ mA, durch die Diode aber nach der Kennlinie $10^{-12}\,\mathrm A\cdot(\mathrm{e}^{0{,}6/0{,}02585}-1)\approx12$ mA. Die Spannung $U=0{,}6$ V ist also zu hoch für den Arbeitspunkt.
+::::
 
 ⁠**Kurz gesagt:** Im Arbeitspunkt fließt durch Widerstand und Diode derselbe Strom.
 

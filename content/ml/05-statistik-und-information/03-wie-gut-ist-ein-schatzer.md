@@ -42,11 +42,13 @@ Der Erwartungswert ist der über die Stichprobenverteilung, bei festem wahrem $\
 Englische Texte nennen auch den Achsenabschnitt $b$ einer affinen Vorschrift $\mathbf{w}^{\top}\mathbf{x}+b$ aus [Grundlagen 1, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), „bias“. Das hat mit der Verzerrung eines Schätzers nichts zu tun. Dieses Kapitel sagt deshalb immer „Verzerrung“ und schreibt $\operatorname{Bias}(\hat\theta)$ nur als Formelzeichen.
 :::
 
-⁠**Rechenbeispiel:** Der Mittelwert $\bar X$ ist für jede Verteilung mit Erwartungswert $\mu$ ein erwartungstreuer Schätzer für $\mu$, denn nach der Linearität aus [Grundlagen 4, Abschnitt 7.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-3), ist
+::::beispiel [Rechenbeispiel]
+Der Mittelwert $\bar X$ ist für jede Verteilung mit Erwartungswert $\mu$ ein erwartungstreuer Schätzer für $\mu$, denn nach der Linearität aus [Grundlagen 4, Abschnitt 7.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-3), ist
 
 $$\mathbb{E}[\bar X]=\frac1N\sum_{i=1}^N\mathbb{E}[X_i]=\frac1N\cdot N\mu=\mu .$$
 
 Für Münzwürfe ist $\bar X=N_1/N$, also ist auch der Anteil der Köpfe erwartungstreu. Im Beispiel des vorigen Unterabschnitts war $\mathbb{E}[\bar X]=2=\mu$. Der erste Wurf $X_1$ ist ebenfalls erwartungstreu, denn $\mathbb{E}[X_1]=\mu$. Die feste Zahl $0{,}5$ hat die Verzerrung $0{,}5-\theta$; sie ist nur für $\theta=0{,}5$ null, der Schätzer ist also nicht erwartungstreu.
+::::
 
 ⁠**Kurz gesagt:** Die Verzerrung ist der systematische Fehler $\mathbb{E}[\hat\theta]-\theta$; ein erwartungstreuer Schätzer liegt im Mittel über alle Datensätze richtig.
 
@@ -67,11 +69,13 @@ $$\operatorname{SE}(\hat\theta)=\sqrt{\operatorname{Var}(\hat\theta)} . \tag{2.2
 
 Für den Mittelwert ist das der Standardfehler $\sigma/\sqrt N$ aus [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1); die Abkürzung SE kommt vom englischen *standard error*. Der Standardfehler hat dieselbe Einheit wie der Parameter und gibt an, wie weit ein Schätzwert typischerweise vom Erwartungswert des Schätzers entfernt liegt.
 
-⁠**Rechenbeispiel:** Für den Anteil der Köpfe $N_1/N$ ist $N_1$ binomialverteilt, also eine Summe von $N$ unabhängigen Bernoulli-Größen mit der Varianz $\theta(1-\theta)$ nach [Grundlagen 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1). Mit [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1), ist
+::::beispiel [Rechenbeispiel]
+Für den Anteil der Köpfe $N_1/N$ ist $N_1$ binomialverteilt, also eine Summe von $N$ unabhängigen Bernoulli-Größen mit der Varianz $\theta(1-\theta)$ nach [Grundlagen 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1). Mit [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1), ist
 
 $$\operatorname{Var}\Bigl(\frac{N_1}N\Bigr)=\frac{\theta(1-\theta)}N,\qquad \operatorname{SE}\Bigl(\frac{N_1}N\Bigr)=\sqrt{\frac{\theta(1-\theta)}N} .$$
 
 Wäre bei der verbogenen Münze $\theta=0{,}7$, so wäre der Standardfehler bei $N=10$ gleich $\sqrt{0{,}21/10}\approx0{,}145$: Der Anteil der Köpfe aus zehn Würfen liegt typischerweise um $0{,}15$ neben $\theta$. Der erste Wurf $X_1$ dagegen hat die Varianz $\theta(1-\theta)=0{,}21$, gleichgültig, wie viele Würfe man macht.
+::::
 
 ⁠**Kurz gesagt:** Die Varianz eines Schätzers misst, wie stark er von Datensatz zu Datensatz schwankt; ihre Wurzel ist der Standardfehler.
 
@@ -111,11 +115,13 @@ Es sei $Y=\hat\theta-\theta$. Nach der Verschiebungsformel aus [Grundlagen 4, A
 
 Bei einem erwartungstreuen Schätzer ist der mittlere quadratische Fehler einfach die Varianz. Ein verzerrter Schätzer kann trotzdem den kleineren mittleren quadratischen Fehler haben, wenn er dafür weniger streut.
 
-⁠**Rechenbeispiel:** Im Beispiel aus Unterabschnitt [1.4](schatzen-aus-einer-stichprobe.html#stufe-1-4) mit $\mu=2$ und $N=2$ hat $\bar X$ die Verzerrung $0$ und die Varianz $\tfrac13$, also $\operatorname{MSE}(\bar X)=\tfrac13\approx0{,}333$. Der geschrumpfte Schätzer $0{,}9\,\bar X$ hat den Erwartungswert $0{,}9\cdot2=1{,}8$, also die Verzerrung $-0{,}2$, und nach [Grundlagen 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), die Varianz $0{,}81\cdot\tfrac13=0{,}27$. Sein mittlerer quadratischer Fehler ist $0{,}04+0{,}27=0{,}31$, kleiner als der von $\bar X$. Abb. [5](#abb-5) rechnet ihn zur Probe direkt über die Stichprobenverteilung aus. Der Vorteil hängt aber vom unbekannten $\mu$ ab: Läge $\mu$ bei $10$, mit derselben Streuung, so hätte $0{,}9\,\bar X$ die Verzerrung $-1$ und den mittleren quadratischen Fehler $1+0{,}27=1{,}27$, viel mehr als $\bar X$.
+::::beispiel [Rechenbeispiel]
+Im Beispiel aus Unterabschnitt [1.4](schatzen-aus-einer-stichprobe.html#stufe-1-4) mit $\mu=2$ und $N=2$ hat $\bar X$ die Verzerrung $0$ und die Varianz $\tfrac13$, also $\operatorname{MSE}(\bar X)=\tfrac13\approx0{,}333$. Der geschrumpfte Schätzer $0{,}9\,\bar X$ hat den Erwartungswert $0{,}9\cdot2=1{,}8$, also die Verzerrung $-0{,}2$, und nach [Grundlagen 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), die Varianz $0{,}81\cdot\tfrac13=0{,}27$. Sein mittlerer quadratischer Fehler ist $0{,}04+0{,}27=0{,}31$, kleiner als der von $\bar X$. Abb. [5](#abb-5) rechnet ihn zur Probe direkt über die Stichprobenverteilung aus. Der Vorteil hängt aber vom unbekannten $\mu$ ab: Läge $\mu$ bei $10$, mit derselben Streuung, so hätte $0{,}9\,\bar X$ die Verzerrung $-1$ und den mittleren quadratischen Fehler $1+0{,}27=1{,}27$, viel mehr als $\bar X$.
 
 :::abbildung ml/k5rmse 5
 Der mittlere quadratische Fehler des Schätzers $0{,}9\,\bar X$ für $\mu=2$ als Summe über die fünf Werte der Stichprobenverteilung aus Abb. [2](schatzen-aus-einer-stichprobe.html#abb-2) (b), und seine Zerlegung in die quadrierte Verzerrung und die Varianz.
 :::
+::::
 
 ⁠**Kurz gesagt:** Der mittlere quadratische Fehler ist die quadrierte Verzerrung plus die Varianz; ein leicht verzerrter Schätzer, der weniger streut, kann insgesamt genauer sein.
 
@@ -153,7 +159,9 @@ $$P\bigl(|\hat\theta_N-\theta|\ge\varepsilon\bigr)\le\frac{\operatorname{MSE}(\h
 Wie beim Beweis der Tschebyschow-Ungleichung in [Grundlagen 4, Abschnitt 13.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-2): Es sei $A$ das Ereignis $|\hat\theta_N-\theta|\ge\varepsilon$. Dann ist $(\hat\theta_N-\theta)^2\ge\varepsilon^2\,\mathbb 1_A$ für jedes Ergebnis, und der Erwartungswert beider Seiten ergibt $\operatorname{MSE}(\hat\theta_N)\ge\varepsilon^2\,P(A)$.
 :::
 
-⁠**Rechenbeispiel:** Der Mittelwert hat $\operatorname{MSE}(\bar X_N)=\sigma^2/N$, und das geht gegen null: $\bar X_N$ ist konsistent. Für die Münze mit $\theta=0{,}7$ und $N=100$ Würfen sagt [(2.6)](#gl-2-6), dass der Anteil der Köpfe höchstens mit der Wahrscheinlichkeit $0{,}0021/0{,}01=0{,}21$ um $0{,}1$ oder mehr danebenliegt. Der Schätzer $X_1$ dagegen ist zwar erwartungstreu, aber nicht konsistent. Im Beispiel mit den Werten $1$, $2$, $3$ ist $P(|X_1-2|\ge1)=\tfrac23$, gleichgültig, wie groß $N$ ist. Umgekehrt ist der Schätzer $\bar X_N+1/N$ verzerrt, denn seine Verzerrung ist $1/N$, aber konsistent, denn sein mittlerer quadratischer Fehler $1/N^2+\sigma^2/N$ geht gegen null.
+::::beispiel [Rechenbeispiel]
+Der Mittelwert hat $\operatorname{MSE}(\bar X_N)=\sigma^2/N$, und das geht gegen null: $\bar X_N$ ist konsistent. Für die Münze mit $\theta=0{,}7$ und $N=100$ Würfen sagt [(2.6)](#gl-2-6), dass der Anteil der Köpfe höchstens mit der Wahrscheinlichkeit $0{,}0021/0{,}01=0{,}21$ um $0{,}1$ oder mehr danebenliegt. Der Schätzer $X_1$ dagegen ist zwar erwartungstreu, aber nicht konsistent. Im Beispiel mit den Werten $1$, $2$, $3$ ist $P(|X_1-2|\ge1)=\tfrac23$, gleichgültig, wie groß $N$ ist. Umgekehrt ist der Schätzer $\bar X_N+1/N$ verzerrt, denn seine Verzerrung ist $1/N$, aber konsistent, denn sein mittlerer quadratischer Fehler $1/N^2+\sigma^2/N$ geht gegen null.
+::::
 
 ⁠**Kurz gesagt:** Ein konsistenter Schätzer trifft mit genug Daten beliebig genau; Erwartungstreue und Konsistenz sind verschiedene Eigenschaften, und keine folgt aus der anderen.
 

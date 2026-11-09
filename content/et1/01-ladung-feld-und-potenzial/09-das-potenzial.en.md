@@ -58,7 +58,9 @@ Without path independence, $\varphi$ would not even be unique. The profiles [(7.
 Left: the pair of plates with the reference point on plate B. The dashed lines are equipotential surfaces in cross section, 3 V apart. Right: the potential falls along $x$ from 9 V to 0 V; its slope $-3$ V/mm is $-E$.
 :::
 
-**Example.** With $\varphi=0$ on B, A is at 9 V, and $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$: 6 V at 1 mm, 3 V at 2 mm. Sphere A ($+10$ nC) has the potential 3.0 kV at a distance of 3 cm and 1.5 kV at a distance of 6 cm. The difference times 1 nC gives the 1.5 µ J from Stage [6](arbeit-im-feld.html#stufe-6).
+::::beispiel
+With $\varphi=0$ on B, A is at 9 V, and $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$: 6 V at 1 mm, 3 V at 2 mm. Sphere A ($+10$ nC) has the potential 3.0 kV at a distance of 3 cm and 1.5 kV at a distance of 6 cm. The difference times 1 nC gives the 1.5 µ J from Stage [6](arbeit-im-feld.html#stufe-6).
+::::
 
 ⁠**In short:** the potential is the energy per charge at a location, measured from the reference point.
 

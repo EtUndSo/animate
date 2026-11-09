@@ -39,11 +39,13 @@ $$\operatorname{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\,\mathbb{E}[Y]. \tag{10.2
 
 Die Kovarianz ist symmetrisch, $\operatorname{Cov}(X,Y)=\operatorname{Cov}(Y,X)$, und es ist $\operatorname{Cov}(X,X)=\operatorname{Var}(X)$. Sie hat das Produkt der Einheiten von $X$ und $Y$. Unter linearer Umrechnung gilt $\operatorname{Cov}(aX+b,\,cY+d)=ac\,\operatorname{Cov}(X,Y)$, denn Verschiebungen fallen in den Abweichungen heraus. Sind $X$ und $Y$ unabhängig, so ist nach Unterabschnitt [9.5](mehrere-zufallsvariablen.html#stufe-9-5) $\mathbb{E}[XY]=\mathbb{E}[X]\mathbb{E}[Y]$, also $\operatorname{Cov}(X,Y)=0$. Zufallsvariablen mit Kovarianz null heißen __unkorreliert__.
 
-⁠**Rechenbeispiel:** Für Sonne $S$ und Rad $R$ ist $\mathbb{E}[S]=\mathbb{E}[R]=0{,}4$, und $\mathbb{E}[SR]$ ist die Summe von $s\,r\,P(S=s,R=r)$ über die vier Zellen (Abb. [12](#abb-12)). Die Kovarianz ist $0{,}3-0{,}16=0{,}14>0$: Sonne und Radfahren treten häufiger gemeinsam auf, als es bei Unabhängigkeit der Fall wäre.
+::::beispiel [Rechenbeispiel]
+Für Sonne $S$ und Rad $R$ ist $\mathbb{E}[S]=\mathbb{E}[R]=0{,}4$, und $\mathbb{E}[SR]$ ist die Summe von $s\,r\,P(S=s,R=r)$ über die vier Zellen (Abb. [12](#abb-12)). Die Kovarianz ist $0{,}3-0{,}16=0{,}14>0$: Sonne und Radfahren treten häufiger gemeinsam auf, als es bei Unabhängigkeit der Fall wäre.
 
 :::abbildung ml/k4rkovarianz 12
 Die Kovarianz von Sonne und Radfahren: Nur die Zelle, in der beide Größen $1$ sind, trägt zu $\mathbb{E}[SR]$ bei.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Kovarianz ist der Erwartungswert des Produkts der beiden Abweichungen; positiv, wenn die Größen gemeinsam steigen, negativ, wenn die eine fällt, wenn die andere steigt, und null bei unabhängigen Größen.
 
@@ -73,14 +75,18 @@ Mit den Abweichungen $\tilde X=X-\mu_X$ und $\tilde Y=Y-\mu_Y$ ist die Abweichun
 
 Die Standardabweichungen addieren sich dagegen nicht. Für unabhängige Größen ist $\sigma_{X+Y}=\sqrt{\sigma_X^2+\sigma_Y^2}$, kleiner als $\sigma_X+\sigma_Y$.
 
-⁠**Rechenbeispiel 1:** Zwei unabhängige Rauschquellen mit den Standardabweichungen $3\,\mathrm{mV}$ und $4\,\mathrm{mV}$ ergeben zusammen die Varianz $9+16=25\,\mathrm{mV}^2$, also $\sigma=5\,\mathrm{mV}$ und nicht $7\,\mathrm{mV}$. Die Augensumme zweier Würfel hat die Varianz $2\cdot\tfrac{35}{12}=\tfrac{35}6\approx5{,}83$ und die Standardabweichung $2{,}415$, nicht $2\cdot1{,}708$.
+::::beispiel [Rechenbeispiel 1]
+Zwei unabhängige Rauschquellen mit den Standardabweichungen $3\,\mathrm{mV}$ und $4\,\mathrm{mV}$ ergeben zusammen die Varianz $9+16=25\,\mathrm{mV}^2$, also $\sigma=5\,\mathrm{mV}$ und nicht $7\,\mathrm{mV}$. Die Augensumme zweier Würfel hat die Varianz $2\cdot\tfrac{35}{12}=\tfrac{35}6\approx5{,}83$ und die Standardabweichung $2{,}415$, nicht $2\cdot1{,}708$.
+::::
 
-⁠**Rechenbeispiel 2: die Binomialverteilung.** $X\sim\mathrm{Bin}(n,\theta)$ ist die Summe von $n$ unabhängigen Bernoulli-Variablen mit der Varianz $\theta(1-\theta)$. Nach [(10.4)](#gl-10-4) ist
+::::beispiel [Rechenbeispiel 2] die Binomialverteilung
+$X\sim\mathrm{Bin}(n,\theta)$ ist die Summe von $n$ unabhängigen Bernoulli-Variablen mit der Varianz $\theta(1-\theta)$. Nach [(10.4)](#gl-10-4) ist
 
 <span class="anker" id="gl-10-5"></span>
 $$\operatorname{Var}(X)=n\,\theta\,(1-\theta). \tag{10.5}$$
 
 Für die $10$ Teile bei $5\,\%$ Ausschuss ist $\operatorname{Var}(X)=10\cdot0{,}05\cdot0{,}95=0{,}475$ und $\sigma\approx0{,}689$; für die drei Münzwürfe ist $\operatorname{Var}=3\cdot\tfrac14=0{,}75$, wie in Unterabschnitt [7.4](erwartungswert-und-varianz.html#stufe-7-4).
+::::
 
 ⁠**Kurz gesagt:** Die Varianz einer Summe ist die Summe der Varianzen plus zweimal jede Kovarianz; bei unabhängigen Größen addieren sich die Varianzen, nicht die Standardabweichungen.
 
@@ -125,7 +131,9 @@ Der Korrelationskoeffizient misst also, wie gut sich $Y$ durch eine Gerade in $X
 Je $40$ Punkte $(x,y)$, waagrecht $x$, senkrecht $y$. (a) bis (d): Punktwolken mit den empirischen Korrelationskoeffizienten $-0{,}90$; $0{,}00$; $0{,}50$ und $0{,}90$, berechnet wie in Unterabschnitt [10.6](#stufe-10-6). (e) und (f): Der Korrelationskoeffizient ist $0$, obwohl $y$ von $x$ abhängt. In (e) ist $y=x^2$, in (f) ist $y=x$ oder $y=-x$ mit zufälligem Vorzeichen.
 :::
 
-⁠**Rechenbeispiel:** Für Sonne und Rad ist $\operatorname{Var}(S)=\operatorname{Var}(R)=0{,}4\cdot0{,}6=0{,}24$, also $\rho=0{,}14/0{,}24\approx0{,}583$. Rechnet man eine Größe in andere Einheiten um, ändert sich $\rho$ nicht: Mit $\operatorname{Cov}(aX+b,\,cY+d)=ac\,\operatorname{Cov}(X,Y)$ und $\sigma_{aX+b}=|a|\sigma_X$ kürzt sich $ac$ bis auf das Vorzeichen heraus.
+::::beispiel [Rechenbeispiel]
+Für Sonne und Rad ist $\operatorname{Var}(S)=\operatorname{Var}(R)=0{,}4\cdot0{,}6=0{,}24$, also $\rho=0{,}14/0{,}24\approx0{,}583$. Rechnet man eine Größe in andere Einheiten um, ändert sich $\rho$ nicht: Mit $\operatorname{Cov}(aX+b,\,cY+d)=ac\,\operatorname{Cov}(X,Y)$ und $\sigma_{aX+b}=|a|\sigma_X$ kürzt sich $ac$ bis auf das Vorzeichen heraus.
+::::
 
 ⁠**Kurz gesagt:** Der Korrelationskoeffizient ist die Kovarianz der standardisierten Größen; er liegt zwischen $-1$ und $1$ und misst, wie gut eine Gerade den Zusammenhang beschreibt.
 
@@ -146,7 +154,9 @@ Die Rechenregeln der Kovarianz sind die eines Skalarprodukts aus [Grundlagen 1,
 
 Für einen Datensatz wird das wörtlich. [Grundlagen 1, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-4), hat den Korrelationskoeffizienten zweier Merkmale als Kosinus des Winkels zwischen ihren zentrierten Merkmalsvektoren eingeführt. Das ist genau $\rho$ für die empirische Verteilung: Für zwei Merkmalsvektoren $\mathbf{a}$ und $\mathbf{b}$ mit den zentrierten Vektoren $\tilde{\mathbf{a}}$ und $\tilde{\mathbf{b}}$ ist die Kovarianz der empirischen Verteilung $\tfrac1N\tilde{\mathbf{a}}^{\top}\tilde{\mathbf{b}}$, ein Skalarprodukt der zentrierten Vektoren, und die Standardabweichungen sind $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{a}}\rVert$ und $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{b}}\rVert$. Der Faktor $\tfrac1N$ kürzt sich im Quotienten heraus (Unterabschnitt [10.6](#stufe-10-6)).
 
-⁠**Rechenbeispiel:** Für die Rauschquellen mit $3$ und $4\,\mathrm{mV}$ aus Unterabschnitt [10.2](#stufe-10-2) sei nun $\rho=0{,}5$, etwa weil beide von derselben Versorgungsspannung gestört werden. Das entspricht zwei Vektoren der Längen $3$ und $4$ im Winkel von $60^\circ$. Die Summe hat die Varianz $9+16+2\cdot0{,}5\cdot3\cdot4=37$, also $\sigma\approx6{,}08\,\mathrm{mV}$, mehr als die $5\,\mathrm{mV}$ unkorrelierter Quellen.
+::::beispiel [Rechenbeispiel]
+Für die Rauschquellen mit $3$ und $4\,\mathrm{mV}$ aus Unterabschnitt [10.2](#stufe-10-2) sei nun $\rho=0{,}5$, etwa weil beide von derselben Versorgungsspannung gestört werden. Das entspricht zwei Vektoren der Längen $3$ und $4$ im Winkel von $60^\circ$. Die Summe hat die Varianz $9+16+2\cdot0{,}5\cdot3\cdot4=37$, also $\sigma\approx6{,}08\,\mathrm{mV}$, mehr als die $5\,\mathrm{mV}$ unkorrelierter Quellen.
+::::
 
 ⁠**Kurz gesagt:** Die Kovarianz rechnet wie ein Skalarprodukt; die Standardabweichung ist die Länge, der Korrelationskoeffizient der Kosinus des Winkels, und unkorreliert heißt senkrecht.
 
@@ -164,9 +174,13 @@ Unabhängige Zufallsvariablen sind unkorreliert. Unkorrelierte Zufallsvariablen 
 
 Der erste Teil steht in Unterabschnitt [10.1](#stufe-10-1), der dritte ist seine Umkehrung ins Gegenteil. Für den zweiten genügt ein Beispiel.
 
-⁠**Rechenbeispiel 1:** $X$ sei gleich wahrscheinlich $-1$, $0$ oder $1$, und $Y=X^2$. Dann ist $\mathbb{E}[X]=0$ und $\mathbb{E}[XY]=\mathbb{E}[X^3]=\tfrac13\,(-1+0+1)=0$, also $\operatorname{Cov}(X,Y)=0$. Aber $Y$ ist durch $X$ vollständig bestimmt: $P(Y=0\mid X=0)=1$, während $P(Y=0)=\tfrac13$ ist. Abb. [13](#abb-13) (e) zeigt dasselbe für viele Werte: Die Punkte liegen auf einer Parabel, und eine Gerade durch sie hätte die Steigung $0$, weil der linke und der rechte Ast sich aufheben.
+::::beispiel [Rechenbeispiel 1]
+$X$ sei gleich wahrscheinlich $-1$, $0$ oder $1$, und $Y=X^2$. Dann ist $\mathbb{E}[X]=0$ und $\mathbb{E}[XY]=\mathbb{E}[X^3]=\tfrac13\,(-1+0+1)=0$, also $\operatorname{Cov}(X,Y)=0$. Aber $Y$ ist durch $X$ vollständig bestimmt: $P(Y=0\mid X=0)=1$, während $P(Y=0)=\tfrac13$ ist. Abb. [13](#abb-13) (e) zeigt dasselbe für viele Werte: Die Punkte liegen auf einer Parabel, und eine Gerade durch sie hätte die Steigung $0$, weil der linke und der rechte Ast sich aufheben.
+::::
 
-⁠**Rechenbeispiel 2:** $X\sim\mathcal N(0,1)$, und $V$ sei unabhängig davon $+1$ oder $-1$ mit je der Wahrscheinlichkeit $\tfrac12$. Dann ist $Y=VX$ ebenfalls standardnormalverteilt, weil die Normalverteilung symmetrisch um $0$ ist. Es ist $\operatorname{Cov}(X,Y)=\mathbb{E}[VX^2]=\mathbb{E}[V]\,\mathbb{E}[X^2]=0\cdot1=0$. Trotzdem ist $|Y|=|X|$ immer: Kennt man $X$, so bleiben für $Y$ nur zwei Werte. Abb. [13](#abb-13) (f) zeigt das als Kreuz aus zwei Geraden.
+::::beispiel [Rechenbeispiel 2]
+$X\sim\mathcal N(0,1)$, und $V$ sei unabhängig davon $+1$ oder $-1$ mit je der Wahrscheinlichkeit $\tfrac12$. Dann ist $Y=VX$ ebenfalls standardnormalverteilt, weil die Normalverteilung symmetrisch um $0$ ist. Es ist $\operatorname{Cov}(X,Y)=\mathbb{E}[VX^2]=\mathbb{E}[V]\,\mathbb{E}[X^2]=0\cdot1=0$. Trotzdem ist $|Y|=|X|$ immer: Kennt man $X$, so bleiben für $Y$ nur zwei Werte. Abb. [13](#abb-13) (f) zeigt das als Kreuz aus zwei Geraden.
+::::
 
 ⁠**Kurz gesagt:** Aus unabhängig folgt unkorreliert, aber nicht umgekehrt; die Kovarianz sieht nur den linearen Anteil eines Zusammenhangs.
 
@@ -194,11 +208,13 @@ der __empirische Korrelationskoeffizient__.
 
 Das ist die Kovarianz der empirischen Verteilung; sie ist durch $N$ geteilt wie die Standardabweichung in [Grundlagen 1, Abschnitt 4.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-4). Mit $\mathbf{b}=\mathbf{a}$ ist $\operatorname{cov}(\mathbf{a},\mathbf{a})=\operatorname{std}(\mathbf{a})^2$. Kleingeschrieben unterscheiden $\operatorname{cov}$ und $\operatorname{corr}$ die Zahlen eines Datensatzes von den Größen $\operatorname{Cov}$ und $\rho$ einer Verteilung; wie in Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7) hängen sie davon ab, welche Daten zufällig gezogen wurden.
 
-⁠**Rechenbeispiel:** Drei Datenpunkte $(a_i,b_i)$, nämlich $(1,2)$, $(2,1)$ und $(3,3)$, haben die Mittelwerte $\bar a=\bar b=2$ und die zentrierten Vektoren $\tilde{\mathbf{a}}=(-1,\,0,\,1)^{\top}$ und $\tilde{\mathbf{b}}=(0,\,-1,\,1)^{\top}$. Abb. [14](#abb-14) rechnet $\operatorname{cov}(\mathbf{a},\mathbf{b})=\tfrac13$ und $\operatorname{std}(\mathbf{a})^2=\operatorname{std}(\mathbf{b})^2=\tfrac23$, also $\operatorname{corr}(\mathbf{a},\mathbf{b})=\frac{1/3}{2/3}=0{,}5$.
+::::beispiel [Rechenbeispiel]
+Drei Datenpunkte $(a_i,b_i)$, nämlich $(1,2)$, $(2,1)$ und $(3,3)$, haben die Mittelwerte $\bar a=\bar b=2$ und die zentrierten Vektoren $\tilde{\mathbf{a}}=(-1,\,0,\,1)^{\top}$ und $\tilde{\mathbf{b}}=(0,\,-1,\,1)^{\top}$. Abb. [14](#abb-14) rechnet $\operatorname{cov}(\mathbf{a},\mathbf{b})=\tfrac13$ und $\operatorname{std}(\mathbf{a})^2=\operatorname{std}(\mathbf{b})^2=\tfrac23$, also $\operatorname{corr}(\mathbf{a},\mathbf{b})=\frac{1/3}{2/3}=0{,}5$.
 
 :::abbildung ml/k4rdaten 14
 Empirische Kovarianz und Varianz der drei Datenpunkte: Skalarprodukte der zentrierten Vektoren, geteilt durch $N=3$. Für $\mathbf{b}$ ergibt sich ebenso $\tfrac23$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Kovarianz und Korrelation eines Datensatzes sind die der empirischen Verteilung: das Skalarprodukt der zentrierten Vektoren durch $N$, und dessen Kosinus.
 

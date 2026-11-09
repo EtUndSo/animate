@@ -89,12 +89,16 @@ Also verlangt $x_1=x_2$, dass $s_1\ne s_2$ ist.
 Zwei Elektronen in der Box der Breite $L$, in den Zuständen $n=1$ und $n=2$. Das erste sitzt bei $x_1=0{,}3\,L$ (gestrichelt), aufgetragen ist die Dichte für das zweite. Links: gleicher Spin, $\Phi$ antisymmetrisch. Die beiden meiden sich. Rechts: Spins antiparallel mit antisymmetrischem $\chi$, $\Phi$ symmetrisch. Beide dürfen am selben Ort sein.
 :::
 
-**Beispiel.** Aus zwei Elektronen je Orbital und $2\ell+1$ Orbitalen je Unterschale folgt die Kapazität einer Schale:
+::::beispiel
+Aus zwei Elektronen je Orbital und $2\ell+1$ Orbitalen je Unterschale folgt die Kapazität einer Schale:
 
 <span class="anker" id="gl-5-3"></span>
 $$\sum_{\ell=0}^{n-1}2\,(2\ell+1)=2n^2. \tag{5.3}$$
 
-Das sind 2, 8, 18 und 32 Plätze für $n=1$ bis 4. Wie stark das Verbot wirkt, zeigen zehn Elektronen in einer Box mit $L=1$ nm, deren tiefster Zustand bei 0,376 eV liegt: Wären alle im untersten Zustand, ergäbe das 3,76 eV. Mit je zwei Elektronen pro Zustand sind es $2(1+4+9+16+25)\cdot0{,}376\,\mathrm{eV}=41{,}4$ eV. **Grenzfall:** Überlappen sich $\psi_u$ und $\psi_v$ nicht, etwa in zwei weit entfernten Atomen, fällt in $|\Phi|^2$ der gemischte Term weg. Dann ergeben Plus- und Minuszeichen dieselbe Dichte, und das Verbot wirkt nicht mehr.
+Das sind 2, 8, 18 und 32 Plätze für $n=1$ bis 4. Wie stark das Verbot wirkt, zeigen zehn Elektronen in einer Box mit $L=1$ nm, deren tiefster Zustand bei 0,376 eV liegt: Wären alle im untersten Zustand, ergäbe das 3,76 eV. Mit je zwei Elektronen pro Zustand sind es $2(1+4+9+16+25)\cdot0{,}376\,\mathrm{eV}=41{,}4$ eV.
+::::
+
+⁠**Grenzfall:** Überlappen sich $\psi_u$ und $\psi_v$ nicht, etwa in zwei weit entfernten Atomen, fällt in $|\Phi|^2$ der gemischte Term weg. Dann ergeben Plus- und Minuszeichen dieselbe Dichte, und das Verbot wirkt nicht mehr.
 
 :::frage Ist das Pauli-Prinzip eine abstoßende Kraft zwischen Elektronen?
 Nein. In [(1.2)](der-kern-als-kasten-ohne-wande.html#gl-1-2) kommt kein zusätzlicher Term vor. Das Prinzip streicht Lösungen: Bestimmte Wellenfunktionen gibt es nicht. Es gilt deshalb auch für ungeladene Teilchen wie Neutronen. Die Folgen sehen aber aus wie eine Kraft, denn die übrigen Zustände haben mehr Energie.

@@ -71,7 +71,11 @@ Sind die $g_k$ stetig differenzierbar, konvergiert $\sum_kg_k$ punktweise gegen 
 Für die endliche Summe $f_n$ gilt $\int_a^bf_n\,\mathrm{d} x=\sum_{k=0}^n\int_a^bg_k\,\mathrm{d} x$ und $f_n'=\sum_{k=0}^ng_k'$. Auf die Folge $f_n$ wendet man die Sätze [3.1](stetigkeit-und-integral-bleiben-erhalten.html#satz-3-1), [3.2](stetigkeit-und-integral-bleiben-erhalten.html#satz-3-2) und [4.1](die-ableitung-braucht-mehr.html#satz-4-1) an.
 :::
 
-**Beispiel.** Sei $f(x)=\sum_{k=1}^\infty x^k/k^2$ auf $[-1,1]$. Wegen $|x^k/k^2|\le1/k^2=:M_k$ konvergiert die Reihe gleichmäßig, und $f$ ist stetig, obwohl man keine Formel für $f$ hat. Der Test liefert sogar eine Fehlerschranke, die für alle $x$ gilt: $\sum_{k>10}1/k^2<\sum_{k>10}\frac{1}{k(k-1)}=\frac1{10}$. Die Partialsumme $f_{10}$ weicht also überall um weniger als $0{,}1$ von $f$ ab. **Grenzfall:** An der schlechtesten Stelle $x=1$ ist $f(1)=\pi^2/6$ und $f_{10}(1)\approx1{,}5498$, die Abweichung also rund $0{,}095$.
+::::beispiel
+Sei $f(x)=\sum_{k=1}^\infty x^k/k^2$ auf $[-1,1]$. Wegen $|x^k/k^2|\le1/k^2=:M_k$ konvergiert die Reihe gleichmäßig, und $f$ ist stetig, obwohl man keine Formel für $f$ hat. Der Test liefert sogar eine Fehlerschranke, die für alle $x$ gilt: $\sum_{k>10}1/k^2<\sum_{k>10}\frac{1}{k(k-1)}=\frac1{10}$. Die Partialsumme $f_{10}$ weicht also überall um weniger als $0{,}1$ von $f$ ab.
+::::
+
+⁠**Grenzfall:** An der schlechtesten Stelle $x=1$ ist $f(1)=\pi^2/6$ und $f_{10}(1)\approx1{,}5498$, die Abweichung also rund $0{,}095$.
 
 :::frage Konvergiert eine Reihe nur dann gleichmäßig, wenn der M-Test greift?
 Nein, er ist hinreichend, nicht notwendig. Für $\sum_{k\ge1}(-1)^kx^k/k$ auf $[0,1]$ ist $\sup_x|g_k(x)|=1/k$, und $\sum1/k=\infty$. Der Test greift nicht. Die Vorzeichen wechseln aber, und die Beträge fallen. Deshalb ist der Rest höchstens das erste weggelassene Glied, also höchstens $1/(n+1)$. Die Reihe konvergiert gleichmäßig.

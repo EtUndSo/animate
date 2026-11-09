@@ -36,13 +36,15 @@ $$\lVert\mathbf{u}-\mathbf{v}\rVert^2=(\mathbf{u}-\mathbf{v})^{\top}(\mathbf{u}-
 
 À longueurs fixées, on a donc : plus le produit scalaire est grand, plus la distance est petite. Tous deux mesurent la ressemblance, mais en sens opposés.
 
-⁠**Exemple de calcul :** Les appartements 1 et 2 diffèrent de $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Leur distance euclidienne vaut $\sqrt{405}\approx20{,}12$ (Fig. [18](#abb-18)), leur distance en norme 1 vaut $20+1+2=23$, et en norme du maximum $20$.
+::::beispiel [Exemple de calcul]
+Les appartements 1 et 2 diffèrent de $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Leur distance euclidienne vaut $\sqrt{405}\approx20{,}12$ (Fig. [18](#abb-18)), leur distance en norme 1 vaut $20+1+2=23$, et en norme du maximum $20$.
 
 :::abbildung ml/k1rabstand 18
 La distance euclidienne entre les appartements 1 et 2 : d’abord la différence, puis sa longueur.
 :::
 
 Vérification de [(4.1)](#gl-4-1) avec $\mathbf{u}=(1,\,2,\,2)^{\top}$ et $\mathbf{v}=(2,\,0,\,1)^{\top}$ : à gauche $\lVert(-1,\,2,\,1)^{\top}\rVert^2=6$, à droite $9+5-2\cdot4=6$.
+::::
 
 ⁠**En bref :** La distance entre deux points de données est la norme de leur différence ; proches signifie semblables.
 
@@ -91,11 +93,13 @@ le vecteur __centré__. Ses composantes sont les écarts à la moyenne.
 
 Les écarts se compensent toujours : $\mathbf 1^{\top}\tilde{\mathbf{v}}=\mathbf 1^{\top}\mathbf{v}-\bar v\,\mathbf 1^{\top}\mathbf 1=N\bar v-\bar v\,N=0$. Le vecteur centré a donc une moyenne nulle.
 
-⁠**Exemple de calcul :** Les surfaces $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ ont pour moyenne $\bar v=65$. Le vecteur centré est $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, et la somme des écarts est effectivement nulle (Fig. [20](#abb-20)). Les nombres de pièces $(2,\,1,\,4,\,3)^{\top}$ ont pour moyenne $2{,}5$ et, centrés, donnent $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$ ; les distances $(3,\,1,\,6,\,2)^{\top}$ ont pour moyenne $3$ et, centrées, donnent $(0,\,-2,\,3,\,-1)^{\top}$.
+::::beispiel [Exemple de calcul]
+Les surfaces $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ ont pour moyenne $\bar v=65$. Le vecteur centré est $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, et la somme des écarts est effectivement nulle (Fig. [20](#abb-20)). Les nombres de pièces $(2,\,1,\,4,\,3)^{\top}$ ont pour moyenne $2{,}5$ et, centrés, donnent $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$ ; les distances $(3,\,1,\,6,\,2)^{\top}$ ont pour moyenne $3$ et, centrées, donnent $(0,\,-2,\,3,\,-1)^{\top}$.
 
 :::abbildung ml/k1rzentriert 20
 La moyenne des surfaces et la somme des écarts à la moyenne, en $\mathrm m^2$.
 :::
+::::
 
 ⁠**En bref :** Centrer retranche la moyenne de chaque composante ; il reste les écarts, dont la somme est nulle.
 
@@ -116,11 +120,13 @@ $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\l
 
 L’écart type a la même unité que la caractéristique. Il est nul si et seulement si toutes les composantes sont égales. De nombreux textes divisent, dans [(4.3)](#gl-4-3), par $N-1$ au lieu de $N$. Avec beaucoup d’exemples, la différence est faible. Cette série divise par $N$ et le précise lorsqu’il doit en être autrement.
 
-⁠**Exemple de calcul :** Les surfaces centrées $(-5,\,-25,\,25,\,5)^{\top}$ ont pour somme des carrés $1\,300$, donc $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ (Fig. [21](#abb-21)). De même, on obtient pour les pièces $\sqrt{5/4}\approx1{,}118$ et pour les distances $\sqrt{14/4}\approx1{,}871$ km.
+::::beispiel [Exemple de calcul]
+Les surfaces centrées $(-5,\,-25,\,25,\,5)^{\top}$ ont pour somme des carrés $1\,300$, donc $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ (Fig. [21](#abb-21)). De même, on obtient pour les pièces $\sqrt{5/4}\approx1{,}118$ et pour les distances $\sqrt{14/4}\approx1{,}871$ km.
 
 :::abbildung ml/k1rstd 21
 L’écart type des surfaces : élever les écarts au carré, en faire la moyenne, extraire la racine. Le résultat $\sqrt{325}\approx18{,}03$ s’exprime en $\mathrm m^2$.
 :::
+::::
 
 ⁠**En bref :** L’écart type est la valeur efficace des écarts à la moyenne, la variation typique d’une caractéristique.
 
@@ -151,13 +157,17 @@ et l’on appelle les nombres $z_{ij}$ les valeurs standardisées.
 
 La colonne standardisée a pour moyenne $0$ et pour écart type $1$, car le centrage rend la moyenne nulle et la division par $s_j$ ramène l’écart typique à un. Les valeurs n’ont plus d’unité.
 
-⁠**Exemple de calcul 1 : le jeu de données des appartements.** Avec les moyennes $65$, $2{,}5$, $3$ et les écarts types $18{,}03$, $1{,}118$, $1{,}871$, les quatre appartements deviennent
+::::beispiel [Exemple de calcul 1] le jeu de données des appartements
+Avec les moyennes $65$, $2{,}5$, $3$ et les écarts types $18{,}03$, $1{,}118$, $1{,}871$, les quatre appartements deviennent
 
 $$\begin{aligned} \mathbf{z}_1&\approx(-0{,}28;\ -0{,}45;\ 0)^{\top}, & \mathbf{z}_2&\approx(-1{,}39;\ -1{,}34;\ -1{,}07)^{\top},\\ \mathbf{z}_3&\approx(1{,}39;\ 1{,}34;\ 1{,}60)^{\top}, & \mathbf{z}_4&\approx(0{,}28;\ 0{,}45;\ -0{,}53)^{\top}. \end{aligned}$$
 
 Les trois caractéristiques se situent maintenant dans la même plage de valeurs.
+::::
 
-⁠**Exemple de calcul 2 : A, B et C.** Les trois appartements de la sous-section [4.2](#stufe-4-2) ont une surface moyenne de $59\,\mathrm m^2$, avec un écart type de $\sqrt{14}\approx3{,}74\,\mathrm m^2$, et en moyenne $8/3$ pièces, avec un écart type de $\sqrt{8/9}\approx0{,}943$. Après standardisation, $\lVert\text A-\text B\rVert\approx2{,}27$ et $\lVert\text A-\text C\rVert\approx1{,}60$. C’est donc à C que A ressemble le plus, et ce jugement ne dépend plus de l’unité de la surface.
+::::beispiel [Exemple de calcul 2] A, B et C
+Les trois appartements de la sous-section [4.2](#stufe-4-2) ont une surface moyenne de $59\,\mathrm m^2$, avec un écart type de $\sqrt{14}\approx3{,}74\,\mathrm m^2$, et en moyenne $8/3$ pièces, avec un écart type de $\sqrt{8/9}\approx0{,}943$. Après standardisation, $\lVert\text A-\text B\rVert\approx2{,}27$ et $\lVert\text A-\text C\rVert\approx1{,}60$. C’est donc à C que A ressemble le plus, et ce jugement ne dépend plus de l’unité de la surface.
+::::
 
 Le fait que l’unité disparaisse est vrai en général :
 

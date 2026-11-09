@@ -40,7 +40,9 @@ $$E_\mathrm g(T)=E_\mathrm g(0)-\frac{\alpha T^2}{T+\beta}. \tag{1.1}$$
 
 ⁠**So liest man das:** $\alpha$ in eV/K und $\beta$ in K sind Materialwerte, für Si $E_\mathrm g(0)=1{,}170$ eV, $\alpha=4{,}73\cdot10^{-4}$ eV/K und $\beta=636$ K. Bei 0 K sind die Lücken in eV: Si 1,17, Ge 0,74, GaAs 1,52, InSb 0,23, InAs 0,36, CdS 2,58, CdTe 1,61, ZnO 3,44. Der Mechanismus: Wärme dehnt das Gitter und lässt die Atome schwingen. Beides schwächt im Mittel die Kopplung zwischen den Orbitalen ([Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), bindende und antibindende Zustände rücken zusammen. **Grenzfälle:** Für $T\ll\beta$ wächst der Abzug wie $T^2$, die Kurve beginnt flach. Für $T\gg\beta$ fällt sie mit der Steigung $-\alpha$.
 
-**Beispiel.** Silizium hat nach [(1.1)](#gl-1-1) bei 300 K den Wert 1,1245 eV und verliert dort 0,26 meV je Kelvin. Das Verhältnis $E_\mathrm g/(k_\mathrm BT)$ ist bei 300 K für InSb 7,0, für Ge 25,9, für Si 43,3 und für Diamant 213.
+::::beispiel
+Silizium hat nach [(1.1)](#gl-1-1) bei 300 K den Wert 1,1245 eV und verliert dort 0,26 meV je Kelvin. Das Verhältnis $E_\mathrm g/(k_\mathrm BT)$ ist bei 300 K für InSb 7,0, für Ge 25,9, für Si 43,3 und für Diamant 213.
+::::
 
 :::frage Silizium und Diamant haben dieselbe Struktur. Warum ist das eine ein Halbleiter und das andere ein Isolator?
 Die Struktur legt fest, dass das Valenzband voll ist, nicht wie groß die Lücke ist. Diamant hat kleine Atome und starke Bindungen, $E_\mathrm g=5{,}5$ eV. Das ist bei Raumtemperatur das 213-Fache von $k_\mathrm BT$, Wärme löst dort praktisch kein Elektron. Silizium isoliert ebenso, aber nur bei extrem tiefen Temperaturen.

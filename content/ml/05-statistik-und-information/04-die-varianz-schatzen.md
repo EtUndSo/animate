@@ -32,7 +32,8 @@ $$\hat\sigma^2_N=\frac1N\sum_{i=1}^N(X_i-\bar X)^2 . \tag{3.1}$$
 
 Der Index $N$ gibt den Nenner an. Dass dieser Schätzer systematisch zu klein ausfällt, zeigt schon das kleine Beispiel aus Unterabschnitt [1.4](schatzen-aus-einer-stichprobe.html#stufe-1-4).
 
-⁠**Rechenbeispiel:** Für die neun Stichproben aus den Werten $1$, $2$, $3$ mit $N=2$ ist die Quadratsumme $\sum_i(x_i-\bar x)^2$ einfach $\tfrac12(x_1-x_2)^2$, denn beide Werte liegen um $\tfrac12|x_1-x_2|$ neben ihrem Mittelwert. Tabelle [2](#tab-2) führt sie auf.
+::::beispiel [Rechenbeispiel]
+Für die neun Stichproben aus den Werten $1$, $2$, $3$ mit $N=2$ ist die Quadratsumme $\sum_i(x_i-\bar x)^2$ einfach $\tfrac12(x_1-x_2)^2$, denn beide Werte liegen um $\tfrac12|x_1-x_2|$ neben ihrem Mittelwert. Tabelle [2](#tab-2) führt sie auf.
 
 <span class="anker" id="tab-2"></span>
 
@@ -48,6 +49,7 @@ Der Schätzer nimmt also den Wert $0$ mit der Wahrscheinlichkeit $\tfrac39$ an, 
 :::abbildung ml/k5rbessel 6
 Die Erwartungswerte der beiden Varianzschätzer als Summen über ihre Stichprobenverteilung aus Tabelle [2](#tab-2). Mit dem Nenner $N=2$ kommt im Mittel nur die Hälfte der wahren Varianz heraus, mit dem Nenner $N-1=1$ genau die wahre Varianz.
 :::
+::::
 
 Das Ergebnis ist kein Zufall dieses Beispiels.
 
@@ -75,7 +77,9 @@ und Teilen durch $N$ ergibt [(3.2)](#gl-3-2).
 
 Die Verzerrung ist $\mathbb{E}[\hat\sigma^2_N]-\sigma^2=-\sigma^2/N$. Sie geht mit wachsendem $N$ gegen null, aber bei kleinen Stichproben ist sie erheblich.
 
-⁠**Rechenbeispiel:** Für die Flächen der vier Wohnungen, $60$, $40$, $90$ und $70\,\mathrm m^2$, ist die Quadratsumme $25+625+625+25=1300$ und $\hat\sigma^2_N=325\,\mathrm m^4$, das Quadrat der Standardabweichung $18{,}03\,\mathrm m^2$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html). Als Schätzung für die Varianz der Flächen aller Wohnungen der Stadt ist diese Zahl im Mittel um den Faktor $\tfrac34$ zu klein.
+::::beispiel [Rechenbeispiel]
+Für die Flächen der vier Wohnungen, $60$, $40$, $90$ und $70\,\mathrm m^2$, ist die Quadratsumme $25+625+625+25=1300$ und $\hat\sigma^2_N=325\,\mathrm m^4$, das Quadrat der Standardabweichung $18{,}03\,\mathrm m^2$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html). Als Schätzung für die Varianz der Flächen aller Wohnungen der Stadt ist diese Zahl im Mittel um den Faktor $\tfrac34$ zu klein.
+::::
 
 ⁠**Kurz gesagt:** Der Varianzschätzer mit dem Nenner $N$ hat den Erwartungswert $\tfrac{N-1}N\,\sigma^2$; er unterschätzt die Varianz systematisch.
 
@@ -104,7 +108,9 @@ Nach [(3.2)](#gl-3-2) ist $\mathbb{E}[\hat\sigma^2_{N-1}]=\tfrac N{N-1}\cdot\tfr
 
 Welche Fassung richtig ist, hängt von der Frage ab. Beschreibt man einen Datensatz selbst, etwa um ihn zu standardisieren wie in [Grundlagen 1, Abschnitt 4.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-5), so ist die Varianz der empirischen Verteilung gemeint, und der Nenner $N$ ist richtig. Will man die Varianz der Verteilung schätzen, aus der die Daten stammen, und soll die Schätzung im Mittel stimmen, nimmt man den Nenner $N-1$.
 
-⁠**Rechenbeispiel:** Im Beispiel aus Tabelle [2](#tab-2) ist $\hat\sigma^2_{N-1}=q$, also doppelt so groß wie $\hat\sigma^2_N$, mit den Werten $0$, $0{,}5$ und $2$. Sein Erwartungswert ist $\tfrac23=\sigma^2$ (Abb. [6](#abb-6), zweite Zeile). Für die Wohnungen ist $\hat\sigma^2_{N-1}=1300/3\approx433{,}3\,\mathrm m^4$ und seine Wurzel $20{,}82\,\mathrm m^2$.
+::::beispiel [Rechenbeispiel]
+Im Beispiel aus Tabelle [2](#tab-2) ist $\hat\sigma^2_{N-1}=q$, also doppelt so groß wie $\hat\sigma^2_N$, mit den Werten $0$, $0{,}5$ und $2$. Sein Erwartungswert ist $\tfrac23=\sigma^2$ (Abb. [6](#abb-6), zweite Zeile). Für die Wohnungen ist $\hat\sigma^2_{N-1}=1300/3\approx433{,}3\,\mathrm m^4$ und seine Wurzel $20{,}82\,\mathrm m^2$.
+::::
 
 ⁠**Kurz gesagt:** Teilt man die Quadratsumme durch $N-1$ statt durch $N$, wird der Varianzschätzer erwartungstreu; das ist die Bessel-Korrektur.
 
@@ -118,11 +124,13 @@ Eine anschauliche Begründung des Nenners $N-1$: Die $N$ Abweichungen $x_i-\bar 
 
 Die Bessel-Korrektur beseitigt die Verzerrung, aber sie vergrößert den Schätzer und damit auch seine Schwankungen. Nach dem Satz in Unterabschnitt [2.3](wie-gut-ist-ein-schatzer.html#stufe-2-3) zählt für die Genauigkeit beides.
 
-⁠**Rechenbeispiel:** Im Beispiel aus Tabelle [2](#tab-2) hat $\hat\sigma^2_N$ die Verzerrung $\tfrac13-\tfrac23=-\tfrac13$. Seine Varianz ist nach der Verschiebungsformel $\mathbb{E}[(\hat\sigma^2_N)^2]-\tfrac19=\tfrac{0+4\cdot0{,}0625+2\cdot1}9-\tfrac19=\tfrac14-\tfrac19=\tfrac5{36}$. Also ist
+::::beispiel [Rechenbeispiel]
+Im Beispiel aus Tabelle [2](#tab-2) hat $\hat\sigma^2_N$ die Verzerrung $\tfrac13-\tfrac23=-\tfrac13$. Seine Varianz ist nach der Verschiebungsformel $\mathbb{E}[(\hat\sigma^2_N)^2]-\tfrac19=\tfrac{0+4\cdot0{,}0625+2\cdot1}9-\tfrac19=\tfrac14-\tfrac19=\tfrac5{36}$. Also ist
 
 $$\operatorname{MSE}(\hat\sigma^2_N)=\tfrac19+\tfrac5{36}=\tfrac14,\qquad \operatorname{MSE}(\hat\sigma^2_{N-1})=\operatorname{Var}(\hat\sigma^2_{N-1})=2^2\cdot\tfrac5{36}=\tfrac59 .$$
 
 Der korrigierte Schätzer ist unverzerrt, liegt aber im quadratischen Mittel mehr als doppelt so weit neben der wahren Varianz. Der Grund: Er ist hier das Doppelte von $\hat\sigma^2_N$, und nach [Grundlagen 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), vervierfacht das die Varianz. Allgemein multipliziert die Bessel-Korrektur die Varianz mit $\bigl(N/(N-1)\bigr)^2$.
+::::
 
 Auch die Wurzel bereitet Mühe. Selbst wenn $\hat\sigma^2_{N-1}$ erwartungstreu für $\sigma^2$ ist, unterschätzt seine Wurzel $\hat\sigma_{N-1}$ die Standardabweichung $\sigma$. Nach der Verschiebungsformel ist nämlich
 

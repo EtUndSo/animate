@@ -37,11 +37,13 @@ Para $s$ real, $\mathcal{F}\{s^*(t)\}=\mathcal{F}\{s(t)\}$. En general, $\mathca
 
 ⁠**En resumen:** en una señal real, la mitad negativa del espectro es la imagen especular conjugada de la positiva. No contiene información nueva.
 
-**Ejemplo.** El pulso exponencial $\varepsilon(t)\mathrm{e}^{-t}$ (real) tiene la parte par $\frac12\mathrm{e}^{-|t|}$ y la impar $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$. Su espectro $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ tiene la parte real par $\frac{1}{1+(2\pi f)^2}$, la transformada de $\frac12\mathrm{e}^{-|t|}$, y la parte imaginaria impar $\frac{-2\pi f}{1+(2\pi f)^2}$ (fig. [5](#abb-5)).
+::::beispiel
+El pulso exponencial $\varepsilon(t)\mathrm{e}^{-t}$ (real) tiene la parte par $\frac12\mathrm{e}^{-|t|}$ y la impar $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$. Su espectro $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ tiene la parte real par $\frac{1}{1+(2\pi f)^2}$, la transformada de $\frac12\mathrm{e}^{-|t|}$, y la parte imaginaria impar $\frac{-2\pi f}{1+(2\pi f)^2}$ (fig. [5](#abb-5)).
 
 :::abbildung et3/k3gerade 5
 El pulso exponencial ($RC=1$ s), descompuesto en una parte par (azul) y una impar (roja). A la derecha, el espectro: la parte par da la parte real (par en $f$); la impar, la parte imaginaria (impar en $f$).
 :::
+::::
 
 :::aufgabe Ejercicio 5 ★ Leer la simetría
 <span class="anker" id="aufg-5"></span>

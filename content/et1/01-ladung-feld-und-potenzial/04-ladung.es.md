@@ -40,7 +40,11 @@ Los nombres son más antiguos que el electrón. En 1733, DuFay distinguió entre
 
 **Conductores y aislantes.** En un __conductor__ como el metal, al menos un electrón por átomo puede desplazarse por todo el cuerpo. En un __aislante__ como el vidrio o la goma, los electrones permanecen en sus átomos. Por eso, en un aislante la carga se queda donde se produjo, mientras que en un metal se reparte de inmediato.
 
-**Ejemplo.** A la esfera A ($+10$ nC) le faltan $N=Q/e=6{,}24\cdot10^{10}$ electrones. Una esfera de plástico de 1 g contiene unos $3{,}2\cdot10^{23}$ electrones, así que solo falta uno de cada $5\cdot10^{12}$. **Caso límite:** Para $N_\mathrm{p}=N_\mathrm{e}$ es $Q=0$. Un cuerpo neutro no contiene poca carga, sino la misma cantidad de ambos signos.
+::::beispiel
+A la esfera A ($+10$ nC) le faltan $N=Q/e=6{,}24\cdot10^{10}$ electrones. Una esfera de plástico de 1 g contiene unos $3{,}2\cdot10^{23}$ electrones, así que solo falta uno de cada $5\cdot10^{12}$.
+::::
+
+⁠**Caso límite:** Para $N_\mathrm{p}=N_\mathrm{e}$ es $Q=0$. Un cuerpo neutro no contiene poca carga, sino la misma cantidad de ambos signos.
 
 :::frage ¿Por qué precisamente la falta de electrones se llama positiva?
 Porque los signos se asignaron antes de que se conocieran los electrones. Franklin llamó positivo al vidrio frotado; mucho después se vio que al frotarlo pierde electrones. La convención se mantuvo, y por eso el electrón tiene carga negativa. Físicamente no tiene nada de especial.

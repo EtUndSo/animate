@@ -94,7 +94,11 @@ Se recorren los cuatro casos de los componentes. Si se lee $v$ como «$x$ está 
 Las columnas 5 y 6 coinciden, y también las columnas 7 y 8. Las demás reglas se demuestran igual. La transitividad de la inclusión se sigue de la de la implicación: de $x\in A$ se sigue $x\in B$, y de ahí $x\in C$.
 :::
 
-**Ejemplo.** $(A\cap B)^c=G\setminus\{2,3\}$ tiene 10 elementos. A la derecha está $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$, los mismos 10 elementos. La contraposición como herramienta de demostración: en lugar de «$n^2$ par $\Rightarrow$ $n$ par» se demuestra «$n$ impar $\Rightarrow$ $n^2$ impar»: $(2k+1)^2=2(2k^2+2k)+1$. **Casos límite:** Para $B=\emptyset$, De Morgan se convierte en $G=G$. El dominio importa: $(n\ge7\Leftrightarrow n>6)$ se cumple en $\mathbb{N}$, pero para $n=13/2$ es $f\Leftrightarrow v$, es decir, falsa.
+::::beispiel
+$(A\cap B)^c=G\setminus\{2,3\}$ tiene 10 elementos. A la derecha está $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$, los mismos 10 elementos. La contraposición como herramienta de demostración: en lugar de «$n^2$ par $\Rightarrow$ $n$ par» se demuestra «$n$ impar $\Rightarrow$ $n^2$ impar»: $(2k+1)^2=2(2k^2+2k)+1$.
+::::
+
+⁠**Casos límite:** Para $B=\emptyset$, De Morgan se convierte en $G=G$. El dominio importa: $(n\ge7\Leftrightarrow n>6)$ se cumple en $\mathbb{N}$, pero para $n=13/2$ es $f\Leftrightarrow v$, es decir, falsa.
 
 :::aufgabe Ejercicio 1 ★ Calcular con conjuntos
 <span class="anker" id="aufg-1"></span>

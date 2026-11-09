@@ -56,11 +56,13 @@ If $\widetilde P=0$ or $\deg\widetilde P<m$, you are done with $T_k=\widetilde P
 
 ⁠**How to read it:** $S_{n-m}$ is the polynomial part, $T_k$ the remainder. $b_m\neq0$ is needed, because you divide by $b_m$. For $n<m$ there is nothing to divide; then $S=0$ and $T=P_n$. The example $x^2:x$ shows the clean case $T=0$.
 
-**Example.** For $P:Q$, $2x\cdot Q$ cancels the term $2x^3$, then $-1\cdot Q$ cancels the term $-x^2$:
+::::beispiel
+For $P:Q$, $2x\cdot Q$ cancels the term $2x^3$, then $-1\cdot Q$ cancels the term $-x^2$:
 
 $$\begin{array}{lrrrr} & 2x^3 & -3x^2 & -11x & +6\\ -2x\cdot Q: & -2x^3 & +2x^2 & +4x & \\ \hline & & -x^2 & -7x & +6\\ +1\cdot Q: & & +x^2 & -x & -2\\ \hline & & & -8x & +4 \end{array}$$
 
 So $R(x)=2x-1+\dfrac{-8x+4}{x^2-x-2}$, with $n-m=1$ and $k=1<2$. **Check** by [(6.3)](#gl-6-3) at $x=3$: $5\cdot4+(-20)=0=P(3)$.
+::::
 
 :::abbildung hm1/k3division 7
 The division $P:Q$ as coefficients per power. In each step the highest power disappears, and the degree drops from 3 to 2 and to 1. Then it is smaller than the degree 2 of $Q$, and the procedure ends.

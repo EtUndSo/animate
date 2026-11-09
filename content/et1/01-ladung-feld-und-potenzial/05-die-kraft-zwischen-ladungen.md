@@ -39,11 +39,13 @@ $$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{
 Das Gesetz ist ein Messergebnis. Die Versuchsreihen ergeben einzeln $F\sim Q_\mathrm{A}$, $F\sim Q_\mathrm{B}$, $F\sim1/r^2$ und $\vec F\parallel\vec r$, zusammen $F\sim Q_\mathrm{A}Q_\mathrm{B}/r^2$, der Faktor ist $k$. Setzt man $F\sim1/r^{2\pm\delta}$ an, sank die Grenze für $\delta$ von 0,02 bei Cavendish (18. Jahrhundert) über $5\cdot10^{-5}$ bei Maxwell (19. Jahrhundert) auf $10^{-13}$ (Bartlett und andere, 1970) und $3\cdot10^{-16}$ (Williams und andere, 1971).
 :::
 
-**Beispiel.** Im Rechenmodell ist
+::::beispiel
+Im Rechenmodell ist
 
 $$F=8{,}99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}\cdot\frac{10\cdot10^{-9}\,\mathrm{C}\cdot20\cdot10^{-9}\,\mathrm{C}}{(0{,}03\,\mathrm{m})^2}=2{,}0\,\mathrm{mN}.$$
 
 Die Gewichtskraft der Kugel A ist 9,81 mN, also $\tan\alpha=0{,}204$ und $\alpha=11{,}5^\circ$. Diesen Ausschlag erzeugt das Fehlen eines Elektrons unter $5\cdot10^{12}$. Die Gravitation zwischen zwei 1-g-Kugeln im selben Abstand beträgt nur $7{,}4\cdot10^{-14}$ N, sie ist um den Faktor $2{,}7\cdot10^{10}$ kleiner und darf entfallen. Zwischen zwei Elektronen ist die elektrische Kraft sogar $4{,}2\cdot10^{42}$-mal größer.
+::::
 
 ⁠**Grenzfälle:** Für $r\to\infty$ geht $F\to0$. Für $Q_\mathrm{A}=0$ ist $F=0$. Doppelter Abstand ergibt 0,5 mN, doppelte Ladung $Q_\mathrm{A}$ ergibt 4,0 mN.
 

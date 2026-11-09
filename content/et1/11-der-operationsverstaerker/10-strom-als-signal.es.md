@@ -43,7 +43,11 @@ Aquí hay dos realimentaciones: la $R$ inferior da realimentación negativa; la 
 A la izquierda, el amplificador de transimpedancia con una fuente de corriente como entrada. A la derecha, el NIC con $R=10$ k$\Omega$ y $R_2=5$ k$\Omega$ con 1 V en el terminal 1: la salida está en 3 V y empuja 0,2 mA hacia fuera del terminal.
 :::
 
-**Ejemplo.** Con $R=10$ k$\Omega$, $R_2=5$ k$\Omega$ y $U_1=1$ V son $I_2=0{,}2$ mA, $U_\mathrm{A}=3$ V, $I_1=-0{,}2$ mA, es decir, $R_\mathrm{ent}=-5$ k$\Omega$. La energía viene de la alimentación del AO. *Aplicación:* Una fuente de corriente de 1 mA con resistencia interna $R_\mathrm{q}=10$ k$\Omega$ entrega a 1 k$\Omega$ solo 0,909 mA, porque una parte pasa por $R_\mathrm{q}$. En paralelo, un NIC con $R_2=R_\mathrm{q}$: la conductancia $1/R_\mathrm{q}-1/R_2$ se anula, y la carga recibe 1 mA. La fuente real actúa como una ideal. El NIC entrega exactamente los 0,1 mA que deriva $R_\mathrm{q}$. **Caso límite:** Sin carga, $R_\mathrm{i}=R_\mathrm{q}=R_2$, ambas realimentaciones son igual de fuertes, la ganancia de lazo es cero y la regla deja de valer.
+::::beispiel
+Con $R=10$ k$\Omega$, $R_2=5$ k$\Omega$ y $U_1=1$ V son $I_2=0{,}2$ mA, $U_\mathrm{A}=3$ V, $I_1=-0{,}2$ mA, es decir, $R_\mathrm{ent}=-5$ k$\Omega$. La energía viene de la alimentación del AO. *Aplicación:* Una fuente de corriente de 1 mA con resistencia interna $R_\mathrm{q}=10$ k$\Omega$ entrega a 1 k$\Omega$ solo 0,909 mA, porque una parte pasa por $R_\mathrm{q}$. En paralelo, un NIC con $R_2=R_\mathrm{q}$: la conductancia $1/R_\mathrm{q}-1/R_2$ se anula, y la carga recibe 1 mA. La fuente real actúa como una ideal. El NIC entrega exactamente los 0,1 mA que deriva $R_\mathrm{q}$.
+::::
+
+⁠**Caso límite:** Sin carga, $R_\mathrm{i}=R_\mathrm{q}=R_2$, ambas realimentaciones son igual de fuertes, la ganancia de lazo es cero y la regla deja de valer.
 
 :::aufgabe Ejercicio 9 ★★★ Compensar una fuente de corriente
 <span class="anker" id="aufg-9"></span>

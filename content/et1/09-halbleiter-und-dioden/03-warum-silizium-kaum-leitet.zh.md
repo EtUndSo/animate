@@ -42,7 +42,11 @@ $$\text{占据率}\approx\mathrm{e}^{-W_\mathrm g/(2k_\mathrm BT)}. \tag{1.1}$$
 导带中的每个电子都在价带中留下一个空穴，所以两者数目相等。当两个能带中的状态数相近时，只有 $W_\mathrm F$ 到两个带边的距离同为 $W_\mathrm g/2$ 才能做到这一点。在式 [(0.1)](von-grund-auf-ventil-wechselspannung-und-warmeenergie.html#gl-0-1) 中起作用的是高于 $W_\mathrm F$ 的能量，即 $W=W_\mathrm g/2$。
 :::
 
-**例。** 在 300 K 时，$W_\mathrm g/(k_\mathrm BT)=43.3$，$\mathrm{e}^{-21.7}=3.9\cdot10^{-10}$。测得的自由电子密度为 $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$。这相当于每 $5\cdot10^{12}$ 个原子一个，因为硅每 cm$^3$ 有 $5\cdot10^{22}$ 个原子。铜的自由电子是它的 $8.5\cdot10^{12}$ 倍（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。**极限情况：**$T\to0$ 时，式 [(1.1)](#gl-1-1) 趋于零：硅绝缘。每升温 10 K，比例翻一番。因此半导体的电阻随温度升高而下降（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
+::::beispiel
+在 300 K 时，$W_\mathrm g/(k_\mathrm BT)=43.3$，$\mathrm{e}^{-21.7}=3.9\cdot10^{-10}$。测得的自由电子密度为 $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$。这相当于每 $5\cdot10^{12}$ 个原子一个，因为硅每 cm$^3$ 有 $5\cdot10^{22}$ 个原子。铜的自由电子是它的 $8.5\cdot10^{12}$ 倍（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
+::::
+
+⁠**极限情况：**$T\to0$ 时，式 [(1.1)](#gl-1-1) 趋于零：硅绝缘。每升温 10 K，比例翻一番。因此半导体的电阻随温度升高而下降（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
 
 :::frage 满带里装满了电子，为什么不导电？
 因为电流需要沿某一优先方向的运动。为此电子必须转移到能量稍高的状态。在满带中，所有这样的状态都已被占据。两个电子只能互换位置，而这不改变任何东西。第一个空穴使能带变得能够导电。

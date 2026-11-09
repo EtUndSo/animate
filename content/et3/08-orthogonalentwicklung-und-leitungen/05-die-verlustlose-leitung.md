@@ -31,7 +31,9 @@ mit beliebigen (zweimal differenzierbaren) Funktionen $u_\mathrm{hin}$ und $u_\m
 
 ⁠**So liest man das:** Eine beliebige Signalform läuft unverändert mit der Geschwindigkeit $v$ die Leitung entlang. Das liegt daran, dass alle Frequenzanteile gleich schnell sind und gleich wenig gedämpft werden: Die Leitung ist ein verzerrungsfreies System im Sinne von [Teil 5](/wissen/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), mit der Verzögerung $l/v$. Die Wellengleichung für $u$ folgt aus [(2.1)](die-leitungsgleichungen.html#gl-2-1), indem man die erste Gleichung nach $s$ und die zweite nach $t$ ableitet und $i$ eliminiert.
 
-**Beispiel: Koaxialkabel.** $Z=50\,\Omega$ und $C'=100$ pF/m ergeben $L'=Z^2C'=250$ nH/m und $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, zwei Drittel der Lichtgeschwindigkeit (wegen des Dielektrikums im Kabel). Ein Signal braucht für 10 m Kabel 50 ns. Wird das Kabel mit 75 $\Omega$ statt 50 $\Omega$ abgeschlossen, ist $r=\frac{75-50}{75+50}=0{,}2$: 20 % der Spannungsamplitude laufen als Echo zurück.
+::::beispiel Koaxialkabel
+$Z=50\,\Omega$ und $C'=100$ pF/m ergeben $L'=Z^2C'=250$ nH/m und $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, zwei Drittel der Lichtgeschwindigkeit (wegen des Dielektrikums im Kabel). Ein Signal braucht für 10 m Kabel 50 ns. Wird das Kabel mit 75 $\Omega$ statt 50 $\Omega$ abgeschlossen, ist $r=\frac{75-50}{75+50}=0{,}2$: 20 % der Spannungsamplitude laufen als Echo zurück.
+::::
 
 :::ltspice Reflexionen auf einer Leitung
 ⁠**Zeichnen:** Quelle `voltage` mit `PULSE(0 2 0 1n 1n 10n 1)` und einem Innenwiderstand `res` mit `50` zum Netz `in`. Von `in` eine verlustlose Leitung `tline` mit `Td=50n Z0=50` (das 10-m-Koaxialkabel aus dem Beispiel) zum Netz `end`, dort `res` mit `{RE}` nach Masse. Weil der Innenwiderstand gleich $Z$ ist, läuft eine Welle von 1 V los, und das Echo wird an der Quelle vollständig aufgenommen.

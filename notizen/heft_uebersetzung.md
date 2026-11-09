@@ -32,7 +32,8 @@ Der Umwandler (tools/heft_zu_artikel.py) erkennt Kästen und Verweise an festen 
 | kernbox „Die Antwort in drei Sätzen (…)“ | „La réponse en trois phrases (à la fin du cahier, elles devraient vous sembler évidentes)“ | „Üç cümlede cevap (çalışma kitabının sonunda bunlar size apaçık gelmeli)“ |
 | kernbox „Das Wichtigste“ / „… bis hier“ | „L’essentiel“ / „L’essentiel jusqu’ici“ | „Temel noktalar“ / „Buraya kadarki temel noktalar“ |
 | Abschnitt „Lösungen“ | Solutions | Çözümler |
-| „Die Idee.“ / „Beispiel.“ | „L’idée.“ / „Exemple.“ | „Fikir.“ / „Örnek.“ |
+| „Die Idee.“ | „L’idée.“ | „Fikir.“ |
+| `\begin{beispiel}{}` (setzt „Beispiel.“) | `\begin{beispiel}{}` (setzt „Exemple.“) | `\begin{beispiel}{}` (setzt „Örnek.“) |
 | Datum im Titelblock | `31~octobre 2026` | `31~Ekim 2026` |
 
 - Anrede: fr „vous“, tr „siz“ (wie die Oberfläche und die Hinweise der Website). Ton sachlich, nicht steif.
@@ -40,6 +41,14 @@ Der Umwandler (tools/heft_zu_artikel.py) erkennt Kästen und Verweise an festen 
 - Französische Typografie: Vor `:` `;` `!` `?` und in « » ein normales Leerzeichen tippen (oder keines); babel-french setzt im PDF das richtige geschützte Leerzeichen, der Umwandler auf der Website ebenso. « » direkt tippen (die Präambel aktiviert sie). Apostroph typografisch: ’. In `\texttt`, Code und URLs ändert sich nichts. In TikZ-Bildern lädt die Präambel die TikZ-Bibliothek `babel`, Optionen mit `:` und `!` (Farben wie `red!50`, Polarkoordinaten `(0:1)`) funktionieren.
 - Türkische Typografie: Die babel-Kurzbefehle sind aus (`shorthands=off`), also `:` und `!` ohne Leerzeichen davor, Anführungszeichen “ ”. Großes İ und kleines ı genau unterscheiden; Kopfzeilen in Großbuchstaben setzt LaTeX türkisch richtig (i → İ).
 - MiKTeX: babel-french braucht die Pakete babel-french und carlisle (scalefnt.sty), babel-turkish das Paket babel-turkish. Alle drei sind seit 04.11.2026 installiert.
+
+## Beispiel-Kästen (seit 09.11.2026, alle Sprachen)
+
+Beispiele stehen im Kasten `\begin{beispiel}[Wort]{Titel} … \end{beispiel}` (UEBERARBEITUNG.md §2a). Auf der Website ist er zugeklappt.
+- Der Name `beispiel` bleibt in jeder Sprache; nur Titel und optionales Wort werden übersetzt. Das Wort „Beispiel“ samt Doppelpunkt und Schlusspunkt setzt die Sprachpräambel selbst (Example, Ejemplo, 例, Exemple, Örnek), es gehört nicht in den Titel.
+- Beispiele: `\begin{beispiel}{}` → überall `\begin{beispiel}{}`; `\begin{beispiel}{ein Rezept für die Wurzel aus 2}` → `{a recipe for the square root of 2}`; `\begin{beispiel}[Rechenbeispiel 2]{Titel}` → `[Worked example 2]` / `[Ejemplo numérico 2]` / `[算例 2]` / `[Exemple de calcul 2]` / `[Sayısal örnek 2]`; `[Gegenbeispiel]` → `[Counterexample]` / `[Contraejemplo]` / `[反例]` / `[Contre-exemple]` / `[Karşı örnek]`; `[Beispiele]` → `[Examples]` / `[Ejemplos]` / `[例]` / `[Exemples]` / `[Örnekler]`.
+- Titel ohne Schlusspunkt (? und ! bleiben). fr: kein Leerzeichen vor dem Doppelpunkt nötig, die Präambel setzt „Exemple~:“.
+- Anfang und Ende des Kastens an genau derselben Stelle wie im Deutschen; der Strukturvergleich zählt die Umgebung mit.
 
 ## Verweise auf andere Hefte (Zusatzreihen, seit 06.11.2026)
 

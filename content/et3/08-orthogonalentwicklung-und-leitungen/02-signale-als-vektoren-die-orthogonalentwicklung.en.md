@@ -41,11 +41,13 @@ Orthonormality leaves only $i=j$ in the sum. If these $b_i$ are substituted and 
 
 ⁠**How to read it:** Each coefficient is determined on its own, independently of the others. If you add a basis function, the previous coefficients do not change. This is the advantage of orthogonal systems, just as with the Fourier series ([Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ is the cross-correlation $\varphi^E_{fs_i}(0)$. That is why the coefficients can be measured with a bank of correlation filters $h_i(t)=s_i(T-t)$ whose outputs are sampled at $t=T$ ([Part 7](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
 
-**Example.** $f(t)=t^2$ on $[0,1]$, $E_f=\frac15$. With $s_0=1$ and $s_1=\sqrt3(2t-1)$:
+::::beispiel
+$f(t)=t^2$ on $[0,1]$, $E_f=\frac15$. With $s_0=1$ and $s_1=\sqrt3(2t-1)$:
 
 $$b_0=\int_0^1t^2\mathrm{d} t=\tfrac13,\qquad b_1=\sqrt3\int_0^1t^2(2t-1)\mathrm{d} t=\tfrac{\sqrt3}{6}=0.289,\qquad\sum b_i^2=\tfrac19+\tfrac1{12}=\tfrac{7}{36}.$$
 
 The approximation is $\frac13+\frac{\sqrt3}{6}\sqrt3(2t-1)=t-\frac16$, the best straight line in the sense of energy. The residual energy is $\frac15-\frac7{36}=\frac{1}{180}=0.0056$, that is, 2.8 % of $E_f$. With $s_2=\sqrt5(6t^2-6t+1)$, the coefficient $b_2=\frac{\sqrt5}{30}=0.075$ is added, and the residual becomes zero, because $t^2$ is itself a polynomial of degree two.
+::::
 
 :::aufgabe Exercise 1 ★ Checking orthonormality
 <span class="anker" id="aufg-1"></span>

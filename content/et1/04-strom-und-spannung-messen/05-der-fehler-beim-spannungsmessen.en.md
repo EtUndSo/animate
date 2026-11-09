@@ -38,7 +38,9 @@ With the node rule $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$, the current divides bet
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::
 
-**Example.** On the divider, $R_1\parallel R_2=20$ k$\Omega$ and $R_L/R_\mathrm i=0.1$. The reading is $3\,\mathrm{V}/1.1=2.727$ V, so $f=-9.1\,\%$. The mechanism in numbers: the current through $R_1$ rises from 100 µ A to 104.5 µ A, of which 90.9 µ A flow through $R_2$ and 13.6 µ A through the voltmeter. The same values result from $I_\mathrm q=150$ µ A on $R_L=20$ k$\Omega$. A digital multimeter with 10 M$\Omega$ shows 2.994 V, so $f=-0.2\,\%$.
+::::beispiel
+On the divider, $R_1\parallel R_2=20$ k$\Omega$ and $R_L/R_\mathrm i=0.1$. The reading is $3\,\mathrm{V}/1.1=2.727$ V, so $f=-9.1\,\%$. The mechanism in numbers: the current through $R_1$ rises from 100 µ A to 104.5 µ A, of which 90.9 µ A flow through $R_2$ and 13.6 µ A through the voltmeter. The same values result from $I_\mathrm q=150$ µ A on $R_L=20$ k$\Omega$. A digital multimeter with 10 M$\Omega$ shows 2.994 V, so $f=-0.2\,\%$.
+::::
 
 ⁠**Limiting cases:** $R_\mathrm i\to\infty$ gives $f\to0$. $R_L\to0$ (source directly on the meter) also gives $f\to0$. At $R_\mathrm i=R_L$ the voltage is halved.
 

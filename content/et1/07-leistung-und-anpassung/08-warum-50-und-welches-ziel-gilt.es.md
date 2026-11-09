@@ -40,7 +40,9 @@ A la izquierda: potencia en la carga y rendimiento frente a $R_\mathrm{L}/R_\mat
 | Corriente | $R_\mathrm{L}\ll R_\mathrm{i}$ | $I\approx I_\mathrm{CC}$, casi independiente de la carga | cerca de 0 | Amperímetro, fuentes de corriente |
 | Potencia | $R_\mathrm{L}=R_\mathrm{i}$ | $P_\mathrm{L}$ máxima | $\frac12$ | Antenas, procesamiento de señales |
 
-**Ejemplos.** En la batería, $R_\mathrm{L}=200\,\Omega$ da la tensión de 8,91 V, el 99 % de $U_\mathrm{q}$. Con $R_\mathrm{L}=0{,}02\,\Omega$ circulan 4,46 A, el 99 % de $I_\mathrm{CC}$. El paso de 2 $\Omega$ a 8 $\Omega$ cuesta el 36 % de la potencia y reduce el calor en la batería al 16 %.
+::::beispiel [Ejemplos]
+En la batería, $R_\mathrm{L}=200\,\Omega$ da la tensión de 8,91 V, el 99 % de $U_\mathrm{q}$. Con $R_\mathrm{L}=0{,}02\,\Omega$ circulan 4,46 A, el 99 % de $I_\mathrm{CC}$. El paso de 2 $\Omega$ a 8 $\Omega$ cuesta el 36 % de la potencia y reduce el calor en la batería al 16 %.
+::::
 
 ⁠**Ingeniería de potencia.** Las potencias están en el rango de los kW; todo calor en la fuente cuesta dinero y la pone en peligro. Se quiere un rendimiento alto, es decir, $R_\mathrm{i}\ll R_\mathrm{L}$. Una batería de herramienta eléctrica de 18 V y 60 m$\Omega$ alcanza en el arranque con 120 A todavía $\eta=1-7{,}2\,\mathrm{V}/18\,\mathrm{V}=60$ %, y en su interior se generan $(120\,\mathrm{A})^2\cdot60\,\mathrm{m\Omega}=864$ W. Una lámpara de trabajo de 1,8 W actúa como 180 $\Omega$, y $\eta=180/180{,}06=99{,}97$ %. La adaptación significaría aquí 1350 W de calor en la batería.
 
@@ -64,7 +66,11 @@ A la izquierda, la red con adaptación y las potencias reales. A la derecha, su 
 Con $R_\mathrm{L}=R_\mathrm{q}R/(R_\mathrm{q}+R)$ es $R\parallel R_\mathrm{L}=R^2R_\mathrm{q}/(R^2+2R_\mathrm{q}R)=R\,R_\mathrm{q}/(R+2R_\mathrm{q})$. Eso da $R_\mathrm{tot}=2R_\mathrm{q}(R_\mathrm{q}+R)/(2R_\mathrm{q}+R)$. En general, el divisor de tensión da $U_\mathrm{L}=U_\mathrm{q}(R\parallel R_\mathrm{L})/R_\mathrm{tot}=U_\mathrm{q}\,R\,R_\mathrm{L}/\bigl(R_\mathrm{q}(R+R_\mathrm{L})+R\,R_\mathrm{L}\bigr)$. Al sustituir se obtiene la fórmula de [(7.2)](#gl-7-2). Con ello, $P_\mathrm{L}=U_\mathrm{L}^2(R_\mathrm{q}+R)/(R_\mathrm{q}R)$. El cociente de $P_\mathrm{L}$ y $P_\mathrm{q}$ se simplifica en [(7.3)](#gl-7-3).
 :::
 
-**Ejemplo.** Para $U_\mathrm{q}=18$ V, $R_\mathrm{q}=6\,\Omega$ y $R=3\,\Omega$ son $R_\mathrm{i}=2\,\Omega$ y $U_\mathrm{CA}=6$ V. Con $R_\mathrm{L}=2\,\Omega$ hay 3 V en la carga, que recibe 4,5 W. Por $R_\mathrm{q}$ circulan 2,5 A, de los cuales 1 A pasa por $R$. Eso da 37,5 W en $R_\mathrm{q}$, 3 W en $R$ y, junto con la carga, $P_\mathrm{q}=45$ W y $\eta=10$ %. La fuente equivalente muestra aparentemente el 50 %, porque no dice nada sobre el interior. La corriente por $R$ circula también sin carga; ya en circuito abierto, la red calienta con 36 W. **Caso límite:** Para $R\to\infty$ desaparece esta rama, y [(7.3)](#gl-7-3) vuelve a dar $\eta=\frac12$.
+::::beispiel
+Para $U_\mathrm{q}=18$ V, $R_\mathrm{q}=6\,\Omega$ y $R=3\,\Omega$ son $R_\mathrm{i}=2\,\Omega$ y $U_\mathrm{CA}=6$ V. Con $R_\mathrm{L}=2\,\Omega$ hay 3 V en la carga, que recibe 4,5 W. Por $R_\mathrm{q}$ circulan 2,5 A, de los cuales 1 A pasa por $R$. Eso da 37,5 W en $R_\mathrm{q}$, 3 W en $R$ y, junto con la carga, $P_\mathrm{q}=45$ W y $\eta=10$ %. La fuente equivalente muestra aparentemente el 50 %, porque no dice nada sobre el interior. La corriente por $R$ circula también sin carga; ya en circuito abierto, la red calienta con 36 W.
+::::
+
+⁠**Caso límite:** Para $R\to\infty$ desaparece esta rama, y [(7.3)](#gl-7-3) vuelve a dar $\eta=\frac12$.
 
 :::frage ¿Significa $\eta=50$ % en el máximo que con la adaptación «pierdo» la mitad de la energía?
 En una fuente con resistencia interna real, sí; se calienta tanto como la carga. Con potencia pequeña es tolerable. Donde la energía es cara o la fuente es sensible, se trabaja muy a la derecha del máximo.

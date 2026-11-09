@@ -94,7 +94,11 @@ __重言式__是对其组成部分的所有真值都为真的命题。对同一�
 第 5 列与第 6 列相同，第 7 列与第 8 列也相同。其余规则的证明方法相同。包含关系的传递性来自蕴涵的传递性：由 $x\in A$ 得 $x\in B$，再得 $x\in C$。
 :::
 
-**例。** $(A\cap B)^c=G\setminus\{2,3\}$ 有 10 个元素。右边是 $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$，是同样的 10 个元素。逆否律作为证明工具：不证“$n^2$ 为偶数 $\Rightarrow$ $n$ 为偶数”，而证“$n$ 为奇数 $\Rightarrow$ $n^2$ 为奇数”：$(2k+1)^2=2(2k^2+2k)+1$。**极限情况：**$B=\emptyset$ 时德摩根律变为 $G=G$。论域也有关系：$(n\ge7\Leftrightarrow n>6)$ 在 $\mathbb{N}$ 中成立，而对 $n=13/2$ 它是 $f\Leftrightarrow t$，即为假。
+::::beispiel
+$(A\cap B)^c=G\setminus\{2,3\}$ 有 10 个元素。右边是 $A^c\cup B^c=\{5,7,8,9,10,11\}\cup\{1,4,6,8,9,10,12\}$，是同样的 10 个元素。逆否律作为证明工具：不证“$n^2$ 为偶数 $\Rightarrow$ $n$ 为偶数”，而证“$n$ 为奇数 $\Rightarrow$ $n^2$ 为奇数”：$(2k+1)^2=2(2k^2+2k)+1$。
+::::
+
+⁠**极限情况：**$B=\emptyset$ 时德摩根律变为 $G=G$。论域也有关系：$(n\ge7\Leftrightarrow n>6)$ 在 $\mathbb{N}$ 中成立，而对 $n=13/2$ 它是 $f\Leftrightarrow t$，即为假。
 
 :::aufgabe 练习 1 ★ 集合运算
 <span class="anker" id="aufg-1"></span>

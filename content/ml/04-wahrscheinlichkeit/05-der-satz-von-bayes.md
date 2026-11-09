@@ -37,11 +37,13 @@ $$P(B_j\mid A)=\frac{P(A\mid B_j)\,P(B_j)}{\sum_{i=1}^kP(A\mid B_i)\,P(B_i)} . \
 
 Die zweite Form setzt für den Nenner die totale Wahrscheinlichkeit [(3.5)](bedingte-wahrscheinlichkeit.html#gl-3-5) ein. Sie zeigt, was der Satz tut. Jeder Fall $B_i$ hat eine __Ausgangswahrscheinlichkeit__ $P(B_i)$, die gilt, bevor man $A$ beobachtet. Jeder Fall bekommt das Gewicht $P(A\mid B_i)\,P(B_i)$: seine Ausgangswahrscheinlichkeit mal der Wahrscheinlichkeit, mit der er die Beobachtung hervorbringt. Dann teilt man alle Gewichte durch ihre Summe, sodass sie zusammen $1$ ergeben. Fälle, die die Beobachtung gut erklären, gewinnen; Fälle, die sie schlecht erklären, verlieren.
 
-⁠**Rechenbeispiel:** Ein Teil aus der Lieferung von Unterabschnitt [3.4](bedingte-wahrscheinlichkeit.html#stufe-3-4) ist Ausschuss. Aus welcher Fabrik stammt es? Vor der Beobachtung spricht mehr für Fabrik 1, denn sie liefert $60\,\%$. Nach [(4.2)](#gl-4-2) ist
+::::beispiel [Rechenbeispiel]
+Ein Teil aus der Lieferung von Unterabschnitt [3.4](bedingte-wahrscheinlichkeit.html#stufe-3-4) ist Ausschuss. Aus welcher Fabrik stammt es? Vor der Beobachtung spricht mehr für Fabrik 1, denn sie liefert $60\,\%$. Nach [(4.2)](#gl-4-2) ist
 
 $$P(B_2\mid A)=\frac{0{,}03\cdot0{,}4}{0{,}018}=\frac{0{,}012}{0{,}018}=\frac23,\qquad P(B_1\mid A)=\frac{0{,}006}{0{,}018}=\frac13 .$$
 
 Der Ausschuss kehrt das Verhältnis um: Weil Fabrik 2 dreimal so viel Ausschuss macht, stammen zwei Drittel des Ausschusses von ihr, obwohl sie weniger liefert.
+::::
 
 ⁠**Kurz gesagt:** Der Satz von Bayes dreht eine Bedingung um: Ausgangswahrscheinlichkeit mal Wahrscheinlichkeit der Beobachtung, geteilt durch die Summe dieser Produkte über alle Fälle.
 
@@ -63,7 +65,9 @@ Der Baum ist die Verkettung [(3.4)](bedingte-wahrscheinlichkeit.html#gl-3-4) in 
 Das Prüfgerät mit dem Satz von Bayes: Der Nenner ist die totale Wahrscheinlichkeit eines Alarms, die Summe aus echten Alarmen und Fehlalarmen.
 :::
 
-⁠**Rechenbeispiel:** Das Gerät gibt bei einem Teil keinen Alarm. Im Baum gibt es $1+9\,405=9\,406$ Teile ohne Alarm, davon $1$ defektes. Also ist $P(D\mid W^{\mathrm c})=1/9\,406\approx0{,}011\,\%$. Ein Teil ohne Alarm ist fast sicher intakt.
+::::beispiel [Rechenbeispiel]
+Das Gerät gibt bei einem Teil keinen Alarm. Im Baum gibt es $1+9\,405=9\,406$ Teile ohne Alarm, davon $1$ defektes. Also ist $P(D\mid W^{\mathrm c})=1/9\,406\approx0{,}011\,\%$. Ein Teil ohne Alarm ist fast sicher intakt.
+::::
 
 ⁠**Kurz gesagt:** Natürliche Häufigkeiten verteilen eine gedachte große Zahl von Fällen auf die Zweige eines Baums; die gesuchte bedingte Wahrscheinlichkeit ist dann ein einfacher Anteil.
 
@@ -92,7 +96,9 @@ In [(4.1)](#gl-4-1) steht die Basisrate im Zähler. Ist sie klein, so ist auch d
 | $10\,\%$ | $990$ | $450$ | $68{,}8\,\%$ |
 | $50\,\%$ | $4\,950$ | $250$ | $95{,}2\,\%$ |
 
-⁠**Rechenbeispiel:** Bei einer Basisrate von $10\,\%$ sind von $10\,000$ Teilen $1\,000$ defekt, davon lösen $990$ Alarm aus; von den $9\,000$ intakten lösen $450$ einen Fehlalarm aus. Also ist $P(D\mid W)=990/1\,440=0{,}6875$. Dasselbe Gerät liefert bei $0{,}1\,\%$ Basisrate nur $9{,}9/509{,}4\approx1{,}9\,\%$.
+::::beispiel [Rechenbeispiel]
+Bei einer Basisrate von $10\,\%$ sind von $10\,000$ Teilen $1\,000$ defekt, davon lösen $990$ Alarm aus; von den $9\,000$ intakten lösen $450$ einen Fehlalarm aus. Also ist $P(D\mid W)=990/1\,440=0{,}6875$. Dasselbe Gerät liefert bei $0{,}1\,\%$ Basisrate nur $9{,}9/509{,}4\approx1{,}9\,\%$.
+::::
 
 ⁠**Kurz gesagt:** Wie viel ein Befund beweist, hängt nicht nur vom Prüfverfahren ab, sondern stark von der Basisrate: Bei seltenen Ursachen sind die meisten positiven Befunde Fehlalarme.
 

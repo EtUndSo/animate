@@ -40,9 +40,13 @@ Dann ist $A$ auch von $B^c$ unabhängig. Denn $A$ zerfällt disjunkt in $A\cap B
 
 $$\mathbb{P}(A\cap B^c)=\mathbb{P}(A)-\mathbb{P}(A)\,\mathbb{P}(B)=\mathbb{P}(A)\,\mathbb{P}(B^c).$$
 
-⁠**Beispiel:** $A$ „Summe 5“ und $B$ „erster Würfel mindestens 3“ aus Abb. [1](ereignisse-und-wahrscheinlichkeit.html#abb-1) sind unabhängig, denn $\frac2{16}=\frac14\cdot\frac12$. Zu jedem Wert des ersten Würfels führt nämlich genau einer von vier Werten des zweiten zur Summe 5. $C$ und $B$ von oben sind dagegen abhängig.
+::::beispiel
+$A$ „Summe 5“ und $B$ „erster Würfel mindestens 3“ aus Abb. [1](ereignisse-und-wahrscheinlichkeit.html#abb-1) sind unabhängig, denn $\frac2{16}=\frac14\cdot\frac12$. Zu jedem Wert des ersten Würfels führt nämlich genau einer von vier Werten des zweiten zur Summe 5. $C$ und $B$ von oben sind dagegen abhängig.
+::::
 
-**Beispiel: ein Zufallspunkt.** Ein Punkt falle zufällig in $\Omega=[0,1]^2$, und $\mathbb{P}(M)$ sei der Flächeninhalt von $M$. Sei $A=\{(x,y):x\le\frac14\}$ und $B=[\frac18,\frac58]\times[\frac12,1]$. Dann ist $\mathbb{P}(A)=\mathbb{P}(B)=\frac14$ und $\mathbb{P}(A\cap B)=\frac18\cdot\frac12=\frac1{16}$: unabhängig. $A$ nimmt von der Breite von $B$ denselben Anteil ein wie von der Breite von $\Omega$. Senkrecht lässt sich $B$ deshalb verschieben, ohne dass sich das ändert. Waagerecht nicht: $B'=[0,\frac12]\times[\frac12,1]$ gibt $\mathbb{P}(A\cap B')=\frac18\neq\frac1{16}$.
+::::beispiel ein Zufallspunkt
+Ein Punkt falle zufällig in $\Omega=[0,1]^2$, und $\mathbb{P}(M)$ sei der Flächeninhalt von $M$. Sei $A=\{(x,y):x\le\frac14\}$ und $B=[\frac18,\frac58]\times[\frac12,1]$. Dann ist $\mathbb{P}(A)=\mathbb{P}(B)=\frac14$ und $\mathbb{P}(A\cap B)=\frac18\cdot\frac12=\frac1{16}$: unabhängig. $A$ nimmt von der Breite von $B$ denselben Anteil ein wie von der Breite von $\Omega$. Senkrecht lässt sich $B$ deshalb verschieben, ohne dass sich das ändert. Waagerecht nicht: $B'=[0,\frac12]\times[\frac12,1]$ gibt $\mathbb{P}(A\cap B')=\frac18\neq\frac1{16}$.
+::::
 
 :::definition Definition 3.3 (Unabhängigkeit vieler Ereignisse)
 <span class="anker" id="satz-3-3"></span>
@@ -67,11 +71,13 @@ wobei die rechte Summe nur über die $A_i$ mit $\mathbb{P}(A_i)>0$ läuft.
 $B$ ist die disjunkte Vereinigung der $B\cap A_i$, das gibt mit der $\sigma$-Additivität die erste Gleichung. Für $\mathbb{P}(A_i)>0$ ist $\mathbb{P}(B\cap A_i)=\mathbb{P}(B|A_i)\,\mathbb{P}(A_i)$, für $\mathbb{P}(A_i)=0$ folgt $\mathbb{P}(B\cap A_i)=0$ aus der Monotonie.
 :::
 
-⁠**Beispiel:** Ein Lager stammt zu $\frac12$, $\frac13$, $\frac16$ von drei Lieferanten mit den Ausschussquoten $\frac1{10}$, $\frac15$, $\frac3{10}$. Für $B$ „Teil defekt“ gibt [(3.2)](#gl-3-2) $\mathbb{P}(B)=\frac1{20}+\frac1{15}+\frac1{20}=\frac16$ (Abb. [3](#abb-3)). **Abzählbar viele Fälle:** Eine Nachricht bestehe mit $\mathbb{P}(Z=n)=2^{-n}$ aus $n\in\mathbb{N}$ Blöcken und komme dann mit $3^{-n}$ fehlerfrei an. Die Ereignisse $\{Z=n\}$ zerlegen $\Omega$, also ist $\mathbb{P}(\text{fehlerfrei})=\sum_{n=1}^\infty6^{-n}=\frac15$.
+::::beispiel
+Ein Lager stammt zu $\frac12$, $\frac13$, $\frac16$ von drei Lieferanten mit den Ausschussquoten $\frac1{10}$, $\frac15$, $\frac3{10}$. Für $B$ „Teil defekt“ gibt [(3.2)](#gl-3-2) $\mathbb{P}(B)=\frac1{20}+\frac1{15}+\frac1{20}=\frac16$ (Abb. [3](#abb-3)). **Abzählbar viele Fälle:** Eine Nachricht bestehe mit $\mathbb{P}(Z=n)=2^{-n}$ aus $n\in\mathbb{N}$ Blöcken und komme dann mit $3^{-n}$ fehlerfrei an. Die Ereignisse $\{Z=n\}$ zerlegen $\Omega$, also ist $\mathbb{P}(\text{fehlerfrei})=\sum_{n=1}^\infty6^{-n}=\frac15$.
 
 :::abbildung hm3/k8mosaik 3
 Das Lager als Quadrat: Spaltenbreiten $\mathbb{P}(A_i)$, blaue Höhen $\mathbb{P}(B|A_i)$. Die blaue Gesamtfläche ist $\mathbb{P}(B)$, ihr Anteil in Spalte $k$ ist $\mathbb{P}(A_k|B)$.
 :::
+::::
 
 :::satz Satz 3.5 (Formel von Bayes)
 <span class="anker" id="satz-3-5"></span>

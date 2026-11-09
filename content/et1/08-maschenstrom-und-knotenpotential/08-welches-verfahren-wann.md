@@ -45,7 +45,11 @@ Jeder Punkt ist ein Netz. Unterhalb von $z=k-1$ wäre es nicht zusammenhängend.
 
 Die Tabelle zeigt eine __Dualität__, eine Spiegelung: Tauscht man Masche und Knoten, Strom und Spannung, Reihe und parallel, Widerstand und Leitwert, wird aus dem einen Verfahren das andere. Der Grund liegt in Kirchhoff: Beide Regeln sagen „die Summe ist null“, nur über verschiedene Mengen.
 
-**Beispiel.** Das Rechenmodell hat nach dem Umwandeln rechts $k=3$ und $z=5$. Es liegt mit $5>4$ über der Geraden, und tatsächlich waren es drei Maschen gegen zwei Knoten. **Grenzfall:** Die Brücke aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) mit $k=4$ und $z=6$ liegt genau auf der Geraden. Dann entscheiden die Quellen: Eine ideale Spannungsquelle spricht für Maschen, denn sie steht dort auf der rechten Seite.
+::::beispiel
+Das Rechenmodell hat nach dem Umwandeln rechts $k=3$ und $z=5$. Es liegt mit $5>4$ über der Geraden, und tatsächlich waren es drei Maschen gegen zwei Knoten.
+::::
+
+⁠**Grenzfall:** Die Brücke aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) mit $k=4$ und $z=6$ liegt genau auf der Geraden. Dann entscheiden die Quellen: Eine ideale Spannungsquelle spricht für Maschen, denn sie steht dort auf der rechten Seite.
 
 Simulatoren verwenden nur Knotenpotentiale. Die Maschen eines Netzes muss ein Programm erst suchen, und Fenster gibt es nur, wenn sich das Netz ohne Kreuzungen zeichnen lässt. Knoten dagegen stehen schon in der Schaltungsbeschreibung (Stufe [7](stempel-und-netzliste.html#stufe-7)).
 

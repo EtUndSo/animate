@@ -46,7 +46,9 @@ $\lVert\mathbf{v}\rVert^2>0$ ile çarpılınca bu, $(\mathbf{u}^{\top}\mathbf{v}
 Eşitlik ancak ve ancak bu $t$ için $\lVert\mathbf{u}-t\,\mathbf{v}\rVert=0$, yani $\mathbf{u}=t\,\mathbf{v}$ ise geçerlidir. Tersine, $\mathbf{u}=c\,\mathbf{v}$ için gerçekten $|\mathbf{u}^{\top}\mathbf{v}|=|c|\,\lVert\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$ olur.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{u}=(1,\,2,\,2)^{\top}$ ve $\mathbf{v}=(2,\,0,\,1)^{\top}$ için $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$ olur. Burada eşitlik yoktur, çünkü $\mathbf{v}$ vektörü $\mathbf{u}$ vektörünün bir katı değildir.
+::::beispiel [Sayısal örnek]
+$\mathbf{u}=(1,\,2,\,2)^{\top}$ ve $\mathbf{v}=(2,\,0,\,1)^{\top}$ için $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$ olur. Burada eşitlik yoktur, çünkü $\mathbf{v}$ vektörü $\mathbf{u}$ vektörünün bir katı değildir.
+::::
 
 Bu eşitsizlikle, daha önce yalnızca sezgisel olarak gerekçelendirilen şey (alt kesim [3.4](normen-die-groe-eines-vektors.html#stufe-3-4)) sonradan kanıtlanabilir: Öklid normunun üçgen eşitsizliği. Şu geçerlidir:
 
@@ -95,11 +97,13 @@ $$\cos\varphi=\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\
 
 Bu tanım ancak, sağ taraf Cauchy-Schwarz eşitsizliğine göre her zaman $-1$ ile $1$ arasında kaldığı için mümkündür. Böyle her sayıya $0^\circ$ ile $180^\circ$ arasında tam olarak bir açı karşılık gelir. İç çarpımın işaretinden açının dar ($\mathbf{u}^{\top}\mathbf{v}>0$), dik ($\mathbf{u}^{\top}\mathbf{v}=0$) ya da geniş ($\mathbf{u}^{\top}\mathbf{v}<0$) olduğu görülür.
 
-⁠**Sayısal örnek:** $(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$ için $\cos\varphi=1/\sqrt2$, yani $\varphi=45^\circ$ olur. $(1,\,0,\,1)^{\top}$ ve $(1,\,1,\,0)^{\top}$ için $\cos\varphi=\tfrac12$, yani $\varphi=60^\circ$ olur (Şekil [22](#abb-22)). $\mathbf{u}=(1,\,2,\,2)^{\top}$ ve $\mathbf{v}=(2,\,0,\,1)^{\top}$ için $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, yani $\varphi\approx53{,}4^\circ$ olur.
+::::beispiel [Sayısal örnek]
+$(1,\,0)^{\top}$ ve $(1,\,1)^{\top}$ için $\cos\varphi=1/\sqrt2$, yani $\varphi=45^\circ$ olur. $(1,\,0,\,1)^{\top}$ ve $(1,\,1,\,0)^{\top}$ için $\cos\varphi=\tfrac12$, yani $\varphi=60^\circ$ olur (Şekil [22](#abb-22)). $\mathbf{u}=(1,\,2,\,2)^{\top}$ ve $\mathbf{v}=(2,\,0,\,1)^{\top}$ için $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, yani $\varphi\approx53{,}4^\circ$ olur.
 
 :::abbildung ml/k1rwinkel 22
 $(1,\,0,\,1)^{\top}$ ile $(1,\,1,\,0)^{\top}$ arasındaki açı: kesrin payında iç çarpım, paydasında iki uzunluk.
 :::
+::::
 
 ⁠**Kısacası:** İki vektör arasındaki açının kosinüsü, iç çarpımlarının uzunluklarının çarpımına bölümüdür.
 
@@ -125,13 +129,17 @@ $\mathbf{u}$ ve $\mathbf{v}$ ortogonalse $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\l
 
 Bu, $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert^2+2\,\mathbf{u}^{\top}\mathbf{v}+\lVert\mathbf{v}\rVert^2$ eşitliğinden hemen çıkar, çünkü ortadaki terim sıfırdır.
 
-⁠**Sayısal örnek 1:** $(1,\,2,\,2)^{\top}$ ve $(2,\,0,\,-1)^{\top}$ ortogonaldir, çünkü $2+0-2=0$. Toplamları olan $(3,\,2,\,1)^{\top}$ vektörünün uzunluğunun karesi $14=9+5$ olur.
+::::beispiel [Sayısal örnek 1]
+$(1,\,2,\,2)^{\top}$ ve $(2,\,0,\,-1)^{\top}$ ortogonaldir, çünkü $2+0-2=0$. Toplamları olan $(3,\,2,\,1)^{\top}$ vektörünün uzunluğunun karesi $14=9+5$ olur.
+::::
 
-⁠**Sayısal örnek 2: birbirini bozmayan iki örüntü.** Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile işaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ (alt kesim [2.4](das-skalarprodukt.html#stufe-2-4)) ortogonaldir, $\mathbf 1^{\top}\mathbf{w}=0$. $2$ kez sabit örüntüden ve $1$ kez işaret değiştiren örüntüden oluşan bir sinyal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$ olur. Sabit örüntüyle karşılaştırma $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, işaret değiştiren örüntüyle karşılaştırma $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ verir (Şekil [23](#abb-23)). Her karşılaştırma tam olarak kendi payını, $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ile çarpılmış olarak bulur; öteki pay onu bozmaz.
+::::beispiel [Sayısal örnek 2] birbirini bozmayan iki örüntü
+Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile işaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ (alt kesim [2.4](das-skalarprodukt.html#stufe-2-4)) ortogonaldir, $\mathbf 1^{\top}\mathbf{w}=0$. $2$ kez sabit örüntüden ve $1$ kez işaret değiştiren örüntüden oluşan bir sinyal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$ olur. Sabit örüntüyle karşılaştırma $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, işaret değiştiren örüntüyle karşılaştırma $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ verir (Şekil [23](#abb-23)). Her karşılaştırma tam olarak kendi payını, $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ile çarpılmış olarak bulur; öteki pay onu bozmaz.
 
 :::abbildung ml/k1rortho 23
 İki örüntü ortogonaldir (üstte). $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ sinyalinin her örüntüyle karşılaştırılması, o örüntünün payının $4$ katını verir.
 :::
+::::
 
 ⁠**Kısacası:** Ortogonal, iç çarpımın sıfır olması demektir; ortogonal oklar birbirine diktir ve onlar için Pisagor teoremi geçerlidir.
 
@@ -168,7 +176,8 @@ yani aralarındaki açının kosinüsü.
 
 Vektörler aynı yönü gösteriyorsa kosinüs benzerliği $1$, ortogonalseler $0$, ters yönleri gösteriyorsa $-1$ olur. Vektörlerden biri pozitif bir sayıyla çarpılırsa kosinüs benzerliği değişmez, çünkü sayı sadeleşir.
 
-⁠**Sayısal örnek:** Üç metin ve bu metinlerde “gol”, “top” ve “seçim” sözcüklerinin sayıları:
+::::beispiel [Sayısal örnek]
+Üç metin ve bu metinlerde “gol”, “top” ve “seçim” sözcüklerinin sayıları:
 
 $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad \mathbf{x}_3=(0,\,1,\,3)^{\top} .$$
 
@@ -179,6 +188,7 @@ Sözcük sayımlarının iki kosinüs benzerliği: Her birinde kesrin payında b
 :::
 
 Uzaklıklar ise $\lVert\mathbf{x}_1-\mathbf{x}_2\rVert=\sqrt{13}\approx3{,}61$, $\lVert\mathbf{x}_1-\mathbf{x}_3\rVert=\sqrt{19}\approx4{,}36$ ve $\lVert\mathbf{x}_2-\mathbf{x}_3\rVert=\sqrt{54}\approx7{,}35$ olur. Uzaklığa göre Metin 1'in Metin 3'e uzaklığı, Metin 2'ye uzaklığından pek fazla değildir; oysa Metin 2 tam olarak aynı konuyu işler. Kosinüs benzerliği bunu hemen fark eder: Metin 2 ile benzerlik $1$ olur, Metin 3 ile açı ise yaklaşık $79{,}9^\circ$, yani neredeyse diktir.
+::::
 
 ⁠**Kısacası:** Kosinüs benzerliği iki vektörün yalnızca yönlerini karşılaştırır, uzunluklarını göz ardı eder.
 
@@ -208,11 +218,13 @@ $\mathbf{u}^{\top}\mathbf{u}=\lVert\mathbf{u}\rVert^2=1$ olduğundan $\mathbf{u}
 
 $\mathbf{u}$ normlanmış değilse, $\mathbf{u}^{\top}\mathbf{x}$ iç çarpımı $\mathbf{x}$ vektörünün $\mathbf{u}$ yönündeki gölge uzunluğunun $\lVert\mathbf{u}\rVert$ katıdır.
 
-⁠**Sayısal örnek:** $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ normlanmıştır, çünkü $0{,}36+0{,}64=1$. $\mathbf{x}=(3,\,1)^{\top}$ için gölge uzunluğu $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (Şekil [26](#abb-26)), gölge noktası $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ ve bağlantı oku $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$ olur. Bağlantı oku $\mathbf{u}$ vektörüne ortogonaldir: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ ile $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, yani $\varphi\approx34{,}7^\circ$ bulunur.
+::::beispiel [Sayısal örnek]
+$\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ normlanmıştır, çünkü $0{,}36+0{,}64=1$. $\mathbf{x}=(3,\,1)^{\top}$ için gölge uzunluğu $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (Şekil [26](#abb-26)), gölge noktası $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ ve bağlantı oku $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$ olur. Bağlantı oku $\mathbf{u}$ vektörüne ortogonaldir: $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$ ile $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, yani $\varphi\approx34{,}7^\circ$ bulunur.
 
 :::abbildung ml/k1rschatten 26
 Normlanmış $\mathbf{u}$ vektörünün yönünde $\mathbf{x}$ vektörünün gölge uzunluğu, iç çarpım olarak.
 :::
+::::
 
 Ağırlıklı bir toplam için bu şu anlama gelir: Ağırlıklar normlanmışsa $\mathbf{x}$ örneğinin $\mathbf{w}$ yönünde ne kadar uzandığını $\mathbf{w}^{\top}\mathbf{x}$ verir. Aynı $\mathbf{w}^{\top}\mathbf{x}$ değerini veren bütün noktalar aynı gölgeyi düşürür. Bu yüzden düzlemde $\mathbf{w}$ vektörüne dik bir doğru üzerinde, uzayda $\mathbf{w}$ vektörüne dik bir düzlem üzerinde bulunurlar.
 

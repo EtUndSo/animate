@@ -59,17 +59,23 @@ __Rückwärtseinsetzen__. Lautet eine Nullzeile $0=\tilde b_i$ mit $\tilde b_i\n
 
 </ol>
 
-**Beispiel: genau eine Lösung.** Für $Hx=(3,7,4)$ rechnet man $Z_2-2Z_1$, $Z_3-Z_1$ und dann $Z_3-2Z_2$:
+::::beispiel genau eine Lösung
+Für $Hx=(3,7,4)$ rechnet man $Z_2-2Z_1$, $Z_3-Z_1$ und dann $Z_3-2Z_2$:
 
 $$\left(\begin{array}{ccc|c}2&1&1&3\\4&3&3&7\\2&3&4&4\end{array}\right)\iff\left(\begin{array}{ccc|c}2&1&1&3\\0&1&1&1\\0&2&3&1\end{array}\right)\iff\left(\begin{array}{ccc|c}2&1&1&3\\0&1&1&1\\0&0&1&-1\end{array}\right).$$
 
 Von unten: $x_3=-1$, dann $x_2=1-x_3=2$, dann $2x_1=3-x_2-x_3=2$, also $x_1=1$. Probe: $H(1,2,-1)=(3,7,4)$.
+::::
 
-**Beispiel: unendlich viele oder keine.** Für $Q$ mit $b=(3,7,10)$ rechnet man $Z_2-2Z_1$, $Z_3-3Z_1$, $Z_3-Z_2$:
+::::beispiel unendlich viele oder keine
+Für $Q$ mit $b=(3,7,10)$ rechnet man $Z_2-2Z_1$, $Z_3-3Z_1$, $Z_3-Z_2$:
 
 $$\left(\begin{array}{ccc|c}1&2&1&3\\2&4&3&7\\3&6&4&10\end{array}\right)\iff\left(\begin{array}{ccc|c}1&2&1&3\\0&0&1&1\\0&0&1&1\end{array}\right)\iff\left(\begin{array}{ccc|c}1&2&1&3\\0&0&1&1\\0&0&0&0\end{array}\right).$$
 
-Die Pivots stehen in den Spalten 1 und 3, also ist $x_2=t$ frei. Von unten: $x_3=1$, $x_1=3-2t-1=2-2t$. Das ist die Lösungsmenge aus Stufe [6](gleichungssysteme-fragen-ruckwarts.html#stufe-6). Mit $b=(3,7,11)$ wäre die letzte Zeile $0=1$: keine Lösung. **Grenzfall:** Für $m=n=1$ lautet das System $ax=b$. Mit $a\ne0$ ist $a$ das Pivot und $x=b/a$. Für $a=0$ steht dort $0=b$: Bei $b\ne0$ gibt es keine Lösung, bei $b=0$ löst jedes $x$. Alle drei Fälle stecken schon hier. Über $\mathbb{C}$ läuft alles gleich, nur die Vielfachen sind komplex.
+Die Pivots stehen in den Spalten 1 und 3, also ist $x_2=t$ frei. Von unten: $x_3=1$, $x_1=3-2t-1=2-2t$. Das ist die Lösungsmenge aus Stufe [6](gleichungssysteme-fragen-ruckwarts.html#stufe-6). Mit $b=(3,7,11)$ wäre die letzte Zeile $0=1$: keine Lösung.
+::::
+
+⁠**Grenzfall:** Für $m=n=1$ lautet das System $ax=b$. Mit $a\ne0$ ist $a$ das Pivot und $x=b/a$. Für $a=0$ steht dort $0=b$: Bei $b\ne0$ gibt es keine Lösung, bei $b=0$ löst jedes $x$. Alle drei Fälle stecken schon hier. Über $\mathbb{C}$ läuft alles gleich, nur die Vielfachen sind komplex.
 
 :::frage Darf ich auch Spalten umformen?
 Nicht ohne weiteres. Zeilen sind Gleichungen, und mit Gleichungen darf man rechnen. Spalten gehören zu Unbekannten: Vertauscht man zwei Spalten, vertauschen sich die Namen der Unbekannten. Das muss man sich merken. Addiert man Spalten, ändert sich die Bedeutung der Unbekannten.

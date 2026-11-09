@@ -67,13 +67,17 @@ Check: conducting diodes need $I_\mathrm D>0$, blocking ones $U_\mathrm D<U_\mat
 
 $n$ diodes have $2^n$ combinations, so a good first assumption pays off. A look at the potentials helps.
 
-**Example.** Fig. [9](#abb-9) bottom: 5 V and 2 V feed node X through 1 k$\Omega$ and a diode each; from there $R_3=2\,\mathrm{k\Omega}$ leads to ground. $U_\mathrm F=0.7$ V.
+::::beispiel
+Fig. [9](#abb-9) bottom: 5 V and 2 V feed node X through 1 k$\Omega$ and a diode each; from there $R_3=2\,\mathrm{k\Omega}$ leads to ground. $U_\mathrm F=0.7$ V.
 
 ⁠*Assumption 1: Both conduct.* The node rule ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) at X reads $(4.3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1.3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. This gives $\varphi_\mathrm X=2.24$ V, $I_\mathrm{D1}=2.06$ mA and $I_\mathrm{D2}=-0.94$ mA. The negative current is a contradiction.
 
 ⁠*Assumption 2: D$_1$ conducts, D$_2$ blocks.* Then $I=(5\,\mathrm{V}-0.7\,\mathrm{V})/3\,\mathrm{k\Omega}=1.43$ mA and $\varphi_\mathrm X=2.87$ V. Across D$_2$ is $U_\mathrm{D2}=2\,\mathrm{V}-2.87\,\mathrm{V}=-0.87$ V. That is smaller than $U_\mathrm F$, no contradiction. The APs are D$_1$ (0.7 V | 1.43 mA) and D$_2$ ($-0.87$ V | 0). The full simulation gives 2.89 V and 1.45 mA.
 
-⁠*View of the potentials:* D$_2$ conducts only if $\varphi_\mathrm X<2\,\mathrm{V}-0.7\,\mathrm{V}=1.3$ V. The 5-V source alone already raises X to 2.87 V, so the cathode of D$_2$ lies above the anode. The higher voltage prevails. Assumption 3 (only D$_2$ conducts) would give $U_\mathrm{D1}=4.13$ V, assumption 4 (both block) $U_\mathrm{D1}=5$ V, both larger than $U_\mathrm F$ and thus contradictions. **Limiting case:** At $U_2=5$ V both branches are equal, and each diode carries half.
+⁠*View of the potentials:* D$_2$ conducts only if $\varphi_\mathrm X<2\,\mathrm{V}-0.7\,\mathrm{V}=1.3$ V. The 5-V source alone already raises X to 2.87 V, so the cathode of D$_2$ lies above the anode. The higher voltage prevails. Assumption 3 (only D$_2$ conducts) would give $U_\mathrm{D1}=4.13$ V, assumption 4 (both block) $U_\mathrm{D1}=5$ V, both larger than $U_\mathrm F$ and thus contradictions.
+::::
+
+⁠**Limiting case:** At $U_2=5$ V both branches are equal, and each diode carries half.
 
 :::frage Why is a negative current a contradiction? A voltage source can absorb current, after all.
 The equivalent source can, the diode cannot: in the reverse direction only $I_\mathrm S$ flows. The model applies only for $I_\mathrm D>0$. A negative result shows that the calculation used the diode outside this range.

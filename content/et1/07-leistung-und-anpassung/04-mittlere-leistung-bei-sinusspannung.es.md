@@ -38,7 +38,11 @@ $$P=\frac{1}{T\,R}\int_0^T\hat u^2\cos^2(\omega t)\,\mathrm{d} t=\frac{1}{T\,R}\
 La parte del coseno recorre en $T$ dos oscilaciones completas; su integral es cero. Con $\hat u=R\,\hat\imath$ se obtiene la segunda forma.
 :::
 
-**Ejemplo.** Para $\hat u=10$ V y $R=5\,\Omega$ son $\hat\imath=2$ A, el valor de pico de la potencia 20 W y $P=10$ W. A 50 Hz fluyen 0,2 J por periodo a la red cristalina. **Caso límite:** Para $\omega\to0$, $u$ se convierte en una tensión continua y $p$ se queda en $\hat u^2/R$. El factor $\frac12$ desaparece, porque entonces ya no se puede promediar sobre periodos enteros.
+::::beispiel
+Para $\hat u=10$ V y $R=5\,\Omega$ son $\hat\imath=2$ A, el valor de pico de la potencia 20 W y $P=10$ W. A 50 Hz fluyen 0,2 J por periodo a la red cristalina.
+::::
+
+⁠**Caso límite:** Para $\omega\to0$, $u$ se convierte en una tensión continua y $p$ se queda en $\hat u^2/R$. El factor $\frac12$ desaparece, porque entonces ya no se puede promediar sobre periodos enteros.
 
 :::zusatz Valor eficaz
 Una tensión continua $U$ produce en $R$ el mismo calor si $U^2/R=\frac12\hat u^2/R$, es decir, $U=\hat u/\sqrt2$. Este valor se llama __valor eficaz__. Aquí son 7,07 V. Los 230 V del enchufe son un valor eficaz; la amplitud es de 325 V.

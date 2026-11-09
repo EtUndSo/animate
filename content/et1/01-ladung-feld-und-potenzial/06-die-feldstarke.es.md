@@ -51,7 +51,9 @@ Según [(3.2)](die-kraft-zwischen-ladungen.html#gl-3-2), una carga de prueba $Q$
 Vectores de campo alrededor de una carga puntual positiva y una negativa. El campo se aleja de la carga positiva y apunta hacia la negativa. La longitud de las flechas es proporcional a $1/r^2$.
 :::
 
-**Ejemplo.** La esfera B ($-20$ nC) crea en el lugar de la esfera A el campo $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2{,}0\cdot10^5$ V/m, que apunta hacia B. La fuerza sobre A es $F=10\,\mathrm{nC}\cdot2{,}0\cdot10^5\,\mathrm{V/m}=2{,}0$ mN, como en la etapa [3](die-kraft-zwischen-ladungen.html#stufe-3). A la inversa, A crea en el lugar de B solo $1{,}0\cdot10^5$ V/m, pero allí encuentra el doble de carga: de nuevo 2,0 mN.
+::::beispiel
+La esfera B ($-20$ nC) crea en el lugar de la esfera A el campo $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2{,}0\cdot10^5$ V/m, que apunta hacia B. La fuerza sobre A es $F=10\,\mathrm{nC}\cdot2{,}0\cdot10^5\,\mathrm{V/m}=2{,}0$ mN, como en la etapa [3](die-kraft-zwischen-ladungen.html#stufe-3). A la inversa, A crea en el lugar de B solo $1{,}0\cdot10^5$ V/m, pero allí encuentra el doble de carga: de nuevo 2,0 mN.
+::::
 
 ⁠**En resumen:** la fuerza sobre una carga es su carga por el campo en su lugar.
 

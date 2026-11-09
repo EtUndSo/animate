@@ -51,7 +51,8 @@ Der Faktor vor $U_\mathrm{A}$ ist negativ, jede Abweichung klingt ab: $U_\mathrm
 Links die Schleife als Blockbild: Am Summierpunkt wird $\beta\,U_\mathrm{A}$ abgezogen. Rechts die Antwort auf einen Sprung von 0 auf 1 V im linearen Modell: $U_\mathrm{A}$ steigt mit $\tau_G=0{,}80$ µ s auf 5 V, $U_\mathrm{D}$ fällt von 1 V auf 50 µ V.
 :::
 
-**Beispiel.** Mit $A\beta=20000$ wird aus 1 V Eingang $U_\mathrm{A}=4{,}99975$ V, die Abweichung vom Ideal 5 V ist 0,005 % $=1/(A\beta)$. Die Exemplare streuen um den Faktor vier:
+::::beispiel
+Mit $A\beta=20000$ wird aus 1 V Eingang $U_\mathrm{A}=4{,}99975$ V, die Abweichung vom Ideal 5 V ist 0,005 % $=1/(A\beta)$. Die Exemplare streuen um den Faktor vier:
 
 | $A$ | $U_\mathrm{D}$ | $U_\mathrm{A}$ | Abweichung von 5 V |
 |---|---|---|---|
@@ -59,7 +60,10 @@ Links die Schleife als Blockbild: Am Summierpunkt wird $\beta\,U_\mathrm{A}$ abg
 | 100000 | 50,00 µ V | 4,99975 V | $-0{,}0050$ % |
 | 200000 | 25,00 µ V | 4,99988 V | $-0{,}0025$ % |
 
-Eine Änderung von $A$ um 300 % verschiebt $G$ um 0,0075 %. Man tauscht Verstärkung gegen Genauigkeit: 100000 werden zu 5, dafür bestimmen zwei Widerstände das Ergebnis. **Kurz gesagt:** Die Verstärkung ist der Kehrwert des zurückgeführten Anteils. **Grenzfälle:** $A\to\infty$ ergibt $U_\mathrm{D}\to0$ und $G=1/\beta$. $\beta\to0$ ergibt $G\to A$, ohne Rückführung bleibt der Leerlauf.
+Eine Änderung von $A$ um 300 % verschiebt $G$ um 0,0075 %. Man tauscht Verstärkung gegen Genauigkeit: 100000 werden zu 5, dafür bestimmen zwei Widerstände das Ergebnis.
+::::
+
+⁠**Kurz gesagt:** Die Verstärkung ist der Kehrwert des zurückgeführten Anteils. **Grenzfälle:** $A\to\infty$ ergibt $U_\mathrm{D}\to0$ und $G=1/\beta$. $\beta\to0$ ergibt $G\to A$, ohne Rückführung bleibt der Leerlauf.
 
 **Eingang und Ausgang.** Am Plus-Eingang liegt nur $U_\mathrm{D}=50$ µ V über $r_\mathrm{e}$, es fließen 50 pA, ein Zweimillionstel des Teilerstroms von 100 µ A. Der Eingangswiderstand steigt so auf $r_\mathrm{e}(1+A\beta)=20$ G$\Omega$. Am Ausgang wirkt die Schleife gegen jede Belastung: Zieht eine Last $U_\mathrm{A}$ etwas herunter, wächst $U_\mathrm{D}$, und die innere Spannung steigt, bis der Verlust fast ausgeglichen ist. Der Ausgangswiderstand sinkt auf $r_\mathrm{a}/(1+A\beta)=3{,}75$ m$\Omega$.
 

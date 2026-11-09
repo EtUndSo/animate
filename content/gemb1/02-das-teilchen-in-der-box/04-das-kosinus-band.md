@@ -54,7 +54,9 @@ $$m^*=\Bigl(\frac1{\hbar^2}\,\frac{\partial^2E(k)}{\partial k^2}\Bigr)^{-1}. \ta
 
 Am Boden des Bands [(2.1)](#gl-2-1) ergibt das $m^*=\hbar^2/(2t_0a^2)$: Starke Kopplung krümmt die Kurve stärker, und das Elektron wirkt leichter. Für den Kristall heißt das: Masse ist dort keine feste Zahl, sondern eine Eigenschaft der Kurve $E(k)$. Hängt die Krümmung von der Richtung ab, hängt auch $m^*$ von der Richtung ab. Für $|k|>\pi/(2a)$ wird $m^*$ sogar negativ: Dort sinkt $v$, wenn $k$ wächst. Im Folgenden steht $m$ für die Masse des jeweiligen Elektrons, also $m_0$ im Vakuum und $m^*$ im Kristall.
 
-**Beispiel.** Im Rechenmodell liegt der Zonenrand bei $\pi/a=15{,}7\,\mathrm{nm^{-1}}$. Die Abweichung von der Parabel bleibt unter 1 %, solange $(ka)^2/12<0{,}01$, also $ka<0{,}35$. Das entspricht $E<114$ meV. Deshalb reicht die Parabel für Elektronen nahe dem Bandboden.
+::::beispiel
+Im Rechenmodell liegt der Zonenrand bei $\pi/a=15{,}7\,\mathrm{nm^{-1}}$. Die Abweichung von der Parabel bleibt unter 1 %, solange $(ka)^2/12<0{,}01$, also $ka<0{,}35$. Das entspricht $E<114$ meV. Deshalb reicht die Parabel für Elektronen nahe dem Bandboden.
+::::
 
 :::frage Warum gibt es ein größtes $k$? Eine Welle kann doch beliebig kurz sein.
 Im freien Raum stimmt das. Auf dem Gitter existiert die Welle nur an den Punkten. Eine Welle mit $\lambda<2a$ trifft an den Punkten dieselben Werte wie eine längere Welle innerhalb der Zone. Das ist dieselbe Mehrdeutigkeit wie beim Abtasten eines Signals mit zu wenigen Werten je Periode.

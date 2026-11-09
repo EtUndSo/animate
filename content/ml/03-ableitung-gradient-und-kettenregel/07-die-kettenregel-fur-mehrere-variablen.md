@@ -40,11 +40,13 @@ $$\mathbf f\bigl(\mathbf{g}(\mathbf{x}+\mathbf{h})\bigr)-\mathbf f(\mathbf{u})=\
 Der mittlere Fehler verschwindet schneller als $\lVert\mathbf{h}\rVert$, weil $\mathbf{r}_{\mathbf{g}}$ das tut und die Multiplikation mit einer festen Matrix Längen höchstens um einen festen Faktor vergrößert. Der letzte verschwindet schneller als $\lVert\mathbf{k}\rVert$, und $\lVert\mathbf{k}\rVert$ ist höchstens ein festes Vielfaches von $\lVert\mathbf{h}\rVert$, sobald $\mathbf{h}$ klein ist. Also ist $\mathbf{J}_{\mathbf f}\mathbf{J}_{\mathbf{g}}$ die Matrix der linearen Näherung von $\mathbf f\circ\mathbf{g}$.
 :::
 
-⁠**Rechenbeispiel:** Es sei $\mathbf{g}$ wie in [(5.1)](die-jacobi-matrix.html#gl-5-1) und $f(\mathbf{u})=u_1^2+3u_2$, eine Funktion mit einem Ausgang ($p=1$). Ihre Verkettung ist $F(\mathbf{x})=f(\mathbf{g}(\mathbf{x}))=x_1^2x_2^2+6x_1+3x_2^2$. An der Stelle $\mathbf{x}=(1,\,2)^{\top}$ ist $\mathbf{u}=\mathbf{g}(\mathbf{x})=(2,\,6)^{\top}$ und $\mathbf{J}_f(\mathbf{u})=(2u_1\ \ 3)=(4\ \ 3)$. Nach [(6.1)](#gl-6-1) ist
+::::beispiel [Rechenbeispiel]
+Es sei $\mathbf{g}$ wie in [(5.1)](die-jacobi-matrix.html#gl-5-1) und $f(\mathbf{u})=u_1^2+3u_2$, eine Funktion mit einem Ausgang ($p=1$). Ihre Verkettung ist $F(\mathbf{x})=f(\mathbf{g}(\mathbf{x}))=x_1^2x_2^2+6x_1+3x_2^2$. An der Stelle $\mathbf{x}=(1,\,2)^{\top}$ ist $\mathbf{u}=\mathbf{g}(\mathbf{x})=(2,\,6)^{\top}$ und $\mathbf{J}_f(\mathbf{u})=(2u_1\ \ 3)=(4\ \ 3)$. Nach [(6.1)](#gl-6-1) ist
 
 $$\mathbf{J}_F(1,2)=\begin{pmatrix}4&3\end{pmatrix}\begin{pmatrix}2&1\\2&4\end{pmatrix}=\begin{pmatrix}4\cdot2+3\cdot2&\ 4\cdot1+3\cdot4\end{pmatrix}=\begin{pmatrix}14&16\end{pmatrix}.$$
 
 Probe mit der ausgeschriebenen Funktion: $\partial_1F=2x_1x_2^2+6=8+6=14$ und $\partial_2F=2x_1^2x_2+6x_2=4+12=16$.
+::::
 
 ⁠**Kurz gesagt:** Die Jacobi-Matrix einer Verkettung ist das Produkt der Jacobi-Matrizen der Stufen, die zuletzt angewandte Stufe links: $\mathbf{J}_{\mathbf f\circ\mathbf{g}}=\mathbf{J}_{\mathbf f}\,\mathbf{J}_{\mathbf{g}}$.
 
@@ -63,7 +65,8 @@ Diese Summe hat eine anschauliche Bedeutung. Eine Änderung von $x_j$ erreicht $
 Die Kettenregel als Netz von Wegen für $F=f\circ\mathbf{g}$ an der Stelle $(1,\,2)$. An jeder Kante steht die lokale Ableitung des Ziels nach dem Ausgangspunkt der Kante. Von $x_1$ führen zwei Wege zu $F$, über $u_1$ (blau) und über $u_2$ (orange). Entlang jedes Wegs werden die Faktoren multipliziert, die beiden Beiträge addiert. Man kann sich ein Rohrnetz vorstellen, in dem jedes Rohr die durchfließende Menge mit seinem Faktor vervielfacht und sich die Ströme am Ziel vereinen.
 :::
 
-⁠**Rechenbeispiel 1:** Für $F=f\circ\mathbf{g}$ aus dem vorigen Unterabschnitt sind die Kantenfaktoren an der Stelle $(1,\,2)$
+::::beispiel [Rechenbeispiel 1]
+Für $F=f\circ\mathbf{g}$ aus dem vorigen Unterabschnitt sind die Kantenfaktoren an der Stelle $(1,\,2)$
 
 $$\frac{\partial u_1}{\partial x_1}=x_2=2,\quad \frac{\partial u_1}{\partial x_2}=x_1=1,\quad \frac{\partial u_2}{\partial x_1}=2,\quad \frac{\partial u_2}{\partial x_2}=2x_2=4,\quad \frac{\partial f}{\partial u_1}=2u_1=4,\quad \frac{\partial f}{\partial u_2}=3 .$$
 
@@ -72,12 +75,15 @@ $$\frac{\partial u_1}{\partial x_1}=x_2=2,\quad \frac{\partial u_1}{\partial x_2
 :::abbildung ml/k3rwege 12
 Die partiellen Ableitungen von $F=f\circ\mathbf{g}$ an der Stelle $(1,\,2)$ als Summen über die beiden Wege durch $u_1$ und $u_2$.
 :::
+::::
 
-⁠**Rechenbeispiel 2:** Ein Eingang, zwei Wege. Es sei $F(x)=g_1(x)\,g_2(x)$ mit $g_1(x)=x^2$ und $g_2(x)=3x$, also $f(\mathbf{u})=u_1u_2$. Die Wege über $u_1$ und $u_2$ liefern
+::::beispiel [Rechenbeispiel 2]
+Ein Eingang, zwei Wege. Es sei $F(x)=g_1(x)\,g_2(x)$ mit $g_1(x)=x^2$ und $g_2(x)=3x$, also $f(\mathbf{u})=u_1u_2$. Die Wege über $u_1$ und $u_2$ liefern
 
 $$\frac{\mathrm{d} F}{\mathrm{d} x}=\frac{\partial f}{\partial u_1}\,g_1'(x)+\frac{\partial f}{\partial u_2}\,g_2'(x)=u_2\cdot2x+u_1\cdot3=3x\cdot2x+x^2\cdot3=9x^2 .$$
 
 Probe: $F(x)=3x^3$ hat die Ableitung $9x^2$. Wer einen Weg vergisst, erhält $6x^2$ oder $3x^2$. Nebenbei ist das genau die Produktregel [(1.5)](die-ableitung.html#gl-1-5): Sie ist die Kettenregel für zwei Wege.
+::::
 
 ⁠**Kurz gesagt:** Komponentenweise ist die Kettenregel eine Summe über alle Wege vom Eingang zum Ausgang; entlang jedes Wegs werden die lokalen Ableitungen multipliziert.
 
@@ -106,11 +112,13 @@ Nach [(6.1)](#gl-6-1) ist $\nabla(f\circ\mathbf{g})(\mathbf{x})^{\top}=\mathbf{J
 
 Die Transponierte ist reine Buchführung: Sie entsteht, weil der Gradient als Spalte geschrieben wird, die Zeilen der Jacobi-Matrix aber zu den Ausgängen gehören. Inhaltlich sagt [(6.3)](#gl-6-3) dasselbe wie [(6.2)](#gl-6-2): Die Komponente $j$ von $\mathbf{J}_{\mathbf{g}}^{\top}\nabla f$ ist die Spalte $j$ von $\mathbf{J}_{\mathbf{g}}$ mal $\nabla f$, also die Summe über die Wege von $x_j$ aus. Ist die innere Funktion linear, $\mathbf{g}(\mathbf{x})=\mathbf{A}\mathbf{x}$, so wird daraus nach Abschnitt [5.4](die-jacobi-matrix.html#stufe-5-4) die Regel $\nabla_{\mathbf{x}}f(\mathbf{A}\mathbf{x})=\mathbf{A}^{\top}\,\nabla f(\mathbf{A}\mathbf{x})$. Der Index $\mathbf{x}$ am Nabla sagt, nach welcher Variablen der Gradient gebildet wird.
 
-⁠**Rechenbeispiel:** Mit $\mathbf{J}_{\mathbf{g}}(1,2)$ und $\nabla f(\mathbf{u})=(4,\,3)^{\top}$ aus dem Beispiel zu [(6.1)](#gl-6-1) ist
+::::beispiel [Rechenbeispiel]
+Mit $\mathbf{J}_{\mathbf{g}}(1,2)$ und $\nabla f(\mathbf{u})=(4,\,3)^{\top}$ aus dem Beispiel zu [(6.1)](#gl-6-1) ist
 
 $$\nabla F(1,2)=\begin{pmatrix}2&1\\2&4\end{pmatrix}^{\top}\begin{pmatrix}4\\3\end{pmatrix}=\begin{pmatrix}2&2\\1&4\end{pmatrix}\begin{pmatrix}4\\3\end{pmatrix}=\begin{pmatrix}8+6\\4+12\end{pmatrix}=\begin{pmatrix}14\\16\end{pmatrix}.$$
 
 Ohne Transponieren erhielte man $\mathbf{J}_{\mathbf{g}}\,\nabla f=(8+3;\ 8+12)^{\top}=(11,\,20)^{\top}$, und das ist falsch.
+::::
 
 :::warnung Die Transponierte nicht vergessen
 Ist die Jacobi-Matrix der inneren Funktion symmetrisch, so fällt ein vergessenes Transponieren nicht auf. Prüfe deshalb eine selbst hergeleitete Gradientenformel an einem Beispiel, dessen Jacobi-Matrix nicht symmetrisch ist. Hat $\mathbf{J}_{\mathbf{g}}$ nicht dieselbe Zahl von Zeilen und Spalten, verrät ein Blick auf die Formen den Fehler sofort: $\nabla f$ hat $m$ Einträge, $\mathbf{J}_{\mathbf{g}}^{\top}$ hat $m$ Spalten, und nur $\mathbf{J}_{\mathbf{g}}^{\top}\nabla f$ ergibt einen Vektor mit $n$ Einträgen.
@@ -137,11 +145,13 @@ $$\frac{\mathrm{d}}{\mathrm{d} t}f\bigl(\boldsymbol{\gamma}(t)\bigr)=\nabla f\bi
 
 Für eine Gerade $\boldsymbol{\gamma}(t)=\mathbf{x}+t\,\mathbf{h}$ ist $\boldsymbol{\gamma}'=\mathbf{h}$ und die Rate $\nabla f(\mathbf{x})^{\top}\mathbf{h}$; hat $\mathbf{h}$ die Länge $1$, so ist das die Richtungsableitung aus Abschnitt [4.1](richtungsableitung-und-steilster-anstieg.html#stufe-4-1). Verläuft eine Kurve ganz in einer Höhenlinie, so ist $f(\boldsymbol{\gamma}(t))$ konstant, die linke Seite also null: Der Gradient steht senkrecht auf jedem Geschwindigkeitsvektor in der Höhenlinie. Das ist der Satz aus Abschnitt [4.3](richtungsableitung-und-steilster-anstieg.html#stufe-4-3), jetzt mit der Kettenregel begründet.
 
-⁠**Rechenbeispiel:** Es sei $f(\mathbf{x})=x_1^2x_2+x_2^2$ und $\boldsymbol{\gamma}(t)=(1+t,\ 2+2t)^{\top}$, eine Gerade durch $(1,\,2)$ mit $\boldsymbol{\gamma}'(t)=(1,\,2)^{\top}$. Bei $t=0$ ist
+::::beispiel [Rechenbeispiel]
+Es sei $f(\mathbf{x})=x_1^2x_2+x_2^2$ und $\boldsymbol{\gamma}(t)=(1+t,\ 2+2t)^{\top}$, eine Gerade durch $(1,\,2)$ mit $\boldsymbol{\gamma}'(t)=(1,\,2)^{\top}$. Bei $t=0$ ist
 
 $$\frac{\mathrm{d}}{\mathrm{d} t}f\bigl(\boldsymbol{\gamma}(t)\bigr)\Big|_{t=0}=\begin{pmatrix}4&5\end{pmatrix}\begin{pmatrix}1\\2\end{pmatrix}=4+10=14 .$$
 
 Probe: $f(\boldsymbol{\gamma}(t))=(1+t)^2(2+2t)+(2+2t)^2=2\,(1+t)^3+4\,(1+t)^2$ hat bei $t=0$ die Ableitung $6+8=14$.
+::::
 
 ⁠**Kurz gesagt:** Entlang einer Kurve ändert sich $f$ mit der Rate $\nabla f^{\top}\boldsymbol{\gamma}'$; in einer Höhenlinie ist diese Rate null.
 

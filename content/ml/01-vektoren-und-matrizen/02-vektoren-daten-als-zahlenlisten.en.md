@@ -41,17 +41,21 @@ $$\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij} .$$
 
 You read it from the inside out: for each row $i$, the inner sum adds the numbers of this row, and the outer sum adds the row sums. Because the order does not matter for finitely many terms, you may swap the two summation signs and add column by column first.
 
-⁠**Worked example 1:** For $a_1=2$, $a_2=5$, $a_3=1$, you first write out each sum, then insert the numbers and add (Fig. [1](#abb-1)). This gives $\sum_{i=1}^3 a_i=8$ and $\sum_{i=1}^3 a_i^2=30$. In the third sum, the summation index itself is the term: $\sum_{j=1}^{3}j=6$.
+::::beispiel [Worked example 1]
+For $a_1=2$, $a_2=5$, $a_3=1$, you first write out each sum, then insert the numbers and add (Fig. [1](#abb-1)). This gives $\sum_{i=1}^3 a_i=8$ and $\sum_{i=1}^3 a_i^2=30$. In the third sum, the summation index itself is the term: $\sum_{j=1}^{3}j=6$.
 
 :::abbildung ml/k1rsumme 1
 Three sums step by step: write out the summation sign, insert the numbers, add.
 :::
+::::
 
-⁠**Worked example 2:** The table with the rows $(1,\,2)$ and $(3,\,4)$ has the entries $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Added row by row, the double sum gives $(1+2)+(3+4)=10$; added column by column, $(1+3)+(2+4)=10$ (Fig. [2](#abb-2)).
+::::beispiel [Worked example 2]
+The table with the rows $(1,\,2)$ and $(3,\,4)$ has the entries $a_{11}=1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=4$. Added row by row, the double sum gives $(1+2)+(3+4)=10$; added column by column, $(1+3)+(2+4)=10$ (Fig. [2](#abb-2)).
 
 :::abbildung ml/k1rdoppel 2
 The double sum over the table with the rows $(1,\,2)$ and $(3,\,4)$: at the top row by row first, at the bottom column by column first. Both orders give the same sum.
 :::
+::::
 
 ⁠**In short:** $\sum_{i=1}^n a_i$ is the sum of $a_1$ through $a_n$; the summation index $i$ is only a placeholder.
 
@@ -88,7 +92,9 @@ Throughout the series, $N$ is the number of examples and $d$ the number of featu
 
 Two notes on the words. In databases, a single row of a table is often called a “record”; here the dataset is the whole collection, not a single row. And in this chapter the word “example” always means a thing from a dataset; calculations carried out in full are therefore called “worked examples”.
 
-⁠**Worked example:** The apartment dataset has $N=4$ examples and $d=3$ features. Feature 2 is the number of rooms. For apartment 3 it has the value $4$.
+::::beispiel [Worked example]
+The apartment dataset has $N=4$ examples and $d=3$ features. Feature 2 is the number of rooms. For apartment 3 it has the value $4$.
+::::
 
 Not every property is a number by itself. The district of an apartment is a name. Such properties must first be translated into numbers before you can calculate with them. In this chapter all features are already numbers.
 
@@ -126,7 +132,9 @@ Vectors are written in bold lowercase letters, their components in regular type.
 
 **The examples of a dataset.** Example number $i$ is the vector $\mathbf{x}_i\in\mathbb{R}^d$. The vector of an example is also called its __feature vector__. Its components get two indices: $x_{ij}$ is the value of feature $j$ for example $i$. So a bold letter with one index is a whole vector from a list of vectors, and a regular letter with two indices is a single number.
 
-⁠**Worked example:** Apartment 1 is the vector $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Its second component is $x_{12}=2$. The vector $(2,\,60,\,3)^{\top}$ contains the same numbers but is a different vector: the first position now holds the number $2$, and you would read it as the floor area.
+::::beispiel [Worked example]
+Apartment 1 is the vector $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Its second component is $x_{12}=2$. The vector $(2,\,60,\,3)^{\top}$ contains the same numbers but is a different vector: the first position now holds the number $2$, and you would read it as the floor area.
+::::
 
 ⁠**In short:** A vector is an ordered list of numbers that can be drawn as a point or as an arrow; an example with $d$ features is a vector in $\mathbb{R}^d$.
 
@@ -165,11 +173,13 @@ Because each component on its own is an ordinary calculation with numbers, the f
 
 The difference $\mathbf{u}-\mathbf{v}$ has a picture of its own. It is the arrow leading from the tip of $\mathbf{v}$ to the tip of $\mathbf{u}$, because $\mathbf{v}+(\mathbf{u}-\mathbf{v})=\mathbf{u}$. For two examples, it states by how much they differ in each feature.
 
-⁠**Worked example:** From January to March, apartment 1 consumed $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilowatt-hours of electricity, and apartment 2 in the same building consumed $\mathbf{v}=(150,\,100,\,120)^{\top}$. Together they consume
+::::beispiel [Worked example]
+From January to March, apartment 1 consumed $\mathbf{u}=(200,\,250,\,300)^{\top}$ kilowatt-hours of electricity, and apartment 2 in the same building consumed $\mathbf{v}=(150,\,100,\,120)^{\top}$. Together they consume
 
 $$\mathbf{u}+\mathbf{v}=(350,\,350,\,420)^{\top}\ \text{kWh}.$$
 
 The consumption of apartment 1 in megawatt-hours is given by the multiple $0.001\,\mathbf{u}=(0.2,\ 0.25,\ 0.3)^{\top}$. The difference $\mathbf{u}-\mathbf{v}=(50,\,150,\,180)^{\top}$ tells you how many more kilowatt-hours apartment 1 consumes than apartment 2 in each month. In the apartment dataset, $\mathbf{x}_3-\mathbf{x}_1=(30,\,2,\,3)^{\top}$: apartment 3 is $30\,\mathrm m^2$ larger, has two more rooms and is $3$ km farther out than apartment 1.
+::::
 
 ⁠**In short:** You add vectors and multiply them by a number by doing it component by component.
 
@@ -194,15 +204,20 @@ is called a __linear combination__ of the vectors $\mathbf{v}_1,\dots,\mathbf{v}
 
 A word of caution when reading: $\mathbf{v}_l$ is bold, so it is the $l$th vector of the list, not the $l$th component of a vector.
 
-⁠**Worked example 1:** $(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::beispiel [Worked example 1]
+$(1,\,2)^{\top}+3\,(0,\,1)^{\top}=(1,\,2)^{\top}+(0,\,3)^{\top}=(1,\,5)^{\top}$.
+::::
 
-⁠**Worked example 2: the midpoint.** The linear combination $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ of apartments 1 and 2 is
+::::beispiel [Worked example 2] the midpoint
+The linear combination $\tfrac12\mathbf{x}_1+\tfrac12\mathbf{x}_2$ of apartments 1 and 2 is
 
 $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50,\ 1.5,\ 2)^{\top}.$$
 
 This is an imaginary apartment that lies exactly halfway between the two in every feature. The point lies in the middle of the connecting segment.
+::::
 
-⁠**Worked example 3: the mean of the examples.** If you take all $N$ examples with the coefficient $1/N$, you get the __mean of the examples__
+::::beispiel [Worked example 3] the mean of the examples
+If you take all $N$ examples with the coefficient $1/N$, you get the __mean of the examples__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
@@ -212,6 +227,7 @@ For the apartment dataset, $\bar{\mathbf{x}}=(65,\ 2.5,\ 3)^{\top}$ (Fig. [5](#
 :::abbildung ml/k1rmittelvektor 5
 The mean of the four apartments: the sum of the vectors is formed component by component and then divided by $4$; $5/2=2.5$.
 :::
+::::
 
 ⁠**In short:** A linear combination multiplies each vector by its own number and adds everything up.
 
@@ -242,7 +258,9 @@ $$\mathbf{x}=x_1\mathbf{e}_1+x_2\mathbf{e}_2+\dots+x_d\mathbf{e}_d=\sum_{j=1}^d 
 
 You can see this by computing the right-hand side component by component: in position $j$ only the term $x_j\mathbf{e}_j$ contributes, namely $x_j\cdot1$. No other coefficients are possible, because they would give a different number in some position.
 
-⁠**Worked example:** $\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, that is, $60$ times “one square meter” plus $2$ times “one room” plus $3$ times “one kilometer”.
+::::beispiel [Worked example]
+$\mathbf{x}_1=(60,\,2,\,3)^{\top}=60\,\mathbf{e}_1+2\,\mathbf{e}_2+3\,\mathbf{e}_3$, that is, $60$ times “one square meter” plus $2$ times “one room” plus $3$ times “one kilometer”.
+::::
 
 ⁠**In short:** The unit vector $\mathbf{e}_j$ has a one in position $j$ and zeros elsewhere; every vector is the sum $\sum_jx_j\mathbf{e}_j$.
 

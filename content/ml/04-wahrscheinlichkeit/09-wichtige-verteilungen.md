@@ -42,7 +42,9 @@ Für $X\sim\mathrm{Ber}(\theta)$ ist $\mathbb{E}[X]=\theta$ und $\operatorname{V
 
 Denn $\mathbb{E}[X]=0\cdot(1-\theta)+1\cdot\theta=\theta$, und weil $X^2=X$ für die Werte $0$ und $1$ gilt, ist $\mathbb{E}[X^2]=\theta$ und nach der Verschiebungsformel $\operatorname{Var}(X)=\theta-\theta^2$. Die Varianz ist am größten, nämlich $\tfrac14$, bei $\theta=\tfrac12$, und null bei $\theta=0$ und $\theta=1$: Am unsichersten ist ein Ja-Nein-Ausgang, wenn beide Ausgänge gleich wahrscheinlich sind.
 
-⁠**Rechenbeispiel:** Ob das Prüfgerät aus Unterabschnitt [4.2](der-satz-von-bayes.html#stufe-4-2) bei einem intakten Teil Alarm gibt, ist $\mathrm{Ber}(0{,}05)$-verteilt. Der Erwartungswert ist $0{,}05$, die Varianz $0{,}05\cdot0{,}95=0{,}0475$ und die Standardabweichung etwa $0{,}218$.
+::::beispiel [Rechenbeispiel]
+Ob das Prüfgerät aus Unterabschnitt [4.2](der-satz-von-bayes.html#stufe-4-2) bei einem intakten Teil Alarm gibt, ist $\mathrm{Ber}(0{,}05)$-verteilt. Der Erwartungswert ist $0{,}05$, die Varianz $0{,}05\cdot0{,}95=0{,}0475$ und die Standardabweichung etwa $0{,}218$.
+::::
 
 ⁠**Kurz gesagt:** Eine Bernoulli-verteilte Größe ist $1$ mit der Wahrscheinlichkeit $\theta$ und sonst $0$; Erwartungswert $\theta$, Varianz $\theta(1-\theta)$.
 
@@ -64,7 +66,9 @@ Rechnen lässt sich besser mit einer Darstellung als Vektor. Die __One-Hot-Kodie
 Nummeriert man die Farben Rot, Grün und Blau mit $1$, $2$ und $3$, so ist der „Erwartungswert“ der Nummer eine Zahl ohne Bedeutung: Eine andere Nummerierung ergäbe eine andere Zahl, und die Farbe „$1{,}7$“ gibt es nicht. Erwartungswerte und Varianzen bildet man nur für Zahlen, die wirklich Größen messen. Für Kategorien rechnet man mit den Wahrscheinlichkeiten $\theta_k$ oder mit der One-Hot-Kodierung.
 :::
 
-⁠**Rechenbeispiel:** Bauteile sind mit den Wahrscheinlichkeiten $0{,}5$, $0{,}3$ und $0{,}2$ rot, grün oder blau. Ein grünes Teil hat die One-Hot-Kodierung $\mathbf{y}=(0,\,1,\,0)^{\top}$ und $P(\mathbf{y})=0{,}5^0\cdot0{,}3^1\cdot0{,}2^0=0{,}3$. Die kodierten Vektoren haben komponentenweise die Erwartungswerte $(0{,}5;\ 0{,}3;\ 0{,}2)^{\top}=\boldsymbol{\theta}$.
+::::beispiel [Rechenbeispiel]
+Bauteile sind mit den Wahrscheinlichkeiten $0{,}5$, $0{,}3$ und $0{,}2$ rot, grün oder blau. Ein grünes Teil hat die One-Hot-Kodierung $\mathbf{y}=(0,\,1,\,0)^{\top}$ und $P(\mathbf{y})=0{,}5^0\cdot0{,}3^1\cdot0{,}2^0=0{,}3$. Die kodierten Vektoren haben komponentenweise die Erwartungswerte $(0{,}5;\ 0{,}3;\ 0{,}2)^{\top}=\boldsymbol{\theta}$.
+::::
 
 ⁠**Kurz gesagt:** Die kategorische Verteilung gibt jeder von $K$ Kategorien eine Wahrscheinlichkeit $\theta_k$; mit der One-Hot-Kodierung ist sie $\prod_k\theta_k^{y_k}$.
 
@@ -98,7 +102,9 @@ $$\mathbb{E}[X]=n\,\theta . \tag{8.3}$$
 
 Die Anzahl der Köpfe bei drei Münzwürfen aus Unterabschnitt [6.1](zufallsvariablen-und-verteilungen.html#stufe-6-1) ist $\mathrm{Bin}(3,\tfrac12)$-verteilt: $\binom3m\cdot\tfrac18$ ergibt $\tfrac18,\tfrac38,\tfrac38,\tfrac18$.
 
-⁠**Rechenbeispiel:** Für $10$ Teile bei $5\,\%$ Ausschuss ist $X\sim\mathrm{Bin}(10;\ 0{,}05)$. Es ist $P(X=0)=0{,}95^{10}\approx0{,}599$, $P(X=1)=10\cdot0{,}05\cdot0{,}95^9\approx0{,}315$ und $P(X\ge2)=1-0{,}599-0{,}315\approx0{,}086$. Im Mittel findet man $\mathbb{E}[X]=10\cdot0{,}05=0{,}5$ defekte Teile.
+::::beispiel [Rechenbeispiel]
+Für $10$ Teile bei $5\,\%$ Ausschuss ist $X\sim\mathrm{Bin}(10;\ 0{,}05)$. Es ist $P(X=0)=0{,}95^{10}\approx0{,}599$, $P(X=1)=10\cdot0{,}05\cdot0{,}95^9\approx0{,}315$ und $P(X\ge2)=1-0{,}599-0{,}315\approx0{,}086$. Im Mittel findet man $\mathbb{E}[X]=10\cdot0{,}05=0{,}5$ defekte Teile.
+::::
 
 ⁠**Kurz gesagt:** Die Anzahl der Erfolge in $n$ unabhängigen Versuchen mit Erfolgswahrscheinlichkeit $\theta$ ist binomialverteilt mit $P(X=m)=\binom nm\theta^m(1-\theta)^{n-m}$ und $\mathbb{E}[X]=n\theta$.
 
@@ -133,7 +139,9 @@ Der Erwartungswert ist die Mitte, weil die Dichte symmetrisch um sie ist. Für d
 $$\operatorname{Var}(X)=\mathbb{E}[Y^2]=\int_{-h}^hy^2\,\frac1{2h}\,\mathrm{d} y=\frac1{2h}\cdot\frac{2h^3}3=\frac{h^2}3=\frac{(b-a)^2}{12} .$$
 :::
 
-⁠**Rechenbeispiel: Quantisierungsrauschen.** Ein Analog-Digital-Umsetzer rundet jede Spannung auf das nächste Vielfache einer Stufe $\Delta$. Der Rundungsfehler liegt zwischen $-\Delta/2$ und $\Delta/2$. Ändert sich das Signal über viele Stufen, so ist kein Fehlerwert bevorzugt, und man beschreibt ihn als gleichverteilt auf $[-\Delta/2,\,\Delta/2]$. Er hat dann den Erwartungswert $0$ und die Varianz $\Delta^2/12$, die Leistung des Quantisierungsrauschens. Bei $\Delta=1\,\mathrm{mV}$ ist seine Standardabweichung $1\,\mathrm{mV}/\sqrt{12}\approx0{,}289\,\mathrm{mV}$.
+::::beispiel [Rechenbeispiel] Quantisierungsrauschen
+Ein Analog-Digital-Umsetzer rundet jede Spannung auf das nächste Vielfache einer Stufe $\Delta$. Der Rundungsfehler liegt zwischen $-\Delta/2$ und $\Delta/2$. Ändert sich das Signal über viele Stufen, so ist kein Fehlerwert bevorzugt, und man beschreibt ihn als gleichverteilt auf $[-\Delta/2,\,\Delta/2]$. Er hat dann den Erwartungswert $0$ und die Varianz $\Delta^2/12$, die Leistung des Quantisierungsrauschens. Bei $\Delta=1\,\mathrm{mV}$ ist seine Standardabweichung $1\,\mathrm{mV}/\sqrt{12}\approx0{,}289\,\mathrm{mV}$.
+::::
 
 ⁠**Kurz gesagt:** Die Gleichverteilung auf $[a,\,b]$ hat die konstante Dichte $1/(b-a)$, den Erwartungswert in der Mitte und die Varianz $(b-a)^2/12$.
 
@@ -183,7 +191,9 @@ $$I^2=\int_0^{2\pi}\!\!\int_0^\infty\mathrm{e}^{-r^2/2}\,r\,\mathrm{d} r\,\mathr
 denn der Faktor $r$ macht den Integranden zur Ableitung von $-\mathrm{e}^{-r^2/2}$. Also ist $I=\sqrt{2\pi}$. Der Erwartungswert ist $\mu$, weil die Dichte symmetrisch um $\mu$ ist. Für die Varianz integriert man $\int x^2\mathrm{e}^{-x^2/2}\,\mathrm{d} x$ partiell mit $u=x$ und $v'=x\,\mathrm{e}^{-x^2/2}$, $v=-\mathrm{e}^{-x^2/2}$; das ergibt wieder $I$, also $\operatorname{Var}=1$ für die Standardnormalverteilung und $\sigma^2$ nach Strecken um $\sigma$.
 :::
 
-⁠**Rechenbeispiel:** Widerstände einer Fertigung mit dem Sollwert $100\,\Omega$ seien normalverteilt mit $\mu=100\,\Omega$ und $\sigma=1\,\Omega$. Dann liegen $95{,}4\,\%$ zwischen $98$ und $102\,\Omega$ und $99{,}7\,\%$ zwischen $97$ und $103\,\Omega$. Die Dichte hat bei $100\,\Omega$ den Wert $1/\sqrt{2\pi}\approx0{,}399$ pro Ohm. Nach [(6.3)](zufallsvariablen-und-verteilungen.html#gl-6-3) liegen also etwa $0{,}399\cdot0{,}1\approx4\,\%$ der Widerstände zwischen $99{,}95$ und $100{,}05\,\Omega$.
+::::beispiel [Rechenbeispiel]
+Widerstände einer Fertigung mit dem Sollwert $100\,\Omega$ seien normalverteilt mit $\mu=100\,\Omega$ und $\sigma=1\,\Omega$. Dann liegen $95{,}4\,\%$ zwischen $98$ und $102\,\Omega$ und $99{,}7\,\%$ zwischen $97$ und $103\,\Omega$. Die Dichte hat bei $100\,\Omega$ den Wert $1/\sqrt{2\pi}\approx0{,}399$ pro Ohm. Nach [(6.3)](zufallsvariablen-und-verteilungen.html#gl-6-3) liegen also etwa $0{,}399\cdot0{,}1\approx4\,\%$ der Widerstände zwischen $99{,}95$ und $100{,}05\,\Omega$.
+::::
 
 ⁠**Kurz gesagt:** Die Normalverteilung $\mathcal N(\mu,\sigma^2)$ ist die symmetrische Glocke um $\mu$ mit der Standardabweichung $\sigma$; innerhalb von $\pm\sigma$, $\pm2\sigma$, $\pm3\sigma$ liegen $68{,}3$, $95{,}4$ und $99{,}7\,\%$.
 
@@ -217,7 +227,9 @@ Nach Unterabschnitt [7.6](erwartungswert-und-varianz.html#stufe-7-6) hat $Z$ de
 
 Insbesondere liegen $95\,\%$ einer Normalverteilung zwischen $\mu-1{,}96\,\sigma$ und $\mu+1{,}96\,\sigma$.
 
-⁠**Rechenbeispiel:** Für die Widerstände mit $\mu=100\,\Omega$ und $\sigma=1\,\Omega$ und den Widerstandswert $X$ ist $P(X>102\,\Omega)=1-\Phi(2)\approx0{,}0228$ und $P(X\le101\,\Omega)=\Phi(1)\approx0{,}841$. Toleriert man $\pm2{,}5\,\Omega$, so liegen $2\Phi(2{,}5)-1\approx0{,}988$ der Widerstände im Toleranzband.
+::::beispiel [Rechenbeispiel]
+Für die Widerstände mit $\mu=100\,\Omega$ und $\sigma=1\,\Omega$ und den Widerstandswert $X$ ist $P(X>102\,\Omega)=1-\Phi(2)\approx0{,}0228$ und $P(X\le101\,\Omega)=\Phi(1)\approx0{,}841$. Toleriert man $\pm2{,}5\,\Omega$, so liegen $2\Phi(2{,}5)-1\approx0{,}988$ der Widerstände im Toleranzband.
+::::
 
 ⁠**Kurz gesagt:** Jede Normalverteilung wird durch $Z=(X-\mu)/\sigma$ zur Standardnormalverteilung; deshalb genügt die eine Funktion $\Phi$ für alle Wahrscheinlichkeiten.
 
@@ -248,7 +260,9 @@ wobei $w$ der feste wahre Wert ist und die Zufallsvariable $\nu$, das __Rauschen
 
 Wie beim Funkkanal mit mehreren Antennen in [Grundlagen 2, Abschnitt 9.8](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-singularwertzerlegung.html#stufe-9-8), heißt das Rauschen $\nu$ (gesprochen „nü“); es trägt als skalare Zufallsvariable ausnahmsweise einen kleinen Buchstaben, weil $N$ schon die Zahl der Datenpunkte ist. Der Erwartungswert $0$ bedeutet, dass das Gerät im Mittel richtig misst; einen festen Versatz würde man zu $w$ zählen und durch Kalibrieren entfernen. Die Standardabweichung $\sigma$ beschreibt die Güte des Geräts. Viele Verfahren, die aus Daten lernen, beschreiben ihre Daten genau so: als einen Anteil, den man erklären möchte, plus Rauschen. Die Normalverteilung ist dabei die Standardannahme für das Rauschen; Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13) begründet sie.
 
-⁠**Rechenbeispiel:** Ein Temperatursensor habe normalverteiltes Rauschen mit $\sigma=0{,}5\,\mathrm K$. Der wahre Wert sei $20\,{}^\circ\mathrm C$. Ein Messwert weicht dann mit der Wahrscheinlichkeit $P(|\nu|>1\,\mathrm K)=P(|Z|>2)=1-0{,}954=0{,}046$ um mehr als $1\,\mathrm K$ ab, also bei etwa jeder zweiundzwanzigsten Messung.
+::::beispiel [Rechenbeispiel]
+Ein Temperatursensor habe normalverteiltes Rauschen mit $\sigma=0{,}5\,\mathrm K$. Der wahre Wert sei $20\,{}^\circ\mathrm C$. Ein Messwert weicht dann mit der Wahrscheinlichkeit $P(|\nu|>1\,\mathrm K)=P(|Z|>2)=1-0{,}954=0{,}046$ um mehr als $1\,\mathrm K$ ab, also bei etwa jeder zweiundzwanzigsten Messung.
+::::
 
 ⁠**Kurz gesagt:** Ein verrauschter Messwert ist wahrer Wert plus eine Zufallsvariable mit Erwartungswert $0$; meist nimmt man für sie eine Normalverteilung an.
 

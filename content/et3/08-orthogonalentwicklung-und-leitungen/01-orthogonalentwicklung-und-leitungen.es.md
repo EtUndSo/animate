@@ -13,7 +13,7 @@ lang: es
 Este capítulo completa las partes 1 a 7 con dos temas. El primero generaliza la serie de Fourier: una señal se descompone según funciones ortogonales cualesquiera, igual que un vector se descompone en sus componentes. El segundo muestra lo que ocurre en una línea de transmisión larga: la tensión y la corriente se propagan como ondas, que pueden reflejarse en el extremo. El cuantizador óptimo, que podría ser un tercer tema complementario, ya se encuentra en la [parte 7](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html) (etapa 5).
 
 
-**Cómo trabajar con este capítulo.** Cada etapa es un artículo breve con la idea, preguntas típicas desplegables y ejercicios (de ★ a ★★★). Intenta resolverlos primero por tu cuenta; la solución se despliega justo debajo de cada ejercicio. Termina una etapa antes de pasar a la siguiente.
+**Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke Los modelos de referencia de este capítulo
 <ul>

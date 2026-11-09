@@ -39,7 +39,11 @@ $$i_\mathrm{b}=\frac{u_\mathrm{be}}{r_\mathrm{BE}},\qquad i_\mathrm{c}=S\,u_\mat
 左：控制特性曲线及其在点 A（2 mA）处的切线，斜率 $S=76.9$ mS。右：两个 $U_\mathrm{BE}$ 值对应的输出特性曲线。曲线之间的距离是 $S$ 的作用。每条曲线的斜率是 $1/r_\mathrm{CE}$，向左延长后到达 $-74$ V。
 :::
 
-**例。** 在点 A，$S=2\,\mathrm{mA}/26\,\mathrm{mV}=76.9$ mS，即 $1/S=13\,\Omega$，还有 $r_\mathrm{BE}=200/S=2.6$ k$\Omega$ 和 $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$。$S$ 的机理：$U_\mathrm{BE}$ 增加 1 mV 使势垒降低，按切线计算注入增加 3.85 %，即 77 µ A。要通过输出侧达到同样的效果，需要 $U_\mathrm{CE}$ 增加 3 V。**简而言之：**跨导等于电流除以 $U_T$，与 $B$ 和 $I_\mathrm{S}$ 无关。**极限情况：**$I_\mathrm{C}\to0$ 给出 $S\to0$：没有静态电流就没有控制作用。$U_\mathrm{Early}\to\infty$ 给出 $r_\mathrm{CE}\to\infty$，即理想电流源。
+::::beispiel
+在点 A，$S=2\,\mathrm{mA}/26\,\mathrm{mV}=76.9$ mS，即 $1/S=13\,\Omega$，还有 $r_\mathrm{BE}=200/S=2.6$ k$\Omega$ 和 $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$。$S$ 的机理：$U_\mathrm{BE}$ 增加 1 mV 使势垒降低，按切线计算注入增加 3.85 %，即 77 µ A。要通过输出侧达到同样的效果，需要 $U_\mathrm{CE}$ 增加 3 V。
+::::
+
+⁠**简而言之：**跨导等于电流除以 $U_T$，与 $B$ 和 $I_\mathrm{S}$ 无关。**极限情况：**$I_\mathrm{C}\to0$ 给出 $S\to0$：没有静态电流就没有控制作用。$U_\mathrm{Early}\to\infty$ 给出 $r_\mathrm{CE}\to\infty$，即理想电流源。
 
 **多小才算小？** 精确地说，$i_\mathrm{c}=I_\mathrm{C}(\mathrm{e}^{u_\mathrm{be}/U_T}-1)$，切线给出的是 $I_\mathrm{C}u_\mathrm{be}/U_T$。当 $u_\mathrm{be}=+1$ mV 时误差为 2 %，当 $+5$ mV 时误差为 10 %（$+424$ µ A 而不是 $+385$ µ A），而当 $-5$ mV 时只有 $-350$ µ A。正半波大于负半波，信号发生失真。在 26 mV 时切线已不可用。
 

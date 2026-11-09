@@ -39,11 +39,13 @@ El trabajo del campo se convierte por completo en energía cinética: $\frac12mv
 Izquierda: el electrón parte de la placa B y va en contra del campo hacia la placa A. Derecha: de $x=3$ mm a $x=0$, la energía cinética crece hasta $1{,}44\cdot10^{-18}$ J y la energía potencial baja en la misma cantidad, punto de referencia B. La suma sigue siendo cero.
 :::
 
-**Ejemplo.** Para el electrón en el par de placas,
+::::beispiel
+Para el electrón en el par de placas,
 
 $$\begin{aligned} F&=e\,E=4{,}81\cdot10^{-16}\,\mathrm{N},\qquad a=\frac{F}{m_\mathrm{e}}=5{,}28\cdot10^{14}\,\mathrm{m/s^2},\qquad W=e\,U=1{,}44\cdot10^{-18}\,\mathrm{J},\\ v&=\sqrt{\frac{2\cdot1{,}44\cdot10^{-18}\,\mathrm{J}}{9{,}109\cdot10^{-31}\,\mathrm{kg}}}=1{,}78\cdot10^{6}\,\mathrm{m/s},\qquad t=\frac{2\cdot3\,\mathrm{mm}}{v}=3{,}37\,\mathrm{ns}. \end{aligned}$$
 
 Un protón va de A a B. Gana la misma energía, pero es 1836 veces más pesado: $v=4{,}15\cdot10^4$ m/s, $\sqrt{1836}=42{,}9$ veces más lento, tiempo de vuelo 144 ns.
+::::
 
 ⁠**En resumen:** si una carga recorre en el vacío una tensión, su energía cinética cambia en carga por tensión, independientemente del camino y de la distancia.
 

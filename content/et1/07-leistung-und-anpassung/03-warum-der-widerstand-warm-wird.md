@@ -49,7 +49,11 @@ Dabei ist $\sigma=n\,e\,\mu$ und $\mu=e\,T/(2\,m_\mathrm e)$ ([Teil 2](/wissen/
 Grenze eines Widerstands mit 250 mW. Jeder Widerstandswert darf nur bis zur Hyperbel betrieben werden: 25 $\Omega$ bis 100 mA, 100 $\Omega$ bis 50 mA, 400 $\Omega$ bis 25 mA.
 :::
 
-**Beispiel.** Mit 100 $\Omega$ und 250 mW sind $U_\mathrm{max}=5$ V und $I_\mathrm{max}=50$ mA zulässig. An idealen 9 V entstünden 810 mW, das 3,24-Fache. Nötig wäre $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$. **Grenzfälle:** $R\to\infty$ ergibt $P\to0$. $R\to0$ ergibt an fester Spannung $P\to\infty$. Das verhindert nur der Innenwiderstand der Quelle (Stufe [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5)).
+::::beispiel
+Mit 100 $\Omega$ und 250 mW sind $U_\mathrm{max}=5$ V und $I_\mathrm{max}=50$ mA zulässig. An idealen 9 V entstünden 810 mW, das 3,24-Fache. Nötig wäre $R\ge(9\,\mathrm{V})^2/250\,\mathrm{mW}=324\,\Omega$.
+::::
+
+⁠**Grenzfälle:** $R\to\infty$ ergibt $P\to0$. $R\to0$ ergibt an fester Spannung $P\to\infty$. Das verhindert nur der Innenwiderstand der Quelle (Stufe [5](wohin-die-leistung-einer-quelle-geht.html#stufe-5)).
 
 :::frage Heizdraht und Zuleitung führen denselben Strom. Warum glüht nur der Heizdraht?
 Bei gleichem Strom ist die Wärme proportional zu $R$. Eine Zuleitung mit 10 m$\Omega$ setzt bei 0,5 A nur 2,5 mW um, die Last mit 16 $\Omega$ dagegen 4 W, das 1600-Fache. In Haartrockner und Lötkolben ist die Wärme der Zweck, in der Leitung ist sie Verlust (Stufe [4](leitungsverluste.html#stufe-4)).

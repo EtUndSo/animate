@@ -34,7 +34,11 @@ Im __Ionenkristall__, einem festen Stoff aus regelmäßig angeordneten Ionen, tr
 
 ⁠**So liest man das:** $E_\mathrm B$ aus [(1.2)](die-energiekurve-der-bindung.html#gl-1-2) ist der Gewinn gegenüber getrennten Ionen, die Klammer der Preis für den Tausch. Im Kristall ist jedes Kation von Anionen umgeben und umgekehrt. Gleichnamige Ionen stoßen sich ab, sitzen aber weiter weg, die Anziehung der nächsten Nachbarn überwiegt. Typisch sind 5 bis 10 eV je Ionenpaar. **Gültigkeit:** Grenzfall der vollständigen Übergabe, also große Differenz der Elektronegativität.
 
-**Beispiel.** Für KCl kostet der Tausch $4{,}34\,\mathrm{eV}-3{,}61\,\mathrm{eV}=0{,}73$ eV. Das Ionenpaar gewinnt 4,79 eV (Stufe [1](die-energiekurve-der-bindung.html#stufe-1)), also $E_\mathrm{B,A}=4{,}06$ eV. Im Salzkristall ist $E_\mathrm{Kr}=7{,}17$ eV, das 1,5-fache des Paars, obwohl der Abstand mit 0,315 nm größer ist. Das ergibt $-6{,}44$ eV gegenüber den Atomen. **Grenzfall:** Die Coulomb-Energie deckt den Tausch erst unterhalb von $r_\mathrm c=1{,}44\,\mathrm{eV\,nm}/0{,}73\,\mathrm{eV}=1{,}97$ nm. Trennt man KCl weiter, entstehen deshalb neutrale Atome, keine Ionen.
+::::beispiel
+Für KCl kostet der Tausch $4{,}34\,\mathrm{eV}-3{,}61\,\mathrm{eV}=0{,}73$ eV. Das Ionenpaar gewinnt 4,79 eV (Stufe [1](die-energiekurve-der-bindung.html#stufe-1)), also $E_\mathrm{B,A}=4{,}06$ eV. Im Salzkristall ist $E_\mathrm{Kr}=7{,}17$ eV, das 1,5-fache des Paars, obwohl der Abstand mit 0,315 nm größer ist. Das ergibt $-6{,}44$ eV gegenüber den Atomen.
+::::
+
+⁠**Grenzfall:** Die Coulomb-Energie deckt den Tausch erst unterhalb von $r_\mathrm c=1{,}44\,\mathrm{eV\,nm}/0{,}73\,\mathrm{eV}=1{,}97$ nm. Trennt man KCl weiter, entstehen deshalb neutrale Atome, keine Ionen.
 
 **Eigenschaften.** Ionen mit Edelgashülle sind kugelsymmetrisch, die Bindung ist ungerichtet. Die Ionen packen sich dicht, wie dicht, bestimmt das Verhältnis von Kationen- zu Anionenradius. Weil die Ladungszahlen fest sind, ist es auch das Zahlenverhältnis der Ionen. Solche festen Verhältnisse heißen __stöchiometrisch__, zum Beispiel 1:1 in NaCl, 1:2 in CaF$_2$, 2:3 in Al$_2$O$_3$. Das zweite Elektron des Kaliums käme aus der vollen Argonschale und kostet 31,6 eV, das 7,3-fache des ersten. Die Ionenladung ist zugleich die Valenz aus [Teil 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html).
 

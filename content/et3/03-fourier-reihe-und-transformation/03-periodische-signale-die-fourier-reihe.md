@@ -60,13 +60,16 @@ $$\int_0^Ts_p(t)\mathrm{e}^{-\mathrm{j}2\pi nFt}\mathrm{d} t=\sum_kS_p(k)\int_0^
 Für $k\neq n$ ist das Integral $\frac{\mathrm{e}^{\mathrm{j}2\pi(k-n)FT}-1}{\mathrm{j}2\pi(k-n)F}=0$, weil $\mathrm{e}^{\mathrm{j}2\pi(k-n)}=1$. Da der Integrand die Periode $T$ hat, darf man über jedes Intervall der Länge $T$ integrieren.
 :::
 
-**Beispiel: eine endliche Reihe.** $s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$. Mit den Euler-Formeln liest man die Koeffizienten ab, ohne zu integrieren:
+::::beispiel eine endliche Reihe
+$s_p(t)=1+2\cos(2\pi Ft)+\sin(4\pi Ft)$. Mit den Euler-Formeln liest man die Koeffizienten ab, ohne zu integrieren:
 
 $$2\cos(2\pi Ft)=\mathrm{e}^{\mathrm{j}2\pi Ft}+\mathrm{e}^{-\mathrm{j}2\pi Ft},\qquad\sin(4\pi Ft)=\frac{1}{2\mathrm{j}}\mathrm{e}^{\mathrm{j}4\pi Ft}-\frac{1}{2\mathrm{j}}\mathrm{e}^{-\mathrm{j}4\pi Ft},$$
 
 also $S_p(0)=1$, $S_p(\pm1)=1$, $S_p(2)=-\tfrac{\mathrm{j}}{2}$, $S_p(-2)=\tfrac{\mathrm{j}}{2}$, alle anderen null. Probe: $S_p(-2)=S_p^*(2)$.
+::::
 
-**Beispiel: die Rechteckschwingung.** Für das Rechenmodell (1 für $|t|\le T_1/2$ mit $T_1=T/2$):
+::::beispiel die Rechteckschwingung
+Für das Rechenmodell (1 für $|t|\le T_1/2$ mit $T_1=T/2$):
 
 <span class="anker" id="gl-2-6"></span>
 $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac1T\int_{-T_1/2}^{T_1/2}\mathrm{e}^{-\mathrm{j}2\pi kFt}\mathrm{d} t=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0). \tag{2.6}$$
@@ -76,6 +79,7 @@ Mit $T_1=T/2$: $S_p(0)=0{,}5$, $S_p(\pm1)=1/\pi=0{,}318$, $S_p(\pm2)=0$, $S_p(\p
 :::abbildung et3/k3koeff 1
 Fourier-Koeffizienten der Rechteckschwingung (0/1) für zwei Impulsbreiten. Gestrichelt die Hüllkurve $\frac{T_1}{T}\operatorname{si}(\pi kT_1/T)$. Bei $T_1=T/2$ fehlen die geraden Harmonischen, bei $T_1=T/4$ jede vierte.
 :::
+::::
 
 :::frage Warum kommen in einem periodischen Signal keine Frequenzen zwischen den Harmonischen vor?
 Weil jede Schwingung in der Summe selbst die Periode $T$ haben muss, sonst wäre die Summe nicht periodisch. Eine Schwingung mit $f=1{,}5F$ hat nach $T$ erst anderthalb Umdrehungen gemacht und steht anders als am Anfang. Kein noch so geschicktes Gewicht kann das ausgleichen, denn verschiedene Frequenzen sind orthogonal und können sich nicht gegenseitig aufheben.

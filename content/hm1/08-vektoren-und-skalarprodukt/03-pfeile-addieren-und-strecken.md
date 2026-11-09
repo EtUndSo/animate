@@ -74,7 +74,9 @@ die __Strecke__ von $P$ nach $Q$.
 Links die Gerade durch $(0,2)$ mit Richtung $\vec a$: Jeder Wert von $t$ gibt einen Punkt. Rechts die Strecke von $P=(1,1)$ nach $Q=(5,3)$: Nur $t\in[0,1]$ ist erlaubt.
 :::
 
-**Beispiel.** Wo schneiden sich $g$: $\vec p+t\vec a$ mit $\vec p=(0,2)$ und $h$: $(1,-1)+s\,\vec b$? Gleichsetzen liefert je Komponente eine Gleichung: $3t=1+s$ und $2+t=-1+2s$. Aus der ersten folgt $s=3t-1$, die zweite gibt $t=1$, also $s=2$. Der Schnittpunkt ist $(3,3)$. In $\mathbb{R}^2$ gibt es drei Möglichkeiten: genau einen Schnittpunkt, keinen (die Geraden sind parallel) oder die Geraden sind gleich. In $\mathbb{R}^3$ kommt eine vierte dazu: Die Geraden sind nicht parallel und treffen sich trotzdem nicht. Sie heißen dann __windschief__.
+::::beispiel
+Wo schneiden sich $g$: $\vec p+t\vec a$ mit $\vec p=(0,2)$ und $h$: $(1,-1)+s\,\vec b$? Gleichsetzen liefert je Komponente eine Gleichung: $3t=1+s$ und $2+t=-1+2s$. Aus der ersten folgt $s=3t-1$, die zweite gibt $t=1$, also $s=2$. Der Schnittpunkt ist $(3,3)$. In $\mathbb{R}^2$ gibt es drei Möglichkeiten: genau einen Schnittpunkt, keinen (die Geraden sind parallel) oder die Geraden sind gleich. In $\mathbb{R}^3$ kommt eine vierte dazu: Die Geraden sind nicht parallel und treffen sich trotzdem nicht. Sie heißen dann __windschief__.
+::::
 
 :::aufgabe Aufgabe 1 ★★ Pfeile, Strecken, Lagen
 <span class="anker" id="aufg-1"></span>

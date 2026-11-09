@@ -41,7 +41,8 @@ $$\frac UI=R\parallel R_\mathrm{iV},\qquad f=-\frac{R}{R+R_\mathrm{iV}}. \tag{5.
 电流正确：$U/I=(I_RR+I_RR_\mathrm{iA})/I_R=R+R_\mathrm{iA}$。电压正确：$I/U=(I_R+I_\mathrm{iV})/U_R=1/R+1/R_\mathrm{iV}$，所以 $U/I=R\parallel R_\mathrm{iV}$，$f=(R\parallel R_\mathrm{iV})/R-1=-R/(R+R_\mathrm{iV})$。
 :::
 
-**例。** 参考模型在两种电路中的结果：
+::::beispiel
+参考模型在两种电路中的结果：
 
 |  | 读数 $U$ | 读数 $I$ | $U/I$ 及误差 |
 |---|---|---|---|
@@ -49,6 +50,7 @@ $$\frac UI=R\parallel R_\mathrm{iV},\qquad f=-\frac{R}{R+R_\mathrm{iV}}. \tag{5.
 | 电压正确 | 8.950 V | 5.017 mA（流过 $R$：4.972 mA） | 1783.9 $\Omega$， $-0.89\,\%$ |
 
 计算修正在两种情况下都回到 1800 $\Omega$。
+::::
 
 **用哪种电路？** 图 [7](#abb-7) 给出了两种误差随 $R$ 的变化。小电阻用电压正确的电路测量，因为其电流远大于电压表的电流。大电阻用电流正确的电路测量，因为其电压远大于电流表上的压降。两条曲线在 1.4 k$\Omega$ 附近相交（练习 [6](#aufg-6)）。在 1.8 k$\Omega$ 时，电流正确的电路略好。
 

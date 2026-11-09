@@ -64,7 +64,9 @@ $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$
 
 $A$ und $d$ kürzen sich: Die Selbstentladung hängt nur vom Stoff ab, nicht von der Baugröße.
 
-**Beispiel.** Kunststofffolie mit $\rho\approx10^{16}\,\Omega\,$m und $\varepsilon_\mathrm{r}=2{,}2$ ergibt rund zwei Tage. Bei einem 100-µF-Elko an 9 V nennen Datenblätter höchstens rund 9 µA Leckstrom, also $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$. Das ist 100-mal mehr als $R$ im RC-Kreis, der Leckstrom beträgt 1 % von 0,9 mA und entfällt in den folgenden Stufen.
+::::beispiel
+Kunststofffolie mit $\rho\approx10^{16}\,\Omega\,$m und $\varepsilon_\mathrm{r}=2{,}2$ ergibt rund zwei Tage. Bei einem 100-µF-Elko an 9 V nennen Datenblätter höchstens rund 9 µA Leckstrom, also $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$. Das ist 100-mal mehr als $R$ im RC-Kreis, der Leckstrom beträgt 1 % von 0,9 mA und entfällt in den folgenden Stufen.
+::::
 
 ⁠**Grenzfall:** Für $\rho\to\infty$ wächst $R_\mathrm{I}\,C$ unbegrenzt, das ist der ideale Kondensator ohne Selbstentladung.
 

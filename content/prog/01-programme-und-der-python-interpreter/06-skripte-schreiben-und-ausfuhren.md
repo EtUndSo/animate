@@ -28,8 +28,7 @@ Ein Programm in einer Datei zu speichern, verlangt ein Programm, mit dem man rei
 Ein __Editor__ ist ein Programm, mit dem man reine Textdateien schreibt und speichert. Ein Editor für Programmierer hilft zusätzlich beim Schreiben von Quelltext: Er färbt ihn nach seiner Syntax ein, markiert Verstöße gegen die Syntax schon beim Tippen und kann ein Programm auf Knopfdruck ausführen.
 :::
 
-**Beispiel: zwei Editoren für dieses Kapitel.**
-
+::::beispiel zwei Editoren für dieses Kapitel
 <ul>
 
 <li>
@@ -47,6 +46,7 @@ Ein __Editor__ ist ein Programm, mit dem man reine Textdateien schreibt und spei
 </ul>
 
 Lege für die Programme dieses Kapitels einen Ordner `python-kurs` in deinem persönlichen Ordner an und speichere alle Dateien dort. In VS Code öffnest du diesen Ordner mit „File“, „Open Folder“ (mit deutschem Sprachpaket „Datei“, „Ordner öffnen“); neue Dateien legst du dann darin an.
+::::
 
 Unter Windows blendet der Explorer Dateiendungen oft aus. Schalte sie ein („Anzeigen“, „Einblenden“, „Dateinamenerweiterungen“), damit du siehst, ob eine Datei wirklich `hallo.py` heißt und nicht `hallo.py.txt`.
 
@@ -70,7 +70,8 @@ Ein __Skript__ ist eine Textdatei mit Python-Quelltext, deren Name auf `.py` end
 
 **Ordner vorbereiten.** Zwei Befehle genügen, und sie heißen unter Windows und Linux gleich: `mkdir python-kurs` legt den Ordner `python-kurs` an, `cd python-kurs` wechselt im Terminal hinein. Ein neu geöffnetes Terminal steht im persönlichen Ordner; dort wird der Ordner angelegt. Hast du ihn schon im Editor angelegt, entfällt `mkdir`. Ausführlich: Linux 2.
 
-**Beispiel.** Schreibe im Editor diese drei Zeilen und speichere sie als `hallo.py` im Ordner `python-kurs`:
+::::beispiel
+Schreibe im Editor diese drei Zeilen und speichere sie als `hallo.py` im Ordner `python-kurs`:
 
 ```python hallo.py
 print("Hallo, Welt!")
@@ -97,6 +98,7 @@ Hallo, Welt!
 ```
 
 Python übersetzt die Datei, führt die drei Zeilen der Reihe nach aus und endet; danach steht wieder die Eingabeaufforderung des Terminals da. Die zweite Zeile gibt den Wert von `2 + 3` aus, die dritte die Zeichenkette `"2 + 3"` wörtlich. In VS Code führt der Knopf mit dem Dreieck oben rechts („Run Python File“) denselben Befehl im Terminal unten im Fenster aus.
+::::
 
 **Im Skript zeigt nur `print` etwas an.** Den wichtigsten Unterschied zum interaktiven Modus zeigt dieses Skript:
 
@@ -138,7 +140,8 @@ Ein Skript liest man öfter, als man es schreibt, und nach ein paar Wochen weiß
 Ein __Kommentar__ beginnt mit dem Zeichen `#` und reicht bis zum Ende der Zeile. Python überliest ihn vollständig.
 :::
 
-**Beispiel: ein LED-Vorwiderstand.** Eine rote Leuchtdiode an einer 9-V-Batterie braucht etwa 2 V und soll 20 mA bekommen. Am Vorwiderstand liegen dann $9\,\mathrm V-2\,\mathrm V=7\,\mathrm V$:
+::::beispiel ein LED-Vorwiderstand
+Eine rote Leuchtdiode an einer 9-V-Batterie braucht etwa 2 V und soll 20 mA bekommen. Am Vorwiderstand liegen dann $9\,\mathrm V-2\,\mathrm V=7\,\mathrm V$:
 
 ```python led.py
 # Vorwiderstand einer roten LED an einer 9-V-Batterie
@@ -155,6 +158,7 @@ Leistung im Widerstand in W: 0.14
 ```
 
 Unter Windows (`py led.py`) erscheint dieselbe Ausgabe. Die ersten drei Zeilen sind ganz Kommentar. In den letzten beiden steht der Kommentar hinter der Anweisung: Python führt den Aufruf von `print` aus und überliest den Rest der Zeile ab `#`.
+::::
 
 Gute Kommentare sagen, was eine Zahl bedeutet und warum gerechnet wird, nicht was ohnehin dasteht. Im Beispiel nennen sie die Annahmen und die Einheiten, denn die kennt Python nicht. Man kann mit einem `#` am Zeilenanfang auch eine Zeile vorübergehend abschalten, ohne sie zu löschen.
 

@@ -51,7 +51,8 @@ Die rechte Seite ist $|a_{\tilde N_0}|$ mal einer geometrischen Reihe mit $q<1$,
 (ii) Sei $\alpha>1$. Wähle $\varepsilon>0$ so klein, dass $\beta:=\alpha-\varepsilon>1$ ist. Für $n\ge\tilde N_0$ gilt $\bigl|\frac{a_{n+1}}{a_n}\bigr|\ge\beta$, also $|a_n|\ge\beta^{n-\tilde N_0}|a_{\tilde N_0}|\to\infty$, denn $a_{\tilde N_0}\ne0$. Die Glieder sind keine Nullfolge, die Reihe divergiert.
 :::
 
-**Beispiel: die Exponentialreihe.** Für festes $x\ne0$ sei $a_n=\frac{x^n}{n!}$, $n\ge0$. Dann ist
+::::beispiel die Exponentialreihe
+Für festes $x\ne0$ sei $a_n=\frac{x^n}{n!}$, $n\ge0$. Dann ist
 
 $$\Bigl|\frac{a_{n+1}}{a_n}\Bigr|=\frac{|x|^{n+1}}{(n+1)!}\cdot\frac{n!}{|x|^n}=\frac{|x|}{n+1}\to0.$$
 
@@ -60,6 +61,7 @@ Also ist $\alpha=0$, die __Exponentialreihe__ $\sum_{n=0}^\infty\frac{x^n}{n!}$ 
 :::abbildung hm1/k6quotient 6
 Die Glieder $3^n/n!$ auf logarithmischer Achse. Eine geometrische Folge ist dort eine Gerade, ihre Steigung ist $\log q$. Ab $n_0=5$ liegen die Glieder unter der Geraden mit $q=\frac12$: Das ist die Majorante aus dem Beweis.
 :::
+::::
 
 :::satz Satz 6.2 (Wurzelkriterium)
 <span class="anker" id="satz-6-2"></span>
@@ -93,7 +95,11 @@ Für $\alpha=1$ erhält man wieder keine Aussage.
 (ii) Für $\alpha>1$ ist $\sqrt[n]{|a_n|}>1$ ab einem Index, also $|a_n|>1$. Die Glieder sind keine Nullfolge.
 :::
 
-**Beispiel.** Für $a_n=\frac{3+2(-1)^n}{2^n}$ lauten die Glieder $\frac12;\ \frac54;\ \frac18;\ \frac5{16};\ \dots$ Der Quotient pendelt zwischen $\frac52$ und $\frac1{10}$ und hat keinen Grenzwert. Das Quotientenkriterium ist nicht anwendbar. Die Wurzel dagegen ist $\frac12\sqrt[n]{3+2(-1)^n}$ mit $1\le\sqrt[n]{3+2(-1)^n}\le\sqrt[n]5\to1$. Das Sandwich-Lemma gibt $\alpha=\frac12$, die Reihe ist absolut konvergent. Mit den Rechenregeln ist ihr Wert $3\cdot1+2\cdot(-\frac13)=\frac73$. **Faustregel:** Bei Fakultäten kürzt der Quotient, bei Potenzen $(\dots)^n$ beseitigt die Wurzel den Exponenten.
+::::beispiel
+Für $a_n=\frac{3+2(-1)^n}{2^n}$ lauten die Glieder $\frac12;\ \frac54;\ \frac18;\ \frac5{16};\ \dots$ Der Quotient pendelt zwischen $\frac52$ und $\frac1{10}$ und hat keinen Grenzwert. Das Quotientenkriterium ist nicht anwendbar. Die Wurzel dagegen ist $\frac12\sqrt[n]{3+2(-1)^n}$ mit $1\le\sqrt[n]{3+2(-1)^n}\le\sqrt[n]5\to1$. Das Sandwich-Lemma gibt $\alpha=\frac12$, die Reihe ist absolut konvergent. Mit den Rechenregeln ist ihr Wert $3\cdot1+2\cdot(-\frac13)=\frac73$.
+::::
+
+⁠**Faustregel:** Bei Fakultäten kürzt der Quotient, bei Potenzen $(\dots)^n$ beseitigt die Wurzel den Exponenten.
 
 :::zusatz Wenn der Grenzwert nicht existiert
 Mit den Hüllen aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) setzt man $\limsup c_n:=\lim_{n\to\infty}\sup\{c_m:m\ge n\}$ und entsprechend $\liminf c_n$ mit dem Infimum. Für absolute Konvergenz genügt $\limsup\bigl|\frac{a_{n+1}}{a_n}\bigr|<1$ beziehungsweise $\limsup\sqrt[n]{|a_n|}<1$, die Beweise bleiben gleich. Für Divergenz genügt $\liminf\bigl|\frac{a_{n+1}}{a_n}\bigr|>1$ beziehungsweise $\limsup\sqrt[n]{|a_n|}>1$: Im zweiten Fall ist $|a_n|>1$ für unendlich viele $n$, das reicht schon gegen eine Nullfolge.

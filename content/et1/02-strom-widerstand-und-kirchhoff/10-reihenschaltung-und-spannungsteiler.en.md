@@ -36,7 +36,11 @@ $$\frac{U_2}{U}=\frac{R_2}{R_1+R_2},\qquad\frac{U_1}{U_2}=\frac{R_1}{R_2}. \tag{
 The mesh rule gives $U=\sum U_i$, Ohm's law gives $U_i=R_i\,I$ with the same $I$. So $U=(R_1+\dots+R_N)\,I$. In the quotient of $U_\nu=R_\nu\,I$ and $U$, $I$ cancels.
 :::
 
-**Example.** The chain has $R_\mathrm{tot}=3\,\mathrm{k\Omega}$, so $I=3$ mA, $U_1=6$ V and $U_2=3$ V (Fig. [10](#abb-10) left). From [(9.3)](#gl-9-3): $U_2=9\,\mathrm{V}\cdot1/3=3$ V. **Limiting cases:** $R_2\to0$ gives $U_2\to0$: a short circuit carries no voltage. $R_2\to\infty$ gives $U_2\to U$: an open point carries the entire voltage. $R_1=R_2$ halves $U$.
+::::beispiel
+The chain has $R_\mathrm{tot}=3\,\mathrm{k\Omega}$, so $I=3$ mA, $U_1=6$ V and $U_2=3$ V (Fig. [10](#abb-10) left). From [(9.3)](#gl-9-3): $U_2=9\,\mathrm{V}\cdot1/3=3$ V.
+::::
+
+⁠**Limiting cases:** $R_2\to0$ gives $U_2\to0$: a short circuit carries no voltage. $R_2\to\infty$ gives $U_2\to U$: an open point carries the entire voltage. $R_1=R_2$ halves $U$.
 
 :::abbildung et1/k2teiler 10
 Left: the voltage divider of the reference model. Center: chain of a 3-bit converter at $U_\mathrm{ref}=3.2$ V. The end pieces $R/2$ shift all taps by half a step. Right: output versus the number $Z$. The staircase lies centered around the dashed ideal straight line; the error is at most half a step.

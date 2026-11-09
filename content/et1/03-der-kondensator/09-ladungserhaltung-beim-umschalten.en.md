@@ -30,12 +30,14 @@ $$Q_\mathrm{tot}=\sum_iC_iU_i=\text{const}. \tag{8.1}$$
 Position 1: $C_1$ charges to 9 V, $C_2$ is empty. Position 2: The dashed island contains the upper plates of both capacitors. The 900 µC distribute themselves until both voltages are equal.
 :::
 
-**Example.** In Fig. [8](#abb-8), $C_1$ carries the charge $C_1U_0=900\,\mu\text{C}$ in position 1, and $C_2$ is empty. The switch moves to position 2. Both upper plates now hang on one wire, so after the equalization the same voltage $U$ applies. From [(8.1)](#gl-8-1) it follows that
+::::beispiel
+In Fig. [8](#abb-8), $C_1$ carries the charge $C_1U_0=900\,\mu\text{C}$ in position 1, and $C_2$ is empty. The switch moves to position 2. Both upper plates now hang on one wire, so after the equalization the same voltage $U$ applies. From [(8.1)](#gl-8-1) it follows that
 
 <span class="anker" id="gl-8-2"></span>
 $$C_1U+C_2U=C_1U_0\quad\Longrightarrow\quad U=U_0\,\frac{C_1}{C_1+C_2}=9\,\mathrm{V}\cdot\frac{100}{150}=6\,\mathrm{V}. \tag{8.2}$$
 
 Afterward $C_1$ still carries 600 µC, and $C_2$ has received 300 µC.
+::::
 
 **The energy is not conserved.** Before, $\frac12C_1U_0^2=4.05$ mJ is stored, afterward $\frac12(C_1+C_2)U^2=2.70$ mJ. Missing are 1.35 mJ, one third. The equalizing current heats the wires and the switch. The loss does not depend on their resistance: a smaller resistance gives a larger current for a shorter time, and the two cancel exactly. In general, in the equalization of two voltages $U_1$ and $U_2$, the loss is:
 

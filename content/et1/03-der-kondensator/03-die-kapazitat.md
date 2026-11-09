@@ -30,7 +30,9 @@ $$C=\frac{Q}{U},\qquad Q=C\,U,\qquad[C]=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm 
 Links: Doppelte Ladung ergibt doppelt so dichte Feldlinien und damit die doppelte Spannung. Rechts: Die Ladung wächst proportional zur Spannung, die Steigung der Geraden ist die Kapazität. Die Punkte gehören zu 9 V.
 :::
 
-**Beispiel.** Das Plattenpaar hat $C=29{,}5$ pF (Stufe [4](plattenkondensator-und-dielektrikum.html#stufe-4)). Bei 9 V trägt es $Q=29{,}5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC, das sind $1{,}66\cdot10^{9}$ Elektronen. Eine 1 mm dicke Kupferplatte dieser Fläche enthält $8{,}5\cdot10^{23}$ freie Elektronen. Es wandert also nur eines von $5\cdot10^{14}$, und diese sitzen auf der Innenseite der Platte. Das Metall bleibt praktisch unverändert. Der Kondensator des RC-Kreises trägt bei 9 V $Q=900\,\mu\text{C}$, 3,4 Millionen Mal mehr.
+::::beispiel
+Das Plattenpaar hat $C=29{,}5$ pF (Stufe [4](plattenkondensator-und-dielektrikum.html#stufe-4)). Bei 9 V trägt es $Q=29{,}5\,\mathrm{pF}\cdot9\,\mathrm{V}=266$ pC, das sind $1{,}66\cdot10^{9}$ Elektronen. Eine 1 mm dicke Kupferplatte dieser Fläche enthält $8{,}5\cdot10^{23}$ freie Elektronen. Es wandert also nur eines von $5\cdot10^{14}$, und diese sitzen auf der Innenseite der Platte. Das Metall bleibt praktisch unverändert. Der Kondensator des RC-Kreises trägt bei 9 V $Q=900\,\mu\text{C}$, 3,4 Millionen Mal mehr.
+::::
 
 ⁠**Grenzfall:** Für $U=0$ ist $Q=0$: Ohne Spannung ist nichts getrennt. Bei gleicher Ladung zeigt der kleinere Kondensator die größere Spannung.
 

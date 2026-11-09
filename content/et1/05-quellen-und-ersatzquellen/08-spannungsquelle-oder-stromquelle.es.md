@@ -38,7 +38,11 @@ Esto debe cumplirse para toda corriente. Por tanto, los términos sin $I_\mathrm
 La misma batería en el mismo punto de trabajo. A la izquierda circulan 0,5 A por todo. A la derecha, la corriente de fuente de 4,5 A se reparte en 4 A por la conductancia y 0,5 A hacia la carga. En los terminales coinciden la tensión y la corriente.
 :::
 
-**Ejemplo.** La batería de 9 V y 2 $\Omega$ se convierte en $I_\mathrm{q}=4{,}5$ A y $G_\mathrm{q}=0{,}5$ S. En el punto de trabajo con 8 V, la conductancia toma $0{,}5\,\mathrm{S}\cdot8\,\mathrm{V}=4$ A, y para la carga quedan 0,5 A (fig. [7](#abb-7)). **Caso límite:** Para $R_\mathrm{q}\to0$, $I_\mathrm{q}\to\infty$. Una fuente de tensión ideal no tiene forma de fuente de corriente, y una fuente de corriente ideal no tiene forma de fuente de tensión.
+::::beispiel
+La batería de 9 V y 2 $\Omega$ se convierte en $I_\mathrm{q}=4{,}5$ A y $G_\mathrm{q}=0{,}5$ S. En el punto de trabajo con 8 V, la conductancia toma $0{,}5\,\mathrm{S}\cdot8\,\mathrm{V}=4$ A, y para la carga quedan 0,5 A (fig. [7](#abb-7)).
+::::
+
+⁠**Caso límite:** Para $R_\mathrm{q}\to0$, $I_\mathrm{q}\to\infty$. Una fuente de tensión ideal no tiene forma de fuente de corriente, y una fuente de corriente ideal no tiene forma de fuente de tensión.
 
 **¿Qué forma se elige?** Para calcular, las dos son igual de buenas. Se toma la forma que muestra mejor el comportamiento: las fuentes de tensión tienen baja resistencia (idealmente cero), las fuentes de corriente tienen alta resistencia (idealmente infinita). Si $R_\mathrm{q}$ es pequeña frente a la carga, la tensión apenas cambia y se elige la forma de fuente de tensión. Si $R_\mathrm{q}$ es grande frente a la carga, la corriente apenas cambia y se elige la forma de fuente de corriente.
 

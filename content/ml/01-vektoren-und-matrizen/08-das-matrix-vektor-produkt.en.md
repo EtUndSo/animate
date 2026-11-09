@@ -32,7 +32,8 @@ $$(\mathbf{A}\mathbf{x})_i=\sum_{j=1}^{n}a_{ij}\,x_j=a_{i1}x_1+a_{i2}x_2+\dots+a
 
 The product exists only if $\mathbf{x}$ has as many components as $\mathbf{A}$ has columns. The result has as many components as $\mathbf{A}$ has rows. From the rules for sums it follows that $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ and $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$.
 
-⁠**Worked example:** For
+::::beispiel [Worked example]
+For
 
 $$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{and}\quad \mathbf{x}=\begin{pmatrix}2\\1\end{pmatrix}\qquad\text{we have}\qquad \mathbf{A}\mathbf{x}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
@@ -41,6 +42,7 @@ Each component is a sum according to [(7.1)](#gl-7-1) (Fig. [28](#abb-28)). A $
 :::abbildung ml/k1rmv 28
 The matrix–vector product component by component: for each row $i$, the entries $a_{ij}$ are multiplied by the matching $x_j$ and added.
 :::
+::::
 
 ⁠**In short:** $\mathbf{A}\mathbf{x}$ is the vector whose component $i$ is the sum $\sum_ja_{ij}x_j$; an $m\times n$ matrix turns a vector in $\mathbb{R}^n$ into a vector in $\mathbb{R}^m$.
 
@@ -61,7 +63,8 @@ $$\mathbf{X}\mathbf{w}=\begin{pmatrix}\mathbf{x}_1^{\top}\mathbf{w}\\\vdots\\\ma
 
 So the matrix–vector product applies the weighted sum with the weights $\mathbf{w}$ to all examples at once and returns the vector of all predictions. In the picture of comparison with a pattern: each example is compared with the same pattern $\mathbf{w}$.
 
-⁠**Worked example:** For the apartment dataset and $\mathbf{w}=(3,\,10,\,-4)^{\top}$,
+::::beispiel [Worked example]
+For the apartment dataset and $\mathbf{w}=(3,\,10,\,-4)^{\top}$,
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
 
@@ -70,6 +73,7 @@ the real estate agent's four predictions in thousand euros. Each component is th
 :::abbildung ml/k1rzeilen 29
 The row view for the real estate agent: each apartment, that is, each row of $\mathbf{X}$, times the weights $\mathbf{w}$.
 :::
+::::
 
 ⁠**In short:** In the row view, $\mathbf{A}\mathbf{x}$ is a list of dot products, one per row; $\mathbf{X}\mathbf{w}$ is the list of predictions for all examples.
 
@@ -102,15 +106,19 @@ The matrix–vector product is the linear combination of the columns of $\mathbf
 Component $i$ of the right-hand side is $\sum_jx_j\,(\mathbf{a}_j)_i=\sum_jx_j\,a_{ij}$, because the $i$th component of the column $\mathbf{a}_j$ is the entry $a_{ij}$. This is exactly component $i$ of $\mathbf{A}\mathbf{x}$ according to [(7.1)](#gl-7-1).
 :::
 
-⁠**Worked example 1:** For the product $\mathbf{A}\mathbf{x}$ from Subsection [7.1](#stufe-7-1),
+::::beispiel [Worked example 1]
+For the product $\mathbf{A}\mathbf{x}$ from Subsection [7.1](#stufe-7-1),
 
 $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\begin{pmatrix}1\\0\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\\1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
+::::
 
-⁠**Worked example 2:** The real estate agent's predictions are $3$ times the column of floor areas plus $10$ times the column of rooms plus $(-4)$ times the column of distances (Fig. [31](#abb-31)). As in Subsection [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1), the columns of $\mathbf{X}$ are called $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. In this form you can see which part of each prediction comes from which feature: the first term contains the contributions of the floor area, the second those of the rooms, the third those of the distance.
+::::beispiel [Worked example 2]
+The real estate agent's predictions are $3$ times the column of floor areas plus $10$ times the column of rooms plus $(-4)$ times the column of distances (Fig. [31](#abb-31)). As in Subsection [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1), the columns of $\mathbf{X}$ are called $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. In this form you can see which part of each prediction comes from which feature: the first term contains the contributions of the floor area, the second those of the rooms, the third those of the distance.
 
 :::abbildung ml/k1rspalten 31
 The column view for the real estate agent: each column $\mathbf{a}_j$ of $\mathbf{X}$ is multiplied by its weight $w_j$, and then the three vectors are added.
 :::
+::::
 
 ⁠**In short:** In the column view, $\mathbf{A}\mathbf{x}$ is a linear combination of the columns of $\mathbf{A}$; the components of $\mathbf{x}$ say how much of each column is taken.
 
@@ -130,9 +138,13 @@ If you let $\mathbf{x}$ run through all vectors of $\mathbb{R}^n$, then by the c
 The __column space__ of a matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$ is the set of all vectors $\mathbf{A}\mathbf{x}$ with $\mathbf{x}\in\mathbb{R}^n$, that is, the set of all linear combinations of the columns of $\mathbf{A}$.
 :::
 
-⁠**Worked example 1:** The matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the columns $(1,\,2)^{\top}$ and $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Every linear combination is a multiple of $(1,\,2)^{\top}$. So the column space is only the line through the origin in the direction of $(1,\,2)^{\top}$, even though the results have two components. The vector $(3,\,6)^{\top}$ lies in it; the vector $(1,\,1)^{\top}$ does not.
+::::beispiel [Worked example 1]
+The matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ has the columns $(1,\,2)^{\top}$ and $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Every linear combination is a multiple of $(1,\,2)^{\top}$. So the column space is only the line through the origin in the direction of $(1,\,2)^{\top}$, even though the results have two components. The vector $(3,\,6)^{\top}$ lies in it; the vector $(1,\,1)^{\top}$ does not.
+::::
 
-⁠**Worked example 2:** The matrix $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ gives $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Its column space consists of the vectors of $\mathbb{R}^3$ whose third component is the sum of the first two; this is a plane in space. The vector $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ lies in it, but $(1,\,1,\,1)^{\top}$ does not, because $1+1\ne1$.
+::::beispiel [Worked example 2]
+The matrix $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ gives $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Its column space consists of the vectors of $\mathbb{R}^3$ whose third component is the sum of the first two; this is a plane in space. The vector $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ lies in it, but $(1,\,1,\,1)^{\top}$ does not, because $1+1\ne1$.
+::::
 
 For a data matrix this means: the predictions $\mathbf{X}\mathbf{w}$ always lie in the column space of $\mathbf{X}$, no matter which weights you choose. With these features, only very specific lists of predictions can be produced at all.
 

@@ -39,7 +39,8 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 La ley de las mallas dice $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multiplicada por $I$ da $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$. En [(5.2)](#gl-5-2) se simplifica $I$, porque ambas resistencias llevan la misma corriente. El divisor de tensión ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) da $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$.
 :::
 
-**Ejemplo.** La batería con cuatro cargas:
+::::beispiel
+La batería con cuatro cargas:
 
 | $R_\mathrm{L}$ en $\Omega$ | $I$ en A | $U_\mathrm{L}$ en V | $P_\mathrm{L}$ en W | $P_\mathrm{v}$ en W | $P_\mathrm{q}$ en W | $\eta$ |
 |---|---|---|---|---|---|---|
@@ -47,6 +48,7 @@ La ley de las mallas dice $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multiplicad
 | 2 | 2,25 | 4,5 | 10,125 | 10,125 | 20,25 | 50 % |
 | 8 | 0,9 | 7,2 | 6,48 | 1,62 | 8,1 | 80 % |
 | 16 | 0,5 | 8 | 4 | 0,5 | 4,5 | 88,9 % |
+::::
 
 ⁠**Casos límite:** En cortocircuito, $R_\mathrm{L}=0$, $\eta=0$: la carga se queda fría, y toda la potencia $P_\mathrm{q}=40{,}5$ W calienta $R_\mathrm{i}$. En circuito abierto, $R_\mathrm{L}\to\infty$, $\eta\to1$, pero $I\to0$ y, con ello, $P_\mathrm{L}\to0$.
 

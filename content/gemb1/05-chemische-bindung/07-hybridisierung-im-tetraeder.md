@@ -49,7 +49,11 @@ $$\int\phi_\mathrm{h1}\phi_\mathrm{h2}\,\mathrm{d} V=\frac{1+w^2\,\boldsymbol d_
 Orthogonal müssen sie sein, damit verschiedene Zustände entstehen. In [(5.1)](#gl-5-1) ist $w^2=3$ mit den Richtungen $\frac1{\sqrt3}(1,1,1)$, $\frac1{\sqrt3}(1,-1,-1)$ usw. Beim Quadrieren und Summieren von [(5.1)](#gl-5-1) tritt jeder gemischte Term zweimal mit Plus und zweimal mit Minus auf, es bleibt $\sum_i\phi_{\mathrm hi}^2=\phi_\mathrm s^2+\phi_x^2+\phi_y^2+\phi_z^2$.
 :::
 
-**Beispiel.** Das Anheben kostet in Kohlenstoff 4,2 eV, eine C–H-Bindung bringt im Mittel 4,3 eV, die zwei zusätzlichen also 8,6 eV. Die vier Außenelektronen verteilen sich nach der Hundschen Regel einzeln auf die Hybride, jedes bildet mit einem H-Atom eine $\sigma$-Bindung. In Diamant, Silizium und Germanium verbinden sich die Atome untereinander: Jedes ist tetraedrisch von vier Nachbarn umgeben und hat so acht Elektronen um sich. **Grenzfall:** Ohne s-Anteil, $w\to\infty$, wird $\beta\to90^\circ$: Reine p-Orbitale stehen rechtwinklig.
+::::beispiel
+Das Anheben kostet in Kohlenstoff 4,2 eV, eine C–H-Bindung bringt im Mittel 4,3 eV, die zwei zusätzlichen also 8,6 eV. Die vier Außenelektronen verteilen sich nach der Hundschen Regel einzeln auf die Hybride, jedes bildet mit einem H-Atom eine $\sigma$-Bindung. In Diamant, Silizium und Germanium verbinden sich die Atome untereinander: Jedes ist tetraedrisch von vier Nachbarn umgeben und hat so acht Elektronen um sich.
+::::
+
+⁠**Grenzfall:** Ohne s-Anteil, $w\to\infty$, wird $\beta\to90^\circ$: Reine p-Orbitale stehen rechtwinklig.
 
 **Stickstoff und Sauerstoff.** Stickstoff hat fünf Außenelektronen. Ein Hybrid trägt ein Paar, das __freie Elektronenpaar__, das keine weitere Bindung eingeht, drei bilden $\sigma$-Bindungen. NH$_3$ ist eine Pyramide mit dreieckiger Grundfläche, das freie Paar zeigt in die vierte Ecke. In der __Lewis-Schreibweise__ steht ein Strich für ein Elektronenpaar, ein Punkt für ein Einzelelektron. Formal gilt $|\dot{\mathrm N}\!\cdot+\,3\,\mathrm H\!\cdot\;\to\;|\mathrm{NH}_3$. So läuft die Bildung aber nicht ab, denn freie Atome gibt es nur unter hohem Energieaufwand, etwa in einem Plasma (ionisiertes Gas). Sauerstoff hat sechs Außenelektronen, also zwei freie Paare und zwei $\sigma$-Bindungen. Freie Paare beanspruchen mehr Raum als Bindungen, darum sinkt der Winkel auf $107^\circ$ in NH$_3$ und $104{,}5^\circ$ in H$_2$O. Ohne Hybridisierung erwartete man $90^\circ$.
 

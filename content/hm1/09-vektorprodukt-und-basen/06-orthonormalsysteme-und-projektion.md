@@ -96,7 +96,9 @@ Für $\vec w_0\in U$ sind gleichwertig: (1) $\|\vec p-\vec w_0\|$ ist minimal un
 (b): (1)$\iff$(2) sagt Satz [4.2](#satz-4-2), (2)$\Rightarrow$(3) sagt (a). (3)$\Rightarrow$(2): Schreibe $\vec w_0=\sum_it_i\vec v_i$. Aus (3) folgt $\langle\vec p,\vec v_j\rangle=\langle\vec w_0,\vec v_j\rangle=t_j$.
 :::
 
-**Beispiel.** Sei $\vec p=\vec x=(5,1,-1)$ und $U=\operatorname{span}\{\vec f_1,\vec f_2\}$. Dann ist $\langle\vec x,\vec f_1\rangle=3$, $\langle\vec x,\vec f_2\rangle=-3$, also $\vec q=3\vec f_1-3\vec f_2=(3,0,-3)$. Der Rest $(2,1,2)$ hat die Länge 3 und steht senkrecht auf $\vec f_1,\vec f_2$. Probe mit [(4.3)](#gl-4-3) für $t=(2,-1)$: $\|\vec x-2\vec f_1+\vec f_2\|^2=14=27-18+1+4$.
+::::beispiel
+Sei $\vec p=\vec x=(5,1,-1)$ und $U=\operatorname{span}\{\vec f_1,\vec f_2\}$. Dann ist $\langle\vec x,\vec f_1\rangle=3$, $\langle\vec x,\vec f_2\rangle=-3$, also $\vec q=3\vec f_1-3\vec f_2=(3,0,-3)$. Der Rest $(2,1,2)$ hat die Länge 3 und steht senkrecht auf $\vec f_1,\vec f_2$. Probe mit [(4.3)](#gl-4-3) für $t=(2,-1)$: $\|\vec x-2\vec f_1+\vec f_2\|^2=14=27-18+1+4$.
+::::
 
 :::abbildung hm1/k9proj 4
 Die Ebene $U$ durch $O$ wird von $\vec f_1,\vec f_2$ aufgespannt. Der nächste Punkt zu $P=(5,1,-1)$ ist $Q=(3,0,-3)=3\vec f_1-3\vec f_2$. Der Rest $\vec p-\vec q$ steht senkrecht auf $U$ und hat die Länge 3.

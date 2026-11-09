@@ -52,7 +52,9 @@ $$R_\mathrm{AB}=2\,R_\mathrm{A,axis}. \tag{2.1}$$
 七个相同的电阻，每个 14 $\Omega$。左：A 上加 16 V 时带有各点电位的网络。对称轴经过 L 和 E、F 之间电阻的中点，因此该电阻分成两个 7 $\Omega$。右：半电路。
 :::
 
-**例。** 在图 [2](#abb-2) 中，镜像使 A 与 B、E 与 F 互换，规则 2 适用。在半电路中，E 与对称轴之间是 $14\,\Omega\parallel7\,\Omega=4.67\,\Omega$。加上从 A 到 E 的一段，共 18.67 $\Omega$。与左支路并联得 $R_\mathrm{A,axis}=14\,\Omega\parallel18.67\,\Omega=8\,\Omega$，所以 $R_\mathrm{AB}=16\,\Omega$，又是参考模型中的负载。**检验**（用图中的电位）：从 A 到 L 的电流为 $8\,\mathrm{V}/14\,\Omega=0.571$ A，从 A 到 E 的电流为 $6\,\mathrm{V}/14\,\Omega=0.429$ A。两者之和为 1 A，正如 $16\,\mathrm{V}/16\,\Omega$ 所要求的。
+::::beispiel
+在图 [2](#abb-2) 中，镜像使 A 与 B、E 与 F 互换，规则 2 适用。在半电路中，E 与对称轴之间是 $14\,\Omega\parallel7\,\Omega=4.67\,\Omega$。加上从 A 到 E 的一段，共 18.67 $\Omega$。与左支路并联得 $R_\mathrm{A,axis}=14\,\Omega\parallel18.67\,\Omega=8\,\Omega$，所以 $R_\mathrm{AB}=16\,\Omega$，又是参考模型中的负载。**检验**（用图中的电位）：从 A 到 L 的电流为 $8\,\mathrm{V}/14\,\Omega=0.571$ A，从 A 到 E 的电流为 $6\,\mathrm{V}/14\,\Omega=0.429$ A。两者之和为 1 A，正如 $16\,\mathrm{V}/16\,\Omega$ 所要求的。
+::::
 
 :::abbildung et1/k5wuerfel 3
 由十二个相同电阻组成的立方体，电压加在体对角线上。绕这条对角线旋转时，A 的三个相邻顶点彼此重合，B 的三个相邻顶点也是如此。连接之后得到由三个组构成的链。

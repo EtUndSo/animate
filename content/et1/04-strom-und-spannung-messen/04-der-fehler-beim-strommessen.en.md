@@ -36,7 +36,9 @@ The __relative error__ is $f=(I_R'-I_R)/I_R=-R_\mathrm i/(R+R_\mathrm i)$. For $
 The mesh rule reads $U=I_R'R+I_R'R_\mathrm i$, so $I_R'=U/(R+R_\mathrm i)$. Hence $f=I_R'/I_R-1=R/(R+R_\mathrm i)-1=-R_\mathrm i/(R+R_\mathrm i)$.
 :::
 
-**Example.** $I_R=5$ mA, $I_R'=9\,\mathrm{V}/1810\,\Omega=4.972$ mA, so $f=-0.55\,\%$. With 1 $\Omega$ as in the digital multimeter, it would be 4.997 mA and $f=-0.056\,\%$: a negligible error. With a small resistor things look different: 0.9 V across 90 $\Omega$ gives 10 mA, with the instrument only 9 mA, so $f=-10\,\%$. It is not the meter alone that decides, but the ratio $R_\mathrm i/R$.
+::::beispiel
+$I_R=5$ mA, $I_R'=9\,\mathrm{V}/1810\,\Omega=4.972$ mA, so $f=-0.55\,\%$. With 1 $\Omega$ as in the digital multimeter, it would be 4.997 mA and $f=-0.056\,\%$: a negligible error. With a small resistor things look different: 0.9 V across 90 $\Omega$ gives 10 mA, with the instrument only 9 mA, so $f=-10\,\%$. It is not the meter alone that decides, but the ratio $R_\mathrm i/R$.
+::::
 
 ⁠**Limiting cases:** $R_\mathrm i\to0$ gives $f\to0$. $R\to0$ gives $I_R'\to U/R_\mathrm i$ and $f\to-100\,\%$: only the instrument limits the current now. That is Exercise [1](das-messgerat-ist-ein-bauteil.html#aufg-1)(a).
 

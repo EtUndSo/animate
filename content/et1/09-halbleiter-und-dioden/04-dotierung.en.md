@@ -34,7 +34,11 @@ $$\text{n-region: }n\approx N_\mathrm D,\qquad\text{p-region: }p\approx N_\mathr
 Heat generates pairs of electron and hole at a rate that depends only on $T$ and the material. Recombination requires the two to meet; its rate is $c\,n\,p$. In equilibrium both rates are equal, so $n\,p$ is constant. In pure silicon $n=p=n_\mathrm i$, so $n\,p=n_\mathrm i^2$. More electrons mean more recombination and fewer holes.
 :::
 
-**Example.** With $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ there is one foreign atom per $5\cdot10^{6}$ silicon atoms, and yet $n$ rises to a million times $n_\mathrm i$. The holes fall to $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$. Majority and minority are separated by the factor $10^{12}$. $W_\mathrm F$ rises by $25.85\,\mathrm{meV}\cdot\ln10^{6}=0.36$ eV. **Limiting case:** For $N_\mathrm D\to0$, [(2.1)](#gl-2-1) again gives $n=p=n_\mathrm i$.
+::::beispiel
+With $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ there is one foreign atom per $5\cdot10^{6}$ silicon atoms, and yet $n$ rises to a million times $n_\mathrm i$. The holes fall to $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$. Majority and minority are separated by the factor $10^{12}$. $W_\mathrm F$ rises by $25.85\,\mathrm{meV}\cdot\ln10^{6}=0.36$ eV.
+::::
+
+⁠**Limiting case:** For $N_\mathrm D\to0$, [(2.1)](#gl-2-1) again gives $n=p=n_\mathrm i$.
 
 :::frage Is n-type silicon negatively charged and p-type silicon positively charged?
 No, both are neutral. “n” and “p” name the sign of the mobile charges, not that of the piece. In the n-region, every free electron is matched by a stationary positive ion. Only at the pn junction do the two separate (Stage [3](die-raumladungszone.html#stufe-3)).

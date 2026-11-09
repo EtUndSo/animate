@@ -21,7 +21,7 @@ lang: zh
 
 同一个箭头在不同的基下有不同的坐标。同样，同一个线性映射在不同的坐标下有不同的矩阵。有些基能使矩阵变得特别简单。
 
-设 $\mathbf s_1,\dots,\mathbf s_n$ 是 $\mathbb{R}^n$ 的一组基，$\mathbf{S}$ 是以这些向量为列的矩阵。由基础篇 1 第 13.5 节，它是可逆的。若 $\mathbf{x}$ 在这组基下的坐标为 $\mathbf{c}$，则 $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$，反过来 $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$。用 $\mathbf{A}$ 映射 $\mathbf{x}$，像 $\mathbf{A}\mathbf{x}$ 的坐标就是 $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$。因此在新坐标下，这个映射通过矩阵 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ 起作用：先换算到旧坐标，再作映射，最后换算回来。
+设 $\mathbf s_1,\dots,\mathbf s_n$ 是 $\mathbb{R}^n$ 的一组基，$\mathbf{S}$ 是以这些向量为列的矩阵。由[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)，它是可逆的。若 $\mathbf{x}$ 在这组基下的坐标为 $\mathbf{c}$，则 $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$，反过来 $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$。用 $\mathbf{A}$ 映射 $\mathbf{x}$，像 $\mathbf{A}\mathbf{x}$ 的坐标就是 $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$。因此在新坐标下，这个映射通过矩阵 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ 起作用：先换算到旧坐标，再作映射，最后换算回来。
 
 :::definition 定义 7.1 (基变换)
 <span class="anker" id="satz-7-1"></span>
@@ -38,14 +38,16 @@ $\mathbf{A}$ 与 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ 有相同的特征多项�
 :::
 
 :::beweis 基变换
-有 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$。由基础篇 1 第 14.5 节的运算规则，它的行列式为 $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$。由式 [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5)，迹和行列式由特征值决定。
+有 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$。由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的运算规则，它的行列式为 $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$。由式 [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5)，迹和行列式由特征值决定。
 :::
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 和基础篇 1 第 13.3 节中的基 $(1,\,0)^{\top}$、$(1,\,1)^{\top}$，有 $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 和 $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$。于是
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 和[基础篇 1 第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)中的基 $(1,\,0)^{\top}$、$(1,\,1)^{\top}$，有 $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 和 $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$。于是
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
 迹仍为 $7$，行列式仍为 $10$，而特征值现在位于一个三角矩阵的对角线上：$2$ 和 $5$。
+::::
 
 ⁠**简而言之：**在以 $\mathbf{S}$ 的列构成的基下，映射 $\mathbf{A}$ 的矩阵为 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$；特征值、迹和行列式都保持不变。
 
@@ -67,14 +69,16 @@ $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\boldsymbol{\Lambda}=\operatorname{diag}(\
 :::
 
 :::beweis 对角化
-由基础篇 1 第 9.2 节，$\mathbf{A}\mathbf{S}$ 的第 $i$ 列是乘积 $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$，而 $\mathbf{S}\boldsymbol{\Lambda}$ 的第 $i$ 列同样是 $\lambda_i\mathbf s_i$。所以 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$。$\mathbf{S}$ 的各列线性无关，所以 $\mathbf{S}$ 可逆，从左边乘以 $\mathbf{S}^{-1}$ 即得式 [(7.1)](#gl-7-1)。把同一个等式 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ 倒过来读，就得到逆命题。
+由[基础篇 1 第 9.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2)，$\mathbf{A}\mathbf{S}$ 的第 $i$ 列是乘积 $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$，而 $\mathbf{S}\boldsymbol{\Lambda}$ 的第 $i$ 列同样是 $\lambda_i\mathbf s_i$。所以 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$。$\mathbf{S}$ 的各列线性无关，所以 $\mathbf{S}$ 可逆，从左边乘以 $\mathbf{S}^{-1}$ 即得式 [(7.1)](#gl-7-1)。把同一个等式 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ 倒过来读，就得到逆命题。
 :::
 
 能写成这种形式的矩阵称为__可对角化__的。由第 [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8) 节的定理，例如当所有 $n$ 个特征值互不相同时，总是如此。剪切不可对角化，因为它缺少一个特征向量。旋转 $90^\circ$ 也不能用实数对角化，只能用复数对角化。不过两者都是可逆的：可逆与可对角化是两种不同的性质。
 
-⁠**算例：**对于特征向量为 $(1,\,1)^{\top}$ 和 $(1,\,-2)^{\top}$ 的 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$，
+::::beispiel [算例]
+对于特征向量为 $(1,\,1)^{\top}$ 和 $(1,\,-2)^{\top}$ 的 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$，
 
 $$\mathbf{S}=\begin{pmatrix}1&1\\1&-2\end{pmatrix},\qquad \mathbf{S}^{-1}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix},\qquad \mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix}\begin{pmatrix}5&2\\5&-4\end{pmatrix}=\begin{pmatrix}5&0\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**简而言之：**有 $n$ 个线性无关特征向量的矩阵，在这些特征向量构成的基下是对角矩阵：$\mathbf{A}=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}$。
 
@@ -103,11 +107,13 @@ $\mathbf{A}^2=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}\mathbf{S}\boldsymbol
 
 在特征基的坐标 $\mathbf{c}$ 下，每一步都是把每个坐标乘以它自己的数：$c_i\mapsto\lambda_ic_i$。一个含 $n$ 个未知数的耦合计算，变成了 $n$ 个各含一个未知数的独立计算。这些坐标是解耦的。长期来看，模最大的特征值所对应的部分占主导。
 
-⁠**算例：**$\mathbf M$ 的迹为 $1.5$，行列式为 $0.56-0.06=0.5$，因而特征值为 $1$ 和 $0.5$。属于特征值 $1$ 的特征向量是 $\mathbf s_1=(3,\,2)^{\top}$，因为 $\mathbf M\mathbf s_1=(2.4+0.6,\ 0.6+1.4)^{\top}=\mathbf s_1$；属于特征值 $0.5$ 的特征向量是 $\mathbf s_2=(1,\,-1)^{\top}$。若起初 A 地住着 $1000$ 人，B 地无人居住，则 $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$，由式 [(7.2)](#gl-7-2)，
+::::beispiel [算例]
+$\mathbf M$ 的迹为 $1.5$，行列式为 $0.56-0.06=0.5$，因而特征值为 $1$ 和 $0.5$。属于特征值 $1$ 的特征向量是 $\mathbf s_1=(3,\,2)^{\top}$，因为 $\mathbf M\mathbf s_1=(2.4+0.6,\ 0.6+1.4)^{\top}=\mathbf s_1$；属于特征值 $0.5$ 的特征向量是 $\mathbf s_2=(1,\,-1)^{\top}$。若起初 A 地住着 $1000$ 人，B 地无人居住，则 $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$，由式 [(7.2)](#gl-7-2)，
 
 $$\mathbf{x}_k=200\begin{pmatrix}3\\2\end{pmatrix}+400\cdot0.5^k\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}600+400\cdot0.5^k\\400-400\cdot0.5^k\end{pmatrix}.$$
 
 一年后两地人口为 $(800,\,200)^{\top}$，两年后为 $(700,\,300)^{\top}$，长期则稳定在 $(600,\,400)^{\top}$。属于特征值 $0.5$ 的部分每年减半，属于特征值 $1$ 的部分保持不变。
+::::
 
 ⁠**简而言之：**在特征基下，矩阵的每个幂都变成特征值的幂；耦合的序列分解为彼此独立的序列，每个特征向量对应一个。
 
@@ -143,7 +149,9 @@ $$(\mathbf{v}^*)^{\top}\mathbf{A}\mathbf{v}=(\mathbf{A}^{\top}\mathbf{v}^*)^{\to
 
 于是对于实特征值，也存在实特征向量，因为 $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ 是一个实方程组。
 
-⁠**算例：**$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 的特征多项式为 $\lambda^2-7\lambda+6$，判别式为 $49-24=25>0$，实特征值为 $6$ 和 $1$。对于任意对称 $2\times2$ 矩阵 $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$，判别式为 $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$；所以正如定理所说，特征值总是实数。
+::::beispiel [算例]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 的特征多项式为 $\lambda^2-7\lambda+6$，判别式为 $49-24=25>0$，实特征值为 $6$ 和 $1$。对于任意对称 $2\times2$ 矩阵 $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$，判别式为 $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$；所以正如定理所说，特征值总是实数。
+::::
 
 ⁠**简而言之：**对称矩阵只有实特征值和实特征向量。
 
@@ -163,11 +171,13 @@ $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 的特征向量彼此
 设 $\mathbf{A}\mathbf{v}_1=\lambda_1\mathbf{v}_1$，$\mathbf{A}\mathbf{v}_2=\lambda_2\mathbf{v}_2$，且 $\lambda_1\ne\lambda_2$。用两种方法计算 $\mathbf{v}_1^{\top}\mathbf{A}\mathbf{v}_2$：一是 $\mathbf{v}_1^{\top}(\lambda_2\mathbf{v}_2)=\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2$，二是利用 $\mathbf{A}^{\top}=\mathbf{A}$ 得到 $(\mathbf{A}\mathbf{v}_1)^{\top}\mathbf{v}_2=\lambda_1\,\mathbf{v}_1^{\top}\mathbf{v}_2$。所以 $(\lambda_1-\lambda_2)\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$，由于 $\lambda_1\ne\lambda_2$，得 $\mathbf{v}_1^{\top}\mathbf{v}_2=0$。
 :::
 
-⁠**算例：**$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 有属于特征值 $6$ 的特征向量 $(2,\,1)^{\top}$，因为 $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$；还有属于特征值 $1$ 的特征向量 $(1,\,-2)^{\top}$，因为 $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$。它们的点积为 $2-2=0$，见图 [19](#abb-19)。
+::::beispiel [算例]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 有属于特征值 $6$ 的特征向量 $(2,\,1)^{\top}$，因为 $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$；还有属于特征值 $1$ 的特征向量 $(1,\,-2)^{\top}$，因为 $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$。它们的点积为 $2-2=0$，见图 [19](#abb-19)。
 
 :::abbildung ml/k2rsenkrecht 19
 对称矩阵 $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 属于特征值 $6$ 的特征向量 $(2,1)^{\top}$ 与属于特征值 $1$ 的特征向量 $(1,-2)^{\top}$ 的点积：二者互相垂直。
 :::
+::::
 
 ⁠**简而言之：**对于对称矩阵，属于不同特征值的特征向量互相垂直。
 
@@ -197,19 +207,21 @@ $$\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}=\sum_{i=1}^n\lambda
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-其中 $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$ 是对称的 $(n-1)\times(n-1)$ 矩阵。左下角出现零，是因为 $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ 垂直于 $\mathbf{W}$ 的各列；右上角的零同样如此，因为 $\mathbf{A}$ 是对称的。对 $\mathbf{B}$ 重复同样的步骤，直到剩下一个 $1\times1$ 矩阵。这样为 $\mathbf{B}$ 找到一个正交矩阵 $\mathbf{Q}_B$，使 $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ 成为对角矩阵之后，$\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ 作为正交矩阵之积是正交矩阵，并且 $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ 是对角矩阵。因为 $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$，得 $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$。求和形式由基础篇 1 第 9.5 节得出，因为 $\mathbf{Q}\boldsymbol{\Lambda}$ 的列为 $\lambda_i\mathbf{q}_i$。
+其中 $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$ 是对称的 $(n-1)\times(n-1)$ 矩阵。左下角出现零，是因为 $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ 垂直于 $\mathbf{W}$ 的各列；右上角的零同样如此，因为 $\mathbf{A}$ 是对称的。对 $\mathbf{B}$ 重复同样的步骤，直到剩下一个 $1\times1$ 矩阵。这样为 $\mathbf{B}$ 找到一个正交矩阵 $\mathbf{Q}_B$，使 $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ 成为对角矩阵之后，$\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ 作为正交矩阵之积是正交矩阵，并且 $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ 是对角矩阵。因为 $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$，得 $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$。求和形式由[基础篇 1 第 9.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)得出，因为 $\mathbf{Q}\boldsymbol{\Lambda}$ 的列为 $\lambda_i\mathbf{q}_i$。
 :::
 
 由第 [2.3](projektion-auf-eine-gerade.html#stufe-2-3) 节，每一项 $\mathbf{q}_i\mathbf{q}_i^{\top}$ 都是向沿 $\mathbf{q}_i$ 方向的直线的投影。所以对称矩阵是向互相垂直的坐标轴的投影之和，每个投影以相应的特征值为权重。对于重特征值，$\mathbf{q}_i$ 在其特征空间中的选择是自由的：特征空间的任何一组标准正交基都可以。每个 $\mathbf{q}_i$ 的符号也是自由的。有些书把特征值按降序排列，有些则不然。
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，$\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ 和 $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ 是属于 $6$ 和 $1$ 的归一化特征向量。于是
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，$\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ 和 $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ 是属于 $6$ 和 $1$ 的归一化特征向量。于是
 
 $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}=\frac15\begin{pmatrix}25&10\\10&10\end{pmatrix}=\begin{pmatrix}5&2\\2&2\end{pmatrix}.$$
+::::
 
 ⁠**简而言之：**每个对称矩阵都是 $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$：它在一个适当旋转的坐标系中是对角矩阵，也是向互相垂直的坐标轴的投影的加权和。
 
 :::hintergrund 对称矩阵从何而来
-凡是矩阵描述与顺序无关的两两关系的地方，都会出现对称矩阵。基础篇 1 第 10 节中的格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$ 包含点积，而 $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$。由第 [5.2](quadratische-formen.html#stufe-5-2) 节，二次型的矩阵总可以选为对称的。耦合线圈的电感矩阵是对称的，因为线圈 1 对线圈 2 的互感与反过来相同。对所有这些矩阵，谱定理都保证特征值为实数、特征方向互相垂直。
+凡是矩阵描述与顺序无关的两两关系的地方，都会出现对称矩阵。[基础篇 1 第 10 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)中的格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$ 包含点积，而 $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$。由第 [5.2](quadratische-formen.html#stufe-5-2) 节，二次型的矩阵总可以选为对称的。耦合线圈的电感矩阵是对称的，因为线圈 1 对线圈 2 的互感与反过来相同。对所有这些矩阵，谱定理都保证特征值为实数、特征方向互相垂直。
 :::
 
 ### 主轴
@@ -237,11 +249,13 @@ $$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=\lambda_1c_1^2+\lambda_2c_2^2+\dots+\lam
 等高线 $5x_1^2+4x_1x_2+2x_2^2=1$（蓝色）和 $=\tfrac14$（浅蓝色）都是椭圆。它们的轴（灰色）位于特征向量 $\mathbf{q}_1=(2,1)^{\top}/\sqrt5$（属于特征值 $6$）和 $\mathbf{q}_2=(1,-2)^{\top}/\sqrt5$（属于特征值 $1$）的方向上。外侧椭圆的半轴为 $1/\sqrt6\approx0.41$（红色）和 $1/\sqrt1=1$（绿色）：在大特征值的方向上，二次型上升得最陡，椭圆在那里也最窄。
 :::
 
-⁠**算例：**对于 $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$，特征基下的坐标为 $c_1=(2x_1+x_2)/\sqrt5$ 和 $c_2=(x_1-2x_2)/\sqrt5$，并且
+::::beispiel [算例]
+对于 $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$，特征基下的坐标为 $c_1=(2x_1+x_2)/\sqrt5$ 和 $c_2=(x_1-2x_2)/\sqrt5$，并且
 
 $$5x_1^2+4x_1x_2+2x_2^2=6\,c_1^2+c_2^2=\tfrac65(2x_1+x_2)^2+\tfrac15(x_1-2x_2)^2 .$$
 
 右边展开后得 $\tfrac15\bigl(24x_1^2+24x_1x_2+6x_2^2+x_1^2-4x_1x_2+4x_2^2\bigr)=5x_1^2+4x_1x_2+2x_2^2$。等高线 $f=1$ 就是图 [20](#abb-20) 中的椭圆，半轴为 $1/\sqrt6\approx0.408$ 和 $1$。
+::::
 
 ⁠**简而言之：**在特征基下，每个二次型都成为不含交叉项的和 $\sum_i\lambda_ic_i^2$；特征向量是其椭圆的主轴，半轴为 $1/\sqrt{\lambda_i}$。
 

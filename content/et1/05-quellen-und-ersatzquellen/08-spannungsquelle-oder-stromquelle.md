@@ -38,7 +38,11 @@ Das muss für jeden Strom gelten. Die Glieder ohne $I_\mathrm{A}$ und die Gliede
 Dieselbe Batterie am selben Arbeitspunkt. Links fließen 0,5 A durch alles. Rechts teilt sich der Quellenstrom von 4,5 A in 4 A durch den Leitwert und 0,5 A zur Last. An den Klemmen stimmen Spannung und Strom überein.
 :::
 
-**Beispiel.** Die Batterie mit 9 V und 2 $\Omega$ wird zu $I_\mathrm{q}=4{,}5$ A und $G_\mathrm{q}=0{,}5$ S. Am Arbeitspunkt mit 8 V nimmt der Leitwert $0{,}5\,\mathrm{S}\cdot8\,\mathrm{V}=4$ A auf, für die Last bleiben 0,5 A (Abb. [7](#abb-7)). **Grenzfall:** Für $R_\mathrm{q}\to0$ geht $I_\mathrm{q}\to\infty$. Eine ideale Spannungsquelle hat keine Stromquellenform, eine ideale Stromquelle keine Spannungsquellenform.
+::::beispiel
+Die Batterie mit 9 V und 2 $\Omega$ wird zu $I_\mathrm{q}=4{,}5$ A und $G_\mathrm{q}=0{,}5$ S. Am Arbeitspunkt mit 8 V nimmt der Leitwert $0{,}5\,\mathrm{S}\cdot8\,\mathrm{V}=4$ A auf, für die Last bleiben 0,5 A (Abb. [7](#abb-7)).
+::::
+
+⁠**Grenzfall:** Für $R_\mathrm{q}\to0$ geht $I_\mathrm{q}\to\infty$. Eine ideale Spannungsquelle hat keine Stromquellenform, eine ideale Stromquelle keine Spannungsquellenform.
 
 **Welche Form wählt man?** Rechnerisch sind beide gleich gut. Man nimmt die Form, die das Verhalten besser zeigt: Spannungsquellen sind niederohmig (ideal null), Stromquellen sind hochohmig (ideal unendlich). Ist $R_\mathrm{q}$ klein gegen die Last, ändert sich die Spannung kaum, und man wählt die Spannungsquellenform. Ist $R_\mathrm{q}$ groß gegen die Last, ändert sich der Strom kaum, und man wählt die Stromquellenform.
 

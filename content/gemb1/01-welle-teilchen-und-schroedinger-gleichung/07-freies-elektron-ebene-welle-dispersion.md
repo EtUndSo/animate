@@ -53,7 +53,11 @@ Dasselbe sagt der Operator: $\hat p\,\mathrm{e}^{\mathrm{j} kx}=\hbar k\,\mathrm
 Links: Dispersionsrelation für $V_0=1$ eV und $m=m_0$. Am grünen Punkt ($k=5{,}12$/nm) ist die kinetische Energie 1 eV. Rechts: Die Wellen $\operatorname{Re}\psi$ zu den vier markierten Punkten, jeweils auf der Höhe ihrer Energie. Je höher die Energie, desto kürzer die Wellenlänge.
 :::
 
-**Beispiel.** Es ist $\hbar^2/(2m_0)=0{,}0381\,\mathrm{eV\,nm^2}$. Das Probe-Elektron mit $k=5{,}12$/nm und $V_0=0$ hat $E=0{,}0381\cdot5{,}12^2\,\mathrm{eV}=1{,}00$ eV. Bei $V_0=2$ eV liegt dieselbe Welle bei 3 eV: Nur $E-V_0$ bestimmt die Welle. **Grenzfälle:** Für $k\to0$ gehen $E\to V_0$ und $\lambda\to\infty$, $\psi$ wird konstant, das Elektron ruht. Für $m\to\infty$ wird die Parabel flach.
+::::beispiel
+Es ist $\hbar^2/(2m_0)=0{,}0381\,\mathrm{eV\,nm^2}$. Das Probe-Elektron mit $k=5{,}12$/nm und $V_0=0$ hat $E=0{,}0381\cdot5{,}12^2\,\mathrm{eV}=1{,}00$ eV. Bei $V_0=2$ eV liegt dieselbe Welle bei 3 eV: Nur $E-V_0$ bestimmt die Welle.
+::::
+
+⁠**Grenzfälle:** Für $k\to0$ gehen $E\to V_0$ und $\lambda\to\infty$, $\psi$ wird konstant, das Elektron ruht. Für $m\to\infty$ wird die Parabel flach.
 
 :::frage Quantenmechanik heißt doch, dass Energie nur in Stufen vorkommt. Warum ist hier jedes $k$ erlaubt?
 Stufen entstehen erst, wenn ein Potential das Elektron einschränkt (Stufe [4](die-schrodinger-gleichung.html#stufe-4)). Die Energie des freien Elektrons kann jeden Wert ab $V_0$ annehmen. Quantenmechanisch ist hier die Beschreibung als Welle, nicht die Energie.

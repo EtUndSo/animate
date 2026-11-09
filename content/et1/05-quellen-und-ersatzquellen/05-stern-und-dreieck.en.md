@@ -45,9 +45,11 @@ For the inversion, let $H=R_{10}R_{20}+R_{20}R_{30}+R_{30}R_{10}$. Then $S=H/(R_
 Left, an unbalanced bridge with the delta 1-2-3 (blue). Right, the delta has been replaced by a star (red). Now 4 $\Omega$ and 20 $\Omega$ are in series, as are 8 $\Omega$ and 16 $\Omega$.
 :::
 
-**Example.** In Fig. [4](#abb-4), $R_{12}=10\,\Omega$, $R_{23}=R_{31}=20\,\Omega$, and the perimeter is 50 $\Omega$. From [(3.1)](#gl-3-1) follow $R_{10}=4\,\Omega$, $R_{20}=4\,\Omega$, $R_{30}=8\,\Omega$. The bridge breaks down into groups:
+::::beispiel
+In Fig. [4](#abb-4), $R_{12}=10\,\Omega$, $R_{23}=R_{31}=20\,\Omega$, and the perimeter is 50 $\Omega$. From [(3.1)](#gl-3-1) follow $R_{10}=4\,\Omega$, $R_{20}=4\,\Omega$, $R_{30}=8\,\Omega$. The bridge breaks down into groups:
 
 $$R_\mathrm{AB}=4\,\Omega+(4\,\Omega+20\,\Omega)\parallel(8\,\Omega+16\,\Omega)=4\,\Omega+12\,\Omega=16\,\Omega.$$
+::::
 
 ⁠**Check** at terminals 1, 2 with terminal 3 open: the star has $4+4=8\,\Omega$, the delta $10\,\Omega\parallel40\,\Omega=8\,\Omega$. **Limiting cases:** Three equal delta resistors give a star with one third of the value. For $R_{12}\to0$, $R_{10}$ and $R_{20}$ go to zero, and $R_{30}$ becomes $R_{23}\parallel R_{31}$, which is exactly what the short-circuited delta is.
 

@@ -32,7 +32,8 @@ $$(\mathbf{A}\mathbf{x})_i=\sum_{j=1}^{n}a_{ij}\,x_j=a_{i1}x_1+a_{i2}x_2+\dots+a
 
 El producto solo existe si $\mathbf{x}$ tiene tantas componentes como columnas tiene $\mathbf{A}$. El resultado tiene tantas componentes como filas tiene $\mathbf{A}$. De las reglas de cálculo de las sumas se deduce: $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ y $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$.
 
-⁠**Ejemplo numérico:** Para
+::::beispiel [Ejemplo numérico]
+Para
 
 $$\mathbf{A}=\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\quad\text{y}\quad \mathbf{x}=\begin{pmatrix}2\\1\end{pmatrix}\qquad\text{se tiene}\qquad \mathbf{A}\mathbf{x}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
 
@@ -41,6 +42,7 @@ Cada componente es una suma según [(7.1)](#gl-7-1) (fig. [28](#abb-28)). Una m
 :::abbildung ml/k1rmv 28
 El producto matriz-vector componente por componente: para cada fila $i$, las entradas $a_{ij}$ se multiplican por los $x_j$ correspondientes y se suman.
 :::
+::::
 
 ⁠**En resumen:** $\mathbf{A}\mathbf{x}$ es el vector cuya componente $i$ es la suma $\sum_ja_{ij}x_j$; una matriz $m\times n$ convierte un vector de $\mathbb{R}^n$ en un vector de $\mathbb{R}^m$.
 
@@ -61,7 +63,8 @@ $$\mathbf{X}\mathbf{w}=\begin{pmatrix}\mathbf{x}_1^{\top}\mathbf{w}\\\vdots\\\ma
 
 El producto matriz-vector aplica, por tanto, la suma ponderada con los pesos $\mathbf{w}$ a todos los ejemplos a la vez y da el vector de todas las predicciones. En la imagen de la comparación con un patrón: cada ejemplo se compara con el mismo patrón $\mathbf{w}$.
 
-⁠**Ejemplo numérico:** Para el conjunto de datos de viviendas y $\mathbf{w}=(3,\,10,\,-4)^{\top}$ se tiene
+::::beispiel [Ejemplo numérico]
+Para el conjunto de datos de viviendas y $\mathbf{w}=(3,\,10,\,-4)^{\top}$ se tiene
 
 $$\hat{\mathbf{y}}=\mathbf{X}\mathbf{w}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\begin{pmatrix}3\\10\\-4\end{pmatrix}=\begin{pmatrix}188\\126\\286\\232\end{pmatrix},$$
 
@@ -70,6 +73,7 @@ las cuatro predicciones de la agente inmobiliaria en miles de euros. Cada compon
 :::abbildung ml/k1rzeilen 29
 La visión por filas para la agente inmobiliaria: cada vivienda, es decir, cada fila de $\mathbf{X}$, por los pesos $\mathbf{w}$.
 :::
+::::
 
 ⁠**En resumen:** En la visión por filas, $\mathbf{A}\mathbf{x}$ es una lista de productos escalares, uno por fila; $\mathbf{X}\mathbf{w}$ son las predicciones para todos los ejemplos.
 
@@ -102,15 +106,19 @@ El producto matriz-vector es la combinación lineal de las columnas de $\mathbf{
 La componente $i$ del lado derecho es $\sum_jx_j\,(\mathbf{a}_j)_i=\sum_jx_j\,a_{ij}$, pues la $i$-ésima componente de la columna $\mathbf{a}_j$ es la entrada $a_{ij}$. Eso es exactamente la componente $i$ de $\mathbf{A}\mathbf{x}$ según [(7.1)](#gl-7-1).
 :::
 
-⁠**Ejemplo numérico 1:** Para el producto $\mathbf{A}\mathbf{x}$ de la subsección [7.1](#stufe-7-1) se tiene
+::::beispiel [Ejemplo numérico 1]
+Para el producto $\mathbf{A}\mathbf{x}$ de la subsección [7.1](#stufe-7-1) se tiene
 
 $$\begin{pmatrix}1&2\\0&-1\\3&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=2\begin{pmatrix}1\\0\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\\1\end{pmatrix}=\begin{pmatrix}4\\-1\\7\end{pmatrix}.$$
+::::
 
-⁠**Ejemplo numérico 2:** Las predicciones de la agente inmobiliaria son $3$ veces la columna de las superficies más $10$ veces la columna de las habitaciones más $(-4)$ veces la columna de las distancias (fig. [31](#abb-31)). Las columnas de $\mathbf{X}$ se llaman aquí, como en la subsección [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1), $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. En esta forma se ve qué parte de cada predicción procede de qué característica: el primer sumando contiene las contribuciones de la superficie; el segundo, las de las habitaciones; el tercero, las de la distancia.
+::::beispiel [Ejemplo numérico 2]
+Las predicciones de la agente inmobiliaria son $3$ veces la columna de las superficies más $10$ veces la columna de las habitaciones más $(-4)$ veces la columna de las distancias (fig. [31](#abb-31)). Las columnas de $\mathbf{X}$ se llaman aquí, como en la subsección [6.1](matrizen-und-die-datenmatrix.html#stufe-6-1), $\mathbf{a}_1$, $\mathbf{a}_2$, $\mathbf{a}_3$. En esta forma se ve qué parte de cada predicción procede de qué característica: el primer sumando contiene las contribuciones de la superficie; el segundo, las de las habitaciones; el tercero, las de la distancia.
 
 :::abbildung ml/k1rspalten 31
 La visión por columnas para la agente inmobiliaria: cada columna $\mathbf{a}_j$ de $\mathbf{X}$ se multiplica por su peso $w_j$ y después se suman los tres vectores.
 :::
+::::
 
 ⁠**En resumen:** En la visión por columnas, $\mathbf{A}\mathbf{x}$ es una combinación lineal de las columnas de $\mathbf{A}$; las componentes de $\mathbf{x}$ dicen cuánto se toma de cada columna.
 
@@ -130,9 +138,13 @@ Si $\mathbf{x}$ recorre todos los vectores de $\mathbb{R}^n$, $\mathbf{A}\mathbf
 El __espacio columna__ de una matriz $\mathbf{A}\in\mathbb{R}^{m\times n}$ es el conjunto de todos los vectores $\mathbf{A}\mathbf{x}$ con $\mathbf{x}\in\mathbb{R}^n$, es decir, el conjunto de todas las combinaciones lineales de las columnas de $\mathbf{A}$.
 :::
 
-⁠**Ejemplo numérico 1:** La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene las columnas $(1,\,2)^{\top}$ y $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Toda combinación lineal es un múltiplo de $(1,\,2)^{\top}$. El espacio columna es, por tanto, solo la recta que pasa por el origen en la dirección $(1,\,2)^{\top}$, aunque los resultados tengan dos componentes. El vector $(3,\,6)^{\top}$ está en él; el vector $(1,\,1)^{\top}$, no.
+::::beispiel [Ejemplo numérico 1]
+La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene las columnas $(1,\,2)^{\top}$ y $(2,\,4)^{\top}=2\,(1,\,2)^{\top}$. Toda combinación lineal es un múltiplo de $(1,\,2)^{\top}$. El espacio columna es, por tanto, solo la recta que pasa por el origen en la dirección $(1,\,2)^{\top}$, aunque los resultados tengan dos componentes. El vector $(3,\,6)^{\top}$ está en él; el vector $(1,\,1)^{\top}$, no.
+::::
 
-⁠**Ejemplo numérico 2:** La matriz $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ da $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Su espacio columna consta de los vectores de $\mathbb{R}^3$ cuya tercera componente es la suma de las dos primeras; es un plano en el espacio. El vector $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ está en él; $(1,\,1,\,1)^{\top}$, no, pues $1+1\ne1$.
+::::beispiel [Ejemplo numérico 2]
+La matriz $\mathbf{H}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$ da $\mathbf{H}\mathbf{x}=(x_1,\,x_2,\,x_1+x_2)^{\top}$. Su espacio columna consta de los vectores de $\mathbb{R}^3$ cuya tercera componente es la suma de las dos primeras; es un plano en el espacio. El vector $(1,\,2,\,3)^{\top}=\mathbf{H}\,(1,\,2)^{\top}$ está en él; $(1,\,1,\,1)^{\top}$, no, pues $1+1\ne1$.
+::::
 
 Para una matriz de datos, esto significa: las predicciones $\mathbf{X}\mathbf{w}$ están siempre en el espacio columna de $\mathbf{X}$, sean cuales sean los pesos elegidos. Con estas características solo pueden generarse listas de predicciones muy concretas.
 

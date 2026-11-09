@@ -36,13 +36,15 @@ $$\lVert\mathbf{u}-\mathbf{v}\rVert^2=(\mathbf{u}-\mathbf{v})^{\top}(\mathbf{u}-
 
 Demek ki uzunluklar sabitken iç çarpım ne kadar büyükse uzaklık o kadar küçüktür. İkisi de benzerliği ölçer, yalnızca ters yönde.
 
-⁠**Sayısal örnek:** Daire 1 ile Daire 2 arasındaki fark $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$ vektörüdür. Aralarındaki Öklid uzaklığı $\sqrt{405}\approx20{,}12$ (Şekil [18](#abb-18)), mutlak değerler toplamı normuna göre uzaklık $20+1+2=23$, maksimum normuna göre $20$ olur.
+::::beispiel [Sayısal örnek]
+Daire 1 ile Daire 2 arasındaki fark $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$ vektörüdür. Aralarındaki Öklid uzaklığı $\sqrt{405}\approx20{,}12$ (Şekil [18](#abb-18)), mutlak değerler toplamı normuna göre uzaklık $20+1+2=23$, maksimum normuna göre $20$ olur.
 
 :::abbildung ml/k1rabstand 18
 Daire 1 ile Daire 2 arasındaki Öklid uzaklığı: önce fark, sonra bu farkın uzunluğu.
 :::
 
 [(4.1)](#gl-4-1) eşitliğinin sağlaması için $\mathbf{u}=(1,\,2,\,2)^{\top}$ ve $\mathbf{v}=(2,\,0,\,1)^{\top}$ alınsın: Sol taraf $\lVert(-1,\,2,\,1)^{\top}\rVert^2=6$, sağ taraf $9+5-2\cdot4=6$ olur.
+::::
 
 ⁠**Kısacası:** İki veri noktasının uzaklığı farklarının normudur; birbirine yakın olmak benzer olmak demektir.
 
@@ -91,11 +93,13 @@ vektörüne __merkezlenmiş__ vektör denir. Bileşenleri ortalamadan sapmalard�
 
 Sapmalar her zaman birbirini götürür: $\mathbf 1^{\top}\tilde{\mathbf{v}}=\mathbf 1^{\top}\mathbf{v}-\bar v\,\mathbf 1^{\top}\mathbf 1=N\bar v-\bar v\,N=0$. Yani merkezlenmiş vektörün ortalaması sıfırdır.
 
-⁠**Sayısal örnek:** $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ alanlarının ortalaması $\bar v=65$ olur. Merkezlenmiş hâli $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$ vektörüdür ve sapmaların toplamı gerçekten sıfırdır (Şekil [20](#abb-20)). $(2,\,1,\,4,\,3)^{\top}$ oda sayılarının ortalaması $2{,}5$, merkezlenmiş hâli $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$; $(3,\,1,\,6,\,2)^{\top}$ uzaklıklarının ortalaması $3$, merkezlenmiş hâli $(0,\,-2,\,3,\,-1)^{\top}$ olur.
+::::beispiel [Sayısal örnek]
+$\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ alanlarının ortalaması $\bar v=65$ olur. Merkezlenmiş hâli $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$ vektörüdür ve sapmaların toplamı gerçekten sıfırdır (Şekil [20](#abb-20)). $(2,\,1,\,4,\,3)^{\top}$ oda sayılarının ortalaması $2{,}5$, merkezlenmiş hâli $(-0{,}5;\ -1{,}5;\ 1{,}5;\ 0{,}5)^{\top}$; $(3,\,1,\,6,\,2)^{\top}$ uzaklıklarının ortalaması $3$, merkezlenmiş hâli $(0,\,-2,\,3,\,-1)^{\top}$ olur.
 
 :::abbildung ml/k1rzentriert 20
 Alanların ortalaması ve ortalamadan sapmaların toplamı, $\mathrm m^2$ cinsinden.
 :::
+::::
 
 ⁠**Kısacası:** Merkezleme her bileşenden ortalamayı çıkarır; geriye toplamı sıfır olan sapmalar kalır.
 
@@ -116,11 +120,13 @@ $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\l
 
 Standart sapmanın birimi özniteliğin birimiyle aynıdır. Standart sapma ancak ve ancak bütün bileşenler eşitse sıfırdır. Birçok metin [(4.3)](#gl-4-3) içinde $N$ yerine $N-1$ ile böler. Örnek sayısı büyükse fark küçüktür. Bu seri $N$ ile böler ve bir yerde farklı yapılması gerekirse bunu ayrıca belirtir.
 
-⁠**Sayısal örnek:** $(-5,\,-25,\,25,\,5)^{\top}$ merkezlenmiş alanlarının kareleri toplamı $1\,300$, dolayısıyla $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ olur (Şekil [21](#abb-21)). Aynı biçimde odalar için $\sqrt{5/4}\approx1{,}118$, uzaklıklar için $\sqrt{14/4}\approx1{,}871$ km bulunur.
+::::beispiel [Sayısal örnek]
+$(-5,\,-25,\,25,\,5)^{\top}$ merkezlenmiş alanlarının kareleri toplamı $1\,300$, dolayısıyla $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18{,}03\,\mathrm m^2$ olur (Şekil [21](#abb-21)). Aynı biçimde odalar için $\sqrt{5/4}\approx1{,}118$, uzaklıklar için $\sqrt{14/4}\approx1{,}871$ km bulunur.
 
 :::abbildung ml/k1rstd 21
 Alanların standart sapması: Sapmaların karesi alınır, ortalamaları alınır, karekök alınır. $\sqrt{325}\approx18{,}03$ sonucunun birimi $\mathrm m^2$ olur.
 :::
+::::
 
 ⁠**Kısacası:** Standart sapma ortalamadan sapmaların etkin değeridir, yani bir özniteliğin tipik dalgalanmasıdır.
 
@@ -151,13 +157,17 @@ konarak __standartlaştırılır__. $z_{ij}$ sayılarına standartlaştırılmı
 
 Standartlaştırılmış öznitelik sütununun ortalaması $0$, standart sapması $1$ olur, çünkü merkezleme ortalamayı sıfır yapar, $s_j$ ile bölme de tipik sapmayı bir yapar. Değerlerin artık birimi yoktur.
 
-⁠**Sayısal örnek 1: daire veri kümesi.** $65$, $2{,}5$, $3$ ortalamaları ve $18{,}03$, $1{,}118$, $1{,}871$ standart sapmalarıyla dört daire şunlara dönüşür:
+::::beispiel [Sayısal örnek 1] daire veri kümesi
+$65$, $2{,}5$, $3$ ortalamaları ve $18{,}03$, $1{,}118$, $1{,}871$ standart sapmalarıyla dört daire şunlara dönüşür:
 
 $$\begin{aligned} \mathbf{z}_1&\approx(-0{,}28;\ -0{,}45;\ 0)^{\top}, & \mathbf{z}_2&\approx(-1{,}39;\ -1{,}34;\ -1{,}07)^{\top},\\ \mathbf{z}_3&\approx(1{,}39;\ 1{,}34;\ 1{,}60)^{\top}, & \mathbf{z}_4&\approx(0{,}28;\ 0{,}45;\ -0{,}53)^{\top}. \end{aligned}$$
 
 Üç özniteliğin hepsi artık aynı sayı aralığında hareket ediyor.
+::::
 
-⁠**Sayısal örnek 2: A, B ve C.** Üç dairenin (alt kesim [4.2](#stufe-4-2)) ortalama alanı $59\,\mathrm m^2$, standart sapması $\sqrt{14}\approx3{,}74\,\mathrm m^2$; ortalama oda sayısı $8/3$, standart sapması $\sqrt{8/9}\approx0{,}943$ olur. Standartlaştırmadan sonra $\lVert\text A-\text B\rVert\approx2{,}27$ ve $\lVert\text A-\text C\rVert\approx1{,}60$ bulunur. Demek ki A'ya en çok C benzer ve bu hüküm artık alanın birimine bağlı değildir.
+::::beispiel [Sayısal örnek 2] A, B ve C
+Üç dairenin (alt kesim [4.2](#stufe-4-2)) ortalama alanı $59\,\mathrm m^2$, standart sapması $\sqrt{14}\approx3{,}74\,\mathrm m^2$; ortalama oda sayısı $8/3$, standart sapması $\sqrt{8/9}\approx0{,}943$ olur. Standartlaştırmadan sonra $\lVert\text A-\text B\rVert\approx2{,}27$ ve $\lVert\text A-\text C\rVert\approx1{,}60$ bulunur. Demek ki A'ya en çok C benzer ve bu hüküm artık alanın birimine bağlı değildir.
+::::
 
 Birimin hesaptan düşmesi genel olarak geçerlidir:
 

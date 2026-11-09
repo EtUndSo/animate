@@ -52,7 +52,9 @@ $$(A\cup B)^{\mathrm c}=A^{\mathrm c}\cap B^{\mathrm c},\qquad (A\cap B)^{\mathr
 
 Die erste sagt: Nicht in $A$ oder $B$ zu liegen heißt, weder in $A$ noch in $B$ zu liegen.
 
-⁠**Rechenbeispiel:** In der Grundmenge $\Omega=\{1,\dots,6\}$ sei $A=\{2,4,6\}$ und $B=\{5,6\}$. Dann ist $A\cup B=\{2,4,5,6\}$, $A\cap B=\{6\}$, $A^{\mathrm c}=\{1,3,5\}$ und $B^{\mathrm c}=\{1,2,3,4\}$. Zur Probe der ersten Regel: $(A\cup B)^{\mathrm c}=\{1,3\}$ und $A^{\mathrm c}\cap B^{\mathrm c}=\{1,3\}$.
+::::beispiel [Rechenbeispiel]
+In der Grundmenge $\Omega=\{1,\dots,6\}$ sei $A=\{2,4,6\}$ und $B=\{5,6\}$. Dann ist $A\cup B=\{2,4,5,6\}$, $A\cap B=\{6\}$, $A^{\mathrm c}=\{1,3,5\}$ und $B^{\mathrm c}=\{1,2,3,4\}$. Zur Probe der ersten Regel: $(A\cup B)^{\mathrm c}=\{1,3\}$ und $A^{\mathrm c}\cap B^{\mathrm c}=\{1,3\}$.
+::::
 
 ⁠**Kurz gesagt:** Vereinigung heißt „oder“, Schnitt heißt „und“, Komplement heißt „nicht“; disjunkte Mengen haben nichts gemeinsam.
 
@@ -72,11 +74,13 @@ Ein Ergebnis wird oft $\omega$ genannt. Beim Aufschreiben muss jeder mögliche A
 
 Es gibt drei Arten von Ergebnisräumen. Ein Würfelwurf hat endlich viele Ergebnisse. Zählt man, wie oft man würfeln muss, bis die erste Sechs fällt, so ist $\Omega=\{1,2,3,\dots\}$: unendlich viele Ergebnisse, die man aber durchnummerieren kann; eine solche Menge heißt __abzählbar unendlich__. Misst man eine Spannung, so kann im Prinzip jede reelle Zahl herauskommen, und $\Omega=\mathbb{R}$ lässt sich nicht mehr durchnummerieren.
 
-⁠**Rechenbeispiel:** Beim Wurf zweier unterscheidbarer Würfel, eines roten und eines blauen, ist ein Ergebnis ein Paar $(a,\,b)$ aus der Augenzahl $a$ des roten und $b$ des blauen Würfels. Also ist
+::::beispiel [Rechenbeispiel]
+Beim Wurf zweier unterscheidbarer Würfel, eines roten und eines blauen, ist ein Ergebnis ein Paar $(a,\,b)$ aus der Augenzahl $a$ des roten und $b$ des blauen Würfels. Also ist
 
 $$\Omega=\{(a,\,b): a,b\in\{1,\dots,6\}\},\qquad \#\Omega=6\cdot6=36 .$$
 
 Die Ergebnisse $(1,\,2)$ und $(2,\,1)$ sind verschieden: Einmal zeigt der rote Würfel die Eins, einmal der blaue.
+::::
 
 ⁠**Kurz gesagt:** Ein Zufallsexperiment hat einen ungewissen Ausgang; der Ergebnisraum $\Omega$ ist die Menge aller möglichen Ausgänge.
 
@@ -94,7 +98,9 @@ Ein __Ereignis__ ist eine Teilmenge $A\subseteq\Omega$ des Ergebnisraums. Das Er
 
 Ein Ereignis mit genau einem Ergebnis, $\{\omega\}$, heißt __Elementarereignis__. $\Omega$ selbst tritt immer ein und heißt __sicheres Ereignis__. Die leere Menge $\emptyset$ tritt nie ein und heißt __unmögliches Ereignis__. Die Mengenoperationen aus Unterabschnitt [1.1](#stufe-1-1) übersetzen die Wörter der Alltagssprache: $A\cup B$ ist „$A$ oder $B$“, $A\cap B$ ist „$A$ und $B$“, und das __Gegenereignis__ $A^{\mathrm c}$ ist „nicht $A$“. Disjunkte Ereignisse heißen __unvereinbar__: Sie können nicht zusammen eintreten.
 
-⁠**Rechenbeispiel:** Beim Würfelwurf ist $\Omega=\{1,\dots,6\}$. „Gerade Augenzahl“ ist $A=\{2,4,6\}$, „mindestens fünf“ ist $B=\{5,6\}$. Das Ereignis „gerade und mindestens fünf“ ist $A\cap B=\{6\}$, „gerade oder mindestens fünf“ ist $A\cup B=\{2,4,5,6\}$, „ungerade“ ist $A^{\mathrm c}=\{1,3,5\}$. Die Ereignisse $\{1\}$ und $\{2\}$ sind unvereinbar; $A$ und $B$ sind es nicht, denn beide treten ein, wenn die Sechs fällt.
+::::beispiel [Rechenbeispiel]
+Beim Würfelwurf ist $\Omega=\{1,\dots,6\}$. „Gerade Augenzahl“ ist $A=\{2,4,6\}$, „mindestens fünf“ ist $B=\{5,6\}$. Das Ereignis „gerade und mindestens fünf“ ist $A\cap B=\{6\}$, „gerade oder mindestens fünf“ ist $A\cup B=\{2,4,5,6\}$, „ungerade“ ist $A^{\mathrm c}=\{1,3,5\}$. Die Ereignisse $\{1\}$ und $\{2\}$ sind unvereinbar; $A$ und $B$ sind es nicht, denn beide treten ein, wenn die Sechs fällt.
+::::
 
 ⁠**Kurz gesagt:** Ein Ereignis ist die Menge der Ergebnisse, auf die eine Aussage zutrifft; „oder“, „und“ und „nicht“ werden zu Vereinigung, Schnitt und Komplement.
 

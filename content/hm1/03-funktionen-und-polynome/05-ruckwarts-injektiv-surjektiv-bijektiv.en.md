@@ -68,7 +68,11 @@ $f$ is surjective by definition of $\mathcal W(f)$. For injectivity we show the 
 
 ⁠**How to read it:** The target here is exactly $\mathcal W(f)$. **Why “strictly” is needed:** On the horizontal piece in Fig. [3](gerade-monoton-beschrankt.html#abb-3), many $x$ have the same image. **The converse does not hold:** $f(x)=1/x$ on $\mathbb{R}\setminus\{0\}$ is bijective onto $\mathbb{R}\setminus\{0\}$, but not monotonic, because $-1<1$ gives $f(-1)<f(1)$, and $1<2$ gives $f(1)>f(2)$.
 
-**Examples.** By Theorems [2.2](gerade-monoton-beschrankt.html#satz-2-2) and [3.2](#satz-3-2), $f(x)=x^n$ is bijective onto its range, namely $\mathcal W(f)=\mathbb{R}_0^+$ for even $n$ on $\mathbb{R}_0^+$ and $\mathcal W(f)=\mathbb{R}$ for odd $n$ on $\mathbb{R}$. That every $y$ really is hit follows, as for $\sqrt y$, from the completeness of the real numbers ([Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Without monotonicity one computes directly: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ is injective, because $2x-5=2y-5$ gives $x=y$, and surjective, because for given $y$, $x=(y+5)/2$ solves the equation. **Limiting case:** $f(x)=x$ is bijective; every height is hit exactly at $x=y$.
+::::beispiel [Examples]
+By Theorems [2.2](gerade-monoton-beschrankt.html#satz-2-2) and [3.2](#satz-3-2), $f(x)=x^n$ is bijective onto its range, namely $\mathcal W(f)=\mathbb{R}_0^+$ for even $n$ on $\mathbb{R}_0^+$ and $\mathcal W(f)=\mathbb{R}$ for odd $n$ on $\mathbb{R}$. That every $y$ really is hit follows, as for $\sqrt y$, from the completeness of the real numbers ([Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Without monotonicity one computes directly: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ is injective, because $2x-5=2y-5$ gives $x=y$, and surjective, because for given $y$, $x=(y+5)/2$ solves the equation.
+::::
+
+⁠**Limiting case:** $f(x)=x$ is bijective; every height is hit exactly at $x=y$.
 
 :::frage Can every non-injective function be made injective?
 Yes, by shrinking the domain. That changes the function, and you must say which piece you keep: $h$ on $[2,\infty)$ and $h$ on $(-\infty,2]$ are both injective and have different inverses. This is also how $\sqrt y$ arises from $x^2$ on $\mathbb{R}_0^+$.

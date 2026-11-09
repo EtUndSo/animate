@@ -56,7 +56,11 @@ $$\langle1|\hat H|2\rangle=E_\mathrm s\langle1|2\rangle+\int\phi_1^*V_1\phi_2\,\
 
 $V_1$ ist negativ, und $\phi_1\phi_2>0$. Der Mechanismus ist die Anziehung des Kerns, gewichtet mit der gemeinsamen Fläche der Orbitale. In der Mitte ist $|\psi_\sigma|^2=2\phi^2$ und $|\psi_{\sigma^*}|^2=0$. **Gültigkeit:** zwei gleiche Atome, $\langle1|2\rangle$ klein, ein Orbital je Atom.
 
-**Beispiel.** Zwei Töpfe mit $b=0{,}4$ nm haben $E_\sigma=175{,}5$ meV und $E_{\sigma^*}=205{,}0$ meV, also $V_\mathrm{ss}=14{,}8$ meV. Die Mitte 190,3 meV stimmt fast mit dem Einzeltopf überein. Das zweite Niveau spaltet in 654,1 und 774,9 meV, viermal so stark: Höhere Zustände reichen weiter in die Barriere. **Grenzfall:** Für großen Abstand geht $V_\mathrm{ss}\to0$, beide Niveaus fallen auf $E_\mathrm s$ zusammen.
+::::beispiel
+Zwei Töpfe mit $b=0{,}4$ nm haben $E_\sigma=175{,}5$ meV und $E_{\sigma^*}=205{,}0$ meV, also $V_\mathrm{ss}=14{,}8$ meV. Die Mitte 190,3 meV stimmt fast mit dem Einzeltopf überein. Das zweite Niveau spaltet in 654,1 und 774,9 meV, viermal so stark: Höhere Zustände reichen weiter in die Barriere.
+::::
+
+⁠**Grenzfall:** Für großen Abstand geht $V_\mathrm{ss}\to0$, beide Niveaus fallen auf $E_\mathrm s$ zusammen.
 
 :::frage Warum setzt man $\langle1|2\rangle\approx0$, aber nicht $\langle1|\hat H|2\rangle\approx0$? Beide messen doch den Überlapp.
 In [(3.3)](#gl-3-3) wird der Überlapp mit dem tiefen Potential $V_1$ gewichtet, und ohne Kopplung gäbe es keine Aufspaltung. $S=\langle1|2\rangle$ ändert die Zahlen nur leicht: Mit $S$ wird $E_\sigma=(E_\mathrm s-V_\mathrm{ss})/(1+S)$ und $E_{\sigma^*}=(E_\mathrm s+V_\mathrm{ss})/(1-S)$, das antibindende Niveau steigt also etwas stärker, als das bindende sinkt. Streng richtig wird $S=0$ mit leicht veränderten, orthogonalen Basisfunktionen. $V_\mathrm{ss}$ passt man dann an Messung oder genaue Rechnung an.

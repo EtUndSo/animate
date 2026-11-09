@@ -56,7 +56,8 @@ $$\underbrace{\mathcal M}_{\ell\times m}\cdot\underbrace{\mathcal L}_{m\times n}
 
 Die Spaltenzahl links muss die Zeilenzahl rechts sein, denn die Abbildung $L$ muss dort enden, wo $M$ beginnt. Rechts vom Produkt steht das zuerst ausgeführte $L$: $\mathcal M\cdot\mathcal L$ heißt „$M$ nach $L$“. Im Schema von Abb. [4](koordinaten-und-darstellungsmatrix.html#abb-4) ist $\mathcal M\cdot\mathcal L=(\Phi_{\mathcal G}^{-1}\circ M\circ\Phi_{\mathcal C})\circ(\Phi_{\mathcal C}^{-1}\circ L\circ\Phi_{\mathcal B})=\Phi_{\mathcal G}^{-1}\circ F\circ\Phi_{\mathcal B}$, weil sich $\Phi_{\mathcal C}\circ\Phi_{\mathcal C}^{-1}=\operatorname{Id}$ heraushebt.
 
-**Beispiel.** Erst drehen, dann scheren, und umgekehrt (Abb. [6](#abb-6)):
+::::beispiel
+Erst drehen, dann scheren, und umgekehrt (Abb. [6](#abb-6)):
 
 $$SD=\begin{pmatrix}1&1\\0&1\end{pmatrix}\begin{pmatrix}0&-1\\1&0\end{pmatrix}=\begin{pmatrix}1&-1\\1&0\end{pmatrix},\qquad DS=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}1&1\\0&1\end{pmatrix}=\begin{pmatrix}0&-1\\1&1\end{pmatrix}.$$
 
@@ -65,6 +66,7 @@ Probe mit der Ecke $(1,1)$: $S(D(1,1))=S(-1,1)=(0,1)$ und $D(S(1,1))=D(2,1)=(-1,
 :::abbildung hm1/k10produkt 6
 Oben erst $D$, dann $S$, unten erst $S$, dann $D$. Das Einheitsquadrat landet an verschiedenen Stellen: Die Reihenfolge zählt, also $SD\ne DS$. Rot und grün sind wieder die Spalten.
 :::
+::::
 
 :::satz Satz 5.2 (Rechenregeln für Matrizen)
 <span class="anker" id="satz-5-2"></span>

@@ -64,7 +64,9 @@ $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$
 
 $A$ 和 $d$ 相互抵消：自放电只取决于材料，与元件尺寸无关。
 
-**例。** $\rho\approx10^{16}\,\Omega\,$m、$\varepsilon_\mathrm{r}=2.2$ 的塑料薄膜给出约两天。对于 9 V 下的 100 µF 电解电容器，数据手册给出的漏电流最大约为 9 µA，即 $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$。这是 RC 电路中 $R$ 的 100 倍，漏电流只有 0.9 mA 的 1 %，在后面的阶段中忽略不计。
+::::beispiel
+$\rho\approx10^{16}\,\Omega\,$m、$\varepsilon_\mathrm{r}=2.2$ 的塑料薄膜给出约两天。对于 9 V 下的 100 µF 电解电容器，数据手册给出的漏电流最大约为 9 µA，即 $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$。这是 RC 电路中 $R$ 的 100 倍，漏电流只有 0.9 mA 的 1 %，在后面的阶段中忽略不计。
+::::
 
 ⁠**极限情况：**当 $\rho\to\infty$ 时 $R_\mathrm{I}\,C$ 无限增大，这就是没有自放电的理想电容器。
 

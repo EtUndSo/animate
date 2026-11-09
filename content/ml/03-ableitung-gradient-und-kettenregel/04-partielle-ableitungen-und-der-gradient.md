@@ -29,12 +29,14 @@ Eine Funktion $f:\mathbb{R}^d\to\mathbb{R}$ ordnet jedem Vektor $\mathbf{x}\in\m
 
 Für zwei Variablen hilft das Bild einer Landschaft. Der Vektor $\mathbf{x}=(x_1,\,x_2)^{\top}$ ist ein Ort auf einer Landkarte, $f(\mathbf{x})$ die Höhe des Geländes über diesem Ort. Der Graph von $f$, die Menge der Punkte $(x_1,\,x_2,\,f(x_1,x_2))$ im Raum, ist die Oberfläche des Geländes. Die Höhenlinien verbinden wie auf einer Wanderkarte alle Orte gleicher Höhe. Wo sie dicht liegen, ist das Gelände steil; wo sie weit auseinanderliegen, ist es flach. Bei mehr als zwei Variablen fehlt das Bild, aber die Rechnungen bleiben dieselben.
 
-⁠**Rechenbeispiel:** Durch die Abschnitte [3](#stufe-3) bis [8](die-hesse-matrix-und-die-quadratische-naherung.html#stufe-8) begleitet uns die Funktion
+::::beispiel [Rechenbeispiel]
+Durch die Abschnitte [3](#stufe-3) bis [8](die-hesse-matrix-und-die-quadratische-naherung.html#stufe-8) begleitet uns die Funktion
 
 <span class="anker" id="gl-3-1"></span>
 $$f(\mathbf{x})=x_1^2\,x_2+x_2^2 . \tag{3.1}$$
 
 An der Stelle $\mathbf{x}=(1,\,2)^{\top}$ ist $f(1,2)=1\cdot2+4=6$. Zur Höhenlinie $f=6$ gehören alle Punkte mit $x_1^2x_2+x_2^2=6$. Für $x_1=0$ ist das $x_2^2=6$, also liegt der Punkt $(0;\ \sqrt6)^{\top}\approx(0;\ 2{,}449)^{\top}$ darauf. Allgemein ist die Gleichung für jedes feste $x_1$ quadratisch in $x_2$, und ihre positive Lösung $x_2=\tfrac12\bigl(\sqrt{x_1^4+24}-x_1^2\bigr)$ beschreibt die ganze Höhenlinie oberhalb der $x_1$-Achse; für $x_1=1$ ergibt sie $\tfrac12(5-1)=2$. Abb. [6](#abb-6) zeigt einige Höhenlinien.
+::::
 
 ⁠**Kurz gesagt:** Eine Funktion von $d$ Variablen ordnet jedem Vektor eine Zahl zu; bei zwei Variablen stellt man sie sich als Landschaft vor, deren Höhenlinien die Orte gleicher Höhe verbinden.
 
@@ -57,7 +59,8 @@ sofern der Grenzwert existiert. Dabei ist $\mathbf{e}_j$ der $j$-te Einheitsvekt
 
 Der Vektor $\mathbf{x}+h\,\mathbf{e}_j$ unterscheidet sich von $\mathbf{x}$ nur in der $j$-ten Komponente, und zwar um $h$. Die Definition ist also die gewöhnliche Ableitung aus Abschnitt [1.2](die-ableitung.html#stufe-1-2), angewandt auf die Funktion, die man erhält, wenn man alle Variablen außer $x_j$ festhält. Daraus folgt die Rechenregel: Man leitet nach $x_j$ ab und behandelt alle anderen Variablen wie Konstanten. Das Zeichen $\partial$ ist ein gerundetes d und erinnert daran, dass nur ein Teil der Variablen sich bewegt.
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ behandelt man beim Ableiten nach $x_1$ die Variable $x_2$ als Konstante und umgekehrt:
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ behandelt man beim Ableiten nach $x_1$ die Variable $x_2$ als Konstante und umgekehrt:
 
 $$\frac{\partial f}{\partial x_1}=2x_1\,x_2,\qquad \frac{\partial f}{\partial x_2}=x_1^2+2x_2 .$$
 
@@ -66,6 +69,7 @@ An der Stelle $(1,\,2)$ ergibt das $4$ und $5$. Mit den Schnittkurven sieht man 
 :::abbildung ml/k3schnitt 6
 Partielle Ableitungen als Steigungen von Schnittkurven, für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$. (a) Höhenlinien zu den Werten $2$, $4$, $6$ (schwarz), $8$ und $10$, dazu die beiden Schnittgeraden durch $(1,\,2)$. (b) Entlang der blauen Geraden $x_2=2$ verläuft das Gelände wie $2x_1^2+4$, mit der Steigung $4$ bei $x_1=1$. (c) Entlang der roten Geraden $x_1=1$ verläuft es wie $x_2+x_2^2$, mit der Steigung $5$ bei $x_2=2$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die partielle Ableitung $\partial f/\partial x_j$ ist die Steigung in Richtung der $x_j$-Achse: Man leitet nach $x_j$ ab und hält alle anderen Variablen fest.
 
@@ -88,11 +92,13 @@ der __Gradient__ von $f$ an der Stelle $\mathbf{x}$. Das Zeichen $\nabla$ liest 
 
 Der Gradient hat dieselbe Form wie $\mathbf{x}$: einen Eintrag je Variable, als Spalte geschrieben. Diese Vereinbarung gilt im ganzen Kapitel; Abschnitt [7](ableiten-nach-vektoren-und-matrizen.html#stufe-7) kommt darauf zurück, weil nicht alle Bücher sie so treffen. Ordnet man jedem Punkt $\mathbf{x}$ seinen Gradienten zu, so entsteht ein Feld von Pfeilen, einer an jedem Ort der Landkarte. Wohin diese Pfeile zeigen, klärt Abschnitt [4](richtungsableitung-und-steilster-anstieg.html#stufe-4).
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ ist
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ ist
 
 $$\nabla f(\mathbf{x})=\begin{pmatrix}2x_1x_2\\ x_1^2+2x_2\end{pmatrix},\qquad \nabla f(1,2)=\begin{pmatrix}4\\5\end{pmatrix},\qquad \nabla f(0,1)=\begin{pmatrix}0\\2\end{pmatrix} .$$
 
 Für die quadratische Summe $f(\mathbf{x})=x_1^2+x_2^2+x_3^2$ ist $\nabla f(\mathbf{x})=(2x_1,\,2x_2,\,2x_3)^{\top}=2\mathbf{x}$.
+::::
 
 ⁠**Kurz gesagt:** Der Gradient ist der Spaltenvektor aller partiellen Ableitungen, mit derselben Form wie $\mathbf{x}$.
 
@@ -109,7 +115,8 @@ $$f(\mathbf{x}+\mathbf{h})\approx f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}\math
 
 Die Formel sagt etwas Bemerkenswertes: Verändert man mehrere Eingänge zugleich um kleine Beträge, so *addieren sich ihre Wirkungen*. Jede Variable trägt $\partial_jf\cdot h_j$ bei, als wäre sie allein verändert worden. Bei großen Änderungen stimmt das nicht mehr, denn dann beeinflussen die Variablen gegenseitig ihre Wirkung, wie bei $x_1^2x_2$. Bei kleinen Änderungen sind diese Wechselwirkungen Produkte kleiner Größen und verschwinden schneller als die Einzelwirkungen, genau wie das Eckstück in der Produktregel.
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $\mathbf{x}=(1,\,2)^{\top}$ und die Verschiebung $\mathbf{h}=(0{,}01;\ 0{,}02)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $\mathbf{x}=(1,\,2)^{\top}$ und die Verschiebung $\mathbf{h}=(0{,}01;\ 0{,}02)^{\top}$ ist
 
 $$f(\mathbf{x}+\mathbf{h})\approx f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}\mathbf{h}=6+4\cdot0{,}01+5\cdot0{,}02=6+0{,}14=6{,}14 .$$
 
@@ -118,6 +125,7 @@ Genau ist $f(1{,}01;\ 2{,}02)=1{,}0201\cdot2{,}02+2{,}02^2=2{,}060602+4{,}0804=6
 :::abbildung ml/k3rlinear 7
 Die Änderung der linearen Näherung als Skalarprodukt aus Gradient und Verschiebung: Jede Variable trägt ihre partielle Ableitung mal ihre eigene Änderung bei.
 :::
+::::
 
 ⁠**Kurz gesagt:** Nahe bei $\mathbf{x}$ ist $f(\mathbf{x}+\mathbf{h})\approx f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}\mathbf{h}$: Bei kleinen Änderungen addieren sich die Wirkungen der einzelnen Variablen.
 
@@ -154,7 +162,9 @@ Für die Praxis ist die zweite Aussage wichtig. Polynome, die e-Funktion, die lo
 Die Funktion $f(x_1,x_2)=\dfrac{x_1x_2}{x_1^2+x_2^2}$ mit $f(0,0)=0$ ist auf beiden Achsen null, denn dort ist $x_1x_2=0$. Ihre Schnittkurven durch den Nullpunkt entlang der Achsen sind also waagrecht: $\partial_1f(0,0)=\partial_2f(0,0)=0$, der Gradient im Nullpunkt ist $\mathbf{0}$. Die lineare Näherung sagt deshalb voraus, dass $f$ in der Nähe des Nullpunkts fast $0$ ist. Auf der Diagonalen $x_1=x_2=t$ mit $t\ne0$ ist aber $f(t,t)=t^2/(2t^2)=\tfrac12$, ganz gleich wie klein $t$ ist. Die Funktion springt im Nullpunkt, und keine Ebene schmiegt sich ihr an. Sie ist dort nicht differenzierbar, obwohl beide partiellen Ableitungen existieren. Wer aus der Existenz des Gradienten auf die lineare Näherung schließt, braucht deshalb die Differenzierbarkeit, zum Beispiel über stetige partielle Ableitungen.
 :::
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ sind die partiellen Ableitungen $2x_1x_2$ und $x_1^2+2x_2$ Polynome, also überall stetig, und $f$ ist überall differenzierbar. Im Rechenbeispiel zu [(3.4)](#gl-3-4) war der Fehler $0{,}001002$ bei $\lVert\mathbf{h}\rVert=\sqrt{0{,}0001+0{,}0004}\approx0{,}0224$, der Quotient aus [(3.5)](#gl-3-5) also etwa $0{,}045$. Halbiert man $\mathbf{h}$ auf $(0{,}005;\ 0{,}01)^{\top}$, so ist der Fehler $f(1{,}005;\ 2{,}01)-6-0{,}07=0{,}000250\ldots$ und der Quotient etwa $0{,}022$: Er halbiert sich mit $\mathbf{h}$ und geht gegen $0$.
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ sind die partiellen Ableitungen $2x_1x_2$ und $x_1^2+2x_2$ Polynome, also überall stetig, und $f$ ist überall differenzierbar. Im Rechenbeispiel zu [(3.4)](#gl-3-4) war der Fehler $0{,}001002$ bei $\lVert\mathbf{h}\rVert=\sqrt{0{,}0001+0{,}0004}\approx0{,}0224$, der Quotient aus [(3.5)](#gl-3-5) also etwa $0{,}045$. Halbiert man $\mathbf{h}$ auf $(0{,}005;\ 0{,}01)^{\top}$, so ist der Fehler $f(1{,}005;\ 2{,}01)-6-0{,}07=0{,}000250\ldots$ und der Quotient etwa $0{,}022$: Er halbiert sich mit $\mathbf{h}$ und geht gegen $0$.
+::::
 
 ⁠**Kurz gesagt:** Differenzierbar heißt, dass die lineare Näherung mit dem Gradienten einen Fehler hat, der schneller als $\lVert\mathbf{h}\rVert$ verschwindet; stetige partielle Ableitungen garantieren das, ihre bloße Existenz nicht.
 

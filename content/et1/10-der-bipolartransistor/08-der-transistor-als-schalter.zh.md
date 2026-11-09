@@ -35,7 +35,11 @@ $$U_\mathrm{in,sat}=\frac{(U_\mathrm{CC}-U_\mathrm{CE,sat})\,R_\mathrm{B}}{B\,R_
 左：$R_\mathrm{B}=20$ k$\Omega$ 时的反相器特性曲线，拐点在 0.6 V 和 0.99 V。中：输入端 0 到 5 V 之间的方波信号（灰色）和 12 V 到 0.2 V 之间的反相输出（蓝色）。右：允许的工作点：位于功率双曲线、$I_\mathrm{C,max}$ 和 $U_\mathrm{CE,max}$ 以下。工作点 A 的功率为 12 mW，远在允许区域之内。
 :::
 
-**例。** 当 $R_\mathrm{B}=20$ k$\Omega$ 时，斜率为 $-30$，$U_\mathrm{in,sat}=0.99$ V。5 V 的逻辑输入给出 $I_\mathrm{B}=220$ µ A 和 $B\,I_\mathrm{B}=44$ mA，远大于 $R_\mathrm{C}$ 所允许的 3.93 mA。所以晶体管被过驱动了十一倍，即使是性能较差的个体也能可靠接通。晶体管上产生 $0.2\,\mathrm{V}\cdot3.93\,\mathrm{mA}+0.6\,\mathrm{V}\cdot0.22\,\mathrm{mA}=0.92$ mW，而它在 $R_\mathrm{C}$ 上开关的功率为 46 mW。在点 A，晶体管上的功率是 12 mW。**极限情况：**当 $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$ 时，特性曲线变成在 $U_\mathrm{BE}$ 处的垂直跳变。
+::::beispiel
+当 $R_\mathrm{B}=20$ k$\Omega$ 时，斜率为 $-30$，$U_\mathrm{in,sat}=0.99$ V。5 V 的逻辑输入给出 $I_\mathrm{B}=220$ µ A 和 $B\,I_\mathrm{B}=44$ mA，远大于 $R_\mathrm{C}$ 所允许的 3.93 mA。所以晶体管被过驱动了十一倍，即使是性能较差的个体也能可靠接通。晶体管上产生 $0.2\,\mathrm{V}\cdot3.93\,\mathrm{mA}+0.6\,\mathrm{V}\cdot0.22\,\mathrm{mA}=0.92$ mW，而它在 $R_\mathrm{C}$ 上开关的功率为 46 mW。在点 A，晶体管上的功率是 12 mW。
+::::
+
+⁠**极限情况：**当 $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$ 时，特性曲线变成在 $U_\mathrm{BE}$ 处的垂直跳变。
 
 **工作极限。** 三个值限制了允许的工作点（图 [7](#abb-7) 右侧）。超过 $U_\mathrm{CE,max}$，CB 边界被击穿。超过 $I_\mathrm{C,max}$，基极和引线过载。超过__功率双曲线__ $I_\mathrm{C}=P_\mathrm{max}/U_\mathrm{CE}$，元件过热。在这些极限之外，寿命迅速缩短，或者元件立即损坏。对 T，双曲线在 40 V 处为 10 mA，在 4 V 处为 100 mA。
 

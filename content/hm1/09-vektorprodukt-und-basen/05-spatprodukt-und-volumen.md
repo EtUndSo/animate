@@ -31,7 +31,11 @@ $$P:=\bigl\{\alpha\vec a+\beta\vec b+\gamma\vec c:\ \alpha,\beta,\gamma\in[0,1]\
 hat das Volumen $\operatorname{Vol}(P)=|\operatorname{spat}(\vec a,\vec b,\vec c)|=|\langle\vec a,\vec b\times\vec c\rangle|$.
 :::
 
-⁠**So liest man das:** $P$ ist der schiefe Quader mit den Kanten $\vec a,\vec b,\vec c$, die Zahlen $\alpha,\beta,\gamma$ wandern durch alle seine Punkte. Der Betrag steht da, weil das Spatprodukt negativ sein kann. **Beispiel:** $\vec a=\vec e_1$, $\vec b=\vec e_2$, $\vec c=\vec e_3$ gibt den __Einheitswürfel__ $[0,1]^3$ mit Volumen 1. Im Modell ist $\operatorname{spat}(\vec k,\vec u,\vec v)=\langle(1,0,2),(2,-4,2)\rangle=6$.
+⁠**So liest man das:** $P$ ist der schiefe Quader mit den Kanten $\vec a,\vec b,\vec c$, die Zahlen $\alpha,\beta,\gamma$ wandern durch alle seine Punkte. Der Betrag steht da, weil das Spatprodukt negativ sein kann.
+
+::::beispiel
+$\vec a=\vec e_1$, $\vec b=\vec e_2$, $\vec c=\vec e_3$ gibt den __Einheitswürfel__ $[0,1]^3$ mit Volumen 1. Im Modell ist $\operatorname{spat}(\vec k,\vec u,\vec v)=\langle(1,0,2),(2,-4,2)\rangle=6$.
+::::
 
 :::beweis Grundfläche mal Höhe
 Es ist $\operatorname{Vol}(P)=F\cdot h$. Sind $\vec b,\vec c$ abhängig, ist $P$ flach und $\vec b\times\vec c=\vec0$, beide Seiten sind 0. Sonst sei $\vec n:=\vec b\times\vec c\ne\vec0$. Nach (E3) ist die Grundfläche $F=\|\vec n\|$. Die Höhe ist die Länge der Projektion von $\vec a$ auf die Senkrechte zur Grundfläche, nach (E2) also auf $\operatorname{span}\{\vec n\}$:

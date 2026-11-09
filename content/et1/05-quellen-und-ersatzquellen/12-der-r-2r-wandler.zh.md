@@ -38,7 +38,11 @@ $$U_\mathrm{out}=\tfrac12\Bigl(\tfrac12\bigl(\tfrac12U_0+U_1\bigr)+U_2\Bigr)=\tf
 叠加给出同样的数。以电源 $U_1$ 为例：在中间节点上，它向左看到 2$R$，向右看到 $R+2R=3R$，合起来是 $\frac65R$。分压给出那里的 $\frac{6/5}{6/5+2}=\frac38U_1$。到输出的路径再分压一次，系数为 $\frac{2R}{R+2R}=\frac23$，于是 $\frac38\cdot\frac23=\frac14$。
 :::
 
-**例。** 取 $U_\mathrm{ref}=8$ V，$R=1$ k$\Omega$，各比特的权重为 4 V、2 V 和 1 V。位置 101 给出 5 V。负载 $R_\mathrm{L}=R$ 与 $R_\mathrm{i}$ 构成分压器，使其减半为 2.5 V。因此实际的转换器后面接一个输入电阻很高的运算放大器（[第 11 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)）：它几乎不取电流，梯形网络保持开路。**极限情况：**位置 000 给出 0 V，位置 111 给出 7 V，比 $U_\mathrm{ref}$ 低一级。
+::::beispiel
+取 $U_\mathrm{ref}=8$ V，$R=1$ k$\Omega$，各比特的权重为 4 V、2 V 和 1 V。位置 101 给出 5 V。负载 $R_\mathrm{L}=R$ 与 $R_\mathrm{i}$ 构成分压器，使其减半为 2.5 V。因此实际的转换器后面接一个输入电阻很高的运算放大器（[第 11 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)）：它几乎不取电流，梯形网络保持开路。
+::::
+
+⁠**极限情况：**位置 000 给出 0 V，位置 111 给出 7 V，比 $U_\mathrm{ref}$ 低一级。
 
 :::ltspice 转换器在计数
 ⁠**绘制：**图 [12](#abb-12) 去掉开关：2$R$ 从节点 `n0` 到接地点，然后 `n0`、`n1`、`n2` 各经 2$R$ 接到一个对接地点的电源 `voltage`，节点之间接 $R$，$R=1$ k$\Omega$。各电源按二进制计数：`PULSE(0 8 1m 1u 1u 1m 2m)`，`PULSE(0 8 2m 1u 1u 2m 4m)`，`PULSE(0 8 4m 1u 1u 4m 8m)`。

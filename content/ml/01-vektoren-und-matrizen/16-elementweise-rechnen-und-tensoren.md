@@ -32,11 +32,13 @@ $$(\mathbf{A}\odot\mathbf{B})_{ij}=a_{ij}\,b_{ij} . \tag{15.1}$$
 
 Das Hadamard-Produkt ist *nicht* das Matrixprodukt. Das Matrixprodukt bildet Skalarprodukte aus Zeilen und Spalten; das Hadamard-Produkt multipliziert nur Einträge an derselben Stelle. Zwei Zusammenhänge mit Bekanntem: Summiert man das Hadamard-Produkt zweier Vektoren, erhält man ihr Skalarprodukt, $\mathbf 1^{\top}(\mathbf{u}\odot\mathbf{v})=\mathbf{u}^{\top}\mathbf{v}$. Und das Hadamard-Produkt mit einem festen Vektor ist die Multiplikation mit einer Diagonalmatrix: $\mathbf{v}\odot\mathbf{x}=\operatorname{diag}(\mathbf{v})\,\mathbf{x}$.
 
-⁠**Rechenbeispiel:** $(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, und $4+10+18=32$ ist das Skalarprodukt. Für Matrizen ist
+::::beispiel [Rechenbeispiel]
+$(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, und $4+10+18=32$ ist das Skalarprodukt. Für Matrizen ist
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}\odot\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}0&2\\3&0\end{pmatrix},\qquad\text{aber}\qquad \begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}2&1\\4&3\end{pmatrix}.$$
 
 Mit einem Vektor aus Nullen und Einsen kann man Merkmale ausblenden: $(1,\,0,\,1)^{\top}\odot\mathbf{x}_1=(60,\,0,\,3)^{\top}$ lässt bei Wohnung 1 die Zimmerzahl weg.
+::::
 
 ⁠**Kurz gesagt:** Das Hadamard-Produkt $\odot$ multipliziert Eintrag für Eintrag; es ist nicht das Matrixprodukt.
 
@@ -54,7 +56,9 @@ Für eine Funktion $f\colon\mathbb{R}\to\mathbb{R}$ und einen Vektor $\mathbf{x}
 
 Viele Normen lassen sich so schreiben: Die Betragssummennorm ist die Summe der elementweisen Beträge, $\lVert\mathbf{x}\rVert_1=\mathbf 1^{\top}|\mathbf{x}|$, und das Quadrat der euklidischen Norm die Summe der elementweisen Quadrate. Eine elementweise Funktion ist im Allgemeinen nicht linear: Elementweises Quadrieren macht aus $2\mathbf{x}$ den Vektor mit den Einträgen $4x_j^2$, nicht $2x_j^2$.
 
-⁠**Rechenbeispiel:** Der Fehlervektor der Maklerin war $(-12,\,-4,\,-4,\,-8)^{\top}$. Elementweise Beträge ergeben $(12,\,4,\,4,\,8)^{\top}$ mit der Summe $28$, der Betragssummennorm. Für Gutachter A aus Unterabschnitt [3.5](normen-die-groe-eines-vektors.html#stufe-3-5) ergeben die elementweisen Quadrate $(100,\,100,\,100,\,100)^{\top}$ mit der Summe $400=20^2$.
+::::beispiel [Rechenbeispiel]
+Der Fehlervektor der Maklerin war $(-12,\,-4,\,-4,\,-8)^{\top}$. Elementweise Beträge ergeben $(12,\,4,\,4,\,8)^{\top}$ mit der Summe $28$, der Betragssummennorm. Für Gutachter A aus Unterabschnitt [3.5](normen-die-groe-eines-vektors.html#stufe-3-5) ergeben die elementweisen Quadrate $(100,\,100,\,100,\,100)^{\top}$ mit der Summe $400=20^2$.
+::::
 
 ⁠**Kurz gesagt:** Eine elementweise Funktion wirkt auf jeden Eintrag für sich; sie ist im Allgemeinen nicht linear.
 
@@ -71,11 +75,13 @@ $$\tilde{\mathbf{X}}=\mathbf{X}-\mathbf 1\,\bar{\mathbf{x}}^{\top} , \tag{15.2}$
 
 deren Zeile $i$ der Vektor $(\mathbf{x}_i-\bar{\mathbf{x}})^{\top}$ ist. Viele Texte schreiben dafür kurz $\mathbf{X}-\bar{\mathbf{x}}^{\top}$ und meinen damit: den Zeilenvektor von jeder Zeile abziehen. Streng genommen ist die Differenz einer $N\times d$-Matrix und einer $1\times d$-Matrix nicht erklärt; die Kurzschrift steht immer für [(15.2)](#gl-15-2).
 
-⁠**Rechenbeispiel:** Für die Wohnungen ist $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ und
+::::beispiel [Rechenbeispiel]
+Für die Wohnungen ist $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ und
 
 $$\tilde{\mathbf{X}}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}-\begin{pmatrix}65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\end{pmatrix}=\begin{pmatrix}-5&-0{,}5&0\\-25&-1{,}5&-2\\25&1{,}5&3\\5&0{,}5&-1\end{pmatrix}.$$
 
 Jede Spalte ist die zentrierte Merkmalsspalte aus Unterabschnitt [4.3](abstande-und-einheiten.html#stufe-4-3) und summiert sich zu null.
+::::
 
 ⁠**Kurz gesagt:** Einen Vektor $\mathbf{q}$ zu jeder Zeile einer Matrix $\mathbf{A}$ zu addieren heißt $\mathbf{A}+\mathbf 1\,\mathbf{q}^{\top}$; die verbreitete Kurzschrift $\mathbf{A}+\mathbf{q}^{\top}$ meint genau das.
 
@@ -97,7 +103,9 @@ Ein Skalar ist ein Tensor mit $0$ Achsen, ein Vektor im $\mathbb{R}^d$ einer mit
 Tensoren mit $0$ bis $4$ Achsen: ein Skalar, ein Vektor mit $4$ Einträgen, eine $4\times4$-Matrix (etwa ein Graustufenbild), ein Farbbild aus drei $4\times4$-Kanälen für Rot, Grün und Blau und ein Stapel aus $N$ solchen Farbbildern (angedeutet mit drei Bildern).
 :::
 
-⁠**Rechenbeispiel:** Ein Farbbild mit $4\times4$ Bildpunkten und drei Farbkanälen ist ein Tensor der Form $3\times4\times4$ mit $48$ Einträgen. Der Eintrag mit den Indizes $(1,2,3)$ ist die Helligkeit des ersten Kanals, also Rot, im Bildpunkt in Zeile $2$ und Spalte $3$.
+::::beispiel [Rechenbeispiel]
+Ein Farbbild mit $4\times4$ Bildpunkten und drei Farbkanälen ist ein Tensor der Form $3\times4\times4$ mit $48$ Einträgen. Der Eintrag mit den Indizes $(1,2,3)$ ist die Helligkeit des ersten Kanals, also Rot, im Bildpunkt in Zeile $2$ und Spalte $3$.
+::::
 
 ⁠**Kurz gesagt:** Ein Tensor ist ein Zahlenfeld mit beliebig vielen Achsen; Skalar, Vektor und Matrix sind die Fälle mit $0$, $1$ und $2$ Achsen.
 
@@ -115,7 +123,9 @@ Ein Graustufenbild mit $28\times28$ Bildpunkten ist eine Matrix, also ein Tensor
 
 Die Reihenfolge der Achsen ist eine Vereinbarung. Manche Programme legen den Farbkanal an den Anfang ($3\times32\times32$), andere an das Ende ($32\times32\times3$). Die Zahlen sind dieselben, nur ihre Anordnung unterscheidet sich, und vor jeder Rechnung muss klar sein, welche Achse was bedeutet.
 
-⁠**Rechenbeispiel:** Ein Datensatz aus $60\,000$ Graustufenbildern mit $28\times28$ Bildpunkten ist ein Tensor der Form $60\,000\times28\times28$ mit $47\,040\,000$ Einträgen. Liest man jedes Bild zu einem Vektor im $\mathbb{R}^{784}$ aus, wird daraus eine Datenmatrix im $\mathbb{R}^{60\,000\times784}$, mit denselben Einträgen.
+::::beispiel [Rechenbeispiel]
+Ein Datensatz aus $60\,000$ Graustufenbildern mit $28\times28$ Bildpunkten ist ein Tensor der Form $60\,000\times28\times28$ mit $47\,040\,000$ Einträgen. Liest man jedes Bild zu einem Vektor im $\mathbb{R}^{784}$ aus, wird daraus eine Datenmatrix im $\mathbb{R}^{60\,000\times784}$, mit denselben Einträgen.
+::::
 
 ⁠**Kurz gesagt:** Ein Bild ist ein Tensor mit zwei oder drei Achsen, ein Stapel von Bildern einer mit einer Achse mehr; die erste Achse zählt die Beispiele.
 

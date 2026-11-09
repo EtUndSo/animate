@@ -43,7 +43,9 @@ A voltmeter is connected in parallel. Ideally $R_\mathrm i\to\infty$, in practic
 
 ⁠**How to read it:** Current is charge passing through a cross section. That is why you open the circuit and send the entire current through the ammeter. No voltage should drop across it, so $R_\mathrm i$ should be small. Voltage is the difference between two points. That is why you connect the voltmeter to both points without opening the circuit. No current should flow through it, so $R_\mathrm i$ should be large. The numerical values are typical of digital multimeters. **Validity:** $R_\mathrm i$ applies to one measuring range and changes when the range is switched (Stage [2](den-messbereich-erweitern.html#stufe-2)).
 
-**Example.** The meter movement of the reference model is already both. At full-scale deflection, 50 µ A flow through 2 k$\Omega$, so $U_\mathrm M=R_\mathrm MI_\mathrm M=100$ mV are across it. The scale could be labeled with 50 µ A or with 100 mV: two names for the same deflection.
+::::beispiel
+The meter movement of the reference model is already both. At full-scale deflection, 50 µ A flow through 2 k$\Omega$, so $U_\mathrm M=R_\mathrm MI_\mathrm M=100$ mV are across it. The scale could be labeled with 50 µ A or with 100 mV: two names for the same deflection.
+::::
 
 ⁠**Limiting case:** For $R_\mathrm i=0$ the ammeter acts like a piece of wire, for $R_\mathrm i\to\infty$ the voltmeter like an open gap. To the circuit, ideal instruments are not there.
 

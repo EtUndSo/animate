@@ -26,7 +26,11 @@ $$I_\mathrm{ref}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{ref}}=I_\mathrm{C1
 
 ⁠**如何理解：**$I_\mathrm{ref}$ 是__参考电流__。两个基极电流从它分出。这就是小误差 $2/B$ 的来源。**适用条件：**T2 处于放大区，晶体管相同且温度相同，例如在同一芯片上。由于特性曲线有斜率，$U_\mathrm{CE2}$ 大时 T2 输出略多一些。
 
-**例。** 当 $R_\mathrm{ref}=5.7$ k$\Omega$ 时，$I_\mathrm{ref}=2$ mA，$I_\mathrm{C2}=1.98$ mA，$R_\mathrm{L}$ 可取到 $11.8\,\mathrm{V}/1.98\,\mathrm{mA}=5.96$ k$\Omega$ 之内的任意值。超过这个值 T2 就会饱和。由式 [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1)，在 $U_\mathrm{CE2}=6$ V 和 $U_\mathrm{CE1}=0.6$ V 时，T2 中的电流将大 7 %。**极限情况：**当 $B\to\infty$ 时，$I_\mathrm{C2}=I_\mathrm{ref}$。
+::::beispiel
+当 $R_\mathrm{ref}=5.7$ k$\Omega$ 时，$I_\mathrm{ref}=2$ mA，$I_\mathrm{C2}=1.98$ mA，$R_\mathrm{L}$ 可取到 $11.8\,\mathrm{V}/1.98\,\mathrm{mA}=5.96$ k$\Omega$ 之内的任意值。超过这个值 T2 就会饱和。由式 [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1)，在 $U_\mathrm{CE2}=6$ V 和 $U_\mathrm{CE1}=0.6$ V 时，T2 中的电流将大 7 %。
+::::
+
+⁠**极限情况：**当 $B\to\infty$ 时，$I_\mathrm{C2}=I_\mathrm{ref}$。
 
 **基本思路：稳压器。** 带滤波的整流器（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）提供的直流电压带有残余波动，即__纹波__。在稳压器（图 [9](#abb-9) 右侧）中，齐纳二极管把基极稳定在 $U_\mathrm{Z}$。发射极是输出端，比基极低一个二极管电压。如果负载取用更多电流使输出电压下降，$U_\mathrm{BE}$ 就增大，晶体管就多提供电流。输入电压的其余部分降在 $U_\mathrm{CE}$ 上。负载电流不流过 $R_1$，基极只需要它的 $B$ 分之一。所以齐纳二极管几乎不受负载影响。
 
@@ -45,7 +49,11 @@ $$U_\mathrm{A}=U_\mathrm{Z}-U_\mathrm{BE}. \tag{8.2}$$
 左：电流镜，T1 接成二极管产生 $U_\mathrm{BE}$，T2 复制电流。中：带齐纳二极管的稳压器，发射极是输出端。右：波形，输入电压在 10.5 V 和 13.5 V 之间波动，输出保持在 5.6 V。
 :::
 
-**例。** $U_\mathrm{Z}=6.2$ V 给出 $U_\mathrm{A}=5.6$ V。负载为 50 mA 时，基极需要 0.25 mA。取 $R_1=1$ k$\Omega$ 和 $U_\mathrm{E}=12$ V$\,\pm1.5$ V，流过齐纳二极管的电流为 4.05 mA 到 7.05 mA。小信号电阻为 10 $\Omega$ 的齐纳二极管把 3 V 纹波减小到只有 30 mV。晶体管上产生的功率最高为 $7.9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW，刚好低于 $P_\mathrm{max}$。稳压器把多余的电压转化为热。如果用 0.68 V（50 mA 时更准确的 $U_\mathrm{BE}$）代替 0.6 V，$U_\mathrm{A}$ 将小 80 mV。**极限情况：**没有负载时，$I_\mathrm{B}\approx0$，$U_\mathrm{A}$ 略有上升，$U_\mathrm{Z}$ 不变。
+::::beispiel
+$U_\mathrm{Z}=6.2$ V 给出 $U_\mathrm{A}=5.6$ V。负载为 50 mA 时，基极需要 0.25 mA。取 $R_1=1$ k$\Omega$ 和 $U_\mathrm{E}=12$ V$\,\pm1.5$ V，流过齐纳二极管的电流为 4.05 mA 到 7.05 mA。小信号电阻为 10 $\Omega$ 的齐纳二极管把 3 V 纹波减小到只有 30 mV。晶体管上产生的功率最高为 $7.9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW，刚好低于 $P_\mathrm{max}$。稳压器把多余的电压转化为热。如果用 0.68 V（50 mA 时更准确的 $U_\mathrm{BE}$）代替 0.6 V，$U_\mathrm{A}$ 将小 80 mV。
+::::
+
+⁠**极限情况：**没有负载时，$I_\mathrm{B}\approx0$，$U_\mathrm{A}$ 略有上升，$U_\mathrm{Z}$ 不变。
 
 :::frage 为什么不只用齐纳二极管？
 那样的话，串联电阻在输入电压最低时必须提供全部 50 mA，再加上留给齐纳二极管的余量。在峰值电压时，差额将流过齐纳二极管，串联电阻的发热约为 0.7 W。晶体管把两者分开：齐纳二极管给定电压，电源经集电极提供电流。功率晶体管及由其派生的元件还能开关大电流，例如在电动机变流器中。

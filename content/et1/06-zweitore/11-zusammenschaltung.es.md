@@ -38,9 +38,11 @@ En serie, serie, ambas partes llevan las mismas corrientes: $\mathbf I'=\mathbf 
 Tres interconexiones. Izquierda, serie, serie: corrientes iguales, Z se suma. Centro, paralelo, paralelo: tensiones iguales, Y se suma. Derecha, serie, paralelo: $I_1$ y $U_2$ iguales, H se suma.
 :::
 
-**Ejemplo.** ⁠**Serie:** El propio cuadripolo T es una conexión en serie de dos resistencias longitudinales separadas y una resistencia transversal:
+::::beispiel
+⁠**Serie:** El propio cuadripolo T es una conexión en serie de dos resistencias longitudinales separadas y una resistencia transversal:
 
 $$\mathbf Z=\begin{pmatrix}15&0\\0&20\end{pmatrix}\Omega+\begin{pmatrix}20&20\\20&20\end{pmatrix}\Omega=\begin{pmatrix}35&20\\20&40\end{pmatrix}\Omega.$$
+::::
 
 ⁠**Paralelo:** Si se coloca una resistencia de 100 $\Omega$ del terminal 1 al terminal 2 sobre el cuadripolo T, a $\mathbf Y$ se le añade la conductancia longitudinal:
 

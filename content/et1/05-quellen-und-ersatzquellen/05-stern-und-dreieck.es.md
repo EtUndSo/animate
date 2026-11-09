@@ -45,9 +45,11 @@ Para la inversión, sea $H=R_{10}R_{20}+R_{20}R_{30}+R_{30}R_{10}$. Entonces $S=
 A la izquierda, un puente no equilibrado con el triángulo 1-2-3 (azul). A la derecha, el triángulo se ha sustituido por una estrella (rojo). Ahora 4 $\Omega$ y 20 $\Omega$ están en serie, igual que 8 $\Omega$ y 16 $\Omega$.
 :::
 
-**Ejemplo.** En la fig. [4](#abb-4) es $R_{12}=10\,\Omega$, $R_{23}=R_{31}=20\,\Omega$, y el perímetro vale 50 $\Omega$. De [(3.1)](#gl-3-1) resultan $R_{10}=4\,\Omega$, $R_{20}=4\,\Omega$, $R_{30}=8\,\Omega$. El puente se descompone en grupos:
+::::beispiel
+En la fig. [4](#abb-4) es $R_{12}=10\,\Omega$, $R_{23}=R_{31}=20\,\Omega$, y el perímetro vale 50 $\Omega$. De [(3.1)](#gl-3-1) resultan $R_{10}=4\,\Omega$, $R_{20}=4\,\Omega$, $R_{30}=8\,\Omega$. El puente se descompone en grupos:
 
 $$R_\mathrm{AB}=4\,\Omega+(4\,\Omega+20\,\Omega)\parallel(8\,\Omega+16\,\Omega)=4\,\Omega+12\,\Omega=16\,\Omega.$$
+::::
 
 ⁠**Comprobación** en los terminales 1, 2 con el terminal 3 abierto: la estrella tiene $4+4=8\,\Omega$; el triángulo, $10\,\Omega\parallel40\,\Omega=8\,\Omega$. **Casos límite:** Tres resistencias de triángulo iguales dan una estrella con un tercio del valor. Para $R_{12}\to0$, $R_{10}$ y $R_{20}$ tienden a cero, y $R_{30}$ pasa a ser $R_{23}\parallel R_{31}$, que es exactamente lo que es el triángulo cortocircuitado.
 

@@ -34,7 +34,9 @@ und __positiv semidefinit__, wenn $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}\ge0$ f�
 
 Die Symmetrie gehört zur Definition. Für die quadratische Form ist das keine Einschränkung, nach Abschnitt [5.2](quadratische-formen.html#stufe-5-2) zählt ohnehin nur der symmetrische Anteil. Sie ist aber nötig, damit die Tests im nächsten Unterabschnitt gelten. Jede positiv definite Matrix ist auch positiv semidefinit.
 
-⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist positiv definit, denn nach Abschnitt [5.4](quadratische-formen.html#stufe-5-4) ist $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$, und das ist nur null, wenn $x_2=0$ und dann auch $x_1=0$ ist. Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat die Form $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$; sie ist positiv semidefinit, aber nicht positiv definit, denn für $\mathbf{x}=(2,\,-1)^{\top}$ ist die Form null. Ihr Graph ist eine Rinne mit dem Talboden in Richtung $(2,\,-1)^{\top}$.
+::::beispiel [Rechenbeispiel]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist positiv definit, denn nach Abschnitt [5.4](quadratische-formen.html#stufe-5-4) ist $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=5(x_1+0{,}4x_2)^2+1{,}2x_2^2$, und das ist nur null, wenn $x_2=0$ und dann auch $x_1=0$ ist. Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat die Form $x_1^2+4x_1x_2+4x_2^2=(x_1+2x_2)^2\ge0$; sie ist positiv semidefinit, aber nicht positiv definit, denn für $\mathbf{x}=(2,\,-1)^{\top}$ ist die Form null. Ihr Graph ist eine Rinne mit dem Talboden in Richtung $(2,\,-1)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Positiv definit heißt: Die quadratische Form ist außerhalb des Nullpunkts positiv, eine Schüssel; positiv semidefinit heißt: nirgends negativ.
 
@@ -56,7 +58,9 @@ Sind alle $\lambda_i>0$ und ist $\mathbf{x}\ne\mathbf{0}$, so ist auch $\mathbf{
 
 Hat eine symmetrische Matrix positive und negative Eigenwerte, so ist ihre Form in manchen Richtungen positiv und in anderen negativ: ein Sattel. Eine solche Matrix heißt __indefinit__. Entsprechend heißt eine Matrix mit lauter negativen Eigenwerten negativ definit; ihre Form ist eine Kuppel.
 
-⁠**Rechenbeispiel:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ hat die Eigenwerte $6$ und $1$: positiv definit. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat die Eigenwerte $5$ und $0$: positiv semidefinit. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ hat lauter positive Einträge, aber die Eigenwerte $4$ und $-2$: indefinit, denn für $\mathbf{x}=(1,\,-1)^{\top}$ ist die Form $1-6+1=-4$. Positive Einträge sagen also nichts über die Definitheit.
+::::beispiel [Rechenbeispiel]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ hat die Eigenwerte $6$ und $1$: positiv definit. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat die Eigenwerte $5$ und $0$: positiv semidefinit. $\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ hat lauter positive Einträge, aber die Eigenwerte $4$ und $-2$: indefinit, denn für $\mathbf{x}=(1,\,-1)^{\top}$ ist die Form $1-6+1=-4$. Positive Einträge sagen also nichts über die Definitheit.
+::::
 
 ⁠**Kurz gesagt:** Eine symmetrische Matrix ist genau dann positiv definit, wenn alle Eigenwerte positiv sind; positive und negative Eigenwerte zusammen ergeben einen Sattel.
 
@@ -104,11 +108,13 @@ Für $n=2$ ist das [(5.3)](quadratische-formen.html#gl-5-3): Die Pivots sind $a$
 
 Zwei Warnungen. Erstens genügt $\det\mathbf{A}>0$ allein nicht: $\operatorname{diag}(-1;\,-3)$ hat die Determinante $3$, ist aber negativ definit. Zweitens überträgt sich der Test nicht einfach auf semidefinit: $\operatorname{diag}(0;\,-1)$ hat die führenden Hauptminoren $0$ und $0$, beide nicht negativ, und ist trotzdem nicht positiv semidefinit.
 
-⁠**Rechenbeispiel:** Für
+::::beispiel [Rechenbeispiel]
+Für
 
 $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 sind die führenden Hauptminoren $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)=3$ und $\det\mathbf{A}=2\cdot3-1\cdot2=4$, alle positiv: $\mathbf{A}$ ist positiv definit. Die Pivots sind $2$, $\tfrac32$ und $\tfrac43$, die Quotienten aufeinanderfolgender Minoren. Zur Kontrolle: Die Eigenwerte sind $2-\sqrt2$, $2$ und $2+\sqrt2$, alle positiv, und ihr Produkt ist $(4-2)\cdot2=4$.
+::::
 
 ⁠**Kurz gesagt:** Eine symmetrische Matrix ist genau dann positiv definit, wenn alle Pivots oder alle führenden Hauptminoren positiv sind; bei $2\times2$ heißt das $a>0$ und $ac-b^2>0$.
 
@@ -130,7 +136,9 @@ $\mathbf{A}^{\top}\mathbf{A}$ ist symmetrisch, und $\mathbf{x}^{\top}\mathbf{A}^
 
 Dasselbe gilt für $\mathbf{A}\mathbf{A}^{\top}$ mit den Zeilen statt der Spalten. Der Satz erklärt nachträglich Abschnitt [3.5](die-beste-naherungslosung.html#stufe-3-5): Bei unabhängigen Spalten ist $\mathbf{A}^{\top}\mathbf{A}$ positiv definit, hat also lauter positive Eigenwerte und ist invertierbar.
 
-⁠**Rechenbeispiel:** $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Eigenwerte $3$ und $1$: positiv definit, passend zu den unabhängigen Spalten von $\mathbf{H}$. Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ mit der Determinante $0$ und den Eigenwerten $25$ und $0$: positiv semidefinit, nicht positiv definit.
+::::beispiel [Rechenbeispiel]
+$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Eigenwerte $3$ und $1$: positiv definit, passend zu den unabhängigen Spalten von $\mathbf{H}$. Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ist $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ mit der Determinante $0$ und den Eigenwerten $25$ und $0$: positiv semidefinit, nicht positiv definit.
+::::
 
 ⁠**Kurz gesagt:** $\mathbf{A}^{\top}\mathbf{A}$ ist immer positiv semidefinit, weil $\mathbf{x}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{x}=\lVert\mathbf{A}\mathbf{x}\rVert^2$ ist; bei unabhängigen Spalten ist sie positiv definit.
 
@@ -161,11 +169,13 @@ Das ist ein gewichtetes Mittel der Eigenwerte, und ein Mittel liegt immer zwisch
 
 Der Quotient in [(8.2)](#gl-8-2) heißt __Rayleigh-Quotient__. Für $\lVert\mathbf{x}\rVert=1$ ist er die quadratische Form selbst: Auf dem Einheitskreis liegt die Form zwischen dem kleinsten und dem größten Eigenwert.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist der Rayleigh-Quotient bei $\mathbf{e}_1$ gleich $5$, bei $\mathbf{e}_2$ gleich $2$, bei $(1,\,1)^{\top}/\sqrt2$ gleich $\tfrac{5+4+2}2=5{,}5$ und bei $(1,\,-1)^{\top}/\sqrt2$ gleich $\tfrac{5-4+2}2=1{,}5$. Alle Werte liegen zwischen $1$ und $6$. Den Wert $6$ erreicht er bei $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$: $\tfrac15(20+8+2)=6$. Der Quotient hängt nicht von der Länge von $\mathbf{x}$ ab; Abb. [21](#abb-21) rechnet ihn für $\mathbf{x}=(1,\,1)^{\top}$ ohne Wurzeln aus.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist der Rayleigh-Quotient bei $\mathbf{e}_1$ gleich $5$, bei $\mathbf{e}_2$ gleich $2$, bei $(1,\,1)^{\top}/\sqrt2$ gleich $\tfrac{5+4+2}2=5{,}5$ und bei $(1,\,-1)^{\top}/\sqrt2$ gleich $\tfrac{5-4+2}2=1{,}5$. Alle Werte liegen zwischen $1$ und $6$. Den Wert $6$ erreicht er bei $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$: $\tfrac15(20+8+2)=6$. Der Quotient hängt nicht von der Länge von $\mathbf{x}$ ab; Abb. [21](#abb-21) rechnet ihn für $\mathbf{x}=(1,\,1)^{\top}$ ohne Wurzeln aus.
 
 :::abbildung ml/k2rrayleigh 21
 Der Rayleigh-Quotient von $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ an der Stelle $\mathbf{x}=(1,1)^{\top}$: Zähler und Nenner als Summen, der Quotient $\tfrac{11}2=5{,}5$ liegt zwischen den Eigenwerten $1$ und $6$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Auf dem Einheitskreis liegt eine quadratische Form zwischen dem kleinsten und dem größten Eigenwert, und diese Extremwerte werden in den Eigenrichtungen angenommen.
 
@@ -192,11 +202,13 @@ $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
 und für größere $n$ setzt man das Ergänzen Variable für Variable fort. Nach [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ ist $a=4$, $b=2$, $c=5$, also $l_{11}=2$, $l_{21}=1$ und $l_{22}=\sqrt{5-1}=2$:
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ ist $a=4$, $b=2$, $c=5$, also $l_{11}=2$, $l_{21}=1$ und $l_{22}=\sqrt{5-1}=2$:
 
 $$\mathbf L=\begin{pmatrix}2&0\\1&2\end{pmatrix},\qquad \mathbf L\mathbf L^{\top}=\begin{pmatrix}4&2\\2&1+4\end{pmatrix}=\mathbf{A} .$$
 
 Die Form ist $4x_1^2+4x_1x_2+5x_2^2=(2x_1+x_2)^2+(2x_2)^2$; die beiden Ausdrücke in den Quadraten sind die Komponenten von $\mathbf L^{\top}\mathbf{x}$. Die Determinante ist $20-4=16=(2\cdot2)^2$.
+::::
 
 ⁠**Kurz gesagt:** Jede positiv definite Matrix ist $\mathbf L\mathbf L^{\top}$ mit einer unteren Dreiecksmatrix $\mathbf L$; die Zerlegung ist das quadratische Ergänzen in Matrixform.
 

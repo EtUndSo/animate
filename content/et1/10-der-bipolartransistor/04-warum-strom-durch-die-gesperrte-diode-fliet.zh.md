@@ -66,7 +66,11 @@ $$I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T},\qquad I_\mathrm{B}=
 
 **是谁在控制？** 从物理上说，控制的是 $U_\mathrm{BE}$，因为只有电压才能降低势垒。基极电流是为此付出的代价。不过在电路中常常用 $I_\mathrm{B}$ 计算：由于 $I_\mathrm{C}=B\,I_\mathrm{B}$，晶体管的行为就像一个电流控制电流源（CCCS，[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）。两种看法描述的是同一个比例关系。用 $U_\mathrm{BE}$ 控制解释了指数定律；当电阻决定基极电流时，用 $I_\mathrm{B}$ 的看法更方便。
 
-**例。** $U_\mathrm{BE}=0.6$ V 给出 $I_\mathrm{C}=1.9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23.08}=2.00$ mA，$I_\mathrm{B}=10$ µ A，$I_\mathrm{E}=2.01$ mA。这相当于集电极中每秒 $1.25\cdot10^{16}$ 个电子，发射极电流的 99.5 % 到达那里。指数函数很敏感：$+18$ mV 使电流加倍（$U_T\ln2$），$+60$ mV 使电流变为十倍（$U_T\ln10$），$+1$ mV 带来 $+3.9$ %。**极限情况：**$U_\mathrm{BE}=0.4$ V 时只有 0.9 µ A，晶体管实际上已关断。当 $B\to\infty$ 时，$I_\mathrm{B}$ 消失，$I_\mathrm{E}=I_\mathrm{C}$。
+::::beispiel
+$U_\mathrm{BE}=0.6$ V 给出 $I_\mathrm{C}=1.9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23.08}=2.00$ mA，$I_\mathrm{B}=10$ µ A，$I_\mathrm{E}=2.01$ mA。这相当于集电极中每秒 $1.25\cdot10^{16}$ 个电子，发射极电流的 99.5 % 到达那里。指数函数很敏感：$+18$ mV 使电流加倍（$U_T\ln2$），$+60$ mV 使电流变为十倍（$U_T\ln10$），$+1$ mV 带来 $+3.9$ %。
+::::
+
+⁠**极限情况：**$U_\mathrm{BE}=0.4$ V 时只有 0.9 µ A，晶体管实际上已关断。当 $B\to\infty$ 时，$I_\mathrm{B}$ 消失，$I_\mathrm{E}=I_\mathrm{C}$。
 
 :::analogie
 一条大水渠被一块活门挡住。来自侧渠的一股细水流把活门推开。没有控制水流就什么也流不过去，控制水流越强，流过的水越多，下方两股水流汇合。这幅图景适用于三点：小的控制大的，没有控制时晶体管截止，$I_\mathrm{E}=I_\mathrm{B}+I_\mathrm{C}$。它不适用于机理：晶体管中没有任何东西推动活门，是电压降低了势垒，而且关系是指数型的。

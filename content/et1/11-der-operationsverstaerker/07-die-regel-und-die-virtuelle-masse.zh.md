@@ -90,7 +90,11 @@ $$\frac{U_\mathrm{E}}{R_1}+\frac{U_\mathrm{A}}{R_2}=0\quad\Rightarrow\quad U_\ma
 上：反相放大器，红色为 $U_\mathrm{E}=+1$ V 时的电流路径。下：极限：$\hat u_\mathrm{E}=3.5$ V 本应得到 14 V，输出在 $\pm11$ V 处到达极限。这时 $\varphi_-$ 升到 0.6 V，虚地消失。
 :::
 
-**例。** $U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V，$A$ 有限时更精确地为 $-3.9998$ V。$R_\mathrm{in}=10$ k$\Omega$。对接地点接 2 k$\Omega$ 负载时流过 2 mA，输出吸收 2.1 mA：负载加反馈。电源 $U_\mathrm{E}$ 对此毫无察觉。**极限情况：**$R_2=R_1$ 只改变符号。$R_2\to0$ 得 $U_\mathrm{A}=0$。
+::::beispiel
+$U_\mathrm{A}=-4\cdot1\,\mathrm{V}=-4$ V，$A$ 有限时更精确地为 $-3.9998$ V。$R_\mathrm{in}=10$ k$\Omega$。对接地点接 2 k$\Omega$ 负载时流过 2 mA，输出吸收 2.1 mA：负载加反馈。电源 $U_\mathrm{E}$ 对此毫无察觉。
+::::
+
+⁠**极限情况：**$R_2=R_1$ 只改变符号。$R_2\to0$ 得 $U_\mathrm{A}=0$。
 
 **第一个界限。** 规则 1 以输出能达到所要求的电压为前提。当 $G=-4$ 时，这在 $|U_\mathrm{E}|=11\,\mathrm{V}/4=2.75$ V 处结束。超过此值，$U_\mathrm{A}=\mp11$ V 固定，环路断开，由 $R_1$ 和 $R_2$ 组成的分压器决定节点电位：$\varphi_-=0.8\,U_\mathrm{E}+0.2\,U_\mathrm{A}$，在 3.5 V 时为 $+0.6$ V。
 

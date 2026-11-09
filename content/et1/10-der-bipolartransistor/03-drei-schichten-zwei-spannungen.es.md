@@ -38,7 +38,11 @@ $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE
 Es, por tanto, un cuadripolo ([Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) cuyas dos puertas comparten el emisor.
 :::
 
-**Ejemplo.** En el modelo de referencia, $\varphi_\mathrm{E}=0$, $\varphi_\mathrm{B}=0{,}6$ V, $\varphi_\mathrm{C}=6$ V. Con ello, $U_\mathrm{BE}=0{,}6$ V, $U_\mathrm{CE}=6$ V y $U_\mathrm{CB}=5{,}4$ V. El diodo BE conduce porque su lado p está más alto. El diodo CB bloquea porque su lado n está 5,4 V más alto. De $I_\mathrm{C}=2$ mA e $I_\mathrm{B}=10$ µ A se deduce $I_\mathrm{E}=2{,}01$ mA. **Caso límite:** para $U_\mathrm{CB}=0$ es $U_\mathrm{CE}=U_\mathrm{BE}$. Ahí termina el funcionamiento normal.
+::::beispiel
+En el modelo de referencia, $\varphi_\mathrm{E}=0$, $\varphi_\mathrm{B}=0{,}6$ V, $\varphi_\mathrm{C}=6$ V. Con ello, $U_\mathrm{BE}=0{,}6$ V, $U_\mathrm{CE}=6$ V y $U_\mathrm{CB}=5{,}4$ V. El diodo BE conduce porque su lado p está más alto. El diodo CB bloquea porque su lado n está 5,4 V más alto. De $I_\mathrm{C}=2$ mA e $I_\mathrm{B}=10$ µ A se deduce $I_\mathrm{E}=2{,}01$ mA.
+::::
+
+⁠**Caso límite:** para $U_\mathrm{CB}=0$ es $U_\mathrm{CE}=U_\mathrm{BE}$. Ahí termina el funcionamiento normal.
 
 :::frage ¿Puedo soldar un transistor con dos diodos?
 No. La imagen equivalente de dos diodos solo muestra la polaridad de las fronteras. En dos diodos separados, cada electrón se recombina mucho antes de alcanzar la segunda capa de bloqueo, y el diodo bloqueado sigue bloqueado. El efecto transistor solo aparece porque las dos fronteras están más cerca entre sí que la distancia que un electrón sobrevive en la zona p.

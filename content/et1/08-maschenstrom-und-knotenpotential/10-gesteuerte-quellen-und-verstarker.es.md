@@ -23,7 +23,8 @@ Una fuente con $I=g\,(U_p-U_q)$ de $i$ a $k$ suma $+g$ en $(i,p)$ y $(k,q)$ y $-
 
 ⁠**Cómo leerlo:** $g$ es la __transconductancia__, corriente por tensión de control en siemens, 50 mS en el modelo. **Validez:** La fuente debe ser lineal. Los transistores solo lo son para pequeños cambios en torno a un punto de trabajo ([Parte 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 
-**Ejemplo: sin realimentación negativa.** Una fuente de corriente $I_\mathrm q=20$ µ A con $G_\mathrm q=0{,}5$ mS alimenta el nudo 1. Allí está $G_\mathrm i=0{,}5$ mS a masa. La fuente $g\,U_1$ extrae corriente del nudo 2 hacia masa; allí están también $G_\mathrm o=0{,}05$ mS y $G_\mathrm L=0{,}2$ mS. Las estampas dan
+::::beispiel sin realimentación negativa
+Una fuente de corriente $I_\mathrm q=20$ µ A con $G_\mathrm q=0{,}5$ mS alimenta el nudo 1. Allí está $G_\mathrm i=0{,}5$ mS a masa. La fuente $g\,U_1$ extrae corriente del nudo 2 hacia masa; allí están también $G_\mathrm o=0{,}05$ mS y $G_\mathrm L=0{,}2$ mS. Las estampas dan
 
 <span class="anker" id="gl-8-1"></span>
 $$\begin{pmatrix}G_\mathrm q+G_\mathrm i&0\\g&G_\mathrm o+G_\mathrm L\end{pmatrix}\begin{pmatrix}U_1\\U_2\end{pmatrix}=\begin{pmatrix}I_\mathrm q\\0\end{pmatrix}. \tag{8.1}$$
@@ -34,6 +35,7 @@ $Y_{12}=0$, pero $Y_{21}=g$. Con $D=(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mat
 $$U_1=\frac{I_\mathrm q}{G_\mathrm q+G_\mathrm i},\qquad U_2=-\frac{g\,I_\mathrm q}{(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mathrm L)},\qquad A_u=\frac{U_2}{U_1}=-\frac{g}{G_\mathrm o+G_\mathrm L}. \tag{8.2}$$
 
 En el modelo son $D=0{,}25$, $U_1=20$ mV, $U_2=-4$ V y la __ganancia de tensión__ $A_u=-200$, como en la [Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). El signo menos surge porque la corriente controlada sale del nudo 2.
+::::
 
 **Con realimentación negativa.** El punto inferior común de la entrada y la salida se llama punto base. Si se separa de la masa y se intercala ahí $R_\mathrm S=1\,\mathrm{k\Omega}$, surge el nudo 3 (fig. [8](#abb-8)). La corriente de salida pasa ahora por $R_\mathrm S$ y eleva $U_3$. Con ello baja la tensión de control $U_1-U_3$, y la corriente de salida disminuye. Esta acción de la salida sobre su propia entrada se llama __realimentación negativa__.
 

@@ -28,7 +28,9 @@ Dieser Unterabschnitt stellt zusammen, was das Kapitel aus der Mathematik der ko
 
 **Polarform.** Mit der Eulerschen Formel $\mathrm{e}^{\mathrm j\varphi}=\cos\varphi+\mathrm j\sin\varphi$ ist $z=|z|\,\mathrm{e}^{\mathrm j\varphi}$. Beim Multiplizieren multiplizieren sich die Beträge, und die Phasen addieren sich; beim Dividieren teilen sich die Beträge, und die Phasen subtrahieren sich.
 
-⁠**Beispiel:** $z=3+4\mathrm j$ hat $|z|=\sqrt{9+16}=5$ und $\varphi=\arctan\frac43\approx0{,}9273\approx53{,}13^\circ$. Es ist $z^*=3-4\mathrm j$ und $z\cdot z^*=9+16=25=|z|^2$.
+::::beispiel
+$z=3+4\mathrm j$ hat $|z|=\sqrt{9+16}=5$ und $\varphi=\arctan\frac43\approx0{,}9273\approx53{,}13^\circ$. Es ist $z^*=3-4\mathrm j$ und $z\cdot z^*=9+16=25=|z|^2$.
+::::
 
 ⁠**Kurz gesagt:** $z=x+\mathrm jy=|z|\,\mathrm{e}^{\mathrm j\varphi}$ mit $|z|=\sqrt{x^2+y^2}$ und der Phase $\varphi$ als Winkel des Zeigers.
 
@@ -46,7 +48,8 @@ Eine Impedanz hat zwei Anteile, Wirk- und Blindwiderstand. Python braucht einen 
 Ein Objekt vom Typ `complex` speichert eine komplexe Zahl als Paar zweier `float`, Realteil und Imaginärteil. Eine Zahl mit einem angehängten `j` ist imaginär: `4j` bedeutet $4\mathrm j$. Die Funktion `complex(x, y)` erzeugt $x+\mathrm jy$.
 :::
 
-**Beispiel.** `3 + 4j` ist eine Rechnung: `int` plus imaginäre Zahl ergibt `complex`. Python zeigt komplexe Zahlen in Klammern:
+::::beispiel
+`3 + 4j` ist eine Rechnung: `int` plus imaginäre Zahl ergibt `complex`. Python zeigt komplexe Zahlen in Klammern:
 
 ```console
 >>> z = 3 + 4j
@@ -70,6 +73,7 @@ NameError: name 'j' is not defined
 ```
 
 Die letzte Eingabe zeigt eine Falle: `j` allein ist für Python ein Name, keine Zahl. Die imaginäre Einheit schreibt man `1j`. Die Grundrechenarten und `**` funktionieren mit `complex`; Ganzzahldivision, Rest und die Vergleiche `<` und `>` gibt es nicht, weil komplexe Zahlen keine Reihenfolge haben.
+::::
 
 ⁠**Kurz gesagt:** `complex` speichert Real- und Imaginärteil als zwei `float`; die imaginäre Einheit heißt `1j`.
 
@@ -93,7 +97,8 @@ Ein __Attribut__ ist ein Name, der an einem Objekt hängt und mit einem Punkt ab
 
 Daher kommt der Name der Ausnahme `AttributeError` aus Unterabschnitt [1.4](objekte-und-typen.html#stufe-1-4): Am Objekt hing kein Attribut mit dem gesuchten Namen.
 
-**Beispiel.** `real` und `imag` sind Attribute mit den beiden Teilen als `float`; `conjugate` ist eine Methode und liefert die konjugiert komplexe Zahl:
+::::beispiel
+`real` und `imag` sind Attribute mit den beiden Teilen als `float`; `conjugate` ist eine Methode und liefert die konjugiert komplexe Zahl:
 
 ```console
 >>> z.real
@@ -113,6 +118,7 @@ AttributeError: readonly attribute
 ```
 
 Die letzte Zeile zeigt: Die Attribute lassen sich nur lesen. Ein `complex` ändert seinen Wert nie, so wie jede Zahl (Unterabschnitt [1.3](objekte-und-typen.html#stufe-1-3)).
+::::
 
 ⁠**Kurz gesagt:** Ein Attribut ist ein Name am Objekt; `z.real` und `z.imag` liefern Real- und Imaginärteil.
 
@@ -130,7 +136,8 @@ Die Funktionen aus `math` arbeiten nur mit reellen Zahlen. `math.sqrt(-1)` ist d
 Das Modul `cmath` enthält mathematische Funktionen für komplexe Zahlen, darunter `sqrt`, `exp`, `log`, `sin`, `cos` sowie `phase`, `polar` und `rect` für die Polarform. Die Rechenfunktionen liefern ein `complex`; `phase` liefert einen `float` und `polar` zwei `float`.
 :::
 
-**Beispiel.** Mit `math` scheitert die Wurzel aus $-1$:
+::::beispiel
+Mit `math` scheitert die Wurzel aus $-1$:
 
 ```console
 >>> import math
@@ -156,6 +163,7 @@ Unter Python 3.13 lautet die Beschreibung kürzer `math domain error`. Mit `cma
 ```
 
 $\mathrm{e}^{\mathrm j\pi}$ ist $-1$; der Imaginärteil $1{,}22\cdot10^{-16}$ ist der Rundungsrest von `math.pi`, derselbe wie bei `math.sin(math.pi)` in Unterabschnitt [8.2](module-math-und-sys.html#stufe-8-2). Die letzte Zeile ist eine Falle: Eine negative Zahl hoch einen nicht ganzzahligen Exponenten liefert ohne Warnung ein `complex`, und auch dieses trägt einen Rundungsrest im Realteil.
+::::
 
 ⁠**Kurz gesagt:** `cmath` ist `math` für komplexe Zahlen; dort hat auch $\sqrt{-1}$ ein Ergebnis.
 

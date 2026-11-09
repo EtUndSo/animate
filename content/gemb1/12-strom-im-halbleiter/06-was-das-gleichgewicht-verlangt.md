@@ -64,7 +64,11 @@ Zwei Wasserbecken werden verbunden. Wasser fließt, bis die Pegel gleich sind. D
 Energie über dem Ort, Punkte: Elektronen, eng, wo die Dichte hoch ist. Links fällt $N_\mathrm D$ von $10^{17}$ auf $10^{15}\,\mathrm{cm^{-3}}$, die Bandkante steigt, $E_\mathrm F$ bleibt waagerecht. Rechts ist die Probe homogen, 100 mV liegen an, $E_\mathrm F$ neigt sich.
 :::
 
-**Beispiel.** Auf 100 µ m fällt $N_\mathrm D$ exponentiell von $10^{17}$ auf $10^{15}\,\mathrm{cm^{-3}}$ (Abb. [4](#abb-4)). Bei waagerechtem $E_\mathrm F$ ist $E_\mathrm C-E_\mathrm F$ links 146 meV und rechts 265 meV. Im Kristall herrscht also $\mathcal E=1190$ V/m, obwohl kein Strom fließt. **Grenzfall:** In homogener Probe ist $\mathrm{d} E_\mathrm F/\mathrm{d} x=e\mathcal E$: Jedes Feld treibt dann Strom.
+::::beispiel
+Auf 100 µ m fällt $N_\mathrm D$ exponentiell von $10^{17}$ auf $10^{15}\,\mathrm{cm^{-3}}$ (Abb. [4](#abb-4)). Bei waagerechtem $E_\mathrm F$ ist $E_\mathrm C-E_\mathrm F$ links 146 meV und rechts 265 meV. Im Kristall herrscht also $\mathcal E=1190$ V/m, obwohl kein Strom fließt.
+::::
+
+⁠**Grenzfall:** In homogener Probe ist $\mathrm{d} E_\mathrm F/\mathrm{d} x=e\mathcal E$: Jedes Feld treibt dann Strom.
 
 :::frage Im Beispiel herrscht ein echtes Feld. Warum treibt es keinen Strom?
 Es zieht die Elektronen zum dichten Gebiet zurück, ihre Wärmebewegung drängt sie von dort weg, und beide Anteile heben sich auf. Das Feld stammt von wenigen abgewanderten Elektronen, die ihre ortsfesten Donatoren zurückgelassen haben.

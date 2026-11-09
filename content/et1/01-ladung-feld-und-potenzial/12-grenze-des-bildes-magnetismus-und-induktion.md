@@ -36,7 +36,9 @@ Faraday zeigte die Induktion auch ohne Magnet: Er wickelte zwei Spulen auf einen
 
 **Maxwells Gleichungen in Worten.** Die Gleichungen selbst brauchen mehr Mathematik, ihr Inhalt passt in vier Sätze. Die __Flussdichte__ ist dabei das Maß für die Dichte der Feldlinien. **Gaußsches Gesetz für elektrische Felder:** Ladungen sind Quellen und Senken der elektrischen Flussdichte. **Gaußsches Gesetz für Magnetismus:** Die magnetische Flussdichte hat keine Quellen, ihre Linien sind geschlossen. **Induktionsgesetz:** Zeitliche Änderungen des magnetischen Flusses führen zu einem elektrischen Wirbelfeld. **Durchflutungsgesetz:** Ströme und zeitliche Änderungen des elektrischen Felds führen zu einem magnetischen Wirbelfeld.
 
-**Beispiel.** Der Magnet in Abb. [12](#abb-12) ändert den Fluss durch die Spule mit $N=500$ gleichmäßig um 0,2 mWb in 25 ms. Die Spannung ist dann konstant: $|U_\mathrm{ind}|=500\cdot0{,}2\,\mathrm{mWb}/25\,\mathrm{ms}=4$ V. In dieser Zeit ist das Umlaufintegral von $\vec E$ um den Fluss nicht null, und die Spannung zwischen zwei Punkten hängt davon ab, auf welcher Seite des Flusses der Weg verläuft.
+::::beispiel
+Der Magnet in Abb. [12](#abb-12) ändert den Fluss durch die Spule mit $N=500$ gleichmäßig um 0,2 mWb in 25 ms. Die Spannung ist dann konstant: $|U_\mathrm{ind}|=500\cdot0{,}2\,\mathrm{mWb}/25\,\mathrm{ms}=4$ V. In dieser Zeit ist das Umlaufintegral von $\vec E$ um den Fluss nicht null, und die Spannung zwischen zwei Punkten hängt davon ab, auf welcher Seite des Flusses der Weg verläuft.
+::::
 
 ⁠**Grenzfälle:** Für konstanten Fluss ist $u_\mathrm{ind}=0$, ein ruhender Magnet erzeugt keine Spannung. In den meisten Schaltungen sitzen die sich ändernden Flüsse fast vollständig in Spulen. Zwischen den Bauteilen bleibt das Feld praktisch wirbelfrei, deshalb bleiben Potenziale und Spannungen dort das Werkzeug.
 

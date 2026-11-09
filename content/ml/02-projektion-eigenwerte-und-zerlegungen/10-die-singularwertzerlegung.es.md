@@ -27,7 +27,8 @@ $$(\mathbf{A}\mathbf{v}_1)^{\top}(\mathbf{A}\mathbf{v}_2)=\mathbf{v}_1^{\top}\,\
 
 Aquí aparece la matriz de Gram $\mathbf{A}^{\top}\mathbf{A}$. Es simétrica, aunque $\mathbf{A}$ no lo sea, y tiene, según el teorema espectral, una base ortonormal de vectores propios. Si $\mathbf{v}_2$ es un vector propio de $\mathbf{A}^{\top}\mathbf{A}$ asociado al valor propio $\lambda_2$ y $\mathbf{v}_1$ es perpendicular a $\mathbf{v}_2$, el producto escalar es $\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$. Los vectores propios de $\mathbf{A}^{\top}\mathbf{A}$ cumplen, por tanto, lo que se busca. El mismo cálculo con $\mathbf{v}_1=\mathbf{v}_2$ da las longitudes de las imágenes: $\lVert\mathbf{A}\mathbf{v}_i\rVert^2=\mathbf{v}_i^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{v}_i=\lambda_i$.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}4&6\\6&13\end{smallmatrix}\bigr)$, con la traza $17$ y el determinante $52-36=16$. El polinomio característico $\lambda^2-17\lambda+16=(\lambda-16)(\lambda-1)$ tiene las raíces $16$ y $1$. Son vectores propios normalizados $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$, asociado a $16$, y $\mathbf{v}_2=(-2,\,1)^{\top}/\sqrt5$, asociado a $1$. Sus imágenes
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}4&6\\6&13\end{smallmatrix}\bigr)$, con la traza $17$ y el determinante $52-36=16$. El polinomio característico $\lambda^2-17\lambda+16=(\lambda-16)(\lambda-1)$ tiene las raíces $16$ y $1$. Son vectores propios normalizados $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$, asociado a $16$, y $\mathbf{v}_2=(-2,\,1)^{\top}/\sqrt5$, asociado a $1$. Sus imágenes
 
 $$\mathbf{A}\mathbf{v}_1=\frac1{\sqrt5}\begin{pmatrix}8\\4\end{pmatrix},\qquad \mathbf{A}\mathbf{v}_2=\frac1{\sqrt5}\begin{pmatrix}-1\\2\end{pmatrix}$$
 
@@ -36,6 +37,7 @@ tienen el producto escalar $\tfrac15(-8+8)=0$ y las longitudes $\sqrt{80/5}=4=\s
 :::abbildung ml/k2rsvdidee 22
 Las imágenes $\mathbf{A}\mathbf{v}_1=(8,4)^{\top}/\sqrt5$ y $\mathbf{A}\mathbf{v}_2=(-1,2)^{\top}/\sqrt5$ son perpendiculares entre sí, y los cuadrados de sus longitudes son $16$ y $1$, los valores propios de $\mathbf{A}^{\top}\mathbf{A}$.
 :::
+::::
 
 ⁠**En resumen:** Los vectores propios de la matriz simétrica $\mathbf{A}^{\top}\mathbf{A}$ son direcciones perpendiculares cuyas imágenes por $\mathbf{A}$ vuelven a ser perpendiculares entre sí; las imágenes tienen las longitudes $\sqrt{\lambda_i}$.
 
@@ -56,7 +58,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 se llaman __valores singulares__ de $\mathbf{A}$.
 :::
 
-Muchos libros escriben $\sigma_j$ en lugar de $d_j$. Aquí, los valores singulares llevan siempre un índice; la $d$ sin índice de Fundamentos 1, el número de características, es otra cosa.
+Muchos libros escriben $\sigma_j$ en lugar de $d_j$. Aquí, los valores singulares llevan siempre un índice; la $d$ sin índice de [Fundamentos 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), el número de características, es otra cosa.
 
 :::satz Teorema 9.2 (Valores singulares y rango)
 <span class="anker" id="satz-9-2"></span>
@@ -70,7 +72,9 @@ Sean $\mathbf{v}_1,\dots,\mathbf{v}_n$ vectores propios ortonormales de $\mathbf
 
 En lo que sigue, el rango de una matriz se designa por $r$. Se tiene $d_1\ge\dots\ge d_r>0$ y $d_{r+1}=\dots=d_n=0$.
 
-⁠**Ejemplo numérico:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ tiene los valores singulares $d_1=4$ y $d_2=1$ y el rango $2$. Los valores propios son $2$ y $2$: valores singulares y valores propios son, en general, números distintos. La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$, con los valores propios $25$ y $0$; tiene, por tanto, los valores singulares $5$ y $0$ y el rango $1$.
+::::beispiel [Ejemplo numérico]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ tiene los valores singulares $d_1=4$ y $d_2=1$ y el rango $2$. Los valores propios son $2$ y $2$: valores singulares y valores propios son, en general, números distintos. La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ tiene $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$, con los valores propios $25$ y $0$; tiene, por tanto, los valores singulares $5$ y $0$ y el rango $1$.
+::::
 
 ⁠**En resumen:** Los valores singulares $d_j$ son las raíces de los valores propios de $\mathbf{A}^{\top}\mathbf{A}$; miden cuánto estira $\mathbf{A}$ en sus direcciones principales, y el número de los positivos es el rango.
 
@@ -105,7 +109,9 @@ $\mathbf{A}$ transforma $\mathbf{v}_j$ en $d_j\mathbf{u}_j$, y $\mathbf{A}^{\top
 Un vector propio solo está determinado salvo el signo. Si se calculan los $\mathbf{v}_j$ como vectores propios de $\mathbf{A}^{\top}\mathbf{A}$ y, por separado, los $\mathbf{u}_j$ como vectores propios de $\mathbf{A}\mathbf{A}^{\top}$, un $\mathbf{u}_j$ puede salir con el signo equivocado, y entonces $\mathbf{A}\mathbf{v}_j=-d_j\mathbf{u}_j$. El camino seguro es [(9.2)](#gl-9-2): primero elegir $\mathbf{v}_j$ y después calcular $\mathbf{u}_j=\mathbf{A}\mathbf{v}_j/d_j$. Si se cambia el signo de $\mathbf{v}_j$ y $\mathbf{u}_j$ a la vez, todo sigue siendo correcto.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\mathbf{u}_1=\mathbf{A}\mathbf{v}_1/4=(2,\,1)^{\top}/\sqrt5$ y $\mathbf{u}_2=\mathbf{A}\mathbf{v}_2/1=(-1,\,2)^{\top}/\sqrt5$. Como control: $\mathbf{A}\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}13&6\\6&4\end{smallmatrix}\bigr)$ transforma $(2,\,1)^{\top}$ en $(32,\,16)^{\top}=16\,(2,\,1)^{\top}$. El vector $(-2,\,-1)^{\top}/\sqrt5$ también sería un vector propio normalizado de $\mathbf{A}\mathbf{A}^{\top}$ asociado a $16$, pero con él se tendría $\mathbf{A}\mathbf{v}_1=-4\,\mathbf{u}_1$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\mathbf{u}_1=\mathbf{A}\mathbf{v}_1/4=(2,\,1)^{\top}/\sqrt5$ y $\mathbf{u}_2=\mathbf{A}\mathbf{v}_2/1=(-1,\,2)^{\top}/\sqrt5$. Como control: $\mathbf{A}\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}13&6\\6&4\end{smallmatrix}\bigr)$ transforma $(2,\,1)^{\top}$ en $(32,\,16)^{\top}=16\,(2,\,1)^{\top}$. El vector $(-2,\,-1)^{\top}/\sqrt5$ también sería un vector propio normalizado de $\mathbf{A}\mathbf{A}^{\top}$ asociado a $16$, pero con él se tendría $\mathbf{A}\mathbf{v}_1=-4\,\mathbf{u}_1$.
+::::
 
 ⁠**En resumen:** Los vectores singulares derechos $\mathbf{v}_j$ son vectores propios de $\mathbf{A}^{\top}\mathbf{A}$; los izquierdos son $\mathbf{u}_j=\mathbf{A}\mathbf{v}_j/d_j$; ambas familias son ortonormales, y $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$.
 
@@ -130,18 +136,20 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Descomposición en valores singulares
-Para $j\le r$ es $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Para $j>r$ es $d_j=0$; por tanto, $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ y $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Si $r<m$, se completan $\mathbf{u}_1,\dots,\mathbf{u}_r$ hasta una base ortonormal de $\mathbb{R}^m$, por ejemplo con el proceso de Gram-Schmidt, como en la demostración del teorema espectral. Según Fundamentos 1, sección 9.2, la columna $j$ de $\mathbf{A}\mathbf{V}$ es el vector $\mathbf{A}\mathbf{v}_j$, y la columna $j$ de $\mathbf{U}\mathbf{D}$ es $d_j\mathbf{u}_j$ para $j\le r$ y, en otro caso, el vector nulo. Por tanto, $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Como $\mathbf{V}$ es ortogonal, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, y multiplicando por $\mathbf{V}^{\top}$ por la derecha se obtiene $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. La forma compacta se deduce de Fundamentos 1, sección 9.5: columna $j$ de $\mathbf{U}\mathbf{D}$ por fila $j$ de $\mathbf{V}^{\top}$, sumado sobre $j$; solo los sumandos con $j\le r$ son distintos de cero.
+Para $j\le r$ es $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Para $j>r$ es $d_j=0$; por tanto, $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ y $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Si $r<m$, se completan $\mathbf{u}_1,\dots,\mathbf{u}_r$ hasta una base ortonormal de $\mathbb{R}^m$, por ejemplo con el proceso de Gram-Schmidt, como en la demostración del teorema espectral. Según [Fundamentos 1, sección 9.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), la columna $j$ de $\mathbf{A}\mathbf{V}$ es el vector $\mathbf{A}\mathbf{v}_j$, y la columna $j$ de $\mathbf{U}\mathbf{D}$ es $d_j\mathbf{u}_j$ para $j\le r$ y, en otro caso, el vector nulo. Por tanto, $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Como $\mathbf{V}$ es ortogonal, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, y multiplicando por $\mathbf{V}^{\top}$ por la derecha se obtiene $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. La forma compacta se deduce de [Fundamentos 1, sección 9.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): columna $j$ de $\mathbf{U}\mathbf{D}$ por fila $j$ de $\mathbf{V}^{\top}$, sumado sobre $j$; solo los sumandos con $j\le r$ son distintos de cero.
 :::
 
 El tamaño de $\mathbf{D}$ se rige por el de $\mathbf{A}$. Para $m=3$ y $n=2$, por ejemplo, $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$. La abreviatura habitual es SVD, del nombre inglés *singular value decomposition*.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es
 
 $$\mathbf{A}=\underbrace{\frac1{\sqrt5}\begin{pmatrix}2&-1\\1&2\end{pmatrix}}_{\mathbf{U}}\underbrace{\begin{pmatrix}4&0\\0&1\end{pmatrix}}_{\mathbf{D}}\underbrace{\frac1{\sqrt5}\begin{pmatrix}1&2\\-2&1\end{pmatrix}}_{\mathbf{V}^{\top}},$$
 
 pues $\mathbf{U}\mathbf{D}=\tfrac1{\sqrt5}\bigl(\begin{smallmatrix}8&-1\\4&2\end{smallmatrix}\bigr)$ y $\mathbf{U}\mathbf{D}\mathbf{V}^{\top}=\tfrac15\bigl(\begin{smallmatrix}8+2&16-1\\4-4&8+2\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$. En forma compacta:
 
 $$4\cdot\frac15\begin{pmatrix}2&4\\1&2\end{pmatrix}+1\cdot\frac15\begin{pmatrix}2&-1\\-4&2\end{pmatrix}=\begin{pmatrix}1{,}6&3{,}2\\0{,}8&1{,}6\end{pmatrix}+\begin{pmatrix}0{,}4&-0{,}2\\-0{,}8&0{,}4\end{pmatrix}=\begin{pmatrix}2&3\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**En resumen:** Toda matriz es $\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, con dos matrices ortogonales y los valores singulares en la diagonal de $\mathbf{D}$, o, de forma equivalente, una suma $\sum_jd_j\mathbf{u}_j\mathbf{v}_j^{\top}$.
 
@@ -181,17 +189,19 @@ $\mathbf{U}$ lleva $\mathbf{e}_j$ a $\mathbf{u}_j$; de nuevo, una rotación o un
 
 </ol>
 
-Toda aplicación lineal es, por tanto, salvo reflexiones, una rotación, un estiramiento a lo largo de los ejes y otra rotación. Transforma la circunferencia unidad en una elipse y la esfera unidad en un elipsoide, con los semiejes $d_j\mathbf{u}_j$. Si $\det\mathbf{A}<0$, interviene al menos una reflexión, pues según Fundamentos 1, sección 14.5, es $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, y $\det\mathbf{D}\ge0$.
+Toda aplicación lineal es, por tanto, salvo reflexiones, una rotación, un estiramiento a lo largo de los ejes y otra rotación. Transforma la circunferencia unidad en una elipse y la esfera unidad en un elipsoide, con los semiejes $d_j\mathbf{u}_j$. Si $\det\mathbf{A}<0$, interviene al menos una reflexión, pues según [Fundamentos 1, sección 14.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), es $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, y $\det\mathbf{D}\ge0$.
 
 :::abbildung ml/k2svd 23
 La matriz $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ como rotación, estiramiento y rotación. Arriba a la izquierda, la circunferencia unidad con $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (rojo) y $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (verde). $\mathbf{V}^{\top}$ gira $-63{,}4^\circ$ y lleva $\mathbf{v}_1$ a $\mathbf{e}_1$ y $\mathbf{v}_2$ a $\mathbf{e}_2$ (abajo a la izquierda). $\mathbf{D}$ estira el primer eje por el factor $d_1=4$ y el segundo por el factor $d_2=1$ (abajo a la derecha). $\mathbf{U}$ gira $26{,}6^\circ$ y lleva los ejes a $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ y $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ (arriba a la derecha). El punto negro $\mathbf{x}=\mathbf{e}_2$ llega por todos los caminos a $\mathbf{A}\mathbf{x}=(3,2)^{\top}$. El camino directo, arriba, es la propia $\mathbf{A}$: la circunferencia unidad se convierte en la elipse con los semiejes $4\,\mathbf{u}_1$ y $1\cdot\mathbf{u}_2$.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{x}=\mathbf{e}_2$ y $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, las coordenadas son $\mathbf{V}^{\top}\mathbf{x}=(2,\,1)^{\top}/\sqrt5$. Estirado, esto da $\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=(8,\,1)^{\top}/\sqrt5$, y girado,
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{x}=\mathbf{e}_2$ y $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, las coordenadas son $\mathbf{V}^{\top}\mathbf{x}=(2,\,1)^{\top}/\sqrt5$. Estirado, esto da $\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=(8,\,1)^{\top}/\sqrt5$, y girado,
 
 $$\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=\frac15\begin{pmatrix}2&-1\\1&2\end{pmatrix}\begin{pmatrix}8\\1\end{pmatrix}=\frac15\begin{pmatrix}15\\10\end{pmatrix}=\begin{pmatrix}3\\2\end{pmatrix}=\mathbf{A}\mathbf{e}_2 .$$
 
 $\mathbf{V}$ tiene las columnas $(\cos\theta,\,\sin\theta)^{\top}$ y $(-\sin\theta,\,\cos\theta)^{\top}$ con $\cos\theta=1/\sqrt5$; es, por tanto, la rotación de ángulo $\theta\approx63{,}4^\circ$, y $\mathbf{V}^{\top}$ gira de vuelta $-63{,}4^\circ$. $\mathbf{U}$ es la rotación de $26{,}6^\circ$, pues $\cos26{,}6^\circ\approx2/\sqrt5$.
+::::
 
 ⁠**En resumen:** Toda matriz gira, estira a lo largo de los ejes y vuelve a girar, salvo reflexiones; la circunferencia unidad se convierte en una elipse con los semiejes $d_j\mathbf{u}_j$.
 
@@ -231,13 +241,15 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ es una base ortonormal del núcleo de $\ma
 (i) Todo $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ está en el espacio generado por $\mathbf{u}_1,\dots,\mathbf{u}_r$ y, a la inversa, $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ es una imagen. Las columnas restantes de $\mathbf{U}$ son perpendiculares a estas y generan, por tanto, según la sección [4.4](projektion-auf-einen-unterraum.html#stufe-4-4), el complemento ortogonal. (ii) Como los $\mathbf{u}_j$ son independientes y los $d_j$ positivos, $\mathbf{A}\mathbf{x}=\mathbf{0}$ si y solo si $\mathbf{v}_j^{\top}\mathbf{x}=0$ para todo $j\le r$, es decir, si $\mathbf{x}$ solo tiene coordenadas a lo largo de $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$. Por último, $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$ es una descomposición en valores singulares de $\mathbf{A}^{\top}$ en la que $\mathbf{U}$ y $\mathbf{V}$ intercambian sus papeles; (i) para $\mathbf{A}^{\top}$ da el resto.
 :::
 
-Los números encajan con el teorema del rango de Fundamentos 1, sección 13.5: el núcleo tiene dimensión $n-r$.
+Los números encajan con el teorema del rango de [Fundamentos 1, sección 13.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5): el núcleo tiene dimensión $n-r$.
 
-⁠**Ejemplo numérico:** La matriz $\mathbf{H}$ con las columnas $(1,\,0,\,1)^{\top}$ y $(0,\,1,\,1)^{\top}$ de la sección [3.2](die-beste-naherungslosung.html#stufe-3-2) tiene $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$, con los valores propios $3$ y $1$; tiene, por tanto, los valores singulares $d_1=\sqrt3$ y $d_2=1$ y los vectores singulares derechos $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. Los izquierdos son
+::::beispiel [Ejemplo numérico]
+La matriz $\mathbf{H}$ con las columnas $(1,\,0,\,1)^{\top}$ y $(0,\,1,\,1)^{\top}$ de la sección [3.2](die-beste-naherungslosung.html#stufe-3-2) tiene $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$, con los valores propios $3$ y $1$; tiene, por tanto, los valores singulares $d_1=\sqrt3$ y $d_2=1$ y los vectores singulares derechos $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. Los izquierdos son
 
 $$\mathbf{u}_1=\frac{\mathbf{H}\mathbf{v}_1}{\sqrt3}=\frac1{\sqrt6}\begin{pmatrix}1\\1\\2\end{pmatrix},\qquad \mathbf{u}_2=\frac{\mathbf{H}\mathbf{v}_2}{1}=\frac1{\sqrt2}\begin{pmatrix}1\\-1\\0\end{pmatrix}.$$
 
 Forman una base ortonormal del plano $x_3=x_1+x_2$, distinta de la de la sección [4.3](projektion-auf-einen-unterraum.html#stufe-4-3). Se completa con $\mathbf{u}_3=(1,\,1,\,-1)^{\top}/\sqrt3$, el vector normal normalizado de la sección [4.4](projektion-auf-einen-unterraum.html#stufe-4-4). En la descomposición completa es $\mathbf{D}=\Bigl(\begin{smallmatrix}\sqrt3&0\\0&1\\0&0\end{smallmatrix}\Bigr)$. El núcleo solo consta del vector nulo, pues $r=n=2$.
+::::
 
 ⁠**En resumen:** Una matriz es la suma de $r$ bloques $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ de rango $1$; los $\mathbf{u}_j$ con $d_j>0$ generan el espacio columna, y los $\mathbf{v}_j$ con $d_j=0$, el núcleo.
 
@@ -259,7 +271,9 @@ Se tiene $\mathbf{A}^{\top}\mathbf{A}=\mathbf{A}^2=\mathbf{Q}\boldsymbol{\Lambda
 
 Si $\mathbf{A}$ es semidefinida positiva, la descomposición espectral y la descomposición en valores singulares son la misma descomposición, con $\mathbf{U}=\mathbf{V}=\mathbf{Q}$. Con valores propios negativos, el signo pasa a $\mathbf{U}$. En las matrices no simétricas, los valores propios y los valores singulares no tienen, en general, nada que ver entre sí, como muestra $\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, con los valores propios $2,2$ y los valores singulares $4,1$. Pero siempre hay una relación: todo valor propio es, en módulo, como mucho $d_1$; esto se deduce de la subsección siguiente.
 
-⁠**Ejemplo numérico:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ tiene el valor propio $4$, con $\mathbf{q}_1=(1,\,1)^{\top}/\sqrt2$, y el valor propio $-2$, con $\mathbf{q}_2=(1,\,-1)^{\top}/\sqrt2$. Los valores singulares son $4$ y $2$. Con $\mathbf{v}_2=\mathbf{q}_2$ es $\mathbf{A}\mathbf{v}_2=(-2,\,2)^{\top}/\sqrt2=2\cdot(-1,\,1)^{\top}/\sqrt2$; por tanto, $\mathbf{u}_2=-\mathbf{q}_2$.
+::::beispiel [Ejemplo numérico]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ tiene el valor propio $4$, con $\mathbf{q}_1=(1,\,1)^{\top}/\sqrt2$, y el valor propio $-2$, con $\mathbf{q}_2=(1,\,-1)^{\top}/\sqrt2$. Los valores singulares son $4$ y $2$. Con $\mathbf{v}_2=\mathbf{q}_2$ es $\mathbf{A}\mathbf{v}_2=(-2,\,2)^{\top}/\sqrt2=2\cdot(-1,\,1)^{\top}/\sqrt2$; por tanto, $\mathbf{u}_2=-\mathbf{q}_2$.
+::::
 
 ⁠**En resumen:** En las matrices simétricas, los valores singulares son los valores absolutos de los valores propios, y en las semidefinidas positivas, la descomposición en valores singulares es la descomposición espectral.
 
@@ -294,7 +308,9 @@ Con $\mathbf{c}=\mathbf{V}^{\top}\mathbf{x}$ es $\lVert\mathbf{c}\rVert=\lVert\m
 
 Dos consecuencias. Primera: $\lVert\mathbf{A}\mathbf{x}\rVert\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{x}\rVert$ y, por ello, $\lVert\mathbf{A}\mathbf{B}\mathbf{x}\rVert\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{B}\rVert_2\lVert\mathbf{x}\rVert$, es decir, $\lVert\mathbf{A}\mathbf{B}\rVert_2\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{B}\rVert_2$: al aplicar las matrices una tras otra, el factor de estiramiento máximo es, como mucho, el producto de los factores máximos. Segunda: para un vector propio es $\lVert\mathbf{A}\mathbf{v}\rVert=|\lambda|\,\lVert\mathbf{v}\rVert$; por tanto, $|\lambda|\le d_1$ para todo valor propio de una matriz cuadrada. Para un vector propio complejo $\mathbf{v}=\mathbf{a}+\mathrm j\mathbf{b}$ con $\mathbf{a},\mathbf{b}$ reales vale lo mismo si se pone $\lVert\mathbf{v}\rVert^2=(\mathbf{v}^*)^{\top}\mathbf{v}=\lVert\mathbf{a}\rVert^2+\lVert\mathbf{b}\rVert^2$, pues $\lVert\mathbf{A}\mathbf{v}\rVert^2=\lVert\mathbf{A}\mathbf{a}\rVert^2+\lVert\mathbf{A}\mathbf{b}\rVert^2$ está, según [(9.5)](#gl-9-5), entre $d_n^2\lVert\mathbf{v}\rVert^2$ y $d_1^2\lVert\mathbf{v}\rVert^2$; para $\mathbf{A}$ cuadrada es, por tanto, también $|\lambda|\ge d_n$.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\lVert\mathbf{A}\rVert_2=4$. Los vectores unitarios de la base canónica se estiran menos: $\lVert\mathbf{A}\mathbf{e}_1\rVert=\lVert(2,\,0)^{\top}\rVert=2$ y $\lVert\mathbf{A}\mathbf{e}_2\rVert=\lVert(3,\,2)^{\top}\rVert=\sqrt{13}\approx3{,}61$. El factor $4$ solo se alcanza en $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$, y el factor mínimo $1$, en $\mathbf{v}_2$. El valor propio $2$ está entre $1$ y $4$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\lVert\mathbf{A}\rVert_2=4$. Los vectores unitarios de la base canónica se estiran menos: $\lVert\mathbf{A}\mathbf{e}_1\rVert=\lVert(2,\,0)^{\top}\rVert=2$ y $\lVert\mathbf{A}\mathbf{e}_2\rVert=\lVert(3,\,2)^{\top}\rVert=\sqrt{13}\approx3{,}61$. El factor $4$ solo se alcanza en $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$, y el factor mínimo $1$, en $\mathbf{v}_2$. El valor propio $2$ está entre $1$ y $4$.
+::::
 
 ⁠**En resumen:** La norma espectral $\lVert\mathbf{A}\rVert_2=d_1$ es el mayor factor por el que $\mathbf{A}$ alarga un vector; el menor es $d_n$.
 
@@ -422,7 +438,7 @@ Demuestra: si $\mathbf{Q}$ es ortogonal, $\mathbf{Q}\mathbf{A}$ y $\mathbf{A}$ t
 </ol>
 
 :::loesung
-(a) Según Fundamentos 1, sección 14.5, $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Las dos matrices ortogonales tienen determinante $\pm1$, y $\mathbf{D}$ es una matriz diagonal con determinante $d_1\cdots d_n$. Por tanto, $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) Según [Fundamentos 1, sección 14.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Las dos matrices ortogonales tienen determinante $\pm1$, y $\mathbf{D}$ es una matriz diagonal con determinante $d_1\cdots d_n$. Por tanto, $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) De $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ se deduce $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ y $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$. Las matrices diagonales $\mathbf{D}^{\top}\mathbf{D}$ y $\mathbf{D}\mathbf{D}^{\top}$ tienen en la diagonal las mismas entradas $d_j^2>0$; solo difieren en el número de ceros. Los valores singulares de $\mathbf{A}^{\top}$ son las raíces cuadradas de los valores propios de $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$, es decir, de nuevo los $d_j$, completados con ceros.
 

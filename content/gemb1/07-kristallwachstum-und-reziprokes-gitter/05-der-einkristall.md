@@ -69,7 +69,11 @@ Ein Durchlauf dauert ein bis drei Tage und liefert große Durchmesser kostengün
 
 **Vom Barren zum Wafer.** Nach dem Ziehen liegt das Silizium als Stab vor, dem __Barren__ (englisch ingot). Sägen und Polieren ergeben flache, sehr glatte, reine Wafer mit 76 bis 300 mm Durchmesser, das Trägermaterial (__Substrat__) der Bauelemente. Jeder Wafer hat die Richtung, die der Impfkristall vorgab, etwa eine $(100)$-Oberfläche.
 
-**Beispiel.** Ein Barren mit 300 mm Durchmesser und 2 m Länge wiegt 329 kg. Bei 60 mm/h dauert er 33 h. Die Atomlagen senkrecht zu $[100]$ haben in der Diamantstruktur den Abstand $a/4=0{,}136$ nm. An der Grenzfläche entstehen also $1{,}2\cdot10^{5}$ Lagen je Sekunde. **Grenzfall:** Wird die Ziehgeschwindigkeit zu groß, kann die Wärme nicht schnell genug abfließen, und der Kristall reißt ab.
+::::beispiel
+Ein Barren mit 300 mm Durchmesser und 2 m Länge wiegt 329 kg. Bei 60 mm/h dauert er 33 h. Die Atomlagen senkrecht zu $[100]$ haben in der Diamantstruktur den Abstand $a/4=0{,}136$ nm. An der Grenzfläche entstehen also $1{,}2\cdot10^{5}$ Lagen je Sekunde.
+::::
+
+⁠**Grenzfall:** Wird die Ziehgeschwindigkeit zu groß, kann die Wärme nicht schnell genug abfließen, und der Kristall reißt ab.
 
 :::frage Der Kristall wird beim Ziehen reiner. Wozu dann der Umweg über die Gasphase?
 Segregation hilft nur bei Atomen, die das Gitter stark ablehnt. Bor etwa wird fast so gern eingebaut wie Silizium. Außerdem entstünde aus einer Schmelze mit 2 bis 4 % Fremdatomen kein brauchbarer Einkristall.

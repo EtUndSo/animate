@@ -58,7 +58,8 @@ $$E_n\approx\frac{\hbar^2\pi^2n^2}{2m\,(L+2\delta_n)^2}. \tag{6.1}$$
 Innen gerade: $\psi=\cos(kx)$. Stetigkeit von $\psi'/\psi$ bei $x=L/2$ ergibt $k\tan(kL/2)=\kappa$. Innen ungerade: $\psi=\sin(kx)$ ergibt $-k\cot(kL/2)=\kappa$. Dazu kommt $k^2+\kappa^2=2mV_0/\hbar^2$. Diese Gleichungen lassen sich nicht nach $E$ auflösen. Die Zahlen unten sind numerisch gerechnet.
 :::
 
-**Beispiel.** Für $L=1$ nm und $V_0=2$ eV ist $L\sqrt{2mV_0}/(\pi\hbar)=2{,}31$, es gibt also 3 gebundene Zustände.
+::::beispiel
+Für $L=1$ nm und $V_0=2$ eV ist $L\sqrt{2mV_0}/(\pi\hbar)=2{,}31$, es gibt also 3 gebundene Zustände.
 
 | $n$ | $E_n^\infty$ in eV | $E_n$ in eV | $\delta_n$ in nm | Schätzung [(6.1)](#gl-6-1) in eV | außerhalb |
 |---|---|---|---|---|---|
@@ -66,7 +67,10 @@ Innen gerade: $\psi=\cos(kx)$. Stetigkeit von $\psi'/\psi$ bei $x=L/2$ ergibt $k
 | 2 | 1,504 | 0,887 | 0,185 | 0,801 | 12 % |
 | 3 | 3,384 | 1,815 | 0,453 | 0,931 | 43 % |
 
-Das tiefste Niveau sitzt zu 97 % in der Box, das oberste nur zu 57 %. Die Schätzung trifft $E_1$ auf 2 %, bei $E_3$ versagt sie, denn $\delta_3$ ist nicht klein gegen $L$. **Grenzfall:** Mit wachsendem $V_0$ steigt $E_1$ auf den Wert der harten Wand: 0,191 eV, 0,272 eV, 0,318 eV und 0,367 eV bei $V_0=1$, 5, 20 und 1000 eV. Der Anteil außerhalb fällt dabei von 5,8 % auf unter 0,01 %.
+Das tiefste Niveau sitzt zu 97 % in der Box, das oberste nur zu 57 %. Die Schätzung trifft $E_1$ auf 2 %, bei $E_3$ versagt sie, denn $\delta_3$ ist nicht klein gegen $L$.
+::::
+
+⁠**Grenzfall:** Mit wachsendem $V_0$ steigt $E_1$ auf den Wert der harten Wand: 0,191 eV, 0,272 eV, 0,318 eV und 0,367 eV bei $V_0=1$, 5, 20 und 1000 eV. Der Anteil außerhalb fällt dabei von 5,8 % auf unter 0,01 %.
 
 Dasselbe gilt in zwei Richtungen: Sperrt man das Elektron in ein Quadrat mit endlichen Wänden, reichen die Hügel von $|\psi|^2$ an allen Rändern über die Box hinaus.
 

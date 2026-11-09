@@ -42,13 +42,17 @@ $$I_\text{支路}=\sum_{\mu=1}^{m}\sigma_\mu\,I_\mu,\qquad\sigma_\mu=\begin{case
 
 ⁠**如何理解：**$\mu$ 为网孔编号，例题中用罗马数字。方向是自由的，负值表示环流实际反向流动。**适用条件：**各网孔必须独立。如果网络可以画成没有交叉的形式，就选__窗口__，即支路之间的区域。从树开始构造时，每条新连支恰好把一个区域分成两个，所以恰好有 $m$ 个窗口。
 
-**例。** 如果在模型电路中把电流源和 $R_5$ 合并为一条带电压源的支路（第 [3](das-maschenstromverfahren.html#stufe-3) 阶段），就剩下三个窗口 I、II、III，网孔电流均为顺时针。由此得出全部五个支路电流：
+::::beispiel
+如果在模型电路中把电流源和 $R_5$ 合并为一条带电压源的支路（第 [3](das-maschenstromverfahren.html#stufe-3) 阶段），就剩下三个窗口 I、II、III，网孔电流均为顺时针。由此得出全部五个支路电流：
 
 | 支路 | 左，$R_1$ | $R_2$ | $R_3$ | $R_4$ | 右，$R_5$ |
 |---|---|---|---|---|---|
 | 电流 | $I_\mathrm I$ | $I_\mathrm I-I_\mathrm{II}$ | $I_\mathrm{II}$ | $I_\mathrm{II}-I_\mathrm{III}$ | $I_\mathrm{III}$ |
 
-在节点 1 处得 $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$，无论这些电流取什么值。**极限情况：**$m=1$ 时，网孔电流就是串联电路的电流。$I_\mathrm{II}=0$ 时，$R_3$ 中的电流消失，左右两半不交换任何电流。
+在节点 1 处得 $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$，无论这些电流取什么值。
+::::
+
+⁠**极限情况：**$m=1$ 时，网孔电流就是串联电路的电流。$I_\mathrm{II}=0$ 时，$R_3$ 中的电流消失，左右两半不交换任何电流。
 
 :::frage $R_2$ 支路中的电流表测到的是 $I_\mathrm I$ 还是 $I_\mathrm{II}$？
 都不是，而是支路电流 $I_\mathrm I-I_\mathrm{II}$。网孔电流只有在单独流过的地方才能直接测量，这里例如 $R_1$ 中的 $I_\mathrm I$。这就是树的思想：网孔电流是只属于该网孔的那条支路的电流。

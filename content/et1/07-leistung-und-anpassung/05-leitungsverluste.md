@@ -40,7 +40,11 @@ $$\frac{I_1}{I_2}=\frac{U_\mathrm{L2}}{U_\mathrm{L1}},\qquad\frac{P_\mathrm{Kabe
 
 ⁠**So liest man das:** $U_\mathrm{Kabel}$ ist der __Spannungsabfall__ längs der Leitung. $P_\mathrm{Kabel}$ ist die __Verlustleistung__, $P_\mathrm{Nutz}=P_\mathrm{L}$ die __Nutzleistung__ der Last, $P_\mathrm{q}=U_\mathrm{q}I$ die Leistung der Quelle. $U_\mathrm{L}$ ist die Spannung an der Last. **Gültigkeit:** Die Formeln gelten für Gleichgrößen und für den Widerstand der Leitung. Bei Wechselspannung und ohmscher Last gelten sie mit Effektivwerten.
 
-**Beispiel.** Die Last braucht 40 kW, $R_\mathrm{Kabel}=1\,\Omega$. Bei $U_\mathrm{L}=400$ V sind $I=100$ A, $U_\mathrm{Kabel}=100$ V und $P_\mathrm{Kabel}=10$ kW. Die Quelle muss 500 V liefern, nach [(4.2)](#gl-4-2) kommen $1-100/500=80$ % an. Bei 20 kV sind $I=2$ A, $U_\mathrm{Kabel}=2$ V und $P_\mathrm{Kabel}=4$ W, es kommen 99,99 % an. Der Strom sinkt um den Faktor 50, der Verlust um $50^2=2500$. **Grenzfall:** Für $R_\mathrm{Kabel}\to0$ wird $U_\mathrm{Kabel}=0$ und [(4.2)](#gl-4-2) ergibt 1. Über längere Strecken ist Energie nur bei hoher Spannung zu übertragen, deshalb baut man das Netz in Ebenen. Die __Nennspannung__ ist die Spannung, für die ein Netz ausgelegt ist:
+::::beispiel
+Die Last braucht 40 kW, $R_\mathrm{Kabel}=1\,\Omega$. Bei $U_\mathrm{L}=400$ V sind $I=100$ A, $U_\mathrm{Kabel}=100$ V und $P_\mathrm{Kabel}=10$ kW. Die Quelle muss 500 V liefern, nach [(4.2)](#gl-4-2) kommen $1-100/500=80$ % an. Bei 20 kV sind $I=2$ A, $U_\mathrm{Kabel}=2$ V und $P_\mathrm{Kabel}=4$ W, es kommen 99,99 % an. Der Strom sinkt um den Faktor 50, der Verlust um $50^2=2500$.
+::::
+
+⁠**Grenzfall:** Für $R_\mathrm{Kabel}\to0$ wird $U_\mathrm{Kabel}=0$ und [(4.2)](#gl-4-2) ergibt 1. Über längere Strecken ist Energie nur bei hoher Spannung zu übertragen, deshalb baut man das Netz in Ebenen. Die __Nennspannung__ ist die Spannung, für die ein Netz ausgelegt ist:
 
 | Ebene | Nennspannung | Reichweite | Aufgabe |
 |---|---|---|---|

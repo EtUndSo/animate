@@ -44,11 +44,13 @@ Der Diagonaleintrag $j$ von $\mathbf{A}^{\top}\mathbf{A}$ ist $\mathbf{a}_j^{\to
 
 Zwei Folgerungen. Wegen $d_1^2\le\sum_jd_j^2$ ist $\lVert\mathbf{A}\rVert_2\le\lVert\mathbf{A}\rVert_F$. Und eine orthogonale Matrix ändert die Frobeniusnorm nicht: $(\mathbf{Q}\mathbf{A})^{\top}(\mathbf{Q}\mathbf{A})=\mathbf{A}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{A}=\mathbf{A}^{\top}\mathbf{A}$, also haben $\mathbf{Q}\mathbf{A}$ und $\mathbf{A}$ dieselben Singulärwerte.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Abb. [24](#abb-24)), also $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$, etwas mehr als $\lVert\mathbf{A}\rVert_2=4$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Abb. [24](#abb-24)), also $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$, etwas mehr als $\lVert\mathbf{A}\rVert_2=4$.
 
 :::abbildung ml/k2rfrobenius 24
 Die Frobeniusnorm von $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ im Quadrat: die Summe aller quadrierten Einträge, gleich der Summe der quadrierten Singulärwerte.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Frobeniusnorm ist die euklidische Norm aller Einträge; ihr Quadrat ist die Summe der quadrierten Singulärwerte.
 
@@ -80,7 +82,8 @@ $$\lVert\mathbf{A}-\mathbf{A}_k\rVert_2=d_{k+1},\qquad \lVert\mathbf{A}-\mathbf{
 
 Zum Speichern braucht $\mathbf{A}_k$ nur die $k$ Vektoren $\mathbf{u}_j$ mit je $m$ Einträgen, die $k$ Vektoren $\mathbf{v}_j$ mit je $n$ Einträgen und die $k$ Zahlen $d_j$, zusammen $k(m+n+1)$ Zahlen statt $mn$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ und $k=1$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ und $k=1$ ist
 
 $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1{,}6&3{,}2\\0{,}8&1{,}6\end{pmatrix},\qquad \mathbf{A}-\mathbf{A}_1=\mathbf{u}_2\mathbf{v}_2^{\top}=\begin{pmatrix}0{,}4&-0{,}2\\-0{,}8&0{,}4\end{pmatrix}.$$
 
@@ -89,6 +92,7 @@ Die Frobeniusnorm des Fehlers ist $\sqrt{0{,}16+0{,}04+0{,}64+0{,}16}=1=d_2$ (Ab
 :::abbildung ml/k2rfehler 25
 Der Fehler der besten Näherung vom Rang $1$ in der Frobeniusnorm, mit $0{,}4=\tfrac25$, $0{,}2=\tfrac15$ und $0{,}8=\tfrac45$: Sein Quadrat ist $d_2^2=1$.
 :::
+::::
 
 ⁠**Kurz gesagt:** $\mathbf{A}_k$ behält die $k$ größten Bausteine; der Fehler hat die restlichen Singulärwerte, seine Spektralnorm ist $d_{k+1}$.
 
@@ -119,7 +123,9 @@ Also verlängert $\mathbf{A}-\mathbf{B}$ den Einheitsvektor $\mathbf{z}$ mindest
 
 Der Beweis zeigt den Grund: Eine Matrix vom Rang $k$ muss eine ganze Menge von Richtungen auf null abbilden, nämlich ihren Kern. Dieser Kern trifft zwangsläufig den Raum der $k+1$ am stärksten gestreckten Richtungen von $\mathbf{A}$, und dort macht $\mathbf{B}$ einen Fehler von mindestens $d_{k+1}$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\mathbf{A}_1$ die beste Matrix vom Rang $1$, mit dem Fehler $1$ in beiden Normen. Eine andere Matrix vom Rang $1$, etwa $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, die einfach die zweite Zeile streicht, hat den Fehler $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$ mit der Norm $2$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\mathbf{A}_1$ die beste Matrix vom Rang $1$, mit dem Fehler $1$ in beiden Normen. Eine andere Matrix vom Rang $1$, etwa $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, die einfach die zweite Zeile streicht, hat den Fehler $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$ mit der Norm $2$.
+::::
 
 ⁠**Kurz gesagt:** Die abgeschnittene Zerlegung $\mathbf{A}_k$ ist die beste Näherung vom Rang $k$, in der Spektral- wie in der Frobeniusnorm.
 
@@ -145,7 +151,8 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 gibt an, welcher Teil der Summe aller quadrierten Helligkeitswerte erhalten bleibt.
 
-⁠**Rechenbeispiel:** Das Kreuz aus [Grundlagen 1, Abschnitt 6.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), ist
+::::beispiel [Rechenbeispiel]
+Das Kreuz aus [Grundlagen 1, Abschnitt 6.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), ist
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 
@@ -158,6 +165,7 @@ $$\mathbf{C}_1=2\,\mathbf{q}_1\mathbf{q}_1^{\top}=\frac13\begin{pmatrix}1&2&1\\2
 :::abbildung ml/k2bild 26
 Das Kreuz $\mathbf{C}$ aus $3\times3$ Bildpunkten (links, $0$ schwarz, $1$ weiß), seine beste Näherung $\mathbf{C}_1$ vom Rang $1$ (Mitte; der Wert $\tfrac43$ ist heller als weiß und weiß dargestellt) und der Fehler $\mathbf{C}-\mathbf{C}_1$ (rechts, rot positiv, blau negativ). Der Fehler ist selbst eine Matrix vom Rang $1$, der Baustein zum Singulärwert $1$.
 :::
+::::
 
 Bei einem Kreuz aus $3\times3$ Bildpunkten spart das wenig. Bei großen Bildern ist der Unterschied erheblich: Ein Bild aus $1000\times1000$ Bildpunkten hat $10^6$ Einträge; die Näherung mit $k=50$ Bausteinen braucht $50\cdot(1000+1000+1)=100\,050$ Zahlen, rund $10\,\%$. Ob die Näherung gut aussieht, hängt davon ab, wie schnell die Singulärwerte abfallen. Bei vielen Fotos ähneln sich benachbarte Zeilen stark; die Zeilen liegen dann nahe an einem Unterraum kleiner Dimension, und wenige große Singulärwerte tragen fast die ganze Summe $\sum_jd_j^2$.
 

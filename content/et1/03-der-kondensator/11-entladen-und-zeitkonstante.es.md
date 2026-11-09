@@ -47,7 +47,9 @@ Para la distancia $x=u_\infty-u_C$ se cumple, como en la etapa [9](aufladen-ube
 Cinco segundos de carga, cinco segundos de descarga. La tensión es continua; los porcentajes se refieren al valor final en la carga y al valor inicial en la descarga. La corriente salta al conmutar y cambia de signo en la descarga; en trazo discontinuo, los saltos.
 :::
 
-**Ejemplo.** En el modelo de referencia, la descarga empieza en 9 V. En el primer instante, $u_R=-9$ V e $i=-0{,}9$ mA. Tras 1 s son $u_C=3{,}31$ V e $i=-0{,}331$ mA; tras 3 s quedan 0,448 V. Si solo se carga durante 5 s como en la fig. [12](#abb-12), la descarga empieza en 8,94 V.
+::::beispiel
+En el modelo de referencia, la descarga empieza en 9 V. En el primer instante, $u_R=-9$ V e $i=-0{,}9$ mA. Tras 1 s son $u_C=3{,}31$ V e $i=-0{,}331$ mA; tras 3 s quedan 0,448 V. Si solo se carga durante 5 s como en la fig. [12](#abb-12), la descarga empieza en 8,94 V.
+::::
 
 ⁠**Comprobación:** La carga que pasa por $R$ en la descarga es $\int_0^\infty|i|\,\mathrm{d} t=\frac{U_0}{R}\,\tau=C\,U_0$, exactamente la carga almacenada. **Caso límite:** Para $u_C(0)=u_\infty$, el paréntesis de [(10.2)](#gl-10-2) es cero: no ocurre nada, el condensador ya está en su estado final.
 

@@ -48,11 +48,11 @@ $$\bigl((\mathbf{A}\mathbf{B})^{\top}\bigr)_{li}=(\mathbf{A}\mathbf{B})_{il}=\su
 Les trois premières règles découlent directement de la définition.
 :::
 
-⁠**Exemple de calcul :**
-
+::::beispiel [Exemple de calcul]
 $$\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}^{\top}=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}.$$
 
 Pour $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ et $\mathbf{D}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)$, on a $\mathbf{C}\mathbf{D}=\bigl(\begin{smallmatrix}2&3\\4&7\end{smallmatrix}\bigr)$, donc $(\mathbf{C}\mathbf{D})^{\top}=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$. On obtient la même chose avec $\mathbf{D}^{\top}\mathbf{C}^{\top}=\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&3\\2&4\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&4\\3&7\end{smallmatrix}\bigr)$, tandis que $\mathbf{C}^{\top}\mathbf{D}^{\top}=\bigl(\begin{smallmatrix}3&4\\4&6\end{smallmatrix}\bigr)$ est autre chose.
+::::
 
 ⁠**En bref :** Transposer échange lignes et colonnes ; pour un produit, l’ordre s’inverse, $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$.
 
@@ -79,11 +79,13 @@ $$(\mathbf{A}^{\top}\mathbf{A})^{\top}=\mathbf{A}^{\top}(\mathbf{A}^{\top})^{\to
 
 donc $\mathbf{A}^{\top}\mathbf{A}$ est symétrique, de même que $\mathbf{A}\mathbf{A}^{\top}$.
 
-⁠**Exemple de calcul :** $\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ est symétrique, la rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ ne l’est pas. Pour $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$, on a
+::::beispiel [Exemple de calcul]
+$\bigl(\begin{smallmatrix}2&1\\1&3\end{smallmatrix}\bigr)$ est symétrique, la rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ ne l’est pas. Pour $\mathbf{C}=\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$, on a
 
 $$\mathbf{C}^{\top}\mathbf{C}=\begin{pmatrix}1&3\\2&4\end{pmatrix}\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}10&14\\14&20\end{pmatrix},$$
 
 qui est bien symétrique, comme l’exige [(10.2)](#gl-10-2).
+::::
 
 ⁠**En bref :** Une matrice symétrique est égale à sa transposée ; $\mathbf{A}^{\top}\mathbf{A}$ et $\mathbf{A}\mathbf{A}^{\top}$ sont toujours symétriques.
 
@@ -119,11 +121,13 @@ $$\lVert\mathbf{x}_i-\mathbf{x}_k\rVert^2=(\mathbf{X}\mathbf{X}^{\top})_{ii}+(\m
 
 Si l’on divise le coefficient $(i,k)$ par $\sqrt{(\mathbf{X}\mathbf{X}^{\top})_{ii}\,(\mathbf{X}\mathbf{X}^{\top})_{kk}}$, on obtient la similarité cosinus de $\mathbf{x}_i$ et $\mathbf{x}_k$.
 
-⁠**Exemple de calcul :** Pour les trois textes de la sous-section [5.4](winkel-und-ahnlichkeit.html#stufe-5-4), on a
+::::beispiel [Exemple de calcul]
+Pour les trois textes de la sous-section [5.4](winkel-und-ahnlichkeit.html#stufe-5-4), on a
 
 $$\mathbf{X}=\begin{pmatrix}3&2&0\\6&4&0\\0&1&3\end{pmatrix},\qquad \mathbf{X}\mathbf{X}^{\top}=\begin{pmatrix}13&26&2\\26&52&4\\2&4&10\end{pmatrix}.$$
 
 D’après [(10.4)](#gl-10-4), la distance entre le texte 1 et le texte 3 vaut $\sqrt{13+10-2\cdot2}=\sqrt{19}$, comme calculé précédemment. La similarité cosinus du texte 1 et du texte 2 vaut $26/\sqrt{13\cdot52}=1$.
+::::
 
 ⁠**En bref :** La matrice de Gram $\mathbf{X}\mathbf{X}^{\top}$ est le tableau de tous les produits scalaires deux à deux des exemples ; on en déduit toutes les longueurs, distances et angles.
 
@@ -153,7 +157,8 @@ Chaque exemple apporte son propre produit extérieur.
 
 Le coefficient $(j,l)$ du membre de droite est $\sum_ix_{ij}\,x_{il}$, le même que dans [(10.5)](#gl-10-5). Si un nouvel exemple s’ajoute, $\mathbf{X}^{\top}\mathbf{X}$ ne change donc que d’une couche supplémentaire $\mathbf{x}_{N+1}\mathbf{x}_{N+1}^{\top}$ ; il n’est pas nécessaire de tout recalculer.
 
-⁠**Exemple de calcul :** Pour les textes, on a
+::::beispiel [Exemple de calcul]
+Pour les textes, on a
 
 $$\mathbf{X}^{\top}\mathbf{X}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
 
@@ -166,6 +171,7 @@ La première ligne de la matrice de Gram des caractéristiques : la colonne «�
 Le $0$ à la position $(1,3)$ indique que les mots « but » et « élection » n’apparaissent ensemble dans aucun texte. Comme somme des trois produits extérieurs :
 
 $$\begin{pmatrix}9&6&0\\6&4&0\\0&0&0\end{pmatrix}+\begin{pmatrix}36&24&0\\24&16&0\\0&0&0\end{pmatrix}+\begin{pmatrix}0&0&0\\0&1&3\\0&3&9\end{pmatrix}=\begin{pmatrix}45&30&0\\30&21&3\\0&3&9\end{pmatrix}.$$
+::::
 
 ⁠**En bref :** $\mathbf{X}^{\top}\mathbf{X}$ est la matrice de Gram des colonnes des caractéristiques ; c’est la somme des produits extérieurs $\mathbf{x}_i\mathbf{x}_i^{\top}$ de tous les exemples.
 

@@ -39,7 +39,11 @@ From $I_\mathrm{C}=I_\mathrm{S}\mathrm{e}^{U_\mathrm{BE}/U_T}$ follows $\frac{\p
 Left, the control characteristic with the tangent at point A (2 mA), slope $S=76.9$ mS. Right, output characteristics for two values of $U_\mathrm{BE}$. The separation of the curves is the effect of $S$. The slope of each curve is $1/r_\mathrm{CE}$; extended to the left, they reach $-74$ V.
 :::
 
-**Example.** At point A, $S=2\,\mathrm{mA}/26\,\mathrm{mV}=76.9$ mS, so $1/S=13\,\Omega$, and in addition $r_\mathrm{BE}=200/S=2.6$ k$\Omega$ and $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$. Mechanism of $S$: 1 mV more $U_\mathrm{BE}$ lowers the barrier, and according to the tangent the injection rises by 3.85 %, which is 77 µ A. To achieve the same via the output, one would need 3 V at $U_\mathrm{CE}$. **In short:** the transconductance is the current divided by $U_T$, independent of $B$ and $I_\mathrm{S}$. **Limiting cases:** $I_\mathrm{C}\to0$ gives $S\to0$: without a quiescent current there is no control effect. $U_\mathrm{Early}\to\infty$ gives $r_\mathrm{CE}\to\infty$, the ideal current source.
+::::beispiel
+At point A, $S=2\,\mathrm{mA}/26\,\mathrm{mV}=76.9$ mS, so $1/S=13\,\Omega$, and in addition $r_\mathrm{BE}=200/S=2.6$ k$\Omega$ and $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$. Mechanism of $S$: 1 mV more $U_\mathrm{BE}$ lowers the barrier, and according to the tangent the injection rises by 3.85 %, which is 77 µ A. To achieve the same via the output, one would need 3 V at $U_\mathrm{CE}$.
+::::
+
+⁠**In short:** the transconductance is the current divided by $U_T$, independent of $B$ and $I_\mathrm{S}$. **Limiting cases:** $I_\mathrm{C}\to0$ gives $S\to0$: without a quiescent current there is no control effect. $U_\mathrm{Early}\to\infty$ gives $r_\mathrm{CE}\to\infty$, the ideal current source.
 
 **How small is small?** Exactly, $i_\mathrm{c}=I_\mathrm{C}(\mathrm{e}^{u_\mathrm{be}/U_T}-1)$; the tangent says $I_\mathrm{C}u_\mathrm{be}/U_T$. At $u_\mathrm{be}=+1$ mV the error is 2 %, at $+5$ mV it is 10 % ($+424$ µ A instead of $+385$ µ A), whereas at $-5$ mV only $-350$ µ A flow. The positive half-wave becomes larger than the negative one, and the signal is distorted. At 26 mV the tangent is useless.
 

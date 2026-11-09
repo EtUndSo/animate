@@ -64,7 +64,9 @@ $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$
 
 $A$ y $d$ se simplifican: la autodescarga solo depende del material, no del tamaño del componente.
 
-**Ejemplo.** La película de plástico con $\rho\approx10^{16}\,\Omega\,$m y $\varepsilon_\mathrm{r}=2{,}2$ da unos dos días. Para un condensador electrolítico de 100 µF a 9 V, las hojas de datos indican como máximo unos 9 µA de corriente de fuga, es decir, $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$. Eso es 100 veces más que $R$ en el circuito RC; la corriente de fuga es el 1 % de 0,9 mA y se desprecia en las etapas siguientes.
+::::beispiel
+La película de plástico con $\rho\approx10^{16}\,\Omega\,$m y $\varepsilon_\mathrm{r}=2{,}2$ da unos dos días. Para un condensador electrolítico de 100 µF a 9 V, las hojas de datos indican como máximo unos 9 µA de corriente de fuga, es decir, $R_\mathrm{I}\approx1\,\mathrm{M\Omega}$. Eso es 100 veces más que $R$ en el circuito RC; la corriente de fuga es el 1 % de 0,9 mA y se desprecia en las etapas siguientes.
+::::
 
 ⁠**Caso límite:** Para $\rho\to\infty$, $R_\mathrm{I}\,C$ crece sin límite; es el condensador ideal sin autodescarga.
 

@@ -19,7 +19,7 @@ La décomposition en valeurs singulières classe les briques d’une matrice sel
 
 <span class="anker" id="stufe-10-1"></span>
 
-Pour dire à quel point deux matrices sont proches l’une de l’autre, il faut une mesure de la taille de leur différence. La norme spectrale en est une ; elle mesure l’allongement maximal. Une seconde est encore plus immédiate : on lit la matrice ligne par ligne, comme une image dans Fondements 1, section 6.1, pour en faire un long vecteur, et l’on prend sa norme euclidienne.
+Pour dire à quel point deux matrices sont proches l’une de l’autre, il faut une mesure de la taille de leur différence. La norme spectrale en est une ; elle mesure l’allongement maximal. Une seconde est encore plus immédiate : on lit la matrice ligne par ligne, comme une image dans [Fondements 1, section 6.1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), pour en faire un long vecteur, et l’on prend sa norme euclidienne.
 
 :::definition Définition 10.1 (Norme de Frobenius)
 <span class="anker" id="satz-10-1"></span>
@@ -44,11 +44,13 @@ Le coefficient diagonal $j$ de $\mathbf{A}^{\top}\mathbf{A}$ est $\mathbf{a}_j^{
 
 Deux conséquences. Comme $d_1^2\le\sum_jd_j^2$, on a $\lVert\mathbf{A}\rVert_2\le\lVert\mathbf{A}\rVert_F$. Et une matrice orthogonale ne modifie pas la norme de Frobenius : $(\mathbf{Q}\mathbf{A})^{\top}(\mathbf{Q}\mathbf{A})=\mathbf{A}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{A}=\mathbf{A}^{\top}\mathbf{A}$, donc $\mathbf{Q}\mathbf{A}$ et $\mathbf{A}$ ont les mêmes valeurs singulières.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, on a $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Fig. [24](#abb-24)), donc $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$, un peu plus que $\lVert\mathbf{A}\rVert_2=4$.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, on a $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Fig. [24](#abb-24)), donc $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$, un peu plus que $\lVert\mathbf{A}\rVert_2=4$.
 
 :::abbildung ml/k2rfrobenius 24
 Le carré de la norme de Frobenius de $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ : la somme des carrés de tous les coefficients, égale à la somme des carrés des valeurs singulières.
 :::
+::::
 
 ⁠**En bref :** La norme de Frobenius est la norme euclidienne de l’ensemble des coefficients ; son carré est la somme des carrés des valeurs singulières.
 
@@ -80,7 +82,8 @@ $$\lVert\mathbf{A}-\mathbf{A}_k\rVert_2=d_{k+1},\qquad \lVert\mathbf{A}-\mathbf{
 
 Pour être stockée, $\mathbf{A}_k$ n’a besoin que des $k$ vecteurs $\mathbf{u}_j$ à $m$ composantes chacun, des $k$ vecteurs $\mathbf{v}_j$ à $n$ composantes chacun et des $k$ nombres $d_j$, soit au total $k(m+n+1)$ nombres au lieu de $mn$.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ et $k=1$, on a
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ et $k=1$, on a
 
 $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1{,}6&3{,}2\\0{,}8&1{,}6\end{pmatrix},\qquad \mathbf{A}-\mathbf{A}_1=\mathbf{u}_2\mathbf{v}_2^{\top}=\begin{pmatrix}0{,}4&-0{,}2\\-0{,}8&0{,}4\end{pmatrix}.$$
 
@@ -89,6 +92,7 @@ La norme de Frobenius de l’erreur vaut $\sqrt{0{,}16+0{,}04+0{,}64+0{,}16}=1=d
 :::abbildung ml/k2rfehler 25
 L’erreur de la meilleure approximation de rang $1$ en norme de Frobenius, avec $0{,}4=\tfrac25$, $0{,}2=\tfrac15$ et $0{,}8=\tfrac45$ : son carré vaut $d_2^2=1$.
 :::
+::::
 
 ⁠**En bref :** $\mathbf{A}_k$ conserve les $k$ plus grandes briques ; l’erreur a les valeurs singulières restantes, et sa norme spectrale vaut $d_{k+1}$.
 
@@ -110,7 +114,7 @@ Parmi toutes les matrices de rang au plus $k$, c’est donc $\mathbf{A}_k$ qui e
 :::
 
 :::beweis Norme spectrale
-D’après le théorème du rang, le noyau de $\mathbf{B}$ est de dimension $n-\operatorname{rg}\mathbf{B}\ge n-k$. On choisit $n-k$ vecteurs linéairement indépendants $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ dans le noyau et l’on y ajoute $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Cela fait $n+1$ vecteurs de $\mathbb{R}^n$, et d’après Fondements 1, section 13.4, ils sont linéairement dépendants, car une matrice à $n$ lignes est de rang au plus $n$. Il existe donc des nombres non tous nuls tels que $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Ce vecteur $\mathbf{z}$ n’est pas nul, car sinon, en raison de l’indépendance des deux listes, tous les nombres seraient nuls. Il appartient au noyau de $\mathbf{B}$ et au sous-espace engendré par $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. On le normalise à la longueur $1$. Alors $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, et avec $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ :
+D’après le théorème du rang, le noyau de $\mathbf{B}$ est de dimension $n-\operatorname{rg}\mathbf{B}\ge n-k$. On choisit $n-k$ vecteurs linéairement indépendants $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ dans le noyau et l’on y ajoute $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Cela fait $n+1$ vecteurs de $\mathbb{R}^n$, et d’après [Fondements 1, section 13.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), ils sont linéairement dépendants, car une matrice à $n$ lignes est de rang au plus $n$. Il existe donc des nombres non tous nuls tels que $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Ce vecteur $\mathbf{z}$ n’est pas nul, car sinon, en raison de l’indépendance des deux listes, tous les nombres seraient nuls. Il appartient au noyau de $\mathbf{B}$ et au sous-espace engendré par $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. On le normalise à la longueur $1$. Alors $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, et avec $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ :
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -119,7 +123,9 @@ Ainsi, $\mathbf{A}-\mathbf{B}$ allonge le vecteur unitaire $\mathbf{z}$ d’un f
 
 La preuve en montre la raison : une matrice de rang $k$ doit envoyer sur zéro tout un ensemble de directions, à savoir son noyau. Ce noyau rencontre forcément l’espace des $k+1$ directions que $\mathbf{A}$ étire le plus, et là, $\mathbf{B}$ commet une erreur d’au moins $d_{k+1}$.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, $\mathbf{A}_1$ est la meilleure matrice de rang $1$, avec l’erreur $1$ dans les deux normes. Une autre matrice de rang $1$, par exemple $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, qui annule simplement la deuxième ligne, a pour erreur $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$, de norme $2$.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, $\mathbf{A}_1$ est la meilleure matrice de rang $1$, avec l’erreur $1$ dans les deux normes. Une autre matrice de rang $1$, par exemple $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, qui annule simplement la deuxième ligne, a pour erreur $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$, de norme $2$.
+::::
 
 ⁠**En bref :** La décomposition tronquée $\mathbf{A}_k$ est la meilleure approximation de rang $k$, en norme spectrale comme en norme de Frobenius.
 
@@ -145,7 +151,8 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 indique quelle part de la somme des carrés de toutes les valeurs de luminosité est conservée.
 
-⁠**Exemple de calcul :** La croix de Fondements 1, section 6.1, est
+::::beispiel [Exemple de calcul]
+La croix de [Fondements 1, section 6.1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), est
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 
@@ -158,6 +165,7 @@ $$\mathbf{C}_1=2\,\mathbf{q}_1\mathbf{q}_1^{\top}=\frac13\begin{pmatrix}1&2&1\\2
 :::abbildung ml/k2bild 26
 La croix $\mathbf{C}$ de $3\times3$ pixels (à gauche ; $0$ noir, $1$ blanc), sa meilleure approximation $\mathbf{C}_1$ de rang $1$ (au centre ; la valeur $\tfrac43$ est plus claire que le blanc et représentée en blanc) et l’erreur $\mathbf{C}-\mathbf{C}_1$ (à droite ; rouge positif, bleu négatif). L’erreur est elle-même une matrice de rang $1$, la brique associée à la valeur singulière $1$.
 :::
+::::
 
 Pour une croix de $3\times3$ pixels, l’économie est faible. Pour de grandes images, la différence est considérable : une image de $1000\times1000$ pixels a $10^6$ coefficients ; l’approximation à $k=50$ briques nécessite $50\cdot(1000+1000+1)=100\,050$ nombres, soit environ $10\,\%$. Que l’approximation ait un bel aspect dépend de la vitesse à laquelle les valeurs singulières décroissent. Dans beaucoup de photos, des lignes voisines se ressemblent fortement ; les lignes sont alors proches d’un sous-espace de petite dimension, et quelques grandes valeurs singulières portent presque toute la somme $\sum_jd_j^2$.
 

@@ -36,7 +36,8 @@ $$\neg\bigl(\forall x\in M:\mathcal A(x)\bigr)\Leftrightarrow\bigl(\exists x\in 
 Nein. Ein Beispiel prüft nur ein $x$. Nach [(2.1)](#gl-2-1) widerlegt dagegen ein einziges __Gegenbeispiel__ die Aussage „für alle“. „Es gibt“ beweist man umgekehrt mit einem Beispiel.
 :::
 
-**Beispiel: geschachtelte Quantoren.** $H$ seien die Geräte eines Haushalts, $F$ die Sicherungen, $K(g,s)$ heiße „Gerät $g$ hängt an Sicherung $s$“. Dann sagen
+::::beispiel geschachtelte Quantoren
+$H$ seien die Geräte eines Haushalts, $F$ die Sicherungen, $K(g,s)$ heiße „Gerät $g$ hängt an Sicherung $s$“. Dann sagen
 
 $$\mathcal P:=\bigl(\forall g\in H\ \exists s\in F:K(g,s)\bigr),\qquad \mathcal Q:=\bigl(\exists s\in F\ \forall g\in H:K(g,s)\bigr)$$
 
@@ -45,6 +46,7 @@ Verschiedenes (Abb. [2](#abb-2)): Bei $\mathcal P$ darf $s$ vom Gerät abhänge
 :::abbildung hm1/k1quantoren 2
 Das rechte Bild erfüllt beide Aussagen, das linke nur die erste.
 :::
+::::
 
 :::satz Satz 2.3 (Indirekter Beweis)
 <span class="anker" id="satz-2-3"></span>

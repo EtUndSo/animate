@@ -37,7 +37,9 @@ Die Fläche sei $A=\Delta x\,\Delta y$. Das getönte Stück hat das Volumen $\De
 
 **Wann fließt dauerhaft Strom?** Zwei Bedingungen müssen erfüllt sein. Erstens braucht der Kreis eine Quelle, etwa eine Batterie oder ein Netzteil. Sie liefert Energie, keine Ladung: Die Ladungsträger sitzen schon im Leiter, die Quelle treibt sie nur im Kreis herum. Zweitens muss der __Stromkreis__ geschlossen sein, also ein Weg, der in sich zurückläuft. An einer Unterbrechung staut sich sonst Ladung, ihr Feld hebt das antreibende Feld auf, und der Strom endet. Ein zeitlich konstanter Strom im geschlossenen Kreis heißt __stationär__.
 
-**Beispiel.** Im Rechenmodell laufen 3 mC je Sekunde durch den Draht, das sind $3\,\mathrm{mC}/e=1{,}87\cdot10^{16}$ Elektronen. Die Stromdichte ist $j=3\,\mathrm{mA}/0{,}5\,\mathrm{mm^2}=6\,\mathrm{mA/mm^2}$. Ein Meter Draht enthält die freie Ladung $n\,e\,A=6800$ C. Die gesamte Ladung, die eine Blockbatterie in ihrem Leben umsetzt (rund 1800 C), steckt also schon in 26 cm dieses Drahts. **Kontrolle:** Für $v=0$ ist $I=0$, gleichgültig wie viel Ladung im Draht sitzt. Doppelte Fläche bei gleichem $v$ ergibt doppelten Strom, denn es sind zwei Drähte nebeneinander.
+::::beispiel
+Im Rechenmodell laufen 3 mC je Sekunde durch den Draht, das sind $3\,\mathrm{mC}/e=1{,}87\cdot10^{16}$ Elektronen. Die Stromdichte ist $j=3\,\mathrm{mA}/0{,}5\,\mathrm{mm^2}=6\,\mathrm{mA/mm^2}$. Ein Meter Draht enthält die freie Ladung $n\,e\,A=6800$ C. Die gesamte Ladung, die eine Blockbatterie in ihrem Leben umsetzt (rund 1800 C), steckt also schon in 26 cm dieses Drahts. **Kontrolle:** Für $v=0$ ist $I=0$, gleichgültig wie viel Ladung im Draht sitzt. Doppelte Fläche bei gleichem $v$ ergibt doppelten Strom, denn es sind zwei Drähte nebeneinander.
+::::
 
 :::frage Werden die Elektronen im Verbraucher verbraucht?
 Nein. Ladung bleibt erhalten, aus einem Bauteil kommen je Sekunde so viele Elektronen heraus, wie hineinlaufen. Verbraucht wird Energie: Jedes Coulomb gibt seine Energie je Ladung, die Spannung, an das Bauteil ab und läuft auf niedrigerem Potenzial weiter.

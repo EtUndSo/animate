@@ -39,7 +39,11 @@ Para $z=x+\mathrm{i}y$ es $\mathrm{i}z=-y+\mathrm{i}x$. Con ello, la flecha de $
 Es $\mathrm{i}(x+\mathrm{i}y)=\mathrm{i}x+\mathrm{i}^2y=-y+\mathrm{i}x$. La flecha de $z$ es la hipotenusa de un triángulo rectángulo con el cateto horizontal $x$ y el cateto vertical $y$, ambos con signo. El cuarto de vuelta convierte $x$ hacia la derecha en $x$ hacia arriba, e $y$ hacia arriba en $y$ hacia la izquierda. Por tanto la flecha girada termina en $(-y,x)$.
 :::
 
-**Ejemplo.** $\mathrm{i}z_1=-1+3\mathrm{i}$, $\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$, $\mathrm{i}^3z_1=1-3\mathrm{i}$, $\mathrm{i}^4z_1=z_1$ (fig. [2](#abb-2), derecha). **Caso límite:** Un factor real $r$ no gira, estira: $r(x+\mathrm{i}y)=rx+\mathrm{i}ry$. Para $r=-1$ invierte la flecha, como multiplicar dos veces por $\mathrm{i}$.
+::::beispiel
+$\mathrm{i}z_1=-1+3\mathrm{i}$, $\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$, $\mathrm{i}^3z_1=1-3\mathrm{i}$, $\mathrm{i}^4z_1=z_1$ (fig. [2](#abb-2), derecha).
+::::
+
+⁠**Caso límite:** Un factor real $r$ no gira, estira: $r(x+\mathrm{i}y)=rx+\mathrm{i}ry$. Para $r=-1$ invierte la flecha, como multiplicar dos veces por $\mathrm{i}$.
 
 :::frage ¿No es el plano complejo simplemente el plano de coordenadas de siempre?
 Como conjunto y al sumar, sí. La diferencia es la multiplicación: [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) convierte dos puntos de nuevo en un punto, y gracias a ella se puede dividir (etapa [4](dividieren-und-was-verloren-geht.html#stufe-4)). Solo eso hace del plano un sistema de números.

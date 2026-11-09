@@ -25,7 +25,9 @@ $$\boldsymbol a\times\boldsymbol b=\begin{pmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\
 
 Er steht senkrecht auf $\boldsymbol a$ und auf $\boldsymbol b$. Seine Länge ist $|\boldsymbol a|\,|\boldsymbol b|\sin\alpha$, der Flächeninhalt des Parallelogramms, das $\boldsymbol a$ und $\boldsymbol b$ aufspannen. Seine Richtung folgt der Rechte-Hand-Regel: Zeigt der Daumen der rechten Hand in Richtung $\boldsymbol a$ und der Zeigefinger in Richtung $\boldsymbol b$, zeigt der Mittelfinger in Richtung $\boldsymbol a\times\boldsymbol b$. Vertauscht man die Faktoren, kehrt sich das Vorzeichen um: $\boldsymbol b\times\boldsymbol a=-\boldsymbol a\times\boldsymbol b$. Für die Einheitsvektoren gilt $\hat{\boldsymbol{e}}_1\times\hat{\boldsymbol{e}}_2=\hat{\boldsymbol{e}}_3$, $\hat{\boldsymbol{e}}_2\times\hat{\boldsymbol{e}}_3=\hat{\boldsymbol{e}}_1$ und $\hat{\boldsymbol{e}}_3\times\hat{\boldsymbol{e}}_1=\hat{\boldsymbol{e}}_2$.
 
-⁠**Beispiel:** $(1,2,3)\times(4,5,6)=(2\cdot6-3\cdot5,\;3\cdot4-1\cdot6,\;1\cdot5-2\cdot4)=(-3,\,6,\,-3)$. Zur Kontrolle: $(-3,6,-3)\cdot(1,2,3)=-3+12-9=0$ und $(-3,6,-3)\cdot(4,5,6)=-12+30-18=0$.
+::::beispiel
+$(1,2,3)\times(4,5,6)=(2\cdot6-3\cdot5,\;3\cdot4-1\cdot6,\;1\cdot5-2\cdot4)=(-3,\,6,\,-3)$. Zur Kontrolle: $(-3,6,-3)\cdot(1,2,3)=-3+12-9=0$ und $(-3,6,-3)\cdot(4,5,6)=-12+30-18=0$.
+::::
 
 ⁠**Kurz gesagt:** Das Kreuzprodukt zweier Vektoren im Raum steht senkrecht auf beiden, und seine Länge ist die Fläche des aufgespannten Parallelogramms.
 
@@ -41,9 +43,9 @@ $$\det\begin{pmatrix}m_{11}&m_{12}&m_{13}\\m_{21}&m_{22}&m_{23}\\m_{31}&m_{32}&m
 
 Jeder Eintrag der ersten Spalte wird mit der Determinante der Matrix multipliziert, die übrig bleibt, wenn man seine Zeile und seine Spalte streicht. Die Vorzeichen wechseln ab: $+,-,+$. Stehen in den Spalten die Vektoren $\boldsymbol a,\boldsymbol b,\boldsymbol c$, schreibt man $\det(\boldsymbol a|\boldsymbol b|\boldsymbol c)$. Ihr Betrag ist der Rauminhalt des schiefen Quaders, den die drei Vektoren aufspannen. Ihr Vorzeichen ist positiv, wenn $\boldsymbol a,\boldsymbol b,\boldsymbol c$ wie Daumen, Zeigefinger und Mittelfinger der rechten Hand liegen.
 
-⁠**Beispiel:**
-
+::::beispiel
 $$\det\begin{pmatrix}1&0&2\\2&1&0\\0&3&1\end{pmatrix}=1\cdot(1\cdot1-0\cdot3)-2\cdot(0\cdot1-2\cdot3)+0=1+12=13 .$$
+::::
 
 ⁠**Kurz gesagt:** Die Determinante einer $3\times3$-Matrix entwickelt man nach der ersten Spalte, mit abwechselnden Vorzeichen.
 
@@ -57,7 +59,9 @@ Die __Spur__ einer quadratischen Matrix $M\in\mathbb{R}^{n\times n}$ ist die Sum
 
 $$\operatorname{Spur}M=M_{11}+M_{22}+\dots+M_{nn}=\sum_{j=1}^nM_{jj}.$$
 
-⁠**Beispiel:** $\operatorname{Spur}\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)=1+4=5$. Die Spur der Jacobi-Matrix $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ des Drehfelds ist $0$.
+::::beispiel
+$\operatorname{Spur}\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)=1+4=5$. Die Spur der Jacobi-Matrix $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ des Drehfelds ist $0$.
+::::
 
 ⁠**Kurz gesagt:** Die Spur ist die Summe der Diagonaleinträge.
 
@@ -73,7 +77,9 @@ $$M=\underbrace{\tfrac12\bigl(M+M^T\bigr)}_{\text{symmetrisch}}+\underbrace{\tfr
 
 Man nennt $\frac12(M+M^T)$ den __symmetrischen Anteil__ von $M$. Entsprechend heißt $\frac12(M-M^T)$ der __schiefsymmetrische Anteil__ von $M$. Eine Matrix ist genau dann symmetrisch, wenn ihr schiefsymmetrischer Anteil null ist.
 
-⁠**Beispiel:** $\bigl(\begin{smallmatrix}1&2\\0&3\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&1\\1&3\end{smallmatrix}\bigr)+\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$. Die Jacobi-Matrix $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ des Drehfelds ist selbst schiefsymmetrisch.
+::::beispiel
+$\bigl(\begin{smallmatrix}1&2\\0&3\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&1\\1&3\end{smallmatrix}\bigr)+\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$. Die Jacobi-Matrix $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ des Drehfelds ist selbst schiefsymmetrisch.
+::::
 
 ⁠**Kurz gesagt:** Schiefsymmetrisch heißt: Transponieren wechselt das Vorzeichen. Jede quadratische Matrix ist symmetrischer plus schiefsymmetrischer Anteil.
 
@@ -100,7 +106,9 @@ $$\operatorname{div}\boldsymbol{E}:=\nabla\cdot\boldsymbol{E}=\sum_{j=1}^n\frac{
 
 ⁠**So liest man das:** Die Divergenz macht aus einem Vektorfeld eine skalare Funktion. Die Schreibweise $\nabla\cdot\boldsymbol{E}$ ist das formale Skalarprodukt von Nabla mit $\boldsymbol{E}$: Eintrag $j$ von $\nabla$ leitet die Komponente $E_j$ ab, und alles wird addiert. Die Divergenz ist die Spur der Jacobi-Matrix: $\operatorname{div}\boldsymbol{E}=\operatorname{Spur}D\boldsymbol{E}$. Sie ist ein Maß für die örtliche __Quellendichte__ des Felds. Einen Punkt mit $\operatorname{div}\boldsymbol{E}>0$ nennt man eine __Quelle__. Einen Punkt mit $\operatorname{div}\boldsymbol{E}<0$ nennt man eine __Senke__.
 
-⁠**Beispiele:** Für $\boldsymbol{E}=(2x,4y)$ ist $\operatorname{div}\boldsymbol{E}=2+4=6$. Das Drehfeld hat $\operatorname{div}(-y,x)=0+0=0$. Das Strahlfeld in $\mathbb{R}^n$ hat $\operatorname{div}\boldsymbol{x}=1+1+\dots+1=n$. Die drei Felder in Abb. [12](#abb-12) haben $\operatorname{div}(x,y)=2$, $\operatorname{div}(1,0)=0$ und $\operatorname{div}(x,-y)=1-1=0$.
+::::beispiel [Beispiele]
+Für $\boldsymbol{E}=(2x,4y)$ ist $\operatorname{div}\boldsymbol{E}=2+4=6$. Das Drehfeld hat $\operatorname{div}(-y,x)=0+0=0$. Das Strahlfeld in $\mathbb{R}^n$ hat $\operatorname{div}\boldsymbol{x}=1+1+\dots+1=n$. Die drei Felder in Abb. [12](#abb-12) haben $\operatorname{div}(x,y)=2$, $\operatorname{div}(1,0)=0$ und $\operatorname{div}(x,-y)=1-1=0$.
+::::
 
 :::hintergrund Warum gerade diese Summe misst, wie viel entspringt
 Man denke sich $\boldsymbol{E}$ als Geschwindigkeit einer Flüssigkeit im Raum. Durch eine kleine ebene Wand mit dem Flächeninhalt $A$, die senkrecht zur $x_j$-Achse steht, tritt pro Zeit ungefähr das Volumen $A\,E_j$ hindurch: Nur die Komponente senkrecht zur Wand trägt etwas über sie hinweg, die beiden anderen schieben parallel zu ihr. Diese Menge pro Zeit nennt man den *Fluss* durch die Wand.
@@ -126,7 +134,9 @@ $$\operatorname{div}\boldsymbol{E}=\sum_{j=1}^n\frac{\partial}{\partial x_j}\Big
 
 Es tritt also die Summe der zweiten partiellen Ableitungen nach jeweils derselben Variablen auf.
 
-⁠**Beispiel:** Für die Schale $\varphi=x^2+2y^2$ ist $\nabla\varphi=(2x,4y)$ und $\operatorname{div}\nabla\varphi=2+4=6$. Ebenso ist $\frac{\partial^2\varphi}{\partial x^2}+\frac{\partial^2\varphi}{\partial y^2}=2+4=6$.
+::::beispiel
+Für die Schale $\varphi=x^2+2y^2$ ist $\nabla\varphi=(2x,4y)$ und $\operatorname{div}\nabla\varphi=2+4=6$. Ebenso ist $\frac{\partial^2\varphi}{\partial x^2}+\frac{\partial^2\varphi}{\partial y^2}=2+4=6$.
+::::
 
 ⁠**Kurz gesagt:** Die Divergenz eines Gradientenfelds ist die Summe der reinen zweiten Ableitungen des Skalarpotentials.
 
@@ -155,7 +165,9 @@ Deshalb schreibt man in den Natur- und Ingenieurwissenschaften oft $\nabla^2$ st
 
 $$\Delta\boldsymbol{F}=(\Delta F_1,\dots,\Delta F_n)^T .$$
 
-⁠**Beispiele:** $\Delta(x^2+2y^2)=2+4=6$, $\Delta(x^2+y^2)=4$ und $\Delta(x^2-y^2)=2-2=0$. Für das Vektorfeld $\boldsymbol{F}=(x^2,\;xy,\;z^3)$ ist $\Delta\boldsymbol{F}=(2,\;0,\;6z)^T$.
+::::beispiel [Beispiele]
+$\Delta(x^2+2y^2)=2+4=6$, $\Delta(x^2+y^2)=4$ und $\Delta(x^2-y^2)=2-2=0$. Für das Vektorfeld $\boldsymbol{F}=(x^2,\;xy,\;z^3)$ ist $\Delta\boldsymbol{F}=(2,\;0,\;6z)^T$.
+::::
 
 :::hintergrund Was der Laplace-Operator misst: Abweichung vom Mittelwert der Nachbarn
 In einer Variablen gilt nach der Taylorformel $\varphi(x\pm a)=\varphi(x)\pm a\,\varphi'(x)+\frac{a^2}2\varphi''(x)+\dots$, wobei die Punkte für Glieder stehen, die schneller als $a^2$ klein werden. Addiert man beide Gleichungen, heben sich die ersten Ableitungen weg:
@@ -185,7 +197,9 @@ Eine zweimal differenzierbare Funktion $u$ auf einer offenen Menge heißt __harm
 
 Wegen $\Delta u=\operatorname{div}\nabla u$ heißt das: Das Gradientenfeld einer harmonischen Funktion hat nirgends eine Quelle oder eine Senke.
 
-⁠**Beispiel:** $u(x,y)=x^2-y^2$ ist harmonisch, denn $\Delta u=2-2=0$. Die Funktion $x^2+y^2$ ist es nicht, denn $\Delta(x^2+y^2)=4$.
+::::beispiel
+$u(x,y)=x^2-y^2$ ist harmonisch, denn $\Delta u=2-2=0$. Die Funktion $x^2+y^2$ ist es nicht, denn $\Delta(x^2+y^2)=4$.
+::::
 
 :::hintergrund Harmonisch heißt: keine Mulden und keine Kuppen
 Nach dem Hintergrund zum Laplace-Operator misst $\Delta u(\boldsymbol{x})$, um wie viel der Mittelwert der Nachbarn über dem Wert in $\boldsymbol{x}$ liegt. Bei einer harmonischen Funktion ist diese Abweichung in führender Ordnung null: Sie liegt in jedem Punkt auf dem Mittelwert ihrer nächsten Umgebung. Die Sattelfläche $x^2-y^2$ zeigt, wie das aussieht: Längs der $x$-Achse steigt sie nach beiden Seiten, längs der $y$-Achse fällt sie nach beiden Seiten, und im Mittel der vier Nachbarn $(\pm a,0)$, $(0,\pm a)$ ergibt sich genau der Wert $0$ der Mitte. Ein elektrisches Potential in einem Bereich ohne Ladungen verhält sich so.
@@ -213,7 +227,9 @@ Komponente $j$ von $\varphi\boldsymbol{F}$ ist $\varphi F_j$. Mit der gewöhnlic
 $$\operatorname{div}(\varphi\boldsymbol{F})=\sum_{j=1}^n\frac{\partial(\varphi F_j)}{\partial x_j}=\sum_{j=1}^n\frac{\partial\varphi}{\partial x_j}F_j+\varphi\sum_{j=1}^n\frac{\partial F_j}{\partial x_j}=\nabla\varphi\cdot\boldsymbol{F}+\varphi\,\operatorname{div}\boldsymbol{F} .$$
 :::
 
-⁠**Beispiel:** $\varphi=x$ und $\boldsymbol{F}=(y,\,x)$ in der Ebene. Direkt: $\operatorname{div}(xy,\;x^2)=y+0=y$. Mit der Regel: $\nabla x\cdot\boldsymbol{F}=(1,0)\cdot(y,x)=y$ und $x\,\operatorname{div}(y,x)=x\cdot0=0$, zusammen $y$.
+::::beispiel
+$\varphi=x$ und $\boldsymbol{F}=(y,\,x)$ in der Ebene. Direkt: $\operatorname{div}(xy,\;x^2)=y+0=y$. Mit der Regel: $\nabla x\cdot\boldsymbol{F}=(1,0)\cdot(y,x)=y$ und $x\,\operatorname{div}(y,x)=x\cdot0=0$, zusammen $y$.
+::::
 
 ⁠**Kurz gesagt:** Die Divergenz eines Produkts ist „Gradient des Skalars mal Feld“ plus „Skalar mal Divergenz des Felds“.
 
@@ -315,9 +331,13 @@ Die englische Bezeichnung für $\operatorname{rot}\boldsymbol{E}$ ist $\operator
 
 ⁠**So liest man das:** Die Schreibweise $\nabla\times\boldsymbol{E}$ ist das formale Kreuzprodukt von Nabla mit $\boldsymbol{E}$: Man setzt in die Formel des Kreuzprodukts $a_j=\partial/\partial x_j$ und $b_k=E_k$ ein. Die Rotation macht aus einem Vektorfeld wieder ein Vektorfeld, sie ist ein Differentialoperator erster Ordnung. Die Komponente $i$ ist ein Maß für die örtliche __Wirbeldichte__ des Felds um die $x_i$-Achse.
 
-⁠**Beispiel 1:** Für $\boldsymbol{E}=(0,\,0,\,xy)$ ist $\operatorname{rot}\boldsymbol{E}=(x-0,\;0-y,\;0-0)=(x,\,-y,\,0)$.
+::::beispiel [Beispiel 1]
+Für $\boldsymbol{E}=(0,\,0,\,xy)$ ist $\operatorname{rot}\boldsymbol{E}=(x-0,\;0-y,\;0-0)=(x,\,-y,\,0)$.
+::::
 
-⁠**Beispiel 2:** Eine starre Drehung um die $x_3$-Achse mit der Winkelgeschwindigkeit $\Omega$ hat das Geschwindigkeitsfeld $\boldsymbol{E}=\Omega\,(-x_2,\,x_1,\,0)$. Ihre Rotation ist $\operatorname{rot}\boldsymbol{E}=(0-0,\;0-0,\;\Omega+\Omega)=(0,0,2\Omega)$: Sie zeigt längs der Drehachse und ist doppelt so lang wie die Winkelgeschwindigkeit.
+::::beispiel [Beispiel 2]
+Eine starre Drehung um die $x_3$-Achse mit der Winkelgeschwindigkeit $\Omega$ hat das Geschwindigkeitsfeld $\boldsymbol{E}=\Omega\,(-x_2,\,x_1,\,0)$. Ihre Rotation ist $\operatorname{rot}\boldsymbol{E}=(0-0,\;0-0,\;\Omega+\Omega)=(0,0,2\Omega)$: Sie zeigt längs der Drehachse und ist doppelt so lang wie die Winkelgeschwindigkeit.
+::::
 
 :::hintergrund Warum die Rotation die Wirbeldichte ist: Umlauf um ein kleines Quadrat
 Man denke sich $\boldsymbol{E}$ als Strömung und lege in die $x_1$-$x_2$-Ebene ein kleines Quadrat mit der Seitenlänge $a$ und der linken unteren Ecke $\boldsymbol{x}$. Man umläuft es gegen den Uhrzeigersinn und addiert für jede Kante „Komponente des Felds längs der Kante mal Kantenlänge“, mit Minuszeichen, wo die Kante gegen eine Achse läuft. Diese Summe misst, wie stark die Strömung um das Quadrat herumschiebt; man nennt sie die *Zirkulation*. Nimmt man das Feld auf jeder Kante an einer Ecke, ergibt sich
@@ -361,7 +381,9 @@ die __Levi-Civita-Symbole__.
 <span class="anker" id="gl-3-6"></span>
 $$(\boldsymbol a\times\boldsymbol b)_i=\sum_{j,k=1}^3\varepsilon_{ijk}\,a_jb_k,\qquad(\operatorname{rot}\boldsymbol{F})_i=\sum_{j,k=1}^3\varepsilon_{ijk}\,\frac{\partial F_k}{\partial x_j}. \tag{3.6}$$
 
-⁠**Beispiel:** Für $i=1$ sind in der Summe nur $(j,k)=(2,3)$ mit $\varepsilon_{123}=1$ und $(j,k)=(3,2)$ mit $\varepsilon_{132}=-1$ von null verschieden. Es bleibt $(\operatorname{rot}\boldsymbol{F})_1=\partial F_3/\partial x_2-\partial F_2/\partial x_3$, die erste Zeile von [(3.4)](#gl-3-4).
+::::beispiel
+Für $i=1$ sind in der Summe nur $(j,k)=(2,3)$ mit $\varepsilon_{123}=1$ und $(j,k)=(3,2)$ mit $\varepsilon_{132}=-1$ von null verschieden. Es bleibt $(\operatorname{rot}\boldsymbol{F})_1=\partial F_3/\partial x_2-\partial F_2/\partial x_3$, die erste Zeile von [(3.4)](#gl-3-4).
+::::
 
 :::hintergrund Warum ein Vorzeichen genügt, um das Kreuzprodukt zu beschreiben
 $\varepsilon_{ijk}$ ist die Determinante $\det(\hat{\boldsymbol{e}}_i|\hat{\boldsymbol{e}}_j|\hat{\boldsymbol{e}}_k)$, also der orientierte Rauminhalt des Würfels aus drei Einheitsvektoren. Er ist $\pm1$, wenn die drei verschieden sind, mit Plus genau dann, wenn sie wie die Finger der rechten Hand liegen, und $0$, wenn zwei gleich sind. Das Kreuzprodukt ist in jedem Faktor linear: $\boldsymbol a\times\boldsymbol b=\sum_{j,k}a_jb_k\,(\hat{\boldsymbol{e}}_j\times\hat{\boldsymbol{e}}_k)$. Es genügt also, die Kreuzprodukte der Einheitsvektoren zu kennen, und deren Komponente $i$ ist genau $\varepsilon_{ijk}$. Die ganze Rechenregel des Kreuzprodukts steckt damit in den $27$ Zahlen $\varepsilon_{ijk}$, von denen nur sechs nicht null sind.
@@ -382,9 +404,11 @@ $$\operatorname{rot}\boldsymbol{F}=\det\begin{pmatrix}\hat{\boldsymbol{e}}_1&\df
 
 Diese „Determinante“ ist keine Zahl, sondern eine Rechenvorschrift. Man entwickelt formal nach der ersten Spalte, wie in Unterabschnitt [3.2](#stufe-3-2), und lässt jeden Ableitungsbefehl auf das $F$ wirken, das im selben Produkt steht.
 
-⁠**Beispiel:** Für das Drehfeld $\boldsymbol{F}=(-y,\,x,\,0)$ im Raum:
+::::beispiel
+Für das Drehfeld $\boldsymbol{F}=(-y,\,x,\,0)$ im Raum:
 
 $$\operatorname{rot}\boldsymbol{F}=\hat{\boldsymbol{e}}_1\Bigl(\frac{\partial0}{\partial y}-\frac{\partial x}{\partial z}\Bigr)-\hat{\boldsymbol{e}}_2\Bigl(\frac{\partial0}{\partial x}-\frac{\partial(-y)}{\partial z}\Bigr)+\hat{\boldsymbol{e}}_3\Bigl(\frac{\partial x}{\partial x}-\frac{\partial(-y)}{\partial y}\Bigr)=(0,\,0,\,2).$$
+::::
 
 ⁠**Kurz gesagt:** Die Rotation ist eine formale Determinante aus Einheitsvektoren, Ableitungsbefehlen und Komponenten, entwickelt nach der ersten Spalte.
 
@@ -411,11 +435,13 @@ $$\operatorname{rot}\boldsymbol{E}=\frac{\partial E_2}{\partial x_1}-\frac{\part
 
 In der Ebene sind Divergenz und Rotation also beide skalare Funktionen. Ein positiver Wert heißt: Das Feld kreist dort gegen den Uhrzeigersinn.
 
-⁠**Beispiele:** Das Drehfeld hat $\operatorname{rot}(-y,x)=1-(-1)=2$. Das Strahlfeld hat $\operatorname{rot}(x,y)=0-0=0$. Das *Scherfeld* $\boldsymbol G=(y,0)$ hat $\operatorname{rot}\boldsymbol G=0-1=-1$, obwohl alle seine Pfeile parallel nach rechts oder links zeigen (Abb. [13](#abb-13)): Die obere Kante eines kleinen Quadrats wird nach rechts gezogen, die untere nach links, und das dreht das Quadrat im Uhrzeigersinn. Das Gradientenfeld $(2x,4y)$ hat $\operatorname{rot}(2x,4y)=0-0=0$.
+::::beispiel [Beispiele]
+Das Drehfeld hat $\operatorname{rot}(-y,x)=1-(-1)=2$. Das Strahlfeld hat $\operatorname{rot}(x,y)=0-0=0$. Das *Scherfeld* $\boldsymbol G=(y,0)$ hat $\operatorname{rot}\boldsymbol G=0-1=-1$, obwohl alle seine Pfeile parallel nach rechts oder links zeigen (Abb. [13](#abb-13)): Die obere Kante eines kleinen Quadrats wird nach rechts gezogen, die untere nach links, und das dreht das Quadrat im Uhrzeigersinn. Das Gradientenfeld $(2x,4y)$ hat $\operatorname{rot}(2x,4y)=0-0=0$.
 
 :::abbildung hm3/k1wirbel 13
 Dreht man das Strahlfeld $\boldsymbol{F}=(x,y)$ um einen rechten Winkel, wird aus der Quelle ein Wirbel: $\boldsymbol{F}^\perp$ ist das Drehfeld. Rechts das Scherfeld $\boldsymbol G=(y,0)$: Alle Pfeile laufen parallel, trotzdem ist die Rotation nicht null, weil die obere Kante eines Quadrats nach rechts und die untere nach links gezogen wird.
 :::
+::::
 
 :::hintergrund Kreisende Feldlinien und Rotation sind zweierlei
 Die Rotation ist eine örtliche Größe, wie die Divergenz. Das Scherfeld $(y,0)$ hat gerade Feldlinien und trotzdem überall $\operatorname{rot}=-1$. Umgekehrt kann ein Feld auf Kreisen umlaufen und trotzdem $\operatorname{rot}=0$ haben, wenn es nach außen gerade richtig schwächer wird. Ein Beispiel ist $\boldsymbol{H}(x,y)=\dfrac{(-y,\,x)}{x^2+y^2}$ auf $\mathbb{R}^2\setminus\{0\}$. Seine Feldlinien sind Kreise um den Nullpunkt, aber es ist
@@ -454,7 +480,9 @@ Mit $\boldsymbol{F}^\perp=(-F_2,F_1)$ ist
 $$\operatorname{rot}\boldsymbol{F}^\perp=\frac{\partial F_1}{\partial x_1}-\frac{\partial(-F_2)}{\partial x_2}=\frac{\partial F_1}{\partial x_1}+\frac{\partial F_2}{\partial x_2}=\operatorname{div}\boldsymbol{F},\qquad \operatorname{div}\boldsymbol{F}^\perp=\frac{\partial(-F_2)}{\partial x_1}+\frac{\partial F_1}{\partial x_2}=-\operatorname{rot}\boldsymbol{F} .$$
 :::
 
-⁠**Beispiel:** Das Strahlfeld $\boldsymbol{F}=(x,y)$ hat $\operatorname{div}\boldsymbol{F}=2$ und $\operatorname{rot}\boldsymbol{F}=0$. Sein gedrehtes Feld $\boldsymbol{F}^\perp=(-y,x)$ ist das Drehfeld mit $\operatorname{rot}\boldsymbol{F}^\perp=2$ und $\operatorname{div}\boldsymbol{F}^\perp=0$, wie [(3.9)](#gl-3-9) verlangt.
+::::beispiel
+Das Strahlfeld $\boldsymbol{F}=(x,y)$ hat $\operatorname{div}\boldsymbol{F}=2$ und $\operatorname{rot}\boldsymbol{F}=0$. Sein gedrehtes Feld $\boldsymbol{F}^\perp=(-y,x)$ ist das Drehfeld mit $\operatorname{rot}\boldsymbol{F}^\perp=2$ und $\operatorname{div}\boldsymbol{F}^\perp=0$, wie [(3.9)](#gl-3-9) verlangt.
+::::
 
 ⁠**Kurz gesagt:** In der Ebene werden Divergenz und Rotation durch Drehen der Pfeile um einen rechten Winkel ineinander überführt.
 
@@ -482,7 +510,9 @@ $$(\operatorname{rot}\boldsymbol{F})_i=\sum_{j,k=1}^3\varepsilon_{ijk}\,\omega_{
 
 Dabei sind $\varepsilon_{12}=1$, $\varepsilon_{21}=-1$ und $\varepsilon_{11}=\varepsilon_{22}=0$ die Levi-Civita-Symbole der Ebene. Für $i=3$ etwa bleiben $\omega_{12}-\omega_{21}=2\omega_{12}=\partial F_2/\partial x_1-\partial F_1/\partial x_2$; das ist die dritte Zeile von [(3.4)](#gl-3-4). Die Wirbelmatrix hat $n(n-1)/2$ Einträge oberhalb der Diagonale, die übrigen folgen aus der Schiefsymmetrie. Nur für $n=3$ sind das drei und passen in einen Vektor.
 
-⁠**Beispiel:** Für das Drehfeld $(-y,x)$ ist $\omega_{12}=\frac12(1-(-1))=1$ und $\omega_{21}=-1$, also $\operatorname{rot}=\varepsilon_{12}\omega_{12}+\varepsilon_{21}\omega_{21}=1+1=2$.
+::::beispiel
+Für das Drehfeld $(-y,x)$ ist $\omega_{12}=\frac12(1-(-1))=1$ und $\omega_{21}=-1$, also $\operatorname{rot}=\varepsilon_{12}\omega_{12}+\varepsilon_{21}\omega_{21}=1+1=2$.
+::::
 
 ⁠**Kurz gesagt:** Die Wirbelmatrix ist der schiefsymmetrische Anteil der transponierten Jacobi-Matrix. In drei und zwei Dimensionen enthält sie genau die Rotation.
 
@@ -529,7 +559,9 @@ $$\frac{\partial F_k}{\partial x_j}=\frac{\partial^2\varphi}{\partial x_j\,\part
 
 Die Bedingung $\operatorname{rot}\boldsymbol{F}=0$ ist also *notwendig* dafür, dass ein stetig differenzierbares Feld ein Gradientenfeld ist. Der Name kommt daher, dass man ein Gradientenfeld zu seinem Potential „integrieren“ kann; die Bedingungen sagen, wann das überhaupt in Frage kommt.
 
-⁠**Beispiel:** Für $\boldsymbol{F}=(y+2xz,\;x+z^2,\;x^2+2yz)$ im Raum sind die drei Bedingungen $\partial F_2/\partial x=1=\partial F_1/\partial y$, $\partial F_3/\partial x=2x=\partial F_1/\partial z$ und $\partial F_3/\partial y=2z=\partial F_2/\partial z$ erfüllt, also $\operatorname{rot}\boldsymbol{F}=0$. Für das Feld $(y,\;2x,\;z)$ ist dagegen $\partial F_2/\partial x=2$, aber $\partial F_1/\partial y=1$; es kann kein Gradientenfeld sein.
+::::beispiel
+Für $\boldsymbol{F}=(y+2xz,\;x+z^2,\;x^2+2yz)$ im Raum sind die drei Bedingungen $\partial F_2/\partial x=1=\partial F_1/\partial y$, $\partial F_3/\partial x=2x=\partial F_1/\partial z$ und $\partial F_3/\partial y=2z=\partial F_2/\partial z$ erfüllt, also $\operatorname{rot}\boldsymbol{F}=0$. Für das Feld $(y,\;2x,\;z)$ ist dagegen $\partial F_2/\partial x=2$, aber $\partial F_1/\partial y=1$; es kann kein Gradientenfeld sein.
+::::
 
 :::hintergrund Woher die Bedingung kommt, anschaulich und in $n$ Dimensionen
 Rechnerisch aus der Vertauschbarkeit zweiter Ableitungen, siehe den Beweis. Anschaulich: Man läuft um ein kleines Rechteck mit den Seiten $a$ und $b$ in der Ebene, die von der $x_j$- und der $x_k$-Achse aufgespannt wird (Abb. [14](#abb-14)). Ist $\boldsymbol{F}=\nabla\varphi$, ändert sich das Potential längs einer kurzen Kante nach [(1.7)](differenzierbarkeit-und-kettenregel-fur-abbildungen.html#gl-1-7) um ungefähr „Feldkomponente längs der Kante mal Kantenlänge“. Die vier Änderungen ergeben zusammen etwa $ab\,(\partial F_k/\partial x_j-\partial F_j/\partial x_k)$. Das muss null sein, denn ein geschlossener Weg führt zum selben Potentialwert zurück. Die Bedingung ist also ein Rundweg-Test im Kleinen: Ein Feld, das um ein winziges Rechteck herum etwas aufsammelt, kann keine Höhenkarte haben.
@@ -575,7 +607,8 @@ Sind die Integrabilitätsbedingungen erfüllt, sucht man das Potential. Man inte
 
 Der Grund, warum das geht: Aus $\partial\varphi/\partial x=F_1$ ist $\varphi$ bis auf einen Summanden bestimmt, der nicht von $x$ abhängt, denn nur dessen Ableitung nach $x$ ist null. Die nächste Komponente legt diesen Summanden bis auf einen Teil fest, der weder von $x$ noch von $y$ abhängt, und so weiter.
 
-⁠**Beispiel:** $\boldsymbol{F}=(y+2xz,\;x+z^2,\;x^2+2yz)$ aus dem letzten Unterabschnitt erfüllt die Integrabilitätsbedingungen.
+::::beispiel
+$\boldsymbol{F}=(y+2xz,\;x+z^2,\;x^2+2yz)$ aus dem letzten Unterabschnitt erfüllt die Integrabilitätsbedingungen.
 
 <ol class="rm">
 
@@ -600,6 +633,7 @@ Ableiten nach $z$ gibt $x^2+2yz+d'(z)$. Das muss $F_3=x^2+2yz$ sein, also $d'(z)
 </ol>
 
 Ergebnis: $\varphi=xy+x^2z+yz^2+\text{konst}$. Kontrolle: $\nabla\varphi=(y+2xz,\;x+z^2,\;x^2+2yz)$.
+::::
 
 ⁠**Kurz gesagt:** Ein Skalarpotential findet man, indem man die erste Komponente integriert und die unbekannte Restfunktion mit den übrigen Komponenten festlegt.
 

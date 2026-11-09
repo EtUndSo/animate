@@ -44,7 +44,9 @@ $$E=\frac{Q}{\varepsilon_0\,A},\qquad U=E\,d=\frac{Q\,d}{\varepsilon_0\,A}\quad\
 With a dielectric, lines end on the bound charge $Q_\mathrm{g}$, and only the share $Q-Q_\mathrm{g}$ still runs through the space. In most insulators this share is a fixed fraction of $Q$. One writes $Q-Q_\mathrm{g}=Q/\varepsilon_\mathrm{r}$, which gives $E=Q/(\varepsilon_\mathrm{r}\varepsilon_0A)$ and thus [(4.1)](#gl-4-1).
 :::
 
-**Example.** The pair of plates has $C=8.854\cdot10^{-12}\,\mathrm{F/m}\cdot0.01\,\mathrm{m^2}/0.003\,\mathrm{m}=29.5$ pF. With ceramic of $\varepsilon_\mathrm{r}=1000$ it would be 29.5 nF. For 100 µF at 3 mm of air, you would need the area $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$, which is 3.4 hectares. That is why real capacitors work with thin layers (Stage [5](bauformen-und-selbstentladung.html#stufe-5)).
+::::beispiel
+The pair of plates has $C=8.854\cdot10^{-12}\,\mathrm{F/m}\cdot0.01\,\mathrm{m^2}/0.003\,\mathrm{m}=29.5$ pF. With ceramic of $\varepsilon_\mathrm{r}=1000$ it would be 29.5 nF. For 100 µF at 3 mm of air, you would need the area $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$, which is 3.4 hectares. That is why real capacitors work with thin layers (Stage [5](bauformen-und-selbstentladung.html#stufe-5)).
+::::
 
 ⁠**Check:** The unit is right: $\frac{\mathrm{A\,s}}{\mathrm{V\,m}}\cdot\frac{\mathrm{m^2}}{\mathrm{m}}=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$. **Limiting case:** For $d\to0$, $C$ would grow without limit. This is prevented by __breakdown__: at $E_\mathrm{max}$ the dielectric becomes conductive, in air at 3 MV/m ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Thin layers therefore need a solid material, and every capacitor has a maximum voltage $U_\mathrm{max}=E_\mathrm{max}\,d$.
 

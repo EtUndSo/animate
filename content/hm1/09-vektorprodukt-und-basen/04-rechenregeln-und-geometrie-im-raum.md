@@ -66,14 +66,26 @@ $$\begin{aligned} \vec u\times(\vec v\times\vec w)&=\langle\vec u,\vec w\rangle\
 <span class="anker" id="gl-2-3"></span>
 $$\vec n=\pm\frac{\vec v_1\times\vec v_2}{\|\vec v_1\times\vec v_2\|},\qquad\beta:=\langle\vec w,\vec n\rangle\ge0, \tag{2.3}$$
 
-und das Vorzeichen wird so gewählt, dass $\beta\ge0$ ist. **Beispiel:** $\vec w=(3,0,0)$, $\vec v_1=(1,0,-1)$, $\vec v_2=(-1,2,0)$ geben $\vec v_1\times\vec v_2=(2,1,2)$ mit Länge 3, also $\vec n=\frac13(2,1,2)$ und $\beta=2$. Das ist die Ebene $H$ aus [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html). **Grenzfall:** Für $\vec v_2=-2\vec v_1$ ist der Nenner 0, die Menge ist nur eine Gerade.
+und das Vorzeichen wird so gewählt, dass $\beta\ge0$ ist.
+
+::::beispiel
+$\vec w=(3,0,0)$, $\vec v_1=(1,0,-1)$, $\vec v_2=(-1,2,0)$ geben $\vec v_1\times\vec v_2=(2,1,2)$ mit Länge 3, also $\vec n=\frac13(2,1,2)$ und $\beta=2$. Das ist die Ebene $H$ aus [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html).
+::::
+
+⁠**Grenzfall:** Für $\vec v_2=-2\vec v_1$ ist der Nenner 0, die Menge ist nur eine Gerade.
 
 **Gerade als Schnitt zweier Ebenen.** Gegeben sind $E_j=\{\vec u:\langle\vec u,\vec n^{(j)}\rangle=\beta_j\}$, $j=1,2$, in Hessescher Normalform mit linear unabhängigen $\vec n^{(1)},\vec n^{(2)}$. Gesucht ist die __Schnittgerade__ $G=\{\vec w+\alpha\vec v:\alpha\in\mathbb{R}\}=E_1\cap E_2$ (Abb. [2](#abb-2)). Die Richtung muss senkrecht auf beiden Normalenvektoren stehen, also setzt man $\vec v:=\vec n^{(1)}\times\vec n^{(2)}$. Für den Aufpunkt macht man den Ansatz $\vec w=\gamma_1\vec n^{(1)}+\gamma_2\vec n^{(2)}$, den Punkt von $G$ in der Ebene der beiden Normalen. Einsetzen in die beiden Ebenengleichungen gibt mit $c:=\langle\vec n^{(1)},\vec n^{(2)}\rangle$ wegen $\|\vec n^{(j)}\|=1$
 
 <span class="anker" id="gl-2-4"></span>
 $$\gamma_1+c\,\gamma_2=\beta_1,\qquad c\,\gamma_1+\gamma_2=\beta_2,\qquad\text{also}\quad\gamma_1=\frac{\beta_1-c\beta_2}{1-c^2},\quad\gamma_2=\frac{\beta_2-c\beta_1}{1-c^2}. \tag{2.4}$$
 
-Der Nenner ist nach [(1.2)](das-vektorprodukt.html#gl-1-2) gleich $\|\vec v\|^2\ne0$. $G$ ist der ganze Schnitt: Für $\vec x\in E_1\cap E_2$ steht $\vec x-\vec w$ senkrecht auf beiden Normalen, liegt also nach Satz [4.6](orthonormalsysteme-und-projektion.html#satz-4-6) in $\operatorname{span}\{\vec v\}$. **Beispiel:** $H$ mit $\beta_1=2$ und die waagerechte Ebene $x_3=1$, also $\vec n^{(2)}=\vec e_3$, $\beta_2=1$. Dann ist $c=\frac23$, $\gamma_1=\frac{12}5$, $\gamma_2=-\frac35$ und $\vec w=(\frac85,\frac45,1)$, $\vec v=\frac13(1,-2,0)$. **Grenzfall:** Parallele Ebenen haben abhängige Normalen, $\vec v=\vec0$: Es gibt keine Schnittrichtung.
+Der Nenner ist nach [(1.2)](das-vektorprodukt.html#gl-1-2) gleich $\|\vec v\|^2\ne0$. $G$ ist der ganze Schnitt: Für $\vec x\in E_1\cap E_2$ steht $\vec x-\vec w$ senkrecht auf beiden Normalen, liegt also nach Satz [4.6](orthonormalsysteme-und-projektion.html#satz-4-6) in $\operatorname{span}\{\vec v\}$.
+
+::::beispiel
+$H$ mit $\beta_1=2$ und die waagerechte Ebene $x_3=1$, also $\vec n^{(2)}=\vec e_3$, $\beta_2=1$. Dann ist $c=\frac23$, $\gamma_1=\frac{12}5$, $\gamma_2=-\frac35$ und $\vec w=(\frac85,\frac45,1)$, $\vec v=\frac13(1,-2,0)$.
+::::
+
+⁠**Grenzfall:** Parallele Ebenen haben abhängige Normalen, $\vec v=\vec0$: Es gibt keine Schnittrichtung.
 
 :::abbildung hm1/k9ebenen 2
 Die Ebenen $H$ (schräg) und $x_3=1$ (waagerecht) schneiden sich in der Geraden $G$. Die Richtung $\vec v=\vec n^{(1)}\times\vec n^{(2)}$ steht senkrecht auf beiden Normalenvektoren.

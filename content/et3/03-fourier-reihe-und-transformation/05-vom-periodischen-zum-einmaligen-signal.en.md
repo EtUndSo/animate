@@ -36,11 +36,13 @@ Shorthand: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ or $S(f)=\mathcal{F}\{s(t)\}$.
 
 ⁠**Convolution becomes a product.** As in [Part 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. From $s*\delta=s$ it follows that $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, so $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: the Dirac impulse contains all frequencies with equal weight.
 
-**Example: the exponential pulse.** The impulse response of the RC circuit, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
+::::beispiel the exponential pulse
+The impulse response of the RC circuit, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
 This is the same frequency response as from AC analysis ([Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). So the impulse response contains all the information about the frequency behavior.
+::::
 
 :::frage What is the difference between $S_p(k)$ and $S(f)$, apart from the fact that one is discrete?
 The unit. $S_p(k)$ is an amplitude (V): the $k$th harmonic really has this strength. $S(f)$ is a density (V/Hz): in a non-repeating signal no single frequency has a finite amplitude; only a frequency band $\Delta f$ carries approximately $S(f)\,\Delta f$. That is why $S_p(k)=F\cdot S(kF)$: each line represents a band of width $F$.

@@ -27,7 +27,8 @@ Die verkleinerte Lücke heißt __effektive Bandlücke__ $E_\mathrm g^\mathrm{eff
 
 ⁠**So liest man das:** Das Verhältnis von Abstand $d=N_\mathrm D^{-1/3}$ und Radius entscheidet. Nach [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) fällt die Kopplung exponentiell mit dem Abstand, hier wie $\mathrm{e}^{-d/r_\mathrm D}$, denn die Abklingkonstante ist $1/r_\mathrm D$. Mit der Kopplung als Bruchteil von $\Delta E_\mathrm D$ ist das Band etwa $4\,\Delta E_\mathrm D\,\mathrm{e}^{-d/r_\mathrm D}$ breit. Das ist eine grobe Schätzung. **Folgen:** Im entarteten Halbleiter gelten [(0.1)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-1) und damit $n\,p=n_\mathrm i^2$ nicht mehr. Man muss mit der vollen Fermi-Verteilung rechnen. Die Aktivierungsenergie verschwindet, also friert nichts mehr aus: $n$ bleibt bis $T\to0$ erhalten, der Stoff verhält sich metallisch.
 
-**Beispiel.** Mit 18,9 meV für $\Delta E_\mathrm D$ aus Stufe [4](warum-die-bindung-so-schwach-ist.html#stufe-4) ergibt sich:
+::::beispiel
+Mit 18,9 meV für $\Delta E_\mathrm D$ aus Stufe [4](warum-die-bindung-so-schwach-ist.html#stufe-4) ergibt sich:
 
 | $N_\mathrm D$ in cm$^{-3}$ | $10^{17}$ | $10^{18}$ | $10^{19}$ | $10^{20}$ |
 |---|---|---|---|---|
@@ -37,7 +38,10 @@ Die verkleinerte Lücke heißt __effektive Bandlücke__ $E_\mathrm g^\mathrm{eff
 
 Bei $10^{19}\,\mathrm{cm^{-3}}$ ist die Breite so groß wie der Abstand zum Leitungsband: Das Band erreicht es, das ist die Größenordnung der Grenze. Die Bahnen berühren sich bei $d=2r_\mathrm D$, also $3{,}6\cdot10^{18}\,\mathrm{cm^{-3}}$.
 
-Schon vorher versagt die Erschöpfung. Für $n=N_\mathrm D$ braucht man $K_1\gg N_\mathrm D$, und $K_1(300\,\mathrm{K})=2{,}5\cdot10^{18}\,\mathrm{cm^{-3}}$. Bei $N_\mathrm D=10^{17}\,\mathrm{cm^{-3}}$ sind 96 % ionisiert, bei $10^{18}\,\mathrm{cm^{-3}}$ rechnerisch nur 76 %. **Grenzfall:** Bei $N_\mathrm D=N_\mathrm C\mathrm{e}^{-3}=1{,}4\cdot10^{18}\,\mathrm{cm^{-3}}$ ist nach [(6.3)](hohe-und-mittlere-temperaturen.html#gl-6-3) $E_\mathrm C-E_\mathrm F=3k_\mathrm BT$. Darüber darf die Boltzmann-Näherung nicht mehr benutzt werden.
+Schon vorher versagt die Erschöpfung. Für $n=N_\mathrm D$ braucht man $K_1\gg N_\mathrm D$, und $K_1(300\,\mathrm{K})=2{,}5\cdot10^{18}\,\mathrm{cm^{-3}}$. Bei $N_\mathrm D=10^{17}\,\mathrm{cm^{-3}}$ sind 96 % ionisiert, bei $10^{18}\,\mathrm{cm^{-3}}$ rechnerisch nur 76 %.
+::::
+
+⁠**Grenzfall:** Bei $N_\mathrm D=N_\mathrm C\mathrm{e}^{-3}=1{,}4\cdot10^{18}\,\mathrm{cm^{-3}}$ ist nach [(6.3)](hohe-und-mittlere-temperaturen.html#gl-6-3) $E_\mathrm C-E_\mathrm F=3k_\mathrm BT$. Darüber darf die Boltzmann-Näherung nicht mehr benutzt werden.
 
 :::frage Wenn das Niveau im Band aufgeht, ist die Dotierung dann nutzlos?
 Im Gegenteil: Alle Donatoren liefern ihr Elektron, ohne dass Wärme nötig ist. Nur die Formeln dieses Kapitels gelten nicht mehr, und die Lücke ist kleiner.

@@ -37,7 +37,11 @@ Con $U_\mathrm{E2}=0$ no circula corriente por $R_3$, $R_4$, y la entrada positi
 A la izquierda, el sumador: las corrientes de las tres fuentes se encuentran en el nudo y circulan por $R_\mathrm{F}$. A la derecha, el restador con $R_1=R_3$ y $R_2=R_4$: con 2,00 V y 2,05 V, ambas entradas están a 1,64 V.
 :::
 
-**Ejemplos.** ⁠*Sumador* con $R_\mathrm{F}=40$ k$\Omega$, $R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$, $R_\mathrm{E3}=20$ k$\Omega$ y $0{,}5$ V, $-0{,}2$ V, $0{,}1$ V: las corrientes son 50, $-20$ y 5 µ A, en total 35 µ A, así que $U_\mathrm{A}=-1{,}4$ V. *Restador* con $R_1=R_3=10$ k$\Omega$, $R_2=R_4=40$ k$\Omega$, $U_\mathrm{E1}=2{,}00$ V, $U_\mathrm{E2}=2{,}05$ V: $\varphi_+=0{,}8\cdot2{,}05\,\mathrm{V}=1{,}64$ V. Por $R_1$ circulan $(2{,}00-1{,}64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A, así que $U_\mathrm{A}=1{,}64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0{,}2$ V. La superposición da $-8{,}0\,\mathrm{V}+8{,}2\,\mathrm{V}$, lo mismo. El modo común de unos 2 V ha desaparecido. *Cadena* de dos inversores con $G_1=-4$ y $G_2=-2$: 0,5 V se convierten en $-2$ V y luego en $+4$ V, así que $G=+8$. **Caso límite:** $U_\mathrm{E1}=U_\mathrm{E2}$ da 0.
+::::beispiel [Ejemplos]
+⁠*Sumador* con $R_\mathrm{F}=40$ k$\Omega$, $R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$, $R_\mathrm{E3}=20$ k$\Omega$ y $0{,}5$ V, $-0{,}2$ V, $0{,}1$ V: las corrientes son 50, $-20$ y 5 µ A, en total 35 µ A, así que $U_\mathrm{A}=-1{,}4$ V. *Restador* con $R_1=R_3=10$ k$\Omega$, $R_2=R_4=40$ k$\Omega$, $U_\mathrm{E1}=2{,}00$ V, $U_\mathrm{E2}=2{,}05$ V: $\varphi_+=0{,}8\cdot2{,}05\,\mathrm{V}=1{,}64$ V. Por $R_1$ circulan $(2{,}00-1{,}64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A, así que $U_\mathrm{A}=1{,}64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0{,}2$ V. La superposición da $-8{,}0\,\mathrm{V}+8{,}2\,\mathrm{V}$, lo mismo. El modo común de unos 2 V ha desaparecido. *Cadena* de dos inversores con $G_1=-4$ y $G_2=-2$: 0,5 V se convierten en $-2$ V y luego en $+4$ V, así que $G=+8$.
+::::
+
+⁠**Caso límite:** $U_\mathrm{E1}=U_\mathrm{E2}$ da 0.
 
 **Procedimiento en circuitos mayores.** Primero se determinan los potenciales de las entradas; luego se calcula etapa por etapa de izquierda a derecha. En una cadena, cada salida es la entrada de la etapa siguiente, un potencial con un valor fijo.
 

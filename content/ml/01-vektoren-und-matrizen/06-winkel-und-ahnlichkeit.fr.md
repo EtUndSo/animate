@@ -46,7 +46,9 @@ Après multiplication par $\lVert\mathbf{v}\rVert^2>0$, cela donne $(\mathbf{u}^
 L’égalité a lieu si et seulement si $\lVert\mathbf{u}-t\,\mathbf{v}\rVert=0$ pour ce $t$, c’est-à-dire si $\mathbf{u}=t\,\mathbf{v}$. Inversement, pour $\mathbf{u}=c\,\mathbf{v}$, on a effectivement $|\mathbf{u}^{\top}\mathbf{v}|=|c|\,\lVert\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$.
 :::
 
-⁠**Exemple de calcul :** Pour $\mathbf{u}=(1,\,2,\,2)^{\top}$ et $\mathbf{v}=(2,\,0,\,1)^{\top}$, on a $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$. L’inégalité est stricte, parce que $\mathbf{v}$ n’est pas un multiple de $\mathbf{u}$.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{u}=(1,\,2,\,2)^{\top}$ et $\mathbf{v}=(2,\,0,\,1)^{\top}$, on a $|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6{,}71$. L’inégalité est stricte, parce que $\mathbf{v}$ n’est pas un multiple de $\mathbf{u}$.
+::::
 
 L’inégalité permet de rattraper ce qui, dans la sous-section [3.4](normen-die-groe-eines-vektors.html#stufe-3-4), n’était justifié que de manière intuitive : l’inégalité triangulaire de la norme euclidienne. On a
 
@@ -95,11 +97,13 @@ $$\cos\varphi=\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\
 
 Cette définition n’est possible que parce que le membre de droite est toujours compris entre $-1$ et $1$ d’après l’inégalité de Cauchy-Schwarz. À chacun de ces nombres correspond exactement un angle entre $0^\circ$ et $180^\circ$. Le signe du produit scalaire indique si l’angle est aigu ($\mathbf{u}^{\top}\mathbf{v}>0$), droit ($\mathbf{u}^{\top}\mathbf{v}=0$) ou obtus ($\mathbf{u}^{\top}\mathbf{v}<0$).
 
-⁠**Exemple de calcul :** Pour $(1,\,0)^{\top}$ et $(1,\,1)^{\top}$, on a $\cos\varphi=1/\sqrt2$, donc $\varphi=45^\circ$. Pour $(1,\,0,\,1)^{\top}$ et $(1,\,1,\,0)^{\top}$, on a $\cos\varphi=\tfrac12$, donc $\varphi=60^\circ$ (Fig. [22](#abb-22)). Pour $\mathbf{u}=(1,\,2,\,2)^{\top}$ et $\mathbf{v}=(2,\,0,\,1)^{\top}$, on a $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, donc $\varphi\approx53{,}4^\circ$.
+::::beispiel [Exemple de calcul]
+Pour $(1,\,0)^{\top}$ et $(1,\,1)^{\top}$, on a $\cos\varphi=1/\sqrt2$, donc $\varphi=45^\circ$. Pour $(1,\,0,\,1)^{\top}$ et $(1,\,1,\,0)^{\top}$, on a $\cos\varphi=\tfrac12$, donc $\varphi=60^\circ$ (Fig. [22](#abb-22)). Pour $\mathbf{u}=(1,\,2,\,2)^{\top}$ et $\mathbf{v}=(2,\,0,\,1)^{\top}$, on a $\cos\varphi=4/(3\sqrt5)\approx0{,}596$, donc $\varphi\approx53{,}4^\circ$.
 
 :::abbildung ml/k1rwinkel 22
 L’angle entre $(1,\,0,\,1)^{\top}$ et $(1,\,1,\,0)^{\top}$ : au numérateur le produit scalaire, au dénominateur les deux longueurs.
 :::
+::::
 
 ⁠**En bref :** Le cosinus de l’angle entre deux vecteurs est leur produit scalaire divisé par le produit de leurs longueurs.
 
@@ -125,13 +129,17 @@ Si $\mathbf{u}$ et $\mathbf{v}$ sont orthogonaux, alors $\lVert\mathbf{u}+\mathb
 
 Cela découle immédiatement de $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert^2+2\,\mathbf{u}^{\top}\mathbf{v}+\lVert\mathbf{v}\rVert^2$, car le terme du milieu est nul.
 
-⁠**Exemple de calcul 1 :** $(1,\,2,\,2)^{\top}$ et $(2,\,0,\,-1)^{\top}$ sont orthogonaux, car $2+0-2=0$. Leur somme $(3,\,2,\,1)^{\top}$ a pour carré de la longueur $14=9+5$.
+::::beispiel [Exemple de calcul 1]
+$(1,\,2,\,2)^{\top}$ et $(2,\,0,\,-1)^{\top}$ sont orthogonaux, car $2+0-2=0$. Leur somme $(3,\,2,\,1)^{\top}$ a pour carré de la longueur $14=9+5$.
+::::
 
-⁠**Exemple de calcul 2 : deux motifs qui ne se gênent pas.** Le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ et le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la sous-section [2.4](das-skalarprodukt.html#stufe-2-4) sont orthogonaux, $\mathbf 1^{\top}\mathbf{w}=0$. Un signal composé de $2$ fois le motif constant et de $1$ fois le motif alterné est $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparaison avec le motif constant donne $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, la comparaison avec le motif alterné $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Chaque comparaison trouve exactement sa propre part, multipliée par $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ; l’autre part ne la perturbe pas.
+::::beispiel [Exemple de calcul 2] deux motifs qui ne se gênent pas
+Le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ et le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la sous-section [2.4](das-skalarprodukt.html#stufe-2-4) sont orthogonaux, $\mathbf 1^{\top}\mathbf{w}=0$. Un signal composé de $2$ fois le motif constant et de $1$ fois le motif alterné est $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparaison avec le motif constant donne $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, la comparaison avec le motif alterné $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Chaque comparaison trouve exactement sa propre part, multipliée par $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ; l’autre part ne la perturbe pas.
 
 :::abbildung ml/k1rortho 23
 Les deux motifs sont orthogonaux (en haut). La comparaison du signal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ avec chaque motif fournit la part de ce motif, multipliée par $4$.
 :::
+::::
 
 ⁠**En bref :** Orthogonal signifie produit scalaire nul ; des flèches orthogonales sont perpendiculaires, et le théorème de Pythagore s’applique à elles.
 
@@ -168,7 +176,8 @@ c’est-à-dire le cosinus de leur angle.
 
 Elle vaut $1$ lorsque les vecteurs pointent dans la même direction, $0$ lorsqu’ils sont orthogonaux, et $-1$ lorsqu’ils pointent en sens opposés. Si l’on multiplie l’un des vecteurs par un nombre positif, elle ne change pas, car ce nombre se simplifie.
 
-⁠**Exemple de calcul :** Trois textes et leurs décomptes des mots « but », « ballon » et « élection » :
+::::beispiel [Exemple de calcul]
+Trois textes et leurs décomptes des mots « but », « ballon » et « élection » :
 
 $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad \mathbf{x}_3=(0,\,1,\,3)^{\top} .$$
 
@@ -179,6 +188,7 @@ Deux similarités cosinus des décomptes de mots : à chaque fois un produit sc
 :::
 
 Les distances, en revanche, valent $\lVert\mathbf{x}_1-\mathbf{x}_2\rVert=\sqrt{13}\approx3{,}61$, $\lVert\mathbf{x}_1-\mathbf{x}_3\rVert=\sqrt{19}\approx4{,}36$ et $\lVert\mathbf{x}_2-\mathbf{x}_3\rVert=\sqrt{54}\approx7{,}35$. Selon la distance, le texte 1 n’est guère plus éloigné du texte 3 que du texte 2, bien que le texte 2 traite exactement du même sujet. La similarité cosinus le reconnaît immédiatement : elle vaut $1$, et l’angle avec le texte 3, d’environ $79{,}9^\circ$, est presque droit.
+::::
 
 ⁠**En bref :** La similarité cosinus ne compare que les directions de deux vecteurs et ignore leurs longueurs.
 
@@ -208,11 +218,13 @@ Avec $\mathbf{u}^{\top}\mathbf{u}=\lVert\mathbf{u}\rVert^2=1$, on a $\mathbf{u}^
 
 Si $\mathbf{u}$ n’est pas normé, $\mathbf{u}^{\top}\mathbf{x}$ est la longueur de l’ombre de $\mathbf{x}$ dans la direction de $\mathbf{u}$, multipliée par $\lVert\mathbf{u}\rVert$.
 
-⁠**Exemple de calcul :** $\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ est normé, car $0{,}36+0{,}64=1$. Pour $\mathbf{x}=(3,\,1)^{\top}$, la longueur de l’ombre vaut $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (Fig. [26](#abb-26)), le point d’ombre est $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ et la flèche de liaison $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Celle-ci est orthogonale à $\mathbf{u}$ : $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Avec $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$, on a $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, donc $\varphi\approx34{,}7^\circ$.
+::::beispiel [Exemple de calcul]
+$\mathbf{u}=(0{,}6;\ 0{,}8)^{\top}$ est normé, car $0{,}36+0{,}64=1$. Pour $\mathbf{x}=(3,\,1)^{\top}$, la longueur de l’ombre vaut $\mathbf{u}^{\top}\mathbf{x}=2{,}6$ (Fig. [26](#abb-26)), le point d’ombre est $2{,}6\,\mathbf{u}=(1{,}56;\ 2{,}08)^{\top}$ et la flèche de liaison $\mathbf{x}-2{,}6\,\mathbf{u}=(1{,}44;\ -1{,}08)^{\top}$. Celle-ci est orthogonale à $\mathbf{u}$ : $0{,}6\cdot1{,}44-0{,}8\cdot1{,}08=0$. Avec $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3{,}162$, on a $\cos\varphi=2{,}6/3{,}162\approx0{,}822$, donc $\varphi\approx34{,}7^\circ$.
 
 :::abbildung ml/k1rschatten 26
 La longueur de l’ombre de $\mathbf{x}$ dans la direction du vecteur normé $\mathbf{u}$, comme produit scalaire.
 :::
+::::
 
 Pour une somme pondérée, cela signifie : si les poids sont normés, $\mathbf{w}^{\top}\mathbf{x}$ indique jusqu’où l’exemple $\mathbf{x}$ s’étend dans la direction de $\mathbf{w}$. Tous les points qui donnent la même valeur $\mathbf{w}^{\top}\mathbf{x}$ projettent la même ombre. Dans le plan, ils se trouvent donc sur une droite perpendiculaire à $\mathbf{w}$, dans l’espace sur un plan perpendiculaire à $\mathbf{w}$.
 

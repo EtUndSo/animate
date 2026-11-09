@@ -38,11 +38,13 @@ Sea $N:=x^2+y^2>0$. El inverso es el par $(x/N,\,-y/N)$. Por [(1.2)](paare-statt
 $$(x,y)\odot\Bigl(\frac xN,\frac{-y}N\Bigr)=\Bigl(\frac{x\cdot x}N-\frac{y\cdot(-y)}N,\;\frac{x\cdot(-y)}N+\frac{y\cdot x}N\Bigr)=\Bigl(\frac{x^2+y^2}N,\;0\Bigr)=(1,0).$$
 :::
 
-**Ejemplo.** Con el modelo de referencia, denominador $z_2\overline{z_2}=5$:
+::::beispiel
+Con el modelo de referencia, denominador $z_2\overline{z_2}=5$:
 
 $$\frac{z_1}{z_2}=\frac{(3+\mathrm{i})(1-2\mathrm{i})}{(1+2\mathrm{i})(1-2\mathrm{i})}=\frac{3-6\mathrm{i}+\mathrm{i}-2\mathrm{i}^2}{5}=\frac{5-5\mathrm{i}}{5}=1-\mathrm{i}.$$
 
 Comprobación: $(1-\mathrm{i})(1+2\mathrm{i})=1+2\mathrm{i}-\mathrm{i}-2\mathrm{i}^2=3+\mathrm{i}$. Además, $1/z_2=(1-2\mathrm{i})/5=0{,}2-0{,}4\mathrm{i}$ y $1/\mathrm{i}=-\mathrm{i}$.
+::::
 
 :::satz Teorema 4.2 ($\mathbb{C}$ es un cuerpo)
 <span class="anker" id="satz-4-2"></span>

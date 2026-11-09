@@ -45,7 +45,9 @@ $$W_{12}=Q\int_{r_1}^{r_2}k\,\frac{Q_0}{r^2}\,\mathrm{d} r=k\,Q\,Q_0\Bigl(\frac{
 Detalle del par de placas, a escala. Una carga de prueba $+1$ nC recorre el triángulo. De 1 a 2 gana 9 nJ. De 2 a 3 va transversalmente al campo: ningún trabajo. De 3 a 1 pierde 9 nJ. La vuelta completa da cero.
 :::
 
-**Ejemplo.** En la fig. [7](#abb-7), $F=Q\,E=3$ µ N en la dirección $x$ y $W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ. Directamente de 1 a 3 el camino mide 5 mm, con $\cos\alpha=0{,}6$: de nuevo 9 nJ. En el campo de la esfera A ($Q_0=+10$ nC), $+1$ nC gana de 3 cm a 6 cm la energía $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1{,}5$ µ J.
+::::beispiel
+En la fig. [7](#abb-7), $F=Q\,E=3$ µ N en la dirección $x$ y $W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ. Directamente de 1 a 3 el camino mide 5 mm, con $\cos\alpha=0{,}6$: de nuevo 9 nJ. En el campo de la esfera A ($Q_0=+10$ nC), $+1$ nC gana de 3 cm a 6 cm la energía $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1{,}5$ µ J.
+::::
 
 ⁠**Casos límite:** Para $\alpha=90^\circ$ y para $P_2=P_1$, $W=0$. Con carga negativa, el signo se invierte: un electrón gana energía cuando avanza en contra de $\vec E$. Para $r_2\to\infty$, $W_{12}=kQQ_0/r_1$ sigue siendo finito.
 

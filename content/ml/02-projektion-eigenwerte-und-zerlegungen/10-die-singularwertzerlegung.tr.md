@@ -27,7 +27,8 @@ $$(\mathbf{A}\mathbf{v}_1)^{\top}(\mathbf{A}\mathbf{v}_2)=\mathbf{v}_1^{\top}\,\
 
 Burada $\mathbf{A}^{\top}\mathbf{A}$ Gram matrisi ortaya çıkar. $\mathbf{A}$ simetrik olmasa bile bu matris simetriktir ve spektral teoreme göre özvektörlerden oluşan bir ortonormal tabanı vardır. $\mathbf{v}_2$, $\mathbf{A}^{\top}\mathbf{A}$ matrisinin $\lambda_2$ özdeğerine ait bir özvektörse ve $\mathbf{v}_1$, $\mathbf{v}_2$ vektörüne dikse iç çarpım $\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$ olur. Demek ki $\mathbf{A}^{\top}\mathbf{A}$ matrisinin özvektörleri isteneni sağlar. Aynı hesap $\mathbf{v}_1=\mathbf{v}_2$ ile görüntülerin uzunluklarını verir: $\lVert\mathbf{A}\mathbf{v}_i\rVert^2=\mathbf{v}_i^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{v}_i=\lambda_i$.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}4&6\\6&13\end{smallmatrix}\bigr)$ olur; izi $17$, determinantı $52-36=16$. $\lambda^2-17\lambda+16=(\lambda-16)(\lambda-1)$ karakteristik polinomunun kökleri $16$ ve $1$. Normlanmış özvektörler $16$ için $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$ ve $1$ için $\mathbf{v}_2=(-2,\,1)^{\top}/\sqrt5$ olur. Bunların
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}4&6\\6&13\end{smallmatrix}\bigr)$ olur; izi $17$, determinantı $52-36=16$. $\lambda^2-17\lambda+16=(\lambda-16)(\lambda-1)$ karakteristik polinomunun kökleri $16$ ve $1$. Normlanmış özvektörler $16$ için $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$ ve $1$ için $\mathbf{v}_2=(-2,\,1)^{\top}/\sqrt5$ olur. Bunların
 
 $$\mathbf{A}\mathbf{v}_1=\frac1{\sqrt5}\begin{pmatrix}8\\4\end{pmatrix},\qquad \mathbf{A}\mathbf{v}_2=\frac1{\sqrt5}\begin{pmatrix}-1\\2\end{pmatrix}$$
 
@@ -36,6 +37,7 @@ görüntülerinin iç çarpımı $\tfrac15(-8+8)=0$, uzunlukları da $\sqrt{80/5
 :::abbildung ml/k2rsvdidee 22
 $\mathbf{A}\mathbf{v}_1=(8,4)^{\top}/\sqrt5$ ve $\mathbf{A}\mathbf{v}_2=(-1,2)^{\top}/\sqrt5$ görüntüleri birbirine diktir ve uzunluklarının kareleri, $\mathbf{A}^{\top}\mathbf{A}$ matrisinin özdeğerleri olan $16$ ve $1$ sayılarıdır.
 :::
+::::
 
 ⁠**Kısacası:** Simetrik $\mathbf{A}^{\top}\mathbf{A}$ matrisinin özvektörleri, $\mathbf{A}$ altındaki görüntüleri yine birbirine dik olan dik doğrultulardır; görüntülerin uzunlukları $\sqrt{\lambda_i}$ olur.
 
@@ -56,7 +58,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 sayılarına $\mathbf{A}$ matrisinin __tekil değerleri__ denir.
 :::
 
-Birçok kitap $d_j$ yerine $\sigma_j$ yazar. Tekil değerler burada her zaman bir indis taşır; Temeller 1'deki indissiz $d$, yani öznitelik sayısı, başka bir şeydir.
+Birçok kitap $d_j$ yerine $\sigma_j$ yazar. Tekil değerler burada her zaman bir indis taşır; [Temeller 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'deki indissiz $d$, yani öznitelik sayısı, başka bir şeydir.
 
 :::satz Teorem 9.2 (Tekil değerler ve rank)
 <span class="anker" id="satz-9-2"></span>
@@ -70,7 +72,9 @@ $\mathbf{v}_1,\dots,\mathbf{v}_n$, $\mathbf{A}^{\top}\mathbf{A}$ matrisinin $\la
 
 Bundan sonra bir matrisin rankı $r$ ile gösterilir. $d_1\ge\dots\ge d_r>0$ ve $d_{r+1}=\dots=d_n=0$ olur.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ matrisinin tekil değerleri $d_1=4$ ve $d_2=1$, rankı $2$ olur. Özdeğerleri $2$ ve $2$: Tekil değerler ve özdeğerler genel olarak farklı sayılardır. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisi için $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ olur; özdeğerleri $25$ ve $0$, dolayısıyla tekil değerleri $5$ ve $0$, rankı da $1$ olur.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ matrisinin tekil değerleri $d_1=4$ ve $d_2=1$, rankı $2$ olur. Özdeğerleri $2$ ve $2$: Tekil değerler ve özdeğerler genel olarak farklı sayılardır. $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ matrisi için $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ olur; özdeğerleri $25$ ve $0$, dolayısıyla tekil değerleri $5$ ve $0$, rankı da $1$ olur.
+::::
 
 ⁠**Kısacası:** $d_j$ tekil değerleri $\mathbf{A}^{\top}\mathbf{A}$ matrisinin özdeğerlerinin karekökleridir; $\mathbf{A}$ matrisinin ana doğrultularında ne kadar uzattığını ölçerler ve pozitif olanların sayısı ranktır.
 
@@ -105,7 +109,9 @@ $\mathbf{A}$, $\mathbf{v}_j$ vektörünü $d_j\mathbf{u}_j$ vektörüne, $\mathb
 Bir özvektör ancak işaret farkıyla belirlidir. $\mathbf{v}_j$ vektörleri $\mathbf{A}^{\top}\mathbf{A}$ matrisinin, bundan ayrı olarak da $\mathbf{u}_j$ vektörleri $\mathbf{A}\mathbf{A}^{\top}$ matrisinin özvektörleri olarak hesaplanırsa bir $\mathbf{u}_j$ yanlış işaret alabilir ve o zaman $\mathbf{A}\mathbf{v}_j=-d_j\mathbf{u}_j$ olur. Güvenli yol [(9.2)](#gl-9-2) üzerinden gider: önce $\mathbf{v}_j$ seçilir, sonra $\mathbf{u}_j=\mathbf{A}\mathbf{v}_j/d_j$ hesaplanır. $\mathbf{v}_j$ ve $\mathbf{u}_j$ birlikte ters çevrilirse her şey doğru kalır.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\mathbf{u}_1=\mathbf{A}\mathbf{v}_1/4=(2,\,1)^{\top}/\sqrt5$ ve $\mathbf{u}_2=\mathbf{A}\mathbf{v}_2/1=(-1,\,2)^{\top}/\sqrt5$ olur. Sağlama: $\mathbf{A}\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}13&6\\6&4\end{smallmatrix}\bigr)$ matrisi $(2,\,1)^{\top}$ vektörünü $(32,\,16)^{\top}=16\,(2,\,1)^{\top}$ vektörüne götürür. $(-2,\,-1)^{\top}/\sqrt5$ vektörü de $\mathbf{A}\mathbf{A}^{\top}$ matrisinin $16$ özdeğerine ait normlanmış bir özvektörü olurdu, ama onunla $\mathbf{A}\mathbf{v}_1=-4\,\mathbf{u}_1$ olurdu.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\mathbf{u}_1=\mathbf{A}\mathbf{v}_1/4=(2,\,1)^{\top}/\sqrt5$ ve $\mathbf{u}_2=\mathbf{A}\mathbf{v}_2/1=(-1,\,2)^{\top}/\sqrt5$ olur. Sağlama: $\mathbf{A}\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}13&6\\6&4\end{smallmatrix}\bigr)$ matrisi $(2,\,1)^{\top}$ vektörünü $(32,\,16)^{\top}=16\,(2,\,1)^{\top}$ vektörüne götürür. $(-2,\,-1)^{\top}/\sqrt5$ vektörü de $\mathbf{A}\mathbf{A}^{\top}$ matrisinin $16$ özdeğerine ait normlanmış bir özvektörü olurdu, ama onunla $\mathbf{A}\mathbf{v}_1=-4\,\mathbf{u}_1$ olurdu.
+::::
 
 ⁠**Kısacası:** $\mathbf{v}_j$ sağ tekil vektörleri $\mathbf{A}^{\top}\mathbf{A}$ matrisinin özvektörleridir, sol tekil vektörler ise $\mathbf{u}_j=\mathbf{A}\mathbf{v}_j/d_j$ olur; iki küme de ortonormaldir ve $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$ geçerlidir.
 
@@ -130,18 +136,20 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Tekil değer ayrışımı
-$j\le r$ için $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$ olur. $j>r$ için $d_j=0$, dolayısıyla $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ ve $\mathbf{A}\mathbf{v}_j=\mathbf{0}$ olur. $r<m$ ise $\mathbf{u}_1,\dots,\mathbf{u}_r$, örneğin spektral teoremin ispatındaki gibi Gram-Schmidt yöntemiyle, $\mathbb{R}^m$ uzayının bir ortonormal tabanına tamamlanır. Temeller 1, Kesim 9.2'ye göre $\mathbf{A}\mathbf{V}$ matrisinin $j$ numaralı sütunu $\mathbf{A}\mathbf{v}_j$ vektörüdür; $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu ise $j\le r$ için $d_j\mathbf{u}_j$, aksi halde sıfır vektörüdür. Dolayısıyla $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$ olur. $\mathbf{V}$ ortogonal olduğundan $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$ olur ve sağdan $\mathbf{V}^{\top}$ ile çarpma $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ verir. Kompakt biçim Temeller 1, Kesim 9.5'ten çıkar: $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu çarpı $\mathbf{V}^{\top}$ matrisinin $j$ numaralı satırı, $j$ üzerinden toplanır; yalnızca $j\le r$ olan terimler sıfır değildir.
+$j\le r$ için $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$ olur. $j>r$ için $d_j=0$, dolayısıyla $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ ve $\mathbf{A}\mathbf{v}_j=\mathbf{0}$ olur. $r<m$ ise $\mathbf{u}_1,\dots,\mathbf{u}_r$, örneğin spektral teoremin ispatındaki gibi Gram-Schmidt yöntemiyle, $\mathbb{R}^m$ uzayının bir ortonormal tabanına tamamlanır. [Temeller 1, Kesim 9.2](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2)'ye göre $\mathbf{A}\mathbf{V}$ matrisinin $j$ numaralı sütunu $\mathbf{A}\mathbf{v}_j$ vektörüdür; $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu ise $j\le r$ için $d_j\mathbf{u}_j$, aksi halde sıfır vektörüdür. Dolayısıyla $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$ olur. $\mathbf{V}$ ortogonal olduğundan $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$ olur ve sağdan $\mathbf{V}^{\top}$ ile çarpma $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ verir. Kompakt biçim [Temeller 1, Kesim 9.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)'ten çıkar: $\mathbf{U}\mathbf{D}$ matrisinin $j$ numaralı sütunu çarpı $\mathbf{V}^{\top}$ matrisinin $j$ numaralı satırı, $j$ üzerinden toplanır; yalnızca $j\le r$ olan terimler sıfır değildir.
 :::
 
 $\mathbf{D}$ matrisinin biçimi $\mathbf{A}$ matrisinin biçimine göre belirlenir. Örneğin $m=3$ ve $n=2$ için $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$ olur. Yaygın kısaltma SVD'dir; İngilizce adı olan *singular value decomposition* sözcüklerinin baş harflerinden gelir.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için şu geçerlidir:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için şu geçerlidir:
 
 $$\mathbf{A}=\underbrace{\frac1{\sqrt5}\begin{pmatrix}2&-1\\1&2\end{pmatrix}}_{\mathbf{U}}\underbrace{\begin{pmatrix}4&0\\0&1\end{pmatrix}}_{\mathbf{D}}\underbrace{\frac1{\sqrt5}\begin{pmatrix}1&2\\-2&1\end{pmatrix}}_{\mathbf{V}^{\top}},$$
 
 çünkü $\mathbf{U}\mathbf{D}=\tfrac1{\sqrt5}\bigl(\begin{smallmatrix}8&-1\\4&2\end{smallmatrix}\bigr)$ ve $\mathbf{U}\mathbf{D}\mathbf{V}^{\top}=\tfrac15\bigl(\begin{smallmatrix}8+2&16-1\\4-4&8+2\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ olur. Kompakt biçimde:
 
 $$4\cdot\frac15\begin{pmatrix}2&4\\1&2\end{pmatrix}+1\cdot\frac15\begin{pmatrix}2&-1\\-4&2\end{pmatrix}=\begin{pmatrix}1{,}6&3{,}2\\0{,}8&1{,}6\end{pmatrix}+\begin{pmatrix}0{,}4&-0{,}2\\-0{,}8&0{,}4\end{pmatrix}=\begin{pmatrix}2&3\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**Kısacası:** Her matris, iki ortogonal matris ve $\mathbf{D}$ matrisinin köşegenindeki tekil değerlerle $\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ biçimindedir; buna denk olarak bir $\sum_jd_j\mathbf{u}_j\mathbf{v}_j^{\top}$ toplamıdır.
 
@@ -181,17 +189,19 @@ $\mathbf{U}$, $\mathbf{e}_j$ vektörünü $\mathbf{u}_j$ vektörünün üzerine 
 
 </ol>
 
-Demek ki her doğrusal dönüşüm, yansımalar bir yana bırakılırsa, bir dönme, eksenler boyunca bir germe ve bir dönme daha demektir. Birim çemberi bir elipse, birim küreyi bir elipsoide dönüştürür; yarı eksenler $d_j\mathbf{u}_j$ olur. $\det\mathbf{A}<0$ ise en az bir yansıma işin içindedir, çünkü Temeller 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ ve $\det\mathbf{D}\ge0$ olur.
+Demek ki her doğrusal dönüşüm, yansımalar bir yana bırakılırsa, bir dönme, eksenler boyunca bir germe ve bir dönme daha demektir. Birim çemberi bir elipse, birim küreyi bir elipsoide dönüştürür; yarı eksenler $d_j\mathbf{u}_j$ olur. $\det\mathbf{A}<0$ ise en az bir yansıma işin içindedir, çünkü [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ ve $\det\mathbf{D}\ge0$ olur.
 
 :::abbildung ml/k2svd 23
 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ matrisi dönme, germe, dönme olarak. Sol üstte $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (kırmızı) ve $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (yeşil) ile birim çember. $\mathbf{V}^{\top}$ matrisi $-63{,}4^\circ$ kadar döndürür ve $\mathbf{v}_1$ vektörünü $\mathbf{e}_1$, $\mathbf{v}_2$ vektörünü $\mathbf{e}_2$ üzerine getirir (sol alt). $\mathbf{D}$ birinci ekseni $d_1=4$, ikinciyi $d_2=1$ katına uzatır (sağ alt). $\mathbf{U}$ matrisi $26{,}6^\circ$ kadar döndürür ve eksenleri $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ ve $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ üzerine getirir (sağ üst). Siyah $\mathbf{x}=\mathbf{e}_2$ noktası her yoldan $\mathbf{A}\mathbf{x}=(3,2)^{\top}$ noktasına varır. Üstteki doğrudan yol $\mathbf{A}$ matrisinin kendisidir: Birim çember, yarı eksenleri $4\,\mathbf{u}_1$ ve $1\cdot\mathbf{u}_2$ olan elipse dönüşür.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{x}=\mathbf{e}_2$ ve $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için koordinatlar $\mathbf{V}^{\top}\mathbf{x}=(2,\,1)^{\top}/\sqrt5$ olur. Germe $\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=(8,\,1)^{\top}/\sqrt5$ verir, döndürme de şunu:
+::::beispiel [Sayısal örnek]
+$\mathbf{x}=\mathbf{e}_2$ ve $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için koordinatlar $\mathbf{V}^{\top}\mathbf{x}=(2,\,1)^{\top}/\sqrt5$ olur. Germe $\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=(8,\,1)^{\top}/\sqrt5$ verir, döndürme de şunu:
 
 $$\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=\frac15\begin{pmatrix}2&-1\\1&2\end{pmatrix}\begin{pmatrix}8\\1\end{pmatrix}=\frac15\begin{pmatrix}15\\10\end{pmatrix}=\begin{pmatrix}3\\2\end{pmatrix}=\mathbf{A}\mathbf{e}_2 .$$
 
 $\mathbf{V}$ matrisinin sütunları, $\cos\theta=1/\sqrt5$ olmak üzere $(\cos\theta,\,\sin\theta)^{\top}$ ve $(-\sin\theta,\,\cos\theta)^{\top}$ olur; yani bu matris $\theta\approx63{,}4^\circ$ kadar dönmedir ve $\mathbf{V}^{\top}$ matrisi $-63{,}4^\circ$ kadar geri döndürür. $\mathbf{U}$, $26{,}6^\circ$ kadar dönmedir, çünkü $\cos26{,}6^\circ\approx2/\sqrt5$.
+::::
 
 ⁠**Kısacası:** Her matris, yansımalar bir yana, döndürür, eksenler boyunca gerer ve yeniden döndürür; birim çember, yarı eksenleri $d_j\mathbf{u}_j$ olan bir elipse dönüşür.
 
@@ -231,13 +241,15 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$, $\mathbf{A}$ matrisinin çekirdeğinin bi
 (i) Her $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ vektörü $\mathbf{u}_1,\dots,\mathbf{u}_r$ vektörlerinin gerdiği alt uzaydadır; tersine $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ bir görüntüdür. $\mathbf{U}$ matrisinin geri kalan sütunları bunlara diktir, dolayısıyla Kesim [4.4](projektion-auf-einen-unterraum.html#stufe-4-4)'e göre ortogonal tümleyeni gerer. (ii) $\mathbf{u}_j$ vektörleri bağımsız ve $d_j$ sayıları pozitif olduğundan $\mathbf{A}\mathbf{x}=\mathbf{0}$ eşitliği ancak ve ancak bütün $j\le r$ için $\mathbf{v}_j^{\top}\mathbf{x}=0$ ise, yani $\mathbf{x}$ vektörünün yalnızca $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ boyunca koordinatları varsa sağlanır. Son olarak $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$, $\mathbf{A}^{\top}$ matrisinin bir tekil değer ayrışımıdır ve bu ayrışımda $\mathbf{U}$ ile $\mathbf{V}$ rollerini değiş tokuş eder; (i) şıkkı $\mathbf{A}^{\top}$ için uygulanınca geri kalanı verir.
 :::
 
-Sayılar Temeller 1, Kesim 13.5'teki rank-sıfırlık teoremiyle uyumludur: Çekirdeğin boyutu $n-r$ olur.
+Sayılar [Temeller 1, Kesim 13.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)'teki rank-sıfırlık teoremiyle uyumludur: Çekirdeğin boyutu $n-r$ olur.
 
-⁠**Sayısal örnek:** Kesim [3.2](die-beste-naherungslosung.html#stufe-3-2)'deki, sütunları $(1,\,0,\,1)^{\top}$ ve $(0,\,1,\,1)^{\top}$ olan $\mathbf{H}$ matrisi için $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ olur; özdeğerleri $3$ ve $1$, dolayısıyla tekil değerleri $d_1=\sqrt3$ ve $d_2=1$, sağ tekil vektörleri de $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$ olur. Sol tekil vektörler şunlardır:
+::::beispiel [Sayısal örnek]
+Kesim [3.2](die-beste-naherungslosung.html#stufe-3-2)'deki, sütunları $(1,\,0,\,1)^{\top}$ ve $(0,\,1,\,1)^{\top}$ olan $\mathbf{H}$ matrisi için $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ olur; özdeğerleri $3$ ve $1$, dolayısıyla tekil değerleri $d_1=\sqrt3$ ve $d_2=1$, sağ tekil vektörleri de $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$ olur. Sol tekil vektörler şunlardır:
 
 $$\mathbf{u}_1=\frac{\mathbf{H}\mathbf{v}_1}{\sqrt3}=\frac1{\sqrt6}\begin{pmatrix}1\\1\\2\end{pmatrix},\qquad \mathbf{u}_2=\frac{\mathbf{H}\mathbf{v}_2}{1}=\frac1{\sqrt2}\begin{pmatrix}1\\-1\\0\end{pmatrix}.$$
 
 Bunlar $x_3=x_1+x_2$ düzleminin, Kesim [4.3](projektion-auf-einen-unterraum.html#stufe-4-3)'tekinden farklı bir ortonormal tabanını oluşturur. Bu taban, Kesim [4.4](projektion-auf-einen-unterraum.html#stufe-4-4)'teki normlanmış normal vektör olan $\mathbf{u}_3=(1,\,1,\,-1)^{\top}/\sqrt3$ ile tamamlanır. Tam ayrışımda $\mathbf{D}=\Bigl(\begin{smallmatrix}\sqrt3&0\\0&1\\0&0\end{smallmatrix}\Bigr)$ olur. Çekirdek yalnızca sıfır vektöründen oluşur, çünkü $r=n=2$.
+::::
 
 ⁠**Kısacası:** Bir matris, rankı $1$ olan $r$ tane $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ yapı taşının toplamıdır; $d_j>0$ olan $\mathbf{u}_j$ vektörleri sütun uzayını, $d_j=0$ olan $\mathbf{v}_j$ vektörleri çekirdeği gerer.
 
@@ -259,7 +271,9 @@ $\mathbf{A}^{\top}\mathbf{A}=\mathbf{A}^2=\mathbf{Q}\boldsymbol{\Lambda}^2\mathb
 
 $\mathbf{A}$ pozitif yarı tanımlıysa spektral ayrışım ile tekil değer ayrışımı, $\mathbf{U}=\mathbf{V}=\mathbf{Q}$ olmak üzere aynı ayrışımdır. Negatif özdeğerlerde işaret $\mathbf{U}$ matrisine geçer. Simetrik olmayan matrislerde özdeğerlerle tekil değerlerin genel olarak birbiriyle bir ilgisi yoktur; bunu özdeğerleri $2,2$, tekil değerleri $4,1$ olan $\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ matrisi gösterir. Yine de her zaman bir bağlantı vardır: Her özdeğerin mutlak değeri en fazla $d_1$ olur; bu, sonraki alt kesimden çıkar.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ matrisinin özdeğerleri, $\mathbf{q}_1=(1,\,1)^{\top}/\sqrt2$ özvektörüyle $4$ ve $\mathbf{q}_2=(1,\,-1)^{\top}/\sqrt2$ özvektörüyle $-2$ olur. Tekil değerler $4$ ve $2$. $\mathbf{v}_2=\mathbf{q}_2$ ile $\mathbf{A}\mathbf{v}_2=(-2,\,2)^{\top}/\sqrt2=2\cdot(-1,\,1)^{\top}/\sqrt2$, dolayısıyla $\mathbf{u}_2=-\mathbf{q}_2$ olur.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ matrisinin özdeğerleri, $\mathbf{q}_1=(1,\,1)^{\top}/\sqrt2$ özvektörüyle $4$ ve $\mathbf{q}_2=(1,\,-1)^{\top}/\sqrt2$ özvektörüyle $-2$ olur. Tekil değerler $4$ ve $2$. $\mathbf{v}_2=\mathbf{q}_2$ ile $\mathbf{A}\mathbf{v}_2=(-2,\,2)^{\top}/\sqrt2=2\cdot(-1,\,1)^{\top}/\sqrt2$, dolayısıyla $\mathbf{u}_2=-\mathbf{q}_2$ olur.
+::::
 
 ⁠**Kısacası:** Simetrik matrislerde tekil değerler özdeğerlerin mutlak değerleridir; pozitif yarı tanımlı olanlarda tekil değer ayrışımı spektral ayrışımın kendisidir.
 
@@ -294,7 +308,9 @@ $\mathbf{c}=\mathbf{V}^{\top}\mathbf{x}$ ile $\lVert\mathbf{c}\rVert=\lVert\math
 
 İki sonuç. Birincisi, $\lVert\mathbf{A}\mathbf{x}\rVert\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{x}\rVert$, dolayısıyla $\lVert\mathbf{A}\mathbf{B}\mathbf{x}\rVert\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{B}\rVert_2\lVert\mathbf{x}\rVert$, yani $\lVert\mathbf{A}\mathbf{B}\rVert_2\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{B}\rVert_2$ olur: Matrisler art arda uygulandığında en büyük uzatma çarpanları en fazla birbiriyle çarpılır. İkincisi, bir özvektör için $\lVert\mathbf{A}\mathbf{v}\rVert=|\lambda|\,\lVert\mathbf{v}\rVert$ olur; dolayısıyla bir kare matrisin her özdeğeri için $|\lambda|\le d_1$. Gerçel $\mathbf{a},\mathbf{b}$ olmak üzere karmaşık bir $\mathbf{v}=\mathbf{a}+\mathrm j\mathbf{b}$ özvektörü için de, $\lVert\mathbf{v}\rVert^2=(\mathbf{v}^*)^{\top}\mathbf{v}=\lVert\mathbf{a}\rVert^2+\lVert\mathbf{b}\rVert^2$ alınırsa aynısı geçerlidir, çünkü $\lVert\mathbf{A}\mathbf{v}\rVert^2=\lVert\mathbf{A}\mathbf{a}\rVert^2+\lVert\mathbf{A}\mathbf{b}\rVert^2$ ifadesi [(9.5)](#gl-9-5) uyarınca $d_n^2\lVert\mathbf{v}\rVert^2$ ile $d_1^2\lVert\mathbf{v}\rVert^2$ arasındadır; demek ki kare bir $\mathbf{A}$ için ayrıca $|\lambda|\ge d_n$ olur.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\lVert\mathbf{A}\rVert_2=4$ olur. Birim vektörler daha az uzatılır: $\lVert\mathbf{A}\mathbf{e}_1\rVert=\lVert(2,\,0)^{\top}\rVert=2$ ve $\lVert\mathbf{A}\mathbf{e}_2\rVert=\lVert(3,\,2)^{\top}\rVert=\sqrt{13}\approx3{,}61$. $4$ çarpanına yalnızca $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$ için, en küçük çarpan olan $1$ değerine de $\mathbf{v}_2$ için ulaşılır. $2$ özdeğeri $1$ ile $4$ arasındadır.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\lVert\mathbf{A}\rVert_2=4$ olur. Birim vektörler daha az uzatılır: $\lVert\mathbf{A}\mathbf{e}_1\rVert=\lVert(2,\,0)^{\top}\rVert=2$ ve $\lVert\mathbf{A}\mathbf{e}_2\rVert=\lVert(3,\,2)^{\top}\rVert=\sqrt{13}\approx3{,}61$. $4$ çarpanına yalnızca $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$ için, en küçük çarpan olan $1$ değerine de $\mathbf{v}_2$ için ulaşılır. $2$ özdeğeri $1$ ile $4$ arasındadır.
+::::
 
 ⁠**Kısacası:** $\lVert\mathbf{A}\rVert_2=d_1$ spektral normu, $\mathbf{A}$ matrisinin bir vektörü uzattığı en büyük çarpandır; en küçüğü $d_n$ olur.
 
@@ -422,7 +438,7 @@ Gösterin: $\mathbf{Q}$ ortogonal ise $\mathbf{Q}\mathbf{A}$ ile $\mathbf{A}$ ma
 </ol>
 
 :::loesung
-(a) Temeller 1, Kesim 14.5'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ olur. İki ortogonal matrisin determinantı $\pm1$ olur, $\mathbf{D}$ ise determinantı $d_1\cdots d_n$ olan bir köşegen matristir. Dolayısıyla $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'e göre $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$ olur. İki ortogonal matrisin determinantı $\pm1$ olur, $\mathbf{D}$ ise determinantı $d_1\cdots d_n$ olan bir köşegen matristir. Dolayısıyla $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ eşitliğinden $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ ve $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$ çıkar. $\mathbf{D}^{\top}\mathbf{D}$ ve $\mathbf{D}\mathbf{D}^{\top}$ köşegen matrislerinin köşegeninde aynı $d_j^2>0$ elemanları bulunur, yalnızca sıfırların sayısı farklıdır. $\mathbf{A}^{\top}$ matrisinin tekil değerleri $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$ matrisinin özdeğerlerinin karekökleridir, yani yine $d_j$ değerleri ve bunlara eklenen sıfırlar.
 

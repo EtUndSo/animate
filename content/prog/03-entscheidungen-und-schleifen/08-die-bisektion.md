@@ -30,7 +30,9 @@ Ist $f$ stetig auf $[x_1,x_2]$ und haben $f(x_1)$ und $f(x_2)$ verschiedene Vorz
 
 Anschaulich: Wer ohne abzusetzen von unterhalb der $x$-Achse nach oberhalb zeichnet, muss sie irgendwo kreuzen. Ausführlich steht der Satz in Höhere Mathematik 1, Teil 5, Abschnitt 8.
 
-⁠**Beispiel:** $f(x)=x^2-2$ ist stetig, und es ist $f(0)=-2<0$ und $f(2)=2>0$. Also hat $f$ zwischen 0 und 2 eine Nullstelle, nämlich $\sqrt2$.
+::::beispiel
+$f(x)=x^2-2$ ist stetig, und es ist $f(0)=-2<0$ und $f(2)=2>0$. Also hat $f$ zwischen 0 und 2 eine Nullstelle, nämlich $\sqrt2$.
+::::
 
 ⁠**Kurz gesagt:** Wechselt eine stetige Funktion zwischen zwei Stellen das Vorzeichen, liegt dazwischen eine Nullstelle.
 
@@ -72,7 +74,8 @@ Das Ergebnis ist die Mitte des letzten Intervalls. Ist das Vorzeichen andersheru
 
 Nach jedem Schritt gilt wieder $f(\mathit{lo})<0\le f(\mathit{hi})$: Die Grenze, die durch die Mitte ersetzt wird, ist immer die mit demselben Vorzeichen wie $f(m)$. Nach dem Zwischenwertsatz enthält das Intervall deshalb stets eine Nullstelle, oder seine rechte Grenze ist selbst eine.
 
-**Beispiel.** Die ersten sechs Schritte für $f(x)=x^2-2$ mit $\mathit{lo}=0$ und $\mathit{hi}=2$:
+::::beispiel
+Die ersten sechs Schritte für $f(x)=x^2-2$ mit $\mathit{lo}=0$ und $\mathit{hi}=2$:
 
 | Schritt | $\mathit{lo}$ | $\mathit{hi}$ | $m$ | $m^2$ | neues Intervall |
 |---|---|---|---|---|---|
@@ -84,6 +87,7 @@ Nach jedem Schritt gilt wieder $f(\mathit{lo})<0\le f(\mathit{hi})$: Die Grenze,
 | 6 | 1,375 | 1,4375 | 1,40625 | 1,9775390625 | $[1{,}40625;\,1{,}4375]$ |
 
 Nach sechs Schritten ist das Intervall $2/2^6=0{,}03125$ breit, und $\sqrt2\approx1{,}4142$ liegt darin.
+::::
 
 ⁠**Kurz gesagt:** Die Bisektion ersetzt in jedem Schritt die Intervallgrenze, die auf derselben Seite der Nullstelle liegt wie die Mitte, durch die Mitte.
 
@@ -154,7 +158,9 @@ Jeder Schritt ersetzt eine Grenze durch die Mitte, das Intervall wird also genau
 
 Der Beweis rechnet mit exakten Mitten. In allen Beispielen dieses Kapitels sind die Mitten als `float` exakt darstellbar, denn sie sind Brüche mit Zweierpotenzen im Nenner und haben weniger als 53 Binärstellen.
 
-**Beispiel.** Für $\sqrt2$ mit $[0,2]$ und $\varepsilon=10^{-12}$ ist $L/\varepsilon=2\cdot10^{12}$ und $\log_2(2\cdot10^{12})=40{,}86$, aufgerundet 41. Für $\sqrt{25}$ mit $[0,25]$ und $\varepsilon=0{,}01$ ist $\log_2 2500=11{,}29$, aufgerundet 12. Beides sind genau die Schrittzahlen der Skripte.
+::::beispiel
+Für $\sqrt2$ mit $[0,2]$ und $\varepsilon=10^{-12}$ ist $L/\varepsilon=2\cdot10^{12}$ und $\log_2(2\cdot10^{12})=40{,}86$, aufgerundet 41. Für $\sqrt{25}$ mit $[0,25]$ und $\varepsilon=0{,}01$ ist $\log_2 2500=11{,}29$, aufgerundet 12. Beides sind genau die Schrittzahlen der Skripte.
+::::
 
 ⁠**Kurz gesagt:** Die Bisektion braucht $\lceil\log_2(L/\varepsilon)\rceil$ Schritte; jede Verzehnfachung der Genauigkeit kostet nur etwa 3,3 Schritte mehr.
 

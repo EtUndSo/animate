@@ -31,11 +31,13 @@ $$(\mathbf{v}^*)^{\top}\mathbf{v}=\sum_i|v_i|^2>0\qquad\text{pour }\mathbf{v}\ne
 
 **Racines des polynômes.** Tout polynôme de degré $n\ge1$ à coefficients réels ou complexes a exactement $n$ racines complexes, si l’on compte les racines multiples avec leur multiplicité, et se décompose en $n$ facteurs linéaires. Si le polynôme est à coefficients réels et si $z$ est une racine, alors $z^*$ en est une aussi : les racines non réelles vont par paires.
 
-⁠**Exemple de calcul :** D’après la formule de résolution de l’équation du second degré, $\lambda^2-1{,}2\lambda+1=0$ a pour racines $\lambda=0{,}6\pm\sqrt{0{,}36-1}=0{,}6\pm\mathrm j\,0{,}8$, une paire de nombres conjugués de module $\sqrt{0{,}36+0{,}64}=1$. Pour $\mathbf{v}=(1,\,-\mathrm j)^{\top}$, on a $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ et $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ (Fig. [16](#abb-16)).
+::::beispiel [Exemple de calcul]
+D’après la formule de résolution de l’équation du second degré, $\lambda^2-1{,}2\lambda+1=0$ a pour racines $\lambda=0{,}6\pm\sqrt{0{,}36-1}=0{,}6\pm\mathrm j\,0{,}8$, une paire de nombres conjugués de module $\sqrt{0{,}36+0{,}64}=1$. Pour $\mathbf{v}=(1,\,-\mathrm j)^{\top}$, on a $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ et $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ (Fig. [16](#abb-16)).
 
 :::abbildung ml/k2rkomplex 16
 Le produit scalaire $(\mathbf{v}^*)^{\top}\mathbf{v}$ pour $\mathbf{v}=(1,-\mathrm j)^{\top}$ : chaque terme vaut $v_i^*v_i=|v_i|^2$, car $\mathrm j\cdot(-\mathrm j)=-\mathrm j^2=1$.
 :::
+::::
 
 ⁠**En bref :** Les nombres complexes $x+\mathrm jy$ avec $\mathrm j^2=-1$ résolvent toute équation polynomiale ; la conjugaison change le signe de la partie imaginaire, et $zz^*=|z|^2$ est réel.
 
@@ -43,7 +45,7 @@ Le produit scalaire $(\mathbf{v}^*)^{\top}\mathbf{v}$ pour $\mathbf{v}=(1,-\math
 
 <span class="anker" id="stufe-6-2"></span>
 
-Dans Fondements 1, section 8.3, des matrices faisaient tourner, étiraient et cisaillaient la grille du plan. Ce faisant, la plupart des flèches changent de direction. Mais pour certaines matrices, il existe des directions dans lesquelles une flèche reste sur sa droite passant par l’origine : elle est seulement étirée, comprimée ou retournée (Fig. [17](#abb-17)).
+Dans [Fondements 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), des matrices faisaient tourner, étiraient et cisaillaient la grille du plan. Ce faisant, la plupart des flèches changent de direction. Mais pour certaines matrices, il existe des directions dans lesquelles une flèche reste sur sa droite passant par l’origine : elle est seulement étirée, comprimée ou retournée (Fig. [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 La matrice $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ envoie le cercle unité (en gris) sur une ellipse (en bleu). La flèche $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ (en rouge) reste sur sa droite et est étirée d’un facteur cinq, la flèche $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ (en vert) d’un facteur deux ; leurs images sont dessinées en clair. Les droites grises sont les deux directions propres. Le vecteur unitaire $\mathbf{e}_1$, en revanche, est envoyé sur $(4,2)^{\top}$ (en tirets) et change de direction.
@@ -62,11 +64,13 @@ Le nombre $\lambda$ est appelé la __valeur propre__ associée.
 
 Le vecteur nul est exclu, car $\mathbf{A}\mathbf{0}=\lambda\mathbf{0}$ vaut pour tout nombre $\lambda$ et ne révèle rien. La valeur propre, en revanche, peut être nulle : le vecteur propre est alors envoyé sur $\mathbf{0}$. Une valeur propre négative retourne la flèche. Dans ce chapitre, les valeurs propres sont notées $\lambda$ ou $\lambda_i$. Le mot vient de l’allemand (*eigen* signifie « propre »), et l’anglais l’emploie aussi : *eigenvalue*, *eigenvector*.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, on a
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, on a
 
 $$\mathbf{A}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}5\\5\end{pmatrix}=5\begin{pmatrix}1\\1\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\-2\end{pmatrix}=\begin{pmatrix}2\\-4\end{pmatrix}=2\begin{pmatrix}1\\-2\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}4\\2\end{pmatrix}.$$
 
 Donc $(1,\,1)^{\top}$ est un vecteur propre associé à la valeur propre $5$, et $(1,\,-2)^{\top}$ un vecteur propre associé à la valeur propre $2$. Le vecteur $(1,\,0)^{\top}$ n’en est pas un, car $(4,\,2)^{\top}$ n’est pas un multiple de lui.
+::::
 
 ⁠**En bref :** Un vecteur propre n’est pas tourné par la matrice, mais seulement multiplié par un nombre ; ce nombre est la valeur propre.
 
@@ -82,7 +86,7 @@ pour tous les $p$ pour lesquels l’intégrale existe. La forme de l’entrée e
 
 <span class="anker" id="stufe-6-3"></span>
 
-Comment trouver des valeurs propres sans les deviner ? On réécrit [(6.1)](#gl-6-1) de façon que tout soit du même côté : $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, c’est-à-dire $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. On cherche un $\lambda$ pour lequel ce système homogène a une solution $\mathbf{v}\ne\mathbf{0}$. D’après Fondements 1, section 11.5, cela signifie que la matrice $\mathbf{A}-\lambda\mathbf{I}$ n’est pas inversible. D’après Fondements 1, section 14.6, c’est le cas si et seulement si son déterminant est nul.
+Comment trouver des valeurs propres sans les deviner ? On réécrit [(6.1)](#gl-6-1) de façon que tout soit du même côté : $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, c’est-à-dire $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. On cherche un $\lambda$ pour lequel ce système homogène a une solution $\mathbf{v}\ne\mathbf{0}$. D’après [Fondements 1, section 11.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), cela signifie que la matrice $\mathbf{A}-\lambda\mathbf{I}$ n’est pas inversible. D’après [Fondements 1, section 14.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), c’est le cas si et seulement si son déterminant est nul.
 
 :::definition Définition 6.2 (Polynôme caractéristique)
 <span class="anker" id="satz-6-2"></span>
@@ -108,7 +112,9 @@ $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda
 
 D’après la sous-section sur les nombres complexes, il a exactement $n$ racines complexes, comptées avec leur multiplicité. Une matrice $n\times n$ a donc $n$ valeurs propres, si l’on admet les valeurs complexes et que l’on compte les valeurs multiples avec leur multiplicité.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, on a $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. Les valeurs propres sont $5$ et $2$, comme dans la sous-section précédente. Pour la matrice diagonale $\operatorname{diag}(3;\,-1)$, on a $p(\lambda)=(3-\lambda)(-1-\lambda)$, de racines $3$ et $-1$ : les valeurs propres d’une matrice diagonale sont sur sa diagonale, les vecteurs propres sont les vecteurs unitaires.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, on a $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. Les valeurs propres sont $5$ et $2$, comme dans la sous-section précédente. Pour la matrice diagonale $\operatorname{diag}(3;\,-1)$, on a $p(\lambda)=(3-\lambda)(-1-\lambda)$, de racines $3$ et $-1$ : les valeurs propres d’une matrice diagonale sont sur sa diagonale, les vecteurs propres sont les vecteurs unitaires.
+::::
 
 ⁠**En bref :** Les valeurs propres sont les racines du polynôme caractéristique $\det(\mathbf{A}-\lambda\mathbf{I})$ ; une matrice $n\times n$ a $n$ valeurs propres, comptées avec leur multiplicité et dans les complexes.
 
@@ -126,11 +132,13 @@ Le noyau de $\mathbf{A}-\lambda\mathbf{I}$ est appelé le __sous-espace propre__
 
 Il contient tous les vecteurs propres associés à $\lambda$ ainsi que le vecteur nul. En tant que noyau, c’est un sous-espace au sens de la section [4.1](projektion-auf-einen-unterraum.html#stufe-4-1).
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ et $\lambda=5$, on a
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ et $\lambda=5$, on a
 
 $$\mathbf{A}-5\mathbf{I}=\begin{pmatrix}-1&1\\2&-2\end{pmatrix}.$$
 
 Les deux lignes exigent la même chose : $-v_1+v_2=0$. Le sous-espace propre est la droite de tous les multiples de $(1,\,1)^{\top}$. Pour $\lambda=2$, on a $\mathbf{A}-2\mathbf{I}=\bigl(\begin{smallmatrix}2&1\\2&1\end{smallmatrix}\bigr)$ avec la condition $2v_1+v_2=0$ ; le sous-espace propre est la droite de direction $(1,\,-2)^{\top}$. Normalisés, les vecteurs propres sont $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$ et $\mathbf{v}_2=(1,\,-2)^{\top}/\sqrt5$, comme dans la Fig. [17](#abb-17). Ils ne sont pas perpendiculaires : $(1,\,1)(1,\,-2)^{\top}=-1\ne0$.
+::::
 
 ⁠**En bref :** Les vecteurs propres associés à $\lambda$ sont les solutions $\mathbf{v}\ne\mathbf{0}$ de $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ ; avec le vecteur nul, ils forment le sous-espace propre.
 
@@ -168,11 +176,13 @@ Pour $n$ quelconque, $p(\lambda)$ se factorise de même en $(\lambda_1-\lambda)(
 Pour le dernier énoncé : $\operatorname{tr}(\mathbf{A}\mathbf{B})=\sum_i(\mathbf{A}\mathbf{B})_{ii}=\sum_i\sum_la_{il}b_{li}$ et $\operatorname{tr}(\mathbf{B}\mathbf{A})=\sum_l\sum_ib_{li}a_{il}$. C’est la même double somme, simplement ordonnée autrement.
 :::
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, on a $\operatorname{tr}\mathbf{A}=7=5+2$ (Fig. [18](#abb-18)) et $\det\mathbf{A}=10=5\cdot2$. Pour $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, on a $\operatorname{tr}=7$ et $\det=6$ ; les valeurs propres sont donc les solutions de $\lambda^2-7\lambda+6=0$, à savoir $6$ et $1$. Pour $\mathbf{A}\in\mathbb{R}^{2\times3}$ de lignes $(1,0,2)$, $(0,1,1)$ et $\mathbf{B}=\mathbf{A}^{\top}$, la matrice $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ a pour trace $7$, et $\mathbf{B}\mathbf{A}$ est une matrice $3\times3$ de coefficients diagonaux $1$, $1$ et $5$, elle aussi de trace $7$.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, on a $\operatorname{tr}\mathbf{A}=7=5+2$ (Fig. [18](#abb-18)) et $\det\mathbf{A}=10=5\cdot2$. Pour $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, on a $\operatorname{tr}=7$ et $\det=6$ ; les valeurs propres sont donc les solutions de $\lambda^2-7\lambda+6=0$, à savoir $6$ et $1$. Pour $\mathbf{A}\in\mathbb{R}^{2\times3}$ de lignes $(1,0,2)$, $(0,1,1)$ et $\mathbf{B}=\mathbf{A}^{\top}$, la matrice $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ a pour trace $7$, et $\mathbf{B}\mathbf{A}$ est une matrice $3\times3$ de coefficients diagonaux $1$, $1$ et $5$, elle aussi de trace $7$.
 
 :::abbildung ml/k2rspur 18
 La trace de $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ comme somme des coefficients diagonaux ; elle est égale à la somme des valeurs propres $5$ et $2$.
 :::
+::::
 
 ⁠**En bref :** La trace est la somme des coefficients diagonaux et la somme des valeurs propres ; le déterminant est le produit des valeurs propres.
 
@@ -182,16 +192,20 @@ La trace de $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)
 
 Une rotation de $90^\circ$ ne laisse aucune flèche sur sa droite : chacune est tournée d’un angle droit. Elle ne peut donc pas avoir de vecteur propre réel. Le polynôme caractéristique montre ce qui se passe à la place.
 
-⁠**Exemple de calcul 1 :** Pour la rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, on a $p(\lambda)=\lambda^2+1$, de racines $\lambda=\mathrm j$ et $\lambda=-\mathrm j$. Les valeurs propres sont imaginaires pures. À $\lambda=\mathrm j$ est associé le vecteur propre complexe $(1,\,-\mathrm j)^{\top}$, car $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::beispiel [Exemple de calcul 1]
+Pour la rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, on a $p(\lambda)=\lambda^2+1$, de racines $\lambda=\mathrm j$ et $\lambda=-\mathrm j$. Les valeurs propres sont imaginaires pures. À $\lambda=\mathrm j$ est associé le vecteur propre complexe $(1,\,-\mathrm j)^{\top}$, car $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::
 
-⁠**Exemple de calcul 2 :** La rotation $\mathbf{Q}=\bigl(\begin{smallmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{smallmatrix}\bigr)$ de la section [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4) a $p(\lambda)=\lambda^2-1{,}2\lambda+1$ et, d’après l’exemple de calcul sur les nombres complexes, les valeurs propres $0{,}6\pm\mathrm j\,0{,}8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$ avec $\alpha\approx53{,}13^\circ$. En général, la rotation d’angle $\alpha$ a pour valeurs propres $\mathrm e^{\pm\mathrm j\alpha}$.
+::::beispiel [Exemple de calcul 2]
+La rotation $\mathbf{Q}=\bigl(\begin{smallmatrix}0{,}6&-0{,}8\\0{,}8&0{,}6\end{smallmatrix}\bigr)$ de la section [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4) a $p(\lambda)=\lambda^2-1{,}2\lambda+1$ et, d’après l’exemple de calcul sur les nombres complexes, les valeurs propres $0{,}6\pm\mathrm j\,0{,}8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$ avec $\alpha\approx53{,}13^\circ$. En général, la rotation d’angle $\alpha$ a pour valeurs propres $\mathrm e^{\pm\mathrm j\alpha}$.
+::::
 
 Une matrice réelle peut donc avoir des valeurs propres complexes. Comme son polynôme caractéristique est à coefficients réels, elles apparaissent par paires de nombres conjugués. Un vecteur propre réel ne peut être associé qu’à une valeur propre réelle : si $\mathbf{v}$ était réel et $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$, alors $\lambda\mathbf{v}$, image d’un vecteur réel, serait réel, et donc $\lambda$ aussi. Des valeurs propres complexes indiquent que la matrice fait tourner dans un plan.
 
 ⁠**En bref :** Une matrice réelle peut avoir des valeurs propres complexes, toujours par paires de nombres conjugués ; une rotation d’angle $\alpha$ a pour valeurs propres $\mathrm e^{\pm\mathrm j\alpha}$.
 
 :::hintergrund Tourner, c’est multiplier par $\mathrm e^{\mathrm j\alpha}$
-Pour les électrotechniciens, ce résultat est familier. On identifie la flèche $(x_1,\,x_2)^{\top}$ au nombre complexe $z=x_1+\mathrm jx_2$, comme pour un phaseur. Une rotation d’angle $\alpha$ est alors la multiplication par $\mathrm e^{\mathrm j\alpha}$ : $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, et ce sont exactement les deux composantes de $\mathbf{Q}\mathbf{x}$ pour la matrice de rotation de Fondements 1, section 8.3. En notation complexe, la rotation est donc une multiplication par un nombre, et ce nombre est une valeur propre. La seconde valeur propre $\mathrm e^{-\mathrm j\alpha}$ correspond à l’écriture conjuguée $z^*$, qui tourne dans le sens contraire.
+Pour les électrotechniciens, ce résultat est familier. On identifie la flèche $(x_1,\,x_2)^{\top}$ au nombre complexe $z=x_1+\mathrm jx_2$, comme pour un phaseur. Une rotation d’angle $\alpha$ est alors la multiplication par $\mathrm e^{\mathrm j\alpha}$ : $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, et ce sont exactement les deux composantes de $\mathbf{Q}\mathbf{x}$ pour la matrice de rotation de [Fondements 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). En notation complexe, la rotation est donc une multiplication par un nombre, et ce nombre est une valeur propre. La seconde valeur propre $\mathrm e^{-\mathrm j\alpha}$ correspond à l’écriture conjuguée $z^*$, qui tourne dans le sens contraire.
 :::
 
 ### Valeurs propres multiples
@@ -206,7 +220,9 @@ Le polynôme caractéristique peut avoir une racine double. Deux des $n$ valeurs
 La __multiplicité algébrique__ d’une valeur propre $\lambda$ est la multiplicité de $\lambda$ comme racine du polynôme caractéristique.
 :::
 
-⁠**Exemple de calcul :** La matrice $2\mathbf{I}=\operatorname{diag}(2;\,2)$ a $p(\lambda)=(2-\lambda)^2$ : la valeur propre $2$ est de multiplicité algébrique $2$. Le cisaillement $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ de Fondements 1, section 8.3, a $p(\lambda)=(1-\lambda)^2$ : la valeur propre $1$ est elle aussi de multiplicité algébrique $2$. La matrice $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ a deux valeurs propres distinctes, chacune de multiplicité algébrique $1$.
+::::beispiel [Exemple de calcul]
+La matrice $2\mathbf{I}=\operatorname{diag}(2;\,2)$ a $p(\lambda)=(2-\lambda)^2$ : la valeur propre $2$ est de multiplicité algébrique $2$. Le cisaillement $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ de [Fondements 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), a $p(\lambda)=(1-\lambda)^2$ : la valeur propre $1$ est elle aussi de multiplicité algébrique $2$. La matrice $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ a deux valeurs propres distinctes, chacune de multiplicité algébrique $1$.
+::::
 
 ⁠**En bref :** La multiplicité algébrique compte combien de fois une valeur propre apparaît comme racine du polynôme caractéristique.
 
@@ -234,7 +250,9 @@ Des vecteurs propres $\mathbf{v}_1,\dots,\mathbf{v}_k$ associés à des valeurs 
 Pour deux vecteurs propres : supposons $c_1\mathbf{v}_1+c_2\mathbf{v}_2=\mathbf{0}$. En appliquant $\mathbf{A}$, on obtient $c_1\lambda_1\mathbf{v}_1+c_2\lambda_2\mathbf{v}_2=\mathbf{0}$. Si l’on en retranche $\lambda_2$ fois la première équation, il reste $c_1(\lambda_1-\lambda_2)\mathbf{v}_1=\mathbf{0}$. Comme $\lambda_1\ne\lambda_2$ et $\mathbf{v}_1\ne\mathbf{0}$, on a $c_1=0$, et alors aussi $c_2=0$. Pour davantage de vecteurs propres, on procède de même : s’il existait une relation de dépendance, on en prendrait une ayant le moins possible de coefficients non nuls. Appliquer $\mathbf{A}$ puis retrancher cette relation multipliée par l’une des valeurs propres $\lambda$ concernées donnerait une relation de dépendance avec encore moins de coefficients non nuls, ce qui est une contradiction.
 :::
 
-⁠**Exemple de calcul :** Les vecteurs propres $(1,\,1)^{\top}$ et $(1,\,-2)^{\top}$ de $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ sont associés aux valeurs propres distinctes $5$ et $2$ ; ils sont linéairement indépendants, car $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. Le cisaillement, en revanche, n’a que la direction propre $(1,\,0)^{\top}$ ; il n’existe pas deux vecteurs propres indépendants.
+::::beispiel [Exemple de calcul]
+Les vecteurs propres $(1,\,1)^{\top}$ et $(1,\,-2)^{\top}$ de $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ sont associés aux valeurs propres distinctes $5$ et $2$ ; ils sont linéairement indépendants, car $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. Le cisaillement, en revanche, n’a que la direction propre $(1,\,0)^{\top}$ ; il n’existe pas deux vecteurs propres indépendants.
+::::
 
 ⁠**En bref :** La multiplicité géométrique compte les vecteurs propres indépendants associés à une valeur propre ; elle peut être inférieure à la multiplicité algébrique, mais des valeurs propres distinctes ont toujours des vecteurs propres indépendants.
 
@@ -279,10 +297,12 @@ $\mathbf{A}^{\top}$ a les mêmes valeurs propres que $\mathbf{A}$, mais en gén�
 :::
 
 :::beweis Règles de calcul
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, et ainsi de suite. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) D’après [(6.5)](#gl-6-5), $\det\mathbf{A}$ est le produit des valeurs propres ; il est donc non nul si et seulement si aucune valeur propre n’est nulle. En multipliant $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ par $\mathbf{A}^{-1}$, on obtient $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) D’après Fondements 1, section 14.5, $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$ ; les deux matrices ont le même polynôme caractéristique.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, et ainsi de suite. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) D’après [(6.5)](#gl-6-5), $\det\mathbf{A}$ est le produit des valeurs propres ; il est donc non nul si et seulement si aucune valeur propre n’est nulle. En multipliant $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ par $\mathbf{A}^{-1}$, on obtient $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) D’après [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$ ; les deux matrices ont le même polynôme caractéristique.
 :::
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, la matrice $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ a pour valeurs propres $25$ et $4$ : $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. La matrice $\mathbf{A}-5\mathbf{I}$ a pour valeurs propres $0$ et $-3$ et n’est pas inversible. L’inverse $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ a pour valeurs propres $\tfrac15$ et $\tfrac12$ : $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. La transposée $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ a elle aussi les valeurs propres $5$ et $2$, mais $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$ : ses vecteurs propres sont $(2,\,1)^{\top}$ et $(1,\,-1)^{\top}$.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, la matrice $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ a pour valeurs propres $25$ et $4$ : $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. La matrice $\mathbf{A}-5\mathbf{I}$ a pour valeurs propres $0$ et $-3$ et n’est pas inversible. L’inverse $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ a pour valeurs propres $\tfrac15$ et $\tfrac12$ : $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. La transposée $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ a elle aussi les valeurs propres $5$ et $2$, mais $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$ : ses vecteurs propres sont $(2,\,1)^{\top}$ et $(1,\,-1)^{\top}$.
+::::
 
 ⁠**En bref :** Les puissances, les décalages de $\beta\mathbf{I}$ et l’inverse conservent les vecteurs propres et transforment les valeurs propres de la même façon ; la transposée ne conserve que les valeurs propres.
 
@@ -310,7 +330,7 @@ $\mathbf{A}_3$ : trace $2$, déterminant $1-9=-8$, donc $\lambda^2-2\lambda-8=(\
 Montrez que les valeurs propres d’une matrice triangulaire supérieure sont ses coefficients diagonaux. Déterminez les valeurs propres et les vecteurs propres de $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$.
 
 :::loesung
-Pour une matrice triangulaire supérieure, $\mathbf{A}-\lambda\mathbf{I}$ est encore une matrice triangulaire supérieure, de coefficients diagonaux $a_{ii}-\lambda$. D’après Fondements 1, section 14.4, son déterminant est le produit des coefficients diagonaux : $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Les racines sont les coefficients diagonaux.
+Pour une matrice triangulaire supérieure, $\mathbf{A}-\lambda\mathbf{I}$ est encore une matrice triangulaire supérieure, de coefficients diagonaux $a_{ii}-\lambda$. D’après [Fondements 1, section 14.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), son déterminant est le produit des coefficients diagonaux : $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Les racines sont les coefficients diagonaux.
 
 Pour la matrice donnée, les valeurs propres sont donc $2$, $3$ et $5$. Pour $2$ : $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ exige $v_3=0$ et $v_2=0$, vecteur propre $(1,\,0,\,0)^{\top}$. Pour $3$ : $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ exige $v_3=0$ et $v_2=v_1$, vecteur propre $(1,\,1,\,0)^{\top}$. Pour $5$ : $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ exige $v_2=3v_1$ et $v_3=2v_2$, vecteur propre $(1,\,3,\,6)^{\top}$. Vérification : $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

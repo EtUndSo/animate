@@ -37,7 +37,11 @@ $$U_\mathrm{A}=\frac{R_1+R_2}{R_1}\cdot\frac{R_4}{R_3+R_4}\,U_\mathrm{E2}-\frac{
 左：加法器：三个电源的电流在节点汇合，流过 $R_\mathrm{F}$。右：减法器，$R_1=R_3$，$R_2=R_4$：在 2.00 V 和 2.05 V 时，两个输入端都位于 1.64 V。
 :::
 
-**例。** ⁠**加法器**，$R_\mathrm{F}=40$ k$\Omega$，$R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$，$R_\mathrm{E3}=20$ k$\Omega$，输入 $0.5$ V、$-0.2$ V、$0.1$ V：电流为 50、$-20$ 和 5 µ A，合计 35 µ A，所以 $U_\mathrm{A}=-1.4$ V。**减法器**，$R_1=R_3=10$ k$\Omega$，$R_2=R_4=40$ k$\Omega$，$U_\mathrm{E1}=2.00$ V，$U_\mathrm{E2}=2.05$ V：$\varphi_+=0.8\cdot2.05\,\mathrm{V}=1.64$ V。流过 $R_1$ 的电流为 $(2.00-1.64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A，所以 $U_\mathrm{A}=1.64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0.2$ V。叠加得 $-8.0\,\mathrm{V}+8.2\,\mathrm{V}$，结果相同。约 2 V 的共模不见了。**级联**，两个反相放大器，$G_1=-4$，$G_2=-2$：0.5 V 变成 $-2$ V，再变成 $+4$ V，所以 $G=+8$。**极限情况：**$U_\mathrm{E1}=U_\mathrm{E2}$ 时结果为 0。
+::::beispiel
+⁠**加法器**，$R_\mathrm{F}=40$ k$\Omega$，$R_\mathrm{E1}=R_\mathrm{E2}=10$ k$\Omega$，$R_\mathrm{E3}=20$ k$\Omega$，输入 $0.5$ V、$-0.2$ V、$0.1$ V：电流为 50、$-20$ 和 5 µ A，合计 35 µ A，所以 $U_\mathrm{A}=-1.4$ V。**减法器**，$R_1=R_3=10$ k$\Omega$，$R_2=R_4=40$ k$\Omega$，$U_\mathrm{E1}=2.00$ V，$U_\mathrm{E2}=2.05$ V：$\varphi_+=0.8\cdot2.05\,\mathrm{V}=1.64$ V。流过 $R_1$ 的电流为 $(2.00-1.64)\,\mathrm{V}/10\,\mathrm{k\Omega}=36$ µ A，所以 $U_\mathrm{A}=1.64\,\mathrm{V}-36\,\mu\text{A}\cdot40\,\mathrm{k\Omega}=0.2$ V。叠加得 $-8.0\,\mathrm{V}+8.2\,\mathrm{V}$，结果相同。约 2 V 的共模不见了。**级联**，两个反相放大器，$G_1=-4$，$G_2=-2$：0.5 V 变成 $-2$ V，再变成 $+4$ V，所以 $G=+8$。
+::::
+
+⁠**极限情况：**$U_\mathrm{E1}=U_\mathrm{E2}$ 时结果为 0。
 
 **较大电路的步骤。** 先确定输入端的电位，再从左到右逐级计算。在级联中，每个输出都是下一级的输入，是一个具有固定值的电位。
 

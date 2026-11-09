@@ -14,7 +14,7 @@ Ein einzelnes Atom hat scharfe Energieniveaus: Ein Elektron darf nur bestimmte E
 
 Das Verfahren dafür heißt __Tight-Binding-Rechnung__ (englisch für starke Bindung): Man nimmt an, dass das Elektron meist bei einem Atom bleibt und nur ab und zu zum Nachbarn wechselt. Wer es beherrscht, kann aus wenigen Zahlen für Atome und Abstände ausrechnen, welche Energien ein Elektron im Kristall haben darf und wie schnell es dort läuft.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

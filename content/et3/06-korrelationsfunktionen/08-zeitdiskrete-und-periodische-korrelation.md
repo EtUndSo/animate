@@ -25,7 +25,9 @@ $$\varphi^E_{ss}(m)\;\circ\!\!-\!\!\bullet\;|S_\mathrm a(f)|^2\ (\text{Periode }
 
 Für abgetastete Tiefpasssignale gilt $\varphi^E_{sg}(mT)=T\sum_ns^*(nT)g((n+m)T)$ und $E_s=T\sum_n|s(nT)|^2$. Ein zeitdiskretes Energiesignal ist eine quadratisch summierbare Folge.
 
-**Beispiel.** $s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ für $m=-2,\dots,2$. Maximum $6=E_s$ bei $m=0$, gerade, fünf Werte statt drei. Probe mit Wiener-Khintchine bei $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
+::::beispiel
+$s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ für $m=-2,\dots,2$. Maximum $6=E_s$ bei $m=0$, gerade, fünf Werte statt drei. Probe mit Wiener-Khintchine bei $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
+::::
 
 **Periodische Korrelation.** Wie bei der Faltung ([Teil 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) gilt für Folgen der Periode $M$
 

@@ -58,7 +58,11 @@ $$\frac{eN_\mathrm A}{2\varepsilon}\bigl(L_\mathrm{depl}^\mathrm A\bigr)^2=U_\ma
 ⁠**Weiten:** Einsetzen von $L_\mathrm{depl}^\mathrm A=L_\mathrm{depl}^\mathrm DN_\mathrm D/N_\mathrm A$ ergibt $\bigl(L_\mathrm{depl}^\mathrm D\bigr)^2N_\mathrm D(N_\mathrm A+N_\mathrm D)/N_\mathrm A=2\varepsilon U_\mathrm d/e$. Mit $\Phi_\mathrm{bi}=eU_\mathrm d$ ist das [(4.3)](#gl-4-3).
 :::
 
-**Beispiel.** Mit $U_\mathrm d=0{,}762$ V ergibt [(4.3)](#gl-4-3) $L_\mathrm{depl}^\mathrm A=57$ nm und $L_\mathrm{depl}^\mathrm D=287$ nm, zusammen 344 nm. Beide Seiten tragen $2{,}87\cdot10^{11}$ Ionen je cm$^2$. Das Feld erreicht ohne äußere Spannung 4,43 MV/m, also 44 kV/cm. Die Bandverbiegung verteilt sich wie die Weiten: 0,635 eV im n-Gebiet, 0,127 eV im p-Gebiet. **Grenzfälle:** Für $N_\mathrm A=N_\mathrm D$ ist die Zone symmetrisch. Für $N_\mathrm A\gg N_\mathrm D$ liegt sie fast ganz im n-Gebiet, $L_\mathrm{depl}\approx\sqrt{2\varepsilon U_\mathrm d/(eN_\mathrm D)}$: Das ist ein einseitiger Übergang.
+::::beispiel
+Mit $U_\mathrm d=0{,}762$ V ergibt [(4.3)](#gl-4-3) $L_\mathrm{depl}^\mathrm A=57$ nm und $L_\mathrm{depl}^\mathrm D=287$ nm, zusammen 344 nm. Beide Seiten tragen $2{,}87\cdot10^{11}$ Ionen je cm$^2$. Das Feld erreicht ohne äußere Spannung 4,43 MV/m, also 44 kV/cm. Die Bandverbiegung verteilt sich wie die Weiten: 0,635 eV im n-Gebiet, 0,127 eV im p-Gebiet.
+::::
+
+⁠**Grenzfälle:** Für $N_\mathrm A=N_\mathrm D$ ist die Zone symmetrisch. Für $N_\mathrm A\gg N_\mathrm D$ liegt sie fast ganz im n-Gebiet, $L_\mathrm{depl}\approx\sqrt{2\varepsilon U_\mathrm d/(eN_\mathrm D)}$: Das ist ein einseitiger Übergang.
 
 :::frage Warum reicht die Zone weiter in das schwächer dotierte Gebiet?
 Beide Seiten müssen dieselbe Ladung stellen. Im schwach dotierten Gebiet sitzen die Ionen dünner, also braucht es mehr Tiefe. Das Verhältnis ist exakt $L_\mathrm{depl}^\mathrm D/L_\mathrm{depl}^\mathrm A=N_\mathrm A/N_\mathrm D$. Stärkere Dotierung macht die Zone dünner: Dieselbe Ladung passt in eine schmalere Schicht.

@@ -39,7 +39,11 @@ Für $z=x+\mathrm{i}y$ ist $\mathrm{i}z=-y+\mathrm{i}x$. Der Pfeil von $z$ wird 
 Es ist $\mathrm{i}(x+\mathrm{i}y)=\mathrm{i}x+\mathrm{i}^2y=-y+\mathrm{i}x$. Der Pfeil von $z$ ist die Hypotenuse eines rechtwinkligen Dreiecks mit der waagerechten Kathete $x$ und der senkrechten Kathete $y$, beide mit Vorzeichen gezählt. Die Vierteldrehung macht aus $x$ nach rechts $x$ nach oben und aus $y$ nach oben $y$ nach links. Der gedrehte Pfeil endet also bei $(-y,x)$.
 :::
 
-**Beispiel.** $\mathrm{i}z_1=-1+3\mathrm{i}$, $\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$, $\mathrm{i}^3z_1=1-3\mathrm{i}$, $\mathrm{i}^4z_1=z_1$ (Abb. [2](#abb-2), rechts). **Grenzfall:** Ein reeller Faktor $r$ dreht nicht, er streckt: $r(x+\mathrm{i}y)=rx+\mathrm{i}ry$. Für $r=-1$ kehrt er den Pfeil um, wie zweimal $\mathrm{i}$.
+::::beispiel
+$\mathrm{i}z_1=-1+3\mathrm{i}$, $\mathrm{i}^2z_1=-3-\mathrm{i}=-z_1$, $\mathrm{i}^3z_1=1-3\mathrm{i}$, $\mathrm{i}^4z_1=z_1$ (Abb. [2](#abb-2), rechts).
+::::
+
+⁠**Grenzfall:** Ein reeller Faktor $r$ dreht nicht, er streckt: $r(x+\mathrm{i}y)=rx+\mathrm{i}ry$. Für $r=-1$ kehrt er den Pfeil um, wie zweimal $\mathrm{i}$.
 
 :::frage Ist die komplexe Ebene nicht nur die gewöhnliche Koordinatenebene?
 Als Menge und beim Addieren ja. Der Unterschied ist die Multiplikation: [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) macht aus zwei Punkten wieder einen Punkt, und man kann dadurch teilen (Stufe [4](dividieren-und-was-verloren-geht.html#stufe-4)). Erst das macht aus der Ebene ein Zahlensystem.

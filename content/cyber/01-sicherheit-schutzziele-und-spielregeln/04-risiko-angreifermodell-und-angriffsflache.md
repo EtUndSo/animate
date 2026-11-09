@@ -40,11 +40,13 @@ $$\frac1T\sum_{t=1}^{T}D_t .$$
 
 Über viele Jahre liegt dieser Mittelwert nahe am Erwartungswert $H\cdot S$; das meint das Wort „im Mittel“.
 
-⁠**Rechenbeispiele:** Ein Fahrradschlauch platzt dreimal im Jahr, jeder neue kostet 15 €: Der Erwartungswert ist $45$ € pro Jahr. Ein Wasserschaden tritt einmal in 20 Jahren auf und kostet 10 000 €: Der Erwartungswert ist $500$ € pro Jahr. Tritt der Schaden in 20 Jahren genau einmal ein, so ist in 19 Jahren $D_t=0$ und in einem Jahr $D_t=10\,000$ €, und der Mittelwert über die 20 Jahre ist ebenfalls $500$ € pro Jahr (Abb. [3](#abb-3)).
+::::beispiel [Rechenbeispiele]
+Ein Fahrradschlauch platzt dreimal im Jahr, jeder neue kostet 15 €: Der Erwartungswert ist $45$ € pro Jahr. Ein Wasserschaden tritt einmal in 20 Jahren auf und kostet 10 000 €: Der Erwartungswert ist $500$ € pro Jahr. Tritt der Schaden in 20 Jahren genau einmal ein, so ist in 19 Jahren $D_t=0$ und in einem Jahr $D_t=10\,000$ €, und der Mittelwert über die 20 Jahre ist ebenfalls $500$ € pro Jahr (Abb. [3](#abb-3)).
 
 :::abbildung cyber/k1rerwartung 3
 Zwei Erwartungswerte des jährlichen Schadens in Euro pro Jahr: oben der Fahrradschlauch, darunter der Wasserschaden. Die letzten beiden Zeilen zählen den Wasserschaden Jahr für Jahr nach: 19 Jahre ohne Schaden, ein Jahr mit 10 000 €, im Mittel ebenfalls 500 € pro Jahr.
 :::
+::::
 
 Der Erwartungswert sagt nichts darüber, was in einem bestimmten Jahr passiert. Der Wasserschaden kostet in 19 von 20 Jahren nichts und in einem Jahr 10 000 €; 500 € kostet er in keinem einzigen Jahr.
 
@@ -68,11 +70,13 @@ $$P(\text{mindestens eines})=1-(1-p)^n \tag{3.3}$$
 
 mindestens eines. Ist $n\cdot p$ klein gegen 1, so ist das ungefähr $n\cdot p$.
 
-⁠**Rechenbeispiel:** Ein Würfel zeigt eine Sechs mit der Wahrscheinlichkeit $p=\frac16$. Zwei Würfel zeigen beide eine Sechs mit der Wahrscheinlichkeit $p\cdot p=\frac1{36}$. Bei vier Würfen eines Würfels kommt mit der Wahrscheinlichkeit $(1-p)^4\approx0{,}482$ keine Sechs, also mit $1-(1-p)^4\approx0{,}518$ mindestens eine (Abb. [4](#abb-4)).
+::::beispiel [Rechenbeispiel]
+Ein Würfel zeigt eine Sechs mit der Wahrscheinlichkeit $p=\frac16$. Zwei Würfel zeigen beide eine Sechs mit der Wahrscheinlichkeit $p\cdot p=\frac1{36}$. Bei vier Würfen eines Würfels kommt mit der Wahrscheinlichkeit $(1-p)^4\approx0{,}482$ keine Sechs, also mit $1-(1-p)^4\approx0{,}518$ mindestens eine (Abb. [4](#abb-4)).
 
 :::abbildung cyber/k1rwuerfel 4
 Würfeln mit der Produktregel, $p=\frac16$: oben zwei Sechsen mit zwei Würfeln, in der Mitte keine Sechs in vier Würfen als Produkt aus vier gleichen Faktoren, unten das Gegenereignis, mindestens eine Sechs.
 :::
+::::
 
 Unabhängigkeit ist eine Annahme, die man prüfen muss. Zwei Dinge, die eine gemeinsame Ursache haben, sind nicht unabhängig: Ob es heute in Köln und in Bonn regnet, hängt vom selben Wetter ab.
 
@@ -101,7 +105,8 @@ $$R=H\cdot S , \tag{3.4}$$
 mit der Eintrittshäufigkeit $H$ in $1/\text{Jahr}$, dem Schaden $S$ je Ereignis in Euro und dem Risiko $R$ in Euro pro Jahr.
 :::
 
-⁠**Rechenbeispiel:** Ein kleines Unternehmen betrachtet zwei Ereignisse.
+::::beispiel [Rechenbeispiel]
+Ein kleines Unternehmen betrachtet zwei Ereignisse.
 
 <ul>
 
@@ -124,6 +129,7 @@ Die Risiken sind $R_\mathrm A=5\,000$ €/Jahr und $R_\mathrm B=1\,000$ €/
 :::abbildung cyber/k1rrisiko 5
 Die Risiken der Ereignisse A und B in Euro pro Jahr: Eintrittshäufigkeit pro Jahr mal Schaden je Ereignis.
 :::
+::::
 
 Abbildung [6](#abb-6) zeigt das als Landkarte. Häufigkeit und Schaden sind dort logarithmisch aufgetragen, jeder Teilstrich ist eine Zehnerpotenz. Auf einer solchen Karte liegen alle Ereignisse mit demselben Produkt $H\cdot S$ auf einer schrägen Geraden: Wird $H$ zehnmal so groß und $S$ zehnmal so klein, bleibt das Risiko gleich. Ein Ereignis, das hundertmal im Jahr eintritt und jedes Mal 50 € kostet, liegt auf derselben Geraden wie A.
 
@@ -164,11 +170,13 @@ $$R_\Sigma=\sum_{k=1}^{m}R_k=\sum_{k=1}^{m}H_k\cdot S_k , \tag{3.5}$$
 gemessen wie jedes Risiko in Euro pro Jahr.
 :::
 
-⁠**Rechenbeispiel:** Das Unternehmen aus dem letzten Unterabschnitt hat mit den Ereignissen A und B das Gesamtrisiko $R_\Sigma=6\,000$ €/Jahr (Abb. [7](#abb-7)). Fünf Sechstel davon stammen aus dem seltenen Ereignis A.
+::::beispiel [Rechenbeispiel]
+Das Unternehmen aus dem letzten Unterabschnitt hat mit den Ereignissen A und B das Gesamtrisiko $R_\Sigma=6\,000$ €/Jahr (Abb. [7](#abb-7)). Fünf Sechstel davon stammen aus dem seltenen Ereignis A.
 
 :::abbildung cyber/k1rgesamt 7
 Das Gesamtrisiko der Ereignisse A und B in Euro pro Jahr: jedes Risiko als Produkt aus Häufigkeit und Schaden, dann die Summe.
 :::
+::::
 
 ⁠**Kurz gesagt:** Das Gesamtrisiko ist die Summe der einzelnen Risiken, $R_\Sigma=\sum_kH_k\,S_k$.
 
@@ -201,7 +209,8 @@ Die Maßnahme lohnt sich, wenn $N>0$ ist, wenn sie also mehr erwarteten Schaden 
 
 Der Grundsatz dahinter heißt __Sicherheit ist Ökonomie__: Wie viel Schutz angemessen ist, entscheidet der Vergleich von Aufwand und verhindertem Schaden, nicht der Wunsch nach vollkommener Sicherheit. Derselbe Grundsatz gilt für den Angreifer: Ein Angriff, der mehr kostet, als er einbringt, lohnt sich für einen Angreifer, der auf Gewinn aus ist, nicht. Und weil Angreifer den Weg des geringsten Widerstands gehen, ist ein System nur so stark wie seine schwächste Stelle.
 
-⁠**Rechenbeispiel:** Eine Maßnahme kostet $K=2\,000$ € pro Jahr. Für die Ereignisse A und B aus Unterabschnitt [3.3](#stufe-3-3) gilt (Abb. [8](#abb-8)):
+::::beispiel [Rechenbeispiel]
+Eine Maßnahme kostet $K=2\,000$ € pro Jahr. Für die Ereignisse A und B aus Unterabschnitt [3.3](#stufe-3-3) gilt (Abb. [8](#abb-8)):
 
 <ul>
 
@@ -222,6 +231,7 @@ Gegen B: Selbst wenn sie jeden Fall verhindert, spart sie höchstens $R_\mathrm 
 :::abbildung cyber/k1rnutzen 8
 Der Nettonutzen $N=R_\text{vorher}-R_\text{nachher}-K$ der Maßnahme gegen Ereignis A in Euro pro Jahr, wenn sie 80 % oder 30 % der Einbrüche verhindert. Unten die Schwelle: Die Maßnahme muss mindestens den Anteil $K/R_\mathrm A$ des Risikos verhindern.
 :::
+::::
 
 ⁠**Kurz gesagt:** Eine Schutzmaßnahme lohnt sich, wenn sie mehr erwarteten Schaden verhindert, als sie kostet.
 
@@ -271,7 +281,9 @@ Ein Angreifer, der selbst zur angegriffenen Organisation gehört, heißt __Innen
 
 Ein System ist immer nur *gegenüber einem Angreifermodell* sicher. Bei der Wahl des Modells ist man vorsichtig und nimmt eher zu viel als zu wenig an: dass Angreifer unbemerkt handeln können, dass sie das System genau studieren und dass sie es immer wieder versuchen.
 
-⁠**Beispiel:** Für eine private Notizen-App auf dem Handy ist ein vernünftiges Angreifermodell: ein Dieb, der das Handy stiehlt, keine besonderen Mittel hat und das Gerät weiterverkaufen will. Eine Bildschirmsperre und ein verschlüsselter Speicher genügen dagegen. Für die Steuerung eines Stromnetzes sieht das Modell anders aus: staatliche Gruppen mit großem Budget, monatelanger Geduld und vielleicht einem Innentäter. Dagegen genügt das nicht annähernd.
+::::beispiel
+Für eine private Notizen-App auf dem Handy ist ein vernünftiges Angreifermodell: ein Dieb, der das Handy stiehlt, keine besonderen Mittel hat und das Gerät weiterverkaufen will. Eine Bildschirmsperre und ein verschlüsselter Speicher genügen dagegen. Für die Steuerung eines Stromnetzes sieht das Modell anders aus: staatliche Gruppen mit großem Budget, monatelanger Geduld und vielleicht einem Innentäter. Dagegen genügt das nicht annähernd.
+::::
 
 ⁠**Kurz gesagt:** Ein Angreifermodell legt fest, gegen wen ein System schützen soll; erst damit lässt sich sagen, ob ein Schutz genügt.
 
@@ -338,11 +350,13 @@ $$P=1-(1-p)^n \tag{3.7}$$
 
 mindestens eine Schwachstelle.
 
-⁠**Rechenbeispiel:** Ein vernetztes Gerät bietet $n=10$ Dienste an, und jeder enthält mit $p=2\,\%$ eine ausnutzbare Schwachstelle. Dann ist $P_{10}=0{,}183$ (Abb. [9](#abb-9)): In fast jedem fünften Fall hat das Gerät eine offene Stelle. Schaltet der Hersteller die sieben Dienste ab, die kaum jemand braucht, bleiben $n=3$ und $P_3=0{,}059$. Die Angriffsfläche ist kleiner, und die Wahrscheinlichkeit einer offenen Stelle sinkt auf ein Drittel, ohne dass ein einziger Dienst besser programmiert wurde.
+::::beispiel [Rechenbeispiel]
+Ein vernetztes Gerät bietet $n=10$ Dienste an, und jeder enthält mit $p=2\,\%$ eine ausnutzbare Schwachstelle. Dann ist $P_{10}=0{,}183$ (Abb. [9](#abb-9)): In fast jedem fünften Fall hat das Gerät eine offene Stelle. Schaltet der Hersteller die sieben Dienste ab, die kaum jemand braucht, bleiben $n=3$ und $P_3=0{,}059$. Die Angriffsfläche ist kleiner, und die Wahrscheinlichkeit einer offenen Stelle sinkt auf ein Drittel, ohne dass ein einziger Dienst besser programmiert wurde.
 
 :::abbildung cyber/k1rflaeche 9
 Die Wahrscheinlichkeit, dass mindestens eine von $n$ Stellen eine Schwachstelle hat, für $p=0{,}02$: oben mit $n=10$ Diensten, unten mit $n=3$. Das Produkt der Faktoren $1-p=0{,}98$ ist die Wahrscheinlichkeit, dass keine Stelle eine hat.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Angriffsfläche ist die Menge der Stellen, an denen ein Angreifer ansetzen kann; jede Stelle, die man abschafft, ist eine Gelegenheit weniger.
 

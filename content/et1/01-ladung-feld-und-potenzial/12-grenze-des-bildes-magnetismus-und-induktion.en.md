@@ -36,7 +36,9 @@ Faraday also showed induction without a magnet: he wound two coils onto a ring a
 
 **Maxwell's equations in words.** The equations themselves need more mathematics, but their content fits into four sentences. The __flux density__ here is the measure of the density of the field lines. **Gauss's law for electric fields:** Charges are sources and sinks of the electric flux density. **Gauss's law for magnetism:** The magnetic flux density has no sources; its lines are closed. **Law of induction:** Changes of the magnetic flux in time lead to an electric curl field. **Ampère's law:** Currents and changes of the electric field in time lead to a magnetic curl field.
 
-**Example.** The magnet in Fig. [12](#abb-12) changes the flux through the coil with $N=500$ uniformly by 0.2 mWb in 25 ms. The voltage is then constant: $|U_\mathrm{ind}|=500\cdot0.2\,\mathrm{mWb}/25\,\mathrm{ms}=4$ V. During this time, the loop integral of $\vec E$ around the flux is not zero, and the voltage between two points depends on which side of the flux the path runs.
+::::beispiel
+The magnet in Fig. [12](#abb-12) changes the flux through the coil with $N=500$ uniformly by 0.2 mWb in 25 ms. The voltage is then constant: $|U_\mathrm{ind}|=500\cdot0.2\,\mathrm{mWb}/25\,\mathrm{ms}=4$ V. During this time, the loop integral of $\vec E$ around the flux is not zero, and the voltage between two points depends on which side of the flux the path runs.
+::::
 
 ⁠**Limiting cases:** For constant flux, $u_\mathrm{ind}=0$; a magnet at rest produces no voltage. In most circuits, the changing fluxes sit almost entirely in coils. Between the components the field stays practically curl-free, which is why potentials and voltages remain the tool there.
 

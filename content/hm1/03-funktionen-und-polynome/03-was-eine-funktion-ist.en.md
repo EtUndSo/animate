@@ -37,7 +37,8 @@ are called the __domain__, the __range__ and the __graph__ of $f$; here $\mathca
 
 ⁠**How to read it:** The arrow $\to$ connects sets, $\mapsto$ connects elements, and $=:$ means “is called this.” $B$ is only a reservoir; $\mathcal W(f)\subset B$ holds. Since $\mathcal W(f)$ is often unknown, for real functions one usually writes $f:\mathcal D(f)\to\mathbb{R}$. Equal graphs also mean equal domains: $\sqrt x$ on $[0,10]$ and $\sqrt x$ on $\mathbb{R}_0^+$ have the same formula and are different functions.
 
-**Examples.** The parabola reaches only $y\ge-1$: A square is never negative, so $h(x)=(x-2)^2-1\ge-1$, and every $y\ge-1$ is hit by $x=2+\sqrt{y+1}$. For the bell, $1+x^2\ge1$, so $0<b(x)\le1$.
+::::beispiel [Examples]
+The parabola reaches only $y\ge-1$: A square is never negative, so $h(x)=(x-2)^2-1\ge-1$, and every $y\ge-1$ is hit by $x=2+\sqrt{y+1}$. For the bell, $1+x^2\ge1$, so $0<b(x)\le1$.
 
 | Function | $\mathcal D(f)$ | $\mathcal W(f)$ |
 |---|---|---|
@@ -48,7 +49,10 @@ are called the __domain__, the __range__ and the __graph__ of $f$; here $\mathca
 | Absolute value: $f(x)=x$ for $x\ge0$, $f(x)=-x$ for $x<0$ | $\mathbb{R}$ | $\mathbb{R}_0^+$ |
 | Length of a vector: $f(\vec x)=\sqrt{x_1^2+\dots+x_n^2}$ | $\mathbb{R}^n$ | $\mathbb{R}_0^+$ |
 
-The absolute value shows: A function may be defined piecewise. The last row shows: Inputs need not be numbers; this function is not real. **Limiting case:** For $a=0$, $f(x)=b$ is constant, and all inputs share one output. That is allowed, $\mathcal W(f)=\{b\}$.
+The absolute value shows: A function may be defined piecewise. The last row shows: Inputs need not be numbers; this function is not real.
+::::
+
+⁠**Limiting case:** For $a=0$, $f(x)=b$ is constant, and all inputs share one output. That is allowed, $\mathcal W(f)=\{b\}$.
 
 **Not every set of pairs is a graph.** The unit circle $\{(x,y)\in\mathbb{R}^2:x^2+y^2=1\}$ contains $(0,1)$ and $(0,-1)$: The input $0$ would have two outputs. In the picture this means: A vertical line meets a graph at most once (Fig. [2](#abb-2)).
 

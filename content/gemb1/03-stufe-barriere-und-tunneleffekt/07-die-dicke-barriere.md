@@ -34,12 +34,14 @@ Für $\kappa L\gg1$ ist $\sinh(\kappa L)\approx\frac12\mathrm{e}^{\kappa L}$, de
 Barriere mit $V_0=2$ eV. Links: $T$ über der Breite, exakt nach [(4.3)](tunneln-durch-eine-dunne-wand.html#gl-4-3), logarithmisch. Rechts: $T$ über der Energie für $L=1$ nm, auch oberhalb der Barriere. Grau: $E<V_0$. Punkte: $T=1$ an den Resonanzen.
 :::
 
-**Beispiel.** Für $E=0{,}5$ eV und $L=1$ nm ist der Vorfaktor 3 und $\mathrm{e}^{-12{,}55}=3{,}55\cdot10^{-6}$, also $T=1{,}06\cdot10^{-5}$ wie exakt. Die Dicke wiegt schwer:
+::::beispiel
+Für $E=0{,}5$ eV und $L=1$ nm ist der Vorfaktor 3 und $\mathrm{e}^{-12{,}55}=3{,}55\cdot10^{-6}$, also $T=1{,}06\cdot10^{-5}$ wie exakt. Die Dicke wiegt schwer:
 
 | $T$ bei $V_0=2$ eV | $L=0{,}5$ nm | $L=1$ nm | $L=2$ nm | $L=3$ nm |
 |---|---|---|---|---|
 | $E=0{,}5$ eV | $5{,}6\cdot10^{-3}$ | $1{,}1\cdot10^{-5}$ | $3{,}8\cdot10^{-11}$ | $1{,}3\cdot10^{-16}$ |
 | $E=1{,}5$ eV | $7{,}8\cdot10^{-2}$ | $2{,}1\cdot10^{-3}$ | $1{,}5\cdot10^{-6}$ | $1{,}1\cdot10^{-9}$ |
+::::
 
 ⁠**Grenzfälle:** Für $E\to0$ geht $T\to0$: Die lange einlaufende Welle hat an der Kante fast einen Knoten, sie wird fast ganz reflektiert. Je 0,1 nm mehr Dicke sinkt $T$ um den Faktor $\mathrm{e}^{2\kappa\cdot0{,}1\,\mathrm{nm}}$, bei $V_0-E=3$ eV also um 5,9.
 

@@ -39,11 +39,13 @@ The work of the field becomes kinetic energy entirely: $\frac12mv_2^2-\frac12mv_
 Left: the electron starts at plate B and moves against the field to plate A. Right: from $x=3$ mm to $x=0$ the kinetic energy grows to $1.44\cdot10^{-18}$ J, and the potential energy falls by the same amount, reference point B. The sum stays zero.
 :::
 
-**Example.** For the electron in the pair of plates,
+::::beispiel
+For the electron in the pair of plates,
 
 $$\begin{aligned} F&=e\,E=4.81\cdot10^{-16}\,\mathrm{N},\qquad a=\frac{F}{m_\mathrm{e}}=5.28\cdot10^{14}\,\mathrm{m/s^2},\qquad W=e\,U=1.44\cdot10^{-18}\,\mathrm{J},\\ v&=\sqrt{\frac{2\cdot1.44\cdot10^{-18}\,\mathrm{J}}{9.109\cdot10^{-31}\,\mathrm{kg}}}=1.78\cdot10^{6}\,\mathrm{m/s},\qquad t=\frac{2\cdot3\,\mathrm{mm}}{v}=3.37\,\mathrm{ns}. \end{aligned}$$
 
 A proton moves from A to B. It gains the same energy but is 1836 times heavier: $v=4.15\cdot10^4$ m/s, $\sqrt{1836}=42.9$ times slower, flight time 144 ns.
+::::
 
 ⁠**In short:** if a charge in vacuum passes through a voltage, its kinetic energy changes by charge times voltage, regardless of path and distance.
 

@@ -27,9 +27,11 @@ Les droites et les plans passant par l’origine, les espaces des colonnes et le
 Un ensemble $\mathcal U\subseteq\mathbb{R}^n$ est appelé __sous-espace__ de $\mathbb{R}^n$ s’il est engendré par un nombre fini de vecteurs.
 :::
 
-De façon équivalente : $\mathcal U$ contient le vecteur nul, et lorsque $\mathcal U$ contient deux vecteurs $\mathbf{u},\mathbf{v}$, il contient aussi $\mathbf{u}+\mathbf{v}$ et tout multiple $c\,\mathbf{u}$. Tout sous-espace a une base et donc, d’après Fondements 1, section 13.3, une dimension.
+De façon équivalente : $\mathcal U$ contient le vecteur nul, et lorsque $\mathcal U$ contient deux vecteurs $\mathbf{u},\mathbf{v}$, il contient aussi $\mathbf{u}+\mathbf{v}$ et tout multiple $c\,\mathbf{u}$. Tout sous-espace a une base et donc, d’après [Fondements 1, section 13.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), une dimension.
 
-⁠**Exemple de calcul :** Dans $\mathbb{R}^3$, sont des sous-espaces : l’origine seule, de dimension $0$ ; toute droite passant par l’origine, de dimension $1$ ; tout plan passant par l’origine, comme l’espace des colonnes de $\mathbf{H}$ de la section précédente, de dimension $2$ ; et $\mathbb{R}^3$ tout entier. Le noyau d’une matrice est un sous-espace, son espace des colonnes aussi. Une droite qui ne passe pas par l’origine n’est pas un sous-espace, car elle ne contient pas le vecteur nul.
+::::beispiel [Exemple de calcul]
+Dans $\mathbb{R}^3$, sont des sous-espaces : l’origine seule, de dimension $0$ ; toute droite passant par l’origine, de dimension $1$ ; tout plan passant par l’origine, comme l’espace des colonnes de $\mathbf{H}$ de la section précédente, de dimension $2$ ; et $\mathbb{R}^3$ tout entier. Le noyau d’une matrice est un sous-espace, son espace des colonnes aussi. Une droite qui ne passe pas par l’origine n’est pas un sous-espace, car elle ne contient pas le vecteur nul.
+::::
 
 ⁠**En bref :** Un sous-espace est l’ensemble engendré par des vecteurs ; on n’en sort pas en additionnant ou en multipliant par des nombres.
 
@@ -57,16 +59,18 @@ On a $\mathbf{P}\mathbf{y}=\hat{\mathbf{y}}$, $\mathbf{P}^{\top}=\mathbf{P}$, $\
 :::
 
 :::beweis Propriétés
-La première égalité est le calcul ci-dessus. Avec les règles de calcul de Fondements 1, sections 10.1 et 11.4, on a $\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$, car $\mathbf{A}^{\top}\mathbf{A}$ est symétrique, et donc son inverse aussi. De plus, $\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$, d’où $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$. D’après le théorème de la section [2.4](projektion-auf-eine-gerade.html#stufe-2-4), une projection symétrique est orthogonale.
+La première égalité est le calcul ci-dessus. Avec les règles de calcul de [Fondements 1, sections 10.1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1) et [11.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-4), on a $\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$, car $\mathbf{A}^{\top}\mathbf{A}$ est symétrique, et donc son inverse aussi. De plus, $\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$, d’où $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$. D’après le théorème de la section [2.4](projektion-auf-eine-gerade.html#stufe-2-4), une projection symétrique est orthogonale.
 :::
 
 L’égalité $\mathbf{P}\mathbf{A}=\mathbf{A}$ dit : chaque colonne, et donc chaque vecteur de l’espace des colonnes, reste en place lors de la projection.
 
-⁠**Exemple de calcul :** Pour $\mathbf{H}$, on a
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{H}$, on a
 
 $$\mathbf{P}=\mathbf{H}\cdot\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\mathbf{H}^{\top}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix}.$$
 
 Vérification : $\mathbf{P}(1,\,1,\,1)^{\top}=\tfrac13(2,\,2,\,4)^{\top}=(\tfrac23,\,\tfrac23,\,\tfrac43)^{\top}=\hat{\mathbf{y}}$, et $\mathbf{P}\mathbf{a}_1=\tfrac13(2+1,\ -1+1,\ 1+2)^{\top}=(1,\,0,\,1)^{\top}=\mathbf{a}_1$.
+::::
 
 ⁠**En bref :** La matrice de projection $\mathbf{P}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ envoie chaque vecteur sur le point le plus proche de l’espace des colonnes ; elle est symétrique et vérifie $\mathbf{P}^2=\mathbf{P}$.
 
@@ -85,13 +89,15 @@ Si $\mathbf{Q}\in\mathbb{R}^{n\times k}$ a des colonnes orthonormées $\mathbf{q
 $$\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}=\sum_{i=1}^k\mathbf{q}_i\mathbf{q}_i^{\top} . \tag{4.2}$$
 :::
 
-La forme en somme découle de Fondements 1, section 9.5 : un produit matriciel est la somme des produits extérieurs des colonnes et des lignes. Chaque terme $\mathbf{q}_i\mathbf{q}_i^{\top}$ est la matrice de projection sur la droite de direction $\mathbf{q}_i$. Pour des colonnes orthonormées, la projection sur l’espace des colonnes est donc la somme des projections sur les différents axes. Cela explique après coup la dernière sous-section de la section [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1) : $\mathbf{Q}\mathbf{Q}^{\top}$ n’est pas la matrice identité, mais la projection sur l’espace des colonnes de $\mathbf{Q}$. Ce qui est perpendiculaire à cet espace, elle le jette.
+La forme en somme découle de [Fondements 1, section 9.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5) : un produit matriciel est la somme des produits extérieurs des colonnes et des lignes. Chaque terme $\mathbf{q}_i\mathbf{q}_i^{\top}$ est la matrice de projection sur la droite de direction $\mathbf{q}_i$. Pour des colonnes orthonormées, la projection sur l’espace des colonnes est donc la somme des projections sur les différents axes. Cela explique après coup la dernière sous-section de la section [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1) : $\mathbf{Q}\mathbf{Q}^{\top}$ n’est pas la matrice identité, mais la projection sur l’espace des colonnes de $\mathbf{Q}$. Ce qui est perpendiculaire à cet espace, elle le jette.
 
-⁠**Exemple de calcul :** Les vecteurs $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ et $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ sont orthonormés : $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. Pour les deux, la troisième composante est la somme des deux premières ; ils forment une base orthonormée du plan de $\mathbf{H}$. On a
+::::beispiel [Exemple de calcul]
+Les vecteurs $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ et $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ sont orthonormés : $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. Pour les deux, la troisième composante est la somme des deux premières ; ils forment une base orthonormée du plan de $\mathbf{H}$. On a
 
 $$\mathbf{q}_1\mathbf{q}_1^{\top}+\mathbf{q}_2\mathbf{q}_2^{\top}=\frac12\begin{pmatrix}1&0&1\\0&0&0\\1&0&1\end{pmatrix}+\frac16\begin{pmatrix}1&-2&-1\\-2&4&2\\-1&2&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix},$$
 
 la même matrice que dans la sous-section précédente, cette fois sans inverse.
+::::
 
 ⁠**En bref :** Pour des colonnes orthonormées, $\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$ et $\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}$, la somme des projections sur les différentes colonnes.
 
@@ -141,14 +147,16 @@ $\dim\mathcal U^\perp=n-\dim\mathcal U$.
 :::
 
 :::beweis Décomposition
-(i) Que $\mathbf{P}\mathbf{y}$ soit dans $\mathcal U$ et que $\mathbf{y}-\mathbf{P}\mathbf{y}$ soit perpendiculaire à $\mathcal U$, c’est la définition de la projection orthogonale. S’il existait une seconde décomposition $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$, alors $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ serait un vecteur appartenant à $\mathcal U$ et en même temps perpendiculaire à $\mathcal U$, donc perpendiculaire à lui-même. Le carré de sa longueur serait alors nul ; ce serait donc le vecteur nul. (ii) $\mathbf{I}-\mathbf{P}$ est symétrique, et $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$. D’après (i), son image est contenue dans $\mathcal U^\perp$. Tout $\mathbf{z}\in\mathcal U^\perp$ reste fixe : $\mathbf{P}\mathbf{z}$ est dans $\mathcal U$ et est en même temps la différence $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$ de deux vecteurs perpendiculaires à $\mathcal U$ ; donc $\mathbf{P}\mathbf{z}$ est perpendiculaire à lui-même et vaut $\mathbf{0}$. (iii) Si l’on choisit une base de $\mathcal U$ comme colonnes d’une matrice $\mathbf{A}$, alors $\mathcal U^\perp$ est le noyau de $\mathbf{A}^{\top}$. D’après le théorème du rang de Fondements 1, section 13.5, ce noyau est de dimension $n-\operatorname{rg}\mathbf{A}^{\top}=n-\operatorname{rg}\mathbf{A}=n-\dim\mathcal U$.
+(i) Que $\mathbf{P}\mathbf{y}$ soit dans $\mathcal U$ et que $\mathbf{y}-\mathbf{P}\mathbf{y}$ soit perpendiculaire à $\mathcal U$, c’est la définition de la projection orthogonale. S’il existait une seconde décomposition $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$, alors $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ serait un vecteur appartenant à $\mathcal U$ et en même temps perpendiculaire à $\mathcal U$, donc perpendiculaire à lui-même. Le carré de sa longueur serait alors nul ; ce serait donc le vecteur nul. (ii) $\mathbf{I}-\mathbf{P}$ est symétrique, et $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$. D’après (i), son image est contenue dans $\mathcal U^\perp$. Tout $\mathbf{z}\in\mathcal U^\perp$ reste fixe : $\mathbf{P}\mathbf{z}$ est dans $\mathcal U$ et est en même temps la différence $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$ de deux vecteurs perpendiculaires à $\mathcal U$ ; donc $\mathbf{P}\mathbf{z}$ est perpendiculaire à lui-même et vaut $\mathbf{0}$. (iii) Si l’on choisit une base de $\mathcal U$ comme colonnes d’une matrice $\mathbf{A}$, alors $\mathcal U^\perp$ est le noyau de $\mathbf{A}^{\top}$. D’après le théorème du rang de [Fondements 1, section 13.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), ce noyau est de dimension $n-\operatorname{rg}\mathbf{A}^{\top}=n-\operatorname{rg}\mathbf{A}=n-\dim\mathcal U$.
 :::
 
-⁠**Exemple de calcul :** Le plan de $\mathbf{H}$ est de dimension $2$ ; son supplémentaire orthogonal dans $\mathbb{R}^3$ est donc de dimension $1$ : c’est la droite dirigée par le vecteur normal $\mathbf{k}=(1,\,1,\,-1)^{\top}$. Effectivement, $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. On a
+::::beispiel [Exemple de calcul]
+Le plan de $\mathbf{H}$ est de dimension $2$ ; son supplémentaire orthogonal dans $\mathbb{R}^3$ est donc de dimension $1$ : c’est la droite dirigée par le vecteur normal $\mathbf{k}=(1,\,1,\,-1)^{\top}$. Effectivement, $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. On a
 
 $$\mathbf{I}-\mathbf{P}=\frac13\begin{pmatrix}1&1&-1\\1&1&-1\\-1&-1&1\end{pmatrix}=\frac{\mathbf{k}\mathbf{k}^{\top}}{\mathbf{k}^{\top}\mathbf{k}},$$
 
 la projection sur cette droite. Pour $\mathbf{y}=(1,\,1,\,1)^{\top}$, on a $(\mathbf{I}-\mathbf{P})\mathbf{y}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$, le résidu de la section précédente.
+::::
 
 ⁠**En bref :** Le supplémentaire orthogonal $\mathcal U^\perp$ contient tous les vecteurs perpendiculaires à $\mathcal U$ ; tout vecteur se décompose de façon unique en une partie dans $\mathcal U$ et une partie dans $\mathcal U^\perp$, et la somme des deux dimensions vaut $n$.
 
@@ -187,7 +195,8 @@ On procède pas à pas. Supposons que $\mathbf{q}_1,\dots,\mathbf{q}_{i-1}$ soie
 
 Si les vecteurs donnés sont malgré tout dépendants, le procédé s’en aperçoit de lui-même : à un moment donné, $\tilde{\mathbf{q}}_i=\mathbf{0}$, et l’on ne peut pas normaliser.
 
-⁠**Exemple de calcul :** Pour les colonnes de $\mathbf{H}$, $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ et $\mathbf{a}_2=(0,\,1,\,1)^{\top}$, on a $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$. Ensuite, $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ et
+::::beispiel [Exemple de calcul]
+Pour les colonnes de $\mathbf{H}$, $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ et $\mathbf{a}_2=(0,\,1,\,1)^{\top}$, on a $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$. Ensuite, $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ et
 
 $$\tilde{\mathbf{q}}_2=\mathbf{a}_2-\frac1{\sqrt2}\,\mathbf{q}_1=(0,\,1,\,1)^{\top}-\tfrac12(1,\,0,\,1)^{\top}=\bigl(-\tfrac12,\,1,\,\tfrac12\bigr)^{\top},\qquad \lVert\tilde{\mathbf{q}}_2\rVert=\sqrt{\tfrac14+1+\tfrac14}=\sqrt{\tfrac32} .$$
 
@@ -196,6 +205,7 @@ Une fois normalisé, $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$, exacteme
 :::abbildung ml/k2rgs 12
 Gram-Schmidt pour les colonnes de $\mathbf{H}$ : le produit scalaire $\mathbf{q}_1^{\top}\mathbf{a}_2$ avec $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ et $\mathbf{a}_2=(0,1,1)^{\top}$, qui donne la longueur de l’ombre, et le carré de la longueur du reste $\tilde{\mathbf{q}}_2=(-\tfrac12,1,\tfrac12)^{\top}$.
 :::
+::::
 
 ⁠**En bref :** Gram-Schmidt retranche de chaque vecteur sa projection sur les vecteurs déjà trouvés et normalise le reste ; on obtient ainsi une base orthonormée du même sous-espace.
 
@@ -226,11 +236,13 @@ avec une matrice $\mathbf{Q}\in\mathbb{R}^{m\times n}$ à colonnes orthonormées
 
 Une matrice triangulaire supérieure n’a que des zéros sous la diagonale. D’après la vue par colonnes, la colonne $i$ de $\mathbf{Q}\mathbf{R}$ est $\sum_lr_{li}\mathbf{q}_l$, c’est-à-dire exactement l’écriture de $\mathbf{a}_i$ ci-dessus. Les colonnes de $\mathbf{Q}$ sont fournies par le procédé de Gram-Schmidt, les coefficients de $\mathbf{R}$ s’obtiennent au passage. Comme $\mathbf{Q}$ a des colonnes orthonormées, on a de plus $\mathbf{R}=\mathbf{Q}^{\top}\mathbf{A}$.
 
-⁠**Exemple de calcul :** Pour $\mathbf{H}$, on a
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{H}$, on a
 
 $$\mathbf{Q}=\begin{pmatrix}\tfrac1{\sqrt2}&-\tfrac1{\sqrt6}\\0&\tfrac2{\sqrt6}\\\tfrac1{\sqrt2}&\tfrac1{\sqrt6}\end{pmatrix},\qquad \mathbf{R}=\begin{pmatrix}\sqrt2&\tfrac1{\sqrt2}\\0&\sqrt{\tfrac32}\end{pmatrix}\approx\begin{pmatrix}1{,}414&0{,}707\\0&1{,}225\end{pmatrix}.$$
 
 Vérification de la deuxième colonne : $\tfrac1{\sqrt2}\cdot\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}+\sqrt{\tfrac32}\cdot\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}=\tfrac12(1,\,0,\,1)^{\top}+\tfrac12(-1,\,2,\,1)^{\top}=(0,\,1,\,1)^{\top}=\mathbf{a}_2$.
+::::
 
 ⁠**En bref :** La décomposition QR $\mathbf{A}=\mathbf{Q}\mathbf{R}$ écrit le procédé de Gram-Schmidt comme un produit matriciel : $\mathbf{Q}$ a des colonnes orthonormées, $\mathbf{R}$ est une matrice triangulaire supérieure.
 
@@ -250,16 +262,18 @@ $$\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y} . \tag{4.6}$$
 :::
 
 :::beweis Résolution avec QR
-On a $\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ et $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. Les équations normales s’écrivent donc $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. La matrice triangulaire $\mathbf{R}$ a des coefficients diagonaux positifs ; d’après Fondements 1, section 14.4, son déterminant est donc non nul, et elle est inversible ; il en va de même pour $\mathbf{R}^{\top}$. En multipliant à gauche par $(\mathbf{R}^{\top})^{-1}$, il reste [(4.6)](#gl-4-6).
+On a $\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ et $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. Les équations normales s’écrivent donc $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$. La matrice triangulaire $\mathbf{R}$ a des coefficients diagonaux positifs ; d’après [Fondements 1, section 14.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), son déterminant est donc non nul, et elle est inversible ; il en va de même pour $\mathbf{R}^{\top}$. En multipliant à gauche par $(\mathbf{R}^{\top})^{-1}$, il reste [(4.6)](#gl-4-6).
 :::
 
-Le système [(4.6)](#gl-4-6) est triangulaire et se résout de bas en haut, comme la remontée à la fin de la méthode du pivot de Gauss de Fondements 1, section 12.3. Pour une matrice $m\times n$, l’ensemble du calcul coûte environ $2mn^2$ opérations arithmétiques, presque toutes pour la décomposition QR.
+Le système [(4.6)](#gl-4-6) est triangulaire et se résout de bas en haut, comme la remontée à la fin de la méthode du pivot de Gauss de [Fondements 1, section 12.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3). Pour une matrice $m\times n$, l’ensemble du calcul coûte environ $2mn^2$ opérations arithmétiques, presque toutes pour la décomposition QR.
 
-⁠**Exemple de calcul :** Pour $\mathbf{H}$ et $\mathbf{y}=(1,\,1,\,1)^{\top}$, on a $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$. La ligne du bas de [(4.6)](#gl-4-6) s’écrit $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, d’où $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. La ligne du haut s’écrit $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, d’où $\hat x_1=1-\tfrac13=\tfrac23$. C’est la même solution qu’avec les équations normales. Les composantes de $\mathbf{Q}^{\top}\mathbf{y}$ sont les produits scalaires de la Fig. [13](#abb-13).
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{H}$ et $\mathbf{y}=(1,\,1,\,1)^{\top}$, on a $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$. La ligne du bas de [(4.6)](#gl-4-6) s’écrit $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, d’où $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. La ligne du haut s’écrit $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, d’où $\hat x_1=1-\tfrac13=\tfrac23$. C’est la même solution qu’avec les équations normales. Les composantes de $\mathbf{Q}^{\top}\mathbf{y}$ sont les produits scalaires de la Fig. [13](#abb-13).
 
 :::abbildung ml/k2rqr 13
 Le second membre $\mathbf{Q}^{\top}\mathbf{y}$ du système triangulaire pour $\mathbf{y}=(1,1,1)^{\top}$, avec $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ et $\mathbf{q}_2=(-1,2,1)^{\top}/\sqrt6$.
 :::
+::::
 
 ⁠**En bref :** Avec $\mathbf{A}=\mathbf{Q}\mathbf{R}$, les équations normales deviennent le système triangulaire $\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$ ; la matrice $\mathbf{A}^{\top}\mathbf{A}$ n’est jamais formée.
 

@@ -42,7 +42,9 @@ Solving for $R_\mathrm{Shunt}$ gives [(2.1)](#gl-2-1). The series resistor and t
 $$U_\mathrm{old}=U_\mathrm{new}\,\frac{R_\mathrm{old}}{R_\mathrm{old}+R_\mathrm V} \quad\Rightarrow\quad \alpha=\frac{R_\mathrm{old}+R_\mathrm V}{R_\mathrm{old}}\quad\Rightarrow\quad R_\mathrm V=R_\mathrm{old}\,(\alpha-1).$$
 :::
 
-**Example.** For 10 mA: $R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9.95\,\mathrm{mA}}=10.05\,\Omega$, in parallel with 2 k$\Omega$ this gives $R_\mathrm{iA}=10\,\Omega$. For 10 V: $\alpha=100$, $R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$, so $R_\mathrm{iV}=200$ k$\Omega$.
+::::beispiel
+For 10 mA: $R_\mathrm{Shunt}=2\,\mathrm{k\Omega}\cdot\frac{50\,\mu\text{A}}{9.95\,\mathrm{mA}}=10.05\,\Omega$, in parallel with 2 k$\Omega$ this gives $R_\mathrm{iA}=10\,\Omega$. For 10 V: $\alpha=100$, $R_\mathrm V=2\,\mathrm{k\Omega}\cdot99=198$ k$\Omega$, so $R_\mathrm{iV}=200$ k$\Omega$.
+::::
 
 ⁠**In short:** at full-scale deflection, 100 mV drop across the ammeter in every range, and 50 µ A flow through the voltmeter in every range. The internal resistances follow directly: $R_\mathrm{iA}=100\,\mathrm{mV}/10\,\mathrm{mA}=10\,\Omega$ and $R_\mathrm{iV}=10\,\mathrm{V}/50\,\mu\text{A}=200$ k$\Omega$. So a sensitive current range has a large internal resistance, and so does a high voltage range. The reciprocal of 50 µ A, 20 k$\Omega$/V, is printed on pointer instruments as a characteristic value.
 

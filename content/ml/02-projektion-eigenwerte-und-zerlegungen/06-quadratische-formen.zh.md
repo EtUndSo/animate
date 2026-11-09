@@ -19,7 +19,7 @@ lang: zh
 
 <span class="anker" id="stufe-5-1"></span>
 
-在基础篇 1 第 8.4 节中，每个只有一个输出的线性函数都是各分量的加权和 $\mathbf{w}^{\top}\mathbf{x}$。次简单的一类函数，是把每两个分量的乘积加起来：像 $x_1^2$ 这样的平方项，以及像 $x_1x_2$ 这样的交叉项。电气工程中的一个例子是两个耦合线圈的磁场能量，线圈的电感为 $L_1$、$L_2$，互感为 $M$，分别通过电流 $i_1$ 和 $i_2$：
+在[基础篇 1 第 8.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4)中，每个只有一个输出的线性函数都是各分量的加权和 $\mathbf{w}^{\top}\mathbf{x}$。次简单的一类函数，是把每两个分量的乘积加起来：像 $x_1^2$ 这样的平方项，以及像 $x_1x_2$ 这样的交叉项。电气工程中的一个例子是两个耦合线圈的磁场能量，线圈的电感为 $L_1$、$L_2$，互感为 $M$，分别通过电流 $i_1$ 和 $i_2$：
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -42,11 +42,13 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 
 把 $\mathbf{x}$ 加倍，$f$ 就变为四倍：$f(c\,\mathbf{x})=c^2f(\mathbf{x})$。“二次”之名即由此而来。
 
-⁠**算例：**对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，$f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$。在点 $\mathbf{x}=(1,\,-1)^{\top}$ 处，$f=5-4+2=3$；验算：$\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$，$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$。图 [14](#abb-14) 在这一点逐项算出了双重和 [(5.1)](#gl-5-1)。在点 $(1,\,1)^{\top}$ 处，$f=11$；在原点处，$f=0$。两个线圈的能量为 $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$，其中电流向量为 $\mathbf i=(i_1,\,i_2)^{\top}$；这个矩阵称为电感矩阵。
+::::beispiel [算例]
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，$f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$。在点 $\mathbf{x}=(1,\,-1)^{\top}$ 处，$f=5-4+2=3$；验算：$\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$，$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$。图 [14](#abb-14) 在这一点逐项算出了双重和 [(5.1)](#gl-5-1)。在点 $(1,\,1)^{\top}$ 处，$f=11$；在原点处，$f=0$。两个线圈的能量为 $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$，其中电流向量为 $\mathbf i=(i_1,\,i_2)^{\top}$；这个矩阵称为电感矩阵。
 
 :::abbildung ml/k2rqf 14
 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 的二次型在点 $\mathbf{x}=(1,-1)^{\top}$ 处按双重和计算：共四项，$\mathbf{A}$ 的每个元素对应一项。
 :::
+::::
 
 ⁠**简而言之：**二次型 $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ 是各分量的平方项与交叉乘积项之和，以 $\mathbf{A}$ 的元素为权重。
 
@@ -71,7 +73,9 @@ $$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=\mathbf{x}^{\top}\Bigl(\frac{\mathbf{A}+
 
 矩阵 $\frac12(\mathbf{A}+\mathbf{A}^{\top})$ 是对称的。因此在本章中，二次型总是配一个对称矩阵。读取方法如下：对角线上是各平方项的系数，每个非对角元素是相应交叉项系数的一半。
 
-⁠**算例：**二次型 $3x_1^2-6x_1x_2+x_2^2$ 的对称矩阵为 $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$。$\mathbb{R}^3$ 中的二次型 $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ 的矩阵为 $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$；交叉项 $2x_1x_3$ 平分到元素 $(1,3)$ 和 $(3,1)$ 上。
+::::beispiel [算例]
+二次型 $3x_1^2-6x_1x_2+x_2^2$ 的对称矩阵为 $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$。$\mathbb{R}^3$ 中的二次型 $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ 的矩阵为 $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$；交叉项 $2x_1x_3$ 平分到元素 $(1,3)$ 和 $(3,1)$ 上。
+::::
 
 ⁠**简而言之：**二次型只“看得见”其矩阵的对称部分；因此总是用对称矩阵来写它。
 
@@ -109,7 +113,9 @@ $$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=\mathbf{x}^{\top}\Bigl(\frac{\mathbf{A}+
 
 若两个元素都为负，碗就倒扣过来，成为穹顶形。一个负元素和一个零元素给出倒扣的槽，即脊形。变量多于两个时同样如此：对角元素的符号决定形状。
 
-⁠**算例：**对于碗形 $f=x_1^2+2x_2^2$，等高线 $f=1$ 是一个椭圆，在 $x_1$ 轴上的半轴为 $1$，在 $x_2$ 轴上的半轴为 $1/\sqrt2\approx0.707$：在 $(1,\,0)^{\top}$ 和 $(0,\,1/\sqrt2)^{\top}$ 处 $f=1$。对于鞍形 $f=x_1^2-x_2^2$，有 $f(1,\,0)=1$，$f(0,\,1)=-1$，$f(1,\,1)=0$。
+::::beispiel [算例]
+对于碗形 $f=x_1^2+2x_2^2$，等高线 $f=1$ 是一个椭圆，在 $x_1$ 轴上的半轴为 $1$，在 $x_2$ 轴上的半轴为 $1/\sqrt2\approx0.707$：在 $(1,\,0)^{\top}$ 和 $(0,\,1/\sqrt2)^{\top}$ 处 $f=1$。对于鞍形 $f=x_1^2-x_2^2$，有 $f(1,\,0)=1$，$f(0,\,1)=-1$，$f(1,\,1)=0$。
+::::
 
 ⁠**简而言之：**没有交叉项时，可以从对角线上的符号读出形状：全为正是碗形，正与零是槽形，符号混合是鞍形。
 
@@ -132,18 +138,22 @@ $$ax_1^2+2bx_1x_2+cx_2^2=a\Bigl(x_1+\frac bax_2\Bigr)^2+\Bigl(c-\frac{b^2}a\Bigr
 
 右边是两个平方项之和。当 $\mathbf{x}$ 取遍整个平面时，新变量 $z_1=x_1+\frac bax_2$ 和 $z_2=x_2$ 取遍所有数对。所以在变量 $z_1,z_2$ 下，二次型不再有交叉项，$a$ 与 $c-b^2/a$ 的符号决定它是碗形、槽形还是鞍形。
 
-⁠**算例 1：**$5x_1^2+4x_1x_2+2x_2^2$ 中 $a=5$，$b=2$，$c=2$：
+::::beispiel [算例 1]
+$5x_1^2+4x_1x_2+2x_2^2$ 中 $a=5$，$b=2$，$c=2$：
 
 $$5x_1^2+4x_1x_2+2x_2^2=5\,(x_1+0.4\,x_2)^2+1.2\,x_2^2 .$$
 
 两个系数都为正：该二次型是碗形。在 $\mathbf{x}=(1,\,-1)^{\top}$ 处验算：$5\cdot0.36+1.2=3$。
+::::
 
-⁠**算例 2：**$x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$。两个系数符号不同：是鞍形。确实有 $f(1,\,0)=1>0$，$f(1,\,-1)=1-6+1=-4<0$。
+::::beispiel [算例 2]
+$x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$。两个系数符号不同：是鞍形。确实有 $f(1,\,0)=1>0$，$f(1,\,-1)=1-6+1=-4<0$。
+::::
 
 ⁠**简而言之：**配方把二次型写成平方和；各平方项系数的符号表明它是碗形、槽形还是鞍形。
 
 :::hintergrund 配方就是高斯消元
-式 [(5.3)](#gl-5-3) 中的数，与把基础篇 1 第 12.3 节的高斯消元法应用于对称矩阵 $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ 时出现的数相同。为了在对角线下方得到零，从第二行减去第一行的 $\frac ba$ 倍，得到 $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$。这个阶梯形的对角元素，即所谓的主元，恰好就是各平方项的系数，而消元因子 $\frac ba$ 出现在第一个括号中。对于矩阵 $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$：因子为 $0.4$，主元为 $5$ 和 $1.2$。有 $n$ 个变量时也照此继续：每一步消元都为一个变量配方。二次型是碗形，当且仅当所有主元都为正。由基础篇 1 第 14.5 节的规则，主元之积等于行列式，这里是 $5\cdot1.2=6=5\cdot2-2\cdot2$。
+式 [(5.3)](#gl-5-3) 中的数，与把[基础篇 1 第 12.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)的高斯消元法应用于对称矩阵 $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ 时出现的数相同。为了在对角线下方得到零，从第二行减去第一行的 $\frac ba$ 倍，得到 $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$。这个阶梯形的对角元素，即所谓的主元，恰好就是各平方项的系数，而消元因子 $\frac ba$ 出现在第一个括号中。对于矩阵 $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$：因子为 $0.4$，主元为 $5$ 和 $1.2$。有 $n$ 个变量时也照此继续：每一步消元都为一个变量配方。二次型是碗形，当且仅当所有主元都为正。由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的规则，主元之积等于行列式，这里是 $5\cdot1.2=6=5\cdot2-2\cdot2$。
 :::
 
 :::aufgabe 练习 14 ★ 二次型与矩阵

@@ -35,13 +35,15 @@ Matrisler kalın ve büyük harfle yazılır, elemanları ise küçük harfle ve
 
 İki matris aynı tipteyse ve her yerde aynı elemana sahipse eşittir. Aynı tipteki matrisler, tıpkı vektörler gibi eleman eleman toplanır ve bir sayıyla eleman eleman çarpılır: $(\mathbf{A}+\mathbf{B})_{ij}=a_{ij}+b_{ij}$ ve $(c\,\mathbf{A})_{ij}=c\,a_{ij}$.
 
-⁠**Sayısal örnek:** Şu matris
+::::beispiel [Sayısal örnek]
+Şu matris
 
 $$\mathbf{A}=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\in\mathbb{R}^{2\times3}$$
 
 $2\times3$ tipindedir; elemanlarından ikisi $a_{12}=2$ ve $a_{21}=4$, ikinci sütunu da $\mathbf{a}_2=(2,\,5)^{\top}$ vektörüdür. Koyu zemin üzerinde açık renkli bir artı işareti gösteren $3\times3$ pikselli gri tonlamalı bir görüntü, satırları $(0,1,0)$, $(1,1,1)$ ve $(0,1,0)$ olan matristir. Ayrıca şu geçerlidir:
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}+\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}1&3\\4&4\end{pmatrix},\qquad 2\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}2&4\\6&8\end{pmatrix}.$$
+::::
 
 ⁠**Kısacası:** Matris, $m$ satırlı ve $n$ sütunlu dikdörtgen bir sayı tablosudur; $a_{ij}$ elemanı $i$ numaralı satırda ve $j$ numaralı sütunda durur.
 
@@ -65,11 +67,11 @@ Köşegen dışındaki elemanlarının hepsi sıfır olan bir kare matrise __kö
 Bütün elemanları sıfır olan matrise __sıfır matris__ denir ve $\mathbf 0$ diye yazılır.
 :::
 
-⁠**Sayısal örnek:**
-
+::::beispiel [Sayısal örnek]
 $$\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0{,}5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
 
 İkinci matrisin bir köşegen elemanı sıfırdır ve yine de bir köşegen matristir; istenen yalnızca köşegen dışında sıfırların bulunmasıdır. $\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)$ yerine kısaca $\operatorname{diag}(2;\,0{,}5)$ yazılır.
+::::
 
 ⁠**Kısacası:** Kare matrisin satır sayısı sütun sayısına eşittir; köşegen matrisin sıfırdan farklı elemanları yalnızca köşegende bulunur.
 
@@ -94,11 +96,13 @@ $$\mathbf{X}=\begin{pmatrix}\mathbf{x}_1^{\top}\\\mathbf{x}_2^{\top}\\\vdots\\\m
 
 $x_{ij}$ elemanı, tıpkı daha önce kararlaştırıldığı gibi (alt kesim [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)), $i$ numaralı örnekte $j$ numaralı özniteliğin değeridir. $\mathbf{X}$ matrisinin $j$ numaralı sütunu, $j$ özniteliğinin öznitelik sütunudur (alt kesim [4.3](abstande-und-einheiten.html#stufe-4-3)): bu özniteliğin bütün örneklerdeki bütün değerleri. Yani satırlar örneklere, sütunlar özniteliklere aittir. Örneklerin ortalaması olan $\bar{\mathbf{x}}$ vektörünün $j$ numaralı bileşeni, $j$ numaralı sütunun ortalamasıdır.
 
-⁠**Sayısal örnek:** Daire veri kümesi için şu bulunur:
+::::beispiel [Sayısal örnek]
+Daire veri kümesi için şu bulunur:
 
 $$\mathbf{X}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\in\mathbb{R}^{4\times3}.$$
 
 $x_{32}=4$ elemanı Daire 3'ün oda sayısıdır, birinci sütun $(60,\,40,\,90,\,70)^{\top}$ bütün alanları içerir ve bu sütunun ortalaması olan $65$, $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ vektörünün birinci bileşenidir.
+::::
 
 ⁠**Kısacası:** $\mathbf{X}\in\mathbb{R}^{N\times d}$ veri matrisi her satırda bir örnek, her sütunda bir öznitelik içerir.
 

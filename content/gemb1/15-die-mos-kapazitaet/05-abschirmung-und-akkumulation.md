@@ -49,7 +49,11 @@ $$\Delta p(0)=\frac{Q'_\mathrm{SC}}{eL_\mathrm D},\qquad C'=\frac{|Q'_\mathrm{SC
 
 Die Randschicht wirkt wie ein Plattenkondensator der Dicke $L_\mathrm D$ in Reihe zum Isolator. Deshalb ist die Kapazität etwas kleiner als die des Isolators allein.
 
-**Beispiel.** Das Rechenmodell hat $L_\mathrm D=23{,}6$ nm. Nach 109 nm ist die Störung auf 1 % gefallen. Die Ladung $Q'_\mathrm{SC}=1\,\mathrm{nC/cm^2}$ ergibt $\Delta p(0)=2{,}6\cdot10^{15}\,\mathrm{cm^{-3}}$, das sind 8,8 % von $N_\mathrm A$, und $\varphi_\mathrm s=-2{,}3$ mV. In Silizium ist $L_\mathrm D=409$ nm, 41 nm und 4,1 nm für $N=10^{14}$, $10^{16}$ und $10^{18}\,\mathrm{cm^{-3}}$. **Grenzfall:** Für $L_\mathrm D\to0$ wird die Halbleiterplatte zum Metall.
+::::beispiel
+Das Rechenmodell hat $L_\mathrm D=23{,}6$ nm. Nach 109 nm ist die Störung auf 1 % gefallen. Die Ladung $Q'_\mathrm{SC}=1\,\mathrm{nC/cm^2}$ ergibt $\Delta p(0)=2{,}6\cdot10^{15}\,\mathrm{cm^{-3}}$, das sind 8,8 % von $N_\mathrm A$, und $\varphi_\mathrm s=-2{,}3$ mV. In Silizium ist $L_\mathrm D=409$ nm, 41 nm und 4,1 nm für $N=10^{14}$, $10^{16}$ und $10^{18}\,\mathrm{cm^{-3}}$.
+::::
+
+⁠**Grenzfall:** Für $L_\mathrm D\to0$ wird die Halbleiterplatte zum Metall.
 
 **Starke Akkumulation.** Bei $|\Delta p|\gtrsim N_\mathrm A$ ist die Leitfähigkeit nicht mehr konstant, und die Differentialgleichung wird nichtlinear. Nach [(2.3)](wie-sich-die-gatespannung-aufteilt.html#gl-2-3) wächst $p(0)$ um den Faktor 10 je 60 mV. Die Ladung drängt sich in eine Schicht dünner als $L_\mathrm D$, die Bänder biegen an der Grenzfläche scharf nach oben, und die Grenzschicht verhält sich quasi metallisch. Bei $\varphi_\mathrm s=-0{,}166$ V erreicht $E_\mathrm V$ im Rechenmodell $E_\mathrm F$, die Oberfläche ist entartet ([Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)). Deshalb bleibt $|\varphi_\mathrm s|$ klein, und fast die ganze Spannung liegt am Isolator:
 

@@ -42,7 +42,11 @@ $$\text{Besetzung}\approx\mathrm{e}^{-W_\mathrm g/(2k_\mathrm BT)}. \tag{1.1}$$
 Jedes Elektron im LB lässt ein Loch im VB zurück, also ist die Zahl beider gleich. Das geht bei ähnlich vielen Zuständen in beiden Bändern nur, wenn $W_\mathrm F$ von beiden Bandrändern denselben Abstand $W_\mathrm g/2$ hat. In [(0.1)](von-grund-auf-ventil-wechselspannung-und-warmeenergie.html#gl-0-1) zählt die Energie über $W_\mathrm F$, also $W=W_\mathrm g/2$.
 :::
 
-**Beispiel.** Bei 300 K ist $W_\mathrm g/(k_\mathrm BT)=43{,}3$ und $\mathrm{e}^{-21{,}7}=3{,}9\cdot10^{-10}$. Die gemessene Dichte der freien Elektronen beträgt $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. Das ist eines je $5\cdot10^{12}$ Atome, denn Silizium hat $5\cdot10^{22}$ Atome je cm$^3$. Kupfer hat $8{,}5\cdot10^{12}$-mal mehr freie Elektronen ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). **Grenzfälle:** Für $T\to0$ geht [(1.1)](#gl-1-1) gegen null: Silizium isoliert. Je 10 K Erwärmung verdoppelt sich der Anteil. Deshalb sinkt der Widerstand eines Halbleiters mit der Temperatur ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+::::beispiel
+Bei 300 K ist $W_\mathrm g/(k_\mathrm BT)=43{,}3$ und $\mathrm{e}^{-21{,}7}=3{,}9\cdot10^{-10}$. Die gemessene Dichte der freien Elektronen beträgt $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. Das ist eines je $5\cdot10^{12}$ Atome, denn Silizium hat $5\cdot10^{22}$ Atome je cm$^3$. Kupfer hat $8{,}5\cdot10^{12}$-mal mehr freie Elektronen ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+::::
+
+⁠**Grenzfälle:** Für $T\to0$ geht [(1.1)](#gl-1-1) gegen null: Silizium isoliert. Je 10 K Erwärmung verdoppelt sich der Anteil. Deshalb sinkt der Widerstand eines Halbleiters mit der Temperatur ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::frage Warum leitet ein volles Band nicht, obwohl es voller Elektronen steckt?
 Weil Strom eine Bewegung in Vorzugsrichtung braucht. Dafür müsste ein Elektron in einen Zustand mit etwas mehr Energie wechseln. Im vollen Band ist jeder solche Zustand besetzt. Zwei Elektronen könnten nur tauschen, und das ändert nichts. Das erste Loch macht das Band leitfähig.

@@ -36,7 +36,8 @@ $$\neg\bigl(\forall x\in M:\mathcal A(x)\bigr)\Leftrightarrow\bigl(\exists x\in 
 不足以。一个例子只检验一个 $x$。而根据式 [(2.1)](#gl-2-1)，只要一个__反例__就能推翻“对所有”的命题。反过来，“存在”用一个例子就能证明。
 :::
 
-**例：嵌套的量词。** 设 $H$ 是一个家庭的设备，$F$ 是保险丝，$K(g,s)$ 表示“设备 $g$ 接在保险丝 $s$ 上”。那么
+::::beispiel 嵌套的量词
+设 $H$ 是一个家庭的设备，$F$ 是保险丝，$K(g,s)$ 表示“设备 $g$ 接在保险丝 $s$ 上”。那么
 
 $$\mathcal P:=\bigl(\forall g\in H\ \exists s\in F:K(g,s)\bigr),\qquad \mathcal Q:=\bigl(\exists s\in F\ \forall g\in H:K(g,s)\bigr)$$
 
@@ -45,6 +46,7 @@ $$\mathcal P:=\bigl(\forall g\in H\ \exists s\in F:K(g,s)\bigr),\qquad \mathcal 
 :::abbildung hm1/k1quantoren 2
 右图满足两个命题，左图只满足第一个。
 :::
+::::
 
 :::satz 定理 2.3 (反证法)
 <span class="anker" id="satz-2-3"></span>

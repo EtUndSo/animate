@@ -33,7 +33,8 @@ La corriente es carga por unidad de tiempo, $i=\mathrm{d} q/\mathrm{d} t$ ([Part
 
 **Dos consecuencias.** Primera: **La tensión no salta.** Un salto de $\Delta U$ en el tiempo $\Delta t$ exige $i=C\,\Delta U/\Delta t$. Para $\Delta t\to0$, la corriente crecería sin límite, porque la carga $C\,\Delta U$ tendría que llegar en un tiempo nulo. 9 V en 1 µs en 100 µF exigen ya 900 A. La corriente, en cambio, sí puede saltar, porque no está ligada a una magnitud almacenada. Segunda: **Con tensión constante no circula corriente.** Con $\mathrm{d} u/\mathrm{d} t=0$ es $i=0$: el condensador bloquea la corriente continua.
 
-**Ejemplo.** Una __fuente de corriente__, un componente que mantiene fija su corriente con independencia de la tensión, alimenta a través del interruptor S una resistencia y un condensador sin carga en serie (fig. [3](#abb-3)). Entrega $I=0{,}9$ mA; $R$ y $C$ son los valores del circuito RC. Al cerrar S en $t=0$, $u_R$ salta al valor fijo $R\,I=9$ V. En el condensador, [(3.2)](#gl-3-2) con $u_C(0)=0$ da
+::::beispiel
+Una __fuente de corriente__, un componente que mantiene fija su corriente con independencia de la tensión, alimenta a través del interruptor S una resistencia y un condensador sin carga en serie (fig. [3](#abb-3)). Entrega $I=0{,}9$ mA; $R$ y $C$ son los valores del circuito RC. Al cerrar S en $t=0$, $u_R$ salta al valor fijo $R\,I=9$ V. En el condensador, [(3.2)](#gl-3-2) con $u_C(0)=0$ da
 
 <span class="anker" id="gl-3-3"></span>
 $$u_C(t)=\frac{Q(t)}{C}=\frac{I\,t}{C}=9\,\mathrm{V/s}\cdot t. \tag{3.3}$$
@@ -43,6 +44,7 @@ La tensión crece en línea recta. Parte de cero de forma continua, aunque la co
 :::abbildung et1/k3rampe 3
 Una fuente de corriente carga un condensador a través de $R=10\,\mathrm{k\Omega}$. Al cerrar S, $u_R$ salta a 9 V y se queda ahí. $u_C$ parte de cero y sube a razón de 9 V/s, porque cada segundo llega la misma carga.
 :::
+::::
 
 ⁠**Caso límite:** Para $C\to\infty$, la pendiente se hace cero y la tensión no se mueve. Por eso, un condensador muy grande mantiene fija una tensión.
 

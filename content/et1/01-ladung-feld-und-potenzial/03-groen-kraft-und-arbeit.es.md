@@ -116,7 +116,11 @@ De [(1.4)](#gl-1-4) con $v_0=0$ y $s_0=0$ se obtiene $t=v/a$ y $s=\frac12a\,t^2=
 Una mochila de 2 kg se lleva de A a B, 8 m hacia un lado y 6 m hacia arriba. En la escalera solo cuentan los tramos rojos, en total 6 m. En la rampa el camino mide 10 m y $\cos\alpha=0{,}6$. Ambos caminos dan 117,7 J.
 :::
 
-**Ejemplo.** Sobre la mochila actúa el __peso__ $F_\mathrm{G}=m\,g=19{,}62\,\mathrm{N}$. Para elevarla de manera uniforme, la mano aplica la misma fuerza hacia arriba. Por la escalera, $W=19{,}62\,\mathrm{N}\cdot6\,\mathrm{m}=117{,}7\,\mathrm{J}$; por la rampa, $W=19{,}62\,\mathrm{N}\cdot10\,\mathrm{m}\cdot0{,}6=117{,}7\,\mathrm{J}$. La mano realiza $+117{,}7$ J; el peso, $-117{,}7$ J. La energía queda entonces en la altura, como __energía potencial__: si la mochila cae, se convierte en energía cinética. Este par, trabajo de la fuerza del campo y trabajo exterior, reaparece en la etapa [6](arbeit-im-feld.html#stufe-6). **Casos límite:** $\alpha=0$ da $\Delta W=F\,\Delta s$; $\alpha=90^\circ$ da $\Delta W=0$.
+::::beispiel
+Sobre la mochila actúa el __peso__ $F_\mathrm{G}=m\,g=19{,}62\,\mathrm{N}$. Para elevarla de manera uniforme, la mano aplica la misma fuerza hacia arriba. Por la escalera, $W=19{,}62\,\mathrm{N}\cdot6\,\mathrm{m}=117{,}7\,\mathrm{J}$; por la rampa, $W=19{,}62\,\mathrm{N}\cdot10\,\mathrm{m}\cdot0{,}6=117{,}7\,\mathrm{J}$. La mano realiza $+117{,}7$ J; el peso, $-117{,}7$ J. La energía queda entonces en la altura, como __energía potencial__: si la mochila cae, se convierte en energía cinética. Este par, trabajo de la fuerza del campo y trabajo exterior, reaparece en la etapa [6](arbeit-im-feld.html#stufe-6).
+::::
+
+⁠**Casos límite:** $\alpha=0$ da $\Delta W=F\,\Delta s$; $\alpha=90^\circ$ da $\Delta W=0$.
 
 :::frage Al llevar algo en horizontal, el brazo se cansa. ¿No se realiza ahí ningún trabajo?
 Sobre la mochila, no: no gana ni altura ni velocidad. Aun así, el músculo consume energía, porque sus fibras se tensan una y otra vez. Esa energía se convierte en calor en el cuerpo y no llega a la mochila.

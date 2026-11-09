@@ -37,7 +37,9 @@ Sea el área $A=\Delta x\,\Delta y$. El tramo sombreado tiene el volumen $\Delta
 
 **¿Cuándo circula corriente de forma permanente?** Deben cumplirse dos condiciones. Primero, el circuito necesita una fuente, por ejemplo una batería o una fuente de alimentación. Aporta energía, no carga: los portadores de carga ya están en el conductor; la fuente solo los impulsa alrededor del circuito. Segundo, el __circuito__ debe estar cerrado, es decir, ser un camino que vuelve sobre sí mismo. De lo contrario, en una interrupción se acumula carga, su campo anula el campo impulsor y la corriente cesa. Una corriente constante en el tiempo en un circuito cerrado se llama __estacionaria__.
 
-**Ejemplo.** En el modelo de referencia pasan por el hilo 3 mC por segundo, es decir, $3\,\mathrm{mC}/e=1{,}87\cdot10^{16}$ electrones. La densidad de corriente es $j=3\,\mathrm{mA}/0{,}5\,\mathrm{mm^2}=6\,\mathrm{mA/mm^2}$. Un metro de hilo contiene la carga libre $n\,e\,A=6800$ C. Toda la carga que una batería rectangular mueve durante su vida (unos 1800 C) está, por tanto, ya en 26 cm de este hilo. **Comprobación:** Para $v=0$, $I=0$, sea cual sea la carga que hay en el hilo. El doble de área con la misma $v$ da el doble de corriente, porque son dos hilos uno junto a otro.
+::::beispiel
+En el modelo de referencia pasan por el hilo 3 mC por segundo, es decir, $3\,\mathrm{mC}/e=1{,}87\cdot10^{16}$ electrones. La densidad de corriente es $j=3\,\mathrm{mA}/0{,}5\,\mathrm{mm^2}=6\,\mathrm{mA/mm^2}$. Un metro de hilo contiene la carga libre $n\,e\,A=6800$ C. Toda la carga que una batería rectangular mueve durante su vida (unos 1800 C) está, por tanto, ya en 26 cm de este hilo. **Comprobación:** Para $v=0$, $I=0$, sea cual sea la carga que hay en el hilo. El doble de área con la misma $v$ da el doble de corriente, porque son dos hilos uno junto a otro.
+::::
 
 :::frage ¿Se gastan los electrones en el receptor?
 No. La carga se conserva: de un componente salen por segundo tantos electrones como entran. Lo que se gasta es energía: cada culombio cede al componente su energía por unidad de carga, la tensión, y sigue con un potencial más bajo.

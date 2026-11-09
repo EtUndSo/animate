@@ -39,7 +39,9 @@ $$\int_{B_R(0)}f(x,y)\,\mathrm{d} x\,\mathrm{d} y=\int_0^R\!\!\int_0^{2\pi}f(\Ph
 
 **Die Voraussetzungen sind verletzt.** Auf $[0,R]\times[0,2\pi]$ ist $\Phi$ nicht injektiv: Die ganze Kante $r=0$ geht in den Nullpunkt, und $\varphi=0$, $\varphi=2\pi$ geben denselben Strahl. Außerdem ist $\det D\Phi=0$ bei $r=0$. Die Formel gilt trotzdem: Auf $[\varepsilon,R]\times[\varepsilon,2\pi]$ sind alle Voraussetzungen erfüllt, und dort fehlen nur ein kleiner Kreis und ein schmaler Keil mit der Fläche höchstens $\pi\varepsilon^2+\frac12\varepsilon R^2$. Mit $|f|\le M$ ist der fehlende Beitrag höchstens $M$ mal diese Fläche und geht für $\varepsilon\searrow0$ gegen null. Ausnahmemengen ohne Fläche stören also nicht.
 
-**Beispiel: die Scheibe.** Für $R=2$ gibt [(3.2)](#gl-3-2) mit $f=1$ die Fläche $2\pi\int_0^2r\,\mathrm{d} r=4\pi$, wie erwartet. Mit $f=x^2+y^2=r^2$ folgt $\int(x^2+y^2)\,\mathrm{d} x\,\mathrm{d} y=2\pi\int_0^2r^3\,\mathrm{d} r=8\pi$. Ohne den Faktor $r$ käme $\frac{16\pi}3$ heraus: Die äußeren Zellen, in denen $f$ groß ist, würden zu schwach zählen.
+::::beispiel die Scheibe
+Für $R=2$ gibt [(3.2)](#gl-3-2) mit $f=1$ die Fläche $2\pi\int_0^2r\,\mathrm{d} r=4\pi$, wie erwartet. Mit $f=x^2+y^2=r^2$ folgt $\int(x^2+y^2)\,\mathrm{d} x\,\mathrm{d} y=2\pi\int_0^2r^3\,\mathrm{d} r=8\pi$. Ohne den Faktor $r$ käme $\frac{16\pi}3$ heraus: Die äußeren Zellen, in denen $f$ groß ist, würden zu schwach zählen.
+::::
 
 **Das Gauß-Integral.** Für $\mathrm{e}^{-x^2}$ gibt es keine Stammfunktion in geschlossener Form. Der Umweg über ein Mehrfachintegral liefert trotzdem das __Gauß-Integral__
 

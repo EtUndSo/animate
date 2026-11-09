@@ -14,7 +14,7 @@ Ein Stück dotiertes Silizium ist ein Widerstand: Es leitet in beide Richtungen 
 
 Der Weg führt über acht Begriffe. Ein __p-n-Übergang__ ist die Grenze zwischen einem p- und einem n-Gebiet im selben Kristall, eine __Diode__ das Bauelement daraus. __Bandverbiegung__ heißt, dass die Bandkanten einem ortsabhängigen Potential folgen. Die __Raumladungszone__ ist eine Schicht, in der ortsfeste Ladung nicht ausgeglichen ist. Die __Diffusionsspannung__ ist die Potentialdifferenz über dieser Schicht. Die __Schottky-Näherung__ ersetzt ihre Ladung durch ein Kastenprofil. Die __Diodenkennlinie__ ist der Strom als Funktion der Spannung, der __Sperrsättigungsstrom__ der kleine Strom, der in der sperrenden Richtung bleibt.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

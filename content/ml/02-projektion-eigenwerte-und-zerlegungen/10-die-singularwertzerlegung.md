@@ -27,7 +27,8 @@ $$(\mathbf{A}\mathbf{v}_1)^{\top}(\mathbf{A}\mathbf{v}_2)=\mathbf{v}_1^{\top}\,\
 
 Hier taucht die Gram-Matrix $\mathbf{A}^{\top}\mathbf{A}$ auf. Sie ist symmetrisch, auch wenn $\mathbf{A}$ es nicht ist, und hat nach dem Spektralsatz eine Orthonormalbasis aus Eigenvektoren. Ist $\mathbf{v}_2$ ein Eigenvektor von $\mathbf{A}^{\top}\mathbf{A}$ zum Eigenwert $\lambda_2$ und steht $\mathbf{v}_1$ senkrecht auf $\mathbf{v}_2$, so ist das Skalarprodukt $\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$. Die Eigenvektoren von $\mathbf{A}^{\top}\mathbf{A}$ leisten also das Gewünschte. Dieselbe Rechnung mit $\mathbf{v}_1=\mathbf{v}_2$ liefert die Längen der Bilder: $\lVert\mathbf{A}\mathbf{v}_i\rVert^2=\mathbf{v}_i^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{v}_i=\lambda_i$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}4&6\\6&13\end{smallmatrix}\bigr)$ mit der Spur $17$ und der Determinante $52-36=16$. Das charakteristische Polynom $\lambda^2-17\lambda+16=(\lambda-16)(\lambda-1)$ hat die Nullstellen $16$ und $1$. Normierte Eigenvektoren sind $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$ zu $16$ und $\mathbf{v}_2=(-2,\,1)^{\top}/\sqrt5$ zu $1$. Ihre Bilder
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}4&6\\6&13\end{smallmatrix}\bigr)$ mit der Spur $17$ und der Determinante $52-36=16$. Das charakteristische Polynom $\lambda^2-17\lambda+16=(\lambda-16)(\lambda-1)$ hat die Nullstellen $16$ und $1$. Normierte Eigenvektoren sind $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$ zu $16$ und $\mathbf{v}_2=(-2,\,1)^{\top}/\sqrt5$ zu $1$. Ihre Bilder
 
 $$\mathbf{A}\mathbf{v}_1=\frac1{\sqrt5}\begin{pmatrix}8\\4\end{pmatrix},\qquad \mathbf{A}\mathbf{v}_2=\frac1{\sqrt5}\begin{pmatrix}-1\\2\end{pmatrix}$$
 
@@ -36,6 +37,7 @@ haben das Skalarprodukt $\tfrac15(-8+8)=0$ und die Längen $\sqrt{80/5}=4=\sqrt{
 :::abbildung ml/k2rsvdidee 22
 Die Bilder $\mathbf{A}\mathbf{v}_1=(8,4)^{\top}/\sqrt5$ und $\mathbf{A}\mathbf{v}_2=(-1,2)^{\top}/\sqrt5$ stehen senkrecht aufeinander und haben die Längenquadrate $16$ und $1$, die Eigenwerte von $\mathbf{A}^{\top}\mathbf{A}$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Eigenvektoren der symmetrischen Matrix $\mathbf{A}^{\top}\mathbf{A}$ sind senkrechte Richtungen, deren Bilder unter $\mathbf{A}$ wieder senkrecht aufeinander stehen; die Bilder haben die Längen $\sqrt{\lambda_i}$.
 
@@ -70,7 +72,9 @@ Es seien $\mathbf{v}_1,\dots,\mathbf{v}_n$ orthonormale Eigenvektoren von $\math
 
 Den Rang einer Matrix bezeichnet man im Folgenden mit $r$. Es ist $d_1\ge\dots\ge d_r>0$ und $d_{r+1}=\dots=d_n=0$.
 
-⁠**Rechenbeispiel:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ hat die Singulärwerte $d_1=4$ und $d_2=1$ und den Rang $2$. Die Eigenwerte sind $2$ und $2$: Singulärwerte und Eigenwerte sind im Allgemeinen verschiedene Zahlen. Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ mit den Eigenwerten $25$ und $0$, also die Singulärwerte $5$ und $0$ und den Rang $1$.
+::::beispiel [Rechenbeispiel]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ hat die Singulärwerte $d_1=4$ und $d_2=1$ und den Rang $2$. Die Eigenwerte sind $2$ und $2$: Singulärwerte und Eigenwerte sind im Allgemeinen verschiedene Zahlen. Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ hat $\mathbf{A}^{\top}\mathbf{A}=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)$ mit den Eigenwerten $25$ und $0$, also die Singulärwerte $5$ und $0$ und den Rang $1$.
+::::
 
 ⁠**Kurz gesagt:** Die Singulärwerte $d_j$ sind die Wurzeln der Eigenwerte von $\mathbf{A}^{\top}\mathbf{A}$; sie messen, wie stark $\mathbf{A}$ in ihren Hauptrichtungen streckt, und die Zahl der positiven ist der Rang.
 
@@ -105,7 +109,9 @@ $\mathbf{A}$ bildet $\mathbf{v}_j$ auf $d_j\mathbf{u}_j$ ab, und $\mathbf{A}^{\t
 Ein Eigenvektor ist nur bis auf das Vorzeichen bestimmt. Berechnet man die $\mathbf{v}_j$ als Eigenvektoren von $\mathbf{A}^{\top}\mathbf{A}$ und getrennt davon die $\mathbf{u}_j$ als Eigenvektoren von $\mathbf{A}\mathbf{A}^{\top}$, so kann ein $\mathbf{u}_j$ das falsche Vorzeichen bekommen, und dann ist $\mathbf{A}\mathbf{v}_j=-d_j\mathbf{u}_j$. Sicher ist der Weg über [(9.2)](#gl-9-2): zuerst $\mathbf{v}_j$ wählen, dann $\mathbf{u}_j=\mathbf{A}\mathbf{v}_j/d_j$ berechnen. Dreht man $\mathbf{v}_j$ und $\mathbf{u}_j$ gemeinsam um, bleibt alles richtig.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\mathbf{u}_1=\mathbf{A}\mathbf{v}_1/4=(2,\,1)^{\top}/\sqrt5$ und $\mathbf{u}_2=\mathbf{A}\mathbf{v}_2/1=(-1,\,2)^{\top}/\sqrt5$. Zur Kontrolle: $\mathbf{A}\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}13&6\\6&4\end{smallmatrix}\bigr)$ bildet $(2,\,1)^{\top}$ auf $(32,\,16)^{\top}=16\,(2,\,1)^{\top}$ ab. Der Vektor $(-2,\,-1)^{\top}/\sqrt5$ wäre ebenfalls ein normierter Eigenvektor von $\mathbf{A}\mathbf{A}^{\top}$ zu $16$, aber mit ihm wäre $\mathbf{A}\mathbf{v}_1=-4\,\mathbf{u}_1$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\mathbf{u}_1=\mathbf{A}\mathbf{v}_1/4=(2,\,1)^{\top}/\sqrt5$ und $\mathbf{u}_2=\mathbf{A}\mathbf{v}_2/1=(-1,\,2)^{\top}/\sqrt5$. Zur Kontrolle: $\mathbf{A}\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}13&6\\6&4\end{smallmatrix}\bigr)$ bildet $(2,\,1)^{\top}$ auf $(32,\,16)^{\top}=16\,(2,\,1)^{\top}$ ab. Der Vektor $(-2,\,-1)^{\top}/\sqrt5$ wäre ebenfalls ein normierter Eigenvektor von $\mathbf{A}\mathbf{A}^{\top}$ zu $16$, aber mit ihm wäre $\mathbf{A}\mathbf{v}_1=-4\,\mathbf{u}_1$.
+::::
 
 ⁠**Kurz gesagt:** Die rechten Singulärvektoren $\mathbf{v}_j$ sind Eigenvektoren von $\mathbf{A}^{\top}\mathbf{A}$, die linken sind $\mathbf{u}_j=\mathbf{A}\mathbf{v}_j/d_j$; beide Familien sind orthonormal, und $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$.
 
@@ -135,13 +141,15 @@ Für $j\le r$ ist $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Für $j>r$ ist $d_j=
 
 Die Form von $\mathbf{D}$ richtet sich nach der Form von $\mathbf{A}$. Für $m=3$ und $n=2$ ist zum Beispiel $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$. Die übliche Abkürzung ist SVD, nach dem englischen Namen *singular value decomposition*.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist
 
 $$\mathbf{A}=\underbrace{\frac1{\sqrt5}\begin{pmatrix}2&-1\\1&2\end{pmatrix}}_{\mathbf{U}}\underbrace{\begin{pmatrix}4&0\\0&1\end{pmatrix}}_{\mathbf{D}}\underbrace{\frac1{\sqrt5}\begin{pmatrix}1&2\\-2&1\end{pmatrix}}_{\mathbf{V}^{\top}},$$
 
 denn $\mathbf{U}\mathbf{D}=\tfrac1{\sqrt5}\bigl(\begin{smallmatrix}8&-1\\4&2\end{smallmatrix}\bigr)$ und $\mathbf{U}\mathbf{D}\mathbf{V}^{\top}=\tfrac15\bigl(\begin{smallmatrix}8+2&16-1\\4-4&8+2\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$. In kompakter Form:
 
 $$4\cdot\frac15\begin{pmatrix}2&4\\1&2\end{pmatrix}+1\cdot\frac15\begin{pmatrix}2&-1\\-4&2\end{pmatrix}=\begin{pmatrix}1{,}6&3{,}2\\0{,}8&1{,}6\end{pmatrix}+\begin{pmatrix}0{,}4&-0{,}2\\-0{,}8&0{,}4\end{pmatrix}=\begin{pmatrix}2&3\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Jede Matrix ist $\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ mit zwei orthogonalen Matrizen und den Singulärwerten auf der Diagonale von $\mathbf{D}$, oder gleichwertig eine Summe $\sum_jd_j\mathbf{u}_j\mathbf{v}_j^{\top}$.
 
@@ -187,11 +195,13 @@ Jede lineare Abbildung ist also, bis auf Spiegelungen, eine Drehung, eine Streck
 Die Matrix $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ als Drehung, Streckung, Drehung. Links oben der Einheitskreis mit $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (rot) und $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (grün). $\mathbf{V}^{\top}$ dreht um $-63{,}4^\circ$ und legt $\mathbf{v}_1$ auf $\mathbf{e}_1$ und $\mathbf{v}_2$ auf $\mathbf{e}_2$ (links unten). $\mathbf{D}$ streckt die erste Achse um $d_1=4$ und die zweite um $d_2=1$ (rechts unten). $\mathbf{U}$ dreht um $26{,}6^\circ$ und legt die Achsen auf $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ und $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ (rechts oben). Der schwarze Punkt $\mathbf{x}=\mathbf{e}_2$ landet auf allen Wegen bei $\mathbf{A}\mathbf{x}=(3,2)^{\top}$. Der direkte Weg oben ist $\mathbf{A}$ selbst: Der Einheitskreis wird zur Ellipse mit den Halbachsen $4\,\mathbf{u}_1$ und $1\cdot\mathbf{u}_2$.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{x}=\mathbf{e}_2$ und $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ sind die Koordinaten $\mathbf{V}^{\top}\mathbf{x}=(2,\,1)^{\top}/\sqrt5$. Gestreckt ergibt das $\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=(8,\,1)^{\top}/\sqrt5$, und gedreht
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{x}=\mathbf{e}_2$ und $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ sind die Koordinaten $\mathbf{V}^{\top}\mathbf{x}=(2,\,1)^{\top}/\sqrt5$. Gestreckt ergibt das $\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=(8,\,1)^{\top}/\sqrt5$, und gedreht
 
 $$\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{x}=\frac15\begin{pmatrix}2&-1\\1&2\end{pmatrix}\begin{pmatrix}8\\1\end{pmatrix}=\frac15\begin{pmatrix}15\\10\end{pmatrix}=\begin{pmatrix}3\\2\end{pmatrix}=\mathbf{A}\mathbf{e}_2 .$$
 
 $\mathbf{V}$ hat die Spalten $(\cos\theta,\,\sin\theta)^{\top}$ und $(-\sin\theta,\,\cos\theta)^{\top}$ mit $\cos\theta=1/\sqrt5$, ist also die Drehung um $\theta\approx63{,}4^\circ$, und $\mathbf{V}^{\top}$ dreht um $-63{,}4^\circ$ zurück. $\mathbf{U}$ ist die Drehung um $26{,}6^\circ$, denn $\cos26{,}6^\circ\approx2/\sqrt5$.
+::::
 
 ⁠**Kurz gesagt:** Jede Matrix dreht, streckt längs der Achsen und dreht wieder, bis auf Spiegelungen; aus dem Einheitskreis wird eine Ellipse mit den Halbachsen $d_j\mathbf{u}_j$.
 
@@ -233,11 +243,13 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ ist eine Orthonormalbasis des Kerns von $\
 
 Die Zahlen passen zum Rangsatz aus [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5): Der Kern hat die Dimension $n-r$.
 
-⁠**Rechenbeispiel:** Die Matrix $\mathbf{H}$ mit den Spalten $(1,\,0,\,1)^{\top}$ und $(0,\,1,\,1)^{\top}$ aus Abschnitt [3.2](die-beste-naherungslosung.html#stufe-3-2) hat $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ mit den Eigenwerten $3$ und $1$, also die Singulärwerte $d_1=\sqrt3$ und $d_2=1$, und die rechten Singulärvektoren $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. Die linken sind
+::::beispiel [Rechenbeispiel]
+Die Matrix $\mathbf{H}$ mit den Spalten $(1,\,0,\,1)^{\top}$ und $(0,\,1,\,1)^{\top}$ aus Abschnitt [3.2](die-beste-naherungslosung.html#stufe-3-2) hat $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ mit den Eigenwerten $3$ und $1$, also die Singulärwerte $d_1=\sqrt3$ und $d_2=1$, und die rechten Singulärvektoren $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. Die linken sind
 
 $$\mathbf{u}_1=\frac{\mathbf{H}\mathbf{v}_1}{\sqrt3}=\frac1{\sqrt6}\begin{pmatrix}1\\1\\2\end{pmatrix},\qquad \mathbf{u}_2=\frac{\mathbf{H}\mathbf{v}_2}{1}=\frac1{\sqrt2}\begin{pmatrix}1\\-1\\0\end{pmatrix}.$$
 
 Sie bilden eine Orthonormalbasis der Ebene $x_3=x_1+x_2$, eine andere als in Abschnitt [4.3](projektion-auf-einen-unterraum.html#stufe-4-3). Ergänzt wird sie durch $\mathbf{u}_3=(1,\,1,\,-1)^{\top}/\sqrt3$, den normierten Normalenvektor aus Abschnitt [4.4](projektion-auf-einen-unterraum.html#stufe-4-4). In der vollen Zerlegung ist $\mathbf{D}=\Bigl(\begin{smallmatrix}\sqrt3&0\\0&1\\0&0\end{smallmatrix}\Bigr)$. Der Kern besteht nur aus dem Nullvektor, denn $r=n=2$.
+::::
 
 ⁠**Kurz gesagt:** Eine Matrix ist die Summe von $r$ Bausteinen $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ vom Rang $1$; die $\mathbf{u}_j$ mit $d_j>0$ spannen den Spaltenraum auf, die $\mathbf{v}_j$ mit $d_j=0$ den Kern.
 
@@ -259,7 +271,9 @@ Es ist $\mathbf{A}^{\top}\mathbf{A}=\mathbf{A}^2=\mathbf{Q}\boldsymbol{\Lambda}^
 
 Ist $\mathbf{A}$ positiv semidefinit, so sind Spektralzerlegung und Singulärwertzerlegung dieselbe Zerlegung, mit $\mathbf{U}=\mathbf{V}=\mathbf{Q}$. Bei negativen Eigenwerten wandert das Vorzeichen in $\mathbf{U}$. Bei nicht symmetrischen Matrizen haben Eigenwerte und Singulärwerte im Allgemeinen nichts miteinander zu tun, wie $\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ mit den Eigenwerten $2,2$ und den Singulärwerten $4,1$ zeigt. Einen Zusammenhang gibt es aber immer: Jeder Eigenwert ist im Betrag höchstens $d_1$; das folgt aus dem nächsten Unterabschnitt.
 
-⁠**Rechenbeispiel:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ hat die Eigenwerte $4$ mit $\mathbf{q}_1=(1,\,1)^{\top}/\sqrt2$ und $-2$ mit $\mathbf{q}_2=(1,\,-1)^{\top}/\sqrt2$. Die Singulärwerte sind $4$ und $2$. Mit $\mathbf{v}_2=\mathbf{q}_2$ ist $\mathbf{A}\mathbf{v}_2=(-2,\,2)^{\top}/\sqrt2=2\cdot(-1,\,1)^{\top}/\sqrt2$, also $\mathbf{u}_2=-\mathbf{q}_2$.
+::::beispiel [Rechenbeispiel]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&3\\3&1\end{smallmatrix}\bigr)$ hat die Eigenwerte $4$ mit $\mathbf{q}_1=(1,\,1)^{\top}/\sqrt2$ und $-2$ mit $\mathbf{q}_2=(1,\,-1)^{\top}/\sqrt2$. Die Singulärwerte sind $4$ und $2$. Mit $\mathbf{v}_2=\mathbf{q}_2$ ist $\mathbf{A}\mathbf{v}_2=(-2,\,2)^{\top}/\sqrt2=2\cdot(-1,\,1)^{\top}/\sqrt2$, also $\mathbf{u}_2=-\mathbf{q}_2$.
+::::
 
 ⁠**Kurz gesagt:** Bei symmetrischen Matrizen sind die Singulärwerte die Beträge der Eigenwerte, und bei positiv semidefiniten ist die Singulärwertzerlegung die Spektralzerlegung.
 
@@ -294,7 +308,9 @@ Mit $\mathbf{c}=\mathbf{V}^{\top}\mathbf{x}$ ist $\lVert\mathbf{c}\rVert=\lVert\
 
 Zwei Folgerungen. Erstens ist $\lVert\mathbf{A}\mathbf{x}\rVert\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{x}\rVert$ und daher $\lVert\mathbf{A}\mathbf{B}\mathbf{x}\rVert\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{B}\rVert_2\lVert\mathbf{x}\rVert$, also $\lVert\mathbf{A}\mathbf{B}\rVert_2\le\lVert\mathbf{A}\rVert_2\lVert\mathbf{B}\rVert_2$: Hintereinander ausgeführt, multiplizieren sich die größten Streckfaktoren höchstens. Zweitens ist für einen Eigenvektor $\lVert\mathbf{A}\mathbf{v}\rVert=|\lambda|\,\lVert\mathbf{v}\rVert$, also $|\lambda|\le d_1$ für jeden Eigenwert einer quadratischen Matrix. Für einen komplexen Eigenvektor $\mathbf{v}=\mathbf{a}+\mathrm j\mathbf{b}$ mit reellen $\mathbf{a},\mathbf{b}$ gilt dasselbe, wenn man $\lVert\mathbf{v}\rVert^2=(\mathbf{v}^*)^{\top}\mathbf{v}=\lVert\mathbf{a}\rVert^2+\lVert\mathbf{b}\rVert^2$ setzt, denn $\lVert\mathbf{A}\mathbf{v}\rVert^2=\lVert\mathbf{A}\mathbf{a}\rVert^2+\lVert\mathbf{A}\mathbf{b}\rVert^2$ liegt nach [(9.5)](#gl-9-5) zwischen $d_n^2\lVert\mathbf{v}\rVert^2$ und $d_1^2\lVert\mathbf{v}\rVert^2$; für quadratisches $\mathbf{A}$ ist also auch $|\lambda|\ge d_n$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\lVert\mathbf{A}\rVert_2=4$. Die Einheitsvektoren werden weniger gestreckt: $\lVert\mathbf{A}\mathbf{e}_1\rVert=\lVert(2,\,0)^{\top}\rVert=2$ und $\lVert\mathbf{A}\mathbf{e}_2\rVert=\lVert(3,\,2)^{\top}\rVert=\sqrt{13}\approx3{,}61$. Den Faktor $4$ erreicht man nur bei $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$, den kleinsten Faktor $1$ bei $\mathbf{v}_2$. Der Eigenwert $2$ liegt zwischen $1$ und $4$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $\lVert\mathbf{A}\rVert_2=4$. Die Einheitsvektoren werden weniger gestreckt: $\lVert\mathbf{A}\mathbf{e}_1\rVert=\lVert(2,\,0)^{\top}\rVert=2$ und $\lVert\mathbf{A}\mathbf{e}_2\rVert=\lVert(3,\,2)^{\top}\rVert=\sqrt{13}\approx3{,}61$. Den Faktor $4$ erreicht man nur bei $\mathbf{v}_1=(1,\,2)^{\top}/\sqrt5$, den kleinsten Faktor $1$ bei $\mathbf{v}_2$. Der Eigenwert $2$ liegt zwischen $1$ und $4$.
+::::
 
 ⁠**Kurz gesagt:** Die Spektralnorm $\lVert\mathbf{A}\rVert_2=d_1$ ist der größte Faktor, um den $\mathbf{A}$ einen Vektor verlängert; der kleinste ist $d_n$.
 

@@ -31,7 +31,9 @@ with arbitrary (twice differentiable) functions $u_\mathrm{fw}$ (forward) and $u
 
 ⁠**How to read it:** An arbitrary signal shape travels unchanged along the line at the velocity $v$. This is because all frequency components are equally fast and are attenuated equally little: the line is a distortion-free system in the sense of [Part 5](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), with the delay $l/v$. The wave equation for $u$ follows from [(2.1)](die-leitungsgleichungen.html#gl-2-1) by differentiating the first equation with respect to $s$ and the second with respect to $t$ and eliminating $i$.
 
-**Example: coaxial cable.** $Z=50\,\Omega$ and $C'=100$ pF/m give $L'=Z^2C'=250$ nH/m and $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, two thirds of the speed of light (because of the dielectric in the cable). A signal needs 50 ns for 10 m of cable. If the cable is terminated with 75 $\Omega$ instead of 50 $\Omega$, then $r=\frac{75-50}{75+50}=0.2$: 20 % of the voltage amplitude travels back as an echo.
+::::beispiel coaxial cable
+$Z=50\,\Omega$ and $C'=100$ pF/m give $L'=Z^2C'=250$ nH/m and $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, two thirds of the speed of light (because of the dielectric in the cable). A signal needs 50 ns for 10 m of cable. If the cable is terminated with 75 $\Omega$ instead of 50 $\Omega$, then $r=\frac{75-50}{75+50}=0.2$: 20 % of the voltage amplitude travels back as an echo.
+::::
 
 :::ltspice Reflections on a transmission line
 ⁠**Draw:** a `voltage` source with `PULSE(0 2 0 1n 1n 10n 1)` and an internal resistance `res` with `50` to net `in`. From `in` a lossless line `tline` with `Td=50n Z0=50` (the 10-m coaxial cable from the example) to net `end`, and there `res` with `{RE}` to ground. Because the internal resistance equals $Z$, a wave of 1 V sets off, and the echo is fully absorbed at the source.

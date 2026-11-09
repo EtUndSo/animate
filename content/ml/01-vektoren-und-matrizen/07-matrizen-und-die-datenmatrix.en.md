@@ -35,13 +35,15 @@ Matrices are written in bold capital letters, their entries with the correspondi
 
 Two matrices are equal if they have the same size and the same entry in every position. Matrices of the same size are added and multiplied by a number entry by entry, just like vectors: $(\mathbf{A}+\mathbf{B})_{ij}=a_{ij}+b_{ij}$ and $(c\,\mathbf{A})_{ij}=c\,a_{ij}$.
 
-⁠**Worked example:** The matrix
+::::beispiel [Worked example]
+The matrix
 
 $$\mathbf{A}=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\in\mathbb{R}^{2\times3}$$
 
 has size $2\times3$, the entries $a_{12}=2$ and $a_{21}=4$, and the second column $\mathbf{a}_2=(2,\,5)^{\top}$. A grayscale image of $3\times3$ pixels that shows a bright cross on a dark background is the matrix with the rows $(0,1,0)$, $(1,1,1)$ and $(0,1,0)$. Furthermore,
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}+\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}1&3\\4&4\end{pmatrix},\qquad 2\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}2&4\\6&8\end{pmatrix}.$$
+::::
 
 ⁠**In short:** A matrix is a rectangular table of numbers with $m$ rows and $n$ columns; the entry $a_{ij}$ is in row $i$ and column $j$.
 
@@ -65,11 +67,11 @@ A square matrix whose entries off the diagonal are all zero is called a __diagon
 The matrix whose entries are all zero is called the __zero matrix__ and is written $\mathbf 0$.
 :::
 
-⁠**Worked example:**
-
+::::beispiel [Worked example]
 $$\operatorname{diag}\bigl((2,\ 0.5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0.5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
 
 The second matrix has a diagonal entry zero and is still a diagonal matrix; the only requirement is that all entries off the diagonal are zero. Instead of $\operatorname{diag}\bigl((2,\ 0.5)^{\top}\bigr)$ you write $\operatorname{diag}(2,\,0.5)$ for short.
+::::
 
 ⁠**In short:** A square matrix has as many rows as columns; a diagonal matrix has nonzero entries only on the diagonal.
 
@@ -94,11 +96,13 @@ $$\mathbf{X}=\begin{pmatrix}\mathbf{x}_1^{\top}\\\mathbf{x}_2^{\top}\\\vdots\\\m
 
 The entry $x_{ij}$ is the value of feature $j$ for example $i$, exactly as agreed in Subsection [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3). Column $j$ of $\mathbf{X}$ is the feature column of feature $j$ from Subsection [4.3](abstande-und-einheiten.html#stufe-4-3): all values of this feature across all examples. So the rows belong to the examples and the columns to the features. Component $j$ of the mean of the examples $\bar{\mathbf{x}}$ is the mean of column $j$.
 
-⁠**Worked example:** For the apartment dataset,
+::::beispiel [Worked example]
+For the apartment dataset,
 
 $$\mathbf{X}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\in\mathbb{R}^{4\times3}.$$
 
 The entry $x_{32}=4$ is the number of rooms of apartment 3, the first column $(60,\,40,\,90,\,70)^{\top}$ contains all floor areas, and its mean $65$ is the first component of $\bar{\mathbf{x}}=(65,\ 2.5,\ 3)^{\top}$.
+::::
 
 ⁠**In short:** The data matrix $\mathbf{X}\in\mathbb{R}^{N\times d}$ contains one example per row and one feature per column.
 

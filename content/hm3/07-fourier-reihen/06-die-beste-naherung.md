@@ -80,7 +80,11 @@ $$\lim_{|k|\to\infty}\int_0^{2\pi}f(x)\,\mathrm{e}^{\mathrm{i}kx}\,\mathrm{d} x=
 
 Auch $a_k$ und $b_k$ gehen deshalb gegen null. Der Mechanismus: Eine schnelle Schwingung pendelt so rasch, dass sich ihre Beiträge gegen das langsamere $f$ wegheben.
 
-**Beispiel: Rechteck, $N=1$.** Es ist $T_1q=\frac4\pi\sin x$, $\|q\|_2^2=1$ und $\|T_1q\|_2^2=\frac12\cdot\frac{16}{\pi^2}=\frac8{\pi^2}\approx0{,}811$. Nach (iii) ist $\|q-T_1q\|_2^2\approx0{,}189$. Der Vergleichskandidat $S_1=\sin x$ gibt $\|q-S_1\|_2^2=\frac32-\frac4\pi\approx0{,}227$. Die Differenz $0{,}037$ ist genau $\|T_1q-S_1\|_2^2=\frac12(\frac4\pi-1)^2$. **Grenzfall:** Liegt $f$ schon in $\mathcal V_N$, ist $T_Nf=f$ und der Abstand null.
+::::beispiel Rechteck, $N=1$
+Es ist $T_1q=\frac4\pi\sin x$, $\|q\|_2^2=1$ und $\|T_1q\|_2^2=\frac12\cdot\frac{16}{\pi^2}=\frac8{\pi^2}\approx0{,}811$. Nach (iii) ist $\|q-T_1q\|_2^2\approx0{,}189$. Der Vergleichskandidat $S_1=\sin x$ gibt $\|q-S_1\|_2^2=\frac32-\frac4\pi\approx0{,}227$. Die Differenz $0{,}037$ ist genau $\|T_1q-S_1\|_2^2=\frac12(\frac4\pi-1)^2$.
+::::
+
+⁠**Grenzfall:** Liegt $f$ schon in $\mathcal V_N$, ist $T_Nf=f$ und der Abstand null.
 
 :::frage Muss ich alle Koeffizienten neu rechnen, wenn ich $N$ erhöhe?
 Nein. $c_k$ hängt nicht von $N$ ab, weil die Bausteine senkrecht aufeinander stehen: Ein neuer Baustein ändert die Anteile längs der alten nicht. Das ist der Vorteil einer orthogonalen Basis gegenüber einer beliebigen.

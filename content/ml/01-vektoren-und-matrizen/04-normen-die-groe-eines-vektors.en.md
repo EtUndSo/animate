@@ -34,11 +34,13 @@ Without a subscript, $\lVert\mathbf{x}\rVert$ in this series always means the Eu
 
 It is also called the __length__ of the vector or, because of the squares, the $L_2$ norm. A vector of length $1$ is called __normalized__. If you divide a vector $\mathbf{x}\ne\mathbf{0}$ by its length, then $\mathbf{x}/\lVert\mathbf{x}\rVert$ is normalized and points in the same direction. This step is called __normalizing__.
 
-⁠**Worked example:** The vector $\mathbf{x}=(3,\,-4)^{\top}$ has length $\lVert\mathbf{x}\rVert_2=5$ (Fig. [12](#abb-12)). Normalized, it is $\mathbf{x}/5=(0.6,\ -0.8)^{\top}$. In space, $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
+::::beispiel [Worked example]
+The vector $\mathbf{x}=(3,\,-4)^{\top}$ has length $\lVert\mathbf{x}\rVert_2=5$ (Fig. [12](#abb-12)). Normalized, it is $\mathbf{x}/5=(0.6,\ -0.8)^{\top}$. In space, $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
 
 :::abbildung ml/k1rl2 12
 The Euclidean norm of $(3,\,-4)^{\top}$: square the components, add, take the square root. The minus sign disappears when squaring.
 :::
+::::
 
 ⁠**In short:** The Euclidean norm is the length of the arrow, the square root of the sum of the squared components.
 
@@ -59,13 +61,15 @@ $$\lVert\mathbf{x}\rVert_1=|x_1|+|x_2|+\dots+|x_d|=\sum_{j=1}^d|x_j| . \tag{3.2}
 
 It is also called the $L_1$ norm or, after the street grid of Manhattan, the Manhattan norm.
 
-⁠**Worked example:** For $\mathbf{x}=(3,\,-4)^{\top}$, $\lVert\mathbf{x}\rVert_1=7$ (Fig. [13](#abb-13)), and $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
+::::beispiel [Worked example]
+For $\mathbf{x}=(3,\,-4)^{\top}$, $\lVert\mathbf{x}\rVert_1=7$ (Fig. [13](#abb-13)), and $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
 
 :::abbildung ml/k1rl1 13
 The 1-norm of $\mathbf{x}=(3,\,-4)^{\top}$: add the absolute values of the components.
 :::
 
 Here the 1-norm is larger than the Euclidean length, because the detour along the streets is longer than the straight line.
+::::
 
 ⁠**In short:** The 1-norm adds the absolute values of the components; it is the route through a rectangular street grid.
 
@@ -86,7 +90,9 @@ $$\lVert\mathbf{x}\rVert_\infty=\max_{j=1,\dots,d}|x_j| . \tag{3.3}$$
 
 It is also called the $L_\infty$ norm. The reason for the infinity symbol is given in the next subsection.
 
-⁠**Worked example:** $\lVert(3,\,-4)^{\top}\rVert_\infty=4$ and $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. If the deviations of a part are $(0.05,\ -0.08,\ 0.02)$ mm, their maximum norm is $0.08$ mm, and the part passes.
+::::beispiel [Worked example]
+$\lVert(3,\,-4)^{\top}\rVert_\infty=4$ and $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. If the deviations of a part are $(0.05,\ -0.08,\ 0.02)$ mm, their maximum norm is $0.08$ mm, and the part passes.
+::::
 
 ⁠**In short:** The maximum norm is the largest absolute value of a component, the worst single deviation.
 
@@ -139,11 +145,13 @@ For $p=1$ this is the 1-norm, for $p=2$ the Euclidean norm. The larger $p$ is, t
 The unit spheres of three norms in the plane: the diamond of the 1-norm (left, orange), the circle of the Euclidean norm (middle, blue) and the square of the maximum norm (right, green); in each panel the other two are shown in gray for comparison. All three pass through the points $(\pm1,\,0)$ and $(0,\,\pm1)$.
 :::
 
-⁠**Worked example:** For $\mathbf{x}=(3,\,-4)^{\top}$, we get $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4.498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4.022$ (Fig. [15](#abb-15)) and $\lVert\mathbf{x}\rVert_\infty=4$. As $p$ grows, the $p$-norm approaches the largest absolute value of a component, here $4$. The reason can already be seen in the sum: for $p=10$, $4^{10}$ is almost eighteen times as large as $3^{10}$, and the root of the sum is hardly larger than the root of $4^{10}$ alone.
+::::beispiel [Worked example]
+For $\mathbf{x}=(3,\,-4)^{\top}$, we get $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4.498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4.022$ (Fig. [15](#abb-15)) and $\lVert\mathbf{x}\rVert_\infty=4$. As $p$ grows, the $p$-norm approaches the largest absolute value of a component, here $4$. The reason can already be seen in the sum: for $p=10$, $4^{10}$ is almost eighteen times as large as $3^{10}$, and the root of the sum is hardly larger than the root of $4^{10}$ alone.
 
 :::abbildung ml/k1rlp 15
 Two $p$-norms of $\mathbf{x}=(3,\,-4)^{\top}$, for $p=3$ and $p=10$. The larger $p$ is, the more the term of the largest component dominates.
 :::
+::::
 
 That the 1-norm satisfies conditions (N1) to (N3) can be checked directly: (N1) and (N2) hold because $|x_j|\ge0$ and $|c\,x_j|=|c|\,|x_j|$. (N3) follows from the triangle inequality for numbers, $|u_j+v_j|\le|u_j|+|v_j|$, summed over all $j$. The maximum norm works the same way. For the Euclidean norm, the triangle inequality is intuitively clear, because the direct route between two points is never longer than a detour via a third point.
 
@@ -182,7 +190,8 @@ is called the __error vector__. Here $\hat{\mathbf{y}}=(\hat y_1,\dots,\hat y_N)
 
 Which norm you apply to the error vector is a decision about which errors you fear most. The sign plays no role, because every norm gives $\mathbf{y}-\hat{\mathbf{y}}$ the same size as $\hat{\mathbf{y}}-\mathbf{y}$.
 
-⁠**Worked example:** The four apartments have been sold, and their actual prices were $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$ thousand euros. Two appraisers, A and B, had made estimates beforehand:
+::::beispiel [Worked example]
+The four apartments have been sold, and their actual prices were $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$ thousand euros. Two appraisers, A and B, had made estimates beforehand:
 
 $$\hat{\mathbf{y}}_{\mathrm A}=(210,\,120,\,300,\,230)^{\top},\qquad \hat{\mathbf{y}}_{\mathrm B}=(200,\,130,\,290,\,280)^{\top}.$$
 
@@ -202,6 +211,7 @@ The Euclidean norms of the two error vectors in thousand euros. With $1\,600$, t
 | Appraiser B, $\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y}$ | $40$ | $\sqrt{1600}=40$ | $40$ |
 
 By the 1-norm, both are equally good: each is off by $40$ thousand euros in total. By the Euclidean norm, A is twice as good, and by the maximum norm four times as good. If you consider every thousand euros of deviation equally bad, no matter for which apartment, you measure with $L_1$. If you consider one large outlier worse than many small errors, you measure with $L_2$. If you fear only the worst case, you measure with $L_\infty$.
+::::
 
 ⁠**In short:** The error vector collects the deviations of all predictions; its norm measures the size of the error, and the choice of norm determines which errors count most.
 
@@ -228,11 +238,13 @@ The abbreviation rms stands for *root mean square*: the square root of the mean 
 
 The name is familiar from electrical engineering: the RMS value of an AC voltage is the square root of the time average of its square. For a sampled signal, [(3.6)](#gl-3-6) is the same calculation with samples instead of an integral. If you sample a sine over exactly one period at $n\ge3$ evenly spaced points, you even get exactly the RMS value $1/\sqrt2$ of the sine.
 
-⁠**Worked example:** The error vectors of the appraisers from the previous subsection have the RMS values $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ and $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ thousand euros: A is typically off by $10$ thousand euros. A sine with amplitude $1$, sampled at four evenly spaced points of one period, has the samples $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ and the RMS value $1/\sqrt2\approx0.707$ (Fig. [17](#abb-17)).
+::::beispiel [Worked example]
+The error vectors of the appraisers from the previous subsection have the RMS values $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ and $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ thousand euros: A is typically off by $10$ thousand euros. A sine with amplitude $1$, sampled at four evenly spaced points of one period, has the samples $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ and the RMS value $1/\sqrt2\approx0.707$ (Fig. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
 The RMS value of a sampled sine: add the squares, divide by the number of components, take the square root.
 :::
+::::
 
 ⁠**In short:** The RMS value $\lVert\mathbf{x}\rVert/\sqrt n$ is the typical magnitude of a component and makes vectors with different numbers of components comparable.
 

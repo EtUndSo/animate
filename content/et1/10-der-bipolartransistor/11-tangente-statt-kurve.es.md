@@ -39,7 +39,11 @@ De $I_\mathrm{C}=I_\mathrm{S}\mathrm{e}^{U_\mathrm{BE}/U_T}$ se deduce $\frac{\p
 Izquierda, la curva característica de control con la tangente en el punto A (2 mA), pendiente $S=76{,}9$ mS. Derecha, curvas características de salida para dos valores de $U_\mathrm{BE}$. La distancia entre las curvas es el efecto de $S$. La pendiente de cada curva es $1/r_\mathrm{CE}$; prolongadas hacia la izquierda, alcanzan $-74$ V.
 :::
 
-**Ejemplo.** En el punto A, $S=2\,\mathrm{mA}/26\,\mathrm{mV}=76{,}9$ mS, es decir, $1/S=13\,\Omega$, y además $r_\mathrm{BE}=200/S=2{,}6$ k$\Omega$ y $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$. Mecanismo de $S$: 1 mV más de $U_\mathrm{BE}$ reduce la barrera, y según la tangente la inyección sube un 3,85 %, es decir, 77 µ A. Para lograr lo mismo por la salida harían falta 3 V en $U_\mathrm{CE}$. **En resumen:** la transconductancia es la corriente dividida por $U_T$, independiente de $B$ y de $I_\mathrm{S}$. **Casos límite:** $I_\mathrm{C}\to0$ da $S\to0$: sin corriente de reposo no hay efecto de control. $U_\mathrm{Early}\to\infty$ da $r_\mathrm{CE}\to\infty$, la fuente de corriente ideal.
+::::beispiel
+En el punto A, $S=2\,\mathrm{mA}/26\,\mathrm{mV}=76{,}9$ mS, es decir, $1/S=13\,\Omega$, y además $r_\mathrm{BE}=200/S=2{,}6$ k$\Omega$ y $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$. Mecanismo de $S$: 1 mV más de $U_\mathrm{BE}$ reduce la barrera, y según la tangente la inyección sube un 3,85 %, es decir, 77 µ A. Para lograr lo mismo por la salida harían falta 3 V en $U_\mathrm{CE}$.
+::::
+
+⁠**En resumen:** la transconductancia es la corriente dividida por $U_T$, independiente de $B$ y de $I_\mathrm{S}$. **Casos límite:** $I_\mathrm{C}\to0$ da $S\to0$: sin corriente de reposo no hay efecto de control. $U_\mathrm{Early}\to\infty$ da $r_\mathrm{CE}\to\infty$, la fuente de corriente ideal.
 
 **¿Cuánto es pequeño?** Exactamente, $i_\mathrm{c}=I_\mathrm{C}(\mathrm{e}^{u_\mathrm{be}/U_T}-1)$; la tangente dice $I_\mathrm{C}u_\mathrm{be}/U_T$. Con $u_\mathrm{be}=+1$ mV el error es del 2 %, con $+5$ mV es del 10 % ($+424$ µ A en lugar de $+385$ µ A), mientras que con $-5$ mV circulan solo $-350$ µ A. La semionda positiva se hace mayor que la negativa, y la señal se distorsiona. Con 26 mV, la tangente es inservible.
 

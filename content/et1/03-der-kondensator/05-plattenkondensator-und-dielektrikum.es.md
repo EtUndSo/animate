@@ -44,7 +44,9 @@ $$E=\frac{Q}{\varepsilon_0\,A},\qquad U=E\,d=\frac{Q\,d}{\varepsilon_0\,A}\quad\
 Con dieléctrico, algunas líneas terminan en la carga ligada $Q_\mathrm{g}$, y por el espacio solo pasa la parte $Q-Q_\mathrm{g}$. En la mayoría de los aislantes, esta parte es una fracción fija de $Q$. Se escribe $Q-Q_\mathrm{g}=Q/\varepsilon_\mathrm{r}$, lo que da $E=Q/(\varepsilon_\mathrm{r}\varepsilon_0A)$ y, con ello, [(4.1)](#gl-4-1).
 :::
 
-**Ejemplo.** El par de placas tiene $C=8{,}854\cdot10^{-12}\,\mathrm{F/m}\cdot0{,}01\,\mathrm{m^2}/0{,}003\,\mathrm{m}=29{,}5$ pF. Con cerámica de $\varepsilon_\mathrm{r}=1000$ serían 29,5 nF. Para 100 µF con 3 mm de aire haría falta el área $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$, es decir, 3,4 hectáreas. Por eso, los condensadores reales trabajan con capas finas (etapa [5](bauformen-und-selbstentladung.html#stufe-5)).
+::::beispiel
+El par de placas tiene $C=8{,}854\cdot10^{-12}\,\mathrm{F/m}\cdot0{,}01\,\mathrm{m^2}/0{,}003\,\mathrm{m}=29{,}5$ pF. Con cerámica de $\varepsilon_\mathrm{r}=1000$ serían 29,5 nF. Para 100 µF con 3 mm de aire haría falta el área $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$, es decir, 3,4 hectáreas. Por eso, los condensadores reales trabajan con capas finas (etapa [5](bauformen-und-selbstentladung.html#stufe-5)).
+::::
 
 ⁠**Comprobación:** La unidad es correcta: $\frac{\mathrm{A\,s}}{\mathrm{V\,m}}\cdot\frac{\mathrm{m^2}}{\mathrm{m}}=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$. **Caso límite:** Para $d\to0$, $C$ crecería sin límite. Lo impide la __ruptura__: con $E_\mathrm{max}$, el dieléctrico se vuelve conductor, en el aire con 3 MV/m ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Por eso, las capas finas necesitan un material sólido, y todo condensador tiene una tensión máxima $U_\mathrm{max}=E_\mathrm{max}\,d$.
 

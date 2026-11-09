@@ -19,7 +19,7 @@ Après les fonctions linéaires, les fonctions quadratiques sont les fonctions d
 
 <span class="anker" id="stufe-5-1"></span>
 
-Dans Fondements 1, section 8.4, toute fonction linéaire à une sortie était une somme pondérée $\mathbf{w}^{\top}\mathbf{x}$ des composantes. Le type de fonction suivant par ordre de simplicité additionne des produits de deux composantes : des carrés comme $x_1^2$ et des termes croisés comme $x_1x_2$. Un exemple tiré de l’électrotechnique est l’énergie magnétique de deux bobines couplées d’inductances $L_1$, $L_2$ et d’inductance mutuelle $M$, parcourues par les courants $i_1$ et $i_2$ :
+Dans [Fondements 1, section 8.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), toute fonction linéaire à une sortie était une somme pondérée $\mathbf{w}^{\top}\mathbf{x}$ des composantes. Le type de fonction suivant par ordre de simplicité additionne des produits de deux composantes : des carrés comme $x_1^2$ et des termes croisés comme $x_1x_2$. Un exemple tiré de l’électrotechnique est l’énergie magnétique de deux bobines couplées d’inductances $L_1$, $L_2$ et d’inductance mutuelle $M$, parcourues par les courants $i_1$ et $i_2$ :
 
 $$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
 
@@ -42,11 +42,13 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 
 Si l’on double $\mathbf{x}$, $f$ est multiplié par quatre : $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. D’où le nom.
 
-⁠**Exemple de calcul :** Pour $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, on a $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. Au point $\mathbf{x}=(1,\,-1)^{\top}$, on a $f=5-4+2=3$ ; pour contrôle, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ et $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La Fig. [14](#abb-14) calcule la double somme [(5.1)](#gl-5-1) en ce point, terme par terme. Au point $(1,\,1)^{\top}$, on a $f=11$ ; à l’origine, $f=0$. L’énergie des deux bobines vaut $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ avec le vecteur des courants $\mathbf i=(i_1,\,i_2)^{\top}$ ; la matrice est appelée matrice d’inductance.
+::::beispiel [Exemple de calcul]
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, on a $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. Au point $\mathbf{x}=(1,\,-1)^{\top}$, on a $f=5-4+2=3$ ; pour contrôle, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ et $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La Fig. [14](#abb-14) calcule la double somme [(5.1)](#gl-5-1) en ce point, terme par terme. Au point $(1,\,1)^{\top}$, on a $f=11$ ; à l’origine, $f=0$. L’énergie des deux bobines vaut $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ avec le vecteur des courants $\mathbf i=(i_1,\,i_2)^{\top}$ ; la matrice est appelée matrice d’inductance.
 
 :::abbildung ml/k2rqf 14
 La forme quadratique de $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ au point $\mathbf{x}=(1,-1)^{\top}$ comme double somme : quatre termes, un pour chaque coefficient de $\mathbf{A}$.
 :::
+::::
 
 ⁠**En bref :** Une forme quadratique $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ est une somme de carrés et de produits croisés des composantes, avec les coefficients de $\mathbf{A}$ comme poids.
 
@@ -71,7 +73,9 @@ Le nombre $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ est égal à sa propre transpo
 
 La matrice $\frac12(\mathbf{A}+\mathbf{A}^{\top})$ est symétrique. Dans ce chapitre, une forme quadratique a donc toujours une matrice symétrique. On la lit ainsi : sur la diagonale figurent les coefficients des carrés, et hors de la diagonale, à chaque fois la moitié du coefficient du terme croisé.
 
-⁠**Exemple de calcul :** La forme $3x_1^2-6x_1x_2+x_2^2$ a pour matrice symétrique $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. La forme $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ de $\mathbb{R}^3$ a pour matrice $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$ ; le terme croisé $2x_1x_3$ se répartit sur les coefficients $(1,3)$ et $(3,1)$.
+::::beispiel [Exemple de calcul]
+La forme $3x_1^2-6x_1x_2+x_2^2$ a pour matrice symétrique $\bigl(\begin{smallmatrix}3&-3\\-3&1\end{smallmatrix}\bigr)$. La forme $x_1^2+2x_2^2+4x_3^2+2x_1x_3$ de $\mathbb{R}^3$ a pour matrice $\Bigl(\begin{smallmatrix}1&0&1\\0&2&0\\1&0&4\end{smallmatrix}\Bigr)$ ; le terme croisé $2x_1x_3$ se répartit sur les coefficients $(1,3)$ et $(3,1)$.
+::::
 
 ⁠**En bref :** Une forme quadratique ne voit que la partie symétrique de sa matrice ; on l’écrit donc toujours avec une matrice symétrique.
 
@@ -109,7 +113,9 @@ En haut, les graphes des formes quadratiques $x_1^2+2x_2^2$ (cuvette), $x_1^2$ (
 
 Si les deux coefficients sont négatifs, la cuvette est à l’envers ; c’est un dôme. Un coefficient négatif et un coefficient nul donnent une gouttière retournée, une crête. Avec plus de deux variables, il en va de même : les signes des coefficients diagonaux décident de la forme.
 
-⁠**Exemple de calcul :** Pour la cuvette $f=x_1^2+2x_2^2$, la ligne de niveau $f=1$ est l’ellipse de demi-axes $1$ sur l’axe des $x_1$ et $1/\sqrt2\approx0{,}707$ sur l’axe des $x_2$ : en $(1,\,0)^{\top}$ et en $(0,\,1/\sqrt2)^{\top}$, on a $f=1$. Pour la selle $f=x_1^2-x_2^2$, on a $f(1,\,0)=1$, $f(0,\,1)=-1$ et $f(1,\,1)=0$.
+::::beispiel [Exemple de calcul]
+Pour la cuvette $f=x_1^2+2x_2^2$, la ligne de niveau $f=1$ est l’ellipse de demi-axes $1$ sur l’axe des $x_1$ et $1/\sqrt2\approx0{,}707$ sur l’axe des $x_2$ : en $(1,\,0)^{\top}$ et en $(0,\,1/\sqrt2)^{\top}$, on a $f=1$. Pour la selle $f=x_1^2-x_2^2$, on a $f(1,\,0)=1$, $f(0,\,1)=-1$ et $f(1,\,1)=0$.
+::::
 
 ⁠**En bref :** Sans termes croisés, on lit la forme sur les signes de la diagonale : tous positifs, une cuvette ; positif et nul, une gouttière ; signes contraires, une selle.
 
@@ -132,18 +138,22 @@ $$ax_1^2+2bx_1x_2+cx_2^2=a\Bigl(x_1+\frac bax_2\Bigr)^2+\Bigl(c-\frac{b^2}a\Bigr
 
 Le membre de droite est une somme de deux carrés. Les nouvelles variables $z_1=x_1+\frac bax_2$ et $z_2=x_2$ prennent tous les couples de valeurs possibles lorsque $\mathbf{x}$ parcourt le plan. La forme dans les variables $z_1,z_2$ n’a donc plus de terme croisé, et les signes de $a$ et de $c-b^2/a$ décident s’il s’agit d’une cuvette, d’une gouttière ou d’une selle.
 
-⁠**Exemple de calcul 1 :** Pour $5x_1^2+4x_1x_2+2x_2^2$, on a $a=5$, $b=2$, $c=2$ :
+::::beispiel [Exemple de calcul 1]
+Pour $5x_1^2+4x_1x_2+2x_2^2$, on a $a=5$, $b=2$, $c=2$ :
 
 $$5x_1^2+4x_1x_2+2x_2^2=5\,(x_1+0{,}4\,x_2)^2+1{,}2\,x_2^2 .$$
 
 Les deux coefficients sont positifs : la forme est une cuvette. Vérification en $\mathbf{x}=(1,\,-1)^{\top}$ : $5\cdot0{,}36+1{,}2=3$.
+::::
 
-⁠**Exemple de calcul 2 :** On a $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Les coefficients sont de signes contraires : c’est une selle. Effectivement, $f(1,\,0)=1>0$ et $f(1,\,-1)=1-6+1=-4<0$.
+::::beispiel [Exemple de calcul 2]
+On a $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Les coefficients sont de signes contraires : c’est une selle. Effectivement, $f(1,\,0)=1>0$ et $f(1,\,-1)=1-6+1=-4<0$.
+::::
 
 ⁠**En bref :** Compléter le carré écrit une forme quadratique comme une somme de carrés ; les signes des coefficients des carrés montrent s’il s’agit d’une cuvette, d’une gouttière ou d’une selle.
 
 :::hintergrund Compléter le carré, c’est la méthode du pivot de Gauss
-Les nombres de [(5.3)](#gl-5-3) sont les mêmes que dans la méthode du pivot de Gauss de Fondements 1, section 12.3, appliquée à la matrice symétrique $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Pour créer un zéro sous la diagonale, on retranche de la deuxième ligne $\frac ba$ fois la première et l’on obtient $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Les coefficients diagonaux de cette forme échelonnée, ce qu’on appelle les pivots, sont exactement les coefficients des carrés, et le facteur d’élimination $\frac ba$ figure dans la première parenthèse. Pour la matrice $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ : facteur $0{,}4$, pivots $5$ et $1{,}2$. Avec $n$ variables, on poursuit de la même façon : chaque étape d’élimination complète une variable en un carré. La forme est une cuvette si et seulement si tous les pivots sont positifs. D’après les règles de calcul de Fondements 1, section 14.5, le produit des pivots est le déterminant, ici $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Les nombres de [(5.3)](#gl-5-3) sont les mêmes que dans la méthode du pivot de Gauss de [Fondements 1, section 12.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), appliquée à la matrice symétrique $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Pour créer un zéro sous la diagonale, on retranche de la deuxième ligne $\frac ba$ fois la première et l’on obtient $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Les coefficients diagonaux de cette forme échelonnée, ce qu’on appelle les pivots, sont exactement les coefficients des carrés, et le facteur d’élimination $\frac ba$ figure dans la première parenthèse. Pour la matrice $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ : facteur $0{,}4$, pivots $5$ et $1{,}2$. Avec $n$ variables, on poursuit de la même façon : chaque étape d’élimination complète une variable en un carré. La forme est une cuvette si et seulement si tous les pivots sont positifs. D’après les règles de calcul de [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), le produit des pivots est le déterminant, ici $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Exercice 14 ★ Formes et matrices

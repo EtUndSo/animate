@@ -37,7 +37,9 @@ $$\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}=\mathrm{e}^{\sigma t}\cdot\mathrm{e}^{
 
 Der Realteil $\mathrm{e}^{\sigma t}\cos(\omega t)$ ist eine Schwingung mit der Kreisfrequenz $\omega$, deren Amplitude $\mathrm{e}^{\sigma t}$ für $\sigma<0$ abklingt und für $\sigma>0$ wächst. Für $\sigma=0$ ist die Amplitude konstant 1.
 
-⁠**Beispiel:** Für $\sigma=-0{,}5/\mathrm s$, $\omega=\pi/\mathrm s$ und $t=1\,\mathrm{s}$ ist $\mathrm{e}^{(-0{,}5+\mathrm{j}\pi)\cdot1}=\mathrm{e}^{-0{,}5}\bigl[\cos\pi+\mathrm{j}\sin\pi\bigr]=0{,}607\cdot(-1+0)=-0{,}607$.
+::::beispiel
+Für $\sigma=-0{,}5/\mathrm s$, $\omega=\pi/\mathrm s$ und $t=1\,\mathrm{s}$ ist $\mathrm{e}^{(-0{,}5+\mathrm{j}\pi)\cdot1}=\mathrm{e}^{-0{,}5}\bigl[\cos\pi+\mathrm{j}\sin\pi\bigr]=0{,}607\cdot(-1+0)=-0{,}607$.
+::::
 
 ⁠**Kurz gesagt:** $\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}$ ist eine komplexe Schwingung mit der Kreisfrequenz $\omega$, deren Amplitude $\mathrm{e}^{\sigma t}$ abklingt oder wächst.
 
@@ -71,7 +73,8 @@ Die Konstante $H$ heißt der zugehörige __Eigenwert__. Sie darf komplex sein, a
 
 Anschaulich: Der Ausgang ist der Eingang, nur mit einer Zahl multipliziert. Die Form bleibt erhalten.
 
-⁠**Beispiel: das ideale Laufzeitglied.** Es verzögert jedes Signal um die feste Zeit $T$: Seine Impulsantwort ist $h(t)=\delta(t-T)$, sein Ausgang $g(t)=s(t-T)$.
+::::beispiel das ideale Laufzeitglied
+Es verzögert jedes Signal um die feste Zeit $T$: Seine Impulsantwort ist $h(t)=\delta(t-T)$, sein Ausgang $g(t)=s(t-T)$.
 
 <ul>
 
@@ -88,6 +91,7 @@ Eingang $s(t)=t$: Der Ausgang $t-T$ ist kein festes Vielfaches von $t$, denn der
 </li>
 
 </ul>
+::::
 
 ⁠**Kurz gesagt:** Eine Eigenfunktion kommt aus dem System in derselben Form heraus, nur mit dem Eigenwert multipliziert.
 
@@ -174,11 +178,13 @@ die __Laplace-Übertragungsfunktion__. Sie ist für alle $p$ erklärt, für die 
 
 Die Integrationsvariable heißt hier $t$ statt $\tau$, der Wert ist derselbe. Hat $h$ die Einheit $1/\mathrm s$, so ist $H(p)$ eine reine Zahl. Für welche $p$ das Integral existiert, hängt von $h$ ab.
 
-⁠**Beispiel: der RC-Tiefpass.** Seine Impulsantwort ist $h(t)=\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)$. Wegen $\varepsilon(t)=0$ für $t<0$ beginnt das Integral bei null:
+::::beispiel der RC-Tiefpass
+Seine Impulsantwort ist $h(t)=\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)$. Wegen $\varepsilon(t)=0$ für $t<0$ beginnt das Integral bei null:
 
 $$H(p)=\frac{1}{RC}\int_0^\infty\mathrm{e}^{-(p+1/RC)t}\,\mathrm{d} t=\frac{1}{RC}\cdot\frac{1}{p+1/RC}=\frac{1}{1+pRC}.$$
 
 Das Integral existiert, wenn $\bigl|\mathrm{e}^{-(p+1/RC)t}\bigr|=\mathrm{e}^{-(\sigma+1/RC)t}$ für $t\to\infty$ abklingt, also für $\operatorname{Re} p>-1/RC$. Mit $RC=1\,\mathrm{s}$ ist $H(p)=1/(p+1)$, und zum Beispiel $H(-0{,}5/\mathrm s)=2$: Auf den Eingang $\mathrm{e}^{-t/2}$ antwortet das RC-Glied mit $2\,\mathrm{e}^{-t/2}$.
+::::
 
 ⁠**Kurz gesagt:** $H(p)$ ist die Zahl, mit der ein LTI-System die Eigenfunktion $\mathrm{e}^{pt}$ multipliziert.
 
@@ -205,7 +211,9 @@ $$\bigl[s_\mathrm{E}(t)*h_1(t)\bigr]*h_2(t)=\bigl[H_1(p)\,s_\mathrm{E}(t)\bigr]*
 
 Das erste System multipliziert mit $H_1(p)$. Das Ergebnis ist immer noch ein Vielfaches von $\mathrm{e}^{pt}$, also eine Eigenfunktion des zweiten Systems, und dieses multipliziert mit $H_2(p)$.
 
-⁠**Beispiel:** Zwei RC-Tiefpässe mit $RC=1\,\mathrm{s}$, entkoppelt durch einen Trennverstärker, multiplizieren $\mathrm{e}^{pt}$ mit $H_1(p)H_2(p)=1/(p+1)^2$.
+::::beispiel
+Zwei RC-Tiefpässe mit $RC=1\,\mathrm{s}$, entkoppelt durch einen Trennverstärker, multiplizieren $\mathrm{e}^{pt}$ mit $H_1(p)H_2(p)=1/(p+1)^2$.
+::::
 
 ⁠**Kurz gesagt:** In einer rückwirkungsfreien Kette multiplizieren sich die Übertragungsfunktionen.
 
@@ -228,11 +236,13 @@ die __Laplace-Transformierte__ von $s(t)$. Sie ist für alle $p$ erklärt, für 
 
 Das Signal $s(t)$ lebt im __Zeitbereich__, seine Transformierte $S(p)$ im __Bildbereich__. Man schreibt Zeitsignale mit kleinen und ihre Transformierten mit großen Buchstaben. Gehören $s(t)$ und $S(p)$ zusammen, schreibt man $s(t)\longleftrightarrow S(p)$. Die Übertragungsfunktion ist in dieser Sprache die Laplace-Transformierte der Impulsantwort, $H(p)=\mathcal{L}_2\{h(t)\}$.
 
-⁠**Beispiel: der Einheitssprung.** Für $s(t)=\varepsilon(t)$ ist
+::::beispiel der Einheitssprung
+Für $s(t)=\varepsilon(t)$ ist
 
 $$S(p)=\int_0^\infty\mathrm{e}^{-pt}\,\mathrm{d} t=\Bigl[-\frac{\mathrm{e}^{-pt}}{p}\Bigr]_0^\infty=\frac1p,$$
 
 sofern $|\mathrm{e}^{-pt}|=\mathrm{e}^{-\sigma t}$ für $t\to\infty$ abklingt, also für $\operatorname{Re} p>0$.
+::::
 
 ⁠**Kurz gesagt:** Die Laplace-Transformation ordnet einem Signal $s(t)$ die Funktion $S(p)=\int s(t)\,\mathrm{e}^{-pt}\mathrm{d} t$ der komplexen Frequenz zu.
 

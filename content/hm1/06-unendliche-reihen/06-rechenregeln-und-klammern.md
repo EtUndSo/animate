@@ -61,7 +61,11 @@ Weil $n_{M+1}-1$ streng wächst, ist $\{\tilde S_M\}$ eine Teilfolge von $\{S_N\
 Die Teilsummen von $1-1+1-1+\dots$ pendeln. Die linke Klammerung liest nur die geraden ab, die rechte nur die ungeraden. Zwei Teilfolgen, zwei Grenzwerte, die Reihe selbst hat keinen.
 :::
 
-**Beispiel.** Regeln (i) und (ii): $\sum_{n=0}^\infty\bigl(3(\frac12)^n-2(\frac13)^n\bigr)=3\cdot2-2\cdot\frac32=3$. Regel (iii): Die Reihe $L_N$ konvergiert, also darf man Paare bilden: $(1-\frac12)+(\frac13-\frac14)+\dots=\frac12+\frac1{12}+\frac1{30}+\dots$ Die Teilsummen sind $L_2,L_4,L_6,\dots$, der Wert bleibt $\log2$. **Grenzfall:** Für $n_k=k$ enthält jeder Block ein Glied, und (iii) sagt nichts Neues.
+::::beispiel
+Regeln (i) und (ii): $\sum_{n=0}^\infty\bigl(3(\frac12)^n-2(\frac13)^n\bigr)=3\cdot2-2\cdot\frac32=3$. Regel (iii): Die Reihe $L_N$ konvergiert, also darf man Paare bilden: $(1-\frac12)+(\frac13-\frac14)+\dots=\frac12+\frac1{12}+\frac1{30}+\dots$ Die Teilsummen sind $L_2,L_4,L_6,\dots$, der Wert bleibt $\log2$.
+::::
+
+⁠**Grenzfall:** Für $n_k=k$ enthält jeder Block ein Glied, und (iii) sagt nichts Neues.
 
 :::aufgabe Aufgabe 4 ★ Gliedweise rechnen
 <span class="anker" id="aufg-4"></span>

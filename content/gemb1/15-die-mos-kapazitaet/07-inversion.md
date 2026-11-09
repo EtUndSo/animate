@@ -53,7 +53,11 @@ Oberhalb von $\varphi_\mathrm{s,SI}$ ändert sich die Lage grundlegend. Schon 60
 <span class="anker" id="gl-5-2"></span>
 $$L_\mathrm{depl,max}=\sqrt{\frac{2\varepsilon\,\varphi_\mathrm{s,SI}}{eN_\mathrm A}}=\sqrt{\frac{4\varepsilon V_\mathrm T\ln(N_\mathrm A/n_\mathrm i)}{eN_\mathrm A}}. \tag{5.2}$$
 
-**Beispiel.** Im Rechenmodell ist $\varphi_\mathrm{s,WI}=0{,}389$ V, $\varphi_\mathrm{s,SI}=0{,}777$ V und $L_\mathrm{depl,max}=183$ nm. Dabei wächst $n(0)$ von $2{,}6\cdot10^{3}$ auf $3\cdot10^{16}\,\mathrm{cm^{-3}}$, um den Faktor $10^{13}$. Bei $\varphi_\mathrm{s,SI}$ liegt $E_\mathrm C$ noch 0,17 eV über $E_\mathrm F$. Bei rund 0,95 V schneidet $E_\mathrm C$ das Fermi-Niveau, und die Schicht verhält sich metallähnlich. **Grenzfälle:** Für $N_\mathrm A=10^{14}$, $10^{16}$ und $10^{18}\,\mathrm{cm^{-3}}$ ist $\varphi_\mathrm{s,SI}=0{,}48$, 0,72 und 0,96 V und $L_\mathrm{depl,max}=2{,}5$ µ m, 305 nm und 35 nm. Stärkere Dotierung braucht etwas mehr Bandverbiegung, die Zone wird aber viel schmaler.
+::::beispiel
+Im Rechenmodell ist $\varphi_\mathrm{s,WI}=0{,}389$ V, $\varphi_\mathrm{s,SI}=0{,}777$ V und $L_\mathrm{depl,max}=183$ nm. Dabei wächst $n(0)$ von $2{,}6\cdot10^{3}$ auf $3\cdot10^{16}\,\mathrm{cm^{-3}}$, um den Faktor $10^{13}$. Bei $\varphi_\mathrm{s,SI}$ liegt $E_\mathrm C$ noch 0,17 eV über $E_\mathrm F$. Bei rund 0,95 V schneidet $E_\mathrm C$ das Fermi-Niveau, und die Schicht verhält sich metallähnlich.
+::::
+
+⁠**Grenzfälle:** Für $N_\mathrm A=10^{14}$, $10^{16}$ und $10^{18}\,\mathrm{cm^{-3}}$ ist $\varphi_\mathrm{s,SI}=0{,}48$, 0,72 und 0,96 V und $L_\mathrm{depl,max}=2{,}5$ µ m, 305 nm und 35 nm. Stärkere Dotierung braucht etwas mehr Bandverbiegung, die Zone wird aber viel schmaler.
 
 :::frage Warum spricht man erst bei $E_\mathrm{Fi}=E_\mathrm F$ von Inversion, wenn die Elektronen doch von Anfang an zunehmen?
 Sie sind zunächst viel seltener als Löcher: Bei $\varphi_\mathrm s=0{,}2$ V stehen $6\cdot10^{6}$ Elektronen $1{,}3\cdot10^{13}$ Löchern gegenüber. $E_\mathrm{Fi}=E_\mathrm F$ ist genau der Ort, an dem beide Dichten gleich sind.

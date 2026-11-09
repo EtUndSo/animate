@@ -45,7 +45,9 @@ $$W_{12}=Q\int_{r_1}^{r_2}k\,\frac{Q_0}{r^2}\,\mathrm{d} r=k\,Q\,Q_0\Bigl(\frac{
 Ausschnitt des Plattenpaars, maßstäblich. Eine Probeladung $+1$ nC läuft um das Dreieck. Von 1 nach 2 gewinnt sie 9 nJ. Von 2 nach 3 läuft sie quer zum Feld: keine Arbeit. Von 3 nach 1 verliert sie 9 nJ. Der Umlauf ergibt null.
 :::
 
-**Beispiel.** In Abb. [7](#abb-7) ist $F=Q\,E=3$ µ N in $x$-Richtung und $W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ. Direkt von 1 nach 3 ist der Weg 5 mm lang, mit $\cos\alpha=0{,}6$: wieder 9 nJ. Im Feld von Kugel A ($Q_0=+10$ nC) gewinnt $+1$ nC von 3 cm bis 6 cm die Energie $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1{,}5$ µ J.
+::::beispiel
+In Abb. [7](#abb-7) ist $F=Q\,E=3$ µ N in $x$-Richtung und $W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ. Direkt von 1 nach 3 ist der Weg 5 mm lang, mit $\cos\alpha=0{,}6$: wieder 9 nJ. Im Feld von Kugel A ($Q_0=+10$ nC) gewinnt $+1$ nC von 3 cm bis 6 cm die Energie $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1{,}5$ µ J.
+::::
 
 ⁠**Grenzfälle:** Für $\alpha=90^\circ$ und für $P_2=P_1$ ist $W=0$. Bei negativer Ladung kehrt sich das Vorzeichen um: Ein Elektron gewinnt Energie, wenn es gegen $\vec E$ läuft. Für $r_2\to\infty$ bleibt $W_{12}=kQQ_0/r_1$ endlich.
 

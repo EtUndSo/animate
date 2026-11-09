@@ -30,7 +30,9 @@ Ein __Compiler__ ist ein Programm, das einen Quelltext vollständig in Maschinen
 
 Eine solche Datei heißt __ausführbare Datei__. Unter Windows endet ihr Name meist auf `.exe`.
 
-**Beispiel.** Programme in der Sprache C werden so übersetzt. Aus dem Quelltext `hallo.c` macht der Compiler `gcc` die ausführbare Datei `hallo.exe` (Windows) oder `hallo` (Linux). Diese Datei startet man danach direkt, beliebig oft und ohne den Compiler. Sie enthält Maschinencode für eine bestimmte Prozessorfamilie und ein bestimmtes Betriebssystem; für einen anderen Rechner muss man neu übersetzen.
+::::beispiel
+Programme in der Sprache C werden so übersetzt. Aus dem Quelltext `hallo.c` macht der Compiler `gcc` die ausführbare Datei `hallo.exe` (Windows) oder `hallo` (Linux). Diese Datei startet man danach direkt, beliebig oft und ohne den Compiler. Sie enthält Maschinencode für eine bestimmte Prozessorfamilie und ein bestimmtes Betriebssystem; für einen anderen Rechner muss man neu übersetzen.
+::::
 
 ⁠**Kurz gesagt:** Ein Compiler übersetzt den ganzen Quelltext einmal vorab in eine ausführbare Datei aus Maschinencode.
 
@@ -48,7 +50,9 @@ Es geht auch ohne ausführbare Datei: Ein Programm kann den Quelltext lesen und 
 Ein __Interpreter__ ist ein Programm, das einen Quelltext liest und die darin beschriebenen Schritte selbst ausführt. Er erzeugt keine ausführbare Datei und muss deshalb bei jedem Start des Programms dabei sein.
 :::
 
-**Beispiel.** Python-Programme laufen so. Den Quelltext `hallo.py` startet man mit einem Befehl wie `python hallo.py`. Das Programm `python` ist der Interpreter: Es liest die Datei und führt aus, was darin steht. Der Prozessor führt dabei die ganze Zeit den Maschinencode des Interpreters aus, nie den Python-Quelltext selbst.
+::::beispiel
+Python-Programme laufen so. Den Quelltext `hallo.py` startet man mit einem Befehl wie `python hallo.py`. Das Programm `python` ist der Interpreter: Es liest die Datei und führt aus, was darin steht. Der Prozessor führt dabei die ganze Zeit den Maschinencode des Interpreters aus, nie den Python-Quelltext selbst.
+::::
 
 Die beiden Wege im Vergleich:
 
@@ -82,7 +86,9 @@ __Python__ ist eine Programmiersprache; ihre Syntax und Semantik sind in der Spr
 
 CPython ist das ursprüngliche und mit Abstand meistbenutzte Programm dieser Art. Neue Sprachmittel erscheinen meist zuerst dort.
 
-**Beispiel.** Es gibt weitere Programme, die Python-Quelltext ausführen, etwa PyPy, das viele Programme schneller abarbeitet. Sie halten sich an dieselbe Sprachreferenz, also an dieselbe Syntax und Semantik. In dieser Reihe ist mit dem Programm `python` immer CPython gemeint.
+::::beispiel
+Es gibt weitere Programme, die Python-Quelltext ausführen, etwa PyPy, das viele Programme schneller abarbeitet. Sie halten sich an dieselbe Sprachreferenz, also an dieselbe Syntax und Semantik. In dieser Reihe ist mit dem Programm `python` immer CPython gemeint.
+::::
 
 ⁠**Kurz gesagt:** Python ist die Sprache, CPython das Programm, das sie ausführt.
 
@@ -126,7 +132,9 @@ Für ein Programm, das du startest, legt CPython den Bytecode nur im Arbeitsspei
 Zwei Wege vom Quelltext zur Ausführung. Links Python: Das Programm `python` (CPython) übersetzt bei jedem Start die ganze Datei in Bytecode und arbeitet diesen danach in seiner Interpreterschleife ab. Rechts C: Der Compiler übersetzt einmal vorab in eine ausführbare Datei, die der Prozessor danach ohne Compiler ausführt.
 :::
 
-**Beispiel.** Aus der Zeile `(1 + 2 / 1) / 2` entstehen Bytecode-Befehle der Art „lege die Zahl 1 bereit“, „teile“, „addiere“. Der Übersetzer geht dabei sogar einen Schritt weiter: Einen Ausdruck, der nur aus festen Zahlen besteht, rechnet er schon beim Übersetzen aus. Im Bytecode steht dann gleich die Zahl 1,5, und beim Ausführen ist nichts mehr zu rechnen. Wie der Bytecode genau aussieht, hängt von der Python-Version ab; er ist ein inneres Werkzeug von CPython und kann sich mit jeder neuen Version ändern.
+::::beispiel
+Aus der Zeile `(1 + 2 / 1) / 2` entstehen Bytecode-Befehle der Art „lege die Zahl 1 bereit“, „teile“, „addiere“. Der Übersetzer geht dabei sogar einen Schritt weiter: Einen Ausdruck, der nur aus festen Zahlen besteht, rechnet er schon beim Übersetzen aus. Im Bytecode steht dann gleich die Zahl 1,5, und beim Ausführen ist nichts mehr zu rechnen. Wie der Bytecode genau aussieht, hängt von der Python-Version ab; er ist ein inneres Werkzeug von CPython und kann sich mit jeder neuen Version ändern.
+::::
 
 Eine Folge der zwei Phasen ist für die Praxis wichtig: Verstößt irgendeine Stelle der Datei gegen die Syntax, entsteht gar kein Bytecode. Dann läuft keine einzige Zeile, auch nicht die erste.
 

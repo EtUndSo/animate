@@ -29,9 +29,9 @@ The __identity matrix__ $\mathbf{I}_n\in\mathbb{R}^{n\times n}$ is the diagonal 
 
 If the size is clear, you write $\mathbf{I}$ for short. For every vector $\mathbf{x}\in\mathbb{R}^n$, $\mathbf{I}\mathbf{x}=\mathbf{x}$, and for every matrix $\mathbf{A}\in\mathbb{R}^{m\times n}$, $\mathbf{A}\mathbf{I}_n=\mathbf{A}$ and $\mathbf{I}_m\mathbf{A}=\mathbf{A}$. In the matrix product, the identity matrix plays the role of the number $1$.
 
-⁠**Worked example:**
-
+::::beispiel [Worked example]
 $$\mathbf{I}_3=\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix},\qquad \mathbf{I}_3\begin{pmatrix}60\\2\\3\end{pmatrix}=\begin{pmatrix}60\\2\\3\end{pmatrix}.$$
+::::
 
 ⁠**In short:** The identity matrix has ones on the diagonal and zeros everywhere else; as a map, it leaves every vector unchanged.
 
@@ -54,11 +54,11 @@ The matrix $\mathbf{A}^{-1}$ is called the __inverse__ of $\mathbf{A}$.
 
 There is at most one such matrix. Indeed, if $\mathbf{B}$ and $\mathbf{C}$ are both inverse to $\mathbf{A}$, then $\mathbf{B}=\mathbf{B}\mathbf{I}=\mathbf{B}(\mathbf{A}\mathbf{C})=(\mathbf{B}\mathbf{A})\mathbf{C}=\mathbf{I}\mathbf{C}=\mathbf{C}$. That is why you may speak of *the* inverse. If you know it, you can calculate back from any result $\mathbf{y}=\mathbf{A}\mathbf{x}$: $\mathbf{A}^{-1}\mathbf{y}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{x}$.
 
-⁠**Worked example:**
-
+::::beispiel [Worked example]
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\begin{pmatrix}2-1&-2+2\\1-1&-1+2\end{pmatrix}=\begin{pmatrix}1&0\\0&1\end{pmatrix},$$
 
 and likewise in the other order, so $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$. The stretch has the inverse $\operatorname{diag}(2,\,0.5)^{-1}=\operatorname{diag}(0.5,\,2)$, and the rotation by $90^\circ$ has the rotation by $-90^\circ$, $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)^{-1}=\bigl(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\bigr)$.
+::::
 
 ⁠**In short:** The inverse $\mathbf{A}^{-1}$ undoes the map $\mathbf{A}$: $\mathbf{A}^{-1}\mathbf{A}=\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$.
 
@@ -89,7 +89,9 @@ $$\begin{pmatrix}a&b\\c&d\end{pmatrix}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}=\be
 and likewise in the other order. If $ad-bc\ne0$, you divide by this number and obtain [(11.1)](#gl-11-1). If $ad-bc=0$, then $\mathbf{A}$ sends the vector $(d,\,-c)^{\top}$ to $(ad-bc,\ cd-dc)^{\top}=\mathbf{0}$, and likewise $(b,\,-a)^{\top}$ to $\mathbf{0}$. At least one of the two is not the zero vector, unless all four entries are zero, and then $\mathbf{A}$ is the zero matrix anyway. But a matrix that maps a vector $\mathbf{x}\ne\mathbf{0}$ to $\mathbf{0}$ has no inverse: if it had one, then $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\mathbf{A}^{-1}\mathbf{0}=\mathbf{0}$.
 :::
 
-⁠**Worked example:** For $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$, $ad-bc=2-1=1$, so the inverse is $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$, as above. For $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $ad-bc=5$ and the inverse is $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$.
+::::beispiel [Worked example]
+For $\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$, $ad-bc=2-1=1$, so the inverse is $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$, as above. For $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $ad-bc=5$ and the inverse is $\tfrac15\bigl(\begin{smallmatrix}2&-1\\-1&3\end{smallmatrix}\bigr)$.
+::::
 
 ⁠**In short:** A $2\times2$ matrix is invertible exactly when $ad-bc\ne0$; the inverse is $\frac{1}{ad-bc}\bigl(\begin{smallmatrix}d&-b\\-c&a\end{smallmatrix}\bigr)$.
 
@@ -113,9 +115,11 @@ In each case you check that the product with the candidate gives the identity ma
 
 One rule you might wish for does not hold: $(\mathbf{A}+\mathbf{B})^{-1}$ is in general not $\mathbf{A}^{-1}+\mathbf{B}^{-1}$. Even for numbers, $\frac{1}{2+4}=\frac16$, but $\frac12+\frac14=\frac34$.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ and $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ with $ad-bc=21-16=5$, so $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. The same result comes from
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)$ and $\mathbf{B}=\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$, $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ with $ad-bc=21-16=5$, so $(\mathbf{A}\mathbf{B})^{-1}=\tfrac15\bigl(\begin{smallmatrix}3&-4\\-4&7\end{smallmatrix}\bigr)$. The same result comes from
 
 $$\mathbf{B}^{-1}\mathbf{A}^{-1}=\tfrac15\begin{pmatrix}2&-1\\-1&3\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix}=\tfrac15\begin{pmatrix}3&-4\\-4&7\end{pmatrix}.$$
+::::
 
 ⁠**In short:** The inverse of a product is the product of the inverses in reverse order, $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$.
 
@@ -141,7 +145,9 @@ If there were an inverse, then $\mathbf{x}=\mathbf{A}^{-1}\mathbf{A}\mathbf{x}=\
 
 Intuitively: with $\mathbf{A}\mathbf{x}=\mathbf{0}$, for every $\mathbf{u}$ the two different vectors $\mathbf{u}$ and $\mathbf{u}+\mathbf{x}$ land at the same place, because $\mathbf{A}(\mathbf{u}+\mathbf{x})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{x}=\mathbf{A}\mathbf{u}$. Two inputs with the same output cannot be told apart. A square matrix that is not invertible is called __singular__.
 
-⁠**Worked example:** For $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $ad-bc=4-4=0$. Indeed, $\mathbf{x}=(2,\,-1)^{\top}$ is mapped to $(2-2,\ 4-4)^{\top}=\mathbf{0}$, and the different vectors $(1,\,1)^{\top}$ and $(3,\,0)^{\top}$ both land at $(3,\,6)^{\top}$.
+::::beispiel [Worked example]
+For $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, $ad-bc=4-4=0$. Indeed, $\mathbf{x}=(2,\,-1)^{\top}$ is mapped to $(2-2,\ 4-4)^{\top}=\mathbf{0}$, and the different vectors $(1,\,1)^{\top}$ and $(3,\,0)^{\top}$ both land at $(3,\,6)^{\top}$.
+::::
 
 For data this means: a calculation that, for instance, combines the numbers of bedrooms and living rooms into just the total number of rooms can no longer separate the two numbers. For $2\times2$ matrices this is exactly the case $ad-bc=0$ from Subsection [11.3](#stufe-11-3).
 

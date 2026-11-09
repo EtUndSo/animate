@@ -51,7 +51,9 @@ By [(3.2)](die-kraft-zwischen-ladungen.html#gl-3-2), a test charge $Q$ experienc
 Field vectors around a positive and a negative point charge. The field points away from the positive charge and toward the negative one. The arrow length is proportional to $1/r^2$.
 :::
 
-**Example.** Sphere B ($-20$ nC) produces at the location of sphere A the field $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2.0\cdot10^5$ V/m, which points toward B. The force on A is $F=10\,\mathrm{nC}\cdot2.0\cdot10^5\,\mathrm{V/m}=2.0$ mN as in Stage [3](die-kraft-zwischen-ladungen.html#stufe-3). Conversely, A produces only $1.0\cdot10^5$ V/m at the location of B, but meets twice the charge there: again 2.0 mN.
+::::beispiel
+Sphere B ($-20$ nC) produces at the location of sphere A the field $E=k\cdot20\,\mathrm{nC}/(3\,\mathrm{cm})^2=2.0\cdot10^5$ V/m, which points toward B. The force on A is $F=10\,\mathrm{nC}\cdot2.0\cdot10^5\,\mathrm{V/m}=2.0$ mN as in Stage [3](die-kraft-zwischen-ladungen.html#stufe-3). Conversely, A produces only $1.0\cdot10^5$ V/m at the location of B, but meets twice the charge there: again 2.0 mN.
+::::
 
 ⁠**In short:** the force on a charge is its charge times the field at its location.
 

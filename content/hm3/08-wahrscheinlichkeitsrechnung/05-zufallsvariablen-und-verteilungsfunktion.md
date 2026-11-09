@@ -33,7 +33,8 @@ $$\mathbb{P}(a<X\le b)=F_X(b)-F_X(a). \tag{4.2}$$
 
 Mit einer stetigen Funktion $g:\mathbb{R}\to\mathbb{R}$ ist auch $Y=g(X)$ eine Zufallsvariable, denn $\{x:g(x)\le y\}$ ist abgeschlossen und entsteht aus Intervallen durch abzählbar viele Mengenoperationen.
 
-**Beispiel: die Summe.** Für $S$ zählt man die Felder von Abb. [1](ereignisse-und-wahrscheinlichkeit.html#abb-1) längs der Nebendiagonalen ab:
+::::beispiel die Summe
+Für $S$ zählt man die Felder von Abb. [1](ereignisse-und-wahrscheinlichkeit.html#abb-1) längs der Nebendiagonalen ab:
 
 | $s$ | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|
@@ -45,6 +46,7 @@ $F_S$ ist eine Treppe (Abb. [4](#abb-4)): null für $x<2$, eins für $x\ge8$, u
 :::abbildung hm3/k8treppe 4
 Summe zweier Vierer-Würfel. Rechts summiert die Verteilungsfunktion die Balken von links auf. An jedem Sprung gilt der obere Wert, denn $\{S\le s\}$ enthält $s$.
 :::
+::::
 
 :::satz Satz 4.2 (Eigenschaften der Verteilungsfunktion)
 <span class="anker" id="satz-4-2"></span>

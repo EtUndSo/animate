@@ -43,7 +43,9 @@ Die __technische Stromrichtung__ ist die Richtung, in der positive Ladung liefe:
 Links: Kette aus Quelle und $3\,\mathrm{k\Omega}$ mit den üblichen Pfeilen. An der Quelle gegensinnig (GZS), am Widerstand gleichsinnig (VZS), alle Werte positiv. Die Elektronen laufen gegen den Strompfeil. Rechts: Derselbe Widerstand, einmal mit gedrehtem Spannungspfeil. Es ändert sich nur das Vorzeichen.
 :::
 
-**Beispiel.** 9 V an $3\,\mathrm{k\Omega}$ ergeben $I=3$ mA. Zeigt der Spannungspfeil von unten nach oben, ist $U=\varphi_\text{unten}-\varphi_\text{oben}=-9$ V, und [(5.2)](#gl-5-2) lautet $-9\,\mathrm{V}=-3\,\mathrm{k\Omega}\cdot3\,\mathrm{mA}$. **Kontrolle:** Dreht man beide Pfeile, wird aus $U=R\,I$ die Gleichung $-U=R\,(-I)$, also wieder dieselbe.
+::::beispiel
+9 V an $3\,\mathrm{k\Omega}$ ergeben $I=3$ mA. Zeigt der Spannungspfeil von unten nach oben, ist $U=\varphi_\text{unten}-\varphi_\text{oben}=-9$ V, und [(5.2)](#gl-5-2) lautet $-9\,\mathrm{V}=-3\,\mathrm{k\Omega}\cdot3\,\mathrm{mA}$. **Kontrolle:** Dreht man beide Pfeile, wird aus $U=R\,I$ die Gleichung $-U=R\,(-I)$, also wieder dieselbe.
+::::
 
 :::frage Elektronen laufen von Minus nach Plus. Warum rechnet man andersherum?
 Die Richtung wurde festgelegt, bevor man Elektronen kannte, und sie schadet nicht: In $\vec j=q\,\vec v$ ändern bei den Elektronen beide Faktoren das Vorzeichen. Elektronen nach links ergeben dieselbe Stromdichte wie positive Ladung nach rechts. Spannungsabfall, Wärme und Magnetfeld hängen nur von $\vec j$ ab.

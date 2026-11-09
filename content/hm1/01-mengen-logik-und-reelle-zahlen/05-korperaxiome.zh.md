@@ -98,7 +98,11 @@ $xy=0\Rightarrow(x=0\vee y=0)$。
 (vi) $\frac xu\cdot\frac yv=(xu^{-1})(yv^{-1})=(xy)(u^{-1}v^{-1})$，而 $u^{-1}v^{-1}=(uv)^{-1}$，因为 $(u^{-1}v^{-1})(uv)=1$ 且逆元唯一。除法法则由 $(y v^{-1})^{-1}=y^{-1}v$ 得出，加法法则通过通分得出：$\frac xu=\frac{xv}{uv}$，$\frac yv=\frac{yu}{uv}$，再用 (AM)。
 :::
 
-**例。** $(-3)(-5)=15$，$\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$，$\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$。**极限情况** $v=u=1$：加法法则变为 $x+y=x+y$。
+::::beispiel
+$(-3)(-5)=15$，$\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$，$\frac34:\frac58=\frac{3\cdot8}{4\cdot5}=\frac65$。
+::::
+
+⁠**极限情况** $v=u=1$：加法法则变为 $x+y=x+y$。
 
 :::frage 这些我在学校就知道了。为什么还要证明？
 对 $\mathbb{Q}$ 和 $\mathbb{R}$ 来说，这些规则是熟悉的。但它们不在公理之中，只有证明才说明它们在哪里成立：在每个域中。而学校里的规则“平方不为负”却不能从这份清单推出，并在[第 2 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)失效。此外，这也是在用结果已知的内容练习推理。

@@ -34,11 +34,13 @@ Sin índice, $\lVert\mathbf{x}\rVert$ designa en esta serie siempre la norma euc
 
 Se llama también la __longitud__ del vector o, por los cuadrados, la norma $L_2$. Un vector de longitud $1$ se llama __normalizado__. Si se divide un vector $\mathbf{x}\ne\mathbf{0}$ por su longitud, $\mathbf{x}/\lVert\mathbf{x}\rVert$ está normalizado y apunta en la misma dirección. Este paso se llama __normalizar__.
 
-⁠**Ejemplo numérico:** El vector $\mathbf{x}=(3,\,-4)^{\top}$ tiene la longitud $\lVert\mathbf{x}\rVert_2=5$ (fig. [12](#abb-12)). Normalizado es $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$. En el espacio, $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
+::::beispiel [Ejemplo numérico]
+El vector $\mathbf{x}=(3,\,-4)^{\top}$ tiene la longitud $\lVert\mathbf{x}\rVert_2=5$ (fig. [12](#abb-12)). Normalizado es $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$. En el espacio, $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$.
 
 :::abbildung ml/k1rl2 12
 La norma euclídea de $(3,\,-4)^{\top}$: elevar las componentes al cuadrado, sumar, extraer la raíz. El signo menos desaparece al elevar al cuadrado.
 :::
+::::
 
 ⁠**En resumen:** La norma euclídea es la longitud de la flecha, la raíz de la suma de los cuadrados de las componentes.
 
@@ -59,13 +61,15 @@ $$\lVert\mathbf{x}\rVert_1=|x_1|+|x_2|+\dots+|x_d|=\sum_{j=1}^d|x_j| . \tag{3.2}
 
 Se llama también norma $L_1$ o, por la red de calles de Manhattan, norma Manhattan.
 
-⁠**Ejemplo numérico:** Para $\mathbf{x}=(3,\,-4)^{\top}$ se tiene $\lVert\mathbf{x}\rVert_1=7$ (fig. [13](#abb-13)), y $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{x}=(3,\,-4)^{\top}$ se tiene $\lVert\mathbf{x}\rVert_1=7$ (fig. [13](#abb-13)), y $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$.
 
 :::abbildung ml/k1rl1 13
 La norma 1 de $\mathbf{x}=(3,\,-4)^{\top}$: sumar los valores absolutos de las componentes.
 :::
 
 Aquí, la norma 1 es mayor que la longitud euclídea, porque el rodeo por las calles es más largo que la línea recta.
+::::
 
 ⁠**En resumen:** La norma 1 suma los valores absolutos de las componentes; es el camino a través de una red de calles en cuadrícula.
 
@@ -86,7 +90,9 @@ $$\lVert\mathbf{x}\rVert_\infty=\max_{j=1,\dots,d}|x_j| . \tag{3.3}$$
 
 Se llama también norma $L_\infty$. La razón del símbolo de infinito está en la siguiente subsección.
 
-⁠**Ejemplo numérico:** $\lVert(3,\,-4)^{\top}\rVert_\infty=4$ y $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Si las desviaciones de una pieza son $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm, su norma del máximo es $0{,}08$ mm, y la pieza es correcta.
+::::beispiel [Ejemplo numérico]
+$\lVert(3,\,-4)^{\top}\rVert_\infty=4$ y $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Si las desviaciones de una pieza son $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm, su norma del máximo es $0{,}08$ mm, y la pieza es correcta.
+::::
 
 ⁠**En resumen:** La norma del máximo es el mayor valor absoluto de una componente, la peor desviación individual.
 
@@ -139,11 +145,13 @@ Para $p=1$ es la norma 1; para $p=2$, la norma euclídea. Cuanto mayor es $p$, m
 Las esferas unidad de tres normas en el plano: el rombo de la norma 1 (izquierda, naranja), la circunferencia de la norma euclídea (centro, azul) y el cuadrado de la norma del máximo (derecha, verde); en gris, en cada caso, las otras dos para comparar. Las tres pasan por los puntos $(\pm1,\,0)$ y $(0,\,\pm1)$.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{x}=(3,\,-4)^{\top}$ se tiene $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (fig. [15](#abb-15)) y $\lVert\mathbf{x}\rVert_\infty=4$. A medida que crece $p$, la norma $p$ se acerca al mayor valor absoluto de una componente, aquí $4$. La razón ya está en la suma: para $p=10$, $4^{10}$ es casi dieciocho veces mayor que $3^{10}$, y la raíz de la suma apenas es mayor que la raíz de solo $4^{10}$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{x}=(3,\,-4)^{\top}$ se tiene $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (fig. [15](#abb-15)) y $\lVert\mathbf{x}\rVert_\infty=4$. A medida que crece $p$, la norma $p$ se acerca al mayor valor absoluto de una componente, aquí $4$. La razón ya está en la suma: para $p=10$, $4^{10}$ es casi dieciocho veces mayor que $3^{10}$, y la raíz de la suma apenas es mayor que la raíz de solo $4^{10}$.
 
 :::abbildung ml/k1rlp 15
 Dos normas $p$ de $\mathbf{x}=(3,\,-4)^{\top}$, para $p=3$ y $p=10$. Cuanto mayor es $p$, más predomina el sumando de la componente más grande.
 :::
+::::
 
 Que la norma 1 cumple las condiciones (N1) a (N3) se comprueba directamente: (N1) y (N2) se cumplen porque $|x_j|\ge0$ y $|c\,x_j|=|c|\,|x_j|$. (N3) se deduce de la desigualdad triangular para números, $|u_j+v_j|\le|u_j|+|v_j|$, sumada sobre todos los $j$. Para la norma del máximo se procede igual. Para la norma euclídea, la desigualdad triangular es intuitivamente clara, porque el camino directo entre dos puntos nunca es más largo que un rodeo por un tercer punto.
 
@@ -182,7 +190,8 @@ se llama __vector de error__. Aquí, $\hat{\mathbf{y}}=(\hat y_1,\dots,\hat y_N)
 
 Qué norma se aplica al vector de error es una decisión sobre qué errores se temen más. El signo no importa, pues toda norma da a $\mathbf{y}-\hat{\mathbf{y}}$ el mismo tamaño que a $\hat{\mathbf{y}}-\mathbf{y}$.
 
-⁠**Ejemplo numérico:** Las cuatro viviendas se han vendido; los precios reales fueron $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$, en miles de euros. Dos tasadores, A y B, habían hecho antes una estimación:
+::::beispiel [Ejemplo numérico]
+Las cuatro viviendas se han vendido; los precios reales fueron $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$, en miles de euros. Dos tasadores, A y B, habían hecho antes una estimación:
 
 $$\hat{\mathbf{y}}_{\mathrm A}=(210,\,120,\,300,\,230)^{\top},\qquad \hat{\mathbf{y}}_{\mathrm B}=(200,\,130,\,290,\,280)^{\top}.$$
 
@@ -202,6 +211,7 @@ Las normas euclídeas de los dos vectores de error, en miles de euros. El único
 | Tasador B, $\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y}$ | $40$ | $\sqrt{1600}=40$ | $40$ |
 
 Según la norma 1, ambos son igual de buenos: los dos se equivocan en total en $40$ mil euros. Según la norma euclídea, A es dos veces mejor; según la norma del máximo, cuatro veces mejor. Quien considera igual de grave cada mil euros de desviación, sea cual sea la vivienda, mide con $L_1$. Quien considera un gran valor atípico peor que muchos errores pequeños, mide con $L_2$. Quien solo teme el peor caso, mide con $L_\infty$.
+::::
 
 ⁠**En resumen:** El vector de error reúne las desviaciones de todas las predicciones; su norma mide el tamaño del error, y la elección de la norma determina qué errores cuentan especialmente.
 
@@ -228,11 +238,13 @@ La abreviatura rms significa *root mean square*: la raíz de la media de los cua
 
 El nombre se conoce de la electrotecnia: el valor eficaz de una tensión alterna es la raíz de la media temporal de su cuadrado. Para una señal muestreada, [(3.6)](#gl-3-6) es el mismo cálculo con muestras en lugar de una integral. Si se muestrea un seno a lo largo de exactamente un periodo en $n\ge3$ puntos equiespaciados, se obtiene incluso exactamente el valor eficaz $1/\sqrt2$ del seno.
 
-⁠**Ejemplo numérico:** Los vectores de error de los tasadores de la subsección anterior tienen los valores eficaces $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ y $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mil euros: A se equivoca típicamente en $10$ mil euros. Un seno de amplitud $1$, muestreado en cuatro puntos equiespaciados de un periodo, tiene las muestras $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ y el valor eficaz $1/\sqrt2\approx0{,}707$ (fig. [17](#abb-17)).
+::::beispiel [Ejemplo numérico]
+Los vectores de error de los tasadores de la subsección anterior tienen los valores eficaces $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ y $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mil euros: A se equivoca típicamente en $10$ mil euros. Un seno de amplitud $1$, muestreado en cuatro puntos equiespaciados de un periodo, tiene las muestras $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ y el valor eficaz $1/\sqrt2\approx0{,}707$ (fig. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
 El valor eficaz de un seno muestreado: sumar los cuadrados, dividir por el número de componentes, extraer la raíz.
 :::
+::::
 
 ⁠**En resumen:** El valor eficaz $\lVert\mathbf{x}\rVert/\sqrt n$ es el valor absoluto típico de una componente y hace comparables vectores de distinta longitud.
 

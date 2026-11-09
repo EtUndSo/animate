@@ -55,7 +55,11 @@ $$-\frac a{2t}\,g'=\frac1{4t}\,g''\quad\Rightarrow\quad g''=-2a\,g'\quad\Rightar
 Integrieren mit $g(0)=N_0$, $g(\infty)=0$ ergibt [(3.1)](#gl-3-1). Die Ableitung einer Lösung nach $x$ ist wieder eine Lösung: So entsteht die Gauß-Kurve, und die Menge legt den Vorfaktor fest, denn $\int_0^\infty\mathrm{e}^{-x^2/(4Dt)}\mathrm{d} x=\sqrt{\pi Dt}$.
 :::
 
-**Beispiel.** Bor bei 1100 °C aus unendlicher Quelle mit $N_0=10^{20}\,\mathrm{cm^{-3}}$: Nach 1 h ist $x_0=0{,}73$ µ m, bei 0,5 µ m liegen $3{,}3\cdot10^{19}\,\mathrm{cm^{-3}}$, die Dichte $10^{16}\,\mathrm{cm^{-3}}$ wird bei 2,0 µ m erreicht, und im Stab stecken $4{,}1\cdot10^{15}\,\mathrm{cm^{-2}}$. **Grenzfälle:** Bei $x=0$ ist $N=N_0$, für $t\to\infty$ strebt $N$ an jedem festen Ort gegen $N_0$. Die Formeln hängen nur von $Dt$ ab: Bei höherer Temperatur gibt die Zeit $t_2=t_1D_1/D_2$ dasselbe Profil.
+::::beispiel
+Bor bei 1100 °C aus unendlicher Quelle mit $N_0=10^{20}\,\mathrm{cm^{-3}}$: Nach 1 h ist $x_0=0{,}73$ µ m, bei 0,5 µ m liegen $3{,}3\cdot10^{19}\,\mathrm{cm^{-3}}$, die Dichte $10^{16}\,\mathrm{cm^{-3}}$ wird bei 2,0 µ m erreicht, und im Stab stecken $4{,}1\cdot10^{15}\,\mathrm{cm^{-2}}$.
+::::
+
+⁠**Grenzfälle:** Bei $x=0$ ist $N=N_0$, für $t\to\infty$ strebt $N$ an jedem festen Ort gegen $N_0$. Die Formeln hängen nur von $Dt$ ab: Bei höherer Temperatur gibt die Zeit $t_2=t_1D_1/D_2$ dasselbe Profil.
 
 :::frage Warum wächst die Eindringtiefe mit $\sqrt t$ und nicht mit $t$?
 Weil der Antrieb nachlässt. Je tiefer die Atome stehen, desto flacher ist das Profil und desto kleiner der Strom. Viermal so lange heißt nur doppelt so tief.

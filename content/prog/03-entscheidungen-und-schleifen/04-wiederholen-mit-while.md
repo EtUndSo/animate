@@ -36,7 +36,8 @@ Eine __`while`-Schleife__ hat die Form
 Python prüft den Wahrheitswert der Bedingung. Ist er `True`, führt es den Block aus und kehrt danach zur Kopfzeile zurück, um die Bedingung erneut zu prüfen. Ist er `False`, geht es mit der ersten Zeile nach dem Block weiter. Eine einzelne Ausführung des Blocks heißt __Durchlauf__. Die Bedingung wird vor jedem Durchlauf geprüft; ist sie schon beim ersten Mal falsch, läuft der Block kein einziges Mal.
 :::
 
-**Beispiel.** Ein Zähler steuert die Zahl der Durchläufe:
+::::beispiel
+Ein Zähler steuert die Zahl der Durchläufe:
 
 ```python zaehlen.py
 # Drei Durchläufe, gesteuert von einem Zähler
@@ -65,6 +66,7 @@ Verfolgt man das Skript Prüfung für Prüfung, sieht man, warum am Ende `zaehle
 | 4 | 4 | `False` | Schleife endet |
 
 Drei Durchläufe brauchen vier Prüfungen: Die letzte Prüfung ist die, die falsch ausfällt.
+::::
 
 ⁠**Kurz gesagt:** `while Bedingung:` wiederholt den Block, solange die Bedingung vor dem Durchlauf wahr ist.
 
@@ -82,7 +84,8 @@ Eine `while`-Schleife endet nur, wenn ihre Bedingung irgendwann falsch wird. Daz
 Eine __Endlosschleife__ ist eine Schleife, deren Bedingung nie falsch wird. Ein Programm in einer Endlosschleife bricht man mit Strg+C ab, also mit gedrückter Steuerungstaste und der Taste C. Python beendet das Programm dann mit der Ausnahme `KeyboardInterrupt` und einem Traceback ([Programmieren, Python 1, Abschnitte 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3) und [6.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-4)).
 :::
 
-**Beispiel.** Das Skript soll $1+2+3$ addieren, aber der Zähler wird nie erhöht:
+::::beispiel
+Das Skript soll $1+2+3$ addieren, aber der Zähler wird nie erhöht:
 
 ```python endlos.py
 # Summe 1 + 2 + 3, aber der Zähler wird nie erhöht
@@ -114,6 +117,7 @@ KeyboardInterrupt
 ```
 
 Die Ortszeile nennt die Zeile, in der das Programm gerade war, als die Unterbrechung ankam. In diesen Versuchen war das unter Linux stets Zeile 5 und unter Windows stets Zeile 4; beide liegen in der Schleife, und welche es trifft, hängt vom Betriebssystem und vom Zeitpunkt ab. Die letzte Zeile, `print("Summe:", summe)`, wurde nie erreicht. Behoben ist der Fehler mit der Zeile `zaehler = zaehler + 1` im Block. Im interaktiven Modus bricht Strg+C ebenso eine laufende Schleife ab; danach erscheint wieder `>>>`, und die Sitzung geht weiter.
+::::
 
 ⁠**Kurz gesagt:** Ändert der Block nichts, wovon die Bedingung abhängt, läuft die Schleife endlos; Strg+C bricht sie mit `KeyboardInterrupt` ab.
 

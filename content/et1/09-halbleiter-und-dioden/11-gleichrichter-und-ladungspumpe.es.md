@@ -32,7 +32,11 @@ Un diodo bloqueado soporta como máximo $\hat u-U_\mathrm F$.
 
 ⁠**Cómo leerlo:** Para $|u_\mathrm e|<2U_\mathrm F$ no conduce ninguna pareja, y $u_\mathrm a$ se queda en cero. En el pico reducido se lee el doble de la tensión directa. **Validez:** carga óhmica. La entrada y la salida no tienen un punto de referencia común.
 
-**Ejemplo.** El pico es $12\,\mathrm{V}-1{,}4\,\mathrm{V}=10{,}6$ V; en el rectificador de media onda, 11,3 V. La pausa dura 0,74 ms por semionda, es decir, el 7,4 % del tiempo. El valor medio es 6,29 V; en el rectificador de media onda, solo 3,48 V. **Casos límite:** Para $U_\mathrm F\to0$, $u_\mathrm a=|u_\mathrm e|$. Para $\hat u<1{,}4$ V la salida se queda en cero.
+::::beispiel
+El pico es $12\,\mathrm{V}-1{,}4\,\mathrm{V}=10{,}6$ V; en el rectificador de media onda, 11,3 V. La pausa dura 0,74 ms por semionda, es decir, el 7,4 % del tiempo. El valor medio es 6,29 V; en el rectificador de media onda, solo 3,48 V.
+::::
+
+⁠**Casos límite:** Para $U_\mathrm F\to0$, $u_\mathrm a=|u_\mathrm e|$. Para $\hat u<1{,}4$ V la salida se queda en cero.
 
 :::ltspice Rectificador en puente
 ⁠**Esquema:** fuente con `SINE(0 12 50)` entre `a` y `b`. Diodos DM de `a` a `p`, de `b` a `p`, de masa a `a` y de masa a `b`. `res` 1k de `p` a masa.

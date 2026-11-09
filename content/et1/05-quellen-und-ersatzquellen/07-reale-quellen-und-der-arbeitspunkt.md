@@ -37,7 +37,11 @@ $$I_\mathrm{A}=\frac{U_\mathrm{q}}{R_\mathrm{q}+R_\mathrm{L}},\qquad U_\mathrm{A
 
 Der Mechanismus dahinter: Lieferte die Quelle mehr Strom, als die Last abnimmt, sammelte sich Ladung an Klemme A und ihr Potenzial stiege. Dann fiele der Strom der Quelle, und der Strom der Last stiege. Das geht so lange, bis beide Ströme gleich sind.
 
-**Beispiel.** Mit 16 $\Omega$ sind $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A und $U_\mathrm{AB}=8$ V, innen fällt 1 V ab. Mit 2 $\Omega$ sind es 2,25 A und 4,5 V. Beide Punkte liegen auf der Geraden: $9\,\mathrm{V}-2\,\Omega\cdot2{,}25\,\mathrm{A}=4{,}5$ V. Ihr Abstand zeigt den Innenwiderstand als Steigung: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3{,}5\,\mathrm{V}/(-1{,}75\,\mathrm{A})=-2\,\Omega$. **Grenzfälle:** Für $R_\mathrm{L}\to\infty$ liefert [(5.2)](#gl-5-2) den Leerlauf $U_\mathrm{AB}=U_\mathrm{q}$, für $R_\mathrm{L}\to0$ den Kurzschlussstrom $I_\mathrm{KS}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Für $R_\mathrm{q}\to0$ bleibt die ideale Spannungsquelle. Auch eine nichtlineare Last lässt sich so behandeln: Ihre Kennlinie ist dann eine Kurve, der Schnittpunkt bleibt die Lösung ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+::::beispiel
+Mit 16 $\Omega$ sind $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A und $U_\mathrm{AB}=8$ V, innen fällt 1 V ab. Mit 2 $\Omega$ sind es 2,25 A und 4,5 V. Beide Punkte liegen auf der Geraden: $9\,\mathrm{V}-2\,\Omega\cdot2{,}25\,\mathrm{A}=4{,}5$ V. Ihr Abstand zeigt den Innenwiderstand als Steigung: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3{,}5\,\mathrm{V}/(-1{,}75\,\mathrm{A})=-2\,\Omega$.
+::::
+
+⁠**Grenzfälle:** Für $R_\mathrm{L}\to\infty$ liefert [(5.2)](#gl-5-2) den Leerlauf $U_\mathrm{AB}=U_\mathrm{q}$, für $R_\mathrm{L}\to0$ den Kurzschlussstrom $I_\mathrm{KS}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Für $R_\mathrm{q}\to0$ bleibt die ideale Spannungsquelle. Auch eine nichtlineare Last lässt sich so behandeln: Ihre Kennlinie ist dann eine Kurve, der Schnittpunkt bleibt die Lösung ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::ltspice Die Kennlinie der Batterie
 ⁠**Zeichnen:** `voltage` mit 9 von `q` nach Masse, `res` mit 2 von `q` nach `a`. Als Last eine Stromquelle `current` namens `I1` von `a` nach Masse.

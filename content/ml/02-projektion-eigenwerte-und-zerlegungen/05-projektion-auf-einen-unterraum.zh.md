@@ -27,9 +27,11 @@ lang: zh
 若集合 $\mathcal U\subseteq\mathbb{R}^n$ 是有限个向量张成的空间，则称它为 $\mathbb{R}^n$ 的__子空间__。
 :::
 
-等价地说：$\mathcal U$ 包含零向量，并且只要 $\mathcal U$ 包含两个向量 $\mathbf{u},\mathbf{v}$，它就也包含 $\mathbf{u}+\mathbf{v}$ 和每个倍数 $c\,\mathbf{u}$。每个子空间都有一组基，因此由基础篇 1 第 13.3 节，也有一个维数。
+等价地说：$\mathcal U$ 包含零向量，并且只要 $\mathcal U$ 包含两个向量 $\mathbf{u},\mathbf{v}$，它就也包含 $\mathbf{u}+\mathbf{v}$ 和每个倍数 $c\,\mathbf{u}$。每个子空间都有一组基，因此由[基础篇 1 第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)，也有一个维数。
 
-⁠**算例：**在 $\mathbb{R}^3$ 中，以下都是子空间：仅由原点构成的集合，维数为 $0$；每条过原点的直线，维数为 $1$；每个过原点的平面，例如上一节中 $\mathbf{H}$ 的列空间，维数为 $2$；以及整个 $\mathbb{R}^3$。矩阵的零空间是子空间，它的列空间也是。不经过原点的直线不是子空间，因为它不包含零向量。
+::::beispiel [算例]
+在 $\mathbb{R}^3$ 中，以下都是子空间：仅由原点构成的集合，维数为 $0$；每条过原点的直线，维数为 $1$；每个过原点的平面，例如上一节中 $\mathbf{H}$ 的列空间，维数为 $2$；以及整个 $\mathbb{R}^3$。矩阵的零空间是子空间，它的列空间也是。不经过原点的直线不是子空间，因为它不包含零向量。
+::::
 
 ⁠**简而言之：**子空间是一组向量张成的空间；通过加法和数乘不会离开它。
 
@@ -57,16 +59,18 @@ $$\mathbf{P}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top} \tag{
 :::
 
 :::beweis 性质
-第一个等式就是上面的推导。利用基础篇 1 第 10.1 节和第 11.4 节的规则，$\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$，因为 $\mathbf{A}^{\top}\mathbf{A}$ 是对称的，所以它的逆矩阵也是对称的。此外，$\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$，由此得 $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$。由第 [2.4](projektion-auf-eine-gerade.html#stufe-2-4) 节的定理，对称的投影是正交投影。
+第一个等式就是上面的推导。利用[基础篇 1 第 10.1 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1)和[第 11.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-4)的规则，$\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$，因为 $\mathbf{A}^{\top}\mathbf{A}$ 是对称的，所以它的逆矩阵也是对称的。此外，$\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$，由此得 $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$。由第 [2.4](projektion-auf-eine-gerade.html#stufe-2-4) 节的定理，对称的投影是正交投影。
 :::
 
 等式 $\mathbf{P}\mathbf{A}=\mathbf{A}$ 表明：每一列，从而列空间中的每个向量，在投影时都保持不动。
 
-⁠**算例：**对于 $\mathbf{H}$，
+::::beispiel [算例]
+对于 $\mathbf{H}$，
 
 $$\mathbf{P}=\mathbf{H}\cdot\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\mathbf{H}^{\top}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix}.$$
 
 验算：$\mathbf{P}(1,\,1,\,1)^{\top}=\tfrac13(2,\,2,\,4)^{\top}=(\tfrac23,\,\tfrac23,\,\tfrac43)^{\top}=\hat{\mathbf{y}}$，并且 $\mathbf{P}\mathbf{a}_1=\tfrac13(2+1,\ -1+1,\ 1+2)^{\top}=(1,\,0,\,1)^{\top}=\mathbf{a}_1$。
+::::
 
 ⁠**简而言之：**投影矩阵 $\mathbf{P}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ 把每个向量映射为列空间中的最近点；它是对称的，并满足 $\mathbf{P}^2=\mathbf{P}$。
 
@@ -85,13 +89,15 @@ $$\mathbf{P}=\mathbf{H}\cdot\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\mathbf
 $$\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}=\sum_{i=1}^k\mathbf{q}_i\mathbf{q}_i^{\top} . \tag{4.2}$$
 :::
 
-求和形式由基础篇 1 第 9.5 节得出：矩阵乘积是各列与各行的外积之和。每一项 $\mathbf{q}_i\mathbf{q}_i^{\top}$ 都是向沿 $\mathbf{q}_i$ 方向的直线投影的投影矩阵。所以在各列标准正交时，向列空间的投影就是向各个坐标轴的投影之和。这也事后解释了第 [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1) 节的最后一个小节：$\mathbf{Q}\mathbf{Q}^{\top}$ 不是单位矩阵，而是向 $\mathbf{Q}$ 的列空间的投影。与列空间垂直的部分都被丢掉了。
+求和形式由[基础篇 1 第 9.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)得出：矩阵乘积是各列与各行的外积之和。每一项 $\mathbf{q}_i\mathbf{q}_i^{\top}$ 都是向沿 $\mathbf{q}_i$ 方向的直线投影的投影矩阵。所以在各列标准正交时，向列空间的投影就是向各个坐标轴的投影之和。这也事后解释了第 [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1) 节的最后一个小节：$\mathbf{Q}\mathbf{Q}^{\top}$ 不是单位矩阵，而是向 $\mathbf{Q}$ 的列空间的投影。与列空间垂直的部分都被丢掉了。
 
-⁠**算例：**向量 $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ 和 $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ 是标准正交的：$\lVert\mathbf{q}_1\rVert^2=\tfrac22$，$\lVert\mathbf{q}_2\rVert^2=\tfrac66$，$\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$。二者的第三个分量都等于前两个分量之和；它们构成 $\mathbf{H}$ 的平面的一组标准正交基。有
+::::beispiel [算例]
+向量 $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ 和 $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ 是标准正交的：$\lVert\mathbf{q}_1\rVert^2=\tfrac22$，$\lVert\mathbf{q}_2\rVert^2=\tfrac66$，$\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$。二者的第三个分量都等于前两个分量之和；它们构成 $\mathbf{H}$ 的平面的一组标准正交基。有
 
 $$\mathbf{q}_1\mathbf{q}_1^{\top}+\mathbf{q}_2\mathbf{q}_2^{\top}=\frac12\begin{pmatrix}1&0&1\\0&0&0\\1&0&1\end{pmatrix}+\frac16\begin{pmatrix}1&-2&-1\\-2&4&2\\-1&2&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix},$$
 
 这与上一小节中的矩阵相同，这次没有用到逆矩阵。
+::::
 
 ⁠**简而言之：**在各列标准正交时，$\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$，$\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}$，后者就是向各列分别投影之和。
 
@@ -141,14 +147,16 @@ $\dim\mathcal U^\perp=n-\dim\mathcal U$。
 :::
 
 :::beweis 分解
-(i) $\mathbf{P}\mathbf{y}$ 在 $\mathcal U$ 中且 $\mathbf{y}-\mathbf{P}\mathbf{y}$ 垂直于 $\mathcal U$，这正是正交投影的定义。如果还有第二种分解 $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$，那么 $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ 就是一个既在 $\mathcal U$ 中、又垂直于 $\mathcal U$ 的向量，因而垂直于它自身。于是它的长度平方为零，所以它是零向量。(ii) $\mathbf{I}-\mathbf{P}$ 是对称的，且 $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$。由 (i)，它的像在 $\mathcal U^\perp$ 中。每个 $\mathbf{z}\in\mathcal U^\perp$ 都保持不动：$\mathbf{P}\mathbf{z}$ 在 $\mathcal U$ 中，同时又是两个垂直于 $\mathcal U$ 的向量之差 $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$；所以 $\mathbf{P}\mathbf{z}$ 垂直于它自身，等于 $\mathbf{0}$。(iii) 选取 $\mathcal U$ 的一组基作为矩阵 $\mathbf{A}$ 的列，则 $\mathcal U^\perp$ 是 $\mathbf{A}^{\top}$ 的零空间。由基础篇 1 第 13.5 节的秩-零化度定理，它的维数为 $n-\operatorname{rank}\mathbf{A}^{\top}=n-\operatorname{rank}\mathbf{A}=n-\dim\mathcal U$。
+(i) $\mathbf{P}\mathbf{y}$ 在 $\mathcal U$ 中且 $\mathbf{y}-\mathbf{P}\mathbf{y}$ 垂直于 $\mathcal U$，这正是正交投影的定义。如果还有第二种分解 $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$，那么 $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ 就是一个既在 $\mathcal U$ 中、又垂直于 $\mathcal U$ 的向量，因而垂直于它自身。于是它的长度平方为零，所以它是零向量。(ii) $\mathbf{I}-\mathbf{P}$ 是对称的，且 $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$。由 (i)，它的像在 $\mathcal U^\perp$ 中。每个 $\mathbf{z}\in\mathcal U^\perp$ 都保持不动：$\mathbf{P}\mathbf{z}$ 在 $\mathcal U$ 中，同时又是两个垂直于 $\mathcal U$ 的向量之差 $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$；所以 $\mathbf{P}\mathbf{z}$ 垂直于它自身，等于 $\mathbf{0}$。(iii) 选取 $\mathcal U$ 的一组基作为矩阵 $\mathbf{A}$ 的列，则 $\mathcal U^\perp$ 是 $\mathbf{A}^{\top}$ 的零空间。由[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)的秩-零化度定理，它的维数为 $n-\operatorname{rank}\mathbf{A}^{\top}=n-\operatorname{rank}\mathbf{A}=n-\dim\mathcal U$。
 :::
 
-⁠**算例：**$\mathbf{H}$ 的平面维数为 $2$，所以它在 $\mathbb{R}^3$ 中的正交补维数为 $1$：它是沿法向量 $\mathbf{k}=(1,\,1,\,-1)^{\top}$ 方向的直线。确实有 $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$。有
+::::beispiel [算例]
+$\mathbf{H}$ 的平面维数为 $2$，所以它在 $\mathbb{R}^3$ 中的正交补维数为 $1$：它是沿法向量 $\mathbf{k}=(1,\,1,\,-1)^{\top}$ 方向的直线。确实有 $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$。有
 
 $$\mathbf{I}-\mathbf{P}=\frac13\begin{pmatrix}1&1&-1\\1&1&-1\\-1&-1&1\end{pmatrix}=\frac{\mathbf{k}\mathbf{k}^{\top}}{\mathbf{k}^{\top}\mathbf{k}},$$
 
 即向这条直线的投影。对于 $\mathbf{y}=(1,\,1,\,1)^{\top}$，$(\mathbf{I}-\mathbf{P})\mathbf{y}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$，正是上一节的残差。
+::::
 
 ⁠**简而言之：**正交补 $\mathcal U^\perp$ 包含所有垂直于 $\mathcal U$ 的向量；每个向量都可以唯一地分解为 $\mathcal U$ 中的部分与 $\mathcal U^\perp$ 中的部分，两者的维数之和为 $n$。
 
@@ -187,7 +195,8 @@ $$\tilde{\mathbf{q}}_i=\mathbf{a}_i-\sum_{l=1}^{i-1}(\mathbf{q}_l^{\top}\mathbf{
 
 如果给定的向量实际上是线性相关的，这个方法会自己发现：在某一步出现 $\tilde{\mathbf{q}}_i=\mathbf{0}$，无法归一化。
 
-⁠**算例：**对于 $\mathbf{H}$ 的列 $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ 和 $\mathbf{a}_2=(0,\,1,\,1)^{\top}$，得 $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$。于是 $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$，
+::::beispiel [算例]
+对于 $\mathbf{H}$ 的列 $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ 和 $\mathbf{a}_2=(0,\,1,\,1)^{\top}$，得 $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$。于是 $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$，
 
 $$\tilde{\mathbf{q}}_2=\mathbf{a}_2-\frac1{\sqrt2}\,\mathbf{q}_1=(0,\,1,\,1)^{\top}-\tfrac12(1,\,0,\,1)^{\top}=\bigl(-\tfrac12,\,1,\,\tfrac12\bigr)^{\top},\qquad \lVert\tilde{\mathbf{q}}_2\rVert=\sqrt{\tfrac14+1+\tfrac14}=\sqrt{\tfrac32} .$$
 
@@ -196,6 +205,7 @@ $$\tilde{\mathbf{q}}_2=\mathbf{a}_2-\frac1{\sqrt2}\,\mathbf{q}_1=(0,\,1,\,1)^{\t
 :::abbildung ml/k2rgs 12
 对 $\mathbf{H}$ 的列进行格拉姆-施密特正交化：给出影子长度的点积 $\mathbf{q}_1^{\top}\mathbf{a}_2$，其中 $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$，$\mathbf{a}_2=(0,1,1)^{\top}$；以及余下部分 $\tilde{\mathbf{q}}_2=(-\tfrac12,1,\tfrac12)^{\top}$ 的长度平方。
 :::
+::::
 
 ⁠**简而言之：**格拉姆-施密特正交化从每个向量中减去它在已求出向量上的投影，再把余下的部分归一化；这样就得到同一子空间的一组标准正交基。
 
@@ -226,11 +236,13 @@ $$\mathbf{A}=\mathbf{Q}\mathbf{R} \tag{4.5}$$
 
 上三角矩阵在对角线以下只有零。按列视角，$\mathbf{Q}\mathbf{R}$ 的第 $i$ 列为 $\sum_lr_{li}\mathbf{q}_l$，这恰好是上面 $\mathbf{a}_i$ 的表示。格拉姆-施密特正交化给出 $\mathbf{Q}$ 的各列，$\mathbf{R}$ 的元素则作为副产品一并得出。由于 $\mathbf{Q}$ 的列标准正交，还有 $\mathbf{R}=\mathbf{Q}^{\top}\mathbf{A}$。
 
-⁠**算例：**对于 $\mathbf{H}$，
+::::beispiel [算例]
+对于 $\mathbf{H}$，
 
 $$\mathbf{Q}=\begin{pmatrix}\tfrac1{\sqrt2}&-\tfrac1{\sqrt6}\\0&\tfrac2{\sqrt6}\\\tfrac1{\sqrt2}&\tfrac1{\sqrt6}\end{pmatrix},\qquad \mathbf{R}=\begin{pmatrix}\sqrt2&\tfrac1{\sqrt2}\\0&\sqrt{\tfrac32}\end{pmatrix}\approx\begin{pmatrix}1.414&0.707\\0&1.225\end{pmatrix}.$$
 
 验算第二列：$\tfrac1{\sqrt2}\cdot\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}+\sqrt{\tfrac32}\cdot\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}=\tfrac12(1,\,0,\,1)^{\top}+\tfrac12(-1,\,2,\,1)^{\top}=(0,\,1,\,1)^{\top}=\mathbf{a}_2$。
+::::
 
 ⁠**简而言之：**QR 分解 $\mathbf{A}=\mathbf{Q}\mathbf{R}$ 把格拉姆-施密特正交化写成矩阵乘积：$\mathbf{Q}$ 的列标准正交，$\mathbf{R}$ 是上三角矩阵。
 
@@ -250,16 +262,18 @@ $$\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y} . \tag{4.6}$$
 :::
 
 :::beweis 用 QR 分解求解
-有 $\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ 和 $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$。所以正规方程为 $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$。三角矩阵 $\mathbf{R}$ 的对角元素为正，所以由基础篇 1 第 14.4 节，它的行列式不为零，它是可逆的；$\mathbf{R}^{\top}$ 也是如此。从左边乘以 $(\mathbf{R}^{\top})^{-1}$，就剩下式 [(4.6)](#gl-4-6)。
+有 $\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ 和 $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$。所以正规方程为 $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$。三角矩阵 $\mathbf{R}$ 的对角元素为正，所以由[基础篇 1 第 14.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4)，它的行列式不为零，它是可逆的；$\mathbf{R}^{\top}$ 也是如此。从左边乘以 $(\mathbf{R}^{\top})^{-1}$，就剩下式 [(4.6)](#gl-4-6)。
 :::
 
-方程组 [(4.6)](#gl-4-6) 是三角方程组，从下往上求解，就像基础篇 1 第 12.3 节高斯消元法最后的回代一样。对于 $m\times n$ 矩阵，整个过程大约需要 $2mn^2$ 次算术运算，几乎全部用于 QR 分解。
+方程组 [(4.6)](#gl-4-6) 是三角方程组，从下往上求解，就像[基础篇 1 第 12.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)高斯消元法最后的回代一样。对于 $m\times n$ 矩阵，整个过程大约需要 $2mn^2$ 次算术运算，几乎全部用于 QR 分解。
 
-⁠**算例：**对于 $\mathbf{H}$ 和 $\mathbf{y}=(1,\,1,\,1)^{\top}$，$\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$。式 [(4.6)](#gl-4-6) 的最下一行为 $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$，所以 $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$。最上一行为 $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$，所以 $\hat x_1=1-\tfrac13=\tfrac23$。这与用正规方程得到的解相同。$\mathbf{Q}^{\top}\mathbf{y}$ 的各分量就是图 [13](#abb-13) 中的点积。
+::::beispiel [算例]
+对于 $\mathbf{H}$ 和 $\mathbf{y}=(1,\,1,\,1)^{\top}$，$\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$。式 [(4.6)](#gl-4-6) 的最下一行为 $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$，所以 $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$。最上一行为 $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$，所以 $\hat x_1=1-\tfrac13=\tfrac23$。这与用正规方程得到的解相同。$\mathbf{Q}^{\top}\mathbf{y}$ 的各分量就是图 [13](#abb-13) 中的点积。
 
 :::abbildung ml/k2rqr 13
 对于 $\mathbf{y}=(1,1,1)^{\top}$，三角方程组的右边 $\mathbf{Q}^{\top}\mathbf{y}$，其中 $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$，$\mathbf{q}_2=(-1,2,1)^{\top}/\sqrt6$。
 :::
+::::
 
 ⁠**简而言之：**利用 $\mathbf{A}=\mathbf{Q}\mathbf{R}$，正规方程变成三角方程组 $\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$；矩阵 $\mathbf{A}^{\top}\mathbf{A}$ 根本不需要构造。
 

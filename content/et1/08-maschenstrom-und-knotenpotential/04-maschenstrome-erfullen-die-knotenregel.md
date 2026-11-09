@@ -42,13 +42,17 @@ Die Knotenregel ist dann für alle Werte der $I_\mu$ erfüllt. Umgekehrt lässt 
 
 ⁠**So liest man das:** $\mu$ nummeriert die Maschen, in den Beispielen mit römischen Ziffern. Die Richtung ist frei, ein negativer Wert heißt: Der Kreisstrom läuft andersherum. **Gültigkeit:** Die Maschen müssen unabhängig sein. Lässt sich das Netz ohne Kreuzungen zeichnen, wählt man die __Fenster__, die Flächen zwischen den Zweigen. Beim Aufbau aus dem Baum teilt jeder neue Verbindungszweig genau eine Fläche in zwei, also gibt es genau $m$ Fenster.
 
-**Beispiel.** Fasst man im Rechenmodell Stromquelle und $R_5$ zu einem Zweig mit Spannungsquelle zusammen (Stufe [3](das-maschenstromverfahren.html#stufe-3)), bleiben drei Fenster I, II, III mit Maschenströmen im Uhrzeigersinn. Daraus folgen alle fünf Zweigströme:
+::::beispiel
+Fasst man im Rechenmodell Stromquelle und $R_5$ zu einem Zweig mit Spannungsquelle zusammen (Stufe [3](das-maschenstromverfahren.html#stufe-3)), bleiben drei Fenster I, II, III mit Maschenströmen im Uhrzeigersinn. Daraus folgen alle fünf Zweigströme:
 
 | Zweig | links, $R_1$ | $R_2$ | $R_3$ | $R_4$ | rechts, $R_5$ |
 |---|---|---|---|---|---|
 | Strom | $I_\mathrm I$ | $I_\mathrm I-I_\mathrm{II}$ | $I_\mathrm{II}$ | $I_\mathrm{II}-I_\mathrm{III}$ | $I_\mathrm{III}$ |
 
-An Knoten 1 ergibt das $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$, ganz gleich, welche Werte die Ströme haben. **Grenzfälle:** Für $m=1$ ist der Maschenstrom der Strom der Reihenschaltung. Für $I_\mathrm{II}=0$ verschwindet der Strom in $R_3$, die linke und die rechte Hälfte tauschen nichts aus.
+An Knoten 1 ergibt das $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$, ganz gleich, welche Werte die Ströme haben.
+::::
+
+⁠**Grenzfälle:** Für $m=1$ ist der Maschenstrom der Strom der Reihenschaltung. Für $I_\mathrm{II}=0$ verschwindet der Strom in $R_3$, die linke und die rechte Hälfte tauschen nichts aus.
 
 :::frage Was misst ein Strommesser im Zweig von $R_2$, $I_\mathrm I$ oder $I_\mathrm{II}$?
 Keinen von beiden, sondern den Zweigstrom $I_\mathrm I-I_\mathrm{II}$. Ein Maschenstrom ist nur dort direkt messbar, wo er als einziger fließt, hier zum Beispiel $I_\mathrm I$ in $R_1$. Das ist der Baum-Gedanke: Der Maschenstrom ist der Strom eines Zweigs, der nur zu dieser Masche gehört.

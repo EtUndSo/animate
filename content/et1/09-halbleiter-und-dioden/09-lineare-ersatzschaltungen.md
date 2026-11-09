@@ -67,13 +67,17 @@ Prüfe: Leitende Dioden brauchen $I_\mathrm D>0$, sperrende $U_\mathrm D<U_\math
 
 $n$ Dioden haben $2^n$ Kombinationen, also lohnt eine gute erste Annahme. Hilfreich ist ein Blick auf die Potenziale.
 
-**Beispiel.** Abb. [9](#abb-9) unten: 5 V und 2 V speisen über je 1 k$\Omega$ und eine Diode den Knoten X, von dort führt $R_3=2\,\mathrm{k\Omega}$ zur Masse. $U_\mathrm F=0{,}7$ V.
+::::beispiel
+Abb. [9](#abb-9) unten: 5 V und 2 V speisen über je 1 k$\Omega$ und eine Diode den Knoten X, von dort führt $R_3=2\,\mathrm{k\Omega}$ zur Masse. $U_\mathrm F=0{,}7$ V.
 
 ⁠*Annahme 1: Beide leiten.* Die Knotenregel ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) an X lautet $(4{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. Daraus folgt $\varphi_\mathrm X=2{,}24$ V, $I_\mathrm{D1}=2{,}06$ mA und $I_\mathrm{D2}=-0{,}94$ mA. Der negative Strom ist ein Widerspruch.
 
 ⁠*Annahme 2: D$_1$ leitet, D$_2$ sperrt.* Dann ist $I=(5\,\mathrm{V}-0{,}7\,\mathrm{V})/3\,\mathrm{k\Omega}=1{,}43$ mA und $\varphi_\mathrm X=2{,}87$ V. An D$_2$ liegt $U_\mathrm{D2}=2\,\mathrm{V}-2{,}87\,\mathrm{V}=-0{,}87$ V. Das ist kleiner als $U_\mathrm F$, kein Widerspruch. Die AP sind D$_1$ (0,7 V | 1,43 mA) und D$_2$ ($-0{,}87$ V | 0). Die volle Simulation liefert 2,89 V und 1,45 mA.
 
-⁠*Potenzialblick:* D$_2$ leitet nur, wenn $\varphi_\mathrm X<2\,\mathrm{V}-0{,}7\,\mathrm{V}=1{,}3$ V ist. Schon die 5-V-Quelle allein hebt X auf 2,87 V, die Kathode von D$_2$ liegt also über der Anode. Die höhere Spannung setzt sich durch. Annahme 3 (nur D$_2$ leitet) ergäbe $U_\mathrm{D1}=4{,}13$ V, Annahme 4 (beide sperren) $U_\mathrm{D1}=5$ V, beide größer als $U_\mathrm F$ und damit Widersprüche. **Grenzfall:** Bei $U_2=5$ V sind beide Zweige gleich, und jede Diode trägt die Hälfte.
+⁠*Potenzialblick:* D$_2$ leitet nur, wenn $\varphi_\mathrm X<2\,\mathrm{V}-0{,}7\,\mathrm{V}=1{,}3$ V ist. Schon die 5-V-Quelle allein hebt X auf 2,87 V, die Kathode von D$_2$ liegt also über der Anode. Die höhere Spannung setzt sich durch. Annahme 3 (nur D$_2$ leitet) ergäbe $U_\mathrm{D1}=4{,}13$ V, Annahme 4 (beide sperren) $U_\mathrm{D1}=5$ V, beide größer als $U_\mathrm F$ und damit Widersprüche.
+::::
+
+⁠**Grenzfall:** Bei $U_2=5$ V sind beide Zweige gleich, und jede Diode trägt die Hälfte.
 
 :::frage Warum ist ein negativer Strom ein Widerspruch? Eine Spannungsquelle kann doch Strom aufnehmen.
 Die Ersatzquelle kann das, die Diode nicht: In Sperrrichtung fließt nur $I_\mathrm S$. Das Modell gilt nur für $I_\mathrm D>0$. Ein negatives Ergebnis zeigt, dass die Rechnung die Diode außerhalb dieses Bereichs benutzt hat.

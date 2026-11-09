@@ -71,8 +71,7 @@ Seien $f:(a,b)\to\mathbb{R}$, $g:(c,d)\to\mathbb{R}$ mit $\mathcal W(f)\subset(c
 
 ⁠**So liest man das:** Eine kleine Änderung bleibt klein, während sie durch beide Funktionen läuft.
 
-**Beispiele.**
-
+::::beispiel [Beispiele]
 <ol class="rm">
 
 <li>
@@ -98,6 +97,7 @@ Beide Schranken laufen für $x\to0$ gegen 1, das Vergleichskriterium gibt $\lim_
 </li>
 
 </ol>
+::::
 
 ⁠**Grenzfall:** Die Umkehrung von Satz [5.3](#satz-5-3) gilt nicht: $H$ und $1-H$ springen beide bei 0, ihre Summe ist die stetige Funktion 1.
 

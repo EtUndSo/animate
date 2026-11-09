@@ -34,7 +34,9 @@ Mit $\ln$ statt $\log_2$ misst man ihn in __nat__.
 
 Die Einheit bit steht für *binary digit*, Binärziffer: Ein Ereignis mit der Wahrscheinlichkeit $\tfrac12$ hat den Informationsgehalt $1$ bit, ein Ereignis mit der Wahrscheinlichkeit $2^{-k}$ hat $k$ bit, so viel, wie man braucht, um einen von $2^k$ gleich wahrscheinlichen Fällen mit Binärziffern zu benennen. Nach [(4.2)](die-likelihood.html#gl-4-2) ist der Informationsgehalt in nat das $\ln2$-Fache des Werts in bit: $1\,\mathrm{bit}=\ln2\approx0{,}693\,\mathrm{nat}$ und $1\,\mathrm{nat}=1/\ln2\approx1{,}443\,\mathrm{bit}$. Die Überraschung $-\ln P(X=x_i\mid\theta)$ aus dem Hintergrund-Kasten in Unterabschnitt [5.2](die-maximum-likelihood-schatzung.html#stufe-5-2) ist der Informationsgehalt des Datenpunkts $x_i$ unter dem Modell $\theta$, gemessen in nat.
 
-⁠**Rechenbeispiel:** Kopf bei einer fairen Münze hat $\log_22=1$ bit. Eine Sechs beim Würfel hat $\log_26\approx2{,}585$ bit, viermal hintereinander eine Sechs $4\cdot2{,}585=10{,}34$ bit. Eine bestimmte Karte aus einem Spiel mit $32$ Karten hat $\log_232=5$ bit. Ein Ereignis mit der Wahrscheinlichkeit $\tfrac1{1024}$ hat $10$ bit, ein sicheres Ereignis $0$ bit.
+::::beispiel [Rechenbeispiel]
+Kopf bei einer fairen Münze hat $\log_22=1$ bit. Eine Sechs beim Würfel hat $\log_26\approx2{,}585$ bit, viermal hintereinander eine Sechs $4\cdot2{,}585=10{,}34$ bit. Eine bestimmte Karte aus einem Spiel mit $32$ Karten hat $\log_232=5$ bit. Ein Ereignis mit der Wahrscheinlichkeit $\tfrac1{1024}$ hat $10$ bit, ein sicheres Ereignis $0$ bit.
+::::
 
 ⁠**Kurz gesagt:** Der Informationsgehalt $\log_2(1/P(A))$ misst die Überraschung über ein Ereignis in bit; seltene Ereignisse tragen viel Information, und unabhängige Informationen addieren sich.
 
@@ -73,11 +75,13 @@ Es ist $H(\mathbf{p})\ge0$, und $H(\mathbf{p})=0$ gilt genau dann, wenn ein $p_k
 
 Denn jeder Summand $p_k\log_2(1/p_k)$ ist wegen $0<p_k\le1$ nicht negativ und nur für $p_k=1$ null. Die Entropie ist null genau dann, wenn das Ergebnis sicher ist.
 
-⁠**Rechenbeispiel:** Eine Quelle sendet die Zeichen A, B, C, D mit den Wahrscheinlichkeiten $\mathbf{p}=(\tfrac12,\,\tfrac14,\,\tfrac18,\,\tfrac18)^{\top}$. Ihre Entropie ist $\tfrac74=1{,}75$ bit (Abb. [13](#abb-13)). Eine faire Münze hat die Entropie $1$ bit, ein fairer Würfel $\log_26\approx2{,}585$ bit. Eine Münze mit den Wahrscheinlichkeiten $0{,}9$ und $0{,}1$ hat $0{,}9\log_2\frac1{0{,}9}+0{,}1\log_2\frac1{0{,}1}\approx0{,}137+0{,}332=0{,}469$ bit: Ihr Ergebnis ist meistens vorhersagbar.
+::::beispiel [Rechenbeispiel]
+Eine Quelle sendet die Zeichen A, B, C, D mit den Wahrscheinlichkeiten $\mathbf{p}=(\tfrac12,\,\tfrac14,\,\tfrac18,\,\tfrac18)^{\top}$. Ihre Entropie ist $\tfrac74=1{,}75$ bit (Abb. [13](#abb-13)). Eine faire Münze hat die Entropie $1$ bit, ein fairer Würfel $\log_26\approx2{,}585$ bit. Eine Münze mit den Wahrscheinlichkeiten $0{,}9$ und $0{,}1$ hat $0{,}9\log_2\frac1{0{,}9}+0{,}1\log_2\frac1{0{,}1}\approx0{,}137+0{,}332=0{,}469$ bit: Ihr Ergebnis ist meistens vorhersagbar.
 
 :::abbildung ml/k5rentropie 13
 Die Entropie der Quelle mit $\mathbf{p}=(\tfrac12,\tfrac14,\tfrac18,\tfrac18)^{\top}$: jeder Informationsgehalt $\log_2(1/p_k)$, gewichtet mit seiner Wahrscheinlichkeit.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Entropie ist die mittlere Überraschung einer Verteilung, $\sum_kp_k\log_2(1/p_k)$; sie ist null bei Gewissheit und umso größer, je weniger vorhersagbar das Ergebnis ist.
 
@@ -93,11 +97,13 @@ Ein Präfixcode als Baum. Von der Wurzel oben führt jede gelesene Ziffer nach l
 
 Abb. [14](#abb-14) zeigt den Präfixcode A $=0$, B $=10$, C $=110$, D $=111$. Die Folge `0110100` zerfällt eindeutig in `0`, `110`, `10`, `0`, also A, C, B, A. Die mittlere Länge eines Codes mit den Codewortlängen $l_k$ ist der Erwartungswert $L=\sum_kp_k\,l_k$, das Skalarprodukt $\mathbf{p}^{\top}\mathbf l$ der Wahrscheinlichkeiten mit dem Vektor $\mathbf l=(l_1,\dots,l_K)^{\top}$ der Längen.
 
-⁠**Rechenbeispiel:** Für den Code aus Abb. [14](#abb-14) ist $\mathbf l=(1,\,2,\,3,\,3)^{\top}$ und die mittlere Länge $1{,}75$ Ziffern je Zeichen (Abb. [15](#abb-15)), genau die Entropie. Der Code mit zwei Ziffern je Zeichen braucht $2$, also $14\,\%$ mehr. Dass beide Zahlen übereinstimmen, liegt daran, dass jede Codewortlänge genau der Informationsgehalt ihres Zeichens ist: $l_k=\log_2(1/p_k)$.
+::::beispiel [Rechenbeispiel]
+Für den Code aus Abb. [14](#abb-14) ist $\mathbf l=(1,\,2,\,3,\,3)^{\top}$ und die mittlere Länge $1{,}75$ Ziffern je Zeichen (Abb. [15](#abb-15)), genau die Entropie. Der Code mit zwei Ziffern je Zeichen braucht $2$, also $14\,\%$ mehr. Dass beide Zahlen übereinstimmen, liegt daran, dass jede Codewortlänge genau der Informationsgehalt ihres Zeichens ist: $l_k=\log_2(1/p_k)$.
 
 :::abbildung ml/k5rcode 15
 Die mittlere Codewortlänge als Skalarprodukt der Wahrscheinlichkeiten mit den Codewortlängen, Komponente für Komponente.
 :::
+::::
 
 Lässt sich die Entropie unterbieten? Shannon hat gezeigt: nein.
 
@@ -151,7 +157,9 @@ Für $\theta<\tfrac12$ ist $(1-\theta)/\theta>1$ und die Ableitung positiv, für
 
 Dieselbe Stelle hatte schon die Varianz $\theta(1-\theta)$ der Bernoulli-Verteilung als größten Wert, nach [Grundlagen 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1): Ein Ja-Nein-Ausgang ist am unsichersten, wenn beide Ausgänge gleich wahrscheinlich sind. Die verbogene Münze mit $\theta=0{,}7$ hat $H_{\mathrm b}(0{,}7)\approx0{,}881$ bit.
 
-⁠**Rechenbeispiel:** Für eine Münze mit $\theta=0{,}9$ ist $H_{\mathrm b}(0{,}9)\approx0{,}469$ bit. Ein Präfixcode für einzelne Würfe braucht aber mindestens eine Ziffer je Wurf, denn es gibt nur zwei Zeichen. Fasst man je zwei Würfe zu einem Block zusammen, so haben die vier Blöcke KK, KZ, ZK, ZZ die Wahrscheinlichkeiten $0{,}81$, $0{,}09$, $0{,}09$, $0{,}01$. Der Präfixcode $0$, $10$, $110$, $111$ hat die mittlere Länge $0{,}81\cdot1+0{,}09\cdot2+0{,}09\cdot3+0{,}01\cdot3=1{,}29$ Ziffern je Block, also $0{,}645$ je Wurf. Mit längeren Blöcken kommt man der Entropie $0{,}469$ immer näher.
+::::beispiel [Rechenbeispiel]
+Für eine Münze mit $\theta=0{,}9$ ist $H_{\mathrm b}(0{,}9)\approx0{,}469$ bit. Ein Präfixcode für einzelne Würfe braucht aber mindestens eine Ziffer je Wurf, denn es gibt nur zwei Zeichen. Fasst man je zwei Würfe zu einem Block zusammen, so haben die vier Blöcke KK, KZ, ZK, ZZ die Wahrscheinlichkeiten $0{,}81$, $0{,}09$, $0{,}09$, $0{,}01$. Der Präfixcode $0$, $10$, $110$, $111$ hat die mittlere Länge $0{,}81\cdot1+0{,}09\cdot2+0{,}09\cdot3+0{,}01\cdot3=1{,}29$ Ziffern je Block, also $0{,}645$ je Wurf. Mit längeren Blöcken kommt man der Entropie $0{,}469$ immer näher.
+::::
 
 ⁠**Kurz gesagt:** Die binäre Entropie $H_{\mathrm b}(\theta)$ ist $1$ bit bei $\theta=\tfrac12$ und fällt zu den Rändern auf null; sie misst, wie unvorhersagbar ein Ja-Nein-Ausgang ist.
 

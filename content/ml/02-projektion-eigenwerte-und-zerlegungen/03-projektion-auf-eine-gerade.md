@@ -46,13 +46,17 @@ Der Punkt $\hat{\mathbf{y}}$ ist ein Vektor im $\mathbb{R}^n$; die Zahl $\hat x$
 Die Projektion von $\mathbf{y}=(4,3)^{\top}$ auf die Gerade in Richtung $\mathbf{a}=(1,2)^{\top}$. Der Fußpunkt des Lots ist $\hat{\mathbf{y}}=2\mathbf{a}=(2,4)^{\top}$, die Verbindung $\mathbf{r}=(2,-1)^{\top}$ (blau) steht senkrecht auf der Geraden. Ein anderer Punkt der Geraden, etwa $(1,2)^{\top}$, ist weiter von $\mathbf{y}$ entfernt (gestrichelt): Das Dreieck aus $\mathbf{y}$, $\hat{\mathbf{y}}$ und $(1,2)^{\top}$ hat bei $\hat{\mathbf{y}}$ einen rechten Winkel, und die gestrichelte Seite ist seine Hypotenuse.
 :::
 
-⁠**Rechenbeispiel 1:** Für $\mathbf{a}=(1,\,2)^{\top}$ und $\mathbf{y}=(4,\,3)^{\top}$ ist $\mathbf{a}^{\top}\mathbf{y}=4+6=10$ und $\mathbf{a}^{\top}\mathbf{a}=5$ (Abb. [5](#abb-5)), also $\hat x=2$ und $\hat{\mathbf{y}}=(2,\,4)^{\top}$. Die Verbindung $\mathbf{y}-\hat{\mathbf{y}}=(2,\,-1)^{\top}$ steht senkrecht auf $\mathbf{a}$: $2-2=0$.
+::::beispiel [Rechenbeispiel 1]
+Für $\mathbf{a}=(1,\,2)^{\top}$ und $\mathbf{y}=(4,\,3)^{\top}$ ist $\mathbf{a}^{\top}\mathbf{y}=4+6=10$ und $\mathbf{a}^{\top}\mathbf{a}=5$ (Abb. [5](#abb-5)), also $\hat x=2$ und $\hat{\mathbf{y}}=(2,\,4)^{\top}$. Die Verbindung $\mathbf{y}-\hat{\mathbf{y}}=(2,\,-1)^{\top}$ steht senkrecht auf $\mathbf{a}$: $2-2=0$.
 
 :::abbildung ml/k2rproj 5
 Die beiden Skalarprodukte der Projektion Schritt für Schritt: $\mathbf{a}^{\top}\mathbf{y}=10$ im Zähler und $\mathbf{a}^{\top}\mathbf{a}=5$ im Nenner von $\hat x$.
 :::
+::::
 
-⁠**Rechenbeispiel 2:** Für $\mathbf{a}=(3,\,4)^{\top}$ und $\mathbf{y}=(3,\,1)^{\top}$ ist $\hat x=(9+4)/25=0{,}52$ und $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$, derselbe Schattenpunkt wie in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) mit dem normierten Vektor $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$. Die Länge des Richtungsvektors spielt keine Rolle: Ersetzt man $\mathbf{a}$ durch $c\,\mathbf{a}$ mit $c\ne0$, so wird $\hat x$ zu $\hat x/c$, und $\hat{\mathbf{y}}$ bleibt gleich. Verdoppelt man dagegen $\mathbf{y}$, so verdoppelt sich auch $\hat{\mathbf{y}}$.
+::::beispiel [Rechenbeispiel 2]
+Für $\mathbf{a}=(3,\,4)^{\top}$ und $\mathbf{y}=(3,\,1)^{\top}$ ist $\hat x=(9+4)/25=0{,}52$ und $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$, derselbe Schattenpunkt wie in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) mit dem normierten Vektor $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$. Die Länge des Richtungsvektors spielt keine Rolle: Ersetzt man $\mathbf{a}$ durch $c\,\mathbf{a}$ mit $c\ne0$, so wird $\hat x$ zu $\hat x/c$, und $\hat{\mathbf{y}}$ bleibt gleich. Verdoppelt man dagegen $\mathbf{y}$, so verdoppelt sich auch $\hat{\mathbf{y}}$.
+::::
 
 ⁠**Kurz gesagt:** Die Projektion von $\mathbf{y}$ auf die Gerade in Richtung $\mathbf{a}$ ist der Fußpunkt des Lots, $\hat{\mathbf{y}}=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{a}$.
 
@@ -83,7 +87,9 @@ Der erste Summand steht nach der Herleitung senkrecht auf $\mathbf{a}$, also auc
 
 Für die Länge des Fußpunkts gilt $\lVert\hat{\mathbf{y}}\rVert=|\hat x|\,\lVert\mathbf{a}\rVert=|\mathbf{a}^{\top}\mathbf{y}|/\lVert\mathbf{a}\rVert=|\cos\varphi|\,\lVert\mathbf{y}\rVert$, wobei $\varphi$ der Winkel zwischen $\mathbf{a}$ und $\mathbf{y}$ ist. Das ist die Ankathete im rechtwinkligen Dreieck mit der Hypotenuse $\mathbf{y}$.
 
-⁠**Rechenbeispiel:** Im ersten Rechenbeispiel des vorigen Unterabschnitts ist $\lVert\mathbf{y}-\hat{\mathbf{y}}\rVert^2=\lVert(2,\,-1)^{\top}\rVert^2=5$. Für den Punkt $t=1$, also $(1,\,2)^{\top}$, sagt [(2.2)](#gl-2-2) das Abstandsquadrat $5+1\cdot5=10$ voraus, und tatsächlich ist $\lVert(3,\,1)^{\top}\rVert^2=10$. Für $t=3$, also $(3,\,6)^{\top}$, ist es ebenfalls $5+1\cdot5=10=\lVert(1,\,-3)^{\top}\rVert^2$. Beide Punkte liegen gleich weit vom Fußpunkt entfernt, auf verschiedenen Seiten.
+::::beispiel [Rechenbeispiel]
+Im ersten Rechenbeispiel des vorigen Unterabschnitts ist $\lVert\mathbf{y}-\hat{\mathbf{y}}\rVert^2=\lVert(2,\,-1)^{\top}\rVert^2=5$. Für den Punkt $t=1$, also $(1,\,2)^{\top}$, sagt [(2.2)](#gl-2-2) das Abstandsquadrat $5+1\cdot5=10$ voraus, und tatsächlich ist $\lVert(3,\,1)^{\top}\rVert^2=10$. Für $t=3$, also $(3,\,6)^{\top}$, ist es ebenfalls $5+1\cdot5=10=\lVert(1,\,-3)^{\top}\rVert^2$. Beide Punkte liegen gleich weit vom Fußpunkt entfernt, auf verschiedenen Seiten.
+::::
 
 ⁠**Kurz gesagt:** Der nächste Punkt einer Geraden ist der Fußpunkt des Lots, weil jeder Schritt längs der Geraden nach Pythagoras das Abstandsquadrat vergrößert.
 
@@ -128,11 +134,13 @@ $(\mathbf{a}\mathbf{a}^{\top})^{\top}=\mathbf{a}\mathbf{a}^{\top}$, also ist $\m
 
 Die Gleichung $\mathbf{P}^2=\mathbf{P}$ hat eine einfache Bedeutung: Wer schon auf der Geraden steht, bleibt beim zweiten Projizieren stehen.
 
-⁠**Rechenbeispiel:** Für $\mathbf{a}=(1,\,2)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{a}=(1,\,2)^{\top}$ ist
 
 $$\mathbf{P}=\frac15\begin{pmatrix}1&2\\2&4\end{pmatrix},\qquad \mathbf{P}\begin{pmatrix}4\\3\end{pmatrix}=\frac15\begin{pmatrix}4+6\\8+12\end{pmatrix}=\begin{pmatrix}2\\4\end{pmatrix}.$$
 
 Probe für $\mathbf{P}^2=\mathbf{P}$: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, also $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ war in [Grundlagen 1, Abschnitt 11.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), das Beispiel einer Matrix ohne Inverse. Jetzt ist klar, was sie tut: Sie ist das Fünffache einer Projektion und drückt die Ebene auf die Gerade in Richtung $(1,\,2)^{\top}$ platt.
+::::
 
 ⁠**Kurz gesagt:** Die Projektion auf eine Gerade ist das Matrix-Vektor-Produkt mit $\mathbf{P}=\mathbf{a}\mathbf{a}^{\top}/(\mathbf{a}^{\top}\mathbf{a})$; diese Matrix ist symmetrisch und erfüllt $\mathbf{P}^2=\mathbf{P}$.
 
@@ -158,7 +166,9 @@ Eine Projektion $\mathbf{P}$ ist genau dann eine orthogonale Projektion, wenn $\
 Für alle $\mathbf{y},\mathbf{z}$ ist $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$. Ist $\mathbf{P}^{\top}=\mathbf{P}$, so ist $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$, und der Ausdruck ist null. Ist umgekehrt der Ausdruck für alle $\mathbf{y},\mathbf{z}$ null, so ist die Matrix $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ die Nullmatrix; mit $\mathbf{y}=\mathbf{e}_i$ und $\mathbf{z}=\mathbf{e}_l$ wählt der Ausdruck nämlich ihren Eintrag $(i,l)$ aus. Dann ist $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$, und $\mathbf{P}^{\top}\mathbf{P}$ ist nach [Grundlagen 1, Abschnitt 10.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2), symmetrisch.
 :::
 
-⁠**Rechenbeispiel:** Die Matrix $\mathbf{P}=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$ bildet $(x_1,\,x_2)^{\top}$ auf $(x_1+x_2,\,0)^{\top}$ ab. Es ist $\mathbf{P}^2=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$, also ist $\mathbf{P}$ eine Projektion auf die $x_1$-Achse. Sie ist nicht symmetrisch und damit nicht orthogonal: Der Punkt $(0,\,1)^{\top}$ wird auf $(1,\,0)^{\top}$ abgebildet, die Verbindung $(-1,\,1)^{\top}$ steht schräg zur Achse. Das Licht fällt hier in Richtung $(1,\,-1)^{\top}$ ein. Den nächsten Punkt der $x_1$-Achse, $(0,\,0)^{\top}$, liefert diese Projektion nicht.
+::::beispiel [Rechenbeispiel]
+Die Matrix $\mathbf{P}=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$ bildet $(x_1,\,x_2)^{\top}$ auf $(x_1+x_2,\,0)^{\top}$ ab. Es ist $\mathbf{P}^2=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&1\\0&0\end{smallmatrix}\bigr)$, also ist $\mathbf{P}$ eine Projektion auf die $x_1$-Achse. Sie ist nicht symmetrisch und damit nicht orthogonal: Der Punkt $(0,\,1)^{\top}$ wird auf $(1,\,0)^{\top}$ abgebildet, die Verbindung $(-1,\,1)^{\top}$ steht schräg zur Achse. Das Licht fällt hier in Richtung $(1,\,-1)^{\top}$ ein. Den nächsten Punkt der $x_1$-Achse, $(0,\,0)^{\top}$, liefert diese Projektion nicht.
+::::
 
 ⁠**Kurz gesagt:** Eine Projektion ist eine Matrix mit $\mathbf{P}^2=\mathbf{P}$; sie ist genau dann orthogonal, also ein Lot, wenn sie symmetrisch ist.
 

@@ -90,7 +90,8 @@ Für die Masche $\mu$ ist die Summe aller $R_a\,I_a$ gleich der treibenden Spann
 Das Rechenmodell für das Maschenstromverfahren. Rechts ist die Stromquelle in eine Spannungsquelle umgewandelt. Rot sind die gemeinsamen Widerstände $R_2$ und $R_4$: Sie stehen außerhalb der Diagonale von $\mathbf Z$. I und III haben keinen gemeinsamen Zweig, deshalb ist $Z_{13}=0$.
 :::
 
-**Beispiel.** Rechts wird $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V mit $R_5$ in Reihe (Abb. [3](#abb-3)). Die drei Umläufe im Uhrzeigersinn lauten
+::::beispiel
+Rechts wird $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V mit $R_5$ in Reihe (Abb. [3](#abb-3)). Die drei Umläufe im Uhrzeigersinn lauten
 
 $$\begin{aligned} \text{I:}\quad&R_1I_\mathrm I+R_2(I_\mathrm I-I_\mathrm{II})-U_\mathrm q=0,\\ \text{II:}\quad&R_2(I_\mathrm{II}-I_\mathrm I)+R_3I_\mathrm{II}+R_4(I_\mathrm{II}-I_\mathrm{III})=0,\\ \text{III:}\quad&R_4(I_\mathrm{III}-I_\mathrm{II})+R_5I_\mathrm{III}+U_\mathrm{q5}=0. \end{aligned}$$
 
@@ -105,6 +106,7 @@ $$D=5\cdot140+4\cdot(-60)=460,\qquad D_1=9\cdot140+4\cdot(-200)=460,$$
 $$D_2=5\cdot(-200)-9\cdot(-60)=-460,\qquad D_3=-1600+320+360=-920.$$
 
 Also sind $I_\mathrm I=1$ mA, $I_\mathrm{II}=-1$ mA und $I_\mathrm{III}=-2$ mA. Das Minus sagt: Masche II und III laufen in Wirklichkeit gegen den Uhrzeigersinn. Die Zweigströme aus Stufe [2](maschenstrome-erfullen-die-knotenregel.html#stufe-2) sind 1 mA in $R_1$, 2 mA in $R_2$ nach unten, 1 mA in $R_3$ von Knoten 2 nach Knoten 1 und 1 mA in $R_4$ nach unten. **Kontrolle:** $U_1=R_2\cdot2\,\mathrm{mA}=8$ V und $U_2=R_4\cdot1\,\mathrm{mA}=10$ V. Masche I: $1+8-9=0$.
+::::
 
 ⁠**Grenzfall:** Für $R_2\to0$ wird $Z_{12}=0$, die Masche I ist entkoppelt: Ein Draht in der Mitte trennt beide Seiten, denn seine Spannung ist null, was immer durch ihn fließt.
 

@@ -102,7 +102,9 @@ denn $\overline{z}w$ ist die zu $z\overline{w}$ konjugierte Zahl. Nach (v) und (
 (vii): $-w$ statt $w$ in (vi) gibt die erste Ungleichung. Aus $|z|=|(z-w)+w|\le|z-w|+|w|$ folgt $|z|-|w|\le|z-w|$, mit vertauschten Rollen $|w|-|z|\le|z-w|$, zusammen die zweite. $-w$ statt $w$ darin gibt die dritte.
 :::
 
-**Beispiel.** $|z_1|=\sqrt{10}\approx3{,}162$ und $|z_2|=\sqrt5\approx2{,}236$. Die Dreiecksungleichung: $|z_1+z_2|=|4+3\mathrm{i}|=5\le5{,}398$. Das Produkt: $|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$. Der Abstand: $d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$. Die untere Ungleichung: $0{,}926\le2{,}236$. Regel (v) für $z_1$: $3\le3{,}162\le4$.
+::::beispiel
+$|z_1|=\sqrt{10}\approx3{,}162$ und $|z_2|=\sqrt5\approx2{,}236$. Die Dreiecksungleichung: $|z_1+z_2|=|4+3\mathrm{i}|=5\le5{,}398$. Das Produkt: $|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$. Der Abstand: $d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$. Die untere Ungleichung: $0{,}926\le2{,}236$. Regel (v) für $z_1$: $3\le3{,}162\le4$.
+::::
 
 **Punktmengen.** Weil $|z-c|$ der Abstand von $z$ zu $c$ ist, beschreibt $|z-c|=r$ den Kreis um $c$ mit Radius $r$ und $|z-c|\le r$ die Kreisscheibe. Bedingungen an $\operatorname{Re}(z)$ oder $\operatorname{Im}(z)$ schneiden Halbebenen aus. Solche Ungleichungen sind erlaubt, weil beide Seiten reell sind.
 

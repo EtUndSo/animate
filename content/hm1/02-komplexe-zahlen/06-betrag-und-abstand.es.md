@@ -102,7 +102,9 @@ porque $\overline{z}w$ es el conjugado de $z\overline{w}$. Por (v) y (iv) es $\o
 (vii): $-w$ en lugar de $w$ en (vi) da la primera desigualdad. De $|z|=|(z-w)+w|\le|z-w|+|w|$ se deduce $|z|-|w|\le|z-w|$; con los papeles intercambiados, $|w|-|z|\le|z-w|$; juntas dan la segunda. $-w$ en lugar de $w$ en ella da la tercera.
 :::
 
-**Ejemplo.** $|z_1|=\sqrt{10}\approx3{,}162$ y $|z_2|=\sqrt5\approx2{,}236$. La desigualdad triangular: $|z_1+z_2|=|4+3\mathrm{i}|=5\le5{,}398$. El producto: $|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$. La distancia: $d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$. La desigualdad inversa: $0{,}926\le2{,}236$. Regla (v) para $z_1$: $3\le3{,}162\le4$.
+::::beispiel
+$|z_1|=\sqrt{10}\approx3{,}162$ y $|z_2|=\sqrt5\approx2{,}236$. La desigualdad triangular: $|z_1+z_2|=|4+3\mathrm{i}|=5\le5{,}398$. El producto: $|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$. La distancia: $d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$. La desigualdad inversa: $0{,}926\le2{,}236$. Regla (v) para $z_1$: $3\le3{,}162\le4$.
+::::
 
 **Conjuntos de puntos.** Como $|z-c|$ es la distancia de $z$ a $c$, $|z-c|=r$ describe la circunferencia de centro $c$ y radio $r$, y $|z-c|\le r$ el disco. Las condiciones sobre $\operatorname{Re}(z)$ o $\operatorname{Im}(z)$ recortan semiplanos. Estas desigualdades están permitidas porque ambos miembros son reales.
 

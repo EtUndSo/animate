@@ -47,7 +47,8 @@ $h(t-\tau)$：把反转后的 $h$ 向右*平移* $t$。
 
 为什么要反转？作为 $\tau$ 的函数，自变量 $t-\tau$ 随 $\tau$ 增大而减小。$h$ 的起点（年龄为零）位于 $\tau=t$，越早的冲激位于越左边。对于 RC 电路，$h$ 在起点处最大：系统对最近的过去“记得”最清楚。
 
-**例：RC 电路与矩形脉冲。** 时间常数为 $T=RC$ 的 RC 电路，其冲激响应是一个面积为 1 的衰减指数脉冲。短促的冲激瞬间把电容充到 $1/T$，随后电容经 $R$ 放电：
+::::beispiel RC 电路与矩形脉冲
+时间常数为 $T=RC$ 的 RC 电路，其冲激响应是一个面积为 1 的衰减指数脉冲。短促的冲激瞬间把电容充到 $1/T$，随后电容经 $R$ 放电：
 
 <span class="anker" id="gl-5-1"></span>
 $$h(t)=\frac1T\,\varepsilon(t)\,\mathrm{e}^{-t/T}. \tag{5.1}$$
@@ -56,6 +57,7 @@ $$h(t)=\frac1T\,\varepsilon(t)\,\mathrm{e}^{-t/T}. \tag{5.1}$$
 
 <span class="anker" id="gl-5-2"></span>
 $$g(t)=\begin{cases}0 & t<0,\\[2pt] a\bigl(1-\mathrm{e}^{-t/T}\bigr) & 0\le t\le T_0,\\[2pt] a\bigl(\mathrm{e}^{T_0/T}-1\bigr)\mathrm{e}^{-t/T} & t>T_0.\end{cases} \tag{5.2}$$
+::::
 
 :::herleitung 对矩形脉冲的响应
 ⁠**$t<0$：**平移后的 $h(t-\tau)$ 仅在 $\tau\le t<0$ 时非零，而 $s(\tau)$ 仅在 $\tau\ge0$ 时非零。两者没有重叠，$g=0$。

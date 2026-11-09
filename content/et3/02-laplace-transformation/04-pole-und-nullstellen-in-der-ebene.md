@@ -23,9 +23,11 @@ In allen Beispielen war $S(p)$ ein Bruch aus zwei Polynomen in $p$. Dieser Absch
 Eine Stelle $p$, an der $S(p)=0$ ist, heißt __Nullstelle__ von $S(p)$. Ist $S(p)$ ein Bruch aus zwei Polynomen, so sind die Nullstellen die Nullstellen des Zählerpolynoms (sofern sie sich nicht gegen Pole kürzen).
 :::
 
-⁠**Beispiel:** Der Zähler von [(2.8)](beispiele-zur-laplace-transformation.html#gl-2-8) ist $2p^2+5p+12$. Mit der Lösungsformel für quadratische Gleichungen:
+::::beispiel
+Der Zähler von [(2.8)](beispiele-zur-laplace-transformation.html#gl-2-8) ist $2p^2+5p+12$. Mit der Lösungsformel für quadratische Gleichungen:
 
 $$p_{\mathrm N1,2}=\frac{-5\pm\sqrt{25-96}}{4}=\frac{-5\pm\mathrm{j}\sqrt{71}}{4}=-\frac54\pm\frac{\sqrt{71}}{4}\,\mathrm{j}\approx-1{,}25\pm2{,}11\,\mathrm{j} .$$
+::::
 
 ⁠**Kurz gesagt:** Nullstellen sind die Stellen, an denen $S(p)$ verschwindet.
 
@@ -40,9 +42,11 @@ $$H(p)=H_0\,\frac{\prod_{q=1}^{Q}\bigl(p-p_{\mathrm N,q}\bigr)}{\prod_{r=1}^{R}\
 
 Der Faktor $H_0$ ist der Quotient der höchsten Koeffizienten von Zähler und Nenner. Die Formel gilt für jede rationale Laplace-Transformierte, hier mit $H$ geschrieben.
 
-⁠**Beispiel:** Für [(2.8)](beispiele-zur-laplace-transformation.html#gl-2-8) ist der höchste Koeffizient des Zählers 2 und der des Nenners 1, also
+::::beispiel
+Für [(2.8)](beispiele-zur-laplace-transformation.html#gl-2-8) ist der höchste Koeffizient des Zählers 2 und der des Nenners 1, also
 
 $$S(p)=2\,\frac{(p-p_{\mathrm N1})(p-p_{\mathrm N2})}{(p+2)(p+1-3\mathrm{j})(p+1+3\mathrm{j})},\qquad H_0=2.$$
+::::
 
 ⁠**Kurz gesagt:** Ein Polynombruch ist durch seine Pole, seine Nullstellen und den Faktor $H_0$ vollständig bestimmt.
 
@@ -100,7 +104,8 @@ bei zweiseitigen Signalen zwischen dem am weitesten rechts gelegenen Pol eines r
 
 </ul>
 
-⁠**Beispiel: ein Ausdruck, drei Signale.** Gegeben sei
+::::beispiel ein Ausdruck, drei Signale
+Gegeben sei
 
 <span class="anker" id="gl-3-2"></span>
 $$S(p)=\frac{1}{(p+1)(p+2)}=\frac{1}{p+1}-\frac{1}{p+2} \tag{3.2}$$
@@ -132,6 +137,7 @@ Zweiseitig: Konvergenzbereich zwischen den Polen, $-2<\operatorname{Re} p<-1$ (A
 :::abbildung et3/k2dreikb 5
 Ein Ausdruck, drei Signale: (a) die Pole von $S(p)=1/\bigl((p+1)(p+2)\bigr)$; Konvergenzbereich (blau) für (b) das rechtsseitige, (c) das linksseitige und (d) das zweiseitige Signal.
 :::
+::::
 
 ⁠**Kurz gesagt:** Bei einem rechtsseitigen Signal liegt der Konvergenzbereich rechts aller Pole, bei einem linksseitigen links aller Pole, bei einem zweiseitigen in einem Streifen zwischen ihnen.
 
@@ -160,7 +166,9 @@ Liegt $p$ in beiden Konvergenzbereichen, konvergiert das Doppelintegral absolut,
 $$\mathcal{L}\{s*h\}=\int_{-\infty}^{\infty}s(\tau)\,\mathrm{e}^{-p\tau}\Bigl[\int_{-\infty}^{\infty}h(u)\,\mathrm{e}^{-pu}\,\mathrm{d} u\Bigr]\mathrm{d}\tau=\int_{-\infty}^{\infty}s(\tau)\,\mathrm{e}^{-p\tau}\,\mathrm{d}\tau\cdot H(p)=S(p)\,H(p).$$
 :::
 
-⁠**Beispiel:** Im Kapitel zur Faltung ergab $\varepsilon(t)*\varepsilon(t)=t\,\varepsilon(t)$. Im Bildbereich ist das $\frac1p\cdot\frac1p=\frac{1}{p^2}$ für $\operatorname{Re} p>0$, und das ist nach [(2.12)](beispiele-zur-laplace-transformation.html#gl-2-12) tatsächlich die Transformierte von $t\,\varepsilon(t)$.
+::::beispiel
+Im Kapitel zur Faltung ergab $\varepsilon(t)*\varepsilon(t)=t\,\varepsilon(t)$. Im Bildbereich ist das $\frac1p\cdot\frac1p=\frac{1}{p^2}$ für $\operatorname{Re} p>0$, und das ist nach [(2.12)](beispiele-zur-laplace-transformation.html#gl-2-12) tatsächlich die Transformierte von $t\,\varepsilon(t)$.
+::::
 
 ⁠**Kurz gesagt:** Aus der Faltung im Zeitbereich wird im Bildbereich ein Produkt.
 

@@ -35,7 +35,11 @@ $$U_\mathrm{in,sat}=\frac{(U_\mathrm{CC}-U_\mathrm{CE,sat})\,R_\mathrm{B}}{B\,R_
 Left, the inverter characteristic with $R_\mathrm{B}=20$ k$\Omega$, knees at 0.6 V and 0.99 V. Center, a square-wave signal between 0 and 5 V at the input (gray) and the inverted output between 12 V and 0.2 V (blue). Right, the permitted operating points: below the power hyperbola, $I_\mathrm{C,max}$ and $U_\mathrm{CE,max}$. The operating point A, with 12 mW, lies deep inside the permitted area.
 :::
 
-**Example.** With $R_\mathrm{B}=20$ k$\Omega$, the slope is $-30$ and $U_\mathrm{in,sat}=0.99$ V. A logic input of 5 V gives $I_\mathrm{B}=220$ µ A and $B\,I_\mathrm{B}=44$ mA, far above the 3.93 mA that $R_\mathrm{C}$ allows. So the transistor is overdriven by a factor of eleven and stays reliably switched on even with a poor specimen. In it, $0.2\,\mathrm{V}\cdot3.93\,\mathrm{mA}+0.6\,\mathrm{V}\cdot0.22\,\mathrm{mA}=0.92$ mW arise, while it switches a power of 46 mW in $R_\mathrm{C}$. At point A it would be 12 mW in the transistor. **Limiting case:** for $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$, the characteristic becomes a vertical jump at $U_\mathrm{BE}$.
+::::beispiel
+With $R_\mathrm{B}=20$ k$\Omega$, the slope is $-30$ and $U_\mathrm{in,sat}=0.99$ V. A logic input of 5 V gives $I_\mathrm{B}=220$ µ A and $B\,I_\mathrm{B}=44$ mA, far above the 3.93 mA that $R_\mathrm{C}$ allows. So the transistor is overdriven by a factor of eleven and stays reliably switched on even with a poor specimen. In it, $0.2\,\mathrm{V}\cdot3.93\,\mathrm{mA}+0.6\,\mathrm{V}\cdot0.22\,\mathrm{mA}=0.92$ mW arise, while it switches a power of 46 mW in $R_\mathrm{C}$. At point A it would be 12 mW in the transistor.
+::::
+
+⁠**Limiting case:** for $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$, the characteristic becomes a vertical jump at $U_\mathrm{BE}$.
 
 **Operating limits.** Three values limit the permitted operating points (Fig. [7](#abb-7), right). Above $U_\mathrm{CE,max}$ the CB boundary breaks down. Above $I_\mathrm{C,max}$ the base and the lead wires are overloaded. Above the __power hyperbola__ $I_\mathrm{C}=P_\mathrm{max}/U_\mathrm{CE}$ the component becomes too hot. Outside these limits the service life drops rapidly, or the component fails at once. For T, the hyperbola lies at 10 mA at 40 V and at 100 mA at 4 V.
 

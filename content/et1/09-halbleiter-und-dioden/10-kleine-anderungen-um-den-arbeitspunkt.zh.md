@@ -34,11 +34,15 @@ $$r=\frac{\mathrm{d} U_\mathrm D}{\mathrm{d} I}=\frac{U_T}{I+I_\mathrm S}\approx
 对式 [(4.1)](warum-der-strom-exponentiell-wachst.html#gl-4-1) 求导：$\mathrm{d} I/\mathrm{d} U_\mathrm D=(I_\mathrm S/U_T)\,\mathrm{e}^{U_\mathrm D/U_T}=(I+I_\mathrm S)/U_T$。其倒数就是 $r$。指数函数求导后还原自身，所以结果中只出现 $I$，而在正向 $I_\mathrm S$ 被略去。$I_\mathrm S$ 不同的两个二极管在相同电流下具有相同的 $r$。
 :::
 
-**例。** 在参考模型中，$r=25.85\,\mathrm{mV}/4.31\,\mathrm{mA}=6.0\,\Omega$。电源上叠加一个峰值为 100 mV 的正弦信号。对于变化量，$R$ 和 $r$ 构成分压器：
+::::beispiel
+在参考模型中，$r=25.85\,\mathrm{mV}/4.31\,\mathrm{mA}=6.0\,\Omega$。电源上叠加一个峰值为 100 mV 的正弦信号。对于变化量，$R$ 和 $r$ 构成分压器：
 
 $$\hat u_\mathrm D=100\,\mathrm{mV}\cdot\frac{6.0\,\Omega}{1000\,\mathrm{\Omega}+6.0\,\Omega}=0.60\,\mathrm{mV},\qquad\hat\imath=\frac{100\,\mathrm{mV}}{1006\,\mathrm{\Omega}}=99.4\,\mu\text{A}.$$
 
-$U_0=5.1$ V 的精确计算给出 $+0.59$ mV 和 $+99.4$ µ A。信号几乎全部出现在电阻上，二极管上只留下 0.6 %。**极限情况：**$I\to0$ 时 $r=U_T/I_\mathrm S=2.6\,\mathrm{T\Omega}$，二极管起隔断作用。$I$ 很大时 $r$ 趋于零，实际上还剩下体电阻。
+$U_0=5.1$ V 的精确计算给出 $+0.59$ mV 和 $+99.4$ µ A。信号几乎全部出现在电阻上，二极管上只留下 0.6 %。
+::::
+
+⁠**极限情况：**$I\to0$ 时 $r=U_T/I_\mathrm S=2.6\,\mathrm{T\Omega}$，二极管起隔断作用。$I$ 很大时 $r$ 趋于零，实际上还剩下体电阻。
 
 :::ltspice 工作点与信号
 ⁠**绘制：**电源 `voltage` 从 `in` 接地，取值 `5`，在 `Advanced` 中把 AC Amplitude 设为 `1`。`res` 1k 从 `in` 接到 `d`，`diode` DM 从 `d` 接地，模型同上。

@@ -44,7 +44,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 
 它的绝对值是由各列张成的平行四边形的面积，也就是 $\mathbf{A}$ 使单位正方形面积变化的倍数。它与逆矩阵式 [(11.2)](einheitsmatrix-und-inverse.html#gl-11-2) 的分母中出现的是同一个数。
 
-⁠**算例：**$\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$，$\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$，$\det\operatorname{diag}(2,\,0.5)=1$，$\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$。拉伸改变正方形的形状，但不改变它的面积：宽度增大的倍数，恰好由高度的缩小抵消。
+::::beispiel [算例]
+$\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$，$\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$，$\det\operatorname{diag}(2,\,0.5)=1$，$\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$。拉伸改变正方形的形状，但不改变它的面积：宽度增大的倍数，恰好由高度的缩小抵消。
+::::
 
 ⁠**简而言之：**$2\times2$ 矩阵的行列式 $ad-bc$ 的绝对值，就是映射使单位正方形面积变化的倍数。
 
@@ -56,7 +58,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 
 在单位正方形中，$\mathbf{e}_2$ 位于 $\mathbf{e}_1$ 的逆时针方向。如果对像也是如此，即 $\mathbf{a}_2$ 也位于 $\mathbf{a}_1$ 的逆时针方向，则 $\det\mathbf{A}>0$。如果 $\mathbf{a}_2$ 位于 $\mathbf{a}_1$ 的顺时针方向，平面就被镜像反射了，$\det\mathbf{A}<0$。这一性质称为__定向__：正的行列式保持定向，负的行列式使定向反转。
 
-⁠**算例：**关于 $x_1$ 轴的反射 $\operatorname{diag}(1,\,-1)$ 的行列式为 $-1$：面积不变，定向反转。交换矩阵的两列，行列式就改变符号：$\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$。旋转 $90^\circ$ 的 $\det=0\cdot0-(-1)\cdot1=1$，剪切的 $\det=1\cdot1-1\cdot0=1$，而压扁 $\operatorname{diag}(1,\,0)$ 的行列式为 $0$。
+::::beispiel [算例]
+关于 $x_1$ 轴的反射 $\operatorname{diag}(1,\,-1)$ 的行列式为 $-1$：面积不变，定向反转。交换矩阵的两列，行列式就改变符号：$\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$。旋转 $90^\circ$ 的 $\det=0\cdot0-(-1)\cdot1=1$，剪切的 $\det=1\cdot1-1\cdot0=1$，而压扁 $\operatorname{diag}(1,\,0)$ 的行列式为 $0$。
+::::
 
 ⁠**简而言之：**行列式的绝对值是面积因子；它的符号说明映射是否作了镜像反射。
 
@@ -76,7 +80,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 在图形上铺一张由边长为 $h$ 的小正方形组成的细网格。以 $\mathbf{q}$ 为一个顶点的小正方形，其顶点为 $\mathbf{q}$、$\mathbf{q}+h\mathbf{e}_1$、$\mathbf{q}+h\mathbf{e}_1+h\mathbf{e}_2$ 和 $\mathbf{q}+h\mathbf{e}_2$。它的像的顶点为 $\mathbf{A}\mathbf{q}$、$\mathbf{A}\mathbf{q}+h\mathbf{a}_1$、$\mathbf{A}\mathbf{q}+h\mathbf{a}_1+h\mathbf{a}_2$ 和 $\mathbf{A}\mathbf{q}+h\mathbf{a}_2$：这是由 $h\mathbf{a}_1$ 和 $h\mathbf{a}_2$ 构成、平移到 $\mathbf{A}\mathbf{q}$ 处的平行四边形。它的面积为 $h^2\,|\det\mathbf{A}|$，与小正方形在哪里无关。所以每个小正方形都按同一个倍数 $|\det\mathbf{A}|$ 变大或变小。图形近似地由这样的小正方形组成，网格越细，近似就越精确。因此这个倍数对整个图形都成立。
 :::
 
-⁠**算例：**半径为 $1$ 的圆盘面积为 $\pi$。拉伸 $\operatorname{diag}(3,\,2)$ 把它变成半轴为 $3$ 和 $2$ 的椭圆。椭圆的面积为 $\pi\cdot3\cdot2=6\pi$，恰好是圆盘面积的 $|\det\mathbf{A}|=6$ 倍。顶点为 $\mathbf{0}$、$\mathbf{e}_1$、$\mathbf{e}_2$ 的三角形面积为 $\tfrac12$；在 $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ 作用下，它变成顶点为 $\mathbf{0}$、$(3,1)^{\top}$、$(1,2)^{\top}$、面积为 $\tfrac52$ 的三角形。
+::::beispiel [算例]
+半径为 $1$ 的圆盘面积为 $\pi$。拉伸 $\operatorname{diag}(3,\,2)$ 把它变成半轴为 $3$ 和 $2$ 的椭圆。椭圆的面积为 $\pi\cdot3\cdot2=6\pi$，恰好是圆盘面积的 $|\det\mathbf{A}|=6$ 倍。顶点为 $\mathbf{0}$、$\mathbf{e}_1$、$\mathbf{e}_2$ 的三角形面积为 $\tfrac12$；在 $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ 作用下，它变成顶点为 $\mathbf{0}$、$(3,1)^{\top}$、$(1,2)^{\top}$、面积为 $\tfrac52$ 的三角形。
+::::
 
 ⁠**简而言之：**线性映射使每个图形的面积都按同一个倍数 $|\det\mathbf{A}|$ 变化，因为它对网格的每个小格都一视同仁。
 
@@ -99,7 +105,8 @@ $$\det\mathbf{A}=\sum_{j=1}^n(-1)^{1+j}\,a_{1j}\,\det\mathbf{A}_{1j} , \tag{14.2
 
 当 $n=2$ 时，式 [(14.2)](#gl-14-2) 又给出 $a_{11}a_{22}-a_{12}a_{21}$。同样也可以按任何其他行或列展开，元素 $a_{ij}$ 取符号 $(-1)^{i+j}$；结果总是一样的。当 $n=3$ 时，$|\det\mathbf{A}|$ 是由三列构成的平行六面体的体积，而符号说明这三列与 $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ 的手性是否相同（右手定则），还是成镜像关系。
 
-⁠**算例：**对第 [12.3](lineare-gleichungssysteme.html#stufe-12-3) 小节中的系数矩阵
+::::beispiel [算例]
+对第 [12.3](lineare-gleichungssysteme.html#stufe-12-3) 小节中的系数矩阵
 
 $$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
 
@@ -108,6 +115,7 @@ $$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
 :::abbildung ml/k1rlaplace 41
 按第一行的拉普拉斯展开：第一行的每个元素乘以去掉它所在的行和列后剩下的矩阵的行列式，符号正负交替。
 :::
+::::
 
 对上三角矩阵（对角线以下全为零），反复按第一列展开，就得到对角元素的乘积，例如 $\det\Bigl(\begin{smallmatrix}2&1&3\\0&3&1\\0&0&4\end{smallmatrix}\Bigr)=2\cdot3\cdot4=24$。
 
@@ -161,9 +169,13 @@ $\det(c\,\mathbf{A})=c^n\det\mathbf{A}$；
 
 规则 (iii) 由 (i) 以及 $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$ 和 $\det\mathbf{I}=1$ 得出。规则 (iv) 是说：把单位立方体的全部 $n$ 条棱都拉伸为原来的 $c$ 倍，它的体积就变为原来的 $c^n$ 倍。规则 (v) 使高斯消元法成为计算行列式的实用方法：把矩阵化为行阶梯形，记下交换的次数，再把对角元素相乘。
 
-⁠**算例 1：**由于 $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ 且 $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$，乘积 $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ 的行列式必定为 $5$：$21-16=5$。
+::::beispiel [算例 1]
+由于 $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ 且 $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$，乘积 $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ 的行列式必定为 $5$：$21-16=5$。
+::::
 
-⁠**算例 2：**在第 [12.3](lineare-gleichungssysteme.html#stufe-12-3) 小节的高斯消元中，系数矩阵通过加上倍数和一次交换，化成了对角元素为 $1$、$-1$、$-4$ 的阶梯形。所以它的行列式为 $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$，与拉普拉斯展开的结果相同。
+::::beispiel [算例 2]
+在第 [12.3](lineare-gleichungssysteme.html#stufe-12-3) 小节的高斯消元中，系数矩阵通过加上倍数和一次交换，化成了对角元素为 $1$、$-1$、$-4$ 的阶梯形。所以它的行列式为 $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$，与拉普拉斯展开的结果相同。
+::::
 
 ⁠**简而言之：**乘积的行列式是各行列式的乘积，因为映射先后作用时体积因子相乘；实际中用高斯消元法计算行列式。
 
@@ -195,7 +207,9 @@ $n\times n$ 矩阵的拉普拉斯展开要调用 $n$ 个 $n-1$ 阶行列式，�
 
 因此，结合第 [13.5](unabhangigkeit-basis-und-rang.html#stufe-13-5) 小节中的定理，对方阵而言下列各条等价：$\det\mathbf{A}\ne0$，$\mathbf{A}$ 可逆，$\operatorname{rank}\mathbf{A}=n$，$\ker\mathbf{A}=\{\mathbf{0}\}$，各列线性无关。
 
-⁠**算例：**第 [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) 小节中的矩阵 $\mathbf K$ 满足 $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$，与 $\operatorname{rank}\mathbf K=2$ 一致。高斯消元法算例中的系数矩阵满足 $\det=-4\ne0$，因而可逆；正因为如此，那个方程组恰有一个解。
+::::beispiel [算例]
+第 [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) 小节中的矩阵 $\mathbf K$ 满足 $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$，与 $\operatorname{rank}\mathbf K=2$ 一致。高斯消元法算例中的系数矩阵满足 $\det=-4\ne0$，因而可逆；正因为如此，那个方程组恰有一个解。
+::::
 
 ⁠**简而言之：**方阵可逆，当且仅当它的行列式不为零，也就是说，它不把空间压扁。
 

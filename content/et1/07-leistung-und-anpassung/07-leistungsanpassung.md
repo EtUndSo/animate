@@ -47,7 +47,11 @@ Ohne Ableitung: Mit $x=I/I_\mathrm{KS}$ ist $P_\mathrm{L}=P_\mathrm{KS}\,x(1-x)$
 Als Mechanismus: Ein Stromzuwachs $\mathrm{d} I$ bringt $U_\mathrm{q}\mathrm{d} I$ aus der Quelle, die Verluste wachsen um $2R_\mathrm{i}I\,\mathrm{d} I$. Bei $I=I_\mathrm{KS}/2$ frisst der Verlust den Zuwachs: 9 V gegen $2\cdot2\,\Omega\cdot2{,}25\,\mathrm{A}=9$ V.
 :::
 
-**Beispiel.** Für $R_\mathrm{L}=2\,\Omega$ sind $I=2{,}25$ A, $U_\mathrm{L}=4{,}5$ V und $P_\mathrm{L}=10{,}125$ W, das ist ein Viertel von $P_\mathrm{KS}=40{,}5$ W. Die Lasten 0,5 $\Omega$ und 8 $\Omega$ ergeben beide 6,48 W. Allgemein liefern $\alpha$ und $1/\alpha$ dieselbe Leistung, denn sie tauschen $x$ und $1-x$. **Grenzfälle:** Für $\alpha\to0$ ist der Strom fest und $P_\mathrm{L}\approx P_\mathrm{KS}\,\alpha$. Für $\alpha\to\infty$ ist die Spannung fest und $P_\mathrm{L}\approx P_\mathrm{KS}/\alpha$.
+::::beispiel
+Für $R_\mathrm{L}=2\,\Omega$ sind $I=2{,}25$ A, $U_\mathrm{L}=4{,}5$ V und $P_\mathrm{L}=10{,}125$ W, das ist ein Viertel von $P_\mathrm{KS}=40{,}5$ W. Die Lasten 0,5 $\Omega$ und 8 $\Omega$ ergeben beide 6,48 W. Allgemein liefern $\alpha$ und $1/\alpha$ dieselbe Leistung, denn sie tauschen $x$ und $1-x$.
+::::
+
+⁠**Grenzfälle:** Für $\alpha\to0$ ist der Strom fest und $P_\mathrm{L}\approx P_\mathrm{KS}\,\alpha$. Für $\alpha\to\infty$ ist die Spannung fest und $P_\mathrm{L}\approx P_\mathrm{KS}/\alpha$.
 
 :::ltspice Parabel und Gerade
 ⁠**Zeichnen:** `voltage` mit 9 von `q` nach Masse, `res` mit 2 von `q` nach `a`. Als Last eine Stromquelle `current` namens `I1` von `a` nach Masse.

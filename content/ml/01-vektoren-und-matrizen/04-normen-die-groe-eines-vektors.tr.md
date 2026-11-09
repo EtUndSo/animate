@@ -34,11 +34,13 @@ Bu seride indissiz $\lVert\mathbf{x}\rVert$ her zaman Öklid normu anlamına gel
 
 Bu norma vektörün __uzunluğu__ ya da karelerden dolayı $L_2$-normu da denir. Uzunluğu $1$ olan bir vektöre __normlanmış__ vektör denir. Bir $\mathbf{x}\ne\mathbf{0}$ vektörü uzunluğuna bölünürse $\mathbf{x}/\lVert\mathbf{x}\rVert$ normlanmıştır ve aynı yönü gösterir. Bu adıma __normlamak__ denir.
 
-⁠**Sayısal örnek:** $\mathbf{x}=(3,\,-4)^{\top}$ vektörünün uzunluğu $\lVert\mathbf{x}\rVert_2=5$ olur (Şekil [12](#abb-12)). Normlanmış hâli $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$ vektörüdür. Uzayda $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$ bulunur.
+::::beispiel [Sayısal örnek]
+$\mathbf{x}=(3,\,-4)^{\top}$ vektörünün uzunluğu $\lVert\mathbf{x}\rVert_2=5$ olur (Şekil [12](#abb-12)). Normlanmış hâli $\mathbf{x}/5=(0{,}6;\ -0{,}8)^{\top}$ vektörüdür. Uzayda $\lVert(1,\,2,\,2)^{\top}\rVert=\sqrt{1+4+4}=3$ bulunur.
 
 :::abbildung ml/k1rl2 12
 $(3,\,-4)^{\top}$ vektörünün Öklid normu: Bileşenlerin karesi alınır, kareler toplanır, karekök alınır. Eksi işareti kare alınırken kaybolur.
 :::
+::::
 
 ⁠**Kısacası:** Öklid normu okun uzunluğudur, yani bileşenlerin kareleri toplamının kareköküdür.
 
@@ -59,13 +61,15 @@ $$\lVert\mathbf{x}\rVert_1=|x_1|+|x_2|+\dots+|x_d|=\sum_{j=1}^d|x_j| . \tag{3.2}
 
 Bu norma $L_1$-normu ya da Manhattan'ın sokak ağından dolayı Manhattan normu da denir.
 
-⁠**Sayısal örnek:** $\mathbf{x}=(3,\,-4)^{\top}$ için $\lVert\mathbf{x}\rVert_1=7$ (Şekil [13](#abb-13)) ve $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$ olur.
+::::beispiel [Sayısal örnek]
+$\mathbf{x}=(3,\,-4)^{\top}$ için $\lVert\mathbf{x}\rVert_1=7$ (Şekil [13](#abb-13)) ve $\lVert(1,\,2,\,2)^{\top}\rVert_1=1+2+2=5$ olur.
 
 :::abbildung ml/k1rl1 13
 $\mathbf{x}=(3,\,-4)^{\top}$ vektörünün mutlak değerler toplamı normu: Bileşenlerin mutlak değerleri toplanır.
 :::
 
 Mutlak değerler toplamı normu burada Öklid uzunluğundan büyüktür, çünkü sokaklar üzerinden dolambaçlı yol kuş uçuşu mesafeden uzundur.
+::::
 
 ⁠**Kısacası:** Mutlak değerler toplamı normu bileşenlerin mutlak değerlerini toplar; dik açılı bir sokak ağında alınan yoldur.
 
@@ -86,7 +90,9 @@ $$\lVert\mathbf{x}\rVert_\infty=\max_{j=1,\dots,d}|x_j| . \tag{3.3}$$
 
 Bu norma $L_\infty$-normu da denir. Sonsuzluk işaretinin nedeni bir sonraki alt kesimde açıklanıyor.
 
-⁠**Sayısal örnek:** $\lVert(3,\,-4)^{\top}\rVert_\infty=4$ olur ve $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Bir parçanın sapmaları $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm ise bunların maksimum normu $0{,}08$ mm olur ve parça uygundur.
+::::beispiel [Sayısal örnek]
+$\lVert(3,\,-4)^{\top}\rVert_\infty=4$ olur ve $\lVert(1,\,2,\,2)^{\top}\rVert_\infty=2$. Bir parçanın sapmaları $(0{,}05;\ -0{,}08;\ 0{,}02)$ mm ise bunların maksimum normu $0{,}08$ mm olur ve parça uygundur.
+::::
 
 ⁠**Kısacası:** Maksimum normu bileşenlerin mutlak değerlerinin en büyüğü, yani en kötü tek sapmadır.
 
@@ -139,11 +145,13 @@ $p=1$ için bu mutlak değerler toplamı normu, $p=2$ için Öklid normudur. $p$
 Düzlemde üç normun birim küreleri: mutlak değerler toplamı normunun eşkenar dörtgeni (solda, turuncu), Öklid normunun çemberi (ortada, mavi) ve maksimum normunun karesi (sağda, yeşil); karşılaştırma için her birinde öteki ikisi gri. Üçü de $(\pm1,\,0)$ ve $(0,\,\pm1)$ noktalarından geçer.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{x}=(3,\,-4)^{\top}$ için $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (Şekil [15](#abb-15)) ve $\lVert\mathbf{x}\rVert_\infty=4$ bulunur. $p$ büyüdükçe $p$-normu bileşenlerin mutlak değerlerinin en büyüğüne, burada $4$ sayısına yaklaşır. Nedeni toplamda zaten görülür: $p=10$ iken $4^{10}$ sayısı $3^{10}$ sayısının neredeyse on sekiz katıdır ve toplamın kökü, yalnızca $4^{10}$ sayısının kökünden pek büyük değildir.
+::::beispiel [Sayısal örnek]
+$\mathbf{x}=(3,\,-4)^{\top}$ için $\lVert\mathbf{x}\rVert_1=7$, $\lVert\mathbf{x}\rVert_2=5$, $\lVert\mathbf{x}\rVert_3=91^{1/3}\approx4{,}498$, $\lVert\mathbf{x}\rVert_{10}=1\,107\,625^{1/10}\approx4{,}022$ (Şekil [15](#abb-15)) ve $\lVert\mathbf{x}\rVert_\infty=4$ bulunur. $p$ büyüdükçe $p$-normu bileşenlerin mutlak değerlerinin en büyüğüne, burada $4$ sayısına yaklaşır. Nedeni toplamda zaten görülür: $p=10$ iken $4^{10}$ sayısı $3^{10}$ sayısının neredeyse on sekiz katıdır ve toplamın kökü, yalnızca $4^{10}$ sayısının kökünden pek büyük değildir.
 
 :::abbildung ml/k1rlp 15
 $\mathbf{x}=(3,\,-4)^{\top}$ vektörünün $p=3$ ve $p=10$ için iki $p$-normu. $p$ ne kadar büyükse en büyük bileşenin terimi o kadar ağır basar.
 :::
+::::
 
 Mutlak değerler toplamı normunun (N1)–(N3) koşullarını sağladığı doğrudan hesapla görülür: (N1) ve (N2) geçerlidir, çünkü $|x_j|\ge0$ ve $|c\,x_j|=|c|\,|x_j|$ olur. (N3), sayılar için üçgen eşitsizliğinin, $|u_j+v_j|\le|u_j|+|v_j|$, bütün $j$ üzerinden toplanmasından çıkar. Maksimum normu için de aynı biçimde gösterilir. Öklid normu için üçgen eşitsizliği sezgisel olarak açıktır, çünkü iki nokta arasındaki doğrudan yol, üçüncü bir noktadan geçen dolambaçlı bir yoldan hiçbir zaman uzun değildir.
 
@@ -182,7 +190,8 @@ vektörüne __hata vektörü__ denir. Burada $\hat{\mathbf{y}}=(\hat y_1,\dots,\
 
 Hata vektörüne hangi normun uygulanacağı, en çok hangi hatalardan kaçınıldığına dair bir karardır. İşaret burada rol oynamaz, çünkü her norm $\mathbf{y}-\hat{\mathbf{y}}$ vektörüne $\hat{\mathbf{y}}-\mathbf{y}$ vektörüyle aynı büyüklüğü verir.
 
-⁠**Sayısal örnek:** Dört daire satılmış, gerçek fiyatlar $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$ bin avro olmuştur. İki eksper, A ve B, önceden şu tahminleri yapmıştı:
+::::beispiel [Sayısal örnek]
+Dört daire satılmış, gerçek fiyatlar $\mathbf{y}=(200,\,130,\,290,\,240)^{\top}$ bin avro olmuştur. İki eksper, A ve B, önceden şu tahminleri yapmıştı:
 
 $$\hat{\mathbf{y}}_{\mathrm A}=(210,\,120,\,300,\,230)^{\top},\qquad \hat{\mathbf{y}}_{\mathrm B}=(200,\,130,\,290,\,280)^{\top}.$$
 
@@ -202,6 +211,7 @@ Hata vektörleri $\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y}=(10,\,-10,\,10,\,-10)^
 | Eksper B, $\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y}$ | $40$ | $\sqrt{1600}=40$ | $40$ |
 
 Mutlak değerler toplamı normuna göre ikisi de aynı derecede iyidir: İkisi de toplamda $40$ bin avro yanılmıştır. Öklid normuna göre A iki kat, maksimum normuna göre dört kat daha iyidir. Hangi dairede olursa olsun her bin avroluk sapmayı aynı derecede kötü bulan, $L_1$ ile ölçer. Büyük bir aykırı değeri birçok küçük hatadan daha kötü bulan, $L_2$ ile ölçer. Yalnızca en kötü durumdan çekinen, $L_\infty$ ile ölçer.
+::::
 
 ⁠**Kısacası:** Hata vektörü bütün tahminlerin sapmalarını bir araya toplar; normu hatanın büyüklüğünü ölçer ve normun seçimi hangi hataların özellikle önemli sayılacağını belirler.
 
@@ -228,11 +238,13 @@ rms kısaltması *root mean square* anlamına gelir: karelerin ortalamasının k
 
 Bu ad elektrik mühendisliğinden bilinir: Bir alternatif gerilimin etkin değeri, karesinin zaman ortalamasının kareköküdür. Örneklenmiş bir sinyal için [(3.6)](#gl-3-6), integral yerine örnek değerlerle yapılan aynı hesaptır. Bir sinüs tam bir periyot boyunca $n\ge3$ eşit aralıklı noktada örneklenirse, sinüsün $1/\sqrt2$ etkin değeri bile tam olarak elde edilir.
 
-⁠**Sayısal örnek:** Önceki alt kesimdeki eksperlerin hata vektörlerinin etkin değerleri $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ ve $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ bin avrodur: A tipik olarak $10$ bin avro yanılmıştır. Genliği $1$ olan ve bir periyot içinde eşit aralıklı dört noktada örneklenen bir sinüsün örnek değerleri $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$, etkin değeri $1/\sqrt2\approx0{,}707$ olur (Şekil [17](#abb-17)).
+::::beispiel [Sayısal örnek]
+Önceki alt kesimdeki eksperlerin hata vektörlerinin etkin değerleri $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ ve $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ bin avrodur: A tipik olarak $10$ bin avro yanılmıştır. Genliği $1$ olan ve bir periyot içinde eşit aralıklı dört noktada örneklenen bir sinüsün örnek değerleri $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$, etkin değeri $1/\sqrt2\approx0{,}707$ olur (Şekil [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
 Örneklenmiş bir sinüsün etkin değeri: Kareler toplanır, bileşen sayısına bölünür, karekök alınır.
 :::
+::::
 
 ⁠**Kısacası:** $\lVert\mathbf{x}\rVert/\sqrt n$ etkin değeri bir bileşenin tipik mutlak değeridir ve bileşen sayıları farklı olan vektörleri karşılaştırılabilir kılar.
 

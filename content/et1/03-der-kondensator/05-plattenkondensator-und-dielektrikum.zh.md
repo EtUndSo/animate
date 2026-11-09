@@ -44,7 +44,9 @@ $$E=\frac{Q}{\varepsilon_0\,A},\qquad U=E\,d=\frac{Q\,d}{\varepsilon_0\,A}\quad\
 有电介质时，一部分电场线终止于束缚电荷 $Q_\mathrm{g}$，穿过空间的只有 $Q-Q_\mathrm{g}$ 这一部分。在大多数绝缘体中，这一部分是 $Q$ 的固定比例。记作 $Q-Q_\mathrm{g}=Q/\varepsilon_\mathrm{r}$，由此得 $E=Q/(\varepsilon_\mathrm{r}\varepsilon_0A)$，从而得到式 [(4.1)](#gl-4-1)。
 :::
 
-**例。** 平行极板的电容为 $C=8.854\cdot10^{-12}\,\mathrm{F/m}\cdot0.01\,\mathrm{m^2}/0.003\,\mathrm{m}=29.5$ pF。若用 $\varepsilon_\mathrm{r}=1000$ 的陶瓷，就是 29.5 nF。若要在 3 mm 空气间隙下达到 100 µF，所需面积为 $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$，即 3.4 公顷。因此实际的电容器都采用薄层（第 [5](bauformen-und-selbstentladung.html#stufe-5) 阶段）。
+::::beispiel
+平行极板的电容为 $C=8.854\cdot10^{-12}\,\mathrm{F/m}\cdot0.01\,\mathrm{m^2}/0.003\,\mathrm{m}=29.5$ pF。若用 $\varepsilon_\mathrm{r}=1000$ 的陶瓷，就是 29.5 nF。若要在 3 mm 空气间隙下达到 100 µF，所需面积为 $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$，即 3.4 公顷。因此实际的电容器都采用薄层（第 [5](bauformen-und-selbstentladung.html#stufe-5) 阶段）。
+::::
 
 ⁠**检验：**单位正确：$\frac{\mathrm{A\,s}}{\mathrm{V\,m}}\cdot\frac{\mathrm{m^2}}{\mathrm{m}}=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$。**极限情况：**当 $d\to0$ 时 $C$ 将无限增大。阻止这一点的是__击穿__：在 $E_\mathrm{max}$ 时电介质变为导体，空气的击穿场强为 3 MV/m（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。因此薄层需要固体材料，每个电容器都有最高电压 $U_\mathrm{max}=E_\mathrm{max}\,d$。
 

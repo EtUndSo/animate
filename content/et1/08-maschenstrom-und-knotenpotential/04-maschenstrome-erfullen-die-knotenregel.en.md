@@ -42,13 +42,17 @@ The node rule is then satisfied for all values of the $I_\mu$. Conversely, every
 
 ⁠**How to read it:** $\mu$ numbers the meshes, in the examples with Roman numerals. The direction is free; a negative value means that the circulating current runs the other way around. **Validity:** The meshes must be independent. If the network can be drawn without crossings, you choose the __windows__, the areas between the branches. When building up from the tree, each new link branch divides exactly one area in two, so there are exactly $m$ windows.
 
-**Example.** If you combine the current source and $R_5$ in the model network into a branch with a voltage source (Stage [3](das-maschenstromverfahren.html#stufe-3)), three windows I, II, III remain, with clockwise mesh currents. All five branch currents follow from them:
+::::beispiel
+If you combine the current source and $R_5$ in the model network into a branch with a voltage source (Stage [3](das-maschenstromverfahren.html#stufe-3)), three windows I, II, III remain, with clockwise mesh currents. All five branch currents follow from them:
 
 | Branch | left, $R_1$ | $R_2$ | $R_3$ | $R_4$ | right, $R_5$ |
 |---|---|---|---|---|---|
 | Current | $I_\mathrm I$ | $I_\mathrm I-I_\mathrm{II}$ | $I_\mathrm{II}$ | $I_\mathrm{II}-I_\mathrm{III}$ | $I_\mathrm{III}$ |
 
-At node 1 this gives $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$, no matter what values the currents have. **Limiting cases:** For $m=1$, the mesh current is the current of the series connection. For $I_\mathrm{II}=0$, the current in $R_3$ vanishes; the left and right halves exchange nothing.
+At node 1 this gives $I_\mathrm I-(I_\mathrm I-I_\mathrm{II})-I_\mathrm{II}=0$, no matter what values the currents have.
+::::
+
+⁠**Limiting cases:** For $m=1$, the mesh current is the current of the series connection. For $I_\mathrm{II}=0$, the current in $R_3$ vanishes; the left and right halves exchange nothing.
 
 :::frage What does an ammeter in the branch of $R_2$ measure, $I_\mathrm I$ or $I_\mathrm{II}$?
 Neither of them, but the branch current $I_\mathrm I-I_\mathrm{II}$. A mesh current can be measured directly only where it flows alone, here for example $I_\mathrm I$ in $R_1$. That is the tree idea: the mesh current is the current of a branch that belongs only to this mesh.

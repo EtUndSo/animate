@@ -29,7 +29,7 @@ lang: zh
 | 网孔定律 | 能量守恒：绕行一周回到起始电位（第 [8](die-maschenregel-ist-energieerhaltung.html#stufe-8) 阶段） |
 | 分压器、分流器 | 两条定律应用于串联和并联（第 [9](reihenschaltung-und-spannungsteiler.html#stufe-9) 和第 [10](parallelschaltung-stromteiler-und-belastung.html#stufe-10) 阶段） |
 
-**如何使用本章。**每个阶段都是一篇简短的文章，包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。完成一个阶段后再进入下一个。
+**如何使用本章。**各节循序渐进，每个新术语都有单独的小节和例子。可展开的方框包含背景（为什么如此、从何而来）、推导和仿真提示；不看它们也可以继续阅读。请先自己尝试练习（★ 到 ★★★），解答可在每道练习下方展开。
 
 :::merke 本章的参考模型
 <ul>

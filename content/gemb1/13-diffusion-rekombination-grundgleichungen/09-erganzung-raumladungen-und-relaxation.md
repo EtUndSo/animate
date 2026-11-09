@@ -36,7 +36,11 @@ Der Überschuss hat die Raumladung $\rho_\mathrm n=-e\,\Delta n$. Sie erzeugt ei
 
 **Mehrheit und Minderheit.** Eine Wolke aus Mehrheitsträgern zerfließt mit $\tau_\varepsilon$. Trifft der Strahl dagegen ein p-Gebiet, bleiben die Elektronen als Minderheit, und aus der Umgebung fließen in der Zeit $\tau_\varepsilon$ Löcher zu, bis die Ladung neutralisiert ist. Es bleiben überschüssige Paare mit $n\,p>n_\mathrm i^2$. Erst sie baut die Rekombination langsam mit $\tau_\text{rec}$ ab.
 
-**Beispiel.** Die Probe hat $\sigma=1{,}92$ S/cm, also $\tau_\varepsilon=0{,}54$ ps und $\nu_\varepsilon=0{,}3$ THz, $1{,}9\cdot10^{6}$-mal schneller als $\tau_\text{rec}$. Das ist nur eine Größenordnung, denn $\tau_\varepsilon$ ist nur dreimal so groß wie $\tau_\text{scat}$. **Grenzfall:** In einem Isolator geht $\sigma\to0$, und die Ladung bleibt liegen.
+::::beispiel
+Die Probe hat $\sigma=1{,}92$ S/cm, also $\tau_\varepsilon=0{,}54$ ps und $\nu_\varepsilon=0{,}3$ THz, $1{,}9\cdot10^{6}$-mal schneller als $\tau_\text{rec}$. Das ist nur eine Größenordnung, denn $\tau_\varepsilon$ ist nur dreimal so groß wie $\tau_\text{scat}$.
+::::
+
+⁠**Grenzfall:** In einem Isolator geht $\sigma\to0$, und die Ladung bleibt liegen.
 
 **Ambipolare Diffusion.** Eine einzelne Sorte geladener Teilchen kann nie rein diffundieren, weil sofort ein Gegenfeld entsteht. Diffusion läuft nur als Tausch gleich geladener Teilchen in Gegenrichtung oder gemeinsam mit ungleich geladenen in gleicher Richtung. Bei einem Paket aus Paaren eilen die beweglicheren Elektronen voraus, das Feld zwischen den Fronten bremst sie und zieht die Löcher mit (Abb. [7](#abb-7)). Beide laufen dann gleich schnell, mit der __ambipolaren Diffusionskonstanten__
 

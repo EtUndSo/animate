@@ -58,7 +58,9 @@ Auf dem Deckel ist $\boldsymbol{n}=\hat{\boldsymbol{e}}_3$, also $\boldsymbol{F}
 
 ⁠**So liest man das:** Links steht die Summe aller Quellen im Körper, rechts der gesamte Abfluss durch die Oberfläche. Das ist eine Bilanz. Gibt es keine Quellen ($\operatorname{div}\boldsymbol{F}=0$), fließt netto nichts hinaus: Was hineinfließt, muss wieder heraus.
 
-**Beispiel: Kuppelkörper.** Sei $V$ der Körper zwischen Kuppel und Boden. Sein Volumen ist $\int_0^{2\pi}\!\int_0^2(4-r^2)\,r\,\mathrm{d} r\,\mathrm{d}\varphi=8\pi$. Mit $\operatorname{div}\boldsymbol{F}=2$ ist die linke Seite $16\pi$. Auf der rechten Seite ist der Fluss durch die Kuppel $16\pi$ (Stufe [4](orientierung-und-flussintegral.html#stufe-4)). Auf dem Boden ist $\boldsymbol{n}=(0,0,-1)$ und $\boldsymbol{F}\cdot\boldsymbol{n}=-2z=0$. Beide Seiten stimmen.
+::::beispiel Kuppelkörper
+Sei $V$ der Körper zwischen Kuppel und Boden. Sein Volumen ist $\int_0^{2\pi}\!\int_0^2(4-r^2)\,r\,\mathrm{d} r\,\mathrm{d}\varphi=8\pi$. Mit $\operatorname{div}\boldsymbol{F}=2$ ist die linke Seite $16\pi$. Auf der rechten Seite ist der Fluss durch die Kuppel $16\pi$ (Stufe [4](orientierung-und-flussintegral.html#stufe-4)). Auf dem Boden ist $\boldsymbol{n}=(0,0,-1)$ und $\boldsymbol{F}\cdot\boldsymbol{n}=-2z=0$. Beide Seiten stimmen.
+::::
 
 **Kontrolle an der Kugel.** Für $\boldsymbol{F}=\boldsymbol{x}$ und $R=2$ ist $\operatorname{div}\boldsymbol{F}=3$, die linke Seite also $3\cdot\frac43\pi\cdot8=32\pi$. Auf der Kugel ist $\boldsymbol{n}=\boldsymbol{x}/2$ und $\boldsymbol{F}\cdot\boldsymbol{n}=2$, die rechte Seite also $2\cdot16\pi=32\pi$.
 

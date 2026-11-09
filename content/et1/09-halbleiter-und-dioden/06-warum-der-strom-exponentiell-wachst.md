@@ -80,13 +80,17 @@ Elektronen und Löcher haben dieselbe Barriere, ihre Ströme addieren sich mit d
 Vereinfachung: Die Größe von $I_\mathrm S$ bestimmt in Wirklichkeit die Diffusion der Minderheit in den neutralen Gebieten hinter der Zone. Der Faktor $\mathrm{e}^{U/U_T}$ bleibt, denn er legt die Trägerdichte am Zonenrand fest.
 :::
 
-**Beispiel.** Mit [(4.1)](#gl-4-1) ergibt sich im Rechenmodell:
+::::beispiel
+Mit [(4.1)](#gl-4-1) ergibt sich im Rechenmodell:
 
 | $I$ | 1 µ A | 10 µ A | 100 µ A | 1 mA | 10 mA |
 |---|---|---|---|---|---|
 | $U$ | 0,476 V | 0,536 V | 0,595 V | 0,655 V | 0,714 V |
 
-Bei 0,655 V ist die Barriere auf $2{,}3\,U_T$ geschrumpft, der Anteil von $10^{-12}$ auf 0,1 gestiegen. **Grenzfälle:** Bei $U=0$ ist $I=0$. Für $U\ll-U_T$ bleibt $I=-I_\mathrm S$: Schon bei $-5\,U_T$ sind es 99,3 % davon. Ab $U=119$ mV ist der Summand $-1$ kleiner als 1 % des ersten.
+Bei 0,655 V ist die Barriere auf $2{,}3\,U_T$ geschrumpft, der Anteil von $10^{-12}$ auf 0,1 gestiegen.
+::::
+
+⁠**Grenzfälle:** Bei $U=0$ ist $I=0$. Für $U\ll-U_T$ bleibt $I=-I_\mathrm S$: Schon bei $-5\,U_T$ sind es 99,3 % davon. Ab $U=119$ mV ist der Summand $-1$ kleiner als 1 % des ersten.
 
 **Sperrrichtung.** Bei $U<0$ wächst die Barriere, und die Zone wird breiter. Der Strom bergauf erlischt, es bleibt nur der Strom der Minderheit. Er hängt nicht davon ab, wie hoch die Barriere ist, nur davon, wie viele Träger an ihren Rand gelangen. Deshalb sättigt er bei $I_\mathrm S$. Reale Dioden sperren mit pA bis nA, weil zusätzlich Paare in der Zone entstehen.
 

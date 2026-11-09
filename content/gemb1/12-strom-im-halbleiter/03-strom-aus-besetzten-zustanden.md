@@ -52,12 +52,16 @@ Beide Bänder tragen mit demselben Vorzeichen bei, ihre Ströme addieren sich.
 Kosinus-Bänder mit wenigen Plätzen, blau besetzt, rot umrandet leer. Links symmetrisch, $j=0$. Rechts hat eine Kraft $F>0$ alles um zwei Plätze geschoben. Elektronen mit $v>0$ und fehlende Elektronen mit $v<0$ geben beide $j<0$.
 :::
 
-**Beispiel.** Nahe der Unterkante ist $v=\hbar k/m^*$. Nach der Verschiebung hat jedes Elektron im Mittel $\Delta v=\hbar\,\delta k/m^*$ dazubekommen, und [(1.1)](#gl-1-1) wird mit $n=N_\mathrm e/L$ zu
+::::beispiel
+Nahe der Unterkante ist $v=\hbar k/m^*$. Nach der Verschiebung hat jedes Elektron im Mittel $\Delta v=\hbar\,\delta k/m^*$ dazubekommen, und [(1.1)](#gl-1-1) wird mit $n=N_\mathrm e/L$ zu
 
 <span class="anker" id="gl-1-4"></span>
 $$j=-e\,n\,\frac{\hbar\,\delta k}{m^*}. \tag{1.4}$$
 
-Bei $\mathcal E=10^4$ V/m wächst $\delta k$ in 1 ps auf $0{,}0152\,\mathrm{nm^{-1}}$, das sind 0,12 % des Wegs zum Zonenrand, und in der Kette ist $\Delta v=1440$ m/s. **Grenzfälle:** Für $F=0$ ist $j=0$. Ein leeres Band trägt nichts.
+Bei $\mathcal E=10^4$ V/m wächst $\delta k$ in 1 ps auf $0{,}0152\,\mathrm{nm^{-1}}$, das sind 0,12 % des Wegs zum Zonenrand, und in der Kette ist $\Delta v=1440$ m/s.
+::::
+
+⁠**Grenzfälle:** Für $F=0$ ist $j=0$. Ein leeres Band trägt nichts.
 
 :::aufgabe Aufgabe 1 ★★ Die Summe von Hand
 <span class="anker" id="aufg-1"></span>

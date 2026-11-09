@@ -44,9 +44,13 @@ Beide Quellen haben die Spannung $U_\mathrm{AB}$, die Knotenregel addiert ihre S
 Links zwei gleiche Batterien parallel. Rechts die Kennlinien: Parallel bleibt die Leerlaufspannung, der Kurzschlussstrom verdoppelt sich. In Reihe verdoppelt sich die Leerlaufspannung, der Kurzschlussstrom bleibt. Die Punkte zeigen die Arbeitspunkte an 16 $\Omega$.
 :::
 
-**Beispiel.** Zwei Batterien aus dem Rechenmodell. Parallel: 9 V, 1 $\Omega$, $I_\mathrm{KS}=9$ A. Stromform zur Kontrolle: $4{,}5+4{,}5=9$ A und $0{,}5+0{,}5=1$ S. In Reihe: 18 V, 4 $\Omega$, $I_\mathrm{KS}=4{,}5$ A. An 16 $\Omega$ liefert die Parallelschaltung 8,47 V und 0,529 A, die Reihenschaltung 14,4 V und 0,9 A (Abb. [8](#abb-8)). Die Parallelschaltung bringt hier wenig, weil 2 $\Omega$ klein gegen 16 $\Omega$ sind.
+::::beispiel
+Zwei Batterien aus dem Rechenmodell. Parallel: 9 V, 1 $\Omega$, $I_\mathrm{KS}=9$ A. Stromform zur Kontrolle: $4{,}5+4{,}5=9$ A und $0{,}5+0{,}5=1$ S. In Reihe: 18 V, 4 $\Omega$, $I_\mathrm{KS}=4{,}5$ A. An 16 $\Omega$ liefert die Parallelschaltung 8,47 V und 0,529 A, die Reihenschaltung 14,4 V und 0,9 A (Abb. [8](#abb-8)). Die Parallelschaltung bringt hier wenig, weil 2 $\Omega$ klein gegen 16 $\Omega$ sind.
 
-Ist eine der Batterien auf 8 V entladen, kreisen nach [(7.3)](#gl-7-3) im Leerlauf $1\,\mathrm{V}/4\,\Omega=0{,}25$ A. Beide Klemmen stehen auf 8,5 V, auch nach [(7.2)](#gl-7-2). **Grenzfall:** Mit nur je 10 m$\Omega$ Innenwiderstand wären es 50 A. Darum schaltet man große Akkuzellen nur mit gleicher Spannung parallel. Für $U_\mathrm{q1}=U_\mathrm{q2}$ verschwindet der Ausgleichsstrom.
+Ist eine der Batterien auf 8 V entladen, kreisen nach [(7.3)](#gl-7-3) im Leerlauf $1\,\mathrm{V}/4\,\Omega=0{,}25$ A. Beide Klemmen stehen auf 8,5 V, auch nach [(7.2)](#gl-7-2).
+::::
+
+⁠**Grenzfall:** Mit nur je 10 m$\Omega$ Innenwiderstand wären es 50 A. Darum schaltet man große Akkuzellen nur mit gleicher Spannung parallel. Für $U_\mathrm{q1}=U_\mathrm{q2}$ verschwindet der Ausgleichsstrom.
 
 :::frage Bringen zwei parallele Batterien mehr Spannung?
 Im Leerlauf nein, beide liefern 9 V. Unter Last ein wenig, denn der Strom teilt sich auf zwei Innenwiderstände auf und innen fällt nur die Hälfte ab. Der eigentliche Gewinn ist ein doppelt so großer Kurzschlussstrom und die doppelte Ladungsmenge.

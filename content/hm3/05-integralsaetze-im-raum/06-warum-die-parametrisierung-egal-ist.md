@@ -37,7 +37,9 @@ Für $\det D\psi>0$ bleibt die Normale erhalten, und der Fluss ändert sich nich
 | $\int f\,\vert \dot\gamma\vert \,\mathrm{d} t$ und $\int_{\mathcal F}f\,\mathrm{d}\sigma$ | gleich | gleich |
 | $\int\boldsymbol{F}\cdot\dot\gamma\,\mathrm{d} t$ und $\int_{\mathcal F}\boldsymbol{F}\cdot\mathrm{d}\boldsymbol{S}$ | gleich | Vorzeichen wechselt |
 
-**Beispiel: Fläche.** Die Kuppel aus Stufe [2](das-oberflachenelement.html#stufe-2) als Graph über $(x,y)$ hat das Oberflächenelement $\sqrt{1+4x^2+4y^2}\;\mathrm{d} x\,\mathrm{d} y$. In der Parametrisierung $(r,\varphi)$ war es $r\sqrt{1+4r^2}\;\mathrm{d} r\,\mathrm{d}\varphi$. Der Wechsel $(x,y)=(r\cos\varphi,r\sin\varphi)$ hat $\det D\psi=r$, und genau dieser Faktor unterscheidet beide Ausdrücke. Beide Rechnungen geben $\frac\pi6(17\sqrt{17}-1)\approx36{,}2$.
+::::beispiel Fläche
+Die Kuppel aus Stufe [2](das-oberflachenelement.html#stufe-2) als Graph über $(x,y)$ hat das Oberflächenelement $\sqrt{1+4x^2+4y^2}\;\mathrm{d} x\,\mathrm{d} y$. In der Parametrisierung $(r,\varphi)$ war es $r\sqrt{1+4r^2}\;\mathrm{d} r\,\mathrm{d}\varphi$. Der Wechsel $(x,y)=(r\cos\varphi,r\sin\varphi)$ hat $\det D\psi=r$, und genau dieser Faktor unterscheidet beide Ausdrücke. Beide Rechnungen geben $\frac\pi6(17\sqrt{17}-1)\approx36{,}2$.
+::::
 
 :::frage Liefert also jede Parametrisierung denselben Wert?
 Nein, $\psi$ muss bijektiv sein, die Fläche also genau einmal überdeckt werden. Lässt man in den Kugelkoordinaten $\varphi$ von 0 bis $4\pi$ laufen, wird die Kugel doppelt gezählt, und der Inhalt verdoppelt sich.

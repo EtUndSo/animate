@@ -14,7 +14,7 @@ Ein Stück Silizium liegt an einer Spannung, und es fließt Strom. Die früheren
 
 Der Weg führt über acht Begriffe. Die __Stromdichte__ ist der Strom je Querschnittsfläche. __Streuung__ heißen die Stöße, die einen Ladungsträger aus seinem Zustand werfen. Ein __Phonon__ ist ein Energiequant der Gitterschwingung. Die __Verteilungsfunktion__ sagt, wie wahrscheinlich ein Zustand an einem Ort besetzt ist, die __Boltzmann-Transportgleichung__, wie sie sich ändert. Die __Beweglichkeit__ ist die Driftgeschwindigkeit je Feldstärke, die __Leitfähigkeit__ die Stromdichte je Feldstärke. Der __Hall-Effekt__ ist eine Querspannung im Magnetfeld.
 
-**So arbeitest du mit diesem Kapitel.** Jede Stufe ist ein eigener kurzer Artikel mit der Idee, typischen Fragen zum Aufklappen und Aufgaben (★ bis ★★★). Versuche die Aufgaben zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf. Schließe eine Stufe ab, bevor du zur nächsten gehst.
+**So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
 <ul>

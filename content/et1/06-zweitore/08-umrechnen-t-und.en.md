@@ -51,11 +51,13 @@ Setting the two equal gives $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ and $G_3=Y_{22}+Y
 Two circuits, the same two-port. Left, the T network with 15, 20 and 20 $\Omega$; right, the equivalent $\pi$ network with 50, 50 and 66.7 $\Omega$. Both have $\det\mathbf Z=1000\,\Omega^2$. At the ports, no measurement can tell them apart.
 :::
 
-**Example.** Here $\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$, so
+::::beispiel
+Here $\det\mathbf Z=35\cdot40\,\Omega^2-20\cdot20\,\Omega^2=1000\,\Omega^2$, so
 
 $$\mathbf Y=\frac{1}{1000\,\Omega^2}\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\Omega=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS},$$
 
 exactly the result of the short-circuit tests. The $\pi$ network has $G_2=20$ mS, $G_1=40\,\mathrm{mS}-20\,\mathrm{mS}=20$ mS, $G_3=15$ mS, that is, 50 $\Omega$, 50 $\Omega$ and 66.7 $\Omega$. With the same source and load, it again gives 7.75 V and 3 V.
+::::
 
 ⁠**Limiting cases: Not every form exists.** A series resistor $R$ and a shunt resistor $R$, each alone between the ports, have
 

@@ -66,7 +66,11 @@ Nicht jedes reelle Polynom hat die Form [(8.3)](#gl-8-3), wie $x^2+1$ zeigt. Das
 In den komplexen Zahlen ([Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)) hat jedes Polynom vom Grad $n\ge1$ eine Nullstelle (Fundamentalsatz der Algebra). Bei reellen Koeffizienten ist mit $z$ auch $\overline{z}$ eine Nullstelle, und $(x-z)(x-\overline{z})=x^2-2\operatorname{Re}(z)\,x+|z|^2$ ist reell. Für $x^2+x+1$ ist $z=-\frac12+\frac{\sqrt3}{2}\,\mathrm{i}$.
 :::
 
-**Beispiel.** Bei $S$ ergibt das Schema bei $x_0=2$ die Zeile $1,-1,-1,-2,0$, also $S(x)=(x-2)(x^3-x^2-x-2)$. Nochmals bei $x_0=2$: $1,1,1,0$, also $S(x)=(x-2)^2(x^2+x+1)$. Beim dritten Mal: $1,3,7$, der Rest $7\neq0$ beendet die Suche. Die Vielfachheit ist 2, und wegen $1-4=-3<0$ ist [(8.4)](#gl-8-4) erreicht, mit $n=4$, $k=1$. **Grenzfall:** Für $m=n$ ist $P_n(x)=a_n(x-x_0)^n$, das Polynom mit nur einer Nullstelle.
+::::beispiel
+Bei $S$ ergibt das Schema bei $x_0=2$ die Zeile $1,-1,-1,-2,0$, also $S(x)=(x-2)(x^3-x^2-x-2)$. Nochmals bei $x_0=2$: $1,1,1,0$, also $S(x)=(x-2)^2(x^2+x+1)$. Beim dritten Mal: $1,3,7$, der Rest $7\neq0$ beendet die Suche. Die Vielfachheit ist 2, und wegen $1-4=-3<0$ ist [(8.4)](#gl-8-4) erreicht, mit $n=4$, $k=1$.
+::::
+
+⁠**Grenzfall:** Für $m=n$ ist $P_n(x)=a_n(x-x_0)^n$, das Polynom mit nur einer Nullstelle.
 
 **Was die Vielfachheit bewirkt.** Nahe $x_0$ ändert $Q_{n-m}(x)$ sein Vorzeichen nicht, es ist dort ja nicht null. Das Vorzeichen von $P_n$ bestimmt also $(x-x_0)^m$: Für ungerades $m$ wechselt es, der Graph kreuzt die Achse. Für gerades $m$ wechselt es nicht, der Graph berührt sie nur (Abb. [9](#abb-9)).
 

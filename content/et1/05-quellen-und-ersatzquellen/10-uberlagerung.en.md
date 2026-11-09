@@ -57,7 +57,11 @@ Repeat for every source and add all the partial effects with the correct signs.
 Network N and its two partial circuits. Center: the current source is open, leaving a voltage divider. Right: the voltage source is a wire, and the current source feeds $R_1$ and $R_2$ in parallel. Terminals A and B are open.
 :::
 
-**Example.** We want $U_\mathrm{AB}$ in N with the terminals open (Fig. [9](#abb-9)). Partial circuit 1: voltage divider, $U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V. Partial circuit 2: $U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1.5\,\mathrm{A}=3$ V. Sum: $U_\mathrm{AB}=9$ V. The coefficients are therefore $a=\frac13$ for $U_\mathrm{q1}$ and $Z=2\,\Omega$ for $I_\mathrm{q2}$. **Check** with the node rule at A: through $R_1$ come $(18-9)\,\mathrm{V}/6\,\Omega=1.5$ A, plus 1.5 A from the current source, and through $R_2$ go off $9\,\mathrm{V}/3\,\Omega=3$ A. The branch currents superpose too: in $R_1$ flow $2$ A from partial circuit 1 and $-0.5$ A from partial circuit 2. **Limiting case:** If you double both sources, $U_\mathrm{AB}$ doubles to 18 V, because the coefficients stay the same.
+::::beispiel
+We want $U_\mathrm{AB}$ in N with the terminals open (Fig. [9](#abb-9)). Partial circuit 1: voltage divider, $U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V. Partial circuit 2: $U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1.5\,\mathrm{A}=3$ V. Sum: $U_\mathrm{AB}=9$ V. The coefficients are therefore $a=\frac13$ for $U_\mathrm{q1}$ and $Z=2\,\Omega$ for $I_\mathrm{q2}$. **Check** with the node rule at A: through $R_1$ come $(18-9)\,\mathrm{V}/6\,\Omega=1.5$ A, plus 1.5 A from the current source, and through $R_2$ go off $9\,\mathrm{V}/3\,\Omega=3$ A. The branch currents superpose too: in $R_1$ flow $2$ A from partial circuit 1 and $-0.5$ A from partial circuit 2.
+::::
+
+⁠**Limiting case:** If you double both sources, $U_\mathrm{AB}$ doubles to 18 V, because the coefficients stay the same.
 
 :::herleitung The coefficients of N
 With the terminals open, the node rule at A reads $(U_\mathrm{q1}-U_\mathrm{AB})/R_1+I_\mathrm{q2}=U_\mathrm{AB}/R_2$. Solved for the voltage we want:

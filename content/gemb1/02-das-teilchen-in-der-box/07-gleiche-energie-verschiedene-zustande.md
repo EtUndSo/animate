@@ -34,13 +34,15 @@ Für $n_x\neq n_y$ ist $E_{n_x,n_y}=E_{n_y,n_x}$, also $g\ge2$. Für $n_x=n_y$ h
 
 ⁠**So liest man das:** $E_0$ ist die Nullpunktsenergie einer Box der Breite $L$, für $m=m_0$ also $E_0=0{,}376\,\mathrm{eV\,nm^2}/L^2$. Die Vertauschung ist eine Symmetrie der Box, und Symmetrie ist die Ursache dieser Entartung. Es gibt daneben __zufällige Entartung__: Zwei Summen von Quadraten können ohne jede Symmetrie gleich sein. So ist $1^2+7^2=5^2+5^2=50$, das Niveau $50\,E_0$ hat die Zustände $(1,7)$, $(7,1)$ und $(5,5)$, also $g=3$. Deshalb steht im Satz $g\ge2$ und nicht $g=2$. Sicher ist nur das Verfahren: alle Kombinationen ausrechnen und sortieren.
 
-**Beispiel.** Für $L=2$ nm ist $E_0=94$ meV:
+::::beispiel
+Für $L=2$ nm ist $E_0=94$ meV:
 
 | Zustände | $(1,1)$ | $(1,2)$, $(2,1)$ | $(2,2)$ | $(1,3)$, $(3,1)$ | $(2,3)$, $(3,2)$ |
 |---|---|---|---|---|---|
 | $E/E_0$ | 2 | 5 | 8 | 10 | 13 |
 | $g$ | 1 | 2 | 1 | 2 | 2 |
 | $E$ in meV | 188 | 470 | 752 | 940 | 1222 |
+::::
 
 :::abbildung gemb1/k2entartung 5
 Niveaus in Einheiten von $E_0$. Links die quadratische Box, doppelte Linien sind zweifach entartet. Rechts die um 10 % in $x$ gestreckte Box: Jedes Paar spaltet auf. Die Stufe in der längeren Richtung kostet weniger, deshalb liegt $(2,1)$ unter $(1,2)$.

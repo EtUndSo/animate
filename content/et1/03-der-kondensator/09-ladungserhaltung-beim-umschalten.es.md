@@ -30,12 +30,14 @@ $$Q_\mathrm{tot}=\sum_iC_iU_i=\text{const}. \tag{8.1}$$
 Posición 1: $C_1$ se carga a 9 V, $C_2$ está vacío. Posición 2: la isla discontinua contiene las placas superiores de ambos condensadores. Los 900 µC se reparten hasta que ambas tensiones son iguales.
 :::
 
-**Ejemplo.** En la fig. [8](#abb-8), $C_1$ lleva en la posición 1 la carga $C_1U_0=900\,\mu\text{C}$, y $C_2$ está vacío. El interruptor pasa a la posición 2. Ambas placas superiores cuelgan ahora de un cable, de modo que tras la igualación rige la misma tensión $U$. De [(8.1)](#gl-8-1) resulta
+::::beispiel
+En la fig. [8](#abb-8), $C_1$ lleva en la posición 1 la carga $C_1U_0=900\,\mu\text{C}$, y $C_2$ está vacío. El interruptor pasa a la posición 2. Ambas placas superiores cuelgan ahora de un cable, de modo que tras la igualación rige la misma tensión $U$. De [(8.1)](#gl-8-1) resulta
 
 <span class="anker" id="gl-8-2"></span>
 $$C_1U+C_2U=C_1U_0\quad\Longrightarrow\quad U=U_0\,\frac{C_1}{C_1+C_2}=9\,\mathrm{V}\cdot\frac{100}{150}=6\,\mathrm{V}. \tag{8.2}$$
 
 Después, $C_1$ aún lleva 600 µC, y $C_2$ ha recibido 300 µC.
+::::
 
 **La energía no se conserva.** Antes hay almacenados $\frac12C_1U_0^2=4{,}05$ mJ; después, $\frac12(C_1+C_2)U^2=2{,}70$ mJ. Faltan 1,35 mJ, un tercio. La corriente de igualación calienta los cables y el interruptor. La pérdida no depende de su resistencia: una resistencia menor da una corriente mayor durante menos tiempo, y ambos efectos se compensan exactamente. En general, en la igualación de dos tensiones $U_1$ y $U_2$ se pierde:
 

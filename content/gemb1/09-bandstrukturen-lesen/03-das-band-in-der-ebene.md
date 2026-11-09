@@ -51,7 +51,11 @@ Quadratgitter mit $E_\mathrm s=-5$ eV und $V_\mathrm{ss}=0{,}5$ eV. Links: Z
 
 Ein Weg genügt, weil die Symmetrie viele Richtungen gleichwertig macht. Das Dreieck $\Gamma XM$ wiederholt sich achtmal in der Zone.
 
-**Beispiel.** Im Rechenmodell ist $E(\Gamma)=-7$ eV, $E(X)=-5$ eV, $E(M)=-3$ eV, die Zone endet bei $\pi/a=12{,}57\,\mathrm{nm^{-1}}$. Nahe $\Gamma$ gilt $\cos x\approx1-x^2/2$, also $E\approx E_\mathrm s-4V_\mathrm{ss}+V_\mathrm{ss}a^2(k_x^2+k_y^2)$. Das sind Kreise mit $m^*=\hbar^2/(2V_\mathrm{ss}a^2)=1{,}22\,m_0$ in beiden Richtungen. Bei $E=E_\mathrm s$ ist $\cos(k_xa)+\cos(k_ya)=0$, also $|k_x|+|k_y|=\pi/a$: Aus dem Kreis wird ein Quadrat, denn das Gitter ist nicht rund. Bei $X$ ist die Steigung null, doch $X$ ist kein Extremum. Die Massen sind dort $-1{,}22\,m_0$ längs $x$ und $+1{,}22\,m_0$ längs $y$, die Fläche hat einen Sattel. **Grenzfall:** Für $k_y=0$ bleibt das Band der Kette, um $2V_\mathrm{ss}$ nach unten geschoben. **Drei Dimensionen:** Im einfach kubischen Gitter kommt $-2V_\mathrm{ss}\cos(k_za)$ dazu, die Breite wird $12V_\mathrm{ss}$. Kurz gesagt: In allen Gittern dieses Kapitels ist die Bandbreite das Doppelte der Summe der Kopplungen zu allen Nachbarn.
+::::beispiel
+Im Rechenmodell ist $E(\Gamma)=-7$ eV, $E(X)=-5$ eV, $E(M)=-3$ eV, die Zone endet bei $\pi/a=12{,}57\,\mathrm{nm^{-1}}$. Nahe $\Gamma$ gilt $\cos x\approx1-x^2/2$, also $E\approx E_\mathrm s-4V_\mathrm{ss}+V_\mathrm{ss}a^2(k_x^2+k_y^2)$. Das sind Kreise mit $m^*=\hbar^2/(2V_\mathrm{ss}a^2)=1{,}22\,m_0$ in beiden Richtungen. Bei $E=E_\mathrm s$ ist $\cos(k_xa)+\cos(k_ya)=0$, also $|k_x|+|k_y|=\pi/a$: Aus dem Kreis wird ein Quadrat, denn das Gitter ist nicht rund. Bei $X$ ist die Steigung null, doch $X$ ist kein Extremum. Die Massen sind dort $-1{,}22\,m_0$ längs $x$ und $+1{,}22\,m_0$ längs $y$, die Fläche hat einen Sattel.
+::::
+
+⁠**Grenzfall:** Für $k_y=0$ bleibt das Band der Kette, um $2V_\mathrm{ss}$ nach unten geschoben. **Drei Dimensionen:** Im einfach kubischen Gitter kommt $-2V_\mathrm{ss}\cos(k_za)$ dazu, die Breite wird $12V_\mathrm{ss}$. Kurz gesagt: In allen Gittern dieses Kapitels ist die Bandbreite das Doppelte der Summe der Kopplungen zu allen Nachbarn.
 
 :::frage Läuft das Elektron diesen Weg $\Gamma\to X\to M\to\Gamma$ entlang?
 Nein. $\boldsymbol k$ ist kein Ort, und der Weg ist keine Bahn. Jeder Punkt der Zone gehört zu einem eigenen Zustand, der Weg wählt nur aus, welche Zustände im Diagramm erscheinen.

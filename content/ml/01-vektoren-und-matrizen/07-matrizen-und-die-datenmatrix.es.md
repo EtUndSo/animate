@@ -35,13 +35,15 @@ Las matrices se escriben en negrita y en mayúscula; sus entradas, con la letra 
 
 Dos matrices son iguales si tienen el mismo tamaño y la misma entrada en cada posición. Las matrices del mismo tamaño se suman y se multiplican por un número entrada por entrada, exactamente como los vectores: $(\mathbf{A}+\mathbf{B})_{ij}=a_{ij}+b_{ij}$ y $(c\,\mathbf{A})_{ij}=c\,a_{ij}$.
 
-⁠**Ejemplo numérico:** La matriz
+::::beispiel [Ejemplo numérico]
+La matriz
 
 $$\mathbf{A}=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\in\mathbb{R}^{2\times3}$$
 
 tiene el tamaño $2\times3$, las entradas $a_{12}=2$ y $a_{21}=4$ y la segunda columna $\mathbf{a}_2=(2,\,5)^{\top}$. Una imagen en escala de grises de $3\times3$ píxeles que muestra una cruz clara sobre fondo oscuro es la matriz con las filas $(0,1,0)$, $(1,1,1)$ y $(0,1,0)$. Además,
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}+\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}1&3\\4&4\end{pmatrix},\qquad 2\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}2&4\\6&8\end{pmatrix}.$$
+::::
 
 ⁠**En resumen:** Una matriz es una tabla rectangular de números con $m$ filas y $n$ columnas; la entrada $a_{ij}$ está en la fila $i$ y la columna $j$.
 
@@ -65,11 +67,11 @@ Una matriz cuadrada cuyas entradas fuera de la diagonal son todas cero se llama 
 La matriz cuyas entradas son todas cero se llama __matriz nula__ y se escribe $\mathbf 0$.
 :::
 
-⁠**Ejemplo numérico:**
-
+::::beispiel [Ejemplo numérico]
 $$\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0{,}5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
 
 La segunda matriz tiene una entrada diagonal nula y, aun así, es una matriz diagonal; solo se exige que fuera de la diagonal haya ceros. En lugar de $\operatorname{diag}\bigl((2;\ 0{,}5)^{\top}\bigr)$ se escribe abreviadamente $\operatorname{diag}(2;\,0{,}5)$.
+::::
 
 ⁠**En resumen:** Una matriz cuadrada tiene tantas filas como columnas; una matriz diagonal solo tiene entradas distintas de cero en la diagonal.
 
@@ -94,11 +96,13 @@ $$\mathbf{X}=\begin{pmatrix}\mathbf{x}_1^{\top}\\\mathbf{x}_2^{\top}\\\vdots\\\m
 
 La entrada $x_{ij}$ es el valor de la característica $j$ en el ejemplo $i$, exactamente como se acordó en la subsección [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3). La columna $j$ de $\mathbf{X}$ es la columna de la característica $j$ de la subsección [4.3](abstande-und-einheiten.html#stufe-4-3): todos los valores de esa característica a lo largo de todos los ejemplos. Las filas corresponden, por tanto, a los ejemplos; las columnas, a las características. La media de los ejemplos $\bar{\mathbf{x}}$ tiene como componente $j$ la media de la columna $j$.
 
-⁠**Ejemplo numérico:** Para el conjunto de datos de viviendas se tiene
+::::beispiel [Ejemplo numérico]
+Para el conjunto de datos de viviendas se tiene
 
 $$\mathbf{X}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\in\mathbb{R}^{4\times3}.$$
 
 La entrada $x_{32}=4$ es el número de habitaciones de la vivienda 3, la primera columna $(60,\,40,\,90,\,70)^{\top}$ contiene todas las superficies, y su media $65$ es la primera componente de $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$.
+::::
 
 ⁠**En resumen:** La matriz de datos $\mathbf{X}\in\mathbb{R}^{N\times d}$ contiene un ejemplo por fila y una característica por columna.
 

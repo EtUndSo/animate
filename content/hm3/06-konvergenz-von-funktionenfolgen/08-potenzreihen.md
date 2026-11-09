@@ -95,7 +95,11 @@ Induktiv ist $f$ dort beliebig oft differenzierbar.
 Ein Faktor $(x-x_0)$ ändert die Konvergenz nicht, man darf also $\sum_kk\,c_k(x-x_0)^k$ betrachten. Wegen $\sqrt[k]{k}\to1$ haben $\sqrt[k]{k|c_k|}$ und $\sqrt[k]{|c_k|}$ denselben Limes superior, und [(6.3)](#gl-6-3) gibt denselben Radius. Sei $0<r<R$. Auf $|x-x_0|\le r$ konvergieren die Polynome $f_n$ punktweise, und ihre Ableitungen sind die Partialsummen der formalen Ableitung. Diese konvergieren nach Satz [6.3](#satz-6-3) gleichmäßig. Satz [4.1](die-ableitung-braucht-mehr.html#satz-4-1) gibt [(6.4)](#gl-6-4). Die rechte Seite ist wieder eine Potenzreihe mit Radius $R$, also wiederholt sich das Argument.
 :::
 
-**Beispiel.** Die Reihe $f(x)=\sum_{k=1}^\infty x^k/k$ hat $R=1$. Gliedweises Ableiten gibt $f'(x)=\sum_{k=1}^\infty x^{k-1}=\frac{1}{1-x}$. Mit $f(0)=0$ folgt $f(x)=-\ln(1-x)$ für $|x|<1$. Bei $x=\frac12$ ist das $\ln2=\sum_kk^{-1}2^{-k}$. Fünf Glieder geben $0{,}6885$, der Wert ist $0{,}6931$. **Grenzfall am Rand:** $\sum_kx^k/k^2$ konvergiert nach Stufe [5](funktionenreihen-und-der-m-test.html#stufe-5) noch bei $x=1$, ihre formale Ableitung $\sum_kx^{k-1}/k$ dort nicht. Der Radius ist derselbe, das Verhalten am Rand nicht.
+::::beispiel
+Die Reihe $f(x)=\sum_{k=1}^\infty x^k/k$ hat $R=1$. Gliedweises Ableiten gibt $f'(x)=\sum_{k=1}^\infty x^{k-1}=\frac{1}{1-x}$. Mit $f(0)=0$ folgt $f(x)=-\ln(1-x)$ für $|x|<1$. Bei $x=\frac12$ ist das $\ln2=\sum_kk^{-1}2^{-k}$. Fünf Glieder geben $0{,}6885$, der Wert ist $0{,}6931$.
+::::
+
+⁠**Grenzfall am Rand:** $\sum_kx^k/k^2$ konvergiert nach Stufe [5](funktionenreihen-und-der-m-test.html#stufe-5) noch bei $x=1$, ihre formale Ableitung $\sum_kx^{k-1}/k$ dort nicht. Der Radius ist derselbe, das Verhalten am Rand nicht.
 
 :::aufgabe Aufgabe 7 ★★ Radien umrechnen
 <span class="anker" id="aufg-7"></span>

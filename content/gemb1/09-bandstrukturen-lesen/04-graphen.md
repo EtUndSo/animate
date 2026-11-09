@@ -102,7 +102,11 @@ Weil $f(\boldsymbol K)=0$ ist, bleibt in erster Ordnung $f\approx\mathrm{j} u\,\
 
 ⁠**Besetzung:** Jedes C-Atom gibt ein p$_z$-Elektron, zwei je Zelle. Das $\pi$-Band fasst genau zwei je Zelle, es ist voll, das $\pi^*$-Band leer. Graphen ist damit ein __Halbmetall__: Besetztes und leeres Band berühren sich, ohne Lücke und ohne Überlapp. **Gültigkeit:** nur nächste Nachbarn, nur p$_z$-Orbitale.
 
-**Beispiel.** Mit $E_\mathrm p$ als Nullpunkt ist $E_\pm(\Gamma)=\pm8{,}4$ eV, $E_\pm(M)=\pm2{,}8$ eV, $E_\pm(K)=0$. Die Breite beider Bänder zusammen ist $6V_{\mathrm{pp}\pi}=16{,}8$ eV, das Doppelte der Kopplungen an drei Nachbarn. Aus [(2.3)](#gl-2-3) folgt $\hbar v_\mathrm{Dirac}=0{,}596\,\mathrm{eV\,nm}$ und $v_\mathrm{Dirac}=9{,}1\cdot10^5$ m/s, ein 331stel der Lichtgeschwindigkeit. Sie hängt nicht von der Energie ab, ein Kegel hat überall dieselbe Steigung. **Grenzfall:** Für $V_{\mathrm{pp}\pi}\to0$ fallen beide Bänder auf $E_\mathrm p$.
+::::beispiel
+Mit $E_\mathrm p$ als Nullpunkt ist $E_\pm(\Gamma)=\pm8{,}4$ eV, $E_\pm(M)=\pm2{,}8$ eV, $E_\pm(K)=0$. Die Breite beider Bänder zusammen ist $6V_{\mathrm{pp}\pi}=16{,}8$ eV, das Doppelte der Kopplungen an drei Nachbarn. Aus [(2.3)](#gl-2-3) folgt $\hbar v_\mathrm{Dirac}=0{,}596\,\mathrm{eV\,nm}$ und $v_\mathrm{Dirac}=9{,}1\cdot10^5$ m/s, ein 331stel der Lichtgeschwindigkeit. Sie hängt nicht von der Energie ab, ein Kegel hat überall dieselbe Steigung.
+::::
+
+⁠**Grenzfall:** Für $V_{\mathrm{pp}\pi}\to0$ fallen beide Bänder auf $E_\mathrm p$.
 
 :::frage Wenn die Lücke null ist, warum ist Graphen dann kein gewöhnliches Metall?
 In einem Metall grenzen besetzte und leere Zustände längs einer ganzen Fläche im $k$-Raum aneinander. In Graphen geschieht das nur an den Punkten $K$ und $K'$. Schon wenige zusätzliche Elektronen verschieben deshalb die Eigenschaften stark.

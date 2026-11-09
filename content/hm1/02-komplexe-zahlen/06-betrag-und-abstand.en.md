@@ -102,7 +102,9 @@ because $\overline{z}w$ is the conjugate of $z\overline{w}$. By (v) and (iv), $\
 (vii): $-w$ instead of $w$ in (vi) gives the first inequality. From $|z|=|(z-w)+w|\le|z-w|+|w|$ follows $|z|-|w|\le|z-w|$, with the roles swapped $|w|-|z|\le|z-w|$, together the second. $-w$ instead of $w$ in that gives the third.
 :::
 
-**Example.** $|z_1|=\sqrt{10}\approx3.162$ and $|z_2|=\sqrt5\approx2.236$. The triangle inequality: $|z_1+z_2|=|4+3\mathrm{i}|=5\le5.398$. The product: $|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$. The distance: $d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$. The reverse inequality: $0.926\le2.236$. Rule (v) for $z_1$: $3\le3.162\le4$.
+::::beispiel
+$|z_1|=\sqrt{10}\approx3.162$ and $|z_2|=\sqrt5\approx2.236$. The triangle inequality: $|z_1+z_2|=|4+3\mathrm{i}|=5\le5.398$. The product: $|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$. The distance: $d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$. The reverse inequality: $0.926\le2.236$. Rule (v) for $z_1$: $3\le3.162\le4$.
+::::
 
 **Point sets.** Because $|z-c|$ is the distance from $z$ to $c$, $|z-c|=r$ describes the circle about $c$ with radius $r$, and $|z-c|\le r$ the disk. Conditions on $\operatorname{Re}(z)$ or $\operatorname{Im}(z)$ cut out half-planes. Such inequalities are allowed because both sides are real.
 

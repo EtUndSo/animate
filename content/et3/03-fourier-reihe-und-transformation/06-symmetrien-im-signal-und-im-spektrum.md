@@ -37,11 +37,13 @@ Für reelles $s$ ist $\mathcal{F}\{s^*(t)\}=\mathcal{F}\{s(t)\}$. Allgemein gilt
 
 ⁠**Kurz gesagt:** Bei einem reellen Signal ist die negative Hälfte des Spektrums das konjugierte Spiegelbild der positiven. Sie enthält keine neue Information.
 
-**Beispiel.** Der Exponentialimpuls $\varepsilon(t)\mathrm{e}^{-t}$ (reell) hat den geraden Anteil $\frac12\mathrm{e}^{-|t|}$ und den ungeraden $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$. Sein Spektrum $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ hat den geraden Realteil $\frac{1}{1+(2\pi f)^2}$, die Transformierte von $\frac12\mathrm{e}^{-|t|}$, und den ungeraden Imaginärteil $\frac{-2\pi f}{1+(2\pi f)^2}$ (Abb. [5](#abb-5)).
+::::beispiel
+Der Exponentialimpuls $\varepsilon(t)\mathrm{e}^{-t}$ (reell) hat den geraden Anteil $\frac12\mathrm{e}^{-|t|}$ und den ungeraden $\frac12\operatorname{sgn}(t)\mathrm{e}^{-|t|}$. Sein Spektrum $H(f)=\frac{1}{1+\mathrm{j}2\pi f}$ hat den geraden Realteil $\frac{1}{1+(2\pi f)^2}$, die Transformierte von $\frac12\mathrm{e}^{-|t|}$, und den ungeraden Imaginärteil $\frac{-2\pi f}{1+(2\pi f)^2}$ (Abb. [5](#abb-5)).
 
 :::abbildung et3/k3gerade 5
 Der Exponentialimpuls ($RC=1$ s), zerlegt in einen geraden (blau) und einen ungeraden Anteil (rot). Rechts das Spektrum: Der gerade Anteil liefert den Realteil (gerade in $f$), der ungerade Anteil den Imaginärteil (ungerade in $f$).
 :::
+::::
 
 :::aufgabe Aufgabe 5 ★ Symmetrie ablesen
 <span class="anker" id="aufg-5"></span>

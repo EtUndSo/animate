@@ -30,7 +30,11 @@ $$\vec a=\alpha_1\vec b_1+\dots+\alpha_n\vec b_n. \tag{5.1}$$
 Die Zahlen $\alpha_1,\dots,\alpha_n$ heißen __Koordinaten__ von $\vec a$ bezüglich $\mathcal B$, und $\vec a_{\mathcal B}:=(\alpha_1,\dots,\alpha_n)$ heißt __Koordinatenvektor__.
 :::
 
-⁠**So liest man das:** „Geordnet“ heißt, dass die Reihenfolge zählt: In $(\vec b,\vec a)$ tauschen die Koordinaten die Plätze. „Eindeutig“ heißt, dass jeder Vektor genau eine Adresse hat. **Beispiel:** $(\vec e_1,\dots,\vec e_n)$ ist die __Standardbasis__ des $\mathbb{R}^n$: Es gilt $\vec a=a_1\vec e_1+\dots+a_n\vec e_n$, und aus $\sum_j\alpha_j\vec e_j=\vec a$ folgt Stelle für Stelle $\alpha_j=a_j$. Dort sind Koordinaten und Komponenten dasselbe.
+⁠**So liest man das:** „Geordnet“ heißt, dass die Reihenfolge zählt: In $(\vec b,\vec a)$ tauschen die Koordinaten die Plätze. „Eindeutig“ heißt, dass jeder Vektor genau eine Adresse hat.
+
+::::beispiel
+$(\vec e_1,\dots,\vec e_n)$ ist die __Standardbasis__ des $\mathbb{R}^n$: Es gilt $\vec a=a_1\vec e_1+\dots+a_n\vec e_n$, und aus $\sum_j\alpha_j\vec e_j=\vec a$ folgt Stelle für Stelle $\alpha_j=a_j$. Dort sind Koordinaten und Komponenten dasselbe.
+::::
 
 :::satz Satz 5.2 (Charakterisierung)
 <span class="anker" id="satz-5-2"></span>
@@ -62,7 +66,9 @@ $\vec b_1,\dots,\vec b_n$ sind linear unabhängig.
 „$\Leftarrow$“: Nach (1) hat jedes $\vec a\in V$ eine Darstellung $\vec a=\sum_i\alpha_i\vec b_i$. Wäre auch $\vec a=\sum_i\beta_i\vec b_i$, ergäbe die Differenz $\vec0=\sum_i(\alpha_i-\beta_i)\vec b_i$. Wegen (2) ist $\alpha_i=\beta_i$ für alle $i$.
 :::
 
-**Beispiel.** $(\vec a,\vec b)$ ist eine Basis des $\mathbb{R}^2$. Unabhängig: Aus $s\vec a+t\vec b=\vec0$, also $3s+t=0$ und $s+2t=0$, folgt $s=t=0$. Erzeugend: Für jedes $\vec y=(y_1,y_2)$ ist $\vec y=\frac{2y_1-y_2}5\vec a+\frac{3y_2-y_1}5\vec b$. Der Vektor $(5,0)$ hat den Koordinatenvektor $(5,0)$ bezüglich der Standardbasis und $(2,-1)$ bezüglich $(\vec a,\vec b)$. **Beide Voraussetzungen sind nötig:** $(\vec a)$ ist unabhängig, erzeugt aber $(5,0)$ nicht. $(\vec a,\vec b,\vec a+\vec b)$ erzeugt, ist aber abhängig: $(4,3)=1\vec a+1\vec b+0(\vec a+\vec b)=0\vec a+0\vec b+1(\vec a+\vec b)$ hat zwei Adressen.
+::::beispiel
+$(\vec a,\vec b)$ ist eine Basis des $\mathbb{R}^2$. Unabhängig: Aus $s\vec a+t\vec b=\vec0$, also $3s+t=0$ und $s+2t=0$, folgt $s=t=0$. Erzeugend: Für jedes $\vec y=(y_1,y_2)$ ist $\vec y=\frac{2y_1-y_2}5\vec a+\frac{3y_2-y_1}5\vec b$. Der Vektor $(5,0)$ hat den Koordinatenvektor $(5,0)$ bezüglich der Standardbasis und $(2,-1)$ bezüglich $(\vec a,\vec b)$. **Beide Voraussetzungen sind nötig:** $(\vec a)$ ist unabhängig, erzeugt aber $(5,0)$ nicht. $(\vec a,\vec b,\vec a+\vec b)$ erzeugt, ist aber abhängig: $(4,3)=1\vec a+1\vec b+0(\vec a+\vec b)=0\vec a+0\vec b+1(\vec a+\vec b)$ hat zwei Adressen.
+::::
 
 **Der Zahlbereich zählt.** $(\vec e_1,\dots,\vec e_n)$ ist auch Basis von $\mathbb{C}^n$ über $\mathbb K=\mathbb{C}$, dasselbe Argument mit $a_j,\alpha_j\in\mathbb{C}$. Über $\mathbb K=\mathbb{R}$ ist sie keine: $(\mathrm{i},1)\in\mathbb{C}^2$ hat keine Darstellung $\alpha_1\vec e_1+\alpha_2\vec e_2$ mit reellen $\alpha_j$. Setzt man $\vec b_j:=\mathrm{i}\,\vec e_j$, ist $(\vec e_1,\dots,\vec e_n,\vec b_1,\dots,\vec b_n)$ eine Basis von $\mathbb{C}^n$ über $\mathbb{R}$, denn jedes $\vec a\in\mathbb{C}^n$ hat die Darstellung $\vec a=\sum_j\operatorname{Re}(a_j)\vec e_j+\sum_j\operatorname{Im}(a_j)\vec b_j$ mit eindeutigen reellen Koordinaten. Das ist der Zeiger der Wechselstromrechnung: Eine komplexe Zahl trägt zwei reelle.
 

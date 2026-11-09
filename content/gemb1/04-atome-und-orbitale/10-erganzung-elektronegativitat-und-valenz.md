@@ -60,7 +60,9 @@ Elektronenpaar zwischen gleichen Atomen: Es zählt je zur Hälfte. In H$_2$O$_2$
 
 ⁠**So liest man das:** Valenzen sind formale Ladungen, kein Messwert. Die wirkliche Elektronendichte hängt von der Elektronegativität der Partner und der Umgebung ab.
 
-**Beispiel.** Chlor hat $\Delta E_\mathrm{IE}=12{,}97$ eV und $\Delta E_\mathrm{EA}=-3{,}61$ eV, also $\mathrm{EN}=8{,}29$ eV. Natrium hat 5,14 eV und $-0{,}55$ eV, also $\mathrm{EN}=2{,}84$ eV. **Kontrollen:** Für Wasserstoff ist $\Delta E_\mathrm{IE}=13{,}6$ eV gleich $|E_1|$. Die Valenzen eines neutralen Moleküls summieren sich zu null: in H$_2$O ist $2\cdot(+1)-2=0$.
+::::beispiel
+Chlor hat $\Delta E_\mathrm{IE}=12{,}97$ eV und $\Delta E_\mathrm{EA}=-3{,}61$ eV, also $\mathrm{EN}=8{,}29$ eV. Natrium hat 5,14 eV und $-0{,}55$ eV, also $\mathrm{EN}=2{,}84$ eV. **Kontrollen:** Für Wasserstoff ist $\Delta E_\mathrm{IE}=13{,}6$ eV gleich $|E_1|$. Die Valenzen eines neutralen Moleküls summieren sich zu null: in H$_2$O ist $2\cdot(+1)-2=0$.
+::::
 
 :::frage Warum sinkt die Ionisierungsenergie von Stickstoff zu Sauerstoff, obwohl $Z$ wächst?
 Stickstoff hat drei einfach besetzte 2p-Orbitale. Das vierte 2p-Elektron des Sauerstoffs muss sich ein Orbital teilen. Die Abstoßung hebt es an, es löst sich leichter: 13,62 eV statt 14,53 eV. Der Knick von Beryllium zu Bor (9,32 eV auf 8,30 eV) hat einen anderen Grund: Bors äußerstes Elektron sitzt im höheren 2p.

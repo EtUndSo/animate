@@ -32,7 +32,8 @@ und ihr Inhalt ist $(2\pi)^3/\Omega$.
 Oben: Konstruktion in der Ebene für die reziproken Gitter aus Abb. [5](reziproke-gittervektoren-in-der-ebene-und-im-raum.html#abb-5). Verbindungslinien grün, Mittelsenkrechte rot, Zone grau. Unten: erste Brillouin-Zonen der kubischen Kristalle, nicht maßstäblich zueinander.
 :::
 
-**Beispiele** (Abb. [6](#abb-6)). Das Rechteckgitter hat ein Rechteck als Zone, das zentriert rechteckige ein Sechseck. Im Raum folgt die Form aus dem reziproken Gitter:
+::::beispiel [Beispiele (Abb. [6](#abb-6))]
+Das Rechteckgitter hat ein Rechteck als Zone, das zentriert rechteckige ein Sechseck. Im Raum folgt die Form aus dem reziproken Gitter:
 
 | Kristallgitter | reziprokes Gitter | Form der Zone | Inhalt |
 |---|---|---|---|
@@ -40,7 +41,12 @@ Oben: Konstruktion in der Ebene für die reziproken Gitter aus Abb. [5](rezipro
 | BCC | FCC | Rhombendodekaeder | $2\,(2\pi/a)^3$ |
 | FCC | BCC | abgestumpftes Oktaeder | $4\,(2\pi/a)^3$ |
 
-Die Zone eines FCC-Kristalls hat die Form der Wigner-Seitz-Zelle von BCC und umgekehrt. Der Würfel des SC-Kristalls hat die Kantenlänge $2\pi/a$. **Beispiel Silizium:** FCC, also abgestumpftes Oktaeder. Die Quadratflächen liegen $2\pi/a=11{,}57\,\mathrm{nm^{-1}}$ von der Mitte entfernt, die Sechseckflächen $\sqrt3\,\pi/a=10{,}02\,\mathrm{nm^{-1}}$. Der Inhalt ist $6190\,\mathrm{nm^{-3}}$.
+Die Zone eines FCC-Kristalls hat die Form der Wigner-Seitz-Zelle von BCC und umgekehrt. Der Würfel des SC-Kristalls hat die Kantenlänge $2\pi/a$.
+::::
+
+::::beispiel Silizium
+FCC, also abgestumpftes Oktaeder. Die Quadratflächen liegen $2\pi/a=11{,}57\,\mathrm{nm^{-1}}$ von der Mitte entfernt, die Sechseckflächen $\sqrt3\,\pi/a=10{,}02\,\mathrm{nm^{-1}}$. Der Inhalt ist $6190\,\mathrm{nm^{-3}}$.
+::::
 
 **Höhere Zonen.** Jenseits der ersten Zone folgen weitere: Gebiete, die man vom Ursprung aus erreicht, indem man eine, zwei oder mehr Mittelebenen überquert. Im SC-Gitter beginnen sie bei $|k_x|>\pi/a$. Sie sind kompliziert geformte Vielecke mit demselben Inhalt wie die erste Zone, und jede lässt sich mit passenden $\boldsymbol G$ in die erste falten. Auf der Kette ist die zweite Zone der zweite Parabelabschnitt aus Abb. [4](das-reziproke-gitter-in-einer-dimension.html#abb-4).
 
@@ -54,7 +60,11 @@ Ein Kristall aus $N$ primitiven Zellen hat in jeder Brillouin-Zone genau $N$ Wer
 Für einen Würfel der Kante $L$ erlauben periodische Ränder ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)) die Werte $k_x=n_x2\pi/L$, entsprechend $k_y$ und $k_z$. Jeder Wert belegt im $k$-Raum das Volumen $(2\pi)^3/L^3$. Die Zone hat den Inhalt $(2\pi)^3/\Omega$. Der Quotient ist $L^3/\Omega=N$. Die Form der Zone geht nicht ein, also gilt das Ergebnis für jede Gitterstruktur.
 :::
 
-**Beispiel.** Eine Kette von 1 µm mit $a=0{,}2$ nm hat 5000 Punkte. Die $k$-Werte liegen $0{,}00628\,\mathrm{nm^{-1}}$ auseinander, die Zone ist $31{,}4\,\mathrm{nm^{-1}}$ breit. Das ergibt 5000 Werte. **Kontrolle:** [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) fand für $N$ Punkte $N$ Energien. **Grenzfall:** Für $L\to\infty$ liegen die Werte beliebig dicht, die Zone bleibt gleich groß. $k$ wird stetig.
+::::beispiel
+Eine Kette von 1 µm mit $a=0{,}2$ nm hat 5000 Punkte. Die $k$-Werte liegen $0{,}00628\,\mathrm{nm^{-1}}$ auseinander, die Zone ist $31{,}4\,\mathrm{nm^{-1}}$ breit. Das ergibt 5000 Werte. **Kontrolle:** [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) fand für $N$ Punkte $N$ Energien.
+::::
+
+⁠**Grenzfall:** Für $L\to\infty$ liegen die Werte beliebig dicht, die Zone bleibt gleich groß. $k$ wird stetig.
 
 :::frage Silizium hat zwei Atome je Zelle. Zählt die Zone Atome oder Zellen?
 Zellen. $N$ ist die Zahl der Gitterpunkte, die Basis kommt in [(5.3)](reziproke-gittervektoren-in-der-ebene-und-im-raum.html#gl-5-3) nicht vor. Jedes Siliziumatom hat aber 4 Außenelektronen, je Zelle sind das 8. Sie brauchen also vier Zonen oder, in eine Zone gefaltet, vier Abschnitte.

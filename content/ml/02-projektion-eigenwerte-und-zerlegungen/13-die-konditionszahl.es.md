@@ -75,11 +75,13 @@ De ambas ecuaciones se sigue $\mathbf{A}\Delta\mathbf{x}=\Delta\mathbf{y}$. Seg�
 
 El peor caso es, por tanto, este: la solución está en la dirección que $\mathbf{A}$ más estira, de modo que $\mathbf{y}$ es grande comparado con $\mathbf{x}$, y el error está en la dirección que $\mathbf{A}$ menos estira, de modo que, al deshacer la transformación, se agranda por el factor $1/d_n$.
 
-⁠**Ejemplo numérico:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ es simétrica, con la traza $2{,}01$ y el determinante $0{,}01$. Sus valores propios son
+::::beispiel [Ejemplo numérico]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ es simétrica, con la traza $2{,}01$ y el determinante $0{,}01$. Sus valores propios son
 
 $$\lambda_{1,2}=\frac{2{,}01\pm\sqrt{2{,}01^2-0{,}04}}2=\frac{2{,}01\pm\sqrt{4{,}0001}}2\approx\frac{2{,}01\pm2{,}000025}2,$$
 
 es decir, $\lambda_1\approx2{,}005012$ y $\lambda_2\approx0{,}004988$, ambos positivos. Según la sección [9.7](die-singularwertzerlegung.html#stufe-9-7), son también los valores singulares, y $\kappa(\mathbf{A})\approx402$. La amplificación observada, $284$, queda por debajo. No alcanza del todo la cota porque $\Delta\mathbf{y}=(0;\ 0{,}01)^{\top}$ no apunta exactamente en la dirección de $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$. Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\kappa=4/1=4$: los errores relativos se multiplican como mucho por cuatro.
+::::
 
 ⁠**En resumen:** El número de condición $\kappa(\mathbf{A})=d_1/d_n$ es el mayor factor por el que $\mathbf{A}^{-1}$ puede agrandar en la solución un error relativo de los datos.
 
@@ -87,7 +89,7 @@ es decir, $\lambda_1\approx2{,}005012$ y $\lambda_2\approx0{,}004988$, ambos pos
 
 <span class="anker" id="stufe-12-3"></span>
 
-En el recuadro de contexto de Fundamentos 1, sección 14.6, había una advertencia: un determinante pequeño no significa que una matriz sea casi singular. El número de condición mide lo que allí se quería decir.
+En el recuadro de contexto de [Fundamentos 1, sección 14.6](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), había una advertencia: un determinante pequeño no significa que una matriz sea casi singular. El número de condición mide lo que allí se quería decir.
 
 :::satz Teorema 12.3 (Distancia a la matriz singular más cercana)
 <span class="anker" id="satz-12-3"></span>
@@ -104,7 +106,9 @@ Una matriz singular tiene como mucho rango $n-1$. Según el teorema de Eckart-Yo
 
 Un número de condición grande significa, por tanto, que un cambio relativamente pequeño hace singular la matriz. El determinante mide otra cosa. Según el ejercicio [29](die-singularwertzerlegung.html#aufg-29), $|\det\mathbf{A}|=d_1\cdots d_n$, el producto de todos los estiramientos; depende de la magnitud de la matriz. El número de condición es un cociente y no cambia si se multiplica $\mathbf{A}$ por un número: $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ para $c\ne0$. Solo mide lo achatada que es la elipse en la que $\mathbf{A}$ transforma la circunferencia unidad.
 
-⁠**Ejemplo numérico:** Las dos matrices de Fundamentos 1, sección 14.6: $0{,}1\cdot\mathbf{I}_{10}$ tiene el determinante $10^{-10}$, pero todos sus valores singulares son $0{,}1$, y $\kappa=1$; está tan bien condicionada como es posible. $\operatorname{diag}(1000;\ 0{,}001)$ tiene el determinante $1$, pero $\kappa=1000/0{,}001=10^6$. Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distancia a la matriz singular más cercana es $d_2\approx0{,}005$: si se cambian sus entradas en unas pocas milésimas, se vuelve singular. La matriz singular $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ está a la distancia $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, algo más que el mínimo.
+::::beispiel [Ejemplo numérico]
+Las dos matrices de [Fundamentos 1, sección 14.6](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6): $0{,}1\cdot\mathbf{I}_{10}$ tiene el determinante $10^{-10}$, pero todos sus valores singulares son $0{,}1$, y $\kappa=1$; está tan bien condicionada como es posible. $\operatorname{diag}(1000;\ 0{,}001)$ tiene el determinante $1$, pero $\kappa=1000/0{,}001=10^6$. Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distancia a la matriz singular más cercana es $d_2\approx0{,}005$: si se cambian sus entradas en unas pocas milésimas, se vuelve singular. La matriz singular $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ está a la distancia $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, algo más que el mínimo.
+::::
 
 ⁠**En resumen:** $1/\kappa(\mathbf{A})$ es la distancia relativa a la matriz singular más cercana; el determinante no dice nada sobre ello, porque depende de la magnitud de la matriz.
 
@@ -129,7 +133,9 @@ Para la descomposición QR $\mathbf{A}=\mathbf{Q}\mathbf{R}$, en cambio, $\kappa
 $\mathbf{A}^{\top}\mathbf{A}$ es simétrica y definida positiva, con los valores propios $d_j^2$; según la sección [9.7](die-singularwertzerlegung.html#stufe-9-7), estos son también sus valores singulares, y su cociente es $d_1^2/d_n^2$. Como $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$, es $\mathbf{R}^{\top}\mathbf{R}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{A}^{\top}\mathbf{A}$; $\mathbf{R}$ tiene, por tanto, los mismos valores singulares que $\mathbf{A}$.
 :::
 
-⁠**Ejemplo numérico:** La matriz de las viviendas de la sección [3.7](die-beste-naherungslosung.html#stufe-3-7), con la superficie y el número de habitaciones, tiene los valores singulares $d_1\approx135{,}02$ y $d_2\approx0{,}848$; es decir, $\kappa(\mathbf{A})\approx159{,}3$ y $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Dos causas hacen grande $\kappa(\mathbf{A})$. Primera, las unidades: las superficies son números en torno a $65$; los números de habitaciones, en torno a $2{,}5$. Si se mide la superficie en unidades de $10\,\mathrm m^2$, el número de condición baja a unos $18{,}5$. Segunda, las dos columnas apuntan casi en la misma dirección: forman un ángulo de solo unos $8{,}9^\circ$. Por eso, aunque se lleven ambas columnas a longitud $1$, queda $\kappa\approx12{,}8$. El cambio de unidades no altera los valores ajustados $\hat{\mathbf{y}}$: si se divide una columna por $10$, el peso correspondiente se hace $10$ veces mayor, y los productos no cambian.
+::::beispiel [Ejemplo numérico]
+La matriz de las viviendas de la sección [3.7](die-beste-naherungslosung.html#stufe-3-7), con la superficie y el número de habitaciones, tiene los valores singulares $d_1\approx135{,}02$ y $d_2\approx0{,}848$; es decir, $\kappa(\mathbf{A})\approx159{,}3$ y $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Dos causas hacen grande $\kappa(\mathbf{A})$. Primera, las unidades: las superficies son números en torno a $65$; los números de habitaciones, en torno a $2{,}5$. Si se mide la superficie en unidades de $10\,\mathrm m^2$, el número de condición baja a unos $18{,}5$. Segunda, las dos columnas apuntan casi en la misma dirección: forman un ángulo de solo unos $8{,}9^\circ$. Por eso, aunque se lleven ambas columnas a longitud $1$, queda $\kappa\approx12{,}8$. El cambio de unidades no altera los valores ajustados $\hat{\mathbf{y}}$: si se divide una columna por $10$, el peso correspondiente se hace $10$ veces mayor, y los productos no cambian.
+::::
 
 ⁠**En resumen:** Las ecuaciones normales trabajan con $\kappa(\mathbf{A})^2$; la descomposición QR, con $\kappa(\mathbf{A})$; unas unidades bien elegidas reducen el número de condición.
 

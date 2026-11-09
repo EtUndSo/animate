@@ -80,11 +80,13 @@ Peine de Dirac con $T=0{,}5$ s y su espectro: de nuevo un peine, con separaci�
 La ecuación $\mathrm{j}2\pi f\,S(f)=1$ solo determina $S$ para $f\neq0$. En $f=0$ queda a la izquierda $0\cdot S(0)$, y un sumando $c\,\delta(f)$ desaparece porque $f\delta(f)=0$. Es la contrapartida de que derivar «olvida» una constante: $\varepsilon(t)$ y $\varepsilon(t)+b$ tienen la misma derivada. Qué constante es la correcta lo decide la parte par: $\varepsilon$ tiene valor medio $\frac12$, así que $c=\frac12$.
 :::
 
-**Ejemplo: el coseno encendido.** $\varepsilon(t)\cos(2\pi Ft)$. La multiplicación se convierte en convolución, y la convolución con un impulso de Dirac desplaza:
+::::beispiel el coseno encendido
+$\varepsilon(t)\cos(2\pi Ft)$. La multiplicación se convierte en convolución, y la convolución con un impulso de Dirac desplaza:
 
 $$\Bigl[\tfrac12\delta(f)+\tfrac{1}{\mathrm{j}2\pi f}\Bigr]*\tfrac12\bigl[\delta(f+F)+\delta(f-F)\bigr] =\tfrac14\bigl[\delta(f+F)+\delta(f-F)\bigr]-\frac{\mathrm{j}}{4\pi}\Bigl[\frac{1}{f+F}+\frac{1}{f-F}\Bigr].$$
 
 Además de las líneas reducidas a la mitad en $\pm F$, aparece un espectro ancho: el propio encendido contiene frecuencias próximas a $\pm F$.
+::::
 
 :::aufgabe Ejercicio 10 ★ Espectros de líneas
 <span class="anker" id="aufg-10"></span>

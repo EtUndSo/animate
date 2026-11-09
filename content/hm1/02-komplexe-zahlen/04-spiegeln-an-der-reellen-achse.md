@@ -93,7 +93,11 @@ $z+\overline{z}=2\operatorname{Re}(z)$ und $z-\overline{z}=2\mathrm{i}\operatorn
 (vii): $(x+\mathrm{i}y)+(x-\mathrm{i}y)=2x$ und $(x+\mathrm{i}y)-(x-\mathrm{i}y)=2\mathrm{i}y$.
 :::
 
-**Beispiel.** Für $z_1$ ist $\overline{z_1}=3-\mathrm{i}$, $z_1\overline{z_1}=9+1=10$, $z_1+\overline{z_1}=6=2\cdot3$ und $z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$. Probe zu (iv): $\overline{z_1z_2}=1-7\mathrm{i}$ und $\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$. **Grenzfall:** Für $y=0$ ist $\overline{z}=z$ und $z\overline{z}=x^2$. Reelle Zahlen liegen auf der Spiegelachse und ändern sich nicht.
+::::beispiel
+Für $z_1$ ist $\overline{z_1}=3-\mathrm{i}$, $z_1\overline{z_1}=9+1=10$, $z_1+\overline{z_1}=6=2\cdot3$ und $z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$. Probe zu (iv): $\overline{z_1z_2}=1-7\mathrm{i}$ und $\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$.
+::::
+
+⁠**Grenzfall:** Für $y=0$ ist $\overline{z}=z$ und $z\overline{z}=x^2$. Reelle Zahlen liegen auf der Spiegelachse und ändern sich nicht.
 
 :::frage Ist $z\overline{z}$ nicht dasselbe wie $z^2$?
 Nur für reelle $z$. Bei $z^2$ addieren sich die Mischglieder zu $2\mathrm{i}xy$, bei $z\overline{z}$ heben sie sich auf. Im Rechenmodell ist $z_2^2=-3+4\mathrm{i}$, aber $z_2\overline{z_2}=5$.

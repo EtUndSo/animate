@@ -19,7 +19,8 @@ Aus [Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegra
 Links: Fehlt der Nullpunkt, lässt sich jede geschlossene Kurve zusammenziehen, aber die Kugelfläche um das Loch nicht. Rechts: Fehlt die $z$-Achse, lässt sich der Kreis um die Achse nicht zusammenziehen, jede Fläche aber schon. Die eine Sorte Loch verhindert Rotationsfelder, die andere Gradientenfelder.
 :::
 
-**Beispiel 1: die Punktladung.** Auf $\mathcal U=\mathbb{R}^3\setminus\{0\}$ sei
+::::beispiel [Beispiel 1] die Punktladung
+Auf $\mathcal U=\mathbb{R}^3\setminus\{0\}$ sei
 
 <span class="anker" id="gl-7-1"></span>
 $$\boldsymbol{E}(\boldsymbol{x})=\frac{Q}{4\pi r^2}\,\hat{\boldsymbol{e}}_r. \tag{7.1}$$
@@ -33,13 +34,16 @@ Wäre $\boldsymbol{E}=\operatorname{rot}\boldsymbol{A}$, zerlegt man $S_R$ in ob
 $$\int_{S_R}\operatorname{rot}\boldsymbol{A}\cdot\mathrm{d}\boldsymbol{S}=\int_{\Gamma_R}\boldsymbol{A}\cdot\mathrm{d}\boldsymbol{x}+\int_{-\Gamma_R}\boldsymbol{A}\cdot\mathrm{d}\boldsymbol{x}=0,$$
 
 ein Widerspruch. Also ist $\boldsymbol{E}$ keine Rotation.
+::::
 
-**Beispiel 2: der stromdurchflossene Draht.** Auf $\mathcal U=\mathbb{R}^3\setminus\{x^2+y^2=0\}$, also ohne die $z$-Achse, sei
+::::beispiel [Beispiel 2] der stromdurchflossene Draht
+Auf $\mathcal U=\mathbb{R}^3\setminus\{x^2+y^2=0\}$, also ohne die $z$-Achse, sei
 
 <span class="anker" id="gl-7-2"></span>
 $$\boldsymbol{H}(x,y,z)=\frac{1}{x^2+y^2}\begin{pmatrix}-y\\x\\0\end{pmatrix}. \tag{7.2}$$
 
 Hier ist $\operatorname{rot}\boldsymbol{H}=0$, aber $\boldsymbol{H}$ ist nicht konservativ, das Integral um die Achse ist $2\pi$. Das Gebiet ist eben nicht einfach zusammenhängend. Zugleich gilt $\operatorname{div}\boldsymbol{H}=0$, und $\boldsymbol{H}$ ist tatsächlich eine Rotation: $\boldsymbol{H}=\operatorname{rot}\boldsymbol{A}$ mit $\boldsymbol{A}=-\ln\sqrt{x^2+y^2}\;\hat{\boldsymbol{e}}_3$.
+::::
 
 :::satz Satz 7.1 (Hinreichende Bedingung für Rotationsfelder)
 <span class="anker" id="satz-7-1"></span>

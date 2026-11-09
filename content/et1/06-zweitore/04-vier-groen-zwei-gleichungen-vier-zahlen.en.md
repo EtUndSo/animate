@@ -37,11 +37,15 @@ $$y_1=p_{11}x_1+p_{12}x_2,\qquad y_2=p_{21}x_1+p_{22}x_2. \tag{2.2}$$
 The three arrow systems. Left, symmetric: Both currents point into the two-port. Center, chain arrows: The output current points toward the load. Right, mixed, as in this chapter: $I_2$ stays defined as on the left, and the current to the load is called $-I_2$.
 :::
 
-**Example.** At the center point of the T two-port, $I_1$ and $I_2$ meet, and their sum flows through $R_\mathrm{b}$. The mesh rule gives
+::::beispiel
+At the center point of the T two-port, $I_1$ and $I_2$ meet, and their sum flows through $R_\mathrm{b}$. The mesh rule gives
 
 $$U_1=R_\mathrm{a}I_1+R_\mathrm{b}(I_1+I_2)=35\,\Omega\cdot I_1+20\,\Omega\cdot I_2,\qquad U_2=R_\mathrm{c}I_2+R_\mathrm{b}(I_1+I_2)=20\,\Omega\cdot I_1+40\,\Omega\cdot I_2.$$
 
-The term $20\,\Omega\cdot I_2$ in $U_1$ is the mechanism: The current of port 2 runs through $R_\mathrm{b}$, raises the potential of the center point there, and port 1 sees this rise. With $I_1=250$ mA and $I_2=-50$ mA, this gives $U_1=8.75\,\mathrm{V}-1\,\mathrm{V}=7.75$ V and $U_2=5\,\mathrm{V}-2\,\mathrm{V}=3$ V. **Limiting case:** Without causes, $I_1=I_2=0$, both voltages are zero, as a two-port without sources of its own requires. With an independent source inside, a constant would be added to each equation.
+The term $20\,\Omega\cdot I_2$ in $U_1$ is the mechanism: The current of port 2 runs through $R_\mathrm{b}$, raises the potential of the center point there, and port 1 sees this rise. With $I_1=250$ mA and $I_2=-50$ mA, this gives $U_1=8.75\,\mathrm{V}-1\,\mathrm{V}=7.75$ V and $U_2=5\,\mathrm{V}-2\,\mathrm{V}=3$ V.
+::::
+
+⁠**Limiting case:** Without causes, $I_1=I_2=0$, both voltages are zero, as a two-port without sources of its own requires. With an independent source inside, a constant would be added to each equation.
 
 ⁠**In short:** Two quantities are free, and each of the other two is a sum with two fixed factors.
 

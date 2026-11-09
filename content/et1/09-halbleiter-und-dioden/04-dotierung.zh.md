@@ -34,7 +34,11 @@ $$\text{n 区：}n\approx N_\mathrm D,\qquad\text{p 区：}p\approx N_\mathrm A,
 热以只取决于 $T$ 和材料的速率产生电子空穴对。复合需要两者相遇，其速率为 $c\,n\,p$。平衡时两个速率相等，所以 $n\,p$ 是常数。在纯硅中 $n=p=n_\mathrm i$，所以 $n\,p=n_\mathrm i^2$。电子增多意味着复合增多、空穴减少。
 :::
 
-**例。** 当 $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ 时，每 $5\cdot10^{6}$ 个硅原子才有一个杂质原子，但 $n$ 却升到 $n_\mathrm i$ 的一百万倍。空穴降到 $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$。多数与少数载流子相差 $10^{12}$ 倍。$W_\mathrm F$ 升高 $25.85\,\mathrm{meV}\cdot\ln10^{6}=0.36$ eV。**极限情况：**$N_\mathrm D\to0$ 时，式 [(2.1)](#gl-2-1) 又给出 $n=p=n_\mathrm i$。
+::::beispiel
+当 $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ 时，每 $5\cdot10^{6}$ 个硅原子才有一个杂质原子，但 $n$ 却升到 $n_\mathrm i$ 的一百万倍。空穴降到 $p=10^{20}/10^{16}=10^{4}\,\mathrm{cm^{-3}}$。多数与少数载流子相差 $10^{12}$ 倍。$W_\mathrm F$ 升高 $25.85\,\mathrm{meV}\cdot\ln10^{6}=0.36$ eV。
+::::
+
+⁠**极限情况：**$N_\mathrm D\to0$ 时，式 [(2.1)](#gl-2-1) 又给出 $n=p=n_\mathrm i$。
 
 :::frage n 型硅带负电、p 型硅带正电吗？
 不，两者都是中性的。“n”和“p”指的是可移动电荷的符号，而不是这块材料的符号。在 n 区，每个自由电子都对应一个固定的正离子。只有在 pn 结处两者才分开（第 [3](die-raumladungszone.html#stufe-3) 阶段）。

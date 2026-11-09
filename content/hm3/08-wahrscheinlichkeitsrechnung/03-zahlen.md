@@ -46,22 +46,30 @@ $$\mathbb{P}(A)=\frac{\text{Anzahl der Elemente von }A}{\text{Anzahl der Element
 
 ⁠**Vorsicht:** Fall (iv) zählt nur, beim echten Ziehen ist er kein Laplace-Experiment: Bei den Vierer-Würfeln hat das ungeordnete Paar $\{1,1\}$ die Wahrscheinlichkeit $\frac1{16}$, das Paar $\{1,2\}$ aber $\frac2{16}$.
 
-**Beispiel: Adressen.** $k$ Geräte wählen jedes für sich zufällig eine von 256 Adressen. Das ist Fall (i), also $|\Omega|=256^k$. Das Ereignis $A$ „alle Adressen sind verschieden“ ist Fall (ii):
+::::beispiel Adressen
+$k$ Geräte wählen jedes für sich zufällig eine von 256 Adressen. Das ist Fall (i), also $|\Omega|=256^k$. Das Ereignis $A$ „alle Adressen sind verschieden“ ist Fall (ii):
 
 <span class="anker" id="gl-2-3"></span>
 $$\mathbb{P}(A)=\frac{(256)_k}{256^k}. \tag{2.3}$$
 
-Für $k=19$ ist das nur noch $0{,}504$ (Abb. [2](#abb-2)). Es zählen nicht die Geräte, sondern die Paare, und das sind schon 171. Für 365 statt 256 heißt das Geburtstagsproblem. **Grenzfall:** Für $k=1$ gibt [(2.3)](#gl-2-3) den Wert 1, für $k>256$ den Wert 0.
+Für $k=19$ ist das nur noch $0{,}504$ (Abb. [2](#abb-2)). Es zählen nicht die Geräte, sondern die Paare, und das sind schon 171. Für 365 statt 256 heißt das Geburtstagsproblem.
+::::
+
+⁠**Grenzfall:** Für $k=1$ gibt [(2.3)](#gl-2-3) den Wert 1, für $k>256$ den Wert 0.
 
 :::abbildung hm3/k8kollision 2
 Wahrscheinlichkeit, dass unter $k$ Geräten mit je einer zufälligen von 256 Adressen zwei dieselbe wählen, also $1-(256)_k/256^k$. Ab $k=20$ ist das wahrscheinlicher als das Gegenteil.
 :::
 
-**Beispiel: Kiste.** Man greift 5 Widerstände heraus, das ist Fall (iii) mit $|\Omega|=\binom{20}5=15504$. Mit $A_i$ für „genau $i$ defekt“ ist $|A_i|=\binom4i\binom{16}{5-i}$: $i$ defekte aus den 4 defekten, die übrigen aus den 16 guten. Damit gilt
+::::beispiel Kiste
+Man greift 5 Widerstände heraus, das ist Fall (iii) mit $|\Omega|=\binom{20}5=15504$. Mit $A_i$ für „genau $i$ defekt“ ist $|A_i|=\binom4i\binom{16}{5-i}$: $i$ defekte aus den 4 defekten, die übrigen aus den 16 guten. Damit gilt
 
 $$\mathbb{P}(\text{mindestens 2 defekt})=\frac{\binom42\binom{16}3+\binom43\binom{16}2+\binom44\binom{16}1}{\binom{20}5}=\frac{3856}{15504}\approx0{,}249.$$
+::::
 
-**Beispiel: Ableitungen.** Eine $k$-mal stetig differenzierbare Funktion von $n$ Variablen hat $\binom{n+k-1}k$ verschiedene partielle Ableitungen der Ordnung $k$. Nach dem Lemma von Schwarz ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)) zählt nur, wie oft nach jeder Variablen abgeleitet wird, das ist Fall (iv). Für $f(x,y)$ und $k=3$ sind das 4: $f_{xxx},f_{xxy},f_{xyy},f_{yyy}$.
+::::beispiel Ableitungen
+Eine $k$-mal stetig differenzierbare Funktion von $n$ Variablen hat $\binom{n+k-1}k$ verschiedene partielle Ableitungen der Ordnung $k$. Nach dem Lemma von Schwarz ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)) zählt nur, wie oft nach jeder Variablen abgeleitet wird, das ist Fall (iv). Für $f(x,y)$ und $k=3$ sind das 4: $f_{xxx},f_{xxy},f_{xyy},f_{yyy}$.
+::::
 
 :::aufgabe Aufgabe 3 ★★ Fehler auf Platinen
 <span class="anker" id="aufg-3"></span>

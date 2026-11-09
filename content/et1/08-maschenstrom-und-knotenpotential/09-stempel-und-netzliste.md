@@ -45,7 +45,8 @@ Eine feste Stromquelle, die $I_\mathrm q$ durch sich von $k$ nach $i$ schiebt, a
 
 **Netzliste.** Ein Schaltplan wird als __Netzliste__ gespeichert: je Bauteil eine Zeile aus Name, Knoten und Wert. Bei SPICE heißt `R3 1 2 2k`: Widerstand zwischen den Knoten 1 und 2. `I2 0 2 4m` heißt: 4 mA durch die Quelle von Knoten 0 nach Knoten 2. Das Programm geht die Liste Zeile für Zeile durch und stempelt. Taucht ein neuer Knotenname auf, wächst die Matrix um eine Zeile und eine Spalte. Ihre Größe muss vorher niemand kennen. Das starre Format stammt aus den 1970er-Jahren, als SPICE in FORTRAN geschrieben war und jede Zeile eine Lochkarte belegte.
 
-**Beispiel.** Das Rechenmodell mit umgewandelter Batterie ergibt diese Liste:
+::::beispiel
+Das Rechenmodell mit umgewandelter Batterie ergibt diese Liste:
 
 | Zeile | Wert | Eintrag |
 |---|---|---|
@@ -61,7 +62,10 @@ Mit den Zeilen und Spalten in der Folge 0, 1, 2 entsteht
 
 $$\begin{pmatrix}1{,}55&-1{,}25&-0{,}3\\-1{,}25&1{,}75&-0{,}5\\-0{,}3&-0{,}5&0{,}8\end{pmatrix} \begin{pmatrix}U_0\\U_1\\U_2\end{pmatrix}=\begin{pmatrix}-13\\9\\4\end{pmatrix}.$$
 
-Jede Zeile summiert sich zu null. Streicht man Zeile und Spalte 0, bleibt das System aus Stufe [5](das-knotenpotentialverfahren.html#stufe-5). **Kontrolle:** Im gestrichenen $\mathbf Y$ ist die Zeilensumme der Leitwert nach Masse: $1{,}75-0{,}5=1{,}25=G_1+G_2$ und $0{,}8-0{,}5=0{,}3=G_4+G_5$. **Grenzfall:** Ein Knoten ohne Zweig zur Masse hat die Zeilensumme null.
+Jede Zeile summiert sich zu null. Streicht man Zeile und Spalte 0, bleibt das System aus Stufe [5](das-knotenpotentialverfahren.html#stufe-5). **Kontrolle:** Im gestrichenen $\mathbf Y$ ist die Zeilensumme der Leitwert nach Masse: $1{,}75-0{,}5=1{,}25=G_1+G_2$ und $0{,}8-0{,}5=0{,}3=G_4+G_5$.
+::::
+
+⁠**Grenzfall:** Ein Knoten ohne Zweig zur Masse hat die Zeilensumme null.
 
 **Große Netze.** Ein Knoten hängt meist nur an zwei bis fünf Nachbarn, deshalb sind fast alle Plätze einer großen Matrix null. Sie heißt __dünn besetzt__. Der Simulator speichert nur die Einträge ungleich null und löst das System durch schrittweises Eliminieren. Die cramersche Regel wäre dafür unbrauchbar: Eine Determinante mit 20 Zeilen hat nach dem Muster von [(0.1)](von-grund-auf-drei-gleichungen-drei-unbekannte.html#gl-0-1) rund $2{,}4\cdot10^{18}$ Produkte.
 

@@ -34,11 +34,13 @@ s’appelle un __système d’équations linéaires__ à $m$ équations et aux $
 
 Écrite en détail, la ligne $i$ contient l’équation $a_{i1}x_1+\dots+a_{in}x_n=y_i$.
 
-⁠**Exemple de calcul :** Le système
+::::beispiel [Exemple de calcul]
+Le système
 
 $$\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begin{pmatrix}5\\3\end{pmatrix}$$
 
 a pour solution $\mathbf{x}=(2,\,1)^{\top}$ : $2\cdot2+1=5$ et $2+1=3$. La matrice des coefficients est connue depuis la sous-section [11.2](einheitsmatrix-und-inverse.html#stufe-11-2), avec l’inverse $\bigl(\begin{smallmatrix}1&-1\\-1&2\end{smallmatrix}\bigr)$. Si l’on multiplie le système à gauche par celle-ci, la solution apparaît immédiatement : $\mathbf{x}=\mathbf{A}^{-1}\mathbf{y}=(5-3,\ -5+6)^{\top}=(2,\,1)^{\top}$.
+::::
 
 ⁠**En bref :** Un système d’équations linéaires $\mathbf{A}\mathbf{x}=\mathbf{y}$ demande quelle entrée $\mathbf{x}$ fournit la sortie $\mathbf{y}$.
 
@@ -64,7 +66,9 @@ L’image en colonnes indique immédiatement quand il existe une solution. Les v
 Le système $\mathbf{A}\mathbf{x}=\mathbf{y}$ a une solution si et seulement si $\mathbf{y}$ appartient à l’espace des colonnes de $\mathbf{A}$.
 :::
 
-⁠**Exemple de calcul :** Le système $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ a une solution pour $\mathbf{y}=(3,\,6)^{\top}$, par exemple $\mathbf{x}=(1,\,1)^{\top}$, mais pas pour $\mathbf{y}=(1,\,1)^{\top}$ : d’après la sous-section [7.4](das-matrix-vektor-produkt.html#stufe-7-4), l’espace des colonnes n’est que la droite dirigée par $(1,\,2)^{\top}$.
+::::beispiel [Exemple de calcul]
+Le système $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)\mathbf{x}=\mathbf{y}$ a une solution pour $\mathbf{y}=(3,\,6)^{\top}$, par exemple $\mathbf{x}=(1,\,1)^{\top}$, mais pas pour $\mathbf{y}=(1,\,1)^{\top}$ : d’après la sous-section [7.4](das-matrix-vektor-produkt.html#stufe-7-4), l’espace des colonnes n’est que la droite dirigée par $(1,\,2)^{\top}$.
+::::
 
 ⁠**En bref :** Dans l’image en lignes, une solution est un point commun à toutes les équations ; dans l’image en colonnes, c’est le choix des coefficients avec lequel les colonnes donnent le second membre.
 
@@ -116,7 +120,8 @@ Un système et le système obtenu à partir de lui par des opérations sur les l
 Toute solution de l’ancien système vérifie aussi les nouvelles équations, car celles-ci sont des sommes et des multiples des anciennes. Mais chacune des trois opérations peut aussi être annulée : retrancher de nouveau le multiple, rééchanger les lignes, diviser par le nombre. Donc, inversement, toute solution du nouveau système vérifie aussi l’ancien.
 :::
 
-⁠**Exemple de calcul :** Le système
+::::beispiel [Exemple de calcul]
+Le système
 
 $$\begin{aligned} x_1+2x_2+x_3&=8\\ 2x_1+x_2+x_3&=7\\ x_1+x_2+2x_3&=9 \end{aligned} \qquad\text{a pour matrice augmentée}\qquad \left(\begin{array}{ccc|c}1&2&1&8\\2&1&1&7\\1&1&2&9\end{array}\right).$$
 
@@ -125,6 +130,7 @@ Si l’on soustrait deux fois la première ligne de la deuxième et une fois de 
 $$\left(\begin{array}{ccc|c}1&2&1&8\\0&-3&-1&-9\\0&-1&1&1\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&-3&-1&-9\end{array}\right) \;\longrightarrow\; \left(\begin{array}{ccc|c}1&2&1&8\\0&-1&1&1\\0&0&-4&-12\end{array}\right).$$
 
 De bas en haut : $-4x_3=-12$, donc $x_3=3$ ; puis $-x_2+3=1$, donc $x_2=2$ ; puis $x_1+4+3=8$, donc $x_1=1$. La solution est $\mathbf{x}=(1,\,2,\,3)^{\top}$, et la substitution dans les trois équations la confirme.
+::::
 
 ⁠**En bref :** La méthode du pivot de Gauss élimine les inconnues pas à pas par des opérations sur les lignes, qui ne changent pas les solutions, puis substitue de bas en haut.
 
@@ -154,7 +160,8 @@ donc chaque point $\mathbf{x}+t\,(\mathbf{x}'-\mathbf{x})$ de la droite passant 
 
 Le système $\mathbf{A}\mathbf{x}=\mathbf{0}$, de second membre nul, est dit __homogène__. Il a toujours la solution $\mathbf{x}=\mathbf{0}$. Si l’on connaît une seule solution $\mathbf{x}_{\mathrm s}$ du système $\mathbf{A}\mathbf{x}=\mathbf{y}$, on obtient toutes les autres en lui ajoutant les solutions du système homogène : $\mathbf{A}\mathbf{x}=\mathbf{y}$ est vérifié si et seulement si $\mathbf{A}(\mathbf{x}-\mathbf{x}_{\mathrm s})=\mathbf{y}-\mathbf{y}=\mathbf{0}$.
 
-⁠**Exemple de calcul :** Les trois systèmes de la Fig. [38](#abb-38) :
+::::beispiel [Exemple de calcul]
+Les trois systèmes de la Fig. [38](#abb-38) :
 
 <ol class="al">
 
@@ -177,6 +184,7 @@ $x_1+x_2=3$, $2x_1+2x_2=6$ : la deuxième équation est le double de la premièr
 </li>
 
 </ol>
+::::
 
 ⁠**En bref :** Un système d’équations linéaires n’a aucune solution, exactement une ou une infinité ; toutes les solutions sont une solution plus les solutions du système homogène.
 
@@ -194,11 +202,13 @@ Un système d’équations linéaires qui a plus d’équations que d’inconnue
 
 Un système surdéterminé n’a le plus souvent aucune solution : deux équations fixent déjà deux inconnues, et la troisième équation devrait, par hasard, être vérifiée elle aussi. Dans l’image en colonnes : pour $n<m$, l’espace des colonnes de $n$ colonnes dans $\mathbb{R}^m$ n’est qu’une petite partie de $\mathbb{R}^m$, et le second membre ne s’y trouve presque jamais. Un système sous-déterminé, en revanche, a une infinité de solutions s’il en a au moins une : dans la forme échelonnée, au moins une inconnue reste sans pivot propre, et elle peut être choisie librement.
 
-⁠**Exemple de calcul :** Pour les appartements 1 à 3, dont les prix sont $200$, $130$ et $290$ mille euros, le système s’écrit
+::::beispiel [Exemple de calcul]
+Pour les appartements 1 à 3, dont les prix sont $200$, $130$ et $290$ mille euros, le système s’écrit
 
 $$60\,w_1+2\,w_2=200,\qquad 40\,w_1+w_2=130,\qquad 90\,w_1+4\,w_2=290 .$$
 
 Des deux premières équations, on tire $w_1=3$ et $w_2=10$ : si l’on soustrait deux fois la deuxième de la première, il reste $-20\,w_1=-60$. Substitué dans la troisième, cela donne toutefois $270+40=310\ne290$. Le système n’a pas de solution. Aucune paire de poids ne donne exactement les trois prix. Ce que l’on cherche à la place dans un tel cas est une question à part.
+::::
 
 ⁠**En bref :** Un système surdéterminé a plus d’équations que d’inconnues et n’a le plus souvent aucune solution ; un système sous-déterminé en a moins et, s’il a une solution, il en a une infinité.
 

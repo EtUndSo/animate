@@ -63,7 +63,11 @@ Die erste Zeile enthält alle Koeffizienten, auch die Nullen. Man schreibt $a_n$
 Horner-Schema für $P$ an der Stelle $x_0=2$. Die Pfeile zeigen den Ablauf: mal 2, dann addieren. Letzte Zahl: $P(2)=-12$. Die Zahlen davor sind die Koeffizienten des Quotienten: $P(x)=(x-2)(2x^2+x-9)-12$.
 :::
 
-**Beispiel.** Abb. [8](#abb-8) rechnet mit 3 Multiplikationen $P(2)=-12$, direkt: $2\cdot8-3\cdot4-11\cdot2+6=-12$. Für $x_0=3$ lautet die untere Zeile $2,\ 3,\ -2,\ 0$: Es ist $P(3)=0$ und $P(x)=(x-3)(2x^2+3x-2)$. **Grenzfälle:** Für $x_0=0$ ist die untere Zeile die obere, $c_0=a_0=P(0)$. Für $x_0=1$ addiert das Schema alle Koeffizienten, $c_0=2-3-11+6=-6=P(1)$. Wiederholt man das Schema mit dem Quotienten, entsteht die Darstellung in Potenzen von $x-x_0$ (Aufgabe [8](#aufg-8)).
+::::beispiel
+Abb. [8](#abb-8) rechnet mit 3 Multiplikationen $P(2)=-12$, direkt: $2\cdot8-3\cdot4-11\cdot2+6=-12$. Für $x_0=3$ lautet die untere Zeile $2,\ 3,\ -2,\ 0$: Es ist $P(3)=0$ und $P(x)=(x-3)(2x^2+3x-2)$.
+::::
+
+⁠**Grenzfälle:** Für $x_0=0$ ist die untere Zeile die obere, $c_0=a_0=P(0)$. Für $x_0=1$ addiert das Schema alle Koeffizienten, $c_0=2-3-11+6=-6=P(1)$. Wiederholt man das Schema mit dem Quotienten, entsteht die Darstellung in Potenzen von $x-x_0$ (Aufgabe [8](#aufg-8)).
 
 :::frage Warum muss die Null für eine fehlende Potenz ins Schema?
 Jede Spalte gehört zu einer Potenz, das Schema zählt die Potenzen über die Spalten. Lässt man bei $S$ die Null für $x$ weg, rechnet es mit $1,-3,1,4$, also mit $x^3-3x^2+x+4$. Bei $x_0=2$ kommt dann 2 heraus statt $S(2)=0$.

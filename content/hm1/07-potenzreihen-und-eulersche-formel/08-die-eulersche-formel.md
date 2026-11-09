@@ -75,7 +75,11 @@ $$\cos(x+y)+\mathrm{i}\sin(x+y)=\mathrm{e}^{\mathrm{i}x}\mathrm{e}^{\mathrm{i}y}
 Ausmultiplizieren ergibt rechts $(\cos x\cos y-\sin x\sin y)+\mathrm{i}(\sin x\cos y+\cos x\sin y)$. Die Realteile liefern (ii), die Imaginärteile (i).
 :::
 
-**Beispiel.** Mit $x=1$ und $y=0{,}5$: $\sin1\cos0{,}5+\cos1\sin0{,}5=0{,}7385+0{,}2590=0{,}9975=\sin1{,}5$. **Grenzfälle:** $y=-x$ gibt $1=\cos^2x+\sin^2x$, also [(6.2)](#gl-6-2). $y=x$ gibt $\sin2x=2\sin x\cos x$ und $\cos2x=\cos^2x-\sin^2x$, bei $x=1$ sind das $0{,}9093$ und $-0{,}4161$.
+::::beispiel
+Mit $x=1$ und $y=0{,}5$: $\sin1\cos0{,}5+\cos1\sin0{,}5=0{,}7385+0{,}2590=0{,}9975=\sin1{,}5$.
+::::
+
+⁠**Grenzfälle:** $y=-x$ gibt $1=\cos^2x+\sin^2x$, also [(6.2)](#gl-6-2). $y=x$ gibt $\sin2x=2\sin x\cos x$ und $\cos2x=\cos^2x-\sin^2x$, bei $x=1$ sind das $0{,}9093$ und $-0{,}4161$.
 
 :::frage Ist die Eulersche Formel eine Definition oder ein Satz?
 Ein Satz. Links steht die Exponentialreihe, rechts stehen zwei andere Reihen. Dass sie zusammenpassen, ist bewiesen. Festgelegt ist nur die Schreibweise $\mathrm{e}^z$.

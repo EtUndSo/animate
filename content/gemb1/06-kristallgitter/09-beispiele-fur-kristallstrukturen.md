@@ -62,7 +62,11 @@ Sie besteht aus zwei FCC-Gittern, die um ein Viertel der Raumdiagonale gegeneina
 
 ⁠**So liest man das:** Der Würfel enthält $4+4=8$ Atome. Die Basis liegt auf einer Raumdiagonale, und jedes Atom hat vier Nachbarn im Abstand $\sqrt3\,a/4$ an den Ecken eines Tetraeders. Das ist die Form der vier sp$^3$-Bindungen mit dem Winkel 109,47° ([Teil 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html)), so wie die drei sp$^2$-Bindungen in der Ebene die Wabe aus Stufe [2](bravais-gitter-in-einer-und-zwei-dimensionen.html#stufe-2) ergeben. Die gerichtete Bindung erzwingt die offene Struktur: Mit $r_\mathrm{at}=\sqrt3\,a/8$ füllen gleiche Kugeln nur $P=8\cdot\frac43\pi r_\mathrm{at}^3/a^3=\sqrt3\,\pi/16=34\,\%$, weniger als die Hälfte von FCC. Zwischen ionischer und kovalenter Bindung gibt es einen stetigen Übergang: ZnS, GaAs und InSb haben auch ionischen Charakter, weil die beiden Sorten verschieden stark an den Elektronen ziehen.
 
-**Beispiel.** GaAs hat $a=0{,}5653$ nm, der Abstand von Ga zu As ist $\sqrt3\,a/4=0{,}2448$ nm, und [(5.2)](koordinationszahl-und-packungsdichte.html#gl-5-2) ergibt mit vier Ga und vier As $\rho_\mathrm m=5{,}32\,\mathrm{g/cm^3}$. **Grenzfall:** Sind beide Atomsorten gleich, wird aus Zinkblende Diamant. Rückt $\boldsymbol d$ auf $\frac a2(1,1,1)$, entsteht aus zwei FCC-Gittern kein Tetraeder mehr, sondern die Kochsalzstruktur, denn $\frac a2(1,1,1)$ und $\frac a2(1,0,0)$ unterscheiden sich um einen Gittervektor.
+::::beispiel
+GaAs hat $a=0{,}5653$ nm, der Abstand von Ga zu As ist $\sqrt3\,a/4=0{,}2448$ nm, und [(5.2)](koordinationszahl-und-packungsdichte.html#gl-5-2) ergibt mit vier Ga und vier As $\rho_\mathrm m=5{,}32\,\mathrm{g/cm^3}$.
+::::
+
+⁠**Grenzfall:** Sind beide Atomsorten gleich, wird aus Zinkblende Diamant. Rückt $\boldsymbol d$ auf $\frac a2(1,1,1)$, entsteht aus zwei FCC-Gittern kein Tetraeder mehr, sondern die Kochsalzstruktur, denn $\frac a2(1,1,1)$ und $\frac a2(1,0,0)$ unterscheiden sich um einen Gittervektor.
 
 :::frage Alle Atome in Silizium sind gleich und haben vier Nachbarn. Warum ist die Struktur kein Bravais-Gitter?
 Weil die Nachbarn in verschiedenen Richtungen liegen. Ein Atom von Basisplatz 1 hat einen Nachbarn bei $+\boldsymbol d$, ein Atom von Basisplatz 2 bei $-\boldsymbol d$. Die beiden Tetraeder sind gegeneinander umgekehrt. Verschiebt man den Kristall um $\boldsymbol d$, landen die Atome von Platz 2 in leeren Bereichen, wie bei der Wabe.

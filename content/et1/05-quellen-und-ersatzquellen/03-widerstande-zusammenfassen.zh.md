@@ -30,7 +30,9 @@ $$R_\mathrm{AB}=R_\mathrm{a}+R_\mathrm{b}\parallel\bigl(R_\mathrm{c}+R_\mathrm{d
 
 ⁠**如何理解：**$R$ 是电阻，单位 $\Omega$；$G=1/R$ 是它的__电导__，单位西门子（S）。串联时电阻相加，并联时电导相加。因此在第二种形式中，每个并联组都写成电导之和。带指数 $-1$ 的方括号再把结果取倒数。**适用条件：**这种方法需要真正的组。如果中间节点上还接着第三条支路，两个相邻的电阻就不再是串联的（第 [2](symmetrie-nutzen.html#stufe-2) 和第 [3](stern-und-dreieck.html#stufe-3) 阶段）。
 
-**例。** 代入图 [1](#abb-1) 中的数值：$G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33.3+16.7$ mS $=100$ mS，即 10 $\Omega$。再串联 $R_\mathrm{c}$：15 $\Omega$。与 $R_\mathrm{b}$ 并联：$30\,\Omega\parallel15\,\Omega=10\,\Omega$。再串联 $R_\mathrm{a}$：$R_\mathrm{AB}=16\,\Omega$。反向计算得到各电流：A、B 之间加 8 V 时流过 0.5 A。$R_\mathrm{a}$ 上压降为 3 V，其余部分还剩 5 V。流过 $R_\mathrm{b}$ 的电流为 $5\,\mathrm{V}/30\,\Omega=166.7$ mA，流过 $R_\mathrm{c}$ 的电流为 $5\,\mathrm{V}/15\,\Omega=333.3$ mA。两者之和为 500 mA。
+::::beispiel
+代入图 [1](#abb-1) 中的数值：$G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33.3+16.7$ mS $=100$ mS，即 10 $\Omega$。再串联 $R_\mathrm{c}$：15 $\Omega$。与 $R_\mathrm{b}$ 并联：$30\,\Omega\parallel15\,\Omega=10\,\Omega$。再串联 $R_\mathrm{a}$：$R_\mathrm{AB}=16\,\Omega$。反向计算得到各电流：A、B 之间加 8 V 时流过 0.5 A。$R_\mathrm{a}$ 上压降为 3 V，其余部分还剩 5 V。流过 $R_\mathrm{b}$ 的电流为 $5\,\mathrm{V}/30\,\Omega=166.7$ mA，流过 $R_\mathrm{c}$ 的电流为 $5\,\mathrm{V}/15\,\Omega=333.3$ mA。两者之和为 500 mA。
+::::
 
 ⁠**极限情况：**当 $R_\mathrm{b}\to0$ 时，式 [(1.1)](#gl-1-1) 变为 $R_\mathrm{AB}=R_\mathrm{a}=6\,\Omega$。短路把后面的一切都旁路了，电荷走导线。
 

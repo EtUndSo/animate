@@ -40,7 +40,11 @@ The names are older than the electron. In 1733 DuFay distinguished vitreous and 
 
 **Conductors and insulators.** In a __conductor__ such as metal, at least one electron per atom can wander through the entire body. In an __insulator__ such as glass or rubber, the electrons stay with their atoms. That is why charge on an insulator stays where it was produced, whereas on metal it spreads immediately.
 
-**Example.** Sphere A ($+10$ nC) lacks $N=Q/e=6.24\cdot10^{10}$ electrons. A plastic sphere of 1 g contains around $3.2\cdot10^{23}$ electrons, so only one in $5\cdot10^{12}$ is missing. **Limiting case:** For $N_\mathrm{p}=N_\mathrm{e}$, $Q=0$. A neutral body does not contain little charge; it contains equal amounts of both signs.
+::::beispiel
+Sphere A ($+10$ nC) lacks $N=Q/e=6.24\cdot10^{10}$ electrons. A plastic sphere of 1 g contains around $3.2\cdot10^{23}$ electrons, so only one in $5\cdot10^{12}$ is missing.
+::::
+
+⁠**Limiting case:** For $N_\mathrm{p}=N_\mathrm{e}$, $Q=0$. A neutral body does not contain little charge; it contains equal amounts of both signs.
 
 :::frage Why, of all things, is the lack of electrons called positive?
 Because the signs were assigned before electrons were known. Franklin called rubbed glass positive; only much later did it turn out that glass loses electrons in the process. The convention stayed, so the electron carries negative charge. There is nothing special about this physically.

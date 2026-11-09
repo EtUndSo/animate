@@ -21,7 +21,7 @@ If you describe a matrix in a basis of its eigenvectors, it becomes diagonal: ea
 
 The same arrow has different coordinates in different bases. Likewise, the same linear map has different matrices in different coordinates. Some bases make the matrix especially simple.
 
-Let $\mathbf s_1,\dots,\mathbf s_n$ be a basis of $\mathbb{R}^n$, and let $\mathbf{S}$ be the matrix with these columns. By Foundations 1, Section 13.5, it is invertible. If $\mathbf{x}$ has the coordinates $\mathbf{c}$ in this basis, then $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$, and conversely $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. If you map $\mathbf{x}$ with $\mathbf{A}$, the image $\mathbf{A}\mathbf{x}$ has the coordinates $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. In the new coordinates, the map therefore acts through the matrix $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: first convert to the old coordinates, then map, then convert back.
+Let $\mathbf s_1,\dots,\mathbf s_n$ be a basis of $\mathbb{R}^n$, and let $\mathbf{S}$ be the matrix with these columns. By [Foundations 1, Section 13.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), it is invertible. If $\mathbf{x}$ has the coordinates $\mathbf{c}$ in this basis, then $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$, and conversely $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. If you map $\mathbf{x}$ with $\mathbf{A}$, the image $\mathbf{A}\mathbf{x}$ has the coordinates $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. In the new coordinates, the map therefore acts through the matrix $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: first convert to the old coordinates, then map, then convert back.
 
 :::definition Definition 7.1 (Change of basis)
 <span class="anker" id="satz-7-1"></span>
@@ -38,14 +38,16 @@ $\mathbf{A}$ and $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ have the same characteris
 :::
 
 :::beweis Change of basis
-We have $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. By the rules from Foundations 1, Section 14.5, the determinant of this is $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. By [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), trace and determinant are determined by the eigenvalues.
+We have $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. By the rules from [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), the determinant of this is $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. By [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), trace and determinant are determined by the eigenvalues.
 :::
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ and the basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ from Foundations 1, Section 13.3, we have $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ and $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Then
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ and the basis $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ from [Foundations 1, Section 13.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), we have $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ and $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Then
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
 The trace is again $7$, the determinant again $10$, and the eigenvalues now sit on the diagonal of a triangular matrix: $2$ and $5$.
+::::
 
 ⁠**In short:** In the basis of the columns of $\mathbf{S}$, the map $\mathbf{A}$ has the matrix $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$; eigenvalues, trace and determinant stay the same.
 
@@ -67,14 +69,16 @@ Conversely: if $\mathbf{A}$ can be written in this way, the columns of $\mathbf{
 :::
 
 :::beweis Diagonalization
-By Foundations 1, Section 9.2, column $i$ of $\mathbf{A}\mathbf{S}$ is the product $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, and column $i$ of $\mathbf{S}\boldsymbol{\Lambda}$ is also $\lambda_i\mathbf s_i$. So $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. The columns of $\mathbf{S}$ are independent, so $\mathbf{S}$ is invertible, and multiplying by $\mathbf{S}^{-1}$ from the left gives [(7.1)](#gl-7-1). Reading the same equation $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ backwards gives the converse.
+By [Foundations 1, Section 9.2](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), column $i$ of $\mathbf{A}\mathbf{S}$ is the product $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, and column $i$ of $\mathbf{S}\boldsymbol{\Lambda}$ is also $\lambda_i\mathbf s_i$. So $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. The columns of $\mathbf{S}$ are independent, so $\mathbf{S}$ is invertible, and multiplying by $\mathbf{S}^{-1}$ from the left gives [(7.1)](#gl-7-1). Reading the same equation $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ backwards gives the converse.
 :::
 
 A matrix that can be written in this way is called __diagonalizable__. By the theorem in Section [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8), this is the case, for example, whenever all $n$ eigenvalues are different. The shear is not diagonalizable, because it is missing an eigenvector. The rotation by $90^\circ$ is not diagonalizable with real numbers either, only with complex ones. Both are nevertheless invertible: invertible and diagonalizable are two different properties.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ with the eigenvectors $(1,\,1)^{\top}$ and $(1,\,-2)^{\top}$,
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ with the eigenvectors $(1,\,1)^{\top}$ and $(1,\,-2)^{\top}$,
 
 $$\mathbf{S}=\begin{pmatrix}1&1\\1&-2\end{pmatrix},\qquad \mathbf{S}^{-1}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix},\qquad \mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix}\begin{pmatrix}5&2\\5&-4\end{pmatrix}=\begin{pmatrix}5&0\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**In short:** A matrix with $n$ independent eigenvectors is diagonal in their basis: $\mathbf{A}=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}$.
 
@@ -103,11 +107,13 @@ $\mathbf{A}^2=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}\mathbf{S}\boldsymbol
 
 In the coordinates $\mathbf{c}$ of the eigenbasis, each step multiplies each coordinate by its own number: $c_i\mapsto\lambda_ic_i$. A coupled calculation with $n$ unknowns becomes $n$ separate calculations with one unknown each. These coordinates are decoupled. In the long run, the part with the eigenvalue of largest magnitude dominates.
 
-⁠**Worked example:** $\mathbf M$ has the trace $1.5$ and the determinant $0.56-0.06=0.5$, hence the eigenvalues $1$ and $0.5$. Eigenvectors are $\mathbf s_1=(3,\,2)^{\top}$ for the eigenvalue $1$, because $\mathbf M\mathbf s_1=(2.4+0.6,\ 0.6+1.4)^{\top}=\mathbf s_1$, and $\mathbf s_2=(1,\,-1)^{\top}$ for the eigenvalue $0.5$. If $1000$ people live in A at first and nobody lives in B, then $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$, and by [(7.2)](#gl-7-2)
+::::beispiel [Worked example]
+$\mathbf M$ has the trace $1.5$ and the determinant $0.56-0.06=0.5$, hence the eigenvalues $1$ and $0.5$. Eigenvectors are $\mathbf s_1=(3,\,2)^{\top}$ for the eigenvalue $1$, because $\mathbf M\mathbf s_1=(2.4+0.6,\ 0.6+1.4)^{\top}=\mathbf s_1$, and $\mathbf s_2=(1,\,-1)^{\top}$ for the eigenvalue $0.5$. If $1000$ people live in A at first and nobody lives in B, then $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$, and by [(7.2)](#gl-7-2)
 
 $$\mathbf{x}_k=200\begin{pmatrix}3\\2\end{pmatrix}+400\cdot0.5^k\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}600+400\cdot0.5^k\\400-400\cdot0.5^k\end{pmatrix}.$$
 
 After one year the populations are $(800,\,200)^{\top}$, after two years $(700,\,300)^{\top}$, and in the long run they settle at $(600,\,400)^{\top}$. The part for the eigenvalue $0.5$ halves every year; the part for the eigenvalue $1$ stays.
+::::
 
 ⁠**In short:** In the eigenbasis, every power of the matrix becomes powers of the eigenvalues; coupled sequences break down into separate sequences, one per eigenvector.
 
@@ -143,7 +149,9 @@ So $(\lambda-\lambda^*)\,(\mathbf{v}^*)^{\top}\mathbf{v}=0$. By Section [6.1](e
 
 For a real eigenvalue there are then also real eigenvectors, because $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ is a real system of equations.
 
-⁠**Worked example:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ has the characteristic polynomial $\lambda^2-7\lambda+6$ with the discriminant $49-24=25>0$ and the real eigenvalues $6$ and $1$. For an arbitrary symmetric $2\times2$ matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$, the discriminant is $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$; so the eigenvalues are always real, as the theorem says.
+::::beispiel [Worked example]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ has the characteristic polynomial $\lambda^2-7\lambda+6$ with the discriminant $49-24=25>0$ and the real eigenvalues $6$ and $1$. For an arbitrary symmetric $2\times2$ matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$, the discriminant is $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$; so the eigenvalues are always real, as the theorem says.
+::::
 
 ⁠**In short:** A symmetric matrix has only real eigenvalues and real eigenvectors.
 
@@ -163,11 +171,13 @@ Eigenvectors of a symmetric matrix for different eigenvalues are perpendicular t
 Let $\mathbf{A}\mathbf{v}_1=\lambda_1\mathbf{v}_1$ and $\mathbf{A}\mathbf{v}_2=\lambda_2\mathbf{v}_2$ with $\lambda_1\ne\lambda_2$. Compute $\mathbf{v}_1^{\top}\mathbf{A}\mathbf{v}_2$ in two ways: as $\mathbf{v}_1^{\top}(\lambda_2\mathbf{v}_2)=\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2$, and, using $\mathbf{A}^{\top}=\mathbf{A}$, as $(\mathbf{A}\mathbf{v}_1)^{\top}\mathbf{v}_2=\lambda_1\,\mathbf{v}_1^{\top}\mathbf{v}_2$. So $(\lambda_1-\lambda_2)\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$, and since $\lambda_1\ne\lambda_2$, we get $\mathbf{v}_1^{\top}\mathbf{v}_2=0$.
 :::
 
-⁠**Worked example:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ has the eigenvector $(2,\,1)^{\top}$ for the eigenvalue $6$, because $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$, and the eigenvector $(1,\,-2)^{\top}$ for the eigenvalue $1$, because $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. Their dot product is $2-2=0$ (Fig. [19](#abb-19)).
+::::beispiel [Worked example]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ has the eigenvector $(2,\,1)^{\top}$ for the eigenvalue $6$, because $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$, and the eigenvector $(1,\,-2)^{\top}$ for the eigenvalue $1$, because $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. Their dot product is $2-2=0$ (Fig. [19](#abb-19)).
 
 :::abbildung ml/k2rsenkrecht 19
 The dot product of the eigenvectors $(2,1)^{\top}$ for the eigenvalue $6$ and $(1,-2)^{\top}$ for the eigenvalue $1$ of the symmetric matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: they are perpendicular to each other.
 :::
+::::
 
 ⁠**In short:** For a symmetric matrix, eigenvectors for different eigenvalues are perpendicular to each other.
 
@@ -197,19 +207,21 @@ Proceed step by step. By Section [6.3](eigenwerte-und-eigenvektoren.html#stufe-
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-with the symmetric $(n-1)\times(n-1)$ matrix $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$. The zeros at the bottom left arise because $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ is perpendicular to the columns of $\mathbf{W}$, and those at the top right likewise, because $\mathbf{A}$ is symmetric. Repeat the same for $\mathbf{B}$ until a $1\times1$ matrix is left. Once you have found in this way an orthogonal matrix $\mathbf{Q}_B$ for $\mathbf{B}$ such that $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ is diagonal, $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ is orthogonal as a product of orthogonal matrices, and $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ is diagonal. Because $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, it follows that $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. The sum form follows from Foundations 1, Section 9.5, because $\mathbf{Q}\boldsymbol{\Lambda}$ has the columns $\lambda_i\mathbf{q}_i$.
+with the symmetric $(n-1)\times(n-1)$ matrix $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$. The zeros at the bottom left arise because $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ is perpendicular to the columns of $\mathbf{W}$, and those at the top right likewise, because $\mathbf{A}$ is symmetric. Repeat the same for $\mathbf{B}$ until a $1\times1$ matrix is left. Once you have found in this way an orthogonal matrix $\mathbf{Q}_B$ for $\mathbf{B}$ such that $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ is diagonal, $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ is orthogonal as a product of orthogonal matrices, and $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ is diagonal. Because $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, it follows that $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. The sum form follows from [Foundations 1, Section 9.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5), because $\mathbf{Q}\boldsymbol{\Lambda}$ has the columns $\lambda_i\mathbf{q}_i$.
 :::
 
 By Section [2.3](projektion-auf-eine-gerade.html#stufe-2-3), each term $\mathbf{q}_i\mathbf{q}_i^{\top}$ is the projection onto the line in the direction of $\mathbf{q}_i$. So a symmetric matrix is a sum of projections onto perpendicular axes, each weighted with its eigenvalue. For a multiple eigenvalue, the choice of the $\mathbf{q}_i$ in its eigenspace is free: every orthonormal basis of the eigenspace will do. The sign of each $\mathbf{q}_i$ is free as well. Some books sort the eigenvalues in descending order, others do not.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ and $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ are the normalized eigenvectors for $6$ and $1$. Then
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ and $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ are the normalized eigenvectors for $6$ and $1$. Then
 
 $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}=\frac15\begin{pmatrix}25&10\\10&10\end{pmatrix}=\begin{pmatrix}5&2\\2&2\end{pmatrix}.$$
+::::
 
 ⁠**In short:** Every symmetric matrix is $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$: diagonal in a suitably rotated set of axes, a weighted sum of projections onto perpendicular axes.
 
 :::hintergrund Where symmetric matrices come from
-Symmetric matrices arise wherever a matrix describes pairwise relationships that do not depend on the order. The Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ from Foundations 1, Section 10, contain dot products, and $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. By Section [5.2](quadratische-formen.html#stufe-5-2), the matrix of a quadratic form can always be chosen symmetric. The inductance matrix of coupled coils is symmetric because the mutual inductance from coil 1 to coil 2 is the same as the other way around. For all of these matrices, the spectral theorem guarantees real eigenvalues and perpendicular eigendirections.
+Symmetric matrices arise wherever a matrix describes pairwise relationships that do not depend on the order. The Gram matrices $\mathbf{X}^{\top}\mathbf{X}$ and $\mathbf{X}\mathbf{X}^{\top}$ from [Foundations 1, Section 10](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), contain dot products, and $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. By Section [5.2](quadratische-formen.html#stufe-5-2), the matrix of a quadratic form can always be chosen symmetric. The inductance matrix of coupled coils is symmetric because the mutual inductance from coil 1 to coil 2 is the same as the other way around. For all of these matrices, the spectral theorem guarantees real eigenvalues and perpendicular eigendirections.
 :::
 
 ### Principal axes
@@ -237,11 +249,13 @@ The directions of the eigenvectors are therefore called the __principal axes__ o
 The contour lines $5x_1^2+4x_1x_2+2x_2^2=1$ (blue) and $=\tfrac14$ (light blue) are ellipses. Their axes (gray) lie in the directions of the eigenvectors $\mathbf{q}_1=(2,1)^{\top}/\sqrt5$ for the eigenvalue $6$ and $\mathbf{q}_2=(1,-2)^{\top}/\sqrt5$ for the eigenvalue $1$. The semi-axes of the outer ellipse are $1/\sqrt6\approx0.41$ (red) and $1/\sqrt1=1$ (green): in the direction of the large eigenvalue, the form rises most steeply, and the ellipse is narrowest there.
 :::
 
-⁠**Worked example:** For $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$, the coordinates in the eigenbasis are $c_1=(2x_1+x_2)/\sqrt5$ and $c_2=(x_1-2x_2)/\sqrt5$, and
+::::beispiel [Worked example]
+For $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$, the coordinates in the eigenbasis are $c_1=(2x_1+x_2)/\sqrt5$ and $c_2=(x_1-2x_2)/\sqrt5$, and
 
 $$5x_1^2+4x_1x_2+2x_2^2=6\,c_1^2+c_2^2=\tfrac65(2x_1+x_2)^2+\tfrac15(x_1-2x_2)^2 .$$
 
 Multiplied out, the right-hand side gives $\tfrac15\bigl(24x_1^2+24x_1x_2+6x_2^2+x_1^2-4x_1x_2+4x_2^2\bigr)=5x_1^2+4x_1x_2+2x_2^2$. The contour line $f=1$ is the ellipse in Fig. [20](#abb-20), with the semi-axes $1/\sqrt6\approx0.408$ and $1$.
+::::
 
 ⁠**In short:** In the eigenbasis, every quadratic form becomes the sum $\sum_i\lambda_ic_i^2$ without cross terms; the eigenvectors are the principal axes of its ellipses, and the semi-axes are $1/\sqrt{\lambda_i}$.
 

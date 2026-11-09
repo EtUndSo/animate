@@ -84,11 +84,19 @@ Leyes de potencias para $x,y\ne0$, $p,q\in\mathbb{Z}$: $x^px^q=x^{p+q}$, $(x^p)^
 A la izquierda, cada color es una pieza en L. A la derecha, el paso de inducción: $n^2$ crece en $2n+1$ casillas.
 :::
 
-**Ejemplo 1: suma de los números impares.** Afirmación: $\sum_{i=1}^n(2i-1)=n^2$. **Caso base:** $2\cdot1-1=1=1^2$. **Paso:** Si la fórmula vale para $n$, entonces $\sum_{i=1}^{n+1}(2i-1)=n^2+2(n+1)-1=n^2+2n+1=(n+1)^2$. **Conclusión:** Vale para todo $n$. Igualmente se demuestran $\sum_{i=1}^ni=\frac{n(n+1)}2$ y $\sum_{i=1}^ni^3=\frac{n^2(n+1)^2}4$ (ejercicio [6](#aufg-6)).
+::::beispiel [Ejemplo 1] suma de los números impares
+Afirmación: $\sum_{i=1}^n(2i-1)=n^2$. **Caso base:** $2\cdot1-1=1=1^2$. **Paso:** Si la fórmula vale para $n$, entonces $\sum_{i=1}^{n+1}(2i-1)=n^2+2(n+1)-1=n^2+2n+1=(n+1)^2$. **Conclusión:** Vale para todo $n$. Igualmente se demuestran $\sum_{i=1}^ni=\frac{n(n+1)}2$ y $\sum_{i=1}^ni^3=\frac{n^2(n+1)^2}4$ (ejercicio [6](#aufg-6)).
+::::
 
-**Ejemplo 2: inicio posterior.** $n!>2^n$ para $n\ge n_0=4$. Caso base: $24>16$. Paso: $(n+1)!=(n+1)\,n!>(n+1)\,2^n\ge2\cdot2^n$, pues $n+1\ge2$. **Caso límite:** Para $n=3$ es $6<8$; el inicio en 4 es necesario.
+::::beispiel [Ejemplo 2] inicio posterior
+$n!>2^n$ para $n\ge n_0=4$. Caso base: $24>16$. Paso: $(n+1)!=(n+1)\,n!>(n+1)\,2^n\ge2\cdot2^n$, pues $n+1\ge2$.
+::::
 
-**Ejemplo 3: todos los casos anteriores.** Todo $n\ge2$ es un producto de números primos. Caso base: 2 es primo. Paso: si $n+1$ no es primo, es $n+1=ab$ con $2\le a,b\le n$. Aquí no basta $\mathcal A(n)$ sola; hacen falta $\mathcal A(a)$ y $\mathcal A(b)$.
+⁠**Caso límite:** Para $n=3$ es $6<8$; el inicio en 4 es necesario.
+
+::::beispiel [Ejemplo 3] todos los casos anteriores
+Todo $n\ge2$ es un producto de números primos. Caso base: 2 es primo. Paso: si $n+1$ no es primo, es $n+1=ab$ con $2\le a,b\le n$. Aquí no basta $\mathcal A(n)$ sola; hacen falta $\mathcal A(a)$ y $\mathcal A(b)$.
+::::
 
 :::aufgabe Ejercicio 6 ★★ Practicar la inducción
 <span class="anker" id="aufg-6"></span>

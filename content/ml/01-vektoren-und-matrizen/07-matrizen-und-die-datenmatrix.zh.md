@@ -35,13 +35,15 @@ $$\mathbf{A}=\begin{pmatrix}a_{11}&a_{12}&\cdots&a_{1n}\\a_{21}&a_{22}&\cdots&a_
 
 如果两个矩阵型相同，并且每个位置上的元素都相同，就称它们相等。同型矩阵的加法和数乘与向量一样，都是逐个元素进行的：$(\mathbf{A}+\mathbf{B})_{ij}=a_{ij}+b_{ij}$，$(c\,\mathbf{A})_{ij}=c\,a_{ij}$。
 
-⁠**算例：**矩阵
+::::beispiel [算例]
+矩阵
 
 $$\mathbf{A}=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}\in\mathbb{R}^{2\times3}$$
 
 的型为 $2\times3$，元素 $a_{12}=2$，$a_{21}=4$，第二列为 $\mathbf{a}_2=(2,\,5)^{\top}$。一幅 $3\times3$ 像素、在暗背景上显示一个亮十字的灰度图像，就是行为 $(0,1,0)$、$(1,1,1)$ 和 $(0,1,0)$ 的矩阵。此外，
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}+\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}1&3\\4&4\end{pmatrix},\qquad 2\begin{pmatrix}1&2\\3&4\end{pmatrix}=\begin{pmatrix}2&4\\6&8\end{pmatrix}.$$
+::::
 
 ⁠**简而言之：**矩阵是有 $m$ 行、$n$ 列的矩形数字表格；元素 $a_{ij}$ 位于第 $i$ 行第 $j$ 列。
 
@@ -65,11 +67,11 @@ $$\begin{pmatrix}1&2\\3&4\end{pmatrix}+\begin{pmatrix}0&1\\1&0\end{pmatrix}=\beg
 元素全为零的矩阵称为__零矩阵__，记作 $\mathbf 0$。
 :::
 
-⁠**算例：**
-
+::::beispiel [算例]
 $$\operatorname{diag}\bigl((2,\ 0.5)^{\top}\bigr)=\begin{pmatrix}2&0\\0&0.5\end{pmatrix},\qquad \operatorname{diag}\bigl((1,\,0,\,3)^{\top}\bigr)=\begin{pmatrix}1&0&0\\0&0&0\\0&0&3\end{pmatrix}.$$
 
 第二个矩阵有一个对角元素为零，但仍是对角矩阵；唯一的要求是对角线以外的元素全为零。$\operatorname{diag}\bigl((2,\ 0.5)^{\top}\bigr)$ 可以简写为 $\operatorname{diag}(2,\,0.5)$。
+::::
 
 ⁠**简而言之：**方阵的行数与列数相同；对角矩阵只在对角线上有非零元素。
 
@@ -94,11 +96,13 @@ $$\mathbf{X}=\begin{pmatrix}\mathbf{x}_1^{\top}\\\mathbf{x}_2^{\top}\\\vdots\\\m
 
 元素 $x_{ij}$ 是样本 $i$ 的特征 $j$ 的值，与第 [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3) 小节中的约定完全一致。$\mathbf{X}$ 的第 $j$ 列就是第 [4.3](abstande-und-einheiten.html#stufe-4-3) 小节中特征 $j$ 的特征列：该特征在所有样本上的全部取值。所以行对应样本，列对应特征。样本均值 $\bar{\mathbf{x}}$ 的第 $j$ 个分量是第 $j$ 列的均值。
 
-⁠**算例：**对公寓数据集，
+::::beispiel [算例]
+对公寓数据集，
 
 $$\mathbf{X}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}\in\mathbb{R}^{4\times3}.$$
 
 元素 $x_{32}=4$ 是公寓 3 的房间数，第一列 $(60,\,40,\,90,\,70)^{\top}$ 包含所有面积，它的均值 $65$ 是 $\bar{\mathbf{x}}=(65,\ 2.5,\ 3)^{\top}$ 的第一个分量。
+::::
 
 ⁠**简而言之：**数据矩阵 $\mathbf{X}\in\mathbb{R}^{N\times d}$ 每行包含一个样本，每列包含一个特征。
 

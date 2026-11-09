@@ -52,7 +52,9 @@ Rule 2: Let the reference point lie in the middle, so $\varphi_\mathrm{A}=+\frac
 Seven identical resistors of 14 $\Omega$ each. Left, the network with the potentials for 16 V at A. The mirror axis runs through L and through the center of the resistor between E and F, which therefore splits into twice 7 $\Omega$. Right, the half circuit.
 :::
 
-**Example.** In Fig. [2](#abb-2), mirroring swaps A and B as well as E and F, so Rule 2 applies. In the half circuit, $14\,\Omega\parallel7\,\Omega=4.67\,\Omega$ lies between E and the axis. With the path from A to E that makes 18.67 $\Omega$. In parallel with the left branch this gives $R_\mathrm{A,axis}=14\,\Omega\parallel18.67\,\Omega=8\,\Omega$, so $R_\mathrm{AB}=16\,\Omega$, again the load from the reference model. **Check** with the potentials in the figure: from A to L flows $8\,\mathrm{V}/14\,\Omega=0.571$ A, from A to E flows $6\,\mathrm{V}/14\,\Omega=0.429$ A. The sum is 1 A, as $16\,\mathrm{V}/16\,\Omega$ demands.
+::::beispiel
+In Fig. [2](#abb-2), mirroring swaps A and B as well as E and F, so Rule 2 applies. In the half circuit, $14\,\Omega\parallel7\,\Omega=4.67\,\Omega$ lies between E and the axis. With the path from A to E that makes 18.67 $\Omega$. In parallel with the left branch this gives $R_\mathrm{A,axis}=14\,\Omega\parallel18.67\,\Omega=8\,\Omega$, so $R_\mathrm{AB}=16\,\Omega$, again the load from the reference model. **Check** with the potentials in the figure: from A to L flows $8\,\mathrm{V}/14\,\Omega=0.571$ A, from A to E flows $6\,\mathrm{V}/14\,\Omega=0.429$ A. The sum is 1 A, as $16\,\mathrm{V}/16\,\Omega$ demands.
+::::
 
 :::abbildung et1/k5wuerfel 3
 Cube of twelve identical resistors with the voltage across the space diagonal. A rotation about this diagonal maps the three neighbors of A onto one another, and likewise the three neighbors of B. Connecting them produces a chain of three groups.

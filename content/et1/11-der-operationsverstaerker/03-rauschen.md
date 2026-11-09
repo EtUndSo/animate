@@ -47,7 +47,11 @@ Links die Dichte eines 10-k$\Omega$-Widerstands mit 1/f-Anteil unterhalb von 1�
 Für zwei unabhängige Störungen ist $(u_1+u_2)^2=u_1^2+2u_1u_2+u_2^2$. Im Mittel über die Zeit ist das Produkt $u_1u_2$ gleich oft positiv wie negativ, sein Mittelwert verschwindet. Es bleibt $u_\mathrm{ges,eff}^2=u_\mathrm{1,eff}^2+u_\mathrm{2,eff}^2$. Das Integral in [(1.1)](#gl-1-1) ist diese Summe über alle Frequenzstreifen.
 :::
 
-**Beispiel.** Der Sensorwiderstand hat $|u_\mathrm{r,R}|^2=4\cdot1{,}381\cdot10^{-23}\cdot300\cdot10^4=1{,}66\cdot10^{-16}\,\mathrm{V^2/Hz}$, in 20 kHz also $u_\mathrm{r,eff}=1{,}82$ µ V. Das Nutzsignal mit 1 mV ist 549-mal größer: $\mathrm{SNR}=54{,}8$ dB. Halbe Bandbreite senkt das Rauschen um $\sqrt2$, das sind 3 dB. **Grenzfälle:** Für $R\to0$ oder $T\to0$ verschwindet das thermische Rauschen.
+::::beispiel
+Der Sensorwiderstand hat $|u_\mathrm{r,R}|^2=4\cdot1{,}381\cdot10^{-23}\cdot300\cdot10^4=1{,}66\cdot10^{-16}\,\mathrm{V^2/Hz}$, in 20 kHz also $u_\mathrm{r,eff}=1{,}82$ µ V. Das Nutzsignal mit 1 mV ist 549-mal größer: $\mathrm{SNR}=54{,}8$ dB. Halbe Bandbreite senkt das Rauschen um $\sqrt2$, das sind 3 dB.
+::::
+
+⁠**Grenzfälle:** Für $R\to0$ oder $T\to0$ verschwindet das thermische Rauschen.
 
 **Was ein Verstärker ändert.** Er hebt Signal und anliegendes Rauschen um denselben Faktor, das SNR bleibt also gleich oder wird durch sein Eigenrauschen schlechter. Er hilft nur gegen Störungen, die *hinter* ihm dazukommen und eine feste Größe haben. Fügt die Leitung zum nächsten Gerät 100 µ V hinzu, bleiben ohne Verstärker 20,0 dB. Mit 100-facher Verstärkung am Sensor sind es $0{,}1\,\mathrm{V}/\sqrt{(182\,\mathrm{\mu\text{} V})^2+(100\,\mathrm{\mu\text{} V})^2}$, also 53,7 dB. Das zweite Mittel ist die Differenz: Eine Störung, die zwei Leitungen gleich trifft, verschwindet, wenn man nur ihren Unterschied auswertet. Das leistet Stufe [2](der-differenzverstarker.html#stufe-2).
 

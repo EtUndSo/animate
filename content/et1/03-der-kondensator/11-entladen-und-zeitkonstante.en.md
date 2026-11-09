@@ -47,7 +47,9 @@ For the distance $x=u_\infty-u_C$, as in Stage [9](aufladen-uber-einen-widersta
 Five seconds of charging, five seconds of discharging. The voltage is continuous; the percentages refer to the final value in charging and to the starting value in discharging. The current jumps at switching and changes sign in discharging; the jumps are dashed.
 :::
 
-**Example.** In the reference model, discharging starts at 9 V. At the first moment $u_R=-9$ V and $i=-0.9$ mA. After 1 s, $u_C=3.31$ V and $i=-0.331$ mA; after 3 s only 0.448 V remains. If you charge for only 5 s as in Fig. [12](#abb-12), discharging starts at 8.94 V.
+::::beispiel
+In the reference model, discharging starts at 9 V. At the first moment $u_R=-9$ V and $i=-0.9$ mA. After 1 s, $u_C=3.31$ V and $i=-0.331$ mA; after 3 s only 0.448 V remains. If you charge for only 5 s as in Fig. [12](#abb-12), discharging starts at 8.94 V.
+::::
 
 ⁠**Check:** The charge that flows through $R$ during discharging is $\int_0^\infty|i|\,\mathrm{d} t=\frac{U_0}{R}\,\tau=C\,U_0$, exactly the stored charge. **Limiting case:** For $u_C(0)=u_\infty$ the bracket in [(10.2)](#gl-10-2) is zero: nothing happens, the capacitor is already in its final state.
 

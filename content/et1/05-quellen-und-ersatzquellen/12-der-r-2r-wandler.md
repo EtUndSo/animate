@@ -38,7 +38,11 @@ $$U_\mathrm{aus}=\tfrac12\Bigl(\tfrac12\bigl(\tfrac12U_0+U_1\bigr)+U_2\Bigr)=\tf
 Dieselbe Zahl liefert die Überlagerung. Beispiel Quelle $U_1$: Am mittleren Knoten sieht sie links 2$R$ und rechts $R+2R=3R$, zusammen $\frac65R$. Der Teiler ergibt dort $\frac{6/5}{6/5+2}=\frac38U_1$. Der Weg zum Ausgang teilt noch einmal mit $\frac{2R}{R+2R}=\frac23$, also $\frac38\cdot\frac23=\frac14$.
 :::
 
-**Beispiel.** Mit $U_\mathrm{ref}=8$ V und $R=1$ k$\Omega$ wiegen die Bits 4 V, 2 V und 1 V. Die Stellung 101 ergibt 5 V. Eine Last mit $R_\mathrm{L}=R$ bildet mit $R_\mathrm{i}$ einen Teiler und halbiert das auf 2,5 V. Deshalb folgt in echten Wandlern ein Operationsverstärker ([Teil 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) mit sehr hohem Eingangswiderstand: Er zieht praktisch keinen Strom, die Leiter bleibt im Leerlauf. **Grenzfälle:** Stellung 000 ergibt 0 V, Stellung 111 ergibt 7 V, eine Stufe unter $U_\mathrm{ref}$.
+::::beispiel
+Mit $U_\mathrm{ref}=8$ V und $R=1$ k$\Omega$ wiegen die Bits 4 V, 2 V und 1 V. Die Stellung 101 ergibt 5 V. Eine Last mit $R_\mathrm{L}=R$ bildet mit $R_\mathrm{i}$ einen Teiler und halbiert das auf 2,5 V. Deshalb folgt in echten Wandlern ein Operationsverstärker ([Teil 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) mit sehr hohem Eingangswiderstand: Er zieht praktisch keinen Strom, die Leiter bleibt im Leerlauf.
+::::
+
+⁠**Grenzfälle:** Stellung 000 ergibt 0 V, Stellung 111 ergibt 7 V, eine Stufe unter $U_\mathrm{ref}$.
 
 :::ltspice Der Wandler zählt
 ⁠**Zeichnen:** Abb. [12](#abb-12) ohne Schalter: 2$R$ von Knoten `n0` nach Masse, dann je 2$R$ von `n0`, `n1`, `n2` zu einer Quelle `voltage` gegen Masse und $R$ zwischen den Knoten, $R=1$ k$\Omega$. Die Quellen zählen binär: `PULSE(0 8 1m 1u 1u 1m 2m)`, `PULSE(0 8 2m 1u 1u 2m 4m)`, `PULSE(0 8 4m 1u 1u 4m 8m)`.

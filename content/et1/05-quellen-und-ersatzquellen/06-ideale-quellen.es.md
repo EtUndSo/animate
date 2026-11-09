@@ -32,7 +32,11 @@ $$U_\mathrm{AB}=U_\mathrm{q}\quad\text{para toda corriente},\qquad\qquad I_\math
 
 ⁠**Validez:** Dos conexiones contradicen el modelo. Una fuente de tensión cortocircuitada debería cumplir a la vez $U_\mathrm{AB}=U_\mathrm{q}$ y $U_\mathrm{AB}=0$. Una fuente de corriente abierta debería cumplir a la vez $I_\mathrm{A}=I_\mathrm{q}$ e $I_\mathrm{A}=0$, porque una corriente necesita un camino cerrado.
 
-**Ejemplo.** La fuente de 9 V entrega 0,5625 A en 16 $\Omega$, 9 A en 1 $\Omega$, y en 1 m$\Omega$ serían 9000 A. Una fuente de 0,5 A produce 8 V en 16 $\Omega$, 500 V en 1 k$\Omega$, y en 1 M$\Omega$ serían 500 kV. **Caso límite:** Cuanto más extrema es la carga, más se aleja el modelo de cualquier aparato real. Ese es el motivo de la siguiente etapa.
+::::beispiel
+La fuente de 9 V entrega 0,5625 A en 16 $\Omega$, 9 A en 1 $\Omega$, y en 1 m$\Omega$ serían 9000 A. Una fuente de 0,5 A produce 8 V en 16 $\Omega$, 500 V en 1 k$\Omega$, y en 1 M$\Omega$ serían 500 kV.
+::::
+
+⁠**Caso límite:** Cuanto más extrema es la carga, más se aleja el modelo de cualquier aparato real. Ese es el motivo de la siguiente etapa.
 
 :::frage ¿Puede la corriente circular también al revés por una fuente?
 Sí. Una fuente ideal solo fija su única magnitud. Si la corriente entra por el polo positivo de una fuente de tensión, es $I_\mathrm{A}<0$, y la fuente absorbe potencia. Así se carga una batería recargable.

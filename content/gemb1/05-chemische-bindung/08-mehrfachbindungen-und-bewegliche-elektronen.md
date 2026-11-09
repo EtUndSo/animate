@@ -34,7 +34,11 @@ $$\mathrm{sp}^2:\quad\phi_\mathrm{h1}=\frac{\phi_\mathrm s+\sqrt2\,\phi_x}{\sqrt
 
 ⁠**So liest man das:** sp$^2$-Hybride zeigen in die Ecken eines Dreiecks in der $xy$-Ebene, $\phi_z$ steht senkrecht darauf. sp-Hybride zeigen entgegengesetzt, $\phi_x$ und $\phi_y$ bleiben übrig. Die Winkel folgen aus [(5.2)](hybridisierung-im-tetraeder.html#gl-5-2). In Ethen bindet jedes C-Atom über seine sp$^2$-Hybride zwei H-Atome und das andere C-Atom, die senkrechten, einfach besetzten p-Orbitale bilden die $\pi$-Bindung. Ethin ist gerade und hat zwei $\pi$-Bindungen. **Gültigkeit:** wie in Stufe [5](hybridisierung-im-tetraeder.html#stufe-5).
 
-**Beispiel.** Bindungen zwischen zwei C-Atomen werden kürzer und fester: Einfachbindung 0,154 nm und 3,6 eV, Doppelbindung 0,134 nm und 6,4 eV, Dreifachbindung 0,120 nm und 8,7 eV. Die erste $\pi$-Bindung bringt 2,8 eV, die zweite 2,3 eV. Beide bleiben unter der $\sigma$-Bindung. **Grenzfall:** Für $w\to0$ hat [(5.2)](hybridisierung-im-tetraeder.html#gl-5-2) keine Lösung: Aus s allein lassen sich keine zwei orthogonalen Orbitale bilden.
+::::beispiel
+Bindungen zwischen zwei C-Atomen werden kürzer und fester: Einfachbindung 0,154 nm und 3,6 eV, Doppelbindung 0,134 nm und 6,4 eV, Dreifachbindung 0,120 nm und 8,7 eV. Die erste $\pi$-Bindung bringt 2,8 eV, die zweite 2,3 eV. Beide bleiben unter der $\sigma$-Bindung.
+::::
+
+⁠**Grenzfall:** Für $w\to0$ hat [(5.2)](hybridisierung-im-tetraeder.html#gl-5-2) keine Lösung: Aus s allein lassen sich keine zwei orthogonalen Orbitale bilden.
 
 **Delokalisierte Bindungen.** Moleküle, in denen sich Doppel- und Einfachbindungen abwechseln, heißen __konjugiert__. Im Benzol sind alle Bindungen des Sechsrings gleich. Jedes C-Atom trägt ein senkrechtes p-Orbital, das mit beiden Nachbarn gleich überlappt. Die $\pi$-Orbitale erstrecken sich darum über den ganzen Ring, die Bindung ist __delokalisiert__, anders als die lokalisierten $\sigma$-Bindungen. Entlang solcher Systeme gelingt Elektronentransport recht leicht. Ebenen aus sp$^2$-hybridisierten C-Atomen heißen __Graphen__, sie bilden die Schichten des Graphits. In Richtung der Schichten leitet Graphit um mehr als vier Größenordnungen besser als senkrecht dazu. __Kohlenstoff-Nanoröhrchen__, nahtlos aufgewickelte Graphenstreifen, tragen Stromdichten zwei bis drei Größenordnungen über denen von Kupfer.
 

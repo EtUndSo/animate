@@ -24,11 +24,13 @@ $$S_d(k)=\sum_{n=0}^{M-1}s_d(n)\,\mathrm{e}^{-\mathrm{j}2\pi kn/M},\qquad s_d(n)
 
 ⁠**So liest man das:** $S_d(k)$ ist der Wert des Spektrums $S_\mathrm a(f)$ bei $f=k/M$. Der Index $k$ zählt Schwingungen, die in die $M$ Werte genau $k$-mal passen. Die Rücktransformation ist eine Fourier-Reihe mit $M$ Gliedern. Die Theoreme gelten sinngemäß, etwa die Verschiebung $s_d(n-m)\;\circ\!\!-\!\!\bullet\;S_d(k)\mathrm{e}^{-\mathrm{j}2\pi mk/M}$ (zyklisch: Was hinten herausgeschoben wird, kommt vorne wieder herein) und Parseval $\sum_n|s_d(n)|^2=\frac1M\sum_k|S_d(k)|^2$.
 
-**Beispiel.** $s_d=(1,\,2,\,0,\,-1)$, $M=4$, $\mathrm{e}^{-\mathrm{j}2\pi/4}=-\mathrm{j}$:
+::::beispiel
+$s_d=(1,\,2,\,0,\,-1)$, $M=4$, $\mathrm{e}^{-\mathrm{j}2\pi/4}=-\mathrm{j}$:
 
 $$S_d(k)=\sum_{n=0}^{3}s_d(n)(-\mathrm{j})^{kn}:\qquad S_d(0)=2,\quad S_d(1)=1-3\mathrm{j},\quad S_d(2)=0,\quad S_d(3)=1+3\mathrm{j}.$$
 
 Probe: $S_d(3)=S_d^*(1)$, weil das Signal reell ist ($k=3$ entspricht $k=-1$). Parseval: $1+4+0+1=6=\frac14(4+10+0+10)$.
+::::
 
 :::aufgabe Aufgabe 8 ★★ DFT von Hand
 <span class="anker" id="aufg-8"></span>

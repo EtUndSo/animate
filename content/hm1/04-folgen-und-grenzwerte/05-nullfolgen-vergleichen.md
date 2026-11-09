@@ -32,11 +32,13 @@ Dann gilt: Aus $\lim_{n\to\infty}a_n=0$ folgt $\lim_{n\to\infty}b_n=0$. Die Folg
 Sei $\varepsilon>0$. Da $\{a_n\}$ Nullfolge ist, gibt es $N_0(\varepsilon)$ mit $|a_n|<\varepsilon$ für alle $n>N_0$. Wähle $\tilde N_0:=\max\{N_0,n_0\}$. Für $n>\tilde N_0$ gelten beide Aussagen, also $|b_n|\le|a_n|<\varepsilon$.
 :::
 
-**Beispiel.** Die Differenz $b_n=\sqrt{n+4}-\sqrt n$ besteht aus zwei unbeschränkten Termen. Erweitern mit der Summe der Wurzeln beseitigt sie (dritte binomische Formel):
+::::beispiel
+Die Differenz $b_n=\sqrt{n+4}-\sqrt n$ besteht aus zwei unbeschränkten Termen. Erweitern mit der Summe der Wurzeln beseitigt sie (dritte binomische Formel):
 
 $$0<b_n=\frac{(\sqrt{n+4}-\sqrt n)(\sqrt{n+4}+\sqrt n)}{\sqrt{n+4}+\sqrt n}=\frac{(n+4)-n}{\sqrt{n+4}+\sqrt n}\le\frac4{2\sqrt n}=\frac2{\sqrt n}.$$
 
 Also ist $2/\sqrt n$ aus Stufe [2](das-epsilon-spiel.html#stufe-2) eine Majorante, und $\{b_n\}$ ist Nullfolge. Für $n=100$ ist $b_n=0{,}198$ und die Majorante $0{,}2$. Bei $\varepsilon=0{,}5$ gewinnt das $N_0=16$ der Majorante auch für $b_n$. Das kleinste wäre 14, denn $b_{14}=0{,}501$ und $b_{15}=0{,}486$.
+::::
 
 :::abbildung hm1/k4majorante 3
 Die Folge $b_n=\sqrt{n+4}-\sqrt n$ (blau) liegt unter ihrer Majorante $2/\sqrt n$ (orange). Sobald die Majorante im Schlauch $\varepsilon=0{,}5$ bleibt, also für $n>16$, bleibt es $b_n$ auch.
@@ -131,7 +133,11 @@ $$\Bigl|\frac{x^n}{n!}\Bigr|=\underbrace{\Bigl|\frac x1\cdot\frac x2\cdot\ldots\
 Die Zahl $C\,2^m$ hängt nur von $x$ ab, nicht von $n$. Nach (i) und Satz [3.2](#satz-3-2) (i) ist die rechte Seite eine Nullfolge, also eine Majorante.
 :::
 
-**Beispiel.** Für $q=0{,}8$ ist in (i) $k=0{,}25$, also $0{,}8^n<4/n$. In (ii) ist $k=0{,}118$ und $C\approx72$. Das Glied $n\cdot0{,}8^n$ steigt bis $1{,}638$ bei $n=4$ und $5$, bei $n=50$ ist es noch $0{,}0007$. Die Folge $4^n/n!$ steigt bis $10{,}67$ bei $n=3$ und $4$, bei $n=20$ ist sie $4{,}5\cdot10^{-7}$. **Grenzfall:** Für $q\to1$ wächst $C=1/k^2$ über alle Grenzen. Der Abfall setzt immer später ein, und $q=1$ ergibt die unbeschränkte Folge $n$.
+::::beispiel
+Für $q=0{,}8$ ist in (i) $k=0{,}25$, also $0{,}8^n<4/n$. In (ii) ist $k=0{,}118$ und $C\approx72$. Das Glied $n\cdot0{,}8^n$ steigt bis $1{,}638$ bei $n=4$ und $5$, bei $n=50$ ist es noch $0{,}0007$. Die Folge $4^n/n!$ steigt bis $10{,}67$ bei $n=3$ und $4$, bei $n=20$ ist sie $4{,}5\cdot10^{-7}$.
+::::
+
+⁠**Grenzfall:** Für $q\to1$ wächst $C=1/k^2$ über alle Grenzen. Der Abfall setzt immer später ein, und $q=1$ ergibt die unbeschränkte Folge $n$.
 
 :::abbildung hm1/k4tempo 4
 Links $n\cdot0{,}8^n$, rechts $4^n/n!$. Beide steigen zuerst, weil der Faktor von einem Glied zum nächsten größer als 1 ist. Rechts der gestrichelten Linie bleibt er unter 1, und die Folge fällt gegen 0.

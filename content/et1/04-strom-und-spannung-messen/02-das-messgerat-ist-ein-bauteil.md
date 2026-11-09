@@ -43,7 +43,9 @@ Ein Voltmeter wird parallel geschaltet. Ideal ist $R_\mathrm i\to\infty$, real e
 
 ⁠**So liest man das:** Strom ist Ladung, die durch einen Querschnitt läuft. Deshalb trennt man den Stromkreis auf und schickt den ganzen Strom durch das Amperemeter. An ihm soll keine Spannung abfallen, also soll $R_\mathrm i$ klein sein. Spannung ist die Differenz zwischen zwei Punkten. Deshalb legt man das Voltmeter an beide Punkte, ohne den Kreis zu öffnen. Durch es soll kein Strom fließen, also soll $R_\mathrm i$ groß sein. Die Zahlenwerte sind typisch für Digitalmultimeter. **Gültigkeit:** $R_\mathrm i$ gilt für einen Messbereich und ändert sich beim Umschalten (Stufe [2](den-messbereich-erweitern.html#stufe-2)).
 
-**Beispiel.** Das Messwerk des Rechenmodells ist schon beides. Bei Vollausschlag fließen 50 µ A durch 2 k$\Omega$, also liegen $U_\mathrm M=R_\mathrm MI_\mathrm M=100$ mV an. Die Skala ließe sich mit 50 µ A oder mit 100 mV beschriften: zwei Namen für denselben Ausschlag.
+::::beispiel
+Das Messwerk des Rechenmodells ist schon beides. Bei Vollausschlag fließen 50 µ A durch 2 k$\Omega$, also liegen $U_\mathrm M=R_\mathrm MI_\mathrm M=100$ mV an. Die Skala ließe sich mit 50 µ A oder mit 100 mV beschriften: zwei Namen für denselben Ausschlag.
+::::
 
 ⁠**Grenzfall:** Für $R_\mathrm i=0$ wirkt das Amperemeter wie ein Stück Draht, für $R_\mathrm i\to\infty$ das Voltmeter wie eine offene Stelle. Ideale Instrumente sind für die Schaltung nicht vorhanden.
 

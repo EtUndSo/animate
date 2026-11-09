@@ -56,7 +56,11 @@ Alle Zustände bis $n=4$, je Strich einer, Abstände nicht maßstäblich. Alle S
 </ol>
 :::
 
-**Beispiel.** Für $n=2$ gibt es $\ell=0$ mit $m_\ell=0$ und $\ell=1$ mit $m_\ell=-1,0,+1$, zusammen vier Zustände mit $E_2=-3{,}40$ eV. Sie sind entartet ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Dass die Energie nicht von $m_\ell$ abhängt, folgt aus der Kugelsymmetrie: Keine Richtung ist ausgezeichnet. Dass sie auch nicht von $\ell$ abhängt, ist eine Besonderheit des $1/r$-Potentials. Für $\ell=1$ ist $|\boldsymbol L|=\sqrt2\,\hbar=1{,}49\cdot10^{-34}$ J s. **Grenzfälle:** Für $\ell=0$ ist $|\boldsymbol L|=0$. Dieser Zustand hat keine Entsprechung auf einer klassischen Kreisbahn. Für großes $\ell$ nähert sich das größte $L_z$ dem Betrag: $\ell/\sqrt{\ell(\ell+1)}$ ist 0,707 für $\ell=1$ und 0,995 für $\ell=100$.
+::::beispiel
+Für $n=2$ gibt es $\ell=0$ mit $m_\ell=0$ und $\ell=1$ mit $m_\ell=-1,0,+1$, zusammen vier Zustände mit $E_2=-3{,}40$ eV. Sie sind entartet ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Dass die Energie nicht von $m_\ell$ abhängt, folgt aus der Kugelsymmetrie: Keine Richtung ist ausgezeichnet. Dass sie auch nicht von $\ell$ abhängt, ist eine Besonderheit des $1/r$-Potentials. Für $\ell=1$ ist $|\boldsymbol L|=\sqrt2\,\hbar=1{,}49\cdot10^{-34}$ J s.
+::::
+
+⁠**Grenzfälle:** Für $\ell=0$ ist $|\boldsymbol L|=0$. Dieser Zustand hat keine Entsprechung auf einer klassischen Kreisbahn. Für großes $\ell$ nähert sich das größte $L_z$ dem Betrag: $\ell/\sqrt{\ell(\ell+1)}$ ist 0,707 für $\ell=1$ und 0,995 für $\ell=100$.
 
 :::frage Warum ist $|\boldsymbol L|$ nicht $\hbar\ell$? Warum zeigt der Drehimpuls nie genau in $z$-Richtung?
 Zeigte $\boldsymbol L$ genau in $z$-Richtung, läge die Bewegung genau in der Ebene $z=0$. Die Welle wäre dann in einer Schicht der Dicke null eingesperrt, und das kostet nach [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) unendlich viel Energie. Deshalb bleibt immer ein Rest senkrecht zu $z$, und $|\boldsymbol L|$ ist größer als das größte $L_z=\hbar\ell$.

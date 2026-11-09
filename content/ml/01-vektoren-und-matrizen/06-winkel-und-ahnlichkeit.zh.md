@@ -46,7 +46,9 @@ $$0\le\lVert\mathbf{u}\rVert^2-2\,\frac{(\mathbf{u}^{\top}\mathbf{v})^2}{\lVert\
 当且仅当对这个 $t$ 有 $\lVert\mathbf{u}-t\,\mathbf{v}\rVert=0$，即 $\mathbf{u}=t\,\mathbf{v}$ 时，等号成立。反过来，对 $\mathbf{u}=c\,\mathbf{v}$ 确实有 $|\mathbf{u}^{\top}\mathbf{v}|=|c|\,\lVert\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$。
 :::
 
-⁠**算例：**对 $\mathbf{u}=(1,\,2,\,2)^{\top}$ 和 $\mathbf{v}=(2,\,0,\,1)^{\top}$，$|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6.71$。不等号严格成立，因为 $\mathbf{v}$ 不是 $\mathbf{u}$ 的倍数。
+::::beispiel [算例]
+对 $\mathbf{u}=(1,\,2,\,2)^{\top}$ 和 $\mathbf{v}=(2,\,0,\,1)^{\top}$，$|\mathbf{u}^{\top}\mathbf{v}|=4\le3\cdot\sqrt5\approx6.71$。不等号严格成立，因为 $\mathbf{v}$ 不是 $\mathbf{u}$ 的倍数。
+::::
 
 有了这个不等式，就可以证明第 [3.4](normen-die-groe-eines-vektors.html#stufe-3-4) 小节中只作了直观论证的结论：欧几里得范数的三角不等式。我们有
 
@@ -95,11 +97,13 @@ $$\cos\varphi=\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\
 
 这个定义之所以可行，只是因为由柯西-施瓦茨不等式，右边总是介于 $-1$ 和 $1$ 之间。对每个这样的数，在 $0^\circ$ 与 $180^\circ$ 之间恰有一个角与之对应。点积的符号说明夹角是锐角（$\mathbf{u}^{\top}\mathbf{v}>0$）、直角（$\mathbf{u}^{\top}\mathbf{v}=0$）还是钝角（$\mathbf{u}^{\top}\mathbf{v}<0$）。
 
-⁠**算例：**对 $(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$，$\cos\varphi=1/\sqrt2$，所以 $\varphi=45^\circ$。对 $(1,\,0,\,1)^{\top}$ 和 $(1,\,1,\,0)^{\top}$，$\cos\varphi=\tfrac12$，所以 $\varphi=60^\circ$（图 [22](#abb-22)）。对 $\mathbf{u}=(1,\,2,\,2)^{\top}$ 和 $\mathbf{v}=(2,\,0,\,1)^{\top}$，$\cos\varphi=4/(3\sqrt5)\approx0.596$，所以 $\varphi\approx53.4^\circ$。
+::::beispiel [算例]
+对 $(1,\,0)^{\top}$ 和 $(1,\,1)^{\top}$，$\cos\varphi=1/\sqrt2$，所以 $\varphi=45^\circ$。对 $(1,\,0,\,1)^{\top}$ 和 $(1,\,1,\,0)^{\top}$，$\cos\varphi=\tfrac12$，所以 $\varphi=60^\circ$（图 [22](#abb-22)）。对 $\mathbf{u}=(1,\,2,\,2)^{\top}$ 和 $\mathbf{v}=(2,\,0,\,1)^{\top}$，$\cos\varphi=4/(3\sqrt5)\approx0.596$，所以 $\varphi\approx53.4^\circ$。
 
 :::abbildung ml/k1rwinkel 22
 $(1,\,0,\,1)^{\top}$ 与 $(1,\,1,\,0)^{\top}$ 之间的夹角：分子是点积，分母是两个长度。
 :::
+::::
 
 ⁠**简而言之：**两个向量夹角的余弦等于它们的点积除以两个长度之积。
 
@@ -125,13 +129,17 @@ $(1,\,0,\,1)^{\top}$ 与 $(1,\,1,\,0)^{\top}$ 之间的夹角：分子是点积�
 
 这直接由 $\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert^2+2\,\mathbf{u}^{\top}\mathbf{v}+\lVert\mathbf{v}\rVert^2$ 得出，因为中间一项为零。
 
-⁠**算例 1：**$(1,\,2,\,2)^{\top}$ 与 $(2,\,0,\,-1)^{\top}$ 正交，因为 $2+0-2=0$。它们的和 $(3,\,2,\,1)^{\top}$ 的长度平方为 $14=9+5$。
+::::beispiel [算例 1]
+$(1,\,2,\,2)^{\top}$ 与 $(2,\,0,\,-1)^{\top}$ 正交，因为 $2+0-2=0$。它们的和 $(3,\,2,\,1)^{\top}$ 的长度平方为 $14=9+5$。
+::::
 
-⁠**算例 2：互不干扰的两个模式。**第 [2.4](das-skalarprodukt.html#stufe-2-4) 小节中的恒定模式 $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ 与交替模式 $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ 正交，$\mathbf 1^{\top}\mathbf{w}=0$。由 $2$ 倍恒定模式和 $1$ 倍交替模式组成的信号为 $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$。与恒定模式比对得 $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$，与交替模式比对得 $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$（图 [23](#abb-23)）。每次比对都恰好找到自己的那一份，再乘以 $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$；另一份对它毫无干扰。
+::::beispiel [算例 2] 互不干扰的两个模式
+第 [2.4](das-skalarprodukt.html#stufe-2-4) 小节中的恒定模式 $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ 与交替模式 $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ 正交，$\mathbf 1^{\top}\mathbf{w}=0$。由 $2$ 倍恒定模式和 $1$ 倍交替模式组成的信号为 $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$。与恒定模式比对得 $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$，与交替模式比对得 $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$（图 [23](#abb-23)）。每次比对都恰好找到自己的那一份，再乘以 $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$；另一份对它毫无干扰。
 
 :::abbildung ml/k1rortho 23
 两个模式正交（上）。把信号 $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ 分别与每个模式比对，得到该模式所占份额的 $4$ 倍。
 :::
+::::
 
 ⁠**简而言之：**正交意味着点积为零；正交的箭头互相垂直，对它们勾股定理成立。
 
@@ -168,7 +176,8 @@ $$\frac{\mathbf{u}^{\top}\mathbf{v}}{\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rV
 
 若两个向量指向同一方向，它为 $1$；若它们正交，它为 $0$；若它们指向相反方向，它为 $-1$。把其中一个向量乘以一个正数，它不变，因为这个数会被约去。
 
-⁠**算例：**三篇文本，以及其中“进球”“球”和“选举”这三个词的出现次数：
+::::beispiel [算例]
+三篇文本，以及其中“进球”“球”和“选举”这三个词的出现次数：
 
 $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad \mathbf{x}_3=(0,\,1,\,3)^{\top} .$$
 
@@ -179,6 +188,7 @@ $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad 
 :::
 
 与此不同，距离为 $\lVert\mathbf{x}_1-\mathbf{x}_2\rVert=\sqrt{13}\approx3.61$，$\lVert\mathbf{x}_1-\mathbf{x}_3\rVert=\sqrt{19}\approx4.36$，$\lVert\mathbf{x}_2-\mathbf{x}_3\rVert=\sqrt{54}\approx7.35$。按距离，文本 1 离文本 3 几乎不比离文本 2 远，尽管文本 2 的主题与它完全相同。余弦相似度立刻就能识别出这一点：它等于 $1$，而与文本 3 的夹角约为 $79.9^\circ$，几乎是直角。
+::::
 
 ⁠**简而言之：**余弦相似度只比较两个向量的方向，而不考虑它们的长度。
 
@@ -208,11 +218,13 @@ $$\mathbf{x}_1=(3,\,2,\,0)^{\top},\qquad \mathbf{x}_2=(6,\,4,\,0)^{\top},\qquad 
 
 如果 $\mathbf{u}$ 不是归一化的，那么 $\mathbf{u}^{\top}\mathbf{x}$ 等于 $\mathbf{x}$ 在 $\mathbf{u}$ 方向上的影子长度乘以 $\lVert\mathbf{u}\rVert$。
 
-⁠**算例：**$\mathbf{u}=(0.6,\ 0.8)^{\top}$ 是归一化的，因为 $0.36+0.64=1$。对 $\mathbf{x}=(3,\,1)^{\top}$，影子长度为 $\mathbf{u}^{\top}\mathbf{x}=2.6$，计算过程见图 [26](#abb-26)；影子端点为 $2.6\,\mathbf{u}=(1.56,\ 2.08)^{\top}$，连接箭头为 $\mathbf{x}-2.6\,\mathbf{u}=(1.44,\ -1.08)^{\top}$。它与 $\mathbf{u}$ 正交：$0.6\cdot1.44-0.8\cdot1.08=0$。由 $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3.162$，得到 $\cos\varphi=2.6/3.162\approx0.822$，所以 $\varphi\approx34.7^\circ$。
+::::beispiel [算例]
+$\mathbf{u}=(0.6,\ 0.8)^{\top}$ 是归一化的，因为 $0.36+0.64=1$。对 $\mathbf{x}=(3,\,1)^{\top}$，影子长度为 $\mathbf{u}^{\top}\mathbf{x}=2.6$，计算过程见图 [26](#abb-26)；影子端点为 $2.6\,\mathbf{u}=(1.56,\ 2.08)^{\top}$，连接箭头为 $\mathbf{x}-2.6\,\mathbf{u}=(1.44,\ -1.08)^{\top}$。它与 $\mathbf{u}$ 正交：$0.6\cdot1.44-0.8\cdot1.08=0$。由 $\lVert\mathbf{x}\rVert=\sqrt{10}\approx3.162$，得到 $\cos\varphi=2.6/3.162\approx0.822$，所以 $\varphi\approx34.7^\circ$。
 
 :::abbildung ml/k1rschatten 26
 用点积表示 $\mathbf{x}$ 在归一化向量 $\mathbf{u}$ 方向上的影子长度。
 :::
+::::
 
 对加权和而言，这意味着：如果权重是归一化的，$\mathbf{w}^{\top}\mathbf{x}$ 就说明样本 $\mathbf{x}$ 在 $\mathbf{w}$ 方向上伸展多远。所有给出相同值 $\mathbf{w}^{\top}\mathbf{x}$ 的点都投下相同的影子。因此，它们在平面上位于一条垂直于 $\mathbf{w}$ 的直线上，在空间中位于一个垂直于 $\mathbf{w}$ 的平面上。
 

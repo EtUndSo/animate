@@ -37,7 +37,9 @@ Let the area be $A=\Delta x\,\Delta y$. The shaded section has the volume $\Delt
 
 **When does current flow continuously?** Two conditions must be met. First, the circuit needs a source, such as a battery or a power supply. It supplies energy, not charge: the charge carriers are already in the conductor; the source only drives them around the circuit. Second, the __circuit__ must be closed, that is, a path that returns to itself. Otherwise charge piles up at a gap, its field cancels the driving field, and the current ends. A current that is constant in time in a closed circuit is called __steady__.
 
-**Example.** In the reference model, 3 mC per second pass through the wire, which is $3\,\mathrm{mC}/e=1.87\cdot10^{16}$ electrons. The current density is $j=3\,\mathrm{mA}/0.5\,\mathrm{mm^2}=6\,\mathrm{mA/mm^2}$. One meter of wire contains the free charge $n\,e\,A=6800$ C. So the entire charge that a rectangular battery moves in its lifetime (around 1800 C) already sits in 26 cm of this wire. **Check:** For $v=0$, $I=0$, no matter how much charge sits in the wire. Twice the area at the same $v$ gives twice the current, because that is two wires side by side.
+::::beispiel
+In the reference model, 3 mC per second pass through the wire, which is $3\,\mathrm{mC}/e=1.87\cdot10^{16}$ electrons. The current density is $j=3\,\mathrm{mA}/0.5\,\mathrm{mm^2}=6\,\mathrm{mA/mm^2}$. One meter of wire contains the free charge $n\,e\,A=6800$ C. So the entire charge that a rectangular battery moves in its lifetime (around 1800 C) already sits in 26 cm of this wire. **Check:** For $v=0$, $I=0$, no matter how much charge sits in the wire. Twice the area at the same $v$ gives twice the current, because that is two wires side by side.
+::::
 
 :::frage Are the electrons used up in the load?
 No. Charge is conserved; as many electrons per second come out of a component as go in. What is used up is energy: each coulomb gives its energy per charge, the voltage, to the component and moves on at a lower potential.

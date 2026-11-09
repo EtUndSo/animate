@@ -38,7 +38,11 @@ $$U_\mathrm{out}=\tfrac12\Bigl(\tfrac12\bigl(\tfrac12U_0+U_1\bigr)+U_2\Bigr)=\tf
 Superposition gives the same number. Take source $U_1$ as an example: at the middle node it sees 2$R$ on the left and $R+2R=3R$ on the right, together $\frac65R$. The divider gives $\frac{6/5}{6/5+2}=\frac38U_1$ there. The way to the output divides once more by $\frac{2R}{R+2R}=\frac23$, so $\frac38\cdot\frac23=\frac14$.
 :::
 
-**Example.** With $U_\mathrm{ref}=8$ V and $R=1$ k$\Omega$, the bits weigh 4 V, 2 V and 1 V. The setting 101 gives 5 V. A load with $R_\mathrm{L}=R$ forms a divider with $R_\mathrm{i}$ and halves this to 2.5 V. That is why real converters are followed by an operational amplifier ([Part 11](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) with a very high input resistance: it draws practically no current, and the ladder stays in the open circuit. **Limiting cases:** The setting 000 gives 0 V, the setting 111 gives 7 V, one step below $U_\mathrm{ref}$.
+::::beispiel
+With $U_\mathrm{ref}=8$ V and $R=1$ k$\Omega$, the bits weigh 4 V, 2 V and 1 V. The setting 101 gives 5 V. A load with $R_\mathrm{L}=R$ forms a divider with $R_\mathrm{i}$ and halves this to 2.5 V. That is why real converters are followed by an operational amplifier ([Part 11](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) with a very high input resistance: it draws practically no current, and the ladder stays in the open circuit.
+::::
+
+⁠**Limiting cases:** The setting 000 gives 0 V, the setting 111 gives 7 V, one step below $U_\mathrm{ref}$.
 
 :::ltspice The converter counts
 ⁠**Draw:** Fig. [12](#abb-12) without switches: 2$R$ from node `n0` to ground, then 2$R$ each from `n0`, `n1`, `n2` to a source `voltage` against ground, and $R$ between the nodes, $R=1$ k$\Omega$. The sources count in binary: `PULSE(0 8 1m 1u 1u 1m 2m)`, `PULSE(0 8 2m 1u 1u 2m 4m)`, `PULSE(0 8 4m 1u 1u 4m 8m)`.

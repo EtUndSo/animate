@@ -83,7 +83,11 @@ Reference model $x=-3<y=2$. Times 2 stretches the line away from zero; the order
 (e) “$\Leftarrow$”: For $x=y$ there is nothing to show. From $x>y\ge0$ it follows that $x\cdot x>y\cdot x\ge y\cdot y$ by (O4) with $z=x$ and $z=y$. “$\Rightarrow$” as contraposition: From $0\le x<y$ it follows likewise that $x\cdot x\le x\cdot y<y\cdot y$.
 :::
 
-**Example.** For $x\ne0$, $x$ is positive if and only if $x^{-1}$ is positive, because $x\cdot x^{-1}=1>0$ and (c). Therefore: Solve $\frac1x>2$. For $x>0$ we may multiply by $x$: $1>2x$, so $0<x<\frac12$. For $x<0$ the left side is negative; there is no solution. **Limiting case:** At $x=\frac12$ we get $2>2$, false; the boundary does not belong.
+::::beispiel
+For $x\ne0$, $x$ is positive if and only if $x^{-1}$ is positive, because $x\cdot x^{-1}=1>0$ and (c). Therefore: Solve $\frac1x>2$. For $x>0$ we may multiply by $x$: $1>2x$, so $0<x<\frac12$. For $x<0$ the left side is negative; there is no solution.
+::::
+
+⁠**Limiting case:** At $x=\frac12$ we get $2>2$, false; the boundary does not belong.
 
 :::aufgabe Exercise 5 ★★ Inequalities
 <span class="anker" id="aufg-5"></span>

@@ -72,11 +72,15 @@ $$(A\,|\,E_n)\iff\dots\iff(E_n\,|\,A^{-1}). \tag{8.1}$$
 
 Dafür bringt man $A$ durch Vorwärtselimination in __obere Dreiecksform__ (unter der Hauptdiagonale nur Nullen, auf ihr Pivots $\ne0$), erzeugt von unten nach oben Nullen über den Pivots und teilt zuletzt durch die Pivots. Dann ist links $E_n$ erreicht, und rechts stehen die Lösungen. Für eine einzelne rechte Seite ergibt das $(A\,|\,b)\iff(E_n\,|\,z)$, und $z$ ist die Lösung.
 
-**Beispiel.** Für $H$ rechnet man $Z_2-2Z_1$, $Z_3-Z_1$, $Z_3-2Z_2$, dann $Z_2-Z_3$, $Z_1-Z_3$, zuletzt $Z_1-Z_2$ und $\frac12Z_1$:
+::::beispiel
+Für $H$ rechnet man $Z_2-2Z_1$, $Z_3-Z_1$, $Z_3-2Z_2$, dann $Z_2-Z_3$, $Z_1-Z_3$, zuletzt $Z_1-Z_2$ und $\frac12Z_1$:
 
 $$\left(\begin{array}{ccc|ccc}2&1&1&1&0&0\\4&3&3&0&1&0\\2&3&4&0&0&1\end{array}\right)\iff\left(\begin{array}{ccc|ccc}2&1&1&1&0&0\\0&1&1&-2&1&0\\0&0&1&3&-2&1\end{array}\right)\iff\left(\begin{array}{ccc|ccc}1&0&0&\frac32&-\frac12&0\\0&1&0&-5&3&-1\\0&0&1&3&-2&1\end{array}\right).$$
 
-Probe: $H^{-1}(3,7,4)=(\frac92-\frac72,\ -15+21-4,\ 9-14+4)=(1,2,-1)$. **Grenzfall:** Für $\operatorname{rg}(A)<n$ entsteht links eine Nullzeile, und das Verfahren bricht ab. So zeigt sich, dass die Inverse fehlt, etwa bei $P$: Dort ergibt $Z_2-2Z_1$ die Zeile $(0,0)$.
+Probe: $H^{-1}(3,7,4)=(\frac92-\frac72,\ -15+21-4,\ 9-14+4)=(1,2,-1)$.
+::::
+
+⁠**Grenzfall:** Für $\operatorname{rg}(A)<n$ entsteht links eine Nullzeile, und das Verfahren bricht ab. So zeigt sich, dass die Inverse fehlt, etwa bei $P$: Dort ergibt $Z_2-2Z_1$ die Zeile $(0,0)$.
 
 :::frage Bekomme ich die Inverse, wenn ich jeden Eintrag durch seinen Kehrwert ersetze?
 Nein. $A^{-1}$ macht die Abbildung rückgängig, nicht die Einträge, denn das Produkt rechnet „Zeile mal Spalte“ und nicht Eintrag mal Eintrag. Bei $H$ steht in Zeile 2, Spalte 1 eine 4, in $H^{-1}$ steht dort $-5$.

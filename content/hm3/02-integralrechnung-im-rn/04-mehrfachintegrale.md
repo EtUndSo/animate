@@ -29,7 +29,9 @@ $$|Q|=(b_1-a_1)\cdot(b_2-a_2)\cdots(b_n-a_n)$$
 
 heißt das __Volumen__ des Quaders; für $n=2$ ist das der Flächeninhalt, für $n=1$ die Länge. Ein Quader ist abgeschlossen und beschränkt, also kompakt.
 
-⁠**Beispiel:** $Q=[0,1]\times[0,2]\times[0,3]$ besteht aus allen Punkten $(x,y,z)$ mit $0\le x\le1$, $0\le y\le2$ und $0\le z\le3$. Sein Volumen ist $|Q|=1\cdot2\cdot3=6$.
+::::beispiel
+$Q=[0,1]\times[0,2]\times[0,3]$ besteht aus allen Punkten $(x,y,z)$ mit $0\le x\le1$, $0\le y\le2$ und $0\le z\le3$. Sein Volumen ist $|Q|=1\cdot2\cdot3=6$.
+::::
 
 ⁠**Kurz gesagt:** Ein Quader ist ein Produkt von Intervallen; sein Volumen ist das Produkt der Intervalllängen.
 
@@ -41,7 +43,9 @@ Manche Mengen sind nicht abgeschlossen, weil ihnen Randpunkte fehlen. Fügt man 
 
 Die Menge $M$ zusammen mit allen ihren Randpunkten heißt der __Abschluss__ von $M$. Der Abschluss ist immer abgeschlossen, und eine abgeschlossene Menge ist ihr eigener Abschluss.
 
-⁠**Beispiel:** Der Abschluss von $(0,1]$ ist $[0,1]$. Der Abschluss der offenen Kreisscheibe $\{|\boldsymbol{x}|<1\}$ ist die Kreisscheibe mit Rand, $\{|\boldsymbol{x}|\le1\}$. Der Abschluss der Menge $\{x\in\mathbb{R}:x\neq0\}$ ist ganz $\mathbb{R}$, denn $0$ ist ihr einziger Randpunkt.
+::::beispiel
+Der Abschluss von $(0,1]$ ist $[0,1]$. Der Abschluss der offenen Kreisscheibe $\{|\boldsymbol{x}|<1\}$ ist die Kreisscheibe mit Rand, $\{|\boldsymbol{x}|\le1\}$. Der Abschluss der Menge $\{x\in\mathbb{R}:x\neq0\}$ ist ganz $\mathbb{R}$, denn $0$ ist ihr einziger Randpunkt.
+::::
 
 ⁠**Kurz gesagt:** Der Abschluss einer Menge ist die Menge mit ihrem Rand.
 
@@ -72,11 +76,13 @@ heißt ein __iteriertes Integral__ von $f$ über $Q$.
 
 ⁠**Warum es existiert:** Jedes innere Integral ist eine stetige Funktion der Variablen, die noch übrig sind. Für $n=2$ ist das Satz [1.9](integrale-mit-parameter-uber-endlichen-intervallen.html#satz-1-9): Ist $f\colon[a,b]\times[c,d]\to\mathbb{R}$ stetig, dann ist $F(y)=\int_a^bf(x,y)\,\mathrm{d} x$ stetig auf $[c,d]$, und deshalb existiert $\int_c^dF(y)\,\mathrm{d} y$. Für mehr Variablen überträgt sich der Beweis von Satz [1.7](integrale-mit-parameter-uber-endlichen-intervallen.html#satz-1-7) wörtlich, denn $f$ ist auf dem kompakten Quader gleichmäßig stetig.
 
-⁠**Beispiel:** Die *Kuppelfunktion* $f(x,y)=4-x^2-y^2$ auf $Q=[0,1]\times[-1,1]$. Zuerst nach $x$:
+::::beispiel
+Die *Kuppelfunktion* $f(x,y)=4-x^2-y^2$ auf $Q=[0,1]\times[-1,1]$. Zuerst nach $x$:
 
 $$\int_0^1(4-x^2-y^2)\,\mathrm{d} x=4-\frac13-y^2=\frac{11}3-y^2,\qquad\int_{-1}^1\Bigl(\frac{11}3-y^2\Bigr)\mathrm{d} y=\frac{22}3-\frac23=\frac{20}3 .$$
 
 Zur Plausibilität: Das Rechteck hat den Flächeninhalt $2$, die Höhe liegt zwischen $2$ und $4$, das Volumen also zwischen $4$ und $8$.
+::::
 
 ⁠**Kurz gesagt:** Ein iteriertes Integral integriert Variable für Variable, von innen nach außen; innen stehen die übrigen Variablen als Parameter.
 
@@ -115,11 +121,15 @@ Das sind die beiden Reihenfolgen, mit variablen oberen Grenzen $p$ und $q$. Zu z
 ⁠**Schritt 4: Schluss.** Auf jeder Strecke parallel zu einer Achse ist $w$ eine Funktion einer Variablen mit der Ableitung null, nach dem Mittelwertsatz also konstant. Von $(a,c)$ kommt man über $(a,q)$ nach $(p,q)$ längs zweier solcher Strecken, also ist $w(p,q)=w(a,c)$. Bei $(p,q)=(a,c)$ sind beide Integrale leer, also ist $w(a,c)=0$ und damit $w(b,d)=0$. In höheren Dimensionen vertauscht man auf diese Weise je zwei benachbarte Variablen und hält die übrigen fest.
 :::
 
-⁠**Beispiel:** Die Kuppelfunktion auf $[0,1]\times[-1,1]$, diesmal zuerst nach $y$:
+::::beispiel
+Die Kuppelfunktion auf $[0,1]\times[-1,1]$, diesmal zuerst nach $y$:
 
 $$\int_{-1}^1(4-x^2-y^2)\,\mathrm{d} y=8-2x^2-\frac23=\frac{22}3-2x^2,\qquad\int_0^1\Bigl(\frac{22}3-2x^2\Bigr)\mathrm{d} x=\frac{22}3-\frac23=\frac{20}3 .$$
 
-Beide Reihenfolgen ergeben $\frac{20}3$. **Grenzfall:** Für $f\equiv1$ ergeben beide Reihenfolgen den Flächeninhalt $(b-a)(d-c)$ des Rechtecks.
+Beide Reihenfolgen ergeben $\frac{20}3$.
+::::
+
+⁠**Grenzfall:** Für $f\equiv1$ ergeben beide Reihenfolgen den Flächeninhalt $(b-a)(d-c)$ des Rechtecks.
 
 **Die Reihenfolge wählen.** Weil beide Reihenfolgen dasselbe ergeben, nimmt man die bequemere. Bei $\int_0^2\bigl(\int_0^1y\,\mathrm{e}^{xy}\,\mathrm{d} x\bigr)\mathrm{d} y$ ist innen $\int_0^1y\,\mathrm{e}^{xy}\,\mathrm{d} x=\bigl[\mathrm{e}^{xy}\bigr]_{x=0}^{1}=\mathrm{e}^y-1$; der Faktor $y$ kürzt sich gegen die Stammfunktion. Außen bleibt $\int_0^2(\mathrm{e}^y-1)\,\mathrm{d} y=\mathrm{e}^2-3\approx4{,}39$. In der anderen Reihenfolge bräuchte man innen eine partielle Integration und außen einen Kunstgriff.
 
@@ -171,7 +181,9 @@ Statt $\mathrm{d}\boldsymbol{x}$ schreibt man auch $\mathrm{d}^n\boldsymbol{x}$,
 
 $$\iiint_Qf(x,y,z)\,\mathrm{d} x\,\mathrm{d} y\,\mathrm{d} z=\iiint_Qf(x,y,z)\,\mathrm{d} V .$$
 
-⁠**Beispiel:** $\int_Q(x+y+z)\,\mathrm{d} V$ über $Q=[0,1]\times[0,2]\times[0,3]$. Innen nach $x$: $\int_0^1(x+y+z)\,\mathrm{d} x=\frac12+y+z$. Dann nach $y$: $\int_0^2\bigl(\frac12+y+z\bigr)\mathrm{d} y=1+2+2z=3+2z$. Außen nach $z$: $\int_0^3(3+2z)\,\mathrm{d} z=9+9=18$.
+::::beispiel
+$\int_Q(x+y+z)\,\mathrm{d} V$ über $Q=[0,1]\times[0,2]\times[0,3]$. Innen nach $x$: $\int_0^1(x+y+z)\,\mathrm{d} x=\frac12+y+z$. Dann nach $y$: $\int_0^2\bigl(\frac12+y+z\bigr)\mathrm{d} y=1+2+2z=3+2z$. Außen nach $z$: $\int_0^3(3+2z)\,\mathrm{d} z=9+9=18$.
+::::
 
 :::hintergrund Zwei Wege zur selben Zahl: iterierte Integrale und Säulensummen
 Viele Lehrbücher erklären das Mehrfachintegral anders: als Grenzwert der Säulensummen $\sum f(\boldsymbol{x}_i)\,|Q_i|$ über immer feinere Zerlegungen des Quaders in kleine Teilquader $Q_i$, so wie im Hintergrund zum Satz von Fubini. Diese Erklärung überträgt die Riemann-Summen aus Unterabschnitt [1.1](integrale-mit-parameter-uber-endlichen-intervallen.html#stufe-1-1) direkt und behandelt alle Variablen gleich. Sie zeigt auch, warum das Integral ein Volumen ist: Es ist die Summe der Säulenvolumina „Höhe mal Grundfläche“. Für stetiges $f$ auf einem kompakten Quader ergeben beide Erklärungen dieselbe Zahl; das ist die Rechnung im Hintergrund zum Satz von Fubini, die sich auf $n$ Variablen überträgt. Die Erklärung über iterierte Integrale hat den Vorteil, dass man das Integral sofort ausrechnen kann. Ihr Preis ist, dass man zeigen muss, dass die Reihenfolge keine Rolle spielt. Genau das leistet der Satz von Fubini.
@@ -204,7 +216,9 @@ $$\Bigl|\int_Qf(\boldsymbol{x})\,\mathrm{d}\boldsymbol{x}\Bigr|\le|Q|\,\sup_{\bo
 
 ⁠**So liest man das:** Beide Regeln gelten für jedes Integral über eine Variable (Unterabschnitt [1.1](integrale-mit-parameter-uber-endlichen-intervallen.html#stufe-1-1)). Im iterierten Integral wendet man sie Schritt für Schritt an, vom innersten Integral bis zum äußersten. Für [(3.3)](#gl-3-3) sei $S=\sup_Q|f|$; das ist nach dem Satz vom Maximum eine endliche Zahl. Man integriert $-S\le f\le S$ und benutzt $\int_QS\,\mathrm{d}\boldsymbol{x}=S\,|Q|$.
 
-⁠**Beispiel:** Für die Kuppelfunktion auf $Q=[0,1]\times[-1,1]$ ist $|Q|=2$. Ihr größter Wert ist $4$, im Punkt $(0,0)$, ihr kleinster $2$, in den Ecken $(1,\pm1)$. Mit der Monotonie folgt $2\cdot2\le\int_Qf\,\mathrm{d}\boldsymbol{x}\le4\cdot2$, also $4\le\frac{20}3\le8$.
+::::beispiel
+Für die Kuppelfunktion auf $Q=[0,1]\times[-1,1]$ ist $|Q|=2$. Ihr größter Wert ist $4$, im Punkt $(0,0)$, ihr kleinster $2$, in den Ecken $(1,\pm1)$. Mit der Monotonie folgt $2\cdot2\le\int_Qf\,\mathrm{d}\boldsymbol{x}\le4\cdot2$, also $4\le\frac{20}3\le8$.
+::::
 
 ⁠**Kurz gesagt:** Das Mehrfachintegral ist linear und monoton, und sein Betrag ist höchstens Volumen mal größter Betrag des Integranden.
 
@@ -228,11 +242,13 @@ mit einem Quader $Q$, außerhalb dessen $f=0$ ist.
 
 ⁠**So liest man das:** Der Name kommt so zustande: Der Abschluss der Menge $\{\boldsymbol{x}:f(\boldsymbol{x})\neq0\}$ heißt der __Träger__ von $f$. Er liegt hier in der Kugel mit dem Radius $\rho$, ist also beschränkt und als Abschluss abgeschlossen, also kompakt. Welchen Quader man nimmt, ist gleichgültig: Ein größerer Quader fügt nur Stücke hinzu, auf denen $f=0$ ist, und in jedem inneren Integral tragen diese Stücke null bei.
 
-⁠**Beispiel:** Die Pyramide $f(x,y)=\max(0,\,1-|x|-|y|)$. Für $|(x,y)|>1$ ist $|x|+|y|\ge|(x,y)|>1$, also $f=0$; sie hat einen kompakten Träger mit $\rho=1$. Ihr Träger ist das Quadrat $\{|x|+|y|\le1\}$, dessen Ecken auf den Achsen liegen. Mit $Q=[-1,1]^2$ ist für festes $y$ das innere Integral die Fläche eines Dreiecks mit der Grundseite $2(1-|y|)$ und der Höhe $1-|y|$:
+::::beispiel
+Die Pyramide $f(x,y)=\max(0,\,1-|x|-|y|)$. Für $|(x,y)|>1$ ist $|x|+|y|\ge|(x,y)|>1$, also $f=0$; sie hat einen kompakten Träger mit $\rho=1$. Ihr Träger ist das Quadrat $\{|x|+|y|\le1\}$, dessen Ecken auf den Achsen liegen. Mit $Q=[-1,1]^2$ ist für festes $y$ das innere Integral die Fläche eines Dreiecks mit der Grundseite $2(1-|y|)$ und der Höhe $1-|y|$:
 
 $$\int_{-1}^1f(x,y)\,\mathrm{d} x=(1-|y|)^2,\qquad\int_{\mathbb{R}^2}f\,\mathrm{d}\boldsymbol{x}=\int_{-1}^1(1-|y|)^2\,\mathrm{d} y=\frac23 .$$
 
 Zur Kontrolle: Eine Pyramide mit der Grundfläche $2$ und der Höhe $1$ hat das Volumen $\frac13\cdot2\cdot1=\frac23$.
+::::
 
 ⁠**Kurz gesagt:** Eine Funktion mit kompaktem Träger verschwindet außerhalb einer Kugel; ihr Integral über den ganzen Raum ist das Integral über einen genügend großen Quader.
 

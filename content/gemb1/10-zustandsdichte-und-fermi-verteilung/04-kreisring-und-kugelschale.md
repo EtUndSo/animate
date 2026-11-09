@@ -46,7 +46,11 @@ $$n=\frac2{L^3}\sum_{k_x,k_y,k_z}f\bigl(E(\boldsymbol k)\bigr)=\frac2{(2\pi)^3}\
 
 denn jeder Rasterpunkt steht für $\Delta k_x\,\Delta k_y\,\Delta k_z/(2\pi/L)^3=1$, und aus jedem $\Delta k_i$ wird für $L\to\infty$ ein $\mathrm{d} k_i$. Das $L^3$ kürzt sich.
 
-**Beispiel.** Ein Film mit $L=200$ nm und $m^*=m_0$, Fenster 50 bis 55 meV: Die Formel gibt $\mathrm{d} Z=417{,}7$, das Auszählen des Rasters 408, also 2 % weniger. Ein Würfel mit $L=100$ nm enthält unter 0,1 eV nach der Kugel 71 807 Zustände, gezählt sind es 71 711. Der Fehler sitzt am Rand und verliert mit wachsender Größe an Gewicht. Bei $m^*=m_0$ ist in 2D $D=4{,}18\cdot10^{14}\,\mathrm{eV^{-1}\,cm^{-2}}$ und in 3D $D(1\,\mathrm{eV})=6{,}81\cdot10^{21}\,\mathrm{eV^{-1}\,cm^{-3}}$. **Grenzfall:** Für $E\to0$ schrumpft die Kugel auf einen Punkt, also $D\to0$. Der Kreis schrumpft auch, aber im selben Maß wird der Ring dicker, und $D$ bleibt.
+::::beispiel
+Ein Film mit $L=200$ nm und $m^*=m_0$, Fenster 50 bis 55 meV: Die Formel gibt $\mathrm{d} Z=417{,}7$, das Auszählen des Rasters 408, also 2 % weniger. Ein Würfel mit $L=100$ nm enthält unter 0,1 eV nach der Kugel 71 807 Zustände, gezählt sind es 71 711. Der Fehler sitzt am Rand und verliert mit wachsender Größe an Gewicht. Bei $m^*=m_0$ ist in 2D $D=4{,}18\cdot10^{14}\,\mathrm{eV^{-1}\,cm^{-2}}$ und in 3D $D(1\,\mathrm{eV})=6{,}81\cdot10^{21}\,\mathrm{eV^{-1}\,cm^{-3}}$.
+::::
+
+⁠**Grenzfall:** Für $E\to0$ schrumpft die Kugel auf einen Punkt, also $D\to0$. Der Kreis schrumpft auch, aber im selben Maß wird der Ring dicker, und $D$ bleibt.
 
 **Mehrere Bänder.** Jedes Band zählt für sich, die Zustandsdichten addieren sich. Ein zweites Band setzt ab seiner Unterkante einen eigenen Beitrag auf den ersten: in 2D eine Stufe der Höhe $m^*/(\pi\hbar^2)$, in 1D eine neue Spitze. Ein Band mit größerer Masse ist flacher und liefert mehr Plätze, die Stufe ist dort höher.
 

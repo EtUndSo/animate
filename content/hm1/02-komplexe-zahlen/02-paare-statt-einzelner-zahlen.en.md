@@ -72,11 +72,13 @@ $$(x_1+\mathrm{i}y_1)(x_2+\mathrm{i}y_2)=(x_1x_2-y_1y_2)+\mathrm{i}(x_1y_2+x_2y_
 (iii) By (ii), the right-hand sides are exactly the pairs from [(1.1)](#gl-1-1) and [(1.2)](#gl-1-2).
 :::
 
-**Example.** Sum and product of the reference model:
+::::beispiel
+Sum and product of the reference model:
 
 $$z_1+z_2=(3+1)+\mathrm{i}(1+2)=4+3\mathrm{i},\qquad z_1z_2=(3+\mathrm{i})(1+2\mathrm{i})=3+6\mathrm{i}+\mathrm{i}+2\mathrm{i}^2=1+7\mathrm{i}.$$
 
 The pair formula [(1.2)](#gl-1-2) gives the same: $(3\cdot1-1\cdot2,\;3\cdot2+1\cdot1)=(1,7)$. The powers of $\mathrm{i}$ repeat with period 4: $\mathrm{i}^1=\mathrm{i}$, $\mathrm{i}^2=-1$, $\mathrm{i}^3=-\mathrm{i}$, $\mathrm{i}^4=1$. So only the remainder of $n$ on division by 4 counts, for example $\mathrm{i}^{10}=\mathrm{i}^8\,\mathrm{i}^2=-1$.
+::::
 
 :::frage Does $\mathrm{i}$ really exist, or is it a calculating trick?
 On the number line there is no $\mathrm{i}$; that much of the doubt is right. But $\mathrm{i}$ is the pair $(0,1)$, and [(1.2)](#gl-1-2) is an unambiguous rule for pairs. “Imaginary” is only a historical name.

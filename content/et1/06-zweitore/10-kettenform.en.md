@@ -43,7 +43,8 @@ $$\begin{pmatrix}U_1'\\I_1'\end{pmatrix}=\mathbf A'\begin{pmatrix}U_2'\\-I_2'\en
 Top: Two two-ports in a chain. The output of the first and the input of the second share voltage and current. Bottom: The T two-port as a chain of three elementary two-ports, series resistor, shunt conductance, series resistor.
 :::
 
-**Example.** The simplest building blocks are the series resistor and the shunt conductance. For the series resistor, $U_1=U_2+R(-I_2)$ and $I_1=-I_2$; for the shunt conductance, $U_1=U_2$ and $I_1=G\,U_2+(-I_2)$:
+::::beispiel
+The simplest building blocks are the series resistor and the shunt conductance. For the series resistor, $U_1=U_2+R(-I_2)$ and $I_1=-I_2$; for the shunt conductance, $U_1=U_2$ and $I_1=G\,U_2+(-I_2)$:
 
 $$\mathbf A_R=\begin{pmatrix}1&R\\0&1\end{pmatrix},\qquad \mathbf A_G=\begin{pmatrix}1&0\\G&1\end{pmatrix}.$$
 
@@ -52,6 +53,7 @@ The T two-port is a chain of $R_\mathrm{a}$, $G_\mathrm{b}=1/R_\mathrm{b}=50$ 
 $$\mathbf A=\begin{pmatrix}1&15\,\Omega\\0&1\end{pmatrix}\begin{pmatrix}1&0\\50\,\mathrm{mS}&1\end{pmatrix}\begin{pmatrix}1&20\,\Omega\\0&1\end{pmatrix}=\begin{pmatrix}1.75&50\,\Omega\\50\,\mathrm{mS}&2\end{pmatrix}.$$
 
 Backward from the load, with $U_2=3$ V and $-I_2=50$ mA: $U_1=5.25\,\mathrm{V}+2.5\,\mathrm{V}=7.75$ V and $I_1=150\,\mathrm{mA}+100\,\mathrm{mA}=250$ mA. These are the values from Stage [4](das-zweitor-im-betrieb.html#stufe-4), without a system of equations.
+::::
 
 The equivalent $\pi$ network with the shunt conductances $G_1$, $G_3$ and the series conductance $G_2$ gives in general
 

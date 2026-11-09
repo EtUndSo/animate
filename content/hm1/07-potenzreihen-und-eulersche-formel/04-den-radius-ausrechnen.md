@@ -45,11 +45,13 @@ Sei $B:=\lim_{n\to\infty}\sqrt[n]{|a_n|}$. Dann ist $R=\frac1B$.
 (ii) Ebenso mit $\sqrt[n]{|b_n|}=|x|\sqrt[n]{|a_n|}\to|x|B$.
 :::
 
-**Beispiel.** Für $f$ ist $a_n=\frac1{n2^n}$, also
+::::beispiel
+Für $f$ ist $a_n=\frac1{n2^n}$, also
 
 $$\Bigl|\frac{a_{n+1}}{a_n}\Bigr|=\frac{n\,2^n}{(n+1)\,2^{n+1}}=\frac n{2(n+1)}\to\frac12\quad\Rightarrow\quad R=2,$$
 
 wie in Stufe [1](der-konvergenzkreis.html#stufe-1), bei $n=100$ ist der Quotient schon $0{,}495$. Die Wurzel gibt dasselbe, $\sqrt[n]{|a_n|}=\frac1{2\sqrt[n]{n}}\to\frac12$ ([Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)), aber langsamer: $0{,}477$ bei $n=100$.
+::::
 
 **Wenn der Grenzwert fehlt.** Bei $g$ ist $a_{2n}=4^{-n}$ und $a_{2n+1}=0$. Der Quotient ist nicht erklärt, und $\sqrt[n]{|a_n|}$ springt zwischen $\frac12$ und $0$ (Abb. [2](#abb-2)). Trotzdem hat $g$ einen Radius: Mit $y=x^2$ ist $g$ die geometrische Reihe $\sum(y/4)^n$, sie konvergiert für $|y|<4$, also für $|x|<2$.
 

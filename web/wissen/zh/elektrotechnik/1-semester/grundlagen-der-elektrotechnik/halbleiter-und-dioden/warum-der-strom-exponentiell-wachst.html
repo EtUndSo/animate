@@ -40,9 +40,10 @@
 </li>
 </ol>
 <p>简化说明：实际上 $I_\mathrm S$ 的大小由该区之外中性区内少数载流子的扩散决定。因子 $\mathrm{e}^{U/U_T}$ 仍然保留，因为它决定该区边缘的载流子密度。</p></div></details>
-<p><strong>例。</strong> 由式 <a href="#gl-4-1">(4.1)</a>，在参考模型中得到：</p>
+<details class="beispiel"><summary><span class="bsp-k">例</span></summary><div class="bsp-body"><p>由式 <a href="#gl-4-1">(4.1)</a>，在参考模型中得到：</p>
 <div class="table-wrap"><table class="md-table"><thead><tr><th>$I$</th><th>1 µ A</th><th>10 µ A</th><th>100 µ A</th><th>1 mA</th><th>10 mA</th></tr></thead><tbody><tr><td>$U$</td><td>0.476 V</td><td>0.536 V</td><td>0.595 V</td><td>0.655 V</td><td>0.714 V</td></tr></tbody></table></div>
-<p>在 0.655 V 时，势垒缩小到 $2.3\,U_T$，比例从 $10^{-12}$ 上升到 0.1。<strong>极限情况：</strong>$\textcolor{#1b7f4a}{U}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ 时 $\textcolor{#1b7f4a}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$。$U\ll-U_T$ 时保持 $\textcolor{#1b7f4a}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{-I_\mathrm S}$：在 $-5\,U_T$ 时就已达到其 99.3 %。从 $\textcolor{#1b7f4a}{U}\textcolor{#15633a}{=}\textcolor{#c2410c}{119}$ mV 起，$-1$ 这一项小于第一项的 1 %。</p>
+<p>在 0.655 V 时，势垒缩小到 $2.3\,U_T$，比例从 $10^{-12}$ 上升到 0.1。</p></div></details>
+<p>⁠<strong>极限情况：</strong>$\textcolor{#1b7f4a}{U}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$ 时 $\textcolor{#1b7f4a}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{0}$。$U\ll-U_T$ 时保持 $\textcolor{#1b7f4a}{I}\textcolor{#15633a}{=}\textcolor{#c2410c}{-I_\mathrm S}$：在 $-5\,U_T$ 时就已达到其 99.3 %。从 $\textcolor{#1b7f4a}{U}\textcolor{#15633a}{=}\textcolor{#c2410c}{119}$ mV 起，$-1$ 这一项小于第一项的 1 %。</p>
 <p><strong>反向。</strong> $U&lt;0$ 时势垒升高，该区变宽。上坡电流消失，只剩下少数载流子的电流。它与势垒高度无关，只取决于有多少载流子到达势垒边缘。因此它饱和于 $I_\mathrm S$。实际二极管的反向电流为 pA 到 nA，因为该区内还会额外产生电子空穴对。</p>
 <details class="ltspice"><summary><span class="lt-k">LTspice</span>参考模型二极管的特性曲线</summary><div class="lt-body"><p>⁠<strong>绘制：</strong><code>voltage</code> 命名为 <code>V1</code>，从 <code>a</code> 接地；<code>diode</code> 从 <code>a</code> 接地，取值 <code>DM</code>。</p>
 <p>⁠<strong>指令：</strong><code>.model DM D(Is=1e-14)</code> 和 <code>.dc V1 0 0.8 1m</code></p>

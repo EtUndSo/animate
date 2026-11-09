@@ -43,7 +43,9 @@ The __conventional current direction__ is the direction in which positive charge
 Left: chain of source and $3\,\mathrm{k\Omega}$ with the usual arrows. At the source opposite directions (ASC), at the resistor the same direction (PSC), all values positive. The electrons move against the current arrow. Right: the same resistor, once with the voltage arrow reversed. Only the sign changes.
 :::
 
-**Example.** 9 V across $3\,\mathrm{k\Omega}$ give $I=3$ mA. If the voltage arrow points from bottom to top, $U=\varphi_\text{bottom}-\varphi_\text{top}=-9$ V, and [(5.2)](#gl-5-2) reads $-9\,\mathrm{V}=-3\,\mathrm{k\Omega}\cdot3\,\mathrm{mA}$. **Check:** Reversing both arrows turns $U=R\,I$ into $-U=R\,(-I)$, which is the same equation again.
+::::beispiel
+9 V across $3\,\mathrm{k\Omega}$ give $I=3$ mA. If the voltage arrow points from bottom to top, $U=\varphi_\text{bottom}-\varphi_\text{top}=-9$ V, and [(5.2)](#gl-5-2) reads $-9\,\mathrm{V}=-3\,\mathrm{k\Omega}\cdot3\,\mathrm{mA}$. **Check:** Reversing both arrows turns $U=R\,I$ into $-U=R\,(-I)$, which is the same equation again.
+::::
 
 :::frage Electrons move from minus to plus. Why is it calculated the other way round?
 The direction was fixed before electrons were known, and it does no harm: in $\vec j=q\,\vec v$, both factors change sign for electrons. Electrons moving left give the same current density as positive charge moving right. Voltage drop, heat and magnetic field depend only on $\vec j$.

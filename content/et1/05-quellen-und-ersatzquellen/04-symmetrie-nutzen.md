@@ -52,7 +52,9 @@ Regel 2: Der Bezugspunkt liege in der Mitte, also $\varphi_\mathrm{A}=+\frac12U$
 Sieben gleiche Widerstände mit je 14 $\Omega$. Links das Netz mit den Potenzialen bei 16 V an A. Die Spiegelachse läuft durch L und durch die Mitte des Widerstands zwischen E und F, der deshalb in zweimal 7 $\Omega$ zerfällt. Rechts die Halbschaltung.
 :::
 
-**Beispiel.** In Abb. [2](#abb-2) tauscht das Spiegeln A und B sowie E und F, Regel 2 gilt. In der Halbschaltung liegen zwischen E und der Achse $14\,\Omega\parallel7\,\Omega=4{,}67\,\Omega$. Mit dem Weg von A nach E sind das 18,67 $\Omega$. Parallel zum linken Zweig ergibt das $R_\mathrm{A,Achse}=14\,\Omega\parallel18{,}67\,\Omega=8\,\Omega$, also $R_\mathrm{AB}=16\,\Omega$, wieder die Last aus dem Rechenmodell. **Kontrolle** mit den Potenzialen des Bildes: Von A nach L fließen $8\,\mathrm{V}/14\,\Omega=0{,}571$ A, von A nach E fließen $6\,\mathrm{V}/14\,\Omega=0{,}429$ A. Die Summe ist 1 A, wie $16\,\mathrm{V}/16\,\Omega$ es verlangt.
+::::beispiel
+In Abb. [2](#abb-2) tauscht das Spiegeln A und B sowie E und F, Regel 2 gilt. In der Halbschaltung liegen zwischen E und der Achse $14\,\Omega\parallel7\,\Omega=4{,}67\,\Omega$. Mit dem Weg von A nach E sind das 18,67 $\Omega$. Parallel zum linken Zweig ergibt das $R_\mathrm{A,Achse}=14\,\Omega\parallel18{,}67\,\Omega=8\,\Omega$, also $R_\mathrm{AB}=16\,\Omega$, wieder die Last aus dem Rechenmodell. **Kontrolle** mit den Potenzialen des Bildes: Von A nach L fließen $8\,\mathrm{V}/14\,\Omega=0{,}571$ A, von A nach E fließen $6\,\mathrm{V}/14\,\Omega=0{,}429$ A. Die Summe ist 1 A, wie $16\,\mathrm{V}/16\,\Omega$ es verlangt.
+::::
 
 :::abbildung et1/k5wuerfel 3
 Würfel aus zwölf gleichen Widerständen mit Spannung an der Raumdiagonale. Eine Drehung um diese Diagonale führt die drei Nachbarn von A ineinander über, ebenso die drei Nachbarn von B. Nach dem Verbinden entsteht eine Kette aus drei Gruppen.

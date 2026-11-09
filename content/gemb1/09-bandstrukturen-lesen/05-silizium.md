@@ -52,7 +52,9 @@ Links: **qualitative Skizze** der Silizium-Bänder, nicht maßstäblich und nich
 
 </ul>
 
-**Beispiel.** Es ist $2\pi/a=11{,}57\,\mathrm{nm^{-1}}$, das Minimum liegt bei $9{,}83\,\mathrm{nm^{-1}}$. Mit dem Zellvolumen $a^3/4$ gibt es $2{,}50\cdot10^{22}$ Zellen je cm$^3$. Die vier Valenzbänder fassen $2{,}0\cdot10^{23}\,\mathrm{cm^{-3}}$ Elektronen, genau die vier Außenelektronen der $5{,}0\cdot10^{22}$ Atome je cm$^3$. **Kontrolle:** Bei $\Gamma$ ist $g_0=4$. Zwei s-Orbitale ergeben dann $E_\mathrm s\mp4V_\mathrm{ss}$: dieselbe Aufspaltung wie $E_\sigma$ und $E_{\sigma^*}$ aus [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html), verstärkt durch vier Nachbarn.
+::::beispiel
+Es ist $2\pi/a=11{,}57\,\mathrm{nm^{-1}}$, das Minimum liegt bei $9{,}83\,\mathrm{nm^{-1}}$. Mit dem Zellvolumen $a^3/4$ gibt es $2{,}50\cdot10^{22}$ Zellen je cm$^3$. Die vier Valenzbänder fassen $2{,}0\cdot10^{23}\,\mathrm{cm^{-3}}$ Elektronen, genau die vier Außenelektronen der $5{,}0\cdot10^{22}$ Atome je cm$^3$. **Kontrolle:** Bei $\Gamma$ ist $g_0=4$. Zwei s-Orbitale ergeben dann $E_\mathrm s\mp4V_\mathrm{ss}$: dieselbe Aufspaltung wie $E_\sigma$ und $E_{\sigma^*}$ aus [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html), verstärkt durch vier Nachbarn.
+::::
 
 :::frage Im Atom ist jedes sp$^3$-Orbital halb voll, im Kristall ist das Valenzband ganz voll. Woher kommen die zusätzlichen Elektronen?
 Es kommen keine hinzu. $N$ Atome bringen $4N$ Orbitale und $4N$ Elektronen. Die Kopplung macht daraus $2N$ bindende und $2N$ antibindende Zustände, und in die bindenden passen $4N$ Elektronen. Voll ist nur die untere Hälfte.

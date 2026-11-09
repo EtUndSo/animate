@@ -31,11 +31,13 @@ $$(\mathbf{v}^*)^{\top}\mathbf{v}=\sum_i|v_i|^2>0\qquad\text{for }\mathbf{v}\ne\
 
 **Roots of polynomials.** Every polynomial of degree $n\ge1$ with real or complex coefficients has exactly $n$ complex roots if multiple roots are counted according to their multiplicity, and it factors into $n$ linear factors. If the polynomial has real coefficients, then whenever $z$ is a root, so is $z^*$: non-real roots come in pairs.
 
-⁠**Worked example:** By the quadratic formula, $\lambda^2-1.2\lambda+1=0$ has the roots $\lambda=0.6\pm\sqrt{0.36-1}=0.6\pm\mathrm j\,0.8$, a conjugate pair with magnitude $\sqrt{0.36+0.64}=1$. For $\mathbf{v}=(1,\,-\mathrm j)^{\top}$, we have $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ and $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ (Fig. [16](#abb-16)).
+::::beispiel [Worked example]
+By the quadratic formula, $\lambda^2-1.2\lambda+1=0$ has the roots $\lambda=0.6\pm\sqrt{0.36-1}=0.6\pm\mathrm j\,0.8$, a conjugate pair with magnitude $\sqrt{0.36+0.64}=1$. For $\mathbf{v}=(1,\,-\mathrm j)^{\top}$, we have $\mathbf{v}^*=(1,\,\mathrm j)^{\top}$ and $(\mathbf{v}^*)^{\top}\mathbf{v}=1\cdot1+\mathrm j\cdot(-\mathrm j)=1+1=2$ (Fig. [16](#abb-16)).
 
 :::abbildung ml/k2rkomplex 16
 The dot product $(\mathbf{v}^*)^{\top}\mathbf{v}$ for $\mathbf{v}=(1,-\mathrm j)^{\top}$: each term is $v_i^*v_i=|v_i|^2$, because $\mathrm j\cdot(-\mathrm j)=-\mathrm j^2=1$.
 :::
+::::
 
 ⁠**In short:** Complex numbers $x+\mathrm jy$ with $\mathrm j^2=-1$ solve every polynomial equation; conjugation flips the sign of the imaginary part, and $zz^*=|z|^2$ is real.
 
@@ -43,7 +45,7 @@ The dot product $(\mathbf{v}^*)^{\top}\mathbf{v}$ for $\mathbf{v}=(1,-\mathrm j)
 
 <span class="anker" id="stufe-6-2"></span>
 
-In Foundations 1, Section 8.3, the grid of the plane was rotated, stretched and sheared by matrices. In the process, most arrows change their direction. For some matrices, however, there are directions in which an arrow stays on its line through the origin: it is only stretched, compressed or flipped over (Fig. [17](#abb-17)).
+In [Foundations 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), the grid of the plane was rotated, stretched and sheared by matrices. In the process, most arrows change their direction. For some matrices, however, there are directions in which an arrow stays on its line through the origin: it is only stretched, compressed or flipped over (Fig. [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 The matrix $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ maps the unit circle (gray) to an ellipse (blue). The arrow $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ (red) stays on its line and is stretched to five times its length, the arrow $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ (green) to twice its length; their images are drawn in light colors. The gray lines are the two eigendirections. The unit vector $\mathbf{e}_1$, by contrast, is mapped to $(4,2)^{\top}$ (dashed) and changes its direction.
@@ -62,11 +64,13 @@ The number $\lambda$ is called the corresponding __eigenvalue__.
 
 The zero vector is excluded because $\mathbf{A}\mathbf{0}=\lambda\mathbf{0}$ holds for every number $\lambda$ and reveals nothing. The eigenvalue, on the other hand, may be zero: then the eigenvector is mapped to $\mathbf{0}$. A negative eigenvalue flips the arrow over. In this chapter, eigenvalues are denoted $\lambda$ or $\lambda_i$. The prefix *eigen* comes from German and has been adopted into English: *eigenvalue*, *eigenvector*.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$,
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$,
 
 $$\mathbf{A}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}5\\5\end{pmatrix}=5\begin{pmatrix}1\\1\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\-2\end{pmatrix}=\begin{pmatrix}2\\-4\end{pmatrix}=2\begin{pmatrix}1\\-2\end{pmatrix},\qquad \mathbf{A}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}4\\2\end{pmatrix}.$$
 
 So $(1,\,1)^{\top}$ is an eigenvector for the eigenvalue $5$, and $(1,\,-2)^{\top}$ is one for the eigenvalue $2$. The vector $(1,\,0)^{\top}$ is not an eigenvector, because $(4,\,2)^{\top}$ is not a multiple of it.
+::::
 
 ⁠**In short:** An eigenvector is not rotated by the matrix, only multiplied by a number; this number is the eigenvalue.
 
@@ -82,7 +86,7 @@ for all $p$ for which the integral exists. The shape of the input is preserved; 
 
 <span class="anker" id="stufe-6-3"></span>
 
-How do you find eigenvalues without guessing? Rewrite [(6.1)](#gl-6-1) so that everything is on one side: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, that is, $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. We are looking for a $\lambda$ for which this homogeneous system has a solution $\mathbf{v}\ne\mathbf{0}$. By Foundations 1, Section 11.5, this means: the matrix $\mathbf{A}-\lambda\mathbf{I}$ is not invertible. By Foundations 1, Section 14.6, this is the case exactly when its determinant is zero.
+How do you find eigenvalues without guessing? Rewrite [(6.1)](#gl-6-1) so that everything is on one side: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, that is, $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. We are looking for a $\lambda$ for which this homogeneous system has a solution $\mathbf{v}\ne\mathbf{0}$. By [Foundations 1, Section 11.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), this means: the matrix $\mathbf{A}-\lambda\mathbf{I}$ is not invertible. By [Foundations 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), this is the case exactly when its determinant is zero.
 
 :::definition Definition 6.2 (Characteristic polynomial)
 <span class="anker" id="satz-6-2"></span>
@@ -108,7 +112,9 @@ $$\det\begin{pmatrix}a-\lambda&b\\c&d-\lambda\end{pmatrix}=(a-\lambda)(d-\lambda
 
 By the subsection on complex numbers, it has exactly $n$ complex roots, counted with multiplicity. So an $n\times n$ matrix has $n$ eigenvalues if complex ones are allowed and multiple ones are counted according to their multiplicity.
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. The eigenvalues are $5$ and $2$, as in the previous subsection. For the diagonal matrix $\operatorname{diag}(3,\,-1)$, $p(\lambda)=(3-\lambda)(-1-\lambda)$ with the roots $3$ and $-1$: the eigenvalues of a diagonal matrix are on its diagonal, and the eigenvectors are the unit vectors.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, $p(\lambda)=\lambda^2-7\lambda+(12-2)=\lambda^2-7\lambda+10=(\lambda-5)(\lambda-2)$. The eigenvalues are $5$ and $2$, as in the previous subsection. For the diagonal matrix $\operatorname{diag}(3,\,-1)$, $p(\lambda)=(3-\lambda)(-1-\lambda)$ with the roots $3$ and $-1$: the eigenvalues of a diagonal matrix are on its diagonal, and the eigenvectors are the unit vectors.
+::::
 
 ⁠**In short:** The eigenvalues are the roots of the characteristic polynomial $\det(\mathbf{A}-\lambda\mathbf{I})$; counted with multiplicity and including complex ones, an $n\times n$ matrix has $n$ eigenvalues.
 
@@ -126,11 +132,13 @@ The null space of $\mathbf{A}-\lambda\mathbf{I}$ is called the __eigenspace__ of
 
 It contains all eigenvectors for $\lambda$ and the zero vector. As a null space, it is a subspace in the sense of Section [4.1](projektion-auf-einen-unterraum.html#stufe-4-1).
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ and $\lambda=5$,
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ and $\lambda=5$,
 
 $$\mathbf{A}-5\mathbf{I}=\begin{pmatrix}-1&1\\2&-2\end{pmatrix}.$$
 
 Both rows require the same thing: $-v_1+v_2=0$. The eigenspace is the line of all multiples of $(1,\,1)^{\top}$. For $\lambda=2$, $\mathbf{A}-2\mathbf{I}=\bigl(\begin{smallmatrix}2&1\\2&1\end{smallmatrix}\bigr)$ with the condition $2v_1+v_2=0$; the eigenspace is the line in the direction of $(1,\,-2)^{\top}$. Normalized, the eigenvectors are $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$ and $\mathbf{v}_2=(1,\,-2)^{\top}/\sqrt5$, as in Fig. [17](#abb-17). They are not perpendicular to each other: $(1,\,1)(1,\,-2)^{\top}=-1\ne0$.
+::::
 
 ⁠**In short:** The eigenvectors for $\lambda$ are the solutions $\mathbf{v}\ne\mathbf{0}$ of $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$; together with the zero vector they form the eigenspace.
 
@@ -168,11 +176,13 @@ For arbitrary $n$, $p(\lambda)$ likewise factors into $(\lambda_1-\lambda)(\lamb
 For the last statement: $\operatorname{tr}(\mathbf{A}\mathbf{B})=\sum_i(\mathbf{A}\mathbf{B})_{ii}=\sum_i\sum_la_{il}b_{li}$ and $\operatorname{tr}(\mathbf{B}\mathbf{A})=\sum_l\sum_ib_{li}a_{il}$. This is the same double sum, only ordered differently.
 :::
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, $\operatorname{tr}\mathbf{A}=7=5+2$ (Fig. [18](#abb-18)) and $\det\mathbf{A}=10=5\cdot2$. For $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $\operatorname{tr}=7$ and $\det=6$; so the eigenvalues are the solutions of $\lambda^2-7\lambda+6=0$, namely $6$ and $1$. For $\mathbf{A}\in\mathbb{R}^{2\times3}$ with the rows $(1,0,2)$, $(0,1,1)$ and $\mathbf{B}=\mathbf{A}^{\top}$, $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ with trace $7$, and $\mathbf{B}\mathbf{A}$ is a $3\times3$ matrix with the diagonal entries $1$, $1$ and $5$, also with trace $7$.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, $\operatorname{tr}\mathbf{A}=7=5+2$ (Fig. [18](#abb-18)) and $\det\mathbf{A}=10=5\cdot2$. For $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $\operatorname{tr}=7$ and $\det=6$; so the eigenvalues are the solutions of $\lambda^2-7\lambda+6=0$, namely $6$ and $1$. For $\mathbf{A}\in\mathbb{R}^{2\times3}$ with the rows $(1,0,2)$, $(0,1,1)$ and $\mathbf{B}=\mathbf{A}^{\top}$, $\mathbf{A}\mathbf{B}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ with trace $7$, and $\mathbf{B}\mathbf{A}$ is a $3\times3$ matrix with the diagonal entries $1$, $1$ and $5$, also with trace $7$.
 
 :::abbildung ml/k2rspur 18
 The trace of $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ as the sum of the diagonal entries; it equals the sum of the eigenvalues $5$ and $2$.
 :::
+::::
 
 ⁠**In short:** The trace is the sum of the diagonal entries and the sum of the eigenvalues; the determinant is the product of the eigenvalues.
 
@@ -182,16 +192,20 @@ The trace of $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr
 
 A rotation by $90^\circ$ leaves no arrow on its line: every arrow is turned further by a right angle. So it cannot have a real eigenvector. The characteristic polynomial shows what happens instead.
 
-⁠**Worked example 1:** For the rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, $p(\lambda)=\lambda^2+1$ with the roots $\lambda=\mathrm j$ and $\lambda=-\mathrm j$. The eigenvalues are purely imaginary. The complex eigenvector $(1,\,-\mathrm j)^{\top}$ belongs to $\lambda=\mathrm j$, because $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::beispiel [Worked example 1]
+For the rotation $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, $p(\lambda)=\lambda^2+1$ with the roots $\lambda=\mathrm j$ and $\lambda=-\mathrm j$. The eigenvalues are purely imaginary. The complex eigenvector $(1,\,-\mathrm j)^{\top}$ belongs to $\lambda=\mathrm j$, because $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)(1,\,-\mathrm j)^{\top}=(\mathrm j,\,1)^{\top}=\mathrm j\,(1,\,-\mathrm j)^{\top}$.
+::::
 
-⁠**Worked example 2:** The rotation $\mathbf{Q}=\bigl(\begin{smallmatrix}0.6&-0.8\\0.8&0.6\end{smallmatrix}\bigr)$ from Section [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4) has $p(\lambda)=\lambda^2-1.2\lambda+1$ and, by the worked example on complex numbers, the eigenvalues $0.6\pm\mathrm j\,0.8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$ with $\alpha\approx53.13^\circ$. In general, the rotation by the angle $\alpha$ has the eigenvalues $\mathrm e^{\pm\mathrm j\alpha}$.
+::::beispiel [Worked example 2]
+The rotation $\mathbf{Q}=\bigl(\begin{smallmatrix}0.6&-0.8\\0.8&0.6\end{smallmatrix}\bigr)$ from Section [1.4](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1-4) has $p(\lambda)=\lambda^2-1.2\lambda+1$ and, by the worked example on complex numbers, the eigenvalues $0.6\pm\mathrm j\,0.8=\cos\alpha\pm\mathrm j\sin\alpha=\mathrm e^{\pm\mathrm j\alpha}$ with $\alpha\approx53.13^\circ$. In general, the rotation by the angle $\alpha$ has the eigenvalues $\mathrm e^{\pm\mathrm j\alpha}$.
+::::
 
 So a real matrix can have complex eigenvalues. Because its characteristic polynomial has real coefficients, they occur in conjugate pairs. A real eigenvector belongs only to a real eigenvalue: if $\mathbf{v}$ were real and $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$, then $\lambda\mathbf{v}$, as the image of a real vector, would be real, and hence so would $\lambda$. Complex eigenvalues indicate that the matrix rotates in a plane.
 
 ⁠**In short:** A real matrix can have complex eigenvalues, always in conjugate pairs; a rotation by $\alpha$ has the eigenvalues $\mathrm e^{\pm\mathrm j\alpha}$.
 
 :::hintergrund Rotating means multiplying by $\mathrm e^{\mathrm j\alpha}$
-For electrical engineers this result is familiar. Identify the arrow $(x_1,\,x_2)^{\top}$ with the complex number $z=x_1+\mathrm jx_2$, as with a phasor. A rotation by $\alpha$ is then multiplication by $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, and these are exactly the two components of $\mathbf{Q}\mathbf{x}$ for the rotation matrix from Foundations 1, Section 8.3. In complex notation, the rotation is thus a multiplication by a number, and this number is an eigenvalue. The second eigenvalue $\mathrm e^{-\mathrm j\alpha}$ belongs to the conjugate notation $z^*$, which rotates in the opposite direction.
+For electrical engineers this result is familiar. Identify the arrow $(x_1,\,x_2)^{\top}$ with the complex number $z=x_1+\mathrm jx_2$, as with a phasor. A rotation by $\alpha$ is then multiplication by $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, and these are exactly the two components of $\mathbf{Q}\mathbf{x}$ for the rotation matrix from [Foundations 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). In complex notation, the rotation is thus a multiplication by a number, and this number is an eigenvalue. The second eigenvalue $\mathrm e^{-\mathrm j\alpha}$ belongs to the conjugate notation $z^*$, which rotates in the opposite direction.
 :::
 
 ### Multiple eigenvalues
@@ -206,7 +220,9 @@ The characteristic polynomial can have a double root. Then two of the $n$ eigenv
 The __algebraic multiplicity__ of an eigenvalue $\lambda$ is the multiplicity of $\lambda$ as a root of the characteristic polynomial.
 :::
 
-⁠**Worked example:** The matrix $2\mathbf{I}=\operatorname{diag}(2,\,2)$ has $p(\lambda)=(2-\lambda)^2$: the eigenvalue $2$ has algebraic multiplicity $2$. The shear $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ from Foundations 1, Section 8.3, has $p(\lambda)=(1-\lambda)^2$: the eigenvalue $1$ also has algebraic multiplicity $2$. The matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ has two different eigenvalues, each with algebraic multiplicity $1$.
+::::beispiel [Worked example]
+The matrix $2\mathbf{I}=\operatorname{diag}(2,\,2)$ has $p(\lambda)=(2-\lambda)^2$: the eigenvalue $2$ has algebraic multiplicity $2$. The shear $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ from [Foundations 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), has $p(\lambda)=(1-\lambda)^2$: the eigenvalue $1$ also has algebraic multiplicity $2$. The matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ has two different eigenvalues, each with algebraic multiplicity $1$.
+::::
 
 ⁠**In short:** The algebraic multiplicity counts how often an eigenvalue occurs as a root of the characteristic polynomial.
 
@@ -234,7 +250,9 @@ Eigenvectors $\mathbf{v}_1,\dots,\mathbf{v}_k$ for pairwise different eigenvalue
 For two eigenvectors: let $c_1\mathbf{v}_1+c_2\mathbf{v}_2=\mathbf{0}$. Applying $\mathbf{A}$ gives $c_1\lambda_1\mathbf{v}_1+c_2\lambda_2\mathbf{v}_2=\mathbf{0}$. Subtracting $\lambda_2$ times the first equation from this leaves $c_1(\lambda_1-\lambda_2)\mathbf{v}_1=\mathbf{0}$. Since $\lambda_1\ne\lambda_2$ and $\mathbf{v}_1\ne\mathbf{0}$, we get $c_1=0$, and then $c_2=0$ as well. For more eigenvectors, proceed in the same way: if there were a dependence, take one with as few nonzero coefficients as possible. Applying $\mathbf{A}$ and subtracting the dependence multiplied by $\lambda$, one of the eigenvalues involved, would give a dependence with even fewer nonzero coefficients, a contradiction.
 :::
 
-⁠**Worked example:** The eigenvectors $(1,\,1)^{\top}$ and $(1,\,-2)^{\top}$ of $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ belong to the different eigenvalues $5$ and $2$; they are linearly independent, because $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. The shear, by contrast, has only the eigendirection $(1,\,0)^{\top}$; it does not have two independent eigenvectors.
+::::beispiel [Worked example]
+The eigenvectors $(1,\,1)^{\top}$ and $(1,\,-2)^{\top}$ of $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ belong to the different eigenvalues $5$ and $2$; they are linearly independent, because $\det\bigl(\begin{smallmatrix}1&1\\1&-2\end{smallmatrix}\bigr)=-3\ne0$. The shear, by contrast, has only the eigendirection $(1,\,0)^{\top}$; it does not have two independent eigenvectors.
+::::
 
 ⁠**In short:** The geometric multiplicity counts the independent eigenvectors for an eigenvalue; it can be smaller than the algebraic one, but different eigenvalues always have independent eigenvectors.
 
@@ -279,10 +297,12 @@ $\mathbf{A}^{\top}$ has the same eigenvalues as $\mathbf{A}$, but in general dif
 :::
 
 :::beweis Rules
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, and so on. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) By [(6.5)](#gl-6-5), $\det\mathbf{A}$ is the product of the eigenvalues, so it is nonzero exactly when no eigenvalue is zero. Multiplying $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ by $\mathbf{A}^{-1}$ gives $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) By Foundations 1, Section 14.5, $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; both have the same characteristic polynomial.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, and so on. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) By [(6.5)](#gl-6-5), $\det\mathbf{A}$ is the product of the eigenvalues, so it is nonzero exactly when no eigenvalue is zero. Multiplying $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ by $\mathbf{A}^{-1}$ gives $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) By [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; both have the same characteristic polynomial.
 :::
 
-⁠**Worked example:** For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, the matrix $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ has the eigenvalues $25$ and $4$: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. The matrix $\mathbf{A}-5\mathbf{I}$ has the eigenvalues $0$ and $-3$ and is not invertible. The inverse $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ has the eigenvalues $\tfrac15$ and $\tfrac12$: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. The transpose $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ also has the eigenvalues $5$ and $2$, but $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: its eigenvectors are $(2,\,1)^{\top}$ and $(1,\,-1)^{\top}$.
+::::beispiel [Worked example]
+For $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, the matrix $\mathbf{A}^2=\bigl(\begin{smallmatrix}18&7\\14&11\end{smallmatrix}\bigr)$ has the eigenvalues $25$ and $4$: $\mathbf{A}^2(1,\,1)^{\top}=(25,\,25)^{\top}$. The matrix $\mathbf{A}-5\mathbf{I}$ has the eigenvalues $0$ and $-3$ and is not invertible. The inverse $\mathbf{A}^{-1}=\tfrac1{10}\bigl(\begin{smallmatrix}3&-1\\-2&4\end{smallmatrix}\bigr)$ has the eigenvalues $\tfrac15$ and $\tfrac12$: $\mathbf{A}^{-1}(1,\,-2)^{\top}=\tfrac1{10}(5,\,-10)^{\top}=\tfrac12(1,\,-2)^{\top}$. The transpose $\mathbf{A}^{\top}=\bigl(\begin{smallmatrix}4&2\\1&3\end{smallmatrix}\bigr)$ also has the eigenvalues $5$ and $2$, but $\mathbf{A}^{\top}(1,\,1)^{\top}=(6,\,4)^{\top}$: its eigenvectors are $(2,\,1)^{\top}$ and $(1,\,-1)^{\top}$.
+::::
 
 ⁠**In short:** Powers, shifts by $\beta\mathbf{I}$ and the inverse keep the eigenvectors and change the eigenvalues in the same way; the transpose keeps only the eigenvalues.
 
@@ -310,7 +330,7 @@ $\mathbf{A}_3$: trace $2$, determinant $1-9=-8$, so $\lambda^2-2\lambda-8=(\lamb
 Show: the eigenvalues of an upper triangular matrix are its diagonal entries. Determine the eigenvalues and eigenvectors of $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$.
 
 :::loesung
-For an upper triangular matrix, $\mathbf{A}-\lambda\mathbf{I}$ is again an upper triangular matrix, with the diagonal entries $a_{ii}-\lambda$. By Foundations 1, Section 14.4, its determinant is the product of the diagonal entries: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. The roots are the diagonal entries.
+For an upper triangular matrix, $\mathbf{A}-\lambda\mathbf{I}$ is again an upper triangular matrix, with the diagonal entries $a_{ii}-\lambda$. By [Foundations 1, Section 14.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), its determinant is the product of the diagonal entries: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. The roots are the diagonal entries.
 
 For the given matrix, the eigenvalues are therefore $2$, $3$ and $5$. For $2$: $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ requires $v_3=0$ and $v_2=0$, eigenvector $(1,\,0,\,0)^{\top}$. For $3$: $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ requires $v_3=0$ and $v_2=v_1$, eigenvector $(1,\,1,\,0)^{\top}$. For $5$: $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ requires $v_2=3v_1$ and $v_3=2v_2$, eigenvector $(1,\,3,\,6)^{\top}$. Check: $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

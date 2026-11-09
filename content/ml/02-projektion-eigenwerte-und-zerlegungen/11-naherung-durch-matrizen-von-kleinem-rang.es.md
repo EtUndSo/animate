@@ -19,7 +19,7 @@ La descomposición en valores singulares ordena los bloques de una matriz por su
 
 <span class="anker" id="stufe-10-1"></span>
 
-Para decir lo cerca que están dos matrices, se necesita una medida del tamaño de su diferencia. La norma espectral es una medida así; mide el alargamiento máximo. Hay una segunda aún más inmediata: se lee la matriz fila por fila, como una imagen en Fundamentos 1, sección 6.1, para formar un vector largo, y se toma su norma euclídea.
+Para decir lo cerca que están dos matrices, se necesita una medida del tamaño de su diferencia. La norma espectral es una medida así; mide el alargamiento máximo. Hay una segunda aún más inmediata: se lee la matriz fila por fila, como una imagen en [Fundamentos 1, sección 6.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), para formar un vector largo, y se toma su norma euclídea.
 
 :::definition Definición 10.1 (Norma de Frobenius)
 <span class="anker" id="satz-10-1"></span>
@@ -44,11 +44,13 @@ La entrada diagonal $j$ de $\mathbf{A}^{\top}\mathbf{A}$ es $\mathbf{a}_j^{\top}
 
 Dos consecuencias. Como $d_1^2\le\sum_jd_j^2$, es $\lVert\mathbf{A}\rVert_2\le\lVert\mathbf{A}\rVert_F$. Y una matriz ortogonal no cambia la norma de Frobenius: $(\mathbf{Q}\mathbf{A})^{\top}(\mathbf{Q}\mathbf{A})=\mathbf{A}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{A}=\mathbf{A}^{\top}\mathbf{A}$; por tanto, $\mathbf{Q}\mathbf{A}$ y $\mathbf{A}$ tienen los mismos valores singulares.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (fig. [24](#abb-24)); por tanto, $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$, algo más que $\lVert\mathbf{A}\rVert_2=4$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ es $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (fig. [24](#abb-24)); por tanto, $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$, algo más que $\lVert\mathbf{A}\rVert_2=4$.
 
 :::abbildung ml/k2rfrobenius 24
 El cuadrado de la norma de Frobenius de $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$: la suma de todas las entradas al cuadrado, igual a la suma de los valores singulares al cuadrado.
 :::
+::::
 
 ⁠**En resumen:** La norma de Frobenius es la norma euclídea de todas las entradas; su cuadrado es la suma de los valores singulares al cuadrado.
 
@@ -80,7 +82,8 @@ $$\lVert\mathbf{A}-\mathbf{A}_k\rVert_2=d_{k+1},\qquad \lVert\mathbf{A}-\mathbf{
 
 Para guardarla, $\mathbf{A}_k$ solo necesita los $k$ vectores $\mathbf{u}_j$, de $m$ entradas cada uno, los $k$ vectores $\mathbf{v}_j$, de $n$ entradas cada uno, y los $k$ números $d_j$: en total, $k(m+n+1)$ números en lugar de $mn$.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ y $k=1$ es
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ y $k=1$ es
 
 $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1{,}6&3{,}2\\0{,}8&1{,}6\end{pmatrix},\qquad \mathbf{A}-\mathbf{A}_1=\mathbf{u}_2\mathbf{v}_2^{\top}=\begin{pmatrix}0{,}4&-0{,}2\\-0{,}8&0{,}4\end{pmatrix}.$$
 
@@ -89,6 +92,7 @@ La norma de Frobenius del error es $\sqrt{0{,}16+0{,}04+0{,}64+0{,}16}=1=d_2$ (f
 :::abbildung ml/k2rfehler 25
 El cuadrado del error de la mejor aproximación de rango $1$ en la norma de Frobenius, con $0{,}4=\tfrac25$, $0{,}2=\tfrac15$ y $0{,}8=\tfrac45$: es $d_2^2=1$.
 :::
+::::
 
 ⁠**En resumen:** $\mathbf{A}_k$ conserva los $k$ bloques mayores; el error tiene los valores singulares restantes, y su norma espectral es $d_{k+1}$.
 
@@ -110,7 +114,7 @@ Entre todas las matrices de rango como mucho $k$, $\mathbf{A}_k$ es, por tanto, 
 :::
 
 :::beweis Norma espectral
-Según el teorema del rango, el núcleo de $\mathbf{B}$ tiene dimensión $n-\operatorname{rango}\mathbf{B}\ge n-k$. Se eligen $n-k$ vectores linealmente independientes $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ del núcleo y se les añaden $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Son $n+1$ vectores de $\mathbb{R}^n$ y, según Fundamentos 1, sección 13.4, son linealmente dependientes, pues una matriz con $n$ filas tiene como mucho rango $n$. Existen, por tanto, números, no todos nulos, con $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Este vector $\mathbf{z}$ no es nulo, pues de lo contrario, por la independencia de ambas listas, todos los números serían cero. Está en el núcleo de $\mathbf{B}$ y en el espacio generado por $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Se normaliza a longitud $1$. Entonces $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, y con $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
+Según el teorema del rango, el núcleo de $\mathbf{B}$ tiene dimensión $n-\operatorname{rango}\mathbf{B}\ge n-k$. Se eligen $n-k$ vectores linealmente independientes $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ del núcleo y se les añaden $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Son $n+1$ vectores de $\mathbb{R}^n$ y, según [Fundamentos 1, sección 13.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), son linealmente dependientes, pues una matriz con $n$ filas tiene como mucho rango $n$. Existen, por tanto, números, no todos nulos, con $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Este vector $\mathbf{z}$ no es nulo, pues de lo contrario, por la independencia de ambas listas, todos los números serían cero. Está en el núcleo de $\mathbf{B}$ y en el espacio generado por $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Se normaliza a longitud $1$. Entonces $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, y con $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -119,7 +123,9 @@ Por tanto, $\mathbf{A}-\mathbf{B}$ alarga el vector unitario $\mathbf{z}$ al men
 
 La demostración muestra la razón: una matriz de rango $k$ tiene que transformar en cero todo un conjunto de direcciones, a saber, su núcleo. Este núcleo corta forzosamente el espacio de las $k+1$ direcciones que $\mathbf{A}$ más estira, y allí $\mathbf{B}$ comete un error de al menos $d_{k+1}$.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, $\mathbf{A}_1$ es la mejor matriz de rango $1$, con el error $1$ en ambas normas. Otra matriz de rango $1$, por ejemplo $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, que simplemente suprime la segunda fila, tiene el error $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$, de norma $2$.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, $\mathbf{A}_1$ es la mejor matriz de rango $1$, con el error $1$ en ambas normas. Otra matriz de rango $1$, por ejemplo $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$, que simplemente suprime la segunda fila, tiene el error $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$, de norma $2$.
+::::
 
 ⁠**En resumen:** La descomposición truncada $\mathbf{A}_k$ es la mejor aproximación de rango $k$, tanto en la norma espectral como en la de Frobenius.
 
@@ -145,7 +151,8 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 indica qué parte de la suma de todos los valores de brillo al cuadrado se conserva.
 
-⁠**Ejemplo numérico:** La cruz de Fundamentos 1, sección 6.1, es
+::::beispiel [Ejemplo numérico]
+La cruz de [Fundamentos 1, sección 6.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), es
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 
@@ -158,6 +165,7 @@ $$\mathbf{C}_1=2\,\mathbf{q}_1\mathbf{q}_1^{\top}=\frac13\begin{pmatrix}1&2&1\\2
 :::abbildung ml/k2bild 26
 La cruz $\mathbf{C}$ de $3\times3$ píxeles (izquierda; $0$ negro, $1$ blanco), su mejor aproximación $\mathbf{C}_1$ de rango $1$ (centro; el valor $\tfrac43$ es más claro que el blanco y se representa en blanco) y el error $\mathbf{C}-\mathbf{C}_1$ (derecha; rojo positivo, azul negativo). El error es a su vez una matriz de rango $1$: el bloque asociado al valor singular $1$.
 :::
+::::
 
 En una cruz de $3\times3$ píxeles, esto ahorra poco. En imágenes grandes, la diferencia es considerable: una imagen de $1000\times1000$ píxeles tiene $10^6$ entradas; la aproximación con $k=50$ bloques necesita $50\cdot(1000+1000+1)=100\,050$ números, alrededor del $10\,\%$. Que la aproximación se vea bien depende de lo rápido que decrezcan los valores singulares. En muchas fotos, las filas vecinas se parecen mucho; las filas están entonces cerca de un subespacio de dimensión pequeña, y unos pocos valores singulares grandes se llevan casi toda la suma $\sum_jd_j^2$.
 

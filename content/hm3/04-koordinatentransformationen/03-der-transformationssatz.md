@@ -63,9 +63,11 @@ $$\int_Df(\boldsymbol{y})\,\mathrm{d}\boldsymbol{y}=\int_Bf(\Phi(\boldsymbol{x})
 
 **Warum ein Betrag steht.** In [(1.1)](#gl-1-1) steht keiner, denn die Grenzen tragen das Vorzeichen mit: Fällt $\psi$, ist $\psi'<0$ und zugleich $\psi(a)>\psi(b)$. Beide Minuszeichen heben sich auf. In [(1.2)](#gl-1-2) wird dagegen über eine Menge ohne Durchlaufrichtung integriert, und jede Zelle zählt positiv.
 
-**Beispiel.** Sei $D$ das Quadrat $0\le x+y\le2$, $0\le x-y\le2$ und $f(x,y)=x^2-y^2$. Die Ränder liegen schief, aber $u=x+y$ und $v=x-y$ laufen unabhängig von 0 bis 2, und $f=uv$. Umstellen gibt $\Phi(u,v)=\bigl(\frac{u+v}2,\frac{u-v}2\bigr)$ auf $B=[0,2]^2$ mit
+::::beispiel
+Sei $D$ das Quadrat $0\le x+y\le2$, $0\le x-y\le2$ und $f(x,y)=x^2-y^2$. Die Ränder liegen schief, aber $u=x+y$ und $v=x-y$ laufen unabhängig von 0 bis 2, und $f=uv$. Umstellen gibt $\Phi(u,v)=\bigl(\frac{u+v}2,\frac{u-v}2\bigr)$ auf $B=[0,2]^2$ mit
 
 $$D\Phi=\begin{pmatrix}\frac12&\frac12\\[1mm]\frac12&-\frac12\end{pmatrix},\qquad\det D\Phi=-\frac12,\qquad\int_D(x^2-y^2)\,\mathrm{d} x\,\mathrm{d} y=\frac12\int_0^2\!\!\int_0^2uv\,\mathrm{d} u\,\mathrm{d} v=2.$$
+::::
 
 ⁠**Kontrolle:** Für $f=1$ ergibt sich $\frac12\cdot4=2$. Das stimmt, denn $D$ ist ein Quadrat mit der Seitenlänge $\sqrt2$.
 

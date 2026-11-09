@@ -19,7 +19,7 @@ Tekil değer ayrışımı bir matrisin yapı taşlarını büyüklüklerine gör
 
 <span class="anker" id="stufe-10-1"></span>
 
-İki matrisin birbirine ne kadar yakın olduğunu söylemek için farklarının büyüklüğünü veren bir ölçü gerekir. Spektral norm böyle bir ölçüdür; en büyük uzatmayı ölçer. İkincisi daha da akla yatkındır: Matris, Temeller 1, Kesim 6.1'deki bir görüntü gibi satır satır okunarak uzun bir vektöre dönüştürülür ve bu vektörün Öklid normu alınır.
+İki matrisin birbirine ne kadar yakın olduğunu söylemek için farklarının büyüklüğünü veren bir ölçü gerekir. Spektral norm böyle bir ölçüdür; en büyük uzatmayı ölçer. İkincisi daha da akla yatkındır: Matris, [Temeller 1, Kesim 6.1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1)'deki bir görüntü gibi satır satır okunarak uzun bir vektöre dönüştürülür ve bu vektörün Öklid normu alınır.
 
 :::definition Tanım 10.1 (Frobenius normu)
 <span class="anker" id="satz-10-1"></span>
@@ -44,11 +44,13 @@ $\mathbf{A}^{\top}\mathbf{A}$ matrisinin $j$ numaralı köşegen elemanı $\math
 
 İki sonuç. $d_1^2\le\sum_jd_j^2$ olduğundan $\lVert\mathbf{A}\rVert_2\le\lVert\mathbf{A}\rVert_F$ olur. Ayrıca ortogonal bir matris Frobenius normunu değiştirmez: $(\mathbf{Q}\mathbf{A})^{\top}(\mathbf{Q}\mathbf{A})=\mathbf{A}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{A}=\mathbf{A}^{\top}\mathbf{A}$, dolayısıyla $\mathbf{Q}\mathbf{A}$ ile $\mathbf{A}$ matrislerinin tekil değerleri aynıdır.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Şekil [24](#abb-24)), dolayısıyla $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$ olur; bu, $\lVert\mathbf{A}\rVert_2=4$ değerinden biraz fazladır.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için $\lVert\mathbf{A}\rVert_F^2=4+9+0+4=17=4^2+1^2$ (Şekil [24](#abb-24)), dolayısıyla $\lVert\mathbf{A}\rVert_F=\sqrt{17}\approx4{,}12$ olur; bu, $\lVert\mathbf{A}\rVert_2=4$ değerinden biraz fazladır.
 
 :::abbildung ml/k2rfrobenius 24
 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ matrisinin Frobenius normunun karesi: bütün elemanların karelerinin toplamı; tekil değerlerin karelerinin toplamına eşittir.
 :::
+::::
 
 ⁠**Kısacası:** Frobenius normu bütün elemanların Öklid normudur; karesi, tekil değerlerin karelerinin toplamıdır.
 
@@ -80,7 +82,8 @@ $$\lVert\mathbf{A}-\mathbf{A}_k\rVert_2=d_{k+1},\qquad \lVert\mathbf{A}-\mathbf{
 
 $\mathbf{A}_k$ matrisini saklamak için yalnızca her biri $m$ elemanlı $k$ tane $\mathbf{u}_j$ vektörü, her biri $n$ elemanlı $k$ tane $\mathbf{v}_j$ vektörü ve $k$ tane $d_j$ sayısı gerekir; toplam $mn$ yerine $k(m+n+1)$ sayı.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ve $k=1$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ve $k=1$ için şu bulunur:
 
 $$\mathbf{A}_1=4\,\mathbf{u}_1\mathbf{v}_1^{\top}=\begin{pmatrix}1{,}6&3{,}2\\0{,}8&1{,}6\end{pmatrix},\qquad \mathbf{A}-\mathbf{A}_1=\mathbf{u}_2\mathbf{v}_2^{\top}=\begin{pmatrix}0{,}4&-0{,}2\\-0{,}8&0{,}4\end{pmatrix}.$$
 
@@ -89,6 +92,7 @@ Hatanın Frobenius normu $\sqrt{0{,}16+0{,}04+0{,}64+0{,}16}=1=d_2$ olur (Şekil
 :::abbildung ml/k2rfehler 25
 Rankı $1$ olan en iyi yaklaşımın Frobenius normundaki hatası, $0{,}4=\tfrac25$, $0{,}2=\tfrac15$ ve $0{,}8=\tfrac45$ ile: Karesi $d_2^2=1$ olur.
 :::
+::::
 
 ⁠**Kısacası:** $\mathbf{A}_k$ en büyük $k$ yapı taşını korur; hatanın tekil değerleri geri kalanlardır ve spektral normu $d_{k+1}$ olur.
 
@@ -110,7 +114,7 @@ Demek ki rankı en fazla $k$ olan bütün matrisler arasında $\mathbf{A}$ matri
 :::
 
 :::beweis Spektral norm
-Rank-sıfırlık teoremine göre $\mathbf{B}$ matrisinin çekirdeğinin boyutu $n-\operatorname{rank}\mathbf{B}\ge n-k$ olur. Çekirdekte $n-k$ tane doğrusal bağımsız $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ vektörü seçilir ve bunlara $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ eklenir. Bunlar $\mathbb{R}^n$ uzayında $n+1$ vektördür ve Temeller 1, Kesim 13.4'e göre doğrusal bağımlıdır, çünkü $n$ satırlı bir matrisin rankı en fazla $n$ olur. Dolayısıyla hepsi sıfır olmayan ve $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$ eşitliğini sağlayan sayılar vardır. Bu $\mathbf{z}$ vektörü sıfır değildir, çünkü aksi halde iki listenin bağımsızlığı nedeniyle bütün sayılar sıfır olurdu. Vektör hem $\mathbf{B}$ matrisinin çekirdeğinde hem de $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ vektörlerinin gerdiği alt uzaydadır. $1$ uzunluğuna normlanır. O zaman $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$ olur ve $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ ile şu bulunur:
+Rank-sıfırlık teoremine göre $\mathbf{B}$ matrisinin çekirdeğinin boyutu $n-\operatorname{rank}\mathbf{B}\ge n-k$ olur. Çekirdekte $n-k$ tane doğrusal bağımsız $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ vektörü seçilir ve bunlara $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ eklenir. Bunlar $\mathbb{R}^n$ uzayında $n+1$ vektördür ve [Temeller 1, Kesim 13.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4)'e göre doğrusal bağımlıdır, çünkü $n$ satırlı bir matrisin rankı en fazla $n$ olur. Dolayısıyla hepsi sıfır olmayan ve $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$ eşitliğini sağlayan sayılar vardır. Bu $\mathbf{z}$ vektörü sıfır değildir, çünkü aksi halde iki listenin bağımsızlığı nedeniyle bütün sayılar sıfır olurdu. Vektör hem $\mathbf{B}$ matrisinin çekirdeğinde hem de $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$ vektörlerinin gerdiği alt uzaydadır. $1$ uzunluğuna normlanır. O zaman $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$ olur ve $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$ ile şu bulunur:
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -119,7 +123,9 @@ Demek ki $\mathbf{A}-\mathbf{B}$, $\mathbf{z}$ birim vektörünü en az $d_{k+1}
 
 İspat nedeni gösterir: Rankı $k$ olan bir matris koca bir doğrultular kümesini, yani çekirdeğini sıfıra götürmek zorundadır. Bu çekirdek, $\mathbf{A}$ matrisinin en çok uzattığı $k+1$ doğrultunun uzayıyla kaçınılmaz olarak kesişir ve $\mathbf{B}$ orada en az $d_{k+1}$ büyüklüğünde bir hata yapar.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için rankı $1$ olan en iyi matris, iki normda da hatası $1$ olan $\mathbf{A}_1$ matrisidir. Rankı $1$ olan başka bir matrisin, örneğin ikinci satırı basitçe silen $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$ matrisinin hatası $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$ olur, normu da $2$.
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ için rankı $1$ olan en iyi matris, iki normda da hatası $1$ olan $\mathbf{A}_1$ matrisidir. Rankı $1$ olan başka bir matrisin, örneğin ikinci satırı basitçe silen $\mathbf{B}=\bigl(\begin{smallmatrix}2&3\\0&0\end{smallmatrix}\bigr)$ matrisinin hatası $\mathbf{A}-\mathbf{B}=\bigl(\begin{smallmatrix}0&0\\0&2\end{smallmatrix}\bigr)$ olur, normu da $2$.
+::::
 
 ⁠**Kısacası:** $\mathbf{A}_k$ kesilmiş ayrışımı, hem spektral normda hem Frobenius normunda rankı $k$ olan en iyi yaklaşımdır.
 
@@ -145,7 +151,8 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 
 bütün parlaklık değerlerinin karelerinin toplamından hangi payın korunduğunu gösterir.
 
-⁠**Sayısal örnek:** Temeller 1, Kesim 6.1'deki artı işareti şu matristir:
+::::beispiel [Sayısal örnek]
+[Temeller 1, Kesim 6.1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1)'deki artı işareti şu matristir:
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 
@@ -158,6 +165,7 @@ $$\mathbf{C}_1=2\,\mathbf{q}_1\mathbf{q}_1^{\top}=\frac13\begin{pmatrix}1&2&1\\2
 :::abbildung ml/k2bild 26
 $3\times3$ pikselden oluşan $\mathbf{C}$ artı işareti (solda; $0$ siyah, $1$ beyaz), rankı $1$ olan en iyi yaklaşımı $\mathbf{C}_1$ (ortada; $\tfrac43$ değeri beyazdan daha parlaktır ve beyaz gösterilmiştir) ve $\mathbf{C}-\mathbf{C}_1$ hatası (sağda; kırmızı pozitif, mavi negatif). Hatanın kendisi de rankı $1$ olan bir matristir: $1$ tekil değerine ait yapı taşı.
 :::
+::::
 
 $3\times3$ piksellik bir artı işaretinde bu pek tasarruf sağlamaz. Büyük görüntülerde fark önemlidir: $1000\times1000$ piksellik bir görüntünün $10^6$ elemanı vardır; $k=50$ yapı taşlı yaklaşım $50\cdot(1000+1000+1)=100\,050$ sayı, yani yaklaşık $10\,\%$ gerektirir. Yaklaşımın iyi görünüp görünmediği, tekil değerlerin ne kadar hızlı azaldığına bağlıdır. Pek çok fotoğrafta komşu satırlar birbirine çok benzer; satırlar o zaman küçük boyutlu bir alt uzaya yakın bulunur ve birkaç büyük tekil değer $\sum_jd_j^2$ toplamının neredeyse tamamını taşır.
 

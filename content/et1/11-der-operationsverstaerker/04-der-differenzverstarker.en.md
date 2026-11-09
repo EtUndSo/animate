@@ -41,7 +41,11 @@ $$U_\mathrm{A}=A_\mathrm{D}\,U_\mathrm{D},\qquad A_\mathrm{D}=S\,R_\mathrm{C}=\f
 Both emitters are at the same potential, so $U_\mathrm{BE2}-U_\mathrm{BE1}=U_\mathrm{D}$. With $I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T}$ it follows that $I_\mathrm{C2}/I_\mathrm{C1}=\mathrm{e}^{U_\mathrm{D}/U_T}$. Together with $I_\mathrm{C1}+I_\mathrm{C2}=I_0$ this gives [(2.1)](#gl-2-1). For small changes: the sum is fixed, so $\Delta I_\mathrm{C1}=-\Delta I_\mathrm{C2}$. Both are $S$ times the change in their own $U_\mathrm{BE}$, so the changes are equal and opposite. Their difference is $U_\mathrm{D}$, so each junction carries $\pm U_\mathrm{D}/2$. Thus $\Delta I_\mathrm{C2}=S\,U_\mathrm{D}/2$ and $U_\mathrm{A}=2R_\mathrm{C}\,\Delta I_\mathrm{C2}=S\,R_\mathrm{C}\,U_\mathrm{D}$.
 :::
 
-**Example.** At rest, 1 mA flows in each branch, and the collectors are at $12\,\mathrm{V}-3\,\mathrm{V}=9$ V. $S=38.5$ mS, so $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$. At $U_\mathrm{D}=1$ mV, $\pm19.2$ µ A moves between the branches, each collector moves by 57.7 mV, and together that makes $U_\mathrm{A}=115$ mV. A disturbance of 100 mV on both inputs changes nothing about this. **Limiting cases:** $U_\mathrm{D}=0$ gives $I_0/2$ per branch. At $|U_\mathrm{D}|\gg U_T$ everything flows through one transistor, $U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V. The linear range is only a few $U_T$ wide: at 26 mV the straight line gives 3.0 V, the exact curve 2.77 V.
+::::beispiel
+At rest, 1 mA flows in each branch, and the collectors are at $12\,\mathrm{V}-3\,\mathrm{V}=9$ V. $S=38.5$ mS, so $A_\mathrm{D}=3\,\mathrm{V}/26\,\mathrm{mV}=115$. At $U_\mathrm{D}=1$ mV, $\pm19.2$ µ A moves between the branches, each collector moves by 57.7 mV, and together that makes $U_\mathrm{A}=115$ mV. A disturbance of 100 mV on both inputs changes nothing about this.
+::::
+
+⁠**Limiting cases:** $U_\mathrm{D}=0$ gives $I_0/2$ per branch. At $|U_\mathrm{D}|\gg U_T$ everything flows through one transistor, $U_\mathrm{A}\to\pm R_\mathrm{C}I_0=\pm6$ V. The linear range is only a few $U_T$ wide: at 26 mV the straight line gives 3.0 V, the exact curve 2.77 V.
 
 **Input.** An input signal $U_\mathrm{D}$ lies across two BE junctions in series, so the input resistance is $2\,r_\mathrm{BE}=2B/S=10.4$ k$\Omega$. With a total current of 20 µ A instead of 2 mA it is 1.04 M$\Omega$, and each base draws only 50 nA. That is where $r_\mathrm{e}$ and $I_\mathrm{B}$ in the reference model come from.
 

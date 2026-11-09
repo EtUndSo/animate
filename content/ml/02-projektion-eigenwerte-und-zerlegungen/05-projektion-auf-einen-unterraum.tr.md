@@ -27,9 +27,11 @@ Orijinden geçen doğruların ve düzlemlerin, sütun uzaylarının ve çekirdek
 Bir $\mathcal U\subseteq\mathbb{R}^n$ kümesi sonlu sayıda vektörün gerdiği küme (span) ise, ona $\mathbb{R}^n$ uzayının bir __alt uzayı__ denir.
 :::
 
-Denk olarak: $\mathcal U$ sıfır vektörünü içerir ve içerdiği her $\mathbf{u},\mathbf{v}$ vektör çifti için $\mathcal U$ kümesi $\mathbf{u}+\mathbf{v}$ toplamını ve her $c\,\mathbf{u}$ katını da içerir. Her alt uzayın bir tabanı ve dolayısıyla Temeller 1, Kesim 13.3'e göre bir boyutu vardır.
+Denk olarak: $\mathcal U$ sıfır vektörünü içerir ve içerdiği her $\mathbf{u},\mathbf{v}$ vektör çifti için $\mathcal U$ kümesi $\mathbf{u}+\mathbf{v}$ toplamını ve her $c\,\mathbf{u}$ katını da içerir. Her alt uzayın bir tabanı ve dolayısıyla [Temeller 1, Kesim 13.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)'e göre bir boyutu vardır.
 
-⁠**Sayısal örnek:** $\mathbb{R}^3$ uzayında şunlar alt uzaydır: boyutu $0$ olan, tek başına orijin; boyutu $1$ olan, orijinden geçen her doğru; boyutu $2$ olan, orijinden geçen her düzlem, örneğin önceki kesimdeki $\mathbf{H}$ matrisinin sütun uzayı; ve $\mathbb{R}^3$ uzayının tamamı. Bir matrisin çekirdeği bir alt uzaydır, sütun uzayı da öyle. Orijinden geçmeyen bir doğru alt uzay değildir, çünkü sıfır vektörünü içermez.
+::::beispiel [Sayısal örnek]
+$\mathbb{R}^3$ uzayında şunlar alt uzaydır: boyutu $0$ olan, tek başına orijin; boyutu $1$ olan, orijinden geçen her doğru; boyutu $2$ olan, orijinden geçen her düzlem, örneğin önceki kesimdeki $\mathbf{H}$ matrisinin sütun uzayı; ve $\mathbb{R}^3$ uzayının tamamı. Bir matrisin çekirdeği bir alt uzaydır, sütun uzayı da öyle. Orijinden geçmeyen bir doğru alt uzay değildir, çünkü sıfır vektörünü içermez.
+::::
 
 ⁠**Kısacası:** Alt uzay, birtakım vektörlerin gerdiği kümedir; toplama ve katla çarpma ile onun dışına çıkılmaz.
 
@@ -57,16 +59,18 @@ $\mathbf{P}\mathbf{y}=\hat{\mathbf{y}}$, $\mathbf{P}^{\top}=\mathbf{P}$, $\mathb
 :::
 
 :::beweis Özellikler
-Birinci denklem yukarıdaki türetmedir. Temeller 1, Kesim 10.1 ve 11.4'teki hesap kurallarıyla $\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$ olur, çünkü $\mathbf{A}^{\top}\mathbf{A}$ simetriktir, dolayısıyla tersi de simetriktir. Ayrıca $\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$ ve buradan $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$. Kesim [2.4](projektion-auf-eine-gerade.html#stufe-2-4)'teki teoreme göre simetrik bir izdüşüm diktir.
+Birinci denklem yukarıdaki türetmedir. [Temeller 1, Kesim 10.1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1) ve [11.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-4)'teki hesap kurallarıyla $\mathbf{P}^{\top}=\mathbf{A}\bigl((\mathbf{A}^{\top}\mathbf{A})^{-1}\bigr)^{\top}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$ olur, çünkü $\mathbf{A}^{\top}\mathbf{A}$ simetriktir, dolayısıyla tersi de simetriktir. Ayrıca $\mathbf{P}\mathbf{A}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}(\mathbf{A}^{\top}\mathbf{A})=\mathbf{A}$ ve buradan $\mathbf{P}^2=\mathbf{P}\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}=\mathbf{P}$. Kesim [2.4](projektion-auf-eine-gerade.html#stufe-2-4)'teki teoreme göre simetrik bir izdüşüm diktir.
 :::
 
 $\mathbf{P}\mathbf{A}=\mathbf{A}$ denklemi şunu söyler: Her sütun, dolayısıyla sütun uzayının her vektörü, izdüşümde yerinde kalır.
 
-⁠**Sayısal örnek:** $\mathbf{H}$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{H}$ için şu bulunur:
 
 $$\mathbf{P}=\mathbf{H}\cdot\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\mathbf{H}^{\top}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix}.$$
 
 Sağlama: $\mathbf{P}(1,\,1,\,1)^{\top}=\tfrac13(2,\,2,\,4)^{\top}=(\tfrac23,\,\tfrac23,\,\tfrac43)^{\top}=\hat{\mathbf{y}}$ ve $\mathbf{P}\mathbf{a}_1=\tfrac13(2+1,\ -1+1,\ 1+2)^{\top}=(1,\,0,\,1)^{\top}=\mathbf{a}_1$.
+::::
 
 ⁠**Kısacası:** $\mathbf{P}=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ izdüşüm matrisi her vektörü sütun uzayının en yakın noktasına götürür; simetriktir ve $\mathbf{P}^2=\mathbf{P}$ koşulunu sağlar.
 
@@ -85,13 +89,15 @@ $\mathbf{Q}\in\mathbb{R}^{n\times k}$ matrisinin $\mathbf{q}_1,\dots,\mathbf{q}_
 $$\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}=\sum_{i=1}^k\mathbf{q}_i\mathbf{q}_i^{\top} . \tag{4.2}$$
 :::
 
-Toplam biçimi Temeller 1, Kesim 9.5'ten çıkar: Bir matris çarpımı, sütunların ve satırların dış çarpımlarının toplamıdır. Her $\mathbf{q}_i\mathbf{q}_i^{\top}$ terimi, $\mathbf{q}_i$ doğrultusundaki doğru üzerine izdüşüm matrisidir. Demek ki ortonormal sütunlarda sütun uzayı üzerine izdüşüm, tek tek eksenler üzerine izdüşümlerin toplamıdır. Bu, Kesim [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1)'in son alt kesimini sonradan açıklar: $\mathbf{Q}\mathbf{Q}^{\top}$ birim matris değil, $\mathbf{Q}$ matrisinin sütun uzayı üzerine izdüşümdür. Bu uzaya dik olanı atar.
+Toplam biçimi [Temeller 1, Kesim 9.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)'ten çıkar: Bir matris çarpımı, sütunların ve satırların dış çarpımlarının toplamıdır. Her $\mathbf{q}_i\mathbf{q}_i^{\top}$ terimi, $\mathbf{q}_i$ doğrultusundaki doğru üzerine izdüşüm matrisidir. Demek ki ortonormal sütunlarda sütun uzayı üzerine izdüşüm, tek tek eksenler üzerine izdüşümlerin toplamıdır. Bu, Kesim [1](orthonormalbasen-und-orthogonale-matrizen.html#stufe-1)'in son alt kesimini sonradan açıklar: $\mathbf{Q}\mathbf{Q}^{\top}$ birim matris değil, $\mathbf{Q}$ matrisinin sütun uzayı üzerine izdüşümdür. Bu uzaya dik olanı atar.
 
-⁠**Sayısal örnek:** $\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ ve $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ vektörleri ortonormaldir: $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. İkisinde de üçüncü bileşen ilk ikisinin toplamıdır; $\mathbf{H}$ düzleminin bir ortonormal tabanını oluştururlar. İzdüşüm matrisi şöyle bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{q}_1=\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}$ ve $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ vektörleri ortonormaldir: $\lVert\mathbf{q}_1\rVert^2=\tfrac22$, $\lVert\mathbf{q}_2\rVert^2=\tfrac66$, $\mathbf{q}_1^{\top}\mathbf{q}_2=\tfrac{-1+0+1}{\sqrt{12}}=0$. İkisinde de üçüncü bileşen ilk ikisinin toplamıdır; $\mathbf{H}$ düzleminin bir ortonormal tabanını oluştururlar. İzdüşüm matrisi şöyle bulunur:
 
 $$\mathbf{q}_1\mathbf{q}_1^{\top}+\mathbf{q}_2\mathbf{q}_2^{\top}=\frac12\begin{pmatrix}1&0&1\\0&0&0\\1&0&1\end{pmatrix}+\frac16\begin{pmatrix}1&-2&-1\\-2&4&2\\-1&2&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\\1&1&2\end{pmatrix},$$
 
 yani önceki alt kesimdeki matrisin aynısı, bu kez ters matris olmadan.
+::::
 
 ⁠**Kısacası:** Ortonormal sütunlarda $\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$ ve $\mathbf{P}=\mathbf{Q}\mathbf{Q}^{\top}$ olur; bu izdüşüm matrisi, tek tek sütunlar üzerine izdüşümlerin toplamıdır.
 
@@ -141,14 +147,16 @@ $\dim\mathcal U^\perp=n-\dim\mathcal U$.
 :::
 
 :::beweis Ayrışım
-(i) $\mathbf{P}\mathbf{y}$ vektörünün $\mathcal U$ içinde olması ve $\mathbf{y}-\mathbf{P}\mathbf{y}$ vektörünün $\mathcal U$ alt uzayına dik olması, dik izdüşümün tanımıdır. İkinci bir $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$ ayrışımı olsaydı $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ hem $\mathcal U$ içinde bulunan hem de $\mathcal U$ alt uzayına dik olan, yani kendine dik olan bir vektör olurdu. O zaman uzunluğunun karesi sıfırdır, yani bu vektör sıfır vektörüdür. (ii) $\mathbf{I}-\mathbf{P}$ simetriktir ve $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$. (i) şıkkına göre görüntüsü $\mathcal U^\perp$ içindedir. Her $\mathbf{z}\in\mathcal U^\perp$ yerinde kalır: $\mathbf{P}\mathbf{z}$, $\mathcal U$ içindedir ve aynı zamanda $\mathcal U$ alt uzayına dik iki vektörün $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$ farkıdır; dolayısıyla $\mathbf{P}\mathbf{z}$ kendine diktir ve $\mathbf{0}$ vektörüdür. (iii) $\mathcal U$ için bir taban seçilip bir $\mathbf{A}$ matrisinin sütunları olarak yazılırsa $\mathcal U^\perp$, $\mathbf{A}^{\top}$ matrisinin çekirdeği olur. Temeller 1, Kesim 13.5'teki rank-sıfırlık teoremine göre bu çekirdeğin boyutu $n-\operatorname{rank}\mathbf{A}^{\top}=n-\operatorname{rank}\mathbf{A}=n-\dim\mathcal U$ olur.
+(i) $\mathbf{P}\mathbf{y}$ vektörünün $\mathcal U$ içinde olması ve $\mathbf{y}-\mathbf{P}\mathbf{y}$ vektörünün $\mathcal U$ alt uzayına dik olması, dik izdüşümün tanımıdır. İkinci bir $\mathbf{y}=\mathbf{u}'+\mathbf{z}'$ ayrışımı olsaydı $\mathbf{u}-\mathbf{u}'=\mathbf{z}'-\mathbf{z}$ hem $\mathcal U$ içinde bulunan hem de $\mathcal U$ alt uzayına dik olan, yani kendine dik olan bir vektör olurdu. O zaman uzunluğunun karesi sıfırdır, yani bu vektör sıfır vektörüdür. (ii) $\mathbf{I}-\mathbf{P}$ simetriktir ve $(\mathbf{I}-\mathbf{P})^2=\mathbf{I}-2\mathbf{P}+\mathbf{P}^2=\mathbf{I}-\mathbf{P}$. (i) şıkkına göre görüntüsü $\mathcal U^\perp$ içindedir. Her $\mathbf{z}\in\mathcal U^\perp$ yerinde kalır: $\mathbf{P}\mathbf{z}$, $\mathcal U$ içindedir ve aynı zamanda $\mathcal U$ alt uzayına dik iki vektörün $\mathbf{z}-(\mathbf{z}-\mathbf{P}\mathbf{z})$ farkıdır; dolayısıyla $\mathbf{P}\mathbf{z}$ kendine diktir ve $\mathbf{0}$ vektörüdür. (iii) $\mathcal U$ için bir taban seçilip bir $\mathbf{A}$ matrisinin sütunları olarak yazılırsa $\mathcal U^\perp$, $\mathbf{A}^{\top}$ matrisinin çekirdeği olur. [Temeller 1, Kesim 13.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)'teki rank-sıfırlık teoremine göre bu çekirdeğin boyutu $n-\operatorname{rank}\mathbf{A}^{\top}=n-\operatorname{rank}\mathbf{A}=n-\dim\mathcal U$ olur.
 :::
 
-⁠**Sayısal örnek:** $\mathbf{H}$ düzleminin boyutu $2$, dolayısıyla $\mathbb{R}^3$ uzayındaki ortogonal tümleyeninin boyutu $1$: $\mathbf{k}=(1,\,1,\,-1)^{\top}$ normal vektörü doğrultusundaki doğru. Gerçekten de $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. Ayrıca
+::::beispiel [Sayısal örnek]
+$\mathbf{H}$ düzleminin boyutu $2$, dolayısıyla $\mathbb{R}^3$ uzayındaki ortogonal tümleyeninin boyutu $1$: $\mathbf{k}=(1,\,1,\,-1)^{\top}$ normal vektörü doğrultusundaki doğru. Gerçekten de $\mathbf{H}^{\top}\mathbf{k}=(1-1,\ 1-1)^{\top}=\mathbf{0}$. Ayrıca
 
 $$\mathbf{I}-\mathbf{P}=\frac13\begin{pmatrix}1&1&-1\\1&1&-1\\-1&-1&1\end{pmatrix}=\frac{\mathbf{k}\mathbf{k}^{\top}}{\mathbf{k}^{\top}\mathbf{k}},$$
 
 bu da söz konusu doğru üzerine izdüşümdür. $\mathbf{y}=(1,\,1,\,1)^{\top}$ için $(\mathbf{I}-\mathbf{P})\mathbf{y}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$ olur, yani önceki kesimdeki artık.
+::::
 
 ⁠**Kısacası:** $\mathcal U^\perp$ ortogonal tümleyeni, $\mathcal U$ alt uzayına dik bütün vektörleri içerir; her vektör tek bir biçimde $\mathcal U$ içindeki ve $\mathcal U^\perp$ içindeki birer parçaya ayrılır ve boyutların toplamı $n$ olur.
 
@@ -187,7 +195,8 @@ Adım adım ilerlenir. $\mathbf{q}_1,\dots,\mathbf{q}_{i-1}$ vektörlerinin zate
 
 Verilen vektörler yine de bağımlıysa yöntem bunu kendisi fark eder: Bir noktada $\tilde{\mathbf{q}}_i=\mathbf{0}$ olur ve normlama yapılamaz.
 
-⁠**Sayısal örnek:** $\mathbf{H}$ matrisinin $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ ve $\mathbf{a}_2=(0,\,1,\,1)^{\top}$ sütunları için $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$ olur. O zaman $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ olur ve şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{H}$ matrisinin $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ ve $\mathbf{a}_2=(0,\,1,\,1)^{\top}$ sütunları için $\mathbf{q}_1=\mathbf{a}_1/\sqrt2$ olur. O zaman $\mathbf{q}_1^{\top}\mathbf{a}_2=1/\sqrt2$ olur ve şu bulunur:
 
 $$\tilde{\mathbf{q}}_2=\mathbf{a}_2-\frac1{\sqrt2}\,\mathbf{q}_1=(0,\,1,\,1)^{\top}-\tfrac12(1,\,0,\,1)^{\top}=\bigl(-\tfrac12,\,1,\,\tfrac12\bigr)^{\top},\qquad \lVert\tilde{\mathbf{q}}_2\rVert=\sqrt{\tfrac14+1+\tfrac14}=\sqrt{\tfrac32} .$$
 
@@ -196,6 +205,7 @@ Normlanınca $\mathbf{q}_2=\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}$ olur; bu tam olar
 :::abbildung ml/k2rgs 12
 $\mathbf{H}$ matrisinin sütunları için Gram-Schmidt: $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ ile $\mathbf{a}_2=(0,1,1)^{\top}$ vektörlerinin, gölgenin uzunluğunu veren $\mathbf{q}_1^{\top}\mathbf{a}_2$ iç çarpımı ve $\tilde{\mathbf{q}}_2=(-\tfrac12,1,\tfrac12)^{\top}$ kalanının uzunluğunun karesi.
 :::
+::::
 
 ⁠**Kısacası:** Gram-Schmidt her vektörden, şimdiye kadar bulunanlar üzerine izdüşümünü çıkarır ve kalanı normlar; böylece aynı alt uzayın bir ortonormal tabanı oluşur.
 
@@ -226,11 +236,13 @@ burada $\mathbf{Q}\in\mathbb{R}^{m\times n}$ ortonormal sütunlu bir matris, $\m
 
 Bir üst üçgen matrisin köşegeninin altında yalnızca sıfırlar vardır. Sütun bakışına göre $\mathbf{Q}\mathbf{R}$ matrisinin $i$ numaralı sütunu $\sum_lr_{li}\mathbf{q}_l$, yani tam olarak yukarıdaki $\mathbf{a}_i$ gösterimidir. $\mathbf{Q}$ matrisinin sütunlarını Gram-Schmidt yöntemi verir, $\mathbf{R}$ matrisinin elemanları da bu sırada yan ürün olarak çıkar. $\mathbf{Q}$ ortonormal sütunlu olduğundan ayrıca $\mathbf{R}=\mathbf{Q}^{\top}\mathbf{A}$ olur.
 
-⁠**Sayısal örnek:** $\mathbf{H}$ için şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{H}$ için şu bulunur:
 
 $$\mathbf{Q}=\begin{pmatrix}\tfrac1{\sqrt2}&-\tfrac1{\sqrt6}\\0&\tfrac2{\sqrt6}\\\tfrac1{\sqrt2}&\tfrac1{\sqrt6}\end{pmatrix},\qquad \mathbf{R}=\begin{pmatrix}\sqrt2&\tfrac1{\sqrt2}\\0&\sqrt{\tfrac32}\end{pmatrix}\approx\begin{pmatrix}1{,}414&0{,}707\\0&1{,}225\end{pmatrix}.$$
 
 İkinci sütunun sağlaması: $\tfrac1{\sqrt2}\cdot\tfrac1{\sqrt2}(1,\,0,\,1)^{\top}+\sqrt{\tfrac32}\cdot\tfrac1{\sqrt6}(-1,\,2,\,1)^{\top}=\tfrac12(1,\,0,\,1)^{\top}+\tfrac12(-1,\,2,\,1)^{\top}=(0,\,1,\,1)^{\top}=\mathbf{a}_2$.
+::::
 
 ⁠**Kısacası:** $\mathbf{A}=\mathbf{Q}\mathbf{R}$ QR ayrışımı, Gram-Schmidt yöntemini bir matris çarpımı olarak yazar: $\mathbf{Q}$ ortonormal sütunludur, $\mathbf{R}$ bir üst üçgen matristir.
 
@@ -250,16 +262,18 @@ $$\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y} . \tag{4.6}$$
 :::
 
 :::beweis QR ile çözüm
-$\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ ve $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$ olur. Normal denklemler yani $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$ biçimini alır. $\mathbf{R}$ üçgen matrisinin köşegen elemanları pozitiftir; dolayısıyla Temeller 1, Kesim 14.4'e göre determinantı sıfırdan farklıdır, yani tersinirdir; $\mathbf{R}^{\top}$ de öyle. Soldan $(\mathbf{R}^{\top})^{-1}$ ile çarpılınca geriye [(4.6)](#gl-4-6) kalır.
+$\mathbf{A}^{\top}\mathbf{A}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{R}^{\top}\mathbf{R}$ ve $\mathbf{A}^{\top}\mathbf{y}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$ olur. Normal denklemler yani $\mathbf{R}^{\top}\mathbf{R}\hat{\mathbf{x}}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{y}$ biçimini alır. $\mathbf{R}$ üçgen matrisinin köşegen elemanları pozitiftir; dolayısıyla [Temeller 1, Kesim 14.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4)'e göre determinantı sıfırdan farklıdır, yani tersinirdir; $\mathbf{R}^{\top}$ de öyle. Soldan $(\mathbf{R}^{\top})^{-1}$ ile çarpılınca geriye [(4.6)](#gl-4-6) kalır.
 :::
 
-[(4.6)](#gl-4-6) sistemi üçgen biçimlidir ve Temeller 1, Kesim 12.3'teki Gauss eleme yönteminin sonunda yapılan geriye doğru yerine koymada olduğu gibi aşağıdan yukarıya doğru çözülür. $m\times n$ boyutlu bir matris için yolun tamamı yaklaşık $2mn^2$ temel aritmetik işleme mal olur; bunun neredeyse tamamı QR ayrışımına gider.
+[(4.6)](#gl-4-6) sistemi üçgen biçimlidir ve [Temeller 1, Kesim 12.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)'teki Gauss eleme yönteminin sonunda yapılan geriye doğru yerine koymada olduğu gibi aşağıdan yukarıya doğru çözülür. $m\times n$ boyutlu bir matris için yolun tamamı yaklaşık $2mn^2$ temel aritmetik işleme mal olur; bunun neredeyse tamamı QR ayrışımına gider.
 
-⁠**Sayısal örnek:** $\mathbf{H}$ ve $\mathbf{y}=(1,\,1,\,1)^{\top}$ için $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$ olur. [(4.6)](#gl-4-6) sisteminin alt satırı $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, dolayısıyla $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. Üst satırı $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, dolayısıyla $\hat x_1=1-\tfrac13=\tfrac23$. Bu, normal denklemlerle bulunan çözümün aynısıdır. $\mathbf{Q}^{\top}\mathbf{y}$ vektörünün bileşenleri iç çarpımlardır (Şekil [13](#abb-13)).
+::::beispiel [Sayısal örnek]
+$\mathbf{H}$ ve $\mathbf{y}=(1,\,1,\,1)^{\top}$ için $\mathbf{Q}^{\top}\mathbf{y}=\bigl(\tfrac2{\sqrt2},\ \tfrac{-1+2+1}{\sqrt6}\bigr)^{\top}=\bigl(\sqrt2,\ \tfrac2{\sqrt6}\bigr)^{\top}$ olur. [(4.6)](#gl-4-6) sisteminin alt satırı $\sqrt{\tfrac32}\,\hat x_2=\tfrac2{\sqrt6}$, dolayısıyla $\hat x_2=\tfrac2{\sqrt6}\cdot\sqrt{\tfrac23}=\tfrac23$. Üst satırı $\sqrt2\,\hat x_1+\tfrac1{\sqrt2}\cdot\tfrac23=\sqrt2$, dolayısıyla $\hat x_1=1-\tfrac13=\tfrac23$. Bu, normal denklemlerle bulunan çözümün aynısıdır. $\mathbf{Q}^{\top}\mathbf{y}$ vektörünün bileşenleri iç çarpımlardır (Şekil [13](#abb-13)).
 
 :::abbildung ml/k2rqr 13
 $\mathbf{y}=(1,1,1)^{\top}$ için üçgen sistemin $\mathbf{Q}^{\top}\mathbf{y}$ sağ tarafı; $\mathbf{q}_1=(1,0,1)^{\top}/\sqrt2$ ve $\mathbf{q}_2=(-1,2,1)^{\top}/\sqrt6$ ile.
 :::
+::::
 
 ⁠**Kısacası:** $\mathbf{A}=\mathbf{Q}\mathbf{R}$ ile normal denklemlerden $\mathbf{R}\hat{\mathbf{x}}=\mathbf{Q}^{\top}\mathbf{y}$ üçgen sistemi elde edilir; $\mathbf{A}^{\top}\mathbf{A}$ matrisi bu sırada hiç oluşturulmaz.
 

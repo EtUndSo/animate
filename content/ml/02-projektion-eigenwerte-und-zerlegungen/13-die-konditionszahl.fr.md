@@ -75,11 +75,13 @@ Des deux équations, on déduit $\mathbf{A}\Delta\mathbf{x}=\Delta\mathbf{y}$. D
 
 Le pire cas est donc le suivant : la solution est dans la direction que $\mathbf{A}$ étire le plus, de sorte que $\mathbf{y}$ est grand par rapport à $\mathbf{x}$, et l’erreur est dans la direction que $\mathbf{A}$ étire le moins, de sorte que le calcul en retour l’agrandit d’un facteur $1/d_n$.
 
-⁠**Exemple de calcul :** $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ est symétrique, de trace $2{,}01$ et de déterminant $0{,}01$. Ses valeurs propres sont
+::::beispiel [Exemple de calcul]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ est symétrique, de trace $2{,}01$ et de déterminant $0{,}01$. Ses valeurs propres sont
 
 $$\lambda_{1,2}=\frac{2{,}01\pm\sqrt{2{,}01^2-0{,}04}}2=\frac{2{,}01\pm\sqrt{4{,}0001}}2\approx\frac{2{,}01\pm2{,}000025}2,$$
 
 donc $\lambda_1\approx2{,}005012$ et $\lambda_2\approx0{,}004988$, toutes deux positives. D’après la section [9.7](die-singularwertzerlegung.html#stufe-9-7), ce sont aussi les valeurs singulières, et $\kappa(\mathbf{A})\approx402$. L’amplification observée, $284$, est inférieure. Elle n’atteint pas tout à fait la borne, car $\Delta\mathbf{y}=(0;\ 0{,}01)^{\top}$ ne pointe pas exactement dans la direction de $\mathbf{u}_2\approx(1,\,-1)^{\top}/\sqrt2$. Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, on a $\kappa=4/1=4$ : les erreurs relatives sont au plus multipliées par quatre.
+::::
 
 ⁠**En bref :** Le conditionnement $\kappa(\mathbf{A})=d_1/d_n$ est le plus grand facteur par lequel $\mathbf{A}^{-1}$ peut agrandir, dans la solution, une erreur relative des données.
 
@@ -87,7 +89,7 @@ donc $\lambda_1\approx2{,}005012$ et $\lambda_2\approx0{,}004988$, toutes deux p
 
 <span class="anker" id="stufe-12-3"></span>
 
-Dans l’encadré « Contexte » de Fondements 1, section 14.6, figurait une mise en garde : un petit déterminant ne signifie pas qu’une matrice est presque singulière. Le conditionnement mesure ce que l’on voulait dire là-bas.
+Dans l’encadré « Contexte » de [Fondements 1, section 14.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), figurait une mise en garde : un petit déterminant ne signifie pas qu’une matrice est presque singulière. Le conditionnement mesure ce que l’on voulait dire là-bas.
 
 :::satz Théorème 12.3 (Distance à la matrice singulière la plus proche)
 <span class="anker" id="satz-12-3"></span>
@@ -104,7 +106,9 @@ Une matrice singulière est de rang au plus $n-1$. D’après le théorème d’
 
 Un grand conditionnement signifie donc qu’une modification relativement petite rend la matrice singulière. Le déterminant mesure autre chose. D’après l’exercice [29](die-singularwertzerlegung.html#aufg-29), $|\det\mathbf{A}|=d_1\cdots d_n$, le produit de tous les étirements ; il dépend de la taille de la matrice. Le conditionnement est un rapport et ne change pas lorsqu’on multiplie $\mathbf{A}$ par un nombre : $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ pour $c\ne0$. Il mesure seulement à quel point est aplatie l’ellipse en laquelle $\mathbf{A}$ transforme le cercle unité.
 
-⁠**Exemple de calcul :** Les deux matrices de Fondements 1, section 14.6 : $0{,}1\cdot\mathbf{I}_{10}$ a pour déterminant $10^{-10}$, mais toutes ses valeurs singulières valent $0{,}1$, et $\kappa=1$ ; elle est aussi bien conditionnée que possible. $\operatorname{diag}(1000;\ 0{,}001)$ a pour déterminant $1$, mais $\kappa=1000/0{,}001=10^6$. Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distance à la matrice singulière la plus proche vaut $d_2\approx0{,}005$ : si l’on modifie des coefficients de quelques millièmes, elle devient singulière. La matrice singulière $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ est à la distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, un peu plus que le minimum.
+::::beispiel [Exemple de calcul]
+Les deux matrices de [Fondements 1, section 14.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6) : $0{,}1\cdot\mathbf{I}_{10}$ a pour déterminant $10^{-10}$, mais toutes ses valeurs singulières valent $0{,}1$, et $\kappa=1$ ; elle est aussi bien conditionnée que possible. $\operatorname{diag}(1000;\ 0{,}001)$ a pour déterminant $1$, mais $\kappa=1000/0{,}001=10^6$. Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$, la distance à la matrice singulière la plus proche vaut $d_2\approx0{,}005$ : si l’on modifie des coefficients de quelques millièmes, elle devient singulière. La matrice singulière $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ est à la distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, un peu plus que le minimum.
+::::
 
 ⁠**En bref :** $1/\kappa(\mathbf{A})$ est la distance relative à la matrice singulière la plus proche ; le déterminant n’en dit rien, car il dépend de la taille de la matrice.
 
@@ -129,7 +133,9 @@ Pour la décomposition QR $\mathbf{A}=\mathbf{Q}\mathbf{R}$, en revanche, $\kapp
 $\mathbf{A}^{\top}\mathbf{A}$ est symétrique et définie positive, de valeurs propres $d_j^2$ ; d’après la section [9.7](die-singularwertzerlegung.html#stufe-9-7), ce sont aussi ses valeurs singulières, et leur rapport vaut $d_1^2/d_n^2$. Comme $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$, on a $\mathbf{R}^{\top}\mathbf{R}=\mathbf{R}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{R}=\mathbf{A}^{\top}\mathbf{A}$ ; $\mathbf{R}$ a donc les mêmes valeurs singulières que $\mathbf{A}$.
 :::
 
-⁠**Exemple de calcul :** La matrice des appartements de la section [3.7](die-beste-naherungslosung.html#stufe-3-7), surface et nombre de pièces, a les valeurs singulières $d_1\approx135{,}02$ et $d_2\approx0{,}848$, donc $\kappa(\mathbf{A})\approx159{,}3$ et $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Deux causes rendent $\kappa(\mathbf{A})$ grand. Premièrement, les unités : les surfaces sont des nombres autour de $65$, les nombres de pièces autour de $2{,}5$. Si l’on mesure la surface en unités de $10\,\mathrm m^2$, le conditionnement descend à environ $18{,}5$. Deuxièmement, les deux colonnes pointent presque dans la même direction : elles ne forment qu’un angle d’environ $8{,}9^\circ$. C’est pourquoi, même si l’on ramène les deux colonnes à la longueur $1$, il reste $\kappa\approx12{,}8$. Le changement d’unités ne modifie pas les valeurs ajustées $\hat{\mathbf{y}}$ : si l’on divise une colonne par $10$, le poids correspondant devient $10$ fois plus grand, et les produits restent les mêmes.
+::::beispiel [Exemple de calcul]
+La matrice des appartements de la section [3.7](die-beste-naherungslosung.html#stufe-3-7), surface et nombre de pièces, a les valeurs singulières $d_1\approx135{,}02$ et $d_2\approx0{,}848$, donc $\kappa(\mathbf{A})\approx159{,}3$ et $\kappa(\mathbf{A}^{\top}\mathbf{A})\approx25\,367$. Deux causes rendent $\kappa(\mathbf{A})$ grand. Premièrement, les unités : les surfaces sont des nombres autour de $65$, les nombres de pièces autour de $2{,}5$. Si l’on mesure la surface en unités de $10\,\mathrm m^2$, le conditionnement descend à environ $18{,}5$. Deuxièmement, les deux colonnes pointent presque dans la même direction : elles ne forment qu’un angle d’environ $8{,}9^\circ$. C’est pourquoi, même si l’on ramène les deux colonnes à la longueur $1$, il reste $\kappa\approx12{,}8$. Le changement d’unités ne modifie pas les valeurs ajustées $\hat{\mathbf{y}}$ : si l’on divise une colonne par $10$, le poids correspondant devient $10$ fois plus grand, et les produits restent les mêmes.
+::::
 
 ⁠**En bref :** Les équations normales travaillent avec $\kappa(\mathbf{A})^2$, la décomposition QR avec $\kappa(\mathbf{A})$ ; des unités bien choisies abaissent le conditionnement.
 

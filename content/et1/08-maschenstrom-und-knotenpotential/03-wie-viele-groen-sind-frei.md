@@ -32,7 +32,8 @@ frei wählbar. Alle anderen Ströme und Spannungen folgen aus Kirchhoff.
 Das Rechenmodell. Drei Knoten (rot), sechs Zweige. Der Zweig links enthält Batterie und $R_1$ in Reihe, weil zwischen ihnen nichts abzweigt. Knoten 0 ist die gesamte untere Leitung.
 :::
 
-**Beispiel.** Das Netz in Abb. [1](#abb-1) hat $k=3$ und $z=6$, also $m=4$:
+::::beispiel
+Das Netz in Abb. [1](#abb-1) hat $k=3$ und $z=6$, also $m=4$:
 
 | Ansatz | Unbekannte | Gleichungen |
 |---|---|---|
@@ -40,6 +41,7 @@ Das Rechenmodell. Drei Knoten (rot), sechs Zweige. Der Zweig links enthält Batt
 | ohmsches Gesetz eingesetzt | 6 | 2 Knoten, 4 Maschen |
 | Maschenströme | 4 | 4 Maschen; die Stromquelle legt einen Wert fest, es bleiben 3 |
 | Knotenpotentiale | 2 | 2 Knoten |
+::::
 
 ⁠**Grenzfälle:** Eine Reihenschaltung als Ring hat $z=k$ und $m=1$: Ein einziger Strom gilt überall, das ist der Kern der Reihenschaltung. Eine Parallelschaltung hat $k=2$ und $k-1=1$: Eine einzige Spannung gilt überall, das ist der Kern der Parallelschaltung.
 

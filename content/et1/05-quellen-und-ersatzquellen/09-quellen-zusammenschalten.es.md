@@ -44,9 +44,13 @@ Ambas fuentes tienen la tensión $U_\mathrm{AB}$, y la ley de los nudos suma sus
 A la izquierda, dos baterías iguales en paralelo. A la derecha, las curvas características: en paralelo se mantiene la tensión de circuito abierto y se duplica la corriente de cortocircuito. En serie se duplica la tensión de circuito abierto y se mantiene la corriente de cortocircuito. Los puntos muestran los puntos de trabajo con 16 $\Omega$.
 :::
 
-**Ejemplo.** Dos baterías del modelo de referencia. En paralelo: 9 V, 1 $\Omega$, $I_\mathrm{CC}=9$ A. Forma de corriente como comprobación: $4{,}5+4{,}5=9$ A y $0{,}5+0{,}5=1$ S. En serie: 18 V, 4 $\Omega$, $I_\mathrm{CC}=4{,}5$ A. En 16 $\Omega$, la conexión en paralelo entrega 8,47 V y 0,529 A; la conexión en serie, 14,4 V y 0,9 A (fig. [8](#abb-8)). La conexión en paralelo aporta aquí poco, porque 2 $\Omega$ son poco frente a 16 $\Omega$.
+::::beispiel
+Dos baterías del modelo de referencia. En paralelo: 9 V, 1 $\Omega$, $I_\mathrm{CC}=9$ A. Forma de corriente como comprobación: $4{,}5+4{,}5=9$ A y $0{,}5+0{,}5=1$ S. En serie: 18 V, 4 $\Omega$, $I_\mathrm{CC}=4{,}5$ A. En 16 $\Omega$, la conexión en paralelo entrega 8,47 V y 0,529 A; la conexión en serie, 14,4 V y 0,9 A (fig. [8](#abb-8)). La conexión en paralelo aporta aquí poco, porque 2 $\Omega$ son poco frente a 16 $\Omega$.
 
-Si una de las baterías está descargada a 8 V, según [(7.3)](#gl-7-3) circulan en circuito abierto $1\,\mathrm{V}/4\,\Omega=0{,}25$ A. Ambos terminales están a 8,5 V, también según [(7.2)](#gl-7-2). **Caso límite:** Con solo 10 m$\Omega$ de resistencia interna cada una serían 50 A. Por eso, las celdas de batería grandes solo se conectan en paralelo con la misma tensión. Para $U_\mathrm{q1}=U_\mathrm{q2}$, la corriente de circulación desaparece.
+Si una de las baterías está descargada a 8 V, según [(7.3)](#gl-7-3) circulan en circuito abierto $1\,\mathrm{V}/4\,\Omega=0{,}25$ A. Ambos terminales están a 8,5 V, también según [(7.2)](#gl-7-2).
+::::
+
+⁠**Caso límite:** Con solo 10 m$\Omega$ de resistencia interna cada una serían 50 A. Por eso, las celdas de batería grandes solo se conectan en paralelo con la misma tensión. Para $U_\mathrm{q1}=U_\mathrm{q2}$, la corriente de circulación desaparece.
 
 :::frage ¿Dos baterías en paralelo dan más tensión?
 En circuito abierto no, ambas dan 9 V. Bajo carga un poco, porque la corriente se reparte entre dos resistencias internas y en el interior cae solo la mitad. La verdadera ganancia es una corriente de cortocircuito el doble de grande y el doble de cantidad de carga.

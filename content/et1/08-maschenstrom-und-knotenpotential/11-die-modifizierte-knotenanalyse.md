@@ -37,11 +37,15 @@ Für jede weitere Spannungsquelle kommt eine Zeile und eine Spalte hinzu.
 
 ⁠**So liest man das:** $I_V$ fließt bei $i$ ab und bei $k$ zu, deshalb steht es in Zeile $i$ mit $+1$ und in Zeile $k$ mit $-1$, wie die abfließenden Ströme eines Leitwerts. Gibt die Quelle Leistung ab, fließt ihr Strom von Minus nach Plus durch sie hindurch, und $I_V$ ist negativ. Genau das zeigt SPICE als `I(V1)`. Die Einsen haben keine Einheit, die neue Zeile rechnet in Volt, die neue Spalte in Ampere. **Gültigkeit:** Auf der Diagonale steht nun eine Null, das System bleibt aber lösbar, solange das Netz eindeutig ist. Zwei ideale Quellen parallel sind es nicht. **Kurz gesagt:** Jedes Netzelement hat seinen eigenen Stempel, und alle lassen sich unabhängig voneinander eintragen.
 
-**Beispiel: das Rechenmodell, wie SPICE es sieht.** SPICE wandelt nichts um. Die Batterie ist eine ideale Quelle $U_\mathrm q$ zwischen dem neuen Knoten 3 und Masse, dahinter liegt $R_1$ von 3 nach 1. Die Stromquelle und $R_5$ bleiben, wie sie sind. Unbekannt sind $U_1$, $U_2$, $U_3$ und $I_V$:
+::::beispiel das Rechenmodell, wie SPICE es sieht
+SPICE wandelt nichts um. Die Batterie ist eine ideale Quelle $U_\mathrm q$ zwischen dem neuen Knoten 3 und Masse, dahinter liegt $R_1$ von 3 nach 1. Die Stromquelle und $R_5$ bleiben, wie sie sind. Unbekannt sind $U_1$, $U_2$, $U_3$ und $I_V$:
 
 $$\begin{pmatrix}1{,}75&-0{,}5&-1&0\\-0{,}5&0{,}8&0&0\\-1&0&1&1\\0&0&1&0\end{pmatrix} \begin{pmatrix}U_1\\U_2\\U_3\\I_V\end{pmatrix}=\begin{pmatrix}0\\4\\0\\9\end{pmatrix}.$$
 
-Die letzte Zeile gibt $U_3=9$ V, wodurch die ersten beiden Zeilen das System aus Stufe [5](das-knotenpotentialverfahren.html#stufe-5) werden: $U_1=8$ V, $U_2=10$ V. Die dritte Zeile liefert $I_V=G_1\,(U_1-U_3)=-1$ mA. Das sind die Ergebnisse beider Verfahren, ohne jedes Umwandeln. **Grenzfall:** Für $R_1\to0$ wird Knoten 3 zu Knoten 1. Das Knotenpotentialverfahren versagt dort, die MNA nicht (Aufgabe [11](#aufg-11)).
+Die letzte Zeile gibt $U_3=9$ V, wodurch die ersten beiden Zeilen das System aus Stufe [5](das-knotenpotentialverfahren.html#stufe-5) werden: $U_1=8$ V, $U_2=10$ V. Die dritte Zeile liefert $I_V=G_1\,(U_1-U_3)=-1$ mA. Das sind die Ergebnisse beider Verfahren, ohne jedes Umwandeln.
+::::
+
+⁠**Grenzfall:** Für $R_1\to0$ wird Knoten 3 zu Knoten 1. Das Knotenpotentialverfahren versagt dort, die MNA nicht (Aufgabe [11](#aufg-11)).
 
 :::ltspice Das Rechenmodell, wie SPICE es löst
 ⁠**Zeichnen:** `voltage` mit `9` von `3` nach Masse, `R1 1k` von `3` nach `1`, `R2 4k` von `1` nach Masse, `R3 2k` von `1` nach `2`, `R4 10k` und `R5 5k` von `2` nach Masse, `current` mit `4m` von Masse nach `2`.

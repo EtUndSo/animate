@@ -30,7 +30,8 @@ Ein __Syntaxfehler__ ist eine Stelle im Quelltext, die gegen die Syntax der Spra
 
 Das folgt aus den zwei Phasen aus Unterabschnitt [2.4](vom-quelltext-zur-ausfuhrung-compiler-und-interpreter.html#stufe-2-4): Erst wird die ganze Datei übersetzt, und mit einem Syntaxfehler entsteht kein Bytecode, der laufen könnte.
 
-**Beispiel.** In der dritten Zeile fehlt die schließende Klammer:
+::::beispiel
+In der dritten Zeile fehlt die schließende Klammer:
 
 ```python syntaxfehler.py
 print("Zeile 1")
@@ -55,6 +56,7 @@ SyntaxError: '(' was never closed
 ```
 
 Obwohl die ersten beiden Zeilen fehlerfrei sind, erscheint nicht einmal „Zeile 1“. Die Meldung besteht aus vier Zeilen: Datei und Zeilennummer, die betroffene Zeile, ein Zeichen `^` unter der Stelle, an der Python den Fehler festmacht, und zuletzt die Fehlerart `SyntaxError` mit einer Beschreibung: „die Klammer wurde nie geschlossen“.
+::::
 
 Weitere häufige Syntaxfehler und ihre Meldungen:
 
@@ -96,7 +98,8 @@ Ein Quelltext kann in der Form völlig richtig sein und trotzdem etwas verlangen
 Ein __Laufzeitfehler__ ist ein Fehler, der erst beim Ausführen einer Zeile auftritt. Alle Zeilen davor sind schon gelaufen; das Programm bricht an dieser Stelle ab.
 :::
 
-**Beispiel.** Die Division durch null ist in der Form erlaubt, lässt sich aber nicht ausführen:
+::::beispiel
+Die Division durch null ist in der Form erlaubt, lässt sich aber nicht ausführen:
 
 ```python laufzeitfehler.py
 print("Zeile 1")
@@ -129,6 +132,7 @@ Diesmal erscheint „Zeile 1“: Die Datei wurde fehlerfrei übersetzt, und die 
 :::abbildung prog/k1fehlerarten 4
 Syntaxfehler und Laufzeitfehler. Links verhindert ein Formfehler in Zeile 3 schon das Übersetzen; keine Zeile läuft. Rechts gelingt das Übersetzen, Zeile 1 läuft, und erst beim Ausführen von Zeile 2 tritt der Fehler auf.
 :::
+::::
 
 ⁠**Kurz gesagt:** Ein Laufzeitfehler tritt beim Ausführen einer Zeile auf; alles davor ist gelaufen, alles danach nicht.
 
@@ -152,7 +156,8 @@ Eine __Ausnahme__ ist das Ereignis, mit dem Python einen Fehler meldet. Sie hat 
 
 Ein Laufzeitfehler löst also eine Ausnahme aus. Auch einen Syntaxfehler meldet Python als Ausnahme, mit der Art `SyntaxError`, nur eben schon beim Übersetzen.
 
-**Beispiel.** Drei Arten von Ausnahmen, die in diesem Kapitel vorkommen:
+::::beispiel
+Drei Arten von Ausnahmen, die in diesem Kapitel vorkommen:
 
 <ul>
 
@@ -192,6 +197,7 @@ NameError: name 'Hallo' is not defined
 ```
 
 Die Beschreibung hängt manchmal von der Version ab. Teilt man eine Zahl mit Nachkommastellen durch null, meldet Python 3.13 unter Windows `ZeroDivisionError: float division by zero`, Python 3.14 unter Linux nur `ZeroDivisionError: division by zero`. Die Art bleibt dieselbe.
+::::
 
 ⁠**Kurz gesagt:** Eine Ausnahme meldet einen Fehler mit Art und Beschreibung; beim Ausführen bricht sie das Programm ab.
 
@@ -207,11 +213,13 @@ Bricht eine Ausnahme ein Programm ab, will man wissen: was, wo und warum. Python
 Der __Traceback__ ist der Bericht, den Python ausgibt, wenn eine Ausnahme beim Ausführen ein Programm abbricht. Er nennt die Stelle im Quelltext, an der die Ausnahme auftrat, und in seiner letzten Zeile die Art und die Beschreibung der Ausnahme.
 :::
 
-**Beispiel.** Abbildung [5](#abb-5) zerlegt den Traceback von `laufzeitfehler.py` in seine Teile.
+::::beispiel
+Abbildung [5](#abb-5) zerlegt den Traceback von `laufzeitfehler.py` in seine Teile.
 
 :::abbildung prog/k1traceback 5
 Ein Traceback, in seine Teile zerlegt (Linux; unter Windows steht in Zeile 2 der Windows-Pfad). Gelesen wird von unten: zuerst die Ausnahme (5), dann die Stelle (2 bis 4).
 :::
+::::
 
 Man liest einen Traceback *von unten*: Die letzte Zeile sagt, was passiert ist, die Zeilen darüber sagen, wo. Bei längeren Programmen stehen über der Fehlerstelle weitere Ortszeilen, weil der Traceback den ganzen Weg bis zur Fehlerstelle nachzeichnet; die unterste Ortszeile ist immer die Stelle, an der die Ausnahme tatsächlich auftrat.
 
@@ -251,7 +259,8 @@ Die gefährlichste Art von Fehler meldet Python überhaupt nicht.
 Ein __Logikfehler__ ist ein Fehler, bei dem ein Programm ohne Fehlermeldung läuft, aber nicht das berechnet, was gemeint war.
 :::
 
-**Beispiel: eine Parallelschaltung.** Zwei Widerstände von $100\,\Omega$ und $220\,\Omega$ parallel ergeben $R=\frac{R_1R_2}{R_1+R_2}=68{,}75\,\Omega$. Im folgenden Skript fehlen die Klammern um den Nenner:
+::::beispiel eine Parallelschaltung
+Zwei Widerstände von $100\,\Omega$ und $220\,\Omega$ parallel ergeben $R=\frac{R_1R_2}{R_1+R_2}=68{,}75\,\Omega$. Im folgenden Skript fehlen die Klammern um den Nenner:
 
 ```python parallel.py
 # Parallelschaltung von 100 Ohm und 220 Ohm
@@ -265,6 +274,7 @@ Gesamtwiderstand in Ohm: 440.0
 ```
 
 Python rechnet nach seinen Regeln $100\cdot220/100+220=440$ und hat damit recht; gemeint war etwas anderes. Eine Parallelschaltung ist immer kleiner als der kleinste ihrer Widerstände, $440\,\Omega$ kann also nicht stimmen. Mit `100 * 220 / (100 + 220)` kommt `68.75` heraus.
+::::
 
 Weitere typische Logikfehler aus diesem Kapitel:
 

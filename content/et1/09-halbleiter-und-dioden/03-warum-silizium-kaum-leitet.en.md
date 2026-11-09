@@ -42,7 +42,11 @@ $$\text{occupation}\approx\mathrm{e}^{-W_\mathrm g/(2k_\mathrm BT)}. \tag{1.1}$$
 Every electron in the CB leaves a hole in the VB, so the numbers of both are equal. With similar numbers of states in both bands, this is possible only if $W_\mathrm F$ is the same distance $W_\mathrm g/2$ from both band edges. In [(0.1)](von-grund-auf-ventil-wechselspannung-und-warmeenergie.html#gl-0-1) the energy above $W_\mathrm F$ counts, so $W=W_\mathrm g/2$.
 :::
 
-**Example.** At 300 K, $W_\mathrm g/(k_\mathrm BT)=43.3$ and $\mathrm{e}^{-21.7}=3.9\cdot10^{-10}$. The measured density of free electrons is $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. That is one per $5\cdot10^{12}$ atoms, because silicon has $5\cdot10^{22}$ atoms per cm$^3$. Copper has $8.5\cdot10^{12}$ times more free electrons ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). **Limiting cases:** For $T\to0$, [(1.1)](#gl-1-1) goes to zero: silicon insulates. Every 10 K of warming doubles the fraction. That is why the resistance of a semiconductor falls with temperature ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+::::beispiel
+At 300 K, $W_\mathrm g/(k_\mathrm BT)=43.3$ and $\mathrm{e}^{-21.7}=3.9\cdot10^{-10}$. The measured density of free electrons is $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. That is one per $5\cdot10^{12}$ atoms, because silicon has $5\cdot10^{22}$ atoms per cm$^3$. Copper has $8.5\cdot10^{12}$ times more free electrons ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+::::
+
+⁠**Limiting cases:** For $T\to0$, [(1.1)](#gl-1-1) goes to zero: silicon insulates. Every 10 K of warming doubles the fraction. That is why the resistance of a semiconductor falls with temperature ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::frage Why does a full band not conduct even though it is full of electrons?
 Because current needs motion in a preferred direction. For that, an electron would have to move into a state with slightly more energy. In a full band, every such state is occupied. Two electrons could only swap places, and that changes nothing. The first hole makes the band conductive.

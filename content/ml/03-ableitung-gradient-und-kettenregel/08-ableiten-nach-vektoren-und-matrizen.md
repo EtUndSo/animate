@@ -60,7 +60,9 @@ Tabelle [2](#tab-2) fasst das zusammen. Zwei Folgerungen hat das Kapitel schon 
 | $\mathbf{g}:\mathbb{R}^n\to\mathbb{R}^m$ | $\mathbf{J}_{\mathbf{g}}(\mathbf{x})$ | $m\times n$ (Zeile $i$ ist $\nabla g_i^{\top}$) |
 | $f:\mathbb{R}^{m\times n}\to\mathbb{R}$ | $\nabla_{\mathbf{A}}f(\mathbf{A})$ | $m\times n$ (wie $\mathbf{A}$) |
 
-⁠**Rechenbeispiel:** Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist der Gradient die Spalte $\nabla f=(4,\,5)^{\top}$ und die Jacobi-Matrix die Zeile $\mathbf{J}_f=(4\ \ 5)$. Für $\mathbf{g}$ aus [(5.1)](die-jacobi-matrix.html#gl-5-1) ist $\mathbf{J}_{\mathbf{g}}$ eine $2\times2$-Matrix, deren erste Zeile $(2\ \ 1)$ der Gradient von $g_1=x_1x_2$ als Zeile ist.
+::::beispiel [Rechenbeispiel]
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist der Gradient die Spalte $\nabla f=(4,\,5)^{\top}$ und die Jacobi-Matrix die Zeile $\mathbf{J}_f=(4\ \ 5)$. Für $\mathbf{g}$ aus [(5.1)](die-jacobi-matrix.html#gl-5-1) ist $\mathbf{J}_{\mathbf{g}}$ eine $2\times2$-Matrix, deren erste Zeile $(2\ \ 1)$ der Gradient von $g_1=x_1x_2$ als Zeile ist.
+::::
 
 ⁠**Kurz gesagt:** Im Kapitel hat ein Gradient die Form seiner Variablen, und eine Jacobi-Matrix hat eine Zeile je Ausgang; daraus folgen $\mathbf{J}_f=\nabla f^{\top}$ und die Transponierte in der Kettenregel für Gradienten.
 
@@ -87,7 +89,9 @@ $$\nabla_{\mathbf{x}}(\mathbf{a}^{\top}\mathbf{x})=\nabla_{\mathbf{x}}(\mathbf{x
 Es ist $\mathbf{a}^{\top}\mathbf{x}=\sum_ja_jx_j$. Nach $x_k$ abgeleitet bleibt nur der Summand mit $j=k$, also $a_k$. Wegen $\mathbf{x}^{\top}\mathbf{a}=\mathbf{a}^{\top}\mathbf{x}$ gilt dasselbe für $\mathbf{x}^{\top}\mathbf{a}$. Für den zweiten Teil setzt man $\mathbf{a}=\mathbf{A}^{\top}\mathbf{y}$, denn $\mathbf{y}^{\top}\mathbf{A}\mathbf{x}=(\mathbf{A}^{\top}\mathbf{y})^{\top}\mathbf{x}$.
 :::
 
-⁠**Rechenbeispiel:** In [Grundlagen 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-2), war für Wohnung 1 mit $\mathbf{x}_1=(60,\,2,\,3)^{\top}$ und den Gewichten $\mathbf{w}=(3,\,10,\,-4)^{\top}$ die Vorhersage $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$. Als Funktion der Gewichte hat sie den Gradienten $\nabla_{\mathbf{w}}\hat y_1=\mathbf{x}_1=(60,\,2,\,3)^{\top}$. Erhöht man $w_1$ um $0{,}1$, so steigt die Vorhersage um $60\cdot0{,}1=6$ auf $194$; tatsächlich ist $3{,}1\cdot60+10\cdot2-4\cdot3=194$. Der Grund ist einfach: Jedes Gewicht wird mit seinem Merkmal multipliziert, und deshalb ist die Empfindlichkeit nach einem Gewicht genau das zugehörige Merkmal.
+::::beispiel [Rechenbeispiel]
+In [Grundlagen 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-2), war für Wohnung 1 mit $\mathbf{x}_1=(60,\,2,\,3)^{\top}$ und den Gewichten $\mathbf{w}=(3,\,10,\,-4)^{\top}$ die Vorhersage $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$. Als Funktion der Gewichte hat sie den Gradienten $\nabla_{\mathbf{w}}\hat y_1=\mathbf{x}_1=(60,\,2,\,3)^{\top}$. Erhöht man $w_1$ um $0{,}1$, so steigt die Vorhersage um $60\cdot0{,}1=6$ auf $194$; tatsächlich ist $3{,}1\cdot60+10\cdot2-4\cdot3=194$. Der Grund ist einfach: Jedes Gewicht wird mit seinem Merkmal multipliziert, und deshalb ist die Empfindlichkeit nach einem Gewicht genau das zugehörige Merkmal.
+::::
 
 ⁠**Kurz gesagt:** Der Gradient von $\mathbf{a}^{\top}\mathbf{x}$ nach $\mathbf{x}$ ist $\mathbf{a}$, der von $\mathbf{y}^{\top}\mathbf{A}\mathbf{x}$ ist $\mathbf{A}^{\top}\mathbf{y}$.
 
@@ -114,11 +118,13 @@ Es ist $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=\sum_{i=1}^n\sum_{j=1}^nx_i\,a_{ij
 
 Nach [Grundlagen 2, Abschnitt 5.2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-2), hängt die quadratische Form nur vom symmetrischen Anteil $\mathbf{S}=\tfrac12(\mathbf{A}+\mathbf{A}^{\top})$ ab. Die Formel passt dazu: $(\mathbf{A}+\mathbf{A}^{\top})\mathbf{x}=2\mathbf{S}\mathbf{x}$.
 
-⁠**Rechenbeispiel:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&3\end{smallmatrix}\bigr)$ ist $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=x_1^2+2x_1x_2+3x_2^2$, an der Stelle $\mathbf{x}=(1,\,1)^{\top}$ also $6$. Nach [(7.2)](#gl-7-2) ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&3\end{smallmatrix}\bigr)$ ist $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=x_1^2+2x_1x_2+3x_2^2$, an der Stelle $\mathbf{x}=(1,\,1)^{\top}$ also $6$. Nach [(7.2)](#gl-7-2) ist
 
 $$\nabla f(1,1)=(\mathbf{A}+\mathbf{A}^{\top})\mathbf{x}=\begin{pmatrix}2&2\\2&6\end{pmatrix}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}2+2\\2+6\end{pmatrix}=\begin{pmatrix}4\\8\end{pmatrix}.$$
 
 Probe mit den partiellen Ableitungen $2x_1+2x_2=4$ und $2x_1+6x_2=8$. Die Formel $2\mathbf{A}\mathbf{x}=(6,\,6)^{\top}$, die nur für symmetrische Matrizen gilt, wäre hier falsch.
+::::
 
 ⁠**Kurz gesagt:** Der Gradient von $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ ist $(\mathbf{A}+\mathbf{A}^{\top})\mathbf{x}$, für symmetrisches $\mathbf{A}$ also $2\mathbf{A}\mathbf{x}$, und der von $\lVert\mathbf{x}\rVert^2$ ist $2\mathbf{x}$.
 
@@ -141,7 +147,8 @@ $$\nabla f(\mathbf{x})=-2\mathbf{A}^{\top}(\mathbf{y}-\mathbf{A}\mathbf{x})=2\ma
 Die Funktion ist eine Verkettung: Zuerst bildet die affine Abbildung $\mathbf{r}(\mathbf{x})=\mathbf{y}-\mathbf{A}\mathbf{x}$ das Residuum, dann bildet $\mathbf{r}\mapsto\lVert\mathbf{r}\rVert^2$ seine Quadratsumme. Nach Abschnitt [5.4](die-jacobi-matrix.html#stufe-5-4) ist $\mathbf{J}_{\mathbf{r}}=-\mathbf{A}$, nach [(7.2)](#gl-7-2) ist $\nabla_{\mathbf{r}}\lVert\mathbf{r}\rVert^2=2\mathbf{r}$. Die Kettenregel [(6.3)](die-kettenregel-fur-mehrere-variablen.html#gl-6-3) ergibt $\nabla f=(-\mathbf{A})^{\top}\,2\mathbf{r}=-2\mathbf{A}^{\top}\mathbf{r}$.
 :::
 
-⁠**Rechenbeispiel:** Es sei $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$, $\mathbf{y}=(1,\,0)^{\top}$ und $\mathbf{x}=(2,\,1)^{\top}$. Dann ist $\mathbf{A}\mathbf{x}=(4,\,1)^{\top}$, das Residuum $\mathbf{r}=(-3,\,-1)^{\top}$ und $f(\mathbf{x})=9+1=10$. Mit $\mathbf{A}^{\top}\mathbf{r}=(-3,\,-7)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Es sei $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$, $\mathbf{y}=(1,\,0)^{\top}$ und $\mathbf{x}=(2,\,1)^{\top}$. Dann ist $\mathbf{A}\mathbf{x}=(4,\,1)^{\top}$, das Residuum $\mathbf{r}=(-3,\,-1)^{\top}$ und $f(\mathbf{x})=9+1=10$. Mit $\mathbf{A}^{\top}\mathbf{r}=(-3,\,-7)^{\top}$ ist
 
 $$\nabla f(\mathbf{x})=-2\mathbf{A}^{\top}\mathbf{r}=-2\begin{pmatrix}-3\\-7\end{pmatrix}=\begin{pmatrix}6\\14\end{pmatrix}$$
 
@@ -150,6 +157,7 @@ $$\nabla f(\mathbf{x})=-2\mathbf{A}^{\top}\mathbf{r}=-2\begin{pmatrix}-3\\-7\end
 :::abbildung ml/k3rresiduum 13
 Der Gradient der Quadratsumme $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2$: Jede Komponente von $\mathbf{A}^{\top}\mathbf{r}$ ist das Skalarprodukt einer Spalte von $\mathbf{A}$ mit dem Residuum.
 :::
+::::
 
 Die Formel verbindet sich mit [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html). Dort stand das Residuum der besten Näherungslösung $\hat{\mathbf{x}}$ senkrecht auf allen Spalten von $\mathbf{A}$, also $\mathbf{A}^{\top}\hat{\mathbf{r}}=\mathbf{0}$, und daraus folgten die Normalgleichungen $\mathbf{A}^{\top}\mathbf{A}\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y}$. Nach [(7.3)](#gl-7-3) heißt das: An der Stelle $\hat{\mathbf{x}}$ ist der Gradient der Quadratsumme null, sie steigt und fällt dort in keiner Richtung, bis auf Glieder zweiter Ordnung. Für das Beispiel aus [Grundlagen 2, Abschnitt 3.3](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-3), mit der Matrix $\mathbf{A}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$, $\mathbf{y}=(1,\,1,\,1)^{\top}$ und $\hat{\mathbf{x}}=(\tfrac23,\,\tfrac23)^{\top}$ ist $\hat{\mathbf{r}}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$ und $\mathbf{A}^{\top}\hat{\mathbf{r}}=(\tfrac13-\tfrac13,\ \tfrac13-\tfrac13)^{\top}=\mathbf{0}$.
 
@@ -181,11 +189,13 @@ Dabei ist $\lVert\mathbf{A}\rVert_F$ die Frobeniusnorm aus [Grundlagen 2, Absch
 Es ist $\mathbf{u}^{\top}\mathbf{A}\mathbf{v}=\sum_i\sum_ju_i\,a_{ij}\,v_j$. Der Eintrag $a_{ij}$ kommt in genau einem Summanden vor, mit dem Faktor $u_iv_j$. Also ist $\partial(\mathbf{u}^{\top}\mathbf{A}\mathbf{v})/\partial a_{ij}=u_iv_j$, und das ist der Eintrag $(i,j)$ des äußeren Produkts $\mathbf{u}\mathbf{v}^{\top}$ aus [Grundlagen 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5). Ebenso ist $\lVert\mathbf{A}\rVert_F^2=\sum_{i,j}a_{ij}^2$ und $\partial/\partial a_{ij}$ davon $2a_{ij}$.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{u}=(1,\,2)^{\top}$ und $\mathbf{v}=(3,\,-1)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{u}=(1,\,2)^{\top}$ und $\mathbf{v}=(3,\,-1)^{\top}$ ist
 
 $$\nabla_{\mathbf{A}}(\mathbf{u}^{\top}\mathbf{A}\mathbf{v})=\mathbf{u}\mathbf{v}^{\top}=\begin{pmatrix}3&-1\\6&-2\end{pmatrix},$$
 
 an jeder Stelle $\mathbf{A}$, denn die Funktion ist linear in $\mathbf{A}$. Für $\mathbf{A}=\mathbf{I}$ ist $\mathbf{u}^{\top}\mathbf{A}\mathbf{v}=\mathbf{u}^{\top}\mathbf{v}=3-2=1$. Vergrößert man den Eintrag $a_{21}$ um $0{,}1$, so sagt der Gradient eine Änderung um $6\cdot0{,}1=0{,}6$ voraus. Tatsächlich kommt $a_{21}$ nur im Summanden $u_2\,a_{21}\,v_1=2\cdot a_{21}\cdot3$ vor, und der wächst um $0{,}6$.
+::::
 
 ⁠**Kurz gesagt:** Die Ableitung einer Zahl nach einer Matrix hat die Form der Matrix; für $\mathbf{u}^{\top}\mathbf{A}\mathbf{v}$ ist sie das äußere Produkt $\mathbf{u}\mathbf{v}^{\top}$, für $\lVert\mathbf{A}\rVert_F^2$ ist sie $2\mathbf{A}$.
 
@@ -210,7 +220,8 @@ Allgemeiner gilt für $\mathbf{C}=\mathbf{A}\mathbf{B}$ und $F(\mathbf{A},\mathb
 Es ist $y_i=\sum_ka_{ik}x_k$. Der Eintrag $a_{ij}$ beeinflusst nur $y_i$, und zwar mit dem Faktor $\partial y_i/\partial a_{ij}=x_j$. Es gibt also nur einen Weg von $a_{ij}$ zu $f$, und $\partial F/\partial a_{ij}=\frac{\partial f}{\partial y_i}\,x_j$; das ist der Eintrag $(i,j)$ von $\nabla f(\mathbf{y})\,\mathbf{x}^{\top}$. Die Variable $x_j$ dagegen beeinflusst jedes $y_i$, mit dem Faktor $a_{ij}$; über alle Wege summiert ist $\partial F/\partial x_j=\sum_i\frac{\partial f}{\partial y_i}\,a_{ij}$, die Komponente $j$ von $\mathbf{A}^{\top}\nabla f(\mathbf{y})$. Die zweite Aussage folgt ebenso, weil $\mathbf{C}=\mathbf{A}\mathbf{B}$ Spalte für Spalte ein Matrix-Vektor-Produkt ist.
 :::
 
-⁠**Rechenbeispiel:** In [Grundlagen 1, Abschnitt 7.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-1), war $\mathbf{A}=\Bigl(\begin{smallmatrix}1&2\\0&-1\\3&1\end{smallmatrix}\Bigr)$ und $\mathbf{x}=(2,\,1)^{\top}$, also $\mathbf{y}=\mathbf{A}\mathbf{x}=(4,\,-1,\,7)^{\top}$. Es sei $f(\mathbf{y})=y_1-y_3=-3$, also $\nabla f(\mathbf{y})=(1,\,0,\,-1)^{\top}$. Nach [(7.6)](#gl-7-6) ist
+::::beispiel [Rechenbeispiel]
+In [Grundlagen 1, Abschnitt 7.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-1), war $\mathbf{A}=\Bigl(\begin{smallmatrix}1&2\\0&-1\\3&1\end{smallmatrix}\Bigr)$ und $\mathbf{x}=(2,\,1)^{\top}$, also $\mathbf{y}=\mathbf{A}\mathbf{x}=(4,\,-1,\,7)^{\top}$. Es sei $f(\mathbf{y})=y_1-y_3=-3$, also $\nabla f(\mathbf{y})=(1,\,0,\,-1)^{\top}$. Nach [(7.6)](#gl-7-6) ist
 
 $$\nabla_{\mathbf{A}}F=\begin{pmatrix}1\\0\\-1\end{pmatrix}\begin{pmatrix}2&1\end{pmatrix}=\begin{pmatrix}2&1\\0&0\\-2&-1\end{pmatrix},\qquad \nabla_{\mathbf{x}}F=\mathbf{A}^{\top}\begin{pmatrix}1\\0\\-1\end{pmatrix}=\begin{pmatrix}-2\\1\end{pmatrix}$$
 
@@ -219,6 +230,7 @@ $$\nabla_{\mathbf{A}}F=\begin{pmatrix}1\\0\\-1\end{pmatrix}\begin{pmatrix}2&1\en
 :::abbildung ml/k3rrueck 14
 Der Gradient nach dem Eingang eines Matrix-Vektor-Produkts: Jede Komponente sammelt über alle drei Ausgänge $y_i$, wie stark $f$ auf $y_i$ reagiert, gewichtet mit dem Faktor $a_{ij}$, mit dem $x_j$ auf $y_i$ wirkt.
 :::
+::::
 
 :::warnung Die Formprobe ist eine Merkhilfe, kein Beweis
 Die Formen legen [(7.6)](#gl-7-6) fast fest: $\nabla_{\mathbf{A}}F$ muss die Form $m\times n$ haben, und aus der Spalte $\nabla f(\mathbf{y})$ mit $m$ Einträgen und der Spalte $\mathbf{x}$ mit $n$ Einträgen ergibt nur $\nabla f(\mathbf{y})\,\mathbf{x}^{\top}$ diese Form. Man kann sich die Regel so merken. Die Formprobe erkennt aber weder ein falsches Vorzeichen noch einen fehlenden Faktor noch eine vertauschte Reihenfolge bei quadratischen Matrizen. Begründet ist die Regel erst durch die Rechnung mit den Komponenten.

@@ -21,7 +21,7 @@ Si se describe una matriz en una base formada por sus vectores propios, se vuelv
 
 La misma flecha tiene coordenadas distintas en bases distintas. Del mismo modo, la misma aplicación lineal tiene matrices distintas en coordenadas distintas. Algunas bases hacen que la matriz sea especialmente sencilla.
 
-Sea $\mathbf s_1,\dots,\mathbf s_n$ una base de $\mathbb{R}^n$, y sea $\mathbf{S}$ la matriz con estas columnas. Según Fundamentos 1, sección 13.5, es invertible. Si $\mathbf{x}$ tiene en esta base las coordenadas $\mathbf{c}$, entonces $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ y, a la inversa, $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. Si se transforma $\mathbf{x}$ con $\mathbf{A}$, la imagen $\mathbf{A}\mathbf{x}$ tiene las coordenadas $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. En las nuevas coordenadas, la aplicación actúa, por tanto, mediante la matriz $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: primero se pasa a las coordenadas antiguas, después se aplica la transformación y, por último, se vuelve a las nuevas.
+Sea $\mathbf s_1,\dots,\mathbf s_n$ una base de $\mathbb{R}^n$, y sea $\mathbf{S}$ la matriz con estas columnas. Según [Fundamentos 1, sección 13.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), es invertible. Si $\mathbf{x}$ tiene en esta base las coordenadas $\mathbf{c}$, entonces $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$ y, a la inversa, $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$. Si se transforma $\mathbf{x}$ con $\mathbf{A}$, la imagen $\mathbf{A}\mathbf{x}$ tiene las coordenadas $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$. En las nuevas coordenadas, la aplicación actúa, por tanto, mediante la matriz $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$: primero se pasa a las coordenadas antiguas, después se aplica la transformación y, por último, se vuelve a las nuevas.
 
 :::definition Definición 7.1 (Cambio de base)
 <span class="anker" id="satz-7-1"></span>
@@ -38,14 +38,16 @@ $\mathbf{A}$ y $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ tienen el mismo polinomio c
 :::
 
 :::beweis Cambio de base
-Se tiene $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. Según las reglas de cálculo de Fundamentos 1, sección 14.5, su determinante es $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. Según [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), la traza y el determinante se obtienen de los valores propios.
+Se tiene $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$. Según las reglas de cálculo de [Fundamentos 1, sección 14.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), su determinante es $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$. Según [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5), la traza y el determinante se obtienen de los valores propios.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ y la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ de Fundamentos 1, sección 13.3, es $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ y $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Entonces
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ y la base $(1,\,0)^{\top}$, $(1,\,1)^{\top}$ de [Fundamentos 1, sección 13.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3), es $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ y $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$. Entonces
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
 La traza vuelve a ser $7$, el determinante vuelve a ser $10$, y los valores propios están ahora en la diagonal de una matriz triangular: $2$ y $5$.
+::::
 
 ⁠**En resumen:** En la base de las columnas de $\mathbf{S}$, la aplicación $\mathbf{A}$ tiene la matriz $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$; los valores propios, la traza y el determinante no cambian.
 
@@ -67,14 +69,16 @@ A la inversa: si $\mathbf{A}$ puede escribirse así, las columnas de $\mathbf{S}
 :::
 
 :::beweis Diagonalización
-Según Fundamentos 1, sección 9.2, la columna $i$ de $\mathbf{A}\mathbf{S}$ es el producto $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, y la columna $i$ de $\mathbf{S}\boldsymbol{\Lambda}$ es también $\lambda_i\mathbf s_i$. Por tanto, $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. Las columnas de $\mathbf{S}$ son independientes; luego $\mathbf{S}$ es invertible, y multiplicando por $\mathbf{S}^{-1}$ por la izquierda se obtiene [(7.1)](#gl-7-1). Si se lee la misma ecuación $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ en sentido inverso, se obtiene el recíproco.
+Según [Fundamentos 1, sección 9.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), la columna $i$ de $\mathbf{A}\mathbf{S}$ es el producto $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$, y la columna $i$ de $\mathbf{S}\boldsymbol{\Lambda}$ es también $\lambda_i\mathbf s_i$. Por tanto, $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$. Las columnas de $\mathbf{S}$ son independientes; luego $\mathbf{S}$ es invertible, y multiplicando por $\mathbf{S}^{-1}$ por la izquierda se obtiene [(7.1)](#gl-7-1). Si se lee la misma ecuación $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ en sentido inverso, se obtiene el recíproco.
 :::
 
 Una matriz que puede escribirse así se llama __diagonalizable__. Según el teorema de la sección [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8), esto ocurre siempre, por ejemplo, cuando los $n$ valores propios son distintos. La cizalladura no es diagonalizable, pues le falta un vector propio. Tampoco la rotación de $90^\circ$ es diagonalizable con números reales, solo con complejos. Ambas son, aun así, invertibles: invertible y diagonalizable son dos propiedades distintas.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, con los vectores propios $(1,\,1)^{\top}$ y $(1,\,-2)^{\top}$, se tiene
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$, con los vectores propios $(1,\,1)^{\top}$ y $(1,\,-2)^{\top}$, se tiene
 
 $$\mathbf{S}=\begin{pmatrix}1&1\\1&-2\end{pmatrix},\qquad \mathbf{S}^{-1}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix},\qquad \mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\frac13\begin{pmatrix}2&1\\1&-1\end{pmatrix}\begin{pmatrix}5&2\\5&-4\end{pmatrix}=\begin{pmatrix}5&0\\0&2\end{pmatrix}.$$
+::::
 
 ⁠**En resumen:** Una matriz con $n$ vectores propios independientes es diagonal en la base formada por ellos: $\mathbf{A}=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}$.
 
@@ -103,11 +107,13 @@ $\mathbf{A}^2=\mathbf{S}\boldsymbol{\Lambda}\mathbf{S}^{-1}\mathbf{S}\boldsymbol
 
 En las coordenadas $\mathbf{c}$ de la base propia, cada paso consiste en multiplicar cada coordenada por su propio número: $c_i\mapsto\lambda_ic_i$. Un cálculo acoplado con $n$ incógnitas se convierte en $n$ cálculos separados con una incógnita cada uno. Estas coordenadas están desacopladas. A largo plazo predomina la parte con el valor propio de mayor módulo.
 
-⁠**Ejemplo numérico:** $\mathbf M$ tiene la traza $1{,}5$ y el determinante $0{,}56-0{,}06=0{,}5$, es decir, los valores propios $1$ y $0{,}5$. Son vectores propios $\mathbf s_1=(3,\,2)^{\top}$, asociado al valor propio $1$, pues $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 0{,}6+1{,}4)^{\top}=\mathbf s_1$, y $\mathbf s_2=(1,\,-1)^{\top}$, asociado al valor propio $0{,}5$. Si al principio viven $1000$ personas en A y nadie en B, entonces $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ y, según [(7.2)](#gl-7-2),
+::::beispiel [Ejemplo numérico]
+$\mathbf M$ tiene la traza $1{,}5$ y el determinante $0{,}56-0{,}06=0{,}5$, es decir, los valores propios $1$ y $0{,}5$. Son vectores propios $\mathbf s_1=(3,\,2)^{\top}$, asociado al valor propio $1$, pues $\mathbf M\mathbf s_1=(2{,}4+0{,}6;\ 0{,}6+1{,}4)^{\top}=\mathbf s_1$, y $\mathbf s_2=(1,\,-1)^{\top}$, asociado al valor propio $0{,}5$. Si al principio viven $1000$ personas en A y nadie en B, entonces $\mathbf{x}_0=(1000,\,0)^{\top}=200\,\mathbf s_1+400\,\mathbf s_2$ y, según [(7.2)](#gl-7-2),
 
 $$\mathbf{x}_k=200\begin{pmatrix}3\\2\end{pmatrix}+400\cdot0{,}5^k\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}600+400\cdot0{,}5^k\\400-400\cdot0{,}5^k\end{pmatrix}.$$
 
 Al cabo de un año son $(800,\,200)^{\top}$; al cabo de dos años, $(700,\,300)^{\top}$, y a largo plazo se llega a $(600,\,400)^{\top}$. La parte asociada al valor propio $0{,}5$ se reduce a la mitad cada año; la asociada al valor propio $1$ se mantiene.
+::::
 
 ⁠**En resumen:** En la base propia, cada potencia de la matriz se convierte en potencias de los valores propios; las sucesiones acopladas se descomponen en sucesiones separadas, una por cada vector propio.
 
@@ -143,7 +149,9 @@ Por tanto, $(\lambda-\lambda^*)\,(\mathbf{v}^*)^{\top}\mathbf{v}=0$. Según la s
 
 Para un valor propio real hay entonces también vectores propios reales, pues $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ es un sistema de ecuaciones real.
 
-⁠**Ejemplo numérico:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ tiene el polinomio característico $\lambda^2-7\lambda+6$, con el discriminante $49-24=25>0$ y los valores propios reales $6$ y $1$. Para una matriz simétrica $2\times2$ cualquiera $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$, el discriminante es $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$; los valores propios son, por tanto, siempre reales, como dice el teorema.
+::::beispiel [Ejemplo numérico]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ tiene el polinomio característico $\lambda^2-7\lambda+6$, con el discriminante $49-24=25>0$ y los valores propios reales $6$ y $1$. Para una matriz simétrica $2\times2$ cualquiera $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$, el discriminante es $(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2\ge0$; los valores propios son, por tanto, siempre reales, como dice el teorema.
+::::
 
 ⁠**En resumen:** Una matriz simétrica solo tiene valores propios reales y vectores propios reales.
 
@@ -163,11 +171,13 @@ Los vectores propios de una matriz simétrica asociados a valores propios distin
 Sea $\mathbf{A}\mathbf{v}_1=\lambda_1\mathbf{v}_1$ y $\mathbf{A}\mathbf{v}_2=\lambda_2\mathbf{v}_2$ con $\lambda_1\ne\lambda_2$. Se calcula $\mathbf{v}_1^{\top}\mathbf{A}\mathbf{v}_2$ de dos maneras: como $\mathbf{v}_1^{\top}(\lambda_2\mathbf{v}_2)=\lambda_2\,\mathbf{v}_1^{\top}\mathbf{v}_2$ y, con $\mathbf{A}^{\top}=\mathbf{A}$, como $(\mathbf{A}\mathbf{v}_1)^{\top}\mathbf{v}_2=\lambda_1\,\mathbf{v}_1^{\top}\mathbf{v}_2$. Por tanto, $(\lambda_1-\lambda_2)\,\mathbf{v}_1^{\top}\mathbf{v}_2=0$, y como $\lambda_1\ne\lambda_2$, es $\mathbf{v}_1^{\top}\mathbf{v}_2=0$.
 :::
 
-⁠**Ejemplo numérico:** $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ tiene, asociado al valor propio $6$, el vector propio $(2,\,1)^{\top}$, pues $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$, y, asociado al valor propio $1$, el vector propio $(1,\,-2)^{\top}$, pues $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. Su producto escalar es $2-2=0$ (fig. [19](#abb-19)).
+::::beispiel [Ejemplo numérico]
+$\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ tiene, asociado al valor propio $6$, el vector propio $(2,\,1)^{\top}$, pues $(10+2,\ 4+2)^{\top}=6\,(2,\,1)^{\top}$, y, asociado al valor propio $1$, el vector propio $(1,\,-2)^{\top}$, pues $(5-4,\ 2-4)^{\top}=(1,\,-2)^{\top}$. Su producto escalar es $2-2=0$ (fig. [19](#abb-19)).
 
 :::abbildung ml/k2rsenkrecht 19
 El producto escalar de los vectores propios $(2,1)^{\top}$, asociado al valor propio $6$, y $(1,-2)^{\top}$, asociado al valor propio $1$, de la matriz simétrica $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: son perpendiculares entre sí.
 :::
+::::
 
 ⁠**En resumen:** En una matriz simétrica, los vectores propios asociados a valores propios distintos son perpendiculares entre sí.
 
@@ -197,19 +207,21 @@ Se procede paso a paso. Según la sección [6.3](eigenwerte-und-eigenvektoren.h
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-con la matriz simétrica $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, de tamaño $(n-1)\times(n-1)$. Los ceros aparecen porque $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ es perpendicular a las columnas de $\mathbf{W}$, y arriba a la derecha igualmente, porque $\mathbf{A}$ es simétrica. Con $\mathbf{B}$ se repite lo mismo hasta que queda una matriz $1\times1$. Si de este modo se ha encontrado para $\mathbf{B}$ una matriz ortogonal $\mathbf{Q}_B$ con la que $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ es diagonal, entonces $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ es ortogonal como producto de matrices ortogonales, y $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ es diagonal. Como $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, se sigue $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. La forma de suma se deduce de Fundamentos 1, sección 9.5, pues $\mathbf{Q}\boldsymbol{\Lambda}$ tiene las columnas $\lambda_i\mathbf{q}_i$.
+con la matriz simétrica $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$, de tamaño $(n-1)\times(n-1)$. Los ceros aparecen porque $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ es perpendicular a las columnas de $\mathbf{W}$, y arriba a la derecha igualmente, porque $\mathbf{A}$ es simétrica. Con $\mathbf{B}$ se repite lo mismo hasta que queda una matriz $1\times1$. Si de este modo se ha encontrado para $\mathbf{B}$ una matriz ortogonal $\mathbf{Q}_B$ con la que $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ es diagonal, entonces $\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ es ortogonal como producto de matrices ortogonales, y $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ es diagonal. Como $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$, se sigue $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$. La forma de suma se deduce de [Fundamentos 1, sección 9.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5), pues $\mathbf{Q}\boldsymbol{\Lambda}$ tiene las columnas $\lambda_i\mathbf{q}_i$.
 :::
 
 Cada sumando $\mathbf{q}_i\mathbf{q}_i^{\top}$ es, según la sección [2.3](projektion-auf-eine-gerade.html#stufe-2-3), la proyección sobre la recta en la dirección de $\mathbf{q}_i$. Una matriz simétrica es, por tanto, una suma de proyecciones sobre ejes perpendiculares, cada una ponderada con su valor propio. En un valor propio múltiple, la elección de los $\mathbf{q}_i$ en su espacio propio es libre: cualquier base ortonormal del espacio propio sirve. También el signo de cada $\mathbf{q}_i$ es libre. Algunos libros ordenan los valores propios de forma decreciente; otros no.
 
-⁠**Ejemplo numérico:** Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ y $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ son los vectores propios normalizados asociados a $6$ y $1$. Entonces
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $\mathbf{q}_1=(2,\,1)^{\top}/\sqrt5$ y $\mathbf{q}_2=(1,\,-2)^{\top}/\sqrt5$ son los vectores propios normalizados asociados a $6$ y $1$. Entonces
 
 $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}=\frac15\begin{pmatrix}25&10\\10&10\end{pmatrix}=\begin{pmatrix}5&2\\2&2\end{pmatrix}.$$
+::::
 
 ⁠**En resumen:** Toda matriz simétrica es $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$: diagonal en un sistema de ejes convenientemente girado, una suma ponderada de proyecciones sobre ejes perpendiculares.
 
 :::hintergrund De dónde salen las matrices simétricas
-Las matrices simétricas aparecen siempre que una matriz describe relaciones entre pares que no dependen del orden. Las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$ de Fundamentos 1, sección 10, contienen productos escalares, y $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. La matriz de una forma cuadrática puede elegirse siempre simétrica, según la sección [5.2](quadratische-formen.html#stufe-5-2). La matriz de inductancias de unas bobinas acopladas es simétrica, porque la inductancia mutua de la bobina 1 sobre la bobina 2 es la misma que a la inversa. Para todas estas matrices, el teorema espectral garantiza valores propios reales y direcciones propias perpendiculares.
+Las matrices simétricas aparecen siempre que una matriz describe relaciones entre pares que no dependen del orden. Las matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ y $\mathbf{X}\mathbf{X}^{\top}$ de [Fundamentos 1, sección 10](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), contienen productos escalares, y $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$. La matriz de una forma cuadrática puede elegirse siempre simétrica, según la sección [5.2](quadratische-formen.html#stufe-5-2). La matriz de inductancias de unas bobinas acopladas es simétrica, porque la inductancia mutua de la bobina 1 sobre la bobina 2 es la misma que a la inversa. Para todas estas matrices, el teorema espectral garantiza valores propios reales y direcciones propias perpendiculares.
 :::
 
 ### Ejes principales
@@ -237,11 +249,13 @@ Por eso, las direcciones de los vectores propios se llaman __ejes principales__ 
 Las curvas de nivel $5x_1^2+4x_1x_2+2x_2^2=1$ (azul) y $=\tfrac14$ (azul claro) son elipses. Sus ejes (gris) están en las direcciones de los vectores propios $\mathbf{q}_1=(2,1)^{\top}/\sqrt5$, asociado al valor propio $6$, y $\mathbf{q}_2=(1,-2)^{\top}/\sqrt5$, asociado al valor propio $1$. Los semiejes de la elipse exterior son $1/\sqrt6\approx0{,}41$ (rojo) y $1/\sqrt1=1$ (verde): en la dirección del valor propio grande, la forma sube con más pendiente, y la elipse es allí más estrecha.
 :::
 
-⁠**Ejemplo numérico:** Para $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$, las coordenadas en la base propia son $c_1=(2x_1+x_2)/\sqrt5$ y $c_2=(x_1-2x_2)/\sqrt5$, y
+::::beispiel [Ejemplo numérico]
+Para $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$, las coordenadas en la base propia son $c_1=(2x_1+x_2)/\sqrt5$ y $c_2=(x_1-2x_2)/\sqrt5$, y
 
 $$5x_1^2+4x_1x_2+2x_2^2=6\,c_1^2+c_2^2=\tfrac65(2x_1+x_2)^2+\tfrac15(x_1-2x_2)^2 .$$
 
 Desarrollado, el lado derecho da $\tfrac15\bigl(24x_1^2+24x_1x_2+6x_2^2+x_1^2-4x_1x_2+4x_2^2\bigr)=5x_1^2+4x_1x_2+2x_2^2$. La curva de nivel $f=1$ es la elipse de la fig. [20](#abb-20), con los semiejes $1/\sqrt6\approx0{,}408$ y $1$.
+::::
 
 ⁠**En resumen:** En la base propia, toda forma cuadrática se convierte en la suma $\sum_i\lambda_ic_i^2$, sin términos cruzados; los vectores propios son los ejes principales de sus elipses, y los semiejes son $1/\sqrt{\lambda_i}$.
 

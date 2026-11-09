@@ -45,8 +45,7 @@ Die Menge aller linearen Abbildungen von $V$ nach $W$ heißt $\operatorname{Lin}
 
 ⁠**So liest man das:** Links in (L1) steht die Addition von $V$, rechts die von $W$. Statt $L(v)$ schreibt man oft $Lv$. Im Bild: $S(a+b)=S(1,2)=(3,2)$ und $Sa+Sb=(3,1)+(0,1)=(3,2)$.
 
-**Beispiele.**
-
+::::beispiel [Beispiele]
 <ul>
 
 <li>
@@ -80,6 +79,7 @@ Auf dem Raum $\mathcal P_2$ der Polynome vom Grad höchstens 2 ist die __Punktau
 </li>
 
 </ul>
+::::
 
 :::satz Satz 1.2 (Rechenregeln)
 <span class="anker" id="satz-1-2"></span>

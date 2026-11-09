@@ -46,7 +46,11 @@ Das ist $D=v^2\tau_\text{scat}$ aus Stufe [1](warum-teilchen-ohne-kraft-stromen
 Der Gesamtstrom $j_\mathrm n=e\,n\,\mu_\mathrm n\mathcal E+e\,D_\mathrm n\,\mathrm{d} n/\mathrm{d} x$ muss im Gleichgewicht null sein, und dort ist $e\mathcal E=-(k_\mathrm BT/n)\,\mathrm{d} n/\mathrm{d} x$. Einsetzen ergibt $-\mu_\mathrm nk_\mathrm BT\,\mathrm{d} n/\mathrm{d} x+e\,D_\mathrm n\,\mathrm{d} n/\mathrm{d} x=0$, also $D_\mathrm n=\mu_\mathrm nk_\mathrm BT/e$. Bei jedem anderen Verhältnis flösse im Gleichgewicht Strom.
 :::
 
-**Beispiel.** In der Probe ist $D_\mathrm n=31\,\mathrm{cm^2/s}$ und $D_\mathrm p=10{,}8\,\mathrm{cm^2/s}$. Fällt $n=10^{16}\,\mathrm{cm^{-3}}$ auf 10 µ m um den Faktor $\mathrm{e}$, ist $|j_{\mathrm n,\text{diff}}|=50\,\mathrm{A/cm^2}$. Denselben Strom treiben 25,85 mV über 10 µ m. **Kurz gesagt:** Ein Dichtegefälle, das $n$ auf einer Strecke um den Faktor $\mathrm{e}$ ändert, wirkt wie die Spannung $k_\mathrm BT/e$ über dieser Strecke. **Grenzfälle:** Für $T\to0$ ist $D_\mathrm n\to0$, die Wärmebewegung fehlt. Für $\tau_\text{scat}\to0$ verschwinden $\mu_\mathrm n$ und $D_\mathrm n$ gemeinsam.
+::::beispiel
+In der Probe ist $D_\mathrm n=31\,\mathrm{cm^2/s}$ und $D_\mathrm p=10{,}8\,\mathrm{cm^2/s}$. Fällt $n=10^{16}\,\mathrm{cm^{-3}}$ auf 10 µ m um den Faktor $\mathrm{e}$, ist $|j_{\mathrm n,\text{diff}}|=50\,\mathrm{A/cm^2}$. Denselben Strom treiben 25,85 mV über 10 µ m.
+::::
+
+⁠**Kurz gesagt:** Ein Dichtegefälle, das $n$ auf einer Strecke um den Faktor $\mathrm{e}$ ändert, wirkt wie die Spannung $k_\mathrm BT/e$ über dieser Strecke. **Grenzfälle:** Für $T\to0$ ist $D_\mathrm n\to0$, die Wärmebewegung fehlt. Für $\tau_\text{scat}\to0$ verschwinden $\mu_\mathrm n$ und $D_\mathrm n$ gemeinsam.
 
 :::frage Beim Elektronenstrom steht ein Plus. Läuft Diffusion nicht immer zur kleineren Dichte?
 Doch, die Teilchen tun das: $\mathcal J_\mathrm n=-D_\mathrm n\,\partial n/\partial x$. Das Plus gehört zum elektrischen Strom. Elektronen tragen die Ladung $-e$, die Stromrichtung ist also der Laufrichtung entgegengesetzt.

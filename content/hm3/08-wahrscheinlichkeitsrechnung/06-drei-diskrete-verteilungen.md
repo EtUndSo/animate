@@ -32,7 +32,13 @@ $$b_{n,p}(k):=\mathbb{P}(X=k)=\binom nkp^k(1-p)^{n-k}\quad\text{für }k=0,1,\dot
 Die Wahrscheinlichkeitsfunktion $b_{n,p}$ heißt __Binomialverteilung__.
 :::
 
-$X$ zählt die Treffer. Die Summe aller Werte ist $(p+1-p)^n=1$ nach dem binomischen Satz. **Beispiel:** Greift man aus der Kiste fünfmal mit Zurücklegen, ist $n=5$, $p=\frac15$ und $\mathbb{P}(X\ge2)\approx0{,}263$. **Grenzfall:** $n=1$ ist das Bernoulli-Experiment.
+$X$ zählt die Treffer. Die Summe aller Werte ist $(p+1-p)^n=1$ nach dem binomischen Satz.
+
+::::beispiel
+Greift man aus der Kiste fünfmal mit Zurücklegen, ist $n=5$, $p=\frac15$ und $\mathbb{P}(X\ge2)\approx0{,}263$.
+::::
+
+⁠**Grenzfall:** $n=1$ ist das Bernoulli-Experiment.
 
 **Seltene Ereignisse.** Bei sehr vielen Versuchen mit kleiner Trefferquote kennt man oft nur die mittlere Trefferzahl $\lambda=np$.
 
@@ -63,11 +69,13 @@ $$\frac{n!}{k!\,(n-k)!}\Bigl(\frac\lambda n\Bigr)^k\Bigl(1-\frac\lambda n\Bigr)^
 Der erste und der dritte Block haben eine feste Zahl von Faktoren.
 :::
 
-⁠**Beispiel:** Von 200 Bauteilen fällt jedes mit $p=0{,}01$ aus, also $\lambda=2$. Die Binomialverteilung gibt $\mathbb{P}(X=0)=0{,}134$, Poisson $\mathrm{e}^{-2}=0{,}135$ (Abb. [5](#abb-5)). Man nennt sie deshalb auch Verteilung der seltenen Ereignisse.
+::::beispiel
+Von 200 Bauteilen fällt jedes mit $p=0{,}01$ aus, also $\lambda=2$. Die Binomialverteilung gibt $\mathbb{P}(X=0)=0{,}134$, Poisson $\mathrm{e}^{-2}=0{,}135$ (Abb. [5](#abb-5)). Man nennt sie deshalb auch Verteilung der seltenen Ereignisse.
 
 :::abbildung hm3/k8poisson 5
 Binomialverteilung für $n=200$, $p=0{,}01$ und Poisson-Verteilung für $\lambda=2$.
 :::
+::::
 
 **Stichprobe ohne Zurücklegen.** Eine Urne enthält $N$ Elemente, $M\le N$ davon haben eine Eigenschaft. Man entnimmt $n\le N$ Stück auf einmal, und $X$ zählt, wie viele davon die Eigenschaft haben. Das ist Fall (iii) des Urnenmodells.
 
@@ -82,7 +90,13 @@ $$h(k;N,M,n):=\mathbb{P}(X=k)=\frac{\binom Mk\binom{N-M}{n-k}}{\binom Nn}\quad\t
 Die Wahrscheinlichkeitsfunktion $h(\,\cdot\,;N,M,n)$ heißt __hypergeometrische Verteilung__.
 :::
 
-Ein Binomialkoeffizient $\binom ab$ mit $b>a$ ist dabei null. **Beispiel:** Die Rechnung für die Kiste in Stufe [2](zahlen.html#stufe-2) ist genau dieser Fall mit $N=20$, $M=4$, $n=5$. Ohne Zurücklegen ist $\mathbb{P}(X\ge2)\approx0{,}249$, mit Zurücklegen $0{,}263$. **Grenzfall:** Ist $N$ groß gegen $n$, verändert das Herausnehmen die Urne kaum, und [(5.3)](#gl-5-3) geht in [(5.1)](#gl-5-1) mit $p=M/N$ über.
+Ein Binomialkoeffizient $\binom ab$ mit $b>a$ ist dabei null.
+
+::::beispiel
+Die Rechnung für die Kiste in Stufe [2](zahlen.html#stufe-2) ist genau dieser Fall mit $N=20$, $M=4$, $n=5$. Ohne Zurücklegen ist $\mathbb{P}(X\ge2)\approx0{,}249$, mit Zurücklegen $0{,}263$.
+::::
+
+⁠**Grenzfall:** Ist $N$ groß gegen $n$, verändert das Herausnehmen die Urne kaum, und [(5.3)](#gl-5-3) geht in [(5.1)](#gl-5-1) mit $p=M/N$ über.
 
 :::aufgabe Aufgabe 7 ★★ Turnier
 <span class="anker" id="aufg-7"></span>

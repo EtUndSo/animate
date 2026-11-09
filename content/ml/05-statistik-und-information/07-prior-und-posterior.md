@@ -21,7 +21,8 @@ Wer eine Münze aus der Geldbörse wirft, ist schon vor dem ersten Wurf ziemlich
 
 In der frequentistischen Sicht aus Abschnitt [1](schatzen-aus-einer-stichprobe.html#stufe-1) ist der Parameter eine feste Zahl, und Wahrscheinlichkeiten gibt es nur für die Daten. Es gibt eine zweite Sicht, nach dem englischen Mathematiker Thomas Bayes die __bayessche__ genannt. In ihr misst eine Wahrscheinlichkeit, wie sicher man sich einer Sache ist, und deshalb darf auch ein unbekannter Parameter eine Verteilung haben. Sie drückt aus, welche Werte man für plausibel hält. Neue Daten ändern diese Verteilung nach dem Satz von Bayes aus [Grundlagen 4, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-1). Es gibt Lagen, in denen beide Sichten sich einig sind, weil der Parameter tatsächlich durch einen Zufall bestimmt wurde. Mit einer solchen Lage beginnt dieser Abschnitt.
 
-⁠**Rechenbeispiel: die Münzkiste.** In einer Kiste liegen vier Münzen: eine, die mit der Wahrscheinlichkeit $\tfrac14$ Kopf zeigt, zwei faire und eine, die mit der Wahrscheinlichkeit $\tfrac34$ Kopf zeigt. Man zieht blind eine Münze und wirft sie viermal: Kopf, Kopf, Zahl, Kopf. Welche Münze war es? Vor den Würfen hat $\theta$ die Werte $\tfrac14$, $\tfrac12$, $\tfrac34$ mit den Wahrscheinlichkeiten $\tfrac14$, $\tfrac12$, $\tfrac14$. Die Likelihood der Würfe ist $\theta^3(1-\theta)$, also
+::::beispiel [Rechenbeispiel] die Münzkiste
+In einer Kiste liegen vier Münzen: eine, die mit der Wahrscheinlichkeit $\tfrac14$ Kopf zeigt, zwei faire und eine, die mit der Wahrscheinlichkeit $\tfrac34$ Kopf zeigt. Man zieht blind eine Münze und wirft sie viermal: Kopf, Kopf, Zahl, Kopf. Welche Münze war es? Vor den Würfen hat $\theta$ die Werte $\tfrac14$, $\tfrac12$, $\tfrac34$ mit den Wahrscheinlichkeiten $\tfrac14$, $\tfrac12$, $\tfrac14$. Die Likelihood der Würfe ist $\theta^3(1-\theta)$, also
 
 $$\mathcal L(\tfrac14)=\tfrac1{64}\cdot\tfrac34=\tfrac3{256},\qquad \mathcal L(\tfrac12)=\tfrac1{16}=\tfrac{16}{256},\qquad \mathcal L(\tfrac34)=\tfrac{27}{64}\cdot\tfrac14=\tfrac{27}{256} .$$
 
@@ -39,6 +40,7 @@ Die größte Likelihood hat die Münze mit $\theta=\tfrac34$; der Maximum-Likeli
 :::abbildung ml/k5rbayes 10
 Die Wahrscheinlichkeit der Würfe Kopf, Kopf, Zahl, Kopf mit einer zufällig gezogenen Münze aus der Kiste: die Likelihood jeder Münzsorte, gewichtet mit dem Anteil dieser Sorte in der Kiste.
 :::
+::::
 
 ⁠**Kurz gesagt:** Gibt man dem Parameter eine Verteilung, so liefert der Satz von Bayes seine Verteilung nach den Daten: Likelihood mal Wahrscheinlichkeit vor den Daten, geteilt durch die Wahrscheinlichkeit der Daten.
 
@@ -60,7 +62,9 @@ Die Verteilung, die man dem Parameter gibt, bevor man die Daten kennt, heißt __
 
 Der Prior übernimmt die Rolle, die in [Grundlagen 4, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-1) und [4.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-3), die Ausgangswahrscheinlichkeit und die Basisrate hatten. Das lateinische *a priori* heißt „vom Früheren her“, hier: vor den Daten.
 
-⁠**Rechenbeispiel:** Der Prior $p(\theta)=1$ für $0\le\theta\le1$ ist die Gleichverteilung aus [Grundlagen 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4). Er bevorzugt keinen Wert. Der Prior $p(\theta)=6\theta(1-\theta)$ hat die Fläche $6\,(\tfrac12-\tfrac13)=1$ und ist bei $\theta=\tfrac12$ am höchsten. Mit der Stammfunktion $3\theta^2-2\theta^3$ gibt er dem Bereich $0{,}25\le\theta\le0{,}75$ die Wahrscheinlichkeit $(1{,}6875-0{,}84375)-(0{,}1875-0{,}03125)=0{,}6875$. Er drückt also aus: Die Münze ist eher fair, aber auch deutlich unfaire Münzen sind nicht ausgeschlossen.
+::::beispiel [Rechenbeispiel]
+Der Prior $p(\theta)=1$ für $0\le\theta\le1$ ist die Gleichverteilung aus [Grundlagen 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4). Er bevorzugt keinen Wert. Der Prior $p(\theta)=6\theta(1-\theta)$ hat die Fläche $6\,(\tfrac12-\tfrac13)=1$ und ist bei $\theta=\tfrac12$ am höchsten. Mit der Stammfunktion $3\theta^2-2\theta^3$ gibt er dem Bereich $0{,}25\le\theta\le0{,}75$ die Wahrscheinlichkeit $(1{,}6875-0{,}84375)-(0{,}1875-0{,}03125)=0{,}6875$. Er drückt also aus: Die Münze ist eher fair, aber auch deutlich unfaire Münzen sind nicht ausgeschlossen.
+::::
 
 ⁠**Kurz gesagt:** Der Prior ist die Verteilung des Parameters vor den Daten; er hält fest, welche Werte man aus Vorwissen für plausibel hält.
 
@@ -93,7 +97,9 @@ Der Randterm ist null, weil bei $\theta=0$ der erste und bei $\theta=1$ der zwei
 $$I(m,n)=\frac n{m+1}\cdot\frac{n-1}{m+2}\cdots\frac1{m+n}\;I(m+n,0)=\frac{n!\,m!}{(m+n)!}\cdot\frac1{m+n+1}=\frac{m!\,n!}{(m+n+1)!} .$$
 :::
 
-⁠**Rechenbeispiel:** Für $m=7$ und $n=3$ ist das Integral $\frac{7!\,3!}{11!}=\frac{6}{8\cdot9\cdot10\cdot11}=\frac6{7920}=\frac1{1320}$, wie in Unterabschnitt [4.2](die-likelihood.html#stufe-4-2) durch Ausmultiplizieren berechnet. Für $m=n=1$ ist es $\frac{1\cdot1}{3!}=\frac16$; daher kommt der Faktor $6$ im Prior $6\theta(1-\theta)$.
+::::beispiel [Rechenbeispiel]
+Für $m=7$ und $n=3$ ist das Integral $\frac{7!\,3!}{11!}=\frac{6}{8\cdot9\cdot10\cdot11}=\frac6{7920}=\frac1{1320}$, wie in Unterabschnitt [4.2](die-likelihood.html#stufe-4-2) durch Ausmultiplizieren berechnet. Für $m=n=1$ ist es $\frac{1\cdot1}{3!}=\frac16$; daher kommt der Faktor $6$ im Prior $6\theta(1-\theta)$.
+::::
 
 ⁠**Kurz gesagt:** $\int_0^1\theta^m(1-\theta)^n\,\mathrm{d}\theta=\frac{m!\,n!}{(m+n+1)!}$; man beweist es durch wiederholtes partielles Integrieren.
 
@@ -139,11 +145,13 @@ $$\mathbb{E}[\theta]=\frac{B(\alpha_1+1,\alpha_0)}{B(\alpha_1,\alpha_0)}=\frac{\
 Für den Modus maximiert man den Logarithmus der Dichte, $(\alpha_1-1)\ln\theta+(\alpha_0-1)\ln(1-\theta)$ plus eine Konstante. Das ist die Log-Likelihood [(4.7)](die-likelihood.html#gl-4-7) mit $N_1=\alpha_1-1$ und $N_0=\alpha_0-1$, und nach dem Satz in Unterabschnitt [5.2](die-maximum-likelihood-schatzung.html#stufe-5-2) liegt ihr Maximum bei $N_1/(N_1+N_0)=(\alpha_1-1)/(\alpha_1+\alpha_0-2)$.
 :::
 
-⁠**Rechenbeispiel:** $\mathrm{Beta}(1,1)$ hat die Dichte $1$, ist also die Gleichverteilung, mit dem Erwartungswert $\tfrac12$ und ohne einzelnen Modus. $\mathrm{Beta}(2,2)$ hat $B=\frac{1!\,1!}{3!}=\frac16$, also die Dichte $6\theta(1-\theta)$ aus Unterabschnitt [6.2](#stufe-6-2), mit Erwartungswert und Modus $\tfrac12$. $\mathrm{Beta}(5,2)$ hat die Dichte $30\,\theta^4(1-\theta)$, den Erwartungswert $\tfrac57\approx0{,}714$ und den Modus $\tfrac45$. $\mathrm{Beta}(9,5)$ hat den Erwartungswert $\tfrac9{14}\approx0{,}643$ und den Modus $\tfrac8{12}=\tfrac23$. Abb. [11](#abb-11) zeigt die vier Dichten. Je größer $\alpha_1+\alpha_0$, desto schmaler die Kurve; bei schiefen Kurven liegt der Erwartungswert näher an der Mitte als der Modus.
+::::beispiel [Rechenbeispiel]
+$\mathrm{Beta}(1,1)$ hat die Dichte $1$, ist also die Gleichverteilung, mit dem Erwartungswert $\tfrac12$ und ohne einzelnen Modus. $\mathrm{Beta}(2,2)$ hat $B=\frac{1!\,1!}{3!}=\frac16$, also die Dichte $6\theta(1-\theta)$ aus Unterabschnitt [6.2](#stufe-6-2), mit Erwartungswert und Modus $\tfrac12$. $\mathrm{Beta}(5,2)$ hat die Dichte $30\,\theta^4(1-\theta)$, den Erwartungswert $\tfrac57\approx0{,}714$ und den Modus $\tfrac45$. $\mathrm{Beta}(9,5)$ hat den Erwartungswert $\tfrac9{14}\approx0{,}643$ und den Modus $\tfrac8{12}=\tfrac23$. Abb. [11](#abb-11) zeigt die vier Dichten. Je größer $\alpha_1+\alpha_0$, desto schmaler die Kurve; bei schiefen Kurven liegt der Erwartungswert näher an der Mitte als der Modus.
 
 :::abbildung ml/k5beta 11
 Vier Beta-Dichten. $\mathrm{Beta}(1,1)$ ist die Gleichverteilung, $\mathrm{Beta}(2,2)$ ein flacher Hügel um $\tfrac12$. $\mathrm{Beta}(5,2)$ ist nach rechts verschoben, mit dem Gipfel bei $0{,}8$. $\mathrm{Beta}(9,5)$ ist schmaler, mit dem Gipfel bei $\tfrac23$ und dem Wert $3{,}10$ dort.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Beta-Verteilung $\mathrm{Beta}(\alpha_1,\alpha_0)$ hat eine Dichte proportional zu $\theta^{\alpha_1-1}(1-\theta)^{\alpha_0-1}$, den Erwartungswert $\alpha_1/(\alpha_1+\alpha_0)$ und den Modus $(\alpha_1-1)/(\alpha_1+\alpha_0-2)$.
 
@@ -173,7 +181,8 @@ $$p(\theta\mid\mathcal D)\propto\mathcal L(\theta)\,p(\theta) , \tag{6.6}$$
 
 gelesen „proportional zu“: gleich bis auf einen Faktor, der nicht von $\theta$ abhängt. In Worten: Posterior ist Likelihood mal Prior, auf die Fläche $1$ gebracht.
 
-⁠**Rechenbeispiel:** Für die verbogene Münze mit dem Prior $\mathrm{Beta}(2,2)$ und sieben Köpfen in zehn Würfen ist
+::::beispiel [Rechenbeispiel]
+Für die verbogene Münze mit dem Prior $\mathrm{Beta}(2,2)$ und sieben Köpfen in zehn Würfen ist
 
 $$p(\theta\mid\mathcal D)\propto\theta^7(1-\theta)^3\cdot\theta(1-\theta)=\theta^8(1-\theta)^4 .$$
 
@@ -182,6 +191,7 @@ Das ist bis auf den Faktor die Dichte von $\mathrm{Beta}(9,5)$, und weil beide d
 :::abbildung ml/k5posterior 12
 Prior, Likelihood und Posterior für sieben Köpfe in zehn Würfen. Die Likelihood ist mit $1320$ multipliziert, damit sie wie eine Dichte die Fläche $1$ hat. Der Posterior ist Likelihood mal Prior, auf die Fläche $1$ gebracht. Gepunktet die Stellen $0{,}7$ (Maximum der Likelihood), $\tfrac23$ (Maximum des Posteriors) und $\tfrac9{14}\approx0{,}643$ (Erwartungswert des Posteriors).
 :::
+::::
 
 ⁠**Kurz gesagt:** Der Posterior ist die Verteilung des Parameters nach den Daten; er ist proportional zu Likelihood mal Prior.
 
@@ -212,11 +222,13 @@ Ein Prior heißt __konjugiert__ zu einem Modell, wenn der Posterior aus derselbe
 
 Die Beta-Verteilungen sind also konjugiert zum Bernoulli-Modell. Der Satz zeigt auch, wie man die Parameter des Priors deuten kann. Die Daten erhöhen $\alpha_1$ um die Zahl der Einsen und $\alpha_0$ um die Zahl der Nullen. Der Prior wirkt deshalb wie eine Anzahl gedachter Würfe, die man schon vor den echten gemacht hat; man spricht von __Pseudobeobachtungen__. Wie viele es genau sind, hängt davon ab, was man aus dem Posterior ausliest: Für den Erwartungswert zählen $\alpha_1$ und $\alpha_0$ als Einsen und Nullen, für den Modus $\alpha_1-1$ und $\alpha_0-1$.
 
-⁠**Rechenbeispiel:** Man kann den Posterior Wurf für Wurf aktualisieren: Der Posterior nach einem Wurf ist der Prior für den nächsten. Für die Würfe $1,0,1,1,0,1,1,0,1,1$ mit dem Prior $\mathrm{Beta}(2,2)$ ergibt sich nacheinander
+::::beispiel [Rechenbeispiel]
+Man kann den Posterior Wurf für Wurf aktualisieren: Der Posterior nach einem Wurf ist der Prior für den nächsten. Für die Würfe $1,0,1,1,0,1,1,0,1,1$ mit dem Prior $\mathrm{Beta}(2,2)$ ergibt sich nacheinander
 
 $$\begin{gathered} \mathrm{Beta}(3,2),\ \mathrm{Beta}(3,3),\ \mathrm{Beta}(4,3),\ \mathrm{Beta}(5,3),\ \mathrm{Beta}(5,4),\\ \mathrm{Beta}(6,4),\ \mathrm{Beta}(7,4),\ \mathrm{Beta}(7,5),\ \mathrm{Beta}(8,5),\ \mathrm{Beta}(9,5) . \end{gathered}$$
 
 Nach dem ersten Wurf ist der Erwartungswert von $\tfrac24$ auf $\tfrac35$ gestiegen. Am Ende steht derselbe Posterior wie bei der Auswertung aller Würfe auf einmal, und die Reihenfolge der Würfe spielt keine Rolle.
+::::
 
 ⁠**Kurz gesagt:** Ein konjugierter Prior führt auf einen Posterior derselben Familie; beim Bernoulli-Modell zählt die Beta-Verteilung die Einsen und Nullen einfach weiter.
 
@@ -257,7 +269,9 @@ $$P(X_{N+1}=1\mid\mathcal D)=\frac{N_1+1}{N+2} . \tag{6.10}$$
 
 Sie wirkt so, als hätte man vor den Daten schon eine Eins und eine Null gesehen.
 
-⁠**Rechenbeispiel:** Für die verbogene Münze mit dem Prior $\mathrm{Beta}(2,2)$ ist $\mathbb{E}[\theta\mid\mathcal D]=\frac{2+7}{4+10}=\frac9{14}\approx0{,}643$. Das Gewicht des Priors ist $w=\tfrac4{14}$, und tatsächlich ist $\tfrac4{14}\cdot\tfrac12+\tfrac{10}{14}\cdot0{,}7=\tfrac{2+7}{14}$. Mit der Laplace-Regel ist die Vorhersage $\frac8{12}=\frac23$. Bei drei Würfen mit dreimal Kopf liefert die Laplace-Regel $\frac45$ statt der $1$ des Maximum-Likelihood-Schätzers: Zahl bleibt möglich.
+::::beispiel [Rechenbeispiel]
+Für die verbogene Münze mit dem Prior $\mathrm{Beta}(2,2)$ ist $\mathbb{E}[\theta\mid\mathcal D]=\frac{2+7}{4+10}=\frac9{14}\approx0{,}643$. Das Gewicht des Priors ist $w=\tfrac4{14}$, und tatsächlich ist $\tfrac4{14}\cdot\tfrac12+\tfrac{10}{14}\cdot0{,}7=\tfrac{2+7}{14}$. Mit der Laplace-Regel ist die Vorhersage $\frac8{12}=\frac23$. Bei drei Würfen mit dreimal Kopf liefert die Laplace-Regel $\frac45$ statt der $1$ des Maximum-Likelihood-Schätzers: Zahl bleibt möglich.
+::::
 
 ⁠**Kurz gesagt:** Der Erwartungswert des Posteriors ist die Wahrscheinlichkeit für eine Eins im nächsten Versuch; beim Beta-Prior ist er ein gewichtetes Mittel aus Prior-Erwartungswert und $N_1/N$, mit gleichförmigem Prior die Laplace-Regel $(N_1+1)/(N+2)$.
 

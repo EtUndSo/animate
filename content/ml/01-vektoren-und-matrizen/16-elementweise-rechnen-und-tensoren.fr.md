@@ -32,11 +32,13 @@ $$(\mathbf{A}\odot\mathbf{B})_{ij}=a_{ij}\,b_{ij} . \tag{15.1}$$
 
 Le produit de Hadamard n’est *pas* le produit matriciel. Le produit matriciel forme des produits scalaires de lignes et de colonnes ; le produit de Hadamard ne multiplie que des coefficients situés à la même position. Deux liens avec ce que l’on connaît déjà : si l’on additionne les composantes du produit de Hadamard de deux vecteurs, on obtient leur produit scalaire, $\mathbf 1^{\top}(\mathbf{u}\odot\mathbf{v})=\mathbf{u}^{\top}\mathbf{v}$. Et le produit de Hadamard par un vecteur fixe est la multiplication par une matrice diagonale : $\mathbf{v}\odot\mathbf{x}=\operatorname{diag}(\mathbf{v})\,\mathbf{x}$.
 
-⁠**Exemple de calcul :** $(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, et $4+10+18=32$ est le produit scalaire. Pour les matrices, on a
+::::beispiel [Exemple de calcul]
+$(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$, et $4+10+18=32$ est le produit scalaire. Pour les matrices, on a
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}\odot\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}0&2\\3&0\end{pmatrix},\qquad\text{mais}\qquad \begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}2&1\\4&3\end{pmatrix}.$$
 
 Avec un vecteur de zéros et de uns, on peut masquer des caractéristiques : $(1,\,0,\,1)^{\top}\odot\mathbf{x}_1=(60,\,0,\,3)^{\top}$ supprime le nombre de pièces de l’appartement 1.
+::::
 
 ⁠**En bref :** Le produit de Hadamard $\odot$ multiplie coefficient par coefficient ; ce n’est pas le produit matriciel.
 
@@ -54,7 +56,9 @@ Pour une fonction $f\colon\mathbb{R}\to\mathbb{R}$ et un vecteur $\mathbf{x}\in\
 
 De nombreuses normes peuvent s’écrire ainsi : la norme 1 est la somme des valeurs absolues prises terme à terme, $\lVert\mathbf{x}\rVert_1=\mathbf 1^{\top}|\mathbf{x}|$, et le carré de la norme euclidienne la somme des carrés pris terme à terme. Une fonction appliquée terme à terme n’est en général pas linéaire : l’élévation au carré terme à terme transforme $2\mathbf{x}$ en le vecteur de coefficients $4x_j^2$, et non $2x_j^2$.
 
-⁠**Exemple de calcul :** Le vecteur d’erreur de l’agente immobilière était $(-12,\,-4,\,-4,\,-8)^{\top}$. Les valeurs absolues terme à terme donnent $(12,\,4,\,4,\,8)^{\top}$, de somme $28$, la norme 1. Pour l’expert A de la sous-section [3.5](normen-die-groe-eines-vektors.html#stufe-3-5), les carrés terme à terme donnent $(100,\,100,\,100,\,100)^{\top}$, de somme $400=20^2$.
+::::beispiel [Exemple de calcul]
+Le vecteur d’erreur de l’agente immobilière était $(-12,\,-4,\,-4,\,-8)^{\top}$. Les valeurs absolues terme à terme donnent $(12,\,4,\,4,\,8)^{\top}$, de somme $28$, la norme 1. Pour l’expert A de la sous-section [3.5](normen-die-groe-eines-vektors.html#stufe-3-5), les carrés terme à terme donnent $(100,\,100,\,100,\,100)^{\top}$, de somme $400=20^2$.
+::::
 
 ⁠**En bref :** Une fonction appliquée terme à terme agit sur chaque coefficient séparément ; elle n’est en général pas linéaire.
 
@@ -71,11 +75,13 @@ $$\tilde{\mathbf{X}}=\mathbf{X}-\mathbf 1\,\bar{\mathbf{x}}^{\top} , \tag{15.2}$
 
 et sa ligne $i$ est le vecteur $(\mathbf{x}_i-\bar{\mathbf{x}})^{\top}$. Beaucoup de textes écrivent pour cela, en abrégé, $\mathbf{X}-\bar{\mathbf{x}}^{\top}$, et entendent par là : soustraire le vecteur ligne de chaque ligne. À strictement parler, la différence d’une matrice $N\times d$ et d’une matrice $1\times d$ n’est pas définie ; l’écriture abrégée désigne toujours [(15.2)](#gl-15-2).
 
-⁠**Exemple de calcul :** Pour les appartements, $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ et
+::::beispiel [Exemple de calcul]
+Pour les appartements, $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ et
 
 $$\tilde{\mathbf{X}}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}-\begin{pmatrix}65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\end{pmatrix}=\begin{pmatrix}-5&-0{,}5&0\\-25&-1{,}5&-2\\25&1{,}5&3\\5&0{,}5&-1\end{pmatrix}.$$
 
 Chaque colonne est la colonne de la caractéristique correspondante, centrée comme dans la sous-section [4.3](abstande-und-einheiten.html#stufe-4-3), et sa somme est nulle.
+::::
 
 ⁠**En bref :** Ajouter un vecteur $\mathbf{q}$ à chaque ligne d’une matrice $\mathbf{A}$ s’écrit $\mathbf{A}+\mathbf 1\,\mathbf{q}^{\top}$ ; l’abréviation répandue $\mathbf{A}+\mathbf{q}^{\top}$ signifie exactement cela.
 
@@ -97,7 +103,9 @@ Un scalaire est un tenseur à $0$ axe, un vecteur de $\mathbb{R}^d$ un tenseur �
 Tenseurs de $0$ à $4$ axes : un scalaire, un vecteur à $4$ coefficients, une matrice $4\times4$ (par exemple une image en niveaux de gris), une image couleur formée de trois canaux $4\times4$ pour le rouge, le vert et le bleu, et une pile de $N$ telles images couleur (suggérée par trois images).
 :::
 
-⁠**Exemple de calcul :** Une image couleur de $4\times4$ pixels à trois canaux de couleur est un tenseur de forme $3\times4\times4$ à $48$ coefficients. Le coefficient d’indices $(1,2,3)$ est la luminosité du premier canal, donc du rouge, au pixel situé à la ligne $2$ et à la colonne $3$.
+::::beispiel [Exemple de calcul]
+Une image couleur de $4\times4$ pixels à trois canaux de couleur est un tenseur de forme $3\times4\times4$ à $48$ coefficients. Le coefficient d’indices $(1,2,3)$ est la luminosité du premier canal, donc du rouge, au pixel situé à la ligne $2$ et à la colonne $3$.
+::::
 
 ⁠**En bref :** Un tenseur est un tableau de nombres à un nombre quelconque d’axes ; scalaire, vecteur et matrice sont les cas à $0$, $1$ et $2$ axes.
 
@@ -115,7 +123,9 @@ Une image en niveaux de gris de $28\times28$ pixels est une matrice, donc un ten
 
 L’ordre des axes est une convention. Certains programmes placent le canal de couleur au début ($3\times32\times32$), d’autres à la fin ($32\times32\times3$). Les nombres sont les mêmes, seule leur disposition diffère, et avant tout calcul, il doit être clair quel axe signifie quoi.
 
-⁠**Exemple de calcul :** Un jeu de données de $60\,000$ images en niveaux de gris de $28\times28$ pixels est un tenseur de forme $60\,000\times28\times28$ à $47\,040\,000$ coefficients. Si l’on transforme chaque image en un vecteur de $\mathbb{R}^{784}$, on obtient une matrice de données de $\mathbb{R}^{60\,000\times784}$, avec les mêmes coefficients.
+::::beispiel [Exemple de calcul]
+Un jeu de données de $60\,000$ images en niveaux de gris de $28\times28$ pixels est un tenseur de forme $60\,000\times28\times28$ à $47\,040\,000$ coefficients. Si l’on transforme chaque image en un vecteur de $\mathbb{R}^{784}$, on obtient une matrice de données de $\mathbb{R}^{60\,000\times784}$, avec les mêmes coefficients.
+::::
 
 ⁠**En bref :** Une image est un tenseur à deux ou trois axes, une pile d’images un tenseur avec un axe de plus ; le premier axe compte les exemples.
 

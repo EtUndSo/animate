@@ -331,10 +331,16 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 .arttoc a{display:block;padding:5px 0;color:var(--ink);font-weight:500;}
 .arttoc a::before{content:"→";color:var(--accent);margin-right:10px;font-weight:700;}  /* Pfeil = springt zur Stelle (kein Aufklapp-Dreieck) */
 .arttoc a:hover{color:var(--accent);text-decoration:none;}
-/* ---------- Beispiel-Karte im Artikel (Farbe Orange = Praxis) ---------- */
-.bsp-card{border:1px solid var(--border);border-top:4px solid var(--accent3);border-radius:14px;background:var(--panel);padding:4px 20px 14px;margin:0 0 18px;transition:box-shadow .35s;}
-.bsp-card-n{font-family:var(--fdisp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);white-space:nowrap;}
-.bsp-card-t{font-family:var(--fdisp);font-weight:700;font-size:19px;line-height:1.3;color:var(--ink);margin:2px 0 .7em;}
+/* ---------- Beispiel-Kasten (::::beispiel): ausgearbeitetes Beispiel, zugeklappt; weiß mit oranger Kopfleiste (Orange = Praxis),
+   so vom Hintergrund-Kasten (grau, grüne Linie links) und vom LTspice-Hinweis (orange Linie links, getönt) zu unterscheiden ---------- */
+details.beispiel{margin:1.1em 0;border:1px solid var(--border);border-top:3px solid var(--accent3);border-radius:10px;background:var(--panel);}
+details.beispiel>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.beispiel>summary::-webkit-details-marker{display:none;}
+details.beispiel>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent3);transition:transform .15s;}
+details.beispiel[open]>summary::before{transform:rotate(90deg);}
+details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
+.bsp-body{padding:0 16px 10px;border-top:1px solid var(--border);}
+.bsp-body>p:first-child{margin-top:12px;}
 /* ---------- Grüne Leiste, modern (Variante B, 04.11.2026) ---------- */
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
 .article h2{font-weight:700;letter-spacing:-.022em;} .article h3{font-weight:700;letter-spacing:-.015em;}
@@ -349,10 +355,9 @@ details.ltspice .lt-k{font-family:var(--fdisp);font-size:12px;text-transform:upp
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
   .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung,.verwendet){
   border-top:1px solid var(--rahmen);border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
-:root[data-theme="dark"] .bsp-card{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
+:root[data-theme="dark"] details.beispiel{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] :is(.article .sect,.callout:not([class*="cx-"]),.callout.cx-zusatz,details.frage,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.bsp-card,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
-@media(max-width:720px){ .bsp-card{padding:4px 15px 12px;} }
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,details.beispiel,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}

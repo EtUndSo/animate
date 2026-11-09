@@ -26,7 +26,11 @@ $$I_\mathrm{ref}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{ref}}=I_\mathrm{C1
 
 ⁠**So liest man das:** $I_\mathrm{ref}$ ist der __Referenzstrom__. Die beiden Basisströme zweigen von ihm ab. Daher der kleine Fehler $2/B$. **Gültigkeit:** T2 aktiv, gleiche Transistoren und gleiche Temperatur, etwa auf einem Chip. Über die Neigung der Kennlinie liefert T2 bei großem $U_\mathrm{CE2}$ etwas mehr.
 
-**Beispiel.** Mit $R_\mathrm{ref}=5{,}7$ k$\Omega$ ist $I_\mathrm{ref}=2$ mA und $I_\mathrm{C2}=1{,}98$ mA, mit $R_\mathrm{L}$ beliebig bis $11{,}8\,\mathrm{V}/1{,}98\,\mathrm{mA}=5{,}96$ k$\Omega$. Danach wäre T2 gesättigt. Mit [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1) wäre bei $U_\mathrm{CE2}=6$ V und $U_\mathrm{CE1}=0{,}6$ V der Strom in T2 um 7 % größer. **Grenzfall:** Für $B\to\infty$ ist $I_\mathrm{C2}=I_\mathrm{ref}$.
+::::beispiel
+Mit $R_\mathrm{ref}=5{,}7$ k$\Omega$ ist $I_\mathrm{ref}=2$ mA und $I_\mathrm{C2}=1{,}98$ mA, mit $R_\mathrm{L}$ beliebig bis $11{,}8\,\mathrm{V}/1{,}98\,\mathrm{mA}=5{,}96$ k$\Omega$. Danach wäre T2 gesättigt. Mit [(3.1)](eine-flache-viele-kennlinien.html#gl-3-1) wäre bei $U_\mathrm{CE2}=6$ V und $U_\mathrm{CE1}=0{,}6$ V der Strom in T2 um 7 % größer.
+::::
+
+⁠**Grenzfall:** Für $B\to\infty$ ist $I_\mathrm{C2}=I_\mathrm{ref}$.
 
 **Die Idee: Spannungsregler.** Ein Gleichrichter mit Glättung ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) liefert eine Gleichspannung mit einer Restwelligkeit, dem __Brumm__. Im Regler (Abb. [9](#abb-9), rechts) hält eine Zener-Diode die Basis auf $U_\mathrm{Z}$. Der Emitter ist der Ausgang und liegt eine Diodenspannung tiefer. Sinkt die Ausgangsspannung, weil die Last mehr Strom zieht, wächst $U_\mathrm{BE}$, und der Transistor liefert mehr nach. Über $U_\mathrm{CE}$ fällt der Rest der Eingangsspannung ab. Der Laststrom fließt nicht durch $R_1$, die Basis braucht nur den $B$-ten Teil. Die Zener-Diode wird also kaum belastet.
 
@@ -45,7 +49,11 @@ $$U_\mathrm{A}=U_\mathrm{Z}-U_\mathrm{BE}. \tag{8.2}$$
 Links Stromspiegel: T1 als Diode erzeugt $U_\mathrm{BE}$, T2 kopiert den Strom. Mitte Spannungsregler mit Zener-Diode, der Emitter ist der Ausgang. Rechts der Verlauf: Die Eingangsspannung schwankt zwischen 10,5 V und 13,5 V, der Ausgang bleibt bei 5,6 V.
 :::
 
-**Beispiel.** $U_\mathrm{Z}=6{,}2$ V ergibt $U_\mathrm{A}=5{,}6$ V. Bei 50 mA Last braucht die Basis 0,25 mA. Mit $R_1=1$ k$\Omega$ und $U_\mathrm{E}=12$ V$\,\pm1{,}5$ V fließen durch die Zener-Diode 4,05 mA bis 7,05 mA. Eine Zener-Diode mit 10 $\Omega$ Kleinsignalwiderstand macht aus 3 V Brumm nur 30 mV. Im Transistor entstehen bis zu $7{,}9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW, gerade unter $P_\mathrm{max}$. Der Regler wandelt die überschüssige Spannung in Wärme. Mit 0,68 V statt 0,6 V, dem genaueren $U_\mathrm{BE}$ bei 50 mA, wäre $U_\mathrm{A}$ um 80 mV kleiner. **Grenzfall:** Ohne Last ist $I_\mathrm{B}\approx0$, $U_\mathrm{A}$ steigt leicht, $U_\mathrm{Z}$ bleibt.
+::::beispiel
+$U_\mathrm{Z}=6{,}2$ V ergibt $U_\mathrm{A}=5{,}6$ V. Bei 50 mA Last braucht die Basis 0,25 mA. Mit $R_1=1$ k$\Omega$ und $U_\mathrm{E}=12$ V$\,\pm1{,}5$ V fließen durch die Zener-Diode 4,05 mA bis 7,05 mA. Eine Zener-Diode mit 10 $\Omega$ Kleinsignalwiderstand macht aus 3 V Brumm nur 30 mV. Im Transistor entstehen bis zu $7{,}9\,\mathrm{V}\cdot50\,\mathrm{mA}=395$ mW, gerade unter $P_\mathrm{max}$. Der Regler wandelt die überschüssige Spannung in Wärme. Mit 0,68 V statt 0,6 V, dem genaueren $U_\mathrm{BE}$ bei 50 mA, wäre $U_\mathrm{A}$ um 80 mV kleiner.
+::::
+
+⁠**Grenzfall:** Ohne Last ist $I_\mathrm{B}\approx0$, $U_\mathrm{A}$ steigt leicht, $U_\mathrm{Z}$ bleibt.
 
 :::frage Warum nicht die Zener-Diode allein?
 Dann müsste der Vorwiderstand bei tiefster Eingangsspannung die ganzen 50 mA und dazu einen Rest für die Zener-Diode liefern. Bei Spitzenspannung flösse die Differenz durch die Zener-Diode, und der Vorwiderstand heizte mit rund 0,7 W. Der Transistor trennt beides: Die Zener-Diode gibt die Spannung vor, die Versorgung liefert den Strom über den Kollektor. Leistungstransistoren und daraus abgeleitete Bauteile schalten auch große Ströme, etwa in Umrichtern für Elektromotoren.

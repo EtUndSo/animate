@@ -44,7 +44,11 @@ Para valores cualesquiera de los $k-1$ potenciales de nudo se cumple toda ley de
 
 ⁠**Cómo leerlo:** $U_\mu$ es una tensión con flecha del nudo $\mu$ al nudo de referencia, unidad voltio. En el esquema, el símbolo de masa indica el nudo de referencia; en SPICE siempre se llama 0. El nudo de referencia se elige donde confluyen más ramas; así las ecuaciones son más cortas. **Validez:** El campo debe ser irrotacional. Un campo magnético variable a través de una malla destruye los potenciales ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)); en los circuitos está en las bobinas.
 
-**Ejemplo.** En la red modelo, $U_1=8$ V y $U_2=10$ V, como dio la etapa [3](das-maschenstromverfahren.html#stufe-3). La tensión en $R_3$ es $U_{12}=U_1-U_2=-2$ V, así que el nudo 2 está más alto y la corriente va de 2 a 1. Con $R_3=2\,\mathrm{k\Omega}$ son los 1 mA de la etapa [3](das-maschenstromverfahren.html#stufe-3). La vuelta da $(U_1-U_2)+U_2-U_1=0$ también para cualquier otro par de números. **Caso límite:** Una red con $k=2$ tiene un solo potencial de nudo. Es la tensión común de una conexión en paralelo.
+::::beispiel
+En la red modelo, $U_1=8$ V y $U_2=10$ V, como dio la etapa [3](das-maschenstromverfahren.html#stufe-3). La tensión en $R_3$ es $U_{12}=U_1-U_2=-2$ V, así que el nudo 2 está más alto y la corriente va de 2 a 1. Con $R_3=2\,\mathrm{k\Omega}$ son los 1 mA de la etapa [3](das-maschenstromverfahren.html#stufe-3). La vuelta da $(U_1-U_2)+U_2-U_1=0$ también para cualquier otro par de números.
+::::
+
+⁠**Caso límite:** Una red con $k=2$ tiene un solo potencial de nudo. Es la tensión común de una conexión en paralelo.
 
 :::frage ¿El potencial de nudo es entonces un potencial o una tensión?
 Ambas cosas. Un potencial por sí solo tiene valor únicamente respecto a un punto cero ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). El potencial de nudo es la tensión respecto al punto cero elegido; por eso lleva el símbolo $U$. Un cambio de nudo de referencia cambia todos los potenciales de nudo, pero ni una sola tensión de rama.

@@ -45,7 +45,9 @@ $$W_{12}=Q\int_{r_1}^{r_2}k\,\frac{Q_0}{r^2}\,\mathrm{d} r=k\,Q\,Q_0\Bigl(\frac{
 平行极板的局部，按比例绘制。试探电荷 $+1$ nC 沿三角形运动。从 1 到 2 获得 9 nJ。从 2 到 3 垂直于电场运动：不做功。从 3 到 1 失去 9 nJ。闭合路径的总和为零。
 :::
 
-**例。** 在图 [7](#abb-7) 中，$F=Q\,E=3$ µ N，沿 $x$ 方向，$W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ。从 1 直接到 3 的路径长 5 mm，$\cos\alpha=0.6$：同样是 9 nJ。在小球 A（$Q_0=+10$ nC）的电场中，$+1$ nC 从 3 cm 到 6 cm 获得的能量为 $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1.5$ µ J。
+::::beispiel
+在图 [7](#abb-7) 中，$F=Q\,E=3$ µ N，沿 $x$ 方向，$W_{12}=10^{-9}\,\mathrm{C}\cdot3000\,\mathrm{V/m}\cdot3\,\mathrm{mm}=9$ nJ。从 1 直接到 3 的路径长 5 mm，$\cos\alpha=0.6$：同样是 9 nJ。在小球 A（$Q_0=+10$ nC）的电场中，$+1$ nC 从 3 cm 到 6 cm 获得的能量为 $k\cdot1\,\mathrm{nC}\cdot10\,\mathrm{nC}\cdot(1/r_1-1/r_2)=1.5$ µ J。
+::::
 
 ⁠**极限情况：**$\alpha=90^\circ$ 时和 $P_2=P_1$ 时 $W=0$。负电荷的符号相反：电子逆着 $\vec E$ 运动时获得能量。$r_2\to\infty$ 时 $W_{12}=kQQ_0/r_1$ 仍是有限值。
 

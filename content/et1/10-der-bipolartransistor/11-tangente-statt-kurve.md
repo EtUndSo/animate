@@ -39,7 +39,11 @@ Aus $I_\mathrm{C}=I_\mathrm{S}\mathrm{e}^{U_\mathrm{BE}/U_T}$ folgt $\frac{\part
 Links die Steuerkennlinie mit Tangente im Punkt A (2 mA), Steigung $S=76{,}9$ mS. Rechts Ausgangskennlinien für zwei Werte von $U_\mathrm{BE}$. Der Abstand der Kurven ist die Wirkung von $S$. Die Steigung jeder Kurve ist $1/r_\mathrm{CE}$, nach links verlängert treffen sie $-74$ V.
 :::
 
-**Beispiel.** Im Punkt A sind $S=2\,\mathrm{mA}/26\,\mathrm{mV}=76{,}9$ mS, also $1/S=13\,\Omega$, dazu $r_\mathrm{BE}=200/S=2{,}6$ k$\Omega$ und $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$. Mechanismus von $S$: 1 mV mehr $U_\mathrm{BE}$ senkt die Barriere, die Injektion steigt nach der Tangente um 3,85 %, das sind 77 µ A. Um dasselbe über den Ausgang zu erreichen, brauchte man 3 V an $U_\mathrm{CE}$. **Kurz gesagt:** Die Steilheit ist der Strom geteilt durch $U_T$, unabhängig von $B$ und $I_\mathrm{S}$. **Grenzfälle:** $I_\mathrm{C}\to0$ ergibt $S\to0$: Ohne Ruhestrom gibt es keine Steuerwirkung. $U_\mathrm{Early}\to\infty$ ergibt $r_\mathrm{CE}\to\infty$, die ideale Stromquelle.
+::::beispiel
+Im Punkt A sind $S=2\,\mathrm{mA}/26\,\mathrm{mV}=76{,}9$ mS, also $1/S=13\,\Omega$, dazu $r_\mathrm{BE}=200/S=2{,}6$ k$\Omega$ und $r_\mathrm{CE}=80\,\mathrm{V}/2\,\mathrm{mA}=40$ k$\Omega$. Mechanismus von $S$: 1 mV mehr $U_\mathrm{BE}$ senkt die Barriere, die Injektion steigt nach der Tangente um 3,85 %, das sind 77 µ A. Um dasselbe über den Ausgang zu erreichen, brauchte man 3 V an $U_\mathrm{CE}$.
+::::
+
+⁠**Kurz gesagt:** Die Steilheit ist der Strom geteilt durch $U_T$, unabhängig von $B$ und $I_\mathrm{S}$. **Grenzfälle:** $I_\mathrm{C}\to0$ ergibt $S\to0$: Ohne Ruhestrom gibt es keine Steuerwirkung. $U_\mathrm{Early}\to\infty$ ergibt $r_\mathrm{CE}\to\infty$, die ideale Stromquelle.
 
 **Wie klein ist klein?** Exakt ist $i_\mathrm{c}=I_\mathrm{C}(\mathrm{e}^{u_\mathrm{be}/U_T}-1)$, die Tangente sagt $I_\mathrm{C}u_\mathrm{be}/U_T$. Bei $u_\mathrm{be}=+1$ mV beträgt der Fehler 2 %, bei $+5$ mV sind es 10 % ($+424$ µ A statt $+385$ µ A), bei $-5$ mV fließen dagegen nur $-350$ µ A. Die positive Halbwelle wird größer als die negative, das Signal wird verzerrt. Bei 26 mV ist die Tangente unbrauchbar.
 

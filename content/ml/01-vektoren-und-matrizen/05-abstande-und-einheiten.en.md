@@ -36,13 +36,15 @@ $$\lVert\mathbf{u}-\mathbf{v}\rVert^2=(\mathbf{u}-\mathbf{v})^{\top}(\mathbf{u}-
 
 So for fixed lengths, the larger the dot product, the smaller the distance. Both measure similarity, just in opposite directions.
 
-⁠**Worked example:** Apartments 1 and 2 differ by $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Their Euclidean distance is $\sqrt{405}\approx20.12$ (Fig. [18](#abb-18)); in the 1-norm it is $20+1+2=23$, and in the maximum norm $20$.
+::::beispiel [Worked example]
+Apartments 1 and 2 differ by $\mathbf{x}_1-\mathbf{x}_2=(20,\,1,\,2)^{\top}$. Their Euclidean distance is $\sqrt{405}\approx20.12$ (Fig. [18](#abb-18)); in the 1-norm it is $20+1+2=23$, and in the maximum norm $20$.
 
 :::abbildung ml/k1rabstand 18
 The Euclidean distance between apartments 1 and 2: first the difference, then its length.
 :::
 
 To check [(4.1)](#gl-4-1) with $\mathbf{u}=(1,\,2,\,2)^{\top}$ and $\mathbf{v}=(2,\,0,\,1)^{\top}$: the left side is $\lVert(-1,\,2,\,1)^{\top}\rVert^2=6$, the right side $9+5-2\cdot4=6$.
+::::
 
 ⁠**In short:** The distance between two data points is the norm of their difference; close together means similar.
 
@@ -91,11 +93,13 @@ is called the __centered__ vector. Its components are the deviations from the me
 
 The deviations always cancel each other out: $\mathbf 1^{\top}\tilde{\mathbf{v}}=\mathbf 1^{\top}\mathbf{v}-\bar v\,\mathbf 1^{\top}\mathbf 1=N\bar v-\bar v\,N=0$. So the centered vector has mean zero.
 
-⁠**Worked example:** The floor areas $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ have the mean $\bar v=65$. Centered, they are $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, and the deviations do indeed add up to zero (Fig. [20](#abb-20)). The numbers of rooms $(2,\,1,\,4,\,3)^{\top}$ have the mean $2.5$ and, centered, are $(-0.5,\ -1.5,\ 1.5,\ 0.5)^{\top}$; the distances $(3,\,1,\,6,\,2)^{\top}$ have the mean $3$ and, centered, are $(0,\,-2,\,3,\,-1)^{\top}$.
+::::beispiel [Worked example]
+The floor areas $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}$ have the mean $\bar v=65$. Centered, they are $\tilde{\mathbf{v}}=(-5,\,-25,\,25,\,5)^{\top}$, and the deviations do indeed add up to zero (Fig. [20](#abb-20)). The numbers of rooms $(2,\,1,\,4,\,3)^{\top}$ have the mean $2.5$ and, centered, are $(-0.5,\ -1.5,\ 1.5,\ 0.5)^{\top}$; the distances $(3,\,1,\,6,\,2)^{\top}$ have the mean $3$ and, centered, are $(0,\,-2,\,3,\,-1)^{\top}$.
 
 :::abbildung ml/k1rzentriert 20
 The mean of the floor areas and the sum of the deviations from the mean, in $\mathrm m^2$.
 :::
+::::
 
 ⁠**In short:** Centering subtracts the mean from each component; what remains are the deviations, which add up to zero.
 
@@ -116,11 +120,13 @@ $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\l
 
 The standard deviation has the same unit as the feature. It is zero exactly when all components are equal. Many texts divide by $N-1$ instead of $N$ in [(4.3)](#gl-4-3). With many examples the difference is small. This series divides by $N$ and says so whenever it is meant to be different.
 
-⁠**Worked example:** The centered floor areas $(-5,\,-25,\,25,\,5)^{\top}$ have the sum of squares $1\,300$, so $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18.03\,\mathrm m^2$ (Fig. [21](#abb-21)). In the same way you get $\sqrt{5/4}\approx1.118$ for the rooms and $\sqrt{14/4}\approx1.871$ km for the distances.
+::::beispiel [Worked example]
+The centered floor areas $(-5,\,-25,\,25,\,5)^{\top}$ have the sum of squares $1\,300$, so $\operatorname{std}(\mathbf{v})=\sqrt{325}\approx18.03\,\mathrm m^2$ (Fig. [21](#abb-21)). In the same way you get $\sqrt{5/4}\approx1.118$ for the rooms and $\sqrt{14/4}\approx1.871$ km for the distances.
 
 :::abbildung ml/k1rstd 21
 The standard deviation of the floor areas: square the deviations, average them, take the square root. The result $\sqrt{325}\approx18.03$ has the unit $\mathrm m^2$.
 :::
+::::
 
 ⁠**In short:** The standard deviation is the RMS value of the deviations from the mean, the typical fluctuation of a feature.
 
@@ -151,13 +157,17 @@ and using these numbers in place of the original values. The numbers $z_{ij}$ ar
 
 The standardized feature column has mean $0$ and standard deviation $1$, because centering makes the mean zero and dividing by $s_j$ makes the typical deviation one. The values no longer have a unit.
 
-⁠**Worked example 1: the apartment dataset.** With the means $65$, $2.5$, $3$ and the standard deviations $18.03$, $1.118$, $1.871$, the four apartments become
+::::beispiel [Worked example 1] the apartment dataset
+With the means $65$, $2.5$, $3$ and the standard deviations $18.03$, $1.118$, $1.871$, the four apartments become
 
 $$\begin{aligned} \mathbf{z}_1&\approx(-0.28,\ -0.45,\ 0)^{\top}, & \mathbf{z}_2&\approx(-1.39,\ -1.34,\ -1.07)^{\top},\\ \mathbf{z}_3&\approx(1.39,\ 1.34,\ 1.60)^{\top}, & \mathbf{z}_4&\approx(0.28,\ 0.45,\ -0.53)^{\top}. \end{aligned}$$
 
 All three features now lie in the same range of numbers.
+::::
 
-⁠**Worked example 2: A, B and C.** The three apartments from Subsection [4.2](#stufe-4-2) have a mean floor area of $59\,\mathrm m^2$ with standard deviation $\sqrt{14}\approx3.74\,\mathrm m^2$ and on average $8/3$ rooms with standard deviation $\sqrt{8/9}\approx0.943$. After standardizing, $\lVert\text A-\text B\rVert\approx2.27$ and $\lVert\text A-\text C\rVert\approx1.60$. So C is the one most similar to A, and this judgment no longer depends on the unit of the floor area.
+::::beispiel [Worked example 2] A, B and C
+The three apartments from Subsection [4.2](#stufe-4-2) have a mean floor area of $59\,\mathrm m^2$ with standard deviation $\sqrt{14}\approx3.74\,\mathrm m^2$ and on average $8/3$ rooms with standard deviation $\sqrt{8/9}\approx0.943$. After standardizing, $\lVert\text A-\text B\rVert\approx2.27$ and $\lVert\text A-\text C\rVert\approx1.60$. So C is the one most similar to A, and this judgment no longer depends on the unit of the floor area.
+::::
 
 That the unit drops out holds in general:
 

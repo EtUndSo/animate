@@ -47,7 +47,11 @@ La curva característica sube en todas partes, la recta baja en todas partes; po
 
 [(6.2)](#gl-6-2) no se puede despejar para $U_\mathrm D$, porque $U_\mathrm D$ está en el exponente y fuera de él. Se resuelve gráficamente o por __iteración__, es decir, por sustitución repetida: estima $U_\mathrm D$, calcula $I=(U_0-U_\mathrm D)/R$, luego $U_\mathrm D=U_T\ln(I/I_\mathrm S+1)$, y repite.
 
-**Ejemplo.** Inicio con $U_\mathrm D=0{,}7$ V. Paso 1: $I=4{,}300$ mA, $U_\mathrm D=0{,}69245$ V. Paso 2: $I=4{,}3076$ mA, $U_\mathrm D=0{,}69249$ V. Así, el PT es (0,692 V | 4,31 mA), y en la resistencia hay 4,31 V. Si se duplica $U_0$ a 10 V, la corriente casi se duplica, a 9,29 mA, y $U_\mathrm D$ sube solo 20 mV, a 0,712 V. **Casos límite:** Con $U_0=0{,}5$ V, $I=2{,}3$ µ A, y casi toda la tensión de la fuente queda en el diodo. Con $U_0$ negativa, $I=-I_\mathrm S$, y la fuente queda por completo en el diodo.
+::::beispiel
+Inicio con $U_\mathrm D=0{,}7$ V. Paso 1: $I=4{,}300$ mA, $U_\mathrm D=0{,}69245$ V. Paso 2: $I=4{,}3076$ mA, $U_\mathrm D=0{,}69249$ V. Así, el PT es (0,692 V | 4,31 mA), y en la resistencia hay 4,31 V. Si se duplica $U_0$ a 10 V, la corriente casi se duplica, a 9,29 mA, y $U_\mathrm D$ sube solo 20 mV, a 0,712 V.
+::::
+
+⁠**Casos límite:** Con $U_0=0{,}5$ V, $I=2{,}3$ µ A, y casi toda la tensión de la fuente queda en el diodo. Con $U_0$ negativa, $I=-I_\mathrm S$, y la fuente queda por completo en el diodo.
 
 :::frage ¿Por qué no se calcula al revés: estimar $U_\mathrm D$, obtener $I$ de la función exponencial y luego $U_\mathrm D=U_0-R\,I$?
 Porque ese camino diverge. Un error de 1 mV cambia la corriente del diodo un 3,9 %, es decir, 0,17 mA, y eso da en la resistencia un error de 167 mV. En el primer método el error se reduce en cada paso en ese mismo factor, $r/R=0{,}006$ (etapa [8](kleine-anderungen-um-den-arbeitspunkt.html#stufe-8)). El logaritmo plano amortigua, la exponencial empinada amplifica.

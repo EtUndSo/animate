@@ -49,7 +49,11 @@ $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}
 | Aluminum | 2.8 | 36 | Constantan | 50 | 2 |
 | Tungsten | 5.5 | 18 | Carbon | 5000 to 10000 | 0.02 to 0.01 |
 
-**Example.** The wire has $R=\rho\,L/A=34\,\mathrm{m\Omega}$. At 3 mA, 0.10 mV drops across it, which is $1.1\cdot10^{-5}$ of the 9 V. This justifies why circuit diagrams draw wires as ideal, without voltage along the wire. The same calculation shows why resistors are not made of copper: $2\,\mathrm{k\Omega}$ would need 1.2 km of copper at a cross section of $0.01\,\mathrm{mm^2}$, but only 40 m of constantan. **Limiting cases:** Twice the length at the same voltage halves the field and thus the current. Twice the cross section acts like two wires side by side; the current doubles. $U=0$ gives $I=0$.
+::::beispiel
+The wire has $R=\rho\,L/A=34\,\mathrm{m\Omega}$. At 3 mA, 0.10 mV drops across it, which is $1.1\cdot10^{-5}$ of the 9 V. This justifies why circuit diagrams draw wires as ideal, without voltage along the wire. The same calculation shows why resistors are not made of copper: $2\,\mathrm{k\Omega}$ would need 1.2 km of copper at a cross section of $0.01\,\mathrm{mm^2}$, but only 40 m of constantan.
+::::
+
+⁠**Limiting cases:** Twice the length at the same voltage halves the field and thus the current. Twice the cross section acts like two wires side by side; the current doubles. $U=0$ gives $I=0$.
 
 **Where the energy goes.** At each collision, the electron gives the kinetic energy gained in the field to the lattice. The lattice vibrates more strongly, and that is heat. Each coulomb gives up the energy $U$ in joules, and $I$ coulombs pass per second. The __power__, the energy per time, is therefore $P=U\,I=R\,I^2$. The chain converts $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW. [Part 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) treats power in more detail.
 

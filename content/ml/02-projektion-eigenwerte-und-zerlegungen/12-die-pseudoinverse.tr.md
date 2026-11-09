@@ -12,7 +12,7 @@ lang: tr
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Temeller 1'de yalnızca bağımsız sütunlu bir kare matrisin tersi vardı. Bu kesim her matrise bir tür ters veriyor: bilinmeyenlerden çok denklem varken soldan tersine çeviren bir ters, daha az denklem varken sağdan tersine çeviren bir ters ve her durum için bir ters, yani sözde ters. Sözde ters her zaman en iyi yaklaşık çözümü, birden çok varsa da en kısasını verir.
+[Temeller 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'de yalnızca bağımsız sütunlu bir kare matrisin tersi vardı. Bu kesim her matrise bir tür ters veriyor: bilinmeyenlerden çok denklem varken soldan tersine çeviren bir ters, daha az denklem varken sağdan tersine çeviren bir ters ve her durum için bir ters, yani sözde ters. Sözde ters her zaman en iyi yaklaşık çözümü, birden çok varsa da en kısasını verir.
 :::
 
 ### Sol ters
@@ -44,11 +44,13 @@ Sütunlar bağımsızsa Kesim [3.5](die-beste-naherungslosung.html#stufe-3-5)'e
 
 $\mathbf F$ sağdan bir ters değildir. [(4.1)](projektion-auf-einen-unterraum.html#gl-4-1) uyarınca $\mathbf{A}\mathbf F=\mathbf{A}(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ çarpımı sütun uzayı üzerine izdüşümdür ve $m>n$ için bu $\mathbf{I}_m$ değildir. Ayrıca uzun bir matrisin pek çok sol tersi vardır; [(11.1)](#gl-11-1), dik izdüşüme ait olanıdır.
 
-⁠**Sayısal örnek:** Sütunları $(1,\,0,\,1)^{\top}$ ve $(0,\,1,\,1)^{\top}$ olan $\mathbf{H}$ için $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ olur ve şu bulunur:
+::::beispiel [Sayısal örnek]
+Sütunları $(1,\,0,\,1)^{\top}$ ve $(0,\,1,\,1)^{\top}$ olan $\mathbf{H}$ için $(\mathbf{H}^{\top}\mathbf{H})^{-1}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ olur ve şu bulunur:
 
 $$\mathbf F=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}=\frac13\begin{pmatrix}2&-1&1\\-1&2&1\end{pmatrix}.$$
 
 $\mathbf F\mathbf{H}=\tfrac13\bigl(\begin{smallmatrix}2+1&-1+1\\-1+1&2+1\end{smallmatrix}\bigr)=\mathbf{I}_2$ olur ve $\mathbf F(1,\,1,\,1)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$, Kesim [3.3](die-beste-naherungslosung.html#stufe-3-3)'teki en iyi yaklaşık çözümdür. $\mathbf{H}\mathbf F$, Kesim [4.2](projektion-auf-einen-unterraum.html#stufe-4-2)'deki $\tfrac13\Bigl(\begin{smallmatrix}2&-1&1\\-1&2&1\\1&1&2\end{smallmatrix}\Bigr)$ izdüşüm matrisidir. Başka bir sol ters $\bigl(\begin{smallmatrix}1&0&0\\0&1&0\end{smallmatrix}\bigr)$ matrisidir, çünkü $\mathbf{H}$ matrisinin ilk iki satırı birim matrisi oluşturur; ama bu sol ters $(1,\,1,\,1)^{\top}$ için en iyi yaklaşık çözümü değil, $(1,\,1)^{\top}$ vektörünü verir.
+::::
 
 ⁠**Kısacası:** Sütunları bağımsız olan bir matrisin sol tersi $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}$ olur; bu ters $\mathbf{y}$ vektörünü en iyi yaklaşık çözüme götürür.
 
@@ -85,7 +87,9 @@ eşitlik yalnızca $\mathbf{z}=\mathbf{0}$ için sağlanır.
 
 Geometrik olarak çözüm kümesi orijinden geçmeyen bir doğru ya da düzlemdir ve $\mathbf G\mathbf{y}$ bu kümenin orijine en yakın noktasıdır: orijinden inilen dikmenin ayağı.
 
-⁠**Sayısal örnek:** Tek bir $x_1+2x_2=5$ denklemi için $\mathbf{A}=(1\ \ 2)$ ve $\mathbf{A}\mathbf{A}^{\top}=5$ olur. Dolayısıyla $\mathbf G=\tfrac15(1,\,2)^{\top}$ ve $\mathbf G\cdot5=(1,\,2)^{\top}$. Bütün çözümler $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$ biçimindedir ve uzunluklarının karesi $(1+2t)^2+(2-t)^2=5+5t^2$ olur; en kısa çözüm $t=0$ için elde edilir. $(1,\,2)^{\top}$ vektörü, doğrultusu $(2,\,-1)^{\top}$ olan çözüm doğrusuna diktir.
+::::beispiel [Sayısal örnek]
+Tek bir $x_1+2x_2=5$ denklemi için $\mathbf{A}=(1\ \ 2)$ ve $\mathbf{A}\mathbf{A}^{\top}=5$ olur. Dolayısıyla $\mathbf G=\tfrac15(1,\,2)^{\top}$ ve $\mathbf G\cdot5=(1,\,2)^{\top}$. Bütün çözümler $(1,\,2)^{\top}+t\,(2,\,-1)^{\top}$ biçimindedir ve uzunluklarının karesi $(1+2t)^2+(2-t)^2=5+5t^2$ olur; en kısa çözüm $t=0$ için elde edilir. $(1,\,2)^{\top}$ vektörü, doğrultusu $(2,\,-1)^{\top}$ olan çözüm doğrusuna diktir.
+::::
 
 ⁠**Kısacası:** Satırları bağımsız olan bir matrisin sağ tersi $\mathbf{A}^{\top}(\mathbf{A}\mathbf{A}^{\top})^{-1}$ olur; bu ters en kısa çözümü verir.
 
@@ -106,9 +110,11 @@ $$\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}=\sum_{j=1}^r\frac1{d_j}\,
 
 Her yapı taşı $\mathbf{A}$ matrisinin bir yapı taşını tersine çevirir: $\mathbf{A}$, $\mathbf{v}_j$ vektörünü $d_j\mathbf{u}_j$ vektörüne, $\mathbf{A}^+$ de $\mathbf{u}_j$ vektörünü $\mathbf{v}_j/d_j$ vektörüne götürür. $\mathbf{A}$ matrisinin ulaşamadığı, $j>r$ olan $\mathbf{u}_j$ doğrultularını $\mathbf{A}^+$ sıfıra bölmek yerine sıfıra götürür. $\mathbf{A}$ tersinirse $\mathbf{A}^+=\mathbf{A}^{-1}$ olur, çünkü o zaman $\mathbf{A}^{-1}=(\mathbf{V}^{\top})^{-1}\mathbf{D}^{-1}\mathbf{U}^{-1}=\mathbf{V}\mathbf{D}^{-1}\mathbf{U}^{\top}$.
 
-⁠**Sayısal örnek:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ simetrik ve pozitif yarı tanımlıdır; $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ vektörüne ait özdeğeri $5$, öbür özdeğeri $0$ olur. Kesim [9.7](die-singularwertzerlegung.html#stufe-9-7)'ye göre kompakt ayrışımı, $d_1=5$ ve $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$ ile $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ olur. Dolayısıyla şu bulunur:
+::::beispiel [Sayısal örnek]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ simetrik ve pozitif yarı tanımlıdır; $\mathbf{q}=(1,\,2)^{\top}/\sqrt5$ vektörüne ait özdeğeri $5$, öbür özdeğeri $0$ olur. Kesim [9.7](die-singularwertzerlegung.html#stufe-9-7)'ye göre kompakt ayrışımı, $d_1=5$ ve $\mathbf{u}_1=\mathbf{v}_1=\mathbf{q}$ ile $\mathbf{A}=5\,\mathbf{q}\mathbf{q}^{\top}$ olur. Dolayısıyla şu bulunur:
 
 $$\mathbf{A}^+=\frac15\,\mathbf{q}\mathbf{q}^{\top}=\frac1{25}\begin{pmatrix}1&2\\2&4\end{pmatrix}.$$
+::::
 
 ⁠**Kısacası:** $\mathbf{A}^+=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}$ sözde tersi, $d_j>0$ olan her $d_j\mathbf{u}_j\mathbf{v}_j^{\top}$ yapı taşını tersine çevirir ve $0$ tekil değerine ait doğrultuları sıfıra götürür.
 
@@ -133,12 +139,15 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 İkinci toplam $\mathbf{x}$ vektörüne bağlı değildir. Birincisi ancak ve ancak bütün $j\le r$ için $c_j=\beta_j/d_j$ ise sıfırdır, yani olabildiğince küçüktür; $j>r$ olan $c_j$ değerleri hiç yer almaz. Demek ki en iyi yaklaşık çözümler tam olarak, $j\le r$ için $c_j=\beta_j/d_j$ olan ve $c_{r+1},\dots,c_n$ değerleri keyfi olan $\mathbf{x}=\mathbf{V}\mathbf{c}$ vektörleridir. Uzunlukları $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$ olur ve $j>r$ için $c_j=0$ alındığında en küçüktür. Bu $\mathbf{c}$ vektörü $\mathbf{D}^+\boldsymbol\beta$ olur, dolayısıyla $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$.
 
-Sütunlar bağımsızsa Kesim [3.5](die-beste-naherungslosung.html#stufe-3-5)'e göre yalnızca bir en iyi yaklaşık çözüm vardır: $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; bu çözüm $\mathbf{A}^+\mathbf{y}$ ile, hem de her $\mathbf{y}$ için aynı olmalıdır. Satırlar bağımsızsa Temeller 1, Kesim 13.4'e göre rank $m$ olur, yani sütun uzayı $\mathbb{R}^m$ uzayının tamamıdır ve sistem her $\mathbf{y}$ için çözülebilir; en iyi yaklaşık çözümler sistemin çözümleridir ve Kesim [11.2](#stufe-11-2)'ye göre en kısası $\mathbf G\mathbf{y}$ olur.
+Sütunlar bağımsızsa Kesim [3.5](die-beste-naherungslosung.html#stufe-3-5)'e göre yalnızca bir en iyi yaklaşık çözüm vardır: $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; bu çözüm $\mathbf{A}^+\mathbf{y}$ ile, hem de her $\mathbf{y}$ için aynı olmalıdır. Satırlar bağımsızsa [Temeller 1, Kesim 13.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4)'e göre rank $m$ olur, yani sütun uzayı $\mathbb{R}^m$ uzayının tamamıdır ve sistem her $\mathbf{y}$ için çözülebilir; en iyi yaklaşık çözümler sistemin çözümleridir ve Kesim [11.2](#stufe-11-2)'ye göre en kısası $\mathbf G\mathbf{y}$ olur.
 :::
 
-⁠**Sayısal örnek 1:** $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ve $\mathbf{y}=(1,\,1)^{\top}$ için $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0{,}12;\ 0{,}24)^{\top}$ olur. Bu vektör en iyi yaklaşık çözümlerin doğrusu üzerindedir, çünkü $0{,}12+2\cdot0{,}24=0{,}6=\tfrac35$; ayrıca $(1,\,2)^{\top}$ doğrultusunu, yani doğruya dik doğrultuyu gösterir: Doğrunun orijine en yakın noktasıdır.
+::::beispiel [Sayısal örnek 1]
+$\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ve $\mathbf{y}=(1,\,1)^{\top}$ için $\mathbf{x}^+=\tfrac1{25}(1+2,\ 2+4)^{\top}=(0{,}12;\ 0{,}24)^{\top}$ olur. Bu vektör en iyi yaklaşık çözümlerin doğrusu üzerindedir, çünkü $0{,}12+2\cdot0{,}24=0{,}6=\tfrac35$; ayrıca $(1,\,2)^{\top}$ doğrultusunu, yani doğruya dik doğrultuyu gösterir: Doğrunun orijine en yakın noktasıdır.
+::::
 
-⁠**Sayısal örnek 2:** Aynı büyüklük üç kez ölçülüyor; sonuçlar $4$, $5$ ve $9$. “$x=4$, $x=5$, $x=9$” sisteminin matrisi, birlerden oluşan bir sütun olan $\mathbf{1}\in\mathbb{R}^{3\times1}$ olur. Bu matrisin bağımsız bir sütunu vardır, dolayısıyla $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ ve şu bulunur:
+::::beispiel [Sayısal örnek 2]
+Aynı büyüklük üç kez ölçülüyor; sonuçlar $4$, $5$ ve $9$. “$x=4$, $x=5$, $x=9$” sisteminin matrisi, birlerden oluşan bir sütun olan $\mathbf{1}\in\mathbb{R}^{3\times1}$ olur. Bu matrisin bağımsız bir sütunu vardır, dolayısıyla $\mathbf{1}^+=(\mathbf{1}^{\top}\mathbf{1})^{-1}\mathbf{1}^{\top}=\tfrac13(1,\,1,\,1)$ ve şu bulunur:
 
 $$x^+=\tfrac13\,\mathbf{1}^{\top}\mathbf{y}=\tfrac13\,(4+5+9)=6 ,$$
 
@@ -147,6 +156,7 @@ yani ortalama (Şekil [27](#abb-27)). Birkaç ölçümün ortalaması, her öl�
 :::abbildung ml/k2rmittel 27
 Birler sütununun sözde tersi $\mathbf{y}=(4,5,9)^{\top}$ ölçüm değerlerine uygulanınca: $\mathbf{1}$ ile iç çarpım ölçüm değerlerinin toplamıdır; $\mathbf{1}^{\top}\mathbf{1}=3$ sayısına bölününce ortalama elde edilir.
 :::
+::::
 
 ⁠**Kısacası:** $\mathbf{A}^+\mathbf{y}$ her matris için bir en iyi yaklaşık çözümdür, birden çok varsa en kısasıdır; sütunlar ya da satırlar bağımsızsa $\mathbf{A}^+$ sol ya da sağ terstir.
 

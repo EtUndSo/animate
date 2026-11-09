@@ -46,7 +46,11 @@ $B/A$ ist also eine reine Phase, $B/A=\mathrm{e}^{-2\mathrm{j}\varphi}$ mit $\ta
 $$\Bigl|\frac CA\Bigr|^2=\frac{4k_\mathrm I^2}{k_\mathrm I^2+\kappa^2}=\frac{4E}{V_0}. \tag{3.3}$$
 :::
 
-**Beispiel.** Für $E=0{,}5$ eV und $V_0=2$ eV ist $\kappa=6{,}27\,\mathrm{nm^{-1}}$ und $\delta=0{,}159$ nm, weniger als ein Atomabstand. In 1 nm Tiefe ist die Amplitude auf $\mathrm{e}^{-6{,}27}=0{,}0019$ gefallen. Bei $E=1{,}5$ eV ist $\delta=0{,}276$ nm, bei $E=1{,}9$ eV schon 0,617 nm. Die Phase ist $\varphi=60^\circ$, und $|C/A|^2=1$. Für ein Proton (1837-fache Masse) schrumpft $\delta$ um den Faktor 42,9 auf 3,7 pm. **Grenzfälle:** Für $E\to V_0$ geht $\delta\to\infty$. Für $V_0\to\infty$ geht $\delta\to0$ und nach [(3.3)](#gl-3-3) $\psi(0)\to0$. Das ist die Randbedingung der Box aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html).
+::::beispiel
+Für $E=0{,}5$ eV und $V_0=2$ eV ist $\kappa=6{,}27\,\mathrm{nm^{-1}}$ und $\delta=0{,}159$ nm, weniger als ein Atomabstand. In 1 nm Tiefe ist die Amplitude auf $\mathrm{e}^{-6{,}27}=0{,}0019$ gefallen. Bei $E=1{,}5$ eV ist $\delta=0{,}276$ nm, bei $E=1{,}9$ eV schon 0,617 nm. Die Phase ist $\varphi=60^\circ$, und $|C/A|^2=1$. Für ein Proton (1837-fache Masse) schrumpft $\delta$ um den Faktor 42,9 auf 3,7 pm.
+::::
+
+⁠**Grenzfälle:** Für $E\to V_0$ geht $\delta\to\infty$. Für $V_0\to\infty$ geht $\delta\to0$ und nach [(3.3)](#gl-3-3) $\psi(0)\to0$. Das ist die Randbedingung der Box aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html).
 
 $R=1$ stimmt mit der klassischen Erwartung überein. Neu ist: Die Reflexion findet nicht genau an der Kante statt, sondern erstreckt sich ein Stück in die Wand hinein, und das Elektron hat dort eine klassisch unmögliche Aufenthaltswahrscheinlichkeit.
 

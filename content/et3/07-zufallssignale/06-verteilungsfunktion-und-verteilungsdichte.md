@@ -25,11 +25,13 @@ $$P_s(x)=\mathrm{Prob}[s(t)\le x],\qquad p_s(x)=\frac{\mathrm{d} P_s(x)}{\mathrm
 <span class="anker" id="gl-5-2"></span>
 $$m_s=\int x\,p_s(x)\,\mathrm{d} x,\qquad L_s=\int x^2p_s(x)\,\mathrm{d} x,\qquad\mathrm E\{F[s]\}=\int F(x)\,p_s(x)\,\mathrm{d} x. \tag{5.2}$$
 
-**Beispiel: Gleichverteilung.** Alle Werte in einem Intervall der Breite $a$ um $m_s$ sind gleich wahrscheinlich: $p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$. Dann ist
+::::beispiel Gleichverteilung
+Alle Werte in einem Intervall der Breite $a$ um $m_s$ sind gleich wahrscheinlich: $p_s(x)=\frac1a\operatorname{rect}\bigl(\frac{x-m_s}{a}\bigr)$. Dann ist
 
 $$L_s=\frac1a\int_{m_s-a/2}^{m_s+a/2}x^2\mathrm{d} x=\frac{a^2}{12}+m_s^2,\qquad\sigma_s^2=\frac{a^2}{12}.$$
 
 Die Zufallszahlen des Rechenmodells ($a=1$, $m_s=0$) haben die Varianz $\frac1{12}=0{,}0833$.
+::::
 
 **Kennlinien.** Läuft ein Signal durch eine Kennlinie $y=k(x)$ (Verstärker mit Sättigung, Gleichrichter, Quantisierer), ändert sich seine Verteilung. Bei einer monotonen Kennlinie bleibt die Wahrscheinlichkeit jedes Intervalls erhalten:
 

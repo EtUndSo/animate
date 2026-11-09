@@ -69,7 +69,11 @@ Sei $n\in\mathbb{N}$. Für ungerades $n$ ist $f(x)=x^n$ auf $\mathbb{R}$ streng 
 
 ⁠**So liest man das:** $n$ ist die feste Potenz. **Warum „auf $\mathbb{R}_0^+$“ nötig ist:** Für gerades $n$ ist $f$ auf ganz $\mathbb{R}$ nicht monoton, es ist $-2<-1$, aber $(-2)^2>(-1)^2$.
 
-**Beispiele.** $h$ ist nach unten durch $-1$ beschränkt, nach oben nicht. Die Glocke ist beschränkt und auf $\mathbb{R}_0^+$ streng fallend: Aus $0\le x<y$ folgt $1+x^2<1+y^2$, also $b(x)>b(y)$. Summe und Produkt beschränkter Funktionen sind wieder beschränkt: Aus $|f|\le K$ und $|g|\le L$ folgt $|f+g|\le K+L$ und $|f\cdot g|\le K\,L$. **Grenzfälle:** Eine konstante Funktion ist monoton wachsend und fallend zugleich, aber nicht streng. $f(x)=0$ ist gerade und ungerade zugleich.
+::::beispiel [Beispiele]
+$h$ ist nach unten durch $-1$ beschränkt, nach oben nicht. Die Glocke ist beschränkt und auf $\mathbb{R}_0^+$ streng fallend: Aus $0\le x<y$ folgt $1+x^2<1+y^2$, also $b(x)>b(y)$. Summe und Produkt beschränkter Funktionen sind wieder beschränkt: Aus $|f|\le K$ und $|g|\le L$ folgt $|f+g|\le K+L$ und $|f\cdot g|\le K\,L$.
+::::
+
+⁠**Grenzfälle:** Eine konstante Funktion ist monoton wachsend und fallend zugleich, aber nicht streng. $f(x)=0$ ist gerade und ungerade zugleich.
 
 :::frage Ist eine Funktion, die nicht gerade ist, automatisch ungerade?
 Bei Zahlen stimmt das, bei Funktionen nicht: $f(x)=x^2+x$ hat $f(1)=2$ und $f(-1)=0$: weder gleich noch entgegengesetzt. Die meisten Funktionen sind beides nicht.

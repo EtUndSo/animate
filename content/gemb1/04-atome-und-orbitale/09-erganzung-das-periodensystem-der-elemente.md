@@ -40,7 +40,9 @@ Periodensystem, gefärbt nach der Unterschale, die sich füllt. Links die Period
 
 ⁠**So liest man das:** Die Nummer der Hauptgruppe ist die Zahl der Valenzelektronen, die Nummer der Periode das $n$ der Valenzschale. Wasserstoff steht in Gruppe I, ist aber kein Metall, und Helium wegen seiner vollen Schale bei den Edelgasen. $n\mathrm s^2n\mathrm p^6$ heißt __Edelgaskonfiguration__. Sie ist besonders stabil, denn das nächste Elektron müsste in eine neue, schwächer gebundene Unterschale. Viele Atome reagieren so, dass sie diese Konfiguration erreichen. Die Nebengruppenelemente heißen auch __Übergangsmetalle__. Ihre unvollständig gefüllten d-Orbitale sind für magnetische Werkstoffe wichtig.
 
-**Beispiel.** Gallium ($Z=31$) hat [Ar]$\,3\mathrm d^{10}\,4\mathrm s^2\,4\mathrm p^1$: Periode 4, Hauptgruppe III. Germanium ($Z=32$) mit $4\mathrm s^2\,4\mathrm p^2$ steht in Hauptgruppe IV. Das beantwortet die Eingangsfrage: Silizium und Kohlenstoff haben dasselbe äußere Muster, der Nachbar Aluminium mit $3\mathrm s^2\,3\mathrm p^1$ nicht. **Kontrolle:** Die Perioden haben $2,8,8,18,18,32,32$ Plätze. Die Summen 2, 10, 18, 36, 54, 86, 118 sind die Ordnungszahlen der Edelgase.
+::::beispiel
+Gallium ($Z=31$) hat [Ar]$\,3\mathrm d^{10}\,4\mathrm s^2\,4\mathrm p^1$: Periode 4, Hauptgruppe III. Germanium ($Z=32$) mit $4\mathrm s^2\,4\mathrm p^2$ steht in Hauptgruppe IV. Das beantwortet die Eingangsfrage: Silizium und Kohlenstoff haben dasselbe äußere Muster, der Nachbar Aluminium mit $3\mathrm s^2\,3\mathrm p^1$ nicht. **Kontrolle:** Die Perioden haben $2,8,8,18,18,32,32$ Plätze. Die Summen 2, 10, 18, 36, 54, 86, 118 sind die Ordnungszahlen der Edelgase.
+::::
 
 :::frage Die Schale $n=3$ fasst 18 Elektronen. Warum hat die dritte Periode nur acht Elemente?
 Eine Periode endet mit einer vollen p-Unterschale, nicht mit einer vollen Schale. Auf 3p folgt 4s, also beginnt mit $n=4$ die nächste Periode. Die zehn 3d-Plätze werden erst dort gefüllt, in den Nebengruppen.

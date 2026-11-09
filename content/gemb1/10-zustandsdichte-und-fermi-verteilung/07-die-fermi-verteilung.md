@@ -81,7 +81,11 @@ Umstellen ergibt $N_i/g_i=1/\bigl(1+\mathrm{e}^{(E_i-E_\mathrm F)/(k_\mathrm BT)
 Punkte: exakt ausgezählte Besetzung, 40 Niveaus im Abstand $\Delta E$ mit je einem Platz, 20 Elektronen. Blau: Fermi-Verteilung mit $E_\mathrm F=19{,}5\,\Delta E$ und $k_\mathrm BT=4{,}43\,\Delta E$.
 :::
 
-**Beispiel.** Die Formel lässt sich ohne Näherung prüfen. In Abb. [5](#abb-5) liegt die Energie der Elektronen $30\,\Delta E$ über dem tiefsten Wert. Alle 5410 erlaubten Mikrozustände sind aufgezählt, und für jedes Niveau ist gezählt, wie oft es besetzt ist. Stirling kommt nicht vor. Die Punkte folgen [(5.2)](#gl-5-2) bis auf höchstens 0,014. $E_\mathrm F$ und $T$ sind dabei aus der Elektronenzahl und der Energie bestimmt. **Grenzfall:** Die Niveaus liegen symmetrisch um die Mitte, und $E_\mathrm F$ liegt genau dort.
+::::beispiel
+Die Formel lässt sich ohne Näherung prüfen. In Abb. [5](#abb-5) liegt die Energie der Elektronen $30\,\Delta E$ über dem tiefsten Wert. Alle 5410 erlaubten Mikrozustände sind aufgezählt, und für jedes Niveau ist gezählt, wie oft es besetzt ist. Stirling kommt nicht vor. Die Punkte folgen [(5.2)](#gl-5-2) bis auf höchstens 0,014. $E_\mathrm F$ und $T$ sind dabei aus der Elektronenzahl und der Energie bestimmt.
+::::
+
+⁠**Grenzfall:** Die Niveaus liegen symmetrisch um die Mitte, und $E_\mathrm F$ liegt genau dort.
 
 :::frage Eine Summe kann null sein, weil sich Summanden aufheben. Warum muss jede Klammer einzeln verschwinden?
 Weil die Bilanz für jede kleine Änderung gilt, auch für eine, die nur ein einziges $N_i$ ändert. Dann steht in der Summe nur ein Summand, und er muss allein null sein. Eine solche Änderung ist erlaubt, denn [(5.1)](#gl-5-1) enthält $\mathrm{d} E_\mathrm{ges}$ und $\mathrm{d} N_\mathrm{ges}$ ausdrücklich: Weder Energie noch Elektronenzahl müssen dabei festgehalten werden.

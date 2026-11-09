@@ -30,7 +30,9 @@ $$R_\mathrm{AB}=R_\mathrm{a}+R_\mathrm{b}\parallel\bigl(R_\mathrm{c}+R_\mathrm{d
 
 ⁠**How to read it:** $R$ is a resistance in $\Omega$, $G=1/R$ its __conductance__ in siemens (S). In series you add resistances, in parallel you add conductances. That is why each parallel group appears as a sum of conductances in the second form. The square bracket with the exponent $-1$ inverts the result again. **Validity:** The method needs genuine groups. If a third branch hangs on an intermediate node, the two neighbors are no longer in series (Stages [2](symmetrie-nutzen.html#stufe-2) and [3](stern-und-dreieck.html#stufe-3)).
 
-**Example.** With the values from Fig. [1](#abb-1): $G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33.3+16.7$ mS $=100$ mS, which is 10 $\Omega$. Adding $R_\mathrm{c}$ in series: 15 $\Omega$. In parallel with $R_\mathrm{b}$: $30\,\Omega\parallel15\,\Omega=10\,\Omega$. Adding $R_\mathrm{a}$ in series: $R_\mathrm{AB}=16\,\Omega$. Working backward gives the currents: with 8 V across A and B, 0.5 A flows. Across $R_\mathrm{a}$ the voltage drops by 3 V, leaving 5 V for the rest. Through $R_\mathrm{b}$ flows $5\,\mathrm{V}/30\,\Omega=166.7$ mA, through $R_\mathrm{c}$ flows $5\,\mathrm{V}/15\,\Omega=333.3$ mA. The sum is 500 mA.
+::::beispiel
+With the values from Fig. [1](#abb-1): $G_\mathrm{d}+G_\mathrm{e}+G_\mathrm{f}=50+33.3+16.7$ mS $=100$ mS, which is 10 $\Omega$. Adding $R_\mathrm{c}$ in series: 15 $\Omega$. In parallel with $R_\mathrm{b}$: $30\,\Omega\parallel15\,\Omega=10\,\Omega$. Adding $R_\mathrm{a}$ in series: $R_\mathrm{AB}=16\,\Omega$. Working backward gives the currents: with 8 V across A and B, 0.5 A flows. Across $R_\mathrm{a}$ the voltage drops by 3 V, leaving 5 V for the rest. Through $R_\mathrm{b}$ flows $5\,\mathrm{V}/30\,\Omega=166.7$ mA, through $R_\mathrm{c}$ flows $5\,\mathrm{V}/15\,\Omega=333.3$ mA. The sum is 500 mA.
+::::
 
 ⁠**Limiting case:** For $R_\mathrm{b}\to0$, [(1.1)](#gl-1-1) becomes $R_\mathrm{AB}=R_\mathrm{a}=6\,\Omega$. The short circuit bypasses everything behind it; the charge takes the wire.
 

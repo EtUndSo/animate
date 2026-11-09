@@ -23,7 +23,9 @@ Eine Adresse wie `https://app.example.com/konto/rechnungen` besteht aus drei Tei
 
 Eine Domain wird von rechts nach links gelesen. `example.com` ist der Name, den eine Organisation registriert hat. Davor kann sie weitere Namen setzen, etwa `app.example.com` und `intern.example.com`; das sind verschiedene Rechner oder Dienste derselben Organisation.
 
-⁠**Beispiel:** In `https://www.example.org/hilfe/kontakt.html` ist das Verfahren `https`, die Domain `www.example.org` und der Pfad `/hilfe/kontakt.html`. Hängt man an dieselbe Domain einen anderen Pfad, etwa `/impressum.html`, so fragt man denselben Rechner nach einer anderen Seite.
+::::beispiel
+In `https://www.example.org/hilfe/kontakt.html` ist das Verfahren `https`, die Domain `www.example.org` und der Pfad `/hilfe/kontakt.html`. Hängt man an dieselbe Domain einen anderen Pfad, etwa `/impressum.html`, so fragt man denselben Rechner nach einer anderen Seite.
+::::
 
 ⁠**Kurz gesagt:** Eine Webadresse besteht aus dem Verfahren, der Domain, die den Rechner nennt, und dem Pfad, der die Seite auf diesem Rechner nennt.
 
@@ -49,7 +51,9 @@ Eine gute Meldung nennt das Produkt und die getestete Version, beschreibt die Sc
 
 Damit ein Hersteller eine Meldung nicht endlos liegen lässt, setzen viele Finder Fristen. Ein bekanntes Beispiel ist das Sicherheitsteam Project Zero von Google: Der Hersteller hat 90 Tage Zeit für einen Patch, und 30 Tage nach dem Patch werden die Einzelheiten veröffentlicht. Wird die Lücke nachweislich schon ausgenutzt, verkürzt sich die Frist auf sieben Tage.
 
-⁠**Beispiel: der Weg über das BSI.** Das BSI nimmt Meldungen über Schwachstellen entgegen. Betrifft die Lücke ein Produkt eines Herstellers, meldet man sie zuerst dem Hersteller. Nur wenn dieser nicht reagiert oder die Abstimmung zu scheitern droht, wendet man sich an das BSI, das dann vermittelt. Für Schwachstellen in Systemen der Bundesverwaltung ist das BSI selbst der Ansprechpartner. Es sagt zu, Meldungen vertraulich zu behandeln, und verspricht, keine strafrechtlichen Schritte gegen den Finder einzuleiten, solange dieser sich an die Regeln des BSI hält, etwa nichts über den Nachweis hinaus ausnutzt, keine Daten Dritter verändert und keine Überlastungsangriffe ausführt. Diese Zusage bindet nur das BSI selbst; sie ist keine Erlaubnis für Systeme anderer Betreiber.
+::::beispiel der Weg über das BSI
+Das BSI nimmt Meldungen über Schwachstellen entgegen. Betrifft die Lücke ein Produkt eines Herstellers, meldet man sie zuerst dem Hersteller. Nur wenn dieser nicht reagiert oder die Abstimmung zu scheitern droht, wendet man sich an das BSI, das dann vermittelt. Für Schwachstellen in Systemen der Bundesverwaltung ist das BSI selbst der Ansprechpartner. Es sagt zu, Meldungen vertraulich zu behandeln, und verspricht, keine strafrechtlichen Schritte gegen den Finder einzuleiten, solange dieser sich an die Regeln des BSI hält, etwa nichts über den Nachweis hinaus ausnutzt, keine Daten Dritter verändert und keine Überlastungsangriffe ausführt. Diese Zusage bindet nur das BSI selbst; sie ist keine Erlaubnis für Systeme anderer Betreiber.
+::::
 
 ⁠**Kurz gesagt:** Bei der koordinierten Offenlegung meldet der Finder vertraulich und veröffentlicht erst nach Abstimmung, in der Regel, wenn ein Patch bereitsteht.
 
@@ -73,7 +77,9 @@ Ein __Meldeprogramm__ (englisch *vulnerability disclosure program*, VDP) ist ein
 
 Ein solches Programm legt einen Umfang fest, wie ihn Abschnitt [9](erlaubnis-werkzeuge-und-gute-absicht.html#stufe-9) beschrieben hat: welche Adressen getestet werden dürfen und welche Methoden verboten sind, fast immer Überlastungsangriffe und das Täuschen von Mitarbeitern. Viele Programme sagen außerdem ausdrücklich zu, gegen Finder, die sich an die Regeln halten, nicht rechtlich vorzugehen. Damit erteilt der Verfügungsberechtigte eine Erlaubnis für genau die beschriebenen Tests. Was außerhalb des Umfangs liegt, bleibt unbefugt.
 
-⁠**Beispiel:** Ein Programm erlaubt Tests an `app.example.com`, verbietet aber Tests an `intern.example.com` und jede Form von Überlastung. Ein Finder, der auf `app.example.com` eine Lücke findet und meldet, handelt im Rahmen der Erlaubnis. Untersucht er auch `intern.example.com`, weil es „ja zur selben Firma gehört“, verlässt er sie.
+::::beispiel
+Ein Programm erlaubt Tests an `app.example.com`, verbietet aber Tests an `intern.example.com` und jede Form von Überlastung. Ein Finder, der auf `app.example.com` eine Lücke findet und meldet, handelt im Rahmen der Erlaubnis. Untersucht er auch `intern.example.com`, weil es „ja zur selben Firma gehört“, verlässt er sie.
+::::
 
 ⁠**Kurz gesagt:** Meldeprogramme und Bug-Bounty-Programme erlauben Tests in einem festgelegten Umfang; außerhalb davon gilt die Erlaubnis nicht.
 
@@ -107,7 +113,8 @@ Eine __security.txt__ ist eine kurze Textdatei, in der eine Organisation angibt,
 Freiwillig sind unter anderem `Policy` (ein Verweis auf die Regeln des Meldeprogramms), `Encryption` (ein Schlüssel, mit dem man die Meldung verschlüsseln kann), `Acknowledgments` (eine Seite, die Finder namentlich dankt) und `Preferred-Languages` (die Sprachen, in denen man Meldungen bevorzugt).
 :::
 
-⁠**Beispiel:** Die security.txt einer erfundenen Firma `example.org` könnte so aussehen; Zeilen, die mit `#` beginnen, sind Kommentare.
+::::beispiel
+Die security.txt einer erfundenen Firma `example.org` könnte so aussehen; Zeilen, die mit `#` beginnen, sind Kommentare.
 
 ```text https://example.org/.well-known/security.txt
 # Meldungen über Schwachstellen bitte an:
@@ -119,6 +126,7 @@ Policy: https://example.org/sicherheit/meldeprogramm
 ```
 
 Eine Meldung geht hier zuerst an `security@example.org`. Die Angaben gelten bis zum 30. Juni 2027, Meldungen auf Deutsch oder Englisch sind willkommen, und die Regeln des Meldeprogramms stehen auf der angegebenen Seite. Eine security.txt abzurufen ist ein gewöhnlicher Seitenabruf, wie ihn jeder Browser bei jedem Klick ausführt.
+::::
 
 ⁠**Kurz gesagt:** Die security.txt unter `/.well-known/security.txt` nennt den Sicherheitskontakt einer Webseite; Pflicht sind `Contact` und `Expires`.
 
@@ -174,7 +182,9 @@ Bemerkt man bei der gewöhnlichen, erlaubten Benutzung eines fremden Systems Hin
 </ol>
 :::
 
-⁠**Beispiel:** Beim Ansehen der eigenen Rechnung im Kundenportal aus Abschnitt [2](von-der-schwachstelle-zum-schaden.html#stufe-2) fällt einer Kundin auf, dass die Adresse eine fortlaufende Nummer enthält. Sie probiert die Nummer 1042 *nicht* aus. Sie schreibt dem Sicherheitskontakt des Shops: „In der Adresse meiner Rechnung steht eine fortlaufende Nummer. Bitte prüfen Sie, ob das Portal bei jedem Abruf kontrolliert, wem die Rechnung gehört; andernfalls könnten Kunden fremde Rechnungen sehen.“ Damit hat sie geholfen, ohne ein fremdes Schutzgut anzutasten.
+::::beispiel
+Beim Ansehen der eigenen Rechnung im Kundenportal aus Abschnitt [2](von-der-schwachstelle-zum-schaden.html#stufe-2) fällt einer Kundin auf, dass die Adresse eine fortlaufende Nummer enthält. Sie probiert die Nummer 1042 *nicht* aus. Sie schreibt dem Sicherheitskontakt des Shops: „In der Adresse meiner Rechnung steht eine fortlaufende Nummer. Bitte prüfen Sie, ob das Portal bei jedem Abruf kontrolliert, wem die Rechnung gehört; andernfalls könnten Kunden fremde Rechnungen sehen.“ Damit hat sie geholfen, ohne ein fremdes Schutzgut anzutasten.
+::::
 
 ⁠**Kurz gesagt:** Bei einem Zufallsfund hört man auf, nimmt nichts mit, schreibt auf und meldet koordiniert.
 
@@ -216,7 +226,9 @@ Die Hackerethik ist eine freiwillige Selbstverpflichtung und keine Rechtsgrundla
 
 Ein Gedanke aus dieser Kultur trägt die ganze Reihe: Wer Angriffe versteht, kann sich gegen sie verteidigen, und wer die Frage nach Angriffen unterdrückt, beseitigt damit keine einzige Lücke. Am Wissen selbst ist nichts gut oder schlecht; gut oder schlecht ist, was man damit tut. Das ist derselbe Gedanke, mit dem das Bundesverfassungsgericht das Werkzeug vom Einsatz getrennt hat.
 
-⁠**Beispiel:** Ein Mitglied eines Hackervereins entdeckt, dass eine Stadtverwaltung die Daten von Bürgern ungeschützt im Netz stehen hat. Nach der Hackerethik meldet es den Fund, statt die Daten zu sammeln, zu verändern oder bloßzustellen: Es nützt das Wissen über die Lücke und schützt die privaten Daten.
+::::beispiel
+Ein Mitglied eines Hackervereins entdeckt, dass eine Stadtverwaltung die Daten von Bürgern ungeschützt im Netz stehen hat. Nach der Hackerethik meldet es den Fund, statt die Daten zu sammeln, zu verändern oder bloßzustellen: Es nützt das Wissen über die Lücke und schützt die privaten Daten.
+::::
 
 ⁠**Kurz gesagt:** Die Hackerethik ist eine Selbstverpflichtung, die Neugier mit Rücksicht verbindet; Erlaubnis ersetzt sie nicht.
 

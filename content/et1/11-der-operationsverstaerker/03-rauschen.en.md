@@ -47,7 +47,11 @@ Left, the density of a 10-k$\Omega$ resistor with a 1/f component below 1 kHz:
 For two independent disturbances, $(u_1+u_2)^2=u_1^2+2u_1u_2+u_2^2$. Averaged over time, the product $u_1u_2$ is positive as often as it is negative, so its mean vanishes. What remains is $u_\mathrm{tot,eff}^2=u_\mathrm{1,eff}^2+u_\mathrm{2,eff}^2$. The integral in [(1.1)](#gl-1-1) is this sum over all frequency strips.
 :::
 
-**Example.** The sensor resistor has $|u_\mathrm{r,R}|^2=4\cdot1.381\cdot10^{-23}\cdot300\cdot10^4=1.66\cdot10^{-16}\,\mathrm{V^2/Hz}$, so in 20 kHz, $u_\mathrm{r,eff}=1.82$ µ V. The useful signal of 1 mV is 549 times larger: $\mathrm{SNR}=54.8$ dB. Half the bandwidth lowers the noise by $\sqrt2$, which is 3 dB. **Limiting cases:** For $R\to0$ or $T\to0$ the thermal noise vanishes.
+::::beispiel
+The sensor resistor has $|u_\mathrm{r,R}|^2=4\cdot1.381\cdot10^{-23}\cdot300\cdot10^4=1.66\cdot10^{-16}\,\mathrm{V^2/Hz}$, so in 20 kHz, $u_\mathrm{r,eff}=1.82$ µ V. The useful signal of 1 mV is 549 times larger: $\mathrm{SNR}=54.8$ dB. Half the bandwidth lowers the noise by $\sqrt2$, which is 3 dB.
+::::
+
+⁠**Limiting cases:** For $R\to0$ or $T\to0$ the thermal noise vanishes.
 
 **What an amplifier changes.** It raises the signal and the noise present at its input by the same factor, so the SNR stays the same or gets worse through the amplifier's own noise. It helps only against disturbances that join in *behind* it and have a fixed size. If the line to the next device adds 100 µ V, then 20.0 dB remain without an amplifier. With a gain of 100 at the sensor it is $0.1\,\mathrm{V}/\sqrt{(182\,\mathrm{\mu\text{} V})^2+(100\,\mathrm{\mu\text{} V})^2}$, that is, 53.7 dB. The second remedy is the difference: a disturbance that hits two lines equally vanishes if only their difference is evaluated. Stage [2](der-differenzverstarker.html#stufe-2) achieves this.
 

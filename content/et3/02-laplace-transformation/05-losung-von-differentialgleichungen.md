@@ -24,11 +24,13 @@ $$\sum_{r=0}^{R}\alpha_r\,\frac{\mathrm{d}^r u_2(t)}{\mathrm{d} t^r}=\sum_{q=0}^
 
 Die Zahlen $\alpha_r$ und $\beta_q$ heißen __Koeffizienten__. Sie sind reell und hängen nicht von der Zeit ab, denn sie stammen aus den Bauteilwerten. Die Gleichung ist __linear__: $u_1$, $u_2$ und ihre Ableitungen kommen nur in der ersten Potenz vor und werden nie miteinander multipliziert. Die höchste Ableitung des Ausgangs, $R$, heißt __Ordnung__ der Gleichung. Die nullte Ableitung ist das Signal selbst.
 
-⁠**Beispiel: der RC-Tiefpass.** Die Maschenregel ergibt $u_1=R\,i+u_2$, und durch den Kondensator fließt $i=C\,\frac{\mathrm{d} u_2}{\mathrm{d} t}$. Zusammen:
+::::beispiel der RC-Tiefpass
+Die Maschenregel ergibt $u_1=R\,i+u_2$, und durch den Kondensator fließt $i=C\,\frac{\mathrm{d} u_2}{\mathrm{d} t}$. Zusammen:
 
 $$RC\,\frac{\mathrm{d} u_2(t)}{\mathrm{d} t}+u_2(t)=u_1(t).$$
 
 Das ist [(4.1)](#gl-4-1) mit $R=1$, $\alpha_1=RC$, $\alpha_0=1$ und $Q=0$, $\beta_0=1$. (Das $R$ als Ordnung und das $R$ als Widerstand sind hier zufällig gleich geschrieben; aus dem Zusammenhang ist klar, was gemeint ist.)
+::::
 
 ⁠**Kurz gesagt:** Eine lineare Differentialgleichung mit konstanten Koeffizienten verknüpft gewichtete Ableitungen von Ausgang und Eingang.
 
@@ -80,7 +82,9 @@ $$\sum_{r=0}^{R}\alpha_r\,p^r=0 . \tag{4.5}$$
 
 Die Pole hängen also nur von der linken Seite ab, also davon, wie der Ausgang auf sich selbst zurückwirkt. Die Nullstellen hängen nur davon ab, wie der Eingang in die Gleichung eingeht.
 
-⁠**Beispiel:** Für den RC-Tiefpass ist $H(p)=\frac{1}{RC\,p+1}$, mit einem Pol bei $p=-1/RC$ und ohne Nullstelle. Das ist dasselbe Ergebnis, das im ersten Abschnitt aus der Impulsantwort herauskam, jetzt aber ohne $h(t)$ zu kennen.
+::::beispiel
+Für den RC-Tiefpass ist $H(p)=\frac{1}{RC\,p+1}$, mit einem Pol bei $p=-1/RC$ und ohne Nullstelle. Das ist dasselbe Ergebnis, das im ersten Abschnitt aus der Impulsantwort herauskam, jetzt aber ohne $h(t)$ zu kennen.
+::::
 
 ⁠**Kurz gesagt:** Die Übertragungsfunktion eines Systems mit Differentialgleichung ist ein Bruch aus zwei Polynomen, deren Koeffizienten man direkt aus der Gleichung abliest.
 
@@ -188,8 +192,7 @@ Die Zerlegung heißt __Partialbruchzerlegung__, die Zahlen $A_r$ heißen Partial
 
 **Warum die Formel für $A_r$ stimmt.** Man multipliziert [(4.10)](#gl-4-10) mit $(p-p_{\mathrm P,r})$. Auf der rechten Seite bleibt $A_r$ allein stehen, alle anderen Summanden enthalten danach den Faktor $(p-p_{\mathrm P,r})$. Lässt man nun $p\to p_{\mathrm P,r}$ gehen, verschwinden sie, und es bleibt $A_r$.
 
-**Beispiel mit zwei Polen und zwei Nullstellen.**
-
+::::beispiel mit zwei Polen und zwei Nullstellen
 <span class="anker" id="gl-4-12"></span>
 $$H(p)=H_0\,\frac{(p-p_{\mathrm N1})(p-p_{\mathrm N2})}{(p-p_{\mathrm P1})(p-p_{\mathrm P2})}=A_0+\frac{A_1}{p-p_{\mathrm P1}}+\frac{A_2}{p-p_{\mathrm P2}}. \tag{4.12}$$
 
@@ -207,6 +210,7 @@ und entsprechend
 
 <span class="anker" id="gl-4-15"></span>
 $$A_2=H_0\,\frac{(p_{\mathrm P2}-p_{\mathrm N1})(p_{\mathrm P2}-p_{\mathrm N2})}{p_{\mathrm P2}-p_{\mathrm P1}}. \tag{4.15}$$
+::::
 
 ⁠**Kurz gesagt:** Die Partialbruchzerlegung schreibt einen Polynombruch als Summe von Brüchen mit je einem Pol. Den Koeffizienten eines Pols erhält man, indem man dessen Faktor herauskürzt und den Pol einsetzt.
 
@@ -227,7 +231,8 @@ $$h(t)=A_0\,\delta(t)+\sum_{r=1}^{R}A_r\,\mathrm{e}^{p_{\mathrm P,r}t}\,\varepsi
 
 Die Pole sind die Exponenten, die Partialbruchkoeffizienten die Vorfaktoren.
 
-⁠**Beispiel: die Sprungantwort des RC-Tiefpasses.** Mit $RC=1\,\mathrm{s}$ ist $H(p)=\frac{1}{p+1}$ für $\operatorname{Re} p>-1$, der Eingang $\varepsilon(t)$ hat $S(p)=\frac1p$ für $\operatorname{Re} p>0$. Nach dem Faltungssatz ist der Ausgang im gemeinsamen Bereich $\operatorname{Re} p>0$
+::::beispiel die Sprungantwort des RC-Tiefpasses
+Mit $RC=1\,\mathrm{s}$ ist $H(p)=\frac{1}{p+1}$ für $\operatorname{Re} p>-1$, der Eingang $\varepsilon(t)$ hat $S(p)=\frac1p$ für $\operatorname{Re} p>0$. Nach dem Faltungssatz ist der Ausgang im gemeinsamen Bereich $\operatorname{Re} p>0$
 
 $$G(p)=\frac1p\cdot\frac{1}{p+1}.$$
 
@@ -236,6 +241,7 @@ Die Pole sind $0$ und $-1$. Mit [(4.11)](#gl-4-11): $A_1=\lim_{p\to0}\frac{1}{p+
 $$G(p)=\frac1p-\frac{1}{p+1}\quad\Longrightarrow\quad g(t)=\bigl(1-\mathrm{e}^{-t}\bigr)\,\varepsilon(t).$$
 
 Direkt nachgerechnet: $g(t)=\int_0^t\mathrm{e}^{-\tau}\mathrm{d}\tau=1-\mathrm{e}^{-t}$ für $t>0$. Zahlen: $g(0{,}5\,\mathrm{s})=0{,}3935$, $g(1\,\mathrm{s})=0{,}6321$, $g(3\,\mathrm{s})=0{,}9502$.
+::::
 
 ⁠**Kurz gesagt:** Nach der Partialbruchzerlegung liest man das Zeitsignal Summand für Summand aus den Grundpaaren ab: Jeder Pol $p_{\mathrm P,r}$ liefert eine Exponentialfunktion $\mathrm{e}^{p_{\mathrm P,r}t}$.
 
@@ -390,7 +396,9 @@ $$\int_0^\infty t^n\,\mathrm{e}^{-ct}\,\mathrm{d} t=\Bigl[-\frac{t^n\,\mathrm{e}
 denn der Randterm verschwindet an beiden Grenzen. Jeder Schritt senkt die Potenz um eins und liefert einen Faktor $\frac{n}{c}$, $\frac{n-1}{c}$, …. Nach $n$ Schritten bleibt $\frac{n!}{c^n}\cdot\frac1c=\frac{n!}{c^{n+1}}$.
 :::
 
-⁠**Beispiel: der aperiodische Grenzfall.** Für $b=0$ hat das RLC-System einen doppelten Pol bei $-a$: $H(p)=\frac{1/LC}{(p+a)^2}$. Mit $k=2$ ist $H(p)(p+a)^2=\frac{1}{LC}$ konstant. Also ist $A_{1,2}=\frac{1}{LC}$ und $A_{1,1}=\frac{\mathrm{d}}{\mathrm{d} p}\frac{1}{LC}=0$. Mit [(4.29)](#gl-4-29) für $j=2$ folgt $h(t)=\frac{1}{LC}\,t\,\mathrm{e}^{-at}\,\varepsilon(t)$, genau das Ergebnis [(4.21)](#gl-4-21) aus der Regel von l'Hospital.
+::::beispiel der aperiodische Grenzfall
+Für $b=0$ hat das RLC-System einen doppelten Pol bei $-a$: $H(p)=\frac{1/LC}{(p+a)^2}$. Mit $k=2$ ist $H(p)(p+a)^2=\frac{1}{LC}$ konstant. Also ist $A_{1,2}=\frac{1}{LC}$ und $A_{1,1}=\frac{\mathrm{d}}{\mathrm{d} p}\frac{1}{LC}=0$. Mit [(4.29)](#gl-4-29) für $j=2$ folgt $h(t)=\frac{1}{LC}\,t\,\mathrm{e}^{-at}\,\varepsilon(t)$, genau das Ergebnis [(4.21)](#gl-4-21) aus der Regel von l'Hospital.
+::::
 
 ⁠**Kurz gesagt:** Ein Pol des Grades $k$ liefert $k$ Summanden. Im Zeitbereich erscheint dabei die Exponentialfunktion des Pols, multipliziert mit Potenzen von $t$ bis $t^{k-1}$.
 

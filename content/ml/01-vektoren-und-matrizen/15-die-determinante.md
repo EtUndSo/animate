@@ -44,7 +44,9 @@ $$\det\mathbf{A}=ad-bc . \tag{14.1}$$
 
 Ihr Betrag ist die Fläche des Parallelogramms, das die Spalten aufspannen, also der Faktor, um den $\mathbf{A}$ die Fläche des Einheitsquadrats ändert. Es ist dieselbe Zahl, die in der Inversen [(11.2)](einheitsmatrix-und-inverse.html#gl-11-2) im Nenner steht.
 
-⁠**Rechenbeispiel:** $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ und $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. Die Streckung verändert die Form des Quadrats, aber nicht seine Fläche: Was sie in die Breite zieht, nimmt sie in der Höhe weg.
+::::beispiel [Rechenbeispiel]
+$\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=6-1=5$, $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=2-1=1$, $\det\operatorname{diag}(2;\,0{,}5)=1$ und $\det\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=0$. Die Streckung verändert die Form des Quadrats, aber nicht seine Fläche: Was sie in die Breite zieht, nimmt sie in der Höhe weg.
+::::
 
 ⁠**Kurz gesagt:** Die Determinante $ad-bc$ einer $2\times2$-Matrix ist dem Betrag nach der Faktor, um den die Abbildung die Fläche des Einheitsquadrats ändert.
 
@@ -56,7 +58,9 @@ Eine Fläche ist nie negativ, die Determinante kann es sein. Das Vorzeichen trä
 
 Im Einheitsquadrat liegt $\mathbf{e}_2$ von $\mathbf{e}_1$ aus gegen den Uhrzeigersinn. Bleibt das bei den Bildern so, liegt also $\mathbf{a}_2$ von $\mathbf{a}_1$ aus ebenfalls gegen den Uhrzeigersinn, so ist $\det\mathbf{A}>0$. Liegt $\mathbf{a}_2$ im Uhrzeigersinn von $\mathbf{a}_1$, ist die Ebene gespiegelt worden, und $\det\mathbf{A}<0$. Diese Eigenschaft heißt __Orientierung__: Eine positive Determinante erhält die Orientierung, eine negative kehrt sie um.
 
-⁠**Rechenbeispiel:** Die Spiegelung an der $x_1$-Achse, $\operatorname{diag}(1;\,-1)$, hat die Determinante $-1$: Die Fläche bleibt gleich, die Orientierung kehrt sich um. Vertauscht man die Spalten einer Matrix, wechselt die Determinante ihr Vorzeichen: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. Die Drehung um $90^\circ$ hat $\det=0\cdot0-(-1)\cdot1=1$, die Scherung $\det=1\cdot1-1\cdot0=1$, das Plattdrücken $\operatorname{diag}(1;\,0)$ die Determinante $0$.
+::::beispiel [Rechenbeispiel]
+Die Spiegelung an der $x_1$-Achse, $\operatorname{diag}(1;\,-1)$, hat die Determinante $-1$: Die Fläche bleibt gleich, die Orientierung kehrt sich um. Vertauscht man die Spalten einer Matrix, wechselt die Determinante ihr Vorzeichen: $\det\bigl(\begin{smallmatrix}1&3\\2&1\end{smallmatrix}\bigr)=1-6=-5$. Die Drehung um $90^\circ$ hat $\det=0\cdot0-(-1)\cdot1=1$, die Scherung $\det=1\cdot1-1\cdot0=1$, das Plattdrücken $\operatorname{diag}(1;\,0)$ die Determinante $0$.
+::::
 
 ⁠**Kurz gesagt:** Der Betrag der Determinante ist der Flächenfaktor, ihr Vorzeichen sagt, ob die Abbildung spiegelt.
 
@@ -76,7 +80,9 @@ Bildet $\mathbf{A}\in\mathbb{R}^{2\times2}$ eine Figur der Fläche $F$ ab, so ha
 Man legt ein feines Gitter aus kleinen Quadraten der Seitenlänge $h$ über die Figur. Ein Quadrat mit der Ecke $\mathbf{q}$ hat die Ecken $\mathbf{q}$, $\mathbf{q}+h\mathbf{e}_1$, $\mathbf{q}+h\mathbf{e}_1+h\mathbf{e}_2$ und $\mathbf{q}+h\mathbf{e}_2$. Sein Bild hat die Ecken $\mathbf{A}\mathbf{q}$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1$, $\mathbf{A}\mathbf{q}+h\mathbf{a}_1+h\mathbf{a}_2$ und $\mathbf{A}\mathbf{q}+h\mathbf{a}_2$: Es ist das Parallelogramm aus $h\mathbf{a}_1$ und $h\mathbf{a}_2$, verschoben nach $\mathbf{A}\mathbf{q}$. Seine Fläche ist $h^2\,|\det\mathbf{A}|$, unabhängig davon, wo das Quadrat lag. Jedes kleine Quadrat wird also um denselben Faktor $|\det\mathbf{A}|$ größer oder kleiner. Die Figur besteht näherungsweise aus solchen Quadraten, und je feiner das Gitter, desto genauer. Deshalb gilt der Faktor für die ganze Figur.
 :::
 
-⁠**Rechenbeispiel:** Der Kreis mit dem Radius $1$ hat die Fläche $\pi$. Die Streckung $\operatorname{diag}(3;\,2)$ macht daraus eine Ellipse mit den Halbachsen $3$ und $2$. Deren Fläche ist $\pi\cdot3\cdot2=6\pi$, also genau $|\det\mathbf{A}|=6$-mal die Kreisfläche. Das Dreieck mit den Ecken $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ hat die Fläche $\tfrac12$; unter $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ wird es zum Dreieck mit den Ecken $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$ und der Fläche $\tfrac52$.
+::::beispiel [Rechenbeispiel]
+Der Kreis mit dem Radius $1$ hat die Fläche $\pi$. Die Streckung $\operatorname{diag}(3;\,2)$ macht daraus eine Ellipse mit den Halbachsen $3$ und $2$. Deren Fläche ist $\pi\cdot3\cdot2=6\pi$, also genau $|\det\mathbf{A}|=6$-mal die Kreisfläche. Das Dreieck mit den Ecken $\mathbf{0}$, $\mathbf{e}_1$, $\mathbf{e}_2$ hat die Fläche $\tfrac12$; unter $\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)$ wird es zum Dreieck mit den Ecken $\mathbf{0}$, $(3,1)^{\top}$, $(1,2)^{\top}$ und der Fläche $\tfrac52$.
+::::
 
 ⁠**Kurz gesagt:** Eine lineare Abbildung ändert die Fläche jeder Figur um denselben Faktor $|\det\mathbf{A}|$, weil sie jedes kleine Kästchen des Gitters gleich behandelt.
 
@@ -99,7 +105,8 @@ wobei $\mathbf{A}_{1j}$ die $(n-1)\times(n-1)$-Matrix ist, die aus $\mathbf{A}$ 
 
 Für $n=2$ ergibt [(14.2)](#gl-14-2) wieder $a_{11}a_{22}-a_{12}a_{21}$. Man darf ebenso nach jeder anderen Zeile oder Spalte entwickeln, mit dem Vorzeichen $(-1)^{i+j}$ für den Eintrag $a_{ij}$; das Ergebnis ist immer dasselbe. Für $n=3$ ist $|\det\mathbf{A}|$ das Volumen des Spats aus den drei Spalten, und das Vorzeichen sagt, ob die Spalten in derselben Drehrichtung angeordnet sind wie $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ (Rechte-Hand-Regel) oder gespiegelt.
 
-⁠**Rechenbeispiel:** Für die Koeffizientenmatrix aus Unterabschnitt [12.3](lineare-gleichungssysteme.html#stufe-12-3),
+::::beispiel [Rechenbeispiel]
+Für die Koeffizientenmatrix aus Unterabschnitt [12.3](lineare-gleichungssysteme.html#stufe-12-3),
 
 $$\mathbf{A}=\begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix},$$
 
@@ -108,6 +115,7 @@ ergibt die Laplace-Entwicklung nach der ersten Zeile $\det\mathbf{A}=-4$ (Abb. 
 :::abbildung ml/k1rlaplace 41
 Die Laplace-Entwicklung nach der ersten Zeile: Jeder Eintrag der ersten Zeile mal die Determinante der Restmatrix ohne seine Zeile und Spalte, mit abwechselndem Vorzeichen.
 :::
+::::
 
 Für eine obere Dreiecksmatrix, unter deren Diagonale nur Nullen stehen, entwickelt man immer wieder nach der ersten Spalte und erhält das Produkt der Diagonaleinträge, etwa $\det\Bigl(\begin{smallmatrix}2&1&3\\0&3&1\\0&0&4\end{smallmatrix}\Bigr)=2\cdot3\cdot4=24$.
 
@@ -161,9 +169,13 @@ Addiert man ein Vielfaches einer Zeile zu einer anderen, ändert sich die Determ
 
 Regel (iii) folgt aus (i) mit $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$ und $\det\mathbf{I}=1$. Regel (iv) sagt: Streckt man alle $n$ Kanten des Einheitswürfels um $c$, wächst sein Volumen um $c^n$. Regel (v) macht das Gauß-Verfahren zum praktischen Weg, Determinanten zu berechnen: Man bringt die Matrix auf Zeilenstufenform, merkt sich die Zahl der Vertauschungen und multipliziert die Diagonaleinträge.
 
-⁠**Rechenbeispiel 1:** Mit $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ und $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$ muss das Produkt $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ die Determinante $5$ haben: $21-16=5$.
+::::beispiel [Rechenbeispiel 1]
+Mit $\det\bigl(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr)=1$ und $\det\bigl(\begin{smallmatrix}3&1\\1&2\end{smallmatrix}\bigr)=5$ muss das Produkt $\bigl(\begin{smallmatrix}7&4\\4&3\end{smallmatrix}\bigr)$ die Determinante $5$ haben: $21-16=5$.
+::::
 
-⁠**Rechenbeispiel 2:** Im Gauß-Verfahren aus Unterabschnitt [12.3](lineare-gleichungssysteme.html#stufe-12-3) wurde die Koeffizientenmatrix mit Additionen von Vielfachen und einer Vertauschung auf die Stufenform mit der Diagonale $1$, $-1$, $-4$ gebracht. Also ist ihre Determinante $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, wie mit der Laplace-Entwicklung.
+::::beispiel [Rechenbeispiel 2]
+Im Gauß-Verfahren aus Unterabschnitt [12.3](lineare-gleichungssysteme.html#stufe-12-3) wurde die Koeffizientenmatrix mit Additionen von Vielfachen und einer Vertauschung auf die Stufenform mit der Diagonale $1$, $-1$, $-4$ gebracht. Also ist ihre Determinante $(-1)\cdot\bigl(1\cdot(-1)\cdot(-4)\bigr)=-4$, wie mit der Laplace-Entwicklung.
+::::
 
 ⁠**Kurz gesagt:** Die Determinante eines Produkts ist das Produkt der Determinanten, weil sich die Volumenfaktoren hintereinander multiplizieren; praktisch berechnet man sie mit dem Gauß-Verfahren.
 
@@ -195,7 +207,9 @@ Ist $\mathbf{A}$ invertierbar, so ist nach Regel (i) $\det\mathbf{A}\cdot\det\ma
 
 Zusammen mit dem Satz aus Unterabschnitt [13.5](unabhangigkeit-basis-und-rang.html#stufe-13-5) sind für eine quadratische Matrix also gleichwertig: $\det\mathbf{A}\ne0$, $\mathbf{A}$ invertierbar, $\operatorname{rang}\mathbf{A}=n$, $\ker\mathbf{A}=\{\mathbf{0}\}$, Spalten linear unabhängig.
 
-⁠**Rechenbeispiel:** Die Matrix $\mathbf K$ aus Unterabschnitt [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) hat $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, passend zu $\operatorname{rang}\mathbf K=2$. Die Koeffizientenmatrix aus dem Gauß-Beispiel hat $\det=-4\ne0$ und ist invertierbar; deshalb hatte das System genau eine Lösung.
+::::beispiel [Rechenbeispiel]
+Die Matrix $\mathbf K$ aus Unterabschnitt [13.4](unabhangigkeit-basis-und-rang.html#stufe-13-4) hat $\det\mathbf K=1\cdot(2-1)-0+1\cdot(0-1)=0$, passend zu $\operatorname{rang}\mathbf K=2$. Die Koeffizientenmatrix aus dem Gauß-Beispiel hat $\det=-4\ne0$ und ist invertierbar; deshalb hatte das System genau eine Lösung.
+::::
 
 ⁠**Kurz gesagt:** Eine quadratische Matrix ist genau dann invertierbar, wenn ihre Determinante nicht null ist, also wenn sie den Raum nicht plattdrückt.
 

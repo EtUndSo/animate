@@ -47,7 +47,11 @@ Four slices from equation [(3.1)](#gl-3-1). Left, input and control characterist
 
 The current control characteristic is also called the __transfer characteristic__. At very large currents it flattens and $B$ falls: the base is then so full of electrons that the simple calculation no longer holds. The boundary $U_\mathrm{CE}=U_\mathrm{BE}$ in Fig. [4](#abb-4) is the locus $U_\mathrm{CB}=0$. To the left of it the CB diode already conducts weakly, but the curve only bends down below around 0.2 V.
 
-**Example.** Slice at $U_\mathrm{CE}=6$ V: 0.582 V, 0.600 V and 0.618 V give 1.0 mA, 2.0 mA and 4.0 mA. Slice at $U_\mathrm{BE}=0.6$ V: $U_\mathrm{CE}=0.05$ V; 0.2 V; 6 V; 14 V give 1.58 mA; 1.85 mA; 2.00 mA; 2.20 mA. **Limiting case:** for $U_\mathrm{CE}=0$, $I_\mathrm{C}=0$: both edges of the base lie at the same height, and there is no gradient.
+::::beispiel
+Slice at $U_\mathrm{CE}=6$ V: 0.582 V, 0.600 V and 0.618 V give 1.0 mA, 2.0 mA and 4.0 mA. Slice at $U_\mathrm{BE}=0.6$ V: $U_\mathrm{CE}=0.05$ V; 0.2 V; 6 V; 14 V give 1.58 mA; 1.85 mA; 2.00 mA; 2.20 mA.
+::::
+
+⁠**Limiting case:** for $U_\mathrm{CE}=0$, $I_\mathrm{C}=0$: both edges of the base lie at the same height, and there is no gradient.
 
 :::frage So does the current depend on $U_\mathrm{CE}$ or not?
 Yes, but to very different degrees. Strongly up to 0.2 V, after that by around 1 % per volt. For comparison: 1 mV at $U_\mathrm{BE}$ has an effect of 3.9 %. “Depends” does not mean “depends equally strongly”. The terrain has a slope in both directions; they are just very different.

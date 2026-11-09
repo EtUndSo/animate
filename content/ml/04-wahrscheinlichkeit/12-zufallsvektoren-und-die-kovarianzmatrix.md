@@ -34,7 +34,9 @@ $$\mathbb{E}[\mathbf{A}\mathbf{x}+\mathbf{b}]=\mathbf{A}\boldsymbol{\mu}+\mathbf
 
 denn jede Komponente von $\mathbf{A}\mathbf{x}+\mathbf{b}$ ist eine Linearkombination der $x_j$ plus eine Zahl.
 
-⁠**Rechenbeispiel:** Fasst man Sonne und Rad aus Abschnitt [9](mehrere-zufallsvariablen.html#stufe-9) zu $\mathbf{x}=(S,R)^{\top}$ zusammen, so ist $\boldsymbol{\mu}=(0{,}4;\ 0{,}4)^{\top}$. Die Summe $S+R$, die Anzahl der „guten Dinge“ eines Tages, ist $\mathbf{1}^{\top}\mathbf{x}$ mit dem Einsvektor und hat den Erwartungswert $\mathbf{1}^{\top}\boldsymbol{\mu}=0{,}8$.
+::::beispiel [Rechenbeispiel]
+Fasst man Sonne und Rad aus Abschnitt [9](mehrere-zufallsvariablen.html#stufe-9) zu $\mathbf{x}=(S,R)^{\top}$ zusammen, so ist $\boldsymbol{\mu}=(0{,}4;\ 0{,}4)^{\top}$. Die Summe $S+R$, die Anzahl der „guten Dinge“ eines Tages, ist $\mathbf{1}^{\top}\mathbf{x}$ mit dem Einsvektor und hat den Erwartungswert $\mathbf{1}^{\top}\boldsymbol{\mu}=0{,}8$.
+::::
 
 ⁠**Kurz gesagt:** Ein Zufallsvektor fasst mehrere Zufallsvariablen zusammen; sein Erwartungswert wird komponentenweise gebildet und vertauscht mit $\mathbf{A}\mathbf{x}+\mathbf{b}$.
 
@@ -55,9 +57,11 @@ $$\boldsymbol{\Sigma}=\mathbb{E}\bigl[(\mathbf{x}-\boldsymbol{\mu})(\mathbf{x}-\
 
 $(\mathbf{x}-\boldsymbol{\mu})(\mathbf{x}-\boldsymbol{\mu})^{\top}$ ist das äußere Produkt aus [Grundlagen 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): eine Matrix mit den Einträgen $(x_j-\mu_j)(x_l-\mu_l)$. Ihr Erwartungswert, komponentenweise gebildet, hat nach [(10.1)](kovarianz-und-korrelation.html#gl-10-1) die Einträge $\operatorname{Cov}(x_j,x_l)$. Auf der Diagonalen stehen die Varianzen $\Sigma_{jj}=\operatorname{Var}(x_j)$. Weil die Kovarianz symmetrisch ist, ist $\boldsymbol{\Sigma}$ symmetrisch. Wie bei einer Zahl gibt es die Verschiebungsformel $\boldsymbol{\Sigma}=\mathbb{E}[\mathbf{x}\mathbf{x}^{\top}]-\boldsymbol{\mu}\boldsymbol{\mu}^{\top}$. Sind die Komponenten paarweise unkorreliert, so ist $\boldsymbol{\Sigma}$ eine Diagonalmatrix.
 
-⁠**Rechenbeispiel:** Für $\mathbf{x}=(S,R)^{\top}$ ist $\operatorname{Var}(S)=\operatorname{Var}(R)=0{,}24$ und $\operatorname{Cov}(S,R)=0{,}14$, also
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{x}=(S,R)^{\top}$ ist $\operatorname{Var}(S)=\operatorname{Var}(R)=0{,}24$ und $\operatorname{Cov}(S,R)=0{,}14$, also
 
 $$\boldsymbol{\Sigma}=\begin{pmatrix}0{,}24&0{,}14\\0{,}14&0{,}24\end{pmatrix}.$$
+::::
 
 ⁠**Kurz gesagt:** Die Kovarianzmatrix enthält auf der Diagonalen die Varianzen und daneben die Kovarianzen aller Paare; sie ist der Erwartungswert des äußeren Produkts der Abweichung mit sich selbst und symmetrisch.
 
@@ -80,7 +84,8 @@ die __empirische Kovarianzmatrix__.
 
 Der Eintrag $(j,l)$ von $\tilde{\mathbf{X}}^{\top}\tilde{\mathbf{X}}$ ist das Skalarprodukt der zentrierten Merkmalsspalten $j$ und $l$; das ist die Gram-Matrix der Merkmale aus [Grundlagen 1, Abschnitt 10.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4), für die zentrierten Daten. Geteilt durch $N$ ergibt das die empirischen Kovarianzen [(10.7)](kovarianz-und-korrelation.html#gl-10-7). Auf der Diagonalen stehen die Quadrate $s_j^2$ der Standardabweichungen der Merkmale. Die Summenform schreibt dasselbe Produkt als Summe äußerer Produkte, einer je Datenpunkt.
 
-⁠**Rechenbeispiel:** Die drei Punkte $(1,2)$, $(2,1)$, $(3,3)$ aus Unterabschnitt [10.6](kovarianz-und-korrelation.html#stufe-10-6) bilden die Zeilen von $\mathbf{X}$. Mit $\bar{\mathbf{x}}=(2,\,2)^{\top}$ ist $\tilde{\mathbf{X}}$ die Matrix mit den Zeilen $(-1,\,0)$, $(0,\,-1)$ und $(1,\,1)$, und
+::::beispiel [Rechenbeispiel]
+Die drei Punkte $(1,2)$, $(2,1)$, $(3,3)$ aus Unterabschnitt [10.6](kovarianz-und-korrelation.html#stufe-10-6) bilden die Zeilen von $\mathbf{X}$. Mit $\bar{\mathbf{x}}=(2,\,2)^{\top}$ ist $\tilde{\mathbf{X}}$ die Matrix mit den Zeilen $(-1,\,0)$, $(0,\,-1)$ und $(1,\,1)$, und
 
 $$\mathbf{S}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}=\begin{pmatrix}\tfrac23&\tfrac13\\\tfrac13&\tfrac23\end{pmatrix}$$
 
@@ -89,6 +94,7 @@ $$\mathbf{S}=\frac13\begin{pmatrix}2&1\\1&2\end{pmatrix}=\begin{pmatrix}\tfrac23
 :::abbildung ml/k4rkovmatrix 15
 Die empirische Kovarianzmatrix der drei Punkte: Jeder Eintrag ist ein Skalarprodukt zweier zentrierter Merkmalsspalten, geteilt durch $N=3$. Wegen der Symmetrie ist $S_{21}=S_{12}$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die empirische Kovarianzmatrix ist $\tfrac1N\tilde{\mathbf{X}}^{\top}\tilde{\mathbf{X}}$, die Gram-Matrix der zentrierten Merkmale geteilt durch $N$.
 
@@ -117,11 +123,13 @@ wobei man $\mathbf{A}$ und $\mathbf{A}^{\top}$ aus dem Erwartungswert herauszieh
 
 Für $m=1$ ist $\mathbf{A}$ eine Zeile $\mathbf{u}^{\top}$, und $\mathbf{u}^{\top}\mathbf{x}$ ist eine einzige Zufallsvariable mit der Varianz $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$. Für $\mathbf{u}=\mathbf{1}$ ist das die Summe aller Komponenten, und $\mathbf{1}^{\top}\boldsymbol{\Sigma}\mathbf{1}$ ist die Summe aller Einträge von $\boldsymbol{\Sigma}$: alle Varianzen und jede Kovarianz zweimal, wie in [(10.3)](kovarianz-und-korrelation.html#gl-10-3).
 
-⁠**Rechenbeispiel:** Für die drei Punkte mit $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ bilde man Summe und Differenz der Merkmale, $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\bigr)$. Dann ist
+::::beispiel [Rechenbeispiel]
+Für die drei Punkte mit $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ bilde man Summe und Differenz der Merkmale, $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\bigr)$. Dann ist
 
 $$\mathbf{A}\mathbf{S}\mathbf{A}^{\top}=\frac13\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}2&1\\1&2\end{pmatrix}\begin{pmatrix}1&1\\1&-1\end{pmatrix}=\frac13\begin{pmatrix}3&3\\1&-1\end{pmatrix}\begin{pmatrix}1&1\\1&-1\end{pmatrix}=\frac13\begin{pmatrix}6&0\\0&2\end{pmatrix}.$$
 
 Die Summe hat die Varianz $2$, die Differenz $\tfrac23$, und die beiden sind unkorreliert, obwohl die ursprünglichen Merkmale es nicht waren. Zur Probe: Die Summen der drei Punkte sind $3,3,6$ mit dem Mittelwert $4$ und der Varianz $\tfrac13(1+1+4)=2$.
+::::
 
 ⁠**Kurz gesagt:** Unter $\mathbf{y}=\mathbf{A}\mathbf{x}+\mathbf{b}$ wird die Kovarianzmatrix zu $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^{\top}$; eine einzelne Linearkombination $\mathbf{u}^{\top}\mathbf{x}$ hat die Varianz $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$.
 
@@ -144,11 +152,13 @@ Für einen Datensatz gilt dasselbe mit $\mathbf{S}$: Die Schattenlängen $\mathb
 
 Das ist der Fall $m=1$ von [(11.4)](#gl-11-4). $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$ ist eine quadratische Form aus [Grundlagen 2, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-1). Für $\mathbf{u}=\mathbf{e}_j$ ergibt sie das Diagonalelement $\Sigma_{jj}$, die Varianz der $j$-ten Komponente. Die Kovarianzmatrix enthält also nicht nur die Streuung in den Richtungen der Koordinatenachsen, sondern in jeder Richtung.
 
-⁠**Rechenbeispiel:** Für die drei Punkte mit $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ und $\mathbf{u}=\tfrac1{\sqrt2}(1,\,1)^{\top}$ ist $\mathbf{u}^{\top}\mathbf{S}\mathbf{u}=1$ (Abb. [16](#abb-16)). Direkt: Die zentrierten Punkte $(-1,0)$, $(0,-1)$, $(1,1)$ haben die Schattenlängen $-\tfrac1{\sqrt2}$, $-\tfrac1{\sqrt2}$, $\tfrac2{\sqrt2}$ mit den Quadraten $\tfrac12$, $\tfrac12$, $2$ und dem Mittelwert $1$. In Richtung $\tfrac1{\sqrt2}(1,\,-1)^{\top}$ ist die Varianz nur $\tfrac13\cdot\tfrac12\,(2-1-1+2)=\tfrac13$, in Richtung der Achsen $\tfrac23$.
+::::beispiel [Rechenbeispiel]
+Für die drei Punkte mit $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ und $\mathbf{u}=\tfrac1{\sqrt2}(1,\,1)^{\top}$ ist $\mathbf{u}^{\top}\mathbf{S}\mathbf{u}=1$ (Abb. [16](#abb-16)). Direkt: Die zentrierten Punkte $(-1,0)$, $(0,-1)$, $(1,1)$ haben die Schattenlängen $-\tfrac1{\sqrt2}$, $-\tfrac1{\sqrt2}$, $\tfrac2{\sqrt2}$ mit den Quadraten $\tfrac12$, $\tfrac12$, $2$ und dem Mittelwert $1$. In Richtung $\tfrac1{\sqrt2}(1,\,-1)^{\top}$ ist die Varianz nur $\tfrac13\cdot\tfrac12\,(2-1-1+2)=\tfrac13$, in Richtung der Achsen $\tfrac23$.
 
 :::abbildung ml/k4rrichtung 16
 Die Varianz der drei Punkte in Richtung $\mathbf{u}=(1,1)^{\top}/\sqrt2$ als quadratische Form: Jeder Eintrag von $\mathbf{S}$ wird mit den beiden zugehörigen Komponenten von $\mathbf{u}$ gewichtet.
 :::
+::::
 
 ⁠**Kurz gesagt:** Die Varianz der Projektion auf eine Richtung $\mathbf{u}$ ist die quadratische Form $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$; die Kovarianzmatrix kennt die Streuung in jeder Richtung.
 
@@ -170,7 +180,9 @@ Für jedes $\mathbf{u}$ ist $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}=\ope
 
 Für Daten heißt der letzte Teil: $\mathbf{S}$ ist singulär, wenn die Datenpunkte alle in einer Ebene oder auf einer Geraden liegen, die nicht den ganzen Raum ausfüllt. Dann gibt es eine Richtung, in der sie gar nicht streuen, wie bei den abhängigen Merkmalen aus [Grundlagen 1, Abschnitt 13.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6).
 
-⁠**Rechenbeispiel:** $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Eigenwerte $1$ und $\tfrac13$ mit den Eigenvektoren $\tfrac1{\sqrt2}(1,\,1)^{\top}$ und $\tfrac1{\sqrt2}(1,\,-1)^{\top}$. Das sind genau die Richtungen und Varianzen aus Unterabschnitt [11.5](#stufe-11-5): In keiner Richtung streuen die drei Punkte stärker als in Richtung $(1,1)^{\top}$, in keiner schwächer als in Richtung $(1,-1)^{\top}$. Die Punkte $(1,2)$, $(2,4)$, $(3,6)$ liegen dagegen auf einer Geraden durch den Nullpunkt. Für sie ist $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&4\\4&8\end{smallmatrix}\bigr)$ mit der Determinante $0$, und in Richtung $\tfrac1{\sqrt5}(2,\,-1)^{\top}$ ist die Varianz $0$, weil $2x_1-x_2=0$ für jeden Punkt gilt.
+::::beispiel [Rechenbeispiel]
+$\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Eigenwerte $1$ und $\tfrac13$ mit den Eigenvektoren $\tfrac1{\sqrt2}(1,\,1)^{\top}$ und $\tfrac1{\sqrt2}(1,\,-1)^{\top}$. Das sind genau die Richtungen und Varianzen aus Unterabschnitt [11.5](#stufe-11-5): In keiner Richtung streuen die drei Punkte stärker als in Richtung $(1,1)^{\top}$, in keiner schwächer als in Richtung $(1,-1)^{\top}$. Die Punkte $(1,2)$, $(2,4)$, $(3,6)$ liegen dagegen auf einer Geraden durch den Nullpunkt. Für sie ist $\mathbf{S}=\tfrac13\bigl(\begin{smallmatrix}2&4\\4&8\end{smallmatrix}\bigr)$ mit der Determinante $0$, und in Richtung $\tfrac1{\sqrt5}(2,\,-1)^{\top}$ ist die Varianz $0$, weil $2x_1-x_2=0$ für jeden Punkt gilt.
+::::
 
 ⁠**Kurz gesagt:** Jede Kovarianzmatrix ist positiv semidefinit, weil $\mathbf{u}^{\top}\boldsymbol{\Sigma}\mathbf{u}$ eine Varianz ist; ihre Eigenvektoren sind die Richtungen extremer Streuung, ihre Eigenwerte die Varianzen in diesen Richtungen.
 

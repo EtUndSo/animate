@@ -26,7 +26,7 @@ lang: zh
 | 等效低通系统、复包络 | 把正频率部分搬移到零频处（第 [7](der-ideale-bandpass-und-sein-aquivalenter-tiefpass.html#stufe-7)、[8](komplexe-hullkurve-und-quadraturkomponenten.html#stufe-8) 阶段） |
 | 正交电路、带通采样 | 在低通域中计算带通（第 [10](quadraturschaltung-und-bandpass-abtastung.html#stufe-10) 阶段） |
 
-**如何使用本章。**每个阶段都是一篇简短的文章，包括基本思路、可展开解答的典型问题以及练习（★ 到 ★★★）。请先自己尝试，解答可在每道练习下方展开。完成一个阶段后再进入下一个。
+**如何使用本章。**各节循序渐进，每个新术语都有单独的小节和例子。可展开的方框包含背景（为什么如此、从何而来）、推导和仿真提示；不看它们也可以继续阅读。请先自己尝试练习（★ 到 ★★★），解答可在每道练习下方展开。
 
 :::merke 本章的参考模型
 <ul>

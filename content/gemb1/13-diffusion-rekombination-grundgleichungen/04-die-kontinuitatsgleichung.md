@@ -51,7 +51,11 @@ $$\frac{\partial^2N}{\partial x^2}=\frac1D\,\frac{\partial N}{\partial t}\quad\L
 
 ⁠**So liest man das:** Das ist eine lineare partielle Differentialgleichung, zweiter Ordnung im Ort und erster in der Zeit, dieselbe Art wie die Wärmeleitungsgleichung. Links steht die Krümmung des Profils, rechts seine Änderung. Wo $N$ einen Berg bildet ($\partial^2N/\partial x^2<0$), sinkt die Dichte, in einem Tal steigt sie. Jedes Profil wird also glatter. Für eine Lösung braucht man eine Anfangsbedingung und zwei Randbedingungen. **Gültigkeit:** keine Quellen und Senken, $D$ unabhängig von Ort und Dichte.
 
-**Beispiel.** Die Gleichung verknüpft $t$ mit $x^2$, die einzige Länge aus $D$ und $t$ ist $\sqrt{Dt}$. Bor bei 1100 °C braucht für 1 µ m rund $x^2/(4D)=1{,}9$ h, für 2 µ m viermal so lange. **Grenzfälle:** Eine gerade Strecke $N(x)$ hat keine Krümmung und ändert sich nicht. In einem geschlossenen Behälter wird für $t\to\infty$ $N$ überall gleich.
+::::beispiel
+Die Gleichung verknüpft $t$ mit $x^2$, die einzige Länge aus $D$ und $t$ ist $\sqrt{Dt}$. Bor bei 1100 °C braucht für 1 µ m rund $x^2/(4D)=1{,}9$ h, für 2 µ m viermal so lange.
+::::
+
+⁠**Grenzfälle:** Eine gerade Strecke $N(x)$ hat keine Krümmung und ändert sich nicht. In einem geschlossenen Behälter wird für $t\to\infty$ $N$ überall gleich.
 
 :::frage Im geradlinigen Profil fließt ein Strom. Warum ändert sich die Dichte dann nicht?
 Weil der Strom überall gleich groß ist. Was in ein Volumen hineinläuft, läuft auf der anderen Seite wieder hinaus. Die Dichte ändert sich nur, wo sich der Strom ändert, und das verlangt ein gekrümmtes Profil.

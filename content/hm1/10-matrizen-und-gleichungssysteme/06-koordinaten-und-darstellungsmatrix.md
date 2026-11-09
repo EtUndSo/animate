@@ -106,13 +106,16 @@ Es ist $L(v)=L(\sum_jx_jv_j)=\sum_jx_jL(v_j)=\sum_jx_j\sum_i\ell_{ij}w_i=\sum_i\
 Oben die Abbildung zwischen den Vektorräumen, unten dieselbe Abbildung als Matrix. Die senkrechten Pfeile übersetzen zwischen Vektoren und Koordinaten und lassen sich umkehren.
 :::
 
-**Beispiel: Ableiten.** Sei $\mathcal D:\mathcal P_2\to\mathcal P_1$ die Ableitung aus der Schule, $\mathcal D(a_0+a_1x+a_2x^2)=a_1+2a_2x$. Sie ist linear. Mit $\mathcal B=(1,x,x^2)$ und $\mathcal C=(1,x)$ sind die Bilder $\mathcal D(1)=0$, $\mathcal D(x)=1$, $\mathcal D(x^2)=2x$, also
+::::beispiel Ableiten
+Sei $\mathcal D:\mathcal P_2\to\mathcal P_1$ die Ableitung aus der Schule, $\mathcal D(a_0+a_1x+a_2x^2)=a_1+2a_2x$. Sie ist linear. Mit $\mathcal B=(1,x,x^2)$ und $\mathcal C=(1,x)$ sind die Bilder $\mathcal D(1)=0$, $\mathcal D(x)=1$, $\mathcal D(x^2)=2x$, also
 
 $$\mathcal L=\begin{pmatrix}0&1&0\\0&0&2\end{pmatrix},\qquad\mathcal L\begin{pmatrix}3\\4\\5\end{pmatrix}=\begin{pmatrix}4\\10\end{pmatrix}.$$
 
 Das heißt $(3+4x+5x^2)'=4+10x$. Der Kern besteht aus den konstanten Polynomen, und es ist $3=1+2$.
+::::
 
-**Beispiel: Spiegelung.** Sei $L:\mathbb{R}^2\to\mathbb{R}^2$ die Spiegelung an der Geraden $G=\operatorname{span}\{v\}$ mit $\|v\|=1$. Die Orthogonalprojektion ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) auf $G$ ist $\operatorname{Proj}_G(a)=\langle a,v\rangle v$. Von $a$ zum Lotfußpunkt führt $b=\operatorname{Proj}_G(a)-a$, das Spiegelbild liegt doppelt so weit: $L(a)=a+2b=2\langle a,v\rangle v-a$. Daraus ergeben sich $L(e_1)=2v_1v-e_1$ und $L(e_2)=2v_2v-e_2$, also
+::::beispiel Spiegelung
+Sei $L:\mathbb{R}^2\to\mathbb{R}^2$ die Spiegelung an der Geraden $G=\operatorname{span}\{v\}$ mit $\|v\|=1$. Die Orthogonalprojektion ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) auf $G$ ist $\operatorname{Proj}_G(a)=\langle a,v\rangle v$. Von $a$ zum Lotfußpunkt führt $b=\operatorname{Proj}_G(a)-a$, das Spiegelbild liegt doppelt so weit: $L(a)=a+2b=2\langle a,v\rangle v-a$. Daraus ergeben sich $L(e_1)=2v_1v-e_1$ und $L(e_2)=2v_2v-e_2$, also
 
 <span class="anker" id="gl-4-4"></span>
 $$\mathcal L_L^{\mathcal E,\mathcal E}=\begin{pmatrix}2v_1^2-1&2v_1v_2\\2v_1v_2&2v_2^2-1\end{pmatrix},\qquad\text{für }v=\bigl(\tfrac35,\tfrac45\bigr):\quad R:=\frac1{25}\begin{pmatrix}-7&24\\24&7\end{pmatrix}, \tag{4.4}$$
@@ -126,6 +129,7 @@ Die Abbildung ist dieselbe, die Matrix eine andere: Die Matrix hängt von den ge
 :::abbildung hm1/k10spiegel 5
 Links die Spiegelung von $a=(2,1)$ an $G$ über den Lotfußpunkt $\operatorname{Proj}_G(a)$. Der Pfeil $b$ wird zweimal angetragen. Rechts die Basis aus $v$ und $u$: $v$ bleibt, $u$ kehrt sich um. Daher die übersichtliche Matrix.
 :::
+::::
 
 :::frage Wenn die Matrix von den Basen abhängt, was bleibt dann gleich?
 Alles, was man ohne Basis sagen kann: die Abbildung selbst, $\dim\ker L$, $\dim\operatorname{im}L$, injektiv, surjektiv. Beide Spiegelungsmatrizen oben haben deshalb den Kern $\{0\}$. Die Einträge dagegen sagen nur etwas zusammen mit den Basen.

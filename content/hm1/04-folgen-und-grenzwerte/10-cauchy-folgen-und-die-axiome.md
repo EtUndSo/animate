@@ -36,7 +36,9 @@ Mit $M_n:=\{a_m:m\ge n\}$ ist $b_n=\sup M_n$, $c_n=\inf M_n$.
 (iv) „$\Leftarrow$“ ist das Sandwich-Lemma mit (i). „$\Rightarrow$“: Liegen alle $a_m$ mit $m>N_0$ im Schlauch um $a$, gilt für $n>N_0$ auch $a-\varepsilon\le c_n\le b_n\le a+\varepsilon$.
 :::
 
-**Beispiel.** Für die Pendelfolge sind die Hüllen $b_n=2+3/m$ mit der kleinsten geraden Zahl $m\ge n$ und $c_n=2-3/m$ mit der kleinsten ungeraden Zahl $m\ge n$. Das ergibt $b_1,\dots,b_6=3{,}5;\ 3{,}5;\ 2{,}75;\ 2{,}75;\ 2{,}5;\ 2{,}5$ und $c_1,\dots,c_6=-1;\ 1;\ 1;\ 1{,}4;\ 1{,}4;\ 1{,}571$. Beide streben gegen 2.
+::::beispiel
+Für die Pendelfolge sind die Hüllen $b_n=2+3/m$ mit der kleinsten geraden Zahl $m\ge n$ und $c_n=2-3/m$ mit der kleinsten ungeraden Zahl $m\ge n$. Das ergibt $b_1,\dots,b_6=3{,}5;\ 3{,}5;\ 2{,}75;\ 2{,}75;\ 2{,}5;\ 2{,}5$ und $c_1,\dots,c_6=-1;\ 1;\ 1;\ 1{,}4;\ 1{,}4;\ 1{,}571$. Beide streben gegen 2.
+::::
 
 :::abbildung hm1/k4trichter 9
 Die Pendelfolge mit ihren Hüllen: Die obere Hülle $b_n$ fällt, die untere Hülle $c_n$ steigt. Die Glieder wechseln zwischen beiden. Der Abstand $b_n-c_n$ schließt sich wie ein Trichter um den Wert 2.

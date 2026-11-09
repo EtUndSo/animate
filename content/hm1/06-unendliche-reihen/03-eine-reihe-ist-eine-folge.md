@@ -52,7 +52,11 @@ $$\sum_{n=0}^\infty q^n=\lim_{N\to\infty}\sum_{n=0}^Nq^n=\frac1{1-q}. \tag{1.3}$
 Nach [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) ist $S_N=\sum_{n=0}^Nq^n=\frac{1-q^{N+1}}{1-q}$. Für $|q|<1$ ist $q^{N+1}$ eine Nullfolge, die Rechenregeln ergeben $S_N\to\frac1{1-q}$.
 :::
 
-**Beispiel.** Für $q=\frac12$ ist $G_N=2-(\frac12)^N$ mit $G_{10}=1{,}99902$, der Grenzwert ist $\frac1{1-1/2}=2$. Für $q=-\frac12$ pendeln die Teilsummen $1;\ 0{,}5;\ 0{,}75;\ 0{,}625;\ \dots$ um den Wert $\frac23$. Für $q=0{,}9$ ist der Wert 10, aber $S_{10}=6{,}862$: Erst $N=43$ unterschreitet 1 % Abstand, denn der Abstand zum Grenzwert ist der Anteil $0{,}9^{N+1}$ von $S$. In einer Schleife mit Umlauffaktor $q$ ist $\frac1{1-q}$ die Gesamtverstärkung, jeder Umlauf liefert einen Summanden. **Grenzfälle:** Für $q=0$ bleibt nur das Glied 1 und die Formel gibt 1. Für $q\to1$ wächst $\frac1{1-q}$ über jede Grenze, passend zu $1+1+1+\dots$
+::::beispiel
+Für $q=\frac12$ ist $G_N=2-(\frac12)^N$ mit $G_{10}=1{,}99902$, der Grenzwert ist $\frac1{1-1/2}=2$. Für $q=-\frac12$ pendeln die Teilsummen $1;\ 0{,}5;\ 0{,}75;\ 0{,}625;\ \dots$ um den Wert $\frac23$. Für $q=0{,}9$ ist der Wert 10, aber $S_{10}=6{,}862$: Erst $N=43$ unterschreitet 1 % Abstand, denn der Abstand zum Grenzwert ist der Anteil $0{,}9^{N+1}$ von $S$. In einer Schleife mit Umlauffaktor $q$ ist $\frac1{1-q}$ die Gesamtverstärkung, jeder Umlauf liefert einen Summanden.
+::::
+
+⁠**Grenzfälle:** Für $q=0$ bleibt nur das Glied 1 und die Formel gibt 1. Für $q\to1$ wächst $\frac1{1-q}$ über jede Grenze, passend zu $1+1+1+\dots$
 
 :::frage Ist $0{,}999\dots$ wirklich gleich 1, oder nur fast?
 Keine Teilsumme $0{,}9;\ 0{,}99;\ 0{,}999;\ \dots$ erreicht die 1. Das Symbol $0{,}999\dots$ meint aber nicht eine dieser Zahlen, sondern ihren Grenzwert: $\frac9{10}\sum_{n=0}^\infty(\frac1{10})^n=\frac9{10}\cdot\frac{10}9=1$. Beide Schreibweisen bezeichnen genau dieselbe Zahl.

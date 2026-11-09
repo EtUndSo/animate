@@ -102,7 +102,9 @@ $$|z+w|^2=(z+w)(\overline{z}+\overline{w})=|z|^2+z\overline{w}+\overline{z}w+|w|
 (vii)：在 (vi) 中用 $-w$ 代替 $w$，得第一个不等式。由 $|z|=|(z-w)+w|\le|z-w|+|w|$ 得 $|z|-|w|\le|z-w|$，交换角色得 $|w|-|z|\le|z-w|$，合起来就是第二个不等式。在其中用 $-w$ 代替 $w$，得第三个。
 :::
 
-**例。** $|z_1|=\sqrt{10}\approx3.162$，$|z_2|=\sqrt5\approx2.236$。三角不等式：$|z_1+z_2|=|4+3\mathrm{i}|=5\le5.398$。乘积：$|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$。距离：$d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$。反向不等式：$0.926\le2.236$。对 $z_1$ 的规则 (v)：$3\le3.162\le4$。
+::::beispiel
+$|z_1|=\sqrt{10}\approx3.162$，$|z_2|=\sqrt5\approx2.236$。三角不等式：$|z_1+z_2|=|4+3\mathrm{i}|=5\le5.398$。乘积：$|z_1z_2|=|1+7\mathrm{i}|=\sqrt{50}=\sqrt{10}\cdot\sqrt5$。距离：$d(z_1,z_2)=|2-\mathrm{i}|=\sqrt5$。反向不等式：$0.926\le2.236$。对 $z_1$ 的规则 (v)：$3\le3.162\le4$。
+::::
 
 **点集。** 因为 $|z-c|$ 是 $z$ 到 $c$ 的距离，所以 $|z-c|=r$ 表示以 $c$ 为圆心、$r$ 为半径的圆，$|z-c|\le r$ 表示圆盘。对 $\operatorname{Re}(z)$ 或 $\operatorname{Im}(z)$ 的条件则截出半平面。这样的不等式是允许的，因为两边都是实数。
 

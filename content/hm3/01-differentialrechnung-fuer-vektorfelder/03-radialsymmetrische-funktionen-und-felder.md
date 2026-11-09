@@ -25,7 +25,9 @@ $$p(r)=\int_{r_0}^{r}f(\sigma)\,\mathrm{d}\sigma$$
 
 mit einer festen Zahl $r_0$ aus dem Intervall. Das ist der Hauptsatz der Differential- und Integralrechnung. Zwei Stammfunktionen derselben Funktion unterscheiden sich auf einem Intervall nur um eine Konstante, denn ihre Differenz hat die Ableitung null. Man schreibt alle zusammen als $\int f(r)\,\mathrm{d} r+\text{konst}$.
 
-⁠**Beispiel:** Auf dem Intervall $(0,\infty)$ ist $p(r)=-1/r$ eine Stammfunktion von $f(r)=1/r^2$, denn $p'(r)=1/r^2$. Ebenso ist $r^2/2$ eine Stammfunktion von $r$.
+::::beispiel
+Auf dem Intervall $(0,\infty)$ ist $p(r)=-1/r$ eine Stammfunktion von $f(r)=1/r^2$, denn $p'(r)=1/r^2$. Ebenso ist $r^2/2$ eine Stammfunktion von $r$.
+::::
 
 ⁠**Kurz gesagt:** Eine Stammfunktion ist eine Funktion mit vorgegebener Ableitung. Stetige Funktionen haben immer eine, bis auf eine Konstante eindeutig.
 
@@ -41,7 +43,9 @@ $$\{\boldsymbol{x}\in\mathbb{R}^n:\ |\boldsymbol{x}|=R\},$$
 
 die __Kugelfläche__ mit dem Radius $R$ um den Nullpunkt. In der Ebene ist sie ein Kreis, im Raum die Oberfläche einer Kugel. Für $n\ge2$ kann man je zwei ihrer Punkte durch eine differenzierbare Kurve verbinden, die ganz auf ihr bleibt, zum Beispiel durch einen Kreisbogen um den Nullpunkt. Für $n=1$ besteht sie nur aus den beiden Punkten $R$ und $-R$.
 
-⁠**Beispiel:** Der Punkt $(3,4)$ liegt auf dem Kreis mit dem Radius $5$, ebenso $(5,0)$ und $(0,-5)$. Der Punkt $(1,2,2)$ liegt auf der Kugelfläche mit dem Radius $3$.
+::::beispiel
+Der Punkt $(3,4)$ liegt auf dem Kreis mit dem Radius $5$, ebenso $(5,0)$ und $(0,-5)$. Der Punkt $(1,2,2)$ liegt auf der Kugelfläche mit dem Radius $3$.
+::::
 
 ⁠**Kurz gesagt:** Die Kugelfläche mit Radius $R$ besteht aus allen Punkten mit dem Abstand $R$ vom Nullpunkt.
 
@@ -69,7 +73,9 @@ hat, mit einer Funktion $f$ einer Variablen.
 
 ⁠**So liest man das:** Hier sind zwei Funktionen im Spiel. $u$ hat $n$ Argumente, $x_1$ bis $x_n$. Die Funktion $f$ hat nur eines, den Abstand $r$. Sie heißt das __Profil__ von $u$: Sie sagt, welchen Wert $u$ im Abstand $r$ hat. Meist betrachtet man $u$ auf $\mathbb{R}^n\setminus\{0\}$ und $f$ auf $(0,\infty)$, weil viele Profile im Nullpunkt nicht erklärt sind.
 
-⁠**Beispiel:** $u(x,y)=x^2+y^2$ ist radialsymmetrisch mit dem Profil $f(r)=r^2$. Die Schale $\varphi(x,y)=x^2+2y^2$ ist es nicht: Die Punkte $(1,0)$ und $(0,1)$ haben beide den Abstand $1$, aber die Werte $1$ und $2$. Im Raum ist $u(\boldsymbol{x})=1/|\boldsymbol{x}|$ radialsymmetrisch mit dem Profil $f(r)=1/r$ auf $(0,\infty)$.
+::::beispiel
+$u(x,y)=x^2+y^2$ ist radialsymmetrisch mit dem Profil $f(r)=r^2$. Die Schale $\varphi(x,y)=x^2+2y^2$ ist es nicht: Die Punkte $(1,0)$ und $(0,1)$ haben beide den Abstand $1$, aber die Werte $1$ und $2$. Im Raum ist $u(\boldsymbol{x})=1/|\boldsymbol{x}|$ radialsymmetrisch mit dem Profil $f(r)=1/r$ auf $(0,\infty)$.
+::::
 
 :::hintergrund Wird hier eine Funktion von $n$ Variablen in eine Funktion von einer Variablen umgewandelt?
 Nein. $u$ hat weiterhin $n$ Argumente. Ihr Wert hängt aber von diesen $n$ Zahlen nur über die eine Zahl $r$ ab, und das schafft nicht jede Funktion. Für $u=x^2+y^2=r^2$ geht es, für die Schale $x^2+2y^2$ nicht. Der Nutzen: Ableiten und Integrieren werden zu Rechnungen mit nur einer Variablen, nämlich mit dem Profil $f$.
@@ -106,7 +112,9 @@ $$\nabla r=\hat{\boldsymbol{e}}_r . \tag{2.1}$$
 
 Anschaulich: Der Abstand wächst am schnellsten, wenn man direkt vom Nullpunkt weggeht, und zwar mit der Steigung $1$.
 
-⁠**Beispiel:** Im Punkt $\boldsymbol{x}=(3,4)$ ist $r=5$ und $\hat{\boldsymbol{e}}_r=(\tfrac35,\tfrac45)$. Die partiellen Ableitungen von $r=\sqrt{x^2+y^2}$ sind dort $\frac{x}{r}=\frac35$ und $\frac yr=\frac45$, in Übereinstimmung mit [(2.1)](#gl-2-1).
+::::beispiel
+Im Punkt $\boldsymbol{x}=(3,4)$ ist $r=5$ und $\hat{\boldsymbol{e}}_r=(\tfrac35,\tfrac45)$. Die partiellen Ableitungen von $r=\sqrt{x^2+y^2}$ sind dort $\frac{x}{r}=\frac35$ und $\frac yr=\frac45$, in Übereinstimmung mit [(2.1)](#gl-2-1).
+::::
 
 ⁠**Kurz gesagt:** Der radiale Einheitsvektor $\hat{\boldsymbol{e}}_r=\boldsymbol{x}/r$ zeigt vom Nullpunkt weg, hat die Länge $1$ und ist der Gradient des Abstands $r$.
 
@@ -131,7 +139,9 @@ Nach der Kettenregel und [(2.1)](#gl-2-1) ist $\dfrac{\partial u}{\partial x_j}=
 
 ⁠**So liest man das:** Der Gradient zeigt rein radial. Seine Länge ist $|f'(r)|$, die Steigung des Profils. Ist $f'(r)<0$, fällt $u$ nach außen, und der Gradient zeigt nach innen.
 
-⁠**Beispiel:** Für $u(x,y)=x^2+y^2$ ist $f(r)=r^2$ und $f'(r)=2r$. Nach [(2.2)](#gl-2-2) ist $\nabla u=2r\,\hat{\boldsymbol{e}}_r=2\boldsymbol{x}=(2x,2y)^T$. Direkt abgeleitet kommt dasselbe heraus.
+::::beispiel
+Für $u(x,y)=x^2+y^2$ ist $f(r)=r^2$ und $f'(r)=2r$. Nach [(2.2)](#gl-2-2) ist $\nabla u=2r\,\hat{\boldsymbol{e}}_r=2\boldsymbol{x}=(2x,2y)^T$. Direkt abgeleitet kommt dasselbe heraus.
+::::
 
 ⁠**Kurz gesagt:** Der Gradient einer radialsymmetrischen Funktion ist die Steigung des Profils mal $\hat{\boldsymbol{e}}_r$.
 
@@ -151,7 +161,9 @@ $$\nabla u(\boldsymbol{x})=-\frac{Q}{4\pi r^2}\,\hat{\boldsymbol{e}}_r .$$
 
 Das Potentialfeld $\boldsymbol{E}=-\nabla u=\frac{Q}{4\pi r^2}\,\hat{\boldsymbol{e}}_r$ ist in geeigneten Einheiten das elektrische Feld einer Punktladung $Q$ im Nullpunkt. Für $Q>0$ zeigt es nach außen und wird mit $1/r^2$ schwächer. Man nennt $u$ das __Coulomb-Potential__.
 
-⁠**Beispiel:** Mit $Q=4\pi$ ist $u=1/r$ und $\boldsymbol{E}=\hat{\boldsymbol{e}}_r/r^2=\boldsymbol{x}/r^3$. Im Punkt $(0,3,4)$ ist $r=5$, also $u=\frac15$ und $\boldsymbol{E}=\frac{1}{125}(0,3,4)$.
+::::beispiel
+Mit $Q=4\pi$ ist $u=1/r$ und $\boldsymbol{E}=\hat{\boldsymbol{e}}_r/r^2=\boldsymbol{x}/r^3$. Im Punkt $(0,3,4)$ ist $r=5$, also $u=\frac15$ und $\boldsymbol{E}=\frac{1}{125}(0,3,4)$.
+::::
 
 ⁠**Kurz gesagt:** Das Coulomb-Potential $Q/(4\pi r)$ hat das Feld $\boldsymbol{E}=-\nabla u=\frac{Q}{4\pi r^2}\hat{\boldsymbol{e}}_r$, das mit $1/r^2$ abfällt.
 
@@ -173,7 +185,9 @@ mit einer skalaren Funktion $g$ heißt __Zentralfeld__.
 
 ⁠**So liest man das:** Die Richtung ist überall radial. Die Zahl $g(\boldsymbol{x})$ gibt Länge und Sinn des Pfeils an: Für $g(\boldsymbol{x})>0$ zeigt er nach außen, für $g(\boldsymbol{x})<0$ nach innen, und seine Länge ist $|g(\boldsymbol{x})|$. Die Zahl $g(\boldsymbol{x})$ darf von allen Koordinaten abhängen, auf einer Kugelfläche also schwanken.
 
-⁠**Beispiel:** $\boldsymbol{F}(x,y)=x\,\hat{\boldsymbol{e}}_r$ in der Ebene. Im Punkt $(1,0)$ ist $\hat{\boldsymbol{e}}_r=(1,0)$ und $g=1$, also $\boldsymbol{F}=(1,0)$. Im Punkt $(0,1)$ ist $g=0$, also $\boldsymbol{F}=0$. Im Punkt $(-1,0)$ ist $\hat{\boldsymbol{e}}_r=(-1,0)$ und $g=-1$, also $\boldsymbol{F}=(1,0)$: Der Pfeil zeigt dort zum Nullpunkt hin. Alle drei Punkte liegen auf dem Kreis mit Radius $1$, die Pfeile sind dort aber verschieden lang.
+::::beispiel
+$\boldsymbol{F}(x,y)=x\,\hat{\boldsymbol{e}}_r$ in der Ebene. Im Punkt $(1,0)$ ist $\hat{\boldsymbol{e}}_r=(1,0)$ und $g=1$, also $\boldsymbol{F}=(1,0)$. Im Punkt $(0,1)$ ist $g=0$, also $\boldsymbol{F}=0$. Im Punkt $(-1,0)$ ist $\hat{\boldsymbol{e}}_r=(-1,0)$ und $g=-1$, also $\boldsymbol{F}=(1,0)$: Der Pfeil zeigt dort zum Nullpunkt hin. Alle drei Punkte liegen auf dem Kreis mit Radius $1$, die Pfeile sind dort aber verschieden lang.
+::::
 
 ⁠**Kurz gesagt:** Ein Zentralfeld zeigt überall radial, seine Länge darf vom Ort abhängen.
 
@@ -199,7 +213,9 @@ mit einer Funktion $f$ einer Variablen heißt __radialsymmetrisches Vektorfeld__
 
 Ein radialsymmetrisches Vektorfeld ist ein Zentralfeld, bei dem die Zahl vor $\hat{\boldsymbol{e}}_r$ nur von $r$ abhängt. Jedes radialsymmetrische Vektorfeld ist also ein Zentralfeld. Umgekehrt ist nicht jedes Zentralfeld radialsymmetrisch: Das Feld $x\,\hat{\boldsymbol{e}}_r$ aus dem letzten Unterabschnitt ist auf dem Kreis mit Radius $1$ verschieden lang.
 
-⁠**Beispiel:** Das Strahlfeld $\boldsymbol{x}=r\,\hat{\boldsymbol{e}}_r$ ist radialsymmetrisch mit $f(r)=r$. Das Feld $\boldsymbol{E}=\frac{Q}{4\pi r^2}\,\hat{\boldsymbol{e}}_r$ der Punktladung ist radialsymmetrisch mit $f(r)=\frac{Q}{4\pi r^2}$. Nach Satz [2.3](#satz-2-3) ist der Gradient jeder radialsymmetrischen Funktion ein radialsymmetrisches Vektorfeld.
+::::beispiel
+Das Strahlfeld $\boldsymbol{x}=r\,\hat{\boldsymbol{e}}_r$ ist radialsymmetrisch mit $f(r)=r$. Das Feld $\boldsymbol{E}=\frac{Q}{4\pi r^2}\,\hat{\boldsymbol{e}}_r$ der Punktladung ist radialsymmetrisch mit $f(r)=\frac{Q}{4\pi r^2}$. Nach Satz [2.3](#satz-2-3) ist der Gradient jeder radialsymmetrischen Funktion ein radialsymmetrisches Vektorfeld.
+::::
 
 :::hintergrund Ist $f(r)\,\hat{\boldsymbol{e}}_r$ dasselbe wie $f(r)$?
 Nein. $f(r)$ ist eine Zahl, die Funktion $\boldsymbol{x}\mapsto f(r)$ ist eine radialsymmetrische Funktion. Erst der Faktor $\hat{\boldsymbol{e}}_r$ macht daraus einen Vektor, also ein Vektorfeld. Die Zahl $f(r)$ gibt dabei Länge und Sinn an: Für $f(r)<0$ zeigt der Vektor nach innen, und seine Länge ist $|f(r)|$.
@@ -227,7 +243,9 @@ Das heißt: $p$ ist eine beliebige Stammfunktion von $f$.
 Weil $f$ stetig ist, hat es eine Stammfunktion $p$ mit $p'=f$. Nach [(2.2)](#gl-2-2) ist $\nabla p(r)=p'(r)\,\hat{\boldsymbol{e}}_r=f(r)\,\hat{\boldsymbol{e}}_r=\boldsymbol{F}$.
 :::
 
-⁠**Beispiel:** Das Feld $\boldsymbol{F}=\hat{\boldsymbol{e}}_r/r^2$ in $\mathbb{R}^3\setminus\{0\}$ hat $f(r)=1/r^2$. Eine Stammfunktion ist $p(r)=-1/r$, also ist $\varphi(\boldsymbol{x})=-1/r$ ein Skalarpotential. Zur Kontrolle: $\nabla(-1/r)=\frac1{r^2}\,\hat{\boldsymbol{e}}_r$. Das Strahlfeld $\boldsymbol{x}=r\,\hat{\boldsymbol{e}}_r$ hat das Skalarpotential $r^2/2$, wie in Unterabschnitt [1.23](differenzierbarkeit-und-kettenregel-fur-abbildungen.html#stufe-1-23).
+::::beispiel
+Das Feld $\boldsymbol{F}=\hat{\boldsymbol{e}}_r/r^2$ in $\mathbb{R}^3\setminus\{0\}$ hat $f(r)=1/r^2$. Eine Stammfunktion ist $p(r)=-1/r$, also ist $\varphi(\boldsymbol{x})=-1/r$ ein Skalarpotential. Zur Kontrolle: $\nabla(-1/r)=\frac1{r^2}\,\hat{\boldsymbol{e}}_r$. Das Strahlfeld $\boldsymbol{x}=r\,\hat{\boldsymbol{e}}_r$ hat das Skalarpotential $r^2/2$, wie in Unterabschnitt [1.23](differenzierbarkeit-und-kettenregel-fur-abbildungen.html#stufe-1-23).
+::::
 
 ⁠**Kurz gesagt:** Ein radialsymmetrisches Feld $f(r)\,\hat{\boldsymbol{e}}_r$ hat als Skalarpotential eine Stammfunktion des Profils $f$, eingesetzt in $r$.
 

@@ -45,11 +45,15 @@ $$Y_{1,\mathrm{KS}}=Y_{11},\qquad Y_{1,\mathrm{LL}}=Y_{11}-\frac{Y_{12}Y_{21}}{Y
 Links: Ersatzschaltbild der Y-Form. Rechts: Kurzschlussversuch an Tor 2 mit eingeprägter Spannung $U_\mathrm{q}$. Wegen $U_2=0$ fällt die Quelle $Y_{12}U_2$ weg, und $Y_{22}$ führt keinen Strom. Es bleiben $Y_{11}$ am Eingang und die Stromquelle $Y_{21}U_1$, deren Strom durch den Draht fließt.
 :::
 
-**Beispiel.** Am T-Zweitor liegen 9 V an Tor 1, Tor 2 ist kurzgeschlossen. Der Draht legt $R_\mathrm{c}$ parallel zu $R_\mathrm{b}$, der Gesamtwiderstand ist $15\,\Omega+10\,\Omega=25\,\Omega$, also $I_1=360$ mA. Dieser Strom teilt sich hälftig auf, $I_2=-180$ mA, negativ, weil er aus Tor 2 herausfließt. Mit 9 V an Tor 2 und Kurzschluss an Tor 1 ist der Gesamtwiderstand $20\,\Omega+15\,\Omega\parallel20\,\Omega$, $I_2=315$ mA und $I_1=-180$ mA. Das ergibt
+::::beispiel
+Am T-Zweitor liegen 9 V an Tor 1, Tor 2 ist kurzgeschlossen. Der Draht legt $R_\mathrm{c}$ parallel zu $R_\mathrm{b}$, der Gesamtwiderstand ist $15\,\Omega+10\,\Omega=25\,\Omega$, also $I_1=360$ mA. Dieser Strom teilt sich hälftig auf, $I_2=-180$ mA, negativ, weil er aus Tor 2 herausfließt. Mit 9 V an Tor 2 und Kurzschluss an Tor 1 ist der Gesamtwiderstand $20\,\Omega+15\,\Omega\parallel20\,\Omega$, $I_2=315$ mA und $I_1=-180$ mA. Das ergibt
 
 $$\mathbf Y=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS}.$$
 
-Probe mit dem Betrieb aus Stufe [4](das-zweitor-im-betrieb.html#stufe-4): $I_1=40\,\mathrm{mS}\cdot7{,}75\,\mathrm{V}-20\,\mathrm{mS}\cdot3\,\mathrm{V}=250$ mA. Die Last $Y_\mathrm{L}=16{,}67$ mS ergibt $Y_1=40\,\mathrm{mS}-400\,\mathrm{mS^2}/51{,}67\,\mathrm{mS}=32{,}26$ mS, das ist $1/(31\,\Omega)$. **Grenzfälle:** $Y_{1,\mathrm{KS}}=40$ mS ist $1/(25\,\Omega)$, $Y_{1,\mathrm{LL}}=28{,}57$ mS ist $1/(35\,\Omega)$, wie in Stufe [4](das-zweitor-im-betrieb.html#stufe-4).
+Probe mit dem Betrieb aus Stufe [4](das-zweitor-im-betrieb.html#stufe-4): $I_1=40\,\mathrm{mS}\cdot7{,}75\,\mathrm{V}-20\,\mathrm{mS}\cdot3\,\mathrm{V}=250$ mA. Die Last $Y_\mathrm{L}=16{,}67$ mS ergibt $Y_1=40\,\mathrm{mS}-400\,\mathrm{mS^2}/51{,}67\,\mathrm{mS}=32{,}26$ mS, das ist $1/(31\,\Omega)$.
+::::
+
+⁠**Grenzfälle:** $Y_{1,\mathrm{KS}}=40$ mS ist $1/(25\,\Omega)$, $Y_{1,\mathrm{LL}}=28{,}57$ mS ist $1/(35\,\Omega)$, wie in Stufe [4](das-zweitor-im-betrieb.html#stufe-4).
 
 **Kennlinien.** Man kann die Y-Gleichungen auch zeichnen. Die __Eingangskennlinie__ ist $I_1=f_1(U_1)$ bei festem $U_2$, die __Übertragungskennlinie__ $I_2=f_2(U_1)$ bei festem $U_2$, die __Ausgangskennlinie__ $I_2=f_3(U_2)$ bei festem $U_1$. Beim linearen Zweitor sind es Geraden (Abb. [7](#abb-7)): Ihre Steigung ist ein Y-Parameter, der feste Wert verschiebt sie parallel. Jeder Wert des festen Parameters ergibt eine Gerade, zusammen entsteht eine Kurvenschar.
 

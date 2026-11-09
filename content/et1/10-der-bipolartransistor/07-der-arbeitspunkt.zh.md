@@ -40,7 +40,11 @@ $$U_\mathrm{CE}=U_\mathrm{CE,sat},\qquad I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mat
 
 ⁠**如何理解：**$U_\mathrm{CC}$ 是__电源电压__，$U_\mathrm{in}$ 是对地的输入电压。$R_\mathrm{B}$ 设定基极电流，$R_\mathrm{C}$ 把集电极电流转换成电压。**适用条件：**发射极接地，采用第 [4](drei-bereiche-drei-ersatzschaltbilder.html#stufe-4) 阶段的线性模型。式 [(5.1)](#gl-5-1) 在两个导通的工作区都成立，因为那里 B 和 E 之间是同一个 0.6 V 电压源。
 
-**例。** 参考模型：$I_\mathrm{B}=(5\,\mathrm{V}-0.6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A，$I_\mathrm{C}=2$ mA，$U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V。这大于 0.2 V，所以处于放大区（点 A）。第一次假设错了也无妨：假设饱和将得到 $I_\mathrm{C}=3.93$ mA，但 $B\,I_\mathrm{B}=2$ mA 更小，与式 [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) 矛盾。当 $U_\mathrm{in}=12$ V 时，$I_\mathrm{B}=25.9$ µ A。若假设在放大区，将得到 $U_\mathrm{CE}=-3.5$ V，出现矛盾。在饱和区，$I_\mathrm{C}=3.93$ mA，$B\,I_\mathrm{B}=5.18$ mA（点 S）。**极限情况：**$R_\mathrm{C}=0$ 给出 $U_\mathrm{CE}=U_\mathrm{CC}$，输出固定不动。$U_\mathrm{in}<0.6$ V 给出 $I_\mathrm{C}=0$，$U_\mathrm{CE}=12$ V（点 Z）。
+::::beispiel
+参考模型：$I_\mathrm{B}=(5\,\mathrm{V}-0.6\,\mathrm{V})/440\,\text{k}\Omega=10$ µ A，$I_\mathrm{C}=2$ mA，$U_\mathrm{CE}=12\,\mathrm{V}-6\,\mathrm{V}=6$ V。这大于 0.2 V，所以处于放大区（点 A）。第一次假设错了也无妨：假设饱和将得到 $I_\mathrm{C}=3.93$ mA，但 $B\,I_\mathrm{B}=2$ mA 更小，与式 [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) 矛盾。当 $U_\mathrm{in}=12$ V 时，$I_\mathrm{B}=25.9$ µ A。若假设在放大区，将得到 $U_\mathrm{CE}=-3.5$ V，出现矛盾。在饱和区，$I_\mathrm{C}=3.93$ mA，$B\,I_\mathrm{B}=5.18$ mA（点 S）。
+::::
+
+⁠**极限情况：**$R_\mathrm{C}=0$ 给出 $U_\mathrm{CE}=U_\mathrm{CC}$，输出固定不动。$U_\mathrm{in}<0.6$ V 给出 $I_\mathrm{C}=0$，$U_\mathrm{CE}=12$ V（点 Z）。
 
 **放大区的中点。** 在放大区，$U_\mathrm{CE}$ 介于 0.2 V 和 $U_\mathrm{CC}$ 之间。为了让信号在两侧有同样的余地，把工作点放在中间。取 $\Delta U=U_\mathrm{CC}-U_\mathrm{CE,sat}=11.8$ V，则
 

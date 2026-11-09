@@ -68,11 +68,13 @@ $\mathbf{u}^{\top}\mathbf{u}=\sum_ju_j^2\ge0$, y $\mathbf{u}^{\top}\mathbf{u}=0$
 (i) se deduce de $u_jv_j=v_ju_j$ para cada componente. (ii) es la regla de las sumas [(1.2)](vektoren-daten-als-zahlenlisten.html#gl-1-2): $\sum_j(c\,u_j)v_j=c\sum_ju_jv_j$ y $\sum_j(u_j+q_j)v_j=\sum_ju_jv_j+\sum_jq_jv_j$. (iii) Ningún sumando $u_j^2$ es negativo. La suma solo es cero si cada sumando es cero, es decir, si cada $u_j=0$.
 :::
 
-⁠**Ejemplo numérico:** Para $\mathbf{u}=(1,\,2,\,3)^{\top}$ y $\mathbf{v}=(4,\,-1,\,2)^{\top}$ se tiene $\mathbf{u}^{\top}\mathbf{v}=8$ y $\mathbf{u}^{\top}\mathbf{u}=14$ (fig. [6](#abb-6)). En el orden inverso se obtiene el mismo número, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$, como exige la simetría.
+::::beispiel [Ejemplo numérico]
+Para $\mathbf{u}=(1,\,2,\,3)^{\top}$ y $\mathbf{v}=(4,\,-1,\,2)^{\top}$ se tiene $\mathbf{u}^{\top}\mathbf{v}=8$ y $\mathbf{u}^{\top}\mathbf{u}=14$ (fig. [6](#abb-6)). En el orden inverso se obtiene el mismo número, $\mathbf{v}^{\top}\mathbf{u}=4\cdot1+(-1)\cdot2+2\cdot3=8$, como exige la simetría.
 
 :::abbildung ml/k1rskp 6
 Dos productos escalares paso a paso: componente por componente y, después, la suma de los productos. El producto escalar de un vector consigo mismo es la suma de los cuadrados de sus componentes.
 :::
+::::
 
 ⁠**En resumen:** El producto escalar multiplica dos vectores componente por componente y suma los productos; es un número.
 
@@ -99,13 +101,15 @@ $$\hat y=\mathbf{w}^{\top}\mathbf{x}=\sum_{j=1}^{d}w_j\,x_j . \tag{2.2}$$
 
 Una regla de cálculo fija que, a partir de las características de un ejemplo, calcula un número se llama un __modelo__. El número que el modelo da para un ejemplo se llama su __predicción__. El «sombrero» sobre la $y$ de $\hat y$ indica que se trata de un valor estimado mediante un cálculo y no de un valor medido. En este capítulo, los pesos siempre vienen dados; de dónde salen unos buenos pesos es una cuestión aparte.
 
-⁠**Ejemplo numérico:** La agente inmobiliaria usa los pesos $\mathbf{w}=(3,\,10,\,-4)^{\top}$ en miles de euros por metro cuadrado, por habitación y por kilómetro. Para la vivienda 1 se tiene $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ (fig. [7](#abb-7)), es decir, $188$ mil euros.
+::::beispiel [Ejemplo numérico]
+La agente inmobiliaria usa los pesos $\mathbf{w}=(3,\,10,\,-4)^{\top}$ en miles de euros por metro cuadrado, por habitación y por kilómetro. Para la vivienda 1 se tiene $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$ (fig. [7](#abb-7)), es decir, $188$ mil euros.
 
 :::abbildung ml/k1rgewicht 7
 La estimación de la agente inmobiliaria para la vivienda 1: cada característica por su peso y, después, la suma. Las contribuciones de las tres características son $180$, $20$ y $-12$ mil euros.
 :::
 
 Para las demás viviendas se obtiene igualmente $\hat y_2=126$, $\hat y_3=286$ y $\hat y_4=232$. Cada producto $w_jx_j$ tiene como unidad los miles de euros, porque la unidad de la característica se simplifica con la unidad del denominador del peso. Solo por eso pueden sumarse los tres productos.
+::::
 
 ⁠**En resumen:** Una suma ponderada es el producto escalar $\mathbf{w}^{\top}\mathbf{x}$ de pesos y características; es el modelo más sencillo que hace una predicción a partir de características.
 
@@ -132,7 +136,8 @@ $$\bar v=\frac1n\sum_{i=1}^nv_i=\frac1n\,\mathbf 1^{\top}\mathbf{v} . \tag{2.3}$
 
 Otros cálculos de este tipo: el producto escalar con un vector unitario selecciona una componente, $\mathbf{e}_j^{\top}\mathbf{v}=v_j$, pues todos los demás productos contienen un cero. El producto escalar de un vector consigo mismo es la suma de los cuadrados, $\mathbf{v}^{\top}\mathbf{v}=\sum_iv_i^2$. Las cantidades por los precios, sumadas, dan el importe de la factura. Y evaluar un polinomio $p(t)=c_1+c_2t+\dots+c_nt^{n-1}$ en un punto $t$ significa formar el producto escalar $\mathbf{c}^{\top}\mathbf{z}$ de sus coeficientes $\mathbf{c}=(c_1,\dots,c_n)^{\top}$ con las potencias $\mathbf{z}=(1,\,t,\,t^2,\dots,t^{n-1})^{\top}$. Para $p(t)=1+2t+3t^2$ en el punto $t=2$, esto es $(1,\,2,\,3)\,(1,\,2,\,4)^{\top}=1+4+12=17$.
 
-⁠**Ejemplo numérico:** La vivienda 1 ha consumido de enero a marzo $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh de electricidad (subsección [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). En total son $\mathbf 1^{\top}\mathbf{u}=750$ kWh, en promedio $\bar u=250$ kWh al mes (fig. [8](#abb-8)). El consumo de febrero es $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh.
+::::beispiel [Ejemplo numérico]
+La vivienda 1 ha consumido de enero a marzo $\mathbf{u}=(200,\,250,\,300)^{\top}$ kWh de electricidad (subsección [1.4](vektoren-daten-als-zahlenlisten.html#stufe-1-4)). En total son $\mathbf 1^{\top}\mathbf{u}=750$ kWh, en promedio $\bar u=250$ kWh al mes (fig. [8](#abb-8)). El consumo de febrero es $\mathbf{e}_2^{\top}\mathbf{u}=250$ kWh.
 
 :::abbildung ml/k1rmittel 8
 Suma y media del consumo eléctrico como producto escalar con el vector de unos, en kWh.
@@ -143,6 +148,7 @@ Si el kilovatio hora cuesta en los tres meses $\mathbf{p}=(0{,}32;\ 0{,}34;\ 0{,
 :::abbildung ml/k1rstrom 9
 La factura de la luz como producto escalar: precio por cantidad para cada mes y, después, la suma, en euros.
 :::
+::::
 
 ⁠**En resumen:** La suma, la media, la selección de una componente y la suma de cuadrados son productos escalares con $\mathbf 1$, $\tfrac1n\mathbf 1$, $\mathbf{e}_j$ y el propio vector.
 
@@ -162,11 +168,13 @@ Dicho con precisión: la contribución de la posición $j$ al producto escalar $
 
 En procesamiento de señales, este cálculo se conoce como correlación. La correlación cruzada de dos secuencias reales $x[n]$ e $y[n]$ con desplazamiento cero es $\sum_nx[n]\,y[n]$. Si se escriben las muestras de dos señales de longitud finita como vectores $\mathbf{x}$ y $\mathbf{y}$, esto es exactamente el producto escalar $\mathbf{x}^{\top}\mathbf{y}$. La energía de una señal, $\sum_nx[n]^2$, es igualmente $\mathbf{x}^{\top}\mathbf{x}$. La comparación con un patrón no es, por tanto, una herramienta nueva, sino la misma con la que un correlador busca un patrón conocido en una señal.
 
-⁠**Ejemplo numérico:** Con el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ se tiene $\mathbf{w}^{\top}\mathbf{x}=8$ para $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ y $\mathbf{w}^{\top}\mathbf{x}'=0$ para $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (fig. [11](#abb-11)). Con el patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ocurre al revés: $\mathbf 1^{\top}\mathbf{x}=2$, pero $\mathbf 1^{\top}\mathbf{x}'=10$. La señal $\mathbf{x}$, por tanto, alterna sobre todo; $\mathbf{x}'$ es sobre todo constante.
+::::beispiel [Ejemplo numérico]
+Con el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ se tiene $\mathbf{w}^{\top}\mathbf{x}=8$ para $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ y $\mathbf{w}^{\top}\mathbf{x}'=0$ para $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (fig. [11](#abb-11)). Con el patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ocurre al revés: $\mathbf 1^{\top}\mathbf{x}=2$, pero $\mathbf 1^{\top}\mathbf{x}'=10$. La señal $\mathbf{x}$, por tanto, alterna sobre todo; $\mathbf{x}'$ es sobre todo constante.
 
 :::abbildung ml/k1rmuster 11
 El patrón alternante $\mathbf{w}$ con dos señales. Arriba, $\mathbf{x}$ sigue al patrón: los cuatro productos son positivos. Abajo, $\mathbf{x}'$ sube de forma regular: los productos se compensan por parejas.
 :::
+::::
 
 También la suma ponderada de la agente inmobiliaria es una comparación con un patrón. Su patrón $\mathbf{w}=(3,\,10,\,-4)^{\top}$ describe lo que hace valiosa una vivienda: mucha superficie, muchas habitaciones, poca distancia. Cuanto mejor encaja una vivienda con este patrón, mayor es su predicción.
 

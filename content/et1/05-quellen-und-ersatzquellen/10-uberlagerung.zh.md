@@ -57,7 +57,11 @@ $$\begin{aligned} U_\mathrm{AB}&=a_1U_\mathrm{q1}+\dots+a_nU_{\mathrm{q}n}+Z_1I_
 网络 N 及其两个分电路。中：电流源断开，剩下一个分压器。右：电压源是一根导线，电流源向并联的 $R_1$ 和 $R_2$ 供电。接线端 A 和 B 断开。
 :::
 
-**例。** 求接线端断开时 N 中的 $U_\mathrm{AB}$（图 [9](#abb-9)）。分电路 1：分压器，$U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V。分电路 2：$U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1.5\,\mathrm{A}=3$ V。相加：$U_\mathrm{AB}=9$ V。因此系数是：$U_\mathrm{q1}$ 的 $a=\frac13$，$I_\mathrm{q2}$ 的 $Z=2\,\Omega$。**检验**（用 A 点的节点定律）：经 $R_1$ 流来 $(18-9)\,\mathrm{V}/6\,\Omega=1.5$ A，加上电流源的 1.5 A，经 $R_2$ 流走 $9\,\mathrm{V}/3\,\Omega=3$ A。支路电流也叠加：$R_1$ 中有分电路 1 的 $2$ A 和分电路 2 的 $-0.5$ A。**极限情况：**两个电源都加倍时，$U_\mathrm{AB}$ 加倍到 18 V，因为系数不变。
+::::beispiel
+求接线端断开时 N 中的 $U_\mathrm{AB}$（图 [9](#abb-9)）。分电路 1：分压器，$U'=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}=\frac13\cdot18\,\mathrm{V}=6$ V。分电路 2：$U''=(R_1\parallel R_2)\,I_\mathrm{q2}=2\,\Omega\cdot1.5\,\mathrm{A}=3$ V。相加：$U_\mathrm{AB}=9$ V。因此系数是：$U_\mathrm{q1}$ 的 $a=\frac13$，$I_\mathrm{q2}$ 的 $Z=2\,\Omega$。**检验**（用 A 点的节点定律）：经 $R_1$ 流来 $(18-9)\,\mathrm{V}/6\,\Omega=1.5$ A，加上电流源的 1.5 A，经 $R_2$ 流走 $9\,\mathrm{V}/3\,\Omega=3$ A。支路电流也叠加：$R_1$ 中有分电路 1 的 $2$ A 和分电路 2 的 $-0.5$ A。
+::::
+
+⁠**极限情况：**两个电源都加倍时，$U_\mathrm{AB}$ 加倍到 18 V，因为系数不变。
 
 :::herleitung N 的系数
 接线端断开时，A 点的节点定律为 $(U_\mathrm{q1}-U_\mathrm{AB})/R_1+I_\mathrm{q2}=U_\mathrm{AB}/R_2$。解出所求电压：

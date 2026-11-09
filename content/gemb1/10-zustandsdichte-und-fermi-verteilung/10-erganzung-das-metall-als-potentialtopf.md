@@ -38,7 +38,9 @@ Auflösen ergibt [(8.1)](#gl-8-1). **Kontrolle:** Die Kugel mit Radius $k_\mathr
 
 ⁠**So liest man das:** Die besetzten Zustände füllen im $k$-Raum die __Fermi-Kugel__ mit dem Fermi-Radius $k_\mathrm F$. $T_\mathrm F$ ist die __Fermi-Temperatur__, $v_\mathrm F$ die __Fermi-Geschwindigkeit__ der schnellsten Elektronen. Stehende Wellen im Topf sind Überlagerungen einer hinlaufenden und einer rücklaufenden Welle: Zu jedem $+\boldsymbol k$ gehört ein $-\boldsymbol k$, und im Mittel bewegt sich trotz der hohen Geschwindigkeiten keine Ladung.
 
-**Beispiel.** Kupfer: $E_\mathrm{F0}=7{,}03$ eV, rund 270-mal $k_\mathrm BT$. $k_\mathrm F=13{,}6\,\mathrm{nm^{-1}}$, $T_\mathrm F=8{,}2\cdot10^4$ K, das 60-Fache der Schmelztemperatur, und $v_\mathrm F=1{,}57\cdot10^6$ m/s, rund 13-mal so viel wie die klassische Geschwindigkeit $\sqrt{3k_\mathrm BT/m_0}$ bei 300 K. Mehr Elektronen je Volumen heben $E_\mathrm{F0}$.
+::::beispiel
+Kupfer: $E_\mathrm{F0}=7{,}03$ eV, rund 270-mal $k_\mathrm BT$. $k_\mathrm F=13{,}6\,\mathrm{nm^{-1}}$, $T_\mathrm F=8{,}2\cdot10^4$ K, das 60-Fache der Schmelztemperatur, und $v_\mathrm F=1{,}57\cdot10^6$ m/s, rund 13-mal so viel wie die klassische Geschwindigkeit $\sqrt{3k_\mathrm BT/m_0}$ bei 300 K. Mehr Elektronen je Volumen heben $E_\mathrm{F0}$.
+::::
 
 **Endliche Temperatur.** Ein Metall erwärmt seine Elektronen über Stöße mit dem Gitter, bei denen Phononen ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)) entstehen oder verschwinden. Aufnehmen können nur solche, die einen freien Platz in Reichweite finden, also die aus der Aufweichzone. Da $k_\mathrm BT\ll E_\mathrm F$ ist, ändert sich die Verteilung kaum, und der Anteil der angeregten Elektronen ist klein:
 

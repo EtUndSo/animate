@@ -31,7 +31,9 @@ $$u(s,t)=u_\mathrm{fw}(s-vt)+u_\mathrm{bw}(s+vt) \tag{4.2}$$
 
 ⁠**如何理解：**任意的信号波形都以速度 $v$ 沿传输线不变地传播。这是因为所有频率分量都同样快，衰减也同样小：传输线是[第 5 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html)意义上的无失真系统，时延为 $l/v$。$u$ 的波动方程可由式 [(2.1)](die-leitungsgleichungen.html#gl-2-1) 得到：把第一个方程对 $s$ 求导，把第二个方程对 $t$ 求导，再消去 $i$。
 
-**例：同轴电缆。** 由 $Z=50\,\Omega$ 和 $C'=100$ pF/m 得 $L'=Z^2C'=250$ nH/m 以及 $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s，即光速的三分之二（由于电缆中的电介质）。信号通过 10 m 电缆需要 50 ns。若电缆终端接的是 75 $\Omega$ 而不是 50 $\Omega$，则 $r=\frac{75-50}{75+50}=0.2$：电压幅度的 20 % 作为回波返回。
+::::beispiel 同轴电缆
+由 $Z=50\,\Omega$ 和 $C'=100$ pF/m 得 $L'=Z^2C'=250$ nH/m 以及 $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s，即光速的三分之二（由于电缆中的电介质）。信号通过 10 m 电缆需要 50 ns。若电缆终端接的是 75 $\Omega$ 而不是 50 $\Omega$，则 $r=\frac{75-50}{75+50}=0.2$：电压幅度的 20 % 作为回波返回。
+::::
 
 :::ltspice 传输线上的反射
 ⁠**绘制：**电压源 `voltage`，取 `PULSE(0 2 0 1n 1n 10n 1)`，内阻 `res` 取 `50`，接到节点 `in`。从 `in` 引出一条无损传输线 `tline`，取 `Td=50n Z0=50`（例子中 10 m 长的同轴电缆），接到节点 `end`，在那里接 `res`，取 `{RE}`，接地。由于内阻等于 $Z$，出发的是一个 1 V 的波，而回波在信号源处被完全吸收。

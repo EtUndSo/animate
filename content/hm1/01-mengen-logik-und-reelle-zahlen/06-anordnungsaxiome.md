@@ -83,7 +83,11 @@ Rechenmodell $x=-3<y=2$. Mal 2 streckt die Gerade von der Null weg, die Reihenfo
 (e) „$\Leftarrow$“: Für $x=y$ ist nichts zu zeigen. Aus $x>y\ge0$ folgt $x\cdot x>y\cdot x\ge y\cdot y$ nach (O4) mit $z=x$ und $z=y$. „$\Rightarrow$“ als Kontraposition: Aus $0\le x<y$ folgt ebenso $x\cdot x\le x\cdot y<y\cdot y$.
 :::
 
-**Beispiel.** Für $x\ne0$ ist $x$ positiv genau dann, wenn $x^{-1}$ positiv ist, denn $x\cdot x^{-1}=1>0$ und (c). Daher: Löse $\frac1x>2$. Für $x>0$ darf man mit $x$ multiplizieren: $1>2x$, also $0<x<\frac12$. Für $x<0$ ist die linke Seite negativ, es gibt keine Lösung. **Grenzfall:** Bei $x=\frac12$ steht $2>2$, falsch, die Grenze gehört nicht dazu.
+::::beispiel
+Für $x\ne0$ ist $x$ positiv genau dann, wenn $x^{-1}$ positiv ist, denn $x\cdot x^{-1}=1>0$ und (c). Daher: Löse $\frac1x>2$. Für $x>0$ darf man mit $x$ multiplizieren: $1>2x$, also $0<x<\frac12$. Für $x<0$ ist die linke Seite negativ, es gibt keine Lösung.
+::::
+
+⁠**Grenzfall:** Bei $x=\frac12$ steht $2>2$, falsch, die Grenze gehört nicht dazu.
 
 :::aufgabe Aufgabe 5 ★★ Ungleichungen
 <span class="anker" id="aufg-5"></span>

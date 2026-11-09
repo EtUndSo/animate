@@ -47,7 +47,11 @@ Die Kennlinie steigt überall, die Gerade fällt überall, also gibt es genau ei
 
 [(6.2)](#gl-6-2) lässt sich nicht nach $U_\mathrm D$ auflösen, weil $U_\mathrm D$ im Exponenten und außerhalb steht. Man löst grafisch oder durch __Iteration__, also durch wiederholtes Einsetzen: Schätze $U_\mathrm D$, berechne $I=(U_0-U_\mathrm D)/R$, dann $U_\mathrm D=U_T\ln(I/I_\mathrm S+1)$, und wiederhole.
 
-**Beispiel.** Start mit $U_\mathrm D=0{,}7$ V. Schritt 1: $I=4{,}300$ mA, $U_\mathrm D=0{,}69245$ V. Schritt 2: $I=4{,}3076$ mA, $U_\mathrm D=0{,}69249$ V. Damit ist der AP (0,692 V | 4,31 mA), am Widerstand liegen 4,31 V. Verdoppelt man $U_0$ auf 10 V, verdoppelt sich der Strom fast, auf 9,29 mA, und $U_\mathrm D$ steigt nur um 20 mV auf 0,712 V. **Grenzfälle:** Bei $U_0=0{,}5$ V ist $I=2{,}3$ µ A, fast die ganze Quellenspannung bleibt an der Diode. Bei negativem $U_0$ ist $I=-I_\mathrm S$, die Quelle liegt ganz an der Diode.
+::::beispiel
+Start mit $U_\mathrm D=0{,}7$ V. Schritt 1: $I=4{,}300$ mA, $U_\mathrm D=0{,}69245$ V. Schritt 2: $I=4{,}3076$ mA, $U_\mathrm D=0{,}69249$ V. Damit ist der AP (0,692 V | 4,31 mA), am Widerstand liegen 4,31 V. Verdoppelt man $U_0$ auf 10 V, verdoppelt sich der Strom fast, auf 9,29 mA, und $U_\mathrm D$ steigt nur um 20 mV auf 0,712 V.
+::::
+
+⁠**Grenzfälle:** Bei $U_0=0{,}5$ V ist $I=2{,}3$ µ A, fast die ganze Quellenspannung bleibt an der Diode. Bei negativem $U_0$ ist $I=-I_\mathrm S$, die Quelle liegt ganz an der Diode.
 
 :::frage Warum rechnet man nicht umgekehrt: $U_\mathrm D$ schätzen, $I$ aus der Exponentialfunktion, dann $U_\mathrm D=U_0-R\,I$?
 Weil dieser Weg auseinanderläuft. Ein Fehler von 1 mV ändert den Diodenstrom um 3,9 %, also 0,17 mA, und das ergibt am Widerstand 167 mV Fehler. Im ersten Verfahren schrumpft der Fehler je Schritt um denselben Faktor, $r/R=0{,}006$ (Stufe [8](kleine-anderungen-um-den-arbeitspunkt.html#stufe-8)). Die flache Logarithmusfunktion dämpft, die steile Exponentialfunktion verstärkt.

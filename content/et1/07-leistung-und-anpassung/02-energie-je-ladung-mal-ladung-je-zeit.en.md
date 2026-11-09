@@ -41,7 +41,11 @@ $$W=U\,I\,\Delta t,\qquad P=\frac{W}{\Delta t}=U\,I. \tag{1.2}$$
 In the time $\mathrm{d} t$, the charge $\mathrm{d} Q=i\,\mathrm{d} t$ enters at terminal 1 and the same charge leaves at terminal 2 (node rule, [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). The interior remains unchanged. For the balance, it is as if $\mathrm{d} Q$ had gone directly from $\varphi_1$ to $\varphi_2$. According to [Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), the energy given off is $\mathrm{d} W=(\varphi_1-\varphi_2)\,\mathrm{d} Q=u\,i\,\mathrm{d} t$. Dividing by $\mathrm{d} t$ gives [(1.1)](#gl-1-1). Electrons move the opposite way and carry negative charge. The two signs together give the same product.
 :::
 
-**Example.** At $R_\mathrm{L}=16\,\Omega$ there are 8 V, and 0.5 A flow ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Each coulomb gives off 8 J, and 0.5 C arrive per second: $P=4$ W. In one hour that is $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14.4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Counted individually, $I/e=3.12\cdot10^{18}$ electrons pass through per second, and each gives off $e\cdot8\,\mathrm{V}=1.28\cdot10^{-18}$ J. The product is again 4 W. **Limiting cases:** At open terminals there are 9 V and 0 A, so $P=0$. An ideal wire has $U=0$, so $P=0$ at any current.
+::::beispiel
+At $R_\mathrm{L}=16\,\Omega$ there are 8 V, and 0.5 A flow ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Each coulomb gives off 8 J, and 0.5 C arrive per second: $P=4$ W. In one hour that is $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14.4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Counted individually, $I/e=3.12\cdot10^{18}$ electrons pass through per second, and each gives off $e\cdot8\,\mathrm{V}=1.28\cdot10^{-18}$ J. The product is again 4 W.
+::::
+
+⁠**Limiting cases:** At open terminals there are 9 V and 0 A, so $P=0$. An ideal wire has $U=0$, so $P=0$ at any current.
 
 :::frage Is current used up in the component?
 No. The same current flows before and after the component; the charge comes back out completely. What is used up is energy: the charge continues at a lower potential. That is why the bill for “electricity consumption” shows kilowatt-hours.

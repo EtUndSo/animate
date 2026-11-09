@@ -52,7 +52,9 @@ Regla 2: Sea el punto de referencia el del centro, es decir, $\varphi_\mathrm{A}
 Siete resistencias iguales de 14 $\Omega$ cada una. A la izquierda, la red con los potenciales para 16 V en A. El eje de simetría pasa por L y por el centro de la resistencia entre E y F, que por eso se divide en dos veces 7 $\Omega$. A la derecha, el semicircuito.
 :::
 
-**Ejemplo.** En la fig. [2](#abb-2), la reflexión intercambia A y B, así como E y F, y se aplica la regla 2. En el semicircuito, entre E y el eje hay $14\,\Omega\parallel7\,\Omega=4{,}67\,\Omega$. Con el camino de A a E son 18,67 $\Omega$. En paralelo con la rama izquierda da $R_\mathrm{A,eje}=14\,\Omega\parallel18{,}67\,\Omega=8\,\Omega$, es decir, $R_\mathrm{AB}=16\,\Omega$, otra vez la carga del modelo de referencia. **Comprobación** con los potenciales de la figura: de A a L circulan $8\,\mathrm{V}/14\,\Omega=0{,}571$ A, de A a E circulan $6\,\mathrm{V}/14\,\Omega=0{,}429$ A. La suma es 1 A, como exige $16\,\mathrm{V}/16\,\Omega$.
+::::beispiel
+En la fig. [2](#abb-2), la reflexión intercambia A y B, así como E y F, y se aplica la regla 2. En el semicircuito, entre E y el eje hay $14\,\Omega\parallel7\,\Omega=4{,}67\,\Omega$. Con el camino de A a E son 18,67 $\Omega$. En paralelo con la rama izquierda da $R_\mathrm{A,eje}=14\,\Omega\parallel18{,}67\,\Omega=8\,\Omega$, es decir, $R_\mathrm{AB}=16\,\Omega$, otra vez la carga del modelo de referencia. **Comprobación** con los potenciales de la figura: de A a L circulan $8\,\mathrm{V}/14\,\Omega=0{,}571$ A, de A a E circulan $6\,\mathrm{V}/14\,\Omega=0{,}429$ A. La suma es 1 A, como exige $16\,\mathrm{V}/16\,\Omega$.
+::::
 
 :::abbildung et1/k5wuerfel 3
 Cubo de doce resistencias iguales con la tensión aplicada en la diagonal espacial. Un giro alrededor de esta diagonal transforma entre sí los tres vecinos de A, y lo mismo los tres vecinos de B. Al unirlos surge una cadena de tres grupos.

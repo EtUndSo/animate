@@ -54,7 +54,9 @@ Why $x^2=2$: From $a_n\le x\le b_n$, Theorem [4.2](anordnungsaxiome.html#satz-4
 ⁠*Product rule:* $\sqrt x\sqrt y\ge0$ and $(\sqrt x\sqrt y)^2=xy$ (M1, M2), and the nonnegative solution is unique.
 :::
 
-**Example.** After six steps, $1.40625\le\sqrt2\le1.4375$, width $2^{-5}=0.03125$. Decimal numbers are the same idea with ten parts instead of two: Each digit narrows the interval to one tenth. That is why every real number has a representation [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1).
+::::beispiel
+After six steps, $1.40625\le\sqrt2\le1.4375$, width $2^{-5}=0.03125$. Decimal numbers are the same idea with ten parts instead of two: Each digit narrows the interval to one tenth. That is why every real number has a representation [(0.1)](von-grund-auf-zahlbereiche-und-dezimalzahlen.html#gl-0-1).
+::::
 
 :::frage Surely it is enough to read $\sqrt2$ off a calculator. Why the effort?
 For any numerical value, that is enough. But the calculator shows a fraction, $1.414213562$, whose square is not 2. The question here is: Is there a number whose square is exactly 2 at all? In $\mathbb{Q}$ no, in $\mathbb{R}$ yes, and this difference later carries limits and continuity.

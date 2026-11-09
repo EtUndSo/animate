@@ -34,11 +34,15 @@ $$r=\frac{\mathrm{d} U_\mathrm D}{\mathrm{d} I}=\frac{U_T}{I+I_\mathrm S}\approx
 Ableiten von [(4.1)](warum-der-strom-exponentiell-wachst.html#gl-4-1): $\mathrm{d} I/\mathrm{d} U_\mathrm D=(I_\mathrm S/U_T)\,\mathrm{e}^{U_\mathrm D/U_T}=(I+I_\mathrm S)/U_T$. Der Kehrwert ist $r$. Die Exponentialfunktion reproduziert sich beim Ableiten, darum steht nur $I$ im Ergebnis, und $I_\mathrm S$ fällt im Durchlass heraus. Zwei Dioden mit verschiedenem $I_\mathrm S$ haben beim selben Strom dasselbe $r$.
 :::
 
-**Beispiel.** Im Rechenmodell ist $r=25{,}85\,\mathrm{mV}/4{,}31\,\mathrm{mA}=6{,}0\,\Omega$. Zur Quelle kommt ein Sinus mit 100 mV Scheitelwert. Für die Änderungen bilden $R$ und $r$ einen Spannungsteiler:
+::::beispiel
+Im Rechenmodell ist $r=25{,}85\,\mathrm{mV}/4{,}31\,\mathrm{mA}=6{,}0\,\Omega$. Zur Quelle kommt ein Sinus mit 100 mV Scheitelwert. Für die Änderungen bilden $R$ und $r$ einen Spannungsteiler:
 
 $$\hat u_\mathrm D=100\,\mathrm{mV}\cdot\frac{6{,}0\,\Omega}{1000\,\mathrm{\Omega}+6{,}0\,\Omega}=0{,}60\,\mathrm{mV},\qquad\hat\imath=\frac{100\,\mathrm{mV}}{1006\,\mathrm{\Omega}}=99{,}4\,\mu\text{A}.$$
 
-Die exakte Rechnung für $U_0=5{,}1$ V ergibt $+0{,}59$ mV und $+99{,}4$ µ A. Am Widerstand erscheint das Signal fast ganz, an der Diode bleibt 0,6 %. **Grenzfälle:** Für $I\to0$ wird $r=U_T/I_\mathrm S=2{,}6\,\mathrm{T\Omega}$, die Diode trennt. Für große $I$ strebt $r$ gegen null, real bleibt der Bahnwiderstand.
+Die exakte Rechnung für $U_0=5{,}1$ V ergibt $+0{,}59$ mV und $+99{,}4$ µ A. Am Widerstand erscheint das Signal fast ganz, an der Diode bleibt 0,6 %.
+::::
+
+⁠**Grenzfälle:** Für $I\to0$ wird $r=U_T/I_\mathrm S=2{,}6\,\mathrm{T\Omega}$, die Diode trennt. Für große $I$ strebt $r$ gegen null, real bleibt der Bahnwiderstand.
 
 :::ltspice Arbeitspunkt und Signal
 ⁠**Zeichnen:** Quelle `voltage` von `in` nach Masse, Wert `5`, unter `Advanced` bei AC Amplitude `1` eintragen. `res` 1k von `in` nach `d`, `diode` DM von `d` nach Masse, Modell wie oben.

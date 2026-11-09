@@ -45,7 +45,11 @@ A two-port is a conceptually closed unit, accessible only through its ports. Its
 Left: The T two-port of the reference model is unbalanced; in red, the ground line from 1$'$ to 2$'$. Right: The bridge circuit of two resistor pairs has no continuous line between the ports; it is balanced. Stage [3](impedanzform-und-leerlaufversuch.html#stufe-3) calculates both.
 :::
 
-**Example.** In the operation of the T two-port (Stage [4](das-zweitor-im-betrieb.html#stufe-4)), $I_1=250$ mA flows in and $I_{1'}=-250$ mA; the load draws 50 mA, so $I_2=-50$ mA and $I_{2'}=+50$ mA. The sum in [(1.1)](#gl-1-1) is zero. **Limiting case:** If port 2 is open, $I_2=I_{2'}=0$, and to the outside the two-port acts like a two-terminal element at port 1.
+::::beispiel
+In the operation of the T two-port (Stage [4](das-zweitor-im-betrieb.html#stufe-4)), $I_1=250$ mA flows in and $I_{1'}=-250$ mA; the load draws 50 mA, so $I_2=-50$ mA and $I_{2'}=+50$ mA. The sum in [(1.1)](#gl-1-1) is zero.
+::::
+
+⁠**Limiting case:** If port 2 is open, $I_2=I_{2'}=0$, and to the outside the two-port acts like a two-terminal element at port 1.
 
 :::frage The ground line connects 1$'$ and 2$'$. Doesn't current flow from port to port there after all?
 Yes, on the inside. In the ground line of the T two-port, 50 mA runs from 2$'$ to the foot of $R_\mathrm{b}$. But the port condition only speaks of what happens at the terminals. Inside, any current may flow, as long as each terminal current comes back at its partner terminal.

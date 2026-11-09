@@ -53,13 +53,17 @@ Se cumple $z^2+pz+q=(z+\frac p2)^2-\frac{p^2}4+q=(z+\frac p2)^2-w^2=(z+\frac p2-
 A la izquierda, la ecuación real del modelo de referencia: las soluciones $3\pm\mathrm{i}$ son imágenes especulares. A la derecha, la ecuación compleja: $z_1$ y $z_2$ son simétricos respecto del centro $2+1{,}5\mathrm{i}$.
 :::
 
-**Ejemplo 1, coeficientes reales.** $z^2-6z+10=0$ tiene $p=-6$, $q=10$, $D=9-10=-1$, luego $z=3\pm\mathrm{i}$. Son $z_1$ y $\overline{z_1}$. Comprobación: suma $6=-p$, producto $|z_1|^2=10=q$.
+::::beispiel [Ejemplo 1] coeficientes reales
+$z^2-6z+10=0$ tiene $p=-6$, $q=10$, $D=9-10=-1$, luego $z=3\pm\mathrm{i}$. Son $z_1$ y $\overline{z_1}$. Comprobación: suma $6=-p$, producto $|z_1|^2=10=q$.
+::::
 
-**Ejemplo 2, coeficientes complejos.** Para $z^2-(4+3\mathrm{i})z+1+7\mathrm{i}=0$ es $-p/2=2+1{,}5\mathrm{i}$ y
+::::beispiel [Ejemplo 2] coeficientes complejos
+Para $z^2-(4+3\mathrm{i})z+1+7\mathrm{i}=0$ es $-p/2=2+1{,}5\mathrm{i}$ y
 
 $$D=(2+1{,}5\mathrm{i})^2-(1+7\mathrm{i})=1{,}75+6\mathrm{i}-1-7\mathrm{i}=0{,}75-\mathrm{i}.$$
 
 Así, $s=0{,}75$, $t=-1$ y $|D|=\sqrt{0{,}5625+1}=1{,}25$. De [(6.1)](#gl-6-1) se deduce $u^2=1$ y $v^2=0{,}25$. Como $t<0$, $u$ y $v$ tienen signos distintos: $w=\pm(1-0{,}5\mathrm{i})$. Con ello $z=2+1{,}5\mathrm{i}\pm(1-0{,}5\mathrm{i})$, es decir, $z=3+\mathrm{i}$ o $z=1+2\mathrm{i}$. Comprobación: suma $4+3\mathrm{i}=-p$, producto $1+7\mathrm{i}=q$.
+::::
 
 ⁠**Caso límite:** Para $q=0$, [(6.2)](#gl-6-2) da $z=-p/2\pm p/2$, es decir, $z=0$ y $z=-p$, en consonancia con $z(z+p)=0$.
 

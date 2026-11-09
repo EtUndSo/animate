@@ -37,11 +37,15 @@ For each further voltage source, one row and one column are added.
 
 ⁠**How to read it:** $I_V$ flows away at $i$ and arrives at $k$, which is why it stands in row $i$ with $+1$ and in row $k$ with $-1$, like the outgoing currents of a conductance. If the source delivers power, its current flows through it from minus to plus, and $I_V$ is negative. That is exactly what SPICE shows as `I(V1)`. The ones have no unit; the new row calculates in volts, the new column in amperes. **Validity:** There is now a zero on the diagonal, but the system remains solvable as long as the network is unique. Two ideal sources in parallel are not. **In short:** Every network element has its own stamp, and all of them can be entered independently of one another.
 
-**Example: the model network as SPICE sees it.** SPICE converts nothing. The battery is an ideal source $U_\mathrm q$ between the new node 3 and ground; behind it lies $R_1$ from 3 to 1. The current source and $R_5$ stay as they are. The unknowns are $U_1$, $U_2$, $U_3$ and $I_V$:
+::::beispiel the model network as SPICE sees it
+SPICE converts nothing. The battery is an ideal source $U_\mathrm q$ between the new node 3 and ground; behind it lies $R_1$ from 3 to 1. The current source and $R_5$ stay as they are. The unknowns are $U_1$, $U_2$, $U_3$ and $I_V$:
 
 $$\begin{pmatrix}1.75&-0.5&-1&0\\-0.5&0.8&0&0\\-1&0&1&1\\0&0&1&0\end{pmatrix} \begin{pmatrix}U_1\\U_2\\U_3\\I_V\end{pmatrix}=\begin{pmatrix}0\\4\\0\\9\end{pmatrix}.$$
 
-The last row gives $U_3=9$ V, which turns the first two rows into the system from Stage [5](das-knotenpotentialverfahren.html#stufe-5): $U_1=8$ V, $U_2=10$ V. The third row gives $I_V=G_1\,(U_1-U_3)=-1$ mA. These are the results of both methods, without any conversion. **Limiting case:** For $R_1\to0$, node 3 becomes node 1. Node voltage analysis fails there, the MNA does not (Exercise [11](#aufg-11)).
+The last row gives $U_3=9$ V, which turns the first two rows into the system from Stage [5](das-knotenpotentialverfahren.html#stufe-5): $U_1=8$ V, $U_2=10$ V. The third row gives $I_V=G_1\,(U_1-U_3)=-1$ mA. These are the results of both methods, without any conversion.
+::::
+
+⁠**Limiting case:** For $R_1\to0$, node 3 becomes node 1. Node voltage analysis fails there, the MNA does not (Exercise [11](#aufg-11)).
 
 :::ltspice The model network as SPICE solves it
 ⁠**Draw:** `voltage` with `9` from `3` to ground, `R1 1k` from `3` to `1`, `R2 4k` from `1` to ground, `R3 2k` from `1` to `2`, `R4 10k` and `R5 5k` from `2` to ground, `current` with `4m` from ground to `2`.

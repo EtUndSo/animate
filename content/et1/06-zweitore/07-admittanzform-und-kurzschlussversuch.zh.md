@@ -45,11 +45,15 @@ $$Y_{1,\mathrm{SC}}=Y_{11},\qquad Y_{1,\mathrm{OC}}=Y_{11}-\frac{Y_{12}Y_{21}}{Y
 左：Y 形式的等效电路。右：端口 2 的短路试验，施加电压为 $U_\mathrm{q}$。因 $U_2=0$，电源 $Y_{12}U_2$ 不起作用，$Y_{22}$ 中没有电流。剩下输入端的 $Y_{11}$ 和电流源 $Y_{21}U_1$，后者的电流流过导线。
 :::
 
-**例。** T 形网络的端口 1 加 9 V，端口 2 短路。导线使 $R_\mathrm{c}$ 与 $R_\mathrm{b}$ 并联，总电阻为 $15\,\Omega+10\,\Omega=25\,\Omega$，所以 $I_1=360$ mA。这个电流平分，$I_2=-180$ mA，为负是因为它从端口 2 流出。端口 2 加 9 V、端口 1 短路时，总电阻为 $20\,\Omega+15\,\Omega\parallel20\,\Omega$，$I_2=315$ mA，$I_1=-180$ mA。由此得
+::::beispiel
+T 形网络的端口 1 加 9 V，端口 2 短路。导线使 $R_\mathrm{c}$ 与 $R_\mathrm{b}$ 并联，总电阻为 $15\,\Omega+10\,\Omega=25\,\Omega$，所以 $I_1=360$ mA。这个电流平分，$I_2=-180$ mA，为负是因为它从端口 2 流出。端口 2 加 9 V、端口 1 短路时，总电阻为 $20\,\Omega+15\,\Omega\parallel20\,\Omega$，$I_2=315$ mA，$I_1=-180$ mA。由此得
 
 $$\mathbf Y=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS}.$$
 
-用第 [4](das-zweitor-im-betrieb.html#stufe-4) 阶段的工作状态检验：$I_1=40\,\mathrm{mS}\cdot7.75\,\mathrm{V}-20\,\mathrm{mS}\cdot3\,\mathrm{V}=250$ mA。负载 $Y_\mathrm{L}=16.67$ mS 给出 $Y_1=40\,\mathrm{mS}-400\,\mathrm{mS^2}/51.67\,\mathrm{mS}=32.26$ mS，即 $1/(31\,\Omega)$。**极限情况：**$Y_{1,\mathrm{SC}}=40$ mS 即 $1/(25\,\Omega)$，$Y_{1,\mathrm{OC}}=28.57$ mS 即 $1/(35\,\Omega)$，与第 [4](das-zweitor-im-betrieb.html#stufe-4) 阶段一致。
+用第 [4](das-zweitor-im-betrieb.html#stufe-4) 阶段的工作状态检验：$I_1=40\,\mathrm{mS}\cdot7.75\,\mathrm{V}-20\,\mathrm{mS}\cdot3\,\mathrm{V}=250$ mA。负载 $Y_\mathrm{L}=16.67$ mS 给出 $Y_1=40\,\mathrm{mS}-400\,\mathrm{mS^2}/51.67\,\mathrm{mS}=32.26$ mS，即 $1/(31\,\Omega)$。
+::::
+
+⁠**极限情况：**$Y_{1,\mathrm{SC}}=40$ mS 即 $1/(25\,\Omega)$，$Y_{1,\mathrm{OC}}=28.57$ mS 即 $1/(35\,\Omega)$，与第 [4](das-zweitor-im-betrieb.html#stufe-4) 阶段一致。
 
 **特性曲线。** Y 方程也可以画出来。__输入特性曲线__是固定 $U_2$ 时的 $I_1=f_1(U_1)$，__转移特性曲线__是固定 $U_2$ 时的 $I_2=f_2(U_1)$，__输出特性曲线__是固定 $U_1$ 时的 $I_2=f_3(U_2)$。线性二端口网络的这些曲线都是直线（图 [7](#abb-7)）：斜率是一个 Y 参数，固定值使其平行移动。固定参数的每个值给出一条直线，合起来形成一族曲线。
 

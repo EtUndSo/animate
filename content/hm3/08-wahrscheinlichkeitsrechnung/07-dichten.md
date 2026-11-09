@@ -28,7 +28,8 @@ $f_X$ heißt __Dichte__ von $X$.
 
 ⁠**So liest man das:** Der Begriff beschreibt die Verteilungsfunktion, nicht die Funktion $X$. Es gilt $\int_\mathbb{R} f_X\,\mathrm{d} x=1$, und $\mathbb{P}(a<X\le b)=\int_a^bf_X(x)\,\mathrm{d} x$ ist die Fläche unter der Dichte. Daraus folgt $\mathbb{P}(X=x)=0$ für jedes $x$, es spielt also keine Rolle, ob ein Intervall offen oder abgeschlossen ist. An Stetigkeitsstellen von $f_X$ ist $F_X'(x)=f_X(x)$. Die Dichte selbst ist keine Wahrscheinlichkeit und darf größer als 1 sein, erst $f_X(x)\,\mathrm{d} x$ ist ein Anteil.
 
-**Beispiele.** Die LED hat $f_X(x)=\frac12\mathrm{e}^{-x/2}$ für $x\ge0$, sonst 0. Damit ist $\mathbb{P}(1<X\le3)=\mathrm{e}^{-1/2}-\mathrm{e}^{-3/2}\approx0{,}383$ (Abb. [6](#abb-6)). Weitere Standardfälle:
+::::beispiel [Beispiele]
+Die LED hat $f_X(x)=\frac12\mathrm{e}^{-x/2}$ für $x\ge0$, sonst 0. Damit ist $\mathbb{P}(1<X\le3)=\mathrm{e}^{-1/2}-\mathrm{e}^{-3/2}\approx0{,}383$ (Abb. [6](#abb-6)). Weitere Standardfälle:
 
 <ul>
 
@@ -54,6 +55,7 @@ Für $\mu=0$, $\sigma=1$ heißt sie __Standard-Normalverteilung__. Mit $u=(x-\mu
 :::abbildung hm3/k8dichte 6
 Links die Dichte der LED mit der Fläche $\mathbb{P}(1<X\le3)$. Rechts Normalverteilungen mit $\mu=0$ und $\mu=2$: Jede Fläche ist 1, darum ist die schmale Glocke höher.
 :::
+::::
 
 **Rechnen mit der Normalverteilung.** Die Verteilungsfunktion von $\mathcal N(0,1)$ heißt
 
@@ -66,7 +68,11 @@ und hat keine geschlossene Form. Man liest sie aus einer Tabelle ab. Aus der Sym
 |---|---|---|---|---|---|---|---|---|
 | $\Phi(x)$ | 0,6915 | 0,8413 | 0,9332 | 0,9500 | 0,9750 | 0,9772 | 0,9938 | 0,9987 |
 
-Die Substitution $y=(t-\mu)/\sigma$ zeigt für $X\sim\mathcal N(\mu,\sigma^2)$: $\mathbb{P}(X\le x)=\Phi\bigl((x-\mu)/\sigma\bigr)$. **Beispiel:** Für das Netzteil sei $U\sim\mathcal N(5,\;0{,}2^2)$ in Volt. Dann ist $\mathbb{P}(4{,}8<U\le5{,}4)=\Phi(2)-\Phi(-1)\approx0{,}9772-0{,}1587=0{,}8185$.
+Die Substitution $y=(t-\mu)/\sigma$ zeigt für $X\sim\mathcal N(\mu,\sigma^2)$: $\mathbb{P}(X\le x)=\Phi\bigl((x-\mu)/\sigma\bigr)$.
+
+::::beispiel
+Für das Netzteil sei $U\sim\mathcal N(5,\;0{,}2^2)$ in Volt. Dann ist $\mathbb{P}(4{,}8<U\le5{,}4)=\Phi(2)-\Phi(-1)\approx0{,}9772-0{,}1587=0{,}8185$.
+::::
 
 **Der Raum dahinter.** Zu einer stetigen Dichte $f$ auf $\Omega=\mathbb{R}$ möchte man $\mathbb{P}(A):=\int_Af(x)\,\mathrm{d} x$ setzen. Für offene Intervalle und endliche Vereinigungen davon ist das ein Integral aus [Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html). Diese Mengen bilden aber keine $\sigma$-Algebra, auch wenn man auf „offen“ verzichtet: Abzählbar viele Intervalle vereinigen sich im Allgemeinen nicht zu einer endlichen Vereinigung. Die kleinste $\sigma$-Algebra, die alle offenen Intervalle enthält, heißt __Borel-Algebra__ $\mathcal B$. Die Lebesguesche Integrationstheorie erlaubt das Integrieren über alle Mengen aus $\mathcal B$, das ergibt den Raum $(\mathbb{R},\mathcal B,\mathbb{P})$. Ebenso beschreibt $\mathbb{P}(A)=\int_A|\psi(\boldsymbol{x})|^2\,\mathrm{d}\boldsymbol{x}$ die Aufenthaltswahrscheinlichkeit eines Quantenteilchens mit Wellenfunktion $\psi:\mathbb{R}^3\to\mathbb{C}$, $\int_{\mathbb{R}^3}|\psi|^2\,\mathrm{d}\boldsymbol{x}=1$.
 

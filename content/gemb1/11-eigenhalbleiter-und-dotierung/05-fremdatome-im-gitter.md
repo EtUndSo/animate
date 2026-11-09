@@ -29,7 +29,11 @@ Donatoren sind fünfwertig (P, As, Sb). Ihr gebundenes Elektron hat die Energie 
 
 **Kompensation.** Sind beide Sorten vorhanden, fällt das Elektron des Donators auf den tieferen Akzeptor. Beide sind dann ionisiert, ohne einen freien Träger zu liefern, das ist ein __kompensierter Halbleiter__. Es zählt nur die Differenz, die effektive Dichte $N_\mathrm D^*=N_\mathrm D-N_\mathrm A$ beziehungsweise $N_\mathrm A^*=N_\mathrm A-N_\mathrm D$.
 
-**Beispiel.** Bei $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ kommt ein P-Atom auf $5\cdot10^{6}$ Si-Atome. Nimm an, alle haben ihr Elektron abgegeben. Dann ist $n=10^{16}\,\mathrm{cm^{-3}}=1{,}1\cdot10^{6}\,n_\mathrm i$, und [(0.2)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-2) erzwingt $p=n_\mathrm i^2/n=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$: Je mehr Elektronen, desto mehr Rekombination, desto weniger Löcher. Für $10^{15}\,\mathrm{cm^{-3}}$ müssen unkontrollierte Fremdatome bei $10^{13}$ bis $10^{14}\,\mathrm{cm^{-3}}$ bleiben, eines auf $5\cdot10^{8}$ bis $5\cdot10^{9}$ Si-Atome. Das reinste Silizium hat noch rund $10^{12}\,\mathrm{cm^{-3}}$. **Grenzfälle:** Für $N_\mathrm D\to0$ folgt wieder $n=p=n_\mathrm i$. Bei $N_\mathrm D=N_\mathrm A$ ebenso, obwohl der Kristall voller Ionen steckt.
+::::beispiel
+Bei $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ kommt ein P-Atom auf $5\cdot10^{6}$ Si-Atome. Nimm an, alle haben ihr Elektron abgegeben. Dann ist $n=10^{16}\,\mathrm{cm^{-3}}=1{,}1\cdot10^{6}\,n_\mathrm i$, und [(0.2)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-2) erzwingt $p=n_\mathrm i^2/n=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$: Je mehr Elektronen, desto mehr Rekombination, desto weniger Löcher. Für $10^{15}\,\mathrm{cm^{-3}}$ müssen unkontrollierte Fremdatome bei $10^{13}$ bis $10^{14}\,\mathrm{cm^{-3}}$ bleiben, eines auf $5\cdot10^{8}$ bis $5\cdot10^{9}$ Si-Atome. Das reinste Silizium hat noch rund $10^{12}\,\mathrm{cm^{-3}}$.
+::::
+
+⁠**Grenzfälle:** Für $N_\mathrm D\to0$ folgt wieder $n=p=n_\mathrm i$. Bei $N_\mathrm D=N_\mathrm A$ ebenso, obwohl der Kristall voller Ionen steckt.
 
 :::frage Ist n-Silizium negativ geladen und p-Silizium positiv?
 Nein, beide sind neutral. „n“ und „p“ nennen das Vorzeichen der beweglichen Ladung, nicht das des Stücks. Zu jedem freien Elektron gehört ein ortsfester positiver Rumpf.

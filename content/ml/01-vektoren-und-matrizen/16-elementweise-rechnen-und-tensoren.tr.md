@@ -32,11 +32,13 @@ $$(\mathbf{A}\odot\mathbf{B})_{ij}=a_{ij}\,b_{ij} . \tag{15.1}$$
 
 Hadamard çarpımı matris çarpımı *değildir*. Matris çarpımı satırlardan ve sütunlardan iç çarpımlar oluşturur; Hadamard çarpımı yalnızca aynı yerdeki elemanları çarpar. Bilinen kavramlarla iki bağlantı: İki vektörün Hadamard çarpımının bileşenleri toplanırsa iç çarpımları elde edilir, $\mathbf 1^{\top}(\mathbf{u}\odot\mathbf{v})=\mathbf{u}^{\top}\mathbf{v}$. Sabit bir vektörle Hadamard çarpımı da bir köşegen matrisle çarpmadır: $\mathbf{v}\odot\mathbf{x}=\operatorname{diag}(\mathbf{v})\,\mathbf{x}$.
 
-⁠**Sayısal örnek:** $(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$ olur ve $4+10+18=32$ iç çarpımdır. Matrisler için şu bulunur:
+::::beispiel [Sayısal örnek]
+$(1,\,2,\,3)^{\top}\odot(4,\,5,\,6)^{\top}=(4,\,10,\,18)^{\top}$ olur ve $4+10+18=32$ iç çarpımdır. Matrisler için şu bulunur:
 
 $$\begin{pmatrix}1&2\\3&4\end{pmatrix}\odot\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}0&2\\3&0\end{pmatrix},\qquad\text{ama}\qquad \begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}=\begin{pmatrix}2&1\\4&3\end{pmatrix}.$$
 
 Sıfırlardan ve birlerden oluşan bir vektörle öznitelikler gizlenebilir: $(1,\,0,\,1)^{\top}\odot\mathbf{x}_1=(60,\,0,\,3)^{\top}$, Daire 1 için oda sayısını dışarıda bırakır.
+::::
 
 ⁠**Kısacası:** $\odot$ Hadamard çarpımı eleman eleman çarpar; matris çarpımı değildir.
 
@@ -54,7 +56,9 @@ Bir $f\colon\mathbb{R}\to\mathbb{R}$ fonksiyonu ve bir $\mathbf{x}\in\mathbb{R}^
 
 Birçok norm bu biçimde yazılabilir: Mutlak değerler toplamı normu, eleman eleman alınan mutlak değerlerin toplamıdır, $\lVert\mathbf{x}\rVert_1=\mathbf 1^{\top}|\mathbf{x}|$; Öklid normunun karesi de eleman eleman alınan karelerin toplamıdır. Eleman eleman uygulanan bir fonksiyon genel olarak doğrusal değildir: Eleman eleman kare alma, $2\mathbf{x}$ vektöründen elemanları $2x_j^2$ değil, $4x_j^2$ olan vektörü üretir.
 
-⁠**Sayısal örnek:** Emlakçının hata vektörü $(-12,\,-4,\,-4,\,-8)^{\top}$ idi. Eleman eleman mutlak değerler $(12,\,4,\,4,\,8)^{\top}$ verir; bunların toplamı $28$, yani mutlak değerler toplamı normudur. Eksper A için (alt kesim [3.5](normen-die-groe-eines-vektors.html#stufe-3-5)) eleman eleman kareler $(100,\,100,\,100,\,100)^{\top}$ verir; toplamları $400=20^2$ olur.
+::::beispiel [Sayısal örnek]
+Emlakçının hata vektörü $(-12,\,-4,\,-4,\,-8)^{\top}$ idi. Eleman eleman mutlak değerler $(12,\,4,\,4,\,8)^{\top}$ verir; bunların toplamı $28$, yani mutlak değerler toplamı normudur. Eksper A için (alt kesim [3.5](normen-die-groe-eines-vektors.html#stufe-3-5)) eleman eleman kareler $(100,\,100,\,100,\,100)^{\top}$ verir; toplamları $400=20^2$ olur.
+::::
 
 ⁠**Kısacası:** Eleman eleman uygulanan bir fonksiyon her elemana ayrı ayrı etki eder; genel olarak doğrusal değildir.
 
@@ -71,11 +75,13 @@ $$\tilde{\mathbf{X}}=\mathbf{X}-\mathbf 1\,\bar{\mathbf{x}}^{\top} , \tag{15.2}$
 
 ve bu matrisin $i$ numaralı satırı $(\mathbf{x}_i-\bar{\mathbf{x}})^{\top}$ vektörüdür. Birçok kaynak bunun yerine kısaca $\mathbf{X}-\bar{\mathbf{x}}^{\top}$ yazar ve bununla şunu kasteder: satır vektörünü her satırdan çıkarmak. Kesin konuşmak gerekirse $N\times d$ tipinde bir matris ile $1\times d$ tipinde bir matrisin farkı tanımlı değildir; kısa yazılış her zaman [(15.2)](#gl-15-2) anlamına gelir.
 
-⁠**Sayısal örnek:** Daireler için $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ ve şu bulunur:
+::::beispiel [Sayısal örnek]
+Daireler için $\bar{\mathbf{x}}=\tfrac14\mathbf{X}^{\top}\mathbf 1=(65;\ 2{,}5;\ 3)^{\top}$ ve şu bulunur:
 
 $$\tilde{\mathbf{X}}=\begin{pmatrix}60&2&3\\40&1&1\\90&4&6\\70&3&2\end{pmatrix}-\begin{pmatrix}65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\\65&2{,}5&3\end{pmatrix}=\begin{pmatrix}-5&-0{,}5&0\\-25&-1{,}5&-2\\25&1{,}5&3\\5&0{,}5&-1\end{pmatrix}.$$
 
 Her sütun merkezlenmiş öznitelik sütunudur (alt kesim [4.3](abstande-und-einheiten.html#stufe-4-3)) ve toplamı sıfırdır.
+::::
 
 ⁠**Kısacası:** Bir $\mathbf{A}$ matrisinin her satırına bir $\mathbf{q}$ vektörü eklemek $\mathbf{A}+\mathbf 1\,\mathbf{q}^{\top}$ demektir; yaygın kısa yazılış $\mathbf{A}+\mathbf{q}^{\top}$ tam olarak bunu kasteder.
 
@@ -97,7 +103,9 @@ Bir skaler $0$ eksenli bir tensördür, $\mathbb{R}^d$ uzayındaki bir vektör u
 $0$ ile $4$ arası eksenli tensörler: bir skaler, $4$ elemanlı bir vektör, $4\times4$ tipinde bir matris (örneğin gri tonlamalı bir görüntü), kırmızı, yeşil ve mavi için $4\times4$ tipindeki üç kanaldan oluşan renkli bir görüntü ve bu türden $N$ renkli görüntüden oluşan bir yığın (üç görüntüyle gösterilmiştir).
 :::
 
-⁠**Sayısal örnek:** $4\times4$ pikselli ve üç renk kanallı renkli bir görüntü, şekli $3\times4\times4$ olan ve $48$ elemanı bulunan bir tensördür. İndisleri $(1,2,3)$ olan eleman, $2$ numaralı satır ile $3$ numaralı sütundaki pikselde birinci kanalın, yani kırmızının parlaklığıdır.
+::::beispiel [Sayısal örnek]
+$4\times4$ pikselli ve üç renk kanallı renkli bir görüntü, şekli $3\times4\times4$ olan ve $48$ elemanı bulunan bir tensördür. İndisleri $(1,2,3)$ olan eleman, $2$ numaralı satır ile $3$ numaralı sütundaki pikselde birinci kanalın, yani kırmızının parlaklığıdır.
+::::
 
 ⁠**Kısacası:** Bir tensör, eksen sayısı istenildiği kadar olabilen bir sayı dizisidir; skaler, vektör ve matris $0$, $1$ ve $2$ eksenli durumlardır.
 
@@ -115,7 +123,9 @@ $28\times28$ pikselli gri tonlamalı bir görüntü bir matristir, yani şekli $
 
 Eksenlerin sırası bir uzlaşımdır. Bazı programlar renk kanalını başa ($3\times32\times32$), bazıları sona ($32\times32\times3$) koyar. Sayılar aynıdır, yalnızca dizilişleri farklıdır; her hesaptan önce hangi eksenin ne anlama geldiği açık olmalıdır.
 
-⁠**Sayısal örnek:** $28\times28$ pikselli $60\,000$ gri tonlamalı görüntüden oluşan bir veri kümesi, şekli $60\,000\times28\times28$ olan ve $47\,040\,000$ elemanı bulunan bir tensördür. Her görüntü okunarak $\mathbb{R}^{784}$ uzayında bir vektöre dönüştürülürse aynı elemanlara sahip, $\mathbb{R}^{60\,000\times784}$ içinde bir veri matrisi ortaya çıkar.
+::::beispiel [Sayısal örnek]
+$28\times28$ pikselli $60\,000$ gri tonlamalı görüntüden oluşan bir veri kümesi, şekli $60\,000\times28\times28$ olan ve $47\,040\,000$ elemanı bulunan bir tensördür. Her görüntü okunarak $\mathbb{R}^{784}$ uzayında bir vektöre dönüştürülürse aynı elemanlara sahip, $\mathbb{R}^{60\,000\times784}$ içinde bir veri matrisi ortaya çıkar.
+::::
 
 ⁠**Kısacası:** Bir görüntü iki ya da üç eksenli bir tensördür, bir görüntü yığını ise bir eksen daha fazlasına sahip bir tensördür; birinci eksen örnekleri sayar.
 

@@ -90,7 +90,11 @@ Also ist $\exp(z_1)\exp(z_2)=\sum_kc_k=\exp(z_1+z_2)$. Hier zeigt sich der Mecha
 (b) Mit $|w|^2=w\overline w$, (c) und (a): $|\exp(\mathrm{i}\varphi)|^2=\exp(\mathrm{i}\varphi)\exp(-\mathrm{i}\varphi)=\exp(0)=1$.
 :::
 
-**Beispiel.** $\exp(\mathrm{i})=1+\mathrm{i}-\frac12-\frac{\mathrm{i}}6+\frac1{24}+\frac{\mathrm{i}}{120}-\dots$ Bis $n=5$ ist das $0{,}5417+0{,}8417\,\mathrm{i}$, bis $n=7$ schon $0{,}5403+0{,}8415\,\mathrm{i}$, mit dem Betrag 1. Mit (a) ist $\exp(1+\mathrm{i})=\mathrm{e}\cdot\exp(\mathrm{i})\approx1{,}4687+2{,}2874\,\mathrm{i}$. **Grenzfall:** $z_2=-z_1$ gibt $\exp(z)\exp(-z)=\exp(0)=1$. Also ist $\exp(z)$ nie null.
+::::beispiel
+$\exp(\mathrm{i})=1+\mathrm{i}-\frac12-\frac{\mathrm{i}}6+\frac1{24}+\frac{\mathrm{i}}{120}-\dots$ Bis $n=5$ ist das $0{,}5417+0{,}8417\,\mathrm{i}$, bis $n=7$ schon $0{,}5403+0{,}8415\,\mathrm{i}$, mit dem Betrag 1. Mit (a) ist $\exp(1+\mathrm{i})=\mathrm{e}\cdot\exp(\mathrm{i})\approx1{,}4687+2{,}2874\,\mathrm{i}$.
+::::
+
+⁠**Grenzfall:** $z_2=-z_1$ gibt $\exp(z)\exp(-z)=\exp(0)=1$. Also ist $\exp(z)$ nie null.
 
 :::frage Was bedeutet „$\mathrm{e}$ hoch $\mathrm{i}$“? Man kann doch nicht $\mathrm{i}$-mal mit sich selbst multiplizieren.
 Richtig, als wiederholte Multiplikation hat das keinen Sinn. $\mathrm{e}^z$ ist eine Schreibweise für die Reihe $\exp(z)$. Sie passt, weil die Funktionalgleichung die Potenzregel $\mathrm{e}^{z+w}=\mathrm{e}^z\mathrm{e}^w$ fortsetzt.

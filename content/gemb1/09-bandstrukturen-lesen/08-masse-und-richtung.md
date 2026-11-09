@@ -45,7 +45,11 @@ Dabei steht h für englisch heavy, l für light. Andere Bücher nennen die Läng
 Links: Schnitt durch die Flächen konstanter Energie bei $E-E_\mathrm C=26$ meV, vom Minimum des Tals aus, $q$ in 1/nm, im gleichen Maßstab. Rechts: Die zugehörigen Parabeln. Kleine Masse bedeutet starke Krümmung.
 :::
 
-**Beispiel.** Bei $E-E_\mathrm C=26$ meV sind die Halbachsen im Silizium-Tal $0{,}79\,\mathrm{nm^{-1}}$ und $0{,}36\,\mathrm{nm^{-1}}$, das Verhältnis ist $\sqrt{0{,}92/0{,}19}=2{,}20$. GaAs hat den Radius $0{,}21\,\mathrm{nm^{-1}}$. Im Ellipsoid sind Kraft und Beschleunigung nicht parallel. Eine Kraft unter $45^\circ$ zur Längsachse ergibt $(\mathrm{d} v_x/\mathrm{d} t)/(\mathrm{d} v_y/\mathrm{d} t)=m_\mathrm l^*/m_\mathrm h^*=0{,}21$. Die Beschleunigung zeigt also unter $78{,}3^\circ$ zur Längsachse: Das Elektron weicht in die leichte Richtung aus. **Grenzfall:** Für $m_\mathrm h^*=m_\mathrm l^*$ wird das Ellipsoid zur Kugel.
+::::beispiel
+Bei $E-E_\mathrm C=26$ meV sind die Halbachsen im Silizium-Tal $0{,}79\,\mathrm{nm^{-1}}$ und $0{,}36\,\mathrm{nm^{-1}}$, das Verhältnis ist $\sqrt{0{,}92/0{,}19}=2{,}20$. GaAs hat den Radius $0{,}21\,\mathrm{nm^{-1}}$. Im Ellipsoid sind Kraft und Beschleunigung nicht parallel. Eine Kraft unter $45^\circ$ zur Längsachse ergibt $(\mathrm{d} v_x/\mathrm{d} t)/(\mathrm{d} v_y/\mathrm{d} t)=m_\mathrm l^*/m_\mathrm h^*=0{,}21$. Die Beschleunigung zeigt also unter $78{,}3^\circ$ zur Längsachse: Das Elektron weicht in die leichte Richtung aus.
+::::
+
+⁠**Grenzfall:** Für $m_\mathrm h^*=m_\mathrm l^*$ wird das Ellipsoid zur Kugel.
 
 :::frage Silizium ist kubisch, alle drei Achsen sind gleichwertig. Wie kann die Masse da von der Richtung abhängen?
 Ein einzelnes Tal ist nicht kubisch, alle sechs zusammen sind es: Bei einer Kraft längs $x$ antworten zwei Täler mit $m_\mathrm h^*$ und vier mit $m_\mathrm l^*$, für jede Achse gleich. Die Wirkung ist das Mittel der Kehrwerte, $3/(1/m_\mathrm h^*+2/m_\mathrm l^*)=0{,}26\,m_0$.

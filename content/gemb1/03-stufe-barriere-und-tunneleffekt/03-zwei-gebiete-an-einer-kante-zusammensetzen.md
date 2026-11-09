@@ -64,7 +64,11 @@ $$\psi'(\varepsilon)-\psi'(-\varepsilon)=\frac{2m}{\hbar^2}\int_{-\varepsilon}^{
 $V$ ist endlich und $\psi$ beschränkt, also geht das Integral für $\varepsilon\to0$ gegen null. Damit ist $\psi'$ stetig. Hätte $\psi$ selbst einen Sprung, wäre $\psi'$ dort unendlich groß. Das erlaubt die Gleichung nicht, und $|\psi|^2$ hätte an der Kante keinen eindeutigen Wert. Einsetzen von [(1.2)](#gl-1-2) mit $D=0$ in [(1.3)](#gl-1-3) ergibt $A+B=C$ und $\mathrm{j} k_\mathrm I(A-B)=\mathrm{j} k_\mathrm{II}C$. Addition liefert $A=\frac C2(1+k_\mathrm{II}/k_\mathrm I)$, Subtraktion $B=\frac C2(1-k_\mathrm{II}/k_\mathrm I)$.
 :::
 
-**Beispiel.** Für $E=3$ eV und $V_0=2$ eV liefert [(0.3)](von-grund-auf-wellen-bei-konstantem-potential-rechnen-in-ev.html#gl-0-3) $k_\mathrm I=8{,}87\,\mathrm{nm^{-1}}$ und $k_\mathrm{II}=5{,}12\,\mathrm{nm^{-1}}$, also $\lambda_\mathrm I=0{,}708$ nm und $\lambda_\mathrm{II}=1{,}226$ nm. Aus [(1.4)](#gl-1-4) folgen $B/A=0{,}268$ und $C/A=1{,}268$. Probe: $1+0{,}268=1{,}268$. **Grenzfälle:** Für $V_0\to0$ ist $k_\mathrm{II}=k_\mathrm I$, also $B=0$ und $C=A$: Ohne Stufe wird nichts reflektiert. Für $E\to V_0$ geht $k_\mathrm{II}\to0$ und $B\to A$.
+::::beispiel
+Für $E=3$ eV und $V_0=2$ eV liefert [(0.3)](von-grund-auf-wellen-bei-konstantem-potential-rechnen-in-ev.html#gl-0-3) $k_\mathrm I=8{,}87\,\mathrm{nm^{-1}}$ und $k_\mathrm{II}=5{,}12\,\mathrm{nm^{-1}}$, also $\lambda_\mathrm I=0{,}708$ nm und $\lambda_\mathrm{II}=1{,}226$ nm. Aus [(1.4)](#gl-1-4) folgen $B/A=0{,}268$ und $C/A=1{,}268$. Probe: $1+0{,}268=1{,}268$.
+::::
+
+⁠**Grenzfälle:** Für $V_0\to0$ ist $k_\mathrm{II}=k_\mathrm I$, also $B=0$ und $C=A$: Ohne Stufe wird nichts reflektiert. Für $E\to V_0$ geht $k_\mathrm{II}\to0$ und $B\to A$.
 
 :::frage In der Box aus Teil 2 hatte $\psi$ an der Wand einen Knick. Warum ist das hier verboten?
 Die Herleitung setzt ein endliches $V$ voraus. An einer unendlich hohen Wand ist das Integral nicht klein, $\psi'$ darf dort springen. An jeder endlichen Stufe bleibt die Kurve glatt. Ihre Krümmung $\psi''$ darf springen, ihre Steigung nicht.

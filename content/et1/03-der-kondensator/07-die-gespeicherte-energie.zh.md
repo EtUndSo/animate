@@ -47,7 +47,9 @@ $$W=\frac12\,\varepsilon\,E^2\cdot A\,d,\qquad w=\frac WV=\frac12\,\varepsilon\,
 
 **能量在哪里。** 金属不可能含有这些能量，因为金属内 $E=0$，而且电子只移动了极小的量（第 [2](die-kapazitat.html#stufe-2) 阶段）。式 [(6.2)](#gl-6-2) 说明：每立方米电场含有 $\frac12\varepsilon E^2$。这不只是一种算法，有一个实验可以说明。断开电池，把极板拉开。$Q$ 不变，$E=Q/(\varepsilon A)$ 也不变。但电场充满了更大的体积，电场能量增加了 $\frac12\varepsilon E^2A\,\Delta d$。这些能量来自克服极板间吸引力而拉动的手。每块极板只感受到另一块极板的电场，它是 $E$ 的一半，所以 $F=\frac12QE$。所做的功为 $F\,\Delta d=\frac12QE\,\Delta d=\frac12\varepsilon E^2A\,\Delta d$，恰好等于增量。光说明电场能量可以脱离电荷而存在：它把能量带过真空。
 
-**例。** RC 电路的电容器在 9 V 下储存 $W=\frac12\cdot100\,\mu\text{F}\cdot(9\,\mathrm{V})^2=4.05$ mJ，平行极板只储存 1.20 nJ。后者有 $w=\frac12\varepsilon_0(3\,\mathrm{kV/m})^2=3.98\cdot10^{-5}$ J/m$^3$，乘以 $V=3\cdot10^{-5}\,\mathrm{m^3}$，得到同样的 1.20 nJ。100 F 的超级电容在 2.7 V 下能储存 365 J 之多，而 0.5 Ah 的 9 V 方形电池却储存 16 kJ，是 100 µF 电容器的四百万倍。电容器储存的能量很少，但释放得非常快，例如在相机闪光灯中。
+::::beispiel
+RC 电路的电容器在 9 V 下储存 $W=\frac12\cdot100\,\mu\text{F}\cdot(9\,\mathrm{V})^2=4.05$ mJ，平行极板只储存 1.20 nJ。后者有 $w=\frac12\varepsilon_0(3\,\mathrm{kV/m})^2=3.98\cdot10^{-5}$ J/m$^3$，乘以 $V=3\cdot10^{-5}\,\mathrm{m^3}$，得到同样的 1.20 nJ。100 F 的超级电容在 2.7 V 下能储存 365 J 之多，而 0.5 Ah 的 9 V 方形电池却储存 16 kJ，是 100 µF 电容器的四百万倍。电容器储存的能量很少，但释放得非常快，例如在相机闪光灯中。
+::::
 
 ⁠**极限情况：**当 $U\to0$ 时 $W\to0$，没有电场就没有能量。**检验：**$\mathrm{F\cdot V^2}=\frac{\mathrm{C}}{\mathrm V}\cdot\mathrm{V^2}=\mathrm{C\,V}=\mathrm J$。
 

@@ -63,7 +63,11 @@ The first row contains all coefficients, including the zeros. You write $a_n$ do
 Horner scheme for $P$ at $x_0=2$. The arrows show the sequence: times 2, then add. Last number: $P(2)=-12$. The numbers before it are the coefficients of the quotient: $P(x)=(x-2)(2x^2+x-9)-12$.
 :::
 
-**Example.** Fig. [8](#abb-8) computes $P(2)=-12$ with 3 multiplications; directly: $2\cdot8-3\cdot4-11\cdot2+6=-12$. For $x_0=3$ the bottom row is $2,\ 3,\ -2,\ 0$: So $P(3)=0$ and $P(x)=(x-3)(2x^2+3x-2)$. **Limiting cases:** For $x_0=0$ the bottom row is the top row, $c_0=a_0=P(0)$. For $x_0=1$ the scheme adds all coefficients, $c_0=2-3-11+6=-6=P(1)$. Repeating the scheme with the quotient produces the representation in powers of $x-x_0$ (Exercise [8](#aufg-8)).
+::::beispiel
+Fig. [8](#abb-8) computes $P(2)=-12$ with 3 multiplications; directly: $2\cdot8-3\cdot4-11\cdot2+6=-12$. For $x_0=3$ the bottom row is $2,\ 3,\ -2,\ 0$: So $P(3)=0$ and $P(x)=(x-3)(2x^2+3x-2)$.
+::::
+
+⁠**Limiting cases:** For $x_0=0$ the bottom row is the top row, $c_0=a_0=P(0)$. For $x_0=1$ the scheme adds all coefficients, $c_0=2-3-11+6=-6=P(1)$. Repeating the scheme with the quotient produces the representation in powers of $x-x_0$ (Exercise [8](#aufg-8)).
 
 :::frage Why must the zero for a missing power go into the scheme?
 Each column belongs to a power; the scheme counts the powers through the columns. If you omit the zero for $x$ in $S$, it computes with $1,-3,1,4$, that is, with $x^3-3x^2+x+4$. At $x_0=2$ it then gives 2 instead of $S(2)=0$.

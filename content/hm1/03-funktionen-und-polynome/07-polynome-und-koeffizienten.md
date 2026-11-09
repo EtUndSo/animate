@@ -57,7 +57,8 @@ $C$ hängt nur von den Koeffizienten ab, $|x|$ darf beliebig klein sein. Also is
 Links $P$ im Großen. Rechts der Ausschnitt um $x=0$ mit der Geraden $a_0+a_1x=6-11x$: Bei $x=0{,}1$ weicht sie nur um 0,028 ab, die höheren Potenzen fallen nahe null kaum ins Gewicht.
 :::
 
-**Beispiel.** Wann ist $ax^2+bx+c=a(x-x_1)(x-x_2)$ für alle $x$? Ausmultiplizieren ergibt rechts $ax^2-a(x_1+x_2)x+ax_1x_2$, der Koeffizientenvergleich also
+::::beispiel
+Wann ist $ax^2+bx+c=a(x-x_1)(x-x_2)$ für alle $x$? Ausmultiplizieren ergibt rechts $ax^2-a(x_1+x_2)x+ax_1x_2$, der Koeffizientenvergleich also
 
 <span class="anker" id="gl-5-3"></span>
 $$b=-a(x_1+x_2),\qquad c=a\,x_1x_2. \tag{5.3}$$
@@ -67,7 +68,10 @@ Diese beiden Gleichungen löst für $a\neq0$ und $D:=b^2-4ac\ge0$ die __Mitterna
 <span class="anker" id="gl-5-4"></span>
 $$x_{1}=\frac{-b+\sqrt D}{2a},\qquad x_{2}=\frac{-b-\sqrt D}{2a}. \tag{5.4}$$
 
-Einsetzen bestätigt es: $-a(x_1+x_2)=-a\cdot\frac{-2b}{2a}=b$ und $ax_1x_2=\frac{1}{4a}\bigl(b^2-D\bigr)=c$. Die Zahl $D$ heißt __Diskriminante__. Für $Q$ ist $D=1+8=9$, also $x_{1}=2$, $x_{2}=-1$, und $x_1+x_2=1=-b/a$, $x_1x_2=-2=c/a$. **Grenzfälle:** $D=0$ ergibt $x_1=x_2$. Für $D<0$ gibt es keine reelle Nullstelle, denn dann ist $ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$, und die Klammer ist positiv. Also hat $x^2+\beta x+\gamma$ genau dann keine reelle Nullstelle, wenn $\beta^2-4\gamma<0$ ist.
+Einsetzen bestätigt es: $-a(x_1+x_2)=-a\cdot\frac{-2b}{2a}=b$ und $ax_1x_2=\frac{1}{4a}\bigl(b^2-D\bigr)=c$. Die Zahl $D$ heißt __Diskriminante__. Für $Q$ ist $D=1+8=9$, also $x_{1}=2$, $x_{2}=-1$, und $x_1+x_2=1=-b/a$, $x_1x_2=-2=c/a$.
+::::
+
+⁠**Grenzfälle:** $D=0$ ergibt $x_1=x_2$. Für $D<0$ gibt es keine reelle Nullstelle, denn dann ist $ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$, und die Klammer ist positiv. Also hat $x^2+\beta x+\gamma$ genau dann keine reelle Nullstelle, wenn $\beta^2-4\gamma<0$ ist.
 
 :::frage Warum setzt der Beweis nach dem Teilen durch $x$ nicht gleich $x=0$ ein? Da steht doch wieder ein Polynom.
 Links und rechts stehen Polynome, das stimmt. Die Gleichung ist aber nur für $x\neq0$ hergeleitet, und daraus folgt nicht sofort etwas über die Stelle 0. Der Umweg über kleine $|x|$ schließt genau diese Lücke. [Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html) nennt den dahinter liegenden Begriff Stetigkeit.

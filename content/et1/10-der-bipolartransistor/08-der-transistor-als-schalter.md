@@ -35,7 +35,11 @@ $$U_\mathrm{ein,sat}=\frac{(U_\mathrm{CC}-U_\mathrm{CE,sat})\,R_\mathrm{B}}{B\,R
 Links die Inverterkennlinie mit $R_\mathrm{B}=20$ k$\Omega$, Knicke bei 0,6 V und 0,99 V. Mitte ein Rechtecksignal zwischen 0 und 5 V am Eingang (grau) und der invertierte Ausgang zwischen 12 V und 0,2 V (blau). Rechts die zulässigen Arbeitspunkte: unter der Leistungshyperbel, $I_\mathrm{C,max}$ und $U_\mathrm{CE,max}$. Der Arbeitspunkt A liegt mit 12 mW tief im erlaubten Gebiet.
 :::
 
-**Beispiel.** Mit $R_\mathrm{B}=20$ k$\Omega$ ist die Steigung $-30$ und $U_\mathrm{ein,sat}=0{,}99$ V. Ein Logikeingang mit 5 V ergibt $I_\mathrm{B}=220$ µ A und $B\,I_\mathrm{B}=44$ mA, weit über den 3,93 mA, die $R_\mathrm{C}$ zulässt. Der Transistor ist also elffach übersteuert und bleibt auch bei einem schlechten Exemplar sicher eingeschaltet. In ihm entstehen $0{,}2\,\mathrm{V}\cdot3{,}93\,\mathrm{mA}+0{,}6\,\mathrm{V}\cdot0{,}22\,\mathrm{mA}=0{,}92$ mW, während er in $R_\mathrm{C}$ eine Leistung von 46 mW schaltet. Im Punkt A wären es 12 mW im Transistor. **Grenzfall:** Für $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$ wird die Kennlinie ein senkrechter Sprung bei $U_\mathrm{BE}$.
+::::beispiel
+Mit $R_\mathrm{B}=20$ k$\Omega$ ist die Steigung $-30$ und $U_\mathrm{ein,sat}=0{,}99$ V. Ein Logikeingang mit 5 V ergibt $I_\mathrm{B}=220$ µ A und $B\,I_\mathrm{B}=44$ mA, weit über den 3,93 mA, die $R_\mathrm{C}$ zulässt. Der Transistor ist also elffach übersteuert und bleibt auch bei einem schlechten Exemplar sicher eingeschaltet. In ihm entstehen $0{,}2\,\mathrm{V}\cdot3{,}93\,\mathrm{mA}+0{,}6\,\mathrm{V}\cdot0{,}22\,\mathrm{mA}=0{,}92$ mW, während er in $R_\mathrm{C}$ eine Leistung von 46 mW schaltet. Im Punkt A wären es 12 mW im Transistor.
+::::
+
+⁠**Grenzfall:** Für $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$ wird die Kennlinie ein senkrechter Sprung bei $U_\mathrm{BE}$.
 
 **Betriebsgrenzen.** Drei Werte begrenzen die erlaubten Arbeitspunkte (Abb. [7](#abb-7), rechts). Über $U_\mathrm{CE,max}$ schlägt die CB-Grenze durch. Über $I_\mathrm{C,max}$ überlasten Basis und Anschlussdrähte. Über der __Leistungshyperbel__ $I_\mathrm{C}=P_\mathrm{max}/U_\mathrm{CE}$ wird das Bauteil zu heiß. Außerhalb sinkt die Lebensdauer rapide, oder das Bauteil fällt sofort aus. Für T liegt die Hyperbel bei 40 V auf 10 mA, bei 4 V auf 100 mA.
 

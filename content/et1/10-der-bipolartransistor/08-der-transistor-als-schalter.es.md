@@ -35,7 +35,11 @@ $$U_\mathrm{ent,sat}=\frac{(U_\mathrm{CC}-U_\mathrm{CE,sat})\,R_\mathrm{B}}{B\,R
 Izquierda, la curva característica del inversor con $R_\mathrm{B}=20$ k$\Omega$, codos en 0,6 V y 0,99 V. Centro, una señal rectangular entre 0 y 5 V en la entrada (gris) y la salida invertida entre 12 V y 0,2 V (azul). Derecha, los puntos de trabajo admisibles: por debajo de la hipérbola de potencia, $I_\mathrm{C,max}$ y $U_\mathrm{CE,max}$. El punto de trabajo A, con 12 mW, queda muy dentro de la zona permitida.
 :::
 
-**Ejemplo.** Con $R_\mathrm{B}=20$ k$\Omega$, la pendiente es $-30$ y $U_\mathrm{ent,sat}=0{,}99$ V. Una entrada lógica de 5 V da $I_\mathrm{B}=220$ µ A y $B\,I_\mathrm{B}=44$ mA, muy por encima de los 3,93 mA que permite $R_\mathrm{C}$. El transistor está, pues, sobreexcitado en un factor once, y sigue seguro en conducción incluso con un mal ejemplar. En él se producen $0{,}2\,\mathrm{V}\cdot3{,}93\,\mathrm{mA}+0{,}6\,\mathrm{V}\cdot0{,}22\,\mathrm{mA}=0{,}92$ mW, mientras conmuta una potencia de 46 mW en $R_\mathrm{C}$. En el punto A serían 12 mW en el transistor. **Caso límite:** para $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$, la curva característica se convierte en un salto vertical en $U_\mathrm{BE}$.
+::::beispiel
+Con $R_\mathrm{B}=20$ k$\Omega$, la pendiente es $-30$ y $U_\mathrm{ent,sat}=0{,}99$ V. Una entrada lógica de 5 V da $I_\mathrm{B}=220$ µ A y $B\,I_\mathrm{B}=44$ mA, muy por encima de los 3,93 mA que permite $R_\mathrm{C}$. El transistor está, pues, sobreexcitado en un factor once, y sigue seguro en conducción incluso con un mal ejemplar. En él se producen $0{,}2\,\mathrm{V}\cdot3{,}93\,\mathrm{mA}+0{,}6\,\mathrm{V}\cdot0{,}22\,\mathrm{mA}=0{,}92$ mW, mientras conmuta una potencia de 46 mW en $R_\mathrm{C}$. En el punto A serían 12 mW en el transistor.
+::::
+
+⁠**Caso límite:** para $B\,R_\mathrm{C}/R_\mathrm{B}\to\infty$, la curva característica se convierte en un salto vertical en $U_\mathrm{BE}$.
 
 **Límites de funcionamiento.** Tres valores limitan los puntos de trabajo permitidos (fig. [7](#abb-7), derecha). Por encima de $U_\mathrm{CE,max}$ se perfora la frontera CB. Por encima de $I_\mathrm{C,max}$ se sobrecargan la base y los hilos de conexión. Por encima de la __hipérbola de potencia__ $I_\mathrm{C}=P_\mathrm{max}/U_\mathrm{CE}$ el componente se calienta demasiado. Fuera de estos límites, la vida útil cae rápidamente o el componente falla de inmediato. Para T, la hipérbola está a 40 V en 10 mA y a 4 V en 100 mA.
 

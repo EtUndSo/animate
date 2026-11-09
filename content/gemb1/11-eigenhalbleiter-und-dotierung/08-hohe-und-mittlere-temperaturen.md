@@ -50,7 +50,9 @@ Für Akzeptoren gilt entsprechend $p=N_\mathrm A$, $n=n_\mathrm i^2/N_\mathrm A$
 
 ⁠**So liest man das:** Die Mehrheit hängt nicht von $T$ ab, deshalb arbeiten Bauelemente in diesem Bereich. Die Minderheit folgt $n_\mathrm i^2$ und hängt stark von $T$ ab. Auf der logarithmischen Achse liegt $p$ so weit unter $n_\mathrm i$, wie $n$ darüber liegt. $E_\mathrm F$ sinkt mit steigendem $T$: Der Ausläufer von $f$ wird breiter und die Zahl $N_\mathrm C$ größer, also muss $E_\mathrm F$ vom Band abrücken, damit $n$ gleich bleibt. **Gültigkeit:** $E_\mathrm D-E_\mathrm F>3k_\mathrm BT$ und thermisches Gleichgewicht.
 
-**Beispiel.** Bei 300 K ist $n=10^{16}\,\mathrm{cm^{-3}}$, $p=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$ und $E_\mathrm C-E_\mathrm F=205$ meV. $E_\mathrm F$ liegt 360 meV über $E_\mathrm{Fi}$, beide Abstände ergeben zusammen rund die 566 meV von $E_\mathrm C$ bis $E_\mathrm{Fi}$. Bei 310 K wächst $p$ um den Faktor 4,5, $n$ gar nicht. Bei 719 K ist $n_\mathrm i=N_\mathrm D$, dort sind $n=1{,}62\,N_\mathrm D$ und $p=0{,}62\,N_\mathrm D$, bei 800 K schon $n=3{,}5\cdot10^{16}\,\mathrm{cm^{-3}}$.
+::::beispiel
+Bei 300 K ist $n=10^{16}\,\mathrm{cm^{-3}}$, $p=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$ und $E_\mathrm C-E_\mathrm F=205$ meV. $E_\mathrm F$ liegt 360 meV über $E_\mathrm{Fi}$, beide Abstände ergeben zusammen rund die 566 meV von $E_\mathrm C$ bis $E_\mathrm{Fi}$. Bei 310 K wächst $p$ um den Faktor 4,5, $n$ gar nicht. Bei 719 K ist $n_\mathrm i=N_\mathrm D$, dort sind $n=1{,}62\,N_\mathrm D$ und $p=0{,}62\,N_\mathrm D$, bei 800 K schon $n=3{,}5\cdot10^{16}\,\mathrm{cm^{-3}}$.
+::::
 
 :::frage Gilt $n\,p=n_\mathrm i^2$ immer? Was ändert die Dotierung daran?
 Die Dotierung ändert nichts: Sie verschiebt $n$ und $p$ gegenläufig, das Produkt bleibt. Es gilt aber nur im thermischen Gleichgewicht. Licht passender Wellenlänge oder eine angelegte Spannung bringen zusätzliche Paare oder entfernen sie, dann ist $n\,p\ne n_\mathrm i^2$. Außerdem setzt es die Boltzmann-Näherung voraus.

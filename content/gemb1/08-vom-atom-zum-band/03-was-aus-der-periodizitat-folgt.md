@@ -92,7 +92,11 @@ Drei Folgen:
 
 </ol>
 
-**Beispiel.** In der Atomkette mit $a=0{,}25$ nm liegt der Zonenrand bei $\pi/a=12{,}6\,\mathrm{nm^{-1}}$. Eine 1 µm lange Kette hat $N=4000$ Zellen, die $k$ liegen im Abstand $2\pi/L=0{,}0063\,\mathrm{nm^{-1}}$. Bei $k=\pi/(2a)$ ist $\mathrm{e}^{\mathrm{j} ka}=\mathrm{j}$: Nach vier Atomen stimmt die Phase wieder. **Grenzfall:** Für konstantes $V$ ist $u_k$ konstant, und die ebene Welle aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) kehrt zurück.
+::::beispiel
+In der Atomkette mit $a=0{,}25$ nm liegt der Zonenrand bei $\pi/a=12{,}6\,\mathrm{nm^{-1}}$. Eine 1 µm lange Kette hat $N=4000$ Zellen, die $k$ liegen im Abstand $2\pi/L=0{,}0063\,\mathrm{nm^{-1}}$. Bei $k=\pi/(2a)$ ist $\mathrm{e}^{\mathrm{j} ka}=\mathrm{j}$: Nach vier Atomen stimmt die Phase wieder.
+::::
+
+⁠**Grenzfall:** Für konstantes $V$ ist $u_k$ konstant, und die ebene Welle aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) kehrt zurück.
 
 :::frage Das Elektron sitzt doch bei einem Atom. Warum sollte es sich auf alle verteilen?
 Ein Zustand fester Energie ändert seine Dichte nicht, und im periodischen Potential ist kein Atom ausgezeichnet. Ein Elektron, das gerade bei einem Atom sitzt, ist ein Wellenpaket aus vielen $k$. Es hat keine scharfe Energie und läuft weiter.

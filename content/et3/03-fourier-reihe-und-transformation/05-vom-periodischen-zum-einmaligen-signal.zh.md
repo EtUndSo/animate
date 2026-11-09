@@ -36,11 +36,13 @@ $$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} 
 
 ⁠**卷积变成乘积。**与[第 2 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)一样：$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$。由 $s*\delta=s$ 得 $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$，因此 $\delta(t)\;\circ\!\!-\!\!\bullet\;1$：狄拉克冲激以相同的权重包含所有频率。
 
-**例：指数脉冲。** RC 电路的冲激响应 $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$：
+::::beispiel 指数脉冲
+RC 电路的冲激响应 $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$：
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
 这与交流分析（[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)）得到的频率响应相同。因此，冲激响应包含了关于频率特性的全部信息。
+::::
 
 :::frage $S_p(k)$ 与 $S(f)$ 除了一个是离散的之外，还有什么区别？
 单位。$S_p(k)$ 是幅度（V）：第 $k$ 次谐波确实具有这样的强度。$S(f)$ 是密度（V/Hz）：在非周期信号中，没有哪个单独的频率具有有限的幅度；只有一个频带 $\Delta f$ 大约携带 $S(f)\,\Delta f$。这就是 $S_p(k)=F\cdot S(kF)$ 的原因：每条谱线代表宽度为 $F$ 的一个频带。

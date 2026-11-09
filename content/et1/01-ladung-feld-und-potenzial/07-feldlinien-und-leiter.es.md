@@ -65,7 +65,9 @@ Líneas de campo calculadas. Arriba: con cargas de signo opuesto van de $+$ a $-
 ⁠**Regla 4, cavidad.** El campo exterior termina en las cargas inducidas de la cara externa. Sin carga en la cavidad, una línea tendría que ir allí de pared a pared. Una carga podría ganar energía a lo largo de esa línea y volver gratis por el metal sin campo. Sería energía de la nada, algo que la etapa [6](arbeit-im-feld.html#stufe-6) excluye.
 :::
 
-**Ejemplo.** En el par de placas, la carga está en las caras interiores, y las líneas van paralelas y con la misma densidad de A a B. Igual densidad significa que $\vec E$ es igual en todas partes: el campo es __uniforme__. Esto vale mientras $d$ sea pequeña frente a la anchura de las placas; solo en el borde se curva hacia fuera un __campo de borde__ más débil. El tubo de la fig. [6](#abb-6) muestra las reglas 3 y 4; en su vértice el campo es aproximadamente el doble que sin el tubo. Una envolvente metálica cerrada protege su interior; por eso se está seguro dentro de un coche durante una tormenta.
+::::beispiel
+En el par de placas, la carga está en las caras interiores, y las líneas van paralelas y con la misma densidad de A a B. Igual densidad significa que $\vec E$ es igual en todas partes: el campo es __uniforme__. Esto vale mientras $d$ sea pequeña frente a la anchura de las placas; solo en el borde se curva hacia fuera un __campo de borde__ más débil. El tubo de la fig. [6](#abb-6) muestra las reglas 3 y 4; en su vértice el campo es aproximadamente el doble que sin el tubo. Una envolvente metálica cerrada protege su interior; por eso se está seguro dentro de un coche durante una tormenta.
+::::
 
 ⁠**Comprobación:** La regla 1 encaja con la ley de Coulomb. De una carga salen $N$ líneas de manera uniforme en todas las direcciones y atraviesan una esfera de área $4\pi r^2$. La densidad $N/(4\pi r^2)$ disminuye con $1/r^2$, y de ahí también el factor $4\pi$ en $k=1/(4\pi\varepsilon_0)$. A la inversa, el apantallamiento solo es perfecto con el exponente exactamente 2. Así surgieron las medidas de la etapa [3](die-kraft-zwischen-ladungen.html#stufe-3): se buscaba un campo residual en una esfera hueca cargada.
 

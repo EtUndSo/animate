@@ -72,11 +72,13 @@ $$(x_1+\mathrm{i}y_1)(x_2+\mathrm{i}y_2)=(x_1x_2-y_1y_2)+\mathrm{i}(x_1y_2+x_2y_
 (iii) Nach (ii) sind die rechten Seiten genau die Paare aus [(1.1)](#gl-1-1) und [(1.2)](#gl-1-2).
 :::
 
-**Beispiel.** Summe und Produkt des Rechenmodells:
+::::beispiel
+Summe und Produkt des Rechenmodells:
 
 $$z_1+z_2=(3+1)+\mathrm{i}(1+2)=4+3\mathrm{i},\qquad z_1z_2=(3+\mathrm{i})(1+2\mathrm{i})=3+6\mathrm{i}+\mathrm{i}+2\mathrm{i}^2=1+7\mathrm{i}.$$
 
 Die Paarformel [(1.2)](#gl-1-2) gibt dasselbe: $(3\cdot1-1\cdot2,\;3\cdot2+1\cdot1)=(1,7)$. Die Potenzen von $\mathrm{i}$ wiederholen sich mit der Periode 4: $\mathrm{i}^1=\mathrm{i}$, $\mathrm{i}^2=-1$, $\mathrm{i}^3=-\mathrm{i}$, $\mathrm{i}^4=1$. Also zählt nur der Rest von $n$ bei Division durch 4, zum Beispiel $\mathrm{i}^{10}=\mathrm{i}^8\,\mathrm{i}^2=-1$.
+::::
 
 :::frage Gibt es $\mathrm{i}$ wirklich, oder ist das ein Rechentrick?
 Auf der Zahlengeraden gibt es $\mathrm{i}$ nicht, so weit stimmt der Zweifel. Aber $\mathrm{i}$ ist das Paar $(0,1)$, und [(1.2)](#gl-1-2) ist eine eindeutige Vorschrift für Paare. „Imaginär“ ist nur ein historischer Name.

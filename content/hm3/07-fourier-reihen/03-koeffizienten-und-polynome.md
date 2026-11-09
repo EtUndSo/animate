@@ -62,12 +62,16 @@ $$\frac1\pi\int_0^{2\pi}\cos kx\cos\ell x\,\mathrm{d} x=\frac1\pi\int_0^{2\pi}\s
 
 Mit diesem reellen Skalarprodukt sind $\cos kx$ und $\sin kx$ für $k\ge1$ orthonormal. Die Konstante 1 ist es nicht: $\frac1\pi\int_0^{2\pi}1\,\mathrm{d} x=2$. Deshalb steht in [(2.4)](#gl-2-4) die Hälfte $a_0/2$, und $a_0$ selbst passt in dieselbe Formel [(2.3)](#gl-2-3) wie alle anderen.
 
-**Beispiel: das Rechteck.** Für $k\ge1$ ist $\int_0^\pi\cos kx\,\mathrm{d} x=\int_\pi^{2\pi}\cos kx\,\mathrm{d} x=0$, außerdem $a_0=0$. Also sind alle $a_k$ null. Weiter ist
+::::beispiel das Rechteck
+Für $k\ge1$ ist $\int_0^\pi\cos kx\,\mathrm{d} x=\int_\pi^{2\pi}\cos kx\,\mathrm{d} x=0$, außerdem $a_0=0$. Also sind alle $a_k$ null. Weiter ist
 
 <span class="anker" id="gl-2-6"></span>
 $$b_k=\frac1\pi\Bigl(\int_0^\pi\sin kx\,\mathrm{d} x-\int_\pi^{2\pi}\sin kx\,\mathrm{d} x\Bigr)=\frac{2\bigl(1-(-1)^k\bigr)}{\pi k}=\begin{cases}\dfrac4{\pi k}&k\text{ ungerade,}\\0&k\text{ gerade.}\end{cases} \tag{2.6}$$
 
-Also ist $T_Nq(x)=\frac4\pi\sum_{k\le N,\ k\text{ ungerade}}\frac{\sin kx}k$. An der Stelle $x=\frac\pi2$ ergibt das für $N=1,3,5$ die Werte $1{,}27$, $0{,}85$, $1{,}10$, die um den Wert $q(\frac\pi2)=1$ pendeln. **Grenzfall:** $c_0=0$, denn $q$ verbringt gleich viel Zeit bei $+1$ und bei $-1$. Abb. [2](#abb-2) zeigt die Näherungen.
+Also ist $T_Nq(x)=\frac4\pi\sum_{k\le N,\ k\text{ ungerade}}\frac{\sin kx}k$. An der Stelle $x=\frac\pi2$ ergibt das für $N=1,3,5$ die Werte $1{,}27$, $0{,}85$, $1{,}10$, die um den Wert $q(\frac\pi2)=1$ pendeln.
+::::
+
+⁠**Grenzfall:** $c_0=0$, denn $q$ verbringt gleich viel Zeit bei $+1$ und bei $-1$. Abb. [2](#abb-2) zeigt die Näherungen.
 
 :::abbildung hm3/k7rechteck 2
 Links: Das Rechteck $q$ und drei Fourier-Polynome. Mit wachsendem $N$ schmiegt sich die Kurve an $q$ an, an den Sprüngen läuft sie durch den Wert 0. Rechts: Die reellen Koeffizienten $b_k$ von $q$ fallen wie $1/k$, die geraden sind null.

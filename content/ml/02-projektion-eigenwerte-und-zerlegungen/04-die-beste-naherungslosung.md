@@ -38,7 +38,9 @@ das __Residuum__ zu $\mathbf{x}$.
 
 Das Wort kommt vom lateinischen Wort für „Rest“. Das Residuum ist genau dann null, wenn $\mathbf{x}$ das System löst. Es ist der Fehlervektor aus [Grundlagen 1, Abschnitt 3.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5), mit umgekehrtem Vorzeichen; seine Länge ist dieselbe.
 
-⁠**Rechenbeispiel:** Mit den Gewichten $\mathbf{w}=(3,\,10)^{\top}$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) ist das Produkt $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ und das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$ mit der Länge $20$. Drei Preise werden genau getroffen, einer um $20$ Tausend Euro verfehlt.
+::::beispiel [Rechenbeispiel]
+Mit den Gewichten $\mathbf{w}=(3,\,10)^{\top}$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) ist das Produkt $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ und das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$ mit der Länge $20$. Drei Preise werden genau getroffen, einer um $20$ Tausend Euro verfehlt.
+::::
 
 ⁠**Kurz gesagt:** Das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ ist der Rest, den ein Vektor $\mathbf{x}$ beim Lösen von $\mathbf{A}\mathbf{x}=\mathbf{y}$ übrig lässt.
 
@@ -65,7 +67,9 @@ Die Länge ist am kleinsten, wo ihr Quadrat am kleinsten ist, und das Quadrat is
 Projektion auf eine Ebene im $\mathbb{R}^3$. Die Spalten $\mathbf{a}_1=(1,0,1)^{\top}$ und $\mathbf{a}_2=(0,1,1)^{\top}$ spannen die Ebene $x_3=x_1+x_2$ auf (blau). Der Punkt $\mathbf{y}=(1,1,1)^{\top}$ liegt nicht in ihr. Der nächste Punkt der Ebene ist $\hat{\mathbf{y}}=(\tfrac23,\tfrac23,\tfrac43)^{\top}$; das Residuum $\mathbf{r}=\mathbf{y}-\hat{\mathbf{y}}=(\tfrac13,\tfrac13,-\tfrac13)^{\top}$ steht senkrecht auf der Ebene.
 :::
 
-⁠**Rechenbeispiel:** Die Matrix $\mathbf{H}$ aus [Grundlagen 1, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), hat die Spalten $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ und $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Ihr Spaltenraum ist die Ebene aller Vektoren, deren dritte Komponente die Summe der ersten beiden ist. Der Vektor $\mathbf{y}=(1,\,1,\,1)^{\top}$ liegt nicht darin, das System $\mathbf{H}\mathbf{x}=\mathbf{y}$ hat also keine Lösung. Mit $\mathbf{x}=(1,\,0)^{\top}$ ist das Residuum $(0,\,1,\,0)^{\top}$ mit der Länge $1$, mit $\mathbf{x}=(1,\,1)^{\top}$ ist es $(0,\,0,\,-1)^{\top}$, ebenfalls mit der Länge $1$. Ob es besser geht, beantwortet der nächste Unterabschnitt.
+::::beispiel [Rechenbeispiel]
+Die Matrix $\mathbf{H}$ aus [Grundlagen 1, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), hat die Spalten $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ und $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Ihr Spaltenraum ist die Ebene aller Vektoren, deren dritte Komponente die Summe der ersten beiden ist. Der Vektor $\mathbf{y}=(1,\,1,\,1)^{\top}$ liegt nicht darin, das System $\mathbf{H}\mathbf{x}=\mathbf{y}$ hat also keine Lösung. Mit $\mathbf{x}=(1,\,0)^{\top}$ ist das Residuum $(0,\,1,\,0)^{\top}$ mit der Länge $1$, mit $\mathbf{x}=(1,\,1)^{\top}$ ist es $(0,\,0,\,-1)^{\top}$, ebenfalls mit der Länge $1$. Ob es besser geht, beantwortet der nächste Unterabschnitt.
+::::
 
 ⁠**Kurz gesagt:** Die beste Näherungslösung macht das Residuum so kurz wie möglich; geometrisch sucht sie den Punkt des Spaltenraums, der $\mathbf{y}$ am nächsten liegt.
 
@@ -94,7 +98,8 @@ $$\mathbf{A}^{\top}\mathbf{A}\,\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y} . \t
 
 Das Wort „normal“ bedeutet hier „senkrecht“, wie beim Normalenvektor einer Ebene: Die Gleichungen verlangen, dass das Residuum senkrecht auf dem Spaltenraum steht. Die Matrix $\mathbf{A}^{\top}\mathbf{A}$ ist die Gram-Matrix der Spalten aus [Grundlagen 1, Abschnitt 10.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4); sie ist quadratisch, mit so vielen Zeilen, wie es Unbekannte gibt. Aus einem großen, unlösbaren System mit $m$ Gleichungen wird ein kleines mit $n$ Gleichungen. Für eine einzige Spalte $\mathbf{a}$ steht dort $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, die Formel aus dem vorigen Abschnitt.
 
-⁠**Rechenbeispiel:** Für $\mathbf{H}$ und $\mathbf{y}=(1,\,1,\,1)^{\top}$ ist
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{H}$ und $\mathbf{y}=(1,\,1,\,1)^{\top}$ ist
 
 $$\mathbf{H}^{\top}\mathbf{H}=\begin{pmatrix}2&1\\1&2\end{pmatrix},\qquad \mathbf{H}^{\top}\mathbf{y}=\begin{pmatrix}2\\2\end{pmatrix}.$$
 
@@ -105,6 +110,7 @@ Zwei Einträge der Normalgleichungen als Skalarprodukte: Eintrag $(1,2)$ von $\m
 :::
 
 Die Normalgleichungen $2\hat x_1+\hat x_2=2$ und $\hat x_1+2\hat x_2=2$ haben die Lösung $\hat{\mathbf{x}}=(\tfrac23,\,\tfrac23)^{\top}$. Damit ist $\hat{\mathbf{y}}=\mathbf{H}\hat{\mathbf{x}}=(\tfrac23,\,\tfrac23,\,\tfrac43)^{\top}$ und das Residuum $\mathbf{r}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$. Probe: $\mathbf{a}_1^{\top}\mathbf{r}=\tfrac13-\tfrac13=0$ und $\mathbf{a}_2^{\top}\mathbf{r}=\tfrac13-\tfrac13=0$. Die Länge des Residuums ist $\sqrt{3/9}\approx0{,}577$, kürzer als die beiden Versuche im vorigen Unterabschnitt.
+::::
 
 ⁠**Kurz gesagt:** Die Normalgleichungen $\mathbf{A}^{\top}\mathbf{A}\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y}$ verlangen, dass das Residuum senkrecht auf allen Spalten steht.
 
@@ -131,7 +137,9 @@ Man zerlegt $\mathbf{y}-\mathbf{A}\mathbf{x}=(\mathbf{y}-\mathbf{A}\hat{\mathbf{
 Ist $\mathbf{x}$ ebenfalls eine beste Näherungslösung, so sind beide Längen gleich, und [(3.4)](#gl-3-4) erzwingt $\mathbf{A}(\mathbf{x}-\hat{\mathbf{x}})=\mathbf{0}$. Dann ist $\mathbf{A}\mathbf{x}=\mathbf{A}\hat{\mathbf{x}}$, beide liefern also denselben Punkt und dasselbe Residuum, und $\mathbf{x}$ erfüllt die Normalgleichungen ebenfalls.
 :::
 
-⁠**Rechenbeispiel:** Für $\mathbf{H}$, $\mathbf{y}=(1,\,1,\,1)^{\top}$ und $\mathbf{x}=(1,\,0)^{\top}$ ist $\lVert\mathbf{y}-\mathbf{H}\mathbf{x}\rVert^2=1$. Die rechte Seite von [(3.4)](#gl-3-4) ist $\lVert\mathbf{r}\rVert^2=\tfrac13$ plus $\lVert\mathbf{H}(\tfrac13,\,-\tfrac23)^{\top}\rVert^2=\lVert(\tfrac13,\,-\tfrac23,\,-\tfrac13)^{\top}\rVert^2=\tfrac69$, zusammen $\tfrac13+\tfrac23=1$.
+::::beispiel [Rechenbeispiel]
+Für $\mathbf{H}$, $\mathbf{y}=(1,\,1,\,1)^{\top}$ und $\mathbf{x}=(1,\,0)^{\top}$ ist $\lVert\mathbf{y}-\mathbf{H}\mathbf{x}\rVert^2=1$. Die rechte Seite von [(3.4)](#gl-3-4) ist $\lVert\mathbf{r}\rVert^2=\tfrac13$ plus $\lVert\mathbf{H}(\tfrac13,\,-\tfrac23)^{\top}\rVert^2=\lVert(\tfrac13,\,-\tfrac23,\,-\tfrac13)^{\top}\rVert^2=\tfrac69$, zusammen $\tfrac13+\tfrac23=1$.
+::::
 
 ⁠**Kurz gesagt:** Pythagoras zerlegt das Fehlerquadrat in das senkrechte Residuum, das keine Wahl von $\mathbf{x}$ verkleinern kann, und einen Teil im Spaltenraum, der bei $\hat{\mathbf{x}}$ verschwindet.
 
@@ -160,9 +168,13 @@ Nach [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathem
 
 Sind die Spalten linear abhängig, so gibt es unendlich viele beste Näherungslösungen. Zu einer von ihnen darf man jeden Vektor aus dem Kern von $\mathbf{A}$ addieren, ohne $\mathbf{A}\hat{\mathbf{x}}$ zu ändern. Der nächste Punkt $\hat{\mathbf{y}}$ ist trotzdem eindeutig, wie der Satz im vorigen Unterabschnitt zeigt. Das passt zu [Grundlagen 1, Abschnitt 13.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6): Abhängige Merkmale machen die Gewichte mehrdeutig, nicht aber die Vorhersagen.
 
-⁠**Rechenbeispiel 1:** Die Spalten von $\mathbf{H}$ sind linear unabhängig, und $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Inverse $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$. Mit [(3.5)](#gl-3-5) ist $\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$, wie oben.
+::::beispiel [Rechenbeispiel 1]
+Die Spalten von $\mathbf{H}$ sind linear unabhängig, und $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Inverse $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$. Mit [(3.5)](#gl-3-5) ist $\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$, wie oben.
+::::
 
-⁠**Rechenbeispiel 2:** Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ und $\mathbf{y}=(1,\,1)^{\top}$ sind die Spalten abhängig. Die Normalgleichungen lauten $\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)\hat{\mathbf{x}}=(3,\,6)^{\top}$, also zweimal dieselbe Gleichung $\hat x_1+2\hat x_2=\tfrac35$. Jeder Punkt dieser Geraden ist eine beste Näherungslösung, etwa $(\tfrac35,\,0)^{\top}$ oder $(0,\,\tfrac3{10})^{\top}$. Alle liefern denselben Punkt $\hat{\mathbf{y}}=(\tfrac35,\,\tfrac65)^{\top}$, die Projektion von $\mathbf{y}$ auf die Gerade in Richtung $(1,\,2)^{\top}$.
+::::beispiel [Rechenbeispiel 2]
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ und $\mathbf{y}=(1,\,1)^{\top}$ sind die Spalten abhängig. Die Normalgleichungen lauten $\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)\hat{\mathbf{x}}=(3,\,6)^{\top}$, also zweimal dieselbe Gleichung $\hat x_1+2\hat x_2=\tfrac35$. Jeder Punkt dieser Geraden ist eine beste Näherungslösung, etwa $(\tfrac35,\,0)^{\top}$ oder $(0,\,\tfrac3{10})^{\top}$. Alle liefern denselben Punkt $\hat{\mathbf{y}}=(\tfrac35,\,\tfrac65)^{\top}$, die Projektion von $\mathbf{y}$ auf die Gerade in Richtung $(1,\,2)^{\top}$.
+::::
 
 ⁠**Kurz gesagt:** Bei linear unabhängigen Spalten ist $\mathbf{A}^{\top}\mathbf{A}$ invertierbar und die beste Näherungslösung $\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$ eindeutig; sonst gibt es unendlich viele, die alle denselben nächsten Punkt liefern.
 
@@ -182,7 +194,8 @@ Die Komponenten des Residuums sind die senkrechten Abstände der Messpunkte von 
 Die Ausgleichsgerade durch die Messpunkte $(0,1)$, $(1,2)$ und $(2,4)$. Die roten Strecken sind die Komponenten des Residuums, die senkrechten Abstände der Punkte von der Geraden in $y$-Richtung. Die Gerade macht die Summe ihrer Quadrate so klein wie möglich, hier $\tfrac1{36}+\tfrac19+\tfrac1{36}=\tfrac16$.
 :::
 
-⁠**Rechenbeispiel:** Es ist
+::::beispiel [Rechenbeispiel]
+Es ist
 
 $$\mathbf{A}^{\top}\mathbf{A}=\begin{pmatrix}3&3\\3&5\end{pmatrix},\qquad \mathbf{A}^{\top}\mathbf{y}=\begin{pmatrix}7\\10\end{pmatrix},\qquad (\mathbf{A}^{\top}\mathbf{A})^{-1}=\frac16\begin{pmatrix}5&-3\\-3&3\end{pmatrix},$$
 
@@ -193,6 +206,7 @@ Die erste Komponente der Probe hat eine eigene Bedeutung. Die erste Spalte von $
 :::abbildung ml/k2rausgleich 9
 Zwei Einträge der Normalgleichungen der Ausgleichsgeraden als Summen über die drei Messpunkte $(t_i,\,y_i)=(0,1)$, $(1,2)$, $(2,4)$.
 :::
+::::
 
 ⁠**Kurz gesagt:** Eine Ausgleichsgerade ist die beste Näherungslösung des Systems, das verlangt, dass alle Messpunkte auf der Geraden liegen; mit einer Einsenspalte addieren sich ihre Residuen zu null.
 
@@ -206,7 +220,8 @@ Dieselbe Rechnung entwirft digitale Filter. Ein Filter mit den Koeffizienten $h_
 
 Jetzt lässt sich die Frage vom Anfang des Abschnitts beantworten. Gesucht sind die Gewichte für Fläche und Zimmerzahl, die die vier Preise so gut wie möglich treffen.
 
-⁠**Rechenbeispiel:** Für das System $\mathbf{A}\mathbf{w}=\mathbf{y}$ aus dem ersten Unterabschnitt ist
+::::beispiel [Rechenbeispiel]
+Für das System $\mathbf{A}\mathbf{w}=\mathbf{y}$ aus dem ersten Unterabschnitt ist
 
 $$\mathbf{A}^{\top}\mathbf{A}=\begin{pmatrix}18\,200&730\\730&30\end{pmatrix},\qquad \mathbf{A}^{\top}\mathbf{y}=\begin{pmatrix}60\,100\\2\,410\end{pmatrix}.$$
 
@@ -225,6 +240,7 @@ Die geschätzten Preise sind $\mathbf{A}\hat{\mathbf{w}}\approx(198{,}47;\ 132{,
 $$\mathbf{r}=\mathbf{y}-\mathbf{A}\hat{\mathbf{w}}=\frac{20}{131}\,(10,\,-17,\,-45,\,59)^{\top}\approx(1{,}53;\ -2{,}60;\ -6{,}87;\ 9{,}01)^{\top}$$
 
 mit der Länge $\lVert\mathbf{r}\rVert\approx11{,}72$. Die Gewichte $(3,\,10)^{\top}$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) trafen drei Preise genau, ließen aber ein Residuum der Länge $20$. Die beste Näherungslösung trifft keinen Preis genau, liegt aber insgesamt deutlich weniger daneben. Probe: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
+::::
 
 ⁠**Kurz gesagt:** Die beste Näherungslösung für die Wohnungen sind die Gewichte $\hat{\mathbf{w}}\approx(3{,}336;\ -0{,}840)^{\top}$; ihr Residuum ist mit $11{,}72$ deutlich kürzer als jedes Residuum, das drei Preise genau trifft.
 

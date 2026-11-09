@@ -32,7 +32,11 @@ $$\begin{aligned} \text{región de corte:}\quad & U_\mathrm{BE}<U_\mathrm{BE,on}
 Los tres circuitos equivalentes del transistor npn. Izquierda, abierto en la región de corte; centro, con fuente de corriente controlada en la región activa; derecha, con dos fuentes de tensión en la saturación. En el nudo situado sobre E se unen $I_\mathrm{B}$ e $I_\mathrm{C}$.
 :::
 
-**Ejemplo.** Para T ($B=200$) se tiene: $I_\mathrm{B}=10$ µ A con $U_\mathrm{CE}=6$ V es activa, así que $I_\mathrm{C}=2$ mA. $I_\mathrm{B}=30$ µ A con $I_\mathrm{C}=3{,}9$ mA es saturación, porque $B\,I_\mathrm{B}=6$ mA es mayor que la corriente que permite el circuito. $U_\mathrm{BE}=0{,}3$ V es región de corte. **Caso límite:** para $B\,I_\mathrm{B}=I_\mathrm{C}$ y $U_\mathrm{CE}=U_\mathrm{CE,sat}$, el transistor está justo en el límite entre activa y saturación. Allí los dos circuitos equivalentes dan lo mismo.
+::::beispiel
+Para T ($B=200$) se tiene: $I_\mathrm{B}=10$ µ A con $U_\mathrm{CE}=6$ V es activa, así que $I_\mathrm{C}=2$ mA. $I_\mathrm{B}=30$ µ A con $I_\mathrm{C}=3{,}9$ mA es saturación, porque $B\,I_\mathrm{B}=6$ mA es mayor que la corriente que permite el circuito. $U_\mathrm{BE}=0{,}3$ V es región de corte.
+::::
+
+⁠**Caso límite:** para $B\,I_\mathrm{B}=I_\mathrm{C}$ y $U_\mathrm{CE}=U_\mathrm{CE,sat}$, el transistor está justo en el límite entre activa y saturación. Allí los dos circuitos equivalentes dan lo mismo.
 
 :::frage ¿Por qué se llama saturación si precisamente la corriente deja de seguir?
 Lo que se satura no es la corriente, sino la base: está sobrellena de electrones. Por eso, en el transistor bipolar, la palabra designa la parte abrupta a la izquierda de la curva característica de salida. En el MOSFET se llama saturación a la parte plana. Las dos palabras significan cosas distintas.

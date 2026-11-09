@@ -32,7 +32,9 @@ $$W=\prod_i\frac{g_i!}{N_i!\,(g_i-N_i)!}=\prod_i\binom{g_i}{N_i}. \tag{4.1}$$
 Links Energiegruppen mit verschieden vielen Plätzen. Mitte: Eine Gruppe mit $g_i=4$ und $N_i=2$ hat sechs Mikrozustände. Rechts das Gewicht zweier gleicher Gruppen, die zusammen vier Elektronen teilen: Die ausgeglichene Verteilung $N_1=2$ hat die meisten Anordnungen.
 :::
 
-**Beispiel.** Zwei Gruppen gleicher Energie mit je $g=4$ Plätzen teilen sich vier Elektronen. Für $N_1=0,\dots,4$ ist $W=1,16,36,16,1$, zusammen 70 Mikrozustände. Die ausgeglichene Verteilung $N_1=2$ tritt in 51 % der Fälle auf. Bei $g=40$ und 40 Elektronen liegt $N_1$ zu 96 % zwischen 16 und 24, und der Fall $N_1=0$ ist um den Faktor $5\cdot10^{-23}$ seltener als $N_1=20$. Für $g=10^{22}$ ist die relative Breite des Maximums $7\cdot10^{-12}$. Die häufigste Verteilung ist dann praktisch die einzige.
+::::beispiel
+Zwei Gruppen gleicher Energie mit je $g=4$ Plätzen teilen sich vier Elektronen. Für $N_1=0,\dots,4$ ist $W=1,16,36,16,1$, zusammen 70 Mikrozustände. Die ausgeglichene Verteilung $N_1=2$ tritt in 51 % der Fälle auf. Bei $g=40$ und 40 Elektronen liegt $N_1$ zu 96 % zwischen 16 und 24, und der Fall $N_1=0$ ist um den Faktor $5\cdot10^{-23}$ seltener als $N_1=20$. Für $g=10^{22}$ ist die relative Breite des Maximums $7\cdot10^{-12}$. Die häufigste Verteilung ist dann praktisch die einzige.
+::::
 
 :::definition Definition 4.2 (Entropie)
 <span class="anker" id="satz-4-2"></span>

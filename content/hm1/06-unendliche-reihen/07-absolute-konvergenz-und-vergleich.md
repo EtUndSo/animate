@@ -109,7 +109,11 @@ Zusammen folgt $S_{2^m-1}=\sum_{k=0}^{m-1}B_k\le\sum_{k=0}^{m-1}q^k\le\frac1{1-q
 Die Blocksummen $B_k$ (Punkte) und ihre geometrische Schranke (orange gestrichelt). Links $s=1$: Die Blöcke bleiben zwischen $\frac12$ und 1, ihre Summe wächst ohne Ende. Rechts $s=2$: Die Blöcke fallen mindestens wie $(\frac12)^k$.
 :::
 
-**Beispiele.** Für $s=2$ ergibt die Schranke $Q_N\le2$. Tatsächlich ist $Q_{10}=1{,}5498$, $Q_{100}=1{,}6350$, der Wert ist $\frac{\pi^2}6=1{,}6449$ (ohne Beweis). Wegen $|\sin n|\le1$ ist $\sum\frac{\sin n}{n^2}$ absolut konvergent. Für $n\ge1$ ist $\frac{2n+1}{n^3+n}\le\frac{3n}{n^3}=\frac3{n^2}$, das ergibt ebenfalls eine konvergente Majorante. Aus $2n+3\le5n$ folgt $\frac1{2n+3}\ge\frac15\cdot\frac1n$: Die Minorante $\frac15\sum\frac1n$ divergiert, also auch $\sum\frac1{2n+3}$. **Grenzfall:** Für $s$ knapp über 1 ist $\frac1{1-q}$ riesig: $s=1{,}01$ gibt die Schranke $145$. Die Reihe konvergiert, aber kaum sichtbar.
+::::beispiel [Beispiele]
+Für $s=2$ ergibt die Schranke $Q_N\le2$. Tatsächlich ist $Q_{10}=1{,}5498$, $Q_{100}=1{,}6350$, der Wert ist $\frac{\pi^2}6=1{,}6449$ (ohne Beweis). Wegen $|\sin n|\le1$ ist $\sum\frac{\sin n}{n^2}$ absolut konvergent. Für $n\ge1$ ist $\frac{2n+1}{n^3+n}\le\frac{3n}{n^3}=\frac3{n^2}$, das ergibt ebenfalls eine konvergente Majorante. Aus $2n+3\le5n$ folgt $\frac1{2n+3}\ge\frac15\cdot\frac1n$: Die Minorante $\frac15\sum\frac1n$ divergiert, also auch $\sum\frac1{2n+3}$.
+::::
+
+⁠**Grenzfall:** Für $s$ knapp über 1 ist $\frac1{1-q}$ riesig: $s=1{,}01$ gibt die Schranke $145$. Die Reihe konvergiert, aber kaum sichtbar.
 
 :::frage Reicht für die Decke nicht $a_n\le b_n$ ohne Betrag?
 Für positive Glieder ist das dasselbe. Mit negativen Gliedern nicht: $a_n=-1$ liegt unter jeder Reihe mit $b_n\ge0$, zum Beispiel $b_n=(\frac12)^n$, und $\sum a_n$ divergiert trotzdem. Die Decke begrenzt nur die Höhe nach oben. Erst der Betrag verhindert auch den Absturz nach unten.

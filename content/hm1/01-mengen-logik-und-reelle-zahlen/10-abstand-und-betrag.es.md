@@ -70,7 +70,11 @@ El carácter definido y la simetría están en [(8.1)](#gl-8-1). *Desigualdad tr
 ⁠*Raíz.* $|x|\ge0$ y $|x|^2=x^2$, luego $|x|$ es la única solución no negativa de $z^2=x^2$.
 :::
 
-**Ejemplo.** Con $x=-3$, $y=5$: $|x+y|=2\le8=|x|+|y|$ y $\bigl||x|-|y|\bigr|=2\le|x+y|=2$. **Caso límite** $y=0$: Todas las desigualdades se convierten en $|x|=|x|$.
+::::beispiel
+Con $x=-3$, $y=5$: $|x+y|=2\le8=|x|+|y|$ y $\bigl||x|-|y|\bigr|=2\le|x+y|=2$.
+::::
+
+⁠**Caso límite** $y=0$: Todas las desigualdades se convierten en $|x|=|x|$.
 
 :::aufgabe Ejercicio 9 ★★ Desigualdades con valor absoluto
 <span class="anker" id="aufg-9"></span>

@@ -58,7 +58,9 @@ Ohne Wegunabhängigkeit wäre $\varphi$ gar nicht eindeutig. Die Verläufe [(7.3
 Links: das Plattenpaar mit Bezugspunkt auf Platte B. Die gestrichelten Linien sind Äquipotenzialflächen im Schnitt, sie liegen je 3 V auseinander. Rechts: Das Potenzial fällt längs $x$ von 9 V auf 0 V, seine Steigung $-3$ V/mm ist $-E$.
 :::
 
-**Beispiel.** Mit $\varphi=0$ auf B liegt A bei 9 V, und $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$: 6 V bei 1 mm, 3 V bei 2 mm. Kugel A ($+10$ nC) hat in 3 cm Abstand das Potenzial 3,0 kV, in 6 cm Abstand 1,5 kV. Die Differenz mal 1 nC ergibt die 1,5 µ J aus Stufe [6](arbeit-im-feld.html#stufe-6).
+::::beispiel
+Mit $\varphi=0$ auf B liegt A bei 9 V, und $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$: 6 V bei 1 mm, 3 V bei 2 mm. Kugel A ($+10$ nC) hat in 3 cm Abstand das Potenzial 3,0 kV, in 6 cm Abstand 1,5 kV. Die Differenz mal 1 nC ergibt die 1,5 µ J aus Stufe [6](arbeit-im-feld.html#stufe-6).
+::::
 
 ⁠**Kurz gesagt:** Das Potenzial ist die Energie je Ladung an einem Ort, gemessen vom Bezugspunkt aus.
 

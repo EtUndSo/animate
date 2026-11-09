@@ -93,7 +93,11 @@ $z+\overline{z}=2\operatorname{Re}(z)$ y $z-\overline{z}=2\mathrm{i}\operatornam
 (vii): $(x+\mathrm{i}y)+(x-\mathrm{i}y)=2x$ y $(x+\mathrm{i}y)-(x-\mathrm{i}y)=2\mathrm{i}y$.
 :::
 
-**Ejemplo.** Para $z_1$ es $\overline{z_1}=3-\mathrm{i}$, $z_1\overline{z_1}=9+1=10$, $z_1+\overline{z_1}=6=2\cdot3$ y $z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$. Comprobación de (iv): $\overline{z_1z_2}=1-7\mathrm{i}$ y $\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$. **Caso límite:** Para $y=0$ es $\overline{z}=z$ y $z\overline{z}=x^2$. Los números reales están en el eje de reflexión y no cambian.
+::::beispiel
+Para $z_1$ es $\overline{z_1}=3-\mathrm{i}$, $z_1\overline{z_1}=9+1=10$, $z_1+\overline{z_1}=6=2\cdot3$ y $z_1-\overline{z_1}=2\mathrm{i}=2\mathrm{i}\cdot1$. Comprobación de (iv): $\overline{z_1z_2}=1-7\mathrm{i}$ y $\overline{z_1}\,\overline{z_2}=(3-\mathrm{i})(1-2\mathrm{i})=3-6\mathrm{i}-\mathrm{i}+2\mathrm{i}^2=1-7\mathrm{i}$.
+::::
+
+⁠**Caso límite:** Para $y=0$ es $\overline{z}=z$ y $z\overline{z}=x^2$. Los números reales están en el eje de reflexión y no cambian.
 
 :::frage ¿No es $z\overline{z}$ lo mismo que $z^2$?
 Solo para $z$ real. En $z^2$ los términos cruzados se suman y dan $2\mathrm{i}xy$; en $z\overline{z}$ se cancelan. En el modelo de referencia es $z_2^2=-3+4\mathrm{i}$, pero $z_2\overline{z_2}=5$.

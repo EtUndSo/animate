@@ -58,7 +58,9 @@ $$\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s=\int_{P_1}^{P_0}\vec E\cdot\mathrm
 左：平行极板，参考点在极板 B 上。虚线是等位面的截面，相邻两条相差 3 V。右：电位沿 $x$ 从 9 V 降到 0 V，其斜率 $-3$ V/mm 等于 $-E$。
 :::
 
-**例。** 取 B 上 $\varphi=0$，则 A 为 9 V，且 $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$：1 mm 处为 6 V，2 mm 处为 3 V。小球 A（$+10$ nC）在 3 cm 处的电位为 3.0 kV，在 6 cm 处为 1.5 kV。两者之差乘以 1 nC，就得到第 [6](arbeit-im-feld.html#stufe-6) 阶段的 1.5 µ J。
+::::beispiel
+取 B 上 $\varphi=0$，则 A 为 9 V，且 $\varphi(x)=9\,\mathrm{V}-3\,\mathrm{kV/m}\cdot x$：1 mm 处为 6 V，2 mm 处为 3 V。小球 A（$+10$ nC）在 3 cm 处的电位为 3.0 kV，在 6 cm 处为 1.5 kV。两者之差乘以 1 nC，就得到第 [6](arbeit-im-feld.html#stufe-6) 阶段的 1.5 µ J。
+::::
 
 ⁠**简而言之：**电位是某一位置上单位电荷的能量，从参考点算起。
 

@@ -36,7 +36,9 @@ Sin corriente transversal, la regla de los nudos da $I_1=I_2$ e $I_3=I_4$. Los p
 $$\frac{U_{R4}}{U_{R3}}=\frac{U_{R2}}{U_{R1}} \quad\Rightarrow\quad \frac{I_4R_4}{I_3R_3}=\frac{I_2R_2}{I_1R_1} \quad\Rightarrow\quad \frac{R_4}{R_3}=\frac{R_2}{R_1}.$$
 :::
 
-**Ejemplo.** Con $R_2/R_1=1{,}8$ y $R_3=1$ k$\Omega$, la aguja marca cero con $R_4=1800\,\Omega$, y ambos puntos medios están a 5,786 V. Si $R_3$ y la relación son exactas al 0,1 % cada una, $R_4$ es exacta a $\pm0{,}2\,\%$, más de 15 veces mejor que $U/I$. La exactitud procede ahora de resistencias, y estas se fabrican con mucha más exactitud que las escalas de aguja.
+::::beispiel
+Con $R_2/R_1=1{,}8$ y $R_3=1$ k$\Omega$, la aguja marca cero con $R_4=1800\,\Omega$, y ambos puntos medios están a 5,786 V. Si $R_3$ y la relación son exactas al 0,1 % cada una, $R_4$ es exacta a $\pm0{,}2\,\%$, más de 15 veces mejor que $U/I$. La exactitud procede ahora de resistencias, y estas se fabrican con mucha más exactitud que las escalas de aguja.
+::::
 
 ⁠**Caso límite:** Al crecer $R_4$, el punto medio derecho recorre de 0 a $U_\mathrm q$. La tensión en el instrumento cambia de signo exactamente una vez, así que hay exactamente una posición de equilibrio.
 
